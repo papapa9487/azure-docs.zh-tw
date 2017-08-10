@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 2/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: cedc7d3c16dd8acac2700f461305d28a8ba6c802
-ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8e44a8aade60d21734477d60bccc2bd5194436e
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-disable-email-verification-during-consumer-sign-up"></a>Azure Active Directory B2C: 在取用者註冊期間停用電子郵件驗證
@@ -27,7 +28,7 @@ ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
 
 根據預設值，註冊原則會開啟電子郵件驗證。 使用下列步驟將它關閉：
 
-1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 視您要針對註冊設定的項目而定，按一下 [註冊原則] 或 [註冊或登入原則]。
 3. 按一下您的原則 (例如 "B2C_1_SiUp") 以將它開啟。 按一下刀鋒視窗頂端的 [編輯] 。
 4. 按一下 [頁面 UI 自訂功能]。
@@ -43,8 +44,3 @@ ms.openlocfilehash: 5ab121e536479ef5584b222456e127d5bb12e24d
 > 
 
 我們歡迎意見反應和建議！ 如果您無法完成此主題，或者有改進此內容的建議，非常歡迎您在頁面底部提供意見反應。 對於功能要求，請將它們新增到 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)。
-
-
-<!--HONumber=Feb17_HO2-->
-
-

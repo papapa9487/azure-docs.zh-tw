@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/23/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: a7594c37a5d8b92144a1984d58ededd04927d189
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f96b9b212b9322d0677e49ff95184d0feccca2df
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-powershell-on-windows-10"></a>使用 Windows 10 的 PowerShell 來產生並匯出點對站連線的憑證
@@ -39,7 +38,7 @@ ms.lasthandoff: 05/25/2017
 
 您必須在執行 Windows 10 的電腦上執行本文中的步驟。 用於產生憑證的 PowerShell Cmdlet 是屬於 Windows 10 作業系統的一部分，在其他 Windows 版本上無法運作。 因此，您需要使用 Windows 10 電腦來產生憑證。 產生憑證之後，您即可上傳憑證或將其安裝在任何支援的用戶端作業系統上。 
 
-如果您無法存取 Windows 10 電腦，則可以使用 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 來產生憑證。 不過，MakeCert 無法產生 SHA-2 憑證，只能產生 SHA-1。 SHA-1 憑證仍然適用於點對站連線，但 SHA-1 使用的加密雜湊不如 SHA-2 嚴密。 基於這個理由，建議您儘可能使用這些 PowerShell 步驟。 使用任一種方法所產生的憑證均可安裝在任何[支援的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)用戶端作業系統上。
+如果您無法存取 Windows 10 電腦，則可以使用 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 來產生憑證。 使用任一種方法所產生的憑證均可安裝在任何[支援的](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)用戶端作業系統上。
 
 ## <a name="rootcert"></a>建立自我簽署根憑證
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 3195ce5830a3bcd862c524b4133d45626a6ab270
-ms.lasthandoff: 04/07/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: a54aec23d951610118246e9f70cdd27752ef39a6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-wechat-accounts"></a>Azure Active Directory B2C：針對具有 WeChat 帳戶的取用者提供註冊和登入
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/07/2017
 5. 尋找並複製**應用程式識別碼**和**應用程式金鑰**。 稍後您將需要這些資訊。
 
 ## <a name="configure-wechat-as-an-identity-provider-in-your-tenant"></a>在租用戶中將 WeChat 設為識別提供者
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [ **身分識別提供者**]。
 3. 按一下刀鋒視窗頂端的 [新增]  。
 4. 針對身分識別提供者組態，提供容易辨識的 **名稱** 。 例如，輸入 "WeChat"。

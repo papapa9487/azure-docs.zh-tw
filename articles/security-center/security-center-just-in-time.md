@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/08/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ad47c198b98f235b5a75fed6c403493a33594429
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3bc1023d084205171b6b405932cf80f3da59fe8b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
@@ -157,7 +157,7 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 ## <a name="using-just-in-time-vm-access-via-powershell"></a>透過 PowerShell 使用 Just-In-Time VM 存取
 
 若要透過 PowerShell 使用 Just-In-Time 解決方案，請確定您擁有 Azure PowerShell 的[最新](/powershell/azure/install-azurerm-ps)版本。
-若確定有最新版本，則需要從 PowerShell 資源庫安裝[最新](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.10)的 Azure 資訊安全中心。
+若確定有最新版本，則需要從 PowerShell 資源庫安裝[最新](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.12)的 Azure 資訊安全中心。
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>為 VM 設定 Just-In-Time 原則
 

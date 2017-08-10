@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 350aa79cf1f41084c33e16b6fcf2ada971b22626
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 79122493a8639dba1c1d6c92072dd682dae040a7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
@@ -72,7 +71,7 @@ ms.lasthandoff: 04/27/2017
 支援 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)的 Azure 資源可以直接將記錄和度量傳送至 Log Analytics。
 
 * 如需可用度量的詳細資訊，請參閱[支援 Azure 監視器的度量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
-* 如需可用記錄檔的詳細資訊，請參閱[支援的服務以及診斷記錄檔的結構描述](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-diagnostic-logs)。
+* 如需可用記錄檔的詳細資訊，請參閱[支援的服務以及診斷記錄檔的結構描述](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-resource-diagnostic-logs)。
 
 ### <a name="enable-diagnostics-with-powershell"></a>啟用 PowerShell 的診斷功能
 您需要 2016 年 11 月 (v2.3.0) 或更新版本的 [Azure PowerShell](/powershell/azure/overview)。

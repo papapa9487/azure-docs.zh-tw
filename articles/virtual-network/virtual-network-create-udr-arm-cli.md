@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/12/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 3a85fa624dc55f31822f00910b6d124c1d37323f
-ms.lasthandoff: 03/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: e5d9519998346619093f443b740c8904283f76e8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-user-defined-routes-udr-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立使用者定義的路由 (UDR)
@@ -192,7 +192,7 @@ ms.lasthandoff: 03/22/2017
 
 若要啟用 **FW1**所使用之 NIC 中的 IP 轉送，完成下列步驟：
 
-1. 使用 JMESPATH 篩選條件執行 [az network nic show](/cli/az/network/nic#show) 命令，以顯示 [啟用 IP 轉送] 目前的 **enable-ip-forwarding** 值。 應該設定為 *false*。
+1. 使用 JMESPATH 篩選條件執行 [az network nic show](/cli/azure/network/nic#show) 命令，以顯示 [啟用 IP 轉送] 目前的 **enable-ip-forwarding** 值。 應該設定為 *false*。
 
     ```azurecli
     az network nic show \

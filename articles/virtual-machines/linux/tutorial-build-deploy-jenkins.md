@@ -15,10 +15,10 @@ ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: da885141a18e9a862c6db1005805fca247b75f25
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -194,7 +194,7 @@ ms.lasthandoff: 07/24/2017
 
 * **啟用必要條件**：`Configure with Deployment Group agent`
 
-* **TFS/VSTS 端點**：選擇 [新增]，然後在 [新增 Team Foundation Server/Team Services 連線] 對話方塊中，選取 [權杖型驗證]。 輸入連線的名稱和您的 Team 專案 URL。 接著產生並輸入[個人存取權杖 (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate.md)，以驗證 Team 專案上的連線。
+* **TFS/VSTS 端點**：選擇 [新增]，然後在 [新增 Team Foundation Server/Team Services 連線] 對話方塊中，選取 [權杖型驗證]。 輸入連線的名稱和您的 Team 專案 URL。 接著產生並輸入[個人存取權杖 (PAT)]( https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate)，以驗證 Team 專案上的連線。
 
   ![建立個人存取權杖](media/tutorial-build-deploy-jenkins/create-a-pat.png)
 
@@ -258,4 +258,4 @@ Azure 資源群組部署工作的預設設定是要建立或更新資源，並�
 用以下連結查看預先建立的虛擬機器指令碼範例。
 
 > [!div class="nextstepaction"]
-> [Linux 虛擬機器指令碼範例](https://github.com/MicrosoftDocs/azure-docs-pr/pull/cli-samples.md)
+> [Linux 虛擬機器指令碼範例](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)

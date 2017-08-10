@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2017
+ms.date: 08/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 162be9faa51047f4d0be0e73e3dbe6a3dc87ba4c
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 350576cd7290fdfbfacd526de50c14e5f20b81dc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS 上的 Azure Active Directory 憑證式驗證
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/07/2017
 
 設定這項功能之後，就不需要在行動裝置上的特定郵件和 Microsoft Office 應用程式中，輸入使用者名稱和密碼的組合。 
 
-本主題提供 Office 365 企業版、商務版、教育版、美國政府機關及中國方案的租用戶使用者，在 iOS 裝置上設定 CBA 的需求和支援案例。
+本主題針對 Office 365 企業版、商務版、教育版、美國政府機關、中國和德國方案的租用戶使用者，提供在 iOS (Android) 裝置上設定 CBA 的需求和支援案例。
 
 在 Office 365 US Government Defense 和 Federal 方案中，這項功能處於預覽版。
 
@@ -47,6 +47,7 @@ ms.lasthandoff: 06/07/2017
 | Outlook |![勾選][1] |
 | Yammer |![勾選][1] |
 | 商務用 Skype |![勾選][1] |
+| Azure 資訊保護應用程式 |![勾選][1] |
 | Microsoft Teams |![勾選][1] |
 
 ## <a name="requirements"></a>需求 

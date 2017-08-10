@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: d5c004f3123c203a665fb421f81f4a14cfbeb26c
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: cb2810636c8c23dbd476dc2adf58b17d1887d575
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何使用 iOS 的 Blob 儲存體
@@ -224,7 +223,8 @@ ms.lasthandoff: 05/09/2017
 
 * **continuationToken** - 接續權杖表示列出作業應從哪裡開始。 如果未提供權杖，則會從頭列出 Blob。 可以列出任何數目的 Blob，從零到設定的最大值皆可。 即使此方法傳回零個結果，如果 `results.continuationToken` 不是 nil，則可能會有服務上的更多 Blob 未列出。
 * **prefix** -您可以指定要用於 Blob 列出作業的前置詞。 只有開頭為此前置詞的 Blob 才會列出。
-* **useFlatBlobListing** - 如 [命名與參考容器和 Blob](#naming-and-referencing-containers-and-blobs) 一節中所述，雖然 Blob 服務是一般儲存體配置，雖然您可以路徑資訊為 Blob 命名，以建立虛擬階層。 不過目前不支援非一般列出。 不久後將有此功能。 目前，此值應為 **YES**。
+* **useFlatBlobListing** - 如 [命名與參考容器和 Blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 一節中所述，雖然 Blob 服務是一般儲存體配置，雖然您可以路徑資訊為 Blob 命名，以建立虛擬階層。 不過目前不支援非一般列出。 不久後將有此功能。 目前，此值應為 **YES**。
+
 * **blobListingDetails** - 您可以指定列出 Blob 時所要包含的項目
   * _AZSBlobListingDetailsNone_：僅列出已認可的 Blob，且不傳回 Blob 中繼資料。
   * _AZSBlobListingDetailsSnapshots_︰列出已認可的 Blob 和 Blob 快照。

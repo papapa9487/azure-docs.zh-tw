@@ -12,12 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 03c65775d7fe7eee0d14ca4551ae8a332dbc39b2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 3c7c49ee5fbd98762da0eef6f02e7c2f036453cb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-using-language-customization"></a>Azure Active Directory B2C︰使用語言自訂
@@ -40,7 +39,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="support-uilocales-requested-languages"></a>支援 ui_locales 所要求的語言 
 藉由對原則啟用「語言自訂」，您現在可以藉由新增 ui_locales 參數來控制使用者旅程的語言。
-1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗。](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-the-b2c-features-blade)
+1. [遵循下列步驟以瀏覽至 Azure 入口網站上的 B2C 功能刀鋒視窗。](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration#navigate-to-b2c-settings)
 2. 瀏覽至您想要啟用轉譯的原則。
 3. 按一下 [語言自訂]。
 4. 仔細閱讀警告文字。  啟用之後，您就無法關閉「語言自訂」。

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: f907f388ecb897c05e822f2abd5431b3976b7987
-ms.openlocfilehash: 10581234a4475d0d3b32c7891fcf97eed55f7a1d
-ms.lasthandoff: 03/02/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>網路安全性群組 (NSG) 的記錄檔分析
@@ -47,18 +47,18 @@ ms.lasthandoff: 03/02/2017
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要使用入口網站來啟用記錄，請登入[入口網站](https://portal.azure.com)。 按一下 [更多服務]，然後輸入網路安全性群組。 選取您想要啟用記錄功能的 NSG。 遵循[在入口網站中啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-in-the-portal)一文中非計算資源的指示來進行。 選取 **NetworkSecurityGroupEvent**、**NetworkSecurityGroupRuleCounter**，或兩種類別的記錄檔。
+若要使用入口網站來啟用記錄，請登入[入口網站](https://portal.azure.com)。 按一下 [更多服務]，然後輸入網路安全性群組。 選取您想要啟用記錄功能的 NSG。 遵循[在入口網站中啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)一文中非計算資源的指示來進行。 選取 **NetworkSecurityGroupEvent**、**NetworkSecurityGroupRuleCounter**，或兩種類別的記錄檔。
 
 ### <a name="powershell"></a>PowerShell
 
-若要使用 PowerShell 啟用記錄，請遵循[透過 PowerShell 啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell)文章中的指示。 請先評估下列資訊之後，再輸入文章中的命令︰
+若要使用 PowerShell 啟用記錄，請遵循[透過 PowerShell 啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)文章中的指示。 請先評估下列資訊之後，再輸入文章中的命令︰
 
 - 您可以視需要取代下列 [文字] 來決定要用於 `-ResourceId` 參數的值，然後輸入命令 `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`。 命令中的識別碼輸出看起來類似 */subscriptions/[訂用帳戶識別碼]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG 名稱]*。
 - 如果您只想要收集記錄檔分類中的資料，請將 `-Categories [category]` 新增至文章中的命令結尾，其中類別為 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 如果您不使用 `-Categories` 參數，會同時啟用兩個記錄類別的資料集合。
 
 ### <a name="azure-command-line-interface-cli"></a>Azure 命令列介面 (CLI)
 
-若要使用 CLI 啟用記錄，請遵循[透過 CLI 啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli)文章中的指示。 請先評估下列資訊之後，再輸入文章中的命令︰
+若要使用 CLI 啟用記錄，請遵循[透過 CLI 啟用診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)文章中的指示。 請先評估下列資訊之後，再輸入文章中的命令︰
 
 - 您可以視需要取代下列 [文字] 來決定要用於 `-ResourceId` 參數的值，然後輸入命令 `azure network nsg show [resource-group-name] [nsg-name]`。 命令中的識別碼輸出看起來類似 */subscriptions/[訂用帳戶識別碼]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG 名稱]*。
 - 如果您只想要收集記錄檔分類中的資料，請將 `-Categories [category]` 新增至文章中的命令結尾，其中類別為 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 如果您不使用 `-Categories` 參數，會同時啟用兩個記錄類別的資料集合。

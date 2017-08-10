@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0899a8f3c87b6b25e52313ff271364f862d0a893
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中監視 Linux 虛擬機器
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="create-vm"></a>建立 VM
 
-若要查看作用中的診斷和計量，您需要 VM。 首先，使用 [az group create](/cli/azure/gropu#create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupMonitor 的資源群組。
+若要查看作用中的診斷和計量，您需要 VM。 首先，使用 [az group create](/cli/azure/group#create) 建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroupMonitor 的資源群組。
 
 ```azurecli-interactive 
 az group create --name myResourceGroupMonitor --location eastus

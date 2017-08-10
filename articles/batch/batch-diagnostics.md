@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b6c548ca1001587e2b40bbe9ee2fcb298f40d72
-ms.openlocfilehash: 16a13909079306256ded06f2100815c46ff562a3
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>記錄事件以便對 Batch 解決方案進行診斷評估和監視
@@ -46,7 +45,7 @@ ms.lasthandoff: 02/28/2017
 ## <a name="enable-diagnostic-logging"></a>啟用診斷記錄
 您的 Batch 帳戶預設未啟用診斷記錄。 您必須為每個您想要監視的 Batch 帳戶明確啟用診斷記錄︰
 
-[如何啟用診斷記錄的收集](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)
+[如何啟用診斷記錄的收集](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs)
 
 建議您閱讀完整的 [Azure 診斷記錄概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)文件，以了解如何啟用記錄和各種 Azure 服務支援的記錄類別。 例如，Azure Batch 目前支援一種記錄類別︰**服務記錄檔**。
 

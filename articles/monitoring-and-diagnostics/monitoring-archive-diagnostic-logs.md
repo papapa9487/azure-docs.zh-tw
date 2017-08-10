@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e82377c36da1563931bc0301daa4534e6f82377
-ms.openlocfilehash: e3413236445f3f6034a228dc93624d3fdc9b87ad
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 6ceb95dac5a4037c8f2ff93f8245b36f0842a427
 ms.contentlocale: zh-tw
-ms.lasthandoff: 12/10/2016
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/10/2016
 在開始之前，您需要 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account) ，以便將診斷記錄封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。 您使用的儲存體帳戶必須是一般用途的儲存體帳戶，不可以是 blob 儲存體帳戶。
 
 ## <a name="diagnostic-settings"></a>診斷設定
-若要使用下列任何方法封存診斷記錄，您必須為特定資源設定 **診斷設定** 。 資源的診斷設定會定義所儲存或串流的記錄類別以及輸出 — 儲存體帳戶及/或事件中樞。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除
+若要使用下列任何方法封存診斷記錄，您必須為特定資源設定 **診斷設定** 。 資源的診斷設定會定義所儲存或串流的記錄類別以及輸出 — 儲存體帳戶及/或事件中樞。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>使用入口網站封存診斷記錄
 1. 在入口網站中，按一下要對其啟用診斷記錄封存之資源的 [資源] 刀鋒視窗。

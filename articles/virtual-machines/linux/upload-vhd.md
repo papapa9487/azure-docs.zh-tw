@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: bba753c4a4657a611503bb99aa8d714286ebcea5
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 從自訂磁碟建立 Linux VM
@@ -165,7 +165,7 @@ az storage blob upload --account-name mystorageaccount \
 ### <a name="create-a-managed-disk"></a>建立受控磁碟
 
 
-使用 [az disk create](/cli/azure/disk/create) 從 VHD 建立受控磁碟。 下列範例會從您上傳至具名儲存體帳戶和容器的 VHD 建立名為 myManagedDisk 的受控磁碟：
+使用 [az disk create](/cli/azure/disk#create) 從 VHD 建立受控磁碟。 下列範例會從您上傳至具名儲存體帳戶和容器的 VHD 建立名為 myManagedDisk 的受控磁碟：
 
 ```azurecli
 az disk create \

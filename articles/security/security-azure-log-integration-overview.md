@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 08/08/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 1adabc7f249d9b01f3ad1a819f75b2ef47f72998
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 5e672bd6b9356ce16663e843e4a4e7365cb159c3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/06/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Microsoft Azure 記錄整合簡介
@@ -31,10 +29,10 @@ ms.lasthandoff: 06/06/2017
 
 Azure 記錄整合是免費的解決方案，可讓您將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。
 
-Azure 記錄整合會從 Windows 事件檢視器頻道、[Azure 活動記錄檔](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)、[Azure 資訊安全中心警示](../security-center/security-center-intro.md)和 Azure 資源的 [Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)收集 Windows 事件。 這項整合協助您的 SIEM 方案提供內部部署或在雲端中所有資產統一的儀表板，以便您彙總、相互關聯、分析和警示安全性事件。
+Azure 記錄整合會從 Windows 事件檢視器頻道收集 Windows 事件，從 Azure 資源收集 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)、[Azure 資訊安全中心警示](../security-center/security-center-intro.md)和 [Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 這項整合協助您的 SIEM 方案提供內部部署或在雲端中所有資產統一的儀表板，以便您彙總、相互關聯、分析和警示安全性事件。
 
 >[!NOTE]
-目前唯一支援的雲端是 Azure 的商業和 Azure Government。 此時不支援其他雲端。
+目前唯一支援的雲端是 Azure 商業和 Azure Government。 此時不支援其他雲端。
 
 ![Azure 記錄整合][1]
 
@@ -48,7 +46,7 @@ Azure 會為每項 Azure 服務產生大量記錄。 這些記錄檔表示三種
 Azure 記錄整合目前支援整合 Azure 活動記錄、您的 Azure 訂用帳戶中 Windows 虛擬機器的 Windows 事件記錄檔、Azure 資訊安全中心警示、Azure 診斷記錄及 Azure Active Directory 稽核記錄。
 
 >[!NOTE]
-雖然 Azure 記錄檔整合是免費的解決方案，記錄檔資訊的儲存體仍會產生 Azure 儲存體成本。
+雖然 Azure 記錄整合是免費的解決方案，記錄檔資訊的儲存體仍會產生 Azure 儲存體成本。
 
 下表說明記錄檔分類和 SIEM 整合詳細資訊
 
@@ -63,7 +61,7 @@ Azure 記錄整合目前支援整合 Azure 活動記錄、您的 Azure 訂用帳
 如需支援之記錄類型的其他資訊，請瀏覽[常見問題集](security-azure-log-integration-faq.md)
 
 
-可透過 [Azure 記錄檔整合 MSDN 論壇](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)取得社群協助。 論壇讓 AzLog 社群能針對如何充分利用 Azure 記錄檔整合，透過分享問題、 解答、 秘訣和技巧支援彼此。 此外，Azure 記錄整合小組會監視這個論壇，並且會盡全力提供協助。
+可透過 [Azure 記錄檔整合 MSDN 論壇](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)取得社群協助。 論壇讓 AzLog 社群能針對如何充分利用 Azure 記錄整合，透過分享問題、解答、祕訣和技巧支援彼此。 此外，Azure 記錄整合小組會監視這個論壇，並且會盡全力提供協助。
 
 您也可以建立[支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 若要這樣做，請選取 [記錄整合] 作為您要求支援的服務。
 
@@ -72,7 +70,7 @@ Azure 記錄整合目前支援整合 Azure 活動記錄、您的 Azure 訂用帳
 
 * [Microsoft Azure 記錄整合](https://www.microsoft.com/download/details.aspx?id=53324) – Azure 記錄整合詳細資料、系統需求和安裝指示的下載中心。
 * [開始使用 Azure 記錄整合](security-azure-log-integration-get-started.md) - 本教學課程將逐步引導您安裝 Azure 記錄整合，和來自 Azure WAD 儲存體、Azure 活動記錄、Azure 資訊安全中心警示以及 Azure Active Directory 稽核記錄檔。
-* [合作夥伴設定步驟](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – 此部落格文章說明如何設定 Azure 記錄整合，以搭配使用合作夥伴解決方案 Splunk、HP ArcSight 和 IBM QRadar。
+* [合作夥伴設定步驟](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – 此部落格文章說明如何設定 Azure 記錄整合，以搭配使用合作夥伴解決方案 Splunk、HP ArcSight 和 IBM QRadar。 這篇部落格代表我們目前針對設定合作夥伴解決方案的定位。 在所有情況下，都請先參閱合作夥伴解決方案文件。
 * [透過 syslog 傳送到 QRadar 的活動和 ASC 警示 (英文)](https://blogs.msdn.microsoft.com/azuresecurity/2016/09/24/integrate-azure-logs-to-qradar/) – 此部落格文章提供透過 syslog 將活動和 Azure 資訊安全中心警示傳送至 QRadar 的步驟
 * [Azure 記錄整合常見問題集 (FAQ)](security-azure-log-integration-faq.md) - 此常見問題集會回答有關 Azure 記錄整合的問題。
 * [Azure 記錄整合的整合資訊安全中心警示](../security-center/security-center-integrating-alerts-with-log-integration.md) – 本文件說明使用 Azure 記錄整合同步 Azure 資訊安全中心警示。
