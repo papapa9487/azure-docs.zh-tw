@@ -12,12 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/09/2017
 ms.author: juliako;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ef5db062ac320995ff8bfa64f38c89d860957868
 ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/28/2017
 
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>媒體編碼器高階工作流程格式和轉碼器
@@ -36,7 +37,7 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 **Media Encoder Premium Workflow** 支援 [本](#closed_captioning) 章節所述的隱藏式字幕。 
 
-## <a name="a-idinputformatsamedia-encoder-premium-workflow-input-formats-and-codecs"></a><a id="input_formats"></a>Media Encoder Premium Worflow 輸入格式和轉碼器
+## <a id="input_formats"></a>Media Encoder Premium Worflow 輸入格式和轉碼器
 下節列出此媒體處理器支援做為輸入的轉碼器和檔案格式。
 
 ### <a name="input-containerfile-formats"></a>輸入容器/檔案格式
@@ -68,7 +69,7 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 * Windows Media 音訊
 * WAV/PCM
 
-## <a name="a-idoutputformatamedia-encoder-premium-workflow-output-formats-and-codecs"></a><a id="output_format"></a>Media Encoder Premium Worflow 輸出格式和轉碼器
+## <a id="output_format"></a>Media Encoder Premium Worflow 輸出格式和轉碼器
 下節列出此媒體處理器支援做為輸出的轉碼器和檔案格式。
 
 ### <a name="output-containerfile-formats"></a>輸出容器/檔案格式
@@ -103,7 +104,7 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 >[!NOTE]
 >如果編碼成 Dolby® Digital (AC3)，則輸出只能寫入到 ISO MP4 檔案。
 
-## <a name="a-idclosedcaptioningasupport-for-closed-captioning"></a><a id="closed_captioning"></a>支援隱藏式字幕
+## <a id="closed_captioning"></a>支援隱藏式字幕
 內嵌時， **Media Encoder Premium Workflow** 支援：
 
 1. SCC 檔案
@@ -130,10 +131,5 @@ ms.openlocfilehash: 8179e955ef0c126acb9dab31226bd1e12278f9b6
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
+ms.contentlocale: zh-tw
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則

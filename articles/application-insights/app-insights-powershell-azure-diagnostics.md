@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2015
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
 ms.openlocfilehash: df5fe5808a0fb6c2d580f35ed8430b52f34a4110
 ms.contentlocale: zh-tw
 ms.lasthandoff: 11/16/2016
-
 
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>使用 PowerShell 為 Azure Web 應用程式設定 Application Insights

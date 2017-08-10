@@ -1,5 +1,4 @@
 ---
-
 title: "透過 Azure 入口網站管理串流端點 | Microsoft Docs"
 description: "本主題說明如何透過 Azure 入口網站管理串流端點。"
 services: media-services
@@ -14,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2017
+ms.date: 08/09/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
 ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
+ms.contentlocale: zh-tw
 ms.lasthandoff: 02/11/2017
-
 
 ---
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 02/11/2017
     ![串流端點](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
-## <a name="a-idconfigurestreamingendpointsaconfiguring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>設定串流端點
+## <a id="configure_streaming_endpoints"></a>設定串流端點
 串流端點可讓您設定下列屬性：
 
 * 存取控制
@@ -89,7 +88,7 @@ ms.lasthandoff: 02/11/2017
 
 如需詳細資訊，請參閱 [這個](media-services-portal-scale-streaming-endpoints.md) 主題。
 
-## <a name="a-idenablecdnaenable-azure-cdn-integration"></a><a id="enable_cdn"></a>啟用 Azure CDN 整合
+## <a id="enable_cdn"></a>啟用 Azure CDN 整合
 
 當您建立新的帳戶時，依預設會啟用預設串流端點 Azure CDN 整合。
 
