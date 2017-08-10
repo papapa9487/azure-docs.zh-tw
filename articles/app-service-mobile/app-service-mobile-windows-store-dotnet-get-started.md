@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 1a031c4858bcbc75ee807ba520e1b22c89471498
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 5408e032670dda7f149c442e08f52b02abe23f05
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="create-a-windows-app"></a>建立 Windows 應用程式
@@ -40,11 +40,6 @@ ms.lasthandoff: 02/16/2017
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，可以註冊 Azure 試用版並取得最多 10 個免費的行動應用程式，即使在試用期結束之後仍可繼續使用這些應用程式。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * [Visual Studio Community 2015] 或更新版本。
-
-> [!NOTE]
-> 如果您想在註冊 Azure 帳戶之前先開始使用 Azure App Service，請前往 [試用 App Service](https://azure.microsoft.com/try/app-service/mobile/)。 您可以於該處，在 App Service 中立即建立短期的入門行動 app - 不需信用卡，不需任何承諾。
->
->
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>建立新的 Azure 行動應用程式後端
 依照下列步驟建立新的行動應用程式後端。
