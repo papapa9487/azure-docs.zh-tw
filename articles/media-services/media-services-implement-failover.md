@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/15/2017
-
 
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>使用 Azure 媒體服務實作容錯移轉串流
@@ -458,7 +458,6 @@ ms.lasthandoff: 03/15/2017
             var targetContainer = targetBlobClient.GetContainerReference(targetContainerName);
             targetContainer.CreateIfNotExists();
 
-
             string blobToken = sourceContainer.GetSharedAccessSignature(new SharedAccessBlobPolicy()
             {
                 // Specify the expiration time for the signature.
@@ -466,7 +465,6 @@ ms.lasthandoff: 03/15/2017
                 // Specify the permissions granted by the signature.
                 Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Read
             });
-
 
             foreach (var sourceBlob in sourceContainer.ListBlobs())
             {
@@ -941,7 +939,6 @@ ms.lasthandoff: 03/15/2017
             }
             return request;
         }
-
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以使用流量管理員在兩個資料中心之間路由傳送要求，因此在任何中斷的情況下容錯移轉。

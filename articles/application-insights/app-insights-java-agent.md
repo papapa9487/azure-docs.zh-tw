@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
 ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
 ms.contentlocale: zh-tw
 ms.lasthandoff: 01/25/2017
-
 
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>監視 Java Web 應用程式中的相依性、例外狀況和執行時間
