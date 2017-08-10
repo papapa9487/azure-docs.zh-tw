@@ -19,6 +19,7 @@
 ### [計算密集 VM](batch-pool-compute-intensive-sizes.md)
 ### [並行節點工作](batch-parallel-node-tasks.md)
 ### [依狀態計算工作數量](batch-get-task-counts.md)
+### [以自訂映像建立集區](batch-custom-images.md)
 ### [有效率的清單查詢](batch-efficient-list-queries.md)
 ### [作業的準備與完成工作](batch-job-prep-release.md)
 ### [Linux 計算節點](batch-linux-nodes.md)

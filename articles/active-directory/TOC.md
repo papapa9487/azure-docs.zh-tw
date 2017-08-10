@@ -9,6 +9,7 @@
 ## [取得 Azure AD 租用戶](active-directory-howto-tenant.md)
 ## [註冊 Azure AD Premium](active-directory-get-started-premium.md)
 ## [關聯 Azure 訂用帳戶](active-directory-how-subscriptions-associated-directory.md)
+## [快速入門：自助密碼重設](active-directory-passwords-getting-started.md)
 ## 管理 Azure AD 授權
 ### [Azure 入口網站](active-directory-licensing-get-started-azure-portal.md)
 ### [傳統入口網站](active-directory-licensing-what-is.md)
@@ -18,16 +19,12 @@
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 PowerShell 範例](active-directory-licensing-ps-examples.md)
-## [如何取得 Azure Active Directory 支援](active-directory-troubleshooting-support-howto.md)
+## [取得 Azure Active Directory 支援](active-directory-troubleshooting-support-howto.md)
 ## [SaaS 應用程式整合教學課程](active-directory-saas-tutorial-list.md)
 
 # 作法
 ## 規劃和設計
 ### [了解 Azure AD 架構](active-directory-architecture.md)
-### [建議的安全性原則和組態](secure-email-introduction.md)
-#### [安全電子郵件建議的原則](secure-email-recommended-policies.md)
-##### [部署建議的安全電子郵件原則](secure-email-deploy-recommended-policies.md)
-#### [EMS 和 Office 365 服務概觀](secure-email-ems-office365-service-descriptions.md)
 ### [部署混合式身分識別解決方案](active-directory-hybrid-identity-design-considerations-overview.md)
 ### [Azure Active Directory 中的宣告對應](active-directory-claims-mapping.md)
 #### 判斷需求
@@ -82,6 +79,7 @@
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 PowerShell 範例](active-directory-licensing-ps-examples.md)
+### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
 ### [啟用專用群組](active-directory-accessmanagement-dedicated-groups.md)
 ### [新增 SaaS 應用程式的群組存取權](active-directory-accessmanagement-group-saasapps.md)
@@ -128,7 +126,6 @@
 #### [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)
 #### [密碼最佳做法](active-directory-secure-passwords.md)
 #### [註冊自助式密碼重設](active-directory-passwords-reset-register.md)
-### [快速入門：自助式密碼重設](active-directory-passwords-getting-started.md)
 ### [授權 SSPR](active-directory-passwords-licensing.md)
 ### [部署 SSPR](active-directory-passwords-best-practices.md)
 ### IT 系統管理員︰重設密碼
@@ -167,7 +164,6 @@
 ## 管理應用程式
 ### [概觀](active-directory-enable-sso-scenario.md)
 ### [開始使用](active-directory-integrating-applications-getting-started.md)
-
 ### [Cloud App Discovery](active-directory-cloudappdiscovery-whatis.md)
 #### [更新登錄設定](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
 #### [了解安全性和隱私權](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
@@ -178,7 +174,7 @@
 ##### [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
 ##### [發佈應用程式](application-proxy-publish-azure-portal.md)
 ##### [自訂網域](active-directory-application-proxy-custom-domains.md)
-#### [SSO 存取](active-directory-appssoaccess-whatis.md)
+#### [單一登入](application-proxy-sso-overview.md)
 ##### [搭配 KCD 的 SSO](active-directory-application-proxy-sso-using-kcd.md)
 ##### [搭配標頭的 SSO](application-proxy-ping-access.md)
 ##### [搭配密碼保存庫的 SSO](application-proxy-sso-azure-portal.md)
@@ -219,6 +215,7 @@
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [自助服務存取](active-directory-self-service-application-access.md)
+#### [SSO 存取](active-directory-appssoaccess-whatis.md)
 #### [SSO 憑證](active-directory-sso-certs.md)
 #### [租用戶限制](active-directory-tenant-restrictions.md)
 #### [使用 SCIM 佈建使用者](active-directory-scim-provisioning.md)
@@ -370,6 +367,7 @@
 
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [PowerShell Cmdlet](/powershell/azure/overview)
 ## [Java API 參考](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
@@ -387,6 +385,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 ## [價格](https://azure.microsoft.com/pricing/details/active-directory/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=active-directory)

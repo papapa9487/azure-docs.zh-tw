@@ -28,10 +28,12 @@
 ### [多組織用戶的樣式](search-modeling-multitenant-saas-applications.md)
 
 ## 開發
+### [API 版本](search-api-versions.md)
 ### [升級 SDK](search-dotnet-sdk-migration.md)
 ### [升級 REST API](search-api-migration.md)
 ### [模型的複雜資料類型](search-howto-complex-data-types.md)
 ### [處理並行更新](search-howto-concurrency.md)
+### [程式碼範例](https://azure.microsoft.com/resources/samples/?service=search)
 
 ## 管理
 ### 管理 Azure 搜尋服務
@@ -73,24 +75,28 @@
 ## [Python (管理)](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.search.html)
 ## [REST](/rest/api/searchservice)
 ## [REST (管理)](/rest/api/searchmanagement)
+## [服務 REST (預覽)](search-api-2015-02-28-preview.md)
 
 # 資源
-## [API 版本](search-api-versions.md)
+
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=web-mobile)
+## [FAQ - 常見問題](search-faq-frequently-asked-questions.md)
 ## [價格](https://azure.microsoft.com/pricing/details/search/)
-## [服務 REST (預覽)](search-api-2015-02-28-preview.md)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=search)
 ## 課程工具與教學課程
-## 示範網站
-## 合作夥伴與社群
-### [Azure 搜尋服務 Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [Azure 搜尋服務 Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
-### [論壇](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
-### [作業列表應用程式](http://aka.ms/azjobsdemo)
-### [即時示範應用程式](https://searchsamples.azurewebsites.net/)
-### [模型關聯式資料](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
-### [多層級 Facet](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [搜尋分析器示範](http://alice.unearth.ai/)
-### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [影片和教學課程](search-video-demo-tutorial-list.md)
 ### [Virtual academy](https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382)
+## 示範網站
+### [搜尋分析器示範](http://alice.unearth.ai/)
+### [即時示範應用程式](https://searchsamples.azurewebsites.net/)
+### [作業列表應用程式](http://aka.ms/azjobsdemo)
+## 合作夥伴與社群
+### [Azure 搜尋服務 Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)
+### [MSDN 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch)
+### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
+### [部落格：模型關聯式資料](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
+### [部落格：多層級 Facet](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
+
+
+
