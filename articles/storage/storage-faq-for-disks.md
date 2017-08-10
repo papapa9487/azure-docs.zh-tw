@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 06c126f7fde27d17ceab5897fc6439a2513ed362
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 9e5eed35334f1b95441b8181c8e90645be78b389
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
@@ -168,7 +167,7 @@ Microsoft 負責管理加密金鑰。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 轉換為受控磁碟？**
 
-否。 目前不支援此功能。 預計 7 月底才會推出。 
+是
 
 **從受控磁碟或快照集匯出的 VHD 是否也會加密？**
 

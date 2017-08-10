@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: saeeda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6683b116e5e42c0ba6f1d0f381143bf846bd9810
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: f06e02cb15532a4e0f6660ca3a88a7031d498632
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-faqs"></a>Azure Active Directory B2C：常見問題集
@@ -52,7 +51,7 @@ Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。  Azure AD �
 否，您可以將應用程式裝載於任何地方 (雲端或內部部署)。 只要能夠在公開存取的端點上傳送和接收 HTTP 要求，就可以與 Azure AD B2C 互動。
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>我有多個 Azure AD B2C 租用戶。 如何在 Azure 入口網站上管理它們？
-在 Azure 入口網站上，每一個 Azure AD B2C 租用戶都有自己的 B2C 功能刀鋒視窗。 請參閱 [Azure Active Directory B2C：註冊您的應用程式](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) ，以了解您如何在 Azure 入口網站上瀏覽至特定租用戶的 B2C 功能刀鋒視窗。 在大部分的瀏覽器中，當您在 Azure 入口網站上切換 Azure AD B2C 目錄時，B2C 功能刀鋒視窗不會保持開啟。
+在 Azure 入口網站上，每一個 Azure AD B2C 租用戶都有自己的 B2C 功能刀鋒視窗。 請參閱 [Azure Active Directory B2C：註冊您的應用程式](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) ，以了解您如何在 Azure 入口網站上瀏覽至特定租用戶的 B2C 功能刀鋒視窗。 在大部分的瀏覽器中，當您在 Azure 入口網站上切換 Azure AD B2C 目錄時，B2C 功能刀鋒視窗不會保持開啟。
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>我如何自訂 Azure AD B2C 傳送的驗證電子郵件 (內容和 [寄件者:] 欄位)？
 您可以使用 [公司商標功能](../active-directory/active-directory-add-company-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
@@ -109,7 +108,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>如何刪除 Azure AD B2C 租用戶？
 請遵循下列步驟來刪除 Azure AD B2C 租用戶︰
 
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 1. 瀏覽至 [應用程式]、[識別提供者] 和 [所有原則] 刀鋒視窗，並刪除其中所有的輸入。
 1. 現在，以訂用帳戶管理員身分登入 [Azure 傳統入口網站](https://manage.windowsazure.com/) 。 (使用您註冊 Azure 時所用的相同公司或學校帳戶，或相同的 Microsoft 帳戶。)
 1. 瀏覽至左側的 Active Directory 擴充，然後按一下 B2C 租用戶。

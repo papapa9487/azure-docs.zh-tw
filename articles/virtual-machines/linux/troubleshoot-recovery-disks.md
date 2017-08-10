@@ -1,5 +1,4 @@
 ---
-
 title: "透過 Azure CLI 2.0 使用 Linux 疑難排解 VM | Microsoft Docs"
 description: "了解如何使用 Azure CLI 2.0 將 OS 磁碟連接至復原 VM，以針對 Linux VM 問題進行疑難排解"
 services: virtual-machines-linux
@@ -14,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 518a21896ddfc34156615907b710b421bcea42c1
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 7a28accce1bd328b2b486b588c44d91b03e42122
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -169,7 +168,7 @@ az vm unmanaged-disk attach --resource-group myResourceGroup --vm-name myVMRecov
 
 - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd/azuredeploy.json
 
-此範本會使用先前以命令取得的 VHD URI 來部署 VM。 使用 [az group deployment create](/cli/azure/vm/deployment#create) 部署範本。 提供原始 VHD 的 URI，然後指定 OS 類型、VM 大小和 VM 名稱，如下所示︰
+此範本會使用先前以命令取得的 VHD URI 來部署 VM。 使用 [az group deployment create](/cli/azure/group/deployment#create) 部署範本。 提供原始 VHD 的 URI，然後指定 OS 類型、VM 大小和 VM 名稱，如下所示︰
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup --name myDeployment \

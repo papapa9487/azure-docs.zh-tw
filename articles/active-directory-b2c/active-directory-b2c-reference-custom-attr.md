@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: f7b21cc941f17d0815316dfe7013e9f97a95c223
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 356aaeff3a78fc7b682d621e8e0de9312582b2fe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-to-collect-information-about-your-consumers"></a>Azure Active Directory B2C：使用自訂屬性收集您的取用者的相關資訊
@@ -31,7 +30,7 @@ ms.lasthandoff: 05/05/2017
 > 
 
 ## <a name="create-a-custom-attribute"></a>建立自訂屬性
-1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 按一下 [使用者屬性] 。
 3. 按一下刀鋒視窗頂端的 [新增]  。
 4. 提供自訂屬性的**名稱** (例如 "ShoeSize") 和**說明** (選擇性)。 按一下 [建立] 。
@@ -44,7 +43,7 @@ ms.lasthandoff: 05/05/2017
 **使用者屬性**清單現已提供自訂屬性，您可用於註冊原則中。
 
 ## <a name="use-a-custom-attribute-in-your-sign-up-policy"></a>在您的註冊原則中使用自訂屬性
-1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 按一下 [註冊原則] 。
 3. 按一下以開啟註冊原則 (例如 "B2C_1_SiUp")。 按一下刀鋒視窗頂端的 [編輯]  。
 4. 按一下 [註冊屬性]  ，然後選取自訂屬性 (例如「ShoeSize」)。 按一下 [確定] 。

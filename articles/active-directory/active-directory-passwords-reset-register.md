@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 485dfa067bd64312f6ae68a533117db1556318ed
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: b701172c2345313e236a037f5aa16939cfaac440
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="register-for-self-service-password-reset"></a>註冊自助式密碼重設
+
+> [!IMPORTANT]
+> **您來到此處是因為有登入問題嗎？** 若是如此， [以下是如何變更和重設密碼的說明](active-directory-passwords-update-your-own-password.md)。
 
 身為一般使用者，您可以重設密碼或解除鎖定您的帳戶，而不需使用自助式密碼重設 (SSPR) 與人員對話。 在您可以使用這項功能之前，您必須註冊驗證方法，或確認您系統管理員已填入的預先定義驗證方法。
 

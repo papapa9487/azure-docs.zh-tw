@@ -1,5 +1,5 @@
 ---
-title: "  透過 Azure 入口網站發佈內容 | Microsoft Docscs"
+title: "  透過 Azure 入口網站發佈內容 | Microsoft Docs"
 description: "本教學課程將逐步引導您完成透過 Azure 入口網站發佈內容的步驟。"
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 72b0b7feef583799613b1cb2c18b2020c1401b36
-ms.lasthandoff: 01/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 403f15db2979a6626d5896ccc950f355f0a06a4e
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="publish-content-with-the-azure-portal"></a>透過 Azure 入口網站發佈內容

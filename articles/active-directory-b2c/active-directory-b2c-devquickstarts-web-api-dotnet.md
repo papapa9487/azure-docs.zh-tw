@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 7610ae44d8c9b828fb46333b143d7b1f6dc915eb
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C：從 .NET Web 應用程式呼叫 .NET Web API
@@ -36,9 +36,9 @@ ms.lasthandoff: 05/03/2017
 
 1. [建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)。
 2. [註冊 Web API](active-directory-b2c-app-registration.md#register-a-web-api)。
-3. [註冊 Web 應用程式](active-directory-b2c-app-registration.md#register-a-web-application)。
+3. [註冊 Web 應用程式](active-directory-b2c-app-registration.md#register-a-web-app)。
 4. [設定原則](active-directory-b2c-reference-policies.md)。
-5. [為 Web 應用程式授與權限以使用 Web API](active-directory-b2c-access-tokens.md#granting-permissions-to-a-web-api)。
+5. [為 Web 應用程式授與權限以使用 Web API](active-directory-b2c-access-tokens.md#publishing-permissions)。
 
 > [!IMPORTANT]
 > 用戶端應用程式和 Web API 必須使用相同的 Azure AD B2C 目錄。

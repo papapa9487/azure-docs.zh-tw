@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
-ms.openlocfilehash: 4226075affd1ae03c7bd258b244718f7bb72f127
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 62ec48ab067cf02bc8409aca6da704a5418ec270
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C：在取用者導向應用程式中啟用 Multi-Factor Authentication
@@ -34,7 +35,7 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 * 一般而言，您在存取應用程式時不需要 Multi-Factor Authentication，但在存取其中的敏感部分資訊時則需要它。 例如，取用者可使用社交或本機帳戶登入銀行應用程式來檢查帳戶餘額，但必須先完成電話號碼驗證，才能嘗試進行轉帳匯款作業。
 
 ## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>修改註冊原則以啟用 Multi-Factor Authentication
-1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 按一下 [註冊原則] 。
 3. 按一下以開啟註冊原則 (例如 "B2C_1_SiUp")。
 4. 按一下 [多重要素驗證]，並將 [狀態] 設為 [開啟]。 按一下 [確定] 。
@@ -45,7 +46,7 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 在進行 Multi-Factor Authentication 步驟之前，會在目錄中建立取用者帳戶。 在步驟執行過程中，系統會要求取用者提供電話號碼進行驗證。 若驗證成功，會將電話號碼附加至取用者帳戶以供之後使用。 即使取用者取消或卸除，下次登入時系統仍會要求其再度驗證電話號碼 (已啟用 Multi-Factor Authentication)。
 
 ## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>修改登入原則以啟用 Multi-Factor Authentication
-1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以[瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 按一下 [登入原則] 。
 3. 按一下以開啟登入原則 (例如 "B2C_1_SiIn")。 按一下刀鋒視窗頂端的 [編輯]  。
 4. 按一下 [多重要素驗證]，並將 [狀態] 設為 [開啟]。 按一下 [確定] 。
@@ -57,10 +58,5 @@ Azure Active Directory (Azure AD) B2C 直接整合 [Azure Multi-Factor Authentic
 
 ## <a name="multi-factor-authentication-on-other-policies"></a>其他原則上的 Multi-Factor Authentication
 如同對上面的註冊和登入原則所述，也可以對註冊或登入原則和密碼重設原則啟用 Multi-Factor Authentication。 很快即可用於設定檔編輯原則。
-
-
-
-
-<!--HONumber=Dec16_HO5-->
 
 

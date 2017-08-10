@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb836357af6d006c18db578164f02fa7bd043b45
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 5e53bc714d89bf6204681349e7890e0b8fbc7046
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="diagnose-sudden-changes-in-your-app-telemetry"></a>診斷您應用程式遙測資料中的突發變更
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="how-it-works"></a>運作方式
 
-「智慧型診斷」使用以 [DiffPatterns](app-insights-analytics-reference.md#evaluate-diffpatterns) 作業為基礎、不受監督的進階機器學習演算法。 它會尋找可能解釋資料變更原因的候選模式。 它會分析每個候選項目對計量的影響，並顯示與該變更最具相互關聯性的模式。
+「智慧型診斷」使用以 [DiffPatterns](app-insights-analytics-reference.md) 作業為基礎、不受監督的進階機器學習演算法。 它會尋找可能解釋資料變更原因的候選模式。 它會分析每個候選項目對計量的影響，並顯示與該變更最具相互關聯性的模式。
 
 ## <a name="no-diagnostic-points"></a>沒有任何診斷點？
 

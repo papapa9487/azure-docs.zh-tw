@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaa162df8a6cd60cb174242e6a353439f2da58b4
-ms.openlocfilehash: eb3a0ad811a4286df1bac963904bd9154c0ccfa3
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 195751d4c5ac4021eb929e96d39b9d0e72d3070f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 12/10/2016
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/10/2016
 在開始之前，您需要 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account) ，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 您使用的儲存體帳戶必須是一般用途的儲存體帳戶，不可以是 blob 儲存體帳戶。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 ## <a name="log-profile"></a>記錄檔設定檔
-若要使用下列任一方法封存活動記錄檔，請設定訂用帳戶的 **記錄檔設定檔** 。 記錄檔的設定檔定義了要儲存或串流的事件類型以及輸出 — 儲存體帳戶和/或事件中樞。 它也定義事件儲存在儲存體帳戶中的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地儲存事件。 否則，這可以設為介於 1 到 2147483647 之間的任何值。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 [您可以至此處閱讀記錄檔設定檔的相關資訊](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles)。 
+若要使用下列任一方法封存活動記錄檔，請設定訂用帳戶的 **記錄檔設定檔** 。 記錄檔的設定檔定義了要儲存或串流的事件類型以及輸出 — 儲存體帳戶和/或事件中樞。 它也定義事件儲存在儲存體帳戶中的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地儲存事件。 否則，這可以設為介於 1 到 2147483647 之間的任何值。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 [您可以至此處閱讀記錄檔設定檔的相關資訊](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>使用入口網站封存活動記錄檔
 1. 在入口網站中，按一下左側導覽中的 [活動記錄檔]  連結。 如果您沒有看到活動記錄檔的連結，先按一下 [更多服務]  連結。

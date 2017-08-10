@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: 3b22dee95d064de8190d7429cc4118884fb81172
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 1a6c4b19261aa34e668554ccad2b6340cddf9bf5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C：為具有 LinkedIn 帳戶的取用者提供註冊和登入
@@ -45,7 +44,7 @@ ms.lasthandoff: 05/05/2017
     ![LinkedIn - 設定應用程式](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 
 ## <a name="configure-linkedin-as-an-identity-provider-in-your-tenant"></a>將 LinkedIn 設定為您租用戶中的識別提供者
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [ **身分識別提供者**]。
 3. 按一下刀鋒視窗頂端的 [新增]  。
 4. 針對身分識別提供者組態，提供容易辨識的 **名稱** 。 例如，輸入「LI」。

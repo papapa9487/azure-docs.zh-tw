@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f9e35ef2f0c3d6352e9dc7ea716a79fd61f1b949
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 82a001dd53cdddcf3b360090f3250af593c96fbb
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 04/22/2017
 7. 複製 [取用者金鑰] 和 [取用者祕密] 的值。 您必須使用這兩個值，將 Twitter 設為租用戶中的身分識別提供者。
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>在租用戶中將 Twitter 設為識別提供者
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [ **身分識別提供者**]。
 3. 按一下刀鋒視窗頂端的 [新增]  。
 4. 針對身分識別提供者組態，提供容易辨識的 **名稱** 。 例如，輸入「Twitter」。

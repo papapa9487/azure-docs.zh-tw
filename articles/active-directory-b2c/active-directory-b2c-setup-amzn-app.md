@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: f3154968710384e3f6186b277c4cae33b25c77d2
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: dcc97e1b7f6287bd7692c52bf068950065a26572
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C：針對具有 Amazon 帳戶的取用者提供註冊和登入
@@ -42,7 +41,7 @@ ms.lasthandoff: 05/05/2017
     ![針對您在 Amazon 上的新應用程式提供 JavaScript 原始來源及傳回 URL](./media/active-directory-b2c-setup-amzn-app/amzn-urls.png)
 
 ## <a name="configure-amazon-as-an-identity-provider-in-your-tenant"></a>將 Amazon 設為您租用戶中的身分識別提供者
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [ **身分識別提供者**]。
 3. 按一下刀鋒視窗頂端的 [新增]  。
 4. 針對身分識別提供者組態，提供容易辨識的 **名稱** 。 例如，輸入 "Amzn"。

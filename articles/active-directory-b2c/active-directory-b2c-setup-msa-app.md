@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e37c48d6c92a8a2cd480458abdff0a3a1ca9338f
-ms.openlocfilehash: 866d2b54b0b517cb9984fd5e98840fe3a6c69965
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 59879dc0b3fc1d7af3e2a1f67f1701f451de9126
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C：針對具有 Microsoft 帳戶的取用者提供註冊和登入
@@ -54,7 +53,7 @@ ms.lasthandoff: 05/05/2017
     ![Microsoft 帳戶 - Live SDK 支援](./media/active-directory-b2c-setup-msa-app/msa-live-sdk-support.png)
 
 ## <a name="configure-microsoft-account-as-an-identity-provider-in-your-tenant"></a>將 Microsoft 帳戶於租用戶中設定為識別提供者
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
 2. 在 B2C 功能刀鋒視窗中，按一下 [ **身分識別提供者**]。
 3. 按一下刀鋒視窗頂端的 [新增]  。
 4. 針對身分識別提供者組態，提供容易辨識的 **名稱** 。 例如，輸入 "MSA"。

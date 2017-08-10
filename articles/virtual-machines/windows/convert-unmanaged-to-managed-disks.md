@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 8e6950fb44207824baf18d666db7ba26f0e360f0
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 53681c58ca1eff394d6a3db2d6a026845ac03df1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -137,19 +137,6 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 ## <a name="troubleshooting"></a>疑難排解
 
 如果在轉換期間發生錯誤，或如果 VM 因為先前轉換問題而處於失敗狀態，請再次執行 `ConvertTo-AzureRmVMManagedDisk` Cmdlet。 簡單重試通常會讓這種情況解除封鎖。
-
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>受控磁碟和 Azure 儲存體服務加密
-
-如果非受控磁碟位於曾透過 [Azure 儲存體服務加密](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)來進行加密的儲存體帳戶中，您就無法使用上述步驟將非受控磁碟轉換成受控磁碟。 下列步驟將詳細說明如何複製和使用曾位於已加密儲存體帳戶中的未受控磁碟：
-
-1. 使用 [AzCopy](../../storage/storage-use-azcopy.md) 將 VHD 複製到從未啟用「Azure 儲存體服務加密」功能的儲存體帳戶。
-
-2. 利用下列其中一種方式使用複製的 VM：
-
-   * 使用 `New-AzureRmVm` 來建立使用受控磁碟的 VM，並在建立期間指定該 VHD 檔案。
-
-   * 使用 `Add-AzureRmVmDataDisk` 將複製的 VHD 連結到使用受控磁碟的執行中 VM。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: v-livech
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a95157f57c0cbd1f2a9ed68a0fe83140d7c9ec40
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: ddc5446fa6a43bfff05ec251b30175ddd24052c9
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="add-a-user-to-an-azure-vm"></a>將使用者加入 Azure VM 中
@@ -78,7 +78,7 @@ sudo top
 我們會使用命令 `useradd` 來將使用者帳戶新增到 Linux VM。  執行 `useradd` 來修改 `/etc/passwd`、`/etc/shadow`、`/etc/group` 及 `/etc/gshadow`。  我們會在 `useradd` 命令中新增命令列旗標，以將新使用者一併新增到 Linux 上適當的 sudo 群組。  雖然 `useradd` 會在 `/etc/passwd` 中建立項目，但卻不會為新的使用者帳戶提供密碼。  我們會使用簡單的 `passwd` 命令，為新的使用者建立初始密碼。  最後一個步驟是修改 sudo 規則，以允許該使用者以 sudo 權限執行命令，而不必為每個命令輸入密碼。  使用私密金鑰登入時，我們會假設該使用者帳戶非意圖不良的執行者，因此會允許他不需密碼即可使用 sudo 存取。  
 
 ### <a name="adding-a-single-sudo-user-to-an-azure-vm"></a>將單一 sudo 使用者加入 Azure VM 中
-使用 SSH 金鑰登入 Azure VM。  如果您尚未設定 SSH 公開金鑰存取權，請先閱讀完這篇文章： [在 Azure 使用公開金鑰驗證](http://link.to/article)。  
+使用 SSH 金鑰登入 Azure VM。  如果您尚未設定 SSH 公開金鑰存取權，請先閱讀完這篇文章： [在 Azure 使用公開金鑰驗證](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。  
 
 `useradd` 命令會完成下列工作：
 

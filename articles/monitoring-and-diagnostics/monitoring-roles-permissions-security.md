@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 26e12a27693fe94ae88b70328ed5dd0d9d5b4c10
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
@@ -33,8 +33,8 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 * 在入口網站中檢視監視儀表板，並建立自己的私人監視儀表板。
 * 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](insights-powershell-samples.md) 或[跨平台 CLI](insights-cli-samples.md) 查詢度量。
 * 使用入口網站、Azure 監視器 REST API、PowerShell Cmdlets 或跨平台 CLI 查詢活動記錄檔。
-* 檢視用於資源的 [診斷設定](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 。
-* 檢視用於訂用帳戶的 [記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles) 。
+* 檢視用於資源的 [診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 。
+* 檢視用於訂用帳戶的 [記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 。
 * 檢視自動調整設定。
 * 檢視警示活動和設定。
 * 存取 Application Insights 資料，並檢視 AI 分析中的資料。
@@ -54,8 +54,8 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受管理的服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
-* 設定用於資源的[診斷設定](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)。*
-* 設定用於訂用帳戶的[記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-log-profiles)。*
+* 設定用於資源的[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。*
+* 設定用於訂用帳戶的[記錄檔設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。*
 * 設定警示活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics (OMS) 工作區共用金鑰。
