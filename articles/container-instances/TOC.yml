@@ -23,6 +23,8 @@
   items:
     - name: 與協調者的關聯
       href: container-instances-orchestrator-relationship.md
+    - name: 容器群組
+      href: container-instances-container-groups.md
 - name: 使用說明指南
   items:
     - name: 部署多個容器群組

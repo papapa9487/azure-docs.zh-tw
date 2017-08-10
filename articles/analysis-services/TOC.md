@@ -1,13 +1,27 @@
 # 概觀
 ## [什麼是 Azure Analysis Services？](analysis-services-overview.md)
+## [支援的資料來源](analysis-services-datasource.md)
+## [驗證和使用者權限](analysis-services-manage-users.md)
+## [相容性層級](analysis-services-compat-level.md)
+## [高可用性](analysis-services-bcdr.md)
 
-# 快速入門
-## [建立伺服器 - 入口網站](analysis-services-create-server.md)
-## [建立伺服器 - PowerShell](analysis-services-create-powershell.md)
-## [部署模型 - Visual Studio](analysis-services-deploy.md)
+# 開始使用
+## [在 Azure 入口網站中建立伺服器](analysis-services-create-server.md)
+## [使用 PowerShell 建立伺服器](analysis-services-create-powershell.md)
+## [從 Visual Studio 部署模型](analysis-services-deploy.md)
+## [在 Azure 入口網站 (預覽) 中建立模型](analysis-services-create-model-portal.md)
 
-# 教學課程
-## 建立和部署模型
+# 作法 
+## [管理伺服器](analysis-services-manage.md)
+## [管理資料庫使用者](analysis-services-database-users.md)
+## [管理伺服器管理員](analysis-services-server-admins.md)
+## [安裝內部部署資料閘道](analysis-services-gateway.md)
+## [取得用戶端程式庫](analysis-services-data-providers.md)
+## [備份與還原](analysis-services-backup.md)
+## [與 Excel 連線](analysis-services-connect-excel.md)
+## [與 Power BI 連線](analysis-services-connect-pbi.md)
+## [建立 .odc 檔案](analysis-services-odc.md)
+## 教學課程
 ### [Adventure Works 教學課程](tutorials/aas-adventure-works-tutorial.md)
 ### [第 1 課：建立新的表格式模型專案](tutorials/aas-lesson-1-create-a-new-tabular-model-project.md)
 ### [第 2 課：取得資料](tutorials/aas-lesson-2-get-data.md)
@@ -24,24 +38,7 @@
 ### [第 13 課：部署](tutorials/aas-lesson-13-deploy.md)
 ### [補充課程 - 詳細資料列](tutorials/aas-supplemental-lesson-detail-rows.md)
 ### [補充課程 - 動態安全性](tutorials/aas-supplemental-lesson-dynamic-security.md)
-### [補充課程 - 不完全階層](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)
-
-# 概念
-## [支援的資料來源](analysis-services-datasource.md)
-## [驗證和使用者權限](analysis-services-manage-users.md)
-## [高可用性](analysis-services-bcdr.md)
-
-# 作法 
-## [在 Azure 入口網站 (預覽) 中建立模型](analysis-services-create-model-portal.md)
-## [管理伺服器](analysis-services-manage.md)
-## [管理資料庫使用者](analysis-services-database-users.md)
-## [管理伺服器管理員](analysis-services-server-admins.md)
-## [安裝內部部署資料閘道](analysis-services-gateway.md)
-## [與 Excel 連線](analysis-services-connect-excel.md)
-## [與 Power BI 連線](analysis-services-connect-pbi.md)
-## [取得用戶端程式庫](analysis-services-data-providers.md)
-## [備份與還原](analysis-services-backup.md)
-## [建立 .odc 檔案](analysis-services-odc.md)
+### [補充課程 - 不完全階層](tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
 
 # 參考
 ## [PowerShell](analysis-services-powershell.md)
