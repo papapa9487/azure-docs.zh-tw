@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 37e8d04f1786187a947a435b3cfd299546617c8b
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7dda9520ce3d93bf0e86bd2481ad06c268d087c7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
@@ -42,7 +42,7 @@ ms.lasthandoff: 07/12/2017
 
 安全的叢集是可以防止未經授權存取管理作業的叢集，那些作業包括部署、升級及刪除應用程式、服務和它們包含的資料。 不安全的叢集是任何人都可以隨時連線並執行管理作業的叢集。 雖然可以建立不安全的叢集，但 **強烈建議您建立安全的叢集**。 不安全的叢集 **無法在事後保護其安全** - 必須建立新的叢集。
 
-不論叢集是 Linux 叢集或 Windows 叢集，建立安全叢集的概念都一樣。 如需建立安全 Linux 叢集的詳細資訊和協助程式指令碼，請參閱[在 Linux 上建立安全叢集](service-fabric-cluster-creation-via-arm.md#secure-linux-cluster)。 由所提供的協助程式指令碼所取得的參數可以直接輸入到入口網站，如[在 Azure 入口網站中建立叢集](#create-cluster-portal)一節所述。
+不論叢集是 Linux 叢集或 Windows 叢集，建立安全叢集的概念都一樣。 如需建立安全 Linux 叢集的詳細資訊和協助程式指令碼，請參閱[在 Linux 上建立安全叢集](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters)。 由所提供的協助程式指令碼所取得的參數可以直接輸入到入口網站，如[在 Azure 入口網站中建立叢集](#create-cluster-portal)一節所述。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 本指南使用 [Azure PowerShell][azure-powershell]。 開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
@@ -258,7 +258,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 
 最後一個步驟是使用金鑰保存庫和稍早建立的憑證資訊，提供憑證資訊來保護叢集。
 
-* 將使用** PowerShell 命令把**叢集憑證`Invoke-AddCertToKeyVault`上傳至金鑰保存庫時取得的輸出填入主要憑證欄位。
+* 將使用 **PowerShell 命令把** 叢集憑證 `Invoke-AddCertToKeyVault` 上傳至金鑰保存庫時取得的輸出填入主要憑證欄位。
 
 ```powershell
 Name  : CertificateThumbprint
