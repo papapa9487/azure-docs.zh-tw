@@ -3,7 +3,7 @@ title: "將您的自訂網域名稱新增並設定同盟登入至 Azure Active D
 description: "如何將您公司的網域名稱新增至 Azure Active Directory，以在 Azure Active Directory 與內部部署同盟方案之間設定同盟登入"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 27126c7e-e6d6-4ef3-a4fb-f5f0706e749d

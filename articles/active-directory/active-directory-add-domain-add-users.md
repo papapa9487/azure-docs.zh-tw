@@ -3,7 +3,7 @@ title: "將使用者指派給 Azure Active Directory 中的自訂網域 | Micros
 description: "如何在 Azure Active Directory 中的自訂網域填入使用者帳戶。"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 717b5a7c-7bc3-4ab1-98b5-4740b53338fe

@@ -3,7 +3,7 @@ title: "將您的自訂網域名稱新增至 Azure Active Directory | Microsoft 
 description: "如何在 Azure Active Directory 中新增您公司的網域名稱，以及如何確認網域名稱。"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: jeffgilb
 manager: femila
 editor: 
 ms.assetid: 35a6e20a-9907-432b-9d36-16b916a5c249
