@@ -4,7 +4,7 @@ description: "了解如何設定通往串流分析的資料連線 (也就是「�
 keywords: "資料流, 資料連線, 事件資料流"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
-ms.author: jeffstok
+ms.author: samacha
 ms.translationtype: Human Translation
 ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入

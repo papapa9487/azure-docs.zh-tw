@@ -56,7 +56,8 @@ D:\TEMP\MYAPPLICATIONTYPE
 
 如需有關如何設定 **SetupEntryPoint** 的詳細資訊，請參閱[設定服務設定進入點的原則](service-fabric-application-runas-security.md)
 
-## <a name="configure"></a>設定 
+<a id="Package-App"></a>
+## <a name="configure"></a>設定
 ### <a name="build-a-package-by-using-visual-studio"></a>使用 Visual Studio 建置封裝
 如果您使用 Visual Studio 2015 來建立您的應用程式，您可以使用 [封裝] 命令來自動建立符合上述版面配置的封裝。
 
@@ -115,18 +116,19 @@ PS D:\temp>
 
 如果您知道將部署應用程式的叢集，建議您傳送 `ImageStoreConnectionString` 參數。 在此情況下，該封裝也會針對已在叢集中執行的舊版應用程式進行驗證。 例如，驗證可以偵測具有相同版本但不同內容的封裝是否已經部署。  
 
-一旦應用程式已完成封裝並通過驗證，請根據檔案的大小及數目，評估是否需要壓縮。 
+一旦應用程式已完成封裝並通過驗證，請根據檔案的大小及數目，評估是否需要壓縮。
 
 ## <a name="compress-a-package"></a>壓縮封裝
 當封裝很大或有許多檔案時，您可以壓縮它以加快部署速度。 壓縮會減少檔案數目並降低封裝大小。
 就已壓縮的應用程式套件而言，[上傳應用程式套件](service-fabric-deploy-remove-applications.md#upload-the-application-package)可能比上傳未壓縮的套件需要花費更多的時間 (特別是如果將壓縮時間也計算在內的話)，但在[註冊](service-fabric-deploy-remove-applications.md#register-the-application-package)和[取消應用程式類型註冊](service-fabric-deploy-remove-applications.md#unregister-an-application-type)方面，已壓縮的應用程式套件所花費的時間則較短。
 
 已壓縮和未壓縮套件的部署機制都相同。 如果封裝已壓縮，它會以壓縮的形式儲存在叢集映像存放區中，並在應用程式執行之前於節點上解壓縮。
-壓縮會將有效的 Service Fabric 封裝以壓縮的版本取代。 該資料夾必須允許寫入權限。 在已經壓縮的封裝上執行壓縮將不會產生任何變化。 
+壓縮會將有效的 Service Fabric 封裝以壓縮的版本取代。 該資料夾必須允許寫入權限。 在已經壓縮的封裝上執行壓縮將不會產生任何變化。
 
 您可以執行 PowerShell 命令 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，並搭配 `CompressPackage` 參數來壓縮封裝。 您可以使用相同的命令，並搭配 `UncompressPackage` 參數來將封裝解壓縮。
 
-下列命令會在不將封裝複製到映像存放區的情況下壓縮封裝。 您可以在不搭配 `SkipCopy` 旗標的情況下使用 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，視需求將壓縮的封裝複製到一或多個 Service Fabric 叢集。 該套件現在包含 `code`、`config` 及 `data` 套件的 ZIP 壓縮檔案。 應用程式資訊清單和服務資訊清單不會壓縮，因為有許多內部作業都需要它們 (例如特定驗證的封裝共用、應用程式類型名稱及版本擷取)。
+下列命令會在不將封裝複製到映像存放區的情況下壓縮封裝。 您可以在不搭配 `SkipCopy` 旗標的情況下使用 [Copy-ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage?view=azureservicefabricps)，視需求將壓縮的封裝複製到一或多個 Service Fabric 叢集。
+該套件現在包含 `code`、`config` 及 `data` 套件的 ZIP 壓縮檔案。 應用程式資訊清單和服務資訊清單不會壓縮，因為有許多內部作業都需要它們 (例如特定驗證的封裝共用、應用程式類型名稱及版本擷取)。
 對資訊清單進行壓縮，將會使這些作業效率不佳。
 
 ```
