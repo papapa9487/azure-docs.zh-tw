@@ -5,8 +5,7 @@
     - name: 關於 Azure Cosmos DB
       href: introduction.md
     - name: 歡迎 DocumentDB 的使用者
-      href: >-
-        https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/
+      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: 快速入門
   expanded: true
   items:
@@ -106,9 +105,6 @@
       href: consistency-levels.md
     - name: 輸送量
       href: request-units.md
-      items:
-        - name: 每分鐘的要求單位
-          href: request-units-per-minute.md
     - name: 多模型 API
       items:
         - name: DocumentDB
@@ -138,6 +134,8 @@
               href: documentdb-resources.md
             - name: SQL 查詢
               href: documentdb-sql-query.md
+            - name: SQL 查詢效能
+              href: documentdb-sql-query-metrics.md
             - name: SQL 園地
               href: 'https://www.documentdb.com/sql/demo'
             - name: 分割
@@ -195,8 +193,7 @@
                 - name: 堆疊溢位
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
                 - name: 影片
-                  href: >-
-                    https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db
+                  href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: 服務更新
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
                 - name: 社群入口網站
@@ -224,8 +221,7 @@
         - name: 資料表 API
           items:
             - name: 表格儲存體
-              href: >-
-                https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts
+              href: 'https://docs.microsoft.com/rest/api/storageservices/fileservices/Table-Service-Concepts'
         - name: 變更摘要
           href: change-feed.md
         - name: 地理空間
@@ -284,8 +280,12 @@
           href: powerbi-visualize.md
         - name: 運用 ODBC 驅動程式展現資料視覺效果
           href: odbc-driver.md
+        - name: 使用 Spring Boot Starter 搭配 DocumentDB API
+          href: documentdb-java-spring-boot-starter-with-cosmos-db.md
 - name: 參考
   items:
+    - name: 程式碼範例
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=cosmos-db'
     - name: DocumentDB API
       items:
         - name: Java

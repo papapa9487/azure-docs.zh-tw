@@ -81,8 +81,6 @@
 ### [建立儲存體帳戶](../../storage/storage-create-storage-account.md#create-a-storage-account)
 ### [搭配使用 Azure PowerShell 與 Azure 儲存體](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [使用 Azure CLI 搭配 Azure 儲存體](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [適用於 Windows 的儲存體基礎結構指導方針](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [適用於 Linux 的儲存體基礎結構指導方針](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure 儲存體用戶端工具](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure 儲存體服務 REST API 參考](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
 ### [使用共用存取簽章](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
@@ -101,3 +99,4 @@
 ## [後續步驟](azure-operations-guide.md#next-steps)
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
