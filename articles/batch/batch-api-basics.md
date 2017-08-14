@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 824f900545136428f6e377c52e2dda7e3ab97cfe
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
@@ -98,17 +98,18 @@ ms.lasthandoff: 07/28/2017
 
 下表比較 Batch 服務和「使用者訂用帳戶」集區配置模式。
 
-| **集區配置模式：**                 | **Batch 服務**                                                                                       | **使用者訂用帳戶**                                                              |
+| **集區配置模式**                 | **Batch 服務**                                                                                       | **使用者訂用帳戶**                                                              |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
-| **集區配置在：**               | Azure 管理的訂用帳戶                                                                           | 用來建立 Batch 帳戶的使用者訂用帳戶                        |
-| **支援的設定：**             | <ul><li>雲端服務設定</li><li>虛擬機器設定 (Linux 和 Windows)</li></ul> | <ul><li>虛擬機器設定 (Linux 和 Windows)</li></ul>                |
-| **支援的 VM 映像：**                  | <ul><li>Azure Marketplace 影像</li></ul>                                                              | <ul><li>Azure Marketplace 影像</li><li>自訂映像</li></ul>                   |
-| **支援的計算節點類型：**         | <ul><li>專用節點</li><li>低優先順序節點</li></ul>                                            | <ul><li>專用節點</li></ul>                                                  |
-| **支援的驗證：**             | <ul><li>共用金鑰</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
-| **需要 Azure 金鑰保存庫：**             | 否                                                                                                      | 是                                                                                |
-| **核心配額：**                           | 取決於 Batch 核心配額                                                                          | 取決於訂用帳戶核心配額                                              |
-| **Azure 虛擬網路 (Vnet) 支援：** | 使用雲端服務設定建立的集區                                                      | 使用虛擬機器設定建立的集區                               |
-| **支援的 Vnet 部署模型：**      | 使用傳統部署模型建立的 Vnet                                                             | 使用傳統部署模型或 Azure Resource Manager 建立的 Vnet |
+| **集區配置位置**               | Azure 管理的訂用帳戶                                                                           | 用來建立 Batch 帳戶的使用者訂用帳戶                        |
+| **支援的組態**             | <ul><li>雲端服務設定</li><li>虛擬機器設定 (Linux 和 Windows)</li></ul> | <ul><li>虛擬機器設定 (Linux 和 Windows)</li></ul>                |
+| **支援的 VM 映像**                  | <ul><li>Azure Marketplace 影像</li></ul>                                                              | <ul><li>Azure Marketplace 影像</li><li>自訂映像</li></ul>                   |
+| **支援的計算節點類型**         | <ul><li>專用節點</li><li>低優先順序節點</li></ul>                                            | <ul><li>專用節點</li></ul>                                                  |
+| **支援的驗證**             | <ul><li>共用金鑰</li><li>Azure AD</li></ul>                                                           | <ul><li>Azure AD</li></ul>                                                         |
+| **需要 Azure Key Vault**             | 否                                                                                                      | 是                                                                                |
+| **核心配額**                           | 取決於 Batch 核心配額                                                                          | 取決於訂用帳戶核心配額                                              |
+| **Azure 虛擬網路 (Vnet) 支援** | 使用雲端服務設定建立的集區                                                      | 使用虛擬機器設定建立的集區                               |
+| **支援的 Vnet 部署模型**      | 使用傳統部署模型建立的 Vnet                                                             | 使用傳統部署模型或 Azure Resource Manager 建立的 Vnet |
+
 ## <a name="azure-storage-account"></a>Azure 儲存體帳戶
 
 大部分 Batch 解決方案都使用 Azure 儲存體來儲存資源檔和輸出檔。  
@@ -171,6 +172,8 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
     * 如同雲端服務內的背景工作角色，您可以指定 [OS 版本] \(如需背景工作角色的詳細資訊，請參閱[雲端服務概觀](../cloud-services/cloud-services-choose-me.md)中的[我想了解雲端服務](../cloud-services/cloud-services-choose-me.md#tell-me-about-cloud-services)一節)。
     * 如同背景工作角色，建議為 [OS 版本]指定 `*`，以便自動升級節點，而且不需為了因應新發行的版本而執行工作。 選取特定 OS 版本的主要使用案例是為了確保應用程式相容性，以允許在更新版本之前執行回溯相容性測試。 通過驗證之後，即可更新集區的 [OS 版本] 並安裝新的 OS 映像，如此會中斷任何執行中的工作並重新排入佇列。
 
+當您建立一個集區時，必須選取適當的 **nodeAgentSkuId**，視您 VHD 的基礎映像 OS 而定。 您可以取得對應至其 OS 映像參考的可用節點代理程式 SKU 識別碼，方法是呼叫[列出受支援節點代理程式 SKU 的清單](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus)作業。
+
 如需有關在建立 Batch 帳戶時設定集區配置模式的資訊，請參閱[帳戶](#account)一節。
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>適用於虛擬機器集區的自訂映像
@@ -195,8 +198,6 @@ Azure Batch 集區的建置基礎為核心 Azure 計算平台。 這些集區可
 - 目前僅支援標準一般用途的儲存體帳戶。 未來將會支援 Azure 高階儲存體。
 - 您可以指定一個具有多個自訂 VHD blob 的儲存體帳戶，或是多個儲存體帳戶，每個皆具有單一的 blob。 建議您使用多個儲存體帳戶，以取得更佳的效能。
 - 一個唯一自訂映像 VHD blob 最多可支援 40 個 Linux VM 執行個體，或 20 個 Windows VM 執行個體。 您必須建立 VHD blob 的複本，才能建立具有多個 VM 的集區。 例如，具有 200 個 Windows VM 的集區，需要針對 **osDisk** 屬性指定 10 個唯一的 VHD blob。
-
-當您建立一個集區時，必須選取適當的 **nodeAgentSkuId**，視您 VHD 的基礎映像 OS 而定。 您可以取得對應至其 OS 映像參考的可用節點代理程式 SKU 識別碼，方法是呼叫[列出受支援節點代理程式 SKU 的清單](https://docs.microsoft.com/rest/api/batchservice/list-supported-node-agent-skus)作業。
 
 若要使用 Azure 入口網站從自訂映像建立集區：
 

@@ -14,30 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 6037c1ea1655aa027a0933b1eea5f864103cfd5b
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# Azure Site Recovery 可以保護哪些工作負載？
-<a id="what-workloads-can-you-protect-with-azure-site-recovery" class="xliff"></a>
+# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
 本文說明您可以使用 Azure Site Recovery 服務進行複寫的工作負載和應用程式。
 
 在這篇文章下方或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
 
-## 概觀
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概觀
 組織需要商務持續性和災害復原 (BCDR) 策略，以便讓工作負載和資料在計劃性停機與非計劃性停機期間維持安全，並儘速復原到一般運作的情況。
 
 Site Recovery 是一項有助於建立 BCDR 策略的 Azure 服務。 使用 Site Recovery，您可以將應用程式感知的複寫部署到雲端，或部署到次要站台。 不論您的應用程式是 Windows 或 Linux 型、在實體伺服器、VMware 或 Hyper-V 上執行，您都可以使用 Site Recovery 來協調複寫、執行災害復原測試，以及執行容錯移轉和容錯回復。
 
 Site Recovery 整合了 Microsoft 應用程式，包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。 Microsoft 也與領導廠商密切合作，包括 Oracle、SAP、IBM 和 Red Hat。 您可以根據各應用程式自訂複寫解決方案。
 
-## 為何要使用 Site Recovery 進行應用程式複寫？
-<a id="why-use-site-recovery-for-application-replication" class="xliff"></a>
+## <a name="why-use-site-recovery-for-application-replication"></a>為何要使用 Site Recovery 進行應用程式複寫？
 Site Recovery 可協助您實作應用程式層級的保護和復原，如下所示：
 
 * 應用程式無從驗證，針對在受支援電腦上執行的任何工作負載提供複寫。
@@ -48,8 +44,7 @@ Site Recovery 可協助您實作應用程式層級的保護和復原，如下所
 * Site Recovery 和 Azure 中的進階網路管理可簡化應用程式網路需求，包括保留 IP 位址、設定負載平衡，以及與 Azure 流量管理員整合而達到低 RTO 網路轉換。
 * 豐富的自動化程式庫，提供已可用於生產環境的應用程式特定指令碼，這些指令碼可供下載並與復原方案整合。
 
-## 工作負載摘要
-<a id="workload-summary" class="xliff"></a>
+## <a name="workload-summary"></a>工作負載摘要
 Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此外，我們已經與產品團隊合作，合力執行額外的特定應用程式測試。
 
 | **工作負載** | **將 Hyper-V VM 複寫至次要網站** | **將 Hyper-V VM 複寫至 Azure** | **將 VMware VM 複寫到次要網站** | **將 VMware VM 複寫到 Azure** |
@@ -68,16 +63,14 @@ Site Recovery 可複寫在支援的機器上執行的任何應用程式。 此�
 | Windows 檔案伺服器 |Y |Y |Y |Y |
 | Citrix XenApp 和 XenDesktop |N/A |Y |N/A |Y |
 
-## 複寫 Active Directory 和 DNS
-<a id="replicate-active-directory-and-dns" class="xliff"></a>
+## <a name="replicate-active-directory-and-dns"></a>複寫 Active Directory 和 DNS
 Active Directory 和 DNS 基礎結構是大多數企業應用程式的必要項目。 在災害復原期間，您必須在復原工作負載和應用程式之前，先保護與復原這些基礎結構元件。
 
 您可以使用 Site Recovery，對 Active Directory 和 DNS 建立一個完整的自動化災害復原方案。 例如，如果您想要將 SharePoint 和 SAP 從主要網站容錯移轉至次要網站，您可以先設定可容錯移轉 Active Directory 的復原方案，然後再設定額外的應用程式專屬方案，以便容錯移轉依賴 Active Directory 的其他應用程式。
 
 [深入了解](site-recovery-active-directory.md) 如何保護 Active Directory 和 DNS。
 
-## 保護 SQL Server
-<a id="protect-sql-server" class="xliff"></a>
+## <a name="protect-sql-server"></a>保護 SQL Server
 SQL Server 針對內部部署資料中心內許多商務應用程式，提供資料服務的資料服務基礎。  Site Recovery 可與 SQL Server HA/DR 技術一起用來保護採用 SQL Server 的多層式企業應用程式。 Site Recovery 提供：
 
 * 針對 SQL Server 提供簡單且符合成本效益的災害復原解決方案。 將多個版本的 SQL Server 獨立伺服器和叢集複寫至 Azure 或次要網站。  
@@ -88,8 +81,7 @@ SQL Server 針對內部部署資料中心內許多商務應用程式，提供資
 
 [深入了解](site-recovery-sql.md) 如何保護 SQL Server。
 
-## 保護 SharePoint
-<a id="protect-sharepoint" class="xliff"></a>
+## <a name="protect-sharepoint"></a>保護 SharePoint
 Azure Site Recovery 可協助保護 SharePoint 部署，如下所示：
 
 * 排除對災害復原之待命伺服器陣列的需要和相關聯的基礎結構成本。 使用 Site Recovery，將整個伺服器陣列 (Web、應用程式和資料庫層) 複寫至 Azure 或次要網站。
@@ -99,8 +91,7 @@ Azure Site Recovery 可協助保護 SharePoint 部署，如下所示：
 
 [深入了解](site-recovery-sharepoint.md) 如何保護 SharePoint。
 
-## 保護 Dynamics AX
-<a id="protect-dynamics-ax" class="xliff"></a>
+## <a name="protect-dynamics-ax"></a>保護 Dynamics AX
 Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法如下：
 
 * 協調將整個 Dynamics AX 環境 (Web 和 AOS 層、資料庫層、SharePoint) 複寫到 Azure，或是次要網站。
@@ -109,8 +100,7 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 
 [深入了解](site-recovery-dynamicsax.md) 如何保護動態 Dynamic AX。
 
-## 保護 RDS
-<a id="protect-rds" class="xliff"></a>
+## <a name="protect-rds"></a>保護 RDS
 遠端桌面服務 (RDS) 可啟用虛擬桌面基礎結構 (VDI)、以工作階段為基礎的桌面和應用程式，讓使用者可在任何地方工作。 使用 Azure Site Recovery，您可以：
 
 * 將受管理或未受管理的集區化虛擬桌面複寫至次要網站，以及將遠端應用程式和工作階段複寫至次要網站或 Azure。
@@ -124,8 +114,7 @@ Azure Site Recovery 可協助保護您的 Dynamics AX ERP 解決方案，方法�
 
 [深入了解](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) 如何保護 RDS。
 
-## 保護 Exchange
-<a id="protect-exchange" class="xliff"></a>
+## <a name="protect-exchange"></a>保護 Exchange
 Site Recovery 協助保護 Exchange 的方式如下所示：
 
 * 對於小型 Exchange 部署 (例如單一或獨立式伺服器)，Site Recovery 可以複寫並容錯移轉至 Azure 或次要網站。
@@ -134,18 +123,17 @@ Site Recovery 協助保護 Exchange 的方式如下所示：
 
 [深入了解](https://gallery.technet.microsoft.com/Exchange-DR-Solution-using-11a7dcb6) 如何保護 Exchange。
 
-## 保護 SAP
-<a id="protect-sap" class="xliff"></a>
+## <a name="protect-sap"></a>保護 SAP
 使用 Site Recovery 保護您的 SAP 部署，如下所示：
 
-* 將不同的部署層複寫至 Azure 或次要網站，進行整個 SAP 部署的保護。
+* 藉由將元件複寫到 Azure，以啟用在內部部署環境執行之 SAP NetWeaver 和非 NetWeaver 生產應用程式的保護功能。
+* 藉由將元件複寫到另一個 Azure 資料中心，以啟用執行 Azure 之 SAP NetWeaver 和非 NetWeaver 生產應用程式的保護功能。
 * 使用 Site Recovery 將您的 SAP 部署移轉至 Azure，來簡化雲端移轉。
-* 藉由建立類似生產的複本隨選來測試和偵錯應用程式，以簡化 SAP 開發和測試。
+* 藉由建立隨選生產複本來測試 SAP 應用程式，以簡化 SAP 專案升級、測試和原型設計。
 
-[深入了解](http://aka.ms/asr-sap) 如何保護 SAP。
+[深入了解](site-recovery-sap.md) 如何保護 SAP。
 
-## 保護 IIS
-<a id="protect-iis" class="xliff"></a>
+## <a name="protect-iis"></a>保護 IIS
 使用 Site Recovery 保護您的 IIS 部署，如下所示：
 
 Azure Site Recovery 提供災害復原，方法為將環境中的重要元件複寫至冷遠端站台或類似 Microsoft Azure 的公用雲端。 具有 web 伺服器和資料庫的虛擬機器將複寫至復原站台，因此不需要分開備份組態檔或憑證。 取決於容錯移轉後之環境變數的應用程式對應和繫結，可以透過指令碼整合到災害復原計劃進行更新。 僅在容錯移轉時，虛擬機器才會帶出復原站台。 不只如此，Azure Site Recovery 也會提供下列功能，協助您協調端對端容錯移轉︰
@@ -158,19 +146,17 @@ Azure Site Recovery 提供災害復原，方法為將環境中的重要元件複
 
 [深入了解](https://aka.ms/asr-iis) 如何保護 IIS web 伺服陣列。
 
-## 保護 Citrix XenApp 和 XenDesktop
-<a id="protect-citrix-xenapp-and-xendesktop" class="xliff"></a>
+## <a name="protect-citrix-xenapp-and-xendesktop"></a>保護 Citrix XenApp 和 XenDesktop
 使用 Site Recovery 保護您的 Citrix XenApp 和 XenDesktop 部署，如下所示：
 
 * 啟用 Citrix XenApp 和 XenDesktop 部署的保護，做法是將不同的部署層 (包括 AD DNS 伺服器、SQL Database 伺服器、Citrix 傳遞控制站、StoreFront 伺服器，XenApp Master (VDA)、Citrix XenApp 授權伺服器) 複寫至 Azure。
 * 使用 Site Recovery 將您的 Citrix XenApp 和 XenDesktop 部署移轉至 Azure，來簡化雲端移轉。
 * 藉由建立類似生產的隨選複本來進行測試和偵錯，以簡化 Citrix XenApp/XenDesktop 測試。
-* 此解決方案僅適用於 Windows Server 作業系統虛擬桌面，而不適用於用戶端虛擬桌面，因為尚未支援在 Azure 中進行用戶端虛擬桌面的授權。 
+* 此解決方案僅適用於 Windows Server 作業系統虛擬桌面，而不適用於用戶端虛擬桌面，因為尚未支援在 Azure 中進行用戶端虛擬桌面的授權。
 [深入了解](https://azure.microsoft.com/pricing/licensing-faq/)如何在 Azure 中進行用戶端/伺服器桌面的授權。
 
-[深入了解](site-recovery-citrix-xenapp-and-xendesktop.md)如何保護 Citrix XenApp 和 XenDesktop 部署。 或者，您可以參考詳述相同功能的 [Citrix 白皮書](https://aka.ms/citrix-xenapp-xendesktop-with-asr)。 
+[深入了解](site-recovery-citrix-xenapp-and-xendesktop.md)如何保護 Citrix XenApp 和 XenDesktop 部署。 或者，您可以參考詳述相同功能的 [Citrix 白皮書](https://aka.ms/citrix-xenapp-xendesktop-with-asr)。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
-[檢查必要條件](site-recovery-prereq.md) 
+## <a name="next-steps"></a>後續步驟
+[檢查必要條件](site-recovery-prereq.md)
 

@@ -13,17 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 52f89520fef8fc9ddb6e8e10a59ec35600affb2a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="quick-start-azure-ad-self-service-password-reset"></a>快速入門︰Azure AD 自助式密碼重設
+# <a name="quickstart-azure-ad-self-service-password-reset"></a>快速入門︰Azure AD 自助式密碼重設
+
+> [!IMPORTANT]
+> **您來到此處是因為有登入問題嗎？** 若是如此， [以下是如何變更和重設密碼的說明](active-directory-passwords-update-your-own-password.md)。
 
 ## <a name="rapidly-deploy-self-service-password-reset"></a>快速部署自助式密碼重設
 
@@ -74,9 +77,15 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="disabling-self-service-password-reset"></a>停用自助式密碼重設
 
-停用自助式密碼重設很簡單，只要開啟 Azure AD 租用戶並移至 [密碼重設]、[屬性] > 選擇 [已啟用自助式密碼重設] 之下的 [沒有人]。
+停用自助式密碼重設很簡單，只要開啟 Azure AD 租用戶並移至 [密碼重設]、[屬性] > 選擇 [已啟用自助式密碼重設] 之下的 [無]。
 
 ## <a name="next-steps"></a>後續步驟
+
+在本快速入門中，您已學到如何為您的使用者設定自助式密碼重設。 若要繼續在 Azure 入口網站完成這些步驟，請遵循以下的入口網站連結。
+
+> [!div class="nextstepaction"]
+> [啟用自助密碼重設](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 下列連結提供有關使用 Azure AD 重設密碼的其他資訊
 
 * [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/02/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 1580e2841790b7c1b6c9540da4940eef2c487256
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
@@ -185,7 +185,7 @@ ms.lasthandoff: 08/03/2017
 ![選用功能屬性](./media/active-directory-aadconnect-get-started-custom/azureadattributes2.png)
 
 > [!WARNING]
-> 移除可能影響功能的屬性。 如需最佳作法和建議，請參閱[同步處理的屬性](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize)。
+> 移除可能影響功能的屬性。 如需最佳做法和建議，請參閱[同步處理的屬性](active-directory-aadconnectsync-attributes-synchronized.md#attributes-to-synchronize)。
 >
 >
 
@@ -278,6 +278,9 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 * **網域使用者帳戶** ：此類型的帳戶會要求您提供密碼，並在密碼變更或到期時定期更新密碼。 只有當您在 AD FS 伺服器所屬的網域中沒有 Windows Server 2012 網域控制站時，才能使用此選項。
 
 如果您選取了 [群組受管理服務帳戶]，而這項功能從未在 Active Directory 中使用過，系統會提示您輸入企業系統管理員認證。 這些認證會用來啟動金鑰存放區，並在 Active Directory 中啟用這項功能。
+
+> [!NOTE]
+> Azure AD Connect 會執行檢查，以偵測 AD FS 服務是否已經註冊為網域中的 SPN。  AD DS 不允許同時註冊重複的 SPN。  如果找到重複的 SPN，請先移除此 SPN，才能繼續執行。
 
 ![AD FS 服務帳戶](./media/active-directory-aadconnect-get-started-custom/adfs5.png)
 

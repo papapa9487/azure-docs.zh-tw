@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: 939d6adc548d5d6ef66909bcf52f11a4106c3be9
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>開始使用適用於 Windows 通用 App 的 Azure Mobile Engagement
@@ -26,6 +26,9 @@ ms.lasthandoff: 03/01/2017
 
 本主題說明如何使用 Azure Mobile Engagement 了解您的應用程式使用狀況，以及將推播通知傳送給 Windows 通用應用程式的分段使用者。
 本教學課程將示範使用 Mobile Engagement 的簡單廣播案例。 您建立一個空白的 Windows 通用應用程式，以使用 Windows 通知服務 (WNS) 來收集基本的應用程式使用資料及接收推播通知。
+
+> [!NOTE]
+> Azure Mobile Engagement 服務將於 2018 年 3 月淘汰，目前僅供現有客戶使用。 如需詳細資訊，請參閱 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)。
 
 ## <a name="prerequisites"></a>必要條件
 [!INCLUDE [Prereqs](../../includes/mobile-engagement-windows-store-prereqs.md)]
@@ -101,7 +104,7 @@ ms.lasthandoff: 03/01/2017
 ## <a id="monitor"></a>啟用即時監視
 若要開始傳送資料並確定使用者正在使用，您必須至少傳送一個畫面 (活動) 到 Mobile Engagement 後端。
 
-1. 在 **MainPage.xaml.cs`using` 中，新增下列** 陳述式：
+1. 在 **MainPage.xaml.cs`using` 中，新增下列**  陳述式：
 
     using Microsoft.Azure.Engagement.Overlay;
 2. 將 **MainPage** 的基底類別從 **Page** 變更為 **EngagementPageOverlay**：

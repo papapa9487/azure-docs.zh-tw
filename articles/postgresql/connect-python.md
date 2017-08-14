@@ -1,6 +1,6 @@
 ---
 title: "從 Python 連線至 Azure Database for PostgreSQL | Microsoft Docs"
-description: "提供 Python 程式碼範例，供您從 Azure Database for PostgreSQL 連線及查詢資料時使用。"
+description: "本快速入門提供 Python 程式碼範例，您可用於從 Azure Database for PostgreSQL 連線及查詢資料。"
 services: postgresql
 author: SaloniSonpal
 ms.author: salonis
@@ -10,12 +10,12 @@ ms.service: postgresql-database
 ms.custom: mvc
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 07/07/2017
+ms.date: 08/10/2017
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6ae1ef3855711a86333857f26400f29dfd7c54e
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 0d52a7728e2292946e9328065b973ca7ad37b4f5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Python 連線及查詢資料
@@ -49,7 +49,7 @@ pip install psycopg2
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
 ## <a name="how-to-run-python-code"></a>如何執行 Python 程式碼
-- 使用慣用的文字編輯器，建立稱為 postgres.py 的新檔案，並將它儲存到專案資料夾。 將下面顯示的程式碼範例複製並貼入文字檔，然後儲存它。 將檔案儲存在 Windows OS 中時，請一定要選取 UTF-8 編碼。 
+- 使用慣用的文字編輯器，建立稱為 postgres.py 的新檔案，並將它儲存到專案資料夾。 將下面顯示的程式碼範例複製並貼入文字檔中。 以建立伺服器和資料庫時所指定的值，取代主機、資料庫名稱、使用者和密碼參數。 然後儲存檔案。 將檔案儲存在 Windows OS 中時，請一定要選取 UTF-8 編碼。 
 - 若要執行程式碼，請啟動命令提示字元或 bash shell。 將目錄切換到專案資料夾，例如 `cd postgresql`。 然後，鍵入後接檔案名稱 (例如 `python postgres.py`) 的 python 命令。
 
 > [!NOTE]

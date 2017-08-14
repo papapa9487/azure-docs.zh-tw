@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/06/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 5b4a2b7646a2ead1df459c5d9a17d125821c86a5
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="manage-workspaces"></a>管理工作區
@@ -108,7 +107,60 @@ Log Analytics 工作區有兩個存取控制權限模型︰
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>使用 Azure 權限管理對 Log Analytics 的存取
 若要使用 Azure 權限授與 Log Analytics 工作區的存取權，請遵循[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../active-directory/role-based-access-control-configure.md)中的步驟。
 
-如果您至少具有 Log Analytics 工作區的 Azure 讀取權限，您可以在檢視 Log Analytics 工作區時按一下 **OMS 入口網站**工作來開啟 OMS 入口網站。
+Azure 有兩個適用於 Log Analytics 的內建使用者角色：
+- Log Analytics 讀者
+- Log Analytics 參與者
+
+*Log Analytics 讀者*角色的成員可以：
+- 檢視及搜尋所有監視資料 
+- 檢視監視設定，包括檢視所有 Azure 資源上檢視的 Azure 診斷組態。
+
+| 類型    | 權限 | 說明 |
+| ------- | ---------- | ----------- |
+| 動作 | `*/read`   | 檢視所有資源和資源組態的能力。 包括檢視： <br> 虛擬機器擴充功能 <br> 在資源上設定 Azure 診斷 <br> 所有資源的所有屬性和設定 |
+| 動作 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 執行記錄搜尋 v2 查詢的能力 |
+| 動作 | `Microsoft.OperationalInsights/workspaces/search/action` | 執行記錄搜尋 v1 查詢的能力 |
+| 動作 | `Microsoft.Support/*` | 開啟支援案例的能力 |
+|不是動作 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 防止讀取使用資料收集 API 和安裝代理程式時所需的工作區金鑰 |
+
+
+*Log Analytics 參與者*角色的成員可以：
+- 讀取所有監視資料 
+- 建立和設定自動化帳戶
+- 新增及移除管理解決方案
+- 讀取儲存體帳戶金鑰 
+- 設定 Azure 儲存體的記錄集合
+- 編輯 Azure 資源的監視設定，包括
+  - 將 VM 擴充功能新增至 VM
+  - 在所有 Azure 資源上設定 Azure 診斷
+
+> [!NOTE] 
+> 您可以使用將虛擬機器擴充功能新增至虛擬機器的功能，取得虛擬機器的完整控制權。
+
+| 權限 | 說明 |
+| ---------- | ----------- |
+| `*/read`     | 檢視所有資源和資源組態的能力。 包括檢視： <br> 虛擬機器擴充功能 <br> 在資源上設定 Azure 診斷 <br> 所有資源的所有屬性和設定 |
+| `Microsoft.Automation/automationAccounts/*` | 建立及設定 Azure 自動化帳戶的能力，包括新增和編輯 Runbook |
+| `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | 新增、更新及移除虛擬機器擴充功能，包括 Microsoft Monitoring Agent 擴充功能和 OMS Agent for Linux 擴充功能 |
+| `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | 檢視儲存體帳戶金鑰。 需具備此權限，才能設定 Log Analytics 以讀取 Azure Blob 儲存體帳戶中的記錄 |
+| `Microsoft.Insights/alertRules/*` | 新增、更新和移除警示規則 |
+| `Microsoft.Insights/diagnosticSettings/*` | 在 Azure 資源上新增、更新和移除診斷設定 |
+| `Microsoft.OperationalInsights/*` | 新增、更新和移除 Log Analytics 工作區的組態 |
+| `Microsoft.OperationsManagement/*` | 新增及移除管理解決方案 |
+| `Microsoft.Resources/deployments/*` | 建立及刪除部署。 需具備此權限，才能新增及移除解決方案、工作區和自動化帳戶 |
+| `Microsoft.Resources/subscriptions/resourcegroups/deployments/*` | 建立及刪除部署。 需具備此權限，才能新增及移除解決方案、工作區和自動化帳戶 |
+
+若要新增及移除某個使用者角色的使用者，必須具備 `Microsoft.Authorization/*/Delete` 和 `Microsoft.Authorization/*/Write` 權限。
+
+使用下列角色，賦予使用者不同範圍的存取權：
+- 訂用帳戶 - 存取訂用帳戶中的所有工作區
+- 資源群組 - 存取資源群組中的所有工作區
+- 資源 - 僅存取指定的工作區
+
+使用[自訂角色](../active-directory/role-based-access-control-custom-roles.md)建立具備所需特定權限的角色。
+
+### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure 使用者角色和 Log Analytics 入口網站使用者角色
+如果您至少具有 Log Analytics 工作區的 Azure 讀取權限，您可以在檢視 Log Analytics 工作區時按一下 **OMS 入口網站**工作來開啟 Log Analytics 入口網站。
 
 開啟 Log Analytics 入口網站時，您會改為使用舊版 Log Analytics 使用者角色。 如果您沒有 Log Analytics 入口網站的角色指派，服務會[檢查您在工作區上擁有的 Azure 權限](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)。
 您在 Log Analytics 入口網站中的角色指派是使用如下方式來決定︰
@@ -195,7 +247,7 @@ Log Analytics 工作區有兩個存取控制權限模型︰
 4. 在清單結果中選取群組，然後按一下 [新增]。
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>將現有的工作區連結到 Azure 訂用帳戶
-建立時，所有在 2016 年 9 月 26 日之後建立的工作區都必須連結到 Azure 訂用帳戶。 下次登入時，在這個日期之前建立的工作區必須連結到工作區。 如果您從 Azure 入口網站建立工作區，或將工作區連結到 Azure 訂用帳戶，則會連結 Azure Active Directory 作為您的組織帳戶。
+建立時，所有在 2016 年 9 月 26 日之後建立的工作區都必須連結到 Azure 訂用帳戶。 當您登入時，在這個日期之前建立的工作區必須連結到工作區。 如果您從 Azure 入口網站建立工作區，或將工作區連結到 Azure 訂用帳戶，則會連結 Azure Active Directory 作為您的組織帳戶。
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>在 OMS 入口網站中將工作區連結到 Azure 訂用帳戶
 

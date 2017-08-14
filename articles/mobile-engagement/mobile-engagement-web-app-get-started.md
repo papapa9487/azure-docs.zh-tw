@@ -14,10 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 555342e88c912a3f43c578a40dc34933996ade4c
-ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>開始使用適用於 Web Apps 的 Azure Mobile Engagement
@@ -25,10 +26,13 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 
 本主題說明如何使用 Azure Mobile Engagement 來了解 Web 應用程式的使用量。
 
+> [!NOTE]
+> Azure Mobile Engagement 服務將於 2018 年 3 月淘汰，目前僅供現有客戶使用。 如需詳細資訊，請參閱 [Mobile Engagement](https://azure.microsoft.com/en-us/services/mobile-engagement/)。
+
 本教學課程需要下列各項：
 
 * Visual Studio 2015 或您選擇的其他任何編輯器
-* [Web SDK](http://aka.ms/P7b453) 
+* [Web SDK](http://aka.ms/P7b453)
 
 此 Web SDK 目前為預覽狀態，目前僅支援分析，尚未支援傳送瀏覽器或應用程式內推播通知。 
 
@@ -40,7 +44,7 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 ## <a name="setup-mobile-engagement-for-your-web-app"></a>為 Web 應用程式設定 Mobile Engagement
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
+## <a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
 本教學課程將說明「基本整合」，這是收集資料時必要的最低設定。
 
 我們將使用 Visual Studio 來建立基本 Web 應用程式，以便示範整合，但您也可以使用在 Visual Studio 之外建立的任何 Web 應用程式來進行這些步驟。 
@@ -114,10 +118,5 @@ ms.openlocfilehash: ef75623a0b8c2a4d38f527a26cbc2cf070765302
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 
