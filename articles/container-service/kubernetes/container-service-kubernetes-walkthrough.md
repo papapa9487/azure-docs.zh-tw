@@ -16,18 +16,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: nepeters
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: a278f76fc0ac2aa42633ed0ce2ad4fbc4e7290da
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 7c96a5b9bc2cb6cea60b200c22e4e4e1d49d8d08
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>部署適用於 Linux 容器的 Kubernetes 叢集
 
-本快速入門中會使用 Azure CLI 來部署 Kubernetes 叢集。 接著，在叢集上部署和執行多容器應用程式，其中包含 Web 前端和 Redis 執行個體。 完成後，即可透過網際網路來存取應用程式。
+本快速入門中會使用 Azure CLI 來部署 Kubernetes 叢集。 接著，在叢集上部署和執行多容器應用程式，其中包含 Web 前端和 Redis 執行個體。 完成後，即可透過網際網路來存取應用程式。 
+
+本文件中使用的範例應用程式是以 Python 撰寫。 這裡詳述的概念和步驟可用來將任何容器映像部署到 Kubernetes 叢集中。 在 [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git) 上可取得此專案相關的程式碼、Dockerfile 和預先建立之 Kubernetes 資訊清單檔案。
 
 ![瀏覽至 Azure 投票的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -69,7 +71,7 @@ az group create --name myResourceGroup --location eastus
 使用 [az acs create](/cli/azure/acs#create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 下列範例會建立名為 *myK8sCluster* 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8sCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8sCluster --generate-ssh-keys 
 ```
 
 幾分鐘之後，此命令就會完成，並以 json 格式傳回叢集的相關資訊。 
@@ -104,9 +106,9 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 ## <a name="run-the-application"></a>執行應用程式
 
-Kubernetes 資訊清單檔中定義所需的叢集狀態，包括什麼容器映像應該在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 
+Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 
 
-建立名為 `azure-vote.yaml` 的檔案，並複製到下列 YAML。
+建立名為 `azure-vote.yaml` 的檔案，並複製到下列 YAML。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -226,3 +228,4 @@ az group delete --name myResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [管理 ACS Kubernetes 叢集](./container-service-tutorial-kubernetes-prepare-app.md)
+

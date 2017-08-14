@@ -13,13 +13,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 08/08/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 01418c00f94edcb810b23e828273a7e749925177
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查詢 Azure SQL 資料庫
@@ -41,8 +41,8 @@ ms.lasthandoff: 07/13/2017
 - 您已安裝適用於您作業系統的 PHP 和相關軟體。
 
     - **MacOS**：安裝 Homebrew 和 PHP，安裝 ODBC 驅動程式和 SQLCMD，然後再安裝 PHP Driver for SQL Server。 請參閱[步驟 1.2、1.3 和 2.1](https://www.microsoft.com/en-us/sql-server/developer-get-started/php/mac/)。
-    - **Ubuntu**：安裝 PHP 和其他必要的套件，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/)。
-    - **Windows**：安裝 PHP for IIS Express 的最新版本、Microsoft Drivers for SQL Server in IIS Express 的最新版本、Chocolatey、ODBC 驅動程式，以及 SQLCMD。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/)。    
+    - **Ubuntu**：安裝 PHP 和其他必要的套件，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)。
+    - **Windows**：安裝 PHP for IIS Express 的最新版本、Microsoft Drivers for SQL Server in IIS Express 的最新版本、Chocolatey、ODBC 驅動程式，以及 SQLCMD。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。    
 
 ## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
 

@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: d1b887e68b1040ea9340235cd215028300c14fac
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB︰移轉現有的 Node.js MongoDB Web 應用程式 
@@ -101,6 +101,9 @@ az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kin
 `--kind MongoDB` 參數會啟用 MongoDB 用戶端連接。
 
 建立 Azure Cosmos DB 帳戶之後，Azure CLI 會顯示類似下列範例的資訊。 
+
+> [!NOTE]
+> 此範例會使用 JSON 作為 Azure CLI 輸出格式，這是預設值。 若要使用另一種輸出格式，請參閱 [Azure CLI 2.0 命令的輸出格式](https://docs.microsoft.com/cli/azure/format-output-azure-cli)。
 
 ```json
 {

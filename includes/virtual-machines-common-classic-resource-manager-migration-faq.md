@@ -32,9 +32,14 @@
 
 在移轉期間，資源會從傳統轉換至 Resource Manager。 因此，建議您規劃需要在移轉後進行的 RBAC 原則更新。
 
-## <a name="what-if-im-using-azure-site-recovery-or-azure-backup-today"></a>如果我目前使用 Azure Site Recovery 或 Azure 備份，該怎麼辦？ 
+## <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>我已在備份保存庫中備份我的傳統 VM。 我可以將我的 VM 從傳統模式移轉至 Resource Manager 模式，並在復原服務保存庫中保護它們嗎？ 
 
-若要移轉能夠進行備份的「虛擬機器」，請參閱[我已在備份保存庫中備份傳統 VM。我現在想要將 VM 從傳統模式移轉至 Resource Manager 模式。我如何在復原服務保存庫中備份它們？](../articles/backup/backup-azure-backup-ibiza-faq.md)我已在備份保存庫中備份傳統 VM。 我現在想要將 VM 從傳統模式移轉至 Resource Manager 模式。  如何才能在復原服務保存庫中備份它們？
+當您將 VM 從傳統模式移至 Resource Manager 模式時，備份保存庫中的傳統 VM 復原點不會自動移轉至復原服務保存庫。 請遵循下列步驟來傳輸您的 VM 備份：
+
+1. 在備份保存庫中，移至 [受保護的項目] 索引標籤，然後選取 VM。 按一下[停止保護](../articles/backup/backup-azure-manage-vms-classic.md#stop-protecting-virtual-machines)。 讓 [刪除相關聯的備份資料] 選項保持 [未核取] 狀態。
+2. 從 VM 中刪除備份/快照集擴充功能。
+3. 將虛擬機器從傳統模式移轉至 Resource Manager 模式。 確定虛擬機器對應的儲存體和網路資訊也會移轉至 Resource Manager 模式。
+4. 建立復原服務保存庫，並使用保存庫儀表板上方的 [備份] 動作，在移轉的虛擬機器上設定備份。 如需將 VM 備份至復原服務保存庫的詳細資訊，請參閱[使用復原服務保存庫保護 Azure VM](../articles/backup/backup-azure-vms-first-look-arm.md) 文章。
 
 ## <a name="can-i-validate-my-subscription-or-resources-to-see-if-theyre-capable-of-migration"></a>我是否可以驗證訂用帳戶或資源，以查看是否能夠移轉它們？ 
 

@@ -1,5 +1,5 @@
 ---
-title: "什麼是 Apache Storm？ - Azure HDInsight | Microsoft Docs"
+title: "什麼是 Apache Storm - Azure HDInsight | Microsoft Docs"
 description: "Apache Storm 可讓您即時處理資料流。 Azure HDInsight 可讓您在 Azure 雲端上輕鬆建立 Storm 叢集。 使用 Visual Studio，您可以使用 C# 建立 Storm 解決方案，然後再部署到 HDInsight Storm 叢集。"
 services: hdinsight
 documentationcenter: 
@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 0d565c29767e778873dad2421c93b62455706f27
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 073672f1223313938baedee027072cb96062294b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什麼是 Apache Storm on Azure HDInsight？
 
-[Apache Storm](http://storm.apache.org/) 是一個容錯的分散式開放原始碼計算系統。 您可以使用 Storm 叢集搭配 Hadoop 即時處理資料流。 Storm 解決方案也能夠重播最初未成功處理的資料，保證一定會處理資料。
+[Apache Storm](http://storm.apache.org/) 是一個容錯的分散式開放原始碼計算系統。 您可以使用 Storm 搭配 Hadoop 來即時處理資料流。 Storm 解決方案也能夠重播最初未成功處理的資料，保證一定會處理資料。
 
 Storm on HDInsight 提供下列主要優點︰
 

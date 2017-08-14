@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: hero-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: ed096cf202a85f44755c9eee110b1b7c5c4074ad
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d7d3aef1e713cf080b23575f56321e00a0b4af1f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
@@ -51,7 +51,7 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 
 1. 展開新的函式應用程式，然後按一下 [Functions] 旁的 **+** 按鈕。
 
-2.  在 [即刻開始使用] 頁面上，選取 [WebHook + API]，並選擇您的函式語言，然後按一下 [建立此函式]。 
+2.  在 [即刻開始使用] 頁面上，選取 [WebHook + API]，並**選擇您的函式語言**，然後按一下 [建立此函式]。 
    
     ![Azure 入口網站中的 Functions 快速入門。](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 

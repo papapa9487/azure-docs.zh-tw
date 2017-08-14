@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: 76fd245f91e1bfab3df68120859c69e459283e5b
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: cbb67ef92386a6288b3317bf77ebb67f15ce7fb2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 01/27/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-the-azure-portal"></a>使用 Azure 入口網站傳遞點播內容入門
@@ -79,6 +79,7 @@ ms.lasthandoff: 01/27/2017
 上傳完成後，您會看到新資產列在 [資產]  清單中。 
 
 ## <a name="encode-assets"></a>為資產編碼
+
 使用 Azure 媒體服務時，其中一個最常見案例是提供自適性串流給您的用戶端。 媒體服務支援下列自適性串流技術：HTTP 即時串流 (HLS)、Smooth Streaming、MPEG DAS。 若要針對自適性串流準備您的視訊，您必須將來源視訊編碼為多位元速率檔案。 您應該使用 [媒體編碼器標準]  編碼器來為您的視訊編碼。  
 
 媒體服務提供動態封裝，這讓您以下列串流格式 (MPEG DASH、HLS、Smooth Streaming) 提供多位元速率 MP4，而不必重新封裝成這些串流格式。 使用動態封裝，您只需要以單一儲存格式儲存及播放檔案，媒體服務會根據來自用戶端的要求建置及傳遞適當的回應。
@@ -91,7 +92,7 @@ ms.lasthandoff: 01/27/2017
 1. 在 [設定] 視窗中，選取 [資產]。  
 2. 在 [資產]  視窗中，選取您想要編碼的資產。
 3. 按 [編碼]  按鈕。
-4. 在 [為資產編碼]  視窗中，選取 [媒體編碼器標準] 處理器和預設值。 例如，如果您知道您的輸入視訊的解析度為 1920x1080 像素，您則可使用 [H264 多位元速率 1080p] 預設值。 如需預設值的詳細資訊，請參閱 [這篇](media-services-mes-presets-overview.md) 文章 – 務必選取最適合您的輸入視訊的預設值。 如果您有低解析度 (640x360) 視訊，則不應該使用預設 [H264 多位元速率 1080p] 預設值。
+4. 在 [為資產編碼]  視窗中，選取 [媒體編碼器標準] 處理器和預設值。 如需預設值的相關資訊，請參閱[自動產生的位元速率排行榜](media-services-autogen-bitrate-ladder-with-mes.md)和 [MES 的工作預設值](media-services-mes-presets-overview.md)。 如果您打算控制所要使用的編碼預設值，請記住：務必選取最適合您的輸入視訊的預設值。 例如，如果您知道您的輸入視訊的解析度為 1920x1080 像素，您則可使用 [H264 多位元速率 1080p] 預設值。 如果您有低解析度 (640x360) 視訊，則不應該使用 [H264 多位元速率 1080p] 預設值。
    
    為了方便管理，您可以選擇編輯輸出資產的名稱和作業的名稱。
    
@@ -155,6 +156,7 @@ Azure 入口網站提供內容播放程式，您可用來測試您的視訊。
 
 適用一些考量事項：
 
+* 若要開始串流，請開始執行**預設**串流端點。
 * 確定已發佈視訊。
 * 此 **媒體播放器** 會從預設串流端點播放。 如果您想要從非預設串流端點播放，請按一下以複製 URL 並使用其他播放器。 例如， [Azure 媒體服務播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)。
 

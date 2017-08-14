@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/03/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 3eb1d4df7ab87ec692716339eb0ecb9df4c58732
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
@@ -134,7 +133,34 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 如需詳細資訊，請參閱[設定已加入網域的 HDInsight](hdinsight-domain-joined-configure.md)。
 
-## <a name="connect-to-worker-and-zookeeper-nodes"></a>連線至背景工作角色和 Zookeeper 節點
+## <a name="connect-to-nodes"></a>連線到節點
+
+可在連接埠 22 和 23 上透過網際網路存取前端節點和邊緣節點 (如果有的話)。
+
+* 連線到__前端節點__時，請使用連接埠 __22__ 連線到主要前端節點，以及使用連接埠 __23__ 連線到次要前端節點。 要使用的完整網域名稱為 `clustername-ssh.azurehdinsight.net`，其中 `clustername` 是您的叢集名稱。
+
+    ```bash
+    # Connect to primary head node
+    # port not specified since 22 is the default
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+
+    # Connect to secondary head node
+    ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
+    ```
+    
+* 連線到__邊緣節點__時，請使用通訊埠 22。 完整網域名稱為 `edgenodename.clustername-ssh.azurehdinsight.net`，其中 `edgenodename` 是您建立邊緣節點時提供的名稱。 `clustername` 是叢集的名稱。
+
+    ```bash
+    # Connect to edge node
+    ssh sshuser@edgnodename.clustername-ssh.azurehdinsight.net
+    ```
+
+> [!IMPORTANT]
+> 先前的範例假設您使用密碼驗證，或該憑證驗證自動發生。 如果您使用 SSH 金鑰組進行驗證，但未自動使用憑證，請使用 `-i` 參數來指定私密金鑰。 例如， `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`。
+
+連線之後，字元會變更，以指示 SSH 使用者名稱和您所連線的節點。 例如，以 `sshuser` 身分連線到主要前端節點時，提示為 `sshuser@hn0-clustername:~$`。
+
+### <a name="connect-to-worker-and-zookeeper-nodes"></a>連線至背景工作角色和 Zookeeper 節點
 
 無法從網際網路直接存取背景工作角色節點和 Zookeeper 節點。 從叢集前端節點或邊緣節點即可加以存取。 以下是連接至其他節點的一般步驟：
 
@@ -188,6 +214,33 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
     如果您的私密金鑰儲存在不同的檔案，請將 `~/.ssh/id_rsa` 取代為檔案的路徑。
 
 5. 使用 SSH 連線到叢集的邊緣節點或前端節點。 然後，使用 SSH 命令連線到背景工作角色或 Zookeeper 節點。 該連線會使用轉送的金鑰來建立。
+
+## <a name="copy-files"></a>複製檔案
+
+`scp` 公用程式可用於雙向複製叢集中個別節點的檔案。 例如，下列命令可將 `test.txt` 目錄從本機系統複製到主要前端節點：
+
+```bash
+scp test.txt sshuser@clustername-ssh.azurehdinsight.net:
+```
+
+因為未在 `:` 之後指定路徑，所以此檔案會置於 `sshuser` 主目錄中。
+
+下列範例可將 `test.txt` 檔案從主要前端節點上的 `sshuser` 主目錄複製到本機系統：
+
+```bash
+scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
+```
+
+> [!IMPORTANT]
+> `scp` 只能存取叢集內個別節點的檔案系統。 它不能用來存取叢集的 HDFS 相容儲存體中的資料。
+>
+> 當您需要從 SSH 工作階段上傳資源以供使用時，請使用 `scp`。 例如，上傳 Python 指令碼，然後從 SSH 工作階段執行指令碼。
+>
+> 如需直接將資料載入 HDFS 相容儲存體的資訊，請參閱下列文件：
+>
+> * [使用 Azure 儲存體的 HDInsight](hdinsight-hadoop-use-blob-storage.md)。
+>
+> * [使用 Azure Data Lake Store 的 HDInsight](hdinsight-hadoop-use-data-lake-store.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

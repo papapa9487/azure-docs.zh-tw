@@ -15,6 +15,11 @@
 
 連接到 Azure VPN 閘道時，您無法針對內部部署 VPN 裝置指定這些 ASN。
 
+### <a name="are-there-any-other-asns-that-i-cant-use"></a>有我不能使用的任何其他 ASN 嗎？
+是，下列是 [IANA 保留](http://www.iana.org/assignments/iana-as-numbers-special-registry/iana-as-numbers-special-registry.xhtml)的 ASN 且無法在 Azure VPN 閘道上進行設定：
+
+23456、64496-64511、65535-65551 和 429496729
+
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-vnets"></a>內部部署 VPN 網路和 Azure VNet 可以使用相同的 ASN 嗎？
 否，如果您要將內部部署網路和 Azure VNet 與 BGP 連接，必須在內部部署網路與 Azure VNet 之間指派不同 ASN。 Azure VPN 閘道已將預設 ASN 指派為 65515 (無論跨單位連線是否啟用 BGP)。 您可以在建立 VPN 閘道時指派不同的 ASN 來覆寫這個預設值，或在建立閘道之後變更 ASN。 您必須將內部部署 ASN 指派給對應 Azure 區域網路閘道。
 

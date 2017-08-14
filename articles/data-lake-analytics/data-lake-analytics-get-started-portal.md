@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/21/2017
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: b004310a3b2667134c9ad890bd907dc8ae439dd9
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2722a2d72ed90ea0005362563ecaee30750c040a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Analytics
@@ -36,7 +35,7 @@ ms.lasthandoff: 06/16/2017
 現在，您會同時建立 Data Lake Analytics 和 Data Lake Store 帳戶。  這個步驟很簡單，只需要大約 60 秒即可完成。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下 [新增] >  [智慧 + 分析] > [Data Lake Analytics]。
+2. 按一下 [新增] >  [資料 + 分析] > [Data Lake Analytics]。
 3. 選取下列項目的值︰
    * **名稱**：替 Data Lake Analytics 帳戶命名 (只允許小寫字母和數字)。
    * **訂用帳戶**：選擇用於分析帳戶的 Azure 訂用帳戶。
@@ -71,7 +70,7 @@ OUTPUT @a
 3. 按一下 [ **提交作業**]。   
 4. 請等候作業狀態變更為 [成功]。
 5. 如果作業失敗，請參閱[監視和移難排解 Data Lake Analytics 作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)。
-6. 按一下 [輸出] 索引標籤，然後按一下 `SearchLog-from-Data-Lake.csv`。 
+6. 按一下 [輸出] 索引標籤，然後按一下 `data.csv`。 
 
 ## <a name="see-also"></a>另請參閱
 

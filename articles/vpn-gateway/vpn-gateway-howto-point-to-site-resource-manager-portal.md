@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/27/2017
+ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 171159fece2e3927458aff6e6185b96c792e17c8
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 28bc587204be30b1b29da7c2235e347d778b908e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線：Azure 入口網站
@@ -91,7 +91,7 @@ ms.lasthandoff: 07/31/2017
 
 ## <a name="dns"></a>4 - 指定 DNS 伺服器 (選擇性)
 
-建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便處理名稱解析。 指定的 DNS 伺服器應該是可以解析您所連接的資源名稱的 DNS 伺服器。 您在後續步驟中產生的 VPN 用戶端設定套件，將會包含您在此設定中指定的 DNS 伺服器 IP 位址。 如果未來需要更新 DNS 伺服器清單，您可以產生並安裝新的 VPN 用戶端設定套件，以反映新的清單。
+建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便處理名稱解析。 您指定的 DNS 伺服器應該是可以解析您所連線之資源名稱的 DNS 伺服器。
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 07/31/2017
 
 ## <a name="clientconfig"></a>9 - 安裝 VPN 用戶端組態套件
 
-若要使用點對站 VPN 連線至 VNet，每個用戶端都必須安裝用來設定原生 Windows VPN 用戶端的套件。 組態套件可使用連線至虛擬網路所需的設定來設定原生 Windows VPN 用戶端，而如果您指定了 VNet 的 DNS 伺服器，它會包含用戶端將用於名稱解析的 DNS 伺服器 IP 位址。 如果您之後變更了指定的 DNS 伺服器，請在產生用戶端設定套件之後，務必產生新的用戶端設定套件以安裝於用戶端電腦上。
+若要使用點對站 VPN 連線至 VNet，每個用戶端都必須安裝用來設定原生 Windows VPN 用戶端的套件。 此設定套件會使用連線至虛擬網路所需的設定來設定原生 Windows VPN 用戶端。
 
 您可以在每個用戶端電腦上使用相同的 VPN 用戶端組態套件，只要版本符合用戶端的架構。 如需支援的用戶端作業系統清單，請參閱本文結尾的[點對站連線常見問題集](#faq)。
 

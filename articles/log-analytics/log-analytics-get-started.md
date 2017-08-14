@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9147d2f349f59417e44e288ef057e5857a266815
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 7bdbdf8654ae22ba143d5f87384e04fe4a11d10e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="get-started-with-a-log-analytics-workspace"></a>開始使用 Log Analytics 工作區
@@ -59,7 +58,12 @@ ms.lasthandoff: 06/16/2017
 4. 選取工作區以查看其在 Azure 入口網站中的詳細資料。       
     ![工作區詳細資料](./media/log-analytics-get-started/oms-onboard-workspace-details.png)         
 
-## <a name="3-add-solutions-and-solution-offerings"></a>3 新增解決方案和解決方案供應項目
+## <a name="3-upgrade-workspace-to-new-log-search"></a>3 將工作區升級為新的記錄搜尋
+已發行新的 Log Analytics 查詢語言，若要利用該語言，您必須轉換您的工作區。  如果您的工作區的裝載區域已升級，您應會在工作區頂端看到邀請您轉換的紫色橫幅。 升級屬完全自願性，並不會影響您使用 Log Analytics 和任何您新增之解決方案的經驗。  
+
+如需進一步了解優點、考量和升級程序的詳細資訊，請參閱[將 Azure Log Analytics 升級為新的記錄搜尋](log-analytics-log-search-upgrade.md)。  
+
+## <a name="4-add-solutions-and-solution-offerings"></a>4 新增解決方案和解決方案供應項目
 
 接下來，新增管理解決方案和解決方案供應項目。 管理解決方案是邏輯、視覺效果和資料擷取規則的集合，可提供針對特定問題領域進行計量的樞紐分析。 解決方案供應項目是管理解決方案的組合。
 
@@ -95,11 +99,11 @@ ms.lasthandoff: 06/16/2017
 
 - 遵循[將 Azure 虛擬機器連接到 Log Analytics](log-analytics-azure-vm-extension.md)中的指示，使用 Azure 入口網站將 VM 連接到 Log Analytics。
 
-## <a name="5-view-and-act-on-data"></a>5 檢視和處理資料
+## <a name="6-view-and-act-on-data"></a>6 檢視和處理資料
 
 之前您已啟用活動 Log Analytics 解決方案、安全性與合規性以及自動化與控制服務供應項目。 接下來，我們要開始查看解決方案所收集的資料和記錄搜尋中的結果。
 
-一開始，請先查看從解決方案內顯示的資料。 然後，查看一些透過記錄搜尋所取得的記錄搜尋。 記錄檔搜尋可讓您結合和相互關聯您環境內多個來源的任何電腦資料。 如需詳細資訊，請參閱 [Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)。 最後，處理我們使用 OMS 入口網站 (在 Azure 入口網站外部) 所找到的資料。
+一開始，請先查看從解決方案內顯示的資料。 然後，查看一些透過記錄搜尋所取得的記錄搜尋。 記錄檔搜尋可讓您結合和相互關聯您環境內多個來源的任何電腦資料。 如需詳細資訊，請參閱 [Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)，而如果您的工作區已轉換為新的查詢語言，請參閱[了解 Log Analytics 中的記錄搜尋](log-analytics-log-search-new.md)。 
 
 ### <a name="to-view-antimalware-data"></a>檢視反惡意程式碼資料
 

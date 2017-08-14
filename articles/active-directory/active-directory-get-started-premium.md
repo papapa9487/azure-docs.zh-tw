@@ -1,6 +1,6 @@
 ---
-title: "開始使用 Azure Active Directory Premium"
-description: "說明如何透過大量授權網站來註冊 Azure Active Directory Premium Edition 的主題。"
+title: "註冊 Azure Active Directory Premium"
+description: "說明如何註冊 Azure Active Directory Premium 版本。"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,41 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2017
+ms.date: 08/09/2017
 ms.author: curtand
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 73cbbce9ae3d727632b8cac2a29c2b1b92332ae7
+ms.custom: it-pro;
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="getting-started-with-azure-active-directory-premium"></a>開始使用 Azure Active Directory Premium
+# <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>快速入門：註冊 Azure Active Directory Premium
+若要開始使用 Azure Active Directory (Azure AD) Premium，您需要購買授權並將其與您的 Azure 訂用帳戶建立關聯。 如果您建立新的 Azure 訂用帳戶，您也需要啟用您的授權方案及 Azure AD 服務存取，如下列各節所述。 
+
+## <a name="sign-up-for-active-directory-premium"></a>註冊 Active Directory Premium
 若要註冊 Active Directory Premium，您有數個選項︰ 
 
-**Azure 或 Office 365** - 身為 Azure 或 Office 365 訂閱者，您可以線上購買 Active Directory Premium。 如需詳細步驟，請參閱[如何購買 Azure Active Directory Premium - 現有客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer)或[如何購買 Azure Active Directory Premium - 新客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)。  
+### <a name="azure-or-office-365"></a>Azure 或 Office 365 
+身為 Azure 或 Office 365 訂閱者，您可以線上購買 Azure Active Directory Premium。 
 
-**Enterprise Mobility + Security** - Enterprise Mobility + Security (先前的 Enterprise Mobility Suite) 是一個符合成本效益的方式，可供組織根據單一授權方案來搭配使用下列服務：Active Directory Premium、Azure Rights Management 和 Microsoft Intune。 如需詳細資訊，請參閱 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/server-cloud/enterprise-mobility/overview.aspx) 網站。 若要取得 30 天的免費試用，請按一下 [這裡](https://portal.office.com/Signup/Signup.aspx?OfferId=2E63A04D-BE0B-4A0F-A8CF-407C1C299221&dl=EMS&ali=1#0)。
+如需詳細步驟，請參閱[如何購買 Azure Active Directory Premium - 現有客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-Existing-Customer)或[如何購買 Azure Active Directory Premium - 新客戶](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/How-to-Purchase-Azure-Active-Directory-Premium-New-Customers)。  
 
-**Microsoft 大量授權** - Azure Active Directory Premium 可透過 [Microsoft Enterprise 合約](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 個以上的授權) 或 [Open 大量授權](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 個授權) 方案來取得。
+### <a name="enterprise-mobility--security"></a>Enterprise Mobility + Security
+Enterprise Mobility + Security (EMS) 是一個符合成本效益的方式，可供組織依據單一授權方案來搭配使用下列服務：Azure Active Directory Premium、Azure Information Protection 和 Microsoft Intune。 您可以在 [Enterprise Mobility + Security 網路](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)深入了解 EMS，以及在 [Enterprise Mobility + Security 價格選項](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing)頁面深入了解可以購買的 EMS 授權類型。  
 
-本主題說明如何開始使用您透過大量授權方案購買的 Azure Active Directory Premium。 如果您還不熟悉 Azure Active Directory 的不同版本，請參閱 [Azure Active Directory 版本](active-directory-editions.md)。  
+您可以利用下列其中一個授權選項，透過 EMS 授權開始使用 Azure AD：
+
+- 透過免費的 [Enterprise Mobility + Security E5 試用訂用帳戶](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)試用 EMS
+- 購買 [Enterprise Mobility + Security E5 授權](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- 購買 [Enterprise Mobility + Security E3 授權](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+
+### <a name="microsoft-volume-licensing"></a>Microsoft 大量授權
+Azure Active Directory Premium 可透過 [Microsoft Enterprise 合約](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 個以上的授權) 或 [Open 大量授權](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx) (5-250 個授權) 方案來取得。
+
+您可以在[如何透過大量授權購買](https://www.microsoft.com/licensing/how-to-buy/how-to-buy.aspx)頁面深入了解大量授權購買選項。
 
 > [!NOTE]
 > Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。 由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。 如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
 > 
 > 
 
-## <a name="step-1-sign-up-for-active-directory-premium"></a>步驟 1：註冊 Active Directory Premium
-若要註冊，請參閱[如何透過大量授權來購買](http://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx)。
+如果您先前已針對在前述步驟中使用的相同 Azure 訂用帳戶購買並啟用 Azure AD 授權，這些授權就會自動在相同的目錄中啟用。 您不需要繼續進行本文其餘部分所述的步驟。
 
-## <a name="step-2-activate-your-license-plan"></a>步驟 2：啟用您的授權方案
-這是您透過 Microsoft 的企業大量授權方案所購買的第一個授權方案嗎？
-若是如此，您會在購買完成時收到確認電子郵件。
-您必須透過這封電子郵件才能啟用您的第一個授權方案。
-
-後續針對此目錄的任何購買，授權將會自動在相同的目錄中啟用。
+## <a name="activate-your-license-plan"></a>啟用您的授權方案
+這是您向 Microsoft 購買的第一個 Azure AD 授權方案嗎？ 若是如此，系統會在購買完成時產生確認電子郵件並傳送給您。 您必須透過這封電子郵件才能啟用您的第一個授權方案。
 
 **若要啟用授權方案，請執行下列其中一個步驟︰**
 
@@ -53,77 +62,42 @@ ms.lasthandoff: 12/08/2016
    
     ![Sign in][1]
 
-    - 如果您有現有的租用戶，請按一下 [登入]  以使用現有的系統管理員帳戶登入。 您必須使用目錄的全域管理員認證進行登入，且目錄必須已啟用授權。
+    - 如果您有現有的租用戶，請按一下 [登入]  以使用現有的系統管理員帳戶登入。 使用目錄的全域管理員認證進行登入，且目錄必須已啟用授權。
 
-    - 如果您想要建立新的 Azure Active Directory 租用戶來與您的授權方案搭配使用，請按一下 [註冊] 以開啟 [建立帳戶設定檔] 對話方塊。
+    - 如果您想要建立新的 Azure AD 租用戶來與您的授權方案搭配使用，請按一下 [註冊] 以開啟 [建立帳戶設定檔] 對話方塊。
 
         ![建立帳戶設定檔][2]
 
-完成時將會顯示下列對話方塊，以確認您的租用戶的授權方案已啟用。
+完成時將會顯示下列對話方塊，以確認您的租用戶的授權方案已啟用︰
 
 ![確認][3]
 
-## <a name="step-3-activate-your-azure-active-directory-access"></a>步驟 3：啟用 Azure Active Directory 存取
-如果您之前已使用過 Microsoft Azure，您可以跳到 [步驟 4](#step-4-assign-license-to-user-accounts)。 
+## <a name="activate-your-azure-active-directory-access"></a>啟用 Azure Active Directory 存取權
+如果您要將新的 Azure AD Premium 授權新增到現有的訂用帳戶中，應已啟用您的 Azure AD 存取權。 否則，您必須在收到**歡迎電子郵件**之後啟用 Azure AD 存取權。  
 
-當有授權佈建到您的目錄時，您會收到 **歡迎電子郵件** 。 此電子郵件會確認您可以開始管理 Azure Active Directory Premium 或 Enterprise Mobility Suite 的授權和功能。 
+當您購買的授權佈建到您的目錄時，您會收到 **歡迎電子郵件**。 此電子郵件會確認您可以開始管理 Azure Active Directory Premium 或 Enterprise Mobility + Security 的授權和功能。 
 
-如果您嘗試在收到歡迎電子郵件之前就先啟用您對 Azure Active Directory 的存取權，則會收到下列錯誤訊息。 
+> [!TIP]
+> 直到您使用授權佈建程序完成時自動傳送的歡迎電子郵件來啟用 Azure AD 目錄存取權時，您才可存取新租用戶的 Azure AD。 
 
-![無法存取][9]
-
-如果您 請在收到電子郵件的幾分鐘後再試一次。
-
-訂用帳戶中的新系統管理員也可透過此連結來啟用其對 Azure 傳統入口網站的存取權。
-
-**若要啟用 Azure Active Directory 存取，請執行下列步驟：**
+**若要啟用 Azure AD 存取權，請執行下列步驟：**
 
 1. 在**歡迎電子郵件**中按一下 [登入]。 
    
     ![歡迎電子郵件][4]
-2. 當您成功登入時，您必須完成形式為行動裝置驗證的第二因素驗證。
+2. 登入成功時，您還需要使用行動裝置完成第二因素驗證︰
    
     ![行動裝置驗證][5]
 
-啟用作業可能需要幾分鐘的時間。 您的存取權一旦啟用，棕色列便會消失，而您就可以按一下 [入口網站] 。
+啟用應該只需幾分鐘的時間，您管理您的 Azure AD 存取權。 
 
-![設定中，請稍候][6]
+## <a name="next-steps"></a>後續步驟
+在本快速入門中，您學到如何註冊 Azure AD Premium 並啟用您的 Azure Active Directory 存取權。 
 
-在此案例中，您的 Azure 存取權僅限於 Azure Active Directory。
+如果您已經有 Azure 訂用帳戶，可以使用下列連結來啟動試用版或從 Azure 入口網站購買 Azure AD Premium 授權。
 
-![Azure 功能][7]
-
-在先前的使用中，您可能已經存取過 Azure。此外，您可以透過啟用其他 Azure 訂用帳戶，將 Access Azure Active Directory 升級為完整 Azure 存取。 在這些情況下，Azure 傳統入口網站會有更多功能。
-
-![Azure 功能][8]
-
-## <a name="step-4-assign-license-to-user-accounts"></a>步驟 4：將授權指派給使用者帳戶
-在您可以開始使用所購買的方案之前，您必須以手動方式將授權指派給組織內的使用者帳戶，好讓他們可以使用 Premium 所提供的豐富功能。 使用下列步驟來將授權指派給使用者，好讓他們可以使用 Azure Active Directory Premium 功能。
-
-**若要指派授權給使用者，請執行下列步驟：**
-
-1. 以想要自訂之目錄的全域系統管理員身分登入 Azure 傳統入口網站。
-2. 按一下 [ **Active Directory**]，然後選取您要指派授權的目錄。
-3. 選取 [授權] 索引標籤，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
-   
-    ![授權方案][10]
-4. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
-   
-    ![指派授權][11]
-
-### <a name="license-restrictions"></a>授權限制
-部分的授權方案屬於其他授權方案的子集或超集。 一般來說，您無法將授權方案重複指派給使用者。 如果您打算指派超集授權方案，則您必須先移除子集授權方案。
-
-### <a name="license-requirements"></a>授權需求
-當您將授權指派給使用者時，您可以在他們的帳戶屬性中指定一個主要使用位置。 如果未指定使用位置，則系統會自動將租用戶的位置指派給使用者。
-
-![使用者位置][12]
-
-Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所不同。 服務 (例如網路電話，VoIP) 有可能在一個國家或地區可以使用，但在另一個國家或地區卻無法使用。 基於某些國家或地區的法律問題，服務中的功能可能會受到限制。 若要查看服務或功能在使用上有無限制，請到服務授權限制網站並尋找您的國家或區域。
-
-## <a name="whats-next"></a>後續步驟
-* [在登入和存取面板頁面加上公司商標](active-directory-add-company-branding.md)
-* [檢視存取和使用情況報告](active-directory-view-access-usage-reports.md)
+> [!div class="nextstepaction"]
+> [啟用 Azure AD Premium 授權](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/TryBuyProductBlade) 
 
 <!--Image references-->
 [1]: ./media/active-directory-get-started-premium/MOLSEmail.png
@@ -138,4 +112,3 @@ Microsoft 雲端服務的服務和功能可用性會依國家或地區而有所�
 [10]: ./media/active-directory-get-started-premium/contosolicenseplan.png
 [11]: ./media/active-directory-get-started-premium/Assignlicensespicker.png
 [12]: ./media/active-directory-get-started-premium/Usagelocation.png
-

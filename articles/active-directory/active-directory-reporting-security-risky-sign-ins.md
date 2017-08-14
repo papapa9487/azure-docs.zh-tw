@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/01/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: e21b7733bc0f6b8625fbdcec3529ad603ce306c1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: f66c4c0b7c391b3fc5ee042cc7a6643e46566d3f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險的登入報告
@@ -35,6 +35,19 @@ Azure AD 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到�
 在 [Azure 入口網站](https://portal.azure.com)中，您可以在 [Azure Active Directory] 刀鋒視窗的 [安全性] 區段中找到安全性報告。 
 
 ![有風險的登入](./media/active-directory-reporting-security-risky-sign-ins/10.png)
+
+
+## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>您需要哪項 Azure AD 授權才能存取安全性報告？  
+
+所有 Azure Active Directory 版本都會為您提供有風險的登入報告。  
+不過，報告細微性層級因版本而異： 
+
+- 在 [Azure Active Directory Free 和 Basic 版本] 中，您已取得有風險的登入清單。 
+
+- **Azure Active Directory Premium 1** 版本也可讓您檢查每份報告部分已偵測到的基礎風險事件，藉此擴充此模型。 
+
+- **Azure Active Directory Premium 2** 版本可提供有關基礎風險事件的最詳細資訊，也可讓您設定安全性原則，自動回應已設定的風險層級。
+
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory 免費和基本版本

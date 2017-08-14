@@ -12,12 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 08/07/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 5bed2616e15a2e5f52e79d0c28159b568e7a1de3
-ms.lasthandoff: 04/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 804e05f596e1d6d5f650e4c94a18eff6b7c3ba4e
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -25,31 +26,89 @@ ms.lasthandoff: 04/15/2017
 成功建立自動化帳戶之後，您可以執行簡單的測試，確認您能夠在 Azure Resource Manager 或 Azure 傳統部署中使用新建立或已更新的自動化執行身分帳戶成功進行驗證。    
 
 ## <a name="automation-run-as-authentication"></a>自動化執行身分驗證
+使用下面範例程式碼來[建立 PowerShell Runbook](automation-creating-importing-runbook.md)，以使用執行身分帳戶進行驗證，並且同時在自訂 Runbook 中使用您的自動化帳戶驗證及管理 Resource Manage 資源。   
 
-1. 在 Azure 入口網站中，開啟先前建立的自動化帳戶。  
-2. 按一下 [Runbook]  磚以開啟 Runbook 的清單。
-3. 選取 **AzureAutomationTutorialScript** Runbook，然後按一下 [啟動] 來啟動 Runbook。  您會收到提示，確認您想要啟動 Runbook。
-4. 已建立 [Runbook 作業](automation-runbook-execution.md)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 [作業摘要] 圖格中。  
-5. 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  
-6. Runbook 作業完成時，我們應該會看到 [完成] 狀態。<br> ![安全性主體 Runbook 測試](media/automation-verify-runas-authentication/job-summary-automationtutorialscript.png)<br>
-7. 若要查看 Runbook 的詳細結果，請按一下 [輸出]  圖格。
-8. 在 [輸出]  刀鋒視窗中，您應該會看到它已成功驗證並傳回資源群組中的所有可用資源清單。
-9. 關閉 [輸出] 刀鋒視窗以返回 [作業摘要] 刀鋒視窗。
-10. 關閉 [作業摘要] 和對應的 **AzureAutomationTutorialScript** Runbook 刀鋒視窗。
+    $connectionName = "AzureRunAsConnection"
+    try
+    {
+        # Get the connection "AzureRunAsConnection "
+        $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
+
+        "Logging in to Azure..."
+        Add-AzureRmAccount `
+           -ServicePrincipal `
+           -TenantId $servicePrincipalConnection.TenantId `
+           -ApplicationId $servicePrincipalConnection.ApplicationId `
+           -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+    }
+    catch {
+       if (!$servicePrincipalConnection)
+       {
+          $ErrorMessage = "Connection $connectionName not found."
+          throw $ErrorMessage
+      } else{
+          Write-Error -Message $_.Exception
+          throw $_.Exception
+      }
+    }
+
+    #Get all ARM resources from all resource groups
+    $ResourceGroups = Get-AzureRmResourceGroup 
+
+    foreach ($ResourceGroup in $ResourceGroups)
+    {    
+       Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
+       $Resources = Find-AzureRmResource -ResourceGroupNameContains $ResourceGroup.ResourceGroupName | Select ResourceName, ResourceType
+       ForEach ($Resource in $Resources)
+       {
+          Write-Output ($Resource.ResourceName + " of type " +  $Resource.ResourceType)
+       }
+       Write-Output ("")
+    } 
+
+請注意，Runbook 中用來驗證的 Cmdlet (**Add-AzureRmAccount**) 會使用 ServicePrincipalCertificate 參數集。  它藉由使用服務主體憑證 (而非認證) 進行驗證。  
+
+當您**執行 Runbook** 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 [作業摘要][](automation-runbook-execution.md) 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
+
+若要查看 Runbook 的詳細結果，請按一下 [輸出]  圖格。  在 [輸出] 刀鋒視窗上，您應會看到它已成功驗證並傳回您的訂用帳戶中所有資源群組中的所有資源清單。  
+
+當您對 Runbook 重複使用程式碼時，請記得移除以 `#Get all ARM resources from all resource groups` 註解開頭的程式碼區塊。
 
 ## <a name="classic-run-as-authentication"></a>傳統執行身分驗證
-如果您即將管理傳統部署模型中的資源，請執行下列步驟，以確認您能夠使用新的傳統執行身分帳戶成功進行驗證。     
+使用下面範例程式碼來[建立 PowerShell Runbook](automation-creating-importing-runbook.md)，以使用傳統執行身分帳戶進行驗證，並且同時在自訂 Runbook 中驗證及管理傳統部署模型中的資源。  
 
-1. 在 Azure 入口網站中，開啟先前建立的自動化帳戶。  
-2. 按一下 [Runbook]  磚以開啟 Runbook 的清單。
-3. 選取 **AzureClassicAutomationTutorialScript** Runbook，然後按一下 [啟動] 來啟動 Runbook。  您會收到提示，確認您想要啟動 Runbook。
-4. 已建立 [Runbook 作業](automation-runbook-execution.md)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 [作業摘要] 圖格中。  
-5. 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  
-6. Runbook 作業完成時，我們應該會看到 [完成] 狀態。<br><br> ![安全性主體 Runbook 測試](media/automation-verify-runas-authentication/job-summary-automationclassictutorialscript.png)<br>  
-7. 若要查看 Runbook 的詳細結果，請按一下 [輸出]  圖格。
-8. 在 [輸出]  刀鋒視窗中，您應該會看到它已成功驗證並傳回訂用帳戶中的所有傳統 VM 清單。
-9. 關閉 [輸出] 刀鋒視窗以返回 [作業摘要] 刀鋒視窗。
-10. 關閉 [作業摘要] 和對應的 **AzureClassicAutomationTutorialScript** Runbook 刀鋒視窗。
+    $ConnectionAssetName = "AzureClassicRunAsConnection"
+    # Get the connection
+    $connection = Get-AutomationConnection -Name $connectionAssetName        
+
+    # Authenticate to Azure with certificate
+    Write-Verbose "Get connection asset: $ConnectionAssetName" -Verbose
+    $Conn = Get-AutomationConnection -Name $ConnectionAssetName
+    if ($Conn -eq $null)
+    {
+       throw "Could not retrieve connection asset: $ConnectionAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    $CertificateAssetName = $Conn.CertificateAssetName
+    Write-Verbose "Getting the certificate: $CertificateAssetName" -Verbose
+    $AzureCert = Get-AutomationCertificate -Name $CertificateAssetName
+    if ($AzureCert -eq $null)
+    {
+       throw "Could not retrieve certificate asset: $CertificateAssetName. Assure that this asset exists in the Automation account."
+    }
+
+    Write-Verbose "Authenticating to Azure with certificate." -Verbose
+    Set-AzureSubscription -SubscriptionName $Conn.SubscriptionName -SubscriptionId $Conn.SubscriptionID -Certificate $AzureCert
+    Select-AzureSubscription -SubscriptionId $Conn.SubscriptionID
+    
+    #Get all VMs in the subscription and return list with name of each
+    Get-AzureVM | ft Name
+
+當您**執行 Runbook** 來驗證您的執行身分帳戶時，已建立 [Runbook 作業](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal)、顯示 [作業] 刀鋒視窗，而作業狀態會顯示在 [作業摘要][](automation-runbook-execution.md) 圖格中。 作業狀態一開始會顯示為 [已排入佇列]  ，表示其正在等候雲端中的 Runbook 背景工作變為可用狀態。 然後當背景工作宣告該工作時，狀態將變更為 [正在開始]，然後 Runbook 實際開始執行時再變更為 [執行中]。  Runbook 作業完成時，我們應該會看到 [完成] 狀態。
+
+若要查看 Runbook 的詳細結果，請按一下 [輸出]  圖格。  在 [輸出] 刀鋒視窗上，您應會看到它已驗證成功並傳回您訂用帳戶中部署的所有 Azure VM 清單 (依 VMName 列出)。  
+
+當您對 Runbook 重複使用程式碼時，請記得移除 **Get-AzureVM** Cmdlet。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要開始使用 PowerShell Runbook，請參閱[我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
