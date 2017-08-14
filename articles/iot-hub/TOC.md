@@ -3,9 +3,9 @@
 ## [何謂 Azure IoT 中樞？](iot-hub-what-is-iot-hub.md)
 ## [裝置管理概觀](iot-hub-device-management-overview.md)
 
-# [快速入門](iot-hub-get-started.md)
+# [開始使用](iot-hub-get-started.md)
 
-## 設定裝置
+## 設定您的裝置
 ### [模擬電腦上的裝置](iot-hub-get-started-simulated.md)
 #### [.NET](iot-hub-csharp-csharp-getstarted.md)
 #### [Java](iot-hub-java-java-getstarted.md)
@@ -17,6 +17,7 @@
 ### [使用實體裝置](iot-hub-get-started-physical.md)
 #### [Raspberry Pi with Node.js](iot-hub-raspberry-pi-kit-node-get-started.md)
 #### [Raspberry Pi with C](iot-hub-raspberry-pi-kit-c-get-started.md)
+#### [Raspberry Pi with Python](iot-hub-raspberry-pi-kit-python-get-started.md)
 
 #### [Intel Edison with Node.js](iot-hub-intel-edison-kit-node-get-started.md)
 #### [Intel Edison with C](iot-hub-intel-edison-kit-c-get-started.md)
@@ -84,6 +85,7 @@
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-getstarted.md)
 #### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-twin-getstarted.md)
+#### [Java 後端/Java 裝置](iot-hub-java-java-twin-getstarted.md)
 ### 使用直接方法
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-direct-methods.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-direct-methods.md)
@@ -103,6 +105,7 @@
 ### 排程及廣播作業
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-schedule-jobs.md)
+#### [Java](iot-hub-java-java-schedule-jobs.md)
 ## 管理
 ### 建立 IoT 中樞 
 #### [使用入口網站](iot-hub-create-through-portal.md)
@@ -150,6 +153,7 @@
 #### [原生模組主機](https://github.com/Azure/iot-edge/tree/master/samples/native_module_host_sample)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=iot-hub)
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (服務)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (裝置)](/dotnet/api/microsoft.azure.devices.client)
@@ -180,6 +184,7 @@
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-hub/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub)
 ## [價格](https://azure.microsoft.com/pricing/details/iot-hub/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=iot-hub)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-iot-hub)
 ## [技術案例研究](https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured)

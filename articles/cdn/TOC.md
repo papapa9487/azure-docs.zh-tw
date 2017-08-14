@@ -10,6 +10,8 @@
 ### [雲端服務](cdn-cloud-service-with-cdn.md)
 ### [儲存體](cdn-create-a-storage-account-with-cdn.md)
 ### [跨原始資源共用](cdn-cors.md)
+### [將自訂網域對應至 CDN](cdn-map-content-to-custom-domain.md)
+### [啟用自訂網域的 HTTPS](cdn-custom-ssl.md)
 ## 最佳化內容
 ### [最佳化概觀](cdn-optimization-overview.md)
 ####[大型檔案最佳化](cdn-large-file-optimization.md)
@@ -17,12 +19,10 @@
 ####[動態網站加速](cdn-dynamic-site-acceleration.md)
  
 ## 管理
-### [啟用自訂網域的 HTTPS](cdn-custom-ssl.md)
 ### [以 PowerShell 管理](cdn-manage-powershell.md)
 ### 設定存留時間
 #### [Web Apps/雲端服務、ASP.NET 或 IIS 內容](cdn-manage-expiration-of-cloud-service-content.md)
 #### [儲存體 Blob 服務內容](cdn-manage-expiration-of-blob-content.md)
-### [將自訂網域對應至 CDN](cdn-map-content-to-custom-domain.md)
 ### [依國家/地區限制存取](cdn-restrict-access-by-country.md)
 ### [藉由壓縮檔案來改善效能](cdn-improve-performance.md)
 ### 依查詢字串的快取內容
@@ -52,6 +52,7 @@
 ### [檔案壓縮](cdn-troubleshoot-compression.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=cdn)
 ## [PowerShell](/powershell/module/azurerm.cdn)
 ## [.NET](/dotnet/api/microsoft.azure.management.cdn)
 ## [Java](/java/api/com.microsoft.azure.management.cdn)
@@ -66,6 +67,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecdn)
 ## [價格](https://azure.microsoft.com/pricing/details/cdn/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=cdn)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cdn)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=cdn)

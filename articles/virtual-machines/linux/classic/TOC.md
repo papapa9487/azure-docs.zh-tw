@@ -4,13 +4,13 @@
 ## [可用性](configure-availability.md)
 ## [常見問題集](faq.md)
 
-# [開始使用](../opensource-links.md)
+# 開始使用
 ## [使用入口網站建立 Linux VM](createportal.md)
 ## [安裝 Azure CLI](../../../cli-install-nodejs.md)
 ## [建立 SSH 金鑰](../mac-create-ssh-keys.md)
 
 # 作法
-## [計算](../intro-on-azure.md)
+## 計算
 ### [建立自訂 VM](create-custom.md)
 ### [擷取 VM](capture-image.md)
 ### [搭配使用遠端桌面與 Linux VM](remote-desktop.md)
@@ -82,6 +82,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)
 ## [價格](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [區域可用性](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
