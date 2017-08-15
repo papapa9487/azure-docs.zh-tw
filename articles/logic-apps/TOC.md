@@ -16,6 +16,7 @@
 ### [新增 Switch 陳述式](logic-apps-switch-case.md)
 ### [使用 Azure Functions 新增自訂程式碼](logic-apps-azure-functions.md)
 ### [迴圈、範圍和解除批次處理資料](logic-apps-loops-and-scopes.md)
+### [批次程序訊息](logic-apps-batch-process-send-receive-messages.md)
 ### [撰寫邏輯應用程式定義](logic-apps-author-definitions.md)
 ### [呼叫、觸發或巢狀邏輯應用程式](logic-apps-http-endpoint.md)
 ### [建立邏輯應用程式的自訂 API](logic-apps-create-api-app.md)
@@ -64,6 +65,7 @@
 ### [使用 Visual Studio 管理邏輯應用程式](logic-apps-manage-from-vs.md)
 ### [管理整合帳戶](logic-apps-enterprise-integration-accounts.md)
 ### [監視邏輯應用程式狀態](logic-apps-monitor-your-logic-apps.md)
+### [透過 Log Analytics 監視 OMS 中的邏輯應用程式狀態](logic-apps-monitor-your-logic-apps-oms.md)
 ### [監視 B2B 訊息](logic-apps-monitor-b2b-message.md)
 #### [在 OMS 中追蹤 B2B 訊息](logic-apps-track-b2b-messages-omsportal.md)
 #### [B2B 訊息的查詢 OMS](logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md)
@@ -140,5 +142,6 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=logic-apps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)

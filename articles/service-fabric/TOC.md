@@ -16,6 +16,7 @@
 ### [2- 使用 Docker Compose 部署 .NET 應用程式](service-fabric-host-app-in-a-container.md)
 
 # 範例
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Azure CLI](samples-cli.md)
 # 概念
@@ -68,6 +69,7 @@
 ##### [DNS 服務](service-fabric-dnsservice.md)
 ##### [反向 Proxy](service-fabric-reverseproxy.md)
 ##### [設定安全通訊的反向 proxy](service-fabric-reverseproxy-configure-secure-communication.md)
+##### [反向 Proxy 診斷](service-fabric-reverse-proxy-diagnostics.md)
 ### [應用程式的延展性](service-fabric-concepts-scalability.md)
 ### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
@@ -131,11 +133,11 @@
 ### 建置容器服務
 #### [建立 Windows 容器應用程式](service-fabric-get-started-containers.md)
 #### [建立 Linux 容器應用程式](service-fabric-get-started-containers-linux.md)
-#### [部署 Windows 容器](service-fabric-deploy-container.md)
 #### [部署 Linux 容器](service-fabric-deploy-container-linux.md)
 #### [Docker Compose (預覽)](service-fabric-docker-compose.md)
 #### [容器和服務的資源管理](service-fabric-resource-governance.md)
 #### [磁碟區與記錄驅動程式](service-fabric-containers-volume-logging-drivers.md)
+#### [容器內的服務](service-fabric-services-inside-containers.md)
 
 ### 建置 Reliable Services 服務
 #### [概觀](service-fabric-reliable-services-introduction.md)
@@ -173,10 +175,10 @@
 #### 開始使用
 ##### [Windows 上的 C# ](service-fabric-reliable-actors-get-started.md)
 ##### [在 Linux 上使用 Java](service-fabric-reliable-actors-get-started-java.md)
-#### [傳送通知](service-fabric-reliable-actors-events.md) 
+#### [傳送通知](service-fabric-reliable-actors-events.md)
 #### [設定計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)
 #### [設定 KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
-#### [設定通訊設定](service-fabric-reliable-actors-fabrictransportsettings.md) 
+#### [設定通訊設定](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [設定 ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
 
 ### [設定安全通訊的反向 proxy](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -240,17 +242,17 @@
 
 ## 建立和管理叢集
 ### Azure 上的叢集
-#### 建立 
+#### 建立
 ##### [在 Azure 上建立您的第一個叢集](service-fabric-get-started-azure-cluster.md)
 ##### [Azure 入口網站](service-fabric-cluster-creation-via-portal.md)
 ##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-#### 調整 
+#### 調整
 ##### [以手動方式](service-fabric-cluster-scale-up-down.md)
 ##### [以程式設計方式](service-fabric-cluster-programmatic-scaling.md)
 #### [升級](service-fabric-cluster-upgrade.md)
 #### [設定存取控制](service-fabric-cluster-security-roles.md)
 #### [設定](service-fabric-cluster-fabric-settings.md)
-#### [管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md) 
+#### [管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
 #### [刪除](service-fabric-cluster-delete.md)
 
 ### 獨立叢集
@@ -264,7 +266,7 @@
 #### [調整](service-fabric-cluster-windows-server-add-remove-nodes.md)
 #### [設定存取控制](service-fabric-cluster-security-roles.md)
 #### [設定](service-fabric-cluster-manifest.md)
-#### [升級](service-fabric-cluster-upgrade-windows-server.md) 
+#### [升級](service-fabric-cluster-upgrade-windows-server.md)
 
 ### [視覺化叢集](service-fabric-visualizing-your-cluster.md)
 ### [連線到安全的叢集](service-fabric-connect-to-secure-cluster.md)
@@ -328,8 +330,8 @@
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric)
 ## [價格](https://azure.microsoft.com/pricing/details/service-fabric/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例程式碼](http://aka.ms/servicefabricsamples)
 ## [支援選項](service-fabric-support.md)
 ## [服務更新](https://azure.microsoft.com/updates/?product=service-fabric)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=service-fabric)
-

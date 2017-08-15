@@ -1,35 +1,37 @@
-- name: QnAMaker API Documentation
+- name: QnAMaker API 文件
   href: ../index.md
-- name: Overview
+- name: 概觀
   items:
-  - name: Learn about QnAMaker
-    href: Home.md
-- name: Quickstarts
+    - name: 深入了解 QnAMaker
+      href: Home.md
+- name: 快速入門
   expanded: true
-  items: 
-  - name: Get started with QnAMaker
-    href: Quickstart.md
-- name: How to Guides
-  items: 
-  - name: Create a knowledge base
-    href: Guides/CreateKB.md
-  - name: Train a knowledge base
-    href: Guides/TrainKB.md
-  - name: Share a knowledge base
-    href: Guides/share-knowledgebase-qnamaker.md
-  - name: Update a knowledge base
-    href: Guides/UpdateKB.md
-  - name: Publish a knowledge base
-    href: Guides/PublishKB.md
-  - name: Authentication
-    href: SubscriptionKeys.md
-- name: Reference
-  items: 
-  - name: API Reference
-    href: HTTPEndPoint.md
-  - name: FAQ
-    href: FAQs.md
-- name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    - name: 開始使用 QnAMaker
+      href: Quickstart.md
+- name: 使用說明指南
+  items:
+    - name: 建立知識庫
+      href: Guides/CreateKB.md
+    - name: 訓練知識庫
+      href: Guides/TrainKB.md
+    - name: 分享知識庫
+      href: Guides/share-knowledgebase-qnamaker.md
+    - name: 更新知識庫
+      href: Guides/UpdateKB.md
+    - name: 發佈知識庫
+      href: Guides/PublishKB.md
+    - name: 主動學習
+      href: Guides/active-learning-qnamaker.md
+    - name: 驗證
+      href: SubscriptionKeys.md
+- name: 參考
+  items:
+    - name: API 參考
+      href: HTTPEndPoint.md
+    - name: 常見問題集
+      href: FAQs.md
+- name: 資源
+  items:
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'

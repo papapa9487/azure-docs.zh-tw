@@ -39,6 +39,7 @@
 ### [將活動記錄串流至事件中樞](monitoring-stream-activity-logs-event-hubs.md)
 ### [使用 Resource Manager 來稽核作業](../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
 ### [透過 Resource Manager 建立活動記錄警示](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+### [移轉至活動記錄警示](monitoring-migrate-management-alerts.md)
 ## 使用服務通知
 ### [檢視服務通知](monitoring-service-notifications.md)
 ### [在服務通知上設定警示](monitoring-activity-log-alerts-on-service-notifications.md)
@@ -59,6 +60,7 @@
 ### [疑難排解](azure-diagnostics-troubleshooting.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=monitor)
 ## [監視資料的來源](monitoring-data-sources.md)
 ## [支援的計量清單](monitoring-supported-metrics.md)
 ## [活動記錄檔事件結構描述](monitoring-activity-log-schema.md)
@@ -74,5 +76,6 @@
 ## [Azure CLI 1.0 範例](insights-cli-samples.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [PowerShell 範例](insights-powershell-samples.md)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=monitor)
 ## [快速入門範本](https://azure.microsoft.com/en-us/resources/templates/?resourceType=Microsoft.Insights)
