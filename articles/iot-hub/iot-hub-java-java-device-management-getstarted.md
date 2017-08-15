@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: f4690097da1b56a7688754294ab63ec88a457761
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5abf1d80a62344f93d4c5491adba65a3e7400258
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 05/19/2017
 * 顯示更新的回報屬性。
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 一文提供 Azure IoT SDK (可讓您同時建置在裝置與您的解決方案後端執行的兩個應用程式) 的相關資訊。
+> 如需可用來建置應用程式，以在裝置與您的解決方案後端執行之 SDK 的資訊，請參閱 [Azure IoT SDK][lnk-hub-sdks]。
 
 若要完成本教學課程，您需要：
 
@@ -62,11 +61,17 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在裝置上觸發遠端重新啟動
 
-在本節中，您會建立 Java 主控台應用程式，以在模擬的裝置應用程式中叫用 reboot 直接方法，然後顯示回應。 此應用程式會接著輪詢從裝置傳送的回報屬性，來判斷何時完成重新開機。 此主控台應用程式會連線到您的 IoT 中樞來叫用直接方法，並讀取回報屬性。
+在本節中，您將建立 Java 主控台應用程式以：
+
+1. 在模擬的裝置應用程式中叫用 reboot 直接方法。
+1. 顯示回應。
+1. 輪詢從裝置傳送的回報屬性，來判斷何時完成重新開機。
+
+此主控台應用程式會連線到您的 IoT 中樞來叫用直接方法，並讀取回報屬性。
 
 1. 建立稱為 dm-get-started 的空資料夾。
 
-1. 在 dm-get-started 資料夾的命令提示字元下，使用下列命令建立名為 **trigger-reboot** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
+1. 在 dm-get-started 資料夾的命令提示字元下，使用下列命令建立名為 **trigger-reboot** 的 Maven 專案。 以下顯示完整的單一命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -78,7 +83,7 @@ ms.lasthandoff: 05/19/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -123,7 +128,7 @@ ms.lasthandoff: 05/19/2017
     import java.util.concurrent.ExecutorService;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 將 **{youriothubconnectionstring}** 取代為您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串：
+1. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -207,7 +212,7 @@ ms.lasthandoff: 05/19/2017
 
 在本節中，您將建立模擬裝置的 Java 主控台應用程式。 此應用程式會從您的 IoT 中樞接聽 reboot 直接方法呼叫，並立即回應該呼叫。 然後會休眠一段時間，以模擬重新開機程序，再使用回報屬性來通知 **trigger-reboot** 後端應用程式重新開機已完成。
 
-1. 在 dm-get-started 資料夾的命令提示字元下，使用下列命令建立名為 **simulated-device** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
+1. 在 dm-get-started 資料夾的命令提示字元下，使用下列命令建立名為 **simulated-device** 的 Maven 專案。 以下是完整的單一命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -219,7 +224,7 @@ ms.lasthandoff: 05/19/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -262,7 +267,7 @@ ms.lasthandoff: 05/19/2017
     import java.util.HashSet;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 將 **{yourdeviceconnectionstring}** 取代為您在＜建立裝置識別＞一節中所記下的裝置連接字串：
+1. 將下列類別層級變數新增到 **App** 類別中。 將 `{yourdeviceconnectionstring}` 取代為您在＜建立裝置身分識別＞一節中所記下的裝置連接字串：
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -369,14 +374,14 @@ ms.lasthandoff: 05/19/2017
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-1. 將下列程式碼新增至 **main** 方法以具現化 **DeviceClient**：
+1. 若要具現化 **main** 方法，請將下列程式碼新增至 **DeviceClient**：
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-1. 將下列程式碼新增至 **main** 方法以開始接聽直接方法呼叫：
+1. 若要開始接聽直接方法呼叫，請將下列程式碼新增至 **main** 方法：
 
     ```java
     try
@@ -394,7 +399,7 @@ ms.lasthandoff: 05/19/2017
     }
     ```
 
-1. 將下列程式碼新增至 **main** 方法以關閉裝置模擬器：
+1. 若要關閉裝置模擬器，請將下列程式碼新增至 **main** 方法：
 
     ```java
     System.out.println("Press any key to exit...");

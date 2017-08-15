@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/02/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 9874a825ea81ebb191710ebd46dceb70c1f20e60
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 3401c0af776691d22e51906eefaf895d684fdfd1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>使用 Azure Resource Manager 將原則套用至 Windows VM
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/30/2017
 
 如需原則的簡介，請參閱 [使用原則來管理資源和控制存取](../../azure-resource-manager/resource-manager-policy.md)。
 
-## <a name="define-policy-for-permitted-virtual-machines"></a>針對允許的虛擬機器定義原則
+## <a name="permitted-virtual-machines"></a>允許的虛擬機器
 若要確保您組織的虛擬機器與應用程式相容，您可以針對允許使用哪些作業系統設下限制。 您可以透過以下原則範例，允許只能建立 Windows Server 2012 R2 資料中心虛擬機器：
 
 ```json
@@ -92,7 +91,7 @@ ms.lasthandoff: 06/30/2017
 
 如需原則欄位的相關資訊，請參閱[原則別名](../../azure-resource-manager/resource-manager-policy.md#aliases)。
 
-## <a name="define-policy-for-using-managed-disks"></a>定義使用受控磁碟的原則
+## <a name="managed-disks"></a>受控磁碟
 
 若要要求使用受控磁碟，請使用以下原則：
 
@@ -137,6 +136,100 @@ ms.lasthandoff: 06/30/2017
   "then": {
     "effect": "deny"
   }
+}
+```
+
+## <a name="images-for-virtual-machines"></a>虛擬機器的映像
+
+基於安全性理由，您可以要求只在環境中部署已核准的自訂映像。 您可以指定含有已核准映像的資源群組，或已核准的特定映像。
+
+下列範例會從已核准的資源群組要求映像：
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in": [
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Compute/VirtualMachineScaleSets"
+                ]
+            },
+            {
+                "not": {
+                    "field": "Microsoft.Compute/imageId",
+                    "contains": "resourceGroups/CustomImage"
+                }
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+} 
+```
+
+下列範例會指定已核准的映像識別碼：
+
+```json
+{
+    "field": "Microsoft.Compute/imageId",
+    "in": ["{imageId1}","{imageId2}"]
+}
+```
+
+## <a name="virtual-machine-extensions"></a>虛擬機器延伸模組
+
+您可能想要禁止使用某些類型的延伸模組。 例如，一個延伸模組可能與某些自訂虛擬機器映像不相容。 下列範例示範如何封鎖特定延伸模組。 它利用發行者和類型來判斷要封鎖哪個延伸模組。
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines/extensions"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/publisher",
+                "equals": "Microsoft.Compute"
+            },
+            {
+                "field": "Microsoft.Compute/virtualMachines/extensions/type",
+                "equals": "{extension-type}"
+
+      }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+
+## <a name="azure-hybrid-use-benefit"></a>Azure Hybrid Use Benefit
+
+如果您有內部部署授權，則可以在虛擬機器上省下授權費用。 如果您沒有授權，則應該禁止使用此選項。 下列原則會禁止使用 Azure Hybrid Use Benefit (AHUB)：
+
+```json
+{
+    "if": {
+        "allOf": [
+            {
+                "field": "type",
+                "in":[ "Microsoft.Compute/virtualMachines","Microsoft.Compute/VirtualMachineScaleSets"]
+            },
+            {
+                "field": "Microsoft.Compute/licenseType",
+                "exists": true
+            }
+        ]
+    },
+    "then": {
+        "effect": "deny"
+    }
 }
 ```
 

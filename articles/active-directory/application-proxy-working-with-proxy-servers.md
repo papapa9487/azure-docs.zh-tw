@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: ea928ba4d13970a32123a8ada8575658cecde5d8
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bdca442755507c4ffe8d43692c5b7f2aa3a746f3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -76,7 +75,7 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 
 某些環境會要求所有輸出流量通過輸出 Proxy，無一例外。 如此一來，略過 Proxy 不是選項。
 
-您可以設定連接器流量以過輸出 proxy，如下圖所示。
+您可以設定連接器流量通過輸出 Proxy，如下圖所示：
 
  ![設定讓連接器流量通過輸出 Proxy 來到達 Azure AD 應用程式 Proxy](./media/application-proxy-working-with-proxy-servers/configure-proxy-settings.png)
 
@@ -126,14 +125,10 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 * login.windows.net
 * login.microsoftonline.com
 
-連接器服務所使用的基礎服務匯流排控制通道也需要特定 IP 位址的連線。 在服務匯流排改移至 FQDN 前，您有兩個選項︰
+如果您不允許 FQDN 連線且需要改為指定 IP 範圍，請使用下列選項：
 
 * 允許連接器輸出存取所有目的地。
-* 允許連接器輸出存取 [Azure 資料中心 IP 範圍](https://www.microsoft.com/en-gb/download/details.aspx?id=41653)。
-
->[!NOTE]
->Azure 資料中心 IP 範圍清單在使用上的麻煩在於此清單是每週更新。 您必須制定程序，以確保存取規則會跟著更新。
->
+* 允許連接器輸出存取 [Azure 資料中心 IP 範圍](https://www.microsoft.com/en-gb/download/details.aspx?id=41653)。 Azure 資料中心 IP 範圍清單在使用上的麻煩在於此清單是每週更新。 您必須制定程序，以確保存取規則會跟著更新。
 
 #### <a name="proxy-authentication"></a>Proxy 驗證
 
@@ -141,13 +136,10 @@ OS 元件會嘗試藉由對 wpad.domainsuffix 執行 DNS 查閱來尋找 Proxy �
 
 #### <a name="proxy-ports"></a>Proxy 連接埠
 
-連接器可使用 CONNECT 方法進行輸出 SSL 型連線。 此方法基本上會透過輸出 Proxy 設定通道。 有些 Proxy 伺服器依預設只允許輸出通道接往標準 SSL 連接埠 (例如 443)。 如果是這種情況，Proxy 伺服器必須設定為允許其他連接埠的通道。
-
-設定 Proxy 伺服器以允許非標準 SSL 連接埠 8080、9090、9091 和 10100-10120 通道。
+連接器可使用 CONNECT 方法進行輸出 SSL 型連線。 此方法基本上會透過輸出 Proxy 設定通道。 設定 Proxy 伺服器以允許連接埠 443 和 80 通道。
 
 >[!NOTE]
 >當服務匯流排在 HTTPS 上執行時，它會使用連接埠 443。 不過，根據預設，服務匯流排會嘗試導向 TCP 連線，且僅在直接連線失敗時，才會改為使用 HTTPS。
->
 
 若要確認服務匯流排流量也會傳送輸出 Proxy 伺服器，請確定連接器無法直接連接到連接埠 9350、9352 和 5671 的 Azure 服務。
 

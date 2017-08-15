@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 05/09/2017
+ms.date: 08/08/2017
 ms.author: barclayn
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: d4cf9f394f209fe3dfd633f6ca2954e9770d5949
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 9a4fa6ea1784ab0247659d5498c6fe3ae30355c4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -29,7 +28,7 @@ ms.lasthandoff: 05/18/2017
 Azure Active Directory 稽核事件可協助您識別 Azure Active Directory 中發生的特殊權限動作。 您可以藉由檢視 [Azure Active Directory 稽核報告事件](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)看到您可以追蹤的事件類型
 
 >[!NOTE]
-您應該先檢閱[入門](security-azure-log-integration-get-started.md)文章，並完成直到**安裝和驗證後**一節步驟 3 的所有步驟，再嘗試執行本文中的步驟。
+您必須檢閱[開始使用](security-azure-log-integration-get-started.md)一文並完成此處的步驟，再嘗試執行本文中的步驟。
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>整合 Azure Active Directory 稽核記錄的步驟
 
@@ -38,7 +37,7 @@ Azure Active Directory 稽核事件可協助您識別 Azure Active Directory 中
 
  ``azlog createazureid``
 
- 此命令會提示您登入 Azure。 此命令接著會建立託管 Azure 訂用帳戶 (其中登入的使用者是系統管理員、共同管理員或擁有者) 的 Azure AD 租用戶中的 Azure Active Directory 服務主體。 若登入的使用者只是 Azure AD 租用戶中的來賓使用者，則此命令將會失敗。 對 Azure 的驗證會透過 Azure Active Directory (AD) 來進行。 建立 Azure 記錄整合的服務主體會建立 Azure AD 身分識別，以獲得 Azure 訂用帳戶的讀取權限。
+ 此命令會提示您登入 Azure。 此命令接著會建立託管 Azure 訂用帳戶 (其中登入的使用者是系統管理員、共同管理員或擁有者) 的 Azure AD 租用戶中的 Azure Active Directory 服務主體。 若登入的使用者只是 Azure AD 租用戶中的來賓使用者，則此命令將會失敗。 對 Azure 的驗證會透過 Azure Active Directory (AD) 來進行。 建立 Azlog 整合的服務主體會建立 Azure AD 身分識別，以獲得 Azure 訂用帳戶的讀取權限。
 
 3. 執行提供 tenantID 的命令。 您必須是租用戶系統管理員角色的成員才能執行命令。
 
@@ -58,9 +57,10 @@ Azure Active Directory 稽核事件可協助您識別 Azure Active Directory 中
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Log-Integration-Videos-Azure-AD-Integration/player]
 
 
-將標準的 SIEM 檔案轉寄站連接器指向適當資料夾，以透過管線將資料傳送至 SIEM 執行個體。 您可能需要根據所使用的 SIEM 產品進行某些欄位對應。
+>[!NOTE]
+您需要連絡 SIEM 廠商，以取得有關將 JSON 檔案中的資訊帶入 SIEM 中的特定指示。
 
-可透過 [Azure 記錄檔整合 MSDN 論壇](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)取得社群協助。 此論壇讓 AzLog 社群能針對如何充分利用 Azure 記錄檔整合，透過分享問題、 解答、 秘訣和技巧支援彼此。 此外，Azure 記錄整合小組會監視這個論壇，並且會盡全力提供協助。
+可透過 [Azure 記錄檔整合 MSDN 論壇](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)取得社群協助。 此論壇讓 AzLog 社群能針對如何充分利用 Azure 記錄整合，透過分享問題、解答、祕訣和技巧支援彼此。 此外，Azure 記錄整合小組會監視這個論壇，並且會盡全力提供協助。
 
 您也可以建立[支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 若要這樣做，請選取 [記錄整合] 作為您要求支援的服務。
 

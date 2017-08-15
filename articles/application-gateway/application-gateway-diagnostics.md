@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
 ms.author: amitsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 122a08fbe95e4e3c2eaba8a8d8558f2d638120d0
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 2a2d731a8c904f290fcd4bbbd18872d8319b2ff5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
@@ -97,7 +96,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 }
 ```
 
-## <a name="diagnostic-logs"></a>診斷記錄檔
+## <a name="diagnostic-logging"></a>診斷記錄
 
 您可以在 Azure 中使用不同類型的記錄檔來管理和針對應用程式閘道進行疑難排解。 您可以透過入口網站存取其中一些記錄。 可以從 Azure Blob 儲存體擷取所有記錄，並且在不同的工具中進行檢視 (例如 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)、Excel、PowerBI)。 您可以從下列清單進一步了解不同類型的記錄檔：
 

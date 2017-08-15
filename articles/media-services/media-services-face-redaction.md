@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 6095135e49a6da3ef37fb566c2fb56702cfd70c9
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 74f38ae61d4a360cabe8a9fbd33d30a6b0751654
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部
@@ -133,7 +133,37 @@ Example foo_IDList.txt
      1
      2
      3
+
+## <a name="blur-types"></a>模糊類型
+
+在 [結合] 或 [修訂] 模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]、[中]、[高]、[偵錯] 和 [黑色]。 預設會使用 [中]。
+
+您可以在下面找到模糊類型的範例。
+
+### <a name="example-json"></a>範例 JSON：
+
+    {'version':'1.0', 'options': {'Mode': 'Combined', 'BlurType': 'High'}}
+
+#### <a name="low"></a>低
+
+![低](./media/media-services-face-redaction/blur1.png)
  
+#### <a name="med"></a>中
+
+![中](./media/media-services-face-redaction/blur2.png)
+
+#### <a name="high"></a>高
+
+![高](./media/media-services-face-redaction/blur3.png)
+
+#### <a name="debug"></a>偵錯
+
+![偵錯](./media/media-services-face-redaction/blur4.png)
+
+#### <a name="black"></a>黑色
+
+![黑色](./media/media-services-face-redaction/blur5.png)
+
 ## <a name="elements-of-the-output-json-file"></a>輸出 JSON 檔案的元素
 
 修訂 MP 能提供高精確度的臉部位置偵測和追蹤功能，可在單一視訊畫面中偵測到最多 64 個人類臉部。 正面的臉部能提供最佳結果，而側面的臉部和較小的臉部 (小於或等於 24x24 像素) 則頗具挑戰性。

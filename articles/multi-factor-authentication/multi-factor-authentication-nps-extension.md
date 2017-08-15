@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 07/24/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: f9058ca12cb52c1a9d4a3d05f4ccb3e2c030873e
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
@@ -163,6 +163,9 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 6. PowerShell 會在指令碼完成時顯示成功訊息。  
 
 在您想要進行設定以取得負載平衡的任何其他 NPS 伺服器上，重複上述步驟。
+
+>[!NOTE]
+>如果您使用自己的憑證，而不是透過 PowerShell 指令碼產生憑證，請確定這些憑證遵守 NPS 命名慣例。 主體名稱必須是 **CN=\<租用戶識別碼\>,OU=Microsoft NPS Extension**。 
 
 ## <a name="configure-your-nps-extension"></a>設定 NPS 擴充功能
 

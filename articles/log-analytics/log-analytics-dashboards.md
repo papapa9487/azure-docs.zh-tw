@@ -12,18 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a0c8af30fbed064001c3fd393bf0440aa1cb2835
-ms.openlocfilehash: a8c9766bf066a7f0dfd28ebb4e41bf0eaf3f05bd
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: a90d9c620221bffbb225fb060b997af2f5e90390
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/28/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>建立用於 Log Analytics 中的自訂儀表板
+
+>[!NOTE]
+> 如果您的工作區已升級成[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您無法建立新的儀表板，或編輯現有的儀表板。 
+
 本指南可幫助您了解 Log Analytics 儀表板如何以視覺效果顯示所有儲存的記錄搜尋，讓您以單一方式檢視您的環境。
 
 ![範例儀表板](./media/log-analytics-dashboards/oms-dashboards-example-dash.png)

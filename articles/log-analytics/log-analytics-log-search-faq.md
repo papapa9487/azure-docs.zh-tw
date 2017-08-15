@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/08/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: b4031e5ec5ab38863e1e74f5b6ebb117f23a327e
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 2de9a87390da11a034c6cebaa37d4cc89edf3cad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -52,7 +52,6 @@ ms.lasthandoff: 07/28/2017
 您可以使用記錄搜尋分頁中的語言轉換器工具，轉換每個項目。  沒有任何方法可以在未升級工作區的情況下，自動轉換多個搜尋。
 
 
-
 ## <a name="alerts"></a>Alerts
 
 ### <a name="i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>我有大量的警示規則。 需要在升級之後以新的語言再次建立嗎？  
@@ -63,7 +62,10 @@ ms.lasthandoff: 07/28/2017
 ### <a name="does-anything-change-with-powerbi-integration"></a>PowerBI 整合有任何變更嗎？
 是。  一旦升級您的工作區，將 Log Analytics 資料匯出至 Power BI 的程序就無法再運作。  您在升級之前建立的任何現有排程將會變成停用。  升級之後，Azure Log Analytics 會使用與 Application Insights 相同的平台，您使用如同[將 Application Insights 查詢匯出至 Power BI 的程序](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)的相同程序，將 Log Analytics 查詢匯出至 Power BI。
 
+## <a name="dashboards"></a>儀表板
 
+### <a name="can-i-still-use-dashboards"></a>仍然可以使用儀表板嗎？
+您可以繼續使用在升級工作區之前建立的儀表板，但您無法編輯這些儀表板或建立新的儀表板。  您可以繼續使用[檢視表設計工具](log-analytics-view-designer.md)建立和編輯檢視。 
 
 ## <a name="next-steps"></a>後續步驟
 

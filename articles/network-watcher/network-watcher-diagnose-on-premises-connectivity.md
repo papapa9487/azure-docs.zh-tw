@@ -15,27 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: dfccb182ffdc43d5437efd7e4f736998c5fa9433
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 8f5534c83adf2ee4a696131afb45a658c89dd298
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
 
-Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網路與 Azure 虛擬網路之間的安全連線需求。 由於這項需求很獨特，所以選擇的內部部署 VPN 裝置也很獨特。 Azure 目前支援與裝置廠商合作來持續驗證的[數個 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 請先檢閱裝置特定的組態設定，再設定內部部署 VPN 裝置。 同樣地，Azure VPN 閘道也使用一組用於建立連線的[受支援 IPsec 參數](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)來進行設定。 目前您無法指定或選取來自 Azure VPN 閘道之 IPsec 參數的特定組合。 若要在內部部署環境與 Azure 之間成功建立連線，內部部署 VPN 裝置設定必須符合 Azure VPN 閘道所規定的 IPsec 參數。 若未能符合則會導致連線中斷，而且到目前為止，這些問題並不值得進行疑難排解，且通常需要好幾個小時才能識別並修正問題。
+Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網路與 Azure 虛擬網路之間的安全連線需求。 由於這項需求很獨特，所以選擇的內部部署 VPN 裝置也很獨特。 Azure 目前支援與裝置廠商合作來持續驗證的[數個 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 請先檢閱裝置特定的組態設定，再設定內部部署 VPN 裝置。 同樣地，Azure VPN 閘道也使用一組用於建立連線的[受支援 IPsec 參數](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)來進行設定。 目前您無法指定或選取來自 Azure VPN 閘道之 IPsec 參數的特定組合。 若要在內部部署環境與 Azure 之間成功建立連線，內部部署 VPN 裝置設定必須符合 Azure VPN 閘道所規定的 IPsec 參數。 如果設定不正確，連線會中斷，而且到目前為止，針對這些問題進行疑難排解並不容易，而且通常需要好幾個小時才能識別並修正問題。
 
 使用 Azure 網路監看員疑難排解功能後，您將能夠診斷閘道和連線的任何問題，並在幾分鐘內獲得足夠資訊來做出明智的問題改正決定。
 
 ## <a name="scenario"></a>案例
 
-您想要使用 Cisco ASA 做為內部部署 VPN 閘道，在 Azure 和內部部署環境之間設定站對站連線。 為了實現此案例，您需要進行下列設定︰
+您想要使用 FortiGate 作為內部部署 VPN 閘道，在 Azure 和內部部署環境之間設定站對站連線。 為了實現此案例，您需要進行下列設定︰
 
 1. 虛擬網路閘道 - Azure 上的 VPN 閘道
-1. 本機網路閘道 - [內部部署 (CISCO ASA) VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)在 Azure 雲端的代表
-1. 站對站連線 (原則式) - [VPN 閘道與內部部署 CISCO ASA 之間的連線](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
-1. [設定 CISCO ASA](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA)
+1. 本機網路閘道 - [內部部署 (FortiGate) VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)在 Azure 雲端的表示
+1. 站對站連線 (原則式) - [VPN 閘道與內部部署路由器之間的連線](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#createconnection)
+1. [設定 FortiGate](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/Site-to-Site_VPN_using_FortiGate.md)
 
 若要找到用於設定站對站組態的詳細逐步解說指南，請瀏覽︰[使用 Azure 入口網站建立具有網站間連線的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
@@ -52,7 +52,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 | 雜湊演算法 |SHA1(SHA128) |SHA1(SHA128)、SHA2(SHA256) |
 | 階段 1 安全性關聯 (SA) 存留期 (時間) |28,800 秒 |10,800 秒 |
 
-身為使用者，您必須設定 Cisco ASA，範例組態可於 [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Cisco/Current/ASA/ASA_9.1_and_above_Show_running-config.txt) 找到。 在其他組態中，您也需要指定雜湊演算法。 Cisco ASA 支援比 Azure VPN 閘道還多的[加密和雜湊演算法](http://www.cisco.com/c/en/us/about/security-center/next-generation-cryptography.html)。 在不知不覺中，您已將 Cisco ASA 設定為使用 SHA-512 做為雜湊演算法。 此演算法並非原則式連線所支援的演算法，因此您的 VPN 連線會運作。
+身為使用者，您必須設定 FortiGate，範例設定可於 [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt) 找到。 在不知不覺中，您已將 FortiGate 設定為使用 SHA-512 作為雜湊演算法。 此演算法並非原則式連線所支援的演算法，因此您的 VPN 連線會運作。
 
 這些問題很難進行疑難排解，而且根本原因通常很難一下就想到。 在此情況下，您可以開啟支援票證，來獲得協助以解決問題。 但有了 Azure 網路監看員疑難排解 API 後，您可以自行識別這些問題。
 
@@ -89,7 +89,7 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 | PlatformInActive | 平台發生問題。 | 否|
 | ServiceNotRunning | 基礎服務並未執行。 | 否|
 | NoConnectionsFoundForGateway | 閘道上沒有任何連線存在。 這只是警告。| 否|
-| ConnectionsNotConnected | 沒有任何連線未連線。 這只是警告。| 是|
+| ConnectionsNotConnected | 未進行任何連線。 這只是警告。| 是|
 | GatewayCPUUsageExceeded | 目前的閘道使用量 CPU 使用量 > 95%。 | 是 |
 
 ### <a name="connection"></a>連線

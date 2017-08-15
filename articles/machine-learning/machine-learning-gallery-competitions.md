@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-translationtype: Human Translation
-ms.sourcegitcommit: 6c76311b8ba36ea5dba1c2cd63ee05e1048ca9de
-ms.openlocfilehash: 6ceb50b05075ea9d056a873cf70b13ff85dc6094
-ms.lasthandoff: 02/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25ec625c1f32fd1477685196ea21ad6f582bc7ce
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>探討 Cortana Intelligence Gallery 中的競賽
@@ -34,8 +34,7 @@ ms.lasthandoff: 02/21/2017
 
 ![從 Gallery 首頁選取競賽](media/machine-learning-gallery-competitions/select-competitions-in-gallery.png)
 
- **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
- (競賽) 頁面會顯示最受歡迎的競賽清單。
+ **[Competitions](https://gallery.cortanaintelligence.com/competitions)** (競賽) 頁面會顯示最受歡迎的競賽清單。
 按一下 **See all** (查看全部) 即可檢視所有的競賽。
 您可以從此頁面瀏覽 Gallery 中的所有競賽。 您也可以選取頁面左側的篩選條件，然後在頂端輸入搜尋字詞來進行搜尋。
 
@@ -48,11 +47,9 @@ ms.lasthandoff: 02/21/2017
 ## <a name="enter-a-competition"></a>進入競賽
 如果競賽已開啟，詳細資料頁面上的狀態會是 [作用中]。 若要進入競賽，請按一下 **Enter Competition** (競賽)，系統就會提供您所需資源的指示，以及您必須採取的步驟。
 
-![已完成競賽](media/machine-learning-gallery-competitions/open-competition.png)
+![競賽為作用中](media/machine-learning-gallery-competitions/open-competition.png)
 
-如果競賽已不再開放，它在詳細資料頁面上的狀態將會是 [Completed] \(已完成)，而 [Enter Competition] \(進入競賽) 連結文字會變成 [Finished] \(已完成)。
-
-![已完成競賽](media/machine-learning-gallery-competitions/completed-competition.png)
+如果競賽已完成，則會顯示得獎者清單。
 
 **[前往 GALLERY >>](http://gallery.cortanaintelligence.com)**
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f86d37e32b77dc8411138542de573ee840bf9a64
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -41,7 +41,8 @@ ms.lasthandoff: 08/01/2017
 連接器和服務會負責所有高可用性的工作。 它們可以動態新增或移除。 每當新要求抵達時，它會路由傳送至其中一個目前可用的連接器。 如果連接器暫時無法使用，則不會回應此流量。
 
 連接器是無狀態的，且沒有任何電腦上的設定資料。 它們所儲存的唯一資料是用於連線服務和其驗證憑證的設定。 當它們連線至服務時，會提取所有必要的組態資料，且每隔幾分鐘會重新整理。
-它們也會輪詢伺服器，以尋找是否有較新版的連接器。 如果找到，連接器會自行更新。
+
+連接器也會輪詢伺服器，以尋找是否有較新版的連接器。 如果找到，連接器會自行更新。
 
 您可以使用事件記錄和效能計數器，從執行連接器的電腦監視您的連接器。 或者，您可以從 Azure 入口網站的應用程式 Proxy 頁面檢視其狀態：
 
@@ -63,13 +64,11 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 ## <a name="creating-connector-groups"></a>建立連接器群組
 
-建立連接器群組有許多原因，包括：
+連接器群組可讓您指派要服務特定應用程式的特定連接器。 您可以將多個連接器分組在一起，然後將每個應用程式指派給群組。 
 
-* 更高的可用性
-* 對於在多個區域中具有應用程式的租用戶有更佳的延遲
-* 更易於管理的組織資源
+連接器群組可讓您更輕鬆地管理大型部署。 這些群組也會改善在不同區域中裝載應用程式之租用戶的延遲，因為您可以建立以位置為基礎的連接器群組，只服務本機應用程式。 
 
-若要深入了解連接器群組的優點，請參閱[使用連接器群組在個別的網路和位置上發佈應用程式](active-directory-application-proxy-connectors-azure-portal.md)。
+若要深入了解連接器群組，請參閱[使用連接器群組在個別的網路和位置上發佈應用程式](active-directory-application-proxy-connectors-azure-portal.md)。
 
 ## <a name="security-and-networking"></a>安全性和網路服務
 
@@ -141,7 +140,7 @@ Register-AppProxyConnector
 
 若要查看記錄，請移至事件檢視器，開啟 [檢視] 功能表，並啟用 [顯示分析與偵錯記錄]。 接著，啟用它們以開始收集事件。 這些記錄不會出現在 Windows Server 2012 R2 中的 Web 應用程式 Proxy，因為連接器會根據較新的版本。
 
-您可以檢查 [服務] 視窗中的服務狀態。 連接器包含兩個 Windows 服務︰實際連接器和更新程式。 必須具有這兩個才能隨時執行。
+您可以檢查 [服務] 視窗中的服務狀態。 連接器包含兩個 Windows 服務︰實際連接器和更新程式。 這兩者必須一直執行。
 
  ![AzureAD 服務本機](./media/application-proxy-understand-connectors/aad-connector-services.png)
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 9307b1688ed9e3dc412d044e72bdf88b7bb4d1ec
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: f1fb7f876c7dc010c03f01a4f6698ddc18da1100
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/05/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虛擬機器安全性概觀
@@ -77,7 +76,7 @@ Microsoft Antimalware 是一個針對應用程式和租用戶環境所提供的�
 * [Azure Marketplace 中的安全性解決方案](https://azure.microsoft.com/marketplace/?term=security)
 
 ## <a name="hardware-security-module"></a>硬體安全性模型
-加密和驗證不會改善安全性，除非金鑰本身也受到保護。 您可以藉由將關鍵密碼和金鑰存放在 Azure 金鑰保存庫中來簡化其管理與安全性。 金鑰保存庫讓您能選擇將金鑰存放在通過 FIPS 140-2 Level 2 標準認證的硬體安全性模組 (HSM) 中。 備份或 [透明資料加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密金鑰都能與應用程式的任何金鑰或密碼一起存放在金鑰保存庫中。 這些受保護項目的權限和存取權是透過 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)來管理。
+您可以藉由改善金鑰安全性來增強加密和驗證保護。 您可以藉由將關鍵密碼和金鑰存放在 Azure 金鑰保存庫中來簡化其管理與安全性。 金鑰保存庫讓您能選擇將金鑰存放在通過 FIPS 140-2 Level 2 標準認證的硬體安全性模組 (HSM) 中。 備份或 [透明資料加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密金鑰都能與應用程式的任何金鑰或密碼一起存放在金鑰保存庫中。 這些受保護項目的權限和存取權是透過 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)來管理。
 
 深入了解：
 

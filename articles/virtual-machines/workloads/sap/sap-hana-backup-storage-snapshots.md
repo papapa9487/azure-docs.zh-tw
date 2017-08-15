@@ -13,11 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 5d395da0779d84e414341d6d73151fd7e77e3e8e
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -101,7 +101,7 @@ Azure 備份有兩個主要階段︰
 
 ![Azure 備份服務是以 hana-backup-vault 的名稱建立](media/sap-hana-backup-storage-snapshots/image016.png)
 
-Azure 備份服務是以 &quot;hana-backup-vault&quot; 的名稱建立。 PS 命令 **Get-AzureRmRecoveryServicesVault -Name hana-backup-vault** 會擷取對應的物件。 然後這個物件會被用來設定備份的內容，如下圖所示。
+Azure 備份服務是以 &quot;hana-backup-vault&quot; 的名稱建立。PS 命令 **Get-AzureRmRecoveryServicesVault -Name hana-backup-vault** 會擷取對應的物件。 然後這個物件會被用來設定備份的內容，如下圖所示。
 
 ![可以查看正在進行的備份作業](media/sap-hana-backup-storage-snapshots/image017.png)
 
@@ -168,6 +168,6 @@ Azure 備份最終將會允許備份個別 Azure 虛擬磁碟，加上虛擬機�
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 虛擬機器上 SAP HANA 的備份指南](sap-hana-backup-guide.md)提供快速入門的概觀和詳細資訊。
-* [檔案層級的 SAP HANA Azure 備份](sap-hana-backup-file-level.md)描述以檔案為基礎的備份選項。
+* [檔案層級的 SAP HANA 備份](sap-hana-backup-file-level.md)說明以檔案為基礎的備份選項。
 * 若要了解如何建立高可用性並為 Azure 上的 SAP HANA 規劃災害復原，請參閱 [Azure 上的 SAP HANA (大型執行個體) 高可用性和災害復原](hana-overview-high-availability-disaster-recovery.md)。
 

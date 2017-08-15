@@ -11,20 +11,19 @@ ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 06/26/2017
+ms.workload8: na
+ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e6aefe5f16e7148f7837a8741355c61851618495
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 9b9285ec659e7d3d3f6aa42a88bb6e822e2dfc91
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-log-integration-frequently-asked-questions-faq"></a>Azure 記錄整合常見問題集 (FAQ)
-此常見問題集會回答有關 Azure 記錄整合的問題，這是種服務，可讓您將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。 這項整合提供您內部部署或在雲端中所有資產統一的儀表板，以便您彙總、相互關聯、分析和警示與應用程式相關聯的安全性事件。
+此常見問題集會回答有關 Azure 記錄整合的問題，這是種 Windows 作業系統服務，可讓您將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。 這項整合提供您內部部署或在雲端中所有資產統一的儀表板，以便您彙總、相互關聯、分析和警示與應用程式相關聯的安全性事件。
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 記錄整合軟體是否為免費？
 是。 Azure 記錄整合軟體不需任何費用。
@@ -33,18 +32,18 @@ ms.lasthandoff: 06/28/2017
 
 它目前於 Azure 商務環境和 Azure Government 中提供，且無法在中國或德國使用。
 
-## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs-from"></a>如何查看 Azure 記錄整合從中提取 Azure VM 記錄的儲存體帳戶？
+## <a name="how-can-i-see-the-storage-accounts-from-which-azure-log-integration-is-pulling-azure-vm-logs"></a>如何查看 Azure 記錄整合從中提取 Azure VM 記錄的儲存體帳戶？
 執行 **azlog source list**命令。
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>如何分辨 Azure 記錄整合記錄來自哪一個訂用帳戶？
 
-在稽核記錄位於 AzureResourcemanagerJson 目錄的案例中，訂用帳戶識別碼是在記錄檔名稱中。 這也適用於 AzureSecurityCenterJson 資料夾中的記錄。 例如：
+在稽核記錄位於 **AzureResourcemanagerJson** 目錄的案例中，訂用帳戶識別碼是在記錄檔名稱中。 這也適用於 **AzureSecurityCenterJson** 資料夾中的記錄。 例如：
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 
 Azure Active Directory 稽核記錄包含租用戶識別碼，作為名稱的一部分。
 
-讀取自事件中樞的診斷記錄不包含訂用帳戶識別碼作為名稱的一部分，但是包含指定為建立事件中樞來源一部分的易記名稱。 
+讀取自事件中樞的診斷記錄不會在名稱中包含訂用帳戶識別碼。 相反地，這些診斷記錄會包含建立事件中樞來源時所指定的易記名稱。 
 
 ## <a name="how-can-i-update-the-proxy-configuration"></a>如何更新 Proxy 組態？
 如果您的 Proxy 設定不允許直接存取 Azure 儲存體，請開啟 **c:\Program Files\Microsoft Azure Log Integration** 中的 **AZLOG.EXE.CONFIG** 檔案。 更新檔案，以便將組織的 Proxy 位址納入 **defaultProxy** 區段。 更新完成之後，停止並使用 **net stop azlog** 和 **net start azlog** 命令來啟動服務。
@@ -66,7 +65,7 @@ Azure Active Directory 稽核記錄包含租用戶識別碼，作為名稱的一
       </system.diagnostics>   
 
 ## <a name="how-can-i-see-the-subscription-information-in-windows-events"></a>如何查看 Windows 事件中的訂用帳戶資訊？
-在新增來源時將 **subscriptionid** 附加到易記名稱的後面。
+在新增來源時將**訂用帳戶識別碼**附加到易記名稱的後面。
 
     Azlog source add <sourcefriendlyname>.<subscription id> <StorageName> <StorageKey>  
 事件 XML 具有如下所示的中繼資料，包括訂用帳戶識別碼。
@@ -74,7 +73,7 @@ Azure Active Directory 稽核記錄包含租用戶識別碼，作為名稱的一
 ![事件 XML][1]
 
 ## <a name="error-messages"></a>錯誤訊息
-### <a name="when-running-command-azlog-createazureid-why-do-i-get-the-following-error"></a>執行 **azlog createazureid**命令時，為什麼收到下列錯誤訊息？
+### <a name="when-running-command-azlog-createazureid-why-do-i-get-the-following-error"></a>執行 ```azlog createazureid``` 命令時，為什麼收到下列錯誤訊息？
 Error:
 
   *無法建立 AAD 應用程式 - 租用戶 72f988bf-86f1-41af-91ab-2d7cd011db37 - 原因 = 「禁止」 - 訊息 = 「權限不足以完成作業。」*
@@ -125,7 +124,7 @@ Error:
 
 如果您在安裝和設定期間遇到任何問題，請開啟[支援要求](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)，選取 [記錄整合]  作為您要求支援的服務。
 
-### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-into-my-siem"></a>可以使用 Azure 記錄整合將網路監看員記錄整合到 SIEM 嗎？
+### <a name="can-i-use-azure-log-integration-to-integrate-network-watcher-logs-in-to-my-siem"></a>可以使用 Azure 記錄整合將網路監看員記錄整合到 SIEM 嗎？
 
 網路監看員會產生大量的記錄資訊，這些記錄不一定會傳送到 SIEM。 網路監看員記錄的唯一支援目的地是儲存體帳戶。 Azlog 不支援讀取這些記錄，並且讓它們可供 SIEM 使用
 

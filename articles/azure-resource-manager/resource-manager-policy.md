@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/02/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: ce19c24905c9ea93a7a35134fe6035b788d8af22
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="resource-policy-overview"></a>資源原則概觀
-資源原則可讓您為組織中的資源建立慣例。 藉由定義慣例，您可以控制成本以及更輕鬆地管理您的資源。 例如，您可以指定僅允許特定類型的虛擬機器，或您可以要求所有資源都有特定的類型。 原則會由所有子資源繼承。 所以，如果原則套用至資源群組，它會適用於該資源群組中的所有資源。
+資源原則可讓您為組織中的資源建立慣例。 藉由定義慣例，您可以控制成本以及更輕鬆地管理您的資源。 例如，您可以指定僅允許特定類型的虛擬機器。 或者，您可以要求所有資源都有特定標籤。 原則會由所有子資源繼承。 所以，如果原則套用至資源群組，它會適用於該資源群組中的所有資源。
 
 有兩個概念可了解原則︰
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/26/2017
 > 
 
 ## <a name="how-is-it-different-from-rbac"></a>它和 RBAC 有什麼不同？
-原則和角色型存取控制 (RBAC) 之間有幾個主要差異。 RBAC 著重於不同範圍的**使用者**動作。 例如，若您被加入所需範圍內之資源群組的參與者角色中，您便能對該資源群組做出變更。 原則在部署期間著重於**資源**屬性。 例如，您能夠透過原則控制可以佈建的資源類型，或限制資源可以佈建的位置。 不同於 RBAC，原則是個預設允許和明確拒絕的系統。 
+原則和角色型存取控制 (RBAC) 之間有幾個主要差異。 RBAC 著重於不同範圍的**使用者**動作。 例如，若您被加入所需範圍內之資源群組的參與者角色中，您便能對該資源群組做出變更。 原則在部署期間著重於**資源**屬性。 例如，您能夠透過原則控制可以佈建的資源類型。 或者，您可以限制資源可以佈建的位置。 不同於 RBAC，原則是個預設允許和明確拒絕的系統。 
 
 若要使用原則，您必須透過 RBAC 驗證。 具體來說，您的帳戶需要：
 
@@ -232,7 +232,7 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 
 ## <a name="aliases"></a>別名
 
-您可以使用屬性別名來存取資源類型的特定屬性。 
+您可以使用屬性別名來存取資源類型的特定屬性。 別名可讓您限制某個資源上的某個值所允許的值或條件。 每個別名會對應至指定資源類型之不同 API 版本中的路徑。 在原則評估期間，原則引擎會取得該 API 版本的屬性路徑。
 
 **Microsoft.Cache/Redis**
 
@@ -264,6 +264,7 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 
 | Alias | 說明 |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
 | Microsoft.Compute/imagePublisher | 設定用來建立虛擬機器的平台映像或 Marketplace 映像發行者。 |
 | Microsoft.Compute/imageSku | 設定用來建立虛擬機器的平台映像或 Marketplace 映像 SKU。 |
@@ -288,6 +289,7 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 
 | Alias | 說明 |
 | ----- | ----------- |
+| Microsoft.Compute/imageId | 設定用來建立虛擬機器的映像識別碼。 |
 | Microsoft.Compute/imageOffer | 設定用來建立虛擬機器的平台映像或 Marketplace 映像供應項目。 |
 | Microsoft.Compute/imagePublisher | 設定用來建立虛擬機器的平台映像或 Marketplace 映像發行者。 |
 | Microsoft.Compute/imageSku | 設定用來建立虛擬機器的平台映像或 Marketplace 映像 SKU。 |

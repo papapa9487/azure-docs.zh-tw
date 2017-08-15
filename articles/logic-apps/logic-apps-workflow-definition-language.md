@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b9cd83e6891c723f843825b99dce0e0158fc6ef6
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/14/2017
 |$schema|否|指定 JSON 結構描述檔案的位置，說明定義語言的版本。 當您從外部參考定義時，需要這個位置。 對於本文件而言，位置為︰ <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2015-08-01-preview/workflowdefinition.json#`|  
 |contentVersion|否|指定定義版本。 當您使用定義部署工作流程時，可以使用這個值以確定使用正確的定義。|  
 |參數|否|指定用來將資料輸入定義的參數。 您最多可以定義 50 個參數。|  
-|觸發程序|否|指定初始化工作流程之觸發程序的資訊。 您最多可以定義 250 個觸發程序。|  
+|觸發程序|否|指定初始化工作流程之觸發程序的資訊。 您最多可以定義 10 個觸發程序。|  
 |動作|否|指定當流程執行時所採取的動作。 您最多可以定義 250 個動作。|  
 |輸出|否|指定已部署資源的相關資訊。 您最多可以定義 10 個輸出。|  
   
