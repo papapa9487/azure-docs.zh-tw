@@ -82,18 +82,22 @@
 
 ## 載入
 
-### [概觀](sql-data-warehouse-overview-load.md)
-### [範例資料](sql-data-warehouse-load-sample-databases.md)
-### [Azure 資料湖存放區](sql-data-warehouse-load-from-azure-data-lake-store.md)
-### [AZCopy](sql-data-warehouse-load-from-sql-server-with-azcopy.md)
-### [BCP](sql-data-warehouse-load-with-bcp.md)
-### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
-### [PolyBase 指導](sql-data-warehouse-load-polybase-guide.md)
-### [來自 Blob 儲存體的 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [從 SQL Server 載入 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
-### [RedGate](sql-data-warehouse-load-with-redgate.md)
-### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
+### 概念
+#### [概觀](sql-data-warehouse-overview-load.md)
+#### [PolyBase 指導](sql-data-warehouse-load-polybase-guide.md)
+
+### 教學課程
+#### [PolyBase](sql-data-warehouse-get-started-load-with-polybase.md)
+
+### 使用說明指南
+#### [範例資料](sql-data-warehouse-load-sample-databases.md)
+#### [Azure Data Lake Store](sql-data-warehouse-load-from-azure-data-lake-store.md)
+#### [BCP](sql-data-warehouse-load-with-bcp.md)
+#### [Data Factory](sql-data-warehouse-load-with-data-factory.md)
+#### [來自 Blob 儲存體的 PolyBase](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
+#### [從 SQL Server 載入 PolyBase](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+#### [RedGate](sql-data-warehouse-load-with-redgate.md)
+#### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 
 ## 移轉
 
@@ -144,6 +148,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=databases)
 ## [論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
 ## [價格](https://azure.microsoft.com/pricing/details/sql-data-warehouse/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=sql-data-warehouse)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw/)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)

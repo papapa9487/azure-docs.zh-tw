@@ -4,7 +4,7 @@
 
 # 開始使用
 ## [備份 Azure VM](backup-azure-vms-first-look-arm.md)
-## [備份檔案和資料夾](backup-try-azure-backup-in-10-mins.md)
+## [備份 Windows Server 或 Windows 電腦](backup-try-azure-backup-in-10-mins.md)
 ## [備份到 VMware 伺服器](backup-azure-backup-server-vmware.md)
 
 # 作法
@@ -27,16 +27,19 @@
 #### [還原 Azure 入口網站中 Resource Manager 部署的 VM](backup-azure-arm-restore-vms.md)
 #### [還原加密的虛擬機器](backup-azure-vms-encryption.md)
 #### [還原 Azure 中的虛擬機器](backup-azure-restore-vms.md)
-#### [使用 Azure 備份還原已加密 VM 的 Key Vault 金鑰與密碼](backup-azure-restore-key-secret.md)
+#### [還原已加密 VM 的 Key Vault 金鑰與密祕密](backup-azure-restore-key-secret.md)
 
 
-## Windows 檔案和資料夾
-### [使用 Resource Manager 部署模型的 Windows Server](backup-configure-vault.md)
-### [使用傳統部署模型的 Windows Server](backup-configure-vault-classic.md)
+## Windows Server
+### [備份 Windows Server 檔案和資料夾](backup-configure-vault.md)
+### [備份 Windows Server 系統狀態](backup-azure-system-state.md)
+### [將檔案從 Azure 復原至 Windows Server](backup-azure-restore-windows-server.md)
+### [還原 Windows Server 系統狀態](backup-azure-restore-system-state.md)
 ### [監視及管理復原服務保存庫](backup-azure-manage-windows-server.md)
-### [使用傳統部署模型管理備份保存庫](backup-azure-manage-windows-server-classic.md)
-### [使用 Resource Manager 部署模型將檔案復原到 Windows Server](backup-azure-restore-windows-server.md)
-### [使用傳統部署模型將檔案復原到 Windows Server](backup-azure-restore-windows-server-classic.md)
+### 使用傳統入口網站進行備份與還原
+#### [使用傳統部署模型的 Windows Server](backup-configure-vault-classic.md)
+#### [使用傳統部署模型管理備份保存庫](backup-azure-manage-windows-server-classic.md)
+#### [使用傳統部署模型將檔案復原到 Windows Server](backup-azure-restore-windows-server-classic.md)
 
 ## Azure 備份伺服器
 ### [Azure 備份伺服器保護矩陣](backup-mabs-protection-matrix.md)
@@ -108,5 +111,6 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup)
 ## [價格](https://azure.microsoft.com/pricing/details/backup/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=backup)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=backup)

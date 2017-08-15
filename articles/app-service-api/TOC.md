@@ -158,6 +158,7 @@
 ## [Azure 入口網站](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [WebJob 資源清單](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-api%2ftoc.json)
 
 

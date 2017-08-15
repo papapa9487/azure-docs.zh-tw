@@ -30,3 +30,4 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=internet-of-things)
 ## [價格](https://azure.microsoft.com/pricing/details/time-series-insights/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

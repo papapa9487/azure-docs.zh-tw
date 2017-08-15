@@ -173,6 +173,7 @@
 
 # 參考
 
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=machine-learning)
 ## [PowerShell 模組 (新型)](/powershell/module/azurerm.machinelearning)
 ## [PowerShell 模組 (傳統)](machine-learning-powershell-module.md)
 ## [演算法和模組參考](https://msdn.microsoft.com/library/azure/dn905974.aspx)
@@ -215,6 +216,7 @@
 
 ## [Net# 神經網路語言](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [價格](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=machine-learning)
 ## [部落格](http://blogs.technet.com/b/machinelearning/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)

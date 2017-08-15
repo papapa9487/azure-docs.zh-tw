@@ -179,6 +179,7 @@
 #### [備份磁碟機資訊清單](storage-import-export-backing-up-drive-manifests.md)
 #### [匯入/匯出作業的診斷和錯誤復原](storage-import-export-diagnostics-and-error-recovery.md)
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=storage)
 ## [PowerShell](/powershell/module/azure.storage)
 ## [Azure CLI](/cli/azure/storage)
 ## .NET
@@ -210,6 +211,7 @@
 ## [Azure 儲存體用戶端工具](storage-explorers.md)
 ## [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 ## [價格](https://azure.microsoft.com/pricing/details/storage/blobs/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=storage)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=storage)
@@ -218,6 +220,7 @@
 ### [儲存體總管 (預覽)](../vs-azure-tools-storage-manage-with-storage-explorer.md)
 ### [使用儲存體總管來管理 Blob (預覽)](../vs-azure-tools-storage-explorer-blobs.md)
 ### [搭配使用儲存體總管 (預覽) 與 Azure 檔案儲存體](../vs-azure-tools-storage-explorer-files.md)
+### [儲存體總管 (預覽) 版本資訊](../vs-azure-tools-storage-explorer-relnotes.md)
 
 ## NuGet 套件
 ### [適用於 .NET 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)

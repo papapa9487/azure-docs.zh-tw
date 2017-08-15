@@ -35,6 +35,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
 
 

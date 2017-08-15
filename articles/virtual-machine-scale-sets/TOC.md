@@ -53,7 +53,8 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)
-## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)
 ## 價格 
 ### [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/)
 ### [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-vm-scale-set)

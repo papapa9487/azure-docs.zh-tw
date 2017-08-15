@@ -130,6 +130,7 @@
 ## [.NET API 範例](mobile-engagement-dotnet-sdk-service-api.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [價格](https://azure.microsoft.com/pricing/details/mobile-engagement/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例示範應用程式](mobile-engagement-demo-apps.md)
 ## [服務等級協定 (SLA)](https://azure.microsoft.com/support/legal/sla/mobile-engagement/)
 ## [影片及更新](https://azure.microsoft.com/documentation/services/mobile-engagement/)

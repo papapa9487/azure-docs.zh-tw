@@ -24,6 +24,7 @@
 ### [Power BI Embedded 的資料列層級安全性](power-bi-embedded-rls.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=power-bi-embedded)
 ## [PowerShell](/powershell/module/azurerm.powerbiembedded)
 ## [.NET Azure Resource Manager](/dotnet/api/microsoft.azure.management.powerbiembedded)
 ## [.NET SDK 下載](https://www.nuget.org/profiles/powerbi)
@@ -38,5 +39,6 @@
 ## [JavaScript Git 存放庫](https://github.com/Microsoft/PowerBI-JavaScript)
 ## [Power BI C# Git 存放庫](https://github.com/Microsoft/PowerBI-CSharp)
 ## [Power BI 社群](http://community.powerbi.com/t5/Developer/bd-p/Developer)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例應用程式](https://github.com/Azure-Samples/power-bi-embedded-integrate-report-into-web-app/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi)

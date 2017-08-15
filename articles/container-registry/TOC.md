@@ -30,6 +30,7 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=containers)
 ## [價格](https://azure.microsoft.com/pricing/details/container-registry/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [區域可用性](https://azure.microsoft.com/regions/services/)
 ## [服務更新](https://azure.microsoft.com/en-us/updates/?product=container-registry&updatetype=&platform=)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-container-registry)

@@ -17,7 +17,6 @@
 ### [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure 入口網站 (傳統)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [傳統入口網站 (傳統)](vpn-gateway-site-to-site-create.md)
 ## 設定點對站連線
 ### [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 ### [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -59,8 +58,7 @@
 ### [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
 ### [PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 ### [PowerShell (傳統)](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-## [設定 VPN 閘道 (傳統)](vpn-gateway-configure-vpn-gateway-mp.md)
-## [閘道 SKU (舊)](vpn-gateway-about-skus-legacy.md)
+## [閘道 SKU (舊版)](vpn-gateway-about-skus-legacy.md)
 ## 設定第三方 VPN 裝置
 ### [概觀和 Azure 組態](vpn-gateway-3rdparty-device-config-overview.md)
 ### [範例：Cisco ASA 裝置 (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
@@ -91,5 +89,6 @@
 ## [部落格](https://azure.microsoft.com/blog/topics/networking)
 ## [論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [價格](https://azure.microsoft.com/pricing/details/vpn-gateway)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [SLA](https://azure.microsoft.com/support/legal/sla)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=vpn-gateway)

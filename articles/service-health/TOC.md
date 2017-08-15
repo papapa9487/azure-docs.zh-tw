@@ -5,5 +5,6 @@
 ## [設定適用於服務健康情況的警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 # 資源
 ## [常見問題集](resource-health-faq.md)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [可透過 Azure 資源健康狀態使用的資源類型和健康檢查](resource-health-checks-resource-types.md)
 

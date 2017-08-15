@@ -23,8 +23,12 @@
 ### [必要 MFA](../active-directory-privileged-identity-management-how-to-require-mfa.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ### [使用稽核記錄](../active-directory-privileged-identity-management-how-to-use-audit-log.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 
+# 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # 相關參考
 ## [Azure Active Directory](/azure/active-directory/)
 ## [角色型存取控制](../role-based-access-control-what-is.md)
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

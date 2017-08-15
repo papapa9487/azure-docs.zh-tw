@@ -60,6 +60,7 @@
 ### [診斷指導方針](notification-hubs-push-notification-fixer.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
 ## [PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
@@ -68,6 +69,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs)
 ## [價格](https://azure.microsoft.com/pricing/details/notification-hubs/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=notification-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-notificationhub)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=notification-hubs)

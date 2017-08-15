@@ -30,5 +30,6 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=enterprise-integration)
 ## [部落格](https://blogs.msdn.microsoft.com/servicebus/)
 ## [價格](https://azure.microsoft.com/pricing/details/service-bus/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例](https://github.com/azure/azure-relay/tree/master/samples)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-servicebusrelay)

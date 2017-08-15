@@ -112,5 +112,6 @@
 # 資源
 ## [Azure 區域](https://azure.microsoft.com/regions/)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [範例](https://azure.microsoft.com/resources/samples/)
 ## [影片](https://azure.microsoft.com/resources/videos/home/)
