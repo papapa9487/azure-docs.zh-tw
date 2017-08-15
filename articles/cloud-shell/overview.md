@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 72512e4dac8b51678e57d3550b9827ca81a304b0
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7165633cd354eeea2e3619f839338e6af1524e56
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Azure Cloud Shell 的功能概觀 (預覽)
@@ -49,7 +49,7 @@ Cloud Shell 機器是暫存的，因此需要將 Azure 檔案共用掛接為 `cl
 
 將代替您建立下列三個資源：
 1. 名稱如下的資源群組：`cloud-shell-storage-<region>`
-2. 名稱如下的儲存體帳戶：`cs-uniqueGuid`
+2. 名稱如下的儲存體帳戶：`cs<uniqueGuid>`
 3. 名稱如下的檔案共用：`cs-<user>-<domain>-com-uniqueGuid`
 
 > [!Note]
@@ -58,7 +58,7 @@ Cloud Shell 機器是暫存的，因此需要將 Azure 檔案共用掛接為 `cl
 #### <a name="use-existing-resources"></a>使用現有的資源
 ![](media/advanced-storage.png)
 
-還提供了進階選項，可讓您將現有資源與 Cloud Shell 建立關聯。 當您看到儲存體設定提示時，請按一下 [顯示進階設定] 以選取其他選項。 下拉式清單會針對您指派的 Cloud Shell 區域和本機/全域備援儲存體帳戶進行篩選。
+還提供了進階選項，可讓您將現有資源與 Cloud Shell 建立關聯。 當您看到儲存體設定提示時，請按一下 [顯示進階設定] 以選取其他選項。 下拉式清單會針對您指派的 Cloud Shell 區域和本地/全域備援儲存體帳戶進行篩選。
 
 [了解 Cloud Shell 儲存體、更新檔案共用，以及上傳/下載檔案。](persisting-shell-storage.md)
 
@@ -88,3 +88,4 @@ Cloud Shell 建議用於 Chrome、Edge 和 Safari 瀏覽器。 雖然 Chrome、F
 1. 使用 Azure Active Directory 訂用帳戶時，因發生下列錯誤而無法建立儲存體：400 DisallowedOperation。 若要解決此問題，請使用能夠建立儲存體資源的 Azure 訂用帳戶。 AD 訂用帳戶不能建立 Azure 資源。
 
 如需特定已知的限制，請瀏覽 [Cloud Shell 的限制](limitations.md)。
+

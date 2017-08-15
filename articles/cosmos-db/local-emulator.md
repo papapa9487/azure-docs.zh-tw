@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 2ea15afa857e568a10b0ef802764afd1eab0d3f3
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 8e21861de95308a99beab3ff5ed5bd95c4f04e33
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
@@ -154,6 +154,9 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 > [!NOTE]
 > Azure Cosmos DB 模擬器所支援的主要金鑰僅能與模擬器搭配使用。 您無法將生產用的 Azure Cosmos DB 帳戶和金鑰與 Azure Cosmos DB 模擬器搭配使用。 
 
+> [!NOTE] 
+> 如果您使用 /Key 選項啟動模擬器，則請使用產生的金鑰，而不要使用 "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
+
 此外，就像 Azure Cosmos DB 服務一樣，Azure Cosmos DB 模擬器僅支援透過 SSL 的安全通訊。
 
 ## <a name="running-the-emulator-on-a-local-network"></a>在本機網路上執行模擬器
@@ -175,6 +178,9 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 您可以使用現有的工具，像是 [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) 連線到 Azure Cosmos DB 模擬器。 您也可以使用 [Azure Cosmos DB 資料移轉工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos DB 模擬器與 Azure Cosmos DB 服務之間移轉資料。
+
+> [!NOTE] 
+> 如果您使用 /Key 選項啟動模擬器，則請使用產生的金鑰，而不要使用 "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw=="
 
 使用 Azure Cosmos DB 模擬器，根據預設您可以建立最多 25 個單一分割區集合，或 1 個已分割集合。 如需變更此值的詳細資訊，請參閱[設定 PartitionCount 值](#set-partitioncount)。
 
@@ -305,7 +311,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 <tr>
   <td>GenKeyFile</td>
   <td>產生新的授權金鑰並儲存到指定的檔案。 產生的金鑰可以搭配 /Key 或 /KeyFile 選項使用。</td>
-  <td>CosmosDB.Emulator.exe  /GenKeyFile</td>
+  <td>CosmosDB.Emulator.exe  /GenKeyFile=&lt;金鑰檔案路徑&gt;</td>
   <td></td>
 </tr>
 <tr>
