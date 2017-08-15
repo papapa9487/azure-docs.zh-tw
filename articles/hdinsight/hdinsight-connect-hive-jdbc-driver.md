@@ -14,14 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/14/2017
 ms.author: larryfr
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 14bfdd8554b075b0c19a75bb572f1214a45ff471
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中透過 JDBC 驅動程式查詢 Hive
@@ -143,7 +142,7 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
     * **密碼**︰叢集登入帳戶的密碼。
 
-    ![[新增別名] 對話方塊](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
+ ![[新增別名] 對話方塊](./media/hdinsight-connect-hive-jdbc-driver/addalias.png)
 
     使用 [測試] 按鈕來確認連接能正常運作。 當 [連接到︰HDInsight 上的 Hive] 對話方塊出現時，請選取 [連接] 來執行測試。 如果測試成功，您會看到 [連線成功] 對話方塊。
 
