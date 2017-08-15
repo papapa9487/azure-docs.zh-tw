@@ -22,10 +22,6 @@
 #### [PowerShell](virtual-networks-create-vnet-arm-ps.md)
 #### [CLI](virtual-networks-create-vnet-arm-cli.md)
 #### [範本](virtual-networks-create-vnet-arm-template-click.md)
-#### 傳統
-##### [入口網站](virtual-networks-create-vnet-classic-pportal.md)
-##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
-##### [CLI](virtual-networks-create-vnet-classic-cli.md)
 
 ### 網路安全性群組
 #### [入口網站](virtual-networks-create-nsg-arm-pportal.md)
@@ -99,6 +95,12 @@
 ##### [具有防火牆、UDR 和 NSG 的 DMZ](virtual-networks-dmz-nsg-fw-udr-asm.md)
 ##### [範例應用程式](virtual-networks-sample-app.md)
 
+### 傳統
+#### [虛擬網路](create-virtual-network-classic.md)
+##### [入口網站](virtual-networks-create-vnet-classic-pportal.md)
+##### [PowerShell](virtual-networks-create-vnet-classic-netcfg-ps.md)
+##### [CLI](virtual-networks-create-vnet-classic-cli.md)
+
 ## 設定
 ### 虛擬機器
 #### [新增或移除網路介面](virtual-network-network-interface-vm.md)
@@ -140,6 +142,7 @@
 ### [無法刪除虛擬網路](virtual-network-troubleshoot-cannot-delete-vnet.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)
 ## [PowerShell (資源管理員)](/powershell/module/azurerm.network)
 ## [PowerShell (傳統)](/powershell/module/azure/)
 ## [Azure CLI](/cli/azure/network)
@@ -162,4 +165,5 @@
 ## [網路部落格](http://azure.microsoft.com/blog/topics/networking)
 ## [網路論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork)
 ## [價格](https://azure.microsoft.com/pricing/details/virtual-network)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-network)

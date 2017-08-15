@@ -71,3 +71,4 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/en-us/roadmap/?category=developer-tools)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

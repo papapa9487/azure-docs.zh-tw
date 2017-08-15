@@ -7,10 +7,11 @@
 
 # 開始使用
 ## [匯出範本](resource-manager-export-template.md)
-## [建立您的第一個範本](resource-manager-create-first-template.md)
+## [建立和部署範本](resource-manager-create-first-template.md)
 ## [搭配 Resource Manager 使用 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 範例
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
 ## PowerShell
 ### [部署範本](resource-manager-samples-powershell-deploy.md)
 
@@ -102,6 +103,7 @@
 ### [陣列和物件函式](resource-group-template-functions-array.md)
 ### [比較函式](resource-group-template-functions-comparison.md)
 ### [部署函式](resource-group-template-functions-deployment.md)
+### [邏輯函式](resource-group-template-functions-logical.md)
 ### [數值函式](resource-group-template-functions-numeric.md)
 ### [資源函式](resource-group-template-functions-resource.md)
 ### [字串函式](resource-group-template-functions-string.md)
@@ -129,6 +131,7 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=azure-resource-manager)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
 ## [節流要求](resource-manager-request-limits.md)

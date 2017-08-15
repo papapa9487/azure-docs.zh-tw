@@ -32,6 +32,7 @@
 ### [Azure 入口網站](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [設定 ExpressRoute 和站對站並存連線](expressroute-howto-coexist-resource-manager.md)
+## [針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-powershell.md)
 ## [將電路從傳統移到 Resource Manager](expressroute-howto-move-arm.md)
 ## [將關聯的虛擬網路從傳統移至 Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## 設定 ExpressRoute 的路由器
@@ -67,6 +68,7 @@
 ## [個案研究](https://customers.microsoft.com/Pages/advancedsearch.aspx?mrmcproducts=More%20Products)
 ## [網路部落格](https://azure.microsoft.com/blog/topics/networking/)
 ## [價格](https://azure.microsoft.com/pricing/details/expressroute/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [訂用帳戶與服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)

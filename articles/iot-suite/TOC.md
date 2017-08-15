@@ -54,6 +54,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [常見問題集](iot-suite-faq.md)
 ## [IoT 套件的學習路徑](https://azure.microsoft.com/documentation/learning-paths/iot-suite/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 
 
 

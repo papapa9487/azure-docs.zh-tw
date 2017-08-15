@@ -16,3 +16,4 @@
 ## [Azure CLI 2.0](/cli/azure) 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=monitoring-management)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

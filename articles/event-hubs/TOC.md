@@ -42,6 +42,7 @@
 ### [使用 Resource Manager 範本建立及部署事件中樞](event-hubs-resource-manager-namespace-event-hub.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=event-hubs)
 ## Java
 ### [com.microsoft.azure.eventhubs](/java/api/com.microsoft.azure.eventhubs)
 ### [com.microsoft.azure.eventprocessorhost](/java/api/com.microsoft.azure.eventprocessorhost)
@@ -60,6 +61,7 @@
 ## [程式碼範例](event-hubs-samples.md)
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/event-hubs/)
 ## [價格](https://azure.microsoft.com/pricing/details/event-hubs/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=event-hubs)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-eventhub)
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=event-hubs)

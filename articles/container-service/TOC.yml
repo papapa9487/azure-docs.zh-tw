@@ -6,3 +6,5 @@
   items:
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=containers'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'

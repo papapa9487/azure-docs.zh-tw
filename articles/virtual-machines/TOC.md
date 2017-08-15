@@ -5,3 +5,4 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

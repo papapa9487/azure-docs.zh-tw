@@ -146,6 +146,9 @@
 ### [串流記錄和主控台](../app-service-web/web-sites-streaming-logs-and-console.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [使用 Visual Studio 進行疑難排解](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
+# 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
+
 # 資源
 ## [App Service 參考](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure 入口網站](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -153,6 +156,7 @@
 ## [最佳作法](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
 ## [價格](https://azure.microsoft.com/pricing/details/app-service/)  
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [REST](https://docs.microsoft.com/rest/api/appservice/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=app-service) 
 ## [影片](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 

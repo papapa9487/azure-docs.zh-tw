@@ -47,6 +47,9 @@
 ### [啟用 Azure 入口網站預覽體驗](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [解析不相符的租用戶錯誤](active-directory-ds-mismatched-tenant-error.md)
 
+# 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
+
 # 相關參考
 ## [Azure Active Directory](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
@@ -57,4 +60,5 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [與我們連絡](active-directory-ds-contact-us.md)
 ## [價格](https://azure.microsoft.com/pricing/details/active-directory-ds/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory-ds)

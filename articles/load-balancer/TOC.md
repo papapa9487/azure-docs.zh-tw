@@ -48,6 +48,7 @@
 ### [針對 Azure Load Balancer 的問題進行疑難排解](load-balancer-troubleshoot.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
 ## [PowerShell](/powershell/module/azurerm.network)
 ## [Azure CLI 2.0](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
@@ -69,4 +70,5 @@
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)
 ## [價格](https://azure.microsoft.com/pricing/details/load-balancer/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=load-balancer)

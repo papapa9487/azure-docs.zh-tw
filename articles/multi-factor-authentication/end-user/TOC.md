@@ -15,3 +15,4 @@
 ### [常見問題集](microsoft-authenticator-app-faq.md)
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

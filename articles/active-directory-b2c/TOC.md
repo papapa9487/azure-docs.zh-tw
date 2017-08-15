@@ -74,6 +74,7 @@
 ### [版本資訊](active-directory-b2c-developer-notes-custom.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## 詞彙
 ### [應用程式類型](active-directory-b2c-apps.md)
 ### [驗證通訊協定](active-directory-b2c-reference-protocols.md)
@@ -92,6 +93,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [常見問題集](active-directory-b2c-faqs.md)
 ## [價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [服務更新](https://azure.microsoft.com/updates/?product=active-directory-b2c)
 ## [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-ad-b2c)
 ## [支援](active-directory-b2c-support.md)
