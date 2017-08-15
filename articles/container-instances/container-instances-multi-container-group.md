@@ -202,5 +202,5 @@ Date: Mon, 17 Jul 2017 18:27:36 GMT
 本文件說明了要部署多容器 Azure 容器執行個體所需的步驟。 如需端對端的 Azure 容器執行個體體驗，請參閱「Azure 容器執行個體」教學課程。
 
 > [!div class="nextstepaction"]
-> [Azure 容器執行個體教學課程]：./container-instances-tutorial-prepare-app.md
+> [Azure 容器執行個體教學課程]: ./container-instances-tutorial-prepare-app.md
 
