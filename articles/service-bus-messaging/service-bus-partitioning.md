@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2017
+ms.date: 08/07/2017
 ms.author: sethm;hillaryc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 3466bbd23cb20df826ad919b8c76289d89375f04
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 5a4e69ea7e13cb017f8fb432c524c6a8ce9228a8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="partitioned-queues-and-topics"></a>分割的佇列和主題
 Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用多個訊息存放區來儲存訊息。 傳統的佇列或主題由單一訊息代理程式處理並儲存在一個訊息存放區中。 服務匯流排「分割區」可讓佇列和主題或「傳訊實體」分割到多個訊息代理程式及訊息存放區。 這表示分割實體的整體輸送量不會再受到單一訊息代理程式或訊息存放區的效能所限制。 此外，即使訊息存放區暫時中斷也不會讓分割的佇列或主題無法使用。 分割的佇列和主題可以包含所有進階的服務匯流排功能，例如支援交易和工作階段。
 
-如需有關服務匯流排內部的詳細資訊，請參閱[服務匯流排架構][Service Bus architecture]一文。
+如需服務匯流排內部的資訊，請參閱[服務匯流排架構][Service Bus architecture]一文。
 
 在標準和進階傳訊中，依預設，在所有佇列和主題上建立實體時會啟用分割。 您可以建立標準傳訊層實體而不要分割，但進階命名空間中的佇列和主題永遠會分割。無法停用此選項。 
 
 在標準或進階層中的現有佇列或主題上，無法變更分割選項，您只能在建立實體時設定此選項。
 
 ## <a name="how-it-works"></a>運作方式
+
 每個分割的佇列或主題都包含多個片段。 每個片段儲存在不同的訊息存放區中，並由不同的訊息代理人處理。 當訊息傳送至分割的佇列或主題時，服務匯流排會指派訊息到其中一個片段。 選取作業由服務匯流排或使用傳送者可指定的分割索引鍵隨機進行。
 
 當用戶端想要從分割的佇列或從分割主題的訂用帳戶接收訊息時，服務匯流排會查詢所有片段的訊息，然後將取自任何訊息存放區的第一個訊息傳回給接收者。 服務匯流排會快取其他訊息，然後在它收到其他接收要求時將其傳回。 接收的用戶端並不知道分割。分割佇列或主題的用戶端對向行為 (例如讀取、完成、延遲、無效化、預先擷取) 和一般實體的行為相同。
@@ -39,6 +39,7 @@ Azure 服務匯流排會採用多個訊息代理人來處理訊息，並採用�
 傳送訊息給分割的佇列或主題，或從該處接收訊息時，不需要額外成本。
 
 ## <a name="enable-partitioning"></a>啟用分割
+
 若要搭配 Azure 服務匯流排使用分割的佇列和主題，請使用 Azure SDK 2.2 版或更新版本，或在您的 HTTP 要求中指定 `api-version=2013-10`。
 
 ### <a name="standard"></a>標準

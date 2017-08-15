@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f1ef6c3cc3ad2eda9fbcf79bf729918a847d27d7
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: c6ead651133eb17fd55f7567cdb14dc3bcd64245
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -61,13 +61,15 @@ Azure AD 應用程式 Proxy 是反向 Proxy，因此所有至後端應用程式�
 
 不需要開啟連往公司網路的輸入連線。
 
-Azure AD 連接器只會使用連往 Azure AD 應用程式 Proxy 服務的輸出連線，也就是說，您不需要開啟防火牆連接埠以供連入連線使用。 傳統 Proxy 需要周邊網路 (也稱為「DMZ」、「非軍事區」或「遮蔽式子網路」) 並在網路邊緣允許未經授權連線的存取權。 這種情節需要額外投資許多 Web 應用程式防火牆產品，以便分析流量並對環境提供額外的保護。 使用應用程式 Proxy，您就不需要周邊網路，因為所有連線皆為輸出方向，並且是透過安全通道來傳輸。
+應用程式 Proxy 連接器只會使用連往 Azure AD 應用程式 Proxy 服務的輸出連線；亦即，您不需要開啟防火牆連接埠以供連入連線使用。 傳統 Proxy 需要周邊網路 (也稱為「DMZ」、「非軍事區」或「遮蔽式子網路」) 並在網路邊緣允許未經授權連線的存取權。 這種情節需要額外投資許多 Web 應用程式防火牆產品，以便分析流量並對環境提供額外的保護。 使用應用程式 Proxy，您就不需要周邊網路，因為所有連線皆為輸出方向，並且是透過安全通道來傳輸。
+
+如需連接器的詳細資訊，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)。
 
 ### <a name="cloud-scale-analytics-and-machine-learning"></a>雲端級別分析與機器學習 
 
 取得最新的安全性保護。
 
-[Azure AD Identity Protection](active-directory-identityprotection.md) 的機器學習導向智慧所使用之資料，是來自我們的數位犯罪防治中心和 Microsoft Security Response Center。 我們共同主動識別遭入侵的帳戶，並提供來自高風險登入的即時防護。 我們考慮許多因素，例如來自受感染裝置、透過匿名網路以及來自非典型與假位置的存取。
+因為應用程式 Proxy 是 Azure Active Directory 的一部分，所以可以利用 [Azure AD Identity Protection](active-directory-identityprotection.md)，其中包含來自 Microsoft Security Response Center 和 Digital Crimes Unit 的機器學習服務導向情報和資料。 我們共同主動識別遭入侵的帳戶，並提供來自高風險登入的即時防護。 我們考慮許多因素，例如來自受感染裝置、透過匿名網路以及來自非典型與假位置的存取。
 
 這些報告和事件中有許多已可透過 API 與安全性資訊和事件管理 (SIEM) 系統整合。
 
@@ -119,7 +121,7 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 
 當使用者存取已發佈的應用程式時，會在應用程式 Proxy 服務和應用程式 Proxy 連接器之間進行下列事件：
 
-1. [服務會檢查應用程式的組態集](#the-service-checks-the-configuration-settings-for-the-app)
+1. [服務會驗證應用程式的使用者](#the-service-checks-the-configuration-settings-for-the-app)
 2. [服務會將要求放在連接器佇列中](#The-service-places-a-request-in-the-connector-queue)
 3. [連接器會處理來自佇列的要求](#the-connector-receives-the-request-from-the-queue)
 4. [連接器會等候回應](#the-connector-waits-for-a-response)
@@ -128,7 +130,7 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 若要深入了解每個步驟中所發生的事項，請繼續閱讀。
 
 
-#### <a name="1-the-service-checks-the-configuration-settings-for-the-app"></a>1.服務會檢查應用程式的組態集
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1.服務會驗證應用程式的使用者
 
 如果您將應用程式設定成使用 Passthrough 作為其預先驗證方法時，就會跳過本節中的步驟。
 

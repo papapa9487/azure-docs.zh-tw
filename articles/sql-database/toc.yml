@@ -59,7 +59,7 @@
       href: sql-database-powershell-samples.md
 - name: 概念
   items:
-    - name: 資料庫和伺服器
+    - name: 服務功能
       items:
         - name: 概觀
           href: sql-database-servers-databases.md
@@ -69,6 +69,8 @@
           href: sql-database-elastic-pool.md
         - name: 連線架構
           href: sql-database-connectivity-architecture.md
+        - name: 防火牆規則
+          href: sql-database-firewall-configure.md
         - name: DTU 和 eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU 基準測試
@@ -77,7 +79,25 @@
           href: sql-database-resource-limits.md
         - name: PaaS 或 IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
-        - name: 特性
+        - name: 稽核
+          href: sql-database-auditing.md
+        - name: 威脅偵測
+          href: sql-database-threat-detection.md
+        - name: 資料庫備份
+          href: sql-database-automated-backups.md
+        - name: 備份保留期
+          href: sql-database-long-term-retention.md
+        - name: 容錯移轉群組
+          href: sql-database-geo-replication-overview.md
+        - name: 彈性用戶端程式庫
+          href: sql-database-elastic-database-client-library.md
+        - name: 彈性查詢
+          href: sql-database-elastic-query-overview.md
+        - name: 彈性交易
+          href: sql-database-elastic-transactions-overview.md
+        - name: 彈性工作
+          href: sql-database-elastic-jobs-overview.md
+        - name: SQL Server 常用功能
           href: sql-database-features.md
     - name: 安全性
       items:
@@ -85,34 +105,22 @@
           href: sql-database-security-overview.md
         - name: 存取控制
           href: sql-database-control-access.md
-        - name: 防火牆規則
-          href: sql-database-firewall-configure.md
         - name: Azure AD
           href: sql-database-aad-authentication.md
         - name: 登入和使用者
           href: sql-database-manage-logins.md
         - name: 多因素驗證
           href: sql-database-ssms-mfa-authentication.md
-        - name: 稽核
-          href: sql-database-auditing.md
         - name: 資料表稽核與 TDS
           href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: 威脅偵測
-          href: sql-database-threat-detection.md
         - name: 資料遮罩
           href: sql-database-dynamic-data-masking-get-started.md
     - name: 業務持續性
       items:
         - name: 概觀
           href: sql-database-business-continuity.md
-        - name: 資料庫備份
-          href: sql-database-automated-backups.md
-        - name: 備份保留期
-          href: sql-database-long-term-retention.md
         - name: 資料庫復原
           href: sql-database-recovery-using-backups.md
-        - name: 容錯移轉群組
-          href: sql-database-geo-replication-overview.md
         - name: 設定安全性
           href: sql-database-geo-replication-security-config.md
         - name: 應用程式設計與復原
@@ -159,16 +167,10 @@
           href: sql-database-compatibility-level-query-performance-130.md
         - name: 監視記憶體內部
           href: sql-database-in-memory-oltp-monitoring.md
-    - name: 相應放大應用程式
+    - name: 相應放大
       items:
         - name: 概觀
           href: sql-database-elastic-scale-introduction.md
-        - name: SaaS 設計模式
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
-        - name: SaaS 應用程式安全性
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
-        - name: 彈性用戶端程式庫
-          href: sql-database-elastic-database-client-library.md
         - name: 分區對應
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 查詢路由
@@ -185,16 +187,12 @@
           href: sql-database-elastic-scale-working-with-dapper.md
         - name: 彈性工具常見問題
           href: sql-database-elastic-scale-faq.md
-        - name: 彈性查詢
-          href: sql-database-elastic-query-overview.md
-        - name: 水平資料
-          href: sql-database-elastic-query-horizontal-partitioning.md
-        - name: 垂直資料
-          href: sql-database-elastic-query-vertical-partitioning.md
-        - name: 交易
-          href: sql-database-elastic-transactions-overview.md
-        - name: 彈性工作
-          href: sql-database-elastic-jobs-overview.md
+    - name: 多租用戶 SaaS
+      items:
+        - name: SaaS 設計模式
+          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+        - name: SaaS 應用程式安全性
+          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
     - name: 開發資料庫
       items:
         - name: JSON 資料
@@ -225,6 +223,26 @@
           href: sql-database-develop-direct-route-ports-adonet-v12.md
 - name: 使用說明指南
   items:
+    - name: 服務功能
+      items:
+        - name: 升級彈性資料庫用戶端程式庫
+          href: sql-database-elastic-scale-upgrade-client-library.md
+        - name: 安裝彈性作業
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: 建立作業 - 入口網站
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: 建立作業 - PowerShell
+          href: sql-database-elastic-jobs-powershell.md
+        - name: 建立作業 - 範例應用程式
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: 將彈性作業解除安裝
+          href: sql-database-elastic-jobs-uninstall.md
+        - name: 查詢垂直分割的資料
+          href: sql-database-elastic-query-getting-started-vertical.md
+        - name: 跨相應放大的資料層報告
+          href: sql-database-elastic-query-horizontal-partitioning.md
+        - name: 對不同的結構描述執行跨資料表查詢
+          href: sql-database-elastic-query-vertical-partitioning.md
     - name: 安全性
       items:
         - name: 設定 Azure AD 驗證
@@ -285,10 +303,12 @@
           href: sql-database-manage-automation.md
         - name: Azure RemoteApp
           href: sql-database-ssms-remoteapp.md
-    - name: 相應放大應用程式
+    - name: 相應放大
       items:
         - name: 建立分區化應用程式
           href: sql-database-elastic-scale-get-started.md
+        - name: 查詢水平分區化資料
+          href: sql-database-elastic-query-getting-started.md
         - name: 移動分區化資料
           href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
         - name: 安全性組態
@@ -303,24 +323,26 @@
           href: sql-database-elastic-database-perf-counters.md
         - name: 使用 Entity Framework
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-        - name: 升級用戶端
-          href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: 安裝彈性作業
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 建立作業 - 入口網站
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 建立作業 - PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 建立作業 - 範例應用程式
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: 將彈性作業解除安裝
-          href: sql-database-elastic-jobs-uninstall.md
-        - name: 查詢水平資料
-          href: sql-database-elastic-query-getting-started.md
-        - name: 查詢垂直資料
-          href: sql-database-elastic-query-getting-started-vertical.md
-        - name: SaaS 應用程式教學課程
+    - name: 多租用戶 SaaS
+      items:
+        - name: 教學課程簡介
           href: sql-database-wtp-overview.md
+        - name: 部署範例應用程式
+          href: sql-database-saas-tutorial.md
+        - name: 佈建租用戶
+          href: sql-database-saas-tutorial-provision-and-catalog.md
+        - name: 監視資料庫效能
+          href: sql-database-saas-tutorial-performance-monitoring.md
+        - name: 透過 Log Analytics 監視
+          href: sql-database-saas-tutorial-log-analytics.md
+        - name: 還原單一租用戶
+          href: sql-database-saas-tutorial-restore-single-tenant.md
+        - name: 管理租用戶結構描述
+          href: sql-database-saas-tutorial-schema-management.md
+        - name: 執行特定查詢
+          href: sql-database-saas-tutorial-adhoc-analytics.md
+        - name: 供分析的 ETL
+          href: sql-database-saas-tutorial-tenant-analytics.md
     - name: 開發應用程式
       items:
         - name: C 和 C ++

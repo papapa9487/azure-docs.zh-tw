@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 08/07/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 50e9095d38c96323db3ccce4e3601eccbb9eb2ab
-ms.lasthandoff: 02/16/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: efe7db8a36273b4755dd057139bb1c673af868d3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="encode-an-asset-using-media-encoder-standard-with-the-azure-portal"></a>透過 Azure 入口網站使用 Media Encoder Standard 為資產編碼
@@ -42,7 +42,7 @@ ms.lasthandoff: 02/16/2017
 2. 在 [設定] 視窗中，選取 [資產]。  
 3. 在 [資產]  視窗中，選取您想要編碼的資產。
 4. 按 [編碼]  按鈕。
-5. 在 [為資產編碼]  視窗中，選取 [媒體編碼器標準] 處理器和預設值。 例如，如果您知道您的輸入視訊的解析度為 1920x1080 像素，您則可使用 [H264 多位元速率 1080p] 預設值。 如需預設值的詳細資訊，請參閱 [這篇](media-services-mes-presets-overview.md) 文章 – 務必選取最適合您的輸入視訊的預設值。 如果您有低解析度 (640x360) 視訊，則不應該使用預設 [H264 多位元速率 1080p] 預設值。
+5. 在 [為資產編碼]  視窗中，選取 [媒體編碼器標準] 處理器和預設值。 如需預設值的資訊，請參閱[自動產生的位元速率階梯](media-services-autogen-bitrate-ladder-with-mes.md)和 [MES 的工作預設值](media-services-mes-presets-overview.md)。 如果您打算控制所要使用的編碼預設值，請記住：務必選取最適合您輸入視訊的預設值。 例如，如果您知道您的輸入視訊的解析度為 1920x1080 像素，您則可使用 [H264 多位元速率 1080p] 預設值。 如果您有低解析度 (640x360) 視訊，則不應該使用 [H264 多重位元速率 1080p] 預設值。
    
    為了方便管理，您可以選擇編輯輸出資產的名稱和作業的名稱。
    

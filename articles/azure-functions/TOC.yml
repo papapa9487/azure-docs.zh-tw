@@ -39,6 +39,8 @@
       href: functions-create-serverless-api.md
 - name: 範例
   items:
+    - name: 程式碼範例
+      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
     - name: Azure CLI
       href: functions-cli-samples.md
 - name: 概念
@@ -107,6 +109,8 @@
           href: functions-bindings-event-hubs.md
         - name: 外部檔案
           href: functions-bindings-external-file.md
+        - name: 外部資料表
+          href: functions-bindings-external-table.md
         - name: HTTP 和 Webhook
           href: functions-bindings-http-webhook.md
         - name: Mobile Apps
@@ -133,6 +137,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/functions/'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: 區域可用性
       href: 'https://azure.microsoft.com/regions/services/'
     - name: MSDN 論壇

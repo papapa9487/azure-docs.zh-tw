@@ -29,6 +29,7 @@
 ### [惡意程式碼評估](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [系統更新評估](../log-analytics/log-analytics-system-update.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ### [連線安全性產品](oms-security-connect-products.md)
+### [Web 基準評估](oms-security-web-baseline-assessment.md)
 
 ## 使用解決方案
 ### [管理解決方案](operations-management-suite-solutions.md)
@@ -48,6 +49,7 @@
 ##### [逐步介紹](operations-management-suite-walkthrough-servicemap.md)
 ##### [使用](operations-management-suite-service-map.md)
 ##### [設定](operations-management-suite-service-map-configure.md)
+##### [與 Operations Manager 整合](operations-management-suite-service-map-scom.md)
 #### [SQL 評估](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [升級分析](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -77,3 +79,4 @@
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

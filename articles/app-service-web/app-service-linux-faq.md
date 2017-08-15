@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 3fb0f6b26f36ef4044c9733ace05c4f59909ddda
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 06/16/2017
 
 **問︰**我的 Web 應用程式在我已更新 Docker Hub 上的映像之後，仍然使用舊的 Docker 容器映像。 您是否支援自訂容器的連續整合/部署？
 
-**答︰**如需設定 DockerHub 映像的連續整合/部署，請查看下列文件：[在 Linux 上使用 Web 應用程式連續部署 Docker 中樞](./app-service-linux-ci-cd.md)。 針對私人登錄，您可以將 Web 應用程式先停止再啟動，來重新整理容器。 您也可以變更或新增虛擬應用程式設定，來強制重新整理您的容器。
+**答︰**如需設定 Azure Container Registry 或 DockerHub 映像的持續整合/部署，請查看下列文件：[在 Linux 上使用 Azure Web 應用程式持續部署](./app-service-linux-ci-cd.md)。 針對私人登錄，您可以將 Web 應用程式先停止再啟動，來重新整理容器。 您也可以變更或新增虛擬應用程式設定，來強制重新整理您的容器。
 
 **問︰**是否支援預備環境？
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 06/16/2017
 
 **問：**我可以使用 **Web 部署**來部署我的 Web 應用程式嗎？
 
-**答：**是，您需要將稱為 `UseWebDeployScm` 的應用程式設定設定為 `false`。
+**答：**是，您需要將稱為 `WEBSITE_WEBDEPLOY_USE_SCM` 的應用程式設定設定為 `false`。
 
 ## <a name="language-support"></a>語言支援
 
@@ -104,7 +103,7 @@ ms.lasthandoff: 06/16/2017
 
 **問︰**我的自訂容器接聽連接埠 80 以外的連接埠。 如何設定我的應用程式將要求路由至該連接埠？
 
-**答︰**我們會自動偵測連接埠，您也可以指定一個名為 [連接埠] 的應用程式設定，為它提供一個預期的連接埠號碼值。
+**答︰**我們會自動偵測連接埠，您也可以指定一個名為 [WEBSITES_PORT] 的應用程式設定，為它提供一個預期的連接埠號碼值。 先前平台使用 `PORT` 應用程式設定，我們計劃取代此應用程式設定的使用，並改為專門使用 `WEBSITES_PORT`。
 
 **問︰**我是否需要在我的自訂容器中實作 HTTPS。
 
@@ -131,5 +130,5 @@ ms.lasthandoff: 06/16/2017
 * [在 Linux 上的 Azure Web 應用程式中建立 Web Apps](app-service-linux-how-to-create-web-app.md)
 * [Linux 上的 Azure Web 應用程式 SSH 支援](./app-service-linux-ssh-support.md)
 * [在 Azure App Service 中設定預備環境](./web-sites-staged-publishing.md)
-* [在 Linux 上使用 Azure Web 應用程式連續部署 Docker 中樞](./app-service-linux-ci-cd.md)
+* [在 Linux 上使用 Azure Web 應用程式持續部署](./app-service-linux-ci-cd.md)
 

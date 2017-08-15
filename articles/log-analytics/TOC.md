@@ -46,6 +46,7 @@
 ### [記錄搜尋入口網站](log-analytics-log-search-portals.md)
 #### [使用入口網站記錄搜尋](log-analytics-log-search-log-search-portal.md)
 ### [從舊版語言轉換](log-analytics-log-search-transition.md)
+### [流程連接器](log-analytics-flow-tutorial.md)
 
 ## 分析資料
 ### [儀表板](log-analytics-dashboards.md)

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3a57646922236a10cf51ae3dd86c67c87c6d7f7f
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: bb3cf81c9b179e520e58a6fe5e455a136b9bb349
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -136,7 +136,7 @@ Azure 應用程式閘道支援 HTTP、HTTPS 和 WebSocket。
 
 **問：規則的處理方式為何？**
 
-規則會依其設定順序處理。 建議在基本規則前面設定多網站規則。 藉由先設定多網站接聽程式，此設定可以減少流量路由傳送到不適當後端的機會。 因為在評估多網站規則之前，基本規則會先根據連接埠比對流量，所以會發生此路由問題。
+規則會依其建立順序處理。 建議在基本規則前面設定多網站規則。 藉由先設定多網站接聽程式，此設定可以減少流量路由傳送到不適當後端的機會。 因為在評估多網站規則之前，基本規則會先根據連接埠比對流量，所以會發生此路由問題。
 
 **問：自訂探查的 [主機] 欄位表示什麼？**
 

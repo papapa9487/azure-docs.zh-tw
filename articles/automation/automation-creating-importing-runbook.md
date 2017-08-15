@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 0264de12caaf62e976673a423df731ad27ab01e0
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="creating-or-importing-a-runbook-in-azure-automation"></a>在 Azure 自動化中建立或匯入 Runbook
@@ -36,7 +37,7 @@ ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
 
 ### <a name="to-create-a-new-azure-automation-runbook-with-the-azure-portal"></a>使用 Azure 入口網站建立新的 Azure 自動化 Runbook
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 按一下 [Runbook]  圖格以開啟 Runbook 的清單。
+2. 從 [中樞] 選取 [Runbook] 以開啟 Runbook 清單。
 3. 按一下 [加入 Runbook] 按鈕，然後按一下 [建立新的 Runbook]。
 4. 輸入 Runbook 的 [名稱]  ，然後選取其 [類型](automation-runbook-types.md)。 Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
 5. 按一下 [建立]  來建立 Runbook 並開啟編輯器。
@@ -75,7 +76,7 @@ ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
 > 
 
 1. 在 Azure 入口網站中，開啟您的自動化帳戶。
-2. 按一下 [Runbook]  圖格以開啟 Runbook 的清單。
+2. 從 [中樞] 選取 [Runbook] 以開啟 Runbook 清單。
 3. 按一下 [加入 Runbook] 按鈕，然後按一下 [匯入]。
 4. 按一下 [Runbook 檔案]  以選取要匯入的檔案
 5. 如果 [名稱]  欄位已啟用，則您可以選擇變更它。  Runbook 名稱必須以字母開頭，可以具有字母、數字、底線和連字號。
@@ -131,10 +132,5 @@ ms.openlocfilehash: b590329e204c189ea2ef67b7c6c6bb6dacaf1628
 * 若要了解如何從 Runbook 和 PowerShell 模組資源庫中受益，請參閱 [Azure 自動化的 Runbook 和模組資源庫](automation-runbook-gallery.md)
 * 若要深入了解使用文字編輯器編輯 PowerShell 和 PowerShell 工作流程 Runbook，請參閱 [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md)
 * 若要深入了解如何編寫圖形化 Runbook，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

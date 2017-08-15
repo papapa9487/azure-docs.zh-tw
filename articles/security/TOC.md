@@ -3,11 +3,13 @@
 ## [資料庫安全性](azure-database-security-overview.md)
 ## [儲存體安全性](security-storage-overview.md)
 ## [計算安全性](security-virtual-machines-overview.md)
+## [作業安全性](azure-operational-security-overview.md)
 ## [安全性管理和監視](security-management-and-monitoring-overview.md)
+## [Service Fabric 安全性](azure-service-fabric-security-overview.md)
 ## [身分識別管理](security-identity-management-overview.md)
 ## [IoT 安全性](../iot-suite/iot-security-architecture.md#security-in-iot)
 ## [安全性架構](azure-security-architecture-overview.md)
-### [作業安全性](azure-operational-security.md)
+### [啟用作業安全性](azure-operational-security.md)
 ### [進階威脅偵測](azure-threat-detection.md)
 ### [記錄與稽核](azure-log-audit.md)
 ### [公用雲端中的隔離](azure-isolation.md)
@@ -35,7 +37,12 @@
 ### [IaaS 工作負載的最佳做法](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [為 IaaS VM 進行磁碟加密](azure-security-disk-encryption.md)
+#### [磁碟加密常見問題](azure-security-disk-encryption-faq.md)
+#### [磁碟加密疑難排解](azure-security-disk-encryption-tsg.md)
 ### [加密 Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)
+
+## 作業安全性
+### [作業安全性最佳做法](azure-operational-security-best-practices.md)
 
 ## 安全性管理和監視
 ### [安全性管理](azure-security-management.md)
@@ -47,14 +54,20 @@
 #### [使用事件中樞，整合 Key Vault 中的記錄](security-azure-log-integration-keyvault-eventhub.md)
 #### [常見問題集](security-azure-log-integration-faq.md)
 
+## Service Fabric
+### [Service Fabric 最佳做法](azure-service-fabric-security-best-practices.md)
+### [Service Fabric 檢查清單](azure-service-fabric-security-checklist.md)
+
 ## 身分識別管理
 ### [身分識別管理安全性的最佳做法](azure-security-identity-management-best-practices.md)
 
 ## PaaS 服務
 ### [保護 PaaS 部署](security-paas-deployments.md)
 #### [使用 SQL 來保護 PaaS Web 和行動應用程式](security-paas-applications-using-sql.md)
-#### [SQL Database 最佳做法](azure-database-security-best-practices.md)
+#### [SQL Database 安全性最佳做法](azure-database-security-best-practices.md)
+#### [SQL Database 安全性檢查清單](azure-database-security-checklist.md)
 #### [使用應用程式服務來保護 PaaS Web 和行動應用程式](security-paas-applications-using-app-services.md)
+####[作業安全性檢查清單](azure-operational-security-checklist.md)
 
 ## 物聯網
 ### [保護您的 IoT 部署](../iot-suite/iot-suite-security-deployment.md)
@@ -79,6 +92,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=monitoring-management)
 ## [Azure 安全性 MVP 計畫](azure-security-mvp.md)
 ## [網路安全性諮詢](azure-security-cyber-services.md)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [安全性與法務遵循部落格](http://blogs.msdn.com/b/azuresecurity/)
 ## [Virtual Academy 的安全性課程](security-microsoft-virtual-academy.md)
 ## [Channel 9 上的安全性影片](security-channel-nine.md)

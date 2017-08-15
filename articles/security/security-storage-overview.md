@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 1386d16cf0e7f6fd324d0779e9ad54ecd88b3166
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
@@ -52,7 +52,7 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 * [Azure Active Directory 角色型存取控制](../active-directory/role-based-access-control-configure.md)
 
 ## <a name="delegated-access-to-storage-objects"></a>儲存體物件的委派存取權
-共用存取簽章 (SAS) 可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限來進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入 SAS 即可。
+共用存取簽章 (SAS) 可提供您儲存體帳戶中資源的委派存取。 SAS 意謂著您可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限來進行存取。 您可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需將 SAS 提供給適當的建構函式或方法即可。
 
 深入了解：
 

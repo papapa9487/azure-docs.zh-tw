@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/12/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 3be5b442b357523449850e0a179eab93634e7b7b
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="use-direct-methods-java"></a>使用直接方法 (Java)
@@ -28,10 +28,10 @@ ms.lasthandoff: 07/14/2017
 在本教學課程中，您將建立兩個 Java 主控台應用程式：
 
 * **invoke-direct-method**，這是 Java 後端應用程式，可在模擬裝置應用程式中呼叫方法，並顯示回應。
-* **simulated-device**，這是 Java 應用程式，可使用您所建立的裝置身分識別，將連線到您 IoT 中樞的裝置進行模擬，並且可回應來自後端的直接叫用。
+* **simulated-device**，這是 Java 應用程式，可使用您所建立的裝置身分識別，模擬連線到您 IoT 中樞的裝置。 此應用程式會回應來自後端的直接叫用。
 
 > [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 一文提供 Azure IoT SDK (可讓您同時建置在裝置與您的解決方案後端執行的兩個應用程式) 的相關資訊。
+> 如需可用來建置應用程式，以在裝置與您的解決方案後端執行之 SDK 的資訊，請參閱 [Azure IoT SDK][lnk-hub-sdks]。
 
 若要完成本教學課程，您需要：
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/14/2017
 
 1. 建立名為 iot-java-direct-method 的空資料夾。
 
-1. 在 iot-java-direct-method 資料夾的命令提示字元下，使用下列命令建立名為 **simulated-device** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
+1. 在 iot-java-direct-method 資料夾的命令提示字元下，使用下列命令建立名為 **simulated-device** 的 Maven 專案。 下列命令是完整的單一命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/14/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.30</version>
+      <version>1.3.32</version>
     </dependency>
     ```
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 07/14/2017
     import java.util.Scanner;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 將 **{youriothubname}** 取代為 IoT 中樞名稱，並將 **{yourdevicekey}** 取代為您在「建立裝置識別」一節中產生的裝置金鑰值：
+1. 將下列類別層級變數新增到 **App** 類別中。 以您的 IoT 中樞名稱取代 `{youriothubname}`，並以您在＜建立裝置身分識別＞一節中產生的裝置金鑰值取代 `{yourdevicekey}`：
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -113,7 +113,7 @@ ms.lasthandoff: 07/14/2017
 
     此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 目前，若要使用直接方法，您必須使用 MQTT 通訊協定。
 
-1. 將下列巢狀類別新增到 **App** 類別中，以將狀態碼傳回 IoT 中樞：
+1. 若要將狀態碼傳回 IoT 中樞，請將下列巢狀類別新增到 **App** 類別中：
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -125,7 +125,7 @@ ms.lasthandoff: 07/14/2017
     }
     ```
 
-1. 將下列巢狀類別新增到 **App** 類別中，以處理解決方案後端的直接方法引動過程︰
+1. 若要處理解決方案後端的直接方法引動過程，請將下列巢狀類別新增到 **App** 類別中︰
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -154,7 +154,7 @@ ms.lasthandoff: 07/14/2017
     }
     ```
 
-1. 將 **Main** 方法新增至 **App** 類別，可建立 **DeviceClient** 及接聽直接方法引動過程︰
+1. 若要建立 **DeviceClient** 及接聽直接方法引動過程，請將 **main** 方法新增至 **App** 類別︰
 
     ```java
     public static void main(String[] args)
@@ -194,9 +194,9 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="call-a-direct-method-on-a-device"></a>在裝置上呼叫直接方法
 
-在本節中，您會建立 Java 主控台應用程式，以在模擬裝置應用程式中叫用直接方法，然後顯示回應。 此主控台應用程式會連線到您的 IoT 中樞來叫用直接方法。
+在本節中，您會建立 Java 主控台應用程式，以叫用直接方法，然後顯示回應。 此主控台應用程式會連線到您的 IoT 中樞來叫用直接方法。
 
-1. 在 iot-java-direct-method 資料夾的命令提示字元下，使用下列命令建立名為 **invoke-direct-method** 的 Maven 專案。 注意，這是一個單一且非常長的命令：
+1. 在 iot-java-direct-method 資料夾的命令提示字元下，使用下列命令建立名為 **invoke-direct-method** 的 Maven 專案。 下列命令是完整的單一命令：
 
     `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=invoke-direct-method -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
 
@@ -208,7 +208,7 @@ ms.lasthandoff: 07/14/2017
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.5.22</version>
+      <version>1.7.23</version>
       <type>jar</type>
     </dependency>
     ```
@@ -249,7 +249,7 @@ ms.lasthandoff: 07/14/2017
     import java.util.concurrent.TimeUnit;
     ```
 
-1. 將下列類別層級變數新增到 **App** 類別中。 將 **{youriothubconnectionstring}** 取代為您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串：
+1. 將下列類別層級變數新增到 **App** 類別中。 以您在＜建立 IoT 中樞＞一節中所記下的 IoT 中樞連接字串取代 `{youriothubconnectionstring}`：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -261,7 +261,7 @@ ms.lasthandoff: 07/14/2017
     public static final String payload = "a line to be written";
     ```
 
-1. 將下列程式碼新增至 **Main** 方法，以在模擬的裝置上叫用方法：
+1. 若要在模擬的裝置上叫用方法，請將下列程式碼新增至 **main** 方法：
 
     ```java
     System.out.println("Starting sample...");

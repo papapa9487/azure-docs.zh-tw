@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: df167435757b2d9d2d25b58b1b548a811b490eb5
-ms.lasthandoff: 04/04/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c184e94a04cfbdedcae70ed154aeb7dd134d1baf
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-a-path-based-rule-for-an-application-gateway-by-using-the-portal"></a>使用入口網站為應用程式閘道建立路徑型規則
@@ -27,6 +27,7 @@ ms.lasthandoff: 04/04/2017
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](application-gateway-create-url-route-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-url-route-arm-ps.md)
+> * [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
 
 URL 路徑型路由可讓您根據 Http 要求的 URL 路徑來關聯路由。 它會檢查是否有路由連至針對「應用程式閘道」中的 URL 清單設定的後端集區，並將網路流量傳送至定義的後端集區。 URL 型路由的常見用法是將不同內容類型的要求負載平衡至不同的後端伺服器集區。
 
@@ -59,15 +60,15 @@ URL 型路由會將新的規則類型引進應用程式閘道。 應用程式閘
 
 **基本設定**
 
-* **名稱** - 這是可在入口網站中存取的易記規則名稱。
-* **接聽程式** - 這是用於規則的接聽程式。
+* **名稱** - 此值是可在入口網站中存取的易記規則名稱。
+* **接聽程式** - 此值是用於規則的接聽程式。
 * **預設後端集區** - 此設定可定義要用於預設規則的後端
 * **預設 HTTP 設定** - 此設定可定義要用於預設規則的 HTTP 設定。
 
 **路徑型規則**
 
-* **名稱** - 這是路徑型規則的易記名稱。
-* **路徑** -此設定可定義規則在轉送流量時將要尋找的路徑
+* **名稱** - 此值是路徑型規則的易記名稱。
+* **路徑** - 此設定可定義規則在轉送流量時尋找的路徑
 * **後端集區** - 此設定可定義要用於規則的後端
 * **HTTP 設定** - 此設定可定義要用於規則的 HTTP 設定。
 
@@ -76,11 +77,11 @@ URL 型路由會將新的規則類型引進應用程式閘道。 應用程式閘
 
 ![已填入資訊的新增路徑型規則刀鋒視窗][2]
 
-將路徑型規則新增至現有應用程式閘道是在入口網站中進行的簡單程序。 建立路徑型規則後，即可加以編輯以便輕鬆地新增其他規則。 
+將路徑型規則新增至現有應用程式閘道是在入口網站中進行的簡單程序。 建立路徑型規則後，即可加以編輯以便新增其他規則。 
 
 ![新增其他路徑型規則][3]
 
-這會設定路徑型路由。 請務必了解系統不會重寫要求，應用程式閘道會在收到要求時檢查要求，並根據 URL 模式將要求傳送到適當的後端。
+此步驟會設定路徑型路由。 請務必了解系統不會重寫要求，應用程式閘道會在收到要求時檢查要求，並根據 URL 模式將要求傳送到適當的後端。
 
 ## <a name="next-steps"></a>後續步驟
 

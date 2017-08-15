@@ -96,6 +96,7 @@
 #### [使用者、工作階段、事件](app-insights-usage-segmentation.md)
 #### [漏斗圖](usage-funnels.md)
 #### [保留](app-insights-usage-retention.md)
+#### [流程](app-insights-usage-flows.md)
 #### [活頁簿](app-insights-usage-workbooks.md)
 
 ### Analytics

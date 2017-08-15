@@ -61,7 +61,10 @@
 #### [Sybase](data-factory-onprem-sybase-connector.md)
 #### [Teradata](data-factory-onprem-teradata-connector.md)
 #### [Web 資料表](data-factory-web-table-connector.md)
-### [資料管理閘道](data-factory-data-management-gateway.md)
+### 資料管理閘道
+#### [概觀](data-factory-data-management-gateway.md)
+#### [高可用性和延展性 (預覽)](data-factory-data-management-gateway-high-availability-scalability.md)
+#### [逐步解說： 將資料從內部部署 SQL Server 移至 Azure Blob 儲存體](data-factory-move-data-between-onprem-and-cloud.md)
 
 
 ## [資料轉換](data-factory-data-transformation-activities.md)
@@ -93,6 +96,7 @@
 ### [使用資料管理閘道針對問題進行疑難排解](data-factory-troubleshoot-gateway-issues.md)
 
 # 參考
+## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=data-factory)
 ## [PowerShell](/powershell/module/azurerm.datafactories)
 ## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [REST](/rest/api/datafactory/)
@@ -104,6 +108,7 @@
 ## [學習路徑](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory)
 ## [價格](https://azure.microsoft.com/pricing/details/data-factory/)
+## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [資料管理閘道的版本資訊](data-factory-gateway-release-notes.md)
 ## [要求功能](https://feedback.azure.com/forums/270578-azure-data-factory)
 ## [服務更新](https://azure.microsoft.com/updates/?product=data-factory)

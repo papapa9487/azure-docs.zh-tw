@@ -12,19 +12,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6287fa716c708cf35a5d124756c488929a93b435
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
-
-## <a name="overview"></a>概觀
 
 本文章說明用來保護 Azure IoT 中樞的選項。 IoT 中樞使用「權限」，授與每個 IoT 中樞端點的存取權。 權限可根據功能限制 IoT 中樞的存取權。
 
@@ -117,15 +114,18 @@ HTTP 是以在 **Authorization** 要求標頭中包含有效權杖的方式實�
 
 ## <a name="security-tokens"></a>安全性權杖
 
-IoT 中樞使用安全性權杖來驗證裝置和服務，以避免透過線路傳送金鑰。 此外，安全性權杖有時效性和範圍的限制。 [Azure IoT SDK][lnk-sdks] 能在不需要任何特殊組態的情況下自動產生權杖。 不過在某些案例中，您必須直接產生及使用安全性權杖。 這些案例包括直接使用 MQTT、AMQP 或 HTTP 介面，或是實作權杖服務模式，如[自訂裝置驗證][lnk-custom-auth]所述。
+IoT 中樞使用安全性權杖來驗證裝置和服務，以避免透過線路傳送金鑰。 此外，安全性權杖有時效性和範圍的限制。 [Azure IoT SDK][lnk-sdks] 能在不需要任何特殊組態的情況下自動產生權杖。 在某些案例中，您必須直接產生及使用安全性權杖。 這類案例包括：
 
-IoT 中樞也可允許裝置使用 [X.509 憑證][lnk-x509]向 IoT 中樞進行驗證。 
+* MQTT、AMQP 或 HTTP 介面的直接使用。
+* 權杖服務模式的實作，如[自訂裝置驗證][lnk-custom-auth]中所述。
+
+IoT 中樞也可允許裝置使用 [X.509 憑證][lnk-x509]向 IoT 中樞進行驗證。
 
 ### <a name="security-token-structure"></a>安全性權杖結構
 
-透過安全性權杖，您可以將 IoT 中樞內特定功能的限時存取權限授與裝置和服務。 為了確保只有取得授權的裝置和服務可以連線，安全性權杖必須經過共用存取金鑰或對稱金鑰簽署。 這些金鑰會與裝置身分識別一同儲存在身分識別登錄中。
+透過安全性權杖，您可以將 IoT 中樞內特定功能的限時存取權限授與裝置和服務。 若要取得連接到 IoT 中樞的授權，裝置和服務必須傳送以共用的存取或對稱金鑰簽章的安全性權杖。 這些金鑰會與裝置身分識別一同儲存在身分識別登錄中。
 
-經過共用存取金鑰簽署的權限，能授與所有與共用存取原則權限相關聯之功能的存取權限。 另一方面，以裝置身分識別對稱金鑰簽署的權杖只會授與相關裝置身分識別的 **DeviceConnect** 權限。
+經過共用存取金鑰簽署的權限，能授與所有與共用存取原則權限相關聯之功能的存取權限。 以裝置身分識別對稱金鑰簽署的權杖只會授與相關裝置身分識別的 **DeviceConnect** 權限。
 
 安全性權杖具有下列格式：
 
@@ -242,14 +242,14 @@ var token = generateSasToken(endpoint, deviceKey, null, 60);
 
 ### <a name="use-a-shared-access-policy"></a>使用共用存取原則
 
-從共用存取原則建立權杖時，原則名稱欄位 `skn` 必須設定為所使用之原則的名稱。 原則也必須授與 **DeviceConnect** 權限。
+當您從共用的存取原則建立權杖時，請將 `skn` 欄位設為原則的名稱。 此原則必須授與 **DeviceConnect** 權限。
 
 使用共用存取原則來存取裝置功能的兩個主要案例包括︰
 
 * [雲端通訊協定閘道][lnk-endpoints]、
 * 用來實作自訂驗證配置的[權杖服務][lnk-custom-auth]。
 
-由於共用存取原則可能可以授與以任何裝置身分連線的存取權限，因此在建立安全性權杖時，請務必使用正確的資源 URI。 這點對權杖服務來說特別重要，因為它們必須使用資源 URI 來設定權杖的範圍，以便納入特定裝置。 這點與通訊協定閘道的關聯性比較薄弱，因為它們已經在為所有裝置調節流量。
+由於共用存取原則可能可以授與以任何裝置身分連線的存取權限，因此在建立安全性權杖時，請務必使用正確的資源 URI。 此設定對權杖服務來說特別重要，因為它們必須使用資源 URI 來設定權杖的範圍，以便納入特定裝置。 這點與通訊協定閘道的關聯性比較薄弱，因為它們已經在為所有裝置調節流量。
 
 舉例來說，權杖服務如果使用名為 **device** 的預先建立共用存取原則，將會使用下列參數來建立權杖︰
 
@@ -312,7 +312,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 * **現有的 X.509 憑證**。 裝置可能已經有與其關聯的 X.509 憑證。 裝置可以使用此憑證向「IoT 中樞」進行驗證。
 * **自我產生及自我簽署的 X-509 憑證**。 裝置製造商或公司內部的部署人員可以產生這些憑證，並將對應的私密金鑰 (和憑證) 存放在裝置上。 您可以使用 [OpenSSL][lnk-openssl] 和 [Windows SelfSignedCertificate][lnk-selfsigned] 公用程式之類的工具來達到此目的。
-* **CA 簽署的 X.509 憑證**。 您也可以使用「憑證授權單位」(CA) 所產生和簽署的 X.509 憑證來識別裝置，以及向「IoT 中樞」驗證裝置。 IoTHub 只會驗證出示的指紋是否符合設定的指紋。 IotHub 不會驗證憑證鏈結。
+* **CA 簽署的 X.509 憑證**。 若要識別裝置並向 IoT 中樞驗證它，您可以使用「憑證授權單位」(CA) 所產生和簽署的 X.509 憑證。 IoT 中樞只會驗證出示的指紋是否符合設定的指紋。 IotHub 不會驗證憑證鏈結。
 
 裝置可以使用 X.509 憑證或安全性權杖來進行驗證，但不可同時使用兩者。
 
@@ -350,7 +350,7 @@ await registryManager.AddDeviceAsync(device);
 
 ### <a name="c-support"></a>C\# 支援
 
-**DeviceAuthenticationWithX509Certificate** 類別支援使用 X.509 憑證來建立  **DeviceClient** 執行個體。 X.509 憑證必須為 PFX (也稱為 PKCS #12) 格式，其中包含私密金鑰。
+**DeviceAuthenticationWithX509Certificate** 類別支援使用 X.509 憑證來建立 **DeviceClient** 執行個體。 X.509 憑證必須為 PFX (也稱為 PKCS #12) 格式，其中包含私密金鑰。
 
 以下是範例程式碼片段：
 
@@ -362,7 +362,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-authentication"></a>自訂裝置驗證
 
-您可以使用 IoT 中樞[身分識別登錄][lnk-identity-registry]，利用[權杖][lnk-sas-tokens]來設定每一裝置的安全性認證和存取控制。 如果 IoT 解決方案已經大幅投資自訂身分識別登錄及/或驗證配置，您可以藉由建立「權杖服務」，將這個現有基礎結構與 IoT 中樞整合。 如此一來，您可以在解決方案中使用其他 IoT 功能。
+您可以使用 IoT 中樞[身分識別登錄][lnk-identity-registry]，利用[權杖][lnk-sas-tokens]來設定每一裝置的安全性認證和存取控制。 如果 IoT 解決方案已經有自訂身分識別登錄及/或驗證配置，請考慮建立「權杖服務」，將這個基礎結構與 IoT 中樞整合。 如此一來，您可以在解決方案中使用其他 IoT 功能。
 
 權杖服務是自訂雲端服務。 建立具備 **DeviceConnect** 權限的 IoT 中樞共用存取原則，以建立「裝置範圍」權杖。 這些權杖可讓裝置連接到 IoT 中樞。
 
@@ -380,11 +380,11 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 權杖服務可以視需要設定權杖到期日。 權杖到期時，IoT 中樞會切斷裝置連線。 然後，裝置必須向權杖服務要求新權杖。 使用過短的到期時間會增加裝置與權杖服務上的負載。
 
-為了讓裝置連線至中樞，即使裝置使用權杖而不是裝置金鑰來連線，您仍必須將它加入 IoT 中樞身分識別登錄。 因此，您可以在裝置使用權杖驗證時，利用在 [IoT 中樞識別登錄][lnk-identity-registry]中啟用或停用裝置身分識別，繼續使用每一裝置存取控制。 此方法可減輕使用較長到期時間權杖的風險。
+為了讓裝置連線至中樞，即使裝置使用權杖而不是裝置金鑰來連線，您仍必須將它加入 IoT 中樞身分識別登錄。 因此，您可以利用在[身分識別登錄][lnk-identity-registry]中啟用或停用裝置身分識別，繼續使用每一裝置存取控制。 此方法可減輕使用較長到期時間權杖的風險。
 
 ### <a name="comparison-with-a-custom-gateway"></a>和自訂閘道器的比較
 
-權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。 這麼建議是因為 IoT 中樞會繼續處理大部份的解決方案流量。 不過，在一些情況下，自訂驗證配置和通訊協定過度交織，因此需要可處理所有流量 (*自訂閘道器*) 的服務。 使用[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)][lnk-tls-psk] 是這類案例的範例之一。 如需詳細資訊，請參閱[通訊協定閘道][lnk-protocols]主題。
+權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。 建議此模式是因為 IoT 中樞會繼續處理大部分的解決方案流量。 不過，如果自訂驗證配置與通訊協定密不可分，您可能需要「自訂閘道」來處理所有流量。 使用[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)][lnk-tls-psk] 是這類案例的範例之一。 如需詳細資訊，請參閱[通訊協定閘道][lnk-protocols]主題。
 
 ## <a name="reference-topics"></a>參考主題：
 
@@ -406,9 +406,9 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 IoT 中樞開發人員指南中的其他參考主題包括︰
 
 * [IoT 中樞端點][lnk-endpoints]說明每個 IoT 中樞公開給執行階段和管理作業的各種端點。
-* [節流和配額][lnk-quotas]說明適用於 IoT 中樞服務的配額，和使用服務時所預期的節流行為。
+* [節流和配額][lnk-quotas]描述適用於 IoT 中樞服務的配額和節流行為。
 * [Azure IoT 裝置和服務 SDK][lnk-sdks] 列出各種語言 SDK，可供您在開發與「IoT 中樞」互動的裝置和服務應用程式時使用。
-* [裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][lnk-query]說明可用於從 IoT 中樞擷取有關裝置對應項和作業資訊的 IoT 中樞查詢語言。
+* [IoT 中樞查詢語言][lnk-query]描述可用來從 IoT 中樞擷取有關裝置對應項和作業之資訊的查詢語言。
 * [IoT 中樞 MQTT 支援][lnk-devguide-mqtt]針對 MQTT 通訊協定提供 IoT 中樞支援的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟

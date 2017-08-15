@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/23/2017
+ms.date: 08/03/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 50c47061eaacbe7f7463c4d0bcc82869e31d26e6
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
@@ -45,7 +45,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 ### <a name="get-started"></a>開始使用
 您可以輕鬆地開始使用 Azure Cosmos DB。 移至 Azure 入口網站，然後建立新的 Azure Cosmos DB 帳戶。 按一下 [快速入門] 索引標籤。 下載已連接至您 Azure Cosmos DB 帳戶的 Xamarin 表單待辦事項清單範例。 
 
-![適用於行動應用程式的 Azure Cosmos DB 快速入門](media/mobile-apps-with-xamarin/documentdb-quickstart.png)
+![適用於行動應用程式的 Azure Cosmos DB 快速入門](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
 或者，如果您有現有的 Xamarin 應用程式，您可以新增 [Azure Cosmos DB NuGet 套件](documentdb-sdk-dotnet-core.md)。 Azure Cosmos DB 支援 Xamarin.IOS、Xamarin.Android 和 Xamarin Forms 共用程式庫。
 
@@ -90,18 +90,18 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 ### <a name="scale-on-demand"></a>依需求進行調整
 Azure Cosmos DB 是受管理的資料庫即服務。 隨著使用者人數成長，您不必為佈建 VM 或增加核心而煩惱。 您只需告訴 Azure Cosmos DB 您的應用程式每秒需要多少作業數 (輸送量)。 您可以透過入口網站的 [調整] 索引標籤，使用稱為每秒要求單位數 (RU) 的量值來指定輸送量。 例如，對 1-KB 文件進行的讀取作業需要 1 RU。 您也可以為 [輸送量] 計量新增警示來監視流量成長，並以設計程式方式在引發警示時變更輸送量。
 
-![Azure Cosmos DB 依需求調整輸送量](media/mobile-apps-with-xamarin/documentdb-scale.png)
+![Azure Cosmos DB 依需求調整輸送量](media/mobile-apps-with-xamarin/cosmos-db-xamarin-scale.png)
 
 ### <a name="go-planet-scale"></a>進入全球級別
 隨著您的應用程式日益受到歡迎，您可能會吸引全球各地的使用者。 或者，您或許想要針對無法預見的事件做準備。 移至 Azure 入口網站，然後開啟您的 Azure Cosmos DB 帳戶。 按一下地圖，讓您的資料持續複寫到世界各地任意數目的區域。 這項功能可讓您的使用者隨時隨地使用您的資料。 您也可以新增容錯移轉原則來因應偶發狀況。
 
-![跨地理區域的 Azure Cosmos DB 調整](media/mobile-apps-with-xamarin/documentdb-replicate-globally.png)
+![跨地理區域的 Azure Cosmos DB 調整](media/mobile-apps-with-xamarin/cosmos-db-xamarin-replicate.png)
 
 恭喜！ 您已完成解決方案，並使用 Xamarin 和 Azure Cosmos DB 建置了行動應用程式。 請遵循類似的步驟，使用 Azure Cosmos DB JavaScript SDK 來建置 Cordova 應用程式，以及使用 Azure Cosmos DB REST API 來建置原生 iOS/Android 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
 * 檢視 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 原始程式碼。
-* 下載 [DocumentDB .NET Core SDK](documentdb-sdk-dotnet-core.md)。
+* 下載 [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md)。
 * 尋找更多 [.NET 應用程式](documentdb-dotnet-samples.md)的程式碼範例。
 * 了解 [Azure Cosmos DB 豐富查詢功能](documentdb-sql-query.md)。
 * 了解 [Azure Cosmos DB 中的地理空間支援](geospatial.md)。

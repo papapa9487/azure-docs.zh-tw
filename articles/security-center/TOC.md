@@ -57,9 +57,10 @@
 ## 偵測及回應
 ### [偵測功能](security-center-detection-capabilities.md)
 ### [管理安全性警示](security-center-managing-and-responding-alerts.md)
+### [安全性警示的類型](security-center-alerts-type.md)
+### [警示驗證](security-center-alert-validation.md)
 ### [管理安全性事件](security-center-incident.md)
 ### [Azure 記錄整合](security-center-integrating-alerts-with-log-integration.md)
-### [安全性警示的類型](security-center-alerts-type.md)
 ### [威脅情報報告](security-center-threat-report.md)
 
 ## 疑難排解
