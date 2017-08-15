@@ -8,25 +8,29 @@ editor: TomShinder
 ms.assetid: 
 ms.service: security
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a648852fadfeb5c9a4ff61c85bbe0af856e445d4
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 4503234080e0bf737dad2e18907b47c3bf39d9da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理Azure Key Vault 事件
 
-您可以使用 Azure 記錄整合 (AzLog) 取出記錄的事件，並將其提供給安全性資訊和事件管理 (SIEM) 系統。 本教學課程將逐步引導您將 Azure Key Vault 活動記錄至事件中樞，並以 JSON 檔案的形式提供給 SIEM 系統的程序。 然後您可以設定 SIEM 系統以處理 JSON 檔案。
+Azure 記錄整合 (AzLog) 可讓您擷取記錄的事件，並將其提供給安全性資訊和事件管理 (SIEM) 系統。 本教學課程的目的是為了逐步示範如何使用 Azure 記錄整合，來處理透過事件中樞所取得的記錄。 您應該使用本文來熟悉 Azure 記錄整合如何與事件中樞搭配運作。請遵循範例步驟，並了解每個步驟如何支援解決方案。 然後您可以利用這裡學到的內容來建立自己的步驟，以支援您公司的獨特需求。
+
+>[!WARNING]
+本教學課程中所使用的步驟和命令僅供範例之用，不適合複製並貼上。 請勿在您的即時環境中以「現況」使用 PowerShell 命令。 您必須根據自己專屬的環境自訂這些命令。
+
+
+本教學課程將逐步引導您將 Azure Key Vault 活動記錄至事件中樞，並以 JSON 檔案的形式提供給 SIEM 系統的程序。 然後您可以設定 SIEM 系統以處理 JSON 檔案。
 
 >[!NOTE]
->本教學課程中大部分的步驟都涉及設定金鑰保存庫、儲存體帳戶和事件中樞。 Azure 記錄整合的特定步驟位於本教學課程的結尾。
+>本教學課程中大部分的步驟都涉及設定金鑰保存庫、儲存體帳戶和事件中樞。 Azure 記錄整合的特定步驟位於本教學課程的結尾。 請勿在生產環境中執行這些步驟，這些步驟僅供實驗室環境之用。 您必須自訂這些步驟，才能在生產環境中使用
 
 在過程中提供的資訊可協助您了解每個步驟背後的原因。 其他文章的連結可為您提供特定主題的詳細資訊。
 

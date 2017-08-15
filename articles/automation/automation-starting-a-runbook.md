@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2016
+ms.date: 08/07/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: a0cc641d5c2667b22ded2da8f803199cc959dc58
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 844831b63d5263987ed05370125fbe9f01913ab9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
@@ -31,8 +30,8 @@ ms.lasthandoff: 07/11/2017
 | [Windows PowerShell](https://msdn.microsoft.com/library/dn690259.aspx) |<li>使用 Windows PowerShell Cmdlet 從命令列呼叫。<br> <li>可以包含在具有多個步驟的自動化解決方案中。<br> <li>使用憑證或 OAuth 使用者主體/服務主體來驗證要求。<br> <li>提供簡單和複雜的參數值。<br> <li>追蹤工作狀態。<br> <li>支援 PowerShell Cmdlet 所需的用戶端。 |
 | [Azure 自動化 API](https://msdn.microsoft.com/library/azure/mt662285.aspx) |<li>最有彈性的方法，但也最複雜。<br> <li>從任何可提出 HTTP 要求的自訂程式碼呼叫。<br> <li>使用憑證或 OAuth 使用者主體/服務主體來驗證要求。<br> <li>提供簡單和複雜的參數值。<br> <li>追蹤工作狀態。 |
 | [Webhook](automation-webhooks.md) |<li>從單一 HTTP 要求啟動 Runbook。<br> <li>在 URL 中使用安全性權杖進行驗證。<br> <li>用戶端無法覆寫建立 Webhook 時指定的參數值。 Runbook 可以定義填入了 HTTP 要求詳細資料的單一參數。<br> <li>無法透過 Webhook URL 追蹤工作狀態。 |
-| [回應 Azure 警示](../log-analytics/log-analytics-alerts.md) |<li>啟動 Runbook 以回應 Azure 警示。<br> <li>設定 Runbook 的 Webhook 以及警示的連結。<br> <li>在 URL 中使用安全性權杖進行驗證。<br> <li>目前僅支援度量的警示。 |
-| [排程](automation-schedules.md) |<li>每小時、每天或每週排程，自動啟動 Runbook。<br> <li>透過 Azure 入口網站、PowerShell Cmdlet 或 Azure API 操縱排程。<br> <li>提供參數值來搭配排程使用。 |
+| [回應 Azure 警示](../log-analytics/log-analytics-alerts.md) |<li>啟動 Runbook 以回應 Azure 警示。<br> <li>設定 Runbook 的 Webhook 以及警示的連結。<br> <li>在 URL 中使用安全性權杖進行驗證。 |
+| [排程](automation-schedules.md) |<li>每小時、每天、每週或每月排程，自動啟動 Runbook。<br> <li>透過 Azure 入口網站、PowerShell Cmdlet 或 Azure API 操縱排程。<br> <li>提供參數值來搭配排程使用。 |
 | [另一個 Runbook](automation-child-runbooks.md) |<li>在另一個 Runbook 中使用 Runbook 作為活動。<br> <li>對多個 Runbook 使用的功能很有用。<br> <li>提供參數值給子 Runbook，並在父 Runbook 中使用輸出。 |
 
 下圖說明 Runbook 的生命週期的詳細逐步程序。 它包含了 Runbook 在 Azure 自動化中啟動的不同方式、Hybrid Runbook Worker 執行 Azure 自動化 Runbook 所需的元件，以及不同元件之間的互動。 若要了解如何在您的資料中心執行自動化 Runbook，請參閱 [混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)
@@ -41,17 +40,10 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="starting-a-runbook-with-the-azure-portal"></a>使用 Azure 入口網站啟動 Runbook
 1. 在 Azure 入口網站中，選取 [ **自動化** ]，然後按一下自動化帳戶的名稱。
-2. 選取 [ **Runbook** ] 索引標籤。
-3. 選取 Runbook，然後按一下 [啟動]。
+2. 在 [中樞] 功能表中，選取 [Runbook]。
+3. 在 [Runbook] 刀鋒視窗中，選取 Runbook，然後按一下 [啟動]。
 4. 如果 Runbook 有參數，系統會提示您提供每個參數的文字方塊的值。 請參閱以下的 [Runbook 參數](#Runbook-parameters) ，以取得參數的進一步詳細資訊。
-5. 選取 [啟動] Runbook 訊息旁邊的 [檢視作業]，或選取 Runbook 的 [作業] 索引標籤，以檢視 Runbook 作業的狀態。
-
-## <a name="starting-a-runbook-with-the-azure-portal"></a>使用 Azure 入口網站啟動 Runbook
-1. 在您的自動化帳戶中，按一下 [Runbook] 的部分以開啟 [Runbook] 刀鋒視窗。
-2. 按一下 Runbook 以開啟其 [ **Runbook** ] 刀鋒視窗。
-3. 按一下 [啟動] 。
-4. 如果 Runbook 沒有參數，系統會提示您確認您是否想要啟動它。 如果 Runbook 有參數，[ **啟動 Runbook** ] 刀鋒視窗會開啟，因此您可以提供參數值。 請參閱以下的 [Runbook 參數](#Runbook-parameters) ，以取得參數的進一步詳細資訊。
-5. [ **工作** ] 刀鋒視窗隨即開啟，因此您可以追蹤工作的狀態。
+5. 在 [作業] 刀鋒視窗中，您可以檢視 Runbook 作業的狀態。
 
 ## <a name="starting-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 啟動 Runbook
 您可以使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) ，利用 Windows PowerShell 來啟動 Runbook。 下列範例程式碼會啟動名稱為 Test-Runbook 的 Runbook。
