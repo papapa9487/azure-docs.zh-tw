@@ -1,11 +1,11 @@
 ---
 title: "串流分析中一般使用模式的查詢範例 | Microsoft Docs"
-description: "常見的 Azure 串流分析查詢模式  "
+description: "常見的 Azure 串流分析查詢模式"
 keywords: "查詢範例"
 services: stream-analytics
 documentationcenter: 
 author: jeffstokes72
-manager: jhubbard
+manager: jenniehubbard
 editor: cgronlun
 ms.assetid: 6b9a7d00-fbcc-42f6-9cbb-8bbf0bbd3d0e
 ms.service: stream-analytics
@@ -13,23 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 3eb5d7e7198dbfbb8ffe47728d0fa532c49a294c
+ms.date: 08/08/2017
+ms.author: jenniehubbard
+ms.translationtype: HT
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: bdaaf8fe6d18ba9dcb533864e691f11272dc9f9f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>一般串流分析使用模式的查詢範例
 ## <a name="introduction"></a>簡介
-Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以參閱 [串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx) 指南來進一步了解。  本文章根據真實世界案例概述幾個常見查詢模式的解決方案。  這是進行中的工作，並將繼續不間斷使用新模式進行更新。
+Azure 串流分析的查詢會以類似 SQL 的查詢語言表達。 這些查詢記載在[串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)指南中。 本文章根據真實世界案例概述幾個常見查詢模式的解決方案。 這是進行中的工作，會繼續不間斷使用新模式進行更新。
 
-## <a name="query-example-data-type-conversions"></a>查詢範例：資料類型轉換
+## <a name="query-example-convert-data-types"></a>查詢範例：轉換資料類型
 **描述**：在輸入資料流上定義屬性類型。
-例如，汽車重量即將以字串形式出現在輸入資料流，並且需要轉換為 INT 以執行 SUM 來將它加總。
+例如，汽車重量即將以字串形式出現在輸入資料流，並且需要轉換為 **INT** 以執行 **SUM** 來將它加總。
 
 **輸入**：
 
@@ -55,10 +54,11 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
         Make,
         TumblingWindow(second, 10)
 
-**說明**：使用權數欄位上的 CAST 陳述式指定其類型 (請參閱 [這裡](https://msdn.microsoft.com/library/azure/dn835065.aspx)的受支援資料類型清單)。
+**說明**：在 [Weight]\(加權\) 欄位中使用 **CAST** 陳述式來指定其資料類型。 請參閱[資料類型 (Azure 串流分析)](https://msdn.microsoft.com/library/azure/dn835065.aspx) 中的支援資料類型清單。
 
-## <a name="query-example-using-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 Like/Not like 進行模式比對
-**描述**：檢查事件的欄位值是否符合某個模式，例如傳回以 A 開頭和以 9 結尾的車牌號碼
+## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>查詢範例：使用 Like/Not like 進行模式比對
+**描述**：檢查事件的欄位值是否符合特定模式。
+例如，檢查結果是否會傳回開頭為 A 且結尾為 9 的車牌。
 
 **輸入**：
 
@@ -84,11 +84,11 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
     WHERE
         LicensePlate LIKE 'A%9'
 
-**說明**：使用 LIKE 陳述式檢查 LicensePlate 欄位值是否以 A 開頭，有沒有任何零或多個字元的字串，並以 9 結尾。 
+**說明**：使用 **LIKE** 陳述式檢查 [LicensePlate] 欄位值。 開頭應該為 A，接著是長度為零或更多字元的字串，並以 9 結尾。 
 
 ## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>查詢範例：為不同的案例/值指定邏輯 (CASE 陳述式)
-**描述**：依據一些準則為欄位提供不同的計算。
-例如，針對通過的相同品牌汽車中有多少部符合 1 的特殊情況提供字串描述。
+**描述**：根據特定準則，提供不同的欄位計算方式。
+例如，針對通過的相同廠牌汽車中有多少部符合 1 的特殊情況提供字串描述。
 
 **輸入**：
 
@@ -119,11 +119,11 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
         Make,
         TumblingWindow(second, 10)
 
-**說明**：CASE 子句可讓我們根據一些準則提供不同的運算 (在我們的案例中，汽車計數在彙總視窗中)。
+**說明**：**CASE** 子句可讓我們根據一些準則提供不同的運算 (在我們的案例中，汽車計數在彙總視窗中)。
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>查詢範例：將資料傳送至多個輸出
 **描述**：將資料從單一工作傳送到多個輸出目標。
-例如，分析臨界值警示的資料，並將所有事件封存到 Blob 儲存體
+例如，分析臨界值警示的資料，並將所有事件封存到 Blob 儲存體。
 
 **輸入**：
 
@@ -174,11 +174,12 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
     HAVING
         [Count] >= 3
 
-**說明**：INTO 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。
-第一個查詢將我們接收到的資料傳遞至我們命名為 ArchiveOutput 的輸出。
+**說明**：**INTO** 子句會告訴串流分析要從此陳述式將資料寫入哪個輸出。
+第一個查詢將我們接收到的資料傳遞至我們命名為 **ArchiveOutput** 的輸出。
 第二個查詢會執行一些簡單的彙總和篩選，並將結果傳送至下游的警示系統。
-*注意*：您也可以在多個輸出陳述式中重複使用 CTE 的結果 (例如 WITH 陳述式) – 這對於開放輸入來源給較少讀取器有額外的好處。
-例如， 
+
+請注意，您也可以在多個輸出陳述式中重複使用通用資料表運算式 (CTE) 的結果 (例如 **WITH** 陳述式)。 此選項多了一項優點，就是對輸入來源開放的讀取器較少。
+例如： 
 
     WITH AllRedCars AS (
         SELECT
@@ -191,9 +192,9 @@ Azure 串流分析中的查詢以類似 SQL 的查詢語言來表示，您可以
     SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
     SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
 
-## <a name="query-example-counting-unique-values"></a>查詢範例：計算唯一值
+## <a name="query-example-count-unique-values"></a>查詢範例：計算唯一值
 **描述**：計算某個時間範圍內在串流中所出現唯一欄位值的數目。
-例如，在 2 秒鐘時間範圍內有多少部某一獨特品牌的汽車通過收費亭？
+例如，在 2 秒鐘時間範圍內有多少部某一獨特廠牌的汽車通過收費亭？
 
 **輸入**：
 
@@ -224,10 +225,12 @@ GROUP BY
 ````
 
 
-**說明：**COUNT(DISTINCT Make) 會傳回一個時間範圍內 “Make” 資料行的相異值數目。
+**說明：**
+**COUNT(DISTINCT Make)** 會傳回一個時間範圍內 **Make** 資料行的相異值數目。
 
 ## <a name="query-example-determine-if-a-value-has-changed"></a>查詢範例：判斷值是否已變更
-**描述**：查看前一個值來判斷該值是否與目前的值不同。例如收費道路上前一輛汽車的品牌，是否與目前汽車的品牌相同？
+**描述**：查看前一個值來判斷該值是否與目前的值不同。
+例如收費道路上前一輛汽車的品牌，是否與目前汽車的品牌相同？
 
 **輸入**：
 
@@ -252,10 +255,10 @@ GROUP BY
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 
-**說明**：使用 LAG 查看前一個事件的輸入串流，並取得品牌值。 然後將其和目前事件中的品牌比較，並且在兩者不同時輸出事件。
+**說明**：使用 **LAG** 查看前一個事件的輸入資料流，並取得 **Make** 值。 然後將其和目前事件中的 **Make** 值比較，並且在兩者不同時輸出事件。
 
-## <a name="query-example-find-first-event-in-a-window"></a>查詢範例：時間範圍內的第一個事件
-**描述**：是否要每隔 10 分鐘尋找第一輛車？
+## <a name="query-example-find-the-first-event-in-a-window"></a>查詢範例：尋找時間範圍內的第一個事件
+**描述**：是否要每隔 10 分鐘尋找第一輛車。
 
 **輸入**：
 
@@ -287,7 +290,7 @@ GROUP BY
     WHERE 
         IsFirst(minute, 10) = 1
 
-現在讓我們來變更問題，每隔 10 分鐘尋找特定品牌的第一輛車。
+現在讓我們來變更問題，每隔 10 分鐘尋找特定廠牌的第一輛車。
 
 | LicensePlate | Make | 時間 |
 | --- | --- | --- |
@@ -308,7 +311,7 @@ GROUP BY
     WHERE 
         IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
 
-## <a name="query-example-find-last-event-in-a-window"></a>查詢範例：時間範圍內的上一個事件
+## <a name="query-example-find-the-last-event-in-a-window"></a>查詢範例：尋找時間範圍內的上一個事件
 **描述**：每隔 10 分鐘尋找上一輛車。
 
 **輸入**：
@@ -351,11 +354,11 @@ GROUP BY
         ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
         AND Input.Time = LastInWindow.LastEventTime
 
-**說明**：查詢中有兩個步驟 – 第一個是在 10 分鐘視窗中尋找最新的時間戳記。 第二個步驟會聯結第一個查詢的結果與原始串流，以在每個視窗中尋找符合最後一個時間戳記的事件。 
+**說明**：查詢中有兩個步驟。 第一個步驟會尋找 10 分鐘時間範圍內最新的時間戳記。 第二個步驟會將第一個查詢的結果與原始串流聯結在一起，在每個時間範圍內尋找符合最後一個時間戳記的事件。 
 
 ## <a name="query-example-detect-the-absence-of-events"></a>查詢範例：偵測到事件不存在
 **描述**：檢查串流中是否沒有和特定準則相符的值。
-例如，在 90 秒內連續有 2 部品牌相同的汽車進入收費道路？
+例如，在最後的 90 秒內連續有 2 部相同廠牌的車輛進入收費道路？
 
 **輸入**：
 
@@ -385,10 +388,10 @@ GROUP BY
     WHERE
         LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 
-**說明**：使用 LAG 查看前一個事件的輸入串流，並取得品牌值。 然後將其和目前事件中的品牌比較，在兩者相同時輸出事件並使用 LAG 取得上一輛車的相關資料。
+**說明**：使用 **LAG** 查看前一個事件的輸入資料流，並取得 **Make** 值。 將該值和目前事件中的 **MAKE** 值比較，如果相同則輸出該事件。 您也可以使用 **LAG** 取得上一輛車的相關資料。
 
-## <a name="query-example-detect-duration-between-events"></a>查詢範例：偵測事件與事件之間的持續時間
-**描述**：尋找指定事件的持續時間。 例如，指定某一網頁點選流可判斷在某一功能上花費的時間。
+## <a name="query-example-detect-the-duration-between-events"></a>查詢範例：偵測事件與事件之間的持續時間
+**描述**：尋找指定事件的持續時間。 例如，指定某一網頁點選流，以判斷在某一功能上花費的時間。
 
 **輸入**：  
 
@@ -403,7 +406,7 @@ GROUP BY
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**解決方案**
+**解決方案**：
 
 ````
     SELECT
@@ -413,11 +416,11 @@ GROUP BY
         Event = 'end'
 ````
 
-**說明**：使用 LAST 函式，在事件類型為「Start」時擷取最後一個時間值。 請注意，LAST 函式使用 PARTITION BY [user] 來表示，應該要分別為每位獨特的使用者來計算結果。  查詢的「Start」與「Stop」事件之間時間差的上限為 1 小時，但該值可以在必要時變更 (LIMIT DURATION(hour, 1)。
+**說明**：當事件類型為 **Start** 時，使用 **LAST** 函式取出最後一個 **TIME** 值。 **LAST** 函式使用 **PARTITION BY [user]** 來表達會為個別使用者分別計算結果。 查詢的 **Start** 與 **Stop** 事件之間時間差的上限為 1 小時，但該值可以在必要時變更 **(LIMIT DURATION(hour, 1)**。
 
-## <a name="query-example-detect-duration-of-a-condition"></a>查詢範例：偵測某個情況的持續時間
+## <a name="query-example-detect-the-duration-of-a-condition"></a>查詢範例：偵測某個情況的持續時間
 **描述**：找出某個情況的持續時間。
-例如，假設有個錯誤導致所有車輛的重量不正確 (超過 20,000 磅)，而我們想要計算該錯誤的持續時間。
+例如，假設有個錯誤導致所有車輛的重量不正確 (超過 20,000 磅)， 而我們想要計算該錯誤的持續時間。
 
 **輸入**：
 
@@ -459,7 +462,7 @@ GROUP BY
         AND previousWeight > 20000
 ````
 
-**說明**：使用 LAG 來檢視 24 小時內的輸入資料流，並尋找其中的 StartFault 和 StopFault 被 weight < 20000 合併的執行個體。
+**說明**：使用 **LAG** 來檢視 24 小時內的輸入資料流，並尋找其中的 **StartFault** 和 **StopFault** 被 weight < 20000 合併的執行個體。
 
 ## <a name="query-example-fill-missing-values"></a>查詢範例：填入遺漏值
 **描述**：對於有遺漏值的事件串流，以固定間隔產生事件串流。
@@ -501,10 +504,10 @@ GROUP BY
     GROUP BY HOPPINGWINDOW(second, 300, 5)
 
 
-**說明**：此查詢會每隔 5 秒產生事件，並且會輸出之前收到的最後一個事件。 [跳動視窗](https://msdn.microsoft.com/library/dn835041.aspx "跳動視窗 - Azure Stream Analytics") 持續時間會決定查詢回溯到多久之前以找出最新的事件 (在此範例中為 300 秒)。
+**說明**：此查詢會每隔 5 秒產生事件，並且會輸出之前收到的最後一個事件。 [跳動視窗](https://msdn.microsoft.com/library/dn835041.aspx "跳動視窗 - Azure 串流分析")持續時間會決定查詢回溯到多久之前以找出最新的事件 (在此範例中為 300 秒)。
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

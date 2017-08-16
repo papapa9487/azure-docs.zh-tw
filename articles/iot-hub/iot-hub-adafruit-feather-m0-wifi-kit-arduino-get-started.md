@@ -13,7 +13,7 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/12/2017
+ms.date: 8/16/2017
 ms.author: xshi
 ms.translationtype: HT
 ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/13/2017
 1. 按一下 [檔案] > [喜好設定] (Windows/Linux) 或 [Arduino] > [喜好設定] (Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] (其他面板管理員 URL) 選項。
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. 按一下 [工具] > [面板] > [面板管理員]，然後安裝 `Arduino SAMD Boards` 版本 `1.6.2` 或更新版本。 

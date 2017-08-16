@@ -1,6 +1,6 @@
 ---
-title: "Azure DocumentDB .NET SDK 與資源 | Microsoft Docs"
-description: "全面了解 .NET API 和 SDK，包括發行日期、停用日期及 DocumentDB .NET SDK 每個版本之間的變更。"
+title: "Azure Cosmos DB .NET SDK 和資源 | Microsoft Docs"
+description: "全面了解 .NET API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET SDK 每個版本之間的變更。"
 services: cosmos-db
 documentationcenter: .net
 author: rnagpal
@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: a41df84034dbc2f1ec6c61d027ced77694354d51
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="documentdb-net-sdk-download-and-release-notes"></a>DocumentDB .NET SDK：下載和版本資訊
+# <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
 > * [.NET 變更摘要](documentdb-sdk-dotnet-changefeed.md)
@@ -44,7 +44,7 @@ ms.lasthandoff: 07/13/2017
 
 <tr><td>**範例**</td><td>[.NET 程式碼範例](documentdb-dotnet-samples.md)</td></tr>
 
-<tr><td>**開始使用**</td><td>[開始使用 DocumentDB .NET SDK](documentdb-get-started.md)</td></tr>
+<tr><td>**開始使用**</td><td>[開始使用 Azure Cosmos DB .NET SDK 教學課程](documentdb-get-started.md)</td></tr>
 
 <tr><td>**Web 應用程式教學課程**</td><td>[使用 Azure Cosmos DB 進行 Web 應用程式開發](documentdb-dotnet-application.md)</td></tr>
 
@@ -53,11 +53,18 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
+* 修正 JsonSerializable 類別中可能會造成堆疊溢位例外狀況的問題。
+
+### <a name="a-name11601160"></a><a name="1.16.0"/>1.16.0
+*   已修正需要重新編譯應用程式的問題，之所以有此問題，是因為在 DocumentClient 建構函式中導入 JsonSerializerSettings 來作為選擇性參數。
+* 已將 DocumentClient 建構函式標記為過時，該建構函式需要 JsonSerializerSettings 來作為最後一個參數，以在傳遞 JsonSerializerSettings 參數時允許使用 ConnectionPolicy 和 ConsistencyLevel 參數的預設值。
+
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 *   已新增對 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) 具現化時指定自訂 JsonSerializerSettings 的支援。
 
 ### <a name="a-name11411141"></a><a name="1.14.1"/>1.14.1
-*   針對不支援 SSE4 指令的 x64 電腦，已修正執行 DocumentDB API 查詢時，這類電腦會擲回 SEHException 的問題。
+*   針對不支援 SSE4 指令的 x64 電腦，已修正執行 Azure Cosmos DB API 查詢時，這類電腦會擲回 SEHException 的問題。
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 *   已新增每分鐘的要求單位 (RU/m) 功能支援。
@@ -143,7 +150,7 @@ ms.lasthandoff: 07/13/2017
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
 * 已新增分割集合的平行查詢支援。
 * 已新增分割集合的跨資料分割 ORDER BY 和 TOP 查詢支援。
-* 已修正使用 DocumentDB Nuget 封裝參照來參考 DocumentDB 專案時，遺失所需的 DocumentDB.Spatial.Sql.dll 與 Microsoft.Azure.Documents.ServiceInterop.dll 參照。
+* 已修正使用 Azure Cosmos DB Nuget 套件參照來參考 Azure Cosmos DB 專案時，遺失所需的 DocumentDB.Spatial.Sql.dll 與 Microsoft.Azure.Documents.ServiceInterop.dll 參照。
 * 已修正在 LINQ 中使用使用者定義的函式時，使用不同類型參數的能力。 
 * 已修正廣域複寫帳戶中的的錯誤，此錯誤會使得 Upsert 呼叫導向讀取位置而非寫入位置。
 * 已在遺失的 IDocumentClient 介面加入方法： 
@@ -156,7 +163,7 @@ ms.lasthandoff: 07/13/2017
 * 新增對多重區域資料庫帳戶的支援。
 * 新增在已節流處理的要求上進行重試的支援。  使用者可以藉由設定 ConnectionPolicy.RetryOptions 屬性，來自訂重試次數和等待時間上限。
 * 新增新的 IDocumentClient 介面，其中會定義所有 DocumenClient 屬性和方法的簽章。  做為此變更的一部分，也將建立 IQueryable 和 IOrderedQueryable 的擴充方法變更為 DocumentClient 類別本身上的方法。
-* 新增組態選項，以針對指定的 DocumentDB 端點 URI 設定 ServicePoint.ConnectionLimit。  使用 ConnectionPolicy.MaxConnectionLimit 來變更預設值 (已設為 50)。
+* 新增組態選項，以針對指定的 Azure Cosmos DB 端點 URI 設定 ServicePoint.ConnectionLimit。  使用 ConnectionPolicy.MaxConnectionLimit 來變更預設值 (已設為 50)。
 * 已淘汰 IPartitionResolver 及其實作。  現在不支援 IPartitionResolver。 建議您針對更高的儲存體和輸送量使用分割集合。
 
 ### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
@@ -172,7 +179,7 @@ ms.lasthandoff: 07/13/2017
 * 實作[已分割的集合](partition-data.md)和[使用者定義的效能等級](performance-levels.md)。 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[已修正]** 查詢 DocumentDB 端點時擲回：「System.Net.Http.HttpRequestException：將內容複製到資料流時發生錯誤」。
+* **[已修正]** 查詢 Azure Cosmos DB 端點時擲回：「System.Net.Http.HttpRequestException：將內容複製到資料流時發生錯誤」。
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * 擴充的 LINQ 支援包括新的分頁、條件式運算式以及範圍比較的運算子。
@@ -247,6 +254,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.16.1](#1.16.1) |2017 年 8 月 7 日 |--- |
+| [1.16.0](#1.16.0) |2017 年 8 月 2 日 |--- |
 | [1.15.0](#1.15.0) |2017 年 6 月 30 日 |--- |
 | [1.14.1](#1.14.1) |2017 年 5 月 23 日 |--- |
 | [1.14.0](#1.14.0) |2017 年 5 月 10 日 |--- |
