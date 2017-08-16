@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/24/2017
+ms.date: 08/14/2017
 ms.author: shlo
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: deda1cc7be197fc3d59b71038224dc6e8089267b
+ms.contentlocale: zh-tw
 ms.lasthandoff: 11/17/2016
-
 
 ---
 # <a name="use-case---product-recommendations"></a>使用案例 - 產品建議
