@@ -101,7 +101,7 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="default-managed-disk-settings"></a>預設的受控磁碟設定
 
-若要建立使用受控磁碟的 VM，您不再需要建立儲存體帳戶資源，而且可以更新虛擬機器資源，如下所示。 請特別注意，`apiVersion` 會反映出 `2017-03-30` 和 `osDisk` 和 `dataDisks` 不再參照 VHD 的特定 URI。 若部署而不指定其他屬性，磁碟將會使用 [標準 LRS 儲存體][](storage-redundancy.md)。 若未指定名稱，它的 OS 磁碟格式為 `<VMName>_OsDisk_1_<randomstring>`，而每個資料磁碟的格式為 `<VMName>_disk<#>_<randomstring>`。 預設已停用 Azure 磁碟加密；OS 磁碟的快取為 [讀取/寫入]，資料磁碟的快取則為 [無]。 您可能會注意到，在下列範例中仍有儲存體帳戶相依性，但這只適用於儲存體的診斷，而且磁碟儲存體並不需要相依性。
+若要建立使用受控磁碟的 VM，您不再需要建立儲存體帳戶資源，而且可以更新虛擬機器資源，如下所示。 請特別注意，`apiVersion` 會反映出 `2017-03-30` 和 `osDisk` 和 `dataDisks` 不再參照 VHD 的特定 URI。 若部署而不指定其他屬性，磁碟將會使用 [標準 LRS 儲存體](storage-redundancy.md) 。 若未指定名稱，它的 OS 磁碟格式為 `<VMName>_OsDisk_1_<randomstring>`，而每個資料磁碟的格式為 `<VMName>_disk<#>_<randomstring>`。 預設已停用 Azure 磁碟加密；OS 磁碟的快取為 [讀取/寫入]，資料磁碟的快取則為 [無]。 您可能會注意到，在下列範例中仍有儲存體帳戶相依性，但這只適用於儲存體的診斷，而且磁碟儲存體並不需要相依性。
 
 ```
 {
