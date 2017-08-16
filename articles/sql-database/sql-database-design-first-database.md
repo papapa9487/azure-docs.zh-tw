@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 07/31/2017
+ms.date: 08/03/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: ec3b2debcd65f733041462940196a61c109bf051
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 69cfffdae5ce2db53acc6d668dbe468c3ef22dc2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -43,7 +43,7 @@ Azure SQL Database 是 Microsoft 雲端 ("Azure") 中的關聯式資料庫即服
 
 若要完成本教學課程，請確定您已安裝︰
 - 最新版的 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)。
-- 最新版的 [BCP 和 SQLCMD][https://www.microsoft.com/download/details.aspx?id=36433]。
+- 最新版的 [BCP 和 SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 

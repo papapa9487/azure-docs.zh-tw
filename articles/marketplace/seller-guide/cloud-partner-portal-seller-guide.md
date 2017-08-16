@@ -12,13 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 59a0f0ec1b7b576339a45be26be8543ac0650a8a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
-
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Marketplace 賣方指南
@@ -215,7 +213,7 @@ Marketplace 會提供有關訂單、使用量和客戶的報告，您可透過 M
   - 帶領潮流的供應項目
   - Marketplace 授權類型
 
-詳細的報告會顯示客戶資訊，例如公司名稱和地理位置 (包含郵遞區號)，讓您您可以免費提供給銷售人員。 下列清單包含我們提供的客戶相關特定屬性︰
+詳細的報告會顯示客戶資訊，例如公司名稱和地理位置 (包含郵遞區號)，以供您比較客戶。 下列清單包含我們提供的客戶相關特定屬性︰
 
 - Reseller
 - 名字

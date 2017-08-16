@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 67cb42394a596f9e5c0a5d6a5042363e26ed0ac0
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: cb5ec1a105c632626c5caf39e4fd356177883123
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 07/18/2017
 
 ### <a name="common-consumer-tasks"></a>常見的取用者工作
 
-所有事件中樞取用者都透過 AMQP 1.0 工作階段和狀態感知的雙向通訊通道來連接。 每個資料分割都有 AMQP 1.0 工作階段，有助於傳輸資料分割所隔離的事件。
+所有事件中樞取用者都會透過 AMQP 1.0 工作階段 (狀態感知的雙向通訊通道) 來連線。 每個資料分割都有 AMQP 1.0 工作階段，有助於傳輸資料分割所隔離的事件。
 
 #### <a name="connect-to-a-partition"></a>連接資料分割
 

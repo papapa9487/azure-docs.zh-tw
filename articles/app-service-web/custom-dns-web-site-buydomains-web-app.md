@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 08/03/2017
 ms.author: robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c42e419984ee4b7f30c8423b9a0c420e2c981949
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>針對 Azure Web Apps 購買自訂網域名稱
 
 App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它們可以讓 [Azure Web Apps](app-service-web-overview.md) 的自訂網域管理作業變得很簡單。 本教學課程會示範如何購買 App Service 網域，並將 DNS 名稱指派給 Azure Web Apps。
 
-本文適用於 Azure App Service (Web Apps、API Apps、Mobile Apps、Logic Apps)；對於雲端服務，請參閱 [設定 Azure 雲端服務的自訂網域名稱](../cloud-services/cloud-services-custom-domain-name-portal.md)。
+本文適用於 Azure App Service (Web Apps、API Apps、Mobile Apps、Logic Apps)。 若為 Azure VM 或 Azure 儲存體，請參閱[將 App Service 網域指派給 Azure VM 或 Azure 儲存體](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)。 若為雲端服務，請參閱[設定 Azure 雲端服務的自訂網域名稱](../cloud-services/cloud-services-custom-domain-name-portal.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,7 +63,7 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
-選取任一個非免費層 (「共用」、「基本」、「標準」或「高階」)。 
+選取任一個非免費層 (**共用**、**基本**、**標準**或**進階**)。 
 
 按一下 [選取] 。
 

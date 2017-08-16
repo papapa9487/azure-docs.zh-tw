@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 88f7460c5414e7c33adbe86928fd6b56b22b3ad7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>步驟 6：準備將內部部署 VMWare 複寫至 Azure
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="prepare-for-automatic-discovery"></a>為自動探索做準備
 
-Site Recovery 會自動探索位於 vSphere ESXi 主機上和/或受 vCenter 伺服器管理的 VM。  若要這樣做，Site Recovery 需要有可存取 vCenter 伺服器和 vSphere ESXi 主機的認證。 請依照下列方式建立這些認證：
+Site Recovery 會自動探索在 vSphere ESXi 主機 (具有或不具有 vCenter 伺服器) 上執行的虛擬機器。 如需自動探索，Site Recovery 需要可存取主機與伺服器的帳戶：
 
 1. 若要使用專用帳戶，請在 vCenter 層級建立具有下表中所述權限的角色。 指定名稱，例如 **Azure_Site_Recovery**。
 2. 然後，在 vSphere 主機/vCenter 伺服器上建立使用者，並將角色指派給該使用者。 您在 Site Recovery 部署期間指定此使用者帳戶。
@@ -58,7 +57,7 @@ Site Recovery 需要存取 VMware，才能讓處理序伺服器自動探索 VM�
 
 - 您可以使用網域或本機帳戶
 - 在 Windows 上，如果您不使用網域帳戶，則必須停用本機電腦上的遠端使用者存取控制。 若要這樣做，請在登錄的 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** 下，新增 DWORD 項目 **LocalAccountTokenFilterPolicy**，值為 1。
-- 如果您想要從 CLI 新增適用於 Windows 的登錄項目，請輸入︰      ``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
+- 如果您想要從 CLI 新增適用於 Windows 的登錄項目，請輸入︰``REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1.``
 - 在 Linux 上，帳戶應該是來源 Linux 伺服器上的根使用者。
 
 

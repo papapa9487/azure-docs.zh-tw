@@ -12,29 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 081e45e0256134d692a2da7333ddbaafc7366eaa
-ms.openlocfilehash: ff07a52f6a503f07f5919b63f345878571742cac
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>在應用程式 Proxy 中使用宣告感知應用程式
-宣告感知應用程式會執行前往 Security Token Service (STS) 的重新導向，而 STS 會接著向使用者要求認證以交換權杖，之後才會將使用者重新導向至應用程式。 若要啟用應用程式 Proxy 來使用這些重新導向，必須採取下列步驟。
+[宣告感知應用程式](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx)會執行重新導向至 Security Token Service (STS)。 STS 會向使用者要求認證以交換權杖，然後將使用者重新導向至應用程式。 有幾種方法可以讓應用程式 Proxy 進行這些重新導向。 請按照本文的說明來設定對宣告感知應用程的部署。 
 
 ## <a name="prerequisites"></a>必要條件
-執行此程序之前，請確定宣告感知應用程式重新導向的 STS 可從內部部署網路外部使用。
+確定宣告感知應用程式重新導向的 STS 可從內部部署網路外部使用。 您可以透過 Proxy 將 STS 公開或是允許外部連接，讓 STS 可供使用。 
 
-## <a name="azure-classic-portal-configuration"></a>Azure 傳統入口網站設定
-1. 根據 [使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)中的所述指示來發佈您的應用程式。
-2. 在應用程式清單中選取宣告感知應用程式，並按一下 [設定] 。
-3. 如果您選擇 [通道] 作為您的 [預先驗證方法]，請務必選取 [HTTPS] 作為您的 [外部 URL] 配置。
-4. 如果您選擇 [Azure Active Directory] 作為您的 [預先驗證方法]，請選取 [無] 作為您的 [內部驗證方法]。
+## <a name="publish-your-application"></a>發佈您的應用程式
 
-## <a name="adfs-configuration"></a>ADFS 組態
+1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)中的所述指示來發佈您的應用程式。
+2. 瀏覽至入口網站中的應用程式頁面，然後選取 [單一登入]。
+3. 如果您選擇 [Azure Active Directory] 作為您的 [預先驗證方法]，請選取 [Azure AD 單一登入已停用] 作為您的 [內部驗證方法]。 如果您選擇 [傳遞] 作為您的 [預先驗證方法]，則無需進行任何變更。
+
+## <a name="configure-adfs"></a>設定 ADFS
+
+您可以使用以下兩種方式之一為宣告感知應用程式設定 ADFS。 第一種方式是使用自訂網域。 第二種方式是使用 WS-同盟。 
+
+### <a name="option-1-custom-domains"></a>選項 1：自訂網域
+
+如果您應用程式的所有內部 URL 皆為完整網域名稱 (FQDN)，則您可為您的應用程式設定[自訂網域](active-directory-application-proxy-custom-domains.md)。 請使用自訂網域建立與內部 URL 相同的外部 URL。 透過此設定，無論您的使用者是在內部部署或遠端，STS 建立的重新導向都會以相同的方式運作。 
+
+### <a name="option-2-ws-federation"></a>選項 2：WS-同盟
+
 1. 開啟 [ADFS 管理]。
 2. 移至 [信賴憑證者信任]，並在您要使用「應用程式 Proxy 」來發佈的應用程式上按一下滑鼠右鍵，然後選擇 [屬性]。  
 
@@ -46,8 +54,7 @@ ms.lasthandoff: 02/06/2017
    ![新增端點 - 設定 [信任的 URL] 值 - 螢幕擷取畫面](./media/active-directory-application-proxy-claims-aware-apps/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>後續步驟
-* [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
-* [使用應用程式 Proxy 疑難排解您遇到的問題](active-directory-application-proxy-troubleshoot.md)
+* 對於非宣告感知的應用程式，請[啟用單一登入](application-proxy-sso-overview.md)
 * [啟用原生用戶端應用程式以與 Proxy 應用程式互動](active-directory-application-proxy-native-client.md)
 
 

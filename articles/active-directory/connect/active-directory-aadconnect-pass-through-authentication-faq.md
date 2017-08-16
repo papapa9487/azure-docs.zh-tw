@@ -12,19 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: b8a08eb8fd036ad07ee6ce4cf624e8b5bc4c3ddc
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
 本文將會解決 Azure Active Directory (Azure AD) 傳遞驗證的常見問題。 請隨時回來查看新內容。
+
+>[!IMPORTANT]
+>傳遞驗證功能目前為預覽功能。
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>我應該選擇哪一種 Azure AD 登入方法，傳遞驗證、密碼雜湊同步處理還是 Active Directory 同盟服務 (AD FS)？
 
@@ -48,7 +51,7 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
-不會，密碼雜湊同步處理不是傳遞驗證的一般遞補。 它只會作為[目前不支援傳遞驗證的情況下](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)的遞補。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)。
+不會，密碼雜湊同步處理不是傳遞驗證的一般遞補。 它只會作為[目前不支援傳遞驗證的情況下](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)的遞補。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)。
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>能否在傳遞驗證代理程式所在的同一部伺服器上安裝 [Azure AD 應用程式 Proxy](../active-directory-application-proxy-get-started.md) 連接器？
 
@@ -62,7 +65,7 @@ ms.lasthandoff: 08/01/2017
 
 如果您已經為特定使用者設定[密碼回寫](../active-directory-passwords-update-your-own-password.md)，而使用者又使用傳遞驗證來登入，則他們將能夠變更或重設其密碼。 密碼將會如預期般回寫至內部部署 Active Directory。
 
-然而，如果您未設定密碼回寫，或使用者未獲指派有效的 Azure AD 授權，則使用者將無法在雲端中更新其密碼。 即使他們的密碼過期，他們也無法加以更新。 使用者會看到這則訊息：「您的組織不允許您在此網站更新您的密碼。 請依據您組織所建議的方法更新密碼，或洽詢您的管理員尋求協助。」 使用者或系統管理員必須在內部部署 Active Directory 中重設其密碼。
+然而，如果您未為特定使用者設定密碼回寫，或使用者未獲指派有效的 Azure AD 授權，則使用者將無法在雲端中更新其密碼。 即使他們的密碼過期，他們也無法加以更新。 使用者會看到這則訊息：「您的組織不允許您在此網站更新您的密碼。 請依據您組織所建議的方法更新密碼，或洽詢您的管理員尋求協助。」 使用者或系統管理員必須在內部部署 Active Directory 中重設其密碼。
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>傳遞驗證如何防範暴力密碼破解攻擊？
 
@@ -70,11 +73,11 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>傳遞驗證代理程式會透過連接埠 80 和 443 進行哪些方面的通訊？
 
-- 驗證代理程式會透過連接埠 443 對所有功能作業提出 HTTPS 要求，這些作業包括啟用功能、處理所有使用者的登入要求等等。
+- 驗證代理程式會透過連接埠 443 對所有功能作業進行 HTTPS 要求。
 - 驗證代理程式會透過連接埠 80 提出 HTTP 要求，以下載 SSL 憑證撤銷清單。
 
      >[!NOTE]
-     >在我們近期的更新中，我們降低了驗證代理程式為了與 Azure AD 進行通訊而所需使用的連接埠數目。 如果您執行舊版的 Azure AD Connect 和/或獨立驗證代理程式，請繼續讓這些其他的連接埠 (5671、8080、9090、9091、9350、9352、10100-10120) 保持開啟。
+     >在最近的更新中，我們減少了此功能所需的連接埠數目。 如果您有舊版的 Azure AD Connect 或驗證代理程式，請將下列連接埠保持開放：5671、8080、9090、9091、9350、9352、10100-10120。
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>傳遞驗證代理程式是否能透過輸出 Web Proxy 伺服器進行通訊？
 
@@ -82,7 +85,7 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>是否可以在相同的伺服器上安裝兩個以上的傳遞驗證代理程式？
 
-不可以，您只能在單一伺服器上安裝一個傳遞驗證代理程式。 如果您想要為傳遞驗證設定高可用性，請改為遵循這篇[文章](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)中的指示。
+不可以，您只能在單一伺服器上安裝一個傳遞驗證代理程式。 如果您想要為傳遞驗證設定高可用性，請改為遵循這篇[文章](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)中的指示。
 
 ## <a name="i-already-use-active-directory-federation-services-ad-fs-for-azure-ad-sign-in-how-do-i-switch-it-to-pass-through-authentication"></a>我已經使用 Active Directory 同盟服務 (AD FS) 來進行 Azure AD 登入。 要如何改為使用傳遞驗證？
 
@@ -99,7 +102,7 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>傳遞驗證代理程式是否提供負載平衡功能？
 
-否，安裝多個傳遞驗證代理程式可確保[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)，但不會提供負載平衡。 最後可能會由其中的一個或兩個驗證代理程式處理大量的登入要求。
+否，安裝多個傳遞驗證代理程式可確保[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)，但不會提供負載平衡。 最後可能會由其中的一個或兩個驗證代理程式處理大量的登入要求。
 
 驗證代理程式所需要處理的密碼驗證要求並不多。 因此對大多數客戶來說，總共只要兩到三個驗證代理程式就能輕鬆應付尖峰負載和平均負載。
 
@@ -113,11 +116,12 @@ ms.lasthandoff: 08/01/2017
 
 我們的建議如下：
 
-- 總共安裝兩到三個驗證代理程式。 這樣便足以應付大部分客戶的需求。
+- 總共安裝兩到三個驗證代理程式。 此設定足以應付大部分客戶的需求。
 - 您可以在網域控制站上 (或盡可能靠近地) 安裝驗證代理程式，以改善登入延遲情形。
 - 您應該確保用來新增伺服器 (驗證代理程式安裝所在地) 的 AD 樹系，就是需要驗證密碼之使用者所在的相同樹系。
 
-請注意，系統限制每個租用戶只能有 12 個驗證代理程式。
+>[!NOTE]
+>系統限制每個租用戶只能有 12 個驗證代理程式。
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>如何停用傳遞驗證？
 

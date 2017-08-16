@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 04/26/2017
+ms.date: 08/07/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: b9421e4d899982af5e4caf9d23eebb73188a8db1
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 45fe7584c8b769113da9d287fea56d68d3d6c55a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>儲存體佇列和服務匯流排佇列 - 異同比較
@@ -28,7 +27,7 @@ ms.lasthandoff: 05/09/2017
 ## <a name="introduction"></a>簡介
 Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**。
 
-**儲存體佇列**是 [Azure 儲存體](https://azure.microsoft.com/services/storage/)基礎結構的一部分，具有簡單的 REST 架構 Get/Put/Peek 介面，而且能夠在服務內部和服務之間提供可靠且持續的訊息傳遞。
+**儲存體佇列**是 [Azure 儲存體](https://azure.microsoft.com/services/storage/)基礎結構的一部分，具有簡單的 REST 架構 GET/PUT/PEEK 介面，而且能夠在服務內部和服務之間提供可靠且持續的訊息傳遞。
 
 **服務匯流排佇列**是較廣泛 [Azure 傳訊](https://azure.microsoft.com/services/service-bus/)基礎結構的一部分，支援佇列處理和發佈/訂閱，以及更進階的整合模式。 如需服務匯流排佇列/主題/訂用帳戶的詳細資訊，請參閱[服務匯流排概觀](service-bus-messaging-overview.md)。
 
@@ -192,13 +191,12 @@ Azure 支援兩種佇列機制：**儲存體佇列**和**服務匯流排佇列**
 ## <a name="next-steps"></a>後續步驟
 下列文章提供有關使用儲存體佇列或服務匯流排佇列的更多指引和資訊。
 
-* [如何使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
+* [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用佇列儲存體服務](../storage/storage-dotnet-how-to-use-queues.md)
 * [使用服務匯流排代理傳訊的效能改進最佳作法](service-bus-performance-improvements.md)
-* [Azure 服務匯流排的佇列和主題簡介](http://www.code-magazine.com/article.aspx?quickid=1112041)
+* [Azure 服務匯流排的佇列和主題簡介 (部落格文章)](http://www.code-magazine.com/article.aspx?quickid=1112041)
 * [服務匯流排的開發人員指南](http://www.cloudcasts.net/devguide/Default.aspx?id=11030)
 * [使用 Azure 中的佇列服務](http://www.developerfusion.com/article/120197/using-the-queuing-service-in-windows-azure/)
-* [了解 Azure 儲存體計費 - 頻寬、交易和容量](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 
 [Azure portal]: https://portal.azure.com
 

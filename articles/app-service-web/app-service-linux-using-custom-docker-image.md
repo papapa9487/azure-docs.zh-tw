@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: d55cfc354ad5a9fc0f06b671f441ba4a0616bb9a
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -33,7 +32,7 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 
 
 ## <a name="how-to-set-a-custom-docker-image-for-a-web-app"></a>如何︰設定 Web 應用程式的自訂 Docker 映像
-您可以為新的和現有的 Web 應用程式設定自訂 Docker 映像。 當您在 [Azure 入口網站](https://portal.azure.com)中建立 Linux 上的 Web 應用程式時，請按一下 [設定容器] 來設定自訂 Docker 映像︰
+您可以為新的和現有的 Web 應用程式設定自訂 Docker 映像。 當您在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.AppSvcLinux)中建立 Linux 上的 Web 應用程式時，請按一下 [設定容器] 來設定自訂 Docker 映像︰
 
 ![Linux 上新 Web 應用程式的自訂 Docker 映像][1]
 
@@ -65,18 +64,20 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 
 ## <a name="how-to-set-the-port-used-by-your-docker-image"></a>作法︰設定 Docker 映像使用的連接埠 ##
 
-當您對 Web 應用程式使用自訂 Docker 映像時，您可以在 Dockerfile 中使用 `PORT` 環境變數，它會新增至產生的容器。 請看下列 Ruby 應用程式的 docker 檔案範例︰
+當您對 Web 應用程式使用自訂 Docker 映像時，您可以在 Dockerfile 中使用 `WEBSITES_PORT` 環境變數，它會新增至產生的容器。 請看下列 Ruby 應用程式的 docker 檔案範例︰
 
     FROM ruby:2.2.0
     RUN mkdir /app
     WORKDIR /app
     ADD . /app
     RUN bundle install
-    CMD bundle exec puma config.ru -p $PORT -e production
+    CMD bundle exec puma config.ru -p WEBSITES_PORT -e production
 
-在最後一行命令中，您可以看到執行階段會傳遞 PORT 環境變數。 請記住，命令中區分大小寫。
+在最後一行命令中，您可以看到執行階段會傳遞 WEBSITES_PORT 環境變數。 請記住，命令中區分大小寫。
 
-當您使用其他人所建置的現有 Docker 映像時，您可能需要指定連接埠 80 以外的連接埠給應用程式。 若要設定連接埠，將數值加入稱為 `PORT` 的應用程式設定，如下所示：
+先前平台使用 `PORT` 應用程式設定，我們計劃取代此應用程式設定的使用，並改為專門使用 `WEBSITES_PORT`。
+
+當您使用其他人所建置的現有 Docker 映像時，您可能需要指定連接埠 80 以外的連接埠給應用程式。 若要設定連接埠，將數值加入稱為 `WEBSITES_PORT` 的應用程式設定，如下所示：
 
 ![Configure PORT app setting for custom Docker image][6]
 
@@ -94,8 +95,8 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 
 ## <a name="troubleshooting"></a>疑難排解 ##
 
-當您的應用程式無法使用自訂 Docker 映像來啟動時，請檢查 LogFiles/docker 目錄中的 Docker 記錄檔。 您可以透過 SCM 網站或 FTP 來存取此目錄。
-若要從您的容器記錄 `stdout` 和 `stderr`，您必須啟用 [診斷記錄] 底下的 [網頁伺服器記錄]。
+當您的應用程式無法使用自訂 Docker 映像來啟動時，請檢查 LogFiles 目錄中的 Docker 記錄檔。 您可以透過 SCM 網站或 FTP 來存取此目錄。
+若要從您的容器記錄 `stdout` 和 `stderr`，您必須啟用 [診斷記錄] 下的 [Docker 容器記錄]。
 
 ![啟用記錄][8]
 

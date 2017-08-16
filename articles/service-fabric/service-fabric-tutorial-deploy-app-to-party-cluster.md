@@ -12,25 +12,29 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/03/2017
+ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 1fde062d9673a48698b269d79e009c7b179e5934
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>將應用程式部署到 Azure 中的合作對象叢集
-本教學課程示範如何部署 Azure Service Fabric 應用程式到 Azure 中的合作對象叢集。
+本教學課程是系列中的第二部分，示範如何部署 Azure Service Fabric 應用程式到 Azure 中的合作對象叢集。
 
-在教學課程的這個部分中，您已了解如何：
+在教學課程系列的第二部分中，您將了解如何：
 > [!div class="checklist"]
 > * 使用 Visual Studio 將應用程式部署至遠端叢集
 > * 使用 Service Fabric Explorer 從叢集移除應用程式
 
-本教學課程分成三篇文章，本文是全部三篇的第二篇。
+在本教學課程系列中，您將了解如何：
+> [!div class="checklist"]
+> * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)
+> * 將應用程式部署到遠端叢集
+> * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前：

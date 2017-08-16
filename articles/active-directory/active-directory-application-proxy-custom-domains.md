@@ -11,21 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/01/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: d0abd789d47b34f3dad206b9862c289d6683a83b
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
-當您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式時，您會建立可供使用者在遠端工作時移至的外部 URL。 此 URL 會取得預設網域 *yourtenant-msappproxy.net*。 如果您想要使用自己的網域名稱，請為您的應用程式設定自訂網域。 
+當您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式時，您會建立可供使用者在遠端工作時移至的外部 URL。 此 URL 會取得預設網域 *yourtenant.msappproxy.net*。 例如，如果您發佈一個名為 Expenses 的應用程式，且您的租用戶名為 Contoso，則外部 URL 會是 https://expenses-contoso.msappproxy.net。 如果您想要使用自己的網域名稱，請為您的應用程式設定自訂網域。 
 
 建議您盡可能為應用程式設定自訂網域。 自訂網域的一些優點包括：
 
@@ -36,10 +36,14 @@ ms.lasthandoff: 07/24/2017
 
 ## <a name="configure-a-custom-domain"></a>設定自訂網域
 
+### <a name="prerequisites"></a>必要條件
+
 設定自訂網域之前，請確定您已備妥下列需求： 
 - [新增至 Azure Active Directory 的已驗證網域](active-directory-domains-add-azure-portal.md)。
 - 網域的自訂憑證 (採用 PFX 檔格式)。 
 - [透過應用程式 Proxy 發佈](application-proxy-publish-azure-portal.md)的內部部署應用程式。
+
+### <a name="configure-your-custom-domain"></a>設定自訂網域
 
 當您備妥這三項需求時，請遵循下列步驟來設定自訂網域：
 
@@ -47,15 +51,16 @@ ms.lasthandoff: 07/24/2017
 2. 瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]，然後選擇您要管理的應用程式。
 3. 選取 [應用程式 Proxy]。 
 4. 在 [外部 URL] 欄位中，使用下拉式清單來選取您的自訂網域。 如果您未在清單中看到您的網域，則它尚未經過驗證。 
+5. 選取 [儲存]。
 5. 已停用的 [憑證] 欄位會變成已啟用。 選取此欄位。 
 
    ![按一下以上傳憑證](./media/active-directory-application-proxy-custom-domains/certificate.png)
 
-   如果此欄位維持已停用，可能表示已針對該網域上傳的憑證。 
+   如果您已上傳此網域的憑證，則 [憑證] 欄位會顯示憑證資訊。 
 
 6. 上傳 PFX 憑證，然後輸入憑證的密碼。 
 7. 選取 [儲存] 來儲存變更。 
-8. 將可重新導向新外部 URL 的 DNS 記錄新增至 msappproxy.net 網域。 
+8. 新增 [DNS 記錄](../dns/dns-operations-recordsets-portal.md)，此記錄會將新的外部 URL 重新導向至 msappproxy.net 網域。 
 
 >[!TIP] 
 >您只需要針對每個自訂網域上傳一個憑證。 一旦上傳憑證，您即可在發佈新應用程式時選擇自訂網域，而不需要進行額外的設定 (DNS 記錄除外)。 
@@ -63,10 +68,14 @@ ms.lasthandoff: 07/24/2017
 ## <a name="manage-certificates"></a>管理憑證
 
 ### <a name="certificate-format"></a>憑證格式
-憑證簽章方法沒有任何限制。 ECC、SAN 和其他常見的憑證類型全都提供支援。 您也可以使用萬用字元憑證。 如果您使用萬用字元憑證，請確定萬用字元符合所需的外部 URL。 也接受自我簽署的憑證。 如果您使用私人憑證授權單位，則憑證的 CDP (憑證撤銷點發佈點) 應是公開的。
+憑證簽章方法沒有任何限制。 橢圓曲線密碼編譯 (ECC)、主體別名 (SAN) 和其他常見的憑證類型均可支援。 
+
+只要萬用字元符合所需的外部 URL，便可使用萬用字元憑證。 
+
+您也可以使用自我簽署的憑證。 如果您使用私人憑證授權單位，則憑證的 CDP (憑證撤銷點發佈點) 應是公開的。
 
 ### <a name="changing-the-domain"></a>變更網域
-所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您選取的網域沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](active-directory-domains-add-azure-portal.md)。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 
+所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](active-directory-domains-add-azure-portal.md)。 如果您選取的網域還沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 
 
 ### <a name="certificate-management"></a>憑證管理
 除非應用程式共用外部主機，否則您可以將相同的憑證使用於多個應用程式。 

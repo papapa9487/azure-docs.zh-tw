@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 17f6062537714fbef7c8509261ac4875f8a44b6e
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 75abfb977a47ccef45bcc2124b31fbd06ea7d68e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,19 +32,12 @@ ms.lasthandoff: 05/10/2017
 
 ![保留期工具](./media/app-insights-usage-retention/retention.png)
 
-a. [概觀] 頁面一律在這裡。 此外，您可以使用不同的參數設定來儲存已命名的報告。 儲存到「共用」可讓其他可存取資源的使用者能看見報告。
-
-b.這是另一個 C# 主控台應用程式。 依預設，圖表所計算的所有使用者，是已使用任何自訂事件或從您應用程式接收到的頁面檢視。 選取一個或是子集，將重點放在特定的使用者活動。 
-
-c. 在屬性新增一或多個篩選條件。 例如，您可以將重點放在特定國家或區域中的使用者。 設定篩選條件後，按一下 [更新]。
-
-d. **還原成預設值**一律會清除自訂篩選條件和事件篩選條件。
-
-e. 摘要圖表會顯示所選時間期間內的總計。
-
-f. 此方格所顯示的使用者數目是在特定期間內回來並重複進行選取的動作。 每個資料列所代表的同群使用者，是在所顯示的時間週期內執行其中一個選取的動作。 資料列中的每個資料格會顯示該同群使用者中在稍後期間內至少回來使用一次的數目。 有些使用者可能會在不只一個期間內回來使用。
-
-在圖表的時間範圍內使用應用程式的每位使用者，都會以圖表的一個資料列來代表。 每位使用者在圖表的時間範圍內第一次執行選取的動作時，都會計算在期間內。 因此，通常第一個資料列中都會有較大的數字。
+1. 工具列可讓使用者建立新的保留報告、開啟現有的保留報告、儲存目前保留報告或另存新檔、還原對已儲存之報表所做的變更、重新整理報表上的資料、透過電子郵件或直接連結共用報表，以及存取文件頁面。 
+2. 根據預設，保留期會顯示執行任何動作然後回來，並且在一段期間內未執行任何其他動作的所有使用者。 您可以選取不同組合的事件，以縮小特定使用者活動的關注範圍。
+3. 在屬性新增一或多個篩選條件。 例如，您可以將重點放在特定國家或區域中的使用者。 設定篩選條件後，按一下 [更新]。 
+4. 整體保留圖表顯示所選期間內的使用者保留摘要。 
+5. 此格線根據 #2 中的查詢產生器顯示保留的使用者數目。 每個資料列代表在所顯示的時間週期內執行任何事件的同群使用者。 資料列中的每個資料格會顯示該同群使用者中在稍後期間內至少回來使用一次的數目。 有些使用者可能會在不只一個期間內回來使用。 
+6. Insights 卡顯示前 5 個起始事件，以及前 5 個傳回的事件，讓使用者深入了解其保留報表。 
 
 
 ## <a name="use-business-events-to-track-retention"></a>使用商務事件來追蹤保留期
@@ -69,9 +62,10 @@ f. 此方格所顯示的使用者數目是在特定期間內回來並重複進�
 
 
 ## <a name="next-steps"></a>後續步驟
-
-* [使用量概觀](app-insights-usage-overview.md)
-* [使用者和工作階段](app-insights-usage-segmentation.md)
-* [撰寫自訂事件的程式碼](app-insights-api-custom-events-metrics.md)
-
+- 若要啟用使用體驗，請開始傳送「自訂事件」[](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或「頁面檢視」[](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
+    - [使用者、工作階段、事件](app-insights-usage-segmentation.md)
+    - [漏斗圖](usage-funnels.md)
+    - [活頁簿](app-insights-usage-workbooks.md)
+    - [新增使用者內容](app-insights-usage-send-user-context.md)
 

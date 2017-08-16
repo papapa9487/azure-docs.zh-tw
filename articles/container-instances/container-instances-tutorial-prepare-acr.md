@@ -11,16 +11,17 @@ keywords: "Docker, 容器, 微服務, Kubernetes, DC/OS, Azure"
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 5f3fc5f3624cf1ef881adf2af0cb69ad67d09ad3
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -61,7 +62,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="get-azure-container-registry-information"></a>取得 Azure Container Registry 資訊
 
-建立好容器登錄之後，您可以查詢其登入伺服器和密碼。 下列程式碼會傳回這些值。 請記下每個值，本教學課程會提及這些值。
+建立好容器登錄之後，您可以查詢其登入伺服器和密碼。 下列程式碼會傳回這些值。 請記下登入伺服器和密碼的每個值，因為本教學課程會提及這些值。
 
 容器登錄的登入伺服器 (以登錄名稱來更新)：
 
@@ -74,7 +75,7 @@ az acr show --name <acrName> --query loginServer
 容器登錄密碼：
 
 ```azurecli
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 在本教學課程的其餘部分，我們使用 `<acrPassword>` 作為容器登錄之密碼值的預留位置。
@@ -179,3 +180,4 @@ v1
 
 > [!div class="nextstepaction"]
 > [將容器部署至 Azure 容器執行個體](./container-instances-tutorial-deploy-app.md)
+

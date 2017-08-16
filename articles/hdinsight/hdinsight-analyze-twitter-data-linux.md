@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f1bdfb133b55f5cf18b85fa40908b8df534a15bd
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Hive 與 Hadoop 分析 Twitter 資料
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/08/2017
 了解如何使用 Apache Hive 來處理 Twitter 資料。 結果是一份傳送了最多包含特定文字之推文的 Twitter 使用者清單。
 
 > [!IMPORTANT]
-> 本文件中的步驟已在 HDInsight 3.5 上進行過測試。
+> 本文件中的步驟已在 HDInsight 3.6 上進行過測試。
 >
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
@@ -96,7 +96,7 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
    nano gettweets.py
    ```
 
-5. 使用以下文字做為 **gettweets.py** 檔案的內容。 使用您的 Twitter 應用程式資訊，取代 **consumer\_secret**、**consumer\_key**、**access/\_token** 和 **access\_token\_secret** 的預留位置資訊。
+5. 使用以下文字作為 **gettweets.py** 檔案的內容：
 
    ```python
    #!/usr/bin/python
@@ -152,6 +152,14 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
+    > [!IMPORTANT]
+    > 將下列項目的預留位置文字取代為您 twitter 應用程式中的資訊：
+    >
+    > * `consumer_secret`
+    > * `consumer_key`
+    > * `access_token`
+    > * `access_token_secret`
+
 6. 依序按 **Ctrl + X**，然後 **Y** 儲存檔案。
 
 7. 使用以下命令執行檔案，並下載推文：
@@ -160,7 +168,7 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
     python gettweets.py
     ```
 
-    應會顯示進度列指示器，且在下載推文並儲存至檔案時顯示 100%。
+    進度指示器隨即出現。 隨著推文的下載，其進度會推進到 100%。
 
    > [!NOTE]
    > 如果需要花費很長的時間來讓進度列往前移動，則您應該變更篩選來追蹤趨勢主題。 當您的篩選中有許多關於該主題的推文時，您就能快速取得所需的 10000 則推文。
@@ -296,7 +304,7 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
 3. 使用以下命令執行包含於檔案中的 HiveQL：
 
    ```bash
-   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -n admin -i twitter.hql
+   beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i twitter.hql
    ```
 
     這個命令會執行 **twitter.hql** 檔案。 當查詢完成時，您會看到 `jdbc:hive2//localhost:10001/>` 提示字元。

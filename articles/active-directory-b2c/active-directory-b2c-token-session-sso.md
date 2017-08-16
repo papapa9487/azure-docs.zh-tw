@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: 351149296a6d7dfa801b295ec21fc04215c7b051
-ms.openlocfilehash: 766ba894ba2643dec06757a133f8e716aa856161
-ms.lasthandoff: 01/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C：權杖、工作階段及單一登入設定
@@ -31,8 +31,8 @@ ms.lasthandoff: 01/28/2017
 
 您可以在 B2C 租用戶中使用這項功能，如下所示︰
 
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-the-b2c-features-blade) (位於 Azure 入口網站上)。
-2. 按一下 [登入原則] 。 附註︰這項功能適用於任何原則類型，並不限於「登入原則」。
+1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
+2. 按一下 [登入原則] 。 *附註︰這項功能適用於任何原則類型，並不限於**登入原則***。
 3. 按一下原則以予以開啟。 例如，按一下 [B2C_1_SiIn]。
 4. 按一下刀鋒視窗頂端的 [編輯]  。
 5. 按一下 [權杖、工作階段及單一登入設定]。
@@ -47,7 +47,7 @@ Azure AD B2C 支援以 [OAuth 2.0 授權通訊協定](active-directory-b2c-refer
   * 預設值 = 60 分鐘。
   * 最小值 (含) = 5 分鐘。
   * 最大值 (含) = 1440 分鐘。
-* **重新整理權杖存留期 (天)`offline_access`︰重新整理權杖可用來取得新存取權限或識別碼權杖 (如果您的應用程式已獲得 ** 範圍的授權，也可以選擇性地取得新重新整理權杖) 的最大期間。
+* **重新整理權杖存留期 (天)`offline_access`︰重新整理權杖可用來取得新存取權限或識別碼權杖 (如果您的應用程式已獲得** 範圍的授權，也可以選擇性地取得新重新整理權杖) 的最大期間。
   * 預設值 = 14 天。
   * 最小值 (含) = 1 天。
   * 最大值 (含) = 90 天。

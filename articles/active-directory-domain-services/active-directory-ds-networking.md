@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/04/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 0749a73569286daf9bbbe2c4064db472f41d7171
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 8306c1ff72d348f5f327b79617e1422a78e26bdb
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
@@ -75,6 +75,16 @@ ms.lasthandoff: 11/17/2016
 | 5986 |管理您的網域 |
 | 636 |保護受管理網域的 LDAP (LDAPS) 存取 |
 
+### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>具有 Azure AD Domain Services 之虛擬網路的範例 NSG
+下表說明您可以針對具有 Azure AD Domain Services 受管理網域之虛擬網路設定的範例 NSG。 這個規則允許從上述指定的連接埠輸入流量，以確保您受管理的網域保持修補、更新，並且可由 Microsoft 監視。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。
+
+此外，NSG 也會說明如何透過網際網路來鎖定安全 LDAP 存取。 如果您尚未透過網際網路啟用安全 LDAP 存取至受管理的網域，請跳過此規則。 NSG 包含一組規則，允許僅從一組指定 IP 位址透過 TCP 連接埠 636 的輸入 LDAPS 存取。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
+
+![透過網際網路之安全 LDAP 存取的範例 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
+
+**更多資訊** - [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)。
+
+
 ## <a name="network-connectivity"></a>網路連線
 Azure AD 網域服務受管理網域只可在Azure 的單一傳統虛擬網路中啟用。 不支援使用 Azure Resource Manager 建立的虛擬網路。
 
@@ -109,4 +119,5 @@ Azure AD 網域服務受管理網域只可在Azure 的單一傳統虛擬網路�
 * [Azure 虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)
 * [設定傳統部署模型的 VNet 對 VNet 連接](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure 網路安全性群組](../virtual-network/virtual-networks-nsg.md)
+* [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 

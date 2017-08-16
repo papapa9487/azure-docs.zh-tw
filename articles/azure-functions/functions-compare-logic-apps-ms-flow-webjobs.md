@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/08/2016
+ms.date: 08/03/2017
 ms.author: chrande; glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 31661e5840a6b65f54f9df027a7e3ecab8768055
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
@@ -82,15 +82,15 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 | 價格 |按使用次數付費或屬於 App Service 方案的一部分 |屬於 App Service 方案的一部分 |
 | 執行類型 |觸發、排程 (依計時器觸發程序) |觸發、連續、排程 |
 | 觸發程序事件 |[計時器](functions-bindings-timer.md)、[Azure Cosmos DB](functions-bindings-documentdb.md)、[Azure 事件中樞](functions-bindings-event-hubs.md)、[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)、[Azure App Service Mobile Apps](functions-bindings-mobile-apps.md)、[Azure 通知中樞](functions-bindings-notification-hubs.md)、[Azure 服務匯流排](functions-bindings-service-bus.md)、[Azure 儲存體](functions-bindings-storage.md) |[Azure 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)、[Azure 服務匯流排](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
-| 瀏覽器中開發 |x | |
-| 視窗指令碼 |實驗性 |x |
-| PowerShell |實驗性 |x |
-| C# |x |x |
-| F# |x | |
-| Bash |實驗性 |x |
-| PHP |實驗性 |x |
-| Python |實驗性 |x |
-| JavaScript |x |x |
+| 瀏覽器中開發 |支援 | 不支援 |
+| 視窗指令碼 |實驗性 |支援 |
+| PowerShell |實驗性 |支援 |
+| C# |支援 |支援 |
+| F# |支援 |不支援 |
+| Bash |實驗性 |支援 |
+| PHP |實驗性 |支援 |
+| Python |實驗性 |支援 |
+| JavaScript |支援 |支援 |
 
 要使用 Functions 還是 WebJobs 最終取決於您已使用 App Service 做了什麼。 如果您有要為其執行程式碼片段的 App Service 應用程式，而且想要在相同的 DevOps 環境中一起管理，您應該使用 WebJobs。 如果您想要為其他 Azure 服務或甚至是第三方應用程式執行程式碼片段、如果您想要分開管理整合程式碼片段與 App Service 應用程式，或如果您想要從邏輯應用程式呼叫程式碼片段，您應該利用 Functions 中的所有改善項目。  
 

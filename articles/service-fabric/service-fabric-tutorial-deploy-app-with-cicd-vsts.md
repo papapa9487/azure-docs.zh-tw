@@ -12,20 +12,20 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: c528974951d3b4a83111cb92b931810a91f660f4
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: dda5ea77b35fa8491128135ea7709016781f2aea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
-本教學課程說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
+本教學課程是系列中的第三部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
 
-在本教學課程中，您將了解如何：
+在系列的第三部分中，您將了解如何：
 
 > [!div class="checklist"]
 > * 將原始檔控制新增至專案
@@ -33,7 +33,11 @@ ms.lasthandoff: 07/15/2017
 > * 在 Team Services 中建立發行定義
 > * 自動部署和升級應用程式
 
-本教學課程分成三篇文章，本文是全部三篇的第三篇。
+在本教學課程系列中，您將了解如何：
+> [!div class="checklist"]
+> * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)
+> * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * 使用 Visual Studio Team Services 設定 CI/CD
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前：

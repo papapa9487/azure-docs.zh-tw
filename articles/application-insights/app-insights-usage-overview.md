@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: cfreeman
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 9ac6ed0d6171b572e0d5729a4fe7c8bd7869525d
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 33aebd002458d40a5a09b6fe334ad43ec578df83
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -41,6 +41,10 @@ ms.lasthandoff: 07/20/2017
 
     發佈您的應用程式以監視應用程式的效能，並了解使用者如何利用您的應用程式。
 
+## <a name="include-user-and-session-id-in-your-telemetry"></a>將使用者與工作階段識別碼加入您的遙測
+若要追蹤使用者一段時間，Application Insights 需要識別他們的方式。 「事件工具」是唯一不需要使用者識別碼或工作階段識別碼的「使用量工具」。
+
+在[此處](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)開始傳送這些識別碼。
 
 ## <a name="explore-usage-demographics-and-statistics"></a>探索使用量人口統計和統計資料
 了解人們在使用您的應用程式時，他們最感興趣的網頁、使用者的所在位置，以及他們使用何種瀏覽器與作業系統。 
@@ -166,9 +170,9 @@ ms.lasthandoff: 07/20/2017
 所有新的 TelemetryClients 都會自動新增您指定的屬性值。 個別的遙測事件可以覆寫預設值。
 
 ## <a name="next-steps"></a>後續步驟
-
-* [使用者和工作階段](app-insights-usage-segmentation.md)
-* [保留](app-insights-usage-retention.md)
-* [撰寫自訂事件的程式碼](app-insights-api-custom-events-metrics.md)
-
+   - [使用者、工作階段、事件](app-insights-usage-segmentation.md)
+   - [漏斗圖](usage-funnels.md)
+   - [保留](app-insights-usage-retention.md)
+   - [活頁簿](app-insights-usage-workbooks.md)
+   - [新增使用者內容](app-insights-usage-send-user-context.md)
 

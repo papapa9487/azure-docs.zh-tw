@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 08/02/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 2e5dbaf595e3d3cd7dee09431fbb1cb6f2403ef4
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 8f1729f84a4fde2a56427a41b356d6263818519e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>使用適用於 Azure Data Lake Analytics 作業的作業瀏覽器和作業檢視
@@ -31,7 +30,7 @@ Azure Data Lake Analytics 服務會將提交的作業封存在[查詢存放區](
 請參閱[適用於 Visual Studio 的 Azure Data Lake 工具](data-lake-analytics-data-lake-tools-get-started.md#prerequisites)。
 
 ## <a name="open-the-job-browser"></a>開啟作業瀏覽器
-可透過 Visual Studio 中的**伺服器總管 > Azure > Data Lake Analytics > 作業**來存取作業瀏覽器。  您可以使用瀏覽器，存取 Data Lake Analytics 帳戶的查詢存放區。 作業瀏覽器會在左邊顯示作業基本資訊的地方顯示查詢存放區，以及在右邊提供有關作業詳細資訊的地方顯示作業檢視。
+透過 Visual Studio 中的**伺服器總管 > Azure > Data Lake Analytics > 作業**來存取作業瀏覽器。  您可以使用作業瀏覽器來存取 Data Lake Analytics 帳戶的查詢存放區。 作業瀏覽器的左側會顯示查詢資料存放區 (顯示基本的作業資訊)，右側會顯示作業檢視 (顯示詳細的作業資訊)。
 
 ## <a name="job-view"></a>作業檢視
 作業檢視會顯示作業的詳細資訊。 若要開啟作業，您可以在作業瀏覽器中按兩下作業，或按一下作業檢視從 Data Lake 功能表將其開啟。 您應該會看到一個填入作業 URL 的對話方塊。

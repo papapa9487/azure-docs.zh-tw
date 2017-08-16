@@ -14,20 +14,27 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 2327945b5f5fe6b6e63660fd5d607d3cc8092f8b
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: b43dd20be9f481270b782de3c889abac762bd9cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>在 Linux 型 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-了解如何在 HDInsight 上搭配 Hadoop 使用 Apache Oozie。 Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與 Hadoop 堆疊相整合，並支援 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 工作。 它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。
+了解如何在 HDInsight 上搭配 Hadoop 使用 Apache Oozie。 Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
+
+* Apache MapReduce
+* Apache Pig
+* Apache Hive
+* Apache Sqoop
+
+Oozie 也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼
 
 > [!NOTE]
 > 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。 若要深入了解 Azure Data Factory，請參閱[搭配 Data Factory 使用 Pig 和 Hive][azure-data-factory-pig-hive]。
@@ -136,7 +143,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    這些命令會將 **useooziewf.hql** 檔案儲存在與此叢集相關聯的 Azure 儲存體帳戶上，即使刪除叢集，此帳戶也仍會保留該檔案。
+    這些命令會在叢集的 HDFS 相容儲存體上儲存 **useooziewf.hql** 檔案。
 
 ## <a name="define-the-workflow"></a>定義工作流程
 
@@ -467,7 +474,7 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
     ------------------------------------------------------------------------------------------------------------------------------------
     ```
 
-    這項工作的狀態為 `PREP`。 這表示該工作已提交，但尚未開始。
+    這項工作的狀態為 `PREP`。 這個狀態表示作業雖已建立但未啟動。
 
 5. 使用下列命令可啟動工作：
 
@@ -568,9 +575,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
 
 ## <a name="scheduling-jobs"></a>排程工作
 
-協調器可讓您指定工作的開始時間、結束時間和發生頻率，如此便可將這些工作安排在特定的時間。
-
-若要定義工作流程的排程，請依照下列步驟進行：
+協調器可讓您指定工作的開始時間、結束時間和發生頻率。 若要定義工作流程的排程，請依照下列步驟進行：
 
 1. 使用以下命令建立名為 **coordinator.xml** 的檔案：
 
@@ -615,9 +620,9 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
 
     進行下列變更：
 
-   * 將 `<name>oozie.wf.application.path</name>` 變更為 `<name>oozie.coord.application.path</name>`。 此值會指示 Oozie 執行協調器檔案，而不是工作流程檔案。
+   * 若要指示 Oozie 執行協調器檔案而非工作流程，請將 `<name>oozie.wf.application.path</name>` 變更為 `<name>oozie.coord.application.path</name>`。
 
-   * 新增下列 XML。 這將會設定 coordinator.xml 中所使用的變數，以指向 workflow.xml 的位置：
+   * 若要設定協調器使用的 `workflowPath` 變數，請新增下列 XML：
 
         ```xml
         <property>
@@ -628,7 +633,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
 
        將 `wasb://mycontainer@mystorageaccount.blob.core.windows` 文字取代為在 job.xml 檔案之其他項目中使用的值。
 
-   * 新增下列 XML。 這將會定義 coordinator.xml 檔案要使用的開始時間、結束時間和頻率：
+   * 若要定義協調器的開始時間、結束時間和頻率，請新增下列 XML：
 
         ```xml
         <property>
@@ -675,7 +680,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
     ![協調器工作資訊](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > 這只會顯示工作的成功執行項目，而不是排程工作流程內的個別動作。 若要查看這些動作，請選取其中一個 [動作]  項目。
+    > 此影像只會顯示工作的成功執行項目，而不是排程工作流程內的個別動作。 若要查看這些動作，請選取其中一個 [動作]  項目。
 
     ![動作資訊](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 

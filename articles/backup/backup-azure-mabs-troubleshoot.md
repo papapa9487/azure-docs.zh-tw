@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: a8df63821af039b7a5ad34f065423701485ee7d8
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 5672bb1e17dac4ae0aaa67f936676d6c2fc5ef12
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -41,6 +40,8 @@ ms.lasthandoff: 06/08/2017
 | 註冊至保存庫 | 提供的保存庫認證無效。 檔案可能損毀或沒有復原服務所關聯的最新認證 | 若要修正此錯誤： <ol><li> 從保存庫下載最新的認證檔案，然後再試一次 <br>(或)</li> <li> 如果上述動作沒有用，請嘗試將認證下載至不同的本機目錄，或建立新的保存庫 <br>(或)</li> <li> 如[這個部落格](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)所述嘗試更新日期和時間設定 <br>(或)</li> <li> 檢查 c:\windows\temp 是否有超過 65000 個檔案。 將過時檔案移至另一個位置，或刪除暫存資料夾中的項目 <br>(或)</li> <li> 檢查憑證的狀態 <br> a. 開啟 [管理電腦憑證] \(在控制台中) <br> b. 展開 [個人] 節點和它的子節點 [憑證] <br> c.  移除 [Windows Azure 工具] 憑證 <br> d. 在 Azure 備份用戶端中重試註冊 <br> (或) </li> <li> 檢查是否已備有任何群組原則 </li></ol> |
 | 將代理程式推送至受保護的伺服器 | 代理程式作業因為 \<ServerName> 上的 DPM 代理程式協調員服務發生通訊錯誤而失敗 | **如果產品所示的建議動作沒有用**， <ol><li> 如果您要連結來自不受信任網域的電腦，請遵循[這些](https://technet.microsoft.com/library/hh757801(v=sc.12).aspx)步驟 <br> (或) </li><li> 如果您要連結來自受信任網域的電腦，請使用[這個部落格](https://blogs.technet.microsoft.com/dpm/2012/02/06/data-protection-manager-agent-network-troubleshooting/)中概述的步驟進行疑難排解 <br>(或)</li><li> 嘗試停用防毒來作為疑難排解步驟。 如果這能解決問題，請修改 [這篇文章] (https://technet.microsoft.com/library/hh757911.aspx) 中建議的防毒設定</li></ol> |
 | 將代理程式推送至受保護的伺服器 | 為伺服器指定的認證無效 | **如果產品所示的建議動作沒有用**， <br> 嘗試手動將保護代理程式安裝在[這篇文章](https://technet.microsoft.com/library/hh758186(v=sc.12).aspx#BKMK_Manual)所指定的生產伺服器上|
+| Azure 備份代理程式無法連線到 Azure 備份服務 (ID：100050) | Azure 備份代理程式無法連線到 Azure 備份服務。 | **如果產品所示的建議動作沒有用**， <br>1.從提升權限的提示字元中執行下列命令︰psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"。這會開啟 IE 視窗。 <br/> 2.移至 [工具]-> [網際網路選項]-> [連線]-> [區域網路設定]。 <br/> 3.確認系統帳戶的 Proxy 設定。 設定 Proxy IP 和連接埠。 <br/> 4.關閉 Internet Explorer。|
+| Azure 備份代理程式安裝失敗 | Microsoft Azure 復原服務安裝失敗。 Microsoft Azure 復原服務安裝作業對系統所做的所有變更都已復原。 (ID：4024) | 手動安裝 Azure 代理程式
 
 
 ## <a name="configuring-protection-group"></a>設定保護群組
@@ -58,13 +59,22 @@ ms.lasthandoff: 06/08/2017
 | 備份 | 執行作業時發生非預期的錯誤，裝置未就緒 | **如果產品所示的建議動作沒有用**， <br> <ol><li>針對保護群組中的項目，將陰影複製儲存空間設定為無限，並執行一致性檢查 <br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新的保護群組，每個保護群組中各有一個個別項目</li></ol> |
 | 備份 | 如果您只要備份系統狀態，請確認受保護的電腦上是否有足夠的可用空間可儲存系統狀態備份 | <ol><li>確認受保護的電腦上已安裝 WSB</li><li>確認受保護的電腦上有足夠空間可存放系統狀態︰最簡單的執行方法是移到受保護的電腦上、開啟 WSB、逐一點選選取項目，然後選取 BMR。 然後，UI 會告訴您這需要多少空間。 開啟 WSB -> 本機備份 -> 備份排程 -> 選取備份設定 -> 完整伺服器 (大小會顯示出來)。 使用此大小進行驗證。</li></ol>
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息指出「Windows Azure Backup Agent 無法建立所選磁碟區的快照集」，請嘗試增加複本和復原點磁碟區中的空間。
+| 備份 | 線上復原點建立失敗 | 如果錯誤訊息顯示「Windows Azure 備份代理程式無法連線到 OBEngine 服務」，請確認 OBEngine 存在於電腦上的執行中服務清單。 如果 OBEngine 服務不在執行中，請使用 "net start OBEngine" 命令來啟動 OBEngine 服務。
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息指出「未設定此伺服器的加密複雜密碼。 請設定加密複雜密碼」，請嘗試設定加密複雜密碼。 如果作業失敗， <br> <ol><li>請檢查暫存位置是否存在。 名稱為 “ScratchLocation” 之登錄 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config 中所提到的位置應該要存在。</li><li> 如果暫存位置存在，請嘗試使用舊的複雜密碼重新註冊。 **每當您設定加密複雜密碼時，請將它儲存在安全的位置**</li><ol>
 | 備份 | BMR 的備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試 |
 | 備份 | 存取檔案/共用資料夾時發生錯誤 | 請嘗試依[這裡](https://technet.microsoft.com/library/hh757911.aspx)的建議修改防毒設定|
+| 備份 | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  1.針對受影響的 VM，在 VMWare 上重設 ctk <br/> 檢查獨立磁碟不在 VMWare 上 <br/> 停止保護受影響的 VM，然後使用 [重新整理] 按鈕重新保護 <br/> 對受影響的 VM 執行 CC|
+
 
 ## <a name="change-passphrase"></a>變更複雜密碼
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
 | 變更複雜密碼 |輸入的安全性 PIN 碼不正確。 請提供正確的安全性 PIN 碼以完成此作業。 |**原因：**<br/> 當您在執行重要作業 (例如變更複雜密碼) 時輸入無效或已到期的安全性 PIN 碼時，就會出現此錯誤。 <br/>**建議的動作：**<br/> 若要完成作業，您必須輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
 | 變更複雜密碼 |作業失敗。 識別碼：120002 |**原因：**<br/>當安全性設定已啟用，而您嘗試變更複雜密碼，且您使用不受支援的版本時，就會出現此錯誤。<br/>**建議的動作：**<br/> 若要變更複雜密碼，您必須先將備份代理程式至少更新為最低版本 2.0.9052，並將 Azure 備份伺服器至少更新為更新 1，然後輸入有效的安全性 PIN 碼。 若要取得 PIN 碼，請登入 Azure 入口網站，並瀏覽至 [復原服務保存庫] > [設定] > [屬性] > [產生安全性 PIN 碼]。 請使用這個 PIN 碼來變更複雜密碼。 |
+
+
+## <a name="configure-email-notifications"></a>設定電子郵件通知
+| 作業 | 錯誤詳細資料 | 因應措施 |
+| --- | --- | --- |
+| 嘗試使用 Office365 帳戶設定電子郵件通知。 | 取得錯誤 ID：2013| **原因：**<br/> 嘗試使用 Office 365 帳戶 <br/> **建議的動作：**<br/> 所要確保的第一件事就是已 Exchange 上設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 以下是如何進行此設定的連結：http://technet.microsoft.com/en-us/library/bb232021.aspx <br/> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器進行設定，您可以將 IIS 設定為其轉送。 <br/> 您必須將 DPM 伺服器設定為能使用 IIS 將 SMTP 轉送至 O365 (https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx)，才能設定 IIS 來轉送至 O365 <br/> 重要事項：在步驟 3->g->ii，務必使用 user@domain.com 格式，而非 domain\user 格式 <br/> 指示 DPM 使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587，以及應送出電子郵件的使用者電子郵件。 <br/> DPM SMTP 設定頁面上的使用者名稱和密碼，應該是網域 DPM 所在的網域帳戶。 <br/> 注意：變更 SMTP 伺服器位址時，對新設定進行變更，關閉 [設定] 方塊，然後重新開啟來確定其反映新的值。  只有變更和測試不一定會採用新的設定，因此以這種方式測試是最佳做法。 <br/> 在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 索引鍵。 <br/> 再次啟動時，您可以在 UI 中將它們加回。
 

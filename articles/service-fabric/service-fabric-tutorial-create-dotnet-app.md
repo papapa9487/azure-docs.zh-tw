@@ -12,29 +12,33 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2017
+ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 8f824e451abd2ca87875c416184e4d7265e8c72b
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 71d910bc0e459528805521ba991e5291396a3b8d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
-本教學課程示範如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。
+本教學課程是系列中的第一部分，示範如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。 
 
 ![應用程式圖表](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
-在本教學課程中，您將了解如何：
+在系列的第一部分中，您將了解如何：
 
 > [!div class="checklist"]
 > * 建立 ASP.NET Core Web API 服務成為可靠服務
 > * 建立具狀態可靠服務
 > * 實作服務遠端和使用服務 Proxy
 
-本教學課程分成三篇文章，本文是全部三篇的第一篇。
+在本教學課程系列中，您將了解如何：
+> [!div class="checklist"]
+> * 建置 .NET Service Fabric 應用程式
+> * [將應用程式部署到遠端叢集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
+> * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前：

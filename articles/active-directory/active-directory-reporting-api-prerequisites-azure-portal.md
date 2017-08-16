@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a84f3825d3f019c60f8d875d250fe4cf79f4b04c
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 5fafd83c337e3c73260d89cdad7409a01ce5855b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>存取 Azure AD 報告 API 的必要條件
@@ -74,7 +74,7 @@ ms.lasthandoff: 06/20/2017
 
     a. 在 [名稱] 文字方塊中，輸入 `Reporting API application`。
 
-    b.這是另一個 C# 主控台應用程式。 選取 `Web app / API` 來作為 [應用程式類型]。
+    b. 對於 [應用程式類型]，選取 [Web 應用程式/API]。
 
     c. 在 [登入 URL] 文字方塊中，輸入 `https://localhost`。
 

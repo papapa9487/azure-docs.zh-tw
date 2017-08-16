@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 3337e3ad36792c1dcd0eaf183a2b695503b8f02c
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: cea811918147a25947ec654bb06f2c994bae5ce6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -45,7 +44,7 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="log-and-event-sources"></a>記錄和事件來源
 
-### <a name="service-fabric-infrastructure-events"></a>Service Fabric 基礎結構事件
+### <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 如[本文](service-fabric-diagnostics-event-generation-infra.md)所述，Service Fabric 會設定一些現成的記錄通道；其中，使用 WAD 可以輕鬆地設定下列通道，將監視和診斷資料傳送至儲存體資料表或其他位置：
   * 操作事件：Service Fabric 平台所執行之較高層級的作業。 範例包括建立應用程式和服務、節點狀態變更和升級資訊。 這些是以 Windows 事件追蹤 (ETW) 記錄的形式發出。
   * [Reliable Actors 程式設計模型事件](service-fabric-reliable-actors-diagnostics.md)
@@ -192,6 +191,47 @@ ms.lasthandoff: 07/06/2017
     }
 ```
 
+## <a name="collect-reverse-proxy-events"></a>收集反向 proxy 事件
+
+從 Service Fabric 5.7 版開始，[反向 proxy](service-fabric-reverseproxy.md) 事件可供收集。
+反向 proxy 會將事件發至兩個通道，其中一個包含可反映要求處理失敗的錯誤事件，而另一個包含在反向 proxy 處理之所有要求的詳細資訊事件。 
+
+1. 收集錯誤事件︰若要在 Visual Studio 的「診斷事件檢視器」中檢視這些事件，請將 "Microsoft-ServiceFabric:4:0x4000000000000010" 新增到 ETW 提供者清單中。
+若要從 Azure 叢集收集事件，請修改 Resource Manager 範本，使其包含
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387920",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+
+2. 收集所有要求處理事件：在 Visual Studio 的診斷事件檢視器中，將 ETW 提供者清單中的 Microsoft-ServiceFabric 項目更新為 "Microsoft-ServiceFabric:4:0x4000000000000020"。
+對於 Azure Service Fabric 叢集，修改資源管理員範本，使其包含
+
+```json
+  "EtwManifestProviderConfiguration": [
+    {
+      "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
+      "scheduledTransferLogLevelFilter": "Information",
+      "scheduledTransferKeywordFilter": "4611686018427387936",
+      "scheduledTransferPeriod": "PT5M",
+      "DefaultEvents": {
+        "eventDestination": "ServiceFabricSystemEventTable"
+      }
+    }
+```
+> 建議審慎地允許從此通道收集事件，因為這可透過反向 proxy 收集所有流量並可快速地取用儲存體容量。
+
+對於 Azure Service Fabric 叢集，所有節點的事件都會收集在 SystemEventTable 中並且彙總。
+如需反向 proxy 事件的詳細疑難排解，請參閱[反向 proxy 診斷指南](service-fabric-reverse-proxy-diagnostics.md)。
+
 ## <a name="collect-from-new-eventsource-channels"></a>從新的 EventSource 通道收集
 
 若要更新診斷以從新的 EventSource 通道 (代表您將要部署的新應用程式) 收集記錄，請執行先前所述的相同步驟，以針對現有叢集設定診斷。
@@ -218,21 +258,22 @@ ms.lasthandoff: 07/06/2017
 
 例如，我們在這裡設定一個效能計數器，其每 15 秒取樣一次 (此值可以變更，並遵循格式 "PT\<時間>\<單位>"，例如，PT3M 會以三分鐘的間隔取樣一次)，且每分鐘傳送到適當的儲存體資料表一次。
 
-    ```json
-    "PerformanceCounters": {
-        "scheduledTransferPeriod": "PT1M",
-        "PerformanceCounterConfiguration": [
-            {
-                "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                "sampleRate": "PT15S",
-                "unit": "Percent",
-                "annotation": [
-                ],
-                "sinks": ""
-            }
-        ]
-    }
-    ```
+  ```json
+  "PerformanceCounters": {
+      "scheduledTransferPeriod": "PT1M",
+      "PerformanceCounterConfiguration": [
+          {
+              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+              "sampleRate": "PT15S",
+              "unit": "Percent",
+              "annotation": [
+              ],
+              "sinks": ""
+          }
+      ]
+  }
+  ```
+  
 如果您要使用 Application Insights 接收 (如下節所述)，而且想要將這些計量顯示在 Application Insights 中，則請確定在 "sinks" 區段中新增接收名稱 (如上所示)。 此外，請考慮建立個別的資料表以傳送效能計數器，讓它們不會塞滿來自其他已啟用之記錄通道的資料。
 
 

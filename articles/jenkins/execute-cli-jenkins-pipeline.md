@@ -1,5 +1,5 @@
 ---
-title: "使用 Jenkins 和 Azure CLI 來部署到 Azure App Service | Microsoft Docs"
+title: "使用 Jenkins 來執行 Azure CLI | Microsoft Docs"
 description: "了解如何在 Jenkins 管線中使用 Azure CLI 將 Java Web 應用程式部署到 Azure"
 services: app-service\web
 documentationcenter: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: d0d20c10c7b14ff8873bb71feb9047a1c49700ef
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 5ca8338d4bf343f08fe70081cff755fa76a126a9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 

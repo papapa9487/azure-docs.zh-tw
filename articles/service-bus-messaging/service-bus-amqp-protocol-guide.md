@@ -12,35 +12,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2017
+ms.date: 08/07/2017
 ms.author: clemensv;hillaryc;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 9197e429f25f5431d7ea36170c3339cd4d4bc32d
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 2ef07d78a9d81fac933f2c3359e9ee48f86e6790
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/12/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
-# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南
+# Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南
 
 進階訊息佇列通訊協定 1.0 是標準化框架處理和傳輸通訊協定，可以非同步、安全且可靠的方式傳輸兩方之間的訊息。 它是 Azure 服務匯流排訊息和 Azure 事件中樞的主要通訊協定。 這兩項服務也支援 HTTPS。 同時支援的專屬 SBMP 通訊協定會慢慢被淘汰，以利採用 AMQP。
 
 AMQP 1.0 是產業共同作業的結果，由中介軟體廠商 (例如 Microsoft 和 Red Hat) 與許多傳訊中介軟體使用者 (例如代表金融服務產業的 JP Morgan Chase) 攜手合作。 OASIS 是 AMQP 通訊協定和擴充規格的技術標準化論壇，它已獲得 ISO/IEC 19494 國際標準的正式核准。
 
-## <a name="goals"></a>目標
+## 目標
 
 本文簡短摘要說明 AMQP 1.0 訊息規格的核心概念以及目前正由 OASIS AMQP 技術委員會定案的一小組草稿擴充規格，並說明 Azure 服務匯流排如何根據這些規格進行實作和建置。
 
 目的是要讓在任何平台上使用任何現有 AMQP 1.0 用戶端堆疊的開發人員，能夠透過 AMQP 1.0 與 Azure 服務匯流排互動。
 
-常見一般用途的 AMQP 1.0 堆疊 (例如 Apache Proton 或 AMQP.NET Lite) 已經實作所有核心 AMQP 1.0 軌跡。 這些基本軌跡有時會以更高層級的 API 包裝；Apache Proton 甚至會提供兩個，命令式 Messenger API 和反應式 Reactor API。
+常見的一般用途 AMQP 1.0 堆疊 (例如 Apache Proton 或 AMQP.NET Lite) 已經實作所有核心 AMQP 1.0 軌跡。 這些基本軌跡有時會以更高層級的 API 包裝；Apache Proton 甚至會提供命令式 Messenger API 和反應式 Reactor API 等兩個 API 包裝。
 
-在以下討論中，我們將假設 AMQP 連線、工作階段和連結的管理，以及框架傳輸和流量控制的處理都是由個別堆疊 (例如 Apache PROTON-C) 處理，而不需要應用程式開發人員特別注意。 我們會以抽象方式假設存在一些 API 原始物件，像是連接的能力，以及建立某種形式的「傳送者」和「接收者」抽象物件的能力，然後分別會有某種形式的 `send()` 和 `receive()` 作業。
+在以下討論中，我們假設 AMQP 連線、工作階段和連結的管理，以及框架傳輸和流量控制都是由個別堆疊 (例如 Apache PROTON-C) 處理，而不需要應用程式開發人員特別注意。 我們會以抽象方式假設存在一些 API 原始物件，像是連線的能力，以及建立某種形式的「傳送者」和「接收者」抽象物件的能力，然後分別會有某種形式的 `send()` 和 `receive()` 作業。
 
 討論 Azure 服務匯流排的進階功能 (例如訊息瀏覽或工作階段管理) 時，將會以 AMQP 詞彙說明這些功能，但也可作為以這個假設 API 抽象概念為基礎的多層式虛擬實作。
 
-## <a name="what-is-amqp"></a>AMQP 是什麼？
+## AMQP 是什麼？
 
 AMQP 是框架處理和傳輸通訊協定。 框架處理表示它會為以網路連線的任一方向流入的二進位資料串流提供結構。 此結構會針對要在已連線方之間交換的不同資料區塊 (稱為框架) 提供略圖。 傳輸功能會確定通訊雙方都可以對於何時應傳送框架以及傳輸何時應視為完成，建立起共識。
 
@@ -48,15 +47,15 @@ AMQP 是框架處理和傳輸通訊協定。 框架處理表示它會為以網�
 
 此通訊協定可用於對稱的對等通訊，以便與支援佇列及發佈/訂閱實體的訊息代理程式互動，如 Azure 服務匯流排所為。 也可以用來與傳訊基礎結構互動，其互動模式不同於一般佇列 (和 Azure 事件中樞的情況一樣)。 當事件傳送至事件中樞時，事件中樞的作用如同佇列，但從中讀取事件時，其作用比較像是序列儲存體服務；它有點類似磁帶機。 用戶端會挑選可用資料串流的位移，然後取得從該位移至最新可用的所有事件。
 
-AMQP 1.0 通訊協定是設計為可延伸的，允許進一步規格以增強其功能。 我們將在本文件中討論的三個擴充規格會說明這點。 在透過可能難以設定原生 AMQP TCP 連接埠的現有 HTTPS/WebSockets 基礎結構進行的通訊中，繫結規格會定義如何透過 WebSockets 將 AMQP 分層。 以要求/回應方式與傳訊基礎結構互動，以便進行管理或提供進階功能時，AMQP 管理規格會定義必要的基本互動原始物件。 在同盟授權模型整合中，AMQP 宣告型安全性規格會定義如何產生關聯並更新與連結相關聯的授權權杖。
+AMQP 1.0 通訊協定是設計為可延伸的，允許進一步規格以增強其功能。 我們在本文件中討論的三個擴充規格會說明這點。 在透過可能難以設定原生 AMQP TCP 連接埠的現有 HTTPS/WebSockets 基礎結構進行的通訊中，繫結規格會定義如何透過 WebSockets 將 AMQP 分層。 以要求/回應方式與傳訊基礎結構互動，以便進行管理或提供進階功能時，AMQP 管理規格會定義必要的基本互動原始物件。 在同盟授權模型整合中，AMQP 宣告型安全性規格會定義如何產生關聯並更新與連結相關聯的授權權杖。
 
-## <a name="basic-amqp-scenarios"></a>基本 AMQP 案例
+## 基本 AMQP 案例
 
 本節說明 AMQP 1.0 與 Azure 服務匯流排的基本使用方式，其中包括建立連線、工作階段和連結，以及往返於服務匯流排實體 (例如佇列、主題和訂用帳戶) 傳輸訊息。
 
 了解 AMQP 運作方式的最可靠來源是 AMQP 1.0 規格，但此規格是為了精確引導實作而撰寫，而非用以指導通訊協定。 本節著重於盡可能介紹描述服務匯流排如何使用 AMQP 1.0 的術語。 如需 AMQP 的更完整介紹，以及 AMQP 1.0 的更廣泛討論，您可以觀看[此影片課程][this video course]。
 
-### <a name="connections-and-sessions"></a>連線和工作階段
+### 連線和工作階段
 
 AMQP 會將通訊程式稱為「容器」；其中包含「節點」，也就是這些容器內的通訊實體。 佇列就屬於這類節點。 AMQP 允許多工處理，所以單一連線可以用於節點之間的許多通訊路徑；例如，應用程式用戶端可以同時從一個佇列接收，並透過相同的網路連線傳送到另一個佇列。
 
@@ -69,7 +68,7 @@ Azure 服務匯流排隨時都需要使用 TLS。 它支援透過 TCP 連接埠 
 在設定連線和 TLS 之後，服務匯流排會提供兩個 SASL 機制選項︰
 
 * SASL PLAIN 常用於將使用者名稱和密碼認證傳送至伺服器。 服務匯流排沒有帳戶，但是有具名的[共用存取安全性規則](service-bus-sas.md)，這些規則可授予權限並與某個金鑰相關聯。 規則名稱可做為使用者名稱，而金鑰 (如 base64 編碼文字) 可做為密碼。 與所選規則相關聯的權限會控管允許在連接上進行的作業。
-* 當用戶端想要使用稍後說明的宣告型安全性 (CBS) 模型時，SASL ANONYMOU 可用來略過 SASL 授權。 使用此選項，即可以匿名方式建立短期的用戶端連線，在此連線期間，用戶端只能與 CBS 端點互動，而且 CBS 交握必須完成。
+* 當用戶端想要使用稍後會說明的宣告型安全性 (CBS) 模型時，可用 SASL ANONYMOU 來略過 SASL 授權。 使用此選項，即可以匿名方式建立短期的用戶端連線，在此連線期間，用戶端只能與 CBS 端點互動，而且 CBS 交握必須完成。
 
 建立傳輸連線之後，容器會各自宣告它們願意處理的框架大小上限，而在閒置逾時後，如果連線上沒有任何活動，它們就會單方面中斷連線。
 
@@ -83,7 +82,7 @@ Azure 服務匯流排目前只對每個連線使用一個工作階段。 服務�
 
 連線、通道和工作階段都是暫時的。 如果基礎連線摺疊，則必須重新建立連線、TLS 通道、SASL 授權內容及工作階段。
 
-### <a name="links"></a>連結
+### 連結
 
 AMQP 會透過連結傳輸訊息。 連結是在能以單一方向傳輸訊息的工作階段中建立的通訊路徑；傳輸狀態交涉會透過連結在已連線方之間雙向進行。
 
@@ -99,7 +98,7 @@ AMQP 會透過連結傳輸訊息。 連結是在能以單一方向傳輸訊息�
 
 正在連線的用戶端也必須使用本機節點名稱來建立連結；服務匯流排不會規範這些節點名稱，而且不會加以解譯。 AMQP 1.0 用戶端堆疊通常會使用配置，以確保這些暫時節點名稱是用戶端範圍內的唯一名稱。
 
-### <a name="transfers"></a>傳輸
+### 傳輸
 
 建立連結後，即可透過該連結傳輸訊息。 在 AMQP 中，會使用明確的通訊協定軌跡執行傳輸 (「傳輸」展演)，以透過連結將訊息從傳送者移到接收者。 傳輸會在「安置好」時完成，這表示雙方已建立該傳輸結果的共識。
 
@@ -119,7 +118,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 為了彌補可能的重複傳送，服務匯流排支援重複偵測佇列和主題 (選用功能)。 重複偵測會在使用者定義的時段內記錄所有內送訊息的訊息識別碼，然後以無訊息方式放棄在該相同時段內使用相同訊息識別碼傳送的所有訊息。
 
-### <a name="flow-control"></a>流量控制
+### 流量控制
 
 除了先前討論過的工作階段層級流量控制模型以外，每個連結都有自己的流量控制模型。 工作階段層級流量控制可防止容器必須一次處理太多框架，連結層級流量控制會讓應用程式負責控制它想要從連結處理的訊息數目以及時機。
 
@@ -135,7 +134,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 當傳輸進入其中一種終止狀態「已接受」、「已拒絕」或「已解除」時，訊息鎖定就會解除。 終止狀態為「已接受」時，就會從服務匯流排中移除訊息。 它會保留在服務匯流排中，並將在傳輸達到任何其他狀態時，傳遞給下一個接收者。 服務匯流排會在因為重複拒絕或解除而達到實體所允許的最大傳遞計數時，自動將訊息移到實體寄不出的信件佇列中。
 
-即使是服務匯流排 API 現今也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發非常大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
+現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
 
 在此內容中，務必了解實體內訊息鎖定的到期時鐘會在從實體取得訊息時啟動，而不是在訊息放在網路上時啟動。 每當用戶端藉由核發連結信用額度來表示接收訊息的整備性，因此預期會主動提取網路上的訊息並準備好處理它們。 否則訊息鎖定可能會在訊息傳遞之前過期。 使用連結信用流量控制應直接反映出可立即準備處理分派給接收者的可用訊息。
 
@@ -143,49 +142,49 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 下表中的箭號會顯示展演流程方向。
 
-#### <a name="create-message-receiver"></a>建立訊息接收者
+#### 建立訊息接收者
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |用戶端會以接收者身分附加至實體 |
 | 附加至連結結尾的服務匯流排回覆 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
-#### <a name="create-message-sender"></a>建立訊息傳送者
+#### 建立訊息傳送者
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |沒有動作 |
 | 沒有動作 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### <a name="create-message-sender-error"></a>建立訊息傳送者 (錯誤)
+#### 建立訊息傳送者 (錯誤)
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |沒有動作 |
 | 沒有動作 |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### <a name="close-message-receiversender"></a>將訊息接收者/傳送者關閉
+#### 將訊息接收者/傳送者關閉
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |沒有動作 |
 | 沒有動作 |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### <a name="send-success"></a>傳送 (成功)
+#### 傳送 (成功)
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |沒有動作 |
 | 沒有動作 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### <a name="send-error"></a>傳送 (錯誤)
+#### 傳送 (錯誤)
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |沒有動作 |
 | 沒有動作 |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
-#### <a name="receive"></a>接收
+#### 接收
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
@@ -193,7 +192,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | 沒有動作 |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |沒有動作 |
 
-#### <a name="multi-message-receive"></a>多訊息接收
+#### 多訊息接收
 
 | 用戶端 | 服務匯流排 |
 | --- | --- |
@@ -203,11 +202,11 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | 沒有動作 |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |沒有動作 |
 
-### <a name="messages"></a>訊息
+### 訊息
 
 下列各節說明服務匯流排會使用標準 AMQP 訊息區段中的哪些屬性，以及它們如何對應到服務匯流排 API 集。
 
-#### <a name="header"></a>頁首
+#### 頁首
 
 | 欄位名稱 | 使用量 | API 名稱 |
 | --- | --- | --- |
@@ -217,7 +216,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | first-acquirer |- |- |
 | delivery-count |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### <a name="properties"></a>properties
+#### properties
 
 | 欄位名稱 | 使用量 | API 名稱 |
 | --- | --- | --- |
@@ -235,7 +234,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | group-sequence |用以識別訊息在工作階段內的相對序號的計數器。 服務匯流排會忽略。 |無法透過服務匯流排 API 存取。 |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## <a name="advanced-service-bus-capabilities"></a>進階服務匯流排功能
+## 進階服務匯流排功能
 
 本節涵蓋 Azure 服務匯流排的進階功能，而這些功能是以目前正在 AMQP 的 OASIS Technical Committee 中開發的 AMQP 草稿延伸模組為基礎。 服務匯流排會實作這些草稿的最新版本，而且會採用這些草稿達到標準狀態時所引進的變更。
 
@@ -244,9 +243,9 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 > 
 > 
 
-### <a name="amqp-management"></a>AMQP 管理
+### AMQP 管理
 
-AMQP 管理規格是我們將在此討論的第一個草稿延伸模組。 此規格會定義一組以 AMQP 通訊協定為基礎的通訊協定軌跡，以便透過 AMQP 進行訊息基礎結構的管理互動。 此規格定義泛型作業 (例如建立、讀取、更新和刪除)，以便管理傳訊基礎結構內的實體和一組查詢作業。
+AMQP 管理規格是我們在此討論的第一個草稿延伸模組。 此規格會定義一組以 AMQP 通訊協定為基礎的通訊協定軌跡，以便透過 AMQP 進行訊息基礎結構的管理互動。 此規格定義泛型作業 (例如建立、讀取、更新和刪除)，以便管理傳訊基礎結構內的實體和一組查詢作業。
 
 上述所有軌跡都需要用戶端與傳訊基礎結構之間的要求/回應互動，因此此規格會定義如何製作 AMQP 上互動模式的模型︰用戶端會連線到傳訊基礎結構、起始工作階段，然後建立一組連結。 在某一個連結上，用戶端會扮演傳送者，而在其他連結上扮演接收者，因此建立一組可做為雙向通道的連結。
 
@@ -263,9 +262,9 @@ AMQP 管理規格是我們將在此討論的第一個草稿延伸模組。 此�
 
 用於管理通訊協定和所有其他使用相同模組之的訊協定的訊息交換會發生於應用程式層級；它們不會定義新的 AMQP 通訊協定層級軌跡。 這是刻意設計的，以便應用程式立即利用符合 AMQP 1.0 堆疊規範的這些擴充功能。
 
-服務匯流排目前不會實作管理規格的任何核心功能，但是對宣告型安全性功能以及我們將在下列各節中討論的幾乎所有進階功能而言，管理規格所定義的要求/回應模式是基本的。
+服務匯流排目前不會實作管理規格的任何核心功能，但是對宣告型安全性功能以及我們在下列各節中討論的幾乎所有進階功能而言，管理規格所定義的要求/回應模式是基本的。
 
-### <a name="claims-based-authorization"></a>宣告型授權
+### 宣告型授權
 
 AMQP 宣告型授權 (CBS) 規格草稿是以管理規格的要求/回應模式為基礎，主要說明如何搭配使用同盟安全性權杖與 AMQP 的廣義模型。
 
@@ -274,7 +273,7 @@ AMQP 宣告型授權 (CBS) 規格草稿是以管理規格的要求/回應模式�
 AMQP 的 SASL 整合有兩個缺點︰
 
 * 所有認證與權杖的範圍都只限於連線。 傳訊基礎結構可能會以每個實體方式提供不同的存取控制；例如，允許權杖的持有者傳送至佇列 A，而不是至佇列 B。使用錨定在連線上的授權內容，就不可能使用單一連線並且對佇列 A 和 B 使用不同的存取權杖。
-* 存取權杖的有效時間通常有限。 這會要求使用者定期重新取得權杖，而如果使用者的存取權限已變更，權杖的簽發者便有機會拒絕簽發全新的權杖。 AMQP 連線可能會持續很長的時間。 SASL 模型只提供一個機會在連線時設定權杖，這表示傳訊基礎結構必須在權杖過期時中斷用戶端的連線，或者必須接受允許與存取權限可能已在其間撤銷的用戶端持續通訊的風險。
+* 存取權杖的有效時間通常有限。 此有效性會要求使用者定期重新取得權杖，而如果使用者的存取權限已變更，權杖的簽發者便有機會拒絕簽發全新的權杖。 AMQP 連線可能會持續很長的時間。 SASL 模型只提供一個機會在連線時設定權杖，這表示傳訊基礎結構必須在權杖過期時中斷用戶端的連線，或者必須接受允許與存取權限可能已在其間撤銷的用戶端持續通訊的風險。
 
 服務匯流排所實作的 AMQP CBS 規格，可讓這兩個問題獲得圓滿的解決︰它可讓用戶端建立存取權杖與每個節點的關聯，以及在這些權杖過期前進行更新，而不需中斷訊息流程。
 
@@ -318,7 +317,7 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 
 用戶端後續會負責追蹤權杖到期。 權杖到期時，服務匯流排會立即卸除個別實體連線上的所有連結。 若要避免這種情況，用戶端可以透過具有相同 *put-token* 軌跡的虛擬 *$cbs* 管理節點隨時使用新的權杖來取代節點的權杖，但不會干擾在不同連結上流動的承載流量。
 
-## <a name="next-steps"></a>後續步驟
+## 後續步驟
 
 若要深入了解 AMQP，請造訪下列連結：
 

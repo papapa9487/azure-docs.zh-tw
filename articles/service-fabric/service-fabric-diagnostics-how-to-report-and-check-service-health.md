@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
+ms.date: 07/19/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ad779784a6a8092ad44f5b564db2d3b207989d86
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 83981d5bec14c06c509f1a8a4153dc23298f5ce0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="report-and-check-service-health"></a>回報和檢查服務健康情況
@@ -29,10 +29,10 @@ ms.lasthandoff: 07/21/2017
 * 使用 [Partition](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) 或 [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) 物件。  
   您可以使用 `Partition` 和 `CodePackageActivationContext` 物件在屬於目前內容一部分的項目中回報健全狀況。 比方說，做為複本一部分執行的程式碼只能回報該複本、其所屬的分割區，以及其所屬應用程式的健全狀況。
 * 使用 `FabricClient`。   
-  當叢集不是[安全的](service-fabric-cluster-security.md)或者服務是以系統管理員權限執行時，您才能使用 `FabricClient`，從服務程式碼回報健全狀況。 在大部分的真實案例中都不會發生此情況。 您可以使用 `FabricClient`，回報任何屬於叢集一部分之實體的健全狀況。 然而在理想的情況下，服務程式碼應該只會傳送與其本身健全狀況相關的報告。
-* 使用位於叢集、應用程式、已部署的應用程式、服務、服務封裝、資料分割、副本或節點層級的 REST API。 這可用來從容器內部回報健全狀況。
+  當叢集不是[安全的](service-fabric-cluster-security.md)或者服務是以系統管理員權限執行時，您才能使用 `FabricClient`，從服務程式碼回報健全狀況。 大部分的實際案例不會使用不安全的叢集，或提供系統管理員權限。 您可以使用 `FabricClient`，回報任何屬於叢集一部分之實體的健全狀況。 然而在理想的情況下，服務程式碼應該只會傳送與其本身健全狀況相關的報告。
+* 使用位於叢集、應用程式、已部署應用程式、服務、服務套件、磁碟分割、複本或節點層級的 REST API。 這可用來從容器內部回報健全狀況。
 
-這篇文章會引導您完成從服務程式碼回報健全狀況的範例。 此範例也示範如何使用 Service Fabric 提供的工具檢查健全狀態。 本文旨在快速介紹 Service Fabric 的健全狀況監視功能。 如需更詳細的資訊，您可以閱讀一系列有關健全狀況的深入文章，從本文結尾的連結開始。
+這篇文章會引導您完成從服務程式碼回報健全狀況的範例。 此範例也會示範如何使用 Service Fabric 提供的工具來檢查健康情況。 本文旨在快速介紹 Service Fabric 的健全狀況監視功能。 如需更詳細的資訊，您可以閱讀一系列有關健全狀況的深入文章，從本文結尾的連結開始。
 
 ## <a name="prerequisites"></a>必要條件
 您必須安裝下列項目：
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/21/2017
 * Service Fabric SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>建立本機的安全開發人員叢集
-* 以系統管理員權限開啟 PowerShell 並執行下列命令。
+* 以系統管理員權限開啟 PowerShell 並執行下列命令︰
 
 ![示範如何建立安全開發人員叢集的命令](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/21/2017
 2. 使用 **具狀態服務** 範本建立專案。
    
     ![建立與具狀態服務搭配使用的 Service Fabric 應用程式](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-3. 按 **F5** 以在偵錯模式中執行應用程式。 應用程式將會部署至本機叢集。
+3. 按 **F5** 以在偵錯模式中執行應用程式。 應用程式會部署至本機叢集。
 4. 應用程式執行之後，在通知區域中的本機叢集管理員圖示上按一下滑鼠右鍵，然後從捷徑功能表選取 管理本機叢集  ，以開啟 Service Fabric 總管。
    
     ![從通知區域開啟 Service Fabric 總管](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/21/2017
     ![PowerShell 中狀況良好的應用程式](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
 ## <a name="to-add-custom-health-events-to-your-service-code"></a>將自訂健康情況事件新增至您的服務程式碼
-Visual Studio 中的 Service Fabric 專案範本包含範例程式碼。 以下步驟說明如何從您的服務程式碼回報自訂健全狀況事件。 這類報告會自動顯示在 Service Fabric 所提供之健全狀況監視的標準工具中，例如 Service Fabric 總管、Azure 入口網站健全狀況檢視以及 PowerShell。
+Visual Studio 中的 Service Fabric 專案範本包含範例程式碼。 以下步驟說明如何從您的服務程式碼回報自訂健全狀況事件。 這類報告會自動顯示在 Service Fabric 所提供之健康情況監視的標準工具中，例如 Service Fabric Explorer、Azure 入口網站健康情況檢視以及 PowerShell。
 
 1. 在 Visual Studio 中重新開啟您先前建立的應用程式，或使用 **具狀態服務** Visual Studio 範本建立新應用程式。
 2. 開啟 Stateful1.cs 檔案，並尋找 `RunAsync` 方法中的 `myDictionary.TryGetValueAsync` 呼叫。 您可以看到這個方法傳回存放目前計數器值的 `result` ，因為此應用程式的主要邏輯是要讓計數能夠執行。 如果這是一個實際的應用程式，且缺乏結果代表失敗，您會想要標示該事件。
@@ -123,15 +123,15 @@ Visual Studio 中的 Service Fabric 專案範本包含範例程式碼。 以下�
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   現在，這個程式碼就會在每次 `RunAsync` 執行時引發此健全狀況報告。 在您進行變更之後，請按 **F5** 執行應用程式。
-6. 在應用程式執行之後，開啟 [Service Fabric 總管] 來檢查應用程式的健全狀況。 這次，[Service Fabric 總管] 會將應用程式顯示為狀況不良。 這是因為我們先前新增的程式碼所回報的錯誤所致。
+   此程式碼會在每次 `RunAsync` 執行時引發健康情況報告。 在您進行變更之後，請按 **F5** 執行應用程式。
+6. 在應用程式執行之後，開啟 [Service Fabric 總管] 來檢查應用程式的健全狀況。 這次，[Service Fabric Explorer] 會將應用程式顯示為健康情況不良。 這是因為我們先前新增的程式碼所回報的錯誤所致。
    
     ![Service Fabric 總管中狀況不良的應用程式](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
 7. 如果您在 [Service Fabric 總管] 的樹狀結構檢視中選取主要複本，您將會看到 **健全狀態** 也顯示為發生錯誤。 [Service Fabric 總管] 也會顯示已新增至程式碼中 `HealthInformation` 參數的健全狀況報告詳細資料。 您可以在 PowerShell 和 Azure 入口網站中看到相同的健全狀況報告。
    
     ![Service Fabric 總管中的複本健康情況](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
-此報告將會保留在健全狀況管理員中，直到被另一份報告取代或直到此複本被刪除為止。 因為我們並未設定 `HealthInformation` 物件中此健全狀況報告的 `TimeToLive`，所以報告永遠不會到期。
+此報告會保留在健康情況管理員中，直到被另一份報告取代或直到此複本被刪除為止。 因為我們並未在 `HealthInformation` 物件中設定此健康情況報告的 `TimeToLive`，所以報告永遠不會到期。
 
 建議您應該在最細微的層級上回報健全狀況，在此案例中為複本。 您也可以回報 `Partition`的健全狀況。
 

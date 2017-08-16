@@ -12,20 +12,20 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/15/2017
+ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 74809ce12a2a273a18ff3e0559aefd79fb4d2da7
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
-了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至使用 Linux 當成作業系統的現有 HDInsight 叢集。
+了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
 
 > [!IMPORTANT]
 > 本文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Hadoop、Spark、Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/26/2017
 
 * 將儲存體帳戶新增至 core-site.xml 檔案。
 
-* 停止後重新啟動 Oozie、YARN、MapReduce2 和 HDFS 服務，以便它們挑選新的儲存體帳戶資訊。
+* 停止並重新啟動 Oozie、YARN、MapReduce2 和 HDFS 服務。 停止並啟動這些服務可讓它們使用新的儲存體帳戶。
 
 > [!WARNING]
 > 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。
@@ -65,12 +65,14 @@ __需求__：
 
 ## <a name="to-use-the-script"></a>若要使用指令碼
 
-如需透過 Azure 入口網站、Azure PowerShell 和 Azure CLI 使用指令碼動作的資訊，請參閱[使用指令碼動作來自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文件中的「將指令碼動作套用到執行中的叢集」一節。
+您可以從 Azure 入口網站、Azure PowerShell 或 Azure CLI 1.0 使用此指令碼。 如需詳細資訊，請參閱[使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文件。
 
-使用自訂文件中提供的資訊時，請以這個指令碼的 URI 取代範例指令碼動作 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。 以即將新增至叢集的儲存體帳戶的 Azure 儲存體帳戶名稱和金鑰取代範例參數。
-
-> [!NOTE]
-> 您不需要將此指令碼標示為 [已保存]，因為它會直接更新叢集的 Ambari 組態。
+> [!IMPORTANT]
+> 在使用自訂文件中提供的步驟時，請使用下列資訊來套用此指令碼：
+>
+> * 以這個指令碼的 URI 取代指令碼動作 URI 範例 (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。
+> * 以即將新增至叢集的儲存體帳戶的 Azure 儲存體帳戶名稱和金鑰取代範例參數。 如果使用 Azure 入口網站，則必須以空格分隔這些參數。
+> * 您不需要將此指令碼標示為 [已保存]，因為它會直接更新叢集的 Ambari 組態。
 
 ## <a name="known-issues"></a>已知問題
 
@@ -142,7 +144,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 ### <a name="additional-charges"></a>額外費用
 
-如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會發現 Azure 帳單上出現額外輸出費用。 當資料離開區域資料中心時適用輸出費用，即使流量的目的地是不同區域中的其他 Azure 資料中心亦然。
+如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會發現 Azure 帳單上出現額外輸出費用。 當資料離開區域資料中心時，就會產生輸出費用。 即使流量的目的地是不同區域中的其他 Azure 資料中心，仍會產生此費用。
 
 > [!WARNING]
 > 不支援在 HDInsight 叢集以外的區域中使用儲存體帳戶。

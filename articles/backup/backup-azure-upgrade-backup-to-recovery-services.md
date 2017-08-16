@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/02/2017
-ms.author: markgal;arunak
+ms.date: 08/03/2017
+ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: cf5a7c1ac323a33c5f6985fb25b5b005ae06657c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
@@ -108,11 +108,11 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 
 當備份保存庫升級為復原服務保存庫時，系統會自動開啟該保存庫的安全性設定。 當安全性設定開啟時，某些作業 (例如刪除備份或變更複雜密碼) 會需要 [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) PIN 碼。 如需強化的安全性的詳細資訊，請參閱[用來保護混合式備份的安全性功能](backup-azure-security-feature.md)一文。 
 
-當強化的安全性開啟時，資料會在您從保存庫中刪除可計費的資料後最多保留 14 天的時間。 此資料保留原則適用於 Azure 備份代理程式、Azure 備份伺服器和 System Center Data Protection Manager 所備份的資料。
+開啟強化的安全性時，在您從保存庫中刪除復原點資訊後，資料最多保留 14 天的時間。 客戶需支付此安全性資料的儲存體費用。 安全性資料保留原則適用於 Azure 備份代理程式、Azure 備份伺服器和 System Center Data Protection Manager 所備份的復原點。 
 
 ## <a name="gather-data-on-your-vault"></a>在保存庫上收集資料
 
-在升級為復原服務保存庫後，請為 Azure 備份設定報告 (適用於 IaaS VM 和 Microsoft Azure 復原服務 (MARS))，並使用 Power BI 來存取報告。
+在升級為復原服務保存庫後，請為 Azure 備份設定報告 (適用於 IaaS VM 和 Microsoft Azure 復原服務 (MARS))，並使用 Power BI 來存取報告。 如需有關如何收集資料的其他資訊，請參閱[設定 Azure 備份報告](backup-azure-configure-reports.md)一文。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
