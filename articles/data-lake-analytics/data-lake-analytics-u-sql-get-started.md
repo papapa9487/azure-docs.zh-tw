@@ -15,11 +15,10 @@ ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: a193590504fc3706a7c1f1562e94a8a80da03e75
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 38c4e1b9bd24ef0b8a81f6154620f3f98d3b5ac1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="get-started-with-u-sql"></a>開始使用 U-SQL
@@ -27,7 +26,7 @@ U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理
 
 ## <a name="learning-resources"></a>學習資源
 
-* [U-SQL 教學課程] 提供大多數 U-SQL 語言的引導式逐步解說。 本文件的建議閱讀對象是所有想要學習 U-SQL 的開發人員。
+* [U-SQL 教學課程](http://aka.ms/usqltutorial)提供大多數 U-SQL 語言的引導式逐步解說。 本文件的建議閱讀對象是所有想要學習 U-SQL 的開發人員。
 * 如需 **U-SQL 語言語法**的詳細資訊，請參閱 [U-SQL 語言參考 (英文)](http://go.microsoft.com/fwlink/p/?LinkId=691348)。
 * 若要了解 U-SQL 的設計原理，請參閱 Visual Studio 部落格文章[簡介 U-SQL – 讓巨量資料的處理變簡單的語言 (英文)](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)。
 

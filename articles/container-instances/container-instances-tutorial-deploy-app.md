@@ -11,16 +11,17 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/04/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: e48477a79e28db2c40c99fd46d9c5b84506a4279
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: d8c2056734bc1fdea71543157debd089a9ca743d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -46,41 +47,34 @@ az acr show --name <acrName> --query loginServer
 容器登錄密碼：
 
 ```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
+az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 若要從容器登錄中使用 1 個 CPU 核心和 1 GB 記憶體的資源要求來部署您的容器映像，請執行下列命令：
 
 ```azurecli-interactive
-az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --ip-address public -g myResourceGroup
+az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
 在幾秒內，您就會從 Azure Resource Manager 收到首次的回應。 若要檢視部署的狀態，請使用：
 
 ```azurecli-interactive
-az container show --name aci-tutorial-app --resource-group myResourceGroup
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
-輸出內會包含可供用來在瀏覽器中存取應用程式的公用 IP 位址。
-
-```json
-...
-"ipAddress": {
-      "ip": "13.88.176.27",
-      "ports": [
-        {
-          "port": 80,
-          "protocol": "TCP"
-        }
-      ]
-    }
-...
-```
-
+我們可以繼續執行此命令，直到狀態從*擱置*變更為*執行中*。 然後我們可以繼續進行。
 
 ## <a name="view-the-application-and-container-logs"></a>檢視應用程式和容器記錄
 
-部署成功後，您就可以開啟瀏覽器以進入 `az container show` 的輸出所顯示的 IP 位址。
+部署成功後，開啟瀏覽器以進入下列命令的輸出所顯示的 IP 位址：
+
+```bash
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
+```
+
+```json
+"13.88.176.27"
+```
 
 ![瀏覽器中的 Hello World 應用程式][aci-app-browser]
 

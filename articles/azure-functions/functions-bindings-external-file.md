@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 4400ebce2fbed709dcadf41cd2b834fd36416c15
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2082e4e9b23271be93f3e3ab43997c3243238da8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-functions-external-file-bindings-preview"></a>Azure Functions 外部檔案繫結 (預覽)
@@ -35,12 +34,10 @@ ms.lasthandoff: 05/02/2017
 |:-----|:---:|:---:|:---:|
 |[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
-|[檔案系統](https://docs.microsoft.com/azure/logic-apps/logic-apps-using-file-connector)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
 |[商務用 OneDrive](https://onedrive.live.com/about/business/)|x|x|x
 |[SFTP](https://docs.microsoft.com/azure/connectors/connectors-create-api-sftp)|x|x|x
-|[Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)||x|x|
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
@@ -72,13 +69,14 @@ See one of the following subheadings for more information:
 <a name="pattern"></a>
 
 ### <a name="name-patterns"></a>名稱模式
-您可以在 `path` 屬性中指定檔案名稱模式。 例如：
+您可以在 `path` 屬性中指定檔案名稱模式。 所參考的資料夾必須存在於 SaaS 提供者。
+範例：
 
 ```json
 "path": "input/original-{name}",
 ```
 
-此路徑會尋找 *input* 資料夾中名稱為 *original-File1.txt* 的檔案，且函數程式碼中 `name` 變數的值會是 `File1`。
+此路徑會尋找 *input* 資料夾中名稱為 *original-File1.txt* 的檔案，且函數程式碼中 `name` 變數的值會是 `File1.txt`。
 
 另一個範例：
 
@@ -149,17 +147,11 @@ To force reprocessing of a file, delete the file receipt for that file from the 
 
 在 C# 函數中，您也可以繫結至下列任何類型，且 Functions 執行階段會嘗試使用該類型將檔案資料還原序列化︰
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
-* `CloudBlobContainer`
-* `CloudBlobDirectory`
-* `IEnumerable<CloudBlockBlob>`
-* `IEnumerable<CloudPageBlob>`
-* 透過 [ICloudBlobStreamBinder](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md#icbsb)
-
+* `StreamReader`
+* `TextReader`
 
 ## <a name="trigger-sample"></a>觸發程序範例
 假設您有下列 function.json，且該檔案定義外部檔案觸發程序︰
@@ -186,7 +178,7 @@ To force reprocessing of a file, delete the file receipt for that file from the 
 
 <a name="triggercsharp"></a>
 
-### <a name="trigger-usage-in-c"></a>C 中的觸發程序使用方式# #
+### <a name="trigger-usage-in-c"></a>C# 中的觸發程序使用方式 #
 
 ```cs
 public static void Run(string myFile, TraceWriter log)
@@ -249,11 +241,11 @@ Azure 外部檔案輸入繫結可讓您在函數中使用來自外部資料夾�
 
 在 C# 函數中，您也可以繫結至下列任何類型，且 Functions 執行階段會嘗試使用該類型將檔案資料還原序列化︰
 
-* `TextReader`
+* `string`
+* `byte[]`
 * `Stream`
-* `ICloudBlob`
-* `CloudBlockBlob`
-* `CloudPageBlob`
+* `StreamReader`
+* `TextReader`
 
 
 <a name="output"></a>
@@ -340,7 +332,7 @@ Azure 外部檔案輸出繫結可讓您在函數中將檔案寫入到外部資�
 
 <a name="incsharp"></a>
 
-### <a name="usage-in-c"></a>C 中的使用方式# #
+### <a name="usage-in-c"></a>C# 中的使用方式 #
 
 ```cs
 public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)

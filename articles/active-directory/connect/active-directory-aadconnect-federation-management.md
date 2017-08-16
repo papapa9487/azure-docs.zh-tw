@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 2a64405c0862d09dd487d260a651123eafbcaf99
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 14f03542a6553c5bb697192828368ffe6b96441c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/10/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
@@ -69,7 +69,7 @@ ms.lasthandoff: 04/10/2017
 > Azure AD Connect 只可以對自我簽署的憑證進行修復或採取動作。 Azure AD Connect 無法修復第三方憑證。
 
 ## 使用替代識別碼與 Azure AD 建立同盟關係<a name=alternateid></a>
-建議您讓內部部署使用者主體名稱 (UPN) 和雲端使用者主體名稱保持相同。 如果內部部署 UPN 使用無法路由傳送的網域 (例如︰Contoso.local)，或是此 UPN 由於本機應用程式相依性而無法變更，我們會建議您設定替代登入識別碼。 Contoso.local) or cannot be changed due to local application dependencies, we recommend setting up alternate login ID. 替代登入識別碼可讓您設定登入體驗，讓使用者可以透過其 UPN 以外的屬性 (例如 mail) 來進行登入。 Azure AD Connect 預設會選擇 Active Directory 中的 userPrincipalName 屬性來作為使用者主體名稱。 如果您選擇任何其他屬性來作為使用者主體名稱，而且您使用 AD FS 來建立同盟，則 Azure AD Connect 會就替代登入識別碼對 AD FS 進行設定。 選擇不同屬性來作為使用者主體名稱的範例如下所示︰
+建議您讓內部部署使用者主體名稱 (UPN) 和雲端使用者主體名稱保持相同。 如果內部部署 UPN 使用無法路由傳送的網域 (例如︰ Contoso.local)，或是由於本機應用程式相依性而無法變更，我們會建議您設定替代登入識別碼。 替代登入識別碼可讓您設定登入體驗，讓使用者可以透過其 UPN 以外的屬性 (例如 mail) 來進行登入。 Azure AD Connect 預設會選擇 Active Directory 中的 userPrincipalName 屬性來作為使用者主體名稱。 如果您選擇任何其他屬性來作為使用者主體名稱，而且您使用 AD FS 來建立同盟，則 Azure AD Connect 會就替代登入識別碼對 AD FS 進行設定。 選擇不同屬性來作為使用者主體名稱的範例如下所示︰
 
 ![替代識別碼屬性的選擇](media/active-directory-aadconnect-federation-management/attributeselection.png)
 
@@ -173,9 +173,12 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
     選擇網域之後，精靈會提供您關於精靈將採取的進一步動作和組態影響的適當資訊。 在某些情況下，如果您選取尚未在 Azure AD 中驗證的網域，精靈將提供資訊協助您驗證網域。 如需詳細資訊，請參閱 [將您的自訂網域名稱新增至 Azure Active Directory](../active-directory-add-domain.md) 。
 
-5. 按 [下一步] 。 按 [下一步]，然後 [準備設定] 頁面就會顯示 Azure AD Connect 將會執行的動作清單。 按一下 [安裝]  以完成組態。
+5. 按一下 [下一步] 。 按 [下一步]，然後 [準備設定] 頁面就會顯示 Azure AD Connect 將會執行的動作清單。 按一下 [安裝]  以完成組態。
 
    ![準備設定](media/active-directory-aadconnect-federation-management/AdditionalDomain5.PNG)
+
+> [!NOTE]
+> 所新增同盟網域的使用者必須保持同步，才能夠登入 Azure AD。
 
 ## <a name="ad-fs-customization"></a>AD FS 自訂
 下列各節提供在自訂 AD FS 登入頁面時，可能必須執行之某些常見工作的詳細資料。

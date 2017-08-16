@@ -12,17 +12,31 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/7/2017
+ms.date: 8/3/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 0ce145d715729d5a8761024bfa9765adcfaf846c
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: c1bcfa2d93a77a655092dca250d2a3e2c86b944d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+## <a name="july-guest-os"></a>7 月客體作業系統
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 17-07 | [4025339] |Windows 10 更新 |5.9 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025337] |只有 Windows 安全性 |2.64 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025333] |只有 Windows 安全性 |4.44 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025343] |只有 Windows 安全性 |3.51 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025376] |閃爍 |3.51, 4.44, 5.9 |2017 年 7 月 11 日 |
+| Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |2017 年 7 月 11 日 |
+| N/A | [4020322] |時區更新 |2.64, 3.51, 4.44 |2017 年 7 月 11 日 |
+| N/A | [4022719] |六月份非安全性彙總套件 |2.64 |2017 年 7 月 11 日 |
+| N/A | [4022724] |六月份非安全性彙總套件 |3.51 |2017 年 7 月 11 日 |
+| N/A | [4022726] |六月份非安全性彙總套件 |4.44 |2017 年 7 月 11 日 |
 
 ## <a name="june-guest-os"></a>Azure 客體 OS
 | 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
@@ -480,6 +494,7 @@ ms.lasthandoff: 07/12/2017
 | MS15-002 |[3020393] |Windows Telnet 服務中的弱點可能會導致遠端程式碼執行 |4.16、3.23、2.35 |2015 年 1 月 19 日 |
 | MS15-002 |[3020393] |Windows Telnet 服務中的弱點可能會導致遠端程式碼執行 |4.16、3.23、2.35 |2015 年 1 月 19 日 |
 
+
 ## <a name="december-guest-os"></a>十二月客體作業系統
 | 公告識別碼 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
 | --- | --- | --- | --- | --- |
@@ -494,6 +509,17 @@ ms.lasthandoff: 07/12/2017
 | N/A |[3007054] |在 Windows 的 Windows 市集應用程式中列印文件時，一律會顯示受 PIN 保護的列印選項 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 | N/A |[2999802] |在 Windows 中列印虛線時會變成實線 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
 | N/A |[2896881] |在 Windows 中於登入程序期間使用 AddPrinterConnection VBScript 命令對應使用者印表機時，登入時間過長 |4.15、3.22,、2.34 |2015 年 1 月 13 日 |
+
+[4025339]: http://support.microsoft.com/kb/4025337
+[4025337]: http://support.microsoft.com/kb/4025333
+[4025333]: http://support.microsoft.com/kb/4025343
+[4025343]: http://support.microsoft.com/kb/4025376
+[4025252]: http://support.microsoft.com/kb/4025252
+[4025376]: http://support.microsoft.com/kb/4025376
+[4020322]: http://support.microsoft.com/kb/4020322
+[4022719]: http://support.microsoft.com/kb/4022719
+[4022724]: http://support.microsoft.com/kb/4022724
+[4022726]: http://support.microsoft.com/kb/4022726
 
 [4022722]: http://support.microsoft.com/kb/4022722
 [4022717]: http://support.microsoft.com/kb/4022717

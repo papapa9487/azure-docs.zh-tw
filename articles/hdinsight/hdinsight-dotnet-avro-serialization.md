@@ -14,19 +14,22 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2017
+ms.date: 08/09/2017
 ms.author: jgao
 ms.custom: hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: a713611b0262df11e25047d1893531010407feb7
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d06bf8ff4a21e4f4b29593bac32bfa2b32601fc4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 將 Hadoop 中的資料序列化
-本主題示範如何使用 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 將物件與其他資料結構序列化為串流，以將它們保存到記憶體、 資料庫或檔案中。 它也會示範如何將它們還原序列化，以復原原始物件。
+
+>[!NOTE]
+>Microsoft 不再支援 Avro SDK。 該程式庫由開放原始碼社群來支援。 該程式庫的來源位於 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)。
+
+本主題示範如何使用 [Microsoft Avro Library](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) 將物件與其他資料結構序列化為串流，以將它們保存到記憶體、 資料庫或檔案中。 它也會示範如何將它們還原序列化，以復原原始物件。
 
 [!INCLUDE [windows-only](../../includes/hdinsight-windows-only.md)]
 
@@ -34,7 +37,7 @@ ms.lasthandoff: 06/09/2017
 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library</a> 可在 Microsoft.NET 環境中實作 Apache Avro 資料序列化系統。 Apache Avro 提供一個可用於序列化的壓縮二進位資料交換格式。 它會使用 <a href="http://www.json.org" target="_blank">JSON</a> 來定義不限語言的結構描述，以負責提供語言互通性。 以某個語言序列化的資料可以使用另一個語言讀取。 目前支援 C、C++、C#、Java、PHP、Python 和 Ruby。 如需此格式的詳細資訊，請參閱 <a href="http://avro.apache.org/docs/current/spec.html" target="_blank">Apache Avro 規格</a>。 
 
 >[!NOTE]
->Microsoft Avro Library 的目前版本不支援此規格的遠端程序呼叫 (RPC) 部分。
+>Microsoft Avro Library 不支援此規格的遠端程序呼叫 (RPC) 部分。
 >
 
 在 Avro 系統中，物件的序列化表示包含兩個部分：結構描述和實際值。 Avro 結構描述說明使用 JSON 序列化資料的語言獨立資料模型。 它會與資料的二進位表示並存。 分開結構描述與二進位表示可允許在沒有個別值額外負荷的情況下寫入每個物件，以快速進行序列化並縮小表示。
@@ -48,7 +51,7 @@ Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序
 * **反映** - 類型的 JSON 結構描述會根據要序列化的 .NET 類型資料合約屬性自動建置。
 * **一般記錄**：當沒有 .NET 類型存在以說明要序列化資料的結構描述時，以 [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) 類別表示的記錄中會明確指定 JSON 結構描述。
 
-當資料流的寫入器和讀取器可識別資料結構描述時，便可以在沒有其結構描述的情況下傳送資料。 在未使用 Avro 物件容器檔案的情況下，會將結構描述儲存在檔案內。 您可以指定其他參數 (例如用於資料壓縮的轉碼器)。 這些案例會在以下程式碼範例中詳加說明與圖解。
+當資料流的寫入器和讀取器可識別資料結構描述時，便可以在沒有其結構描述的情況下傳送資料。 在未使用 Avro 物件容器檔案的情況下，會將結構描述儲存在檔案內。 您可以指定其他參數 (例如用於資料壓縮的轉碼器)。 這些案例會在以下程式碼範例中詳加說明與圖解：
 
 ## <a name="install-avro-library"></a>安裝 Avro Library
 以下是安裝此程式庫前必備的條件：
@@ -56,7 +59,7 @@ Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序
 * <a href="http://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 或更新版本)
 
-請注意，Newtonsoft.Json.dll 相依性也會隨著安裝 Microsoft Avro Library 自動下載。 此動作的程序在下一節中提供。
+請注意，Newtonsoft.Json.dll 相依性也會隨著安裝 Microsoft Avro Library 自動下載。 此程序會在下一節中提供：
 
 Microsoft Avro 程式庫會以 NuGet 封裝發行，您可以透過下列程序在 Visual Studio 中安裝 NuGet 封裝：
 
@@ -66,9 +69,7 @@ Microsoft Avro 程式庫會以 NuGet 封裝發行，您可以透過下列程序�
 
 請注意，Newtonsoft.Json.dll (>=6.0.4) 相依性也會隨著 Microsoft Avro Library 自動下載。
 
-您可能想要造訪 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library 首頁</a>以讀取目前的版本資訊。
-
-在 <a href="https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library" target="_blank">Microsoft Avro Library 首頁</a>提供 Microsoft Avro Library 原始程式碼。
+Microsoft Avro Library 原始程式碼可在 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) 取得。
 
 ## <a name="compile-schemas-using-avro-library"></a>使用 Avro Library 來編譯結構描述
 Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據先前定義的 JSON 結構描述來建立 C# 類型。 程式碼產生公用程式未以二進位執行檔的形式散佈，但可透過下列程序輕鬆建置：
@@ -99,11 +100,11 @@ Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據
 
 第三和第四個範例說明如何使用 Avro 物件容器檔案，將資料序列化與還原序列化。 因為還原序列化必須共用結構描述，所以在 Avro 容器檔案中儲存資料時，一定會一起儲存資料的結構描述。
 
-您可以從 <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923" target="_blank">Azure 程式碼範例</a>網站 (英文) 下載包含前四個案例的範例。
+您可以從 <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-86055923" target="_blank">Azure 程式碼範例</a>網站 (英文) 下載包含前四個案例的範例。
 
-第五個範例說明如何使用自訂壓縮轉碼器來處理 Avro 物件容器檔案。 您可以從 <a href="http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111" target="_blank">Azure 程式碼範例</a> 網站 (英文) 下載包含此案例程式碼的範例。
+第五個範例說明如何使用自訂壓縮轉碼器來處理 Avro 物件容器檔案。 您可以從 <a href="http://code.msdn.microsoft.com/Serialize-data-with-the-67159111" target="_blank">Azure 程式碼範例</a> 網站 (英文) 下載包含此案例程式碼的範例。
 
-第六個範例顯示如何使用 Avro 序列化來上傳資料至 Azure Blob 儲存體，然後使用具有 HDInsight (Hadoop) 叢集的 Hive 加以分析。 您可以從 <a href="https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 程式碼範例</a> 網站 (英文) 下載包含前四個案例的範例。
+第六個範例顯示如何使用 Avro 序列化來上傳資料至 Azure Blob 儲存體，然後使用具有 HDInsight (Hadoop) 叢集的 Hive 加以分析。 您可以從 <a href="https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3" target="_blank">Azure 程式碼範例</a> 網站 (英文) 下載包含前四個案例的範例。
 
 以下是本主題所討論六個範例的連結：
 
@@ -240,7 +241,7 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 
 
 ## <a name="sample-2-serialization-with-a-generic-record"></a>範例 2：使用一般記錄進行序列化
-因為資料無法透過包含資料合約的 .NET 類別呈現，而無法使用反映時，您可以在一般記錄中明確指定 JSON 結構描述。 此方法一般較使用反映來得慢。 在此情況下，資料的結構描述也有可能是動態的，亦即在編譯階段開始之前無法得知資料的結構描述。 此類動態案例的其中一個範例是以逗號分隔值 (CSV) 檔案表示的資料，在執行階段將它轉換為 Avro 格式之前不會知道檔案的結構描述。
+因為資料無法透過包含資料合約的 .NET 類別呈現，而無法使用反映時，您可以在一般記錄中明確指定 JSON 結構描述。 此方法較使用反映來得慢。 在此情況下，資料的結構描述也有可能是動態的，亦即在編譯階段開始之前無法得知資料的結構描述。 此類動態案例的其中一個範例是以逗號分隔值 (CSV) 檔案表示的資料，在執行階段將它轉換為 Avro 格式之前不會知道檔案的結構描述。
 
 本範例說明如何建立與使用 [**AvroRecord**](http://msdn.microsoft.com/library/microsoft.hadoop.avro.avrorecord.aspx) 來明確指定 JSON 結構描述、如何填入資料，然後如何將它序列化與還原序列化。 最後將結果與初始執行個體相比較，以確認復原的記錄會與原始記錄相同。
 
@@ -865,9 +866,9 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
 
 
 ## <a name="sample-5-serialization-using-object-container-files-with-a-custom-compression-codec"></a>範例 5：使用物件容器檔案和自訂壓縮轉碼器進行序列化
-第五個範例說明如何使用自訂壓縮轉碼器來處理 Avro 物件容器檔案。 您可以從 [Azure 程式碼範例](http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111) 網站 (英文) 下載包含此案例程式碼的範例。
+第五個範例說明如何使用自訂壓縮轉碼器來處理 Avro 物件容器檔案。 您可以從 [Azure 程式碼範例](http://code.msdn.microsoft.com/Serialize-data-with-the-67159111) (英文) 網站下載包含此案例程式碼的範例。
 
-[Avro 規格](http://avro.apache.org/docs/current/spec.html#Required+Codecs)允許使用選用的壓縮轉碼器 (**Null** 和 **Deflate** 預設值除外)。 本範例並未完全實作新的轉碼器，例如 Snappy (如同 [Avro 規格](http://avro.apache.org/docs/current/spec.html#snappy)中所提及的支援選用轉碼器)。 其中說明如何使用 .NET Framework 4.5 的 [**Deflate**][deflate-110] 轉碼器實作，採用 [zlib](http://zlib.net/) 壓縮程式庫，提供比預設 .NET Framework 4 版本更好的壓縮演算法。
+[Avro 規格](http://avro.apache.org/docs/current/spec.html#Required+Codecs)允許使用選用的壓縮轉碼器 (**Null** 和 **Deflate** 預設值除外)。 本範例並未實作新的轉碼器，例如 Snappy (如同 [Avro 規格](http://avro.apache.org/docs/current/spec.html#snappy)中所提及的支援選用轉碼器)。 其中說明如何使用 .NET Framework 4.5 的 [**Deflate**][deflate-110] 轉碼器實作，採用 [zlib](http://zlib.net/) 壓縮程式庫，提供比預設 .NET Framework 4 版本更好的壓縮演算法。
 
     //
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1361,9 +1362,9 @@ Microsoft Avro 程式庫可透過反映、根據要序列化的 C# 物件資料�
     // Press any key to exit.
 
 ## <a name="sample-6-using-avro-to-upload-data-for-the-microsoft-azure-hdinsight-service"></a>範例 6：使用 Avro 來上傳 Microsoft Azure HDInsight 服務的資料
-第六個範例說明與 Azure HDInsight 服務互動相關的一些程式設計技巧。 您可以從 [Azure 程式碼範例](https://code.msdn.microsoft.com/windowsazure/Using-Avro-to-upload-data-ae81b1e3) (英文) 網站下載包含此案例程式碼的範例。
+第六個範例說明與 Azure HDInsight 服務互動相關的一些程式設計技巧。 您可以從 [Azure 程式碼範例](https://code.msdn.microsoft.com/Using-Avro-to-upload-data-ae81b1e3) (英文) 網站下載包含此案例程式碼的範例。
 
-此範例會執行下列動作：
+此範例會執行下列工作：
 
 * 連線至現有的 HDInsight 服務叢集。
 * 序列化數個 CSV 檔案並上傳結果至 Azure Blob 儲存體。 (CSV 檔案會隨著範例一起散佈，並代表 [Infochimps](http://www.infochimps.com/) 在 1970-2010 期間散佈的 AMEX 庫存歷史資料的擷取。 範例會讀取 CSV 檔案資料、轉換記錄為 **庫存** 類別的執行個體，然後使用反映加以序列化。 庫存類型定義是透過 Microsoft Avro Library 程式碼產生公用程式從 JSON 結構描述建立。

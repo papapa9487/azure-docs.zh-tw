@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 676a46449b1ff5ceb749df876bad614c3804d220
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: d71fdcf2a054a9b9ac1d74ddd3a6b43d151fa87d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
@@ -262,6 +262,7 @@ ms.lasthandoff: 07/12/2017
 |IsEnabled|布林值，預設值為 false | 啟用/停用 httpgateway。 預設為停用 Httpgateway，必須設定此組態才能加以啟用。 |
 |ActiveListeners |單位，預設值為 50 | 要張貼到 http 伺服器佇列的讀取數。 這會控制 HttpGateway 滿意的並行要求數目。 |
 |MaxEntityBodySize |單位，預設值為 4194304 |  提供 http 要求預期會有的主體大小上限。 預設值為 4 MB。 若要求的主體大小大於此值，Httpgateway 會將要求判為失敗。 讀取區塊大小下限為 4096 個位元組。 因此，此值必須 >= 4096。 |
+|HttpGatewayHealthReportSendInterval |時間 (秒)，預設值為 30 | 以秒為單位指定時間範圍。 Http 閘道傳送累積的健康狀態報告至健康情況管理員的間隔時間。 |
 
 ### <a name="section-name-ktllogger"></a>區段名稱︰KtlLogger
 | **參數** | **允許的值** | **指引或簡短描述** |
@@ -278,10 +279,10 @@ ms.lasthandoff: 07/12/2017
 | **參數** | **允許的值** | **指引或簡短描述** |
 | --- | --- | --- |
 |IsEnabled |布林值，預設值為 false | 啟用/停用 HttpApplicationGateway。 預設為停用 HttpApplicationGateway，必須設定此組態才能加以啟用。 |
-|NumberOfParallelOperations | 單位，預設值為 1000 | 要張貼到 http 伺服器佇列的讀取數。 這會控制 HttpGateway 滿意的並行要求數目。 |
-|DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 60 |以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
+|NumberOfParallelOperations | 單位，預設值為 5000 | 要張貼到 http 伺服器佇列的讀取數。 這會控制 HttpGateway 滿意的並行要求數目。 |
+|DefaultHttpRequestTimeout |以秒為單位的時間。 預設值為 120 |以秒為單位指定時間範圍。  針對在 http 應用程式閘道中所處理的 http 要求提供預設要求逾時。 |
 |ResolveServiceBackoffInterval |時間 (秒)，預設值為 5 |以秒為單位指定時間範圍。  提供在重試失敗的解析服務作業前的預設輪詢間隔。 |
-|BodyChunkSize |單位，預設值為 4096 |  提供用來讀取主體的區塊大小 (位元組)。 |
+|BodyChunkSize |單位，預設值為 16384 |  提供用來讀取主體的區塊大小 (位元組)。 |
 |GatewayAuthCredentialType |字串，預設值為 "None" | 表示要在 http 應用程式閘道端點使用的安全性認證類型。有效值為 "None/X509。 |
 |GatewayX509CertificateStoreName |字串，預設值為 "My" | 包含 http 應用程式閘道之憑證的 X.509 憑證存放區名稱。 |
 |GatewayX509CertificateFindType |字串，預設值為 "FindByThumbprint" | 指出如何搜尋以下列 GatewayX509CertificateStoreName 支援值指定之存放區中的憑證︰FindByThumbprint、FindBySubjectName。 |

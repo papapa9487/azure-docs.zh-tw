@@ -1,5 +1,5 @@
 ---
-title: "Java HBase 應用程式 - Azure HDInsight | Microsoft Docs"
+title: "Java HBase 用戶端 - Azure HDInsight | Microsoft Docs"
 description: "了解如何使用 Apache Maven 建置以 Java 為基礎的 Apache HBase 應用程式，然後將它部署至 Azure HDInsight 上的 HBase。"
 services: hdinsight
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 9cf2a997e3016995b0dbb0e0adf9f388f70c2599
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: d6ef6c988533f27338a61a587b3ce5174d8fa806
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
@@ -27,6 +27,9 @@ ms.lasthandoff: 07/08/2017
 了解如何在 Java 中建立 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後使用此應用程式搭配 Azure HDInsight 上的 HBase。
 
 本文件中的步驟使用 [Maven](http://maven.apache.org/) 來建立專案。 Maven是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。
+
+> [!NOTE]
+> 此文件中的步驟最近已在 HDInsight 3.6 中測試過。
 
 > [!IMPORTANT]
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -36,7 +39,7 @@ ms.lasthandoff: 07/08/2017
 * [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 或更新版本。
 
     > [!NOTE]
-    > HDInsight 3.5 需要 Java 8。 舊版的 HDInsight 需要 Java 7。
+    > HDInsight 3.5 和更新版本需要 Java 8。 舊版的 HDInsight 需要 Java 7。
 
 * [Maven](http://maven.apache.org/)
 
@@ -47,13 +50,18 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="create-the-project"></a>建立專案
 
-1. 從開發環境的命令列中，將目錄變更至您想要建立專案的位置，例如 `cd code/hdinsight`。
+1. 從開發環境的命令列中，將目錄變更至您想要建立專案的位置，例如 `cd code\hbase`。
 
 2. 使用隨 Maven 一起安裝的 **mvn** 命令來產生專案的結構。
 
     ```bash
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=hbaseapp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
+
+    > [!NOTE]
+    > 如果您使用 PowerShell，則必須將 `-D` 參數放置在雙引號內。
+    >
+    > `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=hbaseapp" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`
 
     此命令會利用與 **artifactID** 參數 (此範例中為 **hbaseapp**) 相同的名稱來建立目錄。此目錄包含下列項目：
 
@@ -87,7 +95,7 @@ ms.lasthandoff: 07/08/2017
    | HDInsight 叢集版本 | 要使用的 HBase 版本 |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
-   | 3.3、3.4 與 3.5 |1.1.2 |
+   | 3.3、3.4、3.5 和 3.6 |1.1.2 |
 
     如需 HDInsight 版本和元件的詳細資訊，請參閱 [HDInsight 提供的 Hadoop 元件有什麼不同](hdinsight-component-versioning.md)。
 
@@ -153,7 +161,9 @@ ms.lasthandoff: 07/08/2017
 
 6. 使用下列命令將 HBase 組態，從 HBase 叢集複製到 `conf` 目錄。 將 `USERNAME` 取代為您的 SSH 登入名稱。 將 `CLUSTERNAME` 取代為 HDInsight 叢集名稱：
 
-        scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```bash
+    scp USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:/etc/hbase/conf/hbase-site.xml ./conf/hbase-site.xml
+    ```
 
    如需使用 `ssh` 和 `scp` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -374,7 +384,9 @@ ms.lasthandoff: 07/08/2017
 
 2. 若要連線到 HBase 叢集，請使用下列命令︰
 
-        ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```bash
+    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
 
     將 `USERNAME` 取代為您的 SSH 登入名稱。 將 `CLUSTERNAME` 取代為 HDInsight 叢集名稱。
 
@@ -400,6 +412,10 @@ ms.lasthandoff: 07/08/2017
         Rae Schroeder - rae@contoso.com - ID: 4
         Gabriela Ingram - ID: 6
         Gabriela Ingram - gabriela@contoso.com - ID: 6
+
+5. 若要刪除資料表，請使用下列命令：
+
+    
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>上傳 JAR 並執行作業 (PowerShell)
 
@@ -666,7 +682,7 @@ ms.lasthandoff: 07/08/2017
 
 __從 `ssh` 工作階段__：
 
-`hadoop jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
+`yarn jar hbaseapp-1.0-SNAPSHOT.jar com.microsoft.examples.DeleteTable`
 
 __從 Azure PowerShell__：
 

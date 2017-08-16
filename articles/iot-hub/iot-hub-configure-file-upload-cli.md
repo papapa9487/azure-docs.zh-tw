@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 8b16f163b20a4dd31857838ddafcc7ba36ac9817
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: e2cd7eae50006717dfc0da358436ae3553a81d00
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/13/2017
 
 下列步驟假設您使用 [Resource Manager] 部署模型，而非 [傳統] 部署模型，建立了儲存體帳戶。
 
-您需要使用與您 IoT 中樞相同的訂用帳戶中 Azure 儲存體帳戶的連接字串，從裝置設定檔案上傳。 您也需要儲存體帳戶中 blob 容器的名稱。 使用下列命令來擷取儲存體帳戶金鑰：
+若要從裝置設定檔案上傳，您需要 Azure 儲存體帳戶的連接字串。 儲存體帳戶必須與您的 IoT 中樞位於相同的訂用帳戶中。 您也需要儲存體帳戶中 blob 容器的名稱。 使用下列命令來擷取儲存體帳戶金鑰：
 
 ```azurecli
 az storage account show-connection-string --name {your storage account name} --resource-group {your storage account resource group}
@@ -135,7 +135,7 @@ az iot hub show --name {your iot hub name}
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 IoT 中樞檔案上傳功能的詳細資訊，請參閱 IoT 中樞開發人員指南中的[從裝置上傳檔案][lnk-upload]。
+如需 IoT 中樞檔案上傳功能的詳細資訊，請參閱[從裝置上傳檔案][lnk-upload]。
 
 遵循下列連結以深入了解如何管理 Azure IoT 中樞：
 

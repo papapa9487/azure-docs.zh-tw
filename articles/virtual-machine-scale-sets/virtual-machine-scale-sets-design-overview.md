@@ -1,6 +1,6 @@
 ---
-title: "設計 Azure 虛擬機器擴展集進行調整 | Microsoft Docs"
-description: "深入了解如何設計 Azure 虛擬機器擴展集進行調整"
+title: "Azure 虛擬機器擴展集的設計考量 | Microsoft Docs"
+description: "深入了解 Azure 虛擬機器擴展集的設計考量"
 keywords: "linux 虛擬機器, 虛擬機器擴展集"
 services: virtual-machine-scale-sets
 documentationcenter: 
@@ -17,13 +17,13 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 88ab6322fed853c73af981a1de4cd2c2f480c959
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 615361975e2ee15ce80f6efb39f57cae381209e5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="designing-scale-sets-for-scale"></a>設計擴展集以進行調整
+# <a name="design-considerations-for-scale-sets"></a>擴展集的設計考量
 本主題會討論虛擬機器擴展集的設計考量。 如需虛擬機器擴展集的相關資訊，請參閱 [虛擬機器擴展集概觀](virtual-machine-scale-sets-overview.md)。
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>何時應使用擴展集而非虛擬機器？

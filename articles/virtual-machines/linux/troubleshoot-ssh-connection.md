@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 24f903c6b8b982599904b95f86d648927a3be5ce
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 3a282c8b2c2ba2749de6a2d3688bd57d75703b22
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>針對 SSH 連線至 Azure Linux VM 失敗、發生錯誤或被拒進行疑難排解
@@ -64,7 +63,7 @@ Azure 入口網站可供快速重設 SSH 組態或使用者認證，而不需在
 ![在 Azure 入口網站中重設 SSH 組態或認證](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
 ### <a name="reset-the-ssh-configuration"></a>重設 SSH 組態
-第一個步驟，從 [模式] 下拉式功能表中選取 `Reset SSH configuration only` (如前面的螢幕擷取畫面所示)，然後按一下 [重設] 按鈕。 完成此動作後，嘗試再次存取您的 VM。
+第一個步驟，從 [模式] 下拉式功能表中選取 `Reset configuration only` (如前面的螢幕擷取畫面所示)，然後按一下 [重設] 按鈕。 完成此動作後，嘗試再次存取您的 VM。
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>重設使用者的 SSH 認證
 若要重設現有使用者的認證，請從 模式 下拉式功能表中選取  `Reset SSH public key` 或 `Reset password`，如前面的螢幕擷取畫面所示。 指定使用者名稱和 SSH 金鑰或新的密碼，然後按一下 [重設] 按鈕。
@@ -76,18 +75,26 @@ Azure 入口網站可供快速重設 SSH 組態或使用者認證，而不需在
 
 如果您已建立並上傳自訂 Linux 磁碟映像，請確定已安裝 [Microsoft Azure Linux 代理程式](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 2.0.5 版或更新版本。 若為使用資源庫映像建立的 VM，系統已經為您安裝和設定此存取擴充功能。
 
-### <a name="reset-ssh-credentials-for-a-user"></a>重設使用者的 SSH 認證
-下列範例會使用 [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user)，在 `myResourceGroup` 中名為 `myVM` 的 VM 上，將 `myUsername` 的認證重設為 `myPassword` 中指定的值。 使用您自己的值，如下所示︰
+### <a name="reset-ssh-configuration"></a>重設 SSH 組態
+您可以一開始先嘗試將 SSH 組態重設為預設值，然後將虛擬機器上的 SSH 伺服器重新開機。 請注意，這不會變更使用者帳戶名稱、密碼或 SSH 金鑰。
+下列範例會使用 [az vm user reset-ssh](/cli/azure/vm/user#reset-ssh)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上重設 SSH 組態。 使用您自己的值，如下所示︰
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user reset-ssh --resource-group myResourceGroup --name myVM
+```
+
+### <a name="reset-ssh-credentials-for-a-user"></a>重設使用者的 SSH 認證
+下列範例會使用 [az vm user update](/cli/azure/vm/user#update)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上，將 `myUsername` 的認證重設為 `myPassword` 中指定的值。 使用您自己的值，如下所示︰
+
+```azurecli
+az vm user update --resource-group myResourceGroup --name myVM \
      --username myUsername --password myPassword
 ```
 
 如果使用 SSH 金鑰驗證，您可以針對指定的使用者重設 SSH 金鑰。 下列範例會使用 **az vm access set-linux-user**，在 `myResourceGroup` 中名為 `myVM` 的 VM 上，針對名為 `myUsername` 的使用者更新儲存在 `~/.ssh/id_rsa.pub` 中的 SSH 金鑰。 使用您自己的值，如下所示︰
 
 ```azurecli
-az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+az vm user update --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
@@ -95,7 +102,7 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
 適用於 Linux 的 VM 存取擴充功能會讀入 json 檔案，該檔案會定義所要執行的動作。 這些動作包括重設 SSHD、重設 SSH 金鑰，或新增使用者。 您仍可使用 Azure CLI 來呼叫 VMAccess 擴充功能，但您可以視需要將 json 檔案重複使用於多個 VM。 這種方法可讓您建立 json 檔案的儲存機制，以便之後針對特定案例進行呼叫。
 
 ### <a name="reset-sshd"></a>重設 SSHD
-使用下列內容，建立名為 `PrivateConf.json` 的檔案︰
+使用下列內容，建立名為 `settings.json` 的檔案︰
 
 ```json
 {  
@@ -103,16 +110,15 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
 }
 ```
 
-使用 Azure CLI，接著呼叫 `VMAccessForLinux` 擴充功能，藉由指定 json 檔案來重設 SSH 連線。 下列範例會在 `myResourceGroup` 中名為 `myVM` 的 VM 上重設 SSHD。 使用您自己的值，如下所示︰
+使用 Azure CLI，接著呼叫 `VMAccessForLinux` 擴充功能，藉由指定 json 檔案來重設 SSH 連線。 下列範例會使用 [az vm extension set](/cli/azure/vm/extension#set)，在 `myResourceGroup` 中名為 `myVM` 的虛擬機器上重設 SSHD。 使用您自己的值，如下所示︰
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>重設使用者的 SSH 認證
-如果 SSHD 似乎能正常運作，您可以針對指定的使用者重設認證。 若要重設使用者的密碼，請建立名為 `PrivateConf.json` 的檔案。 下列範例會將 `myUsername` 的認證重設為在 `myPassword` 中指定的值。 使用您自己的值，將下列幾行程式碼輸入到 `PrivateConf.json` 檔案中︰
+如果 SSHD 似乎能正常運作，您可以針對指定的使用者重設認證。 若要重設使用者的密碼，請建立名為 `settings.json` 的檔案。 下列範例會將 `myUsername` 的認證重設為在 `myPassword` 中指定的值。 使用您自己的值，將下列幾行程式碼輸入到 `settings.json` 檔案中︰
 
 ```json
 {
@@ -120,7 +126,7 @@ azure vm extension set myResourceGroup myVM \
 }
 ```
 
-或者，若要重設使用者的 SSH 金鑰，請先建立名為 `PrivateConf.json` 的檔案。 下列範例會在 `myResourceGroup` 中名為 `myVM` 的 VM 上，將 `myUsername` 的認證重設為在 `myPassword` 中指定的值。 使用您自己的值，將下列幾行程式碼輸入到 `PrivateConf.json` 檔案中︰
+或者，若要重設使用者的 SSH 金鑰，請先建立名為 `settings.json` 的檔案。 下列範例會在 `myResourceGroup` 中名為 `myVM` 的 VM 上，將 `myUsername` 的認證重設為在 `myPassword` 中指定的值。 使用您自己的值，將下列幾行程式碼輸入到 `settings.json` 檔案中︰
 
 ```json
 {
@@ -131,9 +137,8 @@ azure vm extension set myResourceGroup myVM \
 建立 json 檔案之後，使用 Azure CLI 來呼叫 `VMAccessForLinux` 擴充功能，藉由指定 json 檔案來重設 SSH 使用者認證。 下列範例會在 `myResourceGroup` 中名為 `myVM` 的 VM 上重設認證。 使用您自己的值，如下所示︰
 
 ```azurecli
-azure vm extension set myResourceGroup myVM \
-    VMAccessForLinux Microsoft.OSTCExtensions "1.2" \
-    --private-config-path PrivateConf.json
+az vm extension set --resource-group philmea --vm-name Ubuntu \
+    --name VMAccessForLinux --publisher Microsoft.OSTCExtensions --version 1.2 --settings settings.json
 ```
 
 ## <a name="use-the-azure-cli-10"></a>使用 Azure CLI 1.0
@@ -236,7 +241,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
   * 建立 *sudo* 使用者帳戶。
   * 重設 SSH 組態。
 * 檢查 VM 的資源健康狀態是否有任何平台問題。<br>
-     選取您的 VM 並向下捲動 **[設定]**  >  **[檢查健康狀態]** 。
+     選取您的虛擬機器並向下捲動 [設定]  >  [檢查健康狀態]。
 
 ## <a name="additional-resources"></a>其他資源
 * 如果在依循這些步驟之後仍無法以 SSH 連線到您的 VM，請參閱[更詳細的疑難排解步驟](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)以檢閱其他的步驟來解決您的問題。

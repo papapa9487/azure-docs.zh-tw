@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2017
+ms.date: 08/08/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 870436655c84c0bc53ca41eaa67f6fd32ef93ceb
+ms.translationtype: HT
+ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
+ms.openlocfilehash: 6fd58edd830df8ea3f77a68e8dfcaf6de055b17c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure Data Factory 中的資料集
@@ -202,7 +201,7 @@ structure 中的每個資料行都包含下列屬性︰
     由於結構化資料來源已經有可用的類型資訊，因此當您包含 structure 區段時，便不應包含類型資訊。
 * **針對在讀取時驗證結構描述 (schema on read) 的資料來源 (具體而言即 Blob 儲存體)**，您可以選擇儲存資料，而不將任何結構描述或類型資訊與資料儲存在一起。 針對這些類型的資料來源，當您想要將來源資料行與接收資料行對應時，請包含 structure。 當資料集是複製活動的輸入，並且來源資料集的資料類型應該轉換成接收器的原生類型時，也請包含 structure。 
     
-    Data Factory 支援使用下列值在 structure 中提供類型資訊：Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Bool、String、Guid、Datetime、Datetimeoffset 及 Timespan。 這些值是符合 Common Language Specification (CLS) 規範的 .NET 型類型值。
+    Data Factory 支援使用下列值在 structure 中提供類型資訊：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 及 Timespan**。 這些值是符合 Common Language Specification (CLS) 規範的 .NET 型類型值。
 
 Data Factory 會在將資料從來源資料存放區移到接收資料存放區時，自動執行類型轉換。 
   
@@ -269,7 +268,7 @@ Data Factory 會在將資料從來源資料存放區移到接收資料存放區�
 "availability": {
     "frequency": "Month",
     "interval": 1,
-    "offset": "3.08:00:00",    
+    "offset": "3.08:00:00", 
     "style": "StartOfInterval"
 }
 ```

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 5d1dc8caab804914ac7e94be7f080b713674bc0a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 87b9da134bce20b037e2dce7e1c9f54454fafe9e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Linux 上的 Azure Web 應用程式簡介
@@ -58,7 +57,7 @@ Linux 上的 Web 應用程式目前支援下列應用程式堆疊︰
 
 調整應用程式大小︰
 
-* 客戶可以在 App Service 方案中變更階層，即可相應增加和減少 Web Apps 的規模
+* 客戶可以變更 App Service 方案中的階層，即可相應增加和減少 Web 應用程式的規模
 * 客戶可以將應用程式相應放大，在其 SKU 的範圍內執行多個應用程式執行個體
 
 針對 Kudu，有一些基本功能︰
@@ -71,7 +70,7 @@ Linux 上的 Web 應用程式目前支援下列應用程式堆疊︰
 針對 DevOps：
 
 * 預備環境
-* DockerHub CI/CD
+* ACR 和 DockerHub CI/CD
 
 ## <a name="limitations"></a>限制
 Azure 入口網站只會顯示 Linux 上的 Web 應用程式目前可用的功能，並隱藏其餘部分。 隨著我們啟用更多功能，您會在入口網站中看到它們。
@@ -81,9 +80,13 @@ Azure 入口網站只會顯示 Linux 上的 Web 應用程式目前可用的功�
 目前只在下列區域提供此公開預覽版本：
 
 * 美國西部
-* 西歐 
+* 美國東部
+* 西歐
+* 北歐
 * 東南亞
 * 澳洲東部
+* 日本東部
+* 巴西南部
 
 Linux 上的 Web Apps 只在「專用」App Service 方案中才支援，而且沒有「免費」或「共用」層。 此外，一般和 Linux Web 應用程式的 App Service 方案互斥，因此，您無法在非 Linux App Service 方案中建立 Linux Web 應用程式。
 

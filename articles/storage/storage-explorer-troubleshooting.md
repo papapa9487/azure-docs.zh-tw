@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2017
+ms.date: 08/09/2017
 ms.author: delhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 470b2d87ffdc4769bb2963df7dea646901469e00
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -32,7 +32,7 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
 
 ## <a name="sign-in-issues"></a>登入問題
 
-在繼續之前，請先嘗試重新啟動您的應用程式，查看是否能修正問題。
+僅支援 Azure Active Directory (AAD) 帳戶。 如果使用的是 ADFS 帳戶，應無法登入儲存體總管。 在繼續之前，請先嘗試重新啟動您的應用程式，查看是否能修正問題。
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>錯誤：憑證鏈結中的自我簽署憑證
 
@@ -69,7 +69,7 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
 
 如果成功登入後無法擷取您的訂用帳戶，請依照下列步驟對此問題進行疑難排解：
 
-- 確認帳戶可以登入 Azure 入口網站存取訂用帳戶。
+- 透過登入 Azure 入口網站確認您的帳戶可存取訂閱的項目。
 
 - 確定已使用正確的環境登入 (Azure、Azure 中國、Azure 德國、Azure 美國政府或自訂環境/Azure Stack)。
 

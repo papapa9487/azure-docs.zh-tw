@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ca8c94cfe6a76ba169b2ec1f7ab3f49caf562289
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 475c878e34a83d06cffca5e114ccd920c7956256
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
@@ -29,13 +29,18 @@ ms.lasthandoff: 07/28/2017
 若要將資料移入/移出內部部署資料存放區，您必須在內部部署機器上安裝資料管理閘道。 您可以將閘道安裝在與資料存放區相同或相異的電腦上，只要閘道可以連接資料存放區即可。
 
 > [!IMPORTANT]
-> 如需資料管理閘道的詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。   
->
->
+> 如需資料管理閘道的詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。 
 
 以下逐步解說將示範如何使用將資料從內部部署 **SQL Server** 資料庫移至 Azure Blob 儲存體的管線來建立 Data Factory。 在逐步解說中，您會在電腦上安裝及設定資料管理閘道。
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>逐步解說︰將內部部署資料複製到雲端
+在本逐步解說中，您會執行下列步驟： 
+
+1. 建立資料處理站。
+2. 建立資料管理閘道。 
+3. 為來源和接收的資料存放區建立已連結的服務。
+4. 建立資料集來代表輸入和輸出資料。
+5. 建立具有複製活動的管線來移動資料。
 
 ## <a name="prerequisites-for-the-tutorial"></a>教學課程的必要條件
 開始進行本逐步解說之前，您必須具備下列必要條件：
@@ -51,7 +56,7 @@ ms.lasthandoff: 07/28/2017
 2. 依序按一下 [+ 新增]、[智慧 + 分析] 及 [Data Factory]。
 
    ![新增->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
-3. 在 [新增 Data Factory] 刀鋒視窗中，輸入 **ADFTutorialOnPremDF** 做為 [名稱]。
+3. 在 [新增 Data Factory] 頁面中，輸入 **ADFTutorialOnPremDF** 作為 [名稱]。
 
     ![新增至儀表板](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
@@ -63,27 +68,30 @@ ms.lasthandoff: 07/28/2017
    >
 4. 選取您想要建立 Data Factory 的 [Azure 訂用帳戶]  。
 5. 請選取現有的 **資源群組** ，或建立資源群組。 在教學課程中，建立名稱如下的資源群組：**ADFTutorialResourceGroup**。
-6. 按一下 [新增 Data Factory] 刀鋒視窗上的 [建立]。
+6. 按一下 [新增 Data Factory] 頁面上的 [建立]。
 
    > [!IMPORTANT]
    > 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../active-directory/role-based-access-built-in-roles.md#data-factory-contributor) 角色成員。
    >
    >
-7. 建立完成之後，您會看到 [Data Factory]  刀鋒視窗，如下圖所示：
+7. 建立完成之後，您會看到 [Data Factory] 頁面，如下圖所示：
 
    ![Data Factory 首頁](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>建立閘道
-1. 在 **Data Factory** 刀鋒視窗中，按一下 [製作和部署] 圖格來啟動 Data Factory 的 [編輯器]。
+1. 在 [Data Factory] 頁面中，按一下 [製作和部署] 圖格來啟動 Data Factory 的 [編輯器]。
 
     ![[製作和部署] 磚](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
 2. 在 [Data Factory 編輯器] 中，按一下工具列上的 [...**更多]**，然後按一下 [新增資料閘道]。 或者，您也可以在樹狀檢視中，以滑鼠右鍵按一下 [資料閘道]，再按一下 [新增資料閘道]。
 
    ![工具列上的 [新增資料閘道]](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. 在 [建立] 刀鋒視窗上，輸入 **adftutorialgateway** 做為 [名稱]，然後按一下 [確定]。     
+3. 在 [建立] 頁面上，輸入 **adftutorialgateway** 作為 [名稱]，然後按一下 [確定]。     
 
-    ![[建立閘道器] 刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
-4. 在 [設定] 刀鋒視窗中，按一下 [直接安裝在此電腦上]。 此動作會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。  
+    ![[建立閘道] 頁面](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+
+    > [!NOTE]
+    > 在本逐步解說中，您會建立只具有一個節點的邏輯閘道 (內部部署 Windows 機器)。 您可以將多個內部部署機器關聯到閘道以相應放大資料管理閘道。 您可以增加可在節點上同時執行的資料移動作業數目來進行相應增加。 這項功能也適用於具有單一節點的邏輯閘道。 如需得詳細資料，請參閱[在 Azure Data Factory 中調整資料管理閘道](data-factory-data-management-gateway-high-availability-scalability.md)一文。  
+4. 在 [設定] 頁面中，按一下 [直接安裝在此電腦上]。 此動作會下載閘道的安裝套件、在電腦上安裝、設定和註冊閘道。  
 
    > [!NOTE]
    > 使用 Internet Explorer 或 Microsoft ClickOnce 相容的 Web 瀏覽器。
@@ -94,11 +102,11 @@ ms.lasthandoff: 07/28/2017
    >
    >
 
-    ![閘道器 - [設定] 刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
+    ![閘道 - [設定] 頁面](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
     這是最簡單的方式 (一鍵)，透過單一步驟即可下載、安裝、設定和註冊閘道。 您可以看到 **Microsoft 資料管理閘道組態管理員**應用程式已安裝在電腦上。 您也可以在 **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 資料夾中找到執行檔 **ConfigManager.exe**。
 
-    您也可以使用此刀鋒視窗中的連結手動下載與安裝閘道器，並使用 [新金鑰]  文字方塊中顯示的金鑰來加以註冊。
+    您也可以使用此頁面中的連結手動下載與安裝閘道器，並使用 [新金鑰]  文字方塊中顯示的金鑰來加以註冊。
 
     如需閘道的所有詳細資料，請參閱 [資料管理閘道](data-factory-data-management-gateway.md) 一文。
 
@@ -140,7 +148,7 @@ ms.lasthandoff: 07/28/2017
    * 按一下 [檢視記錄檔]  以查看 [事件檢視器] 視窗中的資料管理閘道記錄檔。
    * 按一下 [傳送記錄檔]  將含有過去七天記錄檔的 zip 檔案上傳到 Microsoft，以幫助針對問題進行疑難排解。
 10. 在 [診斷] 索引標籤的 [測試連接] 區段中，選取 [SqlServer] 做為資料存放區的類型，輸入資料庫伺服器名稱和資料庫名稱，指定驗證類型，輸入使用者名稱和密碼，然後按一下 [測試] 來測試閘道是否可連線到資料庫。
-11. 切換到網頁瀏覽器，然後在 **Azure 入口網站**中，依序在 [設定] 刀鋒視窗和 [新增資料閘道] 刀鋒視窗中，按一下 [確定]。
+11. 切換到網頁瀏覽器，然後在 **Azure 入口網站**中，依序在 [設定] 頁面和 [新增資料閘道] 頁面中，按一下 [確定]。
 12. 左側的樹狀檢視中，[資料閘道] 下方應該會顯示 **adftutorialgateway**。  如果按一下，應該會看到相關聯的 JSON。
 
 ## <a name="create-linked-services"></a>建立連結的服務
@@ -157,7 +165,7 @@ ms.lasthandoff: 07/28/2017
 
       1. 針對 **servername**，輸入裝載 SQL Server 資料庫的伺服器名稱。
       2. 針對 **databasename**，輸入資料庫的名稱。
-      3. 按一下工具列上的 [加密] 按鈕。 這會下載並啟動認證管理員應用程式。
+      3. 按一下工具列上的 [加密] 按鈕。 您會看到認證管理員應用程式。
 
          ![認證管理員應用程式](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
       4. 在 [設定認證] 對話方塊中，指定驗證類型、使用者名稱和密碼，然後按一下 [確定]。 如果連線成功，加密的認證會儲存在 JSON 中，並關閉對話方塊。
@@ -361,7 +369,7 @@ ms.lasthandoff: 07/28/2017
 
    在此範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。        
 3. 按一下命令列的 [部署]  ，以部署資料集 (資料表是矩形的資料集)。 確認管線顯示在樹狀檢視的**管線**節點底下。  
-4. 現在，按兩下 [X] 關閉刀鋒視窗，以回到 **ADFTutorialOnPremDF** 的 [Data Factory] 刀鋒視窗。
+4. 現在，按兩下 [X] 關閉頁面，以回到 **ADFTutorialOnPremDF** 的 [Data Factory] 頁面。
 
 **恭喜！** 您已成功建立 Azure Data Factory、連結服務、資料集和管線，以及排定的管線。
 
@@ -382,21 +390,21 @@ ms.lasthandoff: 07/28/2017
 
     ![EmpOnPremSQLTable 配量](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
 2. 請注意，上面的所有資料配量都是**就緒**狀態，因為管線持續期間 (開始時間到結束時間) 是過去的時間。 這也是因為您已將資料插入 SQL Server 資料庫中，而資料一直留存於其中。 確認下方的 [問題配量]  區段中沒有顯示任何配量。 若要檢視所有配量，請按一下配量清單底部的 [更多資訊]。
-3. 現在，在 [資料集] 刀鋒視窗中，按一下 [OutputBlobTable]。
+3. 現在，在 [資料集] 頁面中，按一下 [OutputBlobTable]。
 
     ![OputputBlobTable 配量](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-4. 按一下清單中的任何資料配量，您應該會看到 [資料配量] 刀鋒視窗。 您會看到該配量的活動執行。 您通常只會看到一個活動執行。  
+4. 按一下清單中的任何資料配量，您應該會看到 [資料配量] 頁面。 您會看到該配量的活動執行。 您通常只會看到一個活動執行。  
 
     ![資料配量刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
     若配量不是處於 [就緒] 狀態，您可以在 [未就緒的上游配量] 清單中看到未就緒且阻礙目前配量執行的上游配量。
 5. 按一下底部清單中的 [活動執行]，可查看 [活動執行詳細資料]。
 
-   ![[活動執行詳細資料] 刀鋒視窗](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   ![[活動執行詳細資料] 頁面](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
    您會看到輸送量、持續時間和用來傳輸資料的閘道等資訊。
-6. 按一下 **X** 關閉所有刀鋒視窗，直到您
-7. 回到 **ADFTutorialOnPremDF**的起始刀鋒視窗為止。
+6. 按一下 [X] 關閉所有頁面，直到您
+7. 回到 **ADFTutorialOnPremDF** 的首頁為止。
 8. (選擇性) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後深入檢視輸入資料表 (**已使用**) 或輸出資料集 (**已產生**)。
 9. 使用 [Microsoft 儲存體總管](http://storageexplorer.com/)等工具來確認每個小時會建立一個 Blob/檔案。
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 39dd859d60e7f1dcf697e3c59b8f084e400bbae0
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -29,14 +29,23 @@ ms.lasthandoff: 07/25/2017
 ## <a name="known-issues"></a>已知問題
 
 - 如果您正在同步處理 30 個或更多的 AD 樹系，您無法使用 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-azure-ad-seamless-sso)此功能，以解決這個問題。
-- 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) 新增至「信任的網站」區域而非「近端內部網路」區域以阻止使用者登入。
-- 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。
+- 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) 新增至「信任的網站」區域而非「近端內部網路」區域，**以阻止使用者登入**。
+- 無縫 SSO 無法在 Firefox 和 Edge 的私人瀏覽模式中運作。 此外當「增強保護」模式開啟時，Internet Explorer 也是如此。
+
+>[!IMPORTANT]
+>我們最近已復原對 Edge 的支援，以調查客戶回報的問題。
+
+## <a name="check-status-of-the-feature"></a>檢查功能的狀態
+
+確認您租用戶端的無縫 SSO 功能仍為 [已啟用]。 您可以前往 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)上的 [Azure AD Connect] 刀鋒視窗來檢查狀態。
+
+![Azure Active Directory 管理中心 - Azure AD Connect 刀鋒視窗](./media/active-directory-aadconnect-sso/sso10.png)
 
 ## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Azure Active Directory 管理中心上的登入失敗原因
 
 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)的[登入活動報表](../active-directory-reporting-activity-sign-ins.md)，是開始針對無縫 SSO 使用者登入問題進行疑難排解的好地方。
 
-![登入報告](./media/active-directory-aadconnect-sso/sso9.png)
+![Azure Active Directory 管理中心 - 登入報告](./media/active-directory-aadconnect-sso/sso9.png)
 
 巡覽至位在 [Azure Active Directory 管理中心](https://aad.portal.azure.com/)的 **Azure Active Directory** -> [登入]，按一下特定使用者的登入活動。 尋找 [登入錯誤碼] 欄位。 使用下表，將該欄位的值對應至失敗的原因和解決方式：
 
@@ -81,7 +90,7 @@ ms.lasthandoff: 07/25/2017
     </QueryList>
 ```
 
-## <a name="manual-reset-of-azure-ad-seamless-sso"></a>手動重設 Azure AD 順暢 SSO
+## <a name="manual-reset-of-the-feature"></a>手動重設該功能
 
 如果疑難排解無法解決問題，您可以在租用戶上手動重設此功能。 請在執行 Azure AD Connect 的內部部署伺服器上依照下列步驟操作：
 

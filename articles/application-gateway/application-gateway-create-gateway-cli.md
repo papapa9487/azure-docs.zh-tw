@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 7776942602e21cd0efc86fd471dc072564bb64a6
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 052410db8c7619c7990dc319951a55663f2c2ba1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立應用程式閘道
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/01/2017
 > * [Azure CLI 1.0](application-gateway-create-gateway-cli.md)
 > * [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
 
-Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內部部署中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 應用程式閘道具有下列應用程式傳遞功能：HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、「安全通訊端層」(SSL) 卸載、自訂健康狀態探查，以及多站台支援。
+「應用程式閘道」是專用的虛擬設備，會以服務形式提供應用程式傳遞控制器 (ADC)，為您的應用程式提供各種第 7 層負載平衡功能。
 
 ## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
 
@@ -69,7 +69,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 開啟 [Microsoft Azure 命令提示字元] 並登入。 
 
-```azurecli
+```azurecli-interactive
 az login -u "username"
 ```
 
@@ -92,60 +92,107 @@ az login -u "username"
 
 建立應用程式閘道之前，會建立資源群組以包含應用程式閘道。 以下顯示命令。
 
-```azurecli
-az resource group create --name myresourcegroup --location "West US"
-```
-
-## <a name="create-a-virtual-network-and-subnet"></a>建立虛擬網路和子網路
-
-建立資源群組後，就會為應用程式閘道建立虛擬網路。  在下列範例中，已為虛擬網路定義 10.0.0.0/16 的位址空間，並為子網路定義 10.0.0.0/28 的位址空間，如前一個案例的附註所示。
-
-```azurecli
-az network vnet create \
---name AdatumAppGatewayVNET \
---address-prefix 10.0.0.0/16 \
---subnet-name Appgatewaysubnet \
---subnet-prefix 10.0.0.0/28 \
---resource-group AdatumAppGateway \
---location eastus
+```azurecli-interactive
+az group create --name myresourcegroup --location "eastus"
 ```
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-建立虛擬網路和子網路後，便已完成應用程式閘道的先決條件。 此外下列步驟也需要先前匯出的 .pfx 憑證和憑證密碼︰用於後端的 IP 位址是後端伺服器的 IP 位址。 這些值可以是虛擬網路中的私人 IP、公用 IP 或後端伺服器的完整網域名稱。
+用於後端的 IP 位址是後端伺服器的 IP 位址。 這些值可以是虛擬網路中的私人 IP、公用 IP 或後端伺服器的完整網域名稱。 下列範例會使用 http 設定、連接埠和規則的其他組態設定來建立應用程式閘道。
 
-```azurecli
+```azurecli-interactive
 az network application-gateway create \
---name AdatumAppGateway \
---location eastus \
---resource-group AdatumAppGatewayRG \
---vnet-name AdatumAppGatewayVNET \
----vnet-address-prefix 10.0.0.0/16 \
---subnet Appgatewaysubnet \
----subnet-address-prefix 10.0.0.0/28 \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet" \
+--subnet-address-prefix "10.0.0.0/28" \
 --servers 10.0.0.4 10.0.0.5 \
 --capacity 2 \
 --sku Standard_Small \
 --http-settings-cookie-based-affinity Enabled \
 --http-settings-protocol Http \
---public-ip-address AdatumAppGatewayPIP \
 --frontend-port 80 \
 --routing-rule-type Basic \
---http-settings-port 80
+--http-settings-port 80 \
+--public-ip-address "pip2" \
+--public-ip-address-allocation "dynamic" \
 
 ```
 
+上述範例顯示建立應用程式閘道期間不需要的許多屬性。 下列程式碼範例會使用必要資訊來建立應用程式閘道。
+
+```azurecli-interactive
+az network application-gateway create \
+--name "AdatumAppGateway" \
+--location "eastus" \
+--resource-group "myresourcegroup" \
+--vnet-name "AdatumAppGatewayVNET" \
+--vnet-address-prefix "10.0.0.0/16" \
+--subnet "Appgatewaysubnet \
+--subnet-address-prefix "10.0.0.0/28" \
+--servers "10.0.0.5"  \
+--public-ip-address pip
+```
+ 
 > [!NOTE]
-> 如需可在建立期間提供的參數清單，請執行下列命令︰**az network application-gateway create --help**。
+> 如需可在建立期間提供的參數清單，請執行下列命令︰`az network application-gateway create --help`。
 
 此範例會建立一個具有接聽程式、後端集區、後端 http 設定及規則之預設設定的基本應用程式閘道。 佈建成功之後，您可以依據您的部署需求修改這些設定。
 如果在先前步驟中已經以後端集區定義 Web 應用程式，一旦建立之後，負載平衡即開始。
+
+## <a name="get-application-gateway-dns-name"></a>取得應用程式閘道 DNS 名稱
+
+建立閘道之後，下一步是設定通訊的前端。 當使用公用 IP 時，應用程式閘道需要動態指派的 DNS 名稱 (不易記住)。 為了確保使用者可以叫用應用程式閘道，可使用 CNAME 記錄來指向應用程式閘道的公用端點。 [在 Azure 中設定自訂網域名稱](../dns/dns-custom-domain.md)。 若要設定別名，請使用連接至應用程式閘道的 PublicIPAddress 元素，擷取應用程式閘道的詳細資料及其關聯的 IP/DNS 名稱。 應用程式閘道的 DNS 名稱應該用來建立將兩個 Web 應用程式指向此 DNS 名稱的 CNAME 記錄。 不建議使用 A-records，因為重新啟動應用程式閘道時，VIP 可能會變更。
+
+
+```azurecli-interactive
+az network public-ip show --name "pip" --resource-group "AdatumAppGatewayRG"
+```
+
+```
+{
+  "dnsSettings": {
+    "domainNameLabel": null,
+    "fqdn": "8c786058-96d4-4f3e-bb41-660860ceae4c.cloudapp.net",
+    "reverseFqdn": null
+  },
+  "etag": "W/\"3b0ac031-01f0-4860-b572-e3c25e0c57ad\"",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/publicIPAddresses/pip2",
+  "idleTimeoutInMinutes": 4,
+  "ipAddress": "40.121.167.250",
+  "ipConfiguration": {
+    "etag": null,
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/AdatumAppGatewayRG/providers/Microsoft.Network/applicationGateways/AdatumAppGateway2/frontendIPConfigurations/appGatewayFrontendIP",
+    "name": null,
+    "privateIpAddress": null,
+    "privateIpAllocationMethod": null,
+    "provisioningState": null,
+    "publicIpAddress": null,
+    "resourceGroup": "AdatumAppGatewayRG",
+    "subnet": null
+  },
+  "location": "eastus",
+  "name": "pip2",
+  "provisioningState": "Succeeded",
+  "publicIpAddressVersion": "IPv4",
+  "publicIpAllocationMethod": "Dynamic",
+  "resourceGroup": "AdatumAppGatewayRG",
+  "resourceGuid": "3c30d310-c543-4e9d-9c72-bbacd7fe9b05",
+  "tags": {
+    "cli[2] owner[administrator]": ""
+  },
+  "type": "Microsoft.Network/publicIPAddresses"
+}
+```
 
 ## <a name="delete-all-resources"></a>刪除所有資源
 
 若要刪除這篇文章中建立的所有資源，請完成下列步驟︰
 
-```azurecli
+```azurecli-interactive
 az group delete --name AdatumAppGatewayRG
 ```
  

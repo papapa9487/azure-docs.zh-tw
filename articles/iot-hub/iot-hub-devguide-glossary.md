@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c3646fef95bc06f8febe45718f4f9aeb9aefb42a
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
@@ -107,7 +106,7 @@ IoT Edge 可讓您撰寫應用程式，讓閘道連線的裝置能與 [IoT 中�
 裝置資料是指儲存在 IoT 中樞[身分識別登錄](#identity-registry)中的各裝置資料。 您可以匯入和匯出此資料。
 
 ## <a name="device-explorer"></a>裝置總管
-[裝置總管](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)是一種在 Windows 上執行的工具，可讓您管理[身分識別登錄](#identity-registry)中的裝置，以及傳送和接收裝置的訊息。
+[裝置總管](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)是一種在 Windows 上執行的工具，可讓您管理[身分識別登錄](#identity-registry)中的裝置。此工具也可以傳送和接收裝置的訊息。
 
 ## <a name="device-identities-rest-api"></a>裝置身分識別 REST API
 [裝置身分識別 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource) 可讓您使用 REST API 來管理在[身分識別登錄](#identity-registry)中註冊的裝置。 您通常應該使用如 IoT 中樞教學課程中所示的其中一個較高層級的[服務 SDK](#azure-iot-service-sdks)。
@@ -116,7 +115,7 @@ IoT Edge 可讓您撰寫應用程式，讓閘道連線的裝置能與 [IoT 中�
 裝置識別身分是指派給每個在[身分識別登錄](#identity-registry)中註冊之裝置的唯一識別碼。
 
 ## <a name="device-management"></a>裝置管理
-裝置管理涵蓋與管理 IoT 方案中的裝置相關聯的完整生命週期，包括規劃、佈建、設定、監視及淘汰
+裝置管理涵蓋與管理 IoT 方案中的裝置相關聯的完整生命週期，包括規劃、佈建、設定、監視及淘汰。
 
 ## <a name="device-management-patterns"></a>裝置管理模式
 [IoT 中樞](#iot-hub)可啟用一般裝置管理模式，包括重新開機、執行恢復出廠預設值，以及在裝置上執行韌體更新。

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 08/03/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 40d07ce6e480924c7c1af601cc25e4a74280141f
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -34,13 +34,14 @@ ms.lasthandoff: 07/26/2017
 - 使用者登入所有網頁瀏覽器應用程式。
 - 使用者登入支援[新式驗證](https://aka.ms/modernauthga)的 Office 365 用戶端應用程式。
 - 適用於 Windows 10 裝置的 Azure AD Join。
+- Exchange ActiveSync 支援。
 
 ## <a name="unsupported-scenarios"></a>不支援的情節
 
 預覽期間「不」支援的案例如下︰
 
-- 使用者登入舊版 Office 用戶端應用程式和 Exchange ActiveSync (亦即，行動裝置上的原生電子郵件應用程式)。 組織應該盡可能切換到新式驗證。 新式驗證提供傳遞驗證支援，但也可使用 Multi-Factor Authentication (MFA) 等[條件式存取](../active-directory-conditional-access.md)功能，協助您保護身分識別。
-- 使用者登入商務用 Skype 用戶端應用程式。
+- 使用者登入舊版 Office 用戶端應用程式c (Office 2013 或更早版本)。 組織應該盡可能切換到新式驗證。 新式驗證提供傳遞驗證支援，但也可使用 Multi-Factor Authentication (MFA) 等[條件式存取](../active-directory-conditional-access.md)功能，協助您保護使用者帳戶。
+- 使用者登入商務用 Skype 用戶端應用程式，包括商務用 Skype 2016。
 - 使用者登入 PowerShell 1.0 版。 建議您改為使用 PowerShell 2.0 版。
 
 >[!IMPORTANT]

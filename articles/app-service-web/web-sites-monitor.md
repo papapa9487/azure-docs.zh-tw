@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: byvinyal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: d779170030b61540de2c0459e574a72cdc77f342
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 25d3776920d683fffedcd8ac6ed0e84dfe875974
 ms.contentlocale: zh-tw
-ms.lasthandoff: 01/20/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>作法：監視 Azure App Service 中的應用程式
@@ -39,7 +38,7 @@ App Service 中裝載的應用程式都必須遵守其可用資源的某些「�
 **免費**或**共用**應用程式的**配額**如下︰
 
 * **CPU (短期)**
-  * 此應用程式在 3 分鐘間隔內允許的 CPU 數量。 此配額會每 3 分鐘重設一次。
+  * 此應用程式在 5 分鐘間隔內允許的 CPU 數量。 此配額會每 5 分鐘重設一次。
 * **CPU (天)**
   * 此應用程式在 1 天內允許的 CPU 總量。 此配額會每隔 24 小時在午夜 (UTC) 重設一次。
 * **記憶體**

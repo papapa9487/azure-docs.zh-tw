@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: bfe2875b204d35abba12ee21c749e0a2919b2d1d
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 0d0bceb32902a4ae506919f48302471543dd5162
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
-# <a name="monitor-and-scale-a-single-sql-database-using-powershell"></a>使用 PowerShell 監視和調整單一 SQL Database
+# <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>使用 PowerShell 來監視和調整單一 SQL 資料庫
 
 此 PowerShell 指令碼範例會監視資料庫的效能計量、將其調整為較高的效能等級，並對其中一個效能計量建立警示規則。 
 

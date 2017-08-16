@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 9d5a4bef0c22f637a35390c6a8a245967fb02118
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 270d79944465176d3df467f7145ff82594302c3d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
@@ -96,7 +96,7 @@ ms.lasthandoff: 07/25/2017
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>針對您已設定為 Silver 或 Gold 耐久性層級之節點類型的作業建議。
 
 1. 使叢集和應用程式持續保持良好的狀況，並確保應用程式會及時回應所有[服務複本生命週期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (例如當組建中的複本陷入停滯)。
-2. 採用更安全的方式來進行 VM SKU 變更 (相應增加/減少)：變更虛擬機器擴展集的 VM SKU 本身是一種不安全的作業，因此請盡可能採用這種做法。 以下為您可以遵循以避免發生常見問題的程序。
+2. 採用更安全的方式來進行 VM SKU 變更 (相應增加/減少)：變更虛擬機器擴展集的 VM SKU 本身是一種不安全的作業，因此請盡可能避免這種做法。 以下為您可以遵循以避免發生常見問題的程序。
     - **針對非主要 Nodetype：**建議您建立新的虛擬機器擴展集，修改服務放置條件約束以包含新的虛擬機器擴展集/節點類型，然後以一次一個節點的方式，將舊的虛擬機器擴展集執行個體計數減少至 0 (這是為了確保移除節點不會影響到叢集的可靠性)。
     - **針對主要 Nodetype：**建議您不要變更主要節點類型的 VM SKU。 如果是基於容量的原因而需要新的 SKU，我們建議新增更多執行個體，或在可行的情況下建立新的叢集。 如果您沒有選擇，請對虛擬機器擴展集模型定義進行修改以反映新的 SKU。 如果您的叢集只有單一 Nodetype，請確保所有具狀態應用程式會及時回應所有[服務複本生命週期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (例如當組建中的複本陷入停滯)，且您的服務複本重建期間為少於五分鐘 (針對 Silver 持久性層級)。 
 3. 針對所有啟用 MR 的虛擬機器擴展集維持至少五個節點

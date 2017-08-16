@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/04/2017
 ms.author: kgremban
-ms.custom: H1Hack27Feb2017
+ms.reviewer: harshja
+ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 8070a71d90c6d28ccd397d97dd1f2846169b41fe
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -28,42 +29,42 @@ ms.lasthandoff: 07/11/2017
 > * [Azure 傳統入口網站](active-directory-application-proxy-connectors.md)
 >
 
-## <a name="azure-ad-application-proxy-and-connector-groups"></a>Azure AD 應用程式 Proxy 與連接器群組
+客戶在越來越多的案例和應用程式中利用 Azure AD 的應用程式 Proxy。 因此我們啟用更多的拓撲使應用程式 Proxy 更具彈性。 您可以建立應用程式 Proxy 連接器群組，如此便可以指派特定連接器以提供特定應用程式。 此功能讓您有更多的控制能力與方法來最佳化應用程式 Proxy 部署。 
 
-客戶在越來越多的案例和應用程式中利用 Azure AD 的應用程式 Proxy。 因此我們啟用更多的拓撲使應用程式 Proxy 更具彈性。 您可以建立應用程式 Proxy 連接器群組 – 可指派特定連接器以提供特定應用程式的新功能。 這項功能為應用程式 Proxy 產生過去不可能的許多使用案例。 
+每個應用程式 Proxy 連接器都會指派給連接器群組。 隸屬於相同連接器群組的所有連接器會做為高可用性及負載平衡的個別單位。 所有的連接器皆屬於連接器群組。 如果您未建立群組，則所有的連接器皆會在預設群組中。 系統管理員可以建立新的群組，並在 Azure 入口網站中將連接器指派給群組。 
 
-基本概念是，每個應用程式 Proxy 連接器都會指派給連接器群組。 隸屬於相同連接器群組的所有連接器會做為高可用性及負載平衡的個別群組。 根據預設，所有的連接器屬於預設群組。 系統管理員可以建立新的群組，並在 Azure 入口網站變更這些指派。 
+所有應用程式均會指派給連接器群組。 如果您未建立群組，則所有的連接器皆會指派給預設群組。 但是，如果您將連接器組織成群組，可以設定每個應用程式使用特定連接器群組。 在此情況下，只有該群組中的連接器會在收到要求時為應用程式提供服務。 如果您的應用程式裝載在不同的位置中，這是個很有用的功能。 您可以根據位置來建立連接器群組，讓應用程式一律由實體位置相近的連接器提供服務。
 
-根據預設，所有應用程式會指派給預設連接器群組。 如果您的系統管理員不會變更任何項目，系統會繼續像以前一樣的行為。 如果您沒有變更任何項目，指派給預設連接器群組的所有應用程式會包含所有連接器。 但是，如果您將連接器組織成群組，可以設定每個應用程式使用特定連接器群組。 在此情況下，只有該群組中的連接器會在收到要求時為應用程式提供服務。
+>[!TIP] 
+>如果您有大規模的應用程式 Proxy 部署，請勿將任何應用程式指派給預設連接器群組。 如此一來，新的連接器便不會收到任何即時流量，除非您將新連接器指派給作用中的連接器群組。 此設定也可以將連接器移回預設群組的方式，藉此讓連接器進入閒置模式，如此您便可以在不影響使用者的情況下執行維護。
 
-
->[!NOTE] 
->因為新的連接器會自動指派給預設連接器群組，針對大型部署，我們建議您不要將應用程式指派給預設群組。 因此，一旦安裝完成後，新的連接器不會收到任何即時流量。 只有在將連接器指派給其中一個使用中的群組之後，才可以開始提供即時流量。 這也可讓您將連接器處於閒置模式以啟用維護。
->
-
-## <a name="prerequisite-create-your-connector-groups"></a>必要條件︰建立連接器群組
+## <a name="prerequisites"></a>必要條件
 若要將連接器組成群組，您必須確定 [已安裝多個連接器](active-directory-application-proxy-enable.md)。 當您安裝新的連接器時，它會自動加入「預設」  連接器群組。
 
-## <a name="step-1-create-connector-groups"></a>步驟 1：建立連接器群組
-您可以建立任意數量的連接器群組。 連接器群組的建立是在 [Azure 入口網站](https://portal.azure.com)中完成。
+## <a name="create-connector-groups"></a>建立連接器群組
+使用以下步驟建立您所要的連接器群組，數量不拘。 
 
-1. 選取 **Azure Active Directory** 以移至您目錄的管理儀表板。 從該處選取 [企業應用程式] > [應用程式 Proxy]。
-2. 選取 [連接器群組]  按鈕。 [新增連接器群組] 刀鋒視窗隨即出現。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+1. 選取 [Azure Active Directory]  >  [企業應用程式]  >  [應用程式 Proxy]。
+2. 選取 [新增連接器群組]。 [新增連接器群組] 刀鋒視窗隨即出現。
+
+   ![選取新的連接器群組](./media/active-directory-application-proxy-connectors-azure-portal/new-group.png)
+
 3. 指定新連接器群組的名稱，然後使用下拉式功能表來選取哪些連接器屬於此群組。
-4. 完成連接器群組時，選取 [儲存]  。
+4. 選取 [ **儲存**]。
 
-## <a name="step-2-assign-applications-to-your-connector-groups"></a>步驟 2：將應用程式指派給您的連接器群組
-最後一個步驟是將每個應用程式設定至將為其提供服務的連接器群組。
+## <a name="assign-applications-to-your-connector-groups"></a>將應用程式指派給您的連接器群組
+已透過應用程式 Proxy 發佈的每個應用程式均按照這些步驟處理。 您可以在首次發佈應用程式時，將應用程式指派給連接器群組，也可以隨時使用這些步驟變更指派。   
 
 1. 從您目錄的管理儀表板中，選取 [企業應用程式] > [所有應用程式] > 您想要指派給連接器群組的應用程式 > [應用程式 Proxy]。
-2. 在 [連接器群組] 底下，使用下拉式功能表來選取應用程式所要使用的群組。
+2. 使用 [連接器群組] 下拉式功能表來選取應用程式所要使用的群組。
 3. 按一下 [儲存]  以套用變更。
 
 ## <a name="use-cases-for-connector-groups"></a>連接器群組的使用案例 
 
 連接器群組可用於多種不同狀況，包括：
 
-###<a name="sites-with-multiple-interconnected-datacenters"></a>具有多個互連資料中心的網站
+### <a name="sites-with-multiple-interconnected-datacenters"></a>具有多個互連資料中心的網站
 
 許多組織都有數個彼此連接的資料中心。 在此情況下，您會希望儘量將流量保留在資料中心內，因為跨資料中心的連結既昂貴、速度又慢。 您可以在每個資料中心都部署連接器，來只為資料中心內的應用程式提供服務。 這種方法可將跨資料中心的連結減到最少，讓使用者體驗完全的流暢性。
 
@@ -96,7 +97,7 @@ ms.lasthandoff: 07/11/2017
 您可以根據您站台的實作方式，使用災害復原 (DR) 網站採用兩種不同的方法︰
 
 * 如果您的 DR 網站是在主動-主動模式中建置，其中與主要站台完全相同，且具有相同的網路與 AD 設定，您可以在與主要站台相同的連接器群組中，在 DR 網站上建立連接器。 這可讓 Azure AD 為您偵測容錯移轉。
-* 如果 DR 網站是獨立於主要網站，您可以在 DR 網站中建立不同的連接器群組，並有 1) 其他應用程式或 2) 視需要手動將現有的應用程式轉向至 DR 連接器群組。
+* 如果 DR 網站是獨立於主要網站，您可以在 DR 網站中建立不同的連接器群組，並且 1) 擁有備份應用程式，或 2) 視需要手動將現有的應用程式轉向至 DR 連接器群組。
  
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>從單一租用戶為多家公司提供服務
 
@@ -129,9 +130,9 @@ ms.lasthandoff: 07/11/2017
 ![AzureAD 沒有連接器群組](./media/application-proxy-publish-apps-separate-networks/application-proxy-sample-config-3.png)
  
 ## <a name="next-steps"></a>後續步驟
-* [啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
-* [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
-* [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
-* [使用應用程式 Proxy 疑難排解您遇到的問題](active-directory-application-proxy-troubleshoot.md)
+
+* [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)
+* [啟用單一登入](application-proxy-sso-overview.md)
+
 
 

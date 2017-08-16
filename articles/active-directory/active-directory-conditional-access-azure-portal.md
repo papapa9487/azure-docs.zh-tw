@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4b38f1f90301c971cb6000f46d831047acb220e
-ms.openlocfilehash: 5a1ce66e02943caedd52976c5dcb3cf75c23bd49
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
@@ -121,26 +121,54 @@ ms.lasthandoff: 07/17/2017
 
 在目前的 Azure Active Directory 實作中，您可以定義下列領域的條件︰
 
-- **登入風險** – 登入風險是一種物件，供 Azure Active Directory 用於追蹤非由使用者帳戶合法擁有者執行登入的可能性。 在此物件中，可能性 (高、中或低) 會以名為[登入風險層級](active-directory-reporting-risk-events.md#risk-level)屬性形式儲存。 如果 Azure Active Directory 偵測到登入風險，則會在使用者登入期間產生此物件。 如需詳細資訊，請參閱[有風險的登入](active-directory-identityprotection.md#risky-sign-ins)。  
+- 登入風險
+- 裝置平台
+- 位置
+- 用戶端應用程式
+
+![條件](./media/active-directory-conditional-access-azure-portal/21.png)
+
+### <a name="sign-in-risk"></a>登入風險
+
+登入風險是一種物件，供 Azure Active Directory 用於追蹤非由使用者帳戶合法擁有者執行登入的可能性。 在此物件中，可能性 (高、中或低) 會以名為[登入風險層級](active-directory-reporting-risk-events.md#risk-level)屬性形式儲存。 如果 Azure Active Directory 偵測到登入風險，則會在使用者登入期間產生此物件。 如需詳細資訊，請參閱[有風險的登入](active-directory-identityprotection.md#risky-sign-ins)。  
 您可以使用計算出的登入風險層級作為條件式存取原則中的條件。 
 
-    ![條件](./media/active-directory-conditional-access-azure-portal/22.png)
+![條件](./media/active-directory-conditional-access-azure-portal/22.png)
 
-- **裝置平台** – 裝置平台的特點是您裝置執行的作業系統 (Android、iOS、Windows Phone、Windows)。 您可以定義包含的裝置平台以及從原則中豁免的裝置平台。  
+### <a name="device-platforms"></a>裝置平台
+
+裝置平台的特點是您裝置執行的作業系統 (Android、iOS、Windows Phone、Windows)。 您可以定義包含的裝置平台以及從原則中豁免的裝置平台。  
 若要使用原則中的裝置平台，請先將 [設定] 切換為 [是]，然後選取原則套用至的所有或個別裝置平台。 如果您選取個別的裝置平台，原則就只會影響這些平台。 在此情況下，其他支援平台的登入不受此原則影響。
 
-    ![條件](./media/active-directory-conditional-access-azure-portal/02.png)
+![條件](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **位置** - 您用來連接到 Azure Active Directory 之用戶端 IP 位址所識別的位置。 此條件要求您需熟悉信任的 IP。 信任的 IP 是 Multi-Factor Authentication 的功能，可讓您定義信任的 IP 位址範圍，以代表您組織的區域內部網路。 當您設定位置條件時，信任的 IP 可讓您區分從您組織的網路與所有其他位置進行的連線。 如需詳細資訊，請參閱[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)。  
-您可以包含所有位置或所有信任的 IP，而且您可以排除所有信任的 IP。
+### <a name="locations"></a>位置
 
-    ![條件](./media/active-directory-conditional-access-azure-portal/03.png)
+您用來連線到 Azure Active Directory 之用戶端 IP 位址所識別的位置。 此條件要求您需熟悉**具名位置**和 **MFA 信任 IP**。  
+
+**具名位置**是 Azure Active Directory 的一個功能，可讓您標記組織中信任的 IP 位址範圍。 在您的環境中，您可以在[風險事件](active-directory-reporting-risk-events.md)偵測內容中使用具名位置以及條件式存取。 如需有關在 Azure Active Directory 中設定具名位置的詳細資訊，請參閱 [Azure Active Directory 中的具名位置](active-directory-named-locations.md)。
+
+您可以設定的位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定：
+ 
+ - 一個具名位置最多有 500 個 IP 範圍
+ - 最多 60 個具名位置 (預覽)，每個位置皆指派一個 IP 範圍 
 
 
-- **用戶端應用程式** - 用戶端應用程式可以是您用來連接到 Azure Active Directory 的一般層級應用程式 (Web 瀏覽器、行動應用程式、桌面用戶端)，或者您可以特別選取 Exchange Active Sync。  
+**MFA 信任的 IP** 是 Multi-Factor Authentication 的功能，可讓您定義信任的 IP 位址範圍，以代表您組織的區域內部網路。 當您設定位置條件時，信任的 IP 可讓您區分從您組織的網路與所有其他位置進行的連線。 如需詳細資訊，請參閱[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)。  
+
+
+
+您可以包含所有位置或所有信任的 IP，也可以排除所有信任的 IP。
+
+![條件](./media/active-directory-conditional-access-azure-portal/03.png)
+
+
+### <a name="client-app"></a>用戶端應用程式
+
+用戶端應用程式可以是您用來連線到 Azure Active Directory 的一般層級應用程式 (網頁瀏覽器、行動裝置應用程式、桌面用戶端)，或者您可以特別選取 Exchange Active Sync。  
 舊式驗證是指使用基本驗證的用戶端，例如，未使用新式驗證的舊版 Office 用戶端。 舊式驗證目前不支援條件式存取。
 
-    ![條件](./media/active-directory-conditional-access-azure-portal/04.png)
+![條件](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
 ## <a name="common-scenarios"></a>常見案例

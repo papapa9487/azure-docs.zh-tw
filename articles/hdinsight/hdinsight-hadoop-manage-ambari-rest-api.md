@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 642f40de546600525fb739d8b158f06851d78406
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: bc6eee6ff3e6c7006509cdd175b488e320ed912a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>使用 Ambari REST API 管理 HDInsight 叢集
@@ -29,11 +29,11 @@ ms.lasthandoff: 07/28/2017
 
 了解如何使用 Ambari REST API 來管理和監視 Azure HDInsight 中的 Hadoop 叢集。
 
-Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。 使用 Linux 作業系統的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。
+Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。 Ambari 會納入到使用 Linux 作業系統的 HDInsight 叢集中。 您可以使用 Ambari 來監視叢集並進行設定變更。
 
 ## <a id="whatis"></a>什麼是 Ambari
 
-[Apache Ambari](http://ambari.apache.org) 提供簡單易用的 Web UI，以供用來佈建、管理及監視 Hadoop 叢集，讓 Hadoop 管理起來更為簡單。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
+[Apache Ambari](http://ambari.apache.org) 會提供 Web UI 以供用來佈建、管理及監視 Hadoop 叢集。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
 
 以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。
 
@@ -69,7 +69,7 @@ HDInsight 上 Ambari REST API 的基底 URI 是 https://CLUSTERNAME.azurehdinsig
 
 ### <a name="authentication"></a>驗證
 
-連線到 HDInsight 上的 Ambari 需要 HTTPS。 在驗證連線時，您必須使用管理帳戶名稱 (預設值是 **admin**) 和建立叢集時所提供的密碼。
+連線到 HDInsight 上的 Ambari 需要 HTTPS。 請使用您在叢集建立期間所提供的管理帳戶名稱 (預設值是 **admin**) 和密碼。
 
 ## <a name="examples-authentication-and-parsing-json"></a>範例︰驗證和剖析 JSON
 
@@ -178,7 +178,7 @@ $respObj.Clusters.health_report
 * **背景工作節點**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/DATANODE" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -192,7 +192,7 @@ $respObj.Clusters.health_report
 * **Zookeeper 節點**
 
     ```bash
-    curl -u admin:PASSWORD -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
+    curl -u admin:PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER" \
     | jq '.host_components[].HostRoles.host_name'
     ```
 
@@ -210,7 +210,7 @@ $respObj.Clusters.health_report
 >
 > 如需使用 HDInsight 和虛擬網路的詳細資訊，請參閱[使用自訂 Azure 虛擬網路擴充 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。
 
-您必須先知道主機的 FQDN，才能取得 IP 位址。 一旦您擁有 FQDN，就可以取得主機的 IP 位址。 下列範例會先查詢所有主機節點之 FQDN 的 Ambari，然後查詢每部主機之 IP 位址的 Ambari。
+若要尋找 IP 位址，您必須知道叢集節點的內部完整網域名稱 (FQDN)。 一旦您擁有 FQDN，就可以取得主機的 IP 位址。 下列範例會先查詢所有主機節點之 FQDN 的 Ambari，然後查詢每部主機之 IP 位址的 Ambari。
 
 ```bash
 for HOSTNAME in $(curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/hosts" | jq -r '.items[].Hosts.host_name')
@@ -306,8 +306,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
     ```
 
     ```powershell
-    Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
+    $respObj = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_configs" `
         -Credential $creds
+    $respObj.Content
     ```
 
     此範例會傳回 JSON 文件，其中包含叢集上安裝之元件的目前組態 (由「tag」值識別)。 下列範例是從 Spark 叢集類型傳回之資料的摘要。
@@ -379,7 +380,7 @@ $respObj.items.configurations.properties.'fs.defaultFS'
    
     您需要從此清單中複製元件的名稱 (例如，**spark\_thrift\_sparkconf** 和 **tag** 值。
 
-2. 使用下列命令以擷取元件和標記的組態。 將 **spark-thrift-sparkconf** 和 **INITIAL** 取代為您想要擷取其組態的元件和標籤。
+2. 使用下列命令以擷取元件和標記的組態：
    
     ```bash
     curl -u admin:$PASSWORD -sS -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations?type=spark-thrift-sparkconf&tag=INITIAL" \
@@ -394,6 +395,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
         -Credential $creds
     $resp.Content | jq --arg newtag "version$unixTimeStamp" '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
     ```
+
+    > [!NOTE]
+    > 將 **spark-thrift-sparkconf** 和 **INITIAL** 取代為您想要擷取其組態的元件和標籤。
    
     Jq 是用來將從 HDInsight 擷取到的資料轉換至新的組態範本。 具體來說，這些範例會執行下列動作︰
    

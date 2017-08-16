@@ -13,20 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2017
+ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 858ce2c748c3383afb6d66ed7b66a5f019902594
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: 4c51edac3b1cdafae8f9543bd0e3133b6a050f73
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>使用 MakeCert 來產生並匯出點對站連線的憑證
-
-> [!NOTE]
-> 只有在您無法存取執行 Windows 10 的電腦時，才使用本文中的指示來產生憑證。 否則，建議您改用[使用 Windows 10 PowerShell 產生自我簽署憑證](vpn-gateway-certificates-point-to-site.md)文章。
->
 
 點對站連線使用憑證進行驗證。 本文說明如何建立自我簽署的根憑證，以及使用 MakeCert 來產生用戶端憑證。 如果您要尋找點對站設定步驟 (例如如何上傳根憑證)，請從下列清單中選取其中一篇＜設定點對站＞文章：
 
@@ -41,8 +37,7 @@ ms.lasthandoff: 07/28/2017
 
 雖然建議您使用 [Windows 10 PowerShell 步驟](vpn-gateway-certificates-point-to-site.md)建立您的憑證，但是提供這些 MakeCert 指示作為選擇性方法。 您使用任一種方法所產生的憑證可以安裝於[任何支援的用戶端作業系統](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq)。 不過，MakeCert 具有下列限制：
 
-* MakeCert 無法產生 SHA-2 憑證，只能產生 SHA-1。 SHA-1 憑證仍然適用於點對站連線，但 SHA-1 使用的加密雜湊不如 SHA-2 嚴密。
-* MakeCert 已被取代。 這表示無法在任何時間點移除這項工具。 如果無法再使用 MakeCert，則任何您已經使用 MakeCert 所產生的憑證不會受到影響。 MakeCert 只用來產生憑證，而不是驗證機制。
+* MakeCert 已被取代。 這表示無法在任何時間點移除這項工具。 當無法再使用 MakeCert 時，任何您已經使用 MakeCert 所產生的憑證將不會受到影響。 MakeCert 只用來產生憑證，而不是驗證機制。
 
 ## <a name="rootcert"></a>建立自我簽署根憑證
 
@@ -57,7 +52,7 @@ ms.lasthandoff: 07/28/2017
 3. 在您電腦上的 [個人] 憑證存放區中建立並安裝憑證。 下列範例會建立對應的 .cer 檔案，您在設定 P2S 時會將此檔案上傳至 Azure。 將 'P2SRootCert' 和 'P2SRootCert.cer' 取代為您想使用的憑證名稱。 憑證位於您的 '[憑證 - 目前的使用者]\[個人]\[憑證]' 中。
 
   ```cmd
-  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha1 -len 2048 -ss My
+  makecert -sky exchange -r -n "CN=P2SRootCert" -pe -a sha256 -len 2048 -ss My
   ```
 
 ## <a name="cer"></a>匯出公開金鑰 (.cer)
@@ -88,7 +83,7 @@ ms.lasthandoff: 07/28/2017
   如果您執行以下範例而未做任何修改，您的個人憑證存放區中就會有一個從根憑證 P2SRootCert 產生的用戶端憑證，名為 P2SChildcert。
 
   ```cmd
-  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha1
+  makecert.exe -n "CN=P2SChildCert" -pe -sky exchange -m 96 -ss My -in "P2SRootCert" -is my -a sha256
   ```
 
 ### <a name="clientexport"></a>匯出用戶端憑證

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/05/2017
+ms.date: 08/07/2017
 ms.author: jroth
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: e81739e74342689b29c6718592ccf49e641d2587
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 03cc1d2d47ce8194b293824b29a07cef423be34d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理程式延伸模組 (Resource Manager) 自動化 Azure 虛擬機器上的管理工作
@@ -67,16 +67,16 @@ SQL Server IaaS 代理程式擴充功能支援下列管理工作︰
 * [下載及設定最新的 Azure PowerShell 命令](/powershell/azure/overview)
 
 ## <a name="installation"></a>安裝
-當您佈建其中一個 SQL Server 虛擬機器資源庫映像時，系統會自動安裝 SQL Server IaaS 代理程式擴充功能。
+當您佈建其中一個 SQL Server 虛擬機器資源庫映像時，系統會自動安裝 SQL Server IaaS 代理程式擴充功能。 如果您需要在其中一個 SQL Server 虛擬機器上手動重新安裝擴充功能，請使用下列 PowerShell 命令：
 
-您也可以將「SQL Server IaaS 代理程式擴充功能」安裝在只有 OS 的 Windows Server 虛擬機器上。 只有當您也已在該機器上手動安裝 SQL Server 時，才支援此做法。 然後使用 **Set-AzureVMSqlServerExtension** PowerShell Cmdlet 來手動安裝擴充功能。 例如，下列命令會在 OS 專用的 Windows Server VM 上安裝擴充功能，並將它命名為 "SQLIaaSExtension"。
+```powershell
+Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+```
 
-    Set-AzureRmVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SQLIaasExtension" -Version "1.2" -Location "East US 2"
+您也可以將「SQL Server IaaS 代理程式擴充功能」安裝在只有 OS 的 Windows Server 虛擬機器上。 只有當您也已在該機器上手動安裝 SQL Server 時，才支援此做法。 然後使用相同的 **Set-AzureVMSqlServerExtension** PowerShell Cmdlet 來手動安裝擴充功能。
 
 > [!NOTE]
-> 如果您手動安裝「SQL Server IaaS 代理程式擴充功能」，您便無法透過 Azure 入口網站管理 SQL Server 組態設定。 在此情況下，您必須使用 PowerShell 來進行所有變更。
-
-如果更新到最新版的 SQL IaaS 代理程式擴充，您必須在更新擴充之後重新啟動虛擬機器。
+> 如果您手動在只有作業系統的 Windows Server 虛擬機器上安裝「SQL Server IaaS 代理程式擴充功能」，您便無法透過 Azure 入口網站管理 SQL Server 組態設定。 在此情況下，您必須使用 PowerShell 來進行所有變更。
 
 ## <a name="status"></a>狀態
 驗證已安裝擴充功能的其中一項方法，是在 Azure 入口網站中檢視代理程式狀態。 請選取虛擬機器刀鋒視窗中的 [所有設定]，然後按一下 [擴充功能]。 您應該會看到列出 **SQLIaaSExtension** 擴充功能。

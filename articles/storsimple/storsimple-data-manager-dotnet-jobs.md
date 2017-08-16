@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 270f890b5ec58ffd009ff913a6df9d941889a6dc
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 
@@ -31,12 +31,12 @@ ms.lasthandoff: 05/08/2017
 ## <a name="prerequisites"></a>必要條件
 
 開始之前，請確定您有︰
-*    已安裝 Visual Studio 2012、2013 或 2015 的系統。
-*    已安裝 Azure Powershell。 [下載 Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
-*    用於初始化資料轉換作業的組態設定 (這裡包含取得這些設定的指示)。
-*    已在資源群組內的混合式資料資源中正確設定的作業定義。
-*    所有必要的 dll。 從 [GitHub 儲存機制](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)下載這些 dll。
-*    Github 儲存機制中的 `Get-ConfigurationParams.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)。
+*   已安裝 Visual Studio 2012、2013、2015 或 2017 的系統。
+*   已安裝 Azure Powershell。 [下載 Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
+*   用於初始化資料轉換作業的組態設定 (這裡包含取得這些設定的指示)。
+*   已在資源群組內的混合式資料資源中正確設定的作業定義。
+*   所有必要的 dll。 從 [GitHub 儲存機制](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls)下載這些 dll。
+*   Github 儲存機制中的 `Get-ConfigurationParams.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1)。
 
 ## <a name="step-by-step"></a>逐步說明
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 05/08/2017
     5. 選取 **C:\DataTransformation** 做為 [位置]。
     6. 按一下 [確定]  以建立專案。
 
-4.    現在，在您建立的專案中，將 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 資料夾中出現的所有 DLL 新增為 [參考]。 若要下載 dll 檔，請執行下列步驟︰
+4.  現在，在您建立的專案中，將 [dlls](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) 資料夾中出現的所有 DLL 新增為 [參考]。 若要下載 dll 檔，請執行下列步驟︰
 
     1. 在 Visual Studio 中，移至 [檢視] > [方案總管]。
     1. 按一下資料轉換應用程式專案左邊的箭號。 按一下 [參考]，然後按一下滑鼠右鍵以 [新增參考]。

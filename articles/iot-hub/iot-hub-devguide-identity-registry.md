@@ -12,30 +12,30 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 6a69dc900eee2f539a2b1740c4e89132e2bd6db7
+ms.translationtype: HT
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/06/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="understand-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
-
-## <a name="overview"></a>概觀
+# <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
 每個 IoT 中樞都有身分識別登錄，可儲存允許連線至 IoT 中樞之裝置的相關資訊。 若要讓裝置可以連線到 IoT 中樞，IoT 中樞的身分識別登錄中必須先有該裝置的項目。 裝置也必須根據身分識別登錄中儲存的認證，向 IoT 中樞進行驗證。
 
 儲存在身分識別登錄的裝置識別碼會區分大小寫。
 
-總括來說，身分識別登錄是支援 REST 的裝置身分識別資源集合。 當您在身分識別登錄中新增項目時，IoT 中樞會在服務 (例如，包含傳遞中雲端到裝置訊息的佇列) 中建立一組每一裝置資源。
+總括來說，身分識別登錄是支援 REST 的裝置身分識別資源集合。 當您在身分識別登錄中新增項目時，IoT 中樞會建立一組每一裝置資源，例如，包含傳遞中雲端到裝置訊息的佇列。
 
 ### <a name="when-to-use"></a>使用時機
 
-當您需要佈建連線到 IoT 中樞的裝置，以及當您需要控制每一裝置對中樞之裝置面向端點的存取權時，請使用身分識別登錄。
+當您需要執行下列作業時，請使用身分識別登錄：
+
+* 佈建裝置來連線到 IoT 中樞。
+* 控制每一裝置對中樞之面對裝置端點的存取。
 
 > [!NOTE]
 > 身分識別登錄不包含任何應用程式特有中繼資料。
@@ -86,30 +86,28 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 ## <a name="device-provisioning"></a>裝置佈建
 
-給定的 IoT 解決方案儲存的裝置資料取決於該解決方案的特定需求。 但是解決方案至少必須儲存裝置身分識別和驗證金鑰。 Azure IoT 中樞包含身分識別登錄，其可以儲存每個裝置的值，例如識別碼、驗證金鑰和狀態碼。 解決方案可以使用其他 Azure 服務 (例如 Azure 表格儲存體、Azure Blob 儲存體或 Azure Cosmos DB) 來儲存任何其他裝置資料。
+給定的 IoT 解決方案儲存的裝置資料取決於該解決方案的特定需求。 但是解決方案至少必須儲存裝置身分識別和驗證金鑰。 Azure IoT 中樞包含身分識別登錄，其可以儲存每個裝置的值，例如識別碼、驗證金鑰和狀態碼。 解決方案可以使用其他 Azure 服務 (例如表格儲存體、Blob 儲存體或 Cosmos DB) 來儲存任何其他裝置資料。
 
 *裝置佈建* 是將初始裝置資料加入至解決方案中存放區的程序。 若要讓新裝置能夠連接到您的中樞，必須將裝置識別碼和金鑰新增至「IoT 中樞」身分識別登錄。 做為佈建程序的一部分，您可能需要初始化其他解決方案存放區中的裝置特定資料。
 
 ## <a name="device-heartbeat"></a>裝置活動訊號
 
-IoT 中樞身分識別登錄包含稱為 **connectionState** 的欄位。 請只在進行開發和偵錯時才使用 **connectionState**。 IoT 解決方案不應該在執行階段查詢該欄位 (例如，檢查裝置是否已連接，以決定是要傳送雲端到裝置訊息，還是 SMS)。
+IoT 中樞身分識別登錄包含稱為 **connectionState** 的欄位。 請只在進行開發和偵錯時才使用 **connectionState**。 IoT 解決方案不應該在執行階段查詢欄位。 例如，請勿查詢 **connectionState** 欄位從而在傳送雲端到裝置訊息或 SMS 之前先確認裝置是否已連線。
 
-如果 IoT 解決方案需要知道是否已連接裝置 (不論是在執行階段，還是需要比 **connectionState** 屬性所提供的資訊更精確時)，您應該實作「活動訊號模式」。
+如果 IoT 解決方案需要知道裝置是否已連線，請實作*活動訊號模式*。
 
-在活動訊號模式中，裝置每隔固定時間就會至少傳送一次裝置到雲端的訊息 (例如，每小時至少一次)。 因此，即使裝置沒有任何要傳送的資料，它仍會傳送空的裝置到雲端的訊息 (通常具有可識別它是活動訊號的屬性)。 此解決方案會在服務端保有一份對應，其中有針對每個裝置收到的最後一次活動訊號。 如果裝置沒有在預期時間內收到活動訊號訊息，此解決方案就會假設該裝置發生問題。
+在活動訊號模式中，裝置每隔固定時間就會至少傳送一次裝置到雲端的訊息 (例如，每小時至少一次)。 因此，即使裝置沒有任何要傳送的資料，它仍會傳送空的裝置到雲端的訊息 (通常具有可識別它是活動訊號的屬性)。 此解決方案會在服務端保有一份對應，其中有針對每個裝置收到的最後一次活動訊號。 此解決方案若未在預期時間內收到裝置傳來的活動訊號訊息，就會假設該裝置發生問題。
 
 更複雜的實作可以包含來自[作業監視][lnk-devguide-opmon]的資訊，以便識別嘗試連接或通訊但失敗的裝置。 當您實作活動訊號模式時，請務必檢查 [IoT 中樞配額與節流][lnk-quotas]。
 
 > [!NOTE]
-> 如果 IoT 解決方案只需要裝置連線狀態來判斷是否要傳送雲端到裝置訊息，而且訊息不會廣播到大量的裝置組合，則要考慮的較簡單模式是使用較短的到期時間。 此模式所達到的效果與使用活動訊號模式來維護裝置連線狀態登錄相同，但更有效率。 它也能夠藉由要求訊息收條，收到 IoT 中樞的通知，告知哪些裝置能夠收到訊息，而哪些裝置不在線上或故障。
+> 如果 IoT 解決方案僅使用連線狀態來判斷是否要傳送雲端到裝置訊息，而且訊息未廣播到大量的裝置組合，請考慮使用較簡單的「短暫的到期時間」模式。 此模式所達到的效果與使用活動訊號模式來維護裝置連線狀態登錄相同，但更有效率。 如果您要求訊息收條，IoT 中樞會通知您哪些裝置能夠收到訊息，哪些裝置不能收到。
 
 ## <a name="device-lifecycle-notifications"></a>裝置的生命週期通知
 
 IoT 中樞在裝置身分識別建立或刪除時，可透過傳送裝置的生命週期通知，以通知 IoT 解決方案。 若要這樣做，您的 IoT 解決方案必須建立路由，並將資料來源設為等於 *DeviceLifecycleEvents*。 根據預設，不會傳送任何生命週期通知，亦即沒有預先存在的這類路由。 通知訊息包含屬性和內文。
 
-- 屬性
-
-訊息系統屬性前面會加上 `'$'` 符號。
+屬性：訊息系統屬性前面會加上 `'$'` 符號。
 
 | 名稱 | 值 |
 | --- | --- |
@@ -117,16 +115,15 @@ $content-type | application/json |
 $iothub-enqueuedtime |  傳送通知的時間 |
 $iothub-message-source | deviceLifecycleEvents |
 $content-encoding | utf-8 |
-opType | createDeviceIdentity 或 deleteDeviceIdentity |
+opType | **createDeviceIdentity** 或 **deleteDeviceIdentity** |
 hubName | IoT 中樞名稱 |
-deviceId | 裝置的 ID |
+deviceId | 裝置的識別碼 |
 operationTimestamp | 作業的 ISO8601 時間戳記 |
 iothub-message-schema | deviceLifecycleNotification |
 
-- body
+主體：本節為 JSON 格式，它表示所建立裝置身分識別的對應項。 例如，
 
-本節為 JSON 格式，它表示所建立裝置身分識別的對應項。 例如，
-``` 
+```json
 {
     "deviceId":"11576-ailn-test-0-67333793211",
     "etag":"AAAAAAAAAAE=",
@@ -177,9 +174,9 @@ iothub-message-schema | deviceLifecycleNotification |
 IoT 中樞開發人員指南中的其他參考主題包括︰
 
 * [IoT 中樞端點][lnk-endpoints]說明每個 IoT 中樞公開給執行階段和管理作業的各種端點。
-* [節流和配額][lnk-quotas]說明適用於 IoT 中樞服務的配額，和使用服務時所預期的節流行為。
+* [節流和配額][lnk-quotas]描述適用於 IoT 中樞服務的配額和節流行為。
 * [Azure IoT 裝置和服務 SDK][lnk-sdks] 列出各種語言 SDK，可供您在開發與「IoT 中樞」互動的裝置和服務應用程式時使用。
-* [裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][lnk-query]說明可用於從 IoT 中樞擷取有關裝置對應項和作業資訊的 IoT 中樞查詢語言。
+* [IoT 中樞查詢語言][lnk-query]描述可用來從 IoT 中樞擷取有關裝置對應項和作業之資訊的查詢語言。
 * [IoT 中樞 MQTT 支援][lnk-devguide-mqtt]針對 MQTT 通訊協定提供 IoT 中樞支援的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟

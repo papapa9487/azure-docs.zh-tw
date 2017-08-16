@@ -16,15 +16,15 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: a883c3c6156e8e1f6d56c9be4c1e9c8a7990d16a
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 05dede26c870ccda35b1cb8c392ad4abeedde4ac
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-powershell"></a>使用 PowerShell 建立彈性集區並在集區之間移動資料庫以及將其移出集區
+# <a name="use-powershell-to-create-elastic-pools-and-move-databases-between-elastic-pools"></a>使用 PowerShell 建立彈性集區並在彈性集區之間移動資料庫
 
 此 PowerShell 指令碼範例會建立兩個彈性集區，並將資料庫從其中一個彈性集區移到另一個彈性集區，然後將資料庫從彈性集區移出到單一資料庫效能等級。 
 

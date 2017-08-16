@@ -16,15 +16,15 @@ ms.workload: NA
 ms.date: 07/05/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 5e07dd0412570eedf69609fb42ec329d3b0c1936
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 88ee5b5c4a57b67190f3da2ebc8aed0964b804d5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
-SQL Database 會自動建立一個資料庫備份，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 來提供異地備援。 這些備份是自動建立的，且不需額外付費。 您不需要執行任何動作來建立備份。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您想要在自己的儲存體容器中保留備份，您可以設定長期的備份保留原則。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 來提供異地備援。 這些備份是自動建立的，且不需額外付費。 您不需要執行任何動作來建立備份。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您想要在自己的儲存體容器中保留備份，您可以設定長期的備份保留原則。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 ## <a name="what-is-a-sql-database-backup"></a>什麼是 SQL Database 備份？
 

@@ -13,51 +13,45 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 178d7a53ec1f05d79a077a016ef869df2bb014b1
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 4b6fd87b057d93175d3ef284238d77be3bdde61d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-c"></a>利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)
 
-Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料。 事件中樞 Spout 可讓您輕鬆地使用 Apache Storm on HDInsight 來即時分析資料。 您也可以使用事件中樞 Bolt 將資料從 Storm 寫入事件中樞。
-
-在本教學課程中，您將了解如何使用隨 HDInsight Tools for Visual Studio 一起安裝的 Visual Studio 範本，以建立適用於事件中樞的兩個拓撲。
-
-* **EventHubWriter**：隨機產生資料，並將資料寫入事件中樞。
-* **EventHubReader**︰從事件中樞讀取資料，並將資料記錄到 Storm 記錄。
+了解如何從 Apache Storm on HDInsight 處理 Azure 事件中樞。 本文件使用 C# Storm 拓撲來從事件中樞讀取和寫入資料
 
 > [!NOTE]
 > 如需本專案的 Java 版本，請參閱[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md)。
 
 ## <a name="scpnet"></a>SCP.NET
 
-這些專案使用 SCP.NET，其為 NuGet 封裝，可方便您建立 C# 拓撲和元件來與 Storm on HDInsight 搭配使用。
+本文件中的步驟使用 SCP.NET，其為 NuGet 套件，可方便您建立 C# 拓撲和元件來與 Storm on HDInsight 搭配使用。
 
 > [!IMPORTANT]
 > 雖然本文件中的步驟依賴 Windows 開發環境與 Visual Studio，但已編譯的專案可以提交到使用 Linux 之 HDInsight 叢集上的 Storm。 只有在 2016 年 10 月 28 日之後所建立之以 Linux 為基礎的叢集可支援 SCP.NET 拓撲。
 
+HDInsight 3.4 和更高版本使用單聲道來執行 C# 拓撲。 本文件中使用的範例會使用 HDInsight 3.6。 如果您打算針對 HDInsight 來建立您自己的 .NET 解決方案，請參閱 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，以了解可能不相容之處。
+
 ### <a name="cluster-versioning"></a>叢集版本控制
 
-用於專案的 Microsoft.SCP.Net.SDK NuGet 套件必須符合安裝在 HDInsight 上的 Storm 主要版本。 HDInsight 3.3 版及 3.4 版上的 Storm 使用 Storm 0.10.x 版，因此您必須搭配使用 SCP.NET 0.10.x.x 版與這些叢集。 HDInsight 3.5 版及 3.6 版使用 Storm 1.x 版，因此您必須搭配使用 SCP.NET 1.0.x.x 版與這些叢集。
+用於專案的 Microsoft.SCP.Net.SDK NuGet 套件必須符合安裝在 HDInsight 上的 Storm 主要版本。 HDInsight 3.5 版及 3.6 版使用 Storm 1.x 版，因此您必須搭配使用 SCP.NET 1.0.x.x 版與這些叢集。
 
 > [!IMPORTANT]
+> 本文件中的範例預期使用 HDInsight 3.5 或 3.6 叢集。
+>
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
-HDInsight 3.4 和更高版本使用單聲道來執行 C# 拓撲。 請查看 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/)文件，以了解是否可能有不相容之處。
 
 C# 拓撲也必須以 .NET 4.5 為目標。
 
 ## <a name="how-to-work-with-event-hubs"></a>如何使用事件中樞
 
-Microsoft 提供一組可用來從 Storm 拓撲與事件中樞通訊的 Java 元件。 您可以在 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/) 上找到包含這些元件的 HDInsight 3.3 和 3.4 相容版本的 Java 封存檔案 (JAR)。
-
-適用於 HDInsight 3.5 或更新版本的元件也位於 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib) 上。
+Microsoft 提供一組可用來從 Storm 拓撲與事件中樞通訊的 Java 元件。 您可以在 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 找到內含這些元件之 HDInsight 3.6 相容版本的 Java 封存檔 (JAR) 檔案。
 
 > [!IMPORTANT]
 > 雖然元件是以 Java 所撰寫，您可以輕鬆地從 C# 拓撲使用它們。
@@ -68,99 +62,47 @@ Microsoft 提供一組可用來從 Storm 拓撲與事件中樞通訊的 Java 元
 * __EventHubBolt__：將資料寫入事件中樞。
 * __EventHubSpoutConfig__：用來設定 EventHubSpout。
 * __EventHubBoltConfig__：用來設定 EventHubBolt。
-* __UnicodeEventDataScheme__：用來設定從事件中樞讀取時使用 UTF-8 編碼的 Spout。 預設的編碼方式為字串。
 
 ### <a name="example-spout-usage"></a>範例 Spout 使用方式
 
 SCP.NET 會提供將 EventHubSpout 新增至您拓撲的方法。 這些方法比使用泛型方法新增 Java 元件更容易新增 Spout。 下列範例示範如何使用 SCP.NET 所提供的 __SetEventHubSpout__ 和 **EventHubSpoutConfig** 方法建立 Spout：
 
 ```csharp
-topologyBuilder.SetEventHubSpout(
+ topologyBuilder.SetEventHubSpout(
     "EventHubSpout",
     new EventHubSpoutConfig(
-        // the shared access signature name and key used to read the data
         ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"],
         ConfigurationManager.AppSettings["EventHubSharedAccessKey"],
-        // The namespace that contains the event hub to read from
         ConfigurationManager.AppSettings["EventHubNamespace"],
-        // The event hub name to read from
         ConfigurationManager.AppSettings["EventHubEntityPath"],
-        // The number of partitions in the event hub
         eventHubPartitions),
-    // Parallelism hint for this component. Should be set to the partition count.
     eventHubPartitions);
 ```
 
 前一個範例會建立名為 __EventHubSpout__ 的新 Spout 元件，並設定它與事件中樞通訊。 元件的平行處理原則提示設定為事件中樞的資料分割數目。 此設定可讓 Storm 針對每個資料分割建立元件執行個體。
-
-> [!IMPORTANT]
-> 自 2017 年 1 月 1 日起，從事件中樞讀取資料時，使用 **SetEventHubSpout** 和 **EventHubSpoutConfig** 方法建立使用字串編碼的 Spout。
-
-建立 Spout 時，您也可以使用泛型 **JavaComponentConstructor** 方法。 下列範例示範如何使用 **JavaComponentConstructor** 方法建立 Spout。 它也會示範如何將 Spout 設定為讀取使用 UTF-8 編碼而非字串的資料。
-
-```csharp
-// Create an instance of UnicodeEventDataScheme
-var schemeConstructor = new JavaComponentConstructor("com.microsoft.eventhubs.spout.UnicodeEventDataScheme");
-// Create an instance of EventHubSpoutConfig
-var eventHubSpoutConfig = new JavaComponentConstructor(
-    "com.microsoft.eventhubs.spout.EventHubSpoutConfig",
-    new List<Tuple<string, object>>()
-    {
-        // the shared access signature name and key used to read the data
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKeyName"]),
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubSharedAccessKey"]),
-        // The namespace that contains the event hub to read from
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubNamespace"]),
-        // The event hub name to read from
-        Tuple.Create<string, object>(JavaComponentConstructor.JAVA_LANG_STRING, ConfigurationManager.AppSettings["EventHubEntityPath"]),
-        // The number of partitions in the event hub
-        Tuple.Create<string, object>("int", eventHubPartitions),
-        // The encoding scheme to use when reading
-        Tuple.Create<string, object>("com.microsoft.eventhubs.spout.IEventDataScheme", schemeConstructor)
-    }
-    );
-// Create an instance of the spout
-var eventHubSpout = new JavaComponentConstructor(
-    "com.microsoft.eventhubs.spout.EventHubSpout",
-    new List<Tuple<string, object>>()
-    {
-        Tuple.Create<string, object>("com.microsoft.eventhubs.spout.EventHubSpoutConfig", eventHubSpoutConfig)
-    }
-    );
-// Set the spout in the topology
-topologyBuilder.SetJavaSpout("EventHubSpout", eventHubSpout, eventHubPartitions);
-```
-
-> [!IMPORTANT]
-> **UnicodeEventDataScheme** 僅適用於 9.5 版的事件中樞元件，其可從 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/) 取得。
 
 ### <a name="example-bolt-usage"></a>範例 Bolt 使用方式
 
 使用 **JavaComponmentConstructor** 方法來建立 Bolt 的執行個體。 下列範例示範如何建立及設定 **EventHubBolt** 的新執行個體：
 
 ```csharp
-//Create constructor for the Java bolt
-JavaComponentConstructor constructor =
-    // Use a Clojure expression to create the EventHubBoltCOnfig
-    JavaComponentConstructor.CreateFromClojureExpr(
-        String.Format(@"(org.apache.storm.eventhubs.bolt.EventHubBolt. (org.apache.storm.eventhubs.bolt.EventHubBoltConfig. " +
+// Java construcvtor for the Event Hub Bolt
+JavaComponentConstructor constructor = JavaComponentConstructor.CreateFromClojureExpr(
+    String.Format(@"(org.apache.storm.eventhubs.bolt.EventHubBolt. (org.apache.storm.eventhubs.bolt.EventHubBoltConfig. " +
         @"""{0}"" ""{1}"" ""{2}"" ""{3}"" ""{4}"" {5}))",
-    // The policy name and key used to read from Event Hubs
-    ConfigurationManager.AppSettings["EventHubPolicyName"],
-    ConfigurationManager.AppSettings["EventHubPolicyKey"],
-    // The namespace that contains the event hub
-    ConfigurationManager.AppSettings["EventHubNamespace"],
-    "servicebus.windows.net", //suffix for the namespace fqdn
-    // The Evetn Hub Name)
-    ConfigurationManager.AppSettings["EventHubName"],
-    "true"));
+        ConfigurationManager.AppSettings["EventHubPolicyName"],
+        ConfigurationManager.AppSettings["EventHubPolicyKey"],
+        ConfigurationManager.AppSettings["EventHubNamespace"],
+        "servicebus.windows.net",
+        ConfigurationManager.AppSettings["EventHubName"],
+        "true"));
 
-//Set the bolt
+// Set the bolt to subscribe to data from the spout
 topologyBuilder.SetJavaBolt(
-        "EventHubBolt",
-        constructor,
-        partitionCount). //Parallelism hint uses partition count
-    shuffleGrouping("Spout"); //Consume data from spout
+    "eventhubbolt",
+    constructor,
+    partitionCount)
+        .shuffleGrouping("Spout");
 ```
 
 > [!NOTE]
@@ -172,10 +114,10 @@ topologyBuilder.SetJavaBolt(
 
 ### <a name="prerequisites"></a>必要條件
 
-* [Apache Storm on HDInsight 叢集 3.5 版](hdinsight-apache-storm-tutorial-get-started.md)。
+* [Apache Storm on HDInsight 叢集 3.5 或 3.6 版](hdinsight-apache-storm-tutorial-get-started.md)。
 
     > [!WARNING]
-    > 此文件中所使用的範例需要 Storm on HDInsight version 3.5 版。 由於重大類別名稱變更，這不適用舊版的 HDInsight。 如需這個範例適用於較舊叢集的版本，請參閱 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)。
+    > 此文件中所使用的範例需要 Storm on HDInsight version 3.5 或 3.6 版。 由於重大類別名稱變更，這不適用舊版的 HDInsight。 如需這個範例適用於較舊叢集的版本，請參閱 [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases)。
 
 * [Azure 事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)。
 
@@ -183,18 +125,14 @@ topologyBuilder.SetJavaBolt(
 
 * [HDInsight Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
-* 開發環境有 Java JDK 1.7 或更新版本。 JDK 下載檔可從 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 取得。
+* 開發環境有 Java JDK 1.8 或更新版本。 JDK 下載檔可從 [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 取得。
 
   * **JAVA_HOME** 環境變數必須指向包含 Java 的目錄。
   * **%JAVA_HOME%/bin** 目錄必須在此路徑中。
 
 ## <a name="download-the-event-hubs-components"></a>下載事件中樞元件
 
-Spout 和 Bolt 會以名為 **eventhubs-storm-spout-#.#-jar-with-dependencies.jar** 的單一 JAR 檔案形式散發，其中 #.# 是檔案的版本。
-
-若要搭配 HDInsight 3.3 或 3.4 使用此解決方案，請使用 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/lib/eventhubs/) 中的 0.9.5 版 JAR 檔案。
-
-對於 HDInsight 3.5 或 3.6 則使用 [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib) 中的這個 JAR 檔案。
+從 [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar) 下載事件中樞 Spout 和 Bolt 元件。
 
 請建立名為 `eventhubspout` 的目錄，並將檔案儲存到該目錄。
 

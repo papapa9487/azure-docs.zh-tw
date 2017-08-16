@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/3/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: e562e6a1a6c2b8203f3d5a9a2ee5680372499693
+ms.author: sewhee
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET 追蹤記錄
@@ -197,7 +196,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 有時候可能需要一段時間，所有事件和要求才會通過管線。
 
 ### <a name="limits"></a>保留多少資料？
-每個應用程式每秒最多 500 個事件。 事件會保留七天。
+有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制][](app-insights-api-custom-events-metrics.md#limits) 區段。 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>我沒看到一些預期的記錄項目
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。 [深入了解取樣。](app-insights-sampling.md)

@@ -14,13 +14,13 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/04/2017
 ms.author: sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 658c316d8d9d14ce11dbb92188afbf0e68c00493
+ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
+ms.openlocfilehash: c019ea9207379ea1b88ec5d990e1c2b8565092a2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="provision-new-tenants-and-register-them-in-the-catalog"></a>佈建新的租用戶並在目錄中註冊它們
@@ -82,7 +82,7 @@ ms.lasthandoff: 07/28/2017
 
 此練習會佈建一批額外的租用戶。 建議您在完成其他 Wingtip SaaS 教學課程之前佈建一批租用戶，才會有多個資料庫可以使用。
 
-1. 在 [PowerShell ISE] 中開啟 \\Learning Modules\\Utilities\\*Demo-ProvisionAndCatalog.ps1*，並將 *$DemoScenario* 參數變更為 3：
+1. 在 [PowerShell ISE] 中開啟 ...\\Learning Modules\\ProvisionAndCatalog\\*Demo-ProvisionAndCatalog.ps1*，並將 *$DemoScenario* 參數變更為 3：
    * **$DemoScenario** = **3**，變更為 **3** 以「佈建一批租用戶」。
 1. 按 **F5** 並執行指令碼。
 
@@ -95,24 +95,31 @@ ms.lasthandoff: 07/28/2017
    ![資料庫清單](media/sql-database-saas-tutorial-provision-and-catalog/database-list.png)
 
 
-## <a name="provision-and-catalog-details"></a>佈建及目錄詳細資料
+## <a name="stepping-through-the-provision-and-catalog-implementation-details"></a>逐步說明佈建和目錄實作詳細資訊
 
 若要深入了解 Wingtip 應用程式實作新租用戶佈建的方式，請再次執行 *Demo-ProvisionAndCatalog* 指令碼並佈建另一個租用戶。 這次，新增中斷點並逐步執行工作流程：
 
-1. 開啟 ...\\Learning Modules\Utilities\_Demo-ProvisionAndCatalog.ps1_ 並設定下列參數：
+1. 開啟 ...\\Learning Modules\\ProvisionAndCatalog\\_Demo-ProvisionAndCatalog.ps1_ 並設定下列參數：
    * **$TenantName** = 租用戶名稱必須是唯一的，因此請設定為和任何現有租用戶不同的名稱 (例如，*Hackberry Hitters*)。
    * **$VenueType** = 使用其中一個預先定義的場地類型 (例如，*judo*)。
    * **$DemoScenario** = **1**，設定為 **1** 以「佈建單一租用戶」。
 
-1. 將您的游標置於以下行的任意位置來新增中斷點：*New-Tenant `*，然後按 **F9**。
+1. 將游標置於以第 48 行 (該行顯示︰*New-Tenant `*) 上的任意位置來新增中斷點，然後按 **F9**。
 
    ![中斷點](media/sql-database-saas-tutorial-provision-and-catalog/breakpoint.png)
 
-1. 若要執行指令碼，請按 **F5**。 當到達中斷點時，按 **F11** 來逐步執行。 使用 [偵錯] 功能表選項追蹤指令碼的執行 - **F10** 和 **F11** 可以跳過或進入呼叫的函式。 如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
+1. 若要執行指令碼，請按 **F5**。
 
-### <a name="examine-the-provision-and-catalog-implementation-in-detail-by-stepping-through-the-script"></a>逐步執行指令碼以詳細檢查佈建及編目實作
+1. 在指令碼於中斷點停止執行之後，請按 **F11** 進入程式碼。
 
-指令碼會透過執行下列步驟來佈建及編目新租用戶：
+   ![中斷點](media/sql-database-saas-tutorial-provision-and-catalog/debug.png)
+
+
+
+使用 [偵錯] 功能表選項追蹤指令碼的執行 - **F10** 和 **F11** 可以跳過或進入呼叫的函式。 如需對 PowerShell 指令碼進行偵錯的詳細資訊，請參閱[使用 PowerShell 指令碼及對其進行偵錯的祕訣](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise) \(英文\)。
+
+
+以下並非要明確遵循的步驟，而是您在進行指令碼偵錯時逐步執行之工作流程的說明：
 
 1. 將包含用於登入之函式的 **SubscriptionManagement.psm1** 模組匯入到 Azure，並選取您正在使用的 Azure 訂用帳戶。
 1. 匯入對[分區管理](sql-database-elastic-scale-shard-map-management.md)函式提供類別目錄和租用戶層級抽象概念的 **CatalogAndDatabaseManagement.psm1** 模組。 此模組很重要且值得探討，其中包含大部分的編目模式。

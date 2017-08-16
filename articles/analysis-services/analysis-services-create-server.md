@@ -15,22 +15,21 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/14/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 458459e9bed5ebee6188b5f282e66df1e2a988a8
+ms.translationtype: HT
+ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
+ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>在 Azure 入口網站中建立 Azure Analysis Services 伺服器
 本文將逐步引導您在 Azure 訂用帳戶中建立 Analysis Services 伺服器資源。
 
 ## <a name="before-you-begin"></a>開始之前
-若要開始，您需要：
+若要完成本快速入門，您需要：
 
 * **Azure 訂用帳戶**︰瀏覽 [Azure 免費試用](https://azure.microsoft.com/offers/ms-azr-0044p/)建立帳戶。
-* **Azure Active Directory**：您的訂用帳戶必須與 Azure Active Directory 租用戶相關聯。 而且，您必須使用該 Azure Active Directory 中的帳戶來登入 Azure。 不支援 Microsoft 帳戶。 若要深入了解，請參閱[使用者驗證](analysis-services-overview.md#secure)。
+* **Azure Active Directory**：您的訂用帳戶必須與 Azure Active Directory 租用戶相關聯。 而且，您必須使用該 Azure Active Directory 中的帳戶來登入 Azure。 不支援 Microsoft 帳戶。 若要深入了解，請參閱[驗證和使用者權限](analysis-services-manage-users.md)。
 * **資源群組**：使用現有資源群組，或[建立新的群組](../azure-resource-manager/resource-group-overview.md)。
 
 > [!NOTE]

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/12/2017
+ms.date: 08/08/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 28eb505bf58943f7a687b79af3427a0ee74fe9bb
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK︰版本資訊與資源
@@ -57,6 +57,14 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](documen
 
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK 與「通用 Windows 平台」(UWP) 應用程式尚未相容。 如果您有興趣了解可支援 UWP 應用程式的 .NET Core SDK，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
+
+### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
+
+*   修正 JsonSerializable 類別中可能會造成堆疊溢位例外狀況的問題。
+
+### <a name="a-name140140"></a><a name="1.4.0"/>1.4.0
+
+*   已新增對 [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet) 執行個體具現化時指定自訂 JsonSerializerSettings 的支援。
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 
@@ -125,6 +133,8 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.4.1](#1.4.1) |2017 年 8 月 7 日 |--- |
+| [1.4.0](#1.4.0) |2017 年 8 月 2 日 |--- |
 | [1.3.2](#1.3.2) |2017 年 6 月 12 日 |--- |
 | [1.3.1](#1.3.1) |2017 年 5 月 23 日 |--- |
 | [1.3.0](#1.3.0) |2017 年 5 月 10 日 |--- |

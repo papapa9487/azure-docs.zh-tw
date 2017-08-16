@@ -14,17 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 39ae134d8927f5123667b64bbd0c659cd5f62ffc
+ms.translationtype: HT
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: a2743ef34bde0faabb3afd2ace27acddd59d3d70
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/09/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
 
-Azure 消費限制是對您 Azure 訂用帳戶消費額度的限制。 所有新客戶只要註冊試用方案或包含多月點數的方案，預設都會啟用消費限制。 消費限制是 $0。 此限制無法變更。 隨用隨付訂用帳戶和承諾方案之類的訂用帳戶類型無法使用消費限制。 請參閱[完整的 Azure 優惠及消費限制可用性清單](https://azure.microsoft.com/support/legal/offer-details/)。
+Azure 消費限制是對您 Azure 訂用帳戶消費額度的限制。 所有新客戶只要註冊試用方案或包含多月點數的方案，預設都會開啟消費限制。 消費限制是 $0。 此限制無法變更。 隨用隨付訂用帳戶和承諾方案之類的訂用帳戶類型無法使用消費限制。 請參閱[完整的 Azure 優惠及消費限制可用性清單](https://azure.microsoft.com/support/legal/offer-details/)。
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>達到消費限制時會發生什麼情況？
 
@@ -71,3 +70,4 @@ Azure 消費限制是對您 Azure 訂用帳戶消費額度的限制。 所有新
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+

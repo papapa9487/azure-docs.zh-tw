@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/15/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 88a356e61c32f529d511aa1c9c68bdfa47acadb5
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: b9bc70ec9e271a8e0b34ed415e27cd350390b21d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 
@@ -41,6 +41,10 @@ Azure 受控磁碟會管理 VM 磁碟相關的[儲存體帳戶](storage-introduc
 ### <a name="better-reliability-for-availability-sets"></a>可用性設定組有更高的可靠性
 
 受控磁碟可確保[可用性設定組中的 VM](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 磁碟彼此充分隔離，以避免單一失敗點，為可用性設定組提供更高的可靠性。 它的作法是自動以不同的儲存體縮放單位 (戳記) 來放置磁碟。 如果因為硬體或軟體失敗造成戳記失敗，則只有磁碟在這些戳記上的 VM 執行個體才會失敗。 例如，假設您的應用程式在五個 VM 上執行，且這些 VM 位於可用性設定組中。 這些磁碟的 VM 不會全部以相同的戳記儲存，因此，如果有一個戳記失效，應用程式的其他執行個體會繼續執行。
+
+### <a name="highly-durable-and-available"></a>高耐久性及可用性
+
+Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本，因此有高持久性，這可讓您更安心。 如果一個或甚至兩個複本遇到問題，其餘複本有助於確保資料的持續性，以及遇到失敗時的高容錯力。 此結構讓 Azure 針對 IaaS 磁碟穩定地展現企業級持久性，提供領先界業的年度零失敗率。 
 
 ### <a name="granular-access-control"></a>細微的存取控制
 

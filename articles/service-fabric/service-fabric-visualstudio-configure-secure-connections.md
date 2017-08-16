@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/08/2015
+ms.date: 8/04/2017
 ms.author: cawa
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 3a7f5a4afa8b00801f58776e2cf9d7bff9748925
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: dc07b2f38d6fd2de941ebbe99303f6e63cbf122d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>從 Visual Studio 設定對 Service Fabric 叢集的安全連線
@@ -30,13 +30,13 @@ Azure Service Fabric 叢集支援兩種連線：「非安全」連線和「x509 
 Visual Studio Service Fabric 工具支援所有用於連線到叢集來進行發佈的驗證類型。 如需有關如何設定安全 Service Fabric 叢集的說明，請參閱 [從 Azure 入口網站設定 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md) 。
 
 ## <a name="configure-cluster-connections-in-publish-profiles"></a>在發行設定檔中設定叢集連接
-如果您從 Visual Studio 發佈 Service Fabric 專案，使用 [發佈 Service Fabric 應用程式] 對話方塊可讓您按一下 [連接端點] 區段中的 [選取] 按鈕來選擇 Azure Service Fabric 叢集。 您可以登入您的 Azure 帳戶，然後選取您訂用帳戶底下現有的叢集。
+如果您從 Visual Studio 發佈 Service Fabric 專案，使用 [發佈 Service Fabric 應用程式] 對話方塊來選擇 Azure Service Fabric 叢集。 在 [連線端點] 之下，選取您訂用帳戶下的現有叢集。
 
 ![[發佈 Service Fabric 應用程式] 對話方塊用來設定 Service Fabric 連線。][publishdialog]
 
-[選取 Service Fabric 叢集]  對話方塊會自動驗證叢集連線。 如果通過驗證，即表示您的系統已安裝正確的憑證，可安全地連線到叢集，否則即表示您的叢集不安全。 驗證失敗的原因可能是網路問題，或是您的系統尚未正確設定以連線到安全的叢集。
+[發佈 Service Fabric 應用程式] 對話方塊會自動驗證叢集連線。 如果出現提示，登入您的 Azure 帳戶。 如果通過驗證，即表示您的系統已安裝正確的憑證，可安全地連線到叢集，否則即表示您的叢集不安全。 驗證失敗的原因可能是網路問題，或是您的系統尚未正確設定以連線到安全的叢集。
 
-![在 [選取 Service Fabric 叢集] 對話方塊中，您可以設定現有的 Service Fabric 叢集連線，或建立並設定新的叢集連線。][selectsfcluster]
+![[發佈 Service Fabric 應用程式] 對話方塊會驗證設定正確的現有 Service Fabric 叢集連線。][selectsfcluster]
 
 ### <a name="to-connect-to-a-secure-cluster"></a>連線到安全的叢集
 1. 請確定您可以存取目的地叢集所信任的其中一個用戶端憑證。 憑證通常是以「個人資訊交換」(.pfx) 檔案的形式共用。 如需了解如何設定伺服器以授與用戶端存取權，請參閱 [從 Azure 入口網站設定 Service Fabric 叢集](service-fabric-cluster-creation-via-portal.md) 。

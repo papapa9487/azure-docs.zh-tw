@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: bd7694374034faa5ef1df84397580d80e3f40e43
+ms.translationtype: HT
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 1bbb16afef7940933b4c3ae23873f212770137e0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 
@@ -241,6 +241,39 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 4. 對於未連線到網路的用戶端電腦，除非該電腦連線到網路，否則 [代理程式狀態] 資料行會顯示 [更新擱置中] 的狀態。
 
   在用戶端電腦連線到網路之後，用戶端電腦的 [代理程式更新] 資料行會顯示 [更新中] 狀態。
+  
+### <a name="move-legacy-protection-groups-from-old-version-and-sync-the-new-version-with-azure"></a>將舊版保護群組從舊版本中移出，並透過 Azure 同步處理新版本
+
+一旦更新 Azure 備份伺服器與 OS，您就可以使用新式備份儲存體來保護新的資料來源。 不過，已受保護的資料來源會繼續在舊版中受到保護 (如同在 Azure 備份伺服器中一樣)，但所有新的保護將使用新式備份儲存體。
+
+下列步驟會將資料來源從傳統的保護模式移轉到新式備份儲存體。
+
+• 將新磁碟區新增到 DPM 儲存集區，並視需要指派易記的名稱和資料來源標籤。
+• 對於傳統模式下的每個資料來源，停止資料來源保護並「保留受保護的資料」。  這允許在移轉之後復原舊的復原點。
+
+• 建立新的 PG，然後選取要使用新格式儲存的資料來源。
+• DPM 將在本機執行從舊版備份儲存體到新式備份儲存體磁碟區的複本複製。
+注意：這會被視為復原後作業 • 所有新的同步處理和復原點則會儲存在新式備份儲存體中。
+• 舊的復原點將在過期時剪除，最終會釋出磁碟空間。
+• 從舊儲存體中刪除所有舊式磁碟區後，就可以從 Azure 備份和系統中移除磁碟。
+• 進行 Azure DPMDB 的備份。
+
+第 2 部分︰重要事項 -> 新伺服器的名稱必須與原始 Azure 備份伺服器相同。 如果您想要使用舊的儲存集區和 DPMDB 來保留復原點，則無法變更新 Azure 備份伺服器的名稱 - 必須具有 DPMDB 備份，因為必須將它還原
+
+1) 關閉原始 Azure 備份伺服器，或讓它離線。
+2) 在 Active Directory 中重設電腦帳戶。
+3) 在新機器上安裝 Server 2016 並將它命名為與原始 Azure 備份伺服器相同的電腦名稱。
+4) 加入網域
+5) 安裝 Azure 備份伺服器 V2 (從舊伺服器中移出 DPM 儲存集區並匯入)
+6) 還原取自第 2 部分結尾的 DPMDB
+7) 將原始備份伺服器的儲存體連結到新伺服器。
+8) 從 SQL 還原 DPMDB
+9) 從新伺服器上的系統管理員命令列，切換至 Microsoft Azure 備份安裝位置和 bin 資料夾
+
+路徑範例：C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+至 Azure 備份 執行 DPMSYNC -SYNC
+
+10) 執行 DPMSYNC -SYNC 注意 如果您已將「新」磁碟新增至 DPM 儲存集區，而非移動就磁碟，則執行 DPMSYNC -Reallocatereplica
 
 ## <a name="new-powershell-cmdlets-in-v2"></a>v2 中的新 PowerShell Cmdlet
 

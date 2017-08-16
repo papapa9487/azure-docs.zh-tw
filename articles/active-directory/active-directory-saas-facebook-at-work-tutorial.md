@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/04/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b752e69629469e7274ed3111ba05fd912af0e571
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: 4889303f07fadef287f0c375923fa8118e276780
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/04/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
@@ -45,7 +46,7 @@ ms.lasthandoff: 07/14/2017
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用優惠](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
@@ -60,23 +61,19 @@ ms.lasthandoff: 07/14/2017
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![Active Directory][1]
+    ![Azure Active Directory 按鈕][1]
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![應用程式][2]
+    ![企業應用程式刀鋒視窗][2]
     
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![應用程式][3]
+    ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **Workplace by Facebook**。
+4. 在搜尋方塊中，輸入 **Workplace by Facebook**，從結果面板中選取 [Workplace by Facebook]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_search.png)
-
-5. 在結果面板中，選取 [Workplace by Facebook]，然後按一下 [新增] 按鈕以新增該應用程式。
-
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_addfromgallery.png)
+    ![結果清單中的 Workplace by Facebook](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_search.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>設定並測試 Azure AD 單一登入
 在本節中，您會以名為 "Britta Simon" 的測試使用者為基礎，設定及測試與 Workplace by Facebook 搭配運作的 Azure AD 單一登入。
@@ -102,34 +99,34 @@ ms.lasthandoff: 07/14/2017
 
 1. 在 Azure 入口網站的 [Workplace by Facebook] 應用程式整合頁面上，按一下 [單一登入]。
 
-    ![設定單一登入][4]
+    ![設定單一登入連結][4]
 
 2. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
  
-    ![設定單一登入](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_samlbase.png)
+    ![單一登入對話方塊](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_samlbase.png)
 
 3. 在 [Workplace by Facebook 網域與 URL] 區段上，執行下列步驟：
 
-    ![設定單一登入](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_url.png)
+    ![網域與 URL 單一登入資訊](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<instancename>.facebook.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<scim company id>.facebook.com`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<instancename>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.facebook.com/company/<scim company id>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Workplace by Facebook 用戶端支援小組](https://workplace.fb.com/faq/)以取得這些值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
-    ![設定單一登入](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_certificate.png) 
+    ![憑證下載連結](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_certificate.png) 
 
 5. 按一下 [儲存]  按鈕。
 
-    ![設定單一登入](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_400.png)
+    ![設定單一登入儲存按鈕](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_400.png)
 
 6. 在 [Workplace by Facebook 設定] 區段中，按一下 [設定 Workplace by Facebook] 可開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
 
-    ![設定單一登入](./media/active-directory-saas-facebook-at-work-tutorial/config.png) 
+    ![Workplace by Facebook 設定](./media/active-directory-saas-facebook-at-work-tutorial/config.png) 
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Workplace by Facebook 公司網站。
   
@@ -184,19 +181,19 @@ ms.lasthandoff: 07/14/2017
 
 1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
+    ![Azure Active Directory 按鈕](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_01.png) 
 
 2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
     
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_02.png) 
+    ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_02.png) 
 
 3. 若要開啟 [使用者] 對話方塊，按一下對話方塊頂端的 [新增]。
  
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
+    ![[新增] 按鈕](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_03.png) 
 
 4. 在 [使用者]  對話頁面上，執行下列步驟：
  
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
+    ![[使用者] 對話方塊](./media/active-directory-saas-facebook-at-work-tutorial/create_aaduser_04.png) 
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
@@ -229,15 +226,15 @@ ms.lasthandoff: 07/14/2017
 
 2. 在應用程式清單中，選取 [Workplace by Facebook]。
 
-    ![設定單一登入](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_app.png) 
+    ![應用程式清單中的 Workplace by Facebook 連結](./media/active-directory-saas-facebook-at-work-tutorial/tutorial_workplacebyfacebook_app.png) 
 
 3. 在左側功能表中，按一下 [使用者和群組]。
 
-    ![指派使用者][202] 
+    ![[使用者和群組] 連結][202] 
 
 4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
-    ![指派使用者][203]
+    ![[新增指派] 窗格][203]
 
 5. 在 [使用者和群組] 對話方塊上，選取 [使用者] 清單中的 [Britta Simon]。
 

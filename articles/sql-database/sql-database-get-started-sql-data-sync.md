@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: af4d41f8fa04902c766cd85d7e90f61dff8133e7
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>開始使用 Azure SQL 資料同步 (預覽)
@@ -29,8 +29,12 @@ ms.lasthandoff: 06/30/2017
 
 如需 SQL 資料同步處理的概觀，請參閱[同步資料](sql-database-sync-data.md)。
 
+如需示範如何設定 SQL 資料同步的完整 PowerShell 範例，請參閱下列文章：
+-   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+-   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
+
 > [!NOTE]
-> Azure SQL 資料同步的完整技術文件集 (先前位於 MSDN 上) 現已透過 .pdf 檔案格式提供使用。 在 [這裡](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)下載。
+> Azure SQL 資料同步的完整技術文件集 (先前位於 MSDN 上) 現已透過 .PDF 文件提供使用。 在 [這裡](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)下載。
 
 ## <a name="step-1---create-sync-group"></a>步驟 1 - 建立同步群組
 

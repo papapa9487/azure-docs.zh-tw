@@ -12,22 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/04/2017
+ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: f09813af5f758b49e819f36664ffe22ca22b16ec
+ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
+ms.openlocfilehash: 75a6b9bc3ecfe6d6901bb38e312d62333f38daf1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/09/2017
 
 ---
-# <a name="file-uploads-with-iot-hub"></a>使用 IoT 中樞上傳檔案
+# <a name="upload-files-with-iot-hub"></a>透過 IoT 中樞上傳檔案
 
-## <a name="overview"></a>概觀
+如 [IoT 中樞端點][lnk-endpoints]一文所詳述，裝置可以藉由透過面向裝置的端點 (**/devices/{deviceId}/files**) 傳送通知，來起始檔案上傳。 當裝置向 IoT 中樞告知上傳作業完成時，IoT 中樞會透過 **/messages/servicebound/filenotifications** 面向服務的端點傳送檔案上傳通知訊息。
 
-如 [IoT 中樞端點][lnk-endpoints]一文所詳述，裝置可以藉由透過面向裝置的端點 (**/devices/{deviceId}/files**) 傳送通知，來起始檔案上傳。  當裝置通知 IoT 中樞已完成上傳時，IoT 中樞會產生檔案上傳通知，您可以透過面向服務的端點 (**/messages/servicebound/filenotifications**) 利用訊息收到。
-
-不是透過 IoT 中樞本身的代理訊息，IoT 中樞會做為相關聯 Azure 儲存體帳戶的發送器。 裝置會向 IoT 中樞要求儲存體權杖，這是裝置想要上傳的檔案的特定權杖。 裝置會使用 SAS URI，將檔案上傳至儲存體，上傳完成時，裝置會將完成的通知傳送到 IoT 中樞。 IoT 中樞會確認檔案已上傳，然後將檔案上傳通知新增至新服務面向檔案通知訊息端點。
+不是透過 IoT 中樞本身的代理訊息，IoT 中樞會做為相關聯 Azure 儲存體帳戶的發送器。 裝置會向 IoT 中樞要求儲存體權杖，這是裝置想要上傳的檔案的特定權杖。 裝置會使用 SAS URI，將檔案上傳至儲存體，上傳完成時，裝置會將完成的通知傳送到 IoT 中樞。 IoT 中樞會在確認檔案上傳已完成後，再將檔案上傳通知訊息新增至服務面向檔案通知端點。
 
 將檔案從裝置上傳到 IoT 中樞之前，您必須先對中樞[關聯 Azure 儲存體][lnk-associate-storage]帳戶以設定中樞。
 
@@ -48,7 +46,7 @@ ms.lasthandoff: 07/14/2017
 
 
 ## <a name="initialize-a-file-upload"></a>初始化檔案上傳
-IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的端點。 裝置會起始檔案上傳程序，方法是將具有下列 JSON 主體的 POST 傳送至 IoT 中樞的 `{iot hub}.azure-devices.net/devices/{deviceId}/files`：
+IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的端點。 為了起始檔案上傳程序，裝置會將含有下列 JSON 主體的 POST 要求傳送到 `{iot hub}.azure-devices.net/devices/{deviceId}/files`：
 
 ```json
 {
@@ -71,13 +69,16 @@ IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的�
 ### <a name="deprecated-initialize-a-file-upload-with-a-get"></a>已被取代︰使用 GET 初始化檔案上傳
 
 > [!NOTE]
-> 本節說明如何從 IoT 中樞接收 SAS URI 的功能，但此功能已被取代。 您應該使用先前所述的 POST 方法。
+> 本節說明如何從 IoT 中樞接收 SAS URI 的功能，但此功能已被取代。 請使用先前所述的 POST 方法。
 
-IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲存體的 SAS URI，另一個用來通知 IoT 中樞已完成上傳。 裝置會起始檔案上傳程序，方法是將 GET 傳送至 IoT 中樞的 `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`。 IoT 中樞會傳回要上傳之檔案的特定 SAS URI，以及上傳完成後要使用的相互關聯識別碼。
+IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲存體的 SAS URI，另一個用來通知 IoT 中樞已完成上傳。 裝置會起始檔案上傳程序，方法是將 GET 傳送至 IoT 中樞的 `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`。 IoT 中樞會傳回：
+
+* 要上傳之檔案專屬的 SAS URI。
+* 要在上傳完成後使用的相互關聯識別碼。
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>通知 IoT 中樞已完成檔案上傳
 
-裝置會負責使用 Azure 儲存體 SDK 將檔案上傳至儲存體。 上傳完成後，裝置會將具有下列 JSON 主體的 POST 傳送至 IoT 中樞的 `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications`︰
+裝置會負責使用 Azure 儲存體 SDK 將檔案上傳至儲存體。 上傳完成時，裝置會將具有下列 JSON 主體的 POST 要求傳送至 `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications`︰
 
 ```json
 {
@@ -96,7 +97,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 ## <a name="file-upload-notifications"></a>檔案上傳通知
 
-當裝置上傳檔案並通知 IoT 中樞上傳完成時，服務會選擇性地產生通知訊息，其中包含檔案的名稱和儲存體位置。
+(選擇性) 當裝置向 IoT 中樞告知上傳已完成時，IoT 中樞會產生通知訊息，其中包含檔案的名稱和儲存位置。
 
 如[端點][lnk-endpoints]中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/fileuploadnotifications**) 利用訊息來傳遞檔案上傳通知。 檔案上傳通知的接收語意與雲端到裝置訊息的接收語意相同，並且具有相同的[訊息生命週期][lnk-lifecycle]。 從檔案上傳通知端點擷取的每則訊息是具有下列屬性的 JSON 記錄：
 
@@ -138,9 +139,9 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 IoT 中樞開發人員指南中的其他參考主題包括︰
 
 * [IoT 中樞端點][lnk-endpoints]說明每個 IoT 中樞公開給執行階段和管理作業的各種端點。
-* [節流和配額][lnk-quotas]說明適用於 IoT 中樞服務的配額，和使用服務時所預期的節流行為。
+* [節流和配額][lnk-quotas]描述適用於 IoT 中樞服務的配額和節流行為。
 * [Azure IoT 裝置和服務 SDK][lnk-sdks] 列出各種語言 SDK，可供您在開發與「IoT 中樞」互動的裝置和服務應用程式時使用。
-* [裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][lnk-query]說明可用於從 IoT 中樞擷取有關裝置對應項和作業資訊的 IoT 中樞查詢語言。
+* [IoT 中樞查詢語言][lnk-query]描述可用來從 IoT 中樞擷取有關裝置對應項和作業之資訊的查詢語言。
 * [IoT 中樞 MQTT 支援][lnk-devguide-mqtt]針對 MQTT 通訊協定提供 IoT 中樞支援的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟

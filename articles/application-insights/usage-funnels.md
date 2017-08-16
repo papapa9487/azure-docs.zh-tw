@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 8d20995ebb63e8cf1e4d15c57628b80aaf9e036b
+ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
+ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/09/2017
 
 ---
 
@@ -45,4 +45,9 @@ ms.lasthandoff: 07/20/2017
 ![含有資料的 [漏斗圖] 刀鋒視窗](./media/app-insights-understand-usage-patterns/funnel1.png)
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[使用方式分析](app-insights-usage-overview.md)。
+  * [使用量概觀](app-insights-usage-overview.md)
+  * [使用者、工作階段和事件](app-insights-usage-segmentation.md)
+  * [保留](app-insights-usage-retention.md)
+  * [活頁簿](app-insights-usage-workbooks.md)
+  * [新增使用者內容](app-insights-usage-send-user-context.md)
+

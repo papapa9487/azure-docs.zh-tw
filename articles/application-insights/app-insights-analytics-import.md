@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: cfreeman
+ms.author: sewhee
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 7f472bf6669bcf0c1cab048a3a5969fc71aadd8e
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="import-data-into-analytics"></a>將資料匯入分析
@@ -59,19 +59,13 @@ ms.lasthandoff: 08/02/2017
 
  * 我們建議您針對 blob 建立專用的儲存體帳戶。 如果與其他處理序共用您的 blob，我們的程序會花較長時間來讀取 blob。
 
-2. 這項功能在預覽時，您必須要求進行存取。
-
- * 從 [Azure 入口網站](https://portal.azure.com)中的 Application Insights 資源，開啟分析。 
- * 在 [結構描述] 窗格的底部，按一下 [其他資料來源] 下方的 [與我們連絡] 連結。 
- * 如果您看到「新增資料來源」，則您已經有存取權。
-
 
 ## <a name="define-your-schema"></a>定義結構描述
 
 在您匯入資料之前，您必須定義資料來源，以指定您資料的結構描述。
 在單一 Application Insights 資源中，最多可包含 50 個資料來源
 
-1. 啟動資料來源精靈。
+1. 啟動資料來源精靈。 使用 [新增資料來源] 按鈕。 或者 - 按一下右上角的 [設定] 按鈕，然後在下拉式功能表中選擇 [資料來源]。
 
     ![新增資料來源](./media/app-insights-analytics-import/add-new-data-source.png)
 

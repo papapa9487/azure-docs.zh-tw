@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 05f823955eb5c47ce024c2b7d246e361e1302d78
+ms.translationtype: HT
+ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
+ms.openlocfilehash: 138fc8c98ea6f409b28407b20851c96ecc618b09
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/08/2017
 
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>適用於 Linux 的 OMS 虛擬機器擴充功能
@@ -64,7 +63,7 @@ Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -82,7 +81,7 @@ Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視�
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | 類型 | OmsAgentForLinux |
-| typeHandlerVersion | 1.3 |
+| typeHandlerVersion | 1.4 |
 | workspaceId (例如) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (例如) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -91,7 +90,7 @@ Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視�
 
 也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 部署一或多部需要部署後設定的虛擬機器時，很適合使用範本。 在 [Azure 快速啟動資源庫](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm)上可找到包含 OMS 代理程式 VM 擴充功能的範例 Resource Manager 範本。 
 
-虛擬機器擴充功能的 JSON 可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-manager-template-child-resource.md)。 
+虛擬機器擴充功能的 JSON 設定可以巢狀方式置於虛擬機器資源內部，或放在 Resource Manager JSON 範本的根目錄或最上層。 JSON 設定的放置會影響資源名稱和類型的值。 如需詳細資訊，請參閱[設定子資源的名稱和類型](../../azure-resource-manager/resource-manager-template-child-resource.md)。 
 
 下列範例假設 OMS 擴充功能以巢狀方式置於虛擬機器資源內部。 在巢狀處理擴充資源時，JSON 會放在虛擬機器的 `"resources": []` 物件中。
 
@@ -107,7 +106,7 @@ Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -132,7 +131,7 @@ Operations Management Suite (OMS) 可提供雲端和內部部署資產的監視�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.4",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -153,7 +152,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.0 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.4 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 
@@ -177,23 +176,12 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 | 錯誤碼 | 意義 | 可能的動作 |
 | :---: | --- | --- |
-| 2 | 提供給殼層組合的選項無效 | |
-| 3 | 未提供任何選項給殼層組合 | |
-| 4 | 無效的套件類型 | |
-| 5 | 必須以 root 身分執行殼層組合 | |
-| 6 | 無效的套件架構 | |
 | 10 | VM 已經連線到 OMS 工作區 | 若要將 VM 連線到擴充功能結構描述中所指定的工作區，請在公用設定中將 stopOnMultipleConnections 設定為 false，或是移除此屬性。 針對此 VM 所連線的每個工作區都會向此 VM 計費一次。 |
 | 11 | 提供給擴充功能的組態無效 | 依照上述範例來設定部署所需的所有屬性值。 |
-| 20 | SCX/OMI 安裝失敗 | |
-| 21 | SCX/提供者套件安裝失敗 | |
-| 22 | 組合套件安裝失敗 | |
-| 23 | 已經安裝 SCX 或 OMI 套件 | |
-| 30 | 內部組合錯誤 | |
+| 12 | dpkg 套件管理員已鎖定 | 請確定機器上的所有 dpkg 更新作業皆已完成，然後重試。 |
+| 20 | 啟用提前呼叫 | [將 Azure Linux 代理程式更新](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent)為最新的可用版本。 |
 | 51 | VM 的作業系統上不支援此擴充功能 | |
-| 60 | 不支援的 OpenSSL 版本 | 安裝符合我們[套件需求](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#package-requirements)的 OpenSSL 版本。 |
-| 61 | 遺失 Python ctypes 程式庫 | 安裝 Python ctypes 程式庫或套件 (python-ctypes)。 |
-| 62 | 遺漏 tar 程式 | 安裝 tar。 |
-| 63 | 遺漏 sed 程式 | 安裝 sed。 |
+| 55 | 無法連線至 Microsoft Operations Management Suite 服務 | 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請確認工作區識別碼是否正確。 |
 
 如需其他疑難排解資訊，請參閱 [OMS-Agent-for-Linux 疑難排解指南](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#)。
 

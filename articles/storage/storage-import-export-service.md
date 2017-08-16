@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: muralikk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: fc0fd0188261263aac550b0f0784076efc807215
+ms.translationtype: HT
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 9dc50a101384bb40ad3a878245b80dcb31a7c08e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Blob 儲存體
@@ -232,7 +231,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 | N/A | 不屬於任何工作的磁碟機在另一個工作中送達資料中心。 | 磁碟機會標示為額外的磁碟機，並會在與原始包裹相關聯的工作完成時寄回給客戶。 |
 
 ### <a name="time-to-process-job"></a>處理工作的時間
-處理匯入/匯出作業所需的時間量，會根據不同的因素而有所差異，例如運送時間、作業類型、複製的資料類型及大小，以及所提供磁碟的大小。 匯入/匯出服務沒有 SLA。 您可以使用 REST API 更仔細地追蹤工作進度。 在列出工作作業中有一個完成百分比的參數，它可以指出複製進度。 如果您需要對完成一項時間緊迫的匯入/匯出工作的預估，請連絡我們。
+處理匯入/匯出作業所需的時間量，會根據不同的因素而有所差異，例如運送時間、作業類型、複製的資料類型及大小，以及所提供磁碟的大小。 匯入/匯出服務沒有 SLA，但收到磁碟之後，服務會努力在 7 到 10 天內完成複製。 您可以使用 REST API 更仔細地追蹤工作進度。 在列出工作作業中有一個完成百分比的參數，它可以指出複製進度。 如果您需要對完成一項時間緊迫的匯入/匯出工作的預估，請連絡我們。
 
 ### <a name="pricing"></a>價格
 **磁碟機處理費用**
@@ -250,13 +249,12 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 ## <a name="quick-start"></a>快速啟動
 在本節中，我們將提供如何建立匯入和匯出作業的逐步指示。 繼續進行之前，請先確定您符合所有的 [先決條件](#pre-requisites) 。
 
+> [!IMPORTANT]
+> 服務針對每個匯入或匯出工作各支援一個標準儲存體帳戶，但不支援進階儲存體帳戶。 
+> 
+> 
 ## <a name="create-an-import-job"></a>建立匯入作業
 建立匯入作業，藉由將一或多個包含資料的磁碟機運送到指定的資料中心，將資料從硬碟複製到您的 Azure 儲存體帳戶。 匯入作業會傳送關於硬碟機、要複製的資料、目標儲存體帳戶和運送資訊給 Azure 匯入/匯出服務。 建立匯入工作是一個包含三步驟的程序。 首先，使用 WAImportExport 工具準備您的磁碟機。 其次，使用 Azure 入口網站提交匯入工作。 第三，將磁碟機運送至工作建立期間提供的運送地址，並更新工作詳細資料中的運送資訊。   
-
-> [!IMPORTANT]
-> 每個儲存體帳戶只能提交一個工作。 您運送的每個磁碟機都可以匯入到一個儲存體帳戶。 例如，假設您想要將資料匯入到兩個儲存體帳戶。 您必須針對每個儲存體帳戶使用不同的硬碟機，並針對每個儲存體帳戶建立不同的工作。
-> 
-> 
 
 ### <a name="prepare-your-drives"></a>準備磁碟機
 使用 Azure 匯入/匯出服務匯入資料的第一個步驟，是使用 WAImportExport 工具準備磁碟機。 請遵循下列步驟來準備您的磁碟機。
@@ -431,9 +429,9 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-**可以使用 Azure 匯入/匯出服務複製 Azure 檔案嗎？**
+**我可以使用 Azure 匯入/匯出服務複製 Azure 檔案儲存體嗎？**
 
-否，Azure 匯入/匯出服務僅支援區塊 Blob 和分頁 Blob。 所有其他儲存體類型，包括 Azure 檔案、資料表和佇列都不支援。
+否，Azure 匯入/匯出服務僅支援區塊 Blob 和分頁 Blob。 不支援其他所有儲存體類型，包括 Azure 檔案儲存體、表格儲存體和佇列儲存體。
 
 **Azure 匯入/匯出服務可用於 CSP 訂用帳戶嗎？**
 
@@ -462,6 +460,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 **如果我想匯入或匯出的磁碟機超過 10 個，我該怎麼做？**
 
 在匯入/匯出服務中，一項匯入或匯出工作只能參考單一工作中的 10 個磁碟機。 如果想要運送的磁碟機超過 10 個，可以建立多項工作。 與相同工作相關聯的磁碟機必須一起在相同的包裹中運送。
+若資料容量跨越多個磁碟匯入工作，Microsoft 會提供指導與協助。 如需詳細資訊，請連絡 bulkimport@microsoft.com
 
 **服務會在退回磁碟機前進行格式化嗎？**
 
@@ -471,7 +470,9 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 
 否。 您必須針對匯入和匯出工作運送自己的磁碟機。
 
-** 如何存取這個服務所匯入的資料** Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為「儲存體總管」的獨立工具進行存取。 https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+** 如何存取這個服務所匯入的資料**
+
+Azure 儲存體帳戶下的資料可以透過 Azure 入口網站或使用稱為「儲存體總管」的獨立工具進行存取。 https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **匯入作業完成後，我的資料在儲存體帳戶中外觀如何？將保留我的目錄階層嗎？**
 
@@ -482,7 +483,7 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 準備磁碟機時，您可以使用資料集 CSV 檔案中名為 /Disposition:<rename|no-overwrite|overwrite> 的欄位，指定是否應該覆寫目的地檔案還是予以忽略。 根據預設，服務會重新命名新的檔案，而不會覆寫現有的 Blob。
 
 **WAImportExport 工具與 32 位元作業系統相容嗎？**
-編號 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [先決條件](#pre-requisites) 中的＜作業系統＞一節，以取得支援 OS 版本的完整清單。
+否。 WAImportExport 工具只與 64 位元 Windows 作業系統相容。 請參閱 [先決條件](#pre-requisites) 中的＜作業系統＞一節，以取得支援 OS 版本的完整清單。
 
 **我的包裹中除了硬碟以外還應該包含任何東西嗎？**
 
@@ -520,6 +521,20 @@ Azure 資料中心會將不符支援需求的磁碟機退回給您。 如果包�
 
 最大區塊 Blob 大小大約是 4.768 TB 或 5,000,000 MB。
 最大分頁 Blob 大小為 1 TB。
+
+**磁碟匯入/匯出是否支援 AES 256 加密？**
+
+Azure 匯入/匯出服務預設會透過 AES 128 BitLocker 加密進行加密，但可在複製資料之前，以手動方式使用 BitLocker 進行加密以提高到 AES 256。 
+
+如果使用 [WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip)，以下是命令範例
+```
+WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
+```
+如果使用 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)，請指定 "AlreadyEncrypted" 並提供磁碟機集 CSV 中的金鑰。
+```
+DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
+G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
+```
 ## <a name="next-steps"></a>後續步驟
 
 * [設定 WAImportExport 工具](storage-import-export-tool-how-to.md)

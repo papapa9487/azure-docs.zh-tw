@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 94c8160464cd7355ac0e0733801d0b06fcdfab7c
+ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
+ms.openlocfilehash: 95404f9dbffa08edf12ee6c07f671d5f207ce99a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/05/2017
 
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
@@ -142,13 +142,19 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 SQL Database 和 SQL 資料同步的詳細資訊，請參閱：
+如需 SQL 資料同步的詳細資訊，請參閱：
 
 -   [開始使用 SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+
+-   示範如何設定 SQL 資料同步的完整 PowerShell 範例：
+    -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+    -   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
 
 -   [下載完整的 SQL 資料同步技術文件](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 
 -   [下載 SQL 資料同步 REST API 文件](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+
+如需 SQL Database 的詳細資訊，請參閱：
 
 -   [SQL Database 概觀](sql-database-technical-overview.md)
 
