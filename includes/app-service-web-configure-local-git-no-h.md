@@ -16,4 +16,4 @@ https://<username>@<app_name>.scm.azurewebsites.net:443/<app_name>.git
 
 `<username>` 是您在上一個步驟中建立的[部署使用者](#configure-a-deployment-user)。
 
-儲存顯示的 URI；您在下一個步驟中將會用到它。 
+複製顯示的 URI；您在下一個步驟中將會用到它。

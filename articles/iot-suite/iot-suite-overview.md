@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/24/2017
+ms.date: 07/24/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c57c0ddbe8e33d77c6f07f58dfe3236733f6c62f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: bfa8dbbd0b1d943a9eb7a042df0bac25189d9ac9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="overview-of-azure-iot-suite"></a>Azure IoT 套件的概觀
@@ -55,7 +54,13 @@ Azure 物聯網 (IoT) 服務提供廣泛的功能。 這些企業等級的服務
 
 ## <a name="preconfigured-solutions"></a>預先設定的解決方案
 
-「IoT 套件」包括預先設定的解決方案，可讓您快速開始使用及探索常見的 IoT 案例，例如「遠端監視」、「預測性維護」和「連線的處理站」。 您可以將這些解決方案部署到您的 Azure 訂用帳戶，然後執行完整的端對端 IoT 案例。
+「IoT 套件」包括預先設定的解決方案，可讓您快速開始使用及探索常見的 IoT 案例，例如：
+
+* 遠端監視
+* 預測性維護
+* 連線的處理站
+
+您可以將這些解決方案部署到您的 Azure 訂用帳戶，然後執行完整的端對端 IoT 案例。
 
 ## <a name="next-steps"></a>後續步驟
 

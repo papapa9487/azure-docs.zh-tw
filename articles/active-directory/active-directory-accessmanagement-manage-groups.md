@@ -12,13 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/26/2017
+ms.date: 07/24/2017
 ms.author: curtand
-translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 7d2cc99925e01f8135f04f5863f798e13d7413e3
-ms.lasthandoff: 02/11/2017
-
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>在 Azure Active Directory 中管理群組
@@ -35,6 +38,9 @@ Azure Active Directory (Azure AD) 使用者管理的其中一項功能是能夠�
 * 目錄外部的資源，例如 SaaS 應用程式、Azure 服務、SharePoint 網站或內部部署資源
 
 此外，資源擁有者也可以指派資源存取權給其他人擁有的 Azure AD 群組。 這項指派會將資源的存取權授與該群組的成員。 然後，群組擁有者負責管理群組中的成員資格。 實際上，資源擁有者是將指派使用者至其資源的權限委派給群組擁有者。
+
+> [!IMPORTANT]
+> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 傳統入口網站。 如需了解如何在 Azure AD 系統管理中心管理群組，請參閱[在 Azure Active Directory 中建立群組並新增成員](active-directory-groups-create-azure-portal.md)。
 
 ## <a name="how-do-i-create-a-group"></a>如何建立群組？
 根據組織已訂閱的服務，您可以使用下列其中一項來建立群組︰

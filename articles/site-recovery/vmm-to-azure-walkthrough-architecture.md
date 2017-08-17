@@ -1,6 +1,6 @@
 ---
-title: "檢閱使用 Azure Site Recovery 將 Hyper-V (不含 System Center VMM) 複寫至 Azure 的架構 | Microsoft Docs"
-description: "本文提供使用 Azure Site Recovery 服務將內部部署 Hyper-V VM (不含 VMM) 複寫至 Azure 時所用元件和架構的概觀。"
+title: "檢閱使用 Azure Site Recovery 將 Hyper-V (含 System Center VMM) 複寫至 Azure 的架構 | Microsoft Docs"
+description: "本文提供使用 Azure Site Recovery 服務將 VMM 雲端中的內部部署 Hyper-V VM 複寫至 Azure 時所用之元件和架構的概觀。"
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,21 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/22/2017
+ms.date: 07/24/2017
 ms.author: raynew
 ms.translationtype: HT
 ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
+ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/26/2017
 
 ---
 
 
-# <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>步驟 1：檢閱 Hyper-V 複寫至 Azure 的架構
+# <a name="step-1-review-the-architecture"></a>步驟 1：檢閱架構
 
 
-本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將內部部署 Hyper-V 虛擬機器 (不是由系統中心 VMM 管理) 複寫至 Azure 時的相關元件和程序。
+本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中的內部部署 Hyper-V 虛擬機器複寫至 Azure 時所用的元件和流程。
 
 如有任何意見，請張貼於這篇文章下方或 [Azure 復原服務論壇 (英文)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) 中。
 
@@ -34,26 +34,29 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="architectural-components"></a>架構元件
 
-將 Hyper-V VM 複寫至 Azure (不含 VMM) 時，會涉及許多元件。
+將 VMM 中的 Hyper-V VM 複寫至 Azure 時會涉及許多元件。
 
-**元件** | **Location** | **詳細資料**
+**元件** | **需求** | **詳細資料**
 --- | --- | ---
 **Azure** | 在 Azure 中，您需要 Microsoft Azure 帳戶、Azure 儲存體帳戶和 Azure 網路。 | 所複寫的資料會儲存在儲存體帳戶中，而在從內部部署網站進行容錯移轉時，便會以複寫的資料建立 Azure VM。<br/><br/> Azure VM 在建立後會連線到 Azure 虛擬網路。
-**Hyper-V** | Hyper-V 主機和叢集會蒐集到 Hyper-V 網站中。 Azure Site Recovery 提供者和復原服務代理程式會安裝在每部 Hyper-V 主機上。 | 此提供者會透過網際網路與 Site Recovery 協調複寫作業。 復原服務代理程式會處理資料複寫。<br/><br/> 來自提供者和代理程式的通訊都是安全且加密的。 Azure 儲存體中的複寫的資料也會加密。
-**Hyper-V VM** | 您必須有一或多部在 Hyper-V 主機伺服器上執行的 VM。 | 不需要在 VM 上明確安裝任何項目。
+**VMM 伺服器** | VMM 伺服器有一或多個包含 Hyper-V 主機的雲端。 | 您在 VMM 伺服器上安裝 Site Recovery Provider 來協調 Site Recovery 進行複寫，並在復原服務保存庫中註冊伺服器。
+**Hyper-V 主機** | 一或多個由 VMM 管理的 Hyper-V 主機/叢集。 |  您在每個主機或叢集成員上安裝復原服務代理程式。
+**Hyper-V VM** | 一或多個在 Hyper-V 主機伺服器上執行的 VM。 | 不需要在 VM 上明確安裝任何項目。
+**網路功能** |在 VMM 伺服器上設定的邏輯和 VM 網路。 VM 網路應該連結到與雲端相關聯的邏輯網路。 | VM 網路會對應至 Azure 虛擬網路，以便在容錯移轉之後建立 Azure VM 時，能夠在網路中找到 Azure VM。
 
 了解[支援矩陣](site-recovery-support-matrix-to-azure.md)中每個元件的部署必要條件和需求。
 
-**圖 1：Hyper-V 網站至 Azure 的複寫**
 
-![元件](./media/hyper-v-site-walkthrough-architecture/arch-onprem-azure-hypervsite.png)
+**圖 1：將 VMM 雲端中的 Hyper-V 主機上的 VM 複寫至 Azure**
+
+![元件](./media/vmm-to-azure-walkthrough-architecture/arch-onprem-onprem-azure-vmm.png)
 
 
 ## <a name="replication-process"></a>複寫程序
 
 **圖 2：將 Hyper-V 複寫至 Azure 的複寫和復原程序**
 
-![工作流程](./media/hyper-v-site-walkthrough-architecture/arch-hyperv-azure-workflow.png)
+![工作流程](./media/vmm-to-azure-walkthrough-architecture/arch-hyperv-azure-workflow.png)
 
 ### <a name="enable-protection"></a>啟用保護。
 
@@ -61,7 +64,8 @@ ms.lasthandoff: 07/26/2017
 2. 作業會檢查符合必要條件的機器，然後叫用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 方法，以使用您進行的設定來設定複寫。
 3. 作業會啟動初始複寫，方法是叫用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法，以初始化完整的 VM 複寫，並且將 VM 的虛擬磁碟傳送至 Azure。
 4. 您可以在 [作業] 索引標籤中監視作業。
- 
+        ![作業清單](media/vmm-to-azure-walkthrough-architecture/image1.png) ![啟用保護向下鑽研](media/vmm-to-azure-walkthrough-architecture/image2.png)
+
 ### <a name="replicate-the-initial-data"></a>複寫初始資料
 
 1. 系統會在初始複寫觸發時擷取 [Hyper-V VM 快照集](https://technet.microsoft.com/library/dd560637.aspx)。
@@ -74,6 +78,7 @@ ms.lasthandoff: 07/26/2017
 ### <a name="finalize-protection"></a>完成保護
 
 1. 初始複寫完成之後，**在虛擬機器上完成保護**作業會設定網路和其他複寫後設定，如此就能讓虛擬機器受到保護。
+    ![完成保護作業](media/vmm-to-azure-walkthrough-architecture/image3.png)
 2. 如果您要複寫至 Azure，您可能需要調整虛擬機器的設定，使其準備好進行容錯移轉。 此時，您可以執行測試容錯移轉，以確認一切如預期般運作。
 
 ### <a name="replicate-the-delta"></a>複寫差異
@@ -88,7 +93,7 @@ ms.lasthandoff: 07/26/2017
 2.  重新同步處理會計算來源和目標虛擬機器的總和檢查碼，並只傳送差異資料部分，藉此將傳送的資料量降至最低。 重新同步處理會使用固定區塊的區塊處理演算法，將來源和目標檔案分成固定區塊。 系統會產生每個區塊的總和檢查碼並相互比較，以決定需要將來源中的哪些區塊套用至目標。
 3. 重新同步處理完成之後，應會繼續進行正常的差異複寫。 根據預設，重新同步處理會排程在上班時間以外的時間自動執行，但是您可以手動重新同步處理虛擬機器。 例如，若發生網路中斷或其他中斷情形，您可以繼續重新同步處理。 若要這樣做，請在入口網站中選取 VM > [重新同步處理]。
 
-    ![手動重新同步處理](./media/hyper-v-site-walkthrough-architecture/image4.png)
+    ![手動重新同步處理](media/vmm-to-azure-walkthrough-architecture/image4.png)
 
 
 ### <a name="retry-logic"></a>重試邏輯
@@ -115,5 +120,5 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-移至[步驟 2：檢閱部署先決條件](hyper-v-site-walkthrough-prerequisites.md)
+移至[步驟 2：檢閱部署先決條件](vmm-to-azure-walkthrough-prerequisites.md)
 

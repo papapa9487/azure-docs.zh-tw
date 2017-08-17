@@ -1,7 +1,6 @@
 <!--author=alkohli last changed: 02/10/17-->
 
-#### 若要新增 StorSimple 備份原則
-<a id="to-add-a-storsimple-backup-policy" class="xliff"></a>
+#### <a name="to-add-a-storsimple-backup-policy"></a>若要新增 StorSimple 備份原則
 
 1. 請移至 StorSimple 裝置，並按一下 [備份原則]。
 
@@ -13,7 +12,7 @@
    
    1. [選取裝置] 會根據您所選取的裝置自動填入。
    
-   2. 指定包含 3 到 150 個字元的備份**原則名稱**。
+   2. 指定包含 3 到 150 個字元的備份**原則名稱**。 建立原則之後，您就無法重新命名原則。
        
    3. 若要將磁碟區指派給此備份原則，請選取 [新增磁碟區]，然後從表格式的磁碟區清單中按一下核取方塊，將一或多個磁碟區指派給此備份原則。
 

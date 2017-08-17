@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 06/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 053e2ae7f382bc55a6638ccd612289ab2ba64e52
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 331d08da8a70eee893fb1b01b1fef4475cc8bca0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>使用 Azure 入口網站建立 Batch 帳戶
@@ -152,7 +151,7 @@ ms.lasthandoff: 06/20/2017
 
 我們建議建立 Batch 帳戶專用的新儲存體帳戶。
 
-![建立「一般用途」的儲存體帳戶][storage_account]
+![建立一般用途的儲存體帳戶][storage_account]
 
 > [!NOTE]
 > Azure Batch 目前僅支援一般用途的儲存體帳戶類型。 此帳戶類型如[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)中的步驟 5 [建立儲存體帳戶] (../storage/storage-create-storage-account.md#create-a-storage-account) 所述。

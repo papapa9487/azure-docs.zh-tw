@@ -15,15 +15,15 @@ ms.topic: get-started-article
 ms.date: 05/27/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 16fdd3aafef1a50554932a0e7843d347182c9b6a
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: bae2e9825bf158bb015ec0affa56f15ce5baa201
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 
 # <a name="introduction-to-azure-file-storage"></a>Azure 檔案儲存體簡介
-Azure 檔案儲存體在雲端中提供網路檔案共用功能，並使用業界標準[伺服器訊息區塊 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)和 [Samba/一般網際網路檔案系統 (CIFS)](https://technet.microsoft.com/library/cc939973.aspx)。 用戶端 (例如 Windows、macOS、Linux 的內部部署) 或 Azure 虛擬機器可同時掛接 Azure 檔案共用。 一般用途的儲存體帳戶可讓您使用單一帳戶存取 Azure 檔案儲存體和其他服務，例如 Blob、Azure 虛擬機器磁碟、佇列。
+Azure 檔案儲存體在雲端中提供網路檔案共用功能，並使用業界標準[伺服器訊息區塊 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)和 [一般網際網路檔案系統 (CIFS)](https://technet.microsoft.com/library/cc939973.aspx)。 用戶端 (例如 Windows、macOS、Linux 的內部部署) 或 Azure 虛擬機器可同時掛接 Azure 檔案共用。 一般用途的儲存體帳戶可讓您使用單一帳戶存取 Azure 檔案儲存體和其他服務，例如 Blob、Azure 虛擬機器磁碟、佇列。
 
 
 
