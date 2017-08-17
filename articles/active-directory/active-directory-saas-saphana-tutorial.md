@@ -151,7 +151,7 @@ SAP HANA 與 Azure AD 整合提供下列優點：
 
     ![[新增識別提供者] 設定](./media/active-directory-saas-saphana-tutorial/sap2.png)
 
-    b. 如果 XML 文件的內容有效，剖析程序就會擷取所需資訊以插入到 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位，以及 [目的地] 畫面區域中的 URL 欄位，例如 [基底 URL] 和 [單一登入 URL] **(*)**。
+    b. 如果 XML 文件的內容有效，剖析程序就會擷取所需資訊以插入到 [一般資料] 畫面區域中的 [主旨]、[實體識別碼] 和 [簽發者] 欄位，以及 [目的地] 畫面區域中的 URL 欄位，例如 [基底 URL] 和 [單一登入 URL] **\(*)**。
 
     ![[新增識別提供者] 設定](./media/active-directory-saas-saphana-tutorial/sap3.png)
 
@@ -222,7 +222,7 @@ SAP HANA 支援預設啟用的 Just-In-Time 佈建。
 
 3. 按一下 [新增] 來新增 SAML IDP，然後按一下 [確定] 來選取適當的 SAML IDP。
 
-4. 新增 [外部身分識別] (例如這裡的 BrittaSimon)，或選擇 [任何]，然後按一下 [確定]。 BrittaSimon here) or choose **"Any"** and click **OK**.
+4. 新增 [外部身分識別] \(例如這裡的 BrittaSimon)，或選擇 [任何]，然後按一下 [確定]。 BrittaSimon here) or choose **"Any"** and click **OK**.
 
     >[!Note]
     >如果未核取 [任何] 核取方塊，則 HANA 中的使用者名稱必須完全符合 UPN 中網域尾碼前面的使用者名稱 (也就是 BrittaSimon@contoso.com 會在 HANA 中變成 BrittaSimon)。
