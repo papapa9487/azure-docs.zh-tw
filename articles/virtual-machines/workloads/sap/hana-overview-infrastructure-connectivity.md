@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: abc3f5ee70130b6be093e63afb495c86b921ba26
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -171,7 +171,7 @@ ms.lasthandoff: 07/20/2017
      - ExpressRoute PeerID
 - 在您建立 ExpressRoute 線路和 Azure VNet 之後，用以存取「HANA 大型執行個體」的資料。
 
-您也可以在 [SAP HANA 大型執行個體的端對端安裝](https://msdnshared.blob.core.windows.net/media/2017/06/End-to-End-Setup-of-SAP-HANA-Large-Instances.pdf)一文中，找到連接 HANA 大型執行個體的序列。 該文件的範例部署會示範下列許多步驟。 
+您也可以在 [SAP HANA 大型執行個體的端對端安裝](https://azure.microsoft.com/resources/sap-hana-on-azure-large-instances-setup/)一文中，找到連接 HANA 大型執行個體的序列。 該文件的範例部署會示範下列許多步驟。 
 
 
 ## <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>將 VNet 連接到 HANA 大型執行個體 ExpressRoute
