@@ -133,11 +133,12 @@
 ### 建置容器服務
 #### [建立 Windows 容器應用程式](service-fabric-get-started-containers.md)
 #### [建立 Linux 容器應用程式](service-fabric-get-started-containers-linux.md)
-#### [部署 Linux 容器](service-fabric-deploy-container-linux.md)
+#### [容器安全性](service-fabric-securing-containers.md)
 #### [Docker Compose (預覽)](service-fabric-docker-compose.md)
 #### [容器和服務的資源管理](service-fabric-resource-governance.md)
 #### [磁碟區與記錄驅動程式](service-fabric-containers-volume-logging-drivers.md)
 #### [容器內的服務](service-fabric-services-inside-containers.md)
+#### [容器網路服務模式](service-fabric-networking-modes.md)
 
 ### 建置 Reliable Services 服務
 #### [概觀](service-fabric-reliable-services-introduction.md)

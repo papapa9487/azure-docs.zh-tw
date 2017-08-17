@@ -33,6 +33,7 @@
 # 手冊
 ## [應用程式註冊](active-directory-integrating-applications.md)
 ## [多租用戶應用程式](active-directory-devhowto-multi-tenant-overview.md)
+## [條件式存取](active-directory-conditional-access-developer.md)
 ## OAuth 和 OpenID Connect
 ### [OpenID Connect 通訊協定](active-directory-protocols-openid-connect-code.md)
 ### [OAuth 2.0 驗證碼授與](active-directory-protocols-oauth-code.md)
@@ -58,7 +59,7 @@
 ### [開始使用 Visual Studio 已連線服務](vs-active-directory-dotnet-getting-started.md)
 ### [驗證偵測期間發生錯誤](vs-active-directory-error.md)
 ### [開始使用 WebApi](vs-active-directory-webapi-getting-started.md)
-### [我的 Web API 專案發生什麼情形？](vs-active-directory-webapi-what-happened.md)
+### [我的 Web API 專案發生什麼情形](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
@@ -90,7 +91,7 @@
 #### [Android](guidedsetups/active-directory-android.md)
 #### [Windows 桌面型 .NET](guidedsetups/active-directory-windesktop.md)
 ### Web 應用程式
-#### [Javascript SPA](guidedsetups/active-directory-javascriptspa.md)
+#### [JavaScript SPA](guidedsetups/active-directory-javascriptspa.md)
 #### [ASP.NET Web 伺服器](guidedsetups/active-directory-aspnetwebapp.md)
 #### [NodeJS Web 應用程式](active-directory-v2-devquickstarts-node-web.md)
 ## 手冊

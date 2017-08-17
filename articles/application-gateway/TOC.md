@@ -7,6 +7,7 @@
 ## [URL 路由](application-gateway-url-route-overview.md)
 ## [多網站](application-gateway-multi-site-overview.md)
 ## [端對端 SSL](application-gateway-backend-ssl.md)
+## [SSL 原則](application-gateway-ssl-policy-overview.md)
 ## [重新導向](application-gateway-redirect-overview.md)
 ## [多租用戶支援](application-gateway-web-app-overview.md)
 ## [WebSocket](application-gateway-websocket.md)
@@ -31,12 +32,13 @@
 ## 自訂 Web 應用程式防火牆規則
 ### [入口網站](application-gateway-customize-waf-rules-portal.md)
 ### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
-## 設定 SSL 卸載
+## 設定 SSL
 ### [入口網站](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (傳統)](application-gateway-ssl.md)
 ### [Azure CLI 2.0](application-gateway-ssl.md)
-### [原則和端對端](application-gateway-end-to-end-ssl-powershell.md)
+### [端對端](application-gateway-end-to-end-ssl-powershell.md)
+### [SSL 原則](application-gateway-configure-ssl-policy-powershell.md)
 ## 設定 URL 路徑型路由
 ### [入口網站](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)

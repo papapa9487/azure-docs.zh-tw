@@ -7,6 +7,8 @@
 - name: 快速入門
   expanded: true
   items:
+    - name: Docker Swarm Linux
+      href: container-service-swarm-walkthrough.md
     - name: DC/OS Linux
       href: container-service-dcos-quickstart.md
 - name: 教學課程
@@ -29,7 +31,7 @@
       href: container-service-connect.md
     - name: 調整 ACS 叢集的規模
       href: container-service-scale.md
-    - name: 以 DC/OS 管理
+    - name: DC/OS
       items:
         - name: 容器管理 - DC/OS UI
           href: container-service-mesos-marathon-ui.md
@@ -55,8 +57,10 @@
               href: container-service-monitoring-sysdig.md
             - name: 透過 Dynatrace 進行監視
               href: container-service-monitoring-dynatrace.md
-    - name: 使用 Docker Swarm 管理
+    - name: Docker Swarm
       items:
+        - name: Swarm Mode 快速入門
+          href: container-service-swarm-mode-walkthrough.md
         - name: Docker 與 Docker Compose
           href: container-service-docker-swarm.md
         - name: 搭配 Docker Swarm 和 VSTS 的 CI/CD
