@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako;cenkdin
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1179644298b5a1e32ddf150724eb52a4ca839111
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0cf8031e0b103c05f12157e76727c698163f1193
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>使用 Azure 媒體服務 REST API 建立篩選器
@@ -42,13 +42,16 @@ ms.lasthandoff: 08/01/2017
 * [PresentationTimeRange](https://docs.microsoft.com/rest/api/media/operations/presentationtimerange)
 * [FilterTrackSelect 和 FilterTrackPropertyCondition](https://docs.microsoft.com/rest/api/media/operations/filtertrackselect)
 
-> [!NOTE]
-> 使用媒體服務 REST API 時，適用下列考量事項：
-> 
-> 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
-> 
-> 順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。 如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。
-> 
+>[!NOTE]
+
+>在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
+
+## <a name="connect-to-media-services"></a>連線到媒體服務
+
+如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+>[!NOTE]
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
 
 ## <a name="create-filters"></a>建立篩選器
 ### <a name="create-global-filters"></a>建立全域篩選器
