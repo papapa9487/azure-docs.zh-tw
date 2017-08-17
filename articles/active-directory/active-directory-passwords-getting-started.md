@@ -17,10 +17,10 @@ ms.date: 08/07/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: c41a16a3c43064a094b0980bc1a8294b093c6130
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c7f3ad066c735054cb339f6e09aa4d7d23f23a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="quickstart-azure-ad-self-service-password-reset"></a>快速入門︰Azure AD 自助式密碼重設
@@ -79,13 +79,7 @@ ms.lasthandoff: 08/08/2017
 
 停用自助式密碼重設很簡單，只要開啟 Azure AD 租用戶並移至 [密碼重設]、[屬性] > 選擇 [已啟用自助式密碼重設] 之下的 [無]。
 
-## <a name="next-steps"></a>後續步驟
-
-在本快速入門中，您已學到如何為您的使用者設定自助式密碼重設。 若要繼續在 Azure 入口網站完成這些步驟，請遵循以下的入口網站連結。
-
-> [!div class="nextstepaction"]
-> [啟用自助密碼重設](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
-
+### <a name="learn-more"></a>詳細資訊
 下列連結提供有關使用 Azure AD 重設密碼的其他資訊
 
 * [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
@@ -97,4 +91,12 @@ ms.lasthandoff: 08/08/2017
 * [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
 * [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
 * [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
+
+## <a name="next-steps"></a>後續步驟
+
+在本快速入門中，您已學到如何為您的使用者設定自助式密碼重設。 若要繼續在 Azure 入口網站完成這些步驟，請遵循以下的入口網站連結。
+
+> [!div class="nextstepaction"]
+> [啟用自助密碼重設](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+
 

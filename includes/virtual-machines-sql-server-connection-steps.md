@@ -28,19 +28,8 @@
 視需要為其他元件開啟額外的連接埠。 如需詳細資訊，請參閱 [設定 Windows 防火牆以允許 SQL Server 存取](http://msdn.microsoft.com/library/cc646023.aspx)。
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>設定 SQL Server 以接聽 TCP 通訊協定
-1. 連接到虛擬機器時，在 [開始] 頁面上輸入 **SQL Server 組態管理員** ，然後按 ENTER 鍵。
-   
-    ![開啟 SSCM](./media/virtual-machines-sql-server-connection-steps/9Click-SSCM.png)
-2. 在 SQL Server 組態管理員的主控台窗格中，展開 [SQL Server 網路組態] 。
-3. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] \(預設的執行個體名稱)。在詳細資料窗格中，用滑鼠右鍵按一下 [TCP]，然後如果尚未啟用，請按一下 [啟用]。
-   
-    ![啟用 TCP](./media/virtual-machines-sql-server-connection-steps/10Enable-TCP.png)
-4. 在主控台窗格中，按一下 [SQL Server 服務]。 在詳細資料窗格中，以滑鼠右鍵按一下 [SQL Server **(執行個體名稱**)] \(預設執行個體是 SQL Server (MSSQLSERVER))，然後按一下 [重新啟動] 以停止及重新啟動 SQL Server 執行個體。
-   
-    ![重新啟動 Database Engine](./media/virtual-machines-sql-server-connection-steps/11Restart.png)
-5. 關閉 SQL Server 組態管理員。
 
-如需啟用 SQL Server Database Engine 之通訊協定的詳細資訊，請參閱 [啟用或停用伺服器網路通訊協定](http://msdn.microsoft.com/library/ms191294.aspx)。
+[!INCLUDE [Enable TCP](virtual-machines-sql-server-connection-tcp-protocol.md)]
 
 ### <a name="configure-sql-server-for-mixed-mode-authentication"></a>設定 SQL Server 以進行混合模式驗證
 SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。 若要從另一部電腦連接 Database Engine，請設定 SQL Server 以進行混合模式驗證。 混合模式驗證可允許 SQL Server 驗證和 Windows 驗證。
