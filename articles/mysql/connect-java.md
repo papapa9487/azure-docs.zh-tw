@@ -12,10 +12,10 @@ ms.topic: hero-article
 ms.devlang: java
 ms.date: 06/20/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 0190fb5a88f766369e6462965e47686c5f289551
+ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
+ms.openlocfilehash: 6ffcf3b38a3d868dfa10ea2e2a9d097441387d4f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 07/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/13/2017
 
 您也需要：
 - 下載 JDBC 驅動程式 [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/)
-- 將 JDBC jar 檔案 (例如 mysql-connector-java-5.1.42-bin.jar) 包含在您的應用程式 classpath 中。
+- 將 JDBC jar 檔案 (例如 mysql-connector-java-5.1.42-bin.jar) 包含在您的應用程式 classpath 中。 如果您在這方面有問題，請參閱環境文件以取得類別路徑的詳細資訊，例如 [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) 或 [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 - 開啟防火牆並針對您的應用程式調整 SSL 設定，以確保 Azure Database for MySQL 連線安全性，進而連線成功。
 
 ## <a name="get-connection-information"></a>取得連線資訊

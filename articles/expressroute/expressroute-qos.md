@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 07/25/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
-
+ms.translationtype: HT
+ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
+ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 需求
@@ -35,7 +36,7 @@ ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
 | **傳輸類別** | **處理方式 (DSCP 標示)** | **商務用 Skype 的工作負載** |
 | --- | --- | --- |
 | **語音** |EF (46) |Skype / Lync 語音 |
-| **互動式** |AF41 (34) |影片 |
+| **互動式** |AF41 (34) |影片、VBSS |
 | AF21 (18) |APP 共用 | |
 | **預設值** |AF11 (10) |檔案傳輸 |
 | CS0 (0) |任何其他項目 | |
@@ -51,10 +52,5 @@ ms.openlocfilehash: 9e74127e3140ec9973753fb5f29151c406326c36
   * [建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)
   * [設定路由](expressroute-howto-routing-classic.md)
   * [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)
-
-
-
-
-<!--HONumber=Nov16_HO2-->
 
 

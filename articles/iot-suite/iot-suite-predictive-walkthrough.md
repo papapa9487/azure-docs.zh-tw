@@ -13,20 +13,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2017
+ms.date: 07/25/2017
 ms.author: dobett
-translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 9b2947d9ce00083c168635811395bc86b3e60b78
-ms.lasthandoff: 04/26/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
+ms.openlocfilehash: a68a8fdc3976ade0d1036d5ed58c8b2eb6d32a5d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/25/2017
 
 ---
 # <a name="predictive-maintenance-preconfigured-solution-walkthrough"></a>預先設定的預測性維護解決方案逐步解說
 
-## <a name="introduction"></a>簡介
-
-IoT Suite 預先設定的預測性維護解決方案是一個端對端解決方案，適用於可預測可能發生失敗時間點的商務案例。 您可以針對最佳化維護等活動，主動使用此預先設定的解決方案。 此解決方案結合了主要 Azure IoT 套件服務，例如 IoT 中樞、串流分析和 [Azure Machine Learning][lnk-machine-learning] 工作區。 此工作區包含以公開範例資料集為基礎的模型，用來預測飛機引擎的剩餘使用年限 (RUL)。 此解決方案完整提供 IoT 商務案例的實作作為起點，讓您規劃和實作能滿足特定商務需求的解決方案。
+預先設定的預測性維護解決方案是一個端對端解決方案，適用於預測可能發生失敗之時間點的商務案例。 您可以針對最佳化維護等活動，主動使用此預先設定的解決方案。 此解決方案結合了主要 Azure IoT 套件服務，例如 IoT 中樞、串流分析和 [Azure Machine Learning][lnk-machine-learning] 工作區。 此工作區包含以公開範例資料集為基礎的模型，用來預測飛機引擎的剩餘使用年限 (RUL)。 此解決方案完整提供 IoT 商務案例的實作作為起點，讓您規劃和實作能滿足特定商務需求的解決方案。
 
 ## <a name="logical-architecture"></a>邏輯架構
 
@@ -34,7 +32,7 @@ IoT Suite 預先設定的預測性維護解決方案是一個端對端解決方�
 
 ![][img-architecture]
 
-藍色項目是您在佈建預先設定的解決方案時選取的區域中佈建的 Azure 服務。 您可以在其中部署預先設定之解決方案的地區清單會顯示於[佈建頁面][lnk-azureiotsuite]。
+藍色項目是在您佈建預先設定之解決方案的區域中所佈建的 Azure 服務。 您可以在其中部署預先設定之解決方案的地區清單會顯示於[佈建頁面][lnk-azureiotsuite]。
 
 綠色項目是表示飛機引擎的模擬裝置。 您可以在下一節中進一步了解這些模擬裝置。
 
@@ -58,13 +56,17 @@ IoT Suite 預先設定的預測性維護解決方案是一個端對端解決方�
 IoT 中樞會提供裝置命令通知。
 
 ## <a name="azure-stream-analytics-job"></a>Azure 串流分析作業
-**工作：遙測** 會使用兩個陳述式操作傳入裝置遙測串流。 第一個陳述式會從裝置選取所有遙測，然後將此資料從在 Web 應用程式中視覺化的位置傳送至 Blob 儲存體。 第二個陳述式會透過兩分鐘的滑動視窗計算平均感應器值，然後透過事件中樞將此資料傳送至 **事件處理器**。
+
+**作業：遙測**會使用兩個陳述式來操作傳入裝置遙測串流：
+
+* 第一個陳述式會從裝置選取所有遙測資料，然後將此資料傳送至 bob 儲存體。 從這裡，它會呈現在 Web 應用程式中。
+* 第二個陳述式會透過兩分鐘的滑動視窗計算感應器平均值，然後透過事件中樞將此資料傳送至**事件處理器**。
 
 ## <a name="event-processor"></a>事件處理器
 **事件處理器主機**會在 Azure Web 作業中執行。 **事件處理器** 需要一個完整的週期來處理平均感應器值。 接著將這些值傳遞至 API，該 API 會公開定型模型來計算引擎的 RUL。 此 API 是由佈建為方案一部分的 Machine Learning 工作區所公開。
 
 ## <a name="machine-learning"></a>機器學習服務
-Machine Learning 元件使用的模型衍生自從真實飛機引擎收集而來的資料。 當已佈建的解決方案處於 [就緒] 狀態時，您可以從 [azureiotsuite.com][lnk-azureiotsuite] 頁面上的圖格瀏覽至 Machine Learning 工作區。
+Machine Learning 元件使用的模型衍生自從真實飛機引擎收集而來的資料。 您可以從已佈建之解決方案的 [azureiotsuite.com][lnk-azureiotsuite] 頁面上的圖格，瀏覽至 Machine Learning 工作區。 當解決方案處於**就緒**狀態時，就會出現此圖格。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 05/11/2017
+ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: a818a41e2e11926c2dee27e081ae8ffc0a4a6298
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
@@ -78,7 +77,7 @@ Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的�
 az login
 ```
 
-`az login` 命令會傳回您將用來驗證的權杖，如下所示。 請依照所提供的指示來開啟網頁並權杖提交至 Azure︰
+`az login` 命令會傳回可讓您用來驗證的權杖，如下所示。 請依照所提供的指示來開啟網頁並權杖提交至 Azure︰
 
 ![登入 Azure](./media/batch-cli-get-started/az-login.png)
 
@@ -119,6 +118,10 @@ az login
     ```
 
 [範例 shell 指令碼](#sample-shell-scripts)一節中所列的範例顯示如何使用 Azure AD 和共用金鑰透過 Azure CLI 登入您的 Batch 帳戶。
+
+## <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 範本和檔案傳輸 (預覽)
+
+您可以使用 Azure CLI 執行端對端的 Batch 作業，而不需要撰寫程式碼。 Batch 範本檔案支援使用 Azure CLI 來建立集區、作業和工作。 您也可以使用 Azure CLI 將作業輸入檔案上傳至與 Batch 帳戶相關聯的 Azure 儲存體帳戶，以及從它下載作業輸出檔案。 如需詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸 (預覽)](batch-cli-templates.md)。
 
 ## <a name="sample-shell-scripts"></a>範例 shell 指令碼
 
@@ -187,7 +190,7 @@ az batch task list --job-id job001
 
 * 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 * 如需 Batch 資源的詳細資訊，請參閱[適用於開發人員的 Azure Batch 概觀](batch-api-basics.md)。
-* 請參閱[使用 Batch 應用程式套件將應用程式部署至計算節點](batch-application-packages.md)，了解如何使用此功能來管理和部署您在 Batch 計算節點上執行的應用程式。
+* 如需有關使用 Batch 範本，在不需要撰寫程式碼的情況下來建立集區、作業和工作的詳細資訊，請參閱[使用 Azure Batch CLI 範本和檔案傳輸 (預覽)](batch-cli-templates.md)。
 
 [batch_forum]: https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md

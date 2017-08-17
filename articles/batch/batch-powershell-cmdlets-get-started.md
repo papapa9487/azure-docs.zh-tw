@@ -15,12 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5e1819a9f081284fa03e9355730689629166006f
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 015096a48e5287af6b225f16a38fac328ed28630
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell Cmdlet 管理 Batch 資源
@@ -101,7 +100,7 @@ ms.lasthandoff: 07/08/2017
 使用許多這類 Cmdlet 時，除了傳遞 BatchContext 物件，您還需要建立或傳遞包含詳細資源設定的物件，如下列範例所示。 如需其他範例，請參閱每個 Cmdlet 的詳細說明。
 
 ### <a name="create-a-batch-pool"></a>建立 Batch 集區
-建立或更新 Batch 集區時，請選取雲端服務組態或計算節點上作業系統的虛擬機器組態 (請參閱 [Batch 功能概觀](batch-api-basics.md#pool))。 您的選擇會決定計算節點是否會以其中一個 [Azure 客體 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases) 或以 Azure Marketplace 中其中一個支援的 Linux 或 Windows VM 映像製作映像。
+建立或更新 Batch 集區時，請為計算節點上的作業系統選取雲端服務設定或虛擬機器設定 (請參閱 [Batch 功能概觀](batch-api-basics.md#pool))。 如果您指定雲端服務設定，則會使用其中一個 [Azure 客體 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)來製作計算節點的映像。 如果您指定虛擬機器設定，則可以指定 [Azure 虛擬機器 Marketplace][vm_marketplace] 所列的其中一個支援的 Linux 或 Windows VM 映像，或提供您已準備的自訂映像。
 
 當您執行 **New-AzureBatchPool**時，請在 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 物件中傳遞作業系統設定。 例如，下列 Cmdlet 會使用雲端服務組態中的小型計算節點建立新的 Batch 集區，並以最新的系列 3 (Windows Server 2012) 作業系統版本製作映像。 在此，**CloudServiceConfiguration** 參數會指定 $configuration 變數做為 PSCloudServiceConfiguration 物件。 **BatchContext** 參數會將先前定義的變數 $context 指定為 BatchAccountContext 物件。
 
@@ -241,4 +240,4 @@ Batch Cmdlet 可以利用 PowerShell 管線在 Cmdlet 之間傳送資料。 這�
 * 如需詳細的 Cmdlet 語法和範例，請參閱 [Azure Batch Cmdlet 參考資料](/powershell/module/azurerm.batch/#batch)。
 * 如需 Batch 中應用程式和應用程式套件的詳細資訊，請參閱[使用 Batch 應用程式套件將應用程式部署至計算節點](batch-application-packages.md)。
 
-
+[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
