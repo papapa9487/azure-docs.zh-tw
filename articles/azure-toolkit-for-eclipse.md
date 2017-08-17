@@ -14,35 +14,32 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm;asirveda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 6de5a3632aee3ddb401fd39d252c6afb43260acb
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ae0aca6a739b443e57724424d6a4a5e8c6eef89a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 
 # <a name="azure-toolkit-for-eclipse"></a>適用於 Eclipse 的 Azure 工具組
-Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclipse 開發環境來建立、開發、測試及部署 Azure 應用程式。 它是開放原始碼專案，您可以從專案網站，透過 MIT License 取得其原始程式碼：
-
-* <https://github.com/microsoft/azure-tools-for-java>
+適用於 Eclipse 的 Azure 工具組提供範本和功能，您可以使用這些範本和功能透過 Eclipse 整合式開發環境 (IDE) 輕鬆地建立、開發、測試及部署 Azure 應用程式。 它是開放原始碼專案，您可以[從專案網站，透過 MIT License](https://github.com/microsoft/azure-tools-for-java) 取得其原始程式碼。
 
 > [!NOTE]
 > 另外還有適用於 IntelliJ IDE 的 Azure 工具組。 如需詳細資訊，請參閱 [Azure Toolkit for IntelliJ](azure-toolkit-for-intellij.md)。
 > 
 > 
 
-## <a name="getting-started-with-the-azure-toolkit-for-eclipse"></a>開始使用適用於 Eclipse 的 Azure 工具組
-下列文章可協助您開始使用 Azure Toolkit for Eclipse：
+## <a name="get-started-with-the-azure-toolkit-for-eclipse"></a>開始使用適用於 Eclipse 的 Azure 工具組
+下列文章可協助您開始使用適用於 Eclipse 的 Azure 工具組：
 
-* [適用於 Eclipse 的 Azure 工具組的新功能](azure-toolkit-for-eclipse-whats-new.md)
+* [Azure Toolkit for Eclipse 的新功能](azure-toolkit-for-eclipse-whats-new.md)
 * [安裝 Azure Toolkit for Eclipse](azure-toolkit-for-eclipse-installation.md)
-* [適用於 Eclipse 的 Azure 工具組登入指示](azure-toolkit-for-eclipse-sign-in-instructions.md)
+* [Azure Toolkit for Eclipse 的登入指示](azure-toolkit-for-eclipse-sign-in-instructions.md)
 * [在 Eclipse 中為 Azure 建立 Hello World 雲端服務](azure-toolkit-for-eclipse-creating-a-hello-world-application.md)
-* [Create a Hello World Web App for Azure in Eclipse (在 Eclipse 中建立 Azure Hello World Web 應用程式)](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
+* [在 Eclipse 中建立 Azure Hello World Web 應用程式](app-service-web/app-service-web-eclipse-create-hello-world-web-app.md)
 
-## <a name="configuring-azure-project-settings"></a>進行 Azure 專案設定
+## <a name="configure-azure-project-settings"></a>進行 Azure 專案設定
 下列文章會示範如何使用 Azure Toolkit for Eclipse 進行 Azure 專案的設定：
 
 * [Azure 專案屬性](azure-toolkit-for-eclipse-azure-project-properties.md)
@@ -52,7 +49,7 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 * [啟用工作階段同質](azure-toolkit-for-eclipse-enable-session-affinity.md)
 * [在 Eclipse 中啟用 Azure 部署的遠端存取](azure-toolkit-for-eclipse-enabling-remote-access-for-azure-deployments.md)
 
-## <a name="using-the-azure-toolkit-for-eclipse"></a>使用 Azure Toolkit for Eclipse
+## <a name="use-the-azure-toolkit-for-eclipse"></a>使用適用於 Eclipse 的 Azure 工具組
 下列文章會示範如何使用 Azure Toolkit for Eclipse 將 Azure 的功能加入您的 Java 專案：
 
 * [在 Eclipse 中顯示 Azure Libraries for Java 封裝的 Javadoc 內容](azure-toolkit-for-eclipse-displaying-javadoc-content-for-azure-libraries.md)
@@ -67,12 +64,10 @@ Azure Toolkit for Eclipse 提供範本和功能，可讓您輕鬆地使用 Eclip
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-如需有關使用 Azure 搭配 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]和[適用於 Visual Studio Team Services 的 Java 工具]。
-
 <!-- URL List -->
 
-[Azure Java 開發人員中心]: https://azure.microsoft.com/develop/java/
-[適用於 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- Temporarily Deprecated URLs -->
 

@@ -1,9 +1,9 @@
 ---
 title: "對 U-SQL 作業進行偵錯 | Microsoft Docs"
-description: "了解如何使用 Visual Studio 對失敗的 U-SQL Vertex 進行偵錯。 "
+description: "了解如何使用 Visual Studio 對失敗的 U-SQL Vertex 進行偵錯。"
 services: data-lake-analytics
 documentationcenter: 
-author: yanancai
+author: saveenr
 manager: jhubbard
 editor: cgronlun
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
@@ -13,62 +13,62 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
-ms.author: yanacai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: aac455520ab62d69b406a254a54b0f000ea2e5bc
+ms.author: saveenr
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/26/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 
-U-SQL 可透過 C# 提供擴充性模型，使用者可以撰寫使用者定義的 C# 程式碼，像是使用者定義的擷取器、歸納器等，來實現更多的擴充性 (深入了解 [U-SQL 使用者定義程式碼](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf))。 不過，每一位開發人員在撰寫程式碼時都難免會出錯，而且因為許多系統僅提供有限的執行階段偵錯資訊 (如記錄檔等)，要在巨量資料系統中進行偵錯並不容易。 
+U-SQL 提供使用 C# 的擴充性模型，所以您可以撰寫程式碼以新增功能，例如自訂擷取程式或減壓器。 若要深入了解，請參閱 [U-SQL 程式設計指南](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf)。 在實務上，任何程式碼都可能需要偵錯，而且巨量資料系統可能僅提供有限的執行階段偵錯資訊，例如記錄檔。
 
-ADL Tools for Visual Studio 提供稱為**頂點失敗偵錯**的功能，透過此功能，您可以輕鬆地將失敗環境 (包括中繼輸入資料和使用者程式碼等) 從雲端複製到本機電腦，以便使用和雲端相同的執行階段和確切輸入資料，來追蹤和偵錯失敗的作業。
+Azure Data Lake Tools for Visual Studio 提供稱為**頂點失敗偵錯**的功能，可讓您將失敗的作業從雲端複製到本機電腦進行偵錯。 本機複本會擷取整個雲端環境，包括任何輸入資料和使用者程式碼。
 
-下列影片示範 ADL Tools for Visual Studio 中的**頂點失敗偵錯**。
+下列影片示範 Azure Data Lake Tools for Visual Studio 中的頂點失敗偵錯。
 
 > [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
 
 > [!NOTE]
-> 如果您沒有下列兩個 Windows 升級，Visual Studio 可能會停止回應或當機：[Microsoft Visual C++ 2015 Redistributable Update 2](https://www.microsoft.com/download/details.aspx?id=51682)、[Universal C Runtime for Windows](https://www.microsoft.com/download/details.aspx?id=50410&wa=wsignin1.0)。
-> 
+> 如果尚未安裝，Visual Studio 需要下列兩項更新：[Microsoft Visual C++ 2015 可轉散發套件 Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) 和 [Windows 通用 C 執行階段](https://www.microsoft.com/download/details.aspx?id=50410)。
 
-## <a name="download-failed-vertex-to-local"></a>將失敗的頂點下載至本機
+## <a name="download-failed-vertex-to-local-machine"></a>將失敗的頂點下載至本機電腦
 
-在 ADL Tools for Visual Studio 中開啟失敗的作業時，您會收到警示。 詳細的錯誤訊息會顯示在 [錯誤] 索引標籤和視窗頂端的黃色警示列。
+當您在 Azure Data Lake Tools for Visual Studio 中開啟失敗的作業時，您會看到一個黃色的警示列，[錯誤] 索引標籤中有詳細的錯誤訊息。
 
-1. 按一下 [下載]  以下載所有必要的資源和輸入資料流。 如果下載失敗，請按一下 [重試]  。 
+1. 按一下 [下載]  以下載所有必要的資源和輸入資料流。 如果下載未完成，請按一下 [重試]。
 
-2. 在下載完成後按一下 [開啟]，以產生本機偵錯環境。 隨即會自動建立並開啟具有偵錯方案的新 Visual Studio 執行個體。 
-
-3. 失敗的作業與程式碼後置和組件的偵錯步驟略有不同。
-
-    - [偵錯程式碼後置失敗的作業](#debug-job-failed-with-code-behind)
-    - [偵錯組件失敗的作業](#debug-job-failed-with-assemblies)
+2. 在下載完成後按一下 [開啟]，以產生本機的偵錯環境。 隨即會自動建立並開啟具有偵錯方案的新 Visual Studio 執行個體。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 下載 Vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
+作業可能會包含程式碼後置原始程式檔或已註冊的組件，且這兩種類型有不同的偵錯案例。
+
+- [偵錯程式碼後置失敗的作業](#debug-job-failed-with-code-behind)
+- [偵錯組件失敗的作業](#debug-job-failed-with-assemblies)
+
+
 ## <a name="debug-job-failed-with-code-behind"></a>偵錯程式碼後置失敗的作業
 
-如果您在程式碼後置檔案 (在 U-SQL 專案中通常稱為 「Script.usql.cs」) 中撰寫使用者定義程式碼，之後 U-SQL 作業失敗了，系統會自動將原始程式碼匯入到產生的偵錯方案，您可以逕自使用以 Visual Studio 為基礎的偵錯體驗 (監看式、變數等) 對問題進行疑難排解。 
+如果 U-SQL 作業失敗，而且作業包含使用者程式碼 (U-SQL 專案中通常命名為 `Script.usql.cs`)，原始程式碼會匯入偵錯方案。  您可從這裡使用 Visual Studio 偵錯工具 (監看式、變數等等) 對問題進行疑難排解。
 
-在進行偵錯之前，請確定您已核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] \(**Ctrl + Alt + E**)。
+> [!NOTE]
+> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] (**Ctrl + Alt + E**)。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 設定](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-1. 按 **F5**，程式碼後置程式碼會自動執行，直到例外狀況將其停止。
+1. 按 **F5** 執行程式碼後置程式碼。 它會一直執行到被例外狀況停止為止。
 
-2. 在專案中開啟 **ADLTool_Codebehind.usql.cs**，設定中斷點，然後按 F5 以逐步偵錯程式碼。
+2. 開啟 `ADLTool_Codebehind.usql.cs` 檔案並設定中斷點，然後按 **F5** 逐步偵錯程式碼。
 
     ![Azure Data Lake Analytics U-SQL 偵錯例外狀況](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
 ## <a name="debug-job-failed-with-assemblies"></a>偵錯組件失敗的作業
 
-如果您在 U-SQL 指令碼中使用已註冊的組件，系統將無法自動取得原始程式碼，您必須先進行一些組態設定才能偵錯使用者定義程式碼，也就是說，您必須在自動產生的方案中新增組件的原始程式碼。
+如果在 U-SQL 指令碼中使用已註冊的組件，系統就無法自動取得原始程式碼。 在此情況下，請手動將組件的原始程式碼檔案新增至方案。
 
 ### <a name="configure-the-solution"></a>設定方案
 
@@ -78,7 +78,7 @@ ADL Tools for Visual Studio 提供稱為**頂點失敗偵錯**的功能，透過
 
 2. 在方案中，以滑鼠右鍵按一下 [LocalVertexHost] > [屬性]，並複製**工作目錄**路徑。
 
-3. 以滑鼠右鍵按一下 組件原始程式碼專案 > 屬性，選取位於左側的 建置 索引標籤，將步驟 2 中所複製的路徑貼到 輸出 > 輸出路徑。  
+3. 以滑鼠右鍵按一下 [組件原始程式碼專案] > [屬性]，選取位於左側的 [建置] 索引標籤，將複製的路徑貼到 [輸出] > [輸出路徑]。
 
     ![Azure Data Lake Analytics U-SQL 偵錯設定 pdb 路徑](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 
@@ -86,41 +86,40 @@ ADL Tools for Visual Studio 提供稱為**頂點失敗偵錯**的功能，透過
 
 ### <a name="start-debug"></a>開始偵錯
 
-1. 以滑鼠右鍵按一下 [組件原始程式碼專案] > [重建]，將 pdb 檔案輸出至 LocalVertexHost 工作目錄。
+1. 以滑鼠右鍵按一下 [組件原始程式碼專案] > [重建]，將 .pdb 檔案輸出至 `LocalVertexHost` 工作目錄。
 
-2. 按 **F5**，專案將會自動執行，直到例外狀況將其停止。 第一次您可能會看到下列可忽略的訊息。 移至 [偵錯] 畫面最多可能需要一分鐘的時間。
+2. 按 **F5**，專案就會一直執行到被例外狀況停止為止。 您會看到下列警告訊息，可以放心忽略。 可能需要一分鐘左右才會移至 [偵錯] 畫面。
 
     ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 警告](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
 
 3. 開啟您的原始程式碼並設定中斷點，然後按 **F5** 逐步偵錯程式碼。
 
-您也可以使用其他以 Visual Studio 為基礎的偵錯體驗 (監看式、變數等) 對問題進行偵錯。 
+您也可以使用 Visual Studio 偵錯工具 (監看式、變數等等) 對問題進行疑難排解。
 
-**請注意**，每次修改程式碼時都必須重建組件來源程式碼專案，以便讓新的 pdb 檔案生效。
+> [!NOTE]
+> 每次修改程式碼以產生更新的 .pdb 檔案之後，都會重建組件原始程式碼專案。
 
-在順利完成偵錯後，輸出視窗會顯示下列訊息：
+偵錯之後，如果專案成功完成，[輸出] 視窗就會顯示下列訊息：
 
-    The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
+```
+The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
+```
 
 ![Azure Data Lake Analytics U-SQL 偵錯成功](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
 ## <a name="resubmit-the-job"></a>重新提交作業
-完成偵錯之後，您可以重新提交失敗的作業。
 
-1. 將新的 .dll 組件註冊到您的 ADLA 資料庫。
+完成偵錯之後，請重新提交失敗的作業。
 
-    1. 從 [伺服器總管/Cloud Explorer] 展開 [ADLA 帳戶] > [資料庫] 節點。
-    2. 以滑鼠右鍵按一下 [組件] 以註冊組件。 
-    3. 將新的 .dll 組件註冊到 ADLA 資料庫。
-    ![Azure Data Lake Analytics U-SQL 偵錯註冊組件](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)
-2. 或將 C# 程式碼複製回到 script.usql.cs-C# 程式碼後置檔案。
+1. 對於有程式碼後置解決方案的作業，請將 C# 程式碼複製到程式碼後置來源檔 (通常是 `Script.usql.cs`)。
+2. 對於有組件的作業，請將更新的 .dll 組件登入到 ADLA 資料庫：
+    1. 從伺服器總管或 Cloud Explorer 展開 [ADLA 帳戶] > [資料庫] 節點。
+    2. 以滑鼠右鍵按一下 [組件] 並向 ADLA 資料庫註冊新的 .dll 組件：![Azure Data Lake Analytics U-SQL 偵錯註冊組件](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)。
 3. 重新提交您的作業。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [U-SQL 可程式性指南](data-lake-analytics-u-sql-programmability-guide.md)
-* [針對 Azure 資料湖分析工作開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)
-* [教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
-
-
+- [U-SQL 可程式性指南](data-lake-analytics-u-sql-programmability-guide.md)
+- [針對 Azure Data Lake Analytics 作業開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+- [教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
 

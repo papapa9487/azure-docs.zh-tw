@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0151e188fde38c7a617cf2070939c6498142dd71
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 和 Linux VM 儲存體
@@ -48,71 +48,37 @@ Azure VM (不論是使用受控或非受控磁碟) 可以標準儲存體磁碟�
 
 ## <a name="creating-a-vm-with-a-managed-disk"></a>建立具有受控磁碟的 VM
 
-下列範例需要 Azure CLI 2.0，您可以 [在此安裝]。
+下列範例需要 Azure CLI 2.0，您可以[在此安裝](/cli/azure/install-azure-cli)。
 
-首先，建立資源群組來管理資源：
+首先，使用 [az group create](/cli/azure/group#create) 建立資源群組來管理資源：
 
 ```azurecli
 az group create --location westus --name myResourceGroup
 ```
 
-然後使用 `az vm create` 命令建立 VM，如下列範例所示；請記得要指定唯一的 `--public-ip-address-dns-name` 引數，因為很可能採用 `manageddisks`。
+現在，使用 [az vm create](/cli/azure/vm#create) 建立 VM。 指定唯一的 `--public-ip-address-dns-name` 引數，因為可能接受 `mypublicdns`。
 
 ```azurecli
 az vm create \
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns
 ```
 
 前一個範例在標準儲存體帳戶中建立具有受控磁碟的 VM。 若要使用進階儲存體帳戶，請新增 `--storage-sku Premium_LRS` 引數，如下列範例所示︰
 
 ```azurecli
 az vm create \
---storage-sku Premium_LRS
---image credativ:Debian:8:latest \
---admin-username azureuser \
---ssh-key-value ~/.ssh/id_rsa.pub
---public-ip-address-dns-name manageddisks \
---resource-group myResourceGroup \
---location westus \
---name myVM
-```
-
-
-### <a name="create-a-vm-with-an-unmanaged-standard-disk-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 建立具有非受控標準磁碟的 VM
-
-您當然也可以使用 Azure CLI 1.0 來建立標準和進階磁碟 VM；這一次，您無法使用 Azure CLI 1.0 來建立受控磁碟所支援的 VM。
-
-`-z` 選項會選擇 Standard_A1，這是以標準儲存體為基礎的 Linux VM。
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_A1
-```
-
-### <a name="create-a-vm-with-premium-storage-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 建立具有進階儲存體的 VM
-`-z` 選項會選擇 Standard_DS1，這是以進階儲存體為基礎的 Linux VM。
-
-```azurecli
-azure vm quick-create -g rbg \
-exampleVMname \
--l westus \
--y Linux \
--Q Debian \
--u exampleAdminUser \
--M ~/.ssh/id_rsa.pub
--z Standard_DS1
+    --resource-group myResourceGroup \
+    --name myVM
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address-dns-name mypublicdns \
+    --storage-sku Premium_LRS
 ```
 
 ## <a name="standard-storage"></a>標準儲存體
@@ -144,7 +110,7 @@ Azure 標準儲存體是預設的儲存體類型。  標準儲存體符合成本
 | Centos |6.5, 6.6, 6.7, 7.0, 7.1 |3.10.0-229.1.2.el7+ |
 | RHEL |6.8+、7.2+ | |
 
-## <a name="file-storage"></a>檔案儲存體
+## <a name="azure-file-storage"></a>Azure 檔案儲存體
 Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 使用 Azure 檔案，您可以將依賴檔案伺服器的企業應用程式移轉至 Azure。 在 Azure 中執行的應用程式可以從執行 Linux 的 Azure 虛擬機器輕鬆地掛接檔案共用。 有了最新版本的檔案儲存體後，您也可以從支援 SMB 3.0 的內部部署應用程式掛接檔案共用。  由於檔案共用為 SMB 共用，因此您可以透過標準檔案系統 API 存取它們。
 
 檔案儲存體是使用與 Blob、資料表和佇列儲存體相同的技術建置，因此檔案儲存體能夠提供可用性、持續性、延展性和建置於 Azure 儲存體平台內的異地備援。 如需有關檔案儲存體效能目標和限制的詳細資訊，請參閱「Azure 儲存體延展性和效能目標」。
@@ -234,7 +200,7 @@ Azure 儲存體提供一組完整的安全性功能，讓開發人員能夠共�
 * [Azure 儲存體安全性指南](../../storage/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>暫存磁碟
-每個 VM 都包含一個暫存磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-planned-vs-unplanned-maintenance)期間或當您[重新佈署 VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 時遺失。 在 VM 的標準重新開機期間，暫存磁碟上的資料會保留。
+每個 VM 都包含一個暫存磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署 VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 時遺失。 在 VM 的標準重新開機期間，暫存磁碟上的資料會保留。
 
 在 Linux 虛擬機器上，這個磁碟通常是 **/dev/sdb**，並且會由「Azure Linux 代理程式」將它格式化並裝載至 **/mnt/**。 暫存磁碟的大小會依據虛擬機器的大小而改變。 如需詳細資訊，請參閱 [Linux 虛擬機器的大小](sizes.md)。
 

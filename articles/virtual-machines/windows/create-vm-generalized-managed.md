@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 527f3f33e2b5996c6fa7b7dc874123bba5ab39dd
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4b2593067193fe928cb8ac2b662fc3fd8ba7aedf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>從 Managed 映像建立 VM
@@ -32,10 +31,10 @@ ms.lasthandoff: 05/26/2017
 
 您必須已經[建立受控 VM 映像](capture-image-resource.md)，才能用來建立新的 VM。 
 
-請確定您擁有最新版的 AzureRM.Compute PowerShell 模組。 執行下列命令來安裝它。
+請確定您擁有最新版的 AzureRM.Compute 和 AzureRM.Network PowerShell 模組。 以系統管理員身分開啟 PowerShell 命令提示字元，執行下列命令安裝它們。
 
 ```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
+Install-Module AzureRM.Compute,AzureRM.Network
 ```
 如需詳細資訊，請參閱 [Azure PowerShell 版本控制](/powershell/azure/overview)。
 

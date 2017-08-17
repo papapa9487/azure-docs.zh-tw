@@ -3,7 +3,7 @@ title: "PowerShell 範例 - 在內部部署的 SQL Database 和 SQL Server 之�
 description: "Azure PowerShell 範例指令碼會設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理"
 services: sql-database
 documentationcenter: sql-database
-author: douglaslms
+author: jognanay
 manager: jhubbard
 editor: 
 tags: 

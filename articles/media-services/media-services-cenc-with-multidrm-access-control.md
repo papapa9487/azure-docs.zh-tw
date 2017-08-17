@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2016
+ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 63f2638cd0d50d1aa9a3b6864daba0b8854768d7
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>具有多重 DRM 及存取控制的 CENC：Azure 與 Azure 媒體服務的參考設計和實作
@@ -57,7 +57,7 @@ Microsoft 已經成為 DASH 和 CENC 與其他一些主要業界播放器的積�
 | --- | --- | --- | --- |
 | **智慧型電視、運算子 STB、OTT STB** |主要為 PlayReady，及/或 Widevine，及/或其他的 DRM |Linux、Opera、WebKit 及其他瀏覽器/應用程式 |各種格式 |
 | **Windows 10 裝置 (Windows 電腦、Windows 平板電腦、Windows Phone、Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (HLS 並不支援 PlayReady)<br/><br/>DASH、Smooth Streaming (HLS 並不支援 PlayReady) |
-| **Android 裝置 (電話、平板電腦、電視)** |Widevine |Chrome/EME |DASH |
+| **Android 裝置 (電話、平板電腦、電視)** |Widevine |Chrome/EME |DASH,HLS |
 | **iOS (iPhone、iPad)、OS X 用戶端和 Apple 電視** |FairPlay |Safari 8+/EME |HLS |
 
 
@@ -457,3 +457,4 @@ Windows 10 的 Microsoft Edge 及 IE 11 中的 EME，允許支援 [PlayReady SL3
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
+

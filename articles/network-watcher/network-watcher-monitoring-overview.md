@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/22/2017
+ms.date: 07/11/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: aabc0cf743487752312f5e1b078837545169e964
-ms.lasthandoff: 03/31/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -47,30 +48,14 @@ ms.lasthandoff: 03/31/2017
 * **[虛擬網路閘道和連線疑難排解](network-watcher-troubleshoot-manage-rest.md)** - 提供針對虛擬網路閘道和連線進行疑難排解的能力。
 * **[網路訂用帳戶限制](#network-subscription-limits)** - 可讓您檢視網路資源使用量與限制。
 * **[設定診斷記錄](#diagnostic-logs)** - 提供單一窗格以供啟用或停用資源群組中網路資源的診斷記錄。
+* **[連線 (預覽)](network-watcher-connectivity-overview.md)** - 確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
 
 ### <a name="role-based-access-control-rbac-in-network-watcher"></a>網路監看員的角色型存取控制 (RBAC)
 
 網路監看員使用 [Azure 角色型存取控制 (RBAC) 模型](../active-directory/role-based-access-control-what-is.md)。 網路監看員需要下列權限。 請務必確定用來起始網路監看員 API 或從入口網站使用網路監看員的角色具有所需存取權。
 
-|資源| 權限|
-|---|---|
-|Microsoft.Storage/ |讀取|
-|Microsoft.Authorization/| 讀取|
-|Microsoft.Resources/subscriptions/resourceGroups/| 讀取|
-|Microsoft.Storage/storageAccounts/listServiceSas/ | 動作|
-|Microsoft.Storage/storageAccounts/listAccountSas/ |動作|
-|Microsoft.Storage/storageAccounts/listKeys/ | 動作|
-|Microsoft.Compute/virtualMachines/ |讀取|
-|Microsoft.Compute/virtualMachines/ |寫入|
-|Microsoft.Compute/virtualMachineScaleSets/ |讀取|
-|Microsoft.Compute/virtualMachineScaleSets/ |寫入|
-|Microsoft.Network/networkWatchers/packetCaptures/| 讀取|
-|Microsoft.Network/networkWatchers/packetCaptures/| 寫入|
-|Microsoft.Network/networkWatchers/packetCaptures/| 刪除|
-|Microsoft.Network/networkWatchers/ |寫入|
-|Microsoft.Network/networkWatchers/| 讀取|
-|Microsoft.Insights/alertRules/ |*|
-|Microsoft.Support/| *|
+|資源| 權限| | |---|---| | |Microsoft.
+|Microsoft.Storage/ |讀取| | |Microsoft.Authorization/| 讀取| | |Microsoft.Resources/subscriptions/resourceGroups/| 讀取| | |Microsoft.Storage/storageAccounts/listServiceSas/ | 動作| | |Microsoft.Storage/storageAccounts/listAccountSas/ |動作| | |Microsoft.Storage/storageAccounts/listKeys/ | 動作| | |Microsoft.Compute/virtualMachines/ |讀取| | |Microsoft.Compute/virtualMachines/ |寫入| | |Microsoft.Compute/virtualMachineScaleSets/ |讀取| | |Microsoft.Compute/virtualMachineScaleSets/ |寫入| | |Microsoft.Network/networkWatchers/packetCaptures/| 讀取| | |Microsoft.Network/networkWatchers/packetCaptures/| 寫入| | |Microsoft.Network/networkWatchers/packetCaptures/| 刪除| | |Microsoft.Network/networkWatchers/ |寫入| | |Microsoft.Network/networkWatchers/| 讀取| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
 
 ### <a name="network-subscription-limits"></a>網路訂用帳戶限制
 
@@ -123,6 +108,8 @@ ms.lasthandoff: 03/31/2017
 使用[警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)執行主動監視和診斷。
 
 使用開放原始碼工具，透過[使用 Wireshark 分析封包擷取](network-watcher-deep-packet-inspection.md)來偵測安全性弱點。
+
+了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
 
 <!--Image references-->
 [TS]: ./media/network-watcher-monitoring-overview/troubleshooting.png

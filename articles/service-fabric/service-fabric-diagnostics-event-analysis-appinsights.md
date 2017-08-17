@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c88b2b5cff70e7a4b3642c53502f348f2e789e81
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -75,7 +74,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 上面這兩個程式碼片段都使用 "applicationInsights" 名稱來描述接收。 這不是需求，而是只要在「接收」中包含接收的名稱，就可以在任何字串設定該名稱。
 
-目前，叢集中的記錄檔會顯示為 AI 記錄檔檢視器中的追蹤。 由於大部分來自基礎結構層級的追蹤類型都是「資訊」，您也可以考慮將接收設定變更為僅傳送「重大」或「錯誤」類型的記錄檔。 只要將「通道」新增至接收器即可，如[本文](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)所示。
+目前，叢集中的記錄檔會顯示為 AI 記錄檔檢視器中的追蹤。 由於大部分來自平台的追蹤層級都是「資訊」，您也可以考慮將接收設定變更為僅傳送「重大」或「錯誤」類型的記錄。 只要將「通道」新增至接收器即可，如[本文](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)所示。
 
 >[!NOTE]
 >如果您在入口網站或 Resource Manager 範本中使用不正確的 AI IKey，您就必須手動變更金鑰，並更新/重新部署叢集。 

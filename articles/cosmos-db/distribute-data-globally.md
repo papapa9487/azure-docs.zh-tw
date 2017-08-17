@@ -14,20 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c579b003052045cb78c922265ff1fc6d321a6f86
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料？
+# <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中。 遍及全球的 Azure 提供給開發人員的其中一項差異化功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
 
-[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域散發的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[一站式全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](../cosmos-db/partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA (英文)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，可支援文件、索引鍵/值、圖表和單欄式資料模型。 Azure Cosmos DB 是經過仔細工程設計的全新雲端服務，可供多租用戶使用和提供全域散發功能。
+[Azure Cosmos DB](../cosmos-db/introduction.md) 是 Microsoft 全域散發的多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供周全的全域散發、全球[彈性調整的輸送量和儲存體](../cosmos-db/partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，可支援文件、索引鍵/值、圖表和單欄式資料模型。 Azure Cosmos DB 是經過仔細工程設計的全新雲端服務，可供多租用戶使用和提供全域散發功能。
 
-**分割並散發在三個 Azure 區域的單一 Azure Cosmos DB 集合**
+**分割並散發在多個 Azure 區域的單一 Azure Cosmos DB 集合**
 
 ![分割並散發在三個區域的 Azure Cosmos DB 集合](./media/distribute-data-globally/global-apps.png)
 
@@ -37,11 +36,11 @@ Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中�
 
 在本文中，我們提供 Azure Cosmos DB 的全域散發功能概觀。 我們也會說明 Azure Cosmos DB 唯一能提供完整 SLA 的方法。 
 
-## <a id="EnableGlobalDistribution"></a>啟用周全的全球發散功能
+## <a id="EnableGlobalDistribution"></a>啟用周全的全域散發
 Azure Cosmos DB 提供下列功能，讓您輕鬆地撰寫全球規模的應用程式。 透過 Azure Cosmos DB 的資源提供者型 [REST API](https://docs.microsoft.com/rest/api/documentdbresourceprovider/) 和 Azure 入口網站，即可使用這些功能。
 
 ### <a id="RegionalPresence"></a>遍及各區，無所不在 
-Azure 透過不斷連上新的地理區域，而日益普及。 根據預設，新的 Azure 區域全部都可使用 Azure Cosmos DB。 一旦 Azure 為企業開啟新的區域，這就能讓您將地理區域關聯至 Azure Cosmos DB 資料庫帳戶。
+Azure 透過不斷連上[新的地理區域](https://azure.microsoft.com/regions/)，而日益普及。 根據預設，新的 Azure 區域全部都可使用 Azure Cosmos DB。 一旦 Azure 為企業開啟新的區域，這就能讓您將地理區域關聯至 Azure Cosmos DB 資料庫帳戶。
 
 **新的 Azure 區域預設全部都可使用 Azure Cosmos DB**
 
@@ -227,8 +226,8 @@ Azure Cosmos DB 會直接公開輸送量、延遲、一致性和可用性計量�
 
 ![Azure Cosmos DB 客戶可見的 SLA 計量](./media/distribute-data-globally/customer-slas.png)
 
-## <a id="Next Steps"></a>後續步驟
-* 若要使用 Azure 入口網站對您的 Azure Cosmos DB 帳戶實作全域複寫，請參閱[如何使用 Azure 入口網站執行 Azure Cosmos DB 全域資料庫複寫](../cosmos-db/tutorial-global-distribution-documentdb.md)。
+## <a id="Next Steps"></a>接續步驟
+* 若要使用 Azure 入口網站對您的 Azure Cosmos DB 帳戶實作全域複寫，請參閱[如何使用 Azure 入口網站執行 Azure Cosmos DB 全域資料庫複寫](tutorial-global-distribution-documentdb.md)。
 * 若要了解如何使用 Azure Cosmos DB 實作多重主機架構，請參閱[使用 Azure Cosmos DB 的多重主機資料庫架構](multi-region-writers.md)。
 * 若要深入了解自動和手動容錯移轉如何在 Azure Cosmos DB 中運作，請參閱 [Azure Cosmos DB 的區域性容錯移轉](regional-failover.md)。
 

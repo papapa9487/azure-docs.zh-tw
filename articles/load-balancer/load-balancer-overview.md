@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 78025789fd03d3c3a6cfb170329d9d51ac282034
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -126,10 +126,12 @@ Azure Load Balancer 可以設定為：
 
 ## <a name="next-steps"></a>後續步驟
 
-[網際網路面向的負載平衡器概觀](load-balancer-internet-overview.md)
+- 深入了解[網際網路對向負載平衡器](load-balancer-internet-overview.md)
 
-[內部負載平衡器概觀](load-balancer-internal-overview.md)
+- 深入了解[內部負載平衡器概觀](load-balancer-internal-overview.md)
 
-[開始建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
+- 建立[網際網路對向負載平衡器](load-balancer-get-started-internet-portal.md)
+
+- 深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)
 
 

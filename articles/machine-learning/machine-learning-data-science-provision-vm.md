@@ -1,6 +1,6 @@
 ---
 title: "佈建 Microsoft 資料科學虛擬機器 | Microsoft Docs"
-description: "在 Azure 上設定和建立資料科學虛擬機器以進行分析和機器學習服務。"
+description: "在 Azure 上設定和建立資料科學虛擬機器以進行分析和機器學習。"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -11,18 +11,17 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 1469e7a2f5f41ef52c0ff77e6e70378951594135
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: b1b29ba11bc489a6ad67c2d9043cdb8a2dca7ef8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="provision-the-microsoft-data-science-virtual-machine"></a>佈建 Microsoft 資料科學虛擬機器
-Microsoft 資料科學虛擬機器是預先安裝並設定數個常用於資料分析和機器學習之熱門工具的 Azure 虛擬機器 (VM) 映像。 這些工具包括：
+Microsoft 資料科學虛擬機器是預先安裝並設定數個常用於資料分析和機器學習之熱門工具的 Windows Azure 虛擬機器 (VM) 映像。 這些工具包括：
 
 * Microsoft R Server Developer Edition
 * Anaconda Python 散佈
@@ -42,7 +41,13 @@ Microsoft 資料科學虛擬機器是預先安裝並設定數個常用於資料�
 * 包括 Git Bash 的 Git，可搭配原始程式碼儲存機制 (包括 GitHub、Visual Studio Team Services) 使用
 * Windows 連接埠，含可透過命令提示字元存取的數個熱門 Linux 命令列公用程式 (包括 awk、sed、perl、grep、find、wget 及 curl 等)。 
 
-執行資料科學涉及反覆進行一連串的工作：尋找、載入和前置處理資料、建置與測試模型，以及部署模型以在智慧型應用程式中使用。 資料科學家使用各種工具來完成這些工作。 尋找適當版本的軟體然後下載並安裝它們是相當耗費時間的工作。 Microsoft Data Science 虛擬機器提供可佈建於 Azure 上的現成映像，其中含有已預先安裝和設定的數種常用工具，能有助於減輕工作負擔。 
+執行資料科學涉及反覆進行一連串的工作︰
+
+1. 尋找、載入和前置處理資料
+2. 建置和測試模型
+3. 部署要在智慧型應用程式中使用的模型
+
+資料科學家使用各種工具來完成這些工作。 尋找適當版本的軟體然後下載並安裝它們是相當耗費時間的工作。 Microsoft Data Science 虛擬機器提供可佈建於 Azure 上的現成映像，其中含有已預先安裝和設定的數種常用工具，能有助於減輕工作負擔。 
 
 Microsoft 資料科學虛擬機器可快速啟動分析專案。 它能讓您用各種語言處理工作，包含 R、Python、SQL 與 C#。 Visual Studio 提供整合式開發環境 (IDE) 以開發和測試您的程式碼，很容易使用。 包含在 VM 的 Azure SDK 可讓您使用 Microsoft 的雲端平台上的各種服務，建置您的應用程式。 
 
@@ -98,12 +103,13 @@ Microsoft 資料科學虛擬機器可快速啟動分析專案。 它能讓您用
 
 依照訊息進行，看到提示時選擇強式密碼。
 
-上述指令碼會建立密碼雜湊，並將它儲存在 Jupyter 組態檔 **C:\ProgramData\jupyter\jupyter_notebook_config.py** 中的參數名稱 ***c.NotebookApp.password*** 之下。
+上述指令碼會建立密碼雜湊，並將它儲存在 Jupyter 設定檔 **C:\ProgramData\jupyter\jupyter_notebook_config.py** 中的參數名稱 ***c.NotebookApp.password*** 之下。
 
-此指令碼也會在背景中啟用和執行 Jupyter 伺服器。 Jupyter 伺服器會在 Windows 工作排程器中建立為一項 Windows 工作，稱為 **Start_IPython_Notebook**。  設定密碼之後，您可能需要等候幾秒鐘，再於瀏覽器中開啟 Notebook。 請參閱下一節 **Jupyter Notebook**，以了解如何存取 Jupyter Notebook 伺服器。 
+此指令碼也會在背景啟用和執行 Jupyter 伺服器。 Jupyter 伺服器會在 Windows 工作排程器中建立為一項 Windows 工作，稱為 **Start_IPython_Notebook**。  設定密碼之後，您可能需要等候幾秒鐘，再於瀏覽器中開啟 Notebook。 請參閱下一節 **Jupyter Notebook**，以了解如何存取 Jupyter Notebook 伺服器。 
 
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Microsoft 資料科學虛擬機器上所安裝的工具
+
 ### <a name="microsoft-r-server-developer-edition"></a>Microsoft R Server Developer Edition
 如果您想要將 R 用於分析，VM 已安裝 Microsoft R Server Developer Edition。 Microsoft R Server 是一個能夠廣泛部署的企業級分析平台，以支援的 R 為基礎，可調整規模且十分安全。 R Server 支援各種巨量資料統計資料、預測性模型化和機器學習能力，因此可支援各種類型的分析 – 瀏覽、分析、視覺化及模型化。 透過使用及擴充開放原始碼 R，Microsoft R Server 能夠與 R 指令碼、函式及 CRAN 封裝完全相容，以分析企業規模的資料。 它也會透過加入資料的平行和區塊處理，解決開放原始碼 R 的記憶體內部限制問題。 這可讓您對遠大於主記憶體可負荷的資料量執行資料分析。  VM 隨附的 Visual Studio Community Edition 包含 R Tools for Visual Studio 擴充功能，提供搭配 R 工具使用的完整整合式開發環境 (IDE)。您也可以下載並使用其他 IDE，例如 [RStudio](http://www.rstudio.com)。 
 

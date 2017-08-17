@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/22/2017
+ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 6d390a75df51a22aa4e60094f3e4ba945a5725ad
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: d44bb8207edae22ab9d6b1c7b9a3e4da888aa06e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
@@ -40,6 +39,7 @@ Azure 備份服務擷取快照集之後，資料會傳輸至保存庫。 為了�
 > [!NOTE]
 > 1. 在備份程序進行期間，Azure 備份不會包含連接至虛擬機器的暫存磁碟。 如需詳細資訊，請參閱[暫存儲存空間](https://blogs.msdn.microsoft.com/mast/2013/12/06/understanding-the-temporary-drive-on-windows-azure-virtual-machines/)部落格文章 (英文)。
 > 2. 由於 Azure 備份會擷取儲存體層級的快照集，並將快照集傳輸至保存庫，因此在備份作業完成前，請勿變更儲存體帳戶金鑰。
+> 3. 對於進階 VM，我們會將快照集複製到儲存體帳戶。 這是為了確定 Azure 備份服務能取得足夠的 IOPS，將資料傳送至保存庫。 額外的儲存體複本依 VM 配置大小收費。 
 >
 
 ### <a name="data-consistency"></a>資料一致性

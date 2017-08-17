@@ -12,17 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 2/6/2017
+ms.date: 07/20/2017
 ms.author: pullabhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c65976c7394c7f9691526c0914854ef09184ab07
+ms.translationtype: HT
+ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
+ms.openlocfilehash: ae7c345c11a7db25413d60ad822f16f84ca37362
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="recover-files-from-azure-virtual-machine-backup-preview"></a>從 Azure 虛擬機器備份復原檔案 (預覽)
+# <a name="recover-files-from-azure-virtual-machine-backup"></a>從 Azure 虛擬機器備份復原檔案
 
 Azure 備份能夠讓您從 Azure VM 備份還原 [Azure VM 和磁碟](./backup-azure-arm-restore-vms.md)。 現在本文說明如何從 Azure VM 備份復原檔案和資料夾等項目。
 
@@ -35,7 +34,7 @@ Azure 備份能夠讓您從 Azure VM 備份還原 [Azure VM 和磁碟](./backup-
 
 1. 登入 [Azure 入口網站](http://portal.Azure.com)。 尋找相關的復原服務保存庫和必要的備份項目。
 
-2. 在 [備份項目] 刀鋒視窗中，按一下 [檔案修復 (預覽)]
+2. 在 [備份項目] 刀鋒視窗中，按一下 [檔案修復]。
 
     ![開啟復原服務保存庫備份項目](./media/backup-azure-restore-files-from-vm/open-vault-item.png)
 
@@ -49,13 +48,19 @@ Azure 備份能夠讓您從 Azure VM 備份還原 [Azure VM 和磁碟](./backup-
 
   可執行檔/指令碼會在本機電腦和指定復原點之間建立連線。
 
-5. 在您要復原檔案的電腦上，執行可執行檔/指令碼。 您必須以系統管理員認證來執行它。 如果您在具有限制存取的電腦上執行指令碼，請確定可存取︰
+5. 您需要有密碼才能執行下載的指令碼/可執行檔。 您可以使用所產生密碼旁邊的 [複製] 按鈕，從入口網站複製密碼。
 
-    - go.microsoft.com
+    ![產生的密碼](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
+
+6. 在您要復原檔案的電腦上，執行可執行檔/指令碼。 您必須以系統管理員認證來執行它。 如果您在具有限制存取的電腦上執行指令碼，請確定可存取︰
+
+    - download.microsoft.com
     - 用於 Azure VM 備份的 Azure 端點
     - 輸出連接埠 3260
 
    若為 Linux，指令碼需要 'open-iscsi' 和 'lshw' 元件來連接到復原點。 如果這些不存在其所執行的電腦上，它會要求安裝相關元件的權限，並在同意下加以安裝。
+   
+   出現提示時，輸入從入口網站複製的密碼。 輸入有效的密碼後，指令碼會連接到復原點。
       
     ![[檔案復原] 刀鋒視窗](./media/backup-azure-restore-files-from-vm/executable-output.png)
     

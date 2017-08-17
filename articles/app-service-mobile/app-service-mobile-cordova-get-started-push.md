@@ -3,9 +3,9 @@ title: "使用 Azure Mobile Apps 將推播通知新增至 Apache Cordova 應用�
 description: "了解如何使用 Azure Mobile Apps 將推播通知傳送至 Apache Cordova 應用程式。"
 services: app-service\mobile
 documentationcenter: javascript
-manager: adrianha
+manager: syntaxc4
 editor: 
-author: ysxu
+author: ggailey777
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 47063276d7bb6bb3b3aac0cca4290dfbea5488f7
-ms.openlocfilehash: 99b23de962f7ba338fcf3f9b2e96d58c3dcbe7bc
-ms.lasthandoff: 02/11/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: dc3cab0a6a8b4a56ab0fba1a02e5bba9d0ed1b1f
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
@@ -156,7 +156,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) 在上述程式碼中，從  [Google Developer Console][18] 使用應用程式的數字專案識別碼取代 `Your_Project_ID`。
+3. (Android) 在上述程式碼中，從 [Google Developer Console][18] 使用應用程式的數字專案識別碼取代 `Your_Project_ID`。
 
 ## <a name="optional-configure-and-run-the-app-on-android"></a>(選擇性) 在 Android 上設定和執行應用程式
 完成本節可以為 Android 啟用推播通知。
@@ -187,7 +187,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 #### <a name="configure-device"></a>設定 Android 裝置進行 USB 偵錯
 在您可以將應用程式部署到您的 Android 裝置之前，您需要啟用 USB 偵錯。  在您的 Android 手機上執行下列步驟：
 
-1. 移至 [設定] > [關於手機]，然後點選 [版本號碼]，直到啟用開發人員模式為止 (大約七次)。
+1. 移至 [設定] > [關於手機]，然後點選 [組建編號]，直到啟用開發人員模式為止 (大約七次)。
 2. 回到 [設定] > [開發人員選項]，啟用 [USB 偵錯]，然後使用 USB 纜線將 Android 手機連接至開發電腦。
 
 我們測試時使用的是執行 Android 6.0 (Marshmallow) 的 Google Nexus 5 X 裝置。  不過，這些技術在任何現代化 Android 版本中都是相同的。
@@ -195,7 +195,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 #### <a name="install-google-play-services"></a>安裝 Google Play 服務
 推播外掛程式仰賴 Android Google Play 服務來進行推播通知。
 
-1. 在 [Visual Studio] 中，按一下 [工具] > [Android] > [Android SDK Manager]，然後展開 [Extras] 資料夾並勾選方塊，以確定安裝下列所有 SDK。
+1. 在 Visual Studio 中，按一下 [工具] > [Android] > [Android SDK 管理員]，然後展開 [Extras] 資料夾並核取方塊，以確定安裝下列所有 SDK。
 
    * Android 2.3 或更新版本
    * Google Repository 版本 27 或更高版本
@@ -266,8 +266,7 @@ Apache Cordova 應用程式原本就不會處理裝置或網路功能。  這些
 5. 重建您的專案。
 
 ##### <a name="test-push-notifications-in-your-ios-app"></a>在 iOS 應用程式中測試推播通知
-1. 在 Visual Studio 中，確定已選取 **iOS** 作為部署目標，然後選擇 [裝置]
-   ，以便在連接的 iOS 裝置上執行。
+1. 在 Visual Studio 中，確定已選取 **iOS** 做為部署目標，然後選擇 [裝置] 以在連線的 iOS 裝置上執行。
 
     您可以在使用 iTunes 連線至您的 PC 的 iOS 裝置上執行。 iOS 模擬器不支援推播通知。
 

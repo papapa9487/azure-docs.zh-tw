@@ -13,14 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 07/19/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: b60105297fb84ce1240a33d576653f5fa7c950e9
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>使用複製活動來移動資料
@@ -187,6 +186,12 @@ JSON 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) �
 
 ## <a name="performance-and-tuning"></a>效能和微調
 請參閱 [複製活動的效能及微調指南](data-factory-copy-activity-performance.md)，其中說明在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素。 它也列出在內部測試期間所觀察到的效能，並討論各種可將「複製活動」效能最佳化的方式。
+
+## <a name="fault-tolerance"></a>容錯
+根據預設，來源與接收之間出現不相容的資料時，複製活動會停止複製資料並傳回失敗；而您可以明確設定略過並記錄不相容的資料列，只複製那些相容的資料，使複製成功。 如需詳細資訊，請參閱[複製活動容錯](data-factory-copy-activity-fault-tolerance.md)。
+
+## <a name="security-considerations"></a>安全性考量
+請參閱[安全性考量](data-factory-data-movement-security-considerations.md)，說明 Azure Data Factory 中資料移動服務用來保護您資料的安全性基礎結構。
 
 ## <a name="scheduling-and-sequential-copy"></a>排程和循序複製
 請參閱 [排程和執行](data-factory-scheduling-and-execution.md) ，以取得排程和執行在 Data Factory 中如何運作的詳細資訊。 您可以利用循序/排序的方式，逐一執行多個複製作業。 請參閱[循序複製](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)一節。

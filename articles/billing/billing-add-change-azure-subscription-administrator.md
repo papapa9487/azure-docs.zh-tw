@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 07/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 782489e7551fef3daed4de8212821e93f7777535
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色
@@ -38,16 +37,22 @@ ms.lasthandoff: 06/28/2017
 
     ![顯示已選取訂用帳戶選項的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
 
-3. 在 [訂用帳戶] 刀鋒視窗中，選取 [存取控制 (IAM)]> [新增]。
+3. 在 [訂用帳戶] 刀鋒視窗中，選取 [存取控制 (IAM)]。
+4. 選取 [新增] > [角色] > [擁有者]。 輸入您想要新增為擁有者的使用者的電子郵件地址，選取使用者，再選取 [儲存]。
 
-    ![顯示已選取 [新增] 按鈕的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. 選取 [選取角色] > [擁有者]。
+    ![顯示已選取 [擁有者] 角色的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-    ![顯示已選取 [擁有者] 角色的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
+5. 如果想要新增擁有者帳戶作為共同管理員，請在 [存取控制 (IAM)] 頁面上，以滑鼠右鍵按一下使用者，然後選取 [新增為共同管理員]。 [Azure 預覽入口網站](https://preview.portal.azure.com/)現提供此功能。 
 
-5. 輸入您想要新增為擁有者的使用者的電子郵件地址，按一下使用者，然後按一下 [選取] 。
+     ![新增共同管理員的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
-    ![顯示已新增並選取使用者電子郵件的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
+    >[!TIP]
+    >如果使用者需要在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上管理 Azure 服務，您需要將「擁有者」使用者新增為共同管理員。
+
+    若要移除共同管理員權限，請以滑鼠右鍵按一下「共同管理員」使用者，然後選取 [移除共同管理員]。
+
+    ![移除共同管理員的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
 
 **Azure 傳統入口網站**
 
@@ -68,14 +73,12 @@ ms.lasthandoff: 06/28/2017
 
     使用者@&lt;您的網域&gt;.onmicrosoft.com
 
-
-
 ## <a name="change-service-administrator-for-a-subscription"></a>變更訂用帳戶的服務管理員
 只有帳戶管理員可以變更訂用帳戶的服務管理員。
 
 1. 使用帳戶管理員登入 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)。
 2. 選取您想變更的訂用帳戶。
-3. 按一下右側的 [編輯訂用帳戶詳細資料  ]。 </br>
+3. 選取右側的 [編輯訂用帳戶詳細資料]。 </br>
 
     ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
 4. 在 [服務管理員  ] 方塊中，輸入新的服務管理員的電子郵件地址。 </br>
