@@ -12,7 +12,7 @@
 本文涵蓋搭配 Azure CLI 來管理 Azure 訂用帳戶中之資源 (主要是 VM) 並與其互動的基本命令。  如需特定命令列參數和選項的詳細說明，您可以輸入 `azure <command> <subcommand> --help` 或 `azure help <command> <subcommand>` 來使用線上命令說明和選項。
 
 > [!NOTE]
-> 這些範例不包含以範本為基礎的作業，這些作業一般建議在資源管理員中針對 VM 部署使用。 如需資訊，請參閱[搭配 Azure Resource Manager 使用 Azure CLI](../articles/xplat-cli-azure-resource-manager.md) 和[使用 Azure Resource Manager 範本和 Azure CLI 部署與管理虛擬機器](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> 這些範例不包含以範本為基礎的作業，這些作業一般建議在資源管理員中針對 VM 部署使用。 如需資訊，請參閱[搭配 Azure Resource Manager 使用 Azure CLI](../articles/xplat-cli-azure-resource-manager.md) 和[使用 Azure Resource Manager 範本和 Azure CLI 部署與管理虛擬機器](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 > 
 > 
 

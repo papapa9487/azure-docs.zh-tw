@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/07/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: afa4fe6cdef298e4504ddcf3e344ee6a5c181653
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立圖形資料庫
@@ -61,7 +61,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     圖形識別碼|sample-graph|新圖形的識別碼。 圖形名稱與資料庫識別碼具有相同的字元需求。
     儲存體容量| 10 GB|保留預設值。 這是資料庫的儲存體容量。
     輸送量|400 RU|保留預設值。 如果您想要降低延遲，稍後可以相應增加輸送量。
-    RU/m|關閉|保留預設值。 如果您稍後需要處理 spiky 工作負載，您可以屆時開啟 [RU/m](request-units-per-minute.md) 功能。
+    RU/m|關閉|保留預設值。
     資料分割索引鍵|保留空白|針對本快速入門的目的，將資料分割索引鍵空白。
 
 3. 填妥表單後，按一下 [確定]。

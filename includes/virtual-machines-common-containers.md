@@ -92,8 +92,7 @@ Windows 容器對於在 Windows 執行的應用程式提供與 Linux 容器相�
 最近，Azure 發行了 [Azure 資源管理](../articles/resource-manager-deployment-model.md) REST API，以及更新的 PowerShell 和 Azure CLI 工具可輕鬆使用。 您可以使用 [Azure 資源管理員範本](../articles/resource-group-authoring-templates.md) ，搭配使用下列的 Azure 資源管理 API，來部署、修改或重新部署整個應用程式拓撲：
 
 * [使用範本的 Azure 入口網站](https://github.com/Azure/azure-quickstart-templates)&mdash;提示：使用 [DeployToAzure] 按鈕
-* [Azure CLI](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* [Azure Powershell 模組](../articles/virtual-machines/linux/cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Azure CLI](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="deployment-and-management-of-entire-groups-of-azure-vms-and-containers"></a>部署和管理整個 Azure VM 群組和容器群組
 有幾個很受歡迎的系統可以部署整個 VM 群組，並且在系統上面安裝 Docker (或其他 Linux 容器主機系統) 做為可自動化的群組。 如需直接連結，請參閱下面的 [容器和工具](#containers-and-vm-technologies) 一節。 有幾個系統可以做到更大或更小的程度，只是這份清單並不詳盡。 這要視您的技能和案例而定，可能不一定有用。
@@ -104,7 +103,7 @@ Docker 有自己的 VM 建立工具 ([docker-machine](../articles/virtual-machin
 
 而 [Kubernetes](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/) 則是一個 VM 和容器群組管理的開放原始碼系統，衍生自在 Google 學習到的工作。 您甚至可以使用 [Kubernetes 搭配 Weave 提供網路支援](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)。
 
-[Deis](http://deis.com/) 是一個開放原始碼的「平台即服務」(PaaS)，可以輕鬆部署和管理您自己伺服器上的應用程式。 Deis 建立在 Docker 和 CoreOS 上，提供輕量級 PaaS 以及以 Heroku 為靈感來源的工作流程。 您可以輕鬆[建立 3 個節點的 Azure VM 群組，並且在 Azure 上安裝 Deis](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，然後[安裝 Hello World Go 應用程式](../articles/virtual-machines/linux/deis-cluster.md#deploy-and-scale-a-hello-world-application)。
+[Deis](http://deis.io/overview/) 是一個開放原始碼的「平台即服務」(PaaS)，可以輕鬆部署和管理您自己伺服器上的應用程式。 Deis 建立在 Docker 和 CoreOS 上，提供輕量級 PaaS 以及以 Heroku 為靈感來源的工作流程。
 
 [CoreOS](https://coreos.com/os/docs/latest/booting-on-azure.html) 是一個 Linux 散發套件，有最佳化的使用量、Docker 支援以及稱為 [rkt](https://github.com/coreos/rkt) 的自有容器系統，也有一個稱為 [fleet](https://coreos.com/fleet/docs/latest/) 的容器群組管理工具。
 
@@ -163,9 +162,6 @@ Linux 散發套件和 Azure 範例：
 
 * [CoreOS 上的 Fleet](https://coreos.com/fleet/docs/latest/)
 * Deis
-
-  * [建立一個 3 個節點的 Azure VM 群組、安裝 Deis，然後啟動 Hello World Go 應用程式](../articles/virtual-machines/linux/deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-* Kubernetes
 
   * [使用 CoreOS 和 Weave 自動部署 Kubernetes 叢集的完整指南](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
