@@ -25,7 +25,7 @@ ms.lasthandoff: 08/03/2017
 ## <a name="overview"></a>概觀
 Azure App Service Environment (ASE) 可以使用網際網路可存取端點，或是 Azure 虛擬網路 (VNet) 中內部位址上的端點來建立。 使用內部端點建立時，該端點是由稱為內部負載平衡器 (ILB) 的 Azure 元件提供。 使用內部 IP 位址的 ASE 稱為 ILB ASE。 具有公用端點的 ASE 稱為外部 ASE。 
 
-ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。 本文逐步解說使用 Resource Manager 範本建立外部 ASE 或 ILB ASE 所需的步驟和語法。 若要了解如何在 Azure 入口網站中建立 ASE，請參閱[建立外部 ASE][MakeExternalASE] 或[建立 ILB ASE][MakeILBASE]。
+ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。 本文逐步解說使用 Resource Manager 範本建立外部 ASE 或 ILB ASE 所需的步驟和語法。 若要了解如何在 Azure 入口網站中建立 ASE，請參閱 [建立外部 ASE][MakeExternalASE] 或 [建立 ILB ASE][MakeILBASE] 。
 
 在入口網站中建立 ASE 時，可以選擇同時建立 VNet，或選擇要部署至既有 VNet。 從範本建立 ASE 時，必須具備下列項目： 
 
