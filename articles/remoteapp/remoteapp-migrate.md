@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: 39dd726078c4dcc55063300bdca998ad822feadd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: ba3cf4c6834279bbd7f94d666fd8abbb7ac05bf0
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="how-to-migrate-data-into-and-out-of-azure-remoteapp"></a>如何將資料轉入或轉出 Azure RemoteApp
@@ -61,5 +61,11 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="copy-files-by-using-drive-redirection"></a>使用磁碟重新導向複製檔案
 如果您已啟用 [磁碟重新導向](remoteapp-redirection.md)，您已為您的使用者建立對應磁碟機。 在此情況下，他們可以在已重新導向的磁碟機上壓縮他們的檔案，然後儲存到他們的本機電腦上。
+
+## <a name="how-administrators-can-export-data"></a>系統管理員如何匯出資料
+
+Azure RemoteApp 的管理員可以使用 Azure PowerShell Cmdlet Export-AzureRemoteAppUserDisk，匯出 Azure 儲存體訂用帳戶內所有集合的所有使用者設定檔磁碟 (UPD)。  無法選取個別 UPD。  執行 PowerShell 命令時，每個使用者磁碟的固定磁碟大小都會是 50 GB，並且會匯出至 Azure 儲存體。  會立即對此儲存體產生 Azure 儲存體成本。  執行此命令時，請確定沒有工作階段，否則匯出會失敗。
+
+只能在 RDS 部署中重新使用已加入網域之 Azure RemoteApp 部署的 UPD，並無法使用未加入網域的部署。  如果這些磁碟將用於 RDS 部署中，建議使用[自動化指令碼](https://github.com/arcadiahlyy/aramigration)，以匯出、轉換並將 UPD 匯入 RDS 部署。
 
 

@@ -12,18 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 88628fb2c07ad72c646f7e3ed076e7a4b1519200
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 13268f14388e511f2ad106939b0913388b89e16c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
-<a id="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics" class="xliff"></a>
-# 在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
+# <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Transformation Activities"]
 > * [Hive 活動](data-factory-hive-activity.md) 
 > * [Pig 活動](data-factory-pig-activity.md)
@@ -43,42 +41,86 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 > 
 > 請檢閱 [建置您的第一個管線教學課程](data-factory-build-your-first-pipeline.md) ，以了解建立 Data Factory、連結服務、資料集和管線的詳細步驟。 您可以搭配「Data Factory 編輯器」、Visual Studio 或 Azure PowerShell 使用 JSON 程式碼片段來建立 Data Factory 實體。
 
+## <a name="supported-authentication-types"></a>支援的驗證類型
+U-SQL 活動支援以下針對 Data Lake Analytics 的驗證類型：
+* 服務主體驗證
+* 使用者認證 (OAuth) 驗證 
 
-<a id="azure-data-lake-analytics-linked-service" class="xliff"></a>
-## Azure Data Lake Analytics 連結服務
+我們建議您使用服務主體驗證，特別是針對排程的 U-SQL 執行。 權杖到期行為會連同使用者認證驗證發生。 如需組態詳細資料，請參閱[連結服務屬性](#azure-data-lake-analytics-linked-service)一節。
+
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 連結服務
 您需建立 **Azure Data Lake Analytics** 連結服務，來將 Azure Data Lake Analytics 計算服務連結到 Azure Data Factory。 管線中的 Data Lake Analytics U-SQL 活動會參考此連結服務。 
 
-下列範例提供 Azure Data Lake Analytics 連結服務的 JSON 定義。 
+下表提供 JSON 定義中所使用之一般屬性的描述。 您可以在服務主體與使用者認證驗證之間進一步選擇。
 
-```JSON
+| 屬性 | 說明 | 必要 |
+| --- | --- | --- |
+| **type** |type 屬性應設為： **AzureDataLakeAnalytics**。 |是 |
+| **accountName** |Azure Data Lake Analytics 帳戶名稱。 |是 |
+| **dataLakeAnalyticsUri** |Azure Data Lake Analytics URI。 |否 |
+| **subscriptionId** |Azure 訂用帳戶識別碼 |否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
+| **resourceGroupName** |Azure 資源群組名稱 |否 (若未指定，便會使用 Data Factory 的資源群組)。 |
+
+### <a name="service-principal-authentication-recommended"></a>服務主體驗證 (建議)
+若要使用服務主體驗證，請在 Azure Active Directory (Azure AD) 中註冊應用程式實體，並授與其 Data Lake Store 存取權。 如需詳細的步驟，請參閱[服務對服務驗證](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)。 請記下以下的值，您可以使用這些值來定義連結服務：
+* 應用程式識別碼
+* 應用程式金鑰 
+* 租用戶識別碼
+
+指定下列屬性以使用服務主體驗證：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| **servicePrincipalId** | 指定應用程式的用戶端識別碼。 | 是 |
+| **servicePrincipalKey** | 指定應用程式的金鑰。 | 是 |
+| **tenant** | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
+
+**範例：服務主體驗證**
+```json
 {
     "name": "AzureDataLakeAnalyticsLinkedService",
     "properties": {
         "type": "AzureDataLakeAnalytics",
         "typeProperties": {
             "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "datalakeanalyticscompute.net",
-            "authorization": "<authcode>",
-            "sessionId": "<session ID>", 
-            "subscriptionId": "<subscription id>",
-            "resourceGroupName": "<resource group name>"
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
         }
     }
 }
 ```
 
-下表提供 JSON 定義中所使用之屬性的描述： 
+### <a name="user-credential-authentication"></a>使用者認證驗證
+或者，您也可以藉由指定下列屬性，使用 Data Lake Analytics 的使用者認證驗證：
 
 | 屬性 | 說明 | 必要 |
-| --- | --- | --- |
-| 類型 |type 屬性應設為： **AzureDataLakeAnalytics**。 |是 |
-| accountName |Azure Data Lake Analytics 帳戶名稱。 |是 |
-| dataLakeAnalyticsUri |Azure Data Lake Analytics URI。 |否 |
-| 授權 |按一下 Data Factory 編輯器中的 [授權]  按鈕並完成 OAuth 登入後，即會自動擷取授權碼。 |是 |
-| subscriptionId |Azure 訂用帳戶識別碼 |否 (如果未指定，便會使用 Data Factory 的訂用帳戶)。 |
-| resourceGroupName |Azure 資源群組名稱 |否 (若未指定，便會使用 Data Factory 的資源群組)。 |
-| sessionId |OAuth 授權工作階段的工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 此工作階段識別碼是在「Data Factory 編輯器」中自動產生的。 |是 |
+|:--- |:--- |:--- |
+| **authorization** | 按一下「資料處理站編輯器」中的 [授權] 按鈕，然後輸入您的認證，此動作會將自動產生的授權 URL 指派給此屬性。 | 是 |
+| **sessionId** | OAuth 授權工作階段的 OAuth 工作階段識別碼。 每個工作階段識別碼都是唯一的，只能使用一次。 當您使用「資料處理站編輯器」時便會自動產生此設定。 | 是 |
 
+**範例：使用者認證授權**
+```json
+{
+    "name": "AzureDataLakeAnalyticsLinkedService",
+    "properties": {
+        "type": "AzureDataLakeAnalytics",
+        "typeProperties": {
+            "accountName": "adftestaccount",
+            "dataLakeAnalyticsUri": "azuredatalakeanalytics.net",
+            "authorization": "<authcode>",
+            "sessionId": "<session ID>", 
+            "subscriptionId": "<optional, subscription id of ADLA>",
+            "resourceGroupName": "<optional, resource group name of ADLA>"
+        }
+    }
+}
+```
+
+#### <a name="token-expiration"></a>權杖到期
 您使用 [授權] 按鈕所產生的授權碼在一段時間後會到期。 請參閱下表以了解不同類型的使用者帳戶的到期時間。 當驗證**權杖到期**時，您可能會看到下列錯誤訊息：認證作業發生錯誤：invalid_grant - AADSTS70002：驗證認證時發生錯誤。 AADSTS70008：提供的存取授權已過期或撤銷。 追蹤識別碼：d18629e8-af88-43c5-88e3-d8419eb1fca1 相互關連識別碼：fac30a0c-6be6-4e02-8d69-a776d2ffefd7 時間戳記：2015-12-15 21:09:31Z
 
 | 使用者類型 | 到期時間 |
@@ -86,10 +128,7 @@ Azure Data Factory 中的「管線」會使用連結的計算服務，來處理�
 | 不受 Azure Active Directory 管理的使用者帳戶 (@hotmail.com、@live.com 等) |12 小時 |
 | 受 Azure Active Directory (AAD) 管理的使用者帳戶 |最後一次執行配量後的 14 天。 <br/><br/>如果以 OAuth 式連結服務為基礎的配量至少每 14 天執行一次，則為 90 天。 |
 
-如果要避免/解決此錯誤，請在**權杖到期**時使用 [授權] 按鈕重新授權，然後重新部署連結服務。 您也可以使用下一節中的程式碼以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值：
-
-<a id="to-programmatically-generate-sessionid-and-authorization-values" class="xliff"></a>
-### 若要以程式設計方式產生 sessionId 與 authorization 的值
+如果要避免/解決此錯誤，請在**權杖到期**時使用 [授權] 按鈕重新授權，然後重新部署連結服務。 您也可以如下使用程式碼，以程式設計方式產生 **sessionId** 和 **authorization** 屬性的值：
 
 ```csharp
 if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService ||
@@ -118,11 +157,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 請參閱 [AzureDataLakeStoreLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx)、[AzureDataLakeAnalyticsLinkedService 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx)和 [AuthorizationSessionGetResponse 類別](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx)主題，以取得在程式碼中使用的 Data Factory 類別的詳細資訊。 請針對 WindowsFormsWebAuthenticationDialog 類別，新增對下列項目的參考：Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll。 
 
-<a id="data-lake-analytics-u-sql-activity" class="xliff"></a>
-## Data Lake Analytics U-SQL 活動
+## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 活動
 下列 JSON 片段會定義具有 Data Lake Analytics U-SQL 活動的管線。 活動定義具有您稍早建立的 Azure Data Lake Analytics 連結服務的參考。   
 
-```JSON
+```json
 {
     "name": "ComputeEventsByRegionPipeline",
     "properties": {
@@ -189,13 +227,11 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 指令碼定義請參閱 [SearchLogProcessing.txt 指令碼定義](#sample-u-sql-script) 。 
 
-<a id="sample-input-and-output-datasets" class="xliff"></a>
-## 建立輸入和輸出資料集
-<a id="input-dataset" class="xliff"></a>
-### 輸入資料集
+## <a name="sample-input-and-output-datasets"></a>建立輸入和輸出資料集
+### <a name="input-dataset"></a>輸入資料集
 在此範例中，輸入的資料是位於 Azure Data Lake Store (datalake/input 資料夾中的 SearchLog.tsv 檔案)。 
 
-```JSON
+```json
 {
     "name": "DataLakeTable",
     "properties": {
@@ -218,11 +254,10 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }    
 ```
 
-<a id="output-dataset" class="xliff"></a>
-### 輸出資料集
+### <a name="output-dataset"></a>輸出資料集
 在此範例中，U-SQL 指令碼所產生的輸出資料會儲存在 Azure Data Lake Store (datalake/output 資料夾)。 
 
-```JSON
+```json
 {
     "name": "EventsByRegionTable",
     "properties": {
@@ -239,19 +274,19 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 }
 ```
 
-<a id="sample-data-lake-store-linked-service" class="xliff"></a>
-### Data Lake Store 連結服務範例
+### <a name="sample-data-lake-store-linked-service"></a>Data Lake Store 連結服務範例
 以下是輸入/輸出資料集所使用的範例 Azure Data Lake Store 連結服務的定義。 
 
-```JSON
+```json
 {
     "name": "AzureDataLakeStoreLinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "typeProperties": {
             "dataLakeUri": "https://<accountname>.azuredatalakestore.net/webhdfs/v1",
-            "sessionId": "<session ID>",
-            "authorization": "<authorization URL>"
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": "<service principal key>",
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
         }
     }
 }
@@ -259,8 +294,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 如需 JSON 屬性的描述，請參閱 [將資料移入和移除 Azure Data Lake Store](data-factory-azure-datalake-connector.md) 一文。 
 
-<a id="sample-u-sql-script" class="xliff"></a>
-## U-SQL 指令碼範例
+## <a name="sample-u-sql-script"></a>U-SQL 指令碼範例
 
 ```
 @searchlog =
@@ -293,11 +327,10 @@ ADF 會使用 ‘parameters’ 區段來動態傳遞 U-SQL 指令碼中 **@in** 
 
 您也可以在管線定義中，針對在 Azure Data Lake Analytics 服務上執行的作業，指定其他屬性 (例如 degreeOfParallelism 和 priority)。
 
-<a id="dynamic-parameters" class="xliff"></a>
-## 動態參數
+## <a name="dynamic-parameters"></a>動態參數
 在範例管線定義中，in 和 out 參數都被指派了硬式編碼值。 
 
-```JSON
+```json
 "parameters": {
     "in": "/datalake/input/SearchLog.tsv",
     "out": "/datalake/output/Result.tsv"
@@ -306,7 +339,7 @@ ADF 會使用 ‘parameters’ 區段來動態傳遞 U-SQL 指令碼中 **@in** 
 
 您可改為使用動態參數。 例如： 
 
-```JSON
+```json
 "parameters": {
     "in": "$$Text.Format('/datalake/input/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)",
     "out": "$$Text.Format('/datalake/output/{0:yyyy-MM-dd HH:mm:ss}.tsv', SliceStart)"

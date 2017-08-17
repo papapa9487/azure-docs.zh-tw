@@ -1,6 +1,6 @@
 ---
-title: "監視 B2B 交易中的訊息 - Azure Logic Apps | Microsoft Docs"
-description: "使用整合帳戶中的 Logic Apps 監視並追蹤程序與應用程式 B2B 通訊期間的訊息。"
+title: "監視 B2B 交易並設定記錄 - Azure Logic Apps | Microsoft Docs"
+description: "監視 AS2、X12 和 EDIFACT 訊息，並啟動整合帳戶的診斷記錄"
 author: padmavc
 manager: anneta
 editor: 
@@ -13,88 +13,129 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: H1Hack27Feb2017
-ms.date: 01/27/2017
+ms.date: 07/21/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: dc760b4c08d0e1afff3bc1276f6ed2367d67629e
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 59aa8fc907d68485b7d78ae7466e2d2298d7d7d6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 
-# <a name="start-or-enable-logging-of-as2-x12-and-edifact-messages-to-monitor-success-errors-and-message-properties"></a>啟動或啟用 AS2、X12 和行政、商業、貿易的電子資料交換 (EDIFACT) 訊息的記錄，以監視成功、錯誤和訊息屬性
+# <a name="monitor-and-set-up-diagnostics-logging-for-b2b-communication-in-integration-accounts"></a>監視和設定整合帳戶中 B2B 通訊的診斷記錄
 
-B2B 通訊牽涉到兩個執行中商務程序或應用程式之間的訊息交換。 關聯性定義商務程序之間的合約。 通訊建立之後，您可以設定訊息監視來檢查通訊是否如預期般運作。 如需更豐富的詳細資料和偵錯，您可以為整合帳戶設定診斷。
+在您透過整合帳戶設定兩個執行中商務程序或應用程式之間的 B2B 通訊之後，這些實體也可以彼此交換訊息。 若要確認此通訊如預期運作，您可以設定 AS2、X12 和 EDIFACT 訊息的監視，以及透過 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 服務之整合帳戶的診斷記錄。 [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中的這個服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，同時收集執行階段詳細資料和事件，進行更豐富的偵錯。 您也可以[搭配使用診斷資料與其他服務](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。
 
-訊息追蹤適用於下列 B2B 通訊協定：AS2、X12 和 EDIFACT。 
+## <a name="requirements"></a>需求
 
-## <a name="prerequisites"></a>必要條件
+* 已設定診斷記錄的邏輯應用程式。 了解[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
-* Azure 帳戶；您可以建立[免費帳戶](https://azure.microsoft.com/free)。
-* 整合帳戶；您可以建立[整合帳戶](logic-apps-enterprise-integration-create-integration-account.md)。
-* 邏輯應用程式；您可以建立[邏輯應用程式](logic-apps-create-a-logic-app.md)並[啟用記錄](logic-apps-monitor-your-logic-apps.md)。
+  > [!NOTE]
+  > 在您符合這項需求之後，[Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) 中應該有工作區。 當您設定整合帳戶的記錄時，應該使用相同的 OMS 工作區。 如果您沒有 OMS 工作區，請了解[如何建立 OMS 工作區](../log-analytics/log-analytics-get-started.md)。
 
-## <a name="enable-logging-for-an-integration-account"></a>為整合帳戶啟用記錄
+* 連結至邏輯應用程式的整合帳戶。 了解[如何建立具有邏輯應用程式連結的整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。
 
-您可以使用 **Azure 入口網站**或**監視**來為整合帳戶啟用記錄。
+## <a name="turn-on-diagnostics-logging-for-your-integration-account"></a>開啟整合帳戶的診斷記錄
 
-### <a name="enable-logging-with-azure-portal"></a>使用 Azure 入口網站啟用記錄
+您可以直接從整合帳戶或[透過 Azure 監視器服務](#azure-monitor-service)來開啟記錄。 Azure 監視器提供基礎結構層級資料的基本監視。 深入了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md)。
 
-1. 選取您的整合帳戶，然後選取 [診斷記錄]。
+### <a name="turn-on-diagnostics-logging-directly-from-your-integration-account"></a>直接從整合帳戶開啟診斷記錄
 
-    ![選取您的整合帳戶](media/logic-apps-monitor-b2b-message/pic5.png)
+1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取整合帳戶。 在 [監視] 下，選擇 [診斷記錄]，如下所示：
 
-2. 選取 [訂用帳戶] 和 [資源群組]。 從 [資源類型] 中選取 [整合帳戶]。 從 [資源] 中選取您的整合帳戶。 針對您選取的整合帳戶，按一下 [開啟診斷] 來啟用診斷。
+   ![尋找並選取整合帳戶，然後選擇 [診斷記錄]。](media/logic-apps-monitor-b2b-message/integration-account-diagnostics.png)
 
-    ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/pic2.png)
+2. 在您選取整合帳戶之後，會自動選取下列值。 如果這些值正確，請選擇 [開啟診斷]。 否則，請選取您想要的值：
 
-3. 選取狀態 [開啟]。
+   1. 在 [訂用帳戶] 下，選取您要與整合帳戶搭配使用的 Azure 訂用帳戶。
+   2. 在 [資源群組] 下，選取您要與整合帳戶搭配使用的資源群組。
+   3. 在 [資源類型] 下，選取 [整合帳戶]。 
+   4. 在 [資源] 下，選取整合帳戶。 
+   5. 選擇 [開啟診斷]。
 
-    ![開啟診斷狀態](media/logic-apps-monitor-b2b-message/pic3.png)
+   ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-4. 選取 [傳送至 Log Analytics] 並設定 Log Analytics 來發出資料。
+3. 在 [診斷設定] 的 [狀態] 下，選擇 [開啟]。
 
-    ![傳送診斷資料到記錄](media/logic-apps-monitor-b2b-message/pic4.png)
+   ![開啟 Azure 診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-### <a name="enable-logging-with-monitor"></a>使用監視來啟用記錄
+4. 現在選取要用於記錄的 OMS 工作區和資料，如下所示：
 
-0. 依序選取 [監視]、[診斷記錄]。
+   1. 選取 [傳送至 Log Analytics]。 
+   2. 在 [Log Analytics] 下，選擇 [設定]。 
+   3. 在 [OMS 工作區] 下，選取要用於記錄的 OMS 工作區。
+   4. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類。
+   5. 選擇 [儲存]。
 
-    ![依序選取 [監視]、[診斷記錄]](media/logic-apps-monitor-b2b-message/pic1.png)
+   ![設定 Log Analytics 以將診斷資料傳送至記錄](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-0. 選取 [訂用帳戶] 和 [資源群組]。 從 [資源類型] 中選取 [整合帳戶]。 從 [資源] 中選取您的整合帳戶。 針對您選取的整合帳戶，按一下 [開啟診斷] 來啟用診斷。
+5. 現在[在 OMS 中設定 B2B 訊息的追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
-    ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/pic2.png)
+<a name="azure-monitor-service"></a>
 
-0. 選取狀態 [開啟]。
+### <a name="turn-on-diagnostics-logging-through-azure-monitor"></a>透過 Azure 監視器開啟診斷記錄
 
-    ![開啟診斷狀態](media/logic-apps-monitor-b2b-message/pic3.png) 
+1. 在 [Azure 入口網站](https://portal.azure.com)中，於主要 Azure 功能表上依序選擇 [監視器] 和 [診斷記錄]。 然後選取整合帳戶，如下所示：
 
-0. 選取 [傳送至 Log Analytics] 並設定 **Log Analytics** 來發出資料。
+   ![依序選擇 [監視器] 和 [診斷記錄]，然後選取整合帳戶](media/logic-apps-monitor-b2b-message/monitor-service-diagnostics-logs.png)
 
-    ![傳送診斷資料到記錄](media/logic-apps-monitor-b2b-message/pic4.png)
+2. 在您選取整合帳戶之後，會自動選取下列值。 如果這些值正確，請選擇 [開啟診斷]。 否則，請選取您想要的值：
 
-## <a name="extend-your-solutions"></a>延伸您的解決方案
+   1. 在 [訂用帳戶] 下，選取您要與整合帳戶搭配使用的 Azure 訂用帳戶。
+   2. 在 [資源群組] 下，選取您要與整合帳戶搭配使用的資源群組。
+   3. 在 [資源類型] 下，選取 [整合帳戶]。
+   4. 在 [資源] 下，選取整合帳戶。
+   5. 選擇 [開啟診斷]。
 
-除了 **Log Analytics**，您可以將整合帳戶和 [Logic Apps](./logic-apps-monitor-your-logic-apps.md) 設定到事件中樞或儲存體帳戶。
+   ![針對整合帳戶設定診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account.png)
 
-![Azure 診斷設定](./media/logic-apps-monitor-your-logic-apps/diagnostics.png)
+3. 在 [診斷設定] 下，選擇 [開啟]。
 
-您可以使用此遙測從事件中樞或儲存體進入其他服務，例如 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)和 [Power BI](https://powerbi.com)，以便即時監視您的整合工作流程。
+   ![開啟 Azure 診斷](media/logic-apps-monitor-b2b-message/turn-on-diagnostics-integration-account-2.png)
 
-## <a name="supported-tracking-schema"></a>支援的追蹤結構描述
+4. 現在選取用於記錄的 OMS 工作區和事件類別目錄，如下所示：
 
-我們支援下列追蹤結構描述類型，其中除了自訂類型外都有固定的結構描述。
+   1. 選取 [傳送至 Log Analytics]。 
+   2. 在 [Log Analytics] 下，選擇 [設定]。 
+   3. 在 [OMS 工作區] 下，選取要用於記錄的 OMS 工作區。
+   4. 在 [記錄] 下，選取 [IntegrationAccountTrackingEvents] 分類。
+   5. 完成之後，請選擇 [儲存]。
 
-* [自訂追蹤結構描述](logic-apps-track-integration-account-custom-tracking-schema.md)
-* [AS2 追蹤結構描述](logic-apps-track-integration-account-as2-tracking-schemas.md)
-* [X12 追蹤結構描述](logic-apps-track-integration-account-x12-tracking-schema.md)
+   ![設定 Log Analytics 以將診斷資料傳送至記錄](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+
+5. 現在[在 OMS 中設定 B2B 訊息的追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+
+## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>延伸搭配使用診斷資料與其他服務的方式和位置
+
+使用 Azure Log Analytics，即可延伸如何搭配使用邏輯應用程式的診斷資料與其他 Azure services，例如： 
+
+* [在 Azure 儲存體中封存 Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [將 Azure 診斷記錄串流至 Azure 事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
+
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../log-analytics/log-analytics-powerbi.md)。 例如：
+
+* [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
+* [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)
+
+根據您要設定的選項，確定您先[建立 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)或[建立 Azure 事件中樞](../event-hubs/event-hubs-create.md)。 然後選取您要傳送診斷資料的選項：
+
+![將資料傳送至 Azure 儲存體帳戶或事件中樞](./media/logic-apps-monitor-b2b-message/storage-account-event-hubs.png)
+
+> [!NOTE]
+> 只有在您選擇使用儲存體帳戶時，才會套用保留期間。
+
+## <a name="supported-tracking-schemas"></a>支援的追蹤結構描述
+
+Azure 支援下列追蹤結構描述類型，其中除了自訂類型外都有固定的結構描述。
+
+* [AS2 追蹤結構描述](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
+* [X12 追蹤結構描述](../logic-apps/logic-apps-track-integration-account-x12-tracking-schema.md)
+* [自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-[在 OMS 入口網站中追蹤 B2B 訊息](logic-apps-track-b2b-messages-omsportal.md "追蹤 B2B 訊息")
-
-[深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件")
+* [在 OMS 中追蹤 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "在 OMS 中追蹤 B2B 訊息")
+* [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")
 
 

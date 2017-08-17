@@ -1,5 +1,5 @@
 ---
-title: "透過 Azure CDN 的媒體串流最佳化"
+title: "透過 Azure 內容傳遞網路的媒體串流處理最佳化"
 description: "將串流媒體檔案最佳化以便傳遞順暢"
 services: cdn
 documentationcenter: 
@@ -14,68 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 582eb69ccd2830643644760753cca1c96d72128d
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 1221f4f50b8b9c4b9f9f88be4d04a65375c36062
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="media-streaming-optimization-via-azure-cdn"></a>透過 Azure CDN 的媒體串流最佳化 
+# <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>透過 Azure 內容傳遞網路的媒體串流處理最佳化 
  
-高畫質影片在網際網路中日益增多，其對於透過網際網路有效傳遞這類大型檔案造成各種難題。 客戶期待在世界各地的各種網路和用戶端上順暢播放 VOD 或即時影片資產。 為媒體串流檔案提供更快速且有效的傳遞機制，對於確保順暢且愉悅的取用者經驗極為重要。  
+網際網路使用高畫質影片的日益頻繁，造成有效率傳遞大型檔案的困難。 客戶期待在世界各地的各種網路和用戶端上順暢播放點播視訊或即時影片資產。 快速且有效的媒體串流檔案傳遞機制，對於確保順暢且愉悅的取用者體驗極為重要。  
 
-即時串流媒體特別難以傳遞，不僅是因為大尺寸和並行檢視者的數目，也因為延遲是使用者的致命傷。 即時資料流無法預先進行快取，而且檢視者無法接受長時間延遲，因此必須及時傳遞影片片段。 
+即時串流處理媒體特別難傳遞，因為有大量的並行檢視者取用大型檔案。 長時間延遲造成使用者出走。 因為即時串流無法預先進行快取，而且檢視者無法接受長時間延遲，因此必須及時傳遞影片片段。 
 
-串流的要求模式也帶來一些新挑戰。 不論是熱門的即時資料流，或是針對點播視訊 (VOD) 發行新的序列時，都可能有數千到數百萬個檢視者嘗試在同一時間要求資料流。 在此情況下，智慧要求彙總極為重要，因為在尚未快取資產時，才不會讓原始伺服器超過負荷。
+串流的要求模式也帶來一些新挑戰。 當熱門的即時串流，或點播視訊發佈新的片段時，同一時間可能有數千到數百萬個檢視者要求資料流。 在此情況下，智慧要求彙總極為重要，因為在尚未快取資產時，它不會讓原始伺服器超過負荷。
  
-Azure CDN from Akamai 現在提供一項功能，能夠大規模而有效率地將串流媒體資產提供給全球使用者，並且減少延遲，同時降低原始伺服器的負載。 透過在 Azure CDN 設定檔下使用「標準 Akamai」定價層建立之 Azure CDN 端點上的 [最佳化] 功能，即可取得這項功能。 您應該對 VOD 資產使用「點播視訊媒體串流」最佳化，而如果您組合即時和 VOD 串流，則應使用「一般媒體串流」最佳化類型。
+Akamai 的 Azure 內容傳遞網路現在提供一項功能，可將串流處理媒體資產有效傳遞給全球的使用者。 此功能會減少延遲，因為它可以降低來源伺服器上的負載。 使用標準 Akamai 定價層可取得這項功能。 
 
-Azure CDN from Verizon 可直接以「一般 Web 傳遞」最佳化類型傳遞串流媒體。
+Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類型來傳遞串流處理媒體內容。
  
-## <a name="configuring-cdn-endpoint-to-optimize-delivery-of-media-streaming-in-azure-cdn-from-akamai"></a>設定 CDN 端點以在 Azure CDN from Verizon 中將媒體串流的傳遞最佳化
+## <a name="configure-an-endpoint-to-optimize-media-streaming-in-the-azure-content-delivery-network-from-akamai"></a>在 Akamai 的 Azure 內容傳遞網路中，設定端點以最佳化媒體串流處理。
  
-您只要在建立端點期間選取「最佳化」屬性選取之下的「一般媒體串流」或「點播視訊媒體串流」選項，即可設定 CDN 端點，以透過 Azure 入口網站將大型檔案的傳遞最佳化。 若要這樣做，您也可以使用 REST API 或任何用戶端 SDK。 以下螢幕擷取畫面說明透過 Azure 入口網站的程序。 
+您可以設定您的內容傳遞網路 (CDN) 端點，以最佳化透過 Azure 入口網站傳遞大型檔案。 若要這樣做，您也可以使用 REST API 或任何用戶端 SDK。 下列步驟示範透過 Azure 入口網站的程序：
+
+1. 若要新增新的端點，請在 [CDN 設定檔] 頁面上選取 [端點]。
   
-![新增端點](./media/cdn-media-streaming-optimization/01_Adding.png)
+    ![新增端點](./media/cdn-media-streaming-optimization/01_Adding.png)
 
-*圖 1：從 CDN 設定檔新增 CDN 端點*
+2. 在 [最佳化對象] 下拉式清單中，為點播視訊資產選取 [點播視訊媒體串流]。 如果您結合即時和點播視訊串流處理，請選取 [General media streaming] (一般媒體串流處理)。
 
-![選取的串流](./media/cdn-media-streaming-optimization/02_Creating.png) 
-  
-*圖 2：以選取的點播視訊媒體串流建立 CDN 端點* 
+    ![選取的串流](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
-建立 CDN 端點後，就會對所有符合特定準則的檔案套用最佳化。 下一節詳細說明這一點。 
+建立端點後，最佳化就會套用到符合特定準則的所有檔案。 下一節會說明此程序。 
  
-## <a name="media-streaming-optimizations-for-azure-cdn-from-akamai"></a>Azure CDN from Akamai 的媒體串流最佳化
+## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-akamai"></a>來自 Akamai 的 Azure 內容傳遞網路的媒體串流處理最佳化
  
-Akamai 提供的媒體串流最佳化適用於使用個別媒體片段進行傳遞的即時或 VOD 串流媒體，而不適用於透過漸進式下載或使用位元組範圍要求傳輸的單一大型資產。 如需媒體傳遞的該樣式，請查看[大型檔案最佳化](cdn-large-file-optimization.md)。
+來自 Akamai 的媒體串流處理最佳化，適合使用媒體片段傳遞處理即時或點播視訊串流的媒體。 此程序不同於透過漸進式下載或使用位元組範圍要求的單一大型資產傳輸。 如需該樣式的媒體傳遞相關資訊，請查看[大型檔案最佳化](cdn-large-file-optimization.md)。
 
-使用一般媒體傳遞或 VOD 媒體傳遞最佳化類型時，將使用 CDN 網路搭配後端最佳化更快速傳遞媒體資產，以及使用以經過一段時間學習的最佳做法為基礎的媒體資產組態。
+
+一般媒體傳遞或點播視訊媒體傳遞最佳化類型，會使用 CDN 與後端最佳化以更快傳遞媒體資產。 它們也會使用媒體資產組態，此組態是以經過一段時間學習的最佳作法為基礎。
 
 ### <a name="caching"></a>快取
 
-如果 Azure CDN from Akamai 偵測到資產是串流資訊清單或片段 (請參閱下列完整清單)，則 CDN 將使用與一般傳遞不同的快取到期時間。 一如以往，將會接受從原始伺服器傳送的 cache-control 或 expires 標頭，而如果資產不是媒體資產，則會使用一般 Web 傳遞的到期時間進行快取。
+如果 Akamai 的 Azure 內容傳遞網路偵測到資產是串流資訊清單或片段，它會使用與一般 Web 傳遞不同的快取到期時間。 (請參閱下表中的完整清單。)如往常一樣接受從來源傳送的 cache-control 或 Expires 標頭。 如果資產不是媒體資產，就會使用一般 Web 傳遞的逾期時間快取。
 
-當許多使用者要求還不存在的片段時 (例如在無法當下從原始伺服器取得封包的即時資料流中)，短暫的負向快取時間很適合用於原始伺服器卸載。 較長的快取間隔也有助於從原始伺服器卸載要求，因為通常不會修改影片內容。
+當許多使用者要求還不存在的片段時，短的負快取時間對來源卸載就很有用。 例如該秒無法從原始伺服器取得封包的即時串流。 較長的快取間隔也有助於卸載原始伺服器的要求，因為通常不會修改影片內容。
  
 
-|    | 一般<br> Web<br>偵錯 | 一般<br> 媒體<br> 串流 | VOD<br>媒體<br> 串流  
+|    | 一般<br> Web<br>偵錯 | 一般<br> 媒體<br> 串流 | 點播視訊 <br>媒體<br> 串流  
 --- | --- | --- | ---
-快取 - 正向 <br> HTTP 200、203、300、 <br> 301、302 和 410 | 7 天 |365 天 | 365 天   
-快取 - 負向 <br> HTTP 204、305、404 <br> 和 405 | 無 | 1 秒 | 1 秒
+快取：正向 <br> HTTP 200、203、300、 <br> 301、302 和 410 | 7 天 |365 天 | 365 天   
+快取：負向 <br> HTTP 204、305、404 <br> 和 405 | None | 1 秒 | 1 秒
  
-### <a name="dealing-with-origin-failure"></a>處理原始伺服器失敗  
+### <a name="deal-with-origin-failure"></a>處理原始伺服器失敗  
 
-一般媒體傳遞和 VOD 媒體傳遞也都有以典型要求模式的最佳做法為基礎的原始伺服器逾時和重試記錄。 例如，由於一般媒體傳遞同時以即時和 VOD 媒體傳遞為目標，所以會因為即時串流講求時效性而使用比較短的連線逾時。
+一般媒體傳遞和點播視訊媒體傳遞也都有以典型要求模式的最佳做法為基礎的原始伺服器逾時和重試記錄。 例如，因為一般媒體傳遞適合即時和點播視訊媒體傳遞，所以會因為即時串流講求時效性而使用比較短的連線逾時。
 
-當連線逾時，CDN 會先重試特定次數，再將 504 閘道逾時錯誤傳送給用戶端。 
+當連線逾時，CDN 會先重試幾次，再向用戶端傳送「504 - 閘道逾時」錯誤。 
 
-當檔案符合檔案類型和大小條件清單，CDN 會使用媒體串流行為，不然會使用一般 Web 傳遞。 
+當檔案符合檔案類型和大小條件清單，CDN 會使用媒體串流處理的行為。 否則，會使用一般 Web 傳遞。
    
 ### <a name="conditions-for-media-streaming-optimization"></a>媒體串流最佳化的條件 
 
-下表列出此最佳化所需滿足的準則集合 
+下表列出媒體串流處理最佳化需要滿足的準則集合： 
  
 支援的串流類型 | 副檔名  
 --- | ---  
@@ -86,16 +87,16 @@ Smooth Streaming | /manifest/,/QualityLevels/Fragments/
   
 
  
-## <a name="media-streaming-optimizations-for-azure-cdn-from-verizon"></a>Azure CDN from Verizon 的媒體串流最佳化
+## <a name="media-streaming-optimizations-for-the-azure-content-delivery-network-from-verizon"></a>Verizon 的 Azure 內容傳遞網路的媒體串流處理最佳化
 
-Azure CDN from Verizon 能夠直接使用「一般 Web 傳遞」最佳化類型傳遞串流媒體資產。 根據預設，CDN 上也有一些功能可直接協助傳遞媒體資產。
+Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類型來傳遞串流處理媒體資產。 CDN 有一些功能預設可直接協助傳遞媒體資產。
 
 ### <a name="partial-cache-sharing"></a>部分快取共用
 
-此功能能夠從 CDN 提供部分快取的內容給新要求。 這表示，如果對 CDN 的第一個要求導致快取遺漏，則會將要求傳送到原始伺服器。 雖然此內容仍會載入 CDN 快取中 (但仍未完成)，但是對 CDN 的其他要求可以開始取得此資料。 
+部分快取共用，可讓 CDN 向新要求提供部分的快取內容。 例如，如果對 CDN 的第一個要求導致快取遺漏，該要求即會傳送到原始伺服器。 雖然此不完整的內容會載入到 CDN 快取中，但是對 CDN 的其他要求可以開始取得此資料。 
 
 ### <a name="cache-fill-wait-time"></a>快取填滿等候時間
 
-搭配部分快取共用，快取填滿等候時間功能會強迫邊緣伺服器保存相同資源的所有後續要求，直到原始伺服器的 HTTP 回應標頭送達為止。 如果原始伺服器的 HTTP 回應標頭在計時器終止前送達，則會在成長中快取之外為所有暫停的要求提供服務 (同時由原始伺服器的資料填滿)。 根據預設，快取填滿等候時間會設定為 3000 毫秒。 
+ 快取填滿等候時間功能會強迫邊緣伺服器保存相同資源的所有後續要求，直到原始伺服器的 HTTP 回應標頭送達為止。 如果原始伺服器的 HTTP 回應標頭在計時器終止前送達，則會在成長中快取之外為所有暫停的要求提供服務。 同時，快取會填入原始伺服器的資料。 根據預設，快取填滿等候時間會設定為 3,000 毫秒。 
 
 

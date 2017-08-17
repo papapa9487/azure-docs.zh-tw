@@ -1,6 +1,6 @@
 ---
-title: "Azure Service Fabric 基礎結構層級監視 | Microsoft Docs"
-description: "了解用來監視和診斷 Azure Service Fabric 叢集的基礎結構層級事件和記錄。"
+title: "Azure Service Fabric 平台層級監視 | Microsoft Docs"
+description: "了解用來監視和診斷 Azure Service Fabric 叢集的平台層級事件和記錄。"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,22 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: bae1917e7c0f0b247be473f78fedd7753aef6d23
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
-# <a name="infrastructure-level-event-and-log-generation"></a>基礎結構層級事件和記錄產生
+# <a name="platform-level-event-and-log-generation"></a>平台層級事件和記錄產生
 
 ## <a name="monitoring-the-cluster"></a>監視叢集
 
-請務必在基礎結構層級進行監視，以判斷硬體和叢集是否如預期運作。 雖然 Service Fabric 可在硬體故障時讓應用程式繼續執行，但是您仍需要診斷錯誤是發生在應用程式中，還是發生在基礎結構中。 您也應該監視叢集，更妥善地規劃容量，以協助決定如何新增或移除基礎結構。
+請務必在平台層級進行監視，以判斷硬體和叢集是否如預期運作。 雖然 Service Fabric 可在硬體故障時讓應用程式繼續執行，但是您仍需要診斷錯誤是發生在應用程式中，還是發生在基礎結構中。 您也應該監視叢集，更妥善地規劃容量，以協助決定如何新增或移除硬體。
 
 Service Fabric 提供五個產生下列事件的不同現成記錄通道：
 
@@ -37,7 +36,7 @@ Service Fabric 提供五個產生下列事件的不同現成記錄通道：
 * [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)︰程式設計模型特定的事件和效能計數器
 * 支援的記錄：由 Service Fabric 產生的系統記錄僅供我們在提供支援時使用
 
-這些各種通道涵蓋建議的大部分基礎結構層級記錄。 若要改善基礎結構層級記錄，請考慮深入了解健康情況模型並新增自訂健康情況報告，以及新增自訂**效能計數器**來即時了解對叢集上服務和應用程式的影響。
+這些各種通道涵蓋建議的大部分平台層級記錄。 若要改善平台層級記錄，請考慮深入了解健康情況模型並新增自訂健康情況報告，以及新增自訂**效能計數器**來即時了解對叢集上服務和應用程式的影響。
 
 ### <a name="azure-service-fabric-health-and-load-reporting"></a>Azure Service Fabric 健全狀況和負載報告
 

@@ -73,7 +73,7 @@ $rg = New-AzureRmResourceGroup -Name ContosoRG -Location Eastus
 New-AzureRmAppServicePlan -Name $webappname -Location EastUs -ResourceGroupName $rg.ResourceGroupName -Tier Free
 
 # Creates a web app
-$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs
+$webapp = New-AzureRmWebApp -ResourceGroupName $rg.ResourceGroupName -Name $webappname -Location EastUs -AppServicePlan $webappname
 
 # Configure GitHub deployment from your GitHub repo and deploy once to web app.
 $PropertiesObject = @{
@@ -162,3 +162,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>後續步驟
 
 如需了解如何設定重新導向，請參閱[使用 PowerShell 在 Azure 應用程式閘道上設定重新導向](application-gateway-configure-redirect-powershell.md)。
+

@@ -1,5 +1,5 @@
 ---
-title: "使用適用於 IntelliJ 的 Azure 工具組將 Spring Boot 應用程式發佈為 Docker 容器 | Microsoft Docs"
+title: "使用適用於 IntelliJ 的 Azure 工具組，將 Spring Boot 應用程式發佈為 Docker 容器 | Microsoft Docs"
 description: "了解如何使用適用於 IntelliJ 的 Azure 工具組，將 Web 應用程式發佈至 Microsoft Azure 作為 Docker 容器。"
 services: 
 documentationcenter: java
@@ -14,66 +14,65 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 8d1f0f0f95647c85b2b5f3550e306e3ce35e81c3
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: 4f9c118fbfe445dd38670e3b7549a0d89681e5db
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 07/22/2017
 
 ---
 
-# <a name="publish-a-spring-boot-app-as-a-docker-container-using-the-azure-toolkit-for-intellij"></a>使用適用於 IntelliJ 的 Azure 工具組，將 Spring Boot 應用程式發佈為 Docker 容器
+# <a name="publish-a-spring-boot-app-as-a-docker-container-by-using-the-azure-toolkit-for-intellij"></a>使用適用於 IntelliJ 的 Azure 工具組，將 Spring Boot 應用程式發佈為 Docker 容器
 
-**[Spring Framework]** 是開放原始碼解決方案，可協助 Java 開發人員建立企業級應用程式。 建立在該平台之基礎上的其中一個更熱門的專案是 [Spring Boot]，其中會提供用來建立獨立 Java 應用程式的簡化方法。
+[Spring Framework] 是一個開放原始碼解決方案，可協助 Java 開發人員建立企業級應用程式。 建立在該平台之基礎上的其中一個更熱門的專案是 [Spring Boot]，其中會提供用來建立獨立 Java 應用程式的簡化方法。
 
-**[Docker]** 是開放原始碼解決方案，可協助開發人員自動化部署、調整及管理容器中執行的應用程式。
+[Docker] 是開放原始碼解決方案，可協助開發人員自動化部署、調整及管理容器中執行的應用程式。
 
-本教學課程會逐步引導您使用適用於 IntelliJ 的 Azure 工具組，將 Spring Boot 應用程式作為 Docker 容器發佈至 Microsoft Azure。
+本教學課程會逐步引導您使用適用於 IntelliJ 的 Azure 工具組，將 Spring Boot 應用程式作為 Docker 容器部署到 Microsoft Azure。
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
 
-## <a name="cloning-the-default-spring-boot-docker-app-repo"></a>複製預設 Spring Boot Docker 應用程式存放庫
+## <a name="clone-the-default-spring-boot-docker-repo"></a>複製預設 Spring Boot Docker 存放庫
 
-下列步驟會逐步引導您完成使用 IntelliJ 複製 Spring Boot Docker 存放庫。 如果您想要使用命令列，請參閱[將 Spring Boot 應用程式部署到 Azure Container Service 中的 Linux][Deploy Spring Boot on Linux in ACS]。
+下列步驟會逐步引導您使用 IntelliJ 複製 Spring Boot Docker 存放庫。 如果您想要使用命令列，請參閱[將 Spring Boot 應用程式部署到 Azure Container Service 中的 Linux][Deploy Spring Boot on Linux in ACS]。
 
 1. 開啟 IntelliJ。
 
-1. 在 [歡迎使用] 畫面上，選擇 [從版本控制簽出] 下拉式功能表中的 [GitHub] 選項。
+1. 在 [歡迎使用] 畫面上，選取 [從版本控制簽出] 清單中的 [GitHub] 選項。
 
-   ![從版本控制簽出][CL01]
+   ![版本控制的 GitHub 選項][CL01]
 
 1. 如果系統提示您登入，請輸入您的認證。
 
    * 如果您使用使用者名稱/密碼來登入 GitHub：
 
-      ![輸入 GitHub 認證對話方塊][CL02a]
+      ![用於輸入 GitHub 使用者名稱和密碼的對話方塊][CL02a]
 
    * 如果您使用權杖來登入 GitHub：
 
-      ![輸入 GitHub 認證對話方塊][CL02b]
+      ![用於輸入 GitHub 權杖的對話方塊][CL02b]
 
-1. 針對存放庫 URL 輸入 `https://github.com/spring-guides/gs-spring-boot-docker.git`，指定本機路徑和資料夾資訊，然後按一下 [複製]。
+1. 針對存放庫 URL 輸入 **https://github.com/spring-guides/gs-spring-boot-docker.git**，指定您的本機路徑和資料夾資訊，然後按一下 [複製]。
 
-   ![複製存放庫對話方塊][CL03]
+   ![[複製存放庫] 對話方塊][CL03]
 
-1. 當系統提示您建立 IntelliJ 專案時，選擇 [否]。
+1. 當系統提示您建立 IntelliJ 專案時，選取 [否]。
 
-   ![建立 IntelliJ 專案][CL04]
+   ![拒絕建立 IntelliJ 專案][CL04]
 
-1. 在 [歡迎使用] 畫面中，按一下 [匯入專案]。
+1. 在 [歡迎使用] 頁面上，按一下 [匯入專案]。
 
-   ![匯入專案][CL05]
+   ![選擇 [匯入專案]][CL05]
 
-1. 找出您複製 Spring Boot 存放庫所在的路徑，反白顯示根目錄底下的 **complete** 資料夾，然後按一下 [確定]。
+1. 找出您複製 Spring Boot 存放庫所在的路徑，選取根目錄底下的 **complete** 資料夾，然後按一下 [確定]。
 
-   ![匯入專案][CL06]
+   ![選取要匯入的資料夾][CL06]
 
-1. 出現提示時，選擇 [從現有來源建立專案]。
+1. 當系統提示您時，選取 [從現有來源建立專案]。
 
-   ![從現有來源建立專案][CL07]
+   ![從現有來源建立專案的選項][CL07]
 
-1. 指定您的專案名稱或接受預設值，確認 **complete**的正確路徑，然後按 [下一步]。
+1. 指定您的專案名稱或接受預設值，確認 **complete** 資料夾的正確路徑，然後按一下 [下一步]。
 
    ![指定專案名稱][CL08]
 
@@ -95,39 +94,39 @@ ms.lasthandoff: 06/23/2017
 
 1. 按一下 [完成] 。
 
-   ![完成][CL13]
+   ![[完成] 按鈕][CL13]
 
-1. IntelliJ 會匯入 Spring Boot 應用程式作為專案，並且在匯入完成時顯示結構。
+IntelliJ 會匯入 Spring Boot 應用程式作為專案，並且在匯入完成時顯示結構。
 
-   ![IntelliJ 中的 Spring Boot 應用程式][CL14]
+![IntelliJ 中的 Spring Boot 應用程式][CL14]
 
-## <a name="building-your-spring-boot-app"></a>建置 Spring Boot 應用程式
+## <a name="build-your-spring-boot-app"></a>建置 Spring Boot 應用程式
 
-### <a name="build-the-app-using-the-maven-pom"></a>使用 Maven POM 建置應用程式
+### <a name="build-the-app-by-using-the-maven-pom"></a>使用 Maven POM 建置應用程式
 
-1. 如果尚未開啟 Maven 工具視窗，請加以開啟，若要完成這項操作，請依序按一下 [檢視]、[工具視窗]、[Maven 專案]。
+1. 開啟 Maven 工具視窗 (如果尚未開啟)。 按一下 [檢視] > [工具視窗] > [Maven 專案]。
 
-   ![檢視 Maven 工具視窗][BU01]
+   ![[工具視窗] 和 [Maven 專案] 命令][BU01]
 
-1. 在 Maven 工具視窗中，以滑鼠右鍵按一下 [套件]，然後選擇 [執行 Maven 建置]。 (如果 Maven 專案未自動顯示，您可能需要按一下 Maven 工具列上的 [重新匯入] 圖示。)
+1. 在 Maven 工具視窗中，以滑鼠右鍵按一下 [套件]，然後選取 [執行 Maven 建置]。 (如果 Maven 專案未自動顯示，請按一下 Maven 工具列上的**重新匯入**圖示)。
 
-   ![執行 Maven 建置][BU02]
+   ![[執行 Maven 建置] 命令][BU02]
 
 1. Spring Boot 應用程式成功建立時，IntelliJ 應該會顯示「建置成功」訊息。
 
-   ![建置成功][BU03]
+   ![「建置成功」訊息][BU03]
 
 ### <a name="create-a-deployment-ready-artifact"></a>建立已可供部署的構件
 
-若要發佈 Spring Boot 應用程式，您必須建立已可供部署的構件。 若要這樣做，請使用下列步驟：
+若要發佈 Spring Boot 應用程式，您必須建立已可供部署的構件。 請使用下列步驟：
 
 1. 在 IntelliJ 中開啟 web 應用程式專案。
 
 1. 依序按一下 [檔案] 及 [專案結構]。
 
-   ![專案結構功能表][ART01]
+   ![[專案結構] 命令][ART01]
 
-1. 按一下綠色的加號 (「**+**」) 來新增構件，按一下 [JAR]，然後按一下 [空白]。
+1. 按一下綠色的加號 (**+**) 來新增構件，按一下 [JAR]，然後按一下 [空白]。
 
    ![新增構件][ART02]
 
@@ -135,17 +134,17 @@ ms.lasthandoff: 06/23/2017
 
    ![指定構件屬性][ART03]
 
-1. 選擇性：建立構件的資訊清單：
+1. 建立構件的資訊清單 (選用)：
 
    a. 按一下 [建立資訊清單]。
 
-      ![指定構件路徑][ART04a]
+      ![按一下 [建立資訊清單] 按鈕][ART04a]
 
-   b.這是另一個 C# 主控台應用程式。 選擇構件的預設路徑，然後按一下 [確定]。
+   b. 選擇構件的預設路徑，然後按一下 [確定]。
 
       ![指定構件路徑][ART04b]
 
-   c. 按一下省略符號 **...** 以指定主要類別。
+   c. 按一下省略符號 (**...**) 以找出主要類別。
 
       ![找出主要類別][ART04c]
 
@@ -155,10 +154,9 @@ ms.lasthandoff: 06/23/2017
 
 1. 按一下 [確定] 。
 
-   ![關閉構件屬性對話方塊][ART05]
+   ![關閉 [專案結構] 對話方塊][ART05]
 
 > [!NOTE]
->
 > 如需在 IntelliJ 中建立成品的詳細資訊，請參閱 JetBrains 網站上的[設定成品]。
 >
 
@@ -166,31 +164,31 @@ ms.lasthandoff: 06/23/2017
 
 1. 按一下 [建置]，然後按一下 [構件]。
 
-   ![建置構件功能表][BU04]
+   ![[建置構件] 命令][BU04]
 
 1. 當 [建置構件] 內容功能表顯示時，按一下 [建置]。
 
-   ![建置構件內容功能表][BU05]
+   ![[建置構件] 操作功能表][BU05]
 
-1. IntelliJ 應該會在專案工具視窗中為 Spring Boot 應用程式顯示已完成的構件。
+IntelliJ 應該會在專案工具視窗中為 Spring Boot 應用程式顯示已完成的構件。
 
    ![建立的構件][BU06]
 
-## <a name="publishing-your-web-app-to-azure-using-a-docker-container"></a>使用 Docker 容器將您的 web 應用程式發佈至 Azure
+## <a name="publish-your-web-app-to-azure-by-using-a-docker-container"></a>使用 Docker 容器將您的 Web 應用程式發佈至 Azure
 
-1. 如果您尚未登入您的 Azure 帳戶，請遵循[適用於 IntelliJ 的 Azure 工具組登入指示][Azure Sign In for IntelliJ]文章中的步驟。
+1. 如果您尚未登入 Azure 帳戶，請遵循[適用於 IntelliJ 的 Azure 工具組登入指示][Azure Sign In for IntelliJ]中的步驟。
 
 1. 在 [專案總管] 工具視窗中，以滑鼠右鍵按一下專案，然後選取 [Azure] > [發佈為 Docker 容器]。
 
-   ![發佈為 Docker 容器][PU01]
+   ![[發佈為 Docker 容器] 命令][PU01]
 
-1. 當 [在 Azure 上部署 Docker 容器] 對話方塊顯示時，將會顯示任何現有的 Docker 主機。 如果您選擇部署到現有的主機，您可以跳至步驟 4。 否則，您必須使用下列步驟建立新的主機：
+1. 當 [在 Azure 上部署 Docker 容器] 對話方塊顯示時，將會顯示任何現有的 Docker 主機。 如果您選擇部署到現有的主機，您可以跳至步驟 4。 否則，請使用下列步驟來建立主機：
 
-   a. 按一下綠色的加號 (「**+**」)。
+   a. 按一下綠色的加號 (**+**)。
 
       ![新增 Docker 主機][PU02]
 
-   b.這是另一個 C# 主控台應用程式。 當 [建立 Docker 主機] 對話方塊顯示時，您可以選擇接受預設值，或是為新的 Docker 主機指定任何自訂設定。 (各種設定的詳細描述可以在[使用適用於 IntelliJ 的 Azure 工具組，將 Web 應用程式發佈作為 Docker 容器][Publish Container with Azure Toolkit]文章中取得。)當您已指定要使用的設定時，按 [下一步]。
+   b. 當 [建立 Docker 主機] 對話方塊顯示時，您可以選擇接受預設值，或是為新的 Docker 主機指定任何自訂設定。 (如需各種設定的詳細說明，請參閱[使用適用於 IntelliJ 的 Azure 工具組，將 Web 應用程式發佈為 Docker 容器][Publish Container with Azure Toolkit])。當您已指定要使用的設定時，按 [下一步]。
 
       ![指定 Docker 主機選項][PU03a]
 
@@ -198,19 +196,19 @@ ms.lasthandoff: 06/23/2017
 
       ![指定 Docker 主機認證][PU03b]
 
-1. 反白顯示您的 Docker 主機，然後按 [下一步]。
+1. 選取您的 Docker 主機，然後按一下 [下一步]。
 
    ![選取要使用的 Docker 主機][PU04]
 
-1. 在 [在 Azure 上部署 Docker 容器] 對話方塊的最後一頁，您必須指定下列選項：
+1. 在 [在 Azure 上部署 Docker 容器] 對話方塊的最後一頁，指定下列選項：
 
    a. 您可以選擇對將會主控 Docker 容器的容器指定自訂名稱，或者您可以接受預設值。
 
-   b.這是另一個 C# 主控台應用程式。 您必須使用下列語法輸入 Docker 主機的 TCP 連接埠："*[external port]*:*[internal port]*。 例如，"80:8080" 會指定外部連接埠 "80" 和預設內部 Spring Boot 連接埠 "8080"。
+   b. 使用下列語法輸入 Docker 主機的 TCP 連接埠：[外部連接埠]:[內部連接埠]。 例如，**80:8080** 會指定外部連接埠 80 和預設內部 Spring Boot 連接埠 8080。
    
-      如果您已自訂您的內部連接埠 (例如藉由編輯 application.yml 檔案)，您必須指定連接埠號碼才能在 Azure 中正確路由。
+      如果您已自訂內部連接埠 (例如藉由編輯 application.yml 檔案)，您必須指定連接埠號碼才能在 Azure 中正確路由。
 
-   c. 一旦您已設定這些選項，請按一下 [完成]。
+   c. 設定這些選項之後，按一下 [完成]。
 
    ![在 Azure 上部署 Docker 容器][PU05]
 
@@ -222,14 +220,14 @@ ms.lasthandoff: 06/23/2017
 
 [!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
-請參閱 JetBrains 網站上的[建立 Spring Boot 專案](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html)，以深入了解使用 IntelliJ 來建立 Spring Boot 應用程式的其他方法。
+若要了解使用 IntelliJ 來建立 Spring Boot 應用程式的其他方法，請參閱 JetBrains 網站上的 [Creating Spring Boot Projects](https://www.jetbrains.com/help/idea/creating-spring-boot-projects.html) (建立 Spring Boot 專案)。
 
 <!-- URL List -->
 
 [Azure Management Portal]: http://go.microsoft.com/fwlink/?LinkID=512959
 [Azure Sign In for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
 [設定成品]: https://www.jetbrains.com/help/idea/2016.1/configuring-artifacts.html
-[Deploy Spring Boot on Linux in ACS]: ./container-service/container-service-deploy-spring-boot-app-on-linux.md
+[Deploy Spring Boot on Linux in ACS]:container-service/kubernetes/container-service-deploy-spring-boot-app-on-linux.md
 [Docker]: https://www.docker.com/
 [Publish Container with Azure Toolkit]: ./azure-toolkit-for-intellij-publish-as-docker-container.md
 [Spring Boot]: http://projects.spring.io/spring-boot/

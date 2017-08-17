@@ -1,6 +1,6 @@
 ---
-title: "Azure 中的資料科學虛擬機器 | Microsoft Docs"
-description: "設定資料科學虛擬機器"
+title: "將 Azure 資料科學虛擬機器佈建為 IPython Notebook 伺服器 | Microsoft Docs"
+description: "使用支援的工具，將資料科學虛擬機器佈建為 IPython Notebook 伺服器。"
 services: machine-learning
 documentationcenter: 
 author: bradsev
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: xibingao;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: a6bc79b2cb5b73109cddd6cf57caeba754b52e2e
-ms.openlocfilehash: 4de0683f2f58cc598a5c37e74a30b7e17aa7fd0d
-ms.lasthandoff: 12/20/2016
-
+ms.date: 07/21/2017
+ms.author: bradsev
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: db1ffb2a226a087ecea2ea6f560c6b803e33d8c7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/22/2017
 
 ---
-# <a name="data-science-virtual-machines-in-azure"></a>Azure 中的資料科學虛擬機器
+# <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>將 Azure 資料科學虛擬機器佈建為 IPython Notebook 伺服器
 這裡提供的指示會說明如何設定 Azure VM 和含有 SQL 服務的 Azure VM，以做為 IPython Notebook 伺服器。 Windows 虛擬機器是使用支援工具 (例如，IPython Notebook、Azure 儲存體總管及 AzCopy)，以及其他對於資料科學專案非常實用的公用程式來設定。 例如，Azure 儲存體總管和 AzCopy 會提供便利的方法，將資料從本機電腦上傳至 Azure 儲存體，或者從儲存體將資料下載到本機電腦。 
 
 此功能表所連結的主題會說明如何設定 [Team Data Science Process (TDSP)](data-science-process-overview.md)所用的各種資料科學環境。

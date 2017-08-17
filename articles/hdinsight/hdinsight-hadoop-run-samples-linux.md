@@ -23,7 +23,6 @@ ms.openlocfilehash: 07b292064178aee9ff94dc47554be2b0098ef807
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/08/2017
 
-
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>執行包含在 HDInsight 中的 MapReduce 範例
 
@@ -224,7 +223,6 @@ GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通�
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop][hdinsight-use-hive]
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop][hdinsight-use-mapreduce]
 
-[hdinsight-errors]: hdinsight-debug-jobs.md
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 

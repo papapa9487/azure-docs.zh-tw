@@ -3,8 +3,8 @@ title: "在具有 Azure Mobile Apps 的 iOS 上新增驗證"
 description: "了解如何使用 Azure Mobile Apps 透過眾多身分識別提供者驗證 iOS 應用程式使用者，包括 Google、Facebook、Twitter 和 Microsoft。"
 services: app-service\mobile
 documentationcenter: ios
-author: ysxu
-manager: yochayk
+author: ggailey777
+manager: syntaxc4
 editor: 
 ms.assetid: ef3d3cbe-e7ca-45f9-987f-80c44209dc06
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 604c1f84365954ddd3ba2de21fffa90ba5cc274b
-ms.openlocfilehash: 8ea09b30081c60bbf44f8d929750e9a74f9f97b0
-ms.lasthandoff: 01/24/2017
-
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 21a2cc6c1eaf4b34cbe8c2d7c4dbb69c8730cf32
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="add-authentication-to-your-ios-app"></a>將驗證新增至您的 iOS 應用程式
@@ -26,10 +26,10 @@ ms.lasthandoff: 01/24/2017
 
 在本教學課程中，您可以使用支援的身分識別提供者，將驗證加入 [iOS 快速入門] 專案。 本教學課程以 [iOS 快速入門] 教學課程為基礎，您必須先完成該教學課程。
 
-## <a name="a-nameregisteraregister-your-app-for-authentication-and-configure-the-app-service"></a><a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
+## <a name="register"></a>註冊應用程式進行驗證，並設定應用程式服務
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="a-nameredirecturlaadd-your-app-to-the-allowed-external-redirect-urls"></a><a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
+## <a name="redirecturl"></a>將您的應用程式新增至允許的外部重新導向 URL
 
 安全的驗證會要求您為應用程式定義新的 URL 配置。  這讓驗證系統能夠在驗證程序完成之後，重新導向回到您的應用程式。  我們會在這整個教學課程中使用 URL 配置 appname。  不過，您可以使用任何您選擇的 URL 結構描述。  它對於您的行動應用程式而言應該是唯一的。  若要在伺服器端啟用重新導向：
 
@@ -47,12 +47,12 @@ ms.lasthandoff: 01/24/2017
 
 7. 按一下 [儲存] 。
 
-## <a name="a-namepermissionsarestrict-permissions-to-authenticated-users"></a><a name="permissions"></a>限制只有通過驗證的使用者具有權限
+## <a name="permissions"></a>限制只有通過驗證的使用者具有權限
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
 在 Xcode 中，按下 [Run]  以啟動應用程式。 因為應用程式會嘗試以未經驗證的使用者身分來存取後端，但 TodoItem 資料表現在需要驗證，所以會引發例外狀況。
 
-## <a name="a-nameadd-authenticationaadd-authentication-to-app"></a><a name="add-authentication"></a>將驗證加入應用程式
+## <a name="add-authentication"></a>將驗證加入應用程式
 **Objective-C**：
 
 1. 在 Mac 上，開啟 Xcode 中的 QSTodoListViewController.m，並新增下列方法：
@@ -77,8 +77,7 @@ ms.lasthandoff: 01/24/2017
     }
     ```
 
-    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]
-   。
+    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]。
 
     使用您應用程式的唯一名稱來取代 **urlScheme**。  urlScheme 必須與您在 Azure 入口網站中的 [允許的外部重新導向 URL] 欄位中指定的 URL 配置通訊協定相同。 urlScheme 可在完成驗證要求之後，供驗證回呼用來切換回您的應用程式。
 
@@ -164,8 +163,7 @@ ms.lasthandoff: 01/24/2017
     }
     ```
 
-    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]
-   。
+    如果您不使用 Google 作為識別提供者，請將 google 變更為 microsoftaccount、twitter、facebook 或 windowsazureactivedirectory。 如果您使用 Facebook，則必須在應用程式中[將 Facebook 網域列入白名單][1]。
 
     使用您應用程式的唯一名稱來取代 **urlScheme**。  urlScheme 必須與您在 Azure 入口網站中的 [允許的外部重新導向 URL] 欄位中指定的 URL 配置通訊協定相同。 urlScheme 可在完成驗證要求之後，供驗證回呼用來切換回您的應用程式。
 

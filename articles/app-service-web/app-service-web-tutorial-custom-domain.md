@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: f98b876658c3257ad2b9162dea053f879ba1f1f0
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 57379d318ab01310388f55c8ec0b9751e909cb9e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 07/21/2017
 
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>將現有的自訂 DNS 名稱對應至 Azure Web Apps
@@ -39,7 +39,9 @@ ms.lasthandoff: 06/23/2017
 您可以使用 **CNAME 記錄**或 **A 記錄**將自訂 DNS 名稱對應至 App Service。 
 
 > [!NOTE]
-> 我們建議您對所有自訂 DNS 名稱使用 CNAME，但根網域除外 (例如 `contoso.com`)。 
+> 我們建議您對所有自訂 DNS 名稱使用 CNAME，但根網域除外 (例如 `contoso.com`)。
+
+若要將即時網站及其 DNS 網域名稱移轉至 App Service，請參閱[將作用中的 DNS 名稱移轉至 Azure App Service](app-service-custom-domain-name-migrate.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -69,6 +71,8 @@ ms.lasthandoff: 06/23/2017
 
 您看到 App Service 應用程式的管理分頁。  
 
+<a name="checkpricing"></a>
+
 ### <a name="check-the-pricing-tier"></a>檢查定價層
 
 在應用程式分頁的左側導覽中，捲動到 [設定] 區段，然後選取 [相應增加 (App Service 方案)]。
@@ -80,6 +84,8 @@ ms.lasthandoff: 06/23/2017
 ![檢查定價層](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 如果 App Service 方案不是**免費**，請關閉 [選擇定價層] 分頁，然後跳至 [對應 CNAME 記錄](#cname)。
+
+<a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>相應增加 App Service 方案
 
@@ -99,22 +105,7 @@ ms.lasthandoff: 06/23/2017
 
 在教學課程範例中，您新增 `www` 子網域 (例如，`www.contoso.com`) 的 CNAME 記錄。
 
-### <a name="access-dns-records-with-domain-provider"></a>存取網域提供者中的 DNS 記錄
-
-登入網域提供者的網站。
-
-尋找管理 DNS 記錄的頁面。 每個網域提供者有自己的 DNS 記錄介面，請查閱您的提供者文件。 在網站中尋找標示為**網域名稱**、**DNS** 或**名稱伺服器管理**的連結或區域。 
-
-通常可透過檢視您的帳戶資訊，然後尋找**我的網域**之類的連結，來找到 DNS 記錄管理分頁。 移至該分頁，然後尋找名為**區域檔案**、**DNS 記錄**或**進階設定**之類的連結。
-
-下列螢幕擷取畫面是 DNS 記錄管理分頁的範例：
-
-![DNS 記錄頁面範例](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-在螢幕擷取畫面範例中，您可以選取 [新增] 以建立記錄。 某些提供者有不同的連結來新增其他記錄類型。 同樣地，請參閱提供者的文件。
-
-> [!NOTE]
-> 對於某些提供者 (例如 GoDaddy)，您必須選取另外的 [儲存變更] 連結，才會讓 DNS 記錄的變更生效。 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>建立 CNAME 記錄
 
@@ -178,22 +169,7 @@ ms.lasthandoff: 06/23/2017
 
 ![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="access-dns-records-with-domain-provider"></a>存取網域提供者中的 DNS 記錄
-
-登入網域提供者的網站。
-
-尋找管理 DNS 記錄的頁面。 每個網域提供者有自己的 DNS 記錄介面，請查閱您的提供者文件。 在網站中尋找標示為**網域名稱**、**DNS** 或**名稱伺服器管理**的連結或區域。 
-
-通常可透過檢視您的帳戶資訊，然後尋找**我的網域**之類的連結，來找到 DNS 記錄管理分頁。 移至該分頁，然後尋找名為**區域檔案**、**DNS 記錄**或**進階設定**之類的連結。
-
-下列螢幕擷取畫面是 DNS 記錄管理分頁的範例：
-
-![DNS 記錄頁面範例](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-在螢幕擷取畫面範例中，您可以選取 [新增] 以建立記錄。 某些提供者有不同的連結來新增其他記錄類型。 同樣地，請參閱提供者的文件。
-
-> [!NOTE]
-> 對於某些提供者 (例如 GoDaddy)，您必須選取另外的 [儲存變更] 連結，才會讓 DNS 記錄的變更生效。 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-a-record"></a>建立 A 記錄
 
@@ -249,22 +225,7 @@ ms.lasthandoff: 06/23/2017
 
 在教學課程範例中，您藉由新增 CNAME 記錄，將[萬用字元 DNS 名稱](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (例如，`*.contoso.com`) 對應至 App Service 應用程式。 
 
-### <a name="access-dns-records-with-domain-provider"></a>存取網域提供者中的 DNS 記錄
-
-登入網域提供者的網站。
-
-尋找管理 DNS 記錄的頁面。 每個網域提供者有自己的 DNS 記錄介面，請查閱您的提供者文件。 在網站中尋找標示為**網域名稱**、**DNS** 或**名稱伺服器管理**的連結或區域。 
-
-通常可透過檢視您的帳戶資訊，然後尋找**我的網域**之類的連結，來找到 DNS 記錄管理分頁。 移至該分頁，然後尋找名為**區域檔案**、**DNS 記錄**或**進階設定**之類的連結。
-
-下列螢幕擷取畫面是 DNS 記錄管理分頁的範例：
-
-![DNS 記錄頁面範例](./media/app-service-web-tutorial-custom-domain/example-record-ui.png)
-
-在螢幕擷取畫面範例中，您可以選取 [新增] 以建立記錄。 某些提供者有不同的連結來新增其他記錄類型。 同樣地，請參閱提供者的文件。
-
-> [!NOTE]
-> 對於某些提供者 (例如 GoDaddy)，您必須選取另外的 [儲存變更] 連結，才會讓 DNS 記錄的變更生效。 
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
 ### <a name="create-the-cname-record"></a>建立 CNAME 記錄
 

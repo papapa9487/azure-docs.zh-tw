@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8bea98274f94853cb52fe8b51fdaa4f224c649e4
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
+ms.openlocfilehash: e6338dc283b5a26f20a467df9582181381967931
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/22/2017
 
 ---
 # <a name="use-windows-powershell-cmdlets-with-azure-remoteapp"></a>將 Windows PowerShell Cmdlet 搭配 Azure RemoteApp 使用
@@ -45,9 +45,20 @@ ms.lasthandoff: 04/27/2017
 2. 啟動 Microsoft Azure PowerShell。
 3. 執行 **Add-AzureAccount** 以驗證您的 Azure 訂用帳戶。 出現提示時，請輸入您用來登入 Azure 入口網站的使用者名稱和密碼。  
 4. 執行 **Get-AzureSubscription** 以列出與您使用者帳戶相關聯的訂用帳戶。 
-5. 執行 **Select-AzureSubscription** 並指定要在 PowerShell 主控台中使用的訂用帳戶名稱或識別碼。
+5. 執行 **Select-AzureSubscription -SubscriptionName &lt;訂用帳戶名稱&gt;** 或 **Select-AzureSubscription -SubscriptionId &lt;訂用帳戶識別碼&gt;**，以指定要使用的訂用帳戶。
 
 恭喜，您的 Azure PowerShell 主控台已設定完成且可以使用了。 請注意，每次您啟動 Azure PowerShell 主控台後都必須重複步驟 2至 5。  
+
+
+## <a name="list-all-collections"></a>列出所有集合
+- - -
+     Get-AzureRemoteAppCollection
+
+## <a name="delete-a-collection"></a>刪除集合
+- - -
+    Remove-AzureRemoteAppCollection <enter collection name>
+
+範例：`Remove-AzureRemoteAppCollection ContosoProduction`。
 
 ## <a name="create-a-cloud-collection"></a>建立雲端收藏
 - - -

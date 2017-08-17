@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: dadf2ba4121960ae05257197e0b5f222b993ec73
-ms.lasthandoff: 04/25/2017
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 3705457e4c90f8869496f7f5177531bd128d1057
+ms.contentlocale: zh-tw
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -50,5 +51,7 @@ DNS 的計費方式是依據 Azure 中裝載的 DNS 區域數量，以及 DNS �
 如需深入了解 DNS 區域和記錄，請瀏覽：[DNS 區域和記錄的概觀](dns-zones-records.md)。
 
 了解如何在 Azure DNS 中[建立 DNS 區域](./dns-getstarted-create-dnszone-portal.md)。
+
+深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
 
 

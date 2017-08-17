@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: 56d6f7b5858a0e2122021e02718050a26e6defe4
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: f31c0eec6b570c4d9f798185f8f0f8c49a7e400d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
@@ -158,7 +157,7 @@ Slack webhook 會為您產生權杖，而不是由您指定，因此您必須使
 這可讓該函式程式碼在位址中支援兩個參數，即 "category" 和 "id"。 您可以將任何 [Web API 路由條件約束](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)與您的參數搭配使用。 下列 C# 函式程式碼會同時利用這兩個參數。
 
 ```csharp
-    public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
+    public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
                                                     TraceWriter log)
     {
         if (id == null)
@@ -290,6 +289,22 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
     return name == null
         ? req.CreateResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
         : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
+}
+```
+
+您也可以繫結到 POCO，不是 `HttpRequestMessage`。 這會從要求主體水合，剖析成 JSON。 同樣地，類型可以傳遞至 HTTP 回應輸出繫結，而這會傳回為狀態碼 200 的回應主體。
+```csharp
+using System.Net;
+using System.Threading.Tasks;
+
+public static string Run(CustomObject req, TraceWriter log)
+{
+    return "Hello " + req?.name;
+}
+
+public class CustomObject {
+     public String name {get; set;}
+}
 }
 ```
 
