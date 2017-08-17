@@ -9,6 +9,7 @@
 # 開始使用
 ## [註冊 Azure AD Premium](active-directory-get-started-premium.md)
 ## [新增自訂網域名稱](add-custom-domain.md)
+## [設定公司商標](customize-branding.md)
 ## [啟用自助式密碼重設](active-directory-passwords-getting-started.md)
 ## 管理 Azure AD 授權
 ### [Azure 入口網站](active-directory-licensing-get-started-azure-portal.md)
@@ -142,6 +143,7 @@
 
 
 ## 管理裝置
+### [簡介](device-management-introduction.md)
 ### [註冊裝置](active-directory-device-registration-overview.md)
 #### [設定](active-directory-conditional-access-automatic-device-registration-setup.md)
 #### [部署內部部署](active-directory-device-registration-on-premises-setup.md)
@@ -241,10 +243,6 @@
 #### 管理網域名稱
 ##### [Azure 入口網站](active-directory-domains-manage-azure-portal.md)
 ##### [傳統入口網站](active-directory-add-manage-domain-names.md)
-### 自訂登入頁面
-#### [Azure 入口網站](active-directory-branding-custom-signon-azure-portal.md)
-#### [特定語言](active-directory-branding-localize-azure-portal.md)
-#### [傳統入口網站](active-directory-add-company-branding.md)
 ### [管理目錄](active-directory-administer.md)
 ### [多個目錄](active-directory-licensing-directory-independence.md)
 ### [O365 目錄](active-directory-manage-o365-subscription.md)
