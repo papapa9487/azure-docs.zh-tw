@@ -15,25 +15,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: a9ccbb3da29670da9a377be2212905c67b3ec7d0
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 應用程式
-> [!div class="op_single_selector"]
-> * [Windows](python-django-web-app.md)
-> * [Mac/Linux](../../linux/python-django-web-app.md)
-> 
-> 
-
-<br>
 
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種：[Azure Resource Manager 和傳統部署模型](../../../resource-manager-deployment-model.md)。 本文說明傳統部署模型。 我們建議讓大部分的新部署使用 Resource Manager 模型。 如需了解您可用來部署 Django 的 Resource Manager 範本，請參閱[部署 Django 應用程式](https://azure.microsoft.com/documentation/templates/django-app/)。
+> Azure 建立和處理資源的部署模型有二種：[Azure Resource Manager 和傳統部署模型](../../../resource-manager-deployment-model.md)。 本文說明傳統部署模型。 我們建議讓大部分的新部署使用 Resource Manager 模型。
 
 本教學課程會示範如何在 Azure 虛擬機器中裝載 Windows Server 中以 Django 作為基礎的網站。 在教學課程中，我們假設沒有 Azure 的使用經驗。 當您完成教學課程時，將可在雲端啟動並執行以 Django 作為基礎的應用程式。
 

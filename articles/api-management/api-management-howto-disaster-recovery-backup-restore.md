@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c0413f9c83fd6dceb4a1d956c0f32712e29bdc58
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 07c0265490cfae733133b6e0c938f90f9b392da4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
-<a id="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management" class="xliff"></a>
-
-# 如何在 Azure API 管理中使用服務備份和還原實作災害復原
+# <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何在 Azure API 管理中使用服務備份和還原實作災害復原
 選擇透過 Azure API 管理來發佈及管理 API，您將能夠利用許多非 Azure API 管理使用者須另行設計、實作及管理的容錯和基礎結構功能。 Azure 平台可緩和絕大部分可能的失敗後果，且成本低廉。
 
 若要從影響範圍涵蓋 API 管理服務託管所在之區域的可用性問題復原，您應該要做好準備能隨時在其他區域重新建構服務。 由於可用性目標和復原時間目標不盡相同，您也許會想要在一或多個區域預留備份服務，並嘗試與作用中的服務維持組態和內容同步。 服務備份和還原功能可提供實作災害復原策略時所不可或缺的建置組塊。
@@ -37,9 +35,7 @@ ms.lasthandoff: 03/31/2017
 >
 >
 
-<a id="authenticating-azure-resource-manager-requests" class="xliff"></a>
-
-## 驗證 Azure 資源管理員要求
+## <a name="authenticating-azure-resource-manager-requests"></a>驗證 Azure 資源管理員要求
 > [!IMPORTANT]
 > 備份和還原的 REST API 會使用 Azure 資源管理員，並有不同的驗證機制的 REST API 來管理您的 API 管理實體。 本節中的步驟描述如何驗證 Azure 資源管理員的要求。 如需詳細資訊，請參閱 [驗證 Azure Resource Manager 要求](http://msdn.microsoft.com/library/azure/dn790557.aspx)。
 >
@@ -54,9 +50,7 @@ ms.lasthandoff: 03/31/2017
 第一個步驟是建立 Azure Active Directory 應用程式。 使用含 API 管理服務執行個體的訂用帳戶登入 [Azure 傳統入口網站](http://manage.windowsazure.com/)，並瀏覽至預設 Azure Active Directory 的 [應用程式] 索引標籤。
 
 > [!NOTE]
-> 如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。 如需有關尋找您預設目錄的資訊，請參閱[在 Azure Active Directory 中建立與 Windows VM 搭配使用的工作或學校身分識別](../virtual-machines/windows/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中的＜在 Azure 傳統入口網站中找到您的預設目錄＞。
->
->
+> 如果您的帳戶看不到 Azure Active Directory 預設目錄，請連絡 Azure 訂用帳戶的系統管理員，以授與您的帳戶必要權限。
 
 ![建立 Azure Active Directory 應用程式][api-management-add-aad-application]
 
@@ -193,9 +187,7 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 >
 >
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 請參閱下列 Microsoft 部落格中，兩個不同的備份/還原程序逐步解說。
 
 * [複寫 Azure API 管理帳戶 (英文)](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)

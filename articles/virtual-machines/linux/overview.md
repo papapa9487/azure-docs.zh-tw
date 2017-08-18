@@ -16,10 +16,10 @@ ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: abddbe6b78c5c15d4deac68ff8c2504d2321fab0
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
@@ -117,8 +117,6 @@ Microsoft 與我們的合作夥伴密切合作，以確保更新可用的映像�
 
 ### <a name="login-using-ssh-without-a-password"></a>使用 SSH 登入而不提供密碼
 VM 現在已在 Azure 上執行，而您已經可以登入。  使用密碼透過 SSH 登入既不安全又費時。  使用 SSH 金鑰是最安全的登入方式，也是最省時的登入方式。  當您透過入口網站或 CLI 建立 Linux VM 時，有兩種驗證選擇。  如果您為 SSH 選擇了密碼，Azure 就會將 VM 設定成允許透過密碼登入。  如果您選擇使用 SSH 公開金鑰，Azure 就會將 VM 設定成只允許透過 SSH 金鑰登入，並停用密碼登入。 若要藉由只允許使用 SSH 金鑰登入的方式來保護 Linux VM，請在透過入口網站或 CLI 建立 VM 時，使用 SSH 公用金鑰選項。
-
-* [藉由設定 SSHD 停用 Linux VM 上的 SSH 密碼](mac-disable-ssh-password-usage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## <a name="related-azure-components"></a>相關的 Azure 元件
 ## <a name="storage"></a>儲存體

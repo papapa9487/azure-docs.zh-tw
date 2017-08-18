@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/16/2017
 ms.author: msfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be8504b492bdbdf7445abcdf1fb55e375eda133e
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: f770b6181a99d24ea6a6e945d505da914e1b6128
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
@@ -48,13 +47,13 @@ Service Fabric 支援 Linux 和 Windows 上的容器，同時也支援後者的 
 
 ### <a name="docker-containers-on-linux"></a>Linux 上的 Docker 容器
 Docker 提供高階 API 來建立和管理 Linux 核心容器頂端的容器。 Docker 中樞是儲存和擷取容器映像的中央儲存機制。
-如需教學課程，請參閱[將 Docker 容器部署至 Service Fabric](service-fabric-deploy-container-linux.md)。
+如需教學課程，請參閱[將 Docker 容器部署至 Service Fabric](service-fabric-get-started-containers-linux.md)。
 
 ### <a name="windows-server-containers"></a>Windows Server 容器
 Windows Server 2016 提供兩種不同的容器，所提供的隔離程度有所不同。 Windows Server 容器類似於 Docker 容器，因為都有命名空間和檔案系統隔離，但與它們執行所在的主機共用核心。 在 Linux 上，一向是由 `cgroups` 和 `namespaces` 提供這種隔離，而 Windows Server 容器具有類似的行為。
 
 Windows Hyper-V 容器提供更高程度的隔離和安全性，因為每個容器彼此之間或與主機之間並不共用作業系統核心。 由於有如此高程度的安全性隔離，Hyper-V 容器在惡意多租用戶的情況下是重點部分。
-如需教學課程，請參閱[將 Windows 容器部署至 Service Fabric](service-fabric-deploy-container.md)。
+如需教學課程，請參閱[將 Windows 容器部署至 Service Fabric](service-fabric-get-started-containers.md)。
 
 下圖顯示作業系統中可用的各種不同的虛擬化及隔離等級。
 ![Service Fabric 平台][Image1]
@@ -88,9 +87,9 @@ Service Fabric 有數個容器功能可協助您建置由容器化微服務組�
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解容器、Service Fabric 是容器協調者，以及 Service Fabric 具有支援容器的功能。 接下來，我們將示範每一項功能來展示其用法。
 
-[將 Windows 容器部署至 Windows Server 2016 上的 Service Fabric](service-fabric-deploy-container.md)
+[將 Windows 容器部署至 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 
-[將 Docker 容器部署至 Linux 上的 Service Fabric](service-fabric-deploy-container-linux.md)
+[將 Docker 容器部署至 Linux 上的 Service Fabric](service-fabric-get-started-containers-linux.md)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 

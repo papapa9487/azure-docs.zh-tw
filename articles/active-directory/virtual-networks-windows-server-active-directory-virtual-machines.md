@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
-ms.openlocfilehash: 5748bb0d0fe1913cd24e5624cfefcafbafa2e53c
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Azure VM 上的 Windows Server Active Directory
@@ -33,7 +33,6 @@ ms.lasthandoff: 04/06/2017
 ## <a name="how-to-articles"></a>做法文章
 * [在 Azure 虛擬網路上安裝新的 Active Directory 樹系](active-directory-new-forest-virtual-machine.md)
 * [在 Azure 虛擬網路中安裝複本 Active Directory 網域控制站](active-directory-install-replica-active-directory-domain-controller.md)
-* [設定用於測試的混合式雲端環境](../virtual-machines/windows/ps-hybrid-cloud-test-env-sim.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="additional-resources"></a>其他資源
 * [以組織身分註冊 Azure](sign-up-organization.md)

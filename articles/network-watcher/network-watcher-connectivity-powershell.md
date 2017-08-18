@@ -14,28 +14,22 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 036902801189c71eb336900107f07319dfe817f2
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="check-connectivity-with-azure-network-watcher-using-powershell"></a>使用 PowerShell 檢查與 Azure 網路監看員的連線
 
 > [!div class="op_single_selector"]
+> - [入口網站](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用連線，確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
-
-本文會引導您完成一些連線檢查案例。
-
-* [檢查與虛擬機器的連線](#check-connectivity-to-a-virtual-machine)
-* [驗證路由問題](#validate-routing-issues)
-* [檢查網站延遲](#check-website-latency)
-* [檢查與儲存體端點的連線](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>開始之前
 
