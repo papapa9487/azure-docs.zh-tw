@@ -12,12 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/11/2016
+ms.date: 8/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-manage-service-configurations-and-profiles"></a>如何管理服務組態和設定檔
@@ -60,7 +61,7 @@ ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
     在 [方案總管] 中，此服務組態檔的名稱會在 Azure 專案中變更。
 
 ### <a name="to-change-a-service-configuration"></a>變更服務組態
-* 如果您想要變更服務組態，請開啟 Azure 專案中您要變更的特定角色的捷徑功能表，然後按一下 [屬性] 。 如需詳細資訊，請參閱 [如何：使用 Visual Studio 設定 Azure 雲端服務的角色](https://msdn.microsoft.com/library/azure/hh369931.aspx) 。
+* 如果您想要變更服務組態，請開啟 Azure 專案中您要變更的特定角色的捷徑功能表，然後按一下 [屬性] 。 如需詳細資訊，請參閱 [如何：使用 Visual Studio 設定 Azure 雲端服務的角色](https://docs.microsoft.com/azure/vs-azure-tools-configure-roles-for-cloud-service) 。
 
 ## <a name="make-different-setting-combinations-by-using-profiles"></a>使用設定檔製作不同的設定組合
 只要使用設定檔，您就能針對不同用途，以不同的設定組合來自動填滿 [發佈精靈]  。 例如，您可有一個設定檔用於偵錯，另一個設定檔用於發行組建。 在此情況下，[偵錯] 設定檔會啟用 [IntelliTrace] 並選取 [偵錯] 組態，而 [發行] 設定檔會停用 [IntelliTrace] 並選取 [發行] 組態。 您也可以使用不同的設定檔，部署使用不同儲存體帳戶的服務。
@@ -101,10 +102,5 @@ ms.openlocfilehash: c83d779797493f6ec48d61563aa7448db7c9b917
 
 ## <a name="next-steps"></a>後續步驟
 若要了解如何從 Visual Studio 設定 Azure 專案的其他部分，請參閱 [設定 Azure 專案](http://go.microsoft.com/fwlink/p/?LinkID=623075)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

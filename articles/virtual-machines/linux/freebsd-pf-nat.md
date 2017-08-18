@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: a1470234489d67e0dd90237029ce454437f9bfee
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -59,7 +59,7 @@ az network public-ip list --resource-group myResourceGroup
 ## <a name="next-steps"></a>後續步驟
 您想要在 Azure 中設定自己的 NAT 嗎？ 需要是開放原始碼、免費但具有強大功能嗎？ 那麼，PF 會是一個理想的選擇。 藉由使用 [pf-freebsd-setup](https://github.com/Azure/azure-quickstart-templates/tree/master/pf-freebsd-setup) 範本，您只需 5 分鐘的時間，即可使用 FreeBSD 的 PF，在 Azure 中針對常見的 Web 伺服器案例，設定具備循環配置資源負載平衡功能的 NAT 防火牆。 
 
-如果您想要了解 Azure 中的 FreeBSD 方案，請參閱[Azure 上的 FreeBSD 簡介](./../virtual-machines-freebsd-intro-on-azure.md)。
+如果您想要了解 Azure 中的 FreeBSD 方案，請參閱[Azure 上的 FreeBSD 簡介](freebsd-intro-on-azure.md)。
 
 如果您想要深入了解 PF，請參考 [FreeBSD 手冊 (英文)](https://www.freebsd.org/doc/handbook/firewalls-pf.html) 或 [PF 使用者指南 (英文)](https://www.freebsd.org/doc/handbook/firewalls-pf.html)。
 

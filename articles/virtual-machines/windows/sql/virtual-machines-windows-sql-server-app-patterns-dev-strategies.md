@@ -16,11 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 8d884d660d4124e8eafdf3690fe8956904f50827
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
@@ -127,7 +126,7 @@ ms.lasthandoff: 07/11/2017
 
 就最佳作法而言，請務必使所有網際網路連線先進入展示層。 展示層會存取商務層，而商務層會存取資料層。 如需有關如何允許存取展示層的詳細資訊，請參閱 [允許使用 Azure 入口網站從外部存取您的 VM](../nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-請注意，Azure 中的負載平衡器運作方式類似內部部署環境中的負載平衡器。 如需詳細資訊，請參閱 [Azure 基礎結構服務的負載平衡](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+請注意，Azure 中的負載平衡器運作方式類似內部部署環境中的負載平衡器。 如需詳細資訊，請參閱 [Azure 基礎結構服務的負載平衡](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 此外，我們建議您使用 Azure 虛擬網路，為虛擬機器設定私人網路。 這可讓虛擬機器透過私人 IP 位址彼此通訊。 如需詳細資訊，請參閱 [Azure 虛擬網路](../../../virtual-network/virtual-networks-overview.md)。
 
@@ -160,7 +159,7 @@ ms.lasthandoff: 07/11/2017
 
 下圖說明某個內部部署案例以及其啟用雲端功能的解決方案。 在此案例中，您會在 Azure 的多個虛擬機器中，向外延展展示層和商務層元件。 此外，您會針對 Azure 中的 SQL Server 資料庫，實作高可用性和災害復原 (HADR) 技術。
 
-請在不同的 VM 中執行應用程式的多個複本，確認可以負載平衡它們的要求。 當您有多個虛擬機器時，必須確定可以存取所有 VM，且 VM 均能在某個時間點同時執行。 如果設定負載平衡，Azure Load Balancer 就會追蹤 VM 的健全狀況，然後將傳入的呼叫正確引導至運作狀況良好的 VM 節點。 如需如何設定虛擬機器負載平衡的資訊，請參閱 [Azure 基礎結構服務的負載平衡](../load-balance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 在負載平衡器後方有多個 Web 和應用程式伺服器執行個體，可確保展示層和商務層的高可用性。
+請在不同的 VM 中執行應用程式的多個複本，確認可以負載平衡它們的要求。 當您有多個虛擬機器時，必須確定可以存取所有 VM，且 VM 均能在某個時間點同時執行。 如果設定負載平衡，Azure Load Balancer 就會追蹤 VM 的健全狀況，然後將傳入的呼叫正確引導至運作狀況良好的 VM 節點。 如需如何設定虛擬機器負載平衡的資訊，請參閱 [Azure 基礎結構服務的負載平衡](../tutorial-load-balancer.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 在負載平衡器後方有多個 Web 和應用程式伺服器執行個體，可確保展示層和商務層的高可用性。
 
 ![向外延展和高可用性](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728012.png)
 

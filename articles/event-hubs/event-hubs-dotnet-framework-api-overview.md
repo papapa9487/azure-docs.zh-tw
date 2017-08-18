@@ -12,21 +12,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 41435316adaee5c66de503571184fce8937d38ee
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: bc525e7ca8b21e9e5f1e36b3152d71420b041700
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="event-hubs-net-framework-api-overview"></a>事件中樞 .NET Framework API 概觀
 本文將摘要列出一些主要事件中樞 .NET Framework 用戶端 API。 分為兩種類別：管理和執行階段 API。 執行階段 API 是由傳送和接收訊息所需的所有作業組成。 管理作業可讓您管理事件中樞實體狀態，方法是建立、更新和刪除實體。
 
-監視案例跨越管理和執行階段。 如需 .NET API 的詳細參考文件，請參閱[服務匯流排 .NET](/dotnet/api) 和 [EventProcessorHost API](/dotnet/api) 參考。
+監視案例跨越管理和執行階段。 如需 .NET API 的詳細參考文件，請參閱[服務匯流排 .NET](/dotnet/api/microsoft.servicebus.messaging) 和 [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) 參考。
 
 ## <a name="management-apis"></a>管理 API
 若要執行下列管理作業，您必須擁有事件中樞命名空間的 **管理** 權限：

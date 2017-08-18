@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 08/09/2017
 ms.author: ashwink
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 5a8362b52c06b1b41f8108926ba07bbe5901125a
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Azure 監視器跨平台 CLI 1.0 快速入門範例
@@ -122,11 +122,6 @@ azure insights alerts rule list abhingrgtest123 --ruleName andy0323
 azure insights alerts actions email create --customEmails foo@microsoft.com
 azure insights alerts actions webhook create https://someuri.com
 azure insights alerts rule metric set andy0323 eastus abhingrgtest123 PT5M GreaterThan 2 /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/Default-Web-EastUS/providers/Microsoft.Web/serverfarms/Default1 BytesReceived Total
-```
-
-### <a name="create-a-log-alert-rule"></a>建立記錄檔警示規則
-```console
-azure insights alerts rule log set ruleName eastus resourceGroupName someOperationName
 ```
 
 ### <a name="create-webtest-alert-rule"></a>建立 WebTest 警示規則

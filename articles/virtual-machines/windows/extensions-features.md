@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/06/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 09b4a34a45ad676a5279dad85fc84578f40a212a
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1ce0eebd2585c9457d7f922898d7f2fa3e7ffad7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>適用於 Windows 的虛擬機器擴充功能和功能
@@ -40,7 +40,6 @@ ms.lasthandoff: 03/31/2017
 
 除了處理序特定擴充功能，自訂指令碼延伸模組適用於 Windows 和 Linux 虛擬機器。 適用於 Windows 的自訂指令碼擴充功能允許在虛擬機器上執行任何 PowerShell 指令碼。 這對於設計需要超過原生 Azure 工具可提供之組態的 Azure 部署很有用。 如需詳細資訊，請參閱 [Windows VM 自訂指令碼擴充功能](extensions-customscript.md)。
 
-若要逐步解說其中 VM 擴充功能用於端對端應用程式部署中的範例，請參閱[將應用程式自動部署到 Azure 虛擬機器](dotnet-core-1-landing.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -159,7 +158,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 }
 ```
 
-如需詳細資訊，請參閱[使用 Windows VM 擴充功能編寫 Azure Resource Manager 範本](extensions-authoring-templates.md)。
+如需詳細資訊，請參閱[使用 Windows VM 擴充功能編寫 Azure Resource Manager 範本](template-description.md#extensions)。
 
 ## <a name="secure-vm-extension-data"></a>安全的 VM 擴充功能資料
 

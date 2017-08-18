@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 4315e9168a1ad724a6c28bd9bab065d6ffdabb5d
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 7c5ba9310568571991708ab54a5275df6ea84a39
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reset-a-vpn-gateway"></a>重設 VPN 閘道
@@ -37,7 +36,7 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
 
 在兩次重新啟動之後，如果仍有跨單位連線問題，請從 Azure 入口網站開啟支援要求。
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="before"></a>開始之前
 
 在您重設您的閘道器之前，請確認以下所列每個 IPsec 網站間 (S2S) VPN 通道的重要項目。 任何項目的不相符都會導致 S2S VPN 通道中斷連線。 驗證並更正內部部署和 Azure VPN 閘道的組態可為您避免不必要的重新開機，也避免閘道器上的其他作用中連線中斷。
 
@@ -47,7 +46,7 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
 * 預先共用的金鑰在 Azure 和內部部署 VPN 閘道上必須是相同的。
 * 如果您套用特定的 IPsec/IKE 組態，例如加密、雜湊演算法和 PFS (完整轉寄密碼)，確定 Azure 和內部部署 VPN 閘道都具有相同組態。
 
-## <a name="azure-portal"></a>Azure 入口網站
+## <a name="portal"></a>Azure 入口網站
 
 您可以使用 Azure 入口網站重設 Resource Manager VPN 閘道。 如果您想要重設傳統的閘道器，請參閱 [PowerShell](#resetclassic) 步驟。
 
@@ -59,7 +58,7 @@ VPN 閘道是由兩個在「作用中-待命」設定中執行的 VM 執行個�
   ![重設 VPN 閘道刀鋒視窗](./media/vpn-gateway-howto-reset-gateway/reset-vpn-gateway-portal.png)
 3. 在 [重設] 刀鋒視窗中，按一下 [重設] 按鈕。
 
-## <a name="powershell"></a>PowerShell
+## <a name="ps"></a>PowerShell
 
 ### <a name="resource-manager-deployment-model"></a>資源管理員部署模型。
 
@@ -93,7 +92,7 @@ RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
 StatusCode     : OK
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="cli"></a>Azure CLI
 
 若要重設閘道，請使用 [az network vnet-gateway reset](https://docs.microsoft.com/cli/azure/network/vnet-gateway#reset) 命令。 下列範例會重設 TestRG5 資源群組中名為 VNet5GW 的虛擬網路閘道：
 

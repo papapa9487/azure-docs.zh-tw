@@ -15,20 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 4282ee8c549061bb818038a4312411c87c1b44c7
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: a5cbbdf402ee06a34a339b193b0cdd5c952d6248
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="how-to-configure-an-availability-set-for-windows-virtual-machines-in-the-classic-deployment-model"></a>如何以傳統部署模型設定 Windows 虛擬機器的可用性設定組
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 您也可以在 Resource Manager 部署中 [設定可用性設定組](../create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 。
+> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 您也可以在 Resource Manager 部署中 [設定可用性設定組](../tutorial-availability-sets.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 。
 
 [!INCLUDE [virtual-machines-common-classic-configure-availability](../../../../includes/virtual-machines-common-classic-configure-availability.md)]
-
-## <a name="next-steps"></a>後續步驟
-有關傳統部署的其他文章，請參閱[傳統部署模型中的 Windows VM 的技術文章](../../virtual-machines-windows-index.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 

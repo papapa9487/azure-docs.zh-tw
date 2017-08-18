@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: 30d02322f302ca58e6c1b2b674d9f242b7c40518
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -87,7 +87,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 1. 使用您的訂用帳戶登入 [Azure 入口網站](http://portal.azure.com)。
 
-1. [建立 Azure 可用性設定組](../create-availability-set.md)。
+1. [建立 Azure 可用性設定組](../tutorial-availability-sets.md)。
 
    可用性設定組群組虛擬機器遍佈在容錯網域與更新網域中， 可用性設定組可確保應用程式不受單一失敗點 (如網路交換器或伺服器機架的電源裝置) 所影響。
 
@@ -223,14 +223,14 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 1. 在 [伺服器管理員] 中，按一下 [工具]，然後按一下 [容錯移轉叢集管理員]。
 1. 在 [容錯移轉叢集管理員] 中，按一下 [動作]，然後按一下 [驗證設定...]。
-1. 按 [下一步] 。
+1. 按一下 [下一步] 。
 1. 在 [選取伺服器或叢集] 中，輸入這兩部虛擬機器的名稱。
-1. 在 [測試選項] 中，選擇 [僅執行我選取的測試]。 按 [下一步] 。
+1. 在 [測試選項] 中，選擇 [僅執行我選取的測試]。 按一下 [下一步] 。
 1. 在 [測試選取範圍] 中，選取**儲存體**以外的所有測試。 請參閱下圖︰
 
    ![驗證測試](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. 按 [下一步] 。
+1. 按一下 [下一步] 。
 1. 在 [確認] 中，，按一下 [下一步]。
 
 [驗證設定精靈] 會執行驗證測試。

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 570011347f2c723f4a828f5f0229c14d6814f839
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: baaa7589de4d809270f66335e33b79b4fdb5e6a5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>擷取在 Azure 上執行的 Linux 虛擬機器
@@ -39,7 +39,7 @@ ms.lasthandoff: 04/03/2017
 ## <a name="before-you-begin"></a>開始之前
 請確保符合下列必要條件︰
 
-* **在 Resource Manager 部署模型中建立的 Azure VM** - 如果您尚未建立 Linux VM，可以使用[入口網站](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [Resource Manager 範本](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+* **在 Resource Manager 部署模型中建立的 Azure VM** - 如果您尚未建立 Linux VM，可以使用[入口網站](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [Resource Manager 範本](create-ssh-secured-vm-from-template.md)。 
   
     視需要設定 VM。 例如，[新增資料磁碟](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、套用更新，並安裝應用程式。 
 * **Azure CLI** - 在本機電腦上安裝 [Azure CLI](../../cli-install-nodejs.md)。
@@ -205,6 +205,6 @@ azure vm create -g myResourceGroup1 -n myNewVM -l eastus -y Linux \
 如需其他命令選項，請執行 `azure help vm create`。
 
 ## <a name="next-steps"></a>後續步驟
-若要使用 CIL 管理 VM，請參閱 [使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中的工作。
+若要使用 CIL 管理 VM，請參閱 [使用 Azure 資源管理員範本和 Azure CLI 部署和管理虛擬機器](create-ssh-secured-vm-from-template.md)中的工作。
 
 

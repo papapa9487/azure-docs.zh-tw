@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/8/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: d93c82b9c2e66c7241ddd579c1be74396174fd65
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 27b393a899c60a3a0393619f338a396dff659498
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-file-storage-with-linux"></a>搭配 Linux 使用 Azure 檔案儲存體
@@ -36,10 +36,7 @@ ms.lasthandoff: 08/08/2017
     * CentOS 7+
     * Debian 8
     * openSUSE 13.2+
-    * SUSE Linux Enterprise Server 12   
-
-    > [!Note]  
-    > Linux 發行版本若可下載並安裝或編譯最新版的 cifs-utils 封裝，均可以搭配 Azure 檔案儲存體使用。
+    * SUSE Linux Enterprise Server 12
 
 * <a id="install-cifs-utils"></a>**安裝 cifs-utils 封裝**：可使用封裝管理員將 cifs-utils 安裝在所選擇的 Linux 發行版本上。 
 
