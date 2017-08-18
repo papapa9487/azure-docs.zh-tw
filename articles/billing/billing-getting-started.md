@@ -3,7 +3,7 @@ title: "避免意外的成本、管理計費 - Azure | Microsoft Docs"
 description: "了解如何避免 Azure 帳單上的意外費用。 使用 Microsoft Azure 訂用帳戶的成本追蹤與管理功能。"
 services: 
 documentationcenter: 
-author: jlian
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2017
-ms.author: jlian
+ms.date: 08/10/2017
+ms.author: tonguyen
+experimental_id: a2b2579c-cd2e-41
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
 ms.contentlocale: zh-tw
 ms.lasthandoff: 04/26/2017
 
-
 ---
+
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的成本
 
 當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取訂用帳戶之後，您可以看到目前的成本細分和完工速率。 您也可以[下載之前的發票與詳細使用量檔案](billing-download-azure-invoice-daily-usage-date.md)。 如果您想要將不同專案或小組所使用的資源成本分組，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
@@ -39,7 +40,7 @@ ms.lasthandoff: 04/26/2017
 
 查看[價格計算機](https://azure.microsoft.com/pricing/calculator/)和[擁有權總成本計算機 (英文)](https://aka.ms/azure-tco-calculator) 即可取得您感興趣的服務每月成本評估。 例如，如果您讓 A1 Windows 虛擬機器 (VM) 持續運作，則運算時間的預估成本為每月 $66.96 美元：
 
-![價格計算機的螢幕擷取畫面，顯示 A1 Windows 虛擬機器的每月預估成本為 $66.96 美元](./media/billing-getting-started/pricing-calc.PNG)
+![價格計算機的螢幕擷取畫面，顯示 A1 Windows 虛擬機器的每月預估成本為 $66.96 美元](./media/billing-getting-started/pricing-calcVM.png)
 
 如需詳細資訊，請參閱[ 購買常見問題集](https://azure.microsoft.com/pricing/faq/)。 或者，如果您想要與服務人員聯絡，請撥打 1-800-867-1389。
 
@@ -136,7 +137,7 @@ ms.lasthandoff: 04/26/2017
 
 7. 按一下資源可查看消費歷程記錄，以及它每天花您多少錢。
 
-    ![Azure 入口網站中消費歷程記錄檢視的螢幕擷取畫面](./media/billing-getting-started/spend-history.PNG)
+    ![Azure 入口網站中消費歷程記錄檢視的螢幕擷取畫面](./media/billing-getting-started/costhistory.PNG)
 
 我們建議您將您看到的成本與您在選取服務時看到的預估進行核對。 如果成本和預估的差異很大，請再次檢查您為您的資源選取的定價方案 (例如 A1 與 A0 VM)。 
 
@@ -187,3 +188,4 @@ ms.lasthandoff: 04/26/2017
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+
