@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 24c2b27948e9373bc3957f706ed802cc36c04148
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a9d7c7f3f8aefa5312e5e3313dbd581d6df900a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>建立 Azure Resource Manager 範本的最佳做法
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/11/2017
 * 不需要是唯一的資源名稱，但是您選擇提供的名稱可協助您根據內容識別資源。
 * 可以是一般的資源名稱。
 
-如需建立命名慣例的說明，請參閱 [Azure 基礎結構命名指導方針](../virtual-machines/windows/infrastructure-naming-guidelines.md)。 如需有關資源名稱限制的詳細資訊，請參閱 [Recommended naming conventions for Azure resources (Azure 資源的建議命名慣例)](../guidance/guidance-naming-conventions.md)。
+ 如需有關資源名稱限制的詳細資訊，請參閱 [Recommended naming conventions for Azure resources (Azure 資源的建議命名慣例)](../guidance/guidance-naming-conventions.md)。
 
 ### <a name="unique-resource-names"></a>唯一的資源名稱
 您必須為任何有資料存取端點的資源類型，提供唯一的資源名稱。 一些需要唯一名稱的常見資源類型包括︰
@@ -396,7 +395,6 @@ ms.lasthandoff: 05/11/2017
 ## <a name="next-steps"></a>後續步驟
 * 如需設計虛擬機器解決方案架構的指引，請參閱[在 Azure 中執行 Windows VM](../guidance/guidance-compute-single-vm.md) 和[在 Azure 中執行 Linux VM](../guidance/guidance-compute-single-vm-linux.md)。
 * 如需有關設定儲存體帳戶的指引，請參閱 [Azure 儲存體效能與延展性檢查清單](../storage/storage-performance-checklist.md)。
-* 如需虛擬網路的說明，請參閱 [網路基礎結構指導方針](../virtual-machines/windows/infrastructure-networking-guidelines.md)。
 * 若要深入了解企業如何使用 Resource Manager 有效地管理訂閱，請參閱 [Azure 企業 Scaffold：規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
 
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7282de704a1053e2052a189990fb2b30b2adad6f
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 1a885166e5c71f13da222bfc22b0fc579096c52f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>針對 Azure 度量警示設定 Webhook
@@ -31,7 +31,7 @@ Azure 警示會將警示內容以 JSON 格式 (定義如下的結構描述) HTTP
 
 ![新增警示規則](./media/insights-webhooks-alerts/Alertwebhook.png)
 
-您也可以使用 [Azure PowerShell Cmdlet](insights-powershell-samples.md#create-alert-rules)、[跨平台 CLI](insights-cli-samples.md#work-with-alerts) 或 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 設定警示以張貼至 Webhook URI。
+您也可以使用 [Azure PowerShell Cmdlet](insights-powershell-samples.md#create-metric-alerts)、[跨平台 CLI](insights-cli-samples.md#work-with-alerts) 或 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx) 設定警示以張貼至 Webhook URI。
 
 ## <a name="authenticating-the-webhook"></a>驗證 Webhook
 Webhook 可以使用權杖型授權來驗證。 Webhook URI 是以權杖識別碼儲存，例如 `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`

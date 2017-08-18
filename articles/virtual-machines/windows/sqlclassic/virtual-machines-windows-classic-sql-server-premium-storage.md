@@ -16,11 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e8f191e7bc0ce49abc3f1b4b2329a0ee3b38cd4e
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: c8f0da306c5adcf67e5e6dce10c180d08766f733
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
@@ -30,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 > [!IMPORTANT]
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
 
-本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
+本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
 
 請務必了解在 IAAS VM 上搭配使用 Azure 進階儲存體和 SQL Server 的端對端處理程序。 其中包括：
 
@@ -101,7 +100,7 @@ ms.lasthandoff: 07/11/2017
 一旦連結 VHD 之後，就無法更改快取設定。 您需要中斷連結 VHD，然後使用更新的快取設定重新連結。
 
 ### <a name="windows-storage-spaces"></a>Windows 儲存空間
-當您使用先前的標準儲存體來執行此動作時，可以使用 [Windows 儲存空間](https://technet.microsoft.com/library/hh831739.aspx) ，這樣將可允許您移轉已經使用儲存體空間的 VM。 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) 中的範例 (步驟 9 和之前的步驟) 示範如何使用 Powershell 程式碼來擷取和匯入已連結多個 VHD 的 VM。
+當您使用先前的標準儲存體來執行此動作時，可以使用 [Windows 儲存空間](https://technet.microsoft.com/library/hh831739.aspx) ，這樣將可允許您移轉已經使用儲存體空間的 VM。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例 (步驟 9 和之前的步驟) 示範如何使用 Powershell 程式碼來擷取和匯入已連結多個 VHD 的 VM。
 
 儲存集區會與標準的 Azure 儲存體帳戶搭配使用，以提高輸送量並降低延遲。 您可能會在針對新部署測試含有進階儲存體的儲存集區時尋找值，但它們會為儲存體設定增加額外的複雜度。
 
@@ -140,7 +139,7 @@ ms.lasthandoff: 07/11/2017
 
 現在您可以使用此資訊，將連結的 VHD 關聯至儲存集區中的實體磁碟。
 
-將 VHD 對應到儲存集區中的實體磁碟之後，接著就可以中斷連結，並將它們複製到進階儲存體帳戶，然後使用正確的快取設定來連結它們。 請參閱 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的範例，步驟 8 到 12。 這些步驟示範如何將與 VM 連結的 VHD 磁碟設定擷取至 CSV 檔案、複製 VHD、更改磁碟設定快取設定，最後重新部署 VM 成為含有所有連結磁碟的 DS 系列 VM。
+將 VHD 對應到儲存集區中的實體磁碟之後，接著就可以中斷連結，並將它們複製到進階儲存體帳戶，然後使用正確的快取設定來連結它們。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的範例，步驟 8 到 12。 這些步驟示範如何將與 VM 連結的 VHD 磁碟設定擷取至 CSV 檔案、複製 VHD、更改磁碟設定快取設定，最後重新部署 VM 成為含有所有連結磁碟的 DS 系列 VM。
 
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 儲存體頻寬和 VHD 儲存體輸送量
 儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。 VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。 如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -419,7 +418,7 @@ ms.lasthandoff: 07/11/2017
 8. 驗證成功之後，啟動所有 SQL Server 服務。
 9. 備份交易記錄，然後還原使用者資料庫。
 10. 將新節點新增到「AlwaysOn 可用性群組」中，並將複寫切換至 [同步] 。
-11. 根據 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell 新增新雲端服務 ILB/ELB 的 IP 位址資源。 在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。 請參閱 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
+11. 根據 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell 新增新雲端服務 ILB/ELB 的 IP 位址資源。 在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 12. 容錯移轉到其中一個新節點。
 13. 使新節點成為自動容錯移轉夥伴並測試容錯移轉。
 14. 從可用性群組移除原始節點。
@@ -468,7 +467,7 @@ ms.lasthandoff: 07/11/2017
 ##### <a name="points-of-downtime"></a>停機時間點
 * 當您使用「負載平衡」端點更新最後一個節點時，會產生停機時間。
 * 根據您的用戶端/DNS 設定而定，用戶端連線可能會延遲。
-* 如果您選擇使 Always On 叢集群組離線以交換出 IP 位址，則會產生額外的停機時間。 您可以針對新增的「IP 位址」資源使用 OR 相依性和「可能的擁有者」，來避免發生這種情況。 請參閱 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
+* 如果您選擇使 Always On 叢集群組離線以交換出 IP 位址，則會產生額外的停機時間。 您可以針對新增的「IP 位址」資源使用 OR 相依性和「可能的擁有者」，來避免發生這種情況。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 
 > [!NOTE]
 > 當您想要加入新增的節點以成為 Always On 容錯移轉夥伴時，就需要新增參考負載平衡集的 Azure 端點。 當您執行 **Add-AzureEndpoint** 命令來執行這個動作時，目前的連線仍會維持開啟狀態，但在更新負載平衡器之前，將無法建立與接聽程式的新連線。 測試時，若看見此項目持續 90-120 秒，就應該測試此項目。
@@ -490,7 +489,7 @@ ms.lasthandoff: 07/11/2017
   * 確保您已正確設定叢集仲裁。  
 
 ##### <a name="high-level-steps"></a>高階步驟
-本文不會示範完整的端對端範例，但是， [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage) 會提供用來執行此動作的詳細資訊。
+本文不會示範完整的端對端範例，但是， [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 會提供用來執行此動作的詳細資訊。
 
 ![MinimalDowntime][8]
 
@@ -500,7 +499,7 @@ ms.lasthandoff: 07/11/2017
 * 設定 ILB / ELB 並新增端點。
 * 使用下列任一種方法來更新接聽程式：
   * 使 Always On 群組離線，並使用新的 ILB / ELB IP 位址來更新 Always On 接聽程式。
-  * 或者，透過 PowerShell，將新雲端服務 ILB/ELB 的 IP 位址資源新增到 Windows 叢集。 接著，將 IP 位資源的 [可能的擁有者] 設為移轉的節點 SQL2，並在 [網路名稱] 中將此設為  OR 相依性。 請參閱 [附錄](#appendix-migrating-a-multisite-alwayson-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
+  * 或者，透過 PowerShell，將新雲端服務 ILB/ELB 的 IP 位址資源新增到 Windows 叢集。 接著，將 IP 位資源的 [可能的擁有者] 設為移轉的節點 SQL2，並在 [網路名稱] 中將此設為  OR 相依性。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 * 檢查連到用戶端的 DNS 設定/傳播。
 * 移轉 SQL1 VM，然後執行步驟 2 - 4。
 * 如果使用步驟 5ii，則新增 SQL1 做為新增 IP 位址資源的 [可能的擁有者]

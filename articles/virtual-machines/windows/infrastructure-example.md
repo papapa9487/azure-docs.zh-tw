@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d7d68cfd4c3fa54c889651a43b2252ffaf181495
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 84cefcdb85f1a3c753027e827abde010b461cda7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-windows-vms"></a>適用於 Windows VM 的範例 Azure 基礎結構逐步解說
@@ -119,8 +118,3 @@ Adventure Works Cycles 決定為其 Azure VM 使用下列名稱：
 * 適用於以 HTTPS 為基礎之 Web 流量 (從網際網路到 Web 伺服器) 的外部負載平衡組
 * 適用於未加密之 Web 流量 (從 Web 伺服器到應用程式伺服器) 的內部負載平衡組
 * 單一資源群組
-
-## <a name="next-steps"></a>後續步驟
-[!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
-
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 9d14022f46c15db531bb3430f302eb49e1335083
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
@@ -337,9 +337,6 @@ Azure Cosmos DB 可在一致性、高可用性及延遲之間提供完全合乎�
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-preview-table"></a>我可以相應增加或減少資料表 API (預覽) 資料表的輸送量嗎？ 
 是，您可以使用 Azure Cosmos DB 入口網站的調整窗格來調整輸送量。 如需詳細資訊，請參閱[設定輸送量](set-throughput.md)。
 
-### <a name="can-the-premium-table-api-preview-take-advantage-of-the-ru-per-minute-offering"></a>進階資料表 API (預覽) 可以使用每分鐘 RU 供應項目嗎？ 
-是，進階資料表 API (預覽) 能藉助 Azure Cosmos DB 的功能，針對效能、延遲、可用性和一致性提供 SLA。 這項功能讓資料表得以使用每分鐘 RU 供應項目。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的要求單位](request-units.md)。 有了這項功能，客戶能避免為尖峰時間進行佈建，而且能緩和突然增加的工作負載。
-
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>新佈建的資料表是否有預設的 TableThroughput 設定？
 是，如果您不透過 app.config 覆寫 TableThroughput，也不在 Azure Cosmos DB 中使用預先建立的容器，服務會建立輸送量為 400 的資料表。
  
@@ -400,7 +397,7 @@ Azure Cosmos DB 始於 2010 年的「Project Florence」，目的在於解決 Mi
 
 我們必須指出，DocumentDB 的 [SQL 方言](../documentdb/documentdb-sql-query.md)始終都是基礎 Cosmos DB 能夠支援的許多 API 之一。 對於使用完全受管理服務 (例如 Azure Cosmos DB) 的開發人員，服務唯一的介面就是服務所公開的 API。 現有的 DocumentDB 客戶絲毫沒有改變。 在 Azure Cosmos DB 中，您會獲得與 DocumentDB 完全相同的 SQL API。 現在 (以及在未來)，您可以存取先前無法存取的其他功能。 
 
-我們不斷努力的另一個表徵就是擴充輸送量和儲存體的全球和彈性延展性基礎。 延展性的第一次表徵就是 [RU/m](../cosmos-db/request-units-per-minute.md)，但我們計劃發表其他功能，協助客戶減少各種工作負載的成本。 我們對全球發佈子系統提供了幾項基礎增強功能。 在許多開發人員專用的功能中，一致的前置詞一致性模型是其中之一 (總計有五個定義完善的一致性模型)。 我們將會在時機成熟時發行許多更有趣的功能。 
+我們不斷努力的另一個表徵就是擴充輸送量和儲存體的全球和彈性延展性基礎。 我們對全球發佈子系統提供了幾項基礎增強功能。 在許多開發人員專用的功能中，一致的前置詞一致性模型是其中之一 (總計有五個定義完善的一致性模型)。 我們將會在時機成熟時發行許多更有趣的功能。 
 
 ### <a name="what-do-i-need-to-do-to-ensure-that-my-documentdb-resources-continue-to-run-on-azure-cosmos-db"></a>我該怎麼做才能確保 DocumentDB 資源繼續在 Azure Cosmos DB 上執行？
 
@@ -418,7 +415,7 @@ DocumentDB 不再顯示為入口網站中的 Azure 服務。 取而代之的是�
 
 ### <a name="are-there-changes-to-pricing"></a>價格是否有所變動？
 
-否，在 Azure Cosmos DB 上執行應用程式的成本跟以前一樣。 不過，您可能會受益於新的「每分鐘要求單位」功能。 如需詳細資訊，請參閱[調整每分鐘的輸送量](../cosmos-db/request-units-per-minute.md)一文。
+否，在 Azure Cosmos DB 上執行應用程式的成本跟以前一樣。
 
 ### <a name="are-there-changes-to-the-slas"></a>SLA 是否有所變動？
 

@@ -14,29 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 5fdf061d6bf9961455377935304e9075ef4e59fa
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# 在 Azure 中的 Windows VM 上安裝及設定 MongoDB
-<a id="install-and-configure-mongodb-on-a-windows-vm-in-azure" class="xliff"></a>
+# <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>在 Azure 中的 Windows VM 上安裝及設定 MongoDB
 [MongoDB](http://www.mongodb.org) 是受歡迎的高效能開放原始碼 NoSQL 資料庫。 這篇文章會逐步引導您安裝和設定 Azure 中 Windows Server 2012 R2 虛擬機器 (VM) 上的 MongoDB。 您也可以[在 Azure 中的 Linux VM 上安裝 MongoDB](../linux/install-mongodb.md)。
 
-## 必要條件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>必要條件
 在安裝及設定 MongoDB 之前，您必須建立 VM，並且最好將資料磁碟新增至其中。 請參閱下列文章，以建立 VM 並且新增資料磁碟︰
 
 * 使用 [Azure 入口網站](quick-create-portal.md)或 [Azure PowerShell](quick-create-powershell.md) 建立 Windows Server VM。
-* 使用 [Azure 入口網站](attach-disk-portal.md)或 [Azure PowerShell](attach-disk-ps.md)將資料磁碟連結到 Windows Server VM。
+* 使用 [Azure 入口網站](attach-managed-disk-portal.md)或 [Azure PowerShell](attach-disk-ps.md)將資料磁碟連結到 Windows Server VM。
 
 若要開始安裝和設定 MongoDB，請使用遠端桌面[登入您的 Windows Server VM](connect-logon.md)。
 
-## 安裝 MongoDB
-<a id="install-mongodb" class="xliff"></a>
+## <a name="install-mongodb"></a>安裝 MongoDB
 > [!IMPORTANT]
 > MongoDB 安全性功能，例如驗證和 IP 位址繫結，均非預設為已啟用。 安全性功能應該在將 MongoDB 部署到生產環境前加以啟用。 如需詳細資訊，請參閱 [MongoDB 安全性和驗證](http://www.mongodb.org/display/DOCS/Security+and+Authentication)。
 
@@ -59,8 +55,7 @@ ms.lasthandoff: 05/12/2017
 6. 閱讀並接受授權合約。 當系統提示時，選取 [完整] 安裝。
 7. 在最後畫面上，按一下 [安裝]。
 
-## 設定 VM 和 MongoDB
-<a id="configure-the-vm-and-mongodb" class="xliff"></a>
+## <a name="configure-the-vm-and-mongodb"></a>設定 VM 和 MongoDB
 1. 路徑變數不會被 MongoDB 安裝程式更新。 在您的路徑變數中沒有 MongoDB `bin` 位置，您必須在每次使用 MongoDB 可執行檔時指定完整路徑。 若要將位置新增至路徑變數︰
    
    * 使用滑鼠右鍵按一下 [開始] 功能表，然後選取 [系統]。
@@ -116,8 +111,7 @@ ms.lasthandoff: 05/12/2017
    
     如需建立 MongoDB 服務的詳細資訊，請參閱[設定 MongoDB 的 Windows 服務](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/#mongodb-as-a-windows-service)。
 
-## 測試 MongoDB 執行個體
-<a id="test-the-mongodb-instance" class="xliff"></a>
+## <a name="test-the-mongodb-instance"></a>測試 MongoDB 執行個體
 當 MongoDB 執行為單一執行個體或安裝為服務，您現在可以開始建立和使用您的資料庫。 要啟動 MongoDB 管理殼層，請從 [開始] 功能表中開啟另一個命令提示字元視窗，並輸入下列命令：
 
 ```
@@ -148,8 +142,7 @@ db.foo.find()
 exit
 ```
 
-## 設定防火牆和網路安全性群組規則
-<a id="configure-firewall-and-network-security-group-rules" class="xliff"></a>
+## <a name="configure-firewall-and-network-security-group-rules"></a>設定防火牆和網路安全性群組規則
 現在，MongoDB 已安裝並正在執行，在 Windows 防火牆中開啟一個連接埠，才能遠端連線至 MongoDB。 若要建立新的輸入規則以允許 TCP 連接埠 27017，開啟系統管理 PowerShell 提示字元並輸入下列命令︰
 
 ```powerahell
@@ -169,8 +162,7 @@ New-NetFirewallRule `
 > TCP 連接埠 27017 是 MongoDB 使用的預設連接埠。 您可以在手動啟動或從服務啟動 `mongod.exe` 時，使用 `--port` 參數變更此連接埠。 如果您變更連接埠，請確定在先前步驟中更新 Windows 防火牆和網路安全性群組規則。
 
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 在本教學課程中，您了解如何在 Windows VM 上安裝及設定 MongoDB。 您現在可以遵循 [MongoDB 文件](https://docs.mongodb.com/manual/) 中的進階主題，以便存取 Windows VM 上的 MongoDB。
 
 

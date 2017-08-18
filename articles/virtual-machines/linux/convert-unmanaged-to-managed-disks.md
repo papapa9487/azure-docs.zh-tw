@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3109da1dac6ebb6564c94b5c6635ded77ea9be8d
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f7ba456a0d23560ee70f14ecb61c0d016e24e7e1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -96,17 +96,6 @@ ms.lasthandoff: 08/09/2017
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
-
-## <a name="managed-disks-and-azure-storage-service-encryption"></a>受控磁碟和 Azure 儲存體服務加密
-如果非受控磁碟位於曾透過 [Azure 儲存體服務加密](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)來進行加密的儲存體帳戶中，您就無法使用上述步驟將非受控磁碟轉換成受控磁碟。 下列步驟將詳細說明如何複製和使用曾位於已加密儲存體帳戶中的未受控磁碟：
-
-1. 使用 [az storage blob copy start](/cli/azure/storage/blob/copy#start) 將 VHD 複製到從未啟用「Azure 儲存體服務加密」功能的儲存體帳戶。
-
-2. 利用下列其中一種方式使用複製的 VM：
-
-   * 使用 [az vm create](/cli/azure/vm#create) 來建立使用受控磁碟的 VM，並在建立期間指定該 VHD 檔案。
-
-   * 使用 [az vm disk attach](/cli/azure/vm/disk#attach) 將複製的 VHD 連結到使用受控磁碟的執行中 VM。
 
 ## <a name="next-steps"></a>後續步驟
 如需儲存體選項的詳細資訊，請參閱 [Azure 受控磁碟概觀](../../storage/storage-managed-disks-overview.md)。

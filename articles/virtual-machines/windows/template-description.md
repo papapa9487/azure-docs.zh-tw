@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 907e5b80aeeee4ab2eb0466490ba9ef9b0348144
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 61e9cab7ba0b1b86a54b5282662bef3bdfba6e7d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -281,7 +281,7 @@ Resource Manager 會以平行方式部署任何不依存於另一個要部署資
 定義虛擬機器資源時，會使用數個設定檔項目。 某些是必要的而有些則是選擇性。 例如，hardwareProfile、osProfile、storageProfile 和 networkProfile 元素是必要的，但 diagnosticsProfile 為選擇性。 這些設定檔會定義設定，例如︰
    
 - [大小](sizes.md)
-- [名稱](../linux/infrastructure-naming-guidelines.md)和認證
+- [名稱](/architecture/best-practices/naming-conventions)和認證
 - 磁碟和[作業系統設定](cli-ps-findimage.md)
 - [網路介面](../../virtual-network/virtual-networks-multiple-nics.md) 
 - 開機診斷

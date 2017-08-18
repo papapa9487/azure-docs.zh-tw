@@ -13,10 +13,10 @@ ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 29aa2510fc04f24c437d6bb6142eebb8859569c0
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9313f0713818f80bae99c32a438d97ba544a7a6b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/11/2017
 | 如需下列資訊 | 請參閱下列主題 |
 | --- | --- |
 | Linux 上的 HDInsight 與最佳化 | [在 Linux 上使用 HDInsight 的相關資訊](hdinsight-hadoop-linux-information.md)<br>[Hadoop 記憶體和效能](hdinsight-hadoop-stack-trace-error-messages.md)<br>[Hive 查詢效能](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
-| 記錄和傾印 | [存取Linux 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[啟用適用於 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>[分析 HDInsight 記錄檔](hdinsight-debug-jobs.md)|
+| 記錄和傾印 | [存取Linux 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>[啟用適用於 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)|
 | 錯誤數 | [了解並解決 WebHCat 錯誤](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>[記憶體不足錯誤的 Hive 設定修正](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | 工具 | [使用 Ambari 檢視為 Tez 作業偵錯](hdinsight-debug-ambari-tez-view.md)<br>[最佳化 Hive 查詢](hdinsight-hadoop-optimize-hive-query.md) |
 

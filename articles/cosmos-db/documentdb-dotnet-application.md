@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 86b34c6c44b957009610f20ee0b9d7ed7fc441be
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3f2950fe25feb8f3ee81cc0a79bf624f0ee33bd5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發
@@ -306,10 +306,7 @@ ms.lasthandoff: 08/08/2017
             }
         }
    
-   > [!TIP]
-   > 建立新的 DocumentCollection 時，您可以提供 OfferType 的選擇性 RequestOptions 參數，此參數可讓您指定新集合的效能層級。 如果無法傳遞此參數，系統將會使用預設的優惠類型。 如需 Azure Cosmos DB 供應項目類型，請參閱 [Azure Cosmos DB 效能等級](performance-levels.md)。
-   > 
-   > 
+    
 3. 我們打算從組態中讀取部分值，因此請開啟應用程式的 **Web.config** 檔案，並在 `<AppSettings>` 區段下新增下列幾行。
    
         <add key="endpoint" value="enter the URI from the Keys blade of the Azure Portal"/>

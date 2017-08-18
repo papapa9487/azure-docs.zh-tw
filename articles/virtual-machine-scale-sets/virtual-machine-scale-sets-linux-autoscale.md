@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7d67ae1bd0c53f99d9c298f5ae8f161e6a484359
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>在虛擬機器擴展集中自動調整 Linux 機器
@@ -55,7 +55,7 @@ ms.lasthandoff: 04/03/2017
     ```
    
     > [!NOTE]
-    > 如果您有工作或學校識別碼，而且未啟用雙因素驗證，請使用 `azure login -u` 及識別碼來在沒有互動式工作階段的情況下進行登入。 如果您沒有工作或學校識別碼，您可以[從個人的 Microsoft 帳戶建立工作或學校識別碼](../virtual-machines/linux/create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+    > 如果您有工作或學校識別碼，而且未啟用雙因素驗證，請使用 `azure login -u` 及識別碼來在沒有互動式工作階段的情況下進行登入。 如果您沒有工作或學校識別碼，您可以[從個人的 Microsoft 帳戶建立工作或學校識別碼](../active-directory/active-directory-users-create-azure-portal.md)。
     
 2. **建立資源群組**  
 所有資源都必須部署至資源群組。 在本教學課程中，我們將資源群組命名為 **vmsstest1**。

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e5f3fc57292102afb8f0ffb1f851953e97d7478a
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 2180a11c53a3b283fed35844c5821aef744fb95e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>針對 Azure 中的 Windows 虛擬機器部署問題進行疑難排解
@@ -110,7 +110,7 @@ Windows 型 VM 的驅動程式位於[這裡](n-series-driver-setup.md)。
 假設您有適當的 Visual Studio (先前稱為 MSDN) 訂用帳戶，您可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 進行開發/測試案例。 
 
 - 「Azure 資源庫」的[符合資格者的開發/測試優惠](client-images.md#eligible-offers)內有提供 Windows 10 映像。 
-- 屬於任一優惠類型的 Visual Studio 訂閱者也可以[適當地準備和建立](prepare-for-upload-vhd-image.md) 64 位元的 Windows 7、Windows 8 或 Windows 10 映像，然後[上傳至 Azure](upload-image.md)。 僅限有效的 Visual Studio 訂閱者用於開發/測試用途。
+- 屬於任一優惠類型的 Visual Studio 訂閱者也可以[適當地準備和建立](prepare-for-upload-vhd-image.md) 64 位元的 Windows 7、Windows 8 或 Windows 10 映像，然後[上傳至 Azure](upload-generalized-managed.md)。 僅限有效的 Visual Studio 訂閱者用於開發/測試用途。
 
 這篇[文章](client-images.md)概述在 Azure 中執行 Windows 用戶端和使用「Azure 資源庫」映像的資格需求。
 

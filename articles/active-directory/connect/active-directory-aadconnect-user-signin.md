@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6bc564cc5121a6b7b7896f1d90177140bee15fbb
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 99df1c65ee59a3c12e8818d9069a8b487839b08d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
@@ -104,7 +104,7 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 ### <a name="user-principal-name-in-azure-ad"></a>Azure AD 中的使用者主體名稱
 Azure AD Connect 精靈會使用 userPrincipalName 屬性，或讓您指定內部部署環境中要用來作為 Azure AD 中使用者主體名稱的屬性。 這是用於登入 Azure AD 的值。 如果 userPrincipalName 屬性的值未與 Azure AD 中已驗證的網域對應，Azure AD 就會以預設的 .onmicrosoft.com 值取代它。
 
-Azure Active Directory 中的每個目錄都隨附一個內建的網域名稱，格式為 contoso.onmicrosoft.com，可讓您開始使用 Azure 或其他 Microsoft 服務。 您可以使用自訂網域來改善及簡化登入體驗。 如需有關 Azure AD 中的自訂網域名稱及如何驗證網域的資訊，請參閱[在 Azure Active Directory 中新增自訂網域名稱](../active-directory-add-domain.md#add-a-custom-domain-name-to-your-directory)。
+Azure Active Directory 中的每個目錄都隨附一個內建的網域名稱，格式為 contoso.onmicrosoft.com，可讓您開始使用 Azure 或其他 Microsoft 服務。 您可以使用自訂網域來改善及簡化登入體驗。 如需有關 Azure AD 中的自訂網域名稱及如何驗證網域的資訊，請參閱[在 Azure Active Directory 中新增自訂網域名稱](../add-custom-domain.md#add-your-custom-domain)。
 
 ## <a name="azure-ad-sign-in-configuration"></a>Azure AD 登入組態
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>使用 Azure AD Connect 設定 Azure AD 登入組態
@@ -116,8 +116,8 @@ Azure AD 登入頁面會列出為內部部署 Active directory 定義的 UPN 尾
 | State | 說明 | 需要採取的動作 |
 |:--- |:--- |:--- |
 | Verified |Azure AD Connect 在 Azure AD 中找到一個已驗證的相符網域。 此網域的所有使用者均可使用其內部部署認證來進行登入。 |不需要採取任何動作。 |
-| 未驗證 |Azure AD Connect 在 Azure AD 中找到對應的自訂網域，但該網域未經驗證。 如果未驗證網域，此網域的使用者 UPN 尾碼將會在同步處理後變更為預設的 .onmicrosoft.com 尾碼。 | [驗證 Azure AD 中的自訂網域。](../active-directory-add-domain.md#verify-the-domain-name-with-azure-ad) |
-| 未新增 |Azure AD Connect 找不到與 UPN 尾碼對應的自訂網域。 如果未在 Azure 中新增並驗證網域，此網域的使用者 UPN 尾碼將會變更為預設的 .onmicrosoft.com 尾碼。 | [新增並驗證與 UPN 尾碼對應的自訂網域。](../active-directory-add-domain.md) |
+| 未驗證 |Azure AD Connect 在 Azure AD 中找到對應的自訂網域，但該網域未經驗證。 如果未驗證網域，此網域的使用者 UPN 尾碼將會在同步處理後變更為預設的 .onmicrosoft.com 尾碼。 | [驗證 Azure AD 中的自訂網域。](../add-custom-domain.md#verify-the-domain-name-with-azure-ad) |
+| 未新增 |Azure AD Connect 找不到與 UPN 尾碼對應的自訂網域。 如果未在 Azure 中新增並驗證網域，此網域的使用者 UPN 尾碼將會變更為預設的 .onmicrosoft.com 尾碼。 | [新增並驗證與 UPN 尾碼對應的自訂網域。](../add-custom-domain.md) |
 
 Azure AD 登入頁面會列出為內部部署 Active Directory 定義的 UPN 尾碼，以及 Azure AD 中對應的自訂網域與目前的驗證狀態。 在自訂安裝中，您現在可以在 [Azure AD 登入] 頁面上選取使用者主體名稱的屬性。
 

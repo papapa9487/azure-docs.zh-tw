@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f64c41733f8fa7e34a0b0dfbbff2b565af7cf7db
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -136,5 +136,5 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
 
 ## <a name="additional-resources"></a>其他資源
 [如何設定雲端服務](cloud-services-how-to-configure.md)
-[雲端服務常見問題集 - 遠端桌面](cloud-services-faq.md#remote-desktop)
+[雲端服務常見問題集 - 遠端桌面](cloud-services-faq.md)
 

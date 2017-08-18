@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 34947c6dfd86ddd421f6d8045ed9c5fbf0049e11
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 741cce6f2c81efed1e4bd0547fcb46a231815263
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例
@@ -219,7 +219,6 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 * [搭配使用 Hive 與 HDInsight 上的 Hadoop][hdinsight-use-hive]
 * [在 HDInsight 中提交 Hadoop 作業][hdinsight-submit-jobs]
 * [Azure HDInsight SDK 文件][hdinsight-sdk-documentation]
-* [在 HDInsight 中偵錯 Hadoop：錯誤訊息][hdinsight-errors]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>附錄 A - 字數統計原始程式碼
 
@@ -985,8 +984,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-errors]: hdinsight-debug-jobs.md
 
 [hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
