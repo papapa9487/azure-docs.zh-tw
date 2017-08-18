@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 90c8c6d91de667f2d234b1d4e89ce7336813fb62
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>安裝 Python 和 SDK
@@ -112,7 +111,7 @@ PTVS 可以和您現有的 Visual Studio 2013、2015 或 2017 安裝一同運作
 
 第一個案例可讓您撰寫能透過 Azure REST API 的 Python 風格包裝函式利用 Azure PaaS 功能 (例如 [Blob 儲存體](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[佇列儲存體](storage/storage-python-how-to-use-queue-storage.md)、[資料表儲存體](storage/storage-python-how-to-use-table-storage.md)等) 的豐富 Web 應用程式。 這些 Web 應用程式在 Windows、Mac 和 Linux 上的運作方式相同。  您也可以從您的本機開發電腦或 Azure 上執行的 Linux VM，使用這些用戶端程式庫。
 
-對於 VM 案例，您只需要啟動選擇的 Linux VM (Ubuntu、CentOS、Suse)，便能執行/管理所需的項目。  例如，您可以在 Windows/Mac/Linux 機器上執行 [IPython][IPython] REPL/notebook，然後將瀏覽器指向在 Azure 上執行 IPython Engine 的 Linux 或 Windows 多重處理器 VM。 如需詳細資訊，請參閱 [Azure 上的 IPython Notebook](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 教學課程。
+對於 VM 案例，您只需要啟動選擇的 Linux VM (Ubuntu、CentOS、Suse)，便能執行/管理所需的項目。  例如，您可以在 Windows/Mac/Linux 機器上執行 [IPython][IPython] REPL/notebook，然後將瀏覽器指向在 Azure 上執行 IPython Engine 的 Linux 或 Windows 多重處理器 VM。
 
 如需如何設定 Linux VM 的資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)教學課程。
 
@@ -131,7 +130,6 @@ PTVS 可以和您現有的 Visual Studio 2013、2015 或 2017 安裝一同運作
 * [NumPy - Python 的數值程式庫][NumPy - A numerics library for Python]
 * [Django 專案 - 成熟的 Web 架構/CMS][Django Project - A mature web framework/CMS]
 * [IPython - 先進的 Python REPL/Notebook][IPython - an advanced REPL/Notebook for Python]
-* [Azure 上的 IPython Notebook](virtual-machines/linux/jupyter-notebook.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [GitHub 上適用於 Visual Studio 的 Python 工具][Python Tools for Visual Studio on GitHub]
 * [Python 開發人員中心](/develop/python/)
 

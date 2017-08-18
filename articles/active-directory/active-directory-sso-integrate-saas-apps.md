@@ -1,5 +1,4 @@
 ---
-
 title: "將 Azure Active Directory 單一登入與 SaaS 應用程式整合 | Microsoft Docs"
 description: "在 Azure Active Directory 中啟用 SaaS 應用程式的單一登入驗證和使用者佈建集中式存取管理。 如何將 Azure Active Directory 與 SaaS 應用程式整合的概觀。"
 services: active-directory
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/04/2017
 ms.author: curtand
+ms.reviewer: 
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/08/2017
-
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>整合 Azure Active Directory 單一登入與 SaaS 應用程式

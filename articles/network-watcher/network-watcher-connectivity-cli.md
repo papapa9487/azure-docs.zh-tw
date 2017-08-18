@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 81b0f76538b74edf1ebdfb40ff9190e5072e71c8
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c1deaa40bfda0bf3858ad56d3d6a90df34351278
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,13 +29,6 @@ ms.lasthandoff: 07/13/2017
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用連線，確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
-
-本文會引導您完成一些連線檢查案例。
-
-* [檢查與虛擬機器的連線](#check-connectivity-to-a-virtual-machine)
-* [驗證路由問題](#validate-routing-issues)
-* [檢查網站延遲](#check-website-latency)
-* [檢查與儲存體端點的連線](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>開始之前
 

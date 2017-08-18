@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: c306000e898f5fe0260ef3347988923266ed096e
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c8a920a0523cb4737e6bbca7e49d0b9e2c942565
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Azure VM 安全性的最佳作法
@@ -65,7 +65,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="vm-availability-and-network-access"></a>VM 可用性和網路存取
 
-如果您的 VM 會執行需要具備高可用性的重要應用程式，則強烈建議您使用多個 VM。 如需更佳的可用性，請在[可用性設定組](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)中至少建立兩個 VM。
+如果您的 VM 會執行需要具備高可用性的重要應用程式，則強烈建議您使用多個 VM。 如需更佳的可用性，請在[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)中至少建立兩個 VM。
 
 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 也會要求已負載平衡的 VM 屬於同一個可用性設定組。 如果需要從網際網路存取這些 VM，您必須設定[網際網路面向的負載平衡器](../load-balancer/load-balancer-internet-overview.md)。
 

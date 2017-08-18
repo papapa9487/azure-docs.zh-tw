@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 1bfce97dba3cfc371900c0e3c6a93369e768c181
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>在以傳統部署模型建立且執行 Windows Server 2016 的虛擬機器上安裝 MySQL
@@ -36,7 +36,7 @@ ms.lasthandoff: 04/18/2017
 ## <a name="attach-a-data-disk"></a>連接資料磁碟
 建立虛擬機器之後，您可以選擇連接資料磁碟。 建議對生產工作負載新增資料磁碟，這可避免包含作業系統的 OS 磁碟機 (C:) 空間不足。
 
-請參閱[如何將資料磁碟附加至 Windows 虛擬機器](../attach-disk-portal.md)，並依照指示連接空的磁碟。 將主機快取設定設為 [無] 或 [唯讀]。
+請參閱[如何將資料磁碟附加至 Windows 虛擬機器](../attach-managed-disk-portal.md)，並依照指示連接空的磁碟。 將主機快取設定設為 [無] 或 [唯讀]。
 
 ## <a name="log-on-to-the-virtual-machine"></a>登入虛擬機器
 接著，您將[登入虛擬機器](./connect-logon.md)，以安裝 MySQL。

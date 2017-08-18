@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: f40ceb542a0ee51e17ee539db4dbc91c11e056f2
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>規劃和設計 Azure 虛擬網路
@@ -36,7 +35,7 @@ ms.lasthandoff: 06/29/2017
 * 您可以使用以下方式，彼此連線至虛擬網路：
     * **[虛擬網路對等互連](virtual-network-peering-overview.md)**：虛擬網路必須存在於同一個 Azure 區域中。 對等互連虛擬網路中資源間的頻寬會相同，就像資源已連線至相同的虛擬網路一樣。
     * **Azure [VPN 閘道](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)**：虛擬網路可以位於相同或不同的 Azure 區域。 透過 VPN 閘道連線之虛擬網路中的資源間的頻寬，受限於 VPN 閘道的頻寬。
-* 您可以使用 Azure 中提供的其中一個[連線選項](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)，將 VNet 連接到內部部署網路。
+* 您可以使用 Azure 中提供的其中一個[連線選項](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)，將 VNet 連接到內部部署網路。
 * 不同的資源可以聚集在[資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)中，以便更容易以單位形式管理資源。 資源群組可以包含來自多個區域的資源，只要資源屬於相同的訂用帳戶即可。
 
 ### <a name="define-requirements"></a>定義需求
@@ -124,7 +123,7 @@ VNET 包含下列屬性：
 
 * **子網路中的所有 NIC 沒有足夠的私人 IP 位址**。 如果您的子網路位址空間包含的 IP 位址不足以支援子網路中的 NIC 數目，則需要建立多個子網路。 請記住，Azure 會在每個子網路中保留 5 個不能使用的私人 IP 位址：位址空間的第一個和最後一個位址 (用於子網路位址，以及多點傳送) 以及要內部使用的 3 個位址 (用於 DHCP 和 DNS)。
 * **安全性**。 您可以使用子網路分隔有多層結構的工作負載 VM 群組，然後對這些子網路套用不同的 [網路安全性群組 (NSG)](virtual-networks-nsg.md#subnets) 。
-* **混合式連線**。 您可以使用 VPN 閘道與 ExpressRoute 電路讓 VNet 彼此[連接](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)，以及連接至您的內部部署資料中心。 VPN 閘道與 ExpressRoute 電路需要建立自己的子網路。
+* **混合式連線**。 您可以使用 VPN 閘道與 ExpressRoute 電路讓 VNet 彼此[連接](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)，以及連接至您的內部部署資料中心。 VPN 閘道與 ExpressRoute 電路需要建立自己的子網路。
 * **虛擬應用裝置**。 您可以在 Azure VNet 中使用虛擬應用裝置，例如防火牆、WAN 加速器或 VPN 閘道。 當您這樣做時，需要 [將傳送流量路由](virtual-networks-udr-overview.md) 到這些應用裝置，並將它們隔離在自己的子網路中。
 
 ### <a name="subnet-and-nsg-design-patterns"></a>子網路和 NSG 設計模式
@@ -253,5 +252,5 @@ VNET 包含下列屬性：
 * [部署虛擬網路](virtual-networks-create-vnet-arm-template-click.md) 。
 * 了解如何使 IaaS VM [負載平衡](../load-balancer/load-balancer-overview.md)及[管理多個 Azure 區域的路由傳送](../traffic-manager/traffic-manager-overview.md)。
 * 深入了解 [NSG，以及如何規劃和設計](virtual-networks-nsg.md) NSG 方案。
-* 深入了解您的 [跨單位和 VNet 連線選項](../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site-ipsecike-vpn-tunnel)。
+* 深入了解您的 [跨單位和 VNet 連線選項](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)。
 
