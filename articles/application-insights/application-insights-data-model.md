@@ -31,7 +31,7 @@ Application Insights 所收集的資料會建立一般應用程式執行模式�
 
 * [**要求**](application-insights-data-model-request-telemetry.md)：產生以記錄應用程式所接收的要求。 例如，Application Insights Web SDK 會針對您 Web 應用程式接收的每個 HTTP 要求產生「要求」遙測項目。 
 
-    **作業**是處理要求的執行緒。 您也可以[撰寫程式碼](app-insights-api-custom-events-metrics.md#trackrequest)來監視其他作業類型，例如，定期處理資料之 Web 工作或函式中的「喚醒」。  每個作業都有識別碼。 此識別碼可用來將應用程式處理要求時產生的所有遙測加以 [分組] (application-insights-correlation.md)。 每個作業可能會成功或失敗，而且有持續時間。
+    **作業**是處理要求的執行緒。 您也可以[撰寫程式碼](app-insights-api-custom-events-metrics.md#trackrequest)來監視其他作業類型，例如，定期處理資料之 Web 工作或函式中的「喚醒」。  每個作業都有識別碼。 此識別碼可用來將應用程式處理要求時產生的所有遙測加以 [分組] \(application-insights-correlation.md)。 每個作業可能會成功或失敗，而且有持續時間。
 * [**例外狀況**](application-insights-data-model-exception-telemetry.md)：通常表示造成作業失敗的例外狀況。
 * [**相依性**](application-insights-data-model-dependency-telemetry.md)：代表從您的應用程式對外部服務或儲存體的呼叫，例如 REST API 或 SQL。 在 ASP.NET 中，SQL 的相依性呼叫是由 `System.Data` 所定義。 HTTP 端點的呼叫是由 `System.Net` 所定義。 
 
