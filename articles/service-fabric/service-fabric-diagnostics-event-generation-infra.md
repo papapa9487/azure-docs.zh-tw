@@ -70,7 +70,7 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 若要報告計量，請使用如下的程式碼︰
 
   ```csharp
-    this.ServicePartition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
+    this.Partition.ReportLoad(new List<LoadMetric> { new LoadMetric("MemoryInMb", 1234), new LoadMetric("metric1", 42) });
   ```
 
 ### <a name="service-fabric-support-logs"></a>Service Fabric 支援記錄

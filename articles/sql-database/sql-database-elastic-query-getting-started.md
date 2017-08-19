@@ -4,7 +4,7 @@ description: "如何使用跨資料庫的資料庫查詢"
 services: sql-database
 documentationcenter: 
 manager: jhubbard
-author: ddove
+author: MladjoA
 ms.assetid: c81ef5e3-41e9-4fd2-8631-868f2e168147
 ms.service: sql-database
 ms.custom: scale out apps
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
-ms.author: ddove
+ms.author: mlandzic
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
 ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
 ms.contentlocale: zh-tw
 ms.lasthandoff: 04/10/2017
-
 
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>跨相應放大雲端資料庫報告 (預覽)

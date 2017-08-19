@@ -12,14 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/07/2017
+ms.date: 08/18/2017
 ms.author: mikkelhegn
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>管理多個環境的應用程式參數
@@ -55,7 +54,7 @@ Service Fabric 應用程式是由服務執行個體集合所組成。 雖然您�
 
 ```xml
     <Parameters>
-        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+        <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
         <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
         <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
     </Parameters>
@@ -194,7 +193,7 @@ Service Fabric 應用程式專案可以包含一或多個應用程式參數檔�
 
     <Application Name="fabric:/Application1" xmlns="http://schemas.microsoft.com/2011/01/fabric">
         <Parameters>
-            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="2" />
+            <Parameter Name ="Stateful1_MinReplicaSetSize" Value="3" />
             <Parameter Name="Stateful1_PartitionCount" Value="1" />
             <Parameter Name="Stateful1_TargetReplicaSetSize" Value="3" />
         </Parameters>

@@ -37,8 +37,8 @@ ms.lasthandoff: 03/09/2017
 6. 將您稍早複製的 App Service **URL** 貼到 [已授權的 JAVASCRIPT 來源]，然後將重新導向 URI 貼到 [授權的重新導向 URI]。 重新導向 URI 是您的應用程式 URL 加上路徑 /.auth/login/google/callback。 例如： `https://contoso.azurewebsites.net/.auth/login/google/callback`。 請確實使用 HTTPS 配置。 然後按一下 [建立] 。
 7. 在下一個畫面上，記下用戶端識別碼和用戶端密碼的值。
 
-    > [AZURE.IMPORTANT]
-    用戶端密碼是重要的安全性認證。 請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
+    > [!IMPORTANT]
+    > 用戶端密碼是重要的安全性認證。 請勿與任何人共用此密碼，或在用戶端應用程式中加以散發。
 
 
 ## <a name="secrets"> </a>將 Google 資訊新增至應用程式
