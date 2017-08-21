@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 1152893c4c686fa69f7e06ffa7e2d2b2272bc772
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: bcc3a229369a065cfcfbd32eadbf3f6ae6fe0036
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="log-and-event-sources"></a>記錄和事件來源
 
-### <a name="service-fabric-infrastructure-events"></a>Service Fabric 基礎結構事件
+### <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 Service Fabric 會透過 [LTTng](http://lttng.org) 發出少數的現成記錄，包括運作事件或執行階段事件。 這些記錄檔會儲存在叢集的 Resource Manager 範本所指定的位置。 若要取得或設定儲存體帳戶的詳細資訊，請搜尋 **AzureTableWinFabETWQueryable** 標籤並尋找 **StoreConnectionString**。
 
 ### <a name="application-events"></a>應用程式事件
