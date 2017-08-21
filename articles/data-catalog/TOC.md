@@ -28,7 +28,6 @@
 ## [REST](/rest/api/datacatalog/)
 ## [搜尋語法參考](/rest/api/datacatalog/data-catalog-search-syntax-reference)
 ## [開發人員概念](data-catalog-developer-concepts.md)
-## [開發人員範例](data-catalog-samples.md)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
