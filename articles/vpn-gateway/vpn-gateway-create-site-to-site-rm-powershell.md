@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: 9edaa81111d9439bfbad4775e49c3e29454ad31f
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27f4a8fb9a83b98e99df635bf4c80f6048ce348c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>使用 PowerShell 建立具有站對站 VPN 連接的 VNet
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/15/2017
 
 ![站對站 VPN 閘道跨單位連線圖表](./media/vpn-gateway-create-site-to-site-rm-powershell/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="before"></a>開始之前
 
 在開始設定之前，請確認您已符合下列條件：
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/15/2017
 * 如果您不熟悉位於內部部署網路組態的 IP 位址範圍，您需要與能夠提供那些詳細資料的人協調。 當您建立此組態時，您必須指定 IP 位址範圍的首碼，以供 Azure 路由傳送至您的內部部署位置。 內部部署網路的子網路皆不得與您所要連線的虛擬網路子網路重疊。
 * 安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 PowerShell Cmdlet 會經常更新，您通常會需要更新您的 PowerShell Cmdlet 才能取得最新的功能。 如果您未更新 PowerShell Cmdlet，指定的值可能會失敗。 如需下載和安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-### <a name="example-values"></a>值的範例
+### <a name="example"></a>範例值
 
 本文的範例使用下列值。 您可以使用這些值來建立測試環境，或參考這些值，進一步了解本文中的範例。
 
@@ -88,7 +88,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [No NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
-### <a name="to-create-a-virtual-network-and-a-gateway-subnet"></a>建立虛擬網路和閘道器子網路
+### <a name="vnet"></a>建立虛擬網路和閘道器子網路
 
 此範例會建立虛擬網路和閘道子網路。 如果您已經有虛擬網路，並需要對它新增閘道子網路，請參閱[將閘道子網路新增至您已建立的虛擬網路](#gatewaysubnet)。
 

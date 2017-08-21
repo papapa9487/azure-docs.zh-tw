@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 85d89568f5022dafd44ae7f8578e0bebb22d472d
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/03/2017
 
 ![關於連線](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
 
-### <a name="why-connect-virtual-networks"></a>為什麼要連接虛擬網路？
+### <a name="why"></a>為什麼要連線虛擬網路？
 
 針對下列原因，您可能希望連接虛擬網路：
 
@@ -185,11 +185,11 @@ ms.lasthandoff: 08/03/2017
   az network vnet-gateway create -n VNet4GW -l westus --public-ip-address VNet4GWIP -g TestRG4 --vnet TestVNet4 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-4---create-the-connections"></a>步驟 4 - 建立連線
+### <a name="createconnect"></a>步驟 4 - 建立連線
 
 您現在有兩個具有 VPN 閘道的 VNet。 下一個步驟是建立虛擬網路閘道之間的 VPN 閘道連線。 如果您使用上述範例，則 VNet 閘道位於不同的資源群組。 當閘道位於不同的資源群組時，您必須在建立連線時，識別並指定每個閘道的資源識別碼。 如果 VNet 位於相同的資源群組，您可以使用[第二組指示](#samerg)，因為您不需要指定資源識別碼。
 
-### <a name="to-connect-vnets-that-reside-in-different-resource-groups"></a>連線位於不同資源群組的 VNet
+### <a name="diffrg"></a>連線位於不同資源群組的 VNet
 
 1. 從下列命令的輸出取得 VNet1GW 的資源識別碼︰
 
@@ -322,7 +322,7 @@ ms.lasthandoff: 08/03/2017
   az network vnet-gateway create -n VNet5GW -l japaneast --public-ip-address VNet5GWIP -g TestRG5 --vnet TestVNet5 --gateway-type Vpn --sku VpnGw1 --vpn-type RouteBased --no-wait
   ```
 
-### <a name="step-8---create-the-connections"></a>步驟 8 - 建立連線
+### <a name="connections5"></a>步驟 8 - 建立連線
 
 我們會將此步驟分成標示為 **[訂用帳戶 1]** 和 **[訂用帳戶 5]** 的兩個 CLI 工作階段，因為閘道位於不同的訂用帳戶。 若要使用 'az account list --all' 來切換訂用帳戶，以列出您的帳戶可用的訂用帳戶，則使用 'az account set --subscription <subscriptionID>' 來切換至您想要使用的訂用帳戶。
 

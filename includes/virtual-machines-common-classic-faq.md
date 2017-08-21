@@ -125,7 +125,7 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 ## <a name="additional-resources"></a>其他資源
 [關於 Azure 虛擬機器](../articles/virtual-machines/virtual-machines-linux-about.md)
 
-[建立 Linux 虛擬機器的不同方式](../articles/virtual-machines/linux/creation-choices.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[使用 Azure CLI 來建立和管理 Linux VM](../articles/virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[建立 Windows 虛擬機器的不同方式](../articles/virtual-machines/windows/creation-choices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[使用 Azure PowerShell 建立和管理 Windows VM](../articles/virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

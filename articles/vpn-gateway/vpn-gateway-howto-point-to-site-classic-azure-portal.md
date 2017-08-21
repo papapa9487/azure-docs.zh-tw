@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 6b0faf24963c6055ce7c54b9d46b5aa0851f40b2
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: cd4baa2e99ab84e55d00d76df4773f70430aa4c6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線 (傳統)：Azure 入口網站
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/04/2017
 * **大小**：選取您想要使用的閘道 SKU。
 * **路由類型：動態**
 
-## <a name="vnetvpn"></a>區段 1 - 建立虛擬網路和 VPN 閘道
+## <a name="vnetvpn"></a>1.建立虛擬網路和 VPN 閘道
 
 在開始之前，請確認您有 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial)。
 
@@ -76,15 +76,15 @@ ms.lasthandoff: 08/04/2017
 如果您還沒有虛擬網路，請建立一個。 已提供螢幕擷取畫面做為範例。 請務必將值取代為您自己的值。 若要使用 Azure 入口網站建立 VNet，請使用下列步驟：
 
 1. 透過瀏覽器瀏覽至 [Azure 入口網站](http://portal.azure.com) ，並視需要使用您的 Azure 帳戶登入。
-2. 按一下 [新增] 。 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 在傳回的清單中找到 [虛擬網路]，並按一下以開啟 [虛擬網路] 刀鋒視窗。
+2. 按一下 [新增] 。 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 在傳回的清單中找到 [虛擬網路]，並按一下以開啟 [虛擬網路] 頁面。
 
-  ![搜尋虛擬網路刀鋒視窗](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
-3. 從接近 [虛擬網路] 刀鋒視窗底部的 [選取部署模型] 清單中，選取 [傳統]，然後按一下 [建立]。
+  ![搜尋虛擬網路頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
+3. 從接近 [虛擬網路] 頁面底部的 [選取部署模型] 清單中，選取 [傳統]，然後按一下 [建立]。
 
   ![選取部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
-4. 在 [建立虛擬網路]  刀鋒視窗中進行 VNet 設定。 在此刀鋒視窗中，您會新增您的第一個位址空間和單一子網路位址範圍。 完成 VNet 建立之後，您可以返回並新增其他子網路和位址空間。
+4. 在 [建立虛擬網路] 頁面上進行 VNet 設定。 在此頁面上，您會新增您的第一個位址空間和單一子網路位址範圍。 完成 VNet 建立之後，您可以返回並新增其他子網路和位址空間。
 
-  ![建立虛擬網路的刀鋒視窗](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
+  ![建立虛擬網路頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
 5. 確認 [訂用帳戶]  正確無誤。 您可以使用下拉式清單變更訂用帳戶。
 6. 按一下 [資源群組]  並選取現有的資源群組，或輸入新的資源群組名稱以建立新的資源群組。 如果您要建立新的資源群組，請根據您計劃的組態值來命名資源群組。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 接著，選取 VNet 的 [位置]  設定。 此位置會決定您部署到此 VNet 之資源所在的位置。
@@ -93,19 +93,19 @@ ms.lasthandoff: 08/04/2017
   ![釘選到儀表板](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
 9. 按一下 [建立] 之後，儀表板上會出現一個圖格會反映 VNet 的進度。 建立 VNet 時，此圖格會變更。
 
-  ![建立虛擬網路磚](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
+  ![建立虛擬網路圖格](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png)
 10. 一旦建立虛擬網路之後，您將在 Azure 傳統入口網站的網路頁面上看見 [狀態] 下列出 [已建立]。
 11. 新增 DNS 伺服器 (選擇性)。 建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便進行名稱解析。 您指定的 DNS 伺服器 IP 位址應該是 DNS 伺服器的位址，其可解析 VNet 中資源的名稱。<br>若要新增 DNS 伺服器，請開啟您的虛擬網路設定，按一下 DNS 伺服器，並新增您要使用的 DNS 伺服器 IP 位址。
 
 ### <a name="gateway"></a>第 2 部分：建立閘道子網路和動態路由閘道
 
-在此步驟中，您會建立一個閘道子網路和一個動態路由閘道。 在傳統部署模型的 Azure 入口網站中，建立閘道子網路和閘道可以透過相同的組態刀鋒視窗完成。
+在此步驟中，您會建立一個閘道子網路和一個動態路由閘道。 在傳統部署模型的 Azure 入口網站中，建立閘道子網路和閘道可以透過相同的組態頁面完成。
 
 1. 在入口網站中，瀏覽至要建立閘道的虛擬網路。
-2. 在虛擬網路的刀鋒視窗的 [概觀] 刀鋒視窗fe 的 [VPN 連線] 區段中，按一下 [閘道]。
+2. 在虛擬網路的頁面上，於 [概觀] 頁面的 [VPN 連線] 區段中，按一下 [閘道]。
 
   ![按一下以建立閘道](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
-3. 在 [新增 VPN 連線] 刀鋒視窗上，選取 [點對站]。
+3. 在 [新增 VPN 連線] 頁面上，選取 [點對站]。
 
   ![點對站連線類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. 針對 [用戶端位址空間]，新增 IP 位址範圍。 這是 VPN 用戶端在連線時將從其接收 IP 位址的範圍。 使用不會重疊的私人 IP 位址範圍搭配您將從其連線的內部部署位置，或搭配您要連線至的 VNet。 您可以刪除自動填滿的區域，然後新增您要使用的私人 IP 位址範圍。
@@ -114,7 +114,7 @@ ms.lasthandoff: 08/04/2017
 5. 選取 [立即建立閘道] 核取方塊。
 
   ![立即建立閘道](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. 按一下 [選擇性閘道組態] 可開啟 [閘道組態] 刀鋒視窗。
+6. 按一下 [選擇性閘道組態] 可開啟 [閘道組態] 頁面。
 
   ![按一下選擇性閘道組態](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 7. 按一下 [子網路設定所需設定] 可新增**閘道子網路**。 雖然您可以建立小至 /29 的閘道子網路，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這將允許足夠的位址，以容納您未來可能需要的其他組態。 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道如預期般停止運作。
@@ -123,12 +123,12 @@ ms.lasthandoff: 08/04/2017
 8. 選取閘道**大小**。 大小是虛擬網路閘道的閘道 SKU。 在入口網站中，預設的 SKU 是**基本**。 如需關於閘道 SKU 的資訊，請參閱[關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
   ![閘道大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. 選取閘道的 [路由類型]。 P2S 組態需要**動態**路由類型。 完成此刀鋒視窗的設定時，按一下 [確定]。
+9. 選取閘道的 [路由類型]。 P2S 組態需要**動態**路由類型。 完成此頁面的設定時，請按一下 [確定]。
 
   ![設定路由類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. 在 [新增 VPN 連線] 刀鋒視窗中，按一下刀鋒視窗底部的 [確定]，來開始建立虛擬網路閘道。 視您選取的閘道 sku 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。
+10. 在 [新增 VPN 連線] 頁面上，按一下頁面底部的 [確定]，開始建立虛擬網路閘道。 視您選取的閘道 sku 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。
 
-## <a name="generatecerts"></a>第 2 節 - 建立憑證
+## <a name="generatecerts"></a>2.建立憑證
 
 憑證是 Azure 用於點對站 VPN 的 VPN 用戶端驗證。 您會將根憑證的公開金鑰資訊上傳至 Azure。 公開金鑰就會被視為「受信任」。 用戶端憑證必須從信任的根憑證產生，然後安裝在 [憑證-目前使用者/個人憑證] 存放區中的每部用戶端電腦上。 在用戶端初始 VNet 連線時，此憑證用來驗證用戶端。 
 
@@ -142,33 +142,33 @@ ms.lasthandoff: 08/04/2017
 
 [!INCLUDE [vpn-gateway-basic-vnet-rm-portal](../../includes/vpn-gateway-p2s-clientcert-include.md)]
 
-## <a name="upload"></a>第 3 節 - 上傳根憑證 .cer 檔案
+## <a name="upload"></a>3.上傳根憑證 .cer 檔案
 
 建立閘道之後，您可以將受信任根憑證的 .cer 檔案 (其中包含公開金鑰資訊) 上傳至 Azure。 您並未將根憑證的私密金鑰上傳至 Azure。 一旦上傳 .cer 檔案，Azure 就可以使用它來驗證已安裝從受信任根憑證產生之用戶端憑證的用戶端。 如有需要，您稍後可以上傳其他受信任的根憑證檔案 (最多總計 20 個檔案)。  
 
-1. 在 VNet 刀鋒視窗的 [VPN 連線] 區段中，按一下**用戶端**圖形以開啟 [點對站 VPN 連線] 刀鋒視窗。
+1. 在 VNet 頁面的 [VPN 連線] 區段中，按一下**用戶端**圖形以開啟 [點對站 VPN 連線] 頁面。
 
   ![用戶端](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
-2. 在 [點對站連線] 刀鋒視窗中，按一下 [管理憑證] 來開啟 [憑證] 刀鋒視窗。<br>
+2. 在 [點對站連線] 頁面上，按一下 [管理憑證] 來開啟 [憑證] 頁面。<br>
 
-  ![憑證刀鋒視窗](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
-3. 在 [憑證] 刀鋒視窗中，按一下 [上傳] 來開啟 [上傳憑證] 刀鋒視窗。<br>
+  ![憑證頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
+3. 在 [憑證] 頁面上，按一下 [上傳] 來開啟 [上傳憑證] 頁面。<br>
 
-    ![上傳憑證刀鋒視窗](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/uploadcerts.png)<br>
-4. 按一下資料夾圖片來瀏覽 .cer 檔案。 選取檔案，然後按一下 [確定]。 重新整理頁面，以在 [憑證] 刀鋒視窗上查看所上傳的憑證。
+    ![上傳憑證頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/uploadcerts.png)<br>
+4. 按一下資料夾圖片來瀏覽 .cer 檔案。 選取檔案，然後按一下 [確定]。 重新整理頁面，以在 [憑證] 頁面上查看所上傳的憑證。
 
   ![Upload certificate](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)<br>
 
-## <a name="vpnclientconfig"></a>第 4 節 - 設定用戶端
+## <a name="vpnclientconfig"></a>4.設定用戶端
 
 若要使用點對站 VPN 連線至 VNet，每個用戶端都必須安裝用來設定原生 Windows VPN 用戶端的套件。 此設定套件會使用連線至虛擬網路所需的設定來設定原生 Windows VPN 用戶端。
 
 您可以在每個用戶端電腦上使用相同的 VPN 用戶端組態套件，只要版本符合用戶端的架構。 如需支援的用戶端作業系統清單，請參閱本文結尾的[點對站連線常見問題集](#faq)。
 
-### <a name="part-1-generate-and-install-the-vpn-client-configuration-package"></a>第 1 部分：產生和安裝 VPN 用戶端組態套件
+### <a name="generateconfigpackage"></a>第 1 部分：產生和安裝 VPN 用戶端組態套件
 
-1. 在 Azure 入口網站中，於 VNet 的 [概觀] 刀鋒視窗的 [VPN 連線] 中，按一下用戶端圖形以開啟 [點對站 VPN 連線] 刀鋒視窗。
-2. 在 [點對站 VPN 連線] 刀鋒視窗上方，按一下對應至即將安裝之目標用戶端作業系統的下載套件：
+1. 在 Azure 入口網站中，於 VNet 的 [概觀] 頁面的 [VPN 連線] 中，按一下用戶端圖形以開啟 [點對站 VPN 連線] 頁面。
+2. 在 [點對站 VPN 連線] 頁面頂端，按一下對應至即將安裝之目標用戶端作業系統的下載套件：
 
   * 若為 64 位元用戶端，請選取 [VPN 用戶端 (64 位元)]。
   * 若為 32 位元用戶端，請選取 [VPN 用戶端 (32 位元)]。
@@ -176,11 +176,11 @@ ms.lasthandoff: 08/04/2017
   ![下載 VPN 用戶端組態封裝](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)<br>
 3. 一旦產生套件之後，將它下載並安裝在用戶端電腦上。 如果您看到 SmartScreen 快顯視窗，請按一下 [更多資訊]，然後按一下 [仍要執行]。 您也可以儲存要在其他用戶端電腦上安裝的套件。
 
-### <a name="part-2-install-the-client-certificate"></a>第 2 部分：安裝用戶端憑證
+### <a name="installclientcert"></a>第 2 部分：安裝用戶端憑證
 
 如果您想要從不同於用來產生用戶端憑證的用戶端電腦建立 P2S 連線，您需要安裝用戶端憑證。 安裝用戶端憑證時，您需要匯出用戶端憑證時所建立的密碼。 一般而言，這只要按兩下憑證並加以安裝。 如需詳細資訊，請參閱[安裝匯出的用戶端憑證](vpn-gateway-certificates-point-to-site.md#install)。
 
-## <a name="connect"></a>第 5 部分：連線到 Azure
+## <a name="connect"></a>5.連接到 Azure
 
 ### <a name="connect-to-your-vnet"></a>連接到您的 VNet
 
@@ -192,9 +192,9 @@ ms.lasthandoff: 08/04/2017
 
   ![建立的連線](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/connected.png)
 
-[!INCLUDE [verify client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
+[!INCLUDE [verify-client-certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
-### <a name="verify-the-vpn-connection"></a>驗證 VPN 連線
+### <a name="verifyvpnconnect"></a>驗證 VPN 連線
 
 1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
 2. 檢視結果。 請注意，您接收到的 IP 位址是建立 VNet 時所指定之點對站連線位址範圍內的其中一個位址。 結果應該類似此範例：
@@ -220,19 +220,19 @@ ms.lasthandoff: 08/04/2017
 
 您可以從 Azure 新增和移除受信任的根憑證。 當您移除根憑證時，從該根憑證產生憑證的用戶端將無法進行驗證，因而無法進行連線。 若希望用戶端進行驗證和連線，您需要安裝從 Azure 信任 (已上傳至 Azure) 的根憑證產生的新用戶端憑證。
 
-### <a name="to-add-a-trusted-root-certificate"></a>若要新增受信任的根憑證
+### <a name="addtrustedroot"></a>新增受信任的根憑證
 
 您最多可新增 20 個受信任的根憑證 .cer 檔案至 Azure。 如需指示，請參閱[第 3 節 - 上傳根憑證 .cer 檔案](#upload)。
 
-### <a name="to-remove-a-trusted-root-certificate"></a>移除受信任的根憑證
+### <a name="removetrustedroot"></a>移除受信任的根憑證
 
-1. 在 VNet 刀鋒視窗的 [VPN 連線] 區段中，按一下**用戶端**圖形以開啟 [點對站 VPN 連線] 刀鋒視窗。
+1. 在 VNet 頁面的 [VPN 連線] 區段中，按一下**用戶端**圖形以開啟 [點對站 VPN 連線] 頁面。
 
   ![用戶端](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
-2. 在 [點對站連線] 刀鋒視窗中，按一下 [管理憑證] 來開啟 [憑證] 刀鋒視窗。<br>
+2. 在 [點對站連線] 頁面上，按一下 [管理憑證] 來開啟 [憑證] 頁面。<br>
 
-  ![憑證刀鋒視窗](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
-3. 在 [憑證] 刀鋒視窗中，按一下您想要移除之憑證旁邊的省略符號，然後按一下 [刪除]。
+  ![憑證頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)<br><br>
+3. 在 [憑證] 頁面上，按一下您想要移除之憑證旁邊的省略符號，然後按一下 [刪除]。
 
   ![刪除根憑證](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deleteroot.png)<br>
 
@@ -242,15 +242,15 @@ ms.lasthandoff: 08/04/2017
 
 常見的做法是使用根憑證管理小組或組織層級的存取權，然後使用撤銷的用戶端憑證針對個別使用者進行細部的存取控制。
 
-### <a name="to-revoke-a-client-certificate"></a>若要撤銷用戶端憑證
+### <a name="revokeclientcert"></a>撤銷用戶端憑證
 
 您可以藉由將指紋新增至撤銷清單來撤銷用戶端憑證。
 
 1. 擷取用戶端憑證指紋。 如需詳細資訊，請參閱[做法：擷取憑證的指紋](https://msdn.microsoft.com/library/ms734695.aspx)。
 2. 將資訊複製到文字編輯器，並移除所有的空格，讓它是連續字串。
-3. 瀏覽至 [「傳統虛擬網路名稱」> 點對站 VPN 連線 > 憑證] 刀鋒視窗，然後按一下 [撤銷清單] 以開啟 [撤銷清單] 刀鋒視窗。 
-4. 在 [撤銷清單] 刀鋒視窗中，按一下 [+新增憑證] 以開啟 [將憑證加入撤銷清單] 刀鋒視窗。
-5. 在 [將憑證加入撤銷清單] 刀鋒視窗中，貼上連續一行文字且不含空格的憑證指紋。 按一下刀鋒視窗底部的 [確定]。
+3. 瀏覽至 [「傳統虛擬網路名稱」> 點對站 VPN 連線 > 憑證] 頁面，然後按一下 [撤銷清單] 以開啟 [撤銷清單] 頁面。 
+4. 在 [撤銷清單] 頁面上，按一下 [+新增憑證] 以開啟 [將憑證新增至撤銷清單] 頁面。
+5. 在 [將憑證新增至撤銷清單] 頁面上，貼上連續一行文字且不含空格的憑證指紋。 按一下頁面底部的 [確定]。
 6. 更新完成之後，憑證無法再用於連線。 嘗試使用此憑證進行連線的用戶端會收到訊息，指出憑證不再有效。
 
 ## <a name="faq"></a>點對站常見問題集

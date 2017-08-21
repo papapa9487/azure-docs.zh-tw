@@ -3,7 +3,7 @@ title: "Azure CDN 概觀 |Microsoft Docs"
 description: "了解何謂 Azure 內容傳遞網路 (CDN)，以及如何使用它透過快取 Blob 和靜態內容來傳遞高頻寬內容。"
 services: cdn
 documentationcenter: 
-author: lichard
+author: smcevoy
 manager: akucer
 editor: 
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 02/08/2017
-ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 299e55e095ac323ed0ded7c7844d7cd103174af2
+ms.author: v-semcev
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 0517f35a43e99181075dc5a6836e406c2c06824e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="overview-of-the-azure-content-delivery-network-cdn"></a>Azure 內容傳遞網路 (CDN) 概觀
@@ -51,28 +50,37 @@ Azure 內容傳遞網路 (CDN) 會在策略性放置的位置上快取靜態 Web
 
 |  | 標準 Akamai | 標準 Verizon | 進階 Verizon |
 | --- | --- | --- | --- |
-| 很容易與[儲存體](cdn-create-a-storage-account-with-cdn.md)、[雲端服務](cdn-cloud-service-with-cdn.md)、[Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) 和[媒體服務](../media-services/media-services-portal-manage-streaming-endpoints.md)等 Azure 服務整合 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| 透過 [REST API](https://msdn.microsoft.com/library/mt634456.aspx)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 管理。 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| CDN 端點的 HTTPS 支援 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| 自訂網域 HTTPS | |**&#x2713;** |**&#x2713;** |
-| 負載平衡 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [DDOS](https://www.us-cert.gov/ncas/tips/ST04-015) 保護 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| IPv4/IPv6 雙重堆疊 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [自訂網域名稱支援](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [查詢字串快取](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [地理位置篩選](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __效能功能和最佳化__ |
+| [動態網站加速](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration) | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [影片串流最佳化](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization) | **&#x2713;**  | \* |  \* |
+| [大型檔案最佳化](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization) | **&#x2713;**  | \* |  \* |
+| [全域伺服器負載平衡 (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [快速清除](cdn-purge-endpoint.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [資產預先載入](cdn-preload-endpoint.md) | |**&#x2713;** |**&#x2713;** |
-| [核心分析](cdn-analyze-usage-patterns.md) | |**&#x2713;** |**&#x2713;** |
+| [查詢字串快取](cdn-query-string.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| IPv4/IPv6 雙重堆疊 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支援](cdn-http2.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __安全性__ |
+| CDN 端點的 HTTPS 支援 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| 自訂網域 HTTPS | |**&#x2713;** |**&#x2713;** |
+| [自訂網域名稱支援](cdn-map-content-to-custom-domain.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [地理位置篩選](cdn-restrict-access-by-country.md) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [權杖驗證](cdn-token-auth.md)|  |  |**&#x2713;**| 
+| [DDOS 保護](https://www.us-cert.gov/ncas/tips/ST04-015) |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __分析和報告__ |
+| [核心分析](cdn-analyze-usage-patterns.md) | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [進階 HTTP 報告](cdn-advanced-http-reports.md) | | |**&#x2713;** |
 | [即時統計資料](cdn-real-time-stats.md) | | |**&#x2713;** |
 | [即時警示](cdn-real-time-alerts.md) | | |**&#x2713;** |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; __容易使用__ |
+| 很容易與[儲存體](cdn-create-a-storage-account-with-cdn.md)、[雲端服務](cdn-cloud-service-with-cdn.md)、[Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md) 和[媒體服務](../media-services/media-services-portal-manage-streaming-endpoints.md)等 Azure 服務整合 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| 透過 [REST API](https://msdn.microsoft.com/library/mt634456.aspx)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 管理。 |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [可自訂的、規則式內容傳遞引擎](cdn-rules-engine.md) | | |**&#x2713;** |
 | 快取/標頭設定 (使用 [規則引擎](cdn-rules-engine.md)) | | |**&#x2713;** |
 | URL 重新導向/重寫 (使用 [規則引擎](cdn-rules-engine.md)) | | |**&#x2713;** |
 | 行動裝置規則 (使用 [規則引擎](cdn-rules-engine.md)) | | |**&#x2713;** |
-| [權杖驗證](cdn-token-auth.md)|  |  |**&#x2713;**| 
+
+\* Verizon 支援透過一般 Web 傳遞直接傳遞大型檔案和媒體。
 
 
 > [!TIP]

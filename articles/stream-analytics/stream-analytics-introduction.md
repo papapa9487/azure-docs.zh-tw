@@ -4,7 +4,7 @@ description: "了解串流分析，這是可協助您即時分析物聯網 (IoT)
 keywords: "分析服務, 受管理服務, 串流處理, 串流分析, 什麼是串流分析"
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: jenniehubbard
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/16/2017
-ms.author: jeffstok
+ms.date: 08/08/2017
+ms.author: jhubbard
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2fda07b8444b196d831e5e9fe7ade3e5017d36f9
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -27,11 +27,11 @@ ms.lasthandoff: 07/20/2017
 
 Azure 串流分析是可完全管理的事件處理引擎，可讓您設定串流資料的即時分析計算。 資料可來自裝置、感應器、網站、社交媒體摘要、應用程式和基礎結構系統等等。 
 
-## <a name="what-can-i-use-stream-analytics-for"></a>串流分析的用途為何？
+## <a name="what-can-i-do-with-stream-analytics"></a>如何使用串流分析？
 
-藉由串流分析，您可以檢查來自裝置或處理程序的大量資料流、從資料流擷取資訊，以及尋找模式、趨勢和關聯性。 根據資料的內容，您可以接著執行應用程式工作。 例如，您可以引發警示、開始進行自動化工作流程、將資訊提供給 Power BI 等報表工具，或是儲存資料，以便之後進行調查。 
+使用串流分析檢查來自裝置或處理程序的大量資料流、從資料流擷取資訊，以及尋找模式、趨勢和關聯性。 根據資料的內容，您可以接著執行應用程式工作。 例如，您可以引發警示、開始進行自動化工作流程、將資訊提供給 Power BI 等報表工具，或是儲存資料，以便之後進行調查。 
 
-資料流分析案例的範例包括：
+範例：
 
 * 由金融服務公司所提供的個人化即時股票交易分析和警示。
 * 透過檢查交易資料即時偵測詐騙行動。 
@@ -42,7 +42,7 @@ Azure 串流分析是可完全管理的事件處理引擎，可讓您設定串�
 
 ## <a name="how-does-stream-analytics-work"></a>串流分析如何運作？
 
-下圖將說明串流分析的流程，您將了解如何擷取、分析，並將資料傳送出去進行簡報或執行動作。 
+此圖說明串流分析的流程，您將了解如何擷取、分析，並將資料傳送出去進行簡報或執行動作。 
 
 ![串流分析流程](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 
@@ -69,7 +69,7 @@ Azure 串流分析是可完全管理的事件處理引擎，可讓您設定串�
 
 作業輸入也可以包含參考資料 (靜態或變更緩慢的資料)。 您可以將串流資料加入此參考資料，並使用與進行資料庫查詢相同的方式執行查閱作業。
 
-串流分析作業的輸出可以有許多路由方向。 可寫入儲存體，例如 Azure 儲存體 Blob 或表格、Azure SQL DB、Azure Data Lake Store 或 Azure Cosmos DB。 資料可以在這些儲存體中透過 Azure HDInsight 進行批次分析。 您可以將輸出傳送至另一個服務，以便另一個處理程序使用，例如事件中樞、Azure 服務匯流排主題或佇列。 您可以將輸出傳送至 Power BI 以視覺效果呈現。
+以許多方向路由傳送串流分析作業輸出。 您可以寫入至儲存體，例如 Azure 儲存體 Blob 或表格、Azure SQL DB、Azure Data Lake Store 或 Azure Cosmos DB。 資料可以在這些儲存體中透過 Azure HDInsight 進行批次分析。 您可以將輸出傳送至另一個服務，以便另一個處理程序使用，例如事件中樞、Azure 服務匯流排主題或佇列。 您可以將輸出傳送至 Power BI 以視覺效果呈現。
 
 ### <a name="ease-of-use"></a>容易使用
 
@@ -98,6 +98,6 @@ Azure 串流分析是可完全管理的事件處理引擎，可讓您設定串�
 * 了解用於串流分析且類似 SQL 的查詢語言，以及[視窗函式](stream-analytics-window-functions.md)等獨特概念。
 * 了解如何[調整串流分析工作](stream-analytics-scale-jobs.md)。 
 * 了解如何[整合串流分析和 Azure 機器學習](stream-analytics-machine-learning-integration-tutorial.md)。
-* 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)中尋找串流分析相關問題的答案。
+* 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)中尋找串流分析問題的答案。
 
 

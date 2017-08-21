@@ -17,20 +17,17 @@ ms.workload: na
 ms.date: 07/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 4a6b706b63c4e1b0df3c46bce4ff6877efca4ead
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: f3aa6740751db9aa979a88f9600f68cf4353643c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
 
-> [!IMPORTANT]
-> 本主題使用預覽版本的 Visual Studio 來完成其步驟。 請先確定已安裝 [Visual Studio 2017 15.3 預覽版](https://www.visualstudio.com/vs/preview/)，再繼續執行。
-
-本主題中，您可以了解如何使用 Azure Function Tools for Visual Studio 2017 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。
+本主題中，您可以了解如何使用 Azure Function Tools for Visual Studio 2017 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。 這些工具可在 Visual Studio 2017 15.3 版或更新版本的 Azure 開發工作負載中取得。
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,17 +35,11 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 
 若要完成本教學課程，請安裝：
 
-* [Visual Studio 2017 預覽版本 15.3](https://www.visualstudio.com/vs/preview/)，包括 **Azure 開發**工作負載。
+* [Visual Studio 2017 15.3 版](https://www.visualstudio.com/vs/preview/)，包括 **Azure 開發**工作負載。
 
     ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-## <a name="install-azure-functions-tools-for-visual-studio-2017"></a>安裝 Azure Functions Tools for Visual Studio 2017
-
-在開始之前，您必須下載並安裝 Azure Functions Tools for Visual Studio 2017。 這些工具只能搭配 Visual Studio 2017 預覽版本 15.3 或更新版本使用。 如果您已安裝 Azure Functions Tools，可以略過本節。
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)]   
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
 ## <a name="create-an-azure-functions-project-in-visual-studio"></a>在 Visual Studio 中建立 Azure Functions 專案
 
