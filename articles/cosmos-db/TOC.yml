@@ -4,8 +4,6 @@
   items:
     - name: 關於 Azure Cosmos DB
       href: introduction.md
-    - name: 歡迎 DocumentDB 的使用者
-      href: 'https://azure.microsoft.com/blog/dear-documentdb-customers-welcome-to-azure-cosmos-db/'
 - name: 快速入門
   expanded: true
   items:

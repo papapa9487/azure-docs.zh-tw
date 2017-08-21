@@ -262,7 +262,7 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
     <tr><td>篩選期間</td><td>一月</td></tr>
     <tr><td>欄位</td><td>*Year*、*FlightDate*、*UniqueCarrier*、*Carrier*、*FlightNum*、*OriginAirportID*、*Origin*、*OriginCityName*、*OriginState*、*DestAirportID*、*Dest*、*DestCityName*、*DestState*、*DepDelayMinutes*、*ArrDelay*、*ArrDelayMinutes*、*CarrierDelay*、*WeatherDelay*、*NASDelay*、*SecurityDelay*、*LateAircraftDelay* (請清除其餘所有欄位)</td></tr>
     </table>
-3.按一下 [下載]****。
+3. 按一下 **下載**。
 4. 將檔案解壓縮至 **C:\Tutorials\FlightDelay\2013Data** 資料夾。 每個檔案皆為 CSV 檔案，大小約為 60 GB。
 5. 將檔案重新命名為檔案資料所屬月份的名稱。 例如，包含一月份資料的檔案，應命名為 *January.csv*。
 6. 重複步驟 2 到 5，以下載 2013 年 12 個月份的檔案。 至少要有一個檔案，才能執行此教學課程。
