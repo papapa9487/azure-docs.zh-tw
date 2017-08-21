@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 3627b3dfa5067883625b9a714645164ec99c8a51
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
@@ -58,7 +57,7 @@ ms.lasthandoff: 06/01/2017
 
 您可以將虛擬網路設定為同時使用網站間和點對站台，只要您使用路由式 VPN 類型來為閘道建立網站間連線即可。 路由式 VPN 類型在傳統部署模型中稱為「動態閘道」。
 
-## <a name="virtual-network-gateways"></a>虛擬網路閘道
+## <a name="gateways"></a>虛擬網路閘道
 
 ### <a name="is-a-vpn-gateway-a-virtual-network-gateway"></a>VPN 閘道是虛擬網路閘道嗎？
 
@@ -132,7 +131,7 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 如需詳細資訊，請參閱[關於 VPN 閘道組態設定](vpn-gateway-about-vpn-gateway-settings.md)。
 
-## <a name="site-to-site-connections-and-vpn-devices"></a>網站間連線和 VPN 裝置
+## <a name="s2s"></a>站對站連線和 VPN 裝置
 
 ### <a name="what-should-i-consider-when-selecting-a-vpn-device"></a>選取 VPN 裝置時應該考慮什麼？
 
@@ -196,7 +195,7 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 是，支援此做法。 如需詳細資訊，請參閱 [設定並存的 ExpressRoute 和網站間 VPN 連線](../expressroute/expressroute-howto-coexist-classic.md)。
 
-## <a name="ipsecike-policy"></a>IPsec/IKE 原則
+## <a name="ipsecike"></a>IPsec/IKE 原則
 
 [!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
 
@@ -205,7 +204,7 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
-## <a name="cross-premises-connectivity-and-vms"></a>跨單位連線與 VM
+## <a name="vms"></a>跨單位連線與 VM
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>如果我的虛擬機器在虛擬網路中，而且我有跨單位連線，應該如何連接至 VM？
 
@@ -222,7 +221,7 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 [!INCLUDE [Troubleshoot VM connection](../../includes/vpn-gateway-connect-vm-troubleshoot-include.md)]
 
 
-## <a name="virtual-network-faq"></a>虛擬網路常見問題集
+## <a name="faq"></a>虛擬網路常見問題集
 
 您可以在 [虛擬網路常見問題集](../virtual-network/virtual-networks-faq.md)中檢視其他虛擬網路資訊。
 

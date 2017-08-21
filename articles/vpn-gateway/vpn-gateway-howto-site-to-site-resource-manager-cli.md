@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/09/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: d97dfa3bc14c54e4c7097b5418c5b61e204e7676
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 019c5421dc470b18c9087417b93c241cc5730f77
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 建立具有站對站 VPN 連線的虛擬網路
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/03/2017
 * 如果您不熟悉位於內部部署網路組態的 IP 位址範圍，您需要與能夠提供那些詳細資料的人協調。 當您建立此組態時，您必須指定 IP 位址範圍的首碼，以供 Azure 路由傳送至您的內部部署位置。 內部部署網路的子網路皆不得與您所要連線的虛擬網路子網路重疊。
 * 確認您已安裝最新版的 CLI 命令 (2.0 版或更新版本)。 如需關於安裝 CLI 命令的資訊，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli) 和[開始使用 Azure CLI 2.0](/cli/azure/get-started-with-azure-cli)。
 
-### <a name="example-values"></a>值的範例
+### <a name="example"></a>範例值
 
 您可以使用下列值來建立測試環境，或參考這些值來進一步了解本文中的範例：
 
@@ -77,7 +77,7 @@ ConnectionName          = VNet1toSite2
 
 [!INCLUDE [CLI login](../../includes/vpn-gateway-cli-login-include.md)]
 
-## <a name="2-create-a-resource-group"></a>2.建立資源群組
+## <a name="rg"></a>2.建立資源群組
 
 下列範例會在「eastus」位置建立名為「TestRG1」的資源群組。 如果您在該區域中已有想要用來建立 VNet 的資源群組，您可以改為使用該資源群組。
 
@@ -187,7 +187,7 @@ az network vpn-connection create --name VNet1toSite2 -resource-group TestRG1 --v
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="common-tasks"></a>常見工作
+## <a name="tasks"></a>常見工作
 
 本節包含使用站對站組態時很實用的常見命令。 如需 CLI 網路命令的完整清單，請參閱 [Azure CLI - 網路](/cli/azure/network)。
 

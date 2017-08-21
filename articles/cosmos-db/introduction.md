@@ -16,10 +16,10 @@ ms.date: 07/14/2017
 ms.author: mimig
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 600894bffe367ee1412df6a82f668143829688cc
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: c9d04ae0bc11b99f893e5f003f136fbfe0dfccc9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -50,7 +50,7 @@ Azure Cosmos DB 是一個全域分散式資料庫服務，提供下列功能以�
         * 其他資料模型即將登場 
 
 * **全球性依需求彈性調整輸送量和儲存體**
-    * 輕鬆地以[秒](request-units.md)和[分鐘](request-units-per-minute.md)的細微度調整資料庫輸送量，並隨時依需求變更。 
+    * 輕鬆地以[每秒](request-units.md)的細微度調整資料庫輸送量，並隨時依需求變更。 
     * [在背景自動](partition-data.md)調整儲存體大小，不限次數處理您對於儲存體大小的需求。
 
 * **建置回應速度快和關鍵任務應用程式**

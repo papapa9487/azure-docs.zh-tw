@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 入口網站中有風險使用者的安全性報告 | Microsoft Docs"
-description: "了解 Azure Active Directory 入口網站中有風險使用者的安全性報告"
+title: "Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告 | Microsoft Docs"
+description: "了解 Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告"
 services: active-directory
 author: MarkusVi
 manager: femila
@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/01/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: bfcaee441c54453677e7747b0bca55a8afc59391
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="users-at-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險使用者的安全性報告
+# <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告
 
 利用 Azure Active Directory (Azure AD) 中的安全性報告，您可以深入了解環境中使用者帳戶被盜用的可能性。 
 
-Azure Active Directory 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到的動作，將會建立一筆稱為「風險事件」的記錄。 如需詳細資訊，請參閱 [Azure Active 風險事件](active-directory-identity-protection-risk-events.md)。 
+Azure Active Directory 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到的動作，將會建立一筆稱為「風險事件」的記錄。 如需詳細資訊，請參閱 [Azure Active Directory 風險事件](active-directory-identity-protection-risk-events.md)。 
 
 偵測到的風險事件用來計算︰
 
@@ -47,13 +47,13 @@ Azure Active Directory 會偵測使用者帳戶相關的可疑動作。 針對�
 
 - **Azure Active Directory Premium 1** 版本也可讓您檢查每份報告部分已偵測到的基礎風險事件，藉此擴充此模型。 
 
-- **Azure Active Directory Premium 2** 版本可提供有關基礎風險事件的最詳細資訊，也可讓您設定安全性原則，自動回應已設定的風險層級。
+- **Azure Active Directory Premium 2** 版本可提供有關所有基礎風險事件的最詳細資訊，可讓您設定安全性原則，自動回應已設定的風險層級。
 
 
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory 免費和基本版本
 
-Azure Active Directory 免費和基本版本中有風險的報告上的使用者，會提供可能遭到盜用的使用者帳戶清單。 
+Azure Active Directory 免費和基本版本中標幟為有風險的使用者報告，會提供可能遭到盜用的使用者帳戶清單。 
 
 
 ![有風險的登入](./media/active-directory-reporting-security-user-at-risk/03.png)
@@ -65,7 +65,7 @@ Azure Active Directory 免費和基本版本中有風險的報告上的使用者
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition
 
-Azure Active Directory Premium Edition 中有風險的報告上的使用者可為您提供：
+Azure Active Directory Premium Edition 中標幟為有風險的使用者報告可提供：
 
 - 可能已遭盜用的[使用者帳戶清單](active-directory-identityprotection.md#users-flagged-for-risk) 
 
@@ -92,8 +92,7 @@ Azure Active Directory Premium Edition 中有風險的報告上的使用者可�
 ![有風險的登入](./media/active-directory-reporting-security-user-at-risk/324.png)
 
 
-若要調查風險事件，請從清單中選取一項。  
-這會開啟這個風險事件的 [詳細資料] 刀鋒視窗。 在 [詳細資料] 刀鋒視窗中，您可以選擇[手動關閉風險事件](active-directory-identityprotection.md#closing-risk-events-manually)或重新啟動已手動關閉的風險事件。 
+若要調查風險事件，請從清單中選取一項，以開啟此風險事件的 [詳細資料] 刀鋒視窗。 在 [詳細資料] 刀鋒視窗中，您可以選擇[手動關閉風險事件](active-directory-identityprotection.md#closing-risk-events-manually)或重新啟動已手動關閉的風險事件。 
 
 
 ![有風險的登入](./media/active-directory-reporting-security-user-at-risk/325.png)

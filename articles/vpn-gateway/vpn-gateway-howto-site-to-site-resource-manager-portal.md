@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 690aa3ddc6ec0889936565ea732cd714734abecb
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0dec0d3744f76a06313928197f3a5229290ba32b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 入口網站中建立站對站連線
@@ -118,11 +118,11 @@ ms.lasthandoff: 08/03/2017
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-s2s-include.md)]
 
-## <a name="how-to-reset-a-vpn-gateway"></a>如何重設 VPN 閘道
+## <a name="reset"></a>如何重設 VPN 閘道
 
 如果您遺失一或多個站對站 VPN 通道上的跨單位 VPN 連線，重設 Azure VPN 閘道會很有幫助。 在此情況下，您的所有內部部署 VPN 裝置都會運作正常，但無法使用 Azure VPN 閘道建立 IPsec 通道。 如需相關步驟，請參閱[重設 VPN 閘道](vpn-gateway-resetgw-classic.md)。
 
-## <a name="how-to-change-a-gateway-sku-resize-a-gateway"></a>如何變更閘道 SKU (調整閘道的大小)
+## <a name="resize"></a>如何變更閘道 SKU (調整閘道的大小)
 
 如需變更閘道 SKU 的步驟，請參閱[閘道 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 

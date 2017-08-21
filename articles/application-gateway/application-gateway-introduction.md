@@ -13,13 +13,13 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 07/19/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 396d8b9532eb55341670ad61bd4c2a16882b35e4
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 49ca4ed2452d71dec17cedebaf48bbd5ab9e615f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="overview-of-application-gateway"></a>應用程式閘道的概觀
@@ -42,6 +42,7 @@ Microsoft Azure 應用程式閘道是專用的虛擬設備，它會以服務形�
 * **[多網站路由](application-gateway-multi-site-overview.md)** - 應用程式閘道可讓您在單一應用程式閘道上最多合併 20 個網站。
 * **[Websocket 支援](application-gateway-websocket.md)** - 應用程式閘道的另一個絕佳功能就是 Websocket 的原生支援。
 * **[狀況監視](application-gateway-probe-overview.md)** -應用程式閘道提供預設的後端資源狀況監視，以及用來監視較特定案例的自訂探查。
+* **[SSL 原則和加密](application-gateway-ssl-policy-overview.md)** - 這項功能能夠限制所支援的 SSL 通訊協定版本和加密套件，以及其處理順序。
 * **[要求重新導向](application-gateway-redirect-overview.md)** -這項功能可讓您將 HTTP 要求重新導向至 HTTPS 接聽程式。
 * **[多租用戶後端支援](application-gateway-web-app-overview.md)** - 應用程式閘道支援將多租用戶後端服務 (例如 App Web Apps 和 API 閘道) 設定為後端集區成員。 
 * **[進階診斷](application-gateway-diagnostics.md)** - 應用程式閘道提供完整的診斷和存取記錄檔。 防火牆記錄檔可供已啟用 WAF 的應用程式閘道資源使用。
@@ -105,5 +106,5 @@ Azure 應用程式閘道會透過基本或自訂健全狀態探測，自動監�
 
 若要了解如何使用 URL 型內容路由來建立應用程式閘道，請移至 [使用 URL 型路由建立應用程式閘道](application-gateway-create-url-route-arm-ps.md) 以取得詳細資訊。
 
-若要了解 Azure 一些其他金鑰的網路功能，請參閱 [Azure Networking]((../networking/networking-overview.md)。
+若要深入了解 Azure 的一些其他重要網路功能，請參閱 [Azure 網路功能](../networking/networking-overview.md)。
 

@@ -13,34 +13,25 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/23/2017
+ms.date: 08/14/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 80d4aced5e4f4b053b3b5f30a6fc383f1c4d6d27
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/15/2017
 
 ---
-# 開始在 HDInsight 上使用 Apache Kafka (預覽)
-<a id="start-with-apache-kafka-preview-on-hdinsight" class="xliff"></a>
+# <a name="start-with-apache-kafka-preview-on-hdinsight"></a>開始在 HDInsight 上使用 Apache Kafka (預覽)
 
 了解如何在 Azure HDInsight 上建立和使用 [Apache Kafka](https://kafka.apache.org) 叢集。 Kafka 是 HDInsight 提供的開放原始碼分散式串流平台。 它通常作為訊息代理程式，因為它提供了類似於發佈-訂閱訊息佇列的功能。
 
 > [!NOTE]
-> HDInsight 目前提供兩個 Kafka 版本：0.9.0 (HDInsight 3.4) 和 0.10.0 (HDInsight 3.5)。 本文件中的步驟假設您使用 Kafka on HDInsight 3.5。
+> HDInsight 目前提供兩個 Kafka 版本：0.9.0 (HDInsight 3.4) 和 0.10.0 (HDInsight 3.5 和 3.6)。 本文件中的步驟假設您使用 Kafka on HDInsight 3.6。
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## 必要條件
-<a id="prerequisites" class="xliff"></a>
-
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或同等功能版本，例如 OpenJDK。
-
-* [Apache Maven](http://maven.apache.org/) 
-
-## 建立 Kafka 叢集
-<a id="create-a-kafka-cluster" class="xliff"></a>
+## <a name="create-a-kafka-cluster"></a>建立 Kafka 叢集
 
 請使用下列步驟建立 Kafka on HDInsight：
 
@@ -48,7 +39,7 @@ ms.lasthandoff: 07/04/2017
    
     ![建立 HDInsight 叢集](./media/hdinsight-apache-kafka-get-started/create-hdinsight.png)
 
-2. 在 [基本概念] 刀鋒視窗中，輸入下列資訊：
+2. 從 [基本概念]，輸入以下資訊：
 
     * **叢集名稱**︰HDInsight 叢集的名稱。
     * **訂用帳戶**：選取要使用的訂用帳戶。
@@ -57,29 +48,29 @@ ms.lasthandoff: 07/04/2017
     * **資源群組**：在其中建立叢集的資源群組。
     * **位置**：在其中建立叢集的 Azure 區域。
    
-    ![選取訂用帳戶](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
+ ![選取訂用帳戶](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
-3. 選取 [叢集類型]，並且在 [叢集組態] 刀鋒視窗中設定下列值︰
+3. 選取 [叢集類型]，然後在 [叢集組態] 中設定下列值︰
    
     * **叢集類型**：Kafka
 
-    * **版本**：Kafka 0.10.0 (HDI 3.5)
+    * **版本**：Kafka 0.10.0 (HDI 3.6)
 
     * **叢集層**：標準
      
-    最後，使用 [選取] 按鈕來儲存設定。
+ 最後，使用 [選取] 按鈕來儲存設定。
      
-    ![選取叢集類型](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
+ ![選取叢集類型](./media/hdinsight-apache-kafka-get-started/set-hdinsight-cluster-type.png)
 
 4. 選取叢集類型之後，請使用 [選取] 按鈕來設定叢集類型。 接下來，使用 [下一步] 按鈕來完成基本組態。
 
-5. 從 [儲存體] 刀鋒視窗中，選取或建立儲存體帳戶。 本文件的步驟是，將此刀鋒視窗中的其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
+5. 從 [儲存體]，選取或建立儲存體帳戶。 本文件的步驟是將其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。
 
     ![設定 HDInsight 的儲存體帳戶](./media/hdinsight-apache-kafka-get-started/set-hdinsight-storage-account.png)
 
-6. 從 [應用程式 (選擇性)] 刀鋒視窗中，選取 [下一步] 以繼續。 這個範例不需要任何應用程式。
+6. 從 [應用程式 (選擇性)]，選取 [下一步] 以繼續。 這個範例不需要任何應用程式。
 
-7. 從 [叢集大小] 刀鋒視窗中，選取 [下一步] 以繼續。
+7. 從 [叢集大小]，選取 [下一步] 以繼續。
 
     > [!WARNING]
     > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。
@@ -87,19 +78,21 @@ ms.lasthandoff: 07/04/2017
     ![設定 Kafka 叢集大小](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
     > [!NOTE]
-    > 每個背景工作角色節點項目的磁碟會控制 HDInsight 上的 Kafka 延展性。 如需詳細資訊，請參閱[設定 HDInsight 上 Kafka 的儲存體和延展性](hdinsight-apache-kafka-scalability.md)。
+    > [每個背景工作角色節點的磁碟數] 項目會控制 Kafka on HDInsight 的延展性。 如需詳細資訊，請參閱[設定 HDInsight 上 Kafka 的儲存體和延展性](hdinsight-apache-kafka-scalability.md)。
 
-8. 從 [進階設定] 刀鋒視窗中，選取 [下一步]以繼續。
+8. 從 [進階設定]，選取 [下一步] 以繼續。
 
-9. 從 [摘要] 刀鋒視窗中，檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕來建立叢集。
+9. 從 [摘要] 檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕來建立叢集。
    
     ![叢集組態摘要](./media/hdinsight-apache-kafka-get-started/hdinsight-configuration-summary.png)
    
     > [!NOTE]
     > 建立叢集可能需要花費 20 分鐘的時間。
 
-## 連接到叢集
-<a id="connect-to-the-cluster" class="xliff"></a>
+## <a name="connect-to-the-cluster"></a>連接到叢集
+
+> [!IMPORTANT]
+> 執行下列步驟時，您必須使用 SSH 用戶端。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
 從您的用戶端，使用 SSH 連線到叢集：
 
@@ -123,32 +116,39 @@ ms.lasthandoff: 07/04/2017
     sudo apt -y install jq
     ```
 
-2. 使用下列命令，以擷取自 Ambari 的資訊設定環境變數。 將 __CLUSTERNAME__ 取代為 Kafka 叢集的名稱。 將 __PASSWORD__ 取代為您在建立叢集時使用的登入 (admin) 密碼。
+2. 若要以擷取自 Ambari 的資訊設定環境變數，請使用下列命令：
 
     ```bash
-    export KAFKAZKHOSTS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")'`
+    CLUSTERNAME='your cluster name'
+    PASSWORD='your cluster password'
+    export KAFKAZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
 
-    export KAFKABROKERS=`curl --silent -u admin:'PASSWORD' -G https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'`
+    export KAFKABROKERS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
 
     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
     echo '$KAFKABROKERS='$KAFKABROKERS
     ```
 
+    > [!IMPORTANT]
+    > 將 `CLUSTERNAME=` 設定為 Kafka 叢集的名稱。 將 `PASSWORD=` 設定為您在建立叢集時使用的登入 (admin) 密碼。
+
     以下文字是 `$KAFKAZKHOSTS` 的內容範例：
    
-    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk3-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
+    `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
    
     以下文字是 `$KAFKABROKERS` 的內容範例：
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
+
+    > [!NOTE]
+    > `cut` 命令用於將主機清單修剪為兩個主機項目。 建立 Kafka 取用者或產生者時，您不需要提供完整的主機清單。
    
     > [!WARNING]
     > 請勿認為從此工作階段傳回的資訊永遠都正確無誤。 如果您調整叢集，則會新增或移除新的訊息代理程式。 如果發生失敗且節點被更換，則節點的主機名稱可能會變更。
     >
     > 您應在使用 Zookeeper 和訊息代理程式主機資訊不久前擷取該資訊，以確保您具備有效的資訊。
 
-## 建立主題
-<a id="create-a-topic" class="xliff"></a>
+## <a name="create-a-topic"></a>建立主題
 
 Kafka 會將資料串流儲存在名為 *topics* 的類別中。 在連往叢集前端節點的 SSH 連線中，使用 Kafka 所提供的指令碼來建立主題︰
 
@@ -164,8 +164,7 @@ Kafka 會將資料串流儲存在名為 *topics* 的類別中。 在連往叢集
 
 此命令的輸出會列出 Kafka 主題，其中包含 **test** 主題。
 
-## 產生和取用記錄
-<a id="produce-and-consume-records" class="xliff"></a>
+## <a name="produce-and-consume-records"></a>產生和取用記錄
 
 Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，並由「取用者」取用。 產生者會從 Kafka「訊息代理程式」擷取記錄。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。
 
@@ -189,10 +188,18 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 
 3. 使用 __Ctrl + C__ 來停止取用者。
 
-## 產生者和取用者 API
-<a id="producer-and-consumer-api" class="xliff"></a>
+## <a name="producer-and-consumer-api"></a>產生者和取用者 API
 
-您也可以利用 [Kafka API](http://kafka.apache.org/documentation#api)，以程式設計方式產生和取用記錄。 使用下列步驟進行下載，並建置 Java 型生產者和取用者︰
+您也可以利用 [Kafka API](http://kafka.apache.org/documentation#api)，以程式設計方式產生和取用記錄。 若要建立 Java 產生者和取用者，請在開發環境中使用下列步驟︰
+
+> [!IMPORTANT]
+> 您必須在開發環境中安裝下列元件：
+>
+> * [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或同等功能版本，例如 OpenJDK。
+>
+> * [Apache Maven](http://maven.apache.org/)
+>
+> * SSH 用戶端和 `scp` 命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
 1. 從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下載範例。 在生產者/取用者範例中，使用 `Producer-Consumer` 目錄中的專案。 範例包含下列類別：
    
@@ -202,7 +209,7 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 
     * **取用者** - 讀取主題中的記錄。
 
-2. 將目錄變更為範例的 `Producer-Consumer` 目錄位置，然後使用下列命令來建立 jar 套件︰
+2. 若要建立 jar 套件，請將目錄變更為 `Producer-Consumer` 目錄的位置並使用下列命令︰
 
     ```
     mvn clean package
@@ -221,34 +228,30 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 4. `scp` 命令完成檔案複製後，請使用 SSH 連線到叢集： 使用下列命令將記錄寫入測試主題：
 
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
     ```
-
-    您可以在顯示的計數器中查看已寫入多少筆記錄。
-
-    > [!NOTE]
-    > 如果您收到權限遭拒錯誤，請使用下列命令讓檔案得以執行︰```chmod +x kafka-producer-consumer.jar```
 
 5. 完成此程序後，請使用下列命令從主題讀取︰
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS
     ```
    
     已讀取的記錄以及記錄計數隨即顯示。 您可能會看到已記錄 1,000,000 筆以上，因為您是使用先前步驟中的指令碼將數筆記錄傳送至主題。
 
 6. 使用 __Ctrl + C__ 來結束取用者。
 
-### 多個取用者
-<a id="multiple-consumers" class="xliff"></a>
+### <a name="multiple-consumers"></a>多個取用者
 
-Kafka 的重要概念是取用者會在讀取記錄時使用取用者群組 (依群組識別碼定義)。 多個取用者使用相同群組會導致從主題讀取負載平衡。 群組中的每個取用者都會收到一部分的記錄。 若要查看此程序的運作情況，請使用下列步驟︰
+Kafka 取用者會在讀取記錄時使用取用者群組。 多個取用者使用相同群組會導致從主題讀取負載平衡。 群組中的每個取用者都會收到一部分的記錄。 若要查看此程序的運作情況，請使用下列步驟︰
 
-1. 開啟連往叢集的新 SSH 工作階段，您便有兩個工作階段。 在每個工作階段中，使用下列命令來啟動具有相同取用者群組識別碼的取用者︰
+1. 開啟連往叢集的新 SSH 工作階段，您便有兩個工作階段。 在每個工作階段中，使用下列命令來啟動具有相同取用者群組識別碼的取用者：
    
     ```bash
-    ./kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
+    java -jar kafka-producer-consumer.jar consumer $KAFKABROKERS mygroup
     ```
+
+    此命令會啟動使用群組識別碼 `mygroup` 的取用者。
 
     > [!NOTE]
     > 使用[取得 Zookeeper 和訊息代理程式主機資訊](#getkafkainfo)一節中的命令來設定此 SSH 工作階段的 `$KAFKABROKERS`。
@@ -262,8 +265,7 @@ Kafka 的重要概念是取用者會在讀取記錄時使用取用者群組 (依
 
 Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 若要達到依序傳遞「資料分割內」的記錄，請建立取用者群組，其中的取用者執行個體數目與資料分割數目相符。 若要達到依序傳遞「主題內」的記錄，請建立只有一個取用者執行個體的取用者群組。
 
-## 串流 API
-<a id="streaming-api" class="xliff"></a>
+## <a name="streaming-api"></a>串流 API
 
 串流 API 已新增至 0.10.0 版中的 Kafka；舊版依賴 Apache Spark 或 Storm 進行串流處理。
 
@@ -296,7 +298,7 @@ Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 �
 5. 接著，使用下列命令來啟動串流程序：
    
     ```bash
-    ./kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
+    java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS 2>/dev/null &
     ```
    
     此命令會在背景中啟動串流程序。
@@ -304,13 +306,13 @@ Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 �
 6. 使用下列命令將訊息傳送至 `test` 主題。 這些訊息會依以下串流範例進行處理：
    
     ```bash
-    ./kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
+    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS &>/dev/null &
     ```
 
 7. 使用下列命令來檢視由串流程序寫入到 `wordcounts` 主題的輸出︰
    
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $KAFKAZKHOSTS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
+    /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --from-beginning --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer
     ```
    
     > [!NOTE]
@@ -338,18 +340,15 @@ Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 �
 
 7. 使用 __Ctrl + C__ 結束取用者，然後使用 `fg` 命令將串流背景工作帶回前景。 使用 __Ctrl + C__ 將它結束。
 
-## 刪除叢集
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>刪除叢集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-## 疑難排解
-<a id="troubleshoot" class="xliff"></a>
+## <a name="troubleshoot"></a>疑難排解
 
 如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 
 在本文件中，您已學會使用 Apache Kafka on HDInsight 的基本概念。 使用下列各項來深入了解 Kafka 的使用方式︰
 

@@ -1,5 +1,5 @@
 ---
-title: "在應用程式閘道上啟用 SSL 原則和端對端 SSL | Microsoft Docs"
+title: "在 Azure 應用程式閘道上啟用端對端 SSL | Microsoft Docs"
 description: "本頁面提供應用程式閘道端對端 SSL 支援的概觀。"
 documentationcenter: na
 services: application-gateway
@@ -13,16 +13,16 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
-ms.date: 04/04/2017
+ms.date: 07/19/2017
 ms.author: amsriva
-translationtype: Human Translation
-ms.sourcegitcommit: 73ee330c276263a21931a7b9a16cc33f86c58a26
-ms.openlocfilehash: 40368e31790a7ffa2d34a51a13e78d028cd0a1eb
-ms.lasthandoff: 04/05/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="overview-of-end-to-end-ssl-and-ssl-policy-on-application-gateway"></a>應用程式閘道上端對端 SSL 和 SSL 原則的概觀
+# <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>應用程式閘道端對端 SSL 的概觀
 
 應用程式閘道支援在閘道上終止 SSL，之後流量通常會以未加密狀態流至後端伺服器。 這項功能可讓 Web 伺服器不必再負擔昂貴的加密和解密成本。 但對某些客戶來說，對後端伺服器進行未加密的通訊並非可接受的選項。 此未加密的通訊可能是有安全性需要、合規性需求，或應用程式可能只接受安全連線。 對於這類應用程式，應用程式閘道可支援端對端 SSL 加密。
 
@@ -40,17 +40,9 @@ ms.lasthandoff: 04/05/2017
 
 應用程式閘道只會與已知的後端執行個體通訊，後者已將其憑證加入到應用程式閘道的白名單。 若要啟用憑證白名單，您必須將後端伺服器憑證的公開金鑰上傳至應用程式閘道 (不是根憑證)。 於是，只允許連接至已知和白名單中的後端。 其餘的後端會導致閘道錯誤。 自我簽署憑證僅供測試之用，並不建議用於生產工作負載。 這類憑證也必須如先前步驟所述，加入應用程式閘道的白名單之中，才能使用。
 
-## <a name="application-gateway-ssl-policy"></a>應用程式閘道 SSL 原則
-
-應用程式閘道支援使用者可設定的 SSL 交涉原則，這可讓客戶進一步控制應用程式閘道上的 SSL 連線。
-
-1. 依預設，所有應用程式閘道都停用 SSL 2.0 和 3.0。 您無法對這些原則進行任何設定。
-2. SSL 原則定義可讓您選擇停用下列 3 個通訊協定中的任一個：**TLSv1\_0**、**TLSv1\_1**、**TLSv1\_2**。
-3. 如果未定義任何 SSL 原則，則這三個 (TLSv1\_0、TLSv1\_1、TLSv1_2) 皆會啟用。
-
 ## <a name="next-steps"></a>後續步驟
 
-了解端對端 SSL 和 SSL 原則後，請移至 [在應用程式閘道上啟用端對端 SSL](application-gateway-end-to-end-ssl-powershell.md)，以使用端對端 SSL 建立應用程式閘道。
+了解端對端 SSL 後，請移至 [在應用程式閘道上啟用端對端 SSL](application-gateway-end-to-end-ssl-powershell.md)，以使用端對端 SSL 建立應用程式閘道。
 
 <!--Image references-->
 

@@ -13,18 +13,17 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 08/15/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 5121861dc9fa11bbde32c12f3987bb60f2dda057
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/16/2017
 
 ---
-#使用 storm-starter 範例在 HDInsight 上開始使用 Apache Storm
-<a id="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples" class="xliff"></a>
+#<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>使用 storm-starter 範例在 HDInsight 上開始使用 Apache Storm
 
 了解如何使用 storm-starter 範例，在 HDInsight 中使用 Apache Storm。
 
@@ -33,8 +32,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## 必要條件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -42,8 +40,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 * **熟悉 SSH 和 SCP**。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## 建立 Storm 叢集
-<a id="create-a-storm-cluster" class="xliff"></a>
+## <a name="create-a-storm-cluster"></a>建立 Storm 叢集
 
 請使用下列步驟建立 Storm on HDInsight 叢集：
 
@@ -68,7 +65,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
     * **作業系統**：Linux
 
-    * **版本**：Storm 1.0.1 (HDI 3.5)
+    * **版本**：Storm 1.1.0 (HDI 3.6)
 
     * **叢集層**：標準
 
@@ -89,8 +86,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
     > [!NOTE]
     > 建立叢集可能需要花費 20 分鐘的時間。
 
-## 在 HDInsight 上執行 storm-starter 範例
-<a id="run-a-storm-starter-sample-on-hdinsight" class="xliff"></a>
+## <a name="run-a-storm-starter-sample-on-hdinsight"></a>在 HDInsight 上執行 storm-starter 範例
 
 1. 使用 SSH 連線到 HDInsight 叢集
 
@@ -114,10 +110,9 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
     >
     > WordCount 範例和其他 storm-starter 範例都已經包含在叢集中，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
-如果您有興趣檢視 storm-starter 範例的來源，可以在 [https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.0.x-branch/examples/storm-starter) 找到程式碼。 這個連結是 Storm 1.0.x，隨附於 HDInsight 3.5。 如需其他 Storm 版本，請使用頁面頂端的 __Branch__ 分支 按鈕來選取其他 Storm 版本。
+如果您有興趣檢視 storm-starter 範例的來源，可以在 [https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter](https://github.com/apache/storm/tree/1.1.x-branch/examples/storm-starter) 找到程式碼。 這個連結是 Storm 1.1.x，隨附於 HDInsight 3.6。 如需其他 Storm 版本，請使用頁面頂端的 __Branch__ 分支 按鈕來選取其他 Storm 版本。
 
-## 監視拓撲
-<a id="monitor-the-topology" class="xliff"></a>
+## <a name="monitor-the-topology"></a>監視拓撲
 
 Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsight 叢集中。
 
@@ -187,13 +182,11 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
     在此範例中，「七」這個字出現 1493957 次。 此計數就是啟動拓撲後，該字所出現的次數。
 
-## 停止拓撲
-<a id="stop-the-topology" class="xliff"></a>
+## <a name="stop-the-topology"></a>停止拓撲
 
 返回 word-count 拓撲的 [拓撲摘要] 頁面，然後選取 [拓撲動作] 區段中的 [終止] 按鈕。 出現提示時，請先輸入要等候 10 秒，再停止拓撲。 逾時期限過後，當您瀏覽儀表板的 [Storm UI]  區段時，就不會再看到拓撲。
 
-## 刪除叢集
-<a id="delete-the-cluster" class="xliff"></a>
+## <a name="delete-the-cluster"></a>刪除叢集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 

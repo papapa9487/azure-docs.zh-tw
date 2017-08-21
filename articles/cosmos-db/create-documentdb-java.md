@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 08/02/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f22e886ab3e59e69607e572d05a9f01d3d57f181
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立文件資料庫
@@ -42,7 +42,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
-您必須先使用 Azure Cosmos DB 建立 SQL (DocumentDB) 資料庫帳戶，才可以建立圖表資料庫。
+您必須先使用 Azure Cosmos DB 建立 SQL (DocumentDB) 資料庫帳戶，才可以建立文件資料庫。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 

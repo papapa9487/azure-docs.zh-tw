@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/05/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0f26a9b62a376daf2b1314ff5972293a2bc7f379
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: db280ff801c6e501e7ab7890f67d22ae16444491
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
@@ -28,7 +28,7 @@ VPN 閘道是一種虛擬網路閘道，可透過內部部署位置的公用連�
 
 每個虛擬網路只可以有一個 VPN 閘道，不過，您可以對相同的 VPN 閘道建立多個連線。 例如，多站台連線設定。 當您對相同的 VPN 閘道建立多個連線時，所有 VPN 通道 (包括點對站 VPN) 都會共用此閘道可用的頻寬。
 
-### <a name="what-is-a-virtual-network-gateway"></a>什麼是虛擬網路閘道？
+### <a name="whatis"></a>什麼是虛擬網路閘道？
 
 虛擬網路閘道是由部署到特定子網路 (稱為 GatewaySubnet) 的兩部或多部虛擬機器所組成。 當您建立虛擬網路閘道時，會建立位於 GatewaySubnet 中的 VM。 虛擬網路閘道 VM 會設定為包含閘道特有的路由表和閘道服務。 您無法直接設定屬於虛擬網路閘道的 VM，您不該將額外的資源部署至 GatewaySubnet。
 
@@ -38,7 +38,7 @@ VPN 閘道是一種虛擬網路閘道，可透過內部部署位置的公用連�
 
 [!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
 
-## <a name="configuring-a-vpn-gateway"></a>設定 VPN 閘道
+## <a name="configuring"></a>設定 VPN 閘道
 
 VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源可以分別進行設定，雖然在某些情況下必須以特定順序來設定。
 
@@ -46,11 +46,11 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 您為每個資源選擇的設定，對於建立成功連線而言極為重要。 如需 VPN 閘道個別資源和設定的資訊，請參閱 [關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md)。 本文包含的資訊可協助您了解閘道類型、VPN 類型、連線類型、閘道子網路、區域網路閘道，以及您需要考量的各種其他資源設定。
 
-### <a name="deployment-tools"></a>部署工具
+### <a name="tools"></a>部署工具
 
 您可以使用設定工具 (例如 Azure 入口網站) 開始建立及設定資源。 您可以稍後再決定切換到另一個工具 (如 PowerShell) 來設定其他資源，或是在適用的時機修改現有資源。 您目前無法在 Azure 入口網站中進行每一項資源和資源設定。 文章中各連線拓撲的指示會指定何時需要特定組態工具。 
 
-### <a name="deployment-model"></a>部署模型
+### <a name="models"></a>部署模型
 
 當您設定 VPN 閘道時，您採用的步驟取決於用來建立虛擬網路的部署模型。 例如，如果您使用傳統部署模型建立 VNet，您會使用傳統部署模型的指導方針和指示來建立和進行 VPN 閘道設定。 如需部署模型的詳細資訊，請參閱 [了解 Resource Manager 和傳統部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。
 
@@ -64,7 +64,7 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 使用圖形和描述來協助選取符合您需求的連線拓撲。 這些圖表顯示主要基準拓撲，但您也可以使用這些圖表做為指導方針來建置更複雜的組態。
 
-## <a name="site-to-site-and-multi-site-ipsecike-vpn-tunnel"></a>站台對站台以及多站台 (IPsec/IKE VPN 通道)
+## <a name="s2smulti"></a>站對站以及多網站 (IPsec/IKE VPN 通道)
 
 ### <a name="S2S"></a>站對站
 

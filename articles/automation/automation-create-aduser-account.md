@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 0092496ea13c862a1717f4fdcb882139cbd8a177
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>使用 Azure 傳統部署和 Resource Manager 驗證 Runbook
@@ -68,7 +68,7 @@ ms.lasthandoff: 04/15/2017
 3. 在 [自動化帳戶] 刀鋒視窗中，按一下 [新增]。<br><br>![加入自動化帳戶](media/automation-create-aduser-account/add-automation-acct-properties.png)
 4. 在 [新增自動化帳戶] 刀鋒視窗的 [名稱] 方塊中，輸入新的自動化帳戶的名稱。
 5. 如果您有多個訂用帳戶，請為新的自動化帳戶指定其中一個訂用帳戶，並指定新的或現有的 [資源群組] 和 Azure 資料中心的 [位置]。
-6. 在 [建立 Azure 執行身分帳戶] 選項中選取 [否] 這個值，然後按一下 [建立] 按鈕。  
+6. 在 [建立 Azure 執行身分帳戶] 選項中選取 [是] 這個值，然後按一下 [建立] 按鈕。  
    
     > [!NOTE]
     > 如果您選取選項 [否] 以選擇不要建立執行身分帳戶，則會在 [新增自動化帳戶] 刀鋒視窗中看到一則警告訊息。  雖然會建立帳戶並將其指派給訂用帳戶中的 [參與者]  角色，但帳戶在訂用帳戶的目錄服務內不會有對應的驗證身分識別，因此在訂用帳戶中沒有存取資源。  這將導致參考此帳戶的任何 Runbook 無法進行驗證並針對 Azure Resource Manager 資源執行工作。

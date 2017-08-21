@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: e4ca1e8df8337e578e014cedec68553e6fc56299
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 35b7e0a730d73f646462b9cde3c8bbabac4d7c67
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -321,6 +321,54 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
   </DefaultServices>
 </ApplicationManifest>
 ```
+## <a name="adding-more-services-to-an-existing-application"></a>將更多服務新增至現有的應用程式
+
+若要將其他容器服務新增至已使用 yeoman 建立的應用程式，請執行下列步驟︰
+
+1. 將目錄變更為現有應用程式的根目錄。  例如，如果 `MyApplication` 是 Yeoman 所建立的應用程式，則為 `cd ~/YeomanSamples/MyApplication`。
+2. 執行 `yo azuresfcontainer:AddService`
+
+<a id="manually"></a>
+
+
+## <a name="configure-time-interval-before-container-is-force-terminated"></a>在容器被迫終止前設定時間間隔
+
+您可以在啟動服務刪除 (或移至另一個節點) 之後，設定執行階段在容器移除前所要等候的間隔時間。 設定時間間隔可將 `docker stop <time in seconds>` 命令傳送至容器。   如需更多詳細資訊，請參閱 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)。 所要等候的時間間隔指定於 `Hosting` 區段之下。 下列叢集資訊清單程式碼片段示範如何設定等候間隔：
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "ContainerDeactivationTimeout": "10",
+          ...
+          }
+        ]
+}
+```
+預設時間間隔會設定為 10 秒。 因為此組態是動態的，所以叢集的僅限組態升級會更新逾時。 
+
+
+## <a name="configure-the-runtime-to-remove-unused-container-images"></a>將執行階段設定為移除未使用的容器映像
+
+您可以將 Service Fabric 叢集設定為從節點移除未使用的容器映像。 如果節點上存在太多容器映像，此組態允許重新擷取磁碟空間。  若要啟用此功能，請更新叢集資訊清單中的 `Hosting` 區段，如下列程式碼片段所示： 
+
+
+```xml
+{
+        "name": "Hosting",
+        "parameters": [
+          {
+            "PruneContainerImages": “True”,
+            "ContainerImagesToSkip": "microsoft/windowsservercore|microsoft/nanoserver|…",
+          ...
+          }
+        ]
+} 
+```
+
+對於不應刪除的映像，您可以在 `ContainerImagesToSkip` 參數之下加以指定。 
+
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解如何[在 Service Fabric 上執行容器](service-fabric-containers-overview.md)。
