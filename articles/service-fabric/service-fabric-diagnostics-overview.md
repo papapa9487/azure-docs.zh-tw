@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 07/17/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 571c31b9e6514b44d6a8a69fe8a6a0806e4b80e3
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 88f4a23f89a1c8fd88db1df3a7ff03ae5df64c0f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/01/2017
 
 監視與診斷的整體工作流程包含三個步驟：
 
-1. **事件產生**：這包含基礎結構 (叢集) 和應用程式/服務層級中的事件 (記錄檔、追蹤、自訂事件)。
+1. **事件產生**：這包含基礎結構 (叢集)、平台和應用程式/服務層級中的事件 (記錄、追蹤、自訂事件)
 2. **事件彙總**：產生的事件必須經過收集與彙總後，才能夠顯示。
 3. **分析**︰事件必須經過視覺化並可藉由某種格式來存取，才能視需要進行分析及顯示。
 
@@ -45,9 +44,9 @@ ms.lasthandoff: 06/01/2017
 
 ## <a name="event-generation"></a>事件產生
 
-監視和診斷工作流程的第一個步驟是建立與產生事件和記錄檔。 這些事件、記錄檔和追蹤會從下列兩個層級產生：基礎結構層 (來自叢集、機器或 Service Fabric 動作的所有一切) 或應用程式層 (針對已部署到叢集的應用程式與服務的任何新增檢測)。 雖然 Service Fabric 預設會提供部分檢測，但這些層級的每個事件皆可自訂。
+監視和診斷工作流程的第一個步驟是建立與產生事件和記錄檔。 這些事件、記錄和追蹤會從下列兩個層級產生：平台層 (包括叢集、機器或 Service Fabric 動作) 或應用程式層 (針對已部署到叢集的應用程式與服務的任何新增檢測)。 雖然 Service Fabric 預設會提供部分檢測，但這些層級的每個事件皆可自訂。
 
-深入了解[基礎結構層級事件](service-fabric-diagnostics-event-generation-infra.md)和[應用程式層級事件](service-fabric-diagnostics-event-generation-app.md)，以了解提供項目，以及如何新增其他的檢測。
+深入了解[平台層級事件](service-fabric-diagnostics-event-generation-infra.md)和[應用程式層級事件](service-fabric-diagnostics-event-generation-app.md)，以了解提供項目，以及如何新增其他的檢測。
 
 決定好要使用的記錄提供者之後，您必須確認系統能正確彙總記錄檔並加以儲存。
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 06/01/2017
 * 存取內部應用程式資料與內容
     * 診斷子系統是在應用程式/服務處理序內執行，因此可以輕鬆地隨著內容資訊而擴大追蹤。
 
-值得注意的是，這兩個選項不會互斥，因此雖然使用其中一個選項都可能完成類似的工作，您也可以同時設定兩個選項。 在大部分情況下，合併代理程式與同處理序收集可能得以確保更可靠的監視工作流程。 您可以選擇針對基礎結構層級記錄檔使用 Azure 診斷擴充功能 (代理程式)，而針對應用程式層級的記錄檔使用 EventFlow (同處理序收集)。 決定好最適合的方法之後，您就可以開始思考如何顯示及分析資料。
+值得注意的是，這兩個選項不會互斥，因此雖然使用其中一個選項都可能完成類似的工作，您也可以同時設定兩個選項。 在大部分情況下，合併代理程式與同處理序收集可能得以確保更可靠的監視工作流程。 您可以選擇針對平台層級記錄使用 Azure 診斷延伸模組 (代理程式)，而針對應用程式層級的記錄使用 EventFlow (同處理序收集)。 決定好最適合的方法之後，您就可以開始思考如何顯示及分析資料。
 
 ## <a name="event-analysis"></a>事件分析
 
@@ -93,4 +92,4 @@ ms.lasthandoff: 06/01/2017
 
 監視程式是個別的服務，可以觀察服務之間的健全狀況和負載，並報告健全狀況模型階層中任何項目的健全狀況。 如此可避免在單一服務檢視中無法偵測到的錯誤。 監視程式也非常適合裝載能夠執行修復動作的程式碼，而無需使用者互動 (例如在特定時間間隔，清除儲存體中的記錄檔)。 您可以在[這裡](https://github.com/Azure-Samples/service-fabric-watchdog-service)找到範例監視程式服務實作。
 
-先從了解如何產生[基礎結構層級](service-fabric-diagnostics-event-generation-infra.md)和[應用程式層級](service-fabric-diagnostics-event-generation-app.md)的事件和記錄檔開始。
+先從了解如何產生[平台層級](service-fabric-diagnostics-event-generation-infra.md)和[應用程式層級](service-fabric-diagnostics-event-generation-app.md)的事件和記錄開始。

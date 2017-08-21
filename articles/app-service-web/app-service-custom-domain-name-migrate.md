@@ -1,6 +1,6 @@
 ---
-title: "將作用中的自訂網域移轉至 Azure App Service | Microsoft Docs"
-description: "了解如何在完全不停機的情況下，將已指派給即時網站的自訂網域移轉至 Azure App Service 中的應用程式。"
+title: "將作用中的 DNS 名稱移轉至 Azure App Service | Microsoft Docs"
+description: "了解如何在完全不停機的情況下，將已指派給即時網站的自訂 DNS 網域名稱移轉至 Azure App Service。"
 services: app-service
 documentationcenter: 
 author: cephalin
@@ -13,25 +13,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2017
+ms.date: 06/28/2017
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 5f6537a45bcb092b5ef463e8069b9fc5582c14c2
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: 89308c1c684a639950467b72d26703cc07c50c14
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="migrate-an-active-custom-domain-to-azure-app-service"></a>將作用中的自訂網域移轉至 Azure App Service
+# <a name="migrate-an-active-dns-name-to-azure-app-service"></a>將作用中的 DNS 名稱移轉至 Azure App Service
 
-本文將說明如何在完全不停機的情況下，將作用中的自訂網域移轉至 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
+本文示範如何在完全不停機的情況下，將作用中的 DNS 名稱移轉至 [Azure App Service](../app-service/app-service-value-prop-what-is.md)。
 
-當您將即時網站及其網域名稱移轉至 App Service 時，該網域名稱已對即時流量提供服務，而您不想要在移轉期間的 DNS 解析時發生停機。 在此情況下，您必須先將網域名稱繫結至 Azure 應用程式以進行網域驗證。
+當您將即時網站及其 DNS 網域名稱移轉至 App Service 時，該 DNS 名稱已對即時流量提供服務。 您可以先將作用中的 DNS 名稱繫結至 App Service 應用程式，以避免 DNS 解析在移轉期間發生停機。
+
+如果您不擔心 DNS 解析發生停機，請參閱[將現有的自訂 DNS 名稱對應至 Azure Web Apps](app-service-web-tutorial-custom-domain.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-此文章假設您已經知道如何[手動將自訂網域對應至 App Service](app-service-web-tutorial-custom-domain.md)。
+若要完成本操作說明：
+
+- [確定您的 App Service 應用程式不是位於免費層](app-service-web-tutorial-custom-domain.md#checkpricing)。
 
 ## <a name="bind-the-domain-name-preemptively"></a>事先繫結網域名稱
 
@@ -40,54 +43,90 @@ ms.lasthandoff: 06/14/2017
 - 確認網域擁有權
 - 為您的應用程式啟用網域名稱
 
-當您最後將 DNS 記錄變更為指向您的 App Service 應用程式，DNS 解析時可在完全不停機的情況下，將用戶端從舊網站重新導向您的 App Service 應用程式。
+當您最後將自訂 DNS 名稱從舊網站移轉至 App Service 應用程式時，DNS 解析不會發生停機。
 
-請依照下列步驟執行：
+[!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records.md)]
 
-1. 首先，依照下列步驟，使用 DNS 登錄建立驗證 TXT 記錄：[建立 DNS 記錄](app-service-web-tutorial-custom-domain.md)。
-額外的 TXT 記錄會採用從 &lt;*subdomain*>.&lt;*rootdomain*> 對應至 &lt;*appname*>.azurewebsites.net 的慣例。
-請參閱下表中的範例：  
+### <a name="create-domain-verification-record"></a>建立網域驗證記錄
 
-    <table cellspacing="0" border="1">
-    <tr>
-    <th>FQDN 範例</th>
-    <th>TXT 主機</th>
-    <th>TXT 值</th>
-    </tr>
-    <tr>
-    <td>contoso.com (根網域)</td>
-    <td>awverify.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>www.contoso.com (子網域)</td>
-    <td>awverify.www.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    <tr>
-    <td>\*.contoso.com (萬用字元)</td>
-    <td>awverify\*.contoso.com</td>
-    <td>&lt;<i>appname</i>>.azurewebsites.net</td>
-    </tr>
-    </table>
+若要確認網域擁有權，請新增 TXT 記錄。 TXT 記錄會從 _awverify.&lt;子網域>_ 對應至 _&lt;應用程式名稱>.azurewebsites.net_。 
 
-2. 然後，依照下列步驟，將自訂網域名稱新增至 Azure 應用程式：[為您的應用程式啟用自訂網域名稱](app-service-web-tutorial-custom-domain.md#enable-a)。
+您需要的 TXT 記錄取決於您要移轉的 DNS 記錄。 如需範例，請參閱下表 (`@` 通常代表根網域)：  
 
-    您的自訂網域現已在您的 Azure 應用程式中啟用。 您只需向網域註冊機構更新 DNS 記錄即可。
+| DNS 記錄範例 | TXT 主機 | TXT 值 |
+| - | - | - |
+| @ (根網域) | _awverify_ | _&lt;應用程式名稱>.azurewebsites.net_ |
+| www (子網域) | _awverify.www_ | _&lt;應用程式名稱>.azurewebsites.net_ |
+| \* (萬用字元) | _awverify.\*_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 
-3. 最後，更新網域的 DNS 記錄以指向您的 Azure 應用程式，如下所示：[建立 DNS 記錄](app-service-web-tutorial-custom-domain.md)。
+在您的 DNS 記錄頁面中，記下您要移轉之 DNS 名稱的記錄類型。 App Service 支援 CNAME 與 A 記錄之間的對應。
 
-    在 DNS 傳播發生之後，使用者流量應重新導向至 Azure 應用程式。
+### <a name="enable-the-domain-for-your-app"></a>為您的應用程式啟用網域
+
+在 [Azure 入口網站](https://portal.azure.com)之應用程式頁面的左側導覽中，選取 [自訂網域]。 
+
+![[自訂網域] 功能表](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+
+在 [自訂網域] 頁面中，選取 [新增主機名稱] 旁的 **+** 圖示。
+
+![新增主機名稱](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+
+鍵入您新增 TXT 記錄的完整網域名稱，例如 `www.contoso.com`。 針對萬用字元網域 (例如 \*.contoso.com)，您可以使用符合萬用字元網域的任何 DNS 名稱。 
+
+選取 [驗證]。
+
+[新增主機名稱] 按鈕會啟用。 
+
+確定將 [主機名稱記錄類型] 設定為您要移轉的 DNS 記錄類型。
+
+選取 [新增主機名稱]。
+
+![將 DNS 名稱新增至應用程式](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
+
+可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域] 分頁中。 嘗試重新整理瀏覽器以更新資料。
+
+![CNAME 記錄已新增](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
+
+您的 DNS 名稱現已在您的 Azure 應用程式中啟用。 
+
+## <a name="remap-the-active-dns-name"></a>重新對應作用中的 DNS 名稱
+
+唯一剩下的工作是重新對應作用中的 DNS 記錄，以指向 App Service。 目前，它仍指向舊網站。
+
+<a name="info"></a>
+
+### <a name="copy-the-apps-ip-address-a-record-only"></a>複製應用程式的 IP 位址 (僅限 A 記錄)
+
+如果您重新對應的是 CNAME 記錄，請略過本節。 
+
+若要重新對應 A 記錄，您需要 App Service 應用程式的外部 IP 位址，如 [自訂網域] 頁面中所示。
+
+選取右上角的 **X** 關閉 [新增主機名稱] 頁面。 
+
+在 [自訂網域] 頁面中，複製應用程式的 IP 位址。
+
+![入口網站瀏覽至 Azure 應用程式](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+
+### <a name="update-the-dns-record"></a>更新 DNS 記錄
+
+回到您網域提供者的 DNS 記錄頁面，選取要重新對應的 DNS 記錄。
+
+在 `contoso.com` 根網域範例中，重新對應 A 或 CNAME 記錄，如下表中的範例所示： 
+
+| FQDN 範例 | 記錄類型 | Host | 值 |
+| - | - | - | - |
+| contoso.com (根網域) | 具有使用  | `@` | 來自[複製應用程式的 IP 位址](#info)的 IP 位址 |
+| www.contoso.com (子網域) | CNAME | `www` | _&lt;應用程式名稱>.azurewebsites.net_ |
+| \*.contoso.com (萬用字元) | CNAME | _\*_ | _&lt;應用程式名稱>.azurewebsites.net_ |
+
+儲存您的設定。
+
+DNS 查詢應該會在 DNS 散佈發生後立即開始解析為 App Service 應用程式。
 
 ## <a name="next-steps"></a>後續步驟
-了解如何[在 Azure 中購買 SSL 憑證](web-sites-purchase-ssl-web-site.md)或[使用來自其他位置的 SSL 憑證](app-service-web-tutorial-custom-ssl.md)來使用 HTTPS 保護自訂網域名稱。
 
-> [!NOTE]
-> 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://azure.microsoft.com/try/app-service/)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。
->
->
+了解如何將自訂 SSL 憑證繫結至 App Service。
 
-[開始使用 Azure DNS](../dns/dns-getstarted-create-dnszone.md)  
-[在自訂網域中建立 Web 應用程式的 DNS 記錄](../dns/dns-web-sites-custom-domain.md)  
-[將網域委派給 Azure DNS](../dns/dns-domain-delegation.md)
+> [!div class="nextstepaction"]
+> [將現有的自訂 SSL 憑證繫結至 Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 

@@ -13,15 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/03/2017
+ms.date: 7/20/2017
 ms.author: negat
 ms.custom: na
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 718732df4455831454245ea1a80d49e042c20f09
+ms.translationtype: HT
+ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
+ms.openlocfilehash: f320dd5d1f8c99317792f4ae9e09bc5adaf79e25
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 07/21/2017
 
 ---
 
@@ -511,7 +510,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>如何在相同訂用帳戶和相同區域中進行虛擬機器擴展集的 VIP 交換？
 
-如果您擁有兩個含 Azure Load Balancer 前端的虛擬機器擴展集，而且它們位於相同的訂用帳戶和區域，則您可以解除配置每個擴展集的公用 IP 位址，並指派給另一個。 例如，請參閱 [VIP 交換：Azure Resource Manager 中藍綠色版本部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) \(英文\)。 這確實意味著在網路層級取消配置/配置資源時會產生延遲。 另一個選項是透過 [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) 裝載您的應用程式，以提供在預備與生產位置之間快速切換的支援。
+如果您擁有兩個含 Azure Load Balancer 前端的虛擬機器擴展集，而且它們位於相同的訂用帳戶和區域，則您可以解除配置每個擴展集的公用 IP 位址，並指派給另一個。 例如，請參閱 [VIP 交換：Azure Resource Manager 中藍綠色版本部署](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) \(英文\)。 這確實意味著在網路層級取消配置/配置資源時會產生延遲。 更快的選項是搭配兩個後端集區和一個路由規則來使用 Azure 應用程式閘道。 或者，您可以透過 [Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) 裝載應用程式，以提供在預備與生產位置之間快速切換的支援。
  
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>如何指定要用於靜態私人 IP 位址配置的私人 IP 位址範圍？
 
@@ -570,6 +569,10 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
         }
     }
 ```
+
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>我可以設定擴展集以搭配多個應用程式閘道使用嗎？
+
+是。 您可以將多個應用程式閘道後端位址集區的資源識別碼新增至擴展集網路設定檔之 _ipConfigurations_ 區段中的 _applicationGatewayBackendAddressPools_ 清單。
 
 ## <a name="scale"></a>調整
 

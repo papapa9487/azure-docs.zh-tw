@@ -1,44 +1,48 @@
 ---
-title: "檢視和管理 StorSimple 警示 | Microsoft Docs"
-description: "描述 StorSimple 警示條件和嚴重性、如何設定警示通知，以及如何使用 StorSimple Manager 服務管理警示。"
+title: "檢視和管理 StorSimple 8000 系列裝置的警示 | Microsoft Docs"
+description: "描述 StorSimple 警示條件和嚴重性、如何設定警示通知，以及如何使用 StorSimple 裝置管理員服務管理警示。"
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: alkohli
 manager: timlt
 editor: 
-ms.assetid: bee49253-9ac7-4131-95f6-6bf0e72b8438
+ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/08/2017
-ms.author: anbacker
+ms.date: 05/31/2017
+ms.author: alkohli
 ms.translationtype: HT
 ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
+ms.openlocfilehash: 3b55e2f382d2ee9a1f6d459c7fdec0378f2de9d1
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/21/2017
 
 ---
-# <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
+# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>使用 StorSimple 裝置管理員服務來檢視和管理 StorSimple 警示
+
 ## <a name="overview"></a>概觀
-StorSimple Manager 服務的 [ **警示** ] 索引標籤可讓您即時檢閱並清除 StorSimple 裝置的相關警示。 從這個索引標籤中，您可以集中監視 StorSimple 裝置和整個 Microsoft Azure StorSimple 解決方案的健康問題。
+
+StorSimple 裝置管理員服務的 [警示] 刀鋒視窗可讓您即時檢閱並清除 StorSimple 裝置的相關警示。 從這個刀鋒視窗中，您可以集中監視 StorSimple 裝置和整個 Microsoft Azure StorSimple 解決方案的健康問題。
 
 本教學課程說明常見的警示狀況、警示嚴重性層級及如何設定警示通知。 此外，也包含警示快速參考表，可讓您快速找出特定的警示並適當地回應。
 
-![警示頁面](./media/storsimple-manage-alerts/HCS_AlertsPage.png)
+![警示頁面](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
 ## <a name="common-alert-conditions"></a>常見的警示狀況
+
 StorSimple 裝置會產生警示以回應各種不同的狀況。 以下是最常見的警示狀況類型：
 
 * **硬體問題** – 這些警示指出硬體的健全狀況。 它們讓您知道是否需要升級韌體、網路介面是否有問題，或您的其中一個資料磁碟機是否有問題。
-* **連線問題** – 當傳送資料有困難時會發生這些警示。 在往返於 Azure 儲存體帳戶傳輸資料期間，或因為裝置與 StorSimple Manager 服務之間沒有連線時，可能會發生通訊問題。 通訊問題最難解決，因為失敗點實在太多。 在繼續進行更進階的疑難排解之前，您一定要先確認有網路連線和網際網路存取可用。 如需疑難排解的說明，請移至 [Test-Connection Cmdlet 的疑難排解](storsimple-troubleshoot-deployment.md)。
+* **連線問題** – 當傳送資料有困難時會發生這些警示。 在往返於 Azure 儲存體帳戶傳輸資料期間，或因為裝置與 StorSimple 裝置管理員服務之間沒有連線時，可能會發生通訊問題。 通訊問題最難解決，因為失敗點實在太多。 在繼續進行更進階的疑難排解之前，您一定要先確認有網路連線和網際網路存取可用。 如需疑難排解的說明，請移至 [Test-Connection Cmdlet 的疑難排解](storsimple-troubleshoot-deployment.md)。
 * **效能問題** – 當系統未以最佳方式運作時，例如負荷過重，就會造成這些警示。
 
 此外，您也可能會看到有關安全性、更新或作業失敗的警示。
 
 ## <a name="alert-severity-levels"></a>警示嚴重性層級
+
 視警示狀況造成的影響和是否需要回應警示而定，警示有不同的嚴重性層級。 嚴重性層級如下：
 
 * **重大** – 這個警示是回應會影響系統成功運作的狀況。 需要採取動作以確保 StorSimple 服務不中斷。
@@ -46,62 +50,72 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。 以下是最�
 * **資訊** – 此警示包含適用於追蹤和管理系統的資訊。
 
 ## <a name="configure-alert-settings"></a>設定警示設定
+
 您可以選擇是否要透過電子郵件收到每個 StorSimple 裝置的警示狀況通知。 此外，您可以在 [其他電子郵件收件者]  方塊中輸入電子郵件地址 (以分號隔開)，以識別其他警示通知收件者。
 
 > [!NOTE]
 > 您可以對每一裝置輸入最多 20 個電子郵件地址。
-> 
-> 
 
 啟用裝置的電子郵件通知之後，每當發生重大警示時，通知清單的成員將會收到電子郵件訊息。 訊息將會從 *storsimple-alerts-noreply@mail.windowsazure.com* 送出，並說明警示狀況。 收件者可以按一下 [取消訂閱]，將自己從電子郵件通知清單中移除。
 
 #### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>啟用裝置的警示電子郵件通知
-1. 移至裝置的 裝置 > 設定。
-2. 在 [警示設定] 下，設定下列項目：
+1. 移至您的 StorSimple 裝置管理員服務。 從裝置清單中，選取並按一下您想要設定的裝置。
+2. 移至裝置的 [設定] > [一般]。
+
+   ![警示刀鋒視窗](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
+   
+2. 在 [一般設定] 刀鋒視窗中，移至 [警示設定]，然後進行下列設定：
    
    1. 在 [傳送電子郵件通知] 欄位中，選取 [是]。
-   2. 如果您想要讓服務管理員和所有共同管理員收到警示通知，請在 [電子郵件服務管理員] 欄位中選取 [是]。
+   2. 若要讓服務管理員和所有共同管理員收到警示通知，請在 [電子郵件服務管理員] 欄位中選取 [是]。
    3. 在 [其他電子郵件收件者]  欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。 使用分號來分隔電子郵件地址。 您可以對每一裝置設定最多 20 個電子郵件地址。 
       
-       ![警示通知設定](./media/storsimple-manage-alerts/AlertNotify.png)
-3. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件] 旁的箭號圖示。 StorSimple Manager 服務轉寄測試通知時會顯示狀態訊息。 
-4. 下列訊息出現時，按一下 [ **確定**]。 
+3. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件]。 StorSimple 裝置管理員服務在轉寄測試通知時會顯示狀態訊息。
+
+    ![警示設定](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+
+4. 傳送測試電子郵件之後，您會看到一則通知。 
    
-    ![已傳送警示測試通知電子郵件](./media/storsimple-manage-alerts/HCS_AlertNotificationConfig3.png)
+    ![已傳送警示測試通知電子郵件](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
    
    > [!NOTE]
-   > 如果無法傳送測試通知訊息，StorSimple Manager 服務會顯示適當的訊息。 按一下 [ **確定**]，等候幾分鐘，然後嘗試再次傳送測試通知訊息。 
-   > 
-   > 
+   > 如果無法傳送測試通知訊息，StorSimple 裝置管理員服務會顯示適當的錯誤訊息。 請等候幾分鐘，然後嘗試再次傳送測試通知訊息。 
+
+5. 完成設定後，按一下 [儲存]。 系統提示您進行確認時，按一下 [是] 。
+
+     ![已傳送警示測試通知電子郵件](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## <a name="view-and-track-alerts"></a>檢視和追蹤警示
-StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 (依嚴重性層級排列)。
 
-![警示儀表板](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
+StorSimple 裝置管理員服務的摘要刀鋒視窗，可讓您快速概覽裝置上的警示數目 (依嚴重性層級排列)。
 
-按一下嚴重性層級會開啟 [ **警示** ] 索引標籤。 結果只包含符合該嚴重性層級的警示。
+![警示儀表板](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
-![限定警示類型的警示報告](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
+按一下嚴重性層級會開啟 [警示] 刀鋒視窗。 結果只包含符合該嚴重性層級的警示。
 
 按一下清單中的警示會提供警示的其他詳細資料，包括上次報告警示的時間、裝置上發生該警示的次數，以及建議採取來解決警示的動作。 如果是硬體警示，則也會識別硬體元件。
 
-![硬體警示範例](./media/storsimple-manage-alerts/admin_alerts_hardware.png)
+![硬體警示範例](./media/storsimple-8000-manage-alerts/configure-alerts-email14.png)
 
-如果您需要將資訊傳送給 Microsoft 支援服務，您可以將警示詳細資料複製到文字檔案。 依照建議解決內部部署警示狀況之後，您應該在 [警示] 索引標籤中選取警示，並按一下 [清除]，從裝置中清除警示。 若要清除多個警示，請選取每個警示，按一下除了 [警示] 資料行以外的任何資料行，然後在選取要清除的所有警示之後按一下 [清除]。 請注意，當問題解決時或系統以新資訊更新警示時，會自動清除某些警示。
+如果您需要將資訊傳送給 Microsoft 支援服務，您可以將警示詳細資料複製到文字檔案。 依照建議解決內部部署警示狀況之後，您應該在 [警示] 刀鋒視窗中選取警示，並按一下 [清除]，從裝置中清除警示。 若要清除多個警示，請選取每個警示，按一下除了 [警示] 資料行以外的任何資料行，然後在選取要清除的所有警示之後按一下 [清除]。 請注意，當問題解決時或系統以新資訊更新警示時，會自動清除某些警示。
 
 當您按一下 [ **清除**] 時，您有機會提供警示的相關註解，以及您用來解決問題的步驟。 如果新的資訊觸發另一個事件，系統會清除某些事件。 在此情況下，您會看到下列訊息。
 
 ![清除警示訊息](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
 ## <a name="sort-and-review-alerts"></a>排序和檢閱警示
-執行警示報告以分組檢閱和清除警示可能更有效率。 此外，[ **警示** ] 索引標籤最多可顯示 250 個警示。 如果超過該警示數目，則並非所有警示都會出現在預設檢視中。 您可以結合下列欄位來自訂要顯示的通知：
+
+執行警示報告以分組檢閱和清除警示可能更有效率。 此外，[警示] 刀鋒視窗最多可顯示 250 個警示。 如果超過該警示數目，則並非所有警示都會出現在預設檢視中。 您可以結合下列欄位來自訂要顯示的通知：
 
 * **狀態** – 您可以顯示 [作用中] 或 [已清除] 警示。 作用中警示仍在系統上觸發，而已清除的警示已由系統管理員手動清除，或因為系統以新資訊更新警示狀況而以程式設計方式清除。
 * **嚴重性** – 您可以顯示所有嚴重性層級 (重大、警告、資訊) 的警示，或只顯示特定嚴重性的警示，例如只有重大警示。
 * **來源** – 您可以顯示所有來源的警示，或只顯示來自服務或其中一個或所有裝置的警示。
 * **時間範圍** – 您可以指定 [從] 和 [到] 日期和時間戳記，以查看您感興趣的期間內的警示。
 
+![警示清單](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
+
 ## <a name="alerts-quick-reference"></a>警示快速參考
+
 下表列出一些您可能會遇到的 Microsoft Azure StorSimple 警示，以及其他資訊和適用的建議。 StorSimple 裝置警示分為下列類別：
 
 * [雲端連線能力警示](#cloud-connectivity-alerts)
@@ -116,23 +130,26 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 * [支援封裝警示](#support-package-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>雲端連線能力警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 無法建立 <雲端認證名稱> 的連線。 |無法連接到儲存體帳戶。 |您的裝置似乎有連線問題。 請在您的裝置上從 Windows PowerShell Interface for StorSimple 執行 `Test-HcsmConnection` Cmdlet，以識別並修正問題。 如果設定正確無誤，則問題可能在於引發警示的儲存體帳戶的認證。 在此案例中，使用 `Test-HcsStorageAccountCredential` Cmdlet 判斷是否有可以解決的問題。<ul><li>檢查網路設定。</li><li>檢查您的儲存體帳戶認證。</li></ul> |
 | 在過去 <數目> 分鐘內，我們未收到您的裝置有任何活動訊號。 |無法連接到裝置。 |您的裝置似乎有連線問題。 請在您的裝置上從 Windows PowerShell Interface for StorSimple 使用 `Test-HcsmConnection` Cmdlet，以識別並修正問題，或連絡網路管理員。 |
 
 ### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>雲端連線失敗時的 StorSimple 行為
+
 若雲端連線失敗時，在生產環境中執行的 StorSimple 裝置會發生什麼情況？
 
-如果 StorSimple 生產裝置的雲端連線失敗，視您的裝置狀態，可能會發生下列狀況： 
+如果 StorSimple 生產裝置的雲端連線失敗，視您的裝置狀態，可能會發生下列狀況：
 
-* **裝置上的本機資料**：不會中斷，將繼續提供讀取。 不過，當未完成的 IO 數量增加並超過限制時，讀取可能就會失敗。 
-  
-    視裝置上的資料量，雲端連線中斷後的數小時內仍會持續寫入。 寫入速度會逐漸緩慢，最終會於雲端連線中斷數小時後失敗。 (裝置上有即將推送至雲端之資料的暫存儲存體。 傳送資料時，這個區域會排清。 如果連線失敗，此儲存區域中的資料不會推送到雲端，而且 IO 會失敗。)   
-* **雲端中的資料**：大部份的雲端連線錯誤會傳回錯誤。 只要連線還原時，IO 就會繼續進行，使用者無需自行連線磁碟區。 但在罕見情況下，有可能會需要使用者介入，透過 Azure 傳統入口網站連線磁碟區。 
+* **裝置上的本機資料**：不會中斷，將繼續提供讀取。 不過，當未完成的 IO 數量增加並超過限制時，讀取可能就會失敗。
+
+    視裝置上的資料量，雲端連線中斷後的數小時內仍會持續寫入。 寫入速度會逐漸緩慢，最終會於雲端連線中斷數小時後失敗。 (裝置上有即將推送至雲端之資料的暫存儲存體。 傳送資料時，這個區域會排清。 如果連線失敗，此儲存區域中的資料不會推送到雲端，而且 IO 會失敗。)
+* **雲端中的資料**：大部份的雲端連線錯誤會傳回錯誤。 只要連線還原時，IO 就會繼續進行，使用者無需自行連線磁碟區。 但在罕見情況下，有可能會需要使用者介入，透過 Azure 入口網站連線磁碟區。
 * **進行中的雲端快照**：會在 4、5 個小時內多次重新嘗試作業，若連線未還原，雲端快照將會失敗。
 
 ### <a name="cluster-alerts"></a>叢集警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 裝置容錯移轉至 <裝置名稱>。 |裝置處於維護模式。 |裝置由於進入或結束維護模式而容錯移轉。 這很正常，不需要採取任何動作。 收到此警示之後，請從警示頁面清除它。 |
@@ -146,18 +163,20 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 | 網路介面 <DATA #> 的虛擬 IP 位址會回報故障狀態。 |介面名稱：<Data #> IP 位址 <IP address> 無法連線，因為在網路上偵測到重複的 IP 位址。 |確定已移除網路中重複的 IP 位址或以不同的 IP 位址重新設定介面。 |
 
 ### <a name="disaster-recovery-alerts"></a>災害復原警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
-| 復原作業無法還原此服務的所有設定。 部分裝置的裝置設定資料處於不一致的狀態。 |災害復原之後偵測到資料不一致。 |服務上與裝置上加密的資料不同步。 從 StorSimple Manager 授權裝置 <裝置名稱> 以啟動同步處理程序。 使用 Windows PowerShell Interface for StorSimple 在裝置 <裝置名稱> Cmdlet 上執行 `Restore-HcsmEncryptedServiceData`，並提供舊密碼作為此 Cmdlet 的輸入，以還原安全性設定檔。 接著執行 `Invoke-HcsmServiceDataEncryptionKeyChange` Cmdlet 以更新服務資料加密金鑰。 採取適當的動作之後，請從警示頁面清除此警示。 |
+| 復原作業無法還原此服務的所有設定。 部分裝置的裝置設定資料處於不一致的狀態。 |災害復原之後偵測到資料不一致。 |服務上與裝置上加密的資料不同步。 從 StorSimple 裝置管理員授權裝置 <裝置名稱> 以啟動同步處理程序。 使用 Windows PowerShell Interface for StorSimple 在裝置 <裝置名稱> Cmdlet 上執行 `Restore-HcsmEncryptedServiceData`，並提供舊密碼作為此 Cmdlet 的輸入，以還原安全性設定檔。 接著執行 `Invoke-HcsmServiceDataEncryptionKeyChange` Cmdlet 以更新服務資料加密金鑰。 採取適當的動作之後，請從警示頁面清除此警示。 |
 
 ### <a name="hardware-alerts"></a>硬體警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 硬體元件 <元件識別碼> 報告狀態為 <狀態>。 | |有時候暫時性狀況可能會導致這些警示。 如果是的話，一段時間之後會自動清除這個警示。 如果問題持續發生，請連絡 Microsoft 支援服務。 |
 | 被動控制器不正常。 |被動 (次要) 控制器無法正常運作。 |您的裝置正常運作，但其中一個控制器不正常。 請嘗試重新啟動該控制器。 如果無法解決問題，請連絡 Microsoft 支援服務。 |
-| 偵測到即將發生的磁碟機失敗。 | 偵測到即將發生的磁碟機失敗。 |我們在硬體元件「插槽 <插槽識別碼>、機箱 <機箱識別碼> 中的磁碟機」上偵測到即將發生的磁碟機失敗。 請考慮替換您的磁碟機。 <br> 在您開始進行磁碟替換前，請檢閱下列資訊。<br><br>如果您的裝置有一部以上失敗的磁碟，永遠不要移除一部以上的 SSD 或 HDD。 這樣做可能會導致資料遺失。<br><br>請確定您將更換 SSD 放置在先前包含 SSD 的插槽中。 同樣的作法也適用於 HDD。<br><br>插槽編號從 0 到 11。 插槽 2 中失敗的磁碟對應到裝置插槽 3 中失敗的磁碟 (從左上方開始)。<br><br>如需磁碟替換的詳細資訊，請前往 https://go.microsoft.com/fwlink/?linkid=838653。 如果問題仍存在，請透過 https://go.microsoft.com/fwlink/?linkid=838654 連絡 Microsoft 支援服務。 |
 
 ### <a name="job-failure-alerts"></a>作業失敗警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 備份 <來源磁碟區群組識別碼> 失敗。 |備份工作失敗。 |連線問題可能導致備份作業無法順利完成。 如果連線沒有問題，則可能是您已達到備份數目上限。 刪除任何不再需要的備份，然後重試作業。 採取適當的動作之後，請從警示頁面清除此警示。 |
@@ -165,6 +184,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 | 還原 <來源備份項目識別碼> 失敗。 |還原工作失敗。 |重新整理備份清單，以確認備份仍然有效。 如果備份有效，則可能是雲端連線問題導致還原作業無法順利完成。 如果連線沒有問題，則可能是您已達到儲存限制。 刪除任何不再需要的備份，然後重試作業。 採取適當的動作來解決問題之後，請從警示頁面清除此警示。 |
 
 ### <a name="locally-pinned-volume-alerts"></a>固定在本機的磁碟區警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 建立本機磁碟區 <磁碟區名稱> 失敗。 |磁碟區建立作業已失敗。 <對應到失敗錯誤碼的錯誤訊息>。 |連線問題可能導致空間建立作業無法順利完成。 已密集佈建固定在本機的磁碟區，而建立空間的程序牽涉到將分層式磁碟區溢出至雲端。 如果連線沒有問題，則可能是您已用完裝置上的本機空間。 重試此作業前，請判斷裝置上是否有空間存在。 |
@@ -176,6 +196,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 | 還原 <來源備份項目識別碼> 失敗。 |還原作業失敗。 |如果此備份原則中有固定在本機或固定在本機與分層式磁碟機的混合，請重新整理備份清單，以確認備份仍然有效。 如果備份有效，則可能是雲端連線問題導致還原作業無法順利完成。 已還原為此快照群組的一部分之固定在本機的磁碟區，不需要將其所有資料下載到裝置，而如果此快照群組中有分層式和固定在本機磁碟區的混合，則兩者不會彼此同步。 若要順利完成還原作業，讓主機上此群組中的磁碟區離線，然後重試還原作業。 請注意，在還原程序期間所執行的磁碟區資料修改將會遺失。 |
 
 ### <a name="networking-alerts"></a>網路警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 無法啟動 StorSimple 服務。 |資料路徑錯誤 |如果問題持續發生，請連絡 Microsoft 支援服務。 |
@@ -183,11 +204,13 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 | 'Data0' 的 IPv4 (或 IPv6) 位址已離線。 | |網路資源 'Data0' 與 IP 位址 '10.0.0.1'。 裝置 *<device1>* 上的首碼長度 '22' 處於離線狀態。 請確定此介面所連接的交換器連接埠運作正常。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 |
 
 ### <a name="performance-alerts"></a>效能警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
-| 裝置負載超過 <閾值>。 |比預期的回應時間慢。 |您的裝置報告使用率處於輸入/輸出負荷過重的情況。 這可能會造成您的裝置無法如預期般正常運作。 檢閱您已指派給裝置的工作負載，並判斷是否有任何可移至其他裝置或已不再需要的工作負載。<br>若要了解目前的狀態，請移至[使用 StorSimple Manager 服務來監視您的裝置](storsimple-monitor-device.md) |
+| 裝置負載超過 <閾值>。 |比預期的回應時間慢。 |您的裝置報告使用率處於輸入/輸出負荷過重的情況。 這可能會造成您的裝置無法如預期般正常運作。 檢閱您已指派給裝置的工作負載，並判斷是否有任何可移至其他裝置或已不再需要的工作負載。<br>若要了解目前的狀態，請前往[使用 StorSimple 裝置管理員服務來監視您的裝置](storsimple-monitor-device.md) |
 
 ### <a name="security-alerts"></a>安全性警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | Microsoft 支援服務工作階段已開始。 |協力廠商已存取支援工作階段。 |請確認已授權此存取。 採取適當的動作之後，請從警示頁面清除此警示。 |
@@ -197,11 +220,13 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 | 變更服務資料加密金鑰時發生一個或多個失敗。 | |變更服務資料加密金鑰時發生錯誤。 解決錯誤狀況之後，請在裝置上從 Windows PowerShell Interface for StorSimple 執行 `Invoke-HcsmServiceDataEncryptionKeyChange` Cmdlet，以更新服務。 如果此問題持續發生， 請連絡 Microsoft 支援服務。 解決問題之後，請從警示頁面清除此警示。 |
 
 ### <a name="support-package-alerts"></a>支援封裝警示
+
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 建立支援封裝失敗。 |StorSimple 無法產生封裝。 |重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 解決問題之後，請從警示頁面清除此警示。 |
 
 ## <a name="next-steps"></a>後續步驟
+
 深入了解 [StorSimple 錯誤和疑難排解可運作的裝置](storsimple-troubleshoot-operational-device.md)。
 
 

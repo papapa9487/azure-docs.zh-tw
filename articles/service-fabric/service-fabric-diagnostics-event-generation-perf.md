@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: ac019d5393e9e9b7edb7960aa50edd5af3b49ebc
+ms.translationtype: HT
+ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
+ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 07/20/2017
 
 ---
 
@@ -32,12 +32,6 @@ ms.lasthandoff: 07/06/2017
 
 | 計數器類別 | 計數器名稱 |
 | --- | --- |
-| PhysicalDisk(Total) | Avg. 磁碟讀取佇列長度 |
-| PhysicalDisk(Total) | Avg. 磁碟寫入佇列長度 |
-| PhysicalDisk(Total) | Disk Reads/sec  |
-| PhysicalDisk(Total) | Disk Read Bytes/sec  |
-| PhysicalDisk(Total) | Disk Writes/sec |
-| PhysicalDisk(Total) | Disk Write Bytes/sec |
 | PhysicalDisk(per Disk) | Avg. 磁碟讀取佇列長度 |
 | PhysicalDisk(per Disk) | Avg. 磁碟寫入佇列長度 |
 | PhysicalDisk(per Disk) | Avg. Disk sec/Read |
@@ -85,6 +79,6 @@ Service Fabric 可產生大量的自訂效能計數器。 如果您已安裝 SDK
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解 Service Fabric 中的[基礎結構層級的事件產生](service-fabric-diagnostics-event-generation-infra.md)
+* 深入了解 Service Fabric 中的[平台層級的事件產生](service-fabric-diagnostics-event-generation-infra.md)
 * 透過 [Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)收集效能計量
 
