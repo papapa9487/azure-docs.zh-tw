@@ -37,8 +37,7 @@ ms.lasthandoff: 03/09/2017
    > [!NOTE]
    > 重新導向 URI 是您的應用程式 URL 加上路徑 /.auth/login/microsoftaccount/callback。 例如， `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`。   
    > 請確實使用 HTTPS 配置。
-   > 
-   > 
+   
 7. 在 [應用程式密碼] 下，按一下 [產生新密碼] 。 請記下出現的值。 一旦您離開此頁面，就不會再次顯示。
 
     > [!IMPORTANT]

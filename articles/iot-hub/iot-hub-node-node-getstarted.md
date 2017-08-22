@@ -76,8 +76,9 @@ ms.lasthandoff: 07/13/2017
 6. 新增下列程式碼以在 IoT 中樞的身分識別登錄建立裝置定義。 如果身分識別登錄中沒有該裝置識別碼，此程式碼會建立裝置，否則會傳回現有裝置的金鑰：
    
     ```
-    var device = new iothub.Device(null);
-    device.deviceId = 'myFirstNodeDevice';
+    var device = {
+      deviceId: 'myFirstNodeDevice'
+    }
     registry.create(device, function(err, deviceInfo, res) {
       if (err) {
         registry.get(device.deviceId, printDeviceInfo);

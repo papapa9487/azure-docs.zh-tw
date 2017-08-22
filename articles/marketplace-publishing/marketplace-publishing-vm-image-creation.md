@@ -20,7 +20,6 @@ ms.openlocfilehash: 8f87f2c0caccded5b0f24052deee6cefaad08013
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/09/2017
 
-
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -299,9 +298,9 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 有多種方式可產生 SAS URL，以便將您的 VHD 分享到 Azure Marketplace。
 以下是 3 個建議的工具︰
 
-1.    Azure 儲存體總管
-2.    Microsoft 儲存體總管
-3.    Azure CLI
+1.  Azure 儲存體總管
+2.  Microsoft 儲存體總管
+3.  Azure CLI
 
 **Azure 儲存體總管 (建議 Windows 使用者採用)**
 
@@ -332,15 +331,15 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_06.png)
 
-8.    選取容器中的 .vhd 檔案之後，按一下 [安全性]  索引標籤。
+8.  選取容器中的 .vhd 檔案之後，按一下 [安全性]  索引標籤。
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.    在 [Blob 容器安全性] 對話方塊中，保留 [存取層級] 索引標籤上的預設值，然後按一下 [共用存取簽章] 索引標籤。
+9.  在 [Blob 容器安全性] 對話方塊中，保留 [存取層級] 索引標籤上的預設值，然後按一下 [共用存取簽章] 索引標籤。
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 
-10.    遵循下列步驟來產生 .vhd 映像的共用存取簽章 URI：
+10. 遵循下列步驟來產生 .vhd 映像的共用存取簽章 URI：
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_09.png)
 
@@ -360,45 +359,45 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
        - 確定 **"= rl"** 出現在簽章的結尾。 這表明已成功提供 [讀取] 和 [列出] 存取權。
        - 確定 **"sr=c"** 出現在簽章的中間。 這示範您具有容器層級存取
 
-11.    若要確認產生的共用存取簽章 URI 有效，請按一下 [在瀏覽器中測試]。 應該會啟動下載程序。
+11. 若要確認產生的共用存取簽章 URI 有效，請按一下 [在瀏覽器中測試]。 應該會啟動下載程序。
 
-12.    複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
+12. 複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
 
-13.    針對 SKU 中的每個 VHD 重複步驟 6-10。
+13. 針對 SKU 中的每個 VHD 重複步驟 6-10。
 
 **Microsoft Azure 儲存體總管 (Windows/MAC/Linux)**
 
 以下是關於使用 Microsoft Azure 儲存體總管產生 SAS URL 的步驟
 
-1.    從 [http://storageexplorer.com/](http://storageexplorer.com/) 網站下載 Microsoft Azure 儲存體總管。 移至 [Microsoft Azure 儲存體總管](http://storageexplorer.com/releasenotes.html)，然後按 [下載 Windows 版]。
+1.  從 [http://storageexplorer.com/](http://storageexplorer.com/) 網站下載 Microsoft Azure 儲存體總管。 移至 [Microsoft Azure 儲存體總管](http://storageexplorer.com/releasenotes.html)，然後按 [下載 Windows 版]。
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_10.png)
 
-2.    安裝之後，請開啟應用程式。
+2.  安裝之後，請開啟應用程式。
 
-3.    按一下 [加入帳戶] 。
+3.  按一下 [加入帳戶] 。
 
-4.    登入帳戶將 Microsoft Azure 儲存體總管設定給您的訂用帳戶
+4.  登入帳戶將 Microsoft Azure 儲存體總管設定給您的訂用帳戶
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_11.png)
 
-5.    移至儲存體帳戶，選取 [容器]
+5.  移至儲存體帳戶，選取 [容器]
 
-6.    選取 [取得共用存取簽章...] \(以滑鼠右鍵按一下 [容器])
+6.  選取 [取得共用存取簽章...] \(以滑鼠右鍵按一下 [容器])
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_12.png)
 
-7.    根據下列指示，更新 [開始時間]、[到期時間] 和 [權限]
+7.  根據下列指示，更新 [開始時間]、[到期時間] 和 [權限]
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_13.png)
 
-    a.    **開始時間：**為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2014 年 10 月 6 日，則選取 10/5/2014。
+    a.  **開始時間：**為了確保使用 UTC 時間，請選取目前日期之前的日期。 例如，如果目前日期為 2014 年 10 月 6 日，則選取 10/5/2014。
 
-    b.這是另一個 C# 主控台應用程式。    **到期時間︰**選取至少在 [開始時間] 日期之後 3 個星期的日期。
+    b.這是另一個 C# 主控台應用程式。  **到期時間︰**選取至少在 [開始時間] 日期之後 3 個星期的日期。
 
-    c.    **權限：**：選取 [列出] 和 [讀取] 權限
+    c.  **權限：**：選取 [列出] 和 [讀取] 權限
 
-8.    複製容器共用存取簽章 URI
+8.  複製容器共用存取簽章 URI
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_14.png)
 
@@ -418,21 +417,21 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
     - 確定 **"sp=rl"** 出現在簽章的中間。 這表明已成功提供 [讀取] 和 [列出] 存取權。
     - 確定 **"sr=c"** 出現在簽章的中間。 這示範您具有容器層級存取
 
-9.    若要確認產生的共用存取簽章 URI 有效，請在瀏覽器中測試。 應該會啟動下載程序
+9.  若要確認產生的共用存取簽章 URI 有效，請在瀏覽器中測試。 應該會啟動下載程序
 
-10.    複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
+10. 複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
 
-11.    為 SKU 中的每個 VHD 重複這些步驟。
+11. 為 SKU 中的每個 VHD 重複這些步驟。
 
 **Azure CLI (建議用於非 Windows 和持續整合)**
 
 以下是關於使用 Azure CLI 產生 SAS URL 的步驟
 
-1.    從[這裡](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)下載 Microsoft Azure CLI。 您也可以找到適用於 **[Windows](http://aka.ms/webpi-azure-cli)** 和 **[MAC OS](http://aka.ms/mac-azure-cli)** 的不同連結。
+1.  從[這裡](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/)下載 Microsoft Azure CLI。 您也可以找到適用於 **[Windows](http://aka.ms/webpi-azure-cli)** 和 **[MAC OS](http://aka.ms/mac-azure-cli)** 的不同連結。
 
-2.    下載之後，請安裝
+2.  下載之後，請安裝
 
-3.    使用下列程式碼建立 PowerShell 檔案，並將它儲存在本機
+3.  使用下列程式碼建立 PowerShell 檔案，並將它儲存在本機
 
           $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
           azure storage container list vhds -c $conn
@@ -454,21 +453,21 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 
-4.    使用「以系統管理員身分執行」模式下開啟 Powershell 編輯器，並在步驟 #3 中開啟檔案。
+4.  使用「以系統管理員身分執行」模式下開啟 Powershell 編輯器，並在步驟 #3 中開啟檔案。
 
-5.    執行指令碼，它會提供容器層級存取的 SAS URL 給您
+5.  執行指令碼，它會提供容器層級存取的 SAS URL 給您
 
     以下是 SAS 簽章的輸出，請將醒目提示的部分複製到記事本
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
 
-6.    現在您會取得容器層級 SAS URL，您需要在其中新增 VHD 名稱。
+6.  現在您會取得容器層級 SAS URL，您需要在其中新增 VHD 名稱。
 
     容器等級 SAS URL #
 
     `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
-7.    在 SAS URL 中的容器名稱之後插入 VHD 名稱，如下所示 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+7.  在 SAS URL 中的容器名稱之後插入 VHD 名稱，如下所示 `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     範例：
 
@@ -477,14 +476,14 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
     `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
     - 確定您的映像檔案名稱和 ".vhd" 位於 URI 中。
-    -    確定 "sp=rl" 出現在簽章的中間。 這表明已成功提供 [讀取] 和 [列出] 存取權。
-    -    確定 "sr=c" 出現在簽章的中間。 這示範您具有容器層級存取
+    -   確定 "sp=rl" 出現在簽章的中間。 這表明已成功提供 [讀取] 和 [列出] 存取權。
+    -   確定 "sr=c" 出現在簽章的中間。 這示範您具有容器層級存取
 
-8.    若要確認產生的共用存取簽章 URI 有效，請在瀏覽器中測試。 應該會啟動下載程序
+8.  若要確認產生的共用存取簽章 URI 有效，請在瀏覽器中測試。 應該會啟動下載程序
 
-9.    複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
+9.  複製共用存取簽章 URI。 此為要貼入發佈入口網站的 URI。
 
-10.    為 SKU 中的每個 VHD 重複這些步驟。
+10. 為 SKU 中的每個 VHD 重複這些步驟。
 
 
 ### <a name="53-provide-information-about-the-vm-image-and-request-certification-in-the-publishing-portal"></a>5.3 在發佈入口網站中提供 VM 映像和要求認證的相關資訊。
@@ -547,8 +546,8 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
 [link-github-waagent]:https://github.com/Azure/WALinuxAgent
 [link-azure-codeplex]:https://azurestorageexplorer.codeplex.com/
-[link-azure-2]: ../storage/storage-dotnet-shared-access-signature-part-2.md
-[link-azure-1]: ../storage/storage-dotnet-shared-access-signature-part-1.md
+[link-azure-2]:../storage/blobs/storage-dotnet-shared-access-signature-part-2.md
+[link-azure-1]:../storage/common/storage-dotnet-shared-access-signature-part-1.md
 [link-msft-download]:http://www.microsoft.com/download/details.aspx?id=44299
 [link-technet-3]:https://technet.microsoft.com/library/hh846766.aspx
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
