@@ -54,14 +54,12 @@
 ### [Web 應用程式與 Visual Studio](web-app-visual-studio.md)
 ### [用以執行 MPI 應用程式的 RDMA 叢集](rdma-cluster.md)
 ### [如何搭配使用 Azure 從屬外掛程式與 Hudson CI](../../virtual-machines-azure-slave-plugin-for-hudson.md)
-
-
-## HPC Pack
-### [用以執行 MPI 應用程式的 Windows RDMA 叢集](hpcpack-cluster.md)
-### [使用 HPC Pack IaaS 部署指令碼的 Windows HPC 叢集](hpcpack-cluster-starccm.md)
-### [管理計算節點的數目和可用性](hpcpack-cluster-powershell-script.md)
-### [新增隨選節點](hpcpack-cluster-openfoam.md)
-### [自動調整資源](hpcpack-cluster-namd.md)
+### HPC Pack
+#### [為 Linux 工作負載建立叢集](hpcpack-cluster-powershell-script.md)
+#### [管理具有 Linux 節點的叢集](hpcpack-cluster.md)
+#### [執行 STAR-CCM+](hpcpack-cluster-starccm.md)
+#### [執行 OpenFOAM](hpcpack-cluster-openfoam.md)
+#### [執行 NAMD](hpcpack-cluster-namd.md)
 
 ## 疑難排解
 ### [VM 部署](troubleshoot-deployment-new-vm.md)

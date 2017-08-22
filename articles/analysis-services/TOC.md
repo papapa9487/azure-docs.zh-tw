@@ -2,6 +2,7 @@
 ## [什麼是 Azure Analysis Services？](analysis-services-overview.md)
 ## [支援的資料來源](analysis-services-datasource.md)
 ## [驗證和使用者權限](analysis-services-manage-users.md)
+## [連線至內部部署資料來源](analysis-services-gateway.md)
 ## [相容性層級](analysis-services-compat-level.md)
 ## [高可用性](analysis-services-bcdr.md)
 
@@ -15,7 +16,7 @@
 ## [管理伺服器](analysis-services-manage.md)
 ## [管理資料庫使用者](analysis-services-database-users.md)
 ## [管理伺服器管理員](analysis-services-server-admins.md)
-## [安裝內部部署資料閘道](analysis-services-gateway.md)
+## [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)
 ## [取得用戶端程式庫](analysis-services-data-providers.md)
 ## [備份與還原](analysis-services-backup.md)
 ## [與 Excel 連線](analysis-services-connect-excel.md)
