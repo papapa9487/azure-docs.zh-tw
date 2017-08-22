@@ -19,6 +19,8 @@
       items:
         - name: 計時器
           href: functions-create-scheduled-function.md
+        - name: 一般 Webhook
+          href: functions-create-generic-webhook-triggered-function.md
         - name: GitHub webhook
           href: functions-create-github-webhook-triggered-function.md
         - name: Blob 儲存體

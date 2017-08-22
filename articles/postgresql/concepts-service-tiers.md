@@ -10,11 +10,11 @@ ms.custom: mvc
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2bd54b85f4c9f9ff13b8975eee15649f607a9194
+ms.translationtype: HT
+ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
+ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>適用於 PostgreSQL 的 Azure 資料庫選項和效能：了解每個定價層中可用的項目
@@ -52,6 +52,9 @@ ms.lasthandoff: 06/16/2017
 | 資料庫備份的保留期限 | 7 天 | 35 天 | 
 
 在預覽時間範圍內，一旦建立伺服器，就無法變更定價層。 未來能將伺服器從某個定價層升級或降級至另一個定價層。
+
+## <a name="understand-the-price"></a>了解價格
+在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.PostgreSQLServer)內部建立適用於 PostgreSQL 的新 Azure 資料庫時，請按一下 [定價層] 刀鋒視窗，便會根據您選取的選項顯示每月成本。 如果您沒有 Azure 訂用帳戶，請使用 Azure 價格計算機取得估計的價格。 請瀏覽 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)網站，然後按一下 [新增項目]，展開 [資料庫] 類別，並選擇 [適用於 PostgreSQL 的 Azure 資料庫] 以自訂選項。
 
 ## <a name="choose-a-performance-level-compute-units"></a>選擇效能等級 (計算單位)
 在您決定適用於 PostgreSQL 伺服器的 Azure 資料庫的定價層之後，您就可以選取所需的計算單位數來決定效能等級。 對於其 Web 或分析工作負載需要更高使用者並行處理的應用程式而言，200 或 400 個計算單位會是很好的起點。 

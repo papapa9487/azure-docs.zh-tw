@@ -2,7 +2,9 @@
 title: "建立函式應用程式和從 GitHub 部署函式程式碼 | Microsoft Docs"
 description: "建立函式應用程式和從 GitHub 部署函式程式碼"
 services: functions
+ms.service: functions
 keywords: 
+ms.devlang: azurecli
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/16/2017
+ms.date: 07/26/2017
 ms.author: femila
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 4e76a20c7c7eef9a51c6c0373785fd810c09e34a
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: 342d9e2787add3d04f1b744152e135db98848179
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="guidelines-for-deploying-windows-server-active-directory-on-azure-virtual-machines"></a>在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針
@@ -109,7 +108,7 @@ Hypervisor 提供或忽略技術，可能會造成許多分散式系統的問題
 從 Windows Server 2012 開始， [額外的保護措施已內建至 AD DS](https://technet.microsoft.com/library/hh831734.aspx)。 只要基礎 hypervisor 平台支援 VM-GenerationID，這些保護措施就能協助保護虛擬化網域控制站避免上述問題。 Azure 支援 VM-GenerationID，這表示在 Azure 虛擬機器上執行 Windows Server 2012 或更新版本的的網域控制站具有額外的保護措施。
 
 > [!NOTE]
-> 您應該關閉並重新啟動 VM (在客體作業系統內的 Azure 中執行網域控制站角色)，而不是使用 Azure 入口網站或傳統入口網站的 [關機] 選項。 目前，使用入口網站關閉 VM 會造成 VM 無法解除配置。 解除配置的 VM 的優點是不會產生費用，但它也會重設 VM-GenerationID，這對於 DC 不是預期的結果。 當 VM-GenerationID 重設時，也會重設 AD DS 資料庫的 invocationID、捨棄 RID 集區，且 SYSVOL 會標示為非授權。 如需詳細資訊，請參閱 [Active Directory Domain Services (AD DS) 虛擬化的簡介](https://technet.microsoft.com/library/hh831734.aspx)和[安全的虛擬化 DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx)。
+> 您應該關閉並重新啟動 VM (在客體作業系統內的 Azure 中執行網域控制站角色)，而不是使用 Azure 入口網站的 [關機] 選項。 目前，使用入口網站關閉 VM 會造成 VM 無法解除配置。 解除配置的 VM 的優點是不會產生費用，但它也會重設 VM-GenerationID，這對於 DC 不是預期的結果。 當 VM-GenerationID 重設時，也會重設 AD DS 資料庫的 invocationID、捨棄 RID 集區，且 SYSVOL 會標示為非授權。 如需詳細資訊，請參閱 [Active Directory Domain Services (AD DS) 虛擬化的簡介](https://technet.microsoft.com/library/hh831734.aspx)和[安全的虛擬化 DFSR](http://blogs.technet.com/b/filecab/archive/2013/04/05/safely-virtualizing-dfsr.aspx)。
 > 
 > 
 
@@ -127,7 +126,7 @@ Azure 也非常適合替代耗費成本的災害復原 (DR) 網站。 託管少�
 
 ## <a name="contrasts-between-deploying-windows-server-active-directory-domain-controllers-on-azure-virtual-machines-versus-on-premises"></a>在 Azure 虛擬機器上與在內部部署上部署 Windows Server Active Directory 網域控制站之間的對照
 * 對於包含多部 VM 的任何 Windows Server Active Directory 部署案例，必須使用 Azure 虛擬網路讓 IP 位址保時一致。 請注意，本指南假設 DC 在 Azure 虛擬網路上執行。
-* 如同內部部署 DC，建議使用靜態 IP 位址。 靜態 IP 位址只能使用 Azure PowerShell 進行設定。 如需詳細資訊，請參閱 [VM 的靜態內部 IP 位址](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) 。 如果您有監控系統，或其他檢查客體作業系統內靜態 IP 位址組態的解決方案，可以指派相同的靜態 IP 位址給 VM 網路介面卡屬性。 但是請注意，如果 VM 正在進行服務修復或在傳統入口網站中關機，並且已解除配置其位址，則網路介面卡將會被捨棄。 在此情況下，必須重設客體內的靜態 IP 位址。
+* 如同內部部署 DC，建議使用靜態 IP 位址。 靜態 IP 位址只能使用 Azure PowerShell 進行設定。 如需詳細資訊，請參閱 [VM 的靜態內部 IP 位址](http://azure.microsoft.com/blog/static-internal-ip-address-for-virtual-machines/) 。 如果您有監控系統，或其他檢查客體作業系統內靜態 IP 位址組態的解決方案，可以指派相同的靜態 IP 位址給 VM 網路介面卡屬性。 但是請注意，如果 VM 正在進行服務修復或在入口網站中關機，且已解除配置其位址，則將會捨棄網路介面卡。 在此情況下，必須重設客體內的靜態 IP 位址。
 * 在虛擬網路上部署 VM 不代表 (或需要) 連接回內部部署網路；只是表示虛擬網路有這個可能性。 您必須建立虛擬網路以在 Azure 和您的內部部署網路之間進行私密通訊。 您必須在內部部署網路上部署 VPN 端點。 VPN 會從 Azure 開啟到內部部署網路。 如需詳細資訊，請參閱[虛擬網路概觀](../virtual-network/virtual-networks-overview.md)和[在 Azure 入口網站中設定站對站 VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md)。
 
 > [!NOTE]

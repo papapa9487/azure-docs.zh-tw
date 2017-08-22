@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2017
+ms.date: 07/13/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 0c44d5bda8eb5b2e667fa888c9afcf58aec13534
+ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.openlocfilehash: c64417c136340b3ffa5d67c618c6fe037d2992b5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 07/26/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>教學課程：Azure Active Directory 與 Klue 整合
@@ -123,7 +122,7 @@ Klue 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://app.klue.com/account/auth/saml/<Customer UUID>/`
      
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的「回覆 URL」、「識別碼」及「登入 URL」來更新這些值。 請連絡 [lue 客戶支援小組](mailto:gsar@klue.com)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的「回覆 URL」、「識別碼」及「登入 URL」來更新這些值。 請連絡 [lue 客戶支援小組](mailto:support@klue.com)以取得這些值。
 
 5. Klue 應用程式需要特定格式的 SAML 判斷提示，所以您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 
 
@@ -161,11 +160,10 @@ Klue 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-klue-tutorial/tutorial_klue_configure.png) 
 
-10. 若要在 **Klue** 端設定單一登入，您必須將已下載的**憑證(Base64)、SAML 單一登入服務 URL 和 SAML 實體識別碼**傳送給 [Klue 支援小組](mailto:gsar@klue.com)。
+10. 若要在 **Klue** 端設定單一登入，您必須將已下載的**憑證(Base64)、SAML 單一登入服務 URL 和 SAML 實體識別碼**傳送給 [Klue 支援小組](mailto:support@klue.com)。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
@@ -200,7 +198,10 @@ Klue 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-klue-test-user"></a>建立 Klue 測試使用者
 
-在本節中，您要在 Klue 中建立名為 Britta Simon 的使用者。 請與 [Klue 支援小組](mailto:gsar@klue.com)合作，在 Klue 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+本節目標是在 Klue 中建立名為 Britta Simon 的使用者。 Klue 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Klue 時若尚無使用者，則會建立新使用者。
+
+>[!Note]
+>如果您需要手動建立使用者，請連絡 [Klue 支援小組](mailto:support@klue.com)。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

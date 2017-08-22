@@ -209,11 +209,11 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
 
 2.  在左側窗格中，選取 [系統設定] > [管理使用者] > [新增使用者]。
 
-    [新增使用者] 連結![][新增使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "")
+    ![新增使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_005.png "連結 新增使用者")
 
 3.  在 [人員詳細資料] 下，執行下列動作：
 
-    [人員詳細資料] 區段![][新增使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "")
+    ![人員詳細資料](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "區段 新增使用者")
     
     a. 將 [內部使用者] 設為 [OFF]。
     
@@ -223,9 +223,9 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
     
     d. 在 [電子郵件] 方塊中，輸入使用者的電子郵件地址，例如 Brittasimon@contoso.com。
 
-4.  在 [帳戶資訊] 下，執行下列動作：
+4.  在 **[帳戶資訊]** 下，執行下列動作：
 
-    [帳戶資訊] 區段![][新增使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "")
+    ![帳戶資訊](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "區段 新增使用者")
     
     a. 在 [使用者名稱] 方塊中，輸入使用者的電子郵件地址，例如 Brittasimon@contoso.com。
     
@@ -237,7 +237,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
 
 5. 在 [單一登入] 索引標籤的 [SAML 2.0 識別碼] 區段中，選取 [新增]。
 
-    [新增] 按鈕![][使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "")
+    ![新增](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png " 按鈕 使用者")
 
 6. 在 [識別提供者] 清單方塊中，選取您的識別提供者。 在 [使用者識別碼] 方塊中，輸入測試使用者 Britta Simon 帳戶的電子郵件地址。
 
@@ -245,7 +245,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
     
 7. 選取 [ **儲存**]。
 
-    [儲存] 按鈕![][使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "")
+    ![儲存](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "按鈕 使用者")
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

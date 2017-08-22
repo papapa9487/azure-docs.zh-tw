@@ -11,20 +11,24 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/26/2017
-ms.author: curtand;jeffsta
-ms.reviewer: asteen
-ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f171456f74925eba16ebd6f56ced558a11f9d99
-ms.openlocfilehash: 6c366a2b7e5017bbe67cf1dbefc0baec6cf1aed3
+ms.author: curtand
+ms.reviewer: jeffsta
+ms.custom: oldportal;it-pro;
+robots: NOINDEX
+ms.translationtype: HT
+ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
+ms.openlocfilehash: ff4b742e772a6062885313e9bb49e55907fe125a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 07/28/2017
 
 ---
-# <a name="add-new-users--or-users-with-microsoft-accounts-to-azure-active-directory"></a>將新的使用者或具有 Microsoft 帳戶的使用者新增至 Azure Active Directory
+# <a name="add-new-users-or-users-with-microsoft-accounts-to-azure-active-directory"></a>在 Azure Active Directory 新增新的使用者或具有 Microsoft 帳戶的使用者
 請新增使用者來填入您的目錄。 本文說明如何在組織中新增新的使用者，以及如何新增具有 Microsoft 帳戶的使用者。 如需新增來自 Azure Active Directory 中其他目錄之使用者或是來自合作夥伴公司之使用者的詳細資訊，請參閱 [新增來自 Azure Active Directory 中其他目錄或合作夥伴公司的使用者](active-directory-create-users-external.md)。 新增的使用者預設不會有系統管理員權限，但是您可以隨時指派角色給他們。
+
+> [!IMPORTANT]
+> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 傳統入口網站。 關於如何在 Azure AD 系統管理中心新增使用者，請參閱[將新的使用者新增至 Azure Active Directory](active-directory-users-create-azure-portal.md)。
 
 ## <a name="add-a-user"></a>新增使用者
 1. 使用屬於目錄全域管理員的帳戶登入 [Azure 傳統入口網站](https://manage.windowsazure.com) 。
@@ -41,7 +45,7 @@ ms.lasthandoff: 02/11/2017
 > [!IMPORTANT]
 > 如果您的組織使用多個網域，當您新增使用者帳戶時，請注意下列問題：
 >
-> * 若要跨網域新增具有相同使用者主體名稱 (UPN) 的使用者帳戶，請**先**新增 geoffgrisso@contoso.onmicrosoft.com,，**再**新增 geoffgrisso@contoso.com。
+> * 若要跨網域新增具有相同使用者主體名稱 (UPN) 的使用者帳戶，請**先**新增 geoffgrisso@contoso.onmicrosoft.com，**再**新增 geoffgrisso@contoso.com。
 > * 請「勿」先新增 geoffgrisso@contoso.com，再新增 geoffgrisso@contoso.onmicrosoft.com。 此順序很重要，事後想要復原會很麻煩。
 >
 >

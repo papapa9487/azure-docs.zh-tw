@@ -3,9 +3,10 @@
 ## [Machine Learning 是什麼？](machine-learning-what-is-machine-learning.md)
 
 ## Team Data Science Process
-### [概觀](http://aka.ms/datascienceprocess)
-### [生命週期](data-science-process-overview.md)
+### [概觀](data-science-process-overview.md)
+### [生命週期](data-science-process-lifecycle.md)
 ### [逐步解說](data-science-process-walkthroughs.md)
+### [取得 Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
 ### [Studio 是什麼？](machine-learning-what-is-ml-studio.md)
