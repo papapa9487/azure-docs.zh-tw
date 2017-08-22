@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 55c195754f18cd52fc098061f0e16607292a1948
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/17/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付
@@ -35,6 +35,6 @@ ms.lasthandoff: 03/17/2017
    
     ![此螢幕擷取畫面顯示要選取以確認您想要升級訂用帳戶的項目](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-使用免費試用期間所剩餘的任何優惠，例如 30 天的限制或美金 200 元信用額度。 當您用完所有優惠之後，即會升級您的訂用帳戶。
+使用免費試用期間所剩餘的任何優惠，例如 30 天的限制或信用額度。 當您用完所有優惠之後，即會升級您的訂用帳戶。
 
 

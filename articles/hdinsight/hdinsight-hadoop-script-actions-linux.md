@@ -1,6 +1,6 @@
 ---
 title: "使用以 Linux 為基礎的 HDInsight 開發指令碼動作 - Azure | Microsoft Docs"
-description: "如何使用指令碼動作來自訂以 Linux 為基礎的 HDInsight 叢集。 指令碼動作是自訂 Azure HDInsight 叢集的方式，方法是指定叢集組態設定，或者在叢集上安裝額外服務、工具或其他軟體。 "
+description: "深入了解如何使用 Bash 指令碼自訂以 Linux 為基礎的 HDInsight 叢集。 HDInsight 的指令碼動作功能可讓您在建立叢集期間或之後執行指令碼。 指令碼可用於變更叢集組態設定或安裝其他軟體。"
 services: hdinsight
 documentationcenter: 
 author: Blackmist
@@ -13,14 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: cc4326a72e2124034606e25fe8f75b330726e68e
+ms.translationtype: HT
+ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
+ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/02/2017
 
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
@@ -62,7 +61,7 @@ ms.lasthandoff: 07/08/2017
 * [使用重試邏輯從暫時性錯誤復原](#bps9)
 
 > [!IMPORTANT]
-> 指令碼動作必須在 60 分鐘內完成。 否則，指令碼就會失敗。 在節點佈建期間，指令碼會與其他安裝和設定程序同時執行。 與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
+> 指令碼動作必須在 60 分鐘內完成，否則程序就會失敗。 在節點佈建期間，指令碼會與其他安裝和設定程序同時執行。 與在您開發環境中的執行時間相較，爭用 CPU 時間和網路頻寬等資源可能會導致指令碼需要較長的時間才能完成。
 
 ### <a name="bPS1"></a>目標 Hadoop 版本
 
@@ -120,11 +119,11 @@ fi
 > [!IMPORTANT]
 > 使用的儲存體帳戶必須是叢集的預設儲存體帳戶，或是位於其他任何儲存體帳戶上的公用唯讀容器。
 
-例如，Microsoft 所提供的範例會儲存在 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 儲存體帳戶，這是 HDInsight 小組維護的公用、唯讀容器。
+例如，Microsoft 所提供的範例會儲存於 [https://hdiconfigactions.blob.core.windows.net/](https://hdiconfigactions.blob.core.windows.net/) 儲存體帳戶。 這是 HDInsight 小組維護的公用、唯讀容器。
 
 ### <a name="bPS4"></a>使用預先編譯的資源
 
-若要減少執行指令碼所花費的時間，請避免這類從原始程式碼直接編譯的作業。 請先行編譯資源，並將它們儲存在 Azure Blob 儲存體中，以便可以快速地下載。
+若要減少執行指令碼所花費的時間，請避免這類從原始程式碼直接編譯的作業。 例如，先行編譯資源並以 HDInsight 格式將其儲存於相同資料中心中的 Azure 儲存體帳戶 Blob。
 
 ### <a name="bPS3"></a>確保叢集自訂指令碼具有等冪性
 
@@ -134,7 +133,7 @@ fi
 
 ### <a name="bPS5"></a>確保叢集架構具有高可用性
 
-以 Linux 為基礎的 HDInsight 叢集提供在叢集中是作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。 如果您安裝的元件只需要一個前端節點，請勿在這兩個前端節點上都安裝元件。
+以 Linux 為基礎的 HDInsight 叢集提供在叢集裡作用中的兩個前端節點，且指令碼動作會針對兩個節點執行。 如果您安裝的元件只需要一個前端節點，請勿在這兩個前端節點上都安裝元件。
 
 > [!IMPORTANT]
 > HDInsight 隨附的服務已設計為在兩個前端節點之間視需要容錯移轉。 這項功能不會延伸至透過指令碼動作所安裝的自訂元件。 如果自訂元件需要有高可用性時，您必須實作自己的容錯移轉機制。

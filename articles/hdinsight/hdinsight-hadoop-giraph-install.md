@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 58db68a1b5000adad4d816c6221881254b9675c7
+ms.translationtype: HT
+ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
+ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 07/28/2017
 
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Giraph
@@ -96,14 +95,14 @@ ms.lasthandoff: 07/08/2017
     ```powershell
     $clusterName = "clustername"
     # Giraph examples jar
-    $jarFile = "wasbs:///example/jars/giraph-examples.jar"
+    $jarFile = "wasb:///example/jars/giraph-examples.jar"
     # Arguments for this job
     $jobArguments = "org.apache.giraph.examples.SimpleShortestPathsComputation",
                     "-ca", "mapred.job.tracker=headnodehost:9010",
                     "-vif", "org.apache.giraph.io.formats.JsonLongDoubleFloatDoubleVertexInputFormat",
-                    "-vip", "wasbs:///example/data/tiny_graph.txt",
+                    "-vip", "wasb:///example/data/tiny_graph.txt",
                     "-vof", "org.apache.giraph.io.formats.IdWithValueTextOutputFormat",
-                    "-op",  "wasbs:///example/output/shortestpaths",
+                    "-op",  "wasb:///example/output/shortestpaths",
                     "-w", "2"
     # Create the definition
     $jobDefinition = New-AzureHDInsightMapReduceJobDefinition
@@ -122,7 +121,7 @@ ms.lasthandoff: 07/08/2017
     ```
 
     在上述範例中，利用您已安裝 Giraph 的 HDInsight 叢集名稱取代 **clustername** 。
-3. 檢視結果。 一旦工作完成，結果會儲存在 **wasb:///example/out/shotestpaths** 資料夾中的兩個輸出檔中。 這些檔案稱為 **part-m-00001** 和 **part-m-00002**。 執行下列步驟來下載和檢視輸出：
+3. 檢視結果。 工作完成之後，結果會儲存於 **wasb:///example/out/shotestpaths** 資料夾中的兩個輸出檔案。 這些檔案稱為 **part-m-00001** 和 **part-m-00002**。 執行下列步驟來下載和檢視輸出：
 
     ```powershell
     $subscriptionName = "<SubscriptionName>"       # Azure subscription name

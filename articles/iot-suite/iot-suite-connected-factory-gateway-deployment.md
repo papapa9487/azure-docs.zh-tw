@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/22/2017
+ms.date: 07/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 09585a8e2ffbe0c825ee63f459218c7945cdd243
+ms.translationtype: HT
+ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
+ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 07/24/2017
 
 ---
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 06/08/2017
 
 針對連線處理站的預先設定解決方案，部署閘道所需的軟體有兩個元件：
 
-* *OPC Proxy* 會建立與 IoT 中樞的連線，並等待在連線處理站解決方案入口網站中執行之整合式 OPC 瀏覽器的命令和控制訊息。
+* OPC Proxy 會建立與 IoT 中樞的連線。 然後 OPC Proxy 會等待在連線處理站解決方案入口網站中執行之整合式 OPC 瀏覽器的命令和控制訊息。
 * *OPC 發行者*會連線到現有的內部部署 OPC UA 伺服器，並將它們的遙測訊息轉送到 IoT 中樞。
 
 這兩個元件都是開放程式碼，且以 GitHub 上的來源與 Docker 容器的方式提供：
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/08/2017
 
 這兩個元件都不需要公開 IP 位址或閘道防火牆中的開放連接埠。 OPC Proxy 和 OPC 發行者僅使用連出連接埠 443、5671 和 8883。
 
-本文章中的步驟示範如何在 Windows 或 Linux 上使用 Docker 部署閘道。 閘道會啟用連線處理站預先設定解決方案的連線。
+本文中的步驟示範如何在 [Windows](#windows-deployment) 或 [Linux](#linux-deployment) 上使用 Docker 部署閘道。 閘道會啟用連線處理站預先設定解決方案的連線。
 
 > [!NOTE]
 > 在 Docker 容器中執行的閘道軟體是 [Azure IoT Edge]。
@@ -72,9 +72,9 @@ ms.lasthandoff: 06/08/2017
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** 是用來提供給 OPC UA 發行者的名稱，格式為 **publisher.&lt;您的完整網域名稱&gt;**。 例如，如果您的處理站網路名稱為 **myfactorynetwork.com**，則 **ApplicationName** 值為 **publisher.myfactorynetwork.com**。
-    * **&lt;IoTHubOwnerConnectionString&gt;** 是您在上一個步驟中複製的 **iothubowner** 連接字串。 此步驟中只會使用此連接字串一次，然後就不再需要它。
+    * **&lt;IoTHubOwnerConnectionString&gt;** 是您在上一個步驟中複製的 **iothubowner** 連接字串。 您只會在此步驟中使用此連接字串，在下列步驟中就不再需要它：
 
-    之後會使用對應的 D:\\docker 資料夾 (`-v` 引數) 來保留閘道模組所使用的兩個 X.509 憑證。
+    您之後會使用對應的 D:\\docker 資料夾 (`-v` 引數) 來保存閘道模組所使用的兩個 X.509 憑證。
 
 ### <a name="run-the-gateway"></a>執行閘道
 
@@ -84,21 +84,21 @@ ms.lasthandoff: 06/08/2017
 
     `docker run -it --rm -v //D/docker:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. 為了安全起見，保存在 D:\\docker 資料夾中的兩個 X.509 憑證都會包含私密金鑰。 此資料夾的存取權必須限制為用來執行 Docker 容器的認證 (通常是 **Administrators**)。 以滑鼠右鍵按一下 D:\\docker 資料夾，依序選擇 [內容]、[安全性]，然後選擇 [編輯]。 賦予 **Administrators** 完全控制，並移除其他人︰
+1. 為了安全起見，保存在 D:\\docker 資料夾中的兩個 X.509 憑證都會包含私密金鑰。 將此資料夾的存取權限制為用於執行 Docker 容器的認證 (通常是 **Administrators**)。 以滑鼠右鍵按一下 D:\\docker 資料夾，依序選擇 [內容]、[安全性]，然後選擇 [編輯]。 賦予 **Administrators** 完全控制，並移除其他人︰
 
     ![授與 Docker 共用的權限][img-docker-share]
 
-1. 驗證網路連線。 嘗試 ping 您的閘道。 在命令提示字元中，輸入命令 `ping publisher.<your fully qualified domain name>`。 如果無法連線到目的地，請在閘道的 hosts 檔案中新增閘道的 IP 位址和名稱。 hosts 檔案位於 "Windows\\System32\\drivers\\etc" 資料夾中。
+1. 驗證網路連線。 在命令提示字元中，輸入命令 `ping publisher.<your fully qualified domain name>` 以 Ping 閘道。 如果無法連線到目的地，請在閘道的 hosts 檔案中新增閘道的 IP 位址和名稱。 hosts 檔案位於 **Windows\\System32\\drivers\\etc** 資料夾中。
 
-1. 接下來，試著使用閘道上執行的本機 OPC UA 用戶端連線到發行者。 OPC UA 端點 URL 是 `opc.tcp://publisher.<your fully qualified domain name>:62222`。 如果您沒有 OPC UA 用戶端，可以下載[開放原始碼的 OPC UA 用戶端]。
+1. 接下來，試著使用閘道上執行的本機 OPC UA 用戶端連線到發行者。 OPC UA 端點 URL 是 `opc.tcp://publisher.<your fully qualified domain name>:62222`。 如果您沒有 OPC UA 用戶端，則可以下載並使用[開放原始碼的 OPC UA 用戶端]。
 
-1. 當您已成功完成這些本機測試時，請瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 輸入發行者端點 URL (`tcp://publisher.<your fully qualified domain name>:62222`) 並按一下 [Connect (連線)]。 您會收到憑證警告，然後按一下 [Proceed (繼續)]。 接下來您會收到發行者不信任 UA Web 用戶端的錯誤。 若要解決這個錯誤，請在閘道上從 "D:\\docker\\Rejected Certificates\\certs" 資料夾將 **UA Web Client** 憑證複製到 "D:\\docker\\UA Applications\\certs" 資料夾。 您不需要重新啟動閘道。 重複此步驟。 您現在可以從雲端連線到閘道，而且您也準備好在解決方案中新增 OPC UA 伺服器。
+1. 當您已成功完成這些本機測試時，請瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 輸入發行者端點 URL (`tcp://publisher.<your fully qualified domain name>:62222`) 並按一下 [Connect (連線)]。 您會收到憑證警告，然後按一下 [Proceed (繼續)]。 接下來您會收到發行者不信任 UA Web 用戶端的錯誤。 若要解決這個錯誤，請在閘道上從 **D:\\docker\\Rejected Certificates\\certs** 資料夾將 **UA 網頁用戶端**憑證複製到 **D:\\docker\\UA Applications\\certs** 資料夾。 您不需要重新啟動閘道。 重複此步驟。 您現在可以從雲端連線到閘道，而且您也準備好在解決方案中新增 OPC UA 伺服器。
 
 ### <a name="add-your-opc-ua-servers"></a>新增 OPC UA 伺服器
 
 1. 瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 依照上一節中相同的步驟在連線處理站入口網站和 OPC UA 伺服器之間建立信任。 此步驟會在連線處理站入口網站和 OPC UA 伺服器之間建立相互信任的憑證，並建立連線。
 
-1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。 如果您的設定不同，可以在 D:\\docker 資料夾的 publishesnodes.json 檔案中手動加入節點。 第一個成功發行的 OPC 節點上會自動產生 publishesnodes.json。
+1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。 如果您的設定不同，則可以在 **D:\\docker** 資料夾的 publishesnodes.json 檔案中手動新增節點。 第一個成功發佈的 OPC 節點上會自動產生 publishesnodes.json 檔案。
 
 1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站位於 [New Factory (新處理站)] 之下的 [Factory Locations (處理站位置)] 中檢視遙測。
 
@@ -124,9 +124,9 @@ ms.lasthandoff: 06/08/2017
     `sudo docker run --rm -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -i -c "<IoTHubOwnerConnectionString>" -D /mapped/cs.db`
 
     * **&lt;ApplicationName&gt;** 是閘道以 **publisher.&lt;完整網域名稱&gt;** 的格式建立的 OPC UA 應用程式名稱。 例如，**publisher.microsoft.com**。
-    * **&lt;IoTHubOwnerConnectionString&gt;** 是您在上一個步驟中複製的 **iothubowner** 連接字串。 此步驟中只會使用此連接字串一次，然後就不再需要它。
+    * **&lt;IoTHubOwnerConnectionString&gt;** 是您在上一個步驟中複製的 **iothubowner** 連接字串。 您只會在此步驟中使用此連接字串，在下列步驟中就不再需要它：
 
-    之後會使用對應的 /shared 資料夾 (`-v` 引數) 來保留閘道模組所使用的兩個 X.509 憑證。
+    您之後會使用 **/shared** 資料夾 (`-v` 引數) 來保存閘道模組所使用的兩個 X.509 憑證。
 
 ### <a name="run-the-gateway"></a>執行閘道
 
@@ -136,19 +136,19 @@ ms.lasthandoff: 06/08/2017
 
     `sudo docker run -it -v /shared:/mapped microsoft/iot-gateway-opc-ua-proxy:0.1.3 -D /mapped/cs.db`
 
-1. 為了安全起見，保存在 /shared 資料夾中的兩個 X.509 憑證都會包含私密金鑰。 此資料夾的存取權必須限制為用來執行 Docker 容器的認證。 若要設定權限只供 **root** 使用，請對資料夾使用 `chmod` 殼層命令。
+1. 為了安全起見，保存在 **/shared** 資料夾中的兩個 X.509 憑證都會包含私密金鑰。 將此資料夾的存取權限制為用於執行 Docker 容器的認證。 若要設定權限只供 **root** 使用，請對資料夾使用 `chmod` 殼層命令。
 
-1. 驗證網路連線。 嘗試 ping 您的閘道。 從殼層中輸入命令 `ping publisher.<your fully qualified domain name>`。 如果無法連線到目的地，請在閘道的 hosts 檔案中新增閘道的 IP 位址和名稱。 hosts 檔案位於 /etc 中。
+1. 驗證網路連線。 在 Shell 中，輸入命令 `ping publisher.<your fully qualified domain name>` 以 Ping 閘道。 如果無法連線到目的地，請在閘道的 hosts 檔案中新增閘道的 IP 位址和名稱。 hosts 檔案位於 **/etc** 資料夾中。
 
-1. 接下來，試著使用閘道上執行的本機 OPC UA 用戶端連線到發行者。 OPC UA 端點 URL 是 `opc.tcp://publisher.<your fully qualified domain name>:62222`。 如果您沒有 OPC UA 用戶端，可以下載[開放原始碼的 OPC UA 用戶端]。
+1. 接下來，試著使用閘道上執行的本機 OPC UA 用戶端連線到發行者。 OPC UA 端點 URL 是 `opc.tcp://publisher.<your fully qualified domain name>:62222`。 如果您沒有 OPC UA 用戶端，則可以下載並使用[開放原始碼的 OPC UA 用戶端]。
 
-1. 當您已成功完成這些本機測試時，請瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 輸入發行者端點 URL (`tcp://publisher.<your fully qualified domain name>:62222`) 並按一下 [Connect (連線)]。 您會收到憑證警告，然後按一下 [Proceed (繼續)]。 接下來您會收到發行者不信任 UA Web 用戶端的錯誤。 若要解決這個錯誤，請在閘道上從 "/shared/Rejected Certificates/certs" 資料夾將 **UA Web Client** 憑證複製到 "/shared/UA Applications/certs" 資料夾。 您不需要重新啟動閘道。 重複此步驟。 您現在可以從雲端連線到閘道，而且您也準備好在解決方案中新增 OPC UA 伺服器。
+1. 當您已成功完成這些本機測試時，請瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 輸入發行者端點 URL (`tcp://publisher.<your fully qualified domain name>:62222`) 並按一下 [Connect (連線)]。 您會收到憑證警告，然後按一下 [Proceed (繼續)]。 接下來您會收到發行者不信任 UA Web 用戶端的錯誤。 若要解決這個錯誤，請在閘道上從 **/shared/Rejected Certificates/certs** 資料夾將 **UA 網頁用戶端**憑證複製到 **/shared/UA Applications/certs** 資料夾。 您不需要重新啟動閘道。 重複此步驟。 您現在可以從雲端連線到閘道，而且您也準備好在解決方案中新增 OPC UA 伺服器。
 
 ### <a name="add-your-opc-ua-servers"></a>新增 OPC UA 伺服器
 
 1. 瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 依照上一節中相同的步驟在連線處理站入口網站和 OPC UA 伺服器之間建立信任。 此步驟會在連線處理站入口網站和 OPC UA 伺服器之間建立相互信任的憑證，並建立連線。
 
-1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。 如果您的設定不同，可以在 /shared 資料夾的 publishesnodes.json 檔案中手動加入節點。 第一個成功發行的 OPC 節點上會自動產生 publishesnodes.json。
+1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。 如果您的設定不同，則可以在 **/shared** 資料夾的 publishesnodes.json 檔案中手動新增節點。 第一個成功發佈的 OPC 節點上會自動產生 publishesnodes.json。
 
 1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站位於 [New Factory (新處理站)] 之下的 [Factory Locations (處理站位置)] 中檢視遙測。
 
