@@ -29,7 +29,7 @@ DevTest Labs 支援根據 Azure Marketplace 映像來建立 VM，而這取決於
 2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。 
 4. 在實驗室的刀鋒視窗上，選取 [組態和原則]。
-5. 在實驗室的 [組態和原則] 刀鋒視窗的 [Virtual Machine Bases] (虛擬機器基礎) 下，選取 [Marketplace 映像]。
+5. 在實驗室的 [組態和原則] 刀鋒視窗的 [Virtual Machine Bases] \(虛擬機器基礎) 下，選取 [Marketplace 映像]。
 6. 指定是否要讓所有合格的 Azure Marketplace 映像可用來做為新 VM 的基底。 如果您選取 [是] ，則實驗室中允許所有符合下列準則的 Azure Marketplace 映像︰
    
    * 映像會建立單一 VM， **而且**

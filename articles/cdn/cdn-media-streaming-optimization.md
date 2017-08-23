@@ -41,7 +41,7 @@ Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類
   
     ![新增端點](./media/cdn-media-streaming-optimization/01_Adding.png)
 
-2. 在 [最佳化對象] 下拉式清單中，為點播視訊資產選取 [點播視訊媒體串流]。 如果您結合即時和點播視訊串流處理，請選取 [General media streaming] (一般媒體串流處理)。
+2. 在 [最佳化對象] 下拉式清單中，為點播視訊資產選取 [點播視訊媒體串流]。 如果您結合即時和點播視訊串流處理，請選取 [General media streaming] \(一般媒體串流處理)。
 
     ![選取的串流](./media/cdn-media-streaming-optimization/02_Creating.png) 
  
