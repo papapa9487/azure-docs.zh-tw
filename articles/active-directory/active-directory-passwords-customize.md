@@ -53,7 +53,7 @@ ADFS 系統管理員可以使用在[新增登入分頁描述](https://docs.micro
 
 使用 ADFS 伺服器上接續的命令，將連結新增至 ADFS，讓使用者直接輸入自助式密碼重設工作流程。
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?<A/></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-and-access-panel-look-and-feel"></a>自訂登入和存取面板的外觀與風格
 

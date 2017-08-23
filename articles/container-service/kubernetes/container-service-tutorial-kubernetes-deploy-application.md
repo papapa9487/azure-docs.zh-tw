@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 在所複製之存放庫的下列目錄底下，即可找到資訊清單檔。
 
 ```bash
-/azure-voting-app-redis/kubernetes-manifests/
+/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
 ```
 
 ## <a name="update-manifest-file"></a>更新資訊清單檔

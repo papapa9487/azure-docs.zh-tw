@@ -98,7 +98,7 @@ Azure 入口網站也可協助您確認費用。 Azure 入口網站提供成本�
 [建立支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以要求查看付款的狀態。 
 
 ## <a name="tips-for-cost-management"></a>成本管理的秘訣
-- 使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)和[](https://aka.ms/azure-tco-calculator)來估計成本，並取得[每項服務的詳細定價資訊](https://azure.microsoft.com/en-us/pricing/)。
+- 使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)和來[估計成本](https://aka.ms/azure-tco-calculator)，並取得[每項服務的詳細定價資訊](https://azure.microsoft.com/en-us/pricing/)。
 - [設定帳務警示](billing-set-up-alerts.md)。
 - [定期在 Azure 入口網站檢閱您的使用量和成本](billing-getting-started.md#costs)。
 
