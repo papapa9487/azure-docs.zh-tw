@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 976c4752cc3c3cc1c74adf7d57c3539d39aef556
+ms.sourcegitcommit: 495a695466c47c6030716d97c52b3bbf5ce9bf99
+ms.openlocfilehash: 6c073d70debfdc3560405955d65fa9ccaa7d8b1f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-azure-ad-accounts"></a>Azure Active Directory B2C︰使用 Azure AD 帳戶登入
@@ -142,7 +142,7 @@ ms.lasthandoff: 07/12/2017
 
 您必須更新稍早參考之 XML 檔案中的 `<Metadata>` 區段，以反映特定 Azure AD 租用戶的組態設定。 在 XML 檔案中，更新中繼資料值，如下所示︰
 
-1. 將 `<Item Key="METADATA">` 設定為 `https://login.microsoftonline.com/yourAzureADtenant/.well-known/openid-configuration`，其中 `yourAzureADtenant` 是您的 Azure AD 租用戶名稱 (contoso.com)。
+1. 將 `<Item Key="METADATA">` 設定為 `https://login.windows.net/yourAzureADtenant/.well-known/openid-configuration`，其中 `yourAzureADtenant` 是您的 Azure AD 租用戶名稱 (contoso.com)。
 1. 開啟瀏覽器並移至剛更新的 `METADATA` URL。
 1. 在瀏覽器中，尋找 'issuer' 物件並複製其值。 如下所示：`https://sts.windows.net/{tenantId}/`。
 1. 將 `<Item Key="ProviderName">` 的值貼到 XML 檔案中。
