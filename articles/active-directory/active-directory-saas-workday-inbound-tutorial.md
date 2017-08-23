@@ -423,7 +423,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 5.  代理程式電腦上的 Windows 應用程式記錄檔將會顯示透過代理程式執行的所有作業。
 
-6. 完成之後，其會寫入 [佈建] **** 索引標籤中的稽核摘要報告，如下所示。
+6. 完成之後，其會寫入  **[佈建]** 索引標籤中的稽核摘要報告，如下所示。
 
 ![Azure 入口網站](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
@@ -543,7 +543,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
 
-5. 完成之後，其會寫入 [佈建] **** 索引標籤中的稽核摘要報告，如下所示。
+5. 完成之後，其會寫入  **[佈建]** 索引標籤中的稽核摘要報告，如下所示。
 
 
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>設定將電子郵件地址回寫至 Workday
@@ -604,7 +604,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
 
-5. 完成之後，其會寫入 [佈建] **** 索引標籤中的稽核摘要報告，如下所示。
+5. 完成之後，其會寫入  **[佈建]** 索引標籤中的稽核摘要報告，如下所示。
 
 ## <a name="known-issues"></a>已知問題
 
