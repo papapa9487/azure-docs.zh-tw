@@ -14,7 +14,7 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
@@ -45,7 +45,7 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 Azure Cont
 在[上一個教學課程](./container-service-tutorial-kubernetes-prepare-acr.md)中，已建立名為 *myResourceGroup* 的資源群組。 如果您尚未這樣做，請立即建立此資源群組。
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 使用 [az acs create](/cli/azure/acs#create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 

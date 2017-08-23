@@ -37,7 +37,7 @@ ms.lasthandoff: 08/05/2017
 一旦建立管理憑證 (僅包含公開金鑰的 .cer 檔案) 之後，您就可以將其上傳到入口網站。 入口網站提供憑證時，具有符合的憑證 (私密金鑰) 的任何人都可以透過管理 API 連線，並存取相關聯訂用帳戶的資源。
 
 1. 登入 [Azure 入口網站](http://portal.azure.com)。
-2. 按一下 Azure 服務清單底部的 [More services] (更多服務)，然後選取 [一般] 服務群組中的 [訂用帳戶]。
+2. 按一下 Azure 服務清單底部的 [More services] \(更多服務)，然後選取 [一般] 服務群組中的 [訂用帳戶]。
 
     ![[訂用帳戶] 功能表](./media/azure-api-management-certs/subscriptions_menu.png)
 

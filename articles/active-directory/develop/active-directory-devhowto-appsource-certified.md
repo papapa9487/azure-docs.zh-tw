@@ -36,7 +36,7 @@ ms.lasthandoff: 08/04/2017
 此應用程式接受來自具備 Azure Active Directory 之公司或組織的使用者的單一登入，不需要稱為*多租用戶應用程式*的個別執行個體、設定或部署。 AppSource 建議應用程式實行多重租用，以啟用*單鍵*免費試用體驗。
 
 若要在您的應用程式上啟用多重租用：
-- 在 [Azure 入口網站][](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 的應用程式註冊資訊中，將 `Multi-Tenanted` 屬性設為 `Yes` (依預設，Azure 入口網站中建立的應用程式會設為*單一租用戶*)
+- 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) 的應用程式註冊資訊中，將 `Multi-Tenanted` 屬性設為 `Yes` (依預設，Azure 入口網站中建立的應用程式會設為*單一租用戶*)
 - 更新您的程式碼，以傳送要求至 '`common`' 端點 (將來自 *https://login.microsoftonline.com/{yourtenant}* 的端點更新為 *https://login.microsoftonline.com/common*)
 - 在特定平台上 (例如 ASP.NET)，您還需要更新程式碼，以接受多個簽發者
 

@@ -8,7 +8,7 @@ metadata:
   services: functions
   author: czeumault
   manager: carolz
-  ms.service: virtual-machines\linux
+  ms.service: functions
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -18,76 +18,75 @@ abstract:
   description: Azure Functions 是無伺服器計算服務，可讓您依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Functions。
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video-thumb-get-started.png
-      width: 250  
+      width: 250
     title: '開始使用 Azure Functions。 (2:39)'
-    href: https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/
+    href: 'https://azure.microsoft.com/en-us/resources/videos/get-started-with-azure-functions/'
     width: 250
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何透過以下方式，建立以建立事件為基礎來執行的函式：
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: media/index/http.svg
-      text: HTTP
-      href: /azure/azure-functions/functions-create-first-azure-function
-    - image: 
-        src: media/index/stopwatch.svg
-      text: 計時器
-      href: /azure/azure-functions/functions-create-scheduled-function
-    - image: 
-        src: media/index/octokitty.svg
-      text: GitHub webhook
-      href: /azure/azure-functions/functions-create-github-webhook-triggered-function
-    - image: 
-        src: media/index/blob.svg
-      text: Blob
-      href: /azure/azure-functions/functions-create-storage-blob-triggered-function
-    - image: 
-        src: media/index/storage.svg
-      text: 佇列
-      href: /azure/azure-functions/functions-create-storage-queue-triggered-function
-  - type: paragraph
-    text: 了解如何在本機開發及偵錯：
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: /media/logos/logo_visual-studio.svg
-      text: Visual Studio
-      href: /azure/azure-functions/functions-create-your-first-function-visual-studio
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何建置和管理 Azure Functions：
-  - type: list
-    style: ordered
+  - title: 5 分鐘快速入門
     items:
-    - html: <a href="/azure/azure-functions/functions-twitter-email">建立與 Azure Logic Apps 整合的函式</a>
-    - html: <a href="/azure/azure-functions/functions-create-serverless-api">使用 Azure Functions 建立無伺服器 API</a>
-- title: 範例
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何透過以下方式，建立以建立事件為基礎來執行的函式：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/http.svg
+            text: HTTP
+            href: /azure/azure-functions/functions-create-first-azure-function
+          - image:
+              src: media/index/stopwatch.svg
+            text: 計時器
+            href: /azure/azure-functions/functions-create-scheduled-function
+          - image:
+              src: media/index/octokitty.svg
+            text: GitHub webhook
+            href: /azure/azure-functions/functions-create-github-webhook-triggered-function
+          - image:
+              src: media/index/blob.svg
+            text: Blob
+            href: /azure/azure-functions/functions-create-storage-blob-triggered-function
+          - image:
+              src: media/index/storage.svg
+            text: 佇列
+            href: /azure/azure-functions/functions-create-storage-queue-triggered-function
+      - type: paragraph
+        text: 了解如何在本機開發及偵錯：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /media/logos/logo_visual-studio.svg
+            text: Visual Studio
+            href: /azure/azure-functions/functions-create-your-first-function-visual-studio
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 了解如何建置和管理 Azure Functions：
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/azure-functions/functions-twitter-email">建立與 Azure Logic Apps 整合的函式</a>
+          - html: <a href="/azure/azure-functions/functions-create-serverless-api">使用 Azure Functions 建立無伺服器 API</a>
+  - title: 範例
     items:
-    - title: 命令列
-      html: <p><a href="/cli/azure">Azure CLI</a></p>
-    - title: REST
-      html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
-    - title: 繫結
- 
-      html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob 儲存體</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">事件中樞</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">外部檔案</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP 和 Webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">行動應用程式</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">通知中樞</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">佇列儲存體</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">服務匯流排</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">資料表儲存體</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">計時器</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio 輸出繫結</a></p>
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/azure-functions/functions-cli-samples">Azure CLI</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure">Azure CLI</a></p>
+          - title: REST
+            html: <p><a href="/azure/azure-functions/functions-api-definition">OpenAPI</a></p>
+          - title: 繫結
+            html: <p><a href="/azure/azure-functions/functions-bindings-storage-blob">Blob 儲存體</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">Cosmos DB</a></p><p><a href="/azure/azure-functions/functions-bindings-event-hubs">事件中樞</a></p><p><a href="/azure/azure-functions/functions-bindings-external-file">外部檔案</a></p><p><a href="/azure/azure-functions/functions-bindings-http-webhook">HTTP 和 Webhook</a></p><p><a href="/azure/azure-functions/functions-bindings-mobile-apps">行動應用程式</a></p><p><a href="/azure/azure-functions/functions-bindings-notification-hubs">通知中樞</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-queue">佇列儲存體</a></p><p><a href="/azure/azure-functions/functions-bindings-sendgrid">SendGrid</a></p><p><a href="/azure/azure-functions/functions-bindings-service-bus">服務匯流排</a></p><p><a href="/azure/azure-functions/functions-bindings-storage-table">資料表儲存體</a></p><p><a href="/azure/azure-functions/functions-bindings-timer">計時器</a></p><p><a href="/azure/azure-functions/functions-bindings-twilio">Twilio 輸出繫結</a></p>

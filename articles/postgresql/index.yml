@@ -5,7 +5,7 @@ metadata:
   document_id: c0fe8cd3-35da-e3e5-718e-8f3cf2f87f34
   title: Azure PostgreSQL 文件 - 教學課程和 API 參考
   description: 適用於 PostgreSQL 的 Azure 資料庫位於 Microsoft 雲端中，是以開放原始碼 PostgreSQL 伺服器引擎為基礎的關聯式資料庫服務，供開發人員使用。
-  services: app-service
+  services: postgresql
   author: jasonwhowell
   manager: jhubbard
   ms.service: postgresql
