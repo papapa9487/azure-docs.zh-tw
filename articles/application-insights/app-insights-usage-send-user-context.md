@@ -91,7 +91,7 @@ Application Insights 可讓您透過一組產品使用量工具來監控並追�
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 若要啟用使用體驗，請開始傳送「自訂事件」[](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或「頁面檢視」[](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送 [自訂事件](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [頁面檢視](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     * [使用量概觀](app-insights-usage-overview.md)
     * [使用者、工作階段和事件](app-insights-usage-segmentation.md)

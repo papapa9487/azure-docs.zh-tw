@@ -37,7 +37,7 @@ ms.lasthandoff: 08/10/2017
 2. 按一下 [+ 從空白建立]。
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
-1. 按一下 [Search hundreds of connectors and triggers] (搜尋數以百計的連接器和觸發程序)。
+1. 按一下 [Search hundreds of connectors and triggers] \(搜尋數以百計的連接器和觸發程序) 。
 2. 在搜尋方塊中鍵入**排程**。
 3. 依序選取 [排程] 和 [排程 - 重複]。
 4. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。<br><br>![Microsoft Flow 觸發程序對話方塊](media/log-analytics-flow-tutorial/flow01.png)
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/10/2017
 ## <a name="step-3-add-a-log-analytics-action"></a>步驟 3：新增 Log Analytics 動作
 1. 按一下 [+ 新增步驟]，然後按一下 [新增動作]。
 2. 搜尋 **Log Analytics**。
-3. 按一下 [Azure Log Analytics – Run query and visualize results] (Azure Log Analytics – 執行查詢，並將結果視覺化)。<br><br>![Log Analytics 執行查詢視窗](media/log-analytics-flow-tutorial/flow02.png)
+3. 按一下 [Azure Log Analytics – Run query and visualize results] \(Azure Log Analytics – 執行查詢，並將結果視覺化) 。<br><br>![Log Analytics 執行查詢視窗](media/log-analytics-flow-tutorial/flow02.png)
 
 ## <a name="step-4-configure-the-log-analytics-action"></a>步驟 4：設定 Log Analytics 動作
 

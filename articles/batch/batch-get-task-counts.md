@@ -32,7 +32,7 @@ Azure Batch 提供有效的方式來監視作業在執行其工作時的進度�
 - 已指派至計算節點的工作會算作是**執行中**的工作，但尚未完成。 處於 `preparing` 或 `running` 狀態的工作會算作是**執行中**的工作，如[取得工作相關資訊][ rest_get_task]作業所示。
 - 不再有資格執行的工作會算作是**已完成**的工作。 算作是**已完成**的工作通常已順利完成，或未順利完成且也已達到其重試限制。 
 
-「取得工作計數」作業也會回報有多少成功或失敗的工作。 Batch 會檢查 [executionInfo] 的**結果**屬性 [https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo] 屬性，以判斷工作成功或失敗：
+「取得工作計數」作業也會回報有多少成功或失敗的工作。 Batch 會檢查 [executionInfo](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task#executionInfo) 的**結果**屬性 屬性，以判斷工作成功或失敗：
 
     - 如果工作執行結果為 `success`，則工作會算作是**成功**。
     - 如果工作執行結果為 `failure`，則工作會算作是**失敗**。
