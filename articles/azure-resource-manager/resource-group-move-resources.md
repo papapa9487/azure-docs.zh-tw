@@ -1,4 +1,4 @@
----
+﻿---
 title: "將 Azure 資源移至新的訂用帳戶或資源群組 | Microsoft Docs"
 description: "使用 Azure Resource Manager 將資源移到新的資源群組或訂用帳戶。"
 services: azure-resource-manager

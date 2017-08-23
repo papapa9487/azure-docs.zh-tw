@@ -1,4 +1,4 @@
----
+﻿---
 title: "Azure Resource Manager 範本結構和語法 | Microsoft Docs"
 description: "使用宣告式 JSON 語法描述 Azure Resource Manager 範本的結構和屬性。"
 services: azure-resource-manager
@@ -43,10 +43,10 @@ ms.lasthandoff: 06/16/2017
 |:--- |:--- |:--- |
 | $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。 使用上述範例所示的 URL。 |
 | contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
-| 參數 |否 |執行部署以自訂資源部署時所提供的值。 |
-| 變數 |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
-| 資源 |是 |在資源群組中部署或更新的資源類型。 |
-| 輸出 |否 |部署後傳回的值。 |
+| parameters |否 |執行部署以自訂資源部署時所提供的值。 |
+| variables |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
+| resources |是 |在資源群組中部署或更新的資源類型。 |
+| outputs |否 |部署後傳回的值。 |
 
 每個元素都包含可以設定的屬性。 下列範例包含範本的完整語法：
 
@@ -163,18 +163,18 @@ ms.lasthandoff: 06/16/2017
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
 | parameterName |是 |參數名稱。 必須是有效的 JavaScript 識別碼。 |
-| 類型 |是 |參數值類型。 請參閱此表格之後的允許類型清單。 |
+| type |是 |參數值類型。 請參閱此表格之後的允許類型清單。 |
 | defaultValue |否 |如果未提供參數值，則會使用參數的預設值。 |
 | allowedValues |否 |參數的允許值陣列，確保提供正確的值。 |
 | minValue |否 |int 類型參數的最小值，含此值。 |
 | maxValue |否 |int 類型參數的最大值，含此值。 |
 | minLength |否 |字串、secureString 及陣列類型參數長度的最小值，含此值。 |
 | maxLength |否 |字串、secureString 及陣列類型參數長度的最大值，含此值。 |
-| 說明 |否 |透過入口網站向使用者顯示的參數說明。 |
+| description |否 |透過入口網站向使用者顯示的參數說明。 |
 
 允許的類型和值為：
 
-* **字串**
+* **string**
 * **secureString**
 * **int**
 * **bool**
@@ -333,15 +333,15 @@ ms.lasthandoff: 06/16/2017
 |:--- |:--- |:--- |
 | condition | 否 | 布林值，表示是否已部署資源。 |
 | apiVersion |是 |要用來建立資源的 REST API 版本。 |
-| 類型 |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
-| 名稱 |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定不是有人嘗試詐騙其他身分識別。 |
+| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 |
+| name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定不是有人嘗試詐騙其他身分識別。 |
 | location |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 請參閱[設定 Azure Resource Manager 範本中的資源位置](resource-manager-template-location.md)。 |
 | tags |否 |與資源相關聯的標記。 請參閱[標記 Azure Resource Manager 範本中的資源](resource-manager-template-tags.md)。 |
-| 註解 |否 |您在範本中記錄資源的註解 |
+| comments |否 |您在範本中記錄資源的註解 |
 | 複製 |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)。 |
 | dependsOn |否 |在部署這項資源之前必須部署的資源。 Resource Manager 會評估資源之間的相依性，並依正確的順序進行部署。 資源若不互相依賴，則會平行部署資源。 值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。 只會列出此範本中已部署的資源。 此範本中未定義的資源必須已經存在。 避免加入不必要的相依性，因為可能會降低部署速度並產生循環相依性。 如需設定相依性的指引，請參閱[定義 Azure Resource Manager 範本中的相依性](resource-group-define-dependencies.md)。 |
-| 屬性 |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的多個執行個體。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)。 |
-| 資源 |否 |與正在定義的資源相依的下層資源。 只提供父資源的結構描述允許的資源類型。 子資源的完整類型包含父資源類型，例如 **Microsoft.Web/sites/extensions**。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 |
+| properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的多個執行個體。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的多個執行個體](resource-group-create-multiple.md)。 |
+| resources |否 |與正在定義的資源相依的下層資源。 只提供父資源的結構描述允許的資源類型。 子資源的完整類型包含父資源類型，例如 **Microsoft.Web/sites/extensions**。 沒有隱含父資源的相依性。 您必須明確定義該相依性。 |
 
 resources 區段包含要部署的資源陣列。 在每個資源內，您也可以定義子資源陣列。 因此，您的 resources 區段可能會有類似以下的結構：
 
@@ -450,7 +450,7 @@ resources 區段包含要部署的資源陣列。 在每個資源內，您也可
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
 | outputName |是 |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
-| 類型 |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
+| type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
 | value |是 |評估並傳回做為輸出值的範本語言運算式。 |
 
 下列範例顯示在輸出區段中傳回的值。

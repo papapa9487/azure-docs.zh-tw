@@ -1,4 +1,4 @@
----
+﻿---
 title: "使用 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源 | Microsoft Docs"
 description: "了解如何從 Azure Resource Manager 範本在 Azure DevTest Labs 中建立多個 VM 環境和 PaaS 資源"
 services: devtest-lab,virtual-machines,visual-studio-online
@@ -29,7 +29,7 @@ ms.lasthandoff: 06/14/2017
 
 - Azure Resource Manager 範本會直接從您的原始檔控制儲存機制 (GitHub 或 Team Services Git) 載入。
 - 一旦設定後，您的使用者可以建立環境，方法為從 Azure 入口網站選取 Azure Resource Manager 範本，做為它們可以使用其他類型的 [VM 基底](./devtest-lab-comparing-vm-base-image-types.md)進行的動作。
-- Azure PaaS 資源除了 IaaS VM 之外，可以從 Azure Resource Manager 範本的環境中佈建。
+- 除了 IaaS VM 以外，還可以從 Azure Resource Manager 範本的環境中佈建 Azure PaaS 資源。
 - 除了其他類型基底所建立的個別 VM 之外，可在實驗室中追蹤環境的成本。
 - PaaS 資源會建立並出現在成本追蹤中；不過，VM 自動關機不適用於 PaaS 資源。
 - 使用者具有的環境 VM 原則控制與單一實驗室 VM 所具有的相同。
