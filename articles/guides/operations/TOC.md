@@ -72,18 +72,18 @@
 
 ## [儲存體](azure-operations-guide.md#azure-storage)
 
-### [Azure Blob 儲存體](../../storage/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [以 .NET 開始使用 Azure Blob 儲存體](../../storage/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [在 Windows 上開始使用 Azure 檔案儲存體](../../storage/storage-file-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
-### [如何搭配使用 Azure 檔案儲存體與 Linux](../../storage/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [開始使用 Azure 表格儲存體](../../storage/storage-dotnet-how-to-use-tables.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [開始使用 Azure 佇列儲存體](../../storage/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [建立儲存體帳戶](../../storage/storage-create-storage-account.md#create-a-storage-account)
-### [搭配使用 Azure PowerShell 與 Azure 儲存體](../../storage/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [使用 Azure CLI 搭配 Azure 儲存體](../../storage/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure 儲存體用戶端工具](../../storage/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Blob 儲存體](../../storage/blobs/storage-blob-storage-tiers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [以 .NET 開始使用 Azure Blob 儲存體](../../storage/blobs/storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [在 Windows 上開始使用 Azure 檔案儲存體](../../storage/files/storage-how-to-use-files-windows.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### [如何搭配使用 Azure 檔案儲存體與 Linux](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [開始使用 Azure 表格儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [開始使用 Azure 佇列儲存體](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [搭配使用 Azure PowerShell 與 Azure 儲存體](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用 Azure CLI 搭配 Azure 儲存體](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure 儲存體用戶端工具](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure 儲存體服務 REST API 參考](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)
-### [使用共用存取簽章](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [使用共用存取簽章](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 
 

@@ -64,12 +64,12 @@
 ### [從範本建立 Linux VM](../../virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [從範本建立 Windows VM](../../virtual-machines/virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## 儲存資料
-### [Blobs (英文)](../../storage/storage-dotnet-how-to-use-blobs.md)
-### [檔案共用](../../storage/storage-dotnet-how-to-use-files.md)
-### [機碼值組](../../storage/storage-dotnet-how-to-use-tables.md)
+### [Blobs (英文)](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+### [檔案共用](../../storage/files/storage-dotnet-how-to-use-files.md)
+### [機碼值組](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 ### [JSON 文件](../../documentdb/documentdb-get-started.md)
 ### [關聯式資料表](../../sql-database/sql-database-get-started.md)
-### [訊息佇列](../../storage/storage-dotnet-how-to-use-queues.md)
+### [訊息佇列](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## 調整
 ### [Web 和行動裝置應用程式](../../app-service-web/web-sites-scale.md)

@@ -25,9 +25,6 @@
 
 # 作法
 ## 管理
-### 帳戶
-#### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](/rest/api/media/mediaservice)
 ### 實體
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
@@ -111,7 +108,6 @@
 ### [內部部署編碼器](media-services-live-streaming-with-onprem-encoders.md)
 #### [入口網站](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 ### [使用雲端編碼器即時串流](media-services-manage-live-encoder-enabled-channels.md)
 #### [入口網站](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -169,7 +165,6 @@
 ### [媒體處理](media-services-scale-media-processing-overview.md)
 #### [入口網站](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/operations/encodingreservedunittype)
 ### 串流端點
 #### [入口網站](media-services-portal-scale-streaming-endpoints.md)
 

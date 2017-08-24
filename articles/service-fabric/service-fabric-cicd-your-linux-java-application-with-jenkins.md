@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 08/23/2017
 ms.author: saysa
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/30/2017
-
 
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>使用 Jenkins 建置和部署您的 Linux Java 應用程式
@@ -49,7 +48,7 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 
 3. 您需要 Azure 儲存體檔案共用的連線選項詳細資料，這是您要保存 Jenkins 容器執行個體狀態的位置。 如果您使用 Microsoft Azure 入口網站來進行相同的操作，請依照步驟來建立 Azure 儲存體帳戶 (例如 ``sfjenkinsstorage1``)。 在該儲存體帳戶底下建立一個「檔案共用」(例如 ``sfjenkins``)。 針對該檔案共用按一下 [連接]，並記下 [正在從 Linux 連線] 底下顯示的值，例如這會看起來如下：
 ```sh
-sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
 4. 將 ```setupentrypoint.sh``` 指令碼中的預留位置值更新成對應的 Azure 儲存體詳細資料。
@@ -60,8 +59,8 @@ vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 以來自上述第 3 點的 ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` 值取代 ``[FILE_SHARE_CONNECT_OPTIONS_STRING]``。
 
 5. 連線至叢集並安裝容器應用程式。
-```sh
-azure servicefabric cluster connect http://PublicIPorFQDN:19080   # Azure CLI cluster connect command
+```azurecli
+sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 這會在叢集上安裝 Jenkins 容器，您可以使用 Service Fabric Explorer 加以監視。

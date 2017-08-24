@@ -1,6 +1,6 @@
 # 概觀
 ## [關於虛擬機器](../../virtual-machines-windows-about.md)
-## [磁碟與 VHD](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [磁碟與 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [虛擬網路](../../../virtual-network/virtual-networks-overview.md)
 ## [常見問題集](faq.md)
 ## [比較 VM、網站及雲端服務](../../../app-service-web/choose-web-site-cloud-service-vm.md)
