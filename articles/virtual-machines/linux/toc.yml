@@ -41,6 +41,14 @@
       href: tutorial-jenkins-github-docker-cicd.md
     - name: 13 - 透過 Team Services 設定 CI/CD
       href: tutorial-build-deploy-jenkins.md
+    - name: 14a - 建立 LAMP 堆疊
+      href: tutorial-lamp-stack.md
+    - name: 14b - 建立 LEMP 堆疊
+      href: tutorial-lemp-stack.md
+    - name: 14c - 建立 MEAN 堆疊
+      href: tutorial-mean-stack.md
+    - name: 15 - 使用 SSL 保護網路伺服器
+      href: tutorial-secure-web-server.md
 - name: 範例
   items:
     - name: Azure CLI
@@ -261,6 +269,10 @@
               href: n-series-driver-setup.md
     - name: 管理儲存體
       items:
+        - name: 深入了解受控磁碟
+          href: managed-disks-overview.md
+        - name: 磁碟常見問題
+          href: faq-for-disks.md
         - name: 新增磁碟
           items:
             - name: Azure CLI
@@ -273,16 +285,18 @@
           href: expand-disks.md
         - name: 製作磁碟的快照集
           href: snapshot-copy-managed-disk.md
+        - name: 備份非受控磁碟
+          href: incremental-snapshots.md
         - name: 轉換為受控磁碟
           href: convert-unmanaged-to-managed-disks.md
-        - name: 磁碟常見問題
-          href: ../../storage/storage-faq-for-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: 在標準和進階間轉換磁碟
           href: convert-disk-storage.md
         - name: 將檔案複製到 VM
           href: copy-files-to-linux-vm-using-scp.md
         - name: 使用檔案儲存體
           href: mount-azure-file-storage-on-linux-using-smb.md
+        - name: 透過範本部署磁碟
+          href: using-managed-disks-template-deployments.md
         - name: 效能最佳化
           href: optimization.md
           items:

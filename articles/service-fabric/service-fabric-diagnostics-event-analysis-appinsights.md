@@ -30,7 +30,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 ### <a name="creating-an-ai-resource"></a>建立 AI 資源
 
-若要建立 AI 資源，請前往 Azure Marketplace 搜尋 "Application Insights"。 它應該會顯示為第一個解決方案 (在 [Web + 行動] 類別目錄下)。 找到正確的資源時，請按一下 [建立] (確認您的路徑與下圖相符)。
+若要建立 AI 資源，請前往 Azure Marketplace 搜尋 "Application Insights"。 它應該會顯示為第一個解決方案 (在 [Web + 行動] 類別目錄下)。 找到正確的資源時，請按一下 [建立]  \(確認您的路徑與下圖相符)。
 
 ![新增 Application Insights 資源](media/service-fabric-diagnostics-event-analysis-appinsights/create-new-ai-resource.png)
 
