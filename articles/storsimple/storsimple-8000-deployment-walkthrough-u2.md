@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/03/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: b41e8eba7d1f5c999b3371d835b595b6caf161c1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d2023c3e129cfdea27f343a41b3cc373c0c3b8f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>部署您的內部部署 StorSimple 裝置 (Update 3 和更新版本)
@@ -170,7 +170,7 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 ## <a name="configure-a-new-storage-account-for-the-service"></a>針對服務設定新的儲存體帳戶
 這是選擇性步驟，只有當您並未啟用服務自動建立儲存體帳戶時才需要執行。 必須要有 Microsoft Azure 儲存體帳戶，才能建立 StorSimple 磁碟區容器。
 
-如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md) 以取得逐步指示。
+如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 以取得逐步指示。
 
 請在 Azure 入口網站上的 [StorSimple 裝置管理員服務] 頁面，執行下列步驟。
 

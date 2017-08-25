@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 905a70bfd37ccdb9f2944b4a9348c3b60dedda44
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>部署和管理 Azure 中的 StorSimple 雲端設備 (Update 3 和更新版本)
@@ -45,7 +45,7 @@ StorSimple 雲端設備可以在兩種模型中使用，標準 8010 (前身為 1
 | **最大容量** |30 TB |64 TB |
 | **Azure VM** |Standard_A3 (4 核心、7 GB 記憶體)| Standard_DS3 (4 核心、14 GB 記憶體)|
 | **區域可用性** |所有 Azure 區域 |支援進階儲存體和 DS3 Azure VM 的 Azure 區域<br></br>使用[這份清單](https://azure.microsoft.com/regions/services/)，查看您的區域是否提供「虛擬機器 > DS 系列」和「儲存體 > 磁碟儲存體」。 |
-| **儲存體類型** |將 Azure 標準儲存體使用於本機磁碟<br></br> 了解如何 [建立標準儲存體帳戶](../storage/storage-create-storage-account.md) |將 Azure 進階儲存體使用於本機磁碟<sup>2</sup> <br></br>了解如何[建立進階儲存體帳戶](../storage/storage-premium-storage.md) |
+| **儲存體類型** |將 Azure 標準儲存體使用於本機磁碟<br></br> 了解如何 [建立標準儲存體帳戶](../storage/common/storage-create-storage-account.md) |將 Azure 進階儲存體使用於本機磁碟<sup>2</sup> <br></br>了解如何[建立進階儲存體帳戶](../storage/common/storage-premium-storage.md) |
 | **工作負載指引** |從備份的檔案的項目層級擷取 |雲端開發和測試案例 <br></br>低延遲和更高的效能工作負載<br></br>災害復原的次要裝置 |
 
 <sup>1</sup> *前身為 1100*。
@@ -94,7 +94,7 @@ StorSimple 雲端設備是純軟體的 StorSimple 版本，在 Microsoft Azure �
 建立雲端設備之前，對 StorSimple 裝置管理員服務進行下列更新：
 
 * 針對要作為雲端設備之主機伺服器的 VM，新增[存取控制記錄](storsimple-8000-manage-acrs.md)。
-* 使用與雲端設備位於相同區域的[儲存體帳戶](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)。 若儲存體帳戶位於不同區域，可能導致效能不佳。 您可以搭配雲端設備使用標準或進階儲存體帳戶。 如何建立[標準儲存體帳戶](../storage/storage-create-storage-account.md)或[進階儲存體帳戶](../storage/storage-premium-storage.md)的詳細資訊
+* 使用與雲端設備位於相同區域的[儲存體帳戶](storsimple-8000-manage-storage-accounts.md#add-a-storage-account)。 若儲存體帳戶位於不同區域，可能導致效能不佳。 您可以搭配雲端設備使用標準或進階儲存體帳戶。 如何建立[標準儲存體帳戶](../storage/common/storage-create-storage-account.md)或[進階儲存體帳戶](../storage/common/storage-premium-storage.md)的詳細資訊
 * 針對建立雲端設備使用與用於資料之儲存體帳戶不同的儲存體帳戶。 使用相同的儲存體帳戶可能導致效能不佳。
 
 開始之前，請確定您擁有下列資訊：

@@ -14,7 +14,7 @@ Blob 服務包含下列元件：
 
 ![Blob 架構](./media/storage-blob-concepts-include/blob1.png)
 
-* **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。 此儲存體帳戶可以是**一般用途的儲存體帳戶**或專門用於儲存物件/Blob 的 **Blob 儲存體帳戶**。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../articles/storage/storage-create-storage-account.md)。
+* **儲存體帳戶：** 一律透過儲存體帳戶來存取 Azure 儲存體。 此儲存體帳戶可以是**一般用途的儲存體帳戶**或專門用於儲存物件/Blob 的 **Blob 儲存體帳戶**。 如需詳細資訊，請參閱[關於 Azure 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)。
 * **容器：** 容器提供一組 Blob 的群組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。 請注意，容器名稱必須是小寫。
 * **Blob：** 任何類型和大小的檔案。 Azure 儲存體提供三種類型的 Blob：區塊 Blob、分頁 Blob 及附加 Blob。
   

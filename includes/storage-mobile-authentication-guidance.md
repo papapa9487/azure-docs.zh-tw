@@ -12,7 +12,7 @@
 > 
 > 
 
-使用共用金鑰驗證時，您將會建立 [連接字串](../articles/storage/storage-configure-connection-string.md)。 連接字串包含：  
+使用共用金鑰驗證時，您將會建立 [連接字串](../articles/storage/common/storage-configure-connection-string.md)。 連接字串包含：  
 
 * **DefaultEndpointsProtocol** - 您可以選擇 HTTP 或 HTTPS。 不過，強烈建議您使用 HTTPS。
 * **帳戶名稱** - 您儲存體帳戶的名稱。
@@ -36,5 +36,5 @@
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-如您所見，使用 SAS 時，您並不會在應用程式中公開您的帳戶金鑰。 您可以參閱 [共用存取簽章：了解 SAS 模型](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)，以進一步了解 SAS 與使用 SAS 的最佳做法。
+如您所見，使用 SAS 時，您並不會在應用程式中公開您的帳戶金鑰。 您可以參閱 [共用存取簽章：了解 SAS 模型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)，以進一步了解 SAS 與使用 SAS 的最佳做法。
 

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>部署內部部署 StorSimple 裝置
@@ -141,7 +142,7 @@ ms.openlocfilehash: a14be6bf8135cdfc7e5b9eb3b6d7af3bdd4561a7
 |  | | |
 | **NTP** |我們會在 NTP 伺服器輸入時觸發時間同步處理。 請在您輸入 `time.windows.com` 或公用時間伺服器時檢查 UDP 連接埠 123 是否開啟)。 |[下載並使用此指令碼](https://gallery.technet.microsoft.com/scriptcenter/Get-Network-NTP-Time-with-07b216ca)。 |
 |  | | |
-| **Proxy (選用)** |這是有效的 Proxy URI 和連接埠嗎？ </br>  驗證模式是否正確？ |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br> 此命令應該在設定 Web Proxy 後立即執行。 如果傳回狀態碼 200，則表示連接成功。 |
+| **Proxy (選用)** |這是有效的 Proxy URI 和連接埠嗎？ </br> 驗證模式是否正確？ |<code>wget http://bing.com &#124; % {$_.StatusCode}</code></br>此命令應該在設定 Web Proxy 後立即執行。 如果傳回狀態碼 200，則表示連接成功。 |
 | &nbsp; |流量是否可透過 Proxy 路由？ |在裝置上設定 Proxy 之後，請執行 DNS 驗證、NTP 檢查 或 HTTP 檢查。 這會清楚的反映流量是否在 Proxy 或其他地方遭到封鎖。 |
 |  | | |
 | **註冊** |檢查輸出 TCP 連接埠 443、80、9354 是否開啟。 |`Test-NetConnection -Port   443 -InformationLevel Detailed`</br>[Test-NetConnection Cmdlet 的詳細資訊](https://technet.microsoft.com/library/dn372891.aspx) |
@@ -239,7 +240,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 針對第一次
 ## <a name="configure-a-new-storage-account-for-the-service"></a>針對服務設定新的儲存體帳戶
 這是選擇性步驟，只有當您並未啟用服務自動建立儲存體帳戶時才需要執行。 必須要有 Microsoft Azure 儲存體帳戶，才能建立 StorSimple 磁碟區容器。
 
-如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md) 以取得逐步指示。
+如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 以取得逐步指示。
 
 請在 Azure 傳統入口網站上的 [StorSimple Manager 服務]  頁面，執行下列步驟。
 
@@ -282,10 +283,5 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 針對第一次
 ## <a name="next-steps"></a>後續步驟
 * 設定 [虛擬裝置](storsimple-virtual-device-u2.md)。
 * 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx) 以管理 StorSimple 裝置。
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

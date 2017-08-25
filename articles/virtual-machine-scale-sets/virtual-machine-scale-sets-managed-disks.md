@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 8ec9709bfb553f6ee89611e92330dedb6129055d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 擴展集與受控磁碟
@@ -45,7 +45,7 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 
 ## <a name="next-steps"></a>後續步驟
 
-如需更多有關一般受控磁碟的資訊，請參閱[這篇文章](../storage/storage-managed-disks-overview.md)。
+如需更多有關一般受控磁碟的資訊，請參閱[這篇文章](../virtual-machines/windows/managed-disks-overview.md)。
 
 若要了解如何轉換 Resource Manager 範本來佈建含有受控磁碟的擴展集，請參閱[這篇文章](./virtual-machine-scale-sets-convert-template-to-md.md)。 對於 Resource Manager 範本的修改同樣適用於 Azure REST API。
 

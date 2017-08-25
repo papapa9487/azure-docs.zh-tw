@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ed97f2aeb19566b12342e5194ac8a01293f453bf
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0931a71a2814723380256fc5326fc431c82f2c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure"></a>將 Hyper-V 虛擬機器 (位於 VMM 雲端中) 複寫至 Azure
@@ -52,7 +51,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 | **必要條件** | **詳細資料** |
 | --- | --- |
 | **Azure 帳戶** |您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。 [深入了解](https://azure.microsoft.com/pricing/details/site-recovery/) Site Recovery 價格。 |
-| **Azure 儲存體** |您需要 Azure 儲存體帳戶來儲存複寫的資料。 複寫的資料會儲存在 Azure 儲存體，容錯移轉時會啟動 Azure VM。 <br/><br/>您需要一個[標準異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)。 此帳戶應與 Site Recovery 服務位於相同的區域，且與相同的訂用帳戶相關聯。 請注意，複寫到進階儲存體帳戶目前不受支援，因此請勿使用。<br/><br/>[深入了解](../storage/storage-introduction.md) Azure 儲存體。 |
+| **Azure 儲存體** |您需要 Azure 儲存體帳戶來儲存複寫的資料。 複寫的資料會儲存在 Azure 儲存體，容錯移轉時會啟動 Azure VM。 <br/><br/>您需要一個[標準異地備援儲存體帳戶](../storage/common/storage-redundancy.md#geo-redundant-storage)。 此帳戶應與 Site Recovery 服務位於相同的區域，且與相同的訂用帳戶相關聯。 請注意，複寫到進階儲存體帳戶目前不受支援，因此請勿使用。<br/><br/>[深入了解](../storage/common/storage-introduction.md) Azure 儲存體。 |
 | **Azure 網路** |容錯移轉發生時，您需要 Azure VM 會連接的 Azure 虛擬網路。 Azure 虛擬網路必須位於與 Site Recovery 保存庫相同的區域中。 |
 
 ## <a name="on-premises-prerequisites"></a>內部部署必要條件
@@ -226,9 +225,9 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![Cloud replication settings](./media/site-recovery-vmm-to-azure-classic/cloud-settings.png)
 
-儲存設定之後，會建立一個工作，並可在 [工作]  索引標籤上進行監視。 將會對 VMM 雲端中的所有 Hyper-V 主機伺服器設定複寫。
+儲存設定之後，會建立一個工作，並可在 [工作]  索引標籤上進行監視。將會對 VMM 雲端中的所有 Hyper-V 主機伺服器設定複寫。
 
-儲存之後，可在 [設定]  索引標籤上修改雲端設定。 若要修改目標位置或目標儲存體帳戶，您需要移除雲端組態，然後重新設定雲端。 請注意，如果您變更儲存體帳戶，則只會對修改儲存體帳戶之後才啟用保護的虛擬機器套用變更。 現有的虛擬機器不會移轉至新的儲存體帳戶。
+儲存之後，可在 [設定]  索引標籤上修改雲端設定。若要修改目標位置或目標儲存體帳戶，您需要移除雲端組態，然後重新設定雲端。 請注意，如果您變更儲存體帳戶，則只會對修改儲存體帳戶之後才啟用保護的虛擬機器套用變更。 現有的虛擬機器不會移轉至新的儲存體帳戶。
 
 ## <a name="step-7-configure-network-mapping"></a>步驟 7：設定網路對應
 開始網路對應之前，請確認來源 VMM 伺服器上的虛擬機器已連線到 VM 網路。 此外，請建立一或多個 Azure 虛擬網路。 請注意，多個 VM 網路可對應至單一 Azure 網路。
@@ -242,7 +241,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![Cloud replication settings](./media/site-recovery-vmm-to-azure-classic/map-networks.png)
 
-儲存設定之後，工作會開始追蹤對應進度，可在 [工作] 索引標籤上進行監視。 對應來源 VM 網路的任何現有複本虛擬機器都會連線到目標 Azure 網路。 連線到來源 VM 網路的新虛擬機器都會在複寫之後連線到對應的 Azure 網路。 如果您修改與新網路的現有對應，複本虛擬機器將使用新設定進行連線。
+儲存設定之後，工作會開始追蹤對應進度，可在 [工作] 索引標籤上進行監視。對應來源 VM 網路的任何現有複本虛擬機器都會連線到目標 Azure 網路。 連線到來源 VM 網路的新虛擬機器都會在複寫之後連線到對應的 Azure 網路。 如果您修改與新網路的現有對應，複本虛擬機器將使用新設定進行連線。
 
 請注意，如果目標網路具有多個子網路，且其中一個子網路的名稱和來源虛擬機器所在之子網路名稱相同，複本虛擬機器將會在容錯移轉之後連線到該目標子網路。 如果沒有目標子網路具有相符的名稱，虛擬機器將會連線到網路中的第一個子網路。
 
@@ -315,7 +314,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![建立復原計畫](./media/site-recovery-vmm-to-azure-classic/select-rp.png)
 
-建立復原方案之後，它會出現在 [復原方案]  索引標籤中。 您也可以將 [Azure 自動化 Runbook](site-recovery-runbook-automation.md) 加入至復原方案，以自動化容錯移轉期間的動作。
+建立復原方案之後，它會出現在 [復原方案]  索引標籤中。您也可以將 [Azure 自動化 Runbook](site-recovery-runbook-automation.md) 加入至復原方案，以自動化容錯移轉期間的動作。
 
 ### <a name="run-a-test-failover"></a>執行測試容錯移轉
 有兩種方式可以測試容錯移轉至 Azure。
