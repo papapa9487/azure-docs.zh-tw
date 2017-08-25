@@ -19,9 +19,7 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 81d5ae3775cca7cea5abf1922a25be0663a8a949
 ms.contentlocale: zh-tw
 
-
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 Microsoft Authentication Library (MSAL) 取得 Microsoft 圖形 API 的權杖
 
 開啟 `ViewController.swift` 並且將程式碼取代為：

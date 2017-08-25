@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 233965bf54cbca79c7ff059aaccfa5780d672cab
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c2f2a878414e4efd626d674ef9a182ae52eeb1ff
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/09/2017
 下列各節討論可達成分散式計算案例的 Batch 資源。
 
 > [!NOTE]
-> 您需要有 [Batch 帳戶](#account)才能使用 Batch 服務。 大部分 Batch 解決方案也會使用 [Azure 儲存體][azure_storage] 帳戶來儲存和擷取檔案。 Batch 目前僅支援**一般用途**的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)中的[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)的步驟 5 所述。
+> 您需要有 [Batch 帳戶](#account)才能使用 Batch 服務。 大部分 Batch 解決方案也會使用 [Azure 儲存體][azure_storage] 帳戶來儲存和擷取檔案。 Batch 目前僅支援**一般用途**的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中的[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)的步驟 5 所述。
 >
 >
 
@@ -114,7 +114,7 @@ ms.lasthandoff: 08/09/2017
 
 大部分 Batch 解決方案都使用 Azure 儲存體來儲存資源檔和輸出檔。  
 
-Batch 目前僅支援一般用途的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)中[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)的步驟 5 所述。 您的 Batch 工作 (包括標準工作、啟動工作、作業準備工作和作業發行工作) 必須指定位於一般用途的儲存體帳戶中的資源檔。
+Batch 目前僅支援一般用途的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)的步驟 5 所述。 您的 Batch 工作 (包括標準工作、啟動工作、作業準備工作和作業發行工作) 必須指定位於一般用途的儲存體帳戶中的資源檔。
 
 
 ## <a name="compute-node"></a>計算節點

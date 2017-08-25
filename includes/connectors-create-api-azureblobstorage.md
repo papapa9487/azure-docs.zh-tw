@@ -1,6 +1,6 @@
 ### <a name="prerequisites"></a>必要條件
 * Azure 帳戶；您可以建立一個 [免費帳戶](https://azure.microsoft.com/free)
-* [Azure Blob 儲存體帳戶](../articles/storage/storage-create-storage-account.md)，包括儲存體帳戶名稱和其存取金鑰。 這項資訊會列在 Azure 入口網站儲存體帳戶的屬性中。 深入了解 [Azure 儲存體](../articles/storage/storage-introduction.md)。
+* [Azure Blob 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)，包括儲存體帳戶名稱和其存取金鑰。 這項資訊會列在 Azure 入口網站儲存體帳戶的屬性中。 深入了解 [Azure 儲存體](../articles/storage/common/storage-introduction.md)。
 
 在於邏輯應用程式中使用您的「Azure Blob 儲存體」帳戶之前，請先連線到您的「Azure Blob 儲存體」帳戶。 您可以在 Azure 入口網站上，從邏輯應用程式內輕鬆完成此操作。  
 

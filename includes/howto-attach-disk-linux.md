@@ -1,5 +1,5 @@
 
-如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+如需有關磁碟的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 <a id="attachempty"></a>
 

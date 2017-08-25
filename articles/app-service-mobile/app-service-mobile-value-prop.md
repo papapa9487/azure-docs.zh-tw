@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: dd405eefbd69e1ed2268152017bc1f9992619c5f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c63a7cd596baa20bf0a9031c88df78b2af09e57a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="getting-started"></a>什麼是 Mobile Apps？
@@ -78,7 +78,7 @@ Azure App Service 是完全受管理的 [平台即服務](https://azure.microsof
 [Migrate your Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [快速入門]: app-service-mobile-ios-get-started.md
-[Azure 資料表儲存體]: ../storage/storage-dotnet-how-to-use-tables.md
+[Azure 資料表儲存體]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [DocumentDB]: ../documentdb/documentdb-get-started.md
 [驗證功能]: ./app-service-mobile-auth.md
 [資料功能]: ./app-service-mobile-offline-data-sync.md

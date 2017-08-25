@@ -41,7 +41,7 @@
    > 如果您選擇較大的虛擬機器，可能會酌收額外的費用。 如需詳細資訊，請參閱 [虛擬機器定價詳細資料](https://azure.microsoft.com/pricing/details/virtual-machines/) 。
    > 
    > 
-6. 在 Visual Studio 中建立的虛擬機器需要雲端服務。 在 [雲端服務設定] 頁面上，選取虛擬機器的雲端服務，如果您還沒有雲端服務或想使用新的雲端服務，請按一下下拉式清單中的 [<建立新的...>]。 儲存體帳戶也是必要的，所以請在 [儲存體帳戶]  下拉式清單方塊中選擇儲存體帳戶 (或建立新的儲存體帳戶)。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../articles/storage/storage-introduction.md) 。
+6. 在 Visual Studio 中建立的虛擬機器需要雲端服務。 在 [雲端服務設定] 頁面上，選取虛擬機器的雲端服務，如果您還沒有雲端服務或想使用新的雲端服務，請按一下下拉式清單中的 [<建立新的...>]。 儲存體帳戶也是必要的，所以請在 [儲存體帳戶]  下拉式清單方塊中選擇儲存體帳戶 (或建立新的儲存體帳戶)。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../articles/storage/common/storage-introduction.md) 。
 7. 如果您想要指定虛擬網路 (這是選擇性的)，請在 [虛擬網路] 和 [子網路] 下拉式清單方塊中進行選取。
    
     屬於可用性集合的虛擬機器會部署到不同的容錯網域。 如需詳細資訊，請參閱 [Azure 虛擬網路](https://azure.microsoft.com/services/virtual-network/) 。

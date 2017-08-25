@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: f6a49be148ded1a90a642b83d3d70a83e572f4e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight 上的 Apache Kafka (預覽) 簡介
@@ -42,7 +42,7 @@ Kafka 提供下列功能：
 
 * 與 Azure 受控磁碟整合：受控磁碟可在 HDInsight 叢集中，針對虛擬機器所使用的磁碟提供更高的級別和輸送量。
 
-    預設會啟用 HDInsight 上 Kafka 的受控磁碟，且在 HDInsight 建立期間，可以設定每個節點使用的磁碟數目。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟](../storage/storage-managed-disks-overview.md)。
+    預設會啟用 HDInsight 上 Kafka 的受控磁碟，且在 HDInsight 建立期間，可以設定每個節點使用的磁碟數目。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)。
 
     如需使用 HDInsight 上的 Kafka 設定受控磁碟的資訊，請參閱[提高 HDInsight 上的 Kafka 延展性](hdinsight-apache-kafka-scalability.md)。
 

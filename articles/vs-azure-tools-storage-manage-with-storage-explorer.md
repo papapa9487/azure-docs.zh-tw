@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 0b1f7711586cdfacbbfb28af121c7f37ba564cde
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>開始使用儲存體總管 (預覽)
@@ -156,7 +156,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 2. 在確認訊息中，選取 [是] 以確認從外部儲存體帳戶卸離。
 
 ## <a name="attach-a-storage-account-by-using-an-sas"></a>使用 SAS 連結儲存體帳戶
-[SAS](storage/storage-dotnet-shared-access-signature-part-1.md) 可讓 Azure 訂用帳戶的系統管理員授與儲存體帳戶的暫時存取權，而不需提供 Azure 訂用帳戶認證。
+[SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) 可讓 Azure 訂用帳戶的系統管理員授與儲存體帳戶的暫時存取權，而不需提供 Azure 訂用帳戶認證。
 
 為了說明此案例，我們假設 UserA 是 Azure 訂用帳戶的系統管理員，而且 UserA 想要允許 UserB 在有限的時間內使用特定權限存取儲存體帳戶：
 

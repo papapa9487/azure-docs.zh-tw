@@ -1,7 +1,7 @@
 當您不再需要某個連結至虛擬機器 (VM) 的資料磁碟時，可以輕鬆將它中斷連結。 當您從 VM 中斷連結磁碟時，磁碟不會從儲存體中移除。 如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連結至相同 VM 或其他 VM。  
 
 > [!NOTE]
-> Azure 中的 VM 使用不同類型的磁碟 - 作業系統磁碟、本機暫存磁碟，以及選擇性的資料磁碟。 如需詳細資訊，請參閱[有關虛擬機器的磁碟和 VHD](../articles/storage/storage-about-disks-and-vhds-linux.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 您無法將作業系統磁碟中斷連結，除非您同時刪除 VM。
+> Azure 中的 VM 使用不同類型的磁碟 - 作業系統磁碟、本機暫存磁碟，以及選擇性的資料磁碟。 如需詳細資訊，請參閱[有關虛擬機器的磁碟和 VHD](../articles/virtual-machines/linux/about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 您無法將作業系統磁碟中斷連結，除非您同時刪除 VM。
 
 ## <a name="find-the-disk"></a>尋找磁碟
 您必須先找出 LUN 編號 (要中斷連結之磁碟的識別碼)，才能將磁碟與 VM 中斷連結。 若要這樣做，請遵循下列步驟：

@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32569d7e75a7a4ddee28041c0487ff158c20fd78
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d30c09d23a84200ba81df133c9de5b11910ffb61
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="batch-and-hpc-solutions-for-large-scale-computing-workloads"></a>大規模運算工作負載的 Batch 和 HPC 解決方案
@@ -106,7 +106,7 @@ Azure 計算服務是 Big Compute 解決方案的核心，且不同的計算服�
 ### <a name="storage-services"></a>儲存體服務
 大量運算解決方案通常會在一組輸入資料上操作，並產生其結果的資料。 Big Compute 解決方案中使用的部分 Azure 儲存體服務包括：
 
-* [Blob、資料表和佇列儲存體](https://azure.microsoft.com/documentation/services/storage/) - 分別管理大量非結構化資料、NoSQL 資料，和工作流程和通訊的訊息。 例如，您可以將 Blob 儲存體使用於大型技術資料集，或應用程式處理的輸入影像或媒體檔案。 您可以在解決方案中使用佇列以速行非同步通訊。 請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
+* [Blob、資料表和佇列儲存體](https://azure.microsoft.com/documentation/services/storage/) - 分別管理大量非結構化資料、NoSQL 資料，和工作流程和通訊的訊息。 例如，您可以將 Blob 儲存體使用於大型技術資料集，或應用程式處理的輸入影像或媒體檔案。 您可以在解決方案中使用佇列以速行非同步通訊。 請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)。
 * [Azure 檔案儲存體](https://azure.microsoft.com/services/storage/files/) - 在 Azure 中使用標準 SMB 通訊協定 (為一些 HPC 叢集解決方案必備) 來共用一般檔案和資料。
 * [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) - 為雲端提供超大規模的 Apache Hadoop 分散式檔案系統，適用於批次分析、即時分析和互動式分析。
 

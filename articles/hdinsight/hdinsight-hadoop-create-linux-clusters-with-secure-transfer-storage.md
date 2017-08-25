@@ -14,27 +14,24 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 08/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 5e9cae224e5a36e1529c962ad8cbab77176dda8c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 370b2f081930fe88527436a1a127309aed6681f0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全傳輸儲存體帳戶建立 Hadoop 叢集
 
-[需要安全傳輸](../storage/storage-require-secure-transfer.md)功能透過安全連線來強制對您帳戶的所有要求，以增強 Azure 儲存體帳戶的安全性。 只有 HDInsight 叢集 3.6 版或更新版本支援這項功能和 wasbs 配置。 
-
->[!NOTE] 
-> 目前不支援使用 .NET SDK 透過已啟用安全傳輸的儲存體帳戶建立叢集。 因應措施是在核心網站組態的 "fs.defaultFS" 屬性中設定 "wasbs" 作為 ClusterCreateParametersExtended 的一部分。
+[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)功能透過安全連線來強制對您帳戶的所有要求，以增強 Azure 儲存體帳戶的安全性。 只有 HDInsight 叢集 3.6 版或更新版本支援這項功能和 wasbs 配置。 
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備：
 
 * **Azure 訂用帳戶**︰若要建立一個月的免費試用帳戶，請瀏覽至 [azure.microsoft.com/free](https://azure.microsoft.com/free)。
-* **已啟用安全傳輸的 Azure 儲存體帳戶**。 如需相關指示，請參閱[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)和[需要安全傳輸](../storage/storage-require-secure-transfer.md)。
+* **已啟用安全傳輸的 Azure 儲存體帳戶**。 如需相關指示，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)和[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。
 * **儲存體帳戶上的 Blob 容器**。 
 ## <a name="create-cluster"></a>建立叢集
 

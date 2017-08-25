@@ -16,10 +16,10 @@ ms.date: 06/29/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 0c8a4b518c6946781c2340f79ab479612b595c74
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 707356a49970bcd76a55ee1b8a6fbddf6a6ba390
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-java"></a>使用 Java 將您的裝置連線至 IoT 中樞
@@ -181,16 +181,13 @@ RegistryManager registryManager = RegistryManager.createFromConnectionString(con
 
 3. 使用文字編輯器，在 read-d2c-messages 資料夾中開啟 pom.xml 檔案，並對 [相依性]  節點新增下列相依性。 這個相依性可讓您在應用程式中使用 eventhubs-client 套件，以從事件中樞相容端點進行讀取：
 
-    ```java
+    ```xml
     <dependency> 
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-eventhubs</artifactId> 
         <version>0.13.0</version> 
     </dependency>
     ```
-
-    > [!NOTE]
-    > 您可以使用 [Maven 搜尋][lnk-maven-eventhubs-search]來檢查最新版的 **azure-eventhubs**。
 
 4. 儲存並關閉 pom.xml 檔案。
 

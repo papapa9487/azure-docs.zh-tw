@@ -4,7 +4,7 @@
 | 每一[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md)的 VM 總計核心 |每個區域 20<sup>1</sup> 個 | 請連絡支援人員 |
 | 每一[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md)的 VM 每個系列 (Dv2、F 等等) 核心 |每個區域 20<sup>1</sup> 個 | 請連絡支援人員 |
 | 每一訂用帳戶[共同管理員](../articles/billing-add-change-azure-subscription-administrator.md) |無限 |無限 |
-| 每一訂用帳戶[儲存體帳戶](../articles/storage/storage-create-storage-account.md) |200 |200<sup>2</sup> |
+| 每一訂用帳戶[儲存體帳戶](../articles/storage/common/storage-create-storage-account.md) |200 |200<sup>2</sup> |
 | 每一訂用帳戶[資源群組](../articles/azure-resource-manager/resource-group-overview.md) |800 |800 |
 | 每一訂用帳戶[可用性設定組](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |每個區域 2,000 個 |每個區域 2,000 個 |
 | 資源管理員 API 讀取 |每小時 15,000 個 |每小時 15,000 個 |

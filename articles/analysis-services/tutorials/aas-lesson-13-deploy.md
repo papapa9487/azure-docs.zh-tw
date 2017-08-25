@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6f56d017702391b2027ad421de4c1919fa53090a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="lesson-13-deploy"></a>第 13 課：部署
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/19/2017
 
 2.  以滑鼠右鍵按一下 [AW 網際網路銷售] 專案 > [部署]。
 
-    當部署至 Azure Analysis Services 時，可能會提示您輸入您的帳戶。 請輸入您的組織帳戶和密碼，例如 nancy@adventureworks.com。 此帳戶必須在伺服器上的 Admins 中。
+    當部署至 Azure Analysis Services 時，可能會提示您輸入您的帳戶。 請輸入您的組織帳戶和密碼，例如 nancy@adventureworks.com。此帳戶必須在伺服器上的 Admins 中。
   
     [部署] 對話方塊隨即出現，並顯示中繼資料和模型中每個資料表的部署狀態。  
     

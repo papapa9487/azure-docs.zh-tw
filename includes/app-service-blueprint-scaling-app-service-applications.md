@@ -7,7 +7,7 @@
 * 調整 App Service 的最佳做法
   
   * 連接埠耗盡與連線共用
-  * [如何從 App Service 應用程式運用 Azure 儲存體](../articles/storage/storage-dotnet-how-to-use-blobs.md)
+  * [如何從 App Service 應用程式運用 Azure 儲存體](../articles/storage/blobs/storage-dotnet-how-to-use-blobs.md)
   * [如何從 App Service 應用程式運用 Azure CDN](../articles/cdn/cdn-overview.md)
   * [如何從 App Service 應用程式運用 Azure Redis Cache](../articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md)
 * 地理分散

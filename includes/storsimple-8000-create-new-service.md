@@ -24,7 +24,7 @@
    4. 提供服務的 [位置]  。 一般而言，請選擇最接近您想要部署裝置之地理區域的位置。 您可能也需要計入下列考量因素： 
       
       * 如果您在 Azure 中有工作負載，且想要與您的 StorSimple 裝置部署，請使用該資料中心。
-      * 您的 StorSimple 裝置管理員服務和 Azure 儲存體可以位於兩個不同的位置。 如此一來，您需要分別建立 StorSimple 裝置管理員和 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請前往 Azure 入口網站中的 [Azure 儲存體服務]，依[建立 Azure 儲存體帳戶](../articles/storage/storage-create-storage-account.md#create-a-storage-account)中的步驟進行。 建立此帳戶之後，請依[設定服務的新儲存體帳戶](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple 裝置管理員服務。
+      * 您的 StorSimple 裝置管理員服務和 Azure 儲存體可以位於兩個不同的位置。 如此一來，您需要分別建立 StorSimple 裝置管理員和 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請前往 Azure 入口網站中的 [Azure 儲存體服務]，依[建立 Azure 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)中的步驟進行。 建立此帳戶之後，請依[設定服務的新儲存體帳戶](../articles/storsimple/storsimple-8000-deployment-walkthrough-u2.md#configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple 裝置管理員服務。
 
    5. 選取 [建立新的儲存體帳戶]  ，自動建立具有此服務的儲存體帳戶。 指定此儲存體帳戶的名稱。 如果您需要將資料放在不同的位置，取消核取此方塊。
 

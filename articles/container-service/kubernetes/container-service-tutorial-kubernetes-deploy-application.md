@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 在所複製之存放庫的下列目錄底下，即可找到資訊清單檔。
 
 ```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
+/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
 ```
 
 ## <a name="update-manifest-file"></a>更新資訊清單檔
@@ -83,7 +83,7 @@ containers:
 使用 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 命令來執行應用程式。 此命令會剖析資訊清單檔，並建立已定義的 Kubernetes 物件。
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yaml
+kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
 ```
 
 輸出：

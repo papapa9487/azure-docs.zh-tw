@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: c344941c59c52d260999c29f448bb94df24fba1d
-ms.lasthandoff: 04/13/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="secure-your-key-vault"></a>保護您的金鑰保存庫
@@ -197,7 +197,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 
 可為開發人員/操作員指派「部署/動作」權限的自訂角色侷限於資源群組。 如此一來，只有在資源群組「ContosoAppRG」中建立的 VM 會取得機密資料 (SSL 憑證和啟動程序憑證)。 開發人員/操作員小組成員在其他資源群組中建立的任何 VM 即使知道機密資料 URI，也無法取得這些機密資料。
 
-此範例描述的是簡單案例。 真實案例可能會更複雜，您可能需要根據需求調整金鑰保存庫的權限。 例如，在我們所舉的範例中，我們假設該安全性小組會提供開發人員/操作員小組需要在其應用程式中參考的金鑰和密碼參考 (URI 和指紋)。 因此，他們不需要對開發人員/操作員授與任何資料平面存取權。 另請注意，此範例的內容著重在保護金鑰保存庫。 若要保護[您的 VM](https://azure.microsoft.com/services/virtual-machines/security/)、[儲存體帳戶](../storage/storage-security-guide.md)和其他 Azure 資源，也應提供類似考量。
+此範例描述的是簡單案例。 真實案例可能會更複雜，您可能需要根據需求調整金鑰保存庫的權限。 例如，在我們所舉的範例中，我們假設該安全性小組會提供開發人員/操作員小組需要在其應用程式中參考的金鑰和密碼參考 (URI 和指紋)。 因此，他們不需要對開發人員/操作員授與任何資料平面存取權。 另請注意，此範例的內容著重在保護金鑰保存庫。 若要保護[您的 VM](https://azure.microsoft.com/services/virtual-machines/security/)、[儲存體帳戶](../storage/common/storage-security-guide.md)和其他 Azure 資源，也應提供類似考量。
 
 > [!NOTE]
 > 注意︰此範例示範生產環境中會如何鎖定金鑰保存庫的存取權。 開發人員應該有自己的訂用帳戶或資源群組，並擁有完整權限以便管理他們用來開發應用程式的保存庫、VM 和儲存體帳戶。

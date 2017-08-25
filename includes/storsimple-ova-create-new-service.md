@@ -8,7 +8,7 @@
    3. 提供服務的 [位置]  。 位置是指您要部署裝置的地理區域。
       
       * 如果您在 Azure 中還有其他您想利用 StorSimple 裝置來部署的工作負載，建議您使用該資料中心。
-      * StorSimple Manager 和 Azure 儲存體可以分別位於兩個不同的位置。 如此一來，您需要分別建立 StorSimple Manager 和 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請前往入口網站中的 [Azure 儲存體服務]，並依照[建立 Azure 儲存體帳戶](../articles/storage/storage-create-storage-account.md#create-a-storage-account)中的步驟進行。 建立此帳戶之後，請依照 [設定服務的新儲存體帳戶](#optional-step-configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple Manager 服務中。
+      * StorSimple Manager 和 Azure 儲存體可以分別位於兩個不同的位置。 如此一來，您需要分別建立 StorSimple Manager 和 Azure 儲存體帳戶。 若要建立 Azure 儲存體帳戶，請前往入口網站中的 [Azure 儲存體服務]，並依照[建立 Azure 儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)中的步驟進行。 建立此帳戶之後，請依照 [設定服務的新儲存體帳戶](#optional-step-configure-a-new-storage-account-for-the-service)中的步驟，將此帳戶新增到 StorSimple Manager 服務中。
       * 如果在政府機構入口網站中部署虛擬裝置，美國愛荷華州和美國維吉尼亞州位置可以使用 StorSimple Manager 服務。
    4. 從下拉式清單選擇 [訂用帳戶]  。 訂用帳戶會連結到您的帳單帳戶。 當您只有一個訂用帳戶時，這個欄位不會出現。
    5. 選取 [建立新的 Azure 儲存體帳戶]  ，以自動向此服務建立儲存體帳戶。 這個儲存體帳戶將會有特殊的名稱，例如「storsimplebwv8c6dcnf」。 如果您需要讓資料存放在不同的位置，請清除此核取方塊。

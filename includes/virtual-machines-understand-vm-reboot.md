@@ -85,7 +85,7 @@ Azure 中的 VM 依賴作業系統的虛擬磁碟以及 Azure 儲存體基礎結
 
 當 I/O 要求因為每秒 I/O 作業次數 (IOPS) 超出磁碟的 I/O 限制而一直節流時，VM 可能會暫時關閉。 (標準磁碟儲存體受限於 500 IOPS)。若要緩和這個問題，請使用磁碟等量化或在客體 VM 內設定儲存體空間 (視工作負載而定)。 如需詳細資訊，請參閱[設定 Azure VM 以達到最佳的儲存體效能](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)。
 
-透過有高達 80,000 IOPS 的 Azure 進階儲存體可取得較高的 IOPS 限制。 如需詳細資訊，請參閱[高效能進階儲存體](../articles/storage/storage-premium-storage.md)。
+透過有高達 80,000 IOPS 的 Azure 進階儲存體可取得較高的 IOPS 限制。 如需詳細資訊，請參閱[高效能進階儲存體](../articles/storage/common/storage-premium-storage.md)。
 
 ### <a name="other-incidents"></a>其他事件
 在少數情況下，廣泛的問題可能會影響 Azure 資料中心內的多部伺服器。 如果發生此問題，Azure 團隊會傳送電子郵件通知給受影響的訂用帳戶。 您可以在 [Azure 服務健全狀況儀表板](https://azure.microsoft.com/status/)和 Azure 入口網站中，檢查目前中斷和過去事件的狀態。

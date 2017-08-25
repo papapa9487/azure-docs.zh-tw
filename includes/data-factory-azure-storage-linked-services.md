@@ -1,6 +1,4 @@
-<a id="azure-storage-linked-service" class="xliff"></a>
-
-### Azure 儲存體連結服務
+### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
 「Azure 儲存體連結服務」可讓您使用**帳戶金鑰**將 Azure 儲存體帳戶連結至 Azure Data Factory，而帳戶金鑰可將 Azure 儲存體的全域存取權提供給資料處理站。 下表提供 Azure 儲存體連結服務專屬 JSON 元素的描述。
 
 | 屬性 | 說明 | 必要 |
@@ -8,7 +6,7 @@
 | 類型 |類型屬性必須設為： **AzureStorage** |是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure 儲存體所需的資訊。 |是 |
 
-請參閱下列文章的步驟來檢視/複製 Azure 儲存體帳戶金鑰：[檢視、複製和重新產生儲存體存取金鑰](../articles/storage/storage-create-storage-account.md#manage-your-storage-account)。
+請參閱下列文章的步驟來檢視/複製 Azure 儲存體帳戶金鑰：[檢視、複製和重新產生儲存體存取金鑰](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account)。
 
 **範例：**  
 
@@ -24,13 +22,11 @@
 }  
 ```
 
-<a id="azure-storage-sas-linked-service" class="xliff"></a>
-
-### Azure 儲存體 SAS 連結服務
-共用存取簽章 (SAS) 可提供您儲存體帳戶中資源的委派存取。 它可讓您在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入 SAS 即可。 如需 SAS 的詳細資訊，請參閱 [共用存取簽章：了解 SAS 模型](../articles/storage/storage-dotnet-shared-access-signature-part-1.md)
+### <a name="azure-storage-sas-linked-service"></a>Azure 儲存體 SAS 連結服務
+共用存取簽章 (SAS) 可提供您儲存體帳戶中資源的委派存取。 它可讓您在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。 SAS 是一種 URI，此 URI 會在其查詢參數中包含對儲存體資源進行驗證式存取所需的一切資訊。 若要使用 SAS 存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入 SAS 即可。 如需 SAS 的詳細資訊，請參閱 [共用存取簽章：了解 SAS 模型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 > [!IMPORTANT]
-> Azure Data Factory 現在僅支援 **服務 SAS**，但不支援帳戶 SAS。 如需這兩種類型的詳細資料及其建構方式，請參閱[共用存取簽章的類型](../articles/storage/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 請注意，可從 Azure 入口網站或儲存體總管產生的 SAS URL 是帳戶 SAS (不提供支援)。
+> Azure Data Factory 現在僅支援 **服務 SAS**，但不支援帳戶 SAS。 如需這兩種類型的詳細資料及其建構方式，請參閱[共用存取簽章的類型](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)。 請注意，可從 Azure 入口網站或儲存體總管產生的 SAS URL 是帳戶 SAS (不提供支援)。
 > 
 
 Azure 儲存體 SAS 連結服務可讓您使用共用存取簽章 (SAS)，將 Azure 儲存體帳戶連結到 Azure Data Factory。 它提供受限制/時間界限存取權，讓資料處理站存取儲存體中的所有/特定資源 (blob/容器)。 下表提供 Azure 儲存體 SAS 連結服務專屬 JSON 元素的描述。 

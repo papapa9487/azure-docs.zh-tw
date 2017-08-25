@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 94d228f38a760b40f1acb4685702e6244f03bb5d
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
@@ -34,7 +34,7 @@ Azure Analysis Services 在雲端提供企業級資料模型化。 這是完全�
 觀看[此影片](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)以了解 Azure Analysis Services 如何配合 Microsoft 的整體 BI 功能，以及您如何才能受惠於將資料模型置入雲端。
 
 ## <a name="built-on-sql-server-analysis-services"></a>建置在 SQL Server Analysis Services 上
-Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中現有的許多優質功能相容。 Azure Analysis Services 支援 1200 和 1400 [相容性層級](https://docs.microsoft.com/sql/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services)的表格式模型。 磁碟分割、資料列層級安全性、雙向關聯性和轉譯都有支援。 記憶體內部和 DirectQuery 模式表示可以快速查詢大量且複雜的資料集。
+Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中現有的許多優質功能相容。 Azure Analysis Services 支援 1200 和 1400 [相容性層級](analysis-services-compat-level.md)的表格式模型。 磁碟分割、資料列層級安全性、雙向關聯性和轉譯都有支援。 記憶體內部和 DirectQuery 模式表示可以快速查詢大量且複雜的資料集。
 
 表格式模型可供快速進行開發，並可高度自訂。 對於開發人員而言，表格式模型包含可說明模型物件的表格式物件模型 (TOM)。 TOM 會經由 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 命名空間透過[表格式模型指令碼語言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)和 AMO 資料定義語言以 JSON 公開。
 

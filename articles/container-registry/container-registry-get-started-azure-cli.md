@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 99bb3db7cc80e8426e1dca14bc3d733ee6c7342c
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立私人 Docker 容器登錄
@@ -35,7 +35,7 @@ ms.lasthandoff: 06/07/2017
 ## <a name="prerequisites"></a>必要條件
 * **Azure CLI 2.0**若要安裝並開始使用 CLI 2.0，請參閱[安裝指示](/cli/azure/install-azure-cli)。 執行 `az login`登入您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[開始使用 CLI 2.0](/cli/azure/get-started-with-azure-cli)。
 * **資源群組**：先建立[資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)再建立容器登錄，或使用現有的資源群組。 請確定資源群組是位於[可使用](https://azure.microsoft.com/regions/services/)容器登錄庫服務的位置。 若要使用 CLI 2.0 建立資源群組，請參閱 [CLI 2.0 參考](/cli/azure/group)。
-* **儲存體帳戶** (選用)：建立標準 Azure [儲存體帳戶](../storage/storage-introduction.md)以支援相同位置中的容器登錄。 如果您以 `az acr create` 建立登錄庫時沒有指定儲存體帳戶，此命令會為您建立一個儲存體帳戶。 若要使用 CLI 2.0 建立儲存體帳戶，請參閱 [CLI 2.0 參考](/cli/azure/storage/account)。 目前不支援進階儲存體。
+* **儲存體帳戶** (選用)：建立標準 Azure [儲存體帳戶](../storage/common/storage-introduction.md)以支援相同位置中的容器登錄。 如果您以 `az acr create` 建立登錄庫時沒有指定儲存體帳戶，此命令會為您建立一個儲存體帳戶。 若要使用 CLI 2.0 建立儲存體帳戶，請參閱 [CLI 2.0 參考](/cli/azure/storage/account)。 目前不支援進階儲存體。
 * **服務主體** (選用)：當您使用 CLI 建立登錄，依預設不會做存取設定。 您可以將現有的 Azure Active Directory 服務主體指派至登錄庫 (或建立並指派新的)，或是啟用登錄庫的管理員使用者帳戶，根據您的需求而定。 請參閱本文稍後的章節。 如需登錄庫存取權的詳細資訊，請參閱[驗證容器登錄庫](container-registry-authentication.md)。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫

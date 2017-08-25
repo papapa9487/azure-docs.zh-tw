@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 04/26/2017
 ms.author: mbaldwin
-translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: d32d91f7bbfcea61caba6ccc3033929d307f14be
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 348e154f8398b5e60ad5a698cd319fa381de2fa5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-any-windows-app-on-any-device-with-azure-remoteapp"></a>使用 Azure RemoteApp 在任何裝置上執行任何 Windows 應用程式
@@ -88,7 +88,7 @@ ms.lasthandoff: 03/31/2017
 1. 請從發佈命令列介面 (cmd.exe) 開始。 在 [發佈] 索引標籤中，選取 [cmd]，然後按一下 [發佈 > 使用路徑發佈程式]。
 2. 輸入應用程式和路徑的名稱。 基於我們的目的，使用 "File Explorer" 做為名稱並使用 "%SYSTEMDRIVE%\windows\explorer.exe" 做為路徑。
    ![發佈 cmd.exe 檔案](./media/remoteapp-anyapp/ra-publishcmd.png)。
-3. 現在，您需要建立 Azure [儲存體帳戶](../storage/storage-create-storage-account.md)。 我們的命名為 "accessstorage"，因此請選擇對您有意義的名稱。 (若要誤引 Highlander，則只能有一個 "accessstorage"。 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
+3. 現在，您需要建立 Azure [儲存體帳戶](../storage/common/storage-create-storage-account.md)。 我們的命名為 "accessstorage"，因此請選擇對您有意義的名稱。 (若要誤引 Highlander，則只能有一個 "accessstorage"。 ![Azure 儲存體帳戶](./media/remoteapp-anyapp/ra-anyappazurestorage.png)
 4. 現在，回到您的儀表板，以取得您儲存體的路徑 (端點位置)。 您將經常用到它，因此請確定在某個位置複製它。
    ![儲存體帳戶路徑](./media/remoteapp-anyapp/ra-anyappstoragelocation.png)
 5. 接著，建立儲存體帳戶之後，您需要有主要存取金鑰。 按一下 [ **管理存取金鑰**]，然後複製主要存取金鑰。

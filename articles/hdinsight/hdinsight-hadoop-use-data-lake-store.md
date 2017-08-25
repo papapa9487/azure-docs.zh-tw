@@ -16,19 +16,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 993cff63037017e37ff5b0787f50ba002df28d03
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 28a836aff65636ef0031ac63f633d746436d7e4a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
-<a id="use-data-lake-store-with-azure-hdinsight-clusters" class="xliff"></a>
+# <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>使用 Data Lake Store 搭配 Azure HDInsight 叢集
 
-# 使用 Data Lake Store 搭配 Azure HDInsight 叢集
-
-若要分析 HDInsight 叢集中的資料，您可以在 [Azure 儲存體](../storage/storage-introduction.md)、[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)，或兩者中儲存資料。 這兩種儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
+若要分析 HDInsight 叢集中的資料，您可以在 [Azure 儲存體](../storage/common/storage-introduction.md)、[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)，或兩者中儲存資料。 這兩種儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
 在本文中，您將了解 Data Lake Store 與 HDInsight 叢集搭配運作的方式。 若要深入了解 Azure 儲存體與 HDInsight 叢集搭配運作的方式，請參閱[使用 Azure 儲存體搭配 Azure HDInsight 叢集](hdinsight-hadoop-use-blob-storage.md)。 如需建立 HDInsight 叢集的詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
@@ -37,9 +34,7 @@ ms.lasthandoff: 07/04/2017
 > 
 > 
 
-<a id="availabilities-for-hdinsight-clusters" class="xliff"></a>
-
-## HDInsight 叢集的可用性
+## <a name="availabilities-for-hdinsight-clusters"></a>HDInsight 叢集的可用性
 
 Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 進行 HDInsight 叢集建立程序時，您可以指定 Azure Blob 儲存體中的 Blob 容器作為預設檔案系統，或在使用 HDInsight 3.5 和更新版本時，選取 Azure 儲存體或 Azure Data Lake Store 作為預設檔案系統，有一些例外狀況。 
 
@@ -63,9 +58,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 使用 Data Lake Store 作為其他儲存體帳戶，並不會影響效能或從叢集讀取或寫入至 Azure 儲存體的能力。
 
 
-<a id="use-data-lake-store-as-default-storage" class="xliff"></a>
-
-## 使用 Data Lake Store 作為預設儲存體
+## <a name="use-data-lake-store-as-default-storage"></a>使用 Data Lake Store 作為預設儲存體
 
 使用 Data Lake Store 作為預設儲存體部署 HDInsight 時，儲存在 Data Lake Store 中的叢集相關檔案會位在下列位置︰
 
@@ -87,9 +80,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 如需建立服務主體和授與存取權的詳細資訊，請參閱[設定 Data Lake Store 存取](#configure-data-lake-store-access)。
 
 
-<a id="use-data-lake-store-as-additional-storage" class="xliff"></a>
-
-## 使用 Data Lake Store 作為其他儲存體
+## <a name="use-data-lake-store-as-additional-storage"></a>使用 Data Lake Store 作為其他儲存體
 
 您也可以使用 Data Lake Store 做為叢集的其他儲存體。 在這種情況下，叢集預設儲存體可以是 Azure 儲存體 Blob 或 Data Lake Store 帳戶。 如果您正在作為其他儲存體的 Data Lake Store 上針對其儲存的資料執行 HDInsight 作業，必須使用檔案的完整路徑。 例如：
 
@@ -104,15 +95,11 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 如需建立服務主體和授與存取權的詳細資訊，請參閱[設定 Data Lake Store 存取](#configure-data-lake-store-access)。
 
 
-<a id="use-more-than-one-data-lake-store-accounts" class="xliff"></a>
-
-## 使用多個 Data Lake Store 帳戶
+## <a name="use-more-than-one-data-lake-store-accounts"></a>使用多個 Data Lake Store 帳戶
 
 在一個或多個 Data Lake Store 帳戶中提供 HDInsight 叢集的權限，即可完成新增 Data Lake Store 帳戶作為其他帳戶，以及新增一個以上的 Data Lake Store 帳戶。 請參閱[設定 Data Lake Store 存取](#configure-data-lake-store-access)。
 
-<a id="configure-data-lake-store-access" class="xliff"></a>
-
-## 設定 Data Lake Store 存取
+## <a name="configure-data-lake-store-access"></a>設定 Data Lake Store 存取
 
 若要從 HDInsight 叢集設定 Data Lake Store 存取，您必須擁有 Azure Active Directory (Azure AD) 服務主體。 只有 Azure AD 系統管理員才可以建立服務主體。 必須使用憑證來建立服務主體。 如需詳細資訊，請參閱[設定 Data Lake Store 存取](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access)，和[使用自我簽署憑證來建立服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)。
 
@@ -120,9 +107,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 > 如果您即將使用 Azure Data Lake Store 作為 HDInsight 叢集的額外儲存體，強烈建議您如本文所述建立叢集時執行此作業。 將 Azure Data Lake Store 新增為現有 HDInsight 叢集的額外儲存體是很複雜的程序，很容易出錯。
 >
 
-<a id="access-files-from-the-cluster" class="xliff"></a>
-
-## 從叢集存取檔案
+## <a name="access-files-from-the-cluster"></a>從叢集存取檔案
 
 有數種方式可讓您從 HDInsight 叢集存取 Data Lake Store 中的檔案。
 
@@ -142,9 +127,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 
         /example/data/sample.log
 
-<a id="create-hdinsight-clusters-with-access-to-data-lake-store" class="xliff"></a>
-
-## 建立可存取 Data Lake Store 的 HDInsight 叢集
+## <a name="create-hdinsight-clusters-with-access-to-data-lake-store"></a>建立可存取 Data Lake Store 的 HDInsight 叢集
 
 如需建立可存取 Data Lake Store 的 HDInsight 叢集詳細指示，請使用下列連結。
 
@@ -154,9 +137,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 * [使用 Azure 範本](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何搭配 HDInsight 使用 HDFS 相容的 Azure Data Lake Store。 這可讓您建立可調整、長期封存的資料取得解決方案，並利用 HDInsight 來揭開儲存的結構化和非結構化資料內的資訊。
 
 如需詳細資訊，請參閱：
@@ -177,7 +158,7 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 [hdinsight-use-pig]: hdinsight-use-pig.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: ../storage/storage-create-storage-account.md
+[azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png
 [img-hdi-quick-create]: ./media/hdinsight-hadoop-use-blob-storage/HDI.QuickCreateCluster.png

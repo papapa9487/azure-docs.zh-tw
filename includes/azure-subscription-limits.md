@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | 每一[訂用帳戶](../articles/billing-buy-sign-up-azure-subscription.md)的核心 <sup>1</sup> |20 |10,000 |
 | [共同管理員](../articles/billing-add-change-azure-subscription-administrator.md)  |200 |200 |
-| 每一訂用帳戶的[儲存體帳戶](../articles/storage/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
+| 每一訂用帳戶的[儲存體帳戶](../articles/storage/common/storage-create-storage-account.md)<sup>2</sup> |200 |250 |
 | [雲端服務](../articles/cloud-services/cloud-services-choose-me.md)  |20 |200 |
 | [區域網路](http://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
 | 每一訂用帳戶的 SQL Database 伺服器 |6 |150 |

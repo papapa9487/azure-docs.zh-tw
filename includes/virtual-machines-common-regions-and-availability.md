@@ -59,7 +59,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 | 可從次要位置及主要位置讀取資料。 |否 |否 |否 |是 |
 | 可在不同的節點上維護的資料副本數量。 |3 |3 |6 |6 |
 
-您可以 [在這裡深入了解 Azure 儲存體複寫選項](../articles/storage/storage-redundancy.md)。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../articles/storage/storage-managed-disks-overview.md)。
+您可以 [在這裡深入了解 Azure 儲存體複寫選項](../articles/storage/common/storage-redundancy.md)。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../articles/virtual-machines/windows/managed-disks-overview.md)。
 
 ### <a name="storage-costs"></a>儲存成本
 價格會依據您選取的儲存體類型和可用性而有所不同。
@@ -75,7 +75,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 如需有關不同儲存體類型和可用性選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/) 。
 
 ## <a name="availability-sets"></a>可用性設定組
-可用性設定組是 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 當單一 VM 是使用 [Azure 進階儲存體](../articles/storage/storage-premium-storage.md)時，非計劃性的維護事件適用 Azure SLA。 
+可用性設定組是 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 當單一 VM 是使用 [Azure 進階儲存體](../articles/storage/common/storage-premium-storage.md)時，非計劃性的維護事件適用 Azure SLA。 
 
 可用性設定組是由可防止硬體故障及允許安全地套用更新的兩個額外群組所組成 - 容錯網域 (FD) 和更新網域 (UD)。
 
@@ -90,7 +90,7 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 更新網域是可以同時進行維護或重新啟動的基礎硬體邏輯群組。 當您在可用性設定組中建立 VM 時，Azure 平台會自動將您的 VM 分散於這些更新網域。 此方法可確保當 Azure 平台進行定期維護時，您的應用程式至少有一個執行個體一直保持執行中。 重新啟動的更新網域順序可能不會在規劃的維護事件期間循序進行，而只會一次重新啟動一個更新網域。
 
 ### <a name="managed-disk-fault-domains"></a>受控磁碟容錯網域
-若 VM 使用 [Azure 受控磁碟](../articles/storage/storage-faq-for-disks.md)，VM 會在使用受管理的可用性設定組時配合使用受控磁碟容錯網域。 此一配合行為可確保連接到 VM 的所有受控磁碟都位於相同的受控磁碟容錯網域。 在受管理的可用性設定組中只能建立使用受控磁碟的 VM。 受控磁碟容錯網域數目會依區域而異，每個區域會有兩個或三個受控磁碟容錯網域。
+若 VM 使用 [Azure 受控磁碟](../articles/virtual-machines/windows/faq-for-disks.md)，VM 會在使用受管理的可用性設定組時配合使用受控磁碟容錯網域。 此一配合行為可確保連接到 VM 的所有受控磁碟都位於相同的受控磁碟容錯網域。 在受管理的可用性設定組中只能建立使用受控磁碟的 VM。 受控磁碟容錯網域數目會依區域而異，每個區域會有兩個或三個受控磁碟容錯網域。
 
 ![受控磁碟 FD](./media/virtual-machines-common-manage-availability/md-fd.png)
 

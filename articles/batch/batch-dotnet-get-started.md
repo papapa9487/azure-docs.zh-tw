@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 3c7a6ac092854bc2d78ac23079d168cf8b5a2201
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>開始使用適用於.NET 的 Batch 用戶端程式庫來建置解決方案
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/04/2017
 >
 >
 
-在我們逐步討論 C# 範例應用程式時，了解本文中 [Azure Batch][azure_batch] 和 [Batch .NET][net_api] 程式庫的基本概念。 我們將看看此範例應用程式如何利用 Batch 服務來處理雲端的平行工作負載，和如何與 [Azure 儲存體](../storage/storage-introduction.md)互動來預備和擷取檔案。 您將了解常見的 Batch 應用程式工作流程，並取得 Batch 的主要元件，例如作業、工作、集區和計算節點。
+在我們逐步討論 C# 範例應用程式時，了解本文中 [Azure Batch][azure_batch] 和 [Batch .NET][net_api] 程式庫的基本概念。 我們將看看此範例應用程式如何利用 Batch 服務來處理雲端的平行工作負載，和如何與 [Azure 儲存體](../storage/common/storage-introduction.md)互動來預備和擷取檔案。 您將了解常見的 Batch 應用程式工作流程，並取得 Batch 的主要元件，例如作業、工作、集區和計算節點。
 
 ![Batch 方案工作流程 (基本)][11]<br/>
 
@@ -41,10 +41,10 @@ ms.lasthandoff: 08/04/2017
 ### <a name="accounts"></a>帳戶
 * **Azure 帳戶**：如果您沒有 Azure 訂用帳戶，請[建立免費的 Azure 帳戶][azure_free_account]。
 * **Batch 帳戶**：擁有 Azure 訂用帳戶後，請 [建立 Azure Batch 帳戶](batch-account-create-portal.md)。
-* **儲存體帳戶**：請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)中的[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* **儲存體帳戶**：請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中的[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 
 > [!IMPORTANT]
-> Batch 目前「僅」支援**一般用途**的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)中的步驟 #5 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)所述。
+> Batch 目前「僅」支援**一般用途**的儲存體帳戶類型，如[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)中的步驟 #5 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)所述。
 >
 >
 
@@ -128,7 +128,7 @@ private const string StorageAccountKey  = "";
 ![在 Azure 儲存體中建立容器][1]
 <br/>
 
-Batch 包含與 Azure 儲存體進行互動的內建支援。 儲存體帳戶內的容器會提供在您的 Batch 帳戶中執行的工作所需的檔案。 容器也會提供一個位置來儲存工作所產生的輸出資料。 DotNetTutorial  用戶端應用程式首先會在 [Azure Blob 儲存體](../storage/storage-introduction.md)中建立三個容器：
+Batch 包含與 Azure 儲存體進行互動的內建支援。 儲存體帳戶內的容器會提供在您的 Batch 帳戶中執行的工作所需的檔案。 容器也會提供一個位置來儲存工作所產生的輸出資料。 DotNetTutorial  用戶端應用程式首先會在 [Azure Blob 儲存體](../storage/common/storage-introduction.md)中建立三個容器：
 
 * **應用程式**：此容器將存放工作所執行的應用程式，以及其相依性 (如 DLL)。
 * **輸入**：工作會從「輸入」容器下載所要處理的資料檔案。
@@ -188,7 +188,7 @@ private static async Task CreateContainerIfNotExistAsync(
 建立容器之後，應用程式現在即可上傳工作所要使用的檔案。
 
 > [!TIP]
-> [如何使用 .NET 的 Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)提供使用 Azure 儲存體容器和 Blob 的概觀。 當您開始使用 Batch 時，此概觀應在您的閱讀清單的頂端附近。
+> [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)提供使用 Azure 儲存體容器和 Blob 的概觀。 當您開始使用 Batch 時，此概觀應在您的閱讀清單的頂端附近。
 >
 >
 
@@ -286,7 +286,7 @@ DotNetTutorial 範例應用程式不會使用 JobPreparationTask 或 JobReleaseT
 * **容器共用存取簽章**：每個工作在計算節點上完成其工作時，便會將其輸出檔案上傳至 Azure 儲存體中的「輸出」容器。 若要這樣做，TaskApplication 會使用容器共用存取簽章，其在上傳檔案時提供寫入容器以成為路徑的一部分的存取權。 取得容器共用存取簽章與取得 Blob 共用存取簽章的方式很類似。 在 DotNetTutorial 中，您會發現 `GetContainerSasUrl` 協助程式方法會呼叫 [CloudBlobContainer.GetSharedAccessSignature][net_sas_container] 來進行此操作。 您將在「步驟 6：監視工作」中進一步了解 TaskApplication 如何使用容器共用存取簽章。
 
 > [!TIP]
-> 查看有關共用存取簽章的兩部分系列[第 1 部分：了解共用存取簽章 (SAS) 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：建立和使用共用存取簽章 (SAS) 與 Blob 儲存體](../storage/storage-dotnet-shared-access-signature-part-2.md)，進一步了解如何提供您儲存體帳戶中資料的安全存取。
+> 查看有關共用存取簽章的兩部分系列[第 1 部分：了解共用存取簽章 (SAS) 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)和[第 2 部分：建立和使用共用存取簽章 (SAS) 與 Blob 儲存體](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)，進一步了解如何提供您儲存體帳戶中資料的安全存取。
 >
 >
 

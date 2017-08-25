@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 3c7f97b72f3813abe2357ae3202eaba285583bb8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
@@ -61,7 +60,7 @@ ms.lasthandoff: 05/18/2017
 如果您尚未安裝任一個產品，安裝 Azure SDK 時，將為您自動安裝 Visual Studio。
 
 ## <a name="application-architecture"></a>應用程式架構
-本應用程式會將廣告儲存在 SQL 資料庫中，使用 Entity Framework Code First 來建立表格和存取資料。 針對每個廣告，資料庫會儲存兩個 URL：一個用於完整大小的影像，而另一個用於縮圖。
+本應用程式會將廣告儲存在 SQL 資料庫中，使用 Entity Framework Code First 來建立表格和存取資料。 針對每個廣告，資料庫都會儲存兩個 URL：一個用於完整大小的影像，而另一個用於縮圖。
 
 ![Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
 
@@ -102,7 +101,7 @@ ms.lasthandoff: 05/18/2017
 
 您剛剛完全是在本機電腦上執行應用程式，並未連線至雲端。 儲存體模擬器會將佇列和 Blob 資料儲存在 SQL Server Express LocalDB 資料庫，而應用程式會將廣告資料儲存在另一個 LocalDB 資料庫。 Entity Framework Code First 會在 Web 應用程式第一次嘗試存取時自動建立廣告資料庫。
 
-在下一節中，您會將方案設定為在雲端中執行時，將 Azure 雲端資源用於佇列、Blob 和應用程式資料庫。 如果您想要繼續在本機執行，但使用雲端儲存體和資料庫資源，您可以那麼做。 這只是設定連線字串的問題而已，您將看到作法。
+在下一節中，您會將方案設定為在雲端中執行時，將 Azure 雲端資源用於佇列、Blob 和應用程式資料庫。 您也可以改用雲端儲存體和資料庫資源繼續在本機執行。 這只是設定連接字串的問題而已，您將看到作法。
 
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
 您將執行下列步驟，在雲端中執行應用程式：
@@ -172,7 +171,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
 4. 將 [複寫] 下拉式清單設定為 [本機備援儲存體]。
 
-    對儲存體帳戶啟用異地複寫時，儲存的內容會複寫至次要資料中心，以便能在主要位置發生重大災害時容錯移轉。 地理區域複寫會引發額外成本。 對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。 如需詳細資訊，請參閱 [建立、管理或刪除儲存體帳戶](../storage/storage-create-storage-account.md)。
+    對儲存體帳戶啟用異地複寫時，儲存的內容會複寫至次要資料中心，以便能在主要位置發生重大災害時容錯移轉。 地理區域複寫會引發額外成本。 對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。 如需詳細資訊，請參閱 [建立、管理或刪除儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 
 5. 在 [資源群組] 中，按一下 [使用現有的] 並選取用於雲端服務的資源群組。
 6. 將 [位置] 下拉式清單設為與您為雲端服務所選的相同區域。
@@ -233,7 +232,7 @@ Web 角色專案和背景工作角色專案的 Azure 儲存體帳戶連接字串
 1. 在 [方案總管] 中，於 **ContosoAdsCloudService** 專案的 [角色] 下的 **ContosoAdsWeb** 上按一下滑鼠右鍵，然後按一下 [屬性]。
 
     ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. 按一下 [設定]  索引標籤。 在 [服務組態] 下拉式方塊中，選取 [雲端]。
+2. 按一下 [設定]  索引標籤。在 [服務組態] 下拉式方塊中，選取 [雲端]。
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. 選取 **StorageConnectionString** 項目，該行右端就會出現省略符號 (**...**) 按鈕。 按一下省略符號按鈕，開啟 [ **建立儲存體帳戶連接字串** ] 對話方塊。
@@ -532,7 +531,7 @@ Views\Home\Index.cshtml 檔案在首頁上顯示類別連結。 連結會將查�
 ```
 
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb - AdController.cs
-在 AdController.cs 檔案中，建構子會呼叫 `InitializeStorage` 方法來建立 Azure 儲存體用戶端程式庫物件，該物件可提供用於處理 Blob 和佇列的 API。
+在 AdController.cs 檔案中，建構函式會呼叫 `InitializeStorage` 方法來建立 Azure 儲存體用戶端程式庫物件，該物件可提供用於處理 Blob 和佇列的 API。
 
 之後，程式碼可取得 images Blob 容器的參考，如您稍早在 Global.asax.cs 中所見。 在執行該動作時，它會設定適用 Web 應用程式的預設 [重試原則](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) 。 預設指數輪詢重試原則，可能會因為對暫時性的錯誤進行反覆重試，使得 Web 應用程式停止回應超過一分鐘。 此處指定的重試原則會在每次嘗試後等候 3 秒，最多嘗試 3 次。
 
