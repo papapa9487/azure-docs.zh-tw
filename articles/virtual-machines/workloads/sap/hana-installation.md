@@ -209,7 +209,7 @@ SUSE 提供大量有關 [Subscription Management Tool for SLES 12 SP2](https://w
 
 在此步驟中，您要在 Azure VM 上安裝 SMT 伺服器。 第一個量值是登入 [SUSE 客戶中心](https://scc.suse.com/)
 
-當您登入後，請移至 [組織]--> [Organization Credentials] (組織認證)。 在該區段中，您應該會找到設定 SMT 伺服器所需的認證。
+當您登入後，請移至 [組織]--> [Organization Credentials] \(組織認證)。 在該區段中，您應該會找到設定 SMT 伺服器所需的認證。
 
 第三個步驟是在 Azure VNet 中安裝 SUSE Linux VM。 若要部署 VM，請使用 Azure 的 SLES 12 SP2 資源庫映像。 在部署程序中，不要定義 DNS 名稱，也不要使用這個螢幕擷取畫面中的靜態 IP 位址。
 
@@ -325,7 +325,7 @@ SUSEConnect –cleanup
 
 為下載 HANA 安裝套件，您需要 SAP S-user 或其他使用者，讓您存取 SAP Marketplace。 登入之後，請完成這一系列的畫面：
 
-移至 [SAP Service Marketplace](https://support.sap.com/en/index.html) > 按一下 [下載軟體] > [Installations and Upgrade] (安裝與升級) > [By Alphabetical Index] (依字母順序排列索引) > 在 H – SAP HANA 平台版本下 > SAP HANA 平台版本 2.0 > [安裝] > 下載下列檔案
+移至 [SAP Service Marketplace](https://support.sap.com/en/index.html) > 按一下 [下載軟體] > [Installations and Upgrade] \(安裝與升級) > [By Alphabetical Index] \(依字母順序排列索引) > 在 H – SAP HANA 平台版本下 > SAP HANA 平台版本 2.0 > [安裝] > 下載下列檔案
 
 ![下載 HANA 安裝](./media/hana-installation/image16_download_hana.PNG)
 
@@ -362,7 +362,7 @@ rpm –qa | grep gtk2
 
 ![在安裝中選取 [HANA]](./media/hana-installation/image18_hana_selection.PNG)
 
-在下一個畫面中選擇 [Install New System] (安裝新系統) 選項
+在下一個畫面中選擇 [Install New System] \(安裝新系統) 選項
 
 ![新安裝選取 [HANA]](./media/hana-installation/image19_select_new.PNG)
 
@@ -370,7 +370,7 @@ rpm –qa | grep gtk2
 
 ![選取其他的 HANA 元件](./media/hana-installation/image20_select_components.PNG)
 
-為達成本文件的目標，我們選擇 SAP HANA 用戶端和 SAP HANA Studio。 我們也安裝了相應增加執行個體。 因此在下一個畫面中，您需要選擇 [Single-Host System] (單一主機系統)。 
+為達成本文件的目標，我們選擇 SAP HANA 用戶端和 SAP HANA Studio。 我們也安裝了相應增加執行個體。 因此在下一個畫面中，您需要選擇 [Single-Host System] \(單一主機系統)。 
 
 ![選取相應增加安裝](./media/hana-installation/image21_single_host.PNG)
 
