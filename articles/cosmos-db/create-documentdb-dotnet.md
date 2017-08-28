@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 9bb863261da64c97f99757d4a0cb3474a7755591
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/22/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-documentdb-api-web-app-with-net-and-the-azure-portal"></a>Azure CosmosDB︰使用 .NET 和 Azure 入口網站建置 DocumentDB API Web 應用程式
@@ -130,7 +130,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     `<add key="endpoint" value="FILLME" />`
 
-4. 然後，從入口網站複製您的主要金鑰值，並使它成為 web.config 中的 authKey 值。 您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
+4. 然後，從入口網站複製您的主要金鑰值，並使它成為 web.config 中的 authKey 值。您現已更新應用程式，使其具有與 Azure Cosmos DB 通訊所需的所有資訊。 
 
     `<add key="authKey" value="FILLME" />`
     
