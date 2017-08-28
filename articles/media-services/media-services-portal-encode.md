@@ -4,7 +4,7 @@ description: "本教學課程將逐步引導您完成透過 Azure 入口網站�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 107d9e9a-71e9-43e5-b17c-6e00983aceab
 ms.service: media-services

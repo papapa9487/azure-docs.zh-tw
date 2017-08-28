@@ -4,7 +4,7 @@ description: "本主題示範如何使用 Azure 媒體分析偵測臉部和情�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 5ca4692c-23f1-451d-9d82-cbc8bf0fd707
 ms.service: media-services

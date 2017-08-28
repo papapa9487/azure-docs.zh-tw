@@ -4,7 +4,7 @@ description: "本主題列出現有的播放程式，您可以使用來播放您
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 7e9fcf89-0fb6-4fa4-96cb-666320684d69
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bdf41edfa6260749a91bc52ec0a2b62fcae99fb0
 ms.openlocfilehash: 18e0f8c5a8dace2af0ab8f15e678fc761a7b3a91
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/27/2017
 
 ---
 # <a name="playing-your-content-with-existing-players"></a>使用現有播放器來播放您的內容
@@ -74,9 +75,4 @@ Azure 媒體服務支援許多熱門的串流格式，例如 Smooth Streaming、
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

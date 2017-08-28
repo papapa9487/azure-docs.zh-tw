@@ -4,7 +4,7 @@ description: "本主題描述如何讓通道接收內部部署編碼器的多位
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d9f0912d-39ec-4c9c-817b-e5d9fcf1f7ea
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: d6e3ea06106463367eb03498ef8d9bc47d83c694
 ms.contentlocale: zh-tw
 ms.lasthandoff: 04/13/2017
-
 
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流

@@ -2,7 +2,7 @@
 title: "透過 DASH.js 將 MPEG-DASH 彈性資料流視訊嵌入到 HTML5 應用程式 | Microsoft Docs"
 description: "本主題示範如何使用 DASH.js 在 HTML5 應用程式中嵌入 MPEG-DASH 彈性資料流視訊。"
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 35ba9161f70a27a215685830d1a9e7c1881cc3bb
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="embedding-a-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>透過 DASH.js 將 MPEG-DASH 彈性資料流視訊嵌入到 HTML5 應用程式
@@ -105,10 +106,5 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
 
 [GitHub dash.js 存放庫](https://github.com/Dash-Industry-Forum/dash.js) 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

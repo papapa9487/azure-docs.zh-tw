@@ -4,7 +4,7 @@ description: "Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0df020f4-8297-4f31-92bf-de098283e997
 ms.service: media-services

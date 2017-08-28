@@ -2,7 +2,7 @@
 title: "H264 多重位元率 720p 媒體編碼器標準預設值 - Azure | Microsoft Docs"
 description: "本主題提供「H264 多重位元速率 720p」工作預設的概觀。"
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

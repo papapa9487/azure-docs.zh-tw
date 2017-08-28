@@ -3,8 +3,8 @@ title: "最佳化 Visual Studio 中的 Azure 程式碼 | Microsoft Docs"
 description: "了解 Visual Studio 中的 Azure 程式碼最佳化工具如何協助讓程式碼更穩定且有更好的效能。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: ed48ee06-e2d2-4322-af22-07200fb16987
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: a07496a2d5eb52dd3c4092105e45b70b6e9f69cd
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="optimizing-your-azure-code"></a>最佳化您的 Azure 程式碼
@@ -466,9 +467,4 @@ public class BlogsController : Controller
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何針對 Azure 應用程式進行最佳化和疑難排解，請參閱[使用 Visual Studio 針對 Azure App Service 中的 Web 應用程式進行疑難排解](app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)。
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

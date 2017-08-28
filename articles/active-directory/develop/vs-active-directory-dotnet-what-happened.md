@@ -3,8 +3,8 @@ title: "連線到 Azure AD 時對 MVC 專案所做的變更 | Microsoft Docs"
 description: "說明您使用 Visual Studio 已連線服務連線至 Azure AD 時，MVC 專案會有何狀況"
 services: active-directory
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 8b24adde-547e-4ffe-824a-2029ba210216
 ms.service: active-directory
@@ -13,14 +13,13 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2017
-ms.author: tarcher
+ms.author: kraigb
 ms.custom: aaddev
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 72cd94ba16cb4fe234c898b093c7de6a08f71239
 ms.contentlocale: zh-tw
 ms.lasthandoff: 03/21/2017
-
 
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>我的 MVC 專案 (Visual Studio Azure Active Directory 已連線服務) 發生什麼事？

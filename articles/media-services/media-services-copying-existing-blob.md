@@ -4,7 +4,7 @@ description: "本主題說明如何將現有的 blob 複製到媒體服務資產
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 6a63823f-f3c9-424c-91b8-566f70bec346
 ms.service: media-services

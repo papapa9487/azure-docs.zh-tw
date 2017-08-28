@@ -4,7 +4,7 @@ description: "了解如何使用 Media Encoder Premium Workflow 進行編碼。 
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 0f4c87ac-810a-4d42-8df8-923dff2016c6
 ms.service: media-services

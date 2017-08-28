@@ -2,7 +2,7 @@
 title: "Azure 媒體服務輸入中繼資料結構描述 | Microsoft Docs"
 description: "本主題提供 Azure 媒體服務輸入中繼資料結構描述的概觀。"
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

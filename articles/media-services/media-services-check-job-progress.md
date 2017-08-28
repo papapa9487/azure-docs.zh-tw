@@ -4,7 +4,7 @@ description: "了解如何使用事件處理常式程式碼來追蹤工作進度
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: ee720ed6-8ce5-4434-b6d6-4df71fca224e
 ms.service: media-services

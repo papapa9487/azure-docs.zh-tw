@@ -4,7 +4,7 @@ description: "本主題描述與 Microsoft Azure 媒體服務相關聯的配額�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d4c43afd-dba8-40a2-ad92-6de54152f7ec
 ms.service: media-services
@@ -20,20 +20,16 @@ ms.openlocfilehash: cc6737217ee24f1e698644648ad4f1552f900d96
 ms.contentlocale: zh-tw
 ms.lasthandoff: 11/17/2016
 
-
 ---
-<a id="quotas-and-limitations" class="xliff"></a>
-# 配額和限制
+# <a name="quotas-and-limitations"></a>配額和限制
 本主題描述與 Microsoft Azure 媒體服務相關聯的配額和限制。
 
 [!INCLUDE [azure-mediaservices-limits](../../includes/azure-mediaservices-limits.md)]
 
-<a id="media-services-learning-paths" class="xliff"></a>
-## 媒體服務學習路徑
+## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
-<a id="provide-feedback" class="xliff"></a>
-## 提供意見反應
+## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 

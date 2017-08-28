@@ -4,7 +4,7 @@ description: "Azure 媒體分析 OCR (光學字元辨識) 可讓您將視訊檔�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 307c196e-3a50-4f4b-b982-51585448ffc6
 ms.service: media-services

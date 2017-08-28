@@ -4,7 +4,7 @@ description: "本主題說明如何建立會產生 fMP4 區塊的編碼工作。
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: b7029ac5-eadd-4a2f-8111-1fc460828981
 ms.service: media-services

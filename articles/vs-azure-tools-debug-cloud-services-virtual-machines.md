@@ -3,8 +3,8 @@ title: "在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯 |
 description: "在 Visual Studio 中進行雲端服務或虛擬機器的偵錯"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 945e06e0-2100-41af-b218-72347367ddab
 ms.service: visual-studio-online
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
 ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 12/08/2016
 
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯
@@ -165,9 +166,4 @@ Visual Studio ASP.NET 專案提供選項，讓您建立可用於測試應用程�
 ## <a name="next-steps"></a>後續步驟
 * 使用 **Intellitrace** 從發行伺服器收集呼叫和事件的記錄檔。 請參閱 [使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)。
 * 不論角色是在開發環境中或在 Azure 中執行，請使用 **Azure 診斷** 來記錄在角色內執行的程式碼的詳細資訊。 請參閱 [使用 Azure 診斷收集記錄資料](http://go.microsoft.com/fwlink/p/?LinkId=400450)。
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

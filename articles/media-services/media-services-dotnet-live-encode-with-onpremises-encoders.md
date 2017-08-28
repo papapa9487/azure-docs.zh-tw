@@ -4,7 +4,7 @@ description: "本主題將說明如何使用 .NET 透過內部部署編碼器執
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 15908152-d23c-4d55-906a-3bfd74927db5
 ms.service: media-services

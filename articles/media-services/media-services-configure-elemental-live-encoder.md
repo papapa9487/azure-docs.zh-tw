@@ -4,7 +4,7 @@ description: "本主題會示範如何設定 Elemental Live 編碼器，藉此�
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: bb4966cbd2af7a14caeac108a001b0820a67d2a1
+ms.contentlocale: zh-tw
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Elemental Live 編碼器來傳送單一位元速率的即時串流

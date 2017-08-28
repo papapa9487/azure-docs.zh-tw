@@ -4,7 +4,7 @@ description: "本主題討論如何使用 Azure 入口網站，以媒體分析�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

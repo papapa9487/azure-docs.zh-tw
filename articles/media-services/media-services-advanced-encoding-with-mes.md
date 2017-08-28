@@ -4,7 +4,7 @@ description: "本主題說明如何透過自訂 Media Encoder Standard 工作預
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 2a4ade25-e600-4bce-a66e-e29cf4a38369
 ms.service: media-services

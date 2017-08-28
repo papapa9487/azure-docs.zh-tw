@@ -2,7 +2,7 @@
 title: "H264 單一位元速率高品質 SD (適用於 Android) | Microsoft Docs"
 description: "本主題提供「H264 單一位元速率高品質 SD (適用於 Android)」工作預設的概觀。"
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 

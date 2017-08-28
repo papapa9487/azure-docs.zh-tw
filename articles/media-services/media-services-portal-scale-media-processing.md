@@ -4,7 +4,7 @@ description: "本教學課程將逐步引導您完成使用 Azure 入口網站�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: e6ef52f7aee8b2a0d0dd6ebc99ad7a8c5c11f525
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/06/2017
-
 
 ---
 # <a name="change-the-reserved-unit-type"></a>變更保留單元類型

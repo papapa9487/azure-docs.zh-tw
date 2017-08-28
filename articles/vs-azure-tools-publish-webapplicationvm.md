@@ -3,8 +3,8 @@ title: Publish-WebApplicationVM | Microsoft Docs
 description: "了解如何將 Web 應用程式部署到虛擬機器。 此指令碼會在您的 Azure 訂用帳戶中建立所需的資源 (如果它們不存在)。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (Windows PowerShell 指令碼)
@@ -184,10 +185,5 @@ JSON 組態檔會指定待部署項目的詳細資料。 它包含您在建立�
 ```
 
 您可以編輯 JSON 組態檔來變更佈建項目。 虛擬機器和雲端服務是必要的，但資料庫區段是選擇性的。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

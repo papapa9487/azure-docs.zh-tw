@@ -21,7 +21,6 @@ ms.openlocfilehash: 312f84fe2aaf3f63fe2b8d818786ef1c570ccfe1
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/11/2017
 
-
 ---
 # <a name="design-and-build-a-management-solution-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -86,4 +85,3 @@ Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中
 * 了解如何為您的管理解決方案[建立解決方案檔](operations-management-suite-solutions-solution-file.md)。
 * 了解[編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)的詳細資料。
 * 搜尋 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates)不同 Resource Manager 範本的範例。
-

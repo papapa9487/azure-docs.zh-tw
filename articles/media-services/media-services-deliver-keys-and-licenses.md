@@ -4,7 +4,7 @@ description: "本文將說明如何使用 Azure 媒體服務 (AMS) 來傳遞 Pla
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 8546c2c1-430b-4254-a88d-4436a83f9192
 ms.service: media-services

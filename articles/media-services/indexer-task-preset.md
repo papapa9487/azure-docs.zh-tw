@@ -4,7 +4,7 @@ description: "本主題提供 Azure 媒體索引器工作預設的概觀。"
 services: media-services
 documentationcenter: 
 author: Asolanki
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.service: media-services
 ms.workload: media

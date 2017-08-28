@@ -4,7 +4,7 @@ description: "本主題逐步說明如何使用 Azure 媒體服務總管 (AMSE) 
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: rli; juliako;
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: b34502aa75d94da1abcda880bb1a251a8455f3f8
+ms.contentlocale: zh-tw
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="redact-faces-with-azure-media-analytics-walkthrough"></a>使用 Azure 媒體分析修訂臉部逐步解說
@@ -91,12 +91,12 @@ ms.lasthandoff: 04/03/2017
 
 ### <a name="set-up-the-tool"></a>設定工具
 
-1.    下載和建置整個方案。 
+1.  下載和建置整個方案。 
 
     ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough009.png)
 
-2.    從[這裡](https://ffmpeg.org/download.html)下載 FFMPEG。 此專案原先是使用含靜態連結的版本 be1d324 (2016-10-04) 所開發。 
-3.    將 ffmpeg.exe 和 ffprobe.exe 複製到和 AzureMediaRedactor.exe 相同的輸出資料夾。 
+2.  從[這裡](https://ffmpeg.org/download.html)下載 FFMPEG。 此專案原先是使用含靜態連結的版本 be1d324 (2016-10-04) 所開發。 
+3.  將 ffmpeg.exe 和 ffprobe.exe 複製到和 AzureMediaRedactor.exe 相同的輸出資料夾。 
 
     ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough010.png)
 
@@ -114,13 +114,13 @@ ms.lasthandoff: 04/03/2017
     
     ![臉部修訂](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough012.png)
 
-5.    下方的文字欄位會更新為臉部識別碼。 建立名為 "idlist.txt" 的檔案，其中包含這些識別碼清單 (以新行分隔)。 
+5.  下方的文字欄位會更新為臉部識別碼。 建立名為 "idlist.txt" 的檔案，其中包含這些識別碼清單 (以新行分隔)。 
 
     >[!NOTE]
     > idlist.txt 應該以 ANSI 格式儲存。 您可以使用 [記事本] 來儲存為 ANSI 格式。
     
-6.    將這個檔案上傳到步驟 1 中的輸出資產。 另將原始的視訊上傳到這個資產，並設為主要資產。 
-7.    在這個資產上使用「修訂」模式執行「修訂」工作，以取得最終修訂的視訊。 
+6.  將這個檔案上傳到步驟 1 中的輸出資產。 另將原始的視訊上傳到這個資產，並設為主要資產。 
+7.  在這個資產上使用「修訂」模式執行「修訂」工作，以取得最終修訂的視訊。 
 
 ## <a name="next-steps"></a>後續步驟 
 

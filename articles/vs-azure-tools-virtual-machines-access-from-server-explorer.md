@@ -3,8 +3,8 @@ title: "從伺服器總管存取 Azure 虛擬機器 | Microsoft Docs"
 description: "取得如何在 Visual Studio 的 [伺服器總管] 中，檢視建立和管理 Azure 虛擬機器 (VM) 的概觀。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: eb3afde6-ba90-4308-9ac1-3cc29da4ede0
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
+ms.author: kraigb
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>從伺服器總管存取 Azure 虛擬機器
@@ -51,10 +52,5 @@ ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Visual Studio 中的 Azure 角色使用方式，請參閱 [搭配使用遠端桌面與 Azure 角色](vs-azure-tools-remote-desktop-roles.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

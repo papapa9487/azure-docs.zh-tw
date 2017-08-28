@@ -489,7 +489,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
 
 ## <a name="redis-console"></a>Redis 主控台
-您可以使用 [Redis 主控台] (適用於 Azure 入口網站中的所有快取層) 安全地發出命令給 Azure Redis 快取執行個體。
+您可以使用 [Redis 主控台] \(適用於 Azure 入口網站中的所有快取層) 安全地發出命令給 Azure Redis 快取執行個體。
 
 > [!IMPORTANT]
 > - Redis 主控台不使用 [VNET](cache-how-to-premium-vnet.md)。 如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。 由於 Redis 主控台在您的本機瀏覽器 (位於 VNET 之外) 中執行，因此無法連接到您的快取。

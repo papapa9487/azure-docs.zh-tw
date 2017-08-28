@@ -3,7 +3,7 @@ title: "Actions 和 NotActions - Azure 角色型存取控制 | Microsoft Docs"
 description: "本主題說明角色型存取控制 (RBAC) 的內建角色。 角色會持續新增，因此請查看文件更新時間。"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: andredm7
 manager: femila
 editor: 
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/28/2017
-ms.author: curtand
+ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation

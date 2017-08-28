@@ -4,7 +4,7 @@ description: "本主題提供 Azure 媒體服務概念的概觀"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: dcefc8bc-e2ea-4b38-a643-9010f4436fb5
 ms.service: media-services
@@ -19,7 +19,6 @@ ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: ed3417f69bb13043db0affc9249f3ff5e49d7c79
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/10/2017
-
 
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒體服務概念

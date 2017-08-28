@@ -4,7 +4,7 @@ description: "本主題描述如何設定通道，從內部部署編碼器接收
 services: media-services
 documentationcenter: 
 author: anilmur
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services

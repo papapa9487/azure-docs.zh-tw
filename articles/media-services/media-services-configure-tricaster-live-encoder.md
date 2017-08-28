@@ -4,7 +4,7 @@ description: "本主題示範如何設定 Tricaster 即時編碼器，藉此將�
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkd;anilmur
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
 ms.openlocfilehash: 4c1a50e26e5cde606d0ef34889fb1c9db80e8ee0
+ms.contentlocale: zh-tw
 ms.lasthandoff: 01/11/2017
-
 
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>使用 NewTek TriCaster 編碼器來傳送單一位元速率的即時串流

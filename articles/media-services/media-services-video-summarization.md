@@ -4,7 +4,7 @@ description: "視訊摘要可自動選取來源視訊的有趣片段，協助您
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: a245529f-3150-4afc-93ec-e40d8a6b761d
 ms.service: media-services

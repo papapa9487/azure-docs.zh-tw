@@ -2,7 +2,7 @@
 title: "媒體服務 PlayReady 授權範本概觀"
 description: "本主題提供了用來設定 PlayReady 授權之 PlayReady 授權範本的概觀。"
 author: juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 services: media-services
 documentationcenter: 
@@ -19,7 +19,6 @@ ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
 ms.openlocfilehash: ea0b54a1041c0008071a9b11afc81e1b91f3e409
 ms.contentlocale: zh-tw
 ms.lasthandoff: 01/13/2017
-
 
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒體服務 PlayReady 授權範本概觀

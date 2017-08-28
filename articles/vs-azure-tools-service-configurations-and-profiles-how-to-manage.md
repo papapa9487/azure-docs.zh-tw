@@ -3,8 +3,8 @@ title: "如何管理服務組態和設定檔 | Microsoft Docs"
 description: "了解如何使用服務組態和設定檔組態檔案 | 其儲存部署環境的設定及雲端服務的發佈設定。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 7da8c551-fb06-4057-b5c7-c77f4b39d803
 ms.service: multiple
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/11/2017
-ms.author: tarcher
+ms.author: kraigb
 ms.translationtype: HT
 ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: b939f2af75723739ffab16d9a75ea8f6484e5e05

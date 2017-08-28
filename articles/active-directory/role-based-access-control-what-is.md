@@ -3,7 +3,7 @@ title: "使用 RBAC 管理存取權與權限 - Azure RBAC | Microsoft Docs"
 description: "在 Azure 入口網站中使用 Azure 角色型存取控制開始進行存取管理。 使用角色指派在您的目錄中指派權限。"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: andredm7
 manager: femila
 ms.assetid: 8f8aadeb-45c9-4d0e-af87-f1f79373e039
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
-ms.author: kgremban
+ms.author: andredm
 ms.reviewer: rqureshi
 ms.translationtype: HT
 ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148

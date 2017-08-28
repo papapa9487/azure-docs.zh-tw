@@ -3,8 +3,8 @@ title: "搭配使用遠端桌面與 Azure 角色 | Microsoft Docs"
 description: "搭配使用遠端桌面與 Azure 角色"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.service: multiple
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
+ms.author: kraigb
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>搭配使用遠端桌面與 Azure 角色

@@ -4,7 +4,7 @@ description: "本文章會教您如何在更換儲存體存取金鑰之後更新
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: SyntaxC4
 editor: 
 ms.assetid: a892ebb0-0ea0-4fc8-b715-60347cc5c95b
 ms.service: media-services
