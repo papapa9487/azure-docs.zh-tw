@@ -2,7 +2,7 @@
 title: "Media Services SDK for .NET 中的重試邏輯 | Microsoft Docs"
 description: "本主題提供 Media Services SDK for .NET 中重試邏輯的概觀。"
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

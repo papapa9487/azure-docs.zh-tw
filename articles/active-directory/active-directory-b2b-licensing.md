@@ -13,26 +13,35 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 06/29/2017
+ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: sasubram
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 972b37e0009b3096691784d785901b0a5585eb4c
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: dfef32c05af157ae8d3a5434016f87f488a35051
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Azure Active Directory B2B 共同作業授權指引
 
-使用 B2B 共同作業來邀請來賓使用者加入您的 Azure AD 租用戶，讓他們能夠存取您開放使用的 Azure AD 服務和資源。  
+您可以使用 Azure AD B2B 共同作業功能，將來賓使用者邀請至 Azure AD 租用戶，允許它們存取 Azure AD 服務和貴組織中的其他資源。 如果您不需要讓 B2B 共同作業來賓使用者存取 Azure AD 付費功能，他們就必須獲得適當的 Azure AD 授權。 
 
-邀請 B2B 使用者並將他們指派給 Azure AD 中的應用程式並無須付費。 B2B 共同作業使用者可以免費使用最多 10 個應用程式 (每位來賓使用者) 和 3 份基本報告。 如果來賓使用者在夥伴的 Azure AD 租用戶中獲得任何適當的授權，則他們在您的租用戶中也會獲得授權。
+具體而言：
+* Azure AD Free 功能可供來賓使用者使用，且無需額外的授權。
+* 如果您需要讓 B2B 使用者存取 Azure AD 付費功能，就必須擁有足夠的授權，以支援這些 B2B 來賓使用者。
+* 具有 Azure AD 付費授權的邀請方租用戶，擁有另外五位受邀加入租用戶之 B2B 來賓使用者的 B2B 共同作業使用權。
+* 擁有邀請方租用戶的客戶，必須決定多少位 B2B 共同作業使用者需要 Azure AD 付費功能。 根據您需要取得給來賓使用者的 Azure AD 付費功能而定，您擁有的 Azure AD 付費授權必須足以涵蓋相同 5:1 比例的 B2B 共同作業使用者。
 
-如果您不想讓這些 B2B 來賓使用者存取 Azure AD 付費功能，則他們必須獲得適當的 Azure AD 授權。 具有 Azure AD 付費授權的邀請方租用戶，可以將 B2B 共同作業使用者權限指派給另外五位受邀加入租用戶的來賓使用者。 
+會從夥伴公司將 B2B 共同作業來賓使用者新增為使用者，而非貴組織的員工或貴企業集團中不同業務部門的員工。 B2B 來賓使用者可以使用外部認證或貴組織所擁有的認證來登入，如本文中所述。 
+
+換句話說，B2B 授權的設定方式並不是依使用者驗證，而是依貴組織使用者的關聯性。 如果這些使用者並非夥伴，就會以不同的授權條款來處理。 不會針對授權用途將它們視為 B2B 共同作業使用者，即使其 UserType 是標示為「來賓」。 它們應以一般方式獲得授權，每個使用者獲得一項授權。 這些使用者包括：
+* 您的員工
+* 使用外部身分識別登入的職員
+* 貴企業集團中不同業務部門的員工
+
 
 ## <a name="licensing-examples"></a>授權範例
 - 客戶想要邀請 100 位 B2B 共同作業使用者加入其 Azure AD 租用戶。 此客戶指派存取管理和佈建給所有使用者，但其中 50 位使用者還需要 MFA 和條件式存取。 此客戶必須購買 10 個 Azure AD Basic 授權及 10 個 Azure AD Premium P1 授權，才能正確地涵蓋這些 B2B 使用者。 如果客戶打算對 B2B 使用者使用「身分識別保護」功能，則他們必須有 Azure AD Premium P2 授權，才能涵蓋同樣 5:1 比例的受邀使用者。
@@ -52,7 +61,7 @@ ms.lasthandoff: 06/30/2017
 B2B 來賓使用者是從合作夥伴組織受邀來與主辦組織共同作業的使用者。 一般而言，任何其他情況都不符合 B2B 資格，即使是使用 B2B 功能也一樣。 讓我們來特別看看兩個案例：
 
 1. 如果主辦組織使用取用者位址來邀請員工
-  1. 此情節不符合我們的授權原則，不建議使用。
+  * 此情節不符合我們的授權原則，不建議使用。
 
 2. 如果主辦組織從另一個集團組織新增使用者
   1. 在此案例中是使用 B2B API 來邀請使用者，但此案例不是傳統的 B2B。 在理想情況下，我們應該讓這些組織邀請其他組織使用者作為成員 (我們的 API 允許這麼做)。 在此情況下，必須將授權指派給這些成員，讓他們存取邀請組織中的資源。

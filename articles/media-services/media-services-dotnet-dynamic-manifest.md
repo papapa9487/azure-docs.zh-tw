@@ -4,7 +4,7 @@ description: "本主題說明如何建立篩選器，讓您的用戶端可以使
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 2f6894ca-fb43-43c0-9151-ddbb2833cafd
 ms.service: media-services

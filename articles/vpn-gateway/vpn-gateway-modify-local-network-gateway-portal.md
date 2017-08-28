@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: ebe57f497a007c5219c3b7f543ffb3bae9d161a8
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: bdd6f90fe97408bd45a72adf58bfdc190207de46
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>使用 Azure 入口網站修改區域網路閘道設定
@@ -35,13 +34,13 @@ ms.lasthandoff: 06/20/2017
 >
 
 
-## <a name="modify-ip-address-prefixes"></a>修改 IP 位址首碼
+## <a name="ipaddprefix"></a>修改 IP 位址首碼
 
 當您修改 IP 位址首碼時，使用的步驟會依您的區域網路閘道是否有連線而不同。
 
 [!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
 
-## <a name="modify-the-gateway-ip-address"></a>修改閘道 IP 位址
+## <a name="gwip"></a>修改閘道 IP 位址
 
 如果您想要連線的 VPN 裝置已變更其公用 IP 位址，您需要修改區域網路閘道，以反映該變更。 當您變更公用 IP 位址時，使用的步驟會依您的區域網路閘道是否有連線而不同。
 
@@ -49,4 +48,4 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以驗證閘道連線。 請參閱[驗證閘道連線](vpn-gateway-verify-connection-resource-manager.md)。
+您可以驗證閘道連線。 請參閱 [驗證閘道連線](vpn-gateway-verify-connection-resource-manager.md)。

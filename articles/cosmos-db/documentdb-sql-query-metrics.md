@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: d8b0bde3778054042c32dbc9c9e08d0b2f1fd3ca
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
@@ -153,7 +153,7 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 | 查詢執行計量 | 分析查詢執行計量，以識別可能發生重新寫入的查詢與資料圖形。  |
 
 ### <a name="provisioned-throughput"></a>佈建的輸送量
-在 Cosmos DB 中，您會建立資料的容器，每一個容器都具有每秒和每分鐘以要求單位 (RU) 表示的保留輸送量。 讀取 1 KB 文件就是 1 RU，而每個操作 (包括查詢) 都會根據它的複雜度正規化為固定數目的 RU。 例如，如果您已針對容器佈建了 1000 RU/秒，且具有類似 `SELECT * FROM c WHERE c.city = 'Seattle'` 的查詢 (其取用 5 RU)，則您每秒可執行 (1000 RU/秒) / (5 RU/查詢) = 200 個查詢/秒之類的查詢。 
+在 Cosmos DB 中，您會建立資料的容器，每一個容器都具有以每秒要求單位 (RU) 表示的保留輸送量。 讀取 1 KB 文件就是 1 RU，而每個操作 (包括查詢) 都會根據它的複雜度正規化為固定數目的 RU。 例如，如果您已針對容器佈建了 1000 RU/秒，且具有類似 `SELECT * FROM c WHERE c.city = 'Seattle'` 的查詢 (其取用 5 RU)，則您每秒可執行 (1000 RU/秒) / (5 RU/查詢) = 200 個查詢/秒之類的查詢。 
 
 如果您每秒提交 200 個以上的查詢，則服務會在每秒超過 200 個時啟動速率限制的傳入要求。 SDK 會藉由執行輪詢/重試來自動處理這種情況，因此您可能會注意到這些查詢具有較高的延遲。 將佈建的輸送量提高為要求的值，即可改善您的查詢延遲和輸送量。 
 
@@ -174,18 +174,73 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 ### <a name="sdk-and-query-options"></a>SDK 與查詢選項
 若要了解如何從 Azure Cosmos DB 取得最佳用戶端效能，請參閱[效能祕訣](performance-tips.md)和[效能測試](performance-testing.md)。 這包括使用最新的 SDK、設定平台專屬設定 (例如預設的連線數目)、記憶體回收的頻率，以及使用輕量級連線選項 (例如直接/TCP)。 
 
-針對查詢，請調整 `MaxBufferedItemCount` 和 `MaxDegreeOfParallelism` 來識別應用程式的最佳設定，特別是當您執行跨分割區查詢時 (不含分割區索引鍵值上的篩選)。
+
+#### <a name="max-item-count"></a>最大項目計數
+對於查詢，`MaxItemCount` 的值可能會對端對端查詢時間有重大影響。 伺服器每次往返將會傳回不超過 `MaxItemCount` 中的項目數 (預設值是 100 個項目)。 將此設為較高的值 (-1 是最大值，建議使用)，會限制伺服器和用戶端之間的往返次數，尤其是具有大量結果集的查詢，以改善整體查詢持續時間。
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxItemCount = -1, 
+    }).AsDocumentQuery();
+```
+
+#### <a name="max-degree-of-parallelism"></a>平行處理原則的最大程度
+針對查詢，請調整 `MaxDegreeOfParallelism` 來識別應用程式的最佳設定，特別是當您執行跨分割區查詢時 (不含分割區索引鍵值上的篩選)。 `MaxDegreeOfParallelism` 可控制平行工作的最大數目，例如，要平行造訪的最大分割區數目。 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        MaxDegreeOfParallelism = -1, 
+        EnableCrossPartitionQuery = true 
+    }).AsDocumentQuery();
+```
+
+假設
+* D = 平行工作的預設最大數目 (= 用戶端機器中的處理器數目總計)
+* P = 使用者指定的平行工作最大數目
+* N = 針對回答查詢需要造訪的分割區數目
+
+以下是平行查詢對於不同 P 值之行為的影響。
+* (P == 0) => 序列模式
+* (P == 1) => 一項工作的最大值
+* (P > 1) => 平行工作的最小值 (P, N) 
+* (P < 1) => 平行工作的最小值 (N, D)
 
 如需 SDK 版本資訊，以及所實作類別和方法的詳細資訊，請參閱 [DocumentDB SDK](documentdb-sdk-dotnet.md)
 
 ### <a name="network-latency"></a>網路延遲
 若要了解如何設定全域散發，並連線到最接近的區域，請參閱 [Azure Cosmos DB 全域散發](tutorial-global-distribution-documentdb.md)。 當您需要進行多次來回行程或從查詢擷取大型結果集時，網路延遲會對查詢效能產生顯著影響。 
 
+查詢執行計量上的區段說明如何擷取查詢的伺服器執行時間 ( `totalExecutionTimeInMs`)，以便您可以區分查詢執行所花費的時間以及網路傳輸所花費的時間。
+
 ### <a name="indexing-policy"></a>編製索引原則
 若要了解編製索引路徑、種類和模式，以及它們如何影響執行查詢，請參閱[設定編製索引原則](indexing-policies.md)。 根據預設，編製索引原則會針對字串使用雜湊索引編製，這對於等號比較查詢很有效率，但不適用於範圍查詢/排序依據查詢。 如果您需要針對字串進行範圍查詢，我們建議針對所有字串指定範圍索引類型。 
 
 ## <a name="query-execution-metrics"></a>查詢執行計量
 您可以藉由傳入選擇性的 `x-ms-documentdb-populatequerymetrics` 標頭 (.NET SDK 中的 `FeedOptions.PopulateQueryMetrics`)，來取得查詢執行的詳細計量。 `x-ms-documentdb-query-metrics` 中傳回的值含有下列索引鍵/值組，適用於對查詢執行進行進階疑難排解。 
+
+```cs
+IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
+    UriFactory.CreateDocumentCollectionUri(DatabaseName, CollectionName), 
+    "SELECT * FROM c WHERE c.city = 'Seattle'", 
+    new FeedOptions 
+    { 
+        PopulateQueryMetrics = true, 
+    }).AsDocumentQuery();
+
+FeedResponse<dynamic> result = await query.ExecuteNextAsync();
+
+// Returns metrics by partition key range Id
+IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
+
+```
 
 | 度量 | 單位 | 說明 | 
 | ------ | -----| ----------- |

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2017
+ms.date: 07/25/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 71878a5a8807b025f418b978990cb0c502e4eca7
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>適用於 Azure Cosmos DB DocumentDB API 的 SQL 查詢
@@ -38,10 +38,10 @@ Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON �
 > 
 > 
 
-接著再回到本文，我們將會從 SQL 查詢教學課程開始，帶領您演練一些簡易的 JSON 文件和 SQL 命令。
+接著再回到本文，我們會從 SQL 查詢教學課程開始，帶領您演練一些簡易的 JSON 文件和 SQL 命令。
 
 ## <a id="GettingStarted"></a>開始在 Cosmos DB 中使用 SQL 命令
-為了查看 Cosmos DB SQL 如何運作，讓我們從一些簡單的 JSON 文件開始著手，然後對其逐步執行一些簡單的查詢。 請考慮有關兩個家族的這兩份 JSON 文件。 請注意，使用 Cosmos DB 時，我們不需要明確地建立任何結構描述或次要索引。 我們只需要將 JSON 文件插入到 Cosmos DB 集合中，再接著進行查詢即可。 這裡有 Andersen 一家的簡單 JSON 文件，包括這一家的父母、孩子 (以及寵物)、地址及註冊資訊。 這份文件包含字串、數字、布林值、陣列和巢狀屬性。 
+為了查看 Cosmos DB SQL 如何運作，讓我們從一些簡單的 JSON 文件開始著手，然後對其逐步執行一些簡單的查詢。 請考慮有關兩個家族的這兩份 JSON 文件。 使用 Cosmos DB 時，我們不需要明確地建立任何結構描述或次要索引。 我們只需要將 JSON 文件插入到 Cosmos DB 集合中，再接著進行查詢即可。 這裡有 Andersen 一家的簡單 JSON 文件，包括這一家的父母、孩子 (以及寵物)、地址及註冊資訊。 這份文件包含字串、數字、布林值、陣列和巢狀屬性。 
 
 **文件**  
 
@@ -100,7 +100,7 @@ Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON �
 }
 ```
 
-現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB API SQL 的一些重要部分。 例如，下列查詢將會傳回 id 欄位符合 `AndersenFamily`的文件。 因為它是 `SELECT *`，所以查詢的輸出是完整 JSON 文件：
+現在，讓我們嘗試對此資料執行一些查詢，以了解 DocumentDB API SQL 的一些重要部分。 例如，下列查詢會傳回 id 欄位符合 `AndersenFamily` 的文件。 因為它是 `SELECT *`，所以查詢的輸出是完整 JSON 文件：
 
 **查詢**
 
@@ -169,11 +169,11 @@ Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON �
 
 * 因為 DocumentDB API SQL 的處理對象是 JSON 值，所以它處理的是樹狀形式的實體，而不是資料列和資料行。 因此，此語言可讓您參考樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3…..Nodem`)，該節點與參考 `<table>.<column>` 之兩個部分參考的關聯式 SQL 類似。   
 * 結構化查詢語言可處理無結構描述資料。 因此，需要動態繫結類型系統。 相同的運算式可能會對不同的文件產生不同的類型。 查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
-* Cosmos DB 只支援嚴謹的 JSON 文件。 這表示類型系統和運算式只能處理 JSON 類型。 如需詳細資料，請參閱 [JSON 規格](http://www.json.org/) 。  
+* Cosmos DB 只支援嚴謹的 JSON 文件。 這表示類型系統和運算式只能處理 JSON 類型。 如需詳細資料，請參閱 [JSON 規格](http://www.json.org/) \(英文\)。  
 * Cosmos DB 集合是 JSON 文件的無結構描述容器。 集合中文件內及跨文件之資料實體中的關係，會由內含項目以隱含方式擷取，而不是由主索引鍵和外部索引鍵關係擷取。 這是本文稍後討論之文件內聯結中值得指出的重要部分。
 
 ## <a id="Indexing"></a> Cosmos DB 索引編製
-在進入 DocumentDB API SQL 語法之前，有必要先探索 Cosmos DB API 的索引設計。 
+進入 DocumentDB API SQL 語法之前，有必要先探索 Cosmos DB 的索引設計。 
 
 資料庫索引的目的是要在使用最少資源 (例如 CPU、輸入/輸出) 的情況下，以各種方式提供查詢，同時兼顧良好的輸送量和低延遲。 通常，選擇適用於資料庫查詢的正確索引需要經過相當的規劃和實驗。 此方式對資料不符合嚴謹結構描述的無結構描述資料庫而言是種挑戰，而且發展十分迅速。 
 
@@ -182,7 +182,7 @@ Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON �
 * 在不需要結構描述的情況下，對文件編製索引：索引子系統不需要任何結構描述資訊，或提出任何文件結構描述的相關假設。 
 * 支援有效率、豐富階層式及關聯式查詢：索引可有效率地支援 Cosmos DB 查詢語言，包括支援階層式和關聯式投射。
 * 支援在面對持續大量寫入時進行一致查詢：在面對持續大量寫入時，針對具有一致查詢的高寫入輸送量工作負載，會以累加、有效率及線上方式更新索引。 一致的索引更新對於提供一致性層級的查詢十分重要，在此層級中是由使用者設定文件服務。
-* 支援多重租用：由於是使用保留型模型進行跨租用戶的資源控管，因此會在為每一複本配置的系統資源 (CPU、記憶體、輸入/輸出) 預算內執行索引更新。 
+* 支援多重租用：由於是使用保留型模型進行跨租用戶的資源控管，因此會在為每一複本配置的系統資源 (CPU、記憶體，以及每秒的輸入/輸出作業) 預算內執行索引更新。 
 * 儲存體效率：基於成本效益，索引的磁碟儲存體額外負荷有所限制且可預測。 這十分重要，因為 Cosmos DB 允許開發人員在索引額外負荷與查詢效能之間做出成本取捨。  
 
 如需示範如何為集合設定索引編製原則的範例，請參閱 MSDN 上的 [Azure Cosmos DB 範例 (英文)](https://github.com/Azure/azure-documentdb-net)。 現在，讓我們深入討論 Azure Cosmos DB SQL 語法。
@@ -202,11 +202,11 @@ Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON �
 類似 `SELECT * FROM Families` 的查詢指出整個 Families 集合是要列舉的來源。 可使用特殊識別碼 ROOT 來代表此集合，而不使用集合名稱。 下列清單包含會針對每個查詢強制執行的規則：
 
 * 集合可以進行別名處理，例如 `SELECT f.id FROM Families AS f` 或只是 `SELECT f.id FROM Families f`。 此處的 `f` 即等於 `Families`。 `AS` 是對識別碼進行別名處理的選用關鍵字。
-* 請注意，進行別名處理之後，無法繫結原始來源。 例如， `SELECT Families.id FROM Families f` 在語句構造上無效，因為無法再解析識別碼 "Families"。
+* 進行別名處理之後，就無法繫結原始來源。 例如， `SELECT Families.id FROM Families f` 在語句構造上無效，因為無法再解析識別碼 "Families"。
 * 所有需要參照的屬性都必須是完整的。 如果未遵循嚴謹的結構描述，則會強制執行以避免任何模糊的繫結。 因此，`SELECT id FROM Families f` 在語句構造上無效，因為不會繫結屬性 `id`。
 
-### <a name="sub-documents"></a>子文件
-來源也可以減少為更小的子集。 例如，若只要列舉每個文件中的樹狀子目錄，則子根目錄可能會變成來源 (如下列範例所示)。
+### <a name="subdocuments"></a>子文件
+來源也可以減少為更小的子集。 例如，若只要列舉每份文件中的樹狀子目錄，則子根目錄可能會變成來源 (如下列範例所示)：
 
 **查詢**
 
@@ -244,7 +244,7 @@ Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON �
       ]
     ]
 
-雖然上面的範例使用陣列做為來源，但是也可以使用物件做為來源 (如下列範例所示)。 任何可在來源中找到的有效 JSON 值 (非 undefined)，都會被考量納入查詢的結果中。 如果有些家族沒有 `address.state` 值，則會在查詢結果中予以排除。
+雖然上述範例使用陣列作為來源，但物件也可用來作為來源，即下列範例中顯示的內容：可在來源中找到的任何有效的 JSON 值 (已定義的)，均會被視為查詢結果中的包含項目。 如果有些家族沒有 `address.state` 值，則會在查詢結果中予以排除。
 
 **查詢**
 
@@ -583,7 +583,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
 
-和其他查詢運算子一樣，如果任何文件中的條件運算式遺漏了參考屬性，或如果要比較的類型不同，則查詢結果會將這些文件排除在外。
+和其他查詢運算子一樣，如果任何文件中的條件運算式遺漏了參考屬性，或者要比較的類型不同，則查詢結果會將那些文件排除在外。
 
 聯合 (??) 運算子可用來有效率地檢查屬性是否存在 (也稱為 已定義) 於文件中。 針對半結構化或混合類型的資料執行查詢時，這非常有用。 例如，此查詢會傳回 "lastName" (如果存在) 或 "surname" (如果不存在)。
 
@@ -599,7 +599,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
 
 
 ## <a id="SelectClause"></a>SELECT 子句
-SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查詢中擷取的值 (就像在 ANSI-SQL 中)。 在來源文件上篩選出來的子集會傳遞給投射階段，而在此階段中，會擷取指定的 JSON 值並建構新的 JSON 物件 (針對每個傳遞給它的輸入)。 
+SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定要從查詢中擷取的值 (就像在 ANSI-SQL 中)。 在來源文件上篩選出來的子集會傳遞給投射階段，而在此階段中，會擷取指定的 JSON 值並建構新的 JSON 物件 (針對每個傳遞給它的輸入)。 
 
 下列範例示範一般的 SELECT 查詢。 
 
@@ -637,7 +637,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
     }]
 
 
-投射也支援 JSON 運算式 (如下列範例所示)。
+投射也支援 JSON 運算式 (如下列範例所示)：
 
 **查詢**
 
@@ -679,7 +679,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 
 
 ### <a name="aliasing"></a>別名
-現在，讓我們使用值的明確別名處理來擴充上面的範例。 AS 是用來加上別名的關鍵字。 請注意，它在將第二個值投射為 `NameInfo`時是選用項目 (如下所示)。 
+現在，讓我們使用值的明確別名處理來擴充上面的範例。 AS 是用來加上別名的關鍵字。 它在將第二個值投射為 `NameInfo` 時是選用項目 (如下所示)。 
 
 如果查詢具有兩個同名的屬性，則必須使用別名處理來重新命名一或兩個屬性，使其在投射的結果中變得更為明確。
 
@@ -751,7 +751,7 @@ SELECT 子句 (**`SELECT <select_list>`**) 是必要項目，並指定將從查�
 
 
 ### <a name="object-and-array-creation"></a>物件和陣列建立
-DocumentDB API SQL 的另一個重要功能是建立陣列/物件。 在前一個範例中，請注意，我們已建立新的 JSON 物件。 同樣地，您也可以建構陣列 (如下列範例所示)。
+DocumentDB API SQL 的另一個重要功能是建立陣列/物件。 在前一個範例中，請注意，我們已建立新的 JSON 物件。 同樣地，您也可以建構陣列 (如下列範例所示)：
 
 **查詢**
 
@@ -1052,7 +1052,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
       }
     ]
 
-這可以進一步用來篩選陣列的每個個別項目 (如下列範例所示)。
+這可以進一步用來篩選陣列的每個個別項目 (如下列範例所示)：
 
 **查詢**
 
@@ -1082,7 +1082,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
     ]
 
 ### <a id="Joins"></a>聯結
-在關聯式資料庫中，跨資料表的聯結需求極為重要。 就設計正規化結構描述而言，邏輯上需要它。 與此相反的是，DocumentDB API 會處理無結構描述文件的反正規化資料模型。 這在邏輯上等同於「自我聯結」。
+在關聯式資料庫中，跨資料表的聯結需求很重要。 就設計正規化結構描述而言，邏輯上需要它。 與此相反的是，DocumentDB API 會處理無結構描述文件的反正規化資料模型。 這在邏輯上等同於「自我聯結」。
 
 語言支援的語法是 <from_source1> JOIN <from_source2> JOIN ...JOIN <from_sourceN>。 整體而言，這會傳回一組 **N**-Tuple (具有 **N** 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有集合別名在其個別集合上反覆運算所產生。 換句話說，這是參與聯結之集的完整交叉乘積。
 
@@ -1150,7 +1150,7 @@ TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配
 * 套用文件 **f** 的根目錄與第一個步驟中所簡維之每個子項目 **c** 的交叉乘積。
 * 最後，單獨投射根物件 **f** 名稱屬性。 
 
-第一份文件 (`AndersenFamily`) 只包含一個子項目，因此結果集只會包含與此文件相對應的單一物件。 第二份文件 (`WakefieldFamily`) 包含兩個子系。 因此，交叉乘積會產生每個子系的個別物件，進而導致兩個物件 (一個對應至此文件的子系一個)。 請注意，這兩個文件中的根欄位會相同，就像您在交叉乘積中預期地一樣。
+第一份文件 (`AndersenFamily`) 只包含一個子項目，因此結果集只會包含與此文件相對應的單一物件。 第二份文件 (`WakefieldFamily`) 包含兩個子系。 因此，交叉乘積會產生每個子系的個別物件，進而導致兩個物件 (一個對應至此文件的子系一個)。 這兩份文件中的根欄位相同，就像您在交叉乘積中預期地一樣。
 
 JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple。 此外，如下面範例所示，您可以根據 Tuple 的組合進行篩選，讓使用者選擇全部 Tuple 都符合的條件。
 
@@ -1187,7 +1187,7 @@ JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple
 
 
 
-此範例是上述範例的自然延伸，用來執行雙重聯結。 因此，交叉乘積可被視為下列虛擬程式碼。
+此範例是上述範例的自然延伸，用來執行雙重聯結。 因此，交叉乘積可被視為下列虛擬程式碼：
 
     for-each(Family f in Families)
     {    
@@ -1203,7 +1203,7 @@ JOIN 的實際作用是透過圖形中很難投射的交叉乘積來形成 Tuple
         }
     }
 
-`AndersenFamily` 有一個小孩養了一隻寵物。 因此，交叉乘積會從此家族產生 1 個資料列 (1\*1\*1)。 不過，WakefieldFamily 有兩個小孩，但只有一個小孩 "Jesse" 養了多隻寵物。 而 Jesse 擁有 2 隻寵物。 因此，交叉乘積會從此家族產生 1\*1\*2 = 2 個資料列。
+`AndersenFamily` 有一個小孩養了一隻寵物。 因此，交叉乘積會從此家族產生 1 個資料列 (1\*1\*1)。 不過，WakefieldFamily 有兩個小孩，但只有一個小孩 "Jesse" 養了多隻寵物。 Jesse 有兩隻寵物。 因此，交叉乘積會從此家族產生 1\*1\*2 = 2 個資料列。
 
 在下一個範例中，對 `pet`有一個額外的篩選。 這會排除寵物名稱不是 "Shadow" 的所有 Tuple。 請注意，我們可以從陣列建置 Tuple、根據 Tuple 的任何元素進行篩選，以及投射元素的任何組合。 
 
@@ -1236,10 +1236,10 @@ Azure Cosmos DB 提供一個程式設計模型，可藉由預存程序和觸發�
 * 藉由直接在資料庫引擎內深入整合 JavaScript 執行階段，對集合中的文件執行高效能交易式 CRUD 操作和查詢。 
 * 將控制流程、變數範圍限制、指派以及例外狀況處理基本類型與資料庫交易的整合自然模型化。 如需有關 JavaScript 整合之 Azure Cosmos DB 支援的詳細資料，請參閱 JavaScript 伺服器端程式設計文件。
 
-### <a id="UserDefinedFunctions"></a>使用者定義函數 (UDF)
+### <a id="UserDefinedFunctions"></a>使用者定義函式 (UDF)
 除了本文中已定義的類型之外，DocumentDB API SQL 還支援「使用者定義函數」(UDF)。 特別的是，如果開發人員可以傳入零個或多個引數並傳回單一引數結果，則支援純量 UDF。 系統會檢查所有這些引數是否為合法的 JSON 值。  
 
-DocumentDB API SQL 語法已延伸，可支援使用這些「使用者定義函式」的自訂應用程式邏輯。 您可以向 DocumentDB API 註冊 UDF，然後在 SQL 查詢中參照它。 實際上，UDF 是特別設計來透過查詢進行叫用。 這項選擇的必然結果，就是 UDF 無法存取其他 JavaScript 類型 (預存程序和觸發程序) 擁有的內容物件。 因為查詢是以唯讀形式執行，所以可以在主要或次要複本上執行。 因此，與其他 JavaScript 類型不同，UDF 是設計成在次要複本上執行。
+DocumentDB API SQL 語法已延伸，可支援使用這些使用者定義函式的自訂應用程式邏輯。 您可以向 DocumentDB API 註冊 UDF，然後在 SQL 查詢中參照它。 實際上，UDF 是特別設計來透過查詢進行叫用。 這項選擇的必然結果，就是 UDF 無法存取其他 JavaScript 類型 (預存程序和觸發程序) 擁有的內容物件。 因為查詢是以唯讀形式執行，所以可以在主要或次要複本上執行。 因此，與其他 JavaScript 類型不同，UDF 是設計成在次要複本上執行。
 
 以下是如何在 Cosmos DB 資料庫 (更明確地說是在文件集合下) 註冊 UDF 的範例。
 
@@ -1280,7 +1280,7 @@ DocumentDB API SQL 語法已延伸，可支援使用這些「使用者定義函�
       }
     ]
 
-UDF 也可以用於篩選內 (如下面範例所示)，同樣是以 "udf." 前值詞來限定：
+UDF 也可以用於篩選內 (如下面範例所示)，同樣是以 "udf." 前置詞來限定：
 
 **查詢**
 
@@ -1351,7 +1351,7 @@ UDF 也可以用於篩選內 (如下面範例所示)，同樣是以 "udf." 前�
 ### <a name="operator-evaluation"></a>運算子評估
 Cosmos DB 藉由作為 JSON 資料庫，可將 JavaScript 運算子與其評估語意做比較。 雖然 Cosmos DB 嘗試以 JSON 支援的形式保留 JavaScript 語意，但是在部分執行個體中，作業評估還是會偏離。
 
-與傳統 SQL 不同，在 DocumentDB API SQL 中，通常要等到從資料庫實際擷取值，才會知道值的類型。 為了有效率地執行查詢，大部分的運算子都有嚴謹的類型需求。 
+與傳統 SQL 不同，在 DocumentDB API SQL 中，通常要等到從資料庫擷取值，才會知道值的類型。 為了有效率地執行查詢，大部分的運算子都有嚴謹的類型需求。 
 
 與 JavaScript 不同，DocumentDB API SQL 並不會執行隱含轉換。 例如，類似 `SELECT * FROM Person p WHERE p.Age = 21` 的查詢會針對包含 Age 屬性且值為 21 的文件進行比對。 任何其他 Age 屬性符合字串 "21" 或其他可能之無限制變化 (例如 "021"、"21.0"、"0021"、"00021" 等等) 的文件，則不會成為比對的結果。 這與 JavaScript 形成對比，在 JavaScript 中，會將字串值隱含地轉換成數字 (根據運算子，例如：==)。 這項選擇對 DocumentDB API SQL 中有效率的索引比對十分重要。 
 
@@ -1386,7 +1386,7 @@ Cosmos DB 支援含有以常見的 @ 標記法表示之參數的查詢。 參數
 參數值可以是任何有效的 JSON (字串、數字、布林值、null，甚至是陣列或巢狀 JSON)。 此外，由於 Cosmos DB 並無結構描述，因此系統不會對照任何類型來驗證參數。
 
 ## <a id="BuiltinFunctions"></a>內建函數
-Cosmos DB 也支援一些適用於一般作業的內建函數，這些函數可在像是使用者定義函數 (UDF) 之類的查詢內使用。
+Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可在像是使用者定義函式 (UDF) 之類的查詢內使用。
 
 | 函式群組          | 作業                                                                                                                                          |
 |-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1396,10 +1396,10 @@ Cosmos DB 也支援一些適用於一般作業的內建函數，這些函數可�
 | 陣列函數         | ARRAY_CONCAT、ARRAY_CONTAINS、ARRAY_LENGTH 和 ARRAY_SLICE                                                                                         |
 | 空間函數       | ST_DISTANCE、ST_WITHIN、ST_INTERSECTS、ST_ISVALID 和 ST_ISVALIDDETAILED                                                                           | 
 
-如果您目前使用的使用者定義函數 (UDF) 已提供內建函數，您應該使用相對應的內建函數，因為這樣會加快執行速度並更有效率。 
+如果您目前使用的使用者定義函式 (UDF) 已提供內建函式，則應該使用相對應的內建函式，因為這樣會加快執行速度且更有效率。 
 
 ### <a name="mathematical-functions"></a>數學函數
-每個數學函數都會執行計算，通常以提供做為引數的輸入值為基礎，並且會傳回數值。 以下是支援的內建數學函數資料表。
+每個數學函式都會執行計算，通常以提供來作為引數的輸入值為基礎，並傳回數值。 以下是支援的內建數學函數資料表。
 
 
 | 使用量 | 說明 |
@@ -1414,7 +1414,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函數，這些函數可�
 | [TRUNC (num_expr)](#bk_trunc) | 傳回數值，截斷至最接近的整數值。 |
 | [SQRT (num_expr)](#bk_sqrt) | 傳回指定之數值運算式的平方根。 |
 | [SQUARE (num_expr)](#bk_square) | 傳回指定之數值運算式的平方。 |
-| [POWER (num_expr, num_expr)](#bk_power) | 傳回指定之數值運算式的乘冪給指定的值。 |
+| [POWER (num_expr, num_expr)](#bk_power) | 將指定數值運算式的乘冪傳回給指定的值。 |
 | [SIGN (num_expr)](#bk_sign) | 傳回指定之數值運算式的正負號值 (-1、0、1)。 |
 | [ACOS (num_expr)](#bk_acos) | 傳回角度，以弧度為單位，它的餘弦是指定的數值運算式；也稱為反餘弦值。 |
 | [ASIN (num_expr)](#bk_asin) | 傳回角度，以弧度為單位，其正弦函數是指定的數值運算式。 這也稱為反正弦值。 |
@@ -1570,7 +1570,7 @@ Cosmos DB 也支援一些適用於一般作業的內建函數，這些函數可�
 | --- | --- |
 | [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |傳回指定陣列運算式的元素數目。 |
 | [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |傳回串連兩個或多個陣列值之結果的陣列。 |
-| [ARRAY_CONTAINS (arr_expr, expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |傳回布林值，表示陣列是否包含指定值。 |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |傳回布林值，表示陣列是否包含指定值。 可以指定要進行完整或部分比對。 |
 | [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |傳回陣列運算式的一部分。 |
 
 陣列函數可用來管理 JSON 中的陣列。 例如，以下是傳回其中一位父母是 "Robin Wakefield" 之所有文件的查詢。 
@@ -1586,6 +1586,21 @@ Cosmos DB 也支援一些適用於一般作業的內建函數，這些函數可�
     [{
       "id": "WakefieldFamily"
     }]
+
+您可以指定部分片段來比對陣列內的元素。 下列查詢會尋找 `givenName` 為 `Robin` 的所有父母。
+
+**查詢**
+
+    SELECT Families.id 
+    FROM Families 
+    WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+
+**結果**
+
+    [{
+      "id": "WakefieldFamily"
+    }]
+
 
 以下是另一個例子，會使用 ARRAY_LENGTH 取得每個家族的子女數目。
 
@@ -1656,10 +1671,10 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
 
 下圖顯示使用 Cosmos DB 來支援 LINQ 查詢的架構。  開發人員可以使用 Cosmos DB 用戶端來建立 **IQueryable** 物件，以直接查詢 Cosmos DB 查詢提供者，而此查詢提供者會接著將 LINQ 查詢轉譯成 Cosmos DB 查詢。 然後，將此查詢傳遞給 Cosmos DB 伺服器，以擷取一組以 JSON 格式表示的結果。 傳回的結果會在用戶端進行還原序列化，變成 .NET 物件的串流。
 
-![使用 DocumentDB API 來支援 LINQ 查詢的架構 - SQL 語法、JSON 查詢語言、資料庫概念及 SQL 查詢][1]
+![使用 DocumentDB API 來支援 LINQ 查詢的架構：SQL 語法、JSON 查詢語言、資料庫概念及 SQL 查詢][1]
 
 ### <a name="net-and-json-mapping"></a>.NET 和 JSON 對應
-.NET 物件與 JSON 文件之間的對應是自然的，亦即每個資料成員欄位都會對應至 JSON 物件，其中欄位名稱對應至物件的「索引鍵」部分，而「值」部分則遞迴地對應至物件的值部分。 請思考一下下列範例。 建立的 Family 物件對應至 JSON 文件 (如下所示)。 而反之亦然，JSON 文件會對應回 .NET 物件。
+.NET 物件與 JSON 文件之間的對應是自然的，亦即每個資料成員欄位都會對應至 JSON 物件，其中欄位名稱對應至物件的「索引鍵」部分，而「值」部分則遞迴地對應至物件的值部分。 請考量下列範例：建立的 Family 物件會對應至 JSON 文件 (如下所示)。 而反之亦然，JSON 文件會對應回 .NET 物件。
 
 **C# 類別**
 
@@ -1757,7 +1772,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
      mother.familyName == "Smith";    child.givenName == s; //s is a string variable
 * 物件/陣列建立運算式：這些運算式傳回複合值類型或匿名類型的物件，或是這類物件的陣列。 這些值可以是巢狀值。
   
-     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //an anonymous type with 2 fields              
+     new Parent { familyName = "Smith", givenName = "Joe" }; new { first = 1, second = 2 }; //含有兩個欄位的匿名類型              
      new int[] { 3, child.grade, 5 };
 
 ### <a id="SupportedLinqOperators"></a>支援的 LINQ 運算子清單
@@ -1774,7 +1789,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 * **字串函數**：支援從 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString、ToUpper 轉譯為對等的 SQL 內建函式。
 * **陣列函數**：支援從 .NET 的 Concat、Contains 和 Count 轉譯為對等的 SQL 內建函式。
 * **地理空間擴充函數**：支援從虛設常式方法 Distance、Within、IsValid 及 IsValidDetailed 轉譯為對等的 SQL 內建函式。
-* **使用者定義函式的擴充函數**：支援從虛設常式方法 UserDefinedFunctionProvider.Invoke 轉譯為對應的使用者定義函式。
+* **使用者定義函式的擴充函式**：支援從 Stub 方法 UserDefinedFunctionProvider.Invoke 轉譯為對應的使用者定義函式。
 * **其他**：支援聯合和條件式運算子的轉譯。 可根據內容將 Contains 轉譯為字串 CONTAINS、ARRAY_CONTAINS 或 SQL IN。
 
 ### <a name="sql-query-operators"></a>SQL 查詢運算子
@@ -2102,9 +2117,11 @@ Cosmos DB 提供透過 HTTP 的開放 RESTful 程式設計模型。 可以使用
 
 如果查詢的結果無法放入結果的單一頁面內，則 REST API 會透過 `x-ms-continuation-token` 傳回接續 Token。 用戶端可以透過在後續結果中包括標頭，以將結果分頁。 每頁的結果數目也可以透過 `x-ms-max-item-count` 數字標頭來控制。 如果指定的查詢有一個彙總函數 (如 `COUNT`)，則查詢頁面可對結果頁面傳回部分彙總的值。 用戶端必須對這些結果執行第二層彙總以產生最終結果，例如，對個別頁面中傳回的計數執行加總以傳回總計數。
 
-若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如，所有 REST API 要求)。 針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。 請注意，所查詢集合的索引原則也可能會影響查詢結果的一致性。 運用預設索引原則設定，集合的索引一律會具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。 如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。 如需詳細資訊，請參閱 [Azure Cosmos DB 一致性層級][consistency-levels]。
+若要管理查詢的資料一致性原則，請使用 `x-ms-consistency-level` 標頭 (例如，所有 REST API 要求)。 針對工作階段一致性，也需要在查詢要求中回應最新的 `x-ms-session-token` Cookie 標頭。 所查詢集合的索引原則也可能影響查詢結果的一致性。 運用預設的索引原則設定，集合的索引一律具有最新文件內容，而且查詢結果會符合針對資料所選擇的一致性。 如果編索引原則放寬為 Lazy，則查詢可能會傳回過時的結果。 如需詳細資訊，請參閱 [Azure Cosmos DB 的一致性層級][consistency-levels]。
 
 如果集合上所設定的索引原則無法支援指定的查詢，Azure Cosmos DB 伺服器就會傳回 400「錯誤的要求」。 針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此訊息。 `x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
+
+您也可以藉由將 `x-ms-documentdb-populatequerymetrics` 標頭設為 `True`，在查詢執行期間取得詳細的計量。 如需詳細資訊，請參閱[適用於 Azure Cosmos DB DocumentDB API 的 SQL 查詢計量](documentdb-sql-query-metrics.md)。
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 .NET SDK 支援 LINQ 和 SQL 查詢。 下列範例顯示如何執行稍早在本文件中介紹的簡單篩選查詢。
@@ -2197,10 +2214,6 @@ Cosmos DB 提供透過 HTTP 的開放 RESTful 程式設計模型。 可以使用
 
 如需更多包含查詢的範例，請參閱 [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-documentdb-net)。 
 
-> [!NOTE]
-> 若要執行彙總查詢，您需要 SDK 1.12.0 或更高版本。 不支援彙總函式的 LINQ 支援，但會在 .NET SDK 1.13.0 中提供支援。
->
-
 ### <a id="JavaScriptServerSideApi"></a>JavaScript 伺服器端 API
 Cosmos DB 提供一個程式設計模型，可使用預存程序和觸發程序，直接對集合執行 JavaScript 型應用程式邏輯。 在集合層級註冊的 JavaScript 邏輯接著可以對給定集合之文件的作業發出資料庫作業。 這些作業會包裝在環境 ACID 交易中。
 
@@ -2254,4 +2267,3 @@ Cosmos DB 提供一個程式設計模型，可使用預存程序和觸發程序�
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
-

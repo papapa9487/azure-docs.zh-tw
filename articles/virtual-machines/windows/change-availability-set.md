@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: d8c8ad96ba0ba55692e80a29b7de74165a2c13bd
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: d1daa01191480eaeb81727416b2134b00c698dc3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="change-the-availability-set-for-a-windows-vm"></a>變更 Windows VM 的可用性設定組
@@ -89,7 +89,7 @@ ms.lasthandoff: 03/31/2017
    
     New-AzureRmVM -ResourceGroupName <resourceGroupName> -Location <location> -VM <vmConfig>
     ``` 
-5. 新增資料磁碟和延伸模組。 如需詳細資訊，請參閱[將資料磁碟連結到 VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 和[延伸模組組態範例](extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。 您可以使用 PowerShell 或 Azure CLI 將資料磁碟和延伸模組新增到 VM 中。
+5. 新增資料磁碟和延伸模組。 如需詳細資訊，請參閱[將資料磁碟連結到 VM](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 和 [Resource Manager 範本中的延伸模組](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions)。 您可以使用 PowerShell 或 Azure CLI 將資料磁碟和延伸模組新增到 VM 中。
 
 ## <a name="example-script"></a>範例指令碼
 下列指令碼提供一個範例，此範例會收集必要資訊、刪除原始 VM，然後在新的可用性設定組中重新建立 VM。
@@ -156,6 +156,6 @@ ms.lasthandoff: 03/31/2017
 ```
 
 ## <a name="next-steps"></a>後續步驟
-透過新增額外 [資料磁碟](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，將額外的存放裝置新增到您的 VM。
+透過新增額外 [資料磁碟](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，將額外的存放裝置新增到您的 VM。
 
 

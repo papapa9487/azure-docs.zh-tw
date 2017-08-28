@@ -4,7 +4,7 @@ description: "本主題說明如何使用媒體服務 REST API 設定不同的�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 5cb9d32a-e68b-4585-aa82-58dded0691d0
 ms.service: media-services

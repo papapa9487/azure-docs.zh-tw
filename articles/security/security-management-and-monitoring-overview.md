@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: f0c174d7d845dd7e48de6388270dde2469d89a12
-ms.lasthandoff: 03/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 安全性管理和監視概觀
@@ -26,7 +26,7 @@ Azure 提供安全性機制，來協助管理與監視 Azure 雲端服務和虛�
 
 Microsoft 雲端服務的安全性是您與 Microsoft 之間的合作關係和共同責任。 共同責任表示 Microsoft 負責 Microsoft Azure 和其資料中心的實體安全性 (藉由使用鎖定門禁卡、圍牆和防護這類安全性保護)。 此外，Azure 還提供軟體層的強式雲端安全性層級，其符合其需求客戶的安全性、隱私權和法務遵循需求。
 
-您擁有您的資料和身分識別、保護它們的責任、您內部部署資源的安全性，以及您可控制之雲端元件的安全性。 Microsoft 提供安全性控制和功能，協助您保護資料和應用程式。 您的安全性責任是根據雲端服務的類型。
+您擁有您的資料和身分識別、保護它們的責任、您內部部署資源的安全性，以及您可控制之雲端元件的安全性。 Microsoft 提供安全性控制和功能，協助您保護資料和應用程式。 您安全性責任的高低取決於雲端服務的類型。
 
 下表摘要說明 Microsoft 與客戶責任的平衡。
 

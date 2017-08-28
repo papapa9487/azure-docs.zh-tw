@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: cb36fdd0032d6d3c47e68a782d3bba427fe9fcd5
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
@@ -50,7 +50,14 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 
 ### <a name="leaked-credentials"></a>認證外洩
 
-Microsoft 安全性研究人員發現外洩的認證公開張貼於黑暗網路 (Dark Web)。 這些認證通常在純文字中找到。 它們會根據 Azure AD 認證進行檢查，如果有相符項目，則會在 Identity Protection 中回報為「認證外洩」。
+當網路罪犯入侵合法使用者的有效密碼時，罪犯通常會共用這些認證。 他們的做法通常是在深層網路上公開張貼或貼上站台，或是在黑市上交易或銷售認證。 Microsoft 的認證外洩服務取得使用者名稱 / 密碼組的方式，是監視公用及深層網路，以及使用：
+
+- 研究員
+- 執法機關
+- Microsoft 安全性小組
+- 其他受信任的來源 
+
+當服務取得使用者名稱 / 密碼組時，它們會針對 AAD 使用者目前的有效認證進行檢查。 找到相符項目時，表示使用者的密碼已遭入侵，並已建立認證外洩風險事件。
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>從匿名 IP 位址登入
 

@@ -4,7 +4,7 @@ description: "媒體分析公開預覽、企業規模的語音和電腦視覺服
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
 ms.service: media-services

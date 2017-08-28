@@ -11,16 +11,17 @@ keywords:
 ms.assetid: 
 ms.service: container-instances
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: d0e56fb385c4997bd1a14d1afed0af7a38181b22
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 4248a3769ba8a0fb067b3904d55d487fe67e5778
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -116,11 +117,14 @@ az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME 
         "properties": {
           "image": "seanmckenna/aci-hellofiles",
           "resources": {
-            "request": {
+            "requests": {
               "cpu": 1,
               "memoryInGb": 1.5
             }
           },
+          "ports": [{
+            "port": 80
+          }],
           "volumeMounts": [{
             "name": "myvolume",
             "mountPath": "/aci/logs/"
@@ -128,12 +132,19 @@ az keyvault secret set --vault-name $KEYVAULT_NAME --name $KEYVAULT_SECRET_NAME 
         }  
       }],
       "osType": "Linux",
+      "ipAddress": {
+        "type": "Public",
+        "ports": [{
+          "protocol": "tcp",
+          "port": "80"
+        }]
+      },
       "volumes": [{
         "name": "myvolume",
         "azureFile": {
-            "shareName": "acishare",
-            "storageAccountName": "[parameters('storageaccountname')]",
-            "storageAccountKey": "[parameters('storageaccountkey')]"
+          "shareName": "acishare",
+          "storageAccountName": "[parameters('storageaccountname')]",
+          "storageAccountKey": "[parameters('storageaccountkey')]"
         }
       }]
     }
@@ -179,7 +190,13 @@ az keyvault show --name $KEYVAULT_NAME --query [id] -o tsv
 az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
 ```
 
-在容器啟動後，您可以在您指定的掛接路徑管理共用內的檔案。
+一旦啟動容器，您即可使用透過 **seanmckenna/aci-hellofiles** 映像部署的簡單 Web 應用程式，以管理位於指定掛接路徑之 Azure 檔案共用中的檔案。 透過下列操作取得 Web 應用程式的 IP 位址：
+
+```azurecli-interactive
+az container show --resource-group myResourceGroup --name hellofiles -o table
+```
+
+您可以使用像 [Microsoft Azure 儲存體總管](http://storageexplorer.com)這類工具擷取及檢查寫入至檔案共用的檔案。
 
 >[!NOTE]
 > 若要深入了解如何使用 Azure Resource Manager 範本、參數檔案以及使用 Azure CLI 進行部署，請參閱[使用 Resource Manager 範本與 Azure CLI 部署資源](../azure-resource-manager/resource-group-template-deploy-cli.md)。

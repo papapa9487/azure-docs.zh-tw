@@ -14,8 +14,8 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: ed62e35930b64919f4be0f3491f4eda995b81e7f
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
 ms.contentlocale: zh-tw
 ms.lasthandoff: 08/10/2017
 
@@ -24,7 +24,9 @@ ms.lasthandoff: 08/10/2017
 本文可協助您使用資料管理閘道來設定高可用性和延展性解決方案。    
 
 > [!NOTE]
-> 本文假設您已熟悉資料管理閘道的基本概念。 如果您並不熟悉，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。  
+> 本文假設您已熟悉資料管理閘道的基本概念。 如果您並不熟悉，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
+
+>**資料管理閘道版本 2.12.xxxx.x 和更新版本正式支援此預覽功能**。 請確定您使用版本 2.12.xxxx.x 或更新版本。 在[此處](https://www.microsoft.com/download/details.aspx?id=39717)下載最新版本的資料管理閘道。
 
 ## <a name="overview"></a>概觀
 您可以從入口網站，將安裝在多個內部部署機器上的資料管理閘道關聯到單一邏輯閘道。 這些機器稱為**節點**。 您最多可以將**四個節點**關聯到一個邏輯閘道。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的好處如下：  
@@ -125,7 +127,7 @@ ms.lasthandoff: 08/10/2017
 11. 若要刪除閘道節點，請在工具列上按一下 [刪除節點]，選取您要刪除的節點，然後在工具列中按一下 [刪除]。 這個動作會從群組中刪除選取的節點。 請注意，此動作不會從節點 (內部部署 Windows 機器) 解除安裝資料管理閘道軟體。 請在內部部署機器上使用控制台中的 [新增或移除程式] 來解除安裝閘道。 當您從節點中解除安裝閘道時，系統便會自動在入口網站中刪除該節點。   
 
 ## <a name="upgrade-an-existing-gateway"></a>升級現有閘道
-您可以升級現有閘道來使用高可用性和延展性功能。 這項功能僅適用於資料管理閘道版本 >= 2.9.xxxx 的節點。 您可以在資料管理閘道組態管理員的 [說明] 索引標籤中查看機器上所安裝之資料管理閘道的版本。 
+您可以升級現有閘道來使用高可用性和延展性功能。 這項功能僅適用於資料管理閘道版本 >= 2.12.xxxx 的節點。 您可以在資料管理閘道組態管理員的 [說明] 索引標籤中查看機器上所安裝之資料管理閘道的版本。 
 
 1. 從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載並執行 MSI 安裝套件，以將內部部署機器上的閘道更新為最新版本。 如需詳細資料，請參閱[安裝](data-factory-data-management-gateway.md#installation)一節。  
 2. 瀏覽至 Azure 入口網站。 啟動您資料處理站的 [Data Factory] 頁面。 按一下 [已連結的服務] 圖格來啟動 [已連結的服務] 頁面。 選取閘道以啟動**閘道頁面**。 按一下並啟用 [預覽功能]，如下圖所示： 
@@ -247,3 +249,4 @@ Azure 入口網站可為管線監視提供細微的節點層級詳細資料。 �
 請檢閱下列文章：
 - [資料管理閘道](data-factory-data-management-gateway.md) - 提供詳細的閘道概觀。
 - [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) - 包含如何使用具有單一節點之閘道的逐步指示。 
+

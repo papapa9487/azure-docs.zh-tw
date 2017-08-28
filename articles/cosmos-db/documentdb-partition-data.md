@@ -16,10 +16,10 @@ ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 3fbb2f0629e510dfa9dac8e363eafb8e668e81d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>使用 DocumentDB API 在 Azure Cosmos DB 進行資料分割
@@ -42,7 +42,10 @@ ms.lasthandoff: 07/25/2017
 <a name="partition-keys"></a>
 <a name="single-partition-and-partitioned-collections"></a>
 <a name="migrating-from-single-partition"></a>
-## 資料分割索引鍵在 DocumentDB API 中，您要以 JSON 路徑的形式來指定資料分割索引鍵定義。 下表顯示資料分割索引鍵定義及各個對應值的範例。 資料分割索引鍵會以路徑的形式指定，例如 `/department` 代表 department 屬性。 
+
+## <a name="partition-keys"></a>資料分割索引鍵
+
+在 DocumentDB API 中，您要以 JSON 路徑的形式來指定分割區索引鍵定義。 下表顯示資料分割索引鍵定義及各個對應值的範例。 資料分割索引鍵會以路徑的形式指定，例如 `/department` 代表 department 屬性。 
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tbody>

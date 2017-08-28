@@ -12,35 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: rodejo
+ms.date: 08/09/2017
+ms.author: curtand
+ms.reviewer: kairaz.contractor
+ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7dd4833000e8550b172e0451c48788b1e627a1fb
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2ee71536257d4349fdf8d80bdcb1899a1d244293
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 
 > [!IMPORTANT]
-> 本內容僅適用於 Office 365 群組。 
+> 本內容僅適用於 Office 365 群組。 如需有關如何允許使用者建立安全性群組的詳細資訊，請如 [Set-msolcompanysettings](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 中所述設定 `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True`。 
 
-Office 365 群組設定是使用 Settings 物件和 SettingsTemplate 物件所設定。 一開始，您將不會在目錄中看到任何 Settings 物件。 這表示已使用預設設定來設定您的目錄。 若要變更預設設定，您必須使用設定範本來建立新的設定物件。 設定範本是由 Microsoft 所定義。 有數個不同的設定範本。 若要設定目錄的群組設定，您將會使用名為 "Group.Unified" 的範本。 若要在單一群組上設定群組設定，請使用名為 "Group.Unified.Guest" 的範本。 此範本是用來管理群組的來賓存取權。 
+Office 365 群組設定是使用 Settings 物件和 SettingsTemplate 物件所設定。 一開始，您在目錄中不會看到任何設定物件，因為已使用預設設定來設定您的目錄。 若要變更預設設定，您必須使用設定範本來建立新的設定物件。 設定範本是由 Microsoft 所定義。 有數個不同的設定範本。 若要設定目錄的 Office 365 群組設定，您要使用名為 "Group.Unified" 的範本。 若要在單一群組上設定 Office 365 群組設定，請使用名為 "Group.Unified.Guest" 的範本。 此範本是用來管理 Office 365 群組的來賓存取權。 
 
-Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有關此模組的詳細資訊，以及如何在電腦上下載及安裝模組的指示，請參閱 [Azure Active Directory PowerShell 第 2 版](https://docs.microsoft.com/powershell/azuread/)。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureAD/)安裝第 2 版的模組。
+Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有關如何在電腦上下載及安裝模組的指示，請參閱 [Azure Active Directory PowerShell 第 2 版](https://docs.microsoft.com/powershell/azuread/)文章。 您可以從 [PowerShell 資源庫](https://www.powershellgallery.com/packages/AzureAD/)安裝第 2 版的模組。
 
 ## <a name="retrieve-a-specific-settings-value"></a>擷取一個特定設定值
-如果您知道您想要擷取的設定名稱，您可以使用以下 Cmdlet 來擷取目前的設定值。 在此範例中，我們會擷取名為 "UsageGuidelinesUrl" 的設定值。 您可以在本文中深入了解目錄設定及其名稱。
+如果您知道需要擷取的設定名稱，可以使用以下 Cmdlet 來擷取目前的設定值。 在此範例中，我們會擷取名為 "UsageGuidelinesUrl" 的設定值。 您可以在本文中深入了解目錄設定及其名稱。
 
 ```powershell
 (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
 ```
 
 ## <a name="create-settings-at-the-directory-level"></a>建立目錄層級的設定
-這些步驟會建立目錄層級的設定，其會套用至目錄中的所有整合群組。
+這些步驟會建立目錄層級的設定，其會套用至目錄中的所有 Office 365 群組整合群組。
 
-1. 在 DirectorySettings Cmdlet 中，您必須指定想要使用的 SettingsTemplate 識別碼。 如果您不知道此識別碼，這個 Cmdlet 會傳回所有設定範本的清單：
+1. 在 DirectorySettings Cmdlet 中，您必須指定需要使用的 SettingsTemplate 識別碼。 如果您不知道此識別碼，這個 Cmdlet 會傳回所有設定範本的清單：
   
   ```
   PS C:> Get-AzureADDirectorySettingTemplate
@@ -97,7 +99,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 |  <ul><li>AllowGuestsToBeGroupOwner<li>類型︰布林值<li>預設值︰False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
 |  <ul><li>AllowGuestsToAccessGroups<li>類型︰布林值<li>預設值︰True | 布林值，表示來賓使用者是否可以具有整合群組內容的存取權。 |
 |  <ul><li>GuestUsageGuidelinesUrl<li>類型：字串<li>預設值：“” | 來賓使用指導方針的連結 url。 |
-|  <ul><li>AllowToAddGuests<li>類型︰布林值<li>預設值︰True | 布林值，表示是否允許將來賓新增至此目錄。|
+|  <ul><li>AllowToAddGuests<li>類型︰布林值<li>預設值︰True | 布林值表示是否允許將來賓新增至此目錄。|
 |  <ul><li>ClassificationList<li>類型：字串<li>預設值：“” |以逗號分隔的有效分類值清單，這些值可以套用到整合的群組。 |
 |  <ul><li>EnableGroupCreation<li>類型：布林值<li>預設值︰True | 布林值，表示非系統管理使用者是否可以建立新的整合群組。 |
 

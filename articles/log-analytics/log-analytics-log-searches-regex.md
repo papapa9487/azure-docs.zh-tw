@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2017
+ms.date: 08/08/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 6c01fe7a791742d283505057a310891a075029ef
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>使用規則運算式在 Log Analytics 中篩選記錄搜尋
@@ -25,6 +25,9 @@ ms.lasthandoff: 04/12/2017
 [記錄搜尋](log-analytics-log-searches.md)可讓您從 Log Analytics 儲存機制中擷取資訊。  [篩選條件運算式](log-analytics-search-reference.md#filter-expressions)可讓您根據特定準則篩選搜尋的結果。  **RegEx** 關鍵字可讓您指定此篩選器的規則運算式。  
 
 這篇文章提供 Log Analytics 所使用的規則運算式語法詳細資料。
+
+> [!NOTE]
+> RegEx 僅能搭配可搜尋的欄位使用。  如需可搜尋欄位的詳細資訊，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](log-analytics-log-searches.md#use-additional-filters)中的**欄位類型**。
 
 
 ## <a name="regex-keyword"></a>RegEx 關鍵字
@@ -62,7 +65,7 @@ ms.lasthandoff: 04/12/2017
 | [a-z] | 在範圍中比對單一字元。  可以包含多個範圍。 | Computer=RegEx("srv0[1-3].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 | [^abc] | 沒有括號括住的字元 | Computer=RegEx("srv0[^123].contoso.com") | srv05.contoso.com<br>srv06.contoso.com<br>srv07.contoso.com |
 | [^a-z] | 沒有範圍中的字元。 | Computer=RegEx("srv0[^1-3].contoso.com") | srv05.contoso.com<br>srv06.contoso.com<br>srv07.contoso.com |
-| [n-m] | 比對數字字元的範圍。 | Computer=RegEx("srv[01-03].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
+| [*n*-*m*] | 比對數字字元的範圍。 | Computer=RegEx("srv[01-03].contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 | @ | 任何字元的字串。 | Computer=RegEx("srv@.contoso.com") | srv01.contoso.com<br>srv02.contoso.com<br>srv03.contoso.com |
 
 
@@ -71,9 +74,9 @@ ms.lasthandoff: 04/12/2017
 
 | Character | 說明 | 範例 | 範例相符項目 |
 |:--|:--|:--|:--|
-| a{n} |  字元的 n 個項目。 | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
-| a{n,} |  字元的 n 或多個項目。 | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
-| a{n,m} |  字元的 n 至 m 個項目。 | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
+| a{n} |  字元的 *n* 個項目。 | Computer=RegEx("bw-win-sc01{3}.bwren.lab") | bw-win-sc0111.bwren.lab |
+| a{n,} |  字元的 *n* 或多個項目。 | Computer=RegEx("bw-win-sc01{3,}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab<br>bw-win-sc0111111.bwren.lab |
+| a{n,m} |  字元的 *n* 至 *m* 個項目。 | Computer=RegEx("bw-win-sc01{3,5}.bwren.lab") | bw-win-sc0111.bwren.lab<br>bw-win-sc01111.bwren.lab<br>bw-win-sc011111.bwren.lab |
 
 
 ## <a name="logical-expressions"></a>邏輯運算式

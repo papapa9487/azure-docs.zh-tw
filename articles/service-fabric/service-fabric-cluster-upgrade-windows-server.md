@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/30/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 5075f7e7f082a31be3ed30cdce57e89da070dfdb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ac40775ca62362a32184207857a0b965a798e135
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-on-windows-server-cluster"></a>在 Windows Server 叢集上升級獨立的 Azure Service Fabric
@@ -214,10 +214,11 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="cluster-certificate-config-upgrade"></a>叢集憑證組態升級  
 叢集憑證是用來在叢集節點之間進行驗證，所以執行憑證變換應更加謹慎，因為失敗將會封鎖叢集節點之間的通訊。  
-從技術角度來看，支援兩個選項：  
+從技術角度來看，支援三個選項：  
 
 1. 單一憑證升級：升級路徑為「憑證 A (主要) -> 憑證 B (主要) -> 憑證 C (主要) -> ...」。   
 2. 雙重憑證升級：升級路徑為「憑證 A (主要) -> 憑證 A (主要) 和 B (次要) -> 憑證 B (主要) -> 憑證 B (主要) 和 C (次要) -> 憑證 C (主要) -> ...」。
+3. 憑證類型升級：指紋型憑證設定 <-> CommonName 型憑證設定。 例如，憑證指紋 A (主要) 和指紋 B (次要) -> 憑證 CommonName C。
 
 
 ## <a name="next-steps"></a>後續步驟

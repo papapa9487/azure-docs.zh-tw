@@ -4,7 +4,7 @@ description: "本教學課程將引導您逐步進行以下步驟：使用 Azure
 services: media-services
 documentationcenter: 
 author: johndeu
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 8812623a-b425-4a0f-9e05-0ee6c839b6f9
 ms.service: media-services

@@ -4,7 +4,7 @@ description: "本主題示範如何使用 CLI 2.0 建立 Azure AD 應用程式�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

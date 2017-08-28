@@ -2,7 +2,7 @@
 title: "使用 .NET 發佈 Azure 媒體服務內容 | Microsoft Docs"
 description: "了解如何建立定位器，用來建置串流 URL。 程式碼範例以 C# 撰寫，並使用 Media Services SDK for .NET。"
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

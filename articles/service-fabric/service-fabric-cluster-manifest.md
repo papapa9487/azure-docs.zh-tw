@@ -3,7 +3,7 @@ title: "設定 Azure Service Fabric 獨立叢集 | Microsoft Docs"
 description: "了解如何設定獨立或私人的 Service Fabric 叢集。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: 0c5ec720-8f70-40bd-9f86-cd07b84a219d
@@ -13,19 +13,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 3b65f9391a4ff5a641546f8d0048f36386a7efe8
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 30fadddabf89d379beffdf214cfe8a8145d7a29b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>獨立 Windows 叢集的組態設定
 本文說明如何使用 ClusterConfig.JSON 檔案來設定獨立 Service Fabric 叢集。 您可以使用此檔案針對獨立叢集指定如下的資訊：Service Fabric 節點及其 IP 位址、叢集上不同類型的節點、安全性組態，以及關於容錯/升級網域的網路拓撲。
 
-當您[下載獨立 Service Fabric 套件](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)時，即會將 ClusterConfig.JSON 檔案的一些範例下載至您的工作電腦。 名稱中有「DevCluster」的範例將可協助您在同一部電腦上建立三個節點皆具的叢集，例如邏輯節點。 在這三個節點中，至少必須將一個節點標示為主要節點。 此叢集可用於開發或測試環境，但不支援做為生產叢集。 名稱中有「MultiMachine」的範例將可協助您建立生產品質叢集，其中的每個節點會建立在不同電腦上。 這些叢集的主要節點數目以[可靠性層級](#reliability)為基礎。
+當您[下載獨立 Service Fabric 套件](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)時，即會將 ClusterConfig.JSON 檔案的一些範例下載至您的工作電腦。 名稱中有「DevCluster」的範例將可協助您在同一部電腦上建立三個節點皆具的叢集，例如邏輯節點。 在這三個節點中，至少必須將一個節點標示為主要節點。 此叢集可用於開發或測試環境，但不支援做為生產叢集。 名稱中有「MultiMachine」的範例將可協助您建立生產品質叢集，其中的每個節點會建立在不同電腦上。
 
 1. 「ClusterConfig.Unsecure.DevCluster.JSON」和「ClusterConfig.Unsecure.MultiMachine.JSON」示範如何分別建立不安全的測試或生產叢集。 
 2. 「ClusterConfig.Windows.DevCluster.JSON」和「ClusterConfig.Windows.MultiMachine.JSON」示範如何使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)建立受保護的測試或生產叢集。
@@ -83,15 +82,7 @@ ClusterConfig.JSON 中的 **properties** 區段用來設定叢集，如下所示
 <a id="reliability"></a>
 
 ### <a name="reliability"></a>可靠性
-**reliabilityLevel** 區段會定義可以在叢集主要節點上執行的系統服務複本數目。 這會增加這些服務以及叢集的可靠性。 您可以針對這些服務的 3、5、7 或 9 個複本，將此變數分別設定為 *Bronze*、*Silver*、*Gold* 或 *Platinum*。 請參閱下列範例。
-
-    "reliabilityLevel": "Bronze",
-
-請注意，由於主要節點執行的是系統服務的單一複本，所以 *Bronze* 可靠性層級至少要有 3 個主要節點、*Silver* 可靠性層級至少要有 5 個主要節點、*Gold* 可靠性層級至少要有 7 個主要節點，*Platinum* 可靠性層級至少要有 9 個主要節點。
-
-如果您沒有在 clusterConfig.json 中指定 reliabilityLevel 屬性，我們的系統會根據您擁有的 "Primary NodeType" 節點數目為您計算出最佳的 reliabilityLevel。 例如，如果您有 4 個主要節點，reliabilityLevel 將設為銅級，如果您有 5 個這類節點，reliabilityLevel 將設為銀級。 在不久的將來，我們會移除設定可靠性層級的選項，因為叢集會自動偵測並使用最佳的可靠性層級。
-
-ReliabilityLevel 可升級。 您可以建立 clusterConfig.json v2，並藉由[獨立叢集設定升級](service-fabric-cluster-upgrade-windows-server.md)將其相應增加和減少。 您也可以升級為 clusterConfig.json v2，它不會指定 reliabilityLevel，因此會自動計算 reliabilityLevel。 
+**reliabilityLevel** 的概念會定義可以在叢集主要節點上執行之 Service Fabric 系統服務的複本或執行個體數目。 它會決定這些服務以及叢集的可靠性。 其值會由系統在建立和升級叢集時計算。
 
 ### <a name="diagnostics"></a>診斷
 **diagnosticsStore** 區段可讓您設定參數，以啟用診斷以及疑難排解節點或叢集的失敗，如下列程式碼片段所示。 
@@ -150,7 +141,7 @@ ReliabilityLevel 可升級。 您可以建立 clusterConfig.json v2，並藉由[
         "isPrimary": true
     }]
 
-**name** 是此特定節點類型的易記名稱。 若要建立此節點類型的節點，請將其易記名稱指派給該節點的 **nodeTypeRef** 變數，如[上面](#clusternodes)所述。 為每個節點類型定義將會使用的連接端點。 您可以為這些連接端點選擇任意的連接埠號碼，只要它們不會與此叢集中的任何其他端點發生衝突即可。 視 [**reliabilityLevel**](#reliability) 而定，多節點叢集中會有一或多個主要節點 (也就是 **isPrimary** 設為 *true*)。 如需 **nodeTypes** 和 **reliabilityLevel** 值的詳細資訊，以及為了了解主要和非主要節點類型，請參閱 [Service Fabric 叢集容量規劃考量](service-fabric-cluster-capacity.md)。 
+**name** 是此特定節點類型的易記名稱。 若要建立此節點類型的節點，請將其易記名稱指派給該節點的 **nodeTypeRef** 變數，如[上面](#clusternodes)所述。 為每個節點類型定義將會使用的連接端點。 您可以為這些連接端點選擇任意的連接埠號碼，只要它們不會與此叢集中的任何其他端點發生衝突即可。 視 [**reliabilityLevel**](#reliability) 而定，多節點叢集中會有一或多個主要節點 (也就是 **isPrimary** 設為 *true*)。 如需 **nodeTypes** 和 **reliabilityLevel** 的詳細資訊，以及為了了解主要和非主要節點類型，請參閱 [Service Fabric 叢集容量規劃考量](service-fabric-cluster-capacity.md)。 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>用來設定節點類型的端點
 * clientConnectionEndpointPort 是在使用用戶端 API 時，用戶端用來連線到叢集的連接埠。 

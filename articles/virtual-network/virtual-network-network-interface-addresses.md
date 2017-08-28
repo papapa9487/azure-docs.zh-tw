@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f6722365e5a5e4c58d91dd178de264a403d53c02
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/01/2017
 |工具|命令|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>變更 IP 位址設定
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 08/01/2017
 |工具|命令|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="remove-ip-addresses"></a>移除 IP 位址
 
@@ -102,7 +102,7 @@ ms.lasthandoff: 08/01/2017
 |工具|命令|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/resourcemanager/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="ip-configurations"></a>IP 組態
 
@@ -142,7 +142,7 @@ ms.lasthandoff: 08/01/2017
 
 在某些案例中，您必須手動設定虛擬機器作業系統內的網路介面 IP 位址。 例如，將多個 IP 位址新增至 Azure 虛擬機器時，您必須手動設定 Windows 作業系統的主要和次要 IP 位址。 針對 Linux 虛擬機器，您可能只需要手動設定次要 IP 位址。 如需詳細資訊，請參閱[將 IP 位址新增至 VM 作業系統](virtual-network-multiple-ip-addresses-portal.md#os-config)。 手動設定作業系統內的 IP 位址時，建議您一律使用靜態 (而非動態) 指派方法為網路介面的 IP 組態指派位址。 使用靜態方法指派位址，可確保位址在 Azure 內不會變更。 如果需要變更指派給 IP 組態的位址，建議您：
 
-1. 將作業系統變更回透過 DHCP 指派 IP 位址並重新啟動虛擬機器，以確保虛擬機器會接收來自 Azure DHCP 伺服器的位址。
+1. 若要確保虛擬機器會接收來自 Azure DHCP 伺服器的位址，請將作業系統變更回透過 DHCP 指派 IP 位址並重新啟動虛擬機器。
 2. 停止 (解除配置) 虛擬機器。
 3. 變更 Azure 內之 IP 組態的 IP 位址。
 4. 啟動虛擬機器。
@@ -183,17 +183,15 @@ ms.lasthandoff: 08/01/2017
 
 ### <a name="ipv6"></a>IPv6
 
-您可以指派一個私人 [IPv6](#ipv6) 位址給網路介面的次要 IP 組態 (或不指派)。 網路介面目前不能有任何次要 IP 組態。 您無法使用入口網站新增具有 IPv6 位址的 IP 組態。 您必須使用 PowerShell 或 CLI 將具有私人 IPv6 位址的 IP 組態新增至現有的網路介面。 網路介面無法附加至現有的 VM。
+您可以指派一個私人 [IPv6](#ipv6) 位址給網路介面的次要 IP 組態 (或不指派)。 網路介面目前不能有任何次要 IP 組態。 您無法使用入口網站新增具有 IPv6 位址的 IP 組態。 使用 PowerShell 或 CLI 將具有私人 IPv6 位址的 IP 組態新增至現有的網路介面。 網路介面無法附加至現有的 VM。
 
 > [!NOTE]
-> 雖然您可以使用入口網站建立具有 IPv6 位址的網路介面，卻無法使用入口網站來建立具有私人 IPv6 位址的虛擬機器或在建立虛擬機器時連接該網路介面。 您必須使用 PowerShell 或 Azure CLI 2.0 來建立具有私人 IPv6 位址的網路介面，再於建立虛擬機器時連接該網路介面。 您無法將具有私人 IPv6 位址的網路介面連接至現有的虛擬機器。 您無法使用任何工具 (入口網站、CLI 或 PowerShell)，將私人 IPv6 位址新增至連接至虛擬機器的任一網路介面的 IP 組態。
+> 雖然您可以使用入口網站建立具有私人 IPv6 位址的網路介面，但無法使用入口網站將現有的網路介面新增到新的或現有的虛擬機器。 使用 PowerShell 或 Azure CLI 2.0 來建立具有私人 IPv6 位址的網路介面，再於建立虛擬機器時連結該網路介面。 您無法將具有私人 IPv6 位址的網路介面連接至現有的虛擬機器。 您無法使用任何工具 (入口網站、CLI 或 PowerShell)，將私人 IPv6 位址新增至連接至虛擬機器的任一網路介面的 IP 組態。
 
 您無法將公用 IPv6 位址指派給主要或次要 IP 組態。
 
 ## <a name="next-steps"></a>後續步驟
 若要建立具有不同 IP 組態的虛擬機器，請閱讀下列文章：
-
-**命令**
 
 |Task|工具|
 |---|---|

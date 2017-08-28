@@ -4,7 +4,7 @@ description: "本主題示範如何設定 Flash Media Live Encoder (FMLE) 編碼
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
 ms.service: media-services

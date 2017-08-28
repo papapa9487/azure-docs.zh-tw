@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 9dd85d38a64f0557fb4ef250b0e177e21bb84e53
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7b3a089d2f6386afcc46cbc4377594be0d758fc6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -167,7 +167,9 @@ done
 ## <a name="create-virtual-machines"></a>建立虛擬機器
 
 ### <a name="create-cloud-init-config"></a>建立 Cloud-init 組態
-在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 您可以使用相同的 cloud-init 組態檔來安裝 NGINX 和執行簡單的 'Hello World' Node.js 應用程式。 建立名為 cloud-init.txt 的檔案並貼上下列組態︰
+在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 您可以使用相同的 cloud-init 組態檔來安裝 NGINX 和執行簡單的 'Hello World' Node.js 應用程式。
+
+您目前的殼層中，建立名為 cloud-init.txt 的檔案，並貼上下列組態。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
 ```yaml
 #cloud-config
@@ -219,9 +221,7 @@ runcmd:
 ```azurecli-interactive 
 az vm availability-set create \
     --resource-group myResourceGroupLoadBalancer \
-    --name myAvailabilitySet \
-    --platform-fault-domain-count 3 \
-    --platform-update-domain-count 2
+    --name myAvailabilitySet
 ```
 
 您現在可以使用 [az vm create](/cli/azure/vm#create) 建立 VM。 下列範例會建立三部 VM 並產生 SSH 金鑰 (如果尚未存在的話)︰
@@ -233,7 +233,7 @@ for i in `seq 1 3`; do
         --name myVM$i \
         --availability-set myAvailabilitySet \
         --nics myNic$i \
-        --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+        --image UbuntuLTS \
         --admin-username azureuser \
         --generate-ssh-keys \
         --custom-data cloud-init.txt \
@@ -241,7 +241,7 @@ for i in `seq 1 3`; do
 done
 ```
 
-建立及設定這三部 VM 需要幾分鐘的時間。 負載平衡器會自動偵測應用程式何時在每部 VM 上執行。 當應用程式正在執行時，負載平衡器規則就開始分配流量。
+在 Azure CLI 將您返回提示字元之後，背景工作會繼續執行。 `--no-wait` 參數不會等待所有工作完成。 可能需要再等候幾分鐘，才能存取應用程式。 負載平衡器會自動偵測應用程式何時在每部 VM 上執行。 當應用程式正在執行時，負載平衡器規則就開始分配流量。
 
 
 ## <a name="test-load-balancer"></a>測試負載平衡器
@@ -255,7 +255,7 @@ az network public-ip show \
     --output tsv
 ```
 
-接著，您可以在 Web 瀏覽器中輸入公用 IP 位址。 應用程式隨即顯示，包括負載平衡器分散流量之 VM 的主機名稱，如下列範例所示：
+接著，您可以在 Web 瀏覽器中輸入公用 IP 位址。 請記住，負載平衡器開始將流量分散給 VM 之前，VM 需要花幾分鐘的時間才會就緒。 應用程式隨即顯示，包括負載平衡器分散流量之 VM 的主機名稱，如下列範例所示：
 
 ![執行 Node.js 應用程式](./media/tutorial-load-balancer/running-nodejs-app.png)
 

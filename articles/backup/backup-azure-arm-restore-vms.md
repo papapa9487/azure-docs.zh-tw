@@ -13,14 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/12/2017
+ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 2ab86ed8aafb01e97b3ac9ba0411f4b80f88ac5b
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
@@ -131,7 +130,7 @@ ms.lasthandoff: 06/16/2017
 
 還原作業完成之後，您可以︰
 * [使用範本自訂還原的 VM](#use-templates-to-customize-restore-vm)
-* [使用還原的磁碟連結至現有的虛擬機器](../virtual-machines/windows/attach-disk-portal.md)
+* [使用還原的磁碟連結至現有的虛擬機器](../virtual-machines/windows/attach-managed-disk-portal.md)
 * [使用 PowerShell 從還原的磁碟建立新的虛擬機器。](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 在 [還原組態] 刀鋒視窗上，按一下 [確定] 完成還原組態。 在 [還原] 刀鋒視窗上，按一下 [還原] 以觸發還原作業。
@@ -172,19 +171,11 @@ ms.lasthandoff: 06/16/2017
 若要取得在還原磁碟選項中產生的範本，
 
 1. 請移至對應於作業的還原作業詳細資料。 
-2. 這會列出範本 uri 讓您下載範本。 請注意值中的容器名稱。 
+2. 在還原作業詳細資料畫面上，按一下 [部署範本] 按鈕來起始範本部署。 
 
      ![還原作業向下鑽研](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
-     
-3. 記下值中的目標儲存體帳戶名稱、容器名稱、範本 blob uri。 移至目標儲存體帳戶 > 選取 [Blob] > [容器]，然後移至檔案，並下載名稱開頭為 azuredeploy  的檔案。
-
-    ![下載範本 - 儲存體帳戶](./media/backup-azure-arm-restore-vms/download-template.png)
-    
-   或者，您可以使用 [Azure 儲存體總管](http://storageexplorer.com/)移至對應的訂用帳戶 > 目標儲存體帳戶 > [Blob 容器]，然後選取上述步驟中記下的容器名稱。 在右側窗格中，其中顯示容器內的檔案，下載名稱開頭為 azuredeploy  的檔案。 
    
-   ![下載範本 - 儲存體總管](./media/backup-azure-arm-restore-vms/template-storage-explorer-download.png)
-     
-下載範本後，在部署之前，使用範本部署來[編輯和部署範本](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)，或[撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)以附加更多自訂。 您可以使用 [載入檔案] 選項來部署上面下載的範本。 
+在自訂部署的 [部署範本] 刀鋒視窗上，使用範本部署來[編輯和部署範本](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)，或在部署之前[撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)以附加更多自訂。 
 
    ![載入範本部署](./media/backup-azure-arm-restore-vms/loading-template.png)
    
@@ -196,7 +187,7 @@ ms.lasthandoff: 06/16/2017
 * 如果您使用 cloud-init 型 Linux 散發套件 (例如 Ubuntu)，基於安全理由，還原後會封鎖密碼。 請在還原的 VM 上使用 VMAccess 擴充功能 [重設密碼](../virtual-machines/linux/classic/reset-access.md)。 建議您在這些散發套件上使用 SSH 金鑰，以避免在還原後重設密碼。
 * 出現在備份組態期間的擴充功能，將會安裝但不會啟用。 如果您看到任何問題，請重新安裝擴充功能。 
 * 如果備份的 VM 具有靜態 IP，還原後，還原的 VM 將會有動態 IP，以避免在建立還原的 VM 時發生衝突。 深入了解如何[將靜態 IP 加入至還原的 VM](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-* 還原的 VM 不會有可用性設定值組。 從 PowerShell 建立 VM 或使用還原的磁碟建立範本時，我們建議使用還原磁碟選項和[新增可用性設定組](../virtual-machines/windows/create-availability-set.md#use-powershell-to-create-an-availability-set)。 
+* 還原的 VM 不會有可用性設定值組。 從 PowerShell 建立 VM 或使用還原的磁碟建立範本時，我們建議使用還原磁碟選項和[新增可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)。 
 
 
 ## <a name="backup-for-restored-vms"></a>備份已還原的 VM

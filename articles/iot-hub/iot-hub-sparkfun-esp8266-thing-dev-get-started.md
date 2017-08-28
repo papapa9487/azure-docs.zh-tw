@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 9b3d968379d38ac4e4080de7eae6ffea89f73a49
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>將 Sparkfun ESP8266 Thing Dev 連接到雲端的 Azure IoT 中樞
@@ -191,6 +191,14 @@ ms.lasthandoff: 07/13/2017
 
 1. 在 Arduino IDE 中，按一下 [工具] > [連接埠]，然後按一下 Sparkfun ESP8266 Thing Dev 的序列埠。
 1. 按一下 [草圖] > [上傳]，以建置範例應用程式並將其部署至 Sparkfun ESP8266 Thing Dev。
+
+> [!Note]
+> 如果您使用的作業系統為 macOS，您可能會在上傳時看到下列訊息。 `warning: espcomm_sync failed`,`error: espcomm_open failed`. 請開啟終端機視窗並完成下列動作來解決此問題。
+> ```bash
+> cd /System/Library/Extensions/IOUSBFamily.kext/Contents/PlugIns
+> sudo mv AppleUSBFTDI.kext AppleUSBFTDI.disabled
+> sudo touch /System/Library/Extensions
+> ```
 
 ### <a name="enter-your-credentials"></a>輸入認證
 

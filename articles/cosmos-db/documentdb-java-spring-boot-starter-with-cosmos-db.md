@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 08/08/2017
 ms.author: robmcm;yungez;kevinzha
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 9e4decbcbbfca72475bfac032d39d1df7bdd4019
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 273cc750857c5e466882060a38ac0f3475811e98
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="overview"></a>概觀
 
-**[Spring Framework]** 是一個開放原始碼解決方案，可協助 Java 開發人員建立企業級應用程式。 建立在該平台之基礎上的其中一個更熱門的專案是 [Spring Boot]，其中會提供用來建立獨立 Java 應用程式的簡化方法。 為了協助開發人員開始使用 Spring Boot，<https://github.com/spring-guides/> 上提供了數個範例 Spring Boot 封裝。 除了從基本的 Spring Boot 專案清單中進行選擇，**[Spring Initializr]** 還能協助開發人員開始建立自訂的 Spring Boot 應用程式。
+**[Spring Framework]** 是一個開放原始碼解決方案，可協助 Java 開發人員建立企業級應用程式。 [Spring Boot] 是建立在該平台基礎上更為熱門的專案之一，其中會提供用來建立獨立 Java 應用程式的簡化方法。 為了協助開發人員開始使用 Spring Boot，<https://github.com/spring-guides/> 上提供了數個範例 Spring Boot 套件。 除了從基本的 Spring Boot 專案清單中進行選擇，**[Spring Initializr]** 還能協助開發人員開始建立自訂的 Spring Boot 應用程式。
 
 Azure Cosmos DB 是一個橫跨全球的分散式資料庫服務，讓開發人員能夠利用各種不同的標準 API (例如 DocumentDB、MongoDB、圖形和資料表 API) 來使用資料。 Microsoft 的 Spring Boot Starter 讓開發人員能夠使用 Spring Boot 應用程式，藉由使用 DocumentDB API 來輕鬆地與 Azure Cosmos DB 整合。
 
@@ -53,7 +53,7 @@ Azure Cosmos DB 是一個橫跨全球的分散式資料庫服務，讓開發人�
 
    ![Azure 入口網站][AZ02]
 
-1. 在 [Azure Cosmos DB] 刀鋒視窗上，輸入下列資訊：
+1. 在 [Azure Cosmos DB] 頁面上，輸入下列資訊：
 
    * 輸入唯一的**識別碼**，您將使用此識別碼作為資料庫的 URI。 例如：*wingtiptoysdata.documents.azure.com*。
    * 針對 API 選擇 [SQL (Document DB)]。
@@ -65,11 +65,11 @@ Azure Cosmos DB 是一個橫跨全球的分散式資料庫服務，讓開發人�
 
    ![Azure 入口網站][AZ03]
 
-1. 當您的資料庫建立之後，它會列在您的 Azure [儀表板] 中，以及 [所有資源] 和 [Azure Cosmos DB] 刀鋒視窗下方。 您可以按一下這些任何位置上的資料庫，來開啟快取的屬性刀鋒視窗。
+1. 當您的資料庫建立之後，它會列在您的 Azure [儀表板] 中，以及 [所有資源] 和 [Azure Cosmos DB] 頁面下方。 您可以按一下這些任何位置上的資料庫，來開啟快取的屬性頁面。
 
    ![Azure 入口網站][AZ04]
 
-1. 當資料庫的屬性刀鋒視窗顯示時，按一下 [存取金鑰]，並複製資料庫的 URI 和存取金鑰；您將會在 Spring Boot 應用程式中使用這些值。
+1. 當資料庫的屬性頁面顯示時，按一下 [存取金鑰]，並複製資料庫的 URI 和存取金鑰；您將會在 Spring Boot 應用程式中使用這些值。
 
    ![Azure 入口網站][AZ05]
 
@@ -151,76 +151,9 @@ Azure Cosmos DB 是一個橫跨全球的分散式資料庫服務，讓開發人�
 
 ## <a name="add-sample-code-to-implement-basic-database-functionality"></a>新增範例程式碼來實作基本的資料庫功能
 
-### <a name="modify-the-main-application-class"></a>修改主要應用程式類別
+在本節中，您會建立兩個 Java 類別以供儲存使用者資料，然後修改您的主要應用程式類別，以建立使用者類別的執行個體，並將其儲存至您的資料庫。
 
-1. 在應用程式的封裝目錄中尋找主要應用程式 Java 檔案；例如：
-
-   `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
-
-   -或-
-
-   `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
-
-   ![尋找應用程式 Java 檔案][JV01]
-
-1. 在文字編輯器中開啟主要應用程式 Java 檔案，並將下列數行新增至檔案中：
-
-   ```java
-   package com.example.wingtiptoys;
-
-   import org.springframework.boot.SpringApplication;
-   import org.springframework.boot.autoconfigure.SpringBootApplication;
-   import org.springframework.beans.factory.annotation.Autowired;
-   import org.springframework.boot.CommandLineRunner;
-
-   @SpringBootApplication
-   public class WingtiptoysApplication implements CommandLineRunner {
-
-      @Autowired
-      private UserRepository repository;
-    
-      public static void main(String[] args) {
-         SpringApplication.run(WingtiptoysApplication.class, args);
-      }
-
-      public void run(String... var1) throws Exception {
-         final User testUser = new User("testId", "testFirstName", "testLastName");
-
-         repository.deleteAll();
-         repository.save(testUser);
-
-         final User result = repository.findOne(testUser.getId());
-
-         System.out.printf("\n\n%s\n\n",result.toString());
-      }
-   }
-   ```
-   > [!NOTE]
-   >
-   > 您的應用程式類別會使用兩個類別 (*UserRepository* 和 *User*)，而您稍後將定義和實作這兩個類別。
-   >
-
-1. 儲存並關閉主要應用程式 Java 檔案。
-
-### <a name="define-a-data-repository-interface"></a>定義資料存放庫介面
-
-1. 在與主要應用程式 Java 檔案相同的目錄中，建立名為 *UserRepository.java* 的新檔案。
-
-1. 在文字編輯器中開啟 *UserRepository.java* 檔案，然後將下列數行新增至檔案中，以定義使用者存放庫介面來延伸預設的 DocumentDB 存放庫介面：
-
-   ```java
-   package com.example.wingtiptoys;
-
-   import com.microsoft.azure.spring.data.documentdb.repository.DocumentDbRepository;
-   import org.springframework.stereotype.Repository;
-
-   @Repository
-   public interface UserRepository extends DocumentDbRepository<User, String> {}   
-   ```
-
-1. 儲存並關閉 *UserRepository.java* 檔案。
-
-### <a name="define-a-basic-class-for-storing-data"></a>定義用來儲存資料的基本類別
+### <a name="define-a-basic-class-for-storing-user-data"></a>定義用來儲存使用者資料的基本類別
 
 1. 在與主要應用程式 Java 檔案相同的目錄中，建立名為 *User.java* 的新檔案。
 
@@ -273,6 +206,71 @@ Azure Cosmos DB 是一個橫跨全球的分散式資料庫服務，讓開發人�
 
 1. 儲存並關閉 *User.java* 檔案。
 
+### <a name="define-a-data-repository-interface"></a>定義資料存放庫介面
+
+1. 在與主要應用程式 Java 檔案相同的目錄中，建立名為 *UserRepository.java* 的新檔案。
+
+1. 在文字編輯器中開啟 *UserRepository.java* 檔案，然後將下列數行新增至檔案中，以定義使用者存放庫介面來延伸預設的 DocumentDB 存放庫介面：
+
+   ```java
+   package com.example.wingtiptoys;
+
+   import com.microsoft.azure.spring.data.documentdb.repository.DocumentDbRepository;
+   import org.springframework.stereotype.Repository;
+
+   @Repository
+   public interface UserRepository extends DocumentDbRepository<User, String> {}   
+   ```
+
+1. 儲存並關閉 *UserRepository.java* 檔案。
+
+### <a name="modify-the-main-application-class"></a>修改主要應用程式類別
+
+1. 在應用程式的封裝目錄中尋找主要應用程式 Java 檔案；例如：
+
+   `C:\SpringBoot\wingtiptoys\src\main\java\com\example\wingtiptoys\WingtiptoysApplication.java`
+
+   -或-
+
+   `/users/example/home/wingtiptoys/src/main/java/com/example/wingtiptoys/WingtiptoysApplication.java`
+
+   ![尋找應用程式 Java 檔案][JV01]
+
+1. 在文字編輯器中開啟主要應用程式 Java 檔案，並將下列數行新增至檔案中：
+
+   ```java
+   package com.example.wingtiptoys;
+
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.CommandLineRunner;
+
+   @SpringBootApplication
+   public class WingtiptoysApplication implements CommandLineRunner {
+
+      @Autowired
+      private UserRepository repository;
+    
+      public static void main(String[] args) {
+         SpringApplication.run(WingtiptoysApplication.class, args);
+      }
+
+      public void run(String... var1) throws Exception {
+         final User testUser = new User("testId", "testFirstName", "testLastName");
+
+         repository.deleteAll();
+         repository.save(testUser);
+
+         final User result = repository.findOne(testUser.getId());
+
+         System.out.printf("\n\n%s\n\n",result.toString());
+      }
+   }
+   ```
+
+1. 儲存並關閉主要應用程式 Java 檔案。
+
 ## <a name="build-and-test-your-app"></a>建置及測試您的應用程式
 
 1. 開啟命令提示字元，並將目錄切換到 *pom.xml* 檔案所在的資料夾；例如：
@@ -294,7 +292,7 @@ Azure Cosmos DB 是一個橫跨全球的分散式資料庫服務，讓開發人�
 
    ![已成功從應用程式輸出][JV02]
 
-1. 選擇性：您可以使用 Azure 入口網站，從資料庫的屬性刀鋒視窗中檢視 Azure Cosmos DB 的內容，方法是按一下 [文件總管]，然後從顯示的清單中選取要檢視內容的項目。
+1. 選擇性：您可以使用 Azure 入口網站，從資料庫的屬性頁面中檢視 Azure Cosmos DB 的內容，方法是按一下 [文件總管]，然後從顯示的清單中選取要檢視內容的項目。
 
    ![使用 [文件總管] 檢視資料][JV03]
 

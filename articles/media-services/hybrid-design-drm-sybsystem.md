@@ -4,7 +4,7 @@ description: "本主題討論使用 Azure 媒體服務的 DRM 子系統混合式
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 18213fc1-74f5-4074-a32b-02846fe90601
 ms.service: media-services

@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: xshi
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: ed867e1e7702d3f178feeab007ac94fb1d67c140
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 06503f9564e00ef62587d02f2da4778974e246c5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="save-iot-hub-messages-that-contain-sensor-data-to-your-azure-table-storage"></a>將包含感應器資料的 IoT 中樞訊息儲存到 Azure 表格儲存體
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [儲存體] > [儲存體帳戶]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [儲存體] > [儲存體帳戶] > [建立]。
 
 2. 輸入儲存體帳戶的必要資訊︰
 
@@ -109,7 +109,7 @@ IoT 中樞會公開內建的事件中樞相容端點，以便讓應用程式能�
 
 ## <a name="create-and-deploy-an-azure-function-app"></a>建立並部署 Azure 函式應用程式
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [計算] > [函式應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [新增] > [計算] > [函數應用程式] > [建立]。
 
 2. 輸入函式應用程式的必要資訊。
 
@@ -169,7 +169,7 @@ IoT 中樞會公開內建的事件中樞相容端點，以便讓應用程式能�
 
 8. 在 [事件中樞取用者群組] 底下，輸入您所建立之取用者群組的名稱，然後按一下 [儲存]。
 
-9. 按一下 [開發]，然後按一下 [檢視檔案]。
+9. 按一下您在左側建立的函式，然後按一下右側的 [檢視檔案]。
 
 10. 以下列內容取代 `index.js` 中的程式碼：
 

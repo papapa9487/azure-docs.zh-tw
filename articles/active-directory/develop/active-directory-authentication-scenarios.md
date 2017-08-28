@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 49ac46d8a04e31df1e5c31a60e387c8cd0b93037
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/20/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的驗證案例
@@ -239,7 +238,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 ##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>採用 OAuth 2.0 授權碼授與的委派的使用者識別
 1. 使用者已經登入 Web 應用程式，其驗證機制與 Azure AD 無關。
 2. Web 應用程式需要授權碼才能取得存取權杖，因此它透過瀏覽器向 Azure AD 授權端點發出要求，並提供應用程式識別碼和成功驗證之後的 Web 應用程式重新導向 URI。 使用者登入 Azure AD。
-3. 如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。 應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。 此同意程序僅適用於多租用戶應用程式，而非單一租用戶應用程式，因為應用程式已具有必要的權限。
+3. 如果 Web 應用程式的使用者尚未同意允許 Web 應用程式代表他來呼叫 Web API，使用者必須同意。 應用程式會顯示它需要的權限，如果其中任何一項是系統管理員層級權限，則目錄中的一般使用者將無法同意。 此同意適用於單一和多租用戶應用程式。  在單一租用戶案例中，管理員可以代表其使用者執行要同意的管理員同意。  可以使用 [Azure 入口網站](https://portal.azure.com)中的 `Grant Permissions` 按鈕來完成。 
 4. 使用者同意之後，Web 應用程式會收到它取得存取權杖所需的授權碼。
 5. Web 應用程式會使用 Azure AD 簽發的授權碼，傳送要求至 Azure AD 的權杖端點，此要求包含授權碼、用戶端應用程式的詳細資料 (應用程式識別碼和重新導向 URI)，以及所需的資源 (Web API 的應用程式識別碼 URI)。
 6. Azure AD 驗證授權碼及 Web 應用程式和 Web API 的相關資訊。 成功驗證後，Azure AD 會傳回兩個權杖：JWT 存取權杖和 JWT 重新整理權杖。

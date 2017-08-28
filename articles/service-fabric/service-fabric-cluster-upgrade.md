@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/22/2017
+ms.date: 8/10/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 6efb5c20140d3ea76a2a9cd1eb495db69f14048d
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7ea71ab891583c51b3c07a4d0a9f0b4f54e56669
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>升級 Azure Service Fabric 叢集
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/12/2017
 對於任何現代系統，可升級性的設計是產品達到長期成功的關鍵。 Azure Service Fabric 叢集是您所擁有，但部分由 Microsoft 管理的資源。 本文說明自動管理的部分以及您可以自行設定的部分。
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制叢集上執行的網狀架構版本
-您可以設定您的叢集 (當 Microsoft 發行新版本時) 接收自動網狀架構升級，或選擇選取您想讓叢集執行的受支援網狀架構版本。
+您可以將叢集設定為在 Microsoft 釋出網狀架構升級時自動接收該升級，或者，您也可以選取您想讓叢集執行的受支援網狀架構版本。
 
 作法是在入口網站上設定 “upgrademode” 叢集組態，或是建立時或稍後在即時叢集上使用 Resource Manager 來設定。 
 

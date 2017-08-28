@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 9f040a87367219a937d4f5a83fd23ce1ba328c8c
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 
@@ -64,14 +64,14 @@ ms.lasthandoff: 08/01/2017
 當您透過入口網站建立 VM 時，入口網站會以預設設定為您建立網路介面，並將其連接至該 VM。 您無法將現有的網路介面新增至新的 VM，或使用 Azure 入口網站建立具有多個網路介面的 VM。 這兩項作業都可使用 CLI 或 PowerShell 來進行。 您所建立的 VM 大小能支援多少個網路介面，您在 VM 中就能新增這個數目的網路介面。 若要深入了解每個 VM 大小所支援的網路介面數目，請閱讀 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 大小的文章。 您在某個 VM 中新增的網路介面目前無法連接至另一個 VM。 若要深入了解如何建立網路介面，請閱讀[管理網路介面](virtual-network-network-interface.md#create-a-network-interface)一文。
 
 > [!WARNING]
-> 如果網路介面具有私人 IPv6 位址，只有在建立虛擬機器時，才能將該網路介面連接至虛擬機器。 只要網路介面具有 IPv6 位址，且該網路介面已連接至虛擬機器，則不論建立虛擬機器時或虛擬機器建立後，都不能再新增額外的網路介面到虛擬機器。 請參閱[網路介面 IP 位址](virtual-network-network-interface-addresses.md)，進一步瞭解指派 IP 位址給網路介面。
+> 如果網路介面具有已指派的私人 IPv6 位址，只有在建立虛擬機器時，才能將該網路介面新增至虛擬機器。 只要將 IPv6 位址指派給連結至虛擬機器的網路介面，則無論是建立虛擬機器時或虛擬機器建立後，都不能再將一個以上的網路介面連結到虛擬機器。 請參閱[網路介面 IP 位址](virtual-network-network-interface-addresses.md)，進一步瞭解指派 IP 位址給網路介面。
 
 **命令**
 
 |工具|命令|
 |---|---|
 |CLI|[az vm create](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
-|PowerShell|[New-AzureRmVM](/powershell/resourcemanager/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-add-nic"></a>將現有的網路介面新增至現有的 VM
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 08/01/2017
 |工具|命令|
 |---|---|
 |CLI|[az vm nic add](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#add) (參考) 或[詳細步驟](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-a-vm)|
-|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
+|PowerShell|[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-nic-to-an-existing-vm)|
 
 ## <a name="vm-view-nic"></a>檢視 VM 的網路介面
 
@@ -99,18 +99,25 @@ ms.lasthandoff: 08/01/2017
 |工具|命令|
 |---|---|
 |CLI|[az vm show](/cli/azure/vm?toc=%2fazure%2fvirtual-network%2ftoc.json#show)|
-|PowerShell|[Get-AzureRmVM](/powershell/resourcemanager/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
+|PowerShell|[Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="vm-remove-nic"></a>從 VM 移除網路介面
 
-您想要從中移除網路介面的 VM 必須處於已停止 (已解除配置) 狀態，而且目前必須至少有兩個連接的網路介面。 您可以移除任何網路介面，但 VM 一律至少必須有一個連接的網路介面。 如果您移除主要網路介面，Azure 會將主要屬性指派給連接至 VM 的時間最久的網路介面。 您可以自行指定任何網路介面作為主要網路介面。 您無法從 VM 中移除網路介面，也無法使用 Azure 入口網站設定網路介面的主要屬性 (雖然您可以使用 PowerShell 或 CLI 來完成這兩項作業)。 
+您需要從中移除 (或中斷連結) 網路介面的 VM 必須處於已停止 (已解除配置) 狀態，而且目前必須至少有兩個連結的網路介面。 您可以移除任何網路介面，但 VM 一律至少必須有一個連接的網路介面。 如果您移除主要網路介面，Azure 會將主要屬性指派給連接至 VM 的時間最久的網路介面。 
+
+1. 使用具備您訂用帳戶之擁有者、參與者或網路參與者角色的帳戶登入 [Azure 入口網站](https://portal.azure.com)。 若要深入了解將角色指派給帳戶的詳細資訊，請參閱 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)。
+2. 在 Azure 入口網站頂端包含「搜尋資源」文字的方塊中，輸入「虛擬機器」。 當「虛擬機器」出現於搜尋結果時，按一下它。
+3. 在出現的 [虛擬機器] 刀鋒視窗中，按一下您需要移除其網路介面的 VM 名稱。
+4. 在針對您所選 VM 出現的 [虛擬機器] 刀鋒視窗中，於 [設定] 區段按一下 [網路介面]。 若要了解網路介面設定以及如何變更它們，請閱讀[管理網路介面](virtual-network-network-interface.md)一文。 若要了解如何新增、變更或移除已指派給網路介面的 IP 位址，請參閱[管理 IP 位址](virtual-network-network-interface-addresses.md)。
+5. 在出現的 [網路介面] 刀鋒視窗中，按一下您需要中斷連結之網路介面右側的 [...]。
+6. 按一下 [中斷連結]。 如果只有一個網路介面連結至虛擬機器，就無法使用 [中斷連結] 選項。 在出現的確認方塊中，按一下 [是]。
 
 **命令**
 
 |工具|命令|
 |---|---|
 |CLI|[az vm nic remove](/cli/azure/vm/nic?toc=%2fazure%2fvirtual-network%2ftoc.json#remove) (參考) 或[詳細步驟](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-a-vm)|
-|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/resourcemanager/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
+|PowerShell|[Remove-AzureRMVMNetworkInterface](/powershell/module/azurerm.compute/remove-azurermvmnetworkinterface?toc=%2fazure%2fvirtual-network%2ftoc.json) (參考) 或[詳細步驟](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#remove-a-nic-from-an-existing-vm)|
 
 ## <a name="next-steps"></a>接續步驟
 若要建立具有多個網路介面或 IP 位址的 VM，請閱讀下列文章：

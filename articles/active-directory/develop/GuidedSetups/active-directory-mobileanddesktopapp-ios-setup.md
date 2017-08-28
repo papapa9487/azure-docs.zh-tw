@@ -1,4 +1,24 @@
+---
+title: "Azure AD v2 iOS 快速入門 - 設定 | Microsoft Docs"
+description: "iOS (Swift) 應用程式如何呼叫需要來自 Azure Active Directory v2 端點之存取權杖的 API"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 78c6ca83a2711ad81b7819a8723869980a1925a3
+ms.contentlocale: zh-tw
 
+---
 ## <a name="setting-up-your-ios-application"></a>設定您的 iOS 應用程式
 
 本節提供逐步指示，說明如何建立新的專案來示範整合 iOS 應用程式 (Swift) 與使用 Microsoft 登入，以便它可以查詢需要權杖的 Web API。
@@ -137,3 +157,4 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
     </scene>
 </scenes>
 ```
+

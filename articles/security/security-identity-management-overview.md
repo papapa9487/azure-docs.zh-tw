@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 24d86e17a063164c31c312685c0742ec4a5c2f1b
-ms.openlocfilehash: bb9d08d6164ec01ce1d76fc4a23e782213ecfcd9
-ms.lasthandoff: 03/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure 身分識別管理安全性概觀
@@ -50,7 +50,7 @@ Azure Active Directory (AD) 的安全性優點包括下列功能︰
 
 許多組織依賴軟體即服務 (SaaS) 應用程式，例如 Office 365、Box 和 Salesforce 來提升使用者生產力。 在過去，IT 人員必須在每個 SaaS 應用程式中個別建立並更新使用者帳戶，使用者則必須記住每個 SaaS 應用程式的密碼。
 
-Azure AD 將內部部署的 Active Directory 延伸到雲端，讓使用者不只能夠使用主要的組織帳戶登入加入網域的裝置和公司資源，也能登入作業所需的所有 Web 和 SaaS 應用程式。
+Azure AD 將內部部署的 Active Directory 環境延伸到雲端，讓使用者不只能夠使用主要的組織帳戶登入加入網域的裝置和公司資源，也能登入作業所需的所有 Web 和 SaaS 應用程式。
 
 不只使用者不需要管理多組使用者名稱和密碼，還可根據組織群組，以及其身為員工的狀態，自動佈建或解除佈建其應用程式的存取權。 Azure AD 引進了安全性和存取管理控制，可讓您集中管理所有 SaaS 應用程式的使用者存取權。
 

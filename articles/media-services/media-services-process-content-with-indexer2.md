@@ -4,7 +4,7 @@ description: "Azure Media Indexer 讓您能將媒體檔案的內容變成可搜�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 85d25525-a498-44eb-ae3a-2ca5ceb8e53d
 ms.service: media-services

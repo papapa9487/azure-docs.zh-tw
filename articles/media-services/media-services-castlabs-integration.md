@@ -4,7 +4,7 @@ description: "本文說明如何使用 Azure 媒體服務 (AMS) 來傳遞 AMS �
 services: media-services
 documentationcenter: 
 author: Mingfeiy
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 2a9a408a-a995-49e1-8d8f-ac5b51e17d40
 ms.service: media-services

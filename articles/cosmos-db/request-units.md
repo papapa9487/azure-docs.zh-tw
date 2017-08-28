@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 88edb489d967a5bc5cc1c4aa1aeb5abcd6539d12
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/25/2017
 
 Azure Cosmos DB 支援數種 API 以執行各種不同的作業，從簡單地讀取及寫入，到複雜的圖表查詢等等。 因為並非所有的要求都相等，所以系統會根據處理要求所需的計算量，指派標準化的**要求單位**數量。 作業的要求單位數具決定性，您可以在 Azure Cosmos DB 中透過回應標頭追蹤任何作業所取用的要求單位數。 
 
-若要提供可預測的效能，您需要保留每秒 100 RU 的輸送量單位。 對於每秒 100 RU 的每個區塊，您每分鐘可以附加 1000 RU 的區塊。 結合每秒與每分鐘佈建的成效非常強大，因為和只能使用每秒佈建的任何服務相比，您不需要尖峰負載佈建，並能節省高達 75% 的成本。
+若要提供可預測的效能，您需要保留每秒 100 RU 的輸送量單位。 
 
 閱讀本文後，您將能夠回答下列問題：  
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 支援數種 API 以執行各種不同的作業，從簡單地�
 ## <a name="request-units-and-request-charges"></a>要求單位和要求費用
 Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求，來提供快速且可預測的效能。  因為應用程式會隨著時間載入和存取模式變化，所以 Azure Cosmos DB 可讓您輕鬆地增加或減少應用程式可用的保留輸送量。
 
-有了 Azure Cosmos DB，保留的輸送量是根據每秒或每分鐘 (附加元件) 處理的要求單位來指定。  您可以將要求單位想像為輸送量貨幣，因此您每秒或每分鐘可「保留」保證可供應用程式使用的要求單位數量。  Azure Cosmos DB 中的每個作業 (寫入文件、執行查詢、更新文件) 都會耗用 CPU、記憶體和 IOPS。  也就是說，每個作業都會產生「要求費用」，這是以「要求單位」來表示。  了解影響要求單位費用的因素，以及您應用程式的輸送量需求，讓您能夠以最經濟實惠的方式來執行應用程式。 [查詢總管] 也是測試查詢核心的絕佳工具。
+有了 Azure Cosmos DB，保留的輸送量是根據每秒處理的要求單位來指定。 您可以將要求單位想像為輸送量貨幣，因此您每秒可「保留」  保證可供應用程式使用的要求單位數量。  Azure Cosmos DB 中的每個作業 (寫入文件、執行查詢、更新文件) 都會耗用 CPU、記憶體和 IOPS。  也就是說，每個作業都會產生「要求費用」，這是以「要求單位」來表示。  了解影響要求單位費用的因素，以及您應用程式的輸送量需求，讓您能夠以最經濟實惠的方式來執行應用程式。 [查詢總管] 也是測試查詢核心的絕佳工具。
 
 我們建議從觀看 Aravind Ramachandran 說明使用 Azure Cosmos DB 的要求單位和可預測效能的下列影片來開始。
 
@@ -54,7 +54,7 @@ Azure Cosmos DB 藉由「保留」資源以滿足應用程式的輸送量需求�
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中指定要求單位容量
-開始新的集合、資料表或圖表時，您可以指定想要保留給每秒要求單位數 (每秒 RU)。 您也可以決定是否要啟用每分鐘的 RU。 如果您啟用它，每分鐘得到的容量是會每秒的十倍。 Azure Cosmos DB 會根據佈建的輸送量，配置實體資料分割來裝載您的集合，並隨著資料成長分割/再平衡所有資料分割的資料。
+開始新的集合、資料表或圖表時，您可以指定想要保留給每秒要求單位數 (每秒 RU)。 Azure Cosmos DB 會根據佈建的輸送量，配置實體資料分割來裝載您的集合，並隨著資料成長分割/再平衡所有資料分割的資料。
 
 在集合中佈建了 2,500 個或更多要求單位時，Azure Cosmos DB 會要求指定資料分割索引鍵。 此外，也需要資料分割索引鍵，才能調整未來超過 2,500 個要求單位的集合輸送量。 因此，強烈建議在建立容器時設定[資料分割索引鍵](partition-data.md) (不論初始輸送量是多少)。 因為您的資料可能必須分散於多個資料分割，所以必須挑選具有高基數 (數百個到數百萬個相異值) 的資料分割索引鍵，以便 Azure Cosmos DB 一致調整您的集合/資料表/圖表和要求。 
 
@@ -336,7 +336,7 @@ API for Mongodb 支援自訂命令 *getLastRequestStatistics*，可擷取指定�
 在此情況下，我們預期平均輸送量需求為 1,275 RU/秒。  四捨五入至最接近 100 的數目，我們會針對此應用程式的集合佈建 1,300 RU/秒。
 
 ## <a id="RequestRateTooLarge"></a> 超過 Azure Cosmos DB 中保留的輸送量限制
-還記得如果每分鐘的要求單位已停用或預算是空的，要求單位耗用量就會以每秒的速率來計算。 應用程式若超過容器已佈建的要求單位速率，該集合的要求會受到節流控制，直到該速率降到預留層級以下。 當節流發生時，伺服器將預先使用 RequestRateTooLargeException (HTTP 狀態碼 429) 來結束要求，並傳回 x-ms-retry-after-ms 標頭，以指出使用者重試要求之前必須等候的時間量 (毫秒)。
+您應該記得，如果預算是空的，要求單位耗用量是以每秒的速率來評估。 應用程式若超過容器已佈建的要求單位速率，該集合的要求會受到節流控制，直到該速率降到預留層級以下。 當節流發生時，伺服器將預先使用 RequestRateTooLargeException (HTTP 狀態碼 429) 來結束要求，並傳回 x-ms-retry-after-ms 標頭，以指出使用者重試要求之前必須等候的時間量 (毫秒)。
 
     HTTP Status 429
     Status Line: RequestRateTooLarge

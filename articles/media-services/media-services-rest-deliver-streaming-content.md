@@ -2,7 +2,7 @@
 title: "使用 REST 發佈 Azure 媒體服務內容"
 description: "了解如何建立定位器，用來建置串流 URL。 程式碼使用 REST API。"
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: bb3ae3d26d174d0f37cc348cde570250699bf067
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3aa6bdac17a78b78490f255b0e86e1c210b64cc6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/14/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="publish-azure-media-services-content-using-rest"></a>使用 REST 發佈 Azure 媒體服務內容
@@ -37,6 +37,17 @@ ms.lasthandoff: 03/14/2017
 本主題說明如何建立隨選串流定位器以發佈資產及建置 Smooth、MPEG DASH 和 HLS 串流 URL。 它也會示範如何建置漸進式下載 URL。
 
 [下列章節](#types) 說明列舉類型，REST 呼叫中會使用這些類型的值。   
+
+> [!NOTE]
+> 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
+> 
+
+## <a name="connect-to-media-services"></a>連線到媒體服務
+
+如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+>[!NOTE]
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
 
 ## <a name="create-an-ondemand-streaming-locator"></a>建立隨選串流定位器
 若要建立隨選串流定位器並取得 URL，您需要執行下列動作：
@@ -184,6 +195,8 @@ URL： **Path** + 資產檔案 MP4 名稱
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>另請參閱
+[媒體服務作業 REST API 概觀](media-services-rest-how-to-use.md)
+
 [設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)
 
 

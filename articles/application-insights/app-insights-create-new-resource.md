@@ -12,26 +12,25 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 003db6e1479be1007dd292555ce5997f1c138809
-ms.openlocfilehash: f73a24993fdeaced422b2f7a1283722a82c2be77
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 054e49478e70aeb15a012592fbb9642c39a60496
 ms.contentlocale: zh-tw
-ms.lasthandoff: 12/13/2016
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
-Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 在許多情況下，這是可由 IDE 自動完成的工作，而且也建議盡量使用這種方式。 但在某些情況下，您需要手動建立資源 - 例如，讓應用程式的開發和生產組建有各自可用的資源。
+Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 在許多情況下，建立資源可以由 IDE 自動完成。 但在某些情況下，您需要手動建立資源 - 例如，讓應用程式的開發和生產組建有各自可用的資源。
 
-建立資源後，您會取得其檢測金鑰，並將該金鑰用來設定應用程式中的 SDK。 這麼做會將遙測資料傳送到資源。
+建立資源後，您會取得其檢測金鑰，並將該金鑰用來設定應用程式中的 SDK。 資源索引鍵會將遙測連結到資源。
 
 ## <a name="sign-up-to-microsoft-azure"></a>註冊 Microsoft Azure
 如果您還沒有 [Microsoft 帳戶，請立即申請](http://live.com)。 (如果您使用 Outlook.com、OneDrive、Windows Phone 或 XBox Live 等服務，就會有 Microsoft 帳戶)。
 
-此外您也需要 [Microsoft Azure](http://azure.com)訂用帳戶。 如果您的小組或組織擁有 Azure 訂用帳戶，則擁有者就可以使用您的 Windows Live ID 將您加入該訂用帳戶。 您只需要針對使用多少來付費，而且預設的基本方案有一定的數量可作為實驗用途。
+此外您也需要 [Microsoft Azure](http://azure.com) 訂用帳戶。 如果您的小組或組織擁有 Azure 訂用帳戶，則擁有者就可以使用您的 Windows Live ID 將您加入該訂用帳戶。 您只需針對使用的項目付費。 預設的基本方案有一定的免費數量可作為實驗用途。
 
-當您可以存取訂用帳戶時，請在 [http://portal.azure.com](https://portal.azure.com)中使用您的 Live ID 登入 Application Insights。
+當您可以存取訂用帳戶時，請在 [http://portal.azure.com](https://portal.azure.com) 中使用您的 Live ID 登入 Application Insights。
 
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 在 [portal.azure.com](https://portal.azure.com)中新增 Application Insights 資源：
@@ -44,12 +43,12 @@ Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用�
 * **位置** 是我們保留您資料的地方。
 * **釘選到儀表板板** 可在 Azure 首頁上放置資源的快速存取圖格。 建議使用。
 
-建立您的應用程式後，會開啟新的刀鋒視窗。 您會在其中看到應用程式的效能和使用情況資料。 
+建立您的應用程式後，會開啟新的刀鋒視窗。 此刀鋒視窗是您會在其中看到應用程式的效能和使用情況資料的位置。 
 
-若要在下次登入 Azure 時返回該應用程式，請在開始面板 (主畫面) 上尋找應用程式的快速啟動磚。 或按一下 [瀏覽] 以尋找它。
+若要在下次登入 Azure 時返回該應用程式，請在開始面板 (主畫面) 上尋找應用程式的快速啟動圖格。 或按一下 [瀏覽] 以尋找它。
 
 ## <a name="copy-the-instrumentation-key"></a>複製檢測金鑰
-檢測金鑰會識別您所建立的資源。 您將需要它以提供給 SDK。
+檢測金鑰會識別您所建立的資源。 您需要它以提供給 SDK。
 
 ![按一下 [基本功能]，按一下 [檢測金鑰]，CTRL+C](./media/app-insights-create-new-resource/02-props.png)
 

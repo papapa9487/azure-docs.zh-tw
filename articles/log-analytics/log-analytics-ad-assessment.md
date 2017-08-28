@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 2279e609a5d81ecd40bd469a3e98b5cdf81fde2f
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 97368f0b9e89ffd0cd982b6e8670d5a1f62ad42c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-assessment-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 評估方案來最佳化 Active Directory 環境
@@ -73,7 +73,7 @@ Active Directory 評定會使用您已啟用的代理程式，從下列來源收
 
 | 平台 | 直接代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![是](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![是](./media/log-analytics-ad-assessment/oms-bullet-green.png) |![否](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![否](./media/log-analytics-ad-assessment/oms-bullet-red.png) |![是](./media/log-analytics-ad-assessment/oms-bullet-green.png) |7 天 |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |7 天 |
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>了解建議的排列方式
 智慧套件會為每項建議指派加權值，該值能顯現建議的相對重要性。 只會顯示最重要的 10 個建議。
@@ -176,13 +176,6 @@ Active Directory 評定會使用您已啟用的代理程式，從下列來源收
 *收集資料需要花費多少時間？*
 
 * 伺服器上的實際資料收集需費時約 1 小時。 對於擁有大量 Active Directory 伺服器的伺服器，資料收集可能需要花費更久的時間。
-
-*收集的資料類型為何？*
-
-* 收集的資料類型如下：
-  * WMI
-  * 登錄
-  * 效能計數器
 
 *是否有設定資料收集時間的方法？*
 

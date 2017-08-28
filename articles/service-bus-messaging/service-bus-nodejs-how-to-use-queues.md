@@ -12,20 +12,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: b6fdf3932ca1b8b84e0ac1667f1eb286abb51671
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: f539e11096cbfb305d3724a2942a5487b65e5c7e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>如何使用服務匯流排佇列
+# <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何將服務匯流排佇列搭配 Node.js 使用
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本文說明如何使用 Node.js 中的服務匯流排佇列。 這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。 本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。 如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+本文說明如何將服務匯流排佇列搭配 Node.js 使用。 這些範例均以 JavaScript 撰寫並使用 Node.js Azure 模組。 本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。 如需佇列的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 05/19/2017
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. 您可以手動執行 **ls** 命令，確認已建立 **node\_modules** 資料夾。 在該資料夾內找到 **azure** 封裝，其中包含您存取服務匯流排佇列所需的程式庫。
+3. 您可以手動執行 **ls** 命令，確認已建立 **node_modules** 資料夾。 在該資料夾內找到 **azure** 封裝，其中包含您存取服務匯流排佇列所需的程式庫。
 
 ### <a name="import-the-module"></a>匯入模組
 使用記事本或其他文字編輯器將以下內容新增至應用程式 **server.js** 檔案的頂端：
@@ -64,7 +64,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-an-azure-service-bus-connection"></a>設定 Azure 服務匯流排連接
-Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_CONNECTION\_STRING，以取得連接服務匯流排所需的資訊。 如未設定此環境變數，必須在呼叫 **createServiceBusService** 時指定帳戶資訊。
+Azure 模組會讀取環境變數 `AZURE_SERVICEBUS_CONNECTION_STRING`，以取得連接服務匯流排所需的資訊。 如未設定此環境變數，必須在呼叫 `createServiceBusService` 時指定帳戶資訊。
 
 如需在「Azure 雲端服務」組態檔中設定環境變數的範例，請參閱[使用儲存體的 Node.js 雲端服務][Node.js Cloud Service with Storage]。
 
@@ -77,7 +77,7 @@ Azure 模組會讀取環境變數 AZURE\_SERVICEBUS\_CONNECTION\_STRING，以取
 var serviceBusService = azure.createServiceBusService();
 ```
 
-呼叫 **ServiceBusService** 物件上的 **createQueueIfNotExists** 之後，會傳回指定的佇列 (如果存在)，或以指定的名稱建立新的佇列。 下列程式碼使用 **createQueueIfNotExists** 建立或連接至名稱為 `myqueue` 的佇列：
+呼叫 **ServiceBusService** 物件上的 `createQueueIfNotExists` 之後，會傳回指定的佇列 (如果存在)，或以指定的名稱建立新的佇列。 下列程式碼使用 `createQueueIfNotExists` 建立或連接至名稱為 `myqueue` 的佇列：
 
 ```javascript
 serviceBusService.createQueueIfNotExists('myqueue', function(error){
@@ -87,7 +87,7 @@ serviceBusService.createQueueIfNotExists('myqueue', function(error){
 });
 ```
 
-**createServiceBusService** 也支援其他選項，讓您覆寫預設佇列設定，例如訊息存留時間或佇列大小上限。 下列範例會將佇列大小上限設為 5 GB，並將存留時間 (TTL) 值設為 1 分鐘：
+`createServiceBusService` 方法也支援其他選項，而可讓您覆寫訊息存留時間或佇列大小上限等預設佇列設定。 下列範例會將佇列大小上限設為 5 GB，並將存留時間 (TTL) 值設為 1 分鐘：
 
 ```javascript
 var queueOptions = {
@@ -115,9 +115,9 @@ function handle (requestOptions, next)
 function (returnObject, finalCallback, next)
 ```
 
-在此回呼中，以及處理 **returnObject** (來自對伺服器之要求的回應) 之後，回呼必須叫用 `next` (如果存在) 以繼續處理其他篩選器，或是直接叫用 `finalCallback` 結束服務叫用。
+在此回呼中，以及處理 `returnObject` (來自對伺服器之要求的回應) 之後，回呼必須叫用 `next` (如果存在) 以繼續處理其他篩選器，或是直接叫用 `finalCallback` 結束服務叫用。
 
-Azure SDK for Node.js 包含了實作重試邏輯的兩個篩選器：**ExponentialRetryPolicyFilter** 和 **LinearRetryPolicyFilter**。 下列程式碼將建立使用 **ExponentialRetryPolicyFilter** 的 **ServiceBusService** 物件：
+Azure SDK for Node.js 包含了兩個實作重試邏輯的篩選器： `ExponentialRetryPolicyFilter` 與 `LinearRetryPolicyFilter`。 下列程式碼會建立使用 `ExponentialRetryPolicyFilter` 的 `ServiceBusService` 物件：
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();
@@ -125,9 +125,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 ```
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-若要傳送訊息至服務匯流排佇列，應用程式將呼叫 **ServiceBusService** 物件上的 **sendQueueMessage** 方法。 傳送至服務匯排流 (以及服務匯流排接收) 的佇列是 **BrokeredMessage** 物件，而且具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的字典，以及任意應用程式資料的主體。 應用程式可將字串做為訊息傳遞來設定訊息的內文。 任何必要的標準屬性都會填入預設值。
+若要傳送訊息至服務匯流排佇列，應用程式將呼叫 **ServiceBusService** 物件上的 `sendQueueMessage` 方法。 傳送至服務匯排流 (以及服務匯流排接收) 的佇列是 **BrokeredMessage** 物件，而且具有一組標準屬性 (例如 **Label** 和 **TimeToLive**)、一個用來保存自訂應用程式特定屬性的字典，以及任意應用程式資料的主體。 應用程式可將字串做為訊息傳遞來設定訊息的內文。 任何必要的標準屬性都會填入預設值。
 
-下列範例示範如何使用 **sendQueueMessage** 將測試訊息傳送至名為 `myqueue` 的佇列：
+下列範例示範如何使用 `sendQueueMessage` 將測試訊息傳送至名為 `myqueue` 的佇列：
 
 ```javascript
 var message = {
@@ -145,13 +145,13 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 此佇列大小會在建立時定義，上限是 5 GB。 如需有關配額的詳細資訊，請參閱[服務匯流排配額][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
-對於 **ServiceBusService** 物件使用 **receiveQueueMessage** 方法即可從佇列接收訊息。 預設會從佇列刪除唯讀的訊息，不過，您可以將 **isPeekLock** 設定為 **true**，不需要從佇列刪除訊息，即可讀取 (查看) 並鎖定訊息。
+對於 **ServiceBusService** 物件使用 `receiveQueueMessage` 方法即可從佇列接收訊息。 預設會從佇列刪除唯讀的訊息，不過，您可以將 `isPeekLock` 設定為 **true**，不需要從佇列刪除訊息，即可讀取 (查看) 並鎖定訊息。
 
 隨著接收作業讀取及刪除訊息之預設行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-如果您將 **isPeekLock** 參數設定為 **true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 **deleteMessage** 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 **deleteMessage** 方法會將訊息標示為已取用，並將它從佇列中移除。
+如果您將 `isPeekLock` 參數設為 **true**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成處理訊息 (或可靠地儲存此訊息以供未來處理) 之後，它可透過呼叫 `deleteMessage` 方法和以參數形式提供要刪除的訊息，完成接收程序的第二個階段。 `deleteMessage` 方法會將訊息標示為已取用，並將其從佇列中移除。
 
-下列範例示範如何使用 **receiveQueueMessage** 來接收和處理訊息。 範例首先會接收並刪除訊息，然後使用設定為 **true** 的 **isPeekLock** 接收訊息，接著使用 **deleteMessage** 刪除訊息：
+下列範例示範如何使用 `receiveQueueMessage` 來接收和處理訊息。 範例首先會接收並刪除訊息，然後使用設定為 **true** 的 `isPeekLock` 接收訊息，接著使用 `deleteMessage` 刪除訊息：
 
 ```javascript
 serviceBusService.receiveQueueMessage('myqueue', function(error, receivedMessage){
@@ -172,11 +172,11 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何處理應用程式當機與無法讀取的訊息
-服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫 **ServiceBusService** 物件上的 **unlockMessage** 方法。 這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
+服務匯流排提供一種功能，可協助您從應用程式的錯誤或處理訊息的問題中順利復原。 如果接收者應用程式因為某些原因無法處理訊息，它可以呼叫 **ServiceBusService** 物件上的 `unlockMessage` 方法。 這將導致服務匯流排將佇列中的訊息解除鎖定，讓此訊息可以被相同取用應用程式或其他取用應用程式重新接收。
 
 與在佇列內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排將自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未呼叫 **deleteMessage** 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為*至少處理一次*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，尚未呼叫 `deleteMessage` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為*至少處理一次*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 通常您可使用訊息的 **MessageId** 屬性來達到此目的，該屬性將在各個傳遞嘗試中會保持不變。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解佇列，請參閱下列資源。
@@ -191,7 +191,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [Create and deploy a Node.js application to an Azure Website]: ../app-service-web/app-service-web-get-started-nodejs.md
-[Node.js Cloud Service with Storage]: ../storage/storage-nodejs-use-table-storage-cloud-service-app.md
-[Node.js Web Application with Storage]: ../storage/storage-nodejs-how-to-use-table-storage.md
+[Node.js Cloud Service with Storage]:../cosmos-db/table-storage-cloud-service-nodejs.md
+[Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md
 

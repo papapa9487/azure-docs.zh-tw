@@ -3,8 +3,8 @@ title: "在設定期間使用 Azure AD 設定新裝置 | Microsoft Docs"
 description: "說明使用者如何在初次執行體驗期間設定 Azure AD Join 的主題。"
 services: active-directory
 documentationcenter: 
-author: femila
-manager: swadhwa
+author: MarkusVi
+manager: femila
 editor: 
 tags: azure-classic-portal
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -20,7 +20,6 @@ ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a6227096559af9b9beba7081ba770db80189dc18
 ms.contentlocale: zh-tw
 ms.lasthandoff: 12/29/2016
-
 
 ---
 # <a name="set-up-a-new-device-with-azure-ad-during-setup"></a>設定期間使用 Azure AD 設定新裝置

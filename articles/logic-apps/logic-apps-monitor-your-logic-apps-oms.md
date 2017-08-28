@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 91c747a4fbb3c3c3d799741e7d3b5d4646931136
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 08/09/2017
 
    ![選擇 [OMS 入口網站]](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
 
-4. 在您的 OMS 首頁上，選擇 [方案庫]。
+4. 在您的 OMS 首頁上，如果出現升級橫幅，請選擇此橫幅，即可先升級您的 OMS 工作區。 然後選擇 [方案庫]。
 
    ![選擇 [方案庫]](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
@@ -91,6 +91,11 @@ ms.lasthandoff: 08/09/2017
 1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] (Logic Apps 管理) 磚中的詳細資料。
 
    ![顯示邏輯應用程式執行計數和狀態的概觀磚](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+
+   > [!Note]
+   > 如果出現此升級橫幅而非 [Logic Apps 管理] 圖格，請選擇此橫幅，即可先升級您的 OMS 工作區。
+  
+   > ![升級「OMS 工作區」](media/logic-apps-monitor-your-logic-apps-oms/oms-upgrade-banner.png)
 
 2. 若要檢視含有邏輯應用程式執行之更多詳細資料的摘要，請選擇 [Logic Apps Management] (Logic Apps 管理) 磚。
 

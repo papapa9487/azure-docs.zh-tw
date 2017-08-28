@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d7857821524de3d1dbdac9e8c8d0da89678670db
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 425c7a733a0a2383f01d2122e7155d3e3a9071be
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -33,11 +32,11 @@ Log Analytics 會從 Managed 資源 (包括 Azure 儲存體資料表或代理程
 
 設定 OMS 時，您可以存取特定 *OMS 工作區*，以從中查詢資料或在儀表板中視覺化該資料。
 
-Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理解決方案*，這些預先封裝的解決方案可監視傳入資料。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 還有幾個其他解決方案也值得您探索，此外 OMS 也可讓您建立自訂解決方案，您可以在[這裡](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)深入了解。 您選擇用於叢集的每個解決方案都會在並存 Log Analytics 的相同 OMS 工作區中設定。 工作區可讓您自訂儀表板和資料視覺效果，並修改您要收集、處理及分析的資料。
+Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理解決方案*，這些預先封裝的解決方案可監視傳入資料。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 還有幾個其他解決方案也值得您探索，此外 OMS 也可讓您建立自訂解決方案，您可以在[這裡](../operations-management-suite/operations-management-suite-solutions.md)深入了解。 您選擇用於叢集的每個解決方案都會在並存 Log Analytics 的相同 OMS 工作區中設定。 工作區可讓您自訂儀表板和資料視覺效果，並修改您要收集、處理及分析的資料。
 
 ## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>使用 Service Fabric 解決方案設定 OMS 工作區
 
-建議您在 OMS 工作區中包含 Service Fabric 解決方案，因為它提供實用的儀表板，會顯示從基礎結構和應用程式層級傳入的各種記錄檔通道，而且能夠查詢 Service Fabric 的特定記錄檔。 以下顯示一個相當簡單的 Service Fabric 解決方案，該解決方案在叢集上部署了單一應用程式：
+建議您在 OMS 工作區中包含 Service Fabric 解決方案，因為它提供實用的儀表板，會顯示從平台和應用程式層級傳入的各種記錄通道，而且能夠查詢 Service Fabric 的特定記錄。 以下顯示一個相當簡單的 Service Fabric 解決方案，該解決方案在叢集上部署了單一應用程式：
 
 ![OMS SF 解決方案](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -62,9 +61,9 @@ Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理�
 
 ## <a name="using-the-oms-agent"></a>使用 OMS 代理程式
 
-建議使用 EventFlow 和 WAD 作為彙總解決方案，因為它們允許以更模組化的方式進行診斷和監視。 例如，如果您想要變更 EventFlow 中的輸出，您不需要變更實際工具，只要簡單修改設定檔即可。 不過，如果您決定要投資使用 OMS，並願意繼續使用它進行事件分析 (不一定要是您使用的唯一平台，但至少是其中一個平台)，建議您向上探索設定到 [OMS 代理程式](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents)。
+建議使用 EventFlow 和 WAD 作為彙總解決方案，因為它們允許以更模組化的方式進行診斷和監視。 例如，如果您想要變更 EventFlow 中的輸出，您不需要變更實際工具，只要簡單修改設定檔即可。 不過，如果您決定要投資使用 OMS，並願意繼續使用它進行事件分析 (不一定要是您使用的唯一平台，但至少是其中一個平台)，建議您向上探索設定到 [OMS 代理程式](../log-analytics/log-analytics-windows-agents.md)。 您也應該在將容器部署至叢集時使用 OMS 代理程式，如下所述。
 
-執行這項作業的程序相當簡單，因為您只需要新增代理程式作為 Resource Manager 範本的虛擬機器擴展集延伸模組，就能確保安裝到您的每個節點。 您可以在[這裡](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample)找到範例 Resource Manager 範本，該範本會使用 Service Fabric 解決方案來部署 OMS 工作區 (如上所示)，並將代理程式新增至您的節點。
+執行這項作業的程序相當簡單，因為您只需要新增代理程式作為 Resource Manager 範本的虛擬機器擴展集延伸模組，就能確保安裝到您的每個節點。 針對執行 [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) 或 [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) 的叢集，您可以找到 Resource Manager 範本的範例，該範本會使用 Service Fabric 解決方案來部署 OMS 工作區 (如上所示)，並將代理程式新增至您的節點。
 
 這樣做有下列好處：
 

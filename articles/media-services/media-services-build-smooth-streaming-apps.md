@@ -4,7 +4,7 @@ description: "了解如何使用 Azure 媒體服務建立可用 XML MediaElement
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 0fa5d8c5-3d5f-4886-ae55-fb6de4f5256d
 ms.service: media-services

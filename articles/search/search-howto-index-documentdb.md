@@ -12,13 +12,13 @@ ms.devlang: rest-api
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: search
-ms.date: 05/01/2017
+ms.date: 08/10/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 333f8320820a1729a14ffc2e29446e7452aa768e
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 2f1791393b1e59721cc5a1030927cd00d74a5f13
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>使用索引子連接 Cosmos DB 與 Azure 搜尋服務
@@ -99,21 +99,21 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 Cosmos DB) 和操作
 
 篩選查詢：
 
-    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark
+    SELECT * FROM c WHERE c.company = "microsoft" and c._ts >= @HighWaterMark ORDER BY c._ts
 
 壓平合併查詢︰
 
-    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark
+    SELECT c.id, c.userId, c.contact.firstName, c.contact.lastName, c.company, c._ts FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
     
     
 投影查詢：
 
-    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark
+    SELECT VALUE { "id":c.id, "Name":c.contact.firstName, "Company":c.company, "_ts":c._ts } FROM c WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 
 陣列壓平合併查詢︰
 
-    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark
+    SELECT c.id, c.userId, tag, c._ts FROM c JOIN tag IN c.tags WHERE c._ts >= @HighWaterMark ORDER BY c._ts
 
 <a name="CreateIndex"></a>
 ## <a name="step-2-create-an-index"></a>步驟 2：建立索引
@@ -241,7 +241,21 @@ Azure 搜尋服務支援建立與管理資料來源 (包括 Cosmos DB) 和操作
 
 為確保索引子效能良好，強烈建議使用此原則。 
 
-如果您使用自訂查詢，請確定查詢有投射 `_ts` 屬性。 
+如果您使用自訂查詢，請確定查詢有投射 `_ts` 屬性。
+
+<a name="IncrementalProgress"></a>
+### <a name="incremental-progress-and-custom-queries"></a>累加進度與自訂查詢
+建立索引期間，採累加進度能確保當索引子執行因暫時性失敗或執行時間限制而中斷，索引子仍能夠在下次執行時從中斷的部分繼續建立索引，而不需要重新建立整個集合的索引。 這在建立大型集合的索引時尤其重要。 
+
+若要在使用自訂查詢時啟用累加進度，請確保您的查詢是依 `_ts` 欄排序查詢結果。 如此會啟用定期檢查點設置，出現失敗時，Azure 搜尋服務會以此提供累加進度來應對。   
+
+在某些情況下，即使您的查詢含有 `ORDER BY [collection alias]._ts` 子句，Azure 搜尋服務仍可能無法推斷此查詢是否依 `_ts` 排序。 您可以使用 `assumeOrderByHighWaterMarkColumn` 這個設定屬性讓 Azure 搜尋服務知道查詢結果已經過排序。 若要指定這項提示，請依下列指示更新您的索引子： 
+
+    {
+     ... other indexer definition properties
+     "parameters" : {
+            "configuration" : { "assumeOrderByHighWaterMarkColumn" : true } }
+    } 
 
 <a name="DataDeletionDetectionPolicy"></a>
 ## <a name="indexing-deleted-documents"></a>索引已刪除的文件

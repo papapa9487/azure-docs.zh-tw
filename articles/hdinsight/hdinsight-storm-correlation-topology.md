@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 03/01/2017
+ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 2d35232cdb9d7076c27e98f7c2300ec910479e8d
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 06630096383601e48e8f69f8553314cee42f5f3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="correlate-events-that-arrive-at-different-times-using-storm-and-hbase"></a>在不同時間使用 Storm 和 HBase 抵達的事件相互關聯
@@ -35,8 +35,8 @@ ms.lasthandoff: 07/08/2017
 
 * Apache Storm on HDInsight 叢集 (Windows)。
 
-  > [!IMPORTANT]
-  > 雖然在 2016/10/28 之後建立的 Linux 架構 Storm 叢集可支援 SCP.NET 拓撲，但 2016/10/28 起提供的 HBase SDK for .NET 套件無法在 Linux 上正確運作。
+  > [!WARNING]
+  > 雖然在 2016/10/28 之後建立的 Linux 架構 Storm 叢集可支援 SCP.NET 拓撲，但 2016/10/28 起提供的 HBase SDK for .NET 套件無法在 Linux 上的 HDInsight 中正確運作
 
 * Apache HBase on HDInsight 叢集 (Linux 或 Windows 型)。
 

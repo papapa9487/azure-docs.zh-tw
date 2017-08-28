@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/15/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a3ba385e15510139929735adb5e50b6291846356
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>使用 PowerShell 來管理事件中樞資源
 
-Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及自動化 Azure 服務的部署和管理。 本文說明如何使用本機 Azure PowerShell 主控台或指令碼，運用[事件中樞 Resource Manager PowerShell 模組](/powershell/module/azurerm.eventhub)來佈建和管理事件中樞實體 (命名空間、事件中樞和取用者群組)。
+Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及自動化 Azure 服務的部署和管理。 本文說明如何使用本機 Azure PowerShell 主控台或指令碼，運用[事件中樞 Resource Manager PowerShell 模組](/powershell/module/azurerm.eventhub)來佈建和管理事件中樞實體 (命名空間、個別事件中樞和取用者群組)。
 
 您也可以使用 Azure Resource Manager 範本來管理事件中樞資源。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本建立事件中樞命名空間與事件中樞和取用者群組](event-hubs-resource-manager-namespace-event-hub.md)文章。
 
@@ -37,7 +37,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 ## <a name="get-started"></a>開始使用
 
-第一個步驟是使用 PowerShell 來登入 Azure 帳戶和 Azure 訂用帳戶。 遵循[開始使用 Azure PowerShell Cmdlet](/powershell/azure/get-started-azureps) 中的指示登入您的 Azure 帳戶，並擷取及存取 Azure 訂用帳戶中的資源。
+第一個步驟是使用 PowerShell 來登入 Azure 帳戶和 Azure 訂用帳戶。 遵循[開始使用 Azure PowerShell Cmdlet](/powershell/azure/get-started-azureps) 中的指示登入您的 Azure 帳戶，然後擷取及存取 Azure 訂用帳戶中的資源。
 
 ## <a name="provision-an-event-hubs-namespace"></a>佈建事件中樞命名空間
 
@@ -80,31 +80,31 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 ## <a name="create-an-event-hub"></a>建立事件中心
 
-若要建立事件中樞，請使用上一節中的指令碼來執行命名空間檢查。 然後，使用 New-[AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) Cmdlet，以在事件中樞內建立事件中樞：
+若要建立事件中樞，請使用上一節中的指令碼來執行命名空間檢查。 然後使用 [New-AzureRmEventHub](/powershell/module/azurerm.eventhub/new-azurermeventhub) Cmdlet，以建立事件中樞：
 
 ```powershell
-# Check if Event Hub already exists
+# Check if event hub already exists
 $CurrentEH = Get-AzureRMEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 
 if($CurrentEH)
 {
-    Write-Host "The Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
 else
 {
-    Write-Host "The $EventHubName Event Hub does not exist."
-    Write-Host "Creating the $EventHubName Event Hub in the $Location region..."
+    Write-Host "The $EventHubName event hub does not exist."
+    Write-Host "Creating the $EventHubName event hub in the $Location region..."
     New-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -Location $Location -MessageRetentionInDays 3
     $CurrentEH = Get-AzureRmEventHub -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $EventHubName Event Hub in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $EventHubName event hub in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
 ### <a name="create-a-consumer-group"></a>建立取用者群組
 
-若要在事件中樞內建立取用者群組，請使用上一節中的指令碼來執行命名空間和事件中樞檢查。 然後，使用 [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) Cmdlet，以在事件中樞內建立取用者群組。 例如：
+若要在事件中樞內建立取用者群組，請使用上一節中的指令碼來執行命名空間和事件中樞檢查。 然後使用 [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) Cmdlet，以在事件中樞內建立取用者群組。 例如：
 
 ```powershell
 # Check if consumer group already exists
@@ -112,7 +112,7 @@ $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -Na
 
 if($CurrentCG)
 {
-    Write-Host "The consumer group $ConsumerGroupName in Event Hub $EventHubName already exists in the $Location region:"
+    Write-Host "The consumer group $ConsumerGroupName in event hub $EventHubName already exists in the $Location region:"
     # Report what was found
     Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
 }
@@ -122,7 +122,7 @@ else
     Write-Host "Creating the $ConsumerGroupName consumer group in the $Location region..."
     New-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName -ConsumerGroupName $ConsumerGroupName
     $CurrentCG = Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $Namespace -EventHubName $EventHubName
-    Write-Host "The $ConsumerGroupName consumer group in Event Hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
+    Write-Host "The $ConsumerGroupName consumer group in event hub $EventHubName in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
@@ -140,7 +140,7 @@ Get-AzureRmEventHubConsumerGroup -ResourceGroupName $ResGrpName -NamespaceName $
 
 ## <a name="remove-event-hub"></a>移除事件中樞
 
-若要移除您所建立的事件中樞實體，可以使用 `Remove-*` Cmdlet，如下列範例所示︰
+若要移除您所建立的事件中樞，可以使用 `Remove-*` Cmdlet，如下列範例所示︰
 
 ```powershell
 # Clean up
@@ -152,7 +152,7 @@ Remove-AzureRmEventHubNamespace -ResourceGroupName $ResGrpName -NamespaceName $N
 ## <a name="next-steps"></a>後續步驟
 
 - 請在[這裡](/powershell/module/azurerm.eventhub)參閱完整的事件中樞 Resource Manager PowerShell 模組文件。 此頁面會列出所有可用的 Cmdlet。
-- 如需使用 Azure Resource Manager 範本的資訊，請參閱[使用 Azure Resource Manager 範本建立事件中樞命名空間與事件中樞和取用者群組](event-hubs-resource-manager-namespace-event-hub.md)。
+- 如需使用 Azure Resource Manager 範本的相關資訊，請參閱[使用 Azure Resource Manager 範本建立事件中樞命名空間與事件中樞和取用者群組](event-hubs-resource-manager-namespace-event-hub.md)文章。
 - [事件中樞 .NET 管理程式庫](event-hubs-management-libraries.md)的相關資訊。
 
 [purchase options]: http://azure.microsoft.com/pricing/purchase-options/

@@ -4,7 +4,7 @@ description: "在串流分析工作中，設定 Azure Data Lake Store 的驗證�
 keywords: 
 services: stream-analytics
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea5baafa-0054-4c70-973a-6a3a8c6eaffc
@@ -14,23 +14,23 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
-ms.sourcegitcommit: 2b4a10c77ae02ac0e9eeecf6d7d6ade6e4c33115
-ms.openlocfilehash: 5d0a86742e4b238b94855464b2528db32b80526b
-ms.lasthandoff: 01/25/2017
-
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>串流分析 Data Lake Store 輸出
-串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
+串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure Data Lake Store 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
 
 ## <a name="authorize-a-data-lake-store-account"></a>授權 Data Lake Store 帳戶
-1. 在 Azure 管理入口網站中選取 Data Lake Store 做為輸出時，系統會提示您授權使用您現有的 Data Lake Store，或要求透過 Azure 傳統入口網站存取 Data Lake Store。
+1. 在 Azure 入口網站中選取 Data Lake Store 作為輸出時，系統會提示您授權使用現有的 Data Lake Store，或要求透過 Azure 傳統入口網站存取 Data Lake Store。
    
    ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-authorization.png)  
    
-2. 如果您已經可以存取 Data Lake Store，按一下 [立即授權]，很快就會出現一個頁面，指出 「正在重新導向至授權...」。 此頁面將會自動關閉，而且您會看到可讓您設定 Data Lake Store 輸出的頁面。
+2. 如果您已經可以存取 Data Lake Store，按一下 [立即授權]，很快就會出現一個頁面，指出「正在重新導向至授權」。 此頁面將會自動關閉，而且您會看到可讓您設定 Data Lake Store 輸出的頁面。
 
 如果您尚未註冊 Data Lake Store，您可以依照「立即註冊」連結起始要求，或依照[開始使用指示](../data-lake-store/data-lake-store-get-started-portal.md)進行。
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 01/25/2017
 </tr>
 <tr>
 <td>Data Lake Store 帳戶</td>
-<td>您傳送輸出的儲存體帳戶名稱。 您將看到 Data Lake Store 帳戶的下拉式清單，登入入口網站的使用者可存取該下拉式清單。</td>
+<td>您傳送輸出的儲存體帳戶名稱。 您會看到一份登入使用者具有存取權的 Data Lake Store 帳戶清單。</td>
 </tr>
 <tr>
 <td>路徑前置詞模式 [<I>選用</I>]</td>

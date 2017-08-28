@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: a9fc8427e76ee8fa48fa8f1ad452c6fe9b544ce2
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -81,7 +81,7 @@ VMware 監視解決方案會使用您已啟用的 OMS Agents for Linux，從 ESX
 
 | 平台 | OMS Agent for Linux | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Linux |![是](./media/log-analytics-vmware/oms-bullet-green.png) |![否](./media/log-analytics-vmware/oms-bullet-red.png) |![否](./media/log-analytics-vmware/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-vmware/oms-bullet-red.png) |每隔 3 分鐘 |
+| Linux |&#8226; |  |  |  |  |每隔 3 分鐘 |
 
 下表顯示由 VMware 監視解決方案收集的資料欄位範例︰
 

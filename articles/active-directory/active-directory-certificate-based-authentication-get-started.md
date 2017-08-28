@@ -13,11 +13,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: c32f2ca2c799332652d38d882a4d6337bade4f93
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
@@ -40,6 +40,8 @@ ms.lasthandoff: 05/18/2017
 ## <a name="requirements"></a>需求
 
 若要設定憑證式驗證，必須符合以下要件：  
+
+- 只有瀏覽器應用程式或使用新式驗證 (ADAL) 之原生用戶端的同盟環境才支援憑證式驗證 (CBA)。 唯一的例外狀況是適用於 EXO 的 Exchange Active Sync (EAS)，可以用於同盟和受管理兩種帳戶。 
 
 - 務必要在 Azure Active Directory 中設定根憑證授權單位和任何中繼憑證授權單位。  
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 08/10/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 5e672bd6b9356ce16663e843e4a4e7365cb159c3
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 1aa93ac52d1d5c4efe222c6da505e3639170cf55
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Microsoft Azure 記錄整合簡介
@@ -29,10 +29,10 @@ ms.lasthandoff: 08/09/2017
 
 Azure 記錄整合是免費的解決方案，可讓您將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。
 
-Azure 記錄整合會從 Windows 事件檢視器頻道收集 Windows 事件，從 Azure 資源收集 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)、[Azure 資訊安全中心警示](../security-center/security-center-intro.md)和 [Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 這項整合協助您的 SIEM 方案提供內部部署或在雲端中所有資產統一的儀表板，以便您彙總、相互關聯、分析和警示安全性事件。
+Azure 記錄整合會從 Windows 事件檢視器記錄收集 Windows 事件，從 Azure 資源收集 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)、[Azure 資訊安全中心警示](../security-center/security-center-intro.md)和 [Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 這項整合協助您的 SIEM 方案提供內部部署或在雲端中所有資產統一的儀表板，以便您彙總、相互關聯、分析和警示安全性事件。
 
 >[!NOTE]
-目前唯一支援的雲端是 Azure 商業和 Azure Government。 此時不支援其他雲端。
+目前唯一支援的雲端是 Azure 商業和 Azure Government。 不支援其他雲端。
 
 ![Azure 記錄整合][1]
 
@@ -43,23 +43,10 @@ Azure 會為每項 Azure 服務產生大量記錄。 這些記錄檔表示三種
 * **資料平面記錄檔**：可讓您看到使用 Azure 資源時所引發的事件。 本類型的記錄檔範例是 Windows 事件檢視器**系統**、**安全性**和 Windows 虛擬機器中的**應用程式**頻道。 另一個範例是透過 Azure 監視設定的診斷記錄
 * **處理事件**提供分析的事件與以您的名義處理的警示資訊。 本事件類型的範例是 Azure 安全性中心警示，其中 Azure 資訊安全中心已處理並分析您的訂用帳戶，以提供與您目前安全性狀態相關的警示。
 
-Azure 記錄整合目前支援整合 Azure 活動記錄、您的 Azure 訂用帳戶中 Windows 虛擬機器的 Windows 事件記錄檔、Azure 資訊安全中心警示、Azure 診斷記錄及 Azure Active Directory 稽核記錄。
+Azure 記錄整合支援 ArcSight、QRadar 及 Splunk。 不論在何種情況下，請向您的 SIEM 廠商確認，以了解對方是否有原生的連接器。 有些情況下，如果有原生連接器可供使用，您就不需要使用 Azure 記錄整合。 如需支援之記錄類型的其他資訊，請瀏覽常見問題集。
 
 >[!NOTE]
 雖然 Azure 記錄整合是免費的解決方案，記錄檔資訊的儲存體仍會產生 Azure 儲存體成本。
-
-下表說明記錄檔分類和 SIEM 整合詳細資訊
-
-| 記錄類型  |支援 JSON 的記錄分析 (Splunk、ELK)| ArcSight  | QRadar  |   
-|---|---|---|---|
-|  AAD 稽核記錄 |  是 | 需要建立 FlexConnector JSON 剖析器檔案。 如需詳細資訊，請參閱 ArcSight 文件  |  您必須建立記錄來源擴充。 如需詳細資訊，請參閱 QRadar文件。 |  
-| 活動記錄檔  | 是  |  下載中心提供 FlexConnector JSON 剖析器檔案以及 Azure 記錄整合下載 |  [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (透過 Syslog 傳送) |  
-| ASC 警示  | 是  |  需要建立 FlexConnector JSON 剖析器檔案。 如需詳細資訊，請參閱 ArcSight 文件。 | [QRadar DSM](https://www.ibm.com/support/knowledgecenter/SSKMKU/com.ibm.dsm.doc/c_dsm_guide_microsoft_azure_overview.html) (透過 Syslog 傳送)   |   
-| 診斷記錄 (資源記錄) | 是 | 需要使用者建立 FlexConnector JSON 剖析器檔案。 如需如何進行的指示，請參閱 ArcSight 文件。 | 您必須建立記錄來源擴充。 如需詳細資訊，請參閱 QRadar 文件 |
-| VM 記錄 | 是，透過轉寄的事件，而非透過 JSON | 是，透過轉寄的事件 | 是，透過轉寄的事件 |
-
-如需支援之記錄類型的其他資訊，請瀏覽[常見問題集](security-azure-log-integration-faq.md)
-
 
 可透過 [Azure 記錄檔整合 MSDN 論壇](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)取得社群協助。 論壇讓 AzLog 社群能針對如何充分利用 Azure 記錄整合，透過分享問題、解答、祕訣和技巧支援彼此。 此外，Azure 記錄整合小組會監視這個論壇，並且會盡全力提供協助。
 

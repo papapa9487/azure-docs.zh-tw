@@ -4,7 +4,7 @@ description: "本主題示範如何設定 Tricaster 即時編碼器，藉此將�
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 8973181a-3059-471a-a6bb-ccda7d3ff297
 ms.service: media-services

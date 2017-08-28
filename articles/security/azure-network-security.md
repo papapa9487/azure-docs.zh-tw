@@ -1,5 +1,4 @@
 ---
-
 title: "Azure 網路安全性 | Microsoft Docs"
 description: "了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。"
 services: security
@@ -16,11 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: bec61dd630348e4657862077f07b1313ed0ed373
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -80,7 +78,7 @@ Azure 有許多與網路安全性討論的網路元件。 我們會說明這些�
 
 ### <a name="basic-network-connectivity"></a>基本網路連線
 
-[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)服務可讓 Azure 資源與虛擬網路 (VNet) 安全地彼此連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 網路基礎結構邏輯隔離。 您也可以使用站對站 VPN 和專用[WAN 連結](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)，讓 VNet 彼此連線和連線到內部部署網路。
+[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)服務可讓 Azure 資源與虛擬網路 (VNet) 安全地彼此連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 網路基礎結構邏輯隔離。 您也可以使用站對站 VPN 和專用 [WAN 連結](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)，讓 VNet 彼此連線和連線到內部部署網路。
 
 ![基本網路連線](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -316,7 +314,7 @@ VM 到公開網際網路的通訊同樣適用，甚至當存在 Azure 到您的�
 
 -   透過 VPN 閘道從 VNet 到您的內部網路。
 
-許多企業都有嚴格的安全性和合規性需求，而需要內部檢查所有的網路封包，以強制執行特定原則。 Azure 提供的機制稱為[強制通道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)，其藉由建立自訂路由或透過 ExpressRoute 或 VPN 的[邊界閘道通訊協定 (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) 公告，將來自 VM 的流量路由傳送至內部部署環境。 透過 ExpressRoute 或 VPN 的公告。
+許多企業都有嚴格的安全性和合規性需求，而需要內部檢查所有的網路封包，以強制執行特定原則。 Azure 提供的機制稱為[強制通道](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)，其藉由建立自訂路由或透過 ExpressRoute 或 VPN 的[邊界閘道通訊協定 (BGP)](https://docs.microsoft.com/windows-server/remote/remote-access/bgp/border-gateway-protocol-bgp) 公告，將來自 VM 的流量路由傳送至內部部署環境。
 
 Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行設定。 將流量重新導向至在內部部署網站時，會表示為至 Azure VPN 閘道的「預設路由」。
 
@@ -388,7 +386,6 @@ Azure 網路安全性設備可改善 VNet 安全性和網路功能，這些功�
 
 
 [Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) 也會提供為應用程式閘道的一部分。 這會保護 Web 應用程式免於遭遇常見的 Web 弱點和攻擊。 應用程式閘道可以設定為網際網路對向閘道、內部專用閘道或兩者混合。
-網際網路對向閘道、內部專用閘道或兩者混合。
 
 可以在偵測或預防模式中執行應用程式閘道 WAF。 常見的使用案例是讓系統管理員在偵測模式中執行，以觀察惡意模式的流量。 一旦偵測到潛在的漏洞，尋求預防模式來封鎖可疑的傳入流量。
 
@@ -586,7 +583,7 @@ IP 流量驗證是以虛擬機器的網路介面作為目標。 接著會根據�
 
 資源層級監視可使用下列功能︰
 
-#### <a name="audit-log"></a>稽核記錄
+#### <a name="audit-log"></a>稽核記錄檔
 
 做為網路組態一部分所執行的作業會記錄下來。 這些稽核記錄是建立各種合規性的必備項目。 這些記錄可在 Azure 入口網站中檢視，或使用 Power BI 之類的 Microsoft 工具或協力廠商工具來擷取。 稽核記錄可透過入口網站、PowerShell、CLI 和 Rest API 來取得。
 

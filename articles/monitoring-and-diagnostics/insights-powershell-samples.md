@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 8165147d9ff811b26f7fe2626c892f2aba5bb4f8
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f06e5dd7d17c1d7795fb1f112e649cd42d7dd6d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
 
 > [!NOTE]
-> 自 2016 年 9 月 25 日起，「Azure 監視器」是以前所謂「Azure Insights」的新名稱。 不過，命名空間和下列命令中仍有 "insights"。
+> 自 2016 年 9 月 25 日起，「Azure 監視器」是以前所謂「Azure Insights」的新名稱。 不過，命名空間和下列命令中仍包含 "insights"。
 > 
 > 
 
 ## <a name="set-up-powershell"></a>設定 PowerShell
-設定要在電腦上執行的 PowerShell (如果您還未設定)。 如需詳細資訊，請參閱 [如何安裝和設定 PowerShell](/powershell/azure/overview) 。
+設定要在電腦上執行的 PowerShell (如果您還未設定)。 如需詳細資訊，請參閱[如何安裝及設定 PowerShell](/powershell/azure/overview)。
 
 ## <a name="examples-in-this-article"></a>本文中的範例
 本文中的範例將說明如何使用Azure 監視器 Cmdlet。 您也可以在 [Azure 監視器 Cmdlet](https://msdn.microsoft.com/library/azure/mt282452#40v=azure.200#41.aspx) 檢閱整個 Azure 監視器 PowerShell Cmdlet 清單。
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/27/2017
 Login-AzureRmAccount
 ```
 
-這會要求您登入。 一旦登入之後，就會顯示您的帳戶、TenantId 和預設的訂用帳戶識別碼。 所有 Azure Cmdlet 都會在您的預設訂用帳戶內容中運作。 若要檢視您具有存取權的訂用帳戶的清單，請使用下列命令。
+這會要求您登入。 一旦登入之後，就會顯示您的帳戶、TenantID 和預設的訂用帳戶識別碼。 所有 Azure Cmdlet 都會在您的預設訂用帳戶內容中運作。 若要檢視您具有存取權的訂用帳戶的清單，請使用下列命令。
 
 ```PowerShell
 Get-AzureRmSubscription
@@ -139,14 +139,11 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 
 `Get-AzureRmAlertRule` 支援其他參數。 如需詳細資訊，請參閱 [Get AlertRule](https://msdn.microsoft.com/library/mt282459.aspx) 。
 
-## <a name="create-alert-rules"></a>建立警示規則
+## <a name="create-metric-alerts"></a>建立計量警示
 您可以使用 `Add-AlertRule` Cmdlet 建立、更新或停用警示規則。
 
 您可以分別使用 `New-AzureRmAlertRuleEmail` 和 `New-AzureRmAlertRuleWebhook` 建立電子郵件和 Webhook 屬性。 在警示規則 Cmdlet 中，將這些屬性當做動作，指派給警示規則的 [動作]  屬性。
 
-下節所包含的範例會為您示範如何使用各種參數建立警示規則。
-
-### <a name="alert-rule-on-a-metric"></a>計量的警示規則
 下表描述使用計量建立警示所使用的參數和值。
 
 | 參數 | value |
@@ -155,7 +152,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 | 此警示規則的位置 |美國東部 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。 請參閱下面的 `Get-MetricDefinitions` Cmdlet 以了解如何擷取確切的計量名稱 |
+| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。 請參閱 `Get-MetricDefinitions` Cmdlet 以了解如何擷取確切的計量名稱 |
 | operator |GreaterThan |
 | 臨界值 (此計量的計數/秒） |1 |
 | WindowSize (hh:mm:ss 格式) |00:05:00 |
@@ -189,40 +186,6 @@ Get-AzureRmAlertRule -Name vmcpu_gt_1 -ResourceGroup myrg1 -DetailedOutput
 
 如果指定屬性的警示規則已存在，Add alert Cmdlet 也會更新規則。 若要停用警示規則，請加上參數 **-DisableRule**。
 
-### <a name="alert-on-activity-log-event"></a>針對活動記錄檔事件發出警示
-> [!NOTE]
-> 這項功能為預覽狀態，並將在未來某個時候移除 (此功能即將遭到取代)。
-> 
-> 
-
-在此案例中，當我的訂用帳戶中的網站在資源群組「abhingrgtest123」 中成功啟動時，您將會傳送電子郵件。
-
-設定電子郵件規則
-
-```PowerShell
-$actionEmail = New-AzureRmAlertRuleEmail -CustomEmail myname@company.com
-```
-
-設定 Webhook 規則
-
-```PowerShell
-$actionWebhook = New-AzureRmAlertRuleWebhook -ServiceUri https://example.com?token=mytoken
-```
-
-建立事件的規則
-
-```PowerShell
-Add-AzureRmLogAlertRule -Name superalert1 -Location "East US" -ResourceGroup myrg1 -OperationName microsoft.web/sites/start/action -Status Succeeded -TargetResourceGroup abhingrgtest123 -Actions $actionEmail, $actionWebhook
-```
-
-擷取警示規則
-
-```PowerShell
-Get-AzureRmAlertRule -Name superalert1 -ResourceGroup myrg1 -DetailedOutput
-```
-
-`Add-AlertRule` Cmdlet 允許使用其他多種參數。 如需詳細資訊，請參閱 [Add-AlertRule](https://msdn.microsoft.com/library/mt282468.aspx)。
-
 ## <a name="get-a-list-of-available-metrics-for-alerts"></a>取得可用警示計量的清單
 您可以使用 `Get-AzureRmMetricDefinition` Cmdlet 檢視特定資源的所有計量的清單。
 
@@ -239,7 +202,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 `Get-AzureRmMetricDefinition` 的可用選項完整清單可在 [Get MetricDefinitions](https://msdn.microsoft.com/library/mt282458.aspx)取得。
 
 ## <a name="create-and-manage-autoscale-settings"></a>建立和管理自動調整設定
-諸如 Web app、VM、雲端服務或 VM 調整集之類的資源只能設定一個自動調整設定。
+諸如 Web 應用程式、VM、雲端服務或虛擬機器擴展集之類的資源只能設定一個自動調整設定。
 不過，每個自動調整設定都可以有多個設定檔。 例如，一個用於以效能為基礎的調整設定檔，以及一個用於以排程為基礎的設定檔。 每個設定檔都可以設定多個規則。 如需有關自動調整的詳細資訊，請參閱 [如何自動調整應用程式](../cloud-services/cloud-services-how-to-scale.md)。
 
 以下是我們將使用的步驟：
@@ -249,7 +212,7 @@ Get-AzureRmMetricDefinition -ResourceId <resource_id> | Format-Table -Property N
 3. 選擇性︰設定 Webhook 和電子郵件的屬性，以建立自動調整的通知。
 4. 藉由對應您在先前步驟中建立的設定檔和通知，使用目標資源上的名稱建立自動調整設定。
 
-下列範例將示範如何使用 CPU 使用率計量，為 Windows 作業系統的 VM 調整集建立自動調整設定。
+下列範例將示範如何使用 CPU 使用率計量，為 Windows 作業系統的虛擬機器擴展集建立自動調整設定。
 
 首先，建立相應放大的規則，讓執行個體計數增加。
 

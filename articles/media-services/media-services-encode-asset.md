@@ -4,7 +4,7 @@ description: "本主題概要說明並比較 Azure 隨選媒體編碼器。"
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services

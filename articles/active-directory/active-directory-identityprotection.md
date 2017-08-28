@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/24/2017
+ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 8132b4844260a997e62effd167f2f1206f3edbcd
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/26/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
@@ -122,7 +122,8 @@ Azure Active Directory 使用調適性機器學習運算法和啟發學習法來
 
 ## <a name="risky-sign-ins"></a>有風險的登入
 
-Aure Active Directory 會以即時方式偵測某些[風險事件類型](active-directory-reporting-risk-events.md#risk-event-types)。 在使用者登入期間偵測到的所有即時風險事件，構成了名為*有風險的登入*的邏輯概念。 有風險的登入表示可能不是由使用者帳戶合法擁有者執行的嘗試登入。 當使用者登出時，有風險的登入的生命週期即結束。
+Azure Active Directory 會以即時和離線方式偵測[風險事件類型](active-directory-reporting-risk-events.md#risk-event-types)。 使用者登入時偵測到的每個風險事件，構成了名為有風險的登入的邏輯概念。 有風險的登入表示可能不是由使用者帳戶合法擁有者執行的嘗試登入。
+
 
 ### <a name="sign-in-risk-level"></a>登入風險層級
 
@@ -212,7 +213,7 @@ Identity Protection 主控台中的 [風險事件]  頁面會列出所有事件�
 
 ## <a name="users-flagged-for-risk"></a>標示有風險的使用者
 
-由 Azure Active Directory 針對某個使用者所偵測到的所有[風險事件](active-directory-identity-protection-risk-events.md)，構成了名為*標示有風險的使用者*的邏輯概念。 *標示有風險的使用者*或*有風險的使用者*表示可能遭到入侵的使用者帳戶。   
+由 Azure Active Directory 針對某個使用者所偵測到的所有[作用中風險事件](active-directory-identity-protection-risk-events.md)，構成了名為使用者風險的邏輯概念。 標幟為有風險的使用者表示可能被盜用的使用者帳戶。
 
 ![標示有風險的使用者](./media/active-directory-identityprotection/1200.png)
 

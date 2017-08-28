@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: richrund
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 708bf39b69cf798ac44aca65cf7dee6fa9a24591
+ms.translationtype: HT
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 651586e0846ffb22a23e64b73c2cc614980d9b92
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure Key Vault 分析解決方案
@@ -76,7 +75,7 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
 
 | 平台 | 直接代理程式 | Systems Center Operations Manager 代理程式 | Azure | 是否需要 Operations Manager？ | 透過管理群組傳送的 Operations Manager 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![否](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![否](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![是](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![否](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![否](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | 與抵達同時 |
+| Azure |  |  |&#8226; |  |  | 與抵達同時 |
 
 ## <a name="use-azure-key-vault"></a>使用 Azure 金鑰保存庫
 在您[安裝解決方案](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview)之後，按一下 Log Analytics [概觀] 頁面的 [Azure Key Vault] 圖格來檢視金鑰保存庫資料。

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-translationtype: Human Translation
-ms.sourcegitcommit: e12d533ac5befe020c0aad4aa64ca9ed50349c3d
-ms.openlocfilehash: aefc65d42e3c23e35793be8af1751bb48dfaa84f
-ms.lasthandoff: 02/17/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>監視 Azure 虛擬機器備份的警示
@@ -194,7 +194,7 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 以事件為基礎的警示受到下列限制：
 
 1. 在復原服務保存庫中的所有虛擬機器上觸發警示。 您無法針對復原服務保存庫中的部份虛擬機器自訂警示。
-2. 這項功能處於預覽狀態。 [深入了解](../monitoring-and-diagnostics/insights-powershell-samples.md#create-alert-rules)
+2. 這項功能處於預覽狀態。 [深入了解](../monitoring-and-diagnostics/insights-powershell-samples.md#create-metric-alerts)
 3. "alerts-noreply@mail.windowsazure.com" 會傳送警示。 目前您無法修改電子郵件寄件者。
 
 ## <a name="next-steps"></a>後續步驟

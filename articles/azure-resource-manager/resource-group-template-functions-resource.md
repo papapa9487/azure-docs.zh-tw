@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 08/09/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 36d2a8f00f9dcb2e1cef103b33973d2bed754cdc
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 494ade55f21c19d9c68d5cc52756528401d9bb77
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的資源函式
@@ -76,7 +76,9 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="remarks"></a>備註
 
-開頭為 **list** 的任何作業都可在您的範本中用為函式。 可用作業不只包含 listKeys，還包含像 `list`、`listAdminKeys` 和 `listStatus` 等作業。 為判斷哪一個資源類型具有 list 作業，您可以使用下列選項：
+開頭為 **list** 的任何作業都可在您的範本中用為函式。 可用作業不只包含 listKeys，還包含像 `list`、`listAdminKeys` 和 `listStatus` 等作業。 不過若 **list** 作業需要要求本文中的值，則無法使用。 舉例來說，[List Account SAS](/rest/api/storagerp/storageaccounts#StorageAccounts_ListAccountSAS) 作業需要要求本文之參數，例如 *signedExpiry*，所以您無法在範本中使用此作業。
+
+為判斷哪一個資源類型具有 list 作業，您可以使用下列選項：
 
 * 檢視資源提供者的 [REST API 作業](/rest/api/)，並尋找 list 作業。 例如，儲存體帳戶具有 [listKeys 作業](/rest/api/storagerp/storageaccounts#StorageAccounts_ListKeys)。
 * 使用 [Get-AzureRmProviderOperation](/powershell/module/azurerm.resources/get-azurermprovideroperation) PowerShell Cmdlet。 下列範例會取得儲存體帳戶的所有 list 作業︰
@@ -280,7 +282,7 @@ reference 函數會從執行階段狀態衍生其值，因此不能用在 variab
 }
 ```
 
-下列範例會參考未部署在此範本中，但是存在於相同資源群組內的儲存體帳戶。
+下列範例參照了本範本中未部署之儲存體帳戶。 此儲存體帳戶已經存在在同樣的資源群組中。
 
 ```json
 {
@@ -425,7 +427,7 @@ resourceGroup 函式的常見用法是在和資源群組相同的位置中建立
 "[resourceId('otherResourceGroup', 'Microsoft.SQL/servers/databases', parameters('serverName'), parameters('databaseName'))]"
 ```
 
-通常，在替代資源群組中使用儲存體帳戶或虛擬網路時，需要使用此函數。 儲存體帳戶或虛擬網路可能用於多個資源群組中；因此，您不想要在刪除單一資源群組時刪除它們。 下列範例顯示如何輕鬆地使用外部資源群組中的資源：
+通常，在替代資源群組中使用儲存體帳戶或虛擬網路時，需要使用此函數。 下列範例顯示如何輕鬆地使用外部資源群組中的資源：
 
 ```json
 {

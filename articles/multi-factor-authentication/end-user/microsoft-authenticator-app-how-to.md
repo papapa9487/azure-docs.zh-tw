@@ -5,38 +5,39 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: librown
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 08/15/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: c5d631aa2f03aee3df7a94bf62c9cd5dadb55eda
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>開始使用 Microsoft 驗證器應用程式
 Microsoft Authenticator 應用程式可以為您的工作或學校帳戶 (例如 bsimon@contoso.com) 或 Microsoft 帳戶 (例如 bsimon@outlook.com) 提供額外一層安全性。
 
 此應用程式可以下列兩種方式之一運作︰
 
-* **通知**。 此應用程式可協助防止未經授權即存取帳戶，並藉由推播通知到您的手機或平板電腦來停止詐騙交易。 只需檢視通知，如果合法，則選取 [驗證] 。 否則，您可以選取 [拒絕] 。 如需拒絕通知的相關資訊，請參閱＜如何使用 Multi-Factor Authentication 的拒絕和回報詐騙功能＞。
+* **通知**。 此應用程式可協助防止未經授權即存取帳戶，並藉由推播通知到您的手機或平板電腦來停止詐騙交易。 只需檢視通知，如果合法，則選取 [驗證] 。 否則，您可以選取 [拒絕] 。 
 * **驗證碼**。 此應用程式可以作為軟體權杖來產生 OATH 驗證碼。 在您輸入使用者名稱和密碼後，必須在登入畫面出現提示時輸入應用程式提供的驗證碼。 驗證碼提供第二種形式的驗證。
 
-Microsoft Authenticator 應用程式會取代 Azure Authenticator 應用程式。 Azure 驗證器應用程式仍可繼續運作，但如果您決定改用新的 Microsoft 驗證器應用程式，本文可協助您。  
+Microsoft Authenticator 應用程式會取代 Azure Authenticator 應用程式。 Azure 驗證器應用程式仍可運作，但如果您決定改用新的 Microsoft Authenticator 應用程式，本文可協助您。  
 
 ## <a name="opt-in-for-two-step-verification"></a>選擇雙步驟驗證
 
-Microsoft Authenticator 無法自行運作。 您必須設定您的帳戶在以您的使用者名稱和密碼登入之後，提示您選擇第二個驗證方法。 
+Microsoft Authenticator 無法自行運作。 將您的每個帳戶設定為在以您的使用者名稱和密碼登入之後，提示您選擇第二個驗證方法。 
 
-如果是公司或學校帳戶，您通常不需要自行選擇。 相反地，安全性系統管理員會代替您選擇，然後傳送通知給您，告知您必須為您的帳戶註冊驗證方法。 如果此案例適用於您，請參閱 [Azure Multi-Factor Authentication 對我有何意義](multi-factor-authentication-end-user.md)以深入了解。
+如果是公司或學校帳戶，您通常不需要自行選擇此功能。 相反地，安全性系統管理員會代替您選擇，然後通知您為您的帳戶註冊驗證方法。 如果此案例適用於您，請參閱 [Azure Multi-Factor Authentication 對我有何意義](multi-factor-authentication-end-user.md)以深入了解。
 
 如果是個人帳戶，您必須自行設定雙步驟驗證。 如果您有 Microsoft 帳戶，[關於雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)中說明這些步驟。 
 
@@ -46,11 +47,11 @@ Microsoft Authenticator 無法自行運作。 您必須設定您的帳戶在以�
 Microsoft Authenticator 應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
 
 ## <a name="add-accounts-to-the-app"></a>將帳戶新增至應用程式
-針對每個想要新增至 Microsoft 驗證器應用程式的帳戶，請使用下列其中一個程序。
+針對每個想要新增至 Microsoft Authenticator 應用程式的帳戶，請使用下列其中一個程序：
 
 ### <a name="add-a-personal-microsoft-account-to-the-app"></a>將個人的 Microsoft 帳戶新增至應用程式
 
-針對個人的 Microsoft 帳戶 (您用來登入 Outlook.com、Xbox、Skype 等的帳戶)，您只需要登入在 Microsoft 驗證器應用程式中的帳戶。
+針對個人的 Microsoft 帳戶 (您用來登入 Outlook.com、Xbox、Skype 等的帳戶)，您只需要登入在 Microsoft Authenticator應用程式中的帳戶。
 
 ### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>使用 QR 代碼掃描器將工作或學校帳戶新增至應用程式
 1. 移至安全性驗證設定畫面。  如需如何進入此畫面的詳細資訊，請參閱 [變更安全性設定](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)。
@@ -95,7 +96,7 @@ Microsoft Authenticator 應用程式適用於 [Windows Phone](http://go.microsof
 ### <a name="add-an-account-to-the-app-using-touch-id"></a>使用 Touch ID 將帳戶新增至應用程式
 在 iOS 上的 Microsoft 驗證器應用程式支援 Touch ID。  Azure Multi-Factor Authentication 可讓組織要求裝置的 PIN 碼。 使用 Touch ID 時，iOS 使用者不需要輸入 PIN 碼。 相反地，他們可以掃描其指紋，並選取 [核准] 。
 
-設定 Touch ID 搭配 Azure 驗證器很簡單。 您可以使用 PIN 碼完成一般驗證挑戰。 如果您的裝置支援 Touch ID，Microsoft 驗證器將會自動為該帳戶進行設定。
+設定 Touch ID 搭配 Azure 驗證器很簡單。 您可以使用 PIN 碼完成一般驗證挑戰。 如果您的裝置支援 Touch ID，Microsoft Authenticator 會自動為該帳戶進行設定。
 
 ![Touch ID 安裝程式的驗證](./media/authenticator-app-how-to/touchid1.png)
 

@@ -4,7 +4,7 @@ description: "設定環境來使用 Azure 媒體服務進行開發。"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 0258a633-8b42-4853-acc7-3b5162d1d8cd
 ms.service: media-services

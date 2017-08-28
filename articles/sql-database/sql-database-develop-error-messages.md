@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 407d8cef2508e4b2344953db86bc9829081cda7c
-ms.openlocfilehash: 72faf68d8a9779b612723f9ee6589cc332bf5ed5
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 2ef879aa31c8ee44a2c6281438f24a8b94649b1b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-error-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
@@ -40,14 +39,15 @@ Dx 4cff491e-9359-4454-bd7c-fb72c4c452ca
 ### <a name="most-common-database-connection-errors-and-transient-fault-errors"></a>最常見的資料庫連線錯誤和暫時性錯誤
 Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動態重新設定伺服器。  此動態行為可能會導致您的用戶端程式遺失其 SQL Database 連接。 此類錯誤情況稱為「暫時性錯誤」 。
 
-如果您的用戶端程式具有重試邏輯，在給予暫時性錯誤一些時間自行修正後，可以嘗試重新建立連接。  我們建議您在您第一次重試前延遲 5 秒鐘。 在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。 對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
+強烈建議您的用戶端程式具有重試邏輯，以便在給予暫時性錯誤一些時間自行修正後，可以嘗試重新建立連線。  我們建議您在您第一次重試前延遲 5 秒鐘。 在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。 對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
 暫時性錯誤通常是資訊清單，在您用戶端程式中的下列錯誤訊息之一：
 
-* 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。 請稍後重試連接。 如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>
-* 伺服器 <Azure_instance> 上的資料庫 <db_name> 目前無法使用。 請稍後重試連接。 如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 <session_id>。 (Microsoft SQL Server，錯誤：40613)
+* 伺服器 &lt;Azure_instance&gt; 上的資料庫 &lt;db_name&gt; 目前無法使用。 請稍後重試連接。 如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 &lt;session_id&gt;
+* 伺服器 &lt;Azure_instance&gt; 上的資料庫 &lt;db_name&gt; 目前無法使用。 請稍後重試連接。 如果問題持續發生，請連絡客戶支援服務，並提供工作階段追蹤識別碼 &lt;session_id&gt;。 (Microsoft SQL Server，錯誤：40613)
 * 遠端主機已強制關閉現有的連接。
 * System.Data.Entity.Core.EntityCommandExecutionException: 執行命令定義時發生錯誤。 詳細資訊請參閱內部例外狀況。 ---> System.Data.SqlClient.SqlException: 從伺服器接收結果時發生傳輸層級錯誤。 (提供者: 工作階段提供者, 錯誤: 19 - 無法使用實際連線)
+* 嘗試連線到次要資料庫失敗，因為資料庫正在重新設定，且在主要資料庫上的使用中交易時，忙碌於套用新的頁面。 
 
 如需重試邏輯的程式碼範例，請參閱：
 
@@ -68,6 +68,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 49918 |16 |無法處理要求。 資源不足，無法處理要求。<br/><br/>服務目前忙碌中。 請稍後再重試要求。 |
 | 49919 |16 |無法處理建立或更新要求。 訂用帳戶 "%ld" 太多建立或更新作業進行中。<br/><br/>服務正忙於處理多個建立或更新您訂用帳戶或伺服器的要求。 要求目前已封鎖以求資源最佳化。 查詢 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看暫止的作業。 等待直到暫止的建立或更新要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
 | 49920 |16 |無法處理要求。 訂用帳戶 "%ld" 太多作業進行中。<br/><br/>服務正忙於處理這個訂用帳戶的多個要求。 要求目前已封鎖以求資源最佳化。 查詢 [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx) 以查看作業狀態。 等候直到暫止的要求已完成，或刪除您其中一個暫止要求，稍後再重試您的要求。 |
+| 4221 |16 |登入 read-secondary 失敗，因為 'HADR_DATABASE_WAIT_FOR_TRANSITION_TO_VERSIONING' 上的等候時間很長。 無法使用複本進行登入，因為在複本回收時執行中之交易的資料列版本已遺失。 將主要複本上的使用中交易復原或認可，就可以解決問題。 避免在主要伺服器上的冗長寫入交易，就可讓此條件發生率降至最低。 |
 
 ## <a name="database-copy-errors"></a>資料庫複製錯誤
 在 Azure SQL Database 中複製資料庫時，可能會發生下列錯誤。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md)。
@@ -210,7 +211,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40651 |16 |無法建立伺服器，因為訂用帳戶 <subscription-id> 已停用。 |
 | 40652 |16 |無法移動或建立伺服器。 訂用帳戶 <subscription-id> 會超出伺服器配額。 |
 | 40671 |17 |閘道器與管理服務之間的通訊失敗。 請稍後重試。 |
-| 40852 |16 |無法在登入所要求的伺服器 '%.*ls' 上開啟資料庫 '%.*ls'。 只允許使用已啟用安全性的連接字串存取資料庫。 若要存取此資料庫，請將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說  -  'server name'.database.windows.net 應修改為 'server name'.database.`secure`.windows.net。 |
+| 40852 |16 |無法在登入所要求的伺服器 '%.*ls' 上開啟資料庫 '%.*ls'。 只允許使用已啟用安全性的連接字串存取資料庫。 若要存取此資料庫，請將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說  -  'server name'.database.windows.net 應修改為 'server name'.database`secure`.windows.net。 |
 | 45168 |16 |SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。 錯誤訊息中指定的伺服器已超過最大並行連接數目。 請稍後再試。 |
 | 45169 |16 |SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。 錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。 請稍後再試。 |
 

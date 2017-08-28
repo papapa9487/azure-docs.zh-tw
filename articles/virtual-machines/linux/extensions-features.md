@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: nepeters
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 77f50a830c38b3a90110845e58ee7cbb28742c10
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 8a5b39351f665c51ae7d83f755329e54ff3cf786
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/11/2017
 
 ---
 
@@ -34,13 +34,12 @@ ms.lasthandoff: 06/28/2017
 有數個不同的 Azure VM 擴充功能可供使用，各有特定使用案例。 部分範例如下：
 
 - 使用適用於 Linux 的 DSC 擴充功能將 PowerShell 預期狀態設定套用至虛擬機器。 如需詳細資訊，請參閱 [Azure 期望狀態組態擴充功能簡介](https://github.com/Azure/azure-linux-extensions/tree/master/DSC)。
-- 使用 Microsoft 監視代理程式 VM 擴充功能設定虛擬機器的監視。 如需詳細資訊，請參閱[啟用或停用 VM 監視](vm-monitoring.md)。
+- 使用 Microsoft 監視代理程式 VM 擴充功能設定虛擬機器的監視。 如需詳細資訊，請參閱[如何監視 Linux 虛擬機器](tutorial-monitoring.md)。
 - 使用 Datadog 副檔名設定 Azure 基礎結構的監視。 如需詳細資訊，請參閱 [Datadog 部落格](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
 - 使用 Docker VM 擴充功能設定 Azure 虛擬機器上的 Docker 主機。 如需詳細資訊，請參閱 [Docker VM 擴充功能](dockerextension.md)。
 
 除了處理序特定擴充功能，自訂指令碼延伸模組適用於 Windows 和 Linux 虛擬機器。 適用於 Linux 的自訂指令碼延伸模組可讓任何 Bash 指令碼在虛擬機器上執行。 自訂指令碼對於設計需要超過原生 Azure 工具可提供之設定的 Azure 部署很有用。 如需詳細資訊，請參閱 [Linux VM 自訂指令碼延伸模組](extensions-customscript.md)。
 
-若要逐步解說其中 VM 擴充功能用於端對端應用程式部署中的範例，請參閱[將應用程式自動部署到 Azure 虛擬機器](../linux/dotnet-core-1-landing.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -131,7 +130,7 @@ VM 擴充功能可以新增至 Azure Resource Manager 範本，並使用範本�
 }
 ```
 
-如需詳細資訊，請參閱[使用 Linux VM 擴充功能編寫 Azure Resource Manager 範本](../linux/extensions-authoring-templates.md)。
+如需詳細資訊，請參閱[編寫 Azure Resource Manager 範本](../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#extensions)。
 
 ## <a name="secure-vm-extension-data"></a>安全的 VM 擴充功能資料
 

@@ -1,4 +1,24 @@
+---
+title: "Azure AD v2 iOS 快速入門 - 設定 | Microsoft Docs"
+description: "iOS (Swift) 應用程式如何呼叫需要來自 Azure Active Directory v2 端點之存取權杖的 API"
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mbaldwin
+editor: 
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 05/09/2017
+ms.author: andret
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 8a4f412102c0e75654030f5d4f8aab575fdcebba
+ms.contentlocale: zh-tw
 
+---
 ## <a name="create-an-application-express"></a>建立應用程式 (快速)
 現在您需要在「Microsoft 應用程式註冊入口網站」註冊應用程式：
 1. 透過 [Microsoft 應用程式註冊入口網站 (英文)](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure) 註冊您的應用程式
@@ -49,3 +69,4 @@ let kClientID = "Your_Application_Id_Here"
 用您剛剛註冊的應用程式識別碼取代 <i><code>[Your_Application_Id_Here]</code></i>
 </li>
 </ol>
+

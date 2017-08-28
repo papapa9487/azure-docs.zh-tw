@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 91c443f6d9998f15f4b1b1eaad33f0a319fcf4d4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: aa1cec2ef11da6aa8a8c4089be36994ab5f61682
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
@@ -265,9 +265,12 @@ Set-Service -Name RemoteRegistry -StartupType Auto
     ```
     請確定此報告會顯示全新且狀況良好的磁碟。
 
-2. 設定開機組態資料 (BCD) 設定。 在提升權限的 CMD 視窗執行下列命令：
+2. 設定開機組態資料 (BCD) 設定。 
+
+    > [!Note]
+    > 請確定您是在提升權限的 CMD 視窗上執行這些命令，而**不是**在 PowerShell 上：
    
-   ```PowerShell
+   ```CMD
    bcdedit /set {bootmgr} integrityservices enable
    
    bcdedit /set {default} device partition=C:

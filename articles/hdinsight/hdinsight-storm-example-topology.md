@@ -17,13 +17,13 @@ ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: daf03179c3a9383c6ff3ca11215cc760164f96d5
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: 71482e24e519319d506d61e0582420e35f1cae70
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/10/2017
 
 ---
-# <a name="example-storm-toplogies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
+# <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
 
 以下是 Microsoft 所建立和維護的範例清單，可搭配 Apache Storm on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務，例如事件中樞、Cosmos DB、Power BI、SQL Database、HBase on HDInsight 和 Azure 儲存體。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/08/2017
 | [搭配 Storm on HDInsight 使用 Python](hdinsight-storm-develop-python-topology.md) |使用 Flux 拓撲的 Python 元件 |Python |
 | [搭配 Storm on HDInsight 使用 Kafka](hdinsight-apache-storm-with-kafka.md) | 讀取和寫入 Apache Kafka 的 Apache Storm | Java |
 
-## <a name="next-steps"></a>後續步驟
+### <a name="next-steps"></a>後續步驟
 
 * [開始使用 Apache Storm on HDInsight][2b8c3488]
 * [了解如何利用 Storm on HDInsight 部署和管理 Storm 拓撲][6eb0d3b8]

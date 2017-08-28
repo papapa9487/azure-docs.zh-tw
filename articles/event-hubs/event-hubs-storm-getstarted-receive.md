@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: java
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 195f5b7453a2ca576cfdbf39acd1f644c9edad33
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 3e15370c7602276ef323708632b324fe05497f41
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -77,7 +77,7 @@ ms.lasthandoff: 05/09/2017
     </dependency>
     ```
 
-9. 在 **src** 資料夾中，建立一個名為 **Config.properties** 的檔案，然後複製下列內容，並替代下列值：
+9. 在 **src** 資料夾中，建立名為 **Config.properties** 的檔案，複製下列內容，並取代 `receive rule key` 與 `event hub name` 的值：
 
     ```java
     eventhubspout.username = ReceiveRule

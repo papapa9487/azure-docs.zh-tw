@@ -4,7 +4,7 @@ description: "本主題提供了使用 Azure 媒體服務之即時串流的概�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services

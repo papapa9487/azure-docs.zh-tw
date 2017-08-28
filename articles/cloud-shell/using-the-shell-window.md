@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 17e5f98923345cdf88e6d3e2ef194f54dd1105c2
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: a47961dfdaf178a6b793bd68105d9792a9275bb3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -54,7 +54,8 @@ Cloud Shell 可透過允許每個工作階段以個別 Bash 處理序的形式�
 * 使用您的滑鼠或觸控板來捲動終端機文字。
 
 ## <a name="exit-command"></a>結束命令
-執行 `exit` 可終止作用中的工作階段。 此行為預設會在 10 分鐘後發生，不須進行互動。
+執行 `exit` 可終止作用中的工作階段。 此行為預設會在 20 分鐘後發生，不須進行互動。
 
 ## <a name="next-steps"></a>後續步驟
 [Cloud Shell 快速入門](quickstart.md)
+

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 8094f6e619bde8b25323cddb42bc04b1ead62113
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 
@@ -67,7 +67,7 @@ System Center Operations Manager 評定會使用您已啟用的伺服器，透�
 
 | 平台 | 直接代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |  ![否](./media/log-analytics-scom-assessment/oms-bullet-red.png) | ![否](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | ![否](./media/log-analytics-scom-assessment/oms-bullet-red.png)  |  ![是](./media/log-analytics-scom-assessment/oms-bullet-green.png) | ![否](./media/log-analytics-scom-assessment/oms-bullet-red.png)  | 7 天 |
+| Windows | | | | &#8226; | | 7 天 |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS 的 Operations Manager 執行身分帳戶
 

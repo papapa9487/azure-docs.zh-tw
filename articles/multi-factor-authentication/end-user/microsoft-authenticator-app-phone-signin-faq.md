@@ -5,20 +5,21 @@ services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: librown
 ms.assetid: 
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2017
+ms.date: 08/12/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: ec52f719f33db0d893d707b59293fa75a8ff4314
-ms.openlocfilehash: 033392783fd98cbdb23fd0254c93687754808286
-ms.lasthandoff: 02/10/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 002b850221c25111c33c145cb45973488bbbb4e1
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>使用您的電話而不是您的密碼登入
@@ -29,7 +30,7 @@ Microsoft 驗證器應用程式可協助您保持帳戶安全，方法為在您�
 
 ## <a name="how-it-works"></a>運作方式
 
-你們有許多人在登入您的 Microsoft 帳戶時，會使用 Microsoft 驗證器應用程式進行兩步驟驗證。 您輸入密碼，然後移至應用程式，以核准通知或取得驗證碼。 使用電話登入，您會略過密碼，並在電話上進行所有身分識別驗證作業。 這仍會如同兩步驟驗證運作，要求提供您知道的事和您擁有的項目。 電話仍是您擁有的項目，但現在我們會要求您輸入您的電話 PIN 碼或生物識別索引鍵做為您知道的事。 
+你們有許多人在登入您的 Microsoft 帳戶時，會使用 Microsoft 驗證器應用程式進行兩步驟驗證。 您輸入密碼，然後移至應用程式，以核准通知或取得驗證碼。 使用電話登入，您會略過密碼，並在電話上進行所有身分識別驗證作業。 因為電話登入是一種雙步驟驗證，您仍必須提供您知道的項目以及您擁有的項目來驗證您的身分。 電話仍是您擁有的項目，而您的電話 PIN 碼或生物識別索引鍵則為您知道的項目。 
 
 ## <a name="how-to-get-started"></a>如何開始使用
 
@@ -39,12 +40,12 @@ Microsoft 驗證器應用程式可協助您保持帳戶安全，方法為在您�
 
   - 如果您還沒有 Microsoft 驗證器應用程式，請根據 [Microsoft 驗證器頁面](microsoft-authenticator-app-how-to.md)上的步驟，安裝並新增您個人的 Microsoft 帳戶。 新增的帳戶會自動啟用，以便您可以大顯身手。
 
-  - 如果您已經使用 Microsoft 驗證器進行兩步驟驗證，請從應用程式首頁選取您的帳戶，然後選取 **從下拉式選單啟用電話登入」。
+  - 如果您已經使用 Microsoft 驗證器進行兩步驟驗證，請從應用程式首頁選取您的帳戶，然後從下拉式功能表中選取 [啟用電話登入]。
 
   >[!NOTE] 
   >若要保護您的帳戶，我們需要裝置上的 PIN 碼或生物識別鎖定。 如果您保持解除鎖定您的電話，應用程式會快顯要求，要求您設定鎖定後，才能啟用電話登入。 
 
-3. 您會正常輸入 Microsoft 帳戶密碼的大部分頁面都有一個連結，說明**改為使用應用程式**。 選取此選項以使用您的電話進行登入。 
+3. 您會正常輸入 Microsoft 帳戶密碼的大部分頁面都有一個連結，說明**改為使用應用程式**。 選取此連結以使用電話進行登入。 
 
 4. Microsoft 會傳送通知至您的電話。 核准通知以登入您的帳戶。   
 
@@ -64,9 +65,9 @@ Microsoft 驗證器應用程式可協助您保持帳戶安全，方法為在您�
  
 ### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>這會取代雙步驟驗證嗎？ 應該將它關機嗎？   
 
-有時是。 我們正努力擴充電話登入的範圍，但現在 Microsoft 生態系統中仍有些位置不支援。 在這些位置中，我們仍會使用兩步驟驗證進行安全登入。 基於這個理由，不可以，您不應該關閉您帳戶的兩步驟驗證。 
+有時是。 我們正努力擴充電話登入的範圍，但現在 Microsoft 生態系統中仍有些位置不支援。 在這些位置中，我們仍會使用兩步驟驗證進行安全登入。 基於這個理由，不可以，您不應該關閉您帳戶的雙步驟驗證。 
  
-### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-will-i-have-to-approve-two-notifications"></a>好了，如果開啟我帳戶的雙步驟驗證，是否必須核准兩個通知？
+### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>好了，如果開啟我帳戶的雙步驟驗證，是否必須核准兩個通知？
 
 否，您不會。 使用您的電話登入您的 Microsoft 帳戶都算是兩步驟驗證。 而不是輸入您的密碼，然後藉由了解如何解除鎖定您的電話核准通知證明您的身分識別，然後核准通知。 我們不會傳送第二個通知進行核准。
 

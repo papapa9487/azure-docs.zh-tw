@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2016
+ms.date: 08/16/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 398abb0a56f1a12ad563dce889c602af4a5b9bcf
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 7f56f6d89a9990ab7e7f50a86993e9e22b73d646
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Azure Cosmos DB 的 Power BI 教學課程：使用 Power BI 連接器將資料視覺化
@@ -34,6 +34,9 @@ ms.lasthandoff: 07/26/2017
 * 如何在 Power BI Desktop 中從集合擷取資料？
 * 如何在 Power BI Desktop 中轉換巢狀 JSON 資料？
 * 如何在 PowerBI.com 中發佈及共用我的報告？
+
+> [!NOTE]
+> 適用於 Azure Cosmos DB 的 Power BI 連接器會連線到 Power BI Desktop 以擷取和轉換資料。 在 Power BI Desktop 中建立的報告接著可以發行至 PowerBI.com。 您無法在 PowerBI.com 中直接擷取和轉換 Azure Cosmos DB 資料。 
 
 ## <a name="prerequisites"></a>必要條件
 在依照本 Power BI 教學課程中的指示進行之前，請先確定您可以存取下列資源：

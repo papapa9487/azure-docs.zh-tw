@@ -2,7 +2,7 @@
 title: "使用 REST 管理媒體服務實體 | Microsoft Docs"
 description: "深入了解如何使用 REST API 管理媒體服務實體。"
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 68391677b1724f23d52086be0c810385e93c7196
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1e4336bef9324b5aa9456135cac9b71d19e02050
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="managing-media-services-entities-with-rest"></a>使用 REST 管理媒體服務實體 
@@ -28,22 +28,23 @@ ms.lasthandoff: 08/01/2017
 > 
 > 
 
-Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 上。 因此，您可以使用與任何其他 OData 服務上的相同方式，新增、查詢、更新和刪除實體。 在適用時會呼叫例外狀況。 如需 OData 的詳細資訊，請參閱 [開放式資料通訊協定文件](http://www.odata.org/documentation/)。
+Microsoft Azure 媒體服務是以 REST 為基礎的服務，內建在 OData v3 上。 您可以使用與任何其他 OData 服務上的相同方式，新增、查詢、更新和刪除實體。 在適用時會呼叫例外狀況。 如需 OData 的詳細資訊，請參閱 [開放式資料通訊協定文件](http://www.odata.org/documentation/)。
 
 本主題說明如何使用 REST 管理 Azure 媒體服務實體。
 
 >[!NOTE]
 > 從 2017 年 4 月 1 日起，您的帳戶中任何超過 90 天的作業記錄以及其相關工作記錄都會自動刪除，即使記錄總數低於配額上限亦然。 例如，在 2017 年 4 月 1 日，您帳戶中任何在 2016 年 12 月 31 日以前的作業記錄將會自動刪除。 如果您需要封存作業/工作資訊，您可以使用本主題中所述的程式碼。
 
-## <a name="considerations-when-working-with-ams-rest"></a>使用 AMS REST 時的考量
+## <a name="considerations"></a>考量  
 
-使用媒體服務 REST API 時，適用下列考量事項：
+在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
-> [!NOTE]
-> 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
-> 
-> 順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。 如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。
-> 
+## <a name="connect-to-media-services"></a>連線到媒體服務
+
+如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+>[!NOTE]
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
 
 ## <a name="adding-entities"></a>加入實體
 媒體服務中的每個實體會透過 POST HTTP 要求加入至實體集 (例如資產)。

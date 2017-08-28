@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 05538e1633d6e8353cc7980d081af3672a3f97d8
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a7ce4d771e9c655687f72f4b46c7405cf64aeb74
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK︰版本資訊與資源
@@ -58,6 +58,11 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](documen
 > [!NOTE] 
 > Azure Cosmos DB .NET Core SDK 與「通用 Windows 平台」(UWP) 應用程式尚未相容。 如果您有興趣了解可支援 UWP 應用程式的 .NET Core SDK，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
+### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
+
+* 已新增將 PartitionKeyRangeId 做為 FeedOption 的支援，以供對特定分割區索引鍵範圍值限制查詢結果範圍。 
+* 已新增將 StartTime 做為 ChangeFeedOption 的支援，以開始尋找該時間之後的變更。 
+
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
 *   修正 JsonSerializable 類別中可能會造成堆疊溢位例外狀況的問題。
@@ -76,7 +81,6 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](documen
 
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 
-*   已新增「每分鐘的要求單位 (RU/m)」功能支援。
 *   已新增對新一致性層級 ConsistentPrefix 的支援。
 *   已新增對個別資料分割之查詢計量的支援。
 *   已新增對限制查詢之接續權杖大小的支援。
@@ -133,6 +137,7 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.5.0](#1.5.0) |2017 年 8 月 10 日 |--- | 
 | [1.4.1](#1.4.1) |2017 年 8 月 7 日 |--- |
 | [1.4.0](#1.4.0) |2017 年 8 月 2 日 |--- |
 | [1.3.2](#1.3.2) |2017 年 6 月 12 日 |--- |

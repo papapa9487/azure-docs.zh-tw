@@ -2,7 +2,7 @@
 title: "MES 的工作預設 (媒體編碼器標準) | Microsoft Docs"
 description: "本主題提供 MES 的工作預設 (媒體編碼器標準) 概觀。"
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

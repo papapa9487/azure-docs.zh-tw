@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 02/13/2017
+ms.date: 08/11/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9c057534ae8168146d389a1d76213d48e24ae9cb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="install-a-linux-master-target-server"></a>安裝 Linux 主要目標伺服器
@@ -50,6 +50,15 @@ ms.lasthandoff: 07/24/2017
 - **OS 磁碟大小**：100 GB 或更多 (以安裝 CentOS6.6)
 - **用於保留磁碟機的額外磁碟大小**：1 TB
 - **CPU 核心**：4 核心或更多
+
+支援下列受支援的 Ubuntu 核心。
+
+
+|核心系列  |最多支援  |
+|---------|---------|
+|4.4      |4.4.0-81-generic         |
+|4.8      |4.8.0-56-generic         |
+|4.10     |4.10.0-24-generic        |
 
 
 ## <a name="deploy-the-master-target-server"></a>部署主要目標伺服器
@@ -198,9 +207,9 @@ ms.lasthandoff: 07/24/2017
 
 #### <a name="disable-kernel-upgrades"></a>停用核心升級
 
-由於 Azure Site Recovery 主要目標伺服器需要非常特定版本的 Ubuntu，因此請確認已停用虛擬機器的核心升級。
+Azure Site Recovery 主要目標伺服器需要非常特定版本的 Ubuntu，因此請確認已停用虛擬機器的核心升級。
 
- 如果啟用核心升級，則任何一般升級都將導致主要目標伺服器故障。
+如果啟用核心升級，則任何一般升級都將導致主要目標伺服器故障。
 
 #### <a name="download-and-install-additional-packages"></a>下載並安裝其他套件
 

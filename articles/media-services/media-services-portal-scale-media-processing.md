@@ -4,7 +4,7 @@ description: "本教學課程將逐步引導您完成使用 Azure 入口網站�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: e500f733-68aa-450c-b212-cf717c0d15da
 ms.service: media-services

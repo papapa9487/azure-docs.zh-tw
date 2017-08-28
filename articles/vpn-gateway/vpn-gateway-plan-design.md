@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b9b53ca61ff9448b4b587f6c406046b3d1a80d15
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 0ebc3ef4a64432e993dd6ed69766bb64544fe433
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>規劃與設計 VPN 閘道
@@ -40,13 +40,13 @@ ms.lasthandoff: 08/03/2017
 * 您想要建立的方案需要什麼類型的 VPN 閘道?
 * 您應該使用哪一種閘道 SKU？
 
-### <a name="planning-table"></a>規劃表
+### <a name="planningtable"></a>規劃表
 
 下表可以協助您為您的解決方案決定最佳的連線選項。
 
 [!INCLUDE [vpn-gateway-cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
-### <a name="gateway-skus"></a>閘道 SKU
+### <a name="gwsku"></a>閘道 SKU
 
 [!INCLUDE [vpn-gateway-table-gwtype-aggtput](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/03/2017
 
 下列各節將討論 VPN 閘道的基本概念。 
 
-#### <a name="networking-services-limits"></a>網路服務限制
+#### <a name="servicelimits"></a>網路服務限制
 
 捲動表格以檢視[網路服務限制](../azure-subscription-service-limits.md#networking-limits)。 上述限制可能會影響您的設計。
 

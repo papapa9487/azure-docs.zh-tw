@@ -1,10 +1,10 @@
 ---
-title: "使用 REST 建立 ContentKey | Microsoft Docs"
+title: "使用 REST 建立內容金鑰 | Microsoft Docs"
 description: "了解如何建立提供資產安全存取的內容金鑰。"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 95e9322b-168e-4a9d-8d5d-d7c946103745
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 475c3ff696af89dd4ff627b04b986562fc2ace7a
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 5792346788b6635a517af6c9fda1b896039e29e6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/15/2017
 
 ---
-# <a name="create-contentkeys-with-rest"></a>使用 REST 建立 ContentKey
+# <a name="create-content-keys-with-rest"></a>使用 REST 建立內容金鑰
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
@@ -48,35 +48,39 @@ ms.lasthandoff: 08/01/2017
 4. 建立使用金鑰識別碼和內容金鑰計算的總和檢查碼值 (根據 PlayReady AES 金鑰總和檢查碼演算法)。 如需詳細資訊，請參閱位於 [這裡](http://www.microsoft.com/playready/documents/)的 PlayReady 標頭物件文件的＜PlayReady AES 金鑰總和檢查碼演算法＞一節。
    
    下列 .NET 範例會使用金鑰識別碼和明文內容金鑰的 GUID 部分計算總和檢查碼。
-   
-     public static string CalculateChecksum(byte[] contentKey, Guid keyId)   {
-   
-         byte[] array = null;
-         using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+
+         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
-             aesCryptoServiceProvider.Mode = CipherMode.ECB;
-             aesCryptoServiceProvider.Key = contentKey;
-             aesCryptoServiceProvider.Padding = PaddingMode.None;
-             ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
-             array = new byte[16];
-             cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+
+            byte[] array = null;
+            using (AesCryptoServiceProvider aesCryptoServiceProvider = new AesCryptoServiceProvider())
+            {
+                aesCryptoServiceProvider.Mode = CipherMode.ECB;
+                aesCryptoServiceProvider.Key = contentKey;
+                aesCryptoServiceProvider.Padding = PaddingMode.None;
+                ICryptoTransform cryptoTransform = aesCryptoServiceProvider.CreateEncryptor();
+                array = new byte[16];
+                cryptoTransform.TransformBlock(keyId.ToByteArray(), 0, 16, array, 0);
+            }
+            byte[] array2 = new byte[8];
+            Array.Copy(array, array2, 8);
+            return Convert.ToBase64String(array2);
          }
-         byte[] array2 = new byte[8];
-         Array.Copy(array, array2, 8);
-         return Convert.ToBase64String(array2);
-     }
 5. 用您在先前步驟中收到的 **EncryptedContentKey** (轉換為 base64 編碼的字串)、**ProtectionKeyId**、**ProtectionKeyType**、**ContentKeyType** 和 **Checksum** 值建立內容金鑰。
 6. 透過 $links 作業建立 **ContentKey** 實體與您 **Asset** 實體的關聯。
 
-請注意，本主題已省略產生 AES 金鑰、加密金鑰，以及計算總和檢查碼的範例。 僅提供示範如何與媒體服務互動的範例。
+請注意，本主題不會示範如何產生 AES 金鑰、加密金鑰，以及計算總和檢查碼。 
 
-> [!NOTE]
-> 使用媒體服務 REST API 時，適用下列考量事項：
-> 
-> 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
-> 
-> 順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。 如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。
-> 
+>[!NOTE]
+
+>在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
+
+## <a name="connect-to-media-services"></a>連線到媒體服務
+
+如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+>[!NOTE]
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
 
 ## <a name="retrieve-the-protectionkeyid"></a>擷取 ProtectionKeyId
 下列範例示範如何為加密內容金鑰時您必須使用的憑證擷取 ProtectionKeyId (憑證指紋)。 執行此步驟，以確定您的電腦上已經有適當的憑證。

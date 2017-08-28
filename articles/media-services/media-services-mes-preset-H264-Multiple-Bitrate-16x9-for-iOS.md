@@ -2,7 +2,7 @@
 title: "H264 多重位元速率 16x9 (iOS 適用) | Microsoft Docs"
 description: "本主題提供「H264 多重位元速率 16x9 (iOS 適用)」工作預設的概觀。"
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

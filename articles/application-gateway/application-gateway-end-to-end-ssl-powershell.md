@@ -1,5 +1,5 @@
 ---
-title: "透過應用程式閘道設定 SSL 原則和端對端 SSL | Microsoft Docs"
+title: "以 Azure 應用程式閘道設定端對端 SSL | Microsoft Docs"
 description: "本文說明如何使用 Azure Resource Manager PowerShell 以應用程式閘道設定端對端 SSL"
 services: application-gateway
 documentationcenter: na
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 07/19/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: 09aeb63d4c2e68f22ec02f8c08f5a30c32d879dc
-ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 6d969d6a0c649c263e1d5bb99bdbceec484cb9a3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/16/2017
 
 ---
-# <a name="configure-ssl-policy-and-end-to-end-ssl-with-application-gateway-using-powershell"></a>使用 PowerShell 透過應用程式閘道設定 SSL 原則和端對端 SSL
+# <a name="configure-end-to-end-ssl-with-application-gateway-using-powershell"></a>使用 PowerShell 透過應用程式閘道設定端對端 SSL
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 
 應用程式閘道支援為流量進行端對端加密。 應用程式閘道用來進行此作業的方法是，在應用程式閘道終止 SSL 連線。 閘道接著會對流量套用路由規則、重新加密封包，並根據所定義的路由規則將封包轉送至適當的後端。 任何來自 Web 伺服器的回應都會經歷相同的程序而回到使用者端。
 
-應用程式閘道支援的另一個功能是停用特定 SSL 通訊協定版本。 應用程式閘道支援停用下列通訊協定版本：**TLSv1.0**、**TLSv1.1** 和 **TLSv1.2**。
+應用程式閘道支援的另一項功能是定義自訂 SSL 選項。 應用程式閘道支援停用下列通訊協定版本；**TLSv1.0**、**TLSv1.1** 和 **TLSv1.2**，也會定義要使用那個加密套件以及偏好的順序。  若要深入了解可設定的 SSL 選項，請參閱 [SSL 原則概觀](application-gateway-SSL-policy-overview.md)。
 
 > [!NOTE]
 > 預設會停用 SSL 2.0 和 SSL 3.0，並且無法啟用。 這些版本被認為並不安全，因此不能搭配應用程式閘道使用。
@@ -40,9 +41,9 @@ ms.openlocfilehash: c76dc14998ebf01a938c67d6c78384e169f83266
 此案例將會：
 
 * 建立名為 **appgw-rg** 的資源群組
-* 建立名為 **appgwvnet** 且含有 10.0.0.0/16 保留 CIDR 區塊的虛擬網路。
+* 建立名為 **appgwvnet** 且具有 10.0.0.0/16 位址空間的虛擬網路。
 * 建立名為 **appgwsubnet** 和 **appsubnet** 的兩個子網路。
-* 建立支援端對端 SSL 加密並停用特定 SSL 通訊協定的小型應用程式閘道。
+* 建立支援端對端 SSL 加密 (限制 SSL 通訊協定版本和加密套件) 的小型應用程式閘道。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -132,11 +133,11 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 ```
 
 > [!IMPORTANT]
-> 應用程式閘道不支援使用以定義之網域標籤建立的公用 IP 位址。 只支援具有動態建立之網域標籤的公用 IP 位址。 如果您需要讓應用程式閘道具有好記的 DNS 名稱，建議您使用 cname 記錄做為別名。
+> 應用程式閘道不支援使用以定義之網域標籤建立的公用 IP 位址。 只支援具有動態建立之網域標籤的公用 IP 位址。 如果您需要讓應用程式閘道具有好記的 DNS 名稱，建議您使用 CNAME 記錄作為別名。
 
 ## <a name="create-an-application-gateway-configuration-object"></a>建立應用程式閘道組態物件
 
-您必須先設定所有組態項目，再建立應用程式閘道。 下列步驟會建立應用程式閘道資源所需的組態項目。
+所有設定項目是在建立應用程式閘道之前設定。 下列步驟會建立應用程式閘道資源所需的組態項目。
 
 ### <a name="step-1"></a>步驟 1
 
@@ -178,7 +179,7 @@ $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 設定應用程式閘道憑證。 此憑證可用來解密和重新加密應用程式閘道上的流量。
 
 ```powershell
-$cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
+$cert = New-AzureRmApplicationGatewaySSLCertificate -Name cert01 -CertificateFile <full path to .pfx file> -Password <password for certificate file>
 ```
 
 > [!NOTE]
@@ -186,10 +187,10 @@ $cert = New-AzureRmApplicationGatewaySslCertificate -Name cert01 -CertificateFil
 
 ### <a name="step-6"></a>步驟 6
 
-建立應用程式閘道的 HTTP 接聽程式。 指派要使用的前端 IP 組態、連接埠和 SSL 憑證。
+建立應用程式閘道的 HTTP 接聽程式。 指派要使用的前端 IP 設定、連接埠和 SSL 憑證。
 
 ```powershell
-$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SslCertificate $cert
+$listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
 ```
 
 ### <a name="step-7"></a>步驟 7
@@ -235,18 +236,18 @@ $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Cap
 
 ### <a name="step-11"></a>步驟 11
 
-設定要在應用程式閘道上使用的 SSL 原則。 應用程式閘道支援停用特定 SSL 通訊協定版本的功能。
+設定要在應用程式閘道上使用的 SSL 原則。 應用程式閘道支援將 SSL 通訊協定版本設為最小版本的能力。
 
-下列值是可以停用的通訊協定版本清單。
+下列值是可以定義的通訊協定版本清單。
 
 * **TLSv1_0**
 * **TLSv1_1**
 * **TLSv1_2**
 
-下列範例會停用 **TLSv1\_0**。
+將最小通訊協定版本設定為 **TLSv1_2** 並且只啟用 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**、**TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 和 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**。
 
 ```powershell
-$sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0
+$SSLPolicy = New-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
 ```
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
@@ -254,10 +255,10 @@ $sslPolicy = New-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_
 使用上述所有步驟建立應用程式閘道。 建立閘道是很漫長的程序。
 
 ```powershell
-$appgw = New-AzureRmApplicationGateway -Name appgateway -SslCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SslPolicy $sslPolicy -AuthenticationCertificates $authcert -Verbose
+$appgw = New-AzureRmApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
-## <a name="disable-ssl-protocol-versions-on-an-existing-application-gateway"></a>停用現有應用程式閘道上的 SSL 通訊協定版本
+## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>限制現有應用程式閘道上的 SSL 通訊協定版本
 
 上述步驟會引導您建立具有端對端 SSL 的應用程式並停用特定的 SSL 通訊協定版本。 下列範例會停用現有應用程式閘道上的特定 SSL 原則。
 
@@ -271,10 +272,11 @@ $gw = Get-AzureRmApplicationGateway -Name AdatumAppGateway -ResourceGroupName Ad
 
 ### <a name="step-2"></a>步驟 2
 
-定義 SSL 原則。 在下列範例中，會停用 TLSv1.0 和 TLSv1.1。
+定義 SSL 原則。 在下列範例中，會停用 TLSv1.0 和 TLSv1.1，且只有 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**、**TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 和 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256** 是允許的加密套件。
 
 ```powershell
-Set-AzureRmApplicationGatewaySslPolicy -DisabledSslProtocols TLSv1_0, TLSv1_1 -ApplicationGateway $gw
+Set-AzureRmApplicationGatewaySSLPolicy -MinProtocolVersion -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw
+
 ```
 
 ### <a name="step-3"></a>步驟 3
@@ -319,10 +321,5 @@ DnsSettings              : {
 
 瀏覽 [Web 應用程式防火牆概觀](application-gateway-webapplicationfirewall-overview.md)
 
-[scenario]: ./media/application-gateway-end-to-end-ssl-powershell/scenario.png
-
-
-
-<!--HONumber=Dec16_HO3-->
-
+[scenario]: ./media/application-gateway-end-to-end-SSL-powershell/scenario.png
 

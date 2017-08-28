@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: cb37c7209a3449047bad97ce50344e1530f0e222
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
@@ -135,6 +135,15 @@ Azure 應用程式閘道會嘗試重新解析服務位址，並在無法連線�
 此 HTTP 回應標頭表示指出一般的 HTTP 404 情況，即要求的資源不存在，應用程式閘道將不會嘗試重新解析服務位址。
 
 ## <a name="setup-and-configuration"></a>設定和組態
+
+### <a name="enable-reverse-proxy-via-azure-portal"></a>透過 Azure 入口網站啟用反向 Proxy
+
+Azure 入口網站提供選項，以在建立新的 Service Fabric 叢集時啟用反向 Proxy。
+在**建立 Service Fabric 叢集**下，步驟 2：叢集設定、節點類型設定，選取核取方塊以「啟用反向 Proxy」。
+針對設定安全的反向 Proxy，可以在步驟 3 指定 SSL 憑證：安全性、設定叢集安全性設定，選取核取方塊以「包含反向 Proxy 的 SSL 憑證」，然後輸入憑證詳細資訊。
+
+### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>透過 Azure Resource Manager 範本啟用反向 Proxy
+
 您可以使用 [Azure Resource Manager 範本](service-fabric-cluster-creation-via-arm.md)為叢集啟用 Service Fabric 中的反向 Proxy。
 
 請參閱[在安全的叢集中設定 HTTPS 反向 Proxy](https://github.com/ChackDan/Service-Fabric/tree/master/ARM Templates/ReverseProxySecureSample#configure-https-reverse-proxy-in-a-secure-cluster)，以取得使用憑證設定安全反向 Proxy 和處理憑證變換的 Azure Resource Manager 範本範例。

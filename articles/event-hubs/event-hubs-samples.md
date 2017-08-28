@@ -12,20 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e155891ff8dc736e2f7de1b95f07ff7b2d5d4e1b
-ms.openlocfilehash: 89049688ab60842910f1bab8e56c349029dd17a7
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/02/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="event-hubs-samples"></a>事件中樞範例 
 
-「Azure 事件中樞」範例示範 [Azure 事件中樞](/azure/event-hubs/)中的主要功能。 本主題分類及描述可用的範例與每個範例的連結。
+「Azure 事件中樞」範例集示範 [Azure 事件中樞](/azure/event-hubs/)中的主要功能。 本主題分類及描述可用的範例與每個範例的連結。
 
 在撰寫本文時，事件中樞範例位於數個不同的位置：
 
@@ -46,11 +45,11 @@ ms.lasthandoff: 05/02/2017
 
 ### <a name="receive-events"></a>接收事件 
 
-[開始使用事件處理器主機接收](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)範例是一個 .NET Core 主控台應用程式，可使用 `Event Processor Host` 從事件中樞接收訊息。
+[開始使用事件處理器主機接收](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver)範例是一個 .NET Core 主控台應用程式，可使用事件處理器主機從事件中樞接收訊息。
 
-## <a name="net-framework"></a>.NET Framework    
+## <a name="net-framework"></a>.NET Framework   
 
-這些範例會示範 Azure 事件中樞的各種其他功能，以 [.NET Framework 程式庫](https://msdn.microsoft.com/library/w0x726c2.aspx)為目標。
+這些範例會示範 Azure 事件中樞的各種其他功能，以 [.NET Framework 程式庫](/dotnet/framework/index)為目標。
  
 ### <a name="notify-users-of-events-received"></a>通知使用者收到的事件
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 05/02/2017
 請造訪下列連結深入了解 .NET Framework 版本︰
 
 - [架構與目標](/dotnet/articles/standard/frameworks)
-- [.NET Framework 4.6 和 4.5](https://msdn.microsoft.com/library/w0x726c2.aspx)
+- [.NET Framework 4.6 和 4.5](/dotnet/framework/index)
 
 您可以參閱下列文章，深入了解事件中樞：
 

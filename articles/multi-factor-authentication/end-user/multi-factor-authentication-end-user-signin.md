@@ -1,12 +1,11 @@
 ---
-title: "搭配雙步驟驗證的 Azure MFA 登入體驗 | Microsoft Docs"
+title: "使用雙步驟驗證的 Azure MFA 登入 | Microsoft Docs"
 description: "本頁面將指引您移至何處才能看到 Azure MFA 可用的各種登入方法。"
 keywords: "使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入"
 services: multi-factor-authentication
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: pblachar
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -15,13 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
 ms.author: kgremban
+ms.reviewer: librown
 ms.custom: end-user
-translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: e972446ea92e8fd31406c9ccff7832b7441f3a2a
-ms.lasthandoff: 03/04/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: d12115be61ca00dfb86dd822ccae9f9096fa796a
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/16/2017
 
 ---
+
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 的登入體驗
 > [!NOTE]
 > 本文的目的逐步解說典型的登入體驗。 如需登入的說明或疑難排解問題，請參閱 [使用 Azure Multi-Factor Authentication 時碰到困難](multi-factor-authentication-end-user-troubleshoot.md)。
@@ -43,15 +45,13 @@ ms.lasthandoff: 03/04/2017
 1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。  
 2. Microsoft 打電話給您。  
 3. 請接聽電話並按 # 鍵。  
-4. 您現在應已登入。  
 
 ## <a name="signing-in-with-a-text-message"></a>透過簡訊登入
 下列資訊將說明透過傳送簡訊到您的行動電話來進行雙步驟驗證體驗：
 
 1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。 
-2. Microsoft 傳送包含數字代碼的簡訊給您。 
+2. Microsoft 會傳送包含數字代碼的簡訊給您。 
 3. 請在登入頁面上提供的方塊中輸入此代碼。 
-4. 您現在應已登入。 
 
 ## <a name="signing-in-with-the-microsoft-authenticator-app"></a>使用 Microsoft 驗證器應用程式登入 
 下列資訊將說明使用 Microsoft Authenticator 應用程式進行雙步驟驗證的體驗。 應用程式有兩種不同的使用方式。 您可以在裝置上接收推送通知，或是開啟應用程式以取得驗證碼。
@@ -75,17 +75,15 @@ ms.lasthandoff: 03/04/2017
   ![輸入驗證碼](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 3. 在電話上開啟 Microsoft 驗證器應用程式，並在登入的方塊中輸入驗證碼。
-4. 您現在應已登入。
 
 ## <a name="signing-in-with-an-alternate-method"></a>使用替代方法登入
 有時候您設定做為慣用驗證方法的電話或裝置不在手邊。 這種情況就是為什麼我們建議您為帳戶設定備份方法。 下一節示範當主要方法無法使用時，如何使用替代方法進行登入。
 
 1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
-2. 選取 [使用不同的驗證選項]。 根據您已設定的驗證選項數量而定，您將會看到不同的驗證選項。
+2. 選取 [使用不同的驗證選項]。 根據您已設定的驗證選項數量而定，您會看到不同的驗證選項。
+3. 選擇替代方法並且登入。
 
   ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
-
-3. 選擇替代方法並且登入。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,7 +2,7 @@
 title: "媒體服務 PlayReady 授權範本概觀"
 description: "本主題提供了用來設定 PlayReady 授權之 PlayReady 授權範本的概觀。"
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

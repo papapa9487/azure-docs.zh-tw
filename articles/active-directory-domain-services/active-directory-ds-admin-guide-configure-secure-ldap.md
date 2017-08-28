@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 08/14/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: f4134d10e57ff7c8ea6308f076f33e4dc703082c
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 93afa49166c5b31d23237c308b9d34f6d6f3507d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受管理網域設定安全的 LDAP (LDAPS)
@@ -48,7 +47,7 @@ ms.lasthandoff: 07/08/2017
 5. **憑證目的** - 憑證必須有效可進行 SSL 伺服器驗證。
 
 > [!NOTE]
-> **企業憑證授權單位︰**Azure AD Domain Services 目前不支援使用您組織的企業憑證授權單位所簽發的安全 LDAP 憑證。 這項限制是因為服務不信任您企業 CA 做為根憑證授權單位。 我們預計在未來會新增對企業 CA 的支援。 如果您一定要使用您企業 CA 所簽發的憑證，請[與我們連絡](active-directory-ds-contact-us.md)以取得協助。
+> **企業憑證授權單位︰**Azure AD Domain Services 不支援使用貴組織的企業憑證授權單位所簽發的安全 LDAP 憑證。 這項限制是因為服務不信任您企業 CA 做為根憑證授權單位。 
 >
 >
 

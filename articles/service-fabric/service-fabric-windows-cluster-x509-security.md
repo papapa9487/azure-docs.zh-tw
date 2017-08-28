@@ -3,7 +3,7 @@ title: "使用憑證保護 Windows 上的 Azure Service Fabric 叢集 | Microsof
 description: "本文說明如何保護獨立或私人叢集內以及用戶端與叢集之間的通訊。"
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: timlt
 editor: 
 ms.assetid: fe0ed74c-9af5-44e9-8d62-faf1849af68c
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
-ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 51ed17ab8f036f00b285232500dc9f606f2a7e2f
+ms.author: dekapur
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ebac24385560377bac27a8b8c425323c57392bd2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
@@ -40,10 +39,26 @@ ms.lasthandoff: 04/27/2017
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },        
+        "ClusterCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
+            "X509StoreName": "My"
         },
         "ServerCertificate": {
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
+            "X509StoreName": "My"
+        },
+        "ServerCertificateCommonNames": {
+            "CommonNames": [
+            {
+                "CertificateCommonName": "[CertificateCommonName]"
+            }
+            ],
             "X509StoreName": "My"
         },
         "ClientCertificateThumbprints": [
@@ -67,6 +82,14 @@ ms.lasthandoff: 04/27/2017
             "Thumbprint": "[Thumbprint]",
             "ThumbprintSecondary": "[Thumbprint]",
             "X509StoreName": "My"
+        },
+        "ReverseProxyCertificateCommonNames": {
+            "CommonNames": [
+                {
+                "CertificateCommonName": "[CertificateCommonName]"
+                }
+            ],
+            "X509StoreName": "My"
         }
     }
 },
@@ -84,13 +107,16 @@ ms.lasthandoff: 04/27/2017
 
 | **CertificateInformation 設定** | **說明** |
 | --- | --- |
-| ClusterCertificate |需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用兩個不同的憑證 (主要和次要) 進行更新。 在 **Thumbprint** 區段中設定主要憑證的指紋，以及在 **ThumbprintSecondary** 變數中設定次要憑證的指紋。 |
-| ServerCertificate |用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 為了方便起見，您可以選擇對 *ClusterCertificate* 和 *ServerCertificate* 使用相同的憑證。 您可以使用兩個不同的伺服器憑證 (主要和次要) 進行更新。 在 **Thumbprint** 區段中設定主要憑證的指紋，以及在 **ThumbprintSecondary** 變數中設定次要憑證的指紋。 |
+| ClusterCertificate |建議針對測試環境。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用兩個不同的憑證 (主要和次要) 進行更新。 在 **Thumbprint** 區段中設定主要憑證的指紋，以及在 **ThumbprintSecondary** 變數中設定次要憑證的指紋。 |
+| ClusterCertificateCommonNames |建議針對生產環境。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用一或兩個叢集憑證通用名稱。 |
+| ServerCertificate |建議針對測試環境。 用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 為了方便起見，您可以選擇對 *ClusterCertificate* 和 *ServerCertificate* 使用相同的憑證。 您可以使用兩個不同的伺服器憑證 (主要和次要) 進行更新。 在 **Thumbprint** 區段中設定主要憑證的指紋，以及在 **ThumbprintSecondary** 變數中設定次要憑證的指紋。 |
+| ServerCertificateCommonNames |建議針對生產環境。 用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 為了方便起見，您可以選擇對 ClusterCertificateCommonNames 和 ServerCertificateCommonNames 使用相同的憑證。 您可以使用一或兩個伺服器憑證通用名稱。 |
 | ClientCertificateThumbprints |這是您想在經過驗證的用戶端上安裝的一組憑證。 在您要允許存取叢集的電腦上，您可以安裝數個不同的用戶端憑證。 在 **CertificateThumbprint** 變數中設定每個憑證的指紋。 如果您將 **IsAdmin** 設為 *true*，則已安裝此憑證的用戶端可以對叢集執行系統管理員管理活動。 如果 **IsAdmin** 是 *false*，有此憑證的用戶端只能執行其使用者存取權限允許的動作，通常是唯讀。 如需角色的詳細資訊，請參閱 [角色型存取控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |針對 **CertificateCommonName**設定第一個用戶端憑證的一般名稱。 **CertificateIssuerThumbprint** 是此憑證的簽發者指紋。 閱讀 [使用憑證](https://msdn.microsoft.com/library/ms731899.aspx) ，以深入了解一般名稱和簽發者。 |
-| ReverseProxyCertificate |如果您想要保護[反向 Proxy](service-fabric-reverseproxy.md)，可以指定此選擇性憑證。 如果您使用此憑證，請務必在 nodeTypes 中設定 reverseProxyEndpointPort。 |
+| ReverseProxyCertificate |建議針對測試環境。 如果您想要保護[反向 Proxy](service-fabric-reverseproxy.md)，可以指定此選擇性憑證。 如果您使用此憑證，請務必在 nodeTypes 中設定 reverseProxyEndpointPort。 |
+| ReverseProxyCertificateCommonNames |建議針對生產環境。 如果您想要保護[反向 Proxy](service-fabric-reverseproxy.md)，可以指定此選擇性憑證。 如果您使用此憑證，請務必在 nodeTypes 中設定 reverseProxyEndpointPort。 |
 
-以下是範例叢集組態，其中已提供叢集、 伺服器和用戶端憑證。
+以下是範例叢集組態，其中已提供叢集、 伺服器和用戶端憑證。 請注意，不可與相同憑證類型的 cluster/ server/ reverseProxy 憑證、指紋和通用名稱一起設定。
 
  ```JSON
  {
@@ -132,13 +158,21 @@ ms.lasthandoff: 04/27/2017
             "ClusterCredentialType": "X509",
             "ServerCredentialType": "X509",
             "CertificateInformation": {
-                "ClusterCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ClusterCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myClusterCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
-                "ServerCertificate": {
-                    "Thumbprint": "a8 13 67 58 f4 ab 89 62 af 2b f3 f2 79 21 be 1d f6 7f 43 26",
-                    "X509StoreName": "My"
+                "ServerCertificateCommonNames": {
+                  "CommonNames": [
+                    {
+                      "CertificateCommonName": "myServerCertCommonName"
+                    }
+                  ],
+                  "X509StoreName": "My"
                 },
                 "ClientCertificateThumbprints": [{
                     "CertificateThumbprint": "c4 c18 8e aa a8 58 77 98 65 f8 61 4a 0d da 4c 13 c5 a1 37 6e",
@@ -181,6 +215,10 @@ ms.lasthandoff: 04/27/2017
     }
 }
  ```
+
+## <a name="certificate-roll-over"></a>憑證變換
+使用憑證通用名稱而非指紋時，憑證變換並不需要叢集設定升級。
+如果憑證變換涉及簽發者變換，請在安裝新的簽發者憑證之後，將舊的簽發者憑證保留在憑證存放區至少 2 小時。
 
 ## <a name="acquire-the-x509-certificates"></a>取得 X.509 憑證
 若要保護叢集內的通訊，您必須先取得叢集節點的 X.509 憑證。 此外，若要將此叢集的連線限制於經過授權的電腦/使用者，您必須取得並安裝這些用戶端電腦的憑證。

@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: debd2410d795fab19ea0b62d91b0edc7dbcc6d79
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 7536978bbb1e41b6484b66fd1b51c900fc3e545d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB︰開始使用 DocumentDB API 與 .NET Core
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/25/2017
 >  
 > 
 
-歡迎使用 Azure Cosmos DB 入門教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
+歡迎使用 .NET Core 入門之適用於 Azure Cosmos DB 的 DocumentDB API 教學課程！ 完成本教學課程之後，您將會有一個主控台應用程式，可用來建立和查詢 Azure Cosmos DB 資源。
 
 本文將討論：
 
@@ -48,9 +48,7 @@ ms.lasthandoff: 07/25/2017
 
 沒有時間嗎？ 別擔心！ 您可以在 [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started)上找到完整的方案。 請跳至 [取得完整的解決方案](#GetSolution) 一節，以取得簡要指示。
 
-想要使用 DocumentDB API 和 .NET Core SDK 建置 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 DocumentDB API 開發 Xamarin 行動應用程式](mobile-apps-with-xamarin.md)。
-
-之後，請使用此頁面頂端或底部的投票按鈕，將意見反應提供給我們。 如果想要我們直接與您連絡，歡迎在留言中留下電子郵件地址。
+想要使用 DocumentDB API 和 .NET Core SDK 建置 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
 
 > [!NOTE]
 > 本教學課程中使用的 Azure Cosmos DB .NET Core SDK 尚未與通用 Windows 平台 (UWP) 應用程式相容。 如需可支援 UWP 應用程式的 .NET Core SDK 預覽版本，請傳送電子郵件至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
@@ -553,7 +551,7 @@ await this.client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"
 ## <a id="Run"></a>步驟 11：一起執行您的 C# 主控台應用程式！
 在 Visual Studio 中按下 [DocumentDBGettingStarted] 按鈕以在偵錯模式中建置應用程式。
 
-您應該可以看到入門應用程式的輸出。 輸出將會顯示新增的查詢結果，而且應該符合以下的範例文字。
+您應該可以看到在主控台視窗中開始使用應用程式的輸出。 輸出將會顯示新增的查詢結果，而且應該符合以下的範例文字。
 
 ```
 Created FamilyDB_oa
@@ -590,12 +588,12 @@ End of demo, press any key to exit.
 若要在 Visual Studio 中還原適用於 Azure Cosmos DB .NET Core SDK 之 DocumentDB API 的參考，請在 [方案總管] 的 **GetStarted** 方案上按一下滑鼠右鍵，然後按一下 [啟用 NuGet 套件還原]。 接下來，在 Program.cs 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連線至 Azure Cosmos DB 帳戶](#Connect)中所述。
 
 ## <a name="next-steps"></a>後續步驟
-* 需要更複雜的 ASP.NET MVC 教學課程嗎？ 請參閱[使用 Azure Cosmos DB 建置具有 ASP.NET MVC 的 Web 應用程式](documentdb-dotnet-application.md)。
-* 想要使用適用於 Azure Cosmos DB .NET Core SDK 的 DocumentDB API 開發 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 DocumentDB API 開發 Xamarin 行動應用程式](mobile-apps-with-xamarin.md)。
-* 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和規模測試](performance-testing.md)
-* 了解如何[監視 Azure Cosmos DB 帳戶](monitor-accounts.md)。
+* 需要更複雜的 ASP.NET MVC 教學課程嗎？ 請參閱 [ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發](documentdb-dotnet-application.md)。
+* 想要使用適用於 Azure Cosmos DB .NET Core SDK 的 DocumentDB API 開發 Xamarin iOS、Android 或 Forms 應用程式嗎？ 請參閱[使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式](mobile-apps-with-xamarin.md)。
+* 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和級別測試](performance-testing.md)
+* 了解如何[監視 Azure Cosmos DB 要求、使用量及儲存體](monitor-accounts.md)。
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中，針對範例資料集執行查詢。
-* 如需深入了解程式設計模型，請參閱 [Azure Cosmos DB 文件頁面](https://azure.microsoft.com/documentation/services/documentdb/)中的＜開發＞一節。
+* 若要深入了解有關程式設計模型的詳細資訊，請參閱 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)。
 
 [create-documentdb-dotnet.md#create-account]: create-documentdb-dotnet.md#create-account
 [keys]: media/documentdb-dotnetcore-get-started/nosql-tutorial-keys.png

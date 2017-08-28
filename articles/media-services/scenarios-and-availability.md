@@ -4,7 +4,7 @@ description: "本主題概述跨資料中心的 Microsoft Azure 媒體服務功�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

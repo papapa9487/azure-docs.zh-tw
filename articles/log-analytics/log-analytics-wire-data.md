@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: banders
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: a552bbce2c6a1b60ab73e3e945985ff3dccbc93a
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: ce8065d777bb315d4f9589d1b24a5152296facfe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -400,7 +400,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 ![記錄搜尋範例](./media/log-analytics-wire-data/log-search-example01.png)
 
-同樣地，您可以使用 [區域子網路數] 刀鋒視窗，來判斷透過子網路移動的網路流量。 使用者通常會將重要區域周圍的子網路定義為其應用程式。 此刀鋒視窗會提供這些區域的檢視。
+同樣地，您可以使用 [區域子網路數] 刀鋒視窗，來判斷透過子網路移動的網路流量。 使用者通常會為其應用程式定義重要區域周圍的子網路。 此刀鋒視窗會提供這些區域的檢視。
 
 ![記錄搜尋範例](./media/log-analytics-wire-data/log-search-example02.png)
 
@@ -445,7 +445,7 @@ rpm -e dependency-agent dependency-agent-connector
 | RemotePortNumber | 遠端 IP 位址所使用的連接埠號碼 |
 | SessionID | 識別兩個 IP 位址之間通訊工作階段的唯一值 |
 | SentBytes | 傳送的位元組數目 |
-| TotalBytes | 工作階段期間傳送的總數 |
+| TotalBytes | 工作階段期間傳送的位元組總數 |
 | ApplicationProtocol | 使用的網路通訊協定類型   |
 | ProcessID | Windows 處理序識別碼 |
 | ProcessName | 處理序的路徑和檔案名稱 |

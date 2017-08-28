@@ -15,24 +15,24 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: ryanwi, mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 71d910bc0e459528805521ba991e5291396a3b8d
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ef50adf3af19bce494c3256308b443c8eaccdcea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
-本教學課程是系列中的第一部分，示範如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。 
+本教學課程是一個系列的第一部分。  您將了解如何建立含有 ASP.NET Core Web API 前端和具狀態後端服務的 Azure Service Fabric 應用程式來儲存您的資料。 當您完成時，您會有一個投票應用程式，其 ASP.NET Core Web 前端會將投票結果儲存在叢集中具狀態的後端服務。 如果您不需要以手動建立投票應用程式，可以[下載已完成應用程式的原始程式碼](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)並直接前往[逐步解說投票範例應用程式](#walkthrough_anchor)。
 
 ![應用程式圖表](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
 
 在系列的第一部分中，您將了解如何：
 
 > [!div class="checklist"]
-> * 建立 ASP.NET Core Web API 服務成為可靠服務
-> * 建立具狀態可靠服務
-> * 實作服務遠端和使用服務 Proxy
+> * 建立 ASP.NET Core Web API 服務成為具狀態可靠服務
+> * 建立 ASP.NET Core Web 應用程式服務成為具狀態可靠服務
+> * 使用反向 proxy 來與具狀態服務進行通訊
 
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
@@ -47,7 +47,7 @@ ms.lasthandoff: 08/10/2017
 - [安裝 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>建立 ASP.NET Web API 服務成為可靠的服務
-ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建立新式 Web UI 和 Web API。 若要完整了解 ASP.NET Core 如何與 Service Fabric 整合，強烈建議您仔細閱讀 [Service Fabric Reliable Services 中的 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 文章。 現在您可以依照本教學課程來快速上手。 若要深入了解 ASP.NET Core，請參閱 [ASP.NET Core 文件](https://docs.microsoft.com/aspnet/core/)。
+首先，使用 ASP.NET Core 建立投票應用程式的 web 前端。 ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建立新式 Web UI 和 Web API。 若要完整了解 ASP.NET Core 如何與 Service Fabric 整合，強烈建議您仔細閱讀 [Service Fabric Reliable Services 中的 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 文章。 現在，您可以依照本教學課程來快速上手。 若要深入了解 ASP.NET Core，請參閱 [ASP.NET Core 文件](https://docs.microsoft.com/aspnet/core/)。
 
 > [!NOTE]
 > 本教學課程係根據[適用於 Visual Studio 2017 的 ASP.NET Core 工具](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/start-mvc)。 適用於 Visual Studio 2015 的 .NET Core 工具不再進行更新。
@@ -58,15 +58,15 @@ ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建�
 
 3. 在 [新增專案]  對話方塊中，選擇 [雲端] > [Service Fabric 應用程式]。
 
-4. 將應用程式命名為 **MyApplication**，然後按 [確定]。
+4. 將應用程式命名為 **Voting**，然後按 [確定]。
 
    ![Visual Studio 中的新增專案對話方塊](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog.png)
 
-5. 在**新增 Service Fabric 服務**頁面上，選擇**無狀態 ASP.NET Core**，並將服務命名為 **MyWebAPIFrontEnd**。
+5. 在**新增 Service Fabric 服務**頁面上，選擇**無狀態 ASP.NET Core**，並將服務命名為 **VotingWeb**。
    
    ![在新服務對話方塊中選擇 ASP.NET Web 服務](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. 下一頁會提供一組 ASP.NET Core 專案範本。 在本教學課程中，選擇 [Web API]。 但您可以將相同的概念套用於建置完整的 Web 應用程式。
+6. 下一頁會提供一組 ASP.NET Core 專案範本。 在本教學課程中，選擇 [Web 應用程式]。 
    
    ![選擇 ASP.NET 專案類型](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 
@@ -74,44 +74,246 @@ ASP.NET Core 是輕量型、跨平台的 Web 開發架構，可供您用來建�
 
    ![使用 ASP.NET Core Web API 服務建立應用程式後的方案總管]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-### <a name="deploy-and-debug-the-application-locally"></a>在本機部署和偵錯應用程式
-您現在可以繼續進行應用程式偵錯，觀察預設 ASP.NET Core Web API 範本提供的預設行為。
+### <a name="add-angularjs-to-the-votingweb-service"></a>將 AngularJS 新增至 VotingWeb 服務
+使用內建 [Bower 支援](/aspnet/core/client-side/bower)將 [AngularJS](http://angularjs.org/) 新增至您的服務。 開啟 bower.json 並新增 Angular 和 Angular 啟動程序的項目，然後儲存您的變更。
 
-在 Visual Studio 中，按 `F5` 部署應用程式以供偵錯。 如果您先前並未以**系統管理員**身分開啟 Visual Studio，`F5` 將失敗。
+```json
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "2.2.0",
+    "jquery-validation": "1.14.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "angular": "v1.6.5",
+    "angular-bootstrap": "v1.1.0"
+  }
+}
+```
+在儲存 bower.json 檔案時，Angular 會安裝在您專案的 wwwroot/lib 資料夾中。 此外，它會列在 Dependencies/Bower 資料夾內。
+
+### <a name="update-the-sitejs-file"></a>更新 site.js 檔案
+開啟 wwwroot/js/site.js 檔案。  將其內容取代為 [首頁] 檢視所使用的 JavaScript：
+
+```javascript
+var app = angular.module('VotingApp', ['ui.bootstrap']);
+app.run(function () { });
+
+app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeout', function ($rootScope, $scope, $http, $timeout) {
+
+    $scope.refresh = function () {
+        $http.get('api/Votes?c=' + new Date().getTime())
+            .then(function (data, status) {
+                $scope.votes = data;
+            }, function (data, status) {
+                $scope.votes = undefined;
+            });
+    };
+
+    $scope.remove = function (item) {
+        $http.delete('api/Votes/' + item)
+            .then(function (data, status) {
+                $scope.refresh();
+            })
+    };
+
+    $scope.add = function (item) {
+        var fd = new FormData();
+        fd.append('item', item);
+        $http.put('api/Votes/' + item, fd, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        })
+            .then(function (data, status) {
+                $scope.refresh();
+                $scope.item = undefined;
+            })
+    };
+}]);
+```
+
+### <a name="update-the-indexcshtml-file"></a>更新 Index.cshtml 檔案
+開啟 Views/Home/Index.cshtml 檔案，檢視為 [首頁] 控制器特定。  將其內容取代為下列項目，然後儲存變更。
+
+```html
+@{
+    ViewData["Title"] = "Service Fabric Voting Sample";
+}
+
+<div ng-controller="VotingAppController" ng-init="refresh()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2 text-center">
+                <h2>Service Fabric Voting Sample</h2>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <form class="col-xs-12 center-block">
+                    <div class="col-xs-6 form-group">
+                        <input id="txtAdd" type="text" class="form-control" placeholder="Add voting option" ng-model="item" />
+                    </div>
+                    <button id="btnAdd" class="btn btn-default" ng-click="add(item)">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="row">
+                    <div class="col-xs-4">
+                        Click to vote
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-repeat="vote in votes.data">
+                    <div class="col-xs-8">
+                        <button class="btn btn-success text-left btn-block" ng-click="add(vote.key)">
+                            <span class="pull-left">
+                                {{vote.key}}
+                            </span>
+                            <span class="badge pull-right">
+                                {{vote.value}} Votes
+                            </span>
+                        </button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button class="btn btn-danger pull-right btn-block" ng-click="remove(vote.key)">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            Remove
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
+
+### <a name="update-the-layoutcshtml-file"></a>更新 _Layout.cshtml 檔案
+開啟 Views/Shared/_Layout.cshtml 檔案，ASP.NET 應用程式的預設版面配置。  將其內容取代為下列項目，然後儲存變更。
+
+```html
+<!DOCTYPE html>
+<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/lib/angular/angular.js"></script>
+    <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
+```
+
+### <a name="update-the-votingwebcs-file"></a>更新 VotingWeb.cs 檔案
+開啟 VotingWeb.cs 檔案，該檔案會使用 WebListener web 伺服器，在無狀態服務內建立 ASP.NET Core WebHost。  將 `using System.Net.Http;` 指示詞新增至檔案開頭處。  將 `CreateServiceInstanceListeners()` 函式取代為下列項目，然後儲存變更。
+
+```csharp
+protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+    return new ServiceInstanceListener[]
+    {
+        new ServiceInstanceListener(serviceContext =>
+            new WebListenerCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
+            {
+                ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting WebListener on {url}");
+
+                return new WebHostBuilder().UseWebListener()
+                            .ConfigureServices(
+                                services => services
+                                    .AddSingleton<StatelessServiceContext>(serviceContext)
+                                    .AddSingleton<HttpClient>())
+                            .UseContentRoot(Directory.GetCurrentDirectory())
+                            .UseStartup<Startup>()
+                            .UseApplicationInsights()
+                            .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                            .UseUrls(url)
+                            .Build();
+            }))
+    };
+}
+```
+
+### <a name="add-the-votescontrollercs-file"></a>新增 VotesController.cs 檔案
+新增定義投票動作的控制器。 以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增 -> 新增項目 -> 類別]。  將檔案命名為 "VotesController.cs"，然後按一下 [新增]。  將檔案內容取代為下列項目，然後儲存變更。  稍後，在[更新 VotesController.cs 檔案](#updatevotecontroller_anchor)中，將會修改這個檔案，以從後端服務讀取和寫入投票資料。  現在，控制器會將靜態字串資料傳回至檢視。
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Text;
+using System.Net.Http;
+using System.Net.Http.Headers;
+
+namespace VotingWeb.Controllers
+{
+    [Produces("application/json")]
+    [Route("api/Votes")]
+    public class VotesController : Controller
+    {
+        private readonly HttpClient httpClient;
+
+        public VotesController(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        // GET: api/Votes
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            List<KeyValuePair<string, int>> votes= new List<KeyValuePair<string, int>>();
+            votes.Add(new KeyValuePair<string, int>("Pizza", 3));
+            votes.Add(new KeyValuePair<string, int>("Ice cream", 4));
+
+            return Json(votes);
+        }
+     }
+}
+```
+
+
+
+### <a name="deploy-and-run-the-application-locally"></a>在本機部署和執行應用程式
+您現在可以繼續執行應用程式。 在 Visual Studio 中，按 `F5` 部署應用程式以供偵錯。 如果您先前並未以**系統管理員**身分開啟 Visual Studio，`F5` 將失敗。
 
 > [!NOTE]
-> 您第一次在本機執行及部署應用程式時，Visual Studio 會建立本機叢集以供偵錯，這可能需要一些時間。 叢集建立狀態會顯示在 Visual Studio 輸出視窗中。
+> 您第一次在本機執行及部署應用程式時，Visual Studio 會建立本機叢集以供偵錯。  建立叢集可能需要一些時間。 叢集建立狀態會顯示在 Visual Studio 輸出視窗中。
 
-備妥叢集時，系統匣會顯示來自 Service Fabric 本機叢集管理員的通知。
+此時，您的 web 應用程式看起來應該像這樣：
 
-1. 若要進行應用程式偵錯，請在 Visual Studio 按 F5。
-2. 部署完成時，Visual Studio 會啟動瀏覽器並瀏覽至 ASP.NET Web API 服務的根目錄。 ASP.NET Core Web API 範本不會提供根目錄的預設行為，因此您將在瀏覽器中收到錯誤。
-3. 將 `/api/values` 新增至瀏覽器中的 URL。 此要求會叫用 Web API 範本中 ValuesController 上的 `Get` 方法。 它會傳回範本所提供的預設回應，也就是包含兩個字串的 JSON 陣列：
-   
-![從 ASP.NET Core Web API 範本傳回的預設值](./media/service-fabric-tutorial-create-dotnet-app/browser-aspnet-template-values.png)
-
-> [!NOTE]
-> 進行應用程式偵錯時，若要變更預設的 Visual Studio 2017 行為，可以變更 Service Fabric 應用程式專案 **MyApplication** 的屬性。
-> 對於此教學課程，將應用程式偵錯模式設定為 [重新整理應用程式]，並將 **'/api/values'** 新增到應用程式 URL 屬性，這麼做可以達到最佳的偵錯效果。
-> 
+![ASP.NET Core 前端](./media/service-fabric-tutorial-create-dotnet-app/debug-front-end.png)
 
 若要停止應用程式偵錯，請返回 Visual Studio 並且按**Shift+F5**。
-
-### <a name="understanding-the-service-fabric-application-and-service"></a>了解 Service Fabric 應用程式和服務
-Visual Studio 解決方案現在包含兩個專案。
-1. Service Fabric 應用程式專案 - **MyApplication**
-    - 此專案未直接包含任何程式碼。 它反而會參考一組服務專案。 此外，其中包含其他類型的內容，可用來指定如何撰寫和部署應用程式。
-2. 服務專案 - **MyWebAPIFrontEnd**
-    - 此專案是您的 ASP.NET Core Web API 專案，其中包含您服務的程式碼和組態。 查看 [控制器] 資料夾中的 ValuesController.cs 程式碼檔案時，您會發現它是一般的 ASP.NET Core Web API 控制器。 在 Service Fabric 中執行 ASP.NET Core Web API 成為以 Reliable Service 時，在控制器撰寫程式碼沒有特定的需求。
-
-如需 Service Fabric 應用程式模型的詳細資訊，請參閱[在 Service Fabric 中模型化應用程式](service-fabric-application-model.md)。
-
-如需服務專案內容的詳細資訊，請參閱[可靠服務使用者入門](service-fabric-reliable-services-quick-start.md)。
 
 ## <a name="add-a-stateful-back-end-service-to-your-application"></a>將具狀態後端服務新增到應用程式
 現在，應用程式中有 ASP.NET Web API 服務正在執行，讓我們繼續新增具狀態可靠服務，將一些資料儲存於應用程式中。
 
-Service Fabric 可讓您使用可靠集合，直接在服務內以一致且可靠的方式儲存資料。 可靠集合是一組簡單的高可用性和可靠的集合類別，用過 C# 集合的任何人都會很熟悉。
+Service Fabric 可讓您使用可靠集合，直接在服務內以一致且可靠的方式儲存資料。 可靠集合是一組高可用性和可靠的集合類別，用過 C# 集合的任何人都會很熟悉。
 
 在本教學課程中，您建立服務，將計數器值儲存於可靠集合中。
 
@@ -119,211 +321,243 @@ Service Fabric 可讓您使用可靠集合，直接在服務內以一致且可�
    
     ![將新服務加入至現有的應用程式](./media/service-fabric-tutorial-create-dotnet-app/vs-add-new-service.png)
 
-2. 在 [新增 Service Fabric 服務] 對話方塊中，選擇 [具狀態服務]，並將服務命名為 **MyStatefulService**，然後按 [確定]。
+2. 在 [新增 Service Fabric 服務] 對話方塊中，選擇 [具狀態 ASP.NET Core]，並將服務命名為 **VotingData**，然後按 [確定]。
 
     ![Visual Studio 中的新增服務對話方塊](./media/service-fabric-tutorial-create-dotnet-app/add-stateful-service.png)
 
     建立服務專案後，您的應用程式中會有兩個服務。 隨著您繼續組建應用程式，您可以用相同的方式新增更多服務。 每個服務都可以獨立設定版本和升級。
 
-### <a name="deploy-and-debug-the-application-locally"></a>在本機部署和偵錯應用程式
-將新的服務新增到應用程式後，讓我們對於整個應用程式進行偵錯，並查看新服務的預設行為。
+3. 下一頁會提供一組 ASP.NET Core 專案範本。 在本教學課程中，選擇 [Web API]。
 
-若要進行應用程式偵錯，請在 Visual Studio 按 F5。
+    ![選擇 ASP.NET 專案類型](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog2.png)
 
-> [!NOTE]
-> 如果您選擇使用**重新整理應用程式**作為應用程式偵錯模式，系統會提示您授與本機 Service Fabric 叢集存取權，以便建立應用程式的輸出資料夾。
-> 
+    Visual Studio 會建立服務專案，並顯示在 [方案總管] 中。
 
-在本機 Service Fabric 叢集中，將組建、部署和宣告您的應用程式中的這兩個服務。 服務啟動後，Visual Studio 仍然會啟動瀏覽器，但是也會自動顯示 [診斷事件檢視器]，以便查看服務的追蹤輸出。
-   
-![診斷事件檢視器](./media/service-fabric-tutorial-create-dotnet-app/diagnostic-events-viewer.png)
+    ![Solution Explorer](./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
-診斷事件檢視器會顯示偵錯中的 Visual Studio 解決方案所屬的全部服務發出的追蹤訊息。 暫停診斷事件檢視器，即可展開其中一個服務訊息檢查其屬性。 如此一來，即可查看訊息由叢集中哪個服務發出、服務執行個體在哪個節點上執行，以及其他資訊。
+### <a name="add-the-votedatacontrollercs-file"></a>新增 VoteDataController.cs 檔案
 
-![診斷事件檢視器](./media/service-fabric-tutorial-create-dotnet-app/expanded-diagnostics-viewer.png)
+在 **VotingData** 專案中，以滑鼠右鍵按一下 [控制器] 資料夾，然後選取 [新增 -> 新增項目 -> 類別]。 將檔案命名為 "VoteDataController.cs"，然後按一下 [新增]。 將檔案內容取代為下列項目，然後儲存變更。
 
-您可看出服務訊息來自我們建立的具狀態服務，因為 **serviceTypeName** 是 **MyStatefulServiceType**。 您也可以看出它傳送的訊息顯示「目前的計數器是...。」。 如下列的螢幕擷取畫面所示，此訊息是由 **MyStatefulService.cs** 的 `RunAsync` 方法中反白顯示的一行程式碼發出。
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.ServiceFabric.Data;
+using System.Threading;
+using Microsoft.ServiceFabric.Data.Collections;
 
-![服務訊息程式碼](./media/service-fabric-tutorial-create-dotnet-app/service-message-code.png)
-
-如需服務和應用程式發出診斷資訊的詳細資訊，請參閱[對 Azure Service Fabric 進行監視和診斷](service-fabric-diagnostics-overview.md)。
-
-若要停止應用程式偵錯，請返回 Visual Studio 並且按**Shift+F5**。
-
-### <a name="understanding-the-mystatefulservice-code"></a>了解 MyStatefulService 程式碼
-為了更了解它如何使用可靠的字典將資料儲存於叢集中，讓我們花一些時間查看 **MyStatefulService** 服務中的程式碼。
-
-服務中有五行程式碼與建立、更新和讀取可靠的字典有關。
-
-![可靠的字典程式碼](./media/service-fabric-tutorial-create-dotnet-app/reliable-dictionary-code.png)
-
-1. 每當服務的 `RunAsync` 方法執行 (這會在服務啟動時發生) 時，這行程式碼會取得或新增與服務的 `myDictionary` 同名的可靠字典。
-2. 與可靠字典中的值進行的所有互動，都需要交易，這會使用在這行程式碼中輸入的陳述式建立該交易。
-3. 這行程式碼會取得與在方法呼叫中指定的索引鍵相關聯的值，例如 `Counter`。
-4. 這行程式碼會將值遞增，以便更新與索引鍵 `Counter` 相關聯的值。
-5. 這個方法呼叫會認可交易，並且在叢集中的節點仲裁儲存更新的值時傳回。
-
-如需可靠字典和可靠集合的詳細資訊，請參閱 [Azure Service Fabric 具狀態服務中可靠的集合簡介](service-fabric-reliable-services-reliable-collections.md)。
-
-## <a name="connect-the-services"></a>連接服務
-在下一個步驟中，我們將連接這兩項服務，並設定前端 Web API 傳回後端服務可靠字典的目前值。
-
-對於您與可靠服務通訊的方式，Service Fabric 會提供完整的彈性。 在單一應用程式中，您可能有可透過 TCP 存取的服務。 可透過 HTTP 的 REST API 存取的其他服務以及其他任何服務可以透過 Web 通訊端存取。 如需可用選項和相關權衡取捨的背景，請參閱 [與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)。
-
-在此教學課程中，我們會使用[使用 Reliable Services 的遠端服務](service-fabric-reliable-services-communication-remoting.md)。
-
-在服務遠端的做法中 (模仿遠端程序呼叫 (RPC))，您會定義一個介面以作為服務的公用合約。 然後使用該介面來產生 Proxy 類別，以便與服務進行互動。
-
-### <a name="create-the-remoting-interface"></a>建立遠端介面
-我們會先建立介面做為兩個服務之間的中介。 介面必須由使用該介面的所有服務參考，因此我們會在個別的類別庫專案中建立該介面。
-
-1. 在 [方案總管] 中，以滑鼠右鍵按一下您的解決方案，並選擇 [新增]  >  [新增專案]。
-2. 在左側導覽窗格中選擇 [Visual C#] 項目，然後選取 [類別庫 (.NET Framework)] 範本。 確定 .NET Framework 版本已設定為 **4.5.2** 或更新版本。
-   
-    ![為具狀態服務建立介面專案](./media/service-fabric-tutorial-create-dotnet-app/vs-add-class-library-project.png)
-
-3. 將類別庫 **MyStatefulService.Interface** 命名，並按一下 [確定]。
-
-4. 在 [方案總管] 中，以滑鼠右鍵按一下解決方案，並選擇 [管理解決方案的 NuGet 封裝]。
-
-5. 選擇 [瀏覽]，並搜尋 **Microsoft.ServiceFabric.Services.Remoting**。 選擇將對於解決方案中的三個服務專案安裝它： 
-   
-    ![新增服務 NuGet 封裝](./media/service-fabric-tutorial-create-dotnet-app/add-nuget.png)
-
-6. 在類別庫中，透過單一方法 `GetCountAsync` 建立介面，並從 `Microsoft.ServiceFabric.Services.Remoting.IService` 擴充介面。 遠端介面必須衍生自這個介面，以指出它是服務遠端的介面。 
-   
-    ```c#
-    using Microsoft.ServiceFabric.Services.Remoting;  
-    using System.Threading.Tasks;
-    ...
-    namespace MyStatefulService.Interface
-    {           
-        public interface ICounter: IService
-        {
-            Task<long> GetCountAsync();
-        }
-    }
-    ```
-7. 在 [方案總管] 中以滑鼠右鍵按一下 **MyStatefulService.Interface** 專案，然後選取 [屬性]。 選取 [組建] 索引標籤，然後選取 [平台目標] 下拉式清單中的 **x64** 值。 
-
-8. 儲存您的所有變更。
-
-### <a name="implement-the-interface-in-your-stateful-service"></a>在具狀態服務中實作介面
-既然我們已定義介面，我們必須在具狀態服務中實作該介面。
-
-1. 將參考新增到包含 **MyStatefulService** 專案介面的類別庫。
-   
-    ![新增具狀態服務中的類別庫專案的參考](./media/service-fabric-tutorial-create-dotnet-app/vs-add-class-library-reference.png)
-
-    ![新增具狀態服務中的類別庫專案的參考](./media/service-fabric-tutorial-create-dotnet-app/vs-add-class-library-reference-2.png)
-
-2. 開啟 `MyStatefulService.cs` 檔案，將其延伸來實作我們建立的 `ICounter` 介面。
-   
-    ```c#
-    using MyStatefulService.Interface;
-    ...
-   
-    public class MyStatefulService : StatefulService, ICounter
-    {        
-          // ...
-    }
-    ```
-
-3. 現在實作 `ICounter` 介面中所定義的單一方法，即 `GetCountAsync`。
-   
-    ```c#
-    public async Task<long> GetCountAsync()
-    {
-        var myDictionary =
-          await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
-   
-        using (var tx = this.StateManager.CreateTransaction())
-        {          
-            var result = await myDictionary.TryGetValueAsync(tx, "Counter");
-            return result.HasValue ? result.Value : 0;
-        }
-    }
-    ```
-
-    - 這個方法會傳回名稱為 `myDictionary` 可靠字典中儲存的 `Counter` 索引鍵值。 
-
-### <a name="expose-the-stateful-service-using-service-remoting"></a>使用服務遠端處理公開具狀態服務
-實作 `ICounter` 介面後，最後一個步驟是開啟服務遠端端點。 對於具狀態服務，Service Fabric 會提供稱為 `CreateServiceReplicaListeners`的可覆寫方法。 透過此方法，您可以根據想要為服務啟用的通訊類型，指定一或多個通訊接聽程式。
-
-在此案例中，我們取代現有的 `CreateServiceReplicaListeners` 方法，並提供 `ServiceRemotingListener` 的執行個體，此執行個體會透過 `ServiceProxy` 建立可從用戶端呼叫的 RPC 端點。  
-
-變更 **MyStatefulService.cs** 檔案中的 **CreateServiceReplicaListeners** 方法，並將 using 陳述式新增到 `Microsoft.ServiceFabric.Services.Remoting.Runtime` 命名空間。
-
-```c#
-using Microsoft.ServiceFabric.Services.Remoting.Runtime;
-
-...
-
-protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+namespace VotingData.Controllers
 {
-    return new List<ServiceReplicaListener>()
+    [Route("api/[controller]")]
+    public class VoteDataController : Controller
     {
-        new ServiceReplicaListener(
-            (context) =>
-                this.CreateServiceRemotingListener(context))
-    };
+        private readonly IReliableStateManager stateManager;
+
+        public VoteDataController(IReliableStateManager stateManager)
+        {
+            this.stateManager = stateManager;
+        }
+
+        // GET api/VoteData
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var ct = new CancellationToken();
+
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                var list = await votesDictionary.CreateEnumerableAsync(tx);
+
+                var enumerator = list.GetAsyncEnumerator();
+
+                var result = new List<KeyValuePair<string, int>>();
+
+                while (await enumerator.MoveNextAsync(ct))
+                {
+                    result.Add(enumerator.Current);
+                }
+
+                return Json(result);
+            }
+        }
+
+        // PUT api/VoteData/name
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name)
+        {
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                await votesDictionary.AddOrUpdateAsync(tx, name, 1, (key, oldvalue) => oldvalue + 1);
+                await tx.CommitAsync();
+            }
+
+            return new OkResult();
+        }
+
+        // DELETE api/VoteData/name
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
+        {
+            var votesDictionary = await this.stateManager.GetOrAddAsync<IReliableDictionary<string, int>>("counts");
+
+            using (ITransaction tx = this.stateManager.CreateTransaction())
+            {
+                if (await votesDictionary.ContainsKeyAsync(tx, name))
+                {
+                    await votesDictionary.TryRemoveAsync(tx, name);
+                    await tx.CommitAsync();
+                    return new OkResult();
+                }
+                else
+                {
+                    return new NotFoundResult();
+                }
+            }
+        }
+    }
 }
 ```
 
-現在，具狀態服務已經準備好使用服務遠端接收透過 RPC 來自其他服務的流量。
 
-### <a name="call-the-stateful-back-end-service-from-the-front-end-service"></a>從前端服務呼叫具狀態後端服務
-我們的後端服務已公開介面，現在只需要從 ASP.NET Web API 服務新增與介面進行通訊的程式碼。 為了使用服務遠端進行通訊，我們將使用值控制器的服務 Proxy。
+## <a name="connect-the-services"></a>連接服務
+在下一個步驟中，我們會將這兩項服務連線，並讓前端 Web 應用程式從後端服務取得和設定投票資訊。
 
-1. 在 [方案總管] 中，展開 **MyWebAPIFrontEnd**，並且以滑鼠右鍵按一下 [相依性]，然後選取 [新增參考]。  選取 **MyStatefulService.Interface**，並按一下 [確定]。
-   
-2. 在 **Controllers** 資料夾中，開啟 `ValuesController.cs` 檔案。 將下列 using 陳述式新增到檔案中：
+對於您與可靠服務通訊的方式，Service Fabric 會提供完整的彈性。 在單一應用程式中，您可能有可透過 TCP 存取的服務。 可透過 HTTP 的 REST API 存取的其他服務以及其他任何服務可以透過 Web 通訊端存取。 如需可用選項和相關權衡取捨的背景，請參閱 [與服務進行通訊](service-fabric-connect-and-communicate-with-services.md)。
 
-    ```c#
-    using MyStatefulService.Interface;
-    using Microsoft.ServiceFabric.Services.Client;
-    using Microsoft.ServiceFabric.Services.Remoting.Client;
-    ```
-    
-3. `Get` 方法目前只會傳回 "value1" 和 "value2" 的硬式編碼字串陣列，這符合我們稍早在瀏覽器中所見的內容。 使用下列程式碼來取代此實作：
-   
-    ```
-    public async Task<IEnumerable<string>> Get()
+在本教學課程中，我們會使用 [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md)。
+
+<a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
+
+### <a name="update-the-votescontrollercs-file"></a>更新 VotesController.cs 檔案
+在 **VotingWeb** 專案中，開啟 Controllers/VotesController.cs 檔案。  將 `VotesController` 類別定義內容取代為下列項目，然後儲存變更。
+
+```csharp
+    public class VotesController : Controller
     {
-        ICounter counter =
-            ServiceProxy.Create<ICounter>(new Uri("fabric:/MyApplication/MyStatefulService"), new ServicePartitionKey(0));
-   
-        long count = await counter.GetCountAsync();
-   
-        return new string[] { count.ToString() };
+        private readonly HttpClient httpClient;
+        string serviceProxyUrl = "http://localhost:19081/Voting/VotingData/api/VoteData";
+        string partitionKind = "Int64Range";
+        string partitionKey = "0";
+
+        public VotesController(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        // GET: api/Votes
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            IEnumerable<KeyValuePair<string, int>> votes;
+
+            HttpResponseMessage response = await this.httpClient.GetAsync($"{serviceProxyUrl}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return this.StatusCode((int)response.StatusCode);
+            }
+
+            votes = JsonConvert.DeserializeObject<List<KeyValuePair<string, int>>>(await response.Content.ReadAsStringAsync());
+
+            return Json(votes);
+        }
+
+        // PUT: api/Votes/name
+        [HttpPut("{name}")]
+        public async Task<IActionResult> Put(string name)
+        {
+            string payload = $"{{ 'name' : '{name}' }}";
+            StringContent putContent = new StringContent(payload, Encoding.UTF8, "application/json");
+            putContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            string proxyUrl = $"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}";
+
+            HttpResponseMessage response = await this.httpClient.PutAsync(proxyUrl, putContent);
+
+            return new ContentResult()
+            {
+                StatusCode = (int)response.StatusCode,
+                Content = await response.Content.ReadAsStringAsync()
+            };
+        }
+
+        // DELETE: api/Votes/name
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> Delete(string name)
+        {
+            HttpResponseMessage response = await this.httpClient.DeleteAsync($"{serviceProxyUrl}/{name}?PartitionKind={partitionKind}&PartitionKey={partitionKey}");
+
+            if (response.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                return this.StatusCode((int)response.StatusCode);
+            }
+
+            return new OkResult();
+
+        }
     }
-    ```
- 
-    這個方法的第一行程式碼會使用 ICounter 介面建立具狀態服務的 ServiceProxy 物件。 建立 ServiceProxy 時，您必須提供兩項資訊：資料分割識別碼和服務名稱。
-   
-    具狀態服務可分割為不同的級別，方法是按照客戶識別碼或郵遞區號之類的索引鍵，將資料劃分到不同貯體。 在我們的簡單應用程式中，具狀態服務只有一個資料分割，所以索引鍵並不重要。 您提供的任何索引鍵都會放在相同的分割區。 如深入了解分割服務，請參閱 [如何分割 Service Fabric 可靠的服務](service-fabric-concepts-partitioning.md)。
-   
-    服務名稱是 fabric:/&lt;application_name&gt;/&lt;service_name&gt; 形式的 URI。
-   
-    利用這兩項資訊，Service Fabric 即可唯一識別要求應傳送至的電腦。 `ServiceProxy` 類別也會順暢地處理裝載具狀態服務分割區的電腦發生失敗的情況，而另一部電腦則必須進行升級才能取而代之。 此概念讓撰寫用戶端程式碼來處理其他服務變得簡單許多。
-   
-    一旦擁有 Proxy，我們將叫用 `GetCountAsync` 方法並傳回其結果。
+```
+<a id="walkthrough" name="walkthrough_anchor"></a>
 
-4. 再次按 F5 以執行修改過的應用程式。 像之前一樣，Visual Studio 會自動啟動瀏覽器並瀏覽至 Web 專案的根目錄。 新增 "api/values" 路徑，您應該會看到傳回的目前計數器值。
-   
-    ![在瀏覽器中顯示的具狀態計數器值](./media/service-fabric-tutorial-create-dotnet-app/browser-aspnet-counter-value.png)
-   
-    定期重新整理瀏覽器，以查看計數器值更新。
+## <a name="walk-through-the-voting-sample-application"></a>逐步解說投票範例應用程式
+投票應用程式包含兩個服務：
+- Web 前端服務 (VotingWeb) 是 ASP.NET Core Web 前端服務，可作為網頁，並公開 Web API 來與後端服務通訊。
+- 後端服務 (VotingData) 是 ASP.NET Core Web 服務，會公開 API 來將投票結果儲存在磁碟上所保存的可靠字典中。
 
-若要停止應用程式偵錯，請返回 Visual Studio 並且按**Shift+F5**。
+![應用程式圖表](./media/service-fabric-tutorial-create-dotnet-app/application-diagram.png)
+
+當您在應用程式中投票時，會發生下列事件：
+1. JavaScript 會將投票要求當做 HTTP PUT 要求，傳送至 Web 前端服務中的 Web API。
+
+2. Web 前端服務使用 Proxy 來尋找 HTTP PUT 要求，並將其轉送至後端服務。
+
+3. 後端服務會接受傳入要求，並將更新的結果儲存在可靠的字典中，以複寫至叢集中的多個節點並保存在磁碟上。 應用程式的所有資料都會儲存在叢集中，因此不需要資料庫。
+
+## <a name="debug-in-visual-studio"></a>在 Visual Studio 中偵錯
+在 Visual Studio 中偵錯應用程式時，您會使用本機 Service Fabric 開發叢集。 您可以根據自己的情況選擇調整偵錯體驗。 在此應用程式中，我們將資料儲存在使用可靠字典的後端服務中。 當您停止偵錯工具時，Visual Studio 預設會移除應用程式。 移除應用程式也會導致移除後端服務中的資料。 若要保存偵錯工作階段之間的資料，您可以在 Visual Studio 中，將 [應用程式偵錯模式] 當做 [投票] 專案上的屬性來變更。
+
+若要查看對程式碼的影響，請完成下列步驟：
+1. 開啟 **VotesController.cs** 檔案，並在 Web API 的 **Put** 方法 (第 47 行) 中設定中斷點 - 您可以在 Visual Studio 的方案總管中搜尋此檔案。
+
+2. 開啟 **VoteDataController.cs** 檔案，並在此 Web API 的 **Put** 方法 (第 50 行) 中設定中斷點。
+
+3. 返回到瀏覽器，並按一下投票選項或新增投票選項。 您到達 Web 前端之 API 控制器的第一個中斷點。
+    
+    1. 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。
+    
+    ![新增投票前端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+
+    2. 首先，我們會針對後端服務 **(1)** 建構 ReverseProxy 的 URL。
+    3. 接著，我們會將 HTTP PUT 要求傳送至 ReverseProxy **(2)**。
+    4. 最後我們會將後端服務的回應傳回至用戶端 **(3)**。
+
+4. 按 **F5** 繼續
+    1. 您現在位於後端服務的中斷點。
+    
+    ![新增投票後端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+
+    2. 在方法的第一行 **(1)** 中，我們使用 `StateManager` 取得或新增名為 `counts` 的可靠字典。
+    3. 與可靠字典中的值進行的所有互動，都需要交易，這會使用陳述式 **(2)** 建立該交易。
+    4. 在交易中，我們會接著更新投票選項的相關索引鍵值，然後認可作業 **(3)**。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
+5. 按 **F5** 繼續
+
+若要停止偵錯工作階段，請按 **Shift+F5**。
+
 
 ## <a name="next-steps"></a>後續步驟
 在教學課程的這個部分中，您已了解如何：
 
 > [!div class="checklist"]
-> * 建立 ASP.NET Core Web API 服務成為可靠服務
-> * 建立具狀態可靠服務
-> * 實作服務遠端和使用服務 Proxy
+> * 建立 ASP.NET Core Web API 服務成為具狀態可靠服務
+> * 建立 ASP.NET Core Web 應用程式服務成為具狀態可靠服務
+> * 使用反向 proxy 來與具狀態服務進行通訊
 
 前進到下一個教學課程：
 > [!div class="nextstepaction"]

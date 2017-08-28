@@ -4,7 +4,7 @@ description: "深入了解使用 Azure Active Directory (Azure AD) 驗證 Azure 
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

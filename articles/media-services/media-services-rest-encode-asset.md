@@ -4,7 +4,7 @@ description: "了解如何使用媒體編碼器標準，為 Azure 媒體服務�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 2a7273c6-8a22-4f82-9bfe-4509ff32d4a4
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 08/10/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 50cff5d8e2d88b855bb0297bef1d183ab1533801
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 4ec324d94717fa1f93eda6f24d9dbd9fc0cdc455
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用媒體編碼器標準為資產編碼
@@ -39,14 +39,22 @@ ms.lasthandoff: 08/01/2017
 * 工作可透過 Job 實體上的 Tasks 導覽屬性，以內嵌方式定義。
 * 使用 OData 批次處理。
 
-我們建議一律將夾層檔編碼為調適型位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)，將該集合轉換為所需的格式。
+我們建議一律將來源檔案編碼為調適型位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)，將該集合轉換為所需的格式。
 
 如果您的輸出資產是已加密的儲存體，就必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
-> [!NOTE]
-> 開始參考媒體處理器之前，請確認您擁有正確的媒體處理器識別碼。 如需詳細資訊，請參閱[取得媒體處理器](media-services-rest-get-media-processor.md)。
->
->
+## <a name="considerations"></a>考量
+
+在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
+
+開始參考媒體處理器之前，請確認您擁有正確的媒體處理器識別碼。 如需詳細資訊，請參閱[取得媒體處理器](media-services-rest-get-media-processor.md)。
+
+## <a name="connect-to-media-services"></a>連線到媒體服務
+
+如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+>[!NOTE]
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
 
 ## <a name="create-a-job-with-a-single-encoding-task"></a>建立具有單一編碼工作的工作
 > [!NOTE]

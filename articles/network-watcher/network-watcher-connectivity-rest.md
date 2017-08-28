@@ -1,6 +1,6 @@
 ---
-title: "檢查與 Azure 網路監看員的連線 - Azure REST API | Microsoft Docs"
-description: "此頁面說明如何使用 Azure REST API 檢查與網路監看員的連線。"
+title: "檢查與 Azure 網路監看員的連線 - Azure 入口網站 | Microsoft Docs"
+description: "此頁面說明如何在 Azure 入口網站中使用網路監看員來檢查連線能力"
 services: network-watcher
 documentationcenter: na
 author: georgewallace
@@ -11,31 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2017
+ms.date: 08/02/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 9a900752dccfd82524951a01ebf70f882a35afd9
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
-# <a name="check-connectivity-with-azure-network-watcher-using-azure-rest-api"></a>使用 Azure REST API 檢查與 Azure 網路監看員的連線
+# <a name="check-connectivity-with-azure-network-watcher-using-the-azure-portal"></a>使用 Azure 入口網站檢查與 Azure 網路監看員的連線
 
 > [!div class="op_single_selector"]
+> - [入口網站](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
 > - [CLI 2.0](network-watcher-connectivity-cli.md)
 > - [Azure REST API](network-watcher-connectivity-rest.md)
 
 了解如何使用連線，確認是否可以建立從虛擬機器到指定端點的直接 TCP 連線。
-
-本文引領您完成可使用連線執行之不同類型的檢查。
-
-* [檢查與虛擬機器的連線](#check-connectivity-to-a-virtual-machine)
-* [驗證路由問題](#validate-routing-issues)
-* [檢查網站延遲](#check-website-latency)
-* [檢查與儲存體端點的連線](#check-connectivity-to-a-storage-endpoint)
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -469,7 +463,7 @@ null
 
 ### <a name="response"></a>Response
 
-下列是執行前一個 API 呼叫的範例回應。 因為檢查成功，所以 `connectionStatus` 屬性會顯示為 [可以連線]。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
+下列範例是執行前一個 API 呼叫的回應。 因為檢查成功，所以 `connectionStatus` 屬性會顯示為 [可以連線]。  系統會向您提供連線儲存體 Blob 和延遲所需躍點數目的詳細資料。
 
 ```json
 {

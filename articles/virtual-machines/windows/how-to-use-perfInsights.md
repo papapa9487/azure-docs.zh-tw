@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 99386a92b76d0d58f7f5c94d30d3423559eee685
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights 
@@ -311,7 +311,7 @@ Diskspd IO 工作負載測試 [OS 磁碟 (寫入) 和集區磁碟 (讀取/寫入
 
 如果目標 VM 裝載任何 SQL Server 執行個體，您在報表中會看到名為 [SQL Server] 的其他索引標籤：
 
-![[sal] 索引標籤](media/how-to-use-perfInsights/sqltab.png)
+![[SQL] 索引標籤](media/how-to-use-perfInsights/sqltab.png)
 
 本區段包含 [概觀] 和其他裝載在 VM 上的每個 SQL Server 執行個體的子索引標籤。
 
@@ -350,3 +350,4 @@ Xperf 是命令列工具，會從 Windows 效能工具套件擷取追蹤。
 為增加安全性，您需要在第一次使用時變更密碼。
 
 登入 DTM 之後，您會發現一個對話方塊，可上傳 PerfInsights 收集的 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 檔案。
+

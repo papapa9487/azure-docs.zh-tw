@@ -1,5 +1,5 @@
 ---
-title: "適用於 Azure AD 中之群組管理的 Azure Active Directory PowerShell Cmdlet |Microsoft Azure"
+title: "在 Azure Active Directory 中管理群組的 PowerShell 範例 | Microsoft Docs"
 description: "此頁面會提供 PowerShell 範例以協助您管理 Azure Active Directory 中的群組"
 keywords: "Azure AD, Azure Active Directory, PowerShell, 群組, 群組管理"
 services: active-directory
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: rodejo
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c2a313c5ad011d03309a962bf2905750a478b890
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f1ce76178baa44428afca5631c749c2739ad779e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>適用於群組管理的 Azure Active Directory 第 2 版 Cmdlet
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/05/2017
 >
 >
 
-下列文件將提供範例，說明如何使用 PowerShell 管理 Azure Active Directory (Azure AD) 中的群組。  其中也提供有關如何使用 Azure AD PowerShell 模組完成設定的資訊。 首先，您必須 [下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。
+本文包含的範例，會說明如何使用 PowerShell 管理 Azure Active Directory (Azure AD) 中的群組。  其中也會說明如何使用 Azure AD PowerShell 模組來完成設定。 首先，您必須 [下載 Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。
 
 ## <a name="installing-the-azure-ad-powershell-module"></a>安裝 Azure AD PowerShell 模組
 若要安裝 AzureAD PowerShell 模組，請使用下列命令︰
@@ -46,14 +46,14 @@ ms.lasthandoff: 08/05/2017
     ---------- ---------    ----                                ----------------
     Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
 
-現在您可以開始在模組中使用 Cmdlet。 如需有關 Azure AD 模組中各式 Cmdlet 的完整描述，請參閱[線上參考文件](/powershell/azure/install-adv2?view=azureadps-2.0)。
+現在您可以開始在模組中使用 Cmdlet。 如需有關 Azure AD 模組中各式 Cmdlet 的完整描述，請參閱 [Azure Active Directory PowerShell 第 2 版](/powershell/azure/install-adv2?view=azureadps-2.0)的線上參考文件。
 
 ## <a name="connecting-to-the-directory"></a>連線到目錄
-使用 Azure AD PowerShell Cmdlet 開始管理群組之前，您必須先將 PowerShell 工作階段連線至想要管理的目錄。 若要這樣做，請使用下列命令：
+使用 Azure AD PowerShell Cmdlet 開始管理群組之前，您必須先將 PowerShell 工作階段連線至想要管理的目錄。 使用下列命令：
 
     PS C:\Windows\system32> Connect-AzureAD
 
-Cmdlet 會提示您輸入要用以存取目錄的認證。 在此範例中，我們會使用 karen@drumkit.onmicrosoft.com 存取示範目錄。 Cmdlet 將會傳回確認，表示工作階段已成功連接到目錄︰
+Cmdlet 會提示您輸入需要用來存取目錄的認證。 在此範例中，我們會使用 karen@drumkit.onmicrosoft.com 存取示範目錄。 Cmdlet 將會傳回確認，表示工作階段已成功連線到目錄︰
 
     Account                       Environment Tenant
     -------                       ----------- ------
@@ -66,13 +66,13 @@ Cmdlet 會提示您輸入要用以存取目錄的認證。 在此範例中，我
 
     PS C:\Windows\system32> get-azureadgroup
 
-Cmdlet 將會傳回所連接目錄中的所有群組。
+Cmdlet 將會傳回所連線目錄中的所有群組。
 
 您可以使用 -objectID 參數來擷取您指定其群組 objectID 的特定群組：
 
     PS C:\Windows\system32> get-azureadgroup -ObjectId e29bae11-4ac0-450c-bc37-6dae8f3da61b
 
-現在，Cmdlet 將傳回 objectID 與您輸入的參數值相符的群組︰
+現在，Cmdlet 將傳回 objectID 與您所輸入之參數值相符的群組︰
 
     DeletionTimeStamp            :
     ObjectId                     : e29bae11-4ac0-450c-bc37-6dae8f3da61b
@@ -109,7 +109,8 @@ Cmdlet 將會傳回所連接目錄中的所有群組。
     ProxyAddresses               : {}
     SecurityEnabled              : True
 
-請注意，AzureAD PowerShell Cmdlet 會實作 OData 查詢標準，請參閱 [這裡](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)的詳細資訊。
+> [!NOTE] 
+> AzureAD PowerShell Cmdlet 實作 OData 查詢標準。 如需詳細資訊，請參閱[使用 OData 端點的 OData 系統查詢選項](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)中的 **$filter**。
 
 ## <a name="creating-groups"></a>建立群組
 若要在目錄中建立新群組，請使用 New-AzureADGroup Cmdlet。 這個 Cmdlet 會建立名為 “Marketing" 的新安全性群組︰
@@ -212,23 +213,22 @@ Cmdlet 將會傳回所連接目錄中的所有群組。
 
 我們想要加入擁有者的群組，其 ObjectID 就是 -ObjectId 參數，而我們想要新增為群組擁有者的使用者，其 ObjectID 為 -RefObjectId。
 
-若要擷取群組的擁有者，請使用 Get AzureADGroupOwner:
+若要擷取群組的擁有者，請使用 Get AzureADGroupOwner Cmdlet：
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-Cmdlet 將會傳回所指定群組的擁有者清單︰
+Cmdlet 會傳回所指定群組的擁有者清單︰
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
                           e831b3fd-77c9-49c7-9fca-de43e109ef67 User
 
-如果您想要從群組中移除擁有者，請使用 Remove-AzureADGroupOwner：
+如果您需要從群組中移除擁有者，請使用 Remove-AzureADGroupOwner Cmdlet：
 
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>保留的別名 
-當群組建立時，某些端點允許終端使用者指定 mailNickname 或別名，以作為群組電子郵件地址的一部分。   
-以下的電子郵件別名具有高度權限，只有 Azure AD 全域管理員才能建立使用這些別名的群組。 
+當群組建立時，某些端點允許終端使用者指定 mailNickname 或別名，以作為群組電子郵件地址的一部分。 以下的電子郵件別名具有高度權限，只有 Azure AD 全域管理員才能建立使用這些別名的群組。 
   
 * abuse 
 * admin 

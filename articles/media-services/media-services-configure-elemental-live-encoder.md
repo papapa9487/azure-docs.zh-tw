@@ -4,7 +4,7 @@ description: "本主題會示範如何設定 Elemental Live 編碼器，藉此�
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 9c6bf6a9-6273-4fdd-9477-f0e565280b5b
 ms.service: media-services

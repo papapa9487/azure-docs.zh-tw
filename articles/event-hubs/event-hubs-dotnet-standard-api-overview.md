@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 4e05b1cc41038b2239f9314c17b93d20eed33844
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: eea682c40cd415b383a8b2f0004a5f3648e2f01f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/18/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -30,20 +29,20 @@ ms.lasthandoff: 04/18/2017
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor)
   * 此程式庫新增可讓您記錄處理過之事件的額外功能，並且是從事件中樞讀取的最簡單方式。
 
-## <a name="event-hub-client"></a>事件中樞用戶端
-[**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 是您用來傳送事件、建立接收者，以及取得執行階段資訊的主要物件。 此用戶端會連結到特定的事件中樞，並建立新的「事件中樞」端點連線。
+## <a name="event-hubs-client"></a>事件中樞用戶端
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 是您用來傳送事件、建立接收者，以及取得執行階段資訊的主要物件。 此用戶端會連結到特定的事件中樞，並建立新的「事件中樞」端點連線。
 
-### <a name="create-an-event-hub-client"></a>建立事件中樞用戶端
-[**EventHubClient**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 物件是從連接字串建立。 具現化新用戶端的最簡單方式，如下列範例所示︰
+### <a name="create-an-event-hubs-client"></a>建立事件中樞用戶端
+[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 物件是從連接字串建立。 具現化新用戶端的最簡單方式，如下列範例所示︰
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hub connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
 ```
 
-若要以程式設計方式編輯連接字串，您可以使用 [**EventHubsConnectionStringBuilder**](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 類別，並將連接字串做為參數傳遞到 [**EventHubClient.CreateFromConnectionString**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
+若要以程式設計方式編輯連接字串，您可以使用 [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 類別，並將連接字串做為參數傳遞到 [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)。
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hub connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
 {
     EntityPath = EhEntityPath
 };
@@ -52,7 +51,7 @@ var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringB
 ```
 
 ### <a name="send-events"></a>傳送事件
-若要將事件傳送到事件中樞，請使用 [**EventData**](/dotnet/api/microsoft.azure.eventhubs.eventdata) 類別。 主體必須是 `byte` 陣列，或者 `byte` 陣列區段。
+若要將事件傳送到事件中樞，請使用 [EventData](/dotnet/api/microsoft.azure.eventhubs.eventdata) 類別。 主體必須是 `byte` 陣列，或者 `byte` 陣列區段。
 
 ```csharp
 // Create a new EventData object by encoding a string as a byte array
@@ -64,13 +63,12 @@ await eventHubClient.SendAsync(data);
 ```
 
 ### <a name="receive-events"></a>接收事件
-從事件中樞接收事件的建議方式是使用 [**EventProcessorHost**](##Event-Processor-Host-APIs)，它提供了自動追蹤位移的功能，以及資料分割資訊。 不過，在某些情況中，您可能會想要使用核心事件中樞程式庫的彈性來接收事件。
+從事件中樞接收事件的建議方式是使用[事件處理器主機](#event-processor-host-apis)，它提供了自動追蹤位移的功能，以及資料分割資訊。 不過，在某些情況中，您可能會想要使用核心事件中樞程式庫的彈性來接收事件。
 
 #### <a name="create-a-receiver"></a>建立接收者
-接收者會繫結至特定的資料分割，因此為了要接收事件中樞中的所有事件，您將必須建立多個執行個體。 一般而言，最好以程式設計的方式取得資料分割資訊，而不是以硬式編碼資料分割識別碼的方式。 若要這樣做，您可以使用 [**GetRuntimeInformationAsync**](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
+接收者會繫結至特定的資料分割，因此為了要接收事件中樞中的所有事件，您將必須建立多個執行個體。 一般而言，最好以程式設計的方式取得資料分割資訊，而不是以硬式編碼資料分割識別碼的方式。 若要這樣做，您可以使用 [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) 方法。
 
 ```csharp
-
 // Create a list to keep track of the receivers
 var receivers = new List<PartitionReceiver>();
 // Use the eventHubClient created above to get the runtime information
@@ -90,7 +88,7 @@ foreach (var partitionId in runTimeInformation.PartitionIds)
 ```csharp
 // partitionId is assumed to come from GetRuntimeInformationAsync()
 
-// Using the constant 'PartitionReceiver.EndOfStream' will only receive all messages from this point forward.
+// Using the constant PartitionReceiver.EndOfStream only receives all messages from this point forward.
 var receiver = eventHubClient.CreateReceiver(PartitionReceiver.DefaultConsumerGroupName, partitionId, PartitionReceiver.EndOfStream);
 
 // All messages available
@@ -116,7 +114,7 @@ if (ehEvents != null)
         var customType = ehEvent.Properties["Type"];
         // Implement processing logic here
     }
-}        
+}       
 ```
 
 ## <a name="event-processor-host-apis"></a>Event Processor Host API
@@ -127,7 +125,7 @@ if (ehEvents != null)
 
 // Read these connection strings from a secure location
 var ehConnectionString = "{Event Hubs connection string}";
-var ehEntityPath = "{Event Hub path/name}";
+var ehEntityPath = "{event hub path/name}";
 var storageConnectionString = "{Storage connection string}";
 var storageContainerName = "{Storage account container name}";
 

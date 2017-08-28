@@ -11,17 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/27/2017
+ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 285f3bc3faeffc94c639658ba375910bc4463e25
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: 170f431525ffdc93a01fc085e48e69c3a774968e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>如何使用服務匯流排佇列
+# <a name="how-to-use-service-bus-queues-with-java"></a>如何將服務匯流排佇列搭配 Java 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本文說明如何使用服務匯流排佇列。 相關範例是以 Java 撰寫，並且使用 [Azure SDK for Java][Azure SDK for Java]。 本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
@@ -48,7 +47,7 @@ import javax.xml.datatype.*;
 ## <a name="create-a-queue"></a>建立佇列
 可以透過 **ServiceBusContract** 類別，來執行服務匯流排佇列的管理作業。 **ServiceBusContract** 物件是利用使用權限來封裝 SAS 權杖以加以管理的適當組態所建構，而 **ServiceBusContract** 類別是唯一可與 Azure 通訊的點。
 
-**ServiceBusService** 類別提供建立、列舉及刪除佇列的方法。 以下範例顯示如何使用 **ServiceBusService** 物件建立名稱為「TestQueue」的佇列及名稱為「HowToSample」的命名空間：
+**ServiceBusService** 類別提供建立、列舉及刪除佇列的方法。 以下範例顯示如何使用 **ServiceBusService** 物件建立名稱為 `TestQueue` 的佇列及名稱為 `HowToSample`的命名空間：
 
 ```java
 Configuration config =
@@ -73,7 +72,7 @@ catch (ServiceException e)
 }
 ```
 
-**QueueInfo** 有相關方法可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息所套用的存留時間 (TTL) 設定預設值)。 下列範例示範如何使用大小上限為 5 GB 的設定，來建立名為 `TestQueue` 的佇列：
+`QueueInfo` 有相關方法可讓您調整佇列的屬性 (例如，針對要在傳送至佇列的訊息所套用的存留時間 (TTL) 設定預設值)。 下列範例示範如何使用大小上限為 5 GB 的設定，來建立名為 `TestQueue` 的佇列：
 
 ````java
 long maxSizeInMegabytes = 5120;
@@ -82,7 +81,7 @@ queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
 CreateQueueResult result = service.createQueue(queueInfo);
 ````
 
-請注意，您可以在 **ServiceBusContract** 物件上使用 **listQueues** 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
+請注意，您可以在 **ServiceBusContract** 物件上使用 `listQueues` 方法，來檢查服務命名空間內是否已有指定名稱的佇列存在。
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
 若要將訊息傳送至服務匯流排佇列，應用程式會取得 **ServiceBusContract** 物件。 下列程式碼示範如何針對先前在 `HowToSample` 命名空間中建立的 `TestQueue` 佇列傳送訊息：

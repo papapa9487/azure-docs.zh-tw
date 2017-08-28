@@ -13,25 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/22/2017
+ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: da8029f5cd69f3fd9d423c8e3ff22f2a7527f480
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
-除了用於搭配 Data Lake 與 Azure HDInsight 使用的工具之外，Azure Data Lake 還包括用於搭配一般 Hadoop 叢集使用的工具。 針對在本機虛擬機器中執行的 Hortonworks 沙箱，此文件提供搭配使用 Data Lake 工具所需的步驟。
+Azure Data Lake 包含使用於一般 Hadoop 叢集的工具。 針對在本機虛擬機器中執行的 Hortonworks 沙箱，本文提供搭配使用 Data Lake 工具所需的步驟。
 
 使用 Hortonworks 沙箱，可讓您在本機開發環境上使用 Hadoop。 開發解決方案之後並想要進行大規模部署時，您可以接著移至 HDInsight 叢集。
 
 ## <a name="prerequisites"></a>先決條件
 
-* 在您的開發環境上虛擬機器中執行的 Hortonworks 沙箱。 此文件是使用在 Oracle VirtualBox 上執行的沙箱所撰寫並測試。 它是使用[開始使用 Hadoop 生態系統](hdinsight-hadoop-emulator-get-started.md)中的資訊所設定。
+* 在您的開發環境上虛擬機器中執行的 Hortonworks 沙箱。 此文件是使用在 Oracle VirtualBox 上執行的沙箱所撰寫並測試。 若要了解沙箱的設定，請參閱 [Hortonworks 沙箱使用者入門](hdinsight-hadoop-emulator-get-started.md) 文件。
 
 * Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017 (任一版本)。
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 06/14/2017
 
 ## <a name="configure-passwords-for-the-sandbox"></a>設定沙箱的密碼
 
-確定 Hortonworks 沙箱正在執行。 接著，依照[開始使用 Hadoop 生態系統](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords)中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
+確定 Hortonworks 沙箱正在執行。 依照 [Hortonworks 沙箱使用者入門](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords)文件中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>將工具連線至沙箱
 
@@ -80,19 +79,19 @@ ms.lasthandoff: 06/14/2017
 
 ## <a name="write-a-hive-query"></a>撰寫 Hive 查詢
 
-Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料。 使用下列步驟，了解如何針對本機叢集執行特定查詢。
+Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料。 執行下列步驟，了解如何針對本機叢集執行特定查詢。
 
 1. 在 [伺服器總管] 中，以滑鼠右鍵按一下您先前新增的本機叢集項目，然後選取 [撰寫 Hive 查詢]。
 
     ![[伺服器總管] 的螢幕擷取畫面，其中 [撰寫 Hive 查詢] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/write-hive-query.png)
 
-    這會開啟新的查詢視窗，讓您快速撰寫查詢並提交到本機叢集。
+    新的查詢視窗隨即開啟。 您可以在此視窗迅速寫入查詢並提交到本機叢集。
 
 2. 在新的查詢視窗中，輸入下列命令︰
 
         select count(*) from sample_08;
 
-    在查詢視窗的頂端，確定已選取本機叢集的設定，然後選取 [提交]。 讓其他值 ([批次] 和伺服器名稱) 保持預設值。
+    若要執行查詢，請選取視窗頂端的 [提交]。 讓其他值 ([批次] 和伺服器名稱) 保持預設值。
 
     ![查詢視窗的螢幕擷取畫面，其中 [提交] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/submit-hive.png)
 
@@ -124,7 +123,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
 ## <a name="create-a-hive-project"></a>建立 Hive 專案
 
-您也可以建立包含多個 Hive 指令碼的專案。 當您有需要留在一起或使用版本控制系統維護的相關指令碼時，專案非常有用。
+您也可以建立包含多個 Hive 指令碼的專案。 若有相關的指令碼或想要儲存指令碼於有版本控制的系統，您可以使用專案。
 
 1. 在 Visual Studio 中，選取 [檔案]、[新增]，然後選取 [專案]。
 
@@ -132,7 +131,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
     ![[新增專案] 視窗的螢幕擷取畫面，其中 [Azure Data Lake]、[HIVE]、[Hive 範例] 與 [確定] 已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/new-hive-project.png)
 
-[Hive 範例] 專案包含兩個指令碼：**WebLogAnalysis.hql** 和 **SensorDataAnalysis.hql**。 您可以使用視窗頂端的同一個 [提交] 按鈕提交這些項目。
+[Hive 範例] 專案包含兩個指令碼：**WebLogAnalysis.hql** 和 **SensorDataAnalysis.hql**。 您可以使用前述視窗頂端的 [提交] 按鈕提交這些指令碼。
 
 ## <a name="create-a-pig-project"></a>建立 Pig 專案
 
@@ -191,7 +190,7 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 ### <a name="database-and-table-properties"></a>資料庫和資料表屬性
 
-您可以檢視資料庫或資料表的屬性。 選取 [屬性] 會在 [屬性] 視窗中顯示所選取項目的詳細資料。 例如，查看下列螢幕擷取畫面中顯示的資訊。
+您可以檢視資料庫或資料表的屬性。 選取 [屬性] 會在 [屬性] 視窗中顯示所選取項目的詳細資料。 請參考下列螢幕擷取畫面中顯示的資訊為例：
 
 ![[屬性] 視窗的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/properties.png)
 
@@ -208,5 +207,5 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 ## <a name="next-steps"></a>後續步驟
 
 * [了解 Hortonworks 沙箱的訣竅](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/) \(英文\)
-* [Hadoop 教學課程 - 開始使用 HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/) \(英文\)
+* [Hadoop 教學課程 - 開始使用 HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

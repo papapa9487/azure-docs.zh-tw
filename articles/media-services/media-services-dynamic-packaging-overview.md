@@ -2,7 +2,7 @@
 title: "Azure 媒體服務動態封裝概觀 | Microsoft Docs"
 description: "本主題提供動態封裝的概觀。"
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

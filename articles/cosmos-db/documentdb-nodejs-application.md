@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: e5f7697b1069186b9ab6b6594fa5efb069252475
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 1a98509a98bcd2a5de593eb006f905766fe72966
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/26/2017
 
 本 Node.js 教學課程說明如何使用 Azure Cosmos DB 和 DocumentDB API，來儲存和存取 Azure 網站上所託管的 Node.js Express 應用程式資料。 您會建置一個可供建立、擷取及完成工作的簡單網頁型工作管理應用程式 (待辦事項應用程式)。 在 Azure Cosmos DB 中，這些工作會儲存為 JSON 文件。 本教學課程會逐步引導您建立和部署應用程式，並說明每個程式碼片段中的狀況。
 
-![本 Node.js 教學課程所建立的「我的待辦事項清單」應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image1.png)
+![本 Node.js 教學課程所建立的「我的待辦事項清單」應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/cosmos-db-node-js-mytodo.png)
 
 是否沒有時間完成本教學課程，只是想要取得完整的解決方案？ 沒有問題，您可以從 [GitHub][GitHub] 取得完整的範例解決方案。 如需有關如何執行應用程式的指示，只需閱讀 [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) 檔案即可。
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 07/26/2017
         npm start
 6. 您可以檢視新的應用程式，請導覽瀏覽器至 [http://localhost:3000/](http://localhost:3000)。
    
-    ![了解 Node.js - Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image12.png)
+    ![了解 Node.js - Hello World 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/cosmos-db-node-js-express.png)
 
     然後，若要停止應用程式，請在終端機視窗中按 CTRL+C，然後按一下 **y** 以終止批次作業。
 
@@ -190,12 +190,6 @@ ms.lasthandoff: 07/26/2017
    
         module.exports = DocDBUtils;
    
-   > [!TIP]
-   > createCollection 會採用選擇性的 requestOptions 參數，可以用來指定集合的優惠類型。 如果未提供 requestOptions.offerType 值，則將會使用預設的優惠類型來建立集合。
-   > 
-   > 如需 Azure Cosmos DB 供應項目類型的詳細資訊，請參閱 [Azure Cosmos DB 效能等級](performance-levels.md) 
-   > 
-   > 
 5. 儲存並關閉 **docdbUtils.js** 檔案。
 6. 在 **taskDao.js** 檔案的開頭加入下列程式碼，以參考我們之前建立的 **DocumentDBClient** 和 **docdbUtils.js**：
    
@@ -497,20 +491,20 @@ ms.lasthandoff: 07/26/2017
              button.btn(type="submit") Add item
    
 
-    這個程式碼會擴充配置，並為我們在前面的 **layout.jade** 檔案中看到的 **content** 預留位置提供內容。
+這個程式碼會擴充配置，並為我們在前面的 **layout.jade** 檔案中看到的 **content** 預留位置提供內容。
    
-    在此配置中，我們建立了兩個 HTML 表單。
+在此配置中，我們建立了兩個 HTML 表單。
 
-    第一個表單包含資料的表格，以及可讓我們透過張貼到控制器的 **/completetask** 方法來更新項目的按鈕。
+第一個表單包含資料的表格，以及可讓我們透過張貼到控制器的 **/completetask** 方法來更新項目的按鈕。
     
-    第二個表單包含兩個輸入欄位，以及可讓我們透過張貼到控制器的 **/addtask** 方法來建立項目的按鈕。
+第二個表單包含兩個輸入欄位，以及可讓我們透過張貼到控制器的 **/addtask** 方法來建立項目的按鈕。
 
-    這應該就是要讓應用程式開始運作所需的所有程式碼。
+這應該就是要讓應用程式開始運作所需的所有程式碼。
 
 ## <a name="_Toc395783181"></a>步驟 6：在本機執行您的應用程式
 1. 若要在本機電腦上測試應用程式，請在終端機中執行 `npm start` 以啟動應用程式，然後重新整理 [http://localhost:3000](http://localhost:3000) 瀏覽器頁面。 此頁面現在看起來應該類似以下影像：
    
-    ![[我的待辦事項清單] 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/image18.png)
+    ![[我的待辦事項清單] 應用程式在瀏覽器視窗中的螢幕擷取畫面](./media/documentdb-nodejs-application/cosmos-db-node-js-localhost.png)
 
     > [!TIP]
     > 如果您收到有關 layout.jade 檔案或 index.jade 檔案縮排的錯誤，請確定這兩個檔案的前兩行靠左對齊 (沒有空格)。 如果前兩行之前有空格，請將空格移除，儲存這兩個檔案，然後重新整理瀏覽器視窗。 
@@ -518,7 +512,7 @@ ms.lasthandoff: 07/26/2017
 2. 使用 [項目]、[項目名稱] 和 [類別] 欄位來輸入新工作，然後按一下 [新增項目]。 便會使用這些屬性在 Azure Cosmos DB 中建立文件。 
 3. 系統應該會更新此頁面，以在 [待辦事項] 清單中顯示新建立的項目。
    
-    ![[待辦事項] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/image19.png)
+    ![[待辦事項] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
 4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作] 。 這會更新您已建立的文件。
 
 5. 若要停止應用程式，請在終端機視窗中按 CTRL+C，然後按一下 **Y** 以終止批次作業。

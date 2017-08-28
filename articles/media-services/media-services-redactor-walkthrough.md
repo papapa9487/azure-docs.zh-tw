@@ -4,7 +4,7 @@ description: "本主題逐步說明如何使用 Azure 媒體服務總管 (AMSE) 
 services: media-services
 documentationcenter: 
 author: Lichard
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services

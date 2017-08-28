@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 430fed27780076738e319dabca4cc9abaed70691
-ms.openlocfilehash: 6c066599cc8fcff6344aaba5f0d2ad01acc71b5a
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/22/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
@@ -97,12 +97,14 @@ ms.lasthandoff: 02/22/2017
 執行 DDL 陳述式之後，您可以存取遠端資料表 "mytable"，就像存取本機資料表一樣。 Azure SQL Database 會自動開啟遠端資料庫的連線、處理您對遠端資料庫的要求，以及傳回結果。
 
 ## <a name="horizontal-partitioning---sharding"></a>水平資料分割 - 分區化
-使用彈性查詢在分區化 (即水平分割) 的資料層執行報告工作時，需要 [彈性資料庫分區對應](sql-database-elastic-scale-shard-map-management.md) 來代表資料層的資料庫。 一般而言，這種案例中只會使用單一分區對應，並以具有彈性查詢功能的專用資料庫做為報告查詢的進入點。 只有這個專用的資料庫需要存取分區對應。 圖 4 說明此拓撲及其彈性查詢資料庫和分區對應的組態。 資料層中的資料庫可以是任何 Azure SQL Database 版本。 如需有關彈性資料庫用戶端程式庫和建立分區對應的詳細資訊，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。
+使用彈性查詢在分區化 (即水平分割) 的資料層執行報告工作時，需要 [彈性資料庫分區對應](sql-database-elastic-scale-shard-map-management.md) 來代表資料層的資料庫。 一般而言，這種情節中只會使用單一分區對應，並以具有彈性查詢功能 (前端節點) 的專用資料庫作為報告查詢的進入點。 只有這個專用的資料庫需要存取分區對應。 圖 4 說明此拓撲及其彈性查詢資料庫和分區對應的組態。 資料層中的資料庫可以是任何 Azure SQL Database 版本。 如需有關彈性資料庫用戶端程式庫和建立分區對應的詳細資訊，請參閱 [分區對應管理](sql-database-elastic-scale-shard-map-management.md)。
 
 **圖 4** 水平資料分割 - 使用彈性查詢來報告分區化資料層
 
 ![水平資料分割 - 使用彈性查詢來報告分區化資料層][5]
 
+> [!NOTE]
+> 彈性查詢資料庫 (前端節點) 可以是個別的資料庫，或是裝載分區對應的相同資料庫。 無論您選擇哪一個設定，請確定該資料庫的服務和效能層級夠高，可處理預期的登入/查詢要求數量。
 
 下列步驟會針對水平資料分割案例設定彈性資料庫查詢，這些案例需要存取 (通常) 位於數個遠端 SQL Database 上的一組資料表：
 

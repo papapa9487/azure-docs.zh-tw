@@ -4,7 +4,7 @@ description: "了解如何使用 Azure Active Directory 驗證搭配 REST 存取
 services: media-services
 documentationcenter: 
 author: willzhan
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.service: media-services
 ms.workload: media

@@ -12,19 +12,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2017
+ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d8a85da4c929180c7ca52a19724d2be702fe3e9c
-ms.openlocfilehash: db71f7ea9561542fe9b579bf471cf2b81f5997cd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/02/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
-<a id="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model" class="xliff"></a>
-
-# 使用 Resource Manager 部署模型將檔案還原到 Windows Server 或 Windows 用戶端電腦
+# <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型將檔案還原到 Windows Server 或 Windows 用戶端電腦
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](backup-azure-restore-windows-server.md)
 > * [傳統入口網站](backup-azure-restore-windows-server-classic.md)
@@ -46,43 +43,7 @@ ms.lasthandoff: 02/02/2017
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-<a id="recover-data-to-the-same-machine" class="xliff"></a>
-
-## 將資料還原到相同電腦
-如果您不小心刪除檔案，而您想要將它還原到相同的電腦 (備份進行處)，下列步驟可協助您復原資料。
-
-1. 開啟 **Microsoft Azure 備份** 嵌入式管理單元。
-2. 按一下 [復原資料]  初始化工作流程。
-
-    ![復原資料](./media/backup-azure-restore-windows-server/recover.png)
-3. 選取 [這台伺服器 (yourmachinename)] 選項，在同一部電腦上還原備份的檔案。
-
-    ![相同電腦](./media/backup-azure-restore-windows-server/samemachine.png)
-4. 選擇 [瀏覽檔案] 或 [搜尋檔案]。
-
-    如果您打算還原路徑已知的一個或多個檔案，請保留預設選項。 如果您不確定資料夾結構，但想要搜尋檔案，請挑選 [ **搜尋檔案** ] 選項。 為了達成本章節的目的，我們將使用預設選項繼續進行。
-
-    ![瀏覽檔案](./media/backup-azure-restore-windows-server/browseandsearch.png)
-5. 選取您要還原檔案所在的磁碟區。
-
-    您可以從任何時間點還原。 日曆控制項中以 **粗體** 顯示的日期會指出還原點的可用性。 選取日期之後，您可以根據您的備份排程 (以及成功的備份作業)，從 [時間]  下拉式清單選取時間點。
-
-    ![磁碟區和日期](./media/backup-azure-restore-windows-server/volanddate.png)
-6. 選取要復原的項目。 您可以複選想要還原的資料夾/檔案。
-
-    ![選取檔案](./media/backup-azure-restore-windows-server/selectfiles.png)
-7. 指定復原參數。
-
-    ![修復選項](./media/backup-azure-restore-windows-server/recoveroptions.png)
-
-   * 您可以選擇還原至原始位置 (其中的檔案/資料夾可能會遭到覆寫) 或相同電腦中的其他位置。
-   * 如果目標位置有您想要還原的檔案/資料夾存在，您可以建立複本 (相同檔案的兩個版本)、覆寫目標位置中的檔案，或略過修復目標位置已存在的檔案。
-   * 強烈建議您針對正在復原檔案上的 ACL 保留預設還原選項。
-8. 提供這些輸入之後，按一下 [下一步]。 就會開始執行將檔案還原到這部電腦的復原工作流程。
-
-<a id="use-instant-restore-to-recover-data-to-the-same-machine" class="xliff"></a>
-
-## 使用「立即還原」將資料還原至同一台電腦
+## <a name="use-instant-restore-to-recover-data-to-the-same-machine"></a>使用「立即還原」將資料還原至同一台電腦
 
 如果您不小心刪除檔案，而您想要將它還原到相同的電腦 (備份進行處)，下列步驟可協助您復原資料。
 
@@ -126,56 +87,11 @@ ms.lasthandoff: 02/02/2017
     ![卸載磁碟區並確認](./media/backup-azure-restore-windows-server/samemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 如果您並未按一下 [卸載]，復原磁碟區會保持掛接六個小時 (從掛接後開始計算)。 當磁碟區處於掛接狀態時，不會執行任何備份作業。 當掛接磁碟區時，任何排定要執行的備份作業會在復原磁碟區卸載之後才執行。
+    > 如果您並未按一下 [卸載]，復原磁碟區會保持掛接 6 個小時 (從掛接後開始計算)。 不過，如果是進行中的檔案複製，掛接時間可擴充至高達 24 小時。 當磁碟區處於掛接狀態時，不會執行任何備份作業。 當掛接磁碟區時，任何排定要執行的備份作業會在復原磁碟區卸載之後才執行。
     >
 
-<a id="recover-to-an-alternate-machine" class="xliff"></a>
 
-## 還原至其他電腦
-
-若您遺失整個伺服器，您仍然可從 Azure 備份將資料還原到其他電腦。 下列步驟說明工作流程。  
-
-這些步驟中所使用的術語包含：
-
--  – 用來進行備份且目前無法使用的的原始電腦。
--  – 復原資料時的目標電腦。
-- 「範例保存庫」–「來源電腦」和「目標電腦」註冊的備份保存庫。 <br/>
-
-> [!NOTE]
-> 從電腦進行的備份無法在執行舊版作業系統的電腦上進行還原。 例如，如果從 Windows 7 電腦進行備份，則可以在 Windows 8 或更新版電腦上進行還原。 不過若情況相反，便無法進行還原。
->
->
-
-1. 在「目標電腦」上開啟 [Microsoft Azure 備份] 嵌入式管理單元。
-2. 確定「目標電腦」和「來源電腦」均已註冊到相同的備份保存庫。
-3. 按一下 [復原資料]  初始化工作流程。
-
-    ![復原資料](./media/backup-azure-restore-windows-server-classic/recover.png)
-4. 選取 [其他伺服器] 
-
-    ![其他伺服器](./media/backup-azure-restore-windows-server-classic/anotherserver.png)
-5. 提供與「範例保存庫」 相對應的保存庫認證檔。 如果保存庫認證檔無效 (或已過期)，請從 Azure 傳統入口網站中的「範例保存庫」  下載新的保存庫認證檔。 一旦提供保存庫認證檔，即會顯示保存庫認證檔的備份保存庫。
-6. 在顯示電腦的清單中選取 [來源電腦]  。
-
-    ![電腦清單](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-7. 選取 [搜尋檔案] 或 [瀏覽檔案] 選項。 為了達成本章節的目的，我們將使用 [搜尋檔案]  選項。
-
-    ![Search](./media/backup-azure-restore-windows-server-classic/search.png)
-8. 在下一個畫面中選取磁碟區和日期。 搜尋您想要還原的資料夾/檔案名稱。
-
-    ![搜尋項目](./media/backup-azure-restore-windows-server-classic/searchitems.png)
-9. 選取需要還原之檔案的位置。
-
-    ![還原位置](./media/backup-azure-restore-windows-server-classic/restorelocation.png)
-10. 提供「來源電腦」註冊至「範例保存庫」期間所提供的加密複雜密碼。
-
-    ![加密](./media/backup-azure-restore-windows-server-classic/encryption.png)
-11. 一旦提供輸入，則按一下 [復原] ，將會觸發還原備份檔案到所提供目的地的程序。
-
-
-<a id="use-instant-restore-to-restore-data-to-an-alternate-machine" class="xliff"></a>
-
-## 使用「立即還原」將資料還原至其他電腦
+## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>使用「立即還原」將資料還原至其他電腦
 若您遺失整個伺服器，您仍然可從 Azure 備份將資料還原到其他電腦。 下列步驟說明工作流程。
 
 
@@ -206,7 +122,8 @@ ms.lasthandoff: 02/02/2017
 
     如果保存庫認證檔無效 (或已過期)，請從 Azure 入口網站中的「範例保存庫」下載新的保存庫認證檔。 一旦您提供有效的保存庫認證檔之後，就會顯示對應的備份保存庫名稱。
 
-6. 在 [選取備份伺服器] 窗格上，從顯示的電腦清單選取 [來源電腦]，並提供複雜密碼。 然後按一下 [下一步]。
+
+6. 在 [選取備份伺服器] 窗格上，從顯示的電腦清單選取 [來源電腦]，並提供複雜密碼。 然後按 [下一步] 。
 
     ![電腦清單](./media/backup-azure-restore-windows-server/alternatemachine_selectmachine_instantrestore.png)
 
@@ -235,11 +152,36 @@ ms.lasthandoff: 02/02/2017
     ![加密](./media/backup-azure-restore-windows-server/alternatemachine_unmount_instantrestore.png)
 
     > [!Important]
-    > 如果您並未按一下 [卸載]，復原磁碟區會保持掛接六個小時 (從掛接後開始計算)。 當磁碟區處於掛接狀態時，不會執行任何備份作業。 當掛接磁碟區時，任何排定要執行的備份作業會在復原磁碟區卸載之後才執行。
+    > 如果您並未按一下 [卸載]，復原磁碟區會保持掛接 6 個小時 (從掛接後開始計算)。 不過，如果是進行中的檔案複製，掛接時間可擴充至高達 24 小時。 當磁碟區處於掛接狀態時，不會執行任何備份作業。 當掛接磁碟區時，任何排定要執行的備份作業會在復原磁碟區卸載之後才執行。
     >
 
-<a id="next-steps" class="xliff"></a>
+## <a name="troubleshooting"></a>疑難排解
+如果即使按一下 [掛接] 數分鐘之後，Azure 備份仍未成功掛接復原磁碟區，或者無法掛接復原磁碟區且有一或多個錯誤，請遵循以下步驟來開始一般復原。
 
-## 後續步驟
+1.  如果已執行數分鐘，請取消進行中的掛接程序。
+
+2.  確認您使用最新版本的 Azure 備份代理程式。 若要了解 Azure 備份代理程式的版本資訊，按一下 Microsoft Azure 備份主控台之 [動作] 窗格中的 [關於 Microsoft Azure 復原服務代理程式]，並且確定**版本**號碼等於或高於[本文](https://go.microsoft.com/fwlink/?linkid=229525)中所述的版本。 您可以從[這裡](https://go.microsoft.com/fwLink/?LinkID=288905)下載最新版本
+
+3.  移至 [裝置管理員]  ->  [儲存體控制器]，並確保您可以找出 **Microsoft iSCSI 啟動器**。 如果您可以找到它，請直接前往以下的步驟 7。 
+
+4.  如果您無法如步驟 3 中所述，找到 Microsoft iSCSI 啟動器服務，請查看是否可以在名為 [不明裝置]、硬體識別碼為**ROOT\ISCSIPRT** 的 [裝置管理員]  ->  [儲存體控制器]項目。
+
+5.  以滑鼠右鍵按一下 [不明裝置]，然後選取 [更新驅動程式軟體]。
+
+6.  藉由選取 [自動搜尋更新的驅動程式軟體] 的選項，以更新驅動程式。 完成更新應該會將 [不明裝置] 變更為 [Microsoft iSCSI 啟動器]如下所示。 
+
+    ![加密](./media/backup-azure-restore-windows-server/UnknowniSCSIDevice.png)
+
+7.  移至 [工作管理員]  ->  [服務 (本機)]  ->  [Microsoft iSCSI 啟動器服務]。 
+
+    ![加密](./media/backup-azure-restore-windows-server/MicrosoftInitiatorServiceRunning.png)
+    
+8.  以滑鼠右鍵按一下服務，以重新啟動 Microsoft iSCSI 啟動器服務，按一下 [停止] 並且再次以滑鼠右鍵按一下，然後按一下 [啟動]。
+
+9.  使用即時還原重試復原。 
+
+如果復原仍然失敗，請重新啟動您的伺服器/用戶端。 如果不想要重新開機，或者即使在重新啟動伺服器之後復原仍然失敗，請嘗試從其他電腦復原，移至 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡 Azure 支援並且提交支援要求。
+
+## <a name="next-steps"></a>後續步驟
 * 現在您已復原檔案和資料夾，接下來您可以 [管理您的備份](backup-azure-manage-windows-server.md)。
 

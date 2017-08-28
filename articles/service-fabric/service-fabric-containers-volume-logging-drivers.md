@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 7/27/2017
+ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 781431dc8dd576e6fb6807ade4a0a1e909abcab7
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: b12ef95add6347621f7d4865fac46568f91a1e12
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
@@ -58,7 +58,7 @@ Service Fabric 支援為容器服務指定 [Docker 磁碟區外掛程式](https:
 </ApplicationManifest>
 ```
 
-在上述範例中，`Volume` 的 `Source` 標記指的是來源資料夾。 來源資料夾可以是裝載容器或持續性遠端存放區的 VM 中的資料夾。 `Destination` 標記是 `Source` 在執行容器內對應的位置。 
+在上述範例中，`Volume` 的 `Source` 標記指的是來源資料夾。 來源資料夾可以是裝載容器或持續性遠端存放區的 VM 中的資料夾。 `Destination` 標記是 `Source` 在執行容器內所對應的位置。 
 
 指定磁碟區外掛程式時，Service Fabric 會使用指定的參數自動建立磁碟區。 `Source` 標記是磁碟區的名稱，而 `Driver` 標記會指定磁碟區驅動程式的外掛程式。 您可以使用 `DriverOption` 標記指定選項，如下列程式碼片段所示：
 
@@ -72,8 +72,7 @@ Service Fabric 支援為容器服務指定 [Docker 磁碟區外掛程式](https:
 
 請參閱下列文章將容器部署至 Service Fabric 叢集：
 
-[將 Windows 容器部署至 Windows Server 2016 上的 Service Fabric](service-fabric-deploy-container.md)
 
-[將 Docker 容器部署至 Linux 上的 Service Fabric](service-fabric-deploy-container-linux.md)
+[將容器部署在 Service Fabric 上](service-fabric-deploy-container.md)
 
 

@@ -2,7 +2,7 @@
 title: "H264 單一位元速率 720p (適用於 Android) | Microsoft Docs"
 description: "本主題提供「H264 單一位元速率 720p (適用於 Android)」工作預設的概觀。"
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

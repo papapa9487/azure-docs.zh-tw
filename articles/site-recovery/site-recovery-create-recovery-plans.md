@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 618c6fead3dbad385c4ded39352eea0cfcf1b134
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="create-recovery-plans"></a>建立復原方案
@@ -44,6 +44,7 @@ ms.lasthandoff: 06/16/2017
     - 若為 VMM 至 Azure，請選取 [來源類型] > [VMM]。  選取來源 VMM 伺服器及 [Azure] 做為目標。
     - 若為 Hyper-V 複寫至 Azure (無 VMM)，請選取 [來源類型] > [Hyper-V 網站]。 選取該網站做為來源，並選取 [Azure]做為目標。
     - 若為 VMware VM 或實體內部部署伺服器至 Azure，請選取組態伺服器做為來源，並選取 [Azure] 做為目標。
+    - 對於 Azure 至 Azure 復原計劃，請選取 Azure 區域作為來源，以及次要 Azure 區域作為目標。 次要 Azure 區域只是虛擬機器受到保護的部分。
 2. 在 [選取虛擬機器] 中，選取您要在復原計畫中新增至預設群組 (Group 1) 的虛擬機器 (或複寫群組)。
 
 ## <a name="customize-and-extend-recovery-plans"></a>自訂和擴充復原計畫

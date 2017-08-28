@@ -12,13 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: cfreeman
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 04965375fc94fc1aa8b1c48deb743bb1d0cf1c26
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 78996fdb1bbb9bc2e532f80dc9611efad389119e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
@@ -44,7 +43,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 請小心注意系統要求您輸入臨界值時所使用的單位。
 * 如果您勾選 [電子郵件擁有者] 方塊，系統會透過電子郵件，將警示傳給每個可以存取此資源群組的人員。 若要展開這一組人員，請將他們新增至 [資源群組或訂用帳戶](app-insights-resources-roles-access-control.md) (而非資源)。
 * 如果您指定 [其他電子郵件]，系統會將警示傳送給這些人員或群組 (無論您是否核取 [電子郵件擁有者] 方塊)。 
-* 如果您已設定回應通知的 Web 應用程式，請設定 [Webhook 位址](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 系統會在警示啟動 (即觸發) 和解決時加以呼叫。 (不過請注意，查詢參數目前不會當作 Webhook 屬性傳遞)。
+* 如果您已設定回應通知的 Web 應用程式，請設定 [Webhook 位址](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 系統會在警示啟動和解決時加以呼叫。 (不過請注意，查詢參數目前不會當作 Webhook 屬性傳遞)。
 * 您可以停用或啟用警示：請參閱位於刀鋒視窗頂端的按鈕。
 
 *I don't see the Add Alert button.* 
@@ -52,7 +51,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 您是否使用組織帳戶？ 如果您有這個應用程式資源的擁有者或參與者存取權，您可以設定警示。 請看一下 [存取控制] 刀鋒視窗。 [深入了解存取控制][roles]。
 
 > [!NOTE]
-> 在 [警示] 刀鋒視窗中，您會看到已經設定警示集︰[主動診斷](app-insights-proactive-failure-diagnostics.md)。 這是會監視要求失敗率這一個特定度量的自動警示。 除非您決定要停用主動警示，否則不需要設定自己的要求失敗率警示。 
+> 在 [警示] 刀鋒視窗中，您會看到已經設定警示︰[主動診斷](app-insights-proactive-failure-diagnostics.md)。 自動警示會監視要求失敗率這一個特定度量。 除非您決定要停用主動警示，否則不需要設定自己的要求失敗率警示。 
 > 
 > 
 
@@ -82,12 +81,12 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 即使您設定的期間較長，警示也可能會在警示和良好狀態之間經常變動。 如果度量值徘徊在臨界值附近，就會發生這種情形。 臨界值中沒有任何磁滯：轉換為警示時的值會與轉換為良好時的值相同。
 
 ## <a name="what-are-good-alerts-to-set"></a>哪些是好的設定警示？
-這取決於您的應用程式。 開始時，最好不要設定太多度量。 花點時間查看您的應用程式執行時的度量圖表，以了解正常運作時的情形。 這可協助您找出改善其效能的方式。 然後設定警示，在度量偏離正常區域時通知您。 
+這取決於您的應用程式。 開始時，最好不要設定太多度量。 花點時間查看您的應用程式執行時的度量圖表，以了解正常運作時的情形。 這個做法可協助您找出改善其效能的方式。 然後設定警示，在度量偏離正常區域時通知您。 
 
 熱門的警示包括：
 
-* [瀏覽器計量][client]，適合用於 Web 應用程式，尤其是瀏覽器**頁面載入時間**。 如果您的網頁有很多指令碼，就必須留意 **瀏覽器例外狀況**。 若要取得這些計量和警示，您必須設定[網頁監視][client]。
-* Web 應用程式伺服器端的**伺服器回應時間**。 以及設定警示，注意這些計量，以查看高要求率時的差異是否不成比例：可能表示您的應用程式資源不足。 
+* [瀏覽器計量][client]，適合用於 Web 應用程式，尤其是瀏覽器**頁面載入時間**。 如果您的分頁有許多指令碼，您應該尋找**瀏覽器例外狀況**。 若要取得這些計量和警示，您必須設定[網頁監視][client]。
+* Web 應用程式伺服器端的**伺服器回應時間**。 以及設定警示，注意這些計量，以查看高要求率時的差異是否不成比例：差異可能表示您的應用程式資源不足。 
 * **伺服器例外狀況** - 若要查看它們，您只需要進行一些 [額外設定](app-insights-asp-net-exceptions.md)。
 
 別忘了，[主動失敗率診斷](app-insights-proactive-failure-diagnostics.md)會自動監視應用程式以失敗碼回應要求的速率。 

@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: a3c287c5317bd7db2b560e37ddacc9e43d7292d1
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: b25ff5331f119efd44c61808f7d1d5decb226bd6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/10/2017
 
 ---
 # <a name="what-performance-options-are-available-for-an-azure-sql-database"></a>Azure SQL Database 可用的效能選項為何
@@ -97,8 +97,9 @@ ms.lasthandoff: 07/14/2017
 
 * 如果您要升級到較高服務層或效能等級，除非您明確指定較大的大小上限，否則資料庫大小上限不會增加。
 * 若要將資料庫降級，資料庫必須小於目標服務層允許的大小上限。 
-* 升級資料庫時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其次要資料庫升級為所需的效能層，然後再升級主要資料庫 (一般指引)。
-* 從 [進階] 服務層降級至降低服務層時，您必須先終止所有的異地複寫關聯性。 您可以遵循 [從中斷情況復原](sql-database-disaster-recovery.md) 主題所述的步驟，停止主要資料庫與次要資料庫之間的複寫程序。
+* 升級資料庫時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其次要資料庫升級為所需的效能層，然後再升級主要資料庫 (一般指引)。 升級至不同的版本時，必須先升級次要資料庫。 
+* 將資料庫降級時，若已啟用[異地複寫](sql-database-geo-replication-portal.md)，您必須先將其主要資料庫降級為所需的效能層，然後再降級次要資料庫 (一般指引)。 降級至不同的版本時，必須先降級主要資料庫。 
+
 * 還原服務會針對各種服務層提供不同的選項。 如果降級至 [基本] 層，您將會有較短的備份保留期 - 請參閱 [Azure SQL Database 備份](sql-database-automated-backups.md)。
 * 完成變更之前，不會將新屬性套用至資料庫。
 

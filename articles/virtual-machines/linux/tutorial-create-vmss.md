@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/02/2017
+ms.date: 08/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: fceaf1b1d1c243ef8cff6ba6b188bb66514d0591
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 
@@ -49,7 +49,9 @@ VM 會視需要建立於擴展集中。 您將定義自動調整規則，以控�
 ## <a name="create-an-app-to-scale"></a>建立要調整的應用程式
 為了提供生產環境使用，您可以[建立自訂 VM 映像](tutorial-custom-images.md)，其中包含已安裝和設定的應用程式。 在本教學課程中，我們會在首次開機時自訂 VM，以便快速查看作用中擴展集。
 
-在先前的教學課程中，您已了解使用 cloud-init [如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)。 您可以使用相同的 cloud-init 組態檔來安裝 NGINX 和執行簡單的 'Hello World' Node.js 應用程式。 建立名為 cloud-init.txt 的檔案並貼上下列組態︰
+在先前的教學課程中，您已了解使用 cloud-init [如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)。 您可以使用相同的 cloud-init 組態檔來安裝 NGINX 和執行簡單的 'Hello World' Node.js 應用程式。 
+
+您目前的殼層中，建立名為 cloud-init.txt 的檔案，並貼上下列組態。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
 ```yaml
 #cloud-config
@@ -107,14 +109,14 @@ az group create --name myResourceGroupScaleSet --location eastus
 az vmss create \
   --resource-group myResourceGroupScaleSet \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
   --generate-ssh-keys      
 ```
 
-建立及設定所有擴展集資源和 VM 需要幾分鐘的時間。
+建立及設定所有擴展集資源和 VM 需要幾分鐘的時間。 在 Azure CLI 將您返回提示字元之後，背景工作會繼續執行。 可能需要再等候幾分鐘，才能存取應用程式。
 
 
 ## <a name="allow-web-traffic"></a>允許 Web 流量
@@ -215,14 +217,14 @@ az vmss list-instance-connection-info \
 
 ```azurecli-interactive 
 az vmss create \
-  --resource-group myResourceGroupScaleSet \
-  --name myScaleSetDisks \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
-  --upgrade-policy-mode automatic \
-  --custom-data cloud-init.txt \
-  --admin-username azureuser \
-  --generate-ssh-keys \
-  --data-disk-sizes-gb 50
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSetDisks \
+    --image UbuntuLTS \
+    --upgrade-policy-mode automatic \
+    --custom-data cloud-init.txt \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --data-disk-sizes-gb 50
 ```
 
 當執行個體從擴展集移除時，所有連結的資料磁碟也會一併移除。
@@ -231,10 +233,10 @@ az vmss create \
 若要將資料磁碟新增到擴展集中的執行個體，請使用 [az vmss disk attach](/cli/azure/vmss/disk#attach)。 下列範例會將 50GB 的磁碟新增到每個執行個體：
 
 ```azurecli-interactive 
-az vmss disk attach `
-    --resource-group myResourceGroupScaleSet `
-    --name myScaleSet `
-    --size-gb 50 `
+az vmss disk attach \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
+    --size-gb 50 \
     --lun 2
 ```
 
@@ -242,9 +244,9 @@ az vmss disk attach `
 若要將資料磁碟從擴展集中的執行個體上移除，請使用 [az vmss disk detach](/cli/azure/vmss/disk#detach)。 下列範例會從每個執行個體移除在 LUN 2 的資料磁碟︰
 
 ```azurecli-interactive 
-az vmss disk detach `
-    --resource-group myResourceGroupScaleSet `
-    --name myScaleSet `
+az vmss disk detach \
+    --resource-group myResourceGroupScaleSet \
+    --name myScaleSet \
     --lun 2
 ```
 

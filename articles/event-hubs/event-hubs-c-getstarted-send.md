@@ -12,35 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: e1aeb2708e829480b0e4a520f6f9ee08894bfaf9
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: a615ee39b6c3731cc7df366e9fabeed5219a71b4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 將事件傳送至 Azure 事件中樞
 
 ## <a name="introduction"></a>簡介
-事件中心是可高度擴充的擷取系統，每秒可以吸收數以百萬計的事件，讓應用程式能處理和分析已連線裝置和應用程式所產生的大量資料。 收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集轉換和儲存資料。
+事件中樞是高度可擴充的擷取系統，每秒可擷取數百萬個事件，讓應用程式能處理並分析已連線裝置與應用程式產生的大量資料。 資料收集到事件中樞後，您可以使用任何即時分析提供者或儲存體叢集來轉換與儲存資料。
 
-如需詳細資訊，請參閱[事件中樞概觀][Event Hubs overview]。
+如需詳細資訊，請參閱 [事件中樞概觀][Event Hubs overview]。
 
 在本教學課程中，您將了解如何使用以 C 撰寫的主控台應用程式將事件傳送到事件中樞。若要接收事件，請按一下左側目錄中適當的接收語言。
 
 若要完成本教學課程，您需要下列項目：
 
 * C 開發環境。 在本教學課程中，我們假設 Azure Linux VM上的 gcc 堆疊有 Ubuntu 14.04。
-* Microsoft Visual Studio 或 Visual Studio Community Edition
+* [Microsoft Visual Studio](https://www.visualstudio.com/)。
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="send-messages-to-event-hubs"></a>將訊息傳送至事件中心
-在本節中，我們將撰寫一個 C 應用程式，以將事件傳送到事件中樞。 我們將使用 [Apache Qpid 專案](http://qpid.apache.org/)中的 Proton AMQP 程式庫。 這與搭配使用 Service Bus Queues and Topics 與透過 C 的 AMQP 類似 (如 [這裡](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示)。 如需詳細資訊，請參閱 [Qpid Proton 文件](http://qpid.apache.org/proton/index.html)。
+在本節中，我們會撰寫一個 C 應用程式，以將事件傳送到事件中樞。 此程式碼會使用 [Apache Qpid 專案](http://qpid.apache.org/)中的 Proton AMQP 程式庫。 這與搭配使用 Service Bus Queues and Topics 與透過 C 的 AMQP 類似 (如 [這裡](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示)。 如需詳細資訊，請參閱 [Qpid Proton 文件](http://qpid.apache.org/proton/index.html)。
 
-1. 從 [Qpid AMQP Messenger 頁面](http://qpid.apache.org/components/messenger/index.html)，按一下 [ **安裝 Qpid Proton** ] 連結，並遵循指示進行 (視您的環境而定)。
+1. 從 [Qpid AMQP Messenger][](https://qpid.apache.org/proton/messenger.html) 頁面，遵循指示以安裝 Qpid Proton (視您的環境而定)。
 2. 若要編譯 Proton 程式庫，請安裝下列封裝：
    
     ```shell
@@ -61,7 +61,7 @@ ms.lasthandoff: 05/04/2017
     cmake -DCMAKE_INSTALL_PREFIX=/usr ..
     sudo make install
     ```
-5. 在工作目錄中，使用下列內容建立一個稱為 **sender.c** 的新檔案。 請記得將值替換成您的事件中樞名稱和命名空間名稱 (後者通常是 `{event hub name}-ns`)。 您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。 您可以在 [這裡](http://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
+5. 在工作目錄中，使用下列程式碼建立一個稱為 **sender.c** 的新檔案。 請記得將值替換成您的事件中樞名稱和命名空間名稱。 您也必須替代先前針對 **SendRule** 建立之金鑰的 URL 編碼版本。 您可以在 [這裡](http://www.w3schools.com/tags/ref_urlencode.asp)對其進行 URL 編碼。
    
     ```c
     #include "proton/message.h"
@@ -149,23 +149,18 @@ ms.lasthandoff: 05/04/2017
     ```
 
     > [!NOTE]
-    > 在這個程式碼中，我們使用輸出視窗 1 盡快強制輸出訊息。 應用程式一般應該會嘗試批次處理訊息，以增加輸送量。 如需如何在此環境和其他環境中以及從提供繫結的平台 (目前是 Perl、PHP、Python 和 Ruby) 中使用 Qpid Proton 程式庫的詳細資訊，請參閱 [Qpid AMQP Messenger 頁面](http://qpid.apache.org/components/messenger/index.html) 。
+    > 在這個程式碼中，我們使用輸出視窗 1 盡快強制輸出訊息。 應用程式一般應該會嘗試批次處理訊息，以增加輸送量。 如需如何在此環境和其他環境中，以及從提供繫結的平台 (目前是 Perl、PHP、Python 和 Ruby) 中使用 Qpid Proton 程式庫的相關資訊，請參閱 [Qpid AMQP Messenger 頁面](https://qpid.apache.org/proton/messenger.html)。
 
 
 ## <a name="next-steps"></a>後續步驟
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [事件中樞概觀][Event Hubs overview]
+* [事件中樞概觀](event-hubs-what-is-event-hubs.md
+)
 * [建立事件中樞](event-hubs-create.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png
 [24]: ./media/event-hubs-c-ephcs-getstarted/receive-eph-c.png
-
-<!-- Links -->
-[Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 

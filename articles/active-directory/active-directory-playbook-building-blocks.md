@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 概念證明腳本構成要素 | Microsoft Docs"
 description: "探索並快速實作身分識別和存取管理案例"
 services: active-directory
@@ -15,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9c81bc0c702d559eee8b5fbf2a0508697f4276a0
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 671f2d386aca23bc5c02d0e0ab23e6d9d79a8693
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 概念證明腳本：構成要素
@@ -77,7 +75,7 @@ ms.lasthandoff: 05/15/2017
 1. 若要了解密碼雜湊同步處理的安全性考量，請參閱[這裡](./connect/active-directory-aadconnectsync-implement-password-synchronization.md)。  如果試驗生產使用者的密碼雜湊同步處理確定不可行，則請考慮下列替代方案：
    * 在生產環境網域中建立測試使用者。 確定您不會同步處理任何其他帳戶
    * 移至 UAT 環境
-2.    如果您想要採用同盟，就值得了解在 POC 之外將同盟解決方案與內部部署「識別提供者」建立關聯的成本，並將它對照您要獲得的效益進行評估：
+2.  如果您想要採用同盟，就值得了解在 POC 之外將同盟解決方案與內部部署「識別提供者」建立關聯的成本，並將它對照您要獲得的效益進行評估：
     * 它在關鍵路徑中，因此您必須針對高可用性進行設計
     * 它是一項您需要規劃容量的內部部署服務
     * 它是一項您需要監視/維護/修補的內部部署服務
@@ -102,7 +100,7 @@ ms.lasthandoff: 05/15/2017
 | 步驟 | 資源 |
 | --- | --- |
 | 移至「Azure AD 管理入口網站」 | [Azure AD 管理入口網站 - 公司商標](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](active-directory-add-company-branding.md#customizable-elements) |
+| 上傳登入頁面的資產 (大型標誌、小型標誌、標籤等)。 如果您有 AD FS，可視需要，與 ADFS 登入頁面採用相同的資產 | [在登入和存取面板頁面新增公司商標：可自訂元素](active-directory-add-company-branding.md) |
 | 等候幾分鐘讓變更完全生效 |  |
 | 使用 POC 使用者認證來登入 https://myapps.microsoft.com |  |
 | 在瀏覽器中確認外觀及操作 | [在登入和存取面板頁面新增公司商標](active-directory-add-company-branding.md) |
@@ -212,7 +210,7 @@ ms.lasthandoff: 05/15/2017
 | 必要條件 | 資源 |
 | --- | --- |
 | 事先備妥的目標應用程式清單和確切的登入 URL。 您可以使用 Twitter 作為範例。 | [Microsoft Azure Marketplace 上的 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[註冊 Twitter](https://twitter.com/signup?lang=en) |
-| 此 SaaS 應用程式的共用認證。 | [使用 Azure AD 來共用帳戶](active-directory-sharing-accounts.md)<br/>[Azure AD 的 Facebook、Twitter 及 LinkedIn 自動密碼變換現在已提供預覽版！- Enterprise Mobility and Security 部落格 (英文)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) - Enterprise Mobility and Security Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
+| 此 SaaS 應用程式的共用認證。 | [使用 Azure AD 來共用帳戶](active-directory-sharing-accounts.md)<br/>[Azure AD 的 Facebook、Twitter 及 LinkedIn 自動密碼變換現已提供預覽版！ - Enterprise Mobility and Security 部落格] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
 | 至少兩個將存取相同帳戶之小組成員的認證。 他們必須是安全性群組的成員。 | [在 Azure Active Directory 中將使用者或群組指派給企業應用程式](active-directory-coreapps-assign-user-azure-portal.md) |
 | 對電腦的本機系統管理員存取權，以部署適用於 Internet Explorer、Chrome 或 Firefox 的「存取面板擴充功能」 | [適用於 IE 的存取面板擴充功能](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[適用於 Chrome 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[適用於 Firefox 的存取面板擴充功能](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
@@ -487,7 +485,7 @@ ms.lasthandoff: 05/15/2017
 | 請注意，如果 GA2 從未註冊 MFA，將必須註冊 Azure MFA |  |
 | 回到步驟 3 中的原始索引標籤，然後按一下瀏覽器中的 [重新整理] 按鈕。 請注意，您現在已具有能夠變更 [使用者設定] 的存取權 | |
 | (選擇性) 如果您的全域管理員已啟用電子郵件功能，則只要查看 GA1 和 GA2 的收件匣，就可以看到已啟用該角色的通知 |  |
-| 8    查看稽核歷程記錄並檢視報告，以確認有顯示 GA2 的權限提升。 | [什麼是 Azure AD Privileged Identity Management？：檢閱角色活動](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 查看稽核歷程記錄並檢視報告，以確認顯示 GA2 的權限提升。 | [什麼是 Azure AD Privileged Identity Management？：檢閱角色活動](active-directory-privileged-identity-management-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>考量
 

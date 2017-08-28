@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 9687b8342723239d1ab07bcaf59176f4a0911215
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>從 Azure 重新保護至內部部署網站
@@ -58,7 +58,10 @@ ms.lasthandoff: 07/14/2017
 
     [重新保護之前在主要目標上檢查的常見項目](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)中，列出主要目標的其他必要條件。
 
-* 執行容錯回復時，組態伺服器必須為內部部署。 在容錯回復期間，虛擬機器必須存在於組態伺服器資料庫中。 否則，將無法成功容錯回復。 請確定您有排定來定期備份伺服器。 發生災害時，使用相同的 IP 位址還原伺服器，讓容錯回復運作。
+* 執行容錯回復時，組態伺服器必須為內部部署。 在容錯回復期間，虛擬機器必須存在於組態伺服器資料庫中。 否則，將無法成功容錯回復。 
+
+> [!IMPORTANT]
+> 請確定您定期排程備份設定伺服器。 發生災害時，使用相同的 IP 位址還原伺服器，讓容錯回復運作。
 
 * 在 VMware 的主要目標虛擬機器組態參數中，進行 `disk.EnableUUID=true` 設定。 如果此列不存在，請新增它。 需要此設定才能提供一致的 UUID 給虛擬機器磁碟 (VMDK)，使其可正確掛接。
 
@@ -115,7 +118,7 @@ ms.lasthandoff: 07/14/2017
 
 #### <a name="what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback"></a>在容錯回復期間，內部部署 ESXi 主機支援哪些資料存放區類型？
 
-目前，Azure Site Recovery 僅支援虛擬機器檔案系統 (VMFS) 資料存放區的容錯回復。 不支援 vSAN 或 NFS 資料存放區。 由於這項限制，重新保護畫面的資料存放區選取範圍輸入在 NFS 資料存放區中將找不到任何資料，或是仍會顯示 vSAN 資料存放區但在作業期間卻不會顯示。 如果您想要容錯回復，可建立內部部署的 VMFS 資料存放區，也可容錯回復到 VMFS 資料存放區。 此容錯回復會導致完整下載 VMDK。
+目前，Azure Site Recovery 僅支援虛擬機器檔案系統 (VMFS) 或 vSAN 資料存放區的容錯回復。 不支援 NFS 資料存放區。 由於這項限制，重新保護畫面的資料存放區選取範圍輸入在 NFS 資料存放區中將找不到任何資料，或是仍會顯示 vSAN 資料存放區但在作業期間卻不會顯示。 如果您想要容錯回復，可建立內部部署的 VMFS 資料存放區，也可容錯回復到 VMFS 資料存放區。 此容錯回復會導致完整下載 VMDK。
 
 ### <a name="common-things-to-check-after-completing-installation-of-the-master-target-server"></a>完成主要目標伺服器安裝後必須檢查的常見項目
 

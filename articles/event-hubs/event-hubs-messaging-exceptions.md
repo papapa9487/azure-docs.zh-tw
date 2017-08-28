@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/15/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ab0df01d637c15b05c2d83f1936a0154118034f7
-ms.openlocfilehash: f88c4914478c3adf823fc22a0e049e73fb43e8db
+ms.translationtype: HT
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 77f66a4d18e0882cf84afc9fcf2926ab764d17c1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/08/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中樞傳訊例外狀況
-本文列出包括事件中樞在內的一些 Azure 服務匯流排傳訊 API 產生的例外狀況。 此參考可能有所變更，請不定期查看更新。
+本文列出包括事件中樞在內之 Azure 服務匯流排傳訊 API 產生的一些例外狀況。 此參考可能有所變更，請不定期查看更新。
 
 ## <a name="exception-categories"></a>例外狀況類別
 事件中樞 API 會產生下列類別的例外狀況，以及可用來嘗試修正它們的相關動作。
@@ -76,10 +75,8 @@ ms.lasthandoff: 02/08/2017
 ### <a name="common-causes"></a>常見的原因
 這個錯誤有兩個常見的原因︰設定不正確或暫時性服務錯誤。
 
-1. **設定不正確**
-   ：操作條件的作業逾時可能太小。 用戶端 SDK 的作業逾時預設值為 60 秒。 請檢查程式碼是否將值設定過小。 請注意，網路和 CPU 使用量的狀況會影響特定作業完成所花費的時間，所以作業逾時不應設定非常小的值。
-2. **暫時性服務錯誤**
-   ：有時「事件中樞」服務在處理要求時會遇到延遲；例如，在高流量的時段。 在這種情況下，您可以在延遲後重試作業，直到作業成功為止。 如果多次嘗試同一作業之後仍然失敗，請瀏覽 [Azure 服務狀態網站](https://azure.microsoft.com/status/) ，看看是否有任何已知的服務中斷。
+1. **設定不正確** ：操作條件的作業逾時可能太小。 用戶端 SDK 的作業逾時預設值為 60 秒。 請檢查程式碼是否將值設定過小。 請注意，網路和 CPU 使用量的狀況會影響特定作業完成所花費的時間，所以作業逾時不應設定非常小的值。
+2. **暫時性服務錯誤** ：有時事件中樞服務在處理要求時會遇到延遲，例如，高流量的時段。 在這種情況下，您可以在延遲後重試作業，直到作業成功為止。 如果多次嘗試同一作業之後仍然失敗，請瀏覽 [Azure 服務狀態網站](https://azure.microsoft.com/status/) ，看看是否有任何已知的服務中斷。
 
 ## <a name="serverbusyexception"></a>ServerBusyException
 

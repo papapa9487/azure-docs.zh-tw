@@ -5,19 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 08/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 85723eeb9c030dc51bdad47ea8e0996ff7868336
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: a09e965b6fc9b89023c09092860fcf79773a4518
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>教學課程：Azure Active Directory 與 SAP Business Object Cloud 整合
@@ -45,7 +46,7 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在 [這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月試用。
+- 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二個主要建置組塊組成：
@@ -111,9 +112,17 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
 
     ![設定單一登入](./media/active-directory-saas-sapboc-tutorial/tutorial_sapboc_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<sub-domain>.projectorca.cloud/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ 
+    | |
+    |-|-|
+    | `https://<sub-domain>.sapanalytics.cloud/` |
+    | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`<sub-domain>.projectorca.cloud`
+    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    | |
+    |-|-|
+    | `<sub-domain>.sapbusinessobjects.cloud` |
+    | `<sub-domain>.sapanalytics.cloud` |
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SAP Business Object Cloud 用戶端支援小組](https://www.sap.com/product/analytics/cloud-analytics.support.html)，以取得登入 URL，以及可下載管理主控台 (本教學課程後面部分將說明) 裡 SAP Business Object Cloud 中繼資料的識別碼。 
@@ -195,8 +204,7 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
  
 ### <a name="creating-an-sap-business-object-cloud-test-user"></a>建立 SAP Business Object Cloud 測試使用者
 
-若要讓 Azure AD 使用者能夠登入 SAP Business Object Cloud，您必須將他們佈建至 SAP Business Object Cloud。  
-在 SAP Business Object Cloud 中，必須以手動方式進行佈建。
+若要讓 Azure AD 使用者能夠登入 SAP Business Object Cloud，您必須將他們佈建至 SAP Business Object Cloud。 針對 SAP Business Object Cloud，必須以手動方式進行佈建。
 
 **若要佈建使用者帳戶，請執行下列步驟：**
 
@@ -212,7 +220,7 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
 
     a. 在 [使用者識別碼] 文字方塊中，輸入使用者的使用者識別碼，例如 Britta。
 
-    b.這是另一個 C# 主控台應用程式。 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
+    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
 
     c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
 

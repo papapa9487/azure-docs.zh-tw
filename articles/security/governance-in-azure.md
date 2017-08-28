@@ -1,5 +1,4 @@
 ---
-
 title: "Azure 中的治理 | Microsoft Docs"
 description: "了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。"
 services: security
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 91fb3c70d95cca46dd68e3f15ad67c914cfbfa5b
+ms.translationtype: HT
+ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
+ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/10/2017
 
 ---
 
@@ -424,7 +422,7 @@ Microsoft 備有會監看及評估 Microsoft 中所有服務的安全性和法�
 
 Operations Management Suite (也稱為 OMS) 是在雲端中從頭設計的管理服務集合。 與其部署及管理內部部署資源，OMS 元件會完全裝載於 Azure 中。 需要進行的設定很少，您可以在幾分鐘內完成啟動並執行。
 
-![Operation Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig8.png)
 
 雖然 OMS 服務是在雲端中執行，這並不表示其無法有效地管理您的內部部署環境。
 
@@ -434,7 +432,7 @@ Operations Management Suite (也稱為 OMS) 是在雲端中從頭設計的管理
 
 OMS 的核心功能是由在 Azure 中執行的一組服務所提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
 
-![Operation Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
+![Operations Manager Suite](./media/governance-in-azure/security-governance-in-azure-fig9.JPG)
 
 Azure Operation Manager 會透過提供管理解決方案來延伸其功能性。 [管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的邏輯集合，會實作能運用一或多項 OMS 服務的管理案例。
 

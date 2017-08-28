@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
-ms.author: sewhee
+ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: dcc5cc0be4c03ad661cf1539cb98a7d4fc94e778
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
@@ -115,7 +115,7 @@ ms.lasthandoff: 07/19/2017
 2. 在您的應用程式中新增 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件。
 
 3. 快照集只會收集向 Application Insights 回報的例外狀況。 您可能需要修改程式碼才能回報例外狀況。 例外狀況處理程式碼取決於應用程式的結構，但有一個範例如下：
-   ```C#
+    ```C#
    TelemetryClient _telemetryClient = new TelemetryClient();
 
    void ExampleRequest()
@@ -132,54 +132,55 @@ ms.lasthandoff: 07/19/2017
             // TODO: Rethrow the exception if desired.
         }
    }
+    ```
+    
+## <a name="grant-permissions"></a>授與權限
 
-## Grant permissions
+Azure 訂用帳戶的擁有者可以檢查快照集。 其他使用者必須由擁有者授與權限。
 
-Owners of the Azure subscription can inspect snapshots. Other users must be granted permission by an owner.
+若要授與權限，請指派 `Application Insights Snapshot Debugger` 角色給要檢查快照集的使用者。 這個角色可以由目標 Application Insights 資源或其資源群組或訂用帳戶的訂用帳戶擁有者，指派給個別使用者或群組。
 
-To grant permission, assign the `Application Insights Snapshot Debugger` role to users who will inspect snapshots. This role can be assigned to individual users or groups by subscription owners for the target Application Insights resource or its resource group or subscription.
-
-1. Open the Access Control (IAM) blade.
-1. Click the +Add button.
-1. Select Application Insights Snapshot Debugger from the Roles drop-down list.
-1. Search for and enter a name for the user to add.
-1. Click the Save button to add the user to the role.
+1. 開啟 [存取控制] (IAM) 刀鋒視窗。
+1. 按一下 [+新增] 按鈕。
+1. 從 [角色] 下拉式清單中選取 Application Insights 快照集偵錯工具。
+1. 搜尋並輸入要新增的使用者名稱。
+1. 按一下 [儲存] 按鈕，將使用者新增至角色。
 
 
 [!IMPORTANT]
-    Snapshots can potentially contain personal and other sensitive information in variable and parameter values.
+    快照集可能會在變數和參數值中包含個人和其他機密資訊。
 
-## Debug snapshots in the Application Insights portal
+## <a name="debug-snapshots-in-the-application-insights-portal"></a>Application Insights 入口網站中的偵錯快照集
 
-If a snapshot is available for a given exception or a problem ID, an **Open Debug Snapshot** button appears on the [exception](app-insights-asp-net-exceptions.md) in the Application Insights portal.
+如果快照集可用於指定的例外狀況或問題識別碼，則 Application Insights 入口網站中的[例外狀況](app-insights-asp-net-exceptions.md)會出現 [開啟偵錯快照集] 按鈕。
 
-![Open Debug Snapshot button on exception](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
+![例外狀況的 [開啟偵錯快照集] 按鈕](./media/app-insights-snapshot-debugger/snapshot-on-exception.png)
 
-In the Debug Snapshot view, you see a call stack and a variables pane. When you select frames of the call stack in the call stack pane, you can view local variables and parameters for that function call in the variables pane.
+在 [偵錯快照集] 檢視中，您會看到呼叫堆疊和變數窗格。 當您在 [呼叫堆疊] 窗格中選取呼叫堆疊的框架時，您可以檢視 [變數] 窗格中的本機變數和該函式呼叫的參數。
 
-![View Debug Snapshot in the portal](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
+![檢視入口網站中的偵錯快照集](./media/app-insights-snapshot-debugger/open-snapshot-portal.png)
 
-Snapshots might contain sensitive information, and by default they are not viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
+快照集可能包含機密資訊，依預設為不可檢視。 若要檢視快照集，您必須有指派給您的 `Application Insights Snapshot Debugger` 角色。
 
-## Debug snapshots with Visual Studio 2017 Enterprise
-1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise. 
+## <a name="debug-snapshots-with-visual-studio-2017-enterprise"></a>Visual Studio 2017 Enterprise 的偵錯快照集
+1. 按一下 [下載快照集] 按鈕，下載可利用 Visual Studio 2017 Enterprise 開啟的 `.diagsession` 檔案。 
 
-2. To open the `.diagsession` file, you must first [download and install the Snapshot Debugger extension for Visual Studio](https://aka.ms/snapshotdebugger).
+2. 若要開啟 `.diagsession` 檔案，您必須先[下載並安裝 Visual Studio 的快照集偵錯工具擴充功能](https://aka.ms/snapshotdebugger)。
 
-3. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
+3. 開啟快照集檔案之後，Visual Studio 中的 [小型傾印偵錯] 分頁隨即出現。 按一下 [偵錯 Managed 程式碼] 以開始偵錯快照集。 快照集會開啟至擲回例外狀況的程式碼行，您可將程序的目前狀態進行偵錯。
 
-    ![View debug snapshot in Visual Studio](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
+    ![檢視 Visual Studio 中的偵錯快照集](./media/app-insights-snapshot-debugger/open-snapshot-visualstudio.png)
 
-The downloaded snapshot contains any symbol files that were found on your web application server. These symbol files are required to associate snapshot data with source code. For App Service apps, make sure to enable symbol deployment when you publish your web apps.
+下載的快照集會包含您 Web 應用程式伺服器上找到的任何符號檔。 若要建立快照集資料與原始程式碼的關聯，就需要這些符號檔。 對於 App Service 應用程式，當您發佈 Web 應用程式時請務必啟用符號部署。
 
-## How snapshots work
+## <a name="how-snapshots-work"></a>快照集運作方式
 
-When your application starts, a separate snapshot uploader process is created that monitors your application for snapshot requests. When a snapshot is requested, a shadow copy of the running process is made in about 10 to 20 minutes. The shadow process is then analyzed, and a snapshot is created while the main process continues to run and serve traffic to users. The snapshot is then uploaded to Application Insights along with any relevant symbol (.pdb) files that are needed to view the snapshot.
+當您的應用程式啟動時，會建立個別的快照集上傳者程序，可針對快照集要求監視應用程式。 要求快照集時，會在大約 10 到 20 毫秒內製作執行程序的陰影副本。 接著會將陰影程序進行分析，且在主要程序繼續執行並將流量提供給使用者時，會建立快照集。 接著，會將快照集與檢視快照集所需的任何相關符號 (.pdb) 檔案一起上傳至 Application Insights。
 
-## Current limitations
+## <a name="current-limitations"></a>目前的限制
 
-### Publish symbols
-The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio. The 15.2 release of Visual Studio 2017 publishes symbols for release builds by default when it publishes to App Service. In prior versions, you need to add the following line to your publish profile `.pubxml` file so that symbols are published in release mode:
+### <a name="publish-symbols"></a>發佈符號
+快照集偵錯工具需要符號檔出現在生產環境伺服器上，才可將變數解碼並提供 Visual Studio 中的偵錯體驗。 15.2 版 Visual Studio 2017 發佈至 App Service 時，預設會發佈版本組建的符號。 在舊版中，您必須將下列這一行新增至發佈設定檔 `.pubxml` 檔案，才會在發行模式中將符號發佈：
 
 ```xml
     <ExcludeGeneratedDebugSymbol>False</ExcludeGeneratedDebugSymbol>

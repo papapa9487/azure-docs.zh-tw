@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: c0546fd5b1398759ef98afa267146ced8a4084da
+ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
+ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -42,6 +42,13 @@ ms.lasthandoff: 08/10/2017
 - [安裝 Visual Studio 2017](https://www.visualstudio.com/) 並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
 - [安裝 Service Fabric SDK](service-fabric-get-started.md)
 
+## <a name="download-the-voting-sample-application"></a>下載投票應用程式範例
+如果您未在[本教學課程系列的第一部分](service-fabric-tutorial-create-dotnet-app.md)中建置投票應用程式範例，可以下載它。 在命令視窗中執行下列命令，將範例應用程式存放庫複製到本機電腦。
+
+```
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
+```
+
 ## <a name="set-up-a-party-cluster"></a>設定合作對象叢集
 合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 免費！
 
@@ -50,16 +57,28 @@ ms.lasthandoff: 08/10/2017
 > [!NOTE]
 > 合作對象叢集不安全，因為其他人都會看見應用程式以及您在其中輸入的任何資料。 請勿部署不想讓其他人看見的任何項目。 務必閱讀我們的使用條款，以便瞭解所有的詳細資料。
 
-## <a name="make-your-application-ready-for-deployment"></a>備妥應用程式進行部署
-ASP.NET Core Web API 服務做為此應用程式的前端，並接受外部流量時，我們想要將該服務繫結至固定的已知連接埠。 在服務 **ServiceManifest.xml** 檔案中指定連接埠。
+## <a name="configure-the-listening-port"></a>設定接聽連接埠
+建立 VotingWeb 前端服務時，Visual Studio 會隨機選擇服務要接聽的連接埠。  VotingWeb 服務是作為此應用程式的前端，並接受外部流量，因此讓我們將該服務繫結至固定的已知連接埠。 在 [方案總管] 中，開啟 VotingWeb/PackageRoot/ServiceManifest.xml。  在 [資源] 區段中尋找 [端點] 資源，並將 [連接埠] 的值變更為 80。
 
-1. 在 [方案總管] 中，開啟 **WebAPIFrontEnd->PackageRoot->ServiceManifest.xml**。
-2. 將現有**端點**元素的**連接埠**屬性變更為 **80**，並儲存變更。
+```xml
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Protocol="http" Name="ServiceEndpoint" Type="Input" Port="80" />
+    </Endpoints>
+  </Resources>
+```
+
+並請更新投票專案中的 [應用程式 URL] 屬性值，以便您在使用 'F5' 偵錯時，網頁瀏覽器會開啟至正確的連接埠。  在 [方案總管] 中，選取 [投票] 專案，並更新 [應用程式 URL] 屬性。
+
+![應用程式 URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
 
 ## <a name="deploy-the-app-to-the-azure"></a>將應用程式部署至 Azure
 應用程式備妥後，即可直接從 Visual Studio 將其部署到合作對象叢集。
 
-1. 以滑鼠右鍵按一下 [方案總管] 中的 **MyApplication**，並選擇 [發佈]。
+1. 以滑鼠右鍵按一下方案總管中的 [投票]，並選擇 [發行]。
 
     ![[發佈] 對話方塊](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
@@ -67,7 +86,7 @@ ASP.NET Core Web API 服務做為此應用程式的前端，並接受外部流�
 
     發佈完成後，您應該能夠透過瀏覽器將要求傳送到應用程式。
 
-3. 開啟您偏好的瀏覽器，並輸入叢集位址 (不含連接埠資訊的連線端點，例如，win1kw5649s.westus.cloudapp.azure.com)，然後將 `/api/values` 新增到 URL。
+3. 開啟您偏好的瀏覽器，並輸入叢集位址 (不含連接埠資訊的連線端點，例如，win1kw5649s.westus.cloudapp.azure.com)。
 
     您現在應該會看到與在本機執行應用程式相同的結果。
 
@@ -76,21 +95,22 @@ ASP.NET Core Web API 服務做為此應用程式的前端，並接受外部流�
 ## <a name="remove-the-application-from-a-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 從叢集移除應用程式
 Service Fabric Explorer 是圖形化使用者介面，可用來瀏覽和管理 Service Fabric 叢集中的應用程式。
 
-若要移除部署到合作對象叢集的應用程式：
+若要從合作對象叢集移除應用程式：
 
 1. 使用合作對象叢集註冊頁面提供的連結，瀏覽到 Service Fabric Explorer。 例如，http://win1kw5649s.westus.cloudapp.azure.com:19080/Explorer/index.html。
 
-2. 在 Service Fabric Explorer 中，瀏覽到左側樹狀檢視中的 **fabric://MyApplication** 節點。
+2. 在 Service Fabric Explorer 中，瀏覽到左側樹狀檢視中的 **fabric://Voting** 節點。
 
 3. 按一下右側 [Essentials] 窗格中的 [動作] 按鈕，並選擇 [刪除應用程式]。 確認刪除應用程式執行個體，這將移除在叢集中執行的應用程式執行個體。
 
 ![刪除 Service Fabric Explorer 中的應用程式](./media/service-fabric-tutorial-deploy-app-to-party-cluster/delete-application.png)
 
+## <a name="remove-the-application-type-from-a-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 從叢集移除應用程式類型
 應用程式在 Service Fabric 叢集中部署為應用程式類型，以便您對於叢集中執行的應用程式擁有多個執行個體和版本。 移除執行中的應用程式執行個體後，也可以移除類型，以便完成部署的清除作業。
 
 如需 Service Fabric 應用程式模型的詳細資訊，請參閱[在 Service Fabric 中模型化應用程式](service-fabric-application-model.md)。
 
-1. 瀏覽到樹狀檢視中的 **MyApplicationType** 節點。
+1. 瀏覽到樹狀檢視中的 **VotingType** 節點。
 
 2. 按一下右側 [Essentials] 窗格中的 [動作] 按鈕，並選擇 [解除佈建類型]。 確認解除佈建應用程式類型。
 

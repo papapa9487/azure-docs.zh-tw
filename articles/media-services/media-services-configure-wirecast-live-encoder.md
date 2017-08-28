@@ -4,7 +4,7 @@ description: "本主題示範如何設定 Wirecast 即時編碼器，藉此將�
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 0d2f1e81-51a6-4ca9-894a-6dfa51ce4c70
 ms.service: media-services

@@ -15,11 +15,10 @@ ms.workload: NA
 ms.date: 06/15/2017
 ms.author: pkc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 70b2fefa654a73693a8064654cde1d767bfdd496
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 78e68cff3a757cbbcd8dc6f53120e6a4af54591a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支援選項
@@ -84,7 +83,8 @@ ms.lasthandoff: 07/11/2017
 | 5.3.* |小於或等於 2.3 版本 |2017 年 2 月 24 日 |
 | 5.4.* |小於或等於 2.4 版本 |2017 年 5 月 10 日     |
 | 5.5.* |小於或等於 2.5 版本 |2017 年 8 月 10 日    |
-| 5.6.* |小於或等於 2.6 版本 |目前版本，沒有結束日期
+| 5.6.* |小於或等於 2.6 版本 |2017 年 10 月 13 日    |
+| 5.7.* |小於或等於 2.7 版 |目前版本，沒有結束日期
 
 <a id="previewversion"></a>
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric 預覽版本 - 不支援用於生產環境。

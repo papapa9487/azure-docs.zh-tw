@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 297fe8850499212ca41b0b5ca132b7de8c761297
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK︰版本資訊與資源
@@ -62,19 +62,27 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="1.12.2"/>1.12.2</a>
+*   修正的 npm 文件。
+
+### <a name="1.12.1"/>1.12.1</a>
+* 已修正 executeStoredProcedure 中的錯誤，其中涉及的文件有特殊 Unicode 字元 (LS、PS)。
+* 已修正在分割區索引鍵中使用 Unicode 字元處理文件的錯誤。
+* 已修正使用名稱媒體建立集合的支援。 GitHub 問題 #114。
+* 已修正權限授權權杖的支援。 GitHub 問題 #178。
+
 ### <a name="1.12.0"/>1.12.0</a>
-* 新增[每分鐘的要求單位 (RU/m)](../cosmos-db/request-units-per-minute.md) 功能的支援。
 * 新增對新[一致性層級](consistency-levels.md) ConsistentPrefix 的支援。
 * 新增 UriFactory 的支援。
-* 修正 unicode 支援錯誤。 (GitHub 問題 #171)
+* 已修正 Unicode 支援錯誤。 GitHub 問題 #171。
 
 ### <a name="1.11.0"/>1.11.0</a>
 * 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。
 * 新增控制跨分割區查詢平行處理程度的選項。
 * 新增針對 Azure Cosmos DB 模擬器執行時停用 SSL 驗證的選項。
 * 已將分割區集合的最小輸送量從 10,100 RU/s 降低為 2500 RU/s。
-* 修正單一分割區集合的接續 Token 錯誤 (github #107)。
-* 修正將 0 做為單一參數處理的 executeStoredProcedure 錯誤 (github #155)。
+* 已修正單一資料分割集合的接續權杖錯誤。 GitHub 問題 #107。
+* 已修正將 0 做為單一參數處理的 executeStoredProcedure 錯誤。 GitHub 問題 #155。
 
 ### <a name="1.10.2"/>1.10.2</a>
 * 修正使用者-代理程式標頭以包含 SDK 版本。
@@ -90,7 +98,7 @@ ms.lasthandoff: 07/25/2017
 
 ### <a name="1.9.0"/>1.9.0</a>
 * 新加入已節流處理要求的重試原則支援。 (已節流處理的要求會收到要求率太大的例外狀況，即錯誤碼 429。)根據預設，發生錯誤碼 429 時，Azure Cosmos DB 會遵守回應標頭中的 retryAfter 時間，並針對每個要求重試九次。 如果您想要忽略伺服器在多次重試之間傳回的 retryAfter 時間，現在可以在 ConnectionPolicy 物件上的 RetryOptions 屬性中設定固定的重試間隔時間。 Azure Cosmos DB 現在會針對每個要進行節流處理的要求等候最多 30 秒 (不論重試計數為何)，並傳回包含錯誤碼 429 的回應。 您也可以在 ConnectionPolicy 物件上的 RetryOptions 屬性中覆寫該時間。
-* Cosmos DB 現在會傳回 x-ms-throttle-retry-count 和 x-ms-throttle-retry-wait-time-ms 作為每個要求的回應標頭，其代表節流重試計數和要求歷經多次重試的累積時間。
+* Cosmos DB 現在會傳回 x-ms-throttle-retry-count 和 x-ms-throttle-retry-wait-time-ms 做為每個要求的回應標頭，其代表節流重試計數和要求歷經多次重試的累積時間。
 * 新增 RetryOptions 類別，以及公開 ConnectionPolicy 類別上的 RetryOptions 屬性，使其能用來覆寫某些預設的重試選項。
 
 ### <a name="1.8.0"/>1.8.0</a>
@@ -118,7 +126,7 @@ ms.lasthandoff: 07/25/2017
 * 修正問題 [#95](https://github.com/Azure/azure-documentdb-node/issues/95) - EventEmitter 接聽程式洩漏警告。
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Fixes issue [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - rename folder Hash to hash for case sensitive systems.
+* 修正問題 [#92](https://github.com/Azure/azure-documentdb-node/issues/90) - 針對區分大小寫的系統，將資料夾 Hash 重新命名為 hash。
 
 ### <a name="1.5.0"/>1.5.0</a>
 * 藉由新增雜湊和範圍分割解析程式來實作分區化支援。
@@ -164,12 +172,14 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 新的功能與最佳化項目只會新增至目前的 SDK，因此建議您一律盡早升級至最新的 SDK 版本。
 
-服務將會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
+服務會拒絕使用已停用 SDK 的任何 Cosmos DB 要求。
 
 <br/>
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.12.2](#1.12.2) |2017 年 8 月 10 日 |--- |
+| [1.12.1](#1.12.1) |2017 年 8 月 10 日 |--- |
 | [1.12.0](#1.12.0) |2017 年 5 月 10 日 |--- |
 | [1.11.0](#1.11.0) |2017 年 3 月 16 日 |--- |
 | [1.10.2](#1.10.2) |2017 年 1 月 27 日 |--- |

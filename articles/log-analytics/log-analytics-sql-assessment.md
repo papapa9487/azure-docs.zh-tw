@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2017
+ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 045c4cd49e7b7b1e0b02cc7dc6ede636d0622208
+ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
+ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/14/2017
 
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL 評估方案最佳化 SQL Server 環境
@@ -66,7 +66,7 @@ SQL 評估會使用您已啟用的代理程式，來收集 WMI 資料、登錄�
 
 | 平台 | 直接代理程式 | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
-| Windows |![是](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![是](./media/log-analytics-sql-assessment/oms-bullet-green.png) |![否](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![否](./media/log-analytics-sql-assessment/oms-bullet-red.png) |![是](./media/log-analytics-sql-assessment/oms-bullet-green.png) |7 天 |
+| Windows | &#8226; | &#8226; |  |  | &#8226; |7 天 |
 
 ## <a name="operations-manager-run-as-accounts-for-oms"></a>OMS 的 Operations Manager 執行身分帳戶
 OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群組，收集資料並將資料傳送給 OMS 服務。 OMS 會建立工作負載的管理套件以提供加值服務。 每個工作負載都需要具有特定的工作負載權限，才能在不同的安全性內容中執行管理套件，例如網域帳戶。 您需要藉由設定 Operations Manager 執行身分帳戶來提供認證資訊。

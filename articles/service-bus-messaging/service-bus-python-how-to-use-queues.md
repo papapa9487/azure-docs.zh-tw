@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 08/10/2017
 ms.author: sethm;lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: 215db83e766d595b8f03a89ea6b4221fc756b1aa
+ms.translationtype: HT
+ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
+ms.openlocfilehash: e1e81ad1d7b4fe0e044917f090cac59dfd5b6332
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/11/2017
 
 ---
-# <a name="how-to-use-service-bus-queues"></a>如何使用服務匯流排佇列
+# <a name="how-to-use-service-bus-queues-with-python"></a>如何將服務匯流排佇列搭配 Python 使用
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 本文說明如何使用服務匯流排佇列。 相關範例是以 Python 撰寫，並且使用 [Python Azure 服務匯流排封裝][Python Azure Service Bus package]。 本文說明的案例包括**建立佇列、傳送並接收訊息**，以及**刪除佇列**。
@@ -58,7 +58,7 @@ SAS 金鑰名稱和值的值可以在 [Azure 入口網站][Azure portal]連線�
 bus_service.create_queue('taskqueue')
 ```
 
-**create_queue** 也支援其他選項，而可讓您覆寫訊息存留時間 (TTL) 或佇列大小上限等預設佇列設定。 下列範例會將佇列大小上限設為 5GB，並將 TTL 時間設為 1 分鐘：
+`create_queue` 方法也支援其他選項，而可讓您覆寫訊息存留時間 (TTL) 或佇列大小上限等預設佇列設定。 下列範例會將佇列大小上限設為 5GB，並將 TTL 時間設為 1 分鐘：
 
 ```python
 queue_options = Queue()
@@ -69,9 +69,9 @@ bus_service.create_queue('taskqueue', queue_options)
 ```
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-若要傳送訊息至服務匯流排佇列，應用程式將呼叫 **ServiceBusService** 物件上的 **send\_queue\_message** 方法。
+若要傳送訊息至服務匯流排佇列，應用程式將呼叫 **ServiceBusService** 物件上的 `send_queue_message` 方法。
 
-下列範例示範如何使用 **send\_queue\_message** 將測試訊息傳送至名稱為「*taskqueue*」的佇列：
+下列範例示範如何使用 `send_queue_message` 將測試訊息傳送至名為 `taskqueue` 的佇列：
 
 ```python
 msg = Message(b'Test Message')
@@ -81,18 +81,18 @@ bus_service.send_queue_message('taskqueue', msg)
 服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 此佇列大小會在建立時定義，上限是 5 GB。 如需有關配額的詳細資訊，請參閱[服務匯流排配額][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
-對於 **ServiceBusService** 物件使用 **receive\_queue\_message** 方法即可從佇列接收訊息：
+對於 **ServiceBusService** 物件使用 `receive_queue_message` 方法即可從佇列接收訊息：
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
 print(msg.body)
 ```
 
-如果將 **peek\_lock** 參數設為 **False**，則當讀取訊息後，訊息便會從佇列中刪除。 您可以將參數 **peek\_lock** 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
+如果將 `peek_lock` 參數設為 **False**，則當讀取訊息後，訊息便會從佇列中刪除。 您可以將參數 `peek_lock` 設為 **True**，來讀取 (查看) 並鎖定訊息，避免系統從佇列刪除訊息。
 
 隨著接收作業讀取及刪除訊息之行為是最簡單的模型，且最適合可容許在發生失敗時不處理訊息的應用程式案例。 若要了解這一點，請考慮取用者發出接收要求，接著系統在處理此要求之前當機的案例。 因為服務匯流排會將訊息標示為已取用，當應用程式重新啟動並開始重新取用訊息時，它將會遺漏當機前已取用的訊息。
 
-如果您將 **peek\_lock** 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **delete** 方法，以完成接收程序的第二個階段。 **delete** 方法會將訊息標示為已取用，並將其從佇列中移除。
+如果您將 `peek_lock` 參數設為 **True**，接收會變成兩階段作業，因此可以支援無法容許遺漏訊息的應用程式。 當服務匯流排收到要求時，它會尋找要取用的下一個訊息、將其鎖定以防止其他取用者接收此訊息，然後將它傳回應用程式。 在應用程式完成訊息處理 (或可靠地儲存此訊息以供未來處理) 之後，它會在 **Message** 物件上呼叫 **delete** 方法，以完成接收程序的第二個階段。 **delete** 方法會將訊息標示為已取用，並將其從佇列中移除。
 
 ```python
 msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)

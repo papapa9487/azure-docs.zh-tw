@@ -4,7 +4,7 @@ description: "了解如何建立並上傳資產，以將媒體內容移至媒體
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: c9c86380-9395-4db8-acea-507c52066f73
 ms.service: media-services

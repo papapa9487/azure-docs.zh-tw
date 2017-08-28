@@ -4,7 +4,7 @@ description: "本教學課程會逐步引導您使用 Java 實作含 Azure 媒�
 services: media-services
 documentationcenter: java
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: b884bd61-dbdb-42ea-b170-8fb02e7fded7
 ms.service: media-services

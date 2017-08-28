@@ -2,7 +2,7 @@
 title: "H 264 多重位元速率 4K 音訊 5.1 | Microsoft Docs"
 description: "本主題提供「H264 多重位元速率 4K 音訊 5.1」工作預設的概觀。"
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 

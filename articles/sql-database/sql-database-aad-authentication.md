@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 05/10/2017
+ms.date: 08/11/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 7a97bc7043d90fb799929ae5ed696d3731bfa3eb
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: c83d482eaf476388a174dfb02ae6ef53ebe921bc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-or-sql-data-warehouse"></a>利用 SQL Database 和 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證
@@ -105,7 +105,7 @@ Azure Active Directory 驗證支援下列方法，使用 Azure AD 身分識別�
 * SQL Database 和 SQL 資料倉儲 (使用 CLI) 支援 Azure AD 驗證。 如需詳細資訊，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)和 [SQL Server - az sql server](https://docs.microsoft.com/en-us/cli/azure/sql/server)。
 
 ## <a name="next-steps"></a>後續步驟
-- 若要了解如何建立和填入 Azure AD，然後使用 Azure SQL Database 設定 Azure AD，請參閱[使用 Azure SQL Database 設定 Azure AD](sql-database-aad-authentication-configure.md)。
+- 若要了解如何建立和填入 Azure AD，然後使用 Azure SQL Database 或 Azure SQL 資料倉儲來設定 Azure AD，請參閱[使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)。
 - 如需 SQL Database 中存取權和控制權的概觀，請參閱 [SQL Database 的存取權和控制權](sql-database-control-access.md)。
 - 如需 SQL Database 中登入、使用者和資料庫角色的概觀，請參閱[登入、使用者和資料庫角色](sql-database-manage-logins.md)。
 - 如需資料庫主體的詳細資訊，請參閱[主體](https://msdn.microsoft.com/library/ms181127.aspx)。

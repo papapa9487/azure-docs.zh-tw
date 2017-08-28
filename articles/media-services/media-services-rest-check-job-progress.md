@@ -4,7 +4,7 @@ description: "了解如何追蹤工作進度。"
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a1a1f956-c035-448a-af9c-5ac15fcce9dd
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 0f66bb4291d4e8c457f592734437513a727ecc29
+ms.translationtype: HT
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 23b6c0f7abd40d67792d45e4ea0fae02efeae861
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="how-to-check-job-progress"></a>作法：檢查工作進度
@@ -30,6 +30,15 @@ ms.lasthandoff: 02/11/2017
 > 
 
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用工作的 State 屬性，以查明工作狀態。 如需 State 屬性的詳細資訊，請參閱 [工作實體屬性](https://docs.microsoft.com/rest/api/media/operations/job#job_entity_properties)。
+
+## <a name="connect-to-media-services"></a>連線到媒體服務
+
+如需連線至 AMS API 的詳細資訊，請參閱[使用 Azure AD 驗證存取 Azure 媒體服務 API](media-services-use-aad-auth-to-access-ams-api.md)。 
+
+>[!NOTE]
+>順利連接到 https://media.windows.net 之後，您會收到 301 重新導向，指定另一個媒體服務 URI。 後續的呼叫必須送到新的 URI。
+
+## <a name="check-job-progress"></a>檢查作業進度
 
 要求：
 
@@ -67,4 +76,7 @@ ms.lasthandoff: 02/11/2017
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
+## <a name="see-also"></a>另請參閱
+
+[媒體服務作業 REST API 概觀](media-services-rest-how-to-use.md)
 

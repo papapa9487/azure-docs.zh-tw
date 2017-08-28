@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/13/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 06c09658d09bc05d2f5e2a0f17a9047ee8044486
+ms.translationtype: HT
+ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
+ms.openlocfilehash: e418cb01e1a9168e3662e8d6242903e052b6047b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/15/2017
 
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight-preview"></a>使用 MirrorMaker，透過 HDInsight 上的 Kafka 來複寫 Apache Kafka 主題 (預覽)
@@ -116,10 +116,21 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 使用下列命令來尋找 Zookeeper 主機、設定 `SOURCE_ZKHOSTS` 變數，然後建立數個名為 `testtopic` 的新主題：
+2. 使用下列命令為來源叢集尋找 Zookeeper 主機：
 
     ```bash
-    SOURCE_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    # Install jq if it is not installed
+    sudo apt -y install jq
+    # get the zookeeper hosts for the source cluster
+    export SOURCE_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    
+    Replace `$PASSWORD` with the password for the cluster.
+
+    Replace `$CLUSTERNAME` with the name of the source cluster.
+
+3. To create a topic named `testtopic`, use the following command:
+
+    ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 2 --partitions 8 --topic testtopic --zookeeper $SOURCE_ZKHOSTS
     ```
 
@@ -139,7 +150,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     此命令會傳回類似以下文字的資訊：
 
-    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk6-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
+    `zk0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181,zk1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:2181`
 
     請儲存此資訊。 此資訊使用於下一節。
 
@@ -178,9 +189,13 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     ```bash
     sudo apt -y install jq
-    DEST_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    DEST_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $DEST_BROKERHOSTS
     ```
+
+    將 `$PASSWORD` 取代為叢集登入帳戶 (管理員) 的密碼。
+
+    將 `$CLUSTERNAME` 取代為目的地叢集的名稱。
 
     這些命令會傳回類似以下的資訊：
 
@@ -221,7 +236,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 
     * **--num.streams**︰要建立的取用者執行緒數目。
 
-    啟動時，MirrorMaker 會傳回類似以下文字的資訊：
+ 啟動時，MirrorMaker 會傳回類似以下文字的資訊：
 
     ```json
     {metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-3, security.protocol=PLAINTEXT}{metadata.broker.list=wn1-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092,wn0-source.aazwc2onlofevkbof0cuixrp5h.gx.internal.cloudapp.net:9092, request.timeout.ms=30000, client.id=mirror-group-0, security.protocol=PLAINTEXT}
@@ -232,22 +247,29 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 服務�
 2. 從連往**來源**叢集的 SSH 連線中，使用下列命令來啟動產生者，然後傳送訊息到主題：
 
     ```bash
-    sudo apt -y install jq
-    SOURCE_BROKERHOSTS=`sudo bash -c 'ls /var/lib/ambari-agent/data/command-[0-9]*.json' | tail -n 1 | xargs sudo cat | jq -r '["\(.clusterHostInfo.kafka_broker_hosts[]):9092"] | join(",")'`
+    SOURCE_BROKERHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $SOURCE_BROKERHOSTS --topic testtopic
     ```
 
- 當您抵達有游標的空白行時，請輸入一些文字訊息。 這些文字會傳送到**來源**叢集上的主題。 完成後，使用 **Ctrl + C** 結束產生者程序。
+    將 `$PASSWORD` 取代為來源叢集的 (管理員) 密碼。
+
+    將 `$CLUSTERNAME` 取代為來源叢集的名稱。
+
+     當您抵達有游標的空白行時，請輸入一些文字訊息。 這些文字會傳送到**來源**叢集上的主題。 完成後，使用 **Ctrl + C** 結束產生者程序。
 
 3. 在連往**目的地**叢集的 SSH 連線中，使用 **Ctrl + C** 來結束 MirrorMaker 程序。 然後使用下列命令確認已建立 `testtopic` 主題，而且主題中的資料已複寫到這個鏡像︰
 
     ```bash
-    DEST_ZKHOSTS=`grep -R zk /etc/hadoop/conf/yarn-site.xml | grep 2181 | grep -oPm1 "(?<=<value>)[^<]+"`
+    DEST_ZKHOSTS=`curl -sS -u admin:$PASSWORD -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $DEST_ZKHOSTS
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --zookeeper $DEST_ZKHOSTS --topic testtopic --from-beginning
     ```
 
-  主題清單現在包含 `testtopic`，它是在 MirrorMaster 將主題從來源叢集鏡射至目的地時所建立。 從主題中擷取的訊息與在來源叢集上所輸入的相同。
+    將 `$PASSWORD` 取代為目的地叢集的 (管理員) 密碼。
+
+    將 `$CLUSTERNAME` 取代為目的地叢集的名稱。
+
+    主題清單現在包含 `testtopic`，它是在 MirrorMaster 將主題從來源叢集鏡射至目的地時所建立。 從主題中擷取的訊息與在來源叢集上所輸入的相同。
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 

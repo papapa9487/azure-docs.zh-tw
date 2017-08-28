@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 08/14/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 9ee64be31e043660aa71999acaf305b83fb15d2c
+ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
+ms.openlocfilehash: 3b19f078b0d6dc3e02d951014056406fd1b099a8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受管理網域設定安全的 LDAP (LDAPS)
@@ -104,13 +103,13 @@ ms.lasthandoff: 07/11/2017
 
 開始這項工作之前，請先確定您已完成 [工作 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview)中所述的步驟。
 
-公開受管理的網域透過網際網路進行 LDAPS 存取，代表著安全性威脅。 受管理的網域可以從用於安全 LDAP 之通訊埠的網際網路 (也就是連接埠 636) 存取。 因此，您可以選擇將受管理的網域存取限制為特定已知 IP 位址。 為了提升安全性，建立網路安全性群組 (NSG)，並將它與虛擬網路產生關聯。
+公開受管理的網域透過網際網路進行 LDAPS 存取，代表著安全性威脅。 受管理的網域可以從用於安全 LDAP 之通訊埠的網際網路 (也就是連接埠 636) 存取。 因此，您可以選擇將受管理的網域存取限制為特定已知 IP 位址。 為了提升安全性，建立網路安全性群組 (NSG)，並將它與您已啟用 Azure AD Domain Services 的子網路產生關聯。
 
 下表說明您可以設定的範例 NSG，以鎖定透過網際網路的安全 LDAP 存取。 NSG 包含一組規則，允許僅從一組指定 IP 位址透過 TCP 連接埠 636 的輸入 LDAPS 存取。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
 
 ![透過網際網路之安全 LDAP 存取的範例 NSG](./media/active-directory-domain-services-admin-guide/secure-ldap-sample-nsg.png)
 
-**更多資訊** - [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)。
+**詳細資訊** - [網路安全性群組](../virtual-network/virtual-networks-nsg.md)。
 
 <br>
 
@@ -118,4 +117,6 @@ ms.lasthandoff: 07/11/2017
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
 * [Administer an Azure AD Domain Services managed domain (管理 Azure AD 網域服務受管理的網域)](active-directory-ds-admin-guide-administer-domain.md)
 * [管理 Azure AD Domain Services 受管理網域上的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
+* [網路安全性群組](../virtual-network/virtual-networks-nsg.md)
+* [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
 

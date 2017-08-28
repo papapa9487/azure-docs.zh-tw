@@ -16,17 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: d645855e8edddee092d244e18c9937c19237a49a
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 798014b6e8d4495db99ef2e2d2ea487ae7d02fd0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
 
-本文將逐步引導您使用 Resource Manager 部署模型和 PowerShell，設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則。
+本文將逐步引導您使用 Resource Manager 部署模型和 PowerShell，設定站對站 VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則。
 
-## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>關於 Azure VPN 閘道的 IPsec 和 IKE 原則參數
+## <a name="about"></a>關於 Azure VPN 閘道的 IPsec 和 IKE 原則參數
 IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各種組合。 請參閱[關於密碼編譯需求和 Azure VPN 閘道](vpn-gateway-about-compliance-crypto.md)，以查看這如何協助確保跨單位和 VNet 對 VNet 連線滿足合規性或安全性需求。
 
 本文提供指示來建立和設定 IPsec/IKE 原則並套用至新的或現有連線：
@@ -39,8 +39,8 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 
 > [!IMPORTANT]
 > 1. 請注意，IPsec/IKE 原則僅適用於下列閘道 SKU：
->     - ***VpnGw1、VpnGw2、VpnGw3*** (路由式)
->     - ***Standard*** 和 ***HighPerformance*** (路由式)
+>    * ***VpnGw1、VpnGw2、VpnGw3*** (路由式)
+>    * ***Standard*** 和 ***HighPerformance*** (路由式)
 > 2. 每個給定的連線只能指定***一個***原則組合。
 > 3. 您必須同時對 IKE (主要模式) 和 IPsec (快速模式) 指定所有的演算法和參數。 系統不允許只指定一部分原則。
 > 4. 請確認 VPN 裝置廠商規格，確保內部部署 VPN 裝置支援原則。 如果原則不相容，則無法建立 S2S 或 VNet 對 VNet 連線。
@@ -53,25 +53,25 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 4. 使用 IPsec/IKE 原則建立連線 (IPsec 或 VNet2VNet)
 5. 新增/更新/移除現有連線的 IPsec/IKE 原則
 
-本文中的指示將會安裝並設定 IPsec/IKE 原則，如圖所示：
+本文中的指示將會協助您安裝並設定 IPsec/IKE 原則，如圖所示：
 
 ![ipsec-ike-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png)
 
 ## <a name ="params"></a>第 2 部分 - 支援的密碼編譯演算法和金鑰長度
 
-可供客戶設定的支援密碼編譯演算法和金鑰強度如下表所示。
+下表列出可供客戶設定的支援密碼編譯演算法和金鑰強度：
 
-| **IPsec/IKEv2**  | **選項**                                                                 |
-| ---              | ---                                                                         |
-| IKEv2 加密 | AES256、AES192、AES128、DES3、DES                                           |
-| IKEv2 完整性  | SHA384、SHA256、SHA1、MD5                                                   |
+| **IPsec/IKEv2**  | **選項**    |
+| ---  | --- 
+| IKEv2 加密 | AES256、AES192、AES128、DES3、DES  
+| IKEv2 完整性  | SHA384、SHA256、SHA1、MD5  |
 | DH 群組         | DHGroup24、ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、無 |
 | IPsec 加密 | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、無    |
-| IPsec 完整性  | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                          |
-| PFS 群組        | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、無                            |
-| QM SA 存留期   | (**選擇性**：如果未指定，即會使用預設值)<br>秒 (整數；**最小 300**/預設值 27000 秒)<br>KB 數 (整數；**最小 1024**/預設值 102400000 KB 數)                                                                                |
-| 流量選取器 | UsePolicyBasedTrafficSelectors** ($True/$False；**選擇性**，如果未指定，即為預設的 $False)                                                                         |
-|                  |                                                                             |
+| IPsec 完整性  | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5 |
+| PFS 群組        | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、無 
+| QM SA 存留期   | (**選擇性**：如果未指定，即會使用預設值)<br>秒 (整數；**最小 300**/預設值 27000 秒)<br>KB 數 (整數；**最小 1024**/預設值 102400000 KB 數)   |
+| 流量選取器 | UsePolicyBasedTrafficSelectors** ($True/$False；**選擇性**，如果未指定，即為預設的 $False)    |
+|  |  |
 
 > [!IMPORTANT]
 > 1. **如果 GCMAES 會用於 IPsec 加密演算法，您必須基於 IPsec 完整性選取相同的 GCMAES 演算法和金鑰長度；例如，針對這兩者使用 GCMAES128**
@@ -82,19 +82,18 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
 >    * 10.2.0.0/16 <====> 172.16.0.0/16
 
-如需以原則為基礎的流量選取器的詳細資訊，請參閱[連線多個內部部署以原則為基礎的 VPN 裝置](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
+如需原則式流量選取器的詳細資訊，請參閱[連線多個內部部署原則式 VPN 裝置](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 
 下表列出自訂原則所支援的對應 Diffie-Hellman 群組：
 
 | **Diffie-Hellman 群組**  | **DHGroup**              | **PFSGroup** | **金鑰長度** |
-| ---                       | ---                      | ---          | ---            |
+| --- | --- | --- | --- |
 | 1                         | DHGroup1                 | PFS1         | 768 位元 MODP   |
 | 2                         | DHGroup2                 | PFS2         | 1024 位元 MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048 位元 MODP  |
 | 19                        | ECP256                   | ECP256       | 256 位元 ECP    |
 | 20                        | ECP384                   | ECP284       | 384 位元 ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048 位元 MODP  |
-|                           |                          |              |                |
 
 如需詳細資訊，請參閱 [RFC3526](https://tools.ietf.org/html/rfc3526) 和 [RFC5114](https://tools.ietf.org/html/rfc5114)。
 
@@ -106,13 +105,15 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 
 如需建立 S2S VPN 連線的詳細逐步指示，請參閱[建立 S2S VPN 連線](vpn-gateway-create-site-to-site-rm-powershell.md)。
 
-### <a name="before-you-begin"></a>開始之前
+### <a name="before"></a>開始之前
+
 * 請確認您有 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，則可以啟用 [MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 * 您必須安裝 Azure Resource Manager PowerShell Cmdlet。 如需安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>步驟1 - 建立虛擬網路、VPN 閘道和區域網路閘道
+### <a name="createvnet1"></a>步驟1 - 建立虛擬網路、VPN 閘道和區域網路閘道
 
 #### <a name="1-declare-your-variables"></a>1.宣告變數
+
 對於此練習，我們一開始先宣告我們的變數。 請務必在設定生產環境時，使用您自己的值來取代該值。
 
 ```powershell
@@ -141,6 +142,7 @@ $LNGIP6        = "131.107.72.22"
 ```
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.連接至您的訂用帳戶並建立新的資源群組
+
 請確定您切換為 PowerShell 模式以使用資源管理員 Cmdlet。 如需詳細資訊，請參閱 [搭配使用 Windows PowerShell 與 Resource Manager](../powershell-azure-resource-manager.md)。
 
 開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
@@ -152,7 +154,8 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 ```
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>3.建立虛擬網路、VPN 閘道和區域網路閘道
-下列範例會建立有三個子網路的虛擬網路 TestVNet1 和 VPN 閘道。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道將會建立失敗。
+
+下列範例會建立有三個子網路的虛擬網路 TestVNet1 和 VPN 閘道。 替代值時，務必一律將您的閘道子網路特定命名為 GatewaySubnet。 如果您將其命名為其他名稱，閘道建立會失敗。
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -171,9 +174,10 @@ New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Locatio
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
 
-### <a name="step-2---creat-a-s2s-vpn-connection-with-an-ipsecike-policy"></a>步驟 2 - 使用 IPsec/IKE 原則建立 S2S VPN 連線
+### <a name="s2sconnection"></a>步驟 2 - 使用 IPsec/IKE 原則建立 S2S VPN 連線
 
 #### <a name="1-create-an-ipsecike-policy"></a>1.建立 IPsec/IKE 原則
+
 下列範例指令碼會使用下列演算法和參數來建立 IPsec/IKE 原則：
 
 * IKEv2：AES256、SHA384、DHGroup24
@@ -193,7 +197,8 @@ $ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA38
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2.使用 IPsec/IKE 原則建立 S2S VPN 連線
-建立 S2S VPN 連線，並套用上方所建立的 IPsec/IKE 原則。
+
+建立 S2S VPN 連線，並套用稍早建立的 IPsec/IKE 原則。
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -205,19 +210,21 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 您可以選擇性地將 "-UsePolicyBasedTrafficSelectors $True" 新增至建立連線 Cmdlet，讓 Azure VPN 閘道連線至內部部署以原則為基礎的 VPN 裝置，如上所述。
 
 > [!IMPORTANT]
-> 在連線上指定 IPsec/IKE 原則之後，Azure VPN 閘道只會傳送或接受該特定連線上的 IPsec/IKE 提案，而提案具有所指定的密碼編譯演算法和金鑰長度。 您必須確定連線的內部部署 VPN 裝置使用或接受確切原則組合，否則不會建立 S2S VPN 通道。
+> 在連線上指定 IPsec/IKE 原則之後，Azure VPN 閘道只會傳送或接受該特定連線上的 IPsec/IKE 提案，而提案具有所指定的密碼編譯演算法和金鑰長度。 確定連線的內部部署 VPN 裝置使用或接受確切原則組合，否則不會建立 S2S VPN 通道。
 
 
 ## <a name ="vnet2vnet"></a>第 4 部分 - 使用 IPsec/IKE 原則建立新的 VNet 對 VNet 連線
+
 使用 IPsec/IKE 原則建立 VNet 對 VNet 連線的步驟，與使用 IPsec/IKE 原則建立 S2S VPN 連線的步驟相同。 下列範例指令碼將建立連線，如圖所示：
 
 ![v2v-policy](./media/vpn-gateway-ipsecikepolicy-rm-powershell/v2vpolicy.png)
 
-如需建立 VNet 對 VNet 連線的詳細步驟，請參閱[建立 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。 您必須完成[第 3 部分](#crossprem)，才能建立和設定 TestVNet1 及 VPN 閘道。 
+如需建立 VNet 對 VNet 連線的詳細步驟，請參閱[建立 VNet 對 VNet 連線](vpn-gateway-vnet-vnet-rm-ps.md)。 您必須完成[第 3 部分](#crossprem)，才能建立和設定 TestVNet1 及 VPN 閘道。
 
-### <a name="step-1---create-the-second-virtual-network-and-vpn-gateway"></a>步驟 1 - 建立第二個虛擬網路和 VPN 閘道
+### <a name="createvnet2"></a>步驟 1 - 建立第二個虛擬網路和 VPN 閘道
 
 #### <a name="1-declare-your-variables"></a>1.宣告變數
+
 請務必使用您想用於設定的值來取代該值。
 
 ```powershell
@@ -241,6 +248,7 @@ $Connection12 = "VNet1toVNet2"
 ```
 
 #### <a name="2-create-the-second-virtual-network-and-vpn-gateway-in-the-new-resource-group"></a>2.在新的資源群組中建立第二個虛擬網路和 VPN 閘道
+
 ```powershell
 New-AzureRmResourceGroup -Name $RG2 -Location $Location2
 
@@ -258,10 +266,12 @@ $gw2ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet
 New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
 ```
 
-### <a name="step-2---creat-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>步驟 2 - 使用 IPsec/IKE 原則建立 VNet 對 VNet 連線
+### <a name="step-2---create-a-vnet-tovnet-connection-with-the-ipsecike-policy"></a>步驟 2 - 使用 IPsec/IKE 原則建立 VNet 對 VNet 連線
+
 與 S2S VPN 連線類似，請建立 IPsec/IKE 原則，然後將原則套用至新的連線。
 
 #### <a name="1-create-an-ipsecike-policy"></a>1.建立 IPsec/IKE 原則
+
 下列範例指令碼會使用下列演算法和參數來建立不同的 IPsec/IKE 原則：
 * IKEv2：AES128、SHA1、DHGroup14
 * IPsec：GCMAES128、GCMAES128、PFS14、SA 存留期 7200 秒和 4096KB
@@ -271,7 +281,8 @@ $ipsecpolicy2 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 
 ```
 
 #### <a name="2-create-vnet-to-vnet-connections-with-the-ipsecike-policy"></a>2.使用 IPsec/IKE 原則建立 VNet 對 VNet 連線
-建立 VNet 對 VNet 連線，並套用上方所建立的 IPsec/IKE 原則。 在此範例中，兩個閘道位於相同的訂用帳戶。 因此，可以在相同的 PowerShell 工作階段中建立和設定兩個具有相同 IPsec/IKE 原則的連線。
+
+建立 VNet 對 VNet 連線，並套用您建立的 IPsec/IKE 原則。 在此範例中，兩個閘道位於相同的訂用帳戶。 因此，可以在相同的 PowerShell 工作階段中建立和設定兩個具有相同 IPsec/IKE 原則的連線。
 
 ```powershell
 $vnet1gw = Get-AzureRmVirtualNetworkGateway -Name $GWName1  -ResourceGroupName $RG1
@@ -283,7 +294,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ```
 
 > [!IMPORTANT]
-> 在連線上指定 IPsec/IKE 原則之後，Azure VPN 閘道只會傳送或接受該特定連線上的 IPsec/IKE 提案，而提案具有所指定的密碼編譯演算法和金鑰長度。 您必須確定這兩個連線的 IPsec 原則相同，否則不會建立 VNet 對 VNet 連線。
+> 在連線上指定 IPsec/IKE 原則之後，Azure VPN 閘道只會傳送或接受該特定連線上的 IPsec/IKE 提案，而提案具有所指定的密碼編譯演算法和金鑰長度。 確定這兩個連線的 IPsec 原則相同，否則不會建立 VNet 對 VNet 連線。
 
 完成這些步驟之後，就會在幾分鐘內建立連線，而且您會有下列網路拓撲，如開頭所示：
 
@@ -291,7 +302,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 
 ## <a name ="managepolicy"></a>第 5 部分 - 更新連線的 IPsec/IKE 原則
-最後一節將說明如何管理現有 S2S 或 VNet 對 VNet 連線的 IPsec/IKE 原則。 下列練習會引導您在連線上進行下列作業：
+
+最後一節會說明如何管理現有 S2S 或 VNet 對 VNet 連線的 IPsec/IKE 原則。 下列練習會引導您在連線上進行下列作業：
 
 1. 顯示連線的 IPsec/IKE 原則
 2. 新增或更新連線的 IPsec/IKE 原則
@@ -303,6 +315,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 > 只有 Standard 和 HighPerformance 以路由為基礎的 VPN 閘道才支援 IPsec/IKE 原則。 它不適用於 Basic 閘道 SKU 或以原則為基礎的 VPN 閘道。
 
 #### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.顯示連線的 IPsec/IKE 原則
+
 下列範例示範如何取得連線上所設定的 IPsec/IKE 原則。 指令碼也會從上述練習繼續。
 
 ```powershell
@@ -312,20 +325,23 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-最後一個命令會列出連線上所設定的目前 IPsec/IKE 原則 (如果有的話)。 下面針對連線所顯示的範例輸出：
+最後一個命令會列出連線上所設定的目前 IPsec/IKE 原則 (如果有的話)。 下列範例輸出適用於連線：
 
-    SALifeTimeSeconds   : 3600
-    SADataSizeKilobytes : 2048
-    IpsecEncryption     : AES256
-    IpsecIntegrity      : SHA256
-    IkeEncryption       : AES256
-    IkeIntegrity        : SHA384
-    DhGroup             : DHGroup24
-    PfsGroup            : PFS24
+```powershell
+SALifeTimeSeconds   : 3600
+SADataSizeKilobytes : 2048
+IpsecEncryption     : AES256
+IpsecIntegrity      : SHA256
+IkeEncryption       : AES256
+IkeIntegrity        : SHA384
+DhGroup             : DHGroup24
+PfsGroup            : PFS24
+```
 
-如果未設定任何 IPsec/IKE 原則，命令 (PS> $connection6.policy) 會收到空白傳回。 這並不表示連線上未設定 IPsec/IKE，而是沒有自訂 IPsec/IKE 原則。 實際連線將會使用內部部署 VPN 裝置與 Azure VPN 閘道之間交涉的預設原則。
+如果未設定任何 IPsec/IKE 原則，命令 (PS> $connection6.policy) 會收到空白傳回。 這並不表示連線上未設定 IPsec/IKE，而是沒有自訂 IPsec/IKE 原則。 實際連線會使用內部部署 VPN 裝置與 Azure VPN 閘道之間交涉的預設原則。
 
 #### <a name="2-add-or-update-an-ipsecike-policy-for-a-connection"></a>2.新增或更新連線的 IPsec/IKE 原則
+
 在連線上新增原則或更新現有原則的步驟相同：建立新的原則，然後將新的原則套用至連線。
 
 ```powershell
@@ -351,18 +367,21 @@ $connection6  = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -
 $connection6.IpsecPolicies
 ```
 
-您應該會在最後一行看到輸出，如下所示：
+您應該會在最後一行看到輸出，如下列範例所示：
 
-    SALifeTimeSeconds   : 3600
-    SADataSizeKilobytes : 2048
-    IpsecEncryption     : GCMAES128
-    IpsecIntegrity      : GCMAES128
-    IkeEncryption       : AES128
-    IkeIntegrity        : SHA1
-    DhGroup             : DHGroup14--
-    PfsGroup            : None
+```powershell
+SALifeTimeSeconds   : 3600
+SADataSizeKilobytes : 2048
+IpsecEncryption     : GCMAES128
+IpsecIntegrity      : GCMAES128
+IkeEncryption       : AES128
+IkeIntegrity        : SHA1
+DhGroup             : DHGroup14--
+PfsGroup            : None
+```
 
 #### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3.移除連線的 IPsec/IKE 原則
+
 移除連線的自訂原則後，Azure VPN 閘道會回復為使用[預設的 IPsec/IKE 提案清單](vpn-gateway-about-vpn-devices.md)，並與內部部署 VPN 裝置重新進行交涉。
 
 ```powershell
@@ -376,10 +395,10 @@ $connection6.IpsecPolicies.Remove($currentpolicy)
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6
 ```
 
-同樣地，您可以使用上述相同的指令碼，以檢查是否已從連線中移除原則。
+您可以使用相同的指令碼，以檢查是否已從連線中移除原則。
 
 ## <a name="next-steps"></a>後續步驟
+
 如需以原則為基礎的流量選取器的詳細資訊，請參閱[連線多個內部部署以原則為基礎的 VPN 裝置](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 請參閱 [建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以取得相關步驟。
-

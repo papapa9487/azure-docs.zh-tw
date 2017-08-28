@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2c796156df6ed2a891d423030bdd07b5c19f3235
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>Azure Cosmos DB .NET SDK：下載和版本資訊
@@ -53,6 +53,11 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name11701170"></a><a name="1.17.0"/>1.17.0 
+
+* 已新增將 PartitionKeyRangeId 做為 FeedOption 的支援，以供對特定分割區索引鍵範圍值限制查詢結果範圍。 
+* 已新增將 StartTime 做為 ChangeFeedOption 的支援，以開始尋找該時間之後的變更。
+
 ### <a name="a-name11611161"></a><a name="1.16.1"/>1.16.1
 * 修正 JsonSerializable 類別中可能會造成堆疊溢位例外狀況的問題。
 
@@ -67,7 +72,6 @@ ms.lasthandoff: 08/09/2017
 *   針對不支援 SSE4 指令的 x64 電腦，已修正執行 Azure Cosmos DB API 查詢時，這類電腦會擲回 SEHException 的問題。
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
-*   已新增每分鐘的要求單位 (RU/m) 功能支援。
 *   已新增對新一致性層級 ConsistentPrefix 的支援。
 *   已新增對個別資料分割之查詢計量的支援。
 *   已新增對限制查詢之接續權杖大小的支援。
@@ -254,6 +258,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.17.0](#1.17.0) |2017 年 8 月 10 日 |--- |
 | [1.16.1](#1.16.1) |2017 年 8 月 7 日 |--- |
 | [1.16.0](#1.16.0) |2017 年 8 月 2 日 |--- |
 | [1.15.0](#1.15.0) |2017 年 6 月 30 日 |--- |

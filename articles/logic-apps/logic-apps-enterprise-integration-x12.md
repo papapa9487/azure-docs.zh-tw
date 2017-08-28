@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 4a41d9eb8b28aed499bb20e17e3c979962c78bcd
+ms.translationtype: HT
+ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
+ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/16/2017
 
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 X12 訊息
@@ -272,6 +271,9 @@ ms.lasthandoff: 07/06/2017
 | 取代字元 |輸入在產生輸出 X12 訊息時，用於取代承載資料中所有分隔符號字元的取代字元。 |
 | 區段結束字元 |若要指出 EDI 區段的結尾，請輸入單一字元。 |
 | 尾碼 |選取與區段識別項一起使用的字元。 如果指定尾碼，則區段結束字元資料元素可以空白。 如果區段結束字元留空，則必須指定尾碼。 |
+
+> [!TIP]
+> 若要提供特殊字元值，請將合約編輯為 JSON，並為特殊字元提供 ASCII 值。
 
 ### <a name="validation"></a>驗證
 
