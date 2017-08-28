@@ -1,14 +1,16 @@
-## <a name="meaning-of-migration-of-iaas-resources-from-classic-to-resource-manager"></a>將 IaaS 資源從傳統移轉至 Resource Manager 的意義
+## <a name="meaning-of-migration-of-iaas-resources-from-the-classic-deployment-model-to-resource-manager"></a>將 IaaS 資源從傳統部署模型移轉至 Resource Manager 的意義
 在深入了解詳細資料之前，讓我們看看 IaaS 資源上資料平面與管理平面作業之間的差異。
 
 * 「管理/控制平面」說明進入管理/控制平面或 API 以便修改資源的呼叫。 例如，建立 VM、重新啟動 VM 以及將虛擬網路更新成使用新子網路等作業皆可管理執行中的資源。 它們並不直接影響對執行個體的連線。
 *  (應用程式) 說明應用程式本身的執行階段，並牽涉到與不通過 Azure API 的執行個體進行互動。 不論是存取您的網站，還是從執行中的 SQL Server 或 MongoDB 伺服器提取資料，皆會被視為是資料平面或應用程式互動。 從儲存體帳戶複製 Blob 以及存取公用 IP 位址以透過 RDP 或 SSH 進入虛擬機器也屬於資料平面。 這些作業會讓應用程式繼續跨計算、網路和儲存體執行。
 
+在幕後，傳統部署模型與 Resource Manager 堆疊之間的資料平面相同。 在移轉過程中，我們會將資源的表示法從傳統部署模型轉譯為 Resource Manager 堆疊中的表示法。 因此，您必須使用新的工具、API、SDK 來管理 Resource Manager 堆疊中您的資源。
+
 ![說明管理/控制平面與資料平面之間差異的螢幕擷取畫面](../articles/virtual-machines/media/virtual-machines-windows-migration-classic-resource-manager/data-control-plane.png)
+
 
 > [!NOTE]
 > 在一些移轉案例中，Azure 平台會將您的虛擬機器停止、解除配置及重新啟動。 這會造成短暫的資料平面停機時間。
->
 >
 
 ## <a name="the-migration-experience"></a>移轉體驗
@@ -31,25 +33,40 @@
 >
 
 ### <a name="validate"></a>驗證
-驗證作業是移轉程序的第一個步驟。 此步驟的目標是要在背景針對進行移轉的資源執行資料分析，如果資源能夠進行移轉，便傳回成功/失敗。
+驗證作業是移轉程序的第一個步驟。 此步驟的目標是要分析您希望在傳統部署模型中移轉之資源的狀態，而如果資源能夠移轉，便傳回成功/失敗。
 
-您需選取要進行移轉驗證的虛擬網路或託管服務 (如果它不是虛擬網路)。
+您可選取要進行移轉驗證的虛擬網路或雲端服務 (如果不在虛擬網路中)。
 
 * 如果資源不能進行移轉，Azure 平台將會列出不支援移轉該資源的所有原因。
 
-驗證儲存體服務時，您會發現資源群組中已移轉帳戶的名稱與您儲存體帳戶的名稱相同，但會附加 "-Migrated"。  例如，如果您的儲存體帳戶名為 "mystorage"，您會發現資源群組中支援 Azure Resource Manager 的資源會命名為 "mystorage-Migrated"，而且它會包含名為 "mystorage" 的儲存體帳戶。
+#### <a name="checks-not-done-in-validate"></a>不在驗證中完成的檢查
+
+驗證作業只會分析傳統部署模型中資源的狀態。 該作業可檢查因為傳統部署模型中的各種組態而造成的所有失敗和不支援的案例。 它不可能檢查 Azure Resource Manager 堆疊在移轉期間可能強加於資源的所有問題。 只有資源在下一個移轉步驟 (也就是「準備」) 中進行轉換時，才會檢查這些問題。 下表列出所有未在驗證中檢查的問題。
+
+
+|不在驗證中的網路功能檢查|
+|-|
+|同時具有 ER 和 VPN 閘道的虛擬網路|
+|處於中斷連線狀態的虛擬網路閘道連線|
+|所有 ER 線路都已預先移轉至 Azure Resource Manager 堆疊|
+|網路資源 (也就是靜態公用 IP、動態公用 IP、負載平衡器、網路安全性群組、路由表、網路介面) 的 Azure Resource Manager 配額檢查 |
+| 檢查所有負載平衡器規則是否在整個部署/VNET 中有效 |
+| 檢查相同 VNET 中已停止並解除配置的 VM 之間是否有衝突的私人 IP |
 
 ### <a name="prepare"></a>準備
-準備作業是移轉程序的第二個步驟。 這個步驟的目標是要模擬將 IaaS 資源從傳統資源轉換為 Resource Manager 資源的轉換過程，並以並排方式呈現此過程以供您用視覺化方式檢視。
+準備作業是移轉程序的第二個步驟。 這個步驟的目標是要模擬將 IaaS 資源從傳統部署模型轉換為 Resource Manager 資源的轉換過程，並以並排方式呈現此過程以供您用視覺化方式檢視。
 
-您需選取要為移轉做準備的虛擬網路或託管服務 (如果它不是虛擬網路)。
+> [!NOTE] 
+> 傳統資源不會在此步驟期間進行修改。 因此，如果您嘗試移轉，這是安全的執行步驟。 
+
+您可選取要為移轉做準備的虛擬網路或雲端服務 (如果它不是虛擬網路)。
 
 * 如果資源不能進行移轉，Azure 平台將會停止移轉程序並列出準備作業失敗的原因。
 * 如果資源能夠進行移轉，Azure 平台會先鎖定進行移轉之資源的管理平面作業。 例如，您會無法將資料磁碟新增至進行移轉的 VM。
 
-接著，Azure 平台會開始將移轉中資源的中繼資料從傳統移轉至 Resource Manager。
+接著，Azure 平台會開始將移轉中資源的中繼資料從傳統部署模型移轉至 Resource Manager。
 
-準備作業完成之後，您將可以選擇在傳統和 Resource Manager 中將資源視覺化。 Azure 平台會為傳統部署模型中的每個雲端服務，建立一個採用 `cloud-service-name>-Migrated`模式的資源群組名稱。
+準備作業完成之後，您將可以選擇在傳統部署模型和 Resource Manager 中將資源視覺化。 Azure 平台會為傳統部署模型中的每個雲端服務，建立一個採用 `cloud-service-name>-Migrated`模式的資源群組名稱。
 
 > [!NOTE]
 > 無法選取針對已移轉資源所建立的資源群組名稱 (例如 "-Migrated")，但在完成移轉之後，您可以使用 Azure Resource Manager 移動功能來將資源移動到您所需的任何資源群組。 若要深入了解此概念，請參閱[將資源移動到新的資源群組或訂用帳戶](../articles/resource-group-move-resources.md)。
@@ -60,9 +77,12 @@
 
 ![顯示入口網站 Azure Resource Manager 資源處於準備狀態的螢幕擷取畫面](../articles/virtual-machines/windows/media/migration-classic-resource-manager/portal-arm.png)
 
+以下是「準備」階段完成之後，資源的幕後外觀。 請注意，資料平面中的資源相同。 它會以管理平面 (傳統部署模型) 和控制平面 (Resource Manager) 表示。
+
+![準備階段中的幕後外觀](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-prepare.png)
+
 > [!NOTE]
-> 在這個移轉階段中，會將不在傳統「虛擬網路」中的「虛擬機器」停止並解除配置。
->
+> 在這個移轉階段中，不在傳統虛擬網路中的虛擬機器會停止並解除配置。
 >
 
 ### <a name="check-manual-or-scripted"></a>檢查 (手動或透過指令碼)
@@ -77,27 +97,33 @@
 如果您發現任何問題，您一律可以中止移轉，並返回傳統部署模型。 在您返回之後，Azure 平台將會開放對資源的平面管理作業，讓您可以在傳統部署模型中繼續對這些 VM 進行一般作業。
 
 ### <a name="abort"></a>中止
-「中止」是選擇性步驟，您可以使用此步驟將您的變更還原至傳統部署模型並停止移轉。
+「中止」是選擇性步驟，您可以使用此步驟將您的變更還原至傳統部署模型並停止移轉。 此作業會刪除在先前的「準備」步驟中為資源建立的 Resource Manager 中繼資料。 
+
+![中止階段中的幕後外觀](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-abort.png)
+
 
 > [!NOTE]
 > 在您觸發了認可作業之後，就無法執行此作業。     
 >
->
 
 ### <a name="commit"></a>認可
-完成驗證之後，您便可以認可移轉。 資源不會再出現在傳統部署模型中，而只有在 Resource Manager 部署模型中才能使用這些資源。 只能在新入口網站中管理已移轉的資源。
+完成驗證之後，您便可以認可移轉。 資源不會再出現於傳統部署模型中，而只有在 Resource Manager 部署模型中才能使用這些資源。 只能在新入口網站中管理已移轉的資源。
 
 > [!NOTE]
 > 這是一種等冪作業。 如果發生失敗，建議您重新嘗試執行該作業。 如果持續發生失敗，請建立支援票證，或是在我們的 [VM 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)上建立一篇標籤為 ClassicIaaSMigration 的論壇文章。
 >
 >
-<br>
-以下是移轉程序期間的步驟流程圖
+
+![認可階段中的幕後外觀](../articles/virtual-machines/windows/media/migration-classic-resource-manager/behind-the-scenes-commit.png)
+
+## <a name="where-to-begin-migration"></a>何處開始移轉？
+
+以下流程圖顯示如何繼續進行移轉
 
 ![顯示移轉步驟的螢幕擷取畫面](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
-## <a name="translation-of-classic-to-azure-resource-manager-resources"></a>從傳統轉譯成 Azure Resource Manager 資源
-下表提供傳統和 Resource Manager 的資源表示法。 目前不支援其他功能和資源。
+## <a name="translation-of-classic-deployment-model-to-azure-resource-manager-resources"></a>從傳統部署模型轉譯成 Azure Resource Manager 資源
+下表提供資源的傳統部署模型和 Resource Manager 表示法。 目前不支援其他功能和資源。
 
 | 傳統表示法 | Resource Manager 表示法 | 詳細資訊 |
 | --- | --- | --- |

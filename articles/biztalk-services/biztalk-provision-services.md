@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 299a6fb23cd0fa725324bbdbdc669ff125a99d1b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>使用 Azure 入口網站建立 BizTalk 服務
@@ -31,7 +30,7 @@ ms.lasthandoff: 06/01/2017
 > 若要登入 Azure 入口網站，您需要 Azure 帳戶和 Azure 訂用帳戶。 如果沒有帳戶，您可在幾分鐘內建立免費試用帳戶。 查看 [Azure 免費試用](http://go.microsoft.com/fwlink/p/?LinkID=239738)。
 
 
-## <a name="create-a-biztalk-service"></a>建立 BizTalk 服務
+## <a name="CreateService"></a>建立 BizTalk 服務
 視您所選的版本而定，部分 BizTalk 服務設定可能無法使用。
 
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=213885)。
@@ -234,13 +233,14 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 
 <ul>
 <li><strong>增強金鑰使用方法</strong>：Azure BizTalk 服務至少需要伺服器驗證。</li>
-<li><strong>一般名稱</strong>：輸入 Azure BizTalk 服務 URL 的完整網域名稱 (FQDN)。 請參閱本文中的<a HREF="#BizTalk">建立 BizTalk 服務</a>。</li>
+<li><strong>一般名稱</strong>：輸入 Azure BizTalk 服務 URL 的完整網域名稱 (FQDN)。 請參閱本文中的<a HREF="#CreateService">建立 BizTalk 服務</a>。</li>
 </ul>
 <br/>
 在建立 BizTalk 服務後，可以加入新的或不同的憑證。
 </td>
 </tr>
 </table>
+<!---Loc Comment: Please, check link [Create a BizTalk Service] since it is not redirecting to any location.--->
 
 
 

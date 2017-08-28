@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 899a45d59099dec147c96e4cd175536e859e88f8
+ms.translationtype: HT
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) �
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>存取 Azure 和 Azure Active Directory
-**問︰當我嘗試在 Azure 傳統入口網站中存取 Azure AD，為何會收到「找不到訂用帳戶」(https://manage.windowsazure.com)？**
+**問︰當我嘗試在 Azure 傳統入口網站中存取 Azure AD，為何會收到「找不到訂用帳戶」？**
 
 **答：**若要存取 Azure 傳統入口網站，每位使用者都必須擁有 Azure 訂用帳戶的權限。 如果您有付費的 Office 365 或 Azure AD 訂用帳戶，請移至 [http://aka.ms/accessAAD](http://aka.ms/accessAAD) 以進行一次性啟用步驟。 否則，您必須啟用免費 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)或付費的訂用帳戶。
 
@@ -212,5 +212,5 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 - - -
 **問︰是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
-**答：**否。  Azure AD 不支援 LDAP 通訊協定。
+**答：**否。 Azure AD 不支援 LDAP 通訊協定。
 

@@ -14,10 +14,10 @@ ms.topic: hero-article
 ms.date: 07/27/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 1749c4233e2b90f0a207033276b31093f7bf667f
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>Azure Cosmos DB︰在 Gremlin 主控台中建立、查詢和周遊圖形
@@ -28,7 +28,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ![Apache Gremlin 主控台中的 Azure Cosmos DB](./media/create-graph-gremlin-console/gremlin-console.png)
 
-Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows 上執行。 您可以從 [Apache TinkerPop 網站](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.4/apache-tinkerpop-gremlin-console-3.2.4-bin.zip)進行下載。
+Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows 上執行。 您可以從 [Apache TinkerPop 網站](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip)進行下載。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +36,7 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-您也需要安裝 [Gremlin 主控台](http://tinkerpop.apache.org/)。 使用 3.2.4 版或更高版本。
+您也需要安裝 [Gremlin 主控台](http://tinkerpop.apache.org/)。 使用 3.2.5 版或更高版本。
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
@@ -47,7 +47,7 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
 ## <a id="ConnectAppService"></a>連線到您的應用程式服務
-1. 啟動 Gremlin 主控台之前，請建立或修改 apache-tinkerpop-gremlin-console-3.2.4/conf 目錄中的 remote-secure.yaml 組態檔。
+1. 啟動 Gremlin 主控台之前，請建立或修改 apache-tinkerpop-gremlin-console-3.2.5/conf 目錄中的 remote-secure.yaml 組態檔。
 2. 填入您的 host、port、username、password、connectionPool 和 serializer 組態︰
 
     設定|建議的值|說明
@@ -64,7 +64,7 @@ Gremlin 主控台是以 Groovy/Java 為基礎並且在 Linux、Mac 和 Windows �
     對於密碼值，從 [金鑰] 頁面複製 [主要金鑰]：![在 Azure 入口網站的 [金鑰] 頁面上檢視和複製主要金鑰](./media/create-graph-gremlin-console/keys.png)
 
 
-3. 在您的終端機執行 `bin/gremlin.bat` 或 `bin/gremlin.sh`，以啟動 [Gremlin 主控台](http://tinkerpop.apache.org/docs/3.2.4/tutorials/getting-started/)。
+3. 在您的終端機執行 `bin/gremlin.bat` 或 `bin/gremlin.sh`，以啟動 [Gremlin 主控台](http://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/)。
 4. 在您的終端機執行 `:remote connect tinkerpop.server conf/remote-secure.yaml`，以連線到您的應用程式服務。
 
     > [!TIP]

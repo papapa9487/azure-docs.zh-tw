@@ -72,7 +72,7 @@ Azure 是用來實作 dev/test 或概念證明設定的絕佳平台，因為它�
 我們建議讓 Azure 虛擬機器名稱與基礎作業系統電腦名稱相同。 因此，請遵循〈 [Microsoft NetBIOS 電腦命名慣例](https://support.microsoft.com/kb/188997/)〉中所述的 NetBIOS 命名規則。
 
 ### <a name="storage-account-names"></a>儲存體帳戶名稱
-儲存體帳戶具備負責管理其名稱的特殊規則。 您只能使用小寫字母和數字。 如需詳細資訊，請參閱 [建立儲存體帳戶](../articles/storage/storage-create-storage-account.md#create-a-storage-account) 。 此外，結合 core.windows.net 的儲存體帳戶名稱應該是全域有效且唯一的 DNS 名稱。 例如，如果儲存體帳戶名稱為 mystorageaccount，則以下產生的 DNS 名稱應該是唯一的：
+儲存體帳戶具備負責管理其名稱的特殊規則。 您只能使用小寫字母和數字。 如需詳細資訊，請參閱 [建立儲存體帳戶](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) 。 此外，結合 core.windows.net 的儲存體帳戶名稱應該是全域有效且唯一的 DNS 名稱。 例如，如果儲存體帳戶名稱為 mystorageaccount，則以下產生的 DNS 名稱應該是唯一的：
 
 * mystorageaccount.blob.core.windows.net
 * mystorageaccount.table.core.windows.net
@@ -131,7 +131,7 @@ Azure 儲存體是許多 Azure 解決方案不可或缺的部分。 Azure 儲存
 
 Azure 中有兩種可用的儲存體帳戶。 標準儲存體帳戶可供您存取 blob 儲存體 (用於存放 Azure 虛擬機器磁碟)、資料表儲存體、佇列儲存體和檔案儲存體。 進階儲存體是設計來供高效能的應用程式使用 (例如，AlwaysOn 叢集中的 SQL Server)，目前僅支援 Azure 虛擬機器磁碟。
 
-儲存體帳戶會繫結至延展性目標。 請參閱〈 [Microsoft Azure 訂用帳戶及服務限制、配額與限制](../articles/azure-subscription-service-limits.md#storage-limits) 〉，以熟悉目前的 Azure 儲存體限制。 另請參閱〈 [Azure 儲存體的延展性與效能目標](../articles/storage/storage-scalability-targets.md)〉。
+儲存體帳戶會繫結至延展性目標。 請參閱〈 [Microsoft Azure 訂用帳戶及服務限制、配額與限制](../articles/azure-subscription-service-limits.md#storage-limits) 〉，以熟悉目前的 Azure 儲存體限制。 另請參閱〈 [Azure 儲存體的延展性與效能目標](../articles/storage/common/storage-scalability-targets.md)〉。
 
 Azure 會建立含有一個作業系統磁碟、一個暫存磁碟，以及零或多個選用資料磁碟的虛擬機器。 作業系統磁碟和資料磁碟都是 Azure 頁面 Blob，而暫存磁碟會儲存在本機機器所在的節點上。 這會使得暫存磁碟不適合用於系統回收期間必須持續存在的資料，因為該虛擬機器可能會以無訊息模式從某個節點移轉到其他節點，因而遺失該磁碟上的所有資料。 請勿在暫存磁碟機上儲存任何資料。
 
@@ -392,7 +392,7 @@ Contoso 決定為其 Azure 虛擬機器使用下列名稱：
 
 [虛擬機器的大小](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Azure 儲存體的延展性與效能目標](../articles/storage/storage-scalability-targets.md)
+[Azure 儲存體的延展性與效能目標](../articles/storage/common/storage-scalability-targets.md)
 
 [資料中心延伸模組參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84)
 

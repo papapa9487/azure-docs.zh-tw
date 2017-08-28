@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 01/26/2017
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 75c2e0f119ac5669c3ab5bd528899d6e4b7818c9
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 95e14824ba3b705bb909ec983652dd3305b98805
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="get-started-with-sql-data-warehouse"></a>開始使用 SQL 資料倉儲
@@ -63,8 +62,7 @@ SQL 資料倉儲是一種特殊類型的資料庫，其設計用來進行大量�
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [新增] > [資料庫] > [SQL 資料倉儲]。
 
-    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png)
-    ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
+    ![NewBlade](../../includes/media/sql-data-warehouse-create-dw/blade-click-new.png) ![SelectDW](../../includes/media/sql-data-warehouse-create-dw/blade-select-dw.png)
 
 3. 填寫部署詳細資料
 
@@ -84,8 +82,7 @@ SQL 資料倉儲是一種特殊類型的資料庫，其設計用來進行大量�
 
     **選取效能**︰建議您使用標準的 400 DWU。
 
-4. 選擇 **[釘選到儀表板]**
-    ![釘選到儀表板](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+4. 選擇 [釘選到儀表板] ![釘選到儀表板](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. 稍候一會，讓資料倉儲進行部署！ 正常來說，此程序需要幾分鐘的時間。 資料倉儲可供使用時，入口網站會通知您。 
 
@@ -657,7 +654,7 @@ SQL 資料倉儲支援稱為 CREATE TABLE AS SELECT (CTAS) 的重要陳述式。
 
 [將資料移轉至 Azure SQL 資料倉儲][]
 
-[並行和工作負載管理]: sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example
+[並行和工作負載管理]: sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example
 [Azure SQL 資料倉儲最佳做法]: sql-data-warehouse-best-practices.md#hash-distribute-large-tables
 [查詢監視]: sql-data-warehouse-manage-monitor.md
 [建立大規模關聯式資料倉儲的 10 大最佳作法]: https://blogs.msdn.microsoft.com/sqlcat/2013/09/16/top-10-best-practices-for-building-a-large-scale-relational-data-warehouse/

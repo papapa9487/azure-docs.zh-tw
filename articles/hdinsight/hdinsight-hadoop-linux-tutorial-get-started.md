@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/23/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: f2a97c32e9f1a286102e0800db57107e041d1990
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: fd9e6dcea6524f55c1bd06da35f02be5670bf95f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教學課程：開始在 HDInsight 中使用 Hadoop
 
-了解如何在 HDInsight 中建立 [Hadoop](http://hadoop.apache.org/) 叢集，以及如何在 HDInsight 中執行 Hive 作業。 [Apache Hive](https://hive.apache.org/) 是 Hadoop 生態系統中最受歡迎的元件。 HDInsight 目前隨附 6 種叢集類型︰[Hadoop](hdinsight-hadoop-introduction.md)、[Spark](hdinsight-apache-spark-overview.md)、[HBase](hdinsight-hbase-overview.md)、[Storm](hdinsight-storm-overview.md)、[互動式 Hive (預覽)](hdinsight-hadoop-use-interactive-hive.md) 和 [R 伺服器](hdinsight-hadoop-r-server-overview.md)。  每種叢集類型都支援一組不同的元件。 這 6 種叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](hdinsight-component-versioning.md)  
+了解如何在 HDInsight 中建立 [Hadoop](http://hadoop.apache.org/) 叢集，以及如何在 HDInsight 中執行 Hive 作業。 [Apache Hive](https://hive.apache.org/) 是 Hadoop 生態系統中最受歡迎的元件。 HDInsight 目前隨附 [7 個不同的叢集類型](hdinsight-hadoop-introduction.md#overview)。 每種叢集類型都支援一組不同的元件。 所有叢集類型都支援 Hive。 如需 HDInsight 中支援的元件清單，請參閱 [HDInsight 在 Hadoop 叢集版本中提供的新功能](hdinsight-component-versioning.md)  
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 05/12/2017
     * **OS 類型**：Linux
     * **背景工作節點數目**：2
 
-     每個叢集都具備 Azure 儲存體帳戶相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集與其預設儲存體帳戶必須並存於相同的 Azure 區域。 刪除叢集並不會刪除儲存體帳戶。 
+     每個叢集都具備 [Azure 儲存體帳戶](hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集與其預設儲存體帳戶必須並存於相同的 Azure 區域。 刪除叢集並不會刪除儲存體帳戶。 
      
      如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
@@ -78,7 +77,7 @@ ms.lasthandoff: 05/12/2017
 
 
 ## <a name="run-hive-queries"></a>執行 Hive 查詢
-[Apache Hive](hdinsight-use-hive.md) 是 HDInsight 中使用的最受歡迎元件。 有許多方法可在 HDInsight 上執行 Hive 工作。 在本教學課程中，您將使用 Ambari Hive 檢視，從入口網站執行一些 Hive 工作。 如需提交 Hive 工作的其他方法，請參閱 [在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。
+[Apache Hive](hdinsight-use-hive.md) 是 HDInsight 中使用的最受歡迎元件。 有許多方法可在 HDInsight 上執行 Hive 工作。 在本教學課程中，您將從入口網站使用 Ambari Hive 檢視。 如需提交 Hive 工作的其他方法，請參閱 [在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。
 
 1. 從先前的螢幕擷取畫面中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。  您也可以瀏覽至 **https://&lt;ClusterName>.azurehdinsight.net** 以開啟 Ambari，其中 &lt;ClusterName> 是您在上一節建立的叢集。
 2. 輸入您在上一節指定的 Hadoop 使用者名稱和密碼。 預設的使用者名稱為 **admin**。

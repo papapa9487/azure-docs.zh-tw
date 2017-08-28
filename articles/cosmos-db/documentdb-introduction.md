@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a8854c0f6313238ee846ad1c537d23d8fd20c66f
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 簡介：DocumentDB API
@@ -48,6 +48,8 @@ Azure Cosmos DB 可透過 DocumentDB API 提供下列重要功能和優點：
 * **開放式設計：** 使用現有技能和工具讓您快速上手。 針對 DocumentDB API 進行程式設計很簡單、容易達成，且不需要採用新工具或符合 JSON 或 JavaScript 的自訂擴充功能。 您可以透過簡單的 RESTful HTTP 介面來存取所有資料庫功能，包括 CRUD、查詢和 JavaScript 處理。 DocumentDB API 既採用現有的格式、語言和標準，同時又能提供凌駕於它們之上的高價值資料庫功能。
 
 * **自動編製索引**：根據預設，Azure Cosmos DB 會自動為資料庫中的所有文件編制索引，且不預期或需要任何結構描述或建立次要索引。 不想要編製所有項目的索引嗎？ 別擔心，您也可以 [選擇退出 JSON 檔案中的路徑](indexing-policies.md) 。
+
+* **變更摘要支援：**變更摘要可提供一份 Azure Cosmos DB 集合內的文件排序清單，並以文件的修改順序排序。 此摘要可用於接聽資料修改，以便複寫資料、觸發 API 呼叫或執行更新的串流處理。 變更摘要會自動啟用且容易使用：[深入了解變更摘要](https://docs.microsoft.com/azure/cosmos-db/change-feed)。 
 
 ## <a name="data-management"></a>您要如何使用 DocumentDB API 來管理資料？
 DocumentDB API 透過定義完善的資料庫資源來協助管理 JSON 資料。 這些資源會進行複寫來達到高可用性，並且會透過其邏輯 URI 來進行唯一定址。 DocumentDB API 針對所有資源提供簡單的 HTTP 式 RESTful 程式設計模型。 

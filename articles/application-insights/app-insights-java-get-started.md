@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 29e13b51e094047be07843ad3d865290be32446b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
@@ -387,7 +387,7 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 * 撰寫[自訂遙測](app-insights-api-custom-events-metrics.md)，以追蹤瀏覽器中或在伺服器上的使用情況。
 * 建立[儀表板](app-insights-dashboards.md)，以結合重要圖表來監視您的系統。
 * 使用[分析](app-insights-analytics.md)功能從您的應用程式透過遙測進行強大查詢
-* 如需詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+* 如需詳細資訊，請瀏覽[適用於 Java 開發人員的 Azure](/java/azure)。
 
 <!--Link references-->
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: e2d21b28c482427c60f708171336e6901b50e544
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux (預覽) 和 Windows (正式推出) 上 Service Fabric 之間的差異
@@ -107,5 +107,5 @@ Windows 與 Linux 上的開發工具也不同。 在 Windows 上使用 VisualStu
 * [使用 Yeoman 在 Linux 上建立和部署第一個 Service Fabric Java 應用程式](service-fabric-create-your-first-linux-application-with-java.md)
 * [在 Linux 上使用適用於 Eclipse 的 Service Fabric 外掛程式建立和部署第一個 Service Fabric Java 應用程式](service-fabric-get-started-eclipse.md)
 * [在 Linux 上建立第一個 CSharp 應用程式](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [使用 Azure CLI 管理 Service Fabric 應用程式](service-fabric-azure-cli.md)
+* [使用 Service Fabric CLI 管理應用程式](service-fabric-application-lifecycle-sfctl.md)
 

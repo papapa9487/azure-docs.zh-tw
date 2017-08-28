@@ -15,15 +15,15 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 27e5dbff8d4a9a2ed82ab6691aa82c2668fec958
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
 
-## <a name="connecting-to-virtual-networks"></a>連接到虛擬網路
+## <a name="connecting"></a>連線到虛擬網路
 
 ### <a name="can-i-connect-virtual-networks-in-different-azure-regions"></a>是否可以連接不同 Azure 區域中的虛擬網路？
 
@@ -229,3 +229,4 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 * 如需 VPN 閘道的詳細資訊，請參閱[關於 VPN 閘道](vpn-gateway-about-vpngateways.md)。
 * 如需 VPN 閘道組態設定的詳細資訊，請參閱[關於 VPN 閘道組態設定](vpn-gateway-about-vpn-gateway-settings.md)。
+

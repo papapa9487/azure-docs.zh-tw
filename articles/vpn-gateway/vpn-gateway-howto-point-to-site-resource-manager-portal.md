@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: c3911c1435054417f61ba4767d6f622430afcf4b
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線：Azure 入口網站
@@ -33,7 +33,9 @@ ms.lasthandoff: 08/15/2017
 >
 >
 
-點對站 (P2S) 設定可讓您建立從個別的用戶端電腦到虛擬網路的安全連線。 當您想要從遠端位置 (例如從住家或會議) 連線至 VNet 時，或只有幾個需要連線至虛擬網路的用戶端時，點對站連線是很實用的解決方案。 使用原生 Windows VPN 用戶端從用戶端電腦起始 P2S VPN 連線。 連線用戶端會使用憑證進行驗證。 
+點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。 
+
+P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的 VPN 通訊協定。 P2S VPN 連線的建立方式是從用戶端電腦開始。
 
 ![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
 
@@ -164,6 +166,8 @@ ms.lasthandoff: 08/15/2017
 3. 已建立您的連線。
 
   ![連線已建立](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
+
+#### <a name="troubleshooting-p2s-connections"></a>針對 P2S 連線進行疑難排解
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 

@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2016
+ms.date: 08/21/2016
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9cc621380a6b22a6b1da617d76c56e4773bb3dde
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -147,6 +146,9 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 此程序會建立並儲存您可以隨時用來升級應用程式的執行組態設定檔。 這也會從應用程式資訊清單檔中取得最新版更新應用程式類型版本的程序。
 
 應用程式升級會花費幾分鐘的時間。 您可以在 Service Fabric Explorer 中監視應用程式升級。
+
+## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>移轉要搭配 Maven 使用的舊版 Service Fabric Java 應用程式
+我們最近已將 Service Fabric Java 程式庫從 Service Fabric Java SDK 移至 Maven 存放庫。 雖然您使用 Eclipse 產生的新應用程式將產生最新的專案 (能夠搭配 Maven 運作)，但您可以更新現有的 Service Fabric 無狀態或動作項目 Java 應用程式 (先前使用 Service Fabric Java SDK)，以使用 Maven 提供的 Service Fabric Java 相依性。 請遵循[這裡](service-fabric-migrate-old-javaapp-to-use-maven.md)所述的步驟，確保舊版應用程式能搭配 Maven 運作。
 
 <!-- Images -->
 

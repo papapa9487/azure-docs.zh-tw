@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/12/2017
+ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 7ef31d7d72844c0ed3be0701549e49e26aac9abf
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -67,7 +67,7 @@ Azure 自動化 DSC 可以用來管理各種機器：
 ### <a name="permissions-required-to-create-automation-account"></a>建立自動化帳戶所需的權限
 若要建立或更新自動化帳戶，您必須具有下列特定權限，才能完成本主題。   
  
-* 若要建立自動化帳戶，您的 AD 使用者帳戶必須新增至具備與 Microsoft.Automation 資源的參與者角色同等權限的角色 (如[Azure 自動化中的角色型存取控制](automation-role-based-access-control.md#contributor-role-permissions)一文所述)。  
+* 若要建立自動化帳戶，您的 AD 使用者帳戶必須新增至具備與 Microsoft.Automation 資源的擁有者角色同等權限的角色 (如[Azure 自動化中的角色型存取控制](automation-role-based-access-control.md)一文所述)。  
 * 如果應用程式註冊設定為 [是]，Azure AD 租用戶中的非系統管理使用者可以[註冊 AD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions)。  如果應用程式註冊設定為 [否]，則執行此動作的使用者必須是 Azure AD 中的全域管理員。 
 
 若您在新增至訂用帳戶的全域管理員/共同管理員角色之前，並非訂用帳戶 Active Directory 執行個體的成員，系統會將您以來賓身分新增至 Active Directory。 在此情況下，您會在 [新增自動化帳戶] 刀鋒視窗中看到 「您沒有權限建立...」的警告。 新增至全域管理員/共同管理員角色的使用者可以先從訂用帳戶的 Active Directory 執行個體中移除並重新新增，使其成為 Active Directory 中的完整使用者。 若要確認這種情況，請從 Azure 入口網站的 [Azure Active Directory] 窗格，選取 [使用者和群組]、選取 [所有使用者]，然後在選取特定使用者之後，選取 [設定檔]。 使用者設定檔之下 [使用者類型] 屬性的值不得等於 [來賓]。

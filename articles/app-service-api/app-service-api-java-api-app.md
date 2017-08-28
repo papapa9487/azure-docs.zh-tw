@@ -14,12 +14,11 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.date: 04/25/2017
 ms.author: rachelap;robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 26011d72644f8b13a711d847d83175ce384f2053
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e38c540071cb49b0177e79178566d72ecb5f8886
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="build-and-deploy-a-java-api-app-in-azure-app-service"></a>在 Azure App Service 中建置和部署 Java API 應用程式
@@ -278,7 +277,7 @@ ms.lasthandoff: 06/17/2017
 <a name="see-also"></a>
 
 ## <a name="see-also"></a>另請參閱
-如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]。
+如需如何搭配使用 Azure 與 Java 的詳細資訊，請參閱[適用於 Java 開發人員的 Azure](/java/azure)。
 
 <!-- URL List -->
 
@@ -287,14 +286,14 @@ ms.lasthandoff: 06/17/2017
 [Document DB Java SDK]: ../documentdb/documentdb-java-application.md
 [免費試用]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: http://www.git-scm.com/
-[Azure Java 開發人員中心]: /develop/java/
+[Azure Java Developer Center]: /develop/java/
 [Java Developer Kit 8]: http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
 [Jax RS]: https://jax-rs-spec.java.net/
 [Maven]: https://maven.apache.org/
 [Microsoft Azure]: https://azure.microsoft.com/
 [線上 Swagger 編輯器]: http://editor2.swagger.io/
 [Postman]: https://www.getpostman.com/
-[Storage SDK for Java]: ../storage/storage-java-how-to-use-blob-storage.md
+[Storage SDK for Java]:../storage/blobs/storage-java-how-to-use-blob-storage.md
 [Swagger]: http://swagger.io/
 [Swagger 編輯器]: http://editor.swagger.io/
 [Visual Studio Code]: https://code.visualstudio.com

@@ -16,27 +16,28 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: a9b47429779417afa664156cd824aa044f7bf04c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 179a0d3696c6044ffb5b9e377effa30dda54ba7f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="introduction-to-machine-learning-in-the-azure-cloud"></a>Azure 雲端的機器學習服務簡介
 
 ## <a name="what-is-machine-learning"></a>什麼是機器學習？
-機器學習是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。 使用機器學習，電腦不需要明確進行程式設計就能學習。
+機器學習是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。 使用機器學習，電腦不需要明確進行程式設計就能學習。 
 
-機器學習的預測可讓應用程式和裝置更聰明。 當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他產品。 當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 當您的真空吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否完成。
+機器學習服務可視為人工智慧 (AI) 的子類別。 機器學習的預測可讓應用程式和裝置更聰明。 當您線上購物時，機器學習服務可根據您已經購買的產品，協助推薦其他產品。 當您的信用卡被刷過時，機器學習服務可將該筆交易與交易資料庫進行比對，協助偵測詐騙。 當您的真空吸塵器機器人清潔房間時，機器學習服務可協助它判斷作業是否完成。
 
 如需簡短的概觀，請觀賞 [初學者的資料科學](machine-learning-data-science-for-beginners-the-5-questions-data-science-answers.md)系列影片。 初學者的資料科學為您介紹機器學習服務，不使用專業術語或數學運算，並引導您完成簡單的預測模型。
 
 ## <a name="what-is-machine-learning-in-the-microsoft-azure-cloud"></a>什麼是 Microsoft Azure 雲端中的 Machine Learning？
+
+![什麼是機器學習？ Azure Machine Learning 上操作性預測性分析的基本工作流程。](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
+
 Azure Machine Learning 是雲端預測性分析服務，可讓您快速地建立預測模型，並將其部署為分析解決方案。
 
 您可以操作現成的演算法程式庫、使用它們在連接網際網路的電腦上建立模型，以及快速部署預測解決方案。 從 [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) 中的現成範例和解決方案開始。
-
-![什麼是機器學習？ Azure Machine Learning 上操作性預測性分析的基本工作流程。](./media/machine-learning-what-is-machine-learning/machine-learning-service-parts-and-workflow.png)
 
 Azure Machine Learning 不僅提供可建立預測性分析模型的工具，也提供完全受管理的服務，您可以透過這項服務將預測模型部署為可供取用的 Web 服務。
 

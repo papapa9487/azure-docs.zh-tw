@@ -14,16 +14,16 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 6b21f38ddd64278db26d7042349470805b799203
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7d2bc89943087323e92cf06981bbacaf4b8ff060
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>採用 Python Tools for Visual Studio 的 Python Web 和背景工作角色
 
-本文提供在 [Python Tools for Visual Studio][Python Tools for Visual Studio] 中使用 Python Web 和背景工作角色的概觀。 您將學習如何使用 Visual Studio 來建立和部署使用 Python 的基本雲端服務。
+本文提供在 [Python Tools for Visual Studio][Python Tools for Visual Studio] 中使用 Python Web 和背景工作角色的概觀。 學習如何使用 Visual Studio 來建立和部署使用 Python 的基本雲端服務。
 
 ## <a name="prerequisites"></a>必要條件
 * [Visual Studio 2013、2015 或 2017](https://www.visualstudio.com/)
@@ -305,7 +305,7 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 ## <a name="run-locally"></a>在本機執行
 如果您將雲端服務專案設為啟始專案並按下 F5，雲端服務會在本機 Azure 模擬器中執行。
 
-雖然 PTVS 支援在模擬器中啟動，但無法使用偵錯 (例如，中斷點)。
+雖然 PTVS 支援在模擬器中啟動，但偵錯無法運作 (例如，中斷點)。
 
 若要對 Web 和背景工作角色進行偵錯，您可以將角色專案設為啟始專案，然後偵錯。  您也可以設定多個啟始專案。  以滑鼠右鍵按一下方案，然後選取 [設定啟始專案]。
 
@@ -324,17 +324,17 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 ![Microsoft Azure Activity Log Window](./media/cloud-services-python-ptvs/publish-activity-log.png)
 
-部署需要幾分鐘才會完成，然後，Web 及/或背景工作角色就會在 Azure 上運作！
+部署需要幾分鐘才能完成，然後 Web 及/或背景工作角色就會在 Azure 上運作！
 
 ### <a name="investigate-logs"></a>調查記錄檔
-雲端服務虛擬機器啟動並安裝 Python 之後，您可以查看記錄檔，以找出任何失敗訊息。 這些記錄檔位於 **C:\Resources\Directory\\{role}\LogFiles** 資料夾中。 當指令碼嘗試偵測是否已安裝 Python 時，**PrepPython.err.txt** 中至少會有一個錯誤，而 **PipInstaller.err.txt** 可能抱怨 pip 的版本過時。
+雲端服務虛擬機器啟動並安裝 Python 之後，您可以查看記錄檔，以找出任何失敗訊息。 這些記錄檔位於 **C:\Resources\Directory\\{role}\LogFiles** 資料夾中。 當指令碼嘗試偵測是否已安裝 Python 時，**PrepPython.err.txt** 中至少會有一個錯誤，而 **PipInstaller.err.txt** 可能會抱怨 pip 的版本過時。
 
 ## <a name="next-steps"></a>後續步驟
 如需在 Python Tools for Visual Studio 中使用 Web 和背景工作角色的相關詳細資訊，請參閱 PTVS 文件：
 
 * [雲端服務專案][Cloud Service Projects]
 
-如需有關從 Web 和背景工作角色使用 Azure 服務的詳細資訊，例如使用 Azure 儲存體或服務匯流排，請參閱下列文章。
+如需有關從 Web 和背景工作角色使用 Azure 服務的詳細資訊，例如使用 Azure 儲存體或服務匯流排，請參閱下列文章：
 
 * [Blob 服務][Blob Service]
 * [表格服務][Table Service]
@@ -350,9 +350,9 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 [execution model-cloud services]: cloud-services-choose-me.md
 [Python Developer Center]: /develop/python/
 
-[Blob Service]: ../storage/storage-python-how-to-use-blob-storage.md
-[Queue Service]: ../storage/storage-python-how-to-use-queue-storage.md
-[Table Service]: ../storage/storage-python-how-to-use-table-storage.md
+[Blob Service]:../storage/blobs/storage-python-how-to-use-blob-storage.md
+[Queue Service]: ../storage/queues/storage-python-how-to-use-queue-storage.md
+[Table Service]:../cosmos-db/table-storage-how-to-use-python.md
 [Service Bus Queues]: ../service-bus-messaging/service-bus-python-how-to-use-queues.md
 [Service Bus Topics]: ../service-bus-messaging/service-bus-python-how-to-use-topics-subscriptions.md
 

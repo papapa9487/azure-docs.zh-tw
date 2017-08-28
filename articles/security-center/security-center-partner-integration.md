@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 4d0909e926de14a0cbe9799b969ac7a1946d69d1
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="partner-integration-in-azure-security-center"></a>Azure 資訊安全中心中的夥伴整合
@@ -62,9 +61,9 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="manage-partner-solutions"></a>管理夥伴解決方案
 
-在部署後，若要檢視解決方案的健康情況相關資訊並執行基本管理工作，請在 [資訊安全中心] 刀鋒視窗中，選取 [夥伴解決方案] 圖格。 如需管理資訊安全中心中合作夥伴解決方案的相關資訊，請參閱[透過 Azure 資訊安全中心監視夥伴解決方案](security-center-partner-solutions.md)。
+在部署後，若要檢視解決方案的健康情況相關資訊並執行基本管理工作，請在 [資訊安全中心] 刀鋒視窗中，選取 [夥伴解決方案] 選項。 如需管理資訊安全中心中合作夥伴解決方案的相關資訊，請參閱[透過 Azure 資訊安全中心監視夥伴解決方案](security-center-partner-solutions.md)。
 
-![夥伴整合](./media/security-center-partner-integration/security-center-partner-integration-fig1-1-newUI.png)
+![夥伴整合](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
 
 > [!NOTE]
 > Symantec Endpoint Protection 支援僅限於探索。 無法使用健康情況警示。

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2017
+ms.date: 08/18/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 8be49b182df675fe3235d148b87379e1dff3a384
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 40b0c6ca933ea02ac9f5fe3bfaaf87a310542a8d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="web-baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 安全性和稽核解決方案中的 Web 基準評估
@@ -29,6 +29,9 @@ ms.lasthandoff: 08/01/2017
 OMS 安全性目前會提供作業系統的安全性基準評估。 它會每隔 24 小時掃描您伺服器的 OS 設定，並可讓您檢視可能有弱點的設定。 如需詳細資訊，請參閱 [Operations Management Suite 安全性和稽核解決方案中的基準評估](https://docs.microsoft.com/azure/operations-management-suite/oms-security-baseline)。
 
 Web 基準評估的目的是尋找可能有弱點的 Web 伺服器設定。 Web 基準組態的三個主要來源︰.NET、ASP.NET 和 IIS 組態。  如同作業系統基準評估，OMS 安全性將會每隔 24 小時掃描您的 Web 伺服器，並可讓您檢視其安全性狀態。  在 Internet Information Service (IIS) 中，可以高度自訂組態，以便覆寫各種網站和應用程式層級。 除了預設的根層級以外，掃描程式會檢查每個應用程式/網站層級的設定。 這可協助您找出可能遭受攻擊的設定並快速修復，以及我們對這些設定的建議。
+
+>[!NOTE] 
+>您可以在此[頁面](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335?redir=0)中下載 OMS 安全性所用的常見組態識別碼和基準規則。
 
 
 ## <a name="web-security-baseline-assessment"></a>Web 安全性基準評估

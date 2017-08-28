@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2017
+ms.date: 08/17/2017
 ms.author: kaanan
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: a98c216fcc4351a339554ce0adcf8fccb717d3e0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a10986ac0b36a3f2065f02533f9e321c755d4cc8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
@@ -83,7 +83,7 @@ ms.lasthandoff: 08/09/2017
 | **倫敦** |AT&T NetBond、British Telecom、Colt、Equinix、InterCloud、Internet Solutions - Cloud Connect、Interxion、Jisc、Level 3 Communications、Megaport、MTN、NTT Communications、Orange、Tata Communications、Telecity Group、Telehouse - KDDI、Telenor、Verizon、Vodafone、Zayo Group+ |
 | **洛杉磯** |CoreSite、Equinix、Megaport、NTT、Zayo Group |
 | **墨爾本** |AARNet、Equinix、Megaport、NEXTDC、Telstra Corporation |
-| **邁阿密** |C3ntro+、Megaport |
+| **邁阿密** |C3ntro+、Megaport、Neutrona Networks |
 | **蒙特婁** |Bell Canada、Cologix |
 | **孟買** |Airtel+、Sify、Tata Communications |
 | **紐約** |Coresite、Equinix、Megaport、Zayo Group |
@@ -92,9 +92,9 @@ ms.lasthandoff: 08/09/2017
 | **巴黎** |Colt、Interxion、Equinix、Orange |
 | **魁北克市** | Megaport |
 | **聖安東尼奧** |Megaport |
-| **聖保羅** |Ascenty Data Centers+、Equinix、Level 3 Communications、Telefonica、UOLDIVEO |
+| **聖保羅** |Ascenty Data Centers+、Equinix、Level 3 Communications、Neutrona Networks、Telefonica、UOLDIVEO |
 | **Seattle** |Equinix、Level 3 Communications、Megaport |
-| **首爾** |KINX、Sejong Telecom |
+| **首爾** |KINX、LG CNS、Sejong Telecom |
 | **矽谷** |Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink+、Comcast、Console、Equinix、Level 3 Communications、Megaport、Orange、Tata Communications、Verizon、Zayo Group |
 | **新加坡** |Aryaka Networks、AT&T NetBond、British Telecom、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、SingTel、Tata Communications、Verizon |
 | **雪梨** |AARNet、AT&T NetBond、British Telecom、Equinix、Megaport、NEXTDC、Orange、Telstra Corporation、Verizon |

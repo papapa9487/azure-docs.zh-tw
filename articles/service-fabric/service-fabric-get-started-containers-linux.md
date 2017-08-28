@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 35b7e0a730d73f646462b9cde3c8bbabac4d7c67
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -33,6 +33,7 @@ ms.lasthandoff: 08/16/2017
 * 執行下列項目的開發電腦︰
   * [Service Fabric SDK 和工具](service-fabric-get-started-linux.md)。
   * [Docker CE for Linux](https://docs.docker.com/engine/installation/#prior-releases). 
+  * [Service Fabric CLI](service-fabric-cli.md)
 
 * Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。 
 
@@ -201,12 +202,12 @@ gradle
 ```
 
 ## <a name="deploy-the-application"></a>部署應用程式
-建置應用程式後，可以使用 Azure CLI 將它部署到本機叢集。
+建置應用程式後，可以使用 Service Fabric CLI 將它部署到本機叢集。
 
 連接到本機 Service Fabric 叢集。
 
 ```bash
-azure servicefabric cluster connect
+sfctl cluster select --endpoint http://localhost:19080
 ```
 
 使用範本中所提供的安裝指令碼，將應用程式套件複製到叢集的映像存放區、註冊應用程式類型，以及建立應用程式的執行個體。

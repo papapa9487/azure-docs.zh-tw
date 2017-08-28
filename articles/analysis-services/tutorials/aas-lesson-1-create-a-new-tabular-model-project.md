@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 40aac182af22d03c4cff535fd8c87b29ecae376a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ebd160372fc75c6d0fc323be9e948fa2475b71cf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="lesson-1-create-a-new-tabular-model-project"></a>第 1 課：建立新的表格式模型專案
+# <a name="lesson-1-create-a-tabular-model-project"></a>第 1 課：建立表格式模型專案
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 06/03/2017
 
 ![aas 第 1 課 tme](../tutorials/media/aas-lesson1-tme.png)
 
-按一下 [方案總管] 索引標籤。 在這裡，您可看到 **Model.bim** 檔案。 如果您在左邊沒看到設計工具視窗 (含 Model.bim 索引標籤的空視窗)，請在 [方案總管] 的 [AW 網際網路銷售專案] 下，按兩下 [Model.bim] 檔案。 Model.bim 檔案包含模型專案的中繼資料。 
+按一下 [方案總管] 索引標籤。在這裡，您可看到 **Model.bim** 檔案。 如果您在左邊沒看到設計工具視窗 (含 Model.bim 索引標籤的空視窗)，請在 [方案總管] 的 [AW 網際網路銷售專案] 下，按兩下 [Model.bim] 檔案。 Model.bim 檔案包含模型專案的中繼資料。 
 
 ![aas 第 1 課 se](../tutorials/media/aas-lesson1-se.png)
   

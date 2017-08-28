@@ -22,8 +22,8 @@
 
 | **SKU**| **特性**|
 | ---    | ---         |
-|基本   | 路由式：10 個通道 (含 P2S)<br>原則式 (IKEv1)：1 個通道；沒有 P2S|
-| VpnGw1、VpnGw2、VpnGw3 |以路由為基礎的 VPN 最多 30 個通道 (*) <br>P2S、BGP、主動-主動、自訂 IPsec/IKE 原則、ExpressRoute/VPN 共存 |
+|**基本**   | **路由式 VPN**：10 個通道 (含 P2S)<br><br>**原則式 VPN** (IKEv1)：1 個通道；沒有 P2S|
+| **VpnGw1、VpnGw2 和 VpnGw3** | **路由式 VPN**：最多 30 個通道 (*)，P2S、BGP、主動-主動、自訂 IPsec/IKE 原則、ExpressRoute/VPN 共存 |
 |        |             |
 
 (*) 您可以設定 "PolicyBasedTrafficSelectors"，將以路由為基礎的 VPN 閘道 (VpnGw1、VpnGw2、VpnGw3) 連線至多個內部部署以原則為基礎的防火牆裝置。 如需詳細資訊，請參閱[使用 PowerShell 將 VPN 閘道連線至多個內部部署原則式 VPN 裝置](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)。

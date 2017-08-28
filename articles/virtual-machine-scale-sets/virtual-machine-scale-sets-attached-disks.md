@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 4/25/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 451d3c956b863ab90f86509fd80a5c96e27525ce
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 22c7e589efa9a9f401549ec9b95c58c4eaf07b94
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-attached-data-disks"></a>Azure VM 擴展集與連線資料磁碟
@@ -99,10 +99,21 @@ Update-AzureRmVmss -ResourceGroupName myvmssrg -Name myvmss -VirtualMachineScale
     }          
 ]
 ```
+
 然後選取 _PUT_ 將變更套用到您的擴展集。 只要您使用的 VM 大小可支援兩個以上的連結資料磁碟，此範例就可行。
 
 > [!NOTE]
 > 當您變更擴展集定義時 (例如新增或移除資料磁碟)，它會套用到所有新建立的 VM，但如果 _upgradePolicy_ 屬性設定為 [自動]，則只會套用至現有的 VM。 如果該屬性設定為 [手動]，您必須以手動方式將新的模型套用至現有的 VM。 您可以在入口網站中，使用 _Update-AzureRmVmssInstance_ PowerShell 命令，或使用 _az vmss update-instances_ CLI 命令。
+
+## <a name="adding-pre-populated-data-disks-to-an-existent-scale-set"></a>將預先填入的資料磁碟新增至現存的擴展集 
+> 當您將磁碟新增至現存的擴展集模型時，依照設計，一律會建立空白的磁碟。 此案例也會包含擴展集所建立的新執行個體。 這是因為擴展集定義具有空的資料磁碟。 若要針對現存的擴展集模型建立預先填入的資料磁碟機，您可以選擇下列其中一個選項：
+
+* 藉由執行自訂指令碼，將資料從執行個體 0 VM 複製到其他 VM 中的資料磁碟。
+* 建立具有 OS 磁碟再加上資料磁碟 (包含所需資料) 的受控映像，並使用此映像建立新的擴展集。 如此一來，每個新 VM 都會有擴展集定義中提供的資料磁碟。 因為此定義參考的映像具有已自訂資料的資料磁碟，所以擴展集上的每部虛擬機器都會自動出現這些變更。
+
+> 在此可找到建立自訂映像的方式：[在 Azure 中建立一般化 VM 的受控映像](/azure/virtual-machines/windows/capture-image-resource/) 
+
+> 使用者必須擷取具有所需資料的執行個體 0 VM，然後使用映像定義的該 vhd。
 
 ## <a name="removing-a-data-disk-from-a-scale-set"></a>從擴展集中移除資料磁碟
 您可以使用 Azure CLI _az vmss disk detach_ 命令，從 VM 擴展集中移除資料磁碟。 例如下列命令會移除在 lun 2 定義的磁碟︰

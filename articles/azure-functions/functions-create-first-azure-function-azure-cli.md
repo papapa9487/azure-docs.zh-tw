@@ -6,17 +6,17 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 05/02/2017
-ms.topic: quickstart
+ms.date: 08/22/2017
+ms.topic: hero-article
 ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: erikre
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 2292b35819c5a98b690041e10f6e6d1a93fa7837
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8bd3e4bb7423db44c48b04f25edcf1074e6ea0bd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -44,11 +44,14 @@ ms.lasthandoff: 06/20/2017
 
 使用 [az group create](/cli/azure/group#create) 來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源 (如函式應用程式、資料庫和儲存體帳戶) 的邏輯容器。
 
-下列範例會建立名為 `myResourceGroup` 的資源群組：
+下列範例會建立名為 `myResourceGroup` 的資源群組。  
+如果您未使用 Cloud Shell，您必須先使用 `az login` 登入。
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
 ```
+
+
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
 函式會使用 Azure 儲存體帳戶來維護函式的狀態和其他資訊。 在使用 [az storage account create](/cli/azure/storage/account#create) 命令所建立的資源群組中建立儲存體帳戶。
@@ -86,7 +89,8 @@ az storage account create --name <storage_name> --location westeurope --resource
 在下列命令中，使用您自己的唯一函式應用程式名稱來替代您看見 `<app_name>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 
 
 ```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup --consumption-plan-location westeurope
+az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
+--consumption-plan-location westeurope
 ```
 根據預設，所建立的函式應用程式會使用「取用」主控方案，也就是說，您的函式會根據需要來動態新增資源，並且只有在函式執行時才會產生費用。 如需詳細資訊，請參閱[選擇正確的主控方案](functions-scale.md)。 
 
@@ -117,7 +121,9 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 有多種方式可以在新的函式應用程式中建立函式程式碼。 本主題連結到 GitHub 中的範例存放庫。 和先前一樣，請在下列程式碼中將 `<app_name>` 預留位置改為您所建立之函式應用程式的名稱。 
 
 ```azurecli-interactive
-az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --repo-url https://github.com/Azure-Samples/functions-quickstart --branch master --manual-integration
+az functionapp deployment source config --name <app_name> --resource-group myResourceGroup --branch master \
+--repo-url https://github.com/Azure-Samples/functions-quickstart \
+--manual-integration 
 ```
 設定部署來源後，Azure CLI 會顯示類似下列範例的資訊 (已移除 Null 值以方便閱讀)︰
 
@@ -146,7 +152,7 @@ curl http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
 
 ![瀏覽器顯示的函式回應。](./media/functions-create-first-azure-function-azure-cli/functions-azure-cli-function-test-curl.png)  
 
-如果您的命令列無法使用 cURL，請直接在網頁瀏覽器的位址中輸入相同 URL 即可。 同樣地，請將 `<app_name>` 預留位置改為函式應用程式的名稱，然後對 URL 附加查詢字串 `&name=<yourname>` 並執行要求。 
+如果您的命令列無法使用 cURL，在網頁瀏覽器的位址中輸入相同 URL 即可。 同樣地，請將 `<app_name>` 預留位置改為函式應用程式的名稱，然後對 URL 附加查詢字串 `&name=<yourname>` 並執行要求。 
 
     http://<app_name>.azurewebsites.net/api/HttpTriggerJS1?name=<yourname>
    
