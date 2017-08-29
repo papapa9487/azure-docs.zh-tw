@@ -39,7 +39,7 @@
       href: tutorial-azure-security.md
     - name: 12 - Team Services CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - 使用 SSL 保護網路伺服器
+    - name: 13 - 使用 SSL 保護 Web 伺服器
       href: tutorial-secure-web-server.md
 - name: 範例
   items:
@@ -108,6 +108,10 @@
           href: csharp.md
         - name: '使用範本與 C#'
           href: csharp-template.md
+        - name: 使用 Chef 建立 VM
+          href: chef-automation.md
+        - name: 使用 Java
+          href: java.md
         - name: 使用 Python
           href: python.md
         - name: 使用範本

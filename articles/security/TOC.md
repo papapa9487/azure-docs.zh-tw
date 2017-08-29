@@ -8,6 +8,7 @@
 ## [Service Fabric 安全性](azure-service-fabric-security-overview.md)
 ## [身分識別管理](security-identity-management-overview.md)
 ## [IoT 安全性](../iot-suite/iot-security-architecture.md#security-in-iot)
+## [Azure 加密概觀](security-azure-encryption-overview.md)
 ## [安全性架構](azure-security-architecture-overview.md)
 ### [啟用作業安全性](azure-operational-security.md)
 ### [進階威脅偵測](azure-threat-detection.md)
@@ -30,7 +31,7 @@
 
 ## 儲存體安全性
 ### [資料安全性與加密的最佳做法](azure-security-data-encryption-best-practices.md)
-### [儲存體安全性指南](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
+### [儲存體安全性指南](../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 
 ## 計算安全性
 ### [Azure VM的最佳作法](azure-security-best-practices-vms.md)
@@ -63,11 +64,12 @@
 
 ## PaaS 服務
 ### [保護 PaaS 部署](security-paas-deployments.md)
-#### [使用 SQL 來保護 PaaS Web 和行動應用程式](security-paas-applications-using-sql.md)
-#### [SQL Database 安全性最佳做法](azure-database-security-best-practices.md)
-#### [SQL Database 安全性檢查清單](azure-database-security-checklist.md)
 #### [使用應用程式服務來保護 PaaS Web 和行動應用程式](security-paas-applications-using-app-services.md)
+#### [使用 SQL 來保護 PaaS Web 和行動應用程式](security-paas-applications-using-sql.md)
+##### [SQL Database 安全性最佳做法](azure-database-security-best-practices.md)
+##### [SQL Database 安全性檢查清單](azure-database-security-checklist.md)
 ####[作業安全性檢查清單](azure-operational-security-checklist.md)
+#### [使用 Azure 儲存體來保護 PaaS Web 與行動應用程式](security-paas-applications-using-storage.md)
 
 ## 物聯網
 ### [保護您的 IoT 部署](../iot-suite/iot-suite-security-deployment.md)
@@ -97,13 +99,17 @@
 ## [Virtual Academy 的安全性課程](security-microsoft-virtual-academy.md)
 ## [Channel 9 上的安全性影片](security-channel-nine.md)
 ## [威脅模型化工具](azure-security-threat-modeling-tool.md)
-###[稽核和記錄](azure-security-threat-modeling-tool-auditing-and-logging.md)
-###[驗證](azure-security-threat-modeling-tool-authentication.md)
-###[授權](azure-security-threat-modeling-tool-authorization.md)
-###[通訊安全性](azure-security-threat-modeling-tool-communication-security.md)
-###[設定管理](azure-security-threat-modeling-tool-configuration-management.md)
-###[碼編譯](azure-security-threat-modeling-tool-cryptography.md)
-###[例外狀況管理](azure-security-threat-modeling-tool-exception-management.md)
-###[輸入驗證](azure-security-threat-modeling-tool-input-validation.md)
-###[敏感資料](azure-security-threat-modeling-tool-sensitive-data.md)
-###[工作階段管理](azure-security-threat-modeling-tool-session-management.md)
+### [開始使用](azure-security-threat-modeling-tool-getting-started.md)
+### [功能概觀](azure-security-threat-modeling-tool-feature-overview.md)
+### [威脅](azure-security-threat-modeling-tool-threats.md)
+### [緩和措施](azure-security-threat-modeling-tool-mitigations.md)
+#### [稽核和記錄](azure-security-threat-modeling-tool-auditing-and-logging.md)
+#### [驗證](azure-security-threat-modeling-tool-authentication.md)
+#### [授權](azure-security-threat-modeling-tool-authorization.md)
+#### [通訊安全性](azure-security-threat-modeling-tool-communication-security.md)
+#### [設定管理](azure-security-threat-modeling-tool-configuration-management.md)
+#### [碼編譯](azure-security-threat-modeling-tool-cryptography.md)
+#### [例外狀況管理](azure-security-threat-modeling-tool-exception-management.md)
+#### [輸入驗證](azure-security-threat-modeling-tool-input-validation.md)
+#### [敏感資料](azure-security-threat-modeling-tool-sensitive-data.md)
+#### [工作階段管理](azure-security-threat-modeling-tool-session-management.md)

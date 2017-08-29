@@ -18,7 +18,9 @@
 # 範例
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
-## [Azure CLI](samples-cli.md)
+## [Service Fabric CLI](samples-cli.md)
+### [部署範例](scripts/cli-deploy-application.md)
+### [移除範例](scripts/cli-remove-application.md)
 # 概念
 ## [了解微服務](service-fabric-overview-microservices.md)
 ## [概觀](service-fabric-content-roadmap.md)
@@ -176,11 +178,14 @@
 #### 開始使用
 ##### [Windows 上的 C# ](service-fabric-reliable-actors-get-started.md)
 ##### [在 Linux 上使用 Java](service-fabric-reliable-actors-get-started-java.md)
+##### [Linux 上的 Java Actor](service-fabric-create-your-first-linux-application-with-java.md)
 #### [傳送通知](service-fabric-reliable-actors-events.md)
 #### [設定計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)
 #### [設定 KvsActorStateProvider](service-fabric-reliable-actors-kvsactorstateprovider-configuration.md)
 #### [設定通訊設定](service-fabric-reliable-actors-fabrictransportsettings.md)
 #### [設定 ReliableDictionaryActorStateProvider](service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md)
+
+### [移轉舊的 Java 應用程式以支援 Maven](service-fabric-migrate-old-javaapp-to-use-maven.md)
 
 ### [設定安全通訊的反向 proxy](service-fabric-reverseproxy-configure-secure-communication.md)
 
@@ -218,7 +223,7 @@
 ### 部署或移除應用程式
 #### [在本機叢集上部署應用程式](service-fabric-get-started-with-a-local-cluster.md)
 #### [PowerShell](service-fabric-deploy-remove-applications.md)
-#### [Azure CLI 2.0](service-fabric-application-lifecycle-azure-cli-2-0.md)
+#### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
@@ -253,6 +258,7 @@
 #### [升級](service-fabric-cluster-upgrade.md)
 #### [設定存取控制](service-fabric-cluster-security-roles.md)
 #### [設定](service-fabric-cluster-fabric-settings.md)
+#### [在負載平衡器中開啟連接埠](create-load-balancer-rule.md)
 #### [管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
 #### [刪除](service-fabric-cluster-delete.md)
 
@@ -272,8 +278,7 @@
 ### [視覺化叢集](service-fabric-visualizing-your-cluster.md)
 ### [連線到安全的叢集](service-fabric-connect-to-secure-cluster.md)
 
-### [使用 XPlat CLI 管理叢集](service-fabric-azure-cli.md)
-### [使用 Azure CLI 2.0 命令管理叢集](service-fabric-azure-cli-2-0.md)
+### [使用 Service Fabric CLI 管理叢集](service-fabric-cli.md)
 ### [修補叢集節點](service-fabric-patch-orchestration-application.md)
 
 ### 管理和組織叢集資源

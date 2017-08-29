@@ -64,6 +64,7 @@
 ## [監視資料的來源](monitoring-data-sources.md)
 ## [支援的計量清單](monitoring-supported-metrics.md)
 ## [活動記錄檔事件結構描述](monitoring-activity-log-schema.md)
+## [診斷記錄支援的服務、類別和結構描述](monitoring-diagnostic-logs-schema.md)
 ## [PowerShell](/powershell/module/azurerm.insights)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
 ## [REST](/rest/api/monitor/)

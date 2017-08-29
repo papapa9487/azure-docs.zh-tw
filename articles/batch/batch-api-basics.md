@@ -464,7 +464,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 
 * 如果 Batch 帳戶的集區配置模式設定為 Batch 服務，則您必須提供權限讓 Batch 服務主體存取 VNet。 VNet 必須將[傳統虛擬機器參與者角色型存取控制 (RBAC)](https://azure.microsoft.com/documentation/articles/role-based-access-built-in-roles/#classic-virtual-machine-contributor) 角色指派給 Batch 服務主體。 如果您沒有提供指定的 RBAC 角色，Batch 服務會傳回 400 (不正確的要求)。 在 Azure 入口網站中新增角色：
 
-    1. 依序選取 [VNet]、[存取控制 (IAM)] > [角色] > [虛擬機器參與者] > [新增]。
+    1. 依序選取 VNet、[存取控制 (IAM)] > [角色] > [虛擬機器參與者] > [新增]。
     2. 在 [新增權限] 刀鋒視窗中，選取 [虛擬機器參與者] 角色。
     3. 在 [新增權限] 刀鋒視窗中，搜尋 Batch API。 依次搜尋以下每個字串，直到您找到 API 為止：
         1. **MicrosoftAzureBatch**。

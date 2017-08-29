@@ -416,7 +416,7 @@
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: 服務更新
       href: 'https://azure.microsoft.com/updates/?service=sql-database'
-    - name: 架構指導
-      href: /azure/architecture/guide/
+    - name: 架構中心
+      href: /azure/architecture/
     - name: 客戶案例
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'

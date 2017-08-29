@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: c9bb109df050041aaff861adfa8dfcd2947d981d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: cec37e94b31d08930d7262b2f30dd3e84793af46
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 <div id="main" class="v2">
@@ -699,9 +699,33 @@ ms.lasthandoff: 08/16/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                                <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                <p>Blob 儲存體</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>磁碟</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/files/storage-files-introduction/">
+                                                <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                <p>檔案儲存體</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>佇列儲存體</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                                <p>資料湖存放區</p>
                                             </a>
                                         </li>
                                         <li>
@@ -721,7 +745,7 @@ ms.lasthandoff: 08/16/2017
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>資料及分析</h3>
                                     <ul>
@@ -1181,8 +1205,8 @@ ms.lasthandoff: 08/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>使用容器執行計算作業</p>
+                                                    <h3>批次</h3>
+                                                    <p>雲端化作業排程和計算管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1446,6 +1470,82 @@ ms.lasthandoff: 08/16/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/storage/blobs/storage-blobs-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-blob-storage.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Blob 儲存體</h3>
+                                                    <p>極具調整彈性的物件儲存空間，適合非結構化資料</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>磁碟</h3>
+                                                    <p>適用於 VM 的磁碟儲存體</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/files/storage-files-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-file.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>檔案儲存體</h3>
+                                                    <p>簡單的分散式跨平台檔案系統</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/storage/queues/storage-queues-introduction/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>佇列儲存體</h3>
+                                                    <p>適用於大量雲端服務的耐久佇列</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-store/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1456,7 +1556,7 @@ ms.lasthandoff: 08/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
+                                                    <h3>資料湖存放區</h3>
                                                     <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>
@@ -1520,7 +1620,7 @@ ms.lasthandoff: 08/16/2017
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -1789,8 +1889,8 @@ ms.lasthandoff: 08/16/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Batch</h3>
-                                                    <p>使用容器執行計算作業</p>
+                                                    <h3>批次</h3>
+                                                    <p>雲端化作業排程和計算管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3653,3 +3753,4 @@ ms.lasthandoff: 08/16/2017
         </ul>
     </div>
 </div>
+

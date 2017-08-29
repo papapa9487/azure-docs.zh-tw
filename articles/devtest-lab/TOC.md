@@ -42,8 +42,11 @@
 ## 管理可重複使用的範本
 ### [新增成品和範本的 Git 存放庫](devtest-lab-add-artifact-repo.md)
 ### [使用 Resource Manager 範本](devtest-lab-use-resource-manager-template.md)
-### [建立自訂構件](devtest-lab-artifact-author.md)
 ### [管理公式](devtest-lab-manage-formulas.md)
+
+## 管理構件
+### [建立自訂構件](devtest-lab-artifact-author.md)
+### [診斷構件失敗](devtest-lab-troubleshoot-artifact-failure.md)
 
 ## 管理虛擬網路
 ### [設定虛擬網路](devtest-lab-configure-vnet.md)

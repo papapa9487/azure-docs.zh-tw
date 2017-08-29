@@ -218,10 +218,12 @@
               href: gremlin-support.md
         - name: 資料表 API
           items:
-            - name: 表格儲存體
-              href: /rest/api/storageservices/Table-Service-Concepts
+            - name: 表格儲存體概觀
+              href: table-storage-overview.md
             - name: 表格儲存體設計指南
               href: table-storage-design-guide.md
+            - name: 表格儲存體 REST API
+              href: /rest/api/storageservices/Table-Service-Concepts
             - name: 教學課程
               items:
                 - name: .NET

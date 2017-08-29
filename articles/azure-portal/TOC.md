@@ -1,16 +1,21 @@
-# [概觀](../azure-portal-overview.md)
+# 概觀
+## [關於 Azure 入口網站](../azure-portal-overview.md)
+# 教學課程
+## [DevOps 與 Azure 入口網站](tutorial-azureportal-devops.md)
+# 概念
 ## [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
-
-# 開始使用
-## [使用 Resource Manager 範本進行部署](../azure-resource-manager/resource-group-template-deploy.md)
-
-# 作法
+## [鍵盤快速鍵](azure-portal-keyboard-shortcuts.md)
+## [支援的瀏覽器和裝置](../azure-preview-portal-supported-browsers-devices.md)
+# 使用說明指南
 ## 部署
 ### [建立 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
-
+### [使用 Resource Manager 範本進行部署](../azure-resource-manager/resource-group-template-deploy.md)
+### [建立和共用 Azure 儀表板](azure-portal-dashboards.md)
 ## 管理
-### [使用預覽入口網站管理資源](../azure-resource-manager/resource-group-portal.md)
-### [使用 RBAC 管理存取](../active-directory/role-based-access-control-configure.md)
+### [開啟高對比或變更佈景主題](azure-portal-change-theme-high-contrast.md)
+### [使用入口網站管理資源](../azure-resource-manager/resource-group-portal.md)
+### [使用角色型存取控制來管理存取](../active-directory/role-based-access-control-configure.md)
+### [使用角色型存取控制來共用儀表板](azure-portal-dashboard-share-access.md)
 ### [使用標籤來整理資源](../azure-resource-manager/resource-group-using-tags.md)
 ### [調整您的資源](../monitoring-and-diagnostics/insights-how-to-scale.md)
 ### [建立新的 Azure 服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)

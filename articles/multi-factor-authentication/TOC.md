@@ -18,9 +18,10 @@
 #### [NPS 擴充功能的進階組態](nps-extension-advanced-configuration.md)
 ### [建立驗證提供者](multi-factor-authentication-get-started-auth-provider.md)
 ### 部署 MFA 內部部署
-#### [安裝使用者入口網站](multi-factor-authentication-get-started-portal.md)
+#### [安裝使用者入口網站](multi-factor-authentication-get-started-portal.md) 
 #### [進階 VPN 設定](multi-factor-authentication-advanced-vpn-configurations.md)
 #### [Mobile App Web 服務](multi-factor-authentication-get-started-server-webservice.md)
+#### [設定高可用性](mfa-server-high-availability.md)
 #### [Windows 驗證](multi-factor-authentication-get-started-server-windows.md)
 #### [升級 MFA 伺服器](multi-factor-authentication-server-upgrade.md)
 #### [從 PhoneFactor 升級](multi-factor-authentication-get-started-server-upgrade.md)

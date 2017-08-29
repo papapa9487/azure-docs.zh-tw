@@ -190,6 +190,7 @@
 #### [Adobe 開放原始碼媒體架構播放器](media-services-use-osmf-smooth-streaming-client-plugin.md)
 ### [在用戶端插入廣告](media-services-inserting-ads-on-client-side.md)
 ### [授權 Microsoft Smooth Streaming 用戶端移轉套件](media-services-sspk.md)
+### [在 Safari 中播放加密的 AES](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)
 
 ## 整合
 ### [使用 Azure Functions 搭配媒體服務](media-services-dotnet-how-to-use-azure-functions.md)
