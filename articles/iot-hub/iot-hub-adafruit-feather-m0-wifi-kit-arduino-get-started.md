@@ -158,7 +158,7 @@ ms.lasthandoff: 07/13/2017
    ![在 Arduino IDE 中開啟範例應用程式](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. 按一下 [檔案] > [喜好設定] (Windows/Linux) 或 [Arduino] > [喜好設定] (Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] (其他面板管理員 URL) 選項。
+1. 按一下 [檔案] > [喜好設定] \(Windows/Linux) 或 [Arduino] > [喜好設定] \(Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] \(其他面板管理員 URL) 選項。
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
@@ -218,7 +218,7 @@ ms.lasthandoff: 07/13/2017
 
 1. 在 Arduino IDE 中，按一下 [工具] > [序列監視器]。
 
-2. 在序列監視器視窗的右下角，在左邊的下拉式清單中選取 [No line ending] (沒有行尾結束符號)。
+2. 在序列監視器視窗的右下角，在左邊的下拉式清單中選取 [No line ending] \(沒有行尾結束符號)。
 3. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
 4. 如果系統要求您提供，請在上方的輸入方塊中輸入下列資訊，然後按一下 [傳送]：
 

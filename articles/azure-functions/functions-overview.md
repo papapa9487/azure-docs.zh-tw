@@ -4,7 +4,7 @@ description: "了解如何使用 Azure Functions，在數分鐘內最佳化非�
 services: functions
 documentationcenter: na
 author: mattchenderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"

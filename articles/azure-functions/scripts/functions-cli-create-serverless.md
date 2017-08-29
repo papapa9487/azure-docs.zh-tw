@@ -4,7 +4,7 @@ description: "Azure CLI 指令碼範例 - 建立無伺服器也可執行的函�
 services: functions
 documentationcenter: functions
 author: syntaxc4
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7

@@ -4,7 +4,7 @@ description: "Azure CLI 指令碼範例 - 建立連線至 Azure Cosmos DB 的 Az
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

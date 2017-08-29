@@ -4,7 +4,7 @@ description: "Azure CLI 指令碼範例 - 在 Azure 中將自訂 SSL 憑證繫�
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2

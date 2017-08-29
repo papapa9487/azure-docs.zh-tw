@@ -4,7 +4,7 @@ description: "在於 Azure Functions 上執行 Azure 函式之前，先了解如
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions

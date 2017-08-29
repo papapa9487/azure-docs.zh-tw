@@ -4,7 +4,7 @@ description: "使用 Azure Functions 和 Cosmos DB 儲存非結構化資料"
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函式, 事件處理, Cosmos DB, 動態計算, 無伺服器架構"

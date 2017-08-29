@@ -74,7 +74,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![ThousandEyes 佈建](./media/active-directory-saas-thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. 在 [管理員認證] 區段下，輸入您的 ThousandEyes 帳戶所產生的 [祕密權杖] (您可以在 ThousandEyes 帳戶下找到權杖：[安全性與驗證])。 
+5. 在 [管理員認證] 區段下，輸入您的 ThousandEyes 帳戶所產生的 [祕密權杖] \(您可以在 ThousandEyes 帳戶下找到權杖：[安全性與驗證])。 
 
     ![ThousandEyes 佈建](./media/active-directory-saas-thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

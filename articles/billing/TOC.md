@@ -32,6 +32,7 @@
 ### [註冊問題](billing-troubleshoot-azure-sign-up-issues.md)
 ### [卡片遭拒](billing-credit-card-fails-during-azure-sign-up.md)
 ### [登入問題](billing-cannot-login-subscription.md)
+### [找不到訂用帳戶](billing-no-subscriptions-found.md)
 
 # 參考
 ## [API 概觀](billing-usage-rate-card-overview.md)

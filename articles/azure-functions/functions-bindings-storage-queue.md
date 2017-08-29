@@ -4,7 +4,7 @@ description: "瞭解如何在 Azure Functions 中使用「Azure 儲存體」觸�
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"

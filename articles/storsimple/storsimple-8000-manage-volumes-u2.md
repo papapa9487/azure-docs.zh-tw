@@ -124,7 +124,7 @@ StorSimple 磁碟區可以是：
 
         ![已連線的主機](./media/storsimple-8000-manage-volumes-u2/step5createvol2.png)
 
-    7. 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR 或新的 ACR。 如果您選擇新的 ACR，請提供 ACR 的 [名稱]，並提供 Windows 主機的 [iSCSI 限定名稱]\(IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN] [](#get-the-iqn-of-a-windows-server-host)。 按一下 [建立] 。 使用指定的設定來建立磁碟區。
+    7. 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR 或新的 ACR。 如果您選擇新的 ACR，請提供 ACR 的 [名稱]，並提供 Windows 主機的 [iSCSI 限定名稱]\(IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。 按一下 [建立] 。 使用指定的設定來建立磁碟區。
 
         ![Click Create](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
 

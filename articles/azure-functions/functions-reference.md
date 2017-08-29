@@ -4,7 +4,7 @@ description: "了解在 Azure 中開發函式所需的 Azure Functions 概念與
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "開發指南, azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/01/2017
-
 
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南

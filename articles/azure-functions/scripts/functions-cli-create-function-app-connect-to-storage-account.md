@@ -4,7 +4,7 @@ description: "Azure CLI 指令碼範例 - 建立連線至 Azure 儲存體的 Azu
 services: functions
 documentationcenter: functions
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: functions
 ms.assetid: 

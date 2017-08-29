@@ -4,7 +4,7 @@ description: "了解如何在 Azure 中建立函式，並使其按照您定義�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701

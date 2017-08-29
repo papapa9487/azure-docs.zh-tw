@@ -76,7 +76,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![ZenDesk 佈建](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk1.png)
 
-5. 在 [系統管理員認證] 區段之下，輸入您的 ZenDesk 帳戶所產生的 [系統管理員使用者名稱、權杖金鑰和網域] (您可以在自己的帳戶之下找到權杖：[系統管理員] > [API] > [設定])。 
+5. 在 [系統管理員認證] 區段之下，輸入您的 ZenDesk 帳戶所產生的 [系統管理員使用者名稱、權杖金鑰和網域] \(您可以在自己的帳戶之下找到權杖：[系統管理員] > [API] > [設定])。 
 
     ![ZenDesk 佈建](./media/active-directory-saas-zendesk-provisioning-tutorial/ZenDesk2.png)
 

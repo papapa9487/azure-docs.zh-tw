@@ -304,7 +304,7 @@ ms.lasthandoff: 07/08/2017
 
     ![復原服務保存庫 myVault 詳細資料頁面](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  在 [Backup Items (Azure Virtual Machine)] (備份項目 (Azure 虛擬機器)) 刀鋒視窗上，按一下頁面右側的省略符號 (**...**) 按鈕，然後按一下 [立即備份]。
+9.  在 [Backup Items (Azure Virtual Machine)] \(備份項目 (Azure 虛擬機器)) 刀鋒視窗上，按一下頁面右側的省略符號 (**...**) 按鈕，然後按一下 [立即備份]。
 
     ![復原服務保存庫立即備份命令](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -445,7 +445,7 @@ ms.lasthandoff: 07/08/2017
     
 10. 將磁碟取消掛接。
 
-    在 Azure 入口網站的 [檔案復原 (預覽)] 刀鋒視窗上，按一下 [Unmount Disks] (取消掛接磁碟)。
+    在 Azure 入口網站的 [檔案復原 (預覽)] 刀鋒視窗上，按一下 [Unmount Disks] \(取消掛接磁碟)。
 
     ![取消掛接磁碟命令](./media/oracle-backup-recovery/recovery_service_17.png)
 

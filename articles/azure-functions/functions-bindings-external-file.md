@@ -4,7 +4,7 @@ description: "使用 Azure Functions 中的外部檔案繫結"
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions

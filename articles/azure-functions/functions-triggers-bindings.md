@@ -4,7 +4,7 @@ description: "了解如何在 Azure Functions 中使用觸發程序和繫結，�
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/23/2017
-
 
 ---
 

@@ -4,7 +4,7 @@ description: "了解如何撰寫 .NET 類別庫來與 Azure Functions 搭配使�
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"

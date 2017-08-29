@@ -4,7 +4,7 @@ description: "了解如何建置能部署函數應用程式的 Azure Resource Ma
 services: Functions
 documtationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 無伺服器架構, 基礎結構即程式碼, azure resource manager"

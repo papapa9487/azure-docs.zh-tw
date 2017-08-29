@@ -166,11 +166,13 @@
 #### [從其他存放裝置](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
 ### 更新
-#### [安裝 Update 4 - 目前](storsimple-8000-install-update-4.md)
+#### [安裝 Update 5 - 目前](storsimple-8000-install-update-5.md)
+#### [安裝 Update 4](storsimple-8000-install-update-4.md)
 
 
 ## 版本資訊
-### [Update 4 - 目前](storsimple-update4-release-notes.md)
+### [Update 5 - 目前](storsimple-update5-release-notes.md)
+### [Update 4](storsimple-update4-release-notes.md)
 ### [Update 3](storsimple-update3-release-notes.md)
 ### [Update 2.2](storsimple-update21-release-notes.md)
 

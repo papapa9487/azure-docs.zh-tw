@@ -71,7 +71,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![LucidChart 佈建](./media/active-directory-saas-lucidchart-provisioning-tutorial/LucidChart1.png)
 
-5. 在 [管理員認證] 區段下，輸入您的 LucidChart 帳戶所產生的 [祕密權杖] (您可以在帳戶下找到權杖：[小組] > [API 整合] > [SCIM])。 
+5. 在 [管理員認證] 區段下，輸入您的 LucidChart 帳戶所產生的 [祕密權杖] \(您可以在帳戶下找到權杖：[小組] > [API 整合] > [SCIM])。 
 
     ![LucidChart 佈建](./media/active-directory-saas-lucidchart-provisioning-tutorial/LucidChart2.png)
 

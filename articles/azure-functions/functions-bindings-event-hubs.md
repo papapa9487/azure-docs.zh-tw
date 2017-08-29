@@ -4,7 +4,7 @@ description: "了解如何在 Azure Functions 中使用 Azure 事件中樞繫結
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
@@ -21,7 +21,6 @@ ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 19021bef8b7156b3049f43b0275c0ed0c6b22514
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="azure-functions-event-hubs-bindings"></a>Azure Functions 事件中樞繫結

@@ -219,7 +219,7 @@ ms.lasthandoff: 07/12/2017
    
    a. 對於 [已啟用同步處理] 選取 **ON**。
    
-   b. 對於 [Choose sync provider] (選擇同步處理提供者)，選取 [Microsoft / Office 365]。
+   b. 對於 [Choose sync provider] \(選擇同步處理提供者)，選取 [Microsoft / Office 365]。
    
    c. 按一下 [Run User Sync] \(執行使用者同步處理)。
 
