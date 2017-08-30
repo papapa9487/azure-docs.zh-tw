@@ -167,7 +167,7 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 若要開始進行，您的程式碼必須裝載在原始檔控制中。 本節的其餘部分會假設使用 **git**。
 
 ### <a name="set-up-a-vsts-repo"></a>設定 VSTS 存放庫
-在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] (或您慣用的任何一個選項)。
+在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] \(或您慣用的任何一個選項)。
 
 ![按原始檔控制按鈕][image-source-control]
 
