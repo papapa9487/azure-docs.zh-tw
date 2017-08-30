@@ -3,7 +3,7 @@ title: "如何在 Azure MFA 中使用應用程式密碼？ | Microsoft Docs"
 description: "本頁面將協助使用者了解什麼是應用程式密碼，以及它們在 Azure MFA 方面的用途。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
@@ -36,21 +36,21 @@ ms.lasthandoff: 05/25/2017
 
 * 您不用自行建立應用程式密碼。 它們是自動產生的。 因為每個應用程式只需要輸入應用程式密碼一次，所以使用較複雜且自動產生的密碼比您自創一個可記住的密碼更為安全。
 * 每位使用者的密碼目前以 40 組為限。 如果您嘗試在達到此限制後建立密碼，系統會提示您刪除其中一個現有的應用程式密碼，然後才能建立新密碼。
-* 您應該為每個裝置 (而非每個應用程式) 使用一個應用程式密碼。 例如，您可以為膝上型電腦建立一個應用程式密碼，並將該應用程式密碼使用於該膝上型電腦上的所有應用程式。 接著，建立第二個應用程式密碼用於您桌面上的所有應用程式。 
+* 您應該為每個裝置 (而非每個應用程式) 使用一個應用程式密碼。 例如，您可以為膝上型電腦建立一個應用程式密碼，並將該應用程式密碼使用於該膝上型電腦上的所有應用程式。 接著，建立第二個應用程式密碼用於您桌面上的所有應用程式。
 * 您在第一次註冊進行雙步驟驗證時會獲得一個應用程式密碼。  如果您需要其他密碼，您可加以建立。
 
 
 
 ## <a name="creating-and-deleting-app-passwords"></a>建立和刪除應用程式密碼
-在初次登入期間，您會獲得可供使用的應用程式密碼。  此外，您也可以稍後再建立和刪除應用程式密碼。  您執行此動作的方式取決於您使用 Multi-Factor Authentication 的方式。 回答下列問題來判斷您應該到哪裡來管理應用程式密碼： 
+在初次登入期間，您會獲得可供使用的應用程式密碼。  此外，您也可以稍後再建立和刪除應用程式密碼。  您執行此動作的方式取決於您使用 Multi-Factor Authentication 的方式。 回答下列問題來判斷您應該到哪裡來管理應用程式密碼：
 
 1. 您的個人 Microsoft 帳戶是否使用雙步驟驗證？ 如果是，您應該參閱[應用程式密碼和雙步驟驗證](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification)一文的說明。 如果不是，繼續回答第二個問題。
 
-2. 好，所以您的工作或學校帳戶使用雙步驟驗證。 您是否用這些帳戶登入 Office 365 應用程式？ 如果是，您應該參閱[建立 Office 365 應用程式密碼](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183)的說明。 如果不是，繼續回答第三個問題。 
+2. 好，所以您的工作或學校帳戶使用雙步驟驗證。 您是否用這些帳戶登入 Office 365 應用程式？ 如果是，您應該參閱[建立 Office 365 應用程式密碼](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183)的說明。 如果不是，繼續回答第三個問題。
 
 3. 您是否搭配 Microsoft Azure 使用雙步驟驗證？ 如果是，繼續移至本文中[在 Azure 入口網站中管理應用程式密碼](#manage-app-passwords-in-the-Azure-portal)一節。 如果不是，繼續回答第四個問題。
 
-4. 不確定您在哪裡使用雙步驟驗證嗎？ 繼續移至本文中[使用 MyApps 入口網站管理應用程式密碼](#manage-app-passwords-with-the-myapps-portal)一節。 
+4. 不確定您在哪裡使用雙步驟驗證嗎？ 繼續移至本文中[使用 MyApps 入口網站管理應用程式密碼](#manage-app-passwords-with-the-myapps-portal)一節。
 
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>在 Azure 入口網站中管理應用程式密碼
@@ -63,7 +63,7 @@ ms.lasthandoff: 05/25/2017
 4. 按一下 [建立] 。
 5. 輸入應用程式密碼的名稱，然後按 [下一步] 
 6. 將應用程式密碼複製到剪貼簿，並將它貼到您的應用程式。
-   
+
    ![雲端](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 
@@ -115,5 +115,5 @@ ms.lasthandoff: 05/25/2017
 
 - [管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)
 
-- 試用 [Microsoft Authenticator 應用程式](microsoft-authenticator-app-how-to.md)，透過應用程式通知來驗證您的登入，而不是透過文字訊息或電話。 
+- 試用 [Microsoft Authenticator 應用程式](microsoft-authenticator-app-how-to.md)，透過應用程式通知來驗證您的登入，而不是透過文字訊息或電話。
 

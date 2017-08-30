@@ -4,7 +4,7 @@ description: "本頁面將指引您移至何處才能看到 Azure MFA 可用的�
 keywords: "使用者驗證, 登入經驗, 使用行動電話登入, 使用辦公室電話登入"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: HT
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/16/2017
 ## <a name="what-will-your-sign-in-experience-be"></a>您的登入體驗將會如何？
 您的登入體驗會根據您選擇來做為第二個要素的項目而不同︰撥打電話、驗證應用程式或簡訊。 選擇最符合您的情況的一個選項：
 
-| 您要如何登入？ | 
+| 您要如何登入？ |
 | --- |
 | [透過電話撥打我的行動或辦公室電話](#signing-in-with-a-phone-call) |
 | [傳送簡訊到我的行動電話號碼](#signing-in-with-a-text-message)
@@ -49,11 +49,11 @@ ms.lasthandoff: 08/16/2017
 ## <a name="signing-in-with-a-text-message"></a>透過簡訊登入
 下列資訊將說明透過傳送簡訊到您的行動電話來進行雙步驟驗證體驗：
 
-1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。 
-2. Microsoft 會傳送包含數字代碼的簡訊給您。 
-3. 請在登入頁面上提供的方塊中輸入此代碼。 
+1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
+2. Microsoft 會傳送包含數字代碼的簡訊給您。
+3. 請在登入頁面上提供的方塊中輸入此代碼。
 
-## <a name="signing-in-with-the-microsoft-authenticator-app"></a>使用 Microsoft 驗證器應用程式登入 
+## <a name="signing-in-with-the-microsoft-authenticator-app"></a>使用 Microsoft 驗證器應用程式登入
 下列資訊將說明使用 Microsoft Authenticator 應用程式進行雙步驟驗證的體驗。 應用程式有兩種不同的使用方式。 您可以在裝置上接收推送通知，或是開啟應用程式以取得驗證碼。
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>從 Microsoft 驗證器應用程式使用通知登入
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/16/2017
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>使用驗證碼登入 Microsoft 驗證器應用程式
 
-如果您使用 Microsoft Authenticator 應用程式取得驗證碼，則當您開啟應用程式時，會在您的帳戶名稱下面看到一個數字。 這個數字每 30 秒會變更一次，所以您不會使用相同的數字兩次。 當系統要求您輸入驗證碼時，開啟應用程式並使用當下所顯示的任何數字。 
+如果您使用 Microsoft Authenticator 應用程式取得驗證碼，則當您開啟應用程式時，會在您的帳戶名稱下面看到一個數字。 這個數字每 30 秒會變更一次，所以您不會使用相同的數字兩次。 當系統要求您輸入驗證碼時，開啟應用程式並使用當下所顯示的任何數字。
 
 1. 使用您的使用者名稱和密碼登入應用程式或服務，例如 Office 365。
 2. Microsoft 提示您輸入驗證碼。
@@ -91,4 +91,5 @@ ms.lasthandoff: 08/16/2017
 
 了解如何[管理雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)。
 
-了解如何[開始使用 Microsoft 驗證器應用程式](microsoft-authenticator-app-how-to.md)，如此一來，因此您可以使用通知登入，而不是經由文字訊息和來電。 
+了解如何[開始使用 Microsoft 驗證器應用程式](microsoft-authenticator-app-how-to.md)，如此一來，因此您可以使用通知登入，而不是經由文字訊息和來電。
+

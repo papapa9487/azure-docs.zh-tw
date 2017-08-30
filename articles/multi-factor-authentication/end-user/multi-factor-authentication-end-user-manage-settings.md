@@ -4,7 +4,7 @@ description: "管理您使用 Azure Multi-Factor Authentication 的方式，包�
 services: multi-factor-authentication
 keywords: "多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: yossib
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
@@ -60,10 +60,10 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="require-two-step-verification-again-on-a-device-youve-marked-as-trusted"></a>需要在已標示為受信任的裝置上再次進行雙步驟驗證
 
-根據您組織的設定，當您在您的瀏覽器上執行雙步驟驗證時，您可能會看到核取方塊指出「**X** 天內不要再問我」。 如果核取此方塊然後遺失您的裝置，或認為您的帳戶遭到入侵，您應該將雙步驟驗證還原到所有的裝置。 
+根據您組織的設定，當您在您的瀏覽器上執行雙步驟驗證時，您可能會看到核取方塊指出「**X** 天內不要再問我」。 如果核取此方塊然後遺失您的裝置，或認為您的帳戶遭到入侵，您應該將雙步驟驗證還原到所有的裝置。
 
 1. 在 [其他安全性驗證] 頁面上，選取 [還原先前受信任裝置上的 Multi-Factor Authentication]。
-2. 下次您在任何裝置上登入時，程式將會提示您執行雙步驟驗證。 
+2. 下次您在任何裝置上登入時，程式將會提示您執行雙步驟驗證。
 
 ## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>如何清除舊裝置的 Microsoft驗證器並移到新裝置？
 無論您是從裝置解除安裝應用程式或是重設裝置，都不會移除後端的啟動功能。 如需詳細資訊，請參閱 [Microsoft Authenticator](microsoft-authenticator-app-how-to.md)。

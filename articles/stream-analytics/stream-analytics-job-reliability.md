@@ -3,7 +3,7 @@ title: "使用 Azure 串流分析工作來避免發生服務中斷 | Microsoft D
 description: "提供讓您的「串流分析」工作升級具有彈性的指引。"
 services: stream-analytics
 documentationCenter: 
-authors: jeffstokes72
+authors: samacha
 manager: jhubbard
 editor: cgronlun
 ms.service: stream-analytics
@@ -12,10 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-translationtype: Human Translation
+ms.author: samacha
+ms.translationtype: Human Translation
 ms.sourcegitcommit: d9dad6cff80c1f6ac206e7fa3184ce037900fc6b
 ms.openlocfilehash: de803447ec379f35b453890d92359a91f4fd8427
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/06/2017
 
 ---

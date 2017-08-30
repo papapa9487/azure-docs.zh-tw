@@ -3,7 +3,7 @@ title: "開始使用雙步驟驗證 |Microsoft Docs"
 description: "這是可協助使用者開始使用 Azure Multi-Factor Authentication 的 Azure Multi-Factor Authentication 頁面。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: e02cc045-2ac0-41ff-b07f-e9255e320383
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,5 +48,4 @@ ms.lasthandoff: 06/22/2017
 | [變更您的設定](multi-factor-authentication-end-user-manage-settings.md) |示範如何變更您的設定，例如電話號碼或慣用的註冊方法。 |
 | [協助使用應用程式密碼](multi-factor-authentication-end-user-app-passwords.md) |尋找有關建立和使用應用程式密碼的資訊。 |
 | [使用行動應用程式](microsoft-authenticator-app-how-to.md) |Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
-
 
