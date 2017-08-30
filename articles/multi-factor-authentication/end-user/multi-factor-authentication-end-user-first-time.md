@@ -4,7 +4,7 @@ description: "當您的公司設定 Azure Multi-Factor Authentication 時，系�
 services: multi-factor-authentication
 keywords: "如何使用 Azure Directory, 雲端中的 Active Directory, Active Directory 教學課程"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 editor: pblachar
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: kgremban
+ms.author: barlan
 ms.custom: end-user
 ms.translationtype: HT
 ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/16/2017
 
 若要開始使用，請選取 [立即設定]。
 
-如果登入時未看到類似畫面，請遵循[管理您的雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)中的指示，以尋找您可以在其中管理驗證選項的設定頁面。 
+如果登入時未看到類似畫面，請遵循[管理您的雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page)中的指示，以尋找您可以在其中管理驗證選項的設定頁面。
 
 ## <a name="decide-how-you-want-to-verify-your-sign-ins"></a>決定您要如何驗證登入
 

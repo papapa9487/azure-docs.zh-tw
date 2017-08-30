@@ -3,7 +3,7 @@ title: "Microsoft Authenticator 應用程式說明與支援 | Microsoft Docs"
 description: "提供關於 Microsoft 驗證應用程式與 Azure Multi-Factor Authentication 的常見問題與答案清單。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
-ms.author: kgremban
+ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
 ms.translationtype: Human Translation
@@ -48,9 +48,9 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 
 - 您的電話處於「請勿打擾」還是無訊息模式？ 此模式可以讓應用程式傳送通知。
 - 您可以接收來自其他應用程式的通知嗎？ 如果接收不到，則可能是電話的網路連線或是 Android 或 Apple 的通知通道發生問題。 您可以在電話設定中解決第一個選項，但可能需要連絡服務提供者，以取得第二個選項的協助。
-- 您可以在應用程式上接收到某些帳戶的通知，但接收不到其他帳戶的通知嗎？ 如果是，請從應用程式中移除有問題的帳戶，並再次新增該帳戶，以啟用推播通知。 
+- 您可以在應用程式上接收到某些帳戶的通知，但接收不到其他帳戶的通知嗎？ 如果是，請從應用程式中移除有問題的帳戶，並再次新增該帳戶，以啟用推播通知。
 
-如果嘗試了上述疑難排解的建議但仍有問題，請將您的記錄傳送給我們以供診斷。 移至應用程式設定，然後選取 [說明與意見反應] 和 [傳送記錄]。 接著，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)，讓我們了解您遇到的問題，以及目前為止已採取的步驟。 
+如果嘗試了上述疑難排解的建議但仍有問題，請將您的記錄傳送給我們以供診斷。 移至應用程式設定，然後選取 [說明與意見反應] 和 [傳送記錄]。 接著，請移至 [Microsoft 驗證器應用程式論壇](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)，讓我們了解您遇到的問題，以及目前為止已採取的步驟。
 
 ### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>我已經使用 Microsoft Authenticator 應用程式做為驗證碼。 如何切換到單鍵推播通知？
 透過推播通知核准登入僅適用於個人的 Microsoft 帳戶或是工作和學校 Microsoft 帳戶，而不適用於 Google 或 Facebook 這類協力廠商帳戶。 如果您擁有工作或學校 Microsoft 帳戶，則您的組織可以選擇停用此選項。
@@ -95,7 +95,7 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 
 ### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>為什麼 Microsoft Authenticator 應用程式可讓您不需解除鎖定裝置就能核准要求？
 
-您不需解除鎖定裝置來核准驗證要求，因為您只需要證明您帶著您的電話。 雙步驟驗證需要證明兩件事 - 一件是您知道的，另一件則是您擁有的。 您知道的就是密碼。 您擁有的則是您的電話 (使用 Microsoft Authenticator 應用程式設定，並註冊為 MFA 證明)。因此，擁有電話及核准要求符合用於驗證第二要素的準則。 
+您不需解除鎖定裝置來核准驗證要求，因為您只需要證明您帶著您的電話。 雙步驟驗證需要證明兩件事 - 一件是您知道的，另一件則是您擁有的。 您知道的就是密碼。 您擁有的則是您的電話 (使用 Microsoft Authenticator 應用程式設定，並註冊為 MFA 證明)。因此，擁有電話及核准要求符合用於驗證第二要素的準則。
 
 ### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>帳戶清單中的鎖定圖示代表什麼意義？
 
@@ -111,5 +111,4 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 * Microsoft 帳戶的[關於雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)
 * 針對您的工作或學校帳戶[使用雙步驟驗證遇到困難](multi-factor-authentication-end-user-troubleshoot.md)？
 * [使用 Microsoft 驗證器從您的電話登入](microsoft-authenticator-app-phone-signin-faq.md)
-
 

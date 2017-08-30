@@ -1,5 +1,5 @@
 ---
-title: "使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集 | Microsoft Docs&quot;"
+title: "使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集 | Microsoft Docs'"
 description: "使用 Azure PowerShell 建立及使用 HDInsight 叢集與 Azure Data Lake Store"
 services: data-lake-store,hdinsight
 documentationcenter: 
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/08/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 77eb83b80312eca401e6f60d57ed6a5668ea442e
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/09/2017
-
 
 ---
 # <a name="create-hdinsight-clusters-with-data-lake-store-as-default-storage-by-using-powershell"></a>使用 PowerShell 建立以 Data Lake Store 做為預設儲存體的 HDInsight 叢集

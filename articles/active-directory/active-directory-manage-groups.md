@@ -1,5 +1,4 @@
 ---
-
 title: "使用群組來管理 Azure Active Directory 中的資源存取權 | Microsoft Docs"
 description: "如何使用 Azure Active Directory 中的群組來管理內部部署、雲端應用程式與資源的使用者存取權。"
 services: active-directory
@@ -13,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
 ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: cd8125eda7643f0b190d35cbb89edf8b7b4eca30
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="manage-access-to-resources-with-azure-active-directory-groups"></a>使用 Azure Active Directory 群組來管理資源的存取權
