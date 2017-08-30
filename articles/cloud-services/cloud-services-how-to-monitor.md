@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: ab97962175f4498200db428736a1cbd124fac285
-ms.openlocfilehash: aab8f3233191c9b3f839e3358902f72499d93ee5
-ms.lasthandoff: 12/08/2016
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-monitor-cloud-services"></a>如何監視雲端服務
@@ -40,7 +41,7 @@ Azure 傳統入口網站的監視顯示本身的可設定度相當高。 您可�
 使用下列程序，在 Azure 傳統入口網站中設定詳細資訊或最小監視。 
 
 ### <a name="before-you-begin"></a>開始之前
-* 建立「傳統」儲存體帳戶來儲存監視資料。 您可以對於不同的角色使用不同的儲存體帳戶。 如需詳細資訊，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* 建立「傳統」儲存體帳戶來儲存監視資料。 您可以對於不同的角色使用不同的儲存體帳戶。 如需詳細資訊，請參閱[如何建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 * 對於雲端服務角色啟用 Azure 診斷。 請參閱「 [為雲端服務設定診斷功能](cloud-services-dotnet-diagnostics.md)」。
 
 確認「角色」組態中出現診斷連接字串。 您必須先啟用 [Azure 診斷]，並在「角色」組態中加入診斷連接字串，才能開啟詳細資訊監視功能。   
@@ -147,14 +148,14 @@ Azure 傳統入口網站的監視顯示本身的可設定度相當高。 您可�
 1. 開啟雲端服務的儀表板。
 2. 在圖表中新增或移除度量：
    
-   * 若要繪製新的度量，請在圖表標頭中選取度量的核取方塊。 在縮小顯示上，按一下 [n??metrics] 旁邊的向下箭頭，繪製圖表標頭區域無法顯示的度量。
+   * 若要繪製新的度量，請在圖表標頭中選取度量的核取方塊。 在縮小顯示上，按一下 [??metrics]***n*** 旁邊的向下箭頭，繪製圖表標頭區域無法顯示的度量。
    * 若要刪除圖表上繪製的度量，請清除標頭旁邊的核取方塊。
    
 3. 切換 [相對] 和 [絕對] 顯示。
 4. 選擇要顯示的 1 小時、24 小時或 7 天資料。
 
 ## <a name="how-to-access-verbose-monitoring-data-outside-the-azure-classic-portal"></a>做法：從 Azure 傳統入口網站外部存取詳細資訊監視資料
-詳細資訊監視資料儲存在您對於各個角色指定的儲存體帳戶內的表格中。 對於各個雲端服務部署，將為角色建立&6; 個表格。 個別 (5 分鐘、1 小時和 12 小時) 建立 2 個表格。 其中一個表格儲存角色層級彙總，另一個表格儲存角色執行個體的彙總。 
+詳細資訊監視資料儲存在您對於各個角色指定的儲存體帳戶內的表格中。 對於各個雲端服務部署，將為角色建立 6 個表格。 個別 (5 分鐘、1 小時和 12 小時) 建立 2 個表格。 其中一個表格儲存角色層級彙總，另一個表格儲存角色執行個體的彙總。 
 
 表格名稱的格式如下：
 
