@@ -65,6 +65,10 @@
           href: sql-database-servers-databases.md
         - name: 服務層
           href: sql-database-service-tiers.md
+        - name: 資源限制
+          href: sql-database-resource-limits.md
+        - name: 單一資料庫
+          href: sql-database-single-database-resources.md
         - name: 彈性集區
           href: sql-database-elastic-pool.md
         - name: 連線架構
@@ -75,8 +79,6 @@
           href: sql-database-what-is-a-dtu.md
         - name: DTU 基準測試
           href: sql-database-benchmark-overview.md
-        - name: 限制
-          href: sql-database-resource-limits.md
         - name: PaaS 或 IaaS
           href: sql-database-paas-vs-sql-server-iaas.md
         - name: 稽核
