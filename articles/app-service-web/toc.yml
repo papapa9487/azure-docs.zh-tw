@@ -117,8 +117,6 @@
               href: app-service-linux-intro.md
             - name: 使用 CLI 進行管理
               href: app-service-linux-cli.md
-            - name: 在 Linux 上建立 Web 應用程式
-              href: app-service-linux-how-to-create-web-app.md
             - name: Linux 上的 Ruby Web 應用程式
               href: app-service-linux-ruby-get-started.md
             - name: Linux 上的 Node.js Web 應用程式

@@ -10,3 +10,7 @@
   href: ./files/storage-files-introduction.md
 - name: 佇列
   href: ./queues/storage-queues-introduction.md
+- name: 資料表
+  href: ../cosmos-db/table-storage-overview.md
+- name: 磁碟
+  href: ../virtual-machines/windows/managed-disks-overview.md

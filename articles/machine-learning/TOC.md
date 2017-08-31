@@ -6,6 +6,14 @@
 ### [概觀](data-science-process-overview.md)
 ### [生命週期](data-science-process-lifecycle.md)
 ### [逐步解說](data-science-process-walkthroughs.md)
+####[Spark 與 PySpark 和 Scala](data-science-process-walkthroughs-spark.md)
+##### [探索資料](machine-learning-data-science-spark-data-exploration-modeling.md)
+##### [分數模型](machine-learning-data-science-spark-model-consumption.md)
+##### [進階資料探索](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
+####[Hive 與 HDInsight Hadoop](data-science-process-walkthroughs-hdinsight-hadoop.md)
+####[U-SQL 與 Azure Data Lake](data-science-process-walkthroughs-azure-data-lake.md)
+####[R、Python 和 T-SQL 與 SQL Server](data-science-process-walkthroughs-sql-server.md)
+####[T-SQL 和 Python 與 SQL DW](data-science-process-walkthroughs-sql-data-warehouse.md)
 ### [取得 Azure ML](http://aka.ms/datascienceprocess)
 
 ## Machine Learning Studio
@@ -100,12 +108,6 @@
 ##### [使用 Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [使用 SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [使用 Data Pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### 使用 Spark 處理資料
-##### [概觀](machine-learning-data-science-spark-overview.md)
-##### [探索資料](machine-learning-data-science-spark-data-exploration-modeling.md)
-##### [分數模型](machine-learning-data-science-spark-model-consumption.md)
-##### [進階資料探索](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
-##### [使用 Scala 和 Spark](machine-learning-data-science-process-scala-walkthrough.md)
 
 ## 開發模型
 ### 設計製造並選取功能
@@ -166,11 +168,7 @@
 ### [實驗範例](machine-learning-sample-experiments.md)
 ### [範例資料集](machine-learning-use-sample-datasets.md)
 ### [客戶流失範例](machine-learning-azure-ml-customer-churn-scenario.md)
-### 端對端案例
-#### [Hadoop 叢集](machine-learning-data-science-process-hive-walkthrough.md)
-#### [使用含 1TB 的 Hadoop](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-#### [使用 SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-#### [使用 SQL 資料倉儲](machine-learning-data-science-process-sqldw-walkthrough.md)
+
 
 # 參考
 

@@ -32,7 +32,9 @@
 ### [Azure 入口網站](expressroute-howto-add-gateway-portal-resource-manager.md)
 ### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [設定 ExpressRoute 和站對站並存連線](expressroute-howto-coexist-resource-manager.md)
-## [針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-powershell.md)
+## 針對 Microsoft 對等互連設定路由篩選
+### [Azure 入口網站](how-to-routefilter-portal.md)
+### [PowerShell](how-to-routefilter-powershell.md)
 ## [將電路從傳統移到 Resource Manager](expressroute-howto-move-arm.md)
 ## [將關聯的虛擬網路從傳統移至 Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## 設定 ExpressRoute 的路由器
