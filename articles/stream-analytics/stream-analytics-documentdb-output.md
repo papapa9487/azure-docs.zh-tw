@@ -15,17 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: cb85dff7f8bf8a8715aaa9ecd02da59b9108915c
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: cc80b0080c806541362a1ef2d71b95862bd51ca2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="target-azure-cosmos-db-for-json-output-from-stream-analytics"></a>將 Azure Cosmos DB 設定為串流分析的 JSON 輸出目標
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
 
-如果您不熟悉 Cosmos DB，請參閱 [Azure Cosmos DB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)來開始著手。
+如果您不熟悉 Cosmos DB，請參閱 [Azure Cosmos DB 的學習路徑](https://azure.microsoft.com/documentation/learning-paths/documentdb/)來開始著手。 
+
+注意：目前不支援 Mongo DB API 架構的 Cosmos DB 集合。 
 
 ## <a name="basics-of-cosmos-db-as-an-output-target"></a>將 Cosmos DB 設定為輸出目標的基本概念
 「串流分析」中的 Azure Cosmos DB 輸出可將串流處理結果以 JSON 輸出的形式寫入到您的 Cosmos DB 集合中。 串流分析不會在資料庫中建立集合，而是需要您預先建立集合。 如此一來，Cosmos DB 集合的計費成本對您來說就很透明，而您也能直接使用 [Cosmos DB API](https://msdn.microsoft.com/library/azure/dn781481.aspx) 來微調集合的效能、一致性及容量。 建議您讓每個串流作業使用一個 Cosmos DB 資料庫，以透過邏輯方式分隔串流作業的集合。

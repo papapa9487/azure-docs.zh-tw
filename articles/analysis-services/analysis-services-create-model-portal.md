@@ -13,20 +13,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 6c76bcb919b08cbd67e93f54dac216ab2aec06b0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 入口網站中建立模型
 
 Azure 入口網站中的 Azure Analysis Services Web 設計工具 (預覽) 提供快速又簡單的方法，直接在瀏覽器中建立及編輯表格式模型和查詢模型資料。 
 
-請記住，Web 設計工具是**預覽**。 雖然在預覽中隨時會新增新功能，但是功能受到限制。 對於進階模型開發和測試，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
+請記住，Web 設計工具為**預覽**狀態。 雖然在預覽中隨時會新增新功能，但是功能受到限制。 對於進階模型開發和測試，最好使用 Visual Studio (SSDT) 和 SQL Server Management Studio (SSMS)。
 
 ## <a name="prerequisites"></a>必要條件
 

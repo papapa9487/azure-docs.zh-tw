@@ -10,10 +10,10 @@ ms.author: bruceper
 manager: mbaldwin
 ms.date: 07/25/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: c7b20c83b356dd698e66919483c9ff6f0e8a36ef
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3148088c88236c64e089fd25c98eb8ac7cdcbfea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
@@ -28,13 +28,14 @@ ASA 金鑰功能會為您管理密碼輪替，並提供共用存取簽章 (SAS) 
 
 Azure 儲存體帳戶金鑰功能最初是透過 REST、.NET/C# 和 PowerShell 介面提供。 如需詳細資訊，請參閱 [Key Vault 參考](https://docs.microsoft.com/azure/key-vault/)。
 
+
 ## <a name="storage-account-keys-behavior"></a>儲存體帳戶金鑰行為
 
 ### <a name="what-key-vault-manages"></a>Key Vault 的管理內容
 
 當您使用儲存體帳戶金鑰時，Key Vault 會代表您執行幾個內部管理功能。
 
-1. Azure Key Vault 會管理 Azure 儲存體帳戶 (SAS) 的金鑰。 
+1. Azure Key Vault 會管理 Azure 儲存體帳戶 (ASA) 的金鑰。 
     - Azure Key Vault 可在內部列出 (同步) Azure 儲存體帳戶金鑰。  
     - Azure Key Vault 會定期重新產生 (輪替) 金鑰。 
     - 永遠不會傳回金鑰值以回應呼叫者。 
@@ -65,6 +66,9 @@ var blobClient = storageAccount.CreateCloudBlobClient();
 ### <a name="after-azure-key-vault-storage-keys"></a>Azure Key Vault 儲存體金鑰之後 
 
 ```
+//Please make sure to set storage permissions appropriately on your key vault
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourVault' -ObjectId yourObjectId -PermissionsToStorage all
+
 //Use PowerShell command to get Secret URI 
 
 Set-AzureKeyVaultManagedStorageSasDefinition -Service Blob -ResourceType Container,Service -VaultName yourKV  

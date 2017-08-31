@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: e5fb323090d8c3a533199b396047a1c63b5ae9f4
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -125,6 +125,9 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 ![Azure Active Directory 管理中心 - 下載驗證代理程式按鈕](./media/active-directory-aadconnect-pass-through-authentication/pta9.png)
 
 ![Azure Active Directory 管理中心 - 下載代理程式刀鋒視窗](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
+
+>[!NOTE]
+>您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。 請確定在安裝_之前_，檢閱並接受驗證代理程式的[服務條款](https://aka.ms/authagenteula)。
 
 ## <a name="next-steps"></a>後續步驟
 - [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 此功能目前為預覽狀態。 了解支援的情節和不支援的情節。

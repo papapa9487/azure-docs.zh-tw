@@ -3,7 +3,7 @@ title: "連接器版本發行歷程記錄 | Microsoft Docs"
 description: "本主題列出所有適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器版本"
 services: active-directory
 documentationcenter: 
-author: AndKjell
+author: fimguy
 manager: femila
 editor: 
 ms.assetid: 6a0c66ab-55df-4669-a0c7-1fe1a091a7f9
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
-ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: e9699abe0c1bdb6ea449c99e087ae56adb717b8d
+ms.date: 08/18/2017
+ms.author: fimguy
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
 適用於 Forefront Identity Manager (FIM) 和 Microsoft Identity Manager (MIM) 的連接器會經常更新。
 
 > [!NOTE]
-> 本主題僅討論 FIM 與 MIM。 Azure AD Connect 不支援這些連接器。
+> 本主題僅討論 FIM 與 MIM。 不支援在 Azure AD Connect 上安裝這些連接器。 升級至指定的組建時，會在 AADConnect 上預先安裝發行的連接器。
 
 本主題會列出所有已發行的連接器版本。
 
@@ -38,23 +38,36 @@ ms.lasthandoff: 06/30/2017
 * [PowerShell 連接器](active-directory-aadconnectsync-connector-powershell.md) 參考文件
 * [Lotus Domino 連接器](active-directory-aadconnectsync-connector-domino.md) 參考文件
 
+
+## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+
+
+### <a name="fixed-issues"></a>已修正的問題：
+
+* 一般 Web 服務︰
+  * 已修正在有兩個或多個端點時無法建立 SOAP 專案的問題。
+* 一般 SQL：
+  * 在匯入作業中，當 GSQL 儲存至連接器空間時，並未正確轉換時間。 GSQL 連接器空間的預設日期和時間格式已從 'yyyy-MM-dd hh:mm:ssZ' 變更為 'yyyy-MM-dd HH:mm:ssZ'。
+
 ## <a name="115510-aadconnect-115530"></a>1.1.551.0 (AADConnect 1.1.553.0)
 
 ### <a name="fixed-issues"></a>已修正的問題：
 
 * 一般 Web 服務︰
-  * Wsconfig 工具未正確地從 REST 服務方法的「範例要求」轉換 Json 陣列。 因此，REST 要求的 Json 陣列發生序列化問題。
-  * Web 服務連接器設定工具不支援在 JSON 屬性名稱中使用空格符號。您可以手動將替代模式新增至 WSConfigTool.exe.config 檔案，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+  * Wsconfig 工具未正確地從 REST 服務方法的「範例要求」轉換 Json 陣列。 這會造成 REST 要求的 Json 陣列發生序列化問題。
+  * Web 服務連接器組態工具不支援在 JSON 屬性名稱中使用空間符號 
+    * 可以手動將取代模式新增至 WSConfigTool.exe.config 檔案，例如 ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
 
 * Lotus Notes：
-  * 當 [允許組織/組織單位使用自訂認證者] 選項停用時，連接器在匯出 (更新) 期間會失敗。在匯出流程之後，所有屬性都匯出至 Domino，但在匯出時，KeyNotFoundException 會傳回給 Sync。 這是因為重新命名作業在嘗試變更下列其中一個屬性來變更 DN (UserName 屬性) 時失敗：  
-    - 姓氏
-    - FirstName
-    - MiddleInitial
-    - AltFullName
-    - AltFullNameLanguage
-    - ou
-    - altcommonname
+  * 當 [允許組織/組織單位使用自訂認證者] 選項停用時，連接器在匯出 (更新) 期間會失敗。在匯出流程之後，所有屬性都匯出至 Domino，但在匯出時，KeyNotFoundException 會傳回給 Sync。 
+    * 這是因為重新命名作業在嘗試變更下列其中一個屬性來變更 DN (UserName 屬性) 時失敗：  
+      - 姓氏
+      - FirstName
+      - MiddleInitial
+      - AltFullName
+      - AltFullNameLanguage
+      - ou
+      - altcommonname
 
   * 當 [允許組織/組織單位使用自訂認證者] 選項啟用，但必要的認證者仍然空白時，則會發生 KeyNotFoundException。
 

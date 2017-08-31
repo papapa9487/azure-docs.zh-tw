@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 6b6c173c6c4bb3f670c54208c80e6d966a1f396e
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>在 Linux 上使用 Azure Web 應用程式連續部署
@@ -32,7 +32,13 @@ ms.lasthandoff: 07/19/2017
 
 登入 Azure 入口網站 (網址是 http://portal.azure.com)
 
-## <a name="step-2---enable-docker-hub-continuous-deployment"></a>步驟 2 - 啟用 Docker 中樞連續部署
+## <a name="step-2---enable-container-continuous-deployment-feature"></a>步驟 2 - 啟用容器連續部署功能
+
+您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 並執行下列命令來啟用持續部署功能
+
+```azurecli-interactive
+az webapp deployment container config -n sname -g rgname -e true
+``` 
 
 在 **[Azure 入口網站](https://portal.azure.com/)**中，按一下頁面左側的 [App Service] 選項。
 
@@ -43,6 +49,12 @@ ms.lasthandoff: 07/19/2017
 ![將應用程式設定的影像插入](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
 ## <a name="step-3---prepare-webhook-url"></a>步驟 3 - 準備 Webhook URL
+
+您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 並執行下列命令來取得 Webhook URL
+
+```azurecli-interactive
+az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
+``` 
 
 針對 Webhook URL，您必須擁有下列端點︰`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`。
 
@@ -83,6 +95,7 @@ ms.lasthandoff: 07/19/2017
 * [在 Linux 上的 Azure Web 應用程式中使用 Ruby](app-service-linux-ruby-get-started.md)
 * [如何針對 Linux 上的 Azure Web 應用程式使用自訂 Docker 映像](./app-service-linux-using-custom-docker-image.md)
 * [Linux 上的 Azure App Service Web 應用程式常見問題集](./app-service-linux-faq.md) 
+* [在 Linux 上使用 Azure CLI 2.0 管理 Web 應用程式](./app-service-linux-cli.md)
 
 
 

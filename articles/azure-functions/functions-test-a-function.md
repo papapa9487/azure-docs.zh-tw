@@ -4,7 +4,7 @@ description: "使用 Postman、cURL、和 Node.js 來測試您的 Azure Function
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構, 測試"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: a58bf41ec11b5826b60c1fc999240ea655be6d9d
-ms.lasthandoff: 03/01/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aca03ba4137893157fcbe6650336782ab88cd234
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
@@ -234,7 +234,7 @@ Azure Functions 入口網站是為了讓您測試 HTTP 和計時器觸發的函�
 
 
 ### <a name="test-with-a-timer-trigger"></a>使用計時器觸發程序測試
-有些函式無法適當地使用先前所述的工具進行測試。 例如，請考量將訊息放入 [Azure 佇列儲存體](../storage/storage-dotnet-how-to-use-queues.md)時執行的佇列觸發程序函式。 您一律可以撰寫程式碼來將訊息放入佇列，本文稍後會提供在主控台專案中進行此動作的範例。 不過，還有另一種方法可用來直接使用函式進行測試。  
+有些函式無法適當地使用先前所述的工具進行測試。 例如，請考量將訊息放入 [Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md)時執行的佇列觸發程序函式。 您一律可以撰寫程式碼來將訊息放入佇列，本文稍後會提供在主控台專案中進行此動作的範例。 不過，還有另一種方法可用來直接使用函式進行測試。  
 
 您可以使用設定了佇列輸出繫結的計時器觸發程序。 該計時器觸發程序程式碼會接著將測試訊息寫入至佇列。 本節會逐步解說範例。
 
@@ -377,12 +377,12 @@ req.end(bodyString);
     2016-03-23T08:09:01.215 Function completed (Success, Id=607b891c-08a1-427f-910c-af64ae4f7f9c)
 
 
-### <a name="test-a-queue-trigger-function-with-code-c"></a>使用 C 程式碼測試佇列觸發程序函式# #
-我們稍早提到，您可以透過使用程式碼在您的佇列中放置訊息來測試佇列觸發程序。 下列範例程式碼是基於[開始使用 Azure 佇列儲存體](../storage/storage-dotnet-how-to-use-queues.md)教學課程中提供的 C# 程式碼。 從該連結也可以取得其他語言的程式碼。
+### <a name="test-a-queue-trigger-function-with-code-c"></a>使用 C# 程式碼測試佇列觸發程序函式 #
+我們稍早提到，您可以透過使用程式碼在您的佇列中放置訊息來測試佇列觸發程序。 下列範例程式碼是基於[開始使用 Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md)教學課程中提供的 C# 程式碼。 從該連結也可以取得其他語言的程式碼。
 
 若要在主控台應用程式中測試此程式碼，您必須︰
 
-* [在 app.config 檔案中設定儲存體連接字串](../storage/storage-dotnet-how-to-use-queues.md)。
+* [在 app.config 檔案中設定儲存體連接字串](../storage/queues/storage-dotnet-how-to-use-queues.md)。
 * 傳遞 `name` 和 `address` 做為應用程式的參數。 例如， `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`。 (在執行階段期間，此程式碼會接受新使用者名稱和地址做為命令列引數。)
 
 範例 C# 程式碼︰

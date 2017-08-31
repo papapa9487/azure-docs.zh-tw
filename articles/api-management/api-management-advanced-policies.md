@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f9272946fe4a03a732aa686680bba054c8ef1688
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
@@ -28,7 +28,9 @@ ms.lasthandoff: 05/08/2017
   
 -   [控制流程](api-management-advanced-policies.md#choose) - 根據布林值[運算式](api-management-policy-expressions.md)的評估結果，有條件地套用原則陳述式。  
   
--   [轉寄要求](#ForwardRequest) - 將要求轉寄至後端服務。  
+-   [轉寄要求](#ForwardRequest) - 將要求轉寄至後端服務。
+
+-   [限制並行](#LimitConcurrency) - 防止超過指定之要求數目同時執行括住的原則。
   
 -   [記錄至事件中樞](#log-to-eventhub) - 將指定格式的訊息傳送至記錄器實體所定義的事件中樞。 
 
@@ -266,6 +268,56 @@ ms.lasthandoff: 05/08/2017
   
 -   **原則範圍：**所有範圍  
   
+##  <a name="LimitConcurrency"></a> 限制並行  
+ `limit-concurrency` 原則可防止超過指定之要求數目在指定的時間執行括住的原則。 在超出閾值時，新的要求會新增至佇列，直到達到最大佇列長度為止。 在佇列耗盡時，新的要求會立即失敗。
+  
+###  <a name="LimitConcurrencyStatement"></a>原則陳述式  
+  
+```xml  
+<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+        <!— nested policy statements -->  
+</limit-concurrency>
+``` 
+
+### <a name="examples"></a>範例  
+  
+####  <a name="ChooseExample"></a>範例  
+ 下列範例示範如何根據內容變數的值，限制轉送至後端的要求數目。
+ 
+```xml  
+<policies>
+  <inbound>…</inbound>
+  <backend>
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+      <forward-request timeout="120"/>
+    <limit-concurrency/>
+  </backend>
+  <outbound>…</outbound>
+</policies>
+```
+
+### <a name="elements"></a>元素  
+  
+|元素|說明|必要|  
+|-------------|-----------------|--------------|    
+|limit-concurrency|根元素。|是|  
+  
+### <a name="attributes"></a>屬性  
+  
+|屬性|說明|必要|預設值|  
+|---------------|-----------------|--------------|--------------|  
+|key|字串。 允許的運算式。 指定並行範圍。 可由多個原則共用。|是|N/A|  
+|max-count|整數。 指定允許輸入原則的要求數目上限。|是|N/A|  
+|timeout|整數。 允許的運算式。 指定要求因為「403 太多要求」而失敗之前，應等候進入某個範圍的秒數|否|Infinity|  
+|max-queue-length|整數。 允許的運算式。 指定最大佇列長度。 嘗試輸入此原則的內送要求將會終止，因為佇列耗盡時立即出現「403 太多要求」。|否|Infinity|  
+  
+###  <a name="ChooseUsage"></a>使用方式  
+ 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
+  
+-   **原則區段︰**輸入、輸出、後端、錯誤  
+  
+-   **原則範圍：**所有範圍  
+
 ##  <a name="log-to-eventhub"></a>記錄到事件中樞  
  `log-to-eventhub` 原則會將指定格式的訊息傳送至記錄器實體所定義的事件中樞。 此原則正如其名，可用來儲存選取的要求或回應內容資訊，以進行線上或離線分析。  
   
@@ -963,6 +1015,6 @@ status code and media type. If no example or schema found, the content is empty.
   
 ## <a name="next-steps"></a>後續步驟
 如需使用原則的詳細資訊，請參閱︰
--    [API 管理中的原則](api-management-howto-policies.md) 
--    [原則運算式](api-management-policy-expressions.md)
+-   [API 管理中的原則](api-management-howto-policies.md) 
+-   [原則運算式](api-management-policy-expressions.md)
 

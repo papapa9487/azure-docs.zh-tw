@@ -13,37 +13,37 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 08/23/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 194910a3e4cb655b39a64d2540994d90d34a68e4
-ms.openlocfilehash: 90a0cfb7c7cd7d3364ff42559dd7fdc7b2951abf
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 530f3b5c9e90cb45ffb6e12d0d08a35f8d687471
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-an-office-data-connection-odc-file"></a>建立 Office 資料連線 (.odc) 檔案
+# <a name="create-an-office-data-connection-file"></a>建立 Office 資料連線檔案
 
-本文中的資訊說明如何從 Excel 2016 版本號碼 16.0.7369.2117 或更早版本或 Excel 2013，建立 .odc 檔案以連線至 Azure Analysis Services 伺服器。 還需要有更新的 [MSOLAP.7 提供者](analysis-services-data-providers.md)。
+本文中的資訊說明如何從 Excel 2016 版本號碼 16.0.7369.2117 或更早版本或 Excel 2013，建立 Office 資料連線檔案，以連線至 Azure Analysis Services 伺服器。 還需要有更新的 [MSOLAP.7 提供者](analysis-services-data-providers.md)。
 
 
-1. 複製下面的範例 .odc 連接檔案，然後貼到文字編輯器。 
+1. 複製下面的範例連線檔案，然後貼到文字編輯器。 
 
-2. 在 **odc:ConnectionString** 中，變更下列屬性︰
+2. 在 `odc:ConnectionString` 中，變更下列屬性：
 
-    *   將 **Data Source=asazure://*region*.asazure.windows.net/*servername*;** 中的 *region* 變更為 Analysis Services 伺服器的區域，並將 *servername* 變更為伺服器的名稱。
+    *   在 `Data Source=asazure://<region>.asazure.windows.net/<servername>;` 中，將 `<region>` 變更為 Analysis Services 伺服器的區域，並將 `<servername>` 變更為您的伺服器名稱。
 
-    *   將 **Initial Catalog=*database*;** 中的 *database* 變更為資料庫的名稱。
+    *   在 `Initial Catalog=<database>;` 中，將 `<database>` 變更為您的資料庫名稱。
 
-3. 將 **&lt;odc:CommandText>*Model*&lt;/odc:CommandText>** 中的 *Model* 變更為模型或檢視方塊的名稱。 
+3. 在 `<odc:CommandText>Model</odc:CommandText>` 中，將 `Model` 變更為您的模型或檢視方塊名稱。 
 
-4. 以 **.odc** 的副檔名將檔案儲存到 C:\Users\\*username*\Documents\My Data Sources 資料夾。
+4. 以 `.odc` 副檔名將檔案儲存到 C:\Users\\*username*\Documents\My Data Sources 資料夾。
 
 5. 在檔案上按一下滑鼠右鍵，然後按一下 [在 Excel 中開啟]。 或在 Excel 的 [資料] 功能區上，按一下 [現有連線]，選取您的檔案，然後按一下 [開啟]。
 
 
 
-**範例 .odc 連線檔案**
+**範例連線檔案**
 ```
 <html xmlns:o="urn:schemas-microsoft-com:office:office"
 xmlns="http://www.w3.org/TR/REC-html40">

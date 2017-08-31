@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kyliel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 7a92105f9d7be88311f2ecd89b22e35f3ad3bbac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 918f454784a9676297077c2e94c3e49ab2872d2f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>建立並上傳 FreeBSD VHD 到 Azure
@@ -128,7 +127,7 @@ ms.lasthandoff: 05/09/2017
 
    * 在 [URL]  欄位中，輸入要在儲存體帳戶 URL 中使用的子網域名稱。 此項目可以包含 3 至 24 個數字和小寫字母。 這個名稱會成為 URL 內用來為訂用帳戶的 Azure Blob 儲存體、Azure 佇列儲存體、或Azure 表格儲存體資源定址的主機名稱。
    * 從 [位置/同質群組] 下拉式清單中，選取儲存體帳戶的 [位置或同質群組]。 同質群組可讓您將雲端服務和儲存體放在相同的資料中心。
-   * 在 [複寫] 欄位中，決定儲存體帳戶是否要使用 [異地備援] 複寫。 依預設會開啟異地複寫。 此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。 次要位置會自動指派，且無法變更。 如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。 但請注意，如果您後續又開啟異地複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。 不含異地複寫的儲存服務會有相對的折扣。 如需深入了解如何管理儲存體帳戶的異地複寫，請參閱：[Azure 儲存體複寫](../../../storage/storage-redundancy.md)。
+   * 在 [複寫] 欄位中，決定儲存體帳戶是否要使用 [異地備援] 複寫。 依預設會開啟異地複寫。 此選項可讓您免費將資料複寫至次要位置，使您在主要位置發生重大錯誤時，可將儲存體容錯移轉至該位置。 次要位置會自動指派，且無法變更。 如果您因為法律規定或組織原則而需要更充分掌控您以雲端為基礎的儲存體所在的位置，您可以關閉地理複寫。 但請注意，如果您後續又開啟異地複寫，在您將現有的資料複寫至次要位置時，將會產生一次性的資料傳輸費用。 不含異地複寫的儲存服務會有相對的折扣。 如需深入了解如何管理儲存體帳戶的異地複寫，請參閱：[Azure 儲存體複寫](../../../storage/common/storage-redundancy.md)。
 
      ![輸入儲存體帳戶詳細資料](./media/freebsd-create-upload-vhd/Storage-create-account.png)
 5. 選取 [建立儲存體帳戶] 。 帳戶現在會出現在 [儲存體] 下方。
@@ -164,12 +163,12 @@ ms.lasthandoff: 05/09/2017
 
 ### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>使用憑證方法上傳 .vhd 檔案
 1. 開啟 Azure PowerShell 主控台。
-2. 輸入： `Get-AzurePublishSettingsFile`。
+2. 輸入：`Get-AzurePublishSettingsFile`。
 3. 隨即會開啟瀏覽器視窗，並提示您下載 .publishsettings 檔案。 此檔案包含您 Azure 訂用帳戶的資訊和憑證。
 
     ![瀏覽器下載頁面](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
 4. 儲存 .publishsettings 檔案。
-5. 輸入  `Import-AzurePublishSettingsFile <PathToFile>`，其中的 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
+5. 輸入：`Import-AzurePublishSettingsFile <PathToFile>`，其中的 `<PathToFile>` 是 .publishsettings 檔案的完整路徑。
 
    如需詳細資訊，請參閱 [開始使用 Azure Cmdlet](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx)。
 

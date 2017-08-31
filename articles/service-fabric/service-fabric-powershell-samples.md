@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 06/26/2017
+ms.date: 08/16/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
-ms.openlocfilehash: bedf52a2a9b9ffc1c2546f25a09c0b1639a6e210
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b109d1f3082fa3017f34bed685fd008ff3630394
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 範例
@@ -35,5 +35,7 @@ ms.lasthandoff: 07/15/2017
 | [新增應用程式憑證](./scripts/service-fabric-powershell-add-application-certificate.md)| 將應用程式的 X.509 憑證加入到叢集中的所有節點。 |
 | **管理應用程式** ||
 | [部署應用程式](./scripts/service-fabric-powershell-deploy-application.md)| 將應用程式部署到叢集。|
+| [升級應用程式](./scripts/service-fabric-powershell-upgrade-application.md)| 升級應用程式 |
 | [移除應用程式](./scripts/service-fabric-powershell-remove-application.md)| 從叢集移除應用程式。|
+| [在負載平衡器中開啟通訊埠](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | 在 Azure Load Balancer 中開啟應用程式連接埠。 |
 

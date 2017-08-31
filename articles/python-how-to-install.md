@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3e6bcf301a9257a60e6b921934bb6a04b4dd5d53
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c9df4e1f7677b2ed10684f6f3c981f2abf64f171
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="installing-python-and-the-sdk"></a>安裝 Python 和 SDK
-在 Windows 上設定 Python 相當簡單，而在 Mac、Linux 及 [適用於 Windows 的 Bash](https://msdn.microsoft.com/commandline/wsl/about)中則是已預先安裝 Python。 本指南將逐步引導您完成安裝作業，並讓機器做好搭配 Azure 的準備。
+在 Windows 上設定 Python 相當簡單，而在 Mac、Linux 及[適用於 Windows 的 Bash](https://msdn.microsoft.com/commandline/wsl/about) 中則是已預先安裝 Python。 本指南將逐步引導您完成安裝作業，並讓機器做好搭配 Azure 的準備。
 
 ## <a name="whats-in-the-python-azure-sdk"></a>Python Azure SDK 含有哪些內容？
 Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 Azure 的 Python 應用程式。 尤其是 Azure SDK for Python 包含下列各項：
@@ -50,7 +50,7 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 除非您有特定的需求，否則我們建議您採用前兩個選項。
 
 ## <a name="sdk-installation-on-windows-linux-and-macos-client-libraries-only"></a>Windows、Linux 及 MacOS 上的 SDK 安裝 (僅限用戶端程式庫)
-如果您已經安裝 Python，您可以使用 PIP 在現有的 Python 2.7 或 Python 3.3+ 環境中，安裝所有用戶端程式的組合。 此作業會從 [Python 套件索引][Python Package Index] (PyPI) 下載封裝。
+如果您已經安裝 Python，您可以使用 PIP 在現有的 Python 2.7 或 Python 3.3+ 環境中，安裝所有用戶端程式的組合。 此作業會從 [Python 套件索引][Python Package Index] (PyPI) 下載套件。
 
 您可能需要系統管理員權限：
 
@@ -67,7 +67,7 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 可以使用 `--pre` 旗標來安裝預覽版套件︰
 
 ```console
-   $ pip install --pre azure-mgmt-compute # will install only the latest Compute Management library
+   $ pip install --pre azure-mgmt-compute # installs only the latest Compute Management library
 ```
 
 您也可以在單行中使用 `azure` 中繼套件來安裝一組 Azure 程式庫。 由於此中繼套件中並非所有套件都已發佈為穩定版，因此 `azure` 中繼套件仍處於預覽版狀態。
@@ -109,13 +109,13 @@ PTVS 可以和您現有的 Visual Studio 2013、2015 或 2017 安裝一同運作
 2. 在 Linux VM 上執行應用程式
 3. 使用 Git 開發和發佈至 Azure 網站
 
-第一個案例可讓您撰寫能透過 Azure REST API 的 Python 風格包裝函式利用 Azure PaaS 功能 (例如 [Blob 儲存體](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[佇列儲存體](storage/storage-python-how-to-use-queue-storage.md)、[資料表儲存體](storage/storage-python-how-to-use-table-storage.md)等) 的豐富 Web 應用程式。 這些 Web 應用程式在 Windows、Mac 和 Linux 上的運作方式相同。  您也可以從您的本機開發電腦或 Azure 上執行的 Linux VM，使用這些用戶端程式庫。
+第一個案例可讓您撰寫能透過 Azure REST API 的 Python 風格包裝函式利用 Azure PaaS 功能 (例如 [Blob 儲存體](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)、[佇列儲存體](storage/queues/storage-python-how-to-use-queue-storage.md)、[資料表儲存體](cosmos-db/table-storage-how-to-use-python.md)等) 的豐富 Web 應用程式。 這些 Web 應用程式在 Windows、Mac 和 Linux 上的運作方式相同。  您也可以從您的本機開發電腦或 Azure 上執行的 Linux VM，使用這些用戶端程式庫。
 
 對於 VM 案例，您只需要啟動選擇的 Linux VM (Ubuntu、CentOS、Suse)，便能執行/管理所需的項目。  例如，您可以在 Windows/Mac/Linux 機器上執行 [IPython][IPython] REPL/notebook，然後將瀏覽器指向在 Azure 上執行 IPython Engine 的 Linux 或 Windows 多重處理器 VM。
 
 如需如何設定 Linux VM 的資訊，請參閱[建立執行 Linux 的虛擬機器](virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)教學課程。
 
-您可以使用 Git 部署開發 Python Ｗeb 應用程式，並從任何作業系統將其發佈至 Azure 網站中。  當您將您的儲存機制推送至 Azure 時，就會自動建立虛擬環境和 pip 安裝所需的封裝。
+您可以使用 Git 部署開發 Python Ｗeb 應用程式，並從任何作業系統將其發佈至 Azure 網站中。  當您將您的存放庫推送至 Azure 時，就會自動建立虛擬環境和 pip 安裝所需的套件。
 
 如需有關開發和發佈「Azure 網站」的詳細資訊，請參閱[使用 Django 建立網站](app-service-web/web-sites-python-create-deploy-django-app.md)、[使用 Bottle 建立網站](app-service-web/web-sites-python-create-deploy-bottle-app.md)及[使用 Flask 建立網站](app-service-web/web-sites-python-create-deploy-flask-app.md)教學課程。 如需更多有關使用任何 WSGI 相容架構的一般資訊，請參閱[在 Azure 網站上設定 Python](app-service-web/web-sites-python-configure.md)。
 
@@ -162,5 +162,5 @@ PTVS 可以和您現有的 Visual Studio 2013、2015 或 2017 安裝一同運作
 [Configuring Python with Azure Websites]: web-sites-python-configure.md
 [table storage]: storage-python-how-to-use-table-storage.md
 [queue storage]: storage-python-how-to-use-queue-storage.md
-[blob storage]: storage-python-how-to-use-blob-storage.md
+[blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
 

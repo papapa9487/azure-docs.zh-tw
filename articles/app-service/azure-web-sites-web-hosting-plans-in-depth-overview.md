@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 07d5056fdea9d4975fe91a5b842a9208385e779e
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f97be571d104e3cc1c6ee732886fa7133ba0dc83
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Azure App Service 方案深入概觀
@@ -33,7 +33,7 @@ App Service 方案可定義：
 - 執行個體大小 (小型、中型、大型)
 - SKU (免費、共用、基本、標準、進階)
 
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web Apps、Mobile Apps、Function Apps (或 Functions) 全部都在 App Service 方案中執行。  相同訂用帳戶、區域及資源群組中的應用程式可以共用 App Service 方案。 
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web Apps、Mobile Apps、Function Apps (或 Functions) 全部都在 App Service 方案中執行。  相同訂用帳戶及區域中的應用程式可以共用 App Service 方案。 
 
 所有指派給 **App Service 方案**的應用程式都會共用其所定義的資源。 這可讓您在單一 App Service 方案中託管多個應用程式時，能夠節省成本。
 

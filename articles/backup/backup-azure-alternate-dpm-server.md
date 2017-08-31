@@ -1,6 +1,6 @@
 ---
 title: "從 Azure 備份伺服器復原資料 | Microsoft Docs"
-description: "從登錄至 Azure 備份保存庫的任何 Azure 備份伺服器，復原該保存庫中保護的資料。"
+description: "從登錄至復原服務保存庫的任何 Azure 備份伺服器，復原該保存庫中保護的資料。"
 services: backup
 documentationcenter: 
 author: nkolli1
@@ -12,28 +12,28 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 08/18/2017
 ms.author: adigan;giridham;trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 14cc190a7d1cde1181a6f26ef83095bc601f7fbb
-ms.openlocfilehash: 36c4e1865c99dd1c55be798e1d310a02f2af0864
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="recovering-data-from-another-azure-backup-server-in-the-backup-vault"></a>從備份保存庫的另一部 Azure 備份伺服器復原資料
-您現在可以從登錄至 Azure 備份保存庫的任何 Azure 備份伺服器，復原該保存庫中保護的資料。 執行此工作的流程已完全整合至 ABS 管理主控台，且與其他復原工作流程類似。
+# <a name="recover-data-from-azure-backup-server"></a>從 Azure 備份伺服器復原資料
+您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 要這麼做的程序就是整合到 Azure 備份伺服器管理主控台，且類似於其他 Azure 備份元件的復原工作流程。
 
 > [!NOTE]
-> 這篇文章和下列步驟也適用於 [System Center Data Protection Manager UR7] (https://support.microsoft.com/en-us/kb/3065246) 與[最新版的 Azure Backup Agent](http://aka.ms/azurebackup_agent)。
+> 本文適用於 [System Center Data Protection Manager 2012 R2 with UR7 或更新版本] (https://support.microsoft.com/en-us/kb/3065246)，結合[最新版的 Azure 備份代理程式](http://aka.ms/azurebackup_agent)。
 >
 >
 
-## <a name="recover-data-from-another-azure-backup-server"></a>從另一部 Azure 備份伺服器復原資料
-若要從另一部 Azure 備份伺服器復原資料：
+若要從 Azure 備份伺服器復原資料：
 
-1. 在 ABS 管理主控台的 [復原] 索引標籤中，按一下 [新增外部 DPM] (在畫面左上方)。   
+1. 在 Azure 備份伺服器管理主控台的 [復原] 索引標籤中，按一下 [新增外部 DPM] (在畫面左上方)。   
     ![新增外部 DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
-2. 從與要復原資料的 **Azure 備份伺服器**關聯的保存庫下載新的**保存庫認證**、從已向備份保存庫登錄的 Azure 備份伺服器清單中選擇 Azure 備份伺服器，並提供與要復原資料的伺服器關聯的**加密複雜密碼**。
+2. 從與要復原資料的 **Azure 備份伺服器**關聯的保存庫下載新的**保存庫認證**、從已向復原服務保存庫登錄的 Azure 備份伺服器清單中選擇 Azure 備份伺服器，並提供與要復原資料的伺服器關聯的**加密複雜密碼**。
 
     ![外部 DPM 認證](./media/backup-azure-alternate-dpm-server/external-dpm-credentials.png)
 
@@ -62,13 +62,13 @@ ms.openlocfilehash: 36c4e1865c99dd1c55be798e1d310a02f2af0864
     ![外部 DPM 復原替代位置](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-alternate-location.png)
 8. 選擇與 [建立複本]、[略過] 或 [覆寫] 相關的選項。
 
-   *  會在名稱有衝突時，建立一份檔案的複本。
-   *  會在名稱有衝突時，略過復原檔案。
-   *  會在名稱有衝突時，覆寫指定位置中的現有複製。
+   * **建立複本** - 會在名稱有衝突時，建立一份檔案的複本。
+   * **跳過** - 如果名稱有衝突，就不會復原離開原始檔的檔案。
+   * **覆寫** - 如果名稱有衝突，就會覆寫檔案的現有副本。
 
      請選擇適當的選項來「還原安全性」 。 您可以在建立復原點時，針對將資料復原至其中的目的地電腦，套用其安全性設定，或是套用適用於產品的安全性設定。
 
-     確認是否要在復原成功完成後傳送「通知」  。
+     確認是否要在復原成功完成後，傳送「通知」。
 
      ![外部 DPM 復原通知](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
 9. [摘要]  畫面會列出到目前為止已選擇的選項。 按一下 [復原] 之後，資料就會復原到適當的內部部署位置。
@@ -88,26 +88,23 @@ ms.openlocfilehash: 36c4e1865c99dd1c55be798e1d310a02f2af0864
 ## <a name="troubleshooting-error-messages"></a>疑難排解錯誤訊息
 | 否。 | 錯誤訊息 | 疑難排解步驟 |
 |:---:|:--- |:--- |
-| 1. |保存庫認證所指定的保存庫中未登錄此伺服器。 |**原因：**如果選取的保存庫認證檔案不屬於與所嘗試復原之 Azure 備份伺服器關聯的備份保存庫，就會出現此錯誤。 <br> **解決方法：**從已登錄 Azure 備份伺服器的備份保存庫下載保存庫認證檔。 |
-| 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：**沒有任何其他 Azure 備份伺服器已向備份保存庫登錄，或伺服器尚未上傳中繼資料，或選取的伺服器不是 Azure 備份伺服器 (也稱為 Windows Server 或 Windows 用戶端)。 <br> **解決方法：**如果有其他已向備份保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure Backup Agent。 <br>如果有其他 Azure 備份伺服器已向備份保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
-| 3. |此保存庫未登錄其他 DPM 伺服器。 |**原因︰**沒有任何其他 Azure 備份伺服器已向嘗試復原的保存庫登錄。<br>**解決方法：**如果有其他已向備份保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure Backup Agent。<br>如果有其他 Azure 備份伺服器已向備份保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
+| 1. |保存庫認證所指定的保存庫中未登錄此伺服器。 |**原因：**如果選取的保存庫認證檔案不屬於與所嘗試復原之 Azure 備份伺服器關聯的復原服務保存庫，就會出現此錯誤。 <br> **解決方法：**從已登錄 Azure 備份伺服器的復原服務保存庫下載保存庫認證檔。 |
+| 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：**沒有任何其他 Azure 備份伺服器已向復原服務保存庫登錄，或伺服器尚未上傳中繼資料，或選取的伺服器不是 Azure 備份伺服器 (也稱為 Windows Server 或 Windows 用戶端)。 <br> **解決方法：**如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。 <br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
+| 3. |此保存庫未登錄其他 DPM 伺服器。 |**原因︰**沒有任何其他 Azure 備份伺服器已向嘗試復原的保存庫登錄。<br>**解決方法：**如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。<br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
 | 4. |提供的加密複雜密碼與下列伺服器關聯的複雜密碼不相符： **<server name>** |**原因：**在加密來自要復原之 Azure 備份伺服器的資料過程中使用的加密複雜密碼，與所提供的加密複雜密碼不符。 代理程式無法解密資料。 因此復原失敗。<br>**解決方法：**請提供與要復原資料的 Azure 備份伺服器關聯且完全相同的加密複雜密碼。 |
 
-## <a name="frequently-asked-questions"></a>常見問題集：
-1. **為什麼不能在安裝 UR7 和最新的 Azure Backup Agent 之後，從另一部 DPM 伺服器新增外部 DPM 伺服器？(適用於您使用 SC DPM 2012 R2 的情況)**
+## <a name="frequently-asked-questions"></a>常見問題集
 
-    答) 針對資料來源已在雲端受保護 (藉由使用比「更新彙總套件 7」舊的更新彙總套件進行保護) 的現有 DPM 伺服器，您必須在安裝 UR7 和最新的 Azure Backup Agent 之後至少等候一天，再開始「新增外部 DPM 伺服器」 。 這需要將 DPM 保護群組的中繼資料上傳至 Azure。 這項作業會在第一次夜間工作時進行。
-2. **Azure Backup Agent 所需的最低版本為何？**
+### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>為什麼不能在安裝 UR7 和最新的 Azure 備份代理程式之後，從另一部 DPM 伺服器新增外部 DPM 伺服器？
 
-    答) 啟用這項功能的 Azure Backup Agent 最低版本為 2.0.8719.0。  您可以瀏覽至 [控制台] **>** [所有控制台項目] **>** [程式和功能] **>** [Microsoft Azure 復原服務代理程式]，以確認 Azure Backup Agent 版本。 如果版本低於 2.0.8719.0，請下載 [最新的 Azure Backup Agent](https://go.microsoft.com/fwLink/?LinkID=288905) 並進行安裝。
+針對資料來源已在雲端受保護 (藉由使用比「更新彙總套件 7」舊的更新彙總套件進行保護) 的 DPM 伺服器，您必須在安裝 UR7 和最新的 Azure 備份代理程式之後至少等候一天，再開始「新增外部 DPM 伺服器」。 需要一天的時間才能將 DPM 保護群組的中繼資料上傳至 Azure。 保護群組中繼資料第一次會透過夜間作業上傳。
 
-    ![清除外部 DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
+### <a name="what-is-the-minimum-version-of-the-microsoft-azure-recovery-services-agent-needed"></a>Microsoft Azure 復原服務代理程式所需的最低版本是什麼？
+
+啟用這項功能所需的 Microsoft Azure 復原服務代理程式或 Azure 備份代理程式的最低版本是 2.0.8719.0。  若要檢視代理程式的版本：開啟 [控制台]**>**[所有控制台項目]**>**[程式和功能]**>**[Microsoft Azure 復原服務代理程式]。 如果版本低於 2.0.8719.0，請下載及安裝[最新的 Azure 備份代理程式](https://go.microsoft.com/fwLink/?LinkID=288905)。
+
+![清除外部 DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
 ## <a name="next-steps"></a>後續步驟：
 •    [Azure 備份常見問題集](backup-azure-backup-faq.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

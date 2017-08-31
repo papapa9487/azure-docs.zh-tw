@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: f8346fd6bd78c32cd67a2f988046cad2a8fc2455
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -40,50 +40,32 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 
 在[上一個教學課程](./container-service-tutorial-kubernetes-prepare-app.md)中，已針對簡單的 Azure Voting 應用程式建立容器映像。 在本教學課程中，此映像會推送至 Azure Container Registry。 如果您尚未建立 Azure Voting 應用程式映像，請回到[教學課程 1 – 建立容器映像](./container-service-tutorial-kubernetes-prepare-app.md)。 或者，將這裡詳述的步驟使用於任何容器映像。
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure Container Registry
 
 部署 Azure Container Registry 時，您必須先有資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 在此範例中，會在 eastus 區域中建立名為 myResourceGroup 的資源群組。
+使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 在此範例中，會在 westeurope 區域中建立名為 myResourceGroup 的資源群組。
 
-```azurecli-interactive
-az group create --name myResourceGroup --location eastus
+```azurecli
+az group create --name myResourceGroup --location westeurope
 ```
 
-使用 [az acr create](/cli/azure/acr#create) 命令來建立 Azure Container Registry。 Container Registry 的名稱**必須是唯一的**。 在下列範例中，我們使用名稱 myContainerRegistry007。
+使用 [az acr create](/cli/azure/acr#create) 命令來建立 Azure Container Registry。 Container Registry 的名稱**必須是唯一的**。
 
-```azurecli-interactive
-az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic --admin-enabled true
+```azurecli
+az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
 在本教學課程的其餘部分，我們使用 "acrname" 作為您選擇之容器登錄名稱的預留位置。
 
-## <a name="get-registry-information"></a>取得登錄資訊 
-
-建立 ACR 執行個體後，需有名稱、登入伺服器名稱和密碼驗證。 下列程式碼會傳回上述每個值。 請記下每個值，本教學課程會提及這些值。  
-
-容器登錄的登入伺服器 (以登錄名稱來更新)：
-
-```azurecli-interactive
-az acr show --name <acrName> --query loginServer
-```
-
-容器登錄密碼：
-
-```azurecli-interactive
-az acr credential show --name <acrName> --query passwords[0].value
-```
-
 ## <a name="container-registry-login"></a>Container Registry 登入
 
-您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [的 docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令來完成此作業。 執行 Docker 登入時，您必須提供 ACR 登入伺服器名稱和 ACR 認證。
+您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) 命令來完成此作業。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
 
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+```azurecli
+az acr login --name <acrName>
 ```
 
 此命令在完成之後會傳回「登入成功」訊息。
@@ -107,7 +89,13 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-以容器登錄的 loginServer 標記 *azure-vote-front* 映像。 此外，將 `:redis-v1` 新增至映像名稱的結尾。 此標籤指示映像版本。
+若要取得 loginServer 名稱，請執行下列命令。
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
+```
+
+現在，以容器登錄的 loginServer 標記 azure-vote-front 映像。 此外，將 `:redis-v1` 新增至映像名稱的結尾。 此標籤指示映像版本。
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -145,8 +133,8 @@ docker push <acrLoginServer>/azure-vote-front:redis-v1
 
 若要傳回已推送至 Azure Container Registry 的映像清單，請使用 [az acr repository list](/cli/azure/acr/repository#list) 命令。 以 ACR 執行個體名稱更新命令。
 
-```azurecli-interactive
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+```azurecli
+az acr repository list --name <acrName> --output table
 ```
 
 輸出：
@@ -159,8 +147,8 @@ azure-vote-front
 
 而後若要查看特定映像的標籤，請使用 [az acr repository show-tags](/cli/azure/acr/repository#show-tags) 命令。
 
-```azurecli-interactive
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository azure-vote-front --output table
+```azurecli
+az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
 輸出：

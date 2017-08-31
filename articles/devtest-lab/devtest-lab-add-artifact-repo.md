@@ -1,5 +1,5 @@
 ---
-title: "將 Git 構件儲存機制加入 Azure DevTest Labs 中的實驗室 | Microsoft Docs"
+title: "將 Git存放庫加入 Azure DevTest Labs 中的實驗室 | Microsoft Docs"
 description: "將適用於自訂構件來源的 GitHub 或 Visual Studio Team Services Git 儲存機制加入 Azure DevTest Labs"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 55b8b97a8cabedf86e2b92d9490be74c72a5fb09
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 053f92a65f9ae29154d471fd22ee842620b4f273
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates-for-use-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增可以存放自訂購件和 Azure Resource Manager 範本來使用的 Git 存放庫
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates"></a>新增可以存放自訂構件和 Azure Resource Manager 範本的 Git 存放庫
 
 如果您想要在實驗室中為 VM [建立自訂構件](devtest-lab-artifact-author.md)，或[使用 Azure Resource Manager 範本來建立自訂的測試環境](devtest-lab-create-environment-from-arm.md)，您必須新增 Git 存放庫，來容納您的團隊建立的構件或 Azure Resource Manager 範本。 儲存機制可以裝載在 [GitHub](https://github.com) 或 [Visual Studio Team Services (VSTS)](https://visualstudio.com) 上。
 
@@ -76,12 +76,12 @@ ms.lasthandoff: 04/27/2017
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。   
-4. 在實驗室的刀鋒視窗上，選取 [組態和原則]。
-5. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [存放庫]。
-6. 在 [存放庫] 刀鋒視窗上，選取 [+ 新增]。
+4. 在左窗格中，選取 [組態和原則]。
+5. 在實驗室的 [組態和原則] 區域上，選取 [存放庫]。
+6. 在 [存放庫] 區域上，選取 [+ 新增]。
 
     ![[新增存放庫] 按鈕](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. 在第二個 [存放庫]  刀鋒視窗上，指定下列各項︰
+7. 在第二個 [存放庫] 頁面上，指定下列資訊︰
 
    * **名稱** - 輸入儲存機制的名稱。
    * **Git 複製 URL** - 輸入您先前從 GitHub 或 Visual Studio Team Services 複製的 Git HTTPS 複製 URL。
@@ -89,7 +89,7 @@ ms.lasthandoff: 04/27/2017
    * **個人存取權杖** - 輸入您先前從 GitHub 或 Visual Studio Team Services 取得的個人存取權杖。
    * 資料夾路徑 - 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Azure Resource Manager 範本。 指定子目錄時，請確定資料夾路徑中包含斜線。
 
-     ![存放庫刀鋒視窗](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
+     ![存放庫區域](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
 8. 選取 [ **儲存**]。
 
 ## <a name="next-steps"></a>後續步驟
@@ -97,11 +97,11 @@ ms.lasthandoff: 04/27/2017
 * 儲存您的 [自訂構件](devtest-lab-artifact-author.md)，您可以在稍後用來建立新的 VM。
 * [透過 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源](devtest-lab-create-environment-from-arm.md)，並將範本儲存在您的私人存放庫。
 
-建立 VM 時，您可以確認構件或範本已新增至 Git存放庫。 他們會立即出現在構件或範本清單，您的私人存放庫名稱會顯示在欄位中，藉此顯示其來源。 
+建立 VM 時，您可以確認構件或範本已新增至 Git存放庫。 它們會立即出現在構件或範本清單，您的私人存放庫名稱會顯示在欄位中，藉此顯示其來源。 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ### <a name="related-blog-posts"></a>相關部落格文章
-* [如何在 AzureDevTestLabs 疑難排解失敗的構件](http://www.visualstudiogeeks.com/blog/DevOps/How-to-troubleshoot-failing-artifacts-in-AzureDevTestLabs)
-* [在 Azure 研發測試實驗室使用 ARM 範本將 VM 加入至現有 AD 網域](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs)
+* [如何在 Azure DevTest Labs 疑難排解失敗的構件](devtest-lab-troubleshoot-artifact-failure.md)
+* [Join a VM to existing AD Domain using a resource manager template in Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 Azure DevTest Labs 使用 Resource Manager 範本將 VM 加入至現有 AD 網域)
 

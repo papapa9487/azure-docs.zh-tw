@@ -13,17 +13,40 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 08/22/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 4d818112d8b6cc07a73d2521ef229c90e0d5884b
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
+
+## <a name="whats-new-for-august-2017"></a>2017 年 8 月的新功能 
+自 2017 年 8 月起，Azure 資料目錄已新增下列功能：
+
+*   新的開發人員範例可用於建立及管理關聯性的中繼資料，方法是使用資料目錄 REST API。 將關聯性資訊匯入資料目錄中範例位於[資料目錄程式碼範例頁面](https://azure.microsoft.com/resources/samples/?service=data-catalog&sort=0)。 
+* 使用資料來源註冊工具註冊相關的資料表時，支援從 Teradata 資料來源擷取聯結關聯性的中繼資料。
+* 使用資料來源註冊工具註冊 SQL Server 資料來源時，支援 SQL Server 資料表值函式 (TVF) 物件。
+* 多個更新和細分可提高資料目錄入口網站的效能和可用性。
+
+## <a name="whats-new-for-july-2017"></a>2017 年 7 月的新功能 
+自 2017 年 7 月起，Azure 資料目錄已新增下列功能：
+*   對更精確控制允許之中繼資料作業的支援包括：
+    - 目錄系統管理員可以限制使用者提供標記和相關中繼資料的能力，從而啟用目錄的唯讀存取。
+    - 目錄系統管理員可以限制使用者在目錄中註冊新資料來源的能力。
+    - 目錄系統管理員可以限制使用者在目錄中擁有資料資產中繼資料的能力。
+    - 可以將權限授與 Azure Active Directory 安全性群組和使用者，以簡化管理的權限。
+* 已註冊資料資產之間的關聯性，以及在資料目錄入口網站中探索相關資料資產的支援包括：
+    - 使用資料目錄資料來源註冊工具時，從 SQL Server (包括 Azure SQL Database)、Oracle 和 MySQL 資料來源擷取關聯性中繼資料。
+    - 在資料目錄入口網站中檢視資產中繼資料時，探索相關的資料資產。
+    - 使用資料目錄 REST API 在資料資產之間定義、探索及管理關聯性的作業。
+
+如需在資料目錄中管理權限的其他詳細資料，請參閱[如何保護安全存取資料目錄和資料資產](data-catalog-how-to-secure-catalog.md)。
+如需資料目錄中關聯性的其他詳細資料，請參閱[如何在 Azure 資料目錄中檢視相關的資料資產](data-catalog-how-to-view-related-data-assets.md)。
 
 ## <a name="whats-new-for-june-2017"></a>2017 年 6 月的新功能 
 自 2017 年 6 月起，Azure 資料目錄已新增下列功能：

@@ -12,27 +12,28 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
+ms.date: 08/18/2017
 ms.author: masnider
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: d03bd6a4c317da67a4e6d0e8cdb0cbd3f07d5a1f
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="service-state"></a>服務狀態
-「服務狀態」係指服務正常運作所需的資料。 其包括可以讓服務讀取及寫入，以執行工作的資料結構及變數。
+「服務狀態」係指服務正常運作所需的記憶體或磁碟資料。 例如，其包括可以讓服務讀取及寫入，以執行工作的資料結構及成員變數。 根據服務的架構方式而定，它可能還包括儲存在磁碟上的檔案或其他資源。 例如，資料庫要用於儲存資料和交易記錄的檔案。
 
-以計算機服務為例。 此服務會採用兩個數字並傳回其總和。 這是一種沒有與其相關聯資料的純粹無狀態服務。
+作為範例服務，讓我們考慮計算機。 基本計算機服務會採用兩個數字並傳回其總和。 執行這項計算不會牽涉任何成員變數或其他資訊。
 
-現在，假設另有一個計算機服務，除了計算加總之外，也有方法可以傳回上一個計算總和。 此服務現在成為可設定狀態 - 其中包含某些要寫入 (當其計算新的總和) 和讀取 (當其傳回最後一個已計算總和) 的狀態。
+現在，假設相同的計算機，但包含其他方法可以儲存並傳回上一個計算總和。 此服務現在為具狀態。 具狀態表示其中包含當其計算新的總和時，某些要寫入的狀態，和當您要求其傳回最後一個已計算總和時，要讀取的狀態。
 
 在 Azure Service Fabric 中，第一個服務稱為無狀態服務。 第二個服務稱為可設定狀態的服務。
 
 ## <a name="storing-service-state"></a>儲存服務狀態
-狀態可進行外部化，也可並存在運作該狀態的程式碼中。 狀態的外部化通常是使用外部資料庫或存放區來完成。 在計算機範例中，這可能是 SQL 資料庫，亦即目前儲存在資料表中的結果。 每個計算總和的要求會在此資料列上執行更新。
+狀態可進行外部化，也可並存在運作該狀態的程式碼中。 狀態外部化的做法通常是使用外部資料庫，或是透過網路在不同電腦上或在相同電腦上的流程以外執行的其他資料存放區。 在計算機範例中，資料存放區可能是 SQL Database 或 Azure 資料表存放區的執行個體。 計算總和的每個要求都會執行此資料的更新，且要求服務傳回值會造成從存放區擷取目前的值。 
 
-狀態也可以使用處理此程式碼的程式碼進行共置。 Service Fabric 中的具狀態服務即可使用此模型來建置。 Service Fabric 提供的基礎結構可確保在發生失敗時，此狀態仍具高可用性並會容錯。
+狀態也可以使用操作狀態的程式碼進行共置。 Service Fabric 中的具狀態服務通常是使用此模型來建置。 Service Fabric 提供的基礎結構可確保此狀態是高度可用、一致且持久，且使用這種方式建置的服務可以輕鬆地加以縮放。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關 Service Fabric 概念的詳細資訊，請參閱下列文章：
@@ -41,9 +42,4 @@ ms.openlocfilehash: d03bd6a4c317da67a4e6d0e8cdb0cbd3f07d5a1f
 * [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
 * [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
 * [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: ddec69e57e84f33c37831a0da2c21955d78fff98
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 04/03/2017
 
 1. 平行
     - 「關閉」任何開啟的接聽程式 (在每個接聽程式上呼叫 `CommunicationListener.closeAsync()`)
-    - 取消傳遞至 `runAsync()` 的取消權杖 (檢查取消權杖的 `isCancelled` 屬性傳回 true，還有呼叫權杖的 `throwIfCancellationRequested` 方法是否傳回 `CancellationException`)
+    - 取消傳遞至 `runAsync()` 的取消權杖 (檢查取消權杖的 `isCancelled` 屬性傳回 true，還有呼叫權杖的 `throwIfCancellationRequested` 方法是否會擲回 `CancellationException`)
 2. 當每個接聽程式上完成 `closeAsync()`，且 `runAsync()` 也完成時，就呼叫服務的 `StatelessService.onCloseAsync()` 方法 (如果有的話) (這也是不常用的覆寫)。
 3. `StatelessService.onCloseAsync()` 完成之後，就解構服務物件
 

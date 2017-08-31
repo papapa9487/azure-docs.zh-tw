@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 5/9/2017
+ms.date: 8/16/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 5914e8be1cf2671da7af1d190811e0e809039135
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
 | --- | --- | --- |
 | [![合作夥伴標誌][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![合作夥伴標誌][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![合作夥伴標誌][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![合作夥伴標誌][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![合作夥伴標誌][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![合作夥伴標誌][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] |
-| [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![合作夥伴標誌][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![合作夥伴標誌][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] |
-| [![合作夥伴標誌][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![合作夥伴標誌][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] | [![合作夥伴標誌][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] |
-| [![合作夥伴標誌][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![合作夥伴標誌][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
+| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![合作夥伴標誌][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![合作夥伴標誌][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+| [![合作夥伴標誌][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![合作夥伴標誌][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![合作夥伴標誌][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![合作夥伴標誌][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![合作夥伴標誌][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
+| [![合作夥伴標誌][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![合作夥伴標誌][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![合作夥伴標誌][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
-Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄檔以進行安全分析和保留。 這包括透過 Azure 監視器 API 的 Azure 稽核記錄檔。  這項資訊用於偵測 malfeasance 及符合法務遵循需求。
+Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄來進行安全分析和保留，包括透過 Azure 監視器 API 的 Azure 活動記錄。  這項資訊用於偵測 malfeasance 及符合法務遵循需求。
 
 [請移至文件。][alertlogic-doc]
 
@@ -44,6 +44,11 @@ AppDynamics 應用程式效能管理 (APM) 可讓應用程式擁有者快速針�
 您可以對 Azure 監視器警示建立 JIRA 票證。
 
 [請移至文件。][atlassian-doc]
+
+## <a name="circonus"></a>Circonus
+Circonus 是針對內部部署或 SaaS 部署建置的微服務監視和分析平台。 其以 API 為主的完整自動化平台比其監視的系統更具擴充性和且更可靠。 Circonus 是針對 DevOps 需求所開發，能提供以百分位數為基礎的警示、圖表、儀表板及讓商業最佳化的機器學習智慧。 Circonus 會即時監視 Microsoft Azure 雲端資源和其應用程式。 您可以使用 Circonus 來收集並追蹤您需要針對資源和應用程式測量之變數的計量。 您可以使用 Circonus 來查看整個系統，了解 Azure 的資源使用量、應用程式效能和操作健康情況。
+
+[請移至文件。][circonus-doc]
 
 ## <a name="cloudhealth"></a>CloudHealth
 使用建置來節省嚴重的時間和金錢的平台聯集並自動化您的雲端。 使用前所未有的可見性、直覺式最佳化和穩固控管的作法，CloudHealth 會重新定義雲端管理。 Cloudhealth 平台可讓企業和 MSP 最大化雲端的投資報酬率，並確信成本、使用狀況、效能和安全性的決定。
@@ -66,7 +71,7 @@ Datadog 是全球領先的雲端規模應用程式監視服務，將伺服器、
 [請移至文件。][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-Dynatrace OneAgent 透過所依據的 Azure 擴充機制與 Azure VM 和應用程式服務進行整合。 如此一來，Dynatrace OneAgent 便可以收集有關主機、網路和服務的效能計量。 除了只顯示計量之外，Dynatrace 還會針對環境進行端對端視覺化，顯示從用戶端至資料庫層級的交易。 以 AI 為基礎的問題相互關連與完全整合式根本原因分析，包括程式碼和資料庫的方法層級深入見解，讓疑難排解和效能最佳化工作更輕鬆。
+Dynatrace OneAgent 會透過 Azure 延伸模組機制來與 Azure VM 和應用程式服務進行整合。 如此一來，Dynatrace OneAgent 便可以收集有關主機、網路和服務的效能計量。 除了只顯示計量之外，Dynatrace 還會針對環境進行端對端視覺化，顯示從用戶端至資料庫層級的交易。 以 AI 為基礎的問題相互關連與完全整合式根本原因分析，包括程式碼和資料庫的方法層級深入見解，讓疑難排解和效能最佳化工作更輕鬆。
 
 [請移至文件。][dynatrace-doc]
 
@@ -94,20 +99,21 @@ Splunk 適用的 Azure 監視器附加元件的下載位置：[Splunkbase](https
 [請移至文件。][splunk-doc]
 
 ## <a name="sumo-logic"></a>Sumo Logic
-Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個應用程式生命週期與堆疊提供結構化、半結構化和非結構化資料即時、不間斷的智慧服務。 全球超過 1,000 個客戶都依賴 Sumo Logic 進行分析及洞察，以建置、執行並保護他們的新式應用程式與雲端架構。 透過 Sumo Logic，客戶可取得多租用戶、服務模型的優點，來加速他們持續創新的腳步，提升競爭優勢、商業價值及發展。
+Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個應用程式生命週期與堆疊，提供結構化、半結構化和非結構化資料即時、不間斷的智慧服務。 全球超過 1,000 個客戶都仰賴 Sumo Logic 進行分析及洞察，以建置、執行並保護他們的新式應用程式與雲端架構。 透過 Sumo Logic，客戶可取得多租用戶、服務模型的優點，來加速他們持續創新的腳步，提升競爭優勢、商業價值及發展。
 
 [深入了解。][sumologic-doc]
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 Azure 監視器](monitoring-overview.md)
 * [使用 REST API 存取計量](monitoring-rest-api-walkthrough.md)
-* [將活動記錄串流處理到第三方服務](monitoring-stream-activity-logs-event-hubs.md)
-* [將診斷記錄串流處理到第三方服務](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [將活動記錄串流至第三方服務](monitoring-stream-activity-logs-event-hubs.md)
+* [將診斷記錄串流至第三方服務](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
+[circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [cloudyn-anchor]: #cloudyn "Cloudyn"
@@ -124,6 +130,7 @@ Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png
 [appdynamics-logo]: ./media/partner-logos/appdynamics.png
 [atlassian-logo]: ./media/partner-logos/atlassian.png
+[circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
@@ -140,6 +147,7 @@ Sumo Logic 是安全、雲端原生的電腦資料分析服務，能橫跨整個
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 文件。"
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 文件。"
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
+[circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 簡介。"
 [cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 簡介。"

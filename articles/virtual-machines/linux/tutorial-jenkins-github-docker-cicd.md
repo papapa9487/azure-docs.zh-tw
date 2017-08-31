@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: b606d2c3070f8020cdd9aad3f12f8f1e43125138
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/21/2017
 ## <a name="create-jenkins-instance"></a>建立 Jenkins 執行個體
 在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 本教學課程使用 cloud-init 檔案在 VM 上安裝 Jenkins 和 Docker。 
 
-建立名為 cloud-init.txt 的 cloud-init檔案，並貼上下列內容︰
+您目前的殼層中，建立名為 cloud-init.txt 的檔案，並貼上下列組態。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init-jenkins.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
 ```yaml
 #cloud-config
@@ -115,6 +115,8 @@ ssh azureuser@<publicIps>
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ```
 
+如果檔案尚無法使用，請等待數分鐘，讓 cloud-init 完成 Jenkins 和 Docker 安裝。
+
 現在開啟瀏覽器，前往 `http://<publicIps>:8080`。 完成初始 Jenkins 設定，如下所示︰
 
 - 輸入上一個步驟從 VM 取得的 initialAdminPassword。
@@ -143,11 +145,11 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
 在您的 Jenkins 網站中，按一下首頁中的 [建立新作業]︰
 
-- 輸入 HelloWorld 作為作業名稱。 選取 [自由樣式專案]，然後按一下 [確定]。
+- 輸入 HelloWorld 作為作業名稱。 選擇 [自由樣式專案]，然後選取 [確定]。
 - 在 [一般] 區段中，選取 [GitHub] 專案，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 .git URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
-- 在 [組建] 區段中，按一下 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
+- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
 - 按一下作業視窗底部的 [儲存]。
 
 
@@ -157,7 +159,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 回到 GitHub 的網路介面，選取您的分支存放庫，然後按一下 index.js 檔案。 按一下鉛筆圖示以編輯此檔案，將第 6 行改為︰
 
 ```nodejs
-response.end("Hello World!");`.
+response.end("Hello World!");
 ```
 
 若要認可變更，按一下底部的 [認可變更] 按鈕。
@@ -174,7 +176,7 @@ response.end("Hello World!");`.
 cd /var/lib/jenkins/workspace/HelloWorld
 ```
 
-在這個工作區目錄中建立名為 `Dockerfile` 的檔案，並貼上下列內容：
+使用 `sudo sensible-editor Dockerfile` 在這個工作區目錄中建立檔案，並貼上下列內容。 請確定已正確複製整個 Docker 檔案，特別是第一行：
 
 ```yaml
 FROM node:alpine
@@ -197,7 +199,7 @@ COPY index.js /var/www/
 
 - 移除現有的 `echo "Test"` 組建步驟。 按一下現有組建步驟方塊右上角的紅色叉叉。
 - 按一下 [新增組件步驟]，然後選取 [執行殼層]。
-- 在 [命令] 方塊中輸入下列 Docker 命令：
+- 在 [命令] 方塊中輸入下列 Docker 命令，然後選取 [儲存]：
 
   ```bash
   docker build --tag helloworld:$BUILD_NUMBER .
@@ -237,7 +239,7 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 > * 建立應用程式的 Docker 映像
 > * 確認 GitHub 已認可組建的新 Docker 映像，並更新了執行中的應用程式
 
-用以下連結查看預先建立的虛擬機器指令碼範例。
+前進到下一個教學課程，以深入了解如何整合 Jenkins 與 Visual Studio Team Services。
 
 > [!div class="nextstepaction"]
-> [Linux 虛擬機器指令碼範例](./cli-samples.md)
+> [使用 Jenkins 和 Team Services 部署應用程式](tutorial-build-deploy-jenkins.md)

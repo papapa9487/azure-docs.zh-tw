@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/07/2016
+ms.date: 08/16/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: acb69621babf0f562bfafedfe5547e16e8f2c8af
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/09/2017
 
 Azure Analysis Services 支援 1200 和 1400 相容性層級的表格式模型。
 
-最新的相容性層級是 1400 (預覽)。 此層級與 SQL Server 2017 Analysis Services 一致。 1400 相容性層級中的主要功能包括：
+最新的相容性層級是 1400。 此層級與 SQL Server 2017 Analysis Services 一致。 1400 相容性層級中的主要功能包括：
 
 *  資料連線的新基礎結構，以及匯入表格式模型，且支援 TOM API 和 TMSL 指令碼。 這項新功能可支援其他資料來源，例如 Azure Blob 儲存體。
 *  使用 Get Data 與 M 運算式的資料轉換和資料混搭功能。
@@ -37,11 +37,6 @@ Azure Analysis Services 支援 1200 和 1400 相容性層級的表格式模型�
 *  除了資料表和資料行名稱中的資料以外，還有其物件層級安全性。
 *  不完全階層的增強支援。
 *  效能和監控改善。
-
-
-
-> [!IMPORTANT]
-> 1400 相容性層級仍處於預覽狀態。 某些功能可能無法完全正常運作。 建議您不要在生產環境中使用表格式 1400 模型。 
   
 ## <a name="set-compatibility-level"></a>設定相容性層級 
  在 SSDT 中建立新的表格式模型專案時，您可以在 [表格式模型設計工具] 對話方塊中指定相容性層級。 
@@ -63,3 +58,4 @@ Azure Analysis Services 支援 1200 和 1400 相容性層級的表格式模型�
 ## <a name="next-steps"></a>後續步驟
   [在 Azure 入口網站中建立模型](analysis-services-create-model-portal.md)   
   [ Analysis Services](analysis-services-manage.md)  
+

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: e0a7ff391e5a03ed563912dea54c7cfe73111bcf
-ms.lasthandoff: 03/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/23/2017
 
 ---
 
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>取消及刪除 Azure 匯入/匯出作業
 
-您可以藉由呼叫 [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) 作業並將 `CancelRequested` 元素設定為 `true`，要求作業為 `Packaging` 狀態之前將它取消。 會儘可能將作業取消。 如果磁碟機正在傳輸資料，即使已經要求取消，資料可能會繼續傳送。
+ 若要要求讓作業在進入 `Packaging` 狀態之前予以取消，請呼叫 [Update Job Properties](/rest/api/storageimportexport/jobs#Jobs_Update) 作業並將 `CancelRequested` 元素設定為 `true`。 系統會盡可能地取消作業。 如果磁碟機正在傳輸資料，即使已經要求取消，資料可能會繼續傳送。
 
- 已取消的作業會移到 `Completed` 狀態並保留 90 天，屆時則會刪除。
+ 取消的作業會進入 `Completed` 狀態並保留 90 天，90 天過後就會遭到刪除。
 
- 若要刪除作業，在傳送作業之前請先呼叫 [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) 作業，(也就是處於 `Creating` 狀態時)。 您也可以在作業為 `Completed` 狀態時將它刪除。 在刪除作業之後，便無法再透過 REST API 或 Azure 入口網站存取其資訊和狀態。
+ 若要刪除作業，在傳送作業之前請先呼叫 [Delete Job](/rest/api/storageimportexport/jobs#Jobs_Delete) 作業，(也就是當作業處於 `Creating` 狀態時)。 您也可以在作業為 `Completed` 狀態時將它刪除。 作業遭到刪除後，便無法再透過 REST API 或 Azure 入口網站存取其資訊和狀態。
 
 ## <a name="next-steps"></a>後續步驟
 

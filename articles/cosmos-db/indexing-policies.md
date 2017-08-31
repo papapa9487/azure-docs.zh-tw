@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 2d840f1c70e9668ae0a8b76cd9623258c2563d98
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
@@ -59,6 +59,10 @@ ms.lasthandoff: 07/25/2017
 > 根據預設，Azure Cosmos DB 會使用雜湊索引為文件內的所有字串屬性一致地編製索引，並使用範圍索引為數值屬性編製索引。  
 > 
 > 
+
+### <a name="customizing-the-indexing-policy-using-the-portal"></a>使用入口網站自訂編製索引原則
+
+您可以使用 Azure 入口網站變更集合的編製索引原則。 在 Azure 入口網站中開啟您的 Azure Cosmos DB 帳戶，選取您的集合，在左側瀏覽功能表中按一下 [設定]，然後按一下 [編製索引原則]。 在 [編製索引原則] 刀鋒視窗中，變更您的編製索引原則，然後按一下 [確定] 以儲存變更。 
 
 ### <a id="indexing-modes"></a>資料庫編製索引模式
 Azure Cosmos DB 支援三個編製索引模式，這些模式可以透過 Azure Cosmos DB 集合的編製索引原則來設定：「一致」、「延遲」和「無」。

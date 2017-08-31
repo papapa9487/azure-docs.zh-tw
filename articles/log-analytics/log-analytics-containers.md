@@ -1,6 +1,6 @@
 ---
-title: "Azure Log Analytics 中的容器解決方案 | Microsoft Docs"
-description: "Log Analytics 中的容器方案可協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。"
+title: "Azure Log Analytics 中的容器監視解決方案 | Microsoft Docs"
+description: "Log Analytics 中的容器監視方案可協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。"
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,42 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 08/18/2017
 ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 5fe0c4c5642fcaa83bcfc830e64600986b8fbf7f
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: b2e03531ee401f4552198e5dd50fbfe1d970f0e5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="containers-preview-solution-in-log-analytics"></a>Log Analytics 中的容器 (預覽) 解決方案
+# <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
 ![容器符號](./media/log-analytics-containers/containers-symbol.png)
 
-本文說明如何設定及使用 Log Analytics 中的容器方案，協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。 Docker 是用來建立容器的軟體虛擬化系統，自動將軟體部署至其 IT 基礎結構。
+本文說明如何設定及使用 Log Analytics 中的容器監視方案，協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。 Docker 是用來建立容器的軟體虛擬化系統，自動將軟體部署至其 IT 基礎結構。
 
-利用此解決方案，您可以查看容器主機上有哪些正在執行的容器，以及容器中有哪些正在執行的映像。 您可以檢視詳細的稽核資訊，其中顯示搭配容器使用的命令。 而且，藉由檢視及搜尋集中式記錄檔，而不需從遠端檢視 Docker 或 Windows 主機，即可針對容器進行疑難排解。 您可能會找到有雜訊且耗用過多主機資源的容器。 而且，您可以檢視容器的集中式 CPU、記憶體、儲存體以及網路使用量和效能資訊。 您可以在執行 Windows 的電腦上集中管理，並從 Windows Server、HYPER-V 和 Docker 容器比較記錄檔。
+解決方案會顯示哪些容器正在執行、它們正在執行的是哪些容器映像，以及容器執行的位置。 您可以檢視詳細的稽核資訊，其中顯示搭配容器使用的命令。 而且，藉由檢視及搜尋集中式記錄檔，而不需從遠端檢視 Docker 或 Windows 主機，即可針對容器進行疑難排解。 您可能會找到有雜訊且耗用過多主機資源的容器。 而且，您可以檢視容器的集中式 CPU、記憶體、儲存體以及網路使用量和效能資訊。 您可以在執行 Windows 的電腦上集中管理，並從 Windows Server、HYPER-V 和 Docker 容器比較記錄檔。 解決方案支援下列容器協調者：
+
+- Docker Swarm
+- DC/OS
+- Kubernetes
+- Service Fabric
+- Red Hat OpenShift
+
 
 下圖顯示各種容器主機和代理程式與 OMS 之間的關聯性。
 
 ![容器圖表](./media/log-analytics-containers/containers-diagram.png)
 
 ## <a name="system-requirements"></a>系統需求
+
 開始之前請檢閱下列詳細資料，以確認符合必要條件。
 
-### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>容器監視解決方案支援 Docker Orchestrator 和作業系統平台 
+### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>容器監視解決方案支援 Docker Orchestrator 和作業系統平台
 下表概述對於使用 Log Analytics 之容器清查、效能和記錄的 Docker 協調流程和作業系統監視支援。   
 
-| | ACS | Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 | 
+| | ACS | Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
-| Kubernetes | 是 | 是 | | 是 | 是 | 是 | 是 | 是 | 是 | 是 | 
-| Mesosphere<br>DC/OS | 是 | 是 | | 是 | 是 | 是 | 是| 是 | 是 | 是 | 
-| Docker<br>Swarm | 是 | 是 | 是 | 是 | 是 | 是 | 是 | 是 | | 是 |
-| 服務<br>網狀架構 | | | 是 | 是 | 是 | 是 | 是 | 是 | 是 | 是 | 
-| Red Hat 開啟<br>移位 | | 是 | | 是 | 是| 是 | 是 | 是 | | 是 | 
-| Windows Server<br>(獨立) | | | 是 | 是 | 是 | 是 | 是 | 是 | | 是 |
-| Linux 伺服器<br>(獨立) | | 是 | | 是 | 是 | 是 | 是 | 是 | | 是 |
+| Kubernetes | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
+| Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| 服務<br>網狀架構 | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Red Hat 開啟<br>移位 | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Windows Server<br>(獨立) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
+| Linux 伺服器<br>(獨立) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
 
 ### <a name="docker-versions-supported-on-linux"></a>在 Linux 上支援的 Docker 版本
@@ -78,16 +86,16 @@ ms.lasthandoff: 08/09/2017
 ### <a name="docker-versions-supported-on-windows"></a>在 Windows 上支援 Docker 版本
 
 - Docker 1.12 和 1.13
-- Docker 17.03.0 
+- Docker 17.03.0 和更新版本
 
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將「容器」解決方案新增至您的 OMS 工作區。
+1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將容器監視解決方案新增至您的 OMS 工作區。
 
-2. 安裝和使用 Docker 搭配 OMS。  根據作業系統，您可以從下列方法選擇：
+2. 安裝和使用 Docker 搭配 OMS 代理程式。  以您的作業系統作為基礎，您可以從下列方法選擇：
 
-  * 在支援的 Linux 作業系統上，安裝和執行 Docker，然後安裝並設定 OMS Agent for Linux。  
+  * 在支援的 Linux 作業系統上，安裝和執行 Docker，然後安裝並設定 [OMS Agent for Linux](log-analytics-agent-linux.md)。  
   * 在 CoreOS 上，您無法執行 OMS Agent for Linux。 相反地，您可以執行 OMS Agent for Linux 的容器化版本。 檢閱 [Linux 容器主機，包括 CoreOS](#for-all-linux-container-hosts-including-coreos) 或 [Azure Government Linux 容器主機，包括 CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos)，如果您正在使用 Azure Government Cloud 中的容器。
   * 在 Windows Server 2016 和 Windows 10 上，安裝 Docker 引擎及用戶端，然後連接代理程式以收集資訊，並將它傳送至 Log Analytics。  
 
@@ -102,14 +110,11 @@ ms.lasthandoff: 08/09/2017
 
 > [!IMPORTANT]
 > 在容器主機上安裝 [OMS Agent for Linux](log-analytics-agent-linux.md)**之前**，Docker 必須已在執行中。 如果您已在安裝 Docker 前安裝此代理程式，您必須重新安裝 OMS Agent for Linux。 如需 Docker 的詳細資訊，請參閱 [Docker 網站](https://www.docker.com)。
->
->
 
-您必須先在容器主機上進行下列設定，才可以監視容器。
 
 ## <a name="linux-container-hosts"></a>Linux 容器主機
 
-在您安裝 Docker 之後，使用容器主機的下列設定來設定可搭配 Docker 使用的代理程式。 您首先需要您的 OMS 工作區識別碼和金鑰，這可以透過切換至 [OMS 傳統入口網站](https://mms.microsoft.com)找到。  在 [概觀] 頁面上，從頂端功能表選取 [設定]，然後巡覽至 [連接的來源]\[Windows 伺服器]。  您會看到 [工作區識別碼] 和 [主索引鍵] 右邊的值。  將兩者複製並貼到您最愛的編輯器。    
+在您安裝 Docker 之後，使用容器主機的下列設定來設定可搭配 Docker 使用的代理程式。 首先您需要 OMS 工作區識別碼和金鑰，這可以在 Azure 入口網站中找到。 在您的工作區中，按一下 [快速啟動] > [電腦] 來檢視您的 [工作區識別碼] 和 [主索引鍵]。  將兩者複製並貼到您最愛的編輯器。
 
 ### <a name="for-all-linux-container-hosts-except-coreos"></a>適用於 CoreOS 以外的所有 Linux 容器主機
 
@@ -145,8 +150,8 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     ```
 
 ### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>為 Red Hat Openshift 設定 OMS 代理程式
-有三種方式可將 OMS 代理程式新增至 Red Hat OpenShift 以開始收集容器監視資料。 
- 
+有三種方式可將 OMS 代理程式新增至 Red Hat OpenShift 以開始收集容器監視資料。
+
 * 直接在每個 OpenShift 節點上[安裝 OMS Agent for Linux](log-analytics-agent-linux.md)  
 * 在位於 Azure 中的每個 OpenShift 節點上[啟用記錄分析 VM 延伸模組](log-analytics-azure-vm-extension.md)  
 * 安裝 OMS 代理程式作為 OpenShift 精靈集  
@@ -164,14 +169,14 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. 若要部署精靈集，請執行下列命令： 
-    
+4. 若要部署精靈集，請執行下列命令：
+
     `oc create -f ocp-omsagent.yaml`
 
-5. 若要驗證它已設定並正常運作，請輸入下列命令： 
+5. 若要驗證它已設定並正常運作，請輸入下列命令：
 
     `oc describe daemonset omsagent`  
-    
+
     輸出會像下面這樣：
 
     ```
@@ -194,7 +199,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 1. 登入 OpenShift 主要節點，並從 GitHub 複製 YAML 檔 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 和密碼產生指令碼 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)。  這個指令碼會產生 OMS 工作區識別碼及主索引鍵的密碼 YAML 檔案，來保護您的密碼資訊。  
 2. 執行下列命令來建立 OMS 的專案，並設定使用者帳戶。 密碼產生指令碼會要求您的 OMS 工作區識別碼 <WSID> 和主索引鍵 <KEY>，並且在完成時，它會建立 ocp-secret.yaml 檔案。  
-    
+
     ```
     oadm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
@@ -207,12 +212,12 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
     `oc create -f ocp-secret.yaml`
 
-5. 執行下列命令以驗證部署： 
+5. 執行下列命令以驗證部署：
 
     `oc describe secret omsagent-secret`  
 
     輸出會像下面這樣：  
-    
+
     ```
     [ocpadmin@khocp-master-0 ~]$ oc describe ds oms  
     Name:           oms  
@@ -229,14 +234,14 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     No events.  
     ```
 
-6. 執行下列命令以部署 OMS 代理程式精靈集 YAML 檔案： 
+6. 執行下列命令以部署 OMS 代理程式精靈集 YAML 檔案：
 
     `oc create -f ocp-ds-omsagent.yaml`  
-  
-7. 執行下列命令以驗證部署： 
+
+7. 執行下列命令以驗證部署：
 
     `oc describe ds oms`
-  
+
     輸出會像下面這樣：
 
     ```
@@ -245,16 +250,16 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     Namespace:      omslogging  
     Labels:         <none>  
     Annotations:    <none>  
-    
+
     Type:   Opaque  
-    
+
      Data  
      ====  
      KEY:    89 bytes  
      WSID:   37 bytes  
     ```
 
-### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>保護 Docker Swarm 和 Kubernetes 的密碼資訊 
+### <a name="secure-your-secret-information-for-docker-swarm-and-kubernetes"></a>保護 Docker Swarm 和 Kubernetes 的密碼資訊
 
 您可以針對 Docker Swarm 和 Kubernetes 容器服務保護密碼 OMS 工作區識別碼與主索引鍵。
 
@@ -424,43 +429,46 @@ KEY:    88 bytes
 
 您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](log-analytics-azure-vm-extension.md)和[在內部部署環境中執行 Windows 的電腦](log-analytics-windows-agents.md)。
 
-若要確認已正確設定容器解決方案︰
-
-- 檢查管理組件是否正確下載，請找出 ContainerManagement.xxx。
-    - 這些檔案應在 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 資料夾。
-- 確認 OMS 工作區識別碼是否正確，可前往 [控制台] > [系統及安全性]。
-    - 開啟 [Microsoft 監視代理程式] 並確認工作區資訊是否正確。
+您可以確認容器監視解決方案已針對 Windows 正確設定。 若要檢查管理組件是否正確下載，請找出 ContainerManagement.xxx。 這些檔案應在 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 資料夾。
 
 
-## <a name="containers-data-collection-details"></a>容器資料收集詳細資料
-容器解決方案會從使用您已啟用之代理程式的容器主機和容器收集各種效能計量和記錄檔資料。
+## <a name="solution-components"></a>方案元件
 
-下表顯示容器的資料收集方法及如何收集資料的其他詳細資料。
+如果您是使用 Windows 代理程式，當您新增這個解決方案時，就會使用代理程式在每部電腦上安裝下列管理組件。 管理組件不需要任何設定或維護。
 
-| 平台 | [OMS Agent for Linux](log-analytics-linux-agents.md) | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Linux |![是](./media/log-analytics-containers/oms-bullet-green.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |每隔 3 分鐘 |
+- C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 中所安裝的 ContainerManagement.xxx
 
-| 平台 | [Windows 代理程式](log-analytics-windows-agents.md) | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows |![是](./media/log-analytics-containers/oms-bullet-green.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |每隔 3 分鐘 |
+## <a name="container-data-collection-details"></a>容器資料收集詳細資料
+容器監視解決方案會從使用您已啟用之代理程式的容器主機和容器中，收集各種效能計量和記錄資料。
 
-| 平台 | [Log Analytics VM 延伸模組](log-analytics-azure-vm-extension.md) | SCOM 代理程式 | Azure 儲存體 | SCOM 是否為必要項目？ | 透過管理群組傳送的 SCOM 代理程式資料 | 收集頻率 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Azure |![是](./media/log-analytics-containers/oms-bullet-green.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |![否](./media/log-analytics-containers/oms-bullet-red.png) |每隔 3 分鐘 |
+每隔三分鐘會依下列代理程式類型收集資料。
 
-下表顯示容器解決方案所收集之資料類型以及記錄檔搜尋和結果中所使用之資料類型的範例。
+- [OMS Agent for Linux](log-analytics-linux-agents.md)
+- [Windows 代理程式](log-analytics-windows-agents.md)
+- [Log Analytics VM 延伸模組](log-analytics-azure-vm-extension.md)
+
+
+### <a name="container-records"></a>容器資料列
+
+下表顯示的範例是容器監視解決方案所收集的資料列，以及記錄搜尋結果中所顯示之資料類型。
 
 | 資料類型 | 記錄檔搜尋中的資料類型 | 欄位 |
 | --- | --- | --- |
 | 主機和容器的效能 | `Type=Perf` | Computer、ObjectName、CounterName &#40;%Processor Time、Disk Reads MB、Disk Writes MB、Memory Usage MB、Network Receive Bytes、Network Send Bytes、Processor Usage sec、Network&#41;、CounterValue、TimeGenerated、CounterPath、SourceSystem |
-| 容器清查 | `Type=ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContinerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
+| 容器清查 | `Type=ContainerInventory` | TimeGenerated、Computer、container name、ContainerHostname、Image、ImageTag、ContainerState、ExitCode、EnvironmentVar、Command、CreatedTime、StartedTime、FinishedTime、SourceSystem、ContainerID、ImageID |
 | 容器映像清查 | `Type=ContainerImageInventory` | TimeGenerated、Computer、Image、ImageTag、ImageSize、VirtualSize、Running、Paused、Stopped、Failed、SourceSystem、ImageID、TotalContainer |
 | 容器記錄檔 | `Type=ContainerLog` | TimeGenerated、Computer、image ID、container name、LogEntrySource、LogEntry、SourceSystem、ContainerID |
 | 容器服務記錄檔 | `Type=ContainerServiceLog`  | TimeGenerated、Computer、TimeOfCommand、Image、Command、SourceSystem、ContainerID |
+| 容器節點清查 | `Type=ContainerNodeInventory_CL`| TimeGenerated、Computer、ClassName_s、DockerVersion_s、OperatingSystem_s、Volume_s、Network_s、NodeRole_s、OrchestratorType_s、InstanceID_g、SourceSystem|
+| Kubernetes 清查 | `Type=KubePodInventory_CL` | TimeGenerated、Computer、PodLabel_deployment_s、PodLabel_deploymentconfig_s、PodLabel_docker_registry_s、Name_s、Namespace_s、PodStatus_s、PodIp_s、PodUid_g、PodCreationTimeStamp_t、SourceSystem |
+| 容器流程 | `Type=ContainerProcess_CL` | TimeGenerated、Computer、Pod_s、Namespace_s、ClassName_s、InstanceID_s、Uid_s、PID_s、PPID_s、C_s、STIME_s、Tty_s、TIME_s、Cmd_s、Id_s、Name_s、SourceSystem |
+| Kubernetes 事件 | `Type=KubeEvents_CL` | TimeGenerated、Computer、Name_s、ObjectKind_s、Namespace_s、Reason_s、Type_s、SourceComponent_s、SourceSystem、Message |
+
+附加到 PodLabel 資料類型的標籤是您自己的自訂標籤。 資料表中所顯示的附加 PodLabel 標籤就是範例。 因此，`PodLabel_deployment_s`、`PodLabel_deploymentconfig_s`、`PodLabel_docker_registry_s` 在環境的資料集中會有所不同，且一般而言會類似 `PodLabel_yourlabel_s`。
+
 
 ## <a name="monitor-containers"></a>監視容器
-在 OMS 入口網站中啟用此方案之後，您會看到 [容器] 圖格顯示容器主機和主機中執行之容器的相關摘要資訊。
+在 OMS 入口網站中啟用此解決方案之後，[容器] 圖格會顯示容器主機和主機中執行之容器的相關摘要資訊。
 
 ![容器圖格](./media/log-analytics-containers/containers-title.png)
 
@@ -469,57 +477,68 @@ KEY:    88 bytes
 ### <a name="using-the-containers-dashboard"></a>使用容器儀表板
 按一下 [容器] 圖格。 在這裡，您會看到依下列各項組織的檢視︰
 
-* 容器事件
-* 錯誤數
-* 容器狀態
-* 容器映像清查
-* CPU 和記憶體效能
+- **容器事件** - 會顯示容器狀態和包含失敗容器的電腦。
+- **容器記錄** - 會顯示一段時間所產生的容器記錄檔圖表，和包含最大量記錄檔的電腦清單。
+- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 只有在 Linux 環境中才會使用此資料集。
+- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 只有在 Linux 環境中才會使用此資料集。
+- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 只有在 Linux 環境中才會使用此資料集。
+- **容器映像庫存** - 會顯示已使用的容器映像總數和映像類型的數目。 還會依影像標籤列出映像數目。
+- **容器狀態** - 會顯示具有執行中容器的容器節點/主機電腦總數。 還會依執行中主機的數目列出電腦。
+- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 只有在 Linux 環境中才會使用此資料集。
+- **容器 CPU 效能** - 會顯示一段時間電腦節點/主機的平均 CPU 使用率折線圖。 還會以平均 CPU 使用率作為基礎列出電腦節點/主機。
+- **容器記憶體效能** - 會顯示一段時間的記憶體使用量折線圖。 還會以執行個體名稱作為基礎列出電腦記憶體使用率。
+- **電腦效能** - 會顯示一段時間的 CPU 效能百分比、一段時間的記憶體使用量百分比，以及一段時間的可用磁碟空間 MB 等折線圖。 您可以將滑鼠停留在圖表中的任一行，以檢視更多詳細資料。
 
-儀表板中的每個窗格都是對所收集資料執行之搜尋的視覺表示方式。
+
+儀表板中的每個區域都是對所收集資料執行之搜尋的視覺表示方式。
 
 ![容器儀表板](./media/log-analytics-containers/containers-dash01.png)
 
 ![容器儀表板](./media/log-analytics-containers/containers-dash02.png)
 
-在 [容器狀態] 刀鋒視窗中，按一下如下所示的頂端區域。
+在 [容器狀態] 區域中，按一下頂端區域，如下所示。
 
 ![容器狀態](./media/log-analytics-containers/containers-status.png)
 
-[記錄檔搜尋] 隨即開啟，其中顯示主機和在其中執行之容器的相關資訊。
+[記錄搜尋] 隨即開啟，其中顯示您容器狀態的相關資訊。
 
 ![容器的記錄檔搜尋](./media/log-analytics-containers/containers-log-search.png)
 
 在這裡，您可以編輯搜尋查詢來進行修改，以尋找您感興趣的特定資訊。 如需記錄檔搜尋的詳細資訊，請參閱 [Log Analytics 中的記錄檔搜尋](log-analytics-log-searches.md)。
 
-例如，您可以在搜尋查詢中將 [執行中] 變更為 [已停止]藉此修改搜尋查詢，以便顯示所有已停止的容器，而不是執行中的容器。
-
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>尋找失敗的容器以進行疑難排解
-如果容器已透過非零結束代碼結束，則 OMS 會將容器標示為 [失敗]。 您可以在 [失敗的容器] 刀鋒視窗中，大致了解環境中的錯誤和失敗。
+
+如果容器已透過非零結束代碼結束，則 Log Analytics 會將容器標示為 [失敗]。 您可以在 [失敗的容器] 區域中，大致了解環境中的錯誤和失敗。
 
 ### <a name="to-find-failed-containers"></a>尋找失敗的容器
-1. 按一下 [容器事件] 刀鋒視窗。  
-   ![容器事件](./media/log-analytics-containers/containers-events.png)
-2. [記錄檔搜尋] 隨即開啟，其中顯示如下所示的容器狀態。  
-   ![容器狀態](./media/log-analytics-containers/containers-container-state.png)
-3. 接下來，按一下失敗的值以檢視其他資訊，例如映像大小及已停止和失敗映像的數目。 展開 [顯示更多] 以檢視映像識別碼。  
-   ![失敗的容器](./media/log-analytics-containers/containers-state-failed.png)
-4. 接下來，尋找正在執行此映像的容器。 在搜尋查詢中輸入下列內容︰
-   `Type=ContainerInventory <ImageID>`這會顯示記錄檔。 您可以捲動以查看失敗的容器。  
+1. 按一下 [容器狀態] 區域。  
+   ![容器狀態](./media/log-analytics-containers/containers-status.png)
+2. [記錄搜尋] 隨即開啟並顯示如下所示的容器狀態。  
+   ![容器狀態](./media/log-analytics-containers/containers-log-search.png)
+3. 接下來，按一下失敗容器的彙總值，以檢視其他的資訊。 展開 [顯示更多] 以檢視映像識別碼。  
+   ![失敗的容器](./media/log-analytics-containers/containers-state-failed.png)  
+4. 接下來，在搜尋查詢中輸入下列內容。 `Type=ContainerInventory <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
    ![失敗的容器](./media/log-analytics-containers/containers-failed04.png)
 
 ## <a name="search-logs-for-container-data"></a>搜尋容器資料的記錄檔
 當您針對特定錯誤進行疑難排解時，這助於查看您的環境中發生此錯誤的位置。 下列記錄檔類型將協助您建立查詢，以傳回您想要的資訊。
 
-* **ContainerInventory** – 當您需要有關容器位置、其名稱，以及所執行映像的資訊時，請使用這個類型。
-* **ContainerImageInventory** – 當您嘗試尋找依照映像組織的資訊，以及檢視映像資訊 (例如映像識別碼或大小) 時，請使用這個類型。
-* **ContainerLog** – 當您想要尋找特定錯誤記錄檔資訊和項目時，請使用這個類型。
-* **ContainerServiceLog** – 當您嘗試尋找 Docker 精靈的稽核追蹤資訊 (例如啟動、停止、刪除或提取命令) 時，請使用這個類型。
+
+- **ContainerImageInventory** – 當您嘗試尋找依照映像組織的資訊，以及檢視映像資訊 (例如映像識別碼或大小) 時，請使用這個類型。
+- **ContainerInventory** – 當您需要有關容器位置、其名稱，以及所執行映像的資訊時，請使用這個類型。
+- **ContainerLog** – 當您想要尋找特定錯誤記錄檔資訊和項目時，請使用這個類型。
+- **ContainerNodeInventory_CL**  當您需要容器所在之主機/節點的相關資訊時，請使用這個類型。 它會提供 Docker 版本、協調流程類型、儲存體和網路資訊。
+- **ContainerProcess_CL** 使用此類型可快速查看容器內執行的流程。
+- **ContainerServiceLog** – 當您嘗試尋找 Docker 精靈的稽核追蹤資訊 (例如啟動、停止、刪除或提取命令) 時，請使用這個類型。
+- **KubeEvents_CL**  使用此類型可查看 Kubernetes 事件。
+- **KubePodInventory_CL**  當您需要了解叢集階層資訊時，請使用此類型。
+
 
 ### <a name="to-search-logs-for-container-data"></a>搜尋容器資料的記錄檔
 * 選擇您知道最近失敗的映像並尋找其錯誤記錄檔。 首先，透過 **ContainerInventory** 搜尋來尋找正在執行該映像的容器名稱。 例如，搜尋 `Type=ContainerInventory ubuntu Failed`  
     ![搜尋 Ubuntu 容器](./media/log-analytics-containers/search-ubuntu.png)
 
-  請記下 [名稱] 旁邊的容器名稱，並搜尋其記錄檔。 在此範例中為 `Type=ContainerLog adoring_meitner`。
+  [名稱] 旁的容器名稱，並搜尋其記錄。 在此範例中為 `Type=ContainerLog cranky_stonebreaker`。
 
 **檢視效能資訊**
 
@@ -530,10 +549,6 @@ Type=Perf
 ```
 
 ![容器效能](./media/log-analytics-containers/containers-perf01.png)
-
-當您按一下結果中的 [計量] 時，您可以用更圖形化的形式查看此資訊。
-
-![容器效能](./media/log-analytics-containers/containers-perf02.png)
 
 您可以輸入查詢右邊的名稱，將您所見的效能資料範圍限制於特定容器。
 
@@ -546,7 +561,7 @@ Type=Perf <containerName>
 ![容器效能](./media/log-analytics-containers/containers-perf03.png)
 
 ## <a name="example-log-search-queries"></a>範例記錄檔搜尋查詢
-從一或兩個範例開始建置查詢，然後加以修改以符合您的環境，通常很實用。 首先，您可以體驗 [值得注意的查詢] 刀鋒視窗，協助您建置更進階的查詢。
+從一或兩個範例開始建置查詢，然後加以修改以符合您的環境，通常很實用。 首先，您可以實驗 [查詢範例] 區域，協助您建置更進階的查詢。
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 

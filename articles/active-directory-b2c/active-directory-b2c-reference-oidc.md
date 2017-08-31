@@ -1,25 +1,24 @@
 ---
-title: "Azure Active Directory B2C：利用 OpenID Connect 的 Web 登入 | Microsoft Docs"
+title: "使用 OpenID Connect 的 Web 登入 - Azure AD B2C | Microsoft Docs"
 description: "使用 OpenID Connect 驗證通訊協定的 Azure Active Directory 實作來建置 Web 應用程式"
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: saeedakhter-msft
+manager: krassk
+editor: parakhj
 ms.assetid: 21d420c8-3c10-4319-b681-adf2e89e7ede
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
-ms.openlocfilehash: 8457865d21bbf4d1c0cc91167a1e75cd82ad8306
+ms.date: 08/16/2017
+ms.author: saeedakhter-msft
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b0c33a47dd0cae79eab32ac578448fae8bf59be5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C：利用 OpenID Connect 的 Web 登入
@@ -148,7 +147,7 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點，可讓應用程式在執
 * 您應該驗證 `aud` 宣告，以確認識別碼權杖是針對您的應用程式所核發。 這個值就是您應用程式的應用程式識別碼。
 * 您應該驗證 `iat` 及 `exp` 宣告，以確保識別碼權杖尚未過期。
 
-另外還有數個您應該執行的驗證。 詳細說明請參閱 [OpenID Connect 核心規格](http://openid.net/specs/openid-connect-core-1_0.html) \(英文\)。  視您的案例而定，您可能也會想要驗證其他宣告。 一些常見的驗證包括：
+另外還有數個您應該執行的驗證。 詳細說明請參閱 [OpenID Connect 核心規格](http://openid.net/specs/openid-connect-core-1_0.html) \(英文\)。視您的案例而定，您可能也會想要驗證其他宣告。 一些常見的驗證包括：
 
 * 確保使用者/組織已為應用程式註冊。
 * 確保使用者有適當的授權/權限。
@@ -283,7 +282,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | error_description |協助開發人員識別驗證錯誤根本原因的特定錯誤訊息。 |
 
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
-當您想要讓使用者登出應用程式時，只是清除應用程式的 Cookie，或是結束使用者的工作階段是不夠的。 您也必須把使用者重新導向至 Azure AD 來登出。 如果您沒有這麼做，使用者可能不必重新輸入認證，就能夠向您的應用程式重新驗證自己的身分。 這是因為使用者將擁有有效的 Azure AD 單一登入工作階段。
+當您想要讓使用者登出應用程式時，只是清除應用程式的 Cookie，或是結束使用者的工作階段是不夠的。 您也必須把使用者重新導向至 Azure AD 來登出。如果您沒有這麼做，使用者可能不必重新輸入認證，就能夠向您的應用程式重新驗證自己的身分。 這是因為使用者將擁有有效的 Azure AD 單一登入工作階段。
 
 您只要將使用者重新導向至 `end_session` 端點 (列於之前在＜驗證識別碼權杖＞一節中所述的 OpenID Connect 中繼資料文件中) 即可：
 
@@ -296,7 +295,7 @@ p=b2c_1_sign_in
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
 | p |必要 |您想要用來將使用者登出應用程式的原則。 |
-| post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。 若未包含此資料，Azure AD B2C 就會向使用者顯示一般訊息。 |
+| post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。若未包含此資料，Azure AD B2C 就會向使用者顯示一般訊息。 |
 
 > [!NOTE]
 > 儘管將使用者導向至 `end_session` 端點就能清除使用者於 Azure AD B2C 的部分單一登入狀態，但無法讓使用者登出其社交身分識別提供者 (IDP) 工作階段。 如果使用者之後在登入時選取相同的 IDP，該使用者不必輸入自己的認證，就能讓系統重新驗證自己的身分。 如果使用者想要登出您的 B2C 應用程式，不一定代表他們想要登出自己的 Facebook 帳戶。 不過，如果是使用本機帳戶，使用者的工作階段便會正確地結束。

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: df6443bb27285e8ba719c229dd1b12114acc48c7
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9c8f9ee7780859f7640ac82d6ebce85082170ad7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-a-custom-java-web-app-to-azure"></a>將自訂 Java Web 應用程式上傳至 Azure
@@ -201,7 +201,7 @@ App Service Web Apps 支援 Liferay。 因為 Liferay 需要大量記憶體，We
 **Server.xml**
 
 * 關機連接埠變為 -1。
-* HTTP 連接器變為       `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+* 將 HTTP 連接器變更為 `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 * 註解化 AJP 連接器。
 
 在 **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes** 資料夾中，建立名為 **portal-ext.properties** 的檔案。 此檔案必須包含一行程式碼，如下所示：
@@ -241,7 +241,7 @@ App Service Web Apps 支援 Liferay。 因為 Liferay 需要大量記憶體，We
 ## <a name="next-steps"></a>後續步驟
 如需 Liferay 的詳細資訊，請參閱 [http://www.liferay.com](http://www.liferay.com)。
 
-如需 Java 的詳細資訊，請參閱 [Java 開發人員中心](/develop/java/)。
+如需 JAVA 的詳細資訊，請瀏覽[適用於 Java 開發人員的 Azure](/java/azure)。
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

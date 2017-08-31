@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2017
+ms.date: 08/18/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: ce6debc0832da565d24a3ca82e2fa5bf7b797f8a
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ee334186dffaa1f88cf05717b6a5ba1e819a8cdc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -29,21 +29,28 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="cluster-setup-and-management"></a>叢集設定和管理
 
-### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions"></a>我能否建立跨多個 Azure 區域的叢集？
+### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>我能否建立跨多個 Azure 區域或自有資料中心的叢集？
 
-目前不行，但這是常見的要求，我們會持續調查。
+是。 
 
-核心的 Service Fabric 叢集技術對於 Azure 區域一無所知，並且可用來結合在世界各地執行的機器，只要它們彼此間有網路連線即可。 不過，在 Azure 中的 Service Fabric 叢集資源是地區性的，據以建置叢集的虛擬機器擴展集也是。 此外，在相距甚遠的分散機器之間傳遞強式一致性的資料複寫本身就是一項挑戰。 在支援跨區域叢集之前，我們要先確保效能是可以預測及可以接受的。
+核心的 Service Fabric 叢集技術可用來結合在世界各地執行的機器，只要它們彼此間有網路連線即可。 不過，建置和執行這類叢集的程序很複雜。
+
+如果您對於這個案例有興趣，建議您透過 [Service Fabric Github 問題清單](https://github.com/azure/service-fabric-issues)或透過您的支援代表來進行聯繫，以取得其他指引。 Service Fabric 小組正在針對這個案例著手提供其他清楚說明、指引和建議。 
+
+需考量的事項： 
+
+1. 目前在 Azure 中的 Service Fabric 叢集資源是地區性的，據以建置叢集的虛擬機器擴展集也是。 這表示在發生區域失敗時，您可能就無法透過 Azure Resource Manager 或 Azure 入口網站來管理叢集。 即使叢集仍在執行，而且您可以直接與其進行互動，還是可能發生此情況。 此外，Azure 目前並無法讓您擁有可跨區域使用的單一虛擬網路。 這表示如果您想在 Azure 中擁有多區域叢集，就需要 [VM 擴展集中每個 VM 的公用 IP 位址](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine)或 [Azure VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)。 這些網路選擇對於成本、效能以及某種程度的應用程式設計會有不同的影響，因此請先謹慎地分析和規劃，再建立這樣的環境。
+2. 維護、管理和監視這些機器的程序可能會變得複雜，特別是在跨_數種類型_的環境時，例如在不同雲端提供者之間或在內部部署資源和 Azure 之間。 請務必謹慎，確保您已了解叢集和應用程式的升級、監視、管理和診斷方式，再於這類環境中執行生產工作負載。 如果您對於在 Azure 或您自己的資料中心內解決這些問題已有豐富經驗，則在建置或執行 Service Fabric 叢集時或許也可以套用同樣的一套解決方案。 
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 節點是否會自動接收作業系統更新？
 
-目前不行，但這是常見的要求，我們打算提供這項功能。
+目前不行，但這是常見的要求，Azure 有打算提供這項功能。
+
+在過渡期間，我們[提供了一個應用程式](service-fabric-patch-orchestration-application.md)，您的 Service Fabric 節點下的作業系統會持續修補並保持最新狀態。
 
 作業系統更新的挑戰是它們通常需要重新啟動機器，這會造成暫時失去可用性。 就其本身來說並不是問題，因為 Service Fabric 會自動將那些服務的流量重新導向至其他節點。 不過，如果作業系統更新不會跨叢集協調，則有可能讓多個節點同時停機。 這類同時重新啟動會造成服務，或至少造成某個特定分割 (如果為具狀態服務) 完全失去可用性。
 
 未來，我們計劃支援在所有更新網域中完全自動化且協調化的作業系統更新原則，確保在發生重新開機或其他非預期失敗的情況下，都能夠維持可用性。
-
-在此過渡期間，我們已[提供一個指令碼](https://blogs.msdn.microsoft.com/azureservicefabric/2017/01/09/os-patching-for-vms-running-service-fabric/)，可供叢集系統管理員以安全的方式手動開始執行每個節點的修補作業。
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>我可以在 SF 叢集中使用大型虛擬機器擴展集嗎？ 
 
