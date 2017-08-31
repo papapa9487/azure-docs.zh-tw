@@ -2,7 +2,7 @@
 title: "Azure Batch 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用 Azure Batch 有效地執行大規模的平行和高效能計算應用程式。 教學課程、API 參考和其他文件。"
 services: batch
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

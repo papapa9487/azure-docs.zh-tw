@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4d7704c03bece51957efa2a56577b8808cc62c79
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: d86e47507f7a578e8a0affb690b6d96673b6b69a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>您無法在 Windows 裝置上從這裡前往該處
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/08/2017
 
 ![不受支援的瀏覽器會收到「您無法從這裡前往該處」訊息](./media/active-directory-conditional-access-device-remediation/02.png "例")
 
-唯一的補救方式是根據您的裝置平台來使用應用程式所支援的瀏覽器。 如需支援的瀏覽器完整清單，請參閱[支援的瀏覽器](active-directory-conditional-access-supported-apps.md#supported-browsers-for-device-based-policies)。  
+唯一的補救方式是根據您的裝置平台來使用應用程式所支援的瀏覽器。 如需支援的瀏覽器完整清單，請參閱[支援的瀏覽器](active-directory-conditional-access-supported-apps.md)。  
 
 
 ## <a name="supported-versions-of-windows"></a>支援的 Windows 版本

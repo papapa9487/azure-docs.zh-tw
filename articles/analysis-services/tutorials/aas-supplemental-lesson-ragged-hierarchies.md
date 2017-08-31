@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程補充課程：不完全階層 | Mic
 description: "說明如何在 Azure Analysis Services 教學課程中修正不完全階層。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

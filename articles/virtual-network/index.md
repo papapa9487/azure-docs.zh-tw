@@ -2,7 +2,7 @@
 title: "Azure 虛擬網路文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何在雲端使用虛擬網路。 文件會示範如何部署 VNet、使用它來啟動資源，並且與內部部署網路整合。"
 services: virtual-network
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: d65301d1ca71f62b52c97f1de772a61c33933b8a
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/18/2017
 
 ---

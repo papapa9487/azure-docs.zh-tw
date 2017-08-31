@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 7 課︰建立關鍵效能指標
 description: "說明如何在 Azure Analysis Services 教學課程專案中建立關鍵效能指標。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

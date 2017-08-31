@@ -6,7 +6,7 @@ metadata:
   title: Azure Cosmos DB 文件 - 教學課程和 API 參考
   description: 了解如何使用 Azure Cosmos DB 來建置全域分散式的多模型資料庫。 教學課程會示範如何建置並查詢文件、索引鍵/值組及圖表資料庫。
   services: cosmos-db
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: cosmos-db
   ms.tgt_pltfrm: na

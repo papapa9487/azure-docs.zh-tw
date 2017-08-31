@@ -2,7 +2,7 @@
 title: "Azure App Service 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何透過教學課程、影片、API 參考和其他文件，使用 App Service 來建立適用於任何平台或裝置的 Web 和行動應用程式。"
 services: app-service
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: ebcde75ba7d5ed155fb7ec822ba037de5141c31c
 ms.openlocfilehash: a9b7cb3492fa71b33c4aa6b2c0ecda9eaac9ea4b
+ms.contentlocale: zh-tw
 ms.lasthandoff: 02/09/2017
 
 ---

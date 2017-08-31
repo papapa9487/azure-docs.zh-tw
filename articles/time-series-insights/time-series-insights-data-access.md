@@ -8,7 +8,7 @@ author: op-ravi
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -33,8 +33,8 @@ Time Series Insights 環境有兩種獨立的存取原則︰
 這兩種原則可將特定環境的各種權限授與給 Azure Active Directory 主體 (使用者和應用程式)。 主體 (使用者和應用程式) 必須屬於與含有此環境之訂用帳戶相關聯的 Active Directory (或「Azure 租用戶」)。
 
 管理存取原則可授與環境設定相關權限，例如
-*    建立和刪除環境、事件來源、參考資料集，以及
-*    管理資料存取原則。
+*   建立和刪除環境、事件來源、參考資料集，以及
+*   管理資料存取原則。
 
 資料存取原則可授與下列權限：發出資料查詢、在環境中操作參考資料，以及共用與環境相關聯的已儲存查詢和檢視方塊。
 
@@ -43,30 +43,30 @@ Time Series Insights 環境有兩種獨立的存取原則︰
 ## <a name="grant-data-access"></a>授與資料存取
 下列步驟示範如何授與使用者主體的資料存取權︰
 
-1.    登入 [Azure 入口網站](https://portal.azure.com)。
-2.    按一下 Azure 入口網站左側功能表中的 [所有資源]。
-3.    選取 Time Series Insights 環境。
+1.  登入 [Azure 入口網站](https://portal.azure.com)。
+2.  按一下 Azure 入口網站左側功能表中的 [所有資源]。
+3.  選取 Time Series Insights 環境。
 
   ![管理 Time Series Insights 來源 - 環境](media/data-access/getstarted-grant-data-access1.png)
 
-4.    選取 [資料層存取]，按一下 [新增]
+4.  選取 [資料層存取]，按一下 [新增]
 
   ![管理 Time Series Insights 來源 - 新增](media/data-access/getstarted-grant-data-access2.png)
 
-5.    按一下 [選取使用者]。
-6.    依照電子郵件搜尋並選取使用者。
-7.    在 [選取使用者] 刀鋒視窗中按一下 [選取]。
+5.  按一下 [選取使用者]。
+6.  依照電子郵件搜尋並選取使用者。
+7.  在 [選取使用者] 刀鋒視窗中按一下 [選取]。
 
   ![管理 Time Series Insights 來源 - 選取使用者](media/data-access/getstarted-grant-data-access3.png)
 
-8.    按一下 [選取角色]。
-9.    如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]。 否則選取 [讀取者]，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
-10.    在 [選取角色] 刀鋒視窗中按一下 [確定]。
+8.  按一下 [選取角色]。
+9.  如果您要允許使用者變更參考資料，並與其他環境使用者共用已儲存的查詢和觀點，請選取 [參與者]。 否則選取 [讀取者]，允許使用者查詢環境中的資料並且在環境中儲存個人 (非共用) 查詢。
+10. 在 [選取角色] 刀鋒視窗中按一下 [確定]。
 
   ![管理 Time Series Insights 來源 - 選取角色](media/data-access/getstarted-grant-data-access4.png)
 
-11.    在 [選取使用者角色] 刀鋒視窗中按一下 [確定]。
-12.    您應該會看到：
+11. 在 [選取使用者角色] 刀鋒視窗中按一下 [確定]。
+12. 您應該會看到：
 
   ![管理 Time Series Insights 來源 - 結果](media/data-access/getstarted-grant-data-access5.png)
 

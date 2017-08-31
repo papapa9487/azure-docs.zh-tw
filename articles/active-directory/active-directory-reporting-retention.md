@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/05/2017
-ms.author: dhanyahk;markvi
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
@@ -22,8 +22,7 @@ ms.contentlocale: zh-tw
 ms.lasthandoff: 04/06/2017
 
 ---
-# Azure Active Directory 報告保留原則
-<a id="azure-active-directory-report-retention-policies" class="xliff"></a>
+# <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
 
 
 本主題為您提供 Azure Active Directory 中各種活動報告的資料保留相關常見問題的解答。 

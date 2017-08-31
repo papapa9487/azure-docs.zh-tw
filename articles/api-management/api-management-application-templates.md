@@ -3,7 +3,7 @@ title: "Azure API 管理中的應用程式範本 | Microsoft Docs"
 description: "了解如何在「Azure API 管理」中自訂開發人員入口網站中的「應用程式」頁面內容。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: f3122c4d-e10e-4cdf-977b-36e8f4133fc8
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: df71d6d36949f457ad95576e37ae3da2fef7d4d7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API 管理中的應用程式範本
@@ -31,7 +33,7 @@ ms.openlocfilehash: df71d6d36949f457ad95576e37ae3da2fef7d4d7
 > [!NOTE]
 >  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
   
-##  <a name="a-nameproductlista-application-list"></a><a name="ProductList"></a> 應用程式清單  
+##  <a name="ProductList"></a> 應用程式清單  
  「應用程式清單」範本可讓您自訂開發人員入口網站中應用程式清單頁面的主體。  
   
  ![應用程式清單頁面開發人員入口網站範本](./media/api-management-application-templates/APIM-Application-List-Page-Developer-Portal-Templates.png "APIM 應用程式清單頁面開發人員入口網站範本")  
@@ -132,7 +134,7 @@ ms.openlocfilehash: df71d6d36949f457ad95576e37ae3da2fef7d4d7
 }  
 ```  
   
-##  <a name="a-nameapplicationa-application"></a><a name="Application"></a> 應用程式  
+##  <a name="Application"></a> 應用程式  
  「應用程式」範本可讓您自訂開發人員入口網站中應用程式頁面的主體。  
   
  ![應用程式頁面開發人員入口網站範本](./media/api-management-application-templates/APIM-Application-Page-Developer-Portal-Templates.png "APIM 應用程式頁面開發人員入口網站範本")  
@@ -220,8 +222,3 @@ ms.openlocfilehash: df71d6d36949f457ad95576e37ae3da2fef7d4d7
 
 ## <a name="next-steps"></a>後續步驟
 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。
-
-
-<!--HONumber=Jan17_HO2-->
-
-

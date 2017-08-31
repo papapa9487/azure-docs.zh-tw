@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 9 課：建立階層 | Microsoft
 description: 
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

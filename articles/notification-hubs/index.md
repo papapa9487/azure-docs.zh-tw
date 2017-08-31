@@ -2,7 +2,7 @@
 title: "Azure 通知中樞文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何透過通知中樞，將推播通知從任何後端傳送至任何行動裝置。 教學課程、API 參考和其他文件。"
 services: notification-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

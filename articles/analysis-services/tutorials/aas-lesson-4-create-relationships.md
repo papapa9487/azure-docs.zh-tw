@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 4 課：建立關聯性 | Micros
 description: "說明如何在 Azure Analysis Services 教學課程專案中建立關聯性。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

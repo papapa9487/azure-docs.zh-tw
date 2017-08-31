@@ -2,7 +2,7 @@
 title: "Azure 監視器文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用監視和診斷服務來追蹤效能、維護安全性及找出趨勢。 API 參考、最佳作法等等。"
 services: monitoring-and-diagnostics
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

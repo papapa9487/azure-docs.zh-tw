@@ -2,7 +2,7 @@
 title: "Azure 計費文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何了解 Azure 計費方式，以及管理和監視使用量和成本。 教學課程、常見問題集、API 參考和其他文件。"
 services: billing
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

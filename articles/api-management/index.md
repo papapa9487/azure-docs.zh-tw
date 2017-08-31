@@ -2,7 +2,7 @@
 title: "Azure API 管理文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用 API 管理功能，大規模且安全地發佈 API。 文件會示範如何建立現有後端服務的新式 API 閘道。"
 services: api-management
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 5710f0aeb9af0f5d829c30d4b3e604c0a62afdb5
 ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="api-management-documentation"></a>API 管理文件
@@ -143,10 +145,5 @@ ms.openlocfilehash: 09eb558a4e4b32fa6e1094c55f321db8ce008d4d
 
 
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

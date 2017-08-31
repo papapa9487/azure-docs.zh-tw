@@ -2,8 +2,8 @@
 title: "Azure Data Lake Analytics 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何利用 Data Lake Analytics 進行巨量資料分析。 教學課程會示範如何執行批次、即時和互動式分析，以及如何撰寫 U-SQL 查詢。"
 services: data-lake-analytics
-author: saveenr
-manager: saveenr
+author: czeumault
+manager: carolz
 layout: LandingPage
 ms.assetid: 
 ms.service: data-lake-analytics

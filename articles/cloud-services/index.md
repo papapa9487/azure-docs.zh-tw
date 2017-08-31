@@ -2,7 +2,7 @@
 title: "Azure 雲端服務文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "教學課程、API 參考和其他文件會示範如何使用雲端服務來裝載及執行高度可用且可調整的雲端應用程式和 API。"
 services: cloud-services
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: c8e0cec964b7c72e45564ff776c55be1b06bfbc1
 ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="cloud-services-documentation"></a>雲端服務文件
@@ -127,10 +129,5 @@ ms.openlocfilehash: 16bbb9953db91bfe031e5e87e14aac84d32799b3
     </li>
 </ul>
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

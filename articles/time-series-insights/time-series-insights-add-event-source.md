@@ -8,7 +8,7 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/01/2017
 
 ---
 
-<a id="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# 使用 Ibiza 入口網站建立 Time Series Insights 環境的事件來源
+# <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>使用 Ibiza 入口網站建立 Time Series Insights 環境的事件來源
 
 Time Series Insights 事件來源衍生自事件代理程式，例如 Azure 事件中樞。 Time Series Insights 會直接連線到事件來源，並內嵌資料流，而不需要使用者撰寫一行程式碼。 目前，Time Series Insights 支援 Azure 事件中樞與 Azure IoT 中樞。 未來將會新增更多事件來源。
 
-<a id="steps-to-add-an-event-source-to-your-environment" class="xliff"></a>
-
-## 將事件來源新增至您的環境的步驟
+## <a name="steps-to-add-an-event-source-to-your-environment"></a>將事件來源新增至您的環境的步驟
 
 1.  登入 [Ibiza 入口網站](https://portal.azure.com)。
 2.  按一下 Ibiza 入口網站左側功能表中的 [所有資源]。
@@ -55,9 +51,7 @@ Time Series Insights 事件來源衍生自事件代理程式，例如 Azure 事�
 
 建立事件來源之後，Time Series Insights 會自動開始將資料串流處理至您的環境。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 * [將事件傳送](time-series-insights-send-events.md)到事件來源
 * 在 [Time Series Insights 入口網站](https://insights.timeseries.azure.com)中檢視您的環境

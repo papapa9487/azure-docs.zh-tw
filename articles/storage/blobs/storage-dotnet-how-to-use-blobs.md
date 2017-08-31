@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 03/27/2017
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8b4b62c834d7b1a2e56a8a098c26b0aadb434976
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 70c7d6a5e1b9aa9a13481893e0baa56538be097c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-using-net"></a>以 .NET 開始使用 Azure Blob 儲存體
@@ -400,6 +400,6 @@ Azure 儲存體支援在用戶端和伺服器上加密 blob 資料︰
 
 ### <a name="conceptual-guides"></a>概念性指南
 * [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [開始使用適用於 .NET 的檔案儲存體](../files/storage-dotnet-how-to-use-files.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [開始使用適用於 .NET 的檔案儲存體](../files/storage-dotnet-how-to-use-files.md)
 * [如何透過 WebJob SDK 使用 Azure Blob 儲存體 (英文)](../../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)
 

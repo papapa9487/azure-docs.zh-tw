@@ -2,7 +2,7 @@
 title: "Azure CDN 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用內容傳遞網路 (CDN)，將全球資料中心的內容提供給任何裝置。 教學課程、API 參考和其他文件。"
 services: cdn
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

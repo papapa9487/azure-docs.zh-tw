@@ -2,7 +2,7 @@
 title: "Azure Power BI Embedded 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何將 Power BI 資料視覺效果和互動式報表內嵌到應用程式中。 教學課程、API 參考和其他文件。"
 services: power-bi-embedded
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 48f9fe41b94016e54a2ec622df9684b7dcd4dfed
 ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 02/09/2017
 
 ---
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 文件
@@ -139,10 +141,5 @@ ms.openlocfilehash: c1e12dc71ce823425971beeb9db1cc5abd2aa12b
         </div>
     </li>
 </ul>
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

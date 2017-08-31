@@ -2,7 +2,7 @@
 title: "Azure 服務匯流排文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何設定傳訊功能，以連接橫跨內部部署和雲端環境的應用程式和服務。  教學課程、影片、API 參考等等。"
 services: service-bus
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/14/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 3401257f406c71ff26d0eb2f7ca5f7e830d91882
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/27/2017
 
 ---

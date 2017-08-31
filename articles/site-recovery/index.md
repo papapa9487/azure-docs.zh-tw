@@ -2,7 +2,7 @@
 title: "Azure Site Recovery 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何藉由部署和管理複寫，設定實體伺服器和虛擬機器的雲端災害復原和商務持續性。"
 services: site-recovery
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

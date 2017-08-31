@@ -3,7 +3,7 @@ title: "Azure Analysis Services Adventure Works 教學課程 | Microsoft Docs"
 description: "Azure Analysis Services 的 Adventure Works 教學課程簡介"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

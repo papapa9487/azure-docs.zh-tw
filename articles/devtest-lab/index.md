@@ -2,7 +2,7 @@
 title: "Azure DevTest Labs 文件 - 教學課程 | Microsoft Docs"
 description: "了解如何使用可重複使用的構件快速建立應用程式測試環境。 教學課程、影片等會示範如何建立、管理及保護實驗室。"
 services: devtest-lab
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 3c54e0f89529fb159c3940f5792c4c0e095ee3fb
+ms.contentlocale: zh-tw
 ms.lasthandoff: 05/03/2017
 
 ---

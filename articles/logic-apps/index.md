@@ -2,7 +2,7 @@
 title: "Azure Logic Apps 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何開發邏輯應用程式，以便自動執行及簡化橫跨內部部署和雲端的商務工作流程。 教學課程、範本和 API 參考。"
 services: logic-apps
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

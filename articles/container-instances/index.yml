@@ -5,7 +5,7 @@ metadata:
   title: Azure Container Instances 文件 - 教學課程 | Microsoft Docs
   description: Azure Container Instances 提供更簡單快速的方法，讓您無需佈建任何虛擬機器或採用更高層級的服務，就能在 Azure 中執行容器。
   services: container-instances
-  author: carolz
+  author: czeumault
   manager: carolz
   ms.service: container-instances
   ms.tgt_pltfrm: na

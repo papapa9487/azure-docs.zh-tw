@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 11 課：建立角色 | Microsof
 description: "說明如何在 Azure Analysis Services 教學課程專案中建立角色。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -2,7 +2,7 @@
 title: "Azure 容器文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何建立和維護容器登錄，以透過受管理的 Docker 登錄服務來儲存您的部署映像。 教學課程、API 參考等等。"
 services: container-registry
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 97a09226c0f784c4834e96e47ac9052844ff7a36
 ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
+ms.contentlocale: zh-tw
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -108,9 +110,4 @@ ms.openlocfilehash: 3962f34170cf3a19fe51b2f90b49fa21e01fc6cc
         </div>
     </li>
 </ul>
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

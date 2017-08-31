@@ -2,7 +2,7 @@
 title: "Azure Data Factory 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用 Data Factory 來設定內部部署和雲端來源的雙向自動化資料管線，以便移動和處理資料以供分析。"
 services: data-factory
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

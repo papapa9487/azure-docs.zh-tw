@@ -2,7 +2,7 @@
 title: "Azure 事件中樞文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用事件中樞，從一組廣泛平台上連接的 IoT 裝置和應用程式，每秒擷取數百萬個事件。"
 services: event-hubs
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程補充課程︰動態安全性 | Mic
 description: "說明如何在 Azure Analysis Services 教學課程中使用資料列篩選條件，進而使用動態安全性。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

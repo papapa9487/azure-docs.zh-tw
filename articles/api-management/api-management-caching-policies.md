@@ -3,7 +3,7 @@ title: "Azure API 管理快取原則 | Microsoft Docs"
 description: "了解可在 Azure API 管理中使用的快取原則。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 8147199c-24d8-439f-b2a9-da28a70a890c
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-caching-policies"></a>API 管理快取原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
   
-##  <a name="a-namecachingpoliciesa-caching-policies"></a><a name="CachingPolicies"></a>快取原則  
+##  <a name="CachingPolicies"></a>快取原則  
   
 -   回應快取原則  
   
@@ -38,7 +40,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
     -   [移除快取中的值](#RemoveCacheByKey) - 依金鑰移除快取中的項目。  
   
-##  <a name="a-namegetfromcachea-get-from-cache"></a><a name="GetFromCache"></a>從快取中取得  
+##  <a name="GetFromCache"></a>從快取中取得  
  使用 `cache-lookup` 原則來執行快取查閱並傳回有效的快取回應 (如果有的話)。 此原則可於回應內容在一段期間維持靜態時套用。 回應快取可降低加諸於後端 Web 伺服器的頻寬和處理需求，並縮短 API 取用者所感受的延遲時間。  
   
 > [!NOTE]
@@ -128,7 +130,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **原則範圍︰**API、作業、產品  
   
-##  <a name="a-namestoretocachea-store-to-cache"></a><a name="StoreToCache"></a>儲存至快取  
+##  <a name="StoreToCache"></a>儲存至快取  
  `cache-store` 原則會根據指定的快取設定來快取回應。 此原則可於回應內容在一段期間維持靜態時套用。 回應快取可降低加諸於後端 Web 伺服器的頻寬和處理需求，並縮短 API 取用者所感受的延遲時間。  
   
 > [!NOTE]
@@ -201,7 +203,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **原則範圍︰**API、作業、產品  
   
-##  <a name="a-namegetfromcachebykeya-get-value-from-cache"></a><a name="GetFromCacheByKey"></a>從快取取得值  
+##  <a name="GetFromCacheByKey"></a>從快取取得值  
  使用 `cache-lookup-value` 原則以執行依索引鍵的快取查閱，並傳回快取的值。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
   
 > [!NOTE]
@@ -246,7 +248,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **原則範圍︰**全域、API、作業、產品  
   
-##  <a name="a-namestoretocachebykeya-store-value-in-cache"></a><a name="StoreToCacheByKey"></a>儲存快取中的值  
+##  <a name="StoreToCacheByKey"></a>儲存快取中的值  
  `cache-store-value` 會依索引鍵執行快取儲存。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
   
 > [!NOTE]
@@ -289,7 +291,7 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
   
 -   **原則範圍︰**全域、API、作業、產品  
   
-###  <a name="a-nameremovecachebykeya-remove-value-from-cache"></a><a name="RemoveCacheByKey"></a>移除快取中的值  
+###  <a name="RemoveCacheByKey"></a>移除快取中的值  
  `cache-remove-value` 會刪除依其索引鍵所識別的快取項目。 金鑰可以具有任意字串值，而且通常會使用原則運算式來提供。  
   
 #### <a name="policy-statement"></a>原則陳述式  
@@ -330,8 +332,3 @@ ms.openlocfilehash: 606670068acd407a8f35e991f0cde12b84cdb1bf
 
 ## <a name="next-steps"></a>後續步驟
 如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

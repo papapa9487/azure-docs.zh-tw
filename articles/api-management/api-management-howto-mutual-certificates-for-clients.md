@@ -3,7 +3,7 @@ title: "使用 API 管理中的用戶端憑證驗證保護 API - Azure API 管�
 description: "了解如何使用用戶端憑證來保護對 API 的存取"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.service: api-management

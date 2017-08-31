@@ -2,7 +2,7 @@
 title: "Azure HDInsight 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解 Hadoop on HDInsight。 文件會示範如何使用 Hadoop、Spark、HBase、R-Server 等來處理、分析及深入解析巨量資料。"
 services: hdinsight
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

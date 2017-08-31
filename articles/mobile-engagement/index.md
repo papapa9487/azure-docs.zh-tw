@@ -2,7 +2,7 @@
 title: "Azure Mobile Engagement 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何深入解析行動應用程式使用量和即時使用者區隔，以及如何啟用內容感知的推播通知及應用程式內的傳訊功能。"
 services: mobile-engagement
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 3de3024e93aee7ace0e243eef0beb4008dc50db5
 ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -207,10 +209,5 @@ ms.openlocfilehash: 738cc1fc5b5cca411c08fda4229950f481cd0aa6
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 6 課：建立量值 | Microsoft
 description: "說明如何在 Azure Analysis Services 教學課程專案中建立量值。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 
