@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 31eeaa3df41065b65d6202f00c01ad2f706e230a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5f482a92b8fcd71a1b767fcc5741bc57605997ea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
@@ -31,8 +31,8 @@ Linux OS 磁碟加密必須先將 OS 磁碟機取消掛接後，才能透過完�
 
 在已從其支援內建資源庫映像修改或變更的目標 VM 環境中嘗試 OS 磁碟加密時，這是最有可能的。  可能會干擾 OS 磁碟機取消掛接擴充功能的受支援映像偏差範例包括：
 - 不再符合支援的檔案系統和/或資料分割配置的自訂映像。
-- 在加密之前已安裝諸如 SAP、MongoDB 或 Apache Cassandra 等大型應用程式且在 OS 中執行時。  擴充功能無法正確地將這些關機，且如果它們維持開啟 OS 磁碟機的檔案控制代碼，就無法將磁碟機取消掛接，並且會造成失敗。
-- 當自訂指令碼與要啟用的加密在相近時間下執行，或在加密流程期間對 VM 進行任何其他變更。   當 Resource Manager 範本定義要同時執行的多個擴充功能，或當自訂指令碼擴充功能或其他動作同時對磁碟加密執行時，也可能會發生。   將這些步驟序列化和隔離，就可解決此問題。
+- 在加密之前，在 OS 中執行防毒、Docker、SAP、MongoDB 或 Apache Cassandra 等應用程式的自訂映像。  這些應用程式難以終止，而且當它們維持開啟 OS 磁碟機的檔案控制代碼，就無法將磁碟機取消掛接，並且會造成失敗。
+- 在鄰近加密步驟之關閉時間執行的自訂指令碼可能會造成干擾並導致此失敗。 當 Resource Manager 範本定義要同時執行的多個擴充功能，或當自訂指令碼擴充功能或其他動作同時對磁碟加密執行時，也可能會發生。   將這些步驟序列化和隔離，就可解決此問題。
 - 啟用加密之前尚未停用 SELinux 時，取消掛接步驟就會失敗。  完成加密後，即可重新啟用 SELinux。
 - 當 OS 磁碟使用 LVM 配置時 (雖然可以使用有限的 LVM 資料磁碟支援，但 LVM OS 磁碟並沒有)
 - 當未符合最小記憶體需求時 (OS 磁碟加密建議為 7 GB)
@@ -41,7 +41,7 @@ Linux OS 磁碟加密必須先將 OS 磁碟機取消掛接後，才能透過完�
 
 ## <a name="unable-to-encrypt"></a>無法加密
 
-在某些情況下，Linux 磁碟加密似乎會卡在「已啟動的 OS 磁碟加密」且停用 SSH。 此流程可能需要 3-16 個小時才能完成，而且可能需要更多的時間。  Linux OS 磁碟加密順序會暫時取消掛接 OS 磁碟機，且在加密狀態中重新掛接之前，會執行整個 OS 磁碟的逐區塊加密。   不同於 Windows 上的 Azure 磁碟加密，Linux 磁碟加密不允許加密進行時，同時使用 VM。  諸如磁碟大小以及儲存體帳戶是由標準還是進階 (SSD) 儲存體所備份等 VM 的效能特性，可能會大幅影響完成加密所需的時間。
+在某些情況下，Linux 磁碟加密似乎會卡在「已啟動的 OS 磁碟加密」且停用 SSH。 在庫存資源庫映像上，此程序可能需要 3-16 個小時才能完成。  如果新增多 TB 大小的資料磁碟，此程序可能需要數天的時間。 Linux OS 磁碟加密順序會暫時取消掛接 OS 磁碟機，且在加密狀態中重新掛接之前，會執行整個 OS 磁碟的逐區塊加密。   不同於 Windows 上的 Azure 磁碟加密，Linux 磁碟加密不允許加密進行時，同時使用 VM。  諸如磁碟大小以及儲存體帳戶是由標準還是進階 (SSD) 儲存體所備份等 VM 的效能特性，可能會大幅影響完成加密所需的時間。
 
 若要檢查狀態，可輪詢 [Get AzureRmVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) 命令所傳回的 ProgressMessage 欄位。   加密 OS 磁碟機時，VM 會進入服務狀態且會停用 SSH，從而避免中斷進行中的流程。  加密進行中的大部分時間都會報告 EncryptionInProgress，並且稍後幾個小時會使用 VMRestartPending 訊息來提示重新啟動 VM。  例如：
 
@@ -76,9 +76,42 @@ VM 必須能夠存取金鑰保存庫。 請參閱由 [Key Vault](https://docs.mi
 ### <a name="linux-package-management-behind-firewall"></a>防火牆後方的 Linux 套件管理
 在執行階段，適用於 Linux 的 Azure 磁碟加密需依賴目標發佈的套件管理系統先行安裝所需的必要條件元件後，才能啟用加密。  如果防火牆設定造成 VM 無法下載及安裝這些元件，就會發生後續的失敗。    設定的步驟可能會依發佈而有所不同。  在 Red Hat 上，在需要 Proxy 時，請務必確保已正確地設定您的訂用帳戶管理員和 Yum。  請參閱[此](https://access.redhat.com/solutions/189533) Red Hat 關於本主題的技術支援文件。  
 
+## <a name="troubleshooting-windows-server-2016-server-core"></a>針對 Windows Server 2016 Server Core 進行疑難排解
+
+在 Windows Server 2016 Server Core 上，預設無法使用 bdehdcfg 元件。 Azure 磁碟加密需要此元件。
+
+若要解決這個問題，請將下列 4 個檔案從 Windows Server 2016 資料中心 VM 複製到 Server Core 映像的 c:\windows\system32 資料夾：
+
+```
+bdehdcfg.exe
+bdehdcfglib.dll
+bdehdcfglib.dll.mui
+bdehdcfg.exe.mui
+```
+
+然後，執行下列命令：
+
+```
+bdehdcfg.exe -target default
+```
+
+這會建立 550 MB 的系統磁碟分割，然後在重新開機後，即可使用 Diskpart 來檢查磁碟區，並繼續執行。  
+
+例如：
+
+```
+DISKPART> list vol
+
+  Volume ###  Ltr  Label        Fs     Type        Size     Status     Info
+  ----------  ---  -----------  -----  ----------  -------  ---------  --------
+  Volume 0     C                NTFS   Partition    126 GB  Healthy    Boot
+  Volume 1                      NTFS   Partition    550 MB  Healthy    System
+  Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
+```
 ## <a name="see-also"></a>另請參閱
 在本文件中，您已深入了解 Azure 磁碟加密中的一些常見問題，以及如何進行疑難排解。 如需此服務和其功能的相關資訊，請閱讀：
 
 - [在 Azure 資訊安全中心套用磁碟加密](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [加密 Azure 虛擬機器](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [Azure 資料靜態加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+

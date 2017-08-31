@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 20aa8247a16195310a8cb03c13c34186456fd7af
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 33bc0be0aeae6d0276fd8999b9ac0a010e3067ba
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 入口網站開啟虛擬機器的連接埠
@@ -28,23 +27,23 @@ ms.lasthandoff: 05/11/2017
 ## <a name="quick-commands"></a>快速命令
 您也可以 [使用 Azure PowerShell 來執行這些步驟](nsg-quickstart-powershell.md)。
 
-首先，建立您的「網路安全性群組」。 在入口網站中選取一個資源群組，按一下 [新增]，然後搜尋並選取 [網路安全性群組]：
+首先，建立您的「網路安全性群組」。 在入口網站中選取一個資源群組，選擇 [新增]，然後搜尋並選取 [網路安全性群組]：
 
 ![新增網路安全性群組](./media/nsg-quickstart-portal/add-nsg.png)
 
-輸入您「網路安全性群組」的名稱，選取或建立資源群組，然後選取位置。 完成後，請按一下 [建立]：
+輸入您「網路安全性群組」的名稱，選取或建立資源群組，然後選取位置。 完成後，請選取 [建立]：
 
 ![建立網路安全性群組](./media/nsg-quickstart-portal/create-nsg.png)
 
-選取您的新「網路安全性群組」。 選取 [輸入安全性規則]，然後按一下 [新增] 按鈕來建立規則︰
+選取您的新「網路安全性群組」。 選取 [輸入安全性規則]，然後選取 [新增] 按鈕來建立規則︰
 
 ![新增輸入規則](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-提供新規則的名稱。 預設已輸入連接埠 80。 此刀鋒視窗是您將其他規則新增到「網路安全性群組」時，用來變更來源、通訊協定及目的地的地方。 按一下 [確定] 以建立規則：
+從下拉式功能表中選擇常見的**服務**，例如 *HTTP*。 您也可以選取 [自訂] 以提供特定連接埠供使用者使用。 如有需要，請變更優先順序或名稱。 優先順序會影響規則的套用順序，數值越低會越早套用規則。 您也可以選取此畫面頂端的 [進階]，來輸入特定的來源 IP 區塊或連接埠範圍 (舉例來說)。 當您準備好時，選取 [確定] 以建立規則：
 
 ![建立輸入規則](./media/nsg-quickstart-portal/create-inbound-rule.png)
 
-最後一個步驟是將您的「網路安全性群組」與子網路或特定網路介面建立關聯。 讓我們將「網路安全性群組」與子網路建立關聯。 選取 [子網路]，然後按一下 [關聯]:
+最後一個步驟是將您的「網路安全性群組」與子網路或特定網路介面建立關聯。 讓我們將「網路安全性群組」與子網路建立關聯。 選取 [子網路]，然後選擇 [關聯]：
 
 ![將網路安全性群組與子網路建立關聯](./media/nsg-quickstart-portal/associate-subnet.png)
 
@@ -57,15 +56,10 @@ ms.lasthandoff: 05/11/2017
 ## <a name="more-information-on-network-security-groups"></a>網路安全性群組的詳細資訊
 這裡的快速命令可讓您使流向您 VM 的流量開始正常運作。 「網路安全性群組」提供許多絕佳的功能和細微性來控制對您資源的存取。 您可以深入了解 [建立網路安全性群組和 ACL 規則](../../virtual-network/virtual-networks-create-nsg-arm-ps.md)。
 
-您可以在 Azure Resource Manager 範本中定義網路安全性群組和 ACL 規則。 深入了解 [使用範本建立網路安全性群組](../../virtual-network/virtual-networks-create-nsg-arm-template.md)。
-
-如果您需要使用連接埠轉送來將唯一的外部連接埠對應至您 VM 上的內部連接埠，請使用負載平衡器和「網路位址轉譯」(NAT) 規則。 例如，您可能會想要對外公開 TCP 連接埠 8080，然後讓流量導向到 VM 上的 TCP 連接埠 80。 您可以深入了解 [建立網際網路面向的負載平衡器](../../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
+針對高可用性 Web 應用程式，您應該將 VM 放在 Azure Load Balancer 後方。 此負載平衡器會將流量分散到所有 VM，並具有提供流量篩選的網路安全性群組。 如需詳細資訊，請參閱[如何平衡 Azure 中 Linux 虛擬機器的負載以建立高可用性應用程式](tutorial-load-balancer.md)。
 
 ## <a name="next-steps"></a>後續步驟
 在此範例中，您建立了簡單的規則來允許 HTTP 流量。 您可以從下列文章中，找到有關建立更詳細環境的資訊︰
 
 * [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
 * [什麼是網路安全性群組 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
-* [負載平衡器的 Azure Resource Manager 概觀](../../load-balancer/load-balancer-arm.md)
-
-

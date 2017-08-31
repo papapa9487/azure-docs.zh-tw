@@ -13,21 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0f7e00d1fe6e47e4a04eb2853f09e195a03405ce
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
-
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](active-directory-conditional-access-azure-portal.md)
-> * [Azure 傳統入口網站](active-directory-conditional-access.md)
 
 在行動第一、雲端第一的世界中，Azure Active Directory 可讓您從任何地方單一登入至裝置、應用程式和服務。 隨著裝置 (包括 BYOD)、在公司網路外部作業，以及協力廠商 SaaS 應用程式的激增，IT 專業人員面臨到兩個相對的目標︰
 
@@ -73,11 +69,11 @@ ms.lasthandoff: 08/04/2017
 
 - **Multi-Factor Authentication** - 您可以透過 Multi-Factor Authentication 來要求增強式驗證。 身為提供者，您可以使用 Azure Multi-Factor Authentication，或使用結合 Active Directory Federation Services (AD FS) 的內部部署多重要素驗證提供者。 對於未獲授權但已取得有效使用者之認證存取權的使用者，使用 Multi-Factor Authentication 有助於防止其存取資源。
 
-- **符合規範的裝置** - 您可以在裝置層級設定條件式存取原則。 您可以設定一個原則：只能夠讓符合規範的電腦，或已在行動裝置管理應用程式中註冊的行動裝置存取您組織的資源。 例如，您可以使用 Intune 來檢查裝置相容性，然後向 Azure AD 回報，以便在使用者嘗試存取應用程式強制執行。 如需如何使用 Intune 來保護應用程式和資料的詳細指引，請參閱「使用 Microsoft Intune 保護應用程式和資料」。 您也可以使用 Intune 來強制進行遺失或遭竊裝置的資料保護。 如需詳細資訊，請參閱「使用 Microsoft Intune 搭配完整或選擇性抹除協助保護您的資料」。
+- **符合規範的裝置** - 您可以在裝置層級設定條件式存取原則。 您可以設定一個原則：只能夠讓符合規範的電腦，或已在行動裝置管理中註冊的行動裝置存取貴組織的資源。 例如，您可以使用 Intune 來檢查裝置相容性，然後向 Azure AD 回報，以便在使用者嘗試存取應用程式強制執行。 如需如何使用 Intune 來保護應用程式和資料的詳細指引，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。 您也可以使用 Intune 來強制進行遺失或遭竊裝置的資料保護。 如需詳細資訊，請參閱 [使用 Microsoft Intune 搭配完整或選擇性抹除協助保護您的資料](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)。
 
-- **已加入網域的裝置** – 您可以要求您用來連接到 Azure Active Directory 的裝置是已加入網域的裝置。 此原則適用於 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如需有關如何設定讓已加入網域的裝置自動向 Azure AD 註冊的詳細資訊，請參閱[讓已加入網域的 Windows 裝置自動向 Azure Active Directory 註冊](active-directory-conditional-access-automatic-device-registration.md)。
+- **已加入網域的裝置** – 您可以要求您用來連線到 Azure Active Directory 的裝置加入內部部署 Active Directory (AD) 網域。 此原則適用於 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 
 
-如果您在一個條件式存取原則中選取多個需求，您也可以設定您的需求以便套用它們。 您可以選擇需要所有選取的控制項，或只需要其中一個控制項。
+如果您選取多個控制項，也可以設定在處理您的原則時是否全都為必要。
 
 ![控制](./media/active-directory-conditional-access-azure-portal/06.png)
 
@@ -137,10 +133,19 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="device-platforms"></a>裝置平台
 
-裝置平台的特點是您裝置執行的作業系統 (Android、iOS、Windows Phone、Windows)。 您可以定義包含的裝置平台以及從原則中豁免的裝置平台。  
-若要使用原則中的裝置平台，請先將 [設定] 切換為 [是]，然後選取原則套用至的所有或個別裝置平台。 如果您選取個別的裝置平台，原則就只會影響這些平台。 在此情況下，其他支援平台的登入不受此原則影響。
+裝置平台的特點是您裝置執行的作業系統：
+
+- Android
+- iOS
+- Windows Phone
+- Windows
+- macOS (預覽)。 
 
 ![條件](./media/active-directory-conditional-access-azure-portal/02.png)
+
+您可以定義包含的裝置平台以及從原則中豁免的裝置平台。  
+若要使用原則中的裝置平台，請先將 [設定] 切換為 [是]，然後選取原則套用至的所有或個別裝置平台。 如果您選取個別的裝置平台，原則就只會影響這些平台。 在此情況下，其他支援平台的登入不受此原則影響。
+
 
 ### <a name="locations"></a>位置
 
@@ -198,4 +203,4 @@ ms.lasthandoff: 08/04/2017
 
 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
 
-如需您在設定條件式存取原則時應該知道的事件及應避免的動作，請參閱 
+如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 

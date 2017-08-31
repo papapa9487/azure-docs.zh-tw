@@ -1,6 +1,6 @@
 ---
-title: "在雲端服務角色上安裝 .NET | Microsoft Docs"
-description: "本文說明如何在雲端服務 Web 和背景工作角色上手動安裝 .NET Framework。"
+title: "在 Azure 雲端服務角色上安裝 .NET | Microsoft Docs"
+description: "本文說明如何在雲端服務 Web 和背景工作角色上手動安裝 .NET Framework"
 services: cloud-services
 documentationcenter: .net
 author: thraka
@@ -15,47 +15,47 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: e6154d990e10f67d4b30b889a62a99cedcbfccbe
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="install-net-on-a-cloud-service-role"></a>在雲端服務角色上安裝 .NET
-本文說明如何在雲端服務 Web 和背景工作角色上安裝不同於客體 OS 所隨附的 .NET Framework 版本。 例如，您可以使用這些步驟，將 .NET 4.6.1 安裝在不隨附於任何 .NET 4.6 版本的 Azure 客體 OS 系列 4 上。 如需客體 OS 版本的最新資訊，請參閱 [Azure 客體 OS 發行新聞](cloud-services-guestos-update-matrix.md)。
+# <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 雲端服務角色上安裝 .NET
+本文說明如何安裝未隨附於 Azure 客體 OS 的 .NET Framework 版本。 若要設定雲端服務 web 和背景工作角色，您可以在客體 OS 上使用 .NET。
 
->[!NOTE]
->客體 OS 5 包含 .NET 4.6
+例如，您可以在未隨附於任何版本之 .NET 4.6.1 的客體 OS 系列 4 上安裝 .NET 4.6。 (客體 OS 系列 5 會隨附於 .NET 4.6。)如需 Azure 客體 OS 版本的最新資訊，請參閱 [Azure 客體 OS 發行新聞](cloud-services-guestos-update-matrix.md)。 
 
 >[!IMPORTANT]
->Azure SDK 2.9 包含在客體 OS 4 或以下部署 .NET 4.6 的限制。 修正請見[這裡](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)。
+>Azure SDK 2.9 包含客體 OS 系列 4 或更舊版本部署 .NET 4.6 的限制。 可在 [Microsoft Docs](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9) 網站上取得限制的修正程式。
 
-在 Web 和背景工作角色上安裝 .NET 的程序會涉及在雲端專案中加入 .NET 安裝程式套件，並在角色的啟動工作過程中啟動安裝程式。  
+若要在您的 web 和背景工作角色上安裝 .NET，請包括 .NET web 安裝程式作為雲端服務專案的一部分。 啟動安裝程式作為角色啟動工作的一部分。 
 
 ## <a name="add-the-net-installer-to-your-project"></a>將 .NET 安裝程式加入至專案
-* 針對您想要安裝的 .NET framework 下載 Web 安裝程式
-  * [.NET 4.7 Web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=825298)
-  * [.NET 4.6.1 Web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=671729)
+若要下載 .NET framework 的 Web 安裝程式，請選擇您需要安裝的版本：
 
-* 若是 Web 角色
-  1. 在 [方案總管] 中，於雲端服務專案中的 [角色] 下，以滑鼠右鍵按一下您的角色，然後依序選取 [新增] > [新增資料夾]。 建立名為 *bin*
-  2. 在 **bin** 資料夾上按一下滑鼠右鍵，並依序選取 [新增] > [現有項目]。 選取 .NET 安裝程式，並將它加入至 bin 資料夾。
+* [.NET 4.7 web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=825298)
+* [.NET 4.6.1 web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=671729)
+
+若要新增 web 角色的安裝程式：
+  1. 在 [方案總管] 中，於雲端服務專案中的 [角色] 下，以滑鼠右鍵按一下您的 web角色，然後依序選取 [新增] > [新增資料夾]。 建立名為 **bin** 的資料夾。
+  2. 在 bin 資料夾上按一下滑鼠右鍵，並依序選取 [新增] > [現有項目]。 選取 .NET 安裝程式，並將它加入至 bin 資料夾。
   
-* 若是背景工作角色
-  1. 以滑鼠右鍵按一下您的角色，然後依序選取 [新增] > [現有項目]。 選取 .NET 安裝程式，並將它加入至角色。 
+若要新增 worker 角色的安裝程式：
+* 以滑鼠右鍵按一下您的 worker 角色，然後依序選取 [新增] > [現有項目]。 選取 .NET 安裝程式，並將它加入至角色。 
 
-以此方式新增至角色內容資料夾的檔案會自動加入至雲端服務套件，並部署至虛擬機器上的一致位置。 為雲端服務中的所有 Web 和背景工作角色重複此程序，以便所有角色都有安裝程式副本。
+以這個方式將檔案新增至角色內容資料夾時，檔案就會自動新增至雲端服務套件。 然後檔案就會部署到虛擬機器上的一致位置。 為雲端服務中的每個 Web 和背景工作角色重複此程序，以便所有角色都有安裝程式副本。
 
 > [!NOTE]
-> 即使您的應用程式以 .NET 4.6 為目標，您還是應該在雲端服務角色上安裝.NET 4.6.1。 Azure 客體 OS 包含更新 [3098779](https://support.microsoft.com/kb/3098779) 和 [3097997](https://support.microsoft.com/kb/3097997)。 在這些更新上安裝 .NET 4.6，可能會讓您在執行 .NET 應用程式時發生問題，因此您應該要直接安裝 .NET 4.6.1，而不是 .NET 4.6。 如需詳細資訊，請參閱 [KB 3118750](https://support.microsoft.com/kb/3118750)。
+> 即使您的應用程式是以 .NET 4.6 為目標，還是應該在雲端服務角色上安裝 .NET 4.6.1。 客體 OS 包含知識庫[更新 3098779](https://support.microsoft.com/kb/3098779) 和[更新 3097997](https://support.microsoft.com/kb/3097997)。 如果 .NET 4.6 是安裝在知識庫更新安裝之上，當您執行 .NET 應用程式時，就可能會發生問題。 若要避免這些問題，請安裝 .NET 4.6.1，而不是 4.6 版。 如需詳細資訊，請參閱[知識庫文章 3118750](https://support.microsoft.com/kb/3118750)。
 > 
 > 
 
 ![安裝程式檔案的角色內容][1]
 
 ## <a name="define-startup-tasks-for-your-roles"></a>定義角色的啟動工作
-啟動工作可讓您在啟動角色之前執行作業。 將 .NET Framework 安裝為啟動工作的一部分，可確保在執行任何應用程式程式碼之前已安裝好 Framework。 如需有關啟動工作的詳細資訊，請參閱：[在 Azure 中執行啟動工作](cloud-services-startup-tasks.md)。 
+您可以利用啟動工作，在角色啟動之前執行作業。 將 .NET Framework 安裝為啟動工作的一部分，可確保在執行任何應用程式程式碼之前就已安裝好 Framework。 如需有關啟動工作的詳細資訊，請參閱[在 Azure 中執行啟動工作](cloud-services-startup-tasks.md)。 
 
 1. 將下列內容新增至所有角色的 **WebRole** 或 **WorkerRole** 節點底下的 ServiceDefinition.csdef 檔案：
    
@@ -77,18 +77,21 @@ ms.lasthandoff: 07/25/2017
     </Startup>
     ```
    
-    上述組態會使用系統管理員權限來執行主控台命令 install.cmd，以便安裝 .NET Framework。 此設定也會建立名稱為 NETFXInstall 的 LocalStorage。 啟動指令碼會將暫存資料夾設定為使用這個本機儲存資源。 請務必將此資源的大小設定為至少 1024 MB，以確保架構的安裝正確。 如需有關啟動工作的詳細資訊，請參閱：[常見的雲端服務啟動工作](cloud-services-startup-tasks-common.md) 
+    上述組態會使用系統管理員權限來執行主控台命令 `install.cmd`，以便安裝 .NET Framework。 此設定也會建立名為 **NETFXInstall** 的 **LocalStorage** 元素。 啟動指令碼會將暫存資料夾設定為使用這個本機儲存資源。 
+    
+    > [!IMPORTANT]
+    > 若要確保正確安裝架構，請將此資源的大小設定為至少 1,024 MB。
+    
+    如需有關啟動工作的詳細資訊，請參閱[常見的 Azure 雲端服務啟動工作](cloud-services-startup-tasks-common.md)。
 
-2. 建立檔案 **install.cmd**，並在該角色上按一下右鍵，依序選取 [新增] > [現有項目]，將其新增至所有角色。 因此，所有角色現在應該都有 .NET 安裝程式檔案，以及 install.cmd 檔案。
-   
-   ![所有檔案的角色內容][2]
-   
-   > [!NOTE]
-   > 使用如 [記事本] 之類的基本文字編輯器來建立這個檔案。 如果使用 Visual Studio 來建立文字檔案，然後將它重新命名為 '.cmd'，則此檔案可能仍會包含 UTF-8 位元順序標記，並在執行第一行的指令碼時出現錯誤。 請確定檔案的第一行是 REM 命令，這可能會略過 UTF-8 位元組順序標記處理。 
-   > 
-   > 
+2. 建立名為 **install.cmd** 的檔案，並將下列安裝指令碼新增至檔案。
 
-3. 將下列指令碼加入 **install.cmd** 檔案：
+    指令碼會透過查詢登錄來檢查指定的 .NET Framework 版本是否已在電腦上安裝。 如果未安裝該 .NET 版本，.Net Web 安裝程式就會開啟。 為協助針對任何問題進行疑難排解，該指令碼會將所有活動記錄到 startuptasklog-(目前日期和時間).txt 的檔案 (儲存於 **InstallLogs** 本機儲存體)。
+
+    > [!IMPORTANT]
+    > 使用 Windows 記事本之類的基本文字編輯器來建立 install.cmd 檔案。 如果您是使用 Visual Studio 來建立文字檔案，然後將副檔名變更為 .cmd，檔案可能仍會包含 UTF-8 位元組順序標記。 執行指令碼的第一行時，此標記可能會導致錯誤。 若要避免這個錯誤，請在指令碼的第一行使用 REM 陳述式，位元組順序處理就可以跳過。 
+    > 
+    >
    
     ```cmd
     REM Set the value of netfx to install appropriate .NET Framework. 
@@ -179,17 +182,21 @@ ms.lasthandoff: 07/25/2017
     EXIT /B 0
     ```
    
-    安裝指令碼會透過查詢登錄來檢查指定的 .NET framework 版本是否已在電腦上安裝。 如果未安裝該 .NET 版本，則 .Net Web 安裝程式便會啟動。 為協助針對任何問題進行疑難排解，該指令碼會將所有活動記錄到名為 startuptasklog-(currentdatetime).txt 的檔案 (儲存於 InstallLogs 本機儲存體)。
-   
    > [!NOTE]
-   > 指令碼仍會示範如何為版本連貫性來安裝 .NET 4.5.2 或 .NET 4.6 。 您不必手動安裝 .NET 4.5.2，因為 Azure 客體 OS 上已經有 .NET 4.5.2。 而由於 [KB 3118750](https://support.microsoft.com/kb/3118750)，您應該要直接安裝 .NET 4.6.1，而不是 .NET 4.6。
+   > 此指令碼會示範如何安裝 .NET 4.5.2 或 4.6 版以取得持續性，即使 Azure 客體 OS 上已有 .NET 4.5.2 可供使用。 您應該直接安裝 .NET 4.6.1 而不是 4.6 版，如[知識庫文章 3118750](https://support.microsoft.com/kb/3118750) 中所述。
    > 
    > 
 
-## <a name="configure-diagnostics-to-transfer-the-startup-task-logs-to-blob-storage"></a>設定診斷來將啟動工作記錄檔傳輸到 Blob 儲存體
-如要簡化任何安裝問題的疑難排解步驟，您可以設定 Azure 診斷，來將啟動工作指令碼或 .NET 安裝程式所產生的所有記錄檔傳輸到 Blob 儲存體。 透過這種方法，您可以從 Blob 儲存體直接下載記錄檔，而無需遠端桌面到角色，即可檢視記錄。
+3. 將 install.cmd 檔案新增至每個角色，方法是使用 [方案總管] 中的 [新增] > [現有項目]如本主題中稍早所述。 
 
-若要設定診斷，請開啟 diagnostics.wadcfgx，並在 [目錄] 節點下新增下列內容： 
+    完成此步驟之後，所有角色應該都有 .NET 安裝程式檔案，以及 install.cmd 檔案。
+
+   ![所有檔案的角色內容][2]
+
+## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>設定診斷以將啟動記錄傳輸到 Blob 儲存體
+如要簡化針對安裝問題進行疑難排解，您可以設定 Azure 診斷，來將啟動工作指令碼或 .NET 安裝程式所產生的所有記錄檔傳輸到 Azure Blob 儲存體。 您可以使用這種方法，從 Blob 儲存體下載記錄檔，而無需遠端桌面到角色，即可檢視記錄。
+
+若要設定診斷，請開啟 diagnostics.wadcfgx 檔案，並在 [目錄] 節點下新增下列內容： 
 
 ```xml 
 <DataSources>
@@ -199,15 +206,15 @@ ms.lasthandoff: 07/25/2017
 </DataSources>
 ```
 
-這個 xml 會將 Azure 診斷設定為將 NETFXInstall 資源下 log 目錄中的所有檔案，傳輸到 netfx-install Blob 容器中的診斷儲存體帳戶。
+這個 XML 會將診斷設定為將 NETFXInstall 資源下 log 目錄中的檔案，傳輸到 **netfx-install** Blob 容器中的診斷儲存體帳戶。
 
-## <a name="deploying-your-service"></a>部署您的服務
-部署服務時，啟動工作會安裝 .NET Framework (如果尚未安裝)。 安裝 Framework 時，您的角色將會處於「忙碌」狀態，而且甚至可能會重新啟動 (如果 Framework 安裝有此要求)。 
+## <a name="deploy-your-cloud-service"></a>部署您的雲端服務
+部署雲端服務時，啟動工作會安裝 .NET Framework (如果尚未安裝)。 安裝架構時，雲端服務角色會處於忙碌狀態。 如果架構安裝需要重新啟動，服務角色可能也會重新啟動。 
 
 ## <a name="additional-resources"></a>其他資源
 * [安裝 .NET Framework][Installing the .NET Framework]
-* [作法：判斷安裝的 .NET Framework 版本][How to: Determine Which .NET Framework Versions Are Installed]
-* [疑難排解 .NET Framework 安裝][Troubleshooting .NET Framework Installations]
+* [判斷安裝的 .NET Framework 版本][How to: Determine Which .NET Framework Versions Are Installed]
+* [針對 .NET Framework 安裝進行疑難排解][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
 [Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
@@ -216,6 +223,4 @@ ms.lasthandoff: 07/25/2017
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png
 [2]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithallfiles.png
-
-
 

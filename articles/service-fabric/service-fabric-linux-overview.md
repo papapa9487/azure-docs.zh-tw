@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: SubramaR
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: ad20216374306d8b5035140f3d8e107c595b623e
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: dddc9f698d9776999d406117b46285a0f90d9620
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="service-fabric-on-linux"></a>Linux 上的 Service Fabric
@@ -40,13 +40,14 @@ Linux 上的 Service Fabric 在概念上相當於 Windows 上的 Service Fabric 
 
 
 ## <a name="supported-tooling"></a>支援的工具
-預覽支援透過 Azure CLI 來與叢集進行互動。 針對 Java 開發人員，透過 Linux 和 OSX 上支援的 Eclipse，就能與 Eclipse 和 Yeoman 整合。 OSX 整合透過 vagrant 在幕後使用 Linux VM。 針對 C# 開發人員，支援與 Yeoman 整合來產生應用程式範本。
+預覽支援透過 Service Fabric CLI 來與叢集進行互動。 針對 Java 開發人員，透過 Linux 和 OSX 上支援的 Eclipse，就能與 Eclipse 和 Yeoman 整合。 OSX 整合透過 vagrant 在幕後使用 Linux VM。 針對 C# 開發人員，支援與 Yeoman 整合來產生應用程式範本。
 
 ## <a name="next-steps"></a>後續步驟
-1. 請熟悉 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 和 [Reliable Services](service-fabric-reliable-services-introduction.md) 程式設計架構。
-2. [在 Linux 上準備您的開發環境](service-fabric-get-started-linux.md)
-3. [在 OSX 上準備您的開發環境](service-fabric-get-started-mac.md)
-4. [在 Linux 上建立第一個 Service Fabric Java 應用程式](service-fabric-create-your-first-linux-application-with-java.md)
-5. [使用 Jenkins 和 GitHub 設定 Service Fabric 連續整合和部署](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
-6. [Service Fabric Windows/Linux 的差異](service-fabric-linux-windows-differences.md)
+
+* 請熟悉 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 和 [Reliable Services](service-fabric-reliable-services-introduction.md) 程式設計架構
+* [在 Linux 上準備您的開發環境](service-fabric-get-started-linux.md)
+* [在 OSX 上準備您的開發環境](service-fabric-get-started-mac.md)
+* [在 Linux 上建立第一個 Service Fabric Java 應用程式](service-fabric-create-your-first-linux-application-with-java.md)
+* [使用 Jenkins 和 GitHub 設定 Service Fabric 連續整合和部署](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+* [Service Fabric Windows/Linux 的差異](service-fabric-linux-windows-differences.md)
 

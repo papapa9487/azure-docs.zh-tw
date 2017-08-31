@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: d7506c8abb6eca7e2681764b2bedc2f4755b768a
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>選擇雲端 SQL Server 選項：Azure SQL (PaaS) Database 或 Azure VM 上的 SQL Server (IaaS)
@@ -66,7 +65,7 @@ Azure 有兩個選項可在 Microsoft Azure 主控 SQL Server 工作負載：
 |  |開發與行銷階段有時間限制的新雲端式設計應用程式。 |需要幾乎無需進行任何變更即可快速移轉至雲端的現有應用程式。 當您不想購買內部部署 SQL Server 非生產硬體時的快速開發和測試案例。 |
 |  | 需要內建高可用性、災害復原及資料庫升級的團隊。 |可以設定和管理高可用性、災害復原及修補 SQL Server 的團隊。 某些所提供的自動化功能大幅簡化了這部分。 | |
 |  | 不想要管理基礎作業系統和組態設定的團隊。 |您需要包含完整系統管理權限的自訂環境。 | |
-|  | 高達 1 TB 的資料庫，或可使用向外延展模式 [水平或垂直分割](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) 的更大型資料庫。 |具有高達 64 TB 儲存空間的 SQL Server 執行個體。 執行個體可以支援所需數量的資料庫。 | |
+|  | 高達 4 TB 的資料庫，或可使用向外延展模式 [水平或垂直分割](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) 的更大型資料庫。 |具有高達 64 TB 儲存空間的 SQL Server 執行個體。 執行個體可以支援所需數量的資料庫。 | |
 |  | [建置軟體即服務 (SaaS) 應用程式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。 |移轉和建置企業和混合式應用程式。 | |
 |  | | |
 | **資源：** |您不想要運用 IT 資源來設定和管理基礎結構，但想要專注於應用程式層級。 |您有一些設定和管理的 IT 資源。 某些所提供的自動化功能大幅簡化了這部分。 |
@@ -140,7 +139,7 @@ Azure 有兩個選項可在 Microsoft Azure 主控 SQL Server 工作負載：
 
 如果是下列情形，請選擇 [Azure VM 上的 SQL Server]  ：
 
-* 您想要將現有的內部部署應用程式移轉或擴充到雲端，或如果您想要建置大於 1 TB 的企業應用程式。 此方法的優點是提供 100% SQL 相容性、大型資料庫的容量、SQL Server 和 Windows 的完整控制權以及內部部署的安全通道。 這個方法可以降低開發和修改現有應用程式的成本。
+* 您想要將現有的內部部署應用程式移轉或擴充到雲端，或如果您想要建置大於 4 TB 的企業應用程式。 此方法的優點是提供 100% SQL 相容性、大型資料庫的容量、SQL Server 和 Windows 的完整控制權以及內部部署的安全通道。 這個方法可以降低開發和修改現有應用程式的成本。
 * 您有現有的 IT 資源，且最終可以擁有修補、備份和資料庫高可用性。 請注意，某些自動化功能大幅簡化了這些作業。 
 
 ## <a name="next-steps"></a>後續步驟

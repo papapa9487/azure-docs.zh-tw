@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 08/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 359653f29adc538a4fe2f2143e8132bdd9a9d15b
-ms.lasthandoff: 12/29/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>部署案例和使用案例
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/29/2016
 此部署案例請考慮下列重點︰
 
 * Azure AD 網域服務所提供的受管理網域依預設會提供單一個一般組織單位 (OU) 結構。 位於單一一般 OU 中所有加入網域的機器。 不過，您可以選擇建立自訂的 OU。
-* Azure AD 網域服務以每個使用者和電腦容器內建 GPO 的形式支援簡單群組原則。 您無法依 OU/部門以 GP 為目標、執行 WMI 篩選或建立自訂 GPO。
+* Azure AD 網域服務以每個使用者和電腦容器內建 GPO 的形式支援簡單群組原則。 您可以建立自訂 GPO，並將它們的目標設為自訂 OU。
 * Azure AD 網域服務支援基礎 AD 電腦物件結構描述。 您無法延伸電腦物件的結構描述。
 
 ## <a name="lift-and-shift-an-on-premises-application-that-uses-ldap-bind-authentication-to-azure-infrastructure-services"></a>將使用 LDAP 繫結驗證的內部部署應用程式「隨即轉移」(lift-and-shift) 至 Azure 基礎結構服務
@@ -77,10 +77,8 @@ Contoso 有自訂內建的軟體保存庫應用程式，其中包含 Web 前端�
 * 確定應用程式使用使用者名稱/密碼進行驗證。 Azure AD 網域服務不支援憑證/智慧卡式驗證。
 * 您無法直接對受管理的網域變更密碼。 一般使用者可以使用 Azure AD 的自助密碼變更機制或對內部部署目錄變更其密碼。 這些變更會自動同步處理，而且可在受管理的網域中取得。
 
-## <a name="azure-remoteapp"></a>Azure RemoteApp
-Azure RemoteApp 可讓 Contoso 的系統管理員建立加入網域的集合。 這個功能可讓由 Azure RemoteApp 提供服務的遠端應用程式在加入網域的電腦上執行，並使用 Windows 整合式驗證存取其他資源。 Contoso 可以使用 Azure AD 網域服務，提供 Azure RemoteApp 加入網域的集合所使用的受管理網域。
+## <a name="windows-server-remote-desktop-services-deployments-in-azure"></a>Azure 中的 Windows Server 遠端桌面服務部署
+您可以使用 Azure AD Domain Services，將受管理的 AD 網域服務提供給 Azure 中部署的遠端桌面伺服器。
 
-![Azure RemoteApp](./media/active-directory-domain-services-scenarios/azure-remoteapp.png)
-
-如需此部署案例的詳細資訊，請參閱標題為 [使用 Azure RemoteApp 和 Azure AD 網域服務隨即轉移您的工作負載](http://blogs.msdn.com/b/rds/archive/2016/01/19/lift-and-shift-your-workloads-with-azure-remoteapp-and-azure-ad-domain-services.aspx)的遠端桌面服務部落格文章。
+如需此部署案例的詳細資訊，請參閱如何[整合 Azure AD Domain Services 與 RDS 部署](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds)。
 

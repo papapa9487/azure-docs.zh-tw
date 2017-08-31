@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: bd1b931681331d4de06e227983dfce98b4cc84f2
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼同步處理進行疑難排解
@@ -165,7 +165,7 @@ ms.lasthandoff: 06/28/2017
 
     ![來自密碼同步設定的 PowerShell 指令碼輸出](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/psverifyconfig.png)  
 
-3. 如果 Azure AD 中未啟用此功能，或未啟用同步通道狀態，請執行 Connect 安裝精靈。 選取 [自訂同步處理選項] 並取消選取密碼同步。 這項變更會暫時停用此功能。 然後再次執行精靈並重新啟用密碼同步處理。 再次執行指令碼，確認組態正確無誤。
+3. 如果 Azure AD 中未啟用此功能，或未啟用同步通道狀態，請執行 Connect 安裝精靈。 選取 [自訂同步處理選項] 並取消選取密碼同步。這項變更會暫時停用此功能。 然後再次執行精靈並重新啟用密碼同步處理。再次執行指令碼，確認組態正確無誤。
 
 4. 查看事件記錄中是否有錯誤。 尋找下列事件，這些事件會指出問題所在︰
     * 來源：「目錄同步作業」識別碼：0、611、652、655。如果您看到這些事件，即表示有連線問題。 事件記錄訊息包含發生問題的樹系資訊。 如需詳細資訊，請參閱[連線問題](#connectivity problem)。
@@ -205,7 +205,7 @@ ms.lasthandoff: 06/28/2017
  
 8. 在 [選取目錄分割] 中選取您的網域，選取 [只使用慣用的網域控制站] 核取方塊，然後按一下 [設定]。 
 
-9. 在清單中，輸入 Connect 應該用來進行密碼同步的網域控制站。 此相同清單也用於匯入和匯出。 針對您的所有網域執行這些步驟。
+9. 在清單中，輸入 Connect 應該用來進行密碼同步的網域控制站。此相同清單也用於匯入和匯出。 針對您的所有網域執行這些步驟。
 
 10. 如果此指令碼顯示沒有活動訊號，請執行[觸發所有密碼的完整同步](#trigger-a-full-sync-of-all-passwords)中的指令碼。
 
@@ -250,11 +250,11 @@ ms.lasthandoff: 06/28/2017
 
     確認沒有任何 **cloudFiltered** 屬性存在。 確定網域屬性 (domainFQDN 和 domainNetBios) 具有預期的值。
 
-    j. 按一下 [連接器] 索引標籤。 請確定您看到已連線至內部部署 Active Directory 和 Azure AD 的連接器。
+    j. 按一下 [連接器] 索引標籤。請確定您看到已連線至內部部署 Active Directory 和 Azure AD 的連接器。
 
     ![Metaverse 資訊](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvconnectors.png)  
 
-    k. 選取代表 Azure AD 的資料列，按一下 [屬性]，然後按一下 [歷程] 索引標籤。 連接器空間物件應該有一個輸出規則的 [PasswordSync] 資料行設為 **True**。 在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。  
+    k. 選取代表 Azure AD 的資料列，按一下 [屬性]，然後按一下 [歷程] 索引標籤。連接器空間物件應該有一個輸出規則的 [PasswordSync] 資料行設為 **True**。 在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。  
 
     ![連接器空間物件屬性對話方塊](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync2.png)  
 
@@ -269,6 +269,10 @@ ms.lasthandoff: 06/28/2017
 | SourceConnectorNotPresent |在內部部署 Active Directory 連接器空間中找不到任何物件。 |
 | TargetNotExportedToDirectory |尚未匯出 Azure AD 連接器空間中的物件。 |
 | MigratedCheckDetailsForMoreInfo |記錄項目建立於組建 1.0.9125.0 之前，並且以其舊版的狀態顯示。 |
+| 錯誤 |服務傳回未知的錯誤。 |
+| 不明 |嘗試處理密碼雜湊的批次時發生錯誤。  |
+| MissingAttribute |無法使用 Azure AD Domain Services 所需的特定屬性 (例如，Kerberos 雜湊)。 |
+| RetryRequestedByTarget |先前無法使用 Azure AD Domain Services 所需的特定屬性 (例如，Kerberos 雜湊)。 會嘗試重新同步處理使用者的密碼雜湊。 |
 
 ## <a name="scripts-to-help-troubleshooting"></a>協助疑難排解的指令碼
 

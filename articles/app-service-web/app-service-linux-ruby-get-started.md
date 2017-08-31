@@ -1,6 +1,6 @@
 ---
-title: "使用 Linux 上的 Azure App Service Web 應用程式建立 Ruby 應用程式 | Microsoft Docs"
-description: "了解如何使用 Linux 上的 Azure App Service Web 應用程式來建立 Ruby 應用程式。"
+title: "使用 Linux 上的 Web Apps 建立 Ruby 應用程式 | Microsoft Docs"
+description: "了解如何使用 Linux 上的 Azure Web 應用程式來建立 Ruby 應用程式。"
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
@@ -13,177 +13,155 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/05/2017
-ms.author: wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: c63bf790a50b894ea1732ae3142e6c1ff9ccbd4c
+ms.date: 08/15/2017
+ms.author: wesmc;rachelap
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 17f3f1a2122c508501134a0c43ab6abce412fb44
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="create-a-ruby-app-with-azure-web-app-on-linux---preview"></a>使用 Linux 上的 Azure Web 應用程式建立 Ruby 應用程式 - 預覽
+# <a name="create-a-ruby-app-with-web-apps-on-linux"></a>使用 Linux 上的 Web Apps 建立 Ruby 應用程式 
 
 [!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-## <a name="overview"></a>概觀
+[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何建立基本的 Ruby on Rails 應用程式，然後將它當作 Linux 上的 Web 應用程式部署至 Azure。
 
-本教學課程會示範如何在本機建立基本的 Ruby on Rails 應用程式，並將它部署至 Linux 上的 Azure Web 應用程式。
+![Hello-world](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
 ## <a name="prerequisites"></a>必要條件
 
-* 安裝在您開發電腦上的 [Ruby 2.3.3 或更新版本](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller)。
-* [Git](https://git-scm.com/downloads) 已安裝在您的開發電腦上
-* [有效的 Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)
-* 本教學課程是以 Ubuntu 環境的內容所撰寫。 所有系統命令都是 bash 特定。
+* [Ruby 2.4.1 或更高版本](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller)。
+* [Git](https://git-scm.com/downloads)。
+* [有效的 Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-new-local-rails-application"></a>建立新的本機 rails 應用程式
+## <a name="download-the-sample"></a>下載範例
 
-1. 為新的應用程式建立目錄，並變更至該目錄。
+在終端機視窗中執行下列命令，將範例應用程式存放庫複製到本機電腦：
 
-        mkdir ~/workspace
-        cd ~/workspace
+```bash
+git clone https://github.com/Azure-Samples/ruby-docs-hello-world
+```
 
-2. 使用 `ruby -v` 命令將 Ruby 初始化並檢查版本。
+[!INCLUDE [app-service-linux-preview](../../includes/app-service-linux-preview.md)]
 
-    ![Ruby init](./media/app-service-linux-ruby-get-started/ruby-version.png)
+## <a name="run-the-application-locally"></a>在本機執行應用程式
 
-3. 使用 `gem install rails` 命令來安裝 rails。
+執行 Rails 伺服器，讓應用程式得以運作。 變更為 hello-world 目錄，然後 `rails server` 命令會啟動伺服器。
 
-    ![安裝 rails](./media/app-service-linux-ruby-get-started/install-rails.png)
-
-4. 使用下列命令來建立名為 **hello-world** 的 rails 應用程式︰
-
-    如果您是使用 Rails 5.1.0 或更新版本中，請包含 `--skip-yarn` 選項，如下列命令中所示︰
-
-        rails new hello-world --skip-yarn
-
-    如需 Rails 5.1.0 之前的版本，請使用下列命令︰
-
-        rails new hello-world 
-
-    ![新增 Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world.png)
-
-    ![新增 Hello-world](./media/app-service-linux-ruby-get-started/rails-new-hello-world-2.png)
-
-    如果您是使用 Rails 5.1 以上版本，如果未使用 `--skip-yarn` 選項，就會建立一個 package.json。 我們不希望它包含於我們的部署。 或者，您可以刪除 package.json 檔案，或將它新增至目錄中的 .git-ignore 檔案，如下所示︰ 
-
-        # Ignore package.json
-        /package.json
-
-5. 變更為 hello-world 目錄，然後啟動伺服器。
-
-        cd hello-world
-        rails server
-
-    ![啟動 Hello-world](./media/app-service-linux-ruby-get-started/start-hello-world-server.png)
+```bash
+cd hello-world\bin
+rails server
+```
     
-6. 使用網頁瀏覽器，瀏覽至 `http://localhost:3000`，在本機測試應用程式。    
+使用網頁瀏覽器，瀏覽至 `http://localhost:3000`，在本機測試應用程式。    
 
-    ![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
+![Hello-world](./media/app-service-linux-ruby-get-started/hello-world.png)
 
-## <a name="prepare-the-app-for-azure"></a>準備 Azure 的應用程式
+## <a name="modify-app-to-display-welcome-message"></a>修改應用程式以顯示歡迎使用訊息
 
-依預設，Ruby 映像會使用 `-e production` 旗標來執行伺服器。 此環境會要求在 Linux 上設定 Azure Web 應用程式。 容器會負責一部分的設定 (例如，設定 `SECRET_KEY_BASE`)。 您必須設定預設路由。 否則，您瀏覽網站時會收到 404 錯誤。
+修改應用程式，使其顯示歡迎使用訊息。 變更應用程式的控制站，使其將訊息當作 HTML 傳回至瀏覽器。 
 
-若要設定預設路由︰
+開啟 ~/workspace/hello-world/app/controllers/application_controller.rb 進行編輯。 修改 `ApplicationController` 類型，使其看起來類似下列程式碼範例：
 
-1. 開啟 ~/workspace/hello-world/config/routes.rb 進行編輯。 如以下螢幕擷取畫面所示，新增以下這行。 
+  ```ruby
+  class ApplicationController > ActionController :: base
+    protect_from_forgery with: :exception 
+    def hello
+      render html: "Hello, world from Azure Web App on Linux!"
+    end
+  end
+  ```
 
-        root 'application#hello'
+現在已設定好您的應用程式。 使用網頁瀏覽器，瀏覽至 `http://localhost:3000`，確認根登陸頁面。
 
-    ![routes.rb](./media/app-service-linux-ruby-get-started/routes-rb.png)
+![已設定 Hello World](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
 
+[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
-2. 開啟 ~/workspace/hello-world/app/controllers/application_controller.rb 進行編輯。 如以下螢幕擷取畫面所示，新增以下這行。
+## <a name="create-a-ruby-web-app-on-azure"></a>在 Azure 上建立 Ruby Web 應用程式
 
-        def hello
-            render html: "Hello, world from Azure Web App on Linux!"
-        end
+使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) 命令，建立 Web 應用程式的應用程式服務方案。 
+ 
+```azurecli-interactive
+  az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --is-linux
+```
 
-    ![routes.rb](./media/app-service-linux-ruby-get-started/application-controller-rb.png)
+接下來，發出 [az webapp create](https://docs.microsoft.com/cli/azure/webapp) 命令以建立使用新建服務方案的 Web 應用程式。 請注意，執行階段設定為 `ruby|2.3`。 別忘了以唯一的應用程式名稱取代 `<app name>`。
 
+```azurecli-interactive
+  az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "ruby|2.3" --deployment-local-git
+```
 
-3. 現在已設定好您的應用程式。 使用網頁瀏覽器，瀏覽至 `http://localhost:3000`，確認根登陸頁面。
+建立 Web 應用程式後，[概觀] 頁面即可供檢視。 瀏覽到該頁面。 隨即出現下列啟動顯示畫面：
 
-    ![已設定 Hello World](./media/app-service-linux-ruby-get-started/hello-world-configured.png)
-
-## <a name="create-a-ruby-website-on-azure"></a>在 Azure 上建立 Ruby 網站
-
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)，並使用您的訂用帳戶登入。 新增 **Linux 上的 Web 應用程式**，如下列螢幕擷取畫面所示：
-
-    ![在 Linux 上建立 Web 應用程式](./media/app-service-linux-ruby-get-started/top-level-create.png)
-
-2. 隨即開啟 [建立] 刀鋒視窗，如下列螢幕擷取畫面所示︰
-
-    ![[建立] 刀鋒視窗](./media/app-service-linux-ruby-get-started/create-blade.png)
-
-
-    1. 命名您的 Web 應用程式。
-    2. 選擇現有的資源群組或建立新群組。 (請參閱[限制](app-service-linux-intro.md)一節中可用的區域。)
-    3. 選擇現有的 Azure App Service 方案或建立新方案。 (請參閱[限制](app-service-linux-intro.md)一節中的 App Service 方案附註。)
-    4. 選擇 **Ruby 2.3** 內建執行階段堆疊作為容器設定。
-    5. 對 web 應用程式按一下 [釘選到儀表板]。
-    6. 按一下 [建立] 。
-
-3. 建立 Web 應用程式後，隨即出現 [概觀] 刀鋒視窗。 請複製新 Web 應用程式的 **URL**，然後在瀏覽器中將它開啟。 隨即出現下列啟動顯示畫面。
-
-    ![啟動顯示畫面](./media/app-service-linux-ruby-get-started/splash-page.png)
+![啟動顯示畫面](./media/app-service-linux-ruby-get-started/splash-page.png)
 
 
 ## <a name="deploy-your-application"></a>部署應用程式
 
-在本教學課程中，我們會使用 Git 將本機 Ruby 應用程式部署至 Azure。
+使用 Git 將 Ruby 應用程式部署至 Azure。 Web 應用程式已設定 Git 部署。 您可以藉由發出 [az webapp deployment](https://docs.microsoft.com/cli/azure/webapp/deployment) 命令來擷取部署 URL。  
 
-1. 新的 Azure 網站已設定 Git 部署。 將您的 Web 應用程式名稱插入後，瀏覽至下列 URL 就可以找到 Git 部署 URL︰
+```bash
+az webapp deployment source show --name <app name> --resource-group myResourceGroup
+```
 
-        https://{your web app name}.scm.azurewebsites.net/api/scm/info
+請注意，根據您的 web 應用程式名稱，Git URL 具有下列格式︰
 
-    根據您的 web 應用程式名稱，Git URL 具有下列格式︰
+```bash
+https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
+```
 
-        https://{your web app name}.scm.azurewebsites.net/{your web app name}.git
+[!INCLUDE [Clean-up section](../../includes/configure-deployment-user-no-h.md)]
 
-2. 執行下列命令，將本機應用程式部署至您的 Azure 網站。
+執行下列命令，將本機應用程式部署至您的 Azure 網站：
 
-        cd ~/workspace/hello-world
-        git init
-        git remote add azure <Git deployment URL from above>
-        git add -A
-        git commit -m "Initial deployment commit"
-        git push master
+```bash
+git remote add azure <Git deployment URL from above>
+git add -A
+git commit -m "Initial deployment commit"
+git push azure master
+```
 
-    確認遠端部署作業報告成功。
+確認遠端部署作業報告成功。 此命令會產生類似下列文字的輸出：
 
-    ![部署 Web 應用程式](./media/app-service-linux-ruby-get-started/deployment-success.png)
+```bash
+remote: Using sass-rails 5.0.6
+remote: Updating files in vendor/cache
+remote: Bundle gems are installed into ./vendor/bundle
+remote: Updating files in vendor/cache
+remote: ~site/repository
+remote: Finished successfully.
+remote: Running post deployment command(s)...
+remote: Deployment successful.
+To https://<your web app name>.scm.azurewebsites.net/<your web app name>.git
+  579ccb....2ca5f31  master -> master
+myuser@ubuntu1234:~workspace/<app name>$
+```
 
-    如果您看到錯誤訊息指出遠端已掛斷，部署可能仍在進行中。 在此情況下，請在瀏覽器中瀏覽至下列 URL︰
+一旦部署完成後，使用 [az webapp restart](https://docs.microsoft.com/cli/azure/webapp#restart) 命令來重新啟動 Web 應用程式，部署才會生效，如下所示：
 
-        https://{your web app name}.scm.azurewebsites.net/api/deployments
+```azurecli-interactive 
+az webapp restart --name <app name> --resource-group myResourceGroup
+```
 
-3. 一旦部署完成後，需重新啟動 Web 應用程式進行部署，才會生效。 在 [Azure 入口網站](http://portal.azure.com)中，瀏覽至您 Web 應用程式的 [概觀] 刀鋒視窗。
+瀏覽至您的網站並確認結果。
 
-    按一下工具列上的 [重新啟動]。
+```bash
+http://<your web app name>.azurewebsites.net
+```
+![更新的 Web 應用程式](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
 
-    ![重新啟動 Web 應用程式](./media/app-service-linux-ruby-get-started/restart-web-app.png)
+> [!NOTE]
+> 當應用程式重新啟動時，嘗試瀏覽網站會導致 HTTP 狀態碼 `Error 503 Server unavailable`。 可能需要幾分鐘才能完全重新啟動。
+>
 
-4. 瀏覽至您的網站，並確認即時更新。 
+[!INCLUDE [Clean-up section](../../includes/cli-script-clean-up.md)]
 
-    當應用程式重新啟動時，嘗試瀏覽網站會導致 HTTP 狀態碼錯誤 503 (伺服器無法使用)。 可能需要幾分鐘才能完全重新啟動。
-
-        http://{your web app name}.azurewebsites.net
-
-    ![更新的 Web 應用程式](./media/app-service-linux-ruby-get-started/hello-world-updated.png)
-    
 
 ## <a name="next-steps"></a>後續步驟
-如需 Linux 上的 Azure App Service Web 應用程式相關資訊，請參閱下列連結。 您也可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
 
-* [在 Linux 上的 App Service 中建立 Web Apps](app-service-linux-how-to-create-web-app.md)
-* [如何針對 Linux 上的 App Service 使用自訂 Docker 映像](app-service-linux-using-custom-docker-image.md)
-* [在 Linux 上的 Web Apps 中使用適用於 Node.js 的 PM2 組態](app-service-linux-using-nodejs-pm2.md)
-* [在 Linux 上的 Azure App Service Web Apps 中使用 .NET Core](app-service-linux-using-dotnetcore.md)
-* [Linux 上的 Azure App Service Web Apps 常見問題集](app-service-linux-faq.md)
-
-
+[Linux 上的 Azure App Service Web 應用程式常見問題集](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)

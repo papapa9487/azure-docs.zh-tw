@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 0def8177e124b5d3ba39f1ae65ab3b41d5827e4a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3d508877928e033f24dae62c1042745ea7250033
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/11/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -95,7 +94,7 @@ Azure 會建立資源群組，並在入口網站中釘選資源群組的捷徑�
 
    您的位址空間和子網路位址範圍可能與此表有所不同。 視您的訂用帳戶而定，入口網站會建議可用的位址空間和對應的子網路位址範圍。 如果沒有足夠的位址空間可供使用，請使用不同的訂用帳戶。
 
-   此範例會使用子網路名稱 **Admin**。 此子網路用於網域控制站。
+   此範例會使用子網路名稱 **Admin**。此子網路用於網域控制站。
 
 5. 按一下 [建立] 。
 
@@ -104,7 +103,7 @@ Azure 會建立資源群組，並在入口網站中釘選資源群組的捷徑�
 Azure 會讓您回到入口網站儀表板，並在建立完新網路時通知您。
 
 ### <a name="create-a-second-subnet"></a>建立第二個子網路
-新的虛擬網路有一個子網路，名為 **Admin**。 網域控制站會使用此子網路。 SQL Server VM 會使用名為 **SQL** 的第二個子網路。 若要設定此子網路：
+新的虛擬網路有一個子網路，名為 **Admin**。網域控制站會使用此子網路。 SQL Server VM 會使用名為 **SQL** 的第二個子網路。 若要設定此子網路：
 
 1. 在儀表板上，按一下您所建立的資源群組 [SQL-HA-RG] 。 在 [資源] 之下的資源群組中尋找此網路。
 
@@ -357,7 +356,7 @@ Azure 會建立虛擬機器。
 
 * **儲存體 - Azure 受控磁碟**
 
-   為虛擬機器儲存體使用 Azure 受控磁碟。 Microsoft 為 SQL Server 虛擬機器建議受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需其他資訊，請參閱 [Azure 受控磁碟概觀 (英文)](../../../storage/storage-managed-disks-overview.md)。 如需可用性設定組中受控磁碟的具體資訊，請參閱[在可用性設定組中使用 VM 的受控磁碟 (英文)](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)。
+   為虛擬機器儲存體使用 Azure 受控磁碟。 Microsoft 為 SQL Server 虛擬機器建議受控磁碟。 受控磁碟會在背景中處理儲存體。 此外，當具有受控磁碟的虛擬機器在相同的可用性設定組時，Azure 會分散儲存資源以提供適當的備援。 如需其他資訊，請參閱 [Azure 受控磁碟概觀 (英文)](../managed-disks-overview.md)。 如需可用性設定組中受控磁碟的具體資訊，請參閱[在可用性設定組中使用 VM 的受控磁碟 (英文)](../manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)。
 
 * **網路 - 生產環境中的私人 IP 位址**
 
@@ -386,7 +385,7 @@ Azure 會建立虛擬機器。
 
 ### <a name="joinDomain"></a>將伺服器加入網域
 
-您現在可以將 VM 加入 **corp.contoso.com**。 請為 SQL Server VM 和檔案共用見證伺服器執行下列操作︰
+您現在可以將 VM 加入 **corp.contoso.com**。請為 SQL Server VM 和檔案共用見證伺服器執行下列操作︰
 
 1. 遠端連線虛擬機器與 **BUILTIN\DomainAdmin**。
 2. 在 [伺服器管理員] 中，按一下 [本機伺服器]。

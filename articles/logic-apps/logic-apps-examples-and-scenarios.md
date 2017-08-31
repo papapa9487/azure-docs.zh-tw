@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 08/9/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 2d45090b09d83a98cc0811dca8d6f2384d1b11ad
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50df1e3db239a6aa34ac91bfbd582625c5b0041b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="examples-and-common-scenarios-for-azure-logic-apps"></a>Azure Logic Apps 的範例和常見案例
@@ -31,7 +31,7 @@ Azure Logic Apps 針對不同的服務提供了彈性的協調流程和整合功
 
 ## <a name="respond-to-triggers-and-extend-actions"></a>回應觸發程序並延伸動作
 
-每個邏輯應用程式都會從觸發程序來開始。 例如，您的工作流程可以從排程事件、手動叫用或外部系統的事件 (例如「當檔案新增至 FTP 伺服器時」觸發程序) 來開始。 Azure Logic Apps 目前支援超過 100 個立即可用的連接器，範圍從內部部署 SAP 到 Azure 辨識服務。 對於可能沒有已發佈連接器的系統和服務，您也可以延伸邏輯應用程式。
+每個邏輯應用程式都會從觸發程序來開始。 例如，您的工作流程可以從排程事件、手動叫用或外部系統的事件 (例如「當檔案新增至 FTP 伺服器時」觸發程序) 來開始。 Azure Logic Apps 目前支援超過 100 個立即可用的連接器，範圍從內部部署 SAP 到 Microsoft 辨識服務。 對於可能沒有已發佈連接器的系統和服務，您也可以延伸邏輯應用程式。
 
 * [建立自訂觸發程序或動作](../logic-apps/logic-apps-create-api-app.md)
 * [為工作流程執行設定長時間執行的動作](../logic-apps/logic-apps-create-api-app.md)
@@ -75,6 +75,10 @@ Azure Logic Apps 針對不同的服務提供了彈性的協調流程和整合功
 * [從邏輯應用程式呼叫 Azure Functions](../logic-apps/logic-apps-azure-functions.md)
 * [案例：使用 Azure Functions 觸發邏輯應用程式](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [部落格︰從邏輯應用程式呼叫 SOAP 端點](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
+
+## <a name="end-to-end-scenarios"></a>端對端案例
+
+* [白皮書：使用 Azure 服務 (例如 Logic Apps) 進行企業整合端對端案例管理](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="next-steps"></a>後續步驟
 

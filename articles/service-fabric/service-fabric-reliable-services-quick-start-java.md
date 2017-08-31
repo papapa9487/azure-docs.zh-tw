@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 35d7f6d655f53891c00ca6c736c8c12b99fdc5ef
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1ebabe4844732412e04bab8c277f7ebbc4a5737c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
@@ -166,22 +165,17 @@ Yeoman 樣板包含可建置應用程式的 gradle 指令碼，以及可部署�
 $ gradle
 ```
 
-這會產生可使用 Service Fabric Azure CLI 來部署的 Service Fabric 應用程式封裝。
+這會產生可使用 Service Fabric CLI 來部署的 Service Fabric 應用程式套件。
 
-### <a name="deploy-with-xplat-cli"></a>使用 XPlat CLI 進行部署
+### <a name="deploy-with-service-fabric-cli"></a>使用 Service Fabric CLI 部署
 
-如果使用 XPlat CLI，install.sh 指令碼會包含部署應用程式套件所需的 Azure CLI 命令。 請執行 install.sh 指令碼來部署應用程式。
+Install.sh 指令碼包含部署應用程式套件所需的 Service Fabric CLI 命令。 請執行 install.sh 指令碼來部署應用程式。
 
 ```bash
 $ ./install.sh
 ```
 
-### <a name="deploy-with-azure-cli-20"></a>使用 Azure CLI 2.0 進行部署
+## <a name="next-steps"></a>後續步驟
 
-如果使用 Azure CLI 2.0，請參閱有關[使用 Azure CLI 2.0 來管理應用程式生命週期](service-fabric-application-lifecycle-azure-cli-2-0.md)的參考文件。
-
-## <a name="related-articles"></a>相關文章
-
-* [開始使用 Service Fabric 和 Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [開始使用 Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [開始使用 Service Fabric CLI](service-fabric-cli.md)
 

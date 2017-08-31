@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2017
+ms.date: 08/18/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: b0ff68902f671518ff53772b1956272a7f6e1614
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 9944cbd2b1b7c4acb18d37da1394c0bbc170f77d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="getting-started-with-the-azure-active-directory-reporting-api"></a>開始使用 Azure Active Directory 報告 API
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/20/2017
 Azure Active Directory 提供各種報告給您。 這些報告的資料對您的應用程式 (例如 SIEM 系統、稽核和商業智慧工具) 可能非常有用。 Azure AD 報告 API 透過一組以 REST 為基礎的 API 提供資料的程式設計方式存取。 您可以從各種程式設計語言和工具呼叫這些 API。
 
 本文提供給您開始使用 Azure AD 報告 API 所需的資訊。
-在下一節中，您可尋找更多有關使用稽核和登入 API 的詳細資訊。 對於其他所有 API，請參閱 [Azure AD 報告和事件](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-reports-and-events-preview)一文。
+在下一節中，您可尋找更多有關使用稽核和登入 API 的詳細資訊。 
 
 關於閱讀常見問題集，請參閱我們的[常見問題集](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-faq)。 關於問題，請[提出支援票證](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-troubleshooting-support-howto)。
 
@@ -43,6 +43,6 @@ Azure Active Directory 提供各種報告給您。 這些報告的資料對您�
    * [使用登入活動報告 API 參考](active-directory-reporting-api-sign-in-activity-reference.md)
 
 ## <a name="next-steps"></a>後續步驟
-如果您想要查看所有可用的 Azure AD 圖形 API 端點，請瀏覽至 [https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta)。
+如果您想要查看所有可用的 Azure AD 圖形 API 端點，請使用此連結：[https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta](https://graph.windows.net/tenant-name/activities/$metadata?api-version=beta)。
 
 

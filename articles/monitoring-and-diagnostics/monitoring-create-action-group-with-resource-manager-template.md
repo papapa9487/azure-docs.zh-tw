@@ -1,6 +1,6 @@
 ---
-title: "使用 Resource Manager 範本建立動作 | Microsoft Docs"
-description: "當發生特定事件時，動作群組可讓您通知電子郵件、SMS 或呼叫 webhook。"
+title: "使用 Resource Manager 範本建立動作群組 | Microsoft Docs"
+description: "了解如何使用 Azure Resource Manager 範本建立動作群組。"
 author: anirudhcavale
 manager: orenr
 editor: 
@@ -15,26 +15,27 @@ ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 88e7b2e7781b80ea360531f4c3a45256de83b594
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 76bf353cac13f1c2169380f8dd3c1e163d4f3f41
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立動作群組
-本文章將說明如何使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)設定動作群組。 範本可讓您在建立資源上的動作群組時將它們自動設定，確保所有正確對象都會在警示觸發時收到通知。
+本文章將說明如何使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)設定動作群組。 您可以使用範本自動設定可在特定類型的警示中重複使用的動作群組。 這些動作群組能確定觸發警示時，所有正確的對象都會收到通知。
 
-基本步驟如下：
+基本步驟為：
 
-1.  建立一個描述如何建立動作群組的範本作為 JSON 檔案。
-2.  [使用任何部署方法部署範本。](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
+1. 建立一個描述如何建立動作群組的範本作為 JSON 檔案。
 
-以下我們說明如何先為動作定義已硬式編碼在範本中的動作群組，建立 Resource Manager 範本，然後為在部署範本時以 Webhook 設定資訊作為輸入參數的部署範本，建立 Resource Manager 範本。
+2. [使用任何部署方法部署範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)。
 
-## <a name="resource-manager-template-for-an-action-group"></a>動作群組的 Resource Manager 範本
+首先，我們會說明如何建立動作群組的 Resource Manager 範本，其中的動作定義是在範本中硬式編碼。 其次，我們會說明如何建立範本部署時，採用 Webhook 組態資訊作為輸入參數的範本。
 
-若要使用 Resource Manager 範本建立動作群組，您要建立 `Microsoft.Insights/actionGroups` 類型的資源，並填入所有相關的屬性。 以下是一些建立動作群組的範例範本。
+## <a name="resource-manager-templates-for-an-action-group"></a>動作群組的 Resource Manager 範本
+
+若要使用 Resource Manager 範本建立動作群組，您要建立 `Microsoft.Insights/actionGroups` 類型的資源。 然後要填入所有相關的屬性。 以下是兩個建立動作群組的範例範本。
 
 ```json
 {
@@ -170,7 +171,7 @@ ms.lasthandoff: 07/18/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-深入了解[動作群組](monitoring-action-groups.md)  
-深入了解[警示](monitoring-overview-alerts.md)  
-如何[使用 Resource Manager 範本新增警示](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* 深入了解[動作群組](monitoring-action-groups.md)。
+* 深入了解[警示](monitoring-overview-alerts.md)。
+* 了解如何[使用 Resource Manager 範本新增警示](monitoring-create-activity-log-alerts-with-resource-manager-template.md)。
 

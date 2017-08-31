@@ -1,5 +1,5 @@
 ---
-title: "Azure 入口網站儀表板 | Microsoft Docs"
+title: "建立和共用 Azure 入口網站儀表板 | Microsoft Docs"
 description: "本文說明如何在 Azure 入口網站建立和編輯儀表板。"
 services: azure-portal
 documentationcenter: 
@@ -14,19 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-translationtype: Human Translation
-ms.sourcegitcommit: ebc5dbf790ca6012cfe9a7ea9ccee9fdacb46ffd
-ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
-
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/24/2017
 
 ---
-# <a name="creating-and-sharing-dashboards-in-the-azure-portal"></a>在 Azure 入口網站建立和共用儀表板
-您可以建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。  本文會講述建立/編輯、發佈和管理儀表板存取權的基本概念。
-
-## <a name="customizing-dashboards-versus-blades"></a>自訂儀表板與刀鋒視窗
-自從幾個月前啟動儀表板後，自訂刀鋒視窗的數量便穩定下滑，自訂儀表板的數量則快速增加。 此一強烈的使用趨勢顯示，使用者對於自訂儀表板的偏好勝過刀鋒視窗。 為了支持該趨勢，我們將會移除自訂刀鋒視窗的功能，並致力於強化儀表板功能。 如果您先前自訂了刀鋒視窗，該項自訂很快就會遭到移除。 若要保留該項自訂，請將自訂的圖格釘選到儀表板。 只要以滑鼠右鍵按一下該圖格，然後選取 [釘選到儀表板]  即可，如下圖所示。
-
-![儲存自訂圖格](./media/azure-portal-dashboards/save-customization.png)
+# <a name="create-and-share-dashboards-in-the-azure-portal"></a>在 Azure 入口網站中建立和共用儀表板
+您可以建立多個儀表板，並與可存取您 Azure 訂用帳戶的其他人共用。  本文說明建立/編輯、發佈和管理儀表板存取權的基本概念。
 
 ## <a name="create-a-dashboard"></a>建立儀表板
 若要建立儀表板，請選取目前的儀表板名稱旁的 [新增儀表板]  按鈕。  
@@ -99,10 +95,5 @@ ms.openlocfilehash: dc5b6f194a7e34d5061b9fa2e4a6123f54f6c14a
 ## <a name="next-steps"></a>後續步驟
 * 若要管理資源，請參閱 [透過入口網站管理 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
 * 若要部署資源，請參閱 [使用 Resource Manager 範本與 Azure 入口網站來部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
-
-
-
-
-<!--HONumber=Dec16_HO4-->
 
 

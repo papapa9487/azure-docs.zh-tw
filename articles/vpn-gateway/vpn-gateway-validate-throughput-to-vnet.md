@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2017
 ms.author: radwiv;chadmat;genli
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
-ms.openlocfilehash: 7dfc5160a0ede19b4317a39187f0f864b037141b
-ms.lasthandoff: 04/12/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何驗證傳輸到虛擬網路的 VPN 輸送量
@@ -48,11 +48,11 @@ VPN 閘道連線涉及下列元件：
 
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>計算最大預期輸入/輸出
 
-1.    判斷您應用程式的基準輸送量需求。
-2.    判斷您的 Azure VPN 閘道輸送量限制。 如需說明，請參閱 [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md) 的「依 SKU 和 VPN 類型彙總輸送量」區段。
-3.    判斷 VM 大小的 [Azure VM 輸送量指引](../virtual-machines/virtual-machines-windows-sizes.md)。
-4.    決定您網際網路服務提供者 (ISP) 的頻寬。
-5.    計算您預期的輸送量 - 最小頻寬的 (VM、閘道、ISP) * 0.8。
+1.  判斷您應用程式的基準輸送量需求。
+2.  判斷您的 Azure VPN 閘道輸送量限制。 如需說明，請參閱 [規劃與設計 VPN 閘道](vpn-gateway-plan-design.md) 的「依 SKU 和 VPN 類型彙總輸送量」區段。
+3.  判斷 VM 大小的 [Azure VM 輸送量指引](../virtual-machines/virtual-machines-windows-sizes.md)。
+4.  決定您網際網路服務提供者 (ISP) 的頻寬。
+5.  計算您預期的輸送量 - 最小頻寬的 (VM、閘道、ISP) * 0.8。
 
 如果您算出的輸送量不符合您應用程式的基準輸送量需求，您需要增加您發現已成為瓶頸的資源頻寬。 如果要調整 Azure VPN 閘道的大小，請參閱 [變更閘道 SKU](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 如果調整虛擬機器的大小，請參閱 [調整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果您未能享有預期的網際網路頻寬，您可能也需要連絡您的 ISP。
 
@@ -124,7 +124,7 @@ iPerf 是我們用於此測試的工作，分別在 Windows 與 Linux 上工作�
 
 - 如 Windows 檔案總管與 RDP 的檔案應用程式，並未在複製檔案時使用多執行緒。 為了提升效能，請使用如 [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) 等多執行緒的檔案複製應用程式，以 16 或 32 條執行緒複製檔案。 如果要在 Richcopy 內變更用於檔案複製的執行緒數量，請按一下 [動作]  >  [複製選項]  >  [檔案複製] 。<br><br>
 ![檔案複製變慢的問題](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- VM 磁碟讀取/寫入速度不足。 如需詳細資訊，請參閱 [Azure 儲存體疑難排解](../storage/storage-e2e-troubleshooting.md)。
+- VM 磁碟讀取/寫入速度不足。 如需詳細資訊，請參閱 [Azure 儲存體疑難排解](../storage/common/storage-e2e-troubleshooting.md)。
 
 ## <a name="on-premises-device-external-facing-interface"></a>內部部署裝置的外部對應介面
 如果內部部署 VPN 裝置連結網際網路的 IP 位址包含在 Azure 中的 [區域網路](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway) 定義內，您可能會遇到無法呼叫 VPN、零星中斷連線或效能問題。

@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 08/18/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 0b861bea8948c7022d2ce95a2a7975a5ad7ad8a7
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f4d9a08551d616ff98bc8734cbeec01d6e0d04ca
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
@@ -37,14 +38,12 @@ ms.lasthandoff: 07/25/2017
 > - 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
 
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
-1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取 [更多服務]，在文字方塊中輸入「使用者和群組」，然後選取 **Enter**。
-
-   ![開啟使用者管理](./media/active-directory-groups-dynamic-membership-azure-portal/search-user-management.png)
-3. 在 [使用者和群組] 刀鋒視窗上，選取 [所有群組]。
+1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
+2. 選取 [使用者和群組]。
+3. 選取 [所有群組]。
 
    ![開啟群組刀鋒視窗](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. 在 [使用者和群組 - 所有群組] 刀鋒視窗上，選取 [新增]。
+4. 在 [所有群組] 中，選取 [新增群組]。
 
    ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
 5. 在 [群組]  刀鋒視窗上，輸入新群組的名稱和描述。 依據您是要為使用者還是裝置建立規則，在 [成員資格類型] 選取 [動態使用者] 或 [動態裝置]，然後選取 [新增動態查詢]。 如需了解有哪些用於裝置規則的屬性，請參閱 [使用屬性來建立裝置物件的規則](#using-attributes-to-create-rules-for-device-objects)。
@@ -74,8 +73,6 @@ ms.lasthandoff: 07/25/2017
 > [!NOTE]
 > 字串和 regex 運算都不區分大小寫。 您也可以使用 $null 做為常數，執行 Null 檢查，例如，user.department-eq $null。
 > 包含引號 " 的字串應該使用 ' 字元逸出，例如 user.department -eq \`"Sales"。
->
->
 
 ## <a name="supported-expression-rule-operators"></a>支援的運算式規則運算子
 下表列出所有支援的運算式規則運算子及其用於進階規則主體中的語法：
@@ -95,11 +92,15 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="operator-precedence"></a>運算子優先順序
 
-所有運算子會依照優先順序 (從低至高) 列在底下，同一行中的運算子具有相等的優先順序 -any -all -or -and -not -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
-
-不管有沒有連字號前置詞，均可使用所有運算子。
-
-請注意，不一定需要括號，只需在優先順序不符合您的需求時加上括號。
+所有運算子都會列在下面 (由高至低排定優先順序)。 同一行上運算子的優先順序相等：
+````
+-any -all
+-or
+-and
+-not
+-eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
+````
+不管有沒有連字號前置詞，均可使用所有運算子。 優先順序不符合您的需求時，才需要括號。
 例如：
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
@@ -271,25 +272,25 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 3. 儲存規則之後，即會將具有指定經理識別碼值的所有使用者新增至群組。
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>使用屬性來建立裝置物件的規則
-您也可以建立規則以在群組中選取成員資格的裝置物件。 可以使用下列裝置屬性︰
+您也可以建立規則以在群組中選取成員資格的裝置物件。 可以使用下列裝置屬性。
 
-| 屬性              | 允許的值                  | 使用量                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | 任何字串值                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | 任何字串值                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | 任何字串值                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | 任何字串值                | (device.deviceCategory -eq "")                              |
-| deviceManufacturer      | 任何字串值                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | 任何字串值                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | 任何字串值                | (device.deviceOwnership -eq "")                             |
-| domainName              | 任何字串值                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | 任何字串值                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | 任何字串值                | (device.managementType -eq "")                              |
-| organizationalUnit      | 任何字串值                | (device.organizationalUnit -eq "")                          |
-| deviceId                | 有效的 deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | 有效的 AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+ 裝置屬性  | 值 | 範例
+ ----- | ----- | ----------------
+ accountEnabled | true false | (device.accountEnabled -eq true)
+ displayName | 任何字串值 |(device.displayName -eq "Rob Iphone”)
+ deviceOSType | 任何字串值 | (device.deviceOSType -eq "IOS")
+ deviceOSVersion | 任何字串值 | (device.OSVersion -eq "9.1")
+ deviceCategory | 有效的裝置類別名稱 | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | 任何字串值 | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | 任何字串值 | (device.deviceModel -eq "iPad Air")
+ deviceOwnership | 個人、公司 | (device.deviceOwnership -eq "Company")
+ domainName | 任何字串值 | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Apple 裝置註冊設定檔名稱 | (device.enrollmentProfileName -eq "DEP iPhones")
+ isRooted | true false | (device.isRooted -eq true)
+ managementType | MDM (適用於行動裝置)<br>PC (適用於 Intune PC 代理程式管理的電腦) | (device.managementType -eq "MDM")
+ organizationalUnit | 符合內部部署 Active Directory 所設定的組織單位名稱的任何字串值 | (device.organizationalUnit -eq "US PCs")
+ deviceId | 有效的 Azure AD 裝置識別碼 | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objectId | 有效的 Azure AD 物件識別碼 |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
 
 
 

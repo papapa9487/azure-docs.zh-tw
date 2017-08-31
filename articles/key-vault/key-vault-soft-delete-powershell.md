@@ -8,13 +8,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: b5ce7d5e0e353002803991f58dde78ab5c4627b9
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 1775902aa7ec820c3b6c34eda60961eecd27f014
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
@@ -27,6 +27,12 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 ## <a name="prerequisites"></a>必要條件
 
 - Azure PowerShell 4.0.0 或更新版本 - 如果您尚未安裝，請安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
+
+>[!NOTE]
+> 載入您的環境的可能是一個過期版本的 Key Vault PowerShell 輸出格式檔案，而不是正確版本。 您的選項是使用這些解決方案的其中之一：
+> 
+> - 升級至 [Azure PowerShell 4.4.0 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.2.0)以解決這個問題。
+> - 如果您注意到您看不到此主題中所述的已啟用虛刪除的屬性，請使用下列查詢：`$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`。
 
 如需 PowerShell 的 Key Vault 特定參考資訊，請參閱 [Azure Key Vault PowerShell 參考](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0)。
 

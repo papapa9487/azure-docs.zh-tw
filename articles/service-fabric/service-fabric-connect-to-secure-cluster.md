@@ -14,94 +14,57 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a24b82243cb9758b0b256c40138222357bf6e72c
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
+
 當用戶端連線到 Service Fabric 叢集節點時，用戶端可以使用憑證安全性或 Azure Active Directory (AAD) 來接受驗證及保護已建立的通訊。 此驗證可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。  憑證或 AAD 安全性必須在叢集建立之時即事先在叢集上啟用。  如需有關叢集安全性案例的詳細資訊，請參閱 [叢集安全性](service-fabric-cluster-security.md)。 如果您要連接到使用憑證保護的叢集，請在要連接到叢集的電腦上[設定用戶端憑證](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert)。 
 
 <a id="connectsecureclustercli"></a> 
 
-## <a name="connect-to-a-secure-cluster-using-cli"></a>使用 CLI 來連線到安全的叢集
+## <a name="connect-to-a-secure-cluster-using-azure-service-fabric-cli-sfctl"></a>使用 Azure Service Fabric CLI (sfctl) 連線到安全的叢集
 
-有幾個不同的方式可使用 Service Fabric Azure CLI 2.0 命令或 XPlat CLI 來連線到安全的叢集。
+有幾個不同的方式可使用 Service Fabric CLI (sfctl) 來連線到安全的叢集。 使用用戶端憑證來進行驗證時，憑證詳細資料必須與部署至叢集節點的憑證相符。 如果您的憑證有「憑證授權單位」(CA)，就必須額外指定信任的 CA。
 
-### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用用戶端憑證連線到安全的叢集
-
-使用用戶端憑證來進行驗證時，憑證詳細資料必須與部署至叢集節點的憑證相符。 如果您的憑證有「憑證授權單位」(CA)，就必須額外指定信任的 CA。 請使用下列 XPlat CLI 和 Azure CLI 2.0 的範例來進行連線。
-
-#### <a name="xplat-cli"></a>XPlat CLI
-
-使用 XPlat CLI 時，請執行下列命令來進行連線：
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2
-```
-
-若要指定多個 CA 憑證，可以使用 `,` 來分隔路徑。
-
-如果憑證中的一般名稱不符合連接端點，您可以使用 `--strict-ssl-false` 參數略過驗證。 例如：
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --ca-cert-path /tmp/ca1,/tmp/ca2 --strict-ssl-false 
-```
-
-如果想要跳過 CA 驗證，您可以新增 ``--reject-unauthorized-false`` 參數。 例如：
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
-```
-
-若要連線至使用自我簽署憑證保護的叢集，請使用下列命令以移除 CA 驗證和一般名稱驗證：
-
-```bash
-azure servicefabric cluster connect --connection-endpoint https://ip:19080 \
---client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
-```
-
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
-
-使用 Azure CLI 2.0 時，您可以使用 `az sf cluster select` 命令來連線到叢集。
+您可以使用 `sfctl cluster select` 命令來連線到叢集。
 
 指定用戶端憑證時，可以使用兩種不同的方式，以憑證與金鑰組方式指定，或是以單一 pem 檔案方式指定。 針對受密碼保護的 `pem` 檔案，系統會自動提示您輸入密碼。
 
 若要以 pem 檔案指定用戶端憑證，請在 `--pem` 引數中指定檔案路徑。 例如：
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
-受密碼保護的 pem 檔案會在執行任何額外命令之前，先提示您輸入密碼。
+受密碼保護的 pem 檔案會在執行任何命令之前，先提示您輸入密碼。
 
 為了指定憑證，金鑰組會使用 `--cert` 和 `--key` 引數來指定每個個別檔案的檔案路徑。
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
+
 有時，用來保護測試或開發叢集的憑證會讓憑證驗證失敗。 若要略過憑證驗證，請指定 `--no-verify` 選項。 例如：
 
 > [!WARNING]
 > 連線到生產環境 Service Fabric 叢集時，請勿使用 `no-verify` 選項。
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-此外，您可以指定受信任 CA 憑證或個別憑證的目錄路徑。 若要指定這些路徑，請使用 `--ca` 引數。 例如：
+此外，您可以指定受信任 CA 憑證，或個別憑證的目錄路徑。 若要指定這些路徑，請使用 `--ca` 引數。 例如：
 
 ```azurecli
-az sf cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
+sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
-連線之後，您應該能夠[執行其他 CLI 命令](service-fabric-azure-cli.md)來與叢集互動。
+連線之後，您應該能夠[執行其他 sfctl 命令](service-fabric-cli.md)來與叢集互動。
 
 <a id="connectsecurecluster"></a>
 
@@ -387,13 +350,10 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * [Service Fabric 叢集升級程序與您的期望](service-fabric-cluster-upgrade.md)
-* [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)。
+* [在 Visual Studio 中管理 Service Fabric 應用程式](service-fabric-manage-application-in-visual-studio.md)
 * [Service Fabric 健康情況模型簡介](service-fabric-health-introduction.md)
 * [應用程式安全性及 RunAs](service-fabric-application-runas-security.md)
-
-## <a name="related-articles"></a>相關文章
-
-* [開始使用 Service Fabric 和 Azure CLI 2.0](service-fabric-azure-cli-2-0.md)
-* [開始使用 Service Fabric XPlat CLI](service-fabric-azure-cli.md)
+* [開始使用 Service Fabric CLI](service-fabric-cli.md)
 

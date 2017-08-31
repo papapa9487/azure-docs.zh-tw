@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/10/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: e8ff96587a840236adfb277b3a33b11db71f7d8e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 482bcf08b1256e26e15f7093fda621da4fdd5344
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>用於從 Azure 複寫至 Azure 的 Azure Site Recovery 支援矩陣
@@ -131,10 +131,10 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在 Site Recovery �
 
 **組態** | **支援/不支援** | **備註**
 --- | --- | ---
-最大的作業系統磁碟大小 | 1023 GB | 請參閱 [VM 使用的磁碟](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)。
-最大的資料磁碟大小 | 1023 GB | 請參閱 [VM 使用的磁碟](../storage/storage-about-disks-and-vhds-windows.md#disks-used-by-vms)。
+最大的作業系統磁碟大小 | 1023 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
+最大的資料磁碟大小 | 1023 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
 資料磁碟數量 | 特定 Azure VM 大小支援多達 64 個 | 請參閱 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)
-暫存磁碟 | 一律排除在複寫之外 | 暫存磁碟排除在複寫之外。 根據 Azure 指引，您不應該在暫存磁碟上放置任何持續性資料。 如需詳細資訊，請參閱 [Azure VM 上的暫存磁碟](../storage/storage-about-disks-and-vhds-windows.md#temporary-disk)。
+暫存磁碟 | 一律排除在複寫之外 | 暫存磁碟排除在複寫之外。 根據 Azure 指引，您不應該在暫存磁碟上放置任何持續性資料。 如需詳細資訊，請參閱 [Azure VM 上的暫存磁碟](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
 磁碟上的資料變更率 | 各磁碟資料變更率最高達 6 MBps | 如果磁碟的平均資料變更率持續超過 6 MBps，複寫將趕不上進度。 不過，如果是偶爾出現的資料高載，而且資料變更率有時超過 6 MBps 後便下降，則複寫會趕上進度。 在此情況下，您可能會發現復原點稍微延遲。
 標準儲存體帳戶上的磁碟 | 支援 |
 進階儲存體帳戶上的磁碟 | 支援 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定
@@ -152,7 +152,7 @@ ZRS | 不支援 |
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
 
 >[!IMPORTANT]
-> 請確定您遵循來源 Azure 虛擬機器的[儲存體指引](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源組態建立所需的儲存體帳戶。 如果您自訂並選取您自己的設定，請確定您維持 (../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 做為來源 VM。
+> 請確定您遵循來源 Azure 虛擬機器的[儲存體指引](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源組態建立所需的儲存體帳戶。 如果您自訂並選取您自己的設定，請確定您維持 (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 作為來源 VM。
 
 ## <a name="support-for-network-configuration"></a>網路組態的支援
 **組態** | **支援/不支援** | **備註**
