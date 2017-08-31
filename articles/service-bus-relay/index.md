@@ -1,13 +1,24 @@
 ---
-layout: LandingPage
 title: "服務匯流排轉送文件"
 description: "了解 Azure 轉送服務在混合式雲端和內部部署環境中的運作情況，包含作法、教學課程、影片、API 參考等。"
+services: service-bus
+author: czeumault
+manager: carolz
+layout: LandingPage
+ms.assetid: 
+ms.service: service-bus
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: landing-page
+ms.date: 03/14/2017
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 43d2c5ca34e4903a41160496fdb4d975cb665de7
 ms.contentlocale: zh-tw
 ms.lasthandoff: 08/04/2017
 
+---
 ---
 # <a name="service-bus-relay-documentation"></a>服務匯流排轉送文件
 了解 Azure 轉送服務可以如何在企業網路及公用雲端中的內部部署和雲端環境間使用混合式應用程式，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。

@@ -3,7 +3,7 @@ title: "Azure API 管理常見問題集 | Microsoft Docs"
 description: "了解 Azure API 管理中常見問題、模式和最佳作法的答案。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 2fa193cd-ea71-4b33-a5ca-1f55e5351e23

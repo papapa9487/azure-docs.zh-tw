@@ -8,16 +8,17 @@ author: op-ravi
 manager: santoshb
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
 ms.openlocfilehash: eb710795916a2d7beea75a6408a0982fb4dc8750
+ms.contentlocale: zh-tw
 ms.lasthandoff: 04/26/2017
 
 ---
@@ -30,23 +31,23 @@ Time Series Insights 環境是具有輸入和儲存容量的 Azure 資源。 客
 
 請遵循下列步驟來建立環境：
 
-1.    登入 [Azure 入口網站](https://portal.azure.com)。
-2.    按一下左上角的加號 (“+”)。
-3.    在搜尋方塊中搜尋「Time Series Insights」。
+1.  登入 [Azure 入口網站](https://portal.azure.com)。
+2.  按一下左上角的加號 (“+”)。
+3.  在搜尋方塊中搜尋「Time Series Insights」。
 
   ![建立 Time Series Insights 環境](media/get-started/getstarted-create-environment1.png)
 
-4.    選取 [Time Series Insights]，然後按一下 [建立]。
+4.  選取 [Time Series Insights]，然後按一下 [建立]。
 
   ![建立 Time Series Insights 資源群組](media/get-started/getstarted-create-environment2.png)
 
-5.    指定環境名稱。 此名稱會代表[時間序列總管](https://insights.timeseries.azure.com)中的環境。
-6.    選取一個訂用帳戶。 請選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
-7.    選取或建立資源群組。 資源群組是一起使用之 Azure 資源的集合。
-8.    選取裝載位置。 若要避免在資料中心之間移動資料，請選擇事件來源所在的位置。
-9.    選取定價層。
-10.    選取容量。 您可以在環境建立後變更其容量。
-11.    建立您的環境。 您也可以將環境釘選到儀表板，以方便在登入時存取。
+5.  指定環境名稱。 此名稱會代表[時間序列總管](https://insights.timeseries.azure.com)中的環境。
+6.  選取一個訂用帳戶。 請選擇包含事件來源的訂用帳戶。 Time Series Insights 可以自動偵測相同訂用帳戶中現有的 Azure IoT 中樞與事件中樞資源。
+7.  選取或建立資源群組。 資源群組是一起使用之 Azure 資源的集合。
+8.  選取裝載位置。 若要避免在資料中心之間移動資料，請選擇事件來源所在的位置。
+9.  選取定價層。
+10. 選取容量。 您可以在環境建立後變更其容量。
+11. 建立您的環境。 您也可以將環境釘選到儀表板，以方便在登入時存取。
 
   ![建立 Time Series Insights [釘選到儀表板]](media/get-started/getstarted-create-environment3.png)
 

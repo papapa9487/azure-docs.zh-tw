@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 8 課：建立檢視方塊 | Mic
 description: "說明如何在 Azure Analysis Services 教學課程專案中建立檢視方塊。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

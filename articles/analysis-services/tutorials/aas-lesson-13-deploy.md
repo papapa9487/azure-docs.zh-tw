@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 13 課：部署 | Microsoft Docs
 description: "說明如何將教學課程專案部署至 Azure Analysis Services。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

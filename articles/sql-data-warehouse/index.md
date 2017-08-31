@@ -2,7 +2,7 @@
 title: "Azure SQL 資料倉儲文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用 SQL 資料倉儲，其結合了 SQL Server 與大量平行處理。 文件會示範如何載入、分析、管理和匯出資料。"
 services: sql-data-warehouse
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
 ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
+ms.contentlocale: zh-tw
 ms.lasthandoff: 04/08/2017
 
 ---

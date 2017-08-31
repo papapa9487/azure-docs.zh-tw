@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 12 課：在 Excel 中進行分�
 description: "說明如何在 Azure Analysis Services 教學課程專案中使用「在 Excel 中進行分析」。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

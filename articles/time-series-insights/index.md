@@ -2,7 +2,7 @@
 title: "Azure Time Series Insights 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何透過完全受管理的事件處理，在雲端執行 IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。"
 services: time-series-insights
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: d22a3f0484da78d03dbe8411e74eb408185b1f30
+ms.contentlocale: zh-tw
 ms.lasthandoff: 05/03/2017
 
 --- 

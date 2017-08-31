@@ -6,21 +6,21 @@ keywords:
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 5bd17fc68447b8387dfaad33fe2d0055596ec086
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 4cfc1652377f0cfd059e336aec6994b40d32c559
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="roll-out-password-reset-for-users"></a>為使用者推出密碼重設
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="creating-your-own-password-portal"></a>建立您自己的密碼入口網站
 
-很多大型客戶都選擇裝載網頁並建立 DNS 根項目，例如 https://passwords.contoso.com。 他們會在此頁面中填入 Azure AD 密碼重設、密碼重設註冊、密碼變更入口網站和其他組織特定資訊的連結。 您送出的任何電子郵件或傳單都可以包含一個品牌化、令人印象深刻的 URL，使用者可以在需要使用服務時前往該 URL。
+很多大型客戶都選擇裝載網頁並建立 DNS 根項目，例如 https://passwords.contoso.com。他們會在此頁面中填入 Azure AD 密碼重設、密碼重設註冊、密碼變更入口網站和其他組織特定資訊的連結。 您送出的任何電子郵件或傳單都可以包含一個品牌化、令人印象深刻的 URL，使用者可以在需要使用服務時前往該 URL。
 
 * 密碼重設入口網站 - https://passwordreset.microsoftonline.com/
 * 密碼重設註冊入口網站 - http://aka.ms/ssprsetup
@@ -84,5 +84,5 @@ ms.lasthandoff: 05/26/2017
 * [**密碼回寫**](active-directory-passwords-writeback.md) - 密碼回寫如何使用您的內部部署目錄
 * [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
 * [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - 您一直想要詢問之問題的答案
+* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
 * [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題

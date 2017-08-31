@@ -4,7 +4,7 @@ description: "了解串流分析，這是可協助您即時分析物聯網 (IoT)
 keywords: "分析服務, 受管理服務, 串流處理, 串流分析, 什麼是串流分析"
 services: stream-analytics
 documentationcenter: 
-author: jenniehubbard
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 613c9b01-d103-46e0-b0ca-0839fee94ca8
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/08/2017
-ms.author: jhubbard
+ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 5081ecaf569aef9e2f99cc27e91c4b64a25b0deb
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 6bb70ba7588b8c6e9261fca097403e7fccb041eb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -98,6 +98,6 @@ Azure 串流分析是可完全管理的事件處理引擎，可讓您設定串�
 * 了解用於串流分析且類似 SQL 的查詢語言，以及[視窗函式](stream-analytics-window-functions.md)等獨特概念。
 * 了解如何[調整串流分析工作](stream-analytics-scale-jobs.md)。 
 * 了解如何[整合串流分析和 Azure 機器學習](stream-analytics-machine-learning-integration-tutorial.md)。
-* 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)中尋找串流分析問題的答案。
+* 在 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)中尋找串流分析問題的答案。
 
 

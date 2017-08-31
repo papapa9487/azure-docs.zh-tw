@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 2 課：取得資料 | Microsoft
 description: "說明如何在 Azure Analysis Services 教學課程專案中取得和匯入資料。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

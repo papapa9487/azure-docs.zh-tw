@@ -8,7 +8,7 @@ author: venkatgct
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
@@ -23,15 +23,11 @@ ms.lasthandoff: 07/04/2017
 
 ---
 
-<a id="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal" class="xliff"></a>
-
-# 使用 Ibiza 入口網站建立 Time Series Insights 環境的參考資料集
+# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>使用 Ibiza 入口網站建立 Time Series Insights 環境的參考資料集
 
 參考資料集是許多項目的集合，這些項目是從事件來源的事件擴展而來的。 Time Series Insights 輸入引擎會將事件來源的事件和參考資料集中的項目聯結在一起。 然後此增強的事件可用於查詢。 這項聯結是以參考資料集中定義的索引鍵為基礎。
 
-<a id="steps-to-add-a-reference-data-set-to-your-environment" class="xliff"></a>
-
-## 將參考資料集新增至環境的步驟
+## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>將參考資料集新增至環境的步驟
 
 1. 登入 [Ibiza 入口網站](https://portal.azure.com)。
 2. 按一下 Ibiza 入口網站左側功能表中的 [所有資源]。
@@ -50,9 +46,7 @@ ms.lasthandoff: 07/04/2017
 
 7. 按一下 [建立]。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 * 以程式設計的方式[管理參考資料](time-series-insights-manage-reference-data-csharp.md)。
 * 如需完整的 API 參考，請參閱＜[參考資料 API](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)＞文件。

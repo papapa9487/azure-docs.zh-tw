@@ -115,7 +115,7 @@ private DocumentClient client;
 現在，請建立 **DocumentClient** 的新執行個體。
 
 ```csharp
-DocumentClient client = new DocumentClient(new Uri(endpoint), authKey);
+DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
 ```
 
 ## <a id="create-database"></a>建立資料庫

@@ -2,7 +2,7 @@
 title: "Azure Active Directory B2C 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何在雲端部署全方位取用者身分識別管理。 文件會示範如何保護取用者面向的 Web 和行動應用程式。"
 services: active-directory-b2c
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 2bb7fe165fc88df62a2b12ccf666da0a7965d43b
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/27/2017
 
 ---

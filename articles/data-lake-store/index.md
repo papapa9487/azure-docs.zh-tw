@@ -2,7 +2,7 @@
 title: "Azure Data Lake Store 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何設定、管理及存取大規模、Hadoop 相容的 Data Lake 儲存機制，以便分析任何大小、類型和擷取速度的資料。"
 services: data-lake-store
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

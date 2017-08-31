@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/05/2017
 ms.author: mihauss
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 9f8648b0d6774bd45b57f50a4810535a8dacbab6
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 544b11d74a926fe62b8ceca51570ce9d2ee7e6e7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-preview-storage-tiers"></a>Azure Blob 儲存體︰經常性存取、非經常性存取和封存 (封存) 儲存層
@@ -302,7 +302,7 @@ AzCopy 為 Windows 命令列公用程式，可以極高效能將資料複製到 
 
 您可以建立自訂應用程式，以使用其中一個 Azure 用戶端程式庫或 Azure 儲存體服務 REST API，將您的資料移轉至 Blob 儲存體帳戶。 Azure 儲存體針對以下多種語言和平台提供豐富的用戶端程式庫：例如 .NET、Java、C++、Node.JS、PHP、Ruby 和 Python。 這些用戶端程式庫提供多種進階功能，例如大重試邏輯、記錄與並行上傳等等。 您也可以直接透過 REST API 開發，它可以透過提出 HTTP/HTTPS 要求的任何語言進行呼叫。
 
-如需詳細資訊，請參閱 [開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+如需詳細資訊，請參閱 [開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)。
 
 > [!NOTE]
 > 使用用戶端加密來加密的 Blob 會儲存利用 Blob 儲存的加密相關中繼資料。 任何複製機制絕對要能夠確保保留 Blob 中繼資料 (尤其是加密相關中繼資料)。 如果您複製不含此中繼資料的 Blob，便無法再次擷取 Blob 內容。 如需有關加密相關中繼資料的詳細資訊，請參閱 [Azure 儲存體用戶端加密](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。

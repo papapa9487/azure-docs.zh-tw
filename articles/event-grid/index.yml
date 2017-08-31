@@ -5,14 +5,14 @@ metadata:
   title: Azure Event Grid 文件 - 教學課程和 API 參考
   description: 使用 Azure Event Grid，以近即時的方式回應跨 Azure 和非 Azure 服務的相關事件。
   services: event-grid
-  author: banisadr
-  manager: timlt
+  author: czeumault
+  manager: carolz
   ms.service: event-grid
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/10/2017
-  ms.author: banisadr
+  ms.author: carolz
 abstract:
   description: Azure Event Grid 是完全受管的智慧型事件路由服務，可讓統一事件耗用量使用發佈-訂閱模型。 使用 Azure Event Grid，以近即時的方式回應跨 Azure 和非 Azure 服務的相關事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Event Grid。
 sections:

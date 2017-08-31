@@ -2,7 +2,7 @@
 title: "Azure IoT 中樞文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用 IoT 中樞來連接、監視及控制數百萬個物聯網資產。 教學課程、API 參考、影片和其他文件。"
 services: iot-hub
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

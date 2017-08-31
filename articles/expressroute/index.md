@@ -2,7 +2,7 @@
 title: "Azure ExpressRoute 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何設定和管理從內部部署基礎結構或共置設備到 Microsoft 雲端服務的私人 ExpressRoute 連線。"
 services: expressroute
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

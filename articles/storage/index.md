@@ -2,7 +2,7 @@
 title: "Azure 儲存體文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何使用 Azure 儲存體 - 雲端中的 Blob、資料表、佇列、檔案和虛擬機器磁碟儲存體。 教學課程、API 參考和其他文件。"
 services: storage
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

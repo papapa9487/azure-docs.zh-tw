@@ -2,7 +2,7 @@
 title: "Azure Multi-Factor Authentication 文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何透過可提供簡單登入程序的各種驗證方法，部署 Multi-Factor Authentication。 教學課程、SDK 等等。"
 services: multi-factor-authentication
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: acd9ead9012043bc6db8c32add86bb7797fcf8c9
 ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
+ms.contentlocale: zh-tw
+ms.lasthandoff: 02/09/2017
 
 ---
 
@@ -117,10 +119,5 @@ ms.openlocfilehash: c4aaa14007bf441f99ef6599bda411bcaed92a92
 
 ---
 
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

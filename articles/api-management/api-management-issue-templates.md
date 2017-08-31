@@ -3,7 +3,7 @@ title: "Azure API 管理中的問題範本 | Microsoft Docs"
 description: "了解如何在「Azure API 管理」中自訂開發人員入口網站中的「問題」頁面內容。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 47da4bb2-426e-4e53-8fa7-214ee2e3ab37
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Azure API 管理中的問題範本
@@ -29,7 +31,7 @@ ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
 > [!NOTE]
 >  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。  
   
-##  <a name="a-nameissuelista-issue-list"></a><a name="IssueList"></a> 問題清單  
+##  <a name="IssueList"></a> 問題清單  
  「問題清單」範本可讓您自訂開發人員入口網站中問題清單頁面的主體。  
   
  ![問題清單開發人員入口網站](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "APIM 問題清單開發人員入口網站")  
@@ -134,8 +136,3 @@ ms.openlocfilehash: 6a14bd0cb95f8965ae53ff60fe1e638199a0b5b5
 
 ## <a name="next-steps"></a>後續步驟
 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。
-
-
-<!--HONumber=Jan17_HO2-->
-
-

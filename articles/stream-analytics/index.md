@@ -2,7 +2,7 @@
 title: "Azure 串流分析文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何透過完全受管理的事件處理，在雲端執行 IoT 分析。 即時分析來自應用程式、感應器、裝置等的資料。"
 services: stream-analytics
-author: samacha
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
-ms.author: samacha
+ms.author: carolz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d

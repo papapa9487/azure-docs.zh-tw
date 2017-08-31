@@ -18,10 +18,10 @@ ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d5c23c7b75d7eab563b223bc6eccfc158e9274db
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 5a2131659903e79b28f4d1b795d25a31d8d4ce8d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -108,7 +108,7 @@ k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 
 Kubernetes 資訊清單檔會定義所需的叢集狀態，包括哪些容器映像應在執行中。 例如，資訊清單可用來建立執行 Azure 投票應用程式所需的所有物件。 
 
-建立名為 `azure-vote.yaml` 的檔案，並複製到下列 YAML。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。
+建立名為 `azure-vote.yml` 的檔案，並複製到下列 YAML。 如果您在 Azure Cloud Shell 中作業，可以使用 vi 或 Nano 建立這個檔案，猶如使用虛擬或實體系統。
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -174,7 +174,7 @@ spec:
 使用 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 命令來執行應用程式。
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl create -f azure-vote.yml
 ```
 
 輸出：

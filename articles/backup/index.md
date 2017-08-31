@@ -2,7 +2,7 @@
 title: "Azure 備份文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "使用備份文件，了解如何備份至雲端。 請參閱應用程式、Windows Server 和 Azure 虛擬機器備份的教學課程和影片。"
 services: backup
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

@@ -1,20 +1,20 @@
 ---
 title: "Azure 入口網站文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何在 Azure 入口網站中部署及管理資源。 教學課程、API 參考和其他文件。"
-services: 
+services: azure portal
 documentationcenter: 
-author: squillace
-manager: timlt
+author: czeumault
+manager: carolz
 editor: 
 tags: 
 ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
-ms.service: value
+ms.service: azure-portal
 ms.devlang: na
-ms.topic: article
+ms.topic: landing-page
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
-ms.author: tysonn
+ms.author: carolz
 ms.translationtype: HT
 ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: d9145591f768f2d5a8e55f28b0764b31e2ee452b

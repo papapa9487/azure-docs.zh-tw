@@ -2,7 +2,7 @@
 title: "Azure 流量管理員文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何管理連入流量，以獲得最佳的應用程式效能。 文件會示範如何將流量分散至 Azure 或外部服務端點。"
 services: traffic-manager
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: 17727bace2ffbe77123e8d027b4a49b6ca92669e
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/18/2017
 
 ---

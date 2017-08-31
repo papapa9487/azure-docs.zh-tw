@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 1 課：建立新的表格式模
 description: "說明如何建立新的 Azure Analysis Services 教學課程專案。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

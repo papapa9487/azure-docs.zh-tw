@@ -3,7 +3,7 @@ title: "使用 Azure 自動化管理 Azure API 管理"
 description: "了解如何使用 Azure 自動化服務來管理 Azure API 管理。"
 services: api-management, automation
 documentationcenter: 
-author: csand-msft
+author: vladvino
 manager: eamono
 editor: 
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: 3e0e91cf3652b71af49242206057854500f78b2e
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>使用 Azure 自動化管理 Azure API 管理
@@ -41,10 +42,5 @@ Azure 自動化提供高度可靠、高度可用的工作流程執行引擎，�
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure API 管理之後，請參考下列連結以深入了解。
 
 * 請參閱 Azure 自動化 [快速入門教學課程](../automation/automation-first-runbook-graphical.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

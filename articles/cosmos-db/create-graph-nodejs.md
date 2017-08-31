@@ -13,24 +13,20 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 07/14/2017
+ms.date: 08/29/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 6d14719938af0ce825955389824441e111024869
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 60cb187cf40f72fce86c421891bea02d3d6d708a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 Node.js 應用程式
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本快速入門文章會示範如何使用 Azure 入口網站建立適用於圖形 API (預覽) 的 Azure Cosmos DB 帳戶、資料庫和圖形。 您會接著使用開放原始碼 [Gremlin Node.js](https://www.npmjs.com/package/gremlin-secure) 驅動程式來建置和執行主控台應用程式。  
-
-> [!NOTE]
-> NPM 模組 `gremlin-secure` 是已修改的 `gremlin` 模組版本，支援與 Azure Cosmos DB 連線所需的 SSL 和 SASL。 原始程式碼位於 [GitHub](https://github.com/CosmosDB/gremlin-javascript)。
->
+本快速入門文章會示範如何使用 Azure 入口網站建立適用於圖形 API (預覽) 的 Azure Cosmos DB 帳戶、資料庫和圖形。 您會接著使用開放原始碼 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 驅動程式來建置和執行主控台應用程式。  
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -133,7 +129,7 @@ module.exports = config;
 
 1. 開啟終端機視窗並變更 (透過 `cd` 命令) 至專案內含 package.json 檔案的安裝目錄。  
 
-2. 執行 `npm install` 以安裝必要的 npm 模組，包括 `gremlin-secure`。
+2. 執行 `npm install` 以安裝必要的 npm 模組，包括 `gremlin`。
 
 3. 在終端機中執行 `node app.js` 來啟動您的節點應用程式。
 

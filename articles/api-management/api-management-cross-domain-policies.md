@@ -3,7 +3,7 @@ title: "Azure API 管理跨網域原則 | Microsoft Docs"
 description: "了解可在 Azure API 管理中使用的跨網域原則。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 7689d277-8abe-472a-a78c-e6d4bd43455d
@@ -14,15 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
 ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/12/2017
 
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨網域原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
   
-##  <a name="a-namecrossdomainpoliciesa-cross-domain-policies"></a><a name="CrossDomainPolicies"></a>跨網域原則  
+##  <a name="CrossDomainPolicies"></a>跨網域原則  
   
 -   [允許跨網域呼叫](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - 將 API 設為可供 Adobe Flash 和 Microsoft Silverlight 瀏覽器型用戶端存取。  
   
@@ -30,7 +32,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - 將 JSON 與補充的 (JSONP) 支援加入至操作或 API，以允許來自 JavaScript 瀏覽器型用戶端的跨網域呼叫。  
   
-##  <a name="a-nameallowcrossdomaincallsa-allow-cross-domain-calls"></a><a name="AllowCrossDomainCalls"></a>允許跨網域呼叫  
+##  <a name="AllowCrossDomainCalls"></a>允許跨網域呼叫  
  使用 `cross-domain` 原則以將 API 設為可供 Adobe Flash 和 Microsoft Silverlight 瀏覽器型用戶端存取。  
   
 ### <a name="policy-statement"></a>原則陳述式  
@@ -65,7 +67,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   **原則範圍︰**全域  
   
-##  <a name="a-namecorsa-cors"></a><a name="CORS"></a>CORS  
+##  <a name="CORS"></a>CORS  
  `cors` 原則會將跨原始來源資源分享 (CORS) 支援加入至操作或 API，以允許來自瀏覽器型用戶端的跨網域呼叫。  
   
  CORS 可讓瀏覽器和伺服器互動，以決定是否允許特定的跨原始來源要求 (例如，從網頁上的 JavaScript 對其他網域提出的 XMLHttpRequests 呼叫)。 這比只允許相同原始來源的要求更有彈性，也比允許所有跨原始來源的要求更安全。  
@@ -149,7 +151,7 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 -   **原則範圍︰**API、作業  
   
-##  <a name="a-namejsonpa-jsonp"></a><a name="JSONP"></a>JSONP  
+##  <a name="JSONP"></a>JSONP  
  `jsonp` 原則會將 JSON 與補充的 (JSONP) 支援加入至作業或 API，以允許來自 JavaScript 瀏覽器型用戶端的跨網域呼叫。 JSONP 是 JavaScript 程式中使用的方法，可從位於不同網域的伺服器要求資料。 JSONP 會略過大多數網頁瀏覽器中規定必須在相同網域內才能存取網頁的限制。  
   
 ### <a name="policy-statement"></a>原則陳述式  
@@ -189,8 +191,3 @@ ms.openlocfilehash: 638e70d29fb8e60418bcfdf76dc1405afef91278
   
 ## <a name="next-steps"></a>後續步驟
 如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
-
-
-<!--HONumber=Jan17_HO2-->
-
-

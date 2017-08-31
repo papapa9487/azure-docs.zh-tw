@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程補充課程：詳細資料列 | Mic
 description: "說明如何在 Azure Analysis Services 教學課程中建立詳細資料列運算式。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

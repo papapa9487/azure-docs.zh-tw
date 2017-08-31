@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/14/2017
+ms.date: 8/30/2017
 ms.author: johnkem
 ms.translationtype: HT
 ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
@@ -53,13 +53,13 @@ ms.lasthandoff: 08/08/2017
     "serviceBusRuleId": {
       "type": "string",
       "metadata": {
-        "description": "Service Bus Rule Id for the Service Bus Namespace in which the Event Hub should be created or streamed to."
+        "description": "Resource ID of the Service Bus Rule for the Service Bus Namespace in which the Event Hub should be created or streamed to."
       }
     },
     "workspaceId":{
       "type": "string",
       "metadata": {
-        "description": "Log Analytics workspace ID for the Log Analytics workspace to which logs will be sent."
+        "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
       }
     }
     ```

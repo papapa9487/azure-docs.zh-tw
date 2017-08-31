@@ -2,7 +2,7 @@
 title: "Azure 安全性文件 - 教學課程 | Microsoft Docs"
 description: "了解如何自訂 Azure 服務中的安全性選項，以符合您在雲端中部署服務和資料的需求。"
 services: security
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 

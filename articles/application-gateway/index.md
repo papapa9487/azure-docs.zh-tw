@@ -2,7 +2,7 @@
 title: "Azure 應用程式閘道文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何部署雲端應用程式傳遞控制站。 文件會示範如何為 Web 前端設定應用程式層級的路由與負載平衡。"
 services: application-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
@@ -12,9 +12,10 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
 ms.openlocfilehash: 535364a9da46b137c4d32e1c3049a5be3496e5d2
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/15/2017
 
 ---
@@ -161,7 +162,7 @@ ms.lasthandoff: 03/15/2017
             </div>
         </div>
     </li>
-</ul>    
+</ul>   
 
 
 

@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 10 課：建立分割區 | Micro
 description: "說明如何在 Azure Analysis Services 教學課程專案中建立分割區。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

@@ -3,7 +3,7 @@ title: "Azure Analysis Services 教學課程第 3 課：標記為日期資料表
 description: "說明如何在 Azure Analysis Services 教學課程專案中標記日期資料表。"
 services: analysis-services
 documentationcenter: 
-author: minewiskan
+author: Minewiskan
 manager: erikre
 editor: 
 tags: 

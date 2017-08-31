@@ -2,7 +2,7 @@
 title: "Azure VPN 閘道文件 - 教學課程和 API 參考 | Microsoft Docs"
 description: "了解如何設定虛擬私人網路 (VPN) 閘道，以管理雲端虛擬網路與內部部署之間的流量或雲端 VNet 之間的流量。"
 services: vpn-gateway
-author: carolz
+author: czeumault
 manager: carolz
 layout: LandingPage
 ms.assetid: 
