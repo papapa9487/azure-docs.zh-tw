@@ -53,7 +53,7 @@ Azure VPN 閘道現在支援個別連線的自訂 IPsec/IKE 原則。 針對站�
 
 ## <a name="ipsecike-policy-faq"></a>IPsec/IKE 原則常見問題集
 
-[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-ipsecikepolicy-faq-include.md)]
+[!INCLUDE [vpn-gateway-ipsecikepolicy-faq-include](../../includes/vpn-gateway-faq-ipsecikepolicy-include.md)]
 
 
 ## <a name="next-steps"></a>後續步驟

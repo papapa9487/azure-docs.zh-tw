@@ -187,7 +187,7 @@ VNet 對 VNet 連線不需要 DNS。 不過，如果您想要對部署至虛擬�
 ## <a name="faq"></a>VNet 對 VNet 常見問題集
 檢視常見問題集詳細資料以取得 VNet 對 VNet 連線的其他資訊。
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱 [虛擬機器文件](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) 。
