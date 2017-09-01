@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
 ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 11/17/2016
 
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>將特定實驗室原則的權限授與使用者
@@ -73,7 +74,7 @@ ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
 
 有了使用者的 **ObjectId** 和自訂角色名稱之後，您便可以使用 **New-AzureRmRoleAssignment** Cmdlet 將該角色指派給使用者：
 
-    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/policies/AllowedVmSizesInLab
+    PS C:\>New-AzureRmRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 
 在先前的範例中，使用的是 **AllowedVmSizesInLab** 原則。 您也可以使用下列任何原則：
 
@@ -92,10 +93,5 @@ ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
 * [建立實驗室範本](devtest-lab-create-template.md)。
 * [為您的 VM 建立自訂成品](devtest-lab-artifact-author.md)。
 * [將具有構件的 VM 加入實驗室](devtest-lab-add-vm-with-artifacts.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

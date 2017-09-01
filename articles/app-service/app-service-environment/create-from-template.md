@@ -41,7 +41,7 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 
 2. 建立 ILB ASE 之後，會上傳與您的 ILB ASE 網域相符的 SSL 憑證。
 
-3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com)，此憑證將使用於此應用程式的 SSL 流量。
+3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com )，此憑證將使用於此應用程式的 SSL 流量。
 
 
 ## <a name="create-the-ase"></a>建立 ASE
