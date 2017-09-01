@@ -85,7 +85,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 使用下列命令，建立與虛擬機器的遠端桌面工作階段。 以虛擬機器的公用 IP 位址取代 IP 位址。 出現提示時，請輸入您在建立虛擬機器時所使用的認證。
 
 ```bash 
-mstsc /v:<Public IP Address>
+mstsc /v:Public IP Address
 ```
 
 ## <a name="install-iis-using-powershell"></a>使用 PowerShell 安裝 IIS
