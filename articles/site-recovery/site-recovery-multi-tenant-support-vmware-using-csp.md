@@ -140,7 +140,7 @@ vCenter 帳戶存取程序如下：
 
 ### <a name="step-1-create-a-tenant-account"></a>步驟 1︰建立租用戶帳戶
 
-1. 透過 [Microsoft 合作夥伴中心][](https://partnercenter.microsoft.com/) 登入 CSP 帳戶。 
+1. 透過 [Microsoft 合作夥伴中心](https://partnercenter.microsoft.com/) 登入 CSP 帳戶。 
  
 2. 在 [儀表板] 功能表上，選取 [客戶]。
 
