@@ -23,7 +23,7 @@ ms.lasthandoff: 07/14/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure 函式並在本機進行測試
 
-雖然「Azure 入口網站」[]有提供開發及測試 Azure Functions 的完整工具集，有許多開發人員仍偏好本機開發體驗。 Azure Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及本機開發工具，在本機電腦上開發並測試您的函式。 您的函式可以透過 Azure 中的事件觸發，您也可以在本機電腦上對 C# 和 JavaScript 函式進行偵錯。 
+雖然 [Azure 入口網站] 有提供開發及測試 Azure Functions 的完整工具集，有許多開發人員仍偏好本機開發體驗。 Azure Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及本機開發工具，在本機電腦上開發並測試您的函式。 您的函式可以透過 Azure 中的事件觸發，您也可以在本機電腦上對 C# 和 JavaScript 函式進行偵錯。 
 
 如果您是 Visual Studio C# 開發人員，Azure Functions 也能[與 Visual Studio 2017 整合](functions-develop-vs.md)。
 
@@ -233,7 +233,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。|
 | **`--overwrite-settings -y`** | 必須與 `-i` 搭配使用。 使用本機值在 Azure 中覆寫 AppSettings (如果不同)。 預設值為提示。|
 
-`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用「Azure 入口網站」[]中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。
+`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。
 
 ## <a name="next-steps"></a>後續步驟
 
