@@ -15,11 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: db6e654de074fc6651fd0d7479ee52038f944745
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -71,9 +70,14 @@ ms.lasthandoff: 07/11/2017
 
 銀級耐久性層中的 Azure 叢集依預設會啟用修復管理器。 金級耐久性層中的 Azure 叢集可能會或也可能不會啟用修復管理器，取決於這些叢集的建立時間。 銅級耐久性層中的 Azure 叢集依預設不會啟用修復管理器服務。 如果已啟用服務，可以在 Service Fabric Explorer 的系統服務區段中看到它正在執行。
 
-您可以使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)在新的和現有的 Service Fabric 叢集上啟用修復管理器。 取得您想要部署之叢集的範本。 您可以使用範例範本或建立自訂的 Resource Manager 範本。 
+##### <a name="azure-portal"></a>Azure 入口網站
+您可以在設定叢集時從 Azure 入口網站啟用修復管理員。 在叢集設定時選取 `Add on features` 下的 `Include Repair Manager` 選項。
+![從 Azure 入口網站啟用修復管理員的映像](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
-啟用修復管理器服務：
+##### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
+或者，您可以使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)在新的和現有的 Service Fabric 叢集上啟用修復管理員。 取得您想要部署之叢集的範本。 您可以使用範例範本或建立自訂的 Resource Manager 範本。 
+
+若要使用 [Azure Resource Manager 範本](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)啟用修復管理員服務：
 
 1. 首先，檢查 `Microsoft.ServiceFabric/clusters` 資源的 `apiversion` 是否已設定為 `2017-07-01-preview`，如下列程式碼片段所示。 如果不是，您就需要將 `apiVersion` 更新為 `2017-07-01-preview` 值：
 
@@ -136,9 +140,11 @@ ms.lasthandoff: 07/11/2017
 
 ### <a name="optional-enable-azure-diagnostics"></a>選擇性：啟用 Azure 診斷
 
-在每個叢集節點上會本機收集修補程式協調流程應用程式的記錄。 執行 Service Fabric 執行階段版本 `5.6.220.9494` 和以上版本的叢集，同時會收集記錄作為 Service Fabric 記錄的一部分。
+執行 Service Fabric 執行階段版本 `5.6.220.9494` 和以上版本的叢集，會收集修補程式協調流程應用程式記錄作為 Service Fabric 記錄的一部分。
+如果您的叢集是在 Service Fabric 執行階段 `5.6.220.9494` 版和以上版本執行，您可以略過此步驟。
 
-至於執行 Service Fabric 執行階段 `5.6.220.9494` 以下版本的叢集，我們建議您設定 Azure 診斷，將所有節點的記錄上傳到中央位置。
+對於執行 Service Fabric 執行階段 `5.6.220.9494` 以下版本的叢集，只會在每個叢集節點的本機收集修補程式協調流程應用程式記錄。
+我們建議您設定 Azure 診斷，將所有節點的記錄上傳到中央位置。
 
 如需啟用 Azure 診斷的詳細資訊，請參閱[使用 Azure 診斷收集記錄](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad)。
 
@@ -295,7 +301,7 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="locally-on-each-node"></a>本機的每個節點上
 
-會在每個 Service Fabric 叢集節點上本機收集記錄。 存取記錄的位置為 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs。
+如果 Service Fabric 執行階段版本小於 `5.6.220.9494`，則只會在每個 Service Fabric 叢集節點的本機收集記錄。 存取記錄的位置為 \[Service Fabric\_Installation\_Drive\]:\\PatchOrchestrationApplication\\logs。
 
 例如︰如果 Service Fabric 是安裝在 D 磁碟機上，則路徑為 D:\\PatchOrchestrationApplication\\logs。
 
@@ -355,6 +361,10 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 - 下載並安裝更新時所需的平均時間，不應該超過幾個小時。
 - VM 和網路頻寬的效能。
 
+問： **為什麼看到 Windows Update 結果中的某些更新是透過 REST API 取得，而不是電腦上的 Windows Update 歷程記錄下？**
+
+A. 某些產品更新需要簽入其各自的更新/修補歷程記錄。 例如：Windows Defender 更新不會顯示在 Windows Server 2016 上的 Windows Update 歷程記錄。
+
 ## <a name="disclaimers"></a>免責聲明
 
 - 修補程式協調流程應用程式會代表使用者接受 Windows Update 的使用者授權合約 (EULA)。 可在應用程式的設定中選擇性地將此設定關閉。
@@ -392,4 +402,18 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 錯誤的 Windows Update 會損及特定節點或升級網域上應用程式或叢集的健康情況。 修補程式協調流程應用程式會中止所有後續的 Windows Update作業，直到叢集恢復良好健康情況。
 
 系統管理員必須介入，判斷應用程式或叢集為何因為 Windows Update 變成健康情況不良。
+
+## <a name="release-notes-"></a>版本資訊：
+
+### <a name="version-110"></a>1.1.0 版
+- 公開版本
+
+### <a name="version-111"></a>1.1.1 版
+- 修正 SetupEntryPoint of NodeAgentService 中的錯誤，該錯誤導致無法安裝 NodeAgentNTService。
+
+### <a name="version-120-latest"></a>1.2.0 版 (最新)
+
+- 關於系統重新啟動工作流程的錯誤修正。
+- 由於準備修復工作期間健康情況檢查未如預期般發生，而在 RM 工作建立時進行的錯誤修正。
+- 將 Windows 服務 POANodeSvc 的啟動模式從自動變更為延遲自動。
 

@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2017
+ms.date: 08/22/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 8e21861de95308a99beab3ff5ed5bd95c4f04e33
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
@@ -146,7 +146,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 > 在某個 Azure Cosmos DB 模擬器版本中建立的資料不保證可以使用不同的版本存取。 如果您需要長期保存資料，建議您將資料儲存於 Azure Cosmos DB 帳戶中，而不是 Azure Cosmos DB 模擬器中。 
 
 ## <a name="authenticating-requests"></a>驗證要求
-就像雲端的 Azure 文件一樣，您對 Azure Cosmos DB 模擬器的每個要求都必須經過驗證。 Azure Cosmos DB 模擬器支援主要金鑰驗證的單一固定帳戶及已知驗證金鑰。 此帳戶和金鑰都是唯一允許搭配 Azure Cosmos DB 模擬器使用的認證， 如下：
+就像雲端的 Azure Cosmos DB 一樣，您對 Azure Cosmos DB 模擬器的每個要求都必須經過驗證。 Azure Cosmos DB 模擬器支援主要金鑰驗證的單一固定帳戶及已知驗證金鑰。 此帳戶和金鑰都是唯一允許搭配 Azure Cosmos DB 模擬器使用的認證， 如下：
 
     Account name: localhost:<port>
     Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
@@ -362,6 +362,8 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 使用下列秘訣可協助您對使用 Azure Cosmos DB 模擬器時遇到的問題進行疑難排解︰
 
+- 如果您已安裝新版本的模擬器並發生錯誤，請確定重設您的資料。 您可以在系統匣上的 [Azure Cosmos DB 模擬器] 圖示上按一下滑鼠右鍵，然後按一下 [重設資料...]，以重設資料。 如果無法修正錯誤，您可以解除安裝，然後重新安裝應用程式。 如需相關指示，請參閱[解除安裝本機模擬器](#uninstall)。
+
 - 如果 Azure Cosmos DB 模擬器當機，請從 c:\Users\user_name\AppData\Local\CrashDumps 資料夾中收集傾印檔案，壓縮檔案後，再附加到電子郵件寄至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
 - 如果 CosmosDB.StartupEntryPoint.exe 發生損毀，請從系統管理員命令提示字元執行下列命令︰`lodctr /R` 
@@ -382,6 +384,13 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 5. `CosmosDB.Emulator.exe /stoptraces`
 6. 瀏覽至 `%ProgramFiles%\Azure Cosmos DB Emulator` 並尋找 docdbemulator_000001.etl 檔案。
 7. 將 .etl 檔案以及重現步驟傳送至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 進行偵錯。
+
+### <a id="uninstall"></a>解除安裝本機模擬器
+
+1. 結束本機模擬器之所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
+2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)] 結果。
+3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器] 並將其選取，按一下 [解除安裝]，然後確認並再按一下 [解除安裝]。
+4. 解除安裝應用程式時，瀏覽至 C:\Users\<user>\AppData\Local\CosmosDBEmulator，然後刪除資料夾。 
 
 ## <a name="next-steps"></a>後續步驟
 

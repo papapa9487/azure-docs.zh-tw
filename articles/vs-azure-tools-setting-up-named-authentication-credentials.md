@@ -12,16 +12,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/17/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 03875b4215943a8bbabeb15610776a221cbf7b71
-
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 613f17081fcb70b126caaae7ade5739d336662a7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="setting-up-named-authentication-credentials"></a>設定具名的驗證認證
-若要將應用程式從 Visual Studio 發佈至 Azure，或若要監視現有的雲端服務，您必須提供 Visual Studio 可用來向 Azure 驗證要求的認證。 您可以從 Visual Studio 中的幾個位置登入並提供這些認證。 例如，從 [伺服器總管] 中，您可以開啟 [Azure] 節點的捷徑功能表，並選擇 [連接到 Azure]。 登入時，您可以在 Visual Studio 中取得與 Azure 帳戶相關聯的訂用帳戶資訊，而且接下來您無需執行任何動作。
+若要將應用程式從 Visual Studio 發佈至 Azure，或若要監視現有的雲端服務，您必須提供 Visual Studio 可用來向 Azure 驗證要求的認證。 您可以從 Visual Studio 中的幾個位置登入並提供這些認證。 例如，從 [伺服器總管] 中，您可以開啟 [Azure] 節點的捷徑功能表，並選擇 [連線至 Microsoft Azure 訂用帳戶...]。登入時，您可以在 Visual Studio 中取得與 Azure 帳戶相關聯的訂用帳戶資訊，而且接下來您無需執行任何動作。
 
 Azure Tools 也支援像以前一樣使用訂用帳戶檔案 (.publishsettings 檔案) 提供認證。 本主題將說明此方法，Azure SDK 2.2 中仍支援此方法。
 
@@ -49,7 +50,7 @@ Visual Studio 會使用您的訂用帳戶識別碼連同憑證資料做為認證
 ## <a name="modify-or-export-authentication-credentials-in-visual-studio"></a>在 Visual Studio 中修改或匯出驗證認證
 您也可以在 [新增訂用帳戶]  對話方塊中設定、修改或匯出您的驗證認證，此對話方塊會在您執行下列動作時出現：
 
-* 在 [伺服器總管] 中，開啟 **Azure** 節點的捷徑功能表，選擇 [管理訂用帳戶]，再選擇 [憑證] 索引標籤，然後選擇 [新增] 或 [編輯] 按鈕。
+* 在 [伺服器總管] 中，開啟 **Azure** 節點的捷徑功能表，選擇 [管理及篩選訂閱...]，再選擇 [憑證] 索引標籤，然後選擇 [新增]、[新增] 或 [編輯]。
 * 當您從 [發佈 Azure 應用程式精靈] 發佈 Azure 雲端服務時，選擇 [選擇訂用帳戶] 清單中的 [管理]，再選擇 [憑證] 索引標籤，然後選擇 [新增] 或 [編輯] 按鈕。
 
 下列程序假設 [新增訂用帳戶]  對話方塊已開啟。
@@ -73,9 +74,4 @@ Visual Studio 會使用您的訂用帳戶識別碼連同憑證資料做為認證
        該服務的頁面便會隨即開啟。
    4. 在 [憑證] 索引標籤上，選擇 [上傳] 按鈕。
    5. 貼上您剛才建立的 .cer 檔案的完整路徑，然後輸入您指定的密碼。
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

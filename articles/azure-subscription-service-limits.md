@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/21/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: a54d38948ee5a752297167c7f4435e52b5dbb27f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
@@ -52,6 +52,8 @@ ms.lasthandoff: 07/26/2017
 * [應用程式閘道](#application-gateway-limits)
 * [Application Insights](#application-insights-limits)
 * [自動化](#automation-limits)
+* [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [事件格線](#azure-event-grid-limits)
 * [Azure Redis 快取](#azure-redis-cache-limits)
 * [Azure RemoteApp](#azure-remoteapp-limits)
 * [備份](#backup-limits)
@@ -64,7 +66,6 @@ ms.lasthandoff: 07/26/2017
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [DNS](#dns-limits)
-* [DocumentDB](#documentdb-limits)
 * [事件中樞](#event-hubs-limits)
 * [IoT 中心](#iot-hub-limits)
 * [金鑰保存庫](#key-vault-limits)
@@ -139,7 +140,7 @@ ms.lasthandoff: 07/26/2017
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
 ### <a name="storage-limits"></a>儲存體限制
-如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage/storage-scalability-targets.md)。
+如需儲存體帳戶限制的其他詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage/common/storage-scalability-targets.md)。
 <!--like # storage accts --> 
 #### <a name="storage-service-limits"></a>儲存體服務限制
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
@@ -182,8 +183,8 @@ ms.lasthandoff: 07/26/2017
 
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
-### <a name="documentdb-limits"></a>DocumentDB 限制
-DocumentDB 是全域調整資料庫，可以調整輸送量和儲存體來因應您應用程式的需要。 如果您有關於「DocumentDB 調整」的問題，請傳送電子郵件給 askdocdb@microsoft.com。
+### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 限制
+Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存體來因應您應用程式的需要。 如果您有關於 Azure Cosmos DB 調整的問題，請傳送電子郵件給 askcosmosdb@microsoft.com。
 
 ### <a name="mobile-engagement-limits"></a>Mobile Engagement 限制
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
@@ -243,6 +244,9 @@ DocumentDB 是全域調整資料庫，可以調整輸送量和儲存體來因應
 
 ### <a name="active-directory-limits"></a>Active Directory 限制
 [!INCLUDE [AAD-service-limits](../includes/active-directory-service-limits-include.md)]
+
+### <a name="azure-event-grid-limits"></a>Azure Event Grid 限制
+[!INCLUDE [event-grid-limits](../includes/event-grid-limits.md)]
 
 ### <a name="azure-remoteapp-limits"></a>Azure RemoteApp 限制
 [!INCLUDE [azure-remoteapp-limits](../includes/azure-remoteapp-limits.md)]

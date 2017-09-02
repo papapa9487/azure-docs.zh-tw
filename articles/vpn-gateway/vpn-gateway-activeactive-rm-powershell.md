@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 08/16/2017
 ms.author: yushwang
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: ea5546a636bd567853438ae2620ae24ce2d7da23
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 93873a530ba7190de964b9f5b2e0e63371d95fcc
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>設定 Azure VPN 閘道的主動-主動 S2S VPN 連線
@@ -39,7 +39,9 @@ ms.lasthandoff: 04/27/2017
 您可以將這些結合起來，建立更複雜、高可用性網路拓撲以符合您的需求。
 
 > [!IMPORTANT]
-> 請注意，主動-主動模式只能在 HighPerformance SKU 中使用
+> 請注意，主動 - 主動模式僅使用下列 SKU： 
+  * VpnGw1、VpnGw2、VpnGw3
+  * HighPerformance (對於舊版 SKU)
 > 
 > 
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 04/27/2017
 
 * 您需要使用兩個公用 IP 位址建立兩個閘道 IP 組態
 * 您需要設定 EnableActiveActiveFeature 旗標
-* 閘道 SKU 必須是 HighPerformance
+* 閘道 SKU 必須是 VpnGw1、VpnGw2、VpnGw3 或 HighPerformance (舊版 SKU)。
 
 其他屬性都與非主動-主動閘道相同。 
 
@@ -122,10 +124,10 @@ $gw1ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf2 -Subnet
 ```
 
 #### <a name="2-create-the-vpn-gateway-with-active-active-configuration"></a>2.以主動-主動組態建立 VPN 閘道
-建立 TestVNet1 的虛擬網路閘道。 請注意有兩個 GatewayIpConfig 項目，且已設定 EnableActiveActiveFeature 旗標。 主動-主動模式需要 HighPerformance SKU 的路由型 VPN 閘道。 建立閘道可能需要花費一段時間 (30 分鐘或更久)。
+建立 TestVNet1 的虛擬網路閘道。 請注意有兩個 GatewayIpConfig 項目，且已設定 EnableActiveActiveFeature 旗標。 建立閘道可能需要花費一段時間 (45 分鐘或更久)。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1,$gw1ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet1ASN -EnableActiveActiveFeature -Debug
 ```
 
 #### <a name="3-obtain-the-gateway-public-ip-addresses-and-the-bgp-peer-ip-address"></a>3.取得閘道公用 IP 位址和 BGP 對等 IP 位址
@@ -253,15 +255,17 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupNa
 #### <a name="3-vpn-and-bgp-parameters-for-your-second-on-premises-vpn-device"></a>3.第二個內部部署 VPN 裝置的 VPN 和 BGP 參數
 同樣地，以下列出您將輸入到第二個 VPN 裝置的參數︰
 
-      - Site5 ASN            : 65050
-      - Site5 BGP IP         : 10.52.255.254
-      - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
-      - Azure VNet ASN       : 65010
-      - Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-      - Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-      - Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                             Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
-      - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
+- Site5 ASN            : 65050
+- Site5 BGP IP         : 10.52.255.254
+- Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
+- Azure VNet ASN       : 65010
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
+```
 
 一旦建立連線 (通道)，您就會有連線到您內部部署網路和 Azure 的雙重備援 VPN 裝置和通道：
 
@@ -331,7 +335,7 @@ $gw2ipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW2IPconf2 -Subnet
 使用 AS 編號和 "EnableActiveActiveFeature" 旗標建立 VPN 閘道。 請注意，您必須覆寫您的 Azure VPN 閘道上的預設 ASN。 已連接 VNet 的 ASN 必須不同，才能啟用 BGP 與傳輸路由。
 
 ```powershell
-New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance -Asn $VNet2ASN -EnableActiveActiveFeature
+New-AzureRmVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1,$gw2ipconf2 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1 -Asn $VNet2ASN -EnableActiveActiveFeature
 ```
 
 ### <a name="step-2---connect-the-testvnet1-and-testvnet2-gateways"></a>步驟 2 - 連接 TestVNet1 與 TestVNet2 閘道
@@ -366,8 +370,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 ## <a name ="aaupdate"></a>第 4 部分 - 更新主動-主動和作用中-待命之間的現有閘道
 最後一節會說明如何將現有的 Azure VPN 閘道從作用中-待命設定成主動-主動模式，或反之亦然。
 
-> [!IMPORTANT]
-> 請注意，主動-主動模式只能在 HighPerformance SKU 中使用
+> [!NOTE]
+> 本節包含將已建立的 VPN 閘道本身的舊版 SKU 從 Standard 調整為 HighPerformance 的步驟。 這些步驟不會將舊版 SKU 升級為新版 SKU。
 > 
 > 
 
@@ -396,7 +400,7 @@ Add-AzureRmVirtualNetworkGatewayIpConfig -VirtualNetworkGateway $gw -Name $GWIPc
 ```
 
 #### <a name="3-enable-active-active-mode-and-update-the-gateway"></a>3.啟用主動-主動模式並更新閘道
-您必須在 PowerShell 中設定閘道物件以觸發實際的更新。 閘道物件的 SKU 必須也變更為 HighPerformance，因為先前是以 Standard 建立它。
+您必須在 PowerShell 中設定閘道物件以觸發實際的更新。 因為先前虛擬網路閘道的 SKU 已建立為 Standard，必須在此將其變更 (調整) 為 HighPerformance。
 
 ```powershell
 Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -EnableActiveActiveFeature -GatewaySku HighPerformance
@@ -428,5 +432,3 @@ Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw -DisableActiveActive
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 請參閱 [建立網站的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 以取得相關步驟。
-
-

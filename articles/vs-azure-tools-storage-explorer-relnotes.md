@@ -9,54 +9,68 @@ editor:
 ms.assetid: 
 ms.service: storage
 ms.devlang: multiple
-ms.topic: release-notes
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3525661bd55aead07ce8d97464ba16393d28c04c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63a24f6b153390533bba0888fd1051508c65bf6e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
-本文包含 Azure 儲存體總管 0.8.15 (預覽) 及先前版本的版本資訊。
+本文包含 Microsoft Azure 儲存體總管 0.8.16 (預覽) 及先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
 
-## <a name="version-0815-preview"></a>0.8.15 版 (預覽)
-7/13/2017
+## <a name="version-0816-preview"></a>0.8.16 版 (預覽)
+8/21/2017
 
-### <a name="download-azure-storage-explorer-0815-preview"></a>下載 Azure 儲存體總管 0.8.15 (預覽)
-- [適用於 Windows 的 Azure 儲存體總管 0.8.15 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Azure 儲存體總管 0.8.15 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Azure 儲存體總管 0.8.15 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-0816-preview"></a>下載 Microsoft Azure 儲存體總管 0.8.16 (預覽)
+- [適用於 Windows 的 Microsoft Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Microsoft Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Microsoft Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新增
+* 您開啟 blob 時，如果偵測到變更，儲存體總管將提示您上傳已下載的檔案
+* 增強的 Azure Stack 登入體驗
+* 改善同時上傳/下載許多小檔案的效能
 
-* 改善 Blob 上傳及下載的效能。
-* 改善 Blob 上傳及下載的衝突檔案體驗。
-* 改善於 Blob 上傳及下載期間在 [活動記錄] 中顯示錯誤的方式。
-* 將 Blob 上傳及下載的大小上限針對分頁 Blob 提升至 8TB，並針對區塊 Blob 提升至 ~4.7TB。
 
-### <a name="known-issues"></a>已知問題
+### <a name="fixes"></a>修正
+* 對於某些 blob 類型，在上傳衝突時選擇取代有時會導致重新啟動上傳。 
+* 在 0.8.15 版中，上傳有時會延滯在 99%。
+* 將檔案上傳到檔案共用時，如果您選擇上傳到尚未存在的目錄，上傳會失敗。
+* 儲存體總管未正確產生共用存取簽章和資料表查詢的時間戳記。
 
-* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 此為 [Azure 儲存體節點程式庫的限制](https://github.com/Azure/azure-storage-node/issues/317) \(英文\)。
-* 完成 Blob 上傳之後，系統會重新整理起始該上傳的索引標籤。 這和先前的行為不同，且會導致您返回所在容器的根。 
-* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動儲存體總管，才能使它忘記該決定。
+
+已知問題
+* 目前無法使用名稱和金鑰連接字串。 這將在下一版中予以修正。 在此之前，您可以使用名稱和金鑰附加。
+* 如果您嘗試開啟無效 Windows 檔案名稱的檔案，下載會導致找不到檔案的錯誤。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 此為 Microsoft Azure 儲存體節點程式庫的限制。
+* 完成 Blob 上傳之後，系統會重新整理起始該上傳的索引標籤。 這和先前的行為不同，且會導致您返回所在容器的根。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
-* Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下： 
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
-* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成： 
-    * sudo apt-get install libgconf-2-4
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0814-preview"></a>0.8.14 版 (預覽)
 06/22/2017
@@ -82,10 +96,16 @@ ms.lasthandoff: 08/02/2017
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。 
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+
+
 
 ## <a name="previous-releases"></a>舊版
 
@@ -104,6 +124,7 @@ ms.lasthandoff: 08/02/2017
 * [0.7.20160129.1 版](#version-07201601291)
 * [0.7.20160105.0 版](#version-07201601050)
 * [0.7.20151116.0 版](#version-07201511160)
+
 
 ### <a name="version-0813"></a>0.8.13 版
 05/12/2017
@@ -131,10 +152,14 @@ ms.lasthandoff: 08/02/2017
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。 
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-0812--0811--0810"></a>0.8.12 / 0.8.11 / 0.8.10 版
 04/07/2017
@@ -170,10 +195,14 @@ ms.lasthandoff: 08/02/2017
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
 * 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。 
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
-    * sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    * sudo apt-get update
-    * sudo apt-get upgrade
-    * sudo apt-get dist-upgrade
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
 
 ### <a name="version-089--088"></a>0.8.9 / 0.8.8 版
 02/23/2017
@@ -243,7 +272,7 @@ ms.lasthandoff: 08/02/2017
 #### <a name="new"></a>新增
 
 * 現已可將常用的服務釘選到 Quick Access 以便瀏覽
-* 現已可在多個索引標籤開啟多個編輯器。 按一下以開啟暫時索引標籤；按兩下以開啟永久索引標籤。 您也可以按一下暫時索引標籤來將它設為永久索引標籤
+* 現已可在多個索引標籤開啟多個編輯器。 按一下以開啟暫時索引標籤；按兩下以開啟永久索引標籤。您也可以按一下暫時索引標籤來將它設為永久索引標籤
 * 我們已大幅改善上傳及下載的效能和穩定性，尤其是在高效能機器上處理大型檔案的情況
 * 現可在 Blob 容器內建立空白的「虛擬」資料夾
 * 我們已重新推出範圍搜尋，並搭配全新增強的子字串搜尋，因此您現在將會有兩種搜尋的選項： 

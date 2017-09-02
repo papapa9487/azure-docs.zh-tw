@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2017
+ms.date: 08/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 24d970faa0b4b1a74629b55efb034e9d79eddb1d
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
 # <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>將 Linux 電腦連線至 Operations Management Suite (OMS) 
 
-透過 OMS，您可以收集從下列位置產生的資料，並對資料採取動作：從 Linux 電腦；存放在內部部署資料中心作為實體伺服器或虛擬機器的容器解決方案，如 Docker；如 Amazon Web Services (AWS) 或 Microsoft Azure 等雲端託管服務中的虛擬機器。 您也可以使用 OMS 中可用的管理解決方案 (例如「變更追蹤」) 來識別組態變更，並使用「更新管理」管理軟體更新，以主動管理 Linux VM 的生命週期。 
+透過 Microsoft Operations Management Suite (OMS)，您可以收集從下列位置產生的資料，並對資料採取動作：從 Linux 電腦；存放在內部部署資料中心做為實體伺服器或虛擬機器的容器解決方案，如 Docker；如 Amazon Web Services (AWS) 或 Microsoft Azure 等雲端託管服務中的虛擬機器。 您也可以使用 OMS 中可用的管理解決方案 (例如「變更追蹤」) 來識別組態變更，並使用「更新管理」管理軟體更新，以主動管理 Linux VM 的生命週期。 
 
-OMS Agent for Linux 會透過 TCP 通訊埠 443 對外與 OMS 服務通訊，如果電腦連線至防火牆或 Proxy 伺服器以透過網際網路通訊，請檢閱[設定代理程式以搭配 HTTP Proxy 伺服器或 OMS 閘道使用](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway)，以了解必須套用哪些組態變更。  如果您正在監視的電腦已安裝 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2，則該電腦為多重主目錄，並採用 OMS 服務來收集資料及轉寄至該服務，且仍然受到 Operations Manager 監視。  Linux 電腦會由與 OMS 整合的 Operations Manager 管理群組所監視，其不會收到資料來源的組態，也不會透過該管理群組轉寄收集到的資料。  
+OMS Agent for Linux 會透過 TCP 通訊埠 443 對外與 OMS 服務通訊，如果電腦連線至防火牆或 Proxy 伺服器以透過網際網路通訊，請檢閱[設定代理程式以搭配 HTTP Proxy 伺服器或 OMS 閘道使用](#configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway)，以了解必須套用哪些組態變更。  如果您正在監視的電腦已安裝 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2，則該電腦為多重主目錄，並採用 OMS 服務來收集資料及轉寄至該服務，且仍然受到 Operations Manager 監視。  Linux 電腦會由與 OMS 整合的 Operations Manager 管理群組所監視，其不會收到資料來源的組態，也不會透過該管理群組轉寄收集到的資料。  OMS 代理程式無法設定為多個工作區的報表。  
 
 如果 IT 安全性原則不允許您網路上的電腦連線到網際網路，則可以將代理程式設定為連線到 OMS 閘道，以根據您已啟用的解決方案來接收組態資訊和傳送收集到的資料。 如需如何設定 OMS Linux Agent 以透過 OMS 閘道與 OMS 服務進行通訊的詳細資訊和步驟，請參閱[使用 OMS 閘道將電腦連線到 OMS](log-analytics-oms-gateway.md)。  
 
@@ -40,7 +40,7 @@ OMS Agent for Linux 會透過 TCP 通訊埠 443 對外與 OMS 服務通訊，如
 ### <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
 以下為正式支援的 Linux 散發套件。  不過，OMS Agent for Linux 也可能在未列出的其他散發套件上執行。
 
-* Amazon Linux 2012.09 --> 2015.09 (x86/x64)
+* Amazon Linux 2012.09 至 2015.09 (x86/x64)
 * CentOS Linux 5、6 和 7 (x86/x64)
 * Oracle Linux 5、6 和 7 (x86/x64)
 * Red Hat Enterprise Linux Server 5、6 和 7 (x86/x64)
@@ -71,7 +71,7 @@ PAM | 插入式驗證模組 |
 > [!NOTE]
 >  需要有 rsyslog 或 syslog-ng，才能收集 syslog 訊息。 Red Hat Enterprise Linux 第 5 版、CentOS 和 Oracle Linux 版本 (sysklog) 不支援預設 syslog 精靈，進行 syslog 事件收集。 若要從此版的這些散發套件收集 syslog 資料，rsyslog 精靈應安裝和設定為取代 sysklog。 
 
-此代理程式包含多個封裝。 發行檔案包含下列封裝 (搭配執行殼層套件組合與 `--extract` 即可取得)：
+代理程式包含多個封裝。 發行檔案包含下列封裝 (搭配執行殼層套件組合與 `--extract` 即可取得)：
 
 **Package** | **版本** | **說明**
 ----------- | ----------- | --------------
@@ -84,7 +84,7 @@ mysql-cimprov | 1.0.1 | OMI 的 MySQL 伺服器效能監視提供者。 在偵�
 docker-cimprov | 1.0.0 | OMI 的 Docker 提供者。 在偵測到 Docker 時安裝。
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>與 System Center Operations Manager 的相容性
-OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用代理程式二進位檔。 在 Operations Manager 目前所管理的系統上安裝 OMS Agent for Linux，將電腦上的 OMI 和 SCX 封裝升級到較新版本。 在此版本中，OMS 與 Linux 適用的 System Center 2016 - Operations Manager/Operations Manager 2012 R2 代理程式相容。 
+OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用代理程式二進位檔。 如果您要在 Operations Manager 目前所管理的系統上安裝 OMS Agent for Linux，將電腦上的 OMI 和 SCX 封裝升級到較新版本。 在此版本中，OMS 與 Linux 適用的 System Center 2016 - Operations Manager/Operations Manager 2012 R2 代理程式相容。 
 
 > [!NOTE]
 > System Center 2012 SP1 和舊版本目前與 OMS Agent for Linux 不相容或不受其支援。<br>
@@ -94,70 +94,39 @@ OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用�
 安裝 OMS Agent for Linux 封裝之後，會套用下列額外的全系統組態變更。 解除安裝 omsagent 封裝時，會移除這些構件。
 
 * 會建立名為 `omsagent` 的非特殊權限使用者。 這是 omsagent 精靈所執行的帳戶。
-* sudoers “include” 檔案建立在 /etc/sudoers.d/omsagent。 這會授權 omsagent 重新啟動 syslog 與 omsagent 精靈。 如果已安裝的 sudo 版本不支援 sudo “include” 指示詞，這些項目將寫入 /etc/sudoers。
+* sudoers “include” 檔案建立在 /etc/sudoers.d/omsagent。 這會授權 omsagent 重新啟動 syslog 與 omsagent 精靈。 如果已安裝的 sudo 版本不支援 sudo “include” 指示詞，這些項目會寫入 /etc/sudoers。
 * syslog 組態修改成將事件子集轉送給代理程式。 如需詳細資訊，請參閱下面 **設定資料收集** 一節。
 
 ### <a name="upgrade-from-a-previous-release"></a>從舊版升級
 此版本支援從 1.0.0-47 之前的版本升級。 使用 `--upgrade` 命令執行安裝，會將代理程式的所有元件升級為最新版本。
 
-## <a name="install-the-oms-agent-for-linux"></a>安裝 OMS Agent for Linux
-所提供的 OMS Agent for Linux 可自動解壓縮，並為可安裝的殼層指令碼套件組合。 此套件組合包含每個代理程式元件的 Debian 與 RPM 封裝，且可直接安裝或解壓縮以擷取個別的封裝。 所提供的一個套件組合適用於 x64 架構，另一個則適用於 x86 架構。 
+## <a name="installing-the-agent"></a>安裝代理程式
 
-### <a name="installing-the-agent"></a>安裝代理程式
+本節說明如何以套件組合安裝 OMS Agent for Linux，其中包含各代理程式元件的 Debian 與 RPM 封裝。  代理程式可以直接安裝，或是經擷取將個別封裝取出。  
 
-1. 使用 scp/sftp 將適當的套件組合 (x86 或 x64) 傳輸到 Linux 電腦。
-2. 使用 `--install` 或 `--upgrade` 引數安裝該套件組合。 
+您首先需要您的 OMS 工作區識別碼和金鑰，這可以透過切換至 [OMS 傳統入口網站](https://mms.microsoft.com)找到。  在 [概觀] 頁面上，從頂端功能表選取 [設定]，然後巡覽至 [連接的來源]\[Linux 伺服器]。  您會看到 [工作區識別碼] 和 [主索引鍵] 右邊的值。  將兩者複製並貼到您最愛的編輯器。    
+
+1. 在 GitHub 下載最新的 [OMS Ageent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) 或 [OMS Agent for Linux (x86)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh)。  
+2. 使用 scp/sftp 將適當的套件組合 (x86 或 x64) 傳輸到 Linux 電腦。
+3. 使用 `--install` 或 `--upgrade` 引數安裝該套件組合。 
 
     > [!NOTE]
     > 若已安裝任何現有封裝，例如已安裝適用於 Linux 的 System Center Operations Manager 時，則使用 `--upgrade` 引數。 若要在安裝期間連線到 Operations Management Suite，請提供 `-w <WorkspaceID>` 和 `-s <Shared Key>` 參數。
 
-### <a name="bundle-command-line-arguments"></a>套件組合命令列引數
-```
-Options:
-  --extract              Extract contents and exit.
-  --force                Force upgrade (override version checks).
-  --install              Install the package from the system.
-  --purge                Uninstall the package and remove all related data.
-  --remove               Uninstall the package from the system.
-  --restart-deps         Reconfigure and restart dependent service
-  --source-references    Show source code reference hashes.
-  --upgrade              Upgrade the package in the system.
-  --version              Version of this shell bundle.
-  --version-check        Check versions already installed to see if upgradable.
-  --debug                use shell debug mode.
-  
-  -w id, --id id         Use workspace ID <id> for automatic onboarding.
-  -s key, --shared key   Use <key> as the shared key for automatic onboarding.
-  -d dmn, --domain dmn   Use <dmn> as the OMS domain for onboarding. Optional.
-                         default: opinsights.azure.com
-                         ex: opinsights.azure.us (for FairFax)
-  -p conf, --proxy conf  Use <conf> as the proxy configuration.
-                         ex: -p [protocol://][user:password@]proxyhost[:port]
-  -a id, --azure-resource id Use Azure Resource ID <id>.
-  -m marker, --multi-homing-marker marker
-                         Onboard as a multi-homing(Non-Primary) workspace.
-
-  -? | --help            shows this usage text.
-```
 
 #### <a name="to-install-and-onboard-directly"></a>直接安裝並上架
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key>
 ```
 
-#### <a name="to-install-and-onboard-to-a-workspace-in-us-government-cloud"></a>安裝並上架到美國政府雲端
-```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
-```
-
-#### <a name="to-install-the-agent-packages-and-onboard-at-a-later-time"></a>安裝代理程式封裝並於稍後上架
+#### <a name="to-upgrade-the-agent-package"></a>若要升級代理程式封裝
 ```
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 ```
 
-#### <a name="to-extract-the-agent-packages-from-the-bundle-without-installing"></a>從套件組合擷取代理程式封裝而不安裝
+#### <a name="to-install-and-onboard-to-a-workspace-in-us-government-cloud"></a>安裝並上架到美國政府雲端
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --extract
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
 ## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>設定代理程式搭配 HTTP Proxy 伺服器或 OMS 閘道使用
@@ -188,27 +157,21 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>在檔案中定義 Proxy 組態
-Proxy 組態可在以下檔案中設定：`/etc/opt/microsoft/omsagent/proxy.conf` 此檔案可以直接建立或編輯，但必須更新其權限，才能對 omiuser 群組授與檔案的存取權限。 例如：
+可在檔案 `/etc/opt/microsoft/omsagent/proxy.conf` 和 `/etc/opt/microsoft/omsagent/conf/proxy.conf ` 中設定 Proxy 組態。 可以直接建立或編輯檔案，但必須更新其權限，才能對 omiuser 使用者授與檔案的讀取權限。 例如：
 ```
 proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
-sudo chmod 644 /etc/opt/microsoft/omsagent/proxy.conf
+sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
 sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
 ```
 
 ### <a name="removing-the-proxy-configuration"></a>移除 Proxy 組態
 若要移除先前定義的 Proxy 組態並還原至直接連線，請移除 proxy.conf 檔案：
 ```
-sudo rm /etc/opt/microsoft/omsagent/proxy.conf
-sudo /opt/microsoft/omsagent/bin/service_control restart [<workspace id>]
+sudo rm /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf
+sudo /opt/microsoft/omsagent/bin/service_control restart 
 ```
-## <a name="enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager"></a>啟用 OMS Agent for Linux 以向 System Center Operations Manager 報告
-執行下列步驟設定 OMS Agent for Linux 向 System Center Operations Manager 管理群組報告。  
-
-1. 編輯 `/etc/opt/omi/conf/omiserver.conf`
-2. 確認開頭為 **httpsport=** 的行定義連接埠 1270。 例如：`httpsport=1270`
-3. 重新啟動 OMI 伺服器：`sudo /opt/omi/bin/service_control restart`
 
 ## <a name="onboarding-with-operations-management-suite"></a>透過 Operations Management Suite 上架
 如果套件組合安裝期間未提供工作區識別碼與金鑰，則之後必須向 Operations Management Suite 註冊代理程式。
@@ -229,17 +192,14 @@ sudo ./omsadmin.sh -w <WorkspaceID> -s <Shared Key>
         SHARED_KEY=<Shared Key>  
    
 3.  執行下列命令以上架至 OMS：`sudo /opt/microsoft/omsagent/bin/omsadmin.sh`
-4.  此檔案將在成功上架時刪除
+4.  此檔案會在成功上架時刪除。
 
-## <a name="manage-omsagent-daemon"></a>管理 omsagent 精靈
-自 1.3.0-1 版起，我們會為每個已上架工作區註冊 omsagent 精靈。 精靈名稱為 *omsagent-\<workspace-id>*。  您可以使用 `/opt/microsoft/omsagent/bin/service_control` 命令操作精靈。
+## <a name="enable-the-oms-agent-for-linux-to-report-to-system-center-operations-manager"></a>啟用 OMS Agent for Linux 以向 System Center Operations Manager 報告
+執行下列步驟設定 OMS Agent for Linux 向 System Center Operations Manager 管理群組報告。  
 
-```
-sudo sh /opt/microsoft/omsagent/bin/service_control start|stop|restart|enable|disable [<workspace id>]
-```
-
-工作區識別碼是選擇性參數。 如果有指定，則只會對工作區特定的精靈作業。  否則，將會對所有精靈作業。
-
+1. 編輯 `/etc/opt/omi/conf/omiserver.conf`
+2. 確認開頭為 **httpsport=** 的行定義連接埠 1270。 例如：`httpsport=1270`
+3. 重新啟動 OMI 伺服器：`sudo /opt/omi/bin/service_control restart`
 
 ## <a name="agent-logs"></a>代理程式記錄檔
 OMS Agent for Linux 的記錄檔位於：`/var/opt/microsoft/omsagent/<workspace id>/log/` omsconfig (代理程式組態) 程式的記錄檔位於：`/var/opt/microsoft/omsconfig/log/` OMI 與 SCX 元件 (可提供效能計量資料) 的記錄檔位於：`/var/opt/omi/log/ and /var/opt/microsoft/scx/log`
@@ -260,21 +220,14 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 ```
 
 ## <a name="uninstalling-the-oms-agent-for-linux"></a>解除安裝 OMS Agent for Linux
-若要解除安裝代理程式封裝，可使用 dpkg 或 rpm，或將套件組合 .sh 檔案搭配 `--remove` 引數執行。  此外，如果您想要將 OMS Agent for Linux 的所有元素完整移除，您可以將套件組合 .sh 檔案搭配 `--purge` 引數執行。 
+可以藉由使用 `--purge` 引數執行搭售的 .sh 檔案，以解除安裝代理程式封裝，將代理程式及其組態從電腦中完全移除。   
 
-### <a name="debian--ubuntu"></a>Debian 與 Ubuntu
-```
-> sudo dpkg -P omsconfig
-> sudo dpkg -P omsagent
-> sudo /opt/microsoft/scx/bin/uninstall
-```
-
-### <a name="centos-oracle-linux-rhel-and-sles"></a>CentOS、Oracle Linux、RHEL 和 SLES
 ```
 > sudo rpm -e omsconfig
 > sudo rpm -e omsagent
 > sudo /opt/microsoft/scx/bin/uninstall
 ```
+
 ## <a name="troubleshooting"></a>疑難排解
 
 ### <a name="issue-unable-to-connect-through-proxy-to-oms"></a>問題︰ 無法透過 Proxy 連線至 OMS
@@ -306,7 +259,7 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 #### <a name="resolution"></a>解決方案
 
 1. 使用命令日期檢查 Linux 伺服器上的時間。 如果時間為自目前時間起的 + /-15 分鐘，則上架失敗。 若要修正此問題，請更新 Linux 伺服器的日期和/或時區。 
-2. 確認您已安裝最新版的 OMS Agent for Linux。  最新版本現在會通知您時間誤差是否會導致上架失敗。
+2. 確認您已安裝最新版的 OMS Agent for Linux。  最新版本現在會通知您時間差異是否造成上架失敗。
 3. 使用正確的工作區識別碼和工作區金鑰並遵循本主題中前面的安裝指示重新上架。
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>問題︰上架後您隨即在記錄檔中看到 500 與 404 錯誤
@@ -324,6 +277,8 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 1. 確認 OMS 服務是否成功上架，做法是檢查下列檔案是否存在：`/etc/opt/microsoft/omsagent/<workspace id>/conf/omsadmin.conf`
 2. 使用 `omsadmin.sh` 命令列指示重新上架
 3. 如果使用 Proxy，請參閱稍早所提供的 Proxy 解決步驟。
-4. 在某些情況下，當 OMS Agent for Linux 無法與 OMS 服務通訊時，系統會將整個緩衝區大小 (亦即 50 MB) 的資料加入佇列。 應執行 `/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]` 命令重新啟動 OMS Agent for Linux。 
-> [!NOTE]
-> 此問題已在代理程式 1.1.0-28 版和更新版本中修正。
+4. 在某些情況下，當 OMS Agent for Linux 無法與 OMS 服務通訊時，系統會將整個緩衝區大小 (亦即 50 MB) 的資料加入佇列。 應該執行下列命令重新啟動 OMS Agent for Linux：`/opt/microsoft/omsagent/bin/service_control restart [<workspace id>]`。 
+
+    >[!NOTE]
+    >此問題已在代理程式 1.1.0-28 版和更新版本中修正。
+> 

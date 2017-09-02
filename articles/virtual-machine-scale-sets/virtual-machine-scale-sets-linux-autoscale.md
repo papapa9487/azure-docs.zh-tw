@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 3a8a5d25123905e6c5cf91c4bc0c04258e442b5c
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: eff4add1cb16fe25022787668dc1d2277845dd95
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="automatically-scale-linux-machines-in-a-virtual-machine-scale-set"></a>在虛擬機器擴展集中自動調整 Linux 機器
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/11/2017
 ## <a name="step-1-create-a-resource-group-and-a-storage-account"></a>步驟 1：建立資源群組和儲存體帳戶
 
 1. **登入 Microsoft Azure**  
-在您的命令列介面 (Bash、終端機、命令提示字元) 中切換到 Resource Manager 模式，然後[使用您的公司或學校識別碼進行登入](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)。 遵循提示以取得 Azure 帳戶的互動式登入體驗。
+在您的命令列介面 (Bash、終端機、命令提示字元) 中切換到 Resource Manager 模式，然後[使用您的公司或學校識別碼進行登入](../xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login)。遵循提示以取得 Azure 帳戶的互動式登入體驗。
 
     ```cli   
     azure config mode arm
@@ -591,6 +591,6 @@ azure group delete vmsstestrg1
 * 在 [Azure 監視器跨平台 CLI 快速入門範例](../monitoring-and-diagnostics/insights-cli-samples.md)中找到 Azure 監視器監視功能的範例
 * 若要深入了解通知功能，請參閱[使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)
 * 深入了解如何[使用稽核記錄，在 Azure 監視器中傳送電子郵件和 Webhook 警示通知](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
-* 請參閱 [自動調整執行 Ubuntu/Apache/PHP 應用程式範本以設定 LAMP 堆疊的 VM 擴展集](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-lapstack-autoscale) ，以執行虛擬機器擴展集的自動調整功能。
+* 請參閱 [Ubuntu 16.04 的自動調整示範應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)範本，其中設定 Python/Bottle 應用程式執行虛擬機器擴展集的自動調整功能。
 
 

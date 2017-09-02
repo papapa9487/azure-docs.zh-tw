@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/12/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: b4074c67c7a8214f8e103385d5aea75f019d2da6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a587f58fad2ec74c7633823c4d34f900e7c01f7e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -232,7 +232,7 @@ Install-WindowsFeature Web-Server,Web-Asp-Net45,NET-Framework-Features
 > * 建立發行定義將新的 Web 部署套件發佈至 IIS
 > * 測試 CI/CD 管線
 
-用以下連結查看預先建立的虛擬機器指令碼範例。
+前進到下一個教學課程，以了解如何使用 SSL 憑證保護 Web 伺服器。
 
 > [!div class="nextstepaction"]
-> [Windows 虛擬機器指令碼範例](./powershell-samples.md)
+> [使用 SSL 保護 Web 伺服器](tutorial-secure-web-server.md)
