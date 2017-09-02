@@ -56,7 +56,7 @@ Azure Data Lake Tools for Visual Studio 提供稱為**頂點失敗偵錯**的功
 如果 U-SQL 作業失敗，而且作業包含使用者程式碼 (U-SQL 專案中通常命名為 `Script.usql.cs`)，原始程式碼會匯入偵錯方案。  您可從這裡使用 Visual Studio 偵錯工具 (監看式、變數等等) 對問題進行疑難排解。
 
 > [!NOTE]
-> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] (**Ctrl + Alt + E**)。
+> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] \(**Ctrl + Alt + E**)。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 設定](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
