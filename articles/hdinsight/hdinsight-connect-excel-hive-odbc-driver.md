@@ -15,14 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/12/2017
+ms.date: 08/22/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 62a5b47d3b3fe452bfdff3005192e5066bb7c7da
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 7818093e42c34ee671a035cde783a6622fb2a798
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Hadoop
@@ -62,15 +61,13 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 4. 選取 [Microsoft Hive ODBC 驅動程式]，然後按一下 [完成]。 您應該會看到 [Microsoft Hive ODBC 驅動程式 DNS 設定] 對話方塊。
 5. 輸入或選取下列值：
    
-   | 屬性 | 說明 |
+   | 屬性 | 描述 |
    | --- | --- |
    |  資料來源名稱 |為資料來源指定名稱 |
    |  Host |輸入 &lt;HDInsightClusterName>.azurehdinsight.net。 例如，myHDICluster.azurehdinsight.net |
-   |  連接埠 |使用 <strong>443</strong>。 (此連接埠已從 563 變更為 443。) |
+   |  連接埠 |使用 <strong>443</strong> (此連接埠已從 563 變更為 443)。 |
    |  資料庫 |使用<strong>預設值</strong> |
-   |  Hive 伺服器類型 |選取 [Hive Server 2]<strong></strong> |
    |  機制 |選取 [Azure HDInsight 服務]<strong></strong> |
-   |  HTTP 路徑 |保留為空白。 |
    |  使用者名稱 |輸入 HDInsight 叢集 HTTP 使用者的使用者名稱。 預設的使用者名稱為 <strong>admin</strong>。 |
    |  密碼 |輸入 HDInsight 叢集使用者的密碼。 |
    
@@ -87,30 +84,22 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
     ![進階選項](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.HiveOdbc.DataSource.AdvancedOptions1.png "進階 DSN 設定選項")
 
 1. 按一下 [測試]  以測試資料來源。 資料來源正確設定時，會顯示 *「測試順利完成！」*。
-2. 按一下 [確定]  以關閉 [測試] 對話方塊。 新的資料來源此時應會列示在 [ODBC 資料來源管理員] 中。
+2. 按一下 [確定]  以關閉 [測試] 對話方塊。 新的資料來源應會列示在 [ODBC 資料來源管理員] 中。
 3. 按一下 [確定]  以結束精靈。
 
 ## <a name="import-data-into-excel-from-hdinsight"></a>從 HDInsight 將資料匯入 Excel 中
-下列步驟中，將說明如何使用您在前述步驟中建立的 ODBC 資料來源，將資料從 Hive 資料表匯入 Excel 活頁簿中。
+下列步驟將說明如何使用您在上一節中建立的 ODBC 資料來源，將資料從 Hive 資料表匯入 Excel 活頁簿中。
 
 1. 在 Excel 中開啟新的或現有的活頁簿。
-2. 在 [資料] 索引標籤上按一下 [從其他資料來源]，然後按一下 [從資料連接精靈]，以啟動 [資料連接精靈]。
+2. 從 [資料] 索引標籤，依序按一下 [取得資料] 和 [從其他來源]，然後按一下 [從 ODBC] 以啟動 [資料連接精靈]。
    
     ![開啟資料連線精靈](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "開啟資料連線精靈")
-3. 選取 [ODBC DSN] 作為資料來源，然後按 [下一步]。
-4. 從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [下一步] 。
-5. 在精靈中重新輸入叢集的密碼，然後按一下 [測試] 可再次驗證組態。
-6. 按一下 [確定]  以關閉 [測試] 對話方塊。
-7. 按一下 [確定] 。 等待 [選取資料庫及資料表]  對話方塊開啟。 此步驟可能需要幾秒鐘的時間。
-8. 選取您要匯入的資料表，然後按 [下一步] 。 *hivesampletable* 是 HDInsight 叢集隨附的範例 Hive 資料表。  您可以選擇此資料表 (如果尚未建立)。 如需執行 Hive 查詢及建立 Hive 資料表的詳細資訊，請參閱[搭配 HDInsight 使用 Hive][hdinsight-use-hive]。
-9. 按一下 [完成] 。
-10. 在 [匯入資料]  對話方塊中，您可以變更或指定查詢。 若要執行此動作，請按一下 [屬性] 。 此步驟可能需要幾秒鐘的時間。
-11. 按一下 [定義] 索引標籤，然後將 [LIMIT 200] 附加至 [命令文字] 文字方塊中的 Hive Select 陳述式。 此修改會將傳回的記錄集限制為 200 個。
-    
-    ![連線屬性](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveODBC.Excel.ConnectionProperties1.png "設定 DSN 連線屬性")
-12. 按一下 [確定]  以關閉 [連接屬性] 對話方塊。
-13. 按一下 [確定] 以關閉 [匯入資料] 對話方塊。  
-14. 重新輸入密碼，然後按一下 [確定] 。 經過數秒後，資料即會匯入至 Excel。
+4. 選取您在上一節中建立的資料來源名稱，然後按一下 [確定]。
+5. 輸入 Hadoop 使用者名稱 (預設名稱為 admin) 和密碼，然後按一下 [連接]。
+6. 在導覽器中，依序展開 [HIVE] 和 [default]，按一下 [hivesampletable]，然後按一下 [載入]。 經過數秒後，資料即會匯入至 Excel。
+
+    ![HDInsight Hive ODBC 導覽器](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "開啟資料連接精靈")
+
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用 Microsoft Hive ODBC 驅動程式將 HDInsight 服務中的資料擷取至 Excel。 同樣地，您也可以將 HDInsight 服務中的資料擷取至 SQL Database。 此外也可以將資料上傳至 HDInsight 服務。 若要深入了解，請參閱：
