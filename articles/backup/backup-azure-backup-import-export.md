@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/20/2017
 ms.author: saurse;nkolli;trinadhk
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 4f5e58713d925d2f7477dc072ecec455dec70792
-ms.lasthandoff: 04/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 074d21269206b243f8b0e8747811544132805229
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>在 Azure 備份中離線備份工作流程
 Azure 備份有數個可提升效率的內建功能，能在資料初始完整備份至 Azure 的期間節省網路和儲存體成本。 初始完整備份通常會傳輸大量資料，且需要較多網路頻寬，相較之下，後續備份只會傳輸差異/增量部分。 Azure 備份會壓縮初始備份。 透過離線植入程序，Azure 備份可以使用磁碟將壓縮後的初始備份資料離線上傳至 Azure。  
 
-Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/storage-import-export-service.md) 緊密整合，可讓您使用磁碟將資料傳輸到 Azure 之中。 如果您的初始備份資料大小達到 TB，且需要透過高延遲和低頻寬網路傳輸時，您可以使用離線植入工作流程將初始備份複本送至 Azure 資料中心的一個或多個硬碟上。 本文章提供可完成此工作流程的步驟概觀。
+Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md) 緊密整合，可讓您使用磁碟將資料傳輸到 Azure 之中。 如果您的初始備份資料大小達到 TB，且需要透過高延遲和低頻寬網路傳輸時，您可以使用離線植入工作流程將初始備份複本送至 Azure 資料中心的一個或多個硬碟上。 本文章提供可完成此工作流程的步驟概觀。
 
 ## <a name="overview"></a>Overview
 透過 Azure 備份的離線植入功能和 Azure 匯入/匯出，可以簡單地使用磁碟將資料離線上傳至 Azure。 您不需透過網路傳輸初始完整複本，備份資料會寫入至 *預備位置*。 使用 Azure 匯入/匯出工具完成複製到預備位置的作業後，此資料就會寫入至一個或多個 SATA 磁碟機 (視資料量而定)。 這些磁碟機最終都會寄送到最近的 Azure 資料中心。
@@ -42,19 +42,19 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/stor
 >
 
 ## <a name="prerequisites"></a>必要條件
-* [熟悉 Azure 匯入/匯出工作流程](../storage/storage-import-export-service.md)。
+* [熟悉 Azure 匯入/匯出工作流程](../storage/common/storage-import-export-service.md)。
 * 初始化工作流程之前，請確定下列事項︰
   * 已建立 Azure 備份保存庫。
   * 已下載保存庫認證。
   * 已在 Windows Server/Windows 用戶端或 System Center Data Protection Manager 伺服器上安裝 Azure 備份代理程式，並向 Azure 備份保存庫註冊電腦。
 * [下載 Azure 發佈檔案設定](https://manage.windowsazure.com/publishsettings) 。
 * 準備可能是網路共用或電腦上其他磁碟機的預備位置。 預備位置是暫時性儲存體，因此在此工作流程期間會暫時使用。 請確定預備位置有足夠的磁碟空間來保存您的初始複本。 例如：若您正在嘗試備份 500 GB 的檔案伺服器，請確定預備區域至少有 500 GB 的空間  (由於壓縮的關係，實際使用量會較少)。
-* 確定您使用的是支援的磁碟機。 只有 2.5 英吋的 SSD 或 2.5 英吋或 3.5 英吋的 SATA II/III 內接式硬碟能夠用於匯入/匯出服務。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/storage-import-export-service.md#hard-disk-drives)以取得服務所支援的最新磁碟機組合。
+* 確定您使用的是支援的磁碟機。 只有 2.5 英吋的 SSD 或 2.5 英吋或 3.5 英吋的 SATA II/III 內接式硬碟能夠用於匯入/匯出服務。 您可以使用高達 10 TB 的硬碟。 檢查 [Azure 匯入/匯出服務文件](../storage/common/storage-import-export-service.md#hard-disk-drives)以取得服務所支援的最新磁碟機組合。
 * 在 SATA 磁碟機寫入器所連接的電腦上啟用 BitLocker。
 * [下載 Azure 匯入/匯出工具](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409) 至 SATA 磁碟機寫入器所連接的電腦上。 如果您已下載並安裝 Azure 備份的 2016 年 8 月更新 (或更新版本)，就不需要此步驟。
 
 ## <a name="workflow"></a>工作流程
-本節資訊可協助您完成離線備份工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。 若您有關於匯入服務或處理程序任何層面的問題，請參閱稍早的 [匯入服務概觀](../storage/storage-import-export-service.md) 參考文件。
+本節資訊可協助您完成離線備份工作流程，以便將您的資料傳遞至 Azure 資料中心，並上傳至 Azure 儲存體。 若您有關於匯入服務或處理程序任何層面的問題，請參閱稍早的 [匯入服務概觀](../storage/common/storage-import-export-service.md) 參考文件。
 
 ### <a name="initiate-offline-backup"></a>起始離線備份
 1. 當您排程備份時，您會看到下列畫面 (在 Windows Server、Windows 用戶端或 System Center Data Protection Manager 中)。
@@ -208,6 +208,6 @@ Azure 備份的離線植入程序與 [Azure 匯入/匯出服務](../storage/stor
 儲存體帳戶中有初始備份資料可供使用之後，Microsoft Azure 復原服務代理程式就會將此帳戶中的資料內容複製到備份保存庫或復原服務保存庫 (視何者較適合)。 在下一步的排程備份時間，Azure 備份代理程式會透過初始備份複本執行增量備份。
 
 ## <a name="next-steps"></a>後續步驟
-* 如有任何關於 Azure 匯入/匯出工作流程的問題，請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料傳輸至 Blob 儲存體](../storage/storage-import-export-service.md)。
+* 如有任何關於 Azure 匯入/匯出工作流程的問題，請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料傳輸至 Blob 儲存體](../storage/common/storage-import-export-service.md)。
 * 若您有關於工作流程的任何問題，請參閱 Azure 備份 [常見問題集](backup-azure-backup-faq.md) 的＜離線備份＞章節。
 

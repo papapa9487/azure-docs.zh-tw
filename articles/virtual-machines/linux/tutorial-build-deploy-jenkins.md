@@ -8,17 +8,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/15/2017
 ms.author: ahomer
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 967cd38f0961cd11871c538d753cab9951c2f1f5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a40e26a8681df31fad664e4d1df4c1513311900d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -255,7 +255,7 @@ Azure 資源群組部署工作的預設設定是要建立或更新資源，並�
 > * 建立 Azure 虛擬機器的部署群組
 > * 建立發行定義以設定 VM 及部署應用程式
 
-用以下連結查看預先建立的虛擬機器指令碼範例。
+前進到下一個教學課程，以了解如何部署 LAMP (Linux、Apache、MySQL 和 PHP) 堆疊。
 
 > [!div class="nextstepaction"]
-> [Linux 虛擬機器指令碼範例](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/virtual-machine)
+> [部署 LAMP 堆疊](tutorial-lamp-stack.md)

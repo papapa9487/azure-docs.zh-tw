@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: fashah;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
-ms.openlocfilehash: a5e0a76a29a82d5364ee1adb5c912e76064dd1f9
-ms.lasthandoff: 01/30/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6c5361c7e47209c8eb4d5630b44b3dcfeedeaf01
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
 
-## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>NYC 計程車車程資料集
+## <a name="dataset"></a>NYC 計程車車程資料集
 「NYC 計程車車程」資料大約是 20GB 的 CSV 壓縮檔 (未壓縮時可達 48GB)，其中包含超過 1 億 7300 萬筆個別車程及針對每趟車程支付的費用。 每趟車程記錄包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及圓形徽章 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
 
 1. 「trip_data」CSV 檔案包含車程的詳細資訊，例如，乘客數、上車和下車地點、車程持續時間，以及車程長度。 以下是一些範例記錄：
@@ -46,7 +46,7 @@ ms.lasthandoff: 01/30/2017
 
 聯結 trip\_data 和 trip\_fare 的唯一索引鍵是由下列欄位組成：medallion、hack\_licence、pickup\_datetime。
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>預測工作的範例
+## <a name="mltasks"></a>預測工作的範例
 我們將根據 *tip\_amount* 編寫三個預測問題的公式，公式如下：
 
 1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tip\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
@@ -59,7 +59,7 @@ ms.lasthandoff: 01/30/2017
         Class 4 : tip_amount > $20
 3. 迴歸工作：預測已針對某趟車程支付的小費金額。  
 
-## <a name="a-namesetupasetting-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>設定適用於進階分析的 Azure 資料科學環境
+## <a name="setup"></a>設定適用於進階分析的 Azure 資料科學環境
 誠如您在《 [規劃您的環境](machine-learning-data-science-plan-your-environment.md) 》指南中所見，在 Azure 中使用「NYC 計程車車程」資料集時，有數個選項可以採用：
 
 * 使用 Azure Blob 中的資料，然後在 Azure Machine Learning 中模型化
@@ -69,7 +69,7 @@ ms.lasthandoff: 01/30/2017
 
 設定您的 Azure 資料科學環境：
 
-1. [建立儲存體帳戶](../storage/storage-create-storage-account.md)
+1. [建立儲存體帳戶](../storage/common/storage-create-storage-account.md)
 2. [建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)
 3. [佈建資料科學虛擬機器](machine-learning-data-science-setup-sql-server-virtual-machine.md)，這樣會提供 SQL Server 和 IPython Notebook 伺服器。
    
@@ -84,7 +84,7 @@ ms.lasthandoff: 01/30/2017
 
 根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例的類似案例為[案例 \#5：本機檔案中的大型資料集、Azure VM 中的目標 SQL Server](machine-learning-data-science-plan-sample-scenarios.md#largelocaltodb)。
 
-## <a name="a-namegetdataaget-the-data-from-public-source"></a><a name="getdata"></a>從公用來源取得資料
+## <a name="getdata"></a>從公用來源取得資料
 若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集的公用位置取得該資料集，您可以使用[從 Azure Blob 儲存體來回移動資料](machine-learning-data-science-move-azure-blob.md)中所述的任何一種方法，將資料複製到新的虛擬機器。
 
 使用 AzCopy 複製資料：
@@ -98,7 +98,7 @@ ms.lasthandoff: 01/30/2017
     當 AzCopy 完成時，資料的資料夾中總共應該有 24 壓縮的 CSV 檔案 (12 個檔案是 trip\_data，12 個檔案是 trip\_fare)。
 4. 將下載的檔案解壓縮。 請注意未壓縮檔案所在的資料夾。 此資料夾將稱為 <path\_to\_data\_files\>。
 
-## <a name="a-namedbloadabulk-import-data-into-sql-server-database"></a><a name="dbload"></a>將資料大量匯入到 SQL Server 資料庫
+## <a name="dbload"></a>將資料大量匯入到 SQL Server 資料庫
 使用「資料分割資料表和檢視」，就可以改善載入/傳輸大量資料至 SQL 資料庫和後續查詢的效能。 在本節中，我們將遵循「 [使用 SQL 資料分割資料表平行大量資料匯入](machine-learning-data-science-parallel-load-sql-partitioned-tables.md) 」中所述的指示建立新的資料庫，並將資料平行載入資料分割資料表。
 
 1. 登入 VM 之後，請啟動 **SQL Server Management Studio**。
@@ -139,7 +139,7 @@ ms.lasthandoff: 01/30/2017
 11. 在 **SQL Server Management Studio** 中，探索當中提供的指令碼範例 **sample\_queries.sql**。 若要執行查詢範例，請先將查詢行反白，然後按一下工具列中的 [ **!執行** ]。
 12. 「NYC 計程車車程」資料會載入兩個不同的資料表。 若要改善聯結作業，強烈建議您為資料表編製索引。 指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
-## <a name="a-namedbexploreadata-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
+## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
 在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱： **TaxiNYC**不同，請修改指令碼變更該名稱。
 
 在這個練習中，我們將：
@@ -254,7 +254,7 @@ ms.lasthandoff: 01/30/2017
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 
-## <a name="a-nameipnbadata-exploration-and-feature-engineering-in-ipython-notebook"></a><a name="ipnb"></a>IPython Notebook 中的資料探索和功能工程
+## <a name="ipnb"></a>IPython Notebook 中的資料探索和功能工程
 在本節中，我們將在先前建立的 SQL Server 資料庫中進行 Python 和 SQL 查詢，藉此探索資料和產生功能。 名為 **machine-Learning-data-science-process-sql-story.ipynb** 的 IPython Notebook 範例位於 [Sample IPython Notebook 範例] 資料夾。 [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks)也提供此 Notebook。
 
 使用巨量資料時的建議順序如下：
@@ -553,7 +553,7 @@ ms.lasthandoff: 01/30/2017
 2. 多類別分類：根據先前定義的類別，預測所支付的小費範圍。
 3. 迴歸工作：預測已針對某趟車程支付的小費金額。  
 
-## <a name="a-namemlmodelabuilding-models-in-azure-machine-learning"></a><a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
+## <a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
 若要開始進行模型化練習，請登入 Azure Machine Learning 工作區。 如果您尚未建立機器學習服務工作區，請參閱 [建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)。
 
 1. 若要開始使用 Azure Machine Learning，請參閱「 [什麼是 Azure Machine Learning Studio？](machine-learning-what-is-ml-studio.md)
@@ -573,7 +573,7 @@ ms.lasthandoff: 01/30/2017
 9. 評估模型來計算適用於學習問題的相關度量。
 10. 微調模型，並選取要部署的最佳模型。
 
-在這個練習中，我們已經探索了 SQL Server 中的資料並進行工程 (步驟&1;-4)，並且決定了要在 Azure Machine Learning 中內嵌的取樣大小。 建置一或多個我們所決定的預測模型：
+在這個練習中，我們已經探索了 SQL Server 中的資料並進行工程 (步驟 1-4)，並且決定了要在 Azure Machine Learning 中內嵌的取樣大小。 建置一或多個我們所決定的預測模型：
 
 1. 使用[匯入資料][import-data]模組 (可從**資料輸入和輸出**一節取得)，將資料匯入 Azure Machine Learning。 如需詳細資訊，請參閱[匯入資料][import-data]模組參考頁面。
    
@@ -581,7 +581,7 @@ ms.lasthandoff: 01/30/2017
 2. 在 [屬性] 面板中，選取 [Azure SQL Database] 做為 [資料來源]。
 3. 在 [ **資料庫伺服器名稱** ] 欄位中輸入資料庫的 DNS 名稱。 格式： `tcp:<your_virtual_machine_DNS_name>,1433`
 4. 在對應欄位中輸入 **資料庫名稱** 。
-5. 在 [伺服器使用者帳戶名稱] 中輸入 **SQL 使用者名稱**，並在 [伺服器使用者帳戶密碼]** 中輸入密碼。
+5. 在 **[伺服器使用者帳戶名稱] 中輸入 **SQL 使用者名稱**，並在 [伺服器使用者帳戶密碼] 中輸入密碼。
 6. 選取 [ **接受任何伺服器憑證** ] 選項。
 7. 在 [ **資料庫查詢** ] 中編輯文字區域、貼上可擷取必要資料庫欄位的查詢 (包括任何經過計算的欄位，例如標籤)，以及向下取樣所需大小的資料。
 
@@ -596,7 +596,7 @@ ms.lasthandoff: 01/30/2017
 > 
 > 
 
-## <a name="a-namemldeployadeploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>在 Azure Machine Learning 中部署模型
+## <a name="mldeploy"></a>在 Azure Machine Learning 中部署模型
 當您備妥模型時，可以輕鬆地直接從實驗中將它部署為 Web 服務。 如需關於部署 Azure Machine Learning Web 服務的詳細資訊，請參閱 [部署 Azure 機器學習 Web 服務](machine-learning-publish-a-machine-learning-web-service.md)。
 
 若要部署新的 Web 服務，您需要：

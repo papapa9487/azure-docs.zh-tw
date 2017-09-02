@@ -12,37 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 08/21/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 6ceb95dac5a4037c8f2ff93f8245b36f0842a427
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: dbc5f89001dcb6cd1ab061cb0a9632e4e5d2c1c7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
-在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md) 。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
+在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 ## <a name="prerequisites"></a>必要條件
-在開始之前，您需要 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account) ，以便將診斷記錄封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。 您使用的儲存體帳戶必須是一般用途的儲存體帳戶，不可以是 blob 儲存體帳戶。
+在開始之前，您需要[建立儲存體帳戶](../storage/storage-create-storage-account.md)，以便將診斷記錄封存至其中。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存活動記錄和診斷度量至儲存體帳戶，則將同一儲存體帳戶用於診斷記錄合情合理，因為可以將所有監視資料集中在一個位置。 您使用的儲存體帳戶必須是一般用途的儲存體帳戶，不可以是 blob 儲存體帳戶。
 
 ## <a name="diagnostic-settings"></a>診斷設定
-若要使用下列任何方法封存診斷記錄，您必須為特定資源設定 **診斷設定** 。 資源的診斷設定會定義所儲存或串流的記錄類別以及輸出 — 儲存體帳戶及/或事件中樞。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除
+若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源的診斷設定會定義要傳送至目的地 (儲存體帳戶、事件中樞命名空間或 Log Analytics) 的記錄類別與計量資料。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除
 
 ## <a name="archive-diagnostic-logs-using-the-portal"></a>使用入口網站封存診斷記錄
-1. 在入口網站中，按一下要對其啟用診斷記錄封存之資源的 [資源] 刀鋒視窗。
-2. 在資源設定功能表的 [監視] 區段選取 [診斷]。
+1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定]
+
+    ![Azure 監視器的監視區段](media/monitoring-archive-diagnostic-logs/diagnostic-settings-blade.png)
+
+2. 選擇性地依資源群組或資源類型篩選清單，然後按一下您要設定診斷設定的資源。
+
+3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下「開啟診斷」。
+
+   ![新增診斷設定 - 無現有的設定](media/monitoring-archive-diagnostic-logs/diagnostic-settings-none.png)
+
+   如果資源上已有設定，您會看到此資源上已設定的設定清單。 按一下「新增診斷設定」。
+
+   ![新增診斷設定 - 現有的設定](media/monitoring-archive-diagnostic-logs/diagnostic-settings-multiple.png)
+
+3. 為您的設定提供名稱，並勾選 [匯出到儲存體帳戶] 核取方塊，然後選取儲存體帳戶。 使用 [保留 (天)]  滑桿選擇性地設定這些記錄的保留天數。 保留天數為 0 會無限期地儲存記錄。
    
-    ![資源功能表的監視區段](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-sec.png)
-3. 勾選 [匯出到儲存體帳戶] 核取方塊，然後選取儲存體帳戶。 使用 [保留 (天)]  滑桿選擇性地設定這些記錄的保留天數。 保留天數為 0 會無限期地儲存記錄。
-   
-    ![診斷記錄刀鋒視窗](media/monitoring-archive-diagnostic-logs/diag-log-monitoring-blade.png)
+   ![新增診斷設定 - 現有的設定](media/monitoring-archive-diagnostic-logs/diagnostic-settings-configure.png)
+    
 4. 按一下 [儲存] 。
 
-新事件資料產生之後，診斷記錄就會立即封存至該儲存體帳戶。
+過了幾分鐘之後，新的設定就會出現在此資源的設定清單中，而且每次產生新的事件資料，都會將診斷記錄封存至該儲存體帳戶。
 
-## <a name="archive-diagnostic-logs-via-the-powershell-cmdlets"></a>透過 PowerShell Cmdlet 封存診斷記錄
+## <a name="archive-diagnostic-logs-via-azure-powershell"></a>透過 Azure PowerShell 封存診斷記錄
 ```
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg -StorageAccountId /subscriptions/s1id1234-5679-0123-4567-890123456789/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Categories networksecuritygroupevent,networksecuritygrouprulecounter -Enabled $true -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -69,7 +80,7 @@ azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-456
 | 已啟用 |是 |布林值，表示要對資源啟用還是停用診斷。 |
 
 ## <a name="archive-diagnostic-logs-via-the-rest-api"></a>透過 REST API 封存診斷記錄
-[請參閱本文件](https://msdn.microsoft.com/library/azure/dn931931.aspx)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。
+[請參閱本文件](https://docs.microsoft.com/rest/api/monitor/servicediagnosticsettings)，以取得如何使用 Azure 監視器 REST API 設定診斷設定的資訊。
 
 ## <a name="schema-of-diagnostic-logs-in-the-storage-account"></a>儲存體帳戶中的診斷記錄結構描述
 設定了封存之後，便會在已啟用的其中一個記錄類別發生事件時，立即於儲存體帳戶中建立儲存體容器。 容器內的 Blob 的診斷記錄和活動記錄會遵循相同的格式。 這些 blob 的結構為：
@@ -131,8 +142,7 @@ azure insights diagnostic set --resourceId /subscriptions/s1id1234-5679-0123-456
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* [下載 blob 以供分析](../storage/storage-dotnet-how-to-use-blobs.md#download-blobs)
-* [將診斷記錄串流至事件中樞](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [下載 blob 以供分析](../storage/storage-dotnet-how-to-use-blobs.md)
+* [將診斷記錄串流至事件中樞命名空間](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [深入了解診斷記錄](monitoring-overview-of-diagnostic-logs.md)
-
 

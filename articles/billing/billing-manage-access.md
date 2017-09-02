@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2017
+ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 247782a86a0d20486513dff0dae0c1564b5ecb72
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>使用角色型存取控制來管理對 Azure 帳單資訊的存取
@@ -34,7 +34,11 @@ ms.lasthandoff: 05/25/2017
 
 1. 選取 [發票]，然後選取 [存取發票]。
 
-1. [開啟] 存取權。
+    ![螢幕擷取畫面顯示如何委派存取發票](./media/billing-manage-access/AA-optin.png)
+
+1. **開啟**存取權，然後儲存變更，以允許訂用帳戶限域角色中的使用者下載發票。
+
+    ![螢幕擷取畫面顯示委派存取發票的開關](./media/billing-manage-access/AA-optinAllow.png)
 
 加入即可讓訂用帳戶上的「服務管理員」、「共同管理員」、「擁有者」、「參與者」、「讀者」及「帳單讀者」在 Azure 入口網站中下載 PDF 發票。 不過，2016 年 12 月以前的發票目前僅供「帳戶管理員」使用。
 
