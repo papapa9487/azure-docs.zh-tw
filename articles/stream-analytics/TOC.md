@@ -13,6 +13,7 @@
 ### [社交媒體](stream-analytics-twitter-sentiment-analysis-trends.md)
 ### [使用 Machine Learning 進行即時評分](stream-analytics-machine-learning-integration-tutorial.md)
 ### [即時事件處理](stream-analytics-real-time-event-processing-reference-architecture.md)
+### [Azure 使用量異常偵測指南 (預覽)](stream-analytics-machine-learning-anomaly-detection.md)
 
 ## 建立作業
 ### [建立輸入](stream-analytics-define-inputs.md)
@@ -66,7 +67,7 @@
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [部落格](http://blogs.msdn.com/b/streamanalytics/)
 ## [意見反應論壇](http://feedback.azure.com/forums/270577-azure-stream-analytics)
-## [論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+## [論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 ## [價格](https://azure.microsoft.com/pricing/details/stream-analytics/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
 ## [版本資訊](stream-analytics-release-notes.md)

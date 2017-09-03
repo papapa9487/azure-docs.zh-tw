@@ -1,20 +1,45 @@
-- name: Text Analytics Documentation
+- name: 文字分析文件
   href: ../index.md
-- name: Overview
+- name: 概觀
   href: overview.md
-- name: Quick Start Guide
-  href: quick-start.md
-- name: Reference
+  items: null
+- name: 快速入門
   items:
-    - name: API Reference content
+    - name: 'C#'
+      href: quick-start.md
+- name: 使用說明指南
+  items:
+    - name: 註冊
+      href: text-analytics-howto-signup.md
+    - name: 取得存取金鑰
+      href: text-analytics-howto-accesskey.md
+    - name: 呼叫文字分析 API
+      href: text-analytics-howto-call-api.md
+    - name: 偵測語言種類
+      href: text-analytics-howto-language-detection.md
+    - name: 分析人氣
+      href: text-analytics-howto-sentiment-analysis.md
+    - name: 擷取關鍵字
+      href: text-analytics-howto-keyword-extraction.md
+- name: 參考
+  items:
+    - name: API 參考
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
-    - name: Windows SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Windows'
-    - name: Android SDK
-      href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-Android'
-    - name: .Net Standard SDK
+    - name: .Net 標準 SDK
       href: 'https://github.com/Microsoft/Cognitive-TextAnalytics-DotNet'
-- name: Resources
+- name: 資源
   items:
-    - name: Azure Roadmap
+    - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: 與我們連絡
+      href: 'https://azure.microsoft.com/overview/sales-number/'
+    - name: 外部及社群內容
+      href: text-analytics-resource-external-community.md
+    - name: 常見問題集
+      href: text-analytics-resource-faq.md
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: 使用者心聲
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

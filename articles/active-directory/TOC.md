@@ -10,16 +10,9 @@
 ## [註冊 Azure AD Premium](active-directory-get-started-premium.md)
 ## [新增自訂網域名稱](add-custom-domain.md)
 ## [設定公司商標](customize-branding.md)
+## [在 Azure AD 中新增使用者](add-users-azure-active-directory.md)
+## [將授權指派給使用者](license-users-groups.md)
 ## [啟用自助式密碼重設](active-directory-passwords-getting-started.md)
-## 管理 Azure AD 授權
-### [Azure 入口網站](active-directory-licensing-get-started-azure-portal.md)
-### [傳統入口網站](active-directory-licensing-what-is.md)
-### [使用群組指派授權](active-directory-licensing-whatis-azure-portal.md)
-#### [將授權指派給群組](active-directory-licensing-group-assignment-azure-portal.md)
-#### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
-#### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
-#### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
-#### [群組型授權的 PowerShell 範例](active-directory-licensing-ps-examples.md)
 
 
 # 作法
@@ -44,11 +37,6 @@
 #### [工具比較](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## 管理使用者
-### 新增使用者
-#### [Azure 入口網站](active-directory-users-create-azure-portal.md)
-#### [傳統入口網站](active-directory-create-users.md)
-
-
 ### [使用群組指派授權](active-directory-licensing-whatis-azure-portal.md)
 #### [將授權指派給群組](active-directory-licensing-group-assignment-azure-portal.md)
 #### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
@@ -56,7 +44,6 @@
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 PowerShell 範例](active-directory-licensing-ps-examples.md)
 ### [從其他目錄中新增使用者 (傳統入口網站)](active-directory-create-users-external.md)
-### [刪除使用者](active-directory-users-delete-user-azure-portal.md)
 ### [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
 ### [重設密碼](active-directory-users-reset-password-azure-portal.md)
 ### [管理使用者工作資訊](active-directory-users-work-info-azure-portal.md)
@@ -144,19 +131,17 @@
 
 ## 管理裝置
 ### [簡介](device-management-introduction.md)
+### [使用 Azure 入口網站](device-management-azure-portal.md)
 ### [常見問題集](device-management-faq.md)
 ### 工作
+#### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](device-management-azuread-registered-devices-windows10-setup.md)
+#### [設定 Azure AD 已加入裝置](device-management-azuread-joined-devices-setup.md)
 #### [設定混合式 Azure AD 已加入裝置](device-management-hybrid-azuread-joined-devices-setup.md) 
-#### 疑難排解
-##### [混合式 Azure AD 已加入 Windows 10 和 Windows Server 2016 裝置](device-management-troubleshoot-hybrid-join-windows-current.md)
-##### [混合式 Azure AD 已加入舊版 Windows 裝置](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
-### 註冊裝置
 #### [部署內部部署](active-directory-device-registration-on-premises-setup.md)
-#### [常見問題集](active-directory-device-registration-faq.md)
-#### 疑難排解
-##### [針對 Windows 10 與 Windows Server 2016 進行疑難排解](active-directory-device-registration-troubleshoot-windows.md)
-##### [針對 Windows 下層用戶端進行疑難排解](active-directory-device-registration-troubleshoot-windows-legacy.md)
+#### [在第一次執行 Windows 10 時加入 Azure AD 的體驗](device-management-azuread-joined-devices-frx.md)
+### 疑難排解
+#### [混合式 Azure AD 已加入 Windows 10 和 Windows Server 2016 裝置](device-management-troubleshoot-hybrid-join-windows-current.md)
+#### [混合式 Azure AD 已加入舊版 Windows 裝置](device-management-troubleshoot-hybrid-join-windows-legacy.md)
 ### [Azure AD Join](active-directory-azureadjoin-overview.md)
 #### [規劃](active-directory-azureadjoin-deployment-aadjoindirect.md)
 #### [設定裝置註冊](active-directory-azureadjoin-setup.md)
@@ -315,7 +300,6 @@
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳作法](active-directory-conditional-access-best-practices.md)
 #### [技術參考](active-directory-conditional-access-technical-reference.md)
-#### [支援的應用程式](active-directory-conditional-access-supported-apps.md)
 #### [了解裝置原則](active-directory-conditional-access-device-policies.md)
 #### [設定已連接應用程式的存取權](active-directory-conditional-access-policy-connected-applications.md)
 #### [補救](active-directory-conditional-access-device-remediation.md)

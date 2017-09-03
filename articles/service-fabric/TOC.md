@@ -19,8 +19,6 @@
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
 ## [PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
-### [部署範例](scripts/cli-deploy-application.md)
-### [移除範例](scripts/cli-remove-application.md)
 # 概念
 ## [了解微服務](service-fabric-overview-microservices.md)
 ## [概觀](service-fabric-content-roadmap.md)
@@ -115,11 +113,14 @@
 #### [節流](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [服務動作](service-fabric-cluster-resource-manager-movement-cost.md)
 
+## [與 API 管理整合](service-fabric-api-management-overview.md)
+
 ## 監視與診斷
 ### [概觀](service-fabric-diagnostics-overview.md)
 ### [健康情況模型](service-fabric-health-introduction.md)
 ### [可設定狀態 Reliable Services 中的診斷](service-fabric-reliable-services-diagnostics.md)
 ### [Reliable Actors 中的診斷](service-fabric-reliable-actors-diagnostics.md)
+### [適用於 Reliable Services 遠端的效能計數器](service-fabric-reliable-serviceremoting-diagnostics.md)
 
 # 使用說明指南
 ## 設定開發環境
@@ -128,6 +129,7 @@
 ### [Mac OS](service-fabric-get-started-mac.md)
 
 ## 建置應用程式
+### [在 Visual Studio 中建立您的第一個 C# 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)
 ### 建置可供來賓執行的服務
 #### [在 Windows 上託管 Node.js 應用程式](quickstart-guest-app.md)
 #### [部署來賓可執行檔](service-fabric-deploy-existing-app.md)
@@ -208,9 +210,7 @@
 ### [在 Eclipse 中的Java 服務中進行偵錯](service-fabric-debugging-your-application-java.md)
 ### [在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## 與 API 管理整合
-### [概觀](service-fabric-api-management-overview.md)
-### [快速入門](service-fabric-api-management-quick-start.md)
+## [將 API 管理與 Service Fabric 部署至 Azure](service-fabric-api-management-quick-start.md)
 
 ## 從雲端服務移轉
 ### [比較雲端服務與 Service Fabric](service-fabric-cloud-services-migration-differences.md)

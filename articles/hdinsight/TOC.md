@@ -57,14 +57,11 @@
 ### [搭配使用 DataFu 與 Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [隨選叢集](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)
-## 使用 R 伺服器
-### [儲存體選項](hdinsight-hadoop-r-server-storage.md)
-### [安裝 RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
-### [計算內容](hdinsight-hadoop-r-server-compute-contexts.md)
-### [ScaleR 和 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 使用 Spark 進行記憶體中的處理
+### 快速入門 - Spark 開發人員
+#### [建立獨立應用程式](hdinsight-apache-spark-create-standalone-application.md)
+#### [使用 Livy 的遠端工作](hdinsight-apache-spark-livy-rest-interface.md) 
 ### [搭配 Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
-### [建立獨立應用程式](hdinsight-apache-spark-create-standalone-application.md)
 ### [使用 Eclipse 建立應用程式](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [使用 IntelliJ 建立應用程式](hdinsight-apache-spark-intellij-tool-plugin.md)
 ### [處理串流事件](hdinsight-apache-spark-eventhub-streaming.md)
@@ -78,9 +75,13 @@
 ### [使用儲存格魔術搭配 Jupyter 使用外部套件](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 ### [使用指令碼動作搭配 Jupyter 使用外部套件](hdinsight-apache-spark-python-package-installation.md)
 ### [使用本機 Jupyter Notebook](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-### [使用 Livy 的遠端工作](hdinsight-apache-spark-livy-rest-interface.md)
 ### [使用 IntelliJ 透過 VPN 進行遠端偵錯作業](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 ### [已知問題](hdinsight-apache-spark-known-issues.md)
+## 使用 R 伺服器
+### [儲存體選項](hdinsight-hadoop-r-server-storage.md)
+### [安裝 RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
+### [計算內容](hdinsight-hadoop-r-server-compute-contexts.md)
+### [ScaleR 和 SparkR](hdinsight-hadoop-r-scaler-sparkr.md)
 ## 使用 HBase
 ### [使用 Phoenix 和 SQLLine](hdinsight-hbase-phoenix-squirrel-linux.md)
 ### [分析即時推文](hdinsight-hbase-analyze-twitter-sentiment.md)
