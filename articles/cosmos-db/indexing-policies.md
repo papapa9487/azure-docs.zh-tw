@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 2c03b498b1530388a48db4d2925debc2e03e30aa
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
@@ -77,8 +77,6 @@ Azure Cosmos DB 支援三個編製索引模式，這些模式可以透過 Azure 
 > 將索引編製原則設定為「無」時，對於捨棄任何現有的索引具有副作用。 如果您的存取模式只需要「識別碼」及/或「自我連結」，請使用此選項。
 > 
 > 
-
-下列範例示範如何在插入所有文件時，搭配使用 .NET SDK 與一致自動編製索引來建立 Azure Cosmos DB 集合。
 
 下表顯示根據針對集合設定的索引編製模式 (「一致」和「延遲」)，以及針對查詢要求指定的一致性層級，顯示查詢的一致性。 這適用於使用任何介面 (REST API、SDK)，或從預存程序和觸發程序內進行的查詢。 
 

@@ -4,7 +4,7 @@ description: "在 Linux 上的 Azure App Service Web 應用程式中使用 Ruby�
 keywords: "azure app service, web 應用程式, 常見問題集, linux, oss, ruby"
 services: app-service
 documentationCenter: 
-authors: aelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: aelnably;wesmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: ad724b99426c1873c173da905c89b471ee64ffa6
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 56105d1bc153e552e12c0c408c8f6075e4eff9d0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -49,7 +48,6 @@ ms.lasthandoff: 06/09/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [什麼是 Linux 上的 Web 應用程式？](app-service-linux-intro.md)
-* [在 Linux 上的 Web 應用程式中建立 Web Apps](app-service-linux-how-to-create-web-app.md)
 * [本機 Git 部署至 Azure App Service](app-service-deploy-local-git.md)
 * [Linux 上的 Azure App Service Web 應用程式常見問題集](app-service-linux-faq.md)
 * [使用 Linux 上的 Azure Web 應用程式建立 Ruby 應用程式](app-service-linux-ruby-get-started.md)

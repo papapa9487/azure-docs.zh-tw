@@ -2,7 +2,7 @@
 title: "媒體編碼器標準結構描述 | Microsoft Docs"
 description: "本主題提供媒體編碼器標準結構描述的概觀。"
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 13a3da67da28a1cdebd784e9e33021bb2c2668ce
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: c9333e745c75f134e045ee6d15c3552449d8edc3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-encoder-standard-schema"></a>媒體編碼器標準結構描述
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/26/2017
 ### <a name="attributes"></a>屬性
 | 名稱 | 類型 | 說明 |
 | --- | --- | --- |
-| **Condition** |**xs:string** | 當輸入沒有視訊時，您可能需要強制編碼器插入單色視訊播放軌。 若要這樣做，請使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" (只以最低位元速率插入視訊) 或 Condition="InsertBlackIfNoVideo" (以所有輸出位元速率插入視訊)。 如需詳細資訊，請參閱 [這個](media-services-advanced-encoding-with-mes.md#no_video) 主題。|
+| **Condition** |**xs:string** | 當輸入沒有視訊時，您可能需要強制編碼器插入單色視訊播放軌。若要這樣做，請使用 Condition="InsertBlackIfNoVideoBottomLayerOnly" (只以最低位元速率插入視訊) 或 Condition="InsertBlackIfNoVideo" (以所有輸出位元速率插入視訊)。 如需詳細資訊，請參閱 [這個](media-services-advanced-encoding-with-mes.md#no_video) 主題。|
 
 ## <a name="H264Layers"></a> H264Layers
 

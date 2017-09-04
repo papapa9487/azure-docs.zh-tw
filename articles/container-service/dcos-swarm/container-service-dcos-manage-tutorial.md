@@ -18,10 +18,10 @@ ms.date: 07/17/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 2b4ebe3d026b38916dd127312ad684b7c973ac0d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e93f782c26c32f97749e817ec59ee3c2ecb7e119
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -45,10 +45,10 @@ DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 �
 
 首先，使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+下列範例會在 westeurope 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurecli
-az group create --name myResourceGroup --location eastus
+az group create --name myResourceGroup --location westeurope
 ```
 
 接下來，使用 [az acs create](/cli/azure/acs#create) 命令來建立 DC/OS 叢集。

@@ -4,7 +4,7 @@ description: "針對串流分析作業進行移難排解時，如何精準找出
 keywords: "疑難排解流程圖、資源刀鋒視窗"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4ad6b8feff4c46b01613e422c090c0d30ee9c7a2
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 554dec5fbbe5c98585f8be58f5d4e8203d788a00
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -41,7 +40,7 @@ Azure 入口網站中的 [資源健康狀態] 刀鋒視窗會顯示 Azure 串流
 ![串流分析的疑難排解流程 - 地圖](media/stream-analytics-resource-health/stream-analytics-troubleshooting-map.png)
 
 ## <a name="get-help"></a>取得說明
-如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [串流分析介紹](stream-analytics-introduction.md)

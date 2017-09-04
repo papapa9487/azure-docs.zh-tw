@@ -3,7 +3,7 @@ title: "如何將 Azure API 管理與內部虛擬網路搭配使用 | Microsoft 
 description: "了解如何在內部虛擬網路中安裝和設定 Azure API 管理。"
 services: api-management
 documentationcenter: 
-author: solankisamir
+author: vladvino
 manager: kjoshi
 editor: 
 ms.assetid: dac28ccf-2550-45a5-89cf-192d87369bc3
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b9df2c3e7f49a47bfd714f28c5ab53590ca9a719
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a4c2bda1226ca05c775d011fba7bc59d4dab8998
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="using-azure-api-management-service-with-internal-virtual-network"></a>搭配使用 Azure API 管理服務與內部虛擬網路
@@ -63,23 +62,23 @@ ms.lasthandoff: 04/27/2017
 ### <a name="access-on-default-host-names"></a>預設主機名稱上的存取︰
 當您在公用 Azure 雲端 (假設名為「contoso」) 中建立 API 管理服務，依預設會設定下列服務端點。
 
->    閘道 / 代理程式 - contoso.azure-api.net
+>   閘道 / 代理程式 - contoso.azure-api.net
 
 > 發行者入口網站和開發人員入口網站 - contoso.portal.azure-api.net
 
 > 直接管理端點 - contoso.management.azure-api.net
 
->    Git - contoso.scm.azure-api.net
+>   Git - contoso.scm.azure-api.net
 
 若要存取這些 API 管理服務端點，您可在連線到「已部署 API 管理的虛擬網路」的子網路中建立虛擬機器。 假設服務的內部虛擬 IP 位址是 10.0.0.5，您可以進行主機檔案對應 (%SystemDrive%\drivers\etc\hosts)，如下所示︰
 
-> 10.0.0.5      contoso.azure-api.net
+> 10.0.0.5    contoso.azure-api.net
 
-> 10.0.0.5      contoso.portal.azure-api.net
+> 10.0.0.5    contoso.portal.azure-api.net
 
-> 10.0.0.5      contoso.management.azure-api.net
+> 10.0.0.5    contoso.management.azure-api.net
 
-> 10.0.0.5      contoso.scm.azure-api.net
+> 10.0.0.5    contoso.scm.azure-api.net
 
 然後您就可以從您建立的虛擬機器存取所有服務端點。 如果在虛擬網路中使用自訂 DNS 伺服器，您也可以建立 A DNS 記錄，並從虛擬網路中的任何地方存取這些端點。 
 

@@ -3,7 +3,7 @@ title: "適用於 Azure Functions 的串流分析即時處理 | Microsoft Docs"
 description: "了解如何使用連接到服務匯流排佇列的 Azure 函式，從串流分析工作的輸出填入 Azure Redis 快取。"
 keywords: "data stream, redis cache, service bus queue, 資料流, redis 快取, 服務匯流排佇列"
 services: stream-analytics
-author: ryancrawcour
+author: samacha
 manager: jhubbard
 documentationcenter: 
 ms.assetid: d428bb33-4244-4001-b93d-c77bed816527
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2017
-ms.author: ryancraw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 3a915f782eddaa91bcfcc3f2b2c32eee752c319c
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70471749ef2b0ccaa4662cbf8a1dfa7ef4b21cfa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="how-to-store-data-from-azure-stream-analytics-in-an-azure-redis-cache-using-azure-functions"></a>如何使用 Azure Functions 在 Azure Redis 快取中儲存 Azure 串流分析的資料
@@ -189,7 +188,7 @@ Azure 串流分析可讓您快速開發及部署低成本的解決方案，即�
 
 如果您不熟悉 Microsoft Azure，我們邀請您透過註冊 [免費 Azure 試用帳戶](https://azure.microsoft.com/pricing/free-trial/)來親自嘗試。 如果您不熟悉串流分析，我們邀請您 [建立您的第一個串流分析工作](stream-analytics-create-a-job.md)。
 
-如果您需要任何協助或有任何問題，請在 [MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics) 或 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 論壇中提出。 
+如果您需要任何協助或有任何問題，請在 [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics) 或 [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-stream-analytics) 論壇中提出。 
 
 您也可以查看下列資源︰
 

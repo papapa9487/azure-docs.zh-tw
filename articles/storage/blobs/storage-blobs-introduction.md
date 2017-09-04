@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: robinsh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d0c7f35a0f7336bab59007c35803d4f13054e35a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 儲存體簡介
@@ -54,4 +54,4 @@ Blob 服務包含下列元件：
 ## <a name="next-steps"></a>後續步驟
 
 * [建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [透過 .NET 開始使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [透過 .NET 開始使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)

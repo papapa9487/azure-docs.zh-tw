@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09577d3160137b7879a5c128552d8dcbef89bb0d
-ms.openlocfilehash: c025629c7700c0ee7b6495a922b9bf6823769cfa
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -247,7 +246,7 @@ ContentType: application/atom+xml;type=entry;charset=utf-8
 
 開始將資料傳送到服務匯流排之前，發行者必須在 AMQP 訊息內部將 SAS 權杖傳送至正確定義且名為 **$cbs** 的 AMQP 節點 (您可以將它視為一個由服務所使用的「特別」佇列，用來取得並驗證所有的 SAS 權杖)。 發行者必須在 AMQP 訊息中指定 **ReplyTo** 欄位；這是服務將以權杖驗證結果 (發行者與服務之間的簡單要求/回覆模式) 回覆發行者的節點所在。 此回覆節點是「動態」建立，如 AMQP 1.0 規格中所述的「動態建立遠端節點」。 檢查 SAS 權杖有效之後，發行者可以繼續並開始將資料傳送至服務。
 
-下列步驟示範如何使用 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 程式庫，搭配 AMQP 通訊協定來傳送 SAS 權杖。 如果您不能使用以 C\# 開發的官方服務匯流排 SDK (例如，在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 上)，這就非常有用。當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。 如果您不需要深入了解 AMQP，您可以搭配 .Net Framework 應用程式使用正式服務匯流排 SDK，其將為您做到這點。
+下列步驟示範如何使用 [AMQP.Net Lite](https://github.com/Azure/amqpnetlite) 程式庫，搭配 AMQP 通訊協定來傳送 SAS 權杖。 如果您不能使用以 C\# 開發的官方服務匯流排 SDK (例如，在 WinRT、.Net Compact Framework、.Net Micro Framework 和 Mono 上)，這就非常有用。 當然，此程式庫對於了解宣告型安全性如何在 AMQP 層級運作非常有用，如同您了解其如何在 HTTP 層級運作一樣 (使用 HTTP POST 要求以及在標頭 "Authorization" 內部傳送的 SAS 權杖)。 如果您不需要深入了解 AMQP，您可以搭配 .Net Framework 應用程式使用正式服務匯流排 SDK，其將為您做到這點。
 
 ### <a name="c35"></a>C&#35;
 

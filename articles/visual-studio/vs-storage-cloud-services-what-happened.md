@@ -3,8 +3,8 @@ title: "我的雲端服務專案發生什麼狀況？ | Microsoft Docs"
 description: "說明使用 Visual Studio 已連接服務連接至 Azure 儲存體帳戶後，雲端服務專案發生的狀況"
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: ca0ea68d-f417-4ce8-9413-40d76f69cdea
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-what-happened
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: a4fce79c9b4ec245bc4353e08daf309ea97bdb4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4c9de56f6daf07097c0f593db37d14dce3bce05f
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-happened-to-my-cloud-services-project-visual-studio-azure-storage-connected-service"></a>我的雲端服務專案發生什麼狀況 (Visual Studio Azure 儲存體已連接服務)？
@@ -40,10 +41,5 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。
 * **ServiceDefinition.csdef**
 * **ServiceConfiguration.Cloud.cscfg**
 * **ServiceConfiguration.Local.cscfg**
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -2,7 +2,7 @@
 title: "Azure 媒體服務輸出中繼資料結構描述 | Microsoft Docs"
 description: "本主題提供 Azure 媒體服務輸出中繼資料結構描述的概觀。"
 author: Juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c3c5a3ee123fe021444370583c7f37737a03edce
-ms.openlocfilehash: 2e21c8df29a78da77505b6f67434d97698f7a212
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="output-metadata"></a>輸出中繼資料
@@ -97,7 +97,7 @@ ms.lasthandoff: 11/17/2016
 ### <a name="attributes"></a>屬性
 | 名稱 | 類型 | 說明 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。 **注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此視訊播放軌之以零為起始的索引。**注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
 | **FourCC**<br/><br/> 必要 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
 | **設定檔** |**xs:string** |H264 設定檔 (僅適用於 H264 轉碼器)。 |
 | **Level** |**xs:string** |H264 層級 (僅適用於 H264 轉碼器)。 |
@@ -129,7 +129,7 @@ ms.lasthandoff: 11/17/2016
 ### <a name="attributes"></a>屬性
 | 名稱 | 類型 | 說明 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。 **注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |此音訊播放軌之以零為起始的索引。**注意︰**這不一定是用於 MP4 檔中的 TrackID。 |
 | **Codec** |**xs:string** |音訊播放軌轉碼器字串。 |
 | **EncoderVersion** |**xs:string** |選用的編碼器版本字串，為 EAC3 所需。 |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> 必要 |**xs:int** |音訊聲道數目。 |

@@ -4,7 +4,7 @@ description: "本主題說明如何建立篩選器，讓您的用戶端可以使
 services: media-services
 documentationcenter: 
 author: cenkdin
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6b77e338e1c7f0f79ea3c25b0b073296f7de0dcf
-ms.openlocfilehash: d0f9899d6b8cc83ea4f2836444b41a9dabe7fea7
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 12/14/2016
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
@@ -121,7 +120,7 @@ ms.lasthandoff: 12/14/2016
 ![轉譯篩選][renditions1]
 
 ## <a name="removing-language-tracks"></a>移除語言資料軌
-您的資產可能包含多個音訊語言，例如英文、西班牙文、法文等。通常，播放程式 SDK 管理員會預設音訊資料軌選取範圍，以及每個使用者可選擇的可用音訊資料軌。 開發這類的播放程式 SDK 相當有挑戰性，因為在各個裝置特有的播放程式架構之間有不同的實作方式。 此外播放程式 API 在某些平台上受到限制，且不包含音訊選擇功能，因此使用者無法選取或變更預設的音訊資料軌。 有了資產篩選器，您可以藉由建立只包含所需音訊語言的篩選器來控制行為。
+您的資產可能包含多個音訊語言，例如英文、西班牙文、法文等。通常，播放程式 SDK 管理員會預設音訊資料軌選取範圍，以及每個使用者可選擇的可用音訊資料軌。 開發這類的播放程式 SDK 相當有挑戰性，因為在各個裝置特有的播放程式架構之間有不同的實作方式。 此外播放程式 API 在某些平台上受到限制，且不包含音訊選擇功能，因此使用者無法選取或變更預設的音訊資料軌。有了資產篩選器，您可以藉由建立只包含所需音訊語言的篩選器來控制行為。
 
 ![語言資料軌篩選][language_filter]
 

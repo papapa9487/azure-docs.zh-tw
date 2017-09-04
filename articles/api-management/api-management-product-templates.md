@@ -3,7 +3,7 @@ title: "Azure API 管理中的產品範本 | Microsoft Docs"
 description: "了解如何在「Azure API 管理」開發人員入口網站中自訂產品頁面的內容。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 49f9254c-4c5f-4ed4-9c8d-798f44e805ee
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API 管理中的產品範本
@@ -31,7 +33,7 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
 > [!NOTE]
 >  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
   
-##  <a name="a-nameproductlista-product-list"></a><a name="ProductList"></a>產品清單  
+##  <a name="ProductList"></a>產品清單  
  **清單**範本可讓您自訂開發人員入口網站中產品清單頁面的主體。  
   
  ![產品清單](./media/api-management-product-templates/APIM_ProductsListTemplatePage.png "APIM_ProductsListTemplatePage")  
@@ -117,7 +119,7 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
 }  
 ```  
   
-##  <a name="a-nameproducta-product"></a><a name="Product"></a>產品  
+##  <a name="Product"></a>產品  
  **產品**範本可讓您自訂開發人員入口網站的產品頁面主體。  
   
  ![開發人員入口網站的產品頁面](./media/api-management-product-templates/APIM_ProductPage.png "APIM_ProductPage")  
@@ -258,8 +260,3 @@ ms.openlocfilehash: 393b10042f35afabf00672f9015f714e211a9d43
 
 ## <a name="next-steps"></a>後續步驟
 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。
-
-
-<!--HONumber=Jan17_HO2-->
-
-

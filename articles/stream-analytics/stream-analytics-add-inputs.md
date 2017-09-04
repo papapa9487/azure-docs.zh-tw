@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: ea8f28183f2621e25a53ea7a73ab9f6c5c2b8d07
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>將資料流處理資料輸入或參考資料新增至串流分析工作
 了解如何從事件中樞或 Blob 儲存體的參考資料，將資料來源連接至串流分析工作，以做為資料流處理資料輸入。
 
-Azure 串流分析工作可以連線至一或多個資料輸入，且每個資料輸入都定義了一個與現有資料來源之間的連線。 當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。 「串流分析」與 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)及 [Azure Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)整合性極佳，不論它們是在工作訂用帳戶內還是工作訂用帳戶外。
+Azure 串流分析工作可以連線至一或多個資料輸入，且每個資料輸入都定義了一個與現有資料來源之間的連線。 當資料傳送到該資料來源時，串流分析工作會即時取用該資料，並把它當做串流資料來處理。 「串流分析」與 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)及 [Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)整合性極佳，不論它們是在工作訂用帳戶內還是工作訂用帳戶外。
 
 本文章是 [串流分析學習路徑](/documentation/learning-paths/stream-analytics/)中的一個步驟。
 
@@ -74,7 +74,7 @@ Azure 串流分析工作可以連線至一或多個資料輸入，且每個資�
     ![測試串流資料輸入的連線](./media/stream-analytics-add-inputs/11-stream-analytics-add-inputs.png)  
 
 ## <a name="get-help-with-streaming-data-inputs"></a>取得資料流處理資料輸入的協助
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)

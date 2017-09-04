@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 07f8189d1380f5956db8614e82b8b704b152fb26
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 0f27db7018e398f71a8d7bd0b86e643367b15875
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>了解 Log Analytics 中的記錄搜尋
@@ -33,7 +33,7 @@ ms.lasthandoff: 07/28/2017
 
 您在 Log Analytics 中使用記錄搜尋的不同方式包含以下項目：
 
-- **入口網站。** 您可以在具有[記錄搜尋入口網站](log-analytics-log-search-log-search-portal.md)或[進階分析入口網站](https://docs.loganalytics.io/learn/tutorial_getting_started_with_analytics_portal.html)的存放庫中，執行資料的互動式分析。  這可讓您在各種不同的格式和視覺效果中編輯查詢及分析結果。  您所建立的大多數查詢會在其中一個入口網站中開始，然後在您確認它如預期般運作時複製。
+- **入口網站。** 您可以在具有[記錄搜尋入口網站](log-analytics-log-search-log-search-portal.md)或[進階分析入口網站](https://go.microsoft.com/fwlink/?linkid=856587)的存放庫中，執行資料的互動式分析。  這可讓您在各種不同的格式和視覺效果中編輯查詢及分析結果。  您所建立的大多數查詢會在其中一個入口網站中開始，然後在您確認它如預期般運作時複製。
 - **警示規則。** [警示規則](log-analytics-alerts.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
 - **檢視。**  您可以使用[檢視設計工具](log-analytics-view-designer.md)，建立要包含在使用者儀表板中的資料視覺效果。  記錄搜尋會提供各個檢視中[圖格](log-analytics-view-designer-tiles.md)和[視覺效果部分](log-analytics-view-designer-parts.md)使用的資料。  您可以從視覺效果部分向下鑽研至記錄搜尋入口網站，以在資料上執行進一步的分析。
 - **匯出。**  當您將資料從 Log Analytics 工作區匯出至 Excel 或 [Power BI](log-analytics-powerbi.md) 時，您會建立記錄搜尋以定義要匯出的資料。
@@ -83,5 +83,5 @@ Log Analytics 中記錄搜尋的核心是[廣泛的查詢語言](https://docs.lo
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[您用來建立和編輯記錄搜尋的入口網站](log-analytics-log-search-portals.md)。
-- 請參閱使用新的查詢語言[撰寫查詢的教學課程](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html)。
+- 請參閱使用新的查詢語言[撰寫查詢的教學課程](https://go.microsoft.com/fwlink/?linkid=856078)。
 

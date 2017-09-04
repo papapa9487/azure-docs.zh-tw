@@ -4,7 +4,7 @@ description: "深入了解串流分析如何處理資料串流中順序錯亂或
 keywords: "順序錯亂、延遲、事件"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: d7a5620aef1f28ea065ec10ce095f7f3904a8060
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 5089dda48ea829902663ef9d09fe83177df6f220
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-stream-analytics-event-order-handling"></a>Azure 串流分析事件的順序處理
@@ -65,7 +64,7 @@ ms.lasthandoff: 07/04/2017
 緩衝事件的副作用是輸出會有**相同時間的延遲**。 您可以調整值以減少順序錯亂的事件數量，然後讓作業保持低延遲。
 
 ## <a name="get-help"></a>取得說明
-如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需其他協助，請參閱我們的 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 * [串流分析介紹](stream-analytics-introduction.md)
