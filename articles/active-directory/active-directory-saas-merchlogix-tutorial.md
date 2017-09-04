@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2017
+ms.date: 08/17/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 55227c7302285c721381886c63b7cbfdc114b0bb
+ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
+ms.openlocfilehash: 44fc8226480cafc130720fbe78aa85ee95caec6c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/18/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>教學課程：Azure Active Directory 與 Merchlogix 整合
@@ -109,9 +109,12 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
     ![Merchlogix 網域與 URL 單一登入資訊](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<domain>/login.php?saml=true`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<DOMAIN>/login.php?saml=true`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<domain>/simplesaml/module.php/saml/sp/metadata.php/login-windows-net`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<DOMAIN>/simplesaml/module.php/saml/sp/metadata.php/<SAML_NAME>`
+    
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Merchlogix 支援小組](http://www.merchlogix.com/contact/)以取得這些值。
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -121,7 +124,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-merchlogix-tutorial/tutorial_general_400.png)
 
-6. 在 [Merchlogix 設定] 區段上，按一下 [設定 Merchlogix] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL]。
+6. 在 [Merchlogix 設定] 區段上，按一下 [設定 Merchlogix] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段複製 [登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。
 
     ![Merchlogix 設定](./media/active-directory-saas-merchlogix-tutorial/tutorial_merchlogix_configure.png) 
 

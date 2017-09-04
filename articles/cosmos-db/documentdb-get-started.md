@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 08/16/2017
 ms.author: anhoh
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 312cb366924767cd0ad645dc4a435dd549494188
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 72f66081a6409f980ec6bca5188f585489245a36
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/17/2017
 
 ---
 # <a name="azure-cosmos-db-documentdb-api-getting-started-tutorial"></a>Azure Cosmos DB：開始使用 DocumentDB API 教學課程
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/25/2017
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/free/)。 
     * 或者，您可以使用 [Azure Cosmos DB 模擬器](local-emulator.md)來進行本教學課程。
-* [Visual Studio 2013/Visual Studio 2015](http://www.visualstudio.com/)。
+* [Visual Studio Community 2017](http://www.visualstudio.com/)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步驟 1：建立 Azure Cosmos DB 帳戶
 讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以跳到 [設定您的 Visual Studio 方案](#SetupVS)。 如果您是使用「Azure Cosmos DB 模擬器」，請依照 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，然後直接跳到[設定您的 Visual Studio 解決方案](#SetupVS)。
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/25/2017
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupVS"></a>步驟 2：設定您的 Visual Studio 方案
-1. 在電腦上開啟 **Visual Studio 2015** 。
+1. 在電腦上開啟 **Visual Studio 2017**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
 3. 在 [新增專案]  對話方塊中，依序選取 [範本] / [Visual C#] / [主控台應用程式]、為專案命名，然後按一下 [確定]。
    ![[新增專案] 視窗的螢幕擷取畫面](./media/documentdb-get-started/nosql-tutorial-new-project-2.png)
@@ -503,7 +503,7 @@ Azure Cosmos DB 支援刪除 JSON 文件。
 ## <a id="Run"></a>步驟 11：一起執行您的 C# 主控台應用程式！
 在 Visual Studio 中按 F5，即可在偵錯模式下建置應用程式。
 
-您應該可以看到入門應用程式的輸出。 輸出將會顯示新增的查詢結果，而且應該符合以下的範例文字。
+您應該會在主控台視窗中看到入門應用程式的輸出。 輸出將會顯示新增的查詢結果，而且應該符合以下的範例文字。
 
     Created FamilyDB
     Press any key to continue ...
@@ -543,11 +543,11 @@ Azure Cosmos DB 支援刪除 JSON 文件。
 
 
 ## <a name="next-steps"></a>後續步驟
-* 需要更複雜的 ASP.NET MVC 教學課程嗎？ 請參閱[使用 Azure Cosmos DB 建置具有 ASP.NET MVC 的 Web 應用程式](documentdb-dotnet-application.md)。
-* 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和規模測試](performance-testing.md)
-* 了解如何[監視 Azure Cosmos DB 帳戶](monitor-accounts.md)。
+* 需要更複雜的 ASP.NET MVC 教學課程嗎？ 請參閱 [ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發](documentdb-dotnet-application.md)。
+* 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和級別測試](performance-testing.md)
+* 了解如何[監視 Azure Cosmos DB 要求、使用量及儲存體](monitor-accounts.md)。
 * 在 [Query Playground](https://www.documentdb.com/sql/demo)中，針對範例資料集執行查詢。
-* 如需深入了解程式設計模型，請參閱 [Azure Cosmos DB 文件頁面](https://azure.microsoft.com/documentation/services/documentdb/)中的＜開發＞一節。
+* 若要深入了解 Azure Cosmos DB，請參閱[歡迎使用 Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/introduction)。
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
 [cosmos-db-create-account]: create-documentdb-dotnet.md#create-account

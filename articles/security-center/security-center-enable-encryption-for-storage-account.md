@@ -14,20 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 7b5df25f46a2824acb361401ab90c960b8e5978f
-ms.openlocfilehash: 5b580183002ae5c42cc08343cea7f659c635d590
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7b2e8a12cbab68da9c8fcc348e8e3c543607007
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>在 Azure 資訊安全中心啟用 Azure 儲存體帳戶的加密
 Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服務加密。
 
-儲存體服務加密 (SSE) 會在資料寫入 Azure 儲存體時加密資料，並於擷取資料之前解密。  SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。  若要深入了解，請參閱[待用資料的儲存體服務加密](../storage/storage-service-encryption.md)。
+儲存體服務加密 (SSE) 會在資料寫入 Azure 儲存體時加密資料，並於擷取資料之前解密。  SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。  若要深入了解，請參閱[待用資料的儲存體服務加密](../storage/common/storage-service-encryption.md)。
 
 
 > [!Note]
-> 啟用加密之後，只有新的資料會加密。 儲存體帳戶中任何現有的 blob 保持未加密。 若要加密現有的 blob，請參閱[儲存體服務加密常見問題集](../storage/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest)。
+> 啟用加密之後，只有新的資料會加密。 儲存體帳戶中任何現有的 blob 保持未加密。 若要加密現有的 blob，請參閱[儲存體服務加密常見問題集](../storage/common/storage-service-encryption.md#frequently-asked-questions-about-storage-service-encryption-for-data-at-rest)。
 >
 >
 
@@ -53,7 +54,7 @@ Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服�
 ## <a name="see-also"></a>另請參閱
 本文件說明如何實作資訊安全中心建議：「啟用 Azure 儲存體帳戶的加密」。 若要深入了解 Azure 儲存體服務加密，請參閱下列主題：
 
-* [待用資料的 Azure 儲存體服務加密](../storage/storage-service-encryption.md)
+* [待用資料的 Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
@@ -68,9 +69,4 @@ Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服�
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png
 [2]: ./media/security-center-enable-encryption-for-storage-account/enable-storage-encryption.png
 [3]: ./media/security-center-enable-encryption-for-storage-account/encryption-blade.png
-
-
-
-<!--HONumber=Jan17_HO1-->
-
 

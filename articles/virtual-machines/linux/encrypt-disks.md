@@ -16,11 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/05/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3dc48f5dcb50db81d9f461c41570640839fcce26
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 172b4c8f5c098d776cb689543f5d8f163b8895b4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="how-to-encrypt-virtual-disks-on-a-linux-vm"></a>如何將 Linux VM 上的虛擬磁碟加密
@@ -274,15 +273,13 @@ az vm encryption show --resource-group myResourceGroup --name myVM
 
 
 ## <a name="add-additional-data-disks"></a>新增其他資料磁碟
-一旦將資料磁碟加密，您稍後即可將其他虛擬磁碟新增至您的 VM，而且予以加密。 當您執行 `az vm encryption enable` 命令時，請使用 `--sequence-version` 參數遞增順序版本。 此順序版本參數可讓您在相同的 VM 上執行重複的作業。
-
-例如，將第二個虛擬磁碟新增至您的 VM，如下所示︰
+一旦將資料磁碟加密，您稍後即可將其他虛擬磁碟新增至您的 VM，而且予以加密。 例如，將第二個虛擬磁碟新增至您的 VM，如下所示︰
 
 ```azurecli
 az vm disk attach-new --resource-group myResourceGroup --vm-name myVM --size-in-gb 5
 ```
 
-重新執行命令來加密虛擬磁碟，這次新增 `--sequence-version` 參數，並從第一次執行遞增此值，如下所示︰
+重新執行命令來加密虛擬磁碟，如下所示：
 
 ```azurecli
 az vm encryption enable \
@@ -292,8 +289,7 @@ az vm encryption enable \
     --aad-client-secret $sp_password \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all \
-    --sequence-version 2
+    --volume-type all
 ```
 
 

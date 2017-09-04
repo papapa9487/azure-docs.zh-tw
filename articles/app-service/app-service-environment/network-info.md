@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 891ed3f496ca394c9139ad9f94986a19d8cef769
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
@@ -62,11 +62,18 @@ ASE 輸入存取相依性為：
 
 | 使用 | 從 | 收件人 |
 |-----|------|----|
-| 管理 | Internet | ASE 子網路：454、455 |
+| 管理 | App Service 管理位址 | ASE 子網路：454、455 |
 |  ASE 內部通訊 | ASE 子網路：所有連接埠 | ASE 子網路：所有連接埠
-|  允許 Azure Load Balancer 輸入 | Azure Load Balancer | 任意
+|  允許 Azure Load Balancer 輸入 | Azure Load Balancer | ASE 子網路：所有連接埠
+|  應用程式指派的 IP 位址 | 應用程式指派的位址 | ASE 子網路：所有連接埠
 
-除了系統監控以外，輸入流量也提供了 ASE 的命令與控制。 此流量的來源 IP 並不是固定的。 網路安全性設定需在連接埠 454 和 455 上允許來自所有 IP 的存取。
+除了系統監控以外，輸入流量也提供了 ASE 的命令與控制。 此流量的來源 IP 列於 [ASE 管理位址][ASEManagement]文件中。 網路安全性設定需在連接埠 454 和 455 上允許來自所有 IP 的存取。
+
+ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更這些連接埠。  ASE 子網路的所有連接埠都必須能夠從 ASE 子網路存取。 
+
+您必須開啟最小連接埠 454、455 和 16001，才能在 Azure Load Balancer 與 ASE 子網路之間進行通訊。 16001 連接埠可用來保持負載平衡器與 ASE 之間的流量運作。 如果您使用 ILB ASE，則可以將流量僅鎖定於 454、455、16001 連接埠。  如果您使用外部 ASE，則需要考慮一般應用程式存取連接埠。  如果您使用應用程式指派的位址，則需要在所有連接埠將它開啟。  將位址指派給特定應用程式時，負載平衡器會使用事先不知道的連接埠將 HTTP 和 HTTPS 流量傳送至 ASE。
+
+如果您使用應用程式指派的 IP 位址，則需要允許將來自應用程式指派之 IP 的流量傳送至 ASE 子網路。
 
 對於輸出存取，ASE 取決於多個外部系統。 那些系統相依性會以 DNS 名稱定義，且不會對應至一組固定的 IP 位址。 因此，ASE 需要透過不同的連接埠進行從 ASE 子網路至所有外部 IP 的輸出存取。 ASE 具有下列輸出相依性：
 
@@ -245,4 +252,5 @@ ASE 用來管理系統的 Azure SQL 資料庫具備防火牆。 它需要透過�
 [AppDeploy]: ../../app-service-web/web-sites-deploy.md
 [ASEWAF]: ../../app-service-web/app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[ASEManagement]: ./management-addresses.md
 

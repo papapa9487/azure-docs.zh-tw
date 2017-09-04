@@ -5,23 +5,24 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: harshja
 ms.assetid: 3aa1c7f2-fb2a-4693-abd5-95bb53700cbb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 08/10/2017
 ms.author: kgremban
 ms.reviewer: harshja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f4d72d4d11ee64e3431879f6ad1b5d8d091a0c87
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 9e28c89d8f64f0ae3d4150017ca544e606075c45
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 08/24/2017
 
 ---
+
 # <a name="silently-install-the-azure-ad-application-proxy-connector"></a>以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器
 您想要能傳送安裝指令碼至多部 Windows 伺服器，或傳送至未啟用使用者介面的 Windows Server。 本主題會協助您建立 Windows PowerShell 指令碼，以便自動安裝和註冊 Azure AD 應用程式 Proxy 連接器。
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/15/2017
 * 將連接器安裝與註冊整合成另一個程序的一部分。
 * 建立一個包含連接器位元但未註冊的標準伺服器映像。
 
-應用程式 Proxy 的運作方式是透過在網路內部安裝一個稱為連接器的精簡型 Windows Server 服務。 應用程式 Proxy 連接器必須使用全域系統管理員和密碼向 Azure AD 目錄註冊後才能運作。 通常，此資訊是在連接器安裝期間於一個快顯對話方塊中輸入的。 不過，您也可以使用 Windows PowerShell 來建立認證物件以輸入您的註冊資訊，或者您可以建立自己的權杖並使用它來輸入註冊資訊。
+應用程式 Proxy 的運作方式是透過在網路內部安裝一個稱為連接器的精簡型 Windows Server 服務。 應用程式 Proxy 連接器必須使用全域系統管理員和密碼向 Azure AD 目錄註冊後才能運作。 通常，此資訊是在連接器安裝期間於一個快顯對話方塊中輸入的。 不過，您可以使用 Windows PowerShell 建立認證物件以輸入註冊資訊。 或者，您也可以建立自己的權杖並使用它來輸入註冊資訊。
 
 ## <a name="install-the-connector"></a>安裝連接器
 下列是安裝連接器但不註冊連接器的方式：
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/15/2017
 * 使用離線時建立的權杖註冊連接器
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>使用 Windows PowerShell 認證物件註冊連接器
-1. 執行下列命令來建立 Windows PowerShell 認證物件。 以目錄的使用者名稱和密碼來取代 \<username\> 和 \<password\>：
+1. 執行此命令來建立 Windows PowerShell 認證物件。 以目錄的使用者名稱和密碼來取代 \<username\> 和 \<password\>：
    
         $User = "<username>"
         $PlainPassword = '<password>'

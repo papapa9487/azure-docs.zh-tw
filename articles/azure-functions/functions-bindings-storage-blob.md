@@ -15,13 +15,12 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
-ms.author: donnam, glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b819bf4461f14033dd2c00331e3c3e4d0fbafde6
+ms.author: glenga
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24ca844007acf445455714c9a530bfe1ad9a9c32
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-blob-storage-bindings"></a>Azure Functions Blob 儲存體繫結
@@ -32,7 +31,7 @@ ms.lasthandoff: 05/31/2017
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> 不支援[僅限 blob 儲存體帳戶](../storage/storage-create-storage-account.md#blob-storage-accounts)。 Blob 儲存體觸發程序和繫結需要一般用途的儲存體帳戶。 
+> 不支援[僅限 blob 儲存體帳戶](../storage/common/storage-create-storage-account.md#blob-storage-accounts)。 Blob 儲存體觸發程序和繫結需要一般用途的儲存體帳戶。 
 > 
 
 <a name="trigger"></a>
@@ -140,8 +139,7 @@ Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsS
 * ETag (Blob 版本識別碼，例如："0x8D1DC6E70A277EF")
 
 ### <a name="blob-polling-for-large-containers"></a>大型容器的 Blob 輪詢
-如果所監看的 blob 容器包含超過 10,000 個 blob，Functions 執行階段會掃描記錄檔以監看新增或變更的 blob。 此程序不是即時。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有的事件。 在某些情況下可能會遺失記錄檔。 如果您需要更快或更可靠的 blob 處理，請考慮在建立 blob 時建立[佇列訊息](../storage/storage-dotnet-how-to-use-queues.md) 
-。 然後，使用[佇列觸發程序](functions-bindings-storage-queue.md) (而不是 blob 觸發程序) 處理該 blob。
+如果所監看的 blob 容器包含超過 10,000 個 blob，Functions 執行階段會掃描記錄檔以監看新增或變更的 blob。 此程序不是即時。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有的事件。 在某些情況下可能會遺失記錄檔。 如果您需要更快或更可靠的 Blob 處理，請考慮在建立 Blob 時建立[佇列訊息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然後，使用[佇列觸發程序](functions-bindings-storage-queue.md) (而不是 blob 觸發程序) 處理該 blob。
 
 <a name="triggerusage"></a>
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 69156ec555b34d066a65bdc202267cfc53de47a0
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 67dee77dd4e46d097358d86626a859b7dc7982e7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="introduction-to-azure-web-app-on-linux"></a>Linux 上的 Azure Web 應用程式簡介
@@ -39,6 +39,9 @@ Linux 上的 Web 應用程式目前支援下列應用程式堆疊︰
     * 6.6
     * 6.9
     * 6.10
+    * 6.11
+    * 8.0
+    * 8.1
 * PHP
     * 5.6
     * 7.0
@@ -96,6 +99,17 @@ Linux 上的 Web Apps 只在「專用」App Service 方案中才支援，而且�
 
 只有同一區域沒有非 Linux Web Apps 的資源群組中，才能建立 Linux 上的 Web Apps。
 
+## <a name="troubleshooting"></a>疑難排解 ##
+
+當您的應用程式無法啟動或您想要檢查應用程式的記錄時，請檢查 LogFiles 目錄中的 Docker 記錄。 您可以透過 SCM 網站或 FTP 來存取此目錄。
+若要從您的容器記錄 `stdout` 和 `stderr`，您必須啟用 [診斷記錄] 下的 [Docker 容器記錄]。
+
+![啟用記錄][2]
+
+![Using Kudu to view Docker logs][1]
+
+您可以在 [開發工具] 功能表中從 [進階工具] 存取 SCM 網站。
+
 ## <a name="next-steps"></a>後續步驟
 請參閱下列連結以開始使用 Linux 上的 App Service。 您可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
 
@@ -109,4 +123,6 @@ Linux 上的 Web Apps 只在「專用」App Service 方案中才支援，而且�
 * [在 Azure App Service 中設定預備環境](./web-sites-staged-publishing.md)
 * [在 Linux 上使用 Azure Web 應用程式連續部署 Docker 中樞](./app-service-linux-ci-cd.md)
 
-
+<!--Image references-->
+[1]: ./media/app-service-linux-intro/kudu-docker-logs.png
+[2]: ./media/app-service-linux-intro/logging.png

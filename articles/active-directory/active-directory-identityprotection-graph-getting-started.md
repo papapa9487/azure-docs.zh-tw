@@ -12,19 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 9c7c10031c068eeb02b4468ec48bf60aece2f12e
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: 9b01ff86da6a1fd4a439a6ba59ea15ed6480cdad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>開始使用 Azure Active Directory Identity Protection 和 Microsoft Graph
-Microsoft Graph 是 Microsoft 的統一 API 端點，也是 [Azure Active Directory Identity Protection](active-directory-identityprotection.md) API 的寄居地。 我們的第一個 API **identityRiskEvents**可讓您查詢 Microsoft Graph，以取得 [風險事件](active-directory-identityprotection-risk-events-types.md) 清單和關聯的資訊。 本文可協助您開始查詢此 API。 如需深入的簡介、完整說明文件以及圖表總管的存取權，請參閱 [Microsoft Graph 網站](https://graph.microsoft.io/)。
+Microsoft Graph 是 Microsoft 統一 API 端點，也是 [Azure Active Directory Identity Protection](active-directory-identityprotection.md) API 的寄居地。 第一個 API **identityRiskEvents** 可讓您查詢 Microsoft Graph，以取得[風險事件](active-directory-identityprotection-risk-events-types.md)清單和關聯的資訊。 本文可協助您開始查詢此 API。 如需深入的簡介、完整文件以及 Graph 總管的存取權，請參閱 [Microsoft Graph 網站](https://graph.microsoft.io/)。
 
+> [!IMPORTANT]
+> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 傳統入口網站。
 
 透過 Microsoft Graph 存取 Identity Protection 資料需要三個步驟︰
 
@@ -60,7 +62,7 @@ Microsoft Graph 是 Microsoft 的統一 API 端點，也是 [Azure Active Direct
    
     b. 在 [類型]，選取 [Web 應用程式和/或 Web API]。
    
-    c. 按 [下一步] 。
+    c. 按一下 [下一步] 。
 8. 在 [應用程式屬性]  對話方塊上，執行下列步驟：
    
     ![建立應用程式](./media/active-directory-identityprotection-graph-getting-started/tutorial_general_06.png)

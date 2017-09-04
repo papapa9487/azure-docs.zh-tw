@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/04/2017
+ms.date: 08/17/2017
 ms.author: curtand
-ms.reviewer: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: b48488719d8bcef54e3742a338f0444db82f76d1
+ms.reviewer: aaronsm
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>整合 Azure Active Directory 單一登入與 SaaS 應用程式
@@ -33,6 +33,9 @@ ms.lasthandoff: 05/08/2017
 [!INCLUDE [active-directory-sso-use-case-intro](../../includes/active-directory-sso-use-case-intro.md)]
 
 若要開始為將於組織部署的應用程式設定單一登入，您將使用 Azure Active Directory (Azure AD) 中的現有目錄。 您可以使用從 Microsoft Azure、Office 365 或 Windows Intune 取得的 Azure AD 目錄。 如果您有兩個以上的項目，請參閱 [管理 Azure AD 目錄](active-directory-administer.md) 來判斷要使用哪一個。
+
+> [!IMPORTANT]
+> Microsoft 建議您使用 Azure 入口網站中的 [Azure AD 系統管理中心](https://aad.portal.azure.com)來管理 Azure AD，而不要使用本文所提及的 Azure 傳統入口網站。 如需如何在 Azure AD 系統管理中心指派系統管理員角色的相關資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](active-directory-enterprise-apps-manage-sso.md)。
 
 ## <a name="authentication"></a>驗證
 對於應用程式支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的應用程式，Azure Active Directory 使用簽章憑證來建立信任關係。 如需詳細資訊，請參閱 [管理同盟單一登入的憑證](active-directory-sso-certs.md)。
@@ -72,7 +75,7 @@ Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署�
 
 如果應用程式不在應用程式庫中，您可以 [將應用程式新增至 Azure AD 應用程式庫做為自訂應用程式](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx)。
 
-Azure.com 文件庫中還有更多關於這些議題的詳細資訊，請先閱讀 [什麼是應用程式存取與單一登入搭配 Azure Active Directory](active-directory-appssoaccess-whatis.md)。
+Azure.com 文件庫中還有更多關於這些議題的詳細資料，請先閱讀[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
 另外，請勿錯過 [Azure Active Directory 中應用程式管理的文件索引](active-directory-apps-index.md)。
 

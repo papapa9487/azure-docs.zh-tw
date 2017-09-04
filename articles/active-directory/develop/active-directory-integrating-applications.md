@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: lenalepa
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: e8cc9b790224891a0770b18fe2edb8e1bbfd5b72
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3be341bcb897a1481f145825429a1a94dfaae3b0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>整合應用程式與 Azure Active Directory
@@ -64,7 +64,7 @@ Azure AD 的同意架構可讓您輕鬆地開發需要存取由 Azure AD 租用�
 
 同意架構建置在 OAuth 2.0 和各種不同流程上，例如授權碼授與和用戶端認證授與，使用公用或機密的用戶端。 藉由使用 OAuth 2.0，Azure AD 就可以建置許多不同類型的用戶端應用程式，例如在電話、平板電腦、伺服器或 web 應用程式上，並且存取所需的資源。
 
-如需同意架構的詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)、[Azure AD 的驗證案例](active-directory-authentication-scenarios.md)，而如需透過 Microsoft Graph 取得 Office 365 存取權的相關資訊，請參閱[使用 Microsoft Graph 進行應用程式驗證](https://graph.microsoft.io/docs/authorization/auth_overview)。
+如需同意架構的詳細資訊，請參閱 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)、[Azure AD 的驗證案例](active-directory-authentication-scenarios.md)，而如需透過 Microsoft Graph 取得 Office 365 授權存取權的資訊，請參閱 [App authentication with Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview) (使用 Microsoft Graph 進行應用程式驗證)。
 
 #### <a name="example-of-the-consent-experience"></a>同意體驗的範例
 下列步驟將示範如何將同意體驗用於應用程式開發人員和使用者。
