@@ -1,4 +1,4 @@
----
+﻿---
 title: "開始使用 Azure Active Directory 中的條件式存取 | Microsoft Docs"
 description: "使用位置條件測試條件式存取。"
 services: active-directory
