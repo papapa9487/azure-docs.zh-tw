@@ -2,7 +2,7 @@
 title: "使用媒體服務 .NET SDK 管理資產和相關的實體"
 description: "深入了解使用 Media Services SDK for .NET 管理資產和相關的實體"
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 services: media-services
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: e3de7c26af5cbc930defe542727a1250825fb1f8
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 5efe16a09808267d0797521f9e1df2b60aec9cbb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="managing-assets-and-related-entities-with-media-services-net-sdk"></a>使用媒體服務 .NET SDK 管理資產和相關的實體
@@ -38,8 +38,7 @@ ms.lasthandoff: 07/18/2017
 設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
 
 ## <a name="get-an-asset-reference"></a>取得資產參考
-常見的工作是在媒體服務中取得現有資產的參考。 下列程式碼範例顯示如何根據資產識別碼，從伺服器內容物件的資產集合取得資產參考。
-下列程式碼範例會使用 Linq 查詢來取得現有 IAsset 物件的參考。
+常見的工作是在媒體服務中取得現有資產的參考。 下列程式碼範例顯示如何根據資產識別碼，從伺服器內容物件的資產集合取得資產參考。下列程式碼範例會使用 Linq 查詢來取得現有 IAsset 物件的參考。
 
     static IAsset GetAsset(string assetId)
     {
@@ -95,7 +94,7 @@ ms.lasthandoff: 07/18/2017
 
 ## <a name="get-a-job-reference"></a>取得工作參考
 
-當您使用媒體服務程式碼中的處理工作時，您通常需要根據識別碼取得現有工作的參考。 下列程式碼範例顯示如何從「工作」集合取得 IJob 物件的參考。
+當您使用媒體服務程式碼中的處理工作時，您通常需要根據識別碼取得現有工作的參考。下列程式碼範例顯示如何從「工作」集合取得 IJob 物件的參考。
 
 您可能需要在開始長時間執行編碼作業時，取得作業參考，並且需要檢查執行緒上的作業狀態。 在這種情況下，當此方法從執行緒傳回時，您需要擷取作業的重新整理的參考。
 

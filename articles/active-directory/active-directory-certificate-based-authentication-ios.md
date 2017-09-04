@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 350576cd7290fdfbfacd526de50c14e5f20b81dc
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: af9d0c7ba9c1a3026cc042872e1ab773eb3c4c8e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS 上的 Azure Active Directory 憑證式驗證
@@ -41,14 +41,16 @@ ms.lasthandoff: 08/04/2017
 
 | 應用程式 | 支援 |
 | --- | --- |
-| Word / Excel / PowerPoint |![勾選][1] |
+| Azure 資訊保護應用程式 |![勾選][1] |
+| Microsoft Teams |![勾選][1] |
 | OneNote |![勾選][1] |
 | OneDrive |![勾選][1] |
 | Outlook |![勾選][1] |
-| Yammer |![勾選][1] |
+| Power BI |![勾選][1] |
 | 商務用 Skype |![勾選][1] |
-| Azure 資訊保護應用程式 |![勾選][1] |
-| Microsoft Teams |![勾選][1] |
+| Word / Excel / PowerPoint |![勾選][1] |
+| Yammer |![勾選][1] |
+
 
 ## <a name="requirements"></a>需求 
 

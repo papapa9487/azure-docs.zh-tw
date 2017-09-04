@@ -1,4 +1,4 @@
----
+﻿---
 title: "開始使用 Azure Active Directory 中的條件式存取 | Microsoft Docs"
 description: "使用位置條件測試條件式存取。"
 services: active-directory
@@ -97,7 +97,7 @@ ms.lasthandoff: 05/05/2017
 
     a. 按一下 [選取應用程式]。
 
-    b.按一下 [選取] 。
+    b. 按一下 [選取] 。
 
     c. 在 [選取] 刀鋒視窗上，選取您的雲端應用程式，然後按一下 [選取]。
 

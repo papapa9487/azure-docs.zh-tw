@@ -3,7 +3,7 @@ title: "如何在 Azure API 管理中使用角色型存取控制 | Microsoft Doc
 description: "了解如何在 Azure API 管理中使用內建角色和建立自訂角色"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 364cd53e-88fb-4301-a093-f132fa1f88f5
@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: fa757a591d788f52d759bc24accedd3c55149ae7
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: a3a874b8fc4e4dcfd7b194149f677127d9f9a200
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/19/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 

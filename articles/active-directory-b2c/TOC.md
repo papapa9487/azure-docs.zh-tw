@@ -46,6 +46,7 @@
 ## [設定權杖](active-directory-b2c-token-session-sso.md)
 ## [啟用 MFA](active-directory-b2c-reference-mfa.md)
 ## [使用自訂屬性](active-directory-b2c-reference-custom-attr.md)
+## [自訂密碼](active-directory-b2c-reference-password-complexity.md)
 ## [自訂 UI](active-directory-b2c-reference-ui-customization.md)
 ### [可供自訂的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [自訂語言](active-directory-b2c-reference-language-customization.md)
@@ -71,6 +72,7 @@
 #### [自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [自訂 UI](active-directory-b2c-ui-customization-custom.md)
 #### [自訂權杖](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
+#### [自訂密碼](active-directory-b2c-reference-password-complexity-custom.md)
 ### 疑難排解
 #### [使用 Application Insights 收集記錄](active-directory-b2c-troubleshoot-custom.md)
 ## 參考

@@ -3,8 +3,8 @@ title: "在 Azure 中使用 TFS 持續傳遞雲端服務 | Microsoft Docs"
 description: "了解如何設定 Azure 雲端應用程式的連續傳遞。 MSBuild 命令列陳述式和 PowerShell 指令碼的程式碼範例。"
 services: cloud-services
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 4f3c93c6-5c82-4779-9d19-7404a01e82ca
 ms.service: cloud-services
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
-ms.author: tarcher
+ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: f18605ec638a628805f5bd1c7207e9d874f104f3
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Azure 中雲端服務的連續傳遞
@@ -85,7 +85,7 @@ ms.lasthandoff: 07/19/2017
 2. 選擇 [觸發程序]  索引標籤，然後指定所需的條件來代表套件的組建時機。 例如，指定 [連續整合]  ，會在每次發生原始檔控制簽入時建置套件。
 3. 選擇 [來源設定] 索引標籤，然後確定您的專案資料夾列在 [原始檔控制資料夾] 資料行中，並且狀態為 [作用中]。
 4. 選擇 [組建預設值]  索引標籤，然後在 [組建控制器] 下，確認組建伺服器的名稱無誤。  同時，選擇 [將組建輸出複製至下列置放資料夾]  選項，並指定所需的置放位置。
-5. 選擇 [觸發程序]  索引標籤。 在 [處理序] 索引標籤上選擇預設範本，於 [組建] 下，選擇專案 (若尚未選取)，然後展開 [組建] 格線區段中的 [進階] 區段。
+5. 選擇 [觸發程序]  索引標籤。在 [處理序] 索引標籤上選擇預設範本，於 [組建] 下，選擇專案 (若尚未選取)，然後展開 [組建] 格線區段中的 [進階] 區段。
 6. 選擇 [MSBuild 引數]，然後依上面步驟 2 所述，設定適當的 MSBuild 命令列引數。 例如，輸入 **/t:Publish /p:PublishDir=\\\\myserver\\drops\\** 以建置套件，並將套件檔複製到位置 \\\\myserver\\drops\\：
 
    ![MSBuild 引數][2]

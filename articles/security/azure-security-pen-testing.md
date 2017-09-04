@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 08/24/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bc8ca9bb349f41a6ae7371b4fc33cc09fb179c11
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="pen-testing"></a>滲透測試
@@ -43,5 +43,5 @@ ms.lasthandoff: 07/28/2017
 
 您不能執行的一種測試是任何種類的 [拒絕服務 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 攻擊。 這包括起始 DoS 攻擊本身，或是執行可能會決定、示範或模擬任何類型的 DoS 攻擊的相關測試。
 
-您是否已準備好要開始對主控於 Microsoft Azure 的您的應用程式進行滲透測試？ 如果是，請前往 [滲透測試概觀](https://security-forms.azure.com/penetration-testing/terms) 頁面，然後按一下頁面底部的 [建立測試要求] 按鈕。 您也可以在條款與條件中找到有關滲透測試的詳細資訊，以及如何報告與 Azure 或任何其他 Microsoft 服務的安全性問題的相關實用連結。
+您是否已準備好要開始對主控於 Microsoft Azure 的您的應用程式進行滲透測試？ 如果是，請前往 [滲透測試概觀](https://technet.microsoft.com/library/mt784683.aspx) 頁面，然後按一下頁面底部的 [建立測試要求] 按鈕。 您也可以在條款與條件中找到有關滲透測試的詳細資訊，以及如何報告與 Azure 或任何其他 Microsoft 服務的安全性問題的相關實用連結。
 

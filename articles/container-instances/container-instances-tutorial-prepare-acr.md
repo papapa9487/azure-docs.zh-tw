@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 08/24/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 7ec6c7fd2125293ba47a48feb83250eeb667d1a6
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -60,32 +60,12 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 在本教學課程的其餘部分，我們使用 `<acrname>` 作為您選擇之容器登錄名稱的預留位置。
 
-## <a name="get-azure-container-registry-information"></a>取得 Azure Container Registry 資訊
+## <a name="container-registry-login"></a>Container Registry 登入
 
-建立好容器登錄之後，您可以查詢其登入伺服器和密碼。 下列程式碼會傳回這些值。 請記下登入伺服器和密碼的每個值，因為本教學課程會提及這些值。
-
-容器登錄的登入伺服器 (以登錄名稱來更新)：
+您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) 命令來完成此作業。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
 
 ```azurecli
-az acr show --name <acrName> --query loginServer
-```
-
-在本教學課程的其餘部分，我們使用 `<acrLoginServer>` 作為容器登錄之登入伺服器值的預留位置。
-
-容器登錄密碼：
-
-```azurecli
-az acr credential show --name <acrName> --query "passwords[0].value"
-```
-
-在本教學課程的其餘部分，我們使用 `<acrPassword>` 作為容器登錄之密碼值的預留位置。
-
-## <a name="login-to-the-container-registry"></a>登入到容器登錄
-
-您必須先登入容器登錄執行個體，才能將映像推送給它。 使用 [的 docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令來完成此作業。 執行 Docker 登入時，您必須提供登錄的登入伺服器名稱和認證。
-
-```bash
-docker login --username=<acrName> --password=<acrPassword> <acrLoginServer>
+az acr login --name <acrName>
 ```
 
 此命令在完成之後會傳回「登入成功」訊息。
@@ -105,6 +85,12 @@ docker images
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED              SIZE
 aci-tutorial-app             latest              5c745774dfa9        39 seconds ago       68.1 MB
+```
+
+若要取得 loginServer 名稱，請執行下列命令。
+
+```azurecli
+az acr show --name <acrName> --query loginServer --output table
 ```
 
 以容器登錄的 loginServer 標記 aci-tutorial-app 映像。 此外，將 `:v1` 新增至映像名稱的結尾。 此標籤指示映像版本號碼。
@@ -142,7 +128,7 @@ docker push <acrLoginServer>/aci-tutorial-app:v1
 若要傳回已推送至 Azure Container Registry 的映像清單，請使用 [az acr repository list](/cli/azure/acr/repository#list) 命令。 使用容器登錄名稱來更新命令。
 
 ```azurecli
-az acr repository list --name <acrName> --username <acrName> --password <acrPassword> --output table
+az acr repository list --name <acrName> --output table
 ```
 
 輸出：
@@ -156,7 +142,7 @@ aci-tutorial-app
 而後若要查看特定映像的標籤，請使用 [az acr repository show-tags](/cli/azure/acr/repository#show-tags) 命令。
 
 ```azurecli
-az acr repository show-tags --name <acrName> --username <acrName> --password <acrPassword> --repository aci-tutorial-app --output table
+az acr repository show-tags --name <acrName> --repository aci-tutorial-app --output table
 ```
 
 輸出：

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/19/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: e0c999b2bf1dd38d8a0c99c6cdd4976cc896dd99
-ms.openlocfilehash: e089a7d772b51194d8300beb99797bf40a8611b1
-ms.lasthandoff: 04/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 58a37c0dd24d54996f517961f3a7f1ec36639cfe
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="using-service-bus-from-net-with-amqp-10"></a>搭配使用 .NET 的服務匯流排與 AMQP 1.0
@@ -51,7 +51,7 @@ ms.lasthandoff: 04/20/2017
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-其中 `[namespace]` 和 `SharedAccessKey` 是當您建立服務匯流排命名空間時，取自 [Azure 入口網站][Azure portal]。 如需詳細資訊，請參閱[使用 Azure 入口網站建立服務匯流排命名空間][Create a Service Bus namespace using the Azure portal]。
+其中 `namespace` 和 `SAS key` 是當您建立服務匯流排命名空間時，取自 [Azure 入口網站][Azure portal]。 如需詳細資訊，請參閱[使用 Azure 入口網站建立服務匯流排命名空間][Create a Service Bus namespace using the Azure portal]。
 
 使用 AMQP 時，在連接字串中附加 `;TransportType=Amqp`。 此標記法會指示用戶端程式庫使用 AMQP 1.0 來連線到「服務匯流排」。
 
@@ -124,7 +124,7 @@ ms.lasthandoff: 04/20/2017
 準備好進行深入了解嗎？ 請造訪下列連結：
 
 * [服務匯流排 AMQP 概觀]
-* [適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]
+* [AMQP 1.0 通訊協定指南]
 * [Windows Server 服務匯流排中的 AMQP]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
@@ -135,6 +135,6 @@ ms.lasthandoff: 04/20/2017
 [NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
 [服務匯流排 AMQP 概觀]: service-bus-amqp-overview.md
-[適用於服務匯流排分割的佇列和主題的 AMQP 1.0 支援]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP 1.0 通訊協定指南]: service-bus-amqp-protocol-guide.md
 [Windows Server 服務匯流排中的 AMQP]: https://msdn.microsoft.com/library/dn574799.aspx
 

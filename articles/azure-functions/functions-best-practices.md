@@ -4,7 +4,7 @@ description: "了解 Azure Functions 的最佳作法與模式。"
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 模式, 最佳作法, 函數, 事件處理, webhook, 動態計算, 無伺服器架構"
@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 5408bf986b67d420d4d1359961ec83510c97cd05
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -88,9 +87,9 @@ ms.lasthandoff: 07/06/2017
 
 
 
-## <a name="use-async-code-but-avoid-taskresult"></a>使用非同步程式碼但避免 Task.Result
+## <a name="use-async-code-but-avoid-blocking-calls"></a>使用非同步程式碼但避免封鎖呼叫
 
-非同步程式設計是建議的最佳作法。 不過，請務必避免參考 `Task.Result` 屬性。 這個方法可能會導致執行緒耗盡。
+非同步程式設計是建議的最佳作法。 不過，請務必避免在 `Task` 執行個體上參考 `Result` 屬性或呼叫 `Wait` 方法。 這個方法可能會導致執行緒耗盡。
 
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]

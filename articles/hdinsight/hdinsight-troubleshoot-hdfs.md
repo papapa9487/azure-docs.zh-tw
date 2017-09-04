@@ -1,6 +1,6 @@
 ---
-title: "HDFS 疑難排解 - Azure HDInsight | Microsoft Docs"
-description: "使用 HDFS 常見問題集解答 Azure HDInsight 平台上常見的 HDFS 問題。"
+title: "使用 Azure HDInsight 為 HDFS 進行疑難排解 | Microsoft Docs"
+description: "取得有關使用 HDFS 和 Azure HDInsight 的常見問題解答。"
 keywords: "Azure HDInsight, HDFS, 常見問題集, 疑難排解指南, 常見問題"
 services: Azure HDInsight
 documentationcenter: na
@@ -16,85 +16,86 @@ ms.topic: article
 ms.date: 7/7/2017
 ms.author: arijitt
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 09af06c2f0fa45940dbb5fb863e4c29ee895b8ee
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="hdfs-troubleshooting"></a>HDFS 疑難排解
+# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 HDFS 進行疑難排解
 
-本文描述在 Apache Ambari 中最常發生的 HDFS 承載問題及其解決方法。
+了解在 Apache Ambari 中使用 Hadoop 分散式檔案系統 (HDFS) 承載時最常發生的問題及其解決方法。
 
 ## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>如何從叢集內部存取本機 HDFS
 
-### <a name="issue"></a>問題：
+### <a name="issue"></a>問題
 
-從命令列和應用程式程式碼存取本機 HDFS，而不是從 HDInsight 叢集內部的 WASB 或 ADLS 進行存取。   
+從命令列和應用程式程式碼存取本機 HDFS，而不是從 HDInsight 叢集內部使用 Azure Blob 儲存體或 Azure Data Lake Store 進行存取。   
 
-### <a name="resolution-steps"></a>解決步驟：
+### <a name="resolution-steps"></a>解決步驟
 
-- 從命令列依照字面使用 `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...`，如下列命令所示：
+1. 在命令提示字元中依照字面使用 `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...`，如下列命令所示：
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
-Found 3 items
-drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
-drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
-drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
-```
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    Found 3 items
+    drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
+    drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
+    drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
+    ```
 
-- 從原始程式碼依照字面使用 URI `hdfs://mycluster/`，如下列範例應用程式所示：
+2. 從原始程式碼依照字面使用 URI `hdfs://mycluster/`，如下列範例應用程式所示：
 
-```csharp
-import java.io.IOException;
-import java.net.URI;
-import org.apache.commons.io.IOUtils;
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.fs.*;
+    ```csharp
+    import java.io.IOException;
+    import java.net.URI;
+    import org.apache.commons.io.IOUtils;
+    import org.apache.hadoop.conf.Configuration;
+    import org.apache.hadoop.fs.*;
 
-public class JavaUnitTests {
+    public class JavaUnitTests {
 
-    public static void main(String[] args) throws Exception {
+        public static void main(String[] args) throws Exception {
 
-        Configuration conf = new Configuration();
-        String hdfsUri = "hdfs://mycluster/";
-        conf.set("fs.defaultFS", hdfsUri);
-        FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
-        RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
-        while(fileStatusIterator.hasNext()) {
-            System.out.println(fileStatusIterator.next().getPath().toString());
+            Configuration conf = new Configuration();
+            String hdfsUri = "hdfs://mycluster/";
+            conf.set("fs.defaultFS", hdfsUri);
+            FileSystem fileSystem = FileSystem.get(URI.create(hdfsUri), conf);
+            RemoteIterator<LocatedFileStatus> fileStatusIterator = fileSystem.listFiles(new Path("/tmp"), true);
+            while(fileStatusIterator.hasNext()) {
+                System.out.println(fileStatusIterator.next().getPath().toString());
+            }
         }
     }
-}
-```
-- 使用下列命令在 HDInsight 叢集上執行已編譯的 JAR (例如，名為 `java-unit-tests-1.0.jar`)：
+    ```
 
-```apache
-hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
-hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
-hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
-```
+3. 使用下列命令在 HDInsight 叢集上執行已編譯的 .jar 檔案 (例如名為 `java-unit-tests-1.0.jar` 的檔案)：
+
+    ```apache
+    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
+    hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
+    hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.lck
+    ```
 
 
 ## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>如何在叢集中強制停用 HDFS 安全模式
 
-### <a name="issue"></a>問題：
+### <a name="issue"></a>問題
 
 本機 HDFS 在 HDInsight 叢集上卡在安全模式中。   
 
-### <a name="detailed-description"></a>詳細描述：
+### <a name="detailed-description"></a>詳細描述
 
-無法執行簡單的 HDFS 命令，如下所示：
+當您執行下列 HDFS 命令時會發生失敗：
 
 ```apache
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-嘗試執行上述命令時發生的錯誤如下：
+當您執行下列命令時會看到下列錯誤：
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -148,97 +149,89 @@ It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode
 mkdir: Cannot create directory /temp. Name node is in safe mode.
 ```
 
-### <a name="probable-cause"></a>可能的原因：
+### <a name="probable-cause"></a>可能的原因
 
-HDInsight 叢集已調降為低於或接近 HDFS 複寫因數的極少數節點。
+HDInsight 叢集已相應減少為極少數節點。 此節點數目低於或接近 HDFS 複寫因數。
 
-### <a name="resolution-steps"></a>解決步驟： 
+### <a name="resolution-steps"></a>解決步驟 
 
-- 使用下列命令報告 HDInsight 叢集上的 HDFS 狀態：
+1. 使用下列命令取得 HDInsight 叢集上的 HDFS 狀態：
 
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-```
+    ```apache
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    ```
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
-Safe mode is ON
-Configured Capacity: 3372381241344 (3.07 TB)
-Present Capacity: 3138625077248 (2.85 TB)
-DFS Remaining: 3102710317056 (2.82 TB)
-DFS Used: 35914760192 (33.45 GB)
-DFS Used%: 1.14%
-Under replicated blocks: 0
-Blocks with corrupt replicas: 0
-Missing blocks: 0
-Missing blocks (with replication factor 1): 0
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    Safe mode is ON
+    Configured Capacity: 3372381241344 (3.07 TB)
+    Present Capacity: 3138625077248 (2.85 TB)
+    DFS Remaining: 3102710317056 (2.82 TB)
+    DFS Used: 35914760192 (33.45 GB)
+    DFS Used%: 1.14%
+    Under replicated blocks: 0
+    Blocks with corrupt replicas: 0
+    Missing blocks: 0
+    Missing blocks (with replication factor 1): 0
 
--------------------------------------------------
-Live datanodes (8):
+    -------------------------------------------------
+    Live datanodes (8):
 
-Name: 10.0.0.17:30010 (10.0.0.17)
-Hostname: 10.0.0.17
-Decommission Status : Normal
-Configured Capacity: 421547655168 (392.60 GB)
-DFS Used: 5288128512 (4.92 GB)
-Non DFS Used: 29087272960 (27.09 GB)
-DFS Remaining: 387172253696 (360.58 GB)
-DFS Used%: 1.25%
-DFS Remaining%: 91.85%
-Configured Cache Capacity: 0 (0 B)
-Cache Used: 0 (0 B)
-Cache Remaining: 0 (0 B)
-Cache Used%: 100.00%
-Cache Remaining%: 0.00%
-Xceivers: 2
-Last contact: Wed Apr 05 16:22:00 UTC 2017
-...
-```
+    Name: 10.0.0.17:30010 (10.0.0.17)
+    Hostname: 10.0.0.17
+    Decommission Status : Normal
+    Configured Capacity: 421547655168 (392.60 GB)
+    DFS Used: 5288128512 (4.92 GB)
+    Non DFS Used: 29087272960 (27.09 GB)
+    DFS Remaining: 387172253696 (360.58 GB)
+    DFS Used%: 1.25%
+    DFS Remaining%: 91.85%
+    Configured Cache Capacity: 0 (0 B)
+    Cache Used: 0 (0 B)
+    Cache Remaining: 0 (0 B)
+    Cache Used%: 100.00%
+    Cache Remaining%: 0.00%
+    Xceivers: 2
+    Last contact: Wed Apr 05 16:22:00 UTC 2017
+    ...
+    ```
 
-- 使用下列命令檢查 HDInsight 叢集上的 HDFS 完整性：
+2. 使用下列命令檢查 HDInsight 叢集上的 HDFS 完整性：
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
-```
+    ```apache
+    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    ```
 
-```apache
-Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
-FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
-....................................................................................................
+    ```apache
+    Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
+    FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
+    ....................................................................................................
 
-....................................................................................................
-..................Status: HEALTHY
- Total size:    9330539472 B
- Total dirs:    37
- Total files:   2618
- Total symlinks:                0 (Files currently being written: 2)
- Total blocks (validated):      2535 (avg. block size 3680686 B)
- Minimally replicated blocks:   2535 (100.0 %)
- Over-replicated blocks:        0 (0.0 %)
- Under-replicated blocks:       0 (0.0 %)
- Mis-replicated blocks:         0 (0.0 %)
- Default replication factor:    3
- Average block replication:     3.0
- Corrupt blocks:                0
- Missing replicas:              0 (0.0 %)
- Number of data-nodes:          8
- Number of racks:               1
-FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
+    ....................................................................................................
+    ..................Status: HEALTHY
+    Total size:    9330539472 B
+    Total dirs:    37
+    Total files:   2618
+    Total symlinks:                0 (Files currently being written: 2)
+    Total blocks (validated):      2535 (avg. block size 3680686 B)
+    Minimally replicated blocks:   2535 (100.0 %)
+    Over-replicated blocks:        0 (0.0 %)
+    Under-replicated blocks:       0 (0.0 %)
+    Mis-replicated blocks:         0 (0.0 %)
+    Default replication factor:    3
+    Average block replication:     3.0
+    Corrupt blocks:                0
+    Missing replicas:              0 (0.0 %)
+    Number of data-nodes:          8
+    Number of racks:               1
+    FSCK ended at Wed Apr 05 16:40:28 UTC 2017 in 187 milliseconds
 
+    The filesystem under path '/' is HEALTHY
+    ```
 
-The filesystem under path '/' is HEALTHY
-```
+3. 如果您確定沒有遺漏、損毀或複寫中的區塊，或是這些區塊可以予以忽略，請執行下列命令使名稱節點脫離安全模式：
 
-- 如果確定沒有遺漏、損毀或複寫中的區塊，或是這些區塊可以予以忽略，請執行下列命令使名稱節點脫離安全模式：
-
-```apache
-hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
-```
-
-
-
-
-
-
-
+    ```apache
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
+    ```
 

@@ -3,8 +3,8 @@ title: "開始使用 Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專
 description: "在使用 Visual Studio 已連接服務連接至 Azure 儲存體之後，如何於 WebJob 專案中開始使用 Blob 儲存體。"
 services: storage
 documentationcenter: 
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 324c9376-0225-4092-9825-5d1bd5550058
 ms.service: storage
@@ -13,11 +13,12 @@ ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6ef7bff5dcf58cfb26e3d3fa39204ae61e69e400
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專案)
@@ -219,10 +220,5 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 
 ## <a name="next-steps"></a>後續步驟
 本文提供的程式碼範例示範如何處理使用 Azure Blob 的常見案例。 如需如何使用 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?linkid=390226)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

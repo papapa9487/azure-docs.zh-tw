@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2017
+ms.date: 08/17/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: cb5ec1a105c632626c5caf39e4fd356177883123
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: d790eec30b669469a0837ccdc14b771d1953829b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -151,7 +151,7 @@ ms.lasthandoff: 08/05/2017
 * 輸入：每秒最多 1 MB 或 1000 個事件 (以先達到者為準)
 * 輸出：每秒最多 2 MB。
 
-超出所購買輸送量單位的容量時，輸入就開始節流，並傳回 [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception)。 輸出不會產生節流例外狀況，但仍受限於所購買輸送量單位的容量。 如果您收到發佈速率例外狀況，或輸出速率低於預期，請務必檢查您為命名空間所購買的輸送量單位數目。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在命名空間的 [調整規模] 刀鋒視窗管理輸送量單位。 您也可以使用[事件中樞 API](event-hubs-api-overview.md) 以程式設計方式管理輸送量單位。
+超出所購買輸送量單位的容量時，輸入就開始節流，並傳回 [ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 輸出不會產生節流例外狀況，但仍受限於所購買輸送量單位的容量。 如果您收到發佈速率例外狀況，或輸出速率低於預期，請務必檢查您為命名空間所購買的輸送量單位數目。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在命名空間的 [調整規模] 刀鋒視窗管理輸送量單位。 您也可以使用[事件中樞 API](event-hubs-api-overview.md) 以程式設計方式管理輸送量單位。
 
 輸送量單位是以每小時計費，採預先購買制。 一經購買，您至少必須支付一個小時的輸送量單位費用。 最多可以為一個事件中樞命名空間購買 20 個輸送量單位，讓命名空間中的所有事件中樞共用。
 
@@ -169,8 +169,8 @@ ms.lasthandoff: 08/05/2017
 * [事件中樞程式設計指南](event-hubs-programming-guide.md)
 * [事件中樞的可用性和一致性](event-hubs-availability-and-consistency.md)
 * [事件中樞常見問題集](event-hubs-faq.md)
-* [使用事件中樞的完整範例應用程式][]
+* [事件中樞範例][]
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
-[使用事件中樞的完整範例應用程式]: https://github.com/Azure/azure-event-hubs/tree/master/samples
+[事件中樞範例]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 

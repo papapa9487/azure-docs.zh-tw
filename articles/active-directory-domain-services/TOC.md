@@ -7,17 +7,17 @@
 ## [相容的協力廠商軟體](active-directory-ds-compatible-software.md)
 
 # 開始使用
-## Azure 傳統入口網站
-### [工作 1：建立系統管理員群組](active-directory-ds-getting-started-create-group.md)
-### [工作 2：建立或選取虛擬網路](active-directory-ds-getting-started-vnet.md)
-### [工作 3：啟用 Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
-### [工作 4：更新虛擬網路的 DNS 設定](active-directory-ds-getting-started-update-dns.md)
-### [工作 5：啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
 ## Azure 入口網站 (預覽)
 ### [工作 1：設定基本設定](active-directory-ds-getting-started.md)
 ### [工作 2：設定網路基本設定](active-directory-ds-getting-started-network.md)
 ### [工作 3：設定系統管理員群組並啟用 Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
 ### [工作 4：更新虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
+### [工作 5：啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
+## Azure 傳統入口網站 (已被取代)
+### [工作 1：建立系統管理員群組](active-directory-ds-getting-started-create-group.md)
+### [工作 2：建立或選取虛擬網路](active-directory-ds-getting-started-vnet.md)
+### [工作 3：啟用 Azure AD Domain Services](active-directory-ds-getting-started-enableaadds.md)
+### [工作 4：更新虛擬網路的 DNS 設定](active-directory-ds-getting-started-update-dns.md)
 ### [工作 5：啟用密碼同步化](active-directory-ds-getting-started-password-sync.md)
 
 # 作法

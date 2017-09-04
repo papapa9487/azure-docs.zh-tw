@@ -140,6 +140,8 @@
 ## 監視及疑難排解
 ### [Azure 至 Azure 複寫問題](site-recovery-azure-to-azure-troubleshoot-errors.md)
 ### [內部部署至 Azure 複寫問題](site-recovery-vmware-to-azure-protection-troubleshoot.md)
+### [行動服務安裝問題](site-recovery-vmware-to-azure-push-install-error-codes.md)
+### [容錯移轉至 Azure 問題](site-recovery-failover-to-azure-troubleshoot.md)
 ### [收集記錄並針對內部部署問題進行疑難排解](site-recovery-monitoring-and-troubleshooting.md)
 
 # 參考

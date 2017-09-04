@@ -1,6 +1,6 @@
 ---
-title: "STORM 疑難排解 - Azure HDInsight | Microsoft Docs"
-description: "使用 Storm 常見問題集解答 Azure HDInsight 平台上常見的 Storm 問題。"
+title: "使用 Azure HDInsight 為 Storm 進行疑難排解 | Microsoft Docs"
+description: "取得有關使用 Apache Storm 和 Azure HDInsight 的常見問題解答。"
 keywords: "Azure HDInsight, Storm, 常見問題集, 疑難排解指南, 常見問題"
 services: Azure HDInsight
 documentationcenter: na
@@ -16,172 +16,142 @@ ms.topic: article
 ms.date: 7/7/2017
 ms.author: raviperi
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: b52462096ce977b94ff9514df650607b05e17030
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 70a3d762431d90acdd6ed2a432a569f34d0ce447
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# <a name="storm-troubleshooting"></a>STORM 疑難排解
+# <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Storm 進行疑難排解
 
-本文描述在 Apache Ambari 中最常發生的 Storm 承載問題及其解決方法。
+了解在 Apache Ambari 中使用 Apache Storm 承載時最常發生的問題及其解決方法。
 
-## <a name="how-do-i-access-storm-ui-on-a-cluster"></a>如何在叢集上存取 Storm UI
+## <a name="how-do-i-access-the-storm-ui-on-a-cluster"></a>如何在叢集上存取 Storm UI
+您有兩個選項可從瀏覽器存取 Storm UI：
 
-### <a name="issue"></a>問題：
-有兩種方式可從瀏覽器存取 Storm UI：
+### <a name="ambari-ui"></a>Ambari UI
+1. 移至 Ambari 儀表板。
+2. 在服務清單中，選取 [Storm]。
+3. 在 [快速連結] 功能表中，選取 [Storm UI]。
 
-#### <a name="ambari-ui"></a>Ambari UI
-1. 巡覽至 Ambari 儀表板
-1. 從左側的服務清單中選取 [Storm]
-1. 從 [快速連結] 下拉式功能表選取 [Storm UI] 選項
+### <a name="direct-link"></a>直接連結
+您可以在下列 URL 存取 Storm UI：
 
-#### <a name="direct-link"></a>直接連結
-Storm UI 可從 URL 存取：
+https://\<叢集 DNS 名稱\>/stormui
 
-https://\<叢集 DND 名稱\>/stormui
+範例：
 
-範例：https://stormcluster.azurehdinsight.net/stormui
+ https://stormcluster.azurehdinsight.net/stormui
 
-## <a name="how-do-i-transfer-storm-eventhub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm EventHub Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲
+## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>如何將 Storm 事件中樞 Spout 檢查點資訊從一個拓撲傳輸到另一個拓撲
 
-### <a name="issue"></a>問題：
-當使用 HDInsight 的 Storm EventHub Spout Jar 開發讀取自 EventHub 的拓樸時，人員如何在新的叢集中以相同名稱部署拓撲，但在舊的叢集中保留 Zookeeeper 認可的檢查點資料？
+當您使用 HDInsight Storm 事件中樞 Spout .jar 檔案開發讀取自 Azure 事件中樞的拓撲時，您必須在新的叢集上部署具有相同名稱的拓撲。 不過，您必須在舊的叢集上保留認可至 Apache ZooKeeper 的檢查點資料。
 
-#### <a name="where-is-checkpoint-data-stored"></a>檢查點資料的儲存位置
-EventHub Spout 會將位移的檢查點資料儲存在兩個根路徑下的 Zookeeper：
-- 非交易式 Spout 檢查點會儲存在：/eventhubspout
-- 交易式 Spout 檢查點資料會儲存在：/transactional
+### <a name="where-checkpoint-data-is-stored"></a>檢查點資料的儲存位置
+事件中樞 Spout 會將位移的檢查點資料儲存在 ZooKeeper 的兩個根路徑中：
+- 非交易式 Spout 檢查點會儲存在 /eventhubspout 中。
+- 交易式 Spout 檢查點資料會儲存在 /transactional 中。
 
-#### <a name="how-to-restore"></a>還原方式
-指令碼和程式庫，從 zookeeper 匯出資料再以新名稱匯回下列位置：https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0。
+### <a name="how-to-restore"></a>還原方式
+若要取得您用來從 ZooKeeper 匯出資料，再以新名稱將資料匯回 ZooKeeper 的指令碼和程式庫，請參閱 [HDInsight Storm 範例](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/tools/zkdatatool-1.0)。
 
-lib 資料夾的 Jar 檔案包含匯入/匯出作業的實作。
-bash 資料夾的範例指令碼，可從舊叢集的 Zookeeper 伺服器匯出資料，再將它匯回新叢集的 Zookeeper 伺服器。
+lib 資料夾的 .jar 檔案包含匯出/匯入作業的實作。 bash 資料夾的範例指令碼，示範如何從舊叢集的 ZooKeeper 伺服器匯出資料，再將它匯回新叢集的 ZooKeeper 伺服器。
 
-[stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) 指令碼需要從 Zookeeper 節點執行，才能匯入/匯出資料。
-指令碼需要更新，才能更正其中的 HDP 版本字串。
-(HDInsight 正致力於讓這些指令碼成為泛型，以便可從叢集中任何節點執行，不需要使用者修改)。
+從 ZooKeeper 節點執行 [stormmeta.sh](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/tools/zkdatatool-1.0/bash/stormmeta.sh) 指令碼以匯出再匯入資料。 將指令碼更新為正確的 Hortonworks Data Platform (HDP) 版本。 (我們正致力於讓這些指令碼在 HDInsight 中成為泛型。 泛型指令碼可以從叢集的任何節點執行，不需要使用者修改。)
 
-匯出命令會將中繼資料寫入指定位置的 HDFS 路徑 (BLOB 或 ADLS 存放區)。
+匯出命令會將中繼資料寫入您設定位置的 Apache Hadoop 分散式檔案系統 (HDFS) 路徑 (Azure Blob 儲存體或 Azure Data Lake Store 存放區中)。
 
 ### <a name="examples"></a>範例
 
-##### <a name="export-offset-metadata"></a>匯出位移中繼資料：
-1. SSH 匯入舊叢集的 zookeeper 叢集中，該舊叢集需要匯出檢查點位移。
-1. (更新 hdp 版本字串之後) 執行以下命令匯出 zookeeper 位移資料並匯入 /stormmetadta/zkdata HDFS 路徑。
+#### <a name="export-offset-metadata"></a>匯出位移中繼資料
+1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯出檢查點位移。
+2. 執行下列命令 (在您更新 HDP 版本字串之後)，將 ZooKeeper 位移資料匯出至 /stormmetadta/zkdata HDFS 路徑：
 
-```apache   
-   java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
-```
+    ```apache   
+    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter export /eventhubspout /stormmetadata/zkdata
+    ```
 
-##### <a name="import-offset-metadata"></a>匯入位移中繼資料
-1. SSH 匯入舊叢集的 zookeeper 叢集中，該舊叢集需要匯出檢查點位移。
-1. (更新 hdp 版本字串之後) 執行以下命令將 HDFS 路徑的 /stormmetadata/zkdata 位移資料匯入目標叢集上的 Zookeeper 伺服器。
+#### <a name="import-offset-metadata"></a>匯入位移中繼資料
+1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯出檢查點位移。
+2. 執行下列命令 (在您更新 HDP 版本字串之後)，將 ZooKeeper 位移資料從 HDFS 路徑 /stormmetadata/zkdata 匯入至目標叢集的 ZooKeeper 伺服器：
 
-```apache
-   java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
-```
+    ```apache
+    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter import /eventhubspout /home/sshadmin/zkdata
+    ```
    
-##### <a name="delete-offset-metadata-so-topologies-can-start-processing-data-from-either-beginning-or-timestamp-of-user-choice"></a>刪除位移中繼資料，以便拓撲可以從頭開始處理資料，或從使用者選擇的時間戳記開始處理。
-1. SSH 匯入舊叢集的 zookeeper 叢集中，該舊叢集需要匯出檢查點位移。
-1. (更新 hdp 版本字串之後) 執行以下命令刪除目前叢集的所有 zookeeper 位移資料。
+#### <a name="delete-offset-metadata-so-that-topologies-can-start-processing-data-from-the-beginning-or-from-a-timestamp-that-the-user-chooses"></a>刪除位移中繼資料，以便拓撲可以從頭開始處理資料，或從使用者選擇的時間戳記開始處理
+1. 使用 SSH 移至叢集的 ZooKeeper 叢集，該舊叢集需要匯出檢查點位移。
+2. 執行下列命令 (在您更新 HDP 版本字串之後)，刪除目前叢集中的所有 ZooKeeper 位移資料：
 
-```apache
-   java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
-```
+    ```apache
+    java -cp ./*:/etc/hadoop/conf/*:/usr/hdp/2.5.1.0-56/hadoop/*:/usr/hdp/2.5.1.0-56/hadoop/lib/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/*:/usr/hdp/2.5.1.0-56/hadoop-hdfs/lib/*:/etc/failover-controller/conf/*:/etc/hadoop/* com.microsoft.storm.zkdatatool.ZkdataImporter delete /eventhubspout
+    ```
 
 ## <a name="how-do-i-locate-storm-binaries-on-a-cluster"></a>如何找出叢集上的 Storm 二進位檔
-
-### <a name="issue"></a>問題：
- 知道 HDInsight 叢集上的 Storm 服務二進位檔位置
-
-### <a name="resolution-steps"></a>解決步驟：
-
-目前 HDP 堆疊的 Storm 二進位檔位於：/usr/hdp/current/storm-client
-
-Headnode 以及背景工作角色節點的這個位置一樣 。
+目前 HDP 堆疊的 Storm 二進位檔位於 /usr/hdp/current/storm-client 中。 前端節點和背景工作節點使用相同的位置。
  
-/usr/hdp 下可能有多個 HDP 版本的特定二進位檔 (範例： /usr/hdp/2.5.0.1233/storm)
+/usr/hdp 中可能會有特定 HDP 版本的多個二進位檔 (例如 /usr/hdp/2.5.0.1233/storm)。 /usr/hdp/current/storm-client 資料夾是以符號連結至叢集上執行的最新版本。
 
-但 /usr/hdp/current/storm-client 是以符號連結在叢集上執行的最新版本。
-
-### <a name="further-reading"></a>進階閱讀：
- [使用 SSH 連線到 HDInsight 叢集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix) [Storm](http://storm.apache.org/)
+如需詳細資訊，請參閱[使用 SSH 連線到 HDInsight 叢集](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)和 [Storm](http://storm.apache.org/)。
  
 ## <a name="how-do-i-determine-the-deployment-topology-of-a-storm-cluster"></a>我要如何判斷 Storm 叢集的部署拓撲
+首先，找出所有與 HDInsight Storm 一起安裝的元件。 Storm 叢集包含四個節點類別：
+
+* 閘道節點
+* 前端節點
+* ZooKeeper 節點
+* 背景工作節點
  
-### <a name="issue"></a>問題：
+### <a name="gateway-nodes"></a>閘道節點
+閘道節點是閘道與反向 Proxy 服務，可讓您啟用使用中的 Ambari 管理服務公用存取。 它也可以處理 Ambari 前置選擇。
  
-找出所有與 HDInsight Storm 一起安裝的元件。
- 
-Storm 叢集包含一個 4 節點的類別
-1. 閘道器
-1. 前端節點
-1. Zookeeper 節點
-1. 背景工作節點
- 
-#### <a name="gateway-nodes"></a>閘道節點
-是閘道與反向 Proxy 服務，可讓您啟用使用中的 Ambari 管理服務公用存取，處理 Ambari 前置選擇。
- 
-#### <a name="zookeeper-nodes"></a>Zookeeper 節點
-HDInsight 隨附一個 3 節點的 Zookeeper 仲裁。
-仲裁大小是固定的且未經設定。
- 
-在叢集中的 Storm 服務已設定為自動使用 ZK 仲裁。
- 
-#### <a name="head-nodes"></a>前端節點
+### <a name="head-nodes"></a>前端節點
 Storm 前端節點執行下列服務：
-1. Nimbus
-1. Ambari 伺服器
-1. Ambari 計量伺服器
-1. Ambari 計量收集器
+* Nimbus
+* Ambari 伺服器
+* Ambari 計量伺服器
+* Ambari 計量收集器
  
-#### <a name="worker-nodes"></a>背景工作節點
- Storm 背景工作節點執行下列服務：
-1. 監督員
-1. 執行拓撲的背景工作角色 JVM
-1. Ambari 代理程式
+### <a name="zookeeper-nodes"></a>ZooKeeper 節點
+HDInsight 隨附一個三節點的 ZooKeeper 仲裁。 仲裁大小是固定的，且無法重新設定。
  
-## <a name="how-do-i-locate-storm-eventhub-spout-binaries-for-development"></a>如何找出用於開發的 Storm-EventHub-Spout 二進位檔
+叢集中的 Storm 服務已設定為自動使用 ZooKeeper 仲裁。
  
-### <a name="issue"></a>問題：
-如何尋找使用 Storm Eventhub Spout Jar 的詳細資訊，搭配拓樸使用。
+### <a name="worker-nodes"></a>背景工作節點
+Storm 背景工作節點執行下列服務：
+* 監督員
+* 背景工作 Java 虛擬機器 (JVM)，用於執行拓樸
+* Ambari 代理程式
  
-#### <a name="msdn-articles-on-how-to"></a>MSDN 的操作說明文章
+## <a name="how-do-i-locate-storm-event-hub-spout-binaries-for-development"></a>如何找出用於開發的 Storm 事件中樞 Spout 二進位檔
  
-##### <a name="java-based-topology"></a>Java 型拓撲
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology
+如需對您的拓撲使用 Storm 事件中樞 Spout .jar 檔案的詳細資訊，請參閱下列資源。
  
-##### <a name="c-based-topology-using-mono-on-hdi-34-linux-storm-clusters"></a>C# 型拓撲 (在 HDI 3.4+ Linux Storm 叢集上使用 Mono)
-https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology
+### <a name="java-based-topology"></a>Java 型拓撲
+[使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
-##### <a name="latest-storm-eventhub-spout-binaries-for-hdi35-linux-storm-clusters"></a>適用於 HDI3.5+ Linux Storm 叢集最新的 Storm EventHub Spout 二進位檔
-請參閱 https://github.com/hdinsight/mvn-repo/blob/master/README.md 以了解如何使用最新的 Storm Eventhub Spout 搭配 HDI3.5+ Linux Storm 叢集。
+### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>C# 型拓撲 (HDInsight 3.4+ Linux Storm 叢集上的 Mono)
+[利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
-##### <a name="source-code-examples"></a>原始程式碼範例：
-https://github.com/Azure-Samples/hdinsight-java-storm-eventhub
+### <a name="latest-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>適用於 HDInsight 3.5+ Linux Storm 叢集的最新 Storm 事件中樞 Spout 二進位檔
+若要了解如何使用適用於 HDInsight 3.5+ Linux Storm 叢集的最新 Storm 事件中樞 Spout，請參閱 mvn-repo [readme 檔案](https://github.com/hdinsight/mvn-repo/blob/master/README.md)。
+ 
+### <a name="source-code-examples"></a>原始程式碼範例
+請參閱[範例](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)，以了解如何使用 Azure HDInsight 叢集上的 Apache Storm 拓撲 (以 Java 撰寫)，來從 Azure 事件中樞進行讀取和寫入。
  
 ## <a name="how-do-i-locate-storm-log4j-configuration-files-on-clusters"></a>如何找出叢集上的 Storm Log4J 設定檔
  
-### <a name="issue"></a>問題：
+識別 Storm 服務的 Apache Log4J 設定檔。
  
-識別 Storm 服務的 Log4J 設定檔。
+### <a name="on-head-nodes"></a>在前端節點上
+從 /usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml 可讀取 Nimbus Log4J 設定。
  
-#### <a name="on-headnodes"></a>在 HeadNodes 上：
-從 /usr/hdp/<HDPVersion>/storm/log4j2/cluster.xml 可讀取 Nimbus Log4J 設定
+### <a name="on-worker-nodes"></a>在背景工作節點上
+從 /usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml 可讀取監督員 Log4J 設定。
  
-#### <a name="worker-nodes"></a>背景工作節點
-從 /usr/hdp/<HDPVersion>/storm/log4j2/cluster.xml 可讀取監督員的 Log4J 設定
- 
-從 /usr/hdp/<HDPVersion>/storm/log4j2/worker.xml 可讀取背景工作角色 Log4J 設定
+從 /usr/hdp/\<HDP version\>/storm/log4j2/worker.xml 可讀取背景工作角色 Log4J 設定。
  
 範例：/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
-
-
-
-
-
 
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/02/2017
+ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b1a4ca17a53a6d337d704bc4eef6d441de1f32d8
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: f4e42ca177ac6c11111d4ffc0d772cafc13f8657
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight 上 Hadoop 服務所使用的連接埠
@@ -75,13 +75,19 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 > [!NOTE]
 > 部分服務只能在特定叢集類型上使用。 例如，HBase 只能在 HBase 叢集類型上使用。
 
+> [!IMPORTANT]
+> 某些服務一次只能在一個前端節點上執行。 如果您嘗試連接到主要前端節點上的服務並收到 404 錯誤，請使用次要前端節點重試。
+
 ### <a name="ambari"></a>Ambari
 
-| 服務 | 節點 | 連接埠 | 路徑 | 通訊協定 | 
+| 服務 | 節點 | Port | URL 路徑 | 通訊協定 | 
 | --- | --- | --- | --- | --- |
 | Ambari Web UI | 前端節點 | 8080 | / | HTTP |
 | Ambari REST API | 前端節點 | 8080 | /api/v1 | HTTP |
 
+範例：
+
+* Ambari REST API：`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>HDFS 連接埠
 
@@ -161,6 +167,11 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 ### <a name="spark-ports"></a>Spark 連接埠
 
-| 服務 | 節點 | 連接埠 | 通訊協定 | 說明 |
-| --- | --- | --- | --- | --- |
-| Spark Thrift 伺服器 |前端節點 |10002 |Thrift |要連接到 Spark SQL 的服務 (Thrift/JDBC) |
+| 服務 | 節點 | 連接埠 | 通訊協定 | URL 路徑 | 說明 |
+| --- | --- | --- | --- | --- | --- |
+| Spark Thrift 伺服器 |前端節點 |10002 |Thrift | &nbsp; | 要連接到 Spark SQL 的服務 (Thrift/JDBC) |
+| Livy 伺服器 | 前端節點 | 8998 | HTTP | /batches | 要執行陳述式、作業和應用程式的服務 |
+
+範例：
+
+* Livy：`curl "http://10.0.0.11:8998/batches"`。 在此範例中，`10.0.0.11` 是託管 Livy 服務之前端節點的 IP 位址。

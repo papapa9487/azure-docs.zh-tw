@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 29ffb61715d803340abdb7e02aa64e9233676798
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e3c463d749dc4179df58286b9bb75584880a6bc6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-view-designer-to-create-custom-views-in-log-analytics"></a>在 Log Analytics 中使用檢視表設計工具來建立自訂檢視
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/28/2017
 * [視覺效果組件參考](log-analytics-view-designer-parts.md) - 可用於自訂檢視之每個圖格的設定參考。
 
 >[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則所有檢視中的查詢必須以[新的查詢語言](https://docs.loganalytics.io/learn/tutorial_getting_started_with_queries.html)撰寫。  在工作區升級之前建立的任何檢視都會自動轉換。
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則所有檢視中的查詢必須以[新的查詢語言](https://go.microsoft.com/fwlink/?linkid=856078)撰寫。  在工作區升級之前建立的任何檢視都會自動轉換。
 
 ## <a name="concepts"></a>概念
 以檢視設計工具建立的檢視包含下表中的各部分。

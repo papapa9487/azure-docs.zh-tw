@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/28/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: d37f0fcf4c91879c31b04dfd19cadee00e98ba91
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 239d2e1724f2759a52cccdac11fc781d57393125
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android 上的 Azure Active Directory 憑證式驗證
@@ -41,15 +41,15 @@ ms.lasthandoff: 07/28/2017
 ## <a name="office-mobile-applications-support"></a>Office 行動應用程式支援
 | 應用程式 | 支援 |
 | --- | --- |
-| Word / Excel / PowerPoint |![勾選][1] |
+| Azure 資訊保護應用程式 |![勾選][1] |
+| Microsoft Teams |![勾選][1] |
 | OneNote |![勾選][1] |
 | OneDrive |![勾選][1] |
 | Outlook |![勾選][1] |
-| Yammer |![勾選][1] |
+| Power BI |![勾選][1] |
 | 商務用 Skype |![勾選][1] |
-| Azure 資訊保護應用程式 |![勾選][1] |
-| Microsoft Teams |![勾選][1] |
-
+| Word / Excel / PowerPoint |![勾選][1] |
+| Yammer |![勾選][1] |
 
 
 ### <a name="implementation-requirements"></a>實作需求

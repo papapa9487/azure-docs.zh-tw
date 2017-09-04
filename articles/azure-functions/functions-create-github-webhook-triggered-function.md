@@ -1,26 +1,26 @@
 ---
 title: "在 GitHub Webhook 所觸發的 Azure 中建立函式 | Microsoft Docs"
 description: "使用 Azure Functions 建立 GitHub Webhook 所叫用的無伺服器函式。"
-services: azure-functions
+services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 36ef34b8-3729-4940-86d2-cb8e176fcc06
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6e91d095c8a89ead513a8ea63f74fd4b9384cfd5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>建立由 GitHub Webhook 所觸發的函式
@@ -52,7 +52,7 @@ ms.lasthandoff: 07/11/2017
 
     ![Azure 入口網站中的 Functions 快速入門](./media/functions-create-github-webhook-triggered-function/add-first-function.png)
 
-2. 針對所需語言選取 **GitHubWebHook** 的範本。 **為您的函式命名**，然後選取 [建立]。
+2. 針對所需語言選取 **GitHub WebHook** 範本。 **為您的函式命名**，然後選取 [建立]。
 
      ![在 Azure 入口網站中建立 GitHub Webhook 觸發的函式](./media/functions-create-github-webhook-triggered-function/functions-create-github-webhook-trigger.png) 
 

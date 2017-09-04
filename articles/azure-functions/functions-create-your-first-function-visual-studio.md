@@ -1,3 +1,4 @@
+
 ---
 title: "使用 Visual Studio 在 Azure 中建立第一個函式 | Microsoft Docs"
 description: "使用 Azure Functions Tools for Visual Studio，建立簡單 HTTP 觸發函式並發行至 Azure。"
@@ -11,23 +12,24 @@ keywords: "azure functions, 函式, 事件處理, 計算, 無伺服器架構"
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: functions
 ms.devlang: multiple
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: glenga
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: f3aa6740751db9aa979a88f9600f68cf4353643c
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
 
 Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。
 
-本主題中，您可以了解如何使用 Azure Function Tools for Visual Studio 2017 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。 這些工具可在 Visual Studio 2017 15.3 版或更新版本的 Azure 開發工作負載中取得。
+在本主題中，您將了解如何使用 Visual Studio 2017 Tools for Azure Functions 在本機建立及測試 "hello world" 函式。 您接著會將函式程式碼發行至 Azure。 這些工具可在 Visual Studio 2017 15.3 版或更新版本的 Azure 開發工作負載中取得。
 
 ![Visual Studio 專案中的 Azure Functions 程式碼](./media/functions-create-your-first-function-visual-studio/functions-vstools-intro.png)
 
@@ -38,6 +40,9 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 * [Visual Studio 2017 15.3 版](https://www.visualstudio.com/vs/preview/)，包括 **Azure 開發**工作負載。
 
     ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+    
+    >[!NOTE]  
+    安裝或升級至 Visual Studio 2017 版本 15.3 之後，您可能也需要手動更新 Visual Studio 2017 Tools for Azure Functions。 您可以從 [工具] 功能表的 [延伸模組和更新...] 下的 > [更新] > [Visual Studio Marketplace] > [Azure Functions and Web Jobs Tools] > [更新] 更新工具。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

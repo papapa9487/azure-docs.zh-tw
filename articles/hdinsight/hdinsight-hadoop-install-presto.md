@@ -12,14 +12,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 406ef84e72d253fec51a0b37c48f326dafd511b6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb5e500b922522e4cdfa7dd07b5233688b916b3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
@@ -35,7 +34,7 @@ ms.lasthandoff: 05/18/2017
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 > 
-> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 > 
 > 
 
@@ -113,11 +112,11 @@ ms.lasthandoff: 05/18/2017
     您應該會看到如下的輸出：
 
         {
-              "coordinator_address" : [ {
+            "coordinator_address" : [ {
                 "value" : "10.0.0.12:9090",
                 "level" : "application",
                 "updatedTime" : "Mon Apr 03 20:13:41 UTC 2017"
-          } ]
+        } ]
 
 3. 記下輸出中的 **value** 屬性值。 您在叢集 edgenode 上安裝 Airpal 時將會需要這個值。 上述輸出中，您所需要的值是 **10.0.0.12:9090**。
 

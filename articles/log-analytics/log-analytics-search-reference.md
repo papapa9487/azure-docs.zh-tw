@@ -16,16 +16,16 @@ ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: f5da86a95623234d14b0a99ee64c7b98d7e920a1
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: fc9c9b0a6292dab256997a86a6db16367fc48cd3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-search-reference"></a>Log Analytics 搜尋參考
 
 >[!NOTE]
-> 本文說明在 Azure Log Analytics 中使用目前查詢語言的記錄搜尋。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[新語言的語言參考](https://docs.loganalytics.io/queryLanguage/query_language.html)。
+> 本文說明在 Azure Log Analytics 中使用目前查詢語言的記錄搜尋。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[新語言的語言參考](https://go.microsoft.com/fwlink/?linkid=856079)。
 
 下列關於搜尋語言的參考章節描述一般查詢語法選項，您可以在搜尋資料及篩選運算式時用來幫助您縮小搜尋範圍。 它也會描述您可以用來在已擷取的資料上採取動作的命令。
 

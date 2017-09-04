@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: caac079989f5f1616fdbed880ec51ae6e0946b8e
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="securing-your-sql-database"></a>保護您的 SQL Database
@@ -30,7 +29,7 @@ ms.lasthandoff: 07/06/2017
 如需各種 SQL 上可用的完整安全性功能概觀，請參閱 [SQL Server Database Engine 和 Azure SQL Database 的資訊安全中心](https://msdn.microsoft.com/library/bb510589)。 同時您也可於 [安全性和 Azure SQL Database 技術白皮書](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF) 中取得其他資訊。
 
 ## <a name="protect-data"></a>保護資料
-SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135244)為移動中的資料提供加密、使用[透明資料加密](http://go.microsoft.com/fwlink/?LinkId=526242)為待用資料提供加密，使用[一律加密](https://msdn.microsoft.com/library/mt163865.aspx)為使用中的資料提供加密，進而保護您的資料。 
+SQL Database 會使用[傳輸層安全性](https://support.microsoft.com/kb/3135244)為移動中的資料提供加密、使用[透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)為待用資料提供加密，使用[一律加密](https://msdn.microsoft.com/library/mt163865.aspx)為使用中的資料提供加密，進而保護您的資料。 
 
 > [!IMPORTANT]
 >Azure SQL Database 的所有連線，也就是任何時候只要資料需要「傳輸」進出資料庫時，都需要加密 (SSL/TLS)。 在您應用程式的連接字串中，您必須指定參數來加密連線，並且 *不要* 信任伺服器憑證 (這是為了如果您從 Azure 傳統入口網站將連接字串複製出去)，否則連線將不會驗證伺服器的身分識別，也可能會遭受到「攔截」攻擊。 例如對於 ADO.NET 驅動程式，這些連接字串參數是 **Encrypt=True** 和 **TrustServerCertificate=False**。 

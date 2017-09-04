@@ -4,7 +4,7 @@ description: "如何對您的串流分析作業進行疑難排解"
 keywords: "疑難排解指南"
 documentationcenter: 
 services: stream-analytics
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 25567d7aa586aaa1534c822fb635e4e62fb1b229
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: dcff312e4a282b15e76ea32aadb1981a496a2446
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 07/04/2017
 
 7.  使用計量進行偵錯：
     - 若已經過預定的持續時間 (以查詢為基礎)，而您沒有收到輸出，請嘗試下列方法︰
-        - 請查看 [監視] 索引標籤上的[**監視計量**](stream-analytics-monitoring.md)。 因為是彙總值，計量會延遲幾分鐘顯示。
+        - 請查看 [監視] 索引標籤上的[**監視計量**](stream-analytics-monitoring.md)。因為是彙總值，計量會延遲幾分鐘顯示。
             - 若輸入事件 > 0，則作業可以讀取輸入資料。 如果輸入事件不是 > 0，然後︰
                 - 若要查看資料來源是否為有效資料，請使用[服務匯流排總管](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)進行檢查。 此項檢查適用於使用事件中樞作為輸入的作業。
                 - 請檢查資料序列化格式及資料編碼是否正確。
@@ -91,7 +90,7 @@ ms.lasthandoff: 07/04/2017
 
 ## <a name="get-help"></a>取得說明
 
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 

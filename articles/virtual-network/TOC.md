@@ -140,6 +140,7 @@
 #### [PowerShell](virtual-network-routes-troubleshoot-powershell.md)
 ### [輸送量測試](virtual-network-bandwidth-testing.md)
 ### [無法刪除虛擬網路](virtual-network-troubleshoot-cannot-delete-vnet.md)
+### [VM 至 VM 連線問題](virtual-network-troubleshoot-connectivity-problem-between-vms.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=virtual-network)

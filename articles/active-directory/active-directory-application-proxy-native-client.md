@@ -5,84 +5,96 @@ services: active-directory
 documentationcenter: 
 author: kgremban
 manager: femila
-editor: 
 ms.assetid: f0cae145-e346-4126-948f-3f699747b96e
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2017
+ms.date: 08/17/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 24396f7c82bcc0fb076c4fceca0ec4b0963d36e8
+ms.reviewer: harshja
+ms.custom: it-pro
+ms.translationtype: HT
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: bdaa5af6ff5331bc310499586615b48a864c3c5e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
+
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 Proxy 應用程式互動
-Azure Active Directory 應用程式 Proxy 廣泛用於發佈瀏覽器應用程式，例如 SharePoint、Outlook Web Access 和自訂企業營運應用程式。 它也可以用來發佈原生用戶端應用程式，這種應用程式會安裝在裝置上，與 Web 應用程式不同。 這是透過支援在標準授權 HTTP 標頭中傳送的 Azure AD 發出的權杖來實現。
+
+除了 Web 應用程式，Azure Active Directory 應用程式 Proxy 也可以用來發佈原生用戶端應用程式。 原生用戶端應用程式與 Web 應用程式不同，因為這種應用程式會安裝在裝置上，而 Web 應用程式則是透過瀏覽器存取。 
+
+應用程式 Proxy 藉由接受在標準授權 HTTP 標頭中傳送的 Azure AD 發行權杖，來支援原生用戶端應用程式。
 
 ![使用者、Azure Active Directory 和已發佈應用程式之間的關係](./media/active-directory-application-proxy-native-client/richclientflow.png)
 
-發佈這類應用程式的建議方法是使用 Azure AD 驗證程式庫，它會處理所有驗證細節並支援許多不同的用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。 完成此動作的程序如下所示：
+請使用 Azure AD 驗證程式庫來發佈原生應用程式，該程式庫會處理驗證並支援許多用戶端環境。 應用程式 Proxy 融入 [原生應用程式到 Web API 案例](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。 本文引導您完成使用應用程式 Proxy 和 Azure AD 驗證程式庫發佈原生應用程式的四個步驟。 
 
 ## <a name="step-1-publish-your-application"></a>步驟 1：發佈您的應用程式
-如同任何其他應用程式一般，發佈您的 Proxy 應用程式，指派使用者並提供進階或基本授權給他們。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)。
+如同任何其他應用程式一般，發佈您的 Proxy 應用程式，並指派使用者以存取您的應用程式。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](active-directory-application-proxy-publish.md)。
 
 ## <a name="step-2-configure-your-application"></a>步驟 2：設定您的應用程式
 以下列方式設定原生應用程式：
 
-1. 登入 Azure 傳統入口網站。
-2. 選取左側功能表中的 Active Directory 圖示，然後選取您的目錄。
-3. 在頂端功能表上，按一下 [ **應用程式**]。 如果您的目錄中尚未新增任何應用程式，則此頁面只會顯示 [新增應用程式]  連結。 按一下此連結，或者您可以按一下命令列上的 [新增] 按鈕。
-4. 在 [欲執行動作] 頁面上，按一下 [加入我的組織正在開發的應用程式] 連結。
-5. 在 [告訴我們您的應用程式] 頁面上，指定應用程式的名稱，然後選擇 [原生用戶端應用程式]。 按一下箭號圖示以繼續。
-6. 在 [應用程式資訊] 頁面上，提供原生用戶端應用程式的 [重新導向 URI]，然後按一下核取記號來完成操作。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 巡覽至 [Azure Active Directory] > [應用程式註冊]。
+3. 選取 [新增應用程式註冊]。
+4. 指定應用程式的名稱，選取 [原生] 作為應用程式類型，並提供應用程式的重新導向 URI。 
 
-已新增您的應用程式，而且您會進入應用程式的 [快速啟動] 頁面。
+   ![建立新的應用程式註冊](./media/active-directory-application-proxy-native-client/create.png)
+5. 選取 [ **建立**]。
+
+如需建立新應用程式註冊的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](.//develop/active-directory-integrating-applications.md)。
+
 
 ## <a name="step-3-grant-access-to-other-applications"></a>步驟 3：授與其他應用程式存取權
 啟用要公開給您的目錄中的其他應用程式的原生應用程式：
 
-1. 在頂端功能表上，按一下 [應用程式]，選取新的原生應用程式，然後按一下 [設定]。
-2. 向下捲動至 [其他應用程式的權限]  區段。 按一下 [新增應用程式] 按鈕，並選取您想要授與原生應用程式存取的 Proxy 應用程式，然後按一下右下角中的核取記號。 從 [委派的權限]  下拉式功能表，選取新的權限。
+1. 仍在 [應用程式註冊] 中，選取您剛才建立的新原生應用程式。
+2. 選取 [必要權限]。
+3. 選取 [新增] 。
+4. 開啟第一個步驟 [選取 API]。
+5. 使用搜尋列，尋找您在第一節中發佈的「應用程式 Proxy」應用程式。 選擇該應用程式，然後按一下 [選取]。 
 
-![[其他應用程式的權限] 的螢幕擷取畫面 - [新增應用程式]](./media/active-directory-application-proxy-native-client/delegate_native_app.png)
+   ![搜尋 Proxy 應用程式](./media/active-directory-application-proxy-native-client/select_api.png)
+6. 開啟第二個步驟 [選取權限]。
+7. 使用核取方塊授與 Proxy 應用程式的原生應用程式存取權，然後按一下 [選取]。
+
+   ![授與 Proxy 應用程式存取權](./media/active-directory-application-proxy-native-client/select_perms.png)
+8. 選取 [完成] 。
+
 
 ## <a name="step-4-edit-the-active-directory-authentication-library"></a>步驟 4：編輯 Active Directory 驗證程式庫
 在 Active Directory 驗證程式庫 (ADAL) 的驗證內容中編輯原生應用程式程式碼，以包含下列文字：
 
-        // Acquire Access Token from AAD for Proxy Application
-        AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<TenantId>");
-        AuthenticationResult result = authContext.AcquireToken("< Frontend Url of Proxy App >",
-                                                        "< Client Id of the Native app>",
-                                                        new Uri("< Redirect Uri of the Native App>"),
-                                                        PromptBehavior.Never);
+```
+// Acquire Access Token from AAD for Proxy Application
+AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
+AuthenticationResult result = authContext.AcquireToken("< External Url of Proxy App >",
+        "<App ID of the Native app>",
+        new Uri("<Redirect Uri of the Native App>"),
+        PromptBehavior.Never);
 
-        //Use the Access Token to access the Proxy Application
-        HttpClient httpClient = new HttpClient();
-        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-        HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+//Use the Access Token to access the Proxy Application
+HttpClient httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+```
 
-應該以下列方式取代變數：
+範例程式碼中的變數應取代如下：
 
-* **TenantId** - 可以在應用程式 [組態] 頁面 URL 的 GUID 中找到，緊接在 “/Directory/” 之後。
-* **前端 URL** - 這是您在「Proxy 應用程式」中輸入的前端 URL，可以在「Proxy 應用程式」的 [組態] 頁面上找到。
-* 原生應用程式的**用戶端識別碼** - 可以在原生應用程式的 [設定] 頁面上找到。
-* **原生應用程式的重新導向 URI** - 可以在原生應用程式的 [設定] 頁面上找到。
+* **租用戶識別碼**可以在 Azure 入口網站中找到。 巡覽至 [Azure Active Directory] > [屬性]，然後複製目錄識別碼。 
+* [外部 URL] 是您在 Proxy 應用程式中輸入的前端 URL。 若要尋找此值，請巡覽至 Proxy 應用程式的 [應用程式 Proxy] 區段。
+* 原生應用程式的**應用程式識別碼**可以在原生應用程式的 [屬性] 頁面上找到。
+* **原生應用程式的重新導向 URI** 可以在原生應用程式的 [重新導向 URI] 頁面上找到。
 
-![[新的原生應用程式] 設定頁面螢幕擷取畫面](./media/active-directory-application-proxy-native-client/new_native_app.png)
-
-如需原生應用程式流程的詳細資訊，請參閱 [原生應用程式到 Web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。
 
 ## <a name="see-also"></a>另請參閱
-* [使用您自己的網域名稱發行應用程式](active-directory-application-proxy-custom-domains.md)
-* [啟用條件式存取](active-directory-application-proxy-conditional-access.md)
-* [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
-* [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)
+
+如需原生應用程式流程的詳細資訊，請參閱[原生應用程式到 Web API](develop/active-directory-authentication-scenarios.md#native-application-to-web-api)。
 
 如需最新消息，請查閱 [應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
 

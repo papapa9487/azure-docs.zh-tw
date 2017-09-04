@@ -8,18 +8,18 @@ author: sandshadow
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/19/2017
 ms.author: edett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 216c2146371e2b88d4a3d7aa4f08ae8186e89443
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: f6a993b3858cfb94dd9795f5e55f15fa6ec7dcb2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="how-to-add-an-event-hub-event-source"></a>如何新增事件中樞的事件來源
@@ -51,7 +51,7 @@ ms.lasthandoff: 05/01/2017
 | 訂用帳戶識別碼 | 選取建立此事件中樞的訂用帳戶。
 | 服務匯流排命名空間 | 選取包含事件中樞的服務匯流排命名空間。
 | 事件中樞名稱 | 選取事件中樞的名稱。
-| 事件中樞原則名稱 | 選取共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。
+| 事件中樞原則名稱 | 選取共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。
 | 事件中樞取用者群組 | 從事件中樞讀取資料的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
 
 ### <a name="provide-event-hub-settings-manually"></a>手動提供事件中樞設定
@@ -66,7 +66,7 @@ ms.lasthandoff: 05/01/2017
 | 資源群組 | 建立此事件中樞的訂用帳戶。
 | 服務匯流排命名空間 | 服務匯流排命名空間是一個容器，包含一組訊息實體。 建立新的事件中樞時，也會建立服務匯流排命名空間。
 | 事件中樞名稱 | 事件中樞的名稱。 當您建立事件中心時，您也會指定特定名稱
-| 事件中樞原則名稱 | 共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。
+| 事件中樞原則名稱 | 共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**讀取**權限。
 | 事件中樞原則金鑰 | 用來驗證服務匯流排命名空間之存取權的共用存取金鑰。 在此輸入主要金鑰或次要金鑰。
 | 事件中樞取用者群組 | 從事件中樞讀取資料的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
 

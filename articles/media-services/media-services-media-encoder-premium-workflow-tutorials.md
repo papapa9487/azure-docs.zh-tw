@@ -4,7 +4,7 @@ description: "本文件包含的逐步解說可示範如何使用媒體編碼器
 services: media-services
 documentationcenter: 
 author: xstof
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 1ba52865-b4a8-4ca0-ac96-920d55b9d15b
 ms.service: media-services
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: christoc;xpouyat;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 602f86f17baffe706f27963e8d9963f082971f54
-ms.openlocfilehash: 5cb610b4b2387af48ef29acdcc5e40e154f515a7
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 565497bd5a35e3c4d69d29512307cf3ca2364bdd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>進階媒體編碼器 Premium 工作流程教學課程
@@ -510,7 +510,7 @@ ms.lasthandoff: 11/17/2016
 *要加入修剪的目標開始工作流程*
 
 ### <a id="time_based_trim_use_stream_trimmer"></a>使用串流修剪器
-串流修剪器元件允許根據計時資訊 (秒、分等等) 修剪輸入串流的開頭和結尾。 修剪器不支援以畫面格為基礎的修剪。
+串流修剪器元件允許根據計時資訊 (秒、分等等) 修剪輸入串流的開頭和結尾。修剪器不支援以畫面格為基礎的修剪。
 
 ![串流修剪器](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-stream-trimmer.png)
 
@@ -596,7 +596,7 @@ ms.lasthandoff: 11/17/2016
 
 *Hello World 記錄輸出*
 
-我們呼叫記錄方法所在的節點物件，是指我們目前的「節點」或是我們正在編寫指令碼的元件。 每個元件因此具備可透過系統索引標籤輸出記錄資料的能力。 在此情況下，我們會輸出字串常值 "Hello World"。 在此處需要了解的是這可以證明是非常重要的偵錯工具，讓您深入了解指令碼實際上做些什麼。
+我們呼叫記錄方法所在的節點物件，是指我們目前的「節點」或是我們正在編寫指令碼的元件。 每個元件因此具備可透過系統索引標籤輸出記錄資料的能力。在此情況下，我們會輸出字串常值 "Hello World"。 在此處需要了解的是這可以證明是非常重要的偵錯工具，讓您深入了解指令碼實際上做些什麼。
 
 從我們的指令碼環境內，我們也可以存取其他元件的屬性。 試試看：
 

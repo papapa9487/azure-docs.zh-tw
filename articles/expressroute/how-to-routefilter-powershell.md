@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/16/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 174954a3b4345bc40a509f0078b760a728a7dcfd
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: de3550c20439fa809869d98b8a57ea3be9c03e7c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>針對 Microsoft 對等互連設定路由篩選
@@ -145,10 +145,10 @@ Set-AzureRmRouteFilter -RouteFilter $routefilter
 
 ## <a name="attach"></a>步驟 3. 將路由篩選連結至 ExpressRoute 線路
 
-執行下列命令以將路由篩選連結至 ExpressRoute 線路：
+若您只有 Microsoft 對等互連，請執行下列命令，將路由器篩選附加在 ExpressRoute 線路上：
 
 ```powershell
-Set-AzureRmExpressRouteCircuitPeeringConfig -ExpressRouteCircuit $ckt -Name "MicrosoftPeering" -PeeringType MicrosoftPeering -PeerASN "BGPASNNumber" -PrimaryPeerAddressPrefix "A.A.A.A/30" -SecondaryPeerAddressPrefix "B.B.B.B/30" -VlanId "VLANNumber" -RouteFilter $routefilter
+$ckt.Peerings[0].RouteFilter = $routefilter 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
@@ -194,3 +194,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```powershell
 Remove-AzureRmRouteFilter -Name "MyRouteFilter" -ResourceGroupName "MyResourceGroup"
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 026c4491818c8719c68a759ee9595ad9c765d526
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: f8f7d51003f8a55b7f51e8cc2cea838e8e5a6196
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-on-linux"></a>在 Linux 上使用 Azure Web 應用程式連續部署
@@ -88,7 +88,6 @@ az webapp deployment container -n sname1 -g rgname -e true --show-cd-url
 
 ## <a name="next-steps"></a>後續步驟
 * [什麼是 Linux 上的 Azure Web 應用程式？](./app-service-linux-intro.md)
-* [在 Linux 上的 Azure Web 應用程式中建立應用程式](./app-service-linux-how-to-create-web-app.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
 * [在 Linux 上的 Azure Web 應用程式中使用適用於 Node.js 的 PM2 組態](app-service-linux-using-nodejs-pm2.md)
 * [在 Linux 上的 Azure Web 應用程式中使用 .NET Core](app-service-linux-using-dotnetcore.md)

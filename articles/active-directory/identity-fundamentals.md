@@ -1,12 +1,12 @@
 ---
 title: "Azure 身分識別管理的基本概念 | Microsoft Docs"
-description: 
+description: "雲端型身分識別現在是持續控制與查看使用者以何種方式及在何時存取公司應用程式和資料的最佳方式。"
 keywords: 
 author: jeffgilb
 manager: femila
 ms.reviewr: jsnow
 ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.date: 07/05/2017
 ms.topic: article
 ms.prod: 
 ms.service: azure
@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 4b2e8d17811df58fdc628de7140cdb0a4800476d
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 身分識別管理的基本概念
@@ -37,7 +37,7 @@ Microsoft 不只提供可讓您隨處通行的身分識別，而且也提供一�
 ## <a name="connect-on-premises-active-directory-with-azure-ad-and-office-365"></a>連接內部部署 Active Directory 與 Azure AD 和 Office 365
 大量投資內部部署 Active Directory 的組織可以將其內部部署 Azure AD 目錄整合到[混合式身分識別管理](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview)，進而將這些投資延伸至雲端。 這麼做可提供通用身分識別來存取各地資源，而讓您的使用者更具生產力。 然後，使用者和組織可以使用單一登入 (SSO) 來存取內部部署資源和雲端服務，例如 Office 365。
 
-完成整合，您只需要 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)。 Azure AD Connect 會提供功能來支援身分識別同步需求，並取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。 使用 Azure AD Connect，身分識別管理和內部部署與 Azure AD 之間的同步處理是透過下列項目啟用︰
+完成整合，您只需要 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)。 Azure AD Connect 會提供功能來支援身分識別同步需求，並取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。使用 Azure AD Connect，身分識別管理和內部部署與 Azure AD 之間的同步處理是透過下列項目啟用︰
 
 - 同步處理 - 此元件負責建立使用者、群組和其他物件。 它也負責確保您的內部部署使用者和群組的身分識別資訊符合雲端。 也可以啟用密碼回寫，當使用者在 Azure AD 中更新其密碼時，讓內部部署目錄保持同步。
 - AD FS - 同盟是 Azure AD Connect 的選用功能，可用來設定使用內部部署 AD FS 基礎結構的混合環境。 組織可以使用同盟來處理複雜部署，例如單一登入、AD 登入原則的強制執行以及智慧卡或協力廠商 MFA。

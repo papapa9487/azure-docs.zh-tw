@@ -18,10 +18,10 @@ ms.date: 03/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: c35892421c3d3019204c9e763980e813930d19a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -349,7 +349,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 
 摘要︰本指南提供建立監視 SAP HANA on Azure 環境的有用資訊，以及其他疑難排解資訊。 
 
-更新日期：2016 年 12 月
+更新日期：2017 年 8 月
 
 [可以在這裡找到這份文件](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

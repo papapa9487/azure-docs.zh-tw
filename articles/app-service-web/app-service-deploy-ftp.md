@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: cephalin;dariac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 816113f7635a003e22a5172113e5039dbcc1ceac
-ms.openlocfilehash: 5dc546849bd02ccf4d02f3e6363a3e2fc3898259
+ms.translationtype: HT
+ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
+ms.openlocfilehash: 9078abbc4ed7eff6975201443992f7bbb84bf57c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/17/2017
 
 ---
+
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
+
 這篇文章說明如何使用 FTP 或 FTPS 將您的 Web 應用程式、行動裝置應用程式後端或 API 應用程式部署到 [Azure App Service (英文)](http://go.microsoft.com/fwlink/?LinkId=529714)。
 
-您應用程式的 FTP/S 端點已經啟動。 啟用 FTP/S 部署不需要任何組態。 
+您應用程式的 FTP/S 端點已經啟動。 啟用 FTP/S 部署不需要任何組態。
+
+> [!IMPORTANT]
+> 我們將持續逐步改善 Microsoft Azure 平台安全性。 在此持續努力的過程中，我們規劃升級德國中部和德國東北部地區的 Web 應用程式。 在此 Web Apps 期間，將會停止使用純文字 FTP 通訊協定進行部署。 建議客戶切換至 FTPS 進行部署。 此升級預定在 9/5 進行，在這段期間預期不會對您的服務造成任何中斷。 感謝您支援這項工作。
 
 <a name="step1"></a>
 ## <a name="step-1-set-deployment-credentials"></a>步驟 1：設定部署認證

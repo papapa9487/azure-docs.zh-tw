@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 69fd656ee9ae440d5769aca82ff8d49fb59d7780
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: c733c61132a79381d5e025819ff944507fc3fb9b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
@@ -33,7 +33,7 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 ## <a name="enable-vpn"> </a>啟用 VNET 連線
 > [!NOTE]
-> VNET 連線適用於「進階」和「開發人員」層。 若要在不同的層之間切換，請在「Azure 入口網站」中開啟您的「API 管理」服務，然後開啟 [級別與價格] 索引標籤。 在 [定價層] 區段下選取 [進階] 或 [開發人員] 層，然後按一下 [儲存]。
+> VNET 連線適用於「進階」和「開發人員」層。 若要在不同的層之間切換，請在「Azure 入口網站」中開啟您的「API 管理」服務，然後開啟 [級別與價格] 索引標籤。在 [定價層] 區段下選取 [進階] 或 [開發人員] 層，然後按一下 [儲存]。
 >
 
 若要啟用 VNET 連線，請在「Azure 入口網站」中開啟您的「API 管理」服務，然後開啟 [虛擬網路] 頁面。
@@ -108,11 +108,11 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 | * / 11000 - 11999 |輸出 |TCP |與 Azure SQL V12 的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
 | * / 14000 - 14999 |輸出 |TCP |與 Azure SQL V12 的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
 | * / 5671 |輸出 |AMQP |「記錄到事件中樞」原則和監視代理程式的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| 6381 - 6383 / 6381 - 6383 |輸入和輸出 |UDP |與「Redis 快取」的相依性 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |外部和內部 |-
+| 6381 - 6383 / 6381 - 6383 |輸入和輸出 |TCP |與「Redis 快取」的相依性 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |外部和內部 |-
 | * / 445 |輸出 |TCP |與「適用於 GIT 的 Azure 檔案共用」的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
 | * / * | 輸入 |TCP |Azure 基礎結構負載平衡器 | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |外部和內部 |
 
-* **SSL 功能**︰若要啟用 SSL 憑證鏈結建立和驗證，API 管理服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。 如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
+* **SSL 功能**︰若要啟用 SSL 憑證鏈結建立和驗證，API 管理服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
 
 * **DNS 存取**：需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從裝載 API 管理的子網路連接該 DNS 伺服器。
 

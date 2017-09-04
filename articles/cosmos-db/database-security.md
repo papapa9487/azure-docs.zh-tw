@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/18/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 80b58ac0a5a34a9ff573d161ca26dbfd2dba25c7
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 50bd4eb02be8f03baf186255429bec51c036aa43
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/25/2017
  
 ## <a name="whats-new-in-azure-cosmos-db-security"></a>Azure Cosmos DB 安全性有哪些新功能？
 
-現在除了政府區域、中國境內的 Azure 及德國境內的 Azure 之外，在所有 Azure 區域中儲存於 Azure Cosmos DB 中的文件都能使用待用加密。 其餘區域將於下週啟用，並對備份執行加密靜止。 這些區域內的新舊客戶都會自動套用加密靜止功能。 無須設定任何項目；您即可獲得跟之前相同的出色延遲、輸送量、可用性及功能，並擁有以下好處：知道資料在加密靜止下仍舊安全無虞。
+儲存在所有 Azure 區域之 Azure Cosmos DB 中的文件和備份現在可以使用待用加密。 這些區域內的新舊客戶都會自動套用加密靜止功能。 無須設定任何項目；您即可獲得跟之前相同的出色延遲、輸送量、可用性及功能，並擁有以下好處：知道資料在加密靜止下仍舊安全無虞。
 
 ## <a name="how-do-i-secure-my-database"></a>如何保護我的資料庫？ 
 

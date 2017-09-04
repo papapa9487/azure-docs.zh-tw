@@ -4,23 +4,23 @@ description: "使用 Azure Functions 來建立無伺服器函式，並讓此函�
 services: azure-functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.service: functions
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/02/2017
+ms.date: 08/17/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3eae02f7cf756e8e24d4f1952d12c37f2ad4b400
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/02/2017
  
 1. 展開函式應用程式和函式。
 
-2. 選取 [整合] 和 [+ 新輸出]，然後選取 [Azure 佇列儲存體] 和 [選取]。
+2. 選取 [整合] 和 [+ 新輸出]，然後選擇 [Azure 佇列儲存體] 和 [選取]。
     
     ![在 Azure 入口網站中對函式新增佇列儲存體輸出繫結。](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/02/2017
     | ------------ |  ------- | -------------------------------------------------- |
     | **佇列名稱**   | myqueue-items    | 儲存體帳戶中的連線目標佇列名稱。 |
     | **儲存體帳戶連線** | AzureWebJobStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |
-    | **訊息參數名稱** | outQueueItem | 輸出繫結參數的名稱。 | 
+    | **訊息參數名稱** | outputQueueItem | 輸出繫結參數的名稱。 | 
 
 4. 按一下 [儲存] 來新增繫結。
  
@@ -61,11 +61,11 @@ ms.lasthandoff: 08/02/2017
 
 1. 選取函式以在編輯器中顯示函式程式碼。 
 
-2. 若為 C# 函式，請依下面的方式更新函式定義，以新增 **outQueueItem** 儲存體繫結參數。 若為 JavaScript 函式，請略過此步驟。
+2. 若為 C# 函式，請依下面的方式更新函式定義，以新增 **outputQueueItem** 儲存體繫結參數。 若為 JavaScript 函式，請略過此步驟。
 
     ```cs   
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-        ICollector<string> outQueueItem, TraceWriter log)
+        ICollector<string> outputQueueItem, TraceWriter log)
     {
         ....
     }
@@ -74,12 +74,12 @@ ms.lasthandoff: 08/02/2017
 3. 在方法傳回前，對函式新增下列程式碼。 請使用您的函式語言所適用的程式碼片段。
 
     ```javascript
-    context.bindings.outQueueItem = "Name passed to the function: " + 
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
                 (req.query.name || req.body.name);
     ```
 
     ```cs
-    outQueueItem.Add("Name passed to the function: " + name);     
+    outputQueueItem.Add("Name passed to the function: " + name);     
     ```
 
 4. 選取 [儲存] 來儲存變更。
@@ -100,7 +100,7 @@ ms.lasthandoff: 08/02/2017
 
 如果您已經安裝儲存體總管並將它連線至儲存體帳戶，請略過前三個步驟。    
 
-1. 在您的函式中，選取 [整合] 和新的 **Azure 佇列儲存體**輸出繫結，然後展開 [文件]。 複製**帳戶名稱**和**帳戶金鑰**。 您會使用這些認證來連線至儲存體帳戶。
+1. 在您的函式中，選擇 [整合] 和新的 **Azure 佇列儲存體**輸出繫結，然後展開 [文件]。 複製**帳戶名稱**和**帳戶金鑰**。 您會使用這些認證來連線至儲存體帳戶。
  
     ![取得儲存體帳戶的連線認證。](./media/functions-integrate-storage-queue-output-binding/function-get-storage-account-credentials.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 08/02/2017
   
     ![貼上儲存體認證並連線。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
-4. 展開連結的儲存體帳戶，以滑鼠右鍵按一下 [佇列]，並確認有名為 **myqueue-items** 的佇列存在。 您也應該會看到佇列中已有訊息。  
+4. 展開連結的儲存體帳戶，展開 [佇列]，並確認有名為 **myqueue-items** 的佇列存在。 您也應該會看到佇列中已有訊息。  
  
     ![建立儲存體佇列。](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
  

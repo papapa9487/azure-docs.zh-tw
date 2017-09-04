@@ -6,16 +6,16 @@ author: salonisonpal
 ms.author: salonis
 manager: jhubbard
 editor: jasonwhowell
-ms.service: postgresql-database
+ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
 ms.date: 05/31/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 75efaa7dd6165fe0a3d3e35928107cae71e23d5a
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b847abb336cce5dd5516469dca58002d3ba265f0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 監視和調整單一 PostgreSQL 伺服器
@@ -26,8 +26,7 @@ ms.lasthandoff: 06/20/2017
 如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="sample-script"></a>範例指令碼
-在此範例指令碼中，請變更醒目提示的命令列以自訂系統管理員使用者名稱和密碼。 請將 az monitor 命令中使用的訂用帳戶識別碼取代為您自己的訂用帳戶識別碼。
-[!code-azurecli-interactive[主要](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "建立適用於 PostgreSQL 的 Azure 資料庫並調整其大小。")]
+在此範例指令碼中，請變更醒目提示的命令列以自訂系統管理員使用者名稱和密碼。 請將 az monitor 命令中使用的訂用帳戶識別碼取代為您自己的訂用帳戶識別碼。[!code-azurecli-interactive[主要](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=15-16 "建立適用於 PostgreSQL 的 Azure 資料庫並調整其大小。")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。

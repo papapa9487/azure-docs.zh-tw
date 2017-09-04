@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 964b39053cf91285202f3af165f4313a15e9f9ee
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: feee7a5c91d213a6b0bfdaf264a4da4d9e79cbe7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="ssh-support-for-azure-web-app-on-linux"></a>Linux 上的 Azure Web 應用程式 SSH 支援
@@ -111,7 +111,6 @@ Linux 上的 Web 應用程式會利用每個用於新 Web Apps 的「執行階�
 ## <a name="next-steps"></a>後續步驟
 如需 Linux 上的 Web 應用程式相關資訊，請參閱下列連結。 您可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
 
-* [在 Linux 上的 Azure Web 應用程式中建立應用程式](app-service-linux-how-to-create-web-app.md)
 * [如何針對 Linux 上的 Azure Web 應用程式使用自訂 Docker 映像](app-service-linux-using-custom-docker-image.md)
 * [在 Linux 上的 Azure Web 應用程式中使用適用於 Node.js 的 PM2 組態](app-service-linux-using-nodejs-pm2.md)
 * [在 Linux 上的 Azure Web 應用程式中使用 .NET Core](app-service-linux-using-dotnetcore.md)

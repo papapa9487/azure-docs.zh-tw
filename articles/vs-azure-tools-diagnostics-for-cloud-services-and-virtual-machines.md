@@ -3,8 +3,8 @@ title: "為 Azure 雲端服務和虛擬機器設定診斷 | Microsoft Docs"
 description: "描述如何設定診斷資訊以在 Visual Studio 中偵錯 Azure 雲端服務和虛擬機器 (VM)。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: e70cd7b4-6298-43aa-adea-6fd618414c26
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 76bcb201bb8d862426048b828c0c4cce0335455c
-ms.lasthandoff: 11/17/2016
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>為 Azure 雲端服務和虛擬機器設定診斷功能
@@ -42,7 +42,7 @@ ms.lasthandoff: 11/17/2016
 * 在 Azure SDK 2.4 及更舊版本中，階段診斷外掛程式使用連接字串做為執行階段，以取得用於傳輸診斷記錄檔的儲存體帳戶資訊。
 * 在 Azure SDK 2.6 及更新版本中，Visual studio 會使用診斷連接字串，在發佈期間設定內含適當儲存體帳戶資訊的診斷延伸模組。 連接字串可讓您為 Visual Studio 在發佈時將使用的不同服務組態定義不同的儲存體帳戶。 不過，因為診斷外掛程式 (在 Azure SDK 2.5 之後) 不再提供使用，所以 .cscfg 檔案本身無法啟用診斷延伸模組。 您必須個別透過 Visual Studio 或 PowerShell 等工具啟用延伸模組。
 * 為了使用 PowerShell 簡化診斷延伸模組的設定程序，從 Visual Studio 的封裝輸出也包含每個角色之診斷延伸模組的公用組態 XML。 Visual Studio 使用診斷連接字串填入出現在公用組態的儲存體帳戶資訊。 公用設定檔會在延伸模組資料夾中建立並遵循模式 &lt;RoleName>.PubConfig.xml。 任何以 PowerShell 為基礎的部署都可以使用此模式將每個組態對應至角色。
-* [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)也會使用 .cscfg 檔案中的連接字串來存取診斷資料，所以它也可以出現在 [監視] 索引標籤中。 若要在入口網站中顯示詳細監視資料，必須要有連接字串。
+* [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)也會使用 .cscfg 檔案中的連接字串來存取診斷資料，所以它也可以出現在 [監視] 索引標籤中。若要在入口網站中顯示詳細監視資料，必須要有連接字串。
 
 ## <a name="migrating-projects-to-azure-sdk-26-and-later"></a>將專案移轉至 Azure SDK 2.6 及、更新版本
 從 Azure SDK 2.5 移轉至 Azure SDK 2.6 或更新版本時，如果您在 .wadcfgx 檔案中指定診斷儲存體帳戶，它就會留在那裡。 若要針對不同儲存體組態充分利用不同儲存體帳戶的靈活性，您必須手動將連接字串加入專案。 如果您將專案從 Azure SDK 2.4 或更早版本移轉至 Azure SDK 2.6，系統會保留診斷連接字串。 不過，請注意上一節中指定之 Azure SDK 2.6 中連接字串處理方式的變更。
@@ -90,7 +90,7 @@ ms.lasthandoff: 11/17/2016
     ![啟用 Azure 診斷和組態](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758144.png)
 6. 在此範例中，請選取 [自訂計劃]  選項，您就可以自訂收集的資料。
 7. [以 MB 為單位的磁碟配額]  方塊可指定您想要在儲存體帳戶中配置診斷資料的空間大小。 您可以任意變更預設值。
-8. 在您想要收集之診斷資料的每個索引標籤上，選取其 [啟用 <log type> 的傳輸] 核取方塊。 例如，如果您想要收集應用程式記錄檔，請選取 [應用程式記錄檔] 索引標籤上的 [啟用應用程式記錄檔的傳輸] 核取方塊。 此外，請指定每個診斷資料類型所需的其他資訊。 請參閱本主題稍後的 **設定診斷資料來源**一節，以了解每個索引標籤上的組態資訊。
+8. 在您想要收集之診斷資料的每個索引標籤上，選取其 [啟用 <log type> 的傳輸] 核取方塊。 例如，如果您想要收集應用程式記錄檔，請選取 [應用程式記錄檔] 索引標籤上的 [啟用應用程式記錄檔的傳輸] 核取方塊。此外，請指定每個診斷資料類型所需的其他資訊。 請參閱本主題稍後的 **設定診斷資料來源**一節，以了解每個索引標籤上的組態資訊。
 9. 啟用所有您想要的診斷資料收集之後，請選擇 [確定]  按鈕。
 10. 如往常一般在 Visual Studio 中建立 Azure 雲端服務專案。 當您使用您的應用程式，您已啟用的記錄檔資訊會儲存到您指定的 Azure 儲存體帳戶。
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 11/17/2016
 8. [以 MB 為單位的磁碟配額]  方塊可指定您想要在儲存體帳戶中配置診斷資料的空間大小。 您可以任意變更預設值。
 9. 在您想要收集之診斷資料的每個索引標籤上，選取其 [啟用 <log type> 的傳輸] 核取方塊。
    
-    例如，如果您想要收集應用程式記錄檔，請選取 [應用程式記錄檔] 索引標籤上的 [啟用應用程式記錄檔的傳輸] 核取方塊。 此外，請指定每個診斷資料類型所需的其他資訊。 請參閱本主題稍後的 **設定診斷資料來源**一節，以了解每個索引標籤上的組態資訊。
+    例如，如果您想要收集應用程式記錄檔，請選取 [應用程式記錄檔] 索引標籤上的 [啟用應用程式記錄檔的傳輸] 核取方塊。此外，請指定每個診斷資料類型所需的其他資訊。 請參閱本主題稍後的 **設定診斷資料來源**一節，以了解每個索引標籤上的組態資訊。
 10. 啟用所有您想要的診斷資料收集之後，請選擇 [確定]  按鈕。
 11. 儲存更新的專案。
     
@@ -159,7 +159,7 @@ ms.lasthandoff: 11/17/2016
 
   ![效能計數器](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758147.png)
 
-若要追蹤未列出的效能計數器，請使用建議的語法將其輸入，然後選擇 [新增]  按鈕。 虛擬機器上的作業系統會決定您可以追蹤的效能計數器。 如需有關語法的詳細資訊，請參閱 [指定計數器路徑](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx)。
+若要追蹤未列出的效能計數器，請使用建議的語法將其輸入，然後選擇 [新增]  按鈕。 虛擬機器上的作業系統會決定您可以追蹤的效能計數器。如需有關語法的詳細資訊，請參閱 [指定計數器路徑](https://msdn.microsoft.com/library/windows/desktop/aa373193.aspx)。
 
 ### <a name="infrastructure-logs"></a>基礎結構記錄檔
 如果您想要擷取基礎結構記錄檔 (其包含 Azure 診斷基礎結構、RemoteAccess 模組和 RemoteForwarder 模組等相關資訊)，請選取 [啟用基礎結構記錄檔的傳輸]  核取方塊。 您可以在記錄檔傳輸至儲存體帳戶時，藉由變更傳輸期間 (分鐘) 值來增加或減少分鐘數。
@@ -284,7 +284,7 @@ ms.lasthandoff: 11/17/2016
 
 **我無法從 OnStart 之類的 RoleEntryPoint 方法取得追蹤資訊。問題在哪裡？**
 
-RoleEntryPoint 的方法是在 WAIISHost.exe 的內容中呼叫，而不是 IIS。 因此，在通常會啟用追蹤的 web.config 中，組態資訊並不適用。 若要解決這個問題，請將.config 檔案新增至 web 角色專案，並將檔案命名以符合包含 RoleEntryPoint 程式碼的輸出組件。 在預設 web 角色專案中，.config 檔案的名稱將會是 WAIISHost.exe.config。 然後將下列幾行新增至此檔案：
+RoleEntryPoint 的方法是在 WAIISHost.exe 的內容中呼叫，而不是 IIS。 因此，在通常會啟用追蹤的 web.config 中，組態資訊並不適用。 若要解決這個問題，請將.config 檔案新增至 web 角色專案，並將檔案命名以符合包含 RoleEntryPoint 程式碼的輸出組件。 在預設 web 角色專案中，.config 檔案的名稱將會是 WAIISHost.exe.config。然後將下列幾行新增至此檔案：
 
 ```
 <system.diagnostics>

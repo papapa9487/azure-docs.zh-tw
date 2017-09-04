@@ -8,18 +8,18 @@ author: sandshadow
 manager: almineev
 editor: cgronlun
 ms.assetid: 
-ms.service: time-series-insights
+ms.service: tsi
 ms.devlang: na
 ms.topic: how-to-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/19/2017
 ms.author: edett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 72037677fac528ff8174d25b474ca7e70826a7b0
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 3b98728ced81256d05b1bed2c92fc66c5ca61b98
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/01/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="how-to-add-an-iot-hub-event-source"></a>如何新增 IoT 中樞的事件來源
@@ -50,7 +50,7 @@ ms.lasthandoff: 05/01/2017
 | 來源 | 選擇 [IoT 中樞] 以建立 IoT 中樞事件來源。
 | 訂用帳戶識別碼 | 選取建立此 IoT 中樞的訂用帳戶。
 | IoT 中樞名稱 | 選取 IoT 中樞的名稱。
-| IoT 中樞原則名稱 | 選取 [IoT 中樞設定] 索引標籤下的共用存取原則。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。
+| IoT 中樞原則名稱 | 選取 [IoT 中樞設定] 索引標籤下的共用存取原則。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。
 | IoT 中樞取用者群組 | 從 IoT 中樞讀取資料的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
 
 ### <a name="provide-iot-hub-settings-manually"></a>手動提供 IoT 中樞設定
@@ -64,7 +64,7 @@ ms.lasthandoff: 05/01/2017
 | 訂用帳戶識別碼 | 建立此 IoT 中樞的訂用帳戶。
 | 資源群組 | 建立此 IoT 中樞的訂用帳戶。
 | IoT 中樞名稱 | IoT 中樞的名稱。 當您建立 IoT 中樞時，您也會指定特定名稱
-| IoT 中樞原則名稱 | 共用存取原則，可在 [IoT 中樞設定] 索引標籤下加以建立。 每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。
+| IoT 中樞原則名稱 | 共用存取原則，可在 [IoT 中樞設定] 索引標籤下加以建立。每一個共用存取原則都會有名稱、權限 (由您設定) 和存取金鑰。 事件來源的共用存取原則必須有**服務連線**權限。
 | IoT 中樞原則金鑰 | 用來驗證服務匯流排命名空間之存取權的共用存取金鑰。 在此輸入主要金鑰或次要金鑰。
 | IoT 中樞取用者群組 | 從 IoT 中樞讀取資料的取用者群組。 強烈建議您使用專屬於您事件來源的取用者群組。
 

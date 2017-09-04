@@ -11,14 +11,14 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 05/12/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 34cccf6a0962f72e04a90516fa7643db2533d85d
-ms.lasthandoff: 04/06/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: cf07c4142d025517637e31b27f1f34b6d402d6fe
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="add-functionality-to-your-first-web-app"></a>在您的第一個 Web 應用程式中新增功能
@@ -58,7 +58,7 @@ ms.lasthandoff: 04/06/2017
     因此，如果您現在於不同瀏覽器中開啟未驗證的工作階段，當您瀏覽至相同 URL 時，將會看到登入畫面。  
     <!-- ![Authenticate - login page](./media/app-service-web-get-started/aad-login-browse.png)  -->
     如果您從未使用 Azure Active Directory 執行任何作業，預設目錄可能沒有任何 Azure AD 使用者。 在此情況下，那裡唯一的帳戶可能是以您的 Azure 訂用帳戶登入的 Microsoft 帳戶。 這就是為什麼您先前會在相同的瀏覽器中自動登入此應用程式。
-   您也可以使用相同的 Microsoft 帳戶登入此登入頁面。
+    您也可以使用相同的 Microsoft 帳戶登入此登入頁面。
 
 恭喜，您已在驗證流向 Web 應用程式的所有流量。
 
@@ -150,7 +150,7 @@ App Service 會針對某些常見的驗證需求提供周全的解決方案，�
 * [存取內部部署資源](web-sites-hybrid-connection-get-started.md) - 存取現有的內部部署資料庫或 CRM 系統。
 * [備份您的應用程式](web-sites-backup.md) - 為 Web 應用程式設定備份與還原。 為非預期的失敗做好準備，並從中復原。
 * [啟用診斷記錄](web-sites-enable-diagnostic-log.md) - 讀取 Azure 或應用程式追蹤內的 IIS 記錄檔。 在串流中讀取記錄檔、下載記錄檔，或將記錄檔移植到 [Application Insights](../application-insights/app-insights-overview.md) 來進行周全分析。
-* [掃描應用程式中的弱點](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) -
+* [掃描應用程式中的弱點](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)-
   使用 [Tinfoil Security](https://www.tinfoilsecurity.com/) 所提供的服務，掃描 Web 應用程式中是否有新型威脅。
 * [執行背景工作](../azure-functions/functions-overview.md) - 執行資料處理、報告等工作。
 * [了解 App Service 的運作方式](../app-service/app-service-how-works-readme.md)
