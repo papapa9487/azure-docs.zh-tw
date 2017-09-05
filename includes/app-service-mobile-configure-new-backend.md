@@ -1,25 +1,31 @@
 
-1. 按一下 [應用程式服務] > 選取您的行動裝置應用程式後端 > 按一下 [快速入門] > 您的用戶端平台 (iOS、Android、Xamarin、Cordova)。
+1. 按一下 [應用程式服務] 按鈕，依序選取您的 Mobile Apps 後端、[快速入門]，以及您的用戶端平台 (iOS、Android、Xamarin、Cordova)。
 
-![已醒目提示 [Mobile Apps 快速入門] 的 Azure 入口網站][quickstart]
+    ![已醒目提示 [Mobile Apps 快速入門] 的 Azure 入口網站][quickstart]
 
-2. 如果未設定資料庫的連線，您必須建立一個資料連線。
+2. 如果未設定資料庫連線，請執行下列動作來建立一個：
 
-![內含 Mobile Apps 連線到 BD 的 Azure 入口網站][connect]
+    ![內含 Mobile Apps 連線到資料庫的 Azure 入口網站][connect]
 
-  * 建立新的 SQL Database 和伺服器。
+    a. 建立新的 SQL Database 和伺服器。
 
-  ![內含 Mobile Apps 建立新 BD 和伺服器的 Azure 入口網站][server]
+    ![內含 Mobile Apps 建立新資料庫和伺服器的 Azure 入口網站][server]
 
-  * 等到成功建立資料連線為止。
+    b. 等到成功建立資料連線為止。
 
-  ![內含有關資料連線建立之 Mobile Apps 通知的Azure 入口網站][notification]
+    ![成功建立資料連線的 Azure 入口網站通知][notification]
 
-  * 資料連線必須成功。
+    c. 資料連線必須成功。
 
-  ![內含有關資料連線建立之 Mobile Apps 通知的Azure 入口網站][already-connection]
+    ![Azure 入口網站通知：「您已經有資料連線」][already-connection]
 
-3. 在 **2.建立資料表 API** 之下，選取 Node.js 作為**後端語言**。 接受通知，然後按一下 [建立 TodoItem 資料表] 。 這會在您的資料庫中建立新的 *TodoItem* 資料表。 請記住，將現有後端切換到 Node.js 將會覆寫所有內容！ 若是要建立 .NET 後端，請[遵循此處指示][instructions]。
+3. 在 **2.建立資料表 API** 之下，選取 Node.js 作為**後端語言**。 
+ 
+4. 接受通知，然後選取 [建立 TodoItem 資料表] 。  
+    這會在您的資料庫中建立新的待辦事項資料表。 
+
+    >[!IMPORTANT]
+    > 將現有後端切換到 Node.js 會覆寫所有內容。 若要改為建立 .NET 後端，請參閱[使用適用於 Mobile Apps 的 .NET 後端伺服器 SDK][instructions]。
 
 <!-- Images. -->
 [quickstart]: ./media/app-service-mobile-configure-new-backend/quickstart.png

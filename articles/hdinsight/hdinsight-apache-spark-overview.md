@@ -15,21 +15,20 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/12/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: acb80aa98cc978a906ccd6e4b4132a439e505bc8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Spark on HDInsight 簡介
 
-本文為您提供 Spark on HDInsight 簡介。 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 HDInsight 上的 Spark 叢集也能與 Azure 儲存體 (WASB) 以及 Azure Data Lake Store 相容，因此您可以輕鬆地透過 Spark 叢集處理儲存在 Azure 中的現有資料。
+本文為您提供 Spark on HDInsight 簡介。 <a href="http://spark.apache.org/" target="_blank">Apache Spark</a> 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 HDInsight 上的 Spark 叢集也能與 Azure 儲存體 (WASB) 以及 Azure Data Lake Store 相容。 因此，您可以輕鬆地透過 Spark 叢集處理儲存在 Azure 中的現有資料。
 
-當您在 HDInsight 上建立 Spark 叢集時，就是建立了已安裝及設定 Spark 的 Azure 計算資源。 在 HDInsight 中建立 Spark 叢集只需要約十分鐘。 系統會將要處理的資料儲存在 Azure 儲存體或 Azure Data Lake Store 中。 請參閱[搭配 HDInsight 使用 Azure 儲存體](hdinsight-hadoop-use-blob-storage.md)。
+當您在 HDInsight 上建立 Spark 叢集時，就是建立了已安裝及設定 Spark 的 Azure 計算資源。 在 HDInsight 中建立 Spark 叢集只需要約 10 分鐘。 系統會將要處理的資料儲存在 Azure 儲存體或 Azure Data Lake Store 中。 請參閱[搭配 HDInsight 使用 Azure 儲存體](hdinsight-hadoop-use-blob-storage.md)。
 
 **若要在 HDInsight 上建立 Spark 叢集**，請參閱[快速入門：在 HDInsight 上建立 Spark 叢集並使用 Jupyter 執行互動式查詢](hdinsight-apache-spark-jupyter-spark-sql.md)。
 
@@ -40,7 +39,7 @@ HDInsight 上的 Spark 叢集可提供完全受管理的 Spark 服務。 在 HDI
 | 功能 | 說明 |
 | --- | --- |
 | 容易建立 Spark 叢集 |您可以使用 Azure 入口網站、Azure PowerShell 或 HDInsight .NET SDK，在幾分鐘之內於 HDInsight 上建立新的 Spark 叢集。 請參閱 [開始使用 HDInsight 中的 Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| 容易使用 |HDInsight 上的 Spark 叢集包含 Jupyter 和 Zeppelin Notebook。 您可以使用它們來進行互動式的資料處理和視覺化。|
+| 容易使用 |HDInsight 上的 Spark 叢集包含 Jupyter 和 Zeppelin Notebook。 您可以使用這些 Notebook 來進行互動式的資料處理和視覺化。|
 | REST API |HDInsight 中的 Spark 叢集包含 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)，它是 REST-API 型 Spark 作業伺服器，可用來遠端提交及監視作業。 |
 | 支援 Azure Data Lake Store | HDInsight 上的 Spark 叢集可以設定為使用 Azure Data Lake Store 作為額外的儲存體以及主要儲存體 (只適用於 HDInsight 3.5 叢集)。 如需有關 Data Lake Store 的詳細資訊，請參閱 [Azure Data Lake Store 概觀](../data-lake-store/data-lake-store-overview.md)。 |
 | Azure 服務整合 |HDInsight 上的 Spark 叢集附有連線 Azure 事件中樞的連接器。 除了 Spark 已經提供的 [Kafka](http://kafka.apache.org/)之外，客戶還可以使用事件中樞來建置串流應用程式。 |

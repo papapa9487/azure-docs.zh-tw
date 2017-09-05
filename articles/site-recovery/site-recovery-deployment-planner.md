@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nisoneji
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 4d96483a971d5c4a0c2cc240620e7a9b289f597d
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
@@ -67,7 +67,7 @@ Site Recovery Deployment Planner 公開預覽版本是一項命令列工具，�
 
 | 伺服器需求 | 說明|
 |---|---|
-|剖析和輸送量測量| <ul><li>作業系統：Microsoft Windows Server 2012 R2<br>(最好至少符合[組態伺服器的大小建議](https://aka.ms/asr-v2a-on-prem-components))</li><li>機器組態︰8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>VMware vCenter 統計資料層級設定應該設定為 2 或高層級</li></ul>|
+|剖析和輸送量測量| <ul><li>作業系統：Microsoft Windows Server 2012 R2<br>(最好至少符合[組態伺服器的大小建議](https://aka.ms/asr-v2a-on-prem-components))</li><li>機器組態︰8 個 vCPU、16 GB RAM、300 GB HDD</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[適用於 Visual Studio 2012 的 Microsoft Visual C++ 可轉散發套件](https://aka.ms/vcplusplus-redistributable)</li><li>透過網際網路從這部伺服器存取 Azure</li><li>Azure 儲存體帳戶</li><li>伺服器的系統管理員存取權</li><li>100 GB 的可用磁碟空間下限 (假設剖析平均各有 3 個磁碟的 1000 部 VM 30 天)</li><li>VMware vCenter 統計資料層級設定應該設定為 2 或高層級</li><li>允許連接埠 443：ASR 部署規劃工具使用此連接埠來連線至 vCenter 伺服器/ESXi 主機</ul></ul>|
 | 報告產生 | 具有 Microsoft Excel 2013 和更新版本的 Windows PC 或 Windows Server |
 | 使用者權限 | 使用者帳戶的唯讀權限，在剖析期間用來存取 VMware vCenter Server/VMware vSphere ESXi 主機 |
 
@@ -118,14 +118,18 @@ Site Recovery Deployment Planner 公開預覽版本是一項命令列工具，�
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. 若要取得 vCenter Server/vSphere ESXi 主機的所有 VM 名稱並將此清單儲存在 .txt 檔案中，請執行此處所列的兩個命令。
+4. 如果 Connect-VIServer 無法辨識為 Cmdlet 名稱，您可能需要執行下列命令。
+ 
+            Add-PSSnapin VMware.VimAutomation.Core 
+
+5. 若要取得 vCenter Server/vSphere ESXi 主機的所有 VM 名稱並將此清單儲存在 .txt 檔案中，請執行此處所列的兩個命令。
 以您的輸入取代 &lsaquo;server name&rsaquo;、&lsaquo;user name&rsaquo;、&lsaquo;password&rsaquo;、&lsaquo;outputfile.txt&rsaquo;。
 
             Connect-VIServer -Server <server name> -User <user name> -Password <password>
 
             Get-VM |  Select Name | Sort-Object -Property Name >  <outputfile.txt>
 
-5. 在「記事本」中開啟輸出檔案，然後將您要剖析的所有 VM 名稱複製到另一個檔案 (例如 ProfileVMList.txt)，每一行一個 VM 名稱。 此檔案可做為命令列工具之 -VMListFile 參數的輸入。
+6. 在「記事本」中開啟輸出檔案，然後將您要剖析的所有 VM 名稱複製到另一個檔案 (例如 ProfileVMList.txt)，每一行一個 VM 名稱。 此檔案可做為命令列工具之 -VMListFile 參數的輸入。
 
     ![Deployment Planner 中的 VM 名稱清單](./media/site-recovery-deployment-planner/profile-vm-list.png)
 

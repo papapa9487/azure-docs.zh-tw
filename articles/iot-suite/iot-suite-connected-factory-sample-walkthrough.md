@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 81ecd5771be544e250ea0df31aa274f0850527ad
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>連線處理站預先設定的解決方案逐步解說
 
 IoT 套件連線處理站[預先設定的解決方案][lnk-preconfigured-solutions]是端對端企業解決方案的實作︰
 
-* 連線至模擬處理站生產線中執行 OPC UA 的模擬工業裝置，和實際的 OPC UA 伺服器裝置。 如需 OPC UA 的詳細資訊，請參閱[常見問題集][lnk-faq]。
+* 連線至模擬處理站生產線中執行 OPC UA 的模擬工業裝置，和實際的 OPC UA 伺服器裝置。 如需 OPC UA 的詳細資訊，請參閱[連線的處理站常見問題集](iot-suite-faq-cf.md)。
 * 顯示作業 KPI 和這些裝置與生產線的 OEE。
 * 示範如何將以雲端為基礎的應用程式用來與 OPC UA 伺服器系統進行互動。
 * 可讓您連線到自己的 OPC UA 伺服器裝置。
@@ -40,6 +40,8 @@ IoT 套件連線處理站[預先設定的解決方案][lnk-preconfigured-solutio
 * 在解決方案中進行疑難排解。
 * 規劃如何自訂解決方案以滿足您的特定需求。
 * 設計使用 Azure 服務的 IoT 解決方案。
+
+如需詳細資訊，請參閱[連線的處理站常見問題集](iot-suite-faq-cf.md)。
 
 ## <a name="logical-architecture"></a>邏輯架構
 
@@ -128,6 +130,7 @@ TSI 會使用 SearchSpan (Time.From、Time.To) 針對節點資料進行查詢，
 您可以繼續閱讀下列文章，了解如何開始使用 IoT 套件︰
 
 * [azureiotsuite.com 網站的權限][lnk-permissions]
+* [在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 
@@ -138,4 +141,4 @@ TSI 會使用 SearchSpan (Time.From、Time.To) 針對節點資料進行查詢，
 [lnk-OPC-UA-NET-Standard]:https://github.com/OPCFoundation/UA-.NETStandardLibrary
 [lnk-Azure-IoT-Gateway]: https://github.com/azure/iot-edge
 [lnk-permissions]: iot-suite-permissions.md
-[lnk-faq]: iot-suite-faq.md
+

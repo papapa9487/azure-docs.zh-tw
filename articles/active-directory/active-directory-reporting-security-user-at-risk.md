@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 76413d6e9c619a66ae34f032eb0b8f9d42c27c9d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 04f15384a7cd0fa03300acdf159d371569ecf9fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中標幟為有風險的使用者安全性報告
@@ -62,6 +62,16 @@ Azure Active Directory 免費和基本版本中標幟為有風險的使用者報
 針對有風險的使用者，您可以檢閱使用者的登入記錄，如有必要，請重設密碼。
 
 ![有風險的登入](./media/active-directory-reporting-security-user-at-risk/46.png)
+
+
+此對話方塊會提供選項以便：
+
+- 下載報告
+
+- 搜尋使用者
+
+![有風險的登入](./media/active-directory-reporting-security-user-at-risk/16.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition
 

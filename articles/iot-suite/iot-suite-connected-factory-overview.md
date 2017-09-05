@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a7d31be48ef06064b01cdb2dfd0331b34adbec4d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>開始使用 Azure IoT 套件連線處理站預先設定的解決方案
@@ -53,7 +53,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 4. 按一下圖格，就會在右邊窗格中看到解決方案的詳細資料。
 
 > [!NOTE]
-> 如果您在佈建預先設定的解決方案時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[常見問題集][lnk-faq]。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
+> 如果您在佈建預先設定的解決方案時遇到問題，請參閱 [azureiotsuite.com 網站的權限][lnk-permissions]和[連線的處理站常見問題集](iot-suite-faq-cf.md)。 如果問題持續發生，請在[入口網站][lnk-portal]建立服務票證。
 
 是否有您預期會看到但沒有列出的解決方案詳細資料？ 請在 [使用者心聲](https://feedback.azure.com/forums/321918-azure-iot)中提供功能建議給我們。
 
@@ -81,7 +81,7 @@ Azure IoT 套件[預先設定的解決方案][lnk-preconfigured-solutions]結合
 
 儀表板會顯示下列資訊：
 
-* **處理站清單**面板，可顯示解決方案的狀態、位置和目前生產組態。 當您第一次執行解決方案時，有數個模擬裝置。 生產線模擬是由每條生產線上執行模擬工作及共用資料的三部實際 OPC UA 伺服器所構成。 如需 OPC UA 的詳細資訊，請參閱[常見問題集][lnk-faq]。
+* **處理站清單**面板，可顯示解決方案的狀態、位置和目前生產組態。 當您第一次執行解決方案時，有數個模擬裝置。 生產線模擬是由每條生產線上執行模擬工作及共用資料的三部實際 OPC UA 伺服器所構成。 如需 OPC UA 的詳細資訊，請參閱[連線的處理站常見問題集](iot-suite-faq-cf.md)。
 * **地圖**，可顯示連線至解決方案之每個裝置的位置。 解決方案可以使用 Bing 地圖服務 API 在地圖上繪製資訊。 如果您的訂用帳戶已啟用 Bing 地圖服務企業版 API，則會自動使用這項功能。 如未啟用，請參閱[常見問題集][lnk-faq]以了解如何讓地圖變成動態。
 * **警示**面板，可顯示遙測或 OEE/KPI 值超過特定閾值時所產生的警示。
 * **整體設備效率**面板，可顯示整個企業或您所檢視之處理站/生產線/站區的 OEE 值。 此值會從站區檢視彙總至企業層級。 您可以進一步分析 OEE 數字及其組成元素。

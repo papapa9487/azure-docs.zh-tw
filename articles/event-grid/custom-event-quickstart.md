@@ -9,16 +9,19 @@ ms.date: 08/15/2017
 ms.topic: hero-article
 ms.service: event-grid
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 5bfe08c249d01f5e01cd4cd82f609201da7eccbc
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0290836bebadb20085a3ce84dddc088c3af385da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
 # <a name="create-and-route-custom-events-with-azure-event-grid"></a>使用 Azure Event Grid 建立和路由傳送自訂事件
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱主題，以及觸發事件來檢視結果。 一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 不過，若要簡化這篇文章，您可將事件傳送至只會收集訊息的 URL。 使用名為 [RequestBin](https://requestb.in/) 的開放原始碼、第三方工具來建立此 URL。
+
+>[!NOTE]
+>**RequestBin** 是一個開放原始碼工具，不適用於高輸送量的使用方式。 在此使用工具單純用於示範。 如果您一次推送多個事件，則可能看不到工具中的所有事件。
 
 當您完成時，您會看到事件資料已傳送至端點。
 
@@ -56,7 +59,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="subscribe-to-a-topic"></a>訂閱主題
 
-您可訂閱主題，告知 Event Grid 您想要追蹤的事件。 下列範例可訂閱您所建立的主題，從 RequestBin 傳遞 URL 作為事件通知的端點。 以您訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<URL_from_RequestBin>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<topic_name>`，使用您稍早建立的值。 
+您可訂閱主題，告知 Event Grid 您想要追蹤的事件。下列範例可訂閱您所建立的主題，從 RequestBin 傳遞 URL 作為事件通知的端點。 以您訂用帳戶的唯一名稱取代 `<event_subscription_name>`，並以上一節中的值取代 `<URL_from_RequestBin>`。 藉由在訂閱時指定端點，以便 Event Grid 將事件路由傳送至該端點。 對於 `<topic_name>`，使用您稍早建立的值。 
 
 ```azurecli-interactive
 az eventgrid topic event-subscription create --name <event_subscription_name> \
@@ -117,3 +120,4 @@ az group delete --name gridResourceGroup
 
 - [關於 Event Grid](overview.md)
 - [使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更](monitor-virtual-machine-changes-event-grid-logic-app.md)
+

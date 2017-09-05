@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: f31482a8b37858b93391afc561223a1b1110a1a9
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 45a6f63bd920c9a70c25b8dfae084ea030256cf4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 入口網站中有風險的登入報告
@@ -52,7 +52,7 @@ Azure AD 會偵測使用者帳戶相關的可疑動作。 針對每個偵測到�
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Azure Active Directory 免費和基本版本
 
-Azure Active Directory 免費和基本版本會為您的使用者提供已偵測到的有風險登入清單。 風險事件報告會提供：
+Azure Active Directory 免費和基本版本會為您的使用者提供已偵測到的有風險登入清單。 此報告會列出：
 
 - **使用者** - 登入作業期間所使用的使用者名稱
 - **IP** - 用來連接至 Azure Active Directory 的裝置 IP 位址
@@ -60,7 +60,6 @@ Azure Active Directory 免費和基本版本會為您的使用者提供已偵測
 - **登入時間** - 執行登入的時間
 - **狀態** - 登入狀態
 
-此報告會提供選項讓您下載報告資料。
 
 ![有風險的登入](./media/active-directory-reporting-security-risky-sign-ins/01.png)
 
@@ -74,6 +73,15 @@ Azure Active Directory 免費和基本版本會為您的使用者提供已偵測
 ![有風險的登入](./media/active-directory-reporting-security-risky-sign-ins/21.png)
 
 如需詳細資訊，請參閱[手動關閉風險事件](active-directory-identityprotection.md#closing-risk-events-manually)。
+
+此報告會提供選項以便：
+
+- 搜尋資源
+- 下載報告資料
+
+
+![有風險的登入](./media/active-directory-reporting-security-risky-sign-ins/93.png)
+
 
 ## <a name="azure-active-directory-premium-editions"></a>Azure Active Directory Premium Edition
 

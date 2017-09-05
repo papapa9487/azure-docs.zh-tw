@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/07/2017
 ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: a916f643c7e6727d6053865d1c0bd2f683a53b3f
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: a0c169e0580468e83a07c077f8c60e83d3fb52f2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>服務匯流排進階和標準傳訊層級
@@ -47,7 +47,7 @@ ms.lasthandoff: 05/10/2017
 
 ### <a name="partitioned-queues-and-topics"></a>分割的佇列和主題
 
-進階傳訊支援分割的佇列和主題；事實上這些實體一律會進行分割 (且無法停用)。 不過，進階分割的佇列和主題在服務匯流排傳訊的標準和基本層中的運作方式不同。 進階傳訊不會使用 SQL 做為資料存放區，而且不可能再有與共用平台相關聯的資源競爭。 因此，資料分割不一定能夠改善效能。 此外，資料分割計數已從標準傳訊中的 16 個資料分割變更為進階傳訊中的 2 個資料分割。 擁有 2 個資料分割可確保可用性，而且是比較適合進階執行階段環境的數字。 
+進階傳訊支援分割的佇列和主題；事實上這些實體一律會進行分割 (且無法停用)。 不過，進階分割的佇列和主題在服務匯流排傳訊的標準層中的運作方式不同。 進階傳訊不會使用 SQL 做為資料存放區，而且不可能再有與共用平台相關聯的資源競爭。 因此，資料分割不一定能夠改善效能。 此外，資料分割計數已從標準傳訊中的 16 個資料分割變更為進階傳訊中的 2 個資料分割。 擁有 2 個資料分割可確保可用性，而且是比較適合進階執行階段環境的數字。 
 
 透過進階傳訊，當您使用 [MaxSizeInMegabytes](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxsizeinmegabytes#Microsoft_ServiceBus_Messaging_QueueDescription_MaxSizeInMegabytes) 指定實體的大小時，會將 2 個分割的大小平均分割，這不同於[標準分割的實體](service-bus-partitioning.md#standard)，其中總大小是 16 乘以指定的大小。 
 

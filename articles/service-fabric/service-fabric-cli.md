@@ -9,10 +9,10 @@ ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: edwardsa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ce9adf6c82e3a5521883c5de1e0689d5bf0d94e
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 2faca2887f25b45d833dea7b2259277466290670
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-service-fabric-command-line"></a>Azure Service Fabric 命令列
@@ -23,17 +23,75 @@ Azure Service Fabric CLI (sfctl) 是一個命令列公用程式，用於操作�
 
 安裝之前，請確定您的環境已安裝 python 和 pip。 如需詳細資訊，請參閱 [pip 快速入門文件](https://pip.pypa.io/en/latest/quickstart/)和正式的 [python 安裝文件](https://wiki.python.org/moin/BeginnersGuide/Download)。
 
-雖然 python 2.7 和 3.6 都受支援，但建議使用 python 3.6。
+雖然 python 2.7 和 3.6 都受支援，但建議使用 python 3.6。 下一節說明如何安裝所有必要條件和 CLI。
 
-## <a name="install"></a>Install
+## <a name="install-pip-python-and-sfctl"></a>安裝 pip、python 和 sfctl
 
-Azure Service Fabric CLI (sfctl) 會封裝成 python 套件。 若要安裝最新版本，請執行：
+雖然有許多方法可在您的平台上安裝 pip 和 python，但下列步驟可針對主要作業系統快速設定 python 3.6 和 pip：
 
-```bash
-pip install sfctl
+### <a name="windows"></a>Windows
+
+對於 Windows 10、Server 2016 和 Server 2012R2，您可以使用標準官方安裝指示。 Python 安裝程式預設也會安裝 pip。
+
+- 瀏覽至正式 [python 下載頁面](https://www.python.org/downloads/)並下載最新版的 python 3.6
+- 啟動安裝程式
+- 選取位於 `Add Python 3.6 to PATH` 提示底部的選項
+- 選取 `Install Now`
+- 完成安裝
+
+您現在應該可開啟新的命令視窗，並取得 python 和 pip 的版本：
+
+```bat
+python --version
+pip --version
 ```
 
-安裝之後，請執行 `sfctl -h` 以取得可用命令的相關資訊。
+然後執行下列命令以安裝 Service Fabric CLI
+
+```
+pip install sfctl
+sfctl -h
+```
+
+### <a name="ubuntu"></a>Ubuntu
+
+對於 Ubuntu 16.04 Desktop，您可以使用第三方 PPA 來安裝 python 3.6：
+
+從終端機執行下列命令：
+
+```bash
+sudo add-apt-repository ppa:jonathonf/python-3.6
+sudo apt-get update
+sudo apt-get install python3.6
+sudo apt-get install python3-pip
+```
+
+然後，若要安裝 sfctl 以便您安裝 python 3.6，請執行下列命令：
+
+```bash
+python3.6 -m pip install sfctl
+sfctl -h
+```
+
+這些步驟不會影響系統安裝的 python 3.5 和 2.7。 除非您很熟悉 Ubuntu，否則請勿嘗試修改這些安裝。
+
+### <a name="macos"></a>MacOS
+
+對於 MacOS，建議使用 [HomeBrew 套件管理員](https://brew.sh)。 執行下列命令，以安裝 HomeBrew (如果尚未安裝)：
+
+```bash
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+然後從終端機安裝 python 3.6、pip 和 sfctl
+
+```bash
+brew install python3
+pip3 install sfctl
+sfctl -h
+```
+
+這些步驟不會修改系統安裝的 python 2.7。
 
 ## <a name="cli-syntax"></a>CLI 語法
 

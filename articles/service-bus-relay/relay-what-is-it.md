@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 06/14/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 74a0837b7149236faa45ef2cda0a0aee7c46a31b
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
@@ -52,15 +51,22 @@ Azure 轉送有兩項功能︰
 
 [Azure 轉送混合式連線](relay-hybrid-connections-protocol.md)功能是現有轉送功能的安全、開放式通訊協定演化，可以在任何平台上以任何具有基本 WebSocket 功能的語言實作，而基本 WebSocket 功能會明確地將 WebSocket API 納入一般網頁瀏覽器中。 混合式連線是以 HTTP 和 Websocket 為基礎。
 
+### <a name="service-history"></a>服務歷程記錄
+
+「混合式連線」會取代先前的功能，該功能同樣名為「BizTalk 服務」功能且建置於 Azure 服務匯流排 WCF 轉送。 新的混合式連線功能可補充現有的 WCF 轉送功能，而這兩個服務功能會並存於 Azure 轉送服務中。 它們共用通用的閘道，但有不同的實作方式。
+
 ## <a name="wcf-relays"></a>WCF 轉送
 
 WCF 轉送適用於完整的 .NET Framework (NETFX) 和 WCF。 您在內部部署服務與使用一組 WCF「轉送」繫結的轉送服務之間起始連線。 在幕後，轉送繫結會對應至新的傳輸繫結元素，其設計來建立與雲端中服務匯流排整合的 WCF 通道元件。
 
-## <a name="service-history"></a>服務歷程記錄
+## <a name="architecture-processing-of-incoming-relay-requests"></a>架構：處理內送轉送要求
+當用戶端傳送要求至 [Azure 轉送](/azure/service-bus-relay/)服務時，Azure Load Balancer 會將其路由到任何一個閘道器節點。 如果要求為接聽要求，閘道器節點會建立新的轉送。 如果要求為特定轉送的連線要求，閘道器節點會轉送連線要求給擁有轉送的閘道器節點。 擁有轉送的閘道器節點會傳送會合要求到接聽用戶端，要求接聽程式建立接收連線要求的閘道器節點的暫時通道。
 
-「混合式連線」會取代先前的功能，該功能同樣名為「BizTalk 服務」功能且建置於 Azure 服務匯流排 WCF 轉送。 新的混合式連線功能可補充現有的 WCF 轉送功能，而這兩個服務功能在可預見的未來會並存於 Azure 轉送服務中。 它們共用通用的閘道，但有不同的實作方式。
+建立轉送連線時，用戶端可以透過用來會合的閘道節點交換訊息。
 
-## <a name="next-steps"></a>後續步驟：
+![處理內送 WCF 轉送要求](./media/relay-what-is-it/ic690645.png)
+
+## <a name="next-steps"></a>後續步驟
 
 * [轉送常見問題集](relay-faq.md)
 * [建立命名空間](relay-create-namespace-portal.md)

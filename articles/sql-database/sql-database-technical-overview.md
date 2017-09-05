@@ -9,18 +9,18 @@ manager: jhubbard
 editor: cgronlun
 ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
-ms.custom: overview
+ms.custom: overview, mvc
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/30/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 54aa8c2f738ef92c211462498103d368e4cb4c5c
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 28aa6d79f999fe9b247d9bb2c61a149a21e72a4a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
@@ -146,6 +146,14 @@ SQL Database 讓應用程式的建置及維護更簡易也更有生產力。 SQL
 - **[Visual Studio Code](https://code.visualstudio.com/docs)**：免費、可下載、開放原始碼的程式碼編輯器，適用於支援擴充功能的 Windows、macOS 和 Linux，包括可供查詢 Microsoft SQL Server、Azure SQL Database 和 SQL 資料倉儲的 [mssql 擴充功能](https://aka.ms/mssql-marketplace)。
 
 SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.js、PHP、Ruby 和 .NET 建置應用程式。 SQL Database 支援與 SQL Server 相同的[連線庫](sql-database-libraries.md)。
+
+## <a name="engage-with-the-sql-server-engineering-team"></a>洽詢 SQL Server 工程團隊
+
+- [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server)：詢問資料庫管理問題
+- [堆疊溢位](http://stackoverflow.com/questions/tagged/sql-server)：詢問開發問題
+- [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?category=sqlserver)：詢問技術問題
+- [Microsoft Connect](https://connect.microsoft.com/SQLServer/Feedback)：回報錯誤和要求功能
+- [Reddit](https://www.reddit.com/r/SQLServer/)：討論 SQL Server
 
 ## <a name="next-steps"></a>後續步驟
 
