@@ -3,7 +3,7 @@ title: "Azure 受管理的應用程式 StorageAccountSelector UI 元素 | Micros
 description: "描述 Azure 受管理應用程式的 Microsoft.Storage.StorageAccountSelector UI 元素"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 15e69c0deb4bce64b7413b557eb69db5165bde73
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="microsoftstoragestorageaccountselector-ui-element"></a>Microsoft.Storage.StorageAccountSelector UI 元素

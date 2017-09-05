@@ -3,7 +3,7 @@ title: "Azure 受管理的應用程式建立 UI 定義函式 | Microsoft Docs"
 description: "描述建構 Azure 受管理應用程式的 UI 定義時要使用的函式"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 635e44a7ec6f9244f5fe75eb5ad947cdd8ae59a4
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 元素
