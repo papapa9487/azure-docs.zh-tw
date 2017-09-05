@@ -3,7 +3,7 @@ title: "Azure 受管理的應用程式 PublicIpAddressCombo UI 元素 | Microsof
 description: "描述 Azure 受管理應用程式的 Microsoft.Network.PublicIpAddressCombo UI 元素"
 services: azure-resource-manager
 documentationcenter: na
-author: tabrezm
+author: tfitzmac
 manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
@@ -12,13 +12,12 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
-ms.author: tabrezm;tomfitz
+ms.author: tomfitz
 ms.translationtype: Human Translation
 ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 2eb773f5f0cf389fc39bc3a0f5fbf9ac726d1949
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/12/2017
-
 
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Microsoft.Network.PublicIpAddressCombo UI 元素

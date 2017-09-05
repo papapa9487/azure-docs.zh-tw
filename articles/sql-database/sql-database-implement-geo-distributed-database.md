@@ -386,7 +386,8 @@ sudo apt-get install maven
       -ServerName $mydrservername
    $fileovergroup.ReplicationRole
    ```
-## <a name="next-steps"></a>後續步驟 
+
+## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱[作用中異地複寫和容錯移轉群組](sql-database-geo-replication-overview.md)。
 
