@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 08/28/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 7ac9a67fe79cbbc73300f9b43b6af0d9ec143b65
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: f2db3449187d655248b13198b268841052570626
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 備份還原已加密 VM 的金鑰保存庫金鑰與密碼
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/13/2017
 ## <a name="prerequisites"></a>必要條件
 * **備份已加密的 VM** - 已使用 Azure 備份將已加密的 Azure VM 備份。 請參閱[使用 PowerShell 部署和管理 Resource Manager 部署之 VM 的備份](backup-azure-vms-automation.md)一文，以取得如何將已加密 Azure VM 備份的相關詳細資料。
 * **設定 Azure 金鑰保存庫** – 先確定金鑰保存庫已存在，才能將金鑰和密碼還原至該金鑰保存庫。 請參閱[開始使用 Azure 金鑰保存庫](../key-vault/key-vault-get-started.md)一文，以取得金鑰保存庫管理的相關詳細資料。
-* **還原磁碟** - 請確定您已使用 [PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)觸發還原作業，以取得加密 VM 的還原磁碟。 這是因為此作業會在您的儲存體帳戶中產生 JSON 檔案，其中包含要還原之加密 VM 的金鑰和祕密。
+* **還原磁碟** - 請確定您已使用 [PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)觸發還原作業，以還原加密 VM 的磁碟。 這是因為此作業會在您的儲存體帳戶中產生 JSON 檔案，其中包含要還原之加密 VM 的金鑰和祕密。
 
 ## <a name="get-key-and-secret-from-azure-backup"></a>從 Azure 備份取得金鑰和祕密
 
@@ -46,7 +46,6 @@ PS C:\> $properties = $details.properties
 PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
 PS C:\> $containerName = $properties["Config Blob Container Name"]
 PS C:\> $encryptedBlobName = $properties["Encryption Info Blob Name"]
-PS C:\> $containerName = $properties["Config Blob Container Name"]
 ```
 
 設定 Azure 儲存體內容並還原 JSON 組態檔，其中包含加密 VM 之金鑰和秘密的詳細資料。
@@ -68,7 +67,7 @@ PS C:\> Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile
 ```
 
 ## <a name="restore-secret"></a>還原密碼
-使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。
+使用上面所產生的 JSON 檔案來取得秘密名稱和值，並將其饋送至設定祕密 Cmdlet，以將祕密 (BEK) 放回金鑰保存庫中。 **如果使用 BEK 和 KEK 加密您的 VM，請使用下列 Cmdlet。**
 
 ```
 PS C:\> $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
@@ -78,6 +77,14 @@ PS C:\> $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncry
 PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
+如果**只使用 BEK 加密**您的 VM，請從 JSON 產生密碼 Blob 檔案並提供給還原密碼 Cmdlet，以將密碼 (BEK) 放回金鑰保存庫中。
+
+```
+PS C:\> $secretDestination = 'C:\secret.blob'
+PS C:\> [io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
+PS C:\> Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
+```
+
 > [!NOTE]
 > 1. 可透過參考 $encryptionObject.OsDiskKeyAndSecretDetails.SecretUrl 的輸出，並使用祕密之後的文字來取得 $secretname 的值/ 例如輸出秘密 URL 是 https://keyvaultname.vault.azure.net/secrets/B3284AAA-DAAA-4AAA-B393-60CAA848AAAA/xx000000xx0849999f3xx30000003163 且祕密名稱是 B3284AAA-DAAA-4AAA-B393-60CAA848AAAA
 > 2. DiskEncryptionKeyFileName 標記的值與祕密名稱相同。
@@ -85,10 +92,10 @@ PS C:\> Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secr
 >
 
 ## <a name="create-virtual-machine-from-restored-disk"></a>從已還原的磁碟建立虛擬機器
-如果您已使用 Azure VM 備份將已加密的 VM 備份，上述的 PowerShell Cmdlet 可幫助您將金鑰與密碼還原回金鑰保存庫。 還原金鑰與祕密後，請參閱[使用 PowerShell 管理 Azure VM 的備份和還原](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)一文，從已還原的磁碟、金鑰和祕密建立加密的 VM。
+如果您已使用 Azure VM 備份將已加密的 VM 備份，上述的 PowerShell Cmdlet 可幫助您將金鑰與密碼還原回金鑰保存庫。 還原金鑰與密碼後，請參閱[使用 PowerShell 管理 Azure VM 的備份和還原](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)一文，從已還原的磁碟、金鑰和密碼建立加密的 VM。
 
 ## <a name="legacy-approach"></a>舊版方法
-上述方法可適用於所有復原點，不過，從復原點取得金鑰和秘密資訊的較舊方法，對於 2017 年 7 月 11 日以前的復原點仍有效。 一旦使用 [PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)完成加密 VM 的還原磁碟作業後，確保 $rp 填入有效的值。
+上述方法可適用於所有復原點。 不過，從復原點取得金鑰和密碼資訊的較舊方法，對於 2017 年 7 月 11 日以前使用 BEK 和 KEK 加密之 VM 的復原點仍有效。 一旦使用 [PowerShell 步驟](backup-azure-vms-automation.md#restore-an-azure-vm)完成加密 VM 的還原磁碟作業後，確保 $rp 填入有效的值。
 
 ### <a name="restore-key"></a>還原金鑰
 使用下列 Cmdlet 從復原點取得金鑰 (KEK) 資訊，並將其饋送至還原金鑰 Cmdlet 以放回金鑰保存庫中。

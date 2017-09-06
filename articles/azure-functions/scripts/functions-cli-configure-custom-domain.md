@@ -4,7 +4,7 @@ description: "Azure CLI 指令碼範例 - 在 Azure 中將自訂網域對應至�
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: azure-service-management
 ms.assetid: d127e347-7581-47d7-b289-e0f51f2fbfbc
@@ -16,11 +16,11 @@ ms.topic: sample
 ms.date: 06/01/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 6fcea6d32f9dd25b0fafb4f895f60d8320ac9df8
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 5a17830ad3b879382b7e82d435f1286c7ecdf7c5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="map-a-custom-domain-to-a-function-app"></a>將自訂網域對應至函式應用程式
@@ -31,7 +31,7 @@ ms.lasthandoff: 06/20/2017
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，您必須使用 Azure CLI 2.0 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 
 ## <a name="sample-script"></a>範例指令碼
@@ -42,7 +42,7 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="script-explanation"></a>指令碼說明
 
-此指令碼會使用下列命令。 下表中的每個命令都會連結至命令特定的文件。
+此指令碼會使用下列命令：下表中的每個命令都會連結至命令特定的文件。
 
 | 命令 | 注意事項 |
 |---|---|

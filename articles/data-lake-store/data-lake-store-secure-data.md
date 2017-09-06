@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 337c6142c27314150a21f1c80a17aae17cd0d67f
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>保護儲存在 Azure 資料湖儲存區中的資料
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/21/2017
 如需有關如何建立 AAD 安全性群組及如何新增使用者至群組的詳細指示，請參閱 [管理 Azure Active Directory 中的安全性群組](../active-directory/active-directory-accessmanagement-manage-groups.md)。
 
 > [!NOTE] 
-> 您可以將使用者及其他群組新增至使用 Azure 入口網站的 Azure AD 的群組中。 不過，若要將服務主體新增至群組，請使用 [Azure AD PowerShell 模組](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)。
+> 您可以將使用者及其他群組新增至使用 Azure 入口網站的 Azure AD 的群組中。 不過，若要將服務主體新增至群組，請使用 [Azure AD 的 PowerShell 模組](../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)。
 > 
 > ```powershell
 > # Get the desired group and service principal and identify the correct object IDs

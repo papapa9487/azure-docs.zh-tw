@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: f5fe6db423f1f2faeaf51e25be9b8f5b551e2a16
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>存取 Azure Data Lake Analytics 的診斷記錄
@@ -78,9 +78,9 @@ ms.lasthandoff: 08/01/2017
 
 3. 針對記錄項目按一下 [下載]  連結來下載該記錄。
 
-### <a name="use-the-azure-data-lake-storage-account-that-contains-log-data"></a>使用包含記錄資料的 Azure Data Lake 儲存體帳戶
+### <a name="use-the-azure-storage-account-that-contains-log-data"></a>使用包含記錄資料的 Azure 儲存體帳戶
 
-1. 開啟與用於記錄的 Data Lake Analytics 建立關聯的 Azure Data Lake 儲存體帳戶刀鋒視窗，然後按一下 [Blob]。 [Blob 服務]  刀鋒視窗會列出兩個容器。
+1. 開啟與用於記錄之 Data Lake Analytics 建立關聯的Azure 儲存體帳戶刀鋒視窗，然後按一下 [Blob]。 [Blob 服務]  刀鋒視窗會列出兩個容器。
 
     ![檢視診斷記錄](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "檢視診斷記錄")
 

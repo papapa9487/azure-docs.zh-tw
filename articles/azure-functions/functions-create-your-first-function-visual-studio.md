@@ -1,11 +1,10 @@
-
 ---
 title: "使用 Visual Studio 在 Azure 中建立第一個函式 | Microsoft Docs"
 description: "使用 Azure Functions Tools for Visual Studio，建立簡單 HTTP 觸發函式並發行至 Azure。"
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函式, 事件處理, 計算, 無伺服器架構"
@@ -19,10 +18,10 @@ ms.date: 07/05/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7e1fcecbf77da402b8c223caf6a2e81c704c3219
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 8291986b123ed98b9c2bd4ec915e1a18b6e0cbb7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
@@ -60,6 +59,10 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 
     ![建立新的 Azure Function](./media/functions-create-your-first-function-visual-studio/functions-vstools-add-new-function-2.png)
 
+    這會將一個程式碼檔案新增至您的專案，其中包含實作函式程式碼的類別。 此程式碼是以範本為基礎，會接收名稱值並將其回應回去。 **FunctionName** 屬性會設定您的函式名稱。 **HttpTrigger** 屬性表示觸發函式的訊息。 
+
+    ![函式程式碼檔案](./media/functions-create-your-first-function-visual-studio/functions-code-page.png)
+
 您現在已建立 HTTP 觸發的函式，可以在本機電腦上進行測試。
 
 ## <a name="test-the-function-locally"></a>在本機測試函式
@@ -72,7 +75,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
     ![Azure 本機執行階段](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
 
-3. 將 HTTP 要求的 URL 貼到瀏覽器的網址列。 將查詢字串 `&name=<yourname>` 附加至此 URL 並執行要求。 下圖顯示瀏覽器中對於函式傳回之本機 GET 要求所做出的回應︰ 
+3. 將 HTTP 要求的 URL 貼到瀏覽器的網址列。 將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。 下圖顯示瀏覽器中對於函式傳回之本機 GET 要求所做出的回應︰ 
 
     ![瀏覽器中的函式 localhost 回應](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
 
@@ -88,7 +91,7 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 ## <a name="test-your-function-in-azure"></a>在 Azure 中測試您的函式
 
-1. 從發行設定檔頁面複製函式應用程式的基底 URL。 使用新的基底 URL，取代在本機測試函式時所使用之 URL 的 `localhost:port` 部分。 如同以往，務必將查詢字串 `&name=<yourname>` 附加至此 URL 並執行要求。
+1. 從發行設定檔頁面複製函式應用程式的基底 URL。 使用新的基底 URL，取代在本機測試函式時所使用之 URL 的 `localhost:port` 部分。 如同以往，務必將查詢字串 `?name=<yourname>` 附加至此 URL 並執行要求。
 
     呼叫 HTTP URL 觸發函式的 URL 如下所示：
 

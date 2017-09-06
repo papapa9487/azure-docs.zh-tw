@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f139674f96793b8486c541c9e3f1ead751b97232
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 73d0dabe5b8b179cbc0847c2819947febd6ef4d8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/07/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>存取 Azure Data Lake Store 的診斷記錄
@@ -42,7 +41,7 @@ ms.lasthandoff: 02/07/2017
    
     ![啟用診斷記錄](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "啟用診斷記錄")
    
-   * 將 [狀態] 設定為 [開啟] 以啟用診斷記錄。
+   * 針對 [名稱]，輸入診斷記錄設定的值。
    * 您可以選擇不同的資料儲存/處理方法。
      
         * 選取 [封存至儲存體帳戶] 選項可將記錄儲存到 Azure 儲存體帳戶。 如果您想要保存資料以供日後批次處理，可以使用此選項。 如果您選取此選項，必須提供用來儲存記錄的 Azure 儲存體帳戶。
@@ -71,7 +70,7 @@ ms.lasthandoff: 02/07/2017
    
    * 要求記錄能擷取所有以 Data Lake Store 帳戶提出的 API 要求。
    * 稽核記錄與要求記錄相似，不過能針對以 Data Lake Store 帳戶執行之作業提供更詳細的明細。 例如，要求記錄中的一個上傳 API 呼叫可能會致使稽核記錄出現多個「附加」作業。
-3. 針對每個記錄項目按一下 [下載]  連結來下載記錄。
+3. 若要下載記錄，請針對每個記錄項目按一下 [下載] 連結。
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>從包含記錄資料的 Azure 儲存體帳戶
 1. 開啟與與用於記錄的 Data Lake Store 關聯的Azure 儲存體帳戶刀鋒視窗，然後按一下 [Blob]。 [Blob 服務]  刀鋒視窗會列出兩個容器。
@@ -182,7 +181,7 @@ ms.lasthandoff: 02/07/2017
 Azure Data Lake Store 會提供有關如何處理和分析記錄資料的範例。 您可以在 [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample)找到範例。 
 
 ## <a name="see-also"></a>另請參閱
-* [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
+* [Azure Data Lake Store 概觀](data-lake-store-overview.md)
 * [保護資料湖存放區中的資料](data-lake-store-secure-data.md)
 
 

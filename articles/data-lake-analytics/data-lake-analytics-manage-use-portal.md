@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 43bb5a1aa246004346765d1be4aea236ca17abd2
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure Data Lake Analytics
@@ -146,6 +146,24 @@ Data Lake Analytics 支援下列資料來源：
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 按一下 [檢視所有作業]。 隨即顯示帳戶中所有作用中和最近完成的作業清單。
 3. 選擇性，按一下 [篩選] 可協助您依照 [時間範圍]、[作業名稱] 和 [作者] 值尋找作業。 
+
+### <a name="monitoring-pipeline-jobs"></a>監視管線作業
+屬於某個管線的作業會搭配運作 (通常會循序進行)，以完成特定案例。 例如，您可以有一個管線，來清除、擷取、轉換、彙總客戶深入解析的使用。 提交作業之後，可使用 [管線] 屬性來找到管線作業。 使用 ADF V2 排程的作業會自動填入此屬性。 
+
+若要檢視屬於管線的 U-SQL 作業清單： 
+
+1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
+2. 按一下 [作業深入解析]。 預設會開啟 [所有作業] 索引標籤，其中顯示執行中、已佇列和已結束的作業清單。
+3. 按一下 [管線作業] 索引標籤。這會顯示管線作業清單，以及每個管線的彙總統計資料。
+
+### <a name="monitoring-recurring-jobs"></a>監視週期性作業
+週期性作業是具有相同商務邏輯，但每次執行都會使用不同輸入資料的作業。 在理想情況下，週期性作業一律會成功，而且執行時間相當穩定；監視這些行為有助於確保作業狀況良好。 可使用 [週期性] 屬性來找到週期性作業。 使用 ADF V2 排程的作業會自動填入此屬性。
+
+若要檢視週期性的 U-SQL 作業清單： 
+
+1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
+2. 按一下 [作業深入解析]。 預設會開啟 [所有作業] 索引標籤，其中顯示執行中、已佇列和已結束的作業清單。
+3. 按一下 [週期性作業] 索引標籤。這會顯示週期性作業清單，以及每個週期性作業的彙總統計資料。
 
 ## <a name="manage-policies"></a>管理原則
 

@@ -13,20 +13,32 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2017
+ms.date: 08/24/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 72c5c2efe2c8a60f13d18b595062448e6a0d1816
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e0c27a7ee9e9a7ab1a3b004e070fa556b56a36a5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Marketplace 中尋找 Linux VM 映像
 本主題描述如何在 Azure Marketplace 中使用 Azure CLI 2.0 尋找 Windows VM 映像。 您可以使用此資訊，在建立 Linux VM 時指定 Marketplace 映像。
 
 請確定您[已安裝](/cli/azure/install-az-cli2)最新的 Azure CLI 2.0 並登入 Azure 帳戶 (`az login`)。
+
+## <a name="terminology"></a>術語
+
+您可以根據階層，在 CLI 和其他 Azure 工具中找到 Marketplace 映像：
+
+* **發行者** - 建立映像的組織。 範例：Canonical
+* **供應項目** - 發行者所建立的一組相關映像。 範例：Ubuntu Server
+* **SKU** - 供應項目執行個體，例如發佈的主要版本。 範例：16.04-LTS
+* **版本** - 映像 SKU 的版本號碼。 指定映像時，您可以使用 "latest" 來取代版本號碼，這會選取發佈的最新版本。
+
+若要指定 Marketplace 映像，您通常會使用映像 *URN*。 URN 會結合這些值，並以冒號 (:) 字元分隔：發行者:供應項目:SKU:版本。 
+
 
 ## <a name="list-popular-images"></a>列出常用的映像
 
@@ -36,7 +48,7 @@ ms.lasthandoff: 07/14/2017
 az vm image list --output table
 ```
 
-輸出會包含 URN (Urn 資料行中的值)，是屬於表單發行者：優惠：Sku：版本。 透過 `az vm create` 建立 VM 時，可使用此值來指定映像。 使用其中一個常用 VM 映像建立 VM 時，您也可以指定 URN 別名，例如 UbuntuLTS。
+輸出會包含 URN ([Urn] 欄中的值)，可用來指定映像。 使用其中一個常用 Marketplace 映像建立 VM 時，您也可以指定 URN 別名，例如 *UbuntuLTS*。
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -49,42 +61,21 @@ openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42
 RHEL           RedHat                  7.3                 RedHat:RHEL:7.3:latest                                          RHEL                 latest
 SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
 UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
-WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
-WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
-WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+...
 ```
-
-## <a name="list-all-current-images"></a>列出所有目前的映像
-
-若要取得目前 Marketplace 中的所有 VM 映像清單，請使用 `az vm image list` 命令搭配 `--all` 選項。 這個版本的命令需要一些時間才能完成：
-
-
-```azurecli
-az vm image list --all
-```
-
-如果您未使用 `--location` 選項指定特定的位置，依預設就會傳回 `westus` 的值。 (執行 `az configure --defaults location=<location>` 以設定不同的預設位置。)
-
-
-如果您想要以互動方式進行調查，請將輸出導向本機檔案。 例如：
-
-```azurecli
-az vm image list --all > allImages.json
-```
-
-
-
 
 ## <a name="find-specific-images"></a>尋找特定映像
 
-使用 `az vm image list` 搭配其他選項，將您的搜尋限制為特定位置、優惠、發行者或 SKU。 例如，以下命令會顯示所有的 Debian 優惠 (請記住，如果沒有 `--all` 參數，則只會搜尋通用映像的本機快取)：
+若要在 Marketplace 中尋找特定 VM 映像，請使用 `az vm image list` 命令搭配 `--all` 選項。 這個版本的命令需要一些時間才能完成，而且可能會傳回冗長的輸出，因此您通常會依 `--publisher` 或其他參數篩選清單。 
+
+例如，以下命令會顯示所有的 Debian 優惠 (請記住，如果沒有 `--all` 參數，則只會搜尋通用映像的本機快取)：
 
 ```azurecli
 az vm image list --offer Debian --all --output table 
+
 ```
 
-輸出可能是很長的清單，因此截斷如下： 
+部分輸出： 
 ```
 Offer    Publisher    Sku                Urn                                              Version
 -------  -----------  -----------------  -----------------------------------------------  --------------
@@ -95,11 +86,26 @@ Debian   credativ     7                  credativ:Debian:7:7.0.201604200        
 Debian   credativ     7                  credativ:Debian:7:7.0.201606280                  7.0.201606280
 Debian   credativ     7                  credativ:Debian:7:7.0.201609120                  7.0.201609120
 Debian   credativ     7                  credativ:Debian:7:7.0.201611020                  7.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201602010                  8.0.201602010
+Debian   credativ     8                  credativ:Debian:8:8.0.201603020                  8.0.201603020
+Debian   credativ     8                  credativ:Debian:8:8.0.201604050                  8.0.201604050
+Debian   credativ     8                  credativ:Debian:8:8.0.201604200                  8.0.201604200
+Debian   credativ     8                  credativ:Debian:8:8.0.201606280                  8.0.201606280
+Debian   credativ     8                  credativ:Debian:8:8.0.201609120                  8.0.201609120
+Debian   credativ     8                  credativ:Debian:8:8.0.201611020                  8.0.201611020
+Debian   credativ     8                  credativ:Debian:8:8.0.201701180                  8.0.201701180
+Debian   credativ     8                  credativ:Debian:8:8.0.201703150                  8.0.201703150
+Debian   credativ     8                  credativ:Debian:8:8.0.201704110                  8.0.201704110
+Debian   credativ     8                  credativ:Debian:8:8.0.201704180                  8.0.201704180
+Debian   credativ     8                  credativ:Debian:8:8.0.201706190                  8.0.201706190
+Debian   credativ     8                  credativ:Debian:8:8.0.201706210                  8.0.201706210
+Debian   credativ     8                  credativ:Debian:8:8.0.201708040                  8.0.201708040
 ...
 ```
 
-
 使用 `--location`、`--publisher` 和 `--sku` 選項套用類似的篩選條件。 您甚至可以執行篩選的部份相符，例如搜尋 `--offer Deb` 以尋找所有 Debian 映像。
+
+如果您未使用 `--location` 選項指定特定的位置，依預設就會傳回 `westus` 的值。 (執行 `az configure --defaults location=<location>` 以設定不同的預設位置。)
 
 例如，下列命令會列出 `westeurope` 中所有的 Debian 8 個 SKU：
 
@@ -107,7 +113,7 @@ Debian   credativ     7                  credativ:Debian:7:7.0.201611020        
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table
 ```
 
-輸出：
+部分輸出：
 
 ```
 Offer    Publisher    Sku                Urn                                              Version
@@ -128,7 +134,6 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ...
 ```
 
-
 ## <a name="navigate-the-images"></a>瀏覽映像 
 要在位置中找到映像的另一個方法是在序列中執行 [az vm image list-publishers](/cli/azure/vm/image#list-publishers)、[az vm image list-offers](/cli/azure/vm/image#list-offers) 和 [az vm image list-skus](/cli/azure/vm/image#list-skus) 命令。 您可以使用這些命令來判斷下列的值：
 
@@ -143,11 +148,12 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 az vm image list-publishers --location westus --output table
 ```
 
-輸出：
+部分輸出：
 
 ```
 Location    Name
 ----------  ----------------------------------------------------
+westus      1e
 westus      4psa
 westus      7isolutions
 westus      a10networks
@@ -161,7 +167,7 @@ westus      activeeon
 westus      adatao
 ...
 ```
-這些清單可能很長，因此本範例輸出只是程式碼片段。 使用這項資訊從特定的發行者尋找優惠。 例如，如果 Canonical 是美國西部位置的映像發行者，執行 `azure vm image list-offers` 可找到其優惠。 傳遞位置和發行者，如下列範例所示：
+使用這項資訊從特定的發行者尋找優惠。 例如，如果 Canonical 是美國西部位置的映像發行者，執行 `azure vm image list-offers` 可找到其供應項目。 傳遞位置和發行者，如下列範例所示：
 
 ```azurecli
 az vm image list-offers --location westus --publisher Canonical --output table
@@ -214,7 +220,7 @@ westus      17.04-DAILY
 westus      17.10-DAILY
 ```
 
-最後，使用 `az vm image list` 命令來您需要的 SKU 特定版本，例如，**14.04-LTS**：
+最後，使用 `az vm image list` 命令來尋找您需要的 SKU 特定版本，例如，**16.04-LTS**：
 
 ```azurecli
 az vm image list --location westus --publisher Canonical --offer UbuntuServer --sku 16.04-LTS --all --output table
@@ -245,7 +251,12 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201705160  16.04.201705160
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706100  16.04.201706100
 UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201706191  16.04.201706191
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707210  16.04.201707210
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201707270  16.04.201707270
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708030  16.04.201708030
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708110  16.04.201708110
+UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201708151  16.04.201708151
 ```
 ## <a name="next-steps"></a>後續步驟
-現在，您可以記下 URN 值，精確地選擇想要使用的映像。 在指定映像時，您可以在包含「最新」的 URN 中，選擇性地取代版本號碼使用。 此版本一律為發佈的最新版本。 若要使用您剛找到的 URN 資訊來快速建立虛擬機器，請參閱[使用 Azure CLI 建立 Linux VM](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+現在，您可以記下 URN 值，精確地選擇想要使用的映像。 當您使用 [az vm create](/cli/azure/vm#create) 命令建立 VM 時，請傳遞此值與 `--image` 參數。 請記住，您可以使用 "latest" 來取代 URN 中的版本號碼。 此版本一律為發佈的最新版本。 若要使用 URN 資訊來快速建立虛擬機器，請參閱[使用 Azure CLI 來建立和管理 Linux VM](tutorial-manage-vm.md)。
 

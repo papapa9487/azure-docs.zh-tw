@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 395b0209109a5c1eb3ee8ecdd9651ab82fb213eb
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: b9061283952ae6b14431f5e88295eefac173ae01
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
@@ -43,7 +43,7 @@ Azure MFA 的網路原則伺服器 (NPS) 擴充功能可使用現有伺服器將
 
 NPS 延伸模組會自動處理備援，因此您不需要特殊組態。
 
-您可以視需要建立數量不拘的 Azure Multi-Factor Authentication 啟用 NPS 伺服器。 如果您安裝多部伺服器，您應該為每部伺服器使用不同的用戶端憑證。 建立每個伺服器的憑證，意味著您可以個別更新每個憑證，無須擔心所有的伺服器皆停機。
+您可以視需要建立數量不拘且具有 Azure MFA 功能的 NPS 伺服器。 如果您安裝多部伺服器，您應該為每部伺服器使用不同的用戶端憑證。 建立每個伺服器的憑證，意味著您可以個別更新每個憑證，無須擔心所有的伺服器皆停機。
 
 VPN 伺服器會路由驗證要求，因此伺服器必須留意新的 Azure MFA 啟用 NPS 伺服器。
 
@@ -67,9 +67,9 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-使用 NPS 擴充功能的每位使用者都必須使用 Azure AD Connect 同步到 Azure Active Directory ，且必須啟用 MFA。
+使用 NPS 擴充功能的每位使用者都必須使用 Azure AD Connect 同步到 Azure Active Directory ，且必須註冊 MFA。
 
-當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取左側的 [Azure Active Directory] 圖示，然後選取 [屬性]。 複製 [目錄識別碼] 方塊中的 GUID，然後儲存。 當您安裝 NPS 延伸模組時，將使用此 GUID 做為租用戶識別碼。
+當您安裝擴充功能時，您的 Azure AD 租用戶需要目錄識別碼和系統管理員認證。 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取左側的 [Azure Active Directory] 圖示，然後選取 [屬性]。 複製 [目錄識別碼] 方塊中的 GUID，然後儲存。 當您安裝 NPS 擴充功能時，將使用此 GUID 作為租用戶識別碼。
 
 ![在 Azure Active Directory 屬性下尋找您的目錄識別碼](./media/multi-factor-authentication-nps-extension/find-directory-id.png)
 
@@ -174,7 +174,7 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 ### <a name="configuration-limitations"></a>設定限制
 
 - Azure MFA 的 NPS 延伸模組並未包含可將使用者與設定從 MFA Server 移轉至雲端的工具。 有基於此，建議將此延伸模組用於新的部署，而非用於現有部署。 如果您在現有部署上使用此延伸模組，您的使用者必須再次執行證明，以便在雲端中填入其 MFA 詳細資料。  
-- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。 擴充功能無法設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 AD 欄位。  
+- NPS 擴充功能會使用來自內部部署 Active Directory 的 UPN，識別 Azure MFA 上用來執行次要驗證的使用者。此延伸模組可設定為使用不同的識別碼，例如 UPN 以外的替代登入識別碼或自訂 Active Directory 欄位。 如需詳細資訊，請參閱 [Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項](multi-factor-authentication-advanced-vpn-configurations.md)。
 - 並非所有的加密通訊協定都支援所有的驗證方法。
    - **PAP** 支援通話、單向簡訊、行動裝置應用程式通知和行動裝置應用程式驗證碼
    - **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知
@@ -244,6 +244,8 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 ## <a name="next-steps"></a>後續步驟
 
 - 在 [Multi-Factor Authentication 之 NPS 延伸模組的進階設定選項](nps-extension-advanced-configuration.md)中，設定登入的替代識別碼，或為不應該執行雙步驟驗證之 IP 設定的例外狀況清單
+
+- 了解如何使用 NPS 延伸模組來整合[遠端桌面閘道](nps-extension-remote-desktop-gateway.md)和 [VPN 伺服器](nps-extension-vpn.md)
 
 - [解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息](multi-factor-authentication-nps-errors.md)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: shlo
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 66d3b5532e602ef3ef160740c0f6752ebbdff7a2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da7110614e684656da3ef9830780606e1576684d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
@@ -99,7 +99,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 > 
 
 ## <a name="azure-hdinsight-on-demand-linked-service"></a>Azure HDInsight 隨選連結服務
-Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDInsight 叢集來處理資料。 此叢集會建立在與叢集相關聯的儲存體帳戶 (JSON 中的 linkedServiceName 屬性) 相同的區域中。
+Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDInsight 叢集來處理資料。 此叢集會建立在與叢集相關聯的儲存體帳戶 (JSON 中的 linkedServiceName 屬性) 相同的區域中。 儲存體帳戶必須是一般目的標準 Azure 儲存體帳戶。 
 
 請注意下列有關隨選 HDInsight 連結服務的 **重點** ：
 

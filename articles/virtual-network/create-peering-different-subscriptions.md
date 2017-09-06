@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/17/2017
 ms.author: jdial;narayan;annahar
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 84bbf90257f038fb5f3e964b7b35419acd77fc6d
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 0f49c875ff5592b3f21e9caf343554172b209935
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/26/2017
 
 虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 只能在存在於相同 Azure 區域中的兩個虛擬網路之間建立虛擬網路對等互連。 在存在於不同訂用帳戶中的虛擬網路之間建立虛擬網路對等互連時，兩個訂用帳戶必須都與相同的 Azure Active Directory 租用戶關聯。 如果您還沒有 Azure Active Directory 租用戶，可以快速地[建立一個租用戶](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch)。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接、將存在於不同 Azure 區域中的虛擬網路連接，或是將存在於與不同 Azure Active Directory 租用戶關聯之訂用帳戶中的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。 
 
-您可以使用 [Azure 入口網站](#portal)、Azure [命令列介面](#cli) (CLI) 或 Azure [PowerShell](#powershell) 來建立虛擬網路對等互連。 按一下任何先前的工具連結，直接前往使用您所選工具建立虛擬網路對等互連的步驟。
+您可以使用 [Azure 入口網站](#portal)、Azure [命令列介面](#cli) (CLI)、Azure [PowerShell](#powershell) 或 Azure Resource Manager [範本](#template)，來建立虛擬網路對等互連。 按一下任何先前的工具連結，直接前往使用您所選工具建立虛擬網路對等互連的步驟。
 
 ## <a name="portal"></a>建立對等互連 - Azure 入口網站
 
@@ -229,7 +229,7 @@ ms.lasthandoff: 07/26/2017
     狀態為 **Initiated**。 在您設定從 myVnetB 到 myVnetA 的對等互連之後，它就會變更為 **Connected**。
 
 10. 將 UserA 登出 Azure，然後以 UserB 身分登入。
-11. 建立從 myVnetB 到 myVnetA 的對等互連。 將步驟 8 中的指令碼內容複製到您電腦上的文字編輯器中。 使用訂用帳戶 A 的 ID 來取代 `<SubscriptionB-Id>`，並將所有 A 都變更為 B，以及將所有 B 都變更為 A。若要執行指令碼，請複製修改過的指令碼並貼到 PowerShell 中，然後按 `Enter`。
+11. 建立從 myVnetB 到 myVnetA 的對等互連。 將步驟 8 中的指令碼內容複製到您電腦上的文字編輯器中。 使用訂用帳戶 A 的識別碼來取代 `<SubscriptionB-Id>`，並將所有 A 都變更為 B，以及將所有 B 都變更為 A。若要執行指令碼，請複製修改過的指令碼並貼到 PowerShell 中，然後按 `Enter`。
 12. 檢視 myVnetB 的對等互連狀態。 將步驟 9 中的指令碼內容複製到您電腦上的文字編輯器中。 針對資源群組和虛擬網路名稱，將 A 變更為 B。 若要執行指令碼，請將修改過的指令碼貼到 PowerShell 中，然後按 `Enter`。 狀態為 **Connected**。 在您建立從 **myVnetB** 到 **myVnetA** 的對等互連之後，**myVnetA** 的對等互連狀態就會變更為 **Connected**。 您可以將 UserA 重新登入 Azure，然後再次完成步驟 9 以確認 myVnetA 的對等互連狀態。 
 
     > [!NOTE]
@@ -239,6 +239,47 @@ ms.lasthandoff: 07/26/2017
 
 13. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
 14. **選擇性︰**若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-powershell)中的步驟。
+
+## <a name="template"></a>建立對等互連 - Resource Manager 範本
+
+1. 完成本文的[入口網站](#portal)、[Azure CLI](#cli) 或 [PowerShell](#powershell) 章節，以建立虛擬網路，並將適當的[權限](#permissions)指派給每個訂用帳戶中的帳戶。
+2. 將下列文字儲存至您本機電腦上的檔案。 使用 UserA 的訂用帳戶識別碼來取代 `<subscription ID>`。 例如，您可以將檔案另存為 vnetpeeringA.json。
+
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+        },
+        "variables": {
+        },
+    "resources": [
+            {
+            "apiVersion": "2016-06-01",
+            "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+            "name": "myVnetA/myVnetAToMyVnetB",
+            "location": "[resourceGroup().location]",
+            "properties": {
+            "allowVirtualNetworkAccess": true,
+            "allowForwardedTraffic": false,
+            "allowGatewayTransit": false,
+            "useRemoteGateways": false,
+                "remoteVirtualNetwork": {
+                "id": "/subscriptions/<subscription ID>/resourceGroups/PeeringTest/providers/Microsoft.Network/virtualNetworks/myVnetB"
+                }
+            }
+            }
+        ]
+    }
+    ```
+
+3. 以 UserA 身分登入 Azure，然後使用[入口網站](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template)、[PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-a-template-from-your-local-machine)或 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) 部署範本。 指定您在步驟 2 中儲存範例 JSON 文字的目的地檔案名稱。
+4. 將步驟 2 中的範例 JSON 複製到您電腦上的檔案，然後變更以下列項目開頭的行：
+    - **名稱**：將 *myVnetA/myVnetAToMyVnetB* 變更為 *myVnetB/myVnetBToMyVnetA*。
+    - **識別碼**：將 `<subscription ID>` 取代為 UserB 的訂用帳戶識別碼，並將 *myVnetB* 變更為 *myVnetA*。
+5. 以 UserB 登入 Azure 並再次完成步驟 3。
+6. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
+7. **選擇性︰**若要刪除您在本教學課程中建立的資源，請使用 Azure 入口網站、PowerShell 或 Azure CLI 來完成本文之[刪除資源](#delete)一節中的步驟。
 
 ## <a name="permissions"></a>權限
 

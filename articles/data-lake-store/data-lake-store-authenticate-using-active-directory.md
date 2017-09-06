@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/21/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: 1d712ef6987a4af2014bedb54378f288bcf535a8
-ms.lasthandoff: 04/22/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 69a860f89601fce7614d77f1bcd839b6ca540b88
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>使用 Azure Active Directory 以 Data Lake Store 進行服務對服務驗證
@@ -28,14 +28,14 @@ ms.lasthandoff: 04/22/2017
 > 
 > 
 
-Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配 Azure Data Lake Store 或 Azure Data Lake Analytics 的應用程式之前，必須先決定要如何以 Azure Active Directory (Azure AD) 驗證應用程式。 兩個主要選項為︰
+Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配 Azure Data Lake Store 或 Azure Data Lake Analytics 的應用程式之前，必須決定要如何以 Azure Active Directory (Azure AD) 驗證應用程式。 兩個主要選項為︰
 
 * 使用者驗證 
 * 服務對服務驗證 (本文) 
 
 兩個選項都要靠 OAuth 2.0 權杖來提供您的應用程式，權杖會附加到每個對 Azure Data Lake Store 或 Azure Data Lake Analytics 提出的要求。
 
-本文說明如何建立 **Azure AD Web 應用程式以進行服務對服務驗證**。 如需有關適用於使用者驗證的 Azure AD 應用程式組態的指示，請參閱[使用 Azure Active Directory 以 Data Lake Store 進行使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)。
+本文說明如何建立 **Azure AD Web 應用程式以進行服務對服務驗證**。 如需有關適用於終端使用者驗證的 Azure AD 應用程式設定的指示，請參閱[使用 Azure Active Directory 以 Data Lake Store 進行終端使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)。
 
 ## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
@@ -44,7 +44,7 @@ Azure Data Lake Store 使用 Azure Active Directory 進行驗證。 撰寫搭配
 
 建立和設定 Azure AD Web 應用程式，以便使用 Azure Active Directory 以 Azure Data Lake Store 進行服務對服務驗證。 如需指示，請參閱[建立 Azure AD 應用程式](../azure-resource-manager/resource-group-create-service-principal-portal.md)。
 
-依照上面連結中的指示進行時，請確定如以下螢幕擷取畫面所示，選取 [Web 應用程式 / API] 應用程式類型。
+遵循連結中的指示進行時，請確定如螢幕擷取畫面所示，選取 [Web 應用程式 / API] 應用程式類型。
 
 ![建立 Web 應用程式](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "建立 Web 應用程式")
 

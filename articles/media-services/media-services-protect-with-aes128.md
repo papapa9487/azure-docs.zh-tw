@@ -4,7 +4,7 @@ description: "Microsoft Azure 媒體服務可讓您傳遞您使用 128 位元加
 services: media-services
 documentationcenter: 
 author: Juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: 4d2c10af-9ee0-408f-899b-33fa4c1d89b9
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/25/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 4996df4623a706e51ab00538c17590ebf2d71fc4
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: ae1b36c26e688e74eb8fcc1a4cdbd3be0c014c08
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
@@ -177,7 +177,11 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
     Fragments(video=0,format=m3u8-aapl)
     #EXT-X-ENDLIST
 
+>[!NOTE] 
+>如果您想要在 Safari 中播放 AES 加密的 HLS，請參閱[這篇部落格](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。
+
 ### <a name="request-the-key-from-the-key-delivery-service"></a>從金鑰傳遞服務要求金鑰
+
 下列程式碼展示如何使用金鑰傳遞 Uri (擷取自資訊清單) 和權杖 (本主題不會討論如何從安全性權杖服務取得簡單 Web 權杖)，將要求傳送至媒體服務金鑰傳遞服務。
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
@@ -220,7 +224,9 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
         return key;
     }
 
-## <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
+## <a name="protect-your-content-with-aes-128-using-net"></a>使用 .NET 透過 AES-128 保護內容
+
+### <a name="create-and-configure-a-visual-studio-project"></a>建立和設定 Visual Studio 專案
 
 1. 設定您的開發環境並在 app.config 檔案中填入連線資訊，如[使用 .NET 進行 Media Services 開發](media-services-dotnet-how-to-use.md)中所述。 
 2. 將下列項目新增至 app.config 檔案中定義的 **appSettings**：
@@ -228,7 +234,7 @@ Microsoft Azure 媒體服務可讓您傳遞您使用進階加密標準 (AES) (�
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
 
-## <a id="example"></a>範例
+### <a id="example"></a>範例
 
 以本章節中所顯示的程式碼覆寫 Program.cs 檔案中的程式碼。
  
