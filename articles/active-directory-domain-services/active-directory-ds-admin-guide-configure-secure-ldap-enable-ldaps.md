@@ -37,7 +37,7 @@ ms.lasthandoff: 08/16/2017
 ## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview"></a>工作 3 - 使用 Azure 入口網站 (預覽) 為受管理的網域啟用安全 LDAP
 若要啟用安全的 LDAP，請執行下列設定步驟：
 
-1. 瀏覽至 **Azure 入口網站[](https://portal.azure.com)**。
+1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
 
 2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 刀鋒視窗會列出受管理的網域。
 
