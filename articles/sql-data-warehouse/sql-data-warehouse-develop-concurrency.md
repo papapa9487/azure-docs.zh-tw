@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 08/23/2017
 ms.author: joeyong;barbkess;kavithaj
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1ab2a8253684c62be650eed2ea5f69c62188a22
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: eaf2d43286dbaa52ada1430fbb7ce1e37f41c0d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="concurrency-and-workload-management-in-sql-data-warehouse"></a>SQL 資料倉儲中的並行存取和工作負載管理
@@ -152,7 +152,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 ## <a name="concurrency-slot-consumption"></a>並行存取插槽耗用量  
 針對在更高資源類別中執行的查詢，SQL 資料倉儲會授與更多記憶體。 記憶體是固定的資源。  因此，配置給每個查詢的記憶體越多，可執行的並行查詢就越少。 下表會以單一檢視重述上述所有概念，其中顯示 DWU 可用的並行存取插槽數目和每個資源類別所取用的插槽數目。  
 
-### <a name="allocation-and-consumption-of-concurrency-slots"></a>並行存取插槽的配置和耗用量  
+### <a name="allocation-and-consumption-of-concurrency-slots-for-dynamic-resource-classes"></a>動態資源類別並行存取插槽的配置和耗用量  
 | DWU | 並行查詢上限 | 配置的並行存取插槽 | Smallrc 所使用的插槽 | Mediumrc 所使用的插槽 | Largerc 所使用的插槽 | Xlargerc 所使用的插槽 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |1 |2 |4 |
@@ -168,7 +168,7 @@ EXEC sp_addrolemember 'largerc', 'loaduser'
 | DW3000 |32 |120 |1 |16 |32 |64 |
 | DW6000 |32 |240 |1 |32 |64 |128 |
 
-### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>靜態資源類別並行存取插槽的配置和耗用量
+### <a name="allocation-and-consumption-of-concurrency-slots-for-static-resource-classes"></a>靜態資源類別並行存取插槽的配置和耗用量  
 | DWU | 並行查詢上限 | 配置的並行存取插槽 |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:--- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | DW100 |4 |4 |1 |2 |4 |4 |4 |4 |4 |4 |

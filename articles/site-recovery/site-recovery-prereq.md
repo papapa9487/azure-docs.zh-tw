@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 59253a31860e150c6ede5af12b5f8b36c5abdec7
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ccc2b53e0824042c0f07b9fe63e8777aa68c6dc1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -40,7 +40,7 @@ Azure Site Recovery 可藉由協調 Azure 虛擬機器 (VM) 至其他 Azure 區�
 --- | ---
 **Azure 帳戶** | [Microsoft Azure 帳戶](http://azure.microsoft.com/)。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。
 **Site Recovery 服務** | 如需 Azure Site Recovery 服務的詳細資訊，請參閱 [Site Recovery 價格](https://azure.microsoft.com/pricing/details/site-recovery/)。 |
-**Azure 儲存體** | 您需要 Azure 儲存體帳戶來儲存複寫的資料。 儲存體帳戶必須位於與 Azure 復原服務保存庫相同的區域中。 發生容錯移轉時，會建立 Azure VM。<br/><br/> 依您想要對於 Azure VM 容錯移轉使用的資源模型而定，可以使用 [Azure Resource Manager 部署模型](../storage/storage-create-storage-account.md)或[傳統部署模型](../storage/storage-create-storage-account-classic-portal.md)設定帳戶。<br/><br/>您可以使用[異地備援儲存體](../storage/storage-redundancy.md#geo-redundant-storage)或本地備援儲存體。 建議使用異地備援儲存體。 使用異地備援儲存體時，如果發生區域性停電或無法復原主要區域，就能夠恢復資料。<br/><br/> 您可以使用標準的 Azure 儲存體帳戶，或使用 Azure 進階儲存體。 [進階儲存體](https://docs.microsoft.com/azure/storage/storage-premium-storage)通常用於需要持續有高 I/O 效能和低延遲的虛擬機器。 使用進階儲存體，虛擬機器即可裝載大量 I/O 的工作負載。 如果您使用進階儲存體來存放複寫的資料，您也需要標準儲存體帳戶。 標準儲存體帳戶可儲存複寫記錄，這些記錄會擷取內部部署資料不斷發生的變更。<br/><br/>
+**Azure 儲存體** | 您需要 Azure 儲存體帳戶來儲存複寫的資料。 儲存體帳戶必須位於與 Azure 復原服務保存庫相同的區域中。 發生容錯移轉時，會建立 Azure VM。<br/><br/> 依您想要對於 Azure VM 容錯移轉使用的資源模型而定，可以使用 [Azure Resource Manager 部署模型](../storage/common/storage-create-storage-account.md)或[傳統部署模型](../storage/common/storage-create-storage-account.md)設定帳戶。<br/><br/>您可以使用[異地備援儲存體](../storage/common/storage-redundancy.md#geo-redundant-storage)或本地備援儲存體。 建議使用異地備援儲存體。 使用異地備援儲存體時，如果發生區域性停電或無法復原主要區域，就能夠恢復資料。<br/><br/> 您可以使用標準的 Azure 儲存體帳戶，或使用 Azure 進階儲存體。 [進階儲存體](https://docs.microsoft.com/azure/storage/storage-premium-storage)通常用於需要持續有高 I/O 效能和低延遲的虛擬機器。 使用進階儲存體，虛擬機器即可裝載大量 I/O 的工作負載。 如果您使用進階儲存體來存放複寫的資料，您也需要標準儲存體帳戶。 標準儲存體帳戶可儲存複寫記錄，這些記錄會擷取內部部署資料不斷發生的變更。<br/><br/>
 **儲存體限制** | 您無法移動不同資源群組的 Site Recovery 中使用的儲存體帳戶，也無法移至或使用其他訂用帳戶。<br/><br/> 目前，印度中部與印度南部無法複寫至進階儲存體帳戶。
 **Azure 網路** | 您需要 Azure 網路，供 Azure VM 在容錯移轉之後連線。 此 Azure 網路必須位於與復原服務保存庫相同的區域中。<br/><br/> 在 Azure 入口網站，您可以使用[資源管理員部署模型](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)或[傳統部署模型](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)建立 Azure 網路。<br/><br/> 如果您將從 System Center Virtual Machine Manager (VMM) 複寫至 Azure 時，必須設定 VMM VM 網路與 Azure 網路之間的網路對應。 這可確保 Azure VM 在容錯移轉之後連線到適當的網路。
 **網路限制** | 您無法將在 Site Recovery 中使用的網路帳戶移至不同的資源群組，也無法移至或使用其他訂用帳戶。
@@ -71,7 +71,7 @@ VMware VM 或實體 Windows 或 Linux 伺服器的災害復原需要下列元件
     | --- | --- |
     | **內部部署機器** (VMware VM) | 複寫的虛擬機器必須安裝並執行 VMware 工具。<br/><br/> 虛擬機器必須符合[Azure 的必要條件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)用於建立 Azure VM。<br/><br/>每部受保護的電腦上的磁碟容量不可超過 1,023 GB。 <br/><br/>安裝磁碟機上必須至少有 2 GB 的可用空間來進行元件安裝。<br/><br/>如果您想要啟用多部 VM 虛擬機器一致性，必須在虛擬機器本機防火牆上開啟連接埠 20004。<br/><br/>機器名稱的長度必須介於 1 到 63 個字元 (可使用字母、數字和連字號)。 名稱必須以字母或數字開頭，並以字母或數字結尾。 <br/><br/>您可以在為機器啟用複寫後修改 Azure 名稱。<br/><br/> |
     | **Windows 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Windows Server 2012 R2<br/>- Windows Server 2012<br/>- Windows Server 2008 R2 SP1 或更新版本<br/><br/> 作業系統必須安裝在 C 磁碟機上。作業系統磁碟必須是 Windows 基本磁碟而非動態磁碟。 資料磁碟可以為動態。<br/><br/>|
-    | **Linux 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Red Hat Enterprise Linux 7.2、7.1、6.8 或 6.7<br/>- Centos 7.2、7.1、7.0、6.8、6.7、6.6 或 6.5<br/>- Ubuntu 14.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>-  Oracle Enterprise Linux 6.5 或 6.4，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)<br/>- SUSE Linux Enterprise Server 11 SP4 或 SUSE Linux Enterprise Server 11 SP3<br/><br/>受保護機器上您的 /etc/hosts 檔案必須有將本機主機名稱對應到所有網路介面卡相關聯 IP 位址的項目。<br/><br/>容錯移轉之後，如果您想要連線到使用安全殼層 (SSH) 用戶端執行 Linux 的 Azure VM，請確定受保護的機器上的 SSH 服務已設定為系統啟動時自動啟動。 也請確定防火牆規則允許對於受保護的機器進行的 SSH 連線。<br/><br/>主機名稱、掛接點、裝置名稱和 Linux 系統路徑和檔案名稱 (例如 /etc/ 和 /usr) 必須僅使用英文。<br/><br/>下列目錄必須一律位於來源伺服器的同個磁碟 (OS 磁碟) (若設為獨立資料分割/檔案系統)：<br/>- / (根)<br/>- /boot<br/>- /usr<br/>- /usr/local<br/>- /var<br/>- /etc<br/><br/>目前，XFS v5 功能 (例如，中繼資料總和檢查碼) 不支援 XFS 檔案系統的 Site Recovery。 請確定 XFS 檔案系統未使用任何 v5 功能。 您可使用 xfs_info 公用程式來檢查資料分割的 XFS 超級區塊。 若 **ftype** 設為 **1**，則會使用 XFS v5 功能。<br/><br/>在 Red Hat Enterprise Linux 7 和 CentOS 7 伺服器上，必須安裝和提供可用的 lsof 公用程式。<br/><br/>
+    | **Linux 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Red Hat Enterprise Linux 5.2 至 5.11、6.1 至 6.9、7.0 至 7.3<br/>- CentOS 5.2 至 5.11、6.1 至 6.9、7.0 至 7.3<br/>- Ubuntu 14.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>- Ubuntu 16.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>-  Debian 7 或 Debian 8<br/>-  Oracle Enterprise Linux 6.5 或 6.4，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)<br/>- SUSE Linux Enterprise Server 11 SP4 或 SUSE Linux Enterprise Server 11 SP3<br/><br/>受保護機器上您的 /etc/hosts 檔案必須有將本機主機名稱對應到所有網路介面卡相關聯 IP 位址的項目。<br/><br/>容錯移轉之後，如果您想要連線到使用安全殼層 (SSH) 用戶端執行 Linux 的 Azure VM，請確定受保護的機器上的 SSH 服務已設定為系統啟動時自動啟動。 也請確定防火牆規則允許對於受保護的機器進行的 SSH 連線。<br/><br/>主機名稱、掛接點、裝置名稱和 Linux 系統路徑和檔案名稱 (例如 /etc/ 和 /usr) 必須僅使用英文。<br/><br/>下列目錄必須一律位於來源伺服器的同個磁碟 (OS 磁碟) (若設為獨立資料分割/檔案系統)：<br/>- / (根)<br/>- /boot<br/>- /usr<br/>- /usr/local<br/>- /var<br/>- /etc<br/><br/>目前，XFS v5 功能 (例如，中繼資料總和檢查碼) 不支援 XFS 檔案系統的 Site Recovery。 請確定 XFS 檔案系統未使用任何 v5 功能。 您可使用 xfs_info 公用程式來檢查資料分割的 XFS 超級區塊。 若 **ftype** 設為 **1**，則會使用 XFS v5 功能。<br/><br/>在 Red Hat Enterprise Linux 7 和 CentOS 7 伺服器上，必須安裝和提供可用的 lsof 公用程式。<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-vms-to-azure-no-vmm"></a>Hyper-V 虛擬機器至 Azure (無 VMM) 的災害復原

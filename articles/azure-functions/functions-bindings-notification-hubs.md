@@ -4,7 +4,7 @@ description: "了解如何在 Azure Functions 中使用「Azure 通知中樞」�
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/27/2016
+ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: fa3d37b963c1bb6b58127b9180cd657d7b1dabcc
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 02d01d0f6e945ed54dbe766aec2a0fd7c17c510f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-notification-hub-output-binding"></a>Azure Functions 通知中樞輸出繫結
@@ -38,19 +37,16 @@ ms.lasthandoff: 06/20/2017
 ## <a name="notification-hub-output-binding-properties"></a>通知中樞輸出繫結屬性
 function.json 檔案提供下列屬性：
 
-* `name` ︰函式程式碼中用於通知中樞訊息的變數名稱。
-* `type`：必須設定為 *"notificationHub"*。
-* `tagExpression` ︰標籤運算式可讓您指定將通知傳遞到一組裝置，這些裝置已註冊要接收與標籤運算式相符的通知。  如需詳細資訊，請參閱 [路由與標籤運算式](../notification-hubs/notification-hubs-tags-segment-push-message.md)。
-* `hubName` ︰Azure 入口網站中通知中樞資源的名稱。
-* `connection`︰此連接字串必須是設定為您通知中樞之 *DefaultFullSharedAccessSignature* 值的「應用程式設定」連接字串。
-* `direction`：必須設定為 *"out"*。 
-* `platform`：此平台屬性指出作為您通知目標的通知平台。 必須為下列其中一個值：
-  * 依照預設，如果輸出繫結中省略平台屬性，範本通知可用來以「Azure 通知中樞」上所設定的任何平台為目標。 如需有關一般使用範本搭配「Azure 通知中樞」來傳送跨平台通知的詳細資訊，請參閱[範本](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
-  * `apns`：Apple Push Notification Service。 如果有關設定適用於 APNS 的通知中樞及在用戶端 App 中接收通知的詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 iOS](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md) 
-  * `adm`：[Amazon 裝置傳訊](https://developer.amazon.com/device-messaging)。 如果有關設定適用於 ADM 的通知中樞及在 Kindle App 中接收通知的詳細資訊，請參閱[開始使用適用於 Kindle 應用程式的通知中樞](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md) 
-  * `gcm`：[Google 雲端通訊](https://developers.google.com/cloud-messaging/)。 也支援 Firebase Cloud Messaging (新版 GCM)。 如果有關設定適用於 GCM/FCM 的通知中樞及在 Android 用戶端 App 中接收通知的詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 Android](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)
-  * `wns`：以 Windows 平台為目標的 [Windows 推播通知服務](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)。 WNS 也支援 Windows Phone 8.1 和更新版本。 如果有關設定適用於 WNS 的通知中樞及在「通用 Windows 平台」(UWP) app 中接收通知的詳細資訊，請參閱[開始使用適用於 Windows 通用平台應用程式的通知中樞](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
-  * `mpns`：[Microsoft 推播通知服務](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx)。 此平台支援 Windows Phone 8 和舊版 Windows Phone 平台。 如果有關設定適用於 MPNS 的通知中樞及在 Windows Phone App 中接收通知的詳細資訊，請參閱[在 Windows Phone 上使用 Azure 通知中樞傳送推播通知](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)
+
+|屬性  |說明  |
+|---------|---------|
+|**name** | 函式程式碼中用於通知中樞訊息的變數名稱。 |
+|**type** | 必須設為 `notificationHub`。 |
+|**tagExpression** | 標籤運算式可讓您指定將通知傳遞到一組裝置，這些裝置已註冊要接收與標籤運算式相符的通知。  如需詳細資訊，請參閱 [路由與標籤運算式](../notification-hubs/notification-hubs-tags-segment-push-message.md)。 |
+|**hubName** | Azure 入口網站中通知中樞資源的名稱。 |
+|**連接** | 此連接字串必須是設定為您通知中樞之 DefaultFullSharedAccessSignature 值的**應用程式設定**連接字串。 |
+|**direction** | 必須設為 `out`。 | 
+|**platform** | 此平台屬性指出作為您通知目標的通知平台。 依照預設，如果輸出繫結中省略平台屬性，範本通知可用來以「Azure 通知中樞」上所設定的任何平台為目標。 如需有關一般使用範本搭配「Azure 通知中樞」來傳送跨平台通知的詳細資訊，請參閱[範本](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。 platform 在設定時必須是以下其中一個值： <ul><li><code>apns</code>&mdash;Apple Push Notification Service。 如果有關設定適用於 APNS 的通知中樞及在用戶端 App 中接收通知的詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 iOS](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)。</li><li><code>adm</code>&mdash;[Amazon 裝置通訊](https://developer.amazon.com/device-messaging)。 如果有關設定適用於 ADM 的通知中樞及在 Kindle App 中接收通知的詳細資訊，請參閱[開始使用適用於 Kindle 應用程式的通知中樞](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)。</li><li><code>gcm</code>&mdash;[Google 雲端通訊](https://developers.google.com/cloud-messaging/)。 也支援 Firebase Cloud Messaging (新版 GCM)。 如需詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 Android](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)。</li><li><code>wns</code>&mdash;以 Windows 平台為目標的 [Windows 推播通知服務](https://msdn.microsoft.com/en-us/windows/uwp/controls-and-patterns/tiles-and-notifications-windows-push-notification-services--wns--overview)。 WNS 也支援 Windows Phone 8.1 和更新版本。 如需詳細資訊，請參閱[開始使用適用於 Windows 通用平台應用程式的通知中樞](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。</li><li><code>mpns</code>&mdash;[Microsoft 推播通知服務](https://msdn.microsoft.com/en-us/library/windows/apps/ff402558.aspx)。 此平台支援 Windows Phone 8 和舊版 Windows Phone 平台。 如需詳細資訊，請參閱[在 Windows Phone 上使用 Azure 通知中樞傳送推播通知](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)。</li></ul> |
 
 function.json 範例：
 
@@ -72,14 +68,15 @@ function.json 範例：
 ```
 
 ## <a name="notification-hub-connection-string-setup"></a>通知中樞連接字串設定
-若要使用通知中樞輸出繫結，必須設定中樞的連接字串。 若要這麼做，只要在 [整合] 索引標籤上選取您的通知中樞或建立一個新通知中樞即可。 
+若要使用通知中樞輸出繫結，必須設定中樞的連接字串。 您可以直接從函式中的 [整合] 索引標籤選取現有通知中樞或建立新的通知中樞。 您也可以手動設定連接字串。 
 
-您也可以將「DefaultFullSharedAccessSignature」  新增至通知中樞，手動新增現有中樞的連接字串。 此連接字串提供您的函式存取權限來傳送通知訊息。 您可以在 Azure 入口網站中，從通知中樞資源之主要刀鋒視窗中的 [金鑰] 按鈕存取 *DefaultFullSharedAccessSignature* 連接字串值。 若要手動新增中樞的連接字串，請使用下列步驟︰ 
+若要將連接字串設定為現有通知中樞：
 
-1. 在 Azure 入口網站的 [函數應用程式] 刀鋒視窗上，按一下 [函數應用程式設定] > [前往 App Service 設定]。
-2. 在 [設定] 刀鋒視窗中，按一下 [應用程式設定]。
-3. 向下捲動至 [應用程式設定] 區段，為通知中樞的 *DefaultFullSharedAccessSignature* 值新增具名項目。
-4. 參考輸出繫結中的應用程式設定字串名稱。 與上述範例中使用的 **MyHubConnectionString** 類似。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)中的通知中樞，選擇 [存取原則]，然後選取 **DefaultFullSharedAccessSignature** 原則旁邊的 [複製] 按鈕。 這會將 DefaultFullSharedAccessSignature 原則的連接字串複製到通知中樞。 此連接字串提供您的函式存取權限來傳送通知訊息。 
+    ![複製通知中樞連接字串](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
+1. 瀏覽至 Azure 入口網站中的函式應用程式，選擇 [應用程式設定]，新增 `MyHubConnectionString` 之類的金鑰，貼上針對通知中樞所複製的 DefaultFullSharedAccessSignature 來作為值，然後按一下 [儲存]。
+
+您現在可以使用此具名應用程式設定，在輸出繫結中定義通知中樞連線。
 
 ## <a name="apns-native-notifications-with-c-queue-triggers"></a>含 C# 佇列觸發程序的 APNS 原生通知
 這個範例示範如何使用 [Microsoft Azure 通知中樞程式庫](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)中定義的類型來傳送原生 APNS 通知。 

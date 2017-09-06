@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c8d4733e57eb760dbb8e8ca96f6ba55671d1742f
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/21/2017
 > 本文所討論的 S1、S2 和 S3 效能層級將會淘汰，而且也無法再供新的 DocumentDB API 帳戶使用。
 >
 
-本文概述 S1、S2 和 S3 效能層級，並討論使用這些效能層級的集合在 2017 年 8 月 1 日將如何移轉至單一資料分割集合。 閱讀本文後，您將能夠回答下列問題：
+本文概述 S1、S2 和 S3 效能層級，並討論使用這些效能層級的集合如何在 2017 年底移轉至單一資料分割集合。 閱讀本文後，您將能夠回答下列問題：
 
 - [為何 S1、S2 和 S3 效能層級將要淘汰？](#why-retired)
 - [單一分割區集合和資料分割的集合與 S1、S2、S3 效能層級之比較為何？](#compare)
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/21/2017
 - [在移轉之後我的集合會如何變更？](#collection-change)
 - [我移轉至單一資料分割集合之後，我的帳單將如何變更呢？](#billing-change)
 - [如果我需要超過 10 GB 的儲存體會如何？](#more-storage-needed)
-- [在 2017 年 8 月 1 前，我可以在 S1、S2 和 S3 效能層級之間變更嗎？](#change-before)
+- [在計劃性移轉之前，我可以在 S1、S2 和 S3 效能層級之間變更嗎？](#change-before)
 - [如何得知我的收藏何時已移轉？](#when-migrated)
 - [如何自己從 S1、S2、S3 效能層級移轉至單一資料分割集合？](#migrate-diy)
 - [如果我是 EA 客戶會受到什麼影響？](#ea-customer)
@@ -66,7 +66,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 ## <a name="what-do-i-need-to-do-to-ensure-uninterrupted-access-to-my-data"></a>我該怎麼做才能確保不中斷地的存取我的資料？
 
-無須執行任何動作，Cosmos DB 會處理您的移轉。 如果您有 S1、S2 或 S3 集合，您目前的集合將會在 2017 年 7 月 31 日移轉至單一磁碟分割集合。 
+無須執行任何動作，Cosmos DB 會處理您的移轉。 如果您有 S1、S2 或 S3 集合，您目前的集合將會在 2017 年底移轉至單一磁碟分割集合。 
 
 <a name="collection-change"></a>
 
@@ -98,15 +98,15 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 <a name="change-before"></a>
 
-## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-august-1-2017"></a>在 2017 年 8 月 1 前，我可以在 S1、S2 和 S3 效能層級之間變更嗎？
+## <a name="can-i-change-between-the-s1-s2-and-s3-performance-levels-before-the-planned-migration"></a>在計劃性移轉之前，我可以在 S1、S2 和 S3 效能層級之間變更嗎？
 
-只有 S1、S2 和 S3 效能的現有帳戶可以變更，且透過入口網站或以程式設計的方式變更效能層級層。 至 2017 年 8 月 1 日起，S1、S2 和 S3 效能層級不再提供使用。 如果您從 S1、S3 或 S3 變更為單一資料分割集合，將無法回到 S1、S2 或 S3 效能層級。
+只有 S1、S2 和 S3 效能的現有帳戶可以變更，且透過入口網站或以程式設計的方式變更效能層級層。 如果您從 S1、S3 或 S3 變更為單一資料分割集合，將無法回到 S1、S2 或 S3 效能層級。
 
 <a name="when-migrated"></a>
 
 ## <a name="how-will-i-know-when-my-collection-has-migrated"></a>如何得知我的收藏何時已移轉？
 
-移轉會在 2017 年 7 月 31 日發生。 如果您擁有的集合是使用 S1、S2 或 S3 效能層級，Cosmos DB 小組會在進行移轉之前，透過電子郵件與您連絡。 一旦完成移轉後，在 2017 年 8 月 1 日，Azure 入口網站會顯示您的集合是使用標準價格。
+移轉會在 2017 年底發生。 如果您擁有的集合是使用 S1、S2 或 S3 效能層級，Cosmos DB 小組會在進行移轉之前，透過電子郵件與您連絡。 一旦完成移轉，Azure 入口網站會顯示您的集合使用標準價格。
 
 ![如何確認您的集合已移轉至標準定價層](./media/performance-levels/portal-standard-pricing-applied.png)
 
@@ -114,7 +114,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
 
 ## <a name="how-do-i-migrate-from-the-s1-s2-s3-performance-levels-to-single-partition-collections-on-my-own"></a>如何自己從 S1、S2、S3 效能層級移轉至單一資料分割集合？
 
-您可以使用 Azure 入口網站或以程式設計的方式，從 S1、S2 和 S3 效能層級移轉至單一資料分割集合。 您可以在 8 月 1 日之前自行進行此動作，以受益於單一資料分割的集合具彈性的可用輸送量，或是我們會在 2017 年 7 月 31 日為您移轉集合。
+您可以使用 Azure 入口網站或以程式設計的方式，從 S1、S2 和 S3 效能層級移轉至單一資料分割集合。 您可以計劃性移轉之前自行進行此動作，以受益於單一資料分割的集合具彈性的可用輸送量，或者我們會在 2017 年底為您移轉集合。
 
 **若要使用 Azure 入口網站移轉至單一資料分割集合**
 

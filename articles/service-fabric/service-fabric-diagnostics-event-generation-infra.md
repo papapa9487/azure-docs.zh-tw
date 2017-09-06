@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 08/24/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 2e320339f60b593c1cff68ca047c95f9cb7b33e2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -31,7 +31,9 @@ ms.lasthandoff: 07/20/2017
 Service Fabric 提供五個產生下列事件的不同現成記錄通道：
 
 * 操作通道：由 Service Fabric 與叢集執行的高階作業，包括即將進行的節點事件、正在部署的新應用程式，或 SF 升級復原等等。
-* 客戶資訊通道：健康情況報告與負載平衡決策
+* 作業通道 - 詳細：健康情況報告與負載平衡決策
+* 資料和傳訊通道：在我們的傳訊 (目前僅限 ReverseProxy) 和資料路徑 (可靠的服務模型) 中產生的重要記錄和事件
+* 資料和傳訊通道 - 詳細：詳細資訊通道，其中包含叢集中資料和傳訊的所有非重要記錄 (此通道有非常大量的事件)   
 * [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)：程式設計模型特定的事件
 * [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)︰程式設計模型特定的事件和效能計數器
 * 支援的記錄：由 Service Fabric 產生的系統記錄僅供我們在提供支援時使用
@@ -79,9 +81,9 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 
 ## <a name="enabling-diagnostics-for-a-cluster"></a>啟用叢集的診斷
 
-若要充分利用這些記錄，強烈建議在建立叢集期間啟用「診斷」。 透過開啟診斷，在部署叢集時，Windows Azure 診斷可以認可 Operational、Reliable Services 和 Reliable actors 通道，並儲存資料，如**這裡**的進一步說明。
+若要充分利用這些記錄，強烈建議在建立叢集期間啟用「診斷」。 透過開啟診斷，在部署叢集時，Windows Azure 診斷可以認可 Operational、Reliable Services 和 Reliable actors 通道，並儲存資料，如[使用 Azure 診斷彙總事件](service-fabric-diagnostics-event-aggregation-wad.md)的進一步說明。
 
-如上所示，也有選擇性欄位可新增 Application Insights (AppInsights) 檢測索引鍵。 如果您選擇使用 AppInsights 進行任何事件分析 (在**這裡**深入閱讀此作業)，請在此包含 AppInsights 資源 instrumentationKey (GUID)。
+如上所示，也有選擇性欄位可新增 Application Insights (AI) 檢測索引鍵。 如果您選擇使用 AI 進行任何事件分析 (在[透過 Application Insights 的事件分析](service-fabric-diagnostics-event-analysis-appinsights.md)深入閱讀此作業)，請在此包含 AppInsights 資源 instrumentationKey (GUID)。
 
 
 如果您要將容器部署至叢集，請讓 WAD 挑選 Docker 統計資料，方法是將這個項目新增至 "WadCfg > DiagnosticMonitorConfiguration"：

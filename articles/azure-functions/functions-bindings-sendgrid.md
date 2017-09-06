@@ -4,20 +4,19 @@ description: "Azure Functions SendGrid 繫結參考"
 services: functions
 documentationcenter: na
 author: rachelappel
-manager: erikre
+manager: cfowler
 ms.service: functions
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/16/2017
+ms.date: 08/26/2017
 ms.author: rachelap
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 0cd7e7c55e77863c142800cdc11d6ea144c38293
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: bcdbb6aee49d230a4cb0ba08d836facacb64de7f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 繫結
@@ -35,14 +34,16 @@ Azure Functions 提供適用於 SendGrid 的輸出繫結。 SendGrid 輸出繫�
 
 SendGrid 繫結支援下列屬性︰
 
-- `name`：必要項目 - 函式程式碼中用於要求或要求主體的變數名稱。 當只有一個傳回值時，此值為 ```$return```。 
-- `type`：必要項目 - 必須設定為 "sendGrid"。
-- `direction`：必要項目 - 必須設定為 "out"。
-- `apiKey`：必要項目 - 必須設定為函數應用程式的應用程式設定中儲存的 API 金鑰名稱。
-- `to`：收件者的電子郵件地址。
-- `from`：寄件者的電子郵件地址。
-- `subject`：電子郵件主旨。
-- `text`：電子郵件內容。
+|屬性  |說明  |
+|---------|---------|
+|**name**| 必要項目 - 函式程式碼中用於要求或要求主體的變數名稱。 當只有一個傳回值時，此值為 ```$return```。 |
+|**type**| 必要項目 - 必須設定為 `sendGrid`。|
+|**direction**| 必要項目 - 必須設定為 `out`。|
+|**apiKey**| 必要項目 - 必須設定為函數應用程式的應用程式設定中儲存的 API 金鑰名稱。 |
+|**to**| 收件者的電子郵件地址。 |
+|**from**| 寄件者的電子郵件地址。 |
+|**subject**| 電子郵件主旨。 |
+|**text**| 電子郵件內容。 |
 
 **function.json** 範例：
 

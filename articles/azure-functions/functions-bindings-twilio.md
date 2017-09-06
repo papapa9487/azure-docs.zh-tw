@@ -4,7 +4,7 @@ description: "了解如何搭配使用 Twilio 繫結與 Azure Functions。"
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/20/2016
 ms.author: wesmc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2fd12dd32ed3c8479c7460cbc0a1cac3330ff4f4
-ms.openlocfilehash: 9355aae6e3fbf70aae08cc829d7addd2decc44fd
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e8c5e8f2dfedae26486e1c8afbe0cec3f3228e86
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/01/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="send-sms-messages-from-azure-functions-using-the-twilio-output-binding"></a>使用 Twilio 輸出繫結從 Azure Functions 傳送手機訊息
@@ -36,14 +36,16 @@ Azure Functions 支援 Twilio 輸出繫結，讓函式傳送具有數行程式�
 ## <a name="functionjson-for-the-twilio-output-binding"></a>適用於 Twilio 輸出繫結的 function.json
 function.json 檔案提供下列屬性：
 
-* `name`︰用於 Twilio 簡訊文字訊息之函式程式碼中的變數名稱。
-* `type`：必須設定為 *"twilioSms"*。
-* `accountSid`︰此值必須設定為保留您 Twilio 帳戶 Sid 的應用程式設定名稱。
-* `authToken`︰此值必須設定為保留您 Twilio 驗證權杖的應用程式設定名稱。
-* `to`︰此值設定為簡訊文字傳送至的電話號碼。
-* `from`︰此值設定為從中傳送簡訊文字的電話號碼。
-* `direction`：必須設為 *"out"*。
-* `body`︰如果您不需要在函式程式碼中動態設定 SMS 文字訊息，則此值可以用來硬式編碼 SMS 文字訊息。 
+|屬性  |說明  |
+|---------|---------|
+|**name**| 用於 Twilio 簡訊文字訊息之函式程式碼中的變數名稱。 |
+|**type**| 必須設為 `twilioSms`。|
+|**accountSid**| 此值必須設定為保留您 Twilio 帳戶 Sid 的應用程式設定名稱。|
+|**authToken**| 此值必須設定為保留您 Twilio 驗證權杖的應用程式設定名稱。|
+|**to**| 此值設定為簡訊文字傳送至的電話號碼。|
+|**from**| 此值設定為從中傳送簡訊文字的電話號碼。|
+|**direction**| 必須設為 `out`。|
+|**body**| 如果您不需要在函式程式碼中動態設定 SMS 文字訊息，則此值可以用來硬式編碼 SMS 文字訊息。 |
 
 function.json 範例：
 

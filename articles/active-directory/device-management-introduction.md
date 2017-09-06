@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: c8b8408f76534a808fd60e331282f8191905df58
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory 中的裝置管理簡介
@@ -31,7 +31,9 @@ ms.lasthandoff: 08/23/2017
 
 透過裝置，您的使用者可存取公司資產。 為了保護公司資產，身為 IT 管理員，您希望控制這些裝置。 這可讓您確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 
 
-本主題說明 Azure AD 中的裝置管理如何協助您達成此目標。
+裝置管理也是[裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)的基礎。 使用裝置型條件式存取，您就可以確保只能透過受信任的裝置來存取環境中的資源。   
+
+本主題說明 Azure Active Directory 中的裝置管理運作方式。
 
 ## <a name="getting-devices-under-the-control-of-azure-ad"></a>取得 Azure AD 控制下的裝置
 
@@ -145,9 +147,14 @@ Azure AD 加入裝置的目標是簡化：
 
 ## <a name="next-steps"></a>後續步驟
 
+- 若要取得在 Azure 入口網站中管理裝置的概觀，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)
+
 - 若要深入了解裝置型條件式存取，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
-- 若要設定混合式 Azure AD 已加入的裝置，請參閱[如何設定混合式 Azure Active Directory 已加入的裝置](device-management-hybrid-azuread-joined-devices-setup.md)。
+- 若要設定：
+    - 已註冊 Azure Active Directory 的 Windows 10 裝置，請參閱[如何設定已註冊 Azure Active Directory 的 Windows 10 裝置](device-management-azuread-registered-devices-windows10-setup.md)
+    - 已加入 Azure Active Directory 的裝置，請參閱[如何設定已加入 Azure Active Directory 的裝置](device-management-azuread-joined-devices-setup.md)
+    - 已加入混合式 Azure AD 的裝置，請參閱[如何設定已加入混合式 Azure Active Directory 的裝置](device-management-hybrid-azuread-joined-devices-setup.md)。
 
 
 

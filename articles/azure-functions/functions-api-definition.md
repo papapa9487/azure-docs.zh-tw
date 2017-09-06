@@ -4,7 +4,7 @@ description: "Azure Functions 中的 OpenAPI 支援概觀"
 services: functions
 documentationcenter: 
 author: alexkarcher-msft
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: functions
@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: c144e22654629f600b8f630363239efc82ac79d7
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions 中的 OpenAPI 2.0 中繼資料支援 (預覽)
@@ -33,9 +32,9 @@ Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是�
 >建議您從[入門教學課程](./functions-api-definition-getting-started.md)開始，然後再回到此文件學習更多特定的功能。
 
 ## <a name="enable"></a>啟用 OpenAPI 定義支援
-您可以在函式應用程式設定的 **API 定義 (預覽)** 頁面上設定所有 OpenAPI 設定。
+您可以在函式應用程式設定的**平台功能**中的 **API 定義**頁面上，設定所有 OpenAPI 設定。
 
-若要允許產生託管的 OpenAPI 定義和快速入門定義，請將 **API 定義來源** 設定為 **Function**。 **外部 URL** 可讓您的函式使用裝載在其他位置的 OpenAPI 定義。
+若要允許產生託管的 OpenAPI 定義和快速入門定義，請將 **API 定義來源** 設定為**函式 (預覽)**。 **外部 URL** 可讓您的函式使用裝載在其他位置的 OpenAPI 定義。
 
 ## <a name="generate-definition"></a> 從您的函式中繼資料產生 Swagger 基本架構
 範本可協助您開始撰寫第一個 OpenAPI 定義。 定義範本功能會針對每個 HTTP 觸發程序函式，使用 function.json 中所有的中繼資料來建立鬆散的 OpenAPI 定義。 您會需要從 [OpenAPI 規格](http://swagger.io/specification/)填入 API 的更多相關資訊，例如要求和回應範本。
