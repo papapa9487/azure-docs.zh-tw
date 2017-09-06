@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fe2d13fd18de28864a4b3f00b0eb2e02c0867616
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d944904db5b0bf176b214249ad59611e2b794ae0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -41,3 +41,4 @@ Azure 應用程式閘道支援以虛擬機器擴展集、網路介面、公用/�
 ## <a name="next-steps"></a>後續步驟
 
 了解如何設定以 Web 應用程式作為後端集區成員的應用程式閘道，請瀏覽：[透過應用程式閘道設定 App Service Web Apps](application-gateway-web-app-powershell.md)
+

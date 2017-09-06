@@ -12,23 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/28/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: ed72325ca9db99405c6173eb882a92f80cd77f47
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: e3f8dd4b820da8a14437aa313e4296dc17111674
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
-<a id="enable-azure-active-directory-domain-services-using-the-azure-classic-portal" class="xliff"></a>
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>使用 Azure 傳統入口網站啟用 Azure Active Directory Domain Services
 
-# 使用 Azure 傳統入口網站啟用 Azure Active Directory Domain Services
+> [!IMPORTANT]
+> 即將移除啟用本文所示 Azure AD Domain Services 的 Azure 傳統入口網站體驗。 對於新的部署，[**請改用新的 (預覽) Azure 入口網站體驗**](active-directory-ds-getting-started.md)。
+>
 
-<a id="task-3-enable-azure-active-directory-domain-services" class="xliff"></a>
-
-## 工作 3︰啟用 Azure Active Directory Domain Services
+## <a name="task-3-enable-azure-active-directory-domain-services"></a>工作 3︰啟用 Azure Active Directory Domain Services
 在此工作中，您執行下列步驟來啟用您目錄的 Azure Active Directory Domain Services (Azure AD DS)︰
 
 1. 前往 [Azure 傳統入口網站](https://manage.windowsazure.com)。
@@ -99,8 +98,6 @@ ms.lasthandoff: 06/30/2017
 >
 >
 
-<a id="next-step" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-step"></a>後續步驟
 [工作 4：更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-update-dns.md)
 

@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 4/4/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 8a903cd870f01f9ca6224efd1386b68c63e3aa98
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/06/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -100,7 +99,7 @@ ms.lasthandoff: 04/06/2017
 若要部署 [Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)或 [Windows 上的 ASP.NET MVC 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)範本，最簡單的方式就是使用 GitHub 讀我檔案中的 [部署至 Azure] 按鈕。  您也可以使用 PowerShell 或 Azure CLI 來部署範本範例。
 
 ### <a name="powershell"></a>PowerShell
-從 GitHub 儲存機制將 [Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)或 [Windows 上的 ASP.NET MVC 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)檔案複製到本機電腦上的資料夾。  開啟 *azuredeploy.parameters.json* 檔案並更新 `vmssName`、`adminUsername` 和 `adminPassword` 參數的預設值。 將下列 PowerShell 指令碼儲存至範例資料夾中的 *deploy.ps1* 做為 *azuredeploy.json* 範本。 若要部署範例範本，請從 PowerShell 命令視窗執行 *deploy.ps1* 指令碼。
+從 GitHub 儲存機制將 [Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)或 [Windows 上的 ASP.NET MVC 應用程式](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)檔案複製到本機電腦上的資料夾。  開啟 *azuredeploy.parameters.json* 檔案並更新 `vmssName`、`adminUsername` 和 `adminPassword` 參數的預設值。 將下列 PowerShell 指令碼儲存至相同資料夾中的 *deploy.ps1* 作為 *azuredeploy.json* 範本。 若要部署範例範本，請從 PowerShell 命令視窗執行 *deploy.ps1* 指令碼。
 
 ```powershell
 param(
@@ -120,10 +119,10 @@ param(
  $deploymentName,
 
  [string]
- $templateFilePath = "azuredeploy.json",
+ $templateFilePath = "template.json",
 
  [string]
- $parametersFilePath = "azuredeploy.parameters.json"
+ $parametersFilePath = "parameters.json"
 )
 
 <#
@@ -154,7 +153,7 @@ Write-Host "Selecting subscription '$subscriptionId'";
 Select-AzureRmSubscription -SubscriptionID $subscriptionId;
 
 # Register RPs
-$resourceProviders = @("microsoft.resources");
+$resourceProviders = @("microsoft.compute","microsoft.insights","microsoft.network");
 if($resourceProviders.length) {
     Write-Host "Registering resource providers"
     foreach($resourceProvider in $resourceProviders) {
@@ -184,6 +183,127 @@ if(Test-Path $parametersFilePath) {
 } else {
     New-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile $templateFilePath;
 }
+```
+
+### <a name="azure-cli"></a>Azure CLI
+```azurecli
+#!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+# -e: immediately exit if any command has a non-zero exit status
+# -o: prevents errors in a pipeline from being masked
+# IFS new value is less likely to cause confusing bugs when looping arrays or arguments (e.g. $@)
+
+usage() { echo "Usage: $0 -i <subscriptionId> -g <resourceGroupName> -n <deploymentName> -l <resourceGroupLocation>" 1>&2; exit 1; }
+
+declare subscriptionId=""
+declare resourceGroupName=""
+declare deploymentName=""
+declare resourceGroupLocation=""
+
+# Initialize parameters specified from command line
+while getopts ":i:g:n:l:" arg; do
+    case "${arg}" in
+        i)
+            subscriptionId=${OPTARG}
+            ;;
+        g)
+            resourceGroupName=${OPTARG}
+            ;;
+        n)
+            deploymentName=${OPTARG}
+            ;;
+        l)
+            resourceGroupLocation=${OPTARG}
+            ;;
+        esac
+done
+shift $((OPTIND-1))
+
+#Prompt for parameters is some required parameters are missing
+if [[ -z "$subscriptionId" ]]; then
+    echo "Subscription Id:"
+    read subscriptionId
+    [[ "${subscriptionId:?}" ]]
+fi
+
+if [[ -z "$resourceGroupName" ]]; then
+    echo "ResourceGroupName:"
+    read resourceGroupName
+    [[ "${resourceGroupName:?}" ]]
+fi
+
+if [[ -z "$deploymentName" ]]; then
+    echo "DeploymentName:"
+    read deploymentName
+fi
+
+if [[ -z "$resourceGroupLocation" ]]; then
+    echo "Enter a location below to create a new resource group else skip this"
+    echo "ResourceGroupLocation:"
+    read resourceGroupLocation
+fi
+
+#templateFile Path - template file to be used
+templateFilePath="template.json"
+
+if [ ! -f "$templateFilePath" ]; then
+    echo "$templateFilePath not found"
+    exit 1
+fi
+
+#parameter file path
+parametersFilePath="parameters.json"
+
+if [ ! -f "$parametersFilePath" ]; then
+    echo "$parametersFilePath not found"
+    exit 1
+fi
+
+if [ -z "$subscriptionId" ] || [ -z "$resourceGroupName" ] || [ -z "$deploymentName" ]; then
+    echo "Either one of subscriptionId, resourceGroupName, deploymentName is empty"
+    usage
+fi
+
+#login to azure using your credentials
+az account show 1> /dev/null
+
+if [ $? != 0 ];
+then
+    az login
+fi
+
+#set the default subscription id
+az account set --name $subscriptionId
+
+set +e
+
+#Check for existing RG
+az group show $resourceGroupName 1> /dev/null
+
+if [ $? != 0 ]; then
+    echo "Resource group with name" $resourceGroupName "could not be found. Creating new resource group.."
+    set -e
+    (
+        set -x
+        az group create --name $resourceGroupName --location $resourceGroupLocation 1> /dev/null
+    )
+    else
+    echo "Using existing resource group..."
+fi
+
+#Start deployment
+echo "Starting deployment..."
+(
+    set -x
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file $templateFilePath --parameters $parametersFilePath
+)
+
+if [ $?  == 0 ];
+ then
+    echo "Template has been successfully deployed"
+fi
 ```
 
 ## <a name="next-steps"></a>後續步驟

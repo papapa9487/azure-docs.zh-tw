@@ -12,21 +12,21 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
-ms.date: 08/07/2017
+ms.topic: quickstart
+ms.date: 08/24/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: f29e9dcc2bed968937627d48f1a98e3b084853b9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 0273072c7c10e219ab8d6c85eb252badafc17147
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Java 和 Azure 入口網站建立圖形資料庫
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本快速入門會使用 Azure Cosmos DB 適用的 Azure 入口網站工具建立圖形資料庫。 本快速入門也會顯示如何使用 OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) 驅動程式，快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 完成本快速入門，您就會熟悉在 UI 中或以程式設計的方式建立和修改圖形資源 (不論您偏好哪種方式)。 
+本快速入門會使用 Azure Cosmos DB 適用的 Azure 入口網站工具建立圖形資料庫。 本快速入門也會顯示如何使用 OSS [Gremlin Java](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver) 驅動程式，快速建立 Java 主控台應用程式。 本快速入門中的指示可運用在任何足以執行 Java 應用程式的作業系統上。 本快速入門可讓您熟悉在 UI 中或以程式設計方式建立和修改圖形資源 (不論您偏好哪種方式)。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -51,7 +51,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 您現在可以在 Azure 入口網站中使用 [資料總管] 工具，建立圖形資料庫。 
 
 1. 在 Azure 入口網站的左導覽功能表中，按一下 [資料總管 (預覽)]。 
-2. 在 [資料總管 (預覽)] 刀鋒視窗中，按一下 [新增圖形]，然後使用下列資訊填入頁面。
+2. 在 [資料總管 (預覽)] 刀鋒視窗中，按一下 [新增圖形]，然後使用下列資訊填入頁面：
 
     ![Azure 入口網站中的資料總管](./media/create-graph-java/azure-cosmosdb-data-explorer.png)
 
@@ -61,7 +61,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     圖形識別碼|sample-graph|新圖形的識別碼。 圖形名稱與資料庫識別碼具有相同的字元需求。
     儲存體容量| 10 GB|保留預設值。 這是資料庫的儲存體容量。
     輸送量|400 RU|保留預設值。 如果您想要降低延遲，稍後可以相應增加輸送量。
-    RU/m|關閉|保留預設值。
     資料分割索引鍵|保留空白|針對本快速入門的目的，將資料分割索引鍵空白。
 
 3. 填妥表單後，按一下 [確定]。

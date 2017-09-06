@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/05/2017
+ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 98c5bacd0a040d3a2d83bfe088b11d0f15449ed9
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -40,9 +40,11 @@ ms.lasthandoff: 08/24/2017
 
     ![叢集設定輸出][cluster-setup-basics]
 
-4. 填妥 [叢集組態] 表單。  對於 [節點類型計數] 輸入"1"，並將 [持久性層](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) 設定為「銅級」。
+4. 填妥 [叢集組態] 表單。  對於 [節點類型計數]，請輸入"1"。
 
-5. 選取 [設定每個節點類型] 並填妥 [節點類型組態] 表單。 節點類型可定義 VM 大小、VM 數目、自訂端點，以及該類型 VM 的其他設定。 所定義的每個節點類型都會設定為不同的虛擬機器擴展集，以便用集合形式部署和管理虛擬機器。 每個節點類型可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並可以有不同的容量計量。  第一個 (或主要) 節點類型就是 Service Fabric 系統服務所在的節點類型，且必須具有 5 部或更多部 VM。
+5. 選取 [節點類型 1 (主要)] 並填妥 [節點類型組態] 表單。  輸入節點類型名稱並將[持久性層](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)設定為「銅級」。  選取 VM 大小。
+
+    節點類型可定義 VM 大小、VM 數目、自訂端點，以及該類型 VM 的其他設定。 所定義的每個節點類型都會設定為不同的虛擬機器擴展集，以便用集合形式部署和管理虛擬機器。 每個節點類型可以獨立相應增加或相應減少，可以開啟不同組的連接埠，並可以有不同的容量計量。  第一個 (或主要) 節點類型就是 Service Fabric 系統服務所在的節點類型，且必須具有 5 部或更多部 VM。
 
     對於任何生產部署而言，[容量規劃](service-fabric-cluster-capacity.md)都是一個很重要的步驟。  不過，在此快速入門中，您不會執行應用程式，因此選取 DS1_v2 Standard VM 大小。  針對[可靠性層](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)選取「銀級」，並將初始虛擬機器擴展集容量設定為 5。  
 
@@ -84,20 +86,20 @@ ms.lasthandoff: 08/24/2017
 使用 PowerShell 進行連線，以確認叢集正在執行。  ServiceFabric PowerShell 模組會隨著 [Service Fabric SDK](service-fabric-get-started.md) 一起安裝。  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Cmdlet 會建立叢集連線。   
 
 ```powershell
-Connect-ServiceFabricCluster -ConnectionEndpoint localhost:19000
+Connect-ServiceFabricCluster -ConnectionEndpoint quickstartcluster.westus2.cloudapp.azure.com:19000
 ```
 如需連線到叢集的其他範例，請參閱[連線到安全的叢集](service-fabric-connect-to-secure-cluster.md)。 連線到叢集之後，使用 [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) Cmdlet 來顯示叢集中的節點清單以及每個節點的狀態資訊。 每個節點的 **HealthState** 應該為「正常」。
 
 ```powershell
-PS C:\> Get-ServiceFabricNode |Format-Table
+PS C:\Users\sfuser> Get-ServiceFabricNode |Format-Table
 
-NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- --------     --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
-                     _nodetype1_2 10.0.0.6        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_1 10.0.0.5        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_0 10.0.0.4        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_4 10.0.0.8        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
-                     _nodetype1_3 10.0.0.7        nodetype1 5.5.216.0   1                     Up 00:59:04   00:00:00              Ok
+NodeDeactivationInfo NodeName     IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- --------     --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     _nodetype1_2 10.0.0.6        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_1 10.0.0.5        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_0 10.0.0.4        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_4 10.0.0.8        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
+                     _nodetype1_3 10.0.0.7        nodetype1 5.7.198.9494 1                     Up 03:00:38   00:00:00              Ok
 ```
 
 ### <a name="remove-the-cluster"></a>移除叢集
@@ -106,65 +108,58 @@ Service Fabric 叢集是由叢集資源本身和其他 Azure 資源所構成。 
 在 Azure 入口網站中刪除資源群組：
 1. 瀏覽至您想要刪除的 Service Fabric 叢集。
 2. 按一下叢集基本資訊頁面上的 [資源群組] 名稱。
-3. 在 [資源群組基本資訊] 頁面中，按一下 [刪除] 並遵循該頁面上的指示，以完成資源群組的刪除。
+3. 在 [資源群組基本資訊] 頁面中，按一下 [刪除資源群組] 並遵循該頁面上的指示，以完成資源群組的刪除。
     ![刪除資源群組][cluster-delete]
 
 
 ## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>使用 Azure Powershell 來部署安全的叢集
+1. 在您的電腦下載 [Azure Powershell 模組 4.0 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
-
-1) 在您的電腦下載 [Azure Powershell 模組 4.0 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
-
-2) 開啟 Windows PowerShell 視窗並執行下列命令。 
+2. 開啟 Windows PowerShell 視窗並執行下列命令。 
     
-```powershell
+    ```powershell
 
-Get-Command -Module AzureRM.ServiceFabric 
-```
+    Get-Command -Module AzureRM.ServiceFabric 
+    ```
 
-您應該會看到如下所示的輸出。
+    您應該會看到如下所示的輸出。
 
-![ps-list][ps-list]
+    ![ps-list][ps-list]
 
-3) 登入 Azure 並選取您要建立叢集的訂用帳戶。
+3. 登入 Azure 並選取您要建立叢集的訂用帳戶。
 
-```powershell
+    ```powershell
 
-Login-AzureRmAccount
+    Login-AzureRmAccount
 
-Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    Select-AzureRmSubscription -SubscriptionId "Subcription ID" 
+    ```
 
-```
+4. 執行下列命令，立即建立安全的叢集。 別忘了自訂參數。 
 
-4) 執行下列命令，立即建立安全的叢集。 別忘了自訂參數。 
+    ```powershell
+    $certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+    $RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
+    $RDPuser="vmadmin"
+    $RGname="mycluster" # this is also the name of your cluster
+    $clusterloc="SouthCentralUS"
+    $subname="$RGname.$clusterloc.cloudapp.azure.com"
+    $certfolder="c:\mycertificates\"
+    $clustersize=1 # can take values 1, 3-99
 
+    New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+    ```
 
-````powershell
+    此命令可能需要 10 到 30 分鐘的時間才能完成，而在結束時，您應該會取得如下所示的輸出。 此輸出包含憑證相關資訊、憑證上傳至的 Key Vault，以及複製憑證的本機資料夾。 
 
-$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
-$RDPpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force 
-$RDPuser="vmadmin"
-$RGname="mycluster" # this is also the name of your cluster
-$clusterloc="SouthCentralUS"
-$subname="$RGname.$clusterloc.cloudapp.azure.com"
-$certfolder="c:\mycertificates\"
-$clustersize=1 # can take values 1, 3-99
+    ![ps-out][ps-out]
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $RGname -Location $clusterloc -ClusterSize $clustersize -VmUserName $RDPuser -VmPassword $RDPpwd -CertificateSubjectName $subname -CertificatePassword $certpwd -CertificateOutputFolder $certfolder
+5. 複製整個輸出並儲存到文字檔，這是我們需要參考的資料。 記下輸出中的下列資訊。 
 
-````
-
-此命令可能需要 10 到 30 分鐘的時間才能完成，而在結束時，您應該會取得如下所示的輸出。 此輸出包含憑證相關資訊、憑證上傳至的 Key Vault，以及複製憑證的本機資料夾。 
-
-![ps-out][ps-out]
-
-5) 複製整個輸出並儲存到文字檔，這是我們需要參考的資料。 記下輸出中的下列資訊。
- 
-
-- **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
-- **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
-- **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
-- **ClientConnectionEndpointPort** : 19000
+    - **CertificateSavedLocalPath** : c:\mycertificates\mycluster20170504141137.pfx
+    - **CertificateThumbprint** : C4C1E541AD512B8065280292A8BA6079C3F26F10
+    - **ManagementEndpoint** : https://mycluster.southcentralus.cloudapp.azure.com:19080
+    - **ClientConnectionEndpointPort** : 19000
 
 ### <a name="install-the-certificate-on-your-local-machine"></a>在本機電腦上安裝憑證
   

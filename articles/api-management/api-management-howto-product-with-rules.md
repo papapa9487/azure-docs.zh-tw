@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 9dba928b78c11213d4b0098986561b09678444eb
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>使用 Azure API 管理以頻率限制保護 API
@@ -110,7 +110,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 
 ![Policy editor][api-management-policy-editor-inbound]
 
-透過原則清單捲動並找出 [限制每個訂用帳戶的呼叫率] 原則項目。
+捲動原則清單並找出 [限制每個訂用帳戶的呼叫率] 原則項目。
 
 ![Policy statements][api-management-limit-policies]
 

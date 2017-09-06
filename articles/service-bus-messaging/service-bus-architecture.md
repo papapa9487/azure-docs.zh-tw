@@ -1,6 +1,6 @@
 ---
 title: "Azure 服務匯流排的訊息處理架構 | Microsoft Docs"
-description: "描述 Azure 服務匯流排的訊息和轉送處理架構。"
+description: "描述 Azure 服務匯流排的訊息處理架構。"
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: ced46c64c1c105aa987759e05ab3680bc399f9a0
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 83456d775c5ff2a2476ba46e9c78a8dc1bb482e8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="service-bus-architecture"></a>服務匯流排架構
@@ -28,9 +27,9 @@ ms.lasthandoff: 05/18/2017
 ## <a name="service-bus-scale-units"></a>服務匯流排縮放單位
 服務匯流排依 *縮放單位*組織。 縮放單位是部署單位，並包含執行服務所需的所有元件。 每個區域都會部署一或多個服務匯流排縮放單位。
 
-服務匯流排命名空間會對應到一個縮放單位。 縮放單位會處理所有類型的服務匯流排實體：轉送和代理傳訊實體 (佇列、主題、訂用帳戶)。 服務匯流排縮放單位是由下列元件所組成：
+服務匯流排命名空間會對應到一個縮放單位。 縮放單位會處理所有類型的服務匯流排實體 (佇列、主題、訂用帳戶)。 服務匯流排縮放單位是由下列元件所組成：
 
-* **一組閘道器節點。** 閘道節點會驗證傳入要求並處理轉送要求。 每個閘道器節點都有一個公用 IP 位址。
+* **一組閘道器節點。** 閘道節點會驗證傳入要求。 每個閘道器節點都有一個公用 IP 位址。
 * **一組訊息代理程式節點。** 訊息代理程式節點會處理關於訊息實體的要求。
 * **一個閘道器存放區。** 閘道器存放區會保存此縮放單位中定義的每個實體的資料。 閘道器存放區是在 SQL Azure 資料庫上實作。
 * **多個訊息存放區。** 訊息存放區會保存此縮放單位中定義的所有佇列、主題和訂用帳戶的訊息。 它也包含所有訂用帳戶資料。 除非啟用了[分割傳訊實體](service-bus-partitioning.md)，佇列或主題才會對應至一個傳訊存放區。 訂用帳戶是儲存在與父項主題相同的訊息存放區。 除了服務匯流排[進階傳訊](service-bus-premium-messaging.md)以外，訊息存放區會在 SQL Azure 資料庫之上實作。
@@ -43,18 +42,10 @@ ms.lasthandoff: 05/18/2017
 
 ![處理內送訊息要求](./media/service-bus-architecture/ic690644.png)
 
-## <a name="processing-of-incoming-relay-requests"></a>處理內送轉送要求
-當用戶端傳送要求至 [Azure 轉送](/azure/service-bus-relay/)服務時，Azure Load Balancer 會將其路由到任何一個閘道器節點。 如果要求為接聽要求，閘道器節點會建立新的轉送。 如果要求為特定轉送的連線要求，閘道器節點會轉送連線要求給擁有轉送的閘道器節點。 擁有轉送的閘道器節點會傳送會合要求到接聽用戶端，要求接聽程式建立接收連線要求的閘道器節點的暫時通道。
-
-建立轉送連線時，用戶端可以透過用來會合的閘道節點交換訊息。
-
-![處理內送 WCF 轉送要求](./media/service-bus-architecture/ic690645.png)
-
 ## <a name="next-steps"></a>後續步驟
 既然您已閱讀服務匯流排架構的概觀，請參閱下列連結取得詳細資訊：
 
 * [服務匯流排訊息概觀](service-bus-messaging-overview.md)
-* [Azure 轉送概觀](../service-bus-relay/relay-what-is-it.md)
 * [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [使用服務匯流排佇列的佇列訊息解決方案](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
