@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b6e1c7587c0b47d04862b4850741aaa3b7d191a8
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ccef224ef1c2919a3e5469c1bbe0980c6963705b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -38,6 +38,28 @@ Webhook 是即時從 Azure Event Grid 接收事件的眾多方法之一。
 * 此事件的標題值為 Event-Type: Validation。
 * 此事件主體之結構描述與其他 Event Grid 事件相同。
 * 此事件資料包含一個 “ValidationCode” 屬性與一個隨機產生的字串，例如“ValidationCode: acb13…”。
+
+範例 SubscriptionValidationEvent 如下所示。
+```json
+[{
+  "Id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66",
+  "Topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "Subject": "",
+  "Data": {
+    "validationCode": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+  },
+  "EventType": "Microsoft.EventGrid/SubscriptionValidationEvent",
+  "EventTime": "2017-08-06T22:09:30.740323Z"
+}]
+```
+
+為了證明端點所有權，請回傳驗證碼，例如 “validation_response: acb13…”，其範例如下所示。
+
+```json
+{
+  "validationResponse": "512d38b6-c7b8-40c8-89fe-f46f9e9622b6"
+}
+```
 
 為了證明端點所有權，請回傳驗證碼，例如 “ValidationResponse: acb13…”。
 
@@ -176,7 +198,7 @@ Azure Event Grid 支援下列動作：
   ] 
 }
 ```
- 
+
 **EventGridContributorRole.json**：允許所有 Grid 動作。  
 ```json
 { 

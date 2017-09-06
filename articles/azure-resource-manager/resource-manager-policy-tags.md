@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 08/24/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
-ms.openlocfilehash: 04338b62d942774368149b27e8b35713b77f8d7c
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 469bd8d637337e5900ea84c6bfaf88064695fb7e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/21/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="apply-resource-policies-for-tags"></a>套用標籤的資源原則
 
 本主題提供可套用以確保一致地在資源上使用標籤的通用原則規則。
 
-使用現有的資源將標籤原則套用到資源群組或訂用帳戶不會追溯性地將原則套用到這些資源。 若要在這些資源上強制原則，將更新觸發至現有的資源，如[將更新觸發至現有的資源](#trigger-updates-to-existing-resources)中所示。
+使用現有的資源將標籤原則套用到資源群組或訂用帳戶不會追溯性地將原則套用到這些資源。 若要在這些資源上強制執行原則，請觸發現有資源的更新。 本文包含觸發更新的 PowerShell 範例。
 
 ## <a name="ensure-all-resources-in-a-resource-group-have-a-tagvalue"></a>請確定資源群組中的所有資源都有標籤/值
 

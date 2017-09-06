@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 08/28/2017
 ms.author: raprasa
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 130f0eb259621737d6dbdb151e363915fb334ce1
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 89dc30c5475786d89554f5ec9e10e555267e6d78
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 進行自動線上備份及還原
@@ -58,7 +58,7 @@ Cosmos DB 設計為[全域分散](distribute-data-globally.md) – 可讓您調�
 如果您不小心刪除資料庫或集合，您可以[提出支援票證](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)或[連絡 Azure 支援](https://azure.microsoft.com/support/options/)，要求從最新的自動備份還原資料。 如果您因為資料損毀問題而需要還原資料庫，請參閱[處理資料損毀](#handling-data-corruption)，因為您需要採取額外步驟來防止損毀的資料滲透到備份中。 如果要還原特定的備份快照集，Cosmos DB 會需要該資料在該快照的備份週期持續時間內為可用狀態。
 
 ## <a name="handling-data-corruption"></a>處理資料損毀
-Azure Cosmos DB 會保留系統中每個分割區的最後兩個備份。 當容器 (文件、圖表、資料表的集合) 或資料庫意外遭到刪除時，此模型會非常有效，因為您可以還原最後兩個版本的其中一個。 不過，若使用者可能會造成資料損毀問題，則 Azure Cosmos DB 可能不會察覺資料損毀情形，進而可能讓損毀的資料滲透到備份中。 一旦偵測到損毀，您就應該刪除損毀的容器 (集合/圖表/資料表)，以免損毀的資料覆寫備份。 由於最後一次備份可能已是四小時前，使用者可以先採用[變更摘要](change-feed.md)來擷取和儲存最近四個小時的資料，再刪除容器。
+Azure Cosmos DB 會保留系統中每個分割區的最後兩個備份。 當容器 (文件、圖表、資料表的集合) 或資料庫意外遭到刪除時，此模型會非常有效，因為您可以還原最後兩個版本的其中一個。 不過，若使用者可能會造成資料損毀問題，則 Azure Cosmos DB 可能不會察覺資料損毀情形，進而可能讓損毀的資料滲透到備份中。 一旦偵測到損毀，使用者就應該刪除損毀的容器 (集合/圖表/資料表)，以免損毀的資料覆寫備份。 由於最後一次備份可能已是四小時前，使用者可以先採用[變更摘要](change-feed.md)來擷取和儲存最近四個小時的資料，再刪除容器。
 
 ## <a name="next-steps"></a>後續步驟
 

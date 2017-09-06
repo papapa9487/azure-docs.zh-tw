@@ -4,7 +4,7 @@ description: "了解 Azure Functions 如何調整以符合您事件驅動工作�
 services: functions
 documentationcenter: na
 author: lindydonna
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函式, 事件處理, webhook, 動態計算, 無伺服器架構"
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/12/2017
-ms.author: donnam, glenga
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 5131a432a5de26ed1fc82005446d101d3094ef8b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0e677fb35279d155241a95cd5f33b63e8294fad2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-functions-consumption-and-app-service-plans"></a>Azure Functions 取用和 App Service 方案 
@@ -61,9 +60,10 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 
 在下列情況中請考慮使用 App Service 方案︰
 - 您有現有的、使用量過低的 VM 已在執行其他 App Service 執行個體。
-- 您期望您的函數應用程式連續執行或接近連續執行。
+- 您期望您的函數應用程式連續執行或接近連續執行。 在此情況下，App Service 方案可以更符合成本效益。
 - 您需要的 CPU 或記憶體選項比取用方案所提供的更多。
 - 您的執行時間超過取用方案允許的執行時間上限。
+- 您需要 App Service 方案才有提供的功能，例如 App Service 環境、VNET/VPN 連線和較大 VM 大小的支援。 
 
 VM 會減少執行階段和記憶體大小的成本。 如此一來，您不會支付超過您配置的 VM 執行個體的成本。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 
@@ -81,7 +81,7 @@ VM 會減少執行階段和記憶體大小的成本。 如此一來，您不會�
 
 不論是取用方案或 App Service 方案，函數應用程式都需要有支援 Azure Blob、佇列、表格儲存體的 Azure 儲存體帳戶。 Azure Functions 會在內部使用「Azure 儲存體」來進行作業，例如管理觸發程序和記錄函數執行。 有些儲存體帳戶並不支援佇列和表格，例如僅限 Blob 的儲存體帳戶 (包括進階儲存體) 和搭配區域備援儲存體複寫的一般用途儲存體帳戶。 建立函數應用程式時，[儲存體帳戶] 刀鋒視窗中會過濾掉這些帳戶。
 
-若要深入了解儲存體帳戶類型，請參閱 [Azure 儲存體服務簡介](../storage/storage-introduction.md#introducing-the-azure-storage-services)。
+若要深入了解儲存體帳戶類型，請參閱 [Azure 儲存體服務簡介](../storage/common/storage-introduction.md#introducing-the-azure-storage-services)。
 
 ## <a name="how-the-consumption-plan-works"></a>取用方案的運作方式
 

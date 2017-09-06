@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9b8033a9dfc8063f96e168a154696e7fe6fef8ff
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>安裝彈性資料庫工作概觀
@@ -95,7 +94,7 @@ ms.lasthandoff: 04/27/2017
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>提供 Standard Edition 的服務等級目標。 此參數預設為 S0。 接受 S0/S1/S2/S3 的參數值，這會導致 Azure SQL Database 使用各自的 SLO。 如需有關 SQL Database SLO 的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
+    <td>提供 Standard Edition 的服務等級目標。 此參數預設為 S0。 接受 S0/S1/S2/S3/S4/S6/S9/S12 的參數值，這會導致 Azure SQL Database 使用各自的 SLO。 如需有關 SQL Database SLO 的詳細資訊，請參閱[彈性資料庫工作元件和價格](sql-database-elastic-jobs-overview.md#components-and-pricing)。</td>
 </tr>
 
 </tr>
@@ -163,7 +162,7 @@ ms.lasthandoff: 04/27/2017
 4. 在 [安裝服務] 檢視中，按一下 [工作認證] 。
    
     ![安裝服務][1]
-5. 輸入資料庫管理員的使用者名稱和密碼。 在安裝過程中，會建立新的 Azure SQL Database 伺服器。 在這個新的伺服器內，會建立稱為控制資料庫的新資料庫，並用來包含彈性資料庫工作的中繼資料。 這裡建立的使用者名稱和密碼用於登入控制資料庫。 個別的認證用於對集區內的資料庫執行指令碼。
+5. 輸入資料庫管理員的使用者名稱和密碼。在安裝過程中，會建立新的 Azure SQL Database 伺服器。 在這個新的伺服器內，會建立稱為控制資料庫的新資料庫，並用來包含彈性資料庫工作的中繼資料。 這裡建立的使用者名稱和密碼用於登入控制資料庫。 個別的認證用於對集區內的資料庫執行指令碼。
    
     ![建立使用者名稱和密碼][2]
 6. 按一下 [確定] 按鈕。 幾分鐘內，就會在新的[資源群組](../azure-resource-manager/resource-group-overview.md)中為您建立元件。 新的資源群組已釘選到「開始面板」，如下所示。 建立後，會在群組中建立所有彈性資料庫工作 (雲端服務、SQL Database、服務匯流排和儲存體)。

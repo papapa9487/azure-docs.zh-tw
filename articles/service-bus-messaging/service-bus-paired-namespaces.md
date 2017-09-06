@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d987aa22379ede44da1b791f034d713a49ad486a
-ms.openlocfilehash: 84e125dffcac3f3a54250587c5238b50d3a6cb95
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配對命名空間實作詳細資料和成本影響
@@ -65,7 +64,7 @@ ms.lasthandoff: 02/16/2017
 | EnableDeadLetteringOnMessageExpiration |true |
 | EnableBatchedOperations |true |
 
-例如，針對命名空間 **contoso`contoso/x-servicebus-transfer/0` 建立的第一個積存佇列名為**。
+例如，針對命名空間 **contoso`contoso/x-servicebus-transfer/0` 建立的第一個積存佇列名為** 。
 
 建立佇列時，程式碼會先查看是否有此佇列存在。 如果此佇列不存在，則會建立佇列。 程式碼不會清除「額外的」待處理項目佇列。 具體而言，如果具有主要命名空間 **contoso** 的應用程式要求 5 個積存佇列，但有一個具有路徑 `contoso/x-servicebus-transfer/7` 的積存佇列存在，則該額外的積存佇列仍然存在，但不會使用。 系統明確允許額外的待處理項目佇列存在但不會使用。 身為命名空間擁有者，您必須負責清除任何未使用/不需要的待處理項目佇列。 此決策的原因是服務匯流排無法得知您的命名空間中所有佇列的目的為何。 此外，如果佇列具有指定的名稱但不符合所假設的 [QueueDescription][QueueDescription]，則您的理由是您自己要變更預設行為。 不保證您的程式碼會修改待處理項目佇列。 請務必徹底測試您的變更。
 
@@ -97,7 +96,7 @@ Ping 訊息是空的 [BrokeredMessage][BrokeredMessage]，它的 [ContentType][C
 4. 從主要佇列接收。
 
 ## <a name="closefault-behavior"></a>關閉/錯誤行為
-在裝載 Syphon 的應用程式內，一旦主要或次要 [MessagingFactory][MessagingFactory] 發生錯誤或已關閉，但其夥伴並未同時發生錯誤/關閉且 Syphon 偵測到此狀態之後，Syphon 就會採取行動。 如果其他 [MessagingFactory][MessagingFactory] 未在 5 秒內關閉，則 Syphon 會發生錯誤但仍開啟 [MessagingFactory][MessagingFactory]。
+在裝載 Syphon 的應用程式內，一旦主要或次要 [MessagingFactory][MessagingFactory] 發生錯誤或已關閉，但其夥伴並未同時發生錯誤或關閉且 Syphon 偵測到此狀態之後，Syphon 就會採取行動。 如果其他 [MessagingFactory][MessagingFactory] 未在 5 秒內關閉，則 Syphon 會發生錯誤但仍開啟 [MessagingFactory][MessagingFactory]。
 
 ## <a name="next-steps"></a>後續步驟
 如需服務匯流排非同步通訊的詳細討論，請參閱[非同步通訊模式和高可用性][Asynchronous messaging patterns and high availability]。 

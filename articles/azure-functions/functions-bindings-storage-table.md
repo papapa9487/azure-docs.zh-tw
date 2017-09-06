@@ -4,7 +4,7 @@ description: "了解如何在 Azure Functions 中使用 Azure 儲存體繫結。
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/28/2016
 ms.author: chrande
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: bb01be3ee044f60376e0c9c2de7b3dd34f3b7aca
-ms.lasthandoff: 04/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 486b7c31c914ba7bb2d75e3f83ccf346a09104e8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-storage-table-bindings"></a>Azure Functions 儲存體資料表繫結
@@ -114,7 +114,7 @@ Azure 儲存體資料表輸入繫結可讓您在您的函式中使用儲存資�
 
 <a name="inputcsharp"></a>
 
-### <a name="input-sample-in-c"></a>C 中的輸入範例# #
+### <a name="input-sample-in-c"></a>C# 中的輸入範例 #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -132,7 +132,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### <a name="input-sample-in-f"></a>F 中的輸入範例# #
+### <a name="input-sample-in-f"></a>F# 中的輸入範例 #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -226,7 +226,7 @@ Azure 儲存體資料表輸出繫結可讓您在函式中將實體寫入儲存�
 
 <a name="outcsharp"></a>
 
-### <a name="output-sample-in-c"></a>C 中的輸出範例# #
+### <a name="output-sample-in-c"></a>C# 中的輸出範例 #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -253,7 +253,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### <a name="output-sample-in-f"></a>F 中的輸出範例# #
+### <a name="output-sample-in-f"></a>F# 中的輸出範例 #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -293,7 +293,7 @@ module.exports = function (context) {
 
 <a name="readmulti"></a>
 
-## <a name="sample-read-multiple-table-entities-in-c"></a>範例：讀取 C 中的多個資料表實體#  #
+## <a name="sample-read-multiple-table-entities-in-c"></a>範例：讀取 C# 中的多個資料表實體  #
 下列「function.json」  和 C# 程式碼範例會讀取佇列訊息中指定的資料分割金鑰的實體。
 
 ```json

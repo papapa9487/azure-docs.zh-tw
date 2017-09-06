@@ -4,7 +4,7 @@ description: "了解如何在 Azure Functions 中使用 Azure Cosmos DB 繫結�
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/18/2016
+ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 2c0cb8ee1690f9b36b76c87247e3c7223876b269
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-functions-cosmos-db-bindings"></a>Azure Functions Cosmos DB 繫結
@@ -39,16 +39,18 @@ DocumentDB API 輸入繫結會擷取 Cosmos DB 文件，並將它傳遞給函式
 
 DocumentDB API 輸入繫結在 *function.json* 中具有下列屬性：
 
-- `name`︰函數程式碼中用於文件的識別碼名稱
-- `type`︰必須設定為 "documentdb"
-- `databaseName`︰包含文件的資料庫
-- `collectionName`︰包含文件的集合
-- `id`︰要擷取之文件的識別碼。 此屬性支援繫結參數；請參閱 [Azure Functions 觸發程序和繫結概念](functions-triggers-bindings.md)一文中的[在繫結運算式中繫結到自訂輸入屬性](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)。
-- `sqlQuery`：用來擷取多份文件的 Cosmos DB SQL 查詢。 此查詢支援執行階段繫結。 例如：`SELECT * FROM c where c.departmentId = {departmentId}`
-- `connection`：包含 Cosmos DB 連接字串的應用程式設定名稱
-- `direction`：必須設定為 `"in"`。
+|屬性  |說明  |
+|---------|---------|
+|**name**     | 代表函式中之文件的繫結參數名稱。  |
+|**type**     | 必須設為 `documentdb`。        |
+|**databaseName** | 包含文件的資料庫。        |
+|**collectionName**  | 包含文件的集合名稱。 |
+|**id**     | 要擷取之文件的識別碼。 此屬性支援繫結參數。 若要深入了解，請參閱[在繫結運算式中繫結到自訂輸入屬性](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)。 |
+|**sqlQuery**     | 用來擷取多份文件的 Cosmos DB SQL 查詢。 此查詢支援執行階段繫結，例如以下範例：`SELECT * FROM c where c.departmentId = {departmentId}`。        |
+|**連接**     |包含 Cosmos DB 連接字串的應用程式設定名稱。        |
+|**direction**     | 必須設為 `in`。         |
 
-不可同時指定 `id` 和 `sqlQuery`。 如果既未設定 `id` 也未設定 `sqlQuery`，則會擷取整個集合。
+您無法同時設定 **id** 和 **sqlQuery** 屬性。 如果未設定任何一項，就會擷取整個集合。
 
 ## <a name="using-a-documentdb-api-input-binding"></a>使用 DocumentDB API 輸入繫結
 
@@ -180,18 +182,20 @@ module.exports = function (context, input) {
 ## <a id="docdboutput"></a>DocumentDB API 輸出繫結
 DocumentDB API 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資料庫。 它在 *function.json* 中具有下列屬性：
 
-- `name`︰函數程式碼中用於新文件的識別碼
-- `type`：必須設定為 `"documentdb"`
-- `databaseName` ︰包含其中將建立新文件之集合的資料庫。
-- `collectionName` ︰其中將建立新文件的集合。
-- `createIfNotExists`︰一個布林值，用來指出當集合不存在時是否要建立集合。 預設值為 *false*。 因為新集合會使用保留的輸送量建立，其具有價格含意。 如需詳細資訊，請瀏覽 [定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。
-- `connection`：包含 Cosmos DB 連接字串的應用程式設定名稱
-- `direction`：必須設定為 `"out"`
+|屬性  |說明  |
+|---------|---------|
+|**name**     | 代表函式中之文件的繫結參數名稱。  |
+|**type**     | 必須設為 `documentdb`。        |
+|**databaseName** | 包含其中將建立文件之集合的資料庫。     |
+|**collectionName**  | 包含其中將建立文件之集合的名稱。 |
+|**createIfNotExists**     | 一個布林值，用來指出當集合不存在時，是否要建立集合。 預設值為 *false*。 這是因為會使用保留的輸送量來建立新集合，可能會涉及成本。 如需詳細資訊，請瀏覽 [定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。  |
+|**連接**     |包含 Cosmos DB 連接字串的應用程式設定名稱。        |
+|**direction**     | 必須設為 `out`。         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>使用 DocumentDB API 輸出繫結
 本節說明如何在您的函式程式碼中使用您的 DocumentDB API 輸出繫結。
 
-在函式中寫入輸出參數時，依預設會在資料庫中產生新文件，使用自動產生的 GUID 做為文件識別碼。 您可以藉由在輸出參數中指定 `id` JSON 屬性來指定輸出文件的文件識別碼。 
+根據預設，當您在函式中寫入輸出參數時，會在資料庫中建立文件。 這份文件已自動產生 GUID 作為文件識別碼。 您可以藉由在傳遞至輸出參數的 JSON 物件中指定 `id` 屬性，來指定輸出文件的文件識別碼。 
 
 >[!Note]  
 >當您指定現有文件的識別碼時，新的輸出文件會覆寫現有文件。 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 08/30/2017
 ms.author: sethm;clemensv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5abdbf70d4fdb2c7feb0f3537ecc0f2abf0775a0
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>事件中樞驗證和安全性模型概觀
+
 Azure 事件中樞安全性模型符合下列需求：
 
 * 只有出示有效認證的用戶端才能將資料傳送到事件中樞。
@@ -30,6 +30,7 @@ Azure 事件中樞安全性模型符合下列需求：
 * 可封鎖惡意用戶端，讓它無法將資料傳送到事件中樞。
 
 ## <a name="client-authentication"></a>用戶端驗證
+
 事件中樞安全性模型是以 [共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 權杖和「事件發行者」的組合為基礎。 事件發行者會定義事件中樞的虛擬端點。 發行者只能用來將訊息傳送到事件中樞。 您無法接收來自發佈者的訊息。
 
 一般而言，事件中樞會針對每個用戶端採用一個發行者。 系統會將傳送到事件中樞之任何發行者的所有訊息，排入該事件中樞內的佇列中。 發行者會啟用更細緻的存取控制和節流。
@@ -42,7 +43,7 @@ Azure 事件中樞安全性模型符合下列需求：
 
 ### <a name="create-the-sas-key"></a>建立 SAS 金鑰
 
-建立事件中樞命名空間時，此服務會產生名為 **RootManageSharedAccessKey** 的 256 位元 SAS 金鑰。 這個金鑰能授與命名空間的傳送、聆聽及管理權限。 您也可以建立額外的金鑰。 建議您產生一個可授與對特定事件中樞之傳送權限的金鑰。 在本主題的其餘部分，假設您將此金鑰命名為 **EventHubSendKey**。
+建立事件中樞命名空間時，此服務會自動產生名為 **RootManageSharedAccessKey** 的 256 位元 SAS 金鑰。 此規則具有主要和次要金鑰的相關聯配對，可將傳送、接聽和管理權限授與命名空間。 您也可以建立額外的金鑰。 建議您產生一個可授與對特定事件中樞之傳送權限的金鑰。 在本主題的其餘部分，假設您將此金鑰命名為 **EventHubSendKey**。
 
 以下範例會在建立事件中樞時，建立一個僅限傳送的金鑰：
 
@@ -89,11 +90,13 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 一般而言，權杖的週期與用戶端的週期相近或更長。 如果用戶端能夠取得新的權杖，就可以使用週期較短的權杖。
 
 ### <a name="sending-data"></a>傳送資料
+
 建立權杖之後，系統就會為每個用戶端佈建其自己的唯一權杖。
 
 當用戶端將資料傳送到事件中樞時，會使用權杖標記自己傳送的要求。 為了防止攻擊者竊聽及竊取權杖，用戶端與事件中樞之間的通訊必須透過已加密的通道進行。
 
 ### <a name="blacklisting-clients"></a>將用戶端列入黑名單
+
 如果權杖遭攻擊者竊取，攻擊者便可以模擬權杖遭竊的用戶端。 將用戶端列入黑名單可讓用戶端變成無法使用，直到它收到使用不同發行者的新權杖為止。
 
 ## <a name="authentication-of-back-end-applications"></a>後端應用程式的驗證
@@ -105,6 +108,7 @@ SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFm
 由於個別取用者群組的 SAS 驗證不存在，因此您可以使用 SAS 金鑰來保護所有使用相同金鑰的取用者群組。 這個方法可讓應用程式取用來自事件中樞之任何取用者群組的資料。
 
 ## <a name="next-steps"></a>後續步驟
+
 若要深入了解事件中樞，請造訪下列主題：
 
 * [事件中樞概觀]

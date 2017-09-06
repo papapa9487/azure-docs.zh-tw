@@ -12,20 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 08/21/2017
 ms.author: sethm;darosa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 748031e4177dea1b8a2dbf2f9a4e4d5aea1a0981
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: c4fd365ec8eeb389f0df9f53cd2f2a18f4c9b52a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
 # <a name="azure-event-hubs-capture"></a>Azure 事件中樞擷取
 
-Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到您選擇的 Blob 儲存體帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-features.md#capacity)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
+Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-features.md#capacity)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
 
 事件中樞擷取可讓您在相同資料流上處理即時和批次型的管線。 這表示您可以建置會隨時間配合需求成長的解決方案。 不論您現在是要建置著眼於未來即時處理的批次型系統，或想要為現有即時解決方案新增有效率的冷路徑，事件中樞擷取都可以讓使用串流資料變得更簡單。
 
@@ -33,13 +32,13 @@ Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到�
 
 事件中樞是用於輸入遙測的時間保留持久緩衝區，類似於分散式記錄。 在事件中樞調整大小的關鍵是 [資料分割取用者模型](event-hubs-features.md#partitions)。 每個資料分割都是獨立的資料區段，可獨立取用。 根據可設定的保留期限，此資料會隨時間而過時。 因此，給定的事件中樞永遠不會「太滿」。
 
-事件中樞擷取可讓您指定您自己的 Azure Blob 儲存體帳戶和容器，以用來儲存擷取的資料。 此帳戶可以和事件中樞位於相同區域，也可以位於另一個區域，以增加事件中樞擷取功能的彈性。
+事件中樞擷取可讓您指定自己的 Azure Blob 儲存體帳戶和容器，或是 Azure Data Lake Store 帳戶，可用來儲存擷取的資料。 這些帳戶可以和事件中樞位於相同區域，也可以位於另一個區域，從而新增至事件中樞擷取功能的彈性。
 
 擷取的資料會以 [Apache Avro][Apache Avro] 格式寫入，此為精簡、快速、二進位的格式，可使用內嵌結構描述提供豐富的資料結構。 此格式廣泛運用在 Hadoop 生態系統、串流分析和 Azure Data Factory。 關於使用 Avro 的詳細資訊可在本文稍後看到。
 
 ### <a name="capture-windowing"></a>擷取範圍
 
-事件中樞擷取可讓您設定要控制封存的範圍。 此範圍是具有「先者勝出原則」的最小大小和時間組態，這表示所遇到的第一個觸發條件會導致擷取作業。 如果您有一個 15 分鐘 100 MB 的擷取範圍，且傳送速率為每秒 1 MB，則大小範圍會比時間範圍更早觸發。 每個分割區都會獨立擷取，並在擷取時寫入已完成的區塊 Blob，而且會以遇到擷取間隔的時間命名。 儲存體命名慣例如下︰
+事件中樞擷取可讓您設定要控制擷取的範圍。 此範圍是具有「先者勝出原則」的最小大小和時間組態，這表示所遇到的第一個觸發條件會導致擷取作業。 如果您有一個 15 分鐘 100 MB 的擷取範圍，且傳送速率為每秒 1 MB，則大小範圍會比時間範圍更早觸發。 每個分割區都會獨立擷取，並在擷取時寫入已完成的區塊 Blob，而且會以遇到擷取間隔的時間命名。 儲存體命名慣例如下︰
 
 ```
 [namespace]/[event hub]/[partition]/[YYYY]/[MM]/[DD]/[HH]/[mm]/[ss]
@@ -58,10 +57,9 @@ Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到�
 - [使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
 - [使用 Azure Resource Manager 範本建立含有一個事件中樞的事件中樞命名空間並啟用擷取](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
 
-
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>瀏覽擷取檔案並使用 Avro
 
-事件中樞擷取會在所設定之時間範圍內指定的 Azure 儲存體帳戶和容器中建立檔案。 您可以在任何工具 (例如 [Azure 儲存體總管][Azure Storage Explorer]) 檢視這些檔案。 您可以在本機下載檔案，以對其進行處理。
+事件中樞擷取會以 Avro 格式建立檔案，如設定之時間範圍內所指定。 您可以在任何工具 (例如 [Azure 儲存體總管][Azure Storage Explorer]) 檢視這些檔案。 您可以在本機下載檔案，以對其進行處理。
 
 事件中樞擷取所產生的檔案會有下列 Avro 結構描述︰
 
@@ -70,7 +68,7 @@ Azure 事件中樞擷取可讓您自動將事件中樞的串流資料傳遞到�
 瀏覽 Avro 檔案的簡易方式是使用 Apache 所提供的 [Avro Tools][Avro Tools] jar。 下載這個 jar 之後，您可以執行下列命令來查看特定 Avro 檔案的結構描述︰
 
 ```
-java -jar avro-tools-1.8.2.jar getschema \<name of capture file\>
+java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 ```
 
 此命令會傳回
@@ -96,7 +94,7 @@ java -jar avro-tools-1.8.2.jar getschema \<name of capture file\>
 
 若要執行更進階的處理，請下載並安裝您所選平台適用的 Avro。 在本文撰寫當下，已有適用於 C、C++、C\#、Java、NodeJS、Perl、PHP、Python 和 Ruby 的實作。
 
-Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門指南。 您也可以閱讀[開始使用事件中樞擷取](event-hubs-archive-python.md)一文。
+Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門指南。 您也可以閱讀[開始使用事件中樞擷取](event-hubs-capture-python.md)一文。
 
 ## <a name="how-event-hubs-capture-is-charged"></a>事件中樞擷取的收費方式
 
@@ -108,8 +106,7 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 
 您可以造訪下列連結以深入了解事件中樞︰
 
-* [使用事件中樞的完整範例應用程式][sample application that uses Event Hubs]。
-* [使用事件中樞相應放大事件處理][Scale out Event Processing with Event Hubs]範例。
+* [開始傳送和接收事件](event-hubs-dotnet-framework-getstarted-send.md)
 * [事件中樞概觀][Event Hubs overview]
 
 [Apache Avro]: http://avro.apache.org/
@@ -120,6 +117,4 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 [Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
 

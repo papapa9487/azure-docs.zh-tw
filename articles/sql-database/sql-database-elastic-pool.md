@@ -1,5 +1,5 @@
 ---
-title: "何謂彈性集區？ 管理多個 SQL Database - Azure | Microsoft Docs"
+title: "使用彈性集區管理多個 SQL Database - Azure | Microsoft Docs"
 description: "管理及調整多個 SQL Database - 成百上千 - 使用彈性集區。 可視需要散發的資源只有一個價格。"
 keywords: "多個資料庫, 資料庫資源, 資料庫效能"
 services: sql-database
@@ -11,25 +11,25 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 07/31/2017
+ms.date: 08/25/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 2e0d9067cd942fccf9eeb2750cff1d1f3b478eba
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 4e4483ce7473070591128375960daa2b2c26a55d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 
-# <a name="elastic-pools-help-you-manage-and-scale-multiple-sql-databases"></a>彈性集區可協助您管理及調整多個 SQL Database
+# <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
-SQL Database 彈性集區是簡單、符合成本效益的解決方案，可用來管理及調整使用需求變化不定且無法預測的多個資料庫。 彈性集區中的資料庫位於單一 Azure SQL Database 伺服器上，並以固定價格共用固定數量的資源 ([彈性資料庫交易單位](sql-database-what-is-a-dtu.md) (eDTU))。 Azure SQL Database 中的彈性集區可讓 SaaS 開發人員將一組資料庫的價格效能最佳化在規定的預算內，同時為每個資料庫提供效能彈性。   
+SQL Database 彈性集區是簡單、符合成本效益的解決方案，可用來管理及調整使用需求變化不定且無法預測的多個資料庫。 彈性集區中的資料庫位於單一 Azure SQL Database 伺服器上，並以固定價格共用固定數量的資源 ([彈性資料庫交易單位](sql-database-what-is-a-dtu.md) (eDTU))。 Azure SQL Database 中的彈性集區可讓 SaaS 開發人員將一組資料庫的價格效能最佳化在規定的預算內，同時為每個資料庫提供效能彈性。 
 
 > [!NOTE]
-> 彈性集區已在所有 Azure 區域中正式運作 (GA)，但印度西部除外，此區域目前提供預覽版。  我們將儘速在此區域提供彈性集區的 GA。
+> 彈性集區已在所有 Azure 區域中正式運作 (GA)，但印度西部除外，此區域目前提供預覽版。 我們將儘速在此區域提供彈性集區的 GA。
 >
 
 ## <a name="what-are-sql-elastic-pools"></a>SQL 彈性集區是什麼？ 
@@ -48,13 +48,11 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 在集區內，會給予個別資料庫彈性以在設定的參數內自動調整。 負載量大時，資料庫可以取用更多的 eDTU 以滿足需求。 負載較輕的資料庫取用較少的 eDTU，而完全無負載的資料庫不會取用任何 eDTU。 針對整個集區佈建資源，而不是針對單一資料庫佈建資源，可簡化管理工作。 此外，您還可以有可預測的集區預算。 資料庫不必停機就可以在現有集區中新增額外的 eDTU，不過可能需要移動資料庫來為新的 eDTU 保留項目提供額外的計算資源。 同樣地，如果不再需要額外 eDTU，則隨時可以從現有集區中移除。 您也可以在集區加入或減少資料庫。 如果可以預測資料庫使用少量資源，則將它移出。
 
-您可以使用 [Azure 入口網站](sql-database-elastic-pool-manage-portal.md)、[PowerShell](sql-database-elastic-pool-manage-powershell.md)、[Transact-SQL](sql-database-elastic-pool-manage-tsql.md)、[C#](sql-database-elastic-pool-manage-csharp.md) 和 REST API 來建立及管理彈性集區。 
-
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>何時該考慮使用 SQL Database 彈性集區？
 
 集區很適合具備特定使用模式的大量資料庫。 針對指定的資料庫，此模式的特徵是低平均使用量與相對不頻繁的使用量高峰。
 
-您可以加入集區的資料庫愈多，可獲得的節約就愈高。 根據您的應用程式使用量模式，可能會發現與使用兩個 S3 資料庫一樣少的節約。  
+您可以加入集區的資料庫愈多，可獲得的節約就愈高。 根據您的應用程式使用量模式，可能會發現與使用兩個 S3 資料庫一樣少的節約。 
 
 下列各節會協助您了解如何評估您特定的資料庫集合是否可以因為位於集區而受益。 範例會使用標準集區，但是相同的原則也適用於基本和進階的集區。
 
@@ -72,23 +70,23 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
    ![使用量模式適合某個集區的 4 個資料庫](./media/sql-database-elastic-pool/four-databases.png)
 
-  ![使用量模式適合某個集區的 20 個資料庫](./media/sql-database-elastic-pool/twenty-databases.png)
+   ![使用量模式適合某個集區的 20 個資料庫](./media/sql-database-elastic-pool/twenty-databases.png)
 
 在上圖中，黑色線條說明跨所有 20 個資料庫的彙總 DTU 使用量。 這顯示彙總的 DTU 使用量永遠不會超過 100 個 DTU，並指出 20 個資料庫可以在這段期間共用 100 個 eDTU。 相較於將每個資料庫放在單一資料庫的 S3 效能層級，這會導致 DTU 減少 20 倍且價格降低 13 倍。
 
 由於以下原因，此範例很理想：
 
-* 每一資料庫之間的尖峰使用量和平均使用量有相當大的差異。  
+* 每一資料庫之間的尖峰使用量和平均使用量有相當大的差異。 
 * 每個資料庫的尖峰使用量會在不同時間點發生。
 * eDTU 會在許多資料庫之間共用。
 
-集區的價格是集區 eDTU 的函式。 雖然集區的 eDTU 單價較單一資料庫的 DTU 單價高 1.5 倍，但是**集區 eDTU 可由多個資料庫共用，而需要的 eDTU 總數會比較少**。 價格方面和 eDTU 共用的這些差異是集區可以提供價格節約潛力的基礎。  
+集區的價格是集區 eDTU 的函式。 雖然集區的 eDTU 單價較單一資料庫的 DTU 單價高 1.5 倍，但是**集區 eDTU 可由多個資料庫共用，而需要的 eDTU 總數會比較少**。 價格方面和 eDTU 共用的這些差異是集區可以提供價格節約潛力的基礎。 
 
 下列資料庫計數和資料庫使用量相關規則的經驗法則，可協助確保集區可提供相較於使用單一資料庫的效能層級降低的成本。
 
 ### <a name="minimum-number-of-databases"></a>資料庫的最小數目
 
-如果單一資料庫之效能層級的 DTU 總和大於集區所需 eDTU 的 1.5 倍，則彈性集區會更符合成本效益。 如需可用的大小，請參閱[彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)。
+如果單一資料庫之效能層級的 DTU 總和大於集區所需 eDTU 的 1.5 倍，則彈性集區會更符合成本效益。 如需可用的大小，請參閱[彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
 ***範例***<br>
 100 個 eDTU 集區需要至少 2 個 S3 資料庫或至少 15 個 S0 資料庫，才能較使用單一資料庫的效能層級更具成本效益。
@@ -115,7 +113,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 * 集區中所有資料庫使用的最大 DTU。
 * 集區中所有資料庫使用的最大儲存體位元組。
 
-如需可用的大小，請參閱[彈性集區和彈性資料庫的 eDTU 和儲存體限制](#what-are-the-resource-limits-for-elastic-pools)。
+如需可用的大小，請參閱[彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
 SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的資源使用量，並在 Azure 入口網站中建議適當的集區組態。 除了這些建議之外，內建體驗也會預估伺服器上一組自訂資料庫的 eDTU 使用量。 這可讓您以互動方式將資料庫新增至集區並加以移除，藉此進行「假設」分析，以在認可變更前取得資源使用量分析和大小建議。 如需相關作法，請參閱 [監視、管理和估算彈性集區大小](sql-database-elastic-pool-manage-portal.md)。
 
@@ -125,36 +123,10 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 
    最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
    <並行尖峰 DB 的數目** X 每個 DB 的尖峰 DTU 使用量**)
-2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。 如需以 eDTU 集區大小為基礎的集區儲存體限制，請參閱 [彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools)。
+2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。 如需以 eDTU 集區大小為基礎的集區儲存體限制，請參閱 [彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 3. 採用步驟 1 和步驟 2 中較大的 eDTU 估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/) 並尋找大於步驟 3 估計值的最小 eDTU 集區大小。
 5. 將步驟 5 的集區價格與單一資料庫適當效能層級的價格相比較。
-
-### <a name="changing-elastic-pool-resources"></a>變更彈性集區資源
-
-您可以根據資源需求來增加或減少彈性集區的可用資源。
-
-* 每個資料庫的最小 eDTU 數或每個資料庫的最大 eDTU 數變更作業通常在 5 分鐘內即可完成。
-* 集區的 eDTU 變更作業，需視集區中所有資料庫使用的總空間量而定。 變更作業平均每 100 GB 會在 90 分鐘以內完成。 舉例來說，如果集區中所有資料庫使用的總空間為 200 GB，則每集區 eDTU 變更作業的預期延遲時間會少於 3 小時。
-
-## <a name="what-are-the-resource-limits-for-elastic-pools"></a>彈性集區有哪些資源限制？
-
-下表描述彈性集區的資源限制。  請注意，根據 DTU 和服務層，彈性集區中個別資料庫的資源限制通常與集區外部之單一資料庫的資源限制相同。  例如，S2 資料庫的並行背景工作數上限是 120 個背景工作。  因此，如果集區中每個資料庫的最大 DTU 是 50 DTU (這相當於 S2)，標準集區中的資料庫最大並行背景工作數上限也會是 120 個背景工作。
-
-[!INCLUDE [SQL DB service tiers table for elastic pools](../../includes/sql-database-service-tiers-table-elastic-pools.md)]
-
-如果彈性集區的所有 DTU 均已使用，則集區中的每個資料庫會收到等量的資源以處理查詢。  SQL Database 服務藉由確保運算時間的均等配量，提供資料庫之間的資源共用公平性。 彈性集區資源共用公平性不包括任何資源數量，否則當每個資料庫的最小 DTU 數設為非零的值時，便會對每個資料庫保證資源數量。
-
-### <a name="database-properties-for-pooled-databases"></a>集區資料庫的資料庫屬性
-
-下表描述集區資料表的屬性。
-
-| 屬性 | 說明 |
-|:--- |:--- |
-| 每資料庫的 eDTU 上限 |集區中任何資料庫可以使用的 eDTU 數目上限，是否可用則是根據集區中其他資料庫的使用量而定。  每個資料庫的 eDTU 數目上限不等於資料庫的資源保證。  這個設定是全域設定，會套用至集區中的所有資料庫。 將每個資料庫的 eDTU 設定為最上限，以處理資料庫使用率的尖峰。 某種程度的過量使用是可預期的情況，因為集區通常會假設資料庫的熱門和冷門使用模式；在這些模式中，所有資料庫不會同時處於尖峰期。 例如，假設每個資料庫的尖峰使用量是 20 個 DTU，且集區中的 100 個資料庫只有 20% 會同時暴增到尖峰。  如果每一資料庫的 eDTU 上限設為 20 個 eDTU，則以 5 倍的量過量使用集區，並將每集區 eDTU 設為 400 個是合理的作法。 |
-| 每資料庫的 eDTU 下限 |集區中單一資料庫能夠保證的最小 eDTU 數。  這個設定是全域設定，會套用至集區中的所有資料庫。 每個資料庫最小 eDTU 建議設定為 0，同時也是預設值。 此屬性會設為 0 到每一資料庫的 eDTU 使用量平均值之間的任意數。 集區中資料庫數目和每個資料庫 eDTU 數目下限的乘積不能超過每個集區的 eDTU。  例如，如果集區有 20 個資料庫，且每個資料庫的最小 eDTU 設定為 10 eDTU，則每個集區 eDTU 必須至少為 200 個 eDTU。 |
-| 每個資料庫的資料儲存體上限 |集區中資料庫的儲存體上限。 集區資料庫共用集區儲存體，所以資料庫儲存體的大小會限制為較小的剩餘集區儲存體，以及每資料庫儲存體的上限。 每個資料庫的儲存體上限是指資料檔案的大小上限，並不包含記錄檔所使用的空間。 |
-|||
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>搭配彈性集區使用其他的 SQL Database 功能
 
@@ -167,25 +139,25 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>彈性集區之中的資料庫所適用的業務持續性選項
 集區資料庫通常會支援單一資料庫可用的相同[商務持續性功能](sql-database-business-continuity.md)。
 
-- **還原時間點**：還原時間點會自動備份資料庫，以將集區中的資料庫復原到特定的時間點。 請參閱 [還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **還原時間點**：還原時間點會使用自動資料庫備份，將集區中的資料庫復原到特定的時間點。 請參閱 [還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 - **異地還原**：異地還原會在資料庫因裝載區域中的事件而無法使用時，提供預設復原選項。 請參閱 [還原 Azure SQL Database 或容錯移轉到次要資料庫](sql-database-disaster-recovery.md)
 
 - **作用中異地複寫**：針對較異地還原需要更主動復原的應用程式，設定[作用中異地複寫](sql-database-geo-replication-overview.md)。
 
-## <a name="manage-sql-database-elastic-pools-using-the-azure-portal"></a>使用 Azure 入口網站管理 SQL Database 彈性集區
+## <a name="manage-elastic-pools-and-databases-using-the-azure-portal"></a>使用 Azure 入口網站管理彈性集區和資料庫
 
 ### <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>使用 Azure 入口網站建立新的 SQL Database 彈性集區
 
 在 Azure 入口網站中建立彈性集區的方式有兩種。 如果您知道您要的集區設定則可從頭開始進行，或從服務的建議著手。 SQL Database 擁有的內建智慧功能會根據您資料庫過去的使用狀況遙測，為您建議更符合成本效益的彈性集區設定。 
 
-從入口網站中的現有**伺服器** 刀鋒視窗建立彈性集區，是將現有資料庫移到彈性集區中的最簡單方式。 您也可以在 [Marketplace] 中搜尋 **SQL 彈性集區**，或按一下 [SQL 彈性集區] 瀏覽刀鋒視窗中的 [+新增]，以建立彈性集區。 您可以透過此集區佈建工作流程來指定新的或現有的伺服器。
+要將現有資料庫移到彈性集區中最簡單的方式，是從入口網站中的現有伺服器頁面建立彈性集區。 您也可以在 [Marketplace] 中搜尋 **SQL 彈性集區**，或按一下 [SQL 彈性集區] 頁面上的 [+新增]，以建立彈性集區。 您可以透過此集區佈建工作流程來指定新的或現有的伺服器。
 
 > [!NOTE]
 > 您可以在伺服器上建立多個集區，但無法將來自不同伺服器的資料庫新增到相同的集區。
->  
+> 
 
-集區的定價層決定了集區中彈性資料庫可用的功能，還有每個資料庫可用的 eDTU 數目上限 (eDTU MAX) 與儲存體 (GB)。 如需詳細資訊，請參閱 [服務層](#edtu-and-storage-limits-for-elastic-pools)。
+集區的定價層決定了集區中彈性資料庫可用的功能，還有每個資料庫可用的 eDTU 數目上限 (eDTU MAX) 與儲存體 (GB)。 如需詳細資訊，請參閱[彈性集區的資源限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 
 若要變更集區的定價層，請依序按一下 [定價層]、您想要的定價層及 [選取]。
 
@@ -197,7 +169,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 
 SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多個比使用單一資料庫更符合成本效益的集區。 每個推薦集區都是以最適合該集區的伺服器資料庫唯一子集進行設定。
 
-![建議的集區](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
+![建議的集區](./media/sql-database-elastic-pool-create-portal/recommended-pool.png) 
 
 集區建議包含下列內容︰
 
@@ -212,7 +184,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 服務會評估將每個服務層中的單一資料庫移至同一層集區的資源需求和成本效益。 例如，會評估伺服器上的所有 Standard 資料庫是否適合 Standard 彈性集區。 這表示服務不會進行跨層建議，例如將 Standard 資料庫移到 Premium 集區。
 
-將資料庫新增至集區之後，會根據您所選資料庫的過去使用情況來動態產生建議。 這些建議會顯示在 eDTU 和 GB 使用情況圖表，以及 [設定集區] 刀鋒視窗頂端的建議橫幅中。 這些建議旨在協助您為特定的資料庫建立最佳化彈性集區。
+將資料庫新增至集區之後，會根據您所選資料庫的過去使用情況來動態產生建議。 這些建議會顯示在 eDTU 和 GB 使用情況圖表，以及 [設定集區] 頁面頂端的建議橫幅中。 這些建議旨在協助您為特定的資料庫建立最佳化彈性集區。
 
 ![動態建議](./media/sql-database-elastic-pool-create-portal/dynamic-recommendation.png)
 
@@ -222,10 +194,10 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 下圖顯示彈性集區範例。 此檢視包括︰
 
-*  圖表，可供監視彈性集區和集區中內含資料庫的資源使用量。
-*  [設定]  集區按鈕，以對彈性集區進行變更。
-*  [建立資料庫] 按鈕，以建立資料庫並將它加入至目前的彈性集區。
-*  彈性工作，可藉由對清單中的所有資料庫執行 Transact SQL 指令碼，協助您管理大量資料庫。
+* 圖表，可供監視彈性集區和集區中內含資料庫的資源使用量。
+* [設定]  集區按鈕，以對彈性集區進行變更。
+* [建立資料庫] 按鈕，以建立資料庫並將它加入至目前的彈性集區。
+* 彈性工作，可藉由對清單中的所有資料庫執行 Transact SQL 指令碼，協助您管理大量資料庫。
 
 ![集區檢視](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
@@ -233,11 +205,11 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 ![彈性集區監視](./media/sql-database-elastic-pool-manage-portal/basic-2.png)
 
-![[度量] 刀鋒視窗](./media/sql-database-elastic-pool-manage-portal/metric.png)
+![計量頁面](./media/sql-database-elastic-pool-manage-portal/metric.png)
 
 ### <a name="to-customize-the-chart-display"></a>自訂圖表顯示
 
-您可以編輯此圖表和 [度量] 刀鋒視窗，以顯示其他度量，例如所用的 CPU 百分比、資料 IO 百分比和記錄 IO 百分比。
+您可以編輯此圖表和 [計量] 頁面，以顯示其他計量，例如所用的 CPU 百分比、資料 IO 百分比和記錄 IO 百分比。
 
 ![按一下 [編輯]。](./media/sql-database-elastic-pool-manage-portal/edit-metric.png)
 
@@ -247,7 +219,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 > 圖表中只能同時顯示具有相同測量單位的度量。 例如，如果您選取 [eDTU 百分比]，則只能選取以百分比做為測量單位的其他度量。
 >
 
-[按一下 [編輯]](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
+![按一下 [編輯]。](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
 ### <a name="manage-and-monitor-databases-in-an-elastic-pool"></a>管理及監視彈性集區中的資料庫
 
@@ -255,9 +227,9 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 ![彈性集區監視](./media/sql-database-elastic-pool-manage-portal/basic-3.png)
 
-按一下 [彈性資料庫監視] 下的 [過去一小時的資料庫 eDTU 使用量]。 這會開啟 [資料庫資源使用量]，並對於集區中的資料庫使用量提供詳細檢視。 使用刀鋒視窗下半部中的方格，可以選取集區中的任何資料庫，以在圖表中顯示其使用情況 (最多 5 個資料庫)。 也可以按一下 [編輯圖表] ，自訂圖表中顯示的度量和時間範圍。
+按一下 [彈性資料庫監視] 下的 [過去一小時的資料庫 eDTU 使用量]。 這會開啟 [資料庫資源使用量]，並對於集區中的資料庫使用量提供詳細檢視。 使用頁面下半部中的方格，可以選取集區中的任何資料庫，以在圖表中顯示其使用情況 (最多 5 個資料庫)。 也可以按一下 [編輯圖表] ，自訂圖表中顯示的度量和時間範圍。
 
-![資料庫資源使用率刀鋒視窗](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
+![資料庫資源使用率頁面](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
 ### <a name="to-customize-the-view"></a>自訂檢視
 
@@ -273,7 +245,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 ### <a name="to-select-databases-to-monitor"></a>選取要監視的資料庫
 
-在 [資料庫資源使用率]  刀鋒視窗的資料庫清單中，瀏覽清單中的頁面或輸入資料庫的名稱，即可找到特定的資料庫。 使用此核取方塊來選取資料庫。
+在 [資料庫資源使用率] 頁面的資料庫清單中，瀏覽清單中的頁面或輸入資料庫的名稱，即可找到特定的資料庫。 使用此核取方塊來選取資料庫。
 
 ![搜尋要監視的資料庫](./media/sql-database-elastic-pool-manage-portal/select-dbs.png)
 
@@ -284,11 +256,11 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 **將警示加入任何資源：**
 
-1. 按一下 [資源使用率] 圖表以開啟 [度量] 刀鋒視窗，按一下 [加入警示]，然後在 [加入警示規則] 刀鋒視窗中填寫資訊 ([資源] 會自動設定為使用中的集區)。
+1. 按一下 [資源使用率] 圖表以開啟 [計量] 頁面，按一下 [新增警示]，然後在 [新增警示規則] 頁面中填寫資訊 ([資源] 會自動設定為使用中的集區)。
 2. 輸入可供您和收件者辨別警示的 [名稱] 和 [描述]。
 3. 從清單中選擇要警示的 [度量]  。
 
-    圖表會以動態方式顯示該度量的資源使用量，協助您選擇閾值。
+   圖表會以動態方式顯示該度量的資源使用量，協助您選擇閾值。
 
 4. 選擇 [條件] \(大於、小於等等) 和 [臨界值]。
 5. 選擇警示觸發程序之前，計量規則必須滿足的 [期間]。
@@ -314,12 +286,6 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 ![資料庫清單](./media/sql-database-elastic-pool-manage-portal/select-pools-removal.png)
 
-![資料庫清單](./media/sql-database-elastic-pool-manage-portal/click-remove.png)
-
-![預覽新增和移除的資料庫](./media/sql-database-elastic-pool-manage-portal/pending-removal.png)
-
-![按一下 [Save] \(儲存)。](./media/sql-database-elastic-pool-manage-portal/click-save.png)
-
 ### <a name="change-performance-settings-of-an-elastic-pool"></a>變更彈性集區的效能設定
 
 當您監視彈性集區的資源使用率時，可能會發現需要一些調整。 也許集區的效能或儲存體限制需要變更。 您可能想要變更集區中的資料庫設定。 您可以隨時變更集區設定，以在效能和成本之間取得最佳平衡。 如需詳細資訊，請參閱[何時應該使用彈性集區？](sql-database-elastic-pool.md)
@@ -328,9 +294,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 ![彈性集區資源使用量](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
-![更新彈性集區和新的每月成本](./media/sql-database-elastic-pool-manage-portal/pool-change-edtu.png)
-
-## <a name="manage-sql-database-elastic-pools-using-powershell"></a>使用 PowerShell 管理 SQL Database 彈性集區
+## <a name="manage-elastic-pools-and-databases-using-powershell"></a>使用 PowerShell 來管理彈性集區和資料庫
 
 若要使用 Azure PowerShell 建立和管理 SQL Database 彈性集區，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 若要建立和管理資料庫、伺服器和防火牆規則，請參閱[使用 PowerShell 建立和管理 Azure SQL Database 伺服器和資料庫](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-powershell)。 
 
@@ -342,7 +306,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 | --- | --- |
 |[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|在邏輯 SQL Server 建立彈性資料庫集區。|
 |[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|取得邏輯 SQL Server 上的彈性集區及其屬性值。|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|修改邏輯 SQL Server 上的彈性資料庫集區屬性。|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|修改邏輯 SQL Server 上的彈性資料庫集區屬性。 例如，使用 **StorageMB** 屬性可修改彈性集區的最大儲存體。|
 |[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|刪除邏輯 SQL Server 上的彈性資料庫集區。|
 |[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|取得邏輯 SQL server 上的彈性集區作業狀態。|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|在現有的集區建立新的資料庫，或建立新的資料庫做為單一資料庫。 |
@@ -350,11 +314,12 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|設定資料庫的屬性，或將現有資料庫移入彈性集區、移出彈性集區，或在彈性集區之間移動。|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|移除資料庫。|
 
+
 > [!TIP]
 > 使用入口網站或一次只建立單一資料庫的 PowerShell Cmdlet 在彈性集區中建立許多資料庫可能需要花費一些時間。 若要自動建立成彈性集區，請參閱 [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae)。
 >
 
-## <a name="manage-sql-database-elastic-pools-using-the-azure-cli"></a>使用 Azure CLI 管理 SQL Database 彈性集區
+## <a name="manage-elastic-pools-and-databases-using-the-azure-cli"></a>使用 Azure CLI 來管理彈性集區和資料庫
 
 若要使用 [Azure CLI](/cli/azure/overview) 建立和管理 SQL Database 彈性集區，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 
 
@@ -371,7 +336,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 |[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|更新彈性集區。|
 |[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|刪除彈性集區。|
 
-## <a name="manage-sql-database-elastic-pools-using-transact-sql"></a>使用 Transact-SQL 管理 SQL Database 彈性集區
+## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>使用 Transact-SQL 來管理彈性集區內的資料庫
 
 若要在現有彈性集區中建立並移動資料庫，或傳回 SQL Database 彈性集區與 Transact-SQL 的資訊，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 若要建立和管理資料庫、伺服器和防火牆規則，請參閱[使用 Transact-SQL 建立和管理 Azure SQL Database 伺服器和資料庫](sql-database-servers-databases.md#manage-azure-sql-servers-databases-and-firewalls-using-transact-sql)。
 
@@ -387,9 +352,30 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|傳回邏輯伺服器中的所有彈性資料庫集區的資源使用量統計資料。 每個彈性資料庫集區，每 15 秒報告時間範圍會傳回一列 (每分鐘四列)。 包括集區中所有資料庫的 CPU、IO、記錄、儲存體使用情況和並行的要求/工作階段使用量。|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|傳回 Azure SQL 資料庫或 Azure SQL 資料倉儲的版本 (服務層)、服務目標 (定價層) 和彈性集區名稱 (如果有的話)。 若已登入 Azure SQL Database 伺服器中的 master 資料庫，則傳回所有資料庫的相關資訊。 對於 Azure SQL 資料倉儲，您必須連線到 master 資料庫。|
 
-## <a name="manage-sql-database-elastic-pools-using-the-rest-api"></a>使用 REST API 管理 SQL Database 彈性集區
+## <a name="manage-elastic-pools-and-databases-using-the-rest-api"></a>使用 REST API 來管理彈性集區和資料庫
 
-若要使用 REST API 建立和管理 SQL Database 彈性集區，請參閱 [Azure SQL Database REST API](/rest/api/sql/)。
+若要建立及管理 SQL Database 彈性集區，請使用這些 REST API 的要求。
+
+| 命令 | 說明 |
+| --- | --- |
+|[彈性集區 - 建立或更新](/rest/api/sql/elasticpools/createorupdate)|建立新的彈性集區或更新現有的彈性集區。|
+|[彈性集區 - 刪除](/rest/api/sql/elasticpools/delete)|刪除彈性集區。|
+|[彈性集區 - 取得](/rest/api/sql/elasticpools/get)|取得彈性集區。|
+|[彈性集區 - 依伺服器列出](/rest/api/sql/elasticpools/listbyserver)|傳回將伺服器中的彈性集區列出的清單。|
+|[彈性集區 - 更新](/rest/api/sql/elasticpools/update)|更新現有的彈性集區。|
+|[建議的彈性集區 - 取得](/rest/api/sql/recommendedelasticpools/get)|取得建議的彈性集區。|
+|[建議的彈性集區 - 依伺服器列出](/rest/api/sql/recommendedelasticpools/listbyserver)|傳回建議的彈性集區。|
+|[建議的彈性集區 - 列出計量](/rest/api/sql/recommendedelasticpools/listmetrics)|傳回建議的彈性集區計量。|
+|[彈性集區活動](/rest/api/sql/elasticpoolactivities)|傳回彈性集區活動。|
+|[彈性集區資料庫活動](/rest/api/sql/elasticpooldatabaseactivities)|傳回資料庫內彈性集區上的活動。|
+|[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
+|[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
+|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區內的資料庫。|
+|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得建議之彈性集區內的資料庫。|
+|[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
+|[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
+|[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
+|[資料庫 - 更新](/api/sql/databases/update)|更新現有的資料庫。|
 
 ## <a name="next-steps"></a>後續步驟
 

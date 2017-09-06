@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: e0e33882acc90130ef93cd66c3d57bb90f78ccee
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -33,7 +32,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 * 較長的事件保留期
 * 其他代理連線，超過包含的數目時支付超額費用
 * 超過單一消費者群組
-* [擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)
+* [擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
 
 如需有關定價層的詳細資訊，包括專用事件中樞，請參閱[事件中樞定價詳細資料](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -59,7 +58,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 是。只要所有事件中樞都位於相同的命名空間內即可。
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最大保留期間是多少？
-事件中樞標準層目前支援的最大保留期間為 7 天。 請注意，事件中樞的立意並非作為永久的資料存放區。 大於 24 小時的保留期間乃專為方便地在同一系統上重新執行事件串流的案例而設計。例如，根據現有資料來訓練或驗證新機器學習模型。 如果您需要將訊息保留超過 7 天，請在事件中樞上啟用[事件中樞擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-archive-overview)，這會將資料從事件中樞提取到您選擇的儲存體。 啟用擷取將會產生費用，費用根據您購買的輸送量單位而定。
+事件中樞標準層目前支援的最大保留期間為 7 天。 請注意，事件中樞的立意並非作為永久的資料存放區。 大於 24 小時的保留期間乃專為方便地在同一系統上重新執行事件串流的案例而設計。例如，根據現有資料來訓練或驗證新機器學習模型。 如果您需要將訊息保留超過 7 天，請在事件中樞上啟用[事件中樞擷取](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)，這會將資料從事件中樞提取到您選擇的儲存體帳戶或 Azure Data Lake 服務帳戶。 啟用擷取將會產生費用，費用根據您購買的輸送量單位而定。
 
 ### <a name="where-is-azure-event-hubs-available"></a>哪裡可以取得 Azure 事件中樞？
 在所有支援的 Azure 區域皆提供 Azure 事件中樞。 如需清單，請瀏覽 [Azure 區域](https://azure.microsoft.com/regions/)頁面。  

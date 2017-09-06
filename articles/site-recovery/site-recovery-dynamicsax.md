@@ -12,14 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: cf568d20f60709dbb64774bcbcc1b4aa6c43d8d3
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 03127c8f4841b67436c4819628319705af0b2cd5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="replicate-a-multi-tier-dynamics-ax-application-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Dynamics AX 應用程式
@@ -59,7 +58,7 @@ Microsoft Dynamics AX 是企業間受歡迎的 ERP 解決方案之一，可橫�
 **VMware** | 是 | 是
 **實體伺服器** | 是 | 是
 
-## <a name="enable-dr-of-dynamics-ax-application-using-asr"></a>使用 ASR 啟用 Dynamics AX 應用程式的 DR
+## <a name="enable-dr-of-dynamics-ax-application-using-azure-site-recovery"></a>使用 Azure Site Recovery 啟用 Dynamics AX 應用程式的 DR
 ### <a name="protect-your-dynamics-ax-application"></a>保護 Dynamics AX 應用程式
 Dynamics AX 的每個元件都需要受到保護，才能做到完整的應用程式複寫與復原。 本節涵蓋︰
 
@@ -103,7 +102,7 @@ DR 網站上需要有 Active Directory，Dynamics AX 應用程式才能運作。
 ### <a name="4-configure-networking"></a>4.設定網路功能
 設定 VM 計算和網路設定
 
-對於 AX 用戶端和 AOS VM，設定 ASR 中的網路設定，讓 VM 網路能在容錯移轉之後連結到正確的 DR 網路。 確保這些層的 DR 網路可路由傳送到 SQL 層。
+對於 AX 用戶端和 AOS VM，設定 Azure Site Recovery 中的網路設定，讓 VM 網路能在容錯移轉之後連結到正確的 DR 網路。 確保這些層的 DR 網路可路由傳送到 SQL 層。
 
 您可以在複寫的項目中選取 VM 來進行網路設定，如以下快照集所示。
 
@@ -113,11 +112,11 @@ DR 網站上需要有 Active Directory，Dynamics AX 應用程式才能運作。
 
 
 
-### <a name="5-creating-a-recovery-plan"></a>5.建立復原方案
+### <a name="5-creating-a-recovery-plan"></a>5.建立復原計劃
 
-您可以在 ASR 中建立復原方案，將容錯移轉程序自動化。 在復原方案中新增應用程式層和 Web 層。 在不同群組中將它們排序，讓前端關機出現在應用程式層之前。
+您可以在 Azure Site Recovery 中建立復原方案，將容錯移轉程序自動化。 在復原方案中新增應用程式層和 Web 層。 在不同群組中將它們排序，讓前端關機出現在應用程式層之前。
 
-1)  在您的訂用帳戶中選取 ASR 保存庫，然後按一下 [復原方案] 圖格。
+1)  在您的訂用帳戶中選取 Azure Site Recovery 保存庫，然後按一下 [復原方案] 圖格。
 
 2)  按一下 [+ 復原方案] 並指定名稱。
 

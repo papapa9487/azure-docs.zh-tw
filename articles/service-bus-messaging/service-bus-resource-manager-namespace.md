@@ -14,17 +14,17 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: sethm;shvija
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: efd0ec90a1c0775661069faa323e56914dd4e032
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 0598ee93a38c07aa7b1102cdaf228c2a4b4dcf71
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/13/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立服務匯流排命名空間
 
-本文說明如何使用 Azure Resource Manager 範本，建立**訊息**類型的服務匯流排命名空間與標準/基本 SKU。 本文也會定義針對部署執行而指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
+本文說明如何使用 Azure Resource Manager 範本，建立**訊息**類型的服務匯流排命名空間與標準 SKU。 本文也會定義針對部署執行而指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。
 
 如需建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 04/13/2017
 > 
 
 ## <a name="what-will-you-deploy"></a>您將部署什麼？
-使用此範本時，您將部署具有[基本、標準或進階](https://azure.microsoft.com/pricing/details/service-bus/) SKU 的「服務匯流排」命名空間。
+使用此範本時，您會部署具有[標準或進階](https://azure.microsoft.com/pricing/details/service-bus/) SKU 的服務匯流排命名空間。
 
 若要自動執行部署，請按一下下列按鈕：
 
@@ -73,7 +73,6 @@ ms.lasthandoff: 04/13/2017
 "serviceBusSku": { 
     "type": "string", 
     "allowedValues": [ 
-        "Basic", 
         "Standard",
         "Premium" 
     ], 
@@ -84,7 +83,7 @@ ms.lasthandoff: 04/13/2017
 
 ```
 
-此範本會定義此參數允許使用的值 (Basic、Standard 或 Premium)，並指派未指定任何值時的預設值 (Standard)。
+此範本會定義此參數允許使用的值 (標準或進階)，並指派未指定任何值時的預設值 (標準)。
 
 如需服務匯流排定價的詳細資訊，請參閱[服務匯流排定價與計費][Service Bus pricing and billing]。
 

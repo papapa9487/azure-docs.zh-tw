@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2017
+ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: cc44d59100104253447e474a49254d8b6bd68d8c
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e8c146f4b6d02449be6ad9e991e52db8dfd58e04
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
@@ -37,10 +36,10 @@ ms.lasthandoff: 05/17/2017
 先前稱為「服務匯流排轉送」服務現在稱為「WCF 轉送」。 您可以繼續如常使用這項服務。 混合式連線功能是服務的更新版本，從 Azure BizTalk 服務移植。 會繼續支援「WCF 轉送」和「混合式連線」。
 
 ## <a name="pricing"></a>價格
-本節提供轉送價格結構的一些常見問題解答。 如需一般的 Azure 價格資訊，也可以參閱 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)。 如需轉送價格的完整資訊，請參閱 [服務匯流排價格詳細資料](https://azure.microsoft.com/pricing/details/service-bus/)。
+本節提供轉送價格結構的一些常見問題解答。 如需一般的 Azure 價格資訊，也可以參閱 [Azure 支援常見問題集](http://go.microsoft.com/fwlink/?LinkID=185083)。 如需轉送價格的完整資訊，請參閱[服務匯流排價格詳細資料][Pricing overview]。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>混合式連接和 WCF 轉送如何收費？
-如需轉送價格的完整資訊，請參閱[服務匯流排價格詳細資料][Pricing overview]。 除了頁面上註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。
+如需有關轉送價格的完整資訊，請參閱服務匯流排價格詳細資料頁面上的[混合式連線與 WCF 轉送][Pricing overview]資料表。 除了頁面上註明的價格，您還需支付您的應用程式佈建所在資料中心外部的輸出相關資料傳輸費用。
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>混合式連接如何計費？
 以下是混合式連線計費案例的三個範例︰
@@ -63,7 +62,7 @@ ms.lasthandoff: 05/17/2017
 
 ### <a name="how-are-hours-calculated-for-relay"></a>如何計算轉送時數？
 
-只能在標準層命名空間中使用 WCF 轉送。 否則轉送的價格和[連線配額](../service-bus-messaging/service-bus-quotas.md)會保持不變。 這表示轉送將繼續根據訊息數目 (而非作業數) 和轉送時數計費。 如需詳細資訊，請參閱定價詳細資料頁面上的[混合式連線與 WCF 轉送](https://azure.microsoft.com/pricing/details/service-bus/)資料表。
+只能在標準層命名空間中使用 WCF 轉送。 否則轉送的價格和[連線配額](../service-bus-messaging/service-bus-quotas.md)會保持不變。 這表示轉送將繼續根據訊息數目 (而非作業數) 和轉送時數計費。 如需詳細資訊，請參閱價格詳細資料頁面上的[混合式連線與 WCF 轉送](https://azure.microsoft.com/pricing/details/service-bus/)資料表。
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>如果我有一個以上的接聽程式連線到指定的轉送，該怎麼辦？
 在某些情況下，單一轉送可能有多個已連線的接聽程式。 至少有一個轉送接聽程式連線到轉送時，即會被視為開放式轉送。 將接聽程式新增至開放式轉送會導致額外的轉送時數。 連線到轉送的轉送傳送者 (叫用或傳送訊息至轉送的用戶端) 數目不會影響轉送時數的計算。
@@ -71,11 +70,11 @@ ms.lasthandoff: 05/17/2017
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>如何針對 WCF 轉送計算訊息計量？
 (**這只適用於 WCF 轉送。訊息並不是混合式連線的成本。**)
 
-一般而言，對代理實體 (佇列、主題和訂用帳戶) 使用稍早所述相同方法的轉送會計算計費訊息。 但是，請注意以下幾個差異。
+一般而言，對代理實體 (佇列、主題和訂用帳戶) 使用先前所述相同方法的轉送會計算計費訊息。 但是，請注意以下幾個差異。
 
-將訊息傳送至服務匯流排轉送會被視為「完整通過」傳送至接收訊息的轉送接聽程式。 它「不會」被視為傳送至服務匯流排轉送，後面接著傳遞至轉送接聽程式。 對於轉送接聽程式的要求-回覆模式服務叫用 (最多 64 KB) 將會產生兩則計費訊息︰一則是要求的計費訊息，一則是回應的計費訊息 (假設回應也是 64 KB 或更小)。 這與使用佇列在用戶端與服務之間居中協調不同。 如果您使用佇列在用戶端與服務之間居中協調，相同要求-回覆模式需要將要求傳送至佇列，後面接著將來自佇列的清除佇列/傳遞傳送至服務。 後面接著將回應傳送至另一個佇列，以及將來自該佇列的清除佇列/傳遞傳送至用戶端。 使用相同的大小假設 (最多 64 KB) 輸送量，居中協調佇列模式會產生四則計費訊息。 您要支付兩倍的訊息數目，才能實作使用轉送完成的相同模式。 當然，使用佇列來達成此模式有許多優點，例如，持久性和負載調節。 這些優點可合理解釋額外的費用。
+將訊息傳送至服務匯流排轉送會被視為「完整通過」傳送至接收訊息的轉送接聽程式。 它不會被視為送至服務匯流排轉送的傳送作業，其後面接著傳遞至轉送接聽程式。 對於轉送接聽程式的要求-回覆模式服務叫用 (最多 64 KB) 將會產生兩則計費訊息︰一則是要求的計費訊息，一則是回應的計費訊息 (假設回應也是 64 KB 或更小)。 這與使用佇列在用戶端與服務之間居中協調不同。 如果您使用佇列在用戶端與服務之間居中協調，相同要求-回覆模式需要將要求傳送至佇列，後面接著將來自佇列的清除佇列/傳遞傳送至服務。 後面接著將回應傳送至另一個佇列，以及將來自該佇列的清除佇列/傳遞傳送至用戶端。 使用相同的大小假設輸送量 (最多 64 KB)，居中協調的佇列模式會產生 4 則計費訊息。 您要支付兩倍的訊息數目，才能實作使用轉送完成的相同模式。 當然，使用佇列來達成此模式有許多優點，例如，持久性和負載調節。 這些優點可合理解釋額外的費用。
 
-使用 netTCPRelay Windows Communication Foundation (WCF) 繫結開啟的轉送不會將訊息視為個別的訊息，而會視為通過系統的資料流。 當您使用此繫結時，只有傳送者和接聽程式能夠看見傳送和接收之個別訊息的框架。 對於使用 netTCPRelay 繫結的轉送，所有資料都會被視為資料流，以便計算計費訊息。 在此情況下，服務匯流排會以 5 分鐘為基礎，計算透過每個個別轉送傳送或接收的資料總量。 然後，它會依據 64 KB 來分割資料總量，以判斷該期間該轉送的計費訊息數目。
+使用 **netTCPRelay** WCF 繫結開啟的轉送不會將訊息視為個別的訊息，但是會視為通過系統的資料流。 當您使用此繫結時，只有傳送者和接聽程式能夠看見傳送和接收之個別訊息的框架。 對於使用 **netTCPRelay** 繫結的轉送，所有資料都會被視為資料流，以便計算計費訊息。 在此情況下，服務匯流排會以 5 分鐘為基礎，計算透過每個個別轉送傳送或接收的資料總量。 然後，它會依據 64 KB 來分割資料總量，以判斷該期間該轉送的計費訊息數目。
 
 ## <a name="quotas"></a>配額
 | 配額名稱 | Scope | 類型 | 超出時的行為 | 值 |
@@ -93,7 +92,7 @@ ms.lasthandoff: 05/17/2017
 * 50 億則訊息
 * 2 百萬個轉送小時
 
-雖然我們有權停用超出其每月使用量配額的客戶帳戶，但我們將提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付超出配額的費用。
+雖然我們有權停用超出其每月使用量配額的帳戶，但我們將提供電子郵件通知並且在採取任何動作之前多次嘗試連絡客戶。 超出這些配額的客戶仍需負責支付額外費用。
 
 ### <a name="naming-restrictions"></a>命名限制
 轉送命名空間名稱的長度必須介於 6 到 50 個字元之間。
@@ -127,7 +126,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 如需常見例外狀況的描述以及您可以採取的建議動作，請參閱[轉送例外狀況][Relay exceptions]。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>什麼是共用存取簽章，我可以使用何種語言來產生簽章？
-共用存取簽章是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何以 Node、PHP、Java、C 和 C# 產生自有簽章的相關資訊，請參閱[具有共用存取簽章的服務匯流排驗證][Shared Access Signatures]。
+共用存取簽章 (SAS) 是以 SHA-256 安全雜湊或 URI 為基礎的驗證機制。 如需如何以 Node、PHP、Java、C 和 C# 產生自有簽章的相關資訊，請參閱[具有共用存取簽章的服務匯流排驗證][Shared Access Signatures]。
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>可以將轉送端點列入白名單嗎？
 是。 轉送用戶端會使用完整的網域名稱連線至 Azure 轉送服務。 客戶可以在防火牆上新增 `*.servicebus.windows.net` 項目以支援 DNS 白名單。

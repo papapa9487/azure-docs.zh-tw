@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/06/2017
+ms.date: 08/28/2017
 ms.author: sethm
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 02e4e58418e289eaf4b619a6cfc411fe1f50f48f
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 來管理服務匯流排資源
@@ -29,11 +29,11 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始之前，您將需要下列項目：
+開始之前，您需要下列必要條件：
 
 * Azure 訂用帳戶。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項][purchase options]、[成員優惠][member offers]或[免費帳戶][free account]。
 * 具備 Azure PowerShell 的電腦。 如需指示，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/get-started-azureps)。
-* 大致了解 PowerShell 指令碼、NuGet 封裝和 .NET Framework。
+* 大致了解 PowerShell 指令碼、NuGet 套件和 .NET Framework。
 
 ## <a name="get-started"></a>開始使用
 
@@ -46,7 +46,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 這個範例會在指令碼中建立幾個區域變數：`$Namespace` 和 `$Location`。
 
 * `$Namespace` 為我們想要使用之服務匯流排命名空間的名稱。
-* `$Location` 會識別我們將在其中佈建命名空間的資料中心。
+* `$Location` 會識別我們在其中佈建命名空間的資料中心。
 * `$CurrentNamespace` 會儲存我們擷取 (或建立) 的參考命名空間。
 
 在實際的指令碼中，`$Namespace` 和 `$Location` 可以參數的方式傳遞。
