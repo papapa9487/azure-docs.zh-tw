@@ -14,24 +14,23 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c47dabd7c4aa4ba0be08c419989e536711f03677
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3522cae228e92b47023cfca217e09c2e2104190b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控制和自動化工作量的部署與管理。 在本文中，您將了解如何使用本機 Azure PowerShell 主控台，透過使用 Windows PowerShell 來管理 Azure HDInsight 上的 Hadoop 叢集。 如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]。
+Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中，您將了解如何使用 Azure PowerShell 來管理Azure HDInsight 中的 Hadoop 叢集。 如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件][hdinsight-powershell-reference]。
 
 **必要條件**
 
-開始閱讀本文之前，您必須符合下列必要條件：
+開始閱讀本文之前，您必須有下列各項：
 
 * **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 
@@ -42,7 +41,9 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
 檢查已安裝的 PowerShell 版本：
 
-    Get-Module *azure*
+```powershell
+Get-Module *azure*
+```
 
 若要解除安裝較舊的版本，請在控制台中執行 [程式和功能]。
 
@@ -52,21 +53,29 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 ## <a name="list-clusters"></a>列出叢集
 使用下列命令列出目前訂用帳戶中的所有叢集：
 
-    Get-AzureRmHDInsightCluster
+```powershell
+Get-AzureRmHDInsightCluster
+```
 
 ## <a name="show-cluster"></a>顯示叢集
 使用下列命令顯示目前訂用帳戶中特定叢集的詳細資料：
 
-    Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
 ## <a name="delete-clusters"></a>刪除叢集
 使用下列命令來刪除叢集：
 
-    Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```powershell
+Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+```
 
-您也可以移除包含叢集的資源群組來刪除叢集。 請注意，這將會刪除群組中的所有資源 (包括預設儲存體帳戶)。
+您也可以移除包含叢集的資源群組來刪除叢集。 刪除資源群組會刪除群組中的所有資源 (包括預設儲存體帳戶)。
 
-    Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```powershell
+Remove-AzureRmResourceGroup -Name <Resource Group Name>
+```
 
 ## <a name="scale-clusters"></a>調整叢集
 叢集調整功能可讓您變更在 Azure HDInsight 中執行的叢集所用的背景工作節點數目，而不需要重新建立叢集。
@@ -82,14 +91,17 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
 
-    減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 這會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
+    減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 重新啟動服務會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
 * HBase
 
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
+
 * Storm
 
     您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。 但在調整作業順利完成後，您需要重新平衡拓撲。
@@ -107,14 +119,18 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Azure 中控�
 
     以下是如何使用 CLI 命令重新平衡 Storm 拓撲的範例：
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 若要使用 Azure PowerShell 變更 Hadoop 叢集大小，請從用戶端電腦執行下列命令：
 
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```powershell
+Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+```
 
 
 ## <a name="grantrevoke-access"></a>授與/撤銷存取權
@@ -128,52 +144,73 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 預設會授與這些服務的存取權。 您可以撤銷/授與存取權。 撤銷：
 
-    Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```powershell
+Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+```
 
 授與：
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    # Credential option 1
-    $hadoopUserName = "admin"
-    $hadoopUserPassword = "<Enter the Password>"
-    $hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
+# Credential option 1
+$hadoopUserName = "admin"
+$hadoopUserPassword = "<Enter the Password>"
+$hadoopUserPW = ConvertTo-SecureString -String $hadoopUserPassword -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential($hadoopUserName,$hadoopUserPW)
 
-    # Credential option 2
-    #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
+# Credential option 2
+#$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-    Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+```
 
 > [!NOTE]
-> 透過授與/撤銷存取權，您將重設叢的使用者名稱和密碼。
+> 透過授與/撤銷存取權，您將重設叢集使用者名稱和密碼。
 >
 >
 
-這也可以透過入口網站完成。 請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
+授與及撤銷存取權也可以透過入口網站完成。 請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
-與[授與/撤銷 HTTP 存取權](#grant/revoke-access)程序一樣。若已授與叢集 HTTP 存取權，則必須先將其撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。
+這是與[授與/撤銷 HTTP 存取權](#grant/revoke-access)相同的程序。 如果已將 HTTP 存取權授與叢集，您必須先將它撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。
 
 ## <a name="find-the-default-storage-account"></a>尋找預設的儲存體帳戶
-下列 Powershell 指令碼示範如何取得叢集的預設儲存體帳戶名稱和預設儲存體帳戶金鑰。
+下列 PowerShell 指令碼示範如何取得預設儲存體帳戶名稱和相關資訊：
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+#Login-AzureRmAccount
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
-    $defaultStorageAccountName = ($cluster.DefaultStorageAccount).Replace(".blob.core.windows.net", "")
+$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
+$defaultStoreageType = $storageInfo[1]
+$defaultStorageName = $storageInfo[0]
+
+echo "Default Storage account name: $defaultStorageName"
+echo "Default Storage account type: $defaultStoreageType"
+
+if ($defaultStoreageType -eq "blob")
+{
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
     $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
     $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
+    echo "Default Blob container name: $defaultBlobContainerName"
+    echo "Default Storage account key: $defaultStorageAccountKey"
+}
+```
+
+
 ## <a name="find-the-resource-group"></a>尋找資源群組
 在 Resource Manager 模式中，每個 HDInsight 叢集皆屬於一個 Azure 資源群組。  尋找資源群組：
 
-    $clusterName = "<HDInsight Cluster Name>"
+```powershell
+$clusterName = "<HDInsight Cluster Name>"
 
-    $cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-    $resourceGroupName = $cluster.ResourceGroup
+$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$resourceGroupName = $cluster.ResourceGroup
+```
 
 
 ## <a name="submit-jobs"></a>提交工作

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
-ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 7546650e6096a880f4fb4d0c94dd4ecc00b70160
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>在 Azure CDN 中壓縮檔案以改善效能
@@ -26,7 +27,7 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 有兩種方式可啟用壓縮︰
 
 * 您可以在原始伺服器上啟用壓縮，此時 CDN 會透過壓縮的檔案傳遞，並將壓縮的檔案傳送到提出要求的用戶端。
-* 您可以直接在 CDN Edge Server 上啟用壓縮，此時 CDN 會壓縮檔案並將其提供給使用者，即使原始伺服器未壓縮這些檔案也是如此。
+* 您可以直接在 CDN Edge Server 上啟用壓縮，此時 CDN 會壓縮檔案並將其提供給終端使用者，即使原始伺服器未壓縮這些檔案也是如此。
 
 > [!IMPORTANT]
 > CDN 組態變更會需要一些時間才能傳播至整個網路。  若為 <b>來自 Akamai 的 Azure CDN</b> 設定檔，通常會在一分鐘之內完成傳播。  若為 <b>來自 Verizon 的 Azure CDN</b> 設定檔，您通常會在 90 分鐘之內看到變更套用。  如果這是您第一次設定 CDN 端點壓縮，您應該考慮先等候 1-2 小時，確定壓縮設定已傳播至 POP 再進行疑難排解
@@ -45,16 +46,16 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 > 
 > 
 
-1. 在 [CDN 設定檔] 刀鋒視窗中，按一下您要管理的 CDN 端點。
+1. 在 [CDN 設定檔] 頁面中，按一下您要管理的 CDN 端點。
    
-    ![[CDN 設定檔] 刀鋒視窗端點](./media/cdn-file-compression/cdn-endpoints.png)
+    ![[CDN 設定檔] 頁面端點](./media/cdn-file-compression/cdn-endpoints.png)
    
-    隨即開啟 [CDN 端點] 刀鋒視窗。
+    隨即開啟 [CDN 端點] 頁面。
 2. 按一下 [設定]  按鈕。
    
-    ![[CDN 設定檔] 刀鋒視窗管理按鈕](./media/cdn-file-compression/cdn-config-btn.png)
+    ![[CDN 設定檔] 頁面的 [管理] 按鈕](./media/cdn-file-compression/cdn-config-btn.png)
    
-    隨即開啟 [CDN 組態] 刀鋒視窗。
+    隨即開啟 [CDN 組態] 頁面。
 3. 開啟 [ **壓縮**]。
    
     ![CDN 壓縮的選項](./media/cdn-file-compression/cdn-compress-standard.png)
@@ -72,12 +73,14 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 > 
 > 
 
-1. 在 [CDN 設定檔] 刀鋒視窗中，按一下 [管理]  按鈕。
+1. 在 [CDN 設定檔] 頁面中，按一下 [管理] 按鈕。
    
-    ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-file-compression/cdn-manage-btn.png)
+    ![[CDN 設定檔] 頁面的 [管理] 按鈕](./media/cdn-file-compression/cdn-manage-btn.png)
    
     隨即開啟 CDN 管理入口網站。
 2. 將滑鼠移至 [HTTP 大型] 索引標籤上，然後將滑鼠移至 [快取設定] 飛出視窗上。  按一下 [ **壓縮**]。
+
+    ![檔案壓縮選項](./media/cdn-file-compression/cdn-compress-select.png)
    
     隨即顯示 [壓縮] 的選項。
    
@@ -103,11 +106,11 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 > 
 > 對於所有的 Azure CDN 產品，檔案必須為已 [設定壓縮](#enabling-compression)的 MIME 類型。
 > 
-> **來自 Verizon 的 Azure CDN** 設定檔 (標準和進階) 支援 **gzip**、**deflate** 或 **bzip2** 編碼。  **來自 Akamai 的 Azure CDN** 設定檔只支援 **gzip** 編碼。
+> **來自 Verizon 的 Azure CDN** 設定檔 (標準和進階) 支援 **gzip** (GNU zip)、**deflate**、**bzip2** 或 **br** (Brotli) 編碼。 對於 Brotli 編碼，壓縮只能在邊緣完成。 用戶端/瀏覽器必須傳送 Brotli 編碼要求，而且壓縮的資產必須已事先在來源端經過壓縮。 
+>
+>**來自 Akamai 的 Azure CDN** 設定檔只支援 **gzip** 編碼。
 > 
-> **來自 Akamai 的 Azure CDN** 端點一律要求來自原點的 **gzip** 編碼，不論用戶端是否提出要求。
-> 
-> 
+> **來自 Akamai 的 Azure CDN** 端點一律要求來自原點的 **gzip** 編碼，不論用戶端是否提出要求。 
 
 ### <a name="compression-disabled-or-file-is-ineligible-for-compression"></a>已停用壓縮或檔案不適合進行壓縮
 | 用戶端要求的格式 (透過 Accept-encoding 標頭) | 快取的檔案格式 | CDN 對用戶端的回應 | 注意事項 |
@@ -124,7 +127,7 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 | --- | --- | --- | --- |
 | 已壓縮 |已壓縮 |已壓縮 |支援格式之間的 CDN 轉碼 |
 | 已壓縮 |未壓縮 |已壓縮 |CDN 執行壓縮 |
-| 已壓縮 |不快取 |已壓縮 |如果來源傳回未壓縮，則 CDN 會執行壓縮。  **來自 Verizon 的 Azure CDN** 會傳遞第一次要求中的未壓縮檔案，然後再壓縮及快取檔案以供後續要求之需。  具有 `Cache-Control: no-cache` 標頭的檔案永遠不會經過壓縮。 |
+| 已壓縮 |不快取 |已壓縮 |如果來源傳回未壓縮，則 CDN 會執行壓縮。  **來自 Verizon 的 Azure CDN** 會傳遞第一次要求中的未壓縮檔案，然後壓縮及快取檔案以供後續要求之需。  具有 `Cache-Control: no-cache` 標頭的檔案永遠不會經過壓縮。 |
 | 未壓縮 |已壓縮 |未壓縮 |CDN 執行解壓縮 |
 | 未壓縮 |未壓縮 |未壓縮 | |
 | 未壓縮 |不快取 |未壓縮 | |
@@ -134,10 +137,5 @@ ms.openlocfilehash: e80136d096ba83ab5050c8d1d95a9e2abb7a3646
 
 ## <a name="see-also"></a>另請參閱
 * [CDN 檔案壓縮疑難排解](cdn-troubleshoot-compression.md)    
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

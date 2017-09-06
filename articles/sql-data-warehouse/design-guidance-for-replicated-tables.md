@@ -15,10 +15,10 @@ ms.custom: tables
 ms.date: 07/14/2017
 ms.author: rortloff;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: efb5361496a2199a960564f6213f509b693e3cfa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 437a4f628a343312984d1fa2981df7fa01459e26
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -130,11 +130,11 @@ WHERE d.FiscalYear = 2004
 ```
 我們已將 `DimDate` 和 `DimSalesTerritory` 重新建立成循環配置資源資料表。 因此，此查詢顯示了以下查詢計劃，其中包含多個廣播移動作業： 
  
-![循環配置資源的查詢計劃](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg "循環配置資源的查詢計劃") 
+![循環配置資源的查詢計劃](media/design-guidance-for-replicated-tables/round-robin-tables-query-plan.jpg) 
 
 我們已將 `DimDate` 和 `DimSalesTerritory` 重新建立成複寫資料表，並已重新執行查詢。 產生的查詢計劃長度變短許多，且沒有任何廣播移動。
 
-![複寫的查詢計劃](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg "複寫的查詢計劃") 
+![複寫的查詢計劃](media/design-guidance-for-replicated-tables/replicated-tables-query-plan.jpg) 
 
 
 ## <a name="performance-considerations-for-modifying-replicated-tables"></a>修改複寫資料表時的效能考量

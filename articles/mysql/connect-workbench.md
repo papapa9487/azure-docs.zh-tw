@@ -6,15 +6,15 @@ author: jasonwhowell
 ms.author: jasonh
 manager: jhubbard
 editor: seanli1988
-ms.service: mysql-database
+ms.service: mysql
 ms.custom: mvc
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/23/2017
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ffeca6670521fe2b43c4ac47cac26fd2ad30f968
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 08/24/2017
 6.   新的 SQL 索引標籤隨即開啟並出現空白的編輯器，可供您輸入查詢。
 
     > [!NOTE]
-    > 預設會在您的伺服器上強制執行 SSL，該伺服器需要額外的設定才能連線成功。 請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。  如果您想要停用這個快速入門的 SSL，請造訪 Azure 入口網站，然後按一下 [連線安全性] 頁面，以停用強制 SSL 連線切換按鈕。
+    > 根據預設，需要 SSL 連線安全性，而且會在適用於 MySQL 伺服器的 Azure 資料庫上強制執行。 一般而言，您不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器。 如需 SSL 的詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。  如果您需要停用 SSL，請前往 Azure 入口網站，然後按一下 [連線安全性] 頁面，以停用 [強制執行 SSL 連線] 切換按鈕。
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>建立資料表、將資料插入、讀取資料、更新資料、刪除資料
 1. 將範例 SQL 程式碼複製並貼到空白的 SQL 索引標籤，來說明某些範例資料。
@@ -108,7 +108,7 @@ ms.lasthandoff: 08/24/2017
     ![執行範例 SQL 程式碼的 MySQL Workbench SQL 索引標籤](media/connect-workbench/3-workbench-sql-tab.png)
 
 2. 若要執行範例 SQL 程式碼，請在 [SQL 檔案] 索引標籤的工具列中按一下閃電圖示。
-3. 請注意頁面中間的**結果集**區段中的三個索引標籤式結果。 
+3. 請注意頁面中間的 [結果方格] 區段中的三個索引標籤式結果。 
 4. 請注意頁面底部的 [輸出] 清單。 隨即顯示每個命令的狀態。 
 
 現在，您已使用 MySQL Workbench 連線到 Azure Database for MySQL，並使用 SQL 語言查詢資料。

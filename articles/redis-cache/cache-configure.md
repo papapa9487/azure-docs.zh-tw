@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 07/13/2017
+ms.date: 08/22/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c1de192c405f2e93483527569c65d368cac40a9b
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何設定 Azure Redis 快取
@@ -224,29 +224,13 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 
 ### <a name="redis-data-persistence"></a>Redis 資料永續性
-按一下 [Redis 資料持續性]  可加以啟用、停用，或設定高階快取的資料持續性。
+按一下 [Redis 資料持續性]  可加以啟用、停用，或設定高階快取的資料持續性。 Azure Redis 快取使用 [RDB 持續性](cache-how-to-premium-persistence.md#configure-rdb-persistence)或 [AOF 持續性](cache-how-to-premium-persistence.md#configure-aof-persistence)來提供 Redis 持續性。
 
-![Redis 資料永續性](./media/cache-configure/redis-cache-persistence-settings.png)
+如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取的持續性](cache-how-to-premium-persistence.md)。
 
-若要啟用 Redis 持續性，請按一下 [已啟用]  來啟用 RDB (Redis 資料庫) 備份。 若要停用 Redis 持續性，請按一下 [已停用] 。
-
-若要設定備份間隔，選取下拉式清單中的 [備份頻率] 項目。 
-
-- **15 分鐘**
-- **30 分鐘**
-- **60 分鐘**
-- **6 小時**
-- **12 小時**
-- **24 小時**
-
-在先前的備份作業成功完成後，間隔便會開始倒數計時，時間過後就會起始新的備份。
-
-按一下 [儲存體帳戶] 選取要使用的儲存體帳戶，然後從 [儲存體金鑰] 下拉式清單中選擇 [主要金鑰] 或 [次要金鑰]。 您必須選擇與快取相同區域的儲存體帳戶，建議選取 [進階儲存體]  帳戶，因為進儲存體的輸送量較高。 不管任何時候，只要重新產生了持續性帳戶的儲存體金鑰，您就必須從 [儲存體金鑰] 下拉式清單中重新選擇所需的金鑰。
-
-按一下 [確定]  以儲存持續性組態。
 
 > [!IMPORTANT]
-> Redis 資料持續性僅適用於進階快取。 如需詳細資訊，請參閱 [如何設定進階 Azure Redis 快取的永續性](cache-how-to-premium-persistence.md)。
+> Redis 資料持續性僅適用於進階快取。 
 > 
 > 
 
@@ -489,7 +473,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 如需 Redis 命令的詳細資訊，請參閱 [http://redis.io/commands](http://redis.io/commands)。
 
 ## <a name="redis-console"></a>Redis 主控台
-您可以使用 [Redis 主控台] \(適用於 Azure 入口網站中的所有快取層) 安全地發出命令給 Azure Redis 快取執行個體。
+您可以使用 [Redis 主控台] (適用於 Azure 入口網站中的所有快取層) 安全地發出命令給 Azure Redis 快取執行個體。
 
 > [!IMPORTANT]
 > - Redis 主控台不使用 [VNET](cache-how-to-premium-vnet.md)。 如果您的快取是 VNET 的一部分，只有在 VNET 中的用戶端可以存取快取。 由於 Redis 主控台在您的本機瀏覽器 (位於 VNET 之外) 中執行，因此無法連接到您的快取。

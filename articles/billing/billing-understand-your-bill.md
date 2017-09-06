@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/14/2017
+ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 547b035646ccb80d1001591ae59e6a0871d1ed2c
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帳單
@@ -31,8 +31,11 @@ ms.lasthandoff: 08/04/2017
 
 如需成本管理報告的詳細資料，請參閱 [Azure 入口網站成本管理](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started)。
 
-
 ## <a name="charges"></a>如何確定我發票中的費用是否正確？
+<div style="padding-top: 56.25%; position: relative; width: 100%;">
+<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
+</div>
+
 如果您需要發票費用的更多詳細資料，有幾個選項供您選擇。
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>選項 1：檢閱您的發票，並將使用量和成本與詳細使用量 CSV 檔案進行比較
@@ -72,7 +75,7 @@ ms.lasthandoff: 08/04/2017
 
 ### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>選項 2：檢閱您的發票，並與 Azure 入口網站中的使用量和成本進行比較
 
-Azure 入口網站也可協助您確認費用。 Azure 入口網站提供成本管理圖表，可讓您快速概觀使用量和發票的費用。
+Azure 入口網站也可協助您確認費用。Azure 入口網站提供成本管理圖表，可讓您取得使用量和發票費用的快速概觀。
 
 若要從上面繼續進行範例，請造訪[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，選取您的訂用帳戶，然後選擇 [成本分析]。 您可以從該處指定時間範圍，並查看 Azure 排程器服務的使用量費用。
 

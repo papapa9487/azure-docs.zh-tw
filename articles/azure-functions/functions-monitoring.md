@@ -4,7 +4,7 @@ description: "了解如何監視 Azure Functions。"
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, webhook, 動態計算, 無伺服器架構"
@@ -16,10 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/03/2016
 ms.author: wesmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b01ffb52f75fd23901f4bb245396f649e14c0389
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 3ab6123b6acfdec57f1ca71b404c9e1123d1ff6d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -34,14 +35,12 @@ ms.lasthandoff: 04/27/2017
 
 按一下執行，您即可檢閱持續時間、輸入資料、錯誤和相關聯的記錄檔。 這對於函式的偵錯和效能調整很實用。
 
-
 > [!IMPORTANT]
-> 使用 Azure Functions 的[取用主控方案](functions-overview.md#pricing)時，函式應用程式 [概觀] 刀鋒視窗中的 [監視] 圖格不會顯示任何資料。 這是因為平台為您動態調整和管理計算執行個體，所以這些計量對取用方案而言沒有意義。 若要監視函式應用程式的使用量，您應該改用本文中的指引。
+> 使用 Azure Functions 的[取用主控方案](functions-overview.md#pricing)時，函式應用程式中的 [監視] 磚不會顯示任何資料。 這是因為平台為您動態調整和管理計算執行個體， 所以這些計量對取用方案而言沒有意義。 若要監視函式應用程式的使用量，您應該改用本文中的指引。
 > 
 > 以下螢幕擷取畫面顯示一個範例︰
 > 
-> ![在主要資源刀鋒視窗上監視](./media/functions-monitoring/app-service-overview-monitoring.png)
-
+> ![監視函式](./media/functions-monitoring/app-service-overview-monitoring.png)
 
 
 ## <a name="real-time-monitoring"></a>即時監視
@@ -50,7 +49,7 @@ ms.lasthandoff: 04/27/2017
 
 ![監視索引標籤的即時事件串流選項](./media/functions-monitoring/monitor-tab-live-event-stream.png)
 
-即時事件串流會在新的瀏覽器索引標籤中以圖表呈現，如下所示。 
+即時事件資料流會在新的瀏覽器索引標籤中以圖表顯示，如下列範例所示： 
 
 ![即時事件串流範例](./media/functions-monitoring/live-event-stream.png)
 
@@ -68,24 +67,19 @@ ms.lasthandoff: 04/27/2017
 這些統計資料是即時的，但是執行資料的實際圖表可能會延遲大約 10 秒。
 
 
-
-
-
-
 ## <a name="monitoring-log-files-from-a-command-line"></a>從命令列監視記錄檔
 
+您可以使用 Azure 命令列介面 (CLI) 1.0 或 PowerShell，在本機工作站上將記錄檔串流處理至命令列工作階段。
 
-您可以使用 Azure 命令列介面 (CLI) 或 PowerShell，在本機工作站上將記錄檔串流處理至命令列工作階段。
+### <a name="monitoring-function-app-log-files-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 監視函式應用程式記錄檔
 
-### <a name="monitoring-function-app-log-files-with-the-azure-cli"></a>使用 Azure CLI 監視函式應用程式記錄檔
+若要開始使用，請[安裝 Azure CLI 1.0](../cli-install-nodejs.md)
 
-首先，請[安裝 Azure CLI](../cli-install-nodejs.md)
-
-使用下列命令，或[從 Azure CLI 登入 Azure](../xplat-cli-connect.md)中涵蓋的任何其他選項，登入您的 Azure 帳戶。
+使用下列命令，或[從 Azure CLI 1.0 登入 Azure](../xplat-cli-connect.md)中涵蓋的任何其他選項，登入您的 Azure 帳戶。
 
     azure login
 
-使用下列命令來啟用 Azure CLI 服務管理 (ASM) 模式：
+使用下列命令以傳統服務管理模式啟用 Azure CLI 1.0：
 
     azure config mode asm
 
@@ -94,7 +88,7 @@ ms.lasthandoff: 04/27/2017
     azure account list
     azure account set <subscriptionNameOrId>
 
-下列命令會將函式應用程式的記錄檔串流處理至命令列︰
+下列命令會將函式應用程式的記錄檔串流處理至命令列：
 
     azure site log tail -v <function app name>
 
@@ -118,7 +112,7 @@ ms.lasthandoff: 04/27/2017
 
     PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
-如需詳細資訊，請參閱[作法︰串流處理 Web 應用程式的記錄檔](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs)。 
+如需詳細資訊，請參閱[法︰串流處理 Web 應用程式的記錄檔](../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs)。 
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱下列資源：

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 58c5b984c677bf9119db52d5721d5687c00a83fa
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: e7f85aaf2d940f114248d5925a1e97fe0f6bda6c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
@@ -170,24 +170,27 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 6. 設定 ASE 網域的 DNS。 您可以在您的 DNS 中使用萬用字元搭配您的網域。 若要執行一些簡單測試，請編輯 VM 上的主機檔案來將 Web 應用程式名稱設定為 VIP IP 位址：
 
-    a. 如果您的 ASE 網域名稱為 .ilbase.com，且您建立名為 mytestapp 的 Web 應用程式，則它將定址為 mytestapp.ilbase.com。 然後，您設定 mytestapp.ilbase.com 以解析 ILB 位址。 (在 Windows 上，主機檔案位於 _C:\Windows\System32\drivers\etc\_。)
+    a. 如果您的 ASE 網域名稱為 .ilbase.com，且您建立名為 mytestapp 的 Web 應用程式，則它將定址為 mytestapp.ilbase.com。然後，您設定 mytestapp.ilbase.com 以解析 ILB 位址。 (在 Windows 上，主機檔案位於 _C:\Windows\System32\drivers\etc\_。)
 
     b. 若要測試 Web 部署發佈或存取進階主控台，建立 mytestapp.scm.ilbase.com 的記錄。
 
-7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com。 (或移至任何名稱含您的網域的 Web 應用程式。)
+7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com。(或移至任何名稱含您的網域的 Web 應用程式。)
 
-8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
+8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 
     ![ILB IP 位址][5]
 
-### <a name="functions-and-the-ilb-ase"></a>函式和 ILB ASE
+## <a name="web-jobs-functions-and-the-ilb-ase"></a>Web 工作、函式和 ILB ASE ##
 
-當您在 ILB ASE 中使用 Azure Functions 時，可能會遇到錯誤，指出「我們無法立即擷取您的函式。 請稍後再試。」 發生這個錯誤是因為 Functions 的 UI 透過 HTTPS 使用 scm 網站。 如果您的 ASE 沒有瀏覽器中根憑證，在 ASE 使用 HTTP 憑證就會遇到這個錯誤。 此外，Internet Explorer\Edge 瀏覽器不會在索引標籤之間共用 accept-invalid-cert。 您可以採取下列其中一個做法：
+ILB ASE 支援函式和 Web 工作，但若要讓入口網站可以使用，您必須具有 SCM 網站的網路存取。  這表示您的瀏覽器必須在主機上，或是在虛擬網路中或已連線到虛擬網路。  
 
-- 將憑證新增至您的信任憑證存放區。 
-- 使用 Chrome。 但是您必須先前往 scm 網站，接受不受信任的憑證， 然後前往入口網站。
+當您在 ILB ASE 中使用 Azure Functions 時，可能會遇到錯誤，指出「我們無法立即擷取您的函式。 請稍後再試。」 由於 Functions UI 透過 HTTPS 利用 SCM 網站，而且根憑證不在瀏覽器信任鏈結中，因此會發生此錯誤。 Web 工作具有類似的問題。 若要避免此問題，您可以執行下列其中一個動作：
+
+- 將憑證新增至您的信任憑證存放區。 這會解除封鎖 Edge 及 Internet Explorer。
+- 先使用 Chrome 並前往 SCM 網站，接受不受信任的憑證，然後前往入口網站。
+- 使用瀏覽器信任鏈結中的商業憑證。  這是最佳選擇。  
 
 ## <a name="dns-configuration"></a>DNS 組態 ##
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: cd498198e0f206ddca2e3396813b2f2093ec3731
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 3be0d7a202ff53f5532fd7169a50a04cfaf88832
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
@@ -104,13 +104,13 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 -   Web Job
 -   Functions
--   Logstream
+-   記錄串流
 -   Kudu
 -   擴充功能
 -   處理序總管
 -   主控台
 
-當您使用 ILB ASE 時，無法從 VNet 外部透過網際網路存取 SCM 網站。 當您的應用程式裝載在 ILB ASE 上時，那些無法連線 SCM 網站的功能將會在 Azure 入口網站上以灰色顯示。
+當您使用 ILB ASE 時，無法從 VNet 外部透過網際網路存取 SCM 網站。 當您的應用程式裝載於 ILB ASE 時，將無法從入口網站使用某些功能。  
 
 那些需要依賴 SCM 網站的功能中，有許多功能也會在 Kudo 主控台中直接提供。 您可以直接與它連線，不需要使用入口網站。 如果應用程式是裝載在 ILB ASE 中，請使用發行認證登入。 存取 ILB ASE 所裝載應用程式之 SCM 網站的 URL 具有以下格式： 
 
@@ -120,9 +120,13 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 如果 ILB ASE 的網域名稱為 *contoso.net* 中，且應用程式名稱為 *testapp*，則應用程式已連線至 *testapp.contoso.net*。 與它搭配的 SCM 網站已經連線至 *testapp.scm.contoso.net*。
 
+## <a name="functions-and-web-jobs"></a>函式和 Web 工作 ##
+
+函式和 Web 工作都相依於 SCM 網站，但受到支援可用於入口網站，即使您的應用程式在 ILB ASE 中，只要您的瀏覽器可以到達 SCM 網站就沒問題。  如果您搭配 ILB ASE 使用自我簽署憑證，您必須啟用瀏覽器以信任該憑證。  若是 IE 和 Edge，這表示憑證必須在電腦信任存放區中。  如果您使用 Chrome，則表示您假設瀏覽器會直接到達 SCM 網站，而過早接受瀏覽器中的憑證。  最佳解決方法是使用瀏覽器信任鏈結中的商業憑證。  
+
 ## <a name="ase-ip-addresses"></a>ASE IP 位址 ##
 
-ASE 有多個 IP 位址需要注意。 如下：
+ASE 有一些 IP 位址需要注意。 如下：
 
 - **公用輸入 IP 位址**：用於外部 ASE 中的應用程式流量，以及外部 ASE 和 ILB ASE 中的管理流量。
 - **輸出公用 IP**：用來作為 ASE 輸出連線離開 VNet 時的「來源」IP (不會透過 VPN 進行路由)。
@@ -187,8 +191,7 @@ ASE 用來管理系統的 Azure SQL 資料庫具備防火牆。 它需要透過�
 > [!IMPORTANT]
 > UDR 中定義的路由必須足夠明確，以優先於 ExpressRoute 組態所通告的任何路由。 前面的範例使用廣泛的 0.0.0.0/0 位址範圍。 因此有可能會不小心由使用更明確位址範圍的路由通告所覆寫。
 >
-
-針對從公用對等互連路徑至私人對等互連路徑的路由進行交叉通告的 ExpressRoute 設定，不支援 ASE。 已設定公用對等互連的 ExpressRoute 設定，會收到來自 Microsoft 的路由通告。 通告中會包含一大組 Microsoft Azure IP 位址範圍。 如果位址範圍在私人對等互連路徑上交叉通告，來自 ASE 子網路的所有輸出網路封包都會使用強制通道傳送至客戶的內部部署網路基礎結構。 ASE 目前不支援這個網路流量。 此問題的一個解決方案是停止從公用對等互連路徑至私人對等互連路徑的交叉通告路由。
+> 針對從公用對等互連路徑至私人對等互連路徑的路由進行交叉通告的 ExpressRoute 設定，不支援 ASE。 已設定公用對等互連的 ExpressRoute 設定，會收到來自 Microsoft 的路由通告。 通告中會包含一大組 Microsoft Azure IP 位址範圍。 如果位址範圍在私人對等互連路徑上交叉通告，來自 ASE 子網路的所有輸出網路封包都會使用強制通道傳送至客戶的內部部署網路基礎結構。 ASE 目前不支援這個網路流量。 此問題的一個解決方案是停止從公用對等互連路徑至私人對等互連路徑的交叉通告路由。
 
 若要建立 UDR，請遵循下列步驟：
 

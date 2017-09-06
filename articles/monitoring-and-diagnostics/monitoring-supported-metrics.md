@@ -1,7 +1,7 @@
 ---
 title: "Azure 監視器度量 - 每個資源類型所支援的度量 | Microsoft Docs"
 description: "AAzure 監視器每一個資源類型的可用度量清單。"
-author: johnkemnetz
+author: anirudhcavale
 manager: orenr
 editor: 
 services: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/05/2017
-ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b034251438c65dd13d9ca0bb116699532e3960ef
+ms.date: 8/24/2017
+ms.author: ancav
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 51255244a286fe1aed75b342e6a9b8d4681a1979
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的度量
@@ -74,6 +74,8 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |ShortParsingIdleThreads|執行緒︰簡短剖析的閒置執行緒數|Count|平均值|簡短剖析執行緒集區中的閒置執行緒數目。|
 |ShortParsingJobQueueLength|執行緒︰簡短剖析的作業佇列長度|Count|平均值|簡短剖析執行緒集區佇列中的作業數目。|
 |memory_thrashing_metric|記憶體猛移|百分比|平均值|記憶體猛移的平均值。|
+|mashup_engine_qpu_metric|M 引擎 QPU|Count|平均值|混搭引擎處理序的 QPU 使用量|
+|mashup_engine_memory_metric|M 引擎記憶體|位元組|平均值|混搭引擎處理序的記憶體使用量|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
@@ -84,6 +86,14 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |UnauthorizedRequests|未經授權閘道器要求|Count|總計|未經授權閘道器要求數目|
 |FailedRequests|失敗的閘道要求|Count|總計|閘道要求中的失敗數目|
 |OtherRequests|其他閘道器要求|Count|總計|其他閘道器要求數目|
+|Duration|閘道要求的整體持續期間|毫秒|平均值、最大值|閘道要求的整體持續期間，以毫秒為單位|
+|容量|容量 (預覽)|百分比|平均值、最大值|ApiManagement 服務的使用率衡量標準|
+
+## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
+
+|度量|度量顯示名稱|單位|彙總類型|說明|
+|---|---|---|---|---|
+|TotalJob|工作總數|Count|總計|工作總數|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -284,6 +294,30 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |cacheRead9|快取讀取 (分區 9)|每秒位元組|最大值||
 |percentProcessorTime9|CPU (分區 9)|百分比|最大值||
 
+## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
+
+|度量|度量顯示名稱|單位|彙總類型|說明|
+|---|---|---|---|---|
+|百分比 CPU|百分比 CPU|百分比|平均值|虛擬機器目前使用的配置計算單位百分比。|
+|網路輸入|網路輸入|位元組|總計|虛擬機器 (連入流量) 在所有網路介面上接收到的位元組數目。|
+|網路輸出|網路輸出|位元組|總計|虛擬機器 (連出流量) 在所有網路介面上送出的位元組數目。|
+|Disk Read Bytes/Sec|磁碟讀取|每秒位元組|平均值|監視期間從磁碟讀取的平均位元組。|
+|Disk Write Bytes/Sec|磁碟寫入|每秒位元組|平均值|監視期間寫入磁碟的平均位元組。|
+|磁碟讀取作業數/秒|磁碟讀取作業數/秒|每秒計數|平均值|磁碟讀取 IOPS。|
+|磁碟寫入作業數/秒|磁碟寫入作業數/秒|每秒計數|平均值|磁碟寫入 IOPS。|
+
+## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
+
+|度量|度量顯示名稱|單位|彙總類型|說明|
+|---|---|---|---|---|
+|百分比 CPU|百分比 CPU|百分比|平均值|虛擬機器目前使用的配置計算單位百分比。|
+|網路輸入|網路輸入|位元組|總計|虛擬機器 (連入流量) 在所有網路介面上接收到的位元組數目。|
+|網路輸出|網路輸出|位元組|總計|虛擬機器 (連出流量) 在所有網路介面上送出的位元組數目。|
+|Disk Read Bytes/Sec|磁碟讀取|每秒位元組|平均值|監視期間從磁碟讀取的平均位元組。|
+|Disk Write Bytes/Sec|磁碟寫入|每秒位元組|平均值|監視期間寫入磁碟的平均位元組。|
+|磁碟讀取作業數/秒|磁碟讀取作業數/秒|每秒計數|平均值|磁碟讀取 IOPS。|
+|磁碟寫入作業數/秒|磁碟寫入作業數/秒|每秒計數|平均值|磁碟寫入 IOPS。|
+
 ## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.CognitiveServices/accounts
 
 |度量|度量顯示名稱|單位|彙總類型|說明|
@@ -374,6 +408,16 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |JobAUEndedFailure|失敗 AU 時間|秒|總計|失敗作業的 AU 時間總計。|
 |JobAUEndedCancelled|取消的 AU 時間|秒|總計|取消作業的 AU 時間總計。|
 
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
+
+|度量|度量顯示名稱|單位|彙總類型|說明|
+|---|---|---|---|---|
+|TotalStorage|儲存體總計|位元組|最大值|儲存在帳戶中的總資料量。|
+|DataWritten|寫入的資料|位元組|總計|寫入帳戶的總資料量。|
+|DataRead|讀取的資料|位元組|總計|從帳戶讀取的總資料量。|
+|WriteRequests|寫入要求|Count|總計|帳戶的資料寫入要求計數。|
+|ReadRequests|讀取要求|Count|總計|帳戶的資料讀取要求計數。|
+
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |度量|度量顯示名稱|單位|彙總類型|說明|
@@ -428,6 +472,10 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |d2c.endpoints.latency.serviceBusTopics|服務匯流排主題端點的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與訊息輸入到服務匯流排主題端點之間的平均延遲，以毫秒為單位|
 |d2c.endpoints.egress.builtIn.events|傳遞至內建端點 (訊息/事件) 的訊息|Count|總計|訊息成功寫入內建端點 (訊息/事件) 的次數|
 |d2c.endpoints.latency.builtIn.events|內建端點 (訊息/事件) 的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與訊息輸入到內建端點 (訊息/事件) 之間的平均延遲，以毫秒為單位 |
+|d2c.endpoints.egress.storage|傳遞至儲存體端點的訊息|Count|總計|訊息成功寫入儲存體端點的次數|
+|d2c.endpoints.latency.storage|儲存體端點的訊息延遲|毫秒|平均值|訊息輸入到 IoT 中樞與訊息輸入到儲存體端點之間的平均延遲，以毫秒為單位|
+|d2c.endpoints.egress.storage.bytes|寫入儲存體的資料|位元組|總計|寫入儲存體端點的資料量，以位元組為單位|
+|d2c.endpoints.egress.storage.blobs|寫入儲存體的 Blob|Count|總計|寫入儲存體端點的 Blob 數目|
 |d2c.twin.read.success|裝置的成功對應項讀取|Count|總計|裝置起始的所有成功對應項讀取的計數。|
 |d2c.twin.read.failure|裝置的失敗對應項讀取|Count|總計|裝置起始的所有失敗對應項讀取的計數。|
 |d2c.twin.read.size|裝置的對應項讀取回應大小|位元組|平均值|裝置起始的所有成功對應項讀取的平均值、最小值和最大值。|
@@ -519,14 +567,14 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 
 |度量|度量顯示名稱|單位|彙總類型|說明|
 |---|---|---|---|---|
-|輸送量|輸送量|每秒位元組|平均值||
+|輸送量|輸送量|每秒位元組|平均值|應用程式閘道每秒已服務的位元組數目|
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
 
 |度量|度量顯示名稱|單位|彙總類型|說明|
 |---|---|---|---|---|
-|BytesIn|BytesIn|Count|總計||
-|BytesOut|BytesOut|Count|總計||
+|BytesIn|BytesIn|Count|總計|Azure 位元組輸入|
+|BytesOut|BytesOut|Count|總計|Azure 位元組輸出|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
 
@@ -794,6 +842,41 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |AverageResponseTime|平均回應時間|秒|平均值|平均回應時間|
 |FunctionExecutionUnits|函式執行單位|Count|平均值|函式執行單位|
 |FunctionExecutionCount|函式執行計數|Count|平均值|函式執行計數|
+
+## <a name="microsoftwebhostingenvironmentsmultirolepools"></a>Microsoft.Web/hostingEnvironments/multiRolePools
+
+|度量|度量顯示名稱|單位|彙總類型|說明|
+|---|---|---|---|---|
+|要求|要求|Count|總計|要求|
+|BytesReceived|資料輸入|位元組|總計|資料輸入|
+|BytesSent|資料輸出|位元組|總計|資料輸出|
+|Http101|Http 101|Count|總計|Http 101|
+|Http2xx|Http 2xx|Count|總計|Http 2xx|
+|Http3xx|Http 3xx|Count|總計|Http 3xx|
+|Http401|Http 401|Count|總計|Http 401|
+|Http403|Http 403|Count|總計|Http 403|
+|Http404|Http 404|Count|總計|Http 404|
+|Http406|Http 406|Count|總計|Http 406|
+|Http4xx|Http 4xx|Count|總計|Http 4xx|
+|Http5xx|Http 伺服器錯誤|Count|總計|Http 伺服器錯誤|
+|AverageResponseTime|平均回應時間|秒|平均值|平均回應時間|
+|CpuPercentage|CPU 百分比|百分比|平均值|CPU 百分比|
+|MemoryPercentage|記憶體百分比|百分比|平均值|記憶體百分比|
+|DiskQueueLength|磁碟佇列長度|Count|總計|磁碟佇列長度|
+|HttpQueueLength|Http 佇列長度|Count|總計|Http 佇列長度|
+|ActiveRequests|使用中的要求|Count|總計|使用中的要求|
+|TotalFrontEnds|前端總數|Count|平均值|前端總數|
+|SmallAppServicePlanInstances|小型 App Service 方案背景工作角色|Count|平均值|小型 App Service 方案背景工作角色|
+|MediumAppServicePlanInstances|中型 App Service 方案背景工作角色|Count|平均值|中型 App Service 方案背景工作角色|
+|LargeAppServicePlanInstances|大型 App Service 方案背景工作角色|Count|平均值|大型 App Service 方案背景工作角色|
+
+## <a name="microsoftwebhostingenvironmentsworkerpools"></a>Microsoft.Web/hostingEnvironments/workerPools
+
+|度量|度量顯示名稱|單位|彙總類型|說明|
+|---|---|---|---|---|
+|WorkersTotal|背景工作角色總數|Count|平均值|背景工作角色總數|
+|WorkersAvailable|可用的背景工作角色|Count|平均值|可用的背景工作角色|
+|WorkersUsed|已使用的背景工作角色|Count|平均值|已使用的背景工作角色|
 
 ## <a name="next-steps"></a>後續步驟
 * [了解 Azure 監視器中的度量](monitoring-overview-metrics.md)

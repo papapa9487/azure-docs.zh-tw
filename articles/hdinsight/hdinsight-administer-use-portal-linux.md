@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 08/25/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 72c02eac9d627ad642d3e66492c314a2276e9c0a
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 736e1a52f55560dfded7a21eaeb1cbac7602f8d6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
@@ -156,11 +156,14 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
-        >pushd %HBASE_HOME%\bin
-        >hbase shell
-        >balancer
+    ```bash
+    >pushd %HBASE_HOME%\bin
+    >hbase shell
+    >balancer
+    ```
 
-    如需使用 HBase 殼層的詳細資訊，請參閱 []
+    如需使用 HBase 殼層的詳細資訊，請參閱[開始使用 HDInsight 中的 Apache HBase 範例](hdinsight-hbase-tutorial-get-started-linux.md)。
+
 * Storm
 
     您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。 但在調整作業順利完成後，您需要重新平衡拓撲。
@@ -178,10 +181,12 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
     以下是如何使用 CLI 命令重新平衡 Storm 拓撲的範例：
 
-        ## Reconfigure the topology "mytopology" to use 5 worker processes,
-        ## the spout "blue-spout" to use 3 executors, and
-        ## the bolt "yellow-bolt" to use 10 executors
-        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 **調整叢集**
 
@@ -207,6 +212,14 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
 
+## <a name="move-cluster"></a>移動叢集
+
+您可以將 HDInsight 叢集移至另一個 Azure 資源群組或另一個訂用帳戶。  請參閱[列出和顯示叢集](#list-and-show-clusters)。
+
+## <a name="upgrade-clusters"></a>升級叢集
+
+請參閱[將 HDInsight 叢集升級為更新的版本](./hdinsight-upgrade-cluster.md)。
+
 ## <a name="change-passwords"></a>變更密碼
 HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳戶 (A.K.A. HTTP 使用者帳戶) 以及 SSH 使用者帳戶都會在建立程序期間建立。 您可以使用 Ambari Web UI 來變更叢集使用者帳戶的使用者名稱、密碼，以及用於變更 SSH 使用者帳戶的指令碼動作。
 
@@ -218,7 +231,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳�
 >
 >
 
-1. 使用 HDInsight 叢集使用者認證登入 Ambari Web UI。 預設的使用者名稱為 **admin**。 URL 是 **https://&lt;HDInsight 叢集名稱>azurehdinsight.net**。
+1. 使用 HDInsight 叢集使用者認證登入 Ambari Web UI。 預設的使用者名稱為 **admin**。URL 是 **https://&lt;HDInsight 叢集名稱>azurehdinsight.net**。
 2. 按一下頂端功能表中的 [管理]  ，然後按一下 [管理 Ambari]。
 3. 按一下左側功能表中的 [使用者] 。
 4. 按一下 Admin 。
@@ -229,16 +242,16 @@ Ambari 會變更叢集中所有節點上的密碼。
 ### <a name="change-the-ssh-user-password"></a>變更 SSH 使用者密碼
 1. 使用文字編輯器，將下列文字儲存為檔案並命名為 **changepassword.sh**。
 
-   > [!IMPORTANT]
-   > 您必須使用行尾結束符號為 LF 的編輯器。 如果編輯器使用 CRLF，指令碼會無法運作。
-   >
-   >
+    > [!IMPORTANT]
+    > 您必須使用行尾結束符號為 LF 的編輯器。 如果編輯器使用 CRLF，指令碼會無法運作。
 
-        #! /bin/bash
-        USER=$1
-        PASS=$2
+    ```bash
+    #! /bin/bash
+    USER=$1
+    PASS=$2
+    usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
+    ```
 
-        usermod --password $(echo $PASS | openssl passwd -1 -stdin) $USER
 2. 將檔案上傳至可以使用 HTTP 或 HTTPS 位址從 HDInsight 存取的儲存位置。 例如，OneDrive 或 Azure Blob 儲存體這類的公用檔案存放區。 將 URI (HTTP 或 HTTPS 位址) 儲存至檔案，在下一個步驟需用到此 URI。
 3. 從 Azure 入口網站，按一下 [HDInsight 叢集]。
 4. 按一下您的 HDInsight 叢集。
@@ -280,20 +293,28 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 * 叢集清單含有 [資源群組]  資料行。
 * 叢集 [基本資料]  磚。  
 
-請參閱 [列出和顯示叢集](#list-and-show-clusters)。
+請參閱[列出和顯示叢集](#list-and-show-clusters)。
 
-## <a name="find-the-default-storage-account"></a>尋找預設的儲存體帳戶
-每個 HDInsight 叢集都有預設的儲存體帳戶。 叢集的預設儲存體帳戶與其金鑰會顯示在 [儲存體帳戶] 之下。 請參閱 [列出和顯示叢集](#list-and-show-clusters)。
+## <a name="find-the-storage-accounts"></a>尋找儲存體帳戶
+
+HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存資料。 每個 HDInsight 叢集可以有一個預設儲存體帳戶及一些連結的儲存體帳戶。 若要列出儲存體帳戶，您會先從入口網站中開啟叢集，然後按一下 [儲存體帳戶]：
+
+![HDInsight 叢集儲存體帳戶](./media/hdinsight-administer-use-portal-linux/hdinsight-storage-accounts.png)
+
+在上一個螢幕擷取畫面上，會出現 [預設] 欄，指出帳戶是否為預設儲存體帳戶。
+
+若要列出 Data Lake Store 帳戶，請按一下上一個螢幕擷取畫面中的 [Data Lake Store 存取]。
 
 ## <a name="run-hive-queries"></a>執行 Hive 查詢
 您無法直接從 Azure 入口網站執行 Hive 作業，但您可以使用 Ambari Web UI 上的 Hive 檢視。
 
 **使用 Ambari Hive 檢視執行 Hive 查詢**
 
-1. 使用 HDInsight 叢集使用者認證登入 Ambari Web UI。 預設的使用者名稱為 **admin**。 URL 是 **https://&lt;HDInsight 叢集名稱>azurehdinsight.net**。
+1. 使用 HDInsight 叢集使用者認證登入 Ambari Web UI。 預設的使用者名稱為 **admin**。URL 是 **https://&lt;HDInsight 叢集名稱>azurehdinsight.net**。
 2. 開啟 [Hive 檢視]，如下列螢幕擷取畫面所示：  
 
     ![HDInsight Hive 檢視](./media/hdinsight-administer-use-portal-linux/hdinsight-hive-view.png)
+
 3. 按一下頂端功能表中的 [查詢]  。
 4. 在 [查詢編輯器] 中輸入 Hive 查詢，然後按一下 [執行]。
 
@@ -316,8 +337,6 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 > [!IMPORTANT]
 > 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱 [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
->
->
 
 ## <a name="connect-to-a-cluster"></a>連接到叢集
 
@@ -325,7 +344,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 * [搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解一些基本的系統管理函式。 若要深入了解，請參閱下列文章：
+在本文中，您已了解一些基本的系統管理功能。 若要深入了解，請參閱下列文章：
 
 * [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
 * [使用 Azure CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)

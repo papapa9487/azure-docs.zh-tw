@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 08/25/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: be2f356886c0c9b5f47b2336870bb6232482a1fb
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 95dba08744357f8800b05e3d4b892e3a363d5985
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>建立在 HDInsight 中的 Apache Spark 叢集上執行的 Scala Maven 應用程式
@@ -144,32 +144,14 @@ ms.lasthandoff: 06/07/2017
 ## <a name="run-the-application-on-the-spark-cluster"></a>在 Spark 叢集上執行應用程式
 若要在叢集上執行應用程式，您必須執行下列動作：
 
-* **將應用程式 jar 複製到與叢集相關聯的 Azure 儲存體 Blob** 。 您可以使用命令列公用程式 [**AzCopy**](../storage/storage-use-azcopy.md) 來執行此動作。 另外也有很多用戶端可用來上傳資料。 您可以在 [在 HDInsight 上將 Hadoop 作業的資料上傳](hdinsight-upload-data.md)中找到其詳細資訊。
+* **將應用程式 jar 複製到與叢集相關聯的 Azure 儲存體 Blob** 。 您可以使用命令列公用程式 [**AzCopy**](../storage/common/storage-use-azcopy.md) 來執行此動作。 另外也有很多用戶端可用來上傳資料。 您可以在 [在 HDInsight 上將 Hadoop 作業的資料上傳](hdinsight-upload-data.md)中找到其詳細資訊。
 * **使用 Livy 從遠端提交應用程式作業至** Spark 叢集。 HDInsight 上的 Spark 叢集包含會公開 REST 端點以從遠端提交 Spark 作業的 Livy。 如需詳細資訊，請參閱 [搭配 HDInsight 上的 Spark 叢集利用 Livy 遠端提交 Spark 作業](hdinsight-apache-spark-livy-rest-interface.md)。
 
-## <a name="seealso"></a>另請參閱
-* [概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)
+## <a name="next-step"></a>後續步驟
 
-### <a name="scenarios"></a>案例
-* [Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
-* [Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
-* [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
-* [使用 HDInsight 中的 Spark 進行網站記錄分析](hdinsight-apache-spark-custom-library-website-log-analysis.md)
+在本文中，您已了解如何建立 Spark Scala 應用程式。 前往下篇文章，了解如何使用 Livy 在 HDInsight Spark 叢集上執行此應用程式。
 
-### <a name="create-and-run-applications"></a>建立及執行應用程式
-* [利用 Livy 在 Spark 叢集上遠端執行作業](hdinsight-apache-spark-livy-rest-interface.md)
-
-### <a name="tools-and-extensions"></a>工具和擴充功能
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons (使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式)](hdinsight-apache-spark-intellij-tool-plugin.md)
-* [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式遠端偵錯 Spark 應用程式](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [利用 HDInsight 上的 Spark 叢集來使用 Zeppelin Notebook](hdinsight-apache-spark-zeppelin-notebook.md)
-* [HDInsight 的 Spark 叢集中 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
-* [搭配 Jupyter Notebook 使用外部套件](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
-* [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-
-### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
-* [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](hdinsight-apache-spark-job-debugging.md)
+> [!div class="nextstepaction"]
+>[利用 Livy 在 Spark 叢集上遠端執行作業](hdinsight-apache-spark-livy-rest-interface.md)
 
 

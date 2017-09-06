@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: b01a03fa362f8a9677e625945a2864c77d49f1bb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 08e2988d455cca21726162d9fb128e91fd51f463
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>教學課程︰使用 Hadoop 叢集建置您的第一個管線來轉換資料
@@ -82,7 +81,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 開始進行本教學課程之前，您必須具備下列必要條件：
 
 1. **Azure 訂用帳戶** - 如果您沒有 Azure 訂用帳戶，只需要幾分鐘就可以建立免費試用帳戶。 請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/) 一文了解如何取得免費試用帳戶。
-2. **Azure 儲存體** – 在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account) 一文。 建立儲存體帳戶之後，請記下**帳戶名稱**和**存取金鑰**。 請參閱 [檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
+2. **Azure 儲存體** - 在本教學課程中，您會使用一般目的標準 Azure 儲存體帳戶來儲存資料。 如果您沒有一般目的標準 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文。 建立儲存體帳戶之後，請記下**帳戶名稱**和**存取金鑰**。 請參閱 [檢視、複製和重新產生儲存體存取金鑰](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)。
 3. 下載並檢閱 Hive 查詢檔案 (**HQL**)，檔案位在：[https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql)。 這個查詢會轉換輸入資料並產生輸出資料。 
 4. 下載並檢閱範例輸入檔案 (**input.log**)，檔案位在：[https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. 在您的 Azure Blob 儲存體中建立名為 **adfgetstarted** 的 Blob 容器。 

@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/08/2017
+ms.date: 08/30/2017
 ms.author: markgal;trinadhk
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 80c5eec6b605a9f9b5de13310731bf4f9a46f8a0
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 414fb9adaa1535d82b1bc385ff0864394efb837c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.RecoveryServices.Backup Cmdlet 備份虛擬機器
@@ -115,7 +114,7 @@ PowerShell 可以自動化下列工作：
     ```
     PS C:\> New-AzureRmRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
     ```
-4. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/storage-redundancy.md#locally-redundant-storage) 或[異地備援儲存體 (GRS)](../storage/storage-redundancy.md#geo-redundant-storage)。 下列範例顯示 testvault 的 -BackupStorageRedundancy 選項設為 GeoRedundant。
+4. 指定要使用的儲存體備援類型；您可以使用[本地備援儲存體 (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) 或[異地備援儲存體 (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)。 下列範例顯示 testvault 的 -BackupStorageRedundancy 選項設為 GeoRedundant。
 
     ```
     PS C:\> $vault1 = Get-AzureRmRecoveryServicesVault –Name "testvault"
@@ -197,6 +196,14 @@ PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM"
 
 ```
 PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToKeys backup,get,list -PermissionsToSecrets get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
+PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
+PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
+```
+
+若要在加密的 VM 上 (只使用 BEK 加密) 啟用保護，您必須提供權限讓 Azure 備份服務讀取金鑰保存庫中的密碼。
+
+```
+PS C:\> Set-AzureRmKeyVaultAccessPolicy -VaultName "KeyVaultName" -ResourceGroupName "RGNameOfKeyVault" -PermissionsToSecrets backup,get,list -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
 PS C:\> $pol=Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 PS C:\> Enable-AzureRmRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGroupName "RGName1"
 ```
@@ -373,7 +380,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
    PS C:\> $vm = New-AzureRmVMConfig -VMSize $obj.'properties.hardwareProfile'.vmSize -VMName "testrestore"
     ```
 
-4. 連接作業系統磁碟與資料磁碟。
+4. 連接作業系統磁碟與資料磁碟。 請根據您 VM 的設定，參閱相關章節以檢視個別 Cmdlet：
 
     #### <a name="non-managed-non-encrypted-vms"></a>未受管理、未加密的 VM
 
@@ -388,9 +395,24 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     }
     ```
 
-    #### <a name="non-managed-encrypted-vms"></a>未受管理、已加密的 VM
+    #### <a name="non-managed-encrypted-vms-bek-only"></a>未受管理的已加密 VM (僅限 BEK)
 
-    如果是未受管理、已加密的 VM，您需要先將金鑰和祕密還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
+    如果是未受管理的已加密 VM (只使用 BEK 加密)，您需要先將密碼還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
+
+    ```
+    PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
+    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
+    PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
+     {
+     $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
+     }
+    ```
+
+    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>未受管理的已加密 VM (BEK 和 KEK)
+
+    如果是未受管理的已加密 VM (使用 BEK 和 KEK 加密)，您需要先將金鑰和密碼還原至金鑰保存庫，才可以連結磁碟。 如需詳細資訊，請參閱[從 Azure 備份復原點還原已加密的虛擬機器](backup-azure-restore-key-secret.md)一文。 下列範例示範如何將 OS 和資料磁碟連結至已加密的 VM。
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -411,6 +433,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     ```
     PS C:\> $storageType = "StandardLRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
+    PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
     PS C:\> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -CreateOption "Attach" -Windows
@@ -424,9 +447,9 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     }
     ```
 
-    #### <a name="managed-encrypted-vms"></a>受管理、已加密的 VM
+    #### <a name="managed-encrypted-vms-bek-and-kek"></a>受管理的已加密 VM (BEK 和 KEK)
 
-    對於受管理的加密 VM，您必須從 blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受管理的加密 VM。
+    對於受管理的加密 VM (使用 BEK 和 KEK 加密)，您必須從 Blob 儲存體建立受控磁碟，然後連結磁碟。 如需深入的資訊，請參閱[使用 PowerShell 將資料磁碟連結至 Windows VM](../virtual-machines/windows/attach-disk-ps.md) 一文。 下列範例程式碼示範如何將資料磁碟連結至受管理的加密 VM。
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -434,6 +457,7 @@ PS C:\> $details = Get-AzureRmRecoveryServicesBackupJobDetails -Job $restorejob
     PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
     PS C:\> $storageType = "StandardLRS"
     PS C:\> $osDiskName = $vm.Name + "_osdisk"
+    PS C:\> $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
     PS C:\> $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
     PS C:\> $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
     PS C:\> Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
