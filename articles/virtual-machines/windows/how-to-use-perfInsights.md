@@ -279,7 +279,7 @@ Diskspd IO 工作負載測試 [OS 磁碟 (寫入) 和集區磁碟 (讀取/寫入
 
 在 PerfInsights 產生的 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip 檔案內**，您會找到詳細說明 PerfInsights 結果的 HTML 報表。 若要檢閱報表，請展開 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 檔案，然後開啟 **PerfInsights Report.html** 檔案。
 
-選取 [Findings] (結果) 索引標籤。
+選取 [Findings] \(結果) 索引標籤。
 
 ![[尋找] 索引標籤](media/how-to-use-perfInsights/findingtab.png)
 
