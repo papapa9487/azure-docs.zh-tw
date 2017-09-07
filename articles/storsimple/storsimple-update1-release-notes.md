@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 148f3920b92892781ed09380644b05b5bef7c952
-ms.openlocfilehash: 325c688e4da81fd9e6b73bd350a739ac43a480c0
-ms.lasthandoff: 02/28/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 02c393f632c355ea5fbde554adbd8b1169ad8bc8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="update-12-release-notes-for-your-storsimple-8000-series-device"></a>StorSimple 8000 系列裝置的 Update 1.2 版本資訊
@@ -58,7 +58,7 @@ Update 1.2 可以套用至任何執行 Release (GA)、Update 0.1、Update 0.2 �
 * **Azure Government 入口網站的可用性** – Azure Government 入口網站現已提供 StorSimple。 請參閱如何 [在 Azure Government 入口網站中部署 StorSimple 裝置](storsimple-deployment-walkthrough-gov.md)。
 * **其他雲端服務提供者的支援** – 支援的其他雲端服務提供者包括 Amazon S3、含 RRS 的 Amazon S3、HP 以及 OpenStack (beta)。
 * **最新儲存 API 的更新** – StorSimple 已經透過這個版本，更新為最新的 Azure 儲存體服務 API。 執行 Update 1 前軟體版本 (發行、0.1、0.2 和 0.3 版本) 的 StorSimple 8000 系列裝置，是使用 2009 年 7 月 17 日之前的 Azure 儲存體服務 API 版本。 如更新的 [移除儲存體服務版本相關公告](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx)中所述，這些 API 將於 2016 年 8 月 1 日被取代。 請務必在 2016 年 8 月 1 日之前，套用 StorSimple 8000 Series Update 1。 如果您無法執行這項操作，StorSimple 裝置將會停止正常運作。
-* **區域備援儲存體 (ZRS) 的支援** – 升級至最新版的儲存體 API 之後，StorSimple 8000 系列除了本地備援儲存體 (LRS) 和異地備援儲存體 (GRS) 之外，也將支援區域備援儲存體 (ZRS)。 如需 ZRS 的詳細資訊，請參閱本文件的 [Azure 儲存體備援選項](../storage/storage-redundancy.md) 。
+* **區域備援儲存體 (ZRS) 的支援** – 升級至最新版的儲存體 API 之後，StorSimple 8000 系列除了本地備援儲存體 (LRS) 和異地備援儲存體 (GRS) 之外，也將支援區域備援儲存體 (ZRS)。 如需 ZRS 的詳細資訊，請參閱本文件的 [Azure 儲存體備援選項](../storage/common/storage-redundancy.md) 。
 * **增強的初始部署和更新經驗** – 在此版本中，已增強安裝和更新程序。 安裝精靈安裝已獲得改善，如果網路組態和防火牆設定不正確，可提供意見給使用者。 已提供其他診斷 Cmdlet 來協助您為裝置的網路連線進行疑難排解。 如需有關用於疑難排解的新診斷 Cmdlet 的詳細資訊，請參閱 [疑難排解部署文件](storsimple-troubleshoot-deployment.md) 。
 
 ## <a name="issues-fixed-in-update-12"></a>在 Update 1.2 中修正的問題

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 4b5c86314bde2acb7d5723909f89691bf7ed8b98
-ms.openlocfilehash: 6bb07bc1e3ab439352b444016167541eca54f788
-ms.lasthandoff: 03/01/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的儲存體帳戶認證
@@ -51,7 +52,7 @@ ms.lasthandoff: 03/01/2017
 有三種儲存體帳戶認證類型可以與 StorSimple 裝置搭配使用。
 
 * **自動產生的儲存體帳戶認證** – 正如其名，初次建立服務時會自動產生這種儲存體帳戶認證。 若要深入了解如何建立此儲存體帳戶認證，請參閱[建立新的服務](storsimple-virtual-array-manage-service.md#create-a-service)。
-* **服務訂用帳戶中的儲存體帳戶認證** – 這些是與相同服務訂用帳戶相關聯的 Azure 儲存體帳戶認證。 若要深入了解如何建立這些儲存體帳戶認證，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
+* **服務訂用帳戶中的儲存體帳戶認證** – 這些是與相同服務訂用帳戶相關聯的 Azure 儲存體帳戶認證。 若要深入了解如何建立這些儲存體帳戶認證，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 * **服務訂用帳戶外的儲存體帳戶認證** – 這些是與服務毫無關聯的 Azure 儲存體帳戶認證，可能在服務建立之前就存在。
 
 ## <a name="add-a-storage-account-credential"></a>新增儲存體帳戶認證
@@ -109,7 +110,7 @@ ms.lasthandoff: 03/01/2017
 4. 在儲存體帳戶認證的 [屬性] 刀鋒視窗中，執行下列動作︰
    
    1. 如有必要，您可以修改 [啟用 SSL] 模式選項。
-   2. 您可以選擇重新產生儲存體帳戶認證的存取金鑰。 如需詳細資訊，請參閱[重新產生儲存體帳戶金鑰](../storage/storage-create-storage-account.md#manage-your-storage-access-keys)。 提供新的儲存體帳戶認證金鑰。 而每個 Azure 儲存體帳戶，都有主要存取金鑰。
+   2. 您可以選擇重新產生儲存體帳戶認證的存取金鑰。 如需詳細資訊，請參閱[重新產生儲存體帳戶金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys)。 提供新的儲存體帳戶認證金鑰。 而每個 Azure 儲存體帳戶，都有主要存取金鑰。
    3. 按一下 [屬性] 刀鋒視窗頂端的 [儲存] 以儲存設定。 [儲存體帳戶認證] 刀鋒視窗上會更新設定。
       
       ![編輯儲存體帳戶認證](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

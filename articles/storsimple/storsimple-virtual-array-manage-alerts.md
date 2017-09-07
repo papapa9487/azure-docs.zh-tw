@@ -15,10 +15,11 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: b870974efdde2ebdf339013ca86b772b665151a4
-ms.openlocfilehash: 8cfdad48524c24b3ad69c01ae0330e90ce197b3a
-ms.lasthandoff: 03/01/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的警示
@@ -53,7 +54,7 @@ StorSimple 裝置管理員服務中的警示功能可讓您即時檢閱並清除
    
    1. 在 [啟用電子郵件通知] 欄位中，選取 [是]。
    2. 如果您想要讓服務管理員和所有共同管理員收到警示通知，請在 [電子郵件服務管理員] 欄位中選取 [是]。
-   3. 在 [其他電子郵件收件者] 欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。 使用分號來分隔電子郵件地址。 您可以對每一個虛擬裝置設定最多 20 個電子郵件地址。
+   3. 在 [其他電子郵件收件者] 欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。使用分號來分隔電子郵件地址。 您可以對每一個虛擬裝置設定最多 20 個電子郵件地址。
       
        ![警示通知組態](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件]。 StorSimple 裝置管理員服務在轉寄測試通知時會顯示狀態訊息。
@@ -151,7 +152,7 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗中，可讓您快速概覽
 
 | 警示文字 | 事件 | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
-| 您遇到資料傳輸的非預期延遲 |慢速資料傳輸。 |當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務這麼做是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需疑難排解 Azure 儲存體帳戶問題的詳細資訊，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體的問題](../storage/storage-monitoring-diagnosing-troubleshooting.md)。 |
+| 您遇到資料傳輸的非預期延遲 |慢速資料傳輸。 |當超出儲存體服務的延展性目標時，會出現節流錯誤。 儲存體服務這麼做是為了確保沒有任何用戶端或是租用戶可犧牲其他服務來使用這項服務。 如需疑難排解 Azure 儲存體帳戶問題的詳細資訊，請參閱[監視、診斷及疑難排解 Microsoft Azure 儲存體的問題](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)。 |
 | <裝置名稱> 上的本機保留磁碟空間即將用盡。 |回應時間變慢。 |在本機裝置上為 <裝置名稱> 佈建的總大小中，有 10% 為保留空間，而該保留空間即將用盡。 <裝置名稱> 的工作負載產生較高的變換率，或您最近可能曾經移轉過大量的資料。 這可能會導致效能降低。 請考慮使用下列其中一個方法來解決這個問題：<ul><li>增加此裝置的雲端頻寬。</li><li>降低工作負載或將工作負載移到另一個磁碟區或共用。</li></ul> |
 
 ### <a name="security-alerts"></a>安全性警示

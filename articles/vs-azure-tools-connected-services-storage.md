@@ -3,8 +3,8 @@ title: "使用 Visual Studio 的加入已連接服務加入 Azure 儲存體 | Mi
 description: "使用 Visual Studio 的加入已連接服務對話方塊加入 Azure 儲存體"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 521ec044-ad4b-4828-8864-01decde2e758
 ms.service: storage
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 614f212bb9afb71bb432bec3df7201807083b7f5
-ms.lasthandoff: 03/27/2017
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2fc396c93c3156054277d592eb2772fd29eed832
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 的已連接服務加入 Azure 儲存體
@@ -69,7 +69,7 @@ ms.lasthandoff: 03/27/2017
 - ASP.NET 專案 - [發生什麼事 - ASP.NET 專案](http://go.microsoft.com/fwlink/p/?LinkId=513126)
 - ASP.NET Core 專案 - [發生什麼事 - ASP.NET 5 專案](http://go.microsoft.com/fwlink/p/?LinkId=513124) 
 - 雲端服務專案 (Web 角色和背景工作角色) - [發生什麼事 - 雲端服務專案](http://go.microsoft.com/fwlink/p/?LinkId=516965)
-- WebJob 專案 - [發生什麼事 - WebJob 專案](storage/vs-storage-webjobs-what-happened.md)
+- WebJob 專案 - [發生什麼事 - WebJob 專案](visual-studio/vs-storage-webjobs-what-happened.md)
 
 ## <a name="next-steps"></a>後續步驟
 - [MSDN 論壇︰Azure 儲存體](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)

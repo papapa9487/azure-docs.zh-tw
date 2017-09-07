@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6953166f21194f3cbcef3f260b3e7a50d5bf5460
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7e5da1c32484b0b94d2ad32ead6bb7c28f9744aa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database 中的擴充事件
@@ -54,7 +54,7 @@ ms.lasthandoff: 07/19/2017
 
 
 - PowerShell
-    - [搭配 Azure 儲存體使用 Azure PowerShell](../storage/storage-powershell-guide-full.md) - 提供 PowerShell 和 Azure 儲存體服務的完整資訊。
+    - [搭配 Azure 儲存體使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md) - 提供 PowerShell 和 Azure 儲存體服務的完整資訊。
 
 ## <a name="code-samples"></a>程式碼範例
 
@@ -195,10 +195,10 @@ SELECT
 
 ## <a name="related-links"></a>相關連結
 
-- [搭配 Azure 儲存體使用 Azure PowerShell](../storage/storage-powershell-guide-full.md)
+- [搭配 Azure 儲存體使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md)
 - [Azure 儲存體 Cmdlet](http://msdn.microsoft.com/library/dn806401.aspx)
-- [搭配 Azure 儲存體使用 Azure PowerShell](../storage/storage-powershell-guide-full.md) - 提供 PowerShell 和 Azure 儲存體服務的完整資訊。
-- [如何使用 .NET 的 Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)
+- [搭配 Azure 儲存體使用 Azure PowerShell](../storage/common/storage-powershell-guide-full.md) - 提供 PowerShell 和 Azure 儲存體服務的完整資訊。
+- [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
 - [關於 Microsoft SQL Server 中擴充事件的 Jonathan Kehayias 部落格文章](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)

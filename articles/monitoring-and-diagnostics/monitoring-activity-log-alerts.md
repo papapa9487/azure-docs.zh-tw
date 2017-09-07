@@ -59,9 +59,9 @@ ms.lasthandoff: 08/24/2017
 若要深入了解服務健康情況通知，請參閱[在服務健康情況通知上接收活動記錄警示](monitoring-activity-log-alerts-on-service-notifications.md)。
 
 ## <a name="create-an-alert-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立活動記錄事件的警示
-1. 在 [入口網站][](https://portal.azure.com) 中，選取 [監視]。
+1. 在 [入口網站](https://portal.azure.com) 中，選取 [監視]。
 
-    ![「監視」服務](./media/monitoring-activity-log-alerts/home-monitor.png)
+    ![監視」服務](./media/monitoring-activity-log-alerts/home-monitor.png)
 2. 在 [活動記錄] 區段中，選取 [警示]。
 
     ![[警示] 索引標籤](./media/monitoring-activity-log-alerts/alerts-blades.png)

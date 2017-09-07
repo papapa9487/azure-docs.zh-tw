@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/22/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 7ff58a488298573372b32f4daa495c9da1c0eaa2
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2bdec82891bbd61e3526bd4498f802a0de068f87
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
@@ -133,7 +133,7 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 * [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>如果要複寫至 Azure，我需要哪一種儲存體帳戶？
-* **Azure 傳統入口網站**︰如果您要在 Azure 傳統入口網站中部署 Site Recovery，您將需要一個[標準的異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)。 目前不支援進階儲存體。 此帳戶必須位於與 Site Recovery 保存庫相同的區域中。
+* **Azure 傳統入口網站**︰如果您要在 Azure 傳統入口網站中部署 Site Recovery，您將需要一個[標準的異地備援儲存體帳戶](../storage/common/storage-redundancy.md#geo-redundant-storage)。 目前不支援進階儲存體。 此帳戶必須位於與 Site Recovery 保存庫相同的區域中。
 * **Azure 入口網站**︰如果您要在 Azure 入口網站中部署 Site Recovery，您將需要一個 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 此帳戶必須位於與復原服務保存庫相同的區域中。 當您在 Azure 入口網站部署 Site Recovery 時，進階儲存體現在支援 VMware VM、Hyper-V VM 和實體伺服器複寫。
 
 ### <a name="how-often-can-i-replicate-data"></a>我可以多久複寫一次資料？

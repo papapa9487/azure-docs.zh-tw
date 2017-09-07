@@ -36,7 +36,7 @@ ms.lasthandoff: 08/24/2017
 如需如何使用 Azure Resource Manager 範本設定動作群組的資訊，請參閱[動作群組 Resource Manager 範本](monitoring-create-action-group-with-resource-manager-template.md)。
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站建立動作群組 ##
-1. 在 [入口網站][](https://portal.azure.com) 中，選取 [監視]。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
+1. 在 [入口網站](https://portal.azure.com) 中，選取 [監視]。 [監視] 刀鋒視窗會將所有監視設定和資料合併在一個檢視中。
 
     ![「監視」服務](./media/monitoring-action-groups/home-monitor.png)
 2. 在 [活動記錄] 區段中，選取 [動作群組]。

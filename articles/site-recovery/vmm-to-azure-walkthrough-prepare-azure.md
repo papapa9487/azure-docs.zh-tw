@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 365dd9477f791432c1a92f1b81eb573dbbc6f874
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 63b005f37ab5e15e8a1b4645446d65f1529f1bbd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -50,10 +50,10 @@ ms.lasthandoff: 07/26/2017
 ## <a name="set-up-an-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
 - Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 容錯移轉發生後，會從儲存體建立 Azure VM。
-- 設定標準/進階 [Azure 儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)來保存複寫到 Azure 的資料。
-- [進階儲存體](../storage/storage-premium-storage.md)通常是用於需要持續高 IO 效能和低延遲性以裝載 IO 密集型工作負載的虛擬機器。
+- 設定標準/進階 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)來保存複寫到 Azure 的資料。
+- [進階儲存體](../storage/common/storage-premium-storage.md)通常是用於需要持續高 IO 效能和低延遲性以裝載 IO 密集型工作負載的虛擬機器。
 - 如果您想要使用進階帳戶來儲存複寫的資料，就也需要標準儲存體帳戶來儲存複寫記錄檔，這些記錄檔會擷取內部部署資料的進行中變更。
-- 視您想要針對已容錯移轉的 Azure VM 使用的資源模型而定，您會以 [Resource Manager 模式](../storage/storage-create-storage-account.md)，或[傳統模式](../storage/storage-create-storage-account-classic-portal.md)設定帳戶。
+- 視您想要針對已容錯移轉的 Azure VM 使用的資源模型而定，您會以 [Resource Manager 模式](../storage/common/storage-create-storage-account.md)，或[傳統模式](../storage/common/storage-create-storage-account.md)設定帳戶。
 - 建議您在開始之前先設定儲存體帳戶。 若非如此，則必須在 Site Recovery 部署期間這麼做。 帳戶必須位於與復原服務保存庫相同的區域中。
 - 您無法跨相同訂用帳戶內的資源群組，或跨越不同訂用帳戶移動 Site Recovery 所使用的儲存體帳戶。
 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 475c878e34a83d06cffca5e114ccd920c7956256
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 565091e24a8c0009793e2e2365fb95013cad5028
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/10/2017
 開始進行本逐步解說之前，您必須具備下列必要條件：
 
 * **Azure 訂用帳戶**。  如果您沒有訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [免費試用](http://azure.microsoft.com/pricing/free-trial/) 一文。
-* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
+* **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
 * **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
 
 ## <a name="create-data-factory"></a>建立 Data Factory
@@ -129,7 +129,7 @@ ms.lasthandoff: 08/10/2017
    * 將更新安裝作業**排程**在一天當中的指定時間。
    * 檢視閘道的 **上次更新**時間。
    * 指定可以安裝閘道更新的時間。
-8. 切換到 [設定]  索引標籤。 在 [憑證]  區段中指定的憑證，可用來加密/解密在入口網站指定的內部部署資料存放區認證 (選擇性)。 按一下 [變更]  以改用您自己的憑證。 根據預設，閘道器會使用由 Data Factory 服務自動產生的憑證。
+8. 切換到 [設定]  索引標籤。在 [憑證]  區段中指定的憑證，可用來加密/解密在入口網站指定的內部部署資料存放區認證 (選擇性)。 按一下 [變更]  以改用您自己的憑證。 根據預設，閘道器會使用由 Data Factory 服務自動產生的憑證。
 
     ![閘道器憑證組態](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 

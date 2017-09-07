@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 933cb8692abea1f66192605208ddd9c0b9057235
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34086044db752f09f1282517b59856091e85c2fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure Resource Manager 將 Hyper-V 虛擬機器 (位於 VMM 雲端中) 複寫至 Azure
@@ -59,7 +58,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 ### <a name="azure-prerequisites"></a>Azure 必要條件
 * 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 如果您沒有此帳戶，請先前往 [免費帳戶](https://azure.microsoft.com/free)。 此外，您可以參閱 [Azure Site Recovery 管理員價格](https://azure.microsoft.com/pricing/details/site-recovery/)。
 * 如果您正在嘗試複寫至 CSP 訂用帳戶的案例，您將需要 CSP 訂用帳戶。 若要深入了解 CSP 程式，請參閱 [如何註冊 CSP 程式](https://msdn.microsoft.com/library/partnercenter/mt156995.aspx)。
-* 您將需要 Azure v2 儲存體 (Resource Manager) 帳戶，才能將複寫的資料儲存至 Azure。 此帳戶必須啟用異地複寫。 它應該與 Azure Site Recovery 服務位於相同的區或，且與相同的訂用帳戶或 CSP 訂用帳戶關聯。 若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md) 。
+* 您將需要 Azure v2 儲存體 (Resource Manager) 帳戶，才能將複寫的資料儲存至 Azure。 此帳戶必須啟用異地複寫。 它應該與 Azure Site Recovery 服務位於相同的區或，且與相同的訂用帳戶或 CSP 訂用帳戶關聯。 若要深入了解設定 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md) 。
 * 您必須確定您要保護的虛擬機器符合 [Azure 虛擬機器必要條件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 
 > [!NOTE]

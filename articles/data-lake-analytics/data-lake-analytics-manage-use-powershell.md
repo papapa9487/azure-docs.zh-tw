@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: b79f6dd20d2e8e298b8d1824b70ff9f0d0fde9aa
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 862e9551f1e129b7bba06651fbae94e337c92dcb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Data Lake Analytics
@@ -173,7 +173,7 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 Azure Data Lake Analytics 目前支援下列資料來源：
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure 儲存體](../storage/storage-introduction.md)
+* [Azure 儲存體](../storage/common/storage-introduction.md)
 
 當您建立 Analytics 帳戶時，必須指定一個 Data Lake Store 帳戶作為預設的資料來源。 預設的 Data Lake Store 帳戶是用來儲存工作中繼資料與工作稽核記錄。 建立 Data Lake Analytics 帳戶之後，您可以新增其他 Data Lake Store 帳戶和/或儲存體帳戶。 
 

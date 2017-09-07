@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 78945ec210c56106833291167ecaf920794f717f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f3d265f31cb653d32076747e586383d67bbccc41
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
@@ -450,7 +450,7 @@ test custom activity Microsoft test custom activity Microsoft
 2. 在命令列上按一下 [新增資料儲存區]，然後選擇 [Azure 儲存體]。 在編輯器中，您應該會看到用來建立 Azure 儲存體連結服務的 JSON 指令碼。
     
     ![新增資料存放區 - Azure 儲存體](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. 以您的 Azure 儲存體帳戶名稱取代`<accountname>`，並以 Azure 儲存體帳戶的存取金鑰取代`<accountkey>`。 若要了解如何取得儲存體存取金鑰，請參閱 [檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#manage-your-storage-account)
+3. 以您的 Azure 儲存體帳戶名稱取代`<accountname>`，並以 Azure 儲存體帳戶的存取金鑰取代`<accountkey>`。 若要了解如何取得儲存體存取金鑰，請參閱 [檢視、複製和重新產生儲存體存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
     ![Azure 儲存體類型的連結服務](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. 按一下命令列的 [部署]  ，部署連結服務。

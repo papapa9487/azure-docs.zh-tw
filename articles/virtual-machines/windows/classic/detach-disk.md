@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: b7b8f8cc34cea17fee4b7a39594dd22bdc536d57
-ms.lasthandoff: 03/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 650c7e10150b95a6ad7cd455746f7c1d77b9b34c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-detach-a-disk-from-a-windows-virtual-machine"></a>如何從 Windows 虛擬機器卸離磁碟
@@ -29,7 +29,7 @@ ms.lasthandoff: 03/27/2017
 [!INCLUDE [howto-detach-disk-windows-linux](../../../../includes/howto-detach-disk-windows-linux.md)]
 
 ## <a name="additional-resources"></a>其他資源
-[有關虛擬機器的磁碟和 VHD](../../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+[有關虛擬機器的磁碟和 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 [如何將資料磁碟附加至 Windows 虛擬機器](attach-disk.md)
 

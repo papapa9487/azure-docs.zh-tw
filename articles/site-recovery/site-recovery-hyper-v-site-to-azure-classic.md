@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 02/21/2017
 ms.author: raynew
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 305f02bb120a1096c46de94d103a5700dabdc8ba
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 438f32ee3605e2dd0c46de7993a359cc269262fe
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-between-on-premises-hyper-v-virtual-machines-and-azure-without-vmm-with-azure-site-recovery"></a>使用 Azure Site Recovery 在內部部署 Hyper-V 虛擬機器與 Azure (沒有 VMM) 之間複寫
@@ -51,7 +51,7 @@ Azure 用來建立和處理資源的[部署模型](../resource-manager-deploymen
 
 ## <a name="azure-prerequisites"></a>Azure 必要條件
 * 您需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。
-* 您需要 Azure 儲存體帳戶來儲存複寫的資料。 此帳戶必須啟用異地複寫。 它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。 [深入了解 Azure 儲存體](../storage/storage-introduction.md)。 請注意，我們不支援使用 [新的 Azure 入口網站](../storage/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。
+* 您需要 Azure 儲存體帳戶來儲存複寫的資料。 此帳戶必須啟用異地複寫。 它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。 [深入了解 Azure 儲存體](../storage/common/storage-introduction.md)。 請注意，我們不支援使用 [新的 Azure 入口網站](../storage/common/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。
 * 您將需要 Azure 虛擬網路，如此一來，當您從主要網站容錯移轉時，Azure 虛擬機器就會連接至網路。
 
 ## <a name="hyper-v-prerequisites"></a>Hyper-V 的必要條件
@@ -167,7 +167,7 @@ Azure 用來建立和處理資源的[部署模型](../resource-manager-deploymen
     ![建立儲存體帳戶](./media/site-recovery-hyper-v-site-to-azure-classic/create-resources.png)
 
 > [!NOTE]
-> 1. 我們不支援使用 [新的 Azure 入口網站](../storage/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。
+> 1. 我們不支援使用 [新的 Azure 入口網站](../storage/common/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。
 > 2. 對於用於部署 Site Recovery 的儲存體帳戶，不支援跨相同訂用帳戶內的資源群組或跨訂用帳戶[移轉儲存體帳戶](../azure-resource-manager/resource-group-move-resources.md)。
 >
 
@@ -198,7 +198,7 @@ Azure 用來建立和處理資源的[部署模型](../resource-manager-deploymen
 
     ![啟用虛擬機器保護](./media/site-recovery-hyper-v-site-to-azure-classic/add-vm.png)
 
-    「啟用保護」工作隨即開始。 您可以在 [工作]  索引標籤上追蹤進度。 執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。
+    「啟用保護」工作隨即開始。 您可以在 [工作]  索引標籤上追蹤進度。執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。
 3. 設定保護之後，您可以：
 
    * 在 [受保護的項目]  >  [保護群組]  >  *rotectiongroup_name*  >  [虛擬機器] 中檢視虛擬機器。您可以在 [屬性] 索引標籤中向下切入到機器詳細資料。

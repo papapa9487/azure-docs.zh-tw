@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: aeaed63e00b77f885312204f17f024af462dbf25
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e8c7a9af11ac4c22be00426337ab7c8b8ff0860f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的事件檔案目標程式碼
@@ -543,7 +543,7 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 如需 Azure 儲存體服務中帳戶和容器的詳細資訊，請參閱：
 
-* [如何使用 .NET 的 Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)
+* [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 * [命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/library/azure/dd135715.aspx)
 * [使用根容器](http://msdn.microsoft.com/library/azure/ee395424.aspx)
 * [第 1 課：在 Azure 容器上建立預存的存取原則和共用存取簽章](http://msdn.microsoft.com/library/dn466430.aspx)

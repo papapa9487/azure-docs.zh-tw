@@ -15,11 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: asgang
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 0478acb27f7e1f8ca85f43ac244b5bdb70109a93
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e0047a996c9bfd7d950b32f0871ddd7608924b42
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 07/11/2017
 7. 選取您要用來複寫資料的 Azure 儲存體帳戶。 請注意：
 
    * 您可以選取進階或標準儲存體帳戶。 如果選取進階帳戶，您需要針對進行中的複寫記錄檔，額外指定一個標準儲存體帳戶。 帳戶必須位於與復原服務保存庫相同的區域中。
-   * 如果您想要使用和您所擁有之儲存體帳戶不同的儲存體帳戶，您可以使用資源管理員建立一個建立儲存體帳戶的預留位置連結，這將在＜開始使用＞中涵蓋。 若要使用 Resource Manager 建立儲存體帳戶，請按一下 [新建]。 如果您想要使用傳統模型建立儲存體帳戶，請 [在 Azure 入口網站中](../storage/storage-create-storage-account-classic-portal.md)執行該作業。
+   * 如果您想要使用和您所擁有之儲存體帳戶不同的儲存體帳戶，您可以使用資源管理員建立一個建立儲存體帳戶的預留位置連結，這將在＜開始使用＞中涵蓋。 若要使用 Resource Manager 建立儲存體帳戶，請按一下 [新建]。 如果您想要使用傳統模型建立儲存體帳戶，請 [在 Azure 入口網站中](../storage/common/storage-create-storage-account.md)執行該作業。
 
 8. 選取 Azure VM 在容錯移轉後啟動時所要啟動的 Azure 網路和子網路。 此網路必須位於與復原服務保存庫相同的區域中。 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 如果您沒有網路，則必須[建立一個](#set-up-an-azure-network)。 若要使用 Resource Manager 建立網路，請按一下 [新建]。 如果您想要使用傳統模型建立網路，請[在 Azure 入口網站中](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)執行該作業。 選取適用的子網路。 然後按一下 [確定] 。
 

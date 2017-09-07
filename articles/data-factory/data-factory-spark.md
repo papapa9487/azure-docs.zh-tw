@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: c5eda443dcd41a481ad952d8472f7f67f4517abd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 57894bbdd9208f8c32eb65e29f04e2ae723780ca
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
@@ -52,7 +52,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
 4. 使用 Spark 活動建立管線，以參考 #2 中建立的 HDInsight 連結服務。 此活動已使用您在上一個步驟中建立的資料集設定為輸出資料集。 輸出資料集可以驅動排程 (每小時、每天等)。 因此，您必須指定輸出資料集，即使活動並未真的產生輸出。
 
 ### <a name="prerequisites"></a>必要條件
-1. 依照逐步解說：[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)中的指示，建立**一般用途的 Azure 儲存體帳戶**。  
+1. 依照逐步解說：[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)中的指示，建立**一般用途的 Azure 儲存體帳戶**。  
 2. 依照教學課程：[在 Azure HDInsight 中建立 Apache Spark 叢集](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md)中的指示**在 Azure HDInsight 中建立 Apache Spark 叢集**。 將您在步驟 1 中建立的 Azure 儲存體帳戶與此叢集產生關聯。  
 3. 下載並檢閱 python 指令碼檔案 **test.py**，該檔案位於：[https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py](https://adftutorialfiles.blob.core.windows.net/sparktutorial/test.py)。  
 3.  將 **test.py** 上傳至您的Azure Blob 儲存體 **adfspark** 容器中的 **pyFiles** 資料夾。 建立容器和資料夾 (如果不存在)。
@@ -91,7 +91,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
 3. 在編輯器中，您應該會看到用來建立 Azure 儲存體連結服務的 **JSON 指令碼**。
 
    ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
-4. 將 **accountname** 和 **accountkey** 以 Azure 儲存體帳戶的名稱及存取金鑰來取代。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../storage/storage-create-storage-account.md#manage-your-storage-account)中說明如何檢視、複製和重新產生儲存體存取金鑰的資訊。
+4. 將 **accountname** 和 **accountkey** 以 Azure 儲存體帳戶的名稱及存取金鑰來取代。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../storage/common/storage-create-storage-account.md#manage-your-storage-account)中說明如何檢視、複製和重新產生儲存體存取金鑰的資訊。
 5. 若要部署連結服務，請按一下命令列的 [部署]。 成功部署連結的服務之後，應該會出現 **Draft-1** 視窗，而且您會在左側的樹狀檢視中看到 **AzureStorageLinkedService**。
 
 #### <a name="create-hdinsight-linked-service"></a>建立 HDInsight 連結服務

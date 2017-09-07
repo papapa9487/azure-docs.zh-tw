@@ -17,10 +17,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e690e87df92bd3614e575010d90b7a40521dadc9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -164,7 +164,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  
 
-1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../../../storage/storage-premium-storage.md)。
+1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../../../storage/common/storage-premium-storage.md)。
 
    每部虛擬機器需要至少兩個資料磁碟。
 

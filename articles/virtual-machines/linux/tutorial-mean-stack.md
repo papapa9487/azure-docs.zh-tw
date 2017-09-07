@@ -325,7 +325,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. 將網頁瀏覽器開啟到您為 VM 記錄的位址。 例如：http://13.72.77.9:3300。 您應該會看到如下列網頁的內容：
+2. 將網頁瀏覽器開啟到您為 VM 記錄的位址。 例如： http://13.72.77.9:3300 。 您應該會看到如下列網頁的內容：
 
     ![書籍記錄](media/tutorial-mean/meanstack-init.png)
 

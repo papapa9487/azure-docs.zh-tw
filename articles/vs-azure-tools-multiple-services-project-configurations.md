@@ -3,8 +3,8 @@ title: "使用多個服務組態設定 Azure 專案 | Microsoft Docs"
 description: "了解如何透過變更 ServiceDefinition.csdef 和 ServiceConfiguration.cscfg 檔案來設定 Azure 雲端服務專案。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.service: multiple
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 7e720b7d1f874f83d7d2ff516704f61b5e39601d
-ms.lasthandoff: 11/17/2016
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>使用多個服務組態設定 Azure 專案
@@ -65,9 +65,9 @@ Web 角色預設會啟用診斷。 Azure 雲端服務專案和儲存體帳戶已
 ### <a name="configuring-a-connection-string-to-a-storage-account"></a>設定儲存體帳戶的連接字串
 連接字串是一個組態設定，可為儲存體模擬器或 Azure 儲存體帳戶提供連接和驗證資訊。 每當您的程式碼必須從在角色中執行的程式碼存取 Azure 儲存體服務資料 (也就是 Blob、佇列或資料表資料) 時，您必須定義該儲存體帳戶的連接字串。
 
-指向 Azure 儲存體帳戶的連接字串必須使用已定義的格式。 如需如何建立連接字串的相關資訊，請參閱 [設定 Azure 儲存體連接字串](storage/storage-configure-connection-string.md)。
+指向 Azure 儲存體帳戶的連接字串必須使用已定義的格式。 如需如何建立連接字串的相關資訊，請參閱 [設定 Azure 儲存體連接字串](storage/common/storage-configure-connection-string.md)。
 
-當您準備好要針對 Azure 儲存體服務測試您的服務，或當您準備好要將您的雲端服務部署至 Azure 時，您可以變更任何連接字串的值以指向您的 Azure 儲存體帳戶。 選取 ([…])，選取 [輸入儲存體帳戶認證]。 輸入您的帳戶資訊，包含您的帳戶名稱和帳戶金鑰。 在 [儲存體帳戶連接字串]  對話方塊中，您也可以指出要使用預設 HTTPS 端點 (預設選項)、預設 HTTP 端點或自訂端點。 如果您已為您的服務註冊自訂網域名稱，您可以決定使用自訂端點，如 [針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱](storage/storage-custom-domain-name.md)中所述。
+當您準備好要針對 Azure 儲存體服務測試您的服務，或當您準備好要將您的雲端服務部署至 Azure 時，您可以變更任何連接字串的值以指向您的 Azure 儲存體帳戶。 選取 ([…])，選取 [輸入儲存體帳戶認證]。 輸入您的帳戶資訊，包含您的帳戶名稱和帳戶金鑰。 在 [儲存體帳戶連接字串]  對話方塊中，您也可以指出要使用預設 HTTPS 端點 (預設選項)、預設 HTTP 端點或自訂端點。 如果您已為您的服務註冊自訂網域名稱，您可以決定使用自訂端點，如 [針對 Azure 儲存體帳戶中的 Blob 資料設定自訂網域名稱](storage/blobs/storage-custom-domain-name.md)中所述。
 
 > [!IMPORTANT]
 > 您必須將連接字串修改成指向 Azure 儲存體帳戶，才能部署您的服務。 無法執行這項操作，可能會導致您的角色無法啟動，或在初始化中、忙碌中和停止中狀態間循環。

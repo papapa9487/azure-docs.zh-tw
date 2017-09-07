@@ -14,10 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 3cfeed9d10cba8e51e8609fe2a0a2a3228681850
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d3df6b25fe524c500cf1a1333ac136e8a29d1484
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>使用 Azure 儲存體進行 SQL Server 備份與還原
@@ -31,7 +32,7 @@ SQL Server 2016 導入了新功能；您可以使用 [檔案快照集備份](htt
 ## <a name="benefits-of-using-the-azure-blob-service-for-sql-server-backups"></a>使用 Azure Blob 服務進行 SQL Server 備份的好處
 備份 SQL Server 時，您會面臨數個挑戰。 這些挑戰包括儲存體管理、儲存體故障風險、異地儲存體存取以及硬體組態。 這些挑戰當中有許多都是透過使用 Azure Blob 存放區服務進行 SQL Server 備份來因應。 請考量下列好處：
 
-* **容易使用**：將您的備份存放在 Azure Blob 中可以是一個既方便、有彈性又容易存取的異地選項。 為您的 SQL Server 備份建立異地儲存體相當簡單，只需將現有的指令碼/工作修改成使用 **BACKUP TO URL** 語法即可。 異地儲存體應該通常要離生產資料庫位置夠遠，以避免單一災害同時影響異地和生產資料庫位置。 藉由選擇 [異地複寫 Azure Blob](../../../storage/storage-redundancy.md)，在發生可能影響整個區域的災害時，您會有額外的一層保護。
+* **容易使用**：將您的備份存放在 Azure Blob 中可以是一個既方便、有彈性又容易存取的異地選項。 為您的 SQL Server 備份建立異地儲存體相當簡單，只需將現有的指令碼/工作修改成使用 **BACKUP TO URL** 語法即可。 異地儲存體應該通常要離生產資料庫位置夠遠，以避免單一災害同時影響異地和生產資料庫位置。 藉由選擇 [異地複寫 Azure Blob](../../../storage/common/storage-redundancy.md)，在發生可能影響整個區域的災害時，您會有額外的一層保護。
 * **備份封存**：「Azure Blob 儲存體」服務提供比常用的磁帶選項更好的替代方案來封存備份。 磁帶儲存體可能需要實體運輸到異地設施，以及保護媒體的措施。 將備份存放在 Azure Blob 儲存體提供了立即、高度可用且持久的封存選項。
 * **受管理的硬體**：使用 Azure 服務時，沒有硬體管理的額外負荷。 Azure 服務會管理硬體，並提供地埋區域備援複寫，以提供備援及硬體故障的防護。
 * **無限制的儲存體**：藉由啟用直接備份到 Azure Blob 的功能，您可以存取幾乎無限制的儲存體。 或者，您也可以選擇備份到 Azure 虛擬機器磁碟，所受的限制會取決於機器大小。 您可以連結到 Azure 虛擬機器以進行備份的磁碟數是有限制的。 超大型執行個體的限制為 16 個磁碟，較小的執行個體則更少。
@@ -76,10 +77,5 @@ SQL Server 2016 導入了新功能；您可以使用 [檔案快照集備份](htt
 如果您有任何問題，請檢閱 [SQL Server 備份至 URL 的最佳做法和疑難排解](https://msdn.microsoft.com/library/jj919149.aspx)主題。
 
 如需其他 SQL Server 備份與還原選項，請參閱 [Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
-
-
-
-
-<!--HONumber=Jan17_HO2-->
 
 

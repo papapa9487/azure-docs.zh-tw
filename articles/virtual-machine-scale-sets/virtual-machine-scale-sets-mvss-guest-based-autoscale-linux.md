@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 5de81da3c6b77f1a80876d68def66792b6a21bb9
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/17/2017
 
 您可以在[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)看到最基本可行的擴展集範本，並在[這裡](https://raw.githubusercontent.com/gatneil/mvss/guest-based-autoscale-linux/azuredeploy.json)看到使用以客體為基礎之自動調整規模部署 Linux 擴展集的範本。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set existing-vnet`) 的差異：
 
-首先，我們會加入適用於 `storageAccountName` 和 `storageAccountSasToken` 的參數。 診斷代理程式會將計量資料儲存於此儲存體帳戶的[表格](../storage/storage-dotnet-how-to-use-tables.md)中。 從 Linux 診斷代理程式 3.0 版開始，不再支援使用儲存體存取金鑰。 我們必須使用 [SAS 權杖](../storage/storage-dotnet-shared-access-signature-part-1.md)。
+首先，我們會加入適用於 `storageAccountName` 和 `storageAccountSasToken` 的參數。 診斷代理程式會將計量資料儲存於此儲存體帳戶的[表格](../cosmos-db/table-storage-how-to-use-dotnet.md)中。 從 Linux 診斷代理程式 3.0 版開始，不再支援使用儲存體存取金鑰。 我們必須使用 [SAS 權杖](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 ```diff
      },

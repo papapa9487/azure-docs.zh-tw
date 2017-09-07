@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 9a91aedf452a391f23b1e5773ec12e2de5d4a288
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7c297725c26ea6c44403a10ecdcc3542f89f10b4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-linux-vm-from-custom-disk-with-the-azure-cli-20"></a>使用 Azure CLI 2.0 從自訂磁碟建立 Linux VM
@@ -90,7 +90,7 @@ Azure 支援各種 Linux 散發套件 (請參閱 [背書的散發套件](endorse
 
 在上傳您的自訂磁碟並建立 VM 之前，您必須先使用 [az group create](/cli/azure/group#create) 建立資源群組。
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：[Azure 受控磁碟概觀](../../storage/storage-managed-disks-overview.md)
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：[Azure 受控磁碟概觀](../windows/managed-disks-overview.md)
 ```azurecli
 az group create \
     --name myResourceGroup \
@@ -113,7 +113,7 @@ az storage account create \
 ```
 
 ### <a name="list-storage-account-keys"></a>列出儲存體帳戶金鑰
-Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如，執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/storage-create-storage-account.md#manage-your-storage-account)深入了解如何管理對儲存體的存取。 您使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 來檢視存取金鑰。
+Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如，執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)深入了解如何管理對儲存體的存取。 您使用 [az storage account keys list](/cli/azure/storage/account/keys#list) 來檢視存取金鑰。
 
 檢視您所建立儲存體帳戶的存取金鑰：
 

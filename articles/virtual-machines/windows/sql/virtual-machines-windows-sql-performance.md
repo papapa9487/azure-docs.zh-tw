@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 9704c6cc846df5a8e129f48ea6378140c8338279
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5595ea016ab01d20cee82b75f56623bb0727a1b3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能最佳做法
@@ -42,8 +41,8 @@ ms.lasthandoff: 06/28/2017
 | 領域 | 最佳化 |
 | --- | --- |
 | [VM 大小](#vm-size-guidance) |SQL Enterprise Edition 的 [DS3](../../virtual-machines-windows-sizes-memory.md) 或更高版本。<br/><br/>SQL Standard 和 Web Edition 的 [DS2](../../virtual-machines-windows-sizes-memory.md) 或更高版本。 |
-| [儲存體](#storage-guidance) |使用[進階儲存體](../../../storage/storage-premium-storage.md)。 標準儲存體只建議用於開發/測試。<br/><br/>將[儲存體帳戶](../../../storage/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/>停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/storage-redundancy.md) (異地複寫)。 |
-| [磁碟](#disks-guidance) |使用至少 2 個 [P30 磁碟](../../../storage/storage-premium-storage.md#scalability-and-performance-targets) (1 個用於儲存記錄檔案，另 1 個用於儲存資料檔案和存放 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/>啟用裝載資料檔案和 TempDB 的磁碟上的 [讀取快取] 功能。<br/><br/>不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。<br/><br/>重要事項︰變更 Azure VM 磁碟的快取設定時，停止 SQL Server 服務。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。 |
+| [儲存體](#storage-guidance) |使用[進階儲存體](../../../storage/common/storage-premium-storage.md)。 標準儲存體只建議用於開發/測試。<br/><br/>將[儲存體帳戶](../../../storage/common/storage-create-storage-account.md)和 SQL Server VM 置於同一個區域。<br/><br/>停用儲存體帳戶上的 Azure [異地備援儲存體](../../../storage/common/storage-redundancy.md) (異地複寫)。 |
+| [磁碟](#disks-guidance) |使用至少 2 個 [P30 磁碟](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (1 個用於儲存記錄檔案，另 1 個用於儲存資料檔案和存放 TempDB)。<br/><br/>避免使用作業系統或暫存磁碟作為資料儲存體或進行記錄。<br/><br/>啟用裝載資料檔案和 TempDB 的磁碟上的 [讀取快取] 功能。<br/><br/>不要啟用裝載記錄檔案的磁碟上的 [快取] 功能。<br/><br/>重要事項︰變更 Azure VM 磁碟的快取設定時，停止 SQL Server 服務。<br/><br/>分割多個 Azure 資料磁碟，以提高 IO 輸送量。<br/><br/>以文件上記載的配置大小格式化。 |
 | [I/O](#io-guidance) |啟用 [資料庫頁面壓縮] 功能　。<br/><br/>針對資料檔案，啟用 [立即檔案初始化] 功能。<br/><br/>限制資料庫上的 [自動成長] 功能，或停用。<br/><br/>停用資料庫上的 [自動壓縮] 功能。<br/><br/>將所有的資料庫 (包括系統資料庫) 移到資料磁碟。<br/><br/>將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。<br/><br/>設定預設備份和資料庫檔案位置。<br/><br/>啟用鎖定的頁面。<br/><br/>套用 SQL Server 效能修正程式。 |
 | [特定功能](#feature-specific-guidance) |直接備份至 Blob 儲存體。 |
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="storage-guidance"></a>儲存體指引
 
-DS 系列 (以及 DSv2 系列和 GS 系列) VM 支援 [進階儲存體](../../../storage/storage-premium-storage.md)。 針對所有生產環境工作負載，建議使用進階儲存體。
+DS 系列 (以及 DSv2 系列和 GS 系列) VM 支援 [進階儲存體](../../../storage/common/storage-premium-storage.md)。 針對所有生產環境工作負載，建議使用進階儲存體。
 
 > [!WARNING]
 > 標準儲存體具有不同的延遲和頻寬，並建議僅用於開發/測試工作負載。 生產工作負載應該使用進階儲存體。
@@ -91,7 +90,7 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 
 ### <a name="data-disks"></a>資料磁碟
 
-* **將資料磁碟用於資料檔和記錄檔**：至少使用 2 個進階儲存體 [P30 磁碟](../../../storage/storage-premium-storage.md#scalability-and-performance-targets)，一個磁碟包含記錄檔，另一個則包含資料和 TempDB 檔案。 每個進階儲存體磁碟會根據其大小提供數個 IOPS 和頻寬 (MB/s)，如下列文章所述：[針對磁碟使用進階儲存體](../../../storage/storage-premium-storage.md)。
+* **將資料磁碟用於資料檔和記錄檔**：至少使用 2 個進階儲存體 [P30 磁碟](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets)，一個磁碟包含記錄檔，另一個則包含資料和 TempDB 檔案。 每個進階儲存體磁碟會根據其大小提供數個 IOPS 和頻寬 (MB/s)，如下列文章所述：[針對磁碟使用進階儲存體](../../../storage/common/storage-premium-storage.md)。
 
 * **磁碟等量分割**︰如需更多的輸送量，您可以新增其他資料磁碟，並使用「磁碟等量分割」。 為了判斷資料磁碟的數目，您需要分析記錄檔以及資料和 TempDB 檔案所需的 IOPS 和頻寬數目。 請注意，不同的 VM 大小在支援的 IOPS 和頻寬數目上有不同的限制，請參閱每個 [VM 大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的 IOPS 相關表格。 請使用下列指引：
 
@@ -141,7 +140,7 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 
 * 將所有的資料庫 (包括系統資料庫) 移到資料磁碟。 如需詳細資訊，請參閱 [移動系統資料庫](https://msdn.microsoft.com/library/ms345408.aspx)。
 
-* 將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。 在 SQL Server 組態管理員中，以滑鼠右鍵按一下您的 SQL Server 執行個體並選取內容，即可完成。 您可以在 [啟動參數]  索引標籤中變更錯誤記錄和追蹤檔案設定。 若要指定「傾印目錄」，則是在 [進階]  索引標籤中指定。 下列螢幕擷取畫面顯示錯誤記錄啟動參數的位置。
+* 將 SQL Server 的錯誤記錄檔和追蹤檔案目錄移至資料磁碟。 在 SQL Server 組態管理員中，以滑鼠右鍵按一下您的 SQL Server 執行個體並選取內容，即可完成。 您可以在 [啟動參數]  索引標籤中變更錯誤記錄和追蹤檔案設定。若要指定「傾印目錄」，則是在 [進階]  索引標籤中指定。下列螢幕擷取畫面顯示錯誤記錄啟動參數的位置。
 
     ![SQL ErrorLog 螢幕擷取畫面](./media/virtual-machines-windows-sql-performance/sql_server_error_log_location.png)
 

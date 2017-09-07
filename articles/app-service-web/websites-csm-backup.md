@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 1ad2911f809a17e4a6c0f2fe9087e1d9eb2da39e
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c1b8fc3be3af46279bf35bddbc82acf1827b9eb9
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-rest-to-back-up-and-restore-app-service-apps"></a>使用 REST 來備份及還原 App Service 應用程式
@@ -35,7 +35,7 @@ ms.lasthandoff: 12/08/2016
 <a name="gettingstarted"></a>
 
 ## <a name="getting-started"></a>開始使用
-若要傳送 REST 要求，您必須知道應用程式的**名稱**、**資源群組**和**訂用帳戶識別碼**。 如要尋找這些資訊，請在 [Azure 入口網站](https://portal.azure.com)的 [App Service] 刀鋒視窗中按一下您的應用程式。 在本文的範例中，我們會設定 **backuprestoreapiexamples.azurewebsites.net** 網站。 它儲存在 Default-Web-WestUS 資源群組中，並在識別碼為 00001111-2222-3333-4444-555566667777 的訂用帳戶上執行。
+若要傳送 REST 要求，您必須知道應用程式的**名稱**、**資源群組**和**訂用帳戶識別碼**。如要尋找這些資訊，請在 [Azure 入口網站](https://portal.azure.com)的 [App Service] 刀鋒視窗中按一下您的應用程式。 在本文的範例中，我們會設定 **backuprestoreapiexamples.azurewebsites.net** 網站。 它儲存在 Default-Web-WestUS 資源群組中，並在識別碼為 00001111-2222-3333-4444-555566667777 的訂用帳戶上執行。
 
 ![範例網站資訊][SampleWebsiteInformation]
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 12/08/2016
 
 使用範例網站後的 URL 看起來就像這樣。 **https://management.azure.com/subscriptions/00001111-2222-3333-4444-555566667777/resourceGroups/Default-Web-WestUS/providers/Microsoft.Web/sites/backuprestoreapiexamples/backup/**
 
-請在要求本文中提供 JSON 物件，以指定要用來儲存備份的儲存體帳戶。 JSON 物件必須有名為 **storageAccountUrl**的屬性以保存 [SAS URL](../storage/storage-dotnet-shared-access-signature-part-1.md) ，此 URL 會授與保有備份 Blob 之 Azure 儲存體容器的寫入權限。 如果您想要備份資料庫，則還必須提供包含所要備份之資料庫的名稱、類型和連接字串的清單。
+請在要求本文中提供 JSON 物件，以指定要用來儲存備份的儲存體帳戶。 JSON 物件必須有名為 **storageAccountUrl**的屬性以保存 [SAS URL](../storage/common/storage-dotnet-shared-access-signature-part-1.md) ，此 URL 會授與保有備份 Blob 之 Azure 儲存體容器的寫入權限。 如果您想要備份資料庫，則還必須提供包含所要備份之資料庫的名稱、類型和連接字串的清單。
 
 ```
 {

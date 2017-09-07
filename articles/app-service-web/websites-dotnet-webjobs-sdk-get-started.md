@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/14/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 31fd4523794d71b5fbf6d55ba97f3b744b8d5d38
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a20b13058caecff75af14957468f20e63a3325c9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-net-webjob-in-azure-app-service"></a>在 Azure App Service 中建立 .NET WebJob
@@ -99,7 +98,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
     此設定會指定哪個 Azure 資料中心將會主控您的儲存體帳戶。 對於本教學課程，您的選擇將不會造成顯著的差異。 不過，對於生產 Web 應用程式，您會希望 Web 伺服器和儲存體帳戶都位於相同區域，以減少延遲和資料輸出費用。 您稍後將建立的 Web 應用程式資料中心應該盡可能接近可存取您 Web 應用程式的瀏覽器，以便將延遲降至最低。
 7. 將 [複寫] 下拉式清單設為 [本機備援]。
 
-    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。 地理區域複寫會引發額外成本。 對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。 如需詳細資訊，請參閱 [建立、管理或刪除儲存體帳戶](../storage/storage-create-storage-account.md)。
+    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。 地理區域複寫會引發額外成本。 對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。 如需詳細資訊，請參閱 [建立、管理或刪除儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 8. 按一下 [建立] 。
 
     ![New storage account](./media/websites-dotnet-webjobs-sdk-get-started/newstorage.png)

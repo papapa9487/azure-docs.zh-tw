@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: c1485205f49dae28adbddbf679fc120a6e52bff6
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c29f1f01b660c4eb780e178a68036327fafa9ba6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>使用 Data Factory 在 15 分鐘內將 1 TB 載入至 Azure SQL 資料倉儲
@@ -43,7 +43,7 @@ ms.lasthandoff: 06/07/2017
 >
 
 ## <a name="prerequisites"></a>必要條件
-* Azure Blob 儲存體︰這項實驗使用 Azure Blob 儲存體 (GRS) 來儲存 TPC-H 測試資料集。  如果您沒有 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* Azure Blob 儲存體︰這項實驗使用 Azure Blob 儲存體 (GRS) 來儲存 TPC-H 測試資料集。  如果您沒有 Azure 儲存體帳戶，請參閱[如何建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 * [TPC-H](http://www.tpc.org/tpch/) 資料︰我們將使用 TPC-H 作為測試資料集。  若要這麼做，您必須使用 TPC-H 工具組中的 `dbgen`，以協助您產生資料集。  您可以從 [TPC Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) 下載 `dbgen` 的原始程式碼並自行進行編譯，或者從 [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools) 下載編譯過的二進位檔。  使用下列命令執行 dbgen.exe，以針對分散到 10 個檔案的 `lineitem` 資料表產生 1 TB 一般檔案：
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
@@ -77,7 +77,7 @@ ms.lasthandoff: 06/07/2017
 
     這項實驗會將資料載入至使用 `xlargerc` 資源類別的 Azure SQL 資料倉儲。
 
-    若要達到最佳可能輸送量，則需要使用屬於 `xlargerc` 資源類別的 SQL 資料倉儲使用者來執行複製。  遵循[變更使用者資源類別範例](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)，了解如何執行這項作業。  
+    若要達到最佳可能輸送量，則需要使用屬於 `xlargerc` 資源類別的 SQL 資料倉儲使用者來執行複製。  遵循[變更使用者資源類別範例](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)，了解如何執行這項作業。  
 * 執行下列 DDL 陳述式，以在 Azure SQL 資料倉儲資料庫中建立目的地資料表結構描述︰
 
     ```SQL  

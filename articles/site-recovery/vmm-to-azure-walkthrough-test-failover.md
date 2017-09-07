@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 8d7b3b8293120bb7e9f00a90da09f94ca7cba29b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4688fc4bc74a9e0e04487cfbe965006070fd9a7b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -34,13 +34,13 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="managed-disk-considerations"></a>受控磁碟的考量
 
-[受控磁碟](../storage/storage-managed-disks-overview.md)會管理與 VM 磁碟相關聯的儲存體帳戶，從而簡化 Azure VM 的磁碟管理。 
+[受控磁碟](../virtual-machines/windows/managed-disks-overview.md)會管理與 VM 磁碟相關聯的儲存體帳戶，從而簡化 Azure VM 的磁碟管理。 
 
 - 只有當容錯移轉至 Azure 時，受控磁碟會加以建立並連結至 VM。 當您啟用保護時，來自內部部署 VM 的資料會複寫到儲存體帳戶中。
 - 只有使用 Resource Manager 部署模型部署的 VM 才能建立受控磁碟。
 - 具有受控磁碟的電腦目前不支援從 Azure 容錯回復到內部部署 Hyper-V 環境。 若您只要進行移轉 (容錯移轉至 Azure 不含容錯回復)，應該只將 [使用受控磁碟] 設定為 [是]
 - 啟用此設定時，只有將 [使用受控磁碟] 啟用的資源群組之可用性設定組可供選取。 具有受控磁碟的 VM 必須位於 [使用受控磁碟] 設定為 [是] 的可用性群組中。 若 VM 未啟用此設定，則只有未啟用受控磁碟的資源群組之可用性設定組可供選取。 [深入了解](../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)。
-- - 如果您用來複寫的儲存體帳戶已使用「儲存體服務加密」進行加密，就不能在容錯移轉期間建立受控磁碟。 在此情況下，請不要啟用使用受控磁碟的功能，或是停用 VM 保護，然後再將它重新啟用，以使用未啟用加密的儲存體帳戶。 [深入了解](../storage/storage-managed-disks-overview.md#managed-disks-and-encryption)。
+- - 如果您用來複寫的儲存體帳戶已使用「儲存體服務加密」進行加密，就不能在容錯移轉期間建立受控磁碟。 在此情況下，請不要啟用使用受控磁碟的功能，或是停用 VM 保護，然後再將它重新啟用，以使用未啟用加密的儲存體帳戶。 [深入了解](../virtual-machines/windows/managed-disks-overview.md#managed-disks-and-encryption)。
 
  
 ## <a name="network-considerations"></a>網路考量事項
@@ -66,9 +66,9 @@ ms.lasthandoff: 07/26/2017
     ![啟用複寫](./media/vmm-to-azure-walkthrough-test-failover/test-failover2.png)
 3. 在 [計算與網路] 中，您可以：
     - 修改 Azure VM 名稱。 名稱必須符合 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
-    - 指定容錯移轉後的[資源群組](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - 指定容錯移轉後的 [資源群組]。
     - 指定 Azure VM 的目標大小
-    - 選取[可用性設定組](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)。
+    - 選取[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)。
     - 指定是否要使用[受控磁碟](#managed-disk-considerations)。 如果您想要將受控磁碟連結到您移轉至 Azure 的機器上，請選取 [是]。
     - 檢視或修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 

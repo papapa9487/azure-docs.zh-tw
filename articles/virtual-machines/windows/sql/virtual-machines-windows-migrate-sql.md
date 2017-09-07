@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: carlasab
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 8403b5454b387fa7062d188b18cdd595bf24aecd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 68767534298783083a441aa295611914d0df9db0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>將 SQL Server 資料庫移轉至 Azure VM 中的 SQL Server
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/18/2017
 | [執行備份至 URL 並從 URL 還原到 Azure 虛擬機器](#backup-to-url-and-restore) |SQL Server 2012 SP1 CU2 或更新版本 |SQL Server 2012 SP1 CU2 或更新版本 |< 12.8 TB 適用於 SQL Server 2016，否則為 < 1 TB | 此法是使用 Azure 儲存體將備份檔案移至 VM 的另一種方式。 |
 | [中斷連結並將資料和記錄檔複製到 Azure blob 儲存體，然後從 URL 連結至 Azure 虛擬機器中的 SQL Server](#detach-and-attach-from-url) |SQL Server 2005 或更新版本 |SQL Server 2014 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |當您打算 [使用 Azure Blob 儲存體服務儲存這些檔案](https://msdn.microsoft.com/library/dn385720.aspx) ，並將其連接至在 Azure VM 中執行的 SQL Server，尤其是針對極大資料庫時，請使用這個方法。 |
 | [將內部部署機器轉換為 Hyper-V VHD，接著上傳至 Azure Blob 儲存體，然後使用上傳的 VHD 部署新的虛擬機器](#convert-to-vm-and-upload-to-url-and-deploy-as-new-vm) |SQL Server 2005 或更新版本 |SQL Server 2005 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |使用時機包含[使用您自己的 SQL Server 授權時](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)、移轉將在舊版 SQL Server 上執行的資料庫時，或同時移轉系統和使用者資料庫作為其他使用者資料庫和/或系統資料庫的一部分資料庫相依性時。 |
-| [使用 Windows 匯入/匯出服務寄送硬碟機](#ship-hard-drive) |SQL Server 2005 或更新版本 |SQL Server 2005 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |當手動複製方法太慢，例如包含極大資料庫時，請使用 [Windows 匯入/匯出服務](../../../storage/storage-import-export-service.md) |
+| [使用 Windows 匯入/匯出服務寄送硬碟機](#ship-hard-drive) |SQL Server 2005 或更新版本 |SQL Server 2005 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |當手動複製方法太慢，例如包含極大資料庫時，請使用 [Windows 匯入/匯出服務](../../../storage/common/storage-import-export-service.md) |
 | [使用加入 Azure 複本精靈](../classic/sql-onprem-availability.md) |SQL Server 2012 或更新版本 |SQL Server 2012 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |可將停機時間縮到最短，請在您有內部部署的 AlwaysOn 部署時使用 |
 | [使用 SQL Server 異動複寫](https://msdn.microsoft.com/library/ms151176.aspx) |SQL Server 2005 或更新版本 |SQL Server 2005 或更新版本 |[Azure VM 儲存體限制](https://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/) |請在您需要將停機時間縮到最短且沒有內部部署的 AlwaysOn 部署時使用 |
 
@@ -73,13 +73,13 @@ ms.lasthandoff: 07/18/2017
 4. 使用遠端桌面、Windows 檔案總管或命令提示字元的 copy 命令，將您的備份檔案複製到您的 VM。
 
 ## <a name="backup-to-url-and-restore"></a>備份至 URL 和還原
-除了備份至本機檔案，您可以使用[備份至 URL](https://msdn.microsoft.com/library/dn435916.aspx) 並從 URL 還原至 VM。 當您想要提升效能，且需要超過每個 blob 的大小限制時，建議使用 SQL Server 2016 以支援等量備份組。 對於大型資料庫，建議使用 [Windows 匯入/匯出服務](../../../storage/storage-import-export-service.md) 。
+除了備份至本機檔案，您可以使用[備份至 URL](https://msdn.microsoft.com/library/dn435916.aspx) 並從 URL 還原至 VM。 當您想要提升效能，且需要超過每個 blob 的大小限制時，建議使用 SQL Server 2016 以支援等量備份組。 對於大型資料庫，建議使用 [Windows 匯入/匯出服務](../../../storage/common/storage-import-export-service.md) 。
 
 ## <a name="detach-and-attach-from-url"></a>從 URL 中斷連結和從 URL 連結
 中斷資料庫和記錄檔案的連線，並將其傳輸至 [Azure Blob 儲存體](https://msdn.microsoft.com/library/dn385720.aspx)。 然後在您的 Azure VM 上從 URL 連結資料庫。 如果您想要實體資料庫檔案位於 Blob 儲存體之中，請使用這個方法。 這對於非常大型的資料庫很實用。 您可以使用下列一般步驟，使用此手動方法來移轉使用者資料庫：
 
 1. 從內部部署資料庫執行個體中斷連結資料庫檔案。
-2. 使用 [AZCopy 命令列公用程式](../../../storage/storage-use-azcopy.md)，將中斷連結的資料庫檔案複製到 Azure blob 儲存體。
+2. 使用 [AZCopy 命令列公用程式](../../../storage/common/storage-use-azcopy.md)，將中斷連結的資料庫檔案複製到 Azure blob 儲存體。
 3. 將資料庫檔案從 Azure URL 連結至 Azure VM 中的 SQL Server 執行個體。
 
 ## <a name="convert-to-vm-and-upload-to-url-and-deploy-as-new-vm"></a>轉換為 VM 並上傳至 URL 以及部署為新的 VM
@@ -93,7 +93,7 @@ ms.lasthandoff: 07/18/2017
 > 若要移轉整個應用程式，請考慮使用 [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md)。
 
 ## <a name="ship-hard-drive"></a>寄送硬碟機
-透過網路進行上傳所費不貲或不可行時，請使用 [Windows 匯入/匯出服務方法](../../../storage/storage-import-export-service.md) ，將大量檔案資料移轉至 Azure Blob 儲存體。 您可以使用此服務，將包含該資料的一個或多個硬碟送至 Azure 資料中心，而您的資料將會在此上傳至儲存體帳戶。
+透過網路進行上傳所費不貲或不可行時，請使用 [Windows 匯入/匯出服務方法](../../../storage/common/storage-import-export-service.md) ，將大量檔案資料移轉至 Azure Blob 儲存體。 您可以使用此服務，將包含該資料的一個或多個硬碟送至 Azure 資料中心，而您的資料將會在此上傳至儲存體帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 如需在 Azure 虛擬機器上執行 SQL Server 的詳細資訊，請參閱 [Azure 虛擬機器上的 SQL Server 概觀](virtual-machines-windows-sql-server-iaas-overview.md)。
