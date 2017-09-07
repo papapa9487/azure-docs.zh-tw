@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 128e70e4abc68ed8c9589dd08a9aec3a52fa49be
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services
 本文說明如何使用 Azure 入口網站啟用 Azure Active Directory Domain Services (Azure AD DS)。
-
 
 若要啟動 [啟用 Azure AD Domain Services] 精靈，請完成下列步驟：
 
@@ -64,13 +63,15 @@ ms.lasthandoff: 07/17/2017
 
    * 您在虛擬網路上已有具有該名稱的雲端服務。
 
-3. 選取您要在其中建立受管理的網域的 Azure **訂用帳戶**。
+3. 選擇 [虛擬網路的類型]。 根據預設，會選取 **Resource Manager** 虛擬網路類型。 建議所有新建立的受管理網域使用這種類型的虛擬網路。
 
-4. 選取受管理的網域應該隸屬的**資源群組**。 您可以選擇**新建**或**使用現有**選項，以選取資源群組。
+4. 選取您要在其中建立受管理的網域的 Azure **訂用帳戶**。
 
-5. 選擇應該在其中建立受管理的網域的 Azure**位置**。 在精靈的 [網路] 分頁上，您只會看到屬於您所選取之位置的虛擬網路。
+5. 選取受管理的網域應該隸屬的**資源群組**。 您可以選擇**新建**或**使用現有**選項，以選取資源群組。
 
-6. 完成時，按一下 [確定] 以繼續前往精靈的 [網路] 分頁。
+6. 選擇應該在其中建立受管理的網域的 Azure**位置**。 在精靈的 [網路] 分頁上，您只會看到屬於您所選取之位置的虛擬網路。
+
+7. 完成時，按一下 [確定] 以繼續前往精靈的 [網路] 分頁。
 
 
 ## <a name="next-step"></a>後續步驟

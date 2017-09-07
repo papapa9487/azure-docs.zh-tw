@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3fd6bcce24ca4a1170bd8a9301dff1a02d638773
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 4964634cd5aaf0dbb98c766f5e12700c4d118750
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>教學課程：Azure Active Directory 與 Qlik Sense Enterprise 整合
@@ -186,7 +186,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
     
     e. [SAML IdP 中繼資料] 是稍早在 [從 Azure AD 組態編輯同盟中繼資料] 區段中編輯的檔案。  **上傳 IdP 中繼資料之前，必須先編輯此檔案**才能移除資訊，以確保 Azure AD 與 Qlik Sense 伺服器之間的運作正常。  **如果檔案尚未進行編輯，請參閱上述指示。**  如果檔案已經過編輯，請按一下 [瀏覽] 按鈕，然後選取已編輯的中繼資料檔案，將它上傳至虛擬 Proxy 組態。
     
-    f. 輸入 SAML 屬性的屬性名稱或結構描述參考，代表 Azure AD 將傳送至 Qlik Sense 伺服器的 **UserID**。  在設定後的 Azure 應用程式畫面中可取得結構描述參考資訊。  若要使用名稱屬性，`enter http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
+    f. 輸入 SAML 屬性的屬性名稱或結構描述參考，代表 Azure AD 將傳送至 Qlik Sense 伺服器的 **UserID**。  在設定後的 Azure 應用程式畫面中可取得結構描述參考資訊。  若要使用名稱屬性，請輸入 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`。
     
     g. 輸入**使用者目錄**的值，此值會在使用者透過 Azure AD 向 Qlik Sense 伺服器進行驗證時附加至使用者。  硬式編碼值必須以**方括號 []** 括住。  若要使用 Azure AD SAML 判斷提示中傳送的屬性，請在此文字方塊中輸入屬性名稱 (**不需**方括號)。
     

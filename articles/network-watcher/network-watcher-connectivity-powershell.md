@@ -3,7 +3,7 @@ title: "檢查與 Azure 網路監看員的連線 - PowerShell | Microsoft Docs"
 description: "此頁面說明如何使用 PowerShell 測試與網路監看員的連線。"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: a8f936cd23838759dc30b04688d3c6544e4895cc

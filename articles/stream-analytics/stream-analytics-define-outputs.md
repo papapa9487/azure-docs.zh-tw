@@ -4,7 +4,7 @@ description: "深入了解串流分析資料輸出的選項 (包括使用於分�
 keywords: "資料轉換, 分析結果, 資料儲存體選項"
 services: stream-analytics,documentdb,sql-database,event-hubs,service-bus,storage
 documentationcenter: 
-author: jeffstokes72
+author: samacha
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ba6697ac-e90f-4be3-bafd-5cfcf4bd8f1f
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: jeffstok
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fdecfe8b63d56983846f1601971ed680d624118d
+ms.author: samacha
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>串流分析輸出︰儲存體、分析的選項
@@ -32,7 +31,7 @@ ms.lasthandoff: 07/04/2017
 串流分析支援 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 此儲存體可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。 此外，串流分析需要經過授權，才能存取 Data Lake Store。 如需有關授權，以及如何註冊 Data Lake Store (如有需要) 的詳細資料，請參閱 [Data Lake 輸出](stream-analytics-data-lake-output.md)文章。
 
 ### <a name="authorize-an-azure-data-lake-store"></a>授權 Azure Data Lake Store
-在 Azure 管理入口網站中選取 Data Lake Storage 做為輸出時，系統會提示您授權與現有 Data Lake Store 的連接。  
+在 Azure 入口網站中選取 Data Lake Storage 作為輸出時，系統會提示您授權與現有 Data Lake Store 的連線。  
 
 ![授權 Data Lake Store](./media/stream-analytics-define-outputs/06-stream-analytics-define-outputs.png)  
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 07/04/2017
 <td>您傳送輸出的 Data Lake Storage 帳戶名稱。 您將看到 Data Lake Store 帳戶的下拉式清單，登入入口網站的使用者可存取該下拉式清單。</td>
 </tr>
 <tr>
-<td>路徑前置詞模式 [<I>選用</I>]</td>
+<td>路徑前置詞模式</td>
 <td>用來在指定的 Data Lake Store 帳戶中寫入檔案的檔案路徑。 <BR>{date}、{time}<BR>範例 1：folder1/logs/{date}/{time}<BR>範例 2：folder1/logs/{date}</td>
 </tr>
 <tr>
@@ -110,7 +109,7 @@ ms.lasthandoff: 07/04/2017
 > 
 
 ## <a name="blob-storage"></a>Blob 儲存體
-若要將大量非結構化資料儲存於雲端，Blob 儲存體提供具有成本效益且可擴充的解決方案。  如需 Azure Blob 儲存體及其使用方式的簡介，請參閱 [如何使用 Blob](../storage/storage-dotnet-how-to-use-blobs.md)中的文件。
+若要將大量非結構化資料儲存於雲端，Blob 儲存體提供具有成本效益且可擴充的解決方案。  如需 Azure Blob 儲存體及其使用方式的簡介，請參閱 [如何使用 Blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md)中的文件。
 
 下表列出屬性名稱及其描述以建立 blob 輸出。
 
@@ -162,7 +161,7 @@ ms.lasthandoff: 07/04/2017
 </tr>
 <tr>
 <td>格式</td>
-<td>僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。</td>
+<td>僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好使用分行的 JSON，因為它不需要任何特殊處理，同時仍會寫入輸出檔案。</td>
 </tr>
 </tbody>
 </table>
@@ -177,7 +176,7 @@ ms.lasthandoff: 07/04/2017
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個事件中樞。 |
 | 服務匯流排 命名空間 |服務匯流排命名空間是一個容器，包含一組訊息實體。 建立新的事件中樞時，也會建立服務匯流排命名空間 |
 | 事件中樞 |事件中樞輸出的名稱 |
-| 事件中樞原則名稱 |共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。 每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
+| 事件中樞原則名稱 |共用的存取原則，可以在事件中樞的 [設定] 索引標籤上建立。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
 | 事件中樞原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 資料分割索引鍵資料行 [選用] |這個資料行包含事件中樞輸出的資料分割索引鍵。 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
@@ -189,7 +188,7 @@ ms.lasthandoff: 07/04/2017
 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。 這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
 
 ### <a name="authorize-a-power-bi-account"></a>授權 Power BI 帳戶
-1. 在 Azure 管理入口網站中選取 Power BI 做為輸出時，您將會收到提示授權現有的 Power BI 使用者或建立新的 Power BI 帳戶。  
+1. 在 Azure 入口網站中選取 Power BI 作為輸出時，您將會收到提示，要授權現有的 Power BI 使用者或建立新的 Power BI 帳戶。  
    
    ![授權 Power BI 使用者](./media/stream-analytics-define-outputs/01-stream-analytics-define-outputs.png)  
 2. 如果您尚未擁有帳戶，請建立新帳戶，然後按一下 [立即授權]。  會顯示類似下列的畫面：  
@@ -255,7 +254,7 @@ DateTime | String | String |  DateTime | String
   ![Power BI 更新授權](./media/stream-analytics-define-outputs/04-stream-analytics-define-outputs.png)  
 
 ## <a name="table-storage"></a>資料表儲存體
-[Azure 表格儲存體](../storage/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。 資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。 使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
+[Azure 表格儲存體](../storage/common/storage-introduction.md)提供高可用性且可大幅擴充的儲存體，可讓應用程式自動調整來滿足使用者需求。 資料表儲存體是 Microsoft 的 NoSQL 索引鍵/屬性存放區，其中可以使用結構化資料，但結構描述的限制較少。 使用 Azure 資料表儲存資料時，資料可長期儲存而且調閱方便。
 
 下表列出屬性名稱及其描述以建立資料表輸出。
 
@@ -279,7 +278,7 @@ DateTime | String | String |  DateTime | String
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個服務匯流排佇列。 |
 | 服務匯流排 命名空間 |服務匯流排命名空間是一個容器，包含一組訊息實體。 |
 | 佇列名稱 |服務匯流排佇列的名稱。 |
-| 佇列原則名稱 |當您建立佇列時，您也可以在 [佇列設定] 索引標籤上建立共用的存取原則。 每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰。 |
+| 佇列原則名稱 |當您建立佇列時，您也可以在 [佇列設定] 索引標籤上建立共用的存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰。 |
 | 佇列原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
 | 編碼 |對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式 |
@@ -296,7 +295,7 @@ DateTime | String | String |  DateTime | String
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個服務匯流排主題。 |
 | 服務匯流排 命名空間 |服務匯流排命名空間是一個容器，包含一組訊息實體。 建立新的事件中樞時，也會建立服務匯流排命名空間 |
 | 主題名稱 |主題為訊息實體，類似於事件中樞和佇列。 它們可以收集各種裝置和服務的事件資料流。 建立主題時也會給予其特定名稱。 除非已建立訂用帳戶，否則傳送至主題的訊息將無法使用，所以請確保該主題內有一或多個訂用帳戶 |
-| 主題原則名稱 |當您建立主題時，您也可以在 [主題設定] 索引標籤上建立共用的存取原則。 每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
+| 主題原則名稱 |當您建立主題時，您也可以在 [主題設定] 索引標籤上建立共用的存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
 | 主題原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
 | 編碼 |若為 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
@@ -319,7 +318,7 @@ DateTime | String | String |  DateTime | String
 
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>後續步驟
 以上就是串流分析 (物聯網資料串流分析專用的受管理服務) 的簡介。 若要深入了解此服務，請參閱：

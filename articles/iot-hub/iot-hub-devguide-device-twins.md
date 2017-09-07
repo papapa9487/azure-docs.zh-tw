@@ -12,15 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/09/2017
+ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 9c1d1ba1ad70fee3db6dc6c2170b171e06f804d9
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
@@ -146,7 +145,7 @@ ms.lasthandoff: 06/01/2017
 ## <a name="back-end-operations"></a>後端作業
 解決方案後端會使用下列不可部分完成的作業 (透過 HTTP 公開) 來操作裝置對應項︰
 
-1. **依識別碼擷取裝置對應項**。 此作業會傳回裝置對應項文件，包括標籤以及所需屬性、報告屬性和系統屬性。
+1. **依識別碼擷取裝置對應項**。此作業會傳回裝置對應項文件，包括標籤以及所需屬性、報告屬性和系統屬性。
 2. **部份更新裝置對應項**。 此作業可讓解決方案後端局部地更新裝置對應項中的標籤或所需屬性。 部分更新會以 JSON 文件的形式來表示，以新增或更新任何屬性。 設定為 `null` 的屬性會遭到移除。 下列範例會以 `{"newProperty": "newValue"}` 值建立新的所需屬性、以 `"otherNewValue"` 覆寫 `existingProperty` 的現有值，並移除 `otherOldProperty`。 不會對現有的所需屬性或標籤進行任何變更︰
    
         {
@@ -174,7 +173,7 @@ ms.lasthandoff: 06/01/2017
     $content-encoding | utf-8 |
     deviceId | 裝置識別碼 |
     hubName | IoT 中樞名稱 |
-    operationTimestamp | 作業的 ISO8601 時間戳記 |
+    operationTimestamp | 作業的 [ISO8601] 時間戳記 |
     iothub-message-schema | deviceLifecycleNotification |
     opType | "replaceTwin" 或 "updateTwin" |
 

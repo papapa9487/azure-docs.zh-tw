@@ -3,7 +3,7 @@ title: "使用 Azure 網路監看員 IP 流量驗證來驗證流量 - Azure CLI 
 description: "本文說明如何使用 Azure CLI 檢查虛擬機器中的流入或流出流量是被允許或拒絕"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 92b857ed-c834-4c1b-8ee9-538e7ae7391d
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: c5fe6c662b3ee2a443904b0f12cbfd495d9bc85e
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 網路監看員的 IP 流量驗證元件來檢查 VM 中的流入或流出流量是被允許或拒絕

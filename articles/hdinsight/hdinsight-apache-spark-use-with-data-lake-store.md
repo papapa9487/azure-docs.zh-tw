@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 24e0372f024e574d049c63f444b5e8f6b0dfd065
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 
@@ -30,9 +29,9 @@ ms.lasthandoff: 05/18/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Data Lake Store 帳戶。 遵循 [使用 Azure 入口網站開始使用 Azure 資料湖存放區](../data-lake-store/data-lake-store-get-started-portal.md)的指示。
+* Azure Data Lake Store 帳戶。 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) 的指示。
 
-* 以 Data Lake Store 做為儲存體的 Azure HDInsight Spark 叢集。 如需相關指示，請參閱[使用 Azure 入口網站建立具有 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)。
+* 以 Data Lake Store 做為儲存體的 Azure HDInsight Spark 叢集。 遵循[使用 Azure 入口網站建立具有 Data Lake Store 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 的指示。
 
     
 ## <a name="prepare-the-data"></a>準備資料
@@ -46,7 +45,7 @@ ms.lasthandoff: 05/18/2017
 
 1. 開啟命令提示字元，並瀏覽至安裝 AdlCopy 的目錄，通常是 `%HOMEPATH%\Documents\adlcopy`。
 
-2. 執行下列命令，將特定的 Blob 從來源容器複製到資料湖存放區：
+2. 執行下列命令，將特定的 Blob 從來源容器複製到 Data Lake Store：
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 05/18/2017
    > 確定檔案和路徑名稱的大小寫正確。
    >
    >
-3. 系統會提示您輸入您 Data Lake Store 帳戶所在 Azure 訂用帳戶的認證。 您將看到類似以下的輸出：
+3. 系統會提示您輸入 Data Lake Store 帳戶所在 Azure 訂用帳戶的認證。 您會看到如下列程式碼片段的輸出：
 
         Initializing Copy.
         Copy Started.

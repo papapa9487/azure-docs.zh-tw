@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/15/2017
+ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: be44db002fc2491be9fc4428c6429ef8b4036147
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
@@ -34,7 +33,16 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 > 在還原期間，您無法覆寫現有的資料庫。
 >
 
-您也可以使用[自動資料庫備份](sql-database-automated-backups.md)，在任何區域中的任一邏輯伺服器上建立[資料庫複本](sql-database-copy.md)。 
+還原的資料庫會在下列情況產生額外的儲存體成本： 
+- 如果資料庫大小上限大於 500 GB，會將 P11–P15 還原至 S4-S12 或 P1–P6。
+- 如果資料庫大小上限大於 250 GB，會將 P1–P6 或 PRS1–PRS6 還原至 S4-S12。
+
+額外成本是因為還原的資料庫大小上限大於該效能層級所含的儲存體數量，而佈建的任何額外儲存體若大於內含量則會產生額外費用。  如需有關額外儲存體的價格詳細資訊，請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。  如果實際的使用空間量小於內含的儲存體數量，則可將資料庫大小上限降低至內含量，以避免造成額外成本。 如需有關資料庫儲存體大小和變更資料庫大小上限的詳細資訊，請參閱[單一資料庫資源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)。  
+
+> [!NOTE]
+> 當您建立[資料庫複本](sql-database-copy.md)時，會使用[自動資料庫備份](sql-database-automated-backups.md)。 
+>
+
 
 ## <a name="recovery-time"></a>復原時間
 使用自動資料庫備份還原資料庫的復原時間會受到一些因素所影響： 
@@ -96,7 +104,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 ![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 ## <a name="geo-restore"></a>異地還原
-您可以從最新的異地複寫完整備份和差異備份，在任何 Azure 區域中的任何伺服器上還原 SQL Database。 異地還原使用異地備援備份作為其來源，即使因為中斷而無法存取資料庫或資料中心，也能用來復原資料庫。 
+您可以從最新的異地複寫完整備份和差異備份，在任何 Azure 區域中的任何伺服器上還原 SQL Database。 異地還原使用異地備援備份做為其來源，即使因為中斷而無法存取資料庫或資料中心，也能用來復原資料庫。 
 
 當您的資料庫因為裝載資料庫區域中的事件而無法使用時，異地還原就是預設的復原選項。 如果區域中的大規模意外導致您無法使用資料庫應用程式，則您可以從異地複寫備份，將資料庫還原到任何其他區域中的伺服器。 在建立差異備份與將它以異地方式複寫至不同區域中的 Azure Blob 之間會有延遲。 此延遲可能最長達一小時，因此當發生災害時，最多可能會遺失最長達一小時的資料。 下圖顯示從另一個區域中的上次可用備份來還原資料庫。
 
@@ -106,7 +114,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 > 如需示範如何執行異地還原的 PowerShell 指令碼範例，請參閱[使用 PowerShell 還原 SQL 資料庫](scripts/sql-database-restore-database-powershell.md)。
 > 
 
-如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
+目前不支援異地次要資料庫上的時間點復原。 只有在主要資料庫上才可進行時間點復原。 如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
 > 從備份復原是 SQL Database 中最基本的災害復原解決方案，具備最長的 RPO 和「預估復原時間」(ERT)。 對於使用基本資料庫的解決方案，常見且合理的 DR 解決方案是異地還原，且這個解決方案具有 12 小時的 ERT。 對於使用較大型標準或進階資料庫的解決方案，如果其需要縮短復原時間，您應該考慮使用[主動式異地複寫](sql-database-geo-replication-overview.md)。 主動式異地複寫提供明顯較低的 RPO 和 ERT，因為它只需要您起始對連續複寫次要資料庫的容錯移轉。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。

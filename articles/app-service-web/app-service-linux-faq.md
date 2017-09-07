@@ -4,7 +4,7 @@ description: "Linux 上的 Azure App Service Web 應用程式常見問題集。"
 keywords: "azure app service, web 應用程式, 常見問題集, linux, oss"
 services: app-service
 documentationCenter: 
-authors: ahmedelnably
+author: ahmedelnably
 manager: erikre
 editor: 
 ms.assetid: 
@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: ff4f4ecd12bc26fcc44a20a193d73f952ed56f1a
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 6122f28b35d143ec26a379ae9aa8aee9bdaaff9e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -51,6 +51,10 @@ ms.lasthandoff: 08/08/2017
 
 **答︰**是，您可以透過 SCM 網站來這樣做，如需詳細資訊，請查看下列文件：[Linux 上的 Web 應用程式 SSH 支援](./app-service-linux-ssh-support.md)
 
+**問：**要如何才能夠透過 SDK 或 ARM 範本來建立 Linux App Service 方案？
+
+**答：**您必須將 App Service 的 `reserved` 欄位設定為 `true`。
+
 ## <a name="continuous-integrationdeployment"></a>連續整合/部署
 
 **問︰**我的 Web 應用程式在我已更新 Docker Hub 上的映像之後，仍然使用舊的 Docker 容器映像。 您是否支援自訂容器的連續整合/部署？
@@ -80,6 +84,14 @@ ms.lasthandoff: 08/08/2017
 **問︰**我使用自己的自訂容器。 我的應用程式位於 `\home\` 目錄中，但是我使用 [SCM 網站](https://github.com/projectkudu/kudu)或 FTP 用戶端來瀏覽內容時卻找不到檔案。 我的檔案在哪裡？
 
 **答︰**我們在 `\home\` 目錄掛接了 SMB 共用。 這會覆寫該處的所有內容。
+
+**問︰**我使用自己的自訂容器。 我不需要平台將 SMB 共用掛接至 `\home\`。
+
+**答：**您可以將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 應用程式設定設為 `false` 來執行此動作。
+
+**問：**我的自訂容器需要很長時間才能啟動，而平台會在它完成啟動之前將容器重新啟動。
+
+**答：**您可以設定在重新啟動容器之前，平台所要等待的時間。 可藉由將 `WEBSITES_CONTAINER_START_TIME_LIMIT` 應用程式設定設為所需的值 (以秒為單位) 來執行此動作。 預設為 230 秒，最大值為 600 秒。
 
 **問︰**私人登錄伺服器 URL 的格式為何？
 
@@ -127,7 +139,6 @@ ms.lasthandoff: 08/08/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [什麼是 Linux 上的 Azure Web 應用程式？](app-service-linux-intro.md)
-* [在 Linux 上的 Azure Web 應用程式中建立 Web Apps](app-service-linux-how-to-create-web-app.md)
 * [Linux 上的 Azure Web 應用程式 SSH 支援](./app-service-linux-ssh-support.md)
 * [在 Azure App Service 中設定預備環境](./web-sites-staged-publishing.md)
 * [在 Linux 上使用 Azure Web 應用程式持續部署](./app-service-linux-ci-cd.md)

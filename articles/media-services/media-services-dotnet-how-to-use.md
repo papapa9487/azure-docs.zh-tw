@@ -4,7 +4,7 @@ description: "了解將 Media Services SDK for .NET 用於媒體服務的必要�
 services: media-services
 documentationcenter: 
 author: juliako
-manager: SyntaxC4
+manager: cfowler
 editor: 
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/16/2017
+ms.date: 08/23/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: ca5e537bd4347e17190ff4f66cc4d42a36870936
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 15828bc74937a036871b26493498232ec7cf6f06
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 進行媒體服務開發
@@ -66,7 +66,7 @@ ms.lasthandoff: 07/17/2017
     如果您使用[使用者驗證](media-services-use-aad-auth-to-access-ams-api.md#types-of-authentication)，您的設定檔可能會有 Azure AD 租用戶網域和 AMS REST API 端點的值。
     
     >[!Important]
-    >Azure 媒體服務文件集中的範例，以使用者 (互動式) 的驗證類型連線到 AMS API。 這種驗證方法適用於管理或監控原生應用程式：行動應用程式、Windows 應用程式和主控台應用程式。 這種驗證方法不適用於伺服器、Web 服務、API 類型的應用程式。  如需詳細資訊，請參閱[使用 Azure AD 驗證存取 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
+    >Azure 媒體服務文件集中大多數的程式碼範例，以使用者 (互動式) 的驗證類型連線到 AMS API。 這種驗證方法適用於管理或監控原生應用程式：行動應用程式、Windows 應用程式和主控台應用程式。 這種驗證方法不適用於伺服器、Web 服務、API 類型的應用程式。  如需詳細資訊，請參閱[使用 Azure AD 驗證存取 AMS API](media-services-use-aad-auth-to-access-ams-api.md)。
 
         <configuration>
         ...

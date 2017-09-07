@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: cfe528021f2d069146fc7a34d9ea83b2681ffbf2
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 5784222608b01509fc4ff84b1a8792cbcfea89e6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>在應用程式 Proxy 中使用宣告感知應用程式
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/08/2017
 
 ### <a name="option-1-custom-domains"></a>選項 1：自訂網域
 
-如果您應用程式的所有內部 URL 皆為完整網域名稱 (FQDN)，則您可為您的應用程式設定[自訂網域](active-directory-application-proxy-custom-domains.md)。 請使用自訂網域建立與內部 URL 相同的外部 URL。 透過此設定，無論您的使用者是在內部部署或遠端，STS 建立的重新導向都會以相同的方式運作。 
+如果您應用程式的所有內部 URL 皆為完整網域名稱 (FQDN)，則您可為您的應用程式設定[自訂網域](active-directory-application-proxy-custom-domains.md)。 請使用自訂網域建立與內部 URL 相同的外部 URL。 當您的外部 URL 與內部 URL 相符時，無論使用者是在內部部署或遠端，STS 重新導向都會運作。 
 
 ### <a name="option-2-ws-federation"></a>選項 2：WS-同盟
 

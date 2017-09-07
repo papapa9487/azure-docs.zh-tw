@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8c142c5e89c5e4eb45bddd0943a6a130cc876f5a
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
@@ -99,11 +99,11 @@ ms.lasthandoff: 08/24/2017
 
 ### <a name="general"></a>一般
 
-**問**︰我在雲端中的資料來源 (例如 SQL Azure) 是否需要閘道？ <br/>
+**問**︰我在雲端中的資料來源 (例如 Azure SQL Database) 是否需要閘道？ <br/>
 **答**：否。 閘道只連接至內部部署資料來源。
 
 **問**︰閘道必須安裝在與資料來源相同的電腦上嗎？ <br/>
-**答**：否。 閘道會使用所提供的連線資訊連線至資料來源。 在此請將閘道視為用戶端應用程式。 閘道只需要能夠連線到所提供的伺服器名稱。
+**答**：否。 閘道會使用所提供的連線資訊連線至資料來源。 在此請將閘道視為用戶端應用程式。 閘道只需要能夠連線到所提供的伺服器名稱，通常是在相同網路上。
 
 <a name="why-azure-work-school-account"></a>
 
@@ -130,7 +130,7 @@ ms.lasthandoff: 08/24/2017
 **答**：查看閘道使用的連接埠和主機。
 
 **問**：實際的 Windows 服務名稱為何？<br/>
-**答**：在「服務」中，閘道稱為 Power BI Enterprise Gateway Service。
+**答**：在「服務」中，閘道稱為「內部部署資料閘道服務」。
 
 **問**︰閘道 Windows 服務可以使用 Azure Active Directory 帳戶執行嗎？ <br/>
 **答**：否。 Windows 服務必須要有有效的 Windows 帳戶。 根據預設，此服務會使用服務 SID，NT SERVICE\PBIEgwService 執行。
@@ -151,7 +151,7 @@ ms.lasthandoff: 08/24/2017
 您也可以查看資料來源具備的工具是否有追蹤查詢。 例如，您可以使用 SQL Server 和 Analysis Services 的擴充事件或 SQL Profiler。
 
 **問**︰閘道記錄在哪裡？ <br/>
-**答**：請參閱本主題稍後的「工具」。
+**答**：請參閱本主題稍後的「記錄」。
 
 ### <a name="update"></a>更新為最新版本
 

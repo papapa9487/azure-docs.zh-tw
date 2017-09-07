@@ -1,43 +1,44 @@
 ---
-title: "Azure Active Directory B2C：權杖參考 | Microsoft Docs"
+title: "權杖參考 - Azure AD B2C | Microsoft Docs"
 description: "在 Azure Active Directory B2C 中簽發的權杖類型"
 services: active-directory-b2c
 documentationcenter: 
-author: dstrockis
-manager: mbaldwin
-editor: 
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: 6df79878-65cb-4dfc-98bb-2b328055bc2e
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/17/2017
-ms.author: dastrock
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 39cfbc1c6dea138fe2f1eb3190770606f3895d40
+ms.date: 08/16/2017
+ms.author: parakhj
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C：權杖參考
+
 Azure Active Directory B2C (Azure AD B2C) 會在處理每個[驗證流程](active-directory-b2c-apps.md)時發出數種安全性權杖。 本文件說明每種權杖的格式、安全性特性和內容。
 
 ## <a name="types-of-tokens"></a>權杖的類型
 Azure AD B2C 支援 [OAuth 2.0 授權通訊協定](active-directory-b2c-reference-protocols.md)，該通訊協定會使用存取權杖與重新整理權杖。 它也支援透過 [OpenID Connect](active-directory-b2c-reference-protocols.md)進行驗證和登入，這引進第三種類型的權杖：ID 權杖。 每個權杖都是以持有人權杖表示。
 
-持有人權杖是輕巧型的安全性權杖，授權「持有人」存取受保護的資源。 持有人是可出示權杖的任何一方。 Azure AD 必須先驗證合作對象，才能接收持有人權杖。 但若傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。 某些安全性權杖有內建的機制，可防止未授權的合作對象使用它們，但持有人權杖沒有這項機制。 它們必須在安全的通道 (例如傳輸層安全性 (HTTPS)) 中傳輸。
+持有人權杖是輕巧型的安全性權杖，授權「持有人」存取受保護的資源。 持有人是可出示權杖的任何一方。 Azure AD B2C 必須先驗證合作對象，才能接收持有人權杖。 但若傳輸和儲存時未採取必要的步驟來保護權杖，它可能會被非預期的一方攔截和使用。 某些安全性權杖有內建的機制，可防止未授權的合作對象使用它們，但持有人權杖沒有這項機制。 它們必須在安全的通道 (例如傳輸層安全性 (HTTPS)) 中傳輸。
 
 如果持有人權杖是在安全通道外部進行傳輸，則惡意人士就能使用攔截式攻擊來取得權杖，未經授權地使用該權杖來存取受保護的資源。 儲存或快取持有人權杖供以後使用時，也適用相同的安全性原則。 務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。
 
 如需持有人權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
-許多由 Azure AD B2C 所簽發的權杖都實作為 JSON Web 權杖 (JWT)。 JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。 JWT 包含稱為宣告的資訊。 這些是權杖持有人及主體相關資訊的判斷提示。 JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。 因為 Azure AD B2C 所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。 有一些工具可以這樣做，包括 [calebb.net](http://calebb.net)。 如需 JWT 的詳細資訊，請參閱 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
+許多由 Azure AD B2C 所簽發的權杖都實作為 JSON Web 權杖 (JWT)。 JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。 JWT 包含稱為宣告的資訊。 這些是權杖持有人及主體相關資訊的判斷提示。 JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。 因為 Azure AD B2C 所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。 有一些工具可以這樣做，包括 [jwt.ms](https://jwt.ms)。 如需 JWT 的詳細資訊，請參閱 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
 
 ### <a name="id-tokens"></a>ID 權杖
-ID 權杖是您的應用程式從 Azure AD B2C `authorize` 和 `token` 端點接收的一種安全性權杖。 ID 權杖以 [JWT](#types-of-tokens)表示，而且包含宣告讓您用來識別應用程式中的使用者。 從 `authorize` 端點取得 ID 權杖時，通常會用來讓使用者登入 Web 應用程式。 從 `token` 端點取得 ID 權杖時，可在相同應用程式或服務的兩個元件之間進行通訊時在 HTTP 要求中傳送。 您可以依需要在 ID 權杖中使用宣告。 它們通常用來顯示帳戶資訊，或決定應用程式中的存取控制。  
+
+ID 權杖是您的應用程式從 Azure AD B2C `/authorize` 和 `/token` 端點接收的一種安全性權杖。 ID 權杖以 [JWT](#types-of-tokens)表示，而且包含宣告讓您用來識別應用程式中的使用者。 從 `/authorize` 端點取得 ID 權杖時，它們已經使用[隱含流程](active-directory-b2c-reference-spa.md)來完成，這通常適用於登入以 javascript 作為基礎之 web 應用程式的使用者。 從 `/token` 端點取得 ID 權杖時，它們已經使用[機密程式碼流程](active-directory-b2c-reference-oidc.md)來完成，這會使權杖保持規避瀏覽器。 這樣可在 HTTP 要求中安全地傳送權杖，從而在相同應用程式或服務的兩個元件之間進行通訊。 您可以依需要在 ID 權杖中使用宣告。 它們通常用來顯示帳戶資訊，或決定應用程式中的存取控制。  
 
 識別碼權杖已簽署，但目前未加密。 當您的應用程式或 API 收到 ID 權杖時，它必須 [驗證簽章](#token-validation) 以證明權杖的真實性。 您的應用程式或 API 也必須驗證權杖中的幾個宣告，以證明它有效。 應用程式所驗證的宣告會視案例需求而有所不同，但您的應用程式必須在每一種案例中執行一些 [常見的宣告驗證](#token-validation) 。
 
@@ -60,14 +61,16 @@ CQhoFA
 ```
 
 ### <a name="access-tokens"></a>存取權杖
-存取權杖也是您的應用程式從 Azure AD B2C `authorize` 和 `token` 端點接收的一種安全性權杖。 存取權杖也會以 [JWT](#types-of-tokens) 表示，而且其中包含宣告以供您用來識別對您 API 所授與的權限。 存取權杖已簽署，但目前未加密。 您應該使用存取權杖來提供伺服器 API 和資源的存取權。 深入了解如何[使用存取權杖](active-directory-b2c-access-tokens.md)。 
+
+存取權杖也是您的應用程式從 Azure AD B2C `/authorize` 和 `/token` 端點接收的一種安全性權杖。 存取權杖也會以 [JWT](#types-of-tokens) 表示，而且其中包含宣告以供您用來識別對您 API 所授與的權限。 存取權杖已簽署，但目前未加密。 您應該使用存取權杖來提供伺服器 API 和資源的存取權。 深入了解如何[使用存取權杖](active-directory-b2c-access-tokens.md)。 
 
 當您的 API 收到存取權杖時，它必須 [驗證簽章](#token-validation) 以證明權杖的真實性。 您的 API 也必須驗證權杖中的幾個宣告，以證明它有效。 應用程式所驗證的宣告會視案例需求而有所不同，但您的應用程式必須在每一種案例中執行一些 [常見的宣告驗證](#token-validation) 。
 
 ### <a name="claims-in-id-and-access-tokens"></a>識別碼和存取權杖中的宣告
+
 當您使用 Azure AD B2C 時，您可以精確控制權杖的內容。 您可以設定 [原則](active-directory-b2c-reference-policies.md) ，以在宣告中傳送您的應用程式運作時所需的幾組特定的使用者資料。 這些宣告可以包含標準的屬性，例如使用者的 `displayName` 和 `emailAddress`。 其中也可以包含您在 B2C 目錄中可定義的 [自訂使用者屬性](active-directory-b2c-reference-custom-attr.md) 。 您收到的每個識別碼權杖和存取權杖都會包含一組特定的安全性相關宣告。 您的應用程式可以使用這些宣告來安全地驗證使用者和要求。
 
-請注意，ID 權杖中的宣告不依任何特定順序傳回。 此外，隨時都可以在 ID 權杖中加入新的宣告。 加入新的宣告時，您的應用程式不會損壞。 以下是 Azure AD B2C 所簽發的識別碼權杖和存取權杖中應該會有的宣告。 其他任何宣告都由原則決定。 練習時，請試著將範例 ID 權杖中的宣告貼入 [calebb.net](http://calebb.net)中進行檢查。 在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到進一步的詳細資料。
+請注意，ID 權杖中的宣告不依任何特定順序傳回。 此外，隨時都可以在 ID 權杖中加入新的宣告。 加入新的宣告時，您的應用程式不會損壞。 以下是 Azure AD B2C 所簽發的識別碼權杖和存取權杖中應該會有的宣告。 其他任何宣告都由原則決定。 練習時，請試著將範例識別碼權杖中的宣告貼入 [jwt.ms](https://jwt.ms) 中進行檢查。 在 [OpenID Connect 規格](http://openid.net/specs/openid-connect-core-1_0.html)中可找到進一步的詳細資料。
 
 | 名稱 | 宣告 | 範例值 | 說明 |
 | --- | --- | --- | --- |
@@ -124,7 +127,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 
 `fabrikamb2c.onmicrosoft.com` 是用來驗證使用者的 B2C 目錄，而 `b2c_1_sign_in` 是用來取得權杖的原則。 若要判斷哪個原則用來簽署權杖 (以及何處可擷取中繼資料)，您有兩個選項。 首先，原則名稱包含在權杖的 `acr` 宣告中。 您可以將 JWT 主體進行 base 64 解碼，並將產生的 JSON 字串還原序列化，以剖析 JWT 主體中的宣告。 `acr` 宣告會是用來簽發權杖的原則名稱。  另一個選項是當您發出要求時在 `state` 參數的值中將原則編碼，然後將它解碼以判斷使用了哪個原則。 任一種方法都有效。
 
-中繼資料文件是包含幾項實用資訊的 JSON 物件。 其中包括執行 OpenID Connect 驗證時所需端點的位置。 它們還包含 `jwks_uri`，指出用來簽署權杖的公用金鑰組的位置。 這裡提供該位置，但最好使用中繼資料文件並剖析 `jwks_uri`來動態擷取該位置：
+中繼資料文件是包含幾項實用資訊的 JSON 物件。 其中包括執行 OpenID Connect 驗證時所需端點的位置。 它們還包含 `jwks_uri`，指出用來簽署權杖的公開金鑰組的位置。 這裡提供該位置，但最好使用中繼資料文件並剖析 `jwks_uri`來動態擷取該位置：
 
 ```
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in

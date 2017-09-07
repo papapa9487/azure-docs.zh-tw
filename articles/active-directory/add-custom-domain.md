@@ -10,20 +10,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/29/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 4848130601ffa18ed1565e79cb0f0db3274e950f
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 3acdc406b5e753d407c7c6fb32fe0ad5ed6dd68c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入門：將自訂網域名稱新增到 Azure Active Directory
 
-每個 Azure AD 目錄皆隨附形式為 domainname.onmicrosoft.com 的初始網域名稱。 初始網域名稱無法變更或刪除，但是您也可以將您的公司網域名稱新增至 Azure AD。 例如，貴組織可能有營運所用的其他網域名稱，以及使用貴公司網域名稱登入的使用者。 將自訂網域名稱新增到 Azure AD 可讓您在目錄中指派您使用者熟悉的使用者名稱，例如 ‘alice@contoso.com’。 而不是 'alice@*<domain name>*.onmicrosoft.com'。 程序佷簡單：
+每個 Azure AD 目錄皆隨附形式為 domainname.onmicrosoft.com 的初始網域名稱。初始網域名稱無法變更或刪除，但是您也可以將您的公司網域名稱新增至 Azure AD。 例如，貴組織可能有營運所用的其他網域名稱，以及使用貴公司網域名稱登入的使用者。 將自訂網域名稱新增到 Azure AD 可讓您在目錄中指派您使用者熟悉的使用者名稱，例如 ‘alice@contoso.com’。 而不是 'alice@*<domain name>*.onmicrosoft.com'。 程序佷簡單：
 
 1. 在目錄中新增自訂網域名稱
 2. 在網域名稱註冊機構中新增網域名稱的 DNS 項目
@@ -46,10 +46,8 @@ ms.lasthandoff: 08/11/2017
 > [!TIP]
 > 如果您計劃讓內部部署 Windows Server AD 與 Azure AD 同盟，當您執行 Azure AD Connect 工具以同步處理您的目錄時，您必須選取 [我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入] 核取方塊。 您也需要註冊相同的網域名稱，您選取該名稱以與精靈中 **Azure AD 網域** 步驟中的內部部署目錄同盟。 您可以[在這些指示中](./connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation)看到精靈中那些步驟看起來如何。 如果您沒有 Azure AD Connect 工具，您可以 [在這裡下載](http://go.microsoft.com/fwlink/?LinkId=615771)。
 
-既然您已新增網域名稱，Azure AD 必須確認您的組織擁有該網域名稱。 您必須先在 DNS 區域檔案中新增該網域名稱的 DNS 項目，Azure AD 才可以進行此確認。 這項工作是在該網域名稱的網域名稱註冊機構網站上進行。
-
 ## <a name="add-the-dns-entry-at-the-domain-name-registrar-for-the-domain"></a>在網域名稱註冊機構中新增網域的 DNS 項目
-利用 Azure AD 使用您自訂網域名稱的下一個步驟，就是更新網域的 DNS 區域檔案。 然後 Azure AD 可以確認您的組織擁有該自訂網域名稱。
+利用 Azure AD 使用您自訂網域名稱的下一個步驟，就是更新網域的 DNS 區域檔案。 然後 Azure AD 可以確認您的組織擁有該自訂網域名稱。 您可以使用 Azure 入口網站中的 [Azure DNS][](https://docs.microsoft.com/azure/dns/dns-getstarted-portal)，對 Azure、Office 365，以及 Azure 內的外部 DNS 記錄進行單點管理。
 
 1. 登入網域的網域名稱註冊機構。 如果您無法存取以更新 DNS 項目，請要求具有此存取權的人員或小組完成步驟 2 並在完成時通知您。
 2. 透過新增 Azure AD 提供給您的 DNS 項目來更新網域的 DNS 區域檔案。 此 DNS 項目可讓 Azure AD 確認您擁有網域。 DNS 項目不會變更任何行為，例如郵件路由或 Web 裝載。

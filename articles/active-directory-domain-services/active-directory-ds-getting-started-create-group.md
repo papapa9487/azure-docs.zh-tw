@@ -12,21 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 5ed0125e05928cf0f6d9941e099b433ecb46e6e2
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 22e311b530b32504931c39491dc8324894ab4091
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-classic-portal"></a>使用 Azure 傳統入口網站啟用 Azure Active Directory Domain Services
-本文將說明並逐步引導您進行所需的組態工作，以讓您啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services (Azure AD DS)。
-
-> [!NOTE]
-> [**改為嘗試新的 (預覽) Azure 入口網站體驗**](active-directory-ds-getting-started.md)。 
+> [!IMPORTANT]
+> 即將移除啟用本文所示 Azure AD Domain Services 的 Azure 傳統入口網站體驗。 對於新的部署，[**請改用新的 (預覽) Azure 入口網站體驗**](active-directory-ds-getting-started.md)。
 >
+
+本文將協助您使用 Azure 傳統入口網站來啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services (Azure AD DS)。
+
 
 ## <a name="task-1-create-the-azure-ad-dc-administrators-group"></a>工作 1：建立 Azure AD DC 系統管理員群組
 第一個工作是在您的 Azure AD 租用戶中建立系統管理群組。 這個特殊的系統管理群組稱為 *AAD DC 系統管理員*。 此群組的成員會獲得電腦的系統管理權限，而這類電腦已加入受 Azure Active Directory Domain Services 管理的網域。 在加入網域的電腦上，這個群組會新增到系統管理員群組。 此外，此群組的成員可以使用遠端桌面，從遠端連接到已加入網域的電腦。  

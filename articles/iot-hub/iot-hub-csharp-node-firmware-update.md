@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/17/2017
+ms.date: 08/30/2017
 ms.author: juanpere
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: c2192328a152e955d182c4a07b391c98a5960964
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 16603cc7f2d8743037da22466312f228f4319716
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnode"></a>使用裝置管理來起始裝置韌體更新 (.NET/Node)
@@ -58,9 +58,9 @@ ms.lasthandoff: 04/03/2017
     ![新的 Visual C# Windows 傳統桌面專案][img-createapp]
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 [TriggerFWUpdate] 專案，然後按一下 [管理 NuGet 套件]。
-1. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並加入對它的參考。
+1. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
 
-    ![NuGet 封裝管理員視窗][img-servicenuget]
+    ![NuGet 套件管理員視窗][img-servicenuget]
 1. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
    
         using Microsoft.Azure.Devices;
@@ -121,7 +121,7 @@ ms.lasthandoff: 04/03/2017
     ```
     node dmpatterns_fwupdate_device.js
     ```
-2. 在 Visual Studio 中，以滑鼠右鍵按一下 [TriggerFWUpdate] 專案。執行到 C# 主控台應用程式，選取 [偵錯] 與 [開始新執行個體]。
+2. 在 Visual Studio 中，以滑鼠右鍵按一下 [TriggerFWUpdate] 專案、選取 [偵錯] 與 [開始新執行個體]。
 
 3. 您會在主控台中看到直接方法的裝置回應。
 

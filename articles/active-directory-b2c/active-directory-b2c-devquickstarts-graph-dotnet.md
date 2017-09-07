@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C：使用 Graph API | Microsoft Docs"
+title: "使用圖形 API - Azure AD B2C | Microsoft Docs"
 description: "如何使用應用程式身分識別對 B2C 租用戶呼叫圖形 API，以將程序自動化。"
 services: active-directory-b2c
 documentationcenter: .net
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c838fcad21875c4f813159ad78d4c87129a40a86
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C：使用圖形 API
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 在您有 B2C 租用戶之後，您需要透過 [Azure 入口網站](https://portal.azure.com)註冊您的應用程式。
 
 > [!IMPORTANT]
-> 若要搭配 B2C 租用戶使用圖形 API，您必須使用 Azure 入口網站中的通用 [應用程式註冊] 刀鋒視窗，註冊專用的應用程式 (**不是** Azure AD B2C 的 [應用程式] 刀鋒視窗)。 您不能重複使用您已在 Azure AD B2C 的 [應用程式] 刀鋒視窗中註冊的現有 B2C 應用程式。
+> 若要搭配 B2C 租用戶使用圖形 API，您必須使用 Azure 入口網站中的通用 [應用程式註冊] 功能表，註冊專用的應用程式 (**不是** Azure AD B2C 的 [應用程式] 功能表)。 您無法重複使用已在 Azure AD B2C 的 [應用程式] 功能表中註冊的現有 B2C 應用程式。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在頁面右上角選取您的帳戶，以選擇您的 Azure AD B2C 租用戶。
@@ -47,16 +47,16 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
     1. 選取 [Web 應用程式/API] 作為 [應用程式類型]。    
     2. 提供**任何重新導向 URI** (例如 https://B2CGraphAPI)，因為它在此範例中不重要。  
 5. 應用程式會立即顯示在應用程式清單中，按一下它以取得 [應用程式識別碼] (也稱為用戶端識別碼)。 將它複製下來，稍後一節需要用到。
-6. 在 [設定] 刀鋒視窗中，按一下 [金鑰]新增金鑰 (也稱為用戶端祕密)。 也將它複製下來，稍後一節會用到。
+6. 在 [設定] 功能表中，按一下 [金鑰] 來新增金鑰 (也稱為用戶端祕密)。 也將它複製下來，稍後一節會用到。
 
 ## <a name="configure-create-read-and-update-permissions-for-your-application"></a>設定應用程式的建立、讀取和更新權限
 現在，您需要設定應用程式，以取得建立、讀取、更新和刪除使用者的所有必要權限。
 
-1. 在 Azure 入口網站的 [應用程式註冊] 刀鋒視窗中繼續，選取您的應用程式。
-2. 在 [設定] 刀鋒視窗中，按一下 [必要權限]。
-3. 在 [必要權限] 刀鋒視窗中，按一下 [Windows Azure Active Directory]。
-4. 在 [啟用存取] 刀鋒視窗中，從 [應用程式權限]中選取 [讀取和寫入目錄資料] 權限，然後按一下 [儲存]。
-5. 最後，回到 [必要權限] 刀鋒視窗，按一下 [授與權限] 按鈕。
+1. 在 Azure 入口網站的 [應用程式註冊] 功能表中繼續，選取您的應用程式。
+2. 在 [設定] 功能表中，按一下 [必要權限]。
+3. 在 [必要權限] 功能表中，按一下 [Windows Azure Active Directory]。
+4. 在 [啟用存取] 功能表中，從 [應用程式權限]中選取 [讀取和寫入目錄資料] 權限，然後按一下 [儲存]。
+5. 最後，回到 [必要權限] 功能表，按一下 [授與權限] 按鈕。
 
 現在，您的應用程式具有從 B2C 租用戶建立、讀取和更新使用者的權限。
 

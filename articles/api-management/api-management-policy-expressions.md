@@ -3,7 +3,7 @@ title: "Azure API 管理原則運算式 | Microsoft Docs"
 description: "了解 Azure API 管理中的原則運算式。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: ea160028-fc04-4782-aa26-4b8329df3448
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: d96dde8c74141d000c1f7c5fd9ef624ff5e46953
-ms.lasthandoff: 04/07/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 33bcc51466fa0918bf4484c58fac813d07ae14da
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-policy-expressions"></a>API 管理原則運算式
@@ -172,7 +173,7 @@ ms.lasthandoff: 04/07/2017
   
 |內容變數|允許的方法、屬性和參數值|  
 |----------------------|-------------------------------------------------------|  
-|context|Api：IApi<br /><br /> 部署<br /><br /> LastError<br /><br /> 作業<br /><br /> 產品<br /><br /> 要求<br /><br /> RequestId：字串<br /><br /> Response<br /><br /> 訂閱<br /><br /> 追蹤︰bool<br /><br /> 使用者<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|  
+|context|Api：IApi<br /><br /> 部署<br /><br /> LastError<br /><br /> 作業<br /><br /> 產品<br /><br /> 要求<br /><br /> RequestId：Guid<br /><br /> Response<br /><br /> 訂閱<br /><br /> 追蹤︰bool<br /><br /> 使用者<br /><br /> Variables:IReadOnlyDictionary<string, object><br /><br /> void Trace(訊息：字串)|  
 |context.Api|識別碼︰字串<br /><br /> 名稱︰字串<br /><br /> 路徑︰字串<br /><br /> ServiceUrl：IUrl|  
 |context.Deployment|區域︰字串<br /><br /> ServiceName︰字串|  
 |context.LastError|來源︰字串<br /><br /> 原因︰字串<br /><br /> 訊息︰字串<br /><br /> 範圍︰字串<br /><br /> 區段︰字串<br /><br /> 路徑︰字串<br /><br /> PolicyId︰字串<br /><br /> 如需 context.LastError 的詳細資訊，請參閱[錯誤處理](api-management-error-handling-policies.md)。|  

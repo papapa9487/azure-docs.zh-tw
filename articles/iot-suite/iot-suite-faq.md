@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 9f850175be843b29432c4803a150ddb2ec79780d
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 85867fb8d18377637b3aa848555831a8d9b53512
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>IoT 套件的常見問題集
 
+另請參閱，連線處理站專用的[常見問題集](iot-suite-faq-cf.md)。
+
 ### <a name="where-can-i-find-the-source-code-for-the-preconfigured-solutions"></a>哪裡可以找到預先設定之解決方案的原始程式碼？
 
 原始程式碼儲存在下列 GitHub 儲存機制中︰
-* [預先設定的遠端監視解決方案][lnk-remote-monitoring-github]
+* [遠端監視預先設定的解決方案][lnk-remote-monitoring-github]
 * [預先設定的預防性維護的解決方案][lnk-predictive-maintenance-github]
+* [連線處理站預先設定的解決方案](https://github.com/Azure/azure-iot-connected-factory)
 
 ### <a name="how-do-i-update-to-the-latest-version-of-the-remote-monitoring-preconfigured-solution-that-uses-the-iot-hub-device-management-features"></a>如何更新為最新版預先設定的遠端監視解決方案，其使用 IoT 中樞裝置管理功能？
 
@@ -95,22 +97,14 @@ ms.lasthandoff: 05/26/2017
 
 請參閱 Eric Golpe 的部落格文章：[刪除 Azure AD 租用戶的逐步解說 (英文)][lnk-delete-aad-tennant]。
 
-### <a name="what-is-opc-ua"></a>什麼是 OPC UA？
-
-2008 年發行的 OPC 整合架構 (UA) 是一種與平台無關且服務導向的互通性標準，可供各種產業系統和裝置使用，例如產業 PC、PLC 和感應器。 OPC UA 會將個別 OPC Classic 規格的所有功能整合成一個內建安全性的可延伸架構。 它是 OPC Foundation 所推動的一套標準。 [OPC Foundation][lnk-opc-foundation] 是有 440 個以上成員的非營利組織，其共同目標是提供基礎結構、規格、技術和程序，以使用 OPC 規格來促進多廠商、多平台、安全且可靠的互通性。
-
-### <a name="why-did-microsoft-choose-opc-ua-for-the-connected-factory-preconfigured-solution"></a>Microsoft 為什麼選擇 OPC UA 作為連線工廠的預先設定解決方案？
-
-Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平台無關、業界認同且已核准的標準。 它是 Industrie 4.0 (RAMI4.0) 參考架構解決方案的必要項目，以確保一組廣泛製造程序與設備之間的互通性。 Microsoft 看到客戶建置 Industrie 4.0 解決方案的需求。 OPC UA 支援可協助降低客戶達到其目標的障礙物，並對他們提供即時商務價值。
-
 ### <a name="next-steps"></a>後續步驟
 
 您也可以瀏覽一些其他功能和預先設定的 IoT 套件解決方案的功能︰
 
 * [預先設定的預防性維護解決方案概觀][lnk-predictive-overview]
+* [連線處理站預先設定的解決方案概觀](iot-suite-connected-factory-overview.md)
 * [從頭建立 IoT 安全性][lnk-security-groundup]
 
-[lnk-opc-foundation]: http://opcfoundation.org/
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-security-groundup]: securing-iot-ground-up.md
 

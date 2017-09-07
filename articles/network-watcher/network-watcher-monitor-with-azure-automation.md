@@ -3,7 +3,7 @@ title: "使用 Azure 網路監看員疑難排解來監視 VPN 閘道 | Microsoft
 description: "本文說明如何使用 Azure 自動化和網路監看員診斷內部部署連線"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 55ec52dd0d94a0347cc67a8785b89611da955111

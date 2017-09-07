@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 08/29/2017
 ms.author: elioda
-translationtype: Human Translation
-ms.sourcegitcommit: 64e69df256404e98f6175f77357500b562d74318
-ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: b3ca2ed90dd14350d3962a558aaac41f2e007bbd
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
@@ -29,16 +30,16 @@ ms.openlocfilehash: 76c3187549e1821908263c30e394db26ee6f75e6
 | 功能 | RPO |
 | --- | --- |
 | 登錄和通訊作業的服務可用性 |可能的 CName 遺失 |
-| 身分識別登錄中的身分識別資料 |0 到&5; 分鐘的資料遺失 |
+| 身分識別登錄中的身分識別資料 |0 到 5 分鐘的資料遺失 |
 | 裝置到雲端的訊息 |所有未讀取的訊息都會遺失 |
 | 作業監視訊息 |所有未讀取的訊息都會遺失 |
-| 雲端到裝置的訊息 |0 到&5; 分鐘的資料遺失 |
+| 雲端到裝置的訊息 |0 到 5 分鐘的資料遺失 |
 | 雲端到裝置的意見反應佇列 |所有未讀取的訊息都會遺失 |
 
 ## <a name="regional-failover-with-iot-hub"></a>使用 IoT 中心的區域容錯移轉
 IoT 解決方案中部署拓撲的完整處理方式不在本文討論範圍內。 本文討論為了實現高可用性和災害復原的目的，所建立的*區域容錯移轉*部署模型。
 
-在區域容錯移轉模型中，解決方案後端主要是在某個資料中心位置執行，而次要 IoT 中樞和後端則會部署在另一個資料中心位置。 如果主要資料中心的 IoT 中樞遭遇服務中斷，或從裝置到主要資料中心的網路連線中斷。 每當無法連接主要閘道器時，裝置會使用次要服務端點。 使用跨區域容錯移轉功能時，可改善解決方案的可用性，勝過單一區域的高可用性。
+在區域容錯移轉模型中，解決方案後端主要是在某個資料中心位置執行，而次要 IoT 中樞和後端則會部署在另一個資料中心位置。 如果主要資料中心的 IoT 中樞遭遇服務中斷或從裝置到主要資料中心的網路連線中斷，每當無法觸達主要閘道時，裝置就會使用次要服務端點。 使用跨區域容錯移轉功能時，可改善解決方案的可用性，勝過單一區域的高可用性。
 
 在較高層級，為了使用 IoT 中樞實作區域容錯移轉模型，您需要下列內容：
 
@@ -59,9 +60,4 @@ IoT 解決方案中部署拓撲的完整處理方式不在本文討論範圍內�
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/25/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: def88b869b82d2d675ef7e071ee58b08278321d7
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>針對 Microsoft 對等互連設定路由篩選
@@ -133,17 +133,17 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 
 ## <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
 
-**此作業只能在 PowerShell 中執行。**
+若要從路由篩選器將電路中斷連結，請以滑鼠右鍵按一下電路並按一下「取消關聯」。
 
-一旦從 ExpressRoute 線路取消連結路由篩選，就不會透過 BGP 工作階段公告任何前置詞。 您可以使用下列命令以從 ExpressRoute 線路取消連結路由篩選：
-  
-```powershell
-$ckt.Peerings[0].RouteFilter = $null
-Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
-```
+![建立路由篩選](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+
 
 ## <a name="delete"></a>若要刪除路由篩選
 
 可以選取 [刪除] 按鈕來刪除路由篩選。 
 
 ![建立路由篩選](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+
+## <a name="next-steps"></a>後續步驟
+
+如需有關 ExpressRoute 的詳細資訊，請參閱 [ExpressRoute 常見問題集](expressroute-faqs.md)。

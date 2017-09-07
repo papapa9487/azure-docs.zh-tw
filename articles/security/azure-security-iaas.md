@@ -12,18 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/29/2017
 ms.author: barclayn
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
-ms.openlocfilehash: 3123c8d780406c92f04592767e47c217c0a0ba73
-ms.lasthandoff: 03/28/2017
-
-
-
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: f93211d289553b7a8afbe8c17fa4847f3d4585a8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/30/2017
 
 ---
-
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
 當您開始思考將工作負載移至 Azure 基礎結構即服務 (IaaS) 時，您可能會領悟到有些考量很熟悉。 您可能已經體驗虛擬環境保護。 當您移至 Azure IaaS 時，您可以運用您在保護虛擬環境方面的專業知識，並使用一組新選項來協助您保護資產。
@@ -42,11 +39,11 @@ ms.lasthandoff: 03/28/2017
 
 組織往往因為系統管理員在使用具提高權限的帳戶時執行動作，而成為網路攻擊的受害者。 這通常不是惡意行為，而是因為現有的組態和程序允許這麼做。 大部分使用者可從概念性觀點了解這些動作的風險，但仍然選擇這麼做。
 
-檢查電子郵件和瀏覽網際網路等作業看似無害。 但這些活動可能會公開提高權限的帳戶，而遭到惡意執行者入侵，他們可能會利用瀏覽活動、特別製作的電子郵件或其他技術來存取您的企業。 我們強烈建議使用安全管理工作站來進行所有的 Azure 系統管理工作，以減少遭到意外入侵的機會。
+檢查電子郵件和瀏覽網際網路等作業看似無害。 但是它們可能會公開提升權限的帳戶，讓惡意執行者入侵。 瀏覽活動、特製的電子郵件或其他技術可以用來存取您的企業。 我們強烈建議使用安全管理工作站 (SAW) 來進行所有的 Azure 系統管理工作。 SAW 是減少遭到意外入侵的方式。
 
-特殊權限存取工作站 (PAW) 提供敏感性工作的專用作業系統，此系統可免於遭受網際網路攻擊和威脅載體攻擊。 將這些敏感性工作和帳戶與日常使用的工作站和裝置分隔，可提供強大的防護功能，以免遭受網路釣魚攻擊、應用程式和作業系統弱點、各種模擬攻擊以及認證盜用攻擊，例如按鍵輸入記錄、傳遞雜湊 (Pass-the-Hash) 和傳遞票證 (Pass-The-Ticket) 等攻擊。
+特殊權限存取工作站 (PAW) 提供敏感性工作的專用作業系統，此系統可免於遭受網際網路攻擊和威脅載體攻擊。 區隔每日使用工作站和裝置之間的這些機密工作和帳戶，提供增強式保護。 這個區隔會限制釣魚攻擊、應用程式和 OS 弱點、各種模擬攻擊和認證竊取攻擊的影響。 (按鍵輸入記錄、傳遞雜湊與傳遞票證)
 
-PAW 方法是完善且建議之作法的延伸，可使用與標準使用者帳戶不同之個別指派的系統管理帳戶。 PAW 會為這些敏感性帳戶提供可靠的工作站。
+PAW 方法是完善且建議之作法的延伸，可使用個別指派的系統管理帳戶。 系統管理帳戶與標準使用者帳戶不同。 PAW 會為這些敏感性帳戶提供可靠的工作站。
 
 如需詳細資訊和實作指引，請參閱[特殊權限存取工作站](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations)。
 
@@ -68,7 +65,7 @@ PAW 方法是完善且建議之作法的延伸，可使用與標準使用者帳�
 
 ## <a name="limit-and-constrain-administrative-access"></a>限制系統管理存取權
 
-保護可管理 Azure 訂用帳戶的帳戶極為重要。 這類帳戶若遭到入侵，就否定您為了確保資料機密性和完整性而可能採取之其他所有步驟的價值。 如 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) 最近所述，若洩漏分類資訊，內部攻擊就會對任何組織的整體安全性造成巨大威脅。
+保護可管理 Azure 訂用帳戶的帳戶極為重要。 這類帳戶若遭到入侵，就否定您為了確保資料機密性和完整性而可能採取之其他所有步驟的價值。 如 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden) 最近所述，內部攻擊會對任何組織的整體安全性造成巨大威脅。
 
 遵循類似下面的準則來評估個人的系統管理權限︰
 
@@ -146,7 +143,7 @@ Microsoft 會在進行過 FIPS 140-2 Level 2 驗證的 HSM (硬體和韌體) 中
 
 如需詳細資訊，請參閱 [Windows 和 Linux IaaS VM 中的 Azure 磁碟加密](azure-security-disk-encryption.md)。
 
-[Azure 儲存體服務加密](../storage/storage-service-encryption.md)可協助保護待用資料。 此功能是在儲存體帳戶層級啟用。 它會在資料寫入資料中心時進行加密，而資料會在您存取時自動解密。 它支援下列案例：
+[Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)可協助保護待用資料。 此功能是在儲存體帳戶層級啟用。 它會在資料寫入資料中心時進行加密，而資料會在您存取時自動解密。 它支援下列案例：
 
 - 區塊 Blob、附加 Blob 和分頁 Blob 的加密
 - 從內部部署移至 Azure 的封存 VHD 和範本的加密
@@ -228,10 +225,7 @@ Security Compliance Manager 可提供已準備好部署的原則和經過測試�
 
 ![Operations Management Suite 安全性基準](./media/azure-security-iaas/oms-security-baseline.png)
 
-
-
 ## <a name="next-steps"></a>後續步驟
-
 
 * [Azure 安全性小組部落格](https://blogs.msdn.microsoft.com/azuresecurity/)
 * [Microsoft 安全性回應中心](https://technet.microsoft.com/library/dn440717.aspx)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 4c0c7c185943eb292d816e2047de930245a3e1e1
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>選擇串流分析平台：比較 Apache Storm 與 Azure 串流分析
@@ -231,29 +231,12 @@ Azure 提供多種解決方案來分析串流資料：[Azure 串流分析](https
         <tr>
             <td width="174" valign="top">
                 <p>
-                    <strong>支援使用者定義函式 (UDF)</strong>
-                </p>
-            </td>
-            <td width="204" valign="top">
-                <p>
-查詢支援 JavaScript UDF。 如需詳細資訊，請參閱 <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF 整合</a>。
-                </p>
-            </td>
-            <td width="246" valign="top">
-                <p>
-可以使用 C#、Java 或其他任何語言來撰寫 UDF。
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td width="174" valign="top">
-                <p>
                     <strong>使用自訂程式碼來擴充？</strong>
                 </p>
             </td>
             <td width="204" valign="top">
                 <p>
-否。 串流分析不支援可延伸程式碼。
+部分支援 JavaScript UDF。 如需詳細資訊，請參閱 <a href="https://docs.microsoft.com/azure/stream-analytics/stream-analytics-javascript-user-defined-functions">JavaScript UDF 整合</a>。
                 </p>
             </td>
             <td width="246" valign="top">

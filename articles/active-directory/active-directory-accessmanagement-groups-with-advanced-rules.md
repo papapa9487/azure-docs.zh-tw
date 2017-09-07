@@ -14,28 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: curtand
-ms.reviewer: rodejo
+ms.reviewer: kairaz.contractor
+ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: b9b5ddf42958a2b4e241d0252101d979009e7dc0
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: ae2a2e477137bc117111b147e1f088d528a55de5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>根據物件屬性以動態方式填入群組
 Azure 傳統入口網站可讓您對 Azure Active Directory (Azure AD) 群組啟用更複雜的屬性型動態成員資格。  
 
-當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組規則，則使用者會新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。
+當使用者或裝置的任何屬性變更時，系統會評估目錄中的所有動態群組規則，以查看變更是否會觸發任何的群組新增或移除。 如果使用者或裝置滿足群組上的規則，就會將他們新增為該群組的成員。 如果他們不再符合此規則，則會予以移除。
 
 > [!NOTE]
 > - 您可以為安全性群組或 Office 365 群組的動態成員資格設定規則。
 >
-> - 此功能要求新增到至少一個動態群組的每個使用者成員都有 Azure AD Premium P1 授權。
+> - 此功能要求新增到至少一個動態群組的每個使用者成員都具有 Azure AD Premium P1 授權。
 >
 > - 您可以為裝置或使用者建立動態群組，但無法建立同時包含使用者和裝置物件的規則。
 
-> - 目前不可能依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
+> - 目前無法依據擁有使用者的屬性建立裝置群組。 裝置成員資格規則只能參考目錄中裝置物件的直接屬性。
 
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
 1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，選取 [Active Directory]，然後開啟您組織的目錄。
@@ -188,6 +189,7 @@ user.mail –ne null
 | 屬性 | 允許的值 | 使用量 |
 | --- | --- | --- |
 | otherMails |任何字串值 |(user.otherMails -contains "alias@domain") |
+
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>多重值屬性
@@ -200,20 +202,20 @@ user.mail –ne null
 | --- | --- | --- |
 | assignedPlans |集合中的每個物件都會公開下列字串屬性：capabilityStatus、service、servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 
-多重值屬性是相同類型之物件的集合。 您可以使用- -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。 例如：
+多重值屬性是相同類型之物件的集合。 您可以使用 -any 和 -all 運算子，分別將條件套用至集合中的一個或所有項目。 例如：
 
-assignedPlans 是多重值屬性，可列出所有指派給使用者的服務方案。 下列運算式會選取擁有 Exchange Online (方案 2) 服務方案 (也處於 [已啟用] 狀態) 的使用者：
+assignedPlans 是多重值屬性，可列出所有指派給使用者的服務方案。 下列運算式將會選取擁有 Exchange Online (方案 2) 服務方案 (也處於 [已啟用] 狀態) 的使用者：
 
 ```
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(Guid 識別碼可識別 Exchange Online (方案 2) 服務方案。)
+(GUID 識別碼可識別 Exchange Online (方案 2) 服務方案。)
 
 > [!NOTE]
 > 如果您想要識別已啟用 Office 365 (或其他 Microsoft Online 服務) 功能的所有使用者，例如以一組特定原則鎖定他們，此屬性非常有用。
 
-下列運算式會選取有任何服務方案與 Intune 服務 (由服務名稱 "SCO" 識別) 相關聯的所有使用者：
+下列運算式將會選取有任何服務方案與 Intune 服務 (透過服務名稱 "SCO" 來識別) 相關聯的所有使用者：
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
@@ -237,18 +239,18 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。
+使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 目前我們不支援從內部部署 Active Directory 同步處理的多重值屬性。 
 
 ## <a name="direct-reports-rule"></a>「直屬員工」規則
 您可以建立一個群組，其中包含某位經理的所有直屬員工。 當經理的直屬員工在未來變更時，系統將會自動調整群組的成員資格。
 
 > [!NOTE]
-> 1. 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理識別碼] 屬性。 您可以在使用者的 [設定檔] 索引標籤上查看使用者的目前值。
-> 2. 此規則只支援**直屬**員工。 目前不可能建立巢狀階層的群組，例如包含直屬員工及其員工的群組。
+> 1. 若要讓規則得以運作，請確定已對您租用戶中的使用者正確設定 [經理識別碼] 屬性。 您可以在其 **[設定檔] 索引標籤**上檢查使用者的目前值。
+> 2. 此規則只支援**直屬**員工。 目前無法建立巢狀階層的群組，例如包含直屬員工及其員工的群組。
 
 **設定群組**
 
-1. 依照[建立進階規則](#to-create-the-advanced-rule)一節中的步驟 1-5 操作，然後在 [成員資格類型] 選取 [動態使用者]。
+1. 依照[建立進階規則](#to-create-the-advanced-rule)一節中的步驟 1-5 操作，然後在 [成員資格類型] 中選取 [動態使用者]。
 2. 在 [動態成員資格規則]  刀鋒視窗上，使用下列語法來輸入規則：
 
     *Direct Reports for "{obectID_of_manager}"*
@@ -258,7 +260,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
                     Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 ```
     where “62e19b97-8b3d-4d4a-a106-4ce66896a863” is the objectID of the manager. The object ID can be found on manager's **Profile tab**.
-3. 儲存規則之後，具有指定之經理識別碼值的所有使用者將會新增至群組。
+3. 儲存規則之後，即會將具有指定經理識別碼值的所有使用者新增至群組。
 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>使用屬性來建立裝置物件的規則
 您也可以建立規則以在群組中選取成員資格的裝置物件。 可以使用下列裝置屬性︰

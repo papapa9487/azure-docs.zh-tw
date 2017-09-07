@@ -3,7 +3,7 @@ title: "檢查與 Azure 網路監看員的連線 - Azure 入口網站 | Microsof
 description: "此頁面說明如何在 Azure 入口網站中使用網路監看員來檢查連線能力"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
 ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: ca62bea581acb59d3c3c0b8a204cc9d42de2b27f

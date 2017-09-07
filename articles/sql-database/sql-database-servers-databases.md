@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 07/19/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: ef61aa610957024d85f4231d957869858fd545c5
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 8a44f10eda396aec72e05e87e406ff80834294d8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 
@@ -31,8 +31,8 @@ Azure SQL Database 是在 Microsoft Azure 中在 [Azure 資源群組](../azure-r
 
 Azure SQL Database 可以是：
 
-- 單一資料庫包含其[自有資源集](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTU)
-- [共用一組資源集](sql-database-what-is-a-dtu.md#what-are-elastic-database-transaction-units-edtus) (eDTU) 之 [SQL 彈性集區](sql-database-elastic-pool.md)的一部分
+- [單一資料庫](sql-database-single-database-resources.md)包含其自有資源集
+- [彈性集區](sql-database-elastic-pool.md)的一部分，共用一個資源集
 - [分區化資料庫向外延展集](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling)的一部分，可以是單一或集區資料庫
 - 參與[多租用戶 SaaS 設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的資料庫集一部分，其資料庫可以是單一值或集區資料庫 (或兩者) 
 
@@ -46,7 +46,7 @@ Azure SQL Database 可以是：
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>什麼是 Azure SQL 邏輯伺服器？
 
-邏輯伺服器作為多個資料庫的中央管理點，包括 [SQL 彈性集區](sql-database-elastic-pool.md)[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)和[容錯移轉群組](sql-database-geo-replication-overview.md)。 邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。 
+邏輯伺服器做為多個資料庫的中央管理點，包括[彈性集區](sql-database-elastic-pool.md)[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)和[容錯移轉群組](sql-database-geo-replication-overview.md)。 邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。 
 
 
 > [!IMPORTANT]
@@ -79,7 +79,7 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL Database 受 SQL Database 防火牆保護
 
-為了協助保護您的資料，[SQL Database 防火牆](sql-database-firewall-configure.md)會阻止在您的連線之外，直接透過 Azure 訂用帳戶連線伺服器，以存取資料庫伺服器或其任何其資料庫。 若要啟用其他連線能力，您必須[建立一或多個防火牆規則](sql-database-firewall-configure.md#creating-and-managing-firewall-rules)。 如需建立和管理 SQL 彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
+為了協助保護您的資料，[SQL Database 防火牆](sql-database-firewall-configure.md)會阻止在您的連線之外，直接透過 Azure 訂用帳戶連線伺服器，以存取資料庫伺服器或其任何其資料庫。 若要啟用其他連線能力，您必須[建立一或多個防火牆規則](sql-database-firewall-configure.md#creating-and-managing-firewall-rules)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure SQL 伺服器、資料庫和防火牆
 
@@ -99,7 +99,8 @@ Azure 資料庫邏輯伺服器：
 
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
-> [重要] 如需選取資料庫定價層的資訊，請參閱[服務層](sql-database-service-tiers.md)。
+> [!IMPORTANT]
+> 如需選取資料庫定價層的資訊，請參閱[服務層](sql-database-service-tiers.md)。
 >
 
 ### <a name="manage-an-existing-sql-server"></a>管理現有的 SQL Server
@@ -122,7 +123,7 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>使用 PowerShell 管理 Azure SQL 伺服器、資料庫和防火牆
 
-若要使用 Azure PowerShell 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如需建立和管理 SQL 彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
+若要使用 Azure PowerShell 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 PowerShell 指令程式。 如果您需要安裝或升級 PowerShell，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 | Cmdlet | 說明 |
 | --- | --- |
@@ -146,7 +147,7 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-cli"></a>使用 Azure CLI 管理 Azure SQL 伺服器、資料庫和防火牆
 
-若要使用 [Azure CLI](/cli/azure/overview) 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 如需建立和管理 SQL 彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
+若要使用 [Azure CLI](/cli/azure/overview) 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 [Azure CLI SQL Database](/cli/azure/sql/db) 命令。 使用 [Cloud Shell](/azure/cloud-shell/overview) 在您的瀏覽器中執行 CLI，或在 macOS、Linux 或 Windows 中[安裝](/cli/azure/install-azure-cli)。 如需建立和管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 | Cmdlet | 說明 |
 | --- | --- |
@@ -176,7 +177,7 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>使用 Transact-SQL 管理 Azure SQL 伺服器、資料庫和防火牆
 
-若要使用 Transact-SQL 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 如需管理 SQL 彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
+若要使用 Transact-SQL 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用下列 T-SQL 命令。 您可以使用 Azure 入口網站、[SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio)、[Visual Studio Code](https://code.visualstudio.com/docs)，或任何可連線到 Azure SQL Database 伺服器並傳遞 Transact-SQL 命令的其他程式來發出這些命令。 如需管理彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 
 > [!IMPORTANT]
 > 您無法使用 Transact-SQL 建立或刪除伺服器。
@@ -206,11 +207,33 @@ Azure 資料庫邏輯伺服器：
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-rest-api"></a>使用 REST API 管理 Azure SQL 伺服器、資料庫和防火牆
 
-若要使用 REST API 建立和管理 Azure SQL 伺服器、資料庫和防火牆，請參閱 [Azure SQL Database REST API](/rest/api/sql/)。
+若要建立和管理 Azure SQL 伺服器、資料庫和防火牆，請使用 REST API 要求。
+
+| 命令 | 說明 |
+| --- | --- |
+|[伺服器 - 建立或更新](/rest/api/sql/servers/createorupdate)|建立或更新新的伺服器。|
+|[伺服器 - 刪除](/rest/api/sql/servers/delete)|刪除 SQL 伺服器。|
+|[伺服器 - 取得](/rest/api/sql/servers/get)|取得伺服器。|
+|[伺服器 - 清單](/rest/api/sql/servers/list)|傳回伺服器的清單。|
+|[伺服器 - 依資源群組列示](/rest/api/sql/servers/listbyresourcegroup)|傳回資源群組中的伺服器清單。|
+|[伺服器 - 更新](/rest/api/sql/servers/update)|更新現有伺服器。|
+|[伺服器 - SQL](/rest/api/sql/servers%20-%20sql)|判斷是否可以建立具有特定名稱的資源。|
+|[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
+|[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
+|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區中的資料庫。|
+|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得建議之彈性集區中的資料庫。|
+|[資料庫 - 依彈性集區列示](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
+|[資料庫 - 依建議的彈性集區列示](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區中的資料庫清單。|
+|[資料庫 - 依伺服器列示](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
+|[資料庫 - 更新](/api/sql/databases/update)|更新現有的資料庫。|
+|[防火牆規則 - 建立或更新](/rest/api/sql/firewallrules/createorupdate)|建立或更新防火牆規則。|
+|[防火牆規則 - 刪除](/rest/api/sql/firewallrules/delete)|刪除防火牆規則。|
+|[防火牆規則 - 取得](/rest/api/sql/firewallrules/get)|取得防火牆規則。|
+|[防火牆規則 - 依伺服器列示](/rest/api/sql/firewallrules/listbyserver)|傳回防火牆規則的清單。|
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解使用 SQL 彈性集區共用資料庫，請參閱[彈性集區](sql-database-elastic-pool.md)。
+- 若要深入了解使用彈性集區的共用資料庫，請參閱[彈性集區](sql-database-elastic-pool.md)。
 - 如需了解 Azure SQL Database 服務的相關資訊，請參閱[什麼是 SQL Database？](sql-database-technical-overview.md)。
 - 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 - 如需支援功能的相關資訊，請參閱「[功能](sql-database-features.md)」。

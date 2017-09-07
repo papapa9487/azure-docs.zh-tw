@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/16/2017
 ms.author: naziml;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: f51cacb33251d479f48a39014cc2db60a23358d5
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 1458217a31c4781b28877c030a665f5b22819e13
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 
@@ -81,6 +81,13 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 
 ![Configure PORT app setting for custom Docker image][6]
 
+## <a name="how-to-set-the-startup-time-for-your-docker-image"></a>如何：設定您 Docker 映像的啟動時間 ##
+
+根據預設，如果您的容器未在 230 秒之前啟動，平台就會將您的容器重新啟動。 如果您的自訂 Docker 映像啟動時間超過 230 秒時，可以使用 `WEBSITES_CONTAINER_START_TIME_LIMIT` 應用程式設定，此設定的值是以秒為單位，這樣可讓平台在重新啟動它之前，保持您的容器執行。 預設值為 230 秒，允許的最大值為 600 秒。
+
+## <a name="how-to-unmount-the-platform-provided-storage"></a>如何：取消掛接平台提供的儲存體 ##
+
+根據預設，此平台會將持續的儲存體共用裝載至 `\home\` 目錄。 如果您的容器映像不需要持續共用，可以停用裝載該儲存體，方法是將 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` 應用程式設定設為 `false`。 您仍可從 scm 網站存取該儲存體，且系統會將所有的 Docker 記錄 (如果啟用) 寫入平台所產生的記錄檔。
 
 ## <a name="how-to-switch-back-to-using-a-built-in-image"></a>作法︰切換回使用內建映像 ##
 
@@ -109,7 +116,6 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 請前往下列連結以開始使用 Linux 上的 Web 應用程式。   
 
 * [Linux 上的 Azure Web 應用程式簡介](./app-service-linux-intro.md)
-* [在 Linux 上的 Azure Web 應用程式中建立 Web Apps](./app-service-linux-how-to-create-web-app.md)
 * [在 Linux 上的 Azure Web 應用程式中使用適用於 Node.js 的 PM2 組態](./app-service-linux-using-nodejs-pm2.md)
 * [Linux 上的 Azure App Service Web 應用程式常見問題集](app-service-linux-faq.md)
 

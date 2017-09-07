@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 9253e05931e7434f9e69765fa552f1157b1c8cbb
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -31,7 +31,7 @@ Azure Active Directory 應用程式 Proxy 和 PingAccess 通力合作，為 Azur
 
 Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提供使用者存取權，以及單一登入使用驗證標頭的應用程式。 應用程式 Proxy 會如同任何其他應用程式一樣處理這些應用程式，使用 Azure AD 驗證存取，然後透過連接器服務傳遞流量。 PingAccess 位於前方的應用程式，並將 Azure AD 的存取權杖轉譯為標頭，使應用程式以它可以讀取的格式收到驗證。
 
-您的使用者在登入使用您公司的應用程式時，將不會注意到什麼不同。 這些還是可以在任何裝置上從任何地方運作。 當使用者在辦公室時，應用程式 Proxy 或 PingAccess 都不會攔截流量，讓您的使用者能夠一如往常般獲得相同的體驗。
+您的使用者在登入使用您公司的應用程式時，將不會注意到什麼不同。 這些還是可以在任何裝置上從任何地方運作。 
 
 由於應用程式 Proxy 連接器會將遠端流量導向至所有應用程式，而不論其驗證類型為何，因此它們也將繼續自動載入平衡。
 
@@ -131,6 +131,20 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 6. 關閉應用程式註冊刀鋒視窗或捲動到最左邊，回到 Azure Active Directory 功能表。
 7. 選取 [屬性] 。
 8. 儲存**目錄識別碼** GUID。
+
+### <a name="optional---update-graphapi-to-send-custom-fields"></a>選擇性 - 更新 GraphAPI 以傳送自訂欄位
+
+如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 GraphAPI 以將應用程式欄位 [acceptMappedClaims] 設為 [True]。 若要進行此設定，您可以使用 Azure AD Graph Explorer 或 MS Graph。 
+
+此範例使用 Graph Explorer：
+
+```
+PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application> 
+
+{
+  "acceptMappedClaims":true
+}
+```
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>下載 PingAccess 及設定您的應用程式
 

@@ -13,14 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 6f1c43ca0113dc7579b0fc3743d3314c16ce78a4
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: c407152f54a6e7eb25a580491bd27ad291410d86
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>利用存留時間讓 Azure Cosmos DB 集合中的資料自動過期
@@ -54,7 +53,7 @@ TTL 功能是由兩個層級 (集合層級和文件層級) 的 TTL 屬性所控�
 | 文件上的 TTL = n |文件層級沒有可覆寫的項目。 系統無法解譯文件上的 TTL。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承間隔 -1 且永遠不會過期。 |TTL = n 的文件將在間隔 n (以秒為單位) 之後到期。 其他文件會繼承集合的間隔 "n"。 |
 
 ## <a name="configuring-ttl"></a>設定 TTL
-根據預設，在所有 Cosmos DB 集合中及所有文件上都會停用存留時間。
+根據預設，在所有 Cosmos DB 集合中及所有文件上都會停用存留時間。 可以透過程式設計的方式設定 TTL，或至 Azure 入口網站中針對集合的 [設定] 區段進行設定。 
 
 ## <a name="enabling-ttl"></a>啟用 TTL
 若要在集合上或集合內的文件上啟用 TTL，您需要將集合的 DefaultTTL 屬性設定為 -1 或非零的正數。 將 DefaultTTL 設定為 -1，表示集合中的所有文件都預設為永遠存留，但 Cosmos DB 服務應監視此集合中已覆寫這個預設值的文件。

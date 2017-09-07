@@ -1,6 +1,6 @@
 ---
 title: "Azure 入口網站鍵盤快速鍵 | Microsoft Docs"
-description: "本文章一律是最新且適用於整個 Azure 入口網站的鍵盤快速鍵清單。 個別的服務可能會擁有專用的鍵盤快速鍵。"
+description: "深入了解在 Azure 入口網站中運作的鍵盤快速鍵。"
 services: azure-portal
 documentationcenter: 
 author: flanakin
@@ -12,39 +12,39 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 02/07/2016
+ms.date: 08/24/2017
 ms.author: micflan
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 764bcf22809a2d613b405f6fb75c7a148a1b3fb9
-ms.lasthandoff: 11/17/2016
-
+ms.custom: accessibility
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/28/2017
 
 ---
-# <a name="azure-portal-keyboard-shortcuts"></a>Azure 入口網站鍵盤快速鍵
-## <a name="open-hubs"></a>開啟中樞
-| 快速鍵 | 動作 |
+# <a name="keyboard-shortcuts-in-the-azure-portal"></a>Azure 入口網站的鍵盤快速鍵
+本文示範在整個 Azure 入口網站中運作的鍵盤快速鍵。 個別的服務可能會擁有各自的鍵盤快速鍵。
+
+## <a name="actions"></a>動作
+|作法 |按 |
 | --- | --- |
-| N |通知 |
-| / |瀏覽服務 |
-| A |使用中工作階段 |
-| B |計費 |
-| C |建立 |
+|建立新的資源|G+N|
+|開啟 [更多服務] 窗格|G+B|
+|搜尋資源|G+/| 
+|搜尋資源功能表項目|CTRL+/ |
+|將選取的左窗格項目上移 |ALT+Shift+向上鍵|
+|將選取的左窗格項目下移 |ALT+Shift+向下鍵|
 
-## <a name="navigation"></a>瀏覽
-| 快速鍵 | 動作 |
+## <a name="navigation"></a>導覽
+|作法 |按 |
 | --- | --- |
-| H |Azure 啟動儀表板 |
-| F |第一次開啟刀鋒視窗 |
-| J |上一個開啟的刀鋒視窗 |
-| K |下一次開啟的刀鋒視窗 |
-| L |上次開啟的刀鋒視窗 |
-| - |最小化分葉或從最大化還原 |
-| + |最大化分葉或從最小化還原 |
-| # |關閉目前的刀鋒視窗 |
-| ¦ |關閉所有刀鋒視窗 |
-| ， |將焦點移至命令列 |
-| 。 |將焦點移至導覽列 |
-| ? |檢視鍵盤快速鍵 |
+|將焦點移至命令列 |G+, |
+|在頂端列與側編列之間切換焦點 | G+. |
 
-
+## <a name="go-to"></a>移至
+|作法 |按 |
+| --- | --- |
+|移至儀表板 |G+D |
+|移至所有資源|G+A |
+|移至資源群組|G+R |
+|開啟此位置的左窗格項目 |G+number|
