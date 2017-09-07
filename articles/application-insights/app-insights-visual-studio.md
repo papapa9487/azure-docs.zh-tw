@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 07/7/2017
+ms.date: 07/07/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 93e97cbc5d9bf55334a481183f40083a6f3b99a4
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: e26186f7dfc81563d72478bf3cf1d306f0203fa5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>在 Visual Studio 中使用 Azure Application Insights 進行應用程式偵錯
@@ -96,7 +96,7 @@ ms.lasthandoff: 07/11/2017
 * 首先，我完全設定 Application Insights 將遙測傳送至入口網站。但是現在我只想要查看在 Visual Studio 中的遙測。
   
   * 在 [搜尋] 視窗的 [設定] 中，即使您的應用程式將遙測傳送至入口網站，也有選項可搜尋本機診斷。
-  * 若要停止將遙測傳送至入口網站，請將 ApplicationInsights.config 中的 `<instrumentationkey>...` 程式行註解化。 當您準備再次將遙測傳送至入口網站時，請取消註解。
+  * 若要停止將遙測傳送至入口網站，請將 ApplicationInsights.config 中的 `<instrumentationkey>...` 程式行註解化。當您準備再次將遙測傳送至入口網站時，請取消註解。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/24/2017
+ms.date: 8/31/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 51255244a286fe1aed75b342e6a9b8d4681a1979
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 83a32dba7b74a303b7fd2167b5fc41212087f8ca
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的度量
@@ -642,52 +642,6 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |notificationhub.pushes|所有外寄通知|Count|總計|通知中樞的所有外寄通知|
 |incoming.all.requests|所有傳入要求|Count|總計|針對通知中樞傳入的要求總數|
 |incoming.all.failedrequests|所有傳入的失敗要求|Count|總計|針對通知中樞傳入的失敗要求總數|
-
-## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
-
-|度量|度量顯示名稱|單位|彙總類型|說明|
-|---|---|---|---|---|
-|qpu_metric|QPU|Count|平均值|QPU。 範圍 0-100 (S1)、0-200 (S2) 和 0-400 (S4)|
-|memory_metric|記憶體|位元組|平均值|記憶體。 範圍 0-25 GB (S1)、0-50 GB (S2) 和 0-100 GB (S4)|
-|TotalConnectionRequests|連線要求的總計|Count|平均值|連線要求的總計。 這些是達到的。|
-|SuccessfullConnectionsPerSec|每秒連線成功的次數|每秒計數|平均值|成功完成連線的速率。|
-|TotalConnectionFailures|連線失敗的總計|Count|平均值|連線嘗試失敗的總計。|
-|CurrentUserSessions|目前的使用者工作階段|Count|平均值|目前建立的使用者工作階段數目。|
-|QueryPoolBusyThreads|查詢集區忙碌執行緒|Count|平均值|查詢執行緒集區中的忙碌執行緒數目。|
-|CommandPoolJobQueueLength|命令集區作業佇列長度|Count|平均值|命令執行緒集區佇列中的作業數目。|
-|ProcessingPoolJobQueueLength|處理集區作業佇列長度|Count|平均值|處理執行緒集區佇列中的非 I/O 作業數目。|
-|CurrentConnections|連接：目前的連接|Count|平均值|目前已建立的用戶端連接數目。|
-|CleanerCurrentPrice|記憶體︰清除工具目前價格|Count|平均值|記憶體目前的價格 ($/位元組/時間)，並正規化為 1000。|
-|CleanerMemoryShrinkable|記憶體︰可壓縮的清除器記憶體|位元組|平均值|背景清除器將清除的記憶體數量，以 KB 為單位。|
-|CleanerMemoryNonshrinkable|記憶體︰不可壓縮的清除器記憶體|位元組|平均值|背景清除器將不會清除的記憶體數量，以 KB 為單位。|
-|MemoryUsage|記憶體：記憶體使用量|位元組|平均值|伺服器處理序用於計算清除器記憶體價格的記憶體使用量。 等於計數器 Process\PrivateBytes 加上記憶體對應的資料大小，忽略 xVelocity 記憶體內部分析引擎 (VertiPaq) 在超出 xVelocity 引擎記憶體限制外對應或配置的任何記憶體。|
-|MemoryLimitHard|記憶體︰固定記憶體限制|位元組|平均值|組態檔中的固定記憶體限制。|
-|MemoryLimitHigh|記憶體︰記憶體上限|位元組|平均值|來自組態檔的記憶體上限。|
-|MemoryLimitLow|記憶體︰記憶體下限|位元組|平均值|來自組態檔的記憶體下限。|
-|MemoryLimitVertiPaq|記憶體︰記憶體限制 VertiPaq|位元組|平均值|來自組態檔的記憶體內部限制。|
-|配額|記憶體︰配額|位元組|平均值|目前的記憶體配額，以位元組為單位。 記憶體配額也就是指授與使用的記憶體，或是保留的記憶體。|
-|QuotaBlocked|記憶體︰封鎖的配額|Count|平均值|在釋放其他記憶體配額之前，目前已封鎖的配額要求數目。|
-|VertiPaqNonpaged|記憶體︰未分頁的 VertiPaq|位元組|平均值|工作集中已封鎖來供記憶體內部引擎使用的記憶體位元組。|
-|VertiPaqPaged|記憶體︰分頁的 VertiPaq|位元組|平均值|可供記憶體內部資料使用的分頁記憶體位元組。|
-|RowsReadPerSec|處理︰每秒讀取的資料列|每秒計數|平均值|從所有關聯式資料庫讀取資料列的速率。|
-|RowsConvertedPerSec|處理︰每秒轉換的資料列|每秒計數|平均值|處理期間資料列轉換的速率。|
-|RowsWrittenPerSec|處理︰每秒寫入的資料列|每秒計數|平均值|處理期間資料列寫入的速率。|
-|CommandPoolBusyThreads|執行緒︰命令集區的忙碌執行緒數|Count|平均值|命令執行緒集區中的忙碌執行緒數。|
-|CommandPoolIdleThreads|執行緒︰命令集區的閒置執行緒數|Count|平均值|命令執行緒集區中的閒置執行緒數。|
-|LongParsingBusyThreads|執行緒︰完整剖析的忙碌執行緒數|Count|平均值|完整剖析執行緒集區中的忙碌執行緒數目。|
-|LongParsingIdleThreads|執行緒︰完整剖析的閒置執行緒數|Count|平均值|完整剖析執行緒集區中的閒置執行緒數目。|
-|LongParsingJobQueueLength|執行緒︰完整剖析的作業佇列長度|Count|平均值|完整剖析執行緒集區佇列中的作業數目。|
-|ProcessingPoolBusyIOJobThreads|執行緒︰處理集區的忙碌 I/O 作業執行緒數|Count|平均值|處理執行緒集區中執行 I/O 作業的執行緒數目。|
-|ProcessingPoolBusyNonIOThreads|執行緒︰處理集區的忙碌非 I/O 執行緒數|Count|平均值|處理執行緒集區中執行非 I/O 作業的執行緒數目。|
-|ProcessingPoolIOJobQueueLength|執行緒：處理集區 I/O 作業佇列長度|Count|平均值|處理執行緒集區佇列中的 I/O 作業數目。|
-|ProcessingPoolIdleIOJobThreads|執行緒︰處理集區的閒置 I/O 作業執行緒數|Count|平均值|處理執行緒集區中 I/O 作業的閒置執行緒數目。|
-|ProcessingPoolIdleNonIOThreads|執行緒︰處理集區的閒置非 I/O 執行緒數|Count|平均值|處理執行緒集區中專供非 I/O 作業使用的閒置執行緒數目。|
-|QueryPoolIdleThreads|執行緒︰查詢集區的閒置執行緒數|Count|平均值|處理執行緒集區中 I/O 作業的閒置執行緒數目。|
-|QueryPoolJobQueueLength|執行緒︰查詢集區的作業佇列長度|Count|平均值|查詢執行緒集區佇列中的作業數目。|
-|ShortParsingBusyThreads|執行緒︰簡短剖析的忙碌執行緒數|Count|平均值|簡短剖析執行緒集區中的忙碌執行緒數目。|
-|ShortParsingIdleThreads|執行緒︰簡短剖析的閒置執行緒數|Count|平均值|簡短剖析執行緒集區中的閒置執行緒數目。|
-|ShortParsingJobQueueLength|執行緒︰簡短剖析的作業佇列長度|Count|平均值|簡短剖析執行緒集區佇列中的作業數目。|
-|memory_thrashing_metric|記憶體猛移|百分比|平均值|記憶體猛移的平均值。|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.Search/searchServices
 

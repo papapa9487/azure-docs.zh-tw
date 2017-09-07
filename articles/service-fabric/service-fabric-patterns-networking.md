@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/16/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: 0753fb3a4b08b3bda9da1f5a31c577b354197588
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/22/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
@@ -75,7 +74,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric 範本
 
-在本文的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用[範本庫 (英文)](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric) 中的其中一個範本，例如[五個節點的 Service Fabric 叢集 (英文)](https://azure.microsoft.com/en-us/documentation/templates/service-fabric-unsecure-cluster-5-node-1-nodetype/)。
+在本文的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用[範本庫 (英文)](https://azure.microsoft.com/en-us/documentation/templates/?term=service+fabric) 中的其中一個範本，例如[五個節點的 Service Fabric 叢集 (英文)](https://azure.microsoft.com/en-us/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)。
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>現有虛擬網路或子網路
@@ -363,7 +362,7 @@ DnsSettings              : {
                     ],
     ```
 
-6. 在 `Microsoft.ServiceFabric/clusters` 資源中，變更 `managementEndpoint` 以指向內部負載平衡器位址。 如果您使用安全的叢集，請務必將 http://**變更為 https://**  (請注意，此步驟僅適用於 Service Fabric 叢集。 如果您使用虛擬機器擴展集，請略過此步驟)。
+6. 在 `Microsoft.ServiceFabric/clusters` 資源中，變更 `managementEndpoint` 以指向內部負載平衡器位址。 如果您使用安全的叢集，請務必將 http:// **變更為 https://**  (請注意，此步驟僅適用於 Service Fabric 叢集。 如果您使用虛擬機器擴展集，請略過此步驟)。
 
     ```
                     "fabricSettings": [],

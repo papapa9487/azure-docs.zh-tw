@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/02/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 42e5e651d5a3c08e829b48bb47e14458a5c65900
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 2d90baf42d067ad8476995fba524a46f0815b6d5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
@@ -48,7 +47,7 @@ Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管�
 服務分為兩種：
 
 * **無狀態：**當服務的持續狀態儲存在外部儲存服務 (例如「Azure 儲存體」、Azure SQL Database 或 Azure Cosmos DB) 時，請使用無狀態服務。 當服務完全沒有持續性儲存體時，請使用無狀態服務。 以計算機服務為例，首先要傳遞值給服務，然後服務用這些值執行計算並傳回結果。
-* **具狀態：** 當您要讓 Service Fabric 透過其 Reliable Collections 或 Reliable Actors 程式設計模型管理您的服務狀態，則使用具狀態服務。 請指定您在建立具名服務時，想要讓狀態分散到多少個資料分割 (提供延展性)。 也請指定跨節點覆寫狀態的次數 (提供可靠性)。 每個具名服務都有一個主要複本和多個次要複本。 您可以透過寫入主要複本來修改具名服務的狀態。 然後，Service Fabric 會將此狀態複寫至所有次要複本以保持狀態同步。 當主要複本失敗時，Service Fabric 會自動偵測到此狀況，並將現有的次要複本升級為主要複本。 然後 Service Fabric 會建立新的次要複本。  
+* **具狀態：** 當您要讓 Service Fabric 透過其 Reliable Collections 或 Reliable Actors 程式設計模型管理您的服務狀態，則使用具狀態服務。 請指定您在建立具名服務時，想要讓狀態分散到多少個資料分割 (提供延展性)。 也請指定跨節點覆寫狀態的次數 (提供可靠性)。 每個具名服務都有一個主要複本和多個次要複本。 您可以透過寫入主要複本來修改具名服務的狀態。 然後，Service Fabric 會將此狀態複寫至所有次要複本以保持狀態同步。當主要複本失敗時，Service Fabric 會自動偵測到此狀況，並將現有的次要複本升級為主要複本。 然後 Service Fabric 會建立新的次要複本。  
 
 **服務套件**：磁碟目錄，包含此服務類型的 `ServiceManifest.xml` 檔案。 這個檔案會參考此服務類型的程式碼、靜態資料和組態封裝。 此應用程式類型的 `ApplicationManifest.xml` 檔會參考此服務封裝目錄中的檔案。 例如，服務套件可能會參考構成資料庫服務的程式碼、靜態資料和組態封裝。
 
@@ -65,7 +64,7 @@ Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管�
 
 **容器**：根據預設，Service Fabric 會以處理序形式部署和啟動這些服務。 Service Fabric 也可以在容器映像中部署服務。 容器是從應用程式中將基礎作業系統虛擬化的一種虛擬化技術。 應用程式與其執行階段、相依性及系統程式庫在容器內執行時，在其各自於作業系統建構中的獨立範圍內，都具有容器的完整專屬存取權。 Service Fabric 支援 Linux 上的 Docker 容器和 Windows Server 容器。  如需詳細資訊，請參閱 [Service Fabric 和容器](service-fabric-containers-overview.md)。
 
-**分割配置**：建立具名的服務時，要指定分割配置。 含有大量狀態的服務會跨分割切割其資料，所以服務是將狀態分散在叢集的節點上。 這使得具名服務的狀態可以擴充。 在分割內，無狀態的具名服務會有執行個體，而具狀態的具名服務則有複本。 通常，無狀態具名服務只會有 1 個分割，因為它們有沒有內部狀態。 分割執行個體提供可用性；如果一個執行個體失敗，其他執行個體會繼續正常運作，接著 Service Fabric 會建立新的執行個體。 具狀態的具名服務會在複本中維持其狀態，且每個分割都有自己的複本集，其中包含保持同步的所有狀態。 複本失敗失敗時，Service Fabric 會從現有複本建立新的複本。
+**分割配置**：建立具名的服務時，要指定分割配置。 含有大量狀態的服務會跨分割切割其資料，所以服務是將狀態分散在叢集的節點上。 這使得具名服務的狀態可以擴充。 在分割內，無狀態的具名服務會有執行個體，而具狀態的具名服務則有複本。 通常，無狀態具名服務只會有 1 個分割，因為它們有沒有內部狀態。 分割執行個體提供可用性；如果一個執行個體失敗，其他執行個體會繼續正常運作，接著 Service Fabric 會建立新的執行個體。 具狀態的具名服務會在複本中維持其狀態，且每個分割都有自己的複本集，其中包含保持同步的所有狀態。複本失敗失敗時，Service Fabric 會從現有複本建立新的複本。
 
 如需詳細資訊，請閱讀 [分割 Service Fabric Reliable Services](service-fabric-concepts-partitioning.md) 。
 

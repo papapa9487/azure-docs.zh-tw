@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: a556cee9d7b665cd7df23c97e7e2c8c2afabbe58
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 6926fe1be44c078482dd5073788e36d7ae77efef
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>為 VM 和 PaaS 測試環境使用 Azure DevTest Labs
@@ -113,7 +113,7 @@ ms.lasthandoff: 07/20/2017
    | 工作 | 您學到什麼 |
    | --- | --- |
    | [定義實驗室原則](devtest-lab-set-lab-policy.md) |在實驗室中設定原則來控制成本。 |
-   | [使用 PowerShell 指令碼刪除所有實驗室 VM](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |當測試完成時，在一次作業中刪除所有實驗室。|
+   | [使用 PowerShell 指令碼刪除所有實驗室 VM](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |當測試完成時，在一次作業中刪除所有實驗室。|
 
 1. **將虛擬網路新增至實驗室** 
    
@@ -147,7 +147,7 @@ ms.lasthandoff: 07/20/2017
    
    | 工作 | 您學到什麼 |
    | --- | --- |
-   | [使用 Resource Manager 範本建立實驗室](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |在 Azure DevTest Labs 中使用 Resource Manager 範本建立實驗室。 |
+   | [使用 Resource Manager 範本建立實驗室](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |在 Azure DevTest Labs 中使用 Resource Manager 範本建立實驗室。 |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

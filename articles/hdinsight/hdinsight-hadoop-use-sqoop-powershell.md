@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb700c7de96712666bc4be1f8e430a2e94761f69
-ms.openlocfilehash: 12bcff92f7d2f877fa90b35fddf88266488c5f78
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 87af5baeeb1b3132a17085db7cbf275ae86da53b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 01/24/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-sqoop-jobs-using-azure-powershell-for-hadoop-in-hdinsight"></a>在 HDInsight 中使用 Azure PowerShell for Hadoop 執行 Sqoop 工作
@@ -30,12 +29,12 @@ ms.lasthandoff: 01/24/2017
 了解如何在 HDInsight 上使用 Azure PowerShell 執行 Sqoop 工作，以進行 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間的匯入和匯出作業。
 
 > [!NOTE]
-> 本文中的步驟可以與 Windows 架構或 Linux 架構的 HDInsight 叢集搭配使用。不過，這些步驟只能從 Windows 用戶端運作。 如需其他工作提交方法，請按一下本文頂端的索引標籤選取器。
+> 本文中的步驟可以與以 Windows 為基礎或以 Linux 為基礎的 HDInsight 叢集搭配使用。不過，這些步驟只能從 Windows 用戶端運作。 如需其他工作提交方法，請按一下本文頂端的索引標籤選取器。
 > 
 > 
 
 ### <a name="prerequisites"></a>必要條件
-開始進行本教學課程之前，您必須具備下列條件：
+開始進行本教學課程之前，您必須具備下列項目：
 
 * **具有 Azure PowerShell 的工作站**。
   
@@ -169,7 +168,7 @@ ms.lasthandoff: 01/24/2017
 
 ## <a name="limitations"></a>限制
 * 大量匯出 - 使用 Linux 型 HDInsight，用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database 的 Sqoop 連接器目前不支援大量插入。
-* 批次處理 - 使用 Linux 型 HDInsight，執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是批次處理插入作業。
+* 批次處理 - 使用以 Linux 為基礎的 HDInsight，執行插入時若使用 `-batch` 參數，Sqoop 將會執行多個插入，而不是將插入作業批次處理。
 
 ## <a name="next-steps"></a>後續步驟
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：

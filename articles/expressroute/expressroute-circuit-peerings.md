@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/03/2017
-ms.author: cherylmc
+ms.date: 09/01/2017
+ms.author: ganesr,cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 3742fb37016db5e6230bc2b7ce11f0270d9d58b3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: d98b08a93d9d620971cfc8402a0cf12f10f488b1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 線路和路由網域
@@ -51,7 +51,7 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 ### <a name="public-peering"></a>公用對等互連
 公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 您可以將公用對等網域連線到 DMZ，並從您的 WAN 連線到所有 Azure 服務的公用 IP 位址，而無需透過網際網路進行連線。 
 
-一律會從您的 WAN 啟動連線到 Microsoft Azure 服務。 Microsoft Azure 服務將無法透過這個路由網域啟動連線到您的網路。 一旦啟用公用對等互連，您便能夠連線到所有 Azure 服務。 我們不允許您選擇性地選取已通告路由的服務。 您可以在 [Microsoft Azure 資料中心 IP 範圍](http://www.microsoft.com/download/details.aspx?id=41653) 頁面中，檢閱我們透過這個對等向您通告的首碼清單。 此頁面每週更新。
+一律會從您的 WAN 啟動連線到 Microsoft Azure 服務。 Microsoft Azure 服務將無法透過這個路由網域啟動連線到您的網路。 一旦啟用公用對等互連，您便能夠連線到所有 Azure 服務。 我們不允許您選擇性地選取已通告路由的服務。
 
 您可以在您的網路內定義自訂路由篩選條件，以便僅取用所需的路由。 如需路由組態的詳細資訊，請參閱 [路由](expressroute-routing.md) 頁面。 
 

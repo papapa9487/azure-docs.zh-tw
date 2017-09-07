@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d77dd2b44dca8cee6fa2e93e79cda76c80ccfe1a
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -203,7 +203,7 @@ exit
 
 部署 VM 後，作業系統磁碟或任何連結的資料磁碟可以增加大小。 需要更多儲存空間或更高層級的效能 (P10、P20、P30) 時，增加磁碟的大小很有幫助。 請注意，磁碟的大小不能減少。
 
-增加磁碟大小之前，需要有磁碟的識別碼或名稱。 使用 [az disk list](/cli/azure/vm/disk#list) 命令來傳回資源群組中的所有磁碟。 記下您想要調整大小的磁碟名稱。
+增加磁碟大小之前，需要有磁碟的識別碼或名稱。 使用 [az disk list](/cli/azure/disk#az_disk_list) 命令來傳回資源群組中的所有磁碟。 記下您想要調整大小的磁碟名稱。
 
 ```azurecli-interactive 
 az disk list -g myResourceGroupDisk --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' --output table
@@ -235,7 +235,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>建立快照集
 
-建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) 命令傳回磁碟識別碼。 在此範例中，磁碟會儲存在變數中，以便使用於稍後的步驟。
+建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) 命令傳回磁碟識別碼。在此範例中，磁碟會儲存在變數中，以便使用於稍後的步驟。
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)

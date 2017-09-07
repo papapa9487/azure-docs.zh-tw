@@ -3,7 +3,7 @@ title: "在 Azure Active Directory 中自訂登入頁面 | Microsoft Docs"
 description: "了解如何將公司商標新增到 Azure 登入頁面"
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 editor: 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: jeffgilb
+ms.date: 09/06/2017
+ms.author: curtand
+ms.reviewer: kexia
 custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: bddf2542eecce8bdeccda6053203bf2c2ba0ffb2
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>快速入門：在 Azure AD 中將公司商標新增至登入頁面
@@ -62,7 +63,7 @@ ms.lasthandoff: 08/15/2017
 ### <a name="sign-in-page-image"></a>登入頁面映像  
 說明 | 條件約束 | 建議
 ------- | ------- | ----------
-這會出現在登入頁面的背景，錨定至可檢視空間的中心，並且會調整並裁切以填滿瀏覽器視窗。    <br>在手機這類螢幕狹窄的裝置上，不會顯示此映像。<br>載入頁面時，會根據我們的程式碼套用 0.55 不透明度的黑色遮罩至此映像。 | JPG 或 PNG<br>映像尺寸：1920 x 1080 像素<br>檔案大小：&gt; 300 KB | <br>使用沒有強烈主題焦點的映像。 不透明的登入表單隨即出現在映像中央，並且可根據瀏覽器視窗的大小來覆蓋映像的任何部分。<br>檔案大小保持越小越好，以確保快速載入時間。 
+這會出現在登入頁面的背景，錨定至可檢視空間的中心，並且會調整並裁切以填滿瀏覽器視窗。    <br>在手機這類螢幕狹窄的裝置上，不會顯示此映像。<br>載入頁面時，會根據我們的程式碼套用 0.55 不透明度的黑色遮罩至此映像。 | JPG 或 PNG<br>映像尺寸：1920 x 1080 像素<br>檔案大小：&lt; 300 KB | <br>使用沒有強烈主題焦點的映像。 不透明的登入表單隨即出現在映像中央，並且可根據瀏覽器視窗的大小來覆蓋映像的任何部分。<br>檔案大小保持越小越好，以確保快速載入時間。 
 
 ### <a name="background-color"></a>背景色彩
 說明 | 條件約束 | 建議

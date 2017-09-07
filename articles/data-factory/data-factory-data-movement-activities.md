@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jingwang
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 0cefbe1303de1cfa46cc4b771c0cd3aa7819597c
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 26fb0914de571aa0e398f0e2a2f8e439d3d27680
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="move-data-by-using-copy-activity"></a>使用複製活動來移動資料
@@ -109,11 +109,13 @@ Azure Data Factory 只在美國西部、美國東部和北歐區域提供使用�
 | &nbsp; | 東亞 | 東南亞 |
 | 澳大利亞 | 澳洲東部 | 澳洲東部 |
 | &nbsp; | 澳大利亞東南部 | 澳大利亞東南部 |
-| 日本 | 日本東部 | 日本東部 |
-| &nbsp; | 日本西部 | 日本東部 |
 | 印度 | 印度中部 | 印度中部 |
 | &nbsp; | 印度西部 | 印度中部 |
 | &nbsp; | 印度南部 | 印度中部 |
+| 日本 | 日本東部 | 日本東部 |
+| &nbsp; | 日本西部 | 日本東部 |
+| 韓國 | 韓國中部 | 韓國中部 |
+| &nbsp; | 韓國南部 | 韓國中部 |
 
 或者，您可以明確指出要用來執行複製的 Data Factory 服務區域，方法是指定複製活動 `typeProperties` 底下的 `executionLocation`屬性。 這個屬性支援的值詳列於上述**用於資料移動的區域**資料行。 請注意，您的資料在複製期間會透過網路通過該區域。 例如，若要在韓國的 Azure 存放區之間複製，您可以將 `"executionLocation": "Japan East"` 指定為經過日本區域 (請參考[範例 JSON](#by-using-json-scripts))。
 
