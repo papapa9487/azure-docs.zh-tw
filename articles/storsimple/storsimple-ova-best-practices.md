@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/08/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 56e8f5cf3886c740853a40781c42b3e36144134b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 264764c5e9c32574d97beb2cc3c1bb1cfb555568
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array 的最佳作法
@@ -146,7 +145,7 @@ StorSimple Virtual Array 可與單一儲存體帳戶相關聯。 此儲存體帳
   
   * 建議您將它建立在最接近 StorSimple Virtual Array 部署所在的遠端辦公室/分公司的區域中，以將延遲降到最低。
   * 請記住，您無法跨不同區域移動儲存體帳戶。 同時，您無法跨訂用帳戶移動服務。
-  * 使用可實作資料中心之間備援的儲存體帳戶。 異地備援儲存體 (GRS)、區域備援儲存體 (ZRS) 和本地備援儲存體 (LRS) 皆支援與虛擬陣列搭配使用。 如需不同類型的儲存體帳戶的詳細資訊，請移至 [Azure 儲存體複寫](../storage/storage-redundancy.md)。
+  * 使用可實作資料中心之間備援的儲存體帳戶。 異地備援儲存體 (GRS)、區域備援儲存體 (ZRS) 和本地備援儲存體 (LRS) 皆支援與虛擬陣列搭配使用。 如需不同類型的儲存體帳戶的詳細資訊，請移至 [Azure 儲存體複寫](../storage/common/storage-redundancy.md)。
 
 ### <a name="shares-and-volumes"></a>共用和磁碟區
 若 StorSimple Virtual Array 設定為檔案伺服器，您可以佈建共用，若設定為 iSCSI 伺服器，則可以佈建磁碟區。 建立共用和磁碟區的最佳作法與大小及所設定的類型有關。
@@ -156,7 +155,7 @@ StorSimple Virtual Array 可與單一儲存體帳戶相關聯。 此儲存體帳
 
 在虛擬裝置上佈建共用或磁碟區時，請記住下列最佳作法。
 
-* 相對於已佈建的分層式共用大小的檔案大小可能會影響分層效能。 使用大型檔案可能會導致緩慢分層輸出。 使用大型檔案時，建議最大檔案不要超過共用大小的 3%。
+* 相對於已佈建的分層式共用大小的檔案大小可能會影響分層效能。 使用大型檔案可能會導致緩慢分層輸出。使用大型檔案時，建議最大檔案不要超過共用大小的 3%。
 * 虛擬陣列上最多可以建立 16 個磁碟區/共用。 如需本機固定和分層式磁碟區/共用的大小限制，請一律參考 [StorSimple Virtual Array 限制](storsimple-ova-limits.md)。
 * 在建立磁碟區時，請將預期的資料使用量以及未來成長量納入考量。 無法於稍後展開磁碟區。
 * 一旦建立了磁碟區，就不能縮小 StorSimple 上磁碟區的大小。

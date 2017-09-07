@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: d3488b1e7857799d8ed7de796610e8d52034bd8f
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/18/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>使用 StorSimple 診斷工具針對 8000 系列裝置問題進行疑難排解
@@ -389,7 +388,7 @@ Web proxy                               Not enabled         Web proxy is not...
 
     如果診斷工具所報告的讀寫延遲很高︰
 
-    1. 設定 blob 服務的儲存體分析，然後分析輸出，以了解 Azure 儲存體帳戶的延遲。 如需詳細指示，請參閱[啟用和設定儲存體分析](../storage/storage-enable-and-view-metrics-classic-portal.md)。 如果這些延遲也很高，而且與您從 StorSimple 診斷工具收到的數字齊鼓相當，則您需要向 Azure 儲存體登記服務要求。
+    1. 設定 blob 服務的儲存體分析，然後分析輸出，以了解 Azure 儲存體帳戶的延遲。 如需詳細指示，請參閱[啟用和設定儲存體分析](../storage/common/storage-enable-and-view-metrics.md)。 如果這些延遲也很高，而且與您從 StorSimple 診斷工具收到的數字齊鼓相當，則您需要向 Azure 儲存體登記服務要求。
 
     2. 如果儲存體帳戶延遲較低，請連絡網路系統管理員來調查網路中的延遲問題。
 

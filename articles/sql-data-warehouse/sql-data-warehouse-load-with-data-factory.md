@@ -1,5 +1,4 @@
 ---
-
 title: "將資料載入 Azure SQL 資料倉儲 – Data Factory | Microsoft Docs"
 description: "本教學課程使用 Azure Data Factory 將資料載入 Azure SQL 資料倉儲，並使用 SQL Server 資料庫作為資料來源。"
 services: sql-data-warehouse
@@ -16,13 +15,11 @@ ms.topic: article
 ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6474104846eefa1aa7e137e7914b7a7f1ee8a83a
-ms.openlocfilehash: aad76a633b127d23d59dae995d7a503023c5eac7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/09/2017
-
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -38,7 +35,7 @@ ms.lasthandoff: 02/09/2017
 
 - 您需要線上 **SQL 資料倉儲**。 如果您還沒有資料倉儲，請了解如何[建立 Azure SQL 資料倉儲](sql-data-warehouse-get-started-provision.md)。
 
-- 您需要 **Azure 儲存體帳戶**。 如果您還沒有儲存體帳戶，請了解如何[建立儲存體帳戶](../storage/storage-create-storage-account.md)。 為了達到最佳效能，在相同的 Azure 區域中找出儲存體帳戶和資料倉儲。
+- 您需要 **Azure 儲存體帳戶**。 如果您還沒有儲存體帳戶，請了解如何[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。 為了達到最佳效能，在相同的 Azure 區域中找出儲存體帳戶和資料倉儲。
 
 ## <a name="configure-a-data-factory"></a>設定 Data Factory
 1. 登入 [Azure 入口網站][]。
@@ -114,7 +111,7 @@ ms.lasthandoff: 02/09/2017
 
     ![對應結構描述](media/sql-data-warehouse-load-with-data-factory/schema-mapping.png)
 
-4. 按 [下一步] 。
+4. 按一下 [下一步] 。
 
 ## <a name="configure-the-performance-settings"></a>設定效能設定
 在 [效能] 設定中，您可以設定 Azure 儲存體帳戶，在資料載入至 SQL 資料倉儲之前用來暫存資料 (使用 [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly) 會有較高的效能)。 複製完成之後，將會自動清除儲存體中的暫時資料。

@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/17/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dd151e222d6920b8c464146bd30af916925a60bc
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f120caf4ea21299e52782db33994b9bd8f63780d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>在 Government 入口網站中部署您的內部部署 StorSimple 裝置
@@ -210,7 +211,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 請執行下列
 ## <a name="configure-a-new-storage-account-for-the-service"></a>針對服務設定新的儲存體帳戶
 這是選擇性步驟，只有當您並未啟用服務自動建立儲存體帳戶時才需要執行。 必須要有 Microsoft Azure 儲存體帳戶，才能建立 StorSimple 磁碟區容器。
 
-如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md) 以取得逐步指示。
+如果您需要在不同區域建立 Azure 儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 以取得逐步指示。
 
 請在 Government 入口網站上的 [StorSimple Manager 服務]  頁面，執行下列步驟。
 
@@ -260,10 +261,5 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 請執行下列
 ## <a name="next-steps"></a>後續步驟
 * 設定 [虛擬裝置](storsimple-virtual-device-u2.md)。
 * 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx) 以管理 StorSimple 裝置。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

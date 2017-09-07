@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
-ms.openlocfilehash: 65709ef9f6cdd50fb8650a1a11c9321defb9cf5b
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9defbf7a6a515740fa3b3cb1c67a2f5f9d9baa01
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 處理大型資料集
@@ -83,7 +82,7 @@ Data Factory 中有內建的活動，例如複製活動，其可將資料從來�
 如果您沒有 Azure 訂用帳戶，則只需要幾分鐘的時間就可以建立免費試用帳戶。 請參閱 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 #### <a name="azure-storage-account"></a>Azure 儲存體帳戶
-在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。 範例解決方案會使用 Blob 儲存體。
+在本教學課程中，您會使用 Azure 儲存體帳戶來儲存資料。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。 範例解決方案會使用 Blob 儲存體。
 
 #### <a name="azure-batch-account"></a>Azure Batch 帳戶
 使用 [Azure 入口網站](http://manage.windowsazure.com/) 建立 Azure Batch 帳戶。 請參閱 [建立和管理 Azure Batch 帳戶](../batch/batch-account-create-portal.md)。 請記下 Azure Batch 帳戶名稱和帳戶金鑰。 您也可以使用 [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) Cmdlet 建立 Azure Batch 帳戶。 如需使用此 Cmdlet 的詳細指示，請參閱 [開始使用 Azure Batch PowerShell Cmdlet](../batch/batch-powershell-cmdlets-get-started.md) 。
@@ -374,7 +373,7 @@ public IDictionary<string, string> Execute(
 #### <a name="execute-method"></a>Execute 方法
 本節提供 Execute 方法中與程式碼相關的詳細資料和注意事項。
 
-1. 逐一查看輸入集合的成員可在 [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) 命名空間中找到。 逐一查看 blob 集合需要使用 **BlobContinuationToken** 類別。 基本上，您必須搭配使用 do-while 迴圈和權杖做為結束迴圈的機制。 如需詳細資訊，請參閱 [如何從 .NET 使用 Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)。 基本迴圈如下所示：
+1. 逐一查看輸入集合的成員可在 [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) 命名空間中找到。 逐一查看 blob 集合需要使用 **BlobContinuationToken** 類別。 基本上，您必須搭配使用 do-while 迴圈和權杖做為結束迴圈的機制。 如需詳細資訊，請參閱 [如何從 .NET 使用 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 基本迴圈如下所示：
 
     ```csharp
     // Initialize the continuation token.
@@ -513,7 +512,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![](./media/data-factory-data-processing-using-batch/image7.png)
 
-3. 以您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並以 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。 若要了解如何取得儲存體存取金鑰，請參閱 [檢視、複製和重新產生儲存體存取金鑰](../storage/storage-create-storage-account.md#manage-your-storage-account)
+3. 以您的 Azure 儲存體帳戶名稱取代**帳戶名稱**，並以 Azure 儲存體帳戶的存取金鑰取代**帳戶金鑰**。 若要了解如何取得儲存體存取金鑰，請參閱 [檢視、複製和重新產生儲存體存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)
 
 4. 按一下命令列的 [部署]  ，部署連結服務。
 
@@ -531,7 +530,7 @@ test custom activity Microsoft test custom activity Microsoft
    4. 針對 **batchUri** JSON 屬性，輸入 Batch URI。
 
       > [!IMPORTANT]
-      > [Azure Batch 帳戶] 刀鋒視窗中的 **URL** 格式如下：\<accountname\>.\<region\>.batch.azure.com。 針對 JSON 中的 **batchUri** 屬性，您必須從該 URL **移除 "accountname"** 。 範例：`"batchUri": "https://eastus.batch.azure.com"`.
+      > [Azure Batch 帳戶] 刀鋒視窗中的 **URL** 格式如下：\<accountname\>.\<region\>.batch.azure.com。針對 JSON 中的 **batchUri** 屬性，您必須從該 URL **移除 "accountname"** 。 範例：`"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 

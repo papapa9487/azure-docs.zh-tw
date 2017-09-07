@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: rachelap
-translationtype: Human Translation
-ms.sourcegitcommit: fcbd9e10e4cc336dc6ea37f84201249e14b1af91
-ms.openlocfilehash: d22c9e2026c3efc63c5a3baa7ad4505aa269e31d
-ms.lasthandoff: 12/08/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: abfd9a4c1b346377d7f1fc30455a1487b113537d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
@@ -466,7 +466,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。 為了在 
     此設定會指定哪個 Azure 資料中心將會主控您的儲存體帳戶。 在本教學課程中，您的決定並不會造成明顯的差異，但對於生產 Web 應用程式而言，您會希望 Web 伺服器和儲存體帳戶是在相同區域內，以便將延遲和資料輸出費用降到最低。 您稍後將建立的 Web 應用程式的執行區域應該盡可能接近可存取您 Web 應用程式的瀏覽器，以便將延遲降至最低。
 3. 將 [複寫] 下拉式清單設為 [本機備援]。
    
-    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。 地理區域複寫會引發額外成本。 對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。 如需詳細資訊，請參閱 [建立、管理或刪除儲存體帳戶](../storage/storage-create-storage-account.md)。
+    對儲存體帳戶啟用地理區域複寫時，儲存內容會複寫至次要資料中心，以便能在主要位置發生嚴重災難時容錯移轉至該位置。 地理區域複寫會引發額外成本。 對於測試和開發帳戶，您通常不會想要付費使用地理區域複寫功能。 如需詳細資訊，請參閱 [建立、管理或刪除儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 4. 按一下 [建立] 。
 
     ![New storage account](./media/web-sites-dotnet-troubleshoot-visual-studio/newstorage.png)    

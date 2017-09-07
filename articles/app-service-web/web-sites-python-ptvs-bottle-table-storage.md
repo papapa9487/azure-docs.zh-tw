@@ -14,11 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 07/07/2016
 ms.author: huvalo
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: 4aa0e4d036b7031e51abc6ac53872db64c2f90b4
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb25f03607ac6e9af46b47f54e830e0283dd1b0a
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="bottle-and-azure-table-storage-on-azure-with-python-tools-22-for-visual-studio"></a>Azure 上使用 Python Tools 2.2 for Visual Studio 的 Bottle 和 Azure 資料表儲存體
@@ -171,8 +171,8 @@ Azure .NET SDK 提供簡單的方法將 Web 應用程式部署至 Azure App Serv
 <!--Link references-->
 [Python 開發人員中心]: /develop/python/
 [Azure 雲端服務]: ../cloud-services/cloud-services-python-ptvs.md
-[說明文件]: ../storage/storage-python-how-to-use-table-storage.md
-[如何從 Python 使用資料表儲存體服務]: ../storage/storage-python-how-to-use-table-storage.md
+[說明文件]:../cosmos-db/table-storage-how-to-use-python.md
+[如何從 Python 使用資料表儲存體服務]:../cosmos-db/table-storage-how-to-use-python.md
 
 
 <!--External Link references-->

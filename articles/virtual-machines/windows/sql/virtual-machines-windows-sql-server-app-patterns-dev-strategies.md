@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: a8740f3b78de37c09ff7a9250682d47fa9bec1e3
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a716de21e21148a082f49f0f416b14ca0eaa8192
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 應用程式模式和開發策略
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/11/2017
 
 開始閱讀本文之前，您應該先了解 SQL Server 和 Azure 的基本概念。 如需相關資訊，請參閱 [SQL Server 線上叢書](https://msdn.microsoft.com/library/bb545450.aspx)、[Azure 虛擬機器中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md) 以及 [Azure.com](https://azure.microsoft.com/)。
 
-本文會說明一些應用程式模式，它們適用於簡單的應用程式以及複雜度高的企業應用程式。 在詳述每個模式之前，我們建議您應該先熟悉 Azure 中可用的資料儲存體服務，例如 [Azure 儲存體](../../../storage/storage-introduction.md)、[Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 和 [Azure 虛擬機器中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。 若要為應用程式做出最佳設計決策，您必須清楚地了解何時要使用哪一種資料儲存體服務。
+本文會說明一些應用程式模式，它們適用於簡單的應用程式以及複雜度高的企業應用程式。 在詳述每個模式之前，我們建議您應該先熟悉 Azure 中可用的資料儲存體服務，例如 [Azure 儲存體](../../../storage/common/storage-introduction.md)、[Azure SQL Database](../../../sql-database/sql-database-technical-overview.md) 和 [Azure 虛擬機器中的 SQL Server](virtual-machines-windows-sql-server-iaas-overview.md)。 若要為應用程式做出最佳設計決策，您必須清楚地了解何時要使用哪一種資料儲存體服務。
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>若有下列情況，請選擇使用 Azure 虛擬機器中的 SQL Server：
 * 您需要控制 SQL Server 和 Windows。 例如，這可能包括 SQL Server 版本、特殊的 Hotfix、效能組態等等。
@@ -192,7 +192,7 @@ ms.lasthandoff: 08/11/2017
 
 ![應用程式模式搭配雲端服務](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728013.png)
 
-實作此應用程式模式的另一種方法是使用合併的 Web 角色 (包含展示層和商務層元件)，如下圖所示。 如果應用程式需要可設定狀態的設計，此應用程式模式就很實用。 由於 Azure 在 Web 和背景工作角色上提供無狀態的計算節點，因此建議您實作邏輯，以使用下列其中一種技術來儲存工作階段狀態：[Azure 快取](https://azure.microsoft.com/documentation/services/redis-cache/)、[Azure 資料表儲存體](../../../storage/storage-dotnet-how-to-use-tables.md)或 [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md)。
+實作此應用程式模式的另一種方法是使用合併的 Web 角色 (包含展示層和商務層元件)，如下圖所示。 如果應用程式需要可設定狀態的設計，此應用程式模式就很實用。 由於 Azure 在 Web 和背景工作角色上提供無狀態的計算節點，因此建議您實作邏輯，以使用下列其中一種技術來儲存工作階段狀態：[Azure 快取](https://azure.microsoft.com/documentation/services/redis-cache/)、[Azure 資料表儲存體](../../../cosmos-db/table-storage-how-to-use-dotnet.md)或 [Azure SQL Database](../../../sql-database/sql-database-technical-overview.md)。
 
 ![應用程式模式搭配雲端服務](./media/virtual-machines-windows-sql-server-app-patterns-dev-strategies/IC728014.png)
 

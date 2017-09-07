@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: d04d33fede00fbc083d71bc486b726bd7f86c6d0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f90bada3572c0ed40b07d76ec02c1b499bbd1428
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-command-line-interface-cli"></a>使用 Azure 命令列介面 (CLI) 管理 Azure Data Lake Analytics
@@ -86,7 +85,7 @@ ms.lasthandoff: 06/10/2017
 Data Lake Analytics 目前支援下列資料來源：
 
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
-* [Azure 儲存體](../storage/storage-introduction.md)
+* [Azure 儲存體](../storage/common/storage-introduction.md)
 
 當您建立分析帳戶時，必須指定 Azure Data Lake 儲存體帳戶作為預設的儲存體帳戶。 預設的 ADL 儲存體帳戶是用來儲存工作中繼資料與工作稽核記錄。 建立分析帳戶後，就可以新增其他 Azure Data Lake 儲存體帳戶和/或 Azure 儲存體帳戶。 
 

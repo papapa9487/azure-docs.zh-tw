@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: glenga
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 47db68afb8ea938a9861765f9e60c78436569110
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13cfc788c14d714df7022ce003d34691cf73d121
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-azure-table-storage-with-the-webjobs-sdk"></a>如何透過 WebJobs SDK 使用 Azure 資料表儲存體
@@ -139,7 +139,7 @@ ms.lasthandoff: 11/17/2016
             tableBinding.Execute(insertOperation);
         }
 
-如需如何使用 `CloudTable` 物件的詳細資訊，請參閱 [如何從 .NET 使用資料表儲存體](../storage/storage-dotnet-how-to-use-tables.md)。 
+如需如何使用 `CloudTable` 物件的詳細資訊，請參閱 [如何從 .NET 使用資料表儲存體](../cosmos-db/table-storage-how-to-use-dotnet.md)。 
 
 ## <a id="queues"></a>佇列操作說明文章所涵蓋的相關主題
 如需如何處理佇列訊息所觸發的資料表處理的相關資訊，或是非資料表處理特有的 WebJobs SDK 案例，請參閱 [如何透過 WebJobs SDK 使用 Azure 佇列儲存體](websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。 

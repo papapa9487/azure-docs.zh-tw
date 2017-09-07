@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e6a5e3a378a5661c09f770a202c10d270f324447
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fa7d9d3bef4cb326844ede76171e8c566e87116b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 06/01/2017
 
 4. 使用您在上一個步驟中擷取的映像 URI 建立[虛擬機器擴展集][vmss-create]。
 
-如需磁碟的詳細資訊，請參閱[受控磁碟概觀](../storage/storage-managed-disks-overview.md)和[使用連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。
+如需磁碟的詳細資訊，請參閱[受控磁碟概觀](../virtual-machines/windows/managed-disks-overview.md)和[使用連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。
 
 ## <a name="install-when-the-scale-set-is-provisioned"></a>佈建擴展集時安裝
 

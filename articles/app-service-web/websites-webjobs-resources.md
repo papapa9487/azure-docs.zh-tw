@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 9023ca104fcab29bc0b16ecd3a6584848e2d453e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Azure WebJobs 文件資源
@@ -83,7 +82,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 * [是誰撰寫該 Blob？(英文)](http://blogs.msdn.com/b/jmstall/archive/2014/02/19/who-wrote-that-blob.aspx) 
 * [在雲端主控互動式程式碼 (英文)](http://blogs.msdn.com/b/jmstall/archive/2014/04/26/hosting-interactive-code-in-the-cloud.aspx)
 * [將追蹤加入至 Azure WebJobs (英文)](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)
-* [監視、診斷與疑難排解 Microsoft Azure 儲存體](../storage/storage-monitoring-diagnosing-troubleshooting.md)
+* [監視、診斷與疑難排解 Microsoft Azure 儲存體](../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 * 影片
   * [WebJobs 工具和遠端偵錯 (英文)](http://channel9.msdn.com/Shows/Web+Camps+TV/WebJobs-GA-Series-Episode-1-WebJobs-Tooling-with-Brady-Gaster) 
 

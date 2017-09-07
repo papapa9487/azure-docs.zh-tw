@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/10/2017
+ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: c852374b6f6ca58d807631fdfcc8e42abf99b673
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>使用 Azure 匯入/匯出服務將資料離線複製到 Data Lake Store
-在本文中，您將深入了解如何使用離線複製方法 (例如 [Azure 匯入/匯出服務](../storage/storage-import-export-service.md)) 將大型資料集 (>200 GB) 複製到 Azure Data Lake Store 中。 具體來說，作為本文中範例的檔案是 339,420,860,416 個位元組，或在磁碟上大約是 319 GB。 讓我將此檔案稱為 319GB.tsv。
+在本文中，您將深入了解如何使用離線複製方法 (例如 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)) 將大型資料集 (>200 GB) 複製到 Azure Data Lake Store 中。 具體來說，作為本文中範例的檔案是 339,420,860,416 個位元組，或在磁碟上大約是 319 GB。 讓我將此檔案稱為 319GB.tsv。
 
 Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安全地傳輸大量資料至 Azure Blob 儲存體。
 
@@ -50,7 +49,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
     319GB.tsv-part-ad
 
 ## <a name="get-disks-ready-with-data"></a>備妥資料磁碟
-依照[使用 Azure 匯入/匯出服務](../storage/storage-import-export-service.md)的指示 (在**準備磁碟機**一節底下) 來準備您的硬碟。 以下是整體順序︰
+依照[使用 Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)的指示 (在**準備磁碟機**一節底下) 來準備您的硬碟。 以下是整體順序︰
 
 1. 取得符合 Auzre 匯入/匯出服務使用需求的硬碟。
 2. 識別當資料被送至 Azure 資料中心時，將用來複製資料的 Azure 儲存體帳戶。
@@ -59,11 +58,11 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
-    如需更多範例程式碼片段，請參閱[使用 Azure 匯入/匯出服務](../storage/storage-import-export-service.md)。
+    如需更多範例程式碼片段，請參閱[使用 Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)。
 4. 前述命令會在指定的位置建立日誌檔案。 使用此日誌檔案從 [Azure 傳統入口網站](https://manage.windowsazure.com)建立匯入作業。
 
 ## <a name="create-an-import-job"></a>建立匯入作業
-您現在可以依照[使用 Azure 匯入/匯出服務](../storage/storage-import-export-service.md)的指示 (在**準備磁碟機**一節底下) 來建立匯入作業。 針對此匯入作業，除了其他詳細資料之外，也請提供在準備磁碟機時建立的日誌檔。
+您現在可以依照[使用 Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md)的指示 (在**準備磁碟機**一節底下) 來建立匯入作業。 針對此匯入作業，除了其他詳細資料之外，也請提供在準備磁碟機時建立的日誌檔。
 
 ## <a name="physically-ship-the-disks"></a>實際寄送磁碟
 您現在可以將磁碟實際寄送至 Azure 資料中心。 在此，資料將在這裡複製到您建立匯入作業時所提供的 Azure 儲存體 Blob。 此外，如果您在建立作業時選擇了稍後提供追蹤資訊，您現在便可返回您的匯入作業並更新追蹤號碼。

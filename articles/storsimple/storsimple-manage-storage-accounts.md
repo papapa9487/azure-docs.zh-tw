@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4bdef3c0a68b07ee2d6e0ab5344ff7cc41965f1e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>使用 StorSimple Manager 服務管理儲存體帳戶
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/06/2017
 有三種儲存體帳戶類型能與 StorSimple 裝置搭配使用。
 
 * **自動產生的儲存體帳戶** – 正如其名，這類型的儲存體帳戶是在初次建立服務時自動產生。 若要深入了解如何建立此儲存體帳戶，請參閱[部署您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough.md)中的[步驟 1：建立新的服務](storsimple-deployment-walkthrough-u1.md#step-1-create-a-new-service)。 
-* **服務訂用帳戶中的儲存體帳戶** – 這些是與相同服務訂用帳戶相關聯的 Azure 儲存體帳戶。 若要深入了解如何建立這些儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。 
+* **服務訂用帳戶中的儲存體帳戶** – 這些是與相同服務訂用帳戶相關聯的 Azure 儲存體帳戶。 若要深入了解如何建立這些儲存體帳戶，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。 
 * **服務訂用帳戶外的儲存體帳戶** – 這些是與服務毫無關聯的 Azure 儲存體帳戶，而且可能在服務建立之前便已存在 。
 
 ## <a name="add-a-storage-account"></a>新增儲存體帳戶

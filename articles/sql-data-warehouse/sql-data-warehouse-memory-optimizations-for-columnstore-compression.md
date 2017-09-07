@@ -16,10 +16,10 @@ ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: a0452c4dedc218dff17404c4ecee70d788e49644
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -142,7 +142,7 @@ OPTION (MAXDOP 1);
 DWU 大小和使用者資源類別會共同判斷有多少記憶體可供使用者查詢。 若要增加負載查詢的記憶體授權，您可以增加 DWU 數目或增加資源類別。
 
 - 若要增加 DWU，請參閱[如何調整效能？](sql-data-warehouse-manage-compute-overview.md#scale-compute)
-- 若要變更查詢的資源類別，請參閱[變更使用者資源類別的範例](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)。
+- 若要變更查詢的資源類別，請參閱[變更使用者資源類別的範例](sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)。
 
 例如，在 DWU 100 上，smallrc 資源類別中的使用者每個散發可以使用 100 MB 的記憶體。 如需詳細資訊，請參閱 [SQL 資料倉儲中的並行存取](sql-data-warehouse-develop-concurrency.md)。
 

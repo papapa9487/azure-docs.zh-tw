@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 33ccb820b786b9aa28f9e10c35ef1d2c00eaf7f1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4c39d71a2a2f9451531f0c0082c05fd6dc54fbd5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -67,7 +67,7 @@ Azure SQL Database 也支援透明資料加密 (TDE)，TDE 可在不需變更應
 Azure Data Lake Store 也針對儲存在帳戶中的資料提供加密功能。 啟用加密功能時，Data Lake Store 會在保存資料之前先自動加密資料，並在擷取資料之前先解密資料，因此存取該資料的用戶端並不會察覺這個過程。 如需詳細資訊，請參閱 [Azure Data Lake Store 安全性](../data-lake-store/data-lake-store-security-overview.md)。 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob 儲存體和 Azure 資料表儲存體
-「Azure Blob 儲存體」和「Azure 資料表儲存體」支援「儲存體服務加密」(SSE)，此功能會在將資料保存到儲存體之前先自動加密資料，並在擷取資料之前先解密資料。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](../storage/storage-service-encryption.md)。
+「Azure Blob 儲存體」和「Azure 資料表儲存體」支援「儲存體服務加密」(SSE)，此功能會在將資料保存到儲存體之前先自動加密資料，並在擷取資料之前先解密資料。 如需詳細資訊，請參閱[待用資料的 Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)。
 
 #### <a name="amazon-s3"></a>Amazon S3
 Amazon S3 同時支援用戶端和伺服器的待用資料加密。 如需詳細資訊，請參閱[使用加密來保護資料 (英文)](http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingEncryption.html)。 目前，Data Factory 並不支援虛擬私人雲端 (VPC) 內的 Amazon S3。

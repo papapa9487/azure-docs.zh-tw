@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: b25e2d5738a5d8a0f98470678ff03950b0aa4e36
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 40abff72278c9f8d9f701023fd473fe52c17b421
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-5-prepare-azure-resources-for-vmware-replication-to-azure"></a>步驟 5：準備將 VMWare 複寫至 Azure 的 Azure 資源
@@ -54,9 +53,9 @@ ms.lasthandoff: 06/29/2017
 ## <a name="set-up-an-azure-storage-account"></a>設定 Azure 儲存體帳戶
 
 - Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 在容錯移轉發生後，會從該儲存體建立 Azure VM。
-- 為複寫的資料設定 [Azure 儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。
+- 為複寫的資料設定 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 - Azure 入口網站中的 Site Recovery 可以使用在 Resource Manager 中或傳統模式中設定的儲存體帳戶。
-- 此儲存體帳戶可以是標準或[進階](../storage/storage-premium-storage.md)帳戶。
+- 此儲存體帳戶可以是標準或[進階](../storage/common/storage-premium-storage.md)帳戶。
 - 如果您設定的是進階帳戶，則也需要一個額外的標準帳戶來記錄資料。
 
 

@@ -3,8 +3,8 @@ title: "使用 Emulator Express 在本機電腦上執行雲端服務及對其進
 description: "使用 Emulator Express 在本機電腦上執行及偵錯雲端服務"
 services: visual-studio-online
 documentationcenter: n/a
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 73108f98-a552-4817-b7a1-551367b71906
 ms.service: visual-studio-online
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/06/2017
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 882b0b78f94e220e8a94ee3b614c575b509a8170
-ms.lasthandoff: 03/27/2017
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fe31dcb78c6713d93bf87e92ac12341d8692f679
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="using-emulator-express-to-run-and-debug-an-azure-cloud-service-on-a-local-machine"></a>使用 Emulator Express 在本機電腦上執行 Azure 雲端服務及對其進行偵錯
-使用 Emulator Express，您可以測試及偵錯雲端服務，而不需以系統管理員身分執行 Visual Studio。 視您的雲端服務的需求而定，您可以進行專案設定以使用 Emulator Express 或完整模擬器。 如需完整模擬器的詳細資訊，請參閱 [在計算模擬器中執行 Azure 應用程式](storage/storage-use-emulator.md)。
+使用 Emulator Express，您可以測試及偵錯雲端服務，而不需以系統管理員身分執行 Visual Studio。 視您的雲端服務的需求而定，您可以進行專案設定以使用 Emulator Express 或完整模擬器。 如需完整模擬器的詳細資訊，請參閱 [在計算模擬器中執行 Azure 應用程式](storage/common/storage-use-emulator.md)。
 
 ## <a name="using-emulator-express-in-visual-studio"></a>在 Visual Studio 中使用 Emulator Express
 當您在 Azure SDK 2.3 或更新版本中建立 Azure 專案時，會自動使用 Emulator Express。 對於使用舊版 Azure SDK 建立的現有專案，請使用下列步驟來選取 Emulator Express：

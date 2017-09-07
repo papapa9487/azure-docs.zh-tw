@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: d50a4bdbafccd645ca339b2dd1ab97456704e3ae
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 325be23cffc9c728a8af6f92a0f3dce6d31da4ae
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-vmware-virtual-machines-and-physical-servers-to-azure-with-azure-site-recovery-using-the-classic-portal-legacy"></a>在傳統入口網站 (舊版) 中使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure
@@ -122,8 +122,8 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 * **每一主要目標伺服器的來源數目**—可以使用單一主要目標伺服器保護的多個來源機器。 不過，無法跨多個主要目標伺服器保護單一來源機器，因為在磁碟複寫時，會在 Azure Blob 儲存體上建立可反映磁碟大小的 VHD，並將其附加至主要目標伺服器做為資料磁碟。  
 * **每一來源每日變更率上限**—考慮每一來源建議的變更率時，有三個需要考量的因素。 針對目標式考量，來源上每個作業的目標磁碟需要兩個 IOP。 這是因為目標磁碟上將會發生舊資料的讀取和新資料的寫入。
   * **處理序伺服器支援的每日變更率**—來源機器不能跨越多個處理序伺服器。 單一處理序伺服器可以支援多達 1 TB 的每日變更率。 因此 1 TB 是來源機器支援的每日資料變更率上限。
-  * **目標磁碟支援的最大輸送量**—每一來源磁碟的最大變換不能超過 144 GB/天 (以 8K 寫入大小)。 請參閱主要目標小節中的資料表，以取得各種寫入大小的目標的輸送量和 IOP。 必須將此數字除以 2，因為每個來源 IOP 會在目標磁碟上產生 2 個 IOP。 設定進階儲存體帳戶的目標時，請參閱 [Azure 延展性和效能目標](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 。
-  * **儲存體帳戶支援的最大輸送量**—來源不能跨越多個儲存體帳戶。 假設某個儲存體帳戶每秒可接受最多 20,000 個要求，並且每個來源 IOP 會在主要目標伺服器上產生 2 個 IOP，建議您將來源的 IOP 數目保留為 10,000。 設定進階儲存體帳戶的來源時，請參閱 [Azure 延展性和效能目標](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 。
+  * **目標磁碟支援的最大輸送量**—每一來源磁碟的最大變換不能超過 144 GB/天 (以 8K 寫入大小)。 請參閱主要目標小節中的資料表，以取得各種寫入大小的目標的輸送量和 IOP。 必須將此數字除以 2，因為每個來源 IOP 會在目標磁碟上產生 2 個 IOP。 設定進階儲存體帳戶的目標時，請參閱 [Azure 延展性和效能目標](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 。
+  * **儲存體帳戶支援的最大輸送量**—來源不能跨越多個儲存體帳戶。 假設某個儲存體帳戶每秒可接受最多 20,000 個要求，並且每個來源 IOP 會在主要目標伺服器上產生 2 個 IOP，建議您將來源的 IOP 數目保留為 10,000。 設定進階儲存體帳戶的來源時，請參閱 [Azure 延展性和效能目標](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) 。
 
 ### <a name="considerations-for-component-servers"></a>元件伺服器的考量
 表 1 摘要說明設定和主要目標伺服器的虛擬機器大小。
@@ -180,7 +180,7 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 主要目標伺服器的容量計劃仰賴於：
 
 * Azure 儲存體效能和限制
-  * 單一儲存體帳戶中標準層 VM 的高度使用的磁碟數目上限約為 40 (每一磁碟 20,000/500 IOPS)。 請參閱[標準儲存體帳戶的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)和[進階儲存體帳戶的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)。
+  * 單一儲存體帳戶中標準層 VM 的高度使用的磁碟數目上限約為 40 (每一磁碟 20,000/500 IOPS)。 請參閱[標準儲存體帳戶的延展性目標](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)和[進階儲存體帳戶的延展性目標](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)。
 * 每日變更率
 * 保留磁碟區儲存體。
 
@@ -199,7 +199,7 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 | **元件** | **需求** | **詳細資料** |
 | --- | --- | --- |
 | **Azure 帳戶** |您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。 | |
-| **Azure 儲存體** |您需要 Azure 儲存體帳戶來儲存複寫的資料<br/><br/> 帳戶應該是[標準異地備援儲存體帳戶](../storage/storage-redundancy.md#geo-redundant-storage)或[進階儲存體帳戶](../storage/storage-premium-storage.md)。<br/><br/> 此帳戶應與 Azure 站台復原服務位於相同的區域，且與相同的訂閱相關聯。 我們不支援使用 [新的 Azure 入口網站](../storage/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。<br/><br/> 若要深入了解，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md) | |
+| **Azure 儲存體** |您需要 Azure 儲存體帳戶來儲存複寫的資料<br/><br/> 帳戶應該是[標準異地備援儲存體帳戶](../storage/common/storage-redundancy.md#geo-redundant-storage)或[進階儲存體帳戶](../storage/common/storage-premium-storage.md)。<br/><br/> 此帳戶應與 Azure 站台復原服務位於相同的區域，且與相同的訂閱相關聯。 我們不支援使用 [新的 Azure 入口網站](../storage/common/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。<br/><br/> 若要深入了解，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md) | |
 | **Azure 虛擬網路** |您需要一部 Azure 虛擬網路來部署組態伺服器與主要目標伺服器。 它應該與 Azure Site Recovery 保存庫位於相同的訂用帳戶和區域中。 如果您想要透過 ExpressRoute 或 VPN 連接來複寫資料，Azure 虛擬網路必須透過 ExpressRoute 連線或站對站 VPN 連接到內部部署網路。 | |
 | **Azure 資源** |請確認您有足夠的 Azure 資源以部署所有元件。 如需深入了解，請參閱 [Azure 訂用帳戶限制](../azure-subscription-service-limits.md)。 | |
 | **Azure 虛擬機器** |您想要保護的虛擬機器應該要符合 [Azure 必要條件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。<br/><br/> **磁碟計數**—一個受保護的伺服器最多可支援 31 個磁碟<br/><br/> **磁碟大小**—個別磁碟容量不可超過 1023 GB<br/><br/> **叢集**—不支援叢集伺服器<br/><br/> **開機**—不支援整合可延伸韌體介面 (UEFI)/可延伸韌體介面 (EFI) 開機<br/><br/> **磁碟區**—不支援 Bitlocker 加密的磁碟區<br/><br/> **伺服器名稱**—名稱應包含介於 1 到 63 個字元 (字母、數字和連字號)。 名稱必須以字母或數字開頭，並以字母或數字結尾。 機器受到保護之後，您可以修改 Azure 的名稱。 | |
@@ -352,7 +352,7 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
 請注意，任何子網路中的前四個 IP 位址是保留給內部 Azure 使用。 指定任何其他可用的 IP 位址。
 
 > [!NOTE]
-> 針對需要一致的高 I/O 效能和低延遲的工作負載，在為其設定保護時，請選取 [標準 DS4]，以便使用 [進階儲存體帳戶](../storage/storage-premium-storage.md)來裝載需要大量 I/O 的工作負載。
+> 針對需要一致的高 I/O 效能和低延遲的工作負載，在為其設定保護時，請選取 [標準 DS4]，以便使用 [進階儲存體帳戶](../storage/common/storage-premium-storage.md)來裝載需要大量 I/O 的工作負載。
 >
 >
 
@@ -396,7 +396,7 @@ Site Recovery 是一項 Azure 服務，可藉由將內部部署實體伺服器�
    7. 執行 “**sudo ./install -t both -a host -R MasterTarget -d /usr/local/ASR -i *`<Configuration server internal IP address>`* -p 443 -s y -c https -P passphrase.txt**” 命令。
 
       ![註冊目標伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/linux-mt-install.png)
-7. 等候幾分鐘 (10-15)，然後在頁面上，檢查主要目標伺服器在 [伺服器]  >  [組態伺服器] > [伺服器詳細資料] 索引標籤上是否列為已註冊。 如果您在執行 Linux 而且伺服器並未註冊，請再次從 /usr/local/ASR/Vx/bin/hostconfigcli 執行主機設定工具。 您必須藉由執行 chmod 做為根使用者，以設定存取權限。
+7. 等候幾分鐘 (10-15)，然後在頁面上，檢查主要目標伺服器在 [伺服器]  >  [組態伺服器] > [伺服器詳細資料] 索引標籤上是否列為已註冊。如果您在執行 Linux 而且伺服器並未註冊，請再次從 /usr/local/ASR/Vx/bin/hostconfigcli 執行主機設定工具。 您必須藉由執行 chmod 做為根使用者，以設定存取權限。
 
     ![確認目標伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/target-server-list.png)
 
@@ -643,10 +643,10 @@ Site Recovery 元件會不定時更新。 當有新的更新可用時，您應�
 3. 在 [選取虛擬機器]  中，如果您要保護 VMware 虛擬機器，請選取正在負責管理您的虛擬機器 (或其執行所在的 EXSi 主機) 的 vCenter 伺服器，然後選取機器。
 
     ![加入 V-Center 伺服器](./media/site-recovery-vmware-to-azure-classic-legacy/select-vms.png)    
-4. 在 [指定目標資源]  中，選取要用於複寫主要目標伺服器和儲存體，並選取設定是否應該用於所有工作負載。 設定工作負載的保護時選取 [進階儲存體帳戶](../storage/storage-premium-storage.md) ，該工作負載需要一致高 IO 效能和低延遲，以裝載需要大量 IO 的工作負載。 如果您希望針對您的工作負載磁碟使用進階儲存體帳戶，您必須使用 DS 系列的主要目標。 您無法搭配使用進階儲存體磁碟與非 DS 系列的主要目標。
+4. 在 [指定目標資源]  中，選取要用於複寫主要目標伺服器和儲存體，並選取設定是否應該用於所有工作負載。 設定工作負載的保護時選取 [進階儲存體帳戶](../storage/common/storage-premium-storage.md) ，該工作負載需要一致高 IO 效能和低延遲，以裝載需要大量 IO 的工作負載。 如果您希望針對您的工作負載磁碟使用進階儲存體帳戶，您必須使用 DS 系列的主要目標。 您無法搭配使用進階儲存體磁碟與非 DS 系列的主要目標。
 
    > [!NOTE]
-   > 我們不支援使用 [新的 Azure 入口網站](../storage/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。
+   > 我們不支援使用 [新的 Azure 入口網站](../storage/common/storage-create-storage-account.md) 來跨資源群組移動所建立的儲存體帳戶。
    >
    >
 

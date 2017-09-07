@@ -3,8 +3,8 @@ title: "使用儲存體 Explorer 管理 Azure Blob 儲存體資源 (預覽) | Mi
 description: "使用儲存體 Explorer 來管理 Azure Blob 容器和 Blob (預覽)"
 services: storage
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 2f09e545-ec94-4d89-b96c-14783cc9d7a9
 ms.service: storage
@@ -13,16 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f779106e8ca79260c8abba070586e3f03ffa61e9
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e766962d0d4ec8499b2735b58fc2339ce04fdbe2
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer-preview"></a>使用儲存體 Explorer 來管理 Azure Blob 儲存體資源 (預覽)
 ## <a name="overview"></a>概觀
-[Azure Blob 儲存體](storage/storage-dotnet-how-to-use-blobs.md)是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。
+[Azure Blob 儲存體](storage/blobs/storage-dotnet-how-to-use-blobs.md)是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。
 您可以使用 Blob 儲存體向全球公開資料，或私下儲存應用程式資料。 在本文中，您將學習如何使用儲存體 Explorer (預覽) 來使用 blob 容器和 blob。
 
 ## <a name="prerequisites"></a>必要條件
@@ -41,7 +42,7 @@ ms.openlocfilehash: f779106e8ca79260c8abba070586e3f03ffa61e9
 3. 以滑鼠右鍵按一下 [Blob 容器]，從內容功能表中，選取 [建立 Blob 容器]。
 
    ![建立 Blob 容器內容功能表][0]
-4. [Blob 容器]  資料夾底下會出現文字方塊。 輸入 blob 容器的名稱。 請參閱 [容器命名規則](storage/storage-dotnet-how-to-use-blobs.md#create-a-container) 區段，以取得命名 blob 容器的規則和限制的清單。
+4. [Blob 容器]  資料夾底下會出現文字方塊。 輸入 blob 容器的名稱。 請參閱 [容器命名規則](storage/blobs/storage-dotnet-how-to-use-blobs.md#create-a-container) 區段，以取得命名 blob 容器的規則和限制的清單。
 
    ![建立 Blob 容器文字方塊][1]
 5. 完成建立 blob 容器時按下 **Enter**鍵，或按下 **Esc** 鍵取消。 一旦成功建立 blob 容器，它就會顯示在所選的儲存體帳戶的 [Blob 容器]  資料夾底下。
@@ -96,7 +97,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
    ![貼上 Blob 容器內容功能表][7]
 
 ## <a name="get-the-sas-for-a-blob-container"></a>取得 Blob 容器的 SAS
-[共用存取簽章 (SAS)](storage/storage-dotnet-shared-access-signature-part-1.md) 可提供您儲存體帳戶中資源的委派存取。
+[共用存取簽章 (SAS)](storage/common/storage-dotnet-shared-access-signature-part-1.md) 可提供您儲存體帳戶中資源的委派存取。
 這表示您可以在無需分享您帳戶存取金鑰的情況下，將您儲存體帳戶中的物件有限權限授與用戶端，該用戶端便可在指定的時間期間內及使用指定的權限集來進行存取。
 
 下列步驟說明如何建立 blob 容器的 SAS：
@@ -174,7 +175,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      2. 在 [上傳檔案] 對話方塊中，選擇 [檔案] 文字方塊右側的省略符號 (**…**) 按鈕，以選取您想要上傳的檔案。
 
         ![上傳檔案選項][16]
-     3. 指定 [Blob 類型] 的類型。 文章 [以 .NET 開始使用 Azure Blob 儲存體](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 說明各種不同的 blob 類型之間的差異。
+     3. 指定 [Blob 類型] 的類型。 文章 [以 .NET 開始使用 Azure Blob 儲存體](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 說明各種不同的 blob 類型之間的差異。
      4. 選擇性地指定選取的檔案將會上傳至其中的目標資料夾。 如果目標資料夾不存在，系統就會加以建立。
      5. 選取 [上傳] 。
    * **將資料夾上傳至 blob 容器**
@@ -185,7 +186,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      2. 在 [上傳資料夾] 對話方塊中，選擇 [資料夾] 文字方塊右側的省略符號 (**…**) 按鈕，以選取您想要上傳其內容的資料夾。
 
         ![上傳資料夾選項][18]
-     3. 指定 [Blob 類型] 的類型。 文章 [以 .NET 開始使用 Azure Blob 儲存體](storage/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 說明各種不同的 blob 類型之間的差異。
+     3. 指定 [Blob 類型] 的類型。 文章 [以 .NET 開始使用 Azure Blob 儲存體](storage/blobs/storage-dotnet-how-to-use-blobs.md#blob-service-concepts) 說明各種不同的 blob 類型之間的差異。
      4. 選擇性地指定選取的資料夾的內容將會上傳至其中的目標資料夾。 如果目標資料夾不存在，系統就會加以建立。
      5. 選取 [上傳] 。
    * **將 blob 下載到本機電腦**
@@ -235,9 +236,4 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
 [17]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-menu.png
 [18]: ./media/vs-azure-tools-storage-explorer-blobs/blob-upload-folder-options.png
 [19]: ./media/vs-azure-tools-storage-explorer-blobs/blob-container-open-editor-context-menu.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

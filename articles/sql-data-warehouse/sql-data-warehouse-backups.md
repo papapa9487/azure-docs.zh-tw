@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: ef2e6e7a19c7ed1730fdec5eca73c941e1b319c4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="sql-data-warehouse-backups"></a>SQL 資料倉儲備份
@@ -35,15 +35,15 @@ SQL 資料倉儲會透過將您的資料儲存在本地備援 (LRS) Azure 進階
 
 若要深入了解：
 
-* Azure 進階儲存體，請參閱 [Azure 進階儲存體簡介](../storage/storage-premium-storage.md)。
-* 本地備援儲存體，請參閱 [Azure 儲存體複寫](../storage/storage-redundancy.md#locally-redundant-storage)。
+* Azure 進階儲存體，請參閱 [Azure 進階儲存體簡介](../storage/common/storage-premium-storage.md)。
+* 本地備援儲存體，請參閱 [Azure 儲存體複寫](../storage/common/storage-redundancy.md#locally-redundant-storage)。
 
 ## <a name="azure-storage-blob-snapshots"></a>Azure 儲存體 Blob 快照集
 使用 Azure 進階儲存體的一項優點是，SQL 資料倉儲會使用 Azure 儲存體 Blob 快照集來將資料倉儲備份在本地位置。 您可以將資料倉儲還原至快照集還原點。 快照集至少每八個小時會啟動，並且可供使用七天。  
 
 若要深入了解：
 
-* Azure Blob 快照集，請參閱[建立 Blob 快照集](../storage/storage-blob-snapshots.md)。
+* Azure Blob 快照集，請參閱[建立 Blob 快照集](../storage/blobs/storage-blob-snapshots.md)。
 
 ## <a name="geo-redundant-backups"></a>異地備援備份
 每 24 個小時，SQL 資料倉儲就會在標準儲存體中儲存完整資料倉儲。 完整資料倉儲的建立時間會與上一個快照集的時間相符。 標準儲存體屬於具備讀取權限的異地備援儲存體帳戶 (RA-GRS)。 Azure 儲存體 RA-GRS 功能會將備份檔案複寫到 [配對的資料中心](../best-practices-availability-paired-regions.md)。 萬一您無法存取主要地區中的快照集，此異地複寫可確保您能夠還原資料倉儲。 
@@ -62,8 +62,8 @@ SQL 資料倉儲會透過將您的資料儲存在本地備援 (LRS) Azure 進階
 
 若要深入了解：
 
-* 異地備援儲存體，請參閱 [Azure 儲存體複寫](../storage/storage-redundancy.md)。
-* RA-GRS 儲存體：請參閱 [讀取權限異地備援儲存體](../storage/storage-redundancy.md#read-access-geo-redundant-storage)。
+* 異地備援儲存體，請參閱 [Azure 儲存體複寫](../storage/common/storage-redundancy.md)。
+* RA-GRS 儲存體：請參閱 [讀取權限異地備援儲存體](../storage/common/storage-redundancy.md#read-access-geo-redundant-storage)。
 
 ## <a name="data-warehouse-backup-schedule-and-retention-period"></a>資料倉儲備份排程與保留期限
 SQL 資料倉儲每四到八小時就會在您的線上資料倉儲上建立快照集，並將每個快照集保留七天。 您可以將線上資料庫還原至過去七天內的其中一個還原點。 

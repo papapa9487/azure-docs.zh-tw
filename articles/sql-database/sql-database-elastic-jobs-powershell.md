@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 9b212bcfcb604319ff9bc39fd284a5eb98c0d2c3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b4c97e8f51581f9a3f7c5a8d8e82562255fe7b48
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>使用 PowerShell 建立和管理 SQL Database 彈性作業 (預覽)
@@ -610,7 +609,7 @@ ms.lasthandoff: 06/20/2017
     Write-Output $jobTriggers
 
 ## <a name="to-create-a-data-tier-application-dacpac-for-execution-across-databases"></a>建立資料層應用程式 (DACPAC) 以跨資料庫執行
-若要建立 DACPAC，請參閱 [資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)。 若要部署 DACPAC、請使用 [New-AzureSqlJobContent Cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent)。 DACPAC 必須可供服務存取。 建議將建立的 DACPAC 上傳至 Azure 儲存體，並且為 DACPAC 建立 [共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md) 。
+若要建立 DACPAC，請參閱 [資料層應用程式](https://msdn.microsoft.com/library/ee210546.aspx)。 若要部署 DACPAC、請使用 [New-AzureSqlJobContent Cmdlet](/powershell/module/elasticdatabasejobs/new-azuresqljobcontent)。 DACPAC 必須可供服務存取。 建議將建立的 DACPAC 上傳至 Azure 儲存體，並且為 DACPAC 建立 [共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 。
 
     $dacpacUri = "{Uri}"
     $dacpacName = "{Dacpac Name}"

@@ -3,8 +3,8 @@ title: "準備從 Visual Studio 發佈或部署 Azure 應用程式 | Microsoft D
 description: "了解設定雲端和儲存體帳戶服務以及 Azure 應用程式的程序。"
 services: visual-studio-online
 documentationcenter: na
-author: TomArcher
-manager: douge
+author: kraigb
+manager: ghogen
 editor: 
 ms.assetid: 92ee2f9e-ec49-4c7a-900d-620abe5e9d8a
 ms.service: multiple
@@ -13,11 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
-ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
-
+ms.author: kraigb
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 967501fa8ac4b2471a62afabc18a12a71776eaac
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="prepare-to-publish-or-deploy-an-azure-application-from-visual-studio"></a>準備從 Visual Studio 發佈或部署 Azure 應用程式
@@ -116,16 +117,11 @@ ms.openlocfilehash: 5d747a7c34b340c6f98dabb2c3ff4d3340e74e4a
        * **指定自訂端點** 。 然後您可以將這些端點輸入特定服務的欄位。
 
          > [!NOTE]
-         > 如果您建立自訂端點，您可以建立更複雜的連接字串。 當您使用這個字串格式，您可以指定儲存體服務端點，其包含您向 Blob 服務註冊儲存體帳戶的自訂網域名稱。 您也可以透過共用的存取簽章，只在單一容器中授與 blob 資源的存取權。 如需關於如何建立自訂端點的詳細資訊，請參閱 [設定 Azure 儲存體連接字串](storage/storage-configure-connection-string.md)。
+         > 如果您建立自訂端點，您可以建立更複雜的連接字串。 當您使用這個字串格式，您可以指定儲存體服務端點，其包含您向 Blob 服務註冊儲存體帳戶的自訂網域名稱。 您也可以透過共用的存取簽章，只在單一容器中授與 blob 資源的存取權。 如需關於如何建立自訂端點的詳細資訊，請參閱 [設定 Azure 儲存體連接字串](storage/common/storage-configure-connection-string.md)。
          >
          >
 11. 若要儲存這些連接字串的變更，請選擇 [確定] 按鈕，然後選擇工具列上的 [儲存] 按鈕。 儲存這些變更後，您可以使用 [GetConfigurationSettingValue](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getconfigurationsettingvalue.aspx)，在程式碼中取得這個連接字串的值。 當您將應用程式發佈至 Azure 時，請選擇包含連接字串之 Azure 儲存體帳戶的服務組態。 發佈您的應用程式之後，請確認應用程式如預期般對 Azure 儲存體服務運作
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何將應用程式從 Visual Studio 發佈至 Azure，請參閱 [使用 Azure Tools 發佈雲端服務](vs-azure-tools-publishing-a-cloud-service.md)。
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

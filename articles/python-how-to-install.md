@@ -96,7 +96,7 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
-您可以選擇是否要使用 PTVS，不過我們建議您使用，因為它能提供 Python 和 Web 專案/方案支援、偵錯、程式碼剖析、互動式視窗、範本編輯和 IntelliSense。
+您可以選擇是否要使用 PTVS，不過我們建議您使用，因為它能提供 Python 和 Web 專案/方案支援、偵錯、分析、互動式視窗、範本編輯和 IntelliSense。
 
 PTVS 也能讓您使用部署至[雲端服務](cloud-services/cloud-services-python-ptvs.md)和[網站](app-service-web/web-sites-python-ptvs-django-mysql.md)的支援，輕鬆部署至 Microsoft Azure。
 

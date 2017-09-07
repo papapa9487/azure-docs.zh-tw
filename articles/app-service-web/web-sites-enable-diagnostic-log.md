@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 9993d6f6ef46366d00f5c44812380b3f1e07d9ef
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7b125aeb9c0ee1dcbb199da98b0ce079820ea85c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
@@ -72,7 +71,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 * **保留週期** - 依預設，所有記錄不會自動從 [Blob 儲存體] 中刪除。 如果您想要讓系統自動刪除記錄的話，請選取 [set retention]  並輸入記錄保留天數。
 
 > [!NOTE]
-> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
+> 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
 >
 > 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。 儲存您的設定。
 > 2. 重新啟用記錄至儲存體帳戶 Blob 或資料表。 儲存您的設定。

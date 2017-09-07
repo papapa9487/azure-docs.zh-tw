@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 03ba6cc5e0bb4cfe88ca704d56083e204a1a576b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 97aa69745d200ee76f9f859eb3a8b0ad2f202bad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>如何從 Windows 虛擬機器卸離資料磁碟
 當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。 這會將磁碟從虛擬機器中卸離，但這不會將它從儲存體中移除。
 
 > [!WARNING]
-> 將磁碟中斷連結時，並不會自動將它刪除。 如果您已訂閱「進階」儲存體，您將會繼續因該磁碟而導致產生儲存體費用。 如需詳細資訊，請參閱 [使用進階儲存體時的價格和計費](../../storage/storage-premium-storage.md#pricing-and-billing)。
+> 將磁碟中斷連結時，並不會自動將它刪除。 如果您已訂閱「進階」儲存體，您將會繼續因該磁碟而導致產生儲存體費用。 如需詳細資訊，請參閱 [使用進階儲存體時的價格和計費](../../storage/common/storage-premium-storage.md#pricing-and-billing)。
 >
 >
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 99d18aa55ea7bd7abcb50ba32c8f6a5f130ec031
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ca4c6cb9296028275b2b032af0c94baabeec1223
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-image-by-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 從自訂磁碟映像上傳並建立 Linux VM
@@ -139,7 +139,7 @@ azure group create myResourceGroup --location "WestUS"
 ```
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
-VM 會以分頁 Blob 的形式儲存在儲存體帳戶內。 從[這裡](../../storage/storage-introduction.md#blob-storage)深入了解 Azure Blob 儲存體。 您要為自訂磁碟映像和 VM 建立儲存體帳戶。 您從自訂磁碟映像建立的所有 VM 都必須位於與該映像相同的儲存體帳戶中。
+VM 會以分頁 Blob 的形式儲存在儲存體帳戶內。 從[這裡](../../storage/common/storage-introduction.md#blob-storage)深入了解 Azure Blob 儲存體。 您要為自訂磁碟映像和 VM 建立儲存體帳戶。 您從自訂磁碟映像建立的所有 VM 都必須位於與該映像相同的儲存體帳戶中。
 
 下列範例會在先前建立的資源群組中建立名為 `mystorageaccount` 的儲存體帳戶：
 
@@ -149,7 +149,7 @@ azure storage account create mystorageaccount --resource-group myResourceGroup \
 ```
 
 ## <a name="list-storage-account-keys"></a>列出儲存體帳戶金鑰
-Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如為了執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/storage-create-storage-account.md#manage-your-storage-account)深入了解如何管理對儲存體的存取。 您可以使用 `azure storage account keys list` 命令來檢視存取金鑰。
+Azure 會為每個儲存體帳戶產生兩個 512 位元的存取金鑰。 對儲存體帳戶進行驗證時 (例如為了執行寫入作業)，就會使用這些存取金鑰。 從 [這裡](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)深入了解如何管理對儲存體的存取。 您可以使用 `azure storage account keys list` 命令來檢視存取金鑰。
 
 檢視您所建立儲存體帳戶的存取金鑰：
 

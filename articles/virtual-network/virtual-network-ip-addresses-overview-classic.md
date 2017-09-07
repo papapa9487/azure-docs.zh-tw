@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: c9eb4bad1c0069b3f8ed2df30ef72b2c530ffab3
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
@@ -34,7 +33,7 @@ ms.lasthandoff: 06/23/2017
 > Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。  本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議大部分的新部署使用 Resource Manager。 請參閱 [IP 位址](virtual-network-ip-addresses-overview-arm.md)文章，以了解 Resource Manager 中的 IP 位址。
 
 ## <a name="public-ip-addresses"></a>公用 IP 位址
-Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[SQL Database](../sql-database/sql-database-technical-overview.md) 和 [Azure 儲存體](../storage/storage-introduction.md)) 進行通訊。
+Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[SQL Database](../sql-database/sql-database-technical-overview.md) 和 [Azure 儲存體](../storage/common/storage-introduction.md)) 進行通訊。
 
 公用 IP 位址與下列任何資源相關聯：
 
