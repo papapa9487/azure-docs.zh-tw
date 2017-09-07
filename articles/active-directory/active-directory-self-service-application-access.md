@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7872d5229cdc053bfb9dc8ddba01785b0f8e5a9a
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Azure Active Directory 的自助式應用程式存取和委派管理
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/28/2017
 
 4. 新增應用程式之後，您將取得 [快速啟動] 頁面。 按一下 [設定單一登入] 、選取所需的單一登入模式，然後儲存設定。 
 
-5. 接下來，選取 [設定] 索引標籤。 若要讓使用者要求從 Azure AD 存取面板存取此應用程式，請將 [允許自助式應用程式存取] 設定為 [是]。
+5. 接下來，選取 [設定] 索引標籤。若要讓使用者要求從 Azure AD 存取面板存取此應用程式，請將 [允許自助式應用程式存取] 設定為 [是]。
   
   ![][1]
 

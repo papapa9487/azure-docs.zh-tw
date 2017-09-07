@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/3/2017
+ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 93808e617f33a5c78e5c89f4dac4680d44724d1c
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 91ffe6fa182f0d5e4294031787b853c33ea460df
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET 追蹤記錄
@@ -185,7 +185,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 ### <a name="no-log-adapter-option-in-the-configuration-tool"></a>組態工具中沒有記錄配接器選項
 * 您必須先安裝記錄架構。
 * 如果您使用 System.Diagnostics.Trace，請確定您[已在 `web.config`](https://msdn.microsoft.com/library/system.diagnostics.eventlogtracelistener.aspx) 中設定它。
-* 您已有最新版的 Application Insights 嗎？ 在 Visual Studio 的 [工具] 功能表中，選擇 [擴充功能和更新]，然後開啟 [更新] 索引標籤。 如果發現開發人員分析工具，請按一下該工具以進行更新。
+* 您已有最新版的 Application Insights 嗎？ 在 Visual Studio 的 [工具] 功能表中，選擇 [擴充功能和更新]，然後開啟 [更新] 索引標籤。如果發現開發人員分析工具，請按一下該工具以進行更新。
 
 ### <a name="emptykey"></a>我收到「檢測金鑰不能是空白」的錯誤
 您可能只安裝記錄配接器 Nuget 封裝，但未安裝 Application Insights。
@@ -196,7 +196,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 有時候可能需要一段時間，所有事件和要求才會通過管線。
 
 ### <a name="limits"></a>保留多少資料？
-有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制](app-insights-api-custom-events-metrics.md#limits) 區段。 
+有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制][](app-insights-api-custom-events-metrics.md#limits) 區段。 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>我沒看到一些預期的記錄項目
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。 [深入了解取樣。](app-insights-sampling.md)

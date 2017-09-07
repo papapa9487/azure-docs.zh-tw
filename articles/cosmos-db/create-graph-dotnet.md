@@ -12,14 +12,14 @@ ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 07/28/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: a973b81ea5b06c5826cc31c399aae9dec43f5b72
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 12c9bf626de8738fac95bd41965b0a2bf8758ed2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-graph-api"></a>Azure Cosmos DB：使用圖形 API 來建置 .NET 應用程式
@@ -109,7 +109,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     ![在 Azure 入口網站的 [金鑰] 頁面上檢視並複製主要金鑰](./media/create-graph-dotnet/keys.png)
 
-3. 從入口網站複製您的 [URI] 值，並使它成為 App.config 中的端點金鑰值。 您可以使用上面螢幕擷取畫面中所示的複製按鈕來複製此值。
+3. 從入口網站複製您的 [URI] 值，並使它成為 App.config 中的端點金鑰值。您可以使用上面螢幕擷取畫面中所示的複製按鈕來複製此值。
 
     `<add key="Endpoint" value="https://FILLME.documents.azure.com:443" />`
 

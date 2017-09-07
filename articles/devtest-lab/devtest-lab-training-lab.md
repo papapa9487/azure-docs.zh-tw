@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2016
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a85999b7963e9a07d3f91ec47f298f91439c0808
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 3bad7538121e1049af953e3937fc679b1d9184d9
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="use-azure-devtest-labs-for-training"></a>使用 Azure DevTest Labs 進行訓練
@@ -79,7 +79,7 @@ Azure DevTest Labs 符合下列在任何虛擬環境進行訓練所必須具備�
    | 工作 | 您學到什麼 |
    | --- | --- |
    | [定義實驗室原則](devtest-lab-set-lab-policy.md) |在實驗室中設定原則來控制成本。 |
-   | [使用 PowerShell 指令碼刪除所有實驗室 VM](devtest-lab-faq.md#how-can-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |當訓練完成時，在一次作業中刪除所有實驗室。 |
+   | [使用 PowerShell 指令碼刪除所有實驗室 VM](devtest-lab-faq.md#how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab) |當訓練完成時，在一次作業中刪除所有實驗室。 |
 5. **與每位受訓者共用實驗室**
    
     使用您分享給受訓者的連結即可直接存取實驗室。 受訓者甚至不必有 Azure 帳戶，只要他們擁有 [Microsoft 帳戶](devtest-lab-faq.md#what-is-a-microsoft-account)。 受訓者無法看到其他受訓者所建立的 VM。  
@@ -99,7 +99,7 @@ Azure DevTest Labs 符合下列在任何虛擬環境進行訓練所必須具備�
    
    | 工作 | 您學到什麼 |
    | --- | --- |
-   | [使用 Resource Manager 範本建立實驗室](devtest-lab-faq.md#how-do-i-create-a-lab-from-an-azure-resource-manager-template) |在 Azure DevTest Labs 中使用 Resource Manager 範本建立實驗室。 |
+   | [使用 Resource Manager 範本建立實驗室](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |在 Azure DevTest Labs 中使用 Resource Manager 範本建立實驗室。 |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

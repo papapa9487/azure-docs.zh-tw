@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 615b1886137031b405eb512f2b175de34d0e1115
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知
@@ -71,13 +71,13 @@ ms.lasthandoff: 08/30/2017
 3. 選取 [Generic Webhook - C#] (泛型 Webhook - C#)。
 4. 命名您的 Webhook，然後按 [建立]。
 
-## <a name="files"></a>檔案
+### <a name="files"></a>檔案
 
 您的 Azure 函式會與本節所述的程式碼檔案和其他檔案建立關聯。 根據預設，函式會與 **function.json** 和 **run.csx** (C#) 檔案相關聯。 您必須新增 **project.json** 檔案。 本節其餘部分會說明這些檔案的定義。
 
 ![檔案](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 function.json 檔案會定義函式繫結和其他組態設定。 執行階段使用此檔案來判斷要監視的事件，以及如何傳入資料並從函式執行傳回資料。 
 
@@ -100,7 +100,7 @@ function.json 檔案會定義函式繫結和其他組態設定。 執行階段�
 }
 ```
 
-### <a name="projectjson"></a>project.json
+#### <a name="projectjson"></a>project.json
 
 project.json 檔案包含相依性。 
 
@@ -119,7 +119,7 @@ project.json 檔案包含相依性。
 }
 ```
     
-### <a name="runcsx"></a>run.csx
+#### <a name="runcsx"></a>run.csx
 
 本節的程式碼示範如何實作作為 Webhook 的 Azure 函式。 在此範例中，此函式會接聽來自媒體服務通知的 Webhook 回呼，並在作業完成之後發佈輸出資產。
 
@@ -346,7 +346,7 @@ internal sealed class NotificationMessage
 
 儲存並執行您的函式。
 
-## <a name="function-output"></a>函式輸出
+### <a name="function-output"></a>函式輸出
 
 觸發 Webhook 之後，上述範例會產生下列輸出，而您的值可能會不同。
 

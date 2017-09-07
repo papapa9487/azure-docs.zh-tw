@@ -1,10 +1,10 @@
 ---
-title: "適用於 IntelliJ 的 Azure 工具組登入指示 | Microsoft Docs"
+title: "Azure Toolkit for IntelliJ 的登入指示"
 description: "了解如何使用適用於 IntelliJ 的 Azure 工具組登入 Microsoft Azure。"
 services: 
 documentationcenter: java
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 
 ms.service: multiple
@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: Java
 ms.topic: article
-ms.date: 04/14/2017
+ms.date: 08/20/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 4e2ed072bdaea0a71fef042c0c72b7656a42bbe8
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: def5957b2ed58aee2e03c879ba9fd3d6c714e358
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,46 +26,12 @@ ms.lasthandoff: 05/15/2017
 
 適用於 IntelliJ 的 Azure 工具組提供兩種登入您 Azure 帳戶的方法︰
 
-  * **互動式**︰在每次登入 Azure 帳戶時要輸入 Azure 認證。
   * **自動化**︰建立認證檔案，用以自動登入 Azure 帳戶。
+  * **互動式**︰在每次登入 Azure 帳戶時要輸入 Azure 認證。
 
 下列各節會說明如何使用每個方法。
 
 [!INCLUDE [azure-toolkit-for-intellij-prerequisites](../includes/azure-toolkit-for-intellij-prerequisites.md)]
-
-## <a name="sign-in-to-your-azure-account-interactively"></a>以互動方式登入您的 Azure 帳戶
-
-若要以手動方式輸入您的 Azure 認證來登入 Azure，請執行下列作業︰
-
-1. 使用 IntelliJ IDEA 開啟您的專案。
-
-2. 按一下 [工具]，指向 [Azure]，然後按一下 [Azure 登入]。
-
-   ![IntelliJ 的 [Azure 登入] 命令][I01]
-
-3. 在 [Azure 登入] 視窗中，選取 [互動式]，然後按一下 [登入]。
-
-   ![選取了 [互動式] 的 [Azure 登入] 視窗][I02]
-
-4. 在 [Azure 登入] 對話方塊出現時，輸入您的 Azure 認證，然後按一下 [登入]。
-
-   ![[Azure 登入] 對話方塊視窗][I03]
-
-5. 在 [選取訂用帳戶] 對話方塊中，選取您要使用的訂用帳戶，然後按一下 [確定]。
-
-   ![[選取訂用帳戶] 對話方塊][I04]
-
-## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>在以互動方式登入後，登出您的 Azure 帳戶
-
-在使用前面的步驟設定好帳戶後，每次您重新啟動 IntelliJ IDEA 時，系統都會自動將您登出 Azure 帳戶。 不過，如果您想要登出 Azure 帳戶而不重新啟動 IntelliJ IDEA，請使用下列步驟。
-
-1. 在 IntelliJ IDEA 的 [工具] 功能表上，指向 [Azure]，然後按一下 [Azure 登出]。
-
-   ![IntelliJ 的 [Azure 登出] 命令][L01]
-
-2. 在 [Azure 登出] 確認視窗中，按一下 [是]。
-
-   ![[Azure 登出] 確認視窗][L02]
 
 ## <a name="sign-in-to-your-azure-account-automatically"></a>自動登入您的 Azure 帳戶
 
@@ -140,37 +105,59 @@ ms.lasthandoff: 05/15/2017
 
    ![[選取訂用帳戶] 對話方塊][A07]
 
+## <a name="sign-in-to-your-azure-account-interactively"></a>以互動方式登入您的 Azure 帳戶
+
+若要以手動方式輸入您的 Azure 認證來登入 Azure，請執行下列作業︰
+
+1. 使用 IntelliJ IDEA 開啟您的專案。
+
+2. 按一下 [工具]，指向 [Azure]，然後按一下 [Azure 登入]。
+
+   ![IntelliJ 的 [Azure 登入] 命令][I01]
+
+3. 在 [Azure 登入] 視窗中，選取 [互動式]，然後按一下 [登入]。
+
+   ![選取了 [互動式] 的 [Azure 登入] 視窗][I02]
+
+4. 在 [Azure 登入] 對話方塊出現時，輸入您的 Azure 認證，然後按一下 [登入]。
+
+   ![[Azure 登入] 對話方塊視窗][I03]
+
+5. 在 [選取訂用帳戶] 對話方塊中，選取您要使用的訂用帳戶，然後按一下 [確定]。
+
+   ![[選取訂用帳戶] 對話方塊][I04]
+
+## <a name="sign-out-of-your-azure-account-after-you-have-signed-in-interactively"></a>在以互動方式登入後，登出您的 Azure 帳戶
+
+在使用前面的步驟設定好帳戶後，每次您重新啟動 IntelliJ IDEA 時，系統都會自動將您登出 Azure 帳戶。 不過，如果您想要登出 Azure 帳戶而不重新啟動 IntelliJ IDEA，請使用下列步驟。
+
+1. 在 IntelliJ IDEA 的 [工具] 功能表上，指向 [Azure]，然後按一下 [Azure 登出]。
+
+   ![IntelliJ 的 [Azure 登出] 命令][L01]
+
+2. 在 [Azure 登出] 確認視窗中，按一下 [是]。
+
+   ![[Azure 登出] 確認視窗][L02]
+
 ## <a name="next-steps"></a>後續步驟
-如需適用於 Java IDE 的 Azure 套件組的詳細資訊，請參閱下列連結：
 
-* [適用於 Eclipse 的 Azure 工具組]
-  * [適用於 Eclipse 的 Azure 工具組的新功能]
-  * [安裝 Azure Toolkit for Eclipse]
-  * [Azure Toolkit for Eclipse 的登入指示]
-  * [在 Eclipse 中建立 Azure Hello World Web 應用程式]
-* [Azure Toolkit for IntelliJ]
-  * [適用於 IntelliJ 的 Azure 工具組新增功能]
-  * [安裝 Azure Toolkit for IntelliJ]
-  * *適用於 IntelliJ 的 Azure 工具組登入指示* (本文)
-  * [在 IntelliJ 中建立 Azure Hello World Web 應用程式]
-
-如需有關使用 Azure 搭配 Java 的詳細資訊，請參閱 [Azure Java 開發人員中心]和[適用於 Visual Studio Team Services 的 Java 工具]。
+[!INCLUDE [azure-toolkit-additional-resources](../includes/azure-toolkit-additional-resources.md)]
 
 <!-- URL List -->
 
-[適用於 Eclipse 的 Azure 工具組]: ./azure-toolkit-for-eclipse.md
+[Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse.md
 [Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij.md
-[在 Eclipse 中建立 Azure Hello World Web 應用程式]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
-[在 IntelliJ 中建立 Azure Hello World Web 應用程式]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
-[安裝 Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
-[安裝 Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
-[Azure Toolkit for Eclipse 的登入指示]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
+[Create a Hello World Web App for Azure in Eclipse]: ./app-service-web/app-service-web-eclipse-create-hello-world-web-app.md
+[Create a Hello World web app for Azure in IntelliJ]: ./app-service-web/app-service-web-intellij-create-hello-world-web-app.md
+[Installing the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-installation.md
+[Installing the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-installation.md
+[Sign-in instructions for the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-sign-in-instructions.md
 [Sign-in instructions for the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-sign-in-instructions.md
-[適用於 Eclipse 的 Azure 工具組的新功能]: ./azure-toolkit-for-eclipse-whats-new.md
-[適用於 IntelliJ 的 Azure 工具組新增功能]: ./azure-toolkit-for-intellij-whats-new.md
+[What's new in the Azure Toolkit for Eclipse]: ./azure-toolkit-for-eclipse-whats-new.md
+[What's new in the Azure Toolkit for IntelliJ]: ./azure-toolkit-for-intellij-whats-new.md
 
-[Azure Java 開發人員中心]: https://azure.microsoft.com/develop/java/
-[適用於 Visual Studio Team Services 的 Java 工具]: https://java.visualstudio.com/
+[Azure Java Developer Center]: https://azure.microsoft.com/develop/java/
+[Java Tools for Visual Studio Team Services]: https://java.visualstudio.com/
 
 <!-- IMG List -->
 
