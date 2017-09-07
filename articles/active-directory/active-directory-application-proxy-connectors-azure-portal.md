@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: a65216e79b7e89da1c9ccd6d002cb7ab6b18190f
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -76,13 +76,13 @@ ms.lasthandoff: 08/08/2017
 
 ### <a name="applications-installed-on-iaas"></a>IaaS 上已安裝應用程式 
 
-對於安裝在 IaaS 上以供雲端存取的應用程式，連接器群組提供通用的服務來保護對所有應用程式的存取。 連接器群組不會對公司網路產生額外的相依性，或是造成不完整的應用程式體驗。 連接器可安裝在每個雲端資料中心，而且只為此網路中的應用程式提供服務。 您可以安裝數個連接器以獲得高可用性。
+對於安裝在 IaaS 上以供雲端存取的應用程式，連接器群組提供通用的服務來保護對所有應用程式的存取。 連接器群組不會對公司網路產生額外的相依性，或是造成不完整的應用程式體驗。 連接器可安裝在每個雲端資料中心，而且只為該網路中的應用程式提供服務。 您可以安裝數個連接器以獲得高可用性。
 
-在此情況下，組織會有數個連線到其 IaaS 主控之虛擬網路的虛擬機器。 若要允許員工使用這些應用程式，這些私人網路會使用站台對站 VPN 連線到公司網路。 針對位於內部部署的員工，這會提供良好的體驗。 但是，它可能不適合遠端員工，因為它需要額外內部部署基礎結構，如您所見下圖顯示︰
+以擁有數個虛擬機器連線到本身 IaaS 主控之虛擬網路的組織為例。 若要允許員工使用這些應用程式，這些私人網路會使用站台對站 VPN 連線到公司網路。 針對位於內部部署的員工，這會提供良好的體驗。 但是，它可能不適合遠端員工，因為它需要額外內部部署基礎結構來路由存取權，如您所見下圖顯示︰
 
 ![AzureAD Iaas 網路](./media/application-proxy-publish-apps-separate-networks/application-proxy-iaas-network.png)
   
-當許多組織使用多個雲端供應商時，這可能會產生問題，因為他們的應用程式位於多個資料中心。 使用 Azure AD 應用程式 Proxy 連接器群組，您可以啟用一般服務來保護所有應用程式，而無須在您的公司網路上建立其他相依性︰
+使用 Azure AD 應用程式 Proxy 連接器群組，您可以啟用一般服務來保護所有應用程式，而無須在您的公司網路上建立其他相依性︰
 
 ![AzureAD Iaas 多雲端廠商](./media/application-proxy-publish-apps-separate-networks/application-proxy-multiple-cloud-vendors.png)
 

@@ -3,7 +3,7 @@ title: "Azure 網路監看員中的下一個躍點簡介 | Microsoft Docs"
 description: "本頁提供網路監看員下一個躍點功能的概觀"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
 ms.openlocfilehash: 864185e62fb6c3cef4116824b36ee7e5d3447662
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/04/2017
 
 ---

@@ -12,18 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 08/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: a0d26b594ddbdcc7f1e414ebe2a2e936751a3c02
+ms.translationtype: HT
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 78afb2f065dde4a3e7a3ab787c939b3c52b72cc6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="log-analytics-log-search-rest-api"></a>Log Analytics 記錄檔搜尋 REST API
 本指南提供基本教學課程 (包括範例)，說明如何使用 Log Analytics 搜尋 REST API。 Log Analytics 是 Operations Management Suite (OMS) 的一部分。
+
+> [!NOTE]
+> 如果您的工作區已升級至[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該如本文所述，繼續搭配使用舊版查詢語言與記錄搜尋 API。  之後將會為更新的工作區發行新的 API，屆時會更新說明文件。 
 
 > [!NOTE]
 > Log Analytics 在以前稱為 Operational Insights，這也是資源提供者中使用此名稱的原因。

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/10/2017
+ms.date: 08/30/2017
 ms.author: nberdy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: e7d7065513f69bac5f759bfd5f4b3965b26bab5d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9bf02ff15d973ea2c9f00815558507c66c049159
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/14/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="use-direct-methods-netnode"></a>使用直接方法 (.NET/Node)
@@ -114,9 +113,9 @@ ms.lasthandoff: 03/14/2017
    
     ![新的 Visual C# Windows 傳統桌面專案][10]
 2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CallMethodOnDevice** 專案，然後按一下 [管理 NuGet 套件...]。
-3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並加入對它的參考。
+3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
-    ![NuGet 封裝管理員視窗][11]
+    ![NuGet 套件管理員視窗][11]
 
 4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
    
@@ -150,14 +149,14 @@ ms.lasthandoff: 03/14/2017
 ## <a name="run-the-applications"></a>執行應用程式
 現在您已經準備好執行應用程式。
 
-1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]。 選取 [單一啟始專案]，然後選取下拉式功能表中的 **CallMethodOnDevice** 專案。
+1. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]。選取 [單一啟始專案]，然後選取下拉式功能表中的 **CallMethodOnDevice** 專案。
 
 2. 在 **simulateddevice** 資料夾的命令提示字元中，執行下列命令以開始接聽來自您的 IoT 中樞的方法呼叫：
    
     ```
     node SimulatedDevice.js
     ```
-   等候模擬裝置開啟︰ ![][7]
+   等候模擬裝置開啟︰![][7]
 3. 裝置現在已連接並等候方法引動過程，請執行 .NET **CallMethodOnDevice** 應用程式，以在模擬裝置應用程式中叫用方法。 您應會看到在主控台中寫入的裝置回應。
    
     ![][8]

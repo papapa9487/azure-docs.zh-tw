@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2017
+ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: a1b8445a4547f8742c8a60de2df8f3b535dfab5d
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 
@@ -61,6 +61,8 @@ ms.lasthandoff: 07/31/2017
 ## <a name="linked-sign-on"></a>連結型登入
 
 如果您已經有為您的內部部署身分識別設定的單一登入解決方案，請選擇 [連結型登入]。 此選項可讓 Azure Active Directory 運用現有的 SSO 解決方案，但仍可讓使用者遠端存取應用程式。 
+
+如需連結登入 (先前稱為現有單一登入) 的詳細資訊，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md#how-does-single-sign-on-with-azure-active-directory-work)。
 
 ## <a name="integrated-windows-authentication"></a>整合式 Windows 驗證
 

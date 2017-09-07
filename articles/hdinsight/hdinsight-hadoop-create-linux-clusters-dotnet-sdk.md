@@ -14,23 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/16/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 823508c0bd9e379361dd26f70b3960259a8d4292
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ccd3a0c777510e0694170b2f9acc8da0e7dcde9b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NET Framework 應用程式使用 HDInsight。 本文示範如何使用 .NET SDK 建立以 Linux 為基礎的 HDInsight 叢集。
+
+了解如何使用 .NET SDK 在 Azure HDInsight 叢集中建立 Hadoop 叢集。
 
 > [!IMPORTANT]
-> 本文中的步驟會建立具有一個背景工作節點的叢集。 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，則您必須選取具有至少 8 個核心和 14 GB ram 的前端節點大小。
+> 本文中的步驟會建立具有一個背景工作節點的叢集。 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，您就必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
@@ -39,14 +40,14 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 訂用帳戶**。 請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* **Azure 儲存體帳戶**。 請參閱[建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。
+* **Azure 儲存體帳戶**。 請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 * **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
 
 ## <a name="create-clusters"></a>建立叢集
 
 1. 開啟 Visual Studio 2017。
 2. 建立新的 Visual C# 主控台應用程式。
-3. 在 [工具] 功能表中按一下 [Nuget 套件管理員]，然後按一下 [Package Manager Console]。
+3. 在 [工具] 功能表中按一下 [NuGet 套件管理員]，然後按一下 [套件管理員主控台]。
 4. 在主控台中執行下列命令，以安裝套件：
 
     ```powershell
@@ -192,7 +193,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您能夠輕鬆地從 .NE
     ```
 
 6. 取代類別成員值。
-7. 按 **F5** 鍵執行應用程式。 主控台視窗會開啟並顯示應用程式的狀態。 系統也會提示您輸入 Azure 帳戶認證。 建立 HDInsight 叢集可能需要幾分鐘的時間，通常約 15 分鐘。
+7. 按 **F5** 鍵執行應用程式。 主控台視窗會開啟並顯示應用程式的狀態。 系統會提示您輸入 Azure 帳號認證。 建立 HDInsight 叢集可能需要幾分鐘的時間，通常約 15 分鐘。
 
 ## <a name="use-bootstrap"></a>使用 Bootstrap
 
@@ -325,7 +326,7 @@ static void Main(string[] args)
 
 ## <a name="use-script-action"></a>使用指令碼動作
 
-藉由使用指令碼動作，您可以在建立叢集期間設定額外的設定。  如需詳細資訊，請參閱 [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+藉由使用指令碼動作，您可以在建立叢集期間設定額外的設定。  如需詳細資訊，請參閱[使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 修改 [建立叢集](#create-clusters) 中的範例，以呼叫用來安裝 R 的指令碼動作：
 

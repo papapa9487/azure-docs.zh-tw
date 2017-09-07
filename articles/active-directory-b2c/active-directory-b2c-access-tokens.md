@@ -1,5 +1,5 @@
 ---
-title: "Azure Active Directory B2C：要求存取權杖 | Microsoft Docs"
+title: "要求存取權杖 - Azure AD B2C | Microsoft Docs"
 description: "本文將說明如何設定用戶端應用程式，並取得存取權杖。"
 services: active-directory-b2c
 documentationcenter: android
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 4b361a8e69f885d5b89ac9b2086e2731ee4d8b48
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 7202be4e0e9b8b28b5ec1443d6d248c1738da6fb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C︰要求存取權杖
@@ -40,8 +40,8 @@ ms.lasthandoff: 08/09/2017
 
 ### <a name="register-a-web-api"></a>註冊 Web API
 
-1. 在 Azure 入口網站的 B2C 功能刀鋒視窗中，按一下 [應用程式] 。
-1. 按一下刀鋒視窗頂端的 [新增]  。
+1. 在 Azure 入口網站的 Azure AD B2C 功能功能表中，按一下 [應用程式]。
+1. 按一下功能表頂端的 [+ 新增]。
 1. 輸入應用程式的 **名稱** ，此名稱將會為取用者說明您的應用程式。 例如，您可以輸入「Contoso API」。
 1. 將 [包括 web 應用程式 / web API] 切換為 [是]。
 1. 在 [回覆 URL] 輸入任意值。 例如，輸入 `https://localhost:44316/`。 這個值無關緊要，因為 API 不應該直接從 Azure AD B2C 接收權杖。
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/09/2017
 
 範圍類似權限，當應用程式在呼叫 API 時，範圍是不可或缺的。 舉例來說，「讀取」或「寫入」即是範圍。 假設您想要您的 Web 或原生應用程式從 API 「讀取」。 您的應用程式會呼叫 Azure AD B2C 並要求一個存取權杖，該權杖會將存取權授與「讀取」範圍。 為了讓 Azure AD B2C 發出這類存取權杖，必須將可從特定 API 「讀取」的權限授與該應用程式。 因此，您的 API 必須先發佈「讀取」範圍。
 
-1. 在 Azure AD B2C [應用程式] 刀鋒視窗中，開啟 Web API 應用程式 (「Contoso API」)。
+1. 在 Azure AD B2C [應用程式] 功能表中，開啟 Web API 應用程式 ("Contoso API")。
 1. 按一下 [已發佈範圍]。 您會在此定義可授予其他應用程式的權限 (範圍)。
 1. 視需要新增 [範圍值] \(例如「讀取」)。 根據預設，將會定義 "user_impersonation" 範圍。 想要的話，也可以忽略此步驟。 在 [範圍名稱] 資料行中輸入範圍的描述。
 1. 按一下 [儲存] 。
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/09/2017
 
 設定好 API 發佈範圍後，必須透過 Azure 入口網站將這些範圍授與用戶端應用程式。
 
-1. 瀏覽至 B2C 功能刀鋒視窗中的**應用程式**功能表。
+1. 瀏覽至 Azure AD B2C 功能功能表中的 [應用程式] 功能表。
 1. 如果您還沒有用戶端應用程式 ([Web 應用程式](active-directory-b2c-app-registration.md#register-a-web-app)或[原生用戶端](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app))，請註冊一個。 如果您一開始便是跟隨本指南的說明進行，則需要註冊用戶端應用程式。
 1. 按一下 [API 存取]。
 1. 按一下 [新增]。

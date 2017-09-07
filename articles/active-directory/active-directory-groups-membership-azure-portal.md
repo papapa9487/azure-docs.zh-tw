@@ -1,5 +1,4 @@
 ---
-
 title: "在 Azure Active Directory 中管理您的群組所屬的群組 | Microsoft Docs"
 description: "在 Azure Active Directory 中，群組可以包含其他群組。 以下說明如何管理這些成員資格。"
 services: active-directory
@@ -13,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
+ms.date: 05/28/2017
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 08e04a6590176c4084ca47b4bd6cbb22500eca2d
+ms.custom: H1Hack27Feb2017;it-pro
+ms.reviewer: piotrci
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: b6227d86bf5d52316334a0b7ecf975aadf2ba635
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>管理 Azure Active Directory 租用戶中群組所屬的群組
 在 Azure Active Directory 中，群組可以包含其他群組。 以下說明如何管理這些成員資格。
 
-## <a name="how-do-i-find-the-groups-my-group-is-a-member-of"></a>如何找出我群組所屬的群組？
+## <a name="how-do-i-find-the-groups-of-which-my-group-is-a-member"></a>如何找出我群組所屬的群組？
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
 2. 選取 [更多服務]，在文字方塊中輸入「使用者和群組」，然後選取 **Enter**。
 

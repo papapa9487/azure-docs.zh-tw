@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 08/28/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 7f420d60862adf61e4f21e5abac2932a742bd55d
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: dd4a45c4eae6832026bce82670e914f5a02bbff7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services
@@ -33,12 +33,12 @@ ms.lasthandoff: 07/17/2017
 
 1. 按一下 [虛擬網路] 以選取虛擬網路。
 2. 在 [選擇虛擬網路] 刀鋒視窗中，您會看到所有現有的虛擬網路。 您只會看到隸屬於您在 [基本] 精靈分頁上選取之資源群組和 Azure 位置的虛擬網路。
-
-3. 選擇應該在其中啟用 Azure AD Domain Services 的虛擬網路。 如果您想要建立新的虛擬網路，請按一下 [新建]。 強烈建議針對 Azure AD Domain Services 使用專用子網路。 如果您挑選現有的虛擬網路，[使用虛擬網路延伸模組建立專用子網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)，然後挑選該子網路。 
+3. 選擇應該在其中啟用 Azure AD Domain Services 的虛擬網路。 您可以選取現有的虛擬網路或建立新的虛擬網路。
+4. **建立虛擬網路：**若要建立新的虛擬網路，請按一下 [新建]。 強烈建議針對 Azure AD Domain Services 使用專用子網路。 例如，建立具有名稱 'DomainServices' 的子網路，讓其他系統管理員容易了解子網路內部署的內容。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
-4. 按一下 [子網路] 以挑選此虛擬網路中的專用子網路，在其中啟用新的受管理的網域。 在 [建立子網路] 刀鋒視窗中，指定子網路的名稱，然後在您完成時按一下 [確定]。 例如，建立具有名稱 'DomainServices' 的子網路，讓其他系統管理員容易了解子網路內部署的內容。
+5. **現有的虛擬網路：**如果您計畫挑選現有的虛擬網路，[使用虛擬網路延伸模組建立專用子網路](../virtual-network/virtual-networks-create-vnet-arm-pportal.md)，然後挑選該子網路。 按一下 [虛擬網路] 以選取現有的虛擬網路。 按一下 [子網路] 以挑選現有虛擬網路中的專用子網路，在其中啟用新的受管理網域。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路內的子網路](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/17/2017
   3. 請確定您選取的子網路具有足夠的可用位址空間，至少 3-5 個可用 IP 位址。
   >
 
-5. 完成時，按一下 [確定] 以繼續前往精靈的 [Administrator 群組] 分頁。
+6. 完成時，按一下 [確定] 以繼續前往精靈的 [Administrator 群組] 分頁。
 
 
 ## <a name="next-step"></a>後續步驟

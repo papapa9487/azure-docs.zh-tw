@@ -14,21 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/25/2017
+ms.date: 08/17/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: ab463eac7eba2b0abf2da7b2ae56b6e2c05baefb
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: da1247070ade11f78b505524f5e970e18eb16d10
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="fix-a-hive-out-of-memory-error-in-azure-hdinsight"></a>修正 Azure HDInsight 中的 Hive 記憶體不足錯誤
 
 了解如何在處理大型資料表時，透過設定 Hive 記憶體設定，修正 Hive 記憶體不足的錯誤。
 
-## <a name="scenario-run-a-hive-query-against-large-tables"></a>案例：對大型資料表執行 Hive 查詢
+## <a name="run-hive-query-against-large-tables"></a>針對大型資料表執行 Hive 查詢
 
 某個客戶執行了 Hive 查詢：
 
@@ -124,10 +123,6 @@ hive-site.xml 檔案中的 **hive.auto.convert.join.noconditionaltask** 已設�
 
 使用新設定之後，查詢順利在 10 分鐘內完成執行。
 
-## <a name="conclusion-oom-errors-and-container-size"></a>結論：OOM 錯誤和容器大小
-
-遇到 OOM 錯誤不一定表示容器大小太小。 相反地，您應該設定記憶體設定，以增加堆積大小，至少是容器記憶體大小的 80%。
-
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解如何將 Hive 查詢最佳化，請參閱[在 HDInsight 中最佳化 Hadoop 的 Hive 查詢](hdinsight-hadoop-optimize-hive-query.md)。
+遇到 OOM 錯誤不一定表示容器大小太小。 相反地，您應該設定記憶體設定，以增加堆積大小，至少是容器記憶體大小的 80%。 若要了解如何將 Hive 查詢最佳化，請參閱[在 HDInsight 中最佳化 Hadoop 的 Hive 查詢](hdinsight-hadoop-optimize-hive-query.md)。

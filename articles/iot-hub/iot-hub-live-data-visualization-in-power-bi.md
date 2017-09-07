@@ -13,13 +13,13 @@ ms.devlang: arduino
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/29/2017
+ms.date: 08/24/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 404ab1682d9b77f22e60888340ffb70a101ed5d4
+ms.translationtype: HT
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: b190fea06ffc2406d781c7edad091f097cca9c2d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 將 Azure IoT 中樞的即時感應器資料視覺化
@@ -136,7 +136,7 @@ ms.lasthandoff: 06/15/2017
    1. 將 **EventEnqueuedUtcTime** 拖放至 [視覺效果] 窗格上的 [軸]。
    1. 將 **temperature** 拖放至 [值]。
 
-      現已建立折線圖。 圖表的 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
+      現已建立折線圖。 x 軸會顯示 UTC 時區的日期和時間。 y 軸會顯示感應器的溫度。
 
       ![將溫度的折線圖新增至 Microsoft Power BI 報告](media/iot-hub-live-data-visualization-in-power-bi/8_add-line-chart-for-temperature-to-power-bi-report-microsoft.png)
 

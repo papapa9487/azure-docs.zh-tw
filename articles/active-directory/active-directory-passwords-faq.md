@@ -6,21 +6,21 @@ keywords: "Active directory 密碼管理, 密碼管理, Azure AD 自助式密碼
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 00acd4090ed981ab2b05e955e93d1c689ea1a2e6
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
@@ -38,6 +38,7 @@ ms.lasthandoff: 05/03/2017
 * [**密碼回寫的相關問題**](#password-writeback)
 
 ## <a name="password-reset-registration"></a>密碼重設註冊
+
 * **問：我的使用者是否可以註冊自己的密碼重設資料？**
 
   > **答：**是，只要已啟用密碼重設功能且使用者已獲得授權，他們就可以前往位於 http://aka.ms/ssprsetup 的「密碼重設註冊」入口網站來註冊其驗證資訊。 使用者也可以前往位於 http://myapps.microsoft.com 的存取面板，按一下 [設定檔] 索引標籤，然後按一下 [註冊密碼重設] 選項，來進行註冊。
@@ -74,7 +75,7 @@ ms.lasthandoff: 05/03/2017
   >
 * **問：註冊入口網站如何得知要對我的使用者顯示哪些選項？**
 
-  > **答：**密碼重設註冊入口網站只會顯示您為使用者啟用的選項。 在目錄的 [設定] 索引標籤的 [使用者密碼重設原則] 區段之下可以找到這些選項。 例如，這表示如果您未啟用安全性問題，使用者便無法註冊該選項。
+  > **答：**密碼重設註冊入口網站只會顯示您為使用者啟用的選項。 在目錄的 [設定] 索引標籤的 [使用者密碼重設原則] 區段之下可以找到這些選項。例如，這表示如果您未啟用安全性問題，使用者便無法註冊該選項。
   >
   >
 * **問：使用者何時會被視為已註冊？**
@@ -82,7 +83,9 @@ ms.lasthandoff: 05/03/2017
   > **答︰**使用者至少已註冊您在 [Azure 入口網站](https://portal.azure.com)中設定的 [重設所需的方法數目]，才算完成 SSPR 註冊。
   >
   >
+
 ## <a name="password-reset"></a>密碼重設
+
 * **問：密碼重設之後，我應該等待多久才能收到電子郵件、SMS 或來電？**
 
   > **答：**電子郵件、SMS 訊息及電話應該在 1 分鐘內即可送達，正常的情形下為 5-20 秒。
@@ -105,7 +108,7 @@ ms.lasthandoff: 05/03/2017
   >
 * **問：如何教育我的使用者要在哪裡重設其密碼？**
 
-  > **答：**您可以將使用者直接帶往 https://passwordreset.microsoftonline.com ，也可以指示他們按一下可在任何工作或學校登入頁面上找到的「無法存取您的帳戶」連結。 您也可以在使用者方便存取的地方發佈這些連結。
+  > **答：**請嘗試 [SSPR 部署文章](active-directory-passwords-best-practices.md#email-based-rollout)中的一些建議
   >
   >
 * **問：我是否可以從行動裝置使用此頁面？**
@@ -158,6 +161,11 @@ ms.lasthandoff: 05/03/2017
   > **答：** 是，可以針對註冊設定一個限制，針對重設設定另一個限制。 註冊可能需要 3-5 個安全性問題，重設也需要 3-5 個安全性問題。
   >
   >
+* **問：我將原則設定為要求使用者使用安全性問題進行重設，但 Azure 系統管理員似乎是以不同方式設定。**
+
+  > **答：**這是預期中的行為。 Microsoft 會針對任何 Azure 系統管理員角色強制執行強式預設雙閘道密碼重設原則。 這會讓系統管理員無法使用安全性問題。 在 [Azure Active Directory 的密碼原則和限制](active-directory-passwords-policy.md#administrator-password-policy-differences)中可以找到此原則的相關詳細資訊
+  >
+  >
 * **問：如果使用者註冊的問題數目超過重設所需的問題數目上限，在重設期間會如何選取安全性問題？**
 
   > **答：**會在使用者已註冊的問題總數當中隨機選取 N 個安全性問題，其中 N 是 [重設所需的問題數目]。 例如，如果使用者已註冊 5 個安全性問題，但是重設只需要 3 個，則會在 5 個問題當中隨機選取 3 個並且在重設時顯示。 如果使用者回答問題的答案錯誤，則選取程序會重新發生以避免問題 Hammering。
@@ -175,6 +183,7 @@ ms.lasthandoff: 05/03/2017
   >
 
 ## <a name="password-change"></a>密碼變更
+
 * **問︰我的使用者應該到何處變更密碼？**
 
   > **答︰**使用者可以在出現個人資料圖片或圖示的任何位置變更密碼 (例如操作 [Office 365](https://portal.office.com) 或[存取面板](https://myapps.microsoft.com)時的右上角)。 使用者可以從[存取面板個人資料頁面](https://account.activedirectory.windowsazure.com/r#/profile)變更密碼。 如果使用者的密碼已過期，Azure AD 登入畫面也可能自動要求使用者變更密碼。 最後，如果使用者想要變更密碼，可以直接瀏覽至 [Azure AD 密碼變更入口網站](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)。
@@ -187,6 +196,7 @@ ms.lasthandoff: 05/03/2017
   >
 
 ## <a name="password-management-reports"></a>密碼管理報告
+
 * **問：資料需要多久的時間才會顯示在密碼管理報告上？**
 
   > **答：** 資料應該會在 5-10 分鐘內顯示在密碼管理報告上。 某些情況下，可能會花費多達一小時才顯示。
@@ -219,6 +229,7 @@ ms.lasthandoff: 05/03/2017
   >
 
 ## <a name="password-writeback"></a>密碼回寫
+
 * **問：密碼回寫如何在幕後運作？**
 
   > **答：**請參閱[密碼回寫的運作方式](active-directory-passwords-writeback.md)，以了解啟用「密碼回寫」時會發生的情況，以及資料如何透過系統回流到您的內部部署環境。
@@ -261,8 +272,8 @@ ms.lasthandoff: 05/03/2017
 
 * [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
 * [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
-* [**資料**](active-directory-passwords-data.md) - 了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並部署給使用者
+* [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
+* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
 * [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀與風格。
 * [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
 * [**原則**](active-directory-passwords-policy.md) - 了解並設定 Azure AD 密碼原則

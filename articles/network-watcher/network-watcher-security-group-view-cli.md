@@ -3,7 +3,7 @@ title: "使用 Azure 網路監看員安全性群組檢視分析網路安全性 -
 description: "本文會描述如何使用 Azure CLI 2.0，利用安全性群組檢視分析虛擬機器的安全性。"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 1756e14819e3b7c79361c193413a1fcd7f24a4e6

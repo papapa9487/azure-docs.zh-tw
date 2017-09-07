@@ -11,10 +11,10 @@ ms.workload: identity
 ms.date: 08/21/2017
 ms.author: bruceper
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 1775902aa7ec820c3b6c34eda60961eecd27f014
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 8cf0674f7eb139e50da4a3c22a8d8376a86b0dcc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
@@ -29,10 +29,9 @@ Azure Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物�
 - Azure PowerShell 4.0.0 或更新版本 - 如果您尚未安裝，請安裝 Azure PowerShell，並將它與 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 
 
 >[!NOTE]
-> 載入您的環境的可能是一個過期版本的 Key Vault PowerShell 輸出格式檔案，而不是正確版本。 您的選項是使用這些解決方案的其中之一：
-> 
-> - 升級至 [Azure PowerShell 4.4.0 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.2.0)以解決這個問題。
+> 載入您的環境的**可能**是過期版本的 Key Vault PowerShell 輸出格式檔案，而不是正確版本。 我們預計 PowerShell 的更新版本會包含輸出格式所需的更正，屆時將更新此主題。 如果您遇到此格式問題，目前的因應措施是：
 > - 如果您注意到您看不到此主題中所述的已啟用虛刪除的屬性，請使用下列查詢：`$vault = Get-AzureRmKeyVault -VaultName myvault; $vault.EnableSoftDelete`。
+
 
 如需 PowerShell 的 Key Vault 特定參考資訊，請參閱 [Azure Key Vault PowerShell 參考](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-4.2.0)。
 

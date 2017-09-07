@@ -13,32 +13,31 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2016
+ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 144774c9106bf5a0e389c99075c822d1c5282692
-ms.openlocfilehash: f53fa3763edb1d9164278d1e3c418e200d7ada89
+ms.translationtype: HT
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>監視記憶體內部 OLTP 儲存體
-使用 [記憶體內部 OLTP](sql-database-in-memory.md)時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。 每個進階服務層都有最大的記憶體內部 OLTP 儲存體大小，如 [SQL Database 服務層文章](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)所說明。 一旦超過此限制，插入和更新作業可能會開始出錯 (錯誤碼 41823)。 屆時您將需要刪除資料以回收記憶體，或升級您的資料庫的效能層。
+使用 [記憶體內部 OLTP](sql-database-in-memory.md)時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。 每個進階服務層都有最大的記憶體內部 OLTP 儲存體大小，如[單一資料庫資源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)與[彈性集區資源限制](sql-database-resource-limits.md#elastic-pool-change-storage-size)所說明。 一旦超過此限制，插入和更新作業可能會開始出錯 (錯誤碼 41823)。 屆時您將需要刪除資料以回收記憶體，或升級您的資料庫的效能層。
 
 ## <a name="determine-whether-data-will-fit-within-the-in-memory-storage-cap"></a>判斷資料是否在記憶體內部儲存容量上限內
-判斷儲存上限：如需不同進階服務層的儲存上限相關資訊，請參閱 [SQL Database 服務層文章](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels) 。
+判斷不同進階服務層的儲存體上限。 請參閱[單一資料庫資源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)和[彈性集區資源限制](sql-database-resource-limits.md#elastic-pool-change-storage-size)。
 
 估計記憶體最佳化資料表的記憶體需求，其方式如同在 Azure SQL Database 中估計 SQL Server 的記憶體需求。 花幾分鐘的時間來檢閱 [MSDN](https://msdn.microsoft.com/library/dn282389.aspx)上的該主題。
 
 請注意，資料表和資料表變數資料列以及索引都會計入最大的使用者資料大小。 此外，ALTER TABLE 需要足夠的空間來建立新版的完整資料表及其索引。
 
 ## <a name="monitoring-and-alerting"></a>監視和警示
-您可以在 [Azure 入口網站](https://portal.azure.com/)中，透過[效能層的儲存上限](sql-database-service-tiers.md#single-database-service-tiers-and-performance-levels)的百分比來監視記憶體內部儲存體使用情形： 
+您可以在 [Azure 入口網站](https://portal.azure.com/)中，透過效能層的儲存體上限百分比來監視記憶體內部儲存體使用情形： 
 
-* 在 [資料庫] 刀鋒視窗上，找出 [資源使用率方塊] 並按一下 [編輯]。
-* 然後選取計量 `In-Memory OLTP Storage percentage`。
-* 若要新增警示，請按一下 [資源使用率] 方塊以開啟 [計量] 刀鋒視窗，然後按一下 [新增警示]。
+1. 在 [資料庫] 刀鋒視窗上，找出 [資源使用率方塊] 並按一下 [編輯]。
+2. 選取計量 `In-Memory OLTP Storage percentage`。
+3. 若要新增警示，請按一下 [資源使用率] 方塊以開啟 [計量] 刀鋒視窗，然後按一下 [新增警示]。
 
 或使用下列查詢來顯示記憶體內部儲存體使用率：
 

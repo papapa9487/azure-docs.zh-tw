@@ -3,7 +3,7 @@ title: "使用 Azure 網路監看員 IP 流程驗證來驗證流量 - PowerShell
 description: "本文說明如何使用 PowerShell 檢查虛擬機器中的流入或流出流量是被允許或拒絕"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: e1dad757-8c5d-467f-812e-7cc751143207
@@ -13,13 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: bf0c01a9af0e28647d11ad89a9d164716d5c8312
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/26/2017
-
 
 ---
 # <a name="check-if-traffic-is-allowed-or-denied-to-or-from-a-vm-with-ip-flow-verify-a-component-of-azure-network-watcher"></a>使用 Azure 網路監看員的 IP 流程驗證元件來檢查流入或流出 VM 的流量是被允許或拒絕

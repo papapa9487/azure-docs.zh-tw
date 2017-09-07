@@ -16,17 +16,17 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 86a4d6d3ab4d29fba8f554265958ffa079b69ec2
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 90a6172dbd887ecda5a9f5d9082a4e136092bc10
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>自訂連線工廠解決方案顯示 OPC UA 伺服器資料的方式
 
 ## <a name="introduction"></a>簡介
 
-連線工廠解決方案會彙總並顯示連接到解決方案之 OPC UA 伺服器的資料。 您可以瀏覽並傳送命令至解決方案的 OPC UA 伺服器。 如需 OPC UA 的詳細資訊，請參閱[常見問題集][lnk-faq]。
+連線工廠解決方案會彙總並顯示連接到解決方案之 OPC UA 伺服器的資料。 您可以瀏覽並傳送命令至解決方案的 OPC UA 伺服器。 如需 OPC UA 的詳細資訊，請參閱[連線的處理站常見問題集](iot-suite-faq-cf.md)。
 
 解決方案中的彙總資料範例包括「整體設備效率 (OEE)」和「關鍵效能指標 (KPI)」，您可以在儀表板的工廠、生產線與工作站層級分別檢視這些資料。 下列螢幕擷取畫面顯示 [Munich (慕尼黑)] 工廠的 [Production line 1 (生產線 1)] 的 [Assembly (組件)] 工作站的 OEE 和 KPI 值：
 
@@ -175,6 +175,7 @@ JSON 檔案的內容是以工廠、生產線和工作站節點的階層來組織
 * [連線處理站預先設定的解決方案逐步解說][lnk-rm-walkthrough]
 * [為連線處理站部署閘道][lnk-connect-cf]
 * [azureiotsuite.com 網站的權限][lnk-permissions]
+* [連線的處理站常見問題](iot-suite-faq-cf.md)
 * [常見問題集][lnk-faq]
 
 

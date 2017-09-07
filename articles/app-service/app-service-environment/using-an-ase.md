@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: fc20979575b204cdd8dda5291552af0adbde180f
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 279951d40b7780120d0b94e183f06e00ccece016
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="use-an-app-service-environment"></a>使用 App Service Environment #
@@ -133,9 +133,15 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 
 ## <a name="pricing"></a>價格 ##
 
-ASEv2 有一個名為 [隔離] 的新定價 SKU，只能搭配 ASEv2 使用。 ASEv2 中裝載的所有 App Service 方案都位於「隔離」定價 SKU 中。 除了 App Service 方案的價格，ASE 本身有固定費用。 這個價格不會隨著 ASE 的大小變更。 
+已建立名稱為**隔離**的價格 SKU，僅供與 ASEv2 搭配使用。 ASEv2 中裝載的所有 App Service 方案都位於「隔離」定價 SKU 中。 隔離的 App Service 方案費率會因區域而有所不同。 
 
-其他可能的費用適用於調整前端級別比率或前端大小。 您可以調整級別比率，以更快速地新增前端。 但是，您必須支付未自動加入系統的任何額外核心費用。 同樣地，如果您針對前端選取較大的大小，則會支付任何未自動配置的核心費用。 例如，如果您將級別比率調整為 10，系統就會針對 App Service 方案中每 10 個執行個體新增一個前端。 固定費用涵蓋每隔 15 個執行個體 1 個前端的級別費率。 使用 10 級別比率時，您必須支付針對 10 個 App Service 方案執行個體新增的第三個前端費用。 在您達到 15 個執行個體時，不需要付費，因為它是自動新增的。
+除了 App Service 方案的價格，ASE 本身有固定費率。 固定費率不會隨著您的 ASE 大小而變動，而會給每 15 個 App Service 方案執行個體 1 個額外的前端，以此預設級別費率的 ASE 基礎結構來付費。  
+
+如果每 15 個 App Service 方案執行個體 1 個前端的預設級別費率不夠快，您可以調整新增前端的比率或前端的大小。  當您調整比率或大小時，需要為預設時未加入的前端核心付費。  
+
+例如，如果您將級別比率調整為 10，系統就會針對 App Service 方案中每 10 個執行個體新增一個前端。 固定費用涵蓋每隔 15 個執行個體 1 個前端的級別費率。 使用 10 級別比率時，您必須支付針對 10 個 App Service 方案執行個體新增的第三個前端費用。 在您達到 15 個執行個體時，不需要付費，因為它是自動新增的。
+
+如果您將前端大小調整為 2 個核心，但不調整比率，則您需支付額外核心的費用。  ASE 已建立 2 個前端，所以即使低於自動調整閾值，如果大小增加到 2 個核心前端，您需支付 2 個額外核心的費用。
 
 如需詳細資訊，請參閱 [Azure App Service 價格][Pricing]。
 

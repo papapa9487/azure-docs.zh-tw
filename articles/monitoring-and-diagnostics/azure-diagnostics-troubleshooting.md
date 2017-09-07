@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: df53e92b877b4790bb700f176a1988d265ec4678
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: a0cb529836b14df71e83616f4f625a002c535b7b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
@@ -56,6 +56,34 @@ ms.lasthandoff: 07/13/2017
 | **記錄集合公用程式路徑** | C:\WindowsAzure\Packages |
 | **MonAgentHost 記錄檔** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
+## <a name="metric-data-doesnt-show-in-azure-portal"></a>計量資料不會出現在 Azure 入口網站
+Azure 診斷會提供一些計量資料，這些資料可以在 Azure 入口網站中顯示。 如果您在入口網站中看不到這些資料，請檢查診斷儲存體帳戶 -> WADMetrics\* 資料表，以查看是否有對應計量記錄。 在這裡，資料表的 PartitionKey 是虛擬機器或虛擬機器擴展集的資源識別碼，而 RowKey 是計量名稱，也就是效能計數器名稱。
+
+如果資源識別碼不正確，請檢查 [診斷設定] -> [計量] -> [資源識別碼]，以查看資源識別碼是否正確設定。
+
+如果沒有特定計量的資料，請檢查 [診斷設定] -> [PerformanceCounter]，以查看是否包含計量 (效能計數器)。 我們預設會啟用下列計數器。
+- \Processor(_Total)\% Processor Time
+- \Memory\Available Bytes
+- \ASP.NET Applications(__Total__)\Requests/Sec
+- \ASP.NET Applications(__Total__)\Errors Total/Sec
+- \ASP.NET\Requests Queued
+- \ASP.NET\Requests Rejected
+- \Processor(w3wp)\% Processor Time
+- \Process(w3wp)\Private Bytes
+- \Process(WaIISHost)\% Processor Time
+- \Process(WaIISHost)\Private Bytes
+- \Process(WaWorkerHost)\% Processor Time
+- \Process(WaWorkerHost)\Private Bytes
+- \Memory\Page Faults/sec
+- \.NET CLR Memory(_Global_)\% Time in GC
+- \LogicalDisk(C:)\Disk Write Bytes/sec
+- \LogicalDisk(C:)\Disk Read Bytes/sec
+- \LogicalDisk(D:)\Disk Write Bytes/sec
+- \LogicalDisk(D:)\Disk Read Bytes/sec
+
+如果設定正確，但是您仍然看不到計量資料，請遵循以下指導方針以進行進一步的調查。
+
+
 ## <a name="azure-diagnostics-is-not-starting"></a>Azure 診斷未啟動
 從上述提供的記錄檔位置查看 **DiagnosticsPluginLauncher.log** 和 **DiagnosticsPlugin.log** 檔案，以取得診斷為何無法啟動的相關資訊。 
 
@@ -72,7 +100,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 判斷是否沒有顯示任何資料，或只有部分資料未顯示。
 
 ### <a name="diagnostics-infrastructure-logs"></a>診斷基礎結構記錄檔
-診斷基礎結構記錄檔是 Azure 診斷記錄任何所發生錯誤的所在位置。 確定您已經在設定中啟用 ([作法？](#how-to-check-diagnostics-extension-configuration)) 診斷基礎結構記錄檔的擷取功能，並快速尋找設定的儲存體帳戶中，於 `DiagnosticInfrastructureLogsTable` 資料表中顯示的任何相關錯誤。
+診斷基礎結構記錄檔是 Azure 診斷記錄任何所發生錯誤的所在位置。 確定您已經在設定中啟用 ([作法？](#how-to-check-diagnostics-extension-configuration)) 診斷基礎結構記錄的擷取功能，並快速尋找設定的儲存體帳戶中，於 `DiagnosticInfrastructureLogsTable` 資料表中顯示的任何相關錯誤。
 
 ### <a name="no-data-is-showing-up"></a>未顯示任何資料
 完全遺漏事件資料的最常見原因是不正確地定義儲存體帳戶資訊。
@@ -87,7 +115,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 診斷組態包含指定要收集特定資料類型的部分。 [檢閱您的設定](#how-to-check-diagnostics-extension-configuration)以確定您尋找的資料不是未設定要收集的資料。
 #### <a name="is-the-host-generating-data"></a>主機是否正在產生資料：
 - **效能計數器**：開啟 Perfmon 並檢查計數器。
-- **追蹤記錄檔**：從遠端桌面連接到 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 http://msdn.microsoft.com/zh-tw/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
+- **追蹤記錄檔**：從遠端桌面連接到 VM，並將 TextWriterTraceListener 新增至應用程式的組態檔。  請參閱 http://msdn.microsoft.com/library/sk36c28t.aspx 設定文字接聽程式。  確定 `<trace>` 元素具有 `<trace autoflush="true">`。<br />
 如果您沒有看到系統正在產生追蹤記錄檔，請依照[關於遺漏追蹤記錄檔的詳細資訊](#more-about-trace-logs-missing)中的說明進行作業。
 - **ETW 追蹤**：從遠端桌面連接到 VM 並安裝 PerfView。  在 PerfView 中執行 [File] \(檔案\) -> [User Command] \(使用者命令\) -> Listen etwprovder1,etwprovider2,etc。請注意，Listen 命令區分大小寫，而且在 ETW 提供者清單中，以逗號區隔的 ETW 提供者之間不能有空格。  如果命令執行失敗，您可以按一下 Perfview 工具右下方的 [Log] \(記錄\) 按鈕，即可查看已嘗試執行哪些動作與執行結果。  假設輸入正確，就會顯示一個新的視窗，並且您會在幾秒鐘內開始看到 ETW 追蹤。
 - **事件記錄檔**：從遠端桌面連接到 VM。 開啟 `Event Viewer` 並確認事件存在。
@@ -95,7 +123,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 接下來請確定正在本機擷取資料。
 資料儲存在[診斷資料的本機存放區](#log-artifacts-path)的本機 `*.tsf` 檔案中。 不同的 `.tsf` 檔案會收集不同類型的記錄。 名稱類似於 Azure 儲存體中的資料表名稱。 例如，`PerformanceCountersTable.tsf`中會收集 `Performance Counters`，`WindowsEventLogsTable.tsf` 中會收集事件記錄檔。 請使用[本機記錄檔擷取](#local-log-extraction)一節中的指示開啟本機收集檔案，並確定您看到系統在磁碟上收集那些檔案。
 
-如果您沒有看到系統在本機收集記錄檔，且已經確認主機正在產生資料，可能是設定有問題。 請仔細檢閱適當區段的設定。 請一併檢閱針對 MonitoringAgent [MaConfig.xml](#log-artifacts-path) 產生的設定，並確定有描述相關記錄來源的部分區段，以及在 Azure 診斷組態和監視代理程式組態之間轉譯時，沒有造成遺失。
+如果您沒有看到系統在本機收集記錄，且已經確認主機正在產生資料，可能是設定有問題。 請仔細檢閱適當區段的設定。 請一併檢閱針對 MonitoringAgent [MaConfig.xml](#log-artifacts-path) 產生的設定，並確定有描述相關記錄來源的部分區段，以及在 Azure 診斷組態和監視代理程式組態之間轉譯時，沒有造成遺失。
 #### <a name="is-data-getting-transferred"></a>是否正在傳輸資料：
 如果您已經確認正在本機擷取資料，但仍然沒有在儲存體帳戶中看到資料： 
 - 首先且最重要的是，請確定您已經提供正確的儲存體帳戶，且您未變換所提供儲存體帳戶的金鑰等項目。 針對雲端服務，我們發現使用者有時候並未更新他們的 `useDevelopmentStorage=true`。
@@ -103,7 +131,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - 最後，您可以嘗試及查看監視代理程式報告了哪些失敗項目。 監視代理程式會將其記錄檔寫入位於[診斷資料的本機存放區](#log-artifacts-path)的 `maeventtable.tsf` 中。 請依照[本機記錄檔擷取](#local-log-extraction)一節中的指示開啟此檔案，然後嘗試找出是否有指出讀取本機檔案或寫入儲存體失敗的 `errors`。
 
 ### <a name="capturing--archiving-logs"></a>擷取/封存記錄檔
-您依序執行了上述步驟，但無法找出問題所在，因此正在考慮連絡支援人員。 他們可能會要求您做的第一件事是收集電腦的記錄檔。 您可以先自行執行該作業以節省時間。 請執行位於[記錄集合公用程式路徑](#log-artifacts-path) 的 `CollectGuestLogs.exe` 公用程式，它將會產生一個在同一資料夾中包含所有相關 Azure 記錄檔的壓縮檔。
+您依序執行了上述步驟，但無法找出問題所在，因此正在考慮連絡支援人員。 他們可能會要求您做的第一件事是收集電腦的記錄。 您可以先自行執行該作業以節省時間。 請執行位於[記錄集合公用程式路徑](#log-artifacts-path)的 `CollectGuestLogs.exe` 公用程式，它將會產生一個在同一資料夾中包含所有相關 Azure 記錄的壓縮檔。
 
 ## <a name="diagnostics-data-tables-not-found"></a>找不到診斷資料資料表
 Azure 儲存體中的資料表保存了使用以下代碼命名的 ETW 事件：
@@ -122,13 +150,13 @@ Azure 儲存體中的資料表保存了使用以下代碼命名的 ETW 事件：
 下列是一個範例：
 
 ```XML
-        <EtwEventSourceProviderConfiguration provider=”prov1”>
-          <Event id=”1” />
-          <Event id=”2” eventDestination=”dest1” />
+        <EtwEventSourceProviderConfiguration provider="prov1">
+          <Event id="1" />
+          <Event id="2" eventDestination="dest1" />
           <DefaultEvents />
         </EtwEventSourceProviderConfiguration>
-        <EtwEventSourceProviderConfiguration provider=”prov2”>
-          <DefaultEvents eventDestination=”dest2” />
+        <EtwEventSourceProviderConfiguration provider="prov2">
+          <DefaultEvents eventDestination="dest2" />
         </EtwEventSourceProviderConfiguration>
 ```
 ```JSON
@@ -205,7 +233,7 @@ Azure 儲存體中的資料表保存了使用以下代碼命名的 ETW 事件：
 | -112 |一般錯誤 |
 
 ### <a name="local-log-extraction"></a>本機記錄檔擷取
-監視代理程式會以 `.tsf` 檔案的方式收集記錄檔和構件。 您無法讀取 `.tsf` 檔案，但可以將它轉換成 `.csv`，如下所示： 
+監視代理程式會以 `.tsf` 檔案的方式收集記錄和構件。 您無法讀取 `.tsf` 檔案，但可以將它轉換成 `.csv`，如下所示： 
 
 ```
 <Azure diagnostics extension package>\Monitor\x64\table2csv.exe <relevantLogFile>.tsf
@@ -218,8 +246,8 @@ Azure 儲存體中的資料表保存了使用以下代碼命名的 ETW 事件：
 
 **注意：**除非您已經在於 IaaS VM 中執行的應用程式上設定 DiagnosticsMonitorTraceListener，否則這幾乎僅適用於雲端服務。 
 
-- 請確定已在 web.config 或 app.config 中設定 DiagnosticMonitorTraceListener。  雲端服務專案中會預設設定這個項目，但某些客戶認為這會導致診斷不會收集追蹤陳述式。 
-- 如果未從 OnStart 或 Run 方法寫入記錄檔，請確定 app.config 中有 DiagnosticMonitorTraceListener。  依照預設，它是位於 web.config 之中，但那僅適用於在 w3wp.exe 內執行的程式碼；所以您需要它位於 app.config 中，才能擷取在 WaIISHost.exe 中執行的追蹤。
+- 請確定已在 web.config 或 app.config 中設定 DiagnosticMonitorTraceListener。雲端服務專案中會預設設定這個項目，但某些客戶認為這會導致診斷不會收集追蹤陳述式。 
+- 如果未從 OnStart 或 Run 方法寫入記錄檔，請確定 app.config 中有 DiagnosticMonitorTraceListener。依照預設，它是位於 web.config 之中，但那僅適用於在 w3wp.exe 內執行的程式碼；所以您需要它位於 app.config 中，才能擷取在 WaIISHost.exe 中執行的追蹤。
 - 請確定您使用的是 Diagnostics.Trace.TraceXXX，而不是 Diagnostics.Debug.WriteXXX。  偵錯陳述式將從發行組建中移除。
 - 請確定已編譯的程式碼確實具有 Diagnostics.Trace 行 (使用 Reflector、ildasm 或 ILSpy 來驗證)。  Diagnostics.Trace 命令已從編譯的二進位檔中移除，除非您使用 TRACE 條件式編譯的符號。  如果使用 msbuild 建置專案，這就會是一個常見的問題。
 
@@ -239,8 +267,9 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 
 **2.儲存體中有效能計數器資料，但入口網站中沒有顯示**
 
-虛擬機器入口網站體驗預設會顯示特定效能計數器。 如果您沒有看到那些計數器，但您知道系統已經產生資料，因為儲存體中有資料。 檢查：
+虛擬機器入口網站體驗預設會顯示特定效能計數器。 如果您沒有看到那些計數器，但您知道系統已經產生資料，因為儲存體中有資料。 勾選：
 - 儲存體中的資料是否具有英文計數器名稱。 如果計數器名稱不是英文，入口網站計量圖表將無法辨識該計數器。
 - 如果您在效能計數器名稱中使用萬用字元 (\*)，入口網站將無法關聯設定和收集的計數器。
 
 **緩解方式**：針對系統帳戶，將電腦的語言變更為英文。 [控制台] -> [地區] -> [系統管理] -> [複製設定] -> 取消選取 [歡迎畫面及系統帳戶]，就能讓自訂語言不會套用至系統帳戶。 如果想要入口網站成為主要的使用體驗網站，也請確定沒有使用萬用字元。
+

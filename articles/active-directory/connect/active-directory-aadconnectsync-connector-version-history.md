@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/18/2017
+ms.date: 08/24/2017
 ms.author: fimguy
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 426f58a24798fd43f5079dd153b9e84d324da622
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: 313145f4d8e5faa91fb3504cb0fd0ba87ca2e379
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="connector-version-release-history"></a>連接器版本發行歷程記錄
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/19/2017
 * [Lotus Domino 連接器](active-directory-aadconnectsync-connector-domino.md) 參考文件
 
 
-## <a name="116040-aadconnect-11xxx0"></a>1.1.604.0 (AADConnect 1.1.XXX.0)
+## <a name="116040-aadconnect-pending-release"></a>1.1.604.0 (AADConnect 擱置版本)
 
 
 ### <a name="fixed-issues"></a>已修正的問題：
@@ -69,12 +69,12 @@ ms.lasthandoff: 08/19/2017
       - ou
       - altcommonname
 
-  * 當 [允許組織/組織單位使用自訂認證者] 選項啟用，但必要的認證者仍然空白時，則會發生 KeyNotFoundException。
+  * 當 [允許組織/組織單位使用自訂認證者] 選項啟用，但必要的認證者仍然空白時，就會出現 KeyNotFoundException。
 
 ### <a name="enhancements"></a>增強功能：
 
 * 一般 SQL：
-  * **案例：已重新實作：** "*" 功能
+  * **情節：重新設計的實作：** "*" 功能
   * **解決方案說明：**已變更[多重值參照屬性處理方法](active-directory-aadconnectsync-connector-genericsql.md)。
 
 

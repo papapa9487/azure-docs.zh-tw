@@ -3,7 +3,7 @@ title: "Azure 網路監看員中的安全性群組檢視簡介 | Microsoft Docs"
 description: "本頁提供網路監看員安全性檢視功能的概觀"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: ad27ab85-9d84-4759-b2b9-e861ef8ea8d8
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: Human Translation
 ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 2c581a2d152a6d3f16de8f249e27a426aa9f844f

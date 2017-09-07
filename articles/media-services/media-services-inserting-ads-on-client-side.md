@@ -4,7 +4,7 @@ description: "本主題說明如何在用戶端上插入廣告。"
 services: media-services
 documentationcenter: 
 author: juliako
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 65c9c747-128e-497e-afe0-3f92d2bf7972
 ms.service: media-services
@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: aaa0e2757875d8f9ac6a19f218bfb19bf9870b0d
-ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
-
+ms.translationtype: HT
+ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
+ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
@@ -30,7 +31,7 @@ ms.openlocfilehash: 54cf700463ff0a08f5f28a3d2b66c8814ab0a764
 > 
 > 
 
-## <a name="a-idinsertadsintomediaainserting-ads-into-your-media"></a><a id="insert_ads_into_media"></a>將廣告插入您的媒體
+## <a id="insert_ads_into_media"></a>將廣告插入您的媒體
 Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framework。 具備廣告支援的播放器架構都適用於 Windows 8、Silverlight、Windows Phone 8 和 iOS 裝置。 每一個播放器架構都有範例程式碼，教您如何實作播放器應用程式。目前有三種不同的廣告可以插入 media:list 中：
 
 * **線性** – 可暫停主要影片的完整框架廣告。
@@ -154,7 +155,7 @@ VAST 檔案會指定要顯示的廣告。 下列 XML 是線性廣告的 VAST 檔
     </Creative>
 
 
-<**NonLinearAds**> 元素可以包含一或多個 <**NonLinear**> 元素，其中每一個元素都可說明一個非線性廣告。 <**NonLinear**> 元素會指定非線性廣告的資源。 資源可以是 <**StaticResouce**>、<**IFrameResource**> 或 <**HTMLResouce**>。 <**StaticResource**> 會說明非 HTML 資源，並且定義 creativeType 屬性，該屬性會指定資源的顯示方式：
+<**NonLinearAds**> 元素可以包含一或多個 <**NonLinear**> 元素，其中每一個元素都可說明一個非線性廣告。 <**NonLinear**> 元素會指定非線性廣告的資源。 資源可以是 <**StaticResouce**>、<**IFrameResource**> 或 <**HTMLResouce**>。 <**StaticResource**> 說明非 HTML 資源，並且定義 creativeType 屬性，該屬性會指定資源的顯示方式：
 
 image/gif、image/jpeg、image/png – 資源在 HTML <**img**> 標記中顯示。
 
@@ -791,10 +792,5 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 ## <a name="see-also"></a>另請參閱
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

@@ -3,7 +3,7 @@ title: "使用開放原始碼工具將 Azure 網路監看員 NSG 流量記錄視
 description: "此頁面說明如何使用開放原始碼工具將 NSG 流量記錄視覺化。"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
@@ -13,10 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: jdial
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
 ms.openlocfilehash: 20f60ccd9108a7473705c2368f28d3152d0dd614
+ms.contentlocale: zh-tw
 ms.lasthandoff: 04/07/2017
 
 ---

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 927ec9251b5231a5d9a0e8278f5dc46e9abdde0e
+ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
+ms.openlocfilehash: ea0cf7ad074f95c2b49a92f9a8e32270a1d39b3a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/25/2017
 
 ---
 # <a name="share-azure-dashboards-by-using-role-based-access-control"></a>使用角色型存取控制來共用 Azure 儀表板
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/24/2017
 > 
 
 ## <a name="understanding-access-control-for-dashboards"></a>了解儀表板的存取控制
-若使用角色型存取控制，您可以將使用者指派給三個不同範圍層級的角色︰
+若使用角色型存取控制 (RBAC)，您可以將使用者指派給三個不同範圍層級的角色︰
 
 * 訂用帳戶
 * 資源群組

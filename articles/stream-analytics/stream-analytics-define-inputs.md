@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 09066927641054acb8c53a3585e111df87893e50
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入
@@ -126,7 +126,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 CSV 格式的輸入「需要」標題列來定義資料集的欄位。 此外，所有標題列欄位都必須是唯一的。
 
 > [!NOTE]
-> 串流分析不支援將內容加入現有的 blob。 串流分析只會檢視一次 blob，在作業讀取資料之後，blob 中發生的任何變更就不處理。 最佳做法是一次上傳所有資料，然後就不要將事件新增至該 blob 存放區。
+> 串流分析不支援將內容加入現有的 blob 檔案。 串流分析只會檢視每個檔案一次，在作業讀取資料之後，不會處理檔案中發生的任何變更。 最佳做法是一次上傳 blob 檔案的所有資料，然後將其他較新的事件新增到不同的新 blob 檔案。
 > 
 
 ### <a name="configure-blob-storage-as-a-data-stream-input"></a>將 Blob 儲存體設定為資料流輸入
@@ -165,7 +165,7 @@ FROM Input
 ````
 
 ## <a name="get-help"></a>取得說明
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureStreamAnalytics)。
+如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics)。
 
 ## <a name="next-steps"></a>後續步驟
 您已經了解自己串流分析工作的資料連線選項。 若要深入了解串流分析，請參閱：

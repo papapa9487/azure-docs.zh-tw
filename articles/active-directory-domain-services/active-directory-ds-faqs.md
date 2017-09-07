@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2017
+ms.date: 08/28/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 7f3212350b1158cd51a34ee1b20a456a73d41672
-ms.lasthandoff: 03/21/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
+ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
@@ -32,19 +32,22 @@ ms.lasthandoff: 03/21/2017
 否。 您只能針對單一 Azure AD 目錄，建立由 Azure AD 網域服務所服務的單一網域服務 。  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>是否可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD 網域服務？
-否。 Azure AD 網域服務只可以在傳統 Azure 虛擬網路中啟用。 您可以使用虛擬網路對等互連，將傳統虛擬網路連接到 Resource Manager 虛擬網路，以在 Resource Manager 虛擬網路中使用受管理的網域。
+是。 可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD Domain Services。 這項功能目前為預覽版本。
 
-#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-can-i-enable-azure-ad-domain-services-for-this-directory"></a>我可以在同盟 Azure AD 目錄中啟用 Azure AD Domain Services 嗎？ 我使用 ADFS 驗證存取 Office 365 的使用者。 我可以針對此目錄啟用 Azure AD Domain Services 嗎？
+#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>是否可以將我現有的受管理網域從傳統虛擬網路移轉到資源管理員虛擬網路？
+目前不支援。 我們在未來會提供一個機制，將現有的受管理網域從傳統虛擬網路移轉到資源管理員虛擬網路。 請密切注意最新消息。
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>我可以在同盟 Azure AD 目錄中啟用 Azure AD Domain Services 嗎？ 我使用 ADFS 來驗證使用者存取 Office 365，且不會將密碼雜湊同步至 Azure AD。 我可以針對此目錄啟用 Azure AD Domain Services 嗎？
 不可以。 Azure AD Domain Services 需要存取使用者帳戶的密碼雜湊，以透過 NTLM 或 Kerberos 驗證使用者。 在同盟目錄中，密碼雜湊不是儲存在 Azure AD 目錄中。 因此，Azure AD Domain Services 不適用於此類 Azure AD 目錄。
 
 #### <a name="can-i-make-azure-ad-domain-services-available-in-multiple-virtual-networks-within-my-subscription"></a>我可以在訂用帳戶內的多個虛擬網路中使用 Azure AD 網域服務嗎？
-服務本身並不直接支援這種情況。 Azure AD 網域服務一次只能在一個虛擬網路上使用。 不過，您可以在多個虛擬網路之間設定連線，以將 Azure AD 網域服務公開至其他虛擬網路。 此文章說明如何 [在 Azure 中連接虛擬網路](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
+服務本身並不直接支援這種情況。 受管理的網域一次只能在一個虛擬網路上使用。 不過，您可以在多個虛擬網路之間設定連線，以將 Azure AD 網域服務公開至其他虛擬網路。 了解如何[在 Azure 中連線虛擬網路](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)。
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>我是否可以使用 PowerShell 來啟用「Azure AD 網域服務」？
 目前不提供「Azure AD 網域服務」的 PowerShell/自動化部署。
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>「Azure AD 網域服務」是否可以在新的 Azure 入口網站中使用？
-否。 「Azure AD 網域服務」只能在 [Azure 傳統入口網站](https://manage.windowsazure.com)設定。 我們希望未來擴充支援 [Azure 入口網站](https://portal.azure.com) 。
+是。 只能使用 [Azure 入口網站](https://portal.azure.com)來設定 Azure AD Domain Services。 我們未來預期要停止[傳統 Azure 入口網站](https://manage.windowsazure.com)的支援。
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>可以將網域控制站新增至 Azure AD 網域服務管理的網域嗎？
 否。 Azure AD 網域服務所提供的網域是受管理的網域。 您不需要佈建、設定或管理此網域的網域控制站 - Microsoft 會以服務形式提供這些管理活動。 因此，您無法為受管理的網域新增其他網域控制站 (讀寫或唯讀)。

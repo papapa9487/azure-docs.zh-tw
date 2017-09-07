@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5574a234076797852b32631b90bb563441bbc6e7
+ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
+ms.openlocfilehash: 00f2ecbf0d8542741bd78dcfe2692e6627b1f3cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/28/2017
 
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
@@ -214,6 +214,9 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 
 * **網路安全性群組** (NSG) 可讓您篩選輸入和輸出網路流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/virtual-networks-nsg.md)文件。
 
+    > [!WARNING]
+    > HDInsight 不支援限制輸出流量。
+
 * **使用者定義路由** (UDR) 定義流量在網路中的資源之間如何流動。 如需詳細資訊，請參閱[使用者定義路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)文件。
 
 * **網路虛擬設備**會複寫裝置的功能，例如防火牆和路由器。 如需詳細資訊，請參閱[網路設備](https://azure.microsoft.com/solutions/network-appliances)文件。
@@ -228,7 +231,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 1. 識別您要用於 HDInsight 的 Azure 區域。
 
-2. 識別 HDInsight 所需的 IP 位址。 應受到允許的 IP 位址是 HDInsight 叢集和「虛擬網路」所在區域特定的 IP 位址。 如需依區域的 IP 位址清單，請參閱 [HDInsight 所需的 IP 位址](#hdinsight-ip)一節。
+2. 識別 HDInsight 所需的 IP 位址。 如需詳細資訊，請參閱 [HDInsight 所需的 IP 位址](#hdinsight-ip)一節。
 
 3. 建立或修改您要安裝 HDInsight 之子網路的網路安全性群組或使用者定義路由。
 
@@ -247,11 +250,14 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 ## <a id="hdinsight-ip"></a> 所需的 IP 位址
 
-Azure 健康狀態和管理服務必須能夠與 HDInsight 通訊。 如果您使用網路安全性群組或使用者定義的路由，請允許來自這些服務之 IP 位址的流量到達 HDInsight。
+> [!IMPORTANT]
+> Azure 健康狀態和管理服務必須能夠與 HDInsight 通訊。 如果您使用網路安全性群組或使用者定義的路由，請允許來自這些服務之 IP 位址的流量到達 HDInsight。
+>
+> 如果您未使用網路安全性群組或使用者定義的路由來控制流量，可以忽略這個章節。
 
-IP 位址有兩組：
+如果您是使用網路安全性群組或使用者定義的路由，必須允許來自 Azure 健康情況和管理服務的流量觸達 HDInsight。 您可以使用下列步驟來尋找必須允許的 IP 位址：
 
-* 必須允許之由四個 IP 組成的__全域__集合：
+1. 您必須一律允許來自下列 IP 位址的流量：
 
     | IP 位址 | 允許的連接埠 | 方向 |
     | ---- | ----- | ----- |
@@ -260,10 +266,10 @@ IP 位址有兩組：
     | 168.61.48.131 | 443 | 輸入 |
     | 138.91.141.162 | 443 | 輸入 |
 
-* 必須允許的__每個區域__ IP 位址：
+2. 如果您的 HDInsight 叢集是位於下列其中一個區域中，就必須允許來自針對區域所列的 IP 位址之流量：
 
     > [!IMPORTANT]
-    > 如果未列出您使用的 Azure 區域，則只能使用先前所述的四個全域 IP。
+    > 如果未列出您使用的 Azure 區域，就只能使用步驟 1 中的四個 IP 位址。
 
     | 國家 (地區) | 區域 | 允許的 IP 位址 | 允許的連接埠 | 方向 |
     | ---- | ---- | ---- | ---- | ----- |
@@ -294,11 +300,7 @@ IP 位址有兩組：
 
     如需用於 Azure Government 之 IP 位址的資訊，請參閱 [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) 文件。
 
-> [!WARNING]
-> HDInsight 不支援限制輸出流量，僅限制輸入流量。
-
-> [!IMPORTANT]
-> 如果您搭配使用自訂 DNS 伺服器與虛擬網路，則也必須允許從 __168.63.129.16__ 進行存取。 此位址是 Azure 遞迴解析程式。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。
+3. 如果您搭配使用自訂 DNS 伺服器與虛擬網路，則也必須允許從 __168.63.129.16__ 進行存取。 此位址是 Azure 遞迴解析程式。 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。
 
 如需詳細資訊，請參閱[控制網路流量](#networktraffic)一節。
 

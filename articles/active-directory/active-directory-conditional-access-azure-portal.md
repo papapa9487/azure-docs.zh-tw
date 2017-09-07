@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
+ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 20572ecbde79bc2722f3a25f297c92d8e722a3e8
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: c97f05caec4c302c847e2297d136c6614e82fd93
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
@@ -69,9 +69,9 @@ ms.lasthandoff: 08/23/2017
 
 - **Multi-Factor Authentication** - 您可以透過 Multi-Factor Authentication 來要求增強式驗證。 身為提供者，您可以使用 Azure Multi-Factor Authentication，或使用結合 Active Directory Federation Services (AD FS) 的內部部署多重要素驗證提供者。 對於未獲授權但已取得有效使用者之認證存取權的使用者，使用 Multi-Factor Authentication 有助於防止其存取資源。
 
-- **符合規範的裝置** - 您可以在裝置層級設定條件式存取原則。 您可以設定一個原則：只能夠讓符合規範的電腦，或已在行動裝置管理中註冊的行動裝置存取貴組織的資源。 例如，您可以使用 Intune 來檢查裝置相容性，然後向 Azure AD 回報，以便在使用者嘗試存取應用程式強制執行。 如需如何使用 Intune 來保護應用程式和資料的詳細指引，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。 您也可以使用 Intune 來強制進行遺失或遭竊裝置的資料保護。 如需詳細資訊，請參閱 [使用 Microsoft Intune 搭配完整或選擇性抹除協助保護您的資料](https://docs.microsoft.com/intune-classic/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)。
+- **符合規範的裝置** - 您可以設定以裝置作為基礎的條件式存取原則。 以裝置作為基礎的條件式存取原則目標在於只從信任的裝置授與已設定資源的存取權。 要定義受信任裝置的選項之一，是要求符合規範的裝置。 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
-- **已加入網域的裝置** – 您可以要求您用來連線到 Azure Active Directory 的裝置加入內部部署 Active Directory (AD) 網域。 此原則適用於 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 
+- **已加入網域的裝置** – 設定以裝置作為基礎的條件式存取原則的另一個選項，是要求已加入網域的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
 如果您選取多個控制項，也可以設定在處理您的原則時是否全都為必要。
 
@@ -80,11 +80,11 @@ ms.lasthandoff: 08/23/2017
 ### <a name="session-controls"></a>工作階段控制項
 工作階段控制項可讓您限制雲端應用程式內的體驗。 工作階段控制項是由雲端應用程式強制執行，並依賴 Azure AD 對應用程式提供有關工作階段的其他資訊。
 
-![控制](./media/active-directory-conditional-access-azure-portal/session-control-pic.png)
+![控制](./media/active-directory-conditional-access-azure-portal/31.png)
 
 #### <a name="use-app-enforced-restrictions"></a>使用應用程式強制執行限制
 您可以使用這個控制項，要求 Azure AD 將裝置資訊傳遞至雲端應用程式。 這有助於雲端應用程式了解使用者是否來自符合規範的裝置或加入網域的裝置。 此控制項目前僅支援使用 SharePoint 作為雲端應用程式。 視裝置狀態而定，SharePoint 會使用裝置資訊來提供使用者有限或完整的經驗。
-若要深入了解如何要求 SharePoint 的有限存取，請移至[這裡](https://aka.ms/spolimitedaccessdocs)。
+若要深入了解如何要求 SharePoint 的有限存取，請參閱[從未受管理的裝置控制存取](https://aka.ms/spolimitedaccessdocs)。
 
 ## <a name="condition-statement"></a>條件陳述式
 
@@ -95,22 +95,29 @@ ms.lasthandoff: 08/23/2017
 ![控制](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
-- **誰** - 在許多情況下，您想要讓控制項套用至一組特定的使用者。 在條件陳述式中，您可以選取原則套用至的使用者和群組，以定義這組使用者。 如有必要，您也可以明確豁免一組使用者，進行從您的原則中排除這些使用者。  
-選取使用者和群組，您可以定義您的原則套用至的使用者範圍。    
+### <a name="who"></a>何人？
 
-    ![控制](./media/active-directory-conditional-access-azure-portal/08.png)
+當您設定條件式存取原則時，必須選取原則所適用的使用者或群組。 在許多情況下，您需要讓控制項套用至一組特定的使用者。 在條件陳述式中，您可以選取原則所適用的必要使用者或群組，以定義這組使用者。 如有必要，您也可以明確豁免一組使用者，進行從您的原則中排除這些使用者。  
+
+![控制](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
-- **什麼** - 從保護的觀點而言，有些在您的環境中執行的應用程式通常需要更多關注 (相較於其他應用程式)。 例如，這會影響有權存取敏感性資料的應用程式。
+### <a name="what"></a>何事？
+
+當您設定條件式存取原則時，必須選取原則所適用的雲端應用程式。
+從保護的觀點而言，有些在您環境中的應用程式通常需要更多關注 (相較於其他應用程式)。 例如，這會影響有權存取敏感性資料的應用程式。
 選取雲端應用程式，您可以定義您的原則套用至的雲端應用程式範圍。 如有必要，您也可以從您的原則中明確排除一組應用程式。
 
-    ![控制](./media/active-directory-conditional-access-azure-portal/09.png)
+![控制](./media/active-directory-conditional-access-azure-portal/09.png)
 
+如需可在條件式存取原則中使用的雲端應用程式的完整清單，請參閱 [Azure Active Directory 條件式存取的技術參考](active-directory-conditional-access-technical-reference.md#cloud-apps-assignments)。
 
-- **如何** - 只要您的應用程式存取是在您可以控制的條件下執行，就可能不需要對使用者存取您雲端應用程式的方式強加其他控制項。 不過，如果從不受信任的網路或不符合規範的裝置執行您的雲端應用程式存取，情況可能會有所不同。 在條件陳述式中，您可以定義某些存取條件，其對應用程式存取的執行方式有額外需求。
+### <a name="how"></a>方式：
 
-    ![條件](./media/active-directory-conditional-access-azure-portal/21.png)
+只要您的應用程式存取是在可控制的條件下執行，就可能不需要對使用者存取您雲端應用程式的方式強加其他控制項。 不過，如果從不受信任的網路或不符合規範的裝置執行您的雲端應用程式存取，情況可能會有所不同。 在條件陳述式中，您可以定義某些存取條件，其對應用程式存取的執行方式有額外需求。
+
+![條件](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 ## <a name="conditions"></a>條件
@@ -168,12 +175,16 @@ ms.lasthandoff: 08/23/2017
 ![條件](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
-### <a name="client-app"></a>用戶端應用程式
+### <a name="client-apps"></a>用戶端應用程式
 
 用戶端應用程式可以是您用來連線到 Azure Active Directory 的一般層級應用程式 (網頁瀏覽器、行動裝置應用程式、桌面用戶端)，或者您可以特別選取 Exchange Active Sync。  
 舊式驗證是指使用基本驗證的用戶端，例如，未使用新式驗證的舊版 Office 用戶端。 舊式驗證目前不支援條件式存取。
 
 ![條件](./media/active-directory-conditional-access-azure-portal/04.png)
+
+
+如需可在條件式存取原則中使用的用戶端應用程式完整清單，請參閱 [Azure Active Directory 條件式存取的技術參考](active-directory-conditional-access-technical-reference.md#client-apps-conditions)。
+
 
 
 ## <a name="common-scenarios"></a>常見案例
@@ -201,6 +212,6 @@ ms.lasthandoff: 08/23/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
+- 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
 
-如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 
+- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 

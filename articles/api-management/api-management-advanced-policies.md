@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 0c65ac74316421a0258f01143baa25ffecb5be3b
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
@@ -308,8 +308,8 @@ ms.lasthandoff: 08/23/2017
 |---------------|-----------------|--------------|--------------|  
 |key|字串。 允許的運算式。 指定並行範圍。 可由多個原則共用。|是|N/A|  
 |max-count|整數。 指定允許輸入原則的要求數目上限。|是|N/A|  
-|timeout|整數。 允許的運算式。 指定要求因為「403 太多要求」而失敗之前，應等候進入某個範圍的秒數|否|Infinity|  
-|max-queue-length|整數。 允許的運算式。 指定最大佇列長度。 嘗試輸入此原則的內送要求將會終止，因為佇列耗盡時立即出現「403 太多要求」。|否|Infinity|  
+|timeout|整數。 允許的運算式。 指定要求因為「429 太多要求」而失敗之前，應等候進入某個範圍的秒數|否|Infinity|  
+|max-queue-length|整數。 允許的運算式。 指定最大佇列長度。 嘗試輸入此原則的內送要求將會終止，因為佇列耗盡時立即出現「429 太多要求」。|否|Infinity|  
   
 ###  <a name="ChooseUsage"></a>使用方式  
  此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

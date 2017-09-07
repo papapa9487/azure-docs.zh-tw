@@ -1,27 +1,28 @@
 ---
-title: "Azure Active Directory B2C︰權杖、工作階段及單一登入設定 | Microsoft Docs"
+title: "權杖、工作階段及單一登入設定 - Azure AD B2C | Microsoft Docs"
 description: "Azure Active Directory B2C 中的權杖、工作階段及單一登入組態"
 services: active-directory-b2c
 documentationcenter: 
-author: swkrish
-manager: mbaldwin
-editor: bryanla
+author: parakhj
+manager: krassk
+editor: parakhj
 ms.assetid: e78e6344-0089-49bf-8c7b-5f634326f58c
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2017
-ms.author: swkrish
+ms.date: 08/16/2017
+ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 4442174a857681adff33001e660809ec7d47ad7d
+ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
+ms.openlocfilehash: 256c93e5c343cba022599f8e13c5b7616bfa8b58
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C：權杖、工作階段及單一登入設定
+
 這項功能可讓您以 [每個原則為基礎](active-directory-b2c-reference-policies.md)，針對以下項目進行精細控制︰
 
 1. Azure Active Directory (Azure AD) B2C 所發出之安全性權杖的存留期。
@@ -29,21 +30,22 @@ ms.lasthandoff: 08/08/2017
 3. Azure AD B2C 所發出之安全性權杖中的重要宣告格式。
 4. B2C 租用戶中跨越多個應用程式和原則的單一登入 (SSO) 行為。
 
-您可以在 B2C 租用戶中使用這項功能，如下所示︰
+針對內建原則，您可以在 Azure AD B2C 目錄中使用這項功能，如下所示：
 
-1. 遵循下列步驟以 [瀏覽至 B2C 功能刀鋒視窗](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
-2. 按一下 [登入原則] 。 *附註︰這項功能適用於任何原則類型，並不限於**登入原則***。
-3. 按一下原則以予以開啟。 例如，按一下 [B2C_1_SiIn]。
-4. 按一下刀鋒視窗頂端的 [編輯]  。
+1. 遵循下列步驟以[瀏覽至 B2C 功能功能表](active-directory-b2c-app-registration.md#navigate-to-b2c-settings) (位於 Azure 入口網站上)。
+2. 按一下 [註冊或登入原則] 。 *附註︰這項功能適用於任何原則類型，並不限於**註冊或登入原則***。
+3. 按一下原則以予以開啟。 例如，按一下 [B2C_1_SiUpIn]。
+4. 按一下功能表頂端的 [編輯]。
 5. 按一下 [權杖、工作階段及單一登入設定]。
 6. 變更需要的項目。 了解後續章節中的可用屬性。
 7. 按一下 [確定] 。
-8. 按一下刀鋒視窗頂端的 [儲存]  。
+8. 按一下功能表頂端的 [儲存]。
 
 ## <a name="token-lifetimes-configuration"></a>權杖存留期組態
+
 Azure AD B2C 支援以 [OAuth 2.0 授權通訊協定](active-directory-b2c-reference-protocols.md) 來啟用受保護資源的安全存取。 為了實作這項支援，Azure AD B2C 會發出各種 [安全性權杖](active-directory-b2c-reference-tokens.md)。 以下是可用來管理 Azure AD B2C 所發出之安全性權杖存留期的屬性︰
 
-* **存取和識別碼權杖存留期 (分鐘)**：用來存取受保護資源之 OAuth 2.0 持有人權杖的存留期。 Azure AD B2C 目前只能發出識別碼權杖。 當我們加入存取權杖的支援時，這個值也會套用至存取權杖。
+* **存取和識別碼權杖存留期 (分鐘)**：用來存取受保護資源之 OAuth 2.0 持有人權杖的存留期。
   * 預設值 = 60 分鐘。
   * 最小值 (含) = 5 分鐘。
   * 最大值 (含) = 1440 分鐘。
@@ -67,6 +69,7 @@ Azure AD B2C 支援以 [OAuth 2.0 授權通訊協定](active-directory-b2c-refer
     > 
 
 ## <a name="token-compatibility-settings"></a>權杖相容性設定
+
 我們對 Azure AD B2C 所發出之安全性權杖中的重要宣告進行了格式變更。 這都是為了改善我們的標準通訊協定支援，以及獲得更佳的協力廠商身分識別程式庫互通性。 不過，為了避免破壞現有的應用程式，我們建立了下列可讓客戶視需要選擇加入的屬性︰
 
 * **簽發者 (iss) 宣告**︰這會識別發出權杖的 Azure AD B2C 租用戶。
@@ -80,6 +83,7 @@ Azure AD B2C 支援以 [OAuth 2.0 授權通訊協定](active-directory-b2c-refer
   * **acr**︰這僅針對回溯相容性提供，我們建議您儘可能切換到 `tfp`。
 
 ## <a name="session-behavior"></a>工作階段行為
+
 Azure AD B2C 支援以 [OpenID Connect 驗證通訊協定](active-directory-b2c-reference-oidc.md) 啟用 Web 應用程式的安全登入。 以下是可用來管理 Web 應用程式工作階段的屬性︰
 
 * **Web 應用程式工作階段存留期 (分鐘)**︰在成功通過驗證時，儲存於使用者瀏覽器上的 Azure AD B2C 工作階段 Cookie 存留期。
@@ -104,7 +108,7 @@ Azure AD B2C 支援以 [OpenID Connect 驗證通訊協定](active-directory-b2c-
 * **租用戶**：這是預設設定。 此設定可允許 B2C 租用戶中的多個應用程式和原則共用同一個使用者工作階段。 例如，一旦使用者登入應用程式 Contoso Shopping 後，他或她就可以在存取另一個應用程式 Contoso Pharmacy 時順暢地登入。
 * **應用程式**︰可讓您保留應用程式專用的使用者工作階段，不受其他應用程式所限制。 例如，如果您想讓使用者登入 Contoso Pharmacy (使用相同的認證)，即使他或她已登入 Contoso Shopping (同一個 B2C 租用戶上的另一個應用程式)。 
 * **原則**︰可讓您保留原則專用的使用者工作階段，不論使用該使用者工作階段的應用程式為何。 例如，如果使用者已登入並完成多重要素驗證 (MFA) 步驟，只要與原則繫結的工作階段未過期，他們就可以取得多個應用程式較高安全性之組件的存取權限。
-* **已停用**︰強制使用者在每次原則執行時都必須完成整個使用者旅程。 例如，這可讓多位使用者登入您的應用程式 (在共用桌面案例中)，即使有一位使用者在整段期間都保持登入狀態，也不受影響。
+* **已停用**︰強制使用者在每次原則執行時都必須完成整個使用者旅程。 例如，這可讓多位使用者登入您的應用程式 (在共用桌面情節中)，即使有一位使用者在整段期間都保持登入狀態，也不受影響。
 
     > [!NOTE]
     > 這些設定不適用於密碼重設原則。

@@ -3,7 +3,7 @@ title: "Azure API 管理中的 API 範本 | Microsoft Docs"
 description: "了解如何在「Azure API 管理」中自訂開發人員入口網站中的 API 頁面內容。"
 services: api-management
 documentationcenter: 
-author: miaojiang
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 3642fd09-ba98-4358-93a6-c48ab0500431
@@ -14,9 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
+ms.translationtype: HT
+ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
+ms.openlocfilehash: 9055c7fc0b562fa02aa2f2ec8425a4a41b69e600
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 範本
@@ -39,7 +41,7 @@ ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
 > [!NOTE]
 >  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
   
-##  <a name="a-nameapilista-api-list"></a><a name="APIList"></a>API 清單  
+##  <a name="APIList"></a>API 清單  
  **API 清單**範本可讓您自訂開發人員入口網站中 API 清單頁面的主體。  
   
  ![開發人員入口網站 API 清單](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM 開發人員入口網站範本 API 清單")  
@@ -107,7 +109,7 @@ ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
 }  
 ```  
   
-##  <a name="a-nameproducta-operation"></a><a name="Product"></a>作業  
+##  <a name="Product"></a>作業  
  **作業**範本可讓您自訂開發人員入口網站中作業頁面的主體。  
   
  ![開發人員入口網站作業頁面](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM 開發人員入口網站範本作業頁面")  
@@ -637,7 +639,7 @@ ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
 }  
 ```  
   
-##  <a name="a-namecodesamplesa-code-samples"></a><a name="CodeSamples"></a> 程式碼範例  
+##  <a name="CodeSamples"></a> 程式碼範例  
  下列範本可讓您自訂作業頁面上個別程式碼範例的主體。  
   
  ![開發人員入口網站範本程式碼範例](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "APIM 開發人員入口網站範本程式碼範例")  
@@ -658,7 +660,7 @@ ms.openlocfilehash: cfd0dcba9572fba6ba75893e1a84fd10cd75290d
   
 -   [Ruby](#Ruby)  
   
-###  <a name="a-namecurla-curl"></a><a name="Curl"></a>Curl  
+###  <a name="Curl"></a>Curl  
  **DocumentationSamplesCurl** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -711,7 +713,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="a-namecsharpa-c"></a><a name="CSharp"></a>C#  
+###  <a name="CSharp"></a> C#  
  **DocumentationSamplesCsharp** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -890,7 +892,7 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="a-namestuba-java"></a><a name="Stub"></a>Java  
+###  <a name="Stub"></a>Java  
  **DocumentationSamplesJava** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -986,7 +988,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="a-namejavascripta-javascript"></a><a name="JavaScript"></a>JavaScript  
+###  <a name="JavaScript"></a>JavaScript  
  **DocumentationSamplesJs** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -1075,7 +1077,7 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="a-nameobjectiveca-objective-c"></a><a name="ObjectiveC"></a>Objective C  
+###  <a name="ObjectiveC"></a>Objective C  
  **DocumentationSamplesObjc** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -1187,7 +1189,7 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="a-namephpa-php"></a><a name="PHP"></a>PHP  
+###  <a name="PHP"></a>PHP  
  **DocumentationSamplesPhp** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -1277,7 +1279,7 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="a-namepythona-python"></a><a name="Python"></a>Python  
+###  <a name="Python"></a>Python  
  **DocumentationSamplesPython** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -1395,7 +1397,7 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="a-namerubya-ruby"></a><a name="Ruby"></a>Ruby  
+###  <a name="Ruby"></a>Ruby  
  **DocumentationSamplesRuby** 範本可讓您在作業頁面的程式碼範例區段中自訂該程式碼範例。  
   
 #### <a name="default-template"></a>預設範本  
@@ -1468,8 +1470,3 @@ puts response.body
 
 ## <a name="next-steps"></a>後續步驟
 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](api-management-developer-portal-templates.md)。
-
-
-<!--HONumber=Jan17_HO2-->
-
-

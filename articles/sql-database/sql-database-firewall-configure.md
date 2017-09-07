@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 04/10/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 583c91376418d20d34db17d57d3fa14a1e71cd3b
+ms.translationtype: HT
+ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
+ms.openlocfilehash: 71c7eaf2272245bd681387947812f7d5c0f58094
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/30/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 伺服器層級和資料庫層級防火牆規則 
@@ -40,7 +39,7 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
    ![圖解防火牆設定。][1]
 
 * **伺服器層級防火牆規則：** 這些規則可讓用戶端存取整個 Azure SQL Server，也就是相同邏輯伺服器內的所有資料庫。 這些規則會儲存在 **master** 資料庫。 使用入口網站或使用 Transact-SQL 陳述式即可設定伺服器層級防火牆規則。 若要使用 Azure 入口網站或 PowerShell 建立伺服器層級的防火牆規則，您必須是訂用帳戶擁有者或訂用帳戶參與者。 若要使用 Transact-SQL 建立伺服器層級的防火牆規則，您必須以伺服器層級的主體登入或 Azure Active Directory 系統管理員身分連接到 SQL 資料庫執行個體 (這表示具有 Azure 層級權限的使用者必須先建立伺服器層級的防火牆規則)。
-* **資料庫層級防火牆規則：** 這些規則可讓用戶端存取同部邏輯伺服器內的特定 (安全) 資料庫。 您可針對每個資料庫 (包括 **master** database0) 建立這些規則，其會存放在個別的資料庫中。 資料庫層級防火牆規則只能使用 Transact-SQL 陳述式設定，且僅可在您已設定第一個伺服器層級防火牆之後進行設定。 如果您在資料庫層級防火牆規則中指定的 IP 位址範圍是在伺服器層級防火牆規則中指定的範圍之外，只有具有資料庫層級範圍中的 IP 位址的那些用戶端才可以存取資料庫。 對於資料庫，您最多可以有 128 個資料庫層級防火牆規則。 主要與使用者資料庫的資料庫層級防火牆規則，僅可透過 Transact-SQL 來建立和管理。 如需設定資料庫層級防火牆規則的詳細資訊，請參閱稍後述於 [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx) 的範例。
+* **資料庫層級防火牆規則：** 這些規則可讓用戶端存取同部邏輯伺服器內的特定 (安全) 資料庫。 您可針對每個資料庫 (包括 **master** database) 建立這些規則，其會存放在個別的資料庫中。 master 與使用者資料庫的資料庫層級防火牆規則只能使用 Transact-SQL 陳述式建立及管理，且僅可在您已設定第一個伺服器層級防火牆之後進行設定。 如果您在資料庫層級防火牆規則中指定的 IP 位址範圍是在伺服器層級防火牆規則中指定的範圍之外，只有具有資料庫層級範圍中的 IP 位址的那些用戶端才可以存取資料庫。 對於資料庫，您最多可以有 128 個資料庫層級防火牆規則。 如需設定資料庫層級防火牆規則的詳細資訊，請參閱稍後述於 [sp_set_database_firewall_rule (Azure SQL Databases)](https://msdn.microsoft.com/library/dn270010.aspx) 的範例。
 
 **建議：**Microsoft 建議在可行時使用資料庫層級防火牆規則來增強安全性，並且讓您的資料庫更具有可攜性。 當您有多個資料庫具有相同存取需求，且不想花時間個別設定每個資料庫時，請對系統管理員使用伺服器層級的防火牆規則。
 

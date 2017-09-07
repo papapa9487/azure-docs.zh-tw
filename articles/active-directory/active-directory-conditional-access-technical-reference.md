@@ -11,83 +11,158 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/22/2017
+ms.date: 08/28/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: db7d8b6b2cbe1604fc1b02cc36780ddd83a4d350
+ms.translationtype: HT
+ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
+ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/29/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
 
-## <a name="services-enabled-with-conditional-access"></a>已啟用條件式存取功能的服務
+透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以微調授權使用者如何存取您的應用程式。  
+本主題為您提供下列條件式存取原則項目的支援資訊： 
 
-各種 Azure AD 應用程式類型都支援「條件式存取」規則。 此清單包括：
+- 雲端應用程式指派
 
-
-* 已向 Azure 應用程式 Proxy 註冊的應用程式
-* Azure 遠端應用程式
-* 已開發並已向 Azure AD 註冊的企業營運及多租用戶應用程式
-* Dynamics CRM
-* 來自 Azure AD 應用程式庫的同盟應用程式
-* Microsoft Office 365 Yammer
-* Microsoft Office 365 Exchange Online
-* Microsoft Office 365 SharePoint Online (包括商務用 OneDrive)
-* Microsoft Power BI 
-* 來自 Azure AD 應用程式庫的密碼 SSO 應用程式
-* Visual Studio Team Services
-* Microsoft Teams
+- 用戶端應用程式條件
 
 
 
+## <a name="cloud-apps-assignments"></a>雲端應用程式指派
+
+當您設定條件式存取原則時，必須[選取原則所適用的雲端應用程式](active-directory-conditional-access-azure-portal.md#who)。 
+
+![控制](./media/active-directory-conditional-access-technical-reference/09.png)
+
+
+### <a name="microsoft-cloud-apps"></a>Microsoft 雲端應用程式
+
+您可以將條件式存取原則指派給下列 Microsoft 的雲端應用程式：
+
+- Azure 遠端應用程式
+
+- Dynamics CRM
+
+- Microsoft Office 365 Yammer
+
+- Microsoft Office 365 Exchange Online
+
+- Microsoft Office 365 SharePoint Online (包括商務用 OneDrive)
+
+- Microsoft Power BI 
+
+- Visual Studio Team Services
+
+- Microsoft Teams
+
+
+### <a name="other-apps"></a>其他應用程式 
+
+除了 Microsoft 雲端應用程式之外，您還可以將條件式存取原則指派給下列類型的雲端應用程式：
+
+- 已連線 Azure Active Directory (Azure AD) 的應用程式
+
+- 預先整合的同盟軟體即服務 (SaaS) 應用程式
+
+- 使用密碼單一登入 (SSO) 的應用程式
+
+- 企業營運應用程式
+
+- 使用 Azure AD 應用程式 Proxy 的應用程式。 
+
+
+## <a name="client-apps-conditions"></a>用戶端應用程式條件 
+
+當您設定條件式存取原則時，可以設定[用戶端應用程式條件](active-directory-conditional-access-azure-portal.md#client-apps)。 當有人從這些類型的用戶端應用程式嘗試存取時，用戶端應用程式條件可讓您授與或封鎖存取：
+
+- [瀏覽器]
+- 行動裝置應用程式和桌面應用程式
+
+![控制](./media/active-directory-conditional-access-technical-reference/03.png)
+
+
+### <a name="supported-browsers"></a>支援的瀏覽器 
+
+如果您在條件式存取原則中選取 [瀏覽器] 來授與資源的存取權，只在嘗試使用支援的瀏覽器存取時才會授與存取。 使用不支援的瀏覽器存取嘗試時，嘗試就會遭到封鎖。
+
+![支援的瀏覽器](./media/active-directory-conditional-access-technical-reference/05.png)
+
+在條件式存取原則中，支援下列瀏覽器： 
+
+
+| 作業系統                     | 瀏覽器                 | 支援     |
+| :--                    | :--                      | :-:         |
+| Win 10                 | IE、Edge                 | ![勾選][1] |
+| Win 10                 | Chrome                   | 預覽     |
+| Win 8 / 8.1            | IE、Chrome               | ![勾選][1] |
+| Win 7                  | IE、Chrome               | ![勾選][1] |
+| iOS                    | Safari                   | ![勾選][1] |
+| Android                | Chrome                   | ![勾選][1] |
+| Windows Phone          | IE、Edge                 | ![勾選][1] |
+| Windows Server 2016    | IE、Edge                 | ![勾選][1] |
+| Windows Server 2016    | Chrome                   | 敬請期待 |
+| Windows Server 2012 R2 | IE、Chrome               | ![勾選][1] |
+| Windows Server 2008 R2 | IE、Chrome               | ![勾選][1] |
+| Mac OS                 | Safari                   | ![勾選][1] |
+| Mac OS                 | Chrome                   | 敬請期待 |
+
+> [!NOTE]
+> 針對 Chrome 支援，您必須使用 Windows 10 建立者更新，而且安裝可以在[這裡](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)找到的擴充功能。
+
+
+### <a name="supported-mobile-apps-and-desktop-clients"></a>支援的行動裝置應用程式和桌面用戶端
+
+如果您在條件式存取原則中選取 [行動裝置應用程式和桌面用戶端] 來授與資源的存取權，只在嘗試使用支援的行動裝置應用程式或桌面用戶端存取時才會授與存取。 使用不支援的行動裝置應用程式或桌面用戶端存取嘗試時，嘗試就會遭到封鎖。
+
+![控制](./media/active-directory-conditional-access-technical-reference/06.png)
+
+下列行動裝置應用程式和桌面用戶端支援 Office 365 和其他 Azure AD 連線服務應用程式的條件式存取︰
+
+
+| 用戶端應用程式| 目標服務| 平台 |
+| :-- | --- | --- |
+| 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS|
+| Azure 遠端應用程式| Azure 遠端應用程式服務| Windows 10、Windows 8.1、Windows 7、iOS、Android 和 Mac OS X|
+| Dynamics CRM 應用程式| Dynamics CRM| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
+| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、MAC OS X、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS/Android 和 MAC OSX|
+| 郵件/行事曆/連絡人應用程式、Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 10|
+| Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 8.1、Windows 7|
+| Outlook 行動應用程式| Office 365 Exchange Online| iOS|
+| Outlook 2016 (macOS 版 Office)| Office 365 Exchange Online| Mac OS X|
+| Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援| Office 365 SharePoint Online| Windows 10|
+| Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))| Office 365 SharePoint Online| Windows 8.1、Windows 7|
+| Office 行動應用程式| Office 365 SharePoint Online| iOS、Android|
+| macOS 版 Office 2016 (僅限 Word、Excel、PowerPoint、OneNote)。 未來規劃支援商務用 OneDrive| Office 365 SharePoint Online| Mac OS X|
+| Office Yammer 應用程式| Office 365 Yammer| Windows 10、iOS、Android|
+| PowerBI 應用程式。 適用於 Android 的 Power BI 應用程式目前不支援裝置型條件式存取。| PowerBI service| Windows 10、Windows 8.1、Windows 7 及 iOS|
+| Visual Studio Team Services 應用程式| Visual Studio Team Services| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
 
 
 
 
 
 
-## <a name="enable-access-rules"></a>啟用存取規則
-您可以依據個別應用程式來啟用或停用每個規則。 當規則為 **ON** 時，系統將會針對存取應用程式的使用者啟用並強制執行這些規則。 當規則為 **OFF** 時，系統就不會使用這些規則，也就不會影響使用者的登入體驗。
-
-## <a name="applying-rules-to-specific-users"></a>將規則套用到特定的使用者
-您可以透過設定 [套用對象] ，根據安全性群組，將規則套用到特定的幾組使用者。 [套用對象] 可以設定為 [所有使用者] 或 [群組]。 設定為 [所有使用者]  時，會將規則套用到任何可以存取應用程式的使用者。 [群組]  選項可允許選取特定的安全性和通訊群組，系統將只會針對這些群組強制執行規則。
-
-部署規則時，通常會先將它套用到一組有限的使用者，即試驗群組的成員。 完成後，規則就可以套用至 [所有使用者] 。 這會造成規則對組織中的所有使用者強制執行。
-
-您也可以使用 [例外]  選項來免除對選取的群組套用原則。 這些群組的任何成員即使出現在包含群組中，也不必套用原則。
-
-## <a name="at-work-networks"></a>「工作時」網路
-使用「工作時」網路的條件式存取規則會依賴 Azure AD 中已設定的可信任 IP 位址範圍，或者從 AD FS 中使用「公司網路內部」宣告。 這些規則包含：
-
-* 不在工作時需要多重要素驗證
-* 不工作時封鎖存取
-
-用於指定「工作時」網路的選項
-
-1. 在 [Multi-Factor Authentication 組態頁面](../multi-factor-authentication/multi-factor-authentication-whats-next.md)中設定可信任的 IP位址範圍。 「條件式存取」原則會在每個驗證要求和權杖發行上使用已設定的範圍來評估規則。 
-2. 設定使用公司網路內部的宣告，您可以使用 AD FS，將此選項與同盟目錄搭配使用。 若要深入了解公司網路內部宣告，請參閱[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)。
 
 
-## <a name="rules-based-on-application-sensitivity"></a>根據應用程式敏感性的規則
-規則是依據個別應用程式來設定，以允許對高價值服務進行保護，而不影響對其他服務的存取。 條件式存取規則可以在應用程式的 [設定]  索引標籤上設定。 
 
-目前提供的規則︰
 
-* **需要多重要素驗證**
-  
-  * 所有套用了這個原則的使用者都必須透過 Multi-Factor Authentication 至少驗證一次。
-* **不在工作時需要多重要素驗證**
-  
-  * 如果套用了這個原則，所有使用者如果是從非工作遠端位置存取服務，都必須至少執行一次 Multi-Factor Authentication。 如果他們從工作位置移到遠端位置，則在存取服務時，就必須執行 Multi-Factor Authentication。
-* **不工作時封鎖存取** 
-  
-  * 當使用者從工作位置移至遠端位置時，如果套用了 [不工作時封鎖存取] 原則，他們就會被封鎖。  當他們回到工作位置時，就會再次允許他們存取。
 
-## <a name="related-topics"></a>相關主題
-* [保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取](active-directory-conditional-access.md)
-* [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
+
+
+
+## <a name="next-steps"></a>後續步驟
+
+- 如需條件式存取的概觀，請參閱 [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)
+- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)
+
+
+
+<!--Image references-->
+[1]: ./media/active-directory-conditional-access-technical-reference/01.png
+
 
 
