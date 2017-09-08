@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/24/2017
+ms.date: 09/08/2017
 ms.author: ramical
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: c1345dcda6e52267a8037ffd7207e6bc3b0d3b31
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/28/2017
-
 
 ---
 # <a name="get-data-using-the-azure-ad-reporting-api-with-certificates"></a>使用 Azure AD 報告 API 搭配憑證來取得資料
@@ -26,10 +26,10 @@ ms.lasthandoff: 03/28/2017
 
 ## <a name="use-the-azure-ad-reporting-api"></a>使用 Azure AD 報告 API 
 Azure AD Reporting API 會要求您完成下列步驟：
- *    安裝必要條件
- *    在您的應用程式中設定憑證
- *    取得存取權杖
- *    使用存取權杖來呼叫圖形 API
+ *  安裝必要條件
+ *  在您的應用程式中設定憑證
+ *  取得存取權杖
+ *  使用存取權杖來呼叫圖形 API
 
 如需原始程式碼的相關資訊，請參閱[運用報告 API 模組](https://github.com/AzureAD/azure-activedirectory-powershell/tree/gh-pages/Modules/AzureADUtils)。 
 
