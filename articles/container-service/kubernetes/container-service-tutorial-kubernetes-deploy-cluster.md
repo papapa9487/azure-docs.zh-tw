@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location westeurope
 下列範例會建立一個名為 *myK8sCluster* 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
 
 ```azurecli-interactive 
-az acs create --orchestrator-type=kubernetes --resource-group myResourceGroup --name=myK8SCluster --generate-ssh-keys 
+az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
 幾分鐘之後，此命令就會完成，並以 json 格式傳回 ACS 部署的相關資訊。
@@ -77,7 +77,7 @@ az acs kubernetes install-cli
 若要將 `kubectl` 設定為連線到 Kubernetes 叢集，請執行 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 命令。
 
 ```azurecli-interactive 
-az acs kubernetes get-credentials --resource-group=myResourceGroup --name=myK8SCluster
+az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 若要確認與叢集的連線，請執行 [kubectl get nodes](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 命令。
