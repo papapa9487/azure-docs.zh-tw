@@ -1,4 +1,3 @@
- 
 ---
 title: "了解如何在 Azure Logic Apps 中使用 MQ 連接器 | Microsoft Docs"
 description: "從邏輯應用程式工作流程連線到內部部署或 Azure MQ Server，來瀏覽、接收及傳送訊息至 WebSphere MQ"

@@ -1183,7 +1183,7 @@ RTrim 函式會從字串移除結尾空白字元。
 * condition：可以在屬性中處理項目的任何函式
 
 **範例：**  
-`Select($item,[otherPhone],Replace($item,“-”,“”))`  
+`Select($item,[otherPhone],Replace($item,"-",""))`  
 傳回移除連字號 (-) 後，多重值屬性 otherPhone 中所有值。
 
 - - -

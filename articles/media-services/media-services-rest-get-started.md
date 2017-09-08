@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/05/2017
 ms.author: juliako
 ms.translationtype: HT
 ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
@@ -479,7 +479,7 @@ SAS URL 具有下列格式：
     POST https://wamsbayclus001rest-hs.cloudapp.net/api/Jobs HTTP/1.1
     DataServiceVersion: 1.0;NetFx
     MaxDataServiceVersion: 3.0;NetFx
-    Content-Type: application/json
+    Content-Type: application/json;odata=verbose
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=amstestaccount001&urn%3aSubscriptionId=z7f09258-2233-4ca2-b1ae-193798e2c9d8&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1421675491&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=9hUudHYnATpi5hN3cvTfgw%2bL4N3tL0fdsRnQnm6ZYIU%3d
@@ -702,8 +702,6 @@ SAS URL 具有下列格式：
        ]
     }
 
-
-
 ## <a id="publish_get_urls"></a>使用 REST API 發行資產及取得串流和漸進式下載 URL
 
 若要串流處理或下載資產，您必須先建立定位器來「發佈」它。 定位器提供對於資產中包含之檔案的存取。 媒體服務支援兩種類型的定位器：OnDemandOrigin 定位器，用於串流媒體 (例如，MPEG DASH、HLS 或 Smooth Streaming) 和存取簽章 (SAS) 定位器，用來下載媒體檔案。 如需 SAS 定位器的詳細資訊，請參閱[這個](http://southworks.com/blog/2015/05/27/reusing-azure-media-services-locators-to-avoid-facing-the-5-shared-access-policy-limitation/)部落格。
@@ -724,7 +722,6 @@ HLS 的串流 URL 具有下列格式：
 MPEG DASH 的串流 URL 具有下列格式：
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
-
 
 用來下載檔案的 SAS URL 具有下列格式：
 
@@ -819,7 +816,6 @@ MPEG DASH 的串流 URL 具有下列格式：
        }
     }
 
-
 傳回的 **Path** 屬性包含 SAS URL。
 
 > [!NOTE]
@@ -854,7 +850,6 @@ MPEG DASH 的串流 URL 具有下列格式：
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_AAC_und_ch2_56kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
-
 
 ### <a name="creating-a-streaming-url-for-streaming-content"></a>建立串流內容用的串流 URL
 下列程式碼示範如何建立串流 URL 定位器：
