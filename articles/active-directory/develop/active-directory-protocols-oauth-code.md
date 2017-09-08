@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c6670b97ebc0545dbcb01d2b0cb1e260f99cfed9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # 使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式
@@ -266,7 +266,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | invalid_client |用戶端驗證失敗。 |用戶端認證無效。 若要修正，應用程式系統管理員必須更新認證。 |
 | unsupported_grant_type |授權伺服器不支援授權授與類型。 |變更要求中的授與類型。 這種類型的錯誤應該只會在開發期間發生，並且會在初始測試期間偵測出來。 |
 | invalid_resource |目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 |這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
-| interaction_required |要求需要使用者互動。 例如，必須進行其他驗證步驟。 |以相同資源重試要求。 |
+| interaction_required |要求需要使用者互動。 例如，必須進行其他驗證步驟。 | 並非為非互動式要求，請以相同資源的互動式授權要求重試。 |
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
 
 ## 使用存取權杖來存取資源
@@ -329,15 +329,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &resource=https%3A%2F%2Fservice.contoso.com%2F
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
 ```
-| 參數 | 說明 |
-| --- | --- |
-| access_token |所要求的新存取權杖。 |
-| expires_in |權杖的剩餘存留期 (秒)。 一般值為 3600 (1 小時)。 |
-| expires_on |權杖的到期日期和時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 |
-| refresh_token |此回應中的存取權杖到期時，可用來要求新存取權杖的新 OAuth 2.0 refresh_token。 |
-| resource |識別存取權杖可用來存取的受保護的資源。 |
-| scope |授與原生用戶端應用程式的模擬權限。 預設權限為 **user_impersonation**。 目標資源的擁有者可以在 Azure AD 中註冊替代值。 |
-| token_type |權杖類型。 唯一支援的值為 **bearer**。 |
 
 ### 成功回應
 成功的權杖回應如下：
@@ -352,6 +343,15 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
   "refresh_token": "AwABAAAAv YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfcUl4VBbiSHZyd1NVZG5QTIOcbObu3qnLutbpadZGAxqjIbMkQ2bQS09fTrjMBtDE3D6kSMIodpCecoANon9b0LATkpitimVCrl PM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4rTfgV29ghDOHRc2B-C_hHeJaJICqjZ3mY2b_YNqmf9SoAylD1PycGCB90xzZeEDg6oBzOIPfYsbDWNf621pKo2Q3GGTHYlmNfwoc-OlrxK69hkha2CF12azM_NYhgO668yfmVCrl-NyfN3oyG4ZCWu18M9-vEou4Sq-1oMDzExgAf61noxzkNiaTecM-Ve5cq6wHqYQjfV9DOz4lbceuYCAA"
 }
 ```
+| 參數 | 說明 |
+| --- | --- |
+| token_type |權杖類型。 唯一支援的值為 **bearer**。 |
+| expires_in |權杖的剩餘存留期 (秒)。 一般值為 3600 (1 小時)。 |
+| expires_on |權杖的到期日期和時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 |
+| resource |識別存取權杖可用來存取的受保護的資源。 |
+| scope |授與原生用戶端應用程式的模擬權限。 預設權限為 **user_impersonation**。 目標資源的擁有者可以在 Azure AD 中註冊替代值。 |
+| access_token |所要求的新存取權杖。 |
+| refresh_token |此回應中的存取權杖到期時，可用來要求新存取權杖的新 OAuth 2.0 refresh_token。 |
 
 ### 錯誤回應
 範例錯誤回應看起來可能像這樣︰
