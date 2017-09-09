@@ -53,6 +53,12 @@
 ## 管理
 ### [服務匯流排管理程式庫](service-bus-management-libraries.md)
 ### [使用 Azure Resource Manager 範本](service-bus-resource-manager-overview.md)
+#### [建立命名空間](service-bus-resource-manager-namespace.md)
+#### [建立命名空間和佇列](service-bus-resource-manager-namespace-queue.md)
+#### [建立命名空間與主題和訂用帳戶](service-bus-resource-manager-namespace-topic.md)
+#### [建立命名空間和佇列的授權規則](service-bus-resource-manager-namespace-auth-rule.md)
+#### [建立命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
+#### 
 ### [使用 PowerShell 佈建實體](service-bus-manage-with-ps.md)
 
 # 參考
