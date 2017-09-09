@@ -132,6 +132,7 @@
 ## 管理裝置
 ### [簡介](device-management-introduction.md)
 ### [使用 Azure 入口網站](device-management-azure-portal.md)
+### [規劃 Azure AD Join](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [常見問題集](device-management-faq.md)
 ### 工作
 #### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](device-management-azuread-registered-devices-windows10-setup.md)
@@ -142,15 +143,6 @@
 ### 疑難排解
 #### [混合式 Azure AD 已加入 Windows 10 和 Windows Server 2016 裝置](device-management-troubleshoot-hybrid-join-windows-current.md)
 #### [混合式 Azure AD 已加入舊版 Windows 裝置](device-management-troubleshoot-hybrid-join-windows-legacy.md)
-### [Azure AD Join](active-directory-azureadjoin-overview.md)
-#### [規劃](active-directory-azureadjoin-deployment-aadjoindirect.md)
-#### [設定裝置註冊](active-directory-azureadjoin-setup.md)
-#### [註冊新裝置](active-directory-azureadjoin-user-frx.md)
-#### [部署](active-directory-azureadjoin-devices-group-policy.md)
-#### [了解 Windows 10 整合](active-directory-azureadjoin-windows10-devices-overview.md)
-#### [使用 Windows 10 裝置](active-directory-azureadjoin-windows10-devices.md)
-#### [加入裝置](active-directory-azureadjoin-personal-device.md)
-#### [加入 Windows 10 裝置](active-directory-azureadjoin-user-upgrade.md)
 
 ## 管理應用程式
 ### [概觀](active-directory-enable-sso-scenario.md)
@@ -299,6 +291,8 @@
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳作法](active-directory-conditional-access-best-practices.md)
+#### [VPN 連線能力](active-directory-conditional-access-vpn-connectivity-windows10.md)
+#### [行動裝置應用程式管理](active-directory-conditional-access-mam.md)
 #### [技術參考](active-directory-conditional-access-technical-reference.md)
 #### [了解裝置原則](active-directory-conditional-access-device-policies.md)
 #### [設定已連接應用程式的存取權](active-directory-conditional-access-policy-connected-applications.md)
@@ -306,7 +300,6 @@
 #### [常見問題集](active-directory-conditional-faqs.md)
 #### [傳統入口網站](active-directory-conditional-access.md)
 ##### [開始使用](active-directory-conditional-access-azuread-connected-apps.md)
-
 
 ### Windows Hello
 #### [無需密碼驗證](active-directory-azureadjoin-passport.md)
