@@ -33,6 +33,8 @@
   items:
     - name: 安全容器
       href: container-service-security.md
+    - name: 服務主體 - Kubernetes
+      href: container-service-kubernetes-service-principal.md
 - name: 使用說明指南
   items:
     - name: Kubernetes 與 Windows
@@ -49,8 +51,12 @@
       href: container-service-connect.md
     - name: 調整 ACS 叢集的規模
       href: container-service-scale.md
+    - name: Kubernetes ACS 叢集負載平衡
+      href: container-service-kubernetes-load-balancing.md
     - name: 監視
       items:
+        - name: 透過 OMS 進行監視
+          href: container-service-kubernetes-oms.md
         - name: 透過 Datadog 進行監視
           href: container-service-kubernetes-datadog.md
         - name: 透過 Sysdig 進行監視
@@ -68,7 +74,7 @@
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: 資源
   items:
     - name: Azure 藍圖
