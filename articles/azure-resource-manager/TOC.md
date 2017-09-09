@@ -6,8 +6,8 @@
 ## [受管理的應用程式](managed-application-overview.md)
 
 # 開始使用
-## [匯出範本](resource-manager-export-template.md)
 ## [建立和部署範本](resource-manager-create-first-template.md)
+## [適用於範本的 VS Code 延伸模組](resource-manager-vscode-extension.md)
 ## [搭配 Resource Manager 使用 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
 # 範例
@@ -20,8 +20,8 @@
 
 # 作法
 ## 建立範本
-### [範本的最佳做法](resource-manager-template-best-practices.md)
 ### [範本區段](resource-group-authoring-templates.md)
+### [範本的最佳做法](resource-manager-template-best-practices.md)
 ### [連結至其他範本](resource-group-linked-templates.md)
 ### [定義資源間的相依性](resource-group-define-dependencies.md)
 ### [建立多個執行個體](resource-group-create-multiple.md)
@@ -33,6 +33,7 @@
 ### [在連結的範本間共用狀態](best-practices-resource-manager-state.md)
 ### [設計範本的模式](best-practices-resource-manager-design-templates.md)
 
+
 ## 部署
 ### PowerShell
 #### [部署範本](resource-group-template-deploy.md)
@@ -42,7 +43,9 @@
 #### [部署範本](resource-group-template-deploy-cli.md)
 #### [使用 SAS 權杖部署私人範本](resource-manager-cli-sas-token.md)
 #### [匯出範本並重新部署](resource-manager-export-template-cli.md)
-### [入口網站](resource-group-template-deploy-portal.md)
+### 入口網站
+#### [部署資源](resource-group-template-deploy-portal.md)
+#### [匯出範本](resource-manager-export-template.md)
 ### [REST API](resource-group-template-deploy-rest.md)
 ### [跨資源群組部署](resource-manager-cross-resource-group-deployment.md)
 ### [持續與 Visual Studio Team Services 整合](../vs-azure-tools-resource-groups-ci-in-vsts.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)

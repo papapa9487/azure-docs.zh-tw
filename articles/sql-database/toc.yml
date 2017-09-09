@@ -43,11 +43,7 @@
       href: sql-database-migrate-your-sql-server-database.md
     - name: 3 - 保護您的 SQL DB
       href: sql-database-security-tutorial.md
-    - name: 4 - 改善 SQL DB 效能
-      href: sql-database-performance-tutorial.md
-    - name: 5 - 實作多租用戶應用程式
-      href: sql-database-multi-tenant-application.md
-    - name: 6 - 實作異地分散資料庫
+    - name: 4 - 實作異地分散式資料庫
       href: sql-database-implement-geo-distributed-database.md
 - name: 範例
   items:
