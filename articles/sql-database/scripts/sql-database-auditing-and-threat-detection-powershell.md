@@ -14,7 +14,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
 ms.workload: database
-ms.date: -9/06/2017
+ms.date: 09/08/2017
 ms.author: janeng
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/28/2017
 在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
