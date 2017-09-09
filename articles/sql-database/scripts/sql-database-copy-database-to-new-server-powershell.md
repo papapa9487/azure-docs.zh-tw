@@ -39,7 +39,8 @@ ms.lasthandoff: 06/28/2017
 在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $sourceresourcegroupname
+Remove-AzureRmResourceGroup -ResourceGroupName $targetresourcegroupname
 ```
 
 ## <a name="script-explanation"></a>指令碼說明

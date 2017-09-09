@@ -46,7 +46,7 @@ using namespace System.Collections.Generic
 # Hub database info
 # Subscription id for hub database
 $SubscriptionId = "subscription_guid"
-# Resrouce group name for hub database
+# Resource group name for hub database
 $ResourceGroupName = "ResourceGroup"
 # Server name for hub database
 $ServerName = "Server"
@@ -323,6 +323,11 @@ else
         }
     }
 }
+
+# Clean up deployment 
+# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+# Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+
 ```
 
 ## <a name="clean-up-deployment"></a>清除部署
@@ -330,7 +335,8 @@ else
 執行範例指令碼之後，您可以執行下列命令以移除資源群組及與其相關聯的所有資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
