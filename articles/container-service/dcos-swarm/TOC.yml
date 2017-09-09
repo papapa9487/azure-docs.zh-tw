@@ -27,6 +27,8 @@
       href: container-service-security.md
 - name: 使用說明指南
   items:
+    - name: 建立 ACS 叢集
+      href: container-service-create-acs-cluster-cli.md
     - name: 與 ACS 叢集連接
       href: container-service-connect.md
     - name: 調整 ACS 叢集的規模
@@ -65,12 +67,14 @@
           href: container-service-docker-swarm.md
         - name: 搭配 Docker Swarm 和 VSTS 的 CI/CD
           href: container-service-docker-swarm-setup-ci-cd.md
+        - name: 搭配 Docker Swarm (ACS 引擎) 和 VSTS 的 CI/CD
+          href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: 參考
   items:
     - name: Azure CLI 2.0
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/compute/containerservices
+      href: /rest/api/container-services
 - name: 資源
   items:
     - name: Azure 藍圖

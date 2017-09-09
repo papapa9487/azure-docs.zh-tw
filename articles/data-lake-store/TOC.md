@@ -57,7 +57,7 @@
 
 ## 管理
 ### [存取診斷記錄檔](data-lake-store-diagnostic-logs.md)
-### [高可用性規劃](data-lake-store-troubleshooting-guidance.md)
+### [高可用性規劃](data-lake-store-disaster-recovery-guidance.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)

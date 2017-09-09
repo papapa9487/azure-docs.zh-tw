@@ -16,7 +16,7 @@
 ### [自訂設定](active-directory-aadconnect-get-started-custom.md)
 ### [從 DirSync 升級](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [從舊版升級](active-directory-aadconnect-upgrade-previous-version.md)
-
+### [使用現有的 ADSync 資料庫安裝](active-directory-aadconnect-existing-database.md)
 
 # 作法
 ## 規劃和設計

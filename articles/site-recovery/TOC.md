@@ -13,7 +13,7 @@
 ## [觀看簡介](https://azure.microsoft.com/resources/videos/index/?services=site-recovery)
 
 # 開始使用
-## [複寫 Azure VM (預覽)](site-recovery-azure-to-azure.md)
+## [將 Azure VM 複寫至 Azure (預覽)](site-recovery-azure-to-azure.md)
 ## [將 VMware VM 複寫到 Azure](vmware-walkthrough-overview.md)
 ### [步驟 1：檢閱架構](vmware-walkthrough-architecture.md)
 ### [步驟 2：檢閱必要條件和限制](vmware-walkthrough-prerequisites.md)
