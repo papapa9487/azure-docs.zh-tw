@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/10/2017
+ms.date: 8/22/2017
 ms.author: trinadhk;markgal
-translationtype: Human Translation
-ms.sourcegitcommit: 4bf4814c25f09c4c8637f13753316cd9f200fc42
-ms.openlocfilehash: f7e090916dbe6c6db84c1a110a6627feeb7e20ab
-ms.lasthandoff: 02/23/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: d0b6eb8eea8971eb8f80c6623f9a41a3692241b3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -46,7 +46,7 @@ Azure 備份提供 3 種用來控制備份管理作業的內建角色。 深入�
 | 建立復原服務保存庫 | 保存庫資源群組的參與者 |
 | 啟用 Azure VM 的備份 | 在保存庫上為備份操作員，在 VM 上為虛擬機器參與者 |
 | VM 的隨選備份 | 備份操作員 |
-| 還原 VM | VM 和 Vnet 將部署之所在位置的備份操作員和資源群組參與者|n which VM and Vnets are going to get deployed |
+| 還原 VM | VM 和 Vnet 將部署之所在位置的備份操作員和資源群組參與者 |
 | 從 VM 備份還原磁碟、個別檔案 | 備份操作員 |
 | 建立 Azure VM 備份的備份原則 | 備份參與者 |
 | 修改 Azure VM 備份的備份原則 | 備份參與者 |

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 5bc983ef1ffaac5d6de7bbc2cdf51838d8051aac
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b8c6e2e22d8478b6e92e7b7942f15d37a840fed3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>使用 Linux 診斷擴充功能監視 Linux VM 的效能和診斷資料
@@ -152,7 +152,7 @@ Linux 診斷延伸模組可協助使用者監視在 Microsoft Azure 上執行的
 
 ## <a name="review-your-data"></a>檢閱資料
 
-效能和診斷資料會儲存在 Azure 儲存體資料表中。 檢閱[如何從 Ruby 使用 Azure 表格儲存體](../../../storage/storage-ruby-how-to-use-table-storage.md)，以了解如何使用 Azure CLI 指令碼存取儲存體資料表中的資料。
+效能和診斷資料會儲存在 Azure 儲存體資料表中。 檢閱[如何從 Ruby 使用 Azure 表格儲存體](../../../cosmos-db/table-storage-how-to-use-ruby.md)，以了解如何使用 Azure CLI 指令碼存取儲存體資料表中的資料。
 
 此外，您可以使用下列 UI 工具來存取資料：
 

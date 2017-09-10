@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 08/15/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 5cc565adf4a4b6820ad676d9689c9697e9158b9f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 160fbc98e0f3dcc7d17cbe0c7f7425811596a896
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
@@ -42,7 +42,7 @@ Azure Cosmos DB 中的變更會加以保存，且可進行非同步處理，並�
 變更摘要允許透過大量寫入來有效處理大型資料集，並提供查詢整個資料集以識別已變更之項目的替代方式。 例如，您可以有效率地執行下列工作︰
 
 * 透過儲存在 Azure Cosmos DB 中的資料，來更新快取、搜尋索引或資料倉儲。
-* 實作應用程式層級的資料階層處理和封存，也就是在 Azure Cosmos DB 中儲存「熱資料」，並將「冷資料」淘汰到 [Azure Blob 儲存體](../storage/storage-introduction.md)或 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)。
+* 實作應用程式層級的資料階層處理和封存，也就是在 Azure Cosmos DB 中儲存「熱資料」，並將「冷資料」淘汰到 [Azure Blob 儲存體](../storage/common/storage-introduction.md)或 [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)。
 * 使用 [Apache Hadoop](run-hadoop-with-hdinsight.md) 在資料上實作批次分析。
 * 透過 Azure Cosmos DB [在 Azure 上實作 Lambda 管線 (英文)](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/)。 Azure Cosmos DB 提供一個可調整的資料庫解決方案，可以處理擷取和查詢，並實作具有低 TCO 的 Lambda 架構。 
 * 透過不同的分割配置，執行零停機時間移轉至另一個 Azure Cosmos DB 帳戶。
@@ -53,14 +53,15 @@ Azure Cosmos DB 中的變更會加以保存，且可進行非同步處理，並�
 
 您可以使用 Azure Cosmos DB 來接收與儲存來自裝置、感應器、基礎結構和應用程式的事件資料，並透過 [Azure 串流分析](../stream-analytics/stream-analytics-documentdb-output.md)、[Apache Storm](../hdinsight/hdinsight-storm-overview.md) 或 [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md) 即時處理這些事件。 
 
-在 Web 和行動應用程式內，您可以追蹤例如變更客戶設定檔、喜好設定或位置等的事件，以觸發像是使用 [Azure Functions](../azure-functions/functions-bindings-documentdb.md) 或[應用程式服務](https://azure.microsoft.com/services/app-service/)傳送推播通知到客戶裝置的特定動作。 例如，如果您使用 Azure Cosmos DB 來建置遊戲，就可以根據完成遊戲的分數，使用變更摘要來實作即時排行榜。
+在您的 [serverless](http://azure.com/serverless) Web 和行動應用程式內，您可以追蹤例如變更客戶設定檔、喜好設定或位置等的事件，以觸發像是使用 [Azure Functions](../azure-functions/functions-bindings-documentdb.md) 或[應用程式服務](https://azure.microsoft.com/services/app-service/)傳送推播通知到客戶裝置的特定動作。 例如，如果您使用 Azure Cosmos DB 來建置遊戲，就可以根據完成遊戲的分數，使用變更摘要來實作即時排行榜。
 
 ## <a name="how-change-feed-works-in-azure-cosmos-db"></a>變更摘要在 Azure Cosmos DB 中的運作方式
 Azure Cosmos DB 提供以累加方式讀取對 Azure Cosmos DB 集合做出之更新的功能。 此變更摘要具有下列屬性：
 
 * 變更會在 Azure Cosmos DB 中持續保存，並且可以非同步處理。
 * 集合內的文件變更會立即在變更摘要中提供。
-* 每個文件變更僅會在變更摘要中出現一次。 變更記錄檔中只會包含指定文件的最新變更。 中繼變更可能無法使用。
+* 對文件所做的每項變更皆會在變更摘要中出現一次，且用戶端會管理其檢查點邏輯。 變更摘要的處理器程式庫提供自動檢查點和「至少一次」語意。
+* 變更記錄檔中只會包含指定文件的最新變更。 中繼變更可能無法使用。
 * 變更摘要會依照各個資料分割索引鍵值內的修改順序排序。 跨資料分割索引鍵值順序不會是固定的。
 * 變更可以從任何時間點同步處理，也就是說，可用變更沒有固定的資料保留期限。
 * 變更會以資料分割索引鍵區塊為單位提供。 這項功能可讓大型集合的變更由多個取用者/伺服器平行處理。
@@ -70,7 +71,7 @@ Azure Cosmos DB 提供以累加方式讀取對 Azure Cosmos DB 集合做出之�
 
 ![Azure Cosmos DB 變更摘要的分散式處理](./media/change-feed/changefeedvisual.png)
 
-關於如何在用戶端程式碼中實作變更摘要，我們提供了幾個選項供您選擇。 接下來的幾節會說明如何使用 Azure Cosmos DB REST API 和 DocumentDB SDK 來實作變更摘要。 不過，如果您使用 .NET 應用程式，則建議您使用新的[變更摘要處理器程式庫](#change-feed-processor)來處理變更摘要所傳來的事件，因為該程式庫可簡化分割區變更的讀取作業，並讓多個執行緒平行運作。
+關於如何在用戶端程式碼中實作變更摘要，我們提供了幾個選項供您選擇。 接下來的幾節會說明如何使用 Azure Cosmos DB REST API 和 DocumentDB SDK 來實作變更摘要。 不過，如果您使用 .NET 應用程式，則建議您使用新的[變更摘要處理器程式庫](#change-feed-processor)來處理變更摘要所傳來的事件，因為該程式庫可簡化分割區變更的讀取作業，並讓多個執行緒平行運作。 
 
 ## <a id="rest-apis"></a>使用 REST API 和 DocumentDB SDK
 Azure Cosmos DB 提供彈性的儲存體及輸送量容器，稱為**集合**。 集合內的資料會針對延展性和效能，使用[資料分割索引鍵](partition-data.md)以邏輯方式分組。 Azure Cosmos DB 提供各種用來存取此資料的 API，包括依識別碼查閱 (Read/Get)、查詢及讀取摘要 (掃描)。 變更摘要可以透過將兩個新的要求標頭填入至 DocumentDB 的 `ReadDocumentFeed` API 來取得，並且可以跨分割區索引鍵的範圍來平行處理。
@@ -198,7 +199,7 @@ Azure Cosmos DB 支援針對每個分割區索引鍵範圍進行文件擷取，�
 ReadDocumentFeed 支援下列在 Azure Cosmos DB 集合中進行累加式變更處理的案例/工作：
 
 * 從開始 (也就是集合建立開始) 讀取所有文件變更。
-* 從目前時間讀取包含未來更新的所有文件變更。
+* 從目前時間讀取包含未來更新的所有文件變更，或自從使用者指定時間以來的任何變更。
 * 從集合邏輯版本 (ETag) 讀取所有文件變更。 您可以根據從累加式讀取摘要要求傳回的 ETag，將您的取用者設為檢查點。
 
 變更包含對文件進行的插入和更新。 若要擷取刪除項目，您必須在您的文件內使用「虛刪除」屬性，或使用[內建 TTL 屬性](time-to-live.md)在變更摘要中指示暫止刪除。
@@ -220,10 +221,14 @@ ReadDocumentFeed 支援下列在 Azure Cosmos DB 集合中進行累加式變更�
         <td>If-None-Match</td>
         <td>
             <p>No header：傳回從一開始 (集合建立) 的所有變更</p>
-            <p>"*"：傳回集合內資料的所有新變更</p>
+            <p>"*"：傳回集合內資料的所有新變更</p>           
             <p>&lt;etag&gt;：如果設定為集合 ETag，則傳回邏輯時間戳記之後所做的所有變更</p>
         </td>
     </tr>
+    <tr>    
+        <td>If-Modified-Since</td> 
+        <td>RFC 1123 時間格式；如果已指定 If-None-Match，則忽略</td> 
+    </tr> 
     <tr>
         <td>x-ms-documentdb-partitionkeyrangeid</td>
         <td>用來讀取資料的資料分割索引鍵範圍識別碼。</td>
@@ -232,8 +237,7 @@ ReadDocumentFeed 支援下列在 Azure Cosmos DB 集合中進行累加式變更�
 
 **累加式 ReadDocumentFeed 的回應標頭**：
 
-<table>
-    <tr>
+<table> <tr>
         <th>標頭名稱</th>
         <th>說明</th>
     </tr>
@@ -263,6 +267,8 @@ ReadDocumentFeed 支援下列在 Azure Cosmos DB 集合中進行累加式變更�
 
 > [!NOTE]
 > 使用變更摘要時，若在預存程序或觸發程序內插入或更新多份文件，您在頁面中取得的傳回項目可能會比 `x-ms-max-item-count` 中指定的項目更多。 
+
+使用 .NET SDK (1.17.0) 時，在 `ChangeFeedOptions` 中設定欄位 `StartTime`，以在呼叫 `CreateDocumentChangeFeedQuery` 時，直接傳回自 `StartTime` 以來的變更文件。 藉由使用 REST API 指定 `If-Modified-Since`，您的要求並不會傳回文件本身，而會傳回接續權杖或回應標頭中的 `etag`。 若要傳回修改指定時間的文件，接續權杖 `etag` 必須在下一個要求中與 `If-None-Match` 搭配使用，以傳回實際文件。 
 
 .NET SDK 提供 [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) 和 [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) 協助程式類別來存取對集合所做的變更。 下列程式碼片段示範如何使用來自單一用戶端的 .NET SDK 來擷取從一開始的所有變更。
 

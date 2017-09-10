@@ -129,6 +129,8 @@
               href: app-service-linux-ssh-support.md
             - name: 連續部署
               href: app-service-linux-ci-cd.md
+            - name: 部署類型 - 自訂映像或內建映像？
+              href: app-service-linux-choose-deployment-type.md
             - name: Linux 上的 Web 應用程式常見問題
               href: app-service-linux-faq.md
     - name: 部署至 Azure

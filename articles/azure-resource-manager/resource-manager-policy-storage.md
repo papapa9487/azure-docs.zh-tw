@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 75685a21ce4a212638016be62640badd4870454a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6612ee61f5c50e743241b92030660cea7ae7094d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="apply-resource-policies-to-storage-accounts"></a>將資源原則套用至儲存體帳戶
@@ -27,7 +26,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="define-permitted-storage-account-types"></a>定義允許的儲存體帳戶類型
 
-下列原則會限制可部署的[儲存體帳戶類型](../storage/storage-redundancy.md)︰
+下列原則會限制可部署的[儲存體帳戶類型](../storage/common/storage-redundancy.md)︰
 
 ```json
 {
@@ -58,7 +57,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="define-permitted-access-tier"></a>定義允許的存取層
 
-下列原則指定可針對儲存體帳戶指定的[存取層](../storage/storage-blob-storage-tiers.md)類型︰
+下列原則指定可針對儲存體帳戶指定的[存取層](../storage/blobs/storage-blob-storage-tiers.md)類型︰
 
 ```json
 {
@@ -88,7 +87,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="ensure-encryption-is-enabled"></a>請確定已啟用加密
 
-下列原則要求所有儲存體帳戶啟用[儲存體服務加密](../storage/storage-service-encryption.md)：
+下列原則要求所有儲存體帳戶啟用[儲存體服務加密](../storage/common/storage-service-encryption.md)：
 
 ```json
 {

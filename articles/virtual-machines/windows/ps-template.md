@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: davidmu
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: d84c20dc74feedd7329cd390ff35765532bcf74d
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ddab80262fe27c1f5995858ec7de75d7c46df081
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -204,7 +204,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -Name "m
 ```
 
 > [!NOTE]
-> 您也可以從本機檔案部署範本和參數。 若要深入了解，請參閱[搭配使用 Azure PowerShell 與 Azure 儲存體](../../storage/storage-powershell-guide-full.md)。
+> 您也可以從本機檔案部署範本和參數。 若要深入了解，請參閱[搭配使用 Azure PowerShell 與 Azure 儲存體](../../storage/common/storage-powershell-guide-full.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

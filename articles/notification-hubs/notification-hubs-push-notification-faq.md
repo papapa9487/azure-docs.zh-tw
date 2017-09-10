@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: c8592ea38d62213327549583a1e931ea682ee56e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/06/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
@@ -143,7 +142,7 @@ PNS 不保證任何傳送通知的 SLA。 不過，大部分的推播通知皆�
 如果您必須在建立註冊前進行驗證，則從應用程式後端註冊較為實用。 而且當您必須基於應用程式邏輯，讓應用程式後端建立或修改標記時，這些註冊也十分實用。 如需詳細資訊，請移至[後端註冊指引]與[後端註冊指引 2] 頁面。
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>什麼是推播通知傳送資訊安全模型？
-Azure 通知中樞使用[共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md) 型資訊安全模型。 您可以在根命名空間層級或更細微的通知中樞層級使用共用存取簽章權杖。 共用存取簽章權杖可設定為依循不同授權規則，例如傳送訊息權限或接聽通知權限。 如需詳細資訊，請參閱[通知中樞資訊安全模型]文件。
+Azure 通知中樞使用[共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 型資訊安全模型。 您可以在根命名空間層級或更細微的通知中樞層級使用共用存取簽章權杖。 共用存取簽章權杖可設定為依循不同授權規則，例如傳送訊息權限或接聽通知權限。 如需詳細資訊，請參閱[通知中樞資訊安全模型]文件。
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>應如何處理推播通知中的機密承載？
 所有通知皆是由平台的 PNS 傳送至目標裝置。 通知傳送給 Azure 通知中樞，並在進行處理後散佈至各別的 PNS。

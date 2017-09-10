@@ -16,17 +16,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/31/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 9f6de5b516da110b93a1e0cddf835b2bcec77bb7
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 303be1d303df8074283cb1d37c74923cca80ae59
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters-preview"></a>已加入網域之 HDInsight 叢集的 Hadoop 安全性簡介 (預覽)
 
-到目前為止，Azure HDInsight 僅支援單一使用者本機系統管理員。 這很適合用於比較小型的應用程式團隊或部門。 Hadoop 型工作負載在企業間越來越受青睞，而 Active Directory 型驗證、多使用者支援和角色型存取控制等企業級功能的需求日益重要。 使用已加入網域的 HDInsight 叢集時，您可以建立已加入 Active Directory 網域的 HDInsight 叢集、設定企業中可以透過 Azure Active Directory 進行驗證來登入 HDInsight 叢集的員工清單。 企業外部的任何人都無法登入或存取此 HDInsight 叢集。 企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/)，針對 Hive 安全性設定角色型存取控制，進而將資料存取限制為僅限有需要時。 最後，系統管理員可以依照員工稽核資料存取，以及對存取控制原則所做的任何變更，因而達到高度的公司資源控管。
+到目前為止，Azure HDInsight 僅支援單一使用者本機系統管理員。這很適合用於比較小型的應用程式團隊或部門。 Hadoop 型工作負載在企業間越來越受青睞，而 Active Directory 型驗證、多使用者支援和角色型存取控制等企業級功能的需求日益重要。 使用已加入網域的 HDInsight 叢集時，您可以建立已加入 Active Directory 網域的 HDInsight 叢集、設定企業中可以透過 Azure Active Directory 進行驗證來登入 HDInsight 叢集的員工清單。 企業外部的任何人都無法登入或存取此 HDInsight 叢集。 企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/)，針對 Hive 安全性設定角色型存取控制，進而將資料存取限制為僅限有需要時。 最後，系統管理員可以依照員工稽核資料存取，以及對存取控制原則所做的任何變更，因而達到高度的公司資源控管。
 
 > [!NOTE]
 > 此預覽中所述的新功能僅適用於 Hive 工作負載之以 Linux 為基礎的 HDInsight 叢集。 其他工作負載 (例如 HBase、Spark、Storm 和 Kafka) 將在未來版本中啟用。
@@ -52,7 +51,7 @@ ms.lasthandoff: 06/17/2017
 除了防止未經授權的使用者存取 HDInsight 叢集資源，以及保護資料安全以外，還要稽核所有對於叢集資源的存取，而且需有此資料才能追蹤未經授權或意外的資源存取。 此預覽中，系統管理員可以檢視和報告所有對於 HDInsight 叢集資源和資料的存取。 系統管理員也可以檢視和報告在 Apache Ranger 支援的端點中對於存取控制原則進行的所有變更。 已加入網域的 HDInsight 叢集會使用熟悉的 Apache Ranger UI 來搜尋稽核記錄檔。 Ranger 會在後端使用 [Apache Solr](http://hortonworks.com/apache/solr/) 來儲存及搜尋記錄檔。
 
 ### <a name="encryption"></a>加密
-保護資料對於符合組織安全性和規範需求而言極為重要，而除了限制未經授權的員工存取資料以外，還應該透過加密方式加以保護。 HDInsight 叢集的兩個資料存放區 (Azure 儲存體 Blob 和 Azure Data Lake 儲存體) 都支援透明的伺服器端待用[資料加密](../storage/storage-service-encryption.md)。 安全的 HDInsight 叢集會完美地與此伺服器端待用資料加密功能配合運作。
+保護資料對於符合組織安全性和規範需求而言極為重要，而除了限制未經授權的員工存取資料以外，還應該透過加密方式加以保護。 HDInsight 叢集的兩個資料存放區 (Azure 儲存體 Blob 和 Azure Data Lake 儲存體) 都支援透明的伺服器端待用[資料加密](../storage/common/storage-service-encryption.md)。 安全的 HDInsight 叢集會完美地與此伺服器端待用資料加密功能配合運作。
 
 ## <a name="next-steps"></a>後續步驟
 * 如需設定已加入網域的 HDInsight 叢集，請參閱[設定已加入網域的 HDInisight 叢集](hdinsight-domain-joined-configure.md)。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 3c7db401442c41bbe1343b1adc48f4f1b7d88b49
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bc6f293db0d537990d7fb1238fe4a19c704f57a1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="provision-the-linux-data-science-virtual-machine"></a>佈建 Linux 資料科學虛擬機器
@@ -62,7 +62,7 @@ Linux 資料科學虛擬機器可以大幅減輕這樣的負擔。 使用它可�
 您必須先具有下列項目，才可以建立 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**：若要取得訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/free/)。
-* **Azure 儲存體帳戶**：若要建立帳戶，請參閱 [建立 Azure 儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。 或者，如果您不想使用現有的帳戶，可以在建立 VM 過程中建立儲存體帳戶。
+* **Azure 儲存體帳戶**：若要建立帳戶，請參閱 [建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。 或者，如果您不想使用現有的帳戶，可以在建立 VM 過程中建立儲存體帳戶。
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>建立 Linux 資料科學虛擬機器
 建立 Linux 資料科學虛擬機器執行個體的步驟如下：

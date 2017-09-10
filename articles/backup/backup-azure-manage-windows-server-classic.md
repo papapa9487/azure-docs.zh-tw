@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: f41132d69dbbc9e5871851220e5f7de933c50efe
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>使用傳統部署模型管理 Azure 備份保存庫與伺服器
@@ -93,7 +93,7 @@ ms.lasthandoff: 08/03/2017
 
 ![設定](./media/backup-azure-manage-windows-server-classic/configure.png)
 
-如需 [儲存體備援](../storage/storage-redundancy.md)的詳細資訊，請參閱這篇文章。
+如需 [儲存體備援](../storage/common/storage-redundancy.md)的詳細資訊，請參閱這篇文章。
 
 ## <a name="microsoft-azure-backup-agent-tasks"></a>Microsoft Azure 備份代理程式工作
 ### <a name="console"></a>主控台

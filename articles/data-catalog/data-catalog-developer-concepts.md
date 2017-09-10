@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 05/03/2017
+ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 361ad3a669370419e1080d3e4b3fc646f7a0a958
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: f48eb610b47820e6d7438520a00a5e6dfe879e01
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Azure 資料目錄開發人員概念
@@ -134,11 +133,11 @@ Azure 資料目錄的重點在於如何支援由群眾外包系統中的中繼�
 <tr><td>結構描述 ("schema")</td><td></td><td></td><td>Schema 描述資料的結構。  它會列出屬性 (資料行、屬性、欄位等等) 名稱、類型及其他中繼資料。  此資訊完全衍生自資料來源。  Schema 是單一註解 - 資產只能新增一個 Schema。</td></tr>
 <tr><td></td><td>columns</td><td>Column[]</td><td>資料行物件的陣列。 它們以衍生自資料來源的資訊來描述資料行。</td></tr>
 
-<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>此屬性包含資料行的描述。  系統的每個使用者可以為多個資料行加入自己的描述 (每個資料行最多一個)。 只有建立 ColumnDescription 物件的使用者可以編輯它們。  (系統管理員和資產擁有者可以刪除 ColumnDescription 物件，但無法編輯它)。 系統會個別維護這些使用者的資料行描述。  因此，每個資產上有一個 ColumnDescription 物件陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對資料行貢獻知識的使用者都會有一個資料行描述)。  ColumnDescription 與結構描述不緊密繫結，所以可能不會同步。 ColumnDescription 描述的資料行可能已不存在於結構描述中。  由寫入者決定是否要讓描述和結構描述保持同步。  資料來源也可能有資料行描述資訊，這些資料行是執行工具時建立的其他 ColumnDescription 物件。</td></tr>
+<tr><td>ColumnDescription ("columnDescriptions")</td><td></td><td></td><td>此屬性包含資料行的描述。  系統的每個使用者可以為多個資料行加入自己的描述 (每個資料行最多一個)。 只有建立 ColumnDescription 物件的使用者可以編輯它們。  (系統管理員和資產擁有者可以刪除 ColumnDescription 物件，但無法編輯它)。 系統會個別維護這些使用者的資料行描述。  因此，每個資產上有一個 ColumnDescription 物件陣列 (除了可能有一個描述包含衍生自資料來源的資訊，每一個已對資料行貢獻知識的使用者都會有一個資料行描述)。  ColumnDescription 與結構描述不緊密繫結，所以可能不會同步。ColumnDescription 描述的資料行可能已不存在於結構描述中。  由寫入者決定是否要讓描述和結構描述保持同步。資料來源也可能有資料行描述資訊，這些資料行是執行工具時建立的其他 ColumnDescription 物件。</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>此描述所參考的資料行名稱。</td></tr>
 <tr><td></td><td>說明</td><td>String</td><td>資料行的簡短描述 (2-3 行)。</td></tr>
 
-<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>此屬性包含資料行的標籤。 系統的每個使用者可以為特定資料行新增多個標記，也可以為多個資料行新增標記。 只有建立 ColumnTag 物件的使用者可以編輯它們。 (系統管理員和資產擁有者可以刪除 ColumnTag 物件，但無法編輯它)。 系統會個別維護這些使用者的資料行標籤。  因此每個資產上都會有 ColumnTag 物件的陣列。  ColumnTag 與結構描述不緊密繫結，所以可能不會同步。 ColumnTag 描述的資料行可能已不存在於結構描述中。  由寫入者決定是否要讓資料行標籤和結構描述保持同步。</td></tr>
+<tr><td>ColumnTag ("columnTags")</td><td></td><td></td><td>此屬性包含資料行的標籤。 系統的每個使用者可以為特定資料行新增多個標記，也可以為多個資料行新增標記。 只有建立 ColumnTag 物件的使用者可以編輯它們。 (系統管理員和資產擁有者可以刪除 ColumnTag 物件，但無法編輯它)。 系統會個別維護這些使用者的資料行標籤。  因此每個資產上都會有 ColumnTag 物件的陣列。  ColumnTag 與結構描述不緊密繫結，所以可能不會同步。ColumnTag 描述的資料行可能已不存在於結構描述中。  由寫入者決定是否要讓資料行標籤和結構描述保持同步。</td></tr>
 <tr><td></td><td>columnName</td><td>String</td><td>此標記所參考的資料行名稱。</td></tr>
 <tr><td></td><td>tag</td><td>String</td><td>描述資料行的標記。</td></tr>
 

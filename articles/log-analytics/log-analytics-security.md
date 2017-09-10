@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: fa33a031a9e05f3079f1ed68d2ac0902b3070fa6
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
@@ -157,7 +156,7 @@ OMS 工作區是資料收集、彙總、分析以及呈現的位置。 工作區
 如上所述，代理程式中的資料會透過 SSL 傳送到 Microsoft Azure 資料中心。 (選擇性) 您可以使用 ExpressRoute 為資料提供額外的安全性。 ExpressRoute 可供直接從現有 WAN 網路 (例如網路服務提供者所提供的多重通訊協定標籤交換 (MPLS) VPN) 連線至 Azure。 如需詳細資訊，請參閱 [ExpressRoute](https://azure.microsoft.com/services/expressroute/)。
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服務接收和處理資料
-Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗證憑證和與 Azure 驗證的資料完整性。 未處理的原始資料會儲存為 [Microsoft Azure 儲存體](../storage/storage-introduction.md)中的 Blob，且未加密。 不過，每個 Azure 儲存體 Blob 都有唯一一組僅供該使用者存取的金鑰。 所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。 然後，Log Analytics 服務會為 Azure 儲存體 Blob 處理未經處理的資料。
+Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗證憑證和與 Azure 驗證的資料完整性。 未處理的原始資料會儲存為 [Microsoft Azure 儲存體](../storage/common/storage-introduction.md)中的 Blob，且未加密。 不過，每個 Azure 儲存體 Blob 都有唯一一組僅供該使用者存取的金鑰。 所儲存的資料類型取決於匯入和用來收集資料的解決方案類型。 然後，Log Analytics 服務會為 Azure 儲存體 Blob 處理未經處理的資料。
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 來存取資料
 您可以在 OMS 入口網站使用組織帳戶或您先前設定的 Microsoft 帳戶來登入 Log Analytics。 OMS 入口網站與 OMS 中的 Log Analytics 之間的所有流量會透過安全的 HTTPS 通道傳送。 在使用 OMS 入口網站時，使用者用戶端 (網頁瀏覽器) 上會產生工作階段識別碼，而且資料會儲存在本機快取，直到工作階段終止。 終止時便會刪除快取。 未包含個人識別資訊的用戶端 Cookie 不會自動移除。 工作階段 Cookie 會標示為 HTTPOnly，並受到保護。 經過預先決定的閒置時間後，OMS 入口網站工作階段就會終止。

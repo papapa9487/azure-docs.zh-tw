@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 35896cc9891e2439df004cc4eab339219d47b805
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>整合 Azure 儲存體帳戶與 Azure CDN
 可以啟用 CDN，以從您的 Azure 儲存體快取內容。 它透過將計算執行個體 Blob 與靜態內容快取到位於美國、歐洲、亞洲、澳洲與南美洲的實體節點中，為開發人員提供一套傳遞高頻寬內容的全球解決方案。
 
 ## <a name="step-1-create-a-storage-account"></a>步驟 1：建立儲存體帳戶
-使用下列程序，為 Azure 訂用帳戶建立新的儲存體帳戶。 有了儲存體帳戶，才能存取 Azure 儲存體服務。 儲存體帳戶代表最高層級的命名空間，用於存取每個 Azure 儲存體服務元件：Blob 服務、佇列服務和資料表服務。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。
+使用下列程序，為 Azure 訂用帳戶建立新的儲存體帳戶。 有了儲存體帳戶，才能存取 Azure 儲存體服務。 儲存體帳戶代表最高層級的命名空間，用於存取每個 Azure 儲存體服務元件：Blob 服務、佇列服務和資料表服務。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)。
 
 若要建立儲存體帳戶，您必須是服務管理員或是相關聯訂用帳戶的共同管理員。
 
@@ -109,7 +108,7 @@ http://<*EndpointName*\>.azureedge.net/<*myPublicContainer*\>/<*BlobName*\>
 ## <a name="step-5-remove-content-from-the-cdn"></a>步驟 5：從 CDN 移除內容
 如果不想要將內容快取到 Azure 內容傳遞網路 (CDN) 中，您可以採取下列其中一個步驟：
 
-* 您可以將容器設為私人而非公用。 如需詳細資訊，請參閱 [管理對容器和 Blob 的匿名讀取權限](../storage/storage-manage-access-to-resources.md) 。
+* 您可以將容器設為私人而非公用。 如需詳細資訊，請參閱 [管理對容器和 Blob 的匿名讀取權限](../storage/blobs/storage-manage-access-to-resources.md) 。
 * 您可以使用管理入口網站來停用或刪除 CDN 端點。
 * 您可以修改託管服務，使其不再回應物件的要求。
 

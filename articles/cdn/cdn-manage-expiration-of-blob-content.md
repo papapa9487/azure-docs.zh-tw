@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f44119d651767881cfd999808925b0066a5e502b
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>在 Azure CDN 中管理 Azure 儲存體 Blob 的到期
@@ -28,7 +28,7 @@ ms.lasthandoff: 04/27/2017
 > 
 > 
 
-[Azure 儲存體](../storage/storage-introduction.md)中的 [Blob 服務](../storage/storage-introduction.md#blob-storage)是數個已與 Azure CDN 整合之 Azure 型來源的其中一個。  任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。  TTL 是由來自 Azure 儲存體之 HTTP 回應中的 [ 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 所決定。
+[Azure 儲存體](../storage/common/storage-introduction.md)中的 [Blob 服務](../storage/common/storage-introduction.md#blob-storage)是數個已與 Azure CDN 整合之 Azure 型來源的其中一個。  任何可公開存取的 Blob 內容均可在 Azure CDN 中加以快取，直到其存留時間 (TTL) 結束。  TTL 是由來自 Azure 儲存體之 HTTP 回應中的 [ 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) 所決定。
 
 > [!TIP]
 > 您可以選擇不對 Blob 設定任何 TTL。  在此情況下，Azure CDN 會自動套用預設為期 7 天的 TTL。
@@ -64,7 +64,7 @@ $blob.ICloudBlob.SetProperties()
 > 
 
 ## <a name="azure-storage-client-library-for-net"></a>適用於 .NET 的 Azure 儲存體用戶端程式庫
-若要使用 .NET 設定 Blob 的 TTL，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。
+若要使用 .NET 設定 Blob 的 TTL，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。
 
 ```csharp
 class Program

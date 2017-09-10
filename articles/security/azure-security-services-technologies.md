@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 6d4379248cff45b601e32e8554f86bb7a1846570
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 安全性服務和技術
@@ -36,12 +36,12 @@ ms.lasthandoff: 07/12/2017
 * [Azure 開發/測試實驗室](https://azure.microsoft.com/documentation/services/devtest-lab/)
 
 ## <a name="azure-storage-security"></a>Azure 儲存體安全性
-* [Azure 儲存體服務加密](../storage/storage-service-encryption.md)
+* [Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)
 * [StorSimple 加密混合式儲存體](https://azure.microsoft.com/documentation/services/storsimple/)
-* [Azure 用戶端加密](../storage/storage-client-side-encryption.md)
-* [Azure 儲存體共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [Azure 儲存體帳戶金鑰](../storage/storage-create-storage-account.md)
-* [採用 SMB 3.0 加密的 Azure 檔案共用](../storage/storage-dotnet-how-to-use-files.md)
+* [Azure 用戶端加密](../storage/common/storage-client-side-encryption.md)
+* [Azure 儲存體共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [Azure 儲存體帳戶金鑰](../storage/common/storage-create-storage-account.md)
+* [採用 SMB 3.0 加密的 Azure 檔案共用](../storage/files/storage-dotnet-how-to-use-files.md)
 * [Azure 儲存體分析](https://msdn.microsoft.com/library/hh343270.aspx)
 
 ## <a name="azure-database-security"></a>Azure 資料庫安全性

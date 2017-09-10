@@ -9,17 +9,17 @@ editor:
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
 ms.service: virtual-machines-linux
 ms.devlang: NA
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 84406b3068a6705bf0a4c5f17ace5a586398da4f
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 392ed1b7ac5f543b322024f4b771c73bf865e970
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
@@ -39,7 +39,7 @@ Microsoft Azure 資源分散在世界各地的多個地理區域。  「區域�
 
 受控磁碟可在背景中為您處理 Azure 儲存體帳戶的建立和管理作業，確保您不需要擔心儲存體帳戶的延展性限制。 您只需指定磁碟大小和效能層級 (標準或進階)，Azure 就會為您建立和管理磁碟。 即便是新增磁碟或相應增加和減少 VM，您都不必擔心所使用的儲存體。 如果您要建立新的 VM，請[使用 Azure CLI 2.0](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 Azure 入口網站來建立具有受控 OS 和資料磁碟的 VM。 如果您有具備非受控磁碟的 VM，您可以[將 VM 轉換成由受控磁碟提供支援](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-您也可以在每個 Azure 區域中使用單一儲存體帳戶管理自訂映像，並使用映像在相同訂用帳戶中建立數百個 VM。 如需受控磁碟的詳細資訊，請參閱[受控磁碟概觀](../../storage/storage-managed-disks-overview.md)。
+您也可以在每個 Azure 區域中使用單一儲存體帳戶管理自訂映像，並使用映像在相同訂用帳戶中建立數百個 VM。 如需受控磁碟的詳細資訊，請參閱[受控磁碟概觀](../windows/managed-disks-overview.md)。
 
 ## <a name="azure-virtual-machines--instances"></a>Azure 虛擬機器和執行個體
 Microsoft Azure 支援執行由多家合作夥伴提供和維護的眾多熱門 Linux 散發套件。  您可以在 Azure Marketplace 中找到 Red Hat Enterprise、CentOS、Debian、Ubuntu、CoreOS、RancherOS 及 FreeBSD 等散發套件。 我們與各個 Linux 社群積極合作，以便為[經 Azure 背書的 Linux 散發套件](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)清單新增更多版本選項。
@@ -60,7 +60,7 @@ Azure 虛擬機器可供您靈活部署各種運算方案。 您可以在大部�
 
 注意：DS 系列和 GS 系列 VM 可存取進階儲存體，這個搭載 SSD 的高效能、低延遲儲存體適合需要進行密集 I/O 工作的工作負載。 僅特定地區可用進階儲存體。 如需詳細資訊，請參閱：
 
-* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../storage/storage-premium-storage.md)
+* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../storage/common/storage-premium-storage.md)
 
 ## <a name="automation"></a>自動化
 為了實現適當的 DevOps 文化特性，所有基礎結構都必須是程式碼。  當所有基礎結構都留存在程式碼中時，便可以輕鬆地重新建立基礎結構 (Phoenix 伺服器)。  Azure 可以與所有主要的自動化工具 (例如 Ansible、Chef、SaltStack 及 Puppet) 搭配運作。  Azure 也有自己的自動化工具：
@@ -120,7 +120,7 @@ VM 現在已在 Azure 上執行，而您已經可以登入。  使用密碼透�
 
 ## <a name="related-azure-components"></a>相關的 Azure 元件
 ## <a name="storage"></a>儲存體
-* [Microsoft Azure 儲存體簡介](../../storage/storage-introduction.md)
+* [Microsoft Azure 儲存體簡介](../../storage/common/storage-introduction.md)
 * [使用 azure-cli 將磁碟新增到 Linux VM](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [如何在 Azure 入口網站中將資料磁碟連結到 Linux VM](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

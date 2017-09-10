@@ -13,12 +13,11 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e3952c6be537e28f7f2cde8f33750b1894fde8e4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e5b124643b753f404ba6012d3df998f567be59a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -73,7 +72,7 @@ _否，目前您只能在主要端上建立資料和記錄的備份。若有啟�
 
 ### <a name="why-sap-hana-backup"></a>為什麼要使用 SAP HANA 備份？
 
-Azure 儲存體提供現成的可用性和可靠性 (如需有關 Azure 儲存體的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../../../storage/storage-introduction.md))。
+Azure 儲存體提供現成的可用性和可靠性 (如需有關 Azure 儲存體的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../../../storage/common/storage-introduction.md))。
 
 備份&quot;&quot;的下限取決於 Azure SLA，將 SAP HANA 資料和記錄檔案保留在連結至 SAP HANA 伺服器 VM 的 Azure VHD 上。 這個方法可涵蓋 VM 失敗，但不包含對 SAP HANA 資料和記錄檔案可能造成的損害，或意外刪除資料或檔案之類的邏輯錯誤。 備份也是基於合規性或法律因素而有其必要。 簡單地說，一定需要 SAP HANA 備份。
 
@@ -171,7 +170,7 @@ SAP HANA 提供加密資料和記錄的功能。 如果 SAP HANA 資料和記錄
 
 Azure 備份服務可以處理加密過的 VM/磁碟 (請參閱[如何使用 Azure 備份來備份及還原加密的虛擬機器](../../../backup/backup-azure-vms-encryption.md))。
 
-另一個選項是維護未經加密的 SAP HANA VM 及其磁碟，並將 SAP HANA 備份檔案儲存在已啟用加密的儲存體帳戶 (請參閱 [Azure 儲存體服務待用資料加密](../../../storage/storage-service-encryption.md))。
+另一個選項是維護未經加密的 SAP HANA VM 及其磁碟，並將 SAP HANA 備份檔案儲存在已啟用加密的儲存體帳戶 (請參閱 [Azure 儲存體服務待用資料加密](../../../storage/common/storage-service-encryption.md))。
 
 ## <a name="test-setup"></a>測試設定
 

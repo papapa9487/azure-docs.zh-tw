@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 0f2c6ce3e5df6c513d8077b3dfcca0beb4a247bf
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: d8bf89a4b7c2a158302f9ba09a182a3d8d062adc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
 # <a name="download-a-windows-vhd-from-azure"></a>從 Azure 下載 Windows VHD
 
-本文說明如何使用 Azure 入口網站，從 Azure 下載 [Windows 虛擬硬碟 (VHD)](../../storage/storage-about-disks-and-vhds-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 檔案。 
+本文說明如何使用 Azure 入口網站，從 Azure 下載 [Windows 虛擬硬碟 (VHD)](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 檔案。 
 
-Azure 中的虛擬機器 (VM) 會使用[磁碟](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)來儲存作業系統、應用程式和資料。 所有 Azure VM 都至少有兩個磁碟：一個 Windows 作業系統磁碟和一個暫存磁碟。 作業系統磁碟最初是從映像建立，且作業系統磁碟與該映像都是儲存在 Azure 儲存體帳戶中的 VHD。 虛擬機器也可以有一或多個資料磁碟，而這些磁碟也會儲存成 VHD。
+Azure 中的虛擬機器 (VM) 會使用[磁碟](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)來儲存作業系統、應用程式和資料。 所有 Azure VM 都至少有兩個磁碟：一個 Windows 作業系統磁碟和一個暫存磁碟。 作業系統磁碟最初是從映像建立，且作業系統磁碟與該映像都是儲存在 Azure 儲存體帳戶中的 VHD。 虛擬機器也可以有一或多個資料磁碟，而這些磁碟也會儲存成 VHD。
 
 ## <a name="stop-the-vm"></a>停止 VM
 
@@ -52,7 +52,7 @@ Azure 中的虛擬機器 (VM) 會使用[磁碟](../../storage/storage-managed-di
 
 ## <a name="generate-sas-url"></a>產生 SAS URL
 
-若要下載 VHD 檔案，您需要產生[共用存取簽章 (SAS)](../../storage/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL。 產生 URL 時，會將到期時間指派給 URL。
+若要下載 VHD 檔案，您需要產生[共用存取簽章 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL。 產生 URL 時，會將到期時間指派給 URL。
 
 1.  在 VM 刀鋒視窗的功能表中，按一下 [磁碟]。
 2.  選取 VM 的作業系統磁碟，然後按一下 [匯出]。

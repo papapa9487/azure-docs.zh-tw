@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: a881336bcb2384aaa57a75483c0e6fcd97096905
-ms.lasthandoff: 04/10/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3e9229d94e96aad7b769d0e55d208d856e3b80bc
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>開始使用 HTTP + Swagger 動作
@@ -56,7 +56,7 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 
 以下是在 Azure 儲存體中建立、設定和儲存 Swagger 文件的步驟：
 
-1. [使用 Azure Blob 儲存體建立 Azure 儲存體帳戶](../storage/storage-create-storage-account.md) 若要執行此步驟，請將權限設為 [公用存取]。
+1. [使用 Azure Blob 儲存體建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md) 若要執行此步驟，請將權限設為 [公用存取]。
 
 2. 在 Blob 啟用 CORS。 
 

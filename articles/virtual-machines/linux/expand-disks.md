@@ -12,23 +12,26 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
-ms.openlocfilehash: 4a0b8254ec80576576afde7af34828025d1d2f0a
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/11/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
-# 如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
-<a id="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli" class="xliff"></a>
-在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您可能也想要擴充 OS 磁碟或現有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 您也可以使用 [Azure CLI 1.0](expand-disks-nodejs.md) 來擴充非受控的 OS 磁碟。
+# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>如何使用 Azure CLI 擴充 Linux VM 上的虛擬硬碟
+在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)來提供更多儲存空間，但您也可能想要擴充既有的資料磁碟。 本文將詳細說明如何使用 Azure CLI 2.0 來擴充 Linux VM 的受控磁碟。 您也可以使用 [Azure CLI 1.0](expand-disks-nodejs.md) 來擴充非受控的 OS 磁碟。
 
-## 擴充磁碟
-<a id="expand-disk" class="xliff"></a>
+> [!WARNING]
+> 在執行磁碟調整大小作業前，務必備份資料。 如需詳細資訊，請參閱[在 Azure 中備份 Linux 虛擬機器](tutorial-backup-vms.md)。
+
+## <a name="expand-disk"></a>擴充磁碟
 請確定您已安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 登入 Azure 帳戶。
+
+本文需要 Azure 中存有一個虛擬機器，且該虛擬機器至少掛載一個已備妥使用的資料磁碟。 如果您還沒有可使用的虛擬機器，請參閱[建立並準備掛載有資料磁碟的虛擬機器](tutorial-manage-disks.md#create-and-attach-disks)。
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 myResourceGroup 與 myVM。
 
@@ -60,7 +63,7 @@ ms.lasthandoff: 05/11/2017
     ```
 
     > [!NOTE]
-    > 當您擴充受控磁碟時，更新的大小會對應至最接近的受控磁碟大小。 如需可用受控磁碟大小和階層的表格，請參閱 [Azure 受控磁碟概觀 - 價格和計費](../../storage/storage-managed-disks-overview.md#pricing-and-billing)。
+    > 當您擴充受控磁碟時，更新的大小會對應至最接近的受控磁碟大小。 如需可用受控磁碟大小和階層的表格，請參閱 [Azure 受控磁碟概觀 - 價格和計費](../windows/managed-disks-overview.md#pricing-and-billing)。
 
 3. 使用 [az vm create](/cli/azure/vm#start) 啟動 VM。 下列範例會啟動名為 myResourceGroup 資源群組中名為 myVM 的 VM：
 
@@ -68,14 +71,78 @@ ms.lasthandoff: 05/11/2017
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. 使用適當的認證以 SSH 登入 VM。 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列範例輸出顯示主要磁碟分割 (/dev/sdc1) 現在是 200 GB：
+4. 使用適當的認證以 SSH 登入 VM。 您可以使用 [az vm show](/cli/azure/vm#show) 取得虛擬機器的 IP 位址：
+
+    ```azurecli
+    az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
+    ```
+
+5. 若要使用展開的硬碟，您需要展開硬碟下的分割區與檔案系統。
+
+    a. 若磁碟已掛載，則卸載磁碟：
+
+    ```bash
+    sudo umount /dev/sdc1
+    ```
+
+    b. 使用 `parted` 來檢視磁碟資訊與調整分割區大小：
+
+    ```bash
+    sudo parted /dev/sdc
+    ```
+
+    使用 `print` 來檢視既有磁碟分割配置的資訊。 輸出結果會類似於以下範例，範例中顯示分割區下的磁碟大小為 215 Gb：
+
+    ```bash
+    GNU Parted 3.2
+    Using /dev/sdc1
+    Welcome to GNU Parted! Type 'help' to view a list of commands.
+    (parted) print
+    Model: Unknown Msft Virtual Disk (scsi)
+    Disk /dev/sdc1: 215GB
+    Sector size (logical/physical): 512B/4096B
+    Partition Table: loop
+    Disk Flags:
+    
+    Number  Start  End    Size   File system  Flags
+        1      0.00B  107GB  107GB  ext4
+    ```
+
+    c. 使用 `resizepart` 來展開分割區。 輸入分割區編號 *1* 以及新分割區的大小：
+
+    ```bash
+    (parted) resizepart
+    Partition number? 1
+    End?  [107GB]? 215GB
+    ```
+
+    d. 若要結束，請輸入 `quit`
+
+5. 分割區調整大小後，使用 `e2fsck` 來確認分割區的一致性：
+
+    ```bash
+    sudo e2fsck -f /dev/sdc1
+    ```
+
+6. 使用 `resize2fs` 來調整檔案系統大小：
+
+    ```bash
+    sudo resize2fs /dev/sdc1
+    ```
+
+7. 將分割區掛載至所需位置，像是 `/datadrive`：
+
+    ```bash
+    sudo mount /dev/sdc1 /datadrive
+    ```
+
+8. 若要確認 OS 磁碟已調整大小，請使用 `df -h`。 下列輸出範例顯示資料磁碟 (*/dev/sdc1*) 現在是 200 GB：
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
-    /dev/sdc1        194G   52M   193G   1% /datadrive
+    /dev/sdc1        197G   60M   187G   1% /datadrive
     ```
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 如果您需要更多儲存空間，您也可以[將資料磁碟新增至 Linux VM](add-disk.md)。 如需磁碟加密的詳細資訊，請參閱[使用 Azure CLI 將 Linux VM 上的磁碟加密](encrypt-disks.md)。
 

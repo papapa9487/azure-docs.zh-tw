@@ -3,7 +3,7 @@ title: "Azure 網路監看員簡介 | Microsoft Docs"
 description: "本頁概述用於監視並以視覺化方式呈現 Azure 中網路連線資源的網路監看員服務"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 31c1bbdd04423d98dba0f8da435930ad3fed52e2
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 18aa9837742082535a115efd47bdc4b8dfda8a6b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 
@@ -54,8 +54,25 @@ ms.lasthandoff: 07/21/2017
 
 網路監看員使用 [Azure 角色型存取控制 (RBAC) 模型](../active-directory/role-based-access-control-what-is.md)。 網路監看員需要下列權限。 請務必確定用來起始網路監看員 API 或從入口網站使用網路監看員的角色具有所需存取權。
 
-|資源| 權限| | |---|---| | |Microsoft.
-|Microsoft.Storage/ |讀取| | |Microsoft.Authorization/| 讀取| | |Microsoft.Resources/subscriptions/resourceGroups/| 讀取| | |Microsoft.Storage/storageAccounts/listServiceSas/ | 動作| | |Microsoft.Storage/storageAccounts/listAccountSas/ |動作| | |Microsoft.Storage/storageAccounts/listKeys/ | 動作| | |Microsoft.Compute/virtualMachines/ |讀取| | |Microsoft.Compute/virtualMachines/ |寫入| | |Microsoft.Compute/virtualMachineScaleSets/ |讀取| | |Microsoft.Compute/virtualMachineScaleSets/ |寫入| | |Microsoft.Network/networkWatchers/packetCaptures/| 讀取| | |Microsoft.Network/networkWatchers/packetCaptures/| 寫入| | |Microsoft.Network/networkWatchers/packetCaptures/| 刪除| | |Microsoft.Network/networkWatchers/ |寫入| | |Microsoft.Network/networkWatchers/| 讀取| | |Microsoft.Insights/alertRules/ |*| | |Microsoft.Support/| *| |
+|資源| 權限|
+|---|---| 
+|Microsoft.Storage/ |讀取|
+|Microsoft.Authorization/| 讀取| 
+|Microsoft.Resources/subscriptions/resourceGroups/| 讀取|
+|Microsoft.Storage/storageAccounts/listServiceSas/ | 動作|
+|Microsoft.Storage/storageAccounts/listAccountSas/ |動作|
+|Microsoft.Storage/storageAccounts/listKeys/ | 動作|
+|Microsoft.Compute/virtualMachines/ |讀取|
+|Microsoft.Compute/virtualMachines/ |寫入|
+|Microsoft.Compute/virtualMachineScaleSets/ |讀取|
+|Microsoft.Compute/virtualMachineScaleSets/ |寫入|
+|Microsoft.Network/networkWatchers/packetCaptures/ |讀取|
+|Microsoft.Network/networkWatchers/packetCaptures/| 寫入|
+|Microsoft.Network/networkWatchers/packetCaptures/| 刪除|
+|Microsoft.Network/networkWatchers/ |寫入 |
+|Microsoft.Network/networkWatchers/| 讀取 |
+|Microsoft.Insights/alertRules/ |*|
+|Microsoft.Support/ | *|
 
 ### <a name="network-subscription-limits"></a>網路訂用帳戶限制
 

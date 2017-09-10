@@ -16,10 +16,10 @@ ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 649823705c9680677b84e77676bf7a004e4ed779
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
@@ -32,7 +32,7 @@ ms.lasthandoff: 07/25/2017
 4. Power BI 中報告的排程重新整理頻率為 24 小時。 您也可以在 Power BI 中執行報告的臨機操作重新整理，這會使用客戶儲存體帳戶中的最新資料來轉譯報告。 
 
 ## <a name="prerequisites"></a>必要條件
-1. 建立 [Azure 儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)以針對報告進行設定。 這個儲存體帳戶是用來儲存與報告相關的資料。
+1. 建立 [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)以針對報告進行設定。 這個儲存體帳戶是用來儲存與報告相關的資料。
 2. [建立 Power BI 帳戶](https://powerbi.microsoft.com/landing/signin/)，以使用 Power BI 入口網站檢視、自訂和建立您自己的報告。
 3. 如果尚未註冊，請註冊資源提供者 **Microsoft.insights**，並搭配儲存體帳戶及復原服務保存庫的訂用帳戶，來使報告資料能流入儲存體帳戶。 若要這麼做，您必須前往 Azure 入口網站 > [訂用帳戶] > [資源提供者]，並查看此提供者以註冊它。 
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 07/25/2017
 4. 輸入上述步驟 5 中所設定的儲存體帳戶名稱，然後按一下 [下一步] 按鈕。
 
     ![輸入儲存體帳戶名稱](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. 輸入此儲存體帳戶的儲存體帳戶金鑰。 您可以透過瀏覽至 Azure 入口網站中的儲存體帳戶，來[檢視並複製儲存體存取金鑰](../storage/storage-create-storage-account.md#manage-your-storage-account)。 
+5. 輸入此儲存體帳戶的儲存體帳戶金鑰。 您可以透過瀏覽至 Azure 入口網站中的儲存體帳戶，來[檢視並複製儲存體存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)。 
 
      ![輸入儲存體帳戶](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

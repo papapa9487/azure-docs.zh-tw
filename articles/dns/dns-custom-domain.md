@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 071c9c55d412514172106109eacc048722ab173e
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -165,7 +165,7 @@ Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網
 
 執行 `nslookup` 驗證 DNS 解析
 
-若要深入了解自訂網域對應至 Blob 儲存體，請造訪[為您的 Blob 儲存體端點設定自訂網域名稱](../storage/storage-custom-domain-name.md?toc=%dns%2ftoc.json)。
+若要深入了解自訂網域對應至 Blob 儲存體，請造訪[為您的 Blob 儲存體端點設定自訂網域名稱](../storage/blobs/storage-custom-domain-name.md?toc=%dns%2ftoc.json)。
 
 ## <a name="azure-cdn"></a>Azure CDN
 

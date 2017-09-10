@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c28fda22a08ea40b15cf69351e1b0aff6bd0a95
-ms.openlocfilehash: 47a9736fd6498d15305fb2296446c61e709ad0b8
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e55009c72b977ee4a30f6c71043bde483849f78f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/07/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="common-issues-that-cause-roles-to-recycle"></a>導致角色回收的常見問題
@@ -52,7 +52,7 @@ Azure 是 64 位元環境。 因此，針對 32 位元目標編譯的 .NET 組�
 
 * `DiagnosticsConnectionString` 設定指向 Azure 中的有效儲存體帳戶。  
   根據預設，此設定會指向模擬儲存體帳戶，因此您必須在部署應用程式封裝之前明確變更這項設定。 若未變更此設定，當角色執行個體嘗試啟動診斷監視器時，將會擲回例外狀況。 這可能會導致角色執行個體無限期地回收。
-* 連接字串是以下列 [格式](../storage/storage-configure-connection-string.md)指定。 (通訊協定必須指定為 HTTPS。)以您的儲存體帳戶名稱取代 MyAccountName，並以您的存取金鑰取代 MyAccountKey：    
+* 連接字串是以下列 [格式](../storage/common/storage-configure-connection-string.md)指定。 (通訊協定必須指定為 HTTPS。)以您的儲存體帳戶名稱取代 MyAccountName，並以您的存取金鑰取代 MyAccountKey：    
 
         DefaultEndpointsProtocol=https;AccountName=MyAccountName;AccountKey=MyAccountKey
 

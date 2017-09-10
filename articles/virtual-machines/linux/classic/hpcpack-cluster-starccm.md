@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 9a2796c66fa49c543e52b654e583ade7625a7f31
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 STAR-CCM+
@@ -119,7 +119,7 @@ Azure PowerShell 是必要條件。 如果未在本機電腦上設定 PowerShell
 ## <a name="set-up-an-azure-file-share-for-windows-and-linux-nodes"></a>為 Windows 和 Linux 節點設定 Azure 檔案共用
 您可以使用 Azure 檔案服務來儲存指令碼、應用程式封裝和資料檔案。 Azure 檔案提供 Azure Blob 儲存體的 CIFS 功能，以當成持續性存放區。 請注意，這不是最具調整性的解決方案，但它是最簡單且不需要專用 VM 的解決方案。
 
-依照文章[在 Windows 上開始使用 Azure 檔案儲存體](../../../storage/storage-dotnet-how-to-use-files.md)的指示來建立 Azure 檔案共用。
+依照文章[在 Windows 上開始使用 Azure 檔案儲存體](../../../storage/files/storage-dotnet-how-to-use-files.md)的指示來建立 Azure 檔案共用。
 
 將儲存體帳戶名稱保持為 **saname**、將檔案共用名稱保持為 **sharename** 以及將儲存體帳戶金鑰保持為 **sakey**。
 

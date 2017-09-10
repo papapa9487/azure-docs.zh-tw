@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 0e08557b126620a6c7dbbdb5dece423e7a0c2535
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
@@ -56,7 +56,7 @@ IoT Edge 可讓您撰寫應用程式，讓閘道連線的裝置能與 [IoT 中�
 [服務匯流排](../service-bus/index.md)為企業傳訊及轉送通訊提供雲端通訊的能力，讓您可以連接內部部署解決方案與雲端。 有些 IoT 中樞教學課程會利用服務匯流排[佇列](../service-bus-messaging/service-bus-messaging-overview.md)。
 
 ## <a name="azure-storage"></a>Azure 儲存體
-[Azure 儲存體](../storage/storage-introduction.md)是一套雲端儲存體解決方案。 其中包含可用來儲存非結構化物件資料的 Blob 儲存體服務。 有些 IoT 中樞教學課程會使用 Blob 儲存體。
+[Azure 儲存體](../storage/common/storage-introduction.md)是一套雲端儲存體解決方案。 其中包含可用來儲存非結構化物件資料的 Blob 儲存體服務。 有些 IoT 中樞教學課程會使用 Blob 儲存體。
 
 ## <a name="back-end-app"></a>後端應用程式
 在 [IoT 中樞](#iot-hub)的內容中，後端應用程式是連接到 IoT 中樞上其中一個服務面向端點的應用程式。 例如，後端應用程式可能會擷取[裝置到雲端](#device-to-cloud)訊息或管理[身分識別登錄](#identity-registry)。 後端應用程式通常會在雲端執行，但在許多教學課程中，後端應用程式是在本機開發電腦上執行的主控台應用程式。

@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 46d71ebd493004bc1ac1b7634722d2abe8b67343
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e31845f3d7aa08357b0e8a1b3b77d97302442ac3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD
@@ -87,7 +87,7 @@ ms.lasthandoff: 07/12/2017
 > 
 
 ## <a name="set-up-a-file-share-for-linux-nodes"></a>為 Linux 節點設定檔案共用
-現在請設定 SMB 檔案共用，並在所有 Linux 節點上裝載共用資料夾，允許 Linux 節點存取具有共用路徑的 NAMD 檔案。 以下是在前端節點上裝載共用資料夾的步驟。 建議共用分配，例如目前不支援 Azure 檔案服務的 CentOS 6.6。 如果您的 Linux 節點支援 Azure 檔案共用，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/storage-how-to-use-files-linux.md)。 如需 HPC Pack 的其他檔案共用選項，請參閱 [開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](hpcpack-cluster.md)。
+現在請設定 SMB 檔案共用，並在所有 Linux 節點上裝載共用資料夾，允許 Linux 節點存取具有共用路徑的 NAMD 檔案。 以下是在前端節點上裝載共用資料夾的步驟。 建議共用分配，例如目前不支援 Azure 檔案服務的 CentOS 6.6。 如果您的 Linux 節點支援 Azure 檔案共用，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/files/storage-how-to-use-files-linux.md)。 如需 HPC Pack 的其他檔案共用選項，請參閱 [開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點](hpcpack-cluster.md)。
 
 1. 在前端節點上建立資料夾，並藉由設定讀取/寫入權限與每個人共用。 在此範例中，\\\\CentOS66HN\Namd 是資料夾的名稱，其中CentOS66HN 是前端節點的主機名稱。
 2. 在共用資料夾中建立名為 namd2 的子資料夾。 在 namd2 中，建立另一個名為 namdsample 的子資料夾。
@@ -113,7 +113,7 @@ ms.lasthandoff: 07/12/2017
 ## <a name="create-a-bash-script-to-run-a-namd-job"></a>建立執行 NAMD 作業的 Bash 指令碼
 您的 NAMD 作業需要 *nodelist* 檔案，如此 **charmrun** 才可決定啟動 NAMD 程序時要使用的節點數目。 您會使用 Bash 指令碼，產生 nodelist 檔案，並在執行 **charmrun** 搭配此 nodelist 檔案。 然後您就可以在會呼叫此指令碼的 HPC 叢集管理員中提交 NAMD 工作。
 
-使用您選擇的文字編輯器，在包含 NAMD 程式檔案的 /namd2 資料夾中建立 Bash 指令碼，並將它命名為 hpccharmrun.sh。 如需快速概念證明，請複製本文結尾所提供的範例 hpccharmrun.sh 指令碼並移至[提交 NAMD 工作](#submit-a-namd-job)。
+使用您選擇的文字編輯器，在包含 NAMD 程式檔案的 /namd2 資料夾中建立 Bash 指令碼，並將它命名為 hpccharmrun.sh。如需快速概念證明，請複製本文結尾所提供的範例 hpccharmrun.sh 指令碼並移至[提交 NAMD 工作](#submit-a-namd-job)。
 
 > [!TIP]
 > 將您的指令碼儲存為具有 Linux 行尾結束符號 (只有 LF，不是 CR LF) 的文字檔案。 這可確保它在 Linux 節點上正常運作。

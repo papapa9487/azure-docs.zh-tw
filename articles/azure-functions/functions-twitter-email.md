@@ -5,7 +5,7 @@ services: functions, logic-apps, cognitive-services
 keywords: "工作流程, 雲端應用程式, 雲端服務, 商務程序, 系統整合, 企業應用程式整合, EAI"
 documentationcenter: 
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.service: functions
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: glenga, riande
+ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: c1c7e291e30cc519f089dec259fdf8c5a75d2677
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 4a5dc668e21c5328b308c8f5852aaa922232374d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -112,7 +112,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
     ```
     此函式程式碼會以要求中所收到的情感分數作為基礎，將色彩類別傳回。 
 
-3. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。 輸入 `0.2` 的值作為**要求本文**，然後按一下 [執行]。 會在回應本文中傳回**紅色**的值。 
+3. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。輸入 `0.2` 的值作為**要求本文**，然後按一下 [執行]。 會在回應本文中傳回**紅色**的值。 
 
     ![在 Azure 入口網站中測試函式](./media/functions-twitter-email/test.png)
 

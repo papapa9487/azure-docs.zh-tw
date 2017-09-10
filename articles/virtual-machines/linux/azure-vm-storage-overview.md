@@ -15,10 +15,10 @@ ms.workload: infrastructure
 ms.date: 2/7/2017
 ms.author: rasquill
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: 598d6a62fc7c4a769043c4d6d6547e5b8f8a5d5a
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5e8a62bb180de7288531139594cb61440cab04c5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-and-linux-vm-storage"></a>Azure 和 Linux VM 儲存體
@@ -26,15 +26,15 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 
 ## <a name="managed-disks"></a>受控磁碟
 
-現在可利用 [Azure 受控磁碟](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)取得 Azure VM，該功能可讓您建立 VM，而不需自行建立或管理任何 [Azure 儲存體帳戶](../../storage/storage-introduction.md)。 您可指定是否想要進階或標準儲存體、磁碟應該多大，而 Azure 會為您建立 VM 磁碟。 具有受控磁碟的 VM 都有許多重要的功能，包括︰
+現在可利用 [Azure 受控磁碟](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)取得 Azure VM，該功能可讓您建立 VM，而不需自行建立或管理任何 [Azure 儲存體帳戶](../../storage/common/storage-introduction.md)。 您可指定是否想要進階或標準儲存體、磁碟應該多大，而 Azure 會為您建立 VM 磁碟。 具有受控磁碟的 VM 都有許多重要的功能，包括︰
 
 - 自動延展性支援。 Azure 會建立磁碟及管理基礎儲存體，可支援每個訂用帳戶多達 10,000 個磁碟。
 - 提高可用性設定組的可靠性。 Azure 可確保可用性設定組內的 VM 磁碟會自動彼此隔離。
 - 提高存取控制權。 受控磁碟會公開由 [Azure 角色型存取控制 (RBAC)](../../active-directory/role-based-access-control-what-is.md) 所控制的各種作業。
 
-受控磁碟與非受控磁碟的價格不同。 如需該資訊，請參閱[受控磁碟的價格和計費](../../storage/storage-managed-disks-overview.md#pricing-and-billing)。
+受控磁碟與非受控磁碟的價格不同。 如需該資訊，請參閱[受控磁碟的價格和計費](../windows/managed-disks-overview.md#pricing-and-billing)。
 
-您可以透過 [az vm convert](/cli/azure/vm#convert)，將使用非受控磁碟的現有 VM 轉換成使用受控磁碟。 如需詳細資訊，請參閱[如何將 Linux VM 從非受控磁碟轉換為 Azure 受控磁碟](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果非受控磁碟位於使用 (或曾經使用) [Azure 儲存體服務加密 (SSE)](../../storage/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 加密的儲存體帳戶，您就無法將非受控磁碟轉換為受控磁碟。 下列步驟將詳細說明如何轉換位於 (曾經位於) 已加密儲存體帳戶中的非受控磁碟︰
+您可以透過 [az vm convert](/cli/azure/vm#convert)，將使用非受控磁碟的現有 VM 轉換成使用受控磁碟。 如需詳細資訊，請參閱[如何將 Linux VM 從非受控磁碟轉換為 Azure 受控磁碟](convert-unmanaged-to-managed-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 如果非受控磁碟位於使用 (或曾經使用) [Azure 儲存體服務加密 (SSE)](../../storage/common/storage-service-encryption.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 加密的儲存體帳戶，您就無法將非受控磁碟轉換為受控磁碟。 下列步驟將詳細說明如何轉換位於 (曾經位於) 已加密儲存體帳戶中的非受控磁碟︰
 
 - 使用 [az storage blob copy start](/cli/azure/storage/blob/copy#start)，將虛擬硬碟 (VHD) 複製到從未針對 Azure 儲存體服務加密啟用的儲存體帳戶。
 - 建立使用受控磁碟的 VM，並在透過 [az vm create](/cli/azure/vm#create) 建立期間指定該 VHD 檔案，或
@@ -92,7 +92,7 @@ Azure 標準儲存體是預設的儲存體類型。  標準儲存體符合成本
 * 進階儲存體磁碟：Azure 進階儲存體支援可連接到 DS、DSv2 或 GS 系列 Azure VM 的 VM 磁碟。
 * 進階儲存體 Blob：進階儲存體可支援 Azure 分頁 Blob，其用於保存適用於 Azure 虛擬機器 (VM) 的永續性磁碟。
 * 進階本地備援儲存體：進階儲存體帳戶僅支援本地備援儲存體 (LRS) 作為複寫選項，並在單一區域內會保留三份資料。
-* [進階儲存體](../../storage/storage-premium-storage.md)
+* [進階儲存體](../../storage/common/storage-premium-storage.md)
 
 ## <a name="premium-storage-supported-vms"></a>進階儲存體支援的 VM
 「進階儲存體」支援 DS 系列、DSv2 系列、GS 系列及 Fs 系列的 Azure 虛擬機器 (VM)。 您可以將「標準」和「進階」儲存體磁碟與「進階儲存體」支援的 VM 搭配使用。 但是不能將「進階儲存體」磁碟與非「進階儲存體」相容的 VM 系列搭配使用。
@@ -115,7 +115,7 @@ Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案
 
 檔案儲存體是使用與 Blob、資料表和佇列儲存體相同的技術建置，因此檔案儲存體能夠提供可用性、持續性、延展性和建置於 Azure 儲存體平台內的異地備援。 如需有關檔案儲存體效能目標和限制的詳細資訊，請參閱「Azure 儲存體延展性和效能目標」。
 
-* [如何搭配使用 Azure 檔案儲存體與 Linux](../../storage/storage-how-to-use-files-linux.md)
+* [如何搭配使用 Azure 檔案儲存體與 Linux](../../storage/files/storage-how-to-use-files-linux.md)
 
 ## <a name="hot-storage"></a>經常性存取儲存體
 Azure 經常性存取儲存層已最佳化，可用於儲存經常存取的資料。  經常性存取儲存體是 blob 存放區的預設儲存體類型。
@@ -155,7 +155,7 @@ Microsoft Azure 儲存體帳戶中的資料一律會進行複寫以確保持久�
 
 針對 Azure 儲存體備援性的深入探討，請參閱︰
 
-* [Azure 儲存體複寫](../../storage/storage-redundancy.md)
+* [Azure 儲存體複寫](../../storage/common/storage-redundancy.md)
 
 ## <a name="scalability"></a>延展性
 Azure 儲存體可大幅擴充，因此您可以儲存並處理數百 TB 的資料，藉此支援科學、財務分析和媒體應用程式等所需的巨量資料案例。 或者您可以儲存小型企業網站所需的少量資料。 無論您的需求屬於何者，只需要為您儲存的資料付費。 Azure 儲存體目前儲存了數十兆的獨特客戶物件，且平均每秒處理上百萬個要求。
@@ -197,7 +197,7 @@ Azure 儲存體提供一組完整的安全性功能，讓開發人員能夠共�
 ## <a name="encryption-at-rest"></a>待用加密
 我們將討論儲存體服務加密 (SSE)，以及如何為儲存體帳戶啟用此功能，讓您的區塊 Blob、分頁 Blob 和附加 Blob 可以在寫入 Azure 儲存體時自動加密。 同時也將探討如何使用 Azure 磁碟加密，並探索磁碟加密與 SSE 與用戶端加密之間的基本差異和案例。 我們將簡短探討美國政府電腦適用的 FIPS 相符性。
 
-* [Azure 儲存體安全性指南](../../storage/storage-security-guide.md)
+* [Azure 儲存體安全性指南](../../storage/common/storage-security-guide.md)
 
 ## <a name="temporary-disk"></a>暫存磁碟
 每個 VM 都包含一個暫存磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會在[維護事件](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期間或當您[重新佈署 VM](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 時遺失。 在 VM 的標準重新開機期間，暫存磁碟上的資料會保留。

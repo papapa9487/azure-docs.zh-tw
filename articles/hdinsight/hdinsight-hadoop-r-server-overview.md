@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 0e1812bf867abff1ddd1b0534ceae692fad70484
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 R 伺服器與開放原始碼 R 功能簡介
@@ -39,11 +38,11 @@ HDInsight 上的 R 伺服器所提供的最新功能，適用於幾乎任何大�
 若要在 HDInsight 叢集中包含 R 伺服器，您必須在使用 Azure 入口網站建立 HDInsight 叢集的時候選取 R 伺服器叢集類型。 R 伺服器叢集類型包括在叢集資料節點上的 R 伺服器，以及在邊緣節點上的 R 伺服器，可當作以 R 伺服器為基礎之分析的登陸區域。 請參閱[開始使用 HDInsight 上的 R 伺服器](hdinsight-hadoop-r-server-get-started.md)，以了解有關如何建立叢集的逐步解說。
 
 ## <a name="learn-about-data-storage-options"></a>了解資料儲存體選項
-HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳戶或 Azure Data Lake Store 關聯。 此關聯可確保在分析期間，上傳至叢集儲存體的任何資料皆保有永續性。 有各種工具可用於處理將資料傳輸到您所選儲存體選項的作業，包括儲存體帳戶的入口網站型上傳工具，以及 [AzCopy](../storage/storage-use-azcopy.md) 公用程式。
+HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳戶或 Azure Data Lake Store 關聯。 此關聯可確保在分析期間，上傳至叢集儲存體的任何資料皆保有永續性。 有各種工具可用於處理將資料傳輸到您所選儲存體選項的作業，包括儲存體帳戶的入口網站型上傳工具，以及 [AzCopy](../storage/common/storage-use-azcopy.md) 公用程式。
 
 不論使用中的儲存體選項為何，您都可以選擇在叢集佈建程序期間，新增其他 Blob 和 Data Lake 儲存體的存取權。 如需有關新增其他帳戶存取權的詳細資訊，請參閱[開始使用 HDInsight 上的 R 伺服器](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-get-started)。 若要深入了解如何使用多個儲存體帳戶，請參閱補充性[適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-r-server-storage)文章。
 
-您也可以將 [Azure 檔案](../storage/storage-how-to-use-files-linux.md)作為在邊緣節點上使用的儲存體選項。 Azure 檔案可讓您將建立於 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 如需適用於 HDInsight 叢集上 R 伺服器的這些資料儲存體選項詳細資訊，請參閱[適用於 HDInsight 叢集上的 R 伺服器的 Azure 儲存體選項](hdinsight-hadoop-r-server-storage.md)。
+您也可以將 [Azure 檔案](../storage/files/storage-how-to-use-files-linux.md)作為在邊緣節點上使用的儲存體選項。 Azure 檔案可讓您將建立於 Azure 儲存體的檔案共用掛接至 Linux 檔案系統。 如需適用於 HDInsight 叢集上 R 伺服器的這些資料儲存體選項詳細資訊，請參閱[適用於 HDInsight 叢集上的 R 伺服器的 Azure 儲存體選項](hdinsight-hadoop-r-server-storage.md)。
 
 ## <a name="access-r-server-on-the-cluster"></a>存取叢集上的 R 伺服器
 您可以使用瀏覽器連線到邊緣節點上的 R 伺服器，但前提是您必須已經在佈建程序期間選擇包括 RStudio Server。 若未在叢集佈建期間安裝它，您可以稍後新增它。 如需在建立叢集之後安裝 RStudio Server 的相關資訊，請參閱[在 HDInsight 叢集上安裝 RStudio Server](hdinsight-hadoop-r-server-install-r-studio.md)。 您也可以使用 SSH/PuTTY 來存取 R 主控台，以連線到 R 伺服器。 
@@ -103,6 +102,6 @@ HDInsight 叢集的 Linux 邊緣節點，是 R 型分析的登陸區域。 HDIns
 
 * [開始使用 HDInsight 上的 R 伺服器](hdinsight-hadoop-r-server-get-started.md)
 * [將 RStudio Server 新增至 HDInsight (若未在建立叢集期間安裝)](hdinsight-hadoop-r-server-install-r-studio.md)
-* [適用於 HDInsight 上 R 伺服器的計算內容選項](hdinsight-hadoop-r-server-compute-contexts.md)
-* [適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項](hdinsight-hadoop-r-server-storage.md)
+* [適用於 HDInsight 中 R 伺服器的計算內容選項](hdinsight-hadoop-r-server-compute-contexts.md)
+* [適用於 HDInsight R 伺服器的 Azure 儲存體選項](hdinsight-hadoop-r-server-storage.md)
 

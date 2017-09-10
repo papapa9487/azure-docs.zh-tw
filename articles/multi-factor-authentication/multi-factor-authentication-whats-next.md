@@ -15,11 +15,10 @@ ms.topic: article
 ms.date: 04/21/2017
 ms.author: kgremban
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 92e4c7d5a873cd75cdc32e1feeede71bd5e37f40
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: a470a8bc70365a1891fc57efc6d2d4391162fd17
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
@@ -50,7 +49,7 @@ ms.lasthandoff: 07/11/2017
 
 如果您有 Multi-Factor Auth Provider，或有 Azure MFA、Azure AD Premium 或 Enterprise Mobility + Security 授權，請使用此方法存取 [MFA 服務設定] 頁面。
 
-若要透過 [MFA 服務設定] 頁面存取 MFA 管理入口網站，請以系統管理員身分登入 Azure 傳統入口網站，並選取 [Active Directory] 選項。 按一下您的目錄，然後按一下 [設定]  索引標籤。 在 [Multi-Factor Authentication] 區段底下，選取 [管理服務設定] 。 在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站]  連結。
+若要透過 [MFA 服務設定] 頁面存取 MFA 管理入口網站，請以系統管理員身分登入 Azure 傳統入口網站，並選取 [Active Directory] 選項。 按一下您的目錄，然後按一下 [設定]  索引標籤。在 [Multi-Factor Authentication] 區段底下，選取 [管理服務設定] 。 在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站]  連結。
 
 
 ## <a name="fraud-alert"></a>詐騙警示
@@ -219,7 +218,7 @@ ms.lasthandoff: 07/11/2017
 * 每個應用程式應該只需要輸入一次應用程式密碼。 使用者不需要追蹤應用程式密碼，也不需要每次輸入。
 * 實際的密碼會自動產生，而不是由使用者提供。 這是因為攻擊者比較難以猜中自動產生的密碼，所以比較安全。
 * 每位使用者的密碼以 40 組為限。 
-* 在內部部署案例中會快取密碼並予以使用的應用程式可能會開始失敗，因為應用程式密碼無法在組織識別碼之外辨識。 將 Exchange 電子郵件存放在內部部署設施，但是將封存郵件存放在雲端即是一例。 同樣的密碼無法適用於兩者。
+* 在內部部署案例中會快取密碼並予以使用的應用程式可能會開始失敗，因為應用程式密碼無法在組織識別碼之外辨識。將 Exchange 電子郵件存放在內部部署設施，但是將封存郵件存放在雲端即是一例。 同樣的密碼無法適用於兩者。
 * 一旦使用者的帳戶啟用 Multi-Factor Authentication，應用程式密碼即可用於大部分的非瀏覽器用戶端 (例如 Outlook 和 Lync)，但是透過非瀏覽器應用程式 (例如 Windows PowerShell) 無法使用應用程式密碼執行系統管理動作，即使具備系統管理員帳戶也一樣。  請確保您建立的服務帳戶是使用強式密碼來執行 PowerShell 指令碼，並且請勿將帳戶用於雙步驟驗證。
 
 > [!WARNING]
@@ -234,7 +233,7 @@ Microsoft 建議為每個裝置建立一個應用程式密碼，而不是為每�
 Azure AD 支援與內部部署 Windows Server Active Directory Domain Services (AD DS) 同盟 (單一登入)。 如果您的組織與 Azure AD 同盟，而且您想要使用 Azure Multi-Factor Authentication，則以下有關應用程式密碼的資訊就很重要。 本節僅適用於同盟 (SSO) 客戶。
 
 * 應用程式密碼由 Azure AD 驗證，因此會略過同盟。 唯有在設定應用程式密碼時才會主動使用同盟。
-* 對於同盟 (SSO) 使用者，我們不會像被動流程一樣尋求識別提供者 (IdP)。 密碼會儲存在組織識別碼中。 如果使用者離開公司，這些資訊必須使用 DirSync 即時流向組織識別碼。 帳戶停用/刪除最長可能需要三個小時才能完成同步處理，導致 Azure AD 中的應用程式密碼停用/刪除延遲。
+* 對於同盟 (SSO) 使用者，我們不會像被動流程一樣尋求識別提供者 (IdP)。 密碼會儲存在組織識別碼中。如果使用者離開公司，這些資訊必須使用 DirSync 即時流向組織識別碼。 帳戶停用/刪除最長可能需要三個小時才能完成同步處理，導致 Azure AD 中的應用程式密碼停用/刪除延遲。
 * 應用程式密碼不會遵守內部部署用戶端存取控制設定。
 * 應用程式密碼不適用內部部署驗證記錄/稽核功能。
 * 某些進階架構設計在使用雙步驟驗證時，可能需要有組織使用者名稱和密碼及應用程式密碼的組合，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 對於根據 Azure AD 進行驗證的用戶端，您需要使用應用程式密碼。

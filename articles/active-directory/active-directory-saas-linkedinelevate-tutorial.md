@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 5949ae254233aa32384aab50b188fdd6527787a0
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5336543e06d60be555722a615568b12048c2aa2f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>教學課程：Azure Active Directory 與 LinkedIn Elevate 整合
@@ -138,15 +137,15 @@ LinkedIn Elevate 與 Azure AD 整合提供下列優點：
     | --- | --- |    
     | department| user.department |
 
-    ![建立 Azure AD 測試使用者](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
+      ![建立 Azure AD 測試使用者](./media/active-directory-saas-linkedinElevate-tutorial/userattribute.png)
 
-       a. Click on Add attribute to open the attribute details page add the department attribute as shown below-
+      a. 按一下 [新增屬性]，以開啟屬性的詳細資料頁面，如下所示新增部門屬性
 
-       ![Creating an Azure AD test user](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
+      ![建立 Azure AD 測試使用者](./media/active-directory-saas-linkedinElevate-tutorial/adduserattribute.png)
 
-       b. Click on **Ok** to save the attribute.
+      b.這是另一個 C# 主控台應用程式。 按一下 [確定] 儲存屬性。
 
-    c. 將 **emailaddress** 屬性的名稱變更為 **email**。
+      c. 將 **emailaddress** 屬性的名稱變更為 **email**。
 
 
 10. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
@@ -258,3 +257,4 @@ Linked Elevate 應用程式僅在使用者佈建時支援，驗證之後，會�
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
+

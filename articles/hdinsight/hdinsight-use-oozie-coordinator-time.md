@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
+ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: ce145585b31585fdc6a60eb8a8dd933a81a46bd1
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 600a70c74a16e2601a874f804ac2e8382c8bfa90
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>在 HDInsight 上將以時間為基礎的 Oozie 協調器與 Hadoop 搭配使用，以定義工作流程和協調工作
@@ -443,7 +444,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
 
     如需變數的詳細說明，請參閱本教學課程中的 [必要條件](#prerequisites) 一節。
 
-    $coordstart 和 $coordend 是工作流程的開始和結束時間。 若要找出 UTC/GMT 時間，請在 bing.com 搜尋「utc 時間」。 $coordFrequency 是您要執行工作流程的頻率 (以分鐘為單位)。
+    $coordstart 和 $coordend 是工作流程的開始和結束時間。 若要找出 UTC/GMT 時間，請在 bing.com 搜尋「utc 時間」。$coordFrequency 是您要執行工作流程的頻率 (以分鐘為單位)。
 3. 將下列程式碼附加至指令碼： 這部分會定義 Oozie 裝載：
 
     ```powershell
@@ -744,7 +745,7 @@ $conn.close()
 [sqldatabase-get-started]: ../sql-database/sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: ../storage-create-storage-account.md
+[azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/

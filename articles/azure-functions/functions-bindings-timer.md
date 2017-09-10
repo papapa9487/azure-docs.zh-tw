@@ -4,7 +4,7 @@ description: "了解如何在 Azure Functions 中使用計時器觸發程序。"
 services: functions
 documentationcenter: na
 author: christopheranderson
-manager: erikre
+manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
@@ -15,14 +15,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: chrande; glenga
+ms.author: glenga
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 12a793c4df497f221dbd592ca3d249b8c1f65e04
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6a97ab8508f889b77d064a5da70e3c726d62900c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-functions-timer-trigger"></a>Azure Functions 計時器觸發程序
@@ -31,7 +30,7 @@ ms.lasthandoff: 06/22/2017
 
 這篇文章說明如何在 Azure Functions 中設定及撰寫計時器觸發程序。 Azure Functions 具有計時器觸發程序繫結，可讓您根據所定義的排程執行函式程式碼。 
 
-計時器觸發程序支援多個執行個體向外延展。 特定計時器函式的單一執行個體會對所有執行個體執行。
+計時器觸發程序支援多個執行個體向外延展。特定計時器函式的單一執行個體會對所有執行個體執行。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

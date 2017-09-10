@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: b7e17b83afb7306b74b8769f31188642b54566ca
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5db0ceb1648b5afa278e1cbe1c42fce8033bfdc1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -37,9 +37,9 @@ ms.lasthandoff: 07/12/2017
 
 雖然這項選擇聽起來簡單又直接，但仍有一些事要考量。 之前有提到，Azure 虛擬機器可連結的資料磁碟數目有限制。 可能無法在 VM 的檔案系統上儲存 SAP HANA 備份檔案，取決於資料庫的大小和磁碟輸送量需求，其中可能牽涉到使用串接跨多個資料磁碟的軟體 RAID。 在本文稍後提供多種選項，可用於在處理數 TB 資料時，移動這些備份檔案以及管理檔案大小限制和效能。
 
-另一個可以不計總容量提供更多自由的選項是 Azure Blob 儲存體。 雖然單一 blob 也有 1 TB 的限制，單一 blob 容器的總容量目前為 500 TB。 此外，它讓客戶可以選擇較具成本效益的「非經常性」&quot;&quot;blob 儲存體。 如需非經常性 blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../../../storage/storage-blob-storage-tiers.md)。
+另一個可以不計總容量提供更多自由的選項是 Azure Blob 儲存體。 雖然單一 blob 也有 1 TB 的限制，單一 blob 容器的總容量目前為 500 TB。 此外，它讓客戶可以選擇較具成本效益的「非經常性」&quot;&quot;blob 儲存體。 如需非經常性 blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../../../storage/blobs/storage-blob-storage-tiers.md)。
 
-如果想要更安全，使用異地複寫儲存體帳戶來存放 SAP HANA 備份。 如需儲存體帳戶複寫相關的詳細資料，請參閱 [Azure 儲存體複寫](../../../storage/storage-redundancy.md)。
+如果想要更安全，使用異地複寫儲存體帳戶來存放 SAP HANA 備份。 如需儲存體帳戶複寫相關的詳細資料，請參閱 [Azure 儲存體複寫](../../../storage/common/storage-redundancy.md)。
 
 一個人將 SAP HANA 備份專用的 VHD 放在異地複寫的專用備份儲存體帳戶。 而另一個人可以將存放 SAP HANA 備份的 VHD 複製到異地複寫的儲存體帳戶中，或複製到不同區域中的儲存體帳戶。
 
@@ -51,7 +51,7 @@ Azure 備份提供的選項不僅可備份完整的 VM，但可透過備份代�
 
 ## <a name="azure-blobxfer-utility-details"></a>Azure blobxfer 公用程式詳細資料
 
-為了在 Azure 儲存體上儲存目錄和檔案，可以使用 CLI 或 PowerShell，或開發使用其中一種 [Azure SDK](https://azure.microsoft.com/downloads/) 的工具。 另外也有現成的公用程式 AzCopy，可將資料複製到 Azure 儲存體，但是它只適用於 Windows (請參閱[使用 AzCopy 命令列公用程式傳輸資料](../../../storage/storage-use-azcopy.md))。
+為了在 Azure 儲存體上儲存目錄和檔案，可以使用 CLI 或 PowerShell，或開發使用其中一種 [Azure SDK](https://azure.microsoft.com/downloads/) 的工具。 另外也有現成的公用程式 AzCopy，可將資料複製到 Azure 儲存體，但是它只適用於 Windows (請參閱[使用 AzCopy 命令列公用程式傳輸資料](../../../storage/common/storage-use-azcopy.md))。
 
 因此，使用 blobxfer 來複製 SAP HANA 備份檔案。 blobxfer 是開放原始碼，可從 [GitHub](https://github.com/Azure/blobxfer) 取得，許多客戶在生產環境中使用它。 此工具不允許將資料直接複製到 Azure blob 儲存體或 Azure 檔案共用。 它也提供各種實用的功能，例如 md5 雜湊、複製含多個檔案的目錄時可使用自動平行處理原則。
 
@@ -71,7 +71,7 @@ Azure 備份提供的選項不僅可備份完整的 VM，但可透過備份代�
 
 ## <a name="copy-sap-hana-backup-files-to-azure-blob-storage"></a>將 SAP HANA 備份檔案複製到 Azure Blob 儲存體
 
-自 2016 年 12 月起，快速儲存 SAP HANA 備份檔案的最佳選擇是 Azure Blob 儲存體。 單一 blob 容器的上限為 500 TB，對於大多數在 Azure 上執行 GS5 VM 的 SAP HANA 系統來説已經夠用，可保留充足的 SAP HANA 備份。 客戶可在「經常性存取」&quot;&quot;和「非經常性存取」&quot;&quot;儲存體之間選擇 (請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../../../storage/storage-blob-storage-tiers.md)。
+自 2016 年 12 月起，快速儲存 SAP HANA 備份檔案的最佳選擇是 Azure Blob 儲存體。 單一 blob 容器的上限為 500 TB，對於大多數在 Azure 上執行 GS5 VM 的 SAP HANA 系統來説已經夠用，可保留充足的 SAP HANA 備份。 客戶可在「經常性存取」&quot;&quot;和「非經常性存取」&quot;&quot;儲存體之間選擇 (請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../../../storage/blobs/storage-blob-storage-tiers.md)。
 
 使用 blobxfer 工具，將 SAP HANA 備份檔案直接複製到 Azure Blob 儲存體很容易。
 
@@ -139,7 +139,7 @@ NFS 共用是快速串接集，就像 SAP HANA 伺服器上的一樣。 不過�
 
 ## <a name="copy-sap-hana-backup-files-to-azure-file-service"></a>將 SAP HANA 備份檔案複製到 Azure 檔案服務
 
-可以將 Azure 檔案共用掛接在 Azure Linux VM 內部。 [如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/storage-how-to-use-files-linux.md) 一文提供作法的詳細資訊。 請記住，目前 Azure 檔案共用有 5 TB 配額的限制，以及每個檔案 1 TB 的檔案大小限制。 如需儲存體限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../../../storage/storage-scalability-targets.md) (英文)。
+可以將 Azure 檔案共用掛接在 Azure Linux VM 內部。 [如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/files/storage-how-to-use-files-linux.md) 一文提供作法的詳細資訊。 請記住，目前 Azure 檔案共用有 5 TB 配額的限制，以及每個檔案 1 TB 的檔案大小限制。 如需儲存體限制的詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](../../../storage/common/storage-scalability-targets.md) (英文)。
 
 不過測試顯示，SAP HANA 備份目前不能直接搭配使用這種 CIFS 掛接。 在 [SAP Note 1820529](https://launchpad.support.sap.com/#/notes/1820529) (英文) 中也提到不建議使用 CIFS。
 

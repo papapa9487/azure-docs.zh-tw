@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: rajanaki
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 2796a77984fb811b2ea563a45652bb6312b3dd26
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: fb5b8c9ac96ac44d0112919664a177f33ef392da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -46,7 +46,7 @@ Azure Site Recovery 是一項有助於建立商務持續性和災害復原 (BCDR
 **Azure 帳戶** | [Microsoft Azure](http://azure.microsoft.com/) 帳戶。<br/><br/> 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。
 **Site Recovery 服務** | 如需有關 Site Recovery 價格的詳細資訊，請參閱 [Site Recovery 價格](https://azure.microsoft.com/pricing/details/site-recovery/)。 建議您在想要做為災害復原位置的目標 Azure 區域中建立復原服務保存庫。 例如，如果來源 VM 是在美國東部運作，而且您想要複寫到美國中部，建議您在美國中部建立保存庫。|
 **Azure 容量** | 對於您想要做為災害復原位置的目標 Azure 區域，您需要有足夠容量可容納虛擬機器、儲存體帳戶和網路元件的訂用帳戶。 您可以連絡支援人員增加容量。
-**儲存體指引** | 請確定您遵循來源 Azure 虛擬機器的[儲存體指引](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源組態建立所需的儲存體帳戶。 如果您自訂並選取您自己的設定，請確定您按照[虛擬機器磁碟的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)進行。
+**儲存體指引** | 請確定您遵循來源 Azure 虛擬機器的[儲存體指引](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源組態建立所需的儲存體帳戶。 如果您自訂並選取您自己的設定，請確定您按照[虛擬機器磁碟的延展性目標](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)進行。
 **網路服務指南** | 您需要將 Azure VM 對於特定 URL 或 IP 範圍的輸出連線能力列入白名單。 如需詳細資料，請參閱[複寫 Azure 虛擬機器的網路指引](site-recovery-azure-to-azure-networking-guidance.md)文章。
 **Azure VM** | 確定 Windows 或 Linux VM 上有全部最新的根憑證。 如果沒有最新的根憑證，VM 會因安全性條件限制而無法註冊至 Site Recovery。
 

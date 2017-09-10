@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 657c436cc45bb3818f89b922d74e03cae894778e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集
@@ -175,7 +175,7 @@ write-host "Storage Account Key: $destStorageAccountKey"
 Write-host "`nScript completed" -ForegroundColor Green
 ```
 
-如需有關此 PowerShell 指定碼的說明，請參閱 [使用 Azure PowerShell 搭配 Azure 儲存體](../storage/storage-powershell-guide-full.md)。 如果您想要改為使用 Azure CLI，請參閱 Azure CLI 指令碼的[附錄](#appendix)區段。
+如需有關此 PowerShell 指定碼的說明，請參閱 [使用 Azure PowerShell 搭配 Azure 儲存體](../storage/common/storage-powershell-guide-full.md)。 如果您想要改為使用 Azure CLI，請參閱 Azure CLI 指令碼的[附錄](#appendix)區段。
 
 **檢查儲存體帳戶和內容**
 
@@ -595,5 +595,5 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql" --dest-account-name "<Azure Storage Account Name>" --dest-account-key "<Azure Storage Account Key>" --dest-container "adfgetstarted"
 ```
 
-容器名稱為 *adfgetstarted*。 讓它保持原狀。 否則，您必須更新 Resource Manager 範本。 如需有關此 CLI 指定碼的說明，請參閱 [使用 Azure CLI 搭配 Azure 儲存體](../storage/storage-azure-cli.md)。
+容器名稱為 *adfgetstarted*。 讓它保持原狀。 否則，您必須更新 Resource Manager 範本。 如需有關此 CLI 指定碼的說明，請參閱 [使用 Azure CLI 搭配 Azure 儲存體](../storage/common/storage-azure-cli.md)。
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/27/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: db2f27906504de6755718c4b6be8302dee097f18
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 6586cad908e6527b874dc3f0ee256c6b2cea8c49
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="consume-monitoring-data-from-azure"></a>取用來自 Azure 的監視資料
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/08/2017
 | 儲存體度量 | 度量 | Azure 儲存體 | <ul><li>**儲存體資料表：**[儲存體分析 (英文)](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | 帳單資料 | 度量 | 所有 Azure 服務 | <ul><li>**REST API：** [Azure 資源使用情況與 RateCard API](../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | 活動記錄檔 | 事件 | 所有 Azure 服務 | <ul><li>**REST API：**[Azure 監視器事件 API (英文)](https://docs.microsoft.com/rest/api/monitor/events)</li><li>**儲存體 Blob 或事件中樞︰**[記錄設定檔](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Azure 監視器診斷記錄檔 | 事件 | [請參閱此處的清單](monitoring-overview-of-diagnostic-logs.md#supported-services-and-schema-for-resource-diagnostic-logs) | <ul><li>**儲存體 Blob 或事件中樞：**[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
+| Azure 監視器診斷記錄檔 | 事件 | [請參閱此處的清單](monitoring-diagnostic-logs-schema.md) | <ul><li>**儲存體 Blob 或事件中樞：**[診斷設定](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)</li></ul> |
 | 計算客體 OS 記錄檔 (例如 IIS、ETW、syslog) | 事件 | [Windows](../virtual-machines-dotnet-diagnostics.md) 和 Linux 虛擬機器 (v2)、[雲端服務](../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)、[Service Fabric](../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**儲存體資料表或 Blob：**[Windows 或 Linux Azure 診斷](../cloud-services/cloud-services-dotnet-diagnostics-storage.md)</li><li>**事件中樞：**[Windows Azure 診斷](../event-hubs/event-hubs-streaming-azure-diags-data.md)</li></ul> |
 | App Service 記錄檔 | 事件 | 應用程式服務 | <ul><li>**檔案、資料表或 Blob 儲存體：**[Web 應用程式診斷](../app-service-web/web-sites-enable-diagnostic-log.md)</li></ul> |
 | 儲存體記錄 | 事件 | Azure 儲存體 | <ul><li>**儲存體資料表：**[儲存體分析 (英文)](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

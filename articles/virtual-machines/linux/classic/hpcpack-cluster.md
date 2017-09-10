@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 048854b440f939077a7a95fa1db9ba42daf55ede
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
@@ -186,7 +186,7 @@ HPC Pack IaaS 部署指令碼會使用 XML 組態檔作為輸入，以描述 HPC
 ### <a name="azure-file-storage"></a>Azure 檔案儲存體
 [Azure 檔案](https://azure.microsoft.com/services/storage/files/) 服務會公開使用標準 SMB 2.1 通訊協定的檔案共用。 Azure VM 和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API，存取共用中的檔案資料。 
 
-如需建立 Azure 檔案共用以及將其裝載於前端節點上的詳細步驟，請參閱 [開始使用 Windows 上的 Azure 檔案儲存體](../../../storage/storage-file-how-to-use-files-windows.md)。 若要在 Linux 節點上裝載 Azure 檔案共用，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/storage-how-to-use-files-linux.md)。 若要設定持續性連線，請參閱 [Microsoft Azure 檔案的持續性連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。
+如需建立 Azure 檔案共用以及將其裝載於前端節點上的詳細步驟，請參閱 [開始使用 Windows 上的 Azure 檔案儲存體](../../../storage/files/storage-how-to-use-files-windows.md)。 若要在 Linux 節點上裝載 Azure 檔案共用，請參閱[如何搭配使用 Azure 檔案儲存體與 Linux](../../../storage/files/storage-how-to-use-files-linux.md)。 若要設定持續性連線，請參閱 [Microsoft Azure 檔案的持續性連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)。
 
 在下列範例中，在儲存體帳戶上建立 Azure 檔案共用。 若要在前端節點上裝載共用，請開啟 [命令提示字元] 並輸入下列命令：
 

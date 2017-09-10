@@ -14,10 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 666d0f655a0705423d025b88a1f457b866008ab9
-ms.lasthandoff: 03/29/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 70ee752c5639c90f77dde104ce85eec0a1062300
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>利用 Azure API 管理、事件中樞及 Runscope 監視您的 API
@@ -262,7 +263,7 @@ public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
 我能夠利用 [Runscope 的現有用戶端程式庫](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha)，所以可輕鬆地將 `HttpRequestMessage` 和 `HttpResponseMessage` 執行個體推送到它們的服務中。 若要存取 Runscope API，您需有一個帳戶和 API 金鑰。 在 [建立應用程式來存取 Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) 螢幕錄製影片中可找到取得 API 金鑰的指示。
 
 ## <a name="complete-sample"></a>完整範例
-範例的[原始程式碼](https://github.com/darrelmiller/ApimEventProcessor)和測試位於 GitHub 上。 您將需要 [API 管理服務](api-management-get-started.md)、[已連接的事件中樞](api-management-howto-log-event-hubs.md)及[儲存體帳戶](../storage/storage-create-storage-account.md)，才能自行執行此範例。   
+範例的[原始程式碼](https://github.com/darrelmiller/ApimEventProcessor)和測試位於 GitHub 上。 您將需要 [API 管理服務](api-management-get-started.md)、[已連接的事件中樞](api-management-howto-log-event-hubs.md)及[儲存體帳戶](../storage/common/storage-create-storage-account.md)，才能自行執行此範例。   
 
 此範例只是簡單的主控台應用程式，可接聽來自事件中樞的事件，將它們轉換為 `HttpRequestMessage` 和 `HttpResponseMessage` 物件，然後再轉送到 Runscope API。
 

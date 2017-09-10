@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 08/16/2017
 ms.author: monicar
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 800eadb6cc558303553a204771b18cec525a2af9
+ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
+ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 08/24/2017
 
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
@@ -30,8 +30,8 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 * [雲端運算詞彙](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - 一般產業雲端詞彙。
 
 ## <a name="account"></a>帳戶
-工作或學校帳戶，或是個人 Microsoft 帳戶，可用來存取和管理 Azure 訂用帳戶。  
-請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](active-directory/active-directory-how-subscriptions-associated-directory.md)
+用來存取和管理 Azure 訂用帳戶的帳戶。 通常稱為 Azure 帳戶，雖然帳戶可以是以下任何一項：現有公司、學校或個人 Microsoft 帳戶，或 Office 365 使用者名稱和密碼。 當您註冊[免費試用版](https://azure.microsoft.com)時，也可以建立帳戶來管理 Azure 訂用帳戶。  
+請參閱[ Office 365 帳戶註冊 Azure 訂用帳戶](billing/billing-use-existing-office-365-account-azure-subscription.md)和[您可以用來登入的帳戶](active-directory/active-directory-how-subscriptions-associated-directory.md)。
 
 ## <a name="api-app"></a>API 應用程式
 [App Service 應用程式](#app-service-app)的另一個名稱。
@@ -119,11 +119,11 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 請參閱[服務等級協定](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>共用存取簽章 (SAS)
-不需公開帳戶金鑰，即可讓您授與有限資源存取權的簽章。 例如，[Azure 儲存體使用 SAS](storage/storage-dotnet-shared-access-signature-part-1.md) 授與 blob 等物件的用戶端存取權。 [IoT 中樞會使用 SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) 授與裝置權限以傳送遙測。
+不需公開帳戶金鑰，即可讓您授與有限資源存取權的簽章。 例如，[Azure 儲存體使用 SAS](storage/common/storage-dotnet-shared-access-signature-part-1.md) 授與 blob 等物件的用戶端存取權。 [IoT 中樞會使用 SAS](iot-hub/iot-hub-devguide-security.md#security-tokens) 授與裝置權限以傳送遙測。
 
 ## <a name="storage-account"></a>storage account
 可讓您存取 Azure 儲存體中 Azure Blob、佇列、資料表和檔案服務的帳戶。 儲存體帳戶名稱可定義 Azure 儲存體資料物件的唯一命名空間。  
-請參閱[關於 Azure 儲存體帳戶](storage/storage-create-storage-account.md)
+請參閱[關於 Azure 儲存體帳戶](storage/common/storage-create-storage-account.md)
 
 ## <a name="subscription"></a>訂用帳戶
 客戶與 Microsoft 的合約，可讓他們取得 Azure 服務。 訂用帳戶定價及相關條款是由針對訂用帳戶所選擇的優惠來控管。

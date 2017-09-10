@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 006123a4ab7d1c0208a7e5f33b6f05f9374511fc
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---                    
                
@@ -53,7 +53,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 
 若要複製 VM，您可建立基礎虛擬硬碟的複本。 此程序會建立特製化 VHD 做為受控磁碟，其包含與來源 VM 相同的組態和設定。
 
-如需 Azure 受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../../storage/storage-managed-disks-overview.md)。 
+如需 Azure 受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../windows/managed-disks-overview.md)。 
 
 1.  使用 [az vm list](/cli/azure/vm#list) 列出每部 VM 及其 OS 磁碟的名稱。 下列範例會列出名為 **myResourceGroup** 的資源群組中的所有 VM：
     

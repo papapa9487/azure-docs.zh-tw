@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 02bf921222917a50af8e28e62514e167901743b8
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: aef9c15636ccaecce07d4fa218a40ed26ebad9df
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-solutions-for-r-server-on-hdinsight"></a>適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項
@@ -37,9 +37,9 @@ HDInsight 上的 Microsoft R 伺服器有數種儲存體選項可用來保存資
 - [搭配 HDInsight 使用 Azure 儲存體](hdinsight-hadoop-use-blob-storage.md)
 - [搭配 Azure HDInsight 叢集使用 Data Lake Store](hdinsight-hadoop-use-data-lake-store.md)。 
 
-如需有關 Azure 儲存體解決方案的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/storage-introduction.md)。 
+如需有關 Azure 儲存體解決方案的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)。 
 
-如需有關如何針對您的情節選取最適儲存體選項的指導方針，請參閱[決定何時使用 Azure Blob、Azure 檔案或 Azure 資料磁碟](../storage/storage-decide-blobs-files-disks.md) 
+如需有關如何針對您的情節選取最適儲存體選項的指導方針，請參閱[決定何時使用 Azure Blob、Azure 檔案或 Azure 資料磁碟](../storage/common/storage-decide-blobs-files-disks.md) 
 
 
 ## <a name="use-azure-blob-storage-accounts-with-r-server"></a>搭配 R 伺服器使用 Azure Blob 儲存體帳戶
@@ -188,8 +188,8 @@ HDInsight 上的 Microsoft R 伺服器有數種儲存體選項可用來保存資
 
 Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用檔案共用。 例如，您本人或您的小組成員所擁有的另一個 HDInsight 叢集，或是 Azure VM 甚或內部部署系統均可使用 Azure 檔案。 如需詳細資訊，請參閱：
 
-- [如何搭配 Linux 使用 Azure 檔案儲存體](../storage/storage-how-to-use-files-linux.md)
-- [如何在 Windows 上使用 Azure 檔案儲存體](../storage/storage-dotnet-how-to-use-files.md)
+- [如何搭配 Linux 使用 Azure 檔案儲存體](../storage/files/storage-how-to-use-files-linux.md)
+- [如何在 Windows 上使用 Azure 檔案儲存體](../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>後續步驟
