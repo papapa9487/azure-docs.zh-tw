@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev;paulsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 80e0b0cb5193d5a0c3782e2e6371b91441780347
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6da9a8e3f9f8ac851c2a8deb861ac1d0b3ec5874
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="data-science-on-the-linux-data-science-virtual-machine"></a>Linux 資料科學虛擬機器上的資料科學
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/03/2017
 >
 >
 
-如果您需要更多儲存空間，您可以建立額外的磁碟，並將它們連接到 VM。 這些磁碟會使用永續性的 Azure 儲存體，因此，即使伺服器因為調整大小或關閉等緣故而重新佈建，磁碟中的資料仍會保留下來。 若要新增磁碟並將它連接到 VM，請遵循[在 Linux VM 中新增磁碟](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指示。 這些步驟使用 Azure 命令列介面 (Azure CLI)，此介面已安裝在 DSVM 上。 因此，您完全可以從 VM 本身來執行這些程序。 另一種可增加儲存體的選項是使用 [Azure 檔案](../storage/storage-how-to-use-files-linux.md)。
+如果您需要更多儲存空間，您可以建立額外的磁碟，並將它們連接到 VM。 這些磁碟會使用永續性的 Azure 儲存體，因此，即使伺服器因為調整大小或關閉等緣故而重新佈建，磁碟中的資料仍會保留下來。 若要新增磁碟並將它連接到 VM，請遵循[在 Linux VM 中新增磁碟](../virtual-machines/linux/add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指示。 這些步驟使用 Azure 命令列介面 (Azure CLI)，此介面已安裝在 DSVM 上。 因此，您完全可以從 VM 本身來執行這些程序。 另一種可增加儲存體的選項是使用 [Azure 檔案](../storage/files/storage-how-to-use-files-linux.md)。
 
 若要下載資料，請開啟終端機視窗並執行此命令︰
 
@@ -401,7 +401,7 @@ Rattle 的其中一項優秀功能是能夠執行數個機器學習服務方法�
 * 選擇 [全部] 做為 [類型]。
 * 選取 [執行] 。
 * 執行完畢後，您可以按一下任何單一 [類型] \(例如 **SVM**) 並檢視結果。
-* 您也可以使用 [評估]  索引標籤比較驗證集上模型的效能。 例如，[錯誤矩陣]  選取項目會顯示驗證集上每個模型的混淆矩陣、整體錯誤和平均類別錯誤。
+* 您也可以使用 [評估]  索引標籤比較驗證集上模型的效能。例如，[錯誤矩陣]  選取項目會顯示驗證集上每個模型的混淆矩陣、整體錯誤和平均類別錯誤。
 * 您也可以繪製 ROC 曲線、執行敏感度分析和進行其他類型的模型評估。
 
 建置完模型之後，選取 [記錄]  索引標籤來檢視 Rattle 在工作階段期間執行的 R 程式碼。 您可以選取 [匯出]  按鈕來加以儲存。

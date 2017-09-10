@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: baaa7589de4d809270f66335e33b79b4fdb5e6a5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>擷取在 Azure 上執行的 Linux 虛擬機器
-請遵循本文中的步驟，在 Resource Manager 部署模型中一般化和擷取 Azure Linux 虛擬機器 (VM)。 當您一般化 VM 時，需移除個人帳戶資訊，並準備要做為映像的 VM。 您接著擷取作業系統的一般化虛擬硬碟 (VHD) 映像、連接資料磁碟的 VHD 以及新 VM 部署的 [Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 本文詳細說明如何針對使用非受控磁碟的 VM，透過 Azure CLI 1.0 擷取 VM 映像。 您也可以[透過 Azure CLI 2.0 使用 Azure 受控磁碟擷取 VM](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 受控磁碟是由 Azure 平台處理，不需要任何準備或位置來儲存它們。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀](../../storage/storage-managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
+請遵循本文中的步驟，在 Resource Manager 部署模型中一般化和擷取 Azure Linux 虛擬機器 (VM)。 當您一般化 VM 時，需移除個人帳戶資訊，並準備要做為映像的 VM。 您接著擷取作業系統的一般化虛擬硬碟 (VHD) 映像、連接資料磁碟的 VHD 以及新 VM 部署的 [Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 本文詳細說明如何針對使用非受控磁碟的 VM，透過 Azure CLI 1.0 擷取 VM 映像。 您也可以[透過 Azure CLI 2.0 使用 Azure 受控磁碟擷取 VM](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 受控磁碟是由 Azure 平台處理，不需要任何準備或位置來儲存它們。 如需詳細資訊，請參閱 [Azure 受控磁碟概觀](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
 
 若要使用映像建立 VM、針對每個新的 VM 設定網路資源，並使用範本 (JavaScript 物件標記法 (亦稱為 JSON) 檔案) 從擷取的 VHD 映像部署它。 如此一來，您可以使用 VM 目前軟體的組態來複寫 VM，與您在 Azure Marketplace 中使用映像的方式類似。
 

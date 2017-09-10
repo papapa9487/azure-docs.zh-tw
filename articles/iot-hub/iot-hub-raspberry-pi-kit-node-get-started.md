@@ -17,10 +17,10 @@ ms.date: 5/27/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: e7853892af550ec66fbc48b669a6c9b8ff18df8c
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: f48c4bd27b1df1d02090ed51172f943e50c76c3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -120,8 +120,8 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
 | -----------------------  | ---------------------- | ------------: |
 | VDD (針腳 5G)             | 3.3V PWR (針腳 1)       | 白色纜線   |
 | GND (針腳 7G)             | GND (針腳 6)            | 棕色纜線   |
-| SCK (針腳 8G)             | I2C1 SDA (針腳 3)       | 橘色纜線  |
-| SDI (針腳 10G)            | I2C1 SCL (針腳 5)       | 紅色纜線     |
+| SDI (針腳 10G)            | I2C1 SDA (針腳 3)       | 紅色纜線     |
+| SCK (針腳 8G)             | I2C1 SCL (針腳 5)       | 橘色纜線  |
 | LED VDD (針腳 18F)        | GPIO 24 (針腳 18)       | 白色纜線   |
 | LED GND (針腳 17F)        | GND (針腳 20)           | 黑色纜線   |
 

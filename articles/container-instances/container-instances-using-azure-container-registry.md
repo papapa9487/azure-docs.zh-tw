@@ -18,10 +18,10 @@ ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: cdac6362f0d51b3144024efd28af09eb6d97515f
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 
@@ -34,10 +34,10 @@ Azure Container Registry 是以 Azure 為基礎的私人登錄，用於裝載 Do
 Azure CLI 包括可用於建立和管理 Azure Container Instances 中容器的命令。 如果您在 `create` 命令中指定私人映像，則也可以指定對容器登錄進行驗證所需的映像登錄密碼。
 
 ```azurecli-interactive
-az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --image-registry-password myRegistryPassword --resource-group myresourcegroup
+az container create --name myprivatecontainer --image mycontainerregistry.azurecr.io/mycontainerimage:v1 --registry-password myRegistryPassword --resource-group myresourcegroup
 ```
 
-`create` 命令也支援指定 `image-registry-login-server` 和 `image-registry-username`。 不過，Azure Container Registry 的登入伺服器永遠會是 registryname.azurecr.io，而預設使用者名稱是 registryname，因此如果未明確提供，您仍可從映像名稱推斷這些值。
+`create` 命令也支援指定 `registry-login-server` 和 `registry-username`。 不過，Azure Container Registry 的登入伺服器永遠會是 registryname.azurecr.io，而預設使用者名稱是 registryname，因此如果未明確提供，您仍可從映像名稱推斷這些值。
 
 ## <a name="using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本
 
@@ -91,3 +91,4 @@ az container create --name myprivatecontainer --image mycontainerregistry.azurec
 [acr-create-deeplink]: ./media/container-instances-using-azure-container-registry/acr-create-deeplink.png
 
 [aci-detailsview]: ./media/container-instances-using-azure-container-registry/aci-detailsview.png
+

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e6ffbb8f1373f7170f87ad0e345a63cc20f08dd
-ms.openlocfilehash: 26e2becf7810950fd5734fd70c1fed225149ec4d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>我該選擇雲端服務還是其他服務？
@@ -43,7 +42,7 @@ Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同�
 * **背景工作角色**  
 不使用 IIS，獨立執行您的應用程式。
 
-例如，簡單的應用程式可能只使用單一 Web 角色提供網站服務。 較複雜的應用程式可能使用 Web 角色處理使用者的連入要求，然後將這些要求傳送給背景工作角色進行處理。 (此通訊會使用[服務匯流排](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)或 [Azure 佇列](../storage/storage-introduction.md))。
+例如，簡單的應用程式可能只使用單一 Web 角色提供網站服務。 較複雜的應用程式可能使用 Web 角色處理使用者的連入要求，然後將這些要求傳送給背景工作角色進行處理。 (此通訊會使用[服務匯流排](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)或 [Azure 佇列](../storage/common/storage-introduction.md))。
 
 如上圖所示，單一應用程式中所有的 VM 會在同一個雲端服務中執行。 使用者可以透過單一公用 IP 位址存取應用程式，並且可在應用程式的 VM 之間自動進行要求的負載平衡。 該平台會在雲端服務應用程式中[調整和部署](cloud-services-how-to-scale.md) VM，藉此避免發生單一硬體失敗點。
 

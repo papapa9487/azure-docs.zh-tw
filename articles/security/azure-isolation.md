@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 2559bdbca8002392ef925e0eddfd23044cc563b5
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 9e6331df4a8a07c3f2524891caf77bbaab3bff0b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -71,7 +71,7 @@ Azure 租用 (Azure 訂用帳戶) 是指「客戶/計費」關聯性，以及 [A
 
 - Azure AD 使用者無法存取實體資產或位置，因此，不可能略過以下所述的邏輯 RBAC 原則檢查。
 
-針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management (PIM) 導入了合格管理員的概念。 [合格管理員](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)應該是偶爾需要特殊存取權限而非每一天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
+針對診斷與維護需求，必須使用採用 Just-In-Time 權限提高系統的作業模型。 Azure AD Privileged Identity Management (PIM) 導入了合格管理員的概念。[合格管理員](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure)應該是偶爾需要特殊存取權限而非每一天都需要此權限的使用者。 在使用者需要存取權之前，角色會處於非作用中狀態，然後使用者須完成啟用程序，才能在一段預定的時間內成為作用中的系統管理員。
 
 ![Azure AD 特殊權限身分識別管理](./media/azure-isolation/azure-isolation-fig2.png)
 
@@ -202,7 +202,7 @@ Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔
 
 ![使用儲存體存取控制進行隔離](./media/azure-isolation/azure-isolation-fig9.png)
 
-**Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
+ **Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
 
 SAS 意謂著我們可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限進行存取。 我們可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 
@@ -222,7 +222,7 @@ Azure 提供下列加密類型來保護資料：
 
 -   [傳輸層級加密](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-in-transit)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
 
--   [連線加密](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)，例如 Azure 檔案共用的 SMB 3.0 加密。
+-   [連線加密](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)，例如 Azure 檔案共用的 SMB 3.0 加密。
 
 -   [用戶端加密](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
@@ -324,7 +324,7 @@ SQL Azure 伺服器不是實體或 VM 執行個體，而是資料庫、共用管
 做為安全性防範措施，後端系統通常不會輸出通訊至其他系統。 這會保留給前端 (閘道) 層中的系統。 閘道層的機器在後端機器上的權限有限，可做為深度防禦機制來將攻擊面降至最低。
 
 ### <a name="isolation-by-machine-function-and-access"></a>透過機器功能與存取進行隔離
-SQL Azure 是由在不同機器功能上執行之服務組成的。 SQL Azure 使用只會移至後端而不會移出的流量一般準則，來分為「後端」雲端資料庫與「前端」(閘道/管理) 環境。 前端環境可以與外界的其他服務進行通訊，而且通常在後端只會具備有限權限 (足以呼叫它需要叫用的進入點)。
+SQL Azure 是由在不同機器功能上執行之服務組成的。 SQL Azure 使用只會移至後端而不會移出的流量一般準則，來分為「後端」雲端資料庫與「前端」(閘道/管理) 環境。前端環境可以與外界的其他服務進行通訊，而且通常在後端只會具備有限權限 (足以呼叫它需要叫用的進入點)。
 
 ## <a name="networking-isolation"></a>網路隔離
 Azure 部署具有多層網路隔離。 下圖顯示 Azure 提供給客戶的各種網路隔離層級。 這些層級既是 Azure 平台本身的原生功能，也是客戶定義的功能。 從網際網路往內，Azure DDoS 會針對 Azure 進行的大規模攻擊提供隔離。 下一個隔離層級是客戶定義的公用 IP 位址 (端點)，用來判斷哪種流量可通過雲端服務進入虛擬網路。 原生 Azure 虛擬網路隔離可確保與其他所有網路完全隔離，而且流量只能流經使用者設定的路徑和方法。 這些路徑和方法就是下一層，可利用 NSG、UDR 和網路虛擬設備來建立隔離界限，以保護受保護網路中的應用程式部署。

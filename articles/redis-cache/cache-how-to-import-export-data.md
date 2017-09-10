@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: sdanie
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 453314d603fdc25cfc0e37622e5394fc148a11a6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 5e6d731f0a1cecc1a191c74a45e37a9b94fd98ee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>在 Azure Redis 快取中匯入與匯出資料
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/02/2017
 匯入可以用來從任何雲端或環境中執行的 Redis 伺服器 (包含在 Linux、Windows 上執行的 Redis，或任何雲端提供者，例如 Amazon Web Services 等) 引入 Redis 相容 RDB 檔案。 匯入資料是使用預先填入資料建立快取的輕鬆方式。 在匯入程序期間，Azure Redis 快取會從 Azure 儲存體將 RDB 檔案載入記憶體，然後將金鑰插入快取。
 
 > [!NOTE]
-> 開始匯入作業之前，請確定您的 Redis 資料庫 (RDB) 檔案已上傳到 Azure 儲存體中的分頁或區塊 blob，位於和 Azure Redis 快取執行個體相同的區域和訂用帳戶。 如需詳細資訊，請參閱 [開始使用 Azure Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)。 如果您使用 [Azure Redis 快取匯出](#export) 功能匯出 RDB 檔案，表示 RDB 檔案已儲存在分頁 blob，並且可供匯入。
+> 開始匯入作業之前，請確定您的 Redis 資料庫 (RDB) 檔案已上傳到 Azure 儲存體中的分頁或區塊 blob，位於和 Azure Redis 快取執行個體相同的區域和訂用帳戶。 如需詳細資訊，請參閱 [開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 如果您使用 [Azure Redis 快取匯出](#export) 功能匯出 RDB 檔案，表示 RDB 檔案已儲存在分頁 blob，並且可供匯入。
 >
 >
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 08/02/2017
 2. 按一下 [選擇儲存體容器]  ，然後選取所需的儲存體帳戶。 儲存體帳戶必須與您的快取位於相同的訂用帳戶和區域中。
 
    > [!IMPORTANT]
-   > 匯出使用分頁 Blob，傳統和 Resource Manager 儲存體帳戶支援這些 Blob，但 [Blob 儲存體帳戶](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)目前不支援。
+   > 匯出使用分頁 Blob，傳統和 Resource Manager 儲存體帳戶支援這些 Blob，但 [Blob 儲存體帳戶](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts)目前不支援。
    >
    >
 
@@ -156,7 +156,7 @@ Azure Redis 快取永續性讓您將儲存在 Redis 快取中的資料存留至 
 若要解決此問題，請在經過 15 分鐘之前起始匯入或匯出作業。
 
 ### <a name="i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened"></a>我將資料匯出至 Azure Blob 儲存體時收到錯誤。 發生什麼情形？
-匯出只能使用儲存為分頁 blob 的 RDB 檔案。 目前不支援其他的 Blob 類型，包括經常存取及不常存取層的 Blob 儲存體帳戶。 如需詳細資訊，請參閱 [Blob 儲存體帳戶](../storage/storage-blob-storage-tiers.md#blob-storage-accounts)。
+匯出只能使用儲存為分頁 blob 的 RDB 檔案。 目前不支援其他的 Blob 類型，包括經常存取及不常存取層的 Blob 儲存體帳戶。 如需詳細資訊，請參閱 [Blob 儲存體帳戶](../storage/blobs/storage-blob-storage-tiers.md#blob-storage-accounts)。
 
 ## <a name="next-steps"></a>後續步驟
 了解如何使用更多進階快取功能。

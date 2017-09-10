@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 8bb0357a1ac2effd1144afd2af1741205592d253
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 23c30c954875598ce3e01db137b0ef8cda9779f4
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="creating-and-uploading-a-virtual-hard-disk-that-contains-the-linux-operating-system"></a>建立及上傳包含 Linux 作業系統的虛擬硬碟
@@ -74,7 +74,7 @@ azure login
 <a id="upload"> </a>
 
 ## <a name="step-3-upload-the-image-to-azure"></a>步驟 3：將映像上傳至 Azure
-您需要一個可供上傳 VHD 檔案的儲存體帳戶。 您可以選取現有的儲存體帳戶或[建立新帳戶](../../../storage/storage-create-storage-account.md)。
+您需要一個可供上傳 VHD 檔案的儲存體帳戶。 您可以選取現有的儲存體帳戶或[建立新帳戶](../../../storage/common/storage-create-storage-account.md)。
 
 使用 Azure CLI 上傳映像，方法是使用下列命令：
 

@@ -16,10 +16,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/21/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 8bacd408e49eb5f6eeb4b8f7eb10feac21830bb0
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4795f5728d4ce6ff21b97bc3fefd6a53e0c6a11b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -175,7 +175,7 @@ ms.lasthandoff: 07/21/2017
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)
 
-根據您要設定的選項，確定您先[建立 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)或[建立 Azure 事件中樞](../event-hubs/event-hubs-create.md)。 然後選取您要傳送診斷資料的選項：
+根據您要設定的選項，確定您先[建立 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)或[建立 Azure 事件中樞](../event-hubs/event-hubs-create.md)。 然後選取您要傳送診斷資料的選項：
 
 ![將資料傳送至 Azure 儲存體帳戶或事件中樞](./media/logic-apps-monitor-your-logic-apps/storage-account-event-hubs.png)
 

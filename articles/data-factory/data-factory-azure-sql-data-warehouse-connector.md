@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: bf4c327804e0e9d40512adacd7f13db56b799508
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8cba89e0947646b498af07aa484511bf07bf7b0e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure SQL 資料倉儲來回複製資料
@@ -264,7 +263,7 @@ PolyBase 載入被限制為只能載入小於 **1 MB**，且不能載入至 VARC
 如果您的來源資料包含大於 1 MB 的資料列，建議您將來源資料表垂直分割成數個小型資料表，而每個資料表的最大資料列大小均不超過限制。 然後可以使用 PolyBase 載入較小的資料表而在 Azure SQL 資料倉儲中合併在一起。
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL 資料倉儲資源類別
-若要達到最佳的可能輸送量，請考慮透過 PolyBase 將更大的資源類別指派給要用來將資料載入 SQL 資料倉儲的使用者。 遵循[變更使用者資源類別範例](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example)，了解如何執行這項作業。
+若要達到最佳的可能輸送量，請考慮透過 PolyBase 將更大的資源類別指派給要用來將資料載入 SQL 資料倉儲的使用者。 遵循[變更使用者資源類別範例](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#changing-user-resource-class-example)，了解如何執行這項作業。
 
 ### <a name="tablename-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的 tableName
 下表提供的範例是關於如何針對各種結構描述和資料表名稱組合，在資料集 JSON 中指定 **tableName** 屬性。

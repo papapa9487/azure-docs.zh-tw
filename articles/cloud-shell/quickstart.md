@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: juluk
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: a174ecd452047d11f6ad374ede76becabcfff899
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 75676eb0ab784e2adbfd27b170c1dee5599b74ac
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -73,4 +73,4 @@ ms.lasthandoff: 07/18/2017
 ## <a name="next-steps"></a>後續步驟
 [了解如何在 Cloud Shell 上保存儲存體](persisting-shell-storage.md) <br>
 [了解 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) \(英文\) <br>
-[了解 Azure 檔案儲存體](../storage/storage-files-introduction.md) <br>
+[了解 Azure 檔案儲存體](../storage/files/storage-files-introduction.md) <br>

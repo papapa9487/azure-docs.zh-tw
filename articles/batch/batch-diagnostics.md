@@ -16,10 +16,10 @@ ms.date: 05/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 8221f34641f2e59bbcaf05c3a17f23411df6b634
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b7bc6fd9921ab0f2374ace33ea5c1ab93a78f860
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="log-events-for-diagnostic-evaluation-and-monitoring-of-batch-solutions"></a>記錄事件以便對 Batch 解決方案進行診斷評估和監視
@@ -33,7 +33,7 @@ ms.lasthandoff: 08/08/2017
 
 ## <a name="prerequisites"></a>必要條件
 * [Azure Batch 帳戶](batch-account-create-portal.md)
-* [Azure 儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)
+* [Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)
   
   若要保留 Batch 診斷記錄，您必須建立 Azure 將用來儲存記錄的 Azure 儲存體帳戶。 當您為您的 Batch 帳戶[啟用診斷記錄](#enable-diagnostic-logging)時，請指定此儲存體帳戶。 您啟用記錄收集時指定的儲存體帳戶不同於[應用程式封裝](batch-application-packages.md)和[工作輸出持續性](batch-task-output.md)文件中提及的連結儲存體帳戶。
   

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: c5fa164c1095a343402d28142efb92a832441d23
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 974d89aa96cba94fedfd1acbaf4f1d30ac8e6257
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>從儲存體帳戶中的特製化 VHD 建立 VM
@@ -120,7 +119,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 請確定您︰
 
 * 已取得**來源和目的地儲存體帳戶**的相關資訊。 針對來源 VM，您需要有儲存體帳戶和容器名稱。 容器名稱通常會是 **vhd**。 您也需要有一個目的地儲存體帳戶。 如果您還沒有，可以使用入口網站 ([更多服務] > [儲存體帳戶] > [新增])，或使用 [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) Cmdlet 建立一個。 
-* 已下載並安裝 [AzCopy 工具](../../storage/storage-use-azcopy.md)。 
+* 已下載並安裝 [AzCopy 工具](../../storage/common/storage-use-azcopy.md)。 
 
 ### <a name="deallocate-the-vm"></a>解除配置 VM
 解除配置 VM，這會釋出要複製的 VHD。 
@@ -147,7 +146,7 @@ Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 ``` 
 
 ## <a name="get-the-storage-access-keys"></a>取得儲存體存取金鑰
-找出來源和目的地儲存體帳戶的存取金鑰。 如需存取金鑰的詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/storage-create-storage-account.md)。
+找出來源和目的地儲存體帳戶的存取金鑰。 如需存取金鑰的詳細資訊，請參閱 [關於 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md)。
 
 * **入口網站**︰按一下 [更多服務]  > [儲存體帳戶]  > [儲存體帳戶] > [存取金鑰]。 複製標示為 [金鑰1] 的金鑰。
 * **Powershell**：使用 [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 來取得 **myResourceGroup** 資源群組中 **mystorageaccount** 儲存體帳戶的儲存體金鑰。 複製標示 [金鑰1] 的金鑰。

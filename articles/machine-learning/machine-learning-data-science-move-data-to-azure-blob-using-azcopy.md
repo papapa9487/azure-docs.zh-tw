@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 9b32c0d9c3bc19a187873eebd6ab21036ee06db8
-ms.openlocfilehash: 1acc98f9688ced2e1cf177a881b28ce98c0bff9e
-ms.lasthandoff: 12/07/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: a41ccdd5739a5b10cef201910abd639ae3126c02
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>使用 AzCopy 從 Azure Blob 儲存體來回移動資料
 AzCopy 是個命令列公用程式，專為上傳、下載，以及將資料複製到和複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。
 
-如需安裝 AzCopy 的指示，和以 Azure 平台加以執行的其他資訊，請參閱 [開始使用 AzCopy 命令列公用程式](../storage/storage-use-azcopy.md)。
+如需安裝 AzCopy 的指示，和以 Azure 平台加以執行的其他資訊，請參閱 [開始使用 AzCopy 命令列公用程式](../storage/common/storage-use-azcopy.md)。
 
 [!INCLUDE [blob-storage-tool-selector](../../includes/machine-learning-blob-storage-tool-selector.md)]
 
@@ -32,7 +32,7 @@ AzCopy 是個命令列公用程式，專為上傳、下載，以及將資料複�
 > 如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 AzCopy 已經安裝在 VM 上。
 > 
 > [!NOTE]
-> 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage/storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
+> 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage/blobs/storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 > 
 > 
 
@@ -40,7 +40,7 @@ AzCopy 是個命令列公用程式，專為上傳、下載，以及將資料複�
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。 上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。
 
 * 若要設定 Azure 訂用帳戶，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
-* 如需建立儲存體帳戶以及取得帳戶和金鑰資訊的指示，請參閱 [關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
+* 如需建立儲存體帳戶以及取得帳戶和金鑰資訊的指示，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 
 ## <a name="run-azcopy-commands"></a>執行 AzCopy 命令
 若要執行 AzCopy 命令，請開啟命令視窗並瀏覽至電腦上的 AzCopy 安裝目錄，也就是 AzCopy.exe 可執行檔的所在位置。 

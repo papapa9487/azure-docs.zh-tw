@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: gokuma;weig;bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: b154bd42c0f8bc6e185fa871b21249cad2869e72
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 45af1cd3a05b483429d2307659f1882ef28921f6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="ten-things-you-can-do-on-the-data-science-virtual-machine"></a>您可以在 Data Science Virtual Machine 上做的十件事
@@ -242,7 +242,7 @@ GitHub 是一個程式碼存放庫，您可以在其中找到開發人員分享�
 
 DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存放庫。 可搭配 Git 與 GitHub 使用的命令列工具稱為 Git Bash。 DSVM 上安裝的 Visual Studio 具有 Git 延伸模組。 您可以在 [開始] 功能表和桌面上找到這些工具的啟動圖示。
 
-若要從 GitHub 存放庫下載程式碼，您可以使用 ```git clone``` 命令。 例如，若要將 Microsoft 所發佈的資料科學存放庫下載到目前的目錄中，您可以在 ```git-bash``` 中執行下列命令。
+若要從 GitHub 存放庫下載程式碼，您可以使用 ```git clone``` 命令。 例如，若要將 Microsoft 所發佈的資料科學儲存機制下載到目前的目錄中，您可以在 ```git-bash```中執行下列命令。
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
@@ -250,7 +250,7 @@ DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存�
 
 ![Visual Studio 中的 Git](./media/machine-learning-data-science-vm-do-ten-things/VSGit.PNG)
 
-從 github.com 上提供的幾個資源，即可找到透過 Git 使用 GitHub 存放庫的詳細資訊。 [功能提要](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) 是有用的參考資料。
+從 github.com 上提供的幾個資源，即可找到透過 Git 使用 GitHub 存放庫的詳細資訊。[功能提要](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf) 是有用的參考資料。
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7.存取各種 Azure 資料和分析服務
 ### <a name="azure-blob"></a>Azure Blob
@@ -262,7 +262,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 ![Create_Azure_Blob](./media/machine-learning-data-science-vm-do-ten-things/Create_Azure_Blob.PNG)
 
-* 確認預先安裝的命令列 AzCopy 工具位於 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```。 您可以將包含 azcopy.exe 的目錄加入至您的 PATH 環境變數，如此便不用在執行這項工具時輸入完整的命令路徑。 如需 AzCopy 工具的詳細資訊，請參閱 [AzCopy 文件](../storage/storage-use-azcopy.md)
+* 確認預先安裝的命令列 AzCopy 工具位於 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```。 您可以將包含 azcopy.exe 的目錄加入至您的 PATH 環境變數，如此便不用在執行這項工具時輸入完整的命令路徑。 如需 AzCopy 工具的詳細資訊，請參閱 [AzCopy 文件](../storage/common/storage-use-azcopy.md)
 * 啟動 Azure 儲存體總管工具。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。 
 
 ![AzureStorageExplorer_v4](./media/machine-learning-data-science-vm-do-ten-things/AzureStorageExplorer_v4.png)

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8df8cdfd0b265b11e6a11f0a5eb7ad8f0e669ca2
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: ad2c6d585eef5450f7f0912ffa4753fe80d86b37
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>管理大量的 IoT 中樞裝置身分識別
@@ -72,7 +71,7 @@ while(true)
 
 ## <a name="export-devices"></a>匯出裝置
 
-使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/storage-security-guide.md#data-plane-security)的 [Azure 儲存體](../storage/index.md) Blob 容器。
+使用 **ExportDevicesAsync** 方法將整個 IoT 中樞身分識別登錄匯出到使用[共用存取簽章](../storage/common/storage-security-guide.md#data-plane-security)的 [Azure 儲存體](../storage/index.md) Blob 容器。
 
 這個方法可讓您在所控制的 Blob 容器中建立可靠的裝置資訊備份。
 
@@ -372,7 +371,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>取得容器 SAS URI
 
-下列程式碼範例示範如何產生具有 Blob 容器之讀取、寫入和刪除權限的 [SAS URI](../storage/storage-dotnet-shared-access-signature-part-2.md)：
+下列程式碼範例示範如何產生具有 Blob 容器之讀取、寫入和刪除權限的 [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)：
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

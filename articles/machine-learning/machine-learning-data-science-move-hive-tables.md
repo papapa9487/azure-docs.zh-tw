@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 88c919b64513c8441ab73e2750e7ddfb12fcb63e
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eca4ecd8f639bb9816903f4b1d1f999755da819c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
@@ -32,7 +31,7 @@ ms.lasthandoff: 03/29/2017
 ## <a name="prerequisites"></a>必要條件
 本文假設您已經：
 
-* 建立 Azure 儲存體帳戶。 如需相關指示，請參閱[關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。
+* 建立 Azure 儲存體帳戶。 如需相關指示，請參閱[關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 * 佈建含有 HDInsight 服務的自訂 Hadoop 叢集。  如需指示，請參閱 [自訂適用於進階分析的 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)。
 * 啟用叢集的遠端存取、登入，然後開啟 Hadoop 命令列主控台。 如需指示，請參閱 [存取 Hadoop 叢集的前端節點](machine-learning-data-science-customize-hadoop-cluster.md#headnode)。
 
@@ -181,7 +180,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-查詢資料分割資料表時，建議在子句的 **開頭** `where`新增資料分割條件，這樣就能大幅提升搜尋效率。
+查詢資料分割資料表時，建議在** 子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
 
     select
         field1, field2, ..., fieldN

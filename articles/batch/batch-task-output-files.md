@@ -12,12 +12,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: b3a4e8f9c8580ad4c7899964dbfe99ad74e0c744
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2530b7c20347b9fb58aee4dfe693847cf3911741
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -54,7 +53,7 @@ await conainer.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>取得容器的共用存取簽章
 
-建立容器之後，可使用寫入容器的存取權取得共用的存取簽章 (SAS)。 SAS 會提供委派存取權給容器。 SAS 會使用一組指定的權限，以及一段指定的時間間隔來授與存取權。 Batch 服務需要具有寫入權限的 SAS，才能將工作輸出寫入容器中。 如需關於 SAS 的詳細資訊，請參閱[在 Azure 儲存體中使用共用存取簽章 \(SAS\)](../storage/storage-dotnet-shared-access-signature-part-1.md)。
+建立容器之後，可使用寫入容器的存取權取得共用的存取簽章 (SAS)。 SAS 會提供委派存取權給容器。 SAS 會使用一組指定的權限，以及一段指定的時間間隔來授與存取權。 Batch 服務需要具有寫入權限的 SAS，才能將工作輸出寫入容器中。 如需關於 SAS 的詳細資訊，請參閱[在 Azure 儲存體中使用共用存取簽章 \(SAS\)](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 當您使用 Azure 儲存體 API 取得 SAS 時，API 會傳回 SAS 權杖字串。 這個權杖字串會包含 SAS 的所有參數，包括權限和 SAS 有效的時間間隔。 若要使用 SAS 存取 Azure 儲存體中的容器，您必須將 SAS 權杖字串附加至資源 URI。 資源的 URI 以及附加的 SAS 權杖會共同提供 Azure 儲存體的已驗證存取。
 
@@ -146,7 +145,7 @@ https://myaccount.blob.core.windows.net/mycontainer/task1/output.txt
 https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 ```
 
-如需有關 Azure 儲存體中虛擬目錄的詳細資訊，請參閱[列出容器中的 blob](../storage/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
+如需有關 Azure 儲存體中虛擬目錄的詳細資訊，請參閱[列出容器中的 blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md#list-the-blobs-in-a-container)。
 
 
 ## <a name="diagnose-file-upload-errors"></a>診斷檔案上傳錯誤

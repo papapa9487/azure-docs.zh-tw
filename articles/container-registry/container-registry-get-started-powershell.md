@@ -8,17 +8,16 @@ manager: balans
 editor: dlepow
 ms.service: container-registry
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: cristyg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 2fb060749c203a445196530bb7711d50d83c2923
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 06/09/2017
 ## <a name="prerequisites"></a>必要條件
 * **Azure PowerShell**：若要安裝並開始使用 Azure PowerShell，請參閱[安裝指示](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。 執行 `Login-AzureRMAccount`登入您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep)。
 * **資源群組**：先建立[資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)再建立容器登錄，或使用現有的資源群組。 請確定資源群組是位於[可使用](https://azure.microsoft.com/regions/services/)容器登錄庫服務的位置。 如需使用 Azure PowerShell 來建立資源群組，請參閱 [PowerShell 參考](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group)。
-* **儲存體帳戶** (選用)：建立標準 Azure [儲存體帳戶](../storage/storage-introduction.md)以支援相同位置中的容器登錄。 如果您以 `New-AzureRMContainerRegistry` 建立登錄庫時沒有指定儲存體帳戶，此命令會為您建立一個儲存體帳戶。 如需使用 PowerShell 來建立儲存體帳戶，請參閱 [PowerShell 參考](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount)。 目前不支援進階儲存體。
+* **儲存體帳戶** (選用)：建立標準 Azure [儲存體帳戶](../storage/common/storage-introduction.md)以支援相同位置中的容器登錄。 如果您以 `New-AzureRMContainerRegistry` 建立登錄庫時沒有指定儲存體帳戶，此命令會為您建立一個儲存體帳戶。 如需使用 PowerShell 來建立儲存體帳戶，請參閱 [PowerShell 參考](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount)。 目前不支援進階儲存體。
 * **服務主體** (選用)：當您使用 PowerShell 建立登錄時，依預設不會針對存取進行設定。 您可以將現有的 Azure Active Directory 服務主體指派至登錄庫，或建立並指派一個新的，視您的需求而定。 或者，您也可以啟用登錄的管理使用者帳戶。 請參閱本文稍後的章節。 如需登錄庫存取權的詳細資訊，請參閱[驗證容器登錄庫](container-registry-authentication.md)。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫

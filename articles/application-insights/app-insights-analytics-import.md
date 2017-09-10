@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 97db1c51a16fbf62abe8062938beefa16a4f7afd
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-analytics"></a>將資料匯入分析
@@ -134,7 +134,7 @@ JSON 允許資料部分對應，因此 JSON 格式的結構描述定義不需要
 
 您可以手動執行下列程序，或設定自動系統定期執行。 您必須依照下列步驟進行每個您要匯入的資料區塊。
 
-1. 將資料上傳至 [Azure Blob 儲存體](../storage/storage-dotnet-how-to-use-blobs.md)。 
+1. 將資料上傳至 [Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 
 
  * Blob 未壓縮大小可以達 1 GB 。 從效能觀點來看，數百 MB 的大型 blob 很適合。
  * 可以使用 Gzip 進行壓縮，以改善上傳時間和延遲時間，以便資料可用於查詢。 使用 `.gz` 副檔名。
@@ -142,7 +142,7 @@ JSON 允許資料部分對應，因此 JSON 格式的結構描述定義不需要
  * 以高頻率 (每幾秒一次) 傳送資料時，基於效能考量，建議使用多個儲存體帳戶。
 
  
-2. [建立 blob 的共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-2.md). 金鑰應該有一天的到期時間，並提供讀取權限。
+2. [建立 blob 的共用存取簽章](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md). 金鑰應該有一天的到期時間，並提供讀取權限。
 3. 進行 REST 呼叫，以通知 Application Insights 資料正在等候。
 
  * 端點：`https://dc.services.visualstudio.com/v2/track`

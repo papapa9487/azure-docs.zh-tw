@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 69bb7e5fb0dafa3a9d0f6ad4eb271ab1af2edc50
-ms.openlocfilehash: a258404e659bd6d6e7e0f468a5f3ce5e184be2a3
-ms.lasthandoff: 01/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0943bfcf51a1196e3e4ae7b2145708aa26d52190
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
@@ -30,7 +30,7 @@ Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windo
 > 如果您是使用以 [Azure 中的資料科學虛擬機器](machine-learning-data-science-virtual-machines.md)提供的指令碼所設定的 VM，則 Azure 儲存體總管已經安裝在 VM 上。
 > 
 > [!NOTE]
-> 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage/storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。   
+> 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../storage/blobs/storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。   
 > 
 > 
 
@@ -38,7 +38,7 @@ Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windo
 本文件假設您擁有 Azure 訂用帳戶、儲存體帳戶和該帳戶的對應儲存體金鑰。 上傳/下載資料之前，您必須知道 Azure 儲存體帳戶名稱和帳戶金鑰。 
 
 * 若要設定 Azure 訂用帳戶，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
-* 如需建立儲存體帳戶的指示，以及取得帳戶和金鑰的資訊，請參閱 [關於 Azure 儲存體帳戶](../storage/storage-create-storage-account.md)。 記下儲存體帳戶的存取金鑰，因為您需要此金鑰，才能連接到具有 Azure 儲存體總管工具的帳戶。
+* 如需建立儲存體帳戶的指示，以及取得帳戶和金鑰的資訊，請參閱 [關於 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)。 記下儲存體帳戶的存取金鑰，因為您需要此金鑰，才能連接到具有 Azure 儲存體總管工具的帳戶。
 * 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載 Azure 儲存體總管工具。 安裝期間請接受預設值。
 
 <a id="explorer"></a>

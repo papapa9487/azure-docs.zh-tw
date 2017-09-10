@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2017
 ms.author: sasolank
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: f9160be8c0fb3cff9efdd22ff623a4827ce3946f
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8131ded6b74e9c544bf70b1a4659ed07e5def04d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道 
@@ -148,7 +147,7 @@ $apimVirtualNetwork = New-AzureRmApiManagementVirtualNetwork -Location "West US"
 在虛擬網路內建立 API 管理服務。
 
 ```powershell
-$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Premium"
+$apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Location "West US" -Name "ContosoApi" -Organization "Contoso" -AdminEmail "admin@contoso.com" -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer"
 ```
 上述命令執行成功之後，請參閱[要存取內部 VNET API 管理服務所需的 DNS 組態](api-management-using-with-internal-vnet.md#apim-dns-configuration)來存取它。
 
@@ -268,7 +267,7 @@ $apimProxyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "a
 $dummyBackendSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "dummySetting01" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-設定虛擬後端 **dummyBackendPool**，以指向 FQDN 位址 **dummybackend.com**。 這個 FQDN 位址不存在於虛擬網路中。
+設定虛擬後端 **dummyBackendPool**，以指向 FQDN 位址 **dummybackend.com**。這個 FQDN 位址不存在於虛擬網路中。
 
 ```powershell
 $dummyBackendPool = New-AzureRmApplicationGatewayBackendAddressPool -Name "dummyBackendPool" -BackendFqdns "dummybackend.com"

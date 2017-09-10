@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: cc14f7747c4a24acea434f62b7615d10819bd619
-ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 502e2536fb0fd2e9dfc4c7b85a6fb4e18202f38f
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-在 Azure DevTest Labs 中，可以使用 VHD 檔案來建立自訂映像，這些映像可用來佈建虛擬機器。 本文說明如何使用 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)將 VHD 檔案上傳到實驗室的儲存體帳戶。 在您上傳 VHD 檔案之後，[後續步驟](#next-steps)一節會列出一些說明如何從所上傳的 VHD 檔案建立自訂映像的文章。 如需有關 Azure 中磁碟和 VHD 的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../storage/storage-about-disks-and-vhds-linux.md)
+在 Azure DevTest Labs 中，可以使用 VHD 檔案來建立自訂映像，這些映像可用來佈建虛擬機器。 本文說明如何使用 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)將 VHD 檔案上傳到實驗室的儲存體帳戶。 在您上傳 VHD 檔案之後，[後續步驟](#next-steps)一節會列出一些說明如何從所上傳的 VHD 檔案建立自訂映像的文章。 如需有關 Azure 中磁碟和 VHD 的詳細資訊，請參閱[關於虛擬機器的磁碟和 VHD](../virtual-machines/linux/about-disks-and-vhds.md)
 
 ## <a name="step-by-step-instructions"></a>逐步指示
 
@@ -137,9 +138,4 @@ ms.openlocfilehash: 0506cf13223f0555abf841143a8fe8a77cd19b70
 [8]: ./media/devtest-lab-upload-vhd-using-storage-explorer/select-file.png
 [9]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-file.png
 [10]: ./media/devtest-lab-upload-vhd-using-storage-explorer/upload-status.png
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

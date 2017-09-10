@@ -1,7 +1,4 @@
 ---
-
-
-
 title: "瀏覽 Hadoop 叢集中的資料，並在 Azure Machine Learning 中建立模型 | Microsoft Docs"
 description: "對採用 HDInsight Hadoop 叢集來建置和部署使用公開可用資料集模型的端對端案例使用 Team Data Science Process。"
 services: machine-learning,hdinsight
@@ -17,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: 2b7f4b5743945738f801dc26a60d00892c33d809
-ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: e48d59ca467e3e7fd772389e6e48a2d81726f859
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
@@ -30,7 +28,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 此外，也可以使用 1 TB 資料集，使用 IPython Notebook 來完成本逐步解說中說明的工作。 想要嘗試這種方法的使用者，應該查閱 [使用 Hive ODBC 連線的 Criteo 逐步解說](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) 主題。
 
-## <a name="a-namedatasetanyc-taxi-trips-dataset-description"></a><a name="dataset"></a>NYC 計程車車程資料集說明
+## <a name="dataset"></a>NYC 計程車車程資料集說明
 「NYC 計程車車程」資料大約是 20GB 以逗號分隔值 (CSV) 的壓縮檔 (未壓縮時可達 48GB)，其中包含超過 1 億 7300 萬筆個別車程及針對每趟車程支付的費用。 每趟車程記錄包括上車和下車的位置與時間、匿名的計程車司機駕照號碼，以及圓形徽章 (計程車的唯一識別碼) 號碼。 資料涵蓋 2013 年的所有車程，並且每月會在下列兩個資料集中加以提供：
 
 1. 'trip_data' CSV 檔案包含車程詳細資訊，例如乘客數、上車和下車地點、車程持續時間，以及車程長度。 以下是一些範例記錄：
@@ -56,7 +54,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 稍後將這些資料儲存至 Hive 資料表時，我們將更詳細地加以說明。
 
-## <a name="a-namemltasksaexamples-of-prediction-tasks"></a><a name="mltasks"></a>預測工作的範例
+## <a name="mltasks"></a>預測工作的範例
 處理資料時，根據分析來決定您想要進行的預測種類，有助於釐清您必須在程序中包含的工作。
 以下是三個預測問題的範例，我們將在本逐步解說中說明哪一個構想是以 tip\_amount 為基礎：
 
@@ -73,7 +71,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
         Class 4 : tip_amount > $20
 3. **迴歸工作**：預測已針對某趟車程支付的小費金額。  
 
-## <a name="a-namesetupaset-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>設定進階分析的 HDInsight Hadoop 叢集
+## <a name="setup"></a>設定進階分析的 HDInsight Hadoop 叢集
 > [!NOTE]
 > 這通常是 **管理** 工作。
 > 
@@ -81,14 +79,14 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 您可以採取三個步驟，為利用 HDInsight 叢集的進階分析設定 Azure 環境：
 
-1. [建立儲存體帳戶](../storage/storage-create-storage-account.md)：這個儲存體帳戶是用來將資料儲存在 Azure Blob 儲存體中。 HDInsight 叢集中使用的資料也位於此處。
+1. [建立儲存體帳戶](../storage/common/storage-create-storage-account.md)：這個儲存體帳戶是用來將資料儲存在 Azure Blob 儲存體中。 HDInsight 叢集中使用的資料也位於此處。
 2. [針對進階分析程序和技術自訂 Azure HDInsight Hadoop 叢集](machine-learning-data-science-customize-hadoop-cluster.md)。 這個步驟會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時應注意兩個重要的步驟。
    
    * 建立 HDInsight 叢集時，請務必將步驟 1 中建立的儲存體帳戶與您的 HDInsight 叢集連結。 這個儲存體帳戶是用來存取在叢集內處理的資料。
    * 建立叢集之後，請對叢集的前端節點啟用遠端存取。 巡覽至 [組態] 索引標籤，然後按一下 [啟用遠端]。 這個步驟可指定使用於遠端登入的使用者認證。
 3. [建立 Azure Machine Learning 工作區](machine-learning-create-workspace.md)：這個 Azure Machine Learning 工作區可用來建置機器學習服務模型。 使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理這項工作。
 
-## <a name="a-namegetdataaget-the-data-from-a-public-source"></a><a name="getdata"></a>從公用來源取得資料
+## <a name="getdata"></a>從公用來源取得資料
 > [!NOTE]
 > 這通常是 **管理** 工作。
 > 
@@ -96,7 +94,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集的公用位置取得該資料集，您可以使用[將資料移進和移出 Azure Blob 儲存體](machine-learning-data-science-move-azure-blob.md)中所述的任何一種方法，將資料複製到您的電腦。
 
-我們在這裡說明如何使用 AzCopy 來傳輸含有資料的檔案。 若要下載並安裝 AzCopy，請遵循 [開始使用 AzCopy 命令列公用程式](../storage/storage-use-azcopy.md)的指示。
+我們在這裡說明如何使用 AzCopy 來傳輸含有資料的檔案。 若要下載並安裝 AzCopy，請遵循 [開始使用 AzCopy 命令列公用程式](../storage/common/storage-use-azcopy.md)的指示。
 
 1. 從命令提示字元視窗中發出下列 AzCopy 命令，以所需的目的地取代<path_to_data_folder>：
 
@@ -104,7 +102,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 1. 複製完成時，總共 24 個壓縮檔會位於選擇的資料夾中。 將下載的檔案解壓縮到您本機電腦上的相同目錄。 記下未壓縮檔案所在的資料夾。 接下來會將這個資料夾稱為 <path\_to\_unzipped_data\_files\>。
 
-## <a name="a-nameuploadaupload-the-data-to-the-default-container-of-azure-hdinsight-hadoop-cluster"></a><a name="upload"></a>將資料上傳至 Azure HDInsight Hadoop 叢集的預設容器
+## <a name="upload"></a>將資料上傳至 Azure HDInsight Hadoop 叢集的預設容器
 > [!NOTE]
 > 這通常是 **管理** 工作。
 > 
@@ -129,7 +127,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 資料現在應該位於 Azure Blob 儲存體，而且準備好在 HDInsight 叢集內使用。
 
-## <a name="a-namedownload-hql-filesalog-into-the-head-node-of-hadoop-cluster-and-and-prepare-for-exploratory-data-analysis"></a><a name="#download-hql-files"></a>登入 Hadoop 叢集的前端節點，並準備進行探索資料分析
+## <a name="#download-hql-files"></a>登入 Hadoop 叢集的前端節點，並準備進行探索資料分析
 > [!NOTE]
 > 這通常是 **管理** 工作。
 > 
@@ -147,7 +145,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 這兩個命令會將本逐步解說中所需的所有 .hql 檔案，下載到前端節點的本機目錄 C:\temp&#92;。
 
-## <a name="a-namehive-db-tablesacreate-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>建立依月份分割的 Hive 資料庫和資料表
+## <a name="#hive-db-tables"></a>建立依月份分割的 Hive 資料庫和資料表
 > [!NOTE]
 > 這通常是 **管理** 工作。
 > 
@@ -215,7 +213,7 @@ ms.openlocfilehash: 91ff5546a954b91585e5ae93f910caffe3b392e1
 
 如果您需要這些程序的任何額外協助，或想要調查替代程序，請參閱[從 Hadoop 命令列直接提交 Hive 查詢](machine-learning-data-science-move-hive-tables.md#submit)一節。
 
-## <a name="a-nameload-dataaload-data-to-hive-tables-by-partitions"></a><a name="#load-data"></a>依資料分割將資料載入 Hive 資料表
+## <a name="#load-data"></a>依資料分割將資料載入 Hive 資料表
 > [!NOTE]
 > 這通常是 **管理** 工作。
 > 
@@ -232,12 +230,12 @@ sample\_hive\_load\_data\_by\_partitions.hql 檔案包含下列 **LOAD** 命令�
 
 請注意，我們在這裡使用於探索程序中的許多 Hive 查詢，只會查看單一資料分割或幾個資料分割。 但這些查詢可跨整個資料執行。
 
-### <a name="a-nameshow-dbashow-databases-in-the-hdinsight-hadoop-cluster"></a><a name="#show-db"></a>顯示 HDInsight Hadoop 叢集中的資料庫
+### <a name="#show-db"></a>顯示 HDInsight Hadoop 叢集中的資料庫
 若要在 Hadoop 命令列視窗內顯示在 HDInsight Hadoop 叢集中建立的資料庫，可在 Hadoop 命令列中執行下列命令：
 
     hive -e "show databases;"
 
-### <a name="a-nameshow-tablesashow-the-hive-tables-in-the-nyctaxidb-database"></a><a name="#show-tables"></a>顯示 nyctaxidb 資料庫中的 Hive 資料表
+### <a name="#show-tables"></a>顯示 nyctaxidb 資料庫中的 Hive 資料表
 若要顯示 nyctaxidb 資料庫中的資料表，可在 Hadoop 命令列中執行下列命令：
 
     hive -e "show tables in nyctaxidb;"
@@ -282,7 +280,7 @@ sample\_hive\_load\_data\_by\_partitions.hql 檔案包含下列 **LOAD** 命令�
     month=9
     Time taken: 1.887 seconds, Fetched: 12 row(s)
 
-## <a name="a-nameexplore-hiveadata-exploration-and-feature-engineering-in-hive"></a><a name="#explore-hive"></a>Hive 中的資料探索和特徵工程
+## <a name="#explore-hive"></a>Hive 中的資料探索和特徵工程
 > [!NOTE]
 > 這通常是 **資料科學家** 工作。
 > 
@@ -575,7 +573,7 @@ sample\_hive\_trip\_count\_by\_medallion\_license.hql 檔案會將費用資料�
 
 將此資料放在 Azure Blob 中的主要優點在於，我們可以使用[匯入資料][import-data]模組在 Azure Machine Learning 內探索資料。
 
-## <a name="a-namedownsampleadown-sample-data-and-build-models-in-azure-machine-learning"></a><a name="#downsample"></a>在 Azure Machine Learning 中縮小取樣和建置模型
+## <a name="#downsample"></a>在 Azure Machine Learning 中縮小取樣和建置模型
 > [!NOTE]
 > 這通常是 **資料科學家** 工作。
 > 
@@ -757,7 +755,7 @@ sample\_hive\_trip\_count\_by\_medallion\_license.hql 檔案會將費用資料�
 
 資料集現在可做為建置機器學習服務模型的起點。
 
-### <a name="a-namemlmodelabuild-models-in-azure-machine-learning"></a><a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
+### <a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
 我們現在可在 [Azure Machine Learning](https://studio.azureml.net)中繼續建置和部署模型。 資料已就緒，可用來解決以上指出的預測問題：
 
 **1.二元分類**：預測是否已支付某趟車程的小費。
@@ -839,9 +837,4 @@ b.這是另一個 C# 主控台應用程式。 對於迴歸問題，我們會藉�
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 7679aa86aa24396d9cd7cf84a8cafe7950ad6d62
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/20/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 04/20/2017
 - **儲存體帳戶共用存取簽章連接字串**：`TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl`共用存取簽章應該有容器 (在此案例中為資料表) 和物件 (資料表資料列) 的列出和讀取權限。
 -  **資料表共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r`共用存取簽章應該有資料表的查詢 (讀取) 權限。
 
-如需儲存體共用存取簽章的詳細資訊，請參閱[使用共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md)。
+如需儲存體共用存取簽章的詳細資訊，請參閱[使用共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 > [!NOTE]
 > 如果您使用共用存取簽章認證，您必須使用更新的簽章定期更新資料來源認證以防止其到期。 如果共用存取簽章認證過期，索引子會失敗並出現類似以下的錯誤訊息：「連接字串中提供的認證無效或已過期」。  

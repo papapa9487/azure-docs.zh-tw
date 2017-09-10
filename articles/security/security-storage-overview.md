@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 1fdff8fcc031f585b0d4eec7f1afa224e6bca089
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: da28cbf5f6f91df1f89114a63bc3f2ebac0f6d73
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-storage-security-overview"></a>Azure 儲存體安全性概觀
@@ -31,7 +31,7 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 * Azure 儲存體中資料物件的委派存取權可以使用「共用存取簽章」來授與。
 * 可以使用儲存體分析來追蹤某人存取儲存體時所使用的驗證方法。
 
-若要深入了解「Azure 儲存體」中的安全性，請參閱 [Azure 儲存體安全性指南](../storage/storage-security-guide.md)。 本指南深入探討 Azure 儲存體的安全性功能，例如儲存體帳戶金鑰、傳輸中資料和待用資料的加密，以及儲存體分析。
+若要深入了解「Azure 儲存體」中的安全性，請參閱 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)。 本指南深入探討 Azure 儲存體的安全性功能，例如儲存體帳戶金鑰、傳輸中資料和待用資料的加密，以及儲存體分析。
 
 本文提供可與「Azure 儲存體」搭配使用的 Azure 安全性功能概觀。 針對提供每項功能詳細資料的文章都提供了連結，以讓您深入了解。
 
@@ -56,15 +56,15 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 
 深入了解：
 
-* [了解 SAS 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)
-* [透過 Blob 儲存體來建立與使用 SAS](../storage/storage-dotnet-shared-access-signature-part-2.md)
+* [了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
+* [透過 Blob 儲存體來建立與使用 SAS](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
 
 ## <a name="encryption-in-transit"></a>傳輸中加密
 傳輸中加密是透過網路傳輸資料時用來保護資料的機制。 使用 Azure 儲存體，您可以使用下列各向來保護資料︰
 
-* [傳輸層級加密](../storage/storage-security-guide.md#encryption-in-transit)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
-* [連線加密](../storage/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)，例如 Azure 檔案共用的 SMB 3.0 加密。
-* [用戶端加密](../storage/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
+* [傳輸層級加密](../storage/common/storage-security-guide.md#encryption-in-transit)，例如從 Azure 儲存體傳入或傳出資料時的 HTTPS。
+* [連線加密](../storage/common/storage-security-guide.md#using-encryption-during-transit-with-azure-file-shares)，例如 Azure 檔案共用的 SMB 3.0 加密。
+* [用戶端加密](../storage/common/storage-security-guide.md#using-client-side-encryption-to-secure-data-that-you-send-to-storage)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
 深入了解用戶端加密︰
 
@@ -74,14 +74,14 @@ Azure 儲存體是現代應用程式的雲端儲存體解決方案，這些應�
 ## <a name="encryption-at-rest"></a>待用加密
 對許多組織來說， [待用資料加密](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
 
-* [儲存體服務加密](../storage/storage-security-guide.md#encryption-at-rest) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
-* [用戶端加密](../storage/storage-security-guide.md#client-side-encryption) 也會提供待用加密的功能。
-* [Azure 磁碟加密](../storage/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
+* [儲存體服務加密](../storage/common/storage-security-guide.md#encryption-at-rest) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
+* [用戶端加密](../storage/common/storage-security-guide.md#client-side-encryption) 也會提供待用加密的功能。
+* [Azure 磁碟加密](../storage/common/storage-security-guide.md#using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) 允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。
 
 深入了解儲存體服務加密：
 
 * [Azure 儲存體服務加密](https://azure.microsoft.com/services/storage/)適用於 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 如需其他 Azure 儲存體類型的詳細資訊，請參閱[檔案](https://azure.microsoft.com/services/storage/files/)、[磁碟 (進階儲存體)](https://azure.microsoft.com/services/storage/premium-storage/)、[資料表](https://azure.microsoft.com/services/storage/tables/)和[佇列](https://azure.microsoft.com/services/storage/queues/)。
-* [待用資料的 Azure 儲存體服務加密](../storage/storage-service-encryption.md)
+* [待用資料的 Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure 磁碟加密
 適用於虛擬機器 (VM) 的 Azure 磁碟加密會使用您在 [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)所控制的金鑰與原則將 VM 磁碟 (包括開機和資料磁碟) 加密，協助您達成組織安全性與相容性需求。

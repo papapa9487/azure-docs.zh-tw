@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: cdc3aad210418463368cc8b93459f2075bc413c2
-ms.lasthandoff: 04/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: eb79d574fd4dddfb986660cc338bc8748f2082c2
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>在 Azure 上最佳化 Linux VM
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/03/2017
 在 Azure 中建立 Linux VM 後，它有兩個相關聯的磁碟。 **/dev/sda** 是作業系統磁碟，**/dev/sdb** 是暫存磁碟。  請勿將主要作業系統磁碟 (**/dev/sda**) 用於作業系統以外的用途，因為它已針對快速開啟 VM 進行最佳化，無法為工作負載提供良好的效能。 您會想要將一或多個磁碟連接至 VM，以取得具永續性且經過最佳化的資料儲存空間。 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>加入磁碟以達成大小和效能目標
-根據 VM 大小，您可以在 A 系列機器上連接最多 16 個額外的磁碟、在 D 系列上連接 32 個、在 G 系列上連接 64 個，且每個磁碟的大小高達 1 TB。 您可以根據空間和 IOps 需求加入額外的磁碟。 標準儲存體每個磁碟的效能目標為 500 IOps，而進階儲存體每個磁碟的效能目標最高為 5000 IOps。  如需進階儲存體磁碟的詳細資訊，請參閱[進階儲存體：Azure VM 的高效能儲存體](../../storage/storage-premium-storage.md)
+根據 VM 大小，您可以在 A 系列機器上連接最多 16 個額外的磁碟、在 D 系列上連接 32 個、在 G 系列上連接 64 個，且每個磁碟的大小高達 1 TB。 您可以根據空間和 IOps 需求加入額外的磁碟。 標準儲存體每個磁碟的效能目標為 500 IOps，而進階儲存體每個磁碟的效能目標最高為 5000 IOps。  如需進階儲存體磁碟的詳細資訊，請參閱[進階儲存體：Azure VM 的高效能儲存體](../../storage/common/storage-premium-storage.md)
 
 對於快取設定為 **ReadOnly** 或 **None** 的進階儲存體磁碟，若要達到最高 IOps，您必須在 Linux 中掛接檔案系統時停用 **barrier** (阻礙)。 您不需要阻礙，因為這些快取設定的進階儲存體磁碟寫入都是持久的。
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 04/03/2017
 * 如果您使用 **XFS**，請使用掛接選項 `nobarrier` 停用阻礙 (若要啟用阻礙，請使用 `barrier` 選項)
 
 ## <a name="unmanaged-storage-account-considerations"></a>非受控儲存體帳戶考量事項
-使用 Azure CLI 2.0 建立 VM 時的預設動作是使用 Azure 受控磁碟。  這些磁碟是由 Azure 平台處理，不需要任何準備或位置來儲存它們。  非受控磁碟需要儲存體帳戶，且具有一些額外的效能注意事項。  如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../../storage/storage-managed-disks-overview.md)。  下一節概述使用非受控磁碟時才會有的效能注意事項。  同樣地，預設且建議的儲存體解決方案是使用受控磁碟。
+使用 Azure CLI 2.0 建立 VM 時的預設動作是使用 Azure 受控磁碟。  這些磁碟是由 Azure 平台處理，不需要任何準備或位置來儲存它們。  非受控磁碟需要儲存體帳戶，且具有一些額外的效能注意事項。  如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟概觀](../windows/managed-disks-overview.md)。  下一節概述使用非受控磁碟時才會有的效能注意事項。  同樣地，預設且建議的儲存體解決方案是使用受控磁碟。
 
 如果您使用非受控磁碟建立 VM，請務必從區域與 VM 相同的儲存體帳戶連結磁碟，以確保高度鄰近性及降低網路延遲。  每個標準儲存體帳戶都有最高 20k 的 IOps 和 500 TB 大小的容量。  此限制大約等同於 40 個頻繁使用的磁碟，包括 OS 磁碟和您建立的任何資料磁碟。 進階儲存體帳戶沒有 IOps 上限，不過有 32 TB 的大小限制。 
 
@@ -132,7 +132,7 @@ echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 以下是一些連往其他資源的實用連結： 
 
-* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../storage/storage-premium-storage.md)
+* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../storage/common/storage-premium-storage.md)
 * [Azure Linux 代理程式使用者指南](../windows/agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [在 Azure Linux VM 上最佳化 MySQL 效能](classic/optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [在 Linux 上設定軟體 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

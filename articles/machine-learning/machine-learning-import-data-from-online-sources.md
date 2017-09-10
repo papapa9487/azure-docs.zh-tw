@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: a102b5f5ea04169d1992cad6d53c0a45de69b645
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 16d4586d82ed256a90d8eb6be4aab927aed1200a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-various-online-data-sources-with-the-import-data-module"></a>使用「匯入資料」模組從各種線上資料來源將資料匯入 Azure Machine Learning Studio 中
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/28/2017
 > 一般而言，任何您可能已在這個服務選項變成可供使用之前建立的 Azure 儲存體帳戶應該不會受到影響。 
 > 如果您需要建立新的帳戶，請將部署模型選取為 [傳統] 或使用資源管理員，然後將 [帳戶種類] 選取為 [一般用途] 而不是 [Blob 儲存體]。 
 > 
-> 如需詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../storage/storage-blob-storage-tiers.md)。
+> 如需詳細資訊，請參閱 [Azure Blob 儲存體︰經常性存取與非經常性存取儲存層](../storage/blobs/storage-blob-storage-tiers.md)。
 > 
 > 
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 88441cd85dd07d701805131f67eda20bbe857ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>快速入門：在 Azure VM 上手動安裝單一執行個體 SAP HANA
@@ -202,7 +201,7 @@ Azure 上 Linux VM 中的根目錄檔案系統有大小限制。 因此，必須
 
 Azure 進階儲存體可讓您定義磁碟快取模式。 針對存放 /hana/data 和 /hana/log 的等量集，應停用磁碟快取。 針對其他磁碟區 (磁碟)，快取模式應設為**唯讀**。
 
-如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../../storage/storage-premium-storage.md)。
+如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../../storage/common/storage-premium-storage.md)。
 
 若要尋找用於建立 VM 的範例 JSON 範本，請移至 [Azure 快速入門範本 (英文)](https://github.com/Azure/azure-quickstart-templates)。
 vm-simple-sles 範本是基本的範本。 它包含儲存體區段與其他 100 GB 的資料磁碟。 此範本可用來當做基底。 您可以針對特定的組態採用範本。

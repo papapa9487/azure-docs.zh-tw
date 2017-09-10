@@ -3,7 +3,7 @@ title: "Azure 網路監看員中的連線檢查簡介 | Microsoft Docs"
 description: "本頁提供網路監看員連線功能的概觀"
 services: network-watcher
 documentationcenter: na
-author: georgewallace
+author: jimdial
 manager: timlt
 editor: 
 ms.service: network-watcher
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: gwallace
+ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 83a88df8c20c89a72047884b69c52e12adf1549b
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: c29f5afe59f57112fe1f115df6bc53645f3c0d34
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 08/23/2017
 
 ---
 
@@ -25,33 +25,8 @@ ms.lasthandoff: 07/13/2017
 
 網路監看員的連線功能提供功能，可檢查從虛擬機器 (VM) 到虛擬機器的直接 TCP 連線、完整的網域名稱 (FQDN)、URI，或 IPv4 位址。 網路案例很複雜，它們在實作時使用網路安全性群組、防火牆、使用者定義的路由和 Azure 所提供的資源。 複雜的設定使得針對連線問題進行疑難排解成為一項挑戰。 網路監看員有助於減少尋找並偵測連線問題的時間量。 傳回的結果可以提供對於連線問題是因為平台還是使用者設定問題的深入了解。 連線可以使用 [PowerShell](network-watcher-connectivity-powershell.md)、[Azure CLI](network-watcher-connectivity-cli.md) 和 [REST API](network-watcher-connectivity-rest.md) 來檢查。
 
-[!INCLUDE [network-watcher-preview](../../includes/network-watcher-public-preview-notice.md)]
-
 > [!IMPORTANT]
 > 連線檢查需要虛擬機器延伸模組 `AzureNetworkWatcherExtension`。 若要在 Windows VM 上安裝擴充功能，請瀏覽[適用於 Windows 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/windows/extensions-nwa.md)，若要在 Linux VM 上安裝，則請瀏覽[適用於 Linux 的 Azure 網路監看員代理程式虛擬機器擴充功能](../virtual-machines/linux/extensions-nwa.md)。
-
-## <a name="register-the-preview-capability"></a>註冊預覽功能
-
-連線檢查目前為公開預覽版本，若要使用這項功能，必須先註冊它。 若要這麼做，請執行下列 PowerShell 範例：
-
-```powershell
-Register-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace Microsoft.Network
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-若要確認註冊是否成功，請執行下列 Powershell 範例︰
-
-```powershell
-Get-AzureRmProviderFeature -FeatureName AllowNetworkWatcherConnectivityCheck  -ProviderNamespace  Microsoft.Network
-```
-
-如果已正確註冊該功能，輸出應該會與以下相符︰
-
-```
-FeatureName         ProviderName      RegistrationState
------------         ------------      -----------------
-AllowNetworkWatcherConnectivityCheck  Microsoft.Network Registered
-```
 
 ## <a name="response"></a>Response
 

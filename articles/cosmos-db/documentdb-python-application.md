@@ -13,14 +13,14 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: bdfc077bbb7f23c3a52cd42f45878f6f50a27bae
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: ed5284b5a265840c43dbc9890082a7c038d22975
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
@@ -37,13 +37,13 @@ ms.lasthandoff: 05/31/2017
 此資料庫教學課程涵蓋：
 
 1. 建立和佈建 Cosmos DB 帳戶。
-2. 建立 Python MVC 應用程式。
+2. 建立 Python Flask 應用程式。
 3. 從 Web 應用程式連線至 Cosmos DB 並加以使用。
-4. 將 Web 應用程式部署至 Azure 網站。
+4. 將 Web 應用程式部署至 Azure。
 
 按照本教學課程進行後，您將建置可讓您舉行投票活動的簡單投票應用程式。
 
-![本資料庫教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/documentdb-python-application/image1.png)
+![本資料庫教學課程所建立之投票應用程式的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-pythonr-run-application.png)
 
 ## <a name="database-tutorial-prerequisites"></a>資料庫教學課程必要條件
 在依照本文中的指示進行之前，您應確定已安裝下列項目：
@@ -53,22 +53,22 @@ ms.lasthandoff: 05/31/2017
     或 
 
     本機安裝的 [Azure Cosmos DB 模擬器](local-emulator.md)。
-* [Visual Studio 2013](http://www.visualstudio.com/) 或更高版本，或免費版本的 [Visual Studio Express]()。 本教學課程中的指示專為 Visual Studio 2015 所編寫。 
-* [GitHub](http://microsoft.github.io/PTVS/)的 Python Tools for Visual Studio。 本教學課程使用 Python Tools for VS 2015。 
-* [azure.com](https://azure.microsoft.com/downloads/)提供 Azure Python SDK for Visual Studio 2.4 版或更高版本。 我們使用 Microsoft Azure SDK for Python 2.7。
-* 來自 [python.org][2] 的 Python 2.7。 我們使用 Python 2.7.11。 
+* [Microsoft Visual Studio Community 2017](http://www.visualstudio.com/)。  
+* [Python Tools for Visual Studio](https://github.com/Microsoft/PTVS/)。  
+* [Microsoft Azure SDK for Python 2.7](https://azure.microsoft.com/downloads/)。 
+* [Python 2.7.13](https://www.python.org/downloads/windows/)。 
 
 > [!IMPORTANT]
-> 如果您是第一次安裝 Python 2.7，請確定在自訂 Python 2.7.11 畫面中，選取 [將 python.exe 加入路徑]。
+> 如果您是第一次安裝 Python 2.7，請確定在自訂 Python 2.7.13 畫面中，選取 [將 python.exe 加入路徑]。
 > 
-> ![自訂 Python 2.7.11 的螢幕擷取畫面，您需要選取 [將 python.exe 加入路徑]](./media/documentdb-python-application/image2.png)
+> ![自訂 Python 2.7.11 的螢幕擷取畫面，您需要選取 [將 python.exe 加入路徑]](./media/documentdb-python-application/cosmos-db-python-install.png)
 > 
 > 
 
-* 來自 [Microsoft 下載中心][3]的 Microsoft Visual C++ Compiler for Python 2.7。
+* [適用於 Python 2.7 的 Microsoft Visual C++ 編譯器](https://www.microsoft.com/en-us/download/details.aspx?id=44266)。
 
 ## <a name="step-1-create-an-azure-cosmos-db-database-account"></a>步驟 1：建立 Azure Cosmos DB 資料庫帳戶
-我們將從建立 Cosmos DB 帳戶開始著手。 如果您已經擁有帳戶，或如果您正在使用 Azure Cosmos DB 模擬器來進行本教學課程，可以跳到[步驟 2：建立新的 Python Flask Web 應用程式](#step-2:-create-a-new-python-flask-web-application)。
+我們將從建立 Cosmos DB 帳戶開始著手。 如果您已經擁有帳戶，或如果您正在使用 Azure Cosmos DB 模擬器來進行本教學課程，可以跳到[步驟 2：建立新的 Python Flask Web 應用程式](#step-2-create-a-new-python-flask-web-application)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -87,7 +87,7 @@ ms.lasthandoff: 05/31/2017
     ![Visual Studio 中左側為反白顯示的 Python、中間為選取的「Python Flask Web 專案」，以及 [名稱] 方塊中名稱為 tutorial 的 [新增專案] 視窗螢幕擷取畫面](./media/documentdb-python-application/image9.png)
 4. 在 [Python Tools for Visual Studio] 視窗中，按一下 [虛擬環境安裝]。 
    
-    ![資料庫教學課程 - Python Tools for Visual Studio 視窗的螢幕擷取畫面](./media/documentdb-python-application/image10.png)
+    ![資料庫教學課程 - Python Tools for Visual Studio 視窗的螢幕擷取畫面](./media/documentdb-python-application/python-install-virtual-environment.png)
 5. 在 [加入虛擬環境] 視窗中，接受預設值並使用 Python 2.7 當做基本環境，因為 PyDocumentDB 目前不支援 Python 3.x；接著按一下 [建立]。 這會設定專案所需的 Python 虛擬環境。
    
     ![資料庫教學課程 - Python Tools for Visual Studio 視窗的螢幕擷取畫面](./media/documentdb-python-application/image10_A.png)
@@ -114,7 +114,7 @@ ms.lasthandoff: 05/31/2017
 2. 儲存 **requirements.txt** 檔案。 
 3. 在「方案總管」中以滑鼠右鍵按一下 [env]，然後按一下 [從 requirements.txt 安裝]。
    
-    ![螢幕擷取畫面，顯示從清單中反白顯示的 requirements.txt 安裝時選取的 env (Python 2.7)。](./media/documentdb-python-application/image11.png)
+    ![螢幕擷取畫面，顯示從清單中反白顯示的 requirements.txt 安裝時選取的 env (Python 2.7)。](./media/documentdb-python-application/cosmos-db-python-install-from-requirements.png)
    
     成功安裝之後，輸出視窗會顯示下列資訊：
    
@@ -200,10 +200,6 @@ def create():
         message='You just created a new database, collection, and document.  Your old votes have been deleted')
 ```
 
-> [!TIP]
-> **CreateCollection** 方法會採用選擇性的 **RequestOptions** 做為第三個參數。 這可以用來指定集合的優惠類型。 如果未提供 offerType 值，則將會使用預設的優惠類型來建立集合。 如需 Cosmos DB 供應項目類型的詳細資訊，請參閱 [Azure Cosmos DB 效能等級](performance-levels.md)。
-> 
-> 
 
 ### <a name="read-database-collection-document-and-submit-form"></a>讀取資料庫、集合、文件並送出表單
 * 在 **views.py**檔案結尾處加入以下程式碼。 此程式碼可設定表單並讀取資料庫、集合和文件。 請勿刪除 **views.py**中任何現有的程式碼。 只需將它附加至結尾。
@@ -314,7 +310,7 @@ def vote():
     {% extends "layout.html" %}
     {% block content %}
     <h2>Python + Azure Cosmos DB Voting Application.</h2>
-    <h3>This is a sample DocumentDB voting application using PyDocumentDB</h3>
+    <h3>This is a sample Cosmos DB voting application using PyDocumentDB</h3>
     <p><a href="{{ url_for('create') }}" class="btn btn-primary btn-large">Create/Clear the Voting Database &raquo;</a></p>
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote &raquo;</a></p>
     {% endblock %}
@@ -351,43 +347,39 @@ def vote():
     ```
 6. 加入所有檔案之後，方案總管看起來應該像這樣：
    
-    ![Visual Studio [方案總管] 視窗的螢幕擷取畫面](./media/documentdb-python-application/image15.png)
+    ![Visual Studio [方案總管] 視窗的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-python-solution-explorer.png)
 
 ## <a name="step-4-run-your-web-application-locally"></a>步驟 4：在本機執行您的 Web 應用程式
 1. 按下 **Ctrl**+**Shift**+**B** 建置解決方案。
 2. 建置成功後，按下 **F5**啟動網站。 您應該會在畫面上看到下列內容。
    
-    ![網頁瀏覽器中顯示的 Python + Azure Cosmos DB 投票應用程式螢幕擷取畫面](./media/documentdb-python-application/image16.png)
+    ![網頁瀏覽器中顯示的 Python + Azure Cosmos DB 投票應用程式螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-pythonr-run-application.png)
 3. 按一下 [建立/清除投票資料庫]  來產生資料庫。
    
-    ![Web 應用程式建立頁面 - 開發詳細資訊的螢幕擷取畫面](./media/documentdb-python-application/image17.png)
+    ![Web 應用程式建立頁面 - 開發詳細資訊的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-python-run-create-page.png)
 4. 然後，按一下 [投票]  ，並選取您的選項。
    
-    ![具有投票問題的 Web 應用程式的螢幕擷取畫面](./media/documentdb-python-application/image18.png)
+    ![具有投票問題的 Web 應用程式的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-vote.png)
 5. 對於您投的每張票，都會讓適當的計數器數字遞增。
    
-    ![顯示投票頁面結果的螢幕擷取畫面](./media/documentdb-python-application/image19.png)
+    ![顯示投票頁面結果的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-voting-results.png)
 6. 按下 Shift+F5 停止對專案進行偵錯。
 
-## <a name="step-5-deploy-the-web-application-to-azure-websites"></a>步驟 5：將 Web 應用程式部署至 Azure 網站
-您已經擁有可在 Cosmos DB 正常運作的完整應用程式，我們現在要將此應用程式部署至 Azure 網站。
+## <a name="step-5-deploy-the-web-application-to-azure"></a>步驟 5：將 Web 應用程式部署至 Azure
+您已經擁有可在 Cosmos DB 正常運作的完整應用程式，我們現在要將此應用程式部署至 Azure。
 
 1. 以滑鼠右鍵按一下「方案總管」中的專案 (請確定您已沒有在本機上執行該案)，然後選取 [發佈] 。  
    
      ![[方案總管] 中選取之教學課程 (具有反白顯示的 [發佈] 選項) 的螢幕擷取畫面](./media/documentdb-python-application/image20.png)
-2. 在 [發佈 Web] 視窗中，選取 [Microsoft Azure Web Apps]，然後按 [下一步]。
+2. 在 [發佈] 對話方塊中，選取 [Microsoft Azure App Service]，選取 [新建]，然後按一下 [發佈]。
    
-    ![醒目提示 Microsoft Azure Web Apps 之 [發佈 Web] 視窗的螢幕擷取畫面](./media/documentdb-python-application/image21.png)
-3. 在 [Microsoft Azure Web Apps 視窗] 視窗中，按一下 [新增]。
+    ![醒目提示 Microsoft Azure App Service 之 [發佈 Web] 視窗的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-python-publish.png)
+3. 在 [建立 App Service] 對話方塊中，輸入您的 Web 應用程式名稱和 [訂用帳戶]、[資源群組]，以及 [App Service 方案]，然後按一下 [建立]。
    
-    ![[Microsoft Azure Web Apps 視窗] 視窗的螢幕擷取畫面](./media/documentdb-python-application/select-existing-website.png)
-4. 在 [在 Microsoft Azure 上建立網站] 視窗中，輸入 [Web 應用程式名稱]、[App Service 方案]、[資源群組] 和 [區域]，然後按一下 [建立]。
-   
-    ![[在 Microsoft Azure 上建立網站] 視窗的螢幕擷取畫面](./media/documentdb-python-application/create-site-on-microsoft-azure.png)
-5. 在 [發佈 Web] 視窗中，按一下 [發佈]。
-   
-    ![[在 Microsoft Azure 上建立網站] 視窗的螢幕擷取畫面](./media/documentdb-python-application/publish-web.png)
-6. 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
+    ![[Microsoft Azure Web Apps 視窗] 視窗的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-python-create-app-service.png)
+4. 幾秒後，Visual Studio 將完成發佈 App Service 並啟動瀏覽器，您可以在瀏覽器中看到您方便好用的應用程式已在 Azure 中執行！
+
+    ![[Microsoft Azure Web Apps 視窗] 視窗的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-python-appservice-created.png)
 
 ## <a name="troubleshooting"></a>疑難排解
 如果這是您在電腦上執行的第一個 Python 應用程式，請確定 PATH 變數中包括下列資料夾 (或同等的安裝位置：
@@ -397,11 +389,11 @@ def vote():
 如果您在投票頁面上收到錯誤，且您的專案不是命名為**教學課程**，請確定 **\_\_init\_\_.py** 在下列程式碼行中參照了正確的專案名稱：`import tutorial.view`。
 
 ## <a name="next-steps"></a>後續步驟
-恭喜！ 您剛剛已使用 Cosmos DB 建置您的第一個 Python Web 應用程式，並將它發佈至 Azure 網站。
+恭喜！ 您剛剛已使用 Cosmos DB 建置您的第一個 Python Web 應用程式，並將它發佈至 Azure。
 
 我們會根據您的意見反應，經常更新並改善此主題。  當您完成教學課程後，請使用位於此頁面頂端及底部的投票按鈕來投票，並務必對您想看到的改善內容提供您的意見反應。 如果想要我們直接與您連絡，歡迎在留言中留下電子郵件地址。
 
-要在 Web 應用程式中加入其他功能，請參閱 [DocumentDB Python SDK](documentdb-sdk-python.md)中可用的 API。
+若要在 Web 應用程式中加入其他功能，請檢閱 [Azure Cosmos DB Python SDK](documentdb-sdk-python.md) 中可用的 API。
 
 如需 Azure、Visual Studio 及 Python 的詳細資訊，請參閱 [Python 開發人員中心](https://azure.microsoft.com/develop/python/)。 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 51065a48c2f797b0ab764bf1b57425bd0696e2bd
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 581daaaa5cc0cf8be782f834c6bdb3f27ee413fb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>在傳統入口網站中使用 PowerShell 將 Hyper-V VM 複寫至 Azure
@@ -50,7 +49,7 @@ Azure Site Recovery 可在一些部署案例中協調虛擬機器的複寫、容
 
 ### <a name="azure-prerequisites"></a>Azure 必要條件
 * 您將需要 [Microsoft Azure](https://azure.microsoft.com/) 帳戶。 您可以從 [免費試用](https://azure.microsoft.com/pricing/free-trial/)開始。
-* 您需要 Azure 儲存體帳戶來儲存複寫的資料。 此帳戶必須啟用異地複寫。 它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。 [深入了解 Azure 儲存體](../storage/storage-introduction.md)。
+* 您需要 Azure 儲存體帳戶來儲存複寫的資料。 此帳戶必須啟用異地複寫。 它應該與 Azure Site Recovery 保存庫位於相同的區域，且和同一個訂用帳戶產生關聯。 [深入了解 Azure 儲存體](../storage/common/storage-introduction.md)。
 * 您必須確定您要保護的虛擬機器符合 [Azure 虛擬機器必要條件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 
 ### <a name="vmm-prerequisites"></a>VMM 必要條件

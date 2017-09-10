@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/22/2017
 ms.author: eugenesh
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: b60662cbe655eea11cba2aaaaa4671209bf018f4
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 023c343122f872943fb3ab3eed7b4caedfae9ac4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -92,7 +92,7 @@ blob 索引子可以從下列文件格式擷取文字：
 - **儲存體帳戶共用存取簽章** (SAS) 連接字串：`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS 應該有容器和物件 (在此案例中為 Blob) 上的列出和讀取權限。
 -  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS 應該有容器上的列出和讀取權限。
 
-如需儲存體共用存取簽章的詳細資訊，請參閱[使用共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md)。
+如需儲存體共用存取簽章的詳細資訊，請參閱[使用共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 > [!NOTE]
 > 如果您使用 SAS 認證，您必須使用更新的簽章定期更新資料來源認證以防止其到期。 如果 SAS 認證過期，索引子將會失敗並出現類似 `Credentials provided in the connection string are invalid or have expired.` 的錯誤訊息。  
@@ -268,7 +268,7 @@ Azure 搜尋服務文件擷取邏輯並不完美，有時會無法剖析受支�
 
 您可以使用 `dataToExtract` 組態參數來控制要編製 blob 哪些部分的索引。 它可以採用下列值：
 
-* `storageMetadata` - 指定只有[標準 blob 屬性和使用者指定的中繼資料](../storage/storage-properties-metadata.md)會編製索引。
+* `storageMetadata` - 指定只有[標準 blob 屬性和使用者指定的中繼資料](../storage/blobs/storage-properties-metadata.md)會編製索引。
 * `allMetadata` - 指定儲存體中繼資料和從 blob 內容擷取的[內容型別特定中繼資料](#ContentSpecificMetadata)會編製索引。
 * `contentAndMetadata` - 指定所有中繼資料和從 blob 擷取的文字內容會編製索引。 這是預設值。
 

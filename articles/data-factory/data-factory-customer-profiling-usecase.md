@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: a03f097d0106ac153ef45e0c10b677597c76207a
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4ee4c3a979a3cdd7ec793d12f812e5b126a2ce94
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-case---customer-profiling"></a>使用案例 - 客戶分析
@@ -32,7 +32,7 @@ Contoso 的目標是要根據其玩家的遊戲歷程記錄識別向上銷售/�
 在此解決方案中，Contoso 想要評估最近推出之行銷活動的效益。 我們從原始遊戲記錄檔開始、處理並添加地理位置資料、結合廣告參考資料，最後，將它們複製到 Azure SQL Database 來分析行銷活動的影響力。
 
 ## <a name="deploy-solution"></a>部署解決方案
-若要存取並嘗試這個簡單的使用案例，您只需要有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)、[Azure Blob 儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)和 [Azure SQL Database](../sql-database/sql-database-get-started.md)。 您從 Data Factory 首頁的 [範例管線] 圖格來部署客戶資料分析管線。
+若要存取並嘗試這個簡單的使用案例，您只需要有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)、[Azure Blob 儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)和 [Azure SQL Database](../sql-database/sql-database-get-started.md)。 您從 Data Factory 首頁的 [範例管線] 圖格來部署客戶資料分析管線。
 
 1. 建立 Data Factory 或開啟現有的 Data Factory。 請參閱[使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)，以取得建立 Data Factory 的步驟。
 2. 在 Data Factory 的 [DATA FACTORY] 刀鋒視窗中，按一下 [範例管線] 磚。

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: a9dfb0af80ef018e5e655e6e5c78fb0b7e426794
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -152,7 +152,7 @@ Azure 是在全球各地許多地區正式推出的全域雲端平台。 當您�
 ### <a name="azure-portal"></a>Azure 入口網站
 
 
-Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 https://portal.azure.com。 它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
+Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 https://portal.azure.com。它包含用於管理 Azure 資源的可自訂儀表板和工具。 它也提供帳單和訂用帳戶資訊。 如需詳細資訊，請參閱 [Microsoft Azure 入口網站概觀](https://azure.microsoft.com/documentation/articles/azure-portal-overview/)和[透過入口網站管理 Azure 資源](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)。
 
 ### <a name="resources"></a>資源
 
@@ -374,7 +374,7 @@ Azure 虛擬機器是 Azure 的其中一個中央 IaaS 服務。 Azure 虛擬機
 
 ## <a name="azure-storage"></a>Azure 儲存體
 
-Azure 儲存體是 Microsoft 管理的服務，可提供持久、可擴充和備援儲存體。 您可以使用任何資源部署方法，將 Azure 儲存體帳戶新增為任何資源群組的資源。 Azure 包括四種儲存體類型：Blob 儲存體、檔案儲存體、表格儲存體和佇列儲存體。 部署儲存體帳戶時，可用的帳戶類型有兩種：一般用途和 blob 儲存體。 一般用途儲存體帳戶可讓您存取所有四個儲存體類型。 Blob 儲存體帳戶類似於一般用途的帳戶，但含有包括經常性和非經常性存取層的特製化 Blob。 如需 Blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體](../../storage/storage-blob-storage-tiers.md)。
+Azure 儲存體是 Microsoft 管理的服務，可提供持久、可擴充和備援儲存體。 您可以使用任何資源部署方法，將 Azure 儲存體帳戶新增為任何資源群組的資源。 Azure 包括四種儲存體類型：Blob 儲存體、檔案儲存體、表格儲存體和佇列儲存體。 部署儲存體帳戶時，可用的帳戶類型有兩種：一般用途和 blob 儲存體。 一般用途儲存體帳戶可讓您存取所有四個儲存體類型。 Blob 儲存體帳戶類似於一般用途的帳戶，但含有包括經常性和非經常性存取層的特製化 Blob。 如需 Blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體](../../storage/blobs/storage-blob-storage-tiers.md)。
 
 Azure 儲存體帳戶可以設定不同層級的備援性：
 
@@ -400,7 +400,7 @@ Azure 儲存體支援三種 blob 類型：
 
 -   **附加 Blob** 和區塊 Blob 相似，由區塊所組成，但已針對附加作業最佳化。 這類 Blob 經常用於將一或多個來源的資訊記錄至相同 blob。 例如，對於在多個 VM 上執行的應用程式，您可以將所有追蹤記錄寫入至相同的附加 blob。 單一附加 Blob 可以多達 195 GB。
 
-如需詳細資訊，請參閱 [以 .NET 開始使用 Azure Blob 儲存體](../../storage/storage-dotnet-how-to-use-blobs.md)。
+如需詳細資訊，請參閱 [以 .NET 開始使用 Azure Blob 儲存體](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)。
 
 **檔案儲存體**
 
@@ -408,7 +408,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 因為檔案儲存體共用是標準 SMB 檔案共用，所以 Azure 中執行的應用程式可透過檔案系統 I/O API 來存取共用中的資料。 因此，開發人員可使用現有的程式碼和技能來移轉現有的應用程式。 IT 專業人員在管理 Azure 應用程式時，可以使用 PowerShell Cmdlet 來建立、掛接和管理檔案儲存體共用。
 
-如需詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案儲存體](../../storage/storage-file-how-to-use-files-windows.md)或[如何搭配 Linux 使用 Azure 檔案儲存體](../../storage/storage-how-to-use-files-linux.md)。
+如需詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案儲存體](../../storage/files/storage-how-to-use-files-windows.md)或[如何搭配 Linux 使用 Azure 檔案儲存體](../../storage/files/storage-how-to-use-files-linux.md)。
 
 **資料表儲存體**
 
@@ -416,13 +416,13 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
 
 您可以使用表格儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的任何其他中繼資料類型。 您可以在資料表中儲存任意數目的實體。 儲存體帳戶可包含任意數目的資料表，最高可達儲存體帳戶的容量限制。
 
-如需詳細資訊，請參閱 [開始使用 Azure 資料表儲存體](../../storage/storage-dotnet-how-to-use-tables.md)。
+如需詳細資訊，請參閱 [開始使用 Azure 資料表儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md)。
 
 **佇列儲存體**
 
 Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。 佇列儲存體可針對應用程式元件間的通訊，提供非同步傳訊，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。 佇列儲存體也支援管理非同步工作並建置處理工作流程。
 
-如需詳細資訊，請參閱 [開始使用 Azure 佇列儲存體](../../storage/storage-dotnet-how-to-use-queues.md)。
+如需詳細資訊，請參閱 [開始使用 Azure 佇列儲存體](../../storage/queues/storage-dotnet-how-to-use-queues.md)。
 
 ### <a name="deploying-a-storage-account"></a>部署儲存體帳戶
 
@@ -430,19 +430,19 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 
 **入口網站**
 
-使用 Azure 入口網站部署儲存體帳戶時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的儲存體帳戶部署到新的或現有的資源群組。 建立儲存體帳戶後，您可以使用入口網站來建立 blob 容器或檔案共用。 您可以用程式設計方式建立資料表和佇列儲存體實體。 如需詳細資訊，請參閱[建立儲存體帳戶](../../storage/storage-create-storage-account.md#create-a-storage-account)。
+使用 Azure 入口網站部署儲存體帳戶時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的儲存體帳戶部署到新的或現有的資源群組。 建立儲存體帳戶後，您可以使用入口網站來建立 blob 容器或檔案共用。 您可以用程式設計方式建立資料表和佇列儲存體實體。 如需詳細資訊，請參閱[建立儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。
 
 除了從 Azure 入口網站部署儲存體帳戶，您也可以從入口網站部署 Azure Resource Manager 範本。 這會部署和設定如範本中定義的所有資源，包括任何儲存體帳戶。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure 入口網站來部署資源](../../azure-resource-manager/resource-group-template-deploy-portal.md)。
 
 **PowerShell**
 
-使用 PowerShell 部署 Azure 儲存體帳戶，可讓儲存體帳戶達到完全部署自動化。 如需詳細資訊，請參閱[使用 Azure PowerShell 搭配 Azure 儲存體](../../storage/storage-powershell-guide-full.md)。
+使用 PowerShell 部署 Azure 儲存體帳戶，可讓儲存體帳戶達到完全部署自動化。 如需詳細資訊，請參閱[使用 Azure PowerShell 搭配 Azure 儲存體](../../storage/common/storage-powershell-guide-full.md)。
 
 除了個別部署 Azure 資源，您可以使用 Azure PowerShell 模組來部署 Azure Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)。
 
 **命令列介面 (CLI)**
 
-如同 PowerShell 模組，Azure 命令列介面提供部署自動化功能，並可使用於 Windows、OS X 或 Linux 系統。 您可以使用 Azure CLI **storage account create** 命令來建立儲存體帳戶。 如需範例，請參閱[使用 Azure CLI 搭配 Azure 儲存體](../../storage/storage-azure-cli.md)。
+如同 PowerShell 模組，Azure 命令列介面提供部署自動化功能，並可使用於 Windows、OS X 或 Linux 系統。 您可以使用 Azure CLI **storage account create** 命令來建立儲存體帳戶。 如需範例，請參閱[使用 Azure CLI 搭配 Azure 儲存體](../../storage/common/storage-azure-cli.md)。
 
 同樣地，您可以使用 Azure CLI 來部署 Azure Resource Manager 範本。 如需詳細資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](../../resource-group-template-deploy-cli.md)。
 
@@ -452,11 +452,11 @@ Azure 儲存體可以不同的方式存取，包括透過 Azure 入口網站、�
 
 **虛擬機器磁碟**
 
-當您部署虛擬機器時，您也需要建立儲存體帳戶來保存虛擬機器作業系統磁碟和任何其他資料磁碟。 您可以選取現有的儲存體帳戶或建立一個新的。 因為 Blob 的大小上限是 1,024 GB，所以單一 VM 磁碟的大小上限為 1,023 GB。 若要設定較大的資料磁碟，您可以對虛擬機器呈現多個資料磁碟，並將它們集合為單一邏輯磁碟。 如需詳細資訊，請參閱適用於 [Windows](../../virtual-machines/windows/infrastructure-storage-solutions-guidelines.md) 和 [Linux](../../virtual-machines/linux/infrastructure-storage-solutions-guidelines.md) 的「儲存體基礎結構指引」。
+當您部署虛擬機器時，您也需要建立儲存體帳戶來保存虛擬機器作業系統磁碟和任何其他資料磁碟。 您可以選取現有的儲存體帳戶或建立一個新的。 因為 Blob 的大小上限是 1,024 GB，所以單一 VM 磁碟的大小上限為 1,023 GB。 若要設定較大的資料磁碟，您可以對虛擬機器呈現多個資料磁碟，並將它們集合為單一邏輯磁碟。 如需詳細資訊，請參閱適用於 [Windows](../../virtual-machines/windows/tutorial-manage-data-disk.md) 和 [Linux](../../virtual-machines/linux/tutorial-manage-disks.md) 的「管理 Azure 磁碟」。
 
 **儲存體工具**
 
-Azure 儲存體帳戶可以透過許多不同的儲存體總管存取，例如 Visual Studio Cloud Explorer。 這些工具可讓您瀏覽儲存體帳戶和資料。 如需詳細資訊和可用儲存體總管清單，請參閱 [Azure 儲存體用戶端工具](../../storage/storage-explorers.md)。
+Azure 儲存體帳戶可以透過許多不同的儲存體總管存取，例如 Visual Studio Cloud Explorer。 這些工具可讓您瀏覽儲存體帳戶和資料。 如需詳細資訊和可用儲存體總管清單，請參閱 [Azure 儲存體用戶端工具](../../storage/common/storage-explorers.md)。
 
 **儲存體 API**
 
@@ -468,7 +468,7 @@ Azure 儲存體帳戶可以透過許多不同的儲存體總管存取，例如 V
 
 **共用存取簽章**
 
-如果您需要允許使用者對儲存體資源進行控管存取，則您可以建立共用存取簽章。 共用存取簽章是指可附加在 URL 後面的權杖，可提供儲存體資源的委派存取。 在權杖有效的期限內，擁有權杖的任何人都可以存取它在指定權限中所指向的資源。 如需詳細資訊，請參閱[使用共用存取簽章](../../storage/storage-dotnet-shared-access-signature-part-1.md)。
+如果您需要允許使用者對儲存體資源進行控管存取，則您可以建立共用存取簽章。 共用存取簽章是指可附加在 URL 後面的權杖，可提供儲存體資源的委派存取。 在權杖有效的期限內，擁有權杖的任何人都可以存取它在指定權限中所指向的資源。 如需詳細資訊，請參閱[使用共用存取簽章](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
 ## <a name="azure-virtual-network"></a>Azure 虛擬網路
 

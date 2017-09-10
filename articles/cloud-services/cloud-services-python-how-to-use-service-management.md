@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: ee96a30d10f882da936f554152fab8a9c6897807
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="how-to-use-service-management-from-python"></a>如何從 Python 使用服務管理
@@ -172,7 +171,7 @@ Azure SDK for Python 含有 [Azure 服務管理 API][svc-mgmt-rest-api]，這是
     sms.delete_deployment('myhostedservice', 'v1')
 
 ## <a name="CreateStorageService"> </a>作法：建立儲存體服務
-[儲存體服務](../storage/storage-create-storage-account.md)可讓您存取 [Azure Blob](../storage/storage-python-how-to-use-blob-storage.md)、[資料表](../storage/storage-python-how-to-use-table-storage.md)和[佇列](../storage/storage-python-how-to-use-queue-storage.md)。 若要建立儲存服務，您必須要有服務的名稱 (3 到 24 個小寫字元，且在 Azure 中是唯一的)、描述、標籤 (最多 100 個字元，會自動編碼為 base64)，以及位置。 下列範例說明如何藉由指定位置來建立儲存服務。
+[儲存體服務](../storage/common/storage-create-storage-account.md)可讓您存取 [Azure Blob](../storage/blobs/storage-python-how-to-use-blob-storage.md)、[資料表](../cosmos-db/table-storage-how-to-use-python.md)和[佇列](../storage/queues/storage-python-how-to-use-queue-storage.md)。 若要建立儲存服務，您必須要有服務的名稱 (3 到 24 個小寫字元，且在 Azure 中是唯一的)、描述、標籤 (最多 100 個字元，會自動編碼為 base64)，以及位置。 下列範例說明如何藉由指定位置來建立儲存服務。
 
     from azure import *
     from azure.servicemanagement import *

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pajosh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 1400fe83bec85a7ab1b4c96fb38abdaf6c944845
+ms.translationtype: HT
+ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
+ms.openlocfilehash: 8ef9ddc345fb553b93815022dc3e6a796cae8b3a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
+ms.lasthandoff: 08/23/2017
 
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>利用安全性功能協助保護使用 Azure 備份的混合式備份
@@ -75,12 +74,12 @@ ms.lasthandoff: 06/08/2017
 若為 **Azure 備份伺服器**使用者：
 
 1. 如果原本進行備份的伺服器仍可使用，請重新保護已刪除的資料來源，並使用**復原資料**功能來從舊的復原點復原資料。
-2. 如果此伺服器無法使用，請使用[從其他 Azure 備份伺服器復原資料](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server)，以使用另一個 Azure 備份伺服器執行個體來取得此資料。
+2. 如果此伺服器無法使用，請使用[從其他 Azure 備份伺服器復原資料](backup-azure-alternate-dpm-server.md)，以使用另一個 Azure 備份伺服器執行個體來取得此資料。
 
 **Data Protection Manager** 使用者：
 
 1. 如果原本進行備份的伺服器仍可使用，請重新保護已刪除的資料來源，並使用**復原資料**功能來從舊的復原點復原資料。
-2. 如果此伺服器無法使用，請使用[新增外部 DPM](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server)，以使用另一部 Data Protection Manager 伺服器來取得此資料。
+2. 如果此伺服器無法使用，請使用[新增外部 DPM](backup-azure-alternate-dpm-server.md)，以使用另一部 Data Protection Manager 伺服器來取得此資料。
 
 ## <a name="prevent-attacks"></a>防止攻擊
 已新增檢查來確保只有有效使用者才能執行各種作業。 其中包括新增額外一道驗證，並維護復原用途所需的最小保留範圍。

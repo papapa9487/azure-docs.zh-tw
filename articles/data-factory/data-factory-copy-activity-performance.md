@@ -12,14 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 08/10/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 183cb2ad4f2a80f9a0e1e7a33f1cacae006c0df4
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2779655aee3af3a351b30f18b4c9d9918e9f2210
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
@@ -40,22 +39,19 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
 > [!NOTE]
 > 如果您大致來說並不熟悉複製活動，請先參閱 [使用複製活動來移動資料](data-factory-data-movement-activities.md) 再閱讀本文。
 >
->
 
 ## <a name="performance-reference"></a>效能參考
+
+下表顯示根據內部測試之給定來源與接收配對的複製輸送量數字 (以 MBps 為單位)，以供參考。 為了進行比較，該表格也會示範[雲端資料移動單位](#cloud-data-movement-units)或[資料管理閘道延展性](data-factory-data-management-gateway-high-availability-scalability.md) (多個閘道節點) 的不同設定如何協助複製效能。
+
 ![效能矩陣](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
-> [!NOTE]
-> 您可以利用比預設最大 DMU 更多的資料移動單位 (DMU)，也就是對雲端到雲端複製活動執行使用 32 單位，以達到更高的輸送量。 比方說，使用 100 DMU，您就可以用 **1.0GBps** 的速率將資料從 Azure Blob 複製到 Azure Data Lake Store。 如需此功能和支援案例的詳細資訊，請參閱[雲端資料移動單位](#cloud-data-movement-units)一節。 請連絡 [Azure 支援](https://azure.microsoft.com/support/)來要求更多 DMU。
->
->
 
 **注意事項：**
 * 輸送量的計算公式如下：[從來源讀取的資料大小]/[複製活動執行持續時間]。
 * 表中的效能參考數字是使用單一複製活動執行裡的 [TPC-H](http://www.tpc.org/tpch/) 資料集來測量的。
-* 若要在雲端資料存放區之間進行複製，請將 **cloudDataMovementUnits** 設定為 1 和 4 (或 8) 以進行比較。 **parallelCopies** 則不指定。 如需這些功能的詳細資訊，請參閱 [平行複製](#parallel-copy) 一節。
 * 在 Azure 資料存放區中，來源和接收位於相同 Azure 區域中。
-* 如果是混合式 (內部部署到雲端，或雲端到內部部署) 資料移動，單一閘道執行個體則是在不同於內部部署資料存放區的機器上執行。 下一份資料表列出了此組態。 當閘道上僅執行單一活動，複製作業將只會取用測試電腦一小部分的 CPU、記憶體或網路頻寬。
+* 對於內部部署和雲端資料存放區之間的混合式複製，每個閘道節點都在與內部部署資料存放區分開的機器上執行，該機器具有以下規格。 當閘道上僅執行單一活動，複製作業將只會取用測試電腦一小部分的 CPU、記憶體或網路頻寬。 深入了解[資料管理閘道的考量](#considerations-for-data-management-gateway)。
     <table>
     <tr>
         <td>CPU</td>
@@ -70,6 +66,10 @@ Azure 提供一組企業級資料儲存與資料倉儲解決方案，而「複�
         <td>網際網路介面：10 Gbps；內部網路介面：40 Gbps</td>
     </tr>
     </table>
+
+
+> [!TIP]
+> 您可以利用比預設最大 DMU 更多的資料移動單位 (DMU)，也就是對雲端到雲端複製活動執行使用 32 單位，以達到更高的輸送量。 比方說，使用 100 DMU，您就可以用 **1.0GBps** 的速率將資料從 Azure Blob 複製到 Azure Data Lake Store。 如需此功能和支援案例的詳細資訊，請參閱[雲端資料移動單位](#cloud-data-movement-units)一節。 請連絡 [Azure 支援](https://azure.microsoft.com/support/)來要求更多 DMU。
 
 ## <a name="parallel-copy"></a>平行複製
 您可以 **在複製活動執行內以平行方式**從來源讀取資料或將資料寫入目的地。 這項功能可增強複製作業的輸送量並減少所需的資料移動時間。
@@ -115,7 +115,6 @@ cloudDataMovementUnits 屬性的允許值是 1 (預設值)、2、4、8、16 和 
 
 > [!NOTE]
 > 如果您需要更多雲端 DMU 以提高輸送量，請連絡 [Azure 支援](https://azure.microsoft.com/support/)。 目前只有當您是將多個檔案從 Blob 儲存體/Data Lake Store/Amazon S3/雲端 FTP/雲端 SFTP 複製到 Blob 儲存體/Data Lake Store/Azure SQL Database 時，設定 8 及 8 以上的值才有作用。
->
 >
 
 ### <a name="parallelcopies"></a>parallelCopies
@@ -247,15 +246,21 @@ cloudDataMovementUnits 屬性的允許值是 1 (預設值)、2、4、8、16 和 
    * 效能功能︰
      * [平行複製](#parallel-copy)
      * [雲端資料移動單位](#cloud-data-movement-units)
-     * [分段複製](#staged-copy)   
+     * [分段複製](#staged-copy)
+     * [資料管理閘道延展性](data-factory-data-management-gateway-high-availability-scalability.md)
+   * [資料管理閘道](#considerations-for-data-management-gateway)
    * [來源](#considerations-for-the-source)
    * [接收](#considerations-for-the-sink)
    * [序列化和還原序列化](#considerations-for-serialization-and-deserialization)
    * [壓縮](#considerations-for-compression)
    * [資料行對應](#considerations-for-column-mapping)
-   * [資料管理閘道](#considerations-for-data-management-gateway)
    * [其他考量](#other-considerations)
 3. **將組態擴展至整個資料集**。 當您對執行結果及效能感到滿意時，您可以將定義和管線作用期間擴展為涵蓋整個資料集。
+
+## <a name="considerations-for-data-management-gateway"></a>資料管理閘道的考量
+**閘道設定**：建議您使用專用的電腦來裝載資料管理閘道。 請參閱[使用資料管理閘道的考量](data-factory-data-management-gateway.md#considerations-for-using-gateway)。  
+
+**閘道監控與相應增加/相應放大**：具有一或多個閘道節點的單一邏輯閘道可同時提供多個複製活動進行。 您可以在 Azure 入口網站中，檢視閘道機器近乎即時的資訊使用率 (CPU、記憶體、網路 (輸入/輸出) 等) 快照集，以及執行的並行作業數目與限制，請參閱[在入口網站中監視閘道](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal)。 如果您對於混合式資料移動 (包含大量的並行複製活動執行或需要複製的大量資料) 有很大的需求，請考慮[相應增加或相應放大閘道](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations)，以充份利用您的資源，或佈建更多資源以賦予複製能力。 
 
 ## <a name="considerations-for-the-source"></a>來源的考量
 ### <a name="general"></a>一般
@@ -342,13 +347,6 @@ cloudDataMovementUnits 屬性的允許值是 1 (預設值)、2、4、8、16 和 
 
 如果您的來源資料存放區是可查詢的 (例如，如果是 SQL Database 或 SQL Server 之類的關聯式存放區，或如果是表格儲存體或 Azure Cosmos DB 之類的 NoSQL 存放區)，請考慮將資料行篩選和重新排序邏輯推送至 **查詢** 屬性，而不使用資料行對應。 如此一來，便會在資料移動服務從來源資料存放區讀取資料時發生投射，而大幅提高效率。
 
-## <a name="considerations-for-data-management-gateway"></a>資料管理閘道的考量
-如需閘道器設定的建議，請參閱 [使用資料管理閘道的考量](data-factory-data-management-gateway.md#considerations-for-using-gateway)。
-
-**閘道器電腦環境：**建議您使用專用的電腦來裝載資料管理閘道器。 請使用 PerfMon 之類的工具，檢查您的閘道器電腦在複製作業期間的 CPU、記憶體和頻寬使用。 如果 CPU、記憶體或網路頻寬出現瓶頸，請改用更強大的電腦。
-
-**並行複製活動執行**：資料管理閘道的單一執行個體可以同時 (或者說是並行) 為多個複製活動執行提供服務。 最大並行作業數目可根據閘道器電腦的硬體組態來算出。 額外的複製作業會排入佇列中，直到閘道器加以取用或另一個作業逾時。 若要避免閘道器電腦發生資源爭用，您可以預備複製活動的排程，以減少一次排入佇列的複製作業數量，或考慮將負載劃分到多個閘道器電腦上。
-
 ## <a name="other-considerations"></a>其他考量
 如果要複製的資料很大，您可以調整您的商務邏輯，使用 Data Factory 的切割機制進一步分割資料。 然後，將複製活動排程為更頻繁地執行，以縮減每個複製活動執行的資料大小。
 
@@ -404,7 +402,7 @@ cloudDataMovementUnits 屬性的允許值是 1 (預設值)、2、4、8、16 和 
 ## <a name="reference"></a>參考
 以下是幾個支援的資料存放區所適用的效能監視及調整參考：
 
-* Azure 儲存體 (包括 Blob 儲存體和表格儲存體)：[Azure 儲存體的擴充性目標](../storage/storage-scalability-targets.md)和 [Azure 儲存體效能和擴充性檢查清單](../storage/storage-performance-checklist.md)
+* Azure 儲存體 (包括 Blob 儲存體和表格儲存體)：[Azure 儲存體的擴充性目標](../storage/common/storage-scalability-targets.md)和 [Azure 儲存體效能和擴充性檢查清單](../storage/common/storage-performance-checklist.md)
 * Azure SQL Database：您可以 [監視效能](../sql-database/sql-database-single-database-monitor.md) ，並檢查資料庫交易單位 (DTU) 百分比
 * Azure SQL 資料倉儲：其能力會以資料倉儲單位 (DWU) 來測量；請參閱 [管理 Azure SQL 資料倉儲中的計算能力 (概觀)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB：[Azure Cosmos DB 中的效能等級](../documentdb/documentdb-performance-levels.md)

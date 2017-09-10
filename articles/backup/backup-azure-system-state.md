@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 7f758d0730e5e503658a264e1e752d9ab912eb7b
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>在 Resource Manager 部署中備份 Windows 系統狀態
@@ -88,7 +88,7 @@ ms.lasthandoff: 08/01/2017
 
     ![儲存體組態選項](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    根據預設，保存庫具有異地備援儲存體。 如果您使用 Azure 做為主要的備份儲存體端點，請繼續使用 [異地備援]。 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。 在此[儲存體備援概觀](../storage/storage-redundancy.md)中，深入了解[異地備援](../storage/storage-redundancy.md#geo-redundant-storage)和[本地備援](../storage/storage-redundancy.md#locally-redundant-storage)儲存體選項。
+    根據預設，保存庫具有異地備援儲存體。 如果您使用 Azure 做為主要的備份儲存體端點，請繼續使用 [異地備援]。 如果您未使用 Azure 做為主要的備份儲存體端點，則選擇 [本地備援]，以減少 Azure 儲存體成本。 在此[儲存體備援概觀](../storage/common/storage-redundancy.md)中，深入了解[異地備援](../storage/common/storage-redundancy.md#geo-redundant-storage)和[本地備援](../storage/common/storage-redundancy.md#locally-redundant-storage)儲存體選項。
 
 您已建立了保存庫，接著請設定它來備份 Windows 系統狀態。
 
@@ -242,7 +242,7 @@ ms.lasthandoff: 08/01/2017
 5. 如果除了備份 Windows Server 系統狀態外，您還要備份伺服器上的檔案和資料夾，「立即備份」精靈只會備份檔案。 若要執行臨時的系統狀態備份，請使用下列 PowerShell 命令：
 
     ```
-    PS C:\> Start -OBSystemStateBackup
+    PS C:\> Start-OBSystemStateBackup
     ```
 
   完成初始備份之後，備份主控台中會顯示 [作業已完成]  狀態。

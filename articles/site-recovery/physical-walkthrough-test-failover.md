@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: e6ebab3e4d7deeefbab395b0a898fbf441d75b5d
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 94aa3bfc700cad3de9fc5516c0c9a4d86ade3fed
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>步驟 11：執行實體伺服器至 Azure 的測試容錯移轉
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/29/2017
 
 ## <a name="managed-disk-considerations"></a>受控磁碟的考量
 
-[受控磁碟](../storage/storage-managed-disks-overview.md)可透過管理與 VM 磁碟關聯的儲存體帳戶，來簡化 Azure VM 的磁碟管理。 
+[受控磁碟](../virtual-machines/windows/managed-disks-overview.md)可透過管理與 VM 磁碟關聯的儲存體帳戶，來簡化 Azure VM 的磁碟管理。 
 
 - 當您為伺服器啟用保護時，VM 資料會複寫到儲存體帳戶。 只有在發生容錯移轉時，才會建立受控磁碟並將它們連結至 VM。
 - 只有針對使用 Resource Manager 模型來部署的 Azure VM，才能建立受控磁碟。  
@@ -70,9 +69,9 @@ ms.lasthandoff: 06/29/2017
 2. 在 [複寫的項目] 窗格中，您可以看到機器資訊、健康情況狀態及最新可用復原點的摘要。 若要檢視其他詳細資料，請按一下 [屬性]。
 3. 在 [計算與網路] 中，您可以：
     - 修改 Azure VM 名稱。 名稱必須符合 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
-    - 指定容錯移轉後的[資源群組](../virtual-machines/windows/infrastructure-resource-groups-guidelines.md)
+    - 指定容錯移轉後的 [資源群組]。
     - 指定 Azure VM 的目標大小
-    - 選取[可用性設定組](../virtual-machines/windows/infrastructure-availability-sets-guidelines.md)。
+    - 選取[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)。
     - 指定是否要使用[受控磁碟](#managed-disk-considerations)。 如果您想要將受控磁碟連結到您移轉至 Azure 的機器上，請選取 [是]。
     - 檢視或修改網路設定，包括在容錯移轉後 Azure VM 將位於的網路/子網路，以及要指派給它的 IP 位址。
 4. 在 [磁碟] 中，您可以看見有關 VM 上作業系統和資料磁碟的資訊。

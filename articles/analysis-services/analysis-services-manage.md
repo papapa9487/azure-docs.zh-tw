@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/14/2017
+ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: d41dc3c05d0d0cd0d9466c43bbebadcffd21e0dd
+ms.translationtype: HT
+ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
+ms.openlocfilehash: b897e81351ebee11c292e67ac76ba8202a6f0108
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 08/19/2017
 
 ---
 # <a name="manage-analysis-services"></a>Azure Analysis Services
@@ -64,7 +63,7 @@ ms.lasthandoff: 06/23/2017
 
 
 ## <a name="troubleshooting-connection-problems"></a>連接問題的疑難排解
-使用 SSMS 進行連線時，如果遇到問題，您可能需要清除登入快取。 系統不會將任何資料快取到磁碟。 若要清除快取，請將連線程序關閉並重新啟動。 
+使用 SSMS 進行連線時，如果遇到問題，您可能需要清除登入快取。 系統不會將任何資料快取到磁碟。若要清除快取，請將連線程序關閉並重新啟動。 
 
 ## <a name="next-steps"></a>後續步驟
 如果您尚未將表格式模型部署到新伺服器，現在正是時候。 若要深入了解，請參閱 [Deploy to Azure Analysis Services](analysis-services-deploy.md) (部署至 Azure Analysis Services)。

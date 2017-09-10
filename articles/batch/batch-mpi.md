@@ -15,10 +15,10 @@ ms.workload: 5/22/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 9adaf46743bad039e2a5680a7d6dca767d964459
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 77d12d6d48b22dfb3e7f09f273dffc11401bb15f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -199,7 +199,7 @@ Batch 會在配置給多重執行個體工作的計算節點上建立幾個多�
 ## <a name="resource-files"></a>資源檔
 多重執行個體工作需要考量兩組資源檔：「所有」工作 (主要工作和子工作) 下載的**一般資源檔**，以及為多重執行個體工作本身指定的**資源檔** (「只有主要工作」會下載)。
 
-您可以在工作的多重執行個體設定中指定一或多個 **一般資源檔** 。 主要工作及所有子工作會從 [Azure 儲存體](../storage/storage-introduction.md)，將這些一般資源檔下載到每個節點的**工作共用目錄**。 您可以使用 `AZ_BATCH_TASK_SHARED_DIR` 環境變數從應用程式命令和協調命令列存取工作共用目錄。 每個配置給多重執行個體工作之節點上的 `AZ_BATCH_TASK_SHARED_DIR` 路徑均完全相同，因此您可以讓主要工作和所有子工作共用一個協調命令。 從遠端存取方面來看，Batch 不會「共用」目錄，不過您可以將它當做掛接點或共用點，如同先前有關環境變數的提示所述。
+您可以在工作的多重執行個體設定中指定一或多個 **一般資源檔** 。 主要工作及所有子工作會從 [Azure 儲存體](../storage/common/storage-introduction.md)，將這些一般資源檔下載到每個節點的**工作共用目錄**。 您可以使用 `AZ_BATCH_TASK_SHARED_DIR` 環境變數從應用程式命令和協調命令列存取工作共用目錄。 每個配置給多重執行個體工作之節點上的 `AZ_BATCH_TASK_SHARED_DIR` 路徑均完全相同，因此您可以讓主要工作和所有子工作共用一個協調命令。 從遠端存取方面來看，Batch 不會「共用」目錄，不過您可以將它當做掛接點或共用點，如同先前有關環境變數的提示所述。
 
 依預設，您為多重執行個體工作本身所指定的資源檔會下載到工作的工作目錄 ( `AZ_BATCH_TASK_WORKING_DIR`) 中。 如前文所述，相較於一般資源檔，只有主要工作會下載為多重執行個體工作本身所指定的資源檔。
 

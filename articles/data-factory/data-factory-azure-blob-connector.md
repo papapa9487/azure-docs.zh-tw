@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
-ms.openlocfilehash: 7be5e5095b8aa6f2ae3d8c0b636883c4ff7ced63
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 2cf955b52010869a4e753c441e17bdd32fd2e63d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>使用 Azure Data Factory 在 Azure Blob 儲存體來回複製資料
@@ -168,7 +167,7 @@ Data Factory 支援使用下列符合 CLS 規範的 .NET 型類型值，在 “s
 讓我們看看如何將資料快速複製到 Azure Blob 儲存體或從此儲存體複製資料。 在這個逐步解說中，來源和目的地資料存放區的類型都是：Azure Blob 儲存體。 此逐步解說中的管線會將資料從一個資料夾複製到相同 Blob 容器中的另一個資料夾。 此逐步解說刻意設計得很簡單，為的是示範使用「Blob 儲存體」作為來源或接收器時的設定或屬性。 
 
 ### <a name="prerequisites"></a>必要條件
-1. 建立一個一般用途的「Azure 儲存體帳戶」(如果您還沒有此帳戶)。 在這個逐步解說中，您將使用 Blob 儲存體同時作為「來源」和「目的地」資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
+1. 建立一個一般用途的「Azure 儲存體帳戶」(如果您還沒有此帳戶)。 在這個逐步解說中，您將使用 Blob 儲存體同時作為「來源」和「目的地」資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
 2. 在儲存體帳戶中建立一個名為 **adfblobconnector** 的 Blob 容器。 
 4. 在 **adfblobconnector** 容器中建立一個名為 **input** 的資料夾。
 5. 以下列內容建立一個名為 **emp.txt** 的檔案，然後使用 [Azure 儲存體總管](https://azurestorageexplorer.codeplex.com/)之類的工具將它上傳到 [input] 資料夾
@@ -263,8 +262,7 @@ Data Factory 支援使用下列符合 CLS 規範的 .NET 型類型值，在 “s
 ### <a name="monitor-the-pipeline-copy-task"></a>監視管線 (複製工作)
 
 1. 在 [部署] 頁面上，按一下 [`Click here to monitor copy pipeline`] 連結。 
-2. 您應該會在個別的索引標籤中看到 [監視及管理應用程式]。 
-    ![監視及管理應用程式](media/data-factory-azure-blob-connector/monitor-manage-app.png)
+2. 您應該會在個別的索引標籤中看到 [監視及管理應用程式]。![監視及管理應用程式](media/data-factory-azure-blob-connector/monitor-manage-app.png)
 3. 將頂端的 [開始時間] 變更為 [`04/19/2017`]，將 [結束時間] 變更為 [`04/27/2017`]，然後按一下 [套用]。 
 4. 您應該會在 [活動時段] 清單中看到五個活動時段。 [時段開始] 時間應該涵蓋從管線開始到管線結束時間的所有日子。 
 5. 按一下 [活動時段] 清單的 [重新整理] 按鈕幾次，直到您看到所有活動時段的狀態都設定為 [就緒] 為止。 
