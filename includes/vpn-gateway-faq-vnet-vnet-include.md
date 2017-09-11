@@ -22,7 +22,11 @@ VNet 對 VNet 常見問題集適用於 VPN 閘道連線。 如果您要尋找 VN
 
 ### <a name="if-the-vnets-are-not-in-the-same-subscription-do-the-subscriptions-need-to-be-associated-with-the-same-ad-tenant"></a>如果 Vnet 不在相同的訂用帳戶中，訂用帳戶是否需要與相同的 AD 租用戶相關聯？
 
-編號
+否。
+
+### <a name="can-i-use-vnet-to-vnet-to-connect-virtual-networks-in-separate-azure-instances"></a>可以使用 VNet 對 VNet 連線不同 Azure 執行個體中的虛擬網路嗎？ 
+
+否。 VNet 對 VNet 支援連線相同 Azure 執行個體中的虛擬網路。 例如，您無法建立公用 Azure 與中文版 / 德文版 / 美國政府版 Azure 執行個體間的連線。 這些案例中，請考慮使用站對站 VPN 連線。
 
 ### <a name="can-i-use-vnet-to-vnet-along-with-multi-site-connections"></a>可以使用 VNet 對 VNet 以及多站台連線嗎？
 

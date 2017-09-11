@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ab1d432a2f90db57b99f0e7d419d85e2958c308
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 擴展集與受控磁碟
@@ -30,7 +30,7 @@ Azure [虛擬機器擴展集](/azure/virtual-machine-scale-sets/)支援具有受
 
 * 您可以將受控的資料磁碟連接到擴展集。
 
-* 利用受控磁碟，擴展集所擁有的容量可以高達 1,000 個 VM (如果以平台映像為基礎) 或 100 個 VM (如果以自訂映像為基礎)。
+* 利用受控磁碟，擴展集所擁有的容量可以高達 1,000 個 VM (如果以平台映像為基礎) 或 300 個 VM (如果以自訂映像為基礎)。
 
 ## <a name="get-started"></a>開始使用
 

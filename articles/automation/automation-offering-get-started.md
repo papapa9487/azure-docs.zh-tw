@@ -12,13 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/18/2017
+ms.date: 08/31/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 54f137b26bf1c8f966e8ef110dcf3d25abf7ac5b
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -170,8 +170,7 @@ Azure Resource Manager 提供了角色型存取控制來對 Azure AD 使用者�
    - 指定新 [OMS 工作區] 的名稱。
    - 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
    - 對於 [資源群組]，您可以建立資源群組，或選取現有的資源群組。  
-   - 選取 [位置] 。  目前可用的位置只有 [澳大利亞東南部]、[美國東部]、[東南亞]、[美國中西部] 和 [西歐]。
-   - 選取 **定價層**。  此解決方案以兩種定價層提供︰免費和每個節點 (OMS) 層。  免費層會限制每日可收集的資料量、保留期和 Runbook 作業執行階段分鐘數。  每個節點 (OMS) 層不會限制每日可收集的資料量。  
+   - 選取 [位置] 。  如需詳細資訊，請查看 [Azure 自動化的可用區域](https://azure.microsoft.com/regions/services/)。  解決方案是以兩種定價層提供︰免費和每個節點 (OMS) 層。  免費層會限制每日可收集的資料量、保留期和 Runbook 作業執行階段分鐘數。  每個節點 (OMS) 層不會限制每日可收集的資料量。  
    - 選取 [自動化帳戶]。  如果您要建立新的 OMS 工作區，您也必須建立會與先前指定的新 OMS 工作區產生關聯的自動化帳戶，包括您的 Azure 訂用帳戶、資源群組和區域。  您可以選取 [建立自動化帳戶]，然後在 [自動化帳戶] 刀鋒視窗上提供下列資訊︰ 
   - 在 [名稱] 欄位中輸入自動化帳戶的名稱。
 

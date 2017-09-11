@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/08/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 88f20287e2a6935b9694a25a21b607d658b8eb68
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: d7cb95d0e099d5e0357ce8871f02c894acfdc9b7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery 可以保護哪些工作負載？
@@ -31,7 +31,7 @@ ms.lasthandoff: 08/08/2017
 
 Site Recovery 是一項有助於建立 BCDR 策略的 Azure 服務。 使用 Site Recovery，您可以將應用程式感知的複寫部署到雲端，或部署到次要站台。 不論您的應用程式是 Windows 或 Linux 型、在實體伺服器、VMware 或 Hyper-V 上執行，您都可以使用 Site Recovery 來協調複寫、執行災害復原測試，以及執行容錯移轉和容錯回復。
 
-Site Recovery 整合了 Microsoft 應用程式，包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。 Microsoft 也與領導廠商密切合作，包括 Oracle、SAP、IBM 和 Red Hat。 您可以根據各應用程式自訂複寫解決方案。
+Site Recovery 整合了 Microsoft 應用程式，包括 SharePoint、Exchange、Dynamics、SQL Server 和 Active Directory。 Microsoft 也與領導廠商密切合作，包括 Oracle、SAP 和 Red Hat。 您可以根據各應用程式自訂複寫解決方案。
 
 ## <a name="why-use-site-recovery-for-application-replication"></a>為何要使用 Site Recovery 進行應用程式複寫？
 Site Recovery 可協助您實作應用程式層級的保護和復原，如下所示：
@@ -127,7 +127,7 @@ Site Recovery 協助保護 Exchange 的方式如下所示：
 使用 Site Recovery 保護您的 SAP 部署，如下所示：
 
 * 藉由將元件複寫到 Azure，以啟用在內部部署環境執行之 SAP NetWeaver 和非 NetWeaver 生產應用程式的保護功能。
-* 藉由將元件複寫到另一個 Azure 資料中心，以啟用執行 Azure 之 SAP NetWeaver 和非 NetWeaver 生產應用程式的保護功能。
+* 藉由將元件複寫到另一個 Azure 資料中心，啟用執行 Azure 之 SAP NetWeaver 和非 NetWeaver 生產應用程式的保護功能。
 * 使用 Site Recovery 將您的 SAP 部署移轉至 Azure，來簡化雲端移轉。
 * 藉由建立隨選生產複本來測試 SAP 應用程式，以簡化 SAP 專案升級、測試和原型設計。
 

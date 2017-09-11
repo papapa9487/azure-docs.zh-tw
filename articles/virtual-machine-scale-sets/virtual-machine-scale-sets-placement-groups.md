@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/7/2017
+ms.date: 9/1/2017
 ms.author: guybo
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 9e9eae1623e55c1c05e97aa0b836819ce5dc16f9
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 12303e4283de3d179590e599d4d2fe8f14167eda
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>使用大型的虛擬機器擴展集
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/13/2017
 
 - 大型擴展集需要 Azure 受控磁碟。 所建立的擴展集若非使用受控磁碟，則需要多個儲存體帳戶 (每 20 個 VM 一個)。 大型擴展集的設計用途是為了獨佔使用受控磁碟，以減少儲存體管理負荷，並避免達到儲存體帳戶之訂用帳戶限制的風險。 如果您未使用受控磁碟，擴展集會限制為 100 個 VM。
 - 從 Azure Marketplace 映像所建立的擴展集可以相應增加到 1,000 個 VM。
-- 從自訂映像 (您自己建立並上傳的 VM 映像) 所建立的擴展集目前可以相應增加到 100 個 VM。
+- 從自訂映像 (您自己建立並上傳的 VM 映像) 所建立的擴展集目前可以相應增加到 300 個 VM。
 - 由多個放置群組所組成的擴展集尚未支援使用 Azure Load Balancer 的第 4 層負載平衡。 如果您需要使用 Azure Load Balancer，請確定擴展集是設定為使用單一放置群組 (預設設定)。
 - 所有擴展集皆支援使用 Azure 應用程式閘道的第 7 層負載平衡。
 - 擴展集會使用單一子網路來定義，請確定子網路的位址空間夠大，足以放置您需要的所有 VM。 根據預設，擴展集會過度佈建 (在部署或相應放大時建立額外的 VM，而無須付費) 以提升部署可靠性和效能。 請讓位址空間比您計劃調整成的 VM 數目大 20%。

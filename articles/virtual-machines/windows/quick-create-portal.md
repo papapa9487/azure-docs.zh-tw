@@ -17,10 +17,10 @@ ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 31ac18add9c3fd956e0d37b1e0c1a510265c22e6
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -48,11 +48,11 @@ ms.lasthandoff: 07/18/2017
 
     ![顯示 VM 大小的螢幕擷取畫面](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
 
-5. 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
+5. 在 [設定] 之下，保留預設值並按一下 [確定]。 
 
 6. 在 [摘要] 頁面上，按一下 [確定] 來啟動虛擬機器部署。
 
-7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署，VM 摘要刀鋒視窗就會自動開啟。
+7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署，VM 摘要就會自動開啟。
 
 
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
@@ -94,13 +94,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>檢視 IIS 歡迎使用頁面
 
-安裝 IIS 後，且連接埠 80 對您的 VM 狀態為開啟，即可立即從網際網路存取 Web 伺服器。 開啟 Web 瀏覽器，並輸入 VM 的公用 IP 位址。 在 Azure 入口網站的 VM 刀鋒視窗上可找到公用 IP 位址。
+安裝 IIS 後，且連接埠 80 對您的 VM 狀態為開啟，即可立即從網際網路存取 Web 伺服器。 開啟 Web 瀏覽器，並輸入 VM 的公用 IP 位址。 在 Azure 入口網站的 [虛擬機器] 之下可找到公用 IP 位址。
 
 ![IIS 預設網站](./media/quick-create-powershell/default-iis-website.png) 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，可刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器刀鋒視窗中的資源群組，然後按一下 [刪除]。
+若不再需要，可刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取 VM 的資源群組，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
