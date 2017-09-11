@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 04/13/2017
+ms.date: 08/31/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
-ms.openlocfilehash: b95f37db90b105962c01545e25c8e14c53257ebc
-ms.lasthandoff: 02/11/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: b433eecb0424db85b616c40c5f0cdfc88692cef1
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache-with-java"></a>如何搭配使用 Azure Redis 快取與 Java
@@ -82,4 +82,4 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用 Redis 快取。 �
 ## <a name="next-steps"></a>後續步驟
 * [啟用快取診斷](https://msdn.microsoft.com/library/azure/dn763945.aspx#EnableDiagnostics)，以[監視](https://msdn.microsoft.com/library/azure/dn763945.aspx)您快取的健全狀況。
 * 閱讀官方 [Redis 文件](http://redis.io/documentation)。
-
+* 了解[如何將 Spring Initializer 應用程式設定為使用 Redis 快取](cache-java-spring-boot-initializer-with-redis-cache.md)。

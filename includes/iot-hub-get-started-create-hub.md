@@ -5,9 +5,9 @@
 1. 在 Jumpbar 中，按一下 [新增]  >  [物聯網]  >  [IoT 中樞]。
    
     ![Azure 入口網站 Jumpbar][1]
-1. 在 [IoT 中樞]  刀鋒視窗中，選擇 IoT 中樞的組態。
+1. 在 [IoT 中樞] 視窗中，選擇 IoT 中樞的組態。
    
-    ![IoT 中樞刀鋒視窗][2]
+    ![IoT 中樞視窗][2]
    
    1. 在 [名稱] 方塊中，輸入 IoT 中樞的名稱。 如果**名稱**有效且可用，[名稱] 方塊中會出現綠色的核取記號。
     [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
@@ -17,18 +17,16 @@
    1. 在 [位置] 中，選取要裝載您的 IoT 中樞的位置。 在本教學課程中，選擇最接近您的位置。
 1. 選擇好 IoT 中樞組態選項時，按一下 [建立] 。  Azure 建立您的 IoT 中樞可能需要幾分鐘的時間。 若要檢查狀態，您可以在「開始面板」或 [通知] 面板中監視進度。
    
-    ![新增 IoT 中樞狀態][3]
-1. 成功建立 IoT 中樞時，請按一下 Azure 入口網站中您的 IoT 中樞的新圖格，以開啟新 IoT 中樞的刀鋒視窗。 請記下**主機名稱**，然後按一下 [共用存取原則]。
+1. 成功建立 IoT 中樞時，請按一下 Azure 入口網站中您的 IoT 中樞的新圖格，以開啟新 IoT 中樞的屬性視窗。 請記下**主機名稱**，然後按一下 [共用存取原則]。
    
-    ![新增 IoT 中樞刀鋒視窗][4]
-1. 在 [共用存取原則] 刀鋒視窗中，按一下 [iothubowner] 原則，然後複製並記下 [iothubowner] 刀鋒視窗中的 IoT 中樞連接字串。 如需詳細資訊，請參閱《IoT 中樞開發人員指南》中的[存取控制][lnk-access-control]。
+    ![新的 IoT 中樞視窗][4]
+1. 在 [共用存取原則] 中，按一下 [iothubowner] 原則，然後複製並記下 [iothubowner] 視窗中的 IoT 中樞連接字串。 如需詳細資訊，請參閱《IoT 中樞開發人員指南》中的[存取控制][lnk-access-control]。
    
-    ![共用存取原則刀鋒視窗][5]
+    ![共用存取原則][5]
 
 <!-- Images. -->
 [1]: ./media/iot-hub-get-started-create-hub/create-iot-hub1.png
 [2]: ./media/iot-hub-get-started-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-get-started-create-hub/create-iot-hub3.png
 [4]: ./media/iot-hub-get-started-create-hub/create-iot-hub4.png
 [5]: ./media/iot-hub-get-started-create-hub/create-iot-hub5.png
 

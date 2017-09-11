@@ -13,20 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2017
+ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 8b2fbc230faf01797109114d6ebdffe5ec50e48b
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
-<a id="what-are-virtual-machine-scale-sets-in-azure" class="xliff"></a>
-
-# 什麼是 Azure 中的虛擬機器擴展集？
+# <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
 虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
 
 對於需要相應放大計算資源的應用程式，調整作業會隱含地平衡分散到容錯網域和更新網域。 如需擴展集的進一步介紹，請參閱 [Azure 部落格通知](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/)。
@@ -36,9 +33,7 @@ ms.lasthandoff: 07/04/2017
 * [Mark Russinovich 講述 Azure 擴展集](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)  
 * [Guy Bowerman 與虛擬機器擴展集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-<a id="creating-and-managing-scale-sets" class="xliff"></a>
-
-## 建立和管理擴展集
+## <a name="creating-and-managing-scale-sets"></a>建立和管理擴展集
 您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。
 
 您可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 來定義和部署擴展集，如同個別的 Azure Resource Manager VM 一樣。 因此，您可以使用任何標準 Azure Resource Manager 部署方法。 如需範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
@@ -47,9 +42,7 @@ ms.lasthandoff: 07/04/2017
 
 以快速入門範本為例，在每個範本的讀我檔案上，[部署至 Azure] 按鈕可連結至入口網站部署功能。 若要部署擴展集，請按一下該按鈕，然後在入口網站中填入所需的任何參數。 
 
-<a id="scaling-a-scale-set-out-and-in" class="xliff"></a>
-
-## 相應放大和相應縮小擴展集
+## <a name="scaling-a-scale-set-out-and-in"></a>相應放大和相應縮小擴展集
 您可以在 Azure 入口網站中按一下 [設定] 底下的 [調整] 區段，來變更擴展集的容量。 
 
 若要在命令列上變更擴展集容量，請在 [Azure CLI](https://github.com/Azure/azure-cli) 中使用 **scale** 命令。 例如，使用此命令將擴展集設定為 10 部 VM 的容量：
@@ -70,9 +63,7 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 如果您想要重新部署 Azure Resource Manager 範本以變更容量，可以定義較小的範本，使其僅包含 **SKU** 屬性套件和更新的容量。 [以下是範例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)。
 
-<a id="autoscale" class="xliff"></a>
-
-## Autoscale
+## <a name="autoscale"></a>Autoscale
 
 擴展集若建立於 Azure 入口網站中，則可選擇性地設定自動調整設定。 以便根據平均 CPU 使用量來增加或減少 VM 數目。 
 
@@ -93,18 +84,14 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 
 您可以在下列位置找到可調整的有效度量清單︰"Microsoft.Compute/virtualMachineScaleSets" 標題下的[支援 Azure 監視器的度量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。 另外還有更多可用的進階自動調整選項，包括以排程為基礎的自動調整，以及使用 Webhook 來與警示系統整合。
 
-<a id="monitoring-your-scale-set" class="xliff"></a>
-
-## 監視擴展集
+## <a name="monitoring-your-scale-set"></a>監視擴展集
 [Azure 入口網站](https://portal.azure.com)會列出擴展集並顯示其屬性。 入口網站也支援管理作業。 您可以同時針對擴展集和擴展集內的個別 VM 執行管理作業。 入口網站也提供可自訂的資源使用量圖表。 
 
 如果您需要檢視或編輯 Azure 資源的基礎 JSON 定義，您也可以使用 [Azure 資源總管](https://resources.azure.com)。 擴展集是 Microsoft.Compute Azure 資源提供者之下的一項資源。 從這個網站，您可以展開下列連結加以檢視：
 
 訂用帳戶 > 您的訂用帳戶 > resourceGroups > 提供者 > Microsoft.Compute > virtualMachineScaleSets > 您的擴展集 > 等等
 
-<a id="scale-set-scenarios" class="xliff"></a>
-
-## 擴展集案例
+## <a name="scale-set-scenarios"></a>擴展集案例
 本節列出一些典型的擴展集案例。 某些較高階的 Azure 服務 (例如 Batch、Service Fabric 和 Container Service) 會使用這些案例。
 
 * **使用 RDP 或 SSH 連線至擴展集執行個體**：擴展集會建立於虛擬網路內，且預設不會為擴展集中的個別 VM 配置公用 IP 位址。 此原則可避免因為要對計算方格中的所有節點配置個別公用 IP 位址而產生的支出與管理負擔。 如果您需要與擴展集 VM 建立直接外部連線，可以將擴展集設定為自動指派公用 IP 位址給新的 VM。 或是，您可以從虛擬網路中可配置公用 IP 位址的其他資源連線至 VM，例如負載平衡器和獨立虛擬機器。 
@@ -134,20 +121,16 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
   
    在這個方法的[此範例](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)中，[Azure Container Service](https://azure.microsoft.com/services/container-service/) 會根據具有容器協調器的擴展集來部署叢集。
 
-<a id="scale-set-performance-and-scale-guidance" class="xliff"></a>
-
-## 擴展集的效能和調整指南
-* 一個擴展集可支援多達 1,000 部 VM。 如果您建立並上傳自己的自訂 VM 映像，則限制為 100 個。 如需大型擴展集的使用考量，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。
+## <a name="scale-set-performance-and-scale-guidance"></a>擴展集的效能和調整指南
+* 一個擴展集可支援多達 1,000 部 VM。 如果您建立並上傳自己的自訂 VM 映像，則限制為 300 個。 如需大型擴展集的使用考量，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。
 * 您不必預先建立 Azure 儲存體帳戶就能使用擴展集。 擴展集支援 Azure 受控磁碟，能打消關於每個儲存體帳戶之磁碟數目的效能疑慮。 如需詳細資訊，請參閱 [Azure 虛擬機器擴展集和受控磁碟](virtual-machine-scale-sets-managed-disks.md)。
 * 請考慮使用 Azure 進階儲存體而非 Azure 儲存體，來提升 VM 佈建時間的速度和可預測性，並改善 IO 效能。
 * 您正在部署之區域的核心配額會限制您可以建立的 VM 數目。 您可能需要連絡客戶支援人員，以提高您的計算配額限制，即使您目前用於 Azure 雲端服務的核心已具有較高的上限亦然。 若要查詢您的配額，請執行此 Azure CLI 命令︰`azure vm list-usage`。 或者，執行此 PowerShell 命令︰`Get-AzureRmVMUsage`。
 
-<a id="frequently-asked-questions-for-scale-sets" class="xliff"></a>
-
-## 擴展集的常見問題集
+## <a name="frequently-asked-questions-for-scale-sets"></a>擴展集的常見問題集
 **問：** 擴展集內可以有多少部 VM？
 
-**答：** 擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0-100 部以自訂映像為基礎的 VM。 
+**答：** 擴展集可以有 0 到 1,000 部以平台映像為基礎的 VM，或 0-300 部以自訂映像為基礎的 VM。 
 
 **問：** 在擴展集內是否支援資料磁碟？
 

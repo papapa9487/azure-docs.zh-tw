@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/10/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5c8e99f3ba52ef5d6f9f99ac24891c38e8970fff
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: cc9018d95ffce3b5b4a5ee20d5c78a2122e0223e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線：Azure 入口網站
@@ -134,7 +134,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
 您可以在每個用戶端電腦上使用相同的 VPN 用戶端組態套件，只要版本符合用戶端的架構。 如需支援的用戶端作業系統清單，請參閱本文結尾的[點對站連線常見問題集](#faq)。
 
-### <a name="step-1---generate-and-download-the-client-configuration-package"></a>步驟 1 - 產生並下載用戶端組態套件
+### <a name="1-generate-and-download-the-client-configuration-package"></a>1.產生並下載用戶端組態套件
 
 1. 在 [點對站組態] 頁面上，按一下 [下載 VPN 用戶端] 來開啟 [下載 VPN 用戶端] 頁面。 需要幾分鐘的時間來產生套件。
 
@@ -143,7 +143,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
   ![VPN 用戶端下載 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
 
-### <a name="step-2---install-the-client-configuration-package"></a>步驟 2 - 安裝用戶端組態套件
+### <a name="2-install-the-client-configuration-package"></a>2.安裝用戶端組態套件
 
 1. 在本機將組態檔複製到您要連線至虛擬網路的電腦上。 
 2. 在用戶端電腦上按兩下 .exe 檔案以安裝套件。 因為是您建立組態套件，所以它尚未簽署，且您可能會看到一則警告。 如果您看到 Windows SmartScreen 快顯視窗，請按一下 [更多資訊] \(左側)，然後按一下 [仍要執行] 來安裝套件。
@@ -227,7 +227,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
 ## <a name="faq"></a>點對站常見問題集
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-point-to-site-faq-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。

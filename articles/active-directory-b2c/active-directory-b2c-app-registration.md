@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 3d4fe2fa10d848c8b29e4d22d284c0d378f07ae0
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C：註冊您的應用程式
@@ -31,6 +31,8 @@ ms.lasthandoff: 08/08/2017
 
 在 Azure 入口網站中從 [Azure AD B2C] 刀鋒視窗建立的應用程式，必須從相同的位置進行管理。 如果您使用 PowerShell 或另一個入口網站編輯 B2C 應用程式，系統則不支援這些應用程式支援且無法搭配 Azure AD B2C 運作。 如需詳細資料，請參閱[ 發生錯誤的應用程式](#faulted-apps)一節。 
 
+本文使用的範例將協助您開始使用我們的範例。 您可以在後續的文章中深入了解這些範例。
+
 ## <a name="navigate-to-b2c-settings"></a>瀏覽至 B2C 設定
 
 以 B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。 
@@ -39,13 +41,13 @@ ms.lasthandoff: 08/08/2017
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
 
-根據您所註冊的應用程式類型，選擇後續步驟：
+## <a name="choose-next-steps-based-on-your-application-type"></a>根據您的應用程式類型選擇後續步驟
 
 * [註冊 Web 應用程式](#register-a-web-app)
 * [註冊 Web API](#register-a-web-api)
 * [註冊行動或原生應用程式](#register-a-mobile-or-native-app)
  
-## <a name="register-a-web-app"></a>註冊 Web 應用程式
+### <a name="register-a-web-app"></a>註冊 Web 應用程式
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
 
@@ -59,7 +61,7 @@ ms.lasthandoff: 08/08/2017
 
 [跳至**後續步驟**](#next-steps)
 
-## <a name="register-a-web-api"></a>註冊 Web API
+### <a name="register-a-web-api"></a>註冊 Web API
 
 [!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
 
@@ -67,7 +69,7 @@ ms.lasthandoff: 08/08/2017
 
 [跳至**後續步驟**](#next-steps)
 
-## <a name="register-a-mobile-or-native-app"></a>註冊行動或原生應用程式
+### <a name="register-a-mobile-or-native-app"></a>註冊行動或原生應用程式
 
 [!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
 
@@ -100,7 +102,7 @@ ms.lasthandoff: 08/08/2017
 
 `https://new.login.contoso.com`
 
-在此情況下，您參照的是 login.contoso.com 的 DNS 子網域。 如果您想要有一個以 login-east.contoso.com 和 login-west.contoso.com 做為回覆 URL 的應用程式，就必須依下列順序新增這些回覆 URL︰
+在此情況下，您參照的是 login.contoso.com 的 DNS 子網域。如果您想要有一個以 login-east.contoso.com 和 login-west.contoso.com 做為回覆 URL 的應用程式，就必須依下列順序新增這些回覆 URL︰
 
 `https://contoso.com`
 

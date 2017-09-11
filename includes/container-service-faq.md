@@ -24,6 +24,8 @@ Azure Container Service 是具有 SLA 保證的 Azure 服務，其功能可在 A
 
 [ACS 引擎](http://github.com/Azure/acs-engine)是開放原始碼專案，可讓進階使用者自訂各種層級的叢集組態。 因為能改變基礎結構和軟體的組態，所以我們沒有為 ACS 引擎提供 SLA。 其支援的處理是透過 GitHub 上的開放原始碼專案，而非透過 Microsoft 官方管道。 
 
+如需其他詳細資訊，請參閱我們的[容器支援原則](https://support.microsoft.com/en-us/help/4035670/support-policy-for-containers)。
+
 ## <a name="cluster-management"></a>叢集管理
 
 ### <a name="how-do-i-create-ssh-keys-for-my-cluster"></a>如何為叢集建立 SSH 金鑰？
