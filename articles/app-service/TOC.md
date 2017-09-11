@@ -32,10 +32,9 @@
 
 ## 計劃與設計
 ### [Azure App Service 的最佳做法](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [Azure App Service 和現有的 Azure 服務](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [App Service 深入規劃](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 ### [高密度裝載](app-service-high-density-hosting.md)
-### [Linux 上的 App Service](app-service-linux-readme.md)
+### [Linux 上的 App Service](containers/app-service-linux-intro.md)
 ### [在 Azure App Service 中使用 WebJobs](app-service-webjobs-readme.md)
 ### [App Service 環境](../app-service-web/app-service-app-service-environment-intro.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [App Service 環境文件](app-service-app-service-environments-readme.md)
@@ -78,7 +77,6 @@
 #### [使用流量管理員自訂網域](../app-service-web/web-sites-traffic-manager-custom-domain-name.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ### [複製現有的應用程式](../app-service-web/app-service-web-app-cloning-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [混合式連線](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [混合式連線 v2](app-service-hybrid-connections.md)
 ### [Azure 虛擬網路](../app-service-web/web-sites-integrate-with-vnet.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [進階組態](../app-service-web/web-sites-transform-extend.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -94,7 +92,6 @@
 #### [使用 ExpressRoute 的網路組態詳細資料](../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [安全](app-service-security-readme.md)
-### [在 Azure App Service 中保護應用程式](../app-service-web/web-sites-security.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [驗證和授權](app-service-authentication-overview.md)
 ### 使用識別提供者進行驗證
 #### [Azure Active Directory 驗證](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -117,7 +114,6 @@
 ## 備份
 ### [在 Azure 中備份應用程式](../app-service-web/web-sites-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [在 Azure 中還原應用程式](../app-service-web/web-sites-restore.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [使用 REST 來備份及還原 App Service 應用程式](../app-service-web/websites-csm-backup.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## [監視](../app-service-web/web-sites-monitor.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [啟用診斷記錄](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)
@@ -126,18 +122,12 @@
 ## 自動化
 ### [敏捷式開發](../app-service-web/app-service-agile-software-development.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [Azure Resource Manager 部署](../app-service-web/app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + GitHub ](../app-service-web/app-service-web-arm-from-github-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [Web + SQL ](../app-service-web/app-service-web-arm-with-sql-database-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [使用自訂主機名稱與 SSL 憑證的 MSDeploy](../app-service-web/app-service-web-arm-with-msdeploy-provision.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### Powershell
 #### [自動化備份和還原](app-service-powershell-backup.md)
 #### [應用程式複製](../app-service-web/app-service-web-app-cloning.md?toc=%2fazure%2fapp-service%2ftoc.json)
 #### [SSL 憑證繫結](../app-service-web/app-service-web-app-powershell-ssl-binding.md?toc=%2fazure%2fapp-service%2ftoc.json)
-#### [使用包含 PowerShell 的 Azure Resource Manager](../app-service-web/app-service-web-app-azure-resource-manager-powershell.md?toc=%2fazure%2fapp-service%2ftoc.json)
-### [使用 Azure 自動化管理應用程式](../app-service-web/automation-manage-web-app.md?toc=%2fazure%2fapp-service%2ftoc.json)
 
 ## 整合
-### [使用混合式連線存取內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [如何在 Azure 上使用 SendGrid 傳送電子郵件](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [匯出至 PowerApps 和 Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
 
@@ -150,8 +140,6 @@
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=app-service)
 
 # 資源
-## [App Service 參考](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
-## [Azure 入口網站](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
 ## [最佳作法](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  

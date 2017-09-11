@@ -5,10 +5,10 @@
 ## [SDK 及工具](../../index.md#pivot=sdkstools)
 
 # 快速入門
-## [Web Apps](../../app-service-web/web-sites-dotnet-get-started.md)
+## [Web Apps](../../app-service-web/app-service-web-get-started-html.md)
 ## 虛擬機器
-### [Linux](../../virtual-machines/virtual-machines-linux-quick-create-portal.md)
-### [Windows](../../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+### [Linux](../../virtual-machines/linux/quick-create-portal.md)
+### [Windows](../../virtual-machines/windows/quick-create-portal.md)
 ## [無伺服器](../../azure-functions/functions-create-first-azure-function.md)
 ## 微服務
 ### [Service Fabric](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)
@@ -16,16 +16,16 @@
 
 # 教學課程
 ## 建立和部署 Web 應用程式
-### [ASP.NET](../../app-service-web/web-sites-dotnet-get-started.md)
-### [Java](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
-### [Node.js](../../app-service-web/app-service-web-nodejs-get-started.md)
-### [PHP](../../app-service-web/app-service-web-php-get-started.md)
-### [Python](../../app-service-web/web-sites-python-ptvs-django-mysql.md)
+### [ASP.NET](../../app-service-web/app-service-web-get-started-dotnet.md)
+### [Java](../../app-service-web/app-service-web-get-started-java.md)
+### [Node.js](../../app-service-web/app-service-web-get-started-nodejs.md)
+### [PHP](../../app-service-web/app-service-web-get-started-php.md)
+### [Python](../../app-service-web/app-service-web-get-started-python.md)
 ## 部署複雜的 VM 範本
 ### [Linux](../../virtual-machines/virtual-machines-linux-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows](../../virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [建立連接 Azure 的函式](../../azure-functions/functions-create-an-azure-connected-function.md)
-## [在 Linux 上部署 Web 應用程式](../../app-service-web/app-service-linux-using-custom-docker-image.md) 
+## [在 Linux 上部署 Web 應用程式](../../app-service/containers/quickstart-custom-docker-image.md) 
 
 # 範例
 ## Azure CLI
@@ -48,12 +48,11 @@
 
 # 使用說明指南
 ## 規劃
-### [Web 應用程式架構](../../guidance/guidance-ra-app-service.md)
-### [VM 架構](../../guidance/guidance-ra-compute.md)
-### [連線到內部部署網路](../../guidance/guidance-ra-hybrid-networking.md)
+### [Web 應用程式架構](/azure/architecture/reference-architectures/managed-web-app/)
+### [VM 架構](/azure/architecture/reference-architectures/virtual-machines-windows/)
+### [連線到內部部署網路](/azure/architecture/reference-architectures/hybrid-networking/)
 ### [微服務模式/案例](../../service-fabric/service-fabric-patterns-and-scenarios.md)
 ## 開發
-### [WordPress 應用程式](../../app-service-web/web-sites-php-web-site-gallery.md)
 ### [Linux VM](../../virtual-machines/virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [無伺服器應用程式](../../azure-functions/functions-reference.md)
@@ -67,8 +66,8 @@
 ### [Blobs (英文)](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 ### [檔案共用](../../storage/files/storage-dotnet-how-to-use-files.md)
 ### [機碼值組](../../cosmos-db/table-storage-how-to-use-dotnet.md)
-### [JSON 文件](../../documentdb/documentdb-get-started.md)
-### [關聯式資料表](../../sql-database/sql-database-get-started.md)
+### [JSON 文件](../../cosmos-db/documentdb-get-started.md)
+### [關聯式資料表](../../sql-database/sql-database-get-started-portal.md)
 ### [訊息佇列](../../storage/queues/storage-dotnet-how-to-use-queues.md)
 
 ## 調整
@@ -77,7 +76,7 @@
 ### [微服務應用程式](../../service-fabric/service-fabric-concepts-scalability.md)
 
 ## 安全
-### [Web 和行動裝置應用程式](../../app-service-web/web-sites-security.md)
+### [Web 和行動裝置應用程式](../../app-service-web/app-service-web-tutorial-custom-ssl.md)
 
 ## 備份
 ### [Web 和行動裝置應用程式](../../app-service-web/web-sites-backup.md)
@@ -85,7 +84,7 @@
 
 ## 監視
 ### [Web 和行動裝置應用程式](../../app-service-web/web-sites-enable-diagnostic-log.md)
-### [Linux VM](../../virtual-machines/virtual-machines-linux-vm-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json.md)
+### [Linux VM](../../virtual-machines/linux/tutorial-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Windows VM](../../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [微服務](../../service-fabric/service-fabric-diagnostics-overview.md)
 ### [帳單警示](../../billing/billing-set-up-alerts.md)
