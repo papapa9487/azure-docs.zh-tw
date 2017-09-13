@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Cosmos DB︰使用 Spark 和 Apache TinkerPops Gremlin 執行圖表分析 | Microsoft Docs"
 description: "本文提供在 Azure Cosmos DB 中使用 Spark 和 TinkerPop SparkGraphComputer 設定及執行圖形分析和平行計算的指引。"
 services: cosmosdb
@@ -14,14 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: gremlin
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 09/08/2017
 ms.author: khdang
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 4f35ed6399df777edd90d1944f22dce91e76952f
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/13/2017
-
 
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB︰使用 Spark 和 Apache TinkerPop Gremlin 執行圖表分析
@@ -46,11 +44,11 @@ ms.lasthandoff: 06/13/2017
 
 首先，執行下列動作以使用圖形 API 建立資料庫帳戶：
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
 ## <a name="add-a-collection"></a>新增集合
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-graph.md)]
 
 ## <a name="get-apache-tinkerpop"></a>取得 Apache TinkerPop
 

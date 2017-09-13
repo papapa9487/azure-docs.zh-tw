@@ -27,7 +27,10 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free) 。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free) 。 
+
+  [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+
 - [Go](https://golang.org/) 語言的 [Go](https://golang.org/dl/) 和基本知識。
 - IDE — Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio 程式碼](https://code.visualstudio.com/) 或 [Atom](https://atom.io/)。 在本教學課程中，我是使用 Goglang。
 

@@ -31,7 +31,9 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 ## <a name="prerequisites"></a>必要條件
 
 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>建立資料庫帳戶

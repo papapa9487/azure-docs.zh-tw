@@ -20,7 +20,6 @@ ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/31/2017
 
-
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 設定應用程式的 SSL
 > [!div class="op_single_selector"]
@@ -37,8 +36,6 @@ ms.lasthandoff: 05/31/2017
 此工作使用生產部署。 本主題最後將提供關於如何使用預備部署的資訊。
 
 如果尚未建立雲端服務，請先閱讀 [這裡](cloud-services-how-to-create-deploy-portal.md) 。
-
-[!INCLUDE [websites-cloud-services-css-guided-walkthrough](../../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 ## <a name="step-1-get-an-ssl-certificate"></a>步驟 1：取得 SSL 憑證
 若要設定應用程式的 SSL，首先您需要取得已由憑證授權單位 (CA) (專門核發憑證的受信任第三方) 簽署的 SSL 憑證。 如果您還沒有此類憑證，則必須向銷售 SSL 憑證的公司取得。
