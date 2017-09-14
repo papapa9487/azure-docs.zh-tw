@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/02/2017
+ms.date: 08/31/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 2c0ca7fc332963e5a5db3c20c400ed877ae0cc54
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 878149521edc969dc3e15e198ff3b2ead978cf86
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics (OMS)
@@ -75,7 +74,7 @@ Switch ($Environment)
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca67-1234-421e-5678-c25/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
 Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
 
@@ -106,7 +105,7 @@ Switch ($Environment)
 # if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
 $workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca67-1234-421e-5678-c25/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
 
 Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```
@@ -127,7 +126,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 | Caller_s |起始作業的人員。  可能的值為電子郵件地址或排程作業的系統。 |
 | Tenant_g | 識別呼叫端租用戶的 GUID。 |
 | JobId_g |Runbook 作業之識別碼的 GUID。 |
-| ResultType |Runbook 作業的狀態。  可能的值包括：<br>- Started (已啟動)<br>- Stopped (已停止)<br>- Suspended (暫止)<br>- Failed (失敗)<br>- Completed (已完成) |
+| ResultType |Runbook 作業的狀態。  可能的值包括：<br>- New (新增)<br>- Started (已啟動)<br>- Stopped (已停止)<br>- Suspended (暫止)<br>- Failed (失敗)<br>- Completed (已完成) |
 | 類別 | 資料類型的分類。  對自動化來說，該值是 JobLogs。 |
 | OperationName | 指定在 Azure 中執行的作業類型。  對自動化來說，該值是 Job。 |
 | 資源 | 自動化帳戶的名稱 |

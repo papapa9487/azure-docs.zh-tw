@@ -39,7 +39,7 @@ ms.lasthandoff: 08/29/2017
 ## <a name="management-services"></a>管理服務
 若要以手動方式瀏覽至串流分析的作業記錄檔以及 Azure 傳統入口網站中的其他服務：
 
-1. 按一下 [Azure 傳統入口網站][](https://manage.windowsazure.com) 中的 [管理服務]。
+1. 按一下 [Azure 傳統入口網站](https://manage.windowsazure.com) 中的 **管理服務**。
 2. [類型] 選取 [串流分析]，並在 [服務名稱] 選取作業的名稱。  
    
    ![選取串流分析](./media/stream-analytics-operation-logs/02-stream-analytics-operation-logs.png)  

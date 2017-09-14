@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 282e1da4a5ec8ccb3c6119c6de6fd37b83bbb71e
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 <div id="main" class="v2">
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/24/2017
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/cosmos-db/">Cosmos DB</a></li>
+                                                    <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
                                                 <h4>辨識服務</h4>
                                                 <ul class="noBullet">
@@ -299,7 +299,7 @@ ms.lasthandoff: 07/24/2017
                                         <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
-                                                <p>Cosmos DB</p>
+                                                <p>Azure Cosmos DB</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1846,8 +1846,8 @@ ms.lasthandoff: 07/24/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cosmos DB</h3>
-                                                    <p>受管理的 NoSQL 文件資料庫即服務</p>
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>全域散發的多模型資料庫，適用於任何規模</p>
                                                 </div>
                                             </div>
                                         </div>

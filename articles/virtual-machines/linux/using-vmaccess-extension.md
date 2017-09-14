@@ -1,6 +1,6 @@
 ---
 title: "將存取重設為 Azure Linux VM | Microsoft Docs"
-description: "如何使用 VMAccess 擴充功能和 Azure CLI 2.0 在 Linux VM 上管理使用者及重設存取"
+description: "如何使用 VMAccess 擴充功能和 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者及重設存取"
 services: virtual-machines-linux
 documentationcenter: 
 author: dlepow
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: danlep
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 587c73278a9a92776276a811c5c4c8d3db773de3
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3596b50b68cabf212218825566c0f8313f054f65
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
-# <a name="manage-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>使用 VMAccess 擴充功能搭配 Azure CLI 2.0 在 Linux VM 上管理使用者、SSH 及檢查或修復磁碟
+# <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>使用 VMAccess 擴充功能搭配 Azure CLI 2.0 在 Linux VM 上管理系統管理使用者、SSH 及檢查或修復磁碟
 Linux VM 的磁碟顯示錯誤。 您不知怎麼重設 Linux VM的根密碼，或不小心刪除了 SSH 私密金鑰。 如果是過去資料中心的時代發生此狀況，您必須親赴現場，然後再開啟 KVM 才能存取伺服器主控台。 請將 Azure VMAccess 擴充功能想成 KVM 交換器，在此可以存取主控台重設 Linux 存取或執行磁碟等級維護。
 
-本文將說明如何使用 Azure VMAccess 擴充功能來檢查或修復磁碟、重設使用者存取、管理使用者帳戶或重設 Linux 上的 SSH 組態。 您也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
+本文將說明如何使用 Azure VMAccess 擴充功能來檢查或修復磁碟、重設使用者存取、管理系統管理使用者帳戶或重設 Linux 上的 SSH 組態。 您也可以使用 [Azure CLI 1.0](using-vmaccess-extension-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 來執行這些步驟。
 
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>使用 VMAccess 擴充功能的方式
@@ -67,8 +67,8 @@ az vm user reset-ssh \
   --name myVM
 ```
 
-## <a name="create-a-user"></a>建立使用者
-下列範例會在名為 `myVM` 的 VM 上，建立一個使用 SSH 金鑰進行驗證、名為 `myNewUser` 的使用者：
+## <a name="create-an-administrativesudo-user"></a>建立系統管理/sudo 使用者
+下列範例會建立名為 `myNewUser` 且具有 **sudo** 權限的使用者。 此帳戶會使用 SSH 金鑰在名為 `myVM` 的 VM 上進行驗證。 之所以設計此方法，是為了協助您在遺失或忘記目前的認證時能夠重新取得 VM 的存取權。 最佳做法是限制具有 **sudo** 權限的帳戶。
 
 ```azurecli
 az vm user update \
@@ -77,6 +77,8 @@ az vm user update \
   --username myNewUser \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
+
+
 
 ## <a name="delete-a-user"></a>刪除使用者
 下列範例會刪除名為 `myVM` 之 VM 上名為 `myNewUser` 的使用者：
@@ -158,9 +160,9 @@ az vm extension set \
   --protected-settings reset_sshd.json
 ```
 
-### <a name="manage-users"></a>管理使用者
+### <a name="manage-administrative-users"></a>管理系統管理使用者
 
-若要建立使用 SSH 金鑰進行驗證的使用者，請建立名為 `create_new_user.json` 的檔案，並以下列格式新增設定。 將您自己的值取代為 `username` 和 `ssh_key` 參數：
+若要建立具有 **sudo** 權限的使用者以使用 SSH 金鑰來進行驗證，請建立名為 `create_new_user.json` 的檔案，並以下列格式新增設定。 將您自己的值取代為 `username` 和 `ssh_key` 參數。 之所以設計此方法，是為了協助您在遺失或忘記目前的認證時能夠重新取得 VM 的存取權。 最佳做法是限制具有 **sudo** 權限的帳戶。
 
 ```json
 {

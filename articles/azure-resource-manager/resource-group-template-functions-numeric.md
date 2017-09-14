@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: ae0261134b8d4a934048f58d6c679a48a904950b
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 316bb96f06140c651f410411e3ce2e9eebf1d64d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的數值函式
@@ -30,8 +30,8 @@ ms.lasthandoff: 07/21/2017
 * [div](#div)
 * [float](#float)
 * [int](#int)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [mod](#mod)
 * [mul](#mul)
 * [sub](#sub)
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例會新增兩個參數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json)會新增兩個參數。
 
 ```json
 {
@@ -94,6 +94,18 @@ ms.lasthandoff: 07/21/2017
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/add.json 
+```
 
 <a id="copyindex" />
 
@@ -159,7 +171,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例會使用一個參數除以另一個參數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json)會使用一個參數除以另一個參數。
 
 ```json
 {
@@ -197,6 +209,18 @@ ms.lasthandoff: 07/21/2017
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/div.json 
+```
 
 <a id="float" />
 
@@ -251,7 +275,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例會將使用者提供的參數值轉換為整數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json)會將使用者提供的參數值轉換為整數。
 
 ```json
 {
@@ -280,58 +304,17 @@ ms.lasthandoff: 07/21/2017
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
 
-<a id="min" />
-
-## <a name="min"></a>Min
-`min (arg1)`
-
-傳回整數陣列的最小值，或以逗號分隔的整數清單。
-
-### <a name="parameters"></a>參數
-
-| 參數 | 必要 | 類型 | 說明 |
-|:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
-
-### <a name="return-value"></a>傳回值
-
-整數，代表集合中的最小值。
-
-### <a name="example"></a>範例
-
-下列範例顯示如何搭配使用 min 與陣列和整數清單：
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
 ```
 
-上述範例中具有預設值的輸出如下：
+若要使用 PowerShell 部署此範例範本，請使用：
 
-| 名稱 | 類型 | 值 |
-| ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/int.json
+```
 
 <a id="max" />
 
@@ -352,7 +335,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 max 與陣列和整數清單：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)顯示如何搭配使用 max 與陣列和整數清單：
 
 ```json
 {
@@ -378,12 +361,88 @@ ms.lasthandoff: 07/21/2017
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>Min
+`min (arg1)`
+
+傳回整數陣列的最小值，或以逗號分隔的整數清單。
+
+### <a name="parameters"></a>參數
+
+| 參數 | 必要 | 類型 | 說明 |
+|:--- |:--- |:--- |:--- |
+| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
+
+### <a name="return-value"></a>傳回值
+
+整數，代表集合中的最小值。
+
+### <a name="example"></a>範例
+
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)顯示如何搭配使用 min 與陣列和整數清單：
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+先前範例中具有預設值的輸出如下：
+
+| 名稱 | 類型 | 值 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
 
 <a id="mod" />
 
@@ -404,7 +463,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例傳回的是一個參數除以另一個參數的餘數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json)傳回的是一個參數除以另一個參數的餘數。
 
 ```json
 {
@@ -443,6 +502,18 @@ ms.lasthandoff: 07/21/2017
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mod.json
+```
+
 <a id="mul" />
 
 ## <a name="mul"></a>mul
@@ -463,7 +534,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例會使用一個參數乘以另一個參數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json)會使用一個參數乘以另一個參數。
 
 ```json
 {
@@ -502,6 +573,18 @@ ms.lasthandoff: 07/21/2017
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/mul.json
+```
+
 <a id="sub" />
 
 ## <a name="sub"></a>sub
@@ -521,7 +604,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例會對一個參數減去另一個參數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json)會使用一個參數乘以另一個參數。
 
 ```json
 {
@@ -559,6 +642,18 @@ ms.lasthandoff: 07/21/2017
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/sub.json
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

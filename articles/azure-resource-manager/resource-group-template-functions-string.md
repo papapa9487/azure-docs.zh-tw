@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 3e5c9ca546629f782a3d722b49f5fbaf5147e823
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: 9d007e2ce7cc4291eeebe26b887874085c6438b3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
@@ -74,7 +74,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 base64 函式。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)顯示如何使用 base64 函式。
 
 ```json
 {
@@ -120,6 +120,18 @@ ms.lasthandoff: 08/02/2017
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="base64tojson" />
 
@@ -140,7 +152,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會使用 base64ToJson 函式來轉換 base64 值︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)會使用 base64ToJson 函式來轉換 base64 值︰
 
 ```json
 {
@@ -186,6 +198,18 @@ JSON 物件。
 | base64Output | String | b25lLCB0d28sIHRocmVl |
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="base64tostring" />
 
@@ -206,7 +230,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會使用 base64ToString 函式來轉換 base64 值︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)會使用 base64ToString 函式來轉換 base64 值︰
 
 ```json
 {
@@ -253,7 +277,17 @@ JSON 物件。
 | toStringOutput | String | one, two, three |
 | toJsonOutput | Object | {"one": "a", "two": "b"} |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
 
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+```
 
 <a id="concat" />
 
@@ -274,7 +308,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何結合兩個字串值並傳回串連字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)顯示如何結合兩個字串值並傳回串連字串。
 
 ```json
 {
@@ -296,13 +330,25 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
 
-下一個範例顯示如何結合兩個陣列。
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+下一個[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)顯示如何結合兩個陣列。
 
 ```json
 {
@@ -337,11 +383,23 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
 
 <a id="contains" />
 
@@ -363,7 +421,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用不同類型的 contains：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)顯示如何使用不同類型的 contains：
 
 ```json
 {
@@ -414,7 +472,7 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -424,6 +482,18 @@ JSON 物件。
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
 
 <a id="datauri" />
 
@@ -444,7 +514,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會將值轉換為資料 URI，並將資料 URI 轉換為字串︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)會將值轉換為資料 URI，並將資料 URI 轉換為字串︰
 
 ```json
 {
@@ -480,6 +550,18 @@ JSON 物件。
 | ---- | ---- | ----- |
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
 
 <a id="datauritostring" />
 
@@ -500,7 +582,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會將值轉換為資料 URI，並將資料 URI 轉換為字串︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)會將值轉換為資料 URI，並將資料 URI 轉換為字串︰
 
 ```json
 {
@@ -537,6 +619,18 @@ JSON 物件。
 | dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
 | toStringOutput | String | Hello, World! |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+```
+
 <a id="empty" /> 
 
 ## <a name="empty"></a>empty
@@ -556,7 +650,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會檢查陣列、物件和字串是否空白。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)會檢查陣列、物件和字串是否空白。
 
 ```json
 {
@@ -595,13 +689,25 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
 
 <a id="endswith" />
 
@@ -623,7 +729,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 startsWith 和 endsWith 函式：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)顯示如何使用 startsWith 和 endsWith 函式：
 
 ```json
 {
@@ -670,6 +776,18 @@ JSON 物件。
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
 <a id="first" />
 
 ## <a name="first"></a>first
@@ -689,7 +807,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何搭配使用 first 函式與陣列和字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)顯示如何搭配使用 first 函式與陣列和字串。
 
 ```json
 {
@@ -716,12 +834,24 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
 
 <a id="indexof" />
 
@@ -743,7 +873,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 indexOf 和 lastIndexOf 函式：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)顯示如何使用 indexOf 和 lastIndexOf 函式：
 
 ```json
 {
@@ -785,6 +915,18 @@ JSON 物件。
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
 <a id="last" />
 
 ## <a name="last"></a>last
@@ -804,7 +946,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何搭配使用 last 函式與陣列和字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)顯示如何搭配使用 last 函式與陣列和字串。
 
 ```json
 {
@@ -831,12 +973,24 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
 
 <a id="lastindexof" />
 
@@ -858,7 +1012,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 indexOf 和 lastIndexOf 函式：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)顯示如何使用 indexOf 和 lastIndexOf 函式：
 
 ```json
 {
@@ -900,6 +1054,18 @@ JSON 物件。
 | lastString | int | 0 |
 | notFound | int | -1 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+```
+
 <a id="length" />
 
 ## <a name="length"></a>length
@@ -919,7 +1085,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何搭配使用 length 與陣列和字串：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)顯示如何搭配使用 length 與陣列和字串：
 
 ```json
 {
@@ -953,12 +1119,24 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
 
 <a id="padleft" />
 
@@ -983,7 +1161,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何藉由新增「零」字元直到符合字元總數，以填補使用者提供的參數值。 
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)顯示如何藉由新增「零」字元直到符合字元總數，以填補使用者提供的參數值。 
 
 ```json
 {
@@ -1011,6 +1189,18 @@ JSON 物件。
 | ---- | ---- | ----- |
 | stringOutput | String | 0000000123 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+```
+
 <a id="replace" />
 
 ## <a name="replace"></a>取代
@@ -1032,7 +1222,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會示範如何從使用者提供的字串中將所有的連字號移除，以及如何使用另一個字串來取代一部分的字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json)會示範如何從使用者提供的字串中將所有的連字號移除，以及如何使用另一個字串來取代一部分的字串。
 
 ```json
 {
@@ -1065,6 +1255,18 @@ JSON 物件。
 | firstOutput | String | 1231231234 |
 | secodeOutput | String | 123-123-xxxx |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+```
+
 <a id="skip" />
 
 ## <a name="skip"></a>skip
@@ -1085,7 +1287,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會略過陣列中指定的元素數目，以及字串中指定的字元數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)會略過陣列中指定的元素數目，以及字串中指定的字元數。
 
 ```json
 {
@@ -1127,12 +1329,24 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["three"] |
 | stringOutput | String | two three |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
 
 <a id="split" />
 
@@ -1154,7 +1368,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會分割輸入字串，所使用的分割字元為逗號或分號。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json)會分割輸入字串，所使用的分割字元為逗號或分號。
 
 ```json
 {
@@ -1194,6 +1408,18 @@ JSON 物件。
 | firstOutput | 陣列 | ["one", "two", "three"] |
 | secondOutput | 陣列 | ["one", "two", "three"] |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+```
+
 <a id="startswith" />
 
 ## <a name="startswith"></a>startsWith
@@ -1214,7 +1440,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 startsWith 和 endsWith 函式：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)顯示如何使用 startsWith 和 endsWith 函式：
 
 ```json
 {
@@ -1261,6 +1487,18 @@ JSON 物件。
 | endsCapTrue | Bool | True |
 | endsFalse | Bool | False |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+```
+
 <a id="string" />
 
 ## <a name="string"></a>字串
@@ -1280,7 +1518,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何將不同類型的值轉換為字串︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json)顯示如何將不同類型的值轉換為字串︰
 
 ```json
 {
@@ -1333,6 +1571,18 @@ JSON 物件。
 | arrayOutput | String | ["a","b","c"] |
 | intOutput | String | 5 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+```
+
 <a id="substring" />
 
 ## <a name="substring"></a>substring
@@ -1367,7 +1617,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會從參數中擷取子字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json)會從參數中擷取子字串。
 
 ```json
 {
@@ -1395,6 +1645,17 @@ JSON 物件。
 | ---- | ---- | ----- |
 | substringOutput | String | two |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+```
 
 <a id="take" />
 
@@ -1416,7 +1677,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會從陣列中取得指定的元素數目，以及從字串中取得指定的字元數目。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)會從陣列中取得指定的元素數目，以及從字串中取得指定的字元數目。
 
 ```json
 {
@@ -1458,12 +1719,24 @@ JSON 物件。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["one", "two"] |
 | stringOutput | String | on |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
 
 <a id="tolower" />
 
@@ -1484,7 +1757,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會將參數值轉換為小寫和大寫。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)會將參數值轉換為小寫和大寫。
 
 ```json
 {
@@ -1516,6 +1789,18 @@ JSON 物件。
 | ---- | ---- | ----- |
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
 
 <a id="toupper" />
 
@@ -1536,7 +1821,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會將參數值轉換為小寫和大寫。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)會將參數值轉換為小寫和大寫。
 
 ```json
 {
@@ -1569,6 +1854,18 @@ JSON 物件。
 | toLowerOutput | String | one two three |
 | toUpperOutput | String | ONE TWO THREE |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+```
+
 <a id="trim" />
 
 ## <a name="trim"></a>修剪
@@ -1588,7 +1885,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會修剪參數的空白字元。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json)會修剪參數的空白字元。
 
 ```json
 {
@@ -1615,6 +1912,18 @@ JSON 物件。
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | 傳回 | String | one two three |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+```
 
 <a id="uniquestring" />
 
@@ -1673,7 +1982,7 @@ JSON 物件。
 
 ### <a name="examples"></a>範例
 
-下列範例會從 uniquestring 傳回結果：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)會從 uniquestring 傳回結果：
 
 ```json
 {
@@ -1691,6 +2000,18 @@ JSON 物件。
         }
     }
 }
+```
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
 <a id="uri" />
@@ -1721,7 +2042,7 @@ JSON 物件。
 "templateLink": "[uri(deployment().properties.templateLink.uri, 'nested/azuredeploy.json')]"
 ```
 
-下列範例顯示如何使用 uri、uriComponent 和 uriComponentToString：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)顯示如何使用 uri、uriComponent 和 uriComponentToString：
 
 ```json
 {
@@ -1757,6 +2078,18 @@ JSON 物件。
 | uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 <a id="uricomponent" />
 
@@ -1777,7 +2110,7 @@ URI 編碼值的字串。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 uri、uriComponent 和 uriComponentToString：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)顯示如何使用 uri、uriComponent 和 uriComponentToString：
 
 ```json
 {
@@ -1814,6 +2147,17 @@ URI 編碼值的字串。
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 <a id="uricomponenttostring" />
 
@@ -1834,7 +2178,7 @@ URI 編碼值的解碼字串。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何使用 uri、uriComponent 和 uriComponentToString：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)顯示如何使用 uri、uriComponent 和 uriComponentToString：
 
 ```json
 {
@@ -1871,6 +2215,17 @@ URI 編碼值的解碼字串。
 | componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
 | toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

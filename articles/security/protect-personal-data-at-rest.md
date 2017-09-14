@@ -1,4 +1,4 @@
-Cu--- title: Azure 使用加密保護個人待用資料 | Microsoft Docs description: 本文是協助您使用 Azure 來保護個人資料服務之系列的一部分: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
+title: Azure 使用加密保護個人待用資料 | Microsoft Docs description: 本文是協助您使用 Azure 來保護個人資料服務之系列的一部分: security documentationcenter: na author: Barclayn manager: MBaldwin editor: TomSh
 
 ms.assetid: ms.service: security ms.devlang: na ms.topic: article ms.tgt_pltfrm: na ms.workload: na ms.date: 08/22/2017 ms.author: barclayn ms.custom: 
 

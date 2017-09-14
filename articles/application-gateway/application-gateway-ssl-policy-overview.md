@@ -1,6 +1,6 @@
 ---   
 title: "Azure 應用程式閘道的 SSL 原則概觀 | Microsoft Docs"
-description: "深入了解 Azure 應用程式閘道可讓您設定 SSL 原則"
+description: "深入了解 Azure 應用程式閘道如何讓您設定 SSL 原則"
 services: application gateway
 documentationcenter: na
 author: amsriva
@@ -15,23 +15,23 @@ ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: dae04a093af8512d27edbae8d41bd58ccc33df53
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/06/2017
 
 ---
    
 
 # <a name="application-gateway-ssl-policy-overview"></a>應用程式閘道 SSL 原則概觀
 
-應用程式閘道可讓您集中化 SSL 憑證管理，並降低後端伺服器陣列的加密和解密額外負荷。 這個集中式 SSL 處理也可讓您指定適合您組織安全性需求的中央 SSL 原則。 這可協助您符合法規需求，以及安全性指導方針和建議的做法。
+您可以使用 Azure 應用程式閘道集中管理 SSL 憑證，並降低後端伺服器陣列的加密和解密額外負荷。 這個集中式 SSL 處理也可讓您指定適合您組織安全性需求的中央 SSL 原則。 這可協助您符合法規需求，以及安全性指導方針和建議的做法。
 
-SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使用之加密順序的控制權。 此應用程式閘道提供兩種機制，讓客戶能夠控制 SSL 原則，不論是預先定義原則或自訂原則。
+SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使用之加密順序的控制權。 應用程式閘道提供兩種控制 SSL 原則的機制。 您可以使用預先定義的原則或自訂原則。
 
 ## <a name="predefined-ssl-policy"></a>預先定義的 SSL 原則
 
-應用程式閘道有三個預先定義的安全性原則。 您可以使用這些原則的任何一項來設定閘道，以取得適當的安全性層級。 原則名稱藉由它們設定時的年和月來標註。 每個原則都有不同的 SSL 通訊協定版本和加密套件。 建議使用最新的 SSL 原則以確保最佳的 SSL 安全性。 應用程式閘道現在可讓使用者從下列其中一個預先定義項目中選擇。
+應用程式閘道有三個預先定義的安全性原則。 您可以使用這些原則的任何一項來設定閘道，以取得適當的安全性層級。 原則名稱藉由它們設定時的年和月來標註。 每個原則都有不同的 SSL 通訊協定版本和加密套件。 建議您使用最新的 SSL 原則以確保最佳的 SSL 安全性。
 
 ### <a name="appgwsslpolicy20150501"></a>AppGwSslPolicy20150501
 
@@ -62,19 +62,18 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 
 ## <a name="custom-ssl-policy"></a>自訂 SSL 原則
 
-如果預先定義的 SSL 原則必須針對您的需求進行設定，您必須定義您自己的自訂 SSL 原則。 在此情況下，您對最小的 SSL 通訊協定版本具有完整控制權，以支援受到支援的加密套件及其優先順序。
+如果預先定義的 SSL 原則必須針對您的需求進行設定，您必須定義您自己的自訂 SSL 原則。 藉由自訂 SSL 原則，您可以完全控制支援的最小 SSL 通訊協定版本，以及支援的加密套件及其優先順序。
  
-SSL 通訊協定版本：
+### <a name="ssl-protocol-versions"></a>SSL 通訊協定版本
 
 * 依預設，所有應用程式閘道都停用 SSL 2.0 和 3.0。 這些通訊協定版本無法設定。
-* 自訂 SSL 原則定義可讓您選取下列三個通訊協定的其中任何一個，作為您的閘道 TLSv1_0、TLSv1_1、TLSv1_2 的最小 SSL 通訊協定版本。
-* 如果未定義任何 SSL 原則，則這三個 (TLSv1_0、TLSv1_1、TLSv1_2) 皆會啟用。
+* 自訂 SSL 原則可讓您選取下列三個通訊協定的其中任何一個作為閘道的最小 SSL 通訊協定版本：TLSv1_0、TLSv1_1 和 TLSv1_2。
+* 如果未定義任何 SSL 原則，則這三個通訊協定 (TLSv1_0、TLSv1_1 和 TLSv1_2) 皆會啟用。
 
-加密套件：
+### <a name="cipher-suites"></a>加密套件
 
-應用程式閘道支援下列加密套件，您的自訂原則可以從中選擇。 加密套件的順序會決定 SSL 交涉期間的優先順序。
+應用程式閘道支援下列加密套件，您可從套件中選擇自訂原則。 加密套件的順序會決定 SSL 交涉期間的優先順序。
 
-可用的加密套件：
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -107,5 +106,5 @@ SSL 通訊協定版本：
 
 ## <a name="next-steps"></a>後續步驟
 
-[在應用程式閘道上設定 SSL 原則](application-gateway-configure-ssl-policy-powershell.md)
+如果您想要了解如何設定 SSL 原則，請參閱[在應用程式閘道上設定 SSL 原則](application-gateway-configure-ssl-policy-powershell.md)。
 

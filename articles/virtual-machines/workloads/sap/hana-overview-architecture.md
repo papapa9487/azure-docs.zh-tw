@@ -15,10 +15,10 @@ ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: bcdcbd9e781dc9686f4be18e16bf046de6981a9d
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure 上的 SAP HANA (大型執行個體) 概觀和架構
@@ -148,7 +148,7 @@ SAP HANA on Azure (大型執行個體) 的整體架構不僅提供一個經 SAP 
 
 上述為「可用」或「不再提供」的各種不同設定在 [SAP 支援附註 #2316233 - SAP HANA on Microsoft Azure (大型執行個體)](https://launchpad.support.sap.com/#/notes/2316233/E) \(英文\) 中均有提到。 標示為「準備好接受訂購」的設定，很快就能在 SAP 附註中找到它們的項目。 不過，對於這六個可使用 HANA 大型執行個體服務的不同 Azure 區域來說，已經可以訂購那些執行個體 SKU。
 
-選擇的特定組態取決於工作負載、CPU 資源及所需的記憶體。 OLTP 工作負載可以利用已針對 OLAP 工作負載最佳化的 SKU。 
+選擇的特定組態取決於工作負載、CPU 資源及所需的記憶體。 OLTP 工作負載可以使用已針對 OLAP 工作負載最佳化的 SKU。 
 
 適用於所有優惠的硬體基礎為經 SAP HANA TDI 認證。 不過，我們會區分兩個不同類別的硬體，將 SKU 分割為：
 
@@ -189,6 +189,18 @@ SAP HANA on Azure (大型執行個體) 的整體架構不僅提供一個經 SAP 
 
 
 您已經了解這個概念。 當然還有其他變化形式。 
+
+### <a name="using-sap-hana-data-tiering-and-extension-nodes"></a>使用 SAP HANA 資料分層與擴充節點
+對於不同 SAP NetWeaver 版本的 SAP BW 和 SAP BW/4HANA，SAP 可支援資料分層模型。 有關資料分層模型的詳細資料可以在本文件以及 SAP 所提供的下列文件內指出的部落格中找到：[AP BW/4HANA AND SAP BW ON HANA WITH SAP HANA EXTENSION NODES](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#)。
+透過 HANA 大型執行個體，您可以使用 SAP HANA 擴充節點的 option-1 設定，其詳情請見本常見問題集和 SAP 部落格文件。 option-2 設定可以搭配下列 HANA 大型執行個體 SKU 來進行設定：S72m、S192、S192m、S384 和 S384m。  
+只看該文件您可能不會立即看出其優勢。 但只要看看 SAP 大小調整指導方針，您就可以使用 option-1 和 option-2 SAP HANA 擴充節點來看到其優勢。 範例如下：
+
+- SAP HANA 大小調整指導方針通常需要兩倍的資料磁碟區數量來作為記憶體。 因此，當您使用熱資料來執行 SAP HANA 執行個體時，記憶體中最多只會填入 50% 的資料。 理論上，剩餘的記憶體會保留下來供 SAP HANA 執行其工作。
+- 這表示，在具有 2 TB 記憶體且執行 SAP BW 資料庫的 HANA 大型執行個體 S192 單位中，只有 1 TB 會作為資料磁碟區。
+- 如果您使用其他採用 option-1 的 SAP HANA 擴充節點 (同樣是 S192 HANA 大型執行個體 SKU)，該節點會另外提供您 2 TB 容量的資料磁碟區。 即使在 option-2 設定，也只會另外提供您 4 TB 的暖資料磁碟區。 相較於熱節點，「暖」擴充節點的記憶體容量全都可以用來儲存資料 (若為 option-1)，若為 option-2 的 SAP HANA 擴充節點設定，則可將記憶體兩倍的容量用於資料磁碟區。
+- 因此，您最終會有 3 TB 的容量可供儲存資料，而且熱資料與暖資料的比率為 1:2 (若為 option-1)，若為 option-2 的擴充節點設定，則會有 5 TB 的資料容量和 1:4 的比率。
+
+不過，相較於記憶體的資料磁碟區容量越高，您想要的暖資料越有可能會儲存在磁碟儲存體上。
 
 
 ## <a name="operations-model-and-responsibilities"></a>作業模型和職責

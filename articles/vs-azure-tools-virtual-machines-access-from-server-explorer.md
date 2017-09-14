@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 11/18/2016
+ms.date: 8/31/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 009b325054737b63d5bdaefbe005d6a613126f52
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 75dcc603327b50718b279f3ce055663ec0bc2596
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>從伺服器總管存取 Azure 虛擬機器
@@ -28,20 +28,20 @@ ms.lasthandoff: 11/17/2016
 如果您有 Azure 主控的虛擬機器，您可以在 [伺服器總管] 中存取它們。 您必須先登入您的 Azure 訂用帳戶，才能檢視您的行動服務。 若要登入，請在 [伺服器總管] 中開啟 [Azure] 節點的捷徑功能表，並選擇 [連線到 Microsoft Azure] 。
 
 ### <a name="to-get-information-about-your-virtual-machines"></a>取得虛擬機器的相關資訊
-1. 在 [伺服器總管] 中選擇虛擬機器，然後選擇 F4 鍵以顯示其屬性視窗。
+1. 在 Cloud Explorer 中選擇虛擬機器，然後選擇 F4 鍵以顯示其屬性視窗。
    
-    下表顯示可以使用的屬性，但他們全部都是唯讀。 若要加以變更，請使用 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)。
+    下表顯示可以使用的屬性，但他們全部都是唯讀。 若要加以變更，請使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
    
    | 屬性 | 說明 |
    | --- | --- |
    | DNS 名稱 |包含虛擬機器網際網路位址的 URL。 |
    | Environment |若是虛擬機器，這個屬性的值一定是 [生產]。 |
    | 名稱 |虛擬機器的名稱。 |
-   | 大小 |虛擬機器的大小，此值會反映可用的記憶體和磁碟空間數量。 如需詳細資訊，請參閱如何：設定虛擬機器大小。 |
-   | 狀態 |值包括 [啟動中]、[已啟動]、[停止中]、[已停止] 和 [正在擷取狀態]。 如果出現 [正在擷取狀態]，則目前狀態是未知的。 這個屬性的值不同於 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)上所使用的值。 |
-   | SubscriptionID |Azure 帳戶的訂用帳戶識別碼。 您可以透過檢視訂用帳戶的屬性，在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885) 上顯示這項資訊。 |
+   | 大小 |虛擬機器的大小，此值會反映可用的記憶體和磁碟空間數量。 如需詳細資訊，請參閱[虛擬機器大小](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs)。 |
+   | 狀態 |值包括 [啟動中]、[已啟動]、[停止中]、[已停止] 和 [正在擷取狀態]。 如果出現 [正在擷取狀態]，則目前狀態是未知的。 這個屬性的值不同於 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)上所使用的值。 |
+   | SubscriptionID |Azure 帳戶的訂用帳戶識別碼。 您可以透過檢視訂用帳戶的屬性，在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)上顯示這項資訊。 |
 2. 選擇端點節點，然後檢視 [屬性]  視窗。
-3. 下表說明可用的端點屬性，但他們全部都是唯讀。 若要新增或編輯虛擬機器的端點，請使用 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)。 
+3. 下表說明可用的端點屬性，但他們全部都是唯讀。 若要新增或編輯虛擬機器的端點，請使用 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。 
    
    | 屬性 | 說明 |
    | --- | --- |

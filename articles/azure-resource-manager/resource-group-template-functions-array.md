@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 0bd9ec41761c9ce575f3bcf4d1f8e8578b83e01c
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 96840d72b86d0b9487d9a3a6039c7582a2718e7a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的陣列和物件函式 
@@ -36,8 +36,8 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 * [json](#json)
 * [last](#last)
 * [length](#length)
-* [min](#min)
 * [max](#max)
+* [min](#min)
 * [range](#range)
 * [skip](#skip)
 * [take](#take)
@@ -64,7 +64,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何使用不同類型的陣列函式。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/array.json)顯示如何使用不同類型的陣列函式。
 
 ```json
 {
@@ -103,13 +103,25 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | intOutput | 陣列 | [1] |
 | stringOutput | 陣列 | ["a"] |
 | objectOutput | 陣列 | [{"a": "b", "c": "d"}] |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```
 
 <a id="coalesce" />
 
@@ -131,7 +143,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示不同的聯合用法所得到的輸出。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json)顯示不同的聯合用法所得到的輸出。
 
 ```json
 {
@@ -177,7 +189,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -186,6 +198,18 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 | objectOutput | Object | {"first": "default"} |
 | arrayOutput | 陣列 | [1] |
 | emptyOutput | Bool | True |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```
 
 <a id="concat" />
 
@@ -208,7 +232,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下一個範例顯示如何結合兩個陣列。
+下一個[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)顯示如何結合兩個陣列。
 
 ```json
 {
@@ -243,13 +267,25 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | return | 陣列 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-下列範例顯示如何結合兩個字串值並傳回串連字串。
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```
+
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)顯示如何結合兩個字串值並傳回串連字串。
 
 ```json
 {
@@ -271,11 +307,23 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```
 
 <a id="contains" />
 
@@ -297,7 +345,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何使用不同類型的 contains：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)顯示如何使用不同類型的 contains：
 
 ```json
 {
@@ -348,7 +396,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -358,6 +406,18 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```
 
 <a id="createarray" />
 
@@ -379,7 +439,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何使用不同類型的 createArray：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/createarray.json)顯示如何使用不同類型的 createArray：
 
 ```json
 {
@@ -418,7 +478,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -426,6 +486,18 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 | intArray | 陣列 | [1, 2, 3] |
 | objectArray | 陣列 | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | 陣列 | [["one", "two", "three"]] |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```
 
 <a id="empty" />
 
@@ -447,7 +519,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例會檢查陣列、物件和字串是否空白。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)會檢查陣列、物件和字串是否空白。
 
 ```json
 {
@@ -486,13 +558,25 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```
 
 <a id="first" />
 
@@ -513,7 +597,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 first 函式與陣列和字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)顯示如何搭配使用 first 函式與陣列和字串。
 
 ```json
 {
@@ -540,12 +624,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
 
 <a id="intersection" />
 
@@ -568,7 +664,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 intersection 與陣列和物件︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/intersection.json)顯示如何搭配使用 intersection 與陣列和物件︰
 
 ```json
 {
@@ -607,13 +703,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | 陣列 | ["two", "three"] |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```
 
 ## <a name="json"></a>json
 `json(arg1)`
@@ -633,7 +740,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 intersection 與陣列和物件︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json)顯示如何搭配使用 json 函式與陣列和物件︰
 
 ```json
 {
@@ -654,12 +761,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolean | True |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```
 
 <a id="last" />
 
@@ -680,7 +799,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 last 函式與陣列和字串。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)顯示如何搭配使用 last 函式與陣列和字串。
 
 ```json
 {
@@ -707,12 +826,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | String | three |
 | stringOutput | String | e |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```
 
 <a id="length" />
 
@@ -733,7 +864,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 length 與陣列和字串：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)顯示如何搭配使用 length 與陣列和字串：
 
 ```json
 {
@@ -767,12 +898,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```
 
 建立資源時，您可在陣列中使用此函式指定反覆運算的數量。 下列範例中，參數 **siteNames** 會參考在建立網站時要使用的名稱陣列。
 
@@ -784,58 +927,6 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 ```
 
 如需有關在此陣列中使用函式的詳細資訊，請參閱 [在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
-
-<a id="min" />
-
-## <a name="min"></a>Min
-`min(arg1)`
-
-傳回整數陣列的最小值，或以逗號分隔的整數清單。
-
-### <a name="parameters"></a>參數
-
-| 參數 | 必要 | 類型 | 說明 |
-|:--- |:--- |:--- |:--- |
-| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
-
-### <a name="return-value"></a>傳回值
-
-代表最小值的整數。
-
-### <a name="example"></a>範例
-
-下列範例顯示如何搭配使用 min 與陣列和整數清單：
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "arrayToTest": {
-            "type": "array",
-            "defaultValue": [0,3,2,5,4]
-        }
-    },
-    "resources": [],
-    "outputs": {
-        "arrayOutput": {
-            "type": "int",
-            "value": "[min(parameters('arrayToTest'))]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[min(0,3,2,5,4)]"
-        }
-    }
-}
-```
-
-上述範例中具有預設值的輸出如下：
-
-| 名稱 | 類型 | 值 |
-| ---- | ---- | ----- |
-| arrayOutput | int | 0 |
-| intOutput | int | 0 |
 
 <a id="max" />
 
@@ -856,7 +947,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 max 與陣列和整數清單：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json)顯示如何搭配使用 max 與陣列和整數清單：
 
 ```json
 {
@@ -882,12 +973,88 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```
+
+<a id="min" />
+
+## <a name="min"></a>Min
+`min(arg1)`
+
+傳回整數陣列的最小值，或以逗號分隔的整數清單。
+
+### <a name="parameters"></a>參數
+
+| 參數 | 必要 | 類型 | 說明 |
+|:--- |:--- |:--- |:--- |
+| arg1 |是 |整數的陣列，或以逗號分隔的整數清單 |要用來取得最小值的集合。 |
+
+### <a name="return-value"></a>傳回值
+
+代表最小值的整數。
+
+### <a name="example"></a>範例
+
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json)顯示如何搭配使用 min 與陣列和整數清單：
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "arrayToTest": {
+            "type": "array",
+            "defaultValue": [0,3,2,5,4]
+        }
+    },
+    "resources": [],
+    "outputs": {
+        "arrayOutput": {
+            "type": "int",
+            "value": "[min(parameters('arrayToTest'))]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[min(0,3,2,5,4)]"
+        }
+    }
+}
+```
+
+先前範例中具有預設值的輸出如下：
+
+| 名稱 | 類型 | 值 |
+| ---- | ---- | ----- |
+| arrayOutput | int | 0 |
+| intOutput | int | 0 |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```
 
 <a id="range" />
 
@@ -909,7 +1076,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何使用 range 函式：
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/range.json)顯示如何使用 range 函式：
 
 ```json
 {
@@ -935,11 +1102,23 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | rangeOutput | 陣列 | [5, 6, 7] |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```
 
 <a id="skip" />
 
@@ -961,7 +1140,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例會略過陣列中指定的元素數目，以及字串中指定的字元數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)會略過陣列中指定的元素數目，以及字串中指定的字元數。
 
 ```json
 {
@@ -1003,12 +1182,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["three"] |
 | stringOutput | String | two three |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```
 
 <a id="take" />
 
@@ -1030,7 +1221,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例會從陣列中取得指定的元素數目，以及從字串中取得指定的字元數目。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)會從陣列中取得指定的元素數目，以及從字串中取得指定的字元數目。
 
 ```json
 {
@@ -1072,12 +1263,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | arrayOutput | 陣列 | ["one", "two"] |
 | stringOutput | String | on |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```
 
 <a id="union" />
 
@@ -1100,7 +1303,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 
 ### <a name="example"></a>範例
 
-下列範例顯示如何搭配使用 union 與陣列和物件︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/union.json)顯示如何搭配使用 union 與陣列和物件︰
 
 ```json
 {
@@ -1139,12 +1342,24 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 }
 ```
 
-上述範例中具有預設值的輸出如下：
+先前範例中具有預設值的輸出如下：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c", "four": "d", "five": "e"} |
 | arrayOutput | 陣列 | ["one", "two", "three", "four"] |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

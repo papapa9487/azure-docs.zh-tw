@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a5ccfa671e6780a3d4305d4e3238c55de8e577c
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
@@ -58,7 +57,7 @@ Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署�
 
 服務類型有兩種：無狀態和具狀態。 無狀態服務可以將持續狀態儲存外部儲存體服務中，例如 Azure 儲存體、Azure SQL Database 或 Azure Cosmos DB。 當服務完全沒有持續性儲存體時，請使用無狀態服務。 具狀態服務會使用 Service Fabric 透過其 Reliable Collections 或 Reliable Actors 程式設計模型來管理您的服務狀態。 
 
-建立具名服務時，您需指定資料分割配置。 含有大量狀態的服務會跨資料分割切割其資料。 每個資料分割會負責服務完整狀態的一部分，其會分散至全體叢集的節點。 在分割內，無狀態的具名服務會有執行個體，而具狀態的具名服務則有複本。 通常，無狀態具名服務只會有 1 個分割，因為它們有沒有內部狀態。 具狀態的具名服務會在複本中維持其狀態，且每個資料分割都有自己的複本集。 讀取與寫入作業會在單一複本上執行 (稱為「主要複本」)。 從寫入作業對狀態進行的變更，會複寫至多個其他複本 (稱為「作用中次要複本」)。 
+建立具名服務時，您需指定資料分割配置。 含有大量狀態的服務會跨資料分割切割其資料。 每個資料分割會負責服務完整狀態的一部分，其會分散至全體叢集的節點。  
 
 下圖顯示應用程式和服務執行個體、分割和複本之間的關聯性。
 
@@ -94,7 +93,10 @@ Service Fabric 提供多種撰寫和管理服務的方式。 服務可以使用 
 [Reliable Actor](service-fabric-reliable-actors-introduction.md) 架構是建置在 Reliable Services 上的應用程式架構，它會根據動作項目設計模式來實作 Virtual Actor 模式。 Reliable Actor 架構使用獨立的計算單位，和以單一執行緒方式執行稱為動作項目的狀態。 Reliable Actor 架構提供動作項目的內建通訊，以及預先設定狀態持續性和相應放大組態。
 
 ### <a name="aspnet-core"></a>ASP.NET Core
-Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 整合，可作為建置 Web 和 API 應用程式的最高等級程式設計模型
+Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) 整合，可作為建置 Web 和 API 應用程式的最高等級程式設計模型。  可在 Service Fabric 中以兩種方式使用 ASP.NET Core︰
+
+- 裝載作為客體可執行檔。 這主要用於在 Service Fabric 上執行現有的 ASP.NET Core 應用程式而無須變更程式碼。
+- 在 Reliable Service 內部執行。 這可與 Service Fabric 執行階段更緊密整合，並可允許具狀態 ASP.NET Core 服務。
 
 ### <a name="guest-executables"></a>客體可執行檔
 [客體可執行檔](service-fabric-deploy-existing-app.md)是以任何語言所撰寫，且與其他服務一同裝載於 Service Fabric 叢集的現有任意可執行檔。 客體可執行檔未直接與 Service Fabric API 整合。 不過，它們仍然受惠於功能和平台提供項目，例如自訂健康情況和負載報告，以及透過呼叫 REST API 來探索服務。 它們也具備完整的應用程式生命週期支援。 

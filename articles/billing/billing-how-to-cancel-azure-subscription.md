@@ -13,14 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 08/30/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: c415fada30aa0b0bd9b9d1e416bc37ef30653f68
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 51fe2ab891e86ae4bd7402622231af47f35aa01d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="cancel-your-subscription-for-azure"></a>取消您的 Azure 訂用帳戶
@@ -37,41 +36,21 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>使用 Azure 入口網站取消訂用帳戶
 
-1. 在[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。
-
+1. 在 [Azure 入口網站的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中選取您的訂用帳戶。
 1. 選取您要取消的訂用帳戶，然後按一下 [取消訂用帳戶]。
 
     ![顯示 [取消] 按鈕的螢幕擷取畫面](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-
 1. 遵循提示並完成取消作業。
-
-## <a name="cancel-subscription-using-the-azure-account-center"></a>使用 Azure 帳戶中心取消訂用帳戶
-
-1. 以帳戶管理員身分登入 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)。
-
-1. 在 [按一下訂用帳戶即可檢視詳細資料及使用量] 下方，選取您要取消的訂用帳戶。
-
-    ![顯示已選取範例訂用帳戶的螢幕擷取畫面](./media/billing-how-to-cancel-azure-subscription/Selectsub.png)
-
-1. 選取頁面右側的 [取消訂用帳戶] 。
-
-    ![顯示 [取消訂用帳戶] 按鈕的螢幕擷取畫面](./media/billing-how-to-cancel-azure-subscription/cancelsub.png)
-
-1. 選取 [是，取消我的訂用帳戶] 。
-
-    ![顯示 [取消] 對話方塊的螢幕擷取畫面](./media/billing-how-to-cancel-azure-subscription/cancelbox.png)
-
-1. 按一下  ![[核取符號] 按鈕](./media/billing-how-to-cancel-azure-subscription/checkbutton.png) 關閉對話視窗並返回您的訂用帳戶頁面。
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>取消訂用帳戶之後會發生什麼情況？
 
 當您取消之後，計費會立即停止。 不過，可能需要最多 10 分鐘的時間，取消作業才會出現在入口網站中。
 
-在這之後，您的服務將會停用。 這表示您的虛擬機器將會解除配置、暫時 IP 位址將會釋出，且儲存體會變成唯讀。
+在這之後，您的服務將會停用。 這表示系統會解除配置您的虛擬機器、釋出暫時 IP 位址，且儲存體會變成唯讀。
 
-除非您是處於免費試用期間或有可用的信用額度，否則您必須支付在最後一個結算週期與取消日期之間產生的所有未支付使用費用。 您將在計費週期結束時取得最後一份帳單。
+如果您在計費期間中途取消訂用帳戶，我們會在該期間結束後的一般發票核發日傳送最後一張帳單。 
 
-取消訂用帳戶之後，我們會等 90 天之後才永久刪除您的資料，以防您需要存取它，或您改變心意。 我們不會向您收取保留資料的費用。 若要深入了解，請參閱 [Microsoft 信任中心 - 我們如何管理您的資料](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) \(英文\)。
+我們會在 90 天後才永久刪除您的資料，以防您需要存取該資料或改變心意。 我們不會向您收取保留資料的費用。 若要深入了解，請參閱 [Microsoft 信任中心 - 我們如何管理您的資料](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) \(英文\)。
 
 ## <a name="reactivate-subscription"></a>重新啟動訂用帳戶
 

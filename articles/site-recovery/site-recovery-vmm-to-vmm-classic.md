@@ -14,16 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 89a54a83e6708da8e7fd91923c3ef71d8371f8f3
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 768c2598beccba885dd5e43a59ec4684818ccca3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
-<a id="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site" class="xliff"></a>
-# 將位於 VMM 雲端中的 Hyper-V 虛擬機器複寫至次要 VMM 站台
+# <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>將位於 VMM 雲端中的 Hyper-V 虛擬機器複寫至次要 VMM 站台
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](site-recovery-vmm-to-vmm.md)
 > * [傳統入口網站](site-recovery-vmm-to-vmm-classic.md)
@@ -33,22 +31,19 @@ ms.lasthandoff: 02/23/2017
 
 Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫、容錯移轉及復原 (BCDR) 策略，為您的商務持續性與災害復原做出貢獻。 機器可以複寫至 Azure，或次要的內部部署資料中心。 如需快速概觀，請參閱 [什麼是 Azure Site Recovery？](site-recovery-overview.md)
 
-<a id="overview" class="xliff"></a>
-## 概觀
+## <a name="overview"></a>概觀
 本文說明如何使用 Azure Site Recovery，將在 VMM 雲端中管理的 Hyper-V 主機伺服器上的 Hyper-V 虛擬機器，複寫至次要 VMM 網站。
 
 本文章包含必要條件，示範如何設定 Site Recovery 保存庫、在來源和目標 VMM 伺服器上安裝 Azure Site Recovery 提供者、在保存庫中註冊伺服器、針對 VMM 雲端設定保護設定，然後啟用 Hyper-V VM 的保護。 測試容錯移轉，確認一切如預期般運作以完成動作。
 
 在這篇文章下方或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中張貼意見或問題。
 
-<a id="architecture" class="xliff"></a>
-## 架構
+## <a name="architecture"></a>架構
 下圖顯示 Azure Site Recovery 為協調流程與複寫所使用的不同通訊通道與連接埠
 
 ![E2E 拓樸](./media/site-recovery-vmm-to-vmm-classic/e2e-topology.png)
 
-<a id="before-you-start" class="xliff"></a>
-## 開始之前
+## <a name="before-you-start"></a>開始之前
 確認您已備妥這些必要條件：
 
 | **必要條件** | **詳細資料** |
@@ -59,8 +54,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 | **網路對應** |您可以設定網路對應，以確保在容錯移轉後，會以最佳方式將已複寫的虛擬機器置於次要 Hyper-V 主機伺服器上，而且這些虛擬機器可以連線到適當的 VM 網路。 如果您沒有設定網路對應，複本 VM 將不會在容錯移轉之後連接到任何網路。<br/><br/>若要在部署期間設定網路對應，請確定來源 Hyper-V 主機伺服器上的虛擬機器連接到 VMM VM 網路。 該網路應該連結到與雲端相關聯的邏輯網路。<br/<br/>在您用於復原的次要 VMM 伺服器上的目標雲端應該設定相對應的 VM 網路，而該網路應該連結到與目標雲端相關聯的相對應邏輯網路。 |
 | **儲存體對應** |根據預設，當您將來源 Hyper-V 主機伺服器上的虛擬機器複寫至目標 Hyper-V 主機伺服器時，複寫的資料會儲存在為 Hyper-V 管理員中之目標 Hyper-V 主機所指定的預設位置。 如果要進一步控制複寫資料的儲存位置，您可以設定儲存體對應<br/><br/> 若要設定儲存體對應，必須在來源和目標 VMM 伺服器上設定儲存體分類，才能開始部署。 |
 
-<a id="step-1-create-a-site-recovery-vault" class="xliff"></a>
-## 步驟 1：建立 Site Recovery 保存庫
+## <a name="step-1-create-a-site-recovery-vault"></a>步驟 1：建立 Site Recovery 保存庫
 1. 從您想要註冊的 VMM 伺服器登入 [管理入口網站](https://portal.azure.com) 。
 2. 展開 [資料服務]  >  [復原服務]，然後按一下 [Site Recovery 保存庫]。
 3. 按一下 [新建]  >  [快速建立]。
@@ -72,8 +66,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 檢查狀態列，以確認是否已建立保存庫。 保存庫在主要復原服務頁面上會列為 [使用中]  。
 
-<a id="step-2-generate-a-vault-registration-key" class="xliff"></a>
-## 步驟 2：產生保存庫註冊金鑰
+## <a name="step-2-generate-a-vault-registration-key"></a>步驟 2：產生保存庫註冊金鑰
 在保存庫中產生註冊金鑰。 下載 Azure Site Recovery 提供者並將其安裝在 VMM 伺服器之後，您將使用此金鑰在保存庫中註冊 VMM 伺服器。
 
 1. 在 [復原服務]  頁面中，按一下保存庫以開啟 [快速啟動] 頁面。 您也可以使用圖示隨時開啟 [快速入門]。
@@ -84,8 +77,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![註冊金鑰](./media/site-recovery-vmm-to-vmm-classic/register-key.png)
 
-<a id="step-3-install-the-azure-site-recovery-provider" class="xliff"></a>
-## 步驟 3：安裝 Azure Site Recovery 提供者
+## <a name="step-3-install-the-azure-site-recovery-provider"></a>步驟 3：安裝 Azure Site Recovery 提供者
 1. 在 [快速入門] 頁面上，按一下 [準備 VMM 伺服器] 中的 [下載要在 VMM 伺服器上安裝的 Microsoft Azure Site Recovery 提供者]，以取得最新版的提供者安裝檔案。
 2. 在來源 VMM 伺服器上執行此檔案。
 
@@ -128,8 +120,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![伺服器](./media/site-recovery-vmm-to-vmm-classic/provider13.PNG)
 
-<a id="command-line-installation" class="xliff"></a>
-### 命令列安裝
+### <a name="command-line-installation"></a>命令列安裝
 您也可以從命令列安裝 Azure Site Recovery 提供者。 這個方法可以用來在適用於 Windows Server 2012 R2 的伺服器核心上安裝提供者。
 
 1. 將提供者安裝檔案和註冊金鑰下載至資料夾。 例如 C:\ASR。
@@ -156,8 +147,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 * **/proxyUsername**：指定 Proxy 使用者名稱 (如果 Proxy 需要驗證) 的選用參數。
 * **/proxyPassword**：指定用於驗證 Proxy 伺服器的密碼 (如果 Proxy 需要驗證) 的選用參數。  
 
-<a id="step-4-configure-cloud-protection-settings" class="xliff"></a>
-## 步驟 4：設定雲端保護設定
+## <a name="step-4-configure-cloud-protection-settings"></a>步驟 4：設定雲端保護設定
 註冊 VMM 伺服器之後，您就可以設定雲端保護設定。 如果您安裝提供者時啟用了 [將雲端資料與保存庫同步] 選項，VMM 伺服器上的所有雲端都會出現在保存庫的 [受保護項目] 索引標籤中。 如果您未啟用該選項，您可以在 VMM 主控台中雲端屬性頁面的 [一般]  索引標籤中，將特定雲端與 Azure Site Recovery 同步。
 
 ![發佈的雲端](./media/site-recovery-vmm-to-vmm-classic/clouds-list.png)
@@ -186,10 +176,9 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![進行保護設定](./media/site-recovery-vmm-to-vmm-classic/cloud-settings-replica.png)
 
-儲存設定之後，會建立一個工作，並可在 [工作]  索引標籤上進行監視。 VMM 來源雲端中的所有 Hyper-V 主機伺服器會設定進行複寫。 在 [設定]  索引標籤上可修改雲端設定。 如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。
+儲存設定之後，會建立一個工作，並可在 [工作]  索引標籤上進行監視。VMM 來源雲端中的所有 Hyper-V 主機伺服器會設定進行複寫。 在 [設定]  索引標籤上可修改雲端設定。如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。
 
-<a id="prepare-for-offline-initial-replication" class="xliff"></a>
-### 準備進行離線初始複寫
+### <a name="prepare-for-offline-initial-replication"></a>準備進行離線初始複寫
 您必須執行下列動作，以準備進行初始複寫離線：
 
 * 在來源伺服器上，您會指定要從中匯出資料的路徑位置。 在匯出路徑上指派 NTFS 和共用權限的完整控制權給 VMM 服務。 在目標伺服器上，您會指定要從中匯入資料的路徑位置。 在這個匯入路徑上指派相同的權限。
@@ -205,8 +194,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
   6. 按一下 [新增]  > 提出技術問題。
   7. 輸入裝載匯出路徑的電腦名稱 > [確定]。從可用服務的清單中，按住 CTRL 鍵並按一下 [cifs] > [確定]。 為裝載匯入路徑的電腦名稱重複動作。 視需要為其他 Hyper-V 主機伺服器重複動作。
 
-<a id="step-5-configure-network-mapping" class="xliff"></a>
-## 步驟 5：設定網路對應
+## <a name="step-5-configure-network-mapping"></a>步驟 5：設定網路對應
 1. 在 [快速入門] 頁面上，按一下 [對應網路] 。
 2. 選取您想要從其中對應網路的來源 VMM 伺服器，然後選取對應網路的目標 VMM 伺服器。 隨即會顯示來源網路的清單和與其相關聯的目標網路。 目前尚未對應的網路會顯示空白值。
 3. 在 [來源上的網路]  >  [對應] 中選取網路。 服務會偵測目標伺服器上的 VM 網路並加以顯示。 按一下來源和目標網路名稱旁邊的資訊圖示，以檢視每個網路的子網路。
@@ -218,8 +206,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 5. 當您選曲目標網路時，隨即會顯示使用來源網路的受保護雲端。 同時也會顯示與用於保護之雲端相關聯的可用目標網路。 建議您選取所有用於保護之雲端都可用的目標網路。 或者，您也可以移至 VMM 伺服器並修改雲端屬性，以新增想要選擇的 vm 網路所對應的邏輯網路。
 6. 按一下打勾記號完成對應程序。 隨即有個工作啟動來追蹤對應程序。 您可以在 [工作]  索引標籤上檢視它。
 
-<a id="step-6-configure-storage-mapping" class="xliff"></a>
-## 步驟 6：設定儲存體對應
+## <a name="step-6-configure-storage-mapping"></a>步驟 6：設定儲存體對應
 根據預設，當您將來源 Hyper-V 主機伺服器上的虛擬機器複寫至目標 Hyper-V 主機伺服器時，複寫的資料會儲存在為 Hyper-V 管理員中之目標 Hyper-V 主機所指定的預設位置。 如果要進一步控制複寫資料的儲存位置，您可以用以下方式設定儲存體對應：
 
 1. 在來源和目標 VMM 伺服器上定義儲存體分類。 [深入了解](https://technet.microsoft.com/library/gg610685.aspx)。 分類必須可用於來源與目標雲端中的 Hyper-V 主機伺服器。 分類不需要具有相同類型的儲存體。 例如，您可以將包含 SMB 共用的來源分類對應至包含 CSV 的目標分類。
@@ -229,8 +216,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
     ![選取目標網路](./media/site-recovery-vmm-to-vmm-classic/storage-mapping.png)
 
-<a id="step-7-enable-virtual-machine-protection" class="xliff"></a>
-## 步驟 7：啟用虛擬機器保護
+## <a name="step-7-enable-virtual-machine-protection"></a>步驟 7：啟用虛擬機器保護
 正確設定伺服器、雲端和網路後，您就可以對雲端中的虛擬機器啟用保護。
 
 1. 在虛擬機器所在雲端中的 [虛擬機器] 索引標籤上，按一下 [啟用保護]  >  [新增虛擬機器]。
@@ -246,19 +232,16 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 >
 >
 
-<a id="on-board-existing-virtual-machines" class="xliff"></a>
-### 加入現有的虛擬機器
+### <a name="on-board-existing-virtual-machines"></a>加入現有的虛擬機器
 如果 VMM 中已經有使用「Hyper-V 複本」複寫的現有的虛擬機器，您必須以下列方式將它們加入以使用 Azure Site Recovery 保護：
 
 1. 請確認您有主要和次要雲端。 請確認裝載現有虛擬機器的 Hyper-V 伺服器位於主要雲端中，且裝載複本虛擬機器的 Hyper-V 伺服器位於次要雲端中。 請確認您已為雲端進行保護設定。 這些設定應符合目前為 Hyper-V 複本所做的設定。 否則虛擬機器複寫可能無法如預期般運作。
 2. 然後啟用主要虛擬機器的保護。 Azure Site Recovery 和 VMM 可確保偵測到相同的複本主機和虛擬機器，且 Azure Site Recovery 會在雲端設定期間使用這些設定，重複使用及重新建立複寫作業。
 
-<a id="test-your-deployment" class="xliff"></a>
-## 測試您的部署
+## <a name="test-your-deployment"></a>測試您的部署
 若要測試部署，您可以對單一虛擬機器執行測試容錯移轉，或者建立包含多部虛擬機器的復原方案，再對這個方案執行測試容錯移轉。  測試容錯移轉會在隔離的網路中模擬您的容錯移轉與復原機制。
 
-<a id="create-a-recovery-plan" class="xliff"></a>
-### 建立復原計畫
+### <a name="create-a-recovery-plan"></a>建立復原計畫
 1. 在 [復原方案] 索引標籤上，按一下 [建立復原方案]。
 2. 指定復原方案的名稱，以及來源和目標 VMM 伺服器。 來源伺服器必須有已啟用容錯移轉和復原功能的虛擬機器。 請選取 [Hyper-V]  ，以檢視為 Hyper-V 複寫設定的雲端。
 
@@ -269,18 +252,15 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 建立復原計畫之後，它會出現在 [復原計畫]  索引標籤上的清單中。
 
-<a id="run-a-test-failover" class="xliff"></a>
-### 執行測試容錯移轉
+### <a name="run-a-test-failover"></a>執行測試容錯移轉
 1. 在 [復原計畫] 索引標籤上，選取計畫，然後按一下 [測試容錯移轉]。
 2. 在 [確認測試容錯移轉] 頁面上，選取 [無]。 請注意，啟用此選項時，容錯移轉複本虛擬機器將不會連線到任何網路。 這將會測試虛擬機器是否依照預期執行容錯移轉，但是不會測試您的複寫網路環境。 請參閱 [執行測試容錯移轉](site-recovery-failover.md) 中有關如何使用不同網路選項的詳細資訊。
 3. 測試虛擬機器將建立在複本虛擬機器所在的相同主機上。 它會新增至複本虛擬機器所在的相同雲端。
 
-<a id="run-a-recovery-plan" class="xliff"></a>
-### 執行復原計畫
+### <a name="run-a-recovery-plan"></a>執行復原計畫
 複寫之後，複本虛擬機器的 IP 位址可能與主要虛擬機器的 IP 位址不同。 虛擬機器在啟動後將更新他們正在使用的 DNS 伺服器。 您也可以加入指令碼以更新 DNS 伺服器，以確保及時更新。
 
-<a id="script-to-retrieve-the-ip-address" class="xliff"></a>
-#### 要擷取 IP 位址的指令碼
+#### <a name="script-to-retrieve-the-ip-address"></a>要擷取 IP 位址的指令碼
 執行此範例指令碼以抓取 IP 位址。
 
         $vm = Get-SCVirtualMachine -Name <VM_NAME>
@@ -288,8 +268,7 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
         $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
         $ip.address  
 
-<a id="script-to-update-dns" class="xliff"></a>
-#### 要更新 DNS 的指令碼
+#### <a name="script-to-update-dns"></a>要更新 DNS 的指令碼
 執行此範例指令碼來更新 DNS (使用上一個範例指令碼抓取到的 IP 位址)。
 
         string]$Zone,
@@ -303,9 +282,8 @@ Azure Site Recovery 服務可藉由協調虛擬機器與實體伺服器的複寫
 
 
 
-<a id="privacy-information-for-site-recovery" class="xliff"></a>
-## Site Recovery 的隱私權資訊
-本節提供 Microsoft Azure Site Recovery 服務 (「服務」) 的其他隱私權資訊。 若要檢視 Microsoft Azure 服務的隱私權聲明，請參閱 [Microsoft Azure 隱私權聲明](http://go.microsoft.com/fwlink/?LinkId=324899)
+## <a name="privacy-information-for-site-recovery"></a>Site Recovery 的隱私權資訊
+本節提供 Microsoft Azure Site Recovery 服務的其他隱私權資訊。 
 
 **功能：註冊**
 
@@ -353,7 +331,6 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
   * VMM 伺服器中的雲端名稱—使用如下所述之服務雲端配對/取消配對功能時，雲端名稱為必要項目。 當您決定配對您在主要資料中心的雲端與另一個在復原資料中心的雲端時，復原資料中心的所有雲端名稱都會出現。
 * **選擇**：這是服務不可或缺的一部分，而且無法關閉。 如果您不想將此資訊傳送給服務，請勿使用此服務。
 
-<a id="next-steps" class="xliff"></a>
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 在您執行測試容錯移轉以檢查您的環境是否如預期般運作之後，請 [深入了解](site-recovery-failover.md) 不同類型的容錯移轉。
 

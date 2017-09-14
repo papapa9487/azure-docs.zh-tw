@@ -16,15 +16,26 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 647509ea36e487aca5db661adb3268e845988f78
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>針對 Azure 的註冊問題進行疑難排解
 如果您無法註冊 Azure，請使用此文章中的祕訣來針對常見問題進行疑難排解。 如果在註冊期間遇到信用卡的問題，請參閱[在 Azure 註冊時信用卡或金融卡遭到拒絕](billing-credit-card-fails-during-azure-sign-up.md)。 如果您有 Azure 帳戶但無法登入，請參閱[我無法登入來管理我的 Azure 訂用帳戶](billing-cannot-login-subscription.md)。
+
+## <a name="error-we-cannot-proceed-with-signup-due-to-an-issue-with-your-account-please-contact-billing-support"></a>「您的帳戶出現問題，導致註冊無法繼續。 請連絡帳務支援。」錯誤訊息 
+
+若要解決此問題，請依照下列步驟執行︰
+
+1. 使用帳戶管理員認證登入 [Azure 帳戶中心](https://account.azure.com)。 
+2. 按一下 [設定檔]，然後按一下 [編輯詳細資料]。
+3. 確定所有地址欄位皆已填寫完畢且正確無誤。 
+4. 註冊 Azure 訂閱時，在信用卡註冊期間輸入的帳單地址務必和您銀行記錄的地址相同。
+
+如果仍收到錯誤訊息，請嘗試用其他瀏覽器進行註冊。
 
 ## <a name="progress-bar-hangs-in-identity-verification-by-card-section"></a>[依據卡片進行身分識別驗證] 區段中的進度列停止回應
 

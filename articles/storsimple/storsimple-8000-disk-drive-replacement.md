@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 073/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 146c9f5c751443608f8f405be949398f9f721053
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的磁碟機
@@ -103,8 +103,8 @@ ms.lasthandoff: 07/08/2017
     **圖 6** 將磁碟機載具滑入底座
 3. 一旦插入磁碟機載具，請關閉磁碟機載具把手，同時繼續將磁碟機載具推入底座，直到磁碟機載具把手卡入鎖定的位置。
 4. 使用 Microsoft 所提供的鎖鑰匙 (防拆 Torx 螺絲起子)，將鎖螺絲順時鐘方向旋轉四分之一來固定住載具把手。
-5. 請確認更換成功，而且該磁碟機可運作。 存取 Azure 入口網站，並瀏覽至 [設定] > [硬體健康狀態]。 在 [共用元件] 或 [EBOD 共用元件] 下，磁碟機狀態應該是綠色，表示狀況良好。
-<!---Loc Comment: It seems it should say "Device settings > Hardware health" instead of "Settings > Hardware health"---->
+5. 請確認更換成功，而且該磁碟機可運作。 存取 Azure 入口網站，並瀏覽至 [裝置設定] > [硬體健康狀態]。 在 [共用元件] 或 [EBOD 共用元件] 下，磁碟機狀態應該是綠色，表示狀況良好。
+
    
    > [!NOTE]
    > 在更換之後，可能需要數小時，磁碟狀態才會變成綠色。

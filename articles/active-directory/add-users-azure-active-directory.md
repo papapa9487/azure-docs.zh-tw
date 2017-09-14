@@ -3,7 +3,7 @@ title: "將使用者新增至 Azure Active Directory | Microsoft Docs"
 description: "說明如何在 Azure Active Directory 中新增使用者。"
 services: active-directory
 documentationcenter: 
-author: jeffgilb
+author: curtand
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
-ms.author: jeffgilb
-ms.reviewer: jsnow
+ms.author: curtand
+ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 13a7d2d3b991206c45e66872b590bc27a224eead
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入門：將使用者新增至 Azure Active Directory
@@ -28,12 +28,12 @@ ms.lasthandoff: 08/24/2017
 ## <a name="add-cloud-based-users"></a>新增雲端式使用者
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。
 2. 選取 [Azure Active Directory]**Azure Active Directory**，然後選取 [使用者和群組]。
-3. 在 [使用者和群組] 刀鋒視窗上，選取 [所有使用者]，然後選取 [新增使用者]。
+3. 在 [使用者和群組] 上，選取 [所有使用者]，然後選取 [新增使用者]。
    ![選取 [新增] 命令](./media/add-users-azure-active-directory/add-user.png)
 4. 輸入使用者的詳細資料，例如「名稱」和「使用者名稱」。 使用者名稱的網域名稱部分必須是初始預設網域名稱 "[網域名稱].onmicrosoft.com"，或是已驗證的非同盟[自訂網域名稱](add-custom-domain.md)，例如"contoso.com"。
 5. 複製或記下產生的使用者密碼，以便在此程序完成後，將它提供給使用者。
-6. (選擇性) 您可以開啟使用者的 [設定檔] 刀鋒視窗、[群組] 刀鋒視窗或 [目錄角色] 刀鋒視窗，然後在其中填入資訊。 如需有關使用者和系統管理員角色的詳細資訊，請參閱 [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)。
-7. 在 [使用者] 刀鋒視窗上，選取 [建立]。
+6. (選擇性) 您可以開啟使用者的 [設定檔]、[群組] 或 [目錄角色]，然後在其中填入資訊。 如需有關使用者和系統管理員角色的詳細資訊，請參閱 [在 Azure AD 中指派系統管理員角色](active-directory-assign-admin-roles.md)。
+7. 在 [使用者] 中，選取 [建立]。
 8. 將產生的密碼安全地散發給新使用者，以便讓使用者可以登入。
 
 > [!TIP]

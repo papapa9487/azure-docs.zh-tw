@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 28904b07609ffb40a8195278fd1afd3957896733
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: ce088b22ca45bc40252c909697153ce9e847592e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 執行 Pig 工作與 HDInsight
@@ -49,11 +49,11 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
 在遠端 HDInsight 叢集上執行 Pig 工作時，會使用下列 Cmdlet：
 
-* **Login-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell
-* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 陳述式建立*作業定義*
-* **Start-AzureRmHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的 *工作* 物件
+* **Login-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 陳述式建立「作業定義」。
+* **Start-AzureRmHDInsightJob**：將作業定義傳送到 HDInsight 並開始作業。 系統會傳回「作業」物件。
 * **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。 它會等到作業完成，或超過等候時間。
-* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出
+* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集上執行工作。
 
@@ -81,7 +81,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
 ## <a id="troubleshooting"></a>疑難排解
 
-如果在工作完成時未傳回任何資訊，則可能是處理期間發生錯誤。 若要檢視這項工作的錯誤資訊，請將下列命令新增至 **pigjob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
+如果作業完成時未傳回任何資訊，請檢視錯誤記錄。 若要檢視這項工作的錯誤資訊，請將下列命令新增至 **pigjob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -91,7 +91,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-這會傳回執行工作時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷工作的失敗原因。
+這個 Cmdlet 會傳回作業處理期間寫入到 STDERR 的資訊。
 
 ## <a id="summary"></a>摘要
 如您所見，Azure PowerShell 提供簡單的方法，在 HDInsight 叢集上執行 Pig 工作、監視工作狀態，以及擷取輸出。

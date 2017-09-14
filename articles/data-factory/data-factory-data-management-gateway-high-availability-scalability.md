@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: b6bf353a2bad28b0db3a88e971e5c6b209b7ab2b
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: fe78e2ef31695d443123664a83e9f753ccfc0be8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/10/2017
 
 一般來說，您一開始可以先建立一個節點，然後在現有節點已無法應付資料移動負載時**相應放大**以新增更多節點。 您也可以藉由增加可以在節點上執行的並行作業數目，來**相應增加**閘道節點的資料移動能力。 單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。 
 
-具有多個節點的閘道會讓所有節點的資料存放區認證保持同步。 如果節點之間的連線發生問題，認證可能就不會同步。 當您為使用閘道的內部部署資料存放區設定認證時，它會將認證儲存在發送器/背景工作節點上。 發送器節點會與其他背景工作節點進行同步處理。 這個程序稱為**認證同步**。 節點之間的通訊通道可以使用公開的 SSL/TLS 憑證來**加密**。 
+具有多個節點的閘道會讓所有節點的資料存放區認證保持同步。 如果節點之間的連線發生問題，認證可能就不會同步。當您為使用閘道的內部部署資料存放區設定認證時，它會將認證儲存在發送器/背景工作節點上。 發送器節點會與其他背景工作節點進行同步處理。 這個程序稱為**認證同步**。節點之間的通訊通道可以使用公開的 SSL/TLS 憑證來**加密**。 
 
 ## <a name="set-up-a-multi-node-gateway"></a>設定多節點閘道
 本節假設您已經看過下列兩篇文章或熟悉這些文章中的概念： 
@@ -101,7 +101,7 @@ ms.lasthandoff: 08/10/2017
         ![資料管理閘道 - 安裝成功](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
 
         > [!NOTE]
-        > 如果您要在 Azure VM 上佈建閘道，您可以使用 [GitHub 上的這個 Azure Resource Manager 範本](https://github.com/xiaoyingLJ/vms-with-multiple-data-management-gateway)。 這個指令碼會建立邏輯閘道、為安裝了資料管理閘道軟體的 VM 進行設定，並向邏輯閘道註冊這些 VM。 
+        > 如果要在 Azure VM 上佈建閘道，可以使用[此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-mutiple-vms-with-data-management-gateway)。 這個指令碼會建立邏輯閘道、為安裝了資料管理閘道軟體的 VM 進行設定，並向邏輯閘道註冊這些 VM。 
 6. 在 Azure 入口網站啟動 [閘道] 頁面： 
     1. 在入口網站中的資料處理站首頁上，按一下 [已連結的服務]。
     
@@ -181,7 +181,7 @@ ms.lasthandoff: 08/10/2017
 可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 
 CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。 
 網路功能 (輸入/輸出) | 閘道節點的網路使用率。 這個值是近乎即時的快照集。 
-並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。 單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。 如需詳細資訊，請參閱[調整考量](#scale-considerations)一節。 
+並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。 如需詳細資訊，請參閱[調整考量](#scale-considerations)一節。 
 角色 | 有兩種角色 – 發送器和背景工作角色。 所有節點都是背景工作角色，這表示它們全都能用來執行作業。 發送器節點只有一個，可用來提取雲端服務中的工作/作業，並發送到不同的背景工作節點 (包括發送器節點本身)。 
 
 ![資料管理閘道 - 進階的多節點監視](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-multi-node-monitoring-advanced.png)
@@ -230,7 +230,7 @@ Azure 入口網站可為管線監視提供細微的節點層級詳細資料。 �
 
 - 單一邏輯閘道目前最多可以有四個實體閘道節點。 如果基於效能考量而需要四個以上的節點，請傳送電子郵件給 [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com)。
 - 您無法從另一個邏輯閘道使用驗證金鑰來重新註冊閘道節點，以跳脫目前的邏輯閘道。 若要重新註冊，請從節點解除安裝閘道、重新安裝閘道，然後使用驗證金鑰向其他邏輯閘道進行註冊。 
-- 如果您的所有閘道節點需要 HTTP Proxy，請在 diahost.exe.config 和 diawp.exe.config 中設定該 Proxy，並使用伺服器管理員來確定所有節點都有相同的 diahost.exe.config 和 diawip.exe.config。 如需詳細資訊，請參閱[設定 Proxy 設定](data-factory-data-management-gateway.md#configure-proxy-server-settings)一節。 
+- 如果您的所有閘道節點需要 HTTP Proxy，請在 diahost.exe.config 和 diawp.exe.config 中設定該 Proxy，並使用伺服器管理員來確定所有節點都有相同的 diahost.exe.config 和 diawip.exe.config。如需詳細資訊，請參閱[設定 Proxy 設定](data-factory-data-management-gateway.md#configure-proxy-server-settings)一節。 
 - 若要在閘道組態管理員中變更節點間通訊的加密模式，請在入口網站中只留下一個節點而刪除其他所有節點。 然後，於加密模式變更後重新新增節點。
 - 如果您選擇要加密節點間的通訊通道，請使用官方的 SSL 憑證。 自我簽署憑證可能會造成連線問題，因為相同的憑證可能不會受到其他機器上的憑證授權單位清單所信任。 
 - 當節點版本低於邏輯閘道版本時，您就無法向邏輯閘道註冊閘道節點。 請從入口網站中刪除邏輯閘道的所有節點，以便您可以註冊比它的版本還低的節點 (降級)。 如果您刪除邏輯閘道的所有節點，請以手動方式對該邏輯閘道安裝並註冊新的節點。 在此情況下不支援快速設定。

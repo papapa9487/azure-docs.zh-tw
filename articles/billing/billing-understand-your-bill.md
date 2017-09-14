@@ -16,14 +16,17 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 2bf75dc55d190522597eb8958d378aa1469027b7
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>了解 Microsoft Azure 帳單
 若要了解您的 Azure 帳單，請比較您包含詳細每日使用量檔案的發票，與 Azure 入口網站中的成本管理報告。
+
+>[!NOTE]
+>本文不適用於 Enterprise 合約 (EA) 客戶。 如果您是 EA 客戶，[可以到企業版入口網站上存取發票文件](https://ea.azure.com/helpdocs/understandingYourInvoice)  
 
 若要取得發票的 PDF 和每日詳細使用量 CSV 檔案下載的複本，請參閱[取得 Azure 計費發票及每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)。 
 

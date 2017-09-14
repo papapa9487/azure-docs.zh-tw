@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/23/2017
+ms.date: 08/23/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: de37c8ffd47a2b8e201d18e3a20b5325d528ad59
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
@@ -39,9 +39,17 @@ ms.lasthandoff: 07/12/2017
 
 ### <a name="solution"></a>方案
 
-請確定用戶端憑證安裝在下列 [憑證] 存放區 (Certmgr.msc) 位置：
- 
-**憑證 - 目前的使用者\個人\憑證**
+若要解決此問題，請遵循下列步驟：
+
+1. 請確定下列憑證位於正確的位置：
+
+    | 憑證 | 位置 |
+    | ------------- | ------------- |
+    | AzureClient.pfx  | 目前的使用者\個人\憑證 |
+    | Azuregateway-*GUID*.cloudapp.net  | 目前的使用者\受信任的根憑證授權單位|
+    | AzureGateway-*GUID*.cloudapp.net、AzureRoot.cer    | 本機電腦\受信任的根憑證授權單位|
+
+2. 移至 Users\<使用者名稱>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>，在使用者和電腦的存放區中手動安裝憑證 (*.cer 檔案)。
 
 如需如何安裝用戶端憑證的詳細資訊，請參閱[產生並匯出點對站連線的憑證](vpn-gateway-certificates-point-to-site.md)。
 

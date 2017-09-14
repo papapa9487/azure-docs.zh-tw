@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2017
+ms.date: 09/01/2017
 ms.author: markvi
-ms.reviewer: calebb
+ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: f96189735512090f993f61c0d64a249f650ea2a2
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f3d8bdbfc29ca1008006837512c0e6ae8cb8f6fe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
@@ -28,7 +28,11 @@ ms.lasthandoff: 08/29/2017
 
 - 雲端應用程式指派
 
+- 裝置平台條件 
+
 - 用戶端應用程式條件
+
+- 核准的用戶端應用程式需求 
 
 
 
@@ -75,7 +79,27 @@ ms.lasthandoff: 08/29/2017
 - 使用 Azure AD 應用程式 Proxy 的應用程式。 
 
 
-## <a name="client-apps-conditions"></a>用戶端應用程式條件 
+## <a name="device-platforms-condition"></a>裝置平台條件
+
+在條件式存取原則中，您可以設定裝置平台條件，將原則繫結到用戶端上執行的作業系統。
+
+![控制](./media/active-directory-conditional-access-technical-reference/41.png)
+
+Azure AD 條件式存取支援下列裝置平台：
+
+- Android
+
+- iOS
+
+- Windows Phone
+
+- Windows
+
+- macOS (預覽)
+
+
+
+## <a name="client-apps-condition"></a>用戶端應用程式條件 
 
 當您設定條件式存取原則時，可以設定[用戶端應用程式條件](active-directory-conditional-access-azure-portal.md#client-apps)。 當有人從這些類型的用戶端應用程式嘗試存取時，用戶端應用程式條件可讓您授與或封鎖存取：
 
@@ -83,7 +107,6 @@ ms.lasthandoff: 08/29/2017
 - 行動裝置應用程式和桌面應用程式
 
 ![控制](./media/active-directory-conditional-access-technical-reference/03.png)
-
 
 ### <a name="supported-browsers"></a>支援的瀏覽器 
 
@@ -124,11 +147,11 @@ ms.lasthandoff: 08/29/2017
 
 
 | 用戶端應用程式| 目標服務| 平台 |
-| :-- | --- | --- |
+| --- | --- | --- |
 | 應用程式的 MFA 和位置原則。 不支援裝置型原則。| 任何 My Apps 應用程式服務| Android 和 iOS|
 | Azure 遠端應用程式| Azure 遠端應用程式服務| Windows 10、Windows 8.1、Windows 7、iOS、Android 和 Mac OS X|
 | Dynamics CRM 應用程式| Dynamics CRM| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
-| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、MAC OS X、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS/Android 和 MAC OSX|
+| Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端| Microsoft Teams| Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
 | 郵件/行事曆/連絡人應用程式、Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 10|
 | Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)| Office 365 Exchange Online| Windows 8.1、Windows 7|
 | Outlook 行動應用程式| Office 365 Exchange Online| iOS|
@@ -143,15 +166,46 @@ ms.lasthandoff: 08/29/2017
 
 
 
+## <a name="approved-client-app-requirement"></a>核准的用戶端應用程式需求 
+
+當您設定條件式存取原則時，可以選取需求，只有在獲得核准的用戶端應用程式進行連線嘗試時才授與存取權。 
+
+![控制](./media/active-directory-conditional-access-technical-reference/21.png)
+
+這項設定獲核准的用戶端應用程式如下：
+
+- Microsoft Excel
+
+- Microsoft OneDrive
+
+- Microsoft Outlook
+
+- Microsoft OneNote
+
+- Microsoft PowerPoint
+
+- Microsoft SharePoint
+
+- Microsoft 商務用 Skype
+
+- Microsoft Teams
+
+- Microsoft Visio
+
+- Microsoft Word
 
 
+**備註：**
 
+- 這些應用程式可支援 Microsoft Intune 行動應用程式管理 (MAM)。
 
+- 這項需求：
 
+    - 僅支援選擇作為[裝置平台條件](#device-platforms-condition)的 IOS 和 Android 
 
-
-
-
+    - 不支援選擇作為[用戶端應用程式條件](#supported-browsers)的**瀏覽器** 
+    
+    - 取代已選取的**行動裝置應用程式和桌面用戶端**[用戶端應用程式條件](#supported-mobile-apps-and-desktop-clients)  
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -124,7 +124,7 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 
 如果您的使用者具有包含 Azure Multi-Factor Authentication 的授權，您就不需要手動開啟 Azure MFA。 若非如此，您需要在目錄中建立 Multi-Factor Auth Provider。 若要這樣做，請遵循下列步驟：
 
-1. 在 Azure 傳統入口網站中選取 [Active Directory] (以系統管理員身分登入)。
+1. 在 Azure 傳統入口網站中選取 [Active Directory] \(以系統管理員身分登入)。
 
 2. 選取 [Multi-Factor Authentication Provider]。
 

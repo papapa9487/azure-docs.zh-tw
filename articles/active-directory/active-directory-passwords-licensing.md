@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 08/30/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 3ed13c819f8e32cab44013cdcbf1b3a921ba98b8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 5445a479fd6893048eb8ff356fa829a3dcd5f7d3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 自助式密碼重設的授權需求
@@ -38,8 +38,8 @@ ms.lasthandoff: 05/03/2017
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3
 * Enterprise Mobility + Security E5
-* Secure Productive Enterprise E3
-* Secure Productive Enterprise E5
+* Microsoft 365 E3
+* Microsoft 365 E5
 
 > [!NOTE]
 > 獨立的 Office 365 授權方案**不支援密碼回寫**，而且需要上述其中一個方案，這項功能才能運作。
@@ -47,8 +47,9 @@ ms.lasthandoff: 05/03/2017
 在下列頁面可以找到額外的授權資訊 (包括成本)：
 
 * [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure Active Directory 功能和功用](https://www.microsoft.com/cloud-platform/azure-active-directory-features)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
-* [Secure Productive Enterprise](https://www.microsoft.com/secure-productive-enterprise/default.aspx)
+* [Microsoft 365](https://www.microsoft.com/microsoft-365/enterprise)
 
 ## <a name="enable-group-or-user-based-licensing"></a>啟用以群組或使用者為基礎的授權
 
@@ -62,11 +63,10 @@ Azure AD 現在支援以群組為基礎的授權，允許系統管理員將大�
 
 * [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
 * [**資料**](active-directory-passwords-data.md) - 了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並部署給使用者
+* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
 * [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀與風格。
 * [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
 * [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - 您一直想要詢問之問題的答案
+* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
 * [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
-
 

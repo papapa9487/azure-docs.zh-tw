@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/10/2017
+ms.date: 08/31/2017
 ms.author: sujayt
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 5a81dbf6a088e824277275ef13067bdba006d3a9
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 144078bbee8e9633fac12231daa07da6c295f46e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>用於從 Azure 複寫至 Azure 的 Azure Site Recovery 支援矩陣
@@ -49,12 +49,20 @@ ms.lasthandoff: 08/30/2017
 **跨越資源群組移動運算、 儲存體和網路** | 不支援 |如果您在啟用複寫之後移動虛擬機器 (或其相關聯的元件，例如儲存體和網路)，則您需要對於虛擬機器停用複寫，並再次啟用複寫。
 
 
+
 ## <a name="support-for-deployment-models"></a>部署模型的支援
 
 **部署模型** | **支援 / 不支援** | **備註**  
 --- | --- | ---
 **傳統** | 支援 | 您只能複寫傳統的虛擬機器，並將它復原為傳統的虛擬機器。 您無法將它復原為資源管理員虛擬機器。 不使用虛擬網路部署傳統 VM，而直接部署到 Azure 地區，是不受支援的做法。
 **資源管理員** | 支援 |
+
+>[!NOTE]
+>
+> 1. 若為嚴重損壞修復案例，不支援從一個訂用帳戶將 Azure 虛擬機器複寫至另一個訂用帳戶。
+> 2. 不支援在訂用帳戶之間移轉 Azure 虛擬機器。
+> 3. 不支援在同一個區域內移轉 Azure 虛擬機器。
+> 4. 不支援從傳統部署模型將 Azure 虛擬機器移轉至資源管理員部署模型。
 
 ## <a name="support-for-replicated-machine-os-versions"></a>支援多種複寫機器作業系統版本
 
@@ -85,7 +93,7 @@ ms.lasthandoff: 08/30/2017
 
 >[!NOTE]
 >
-> 使用密碼型驗證和登入並使用雲端 init 套件來設定雲端虛擬機器的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。從 Azure 入口網站上容錯移轉的虛擬機器本身的設定功能表 (在 [支援 + 疑難排解] 區段下) 重設密碼，即可重新啟用密碼型登入。
+> 使用密碼型驗證和登入並使用雲端 init 封裝來設定雲端虛擬機器的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。從 Azure 入口網站上容錯移轉的虛擬機器本身的設定功能表 (在 [支援 + 疑難排解] 區段下) 重設密碼，即可重新啟用密碼型登入。
 
 ### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Azure 虛擬機器支援的 Ubuntu 核心版本
 

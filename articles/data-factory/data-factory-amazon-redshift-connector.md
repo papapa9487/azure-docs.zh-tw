@@ -12,19 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/06/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: e3079b55036a514b31249e5930f40ab4346f437a
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 2e7b6a7c33e1f86133383f116df2fc2256133012
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 移動資料
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Amazon Redshift 移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。 
 
 您可以將資料從 Amazon Redshift 複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 Data Factory 目前支援將資料從 Amazon Redshift 移到其他資料存放區，而不支援將資料從其他資料存放區移到 Amazon Redshift。
+
+> [!TIP]
+> 在 Redshift 中複製大量資料時，若想獲得最佳效能，請考慮透過 Amazon S3 使用內建的 Redshift UNLOAD。 如需詳細資料，請參閱「[使用 UNLOAD 複製 Amazon Redshift 中的資料](#use-unload-to-copy-data-from-amazon-redshift)」章節。
 
 ## <a name="prerequisites"></a>必要條件
 * 如果您要將資料移到內部部署的資料存放區，請在內部部署的電腦上安裝[資料管理閘道](data-factory-data-management-gateway.md)。 接著，將 Amazon Redshift 叢集的存取權授與「資料管理閘道」(使用該電腦的 IP 位址)。 如需相關指示，請參閱 [授權存取叢集](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 。
@@ -48,6 +51,7 @@ ms.lasthandoff: 06/07/2017
 下列各節提供 JSON 屬性的相關詳細資料，這些屬性是用來定義 Amazon Redshift 特定的 Data Factory 實體： 
 
 ## <a name="linked-service-properties"></a>連結服務屬性
+
 下表提供 Amazon Redshift 連結服務專屬 JSON 元素的描述。
 
 | 屬性 | 說明 | 必要 |
@@ -60,6 +64,7 @@ ms.lasthandoff: 06/07/2017
 | password |使用者帳戶的密碼。 |是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
+
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 所有資料集類型 (Azure SQL、Azure Blob、Azure 資料表等) 的結構、可用性及原則等區段都相似。
 
 不同類型資料集的 **typeProperties** 區段不同。 它提供資料存放區中資料的位置之相關資訊。 **RelationalTable** 資料集類型的 typeProperties 區段 (包含 Amazon Redshift 資料集) 具有下列屬性
@@ -69,15 +74,63 @@ ms.lasthandoff: 06/07/2017
 | tableName |Amazon Redshift 資料庫中連結服務所參照的資料表名稱。 |否 (如果已指定 **RelationalSource** 的 **query**) |
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
+
 如需定義活動的區段和屬性完整清單，請參閱[建立管線](data-factory-create-pipelines.md)一文。 屬性 (例如名稱、描述、輸入和輸出資料表，以及原則) 適用於所有類型的活動。
 
 而活動的 **typeProperties** 區段中，可用的屬性會隨著每個活動類型而有所不同。 就「複製活動」而言，這些屬性會根據來源和接收器的類型而有所不同。
 
-當複製活動的來源是 **RelationalSource** 類型 (包含 Amazon Redshift) 時，typeProperties 區段可使用下列屬性：
+複製活動的來源類型為 **AmazonRedshiftSource** 時，typeProperties 區段中會有下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
-| --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 (如果已指定 **dataset** 的 **tableName**) |
+| 屬性 | 說明 | 必要 |
+| --- | --- | --- |
+| query | 使用自訂查詢來讀取資料。 |否 (如果已指定 **dataset** 的 **tableName**) |
+| redshiftUnloadSettings | 使用 Amazon Redshift UNLOAD 時的屬性群組。 | 否 |
+| s3LinkedServiceName | 指定 AwsAccessKey 類型的 ADF 連結服務名稱，指向 Amazon S3 作為暫時存放區。 | 「redshiftUnloadSettings」下的必要項目 |
+| bucketName | 表示儲存暫時資料的 S3 貯體。 如果未提供，複製活動會自動產生貯體。 | 「redshiftUnloadSettings」下的必要項目 |
+
+您也可以將 **RelationalSource** (包括 Amazon Redshift) 類型與下列 typeProperties 區段中的屬性搭配使用。 請注意，此來源類型不支援 Redshift UNLOAD。
+
+| 屬性 | 說明 | 必要 |
+| --- | --- | --- |
+| query |使用自訂查詢來讀取資料。 | 否 (如果已指定 **dataset** 的 **tableName**) |
+
+## <a name="use-unload-to-copy-data-from-amazon-redshift"></a>使用 UNLOAD 複製 Amazon Redshift 中的資料
+
+[UNLOAD](http://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) (英文) 是 Amazon Redshift 提供的機制，可以為 Amazon Simple Storage Service (Amazon S3) 中的一或多個檔案卸載查詢結果。 Amazon 建議使用此方式從 Redshift 複製大型資料集。
+
+**範例：透過 UNLOAD、分段複製和 PolyBase 將 Amazon Redshift 的資料複製到 Azure SQL 資料倉儲**
+
+此使用案例範例中，複製活動會先依照「redshiftUnloadSettings」的設定卸載 Amazon Redshift Amazon S3 的資料，然後依照「stagingSettings」指定的方式將該資料從 Amazon S3 複製到 Azure Blob，最後使用 PolyBase 將資料載入 SQL 資料倉儲。 複製活動會正確地處理所有暫時格式。
+
+![從 Redshift 到 SQL DW 的複製工作流程](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+
+```json
+{
+    "name": "CopyFromRedshiftToSQLDW",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "AmazonRedshiftSource",
+            "query": "select * from MyTable",
+            "redshiftUnloadSettings": {
+                "s3LinkedServiceName":"MyAmazonS3StorageLinkedService",
+                "bucketName": "bucketForUnload"
+            }
+        },
+        "sink": {
+            "type": "SqlDWSink",
+            "allowPolyBase": true
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyAzureStorageLinkedService",
+            "path": "adfstagingcopydata"
+        },
+        "cloudDataMovementUnits": 32
+        .....
+    }
+}
+```
 
 ## <a name="json-example-copy-data-from-amazon-redshift-to-azure-blob"></a>JSON 範例：將資料從 Amazon Redshift 複製到 Azure Blob
 此範例示範如何將資料從 Amazon Redshift 資料庫複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動， **直接** 將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。  
@@ -221,14 +274,19 @@ ms.lasthandoff: 06/07/2017
                 "type": "Copy",
                 "typeProperties": {
                     "source": {
-                        "type": "RelationalSource",
-                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)"
+                        "type": "AmazonRedshiftSource",
+                        "query": "$$Text.Format('select * from MyTable where timestamp >= \\'{0:yyyy-MM-ddTHH:mm:ss}\\' AND timestamp < \\'{1:yyyy-MM-ddTHH:mm:ss}\\'', WindowStart, WindowEnd)",
+                        "redshiftUnloadSettings": {
+                            "s3LinkedServiceName":"myS3Storage",
+                            "bucketName": "bucketForUnload"
+                        }
                     },
                     "sink": {
                         "type": "BlobSink",
                         "writeBatchSize": 0,
                         "writeBatchTimeout": "00:00:00"
-                    }
+                    },
+                    "cloudDataMovementUnits": 32
                 },
                 "inputs": [
                     {

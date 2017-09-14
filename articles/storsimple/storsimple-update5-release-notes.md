@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/23/2017
+ms.date: 08/28/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: e68dce72d648171faab930bbb4af9fd61816b19b
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa7360a44c48d4f15233b937f09285233533a0e8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 系列 Update 5 版本資訊
@@ -43,7 +43,7 @@ Update 5 包含以下重要的改良功能和錯誤修正。
 
     如果未將驗證 URL 包含在防火牆規則內，使用者會看到重大警示，其內容指出他們的 StorSimple 裝置無法向服務驗證。 如果使用者看到此警示，就必須包含新的驗證 URL。 如需詳細資訊，請移至 [StorSimple 網路警示](storsimple-8000-manage-alerts.md#networking-alerts)。
 
-* **新的 StorSimple Snapshot Manager 版本** - Update 5 發行了新的 StorSimple Snapshot Manager 版本。 我們建議您更新成這個版本。 這個版本可與所有執行 Update 3 或更新版本的 StorSimple 裝置相容。 如需詳細資訊，請移至[部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)。
+* **新版的 StorSimple Snapshot Manager** - 新版的 StorSimple Snapshot Manager 發行隨附於 Update 5，且與所有執行 Update 4 或更新版本的 StorSimple 裝置相容。 我們建議您更新成這個版本。 舊版的 StorSimple Snapshot Manager 是用於執行 Update 3 或更舊版本的 StorSimple 裝置。 [下載適當版本的 StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220)，並參考[部署 StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)。
 
 
 ## <a name="issues-fixed-in-update-5"></a>Update 5 中修正的問題

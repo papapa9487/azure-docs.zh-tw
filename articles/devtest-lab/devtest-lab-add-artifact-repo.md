@@ -1,6 +1,6 @@
 ---
 title: "將 Git存放庫加入 Azure DevTest Labs 中的實驗室 | Microsoft Docs"
-description: "將適用於自訂構件來源的 GitHub 或 Visual Studio Team Services Git 儲存機制加入 Azure DevTest Labs"
+description: "了解如何在 Azure DevTest Labs 中為自訂構件來源新增 GitHub 或 Visual Studio Team Services Git 存放庫。"
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: tomarcher
@@ -15,93 +15,88 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 053f92a65f9ae29154d471fd22ee842620b4f273
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: e0fb8b3c991d3f95acef77b37929fb5f6dc06242
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="add-a-git-repository-to-store-custom-artifacts-and-azure-resource-manager-templates"></a>新增可以存放自訂構件和 Azure Resource Manager 範本的 Git 存放庫
+# <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>新增可以存放自訂構件和 Resource Manager 範本的 Git 存放庫
 
-如果您想要在實驗室中為 VM [建立自訂構件](devtest-lab-artifact-author.md)，或[使用 Azure Resource Manager 範本來建立自訂的測試環境](devtest-lab-create-environment-from-arm.md)，您必須新增 Git 存放庫，來容納您的團隊建立的構件或 Azure Resource Manager 範本。 儲存機制可以裝載在 [GitHub](https://github.com) 或 [Visual Studio Team Services (VSTS)](https://visualstudio.com) 上。
+您可以在實驗室中為 VM [建立自訂構件](devtest-lab-artifact-author.md)，或[使用 Azure Resource Manager 範本來建立自訂測試環境](devtest-lab-create-environment-from-arm.md)。 您必須為小組所建立的構件或 Resource Manager 範本新增私人 Git 存放庫。 存放庫可以裝載在 [GitHub](https://github.com) 或 [Visual Studio Team Services](https://visualstudio.com) 上。
 
-我們提供[構件的 Github 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)，您可以為您的實驗室依原樣部署為自行自訂。 自訂或建立構件時，您無法將構件儲存在公共存放庫中，您必須建立自己的私人存放庫。 
+我們提供了[構件的 Github 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)供您依原樣部署，或者，您也可以加以自訂以供實驗室使用。 當您自訂或建立構件時，您無法將構件儲存在公用存放庫。 您必須為自訂構件和您建立的構件建立您自己的私人存放庫。 
 
-建立 VM 時，您可以儲存 Azure Resource Manager 範本，並依您的需求自訂，並在稍後使用範本來更輕易地建立更多 VM。 您必須建立您自己的私人存放庫，來儲存您自訂的 Azure Resource Manager 範本。  
+建立 VM 時，您可以儲存 Resource Manager 範本，並依您的需求自訂，並在稍後使用範本來建立更多 VM。 您必須建立您自己的私人存放庫，來儲存您自訂的 Resource Manager 範本。  
 
 * 若要了解如何建立 GitHub 儲存機制，請參閱 [GitHub Bootcamp](https://help.github.com/categories/bootcamp/)。
-* 若要了解如何使用 Git 儲存機制建立 Team Services 專案，請參閱 [連接到 Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
+* 若要了解如何建立具有 Git 存放庫的 Team Services 專案，請參閱[連線到 Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online)。
 
-下列螢幕擷取畫面顯示包含構件的儲存機制在 GitHub 中的可能外觀範例：  
+下圖顯示具有構件的存放庫在 GitHub 中的可能外觀範例：  
+
 ![GitHub 構件儲存機制範例](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>取得儲存機制資訊和認證
-若要將存放庫加入您的實驗室，您必須先從存放庫取得特定資訊。 下列各節會引導您取得 GitHub 與 Visual Studio Team Services 上裝載的儲存庫資訊。
+若要將存放庫新增至實驗室，請取得存放庫中的重要資訊。 下列各節會說明如何取得 GitHub 或 Visual Studio Team Services 上所裝載之存放庫的所需資訊。
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>取得 GitHub 儲存機制複製 URL 和個人存取權杖
-若要取得 GitHub 儲存機制複製 URL 和個人存取權杖，請遵循下列步驟：
 
-1. 瀏覽至包含構件或 Azure Resource Manager 範本定義的 GitHub 儲存庫首頁。
+1. 移至包含構件或 Resource Manager 範本定義的 GitHub 存放庫首頁。
 2. 選取 [複製或下載] 。
-3. 選取將 **HTTPS 複製 URL** 複製到剪貼簿的按鈕，並儲存該 URL 供稍後使用。
-4. 選取 GitHub 右上角的設定檔影像，然後選取 [設定] 。
+3. 若要將 URL 複製到剪貼簿，請選取 [HTTPS 複製 URL] 按鈕。 儲存 URL 以供稍後使用。
+4. 選取 GitHub 右上角的設定檔影像，然後選取 [設定]。
 5. 在左側的 [個人設定] 功能表上，選取 [個人存取權杖]。
 6. 選取 [產生新的權杖] 。
-7. 在 [新增個人存取權杖] 頁面上，輸入 [權杖描述]、接受 [選取範圍] 中的預設項目，然後選擇 [產生權杖]。
-8. 儲存產生的權杖，因為您稍後需要用到。
-9. 您現在可以關閉 GitHub。   
+7. 在 [新增個人存取權杖] 頁面上，於 [權杖描述] 底下輸入描述。 接受 [選取範圍] 底下的預設項目，然後選取 [產生權杖]。
+8. 儲存產生的權杖。 稍後會用到該權杖。
+9. 關閉 GitHub。   
 10. 繼續 [將您的實驗室連接至存放庫](#connect-your-lab-to-the-repository) 一節。
 
 ### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>取得 Visual Studio Team Services 儲存機制複製 URL 和個人存取權杖
-若要取得 Visual Studio Team Services 儲存機制複製 URL 和個人存取權杖，請遵循下列步驟：
 
-1. 開啟您的小組集合首頁 (例如 `https://contoso-web-team.visualstudio.com`)，然後選取專案。
+1. 移至小組集合首頁 (例如 https://contoso-web-team.visualstudio.com)，然後選取專案。
 2. 在專案首頁上，選取 [程式碼] 。
 3. 若要檢視複製 URL，可在專案 [程式碼] 頁面上，選取 [複製]。
-4. 儲存 URL，因為在本教學課程稍後將需要此資訊。
-5. 若要建立個人存取權杖，可從使用者帳戶下拉式功能表中選取 [我的設定檔]  。
+4. 儲存 URL。 稍後會用到該 URL。
+5. 若要建立個人存取權杖，請選取使用者帳戶下拉式功能表中的 [我的設定檔]。
 6. 在 [設定檔資訊] 頁面上，選取 [安全性] 。
 7. 在 [安全性] 索引標籤上，選取 [新增]。
-8. 在 [建立個人存取權杖]  頁面中：
-
-   * 輸入權杖的 **描述** 。
-   * 從 [到期日] 清單中選取 [180 天]。
-   * 從 [帳戶] 清單中選擇 [所有可存取的帳戶]。
-   * 選擇 [所有範圍]  選項。
-   * 選擇 [建立權杖] 。
-9. 完成時，新的權杖會出現在 [個人存取權杖]  清單中。 選取 [複製權杖] ，然後儲存權杖值供稍後使用。
+8. 在 [建立個人存取權杖] 頁面上：
+   1. 輸入權杖的 **描述** 。
+   2. 在 [到期日] 清單中選取 [180 天]。
+   3. 在 [帳戶] 清單中選取 [所有可存取的帳戶]。
+   4. 選取 [所有範圍] 選項。
+   5. 選擇 [建立權杖]。
+9. 新的權杖會出現在 [個人存取權杖] 清單中。 選取 [複製權杖] ，然後儲存權杖值供稍後使用。
 10. 繼續 [將您的實驗室連接至存放庫](#connect-your-lab-to-the-repository) 一節。
 
 ## <a name="connect-your-lab-to-the-repository"></a>將實驗室連接至存放庫
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
-2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
-3. 從實驗室清單中，選取所需的實驗室。   
-4. 在左窗格中，選取 [組態和原則]。
-5. 在實驗室的 [組態和原則] 區域上，選取 [存放庫]。
-6. 在 [存放庫] 區域上，選取 [+ 新增]。
+2. 選取 [更多服務]，然後從服務清單中選取 [DevTest Labs]。
+3. 從實驗室清單中選取您的實驗室。 
+4. 選取 [組態和原則] > [存放庫] > [+ 新增]。
 
     ![[新增存放庫] 按鈕](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
-7. 在第二個 [存放庫] 頁面上，指定下列資訊︰
-
-   * **名稱** - 輸入儲存機制的名稱。
-   * **Git 複製 URL** - 輸入您先前從 GitHub 或 Visual Studio Team Services 複製的 Git HTTPS 複製 URL。
-   * 分支 - 輸入取得定義的分支。
-   * **個人存取權杖** - 輸入您先前從 GitHub 或 Visual Studio Team Services 取得的個人存取權杖。
-   * 資料夾路徑 - 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Azure Resource Manager 範本。 指定子目錄時，請確定資料夾路徑中包含斜線。
+5. 在第二個 [存放庫] 頁面上，指定下列資訊︰
+  1. **名稱**。 輸入存放庫的名稱。
+  2. **Git Clone URL**。 輸入您先前從 GitHub 或 Visual Studio Team Services 複製的 Git HTTPS 複製 URL。
+  3. **分支**。 若要取得您的定義，請輸入分支。
+  4. **個人存取權杖**。 輸入您先前從 GitHub 或 Visual Studio Team Services 取得的個人存取權杖。
+  5. **資料夾路徑**。 輸入至少與複製 URL 相關的一個資料夾路徑，其中包含構件或 Resource Manager 範本。 指定子目錄時，請確定您有在資料夾路徑中包含斜線。
 
      ![存放庫區域](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-8. 選取 [ **儲存**]。
+6. 選取 [ **儲存**]。
 
-## <a name="next-steps"></a>後續步驟
-建立私人 Git 存放庫之後，您可以執行下列一或兩個動作，視您的需求而定︰
-* 儲存您的 [自訂構件](devtest-lab-artifact-author.md)，您可以在稍後用來建立新的 VM。
-* [透過 Azure Resource Manager 範本建立多個 VM 環境和 PaaS 資源](devtest-lab-create-environment-from-arm.md)，並將範本儲存在您的私人存放庫。
-
-建立 VM 時，您可以確認構件或範本已新增至 Git存放庫。 它們會立即出現在構件或範本清單，您的私人存放庫名稱會顯示在欄位中，藉此顯示其來源。 
+### <a name="related-blog-posts"></a>相關部落格文章
+* [在 DevTest Labs 中針對失敗的構件進行疑難排解](devtest-lab-troubleshoot-artifact-failure.md)
+* [Join a VM to an existing Active Directory domain by using a Resource Manager template in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 DevTest Labs 中使用 Resource Manager 範本將 VM 加入至現有 Active Directory 網域)
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="related-blog-posts"></a>相關部落格文章
-* [如何在 Azure DevTest Labs 疑難排解失敗的構件](devtest-lab-troubleshoot-artifact-failure.md)
-* [Join a VM to existing AD Domain using a resource manager template in Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Join-a-VM-to-existing-AD-domain-using-ARM-template-AzureDevTestLabs) (在 Azure DevTest Labs 使用 Resource Manager 範本將 VM 加入至現有 AD 網域)
+## <a name="next-steps"></a>後續步驟
+建立私人 Git 存放庫之後，您可以執行下列一或兩個動作，視您的需求而定︰
+* 儲存[自訂構件](devtest-lab-artifact-author.md)。 您稍候可以使用它們來建立新的 VM。
+* [使用 Resource Manager 範本建立多 VM 環境和 PaaS 資源](devtest-lab-create-environment-from-arm.md)。 然後，您可以將範本儲存在私人存放庫中。
+
+建立 VM 時，您可以確認構件或範本已新增至 Git存放庫。 它們會立即出現在構件或範本的清單中。 私人存放庫的名稱會顯示在可指定來源的資料行中。 
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/13/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: d7e6bcd669d40cb19de44b646505856ecd8f51a0
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17fe2bc467acc5542d021961a066940dbecf6120
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
@@ -98,7 +98,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例會傳回部署物件︰
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json)會傳回部署物件︰
 
 ```json
 {
@@ -136,6 +136,18 @@ ms.lasthandoff: 07/21/2017
     "provisioningState": "Accepted"
   }
 }
+```
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
 <a id="parameters" />
@@ -177,7 +189,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-下列範例顯示 parameters 函數的簡化用法。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)顯示 parameters 函式的簡化用法。
 
 ```json
 {
@@ -242,9 +254,21 @@ ms.lasthandoff: 07/21/2017
 | arrayOutput | 陣列 | [1, 2, 3] |
 | crossOutput | String | 選項 1 |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+```
+
 <a id="variables" />
 
-## <a name="variables"></a>變數
+## <a name="variables"></a>variables
 `variables(variableName)`
 
 傳回變數的值。 指定的變數名稱必須定義於範本的 variables 區段中。
@@ -285,7 +309,7 @@ ms.lasthandoff: 07/21/2017
 
 ### <a name="example"></a>範例
 
-範例範本會傳回不同的變數值。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)會傳回不同的變數值。
 
 ```json
 {
@@ -331,6 +355,18 @@ ms.lasthandoff: 07/21/2017
 | exampleOutput2 | 陣列 | [1, 2, 3, 4] |
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

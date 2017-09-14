@@ -14,27 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2017
+ms.date: 08/30/2017
 ms.author: jlian
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 18fd43d0b1d6276ebc41a0ad33d861a27a472551
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: e3975d65fca54f9c1b58175f5f48f91a7cb67987
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="upgrade-your-free-trial-or-microsoft-imagine-azure-subscription-to-pay-as-you-go"></a>將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付
-從 Azure 帳戶入口網站將[免費試用](https://azure.microsoft.com/free/)或 [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) 訂用帳戶升級至[隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)。 升級本身不會收取任何費用，您只需要為您所使用的服務付費。
 
-1. 登入 [Azure 帳戶入口網站](https://account.windowsazure.com/subscriptions)，並瀏覽至 [訂用帳戶] 索引標籤。
-2. 在訂用帳戶狀態區段中，選取 [立即升級] 橫幅。
+在 Azure 帳戶中心中，將[免費試用](https://azure.microsoft.com/free/)或 [Microsoft Imagine](https://azure.microsoft.com/offers/ms-azr-0144p/) 訂閱升級為[預付型方案](https://azure.microsoft.com/offers/ms-azr-0003p/)。
+
+1. 登入 [Azure 帳戶入口網站](https://account.windowsazure.com/subscriptions)。
+1. 在訂用帳戶狀態區段中，選取 [立即升級] 橫幅。
    
     ![此螢幕擷取畫面顯示按一下即可從免費試用升級至隨用隨付的位置](./media/billing-upgrade-azure-subscription/billpage.png)
-3. 確認您的升級。
+1. 確認您的升級。
    
     ![此螢幕擷取畫面顯示要選取以確認您想要升級訂用帳戶的項目](./media/billing-upgrade-azure-subscription/Upgrade.png)
 
-使用免費試用期間所剩餘的任何優惠，例如 30 天的限制或信用額度。 當您用完所有優惠之後，即會升級您的訂用帳戶。
-
-
+升級本身不會產生任何費用，您只需要為您使用的服務付費。 確認升級後，您可以保留試用點數到試用期結束為止。

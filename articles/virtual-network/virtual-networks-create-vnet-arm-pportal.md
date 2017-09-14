@@ -17,15 +17,15 @@ ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: a31f0524a6fa1de45498f340a27b863a3c627e04
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>建立有多個子網路的虛擬網路
 
-本教學課程可供了解如何建立具有不同公用和私人子網路的基本 Azure 虛擬網路。 您可以在子網路中建立各種 Azure 資源 (如虛擬機器、App Service 環境、虛擬機器擴展集、Azure HDInsight 及雲端服務)。 虛擬網路中的資源可以互相通訊，也可以和連線到虛擬網路之其他網路中的資源通訊。
+本教學課程可供了解如何建立具有不同公用和私人子網路的基本 Azure 虛擬網路。 虛擬網路中的資源可以互相通訊，也可以和連線到虛擬網路之其他網路中的資源通訊。 您可以在虛擬網路內的相同或不同子網路中建立各種 Azure 資源，例如虛擬機器、App Service 環境、虛擬機器擴展集、Azure HDInsight 及雲端服務。 在不同子網路建立資源可讓您利用[網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)獨立地篩選流入和流出子網路的網路流量，以及在您選擇後透過網路虛擬設備 (例如防火牆) [在子網路之間路由傳送流量](virtual-network-create-udr-arm-ps.md)。 
 
 您可以採取下列各節所包含的步驟，使用 [Azure 入口網站](#portal)、Azure 命令列介面 ([Azure CLI](#azure-cli))、[Azure PowerShell](#powershell) 和 [Azure Resource Manager 範本](#resource-manager-template)來建立虛擬網路。 無論您使用哪一種工具來建立虛擬網路，結果都會相同。 按一下工具連結即可前往教學課程中關於該工具的章節。 深入了解所有[虛擬網路](virtual-network-manage-network.md)和[子網路](virtual-network-manage-subnet.md)設定。
 
@@ -52,7 +52,8 @@ ms.lasthandoff: 08/01/2017
 6. 在 [myVnet - 子網路] 刀鋒視窗中，按一下 [+子網路]。
 7. 在 [新增子網路] 刀鋒視窗中，對 [名稱] 輸入**私人**。 對 [位址範圍] 輸入 **10.0.1.0/24**。  按一下 [確定] 。
 8. 在 [myVnet - 子網路] 刀鋒視窗中檢閱子網路。 您就會看到您所建立的**公用**和**私人**子網路。
-9. **選擇性︰**若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-portal)中的步驟。
+9. **選擇性：**完成[後續步驟](#next-steps)底下所列的其他教學課程，以使用網路安全性群組篩選流入和流出每個子網路的網路流量、透過網路虛擬設備在子網路之間路由傳送流量，或是將虛擬網路連線至其他虛擬網路或內部部署網路。
+10. **選擇性︰**完成[刪除資源](#delete-portal)中的步驟，以刪除您在本教學課程中所建立的資源。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -90,7 +91,8 @@ ms.lasthandoff: 08/01/2017
     az network vnet subnet list --resource-group myResourceGroup --vnet-name myVnet --output table
     ```
 
-5. **選擇性︰**若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-cli)中的步驟。
+5. **選擇性：**完成[後續步驟](#next-steps)底下所列的其他教學課程，以使用網路安全性群組篩選流入和流出每個子網路的網路流量、透過網路虛擬設備在子網路之間路由傳送流量，或是將虛擬網路連線至其他虛擬網路或內部部署網路。
+6. **選擇性︰**完成[刪除資源](#delete-cli)中的步驟，以刪除您在本教學課程中所建立的資源。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -128,13 +130,17 @@ ms.lasthandoff: 08/01/2017
     $Vnet.subnets | Format-Table Name, AddressPrefix
     ```
 
-5. **選擇性︰**若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-powershell)中的步驟。
+5. **選擇性：**完成[後續步驟](#next-steps)底下所列的其他教學課程，以使用網路安全性群組篩選流入和流出每個子網路的網路流量、透過網路虛擬設備在子網路之間路由傳送流量，或是將虛擬網路連線至其他虛擬網路或內部部署網路。
+6. **選擇性︰**完成[刪除資源](#delete-powershell)中的步驟，以刪除您在本教學課程中所建立的資源。
 
 ## <a name="resource-manager-template"></a>Resource Manager 範本
 
 您可以使用 Azure Resource Manager 範本來部署虛擬網路。 若要深入了解範本，請參閱[什麼是 Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#template-deployment)。 若要存取範本並了解其參數，請參閱[建立具有兩個子網路的虛擬網路](https://azure.microsoft.com/resources/templates/101-vnet-two-subnets/)範本。 您可以使用[入口網站](#template-portal)、[Azure CLI](#template-cli) 或 [PowerShell](#template-powershell) 來部署範本。
 
-**選擇性︰**若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete)中任何小節的步驟。
+部署範本後的選擇性步驟：
+
+1. 完成[後續步驟](#next-steps)底下所列的其他教學課程，以使用網路安全性群組篩選流入和流出每個子網路的網路流量、透過網路虛擬設備在子網路之間路由傳送流量，或是將虛擬網路連線至其他虛擬網路或內部部署網路。
+2. 完成[刪除資源](#delete)中所有小節的步驟，以刪除您在本教學課程中所建立的資源。
 
 ### <a name="template-portal"></a>Azure 入口網站
 
@@ -228,7 +234,8 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 - 若要了解所有虛擬網路和子網路的設定，請參閱[管理虛擬網路](virtual-network-manage-network.md#view-vnet)和[管理虛擬網路子網路](virtual-network-manage-subnet.md#create-subnet)。 您有各種選項可在生產環境中使用虛擬網路和子網路，以便符合不同的需求。
 - 對子網路建立和套用[網路安全性群組](virtual-networks-nsg.md)，以篩選輸入和輸出的子網路流量。
-- 建立 [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器，然後將它連線至現有的虛擬網路。
-- 若要連線同一個 Azure 位置中的兩個虛擬網路，請在兩個虛擬網路之間建立[虛擬網路對等互連](virtual-network-peering-overview.md)。
+- 藉由建立[使用者定義的路由](virtual-network-create-udr-arm-ps.md)以在子網路之間透過網路虛擬設備來路由傳送流量，以及將路由套用至每個子網路。
+- 在現有虛擬網路中建立 [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。
+- 在虛擬網路之間建立[虛擬網路對等互連](virtual-network-peering-overview.md)以將兩個虛擬網路連線。
 - 使用 [VPN 閘道](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 線路將虛擬網路連線至內部部署網路。
 

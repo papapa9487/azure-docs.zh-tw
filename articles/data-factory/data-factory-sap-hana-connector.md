@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2017
+ms.date: 08/31/2017
 ms.author: jingwang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4802009a8512cb4dcb49602545c7a31969e0a25
-ms.openlocfilehash: 37594924f9474d225421d2b2d783a19d9295fcf8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 08faa2bdb06c0616eeaad7415019ba97b60aac5d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="move-data-from-sap-hana-using-azure-data-factory"></a>使用 Azure Data Factory 從 SAP Hana 移動資料
@@ -34,16 +33,16 @@ ms.lasthandoff: 03/29/2017
 - 閘道器電腦上的 **SAP HANA ODBC 驅動程式**。 您可以從 [SAP 軟體下載中心](https://support.sap.com/swdc)下載 SAP Hana ODBC 驅動程式。 使用關鍵字 **SAP HANA CLIENT for Windows** 搜尋。 
 
 ## <a name="getting-started"></a>開始使用
-您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
+您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 SAP HANA 資料存放區移動資料。 
 
 - 建立管線的最簡單方式就是使用「複製精靈」。 如需使用複製資料精靈建立管線的快速逐步解說，請參閱 [教學課程︰使用複製精靈建立管線](data-factory-copy-data-wizard-tutorial.md) 。 
-- 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API**及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
+- 您也可以使用下列工具來建立管線︰**Azure 入口網站**、**Visual Studio**、**Azure PowerShell**、**Azure Resource Manager 範本**、**.NET API** 及 **REST API**。 如需建立內含複製活動之管線的逐步指示，請參閱[複製活動教學課程](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。 
 
 不論您是使用工具還是 API，都需執行下列步驟來建立將資料從來源資料存放區移到接收資料存放區的管線：
 
-1. 建立「已連結的服務」，以將輸入和輸出資料存放區連結到 Data Factory。
-2. 建立「資料集」，以代表複製作業的輸入和輸出資料。 
-3. 建立「管線」，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
+1. 建立**連結服務**，將輸入和輸出資料存放區連結到資料處理站。
+2. 建立**資料集**，代表複製作業的輸入和輸出資料。 
+3. 建立**管線**，其中含有以一個資料集作為輸入、一個資料集作為輸出的複製活動。 
 
 使用精靈時，精靈會自動為您建立這些 Data Factory 實體 (已連結的服務、資料集及管線) 的 JSON 定義。 使用工具/API (.NET API 除外) 時，您需使用 JSON 格式來定義這些 Data Factory 實體。  如需相關範例，其中含有用來從內部部署 SAP HANA 複製資料之 Data Factory 實體的 JSON 定義，請參閱本文的 [JSON 範例：將資料從 SAP HANA 複製到 Azure Blob](#json-example-copy-data-from-sap-hana-to-azure-blob) 一節。 
 

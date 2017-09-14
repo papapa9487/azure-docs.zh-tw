@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/01/2017
+ms.date: 09/05/2017
 ms.author: tomfitz
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 313601ad99cdc12c4b50f5469959d37a9fa70d35
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: d16264abf64ef88dfb24948fc04e33de619f4e3f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的邏輯函式
@@ -49,7 +49,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="examples"></a>範例
 
-下列範例會示範如何使用邏輯函式。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json)會示範如何使用邏輯函式。
 
 ```json
 {
@@ -81,6 +81,17 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
 
 ## <a name="bool"></a>布林
 `bool(arg1)`
@@ -98,7 +109,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="examples"></a>範例
 
-下列範例顯示如何搭配使用 bool 與字串或整數。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/bool.json)顯示如何搭配使用 bool 與字串或整數。
 
 ```json
 {
@@ -134,6 +145,18 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 | falseString | Bool | False |
 | trueInt | Bool | True |
 | falseInt | Bool | False |
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+```
 
 ## <a name="if"></a>if
 `if(condition, trueValue, falseValue)`
@@ -200,7 +223,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="examples"></a>範例
 
-下列範例會示範如何使用 `if` 函式。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/if.json)會示範如何使用 `if` 函式。
 
 ```json
 {
@@ -228,6 +251,17 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 | yesOutput | String | yes |
 | noOutput | String | no |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```
 
 ## <a name="not"></a>否
 `not(arg1)`
@@ -240,14 +274,13 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 |:--- |:--- |:--- |:--- |
 | arg1 |是 |布林值 |要轉換的值。 |
 
-
 ### <a name="return-value"></a>傳回值
 
 當參數是 **False** 時，傳回 **True**。 當參數是 **True** 時，傳回 **False**。
 
 ### <a name="examples"></a>範例
 
-下列範例會示範如何使用邏輯函式。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json)會示範如何使用邏輯函式。
 
 ```json
 {
@@ -279,7 +312,19 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-下列範例使用 **not** 搭配 [equals](resource-group-template-functions-comparison.md#equals)。
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)使用 **not** 搭配 [equals](resource-group-template-functions-comparison.md#equals)。
 
 ```json
 {
@@ -301,6 +346,17 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+```
 
 ## <a name="or"></a>或
 `or(arg1, arg2)`
@@ -320,7 +376,7 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 ### <a name="examples"></a>範例
 
-下列範例會示範如何使用邏輯函式。
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/andornot.json)會示範如何使用邏輯函式。
 
 ```json
 {
@@ -352,6 +408,17 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。

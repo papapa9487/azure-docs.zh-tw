@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/27/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 83821ed2f7db1c7dea88a1b4424d405959a206db
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: f2b9aad02a1ae3d5117ffd59b448eabe65a936fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
@@ -41,7 +41,7 @@ Linux 作業系統 (OS) 磁碟加密必須先將 OS 磁碟機取消掛接後，�
 
 ## <a name="unable-to-encrypt"></a>無法加密
 
-在某些情況下，Linux 磁碟加密似乎會卡在「已啟動的 OS 磁碟加密」且停用 SSH。 在庫存資源庫映像上，此加密程序可能需要 3-16 個小時才能完成。 如果新增多 TB 大小的資料磁碟，此程序可能需要數天的時間。 
+在某些情況下，Linux 磁碟加密似乎會卡在「已啟動的 OS 磁碟加密」且停用 SSH。 在庫存資源庫映像上，此加密程序可能需要 3-16 個小時才能完成。 如果新增多 TB 大小的資料磁碟，此程序可能需要數天的時間。
 
 Linux OS 磁碟加密順序會暫時取消掛接 OS 磁碟機。 然後會對整個 OS 磁碟執行逐區塊加密，再於它處於已加密狀態時重新掛接。 不同於 Windows 上的 Azure 磁碟加密，Linux 磁碟加密不允許加密進行時，同時使用 VM。 VM 的效能特性在完成加密所需的時間上有顯著差異。 這些特性包括磁碟的大小以及儲存體帳戶是標準或進階 (SSD) 儲存體。
 
@@ -85,15 +85,15 @@ VM 必須能夠存取金鑰保存庫。 請參閱由 [Azure Key Vault](https://d
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>針對 Windows Server 2016 Server Core 進行疑難排解
 
-在 Windows Server 2016 Server Core 上，預設無法使用 **bdehdcfg** 元件。 Azure 磁碟加密需要此元件。 遵循下列步驟以新增 **bdehdcfg** 元件：
+在 Windows Server 2016 Server Core 上，預設無法使用 bdehdcfg 元件。 Azure 磁碟加密需要此元件。 此元件用來從作業系統磁碟區中分割系統磁碟區，在 VM 的存留時間內僅會進行一次。 在之後的加密作業期間，不需要這些二進位檔。
 
-   1. 將下列 4 個檔案從 Windows Server 2016 資料中心 VM 複製到 Server Core 映像的 **c:\windows\system32** 資料夾：
+若要解決這個問題，請將下列 4 個檔案從 Windows Server 2016 資料中心 VM 複製到 Server Core 的同一個位置：
 
    ```
-   bdehdcfg.exe
-   bdehdcfglib.dll
-   bdehdcfglib.dll.mui
-   bdehdcfg.exe.mui
+   \windows\system32\bdehdcfg.exe
+   \windows\system32\bdehdcfglib.dll
+   \windows\system32\en-US\bdehdcfglib.dll.mui
+   \windows\system32\en-US\bdehdcfg.exe.mui
    ```
 
    2. 輸入下列命令：
@@ -102,8 +102,8 @@ VM 必須能夠存取金鑰保存庫。 請參閱由 [Azure Key Vault](https://d
    bdehdcfg.exe -target default
    ```
 
-   3. 此命令會建立一個 550MB 系統磁碟分割。 重新啟動系統。 
-   
+   3. 此命令會建立一個 550MB 系統磁碟分割。 重新啟動系統。
+
    4. 使用 DiskPart 來檢查磁碟區，然後再繼續作業。  
 
 例如：

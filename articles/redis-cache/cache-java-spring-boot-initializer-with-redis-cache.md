@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: java
 ms.topic: article
-ms.date: 7/21/2017
+ms.date: 08/31/2017
 ms.author: robmcm;zhijzhao;yidon
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: fb3fc96a2136b7c326bb0eb291b7204e7acf0190
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 7a6ec549654d00975494bac8594a6777af5ec415
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -27,9 +27,9 @@ ms.lasthandoff: 08/10/2017
 
 ## <a name="overview"></a>概觀
 
-**[Spring Framework]** 是開放原始碼解決方案，可協助 Java 開發人員建立企業級應用程式。 建立在該平台之基礎上的其中一個更熱門的專案是 [Spring Boot]，其中會提供用來建立獨立 Java 應用程式的簡化方法。 為了協助開發人員開始使用 Spring Boot，<https://github.com/spring-guides/> 上提供了數個範例 Spring Boot 套件。 除了從基本的 Spring Boot 專案清單中進行選擇，**[Spring Initializr]** 還能協助開發人員開始建立自訂的 Spring Boot 應用程式。
+**[Spring Framework]** 是一個開放原始碼解決方案，可協助 Java 開發人員建立企業級應用程式。 [Spring Boot] 是建立在該平台基礎上更為熱門的專案之一，其中會提供用來建立獨立 Java 應用程式的簡化方法。 為了協助開發人員開始使用 Spring Boot，<https://github.com/spring-guides/> 上提供了數個範例 Spring Boot 套件。 除了從基本的 Spring Boot 專案清單中進行選擇，**[Spring Initializr]** 還能協助開發人員開始建立自訂的 Spring Boot 應用程式。
 
-本文會逐步引導您使用 Azure 入口網站來建立 Redis 快取，然後使用 **Spring Initializr** 來建立自訂應用程式，接著再建立 Java Web 應用程式以使用 Redis 快取來儲存和擷取資料。
+本文將引導您透過 Azure 入口網站建立 Redis 快取、使用 **Spring Initializr** 建立自訂應用程式，及建立 Java Web 應用程式以使用 Redis 快取來儲存和擷取資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -51,7 +51,18 @@ ms.lasthandoff: 08/10/2017
 
    ![Azure 入口網站][AZ02]
 
-1. 在 [新增 Redis 快取] 頁面上，輸入快取的 [DNS 名稱]，然後指定 [訂用帳戶]、[資源群組]、[位置]和 [定價層]。 當您指定這些選項之後，按一下 [建立] 以建立您的快取。
+1. 在 [新的 Redis 快取] 頁面上，指定下列資訊：
+
+   * 為快取輸入 [DNS 名稱]。
+   * 指定 [訂閱]、[資源群組]、[位置] 和 [定價層]。
+   * 針對本教學課程的案例，我們選擇 [解除封鎖連接埠 6379]。
+
+   > [!NOTE]
+   >
+   > 您可以透過 Redis 快取使用 SSL，但需要透過 Jedis 等其他的 Redis 用戶端。 如需詳細資訊，請參閱[如何搭配使用 Azure Redis 快取與 Java][Redis Cache with Java]。
+   >
+
+   當您指定這些選項之後，按一下 [建立] 以建立您的快取。
 
    ![Azure 入口網站][AZ03]
 
@@ -59,7 +70,7 @@ ms.lasthandoff: 08/10/2017
 
    ![Azure 入口網站][AZ04]
 
-1. 當快取的屬性清單所在的頁面顯示出來時，按一下 [存取金鑰] 並複製快取的存取金鑰。
+1. 顯示列出快取屬性清單的頁面時，請按一下 [存取金鑰]，並複製快取的存取金鑰。
 
    ![Azure 入口網站][AZ05]
 
@@ -101,13 +112,18 @@ ms.lasthandoff: 08/10/2017
    spring.redis.host=myspringbootcache.redis.cache.windows.net
 
    # Specify the port for your Redis cache.
-   spring.redis.port=6380
+   spring.redis.port=6379
 
    # Specify the access key for your Redis cache.
    spring.redis.password=57686f6120447564652c2049495320526f636b73=
    ```
 
    ![編輯 application.properties 檔案][RE02]
+
+   > [!NOTE]
+   >
+   > 如果您使用 Jedis 等具備 SSL 的其他 Redis 用戶端，可以在 application.properties 檔案中指定連接埠 6380。 如需詳細資訊，請參閱[如何搭配使用 Azure Redis 快取與 Java][Redis Cache with Java]。
+   >
 
 1. 儲存並關閉 *application.properties* 檔案。
 
@@ -126,41 +142,32 @@ ms.lasthandoff: 08/10/2017
 
    import org.springframework.web.bind.annotation.RequestMapping;
    import org.springframework.web.bind.annotation.RestController;
-   import org.springframework.beans.factory.annotation.Value;
-   import redis.clients.jedis.Jedis;
-   import redis.clients.jedis.JedisShardInfo;
+   import org.springframework.beans.factory.annotation.Autowired;
+   import org.springframework.boot.SpringApplication;
+   import org.springframework.boot.autoconfigure.SpringBootApplication;
+   import org.springframework.data.redis.core.StringRedisTemplate;
+   import org.springframework.data.redis.core.ValueOperations;
 
    @RestController
    public class HelloController {
    
-      // Retrieve the DNS name for your cache.
-      @Value("${spring.redis.host}")
-      private String redisHost;
-
-      // Retrieve the port for your cache.
-      @Value("${spring.redis.port}")
-      private int redisPort;
-
-      // Retrieve the access key for your cache.
-      @Value("${spring.redis.password}")
-      private String redisPassword;
+      @Autowired
+      private StringRedisTemplate template;
 
       @RequestMapping("/")
       // Define the Hello World controller.
       public String hello() {
       
-         // Create a JedisShardInfo object to connect to your Redis cache.
-         JedisShardInfo jedisShardInfo = new JedisShardInfo(redisHost, redisPort, true);
-         // Specify your access key.
-         jedisShardInfo.setPassword(redisPassword);
-         // Create a Jedis object to store/retrieve information from your cache.
-         Jedis jedis = new Jedis(jedisShardInfo);
+         ValueOperations<String, String> ops = this.template.opsForValue();
 
          // Add a Hello World string to your cache.
-         jedis.set("greeting", "Hello World!");
+         String key = "greeting";
+         if (!this.template.hasKey(key)) {
+             ops.set(key, "Hello World!");
+         }
 
          // Return the string from your cache.
-         return jedis.get("greeting");
+         return ops.get(key);
       }
    }
    ```

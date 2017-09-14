@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: c3801573808709f29cb1e563ac803f225a28cafc
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: bc4e1b04e8f90e5713468ce38f6f05174affb261
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop
@@ -41,7 +40,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a id="powershell"></a>使用 Azure PowerShell 執行 MapReduce 工作
 
-Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 MapReduce 工作。 在內部，您可以使用在 HDInsight 叢集上執行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (先前稱為 Templeton) 的 REST 呼叫來達到此目的。
+Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 MapReduce 工作。 在內部，PowerShell 會對 HDInsight 叢集上執行的 [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) (先前稱為 Templeton) 發出 REST 呼叫。
 
 在遠端 HDInsight 叢集中執行 MapReduce 工作時，會使用下列 Cmdlet。
 
@@ -49,7 +48,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
 * **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊建立新的「工作定義」。
 
-* **Start-AzureRmHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的「工作」物件。
+* **Start-AzureRmHDInsightJob**：將作業定義傳送到 HDInsight 並開始作業。 系統會傳回「作業」物件。
 
 * **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。 它會等到工作完成，或等到等候時間超過。
 
@@ -65,7 +64,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
         .\mapreducejob.ps1
 
-    當您執行指令碼時，系統會提示您的 HDInsight 叢集名稱和 HTTPS/管理帳戶名稱以及叢集的密碼。 系統可能也會提示您驗證 Azure 訂用帳戶。
+    當您執行指令碼時，系統會提示您輸入 HDInsight 叢集名稱和叢集登入。 系統可能也會提示您驗證 Azure 訂用帳戶。
 
 3. 在作業完成時，您會收到類似下列文字的輸出：
 
@@ -88,14 +87,14 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
 ### <a name="view-output"></a>檢視輸出
 
-使用文字編輯器開啟 **output.txt** 檔案，以查看作業所產生的單字和計數。
+若要查看作業所產生的單字和計數，請使用文字編輯器開啟 **output.txt** 檔案。
 
 > [!NOTE]
 > MapReduce 工作的輸出檔是固定不變的。 因此，如果您重新執行此範例，則需要變更輸出檔的名稱。
 
 ## <a id="troubleshooting"></a>疑難排解
 
-如果在工作完成時未傳回任何資訊，則可能是處理期間發生錯誤。 若要檢視這項工作的錯誤資訊，請將下列命令新增至 **mapreducejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
+如果作業完成時未傳回任何資訊，請檢視作業的錯誤。 若要檢視這項工作的錯誤資訊，請將下列命令新增至 **mapreducejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
 
 ```powershell
 # Print the output of the WordCount job.
@@ -107,7 +106,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-這個 Cmdlet 會傳回執行作業時寫入至伺服器上之 STDERR 的資訊，而且可能有助於判斷作業的失敗原因。
+這個 Cmdlet 會傳回作業執行時寫入到 STDERR 的資訊。
 
 ## <a id="summary"></a>摘要
 

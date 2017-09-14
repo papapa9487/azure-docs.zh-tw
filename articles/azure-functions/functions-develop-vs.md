@@ -4,20 +4,20 @@ description: "了解如何使用 Azure Functions Tools for Visual Studio 2017 �
 services: functions
 documentationcenter: .net
 author: ggailey777
-manager: erikre
+manager: cfowler
 editor: 
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: dotnet
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
-ms.author: glenga, donnam
+ms.date: 09/06/2017
+ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: fab2b3042faf870fe4b9d09d5e96dadb7155c450
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -34,26 +34,20 @@ Azure Functions Tools 提供下列優點：
 
 本主題示範如何使用 Azure Functions Tools for Visual Studio 2017 在 C# 中開發函數。 您也會了解如何將專案發佈到 Azure 成為 .NET 組件。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-安裝 Azure Functions Tools 之前，您必須已安裝 [Visual Studio 2017 Preview 15.3 版](https://www.visualstudio.com/vs/preview/)，包括下列其中一個工作負載：
+[Visual Studio 2017 15.3](https://www.visualstudio.com/vs/) 及其以上版本之 Azure 開發工作負載包含了 Azure Functions 工具。 在安裝 Visual Studio 2017 15.3 版時，務必包含 **Azure 開發**工作負載：
 
-* Azure 開發
-* ASP.NET 和 Web 開發
+![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+
+>[!NOTE]  
+>安裝或升級至 Visual Studio 2017 版本 15.3 之後，您必須手動更新 Visual Studio 2017 Tools for Azure Functions。 您可以從 [工具] 功能表的 [延伸模組和更新...] 下的 > [更新] > [Visual Studio Marketplace] > [Azure Functions and Web Jobs Tools] > [更新] 更新工具。 
 
 若要建立及部署函數，您也需要：
 
 * 有效的 Azure 訂用帳戶。 如果您還沒有 Azure 訂用帳戶，可以使用[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
-* Azure 儲存體帳戶。 若要建立儲存體帳戶，請參閱[儲存體帳戶](../storage/storage-create-storage-account.md#create-a-storage-account)。  
-
-## <a name="install-the-azure-functions-tools"></a>安裝 Azure Functions Tools
-
-您可以[下載並安裝延伸模組套件](https://marketplace.visualstudio.com/vsgallery/e3705d94-7cc3-4b79-ba7b-f43f30774d28) \(英文\)，或依照下列步驟從 Visual Studio 中安裝。  
-
-[!INCLUDE [Install the Azure Functions Tools for Visual Studio](../../includes/functions-install-vstools.md)] 
-
-
+* Azure 儲存體帳戶。 若要建立儲存體帳戶，請參閱[儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)。  
 ## <a name="create-an-azure-functions-project"></a>建立 Azure Functions 專案 
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]

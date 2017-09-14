@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 587d73bc91aa10b79c1d1488f98f05b73801d8c8
+ms.translationtype: HT
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: a2487aac712542d86cb3a7f34c45e21c8d035496
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 遙測資料模型
@@ -31,7 +31,7 @@ Application Insights 所收集的資料會建立一般應用程式執行模式�
 
 * [**要求**](application-insights-data-model-request-telemetry.md)：產生以記錄應用程式所接收的要求。 例如，Application Insights Web SDK 會針對您 Web 應用程式接收的每個 HTTP 要求產生「要求」遙測項目。 
 
-    **作業**是處理要求的執行緒。 您也可以[撰寫程式碼](app-insights-api-custom-events-metrics.md#trackrequest)來監視其他作業類型，例如，定期處理資料之 Web 工作或函式中的「喚醒」。  每個作業都有識別碼。 此識別碼可用來將應用程式處理要求時產生的所有遙測加以 [分組] \(application-insights-correlation.md)。 每個作業可能會成功或失敗，而且有持續時間。
+    **作業**是處理要求的執行緒。 您也可以[撰寫程式碼](app-insights-api-custom-events-metrics.md#trackrequest)來監視其他作業類型，例如，定期處理資料之 Web 工作或函式中的「喚醒」。  每個作業都有識別碼。 此識別碼可用來將應用程式處理要求時產生的所有遙測加以[分組](application-insights-correlation.md)。 每個作業可能會成功或失敗，而且有持續時間。
 * [**例外狀況**](application-insights-data-model-exception-telemetry.md)：通常表示造成作業失敗的例外狀況。
 * [**相依性**](application-insights-data-model-dependency-telemetry.md)：代表從您的應用程式對外部服務或儲存體的呼叫，例如 REST API 或 SQL。 在 ASP.NET 中，SQL 的相依性呼叫是由 `System.Data` 所定義。 HTTP 端點的呼叫是由 `System.Net` 所定義。 
 
@@ -41,7 +41,7 @@ Application Insights 針對自訂遙測提供三種其他資料類型：
 * [事件](application-insights-data-model-event-telemetry.md)：通常用於擷取使用者與您服務的互動，藉以分析使用模式。
 * [計量](application-insights-data-model-metric-telemetry.md)：用於報告定期的純量測量。
 
-每個遙測項目可以定義[內容資訊](application-insights-data-model-context.md)，例如應用程式版本或使用者工作階段識別碼。 內容是一組在某些情況下會解除封鎖的強型別欄位。 正確初始化應用程式版本之後，Application Insights 可以偵測與重新部署相互關聯的應用程式行為中是否有新模式。 工作階段識別碼可用來計算中斷或某個問題對使用者造成的影響。 計算特定失敗相依性、錯誤追蹤或重大例外狀況之工作階段識別碼值的相異計數，即可充分了解影響。
+每個遙測項目可以定義[內容資訊](application-insights-data-model-context.md)，例如應用程式版本或使用者工作階段識別碼。內容是一組在某些情況下會解除封鎖的強型別欄位。 正確初始化應用程式版本之後，Application Insights 可以偵測與重新部署相互關聯的應用程式行為中是否有新模式。 工作階段識別碼可用來計算中斷或某個問題對使用者造成的影響。 計算特定失敗相依性、錯誤追蹤或重大例外狀況之工作階段識別碼值的相異計數，即可充分了解影響。
 
 Application Insights 遙測模型會定義將遙測與其所屬作業[相互關聯](application-insights-correlation.md)的方式。 例如，要求會發出 SQL Database 呼叫，並記錄診斷資訊。 針對會往回繫結至要求遙測的遙測項目，您可以設定這些遙測項目的相互關聯內容。
 

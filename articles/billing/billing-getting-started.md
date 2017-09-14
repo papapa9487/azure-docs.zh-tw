@@ -16,21 +16,23 @@ ms.workload: na
 ms.date: 08/10/2017
 ms.author: tonguyen
 experimental_id: a2b2579c-cd2e-41
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 539a3e628dfec1088f683652bc9b743b87875d36
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: b172fc1726d2a01ee68aebf8ec03cc1567012ca6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/26/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
 # <a name="prevent-unexpected-costs-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的成本
 
-當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取訂用帳戶之後，您可以看到目前的成本細分和完工速率。 您也可以[下載之前的發票與詳細使用量檔案](billing-download-azure-invoice-daily-usage-date.md)。 如果您想要將不同專案或小組所使用的資源成本分組，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
+當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 在 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取訂用帳戶之後，您可以看到目前的成本細分和完工速率。 您也可以下載大部分優惠類型的[舊發票與使用方式詳細資料檔案](billing-download-azure-invoice-daily-usage-date.md)。 如果您想要將不同專案或小組所使用的資源成本分組，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
 
 如需每日使用量的詳細資訊，請參閱[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。
 
-如果您的訂用帳戶是透過 Enterprise 合約 (EA)、雲端解決方案提供者 (CSP) 或 Azure 贊助取得，那麼此文章中所述的許多功能並不適用於您。 反之，我們有不同的工具組，可供您用於成本管理。 請參閱[適用於 EA、CSP 和贊助的其他資源](#other-offers)。
+如果您透過雲端解決方案提供者 (CSP) 或 Azure 贊助取得訂用帳戶，則本文提及的許多功能均不適用於您。 反之，我們有不同的工具組，可供您用於成本管理。 請參閱[適用於 EA、CSP 和贊助的其他資源](#other-offers)。
+
+如果您的訂用帳戶屬於 Enterprise 合約 (EA)，可使用新上線的 Azure 入口網站費用公開預覽功能。 由於本文所列的某些功能並不適用於您，因此您需要[了解幾件事項](#EA)。   
 
 如果您的訂用帳戶是免費試用、[Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)、Azure in Open (AIO) 或 BizSpark，請了解[消費限制](#spending-limit)以避免您的訂用帳戶非預期地被停用。 
 
@@ -48,7 +50,7 @@ ms.lasthandoff: 04/26/2017
 
 檢視成本需要[訂用帳戶層級的計費資訊存取權](billing-manage-access.md)，但只有帳戶管理員可以存取[帳戶中心](https://account.windowsazure.com/Home/Index)、變更計費資訊，以及管理訂用帳戶。 帳戶管理員是完成註冊程序的人員。 如需詳細資訊，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
 
-若要查看您是否為帳戶管理員，請前往 [Azure 入口網站中的訂用帳戶刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)並查看您具有存取權的訂用帳戶清單。 查看 [我的角色] 底下。 如果它顯示*帳戶管理員*，那麼您就是帳戶管理員。 如果它顯示諸如*擁有者*之類的其他角色，則表示您沒有完整權限。
+若要查看您是否為帳戶管理員，請前往 [Azure 入口網站的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)，查看您具有存取權的訂用帳戶清單。 查看 [我的角色] 底下。 如果它顯示*帳戶管理員*，那麼您就是帳戶管理員。 如果它顯示諸如*擁有者*之類的其他角色，則表示您沒有完整權限。
 
 ![Azure 入口網站的訂用帳戶檢視中您的角色的螢幕擷取畫面](./media/billing-getting-started/sub-blade-view.PNG)
 
@@ -91,7 +93,7 @@ ms.lasthandoff: 04/26/2017
 
 ![範例︰A1 Windows VM 預估每月成本為 $66.96 美元](./media/billing-getting-started/vm-size-cost.PNG)
 
-### <a name="tags"></a> 將標記新增至您的資源以便將計費資料分組
+### <a name="tags"></a> 為資源加上標籤以將帳單資料分組 
 
 針對支援的服務，您可以使用標記來將您的計費資料分組。 例如，如果您有不同小組執行數個 VM，您可以使用標記，依照成本中心 (HR、行銷、財務) 或環境 (生產環境、預先生產環境、測試) 來將成本分類。 
 
@@ -117,11 +119,11 @@ ms.lasthandoff: 04/26/2017
 
 在您的服務開始執行之後，請定期檢查它們花了您多少錢。 您可以在 Azure 入口網站中看到目前的花費和完工速率。 
 
-1. 請瀏覽 [Azure 入口網站中的訂用帳戶刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
+1. 瀏覽 [Azure 入口網站中的 [訂用帳戶] 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 
 2. 選取您要檢視的訂用帳戶。 您可能只有一個訂用帳戶可選取。
 
-3. 您應該會在快顯刀鋒視窗中看到成本細分和完工速率。 您的優惠可能不受支援 (靠近頂端處會顯示警告)。 新增服務之後，請等候 24 小時以便資料填入。
+3. 您應該會在快顯頁面中看到費用細項和完工速率。 您的優惠可能不受支援 (靠近頂端處會顯示警告)。 新增服務之後，請等候 24 小時以便資料填入。  
     
     ![Azure 入口網站中完工速率和成本細分的螢幕擷取畫面](./media/billing-getting-started/burn-rate.PNG)
 
@@ -135,15 +137,27 @@ ms.lasthandoff: 04/26/2017
 
 6. 您可以依照不同屬性來篩選，例如[標記](#tags)資源群組和時間範圍。 按一下 [套用] 確認篩選器，按一下 [下載] 可將檢視匯出至逗號分隔值 (.csv) 檔案。
 
-7. 按一下資源可查看消費歷程記錄，以及它每天花您多少錢。
+7. 按一下資源可檢視消費歷程記錄，以及該資源每天的費用。
 
     ![Azure 入口網站中消費歷程記錄檢視的螢幕擷取畫面](./media/billing-getting-started/costhistory.PNG)
 
 我們建議您將您看到的成本與您在選取服務時看到的預估進行核對。 如果成本和預估的差異很大，請再次檢查您為您的資源選取的定價方案 (例如 A1 與 A0 VM)。 
 
-#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-blade"></a>在帳單刀鋒視窗中檢視所有訂用帳戶的成本
+#### <a name="EA"></a> 預覽 Azure 入口網站中的 Enterprise 合約費用檢視 
 
-如果您以帳戶系統管理員身分管理多個訂用帳戶，您可以在[帳單刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade)中看到您所有訂用帳戶的彙總帳單金額和細分。 
+企業成本檢視目前只提供公開預覽。 下列為需注意的事項：
+- 訂閱費用是以使用情形計費，不考慮預付金額、超額部分、包含的數量、調整內容和稅金。 系統會在申請時計算實際費用。 
+- 相較於企業版入口網站中的值，Azure 入口網站可能會比較慢才顯示最新金額。  
+- 如果看不到費用，可能是因為下列其中一個原因：
+    - 您是帳戶擁有者且您的申請管理員已停用「AO 檢視費用」設定。  請連絡您的申請管理員以取得費用存取權。 
+    - 您是部門管理員且您的申請管理員已停用「DA 檢視費用」設定。  請連絡您的申請管理員以取得存取權。 
+    - 您透過管道夥伴購買 Azure，且該夥伴未發佈價格資訊。  
+- 企業版入口網站中與費用存取權相關的設定更新後，Azure 入口網站會延遲幾分鐘才反映該變更。
+- 消費限制、付款警示和發票指引不適用於 EA 訂用帳戶。
+
+#### <a name="view-costs-for-all-your-subscriptions-in-the-billing-page"></a>在 [帳單] 頁面中檢視所有訂閱的費用
+
+如果您以帳戶管理員的身分管理多個訂用帳戶，可以在 [帳單][ 頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade)中看到所有訂閱的帳單彙總金額和細項。 Azure 入口網站的 [帳單] 頁面目前不會顯示 EA 彙總檢視。  
 
 <!-- Add screenshots of multiple subs each with billed usage -->
 
@@ -161,7 +175,7 @@ ms.lasthandoff: 04/26/2017
 
 ### <a name="invoice-and-usage"></a>在您第一次計費期間之後取發票和詳細使用量
 
-在第一次計費期間之後，您可以下載您的可攜式文件格式 (.pdf) 發票和逗號分隔值 (.csv) 使用量詳細資料。 您也可以選擇加入以便透過電子郵件收取發票。 這些檔案可協助了解您在稅金、折扣和信用額度之後的最終計費是多少。 如果您的訂用帳戶沒有連結付款方法，則您可能無法使用這些檔案。 如需詳細資訊，請參閱[如何取得您的 Azure 帳單寄送發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)和[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。
+在第一次計費期間之後，您可以下載您的可攜式文件格式 (.pdf) 發票和逗號分隔值 (.csv) 使用量詳細資料。 您也可以選擇加入以便透過電子郵件收取發票。 這些檔案可協助了解您在稅金、折扣和信用額度之後的最終計費是多少。 如果您的訂用帳戶沒有連結付款方法，則您可能無法使用這些檔案。 如果您使用 EA 訂用帳戶，Azure 入口網站不會提供發票，而是會透過電子郵件將發票寄給申請管理員。 如需詳細資訊，請參閱[如何取得您的 Azure 帳單寄送發票和每日使用量資料](billing-download-azure-invoice-daily-usage-date.md)和[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。
 
 ![.pdf 發票的螢幕擷取畫面](./media/billing-getting-started/invoice.png)
 

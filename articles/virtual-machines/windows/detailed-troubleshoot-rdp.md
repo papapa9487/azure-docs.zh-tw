@@ -14,13 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: support-article
-ms.date: 07/25/2017
+ms.date: 09/06/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 7a9d994e10ec79437d6ccf60531cb12b86f34151
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: 81713fae3f856cad6251e43eecfd7b1e82858aed
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 之遠端桌面連線問題的詳細疑難排解步驟
@@ -50,6 +50,8 @@ ms.lasthandoff: 07/28/2017
 
 * 檢查 Azure 入口網站中虛擬機器的狀態，以找出是否有任何明顯的問題。
 * 依照 [基本疑難排解指南中常見 RDP 錯誤的快速檢修步驟](troubleshoot-rdp-connection.md#quick-troubleshooting-steps)操作。
+* 若為自訂映像，請先確定 VHD 已做好正確準備，再將它上傳。 如需詳細資訊，請參閱[準備 Windows VHD 或 VHDX 以上傳至 Azure](prepare-for-upload-vhd-image.md)。
+
 
 嘗試在完成這些步驟之後透過遠端桌面重新連接至 VM。
 

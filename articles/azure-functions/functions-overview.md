@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7fcf35b99cc410655f2a3b9b6961f5e3bef3aeb5
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
@@ -45,15 +45,15 @@ Azure Functions 是處理資料、整合系統、使用物聯網 (IoT)，以及�
 
 Functions 提供範本，可讓您開始使用重要的案例，包括下列案例︰
 
-* **BlobTrigger** - 在新增至容器時，處理 Azure 儲存體 blob。 您可以使用此函式調整映像大小。
-* **EventHubTrigger** - 回應傳送到 Azure 事件中樞的事件。 特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。
-* **泛型 webhook** - 處理來自支援 webhook 的任何服務的 webhook HTTP 要求。
-* **GitHub webhook** - 回應您的 GitHub 儲存機制中發生的事件。 如需範例，請參閱 [建立 Webhook 或 API 函數](functions-create-a-web-hook-or-api-function.md)。
-* **HTTPTrigger** - 使用 HTTP 要求觸發程式碼的執行。
-* **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需範例，請參閱[建立繫結至 Azure 服務的 Azure Function](functions-create-an-azure-connected-function.md)。
-* **ServiceBusQueueTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是接聽訊息佇列。 
-* **ServiceBusTopicTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是訂閱主題。 
-* **TimerTrigger** - 在預先定義的排程執行清除或其他批次工作。 如需範例，請參閱 [建立事件處理函數](functions-create-an-event-processing-function.md)。
+* **HTTPTrigger** - 使用 HTTP 要求觸發程式碼的執行。 如需範例，請參閱[建立您的第一個函式](functions-create-first-azure-function.md)。
+* **TimerTrigger** - 在預先定義的排程執行清除或其他批次工作。 如需範例，請參閱[建立由計時器觸發的函式](functions-create-scheduled-function.md)。
+* **GitHub webhook** - 回應您的 GitHub 儲存機制中發生的事件。 如需範例，請參閱[建立由 GitHub Webhook 所觸發的函式](functions-create-a-web-hook-or-api-function.md)。
+* **泛型 webhook** - 處理來自支援 webhook 的任何服務的 webhook HTTP 要求。 如需範例，請參閱[建立由一般 Webhook 所觸發的函式](functions-create-generic-webhook-triggered-function.md)。
+* **BlobTrigger** - 在新增至容器時，處理 Azure 儲存體 blob。 您可以使用此函式調整映像大小。 如需詳細資訊，請參閱 [Blob 儲存體繫結](functions-bindings-storage-blob.md)。
+* **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需範例，請參閱[建立連線至其他 Azure 服務的函式](functions-create-an-azure-connected-function.md)。
+* **EventHubTrigger** - 回應傳送到 Azure 事件中樞的事件。 特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。 如需詳細資訊，請參閱[事件中樞繫結](functions-bindings-event-hubs.md)。
+* **ServiceBusQueueTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是接聽訊息佇列。 如需詳細資訊，請參閱[服務匯流排繫結](functions-bindings-service-bus.md)。
+* **ServiceBusTopicTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是訂閱主題。 如需詳細資訊，請參閱[服務匯流排繫結](functions-bindings-service-bus.md)。
 
 Azure Functions 支援「觸發」，這是開始執行您的程式碼的方式，以及「繫結」，這是針對輸入和輸出資料簡化編碼的方式。 如需 Azure Functions 提供的觸發和繫結的詳細說明，請參閱 [Azure Functions 觸發和繫結開發人員參考](functions-triggers-bindings.md)。
 
@@ -71,12 +71,12 @@ Azure Functions 可以與各種 Azure 和協力廠商服務整合。 這些服�
 * Twilio (SMS 訊息)
 
 ## <a name="pricing"></a>Functions 的計費方式
-Azure Functions 有兩種價格方案，選擇一個最適合您的需求的方案︰ 
+Azure Functions 有兩種定價方案。 請選擇最符合您需求的方案： 
 
 * **使用情況方案**：當您的函式執行時，Azure 會提供所有必要的運算資源。 您不必擔心資源管理，您只需為您的程式碼執行時間支付費用。 
 * **App Service 方案** - 可讓您如同 Web、行動及 API 應用程式一樣執行函數。 當您已準備對其他應用程式使用 App Service 時，您可以在相同方案上執行您的函數，不會產生額外的費用。 
 
-在 [Functions 價格](https://azure.microsoft.com/pricing/details/functions/)頁面上可取得完整的價格詳細資料。 如需有關調整函數的詳細資訊，請參閱 [如何調整 Azure Functions](functions-scale.md)。
+如需主控方案的詳細資訊，請參閱 [Azure Functions 主控方案比較](functions-scale.md)。 在 [Functions 價格](https://azure.microsoft.com/pricing/details/functions/)頁面上可取得完整的價格詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 * [建立您的第一個Azure Functions](functions-create-first-azure-function.md)  
@@ -88,6 +88,6 @@ Azure Functions 有兩種價格方案，選擇一個最適合您的需求的方�
 * [如何調整 Azure 函式](functions-scale.md)  
   討論 Azure Functions 可用的服務方案，包括使用情況主控方案，以及如何選擇正確的方案。 
 * [深入了解 Azure App Service](../app-service/app-service-value-prop-what-is.md)  
-  Azure Functions 會利用 Azure App Service 平台執行核心功能，例如部署、環境變數和診斷。 
+  Azure Functions 會利用 Azure App Service 來執行核心功能，例如部署、環境變數和診斷。 
 
 

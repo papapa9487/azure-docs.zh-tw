@@ -1,5 +1,5 @@
 ---
-title: "適用於 Windows Server 和 Windows 用戶端的 Azure Hybrid Use Benefit | Microsoft Docs"
+title: "適用於 Windows Server 的 Azure Hybrid Use Benefit | Microsoft Docs"
 description: "了解如何發揮 Windows 軟體保證的最大效益，以將內部部署授權帶到 Azure"
 services: virtual-machines-windows
 documentationcenter: 
@@ -14,26 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/26/2017
 ms.author: xujing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 46b0895dc33fc13a1296301ed096fd3871b38952
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: a986ddf22f059dc55bb9bff5c6eaf27324b716cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
-# <a name="azure-hybrid-use-benefit-for-windows-server-and-windows-client"></a>適用於 Windows Server 和 Windows 用戶端的 Azure Hybrid Use Benefit
-對於擁有軟體保證的客戶，Azure Hybrid Use Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 和 Windows 用戶端授權，以及在 Azure 中執行 Windows 虛擬機器。 適用於 Windows Server 的 Azure Hybrid Use Benefit 包含 Windows Server 2008R2、Windows Server 2012、Windows Server 2012R2 及 Windows Server 2016。 適用於 Windows 用戶端的 Azure Hybrid Use Benefit 包含 Windows 10。 如需詳細資訊，請瀏覽 [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)授權頁面。
+# <a name="azure-hybrid-use-benefit-for-windows-server"></a>適用於 Windows Server 的 Azure Hybrid Use Benefit
+對於擁有軟體保證的客戶，Azure Hybrid Use Benefit 讓您能夠以較低的成本來使用內部部署 Windows Server 和 Windows 用戶端授權，以及在 Azure 中執行 Windows 虛擬機器。 適用於 Windows Server 的 Azure Hybrid Use Benefit 包含 Windows Server 2008R2、Windows Server 2012、Windows Server 2012R2 及 Windows Server 2016。 如需詳細資訊，請瀏覽 [Azure Hybrid Use Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/)授權頁面。
 
->[!IMPORTANT]
->適用於 Windows 用戶端的 Azure Hybrid Use Benefit 目前為預覽版，並使用 Azure Marketplace 中的 Windows 10 映像。 只有下列企業版客戶有資格使用：每位使用者都具有 Windows 10 Enterprise E3/E5，或者每位使用者都具有 Windows VDA (使用者訂閱授權或附加元件使用者訂閱授權) (「合格授權」)。
->
+> [!NOTE]
+> 本文會說明如何實作適用於 Windows Server 映像的授權權益。 您也可以對 [Windows 10 桌面版映像](#windows-desktop-multitenant-hosting-deployment)執行這些步驟。
 >
 
 ## <a name="ways-to-use-azure-hybrid-use-benefit"></a>如何使用 Azure Hybrid Use Benefit
 有幾種不同方式可部署 Windows VM 與 Azure Hybrid Use Benefit︰
 
-1. 您可以從使用 Azure Hybrid Use Benefit - Windows Server 2016、Windows Server 2012R2、Windows Server 2012 和 Windows Server 2008SP1 預先設定的[特定 Marketplace 映像](#deploy-a-vm-using-the-azure-marketplace)部署 VM。
+1. 您可以從 [特定 Marketplace 映像] 部署 VM
 2. 您可以[上傳自訂 VM](#upload-a-windows-vhd)，並使用 [Resource Manager 範本來部署](#deploy-a-vm-via-resource-manager)或使用 [Azure PowerShell](#detailed-powershell-deployment-walkthrough)。
 
 ## <a name="deploy-a-vm-using-the-azure-marketplace"></a>使用 Azure Marketplace 部署 VM

@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
-ms.openlocfilehash: 9b7adf78271407963ed1d4b34a7760d707b5fc3a
+ms.translationtype: HT
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 
@@ -91,7 +91,7 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
 + 片語查詢適用於引號括住的詞彙 (例如 ocean view)
 + 前置詞查詢適用於前置詞運算子後面的詞彙 `*` (例如 air-condition)
 
-如需支援的查詢類型完整清單，請參閱 [Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+如需支援查詢類型的完整清單，請參閱 [Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 為使文件視為相符項目，與子查詢相關聯的運算子會決定查詢「必須」還是「應該」符合。 例如，由於 `+` 運算子，`+"Ocean view"` 是「必須」。 
 
@@ -101,7 +101,7 @@ POST /indexes/hotels/docs/search?api-version=2016-09-01
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>支援的剖析器︰簡單和完整的 Lucene 
 
- Azure 搜尋服務會公開兩種不同的查詢語言，`simple` (預設值) 和 `full`。 藉由使用搜尋要求來設定 `queryType` 參數，您告知查詢剖析器所選擇的查詢語言，讓它知道如何解譯運算子和語法。 [簡單的查詢語言](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)是直覺式且強固，通常適用於以現況解譯使用者輸入而無用戶端處理。 它支援 web 搜尋引擎熟悉的查詢運算子。 [完整的 Lucene 查詢語言](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)是您藉由設定 `queryType=full` 所取得，會透過新增更多運算子與查詢類型 (例如萬用字元、模糊、Regex 和欄位範圍查詢) 的支援，來擴充預設的簡單查詢語言。 例如，簡單查詢語法傳入的規則運算式會解譯為查詢字串而非運算式。 本文中的範例要求會使用完整的 Lucene 查詢語言。
+ Azure 搜尋服務會公開兩種不同的查詢語言，`simple` (預設值) 和 `full`。 藉由使用搜尋要求來設定 `queryType` 參數，您告知查詢剖析器所選擇的查詢語言，讓它知道如何解譯運算子和語法。 [簡單的查詢語言](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)是直覺式且強固的，通常適用於以現況解譯使用者輸入而無用戶端處理。 它支援 web 搜尋引擎熟悉的查詢運算子。 [完整的 Lucene 查詢語言](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)是您藉由設定 `queryType=full` 所取得，會透過新增更多運算子與查詢類型 (例如萬用字元、模糊、Regex 和欄位範圍查詢) 的支援，來擴充預設的簡單查詢語言。 例如，簡單查詢語法傳入的規則運算式會解譯為查詢字串而非運算式。 本文中的範例要求會使用完整的 Lucene 查詢語言。
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>SearchMode 在剖析器上的影響 
 
@@ -387,15 +387,15 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 
 + [設定自訂分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)以進行最少的處理，或是在特定欄位上進行特殊的處理。
 
-+ 在這個示範網站上同時[比較標準和英文分析器](http://alice.unearth.ai/) \(英文\)。 
++ 在這個示範網站上同時[比較標準和英文分析器](http://alice.unearth.ai/)。 
 
 ## <a name="see-also"></a>另請參閱
 
-[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)
+[搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 
-[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
+[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[完整的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+[完整的 Lucene 查詢語法](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
 [處理搜尋結果](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
 

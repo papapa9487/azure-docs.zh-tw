@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 147019a9650df2d421d4d930aa2932904d5174ab
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: d38fc766d5226be7161433555da9622e006c80e9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 
 # <a name="step-2-before-you-start"></a>步驟 2：開始之前
 
-在您已檢閱使用 [Azure Site Recovery](site-recovery-overview.md)在 Azure 區域之間複寫 Azure 虛擬機器 (VM) 的[架構](azure-to-azure-walkthrough-architecture.md)之後，請使用這份文件來確認先決條件。 
+在您已檢閱使用 [Azure Site Recovery](site-recovery-overview.md)在 Azure 區域之間複寫 Azure 虛擬機器 (VM) 的[架構](azure-to-azure-walkthrough-architecture.md)之後，請使用這份文件來確認先決條件。
 
 - 當您完成文件時，應該清楚了解部署工作所需條件，並已完成必要條件步驟。
 - 請在本文下方張貼意見，或在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)中提出問題。
@@ -37,19 +37,17 @@ ms.lasthandoff: 08/03/2017
 
 ## <a name="support-recommendations"></a>支援建議
 
-請檢閱下表。
+請檢閱下表。 在[支援矩陣](site-recovery-support-matrix-azure-to-azure.md)中取得支援需求的完整清單。
 
 **元件** | **需求**
 --- | ---
 **復原服務保存庫** | 建議您在要用來作為災害復原的目標 Azure 區域中，建立復原服務保存庫。 例如，如果您需要將美國東部的來源 VM 複寫到美國中部，請在美國中部建立保存庫。
 **Azure 訂用帳戶** | 必須啟用您的 Azure 訂用帳戶，才能在要作為災害復原區域的目標位置中建立 VM。 請連絡支援人員啟用所需的配額。
 **目標區域產能** | 在目標 Azure 區域中，訂用帳戶應該有足夠的容量可供 VM、儲存體帳戶和網路元件使用。
-**儲存體** | 使用您來源 Azure VM 的 [儲存體指引](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免效能問題。<br/><br/> 儲存體帳戶必須位於與保存庫相同的區域。<br/><br/> 您無法複寫到印度中部和南部的進階帳戶。<br/><br/> 如果您使用預設設定來部署複寫，Site Recovery 會以來源設定作為基礎建立所需的儲存體帳戶。 如果您要自訂設定，請遵循 [VM 磁碟的延展性目標](../storage/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)。
-**網路功能** | 您必須允許來自 Azure VM 適用於特定 URL/IP 範圍的輸出連線能力。<br/><br/> 網路帳戶必須位於與保存庫相同的區域。 
+**儲存體** | 使用您來源 Azure VM 的 [儲存體指引](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)，以避免效能問題。<br/><br/> 儲存體帳戶必須位於與保存庫相同的區域。<br/><br/> 您無法複寫到印度中部和南部的進階帳戶。<br/><br/> 如果您使用預設設定來部署複寫，Site Recovery 會以來源設定作為基礎建立所需的儲存體帳戶。 如果您要自訂設定，請遵循 [VM 磁碟的延展性目標](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks)。
+**網路功能** | 您必須允許來自 Azure VM 適用於特定 URL/IP 範圍的輸出連線能力。<br/><br/> 網路帳戶必須位於與保存庫相同的區域。
 **Azure VM** | 請確定所有最新的根憑證位於 Windows/Linux Azure VM 上。 如果他們不這樣做，由於安全性限制，您將無法在 Site Recovery 中註冊 VM。
 **Azure 使用者帳戶** | 您的 Azure 使用者帳戶必須具有特定[權限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能啟用 Azure 虛擬機器的複寫功能。
-
-在[支援矩陣](site-recovery-support-matrix-azure-to-azure.md)中取得支援需求的完整清單
 
 
 ## <a name="set-permissions-on-the-account"></a>設定帳戶的權限

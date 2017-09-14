@@ -17,13 +17,13 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 80df3da4d62feb814ea2dd97c96e57954093c5c5
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: b5bf9042921dfb2344c2c6e03990578fa9ce4f5b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/01/2017
 
 ---
-# <a name="use-the-hive-view-with-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Hadoop 使用 Hive 檢視
+# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Hadoop 使用 Ambari Hive 檢視
 
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
 
@@ -34,14 +34,14 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的相關資訊，請參閱[開始使用以 Linux 為基礎的 HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
+* 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 > [!IMPORTANT]
-> 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> 此文件中的步驟需要使用 Linux 的 Azure HDInsight 叢集。 Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="open-the-hive-view"></a>開啟 Hive 檢視
 
-您可以從 Azure 入口網站存取 Ambari 檢視，選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]。
+您可以從 Azure 入口網站開啟 Ambari 檢視。 選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]。
 
 ![入口網站的 [快速連結] 區段](./media/hdinsight-hadoop-use-hive-ambari-view/quicklinks.png)
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 08/02/2017
 
 ![[Hive 檢視] 的查詢工作表影像](./media/hdinsight-hadoop-use-hive-ambari-view/ambari-hive-view.png)
 
-## <a name="hivequery"></a>執行查詢
+## <a name="run-a-query"></a>執行查詢
 
 若要執行 Hive 查詢，請從 Hive 檢視使用下列步驟。
 
@@ -72,19 +72,19 @@ ms.lasthandoff: 08/02/2017
 
     這些陳述式會執行下列動作：
 
-   * `DROP TABLE` - 刪除資料表和資料檔 (如果資料表已存在)。
+   * `DROP TABLE`：刪除資料表和資料檔 (如果資料表已存在)。
 
-   * `CREATE EXTERNAL TABLE` - 在 Hive 中建立新的「外部」資料表。
+   * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的「外部」資料表。
    外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
-   * `ROW FORMAT` - 設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
+   * `ROW FORMAT`：顯示設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
-   * `STORED AS TEXTFILE LOCATION` - 資料的儲存位置，且資料會儲存為文字。
+   * `STORED AS TEXTFILE LOCATION`：顯示資料的儲存位置，且資料會儲存為文字。
 
-   * `SELECT` - 選取在資料行 t4 中包含 [ERROR] 值的所有資料列。
+   * `SELECT`：選取在資料行 t4 中包含 [ERROR] 值的所有資料列。
 
      > [!NOTE]
-     > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，自動化的資料上傳程序，或透過其他 MapReduce 作業。 捨棄外部資料表並 *不會* 刪除資料，只會刪除資料表定義。
+     > 當您預期會以外部來源更新基礎資料 (例如自動化資料上傳程序或其他 MapReduce 作業)，請使用外部資料表。 捨棄外部資料表並 *不會* 刪除資料，只會刪除資料表定義。
 
     > [!IMPORTANT]
     > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
@@ -96,10 +96,10 @@ ms.lasthandoff: 08/02/2017
         sev       cnt
         [ERROR]   3
 
-    [記錄檔] 索引標籤可用來檢視作業所建立的記錄資訊。
+    您可以使用 [記錄] 索引標籤來檢視作業所建立的記錄資訊。
 
    > [!TIP]
-   > [查詢程序結果] 區段左上角的 [儲存結果] 下拉式對話方塊可讓您下載或儲存結果。
+   > 從 [查詢程序結果] 區段左上角的 [儲存結果] 下拉式對話方塊下載或儲存結果。
 
 4. 選取此查詢的前四行，然後選取 [執行]。 請注意，作業完成時沒有任何結果。 在選取部分查詢的情況下使用 [執行] 按鈕，只會執行所選的陳述式。 在此情況下，選取項目不包含從資料表擷取資料列的最後一個陳述式。 如果您只選取那一行並使用 [執行]，您應該會看到預期的結果。
 
@@ -112,19 +112,19 @@ ms.lasthandoff: 08/02/2017
 
   這些陳述式會執行下列動作：
 
-   * **CREATE TABLE IF NOT EXISTS** - 建立資料表 (如果不存在)。 由於未使用  關鍵字，因此會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
+   * **CREATE TABLE IF NOT EXISTS**：建立資料表 (如果不存在)。 由於未使用 **EXTERNAL** 關鍵字，因此會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
-   * **STORED AS ORC** - 以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
+   * **STORED AS ORC**：以最佳化資料列單欄式 (ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
 
-   * **INSERT OVERWRITE ...SELECT** - 從包含 `[ERROR]` 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
+   * **INSERT OVERWRITE ...SELECT**：從包含 `[ERROR]` 的 **log4jLogs** 資料表選取資料列，然後將資料插入 **errorLogs** 資料表。
 
-     使用 [查詢] 按鈕執行此查詢。 當查詢傳回零個資料列時，[結果] 索引標籤不會包含任何資訊。 查詢完成後，狀態應該會顯示為 [成功]。
+使用 [查詢] 按鈕執行此查詢。 當查詢傳回零個資料列時，[結果] 索引標籤不會包含任何資訊。 查詢完成後，狀態應該會顯示為 [成功]。
 
 ### <a name="visual-explain"></a>視覺解說
 
 若要顯示查詢計劃的視覺效果，請選取工作表下方的 [視覺說明] 索引標籤。
 
-查詢的 [視覺解說] 檢視有助於了解複雜查詢的流程。 您可以使用 [查詢編輯器] 中的 [解說] 按鈕來檢視此檢視的對等文字。
+查詢的 [視覺解說] 檢視有助於了解複雜查詢的流程。 您可以使用 [查詢編輯器] 中的 [解說] 按鈕來查看此檢視的對等文字。
 
 ### <a name="tez-ui"></a>Tez UI
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 08/02/2017
 > [!IMPORTANT]
 > Tez 的用途並非解析所有查詢。 您不需要使用 Tez 便可解析許多查詢。 
 
-如果使用 Tez 來解析查詢，則會顯示有向非循環圖 (DAG)。 如果您想要檢視您已執行過之查詢的 DAG，或偵錯 Tez 程序，請改用 [Tez 檢視](hdinsight-debug-ambari-tez-view.md) 。
+如果使用 Tez 來解析查詢，則會顯示有向非循環圖 (DAG)。 如果您想要檢視您已執行過之查詢的 DAG，或想要偵錯 Tez 程序，請改用 [Tez 檢視](hdinsight-debug-ambari-tez-view.md) 。
 
 ## <a name="view-job-history"></a>檢視工作歷程記錄
 
@@ -149,19 +149,19 @@ ms.lasthandoff: 08/02/2017
 
 ## <a name="saved-queries"></a>儲存的查詢
 
-從 [查詢] 索引標籤中，您可以選擇性地儲存查詢。 儲存之後，您便可以從 [儲存的查詢] 索引標籤中重複使用查詢。
+從 [查詢] 索引標籤中，您可以選擇性地儲存查詢。 儲存查詢之後，您就可以從 [儲存的查詢] 索引標籤重複使用它。
 
 ![[儲存的查詢] 索引標籤影像](./media/hdinsight-hadoop-use-hive-ambari-view/saved-queries.png)
 
 ## <a name="user-defined-functions"></a>使用者定義函式
 
-您也可以透過使用者定義函數 (UDF) 擴充 Hive。 UDF 可讓您在 HiveQL 中實作功能或不易模型化的邏輯。
+您也可以透過使用者定義函式 (UDF) 延伸 Hive 。 使用 UDF 在 HiveQL 中實作不易模型化的功能或邏輯。
 
-[Hive 檢視] 頂端的 [UDF] 索引標籤可讓您宣告並儲存一組 UDF。 這些 UDF 可以在 [查詢編輯器] 中使用。
+使用 [Hive 檢視] 頂端的 [UDF] 索引標籤來宣告並儲存一組 UDF。 這些 UDF 可以在 [查詢編輯器] 中使用。
 
 ![[UDF] 索引標籤影像](./media/hdinsight-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
-一旦您將 UDF 新增至 [Hive 檢視]，[插入 udf] 按鈕隨即會出現在 [查詢編輯器] 底端。 選取這個項目會顯示 [Hive 檢視] 中定義之 UDF 的下拉式清單。 選取 UDF 會將 HiveQL 陳述式新增至查詢以啟用 UDF。
+在將 UDF 新增至 [Hive 檢視] 後，[插入 udf] 按鈕隨即會出現在 [查詢編輯器] 底端。 選取這個項目會顯示 [Hive 檢視] 中定義之 UDF 的下拉式清單。 選取 UDF 會將 HiveQL 陳述式新增至查詢以啟用 UDF。
 
 例如，如果您使用下列屬性定義 UDF：
 
@@ -180,16 +180,16 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-您接著可以在查詢中使用 UDF。 例如， `SELECT myawesomeudf(name) FROM people;`。
+您接著可以在查詢中使用 UDF。 例如： `SELECT myawesomeudf(name) FROM people;`。
 
-如需在 HDInsight 上搭配 Hive 使用 UDF 的詳細資訊，請參閱下列文件：
+如需在 HDInsight 上搭配 Hive 使用 UDF 的詳細資訊，請參閱下列文章：
 
 * [在 HDInsight 中搭配 Hive 與 Pig 使用 Python](hdinsight-python.md)
 * [如何將自訂 Hive UDF 新增至 HDInsight (英文)](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## <a name="hive-settings"></a>Hive 設定
 
-設定可用來變更各種 Hive 設定。 比方說，將 Hive 的執行引擎從 Tez (預設值) 變更為 MapReduce。
+您可以變更各種 Hive 設定，例如將 Hive 的執行引擎從 Tez (預設) 變更為 MapReduce。
 
 ## <a id="nextsteps"></a>接續步驟
 

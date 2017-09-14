@@ -144,7 +144,7 @@ ms.lasthandoff: 08/28/2017
     
     ![依序選取 [功能表]、[系統] 和 [管理]](./media/active-directory-saas-sapboc-tutorial/config1.png)
 
-8. 在 [安全性] 索引標籤上，選取 [編輯] (畫筆) 圖示。
+8. 在 [安全性] 索引標籤上，選取 [編輯] \(畫筆) 圖示。
     
     ![在 [安全性] 索引標籤上，選取 [編輯] 圖示](./media/active-directory-saas-sapboc-tutorial/config2.png)  
 

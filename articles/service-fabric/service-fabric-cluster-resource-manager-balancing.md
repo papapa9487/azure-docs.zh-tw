@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: dfe0de1bc4cdfcbc0d175f1a3268601bde4da21a
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 06d65878d84fb845cf0c4c333a1e2d12b0aaec2f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>平衡 Service Fabric 叢集
@@ -175,6 +175,10 @@ ClusterManifest.xml
 ```
 
 平衡臨界值和活動臨界值都與特定計量繫結 - 只有同時超出同一計量的「平衡臨界值」和「活動臨界值」時，才會觸發平衡作業。
+
+> [!NOTE]
+> 若未指定，計量的平衡臨界值就是 1，而活動臨界值是 0。 這表示叢集 Resource Manager 會嘗試使該計量對指定負載保持完美的平衡。 如果您是使用自訂計量，建議您明確地定義自己的計量平衡與活動臨界值。 
+>
 
 ## <a name="balancing-services-together"></a>一起平衡服務
 叢集是否不平衡牽涉到整個叢集的決策。 不過，我們修正此種情況的方法是將個別的服務複本和執行個體四處移動。 這很合理，對吧？ 如果記憶體堆疊在某一個節點上，可能是由多個複本或執行個體所造成。 若要修正不平衡的狀態，可能需要移動所有使用不平衡計量的具狀態複本或無狀態執行個體。

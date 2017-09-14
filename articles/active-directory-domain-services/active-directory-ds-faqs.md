@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/05/2017
 ms.author: maheshu
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 193e59c610d5c5b553469cf2ea2ecc150236ac27
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
@@ -80,6 +80,9 @@ ms.lasthandoff: 08/29/2017
 
 #### <a name="is-there-a-free-trial-for-the-service"></a>是否可以免費試用服務？
 此服務隨附於 Azure 的免費試用版。 您可以註冊以 [免費試用 Azure 一個月](https://azure.microsoft.com/pricing/free-trial/)。
+
+#### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>我能否暫停 Azure AD Domain Services 受管理的網域？ 
+否。 啟用 Azure AD Domain Services 受管理的網域後，您選取的虛擬網路中即有該服務可供使用，直到您停用/刪除受管理的網域為止。 無法暫停服務。 除非您刪除受管理的網域，否則將以每小時計費。
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>我可以從 Enterprise Mobility Suite (EMS) 中取得 Azure AD 網域服務嗎？ 我是否需要 Azure AD Premium 才能使用 Azure AD 網域服務？
 否。 Azure AD 網域服務是隨用隨付的 Azure 服務，並不是 EMS 的一部分。 Azure AD Domain Services 可以與所有 Azure AD 版本 (免費、基本及進階) 搭配使用。 計費方式是每小時依據使用量計費。

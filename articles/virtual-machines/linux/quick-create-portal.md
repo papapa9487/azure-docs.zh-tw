@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: d009020e86fdfed6a45b5b63b9664c623bcb1843
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 15d4f81f8a7a835ea61a9056d83d8337d529c7cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -58,18 +58,18 @@ ssh-keygen -t rsa -b 2048
 
     ![顯示 VM 大小的螢幕擷取畫面](./media/quick-create-portal/create-linux-vm-portal-sizes.png)  
 
-5. 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
+5. 在 [設定] 之下，保留預設值並按一下 [確定]。
 
 6. 在 [摘要] 頁面上，按一下 [確定] 來啟動虛擬機器部署。
 
-7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署，VM 摘要刀鋒視窗就會自動開啟。
+7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署後，VM 摘要就會自動開啟。
 
 
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
 
 建立虛擬機器的 SSH 連線。
 
-1. 按一下虛擬機器刀鋒視窗上的 [連線] 按鈕。 [連線] 按鈕顯示的 SSH 連接字串可用來連線至虛擬機器。
+1. 按一下虛擬機器屬性上的 [連線] 按鈕。 [連線] 按鈕顯示的 SSH 連接字串可用來連線至虛擬機器。
 
     ![入口網站 9](./media/quick-create-portal/portal-quick-start-9.png) 
 
@@ -110,13 +110,13 @@ sudo apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面
 
-安裝 NGINX 後，且連接埠 80 對您的 VM 開啟，即可立即從網際網路存取 Web 伺服器。 開啟 Web 瀏覽器，並輸入 VM 的公用 IP 位址。 在 Azure 入口網站的 VM 刀鋒視窗上可找到公用 IP 位址。
+安裝 NGINX 後，且連接埠 80 對您的 VM 開啟，即可立即從網際網路存取 Web 伺服器。 開啟 Web 瀏覽器，並輸入 VM 的公用 IP 位址。 在 Azure 入口網站的 VM 屬性上可找到公用 IP 位址。
 
 ![預設 NGINX 網站](./media/quick-create-cli/nginx.png) 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若不再需要，可刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器刀鋒視窗中的資源群組，然後按一下 [刪除]。
+若不再需要，可刪除資源群組、虛擬機器和所有相關資源。 若要這樣做，請選取虛擬機器的資源群組，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

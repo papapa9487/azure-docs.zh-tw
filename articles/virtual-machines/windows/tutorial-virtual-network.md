@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
-ms.openlocfilehash: 7fd0ace35cfe0286c874e4a75b733053aa945d39
+ms.translationtype: HT
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: 54a4a37d581f023610cd61835bdc76814fbd46e0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 
@@ -34,7 +34,7 @@ Azure 虛擬機器會使用 Azure 網路進行內部和外部的網路通訊。 
 > * 使用網路安全性群組來控制網路流量
 > * 檢視作用中的流量規則
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 ## <a name="create-vnet"></a>建立 VNet
 
@@ -93,7 +93,7 @@ $frontendNic = New-AzureRmNetworkInterface `
   -PublicIpAddressId $pip.Id
 ```
 
-使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 來設定 VM 上系統管理員帳戶所需的使用者名稱和密碼：
+使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 來設定 VM 上系統管理員帳戶所需的使用者名稱和密碼。 您需要執行其他步驟以使用這些認證來連線至 VM：
 
 ```powershell
 $cred = Get-Credential
@@ -153,7 +153,7 @@ Get-AzureRmPublicIPAddress `
 mstsc /v:<publicIpAddress>
 ``` 
 
-您現在已登入 myFrontendVM，可以使用一行 PowerShell 來安裝 IIS，並啟用本機防火牆規則來允許 Web 流量通過。 開啟 PowerShell 提示字元並執行下列命令：
+您現在已登入 myFrontendVM，可以使用一行 PowerShell 來安裝 IIS，並啟用本機防火牆規則來允許 Web 流量通過。 從 RDP 工作階段開啟 VM 上的 PowerShell 提示字元，並執行下列命令：
 
 使用 [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) 來執行會安裝 IIS Web 伺服器的自訂指令碼擴充功能：
 

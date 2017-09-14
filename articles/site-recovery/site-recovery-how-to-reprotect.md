@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 181ed544ae4697753490642fea8eef636322a114
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>從 Azure 重新保護至內部部署網站
@@ -226,4 +226,36 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 * 如果您要嘗試容錯回復至替代的 vCenter，請確定您的新 vCenter 和主要目標伺服器均已被探索到。 一般的徵兆是，您會發現在 [重新保護] 對話方塊中無法存取/看到資料存放區。
 
 * 做為實體內部部署伺服器保護的 Windows Server 2008 R2 SP1 伺服器無法從 Azure 容錯回復到內部部署網站。
+
+### <a name="common-error-codes"></a>常見的錯誤碼
+
+#### <a name="error-code-95226"></a>錯誤碼 95226
+
+重新保護失敗，因為 Azure 虛擬機器無法觸達內部部署組態伺服器。
+
+發生這種情況的時機： 
+1. Azure 虛擬機器無法觸達內部部署組態伺服器，因此無法加以探索和註冊到組態伺服器。 
+2. Azure 虛擬機器上必須執行才能與內部部署組態伺服器通訊的 InMage Scout 應用程式服務，在容錯移轉後可能不會執行。
+
+若要解決此問題
+1. 您必須確定已設定 Azure 虛擬機器的網路，使虛擬機器可與內部部署組態伺服器進行通訊。 若要這樣做，請將網站對網站 VPN 設定回到您的內部部署資料中心，或是使用 Azure 虛擬機器之虛擬網路上的私人對等互連來設定 ExpressRoute 連線。 
+2. 如果您已將網路設定為 Azure 虛擬機器可與內部部署組態伺服器進行通訊，請登入虛擬機器並檢查 'InMage Scout Application Service'。 如果您觀察到 InMage Scout 應用程式服務未執行，請以手動方式啟動服務，並確定服務啟動類型設定為自動。
+
+### <a name="error-code-78052"></a>錯誤碼 78052
+重新保護會失敗，並出現錯誤訊息：*無法完成虛擬機器的保護。*
+
+可能有兩個原因會造成這個問題
+1. 您要重新保護的虛擬機器是 Windows Server 2016。 此作業系統目前不支援容錯回復，但很快就會受到支援。
+2. 在您要容錯回復的對象主要目標伺服器上，已經存在具有相同名稱的虛擬機器。
+
+若要解決這個問題，您可以在不同的主機上選取不同的主要目標伺服器，使重新保護可在不同的主機上建立機器，而其中的名稱不會衝突。 您也可以將主要目標 vMotion 到不同的主機，而其中的名稱不會發生衝突。
+
+### <a name="error-code-78093"></a>錯誤碼 78093
+
+VM 非執行中，處於無回應狀態或無法存取。
+
+若要重新保護容錯移轉的虛擬機器回到內部部署，Azure 虛擬機器必須為執行中。 如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行 (停止回應狀態或關機)，組態伺服器就無法觸達虛擬機器中的行動服務以開始重新保護。 您可以重新啟動虛擬機器，讓它能夠開始通訊回內部部署。 啟動 Azure 虛擬機器之後，重新啟動重新保護作業
+
+
+
 

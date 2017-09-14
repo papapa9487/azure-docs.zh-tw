@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 07/23/2017
 ms.author: mahi
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 862e9551f1e129b7bba06651fbae94e337c92dcb
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 65bf5928428b21e98c893a9de8ca596329329411
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure Data Lake Analytics
@@ -329,86 +329,9 @@ $d = [DateTime]::Now.AddDays(-7)
 Get-AdlJob -Account $adla -SubmittedAfter $d
 ```
 
-### <a name="common-scenarios-for-listing-jobs"></a>列出作業的常見案例
+### <a name="analyzing-job-history"></a>分析作業記錄
 
-
-```
-# List jobs submitted in the last five days and that successfully completed.
-$d = (Get-Date).AddDays(-5)
-Get-AdlJob -Account $adla -SubmittedAfter $d -State Ended -Result Succeeded
-
-# List all failed jobs submitted by "joe@contoso.com" within the past seven days.
-Get-AdlJob -Account $adla `
-    -Submitter "joe@contoso.com" `
-    -SubmittedAfter (Get-Date).AddDays(-7) `
-    -Result Failed
-```
-
-## <a name="filtering-a-list-of-jobs"></a>篩選作業清單
-
-在您取得目前 PowerShell 工作階段中的作業清單之後， 您可以使用標準 PowerShell Cmdlet 來篩選該清單。
-
-將作業清單篩選成顯示過去 24 小時提交的作業
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.EndTime -ge $lowerdate }
-```
-
-將作業清單篩選成顯示過去 24 小時結束的作業
-
-```
-$upperdate = Get-Date
-$lowerdate = $upperdate.AddHours(-24)
-$jobs | Where-Object { $_.SubmitTime -ge $lowerdate }
-```
-
-將作業清單篩選成顯示已開始執行的作業。 作業有可能在編譯階段即發生失敗，因而永遠不會開始。 讓我們看看已實際開始執行然後發生失敗的失敗作業。
-
-```powershell
-$jobs | Where-Object { $_.StartTime -ne $null }
-```
-
-### <a name="analyzing-a-list-of-jobs"></a>分析作業清單
-
-使用 `Group-Object` Cmdlet 來分析作業清單。
-
-```
-# Count the number of jobs by Submitter
-$jobs | Group-Object Submitter | Select -Property Count,Name
-
-# Count the number of jobs by Result
-$jobs | Group-Object Result | Select -Property Count,Name
-
-# Count the number of jobs by State
-$jobs | Group-Object State | Select -Property Count,Name
-
-#  Count the number of jobs by DegreeOfParallelism
-$jobs | Group-Object DegreeOfParallelism | Select -Property Count,Name
-```
-執行分析時，將屬性新增到作業物件可能會相當有用，這可讓您更容易進行篩選和分組。 下列程式碼片段說明如何使用計算的屬性來標註 JobInfo。
-
-```
-function annotate_job( $j )
-{
-    $dic1 = @{
-        Label='AUHours';
-        Expression={ ($_.DegreeOfParallelism * ($_.EndTime-$_.StartTime).TotalHours)}}
-    $dic2 = @{
-        Label='DurationSeconds';
-        Expression={ ($_.EndTime-$_.StartTime).TotalSeconds}}
-    $dic3 = @{
-        Label='DidRun';
-        Expression={ ($_.StartTime -ne $null)}}
-
-    $j2 = $j | select *, $dic1, $dic2, $dic3
-    $j2
-}
-
-$jobs = Get-AdlJob -Account $adla -Top 10
-$jobs = $jobs | %{ annotate_job( $_ ) }
-```
+使用 Azure PowerShell 來分析已在 Data Lake 分析中執行之作業的記錄，是一項強大的技術。 您可以使用這項技術來深入了解使用情形和成本。 若要深入了解，請參閱[作業記錄分析存放庫範例](https://github.com/Azure-Samples/data-lake-analytics-powershell-job-history-analysis)  
 
 ## <a name="get-information-about-pipelines-and-recurrences"></a>取得管線和週期的相關資訊
 

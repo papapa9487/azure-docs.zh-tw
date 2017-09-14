@@ -102,7 +102,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 * 進階儲存體帳戶中每個分頁 Blob 的快照集數目上限為 100 個。 如果超出該限制，快照集 Blob 作業就會傳回錯誤碼 409 (`SnapshotCountExceeded`)。
 * 您可以每 10 分鐘擷取一次進階儲存體帳戶中分頁 Blob 的快照集。 如果超出該比率，快照集 Blob 作業就會傳回錯誤碼 409 (`SnapshotOperationRateExceeded`)。
-* 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。 複製作業的目的地 Blob 不可以包含任何現有的快照集。 如果目的地 Blob 具有快照集，則 Copy Blob 作業會傳回錯誤碼 409 (`SnapshotsPresent`).。
+* 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。 複製作業的目的地 Blob 不可以包含任何現有的快照集。 如果目的地 Blob 具有快照集，則 Copy Blob 作業會傳回錯誤碼 409 (`SnapshotsPresent`)。
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>傳回快照集的絕對 URI
 這個 C# 程式碼範例會建立快照集，並寫出主要位置的絕對 URI。

@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 01/25/2017
+ms.date: 09/06/2017
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 6f8d220a64e04b7dfa021aacf68dadf0d55393bf
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>將資料從 Azure Data Lake Store 載入到 SQL 資料倉儲
 本文件說明使用 PolyBase 將您自己的資料從 Azure Data Lake Store (ADLS) 載入到 SQL 資料倉儲時需要執行的所有步驟。
 雖然您能夠使用外部資料表對 ADLS 中儲存的資料執行臨機操作查詢，但是我們建議的最佳做法是將資料匯入到 SQL 資料倉儲。
-預估時間：假設您有完成作業之必要條件的情況下，所需時間為 10 分鐘。
+
 在本教學課程中，您將了解如何：
 
 1. 建立要從 Azure Data Lake Store 載入的外部資料庫物件。
@@ -89,8 +89,7 @@ WITH
 
 
 ### <a name="create-the-external-data-source"></a>建立外部資料來源
-使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置及類型。
-您可以在 Azure 入口網站和 www.portal.azure.com 中找到 ADL URI。
+使用此 [CREATE EXTERNAL DATA SOURCE][CREATE EXTERNAL DATA SOURCE] 命令以儲存資料的位置及類型。 若要在 Azure 入口網站尋找 ADL URI，請瀏覽至您的 Azure Data Lake Store，然後查看「基本資訊」面板。
 
 ```sql
 -- C: Create an external data source
@@ -214,7 +213,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="achievement-unlocked"></a>成就解鎖！
 您已成功將資料載入到 Azure SQL 資料倉儲。 太棒了！
 
-##<a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 載入資料是開發使用 SQL 資料倉儲之資料倉儲解決方案的第一步。 請查看我們在[資料表](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-overview)和 [T-SQL](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-loops.md) 上提供的開發資源。
 
 

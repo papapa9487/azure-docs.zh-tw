@@ -43,7 +43,7 @@ ms.lasthandoff: 08/24/2017
 若要了解如何使用 Azure Resource Manager 範本來設定服務健康情況通知警示，請參閱 [Resource Manager 範本](monitoring-create-activity-log-alerts-with-resource-manager-template.md)。
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立服務健康情況通知的警示
-1. 在 [入口網站][](https://portal.azure.com) 中，選取 [監視]。
+1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。
 
     ![「監視」服務](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 

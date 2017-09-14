@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: d7bd0d780c265cc15ad09a73ede8c5a886005e37
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 08/28/2017
 ## <a name="log-search-api"></a>記錄檔搜尋 API
 
 ### <a name="question-does-the-log-search-api-get-updated-after-i-upgrade"></a>問題：升級後，記錄搜尋 API 是否也會更新？
-[記錄搜尋 API](log-analytics-log-search-api.md)尚未升級至新的搜尋語言。  即使在升級工作區之後，請繼續搭配使用舊版查詢語言與此 API。  更新後，記錄搜尋 API 之說明文件也將更新。
+在升級工作區時，舊版[記錄搜尋 API](log-analytics-log-search-api.md) 將不再有用。  如需新 API 的詳細資訊，請參閱 [Azure Log Analytics REST API](https://dev.loganalytics.io/)。
 
 
 ## <a name="portals"></a>入口網站

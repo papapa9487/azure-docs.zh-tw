@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0e5ca582714a80da8c0f63e1b06f6c3019efe849
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: da5bddba3a1fad74b2ee08fd2f34d1b01c7345c8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 從不同的部署模型連接虛擬網路
@@ -38,11 +38,11 @@ ms.lasthandoff: 04/27/2017
 
 如果您的 VNet 位在相同區域，可以會改為考慮使用 VNet 對等互連進行連線。 VNet 對等互連不會使用 VPN 閘道。 如需詳細資訊，請參閱 [VNet 對等互連](../virtual-network/virtual-network-peering-overview.md)。 
 
-## <a name="before-beginning"></a>開始之前
+## <a name="before"></a>開始之前
 
 下列步驟引導您完成為每個 VNet 設定動態或路由式閘道，以及建立閘道之間的 VPN 連線所需的設定。 此組態不支援靜態或路由式閘道。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="pre"></a>必要條件
 
 * 已建立兩個 Vnet。
 * Vnet 的位址範圍不會彼此重疊，或與閘道可能連接的任何其他連線範圍重疊。
@@ -76,7 +76,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
 閘道 IP 位址組態 = gwipconfig
 
 ## <a name="createsmgw"></a>區段 1 - 設定傳統 VNet
-### <a name="part-1---download-your-network-configuration-file"></a>第 1 部份 - 下載您的網路組態檔
+### <a name="1-download-your-network-configuration-file"></a>1.下載您的網路組態檔
 1. 在 PowerShell 主控台中以提高的權限登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。 您可以使用 SM PowerShell Cmdlet 來完成這個部分的設定。
 
   ```powershell
@@ -89,7 +89,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
   ```
 3. 開啟您下載的 .xml 檔案加以編輯。 如需網路組態檔的範例，請參閱 [網路組態結構描述](https://msdn.microsoft.com/library/jj157100.aspx)。
 
-### <a name="part-2--verify-the-gateway-subnet"></a>第 2 部份 - 驗證閘道子網路
+### <a name="2-verify-the-gateway-subnet"></a>2.驗證閘道子網路
 在 **VirtualNetworkSites** 元素中，將閘道子網路 (若已建立) 加入至您的 VNet。 使用網路組態檔時，閘道子網路必須命名為 "GatewaySubnet"，否則 Azure 無法辨識並將它當作閘道子網路。
 
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
@@ -112,7 +112,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
       </VirtualNetworkSite>
     </VirtualNetworkSites>
 
-### <a name="part-3---add-the-local-network-site"></a>步驟 3 - 新增區域網路站台
+### <a name="3-add-the-local-network-site"></a>3.新增區域網路站台
 您新增的區域網路站台代表您要連接的 RM VNet。 將 **LocalNetworkSites** 元素 (如果尚未存在) 加入至檔案。 此時在組態中，VPNGatewayAddress 可以是任何有效的公用 IP 位址，因為我們尚未建立 Resource Manager VNet 的閘道。 一旦建立閘道，我們會以指派給 RM 閘道的正確公用 IP 位址取代此預留位置 IP 位址。
 
     <LocalNetworkSites>
@@ -124,7 +124,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
       </LocalNetworkSite>
     </LocalNetworkSites>
 
-### <a name="part-4---associate-the-vnet-with-the-local-network-site"></a>第 4 部份 – 建立 VNet 與區域網路站台的關聯
+### <a name="4-associate-the-vnet-with-the-local-network-site"></a>4.建立 VNet 與區域網路站台的關聯
 在此區段中，我們會指定您要 VNet 連接的區域網路站台。 在此例中，這是您稍早參考的 Resource Manager VNet。 確定名稱相符。 此步驟不會建立閘道。 它會指定閘道將要連接的區域網路。
 
         <Gateway>
@@ -135,7 +135,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
           </ConnectionsToLocalNetwork>
         </Gateway>
 
-### <a name="part-5---save-the-file-and-upload"></a>第 5 部份 - 儲存檔案並上傳
+### <a name="5-save-the-file-and-upload"></a>5.儲存檔案並上傳
 儲存檔案，然後執行下列命令，將它匯入至 Azure。 確定您會視需要變更環境的檔案路徑。
 
 ```powershell
@@ -148,7 +148,7 @@ Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
         --------------------        -----------                      ---------------                                                
         Set-AzureVNetConfig        e0ee6e66-9167-cfa7-a746-7casb9    Succeeded 
 
-### <a name="part-6---create-the-gateway"></a>第 6 部分 - 建立閘道
+### <a name="6-create-the-gateway"></a>6.建立閘道
 
 執行此範例之前，請參閱您針對 Azure 預期看到的確切名稱所下載的網路組態檔。 網路組態檔包含傳統虛擬網路的值。 因為部署模型中的差異，當在 Azure 入口網站中建立傳統 VNet 設定時，有時候傳統 VNet 的名稱會變更。 例如，如果您使用 Azure 入口網站在名稱為 'ClassicRG' 的資源群組中，建立一個名稱為 'Classic VNet' 的傳統 VNet，網路組態檔中所包含的名稱會轉換為 'Group ClassicRG Classic VNet'。 當指定包含空格的 VNet 名稱時，請使用引號括住值。
 
@@ -161,7 +161,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 您可以使用 **Get-AzureVNetGateway** Cmdlet 檢查閘道的狀態。
 
-## <a name="creatermgw"></a>區段 2 - 設定 RM VNet 閘道
+## <a name="creatermgw"></a>第 2 節 - 設定 RM VNet 閘道
 若要建立 ARM VNet 的 VPN 閘道，請遵循下列指示。 直到您已擷取傳統 VNet 閘道的公用 IP 位址以後，才可開始下列步驟。 
 
 1. 在 PowerShell 主控台中登入您的 Azure 帳戶。 下列 Cmdlet 會提示您輸入 Azure 帳戶的登入認證。 登入之後，便會下載您的帳戶設定，以供 Azure PowerShell 使用。
@@ -236,7 +236,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   Get-AzureRmPublicIpAddress -Name gwpip -ResourceGroupName RG1
   ```
 
-## <a name="section-3-modify-the-classic-vnet-local-site-settings"></a>第 3 節：修改傳統 VNet 本機站台設定
+## <a name="localsite"></a>第 3 節 - 修改傳統 VNet 本機站台設定
 
 在本節中，您會處理傳統 VNet。 您會取代您在指定本機站台設定 (將用於連線至 Resource Manager VNet 閘道) 時所使用的預留位置 IP 位址。 
 
@@ -256,7 +256,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   Set-AzureVNetConfig -ConfigurationPath C:\AzureNet\NetworkConfig.xml
   ```
 
-## <a name="connect"></a>區段 4：在閘道之間建立連線
+## <a name="connect"></a>第 4 節 - 在閘道之間建立連線
 在閘道之間建立連線需要 PowerShell。 您可能需要新增 Azure 帳戶，才能使用傳統版本的 PowerShell Cmdlet。 若要這樣做，請使用 **Add-azureaccount**。
 
 1. 在 PowerShell 主控台中，設定您的共用金鑰。 執行 Cmdlet 之前，請參閱您針對 Azure 預期看到的確切名稱所下載的網路組態檔。 當指定包含空格的 VNet 名稱時，請使用單引號括住值。<br><br>在下列範例中，**-VNetName** 是傳統 VNet 的名稱，**-LocalNetworkSiteName** 是您為區域網路網站指定的名稱。 **-SharedKey** 是您產生和指定的值。 在範例中，我們使用的是 'abc123'，但是您可以產生並使用更為複雜的值。 重要的是，您在此指定的值必須與您在下一個步驟中建立連線時指定的值相同。 傳回應顯示 [狀態: 成功]。
@@ -283,7 +283,7 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
   $vnet01gateway -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
   ```
 
-## <a name="section-5-verify-your-connections"></a>第 5 節︰驗證您的連線
+## <a name="verify"></a>第 5 節 - 驗證您的連線
 
 ### <a name="to-verify-the-connection-from-your-classic-vnet-to-your-resource-manager-vnet"></a>驗證從傳統 VNet 到 Resource Manager VNet 的連線
 
@@ -308,6 +308,6 @@ New-AzureVNetGateway -VNetName ClassicVNet -GatewayType DynamicRouting
 
 ## <a name="faq"></a>VNet 對 VNet 常見問題集
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-vnet-vnet-faq-include.md)]
+[!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 

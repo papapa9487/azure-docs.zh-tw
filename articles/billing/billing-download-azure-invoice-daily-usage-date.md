@@ -17,21 +17,23 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: ae3f3343cf10a6b2f3aa49dccae6d0ac906dba5c
+ms.translationtype: HT
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: f6fc297790b8a8b3ae8edea2e37bb7daf40ed3bb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/26/2017
-
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>下載或檢視您的 Azure 帳單發票和每日使用量資料
 您可以從 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)下載您的發票，或透過電子郵件傳送它。 若要下載您的每日使用量，請移至 [Azure 帳戶中心](https://account.windowsazure.com)。 只有某些角色有權取得帳單發票和使用量資訊，例如帳戶管理員。 若要深入了解取得計費資訊的存取權，請參閱[使用角色管理 Azure 計費的存取權](billing-manage-access.md)。
 
+>[!NOTE]
+>本文不適用於 Enterprise 合約 (EA) 客戶。 如果您是 EA 客戶，系統會將您的發票直接傳送給申請管理員。
+
 ## <a name="get-your-invoice-in-email-pdf"></a>透過電子郵件取得發票 (.pdf)
 您可以選擇加入並設定其他收件者來透過電子郵件接收您的 Azure 發票。 這項功能可能無法用於支援優惠、Enterprise 合約或 Azure in Open 等特定訂用帳戶。
 
-1. 在 [[訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。 針對您擁有的每個訂用帳戶選擇加入。 依序按一下 [發票] 和 [以電子郵件寄送我的發票]。 
+1. 在[訂用帳戶頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)中，選取您的訂用帳戶。 針對您擁有的每個訂用帳戶選擇加入。 依序按一下 [發票] 和 [以電子郵件寄送我的發票]。 
 
     ![顯示選擇加入流程的螢幕擷取畫面](./media/billing-download-azure-invoice-daily-usage-date/InvoicesDeepLink.PNG)
     
@@ -47,7 +49,7 @@ ms.lasthandoff: 04/26/2017
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>從 Azure 入口網站下載發票 (.pdf)
 
-1. 從 Azure 入口網站中的 [[訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)選取您的訂用帳戶作為[具有發票存取權的使用者](billing-manage-access.md)。
+1. 以[具有發票存取權的使用者](billing-manage-access.md)身分，在 Azure 入口網站中的 [訂用帳戶] [頁面](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)上選取您的訂用帳戶。
 
 2. 選取 [發票]。 
 
@@ -99,7 +101,7 @@ ms.lasthandoff: 04/26/2017
 
 - 尚未產生發票。 等到計費期間結束。
 
-- 如果您不是帳戶管理員，則可能無法取得較舊的發票。
+- 如果您不是帳戶管理員，可能無法存取較舊的發票。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。

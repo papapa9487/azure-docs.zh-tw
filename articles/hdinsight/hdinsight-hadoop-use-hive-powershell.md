@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: e1cb2e4a1fc82fb43082e79a5feba71b81b3eaa8
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 執行 Hive 查詢
@@ -48,13 +48,13 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
 在遠端 HDInsight 叢集中執行 Hive 查詢時，會使用下列 Cmdlet：
 
-* **Add-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell
-* **New-AzureRmHDInsightHiveJobDefinition**：使用指定的 HiveQL 陳述式建立「作業定義」
-* **Start-AzureRmHDInsightJob**：將工作定義傳送至 HDInsight、啟動工作，然後傳回可用來檢查工作狀態的 *工作* 物件
+* **Add-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* **New-AzureRmHDInsightHiveJobDefinition**：使用指定的 HiveQL 陳述式建立「作業定義」。
+* **Start-AzureRmHDInsightJob**：將作業定義傳送到 HDInsight 並開始作業。 系統會傳回「作業」物件。
 * **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。 它會等到工作完成，或等到等候時間超過。
-* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出
-* **Invoke-AzureRmHDInsightHiveJob**：用來執行 HiveQL 陳述式。 這個 Cmdlet 會阻止查詢完成，然後傳回結果
-* **Use-AzureRmHDInsightCluster**：設定要用於 **Invoke-AzureRmHDInsightHiveJob** 命令的目前的叢集
+* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出。
+* **Invoke-AzureRmHDInsightHiveJob**：用來執行 HiveQL 陳述式。 這個 Cmdlet 會阻止查詢完成，然後傳回結果。
+* **Use-AzureRmHDInsightCluster**：設定要用於 **Invoke-AzureRmHDInsightHiveJob** 命令的目前的叢集。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作：
 
@@ -94,7 +94,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
 ## <a name="troubleshooting"></a>疑難排解
 
-如果在工作完成時未傳回任何資訊，則可能是處理期間發生錯誤。 若要檢視這項工作的錯誤資訊，請將下列內容新增至 **hivejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
+如果作業完成時未傳回任何資訊，請檢視錯誤記錄。 若要檢視這項工作的錯誤資訊，請將下列內容新增至 **hivejob.ps1** 檔案的結尾，並儲存它，然後重新予以執行。
 
 ```powershell
 # Print the output of the Hive job.
@@ -105,7 +105,7 @@ Get-AzureRmHDInsightJobOutput `
         -DisplayOutputType StandardError
 ```
 
-這個 Cmdlet 會傳回執行作業時寫入伺服器上之 STDERR 的資訊。
+這個 Cmdlet 會傳回作業處理期間寫入到 STDERR 的資訊。
 
 ## <a name="summary"></a>摘要
 

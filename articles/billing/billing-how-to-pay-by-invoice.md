@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: edbeba95898a41e645b61aeaaec1fd897afadd61
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>提交按發票支付 Azure 訂用帳戶的要求
@@ -35,8 +35,11 @@ ms.lasthandoff: 07/18/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。 選取 [說明+支援] > [新增支援要求]。
 
     ![說明及支援按鈕](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
+
 1. 依序選取 [計費] 作為問題類型、您想要依發票付款的 [訂用帳戶]、支援計劃，然後選取 [下一步]。
-1. 在 [問題]刀鋒視窗中，選取 [問題類型] 方塊中的 [按發票付款]。
+
+1. 在 [問題類型] 方塊中選取 [按發票付款] 選項。
+
 1. 在 [詳細資料] 方塊中輸入下列資訊，並選取 [下一步]。
 
     * 公司名稱

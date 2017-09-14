@@ -15,18 +15,20 @@ ms.workload: na
 ms.date: 08/09/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 28fb41499c919e5006f1be7daa97610c2a0583af
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: b4b9d5d272bdb172f1d40db379a519a4f617550a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="service-bus-authentication-and-authorization"></a>服務匯流排驗證和授權
 
-應用程式可以使用共用存取簽章 (SAS) 驗證向 Azure 服務匯流排進行驗證。 共用存取簽章 (SAS) 驗證可讓應用程式使用在命名空間或在與特定權限相關聯的實體上設定的存取金鑰，向服務匯流排進行驗證。 您可以接著使用此金鑰來產生共用存取簽章權杖，以便用戶端用來向服務匯流排進行驗證。
+應用程式可以使用共用存取簽章 (SAS) 權杖驗證向 Azure 服務匯流排函式取得存取權。 應用程式會使用 SAS 向服務匯流排呈現權杖，該權杖已使用權杖簽發者和服務匯流排 (「共用」) 已知的對稱金鑰進行簽署，而該金鑰會直接與授與特定存取權限的規則相關聯，例如接收/接聽或傳送訊息等權限。 SAS 規則可在命名空間加以設定，或直接在諸如佇列或或主題等實體上加以設定，能允許更精細的存取控制。
+
+SAS 權杖可由服務匯流排用戶端直接產生，或可由與用戶端有互動的一些中繼權杖發行端點產生。 例如，系統可能會要求用戶端呼叫 Active Directory 授權所保護的 web 服務端點，以證明其身分識別和系統存取權限，然後 web 服務就會傳回適當的服務匯流排權杖。 使用 SDK 隨附的服務匯流排權杖提供者，就可以輕鬆地產生 SAS 權杖。 
 
 > [!IMPORTANT]
-> 您應該使用 SAS 而不是 Azure Active Directory 存取控制 (也稱為存取控制服務或 ACS)，因為 ACS 已被取代。 SAS 可為服務匯流排提供簡單、有彈性且容易使用的驗證配置。 在應用程式不需要管理已授權「使用者」概念的情況下，可以使用 SAS。 如需詳細資訊，請參閱 [此部落格文章](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)。
+> 如果您是使用 Azure Active Directory 存取控制 (也稱為存取控制服務或 ACS) 搭配服務匯流排，請注意，這個方法的支援目前有所限制，且必須移轉應用程式才能使用 SAS。 如需詳細資訊，請參閱 [此部落格文章](https://blogs.msdn.microsoft.com/servicebus/2017/06/01/upcoming-changes-to-acs-enabled-namespaces/)。
 
 ## <a name="shared-access-signature-authentication"></a>共用存取簽章驗證
 

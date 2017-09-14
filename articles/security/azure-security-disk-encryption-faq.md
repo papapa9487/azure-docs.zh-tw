@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: c28604e3b7058f830c69eedc5d7f25d65e2448a8
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
@@ -111,6 +111,16 @@ ms.lasthandoff: 08/30/2017
 **問：**是否可使用 Yum 更新將更新套用至 Linux Red Hat VM？
 
 **答：**是，您可以對 Red Hat Linux VM 執行更新或修補程式。 如需詳細資訊，請參閱[使用 Yum 更新將更新套用至加密的 Azure IaaS Red Hat VM](https://blogs.msdn.microsoft.com/azuresecurity/2017/07/13/applying-updates-to-a-encrypted-azure-iaas-red-hat-vm-using-yum-update/)。
+
+**問：**若為 Linux，建議使用何種 Azure 磁碟加密工作流程？
+
+**答：**建議採取下列工作流程，即可在 Linux 上獲得最佳結果：
+* 先從對應於所需作業系統散發套件和版本之未修改的內建資源庫映像開始
+* 將會被加密的任何掛接磁碟機備份。  如此可在發生失敗時進行復原，比如 VM 若是在完成加密前重新開機。
+* 加密 (可能需要數小時或甚至數天，取決於 VM 特性和附加的任何資料磁碟的大小)
+* 自訂軟體，並且視需要將軟體新增至映像。
+
+如果此工作流程不可行，靠著平台儲存體帳戶層[的儲存體服務加密](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE)，可能可以替代使用 dm crypt 的完整磁碟加密。
 
 **問：**我可以在哪裡提出問題或意見反應？
 

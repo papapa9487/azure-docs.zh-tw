@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 91ee74f01b2e84244245dbe43408589f04af6338
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>串流分析輸出︰儲存體、分析的選項
@@ -302,7 +302,7 @@ DateTime | String | String |  DateTime | String
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 是完全受管理的 NoSQL 文件資料庫服務，不僅提供透過無結構描述資料進行的查詢和交易、既可預測又可靠的效能，還能讓您進行快速的開發。
+[Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 是全域散發的多模型資料庫服務，在全球各地提供無限的彈性調整、透過無從驗證結構描述資料模型的豐富查詢和自動索引、保證低延遲以及領先業界的完整 SLA。
 
 以下清單詳細說明用於建立 Azure Cosmos DB 輸出的屬性名稱及其描述。
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 08/31/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 207c53924863eb51ee369fe46d5ad12fb1905c53
+ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
+ms.openlocfilehash: cc8a3e7f2a907b1eea4ecf39df2b291b0fb8b207
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/01/2017
 
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型設定強制通道
@@ -65,15 +65,26 @@ Azure 中的強制通道處理會透過虛擬網路使用者定義的路由進�
 
 程序步驟會將 'DefaultSiteHQ' 設定為強制通道處理的預設網站連線，並設定「中層」和「後端」子網路以使用強制通道處理。
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="before"></a>開始之前
 
 安裝最新版的 Azure Resource Manager PowerShell Cmdlet。 如需如何安裝 PowerShell Cmdlet 的詳細資訊，請參閱[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
+
+> [!IMPORTANT]
+> 您必須安裝最新版的 PowerShell Cmdlet。 否則，在執行某些 Cmdlet 時可能會收到驗證錯誤。
+>
+>
 
 ### <a name="to-log-in"></a>登入
 
 [!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
 
 ## <a name="configure-forced-tunneling"></a>設定強制通道
+
+> [!NOTE]
+> 您可能會看到指出「此 Cmdlet 的輸出物件類型將會在未來版本中修改」的警告。 這是預期的行為，您可以放心地忽略這些警告。
+>
+>
+
 
 1. 建立資源群組。
 
@@ -113,7 +124,7 @@ Azure 中的強制通道處理會透過虛擬網路使用者定義的路由進�
   Set-AzureRmVirtualNetworkSubnetConfig -Name "Backend" -VirtualNetwork $vnet -AddressPrefix "10.1.2.0/24" -RouteTable $rt
   Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-6. 建立預設網站的閘道。 此步驟需要一些時間才能完成，有時需要 45 分鐘或更久，因為您將建立及設定閘道。<br> **-GatewayDefaultSite** 是可讓強制路由組態得以運作的 Cmdlet 參數，因此請務必正確地進行此設定。 此參數僅適用於 PowerShell 1.0 或更新版本。
+6. 建立預設網站的閘道。 此步驟需要一些時間才能完成，有時需要 45 分鐘或更久，因為您將建立及設定閘道。<br> **-GatewayDefaultSite** 是可讓強制路由組態得以運作的 Cmdlet 參數，因此請務必正確地進行此設定。 如果您看到有關 GatewaySKU 值的 ValidateSet 錯誤，請確認您已安裝[最新版的 PowerShell Cmdlet](#before)。 最新版的 PowerShell Cmdlet 包含最新閘道 SKU 已經過驗證的新值。
 
   ```powershell
   $pip = New-AzureRmPublicIpAddress -Name "GatewayIP" -ResourceGroupName "ForcedTunneling" -Location "North Europe" -AllocationMethod Dynamic
@@ -137,3 +148,4 @@ Azure 中的強制通道處理會透過虛擬網路使用者定義的路由進�
     
   Get-AzureRmVirtualNetworkGatewayConnection -Name "Connection1" -ResourceGroupName "ForcedTunneling"
   ```
+

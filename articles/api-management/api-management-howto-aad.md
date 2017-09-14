@@ -14,18 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: dc279718cbb360e611d7e4cfb6961a087159fb01
-ms.openlocfilehash: 7637e6419d17a2d75904fbe63df5f27d4be4bbe3
-ms.lasthandoff: 02/24/2017
+ms.translationtype: HT
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 2fa5c021d9f493004a5beab02529c70b600b9a0d
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/02/2017
 
 ---
+
+> [!WARNING]
+> 僅[「開發人員」與「進階」](https://azure.microsoft.com/en-us/pricing/details/api-management/)層提供 Azure Active Directory 整合。
+
 # <a name="how-to-authorize-developer-accounts-using-azure-active-directory-in-azure-api-management"></a>如何在 Azure API 管理中使用 Azure Active Directory 授權開發人員帳戶
 ## <a name="overview"></a>概觀
 本指南說明如何讓使用者能夠從 Azure Active Directory 存取開發人員入口網站。 本指南也說明如何管理 Azure Active Directory 的使用者，方法是加入包含 Azure Active Directory 的使用者的外部群組。
 
 > 若要完成本指南中的步驟，您必須先具備要在其中建立應用程式的 Azure Active Directory。
-> 
 > 
 
 ## <a name="how-to-authorize-developer-accounts-using-azure-active-directory"></a>如何使用 Azure Active Directory 授權開發人員帳戶

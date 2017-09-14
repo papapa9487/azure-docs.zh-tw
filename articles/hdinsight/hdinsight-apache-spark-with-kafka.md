@@ -14,13 +14,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/13/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 81fa319f6fb94bdabacd8f68d14b9a1063a9749a
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>在 HDInsight 上使用 Kafka 的 Apache Spark 串流 (DStream) 範例 (預覽)
@@ -53,7 +53,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     此範本會為 Kafka 和 Spark 建立 HDInsight 3.6 叢集。
 
-2. 使用下列資訊來填入 [自訂部署] 刀鋒視窗上的項目︰
+2. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
    
     ![HDInsight 自訂部署](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -75,9 +75,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-建立資源後，您會重新導向至資源群組的刀鋒視窗，其中內含叢集和 Web 儀表板。
+資源建立後，摘要頁面會隨即出現。
 
-![Vnet 和叢集的資源群組刀鋒視窗](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![VNet 及叢集的資源群組摘要](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > 請注意，HDInsight 叢集的名稱是 **spark-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連接到叢集時，您會在稍後步驟中使用這些名稱。
@@ -86,7 +86,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 在 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka) 可取得本文件所述範例的程式碼。
 
-請依照 `README.md` 檔案中的步驟以完成此範例。
+若要完成此範例，請遵循 `README.md` 中的步驟。
 
 ## <a name="delete-the-cluster"></a>刪除叢集
 

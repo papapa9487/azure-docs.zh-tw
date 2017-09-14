@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 07/05/2017
+ms.date: 09/06/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 8291986b123ed98b9c2bd4ec915e1a18b6e0cbb7
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 8baa8e950164de64d1cd91c0c5bb51d324bbc807
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 建立第一個函式
@@ -41,7 +41,7 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
     ![安裝包含 Azure 開發工作負載的 Visual Studio 2017](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
     
     >[!NOTE]  
-    安裝或升級至 Visual Studio 2017 版本 15.3 之後，您可能也需要手動更新 Visual Studio 2017 Tools for Azure Functions。 您可以從 [工具] 功能表的 [延伸模組和更新...] 下的 > [更新] > [Visual Studio Marketplace] > [Azure Functions and Web Jobs Tools] > [更新] 更新工具。 
+    >安裝或升級至 Visual Studio 2017 版本 15.3 之後，您必須手動更新 Visual Studio 2017 Tools for Azure Functions。 您可以從 [工具] 功能表的 [延伸模組和更新...] 下的 > [更新] > [Visual Studio Marketplace] > [Azure Functions and Web Jobs Tools] > [更新] 更新工具。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

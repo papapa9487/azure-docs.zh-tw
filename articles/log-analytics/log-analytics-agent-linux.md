@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2017
+ms.date: 09/05/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1c05f68235aafd0fa098a3b0edaba1258df09380
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -84,7 +84,7 @@ mysql-cimprov | 1.0.1 | OMI 的 MySQL 伺服器效能監視提供者。 在偵�
 docker-cimprov | 1.0.0 | OMI 的 Docker 提供者。 在偵測到 Docker 時安裝。
 
 ### <a name="compatibility-with-system-center-operations-manager"></a>與 System Center Operations Manager 的相容性
-OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用代理程式二進位檔。 如果您要在 Operations Manager 目前所管理的系統上安裝 OMS Agent for Linux，將電腦上的 OMI 和 SCX 封裝升級到較新版本。 在此版本中，OMS 與 Linux 適用的 System Center 2016 - Operations Manager/Operations Manager 2012 R2 代理程式相容。 
+OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用代理程式二進位檔。 如果您在 Operations Manager 目前所管理的系統上安裝 OMS Agent for Linux，它會將電腦上的 OMI 和 SCX 套件升級到較新版本。 在此版本中，OMS 與 Linux 適用的 System Center 2016 - Operations Manager/Operations Manager 2012 R2 代理程式相容。 
 
 > [!NOTE]
 > System Center 2012 SP1 和舊版本目前與 OMS Agent for Linux 不相容或不受其支援。<br>
@@ -265,7 +265,7 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>問題︰上架後您隨即在記錄檔中看到 500 與 404 錯誤
 這是已知第一次將 Linux 資料上傳至 OMS 工作區時會發生的問題。 這不會影響正在傳送的資料或服務體驗。
 
-### <a name="issue--you-are-not-seeing-any-data-in-the-oms-portal"></a>問題︰您在 OMS 入口網站中看不到任何資料
+### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>問題︰您在 OMS 入口網站中看不到任何資料
 
 #### <a name="probable-causes"></a>可能的原因
 
@@ -281,4 +281,5 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 
     >[!NOTE]
     >此問題已在代理程式 1.1.0-28 版和更新版本中修正。
-> 
+
+

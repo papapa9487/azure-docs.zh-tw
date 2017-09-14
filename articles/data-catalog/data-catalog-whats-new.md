@@ -13,17 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/22/2017
+ms.date: 09/06/2017
 ms.author: maroche
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 7ee836b4c0c87fc7d271f59dcb16f3293e68dc9a
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
+
+## <a name="whats-new-for-september-2017"></a>2017 年 9 月的新功能 
+Azure 資料目錄於 2017 年 9 月新增了下列功能：
+
+* 支援在使用資料來源註冊工具註冊相關的資料表時，擷取 DB2 資料來源中的聯結關聯性中繼資料。
+* 支援使用資料來源註冊工具註冊 MongoDB 3.4 版的資料來源。
+* 支援在移除資料庫或資料目錄中的其他容器時，刪除單一作業中之物件的所有中繼資料。
+* 支援在資料目錄入口網站中縮小搜尋範圍時，檢視最多 1000 個標籤、商務字彙表字詞或其他搜尋 Facet。
+
 
 ## <a name="whats-new-for-august-2017"></a>2017 年 8 月的新功能 
 自 2017 年 8 月起，Azure 資料目錄已新增下列功能：
