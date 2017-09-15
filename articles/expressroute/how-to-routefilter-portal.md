@@ -77,7 +77,7 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1.取得 BGP 社群值的清單
 
-與服務相關的 BGP 社群值可透過 [ExpressRoute 路由需求][](expressroute-routing.md) 頁面中提供的 Microsoft 對等互連存取。
+與服務相關的 BGP 社群值可透過 [ExpressRoute 路由需求](expressroute-routing.md) 頁面中提供的 Microsoft 對等互連存取。
 
 ### <a name="2-make-a-list-of-the-values-that-you-want-to-use"></a>2.製作您想要使用的值清單
 

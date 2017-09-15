@@ -49,7 +49,7 @@ ms.lasthandoff: 08/28/2017
 
       - Spark on HDInsight Cluster Run Sample (Scala) \(HDInsight 叢集上的 Spark 執行範例 (Scala)\)
 
-      此範例會使用 [Spark on HDInsight Cluster Run Sample (Scala)] (HDInsight 叢集上的 Spark 執行範例 (Scala)) 範本。
+      此範例會使用 [Spark on HDInsight Cluster Run Sample (Scala)] \(HDInsight 叢集上的 Spark 執行範例 (Scala)) 範本。
 
    c. 在 [建置工具] 清單中，根據您的需求選取下列任一項目：
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/28/2017
 
    a. 輸入專案名稱和專案位置。
 
-   b. 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] (適用於 **Spark 2.x** 叢集)，或選取 [Java 1.7] (適用於 **Spark 1.x** 叢集)。
+   b. 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] \(適用於 **Spark 2.x** 叢集)，或選取 [Java 1.7] \(適用於 **Spark 1.x** 叢集)。
 
    c. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 **Spark 2.x**。 此範例使用 **Spark 2.0.2 (Scala 2.11.8)**。
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/28/2017
 
    ![編輯設定](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-edit-configurations.png) 
 
-6. 在 [Run/Debug Configurations] (執行/偵錯設定) 對話方塊中，選取加號 (**+**)。 然後選取 [Submit Spark Job] \(提交 Spark 作業\) 選項。
+6. 在 [Run/Debug Configurations] \(執行/偵錯設定) 對話方塊中，選取加號 (**+**)。 然後選取 [Submit Spark Job] \(提交 Spark 作業\) 選項。
 
    ![新增設定](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-add-new-Configuration.png)
 7. 輸入 [Name] \(名稱\)、**[Spark cluster] \(Spark 叢集\)** 和 [Main class name] \(主要類別名稱\)。 然後選取 [Advanced configuration] \(進階設定\)。 
@@ -199,7 +199,7 @@ ms.lasthandoff: 08/28/2017
 
   ![擲回錯誤](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-throw-error.png) 
 
-4. 再次選取**繼續程式**圖示。 [HDInsight Spark Submission] (HDInsight Spark 提交) 視窗會顯示「作業執行失敗」錯誤。
+4. 再次選取**繼續程式**圖示。 [HDInsight Spark Submission] \(HDInsight Spark 提交) 視窗會顯示「作業執行失敗」錯誤。
 
   ![提交錯誤](./media/hdinsight-apache-spark-intellij-tool-debug-remotely/hdinsight-error-submission.png) 
 

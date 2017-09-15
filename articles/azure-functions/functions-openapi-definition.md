@@ -281,7 +281,7 @@ securityDefinitions:
 
     ![使用 API 金鑰進行驗證](media/functions-openapi-definition/authenticate-api-key.png)
 
-1. 向下捲動並按一下 [Try this operation] (嘗試此作業)。
+1. 向下捲動並按一下 [Try this operation] \(嘗試此作業)。
 
     ![嘗試此作業](media/functions-openapi-definition/try-operation.png)
 

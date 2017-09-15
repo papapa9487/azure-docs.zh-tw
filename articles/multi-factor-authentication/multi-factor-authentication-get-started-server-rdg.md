@@ -3,7 +3,7 @@ title: "使用 RADIUS 的 RDG 和 Azure MFA Server | Microsoft Docs"
 description: "此 Azure Multi-Factor Authentication 頁面協助您部署使用 RADIUS 的遠端桌面 (RD) 閘道器和 Azure Multi-Factor Authentication Server。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: f2354ac4-a3a7-48e5-a86d-84a9e5682b42
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/27/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: Human Translation
@@ -22,25 +22,19 @@ ms.contentlocale: zh-tw
 ms.lasthandoff: 06/30/2017
 
 ---
-<a id="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius" class="xliff"></a>
-
-# 使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server
+# <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server
 通常，遠端桌面 (RD) 閘道會使用本機網路原則服務 (NPS) 來驗證使用者。 本文說明如何將 RADIUS 要求從遠端桌面閘道器 (透過本機 NPS) 傳送至 Multi-Factor Authentication Server。 Azure MFA 和 RD 閘道的組合表示使用者可以從任何地方存取其工作環境，同時執行強式驗證。 
 
 由於 Server 2012 R2 不支援終端機服務的 Windows 驗證，請使用 RD 閘道和 RADIUS 來與 MFA Server 整合。 
 
 在不同的伺服器上安裝 Azure Multi-Factor Authentication Server，由它代理將 RADIUS 要求傳回到遠端桌面閘道器伺服器上的 NPS。 NPS 驗證使用者名稱和密碼之後，它會將回應傳回給 Multi-Factor Authentication Server。 然後，MFA Server 會執行第二因素驗證，然後將結果傳回給閘道。
 
-<a id="prerequisites" class="xliff"></a>
-
-## 必要條件
+## <a name="prerequisites"></a>必要條件
 
 - 已加入網域的 Azure MFA Server。 如果尚未進行安裝，請遵循[開始使用 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md)中的步驟。
 - 使用網路原則服務進行驗證的遠端桌面閘道。
 
-<a id="configure-the-remote-desktop-gateway" class="xliff"></a>
-
-## 設定遠端桌面閘道
+## <a name="configure-the-remote-desktop-gateway"></a>設定遠端桌面閘道
 設定 RD 閘道，以將 RADIUS 驗證傳送到 Azure Multi-Factor Authentication Server。 
 
 1. 在 [RD 閘道管理員] 中，以滑鼠右鍵按一下伺服器名稱，然後選取 [屬性]。
@@ -48,14 +42,10 @@ ms.lasthandoff: 06/30/2017
 3. 輸入每部伺服器的名稱或 IP 位址，將一或多部 Multi-Factor Authentication Server 新增為 RADIUS 伺服器。 
 4. 為每一部伺服器建立共用密碼。
 
-<a id="configure-nps" class="xliff"></a>
-
-## 設定 NPS
+## <a name="configure-nps"></a>設定 NPS
 RD 閘道器使用 NPS 將 RADIUS 要求傳送到 Azure Multi-Factor Authentication。 若要設定 NPS，首先變更逾時設定，以免 RD 閘道在雙步驟驗證完成之前逾時。 然後，您可更新 NPS，以從 MFA Server 接收 RADIUS 驗證。 使用下列程序來設定 NPS：
 
-<a id="modify-the-timeout-policy" class="xliff"></a>
-
-### 修改逾時原則
+### <a name="modify-the-timeout-policy"></a>修改逾時原則
 
 1. 在 NPS 中，開啟左欄中的 [RADIUS 用戶端及伺服器] 功能表，然後選取 [遠端 RADIUS 伺服器群組]。 
 2. 選取 [TS 閘道伺服器群組]。 
@@ -63,9 +53,7 @@ RD 閘道器使用 NPS 將 RADIUS 要求傳送到 Azure Multi-Factor Authenticat
 4. 將 [要求被丟棄前，無回應的秒數] 和 [伺服器被識別為無法使用時，要求之間的間隔秒數] 變更為 30 至 60 秒之間。 (如果您在驗證期間發現伺服器仍然逾時，您可以回到這裡並增加秒數。)
 5. 移至 [驗證/帳戶] 索引標籤，檢查指定的 RADIUS 連接埠符合 Multi-Factor Authentication Server 所接聽的連接埠。
 
-<a id="prepare-nps-to-receive-authentications-from-the-mfa-server" class="xliff"></a>
-
-### 準備 NPS 以從 MFA Server 接收驗證
+### <a name="prepare-nps-to-receive-authentications-from-the-mfa-server"></a>準備 NPS 以從 MFA Server 接收驗證
 
 1. 以滑鼠右鍵按一下左欄中的 [RADIUS 用戶端及伺服器] 之下的 [RADIUS 用戶端]，然後選取 [新增]。
 2. 將 Azure Multi-Factor Authentication Server 新增為 RADIUS 用戶端。 選擇 [好記的名稱] 並指定共用密碼。
@@ -77,9 +65,7 @@ RD 閘道器使用 NPS 將 RADIUS 要求傳送到 Azure Multi-Factor Authenticat
 8. 將 [驗證提供者] 變更為 [驗證這個伺服器上的要求]。 此原則可確保當 NPS 收到來自 Azure MFA Server 的 RADIUS 要求時，就在本機進行驗證，而不會將 RADIUS 要求傳回給 Azure Multi-Factor Authentication Server，導致迴圈狀況。 
 9. 若要避免迴圈狀況，請確定新原則的順序高於 [連線要求原則] 窗格中的原始原則。
 
-<a id="configure-azure-multi-factor-authentication" class="xliff"></a>
-
-## 設定 Azure Multi-Factor Authentication
+## <a name="configure-azure-multi-factor-authentication"></a>設定 Azure Multi-Factor Authentication
 
 Azure Multi-Factor Authentication Server 設定為 RD 閘道器和 NPS 之間的 RADIUS Proxy。  它應該安裝在 RD 閘道器伺服器之外另一部加入網域的伺服器上。 使用下列程序來設定 Azure Multi-Factor Authentication Server。
 
@@ -92,9 +78,7 @@ Azure Multi-Factor Authentication Server 設定為 RD 閘道器和 NPS 之間的
 
 ![Radius 驗證](./media/multi-factor-authentication-get-started-server-rdg/radius.png)
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 - 整合 Azure MFA 與 [IIS Web Apps](multi-factor-authentication-get-started-server-iis.md)
 

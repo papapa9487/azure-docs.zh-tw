@@ -4,7 +4,7 @@ description: "本文將探討如何使用 Microsoft Azure 的網路原則伺服�
 services: active-directory
 keywords: "Azure MFA, 整合 VPN, Azure Active Directory, 網路原則伺服器擴充功能"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
@@ -229,7 +229,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 >如果您已將 VPN 用戶端設定為連線到 VPN 伺服器並已儲存各項設定，您可以略過與設定和儲存 VPN 連線物件有關的步驟。
 >
 
-1. 在 VPN 用戶端電腦上按一下 [啟動]，然後按一下 [設定] (齒輪圖示)。
+1. 在 VPN 用戶端電腦上按一下 [啟動]，然後按一下 [設定] \(齒輪圖示)。
 2. 在 [視窗設定] 中按一下 [網路和網際網路]。
 3. 按一下 [VPN]。
 4. 按一下 [新增 VPN 連線]。
@@ -277,7 +277,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 
  ![預設目錄](./media/nps-extension-vpn/image23.png)
 
-4. 在 [名稱] 資料行中按一下 [預設目錄] (或其他目錄，視情況而定)。
+4. 在 [名稱] 資料行中按一下 [預設目錄] \(或其他目錄，視情況而定)。
 5. 在 [快速入門] 頁面上，按一下 [設定]。
 
  ![設定預設值](./media/nps-extension-vpn/image24.png)

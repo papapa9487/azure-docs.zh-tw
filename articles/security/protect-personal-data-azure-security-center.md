@@ -190,7 +190,7 @@ Qualys 代理程式會向 Qualys 管理平台回報弱點資料，然後將弱�
 
 2. 選取您要安裝弱點評量解決方案的 VM。
 
-3. 按一下 [Install on [number of] VMs] (安裝在 [數目] 部 VM 上)。
+3. 按一下 [Install on [number of] VMs] \(安裝在 [數目] 部 VM 上)。
 
 4. 在 Azure Marketplace 中選取合作夥伴解決方案，或在 [使用現有解決方案] 下選取 [Qualys]。
 

@@ -4,7 +4,7 @@ description: "本文件將提供如果使用者使用 Azure Multi-Factor Authent
 services: multi-factor-authentication
 keywords: "多重要素驗證用戶端, 驗證的問題, 相互關聯識別碼"
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: end-user
 ms.translationtype: HT
