@@ -14,10 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
-ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: f2c448af24e180db58f3ef3d39e90036dda3f7eb
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-azure-redis-cache-with-nodejs"></a>如何搭配使用 Azure Redis 快取與 Node.js
@@ -32,7 +33,7 @@ ms.openlocfilehash: 530191637b1aa91ee1d7fe5b5bb032c60983f7dc
 
 Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快取。 從 Microsoft Azure 內的任何應用程式都可以存取您的快取。
 
-本主題說明如何開始搭配使用 Azure Redis 快取與 Node.js。 如需搭配使用 Azure Redis 快取與 Node.js 的另一個範例，請參閱 [在 Azure 網站上使用 Socket.IO 建置 Node.js 聊天應用程式](../app-service-web/web-sites-nodejs-chat-app-socketio.md)。
+本主題說明如何開始搭配使用 Azure Redis 快取與 Node.js。 
 
 ## <a name="prerequisites"></a>必要條件
 安裝 [node_redis](https://github.com/mranney/node_redis)：
@@ -85,10 +86,5 @@ Azure Redis 快取可讓您存取 Microsoft 所管理的專用安全 Redis 快�
 ## <a name="next-steps"></a>後續步驟
 * [啟用快取診斷](cache-how-to-monitor.md#enable-cache-diagnostics)，以[監視](cache-how-to-monitor.md)您快取的健全狀況。
 * 閱讀官方 [Redis 文件](http://redis.io/documentation)。
-
-
-
-
-<!--HONumber=Feb17_HO2-->
 
 

@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 9bee0344ba70c50cda36a87ea617906283040ff9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
@@ -67,8 +67,8 @@ Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的�
 
 如 [登入 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli) 中詳細說明，有幾種不同方式可登入 Azure：
 
-1. [以互動方式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#interactive-log-in)。 當您自行從命令列執行 Azure CLI 命令時以互動方式登入。
-2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#logging-in-with-a-service-principal)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
+1. [以互動方式登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_interactive_log_in)。 當您自行從命令列執行 Azure CLI 命令時以互動方式登入。
+2. [使用服務主體來登入](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az_authenticate_azure_cli_logging_in_with_a_service_principal)。 當您從指令碼或應用程式執行 Azure CLI 命令時，使用服務主體來登入。
 
 基於本文的目的，我們會示範如何以互動方式登入 Azure。 在命令列上輸入 [az login](https://docs.microsoft.com/cli/azure/#login)：
 
@@ -85,7 +85,7 @@ az login
 
 ### <a name="log-in-to-your-batch-account"></a>登入您的 Batch 帳戶
 
-若要使用 Azure CLI 來管理 Batch 資源 (例如集區、作業和工作)，您需要登入您的 Batch 帳戶和進行驗證。 若要登入 Batch 服務，請使用 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) 命令。 
+若要使用 Azure CLI 來管理 Batch 資源 (例如集區、作業和工作)，您需要登入您的 Batch 帳戶和進行驗證。 若要登入 Batch 服務，請使用 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 命令。 
 
 您有兩個對 Batch 帳戶進行驗證的選項︰
 
@@ -99,7 +99,7 @@ az login
 
     如果您建立之 Azure Batch 帳戶的集區配置模式設定為「使用者訂用帳戶」，則需要向 Azure AD 驗證。 
 
-    若要使用 Azure AD 登入 Batch 帳戶，請呼叫 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) 命令： 
+    若要使用 Azure AD 登入 Batch 帳戶，請呼叫 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 命令： 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

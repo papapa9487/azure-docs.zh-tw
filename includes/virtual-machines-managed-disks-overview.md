@@ -79,7 +79,7 @@ Azure 磁碟設計成確保可用性達 99.999%。 得知有三個資料複本�
 若要深入了解如何建立受控磁碟的快照集，請參閱下列資源︰
 
 * [在 Windows 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [在 Linux 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [在 Linux 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 
 ## <a name="images"></a>映像

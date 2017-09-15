@@ -3,7 +3,7 @@ title: "Azure Multi-Factor Authentication 和 Active Directory 之間的目錄�
 description: "此 Azure Multi-Factor Authentication 頁面說明如何整合 Azure Multi-Factor Authentication Server 與 Active Directory，讓您可以同步處理目錄。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 999361daa2faebe3e88cab0b6085a938d6f40e9d
-ms.openlocfilehash: 07b14394b0e07fd78d70d77aeef8a2feb17284e0
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/17/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
@@ -96,7 +96,7 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 | 分機 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的分機電話號碼。  分機欄位的值只會做為主要電話號碼的分機。  預設值為空白。 <br><br>如果不指定分機屬性，則可以在電話屬性中包含分機。 在此情況下，在分機前面加上 'x'，便可得到正確剖析。  例如，555-123-4567 x890 會形成電話號碼 555-123-4567 和分機 890。 |
 | [還原預設值] 按鈕 |按一下 [還原預設值]，可將所有屬性還原為預設值。  在一般 Active Directory 或 ADAM 結構描述中，預設值應該可以正確運作。 |
 
-若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯] 按鈕。  這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。
+若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯] 按鈕。這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。
 
 ![編輯屬性](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 

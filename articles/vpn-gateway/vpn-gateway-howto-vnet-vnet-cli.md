@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ae42f661b39e8b6170fd415d758404fb33009ccc
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>使用 Azure CLI 設定 VNet 對 VNet 的 VPN 閘道連線
@@ -124,7 +124,7 @@ ms.lasthandoff: 08/16/2017
   ```azurecli
   az network vnet create -n TestVNet1 -g TestRG1 --address-prefix 10.11.0.0/16 -l eastus --subnet-name FrontEnd --subnet-prefix 10.11.0.0/24
   ```
-3. 為後端子網路建立其他位址空間。 請注意，在此步驟中，我們會指定稍早建立的位址空間，以及我們想要新增的額外位址空間。 這是因為 [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#update) 命令會覆寫先前的設定。 使用此命令時，務必指定所有的位址前置詞。
+3. 為後端子網路建立其他位址空間。 請注意，在此步驟中，我們會指定稍早建立的位址空間，以及我們想要新增的額外位址空間。 這是因為 [az network vnet update](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_update) 命令會覆寫先前的設定。 使用此命令時，務必指定所有的位址前置詞。
 
   ```azurecli
   az network vnet update -n TestVNet1 --address-prefixes 10.11.0.0/16 10.12.0.0/16 -g TestRG1

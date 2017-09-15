@@ -6,7 +6,7 @@
 ![Redis 快取設定](media/redis-cache-access-keys/redis-cache-hostname-ports-keys.png)
 
 ### <a name="retrieve-host-name-ports-and-access-keys-using-azure-cli"></a>使用 Azure CLI 來擷取主機名稱、連接埠及存取金鑰
-若要使用 Azure CLI 2.0 來擷取主機名稱和連接埠，您可以呼叫 [az redis show](https://docs.microsoft.com/cli/azure/redis#show)，而若要擷取金鑰，您可以呼叫 [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#list-keys)。 下列指令碼會呼叫下列兩個命令，並將主機名稱、連接埠和金鑰回應到主控台。
+若要使用 Azure CLI 2.0 來擷取主機名稱和連接埠，您可以呼叫 [az redis show](https://docs.microsoft.com/cli/azure/redis#az_redis_show)，而若要擷取金鑰，您可以呼叫 [az redis list-keys](https://docs.microsoft.com/cli/azure/redis#az_redis_list_keys)。 下列指令碼會呼叫下列兩個命令，並將主機名稱、連接埠和金鑰回應到主控台。
 
 ```azurecli
 #/bin/bash
