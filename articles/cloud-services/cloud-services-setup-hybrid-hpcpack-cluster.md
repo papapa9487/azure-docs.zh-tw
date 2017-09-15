@@ -91,7 +91,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 3. 按一下 [管理憑證] > [上傳]。4. 瀏覽前端節點以找出 C:\Program Files\Microsoft HPC Pack 2012\Bin\hpccert.cer 檔案。 然後，按一下 [上傳]。
 
    
-[Default HPC Azure Management] (預設 HPC Azure 管理) 憑證會顯示在管理憑證清單中。
+[Default HPC Azure Management] \(預設 HPC Azure 管理) 憑證會顯示在管理憑證清單中。
 
 ### <a name="create-an-azure-cloud-service"></a>建立 Azure 雲端服務
 > [!NOTE]
@@ -168,7 +168,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 請遵循下列步驟來新增兩個小型節點。
 
-1. 在 HPC 叢集管理員中，按一下 [節點管理] (在最新版本的 HPC Pack 中稱為 [資源管理]) > [新增節點]。
+1. 在 HPC 叢集管理員中，按一下 [節點管理] \(在最新版本的 HPC Pack 中稱為 [資源管理]) > [新增節點]。
    
     ![Add Node][add_node1]
 
@@ -189,7 +189,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 ## <a name="start-the-azure-nodes"></a>啟動 Azure 節點
 當您想要使用 Azure 中的叢集資源時，請使用 HPC 叢集管理員來啟動 (佈建) Azure 節點並讓節點上線。
 
-1. 在 HPC 叢集管理員中，按一下 [節點管理] (在最新版本的 HPC Pack 中稱為 [資源管理])，然後選取 Azure 節點。
+1. 在 HPC 叢集管理員中，按一下 [節點管理] \(在最新版本的 HPC Pack 中稱為 [資源管理])，然後選取 Azure 節點。
 
 2. 按一下 [開始]，然後按一下 [確定]。
    
@@ -229,7 +229,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 ## <a name="run-a-test-job"></a>執行測試工作
 現在提交一個在混合式叢集上執行的測試作業。 這個範例是簡單的參數式掃掠作業 (一種本質平行計算)。 本例會執行使用 **set /a** 命令將整數加入自己本身的子工作。 叢集中的所有節點皆參與完成從 1 到 100 之整數的子工作。
 
-1. 在 HPC 叢集管理員中，按一下 [作業管理] > [New Parametric Sweep Job] (新增參數式掃掠作業)。
+1. 在 HPC 叢集管理員中，按一下 [作業管理] > [New Parametric Sweep Job] \(新增參數式掃掠作業)。
    
     ![New Job][test_job1]
 
@@ -250,7 +250,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 ## <a name="stop-the-azure-nodes"></a>停止 Azure 節點
 試驗完叢集之後，請停止 Azure 節點，以避免給您的帳戶產生不必要的費用。 這個步驟會停止雲端服務並移除 Azure 角色執行個體。
 
-1. 在 HPC 叢集管理員中，於 [節點管理] (在舊版的 HPC Pack 中稱為 [資源管理]) 中，選取這兩個 Azure 節點。 然後，按一下 [停止]。
+1. 在 HPC 叢集管理員中，於 [節點管理] \(在舊版的 HPC Pack 中稱為 [資源管理]) 中，選取這兩個 Azure 節點。 然後，按一下 [停止]。
    
     ![Stop Nodes][stop_node1]
 

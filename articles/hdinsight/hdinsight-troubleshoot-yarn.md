@@ -61,9 +61,9 @@ ms.lasthandoff: 08/23/2017
 6. 將 [容量] 值保持在 50%，然後選取 [動作] 按鈕。
 
     ![選取 [動作] 按鈕](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
-7. 選取 [Save and Refresh Queues] (儲存並重新整理佇列)。
+7. 選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。
 
-    ![選取 [Save and Refresh Queues] (儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![選取 [Save and Refresh Queues] \(儲存並重新整理佇列)。](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
 這些變更都會立即顯示在 YARN 排程器 UI 中。
 

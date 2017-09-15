@@ -38,7 +38,7 @@ ms.lasthandoff: 08/21/2017
 
     ![以滑鼠右鍵按一下 [群組 1: 開始] 並新增後續動作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
-3. 按一下 [Choose a script] (選擇指令碼)。
+3. 按一下 [Choose a script] \(選擇指令碼)。
 
 4. 在 [更新動作] 刀鋒視窗中，將指令碼命名為 **Hello World**。
 
