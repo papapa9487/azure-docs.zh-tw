@@ -280,7 +280,7 @@
 ### [視覺化叢集](service-fabric-visualizing-your-cluster.md)
 ### [連線到安全的叢集](service-fabric-connect-to-secure-cluster.md)
 
-### [使用 Service Fabric CLI 管理叢集](service-fabric-cli.md)
+### [開始使用 Service Fabric CLI](service-fabric-cli.md)
 ### [修補叢集節點](service-fabric-patch-orchestration-application.md)
 
 ### 管理和組織叢集資源
