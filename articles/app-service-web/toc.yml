@@ -4,6 +4,8 @@
   items:
     - name: 關於 Web Apps
       href: app-service-web-overview.md
+    - name: 關於適用於容器的 Web Apps
+      href: ../app-service/containers/app-service-linux-intro.md
     - name: 比較主機選項
       href: choose-web-site-cloud-service-vm.md
 - name: 快速入門
@@ -29,10 +31,8 @@
       href: app-service-web-tutorial-nodejs-mongodb-app.md
     - name: 1 - PHP with MySQL
       href: app-service-web-tutorial-php-mysql.md
-    - name: 1 - WordPress with MySQL
-      href: app-service-web-create-web-app-from-marketplace.md
-    - name: 1 - Python with PostgreSQL
-      href: app-service-web-tutorial-docker-python-postgresql-app.md
+    - name: 1 - Java with MySQL
+      href: app-service-web-tutorial-java-mysql.md
     - name: 2 - 對應自訂網域
       href: app-service-web-tutorial-custom-domain.md
     - name: 3 - 繫結 SSL 憑證
@@ -73,14 +73,8 @@
               href: app-service-web-php-get-started.md
             - name: 設定 PHP 專案
               href: web-sites-php-configure.md
-            - name: 設定 WordPress 多網站
-              href: web-sites-php-convert-wordpress-multisite.md
         - name: Node.js
           items:
-            - name: Sails.js 應用程式搭配 NOSQL DB
-              href: app-service-web-nodejs-sails.md
-            - name: 使用 io.js
-              href: web-sites-nodejs-iojs.md
             - name: 偵錯 Node.js 應用程式
               href: web-sites-nodejs-debug.md
         - name: Java
@@ -89,14 +83,8 @@
               href: app-service-web-eclipse-create-hello-world-web-app.md
             - name: Java 應用程式搭配 IntelliJ
               href: app-service-web-intellij-create-hello-world-web-app.md
-            - name: 使用 Azure SDK for Java
-              href: java-create-azure-website-using-java-sdk.md
             - name: 上傳現有應用程式
               href: web-sites-java-add-app.md
-        - name: Python
-          items:
-            - name: Django 應用程式搭配 MySQL
-              href: web-sites-python-ptvs-django-mysql.md
         - name: 使用 SendGrid 傳送電子郵件
           href: sendgrid-dotnet-how-to-send-email.md
         - name: 設定執行階段
@@ -111,28 +99,6 @@
           items:
             - name: 使用應用程式設定
               href: web-sites-configure.md
-        - name: Linux 上的 Web 應用程式
-          items:
-            - name: 概觀
-              href: app-service-linux-intro.md
-            - name: 使用 CLI 進行管理
-              href: app-service-linux-cli.md
-            - name: Linux 上的 Ruby Web 應用程式
-              href: app-service-linux-ruby-get-started.md
-            - name: Linux 上的 Node.js Web 應用程式
-              href: app-service-linux-using-nodejs-pm2.md
-            - name: Linux 上的 .NET Core Web 應用程式
-              href: app-service-linux-using-dotnetcore.md
-            - name: 在 Linux 上自訂 Docker Web 應用程式
-              href: app-service-linux-using-custom-docker-image.md
-            - name: 透過 SSH 連線
-              href: app-service-linux-ssh-support.md
-            - name: 連續部署
-              href: app-service-linux-ci-cd.md
-            - name: 部署類型 - 自訂映像或內建映像？
-              href: app-service-linux-choose-deployment-type.md
-            - name: Linux 上的 Web 應用程式常見問題
-              href: app-service-linux-faq.md
     - name: 部署至 Azure
       href: web-sites-deploy.md
       items:
@@ -162,12 +128,6 @@
               href: web-sites-traffic-manager-custom-domain-name.md
             - name: 移轉作用中的網域
               href: app-service-custom-domain-name-migrate.md
-        - name: 從 IIS 移轉
-          href: web-sites-migration-from-iis-server.md
-        - name: 在生產環境中測試
-          href: app-service-web-test-in-production-get-start.md
-        - name: 在 Web 應用程式中新增功能
-          href: app-service-web-get-started-2.md
         - name: 使用 Maven 外掛程式將 Spring Boot 應用程式部署到 Azure Web Apps
           href: app-service-web-deploy-spring-boot-app-with-maven-plugin.md
         - name: 使用 Maven 外掛程式部署容器化的 Spring Boot 應用程式
@@ -178,8 +138,6 @@
           href: ../azure-toolkit-for-intellij-hello-world-web-app-linux.md
     - name: 連線至 DB/資源
       items:
-        - name: 連線至內部部署資料
-          href: web-sites-hybrid-connection-get-started.md
         - name: 連線至 Azure VNet
           href: web-sites-integrate-with-vnet.md
         - name: 使用 PowerShell 連線至 Azure VNet
@@ -214,8 +172,6 @@
           href: web-sites-scale.md
         - name: 相應放大
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: 搭配流量管理員的負載平衡
-          href: web-sites-traffic-manager.md
         - name: 可高度調整的 App Service 環境
           href: ../app-service/app-service-app-service-environments-readme.md?toc=%2fazure%2fapp-service-web%2ftoc.json
         - name: 使用 Azure CDN 將觸角擴及全球
@@ -224,8 +180,6 @@
           href: web-sites-connect-to-redis-using-memcache-protocol.md
         - name: 建立 Redis Cache
           href: ../redis-cache/cache-redis-cache-arm-provision.md?toc=%2fazure%2fapp-service-web%2ftoc.json
-        - name: 使用 Azure Redis Cache 管理工作階段狀態
-          href: web-sites-dotnet-session-state-caching.md
     - name: 監視
       items:
         - name: 監視應用程式
@@ -240,8 +194,6 @@
           href: web-sites-backup.md
         - name: 從備份還原您的應用程式
           href: web-sites-restore.md
-        - name: 使用 REST API 進行備份
-          href: websites-csm-backup.md
     - name: 管理應用程式資源
       items:
         - name: 使用 PowerShell 複製應用程式
@@ -250,10 +202,6 @@
           href: app-service-web-app-cloning-portal.md
         - name: 移動資源
           href: app-service-move-resources.md
-        - name: 使用包含 PowerShell 的 Azure Resource Manager
-          href: app-service-web-app-azure-resource-manager-powershell.md
-        - name: 使用 Azure 自動化管理應用程式
-          href: automation-manage-web-app.md
     - name: 整合
       items:
         - name: 匯出至 PowerApps 和 Microsoft Flow

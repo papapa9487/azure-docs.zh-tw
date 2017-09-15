@@ -13,6 +13,7 @@
 # 作法
 ## 規劃和設計
 ### [驗證和安全性](relay-authentication-and-authorization.md)
+#### [從 ACS 移轉至 SAS](relay-migrate-acs-sas.md)
 ### [混合式連線通訊協定](relay-hybrid-connections-protocol.md)
 ## 開發
 ### [可用的 API](relay-api-overview.md)

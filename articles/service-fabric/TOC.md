@@ -4,6 +4,8 @@
 
 # 快速入門
 ## [建立 .NET 應用程式](service-fabric-quickstart-dotnet.md)
+## [部署 Windows 容器應用程式](service-fabric-quickstart-containers.md)
+## [部署 Linux 容器應用程式](service-fabric-quickstart-containers-linux.md)
 
 # 教學課程
 ## 部署 .NET 應用程式

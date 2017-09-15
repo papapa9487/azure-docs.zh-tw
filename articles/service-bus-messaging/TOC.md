@@ -37,6 +37,7 @@
 ### [使用佇列的應用程式](service-bus-create-queues.md)
 ### [使用主題/訂用帳戶的應用程式](service-bus-create-topics-subscriptions.md)
 ### [驗證和授權](service-bus-authentication-and-authorization.md)
+#### [從 ACS 移轉至 SAS](service-bus-migrate-acs-sas.md)
 #### [使用共用存取簽章進行驗證](service-bus-sas.md)
 ### [分割的佇列和主題](service-bus-partitioning.md)
 ### [無效信件佇列](service-bus-dead-letter-queues.md)
