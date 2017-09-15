@@ -99,7 +99,7 @@ ms.lasthandoff: 08/28/2017
 
    a. 輸入專案名稱和位置。
 
-   b. 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] (適用於 Spark 2.x 叢集)，或選取 [Java 1.7] (適用於 Spark 1.x 叢集)。
+   b. 在 [專案 SDK] 下拉式清單中，選取 [Java 1.8] \(適用於 Spark 2.x 叢集)，或選取 [Java 1.7] \(適用於 Spark 1.x 叢集)。
 
    c. 在 [Spark 版本] 下拉式清單中，Scala 專案建立精靈會為 Spark SDK 和 Scala SDK 整合正確的版本。 如果 Spark 叢集是 2.0 以前的版本，請選取 [Spark 1.x]。 否則，請選取 [Spark2.x]。 此範例使用 **Spark 2.0.2 (Scala 2.11.8)**。
 

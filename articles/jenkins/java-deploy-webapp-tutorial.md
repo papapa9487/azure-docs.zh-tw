@@ -71,7 +71,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="fork-the-sample-repo-and-create-a-jenkins-job"></a>派生範例儲存機制，並建立 Jenkins 作業 
 
-1. 開啟 [Spring Boot 範例應用程式儲存機制][](https://github.com/spring-guides/gs-spring-boot-docker)，並選取右上角的 [派生]，將其派生至您擁有的 GitHub 帳戶。   
+1. 開啟 [Spring Boot 範例應用程式儲存機制](https://github.com/spring-guides/gs-spring-boot-docker) ，並選取右上角的 [派生]，將其派生至您擁有的 GitHub 帳戶。   
     ![從 GitHub 派生](media/jenkins-java-quickstart/fork_github_repo.png)
 1. 在 Jenkins Web 主控台中，選取 [新增項目]，為該項目指定名稱 **MyJavaApp**，選取 [自由樣式專案]，然後選取 [確定]。   
     ![新增 Jenkins 自由樣式專案](media/jenkins-java-quickstart/jenkins_freestyle.png)

@@ -81,7 +81,7 @@ ms.lasthandoff: 08/30/2017
     ![連線](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
-6. 在 [Let's get you signed in] (讓我們協助您登入帳戶) 對話方塊中，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下 [下一步]。
+6. 在 [Let's get you signed in] \(讓我們協助您登入帳戶) 對話方塊中，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下 [下一步]。
 
     ![讓我們協助您登入帳戶](./media/device-management-azuread-joined-devices-setup/10.png)
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 08/30/2017
     ![確定這是您的組織](./media/device-management-azuread-joined-devices-setup/11.png)
 
 
-8. 在 [You're all set] (您已就緒) 對話方塊中，按一下 [完成]。
+8. 在 [You're all set] \(您已就緒) 對話方塊中，按一下 [完成]。
 
     ![您已就緒](./media/device-management-azuread-joined-devices-setup/12.png)
 

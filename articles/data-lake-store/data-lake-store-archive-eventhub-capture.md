@@ -97,9 +97,9 @@ ms.lasthandoff: 08/28/2017
     
     b. 針對此教學課程，將 [分割區計數] 和 [訊息保留期] 設定為預設值。
     
-    c. 將 [擷取] 設定為 [開啟]。 設定 [時間範圍] (擷取頻率) 和 [大小範圍] (擷取的資料大小)。 
+    c. 將 [擷取] 設定為 [開啟]。 設定 [時間範圍] \(擷取頻率) 和 [大小範圍] \(擷取的資料大小)。 
     
-    d. 針對 [Capture Provider] (擷取提供者)，選取 [Azure Data Lake Store]，然後選取您稍早建立的 Data Lake Store。 針對 [Data Lake Path] (Data Lake 路徑)，輸入您在 Data Lake Store 帳戶中建立的資料夾名稱。 您只需要提供資料夾的相對路徑。
+    d. 針對 [Capture Provider] \(擷取提供者)，選取 [Azure Data Lake Store]，然後選取您稍早建立的 Data Lake Store。 針對 [Data Lake Path] \(Data Lake 路徑)，輸入您在 Data Lake Store 帳戶中建立的資料夾名稱。 您只需要提供資料夾的相對路徑。
 
     e. 將 [擷取檔案名稱格式範例] 保留為預設值。 此選項會掌管在擷取資料夾下建立的資料夾結構。
 

@@ -52,7 +52,7 @@ ms.lasthandoff: 08/29/2017
 
 - **scalar_expression**
 
-  執行異常偵測的純量運算式。 其是浮點數的運算式或傳回單一 (純量) 值的 bigint 類型。 不允許萬用字元運算式 **\***。 **scalar_expression** 不能包含其他分析函數或外部函數。
+  執行異常偵測的純量運算式。 其是浮點數的運算式或傳回單一 (純量) 值的 bigint 類型。 不允許萬用字元運算式 **\*** 。 **scalar_expression** 不能包含其他分析函數或外部函數。
 
 - **OVER ( [ partition_by_clause ] limit_duration_clause [when_clause])**
 

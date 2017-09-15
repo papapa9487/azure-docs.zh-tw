@@ -111,7 +111,7 @@ ms.lasthandoff: 08/29/2017
 2. 於 [名稱] 輸入 `defaulttemplate`
 3. 於 [標籤] 輸入 `ubuntu`
 4. 從下拉式方塊中選取所需的 [Azure 區域](https://azure.microsoft.com/regions/)。
-5. 從 [虛擬機器大小] 下方的下拉式清單中選取 [虛擬機器大小][](/azure/virtual-machines/linux/sizes)。 一般用途的 `Standard_DS1_v2` 大小適用於教學課程。   
+5. 從 **[虛擬機器大小]** 下方的下拉式清單中選取 [虛擬機器大小](/azure/virtual-machines/linux/sizes)。 一般用途的 `Standard_DS1_v2` 大小適用於教學課程。   
 6. 將 [保留時間] 保留為 `60`。 此設定會定義 Jenkins 解除配置閒置的代理程式前等待的分鐘數。 如果您不想要自動移除閒置的代理程式，請指定 0。
 
    ![一般虛擬機器組態](./media/jenkins-azure-vm-agents/general-config.png)
