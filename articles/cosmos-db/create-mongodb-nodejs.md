@@ -16,10 +16,10 @@ ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: a26477d692cc98ed16c195233ade5434cc536a36
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 0b9b201a90b8db59d22db6a48104c86b06469205
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB︰移轉現有的 Node.js MongoDB Web 應用程式 
@@ -28,7 +28,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本快速入門示範如何使用以 Node.js 撰寫的現有 [MongoDB](mongodb-introduction.md) 應用程式，並將它連線到可支援 MongoDB 用戶端連線的 Azure Cosmos DB 資料庫。 換句話說，您的 Node.js 應用程式只知道它使用 MongoDB API 連線到資料庫。 對於資料儲存在 Azure Cosmos DB 中的應用程式而言是透明的。
 
-完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 上執行。 
+完成之後，MEAN 應用程式 (MongoDB、Express、Angular 及 Node.js) 便會在 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 上執行。 
 
 ![在 Azure App Service 中執行的 MEAN.js 應用程式](./media/create-mongodb-nodejs/meanjs-in-azure.png)
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/01/2017
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: a76acd67e9ba7822f2837b3c08e2ede389047f11
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: 035150d5a1da49f89d0058692b016596d8881d9c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
@@ -68,6 +68,7 @@ ms.lasthandoff: 08/21/2017
 * [DNS](#dns-limits)
 * [事件中樞](#event-hubs-limits)
 * [IoT 中心](#iot-hub-limits)
+* [IoT 中樞裝置佈建服務](#iot-hub-device-provisioning-service-limits)
 * [金鑰保存庫](#key-vault-limits)
 * [Log Analytics / Operational Insights](#log-analytics-limits)
 * [媒體服務](#media-services-limits)
@@ -229,6 +230,9 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 
 ### <a name="iot-hub-limits"></a>IoT 中樞限制
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
+
+### <a name="iot-hub-device-provisioning-service-limits"></a>IoT 中樞裝置佈建服務限制
+[!INCLUDE [azure-iotdps-limits](../includes/iot-dps-limits.md)]
 
 ### <a name="data-factory-limits"></a>Data Factory 限制
 [!INCLUDE [azure-data-factory-limits](../includes/azure-data-factory-limits.md)]

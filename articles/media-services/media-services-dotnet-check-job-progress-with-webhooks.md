@@ -68,7 +68,7 @@ ms.lasthandoff: 08/31/2017
 
 1. 選取您的函式應用程式，然後按一下 [新增函式]。
 2. 選取 [C#] 程式碼以及 [API 與 Webhook] 案例。 
-3. 選取 [Generic Webhook - C#] (泛型 Webhook - C#)。
+3. 選取 [Generic Webhook - C#] \(泛型 Webhook - C#)。
 4. 命名您的 Webhook，然後按 [建立]。
 
 ### <a name="files"></a>檔案

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e83ad647f6b7c70f34ef0c69b5bf322da5b6d60d
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>如何使用 Node.js 的 Blob 儲存體
@@ -415,15 +415,19 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱下列資源。
 
-* [Azure Storage SDK for Node API 參考][Azure Storage SDK for Node API Reference]
-* [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]
-* GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制
-* [Node.js 開發人員中心](https://azure.microsoft.com/develop/nodejs/)
-* [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Azure Storage SDK for Node API 參考][Azure Storage SDK for Node API Reference]  
+* [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]  
+* GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制  
+* [Node.js 開發人員中心](https://azure.microsoft.com/develop/nodejs/)  
+* [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
-[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+[Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
 [使用 Azure 表格服務的 Node.js Web 應用程式](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
 [使用 Web Matrix 建立 Node.js Web 應用程式並部署至 Azure]：https://www.microsoft.com/web/webmatrix/  
-[使用 REST API]：http://msdn.microsoft.com/library/azure/hh264518.aspx [Azure 入口網站]：https://portal.azure.com [建立 Node.js 應用程式並部署到 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 儲存體團隊部落格]：http://blogs.msdn.com/b/windowsazurestorage/ [Azure Storage SDK for Node API 參考]：http://dl.windowsazure.com/nodestoragedocs/index.html
+[使用 REST API]：http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Azure 入口網站]：https://portal.azure.com  
+[建立 Node.js 應用程式並部署到 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
+[Azure 儲存體團隊部落格]：http://blogs.msdn.com/b/windowsazurestorage/  
+[Azure Storage SDK for Node API 參考]：http://dl.windowsazure.com/nodestoragedocs/index.html  
 
