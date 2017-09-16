@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c49f185db5a035f70a711bf309b973182d94a2b0
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 5c42b3e519781fa25fe92b286fa65898a7aac173
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ
@@ -40,9 +40,9 @@ ms.lasthandoff: 08/21/2017
 
 - [Java Developer Kit (JDK) 1.8 版或更新版本](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)。 Azure Toolkit for IntelliJ 需要 JDK。
 
-- [IntelliJ IDEA community 版本](https://www.jetbrains.com/idea/download)搭配使用 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 外掛程式與 [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) 外掛程式。 適用於 IntelliJ 的 HDInsight 工具是適用於 IntelliJ 的 Azure 工具組的一部分。 
+- [IntelliJ IDEA community 版本](https://www.jetbrains.com/idea/download)搭配使用 [Scala](https://plugins.jetbrains.com/idea/plugin/1347-scala) 外掛程式與 [Azure Toolkit for IntelliJ](../azure-toolkit-for-intellij.md) 外掛程式。 HDInsight Tools for IntelliJ 會隨 Azure Toolkit for IntelliJ 一起提供。 
 
-  若要安裝外掛程式，請執行下列作業：
+  若要安裝外掛程式，請執行下列項目：
 
   1. 開啟 IntelliJ IDEA。
   2. 在 [歡迎使用] 畫面上，選取 [設定]，然後按一下 [外掛程式]。
@@ -55,7 +55,7 @@ ms.lasthandoff: 08/21/2017
 
 在本節中，您會使用 IntelliJ IDEA 建立範例 Scala 專案。 在下節中，您要在提交專案之前，將 IntelliJ IDEA 連結至 Hortonworks 沙箱 (模擬器)。
 
-1. 從您的工作站開啟 IntelliJ IDEA。 在 [新增專案]  對話方塊中，執行下列操作：
+1. 從您的工作站開啟 IntelliJ IDEA。 在 [新增專案] 對話方塊中，執行下列步驟：
 
    a. 選取 [HDInsight] > [HDInsight 上的 Spark (Scala)]。
 
@@ -68,7 +68,7 @@ ms.lasthandoff: 08/21/2017
 
 2. 選取 [下一步] 。
 
-3. 在下一個 [新增專案]  對話方塊中，執行下列操作：
+3. 在下一個 [新增專案] 對話方塊中，執行下列步驟：
 
     ![建立 IntelliJ Scala 專案屬性](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project-properties.png)
 
@@ -135,7 +135,7 @@ ms.lasthandoff: 08/21/2017
 
 您連結至 Hortonworks 沙箱 (模擬器) 前，必須有現有的 IntelliJ 應用程式。
 
-若要連結至模擬器，請執行下列作業：
+若要連結至模擬器，請執行下列步驟：
 
 1. 在 IntelliJ 中開啟專案。
 

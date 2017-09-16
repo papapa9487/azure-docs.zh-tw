@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: c95641fc6d20e2911e007d1974b9e2c2398b3133
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 737cfd5d1bbd3d55968d7fc0e67d94aff6ada5ea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="run-sqoop-jobs-using-net-sdk-for-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Hadoop 執行 Sqoop 工作
@@ -46,7 +45,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 ## <a name="submit-a-sqoop-job"></a>提交 Sqoop 作業
 
 1. 在 Visual Studio 建立 C# 主控台應用程式。
-2. 從 Visual Studio Package Manager Console 執行下列 Nuget 命令以匯入套件。
+2. 從 Visual Studio Package Manager Console 執行下列 NuGet 命令以匯入套件。
    
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 3. 在 Program.cs 檔案中使用下列程式碼：

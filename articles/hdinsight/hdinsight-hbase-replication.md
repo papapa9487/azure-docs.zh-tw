@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 7a6a473b6db745563b3667da1013a8e78db8593c
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: c885dae8a13c789ccb3c22532e6a2cea2c920752
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-hbase-cluster-replication-within-virtual-networks"></a>設定虛擬網路中的 HBase 叢集複寫
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/10/2017
 
 叢集複寫會使用來源推入方法。 HBase 叢集可以是來源、目的地，或可同時滿足兩個角色。 複寫為非同步作業，而複寫的目標是最終的一致性。 當來源接收到已啟用複寫的資料行系列編輯時，編輯會傳播到所有目的地叢集。 當資料從一個叢集複寫到另一個時，會追蹤來源叢集和已取用資料的所有叢集以避免複寫迴圈。
 
-在本教學課程中，您將設定來源目的地複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](http://hbase.apache.org/book.html#_cluster_replication)。
+在本教學課程中，您會設定來源目的地複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](http://hbase.apache.org/book.html#_cluster_replication)。
 
 適用於單一虛擬網路的 HBase 複寫使用案例︰
 
@@ -88,7 +87,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 5. 按一下其中一個 ZooKeeper VM。
 6. 按一下 [IP 組態]。
 7. 按一下清單中的 [ipConfig1]。
-8. 按一下 [靜態]，並記下實際 IP 位址。 當您執行指令碼動作啟用複寫時，您將需要該 IP 位址。
+8. 按一下 [靜態]，並記下實際 IP 位址。 在執行指令碼動作啟用複寫時，需要該 IP 位址。
 
   ![HDInsight HBase 複寫 ZooKeeper 靜態 IP](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
@@ -110,7 +109,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 ## <a name="load-test-data"></a>載入測試資料
 
-當您複寫叢集時，您必須指定要複寫的資料表。 在本節中，您將會把部分資料載入到來源叢集中。 在下一節中，您將會啟用兩個叢集之間的複寫。
+當您複寫叢集時，您必須指定要複寫的資料表。 在本節中，您會把部分資料載入到來源叢集中。 在下一節中，您將會啟用兩個叢集之間的複寫。
 
 依照 [HBase 教學課程：開始在 HDInsight 中搭配以 Linux 為基礎的 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started-linux.md) 中的指示建立一個 [連絡人] 資料表，並將部分資料插入資料表中。
 
@@ -151,7 +150,7 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-t, --table-list | 指定要複寫的資料表。 例如：--table-list="table1;table2;table3"。 如果您未指定資料表，則會複寫所有現有的 HBase 資料表。|
-|-m, --machine | 指定將執行指令碼動作的前端節點。 值為 hn1 或 hn0。 由於 hn0 通常較忙碌，建議您使用 hn1。 當您從 HDInsight 入口網站或 Azure PowerShell 以指令碼動作執行 $0 指令碼，則使用此選項。|
+|-m, --machine | 指定用來執行指令碼動作的前端節點。 值為 hn1 或 hn0。 由於 hn0 通常較忙碌，建議您使用 hn1。 當您從 HDInsight 入口網站或 Azure PowerShell 以指令碼動作執行 $0 指令碼，則使用此選項。|
 |-ip | 當您啟用兩個虛擬網路之間的複寫時，需要這個引數。 此引數會作為交換器，以使用複本叢集 (而非 FQDN 名稱) 的 ZooKeeper 節點靜態 IP。 在您啟用複寫之前，必須預先設定靜態 IP。 |
 |-cp, -copydata | 在已啟用複寫的資料表上，啟用現有資料的移轉。 |
 |-rpm, -replicate-phoenix-meta | 在 Phoenix 系統資料表上啟用複寫。 <br><br>*請謹慎使用此選項。* 建議您在使用此指令碼前，於複本叢集上重新建立 Phoenix 資料表。 |

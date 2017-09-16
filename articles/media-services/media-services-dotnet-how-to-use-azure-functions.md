@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/27/2017
+ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 95379ed04c47a1e62822ae44b9a1f13b234c6282
+ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
+ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>開發具有媒體服務的 Azure Functions
 
-本主題說明如何開始建立使用媒體服務的 Azure Functions。 本主題中定義的 Azure Function 會針對新的 MP4 檔案監視名為 **input** 的儲存體帳戶容器。 一旦將檔案拖放至儲存體容器之後，blob 觸發程序將會執行此函式。
+本主題說明如何開始建立使用媒體服務的 Azure Functions。 本主題中定義的 Azure Function 會針對新的 MP4 檔案監視名為 **input** 的儲存體帳戶容器。 一旦將檔案拖放至儲存體容器之後，blob 觸發程序將會執行此函式。 若要檢閱 Azure 函式，請參閱 **Azure 函式**一節中的[概觀](../azure-functions/functions-overview.md)和其他主題。
 
 如果您想要瀏覽及部署使用 Azure 媒體服務的現有 Azure Functions，請參閱[媒體服務 Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)。 此存放庫包含的範例會使用媒體服務來顯示與直接從 Blob 儲存體擷取內容、進行編碼，再將內容寫回 Blob 儲存體相關的工作流程。 此存放庫也包含如何透過 Webhook 和 Azure 佇列監視作業通知的範例。 您也可以根據[媒體服務 Azure Functions (英文)](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) 儲存機制中的範例來開發您的函式。 若要部署函式，請按 [部署至 Azure] 按鈕。
 
@@ -31,9 +31,6 @@ ms.lasthandoff: 08/29/2017
 
 - 您必須先具備有效的 Azure 帳戶，才可以建立第一個函式。 如果您還沒有 Azure 帳戶， [可以使用免費帳戶](https://azure.microsoft.com/free/)。
 - 如果您要建立會對 Azure 媒體服務 (AMS) 帳戶執行動作或是會接聽媒體服務所傳送之事件的 Azure Functions，您應該建立 AMS 帳戶，如[這裡](media-services-portal-create-account.md)所述。
-- 了解[如何使用 Azure Functions](../azure-functions/functions-overview.md)。 此外，請參閱：
-    - [Azure Functions HTTP 和 Webhook 繫結](../azure-functions/functions-triggers-bindings.md)
-    - [如何設定 Azure Functions 應用程式設定](../azure-functions/functions-how-to-use-azure-function-app-settings.md)
     
 ## <a name="considerations"></a>考量
 
@@ -83,10 +80,9 @@ ms.lasthandoff: 08/29/2017
 
 4. 按一下 [建立] 。 
 
-
 ## <a name="files"></a>檔案
 
-您的 Azure 函式會與本節所述的程式碼檔案和其他檔案相關聯。 根據預設，函式會與 **function.json** 和 **run.csx** (C#) 檔案相關聯。 您必須新增 **project.json** 檔案。 本節其餘部分會說明這些檔案的定義。
+您的 Azure 函式會與本節所述的程式碼檔案和其他檔案相關聯。 當您使用 Azure 入口網站來建立函式，系統會為您建立 **function.json** 和 **run.csx**。 您必須新增或上傳 **project.json** 檔案。 本節其餘部分會簡短說明每個檔案，並顯示其定義。
 
 ![檔案](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
@@ -97,7 +93,7 @@ function.json 檔案會定義函式繫結和其他組態設定。 執行階段�
 >[!NOTE]
 >將 **disabled** 屬性設定為 **true** 以防止函式執行。 
 
-以下是 **function.json** 檔案的範例。
+以下列程式碼取代現有 function.json 檔案的內容：
 
 ```
 {
@@ -117,6 +113,8 @@ function.json 檔案會定義函式繫結和其他組態設定。 執行階段�
 ### <a name="projectjson"></a>project.json
 
 project.json 檔案包含相依性。 以下是 **project.json** 檔案的範例，其中包含來自 Nuget 的必要 .NET Azure 媒體服務封裝。 請注意，版本號碼將隨著對封裝的最新更新而不同，因此您應該確認最新版本。 
+
+將下列定義新增至 project.json。 
 
 ```
 {
@@ -145,7 +143,7 @@ project.json 檔案包含相依性。 以下是 **project.json** 檔案的範例
 
 在真實案例中，您很可能想要追蹤作業進度，然後發佈編碼的資產。 如需詳細資訊，請參閱[使用 Azure WebHook 監視媒體服務作業通知](media-services-dotnet-check-job-progress-with-webhooks.md)。 如需詳細資訊，請參閱[媒體服務 Azure Functions (英文)](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)。  
 
-當您完成定義之後，按一下 [儲存並執行]。
+以下列程式碼取代現有 run.csx 檔案的內容。 當您完成定義之後，按一下 [儲存並執行]。
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -342,16 +340,18 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 若要測試您的函式，您需要將 MP4 檔案上傳到您在連接字串中指定之儲存體帳戶的 **input** 容器。  
 
+1. 選取您在 **StorageConnection** 環境變數中指定的儲存體帳戶。
+2. 按一下 [Blob]。
+3. 按一下 [+容器]。 將容器命名為 **input**。
+4. 按 [上傳] 並瀏覽至您要上傳的 .mp4 檔案。
+
 ## <a name="next-steps"></a>後續步驟
 
 現在，您可以開始開發媒體服務應用程式。 
  
-如需使用 Azure Functions 和 Logic Apps 搭配 Azure 媒體服務來建立自訂內容建立工作流程的詳細資訊和完整範例/解決方案，請參閱 [GitHub 上的媒體服務 .NET 功能整合範例 (英文)](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)。
+如需使用 Azure Functions 和 Logic Apps 搭配 Azure 媒體服務來建立自訂內容建立工作流程的詳細資訊和完整範例/解決方案，請參閱 [GitHub 上的媒體服務 .NET 功能整合範例 (英文)](https://github.com/Azure-Samples/media-services-dotnet-functions-integration)
 
 另請參閱[使用 Azure WebHook 監視 .NET 的媒體服務作業通知](media-services-dotnet-check-job-progress-with-webhooks.md)。 
-
-## <a name="media-services-learning-paths"></a>媒體服務學習路徑
-[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: dd4e4282d774c2c336889b1df887806bfe512c10
+ms.translationtype: HT
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: bfde83e1142bf57e02ee458d477a0a70e78c4ad6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 
@@ -148,13 +148,13 @@ HTTP 觸發程序會輪詢指定端點，然後檢查回應以判斷是否應執
 |RetryPolicy|否|物件，可讓您自訂 4xx 或 5xx 錯誤的重試行為。|Object|  
 |驗證|否|代表應該用來驗證要求的方法。 如需此物件的詳細資訊，請參閱[排程器輸出驗證](https://docs.microsoft.com/azure/scheduler/scheduler-outbound-authentication)。 除了排程器外，還有一個支援的屬性︰`authority`。根據預設，在未指定時這個值會是 `https://login.windows.net`，但您可以使用不同的受眾，例如 `https://login.windows\-ppe.net`|Object|  
   
-HTTP 觸發程序要求 HTTP API 必須符合特定模式，才能與邏輯應用程式良好搭配運作。 它需要下列欄位：  
+HTTP 觸發程序要求 HTTP API 必須符合特定模式，才能與邏輯應用程式良好搭配運作。 它會辨識下列屬性：  
   
-|Response|說明|  
-|------------|---------------|  
-|狀態碼|狀態碼 200 \(確定\) 會導致執行。 其他任何狀態碼則不會導致執行。|  
-|Retry\-after 標頭|邏輯應用程式再次輪詢端點前所需經過的秒數。|  
-|位置標頭|在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。|  
+|Response|必要|說明|  
+|------------|------------|---------------|  
+|狀態碼|是|狀態碼 200 \(確定\) 會導致執行。 其他任何狀態碼則不會導致執行。|  
+|Retry\-after 標頭|否|邏輯應用程式再次輪詢端點前所需經過的秒數。|  
+|位置標頭|否|在下一個輪詢間隔時所要呼叫的 URL。 如果未指定，則會使用原本的 URL。|  
   
 以下是不同要求類型所具有之不同行為的一些範例︰  
   

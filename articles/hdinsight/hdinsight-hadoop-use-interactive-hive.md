@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: e7874b55fc72f14d8e2c801872359e823cb2ba34
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: fa8b4126865788549217d89f19627f20739f8540
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-interactive-hive-in-hdinsight-preview"></a>在 HDInsight 中使用互動式 Hive (預覽)
@@ -31,7 +30,7 @@ ms.lasthandoff: 06/10/2017
 互動式 Hive 叢集與 Hadoop 叢集不同。 它只包含 Hive 服務。 
 
 > [!NOTE]
-> 很快地，MapReduce、Pig、Sqoop、Oozie 和其他服務便會從這個叢集類型中移除。
+> 不久之後，MapReduce、Pig、Sqoop、Oozie 和其他服務便會從這個叢集類型中移除。
 > 互動式 Hive 叢集中的 Hive 服務只能透過 Ambari Hive 檢視、Beeline 和 Hive ODBC 存取。 無法透過 Hive 主控台、Templeton、Azure CLI 和 Azure PowerShell 存取。 
 > 
 > 

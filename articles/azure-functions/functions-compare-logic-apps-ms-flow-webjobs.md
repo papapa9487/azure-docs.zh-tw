@@ -17,26 +17,26 @@ ms.date: 08/03/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 256bc04684ba337fe8a403d977079c96b63ca61d
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 43e01efaa16ff54d1f526076224979b7b9688e80
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
-本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決商務程序的整合問題和自動化︰
+本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決整合問題並將商務程序自動化︰
 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service-web/web-sites-create-web-jobs.md)
 
-這些服務和不同系統「結合」在一起時全都會變得很有用。 它們全都可以定義輸入、動作、條件和輸出。 您可以在排程或觸發程序上執行上述各項服務。 不過，每項服務都會新增一組唯一值，比較這些服務不是「哪一項服務最好？」的問題， 而是「哪一項服務最適合這種情況？」的問題。 這些服務的組合通常是快速建置可調整的全功能整合方案的最佳方式。
+這些服務和不同系統「結合」在一起時全都會變得很有用。 它們全都可以定義輸入、動作、條件和輸出。 您可以在排程或觸發程序上執行上述各項服務。 不過，每項服務各有獨特的優點，比較這些服務不是「哪一項服務最好？」的問題， 而是「哪一項服務最適合這種情況？」的問題。 這些服務的組合通常是快速建置可調整的全功能整合方案的最佳方式。
 
 <a name="flow"></a>
 
-## <a name="flow-vs-logic-apps"></a>Flow 與 邏輯應用程式
-我們可以將 Microsoft Flow 和 Azure Logic Apps 放在一起討論，因為兩者都是「組態優先」  的整合服務，因此能夠輕鬆地建置處理程序和工作流程，並與各種 SaaS 和企業應用程式整合。 
+## <a name="flow-vs-logic-apps"></a>Flow 與 Logic Apps
+我們可以將 Microsoft Flow 和 Azure Logic Apps 放在一起討論，因為兩者都是「組態優先」的整合服務。 這兩項服務能夠輕鬆地建置處理程序和工作流程，並與各種 SaaS 和企業應用程式整合。 
 
 * Flow 是以 Logic Apps 為基礎所建置
 * 它們擁有相同的工作流程設計工具
@@ -92,16 +92,20 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 | Python |實驗性 |支援 |
 | JavaScript |支援 |支援 |
 
-要使用 Functions 還是 WebJobs 最終取決於您已使用 App Service 做了什麼。 如果您有要為其執行程式碼片段的 App Service 應用程式，而且想要在相同的 DevOps 環境中一起管理，您應該使用 WebJobs。 如果您想要為其他 Azure 服務或甚至是第三方應用程式執行程式碼片段、如果您想要分開管理整合程式碼片段與 App Service 應用程式，或如果您想要從邏輯應用程式呼叫程式碼片段，您應該利用 Functions 中的所有改善項目。  
+要使用 Functions 還是 WebJobs 最終取決於您已使用 App Service 做了什麼。 如果您有要為其執行程式碼片段的 App Service 應用程式，而且想要在相同的 DevOps 環境中一起管理，請使用 WebJobs。 在下列案例中，請使用 Functions。
+
+* 您想要對其他 Azure 服務或第 3 方應用程式執行程式碼片段。
+* 您想要將整合程式碼與 App Service 應用程式分開管理。
+* 您想要從邏輯應用程式呼叫程式碼片段。 
 
 <a name="together"></a>
 
 ## <a name="flow-logic-apps-and-functions-together"></a>Flow、Logic Apps 和 Functions 一起
 如先前所述，哪一項服務最適合您取決於您的情況。 
 
-* 若為簡單的商務最佳化，則使用 Flow。
+* 若為簡單進行商務最佳化，請使用 Flow。
 * 如果您的整合案例對於 Flow 來說過於先進，或是您需要 DevOps 功能和安全性與法規遵循，則請使用 Logic Apps。
-* 如果整合案例中的步驟需要高度自訂的轉換或專門的程式碼，則請撰寫函數應用程式，然後在邏輯應用程式中觸發函數做為動作。
+* 如果整合案例中的步驟需要高度自訂的轉換或專門的程式碼，則請撰寫函式，然後在邏輯應用程式中觸發函式作為動作。
 
 您可以在流程中呼叫邏輯應用程式。 您也可以在邏輯應用程式中呼叫函數，也可以在函數中呼叫邏輯應用程式。 Flow、Logic Apps 和 Functions 之間的整合會隨時間持續改進。 您可以在某項服務中建置某物並用於其他服務。 因此，您對這三種技術所做的投資都是值得的。
 

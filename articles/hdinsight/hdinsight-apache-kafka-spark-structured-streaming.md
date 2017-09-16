@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/09/2017
+ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 02b49e13e8f54c3d55310f4d2b21c7e09c91fe81
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 34c8e18e918221f0287b1078df750d8016e2529a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -61,7 +61,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     > [!IMPORTANT]
     > 此範例中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
 
-2. 使用下列資訊來填入 [自訂部署] 刀鋒視窗上的項目︰
+2. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
    
     ![HDInsight 自訂部署](./media/hdinsight-apache-spark-with-kafka/parameters.png)
    
@@ -83,16 +83,16 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-一旦建立資源，您會被重新導向至 [資源群組] 刀鋒視窗。
+資源建立後，系統會顯示摘要頁面。
 
-![Vnet 和叢集的資源群組刀鋒視窗](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
+![VNet 及叢集的資源群組資訊](./media/hdinsight-apache-spark-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > 請注意，HDInsight 叢集的名稱是 **spark-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連線到叢集時，您會在稍後步驟中使用這些名稱。
 
 ## <a name="get-the-kafka-brokers"></a>取得 Kafka 代理程式
 
-在此範例中的程式碼會連線到 Kafka 叢集中的 Kafka 代理程式主機。 若要尋找 Kafka 代理程式主機，請使用下列 PowerShell 或 Bash 範例：
+在此範例中的程式碼會連線到 Kafka 叢集中的 Kafka 代理程式主機。 若要尋找這兩個 Kafka 代理程式主機的位址，請使用下列 PowerShell 或 Bash 範例：
 
 ```powershell
 $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
@@ -100,22 +100,24 @@ $clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
 $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name
+$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
 ```bash
-curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")'
+curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
 ```
 
+出現提示時，輸入叢集登入 (admin) 帳戶的密碼
+
 > [!NOTE]
-> 這個範例預期 `$PASSWORD` 包含叢集登入的密碼，而 `$CLUSTERNAME` 包含 Kafka 叢集的名稱。
+> 這個範例預期 `$CLUSTERNAME` 會包含 Kafka 叢集的名稱。
 >
 > 這個範例會使用 [jq](https://stedolan.github.io/jq/) 公用程式來剖析 JSON 文件中的資料。
 
 輸出大致如下：
 
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn2-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn3-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
+`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net:9092`
 
 儲存此資訊，因為它會在此文件中的以下各節中使用。
 
@@ -141,7 +143,7 @@ curl -u admin:$PASSWORD -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clust
 
 3. 在 Notebook 清單中尋找 __Stream-Tweets-To_Kafka.ipynb__ 項目，並選取項目旁邊的 [上傳] 按鈕。
 
-    ![使用 KafkaStreaming.ipynb 項目旁邊的 [上傳] 按鈕，將它上傳至 Notebook 伺服器](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
+    ![若要上傳 Notebook，請對 KafkaStreaming.ipynb 項目使用 [上傳] 按鈕](./media/hdinsight-apache-kafka-spark-structured-streaming/upload-notebook.png)
 
 4. 重複步驟 1-3 以上傳 __Spark-Structured-Streaming-From-Kafka.ipynb__ Notebook。
 

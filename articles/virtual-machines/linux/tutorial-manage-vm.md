@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: c163c715eb1438a0d6b0ab53cbb43816ca8dbbb4
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 7e0867a0db2bbad1e490721e8bb2f59677950c18
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 
@@ -62,7 +62,7 @@ az group create --name myResourceGroupVM --location eastus
 az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --generate-ssh-keys
 ```
 
-建立 VM 之後，Azure CLI 就會輸出 VM 的相關資訊。 請記下 `publicIpAddress`，此位址可用來存取虛擬機器。 
+系統可能需要幾分鐘的時間來建立 VM。 建立 VM 之後，Azure CLI 就會輸出 VM 的相關資訊。 請記下 `publicIpAddress`，此位址可用來存取虛擬機器。 
 
 ```azurecli-interactive 
 {
@@ -79,13 +79,13 @@ az vm create --resource-group myResourceGroupVM --name myVM --image UbuntuLTS --
 
 ## <a name="connect-to-vm"></a>連接到 VM
 
-您現在可以使用 SSH 來連線到 VM。 請使用先前步驟中記下的 `publicIpAddress` 來取代範例 IP 位址。
+您現在可以在 Azure Cloud Shell 中使用 SSH 連線到 VM，也可以從本機電腦與 VM 連線。 請使用先前步驟中記下的 `publicIpAddress` 來取代範例 IP 位址。
 
 ```bash
 ssh 52.174.34.95
 ```
 
-完成 VM 作業之後，請關閉 SSH 工作階段。 
+在登入 VM 後，您就可以安裝和設定應用程式。 完成時，請像平常一樣地關閉 SSH 工作階段：
 
 ```bash
 exit
@@ -208,7 +208,11 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>調整 VM 的大小
 
-在部署 VM 之後，可以調整其大小以增加或減少資源配置。
+在部署 VM 之後，可以調整其大小以增加或減少資源配置。 您可以使用 [az vm show](/cli/azure/vm#show) 檢視 VM 目前的大小：
+
+```azurecli-interactive
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
 
 在調整 VM 大小之前，請先檢查目前的 Azure 叢集上是否有所需的大小可用。 [az vm list-vm-resize-options](/cli/azure/vm#list-vm-resize-options) 命令會傳回大小清單。 
 
@@ -300,7 +304,7 @@ az vm start --resource-group myResourceGroupVM --name myVM
 
 ### <a name="delete-resource-group"></a>刪除資源群組
 
-刪除資源群組同時會刪除其內含的所有資源。
+刪除資源群組會同時刪除其內含的所有資源，例如 VM、虛擬網路和磁碟。 `--no-wait` 參數不會等待作業完成，就會將控制項傳回給提示字元。 `--yes` 參數會確認您想要刪除資源，而不另外對您提示將要進行此作業。
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupVM --no-wait --yes

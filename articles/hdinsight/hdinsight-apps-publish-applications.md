@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/25/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 6aa66cac35bc317fc87003e6c3d824544c53de88
+ms.translationtype: HT
+ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
+ms.openlocfilehash: 0ccaee16a19b4338099a93f994553caaa6aa57e3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="publish-hdinsight-applications-into-the-azure-marketplace"></a>將 HDInsight 應用程式發佈到 Azure Marketplace
@@ -64,7 +63,7 @@ HDInsight 應用程式採用「自備授權 (BYOL)」模型，其中的應用程
 ## <a name="application-install-script"></a>應用程式安裝指令碼
 每當應用程式安裝在 (現有或新的) 叢集上，就會在叢集上安裝邊緣節點並執行應用程式安裝指令碼。
   > [!IMPORTANT]
-  > 應用程式安裝指令碼的名稱必須是特定叢集中唯一的名稱 (採用以下的格式)。
+  > 應用程式安裝指令碼的名稱必須是特定叢集中唯一的名稱 (採用以下的格式)：
   > 
   > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
@@ -74,7 +73,7 @@ HDInsight 應用程式採用「自備授權 (BYOL)」模型，其中的應用程
   > 2. "-" 以方便閱讀。
   > 3. 唯一的字串函數，並以應用程式名稱做為參數。
   > 
-  > 範例如上，結果為在保存的指令碼動作清單中的 hue-install-v0-4wkahss55hlas。 如需 JSON 承載的範例，請參閱 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)。
+  > 在保存的指令碼動作清單中，上述範例最終會變成 hue-install-v0-4wkahss55hlas。 如需 JSON 承載的範例，請參閱 [https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json](https://raw.githubusercontent.com/hdinsight/Iaas-Applications/master/Hue/azuredeploy.json)。
   > 
 安裝指令碼必須具有下列特性：
 1. 確定指令碼具有等冪性。 指令碼的多個呼叫應產生相同的結果。
