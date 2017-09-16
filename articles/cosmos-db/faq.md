@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: e9808af4aa875c5199279825325688afc69e6de6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
@@ -210,7 +210,7 @@ DefaultEndpointsProtocol=https;AccountName=<AccountNamefromCosmos DB;AccountKey=
 ### <a name="which-tools-work-with-the-table-api-preview"></a>哪些工具可與資料表 API (預覽) 搭配使用？ 
 您可以使用舊版的 Azure 檔案總管 (0.8.9)。
 
-能夠彈性地以先前指定之格式採用連接字串的工具，均可支援新的資料表 API (預覽)。 [Azure 儲存體用戶端工具](../storage/storage-explorers.md)頁面上提供一份資料表工具清單。 
+能夠彈性地以先前指定之格式採用連接字串的工具，均可支援新的資料表 API (預覽)。 [Azure 儲存體用戶端工具](../storage/common/storage-explorers.md)頁面上提供一份資料表工具清單。 
 
 ### <a name="do-powershell-or-azure-cli-work-with-the-new-table-api-preview"></a>PowerShell 或 Azure CLI 可以與新的資料表 API (預覽) 搭配運作嗎？
 我們計劃針對資料表 API (預覽) 加入對 PowerShell 或 Azure CLI 的支援。 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 0d1c323155aae90e8a92d7a3b92b5ca1482e1ef5
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 08/21/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>使用 PowerShell 來備份及還原 App Service 應用程式
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/27/2017
 ## <a name="prerequisites"></a>必要條件
 若要使用 PowerShell 來管理您的應用程式備份，您需要下列項目︰
 
-* **SAS URL** ，提供 Azure 儲存體容器的讀取和寫入存取權。 如需 SAS URL 的說明，請參閱 [了解 SAS 模型](../storage/storage-dotnet-shared-access-signature-part-1.md) 。 如需使用 PowerShell 管理 Azure 儲存體的範例，請參閱 [搭配使用 Azure PowerShell 與 Azure 儲存體](../storage/storage-powershell-guide-full.md) 。
+* **SAS URL** ，提供 Azure 儲存體容器的讀取和寫入存取權。 如需 SAS URL 的說明，請參閱 [了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 。 如需使用 PowerShell 管理 Azure 儲存體的範例，請參閱 [搭配使用 Azure PowerShell 與 Azure 儲存體](../storage/common/storage-powershell-guide-full.md) 。
 * **資料庫連接字串** ，如果您想要備份資料庫和 Web 應用程式。
 
 ### <a name="how-to-generate-a-sas-url-to-use-with-the-web-app-backup-cmdlets"></a>如何產生 SAS URL 以搭配 Web 應用程式備份 Cmdlet 使用

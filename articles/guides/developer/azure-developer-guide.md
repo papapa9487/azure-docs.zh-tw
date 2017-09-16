@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b53b044242f339d00dcc947c213dacb5dffdcce6
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -123,7 +123,7 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
     >**使用時機：**當您的應用程式儲存非關聯式資料 (例如，鍵值組 (資料表)、Blob、檔案共用或訊息 (佇列)) 時。
 
-    >**開始使用**：選擇下列其中一種類型的儲存體：[Blob](../../storage/storage-dotnet-how-to-use-blobs.md)、[資料表](../../storage/storage-dotnet-how-to-use-tables.md)、[佇列](../../storage/storage-dotnet-how-to-use-queues.md)或[檔案](../../storage/storage-dotnet-how-to-use-files.md)。
+    >**開始使用**：選擇下列其中一種類型的儲存體：[Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)、[資料表](../../cosmos-db/table-storage-how-to-use-dotnet.md)、[佇列](../../storage/queues/storage-dotnet-how-to-use-queues.md)或[檔案](../../storage/files/storage-dotnet-how-to-use-files.md)。
 
 -   **Azure DocumentDB**：完整受管理和可擴充的 NoSQL 資料庫服務，其具備物件資料的 SQL 查詢。 您可以使用現有 MongoDB 驅動程式存取 DocumentDB。
     >**使用時機**：當您的應用程式需要可以對 JSON 文件執行 SQL 查詢時，或者使用 MongoDB 時。
@@ -229,7 +229,7 @@ Azure 提供兩種方式，使用 Bash、終端機、命令提示字元或您選
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 <https://portal.azure.com>。 它會包含可自訂的儀表板、用於管理 Azure 資源的工具，以及訂用帳戶設定和計費資訊的存取權。 如需詳細資訊，請參閱 [Azure 入口網站概觀](../../azure-portal-overview.md)。
+Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除 Azure 資源和服務。 Azure 入口網站位於 <https://portal.azure.com>。它會包含可自訂的儀表板、用於管理 Azure 資源的工具，以及訂用帳戶設定和計費資訊的存取權。 如需詳細資訊，請參閱 [Azure 入口網站概觀](../../azure-portal-overview.md)。
 
 ### <a name="rest-apis"></a>REST API
 

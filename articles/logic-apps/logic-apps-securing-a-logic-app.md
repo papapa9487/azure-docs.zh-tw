@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: ac52924d928b293f4b1b58f0c25375f890c51837
+ms.translationtype: HT
+ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
+ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
-
+ms.lasthandoff: 08/21/2017
 
 ---
 
@@ -39,7 +38,7 @@ ms.lasthandoff: 05/04/2017
 
 ### <a name="shared-access-signature"></a>共用存取簽章
 
-邏輯應用程式的每個要求端點都會在 URL 中包含[共用存取簽章](../storage/storage-dotnet-shared-access-signature-part-1.md) (SAS)。 每個 URL 都包含 `sp`、`sv` 和 `sig` 查詢參數。 `sp` 會指定權限，並對應至允許的 HTTP 方法，`sv` 是用來產生的版本，而 `sig` 是用來驗證對觸發程序的存取。 簽章是使用 SHA256 演算法搭配秘密金鑰所產生，位於所有的 URL 路徑和屬性上。 秘密金鑰永遠不會公開及發佈，並且會維持加密狀態，儲存於邏輯應用程式中。 您的邏輯應用程式只會針對包含使用秘密金鑰建立之有效簽章的觸發程序進行授權。
+邏輯應用程式的每個要求端點都會在 URL 中包含[共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md) (SAS)。 每個 URL 都包含 `sp`、`sv` 和 `sig` 查詢參數。 `sp` 會指定權限，並對應至允許的 HTTP 方法，`sv` 是用來產生的版本，而 `sig` 是用來驗證對觸發程序的存取。 簽章是使用 SHA256 演算法搭配秘密金鑰所產生，位於所有的 URL 路徑和屬性上。 秘密金鑰永遠不會公開及發佈，並且會維持加密狀態，儲存於邏輯應用程式中。 您的邏輯應用程式只會針對包含使用秘密金鑰建立之有效簽章的觸發程序進行授權。
 
 #### <a name="regenerate-access-keys"></a>重新產生存取金鑰
 
