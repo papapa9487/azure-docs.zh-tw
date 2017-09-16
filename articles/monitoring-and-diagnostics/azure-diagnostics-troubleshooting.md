@@ -197,7 +197,7 @@ Azure 儲存體中的資料表保存了使用以下代碼命名的 ETW 事件：
 ## <a name="references"></a>參考
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>如何檢查診斷延伸模組組態
-檢查延伸模組組態最容易的方式是，瀏覽至 http://resources.azure.com，接著瀏覽至 Azure 診斷擴充功能 (IaaSDiagnostics / PaaDiagnostics) 有問題的虛擬機器或雲端服務。
+檢查延伸模組組態最容易的方式是，瀏覽至 http://resources.azure.com ，接著瀏覽至 Azure 診斷擴充功能 (IaaSDiagnostics / PaaDiagnostics) 有問題的虛擬機器或雲端服務。
 
 或者，從遠端桌面連接到電腦，然後查看[這裡](#log-artifacts-path)的適當小節中描述的 Azure 診斷組態檔。
 
