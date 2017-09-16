@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 09/15/2017
 ms.author: bwren
 ms.translationtype: HT
 ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
@@ -57,7 +57,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 >[!NOTE]
 > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則會對程序進行以下變更以建立新的電腦群組。
 >  
-> - 用來建立電腦群組的查詢必須包含 `distinct Computer`。  以下是用來建立電腦群組之查詢的範例。<br>`Heartbeat | where Computer contains "srv" `
+> - 用來建立電腦群組的查詢必須包含 `distinct Computer`。  以下是用來建立電腦群組之查詢的範例。<br>`Heartbeat | where Computer contains "srv" | distinct Computer `
 > - 當您建立新的電腦群組時，除了名稱之外，您還必須指定別名。  您在查詢中使用電腦群組時可以使用別名，如下所述。  
 
 ### <a name="log-search-api"></a>記錄檔搜尋 API
@@ -104,7 +104,7 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 >[!NOTE]
 > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您藉由將電腦群組的別名視為函式，在查詢中使用電腦群組，如下列範例所示：
 > 
->  `UpdateSummary | where Computer IN (MyComputerGroup)`
+>  `UpdateSummary | where Computer in (mycomputergroup)`
 
 ## <a name="computer-group-records"></a>電腦群組記錄
 針對從 Active Directory 或 WSUS 建立每個電腦群組成員資格，OMS 存放庫中會建立一筆記錄。  這些記錄的類型為 **ComputerGroup**，且具有下表中的屬性。  如果電腦群組是根據記錄檔搜尋，則不會建立記錄。
