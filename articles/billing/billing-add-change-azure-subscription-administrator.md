@@ -13,92 +13,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: da5995535d42ed52772cb09e0f4da51bbf878748
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: db5966c920eb29742b2ee0fbd9386319eaaf1c77
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色
+
 您可以變更管理您的 Azure 訂用帳戶或訂用帳戶中所使用 Azure 服務的 Azure 系統管理員。 若要檢視 Azure 帳單資訊及管理訂用帳戶，您必須以帳戶管理員的身分登入[帳戶中心](https://account.windowsazure.com/Home/Index)。 
 
-## <a name="add-an-admin-for-a-subscription"></a>新增訂用帳戶的管理員
-您可以在 Azure 入口網站或 Azure 傳統入口網站新增 Azure 系統管理員。
+<a name="add-an-admin-for-a-subscription"></a>
 
-**Azure 入口網站**
+## <a name="add-an-rbac-owner-admin-for-a-subscription-in-azure-portal"></a>在 Azure 入口網站中新增訂用帳戶的 RBAC 擁有者管理員 
 
-若要在 Azure 入口網站中將某人新增為訂用帳戶的系統管理員，請賦予他擁有者角色。 擁有者角色只能管理您指派之訂用帳戶中的資源。 此系統管理員沒有其他訂用帳戶的存取權限。 您透過 [Azure 入口網站](https://portal.azure.com)新增的擁有者無法管理 [Azure 傳統入口網站](https://manage.windowsazure.com)中的資源。
+若要在 Azure 入口網站中將某人新增為訂用帳戶的管理員，我們建議您授與他 [RBAC](../active-directory/role-based-access-control-configure.md) 擁有者角色。 擁有者角色可以管理您指派之訂用帳戶中的資源，但沒有其他訂用帳戶的存取權限。 您透過 [Azure 入口網站](https://portal.azure.com)新增的擁有者不能管理 [Azure 傳統入口網站](https://manage.windowsazure.com)中的資源。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [中樞] 功能表中，選取 [訂用帳戶] > *您想要讓管理員存取的訂用帳戶*。
-
-    ![顯示已選取訂用帳戶選項的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
-
-3. 在 [訂用帳戶] 刀鋒視窗中，選取 [存取控制 (IAM)]。
-4. 選取 [新增] > [角色] > [擁有者]。 輸入您想要新增為擁有者的使用者的電子郵件地址，選取使用者，再選取 [儲存]。
+1. 登入 [Azure 入口網站中的訂用帳戶檢視](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
+1. 選取您想讓管理員存取的訂用帳戶。
+1. 在功能表中選取 [存取控制 (IAM)]。
+1. 選取 [新增] > [角色] > [擁有者]。 鍵入您想要新增為擁有者之使用者的電子郵件地址，選取該使用者，然後選取 [儲存]。
 
     ![顯示已選取 [擁有者] 角色的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-5. 如果想要新增擁有者帳戶作為共同管理員，請在 [存取控制 (IAM)] 頁面上，以滑鼠右鍵按一下使用者，然後選取 [新增為共同管理員]。 [Azure 預覽入口網站](https://preview.portal.azure.com/)現提供此功能。 
+### <a name="add-or-change-co-administrator"></a>新增或變更共同管理員
+
+您只能將擁有者新增為共同管理員， 不能將角色為參與者和讀者等的其他使用者新增為共同管理員。
+
+1. 如果您尚未新增，請遵循上述指示將某人新增為擁有者。
+1. **以滑鼠右鍵按一下**您剛才新增的「擁有者」使用者，然後選取 [新增為共同管理員]。 
 
      ![新增共同管理員的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-coadmin.png)
 
     >[!TIP]
-    >如果使用者需要在 [Azure 傳統入口網站](https://manage.windowsazure.com/)上管理 Azure 服務，您需要將「擁有者」使用者新增為共同管理員。
+    >如果使用者需要在 [Azure 傳統入口網站](https://manage.windowsazure.com/)中管理 Azure 服務，請將「擁有者」帳戶新增為共同管理員。
 
-    若要移除共同管理員權限，請以滑鼠右鍵按一下「共同管理員」使用者，然後選取 [移除共同管理員]。
+    若要移除共同管理員權限，請**以滑鼠右鍵按一下**「共同管理員」使用者，然後選取 [移除共同管理員]。
 
     ![移除共同管理員的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
 
+<a name="change-service-administrator-for-a-subscription"></a>
 
-**Azure 傳統入口網站**
+## <a name="change-the-service-administrator-for-an-azure-subscription"></a>變更 Azure 訂用帳戶的服務管理員
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com/)。
-2. 在導覽窗格中，選取 [設定]> [管理員]> [新增]。 </br>
+只有帳戶管理員可以變更訂用帳戶的服務管理員。 根據預設，註冊時系統會將服務管理員與帳戶管理員設為同一人。
 
-    ![顯示如何存取 [新增] 按鈕的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/addcoadmin.png)
-3. 輸入您想新增為共同管理員之人員的電子郵件地址，然後選取您想讓共同管理員存取的訂用帳戶。</br>
+1. 請參閱[變更服務管理員的限制](#limits)，確定您的情況是否受支援。
+1. 以帳戶管理員身分登入[帳戶中心](https://account.windowsazure.com/subscriptions)。
+1. 選取一個訂用帳戶。
+1. 選取右側的 [編輯訂用帳戶詳細資料]。
 
-    ![顯示已選取訂用帳戶選項的螢幕擷取畫面 ](./media/billing-add-change-azure-subscription-administrator/addcoadmin2.png)</br>
+    ![顯示帳戶中心裡 [編輯訂用帳戶] 按鈕的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/editsub.png)
+1. 在 [服務管理員  ] 方塊中，輸入新的服務管理員的電子郵件地址。
 
-下列電子郵件地址可以新增為共同管理員：
+    ![顯示應變更服務管理員電子郵件之方塊的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
 
-* **Microsoft 帳戶** (先前的 Windows Live ID) </br>
-  您可以使用 Microsoft 帳戶登入所有消費者導向的 Microsoft 產品和雲端服務，例如 Outlook (Hotmail)、Skype (MSN)、OneDrive、Windows Phone 和 Xbox LIVE。
-* **Organizational account**</br>
-  組織帳戶是建立在 Azure Active Directory 之下的帳戶。 組織帳戶地址的格式如下︰
+<a name="limits"></a>
 
-    使用者@&lt;您的網域&gt;.onmicrosoft.com
+### <a name="limitations-for-changing-service-administrators"></a>變更服務管理員的限制
 
-## <a name="change-service-administrator-for-a-subscription"></a>變更訂用帳戶的服務管理員
-只有帳戶管理員可以變更訂用帳戶的服務管理員。
+* 每個訂用帳戶都與 Azure AD 目錄相關聯。 若要尋找與訂用帳戶相關聯的目錄，請前往 [Azure 傳統入口網站](https://manage.windowsazure.com/)，然後選取 [設定] > [訂用帳戶]。 請查看訂用帳戶識別碼來尋找目錄。
+* 如果您以公司或學校帳戶登入，可以將組織中的其他帳戶新增為服務管理員。 例如，abby@contoso.com 可以將 bob@contoso.com 新增為服務管理員，但若想新增 john@notcontoso.com 為服務管理員，則 contoso.com 目錄中必須要有 john@notcontoso.com 才能這麼做。 以公司或學校帳戶登入的使用者可以繼續將 Microsoft 帳戶使用者新增為服務管理員。
 
-1. 使用帳戶管理員登入 [Azure 帳戶中心](https://account.windowsazure.com/subscriptions)。
-2. 選取您想變更的訂用帳戶。
-3. 選取右側的 [編輯訂用帳戶詳細資料]。 </br>
+  | 登入方法 | 要將 Microsoft 帳戶使用者新增為安全性關聯 (SA) 嗎？ | 要將同一組織中的公司或學校帳戶新增為安全性關聯 (SA) 嗎？ | 要將其他組織中的公司或學校帳戶新增為安全性關聯 (SA) 嗎？ |
+  | --- | --- | --- | --- |
+  |  Microsoft 帳戶 |是 |否 |否 |
+  |  公司或學校帳戶 |是 |是 |否 |
 
-    ![editsub](./media/billing-add-change-azure-subscription-administrator/editsub.png)
-4. 在 [服務管理員  ] 方塊中，輸入新的服務管理員的電子郵件地址。 </br>
+## <a name="change-the-account-administrator-for-an-azure-subscription"></a>變更 Azure 訂用帳戶的帳戶管理員
 
-    ![changeSA](./media/billing-add-change-azure-subscription-administrator/changeSA.png)
+若要變更訂用帳戶的帳戶管理員，請參閱[將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](billing-subscription-transfer.md)。
 
-## <a name="change-the-account-administrator"></a>如何變更帳戶管理員
-若要將 Azure 帳戶的擁有權轉移到另一個帳戶，請參閱 [轉移 Azure 訂用帳戶的擁有權](billing-subscription-transfer.md)。
+<a name="check-the-account-administrator-of-the-subscription"></a>
 
-強烈建議您不要將帳戶管理員的電子郵件地址重新命名或刪除。 否則 Azure 帳戶可能會有未預期的行為或出現問題。 您可能會無法使用該帳戶登入 Azure、變更帳戶，或使用該帳戶來管理資源。 
+**不確定帳戶管理員是誰嗎？** 請遵循下列步驟：
 
-## <a name="check-the-account-administrator-of-the-subscription"></a>檢查訂用帳戶的帳戶管理員
-如果您不確定誰是訂用帳戶的帳戶管理員，請使用下列步驟來找出帳戶管理員。
-
-  1. 登入 [Azure 入口網站](https://portal.azure.com)。
-  2. 在 [中樞] 功能表中，選取 [訂用帳戶] 。
-  3. 選取您想要檢查的訂用帳戶，然後查看 [設定]。
-  4. 選取 [屬性] 。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。  
+1. 登入 [Azure 入口網站中的訂用帳戶檢視](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
+1. 選取您想要檢查的訂用帳戶，然後查看 [設定]。
+1. 選取 [屬性] 。 該訂用帳戶的帳戶管理員會顯示在 [帳戶管理員]  方塊中。  
 
 ## <a name="types-of-azure-admin-accounts"></a>Azure 管理帳戶的類型
+
  帳戶管理員、服務管理員和共同管理員是 Microsoft Azure 中的三種系統管理員角色。 下表說明這三個系統管理角色之間的差異。
 
 | 管理角色 | 限制 | 說明 |
@@ -109,21 +107,13 @@ ms.lasthandoff: 07/20/2017
 
 Azure Active Directory 角色型存取控制 (RBAC) 能讓使用者擁有多個角色。 如需詳細資訊，請參閱 [Azure Active Directory 角色型存取控制](../active-directory/role-based-access-control-configure.md)。
 
-## <a name="limitations-and-restrictions-for-admin-accounts"></a>系統管理員帳戶的限制和約束
-* 每個訂用帳戶都與一個 Azure AD 目錄 (也就是預設目錄) 相關聯。 若要尋找與訂用帳戶相關聯的預設目錄，請前往 [Azure 傳統入口網站](https://manage.windowsazure.com/)，然後選取 [設定] > [訂用帳戶]。 請查看訂用帳戶識別碼來尋找預設目錄。
-* 如果您以 Microsoft 帳戶登入，就只能將其他 Microsoft 帳戶或預設目錄中的使用者新增為共同管理員。
-* 如果您以組織帳戶登入，就可以將組織中的其他組織帳戶新增為共同管理員。 舉例來說，abby@contoso.com 可以將 bob@contoso.com 新增為服務管理員或共同管理員，但無法新增 john@notcontoso.com，除非 john@notcontoso.com 在預設目錄中。 以組織帳戶登入的使用者，可以繼續將 Microsoft 帳戶使用者新增為服務管理員或共同管理員。
-* 現在可以使用組織帳戶登入至 Azure，以下是服務管理員和共同管理員帳戶需求的變更：
-
-  | 登入方法 | 將 Microsoft 帳戶或預設目錄中的使用者新增為 CA 或 SA？ | 將相同組織中的組織帳戶新增為 CA 或 SA？ | 將不同組織中的組織帳戶新增為 CA 或 SA？ |
-  | --- | --- | --- | --- |
-  |  Microsoft 帳戶 |是 |否 |否 |
-  |  組織帳戶 |是 |是 |否 |
 
 ## <a name="learn-more-about-resource-access-control-and-active-directory"></a>深入了解資源存取控制和 Active Directory
+
 * 若要深入了解如何在 Microsoft Azure 中控制資源存取，請參閱[了解 Azure 中的資源存取](../active-directory/active-directory-understanding-resource-access.md)。
 * 如需有關 Azure Active Directory 的詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](../active-directory/active-directory-how-subscriptions-associated-directory.md)和[指派 Azure Active Directory 中的管理員角色](../active-directory/active-directory-assign-admin-roles.md)。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
+
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
 

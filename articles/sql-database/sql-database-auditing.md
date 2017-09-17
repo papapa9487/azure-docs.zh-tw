@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: giladm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: f4324a59b5fa4c2e1ab5b1d7fc7e5fe986ea80f8
+ms.translationtype: HT
+ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
+ms.openlocfilehash: ea45fe72a499daa363dc9e43f82c94af38bf6e85
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.lasthandoff: 08/31/2017
 
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
@@ -68,8 +67,7 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 移至您想要稽核的 SQL 資料庫/SQL 伺服器 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，選取 [稽核與威脅偵測]。
 
-    <a id="auditing-screenshot"></a>
-    ![瀏覽窗格][1]
+    <a id="auditing-screenshot"></a> ![導覽窗格][1]
 3. 如果您想要設定伺服器稽核原則 (其將套用至此伺服器上所有現有和新建立的資料庫)，您可以選取資料庫稽核刀鋒視窗中的 [檢視伺服器設定] 連結。 然後，您可以檢視或修改伺服器稽核設定。
 
     ![導覽窗格][2]
@@ -82,8 +80,7 @@ Azure SQL 資料庫稽核會追蹤資料庫事件，並將事件寫入您 Azure 
    >[!TIP] 
    >若要充分利用稽核報告範本，請讓所有稽核的資料庫都使用相同的儲存體帳戶。 
 
-    <a id="storage-screenshot"></a>
-    ![瀏覽窗格][4]
+    <a id="storage-screenshot"></a> ![導覽窗格][4]
 6. 如果您想要自訂稽核的事件，您可以透過 PowerShell 或 REST API 來自訂。 如需詳細資訊，請參閱[自動化 (PowerShell/REST API)](#subheading-7) 一節。
 7. 設定您的稽核設定之後，您可以開啟新的威脅偵測功能，並設定電子郵件以接收安全性警示。 使用威脅偵測時，您會接收與指示潛在安全性威脅的異常資料庫活動相關的主動式警示。 如需詳細資訊，請參閱[開始使用威脅偵測](sql-database-threat-detection-get-started.md)。
 8. 按一下 [儲存] 。
@@ -148,17 +145,16 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 <!--The description in this section refers to preceding screen captures.-->
 
 ### <a id="subheading-6">稽核異地複寫資料庫</a>
-使用異地複寫資料庫時，您可以在主要資料庫、次要資料庫或兩者 (需視稽核類型而定) 設定稽核。
+使用異地複寫資料庫時，若要在次要資料庫上設定稽核，您可以啟用**次要伺服器**上的稽核，或是啟用主要資料庫上的稽核 (在此情況下，次要資料庫的稽核原則會與主要資料庫相同)。
 
-請遵循這些指示 (請記住，您只能從主要資料庫稽核設定開啟或關閉 Blob 稽核)：
+* 伺服器層級 (**建議**)：啟動**主要伺服器**和**次要伺服器**上的稽核 - 將根據其個別的伺服器層級原則對主要和次要資料庫分開進行稽核。
 
-* **主要資料庫**。 依照[設定資料庫的稽核](#subheading-2)一節所述，在伺服器或資料庫本身開啟 Blob 稽核。
-* **次要資料庫**。 依照[設定資料庫的稽核](#subheading-2)一節所述，在主要資料庫上開啟 Blob 稽核。 
+* 資料庫層級：只能從主要資料庫稽核設定來設定次要資料庫的資料庫層級稽核。
    * 必須在「主要資料庫本身」 (而不是在伺服器上) 啟用 Blob 稽核。
    * 在主要資料庫上啟用 Blob 稽核之後，它也會在次要資料庫上變成啟用狀態。
 
      >[!IMPORTANT]
-     >根據預設值，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 您可以在次要伺服器上啟用 Blob 稽核，並在次要伺服器儲存體設定中設定本機儲存體，以避免此情況。 這將覆寫次要資料庫的儲存位置，並導致每個資料庫都將其稽核記錄儲存至本機儲存體。  
+     >使用資料庫層級稽核時，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 除非需要進行資料庫層級稽核，否則建議僅在主要和次要伺服器上啟用伺服器層級稽核，並讓所有資料庫的資料庫層級稽核保留在停用狀態。
 <br>
 
 ### <a id="subheading-6">儲存體金鑰重新產生</a>
@@ -184,7 +180,6 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
    * [Remove-AzureRMSqlServerAuditing][104]
    * [Set-AzureRMSqlDatabaseAuditingPolicy][105]
    * [Set-AzureRMSqlServerAuditingPolicy][106]
-   * [Use-AzureRMSqlServerAuditingPolicy][107]
 
    如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
@@ -218,11 +213,10 @@ Blob 稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlo
 [9]: ./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png
 [10]: ./media/sql-database-auditing-get-started/10_auditing_get_started_ssms_2.png
 
-[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy
-[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy
+[101]: /powershell/module/azurerm.sql/get-azurermsqldatabaseauditing
+[102]: /powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditing
 [103]: /powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing
 [104]: /powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing
-[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy
-[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy
-[107]: /powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy
+[105]: /powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditing
+[106]: /powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditing
 

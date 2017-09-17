@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bb6c93557ea26bed721315dc82da917e4727b5f9
+ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
+ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
 
-發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 將[快照集收集器 NuGet 套件](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)納入您的應用程式，並選擇性地設定 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中的集合參數。 快照集會顯示在 Application Insights 入口網站中的[例外狀況](app-insights-asp-net-exceptions.md)。
+發生例外狀況時，您可以自動從即時 Web 應用程式收集偵錯快照集。 快照集會顯示擲回例外狀況時原始程式碼和變數的狀態。 [Application Insights](app-insights-overview.md) 中的快照集偵錯工具 (預覽) 會監視 web 應用程式的例外狀況遙測。 它會收集前幾個擲回例外狀況的快照集，讓您取得診斷生產環境中問題所需的資訊。 將[快照集收集器 NuGet 套件](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)納入您的應用程式，並選擇性地設定 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中的集合參數。快照集會顯示在 Application Insights 入口網站中的[例外狀況](app-insights-asp-net-exceptions.md)。
 
 您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 若要使用原始程式碼取得更強大的偵錯體驗，可[下載 Visual Studio 的快照集偵錯工具擴充功能](https://aka.ms/snapshotdebugger)，以 Visual Studio 2017 Enterprise 開啟快照集。
 

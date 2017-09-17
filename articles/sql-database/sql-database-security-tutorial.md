@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: 4bc09ad13ed0c9dc9257e9c75ec6f9ff3d689a0b
+ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
+ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/31/2017
+ms.lasthandoff: 09/05/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
@@ -240,7 +240,7 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 
 
 ## <a name="next-steps"></a>後續步驟
-只需要幾個簡單步驟，您就可以讓資料庫預防惡意使用者或未經授權的存取。 您會在本教學課程中學到： 
+在本教學課程中，您已了解只需要幾個簡單步驟，就可以讓資料庫預防惡意使用者或未經授權的存取。  您已了解如何︰ 
 
 > [!div class="checklist"]
 > * 設定伺服器和/或資料庫的防火牆規則
@@ -250,7 +250,9 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 > * 啟用 SQL Database 稽核
 > * 啟用 SQL Database 威脅偵測
 
+前進至下一個教學課程，以了解如何實作異地分散式資料庫。
+
 > [!div class="nextstepaction"]
->[改善 SQL Database 效能](sql-database-performance-tutorial.md)
+>[實作異地分散式資料庫](sql-database-implement-geo-distributed-database.md)
 
 

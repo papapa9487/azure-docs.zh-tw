@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: abnarain
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9e40eba285aeb1cce6b77311d1b69a6b96967a0b
+ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
+ms.openlocfilehash: f1f57404734ad6dc77250b180a9c334de60f0af3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/06/2017
 
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
@@ -281,7 +281,7 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on  
     ```
-[[適用於多重節點高度可用且可擴充的閘道 (預覽)](data-factory-data-management-gateway-high-availability-scalability.md)]
+[適用於多節點高度可用且可調整的閘道 (預覽)](data-factory-data-management-gateway-high-availability-scalability.md)
 1. 在閘道電腦上啟動 Windows PowerShell。
 2. 切換至 C:\Program Files\Microsoft Data Management Gateway\2.0\PowerShellScript 資料夾。
 3. 執行下列命令，將自動更新功能關閉 (停用)。   
@@ -294,154 +294,154 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 
     ```PowerShell
     .\GatewayAutoUpdateToggle.ps1  -on -AuthKey <your auth key> 
+    ```
 
+## <a name="configuration-manager"></a>組態管理員
+安裝閘道後，您可以用下列方式啟動 [資料管理閘道組態管理員]：
 
-## Configuration Manager
-Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
+1. 在 [搜尋] 視窗中，輸入**資料管理閘道**以存取這個公用程式。
+2. 執行下列資料夾中的 **ConfigManager.exe** 可執行檔：**C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-1. In the **Search** window, type **Data Management Gateway** to access this utility.
-2. Run the executable **ConfigManager.exe** in the folder: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+### <a name="home-page"></a>首頁
+首頁可讓您執行下列動作︰
 
-### Home page
-The Home page allows you to do the following actions:
+* 檢視閘道的狀態 (連接至雲端服務等)。
+*  。
+* 在閘道電腦上**停止**後啟動 [資料管理閘道主機服務]。
+* **更新排程** 。
+* 檢視閘道 **上次更新**時的日期。
 
-* View status of the gateway (connected to the cloud service etc.).
-* **Register** using a key from the portal.
-* **Stop** and start the **Data Management Gateway Host service** on the gateway machine.
-* **Schedule updates** at a specific time of the days.
-* View the date when the gateway was **last updated**.
+### <a name="settings-page"></a>設定頁面
+[設定] 頁面可讓您執行下列動作︰
 
-### Settings page
-The Settings page allows you to do the following actions:
+* 檢視、變更及匯出閘道所使用的 **憑證** 。 此憑證用來加密資料來源認證。
+* 變更端點的 **HTTPS 連接埠** 。 閘道會開啟一個連接埠，以便設定資料來源認證。
+* **狀態** 
+* 檢視 [SSL 憑證]  用於入口網站與閘道之間的 SSL 通訊，以設定資料來源的認證。  
 
-* View, change, and export **certificate** used by the gateway. This certificate is used to encrypt data source credentials.
-* Change **HTTPS port** for the endpoint. The gateway opens a port for setting the data source credentials.
-* **Status** of the endpoint
-* View **SSL certificate** is used for SSL communication between portal and the gateway to set credentials for data sources.  
+### <a name="diagnostics-page"></a>診斷頁面
+[診斷] 頁面可讓您執行下列動作︰
 
-### Diagnostics page
-The Diagnostics page allows you to do the following actions:
+* 啟用詳細資訊 **記錄**、在事件檢視器中檢視記錄檔，以及有失敗時將記錄檔傳送給 Microsoft。
+* **測試連線** (對資料來源的連線)。  
 
-* Enable verbose **logging**, view logs in event viewer, and send logs to Microsoft if there was a failure.
-* **Test connection** to a data source.  
+### <a name="help-page"></a>Help page
+[說明] 頁面會顯示以下資訊：  
 
-### Help page
-The Help page displays the following information:  
+* 閘道的簡短說明。
+* 版本號碼
+* 線上說明、隱私權聲明及授權合約的連結。  
 
-* Brief description of the gateway
-* Version number
-* Links to online help, privacy statement, and license agreement.  
+## <a name="monitor-gateway-in-the-portal"></a>在入口網站中監視閘道
+在 Azure 入口網站中，您可以檢視閘道機器近乎即時的資源使用率 (CPU、記憶體、網路 (輸入/輸出) 等) 快照集。  
 
-## Monitor gateway in the portal
-In the Azure portal, you can view near-real time snapshot of resource utilization (CPU, memory, network(in/out), etc.) on a gateway machine.  
+1. 在 Azure 入口網站中，瀏覽至您資料處理站的首頁，然後按一下 [已連結的服務] 圖格。 
 
-1. In Azure portal, navigate to the home page for your data factory, and click **Linked services** tile. 
+    ![Data Factory 首頁](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
+2. 在 [已連結的服務] 頁面中選取**閘道**。
 
-    ![Data factory home page](./media/data-factory-data-management-gateway/monitor-data-factory-home-page.png) 
-2. Select the **gateway** in the **Linked services** page.
+    ![[已連結的服務] 頁面](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
+3. 在 [閘道] 頁面中，您可以看到閘道的記憶體和 CPU 使用量。
 
-    ![Linked services page](./media/data-factory-data-management-gateway/monitor-linked-services-blade.png)
-3. In the **Gateway** page, you can see the memory and CPU usage of the gateway.
-
-    ![CPU and memory usage of gateway](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
-4. Enable **Advanced settings** to see more details such as network usage.
+    ![閘道的 CPU 和記憶體使用量](./media/data-factory-data-management-gateway/gateway-simple-monitoring.png) 
+4. 啟用 [進階設定] 可查看更多詳細資料，例如網路使用量。
     
-    ![Advanced monitoring of gateway](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
+    ![閘道的進階監視](./media/data-factory-data-management-gateway/gateway-advanced-monitoring.png)
 
-The following table provides descriptions of columns in the **Gateway Nodes** list:  
+下表說明 [閘道節點] 清單中的資料行：  
 
-Monitoring Property | Description
+監視屬性 | 說明
 :------------------ | :---------- 
-Name | Name of the logical gateway and nodes associated with the gateway. Node is an on-premises Windows machine that has the gateway installed on it. For information on having more than one node (up to four nodes) in a single logical gateway, see [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md).    
-Status | Status of the logical gateway and the gateway nodes. Example: Online/Offline/Limited/etc. For information about these statuses, See [Gateway status](#gateway-status) section. 
-Version | Shows the version of the logical gateway and each gateway node. The version of the logical gateway is determined based on version of majority of nodes in the group. If there are nodes with different versions in the logical gateway setup, only the nodes with the same version number as the logical gateway function properly. Others are in the limited mode and need to be manually updated (only in case auto-update fails). 
-Available memory | Available memory on a gateway node. This value is a near real-time snapshot. 
-CPU utilization | CPU utilization of a gateway node. This value is a near real-time snapshot. 
-Networking (In/Out) | Network utilization of a gateway node. This value is a near real-time snapshot. 
-Concurrent Jobs (Running/ Limit) | Number of jobs or tasks running on each node. This value is a near real-time snapshot. Limit signifies the maximum concurrent jobs for each node. This value is defined based on the machine size. You can increase the limit to scale up concurrent job execution in advanced scenarios, where CPU/memory/network is under-utilized, but activities are timing out. This capability is also available with a single-node gateway (even when the scalability and availability feature is not enabled).  
-Role | There are two types of roles in a multi-node gateway – Dispatcher and worker. All nodes are workers, which means they can all be used to execute jobs. There is only one dispatcher node, which is used to pull tasks/jobs from cloud services and dispatch them to different worker nodes (including itself).
+名稱 | 邏輯閘道和閘道相關聯節點的名稱。 節點是安裝了閘道的內部部署 Windows 機器。 若要了解如何在單一邏輯閘道中擁有一個以上的節點 (最多四個節點)，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。    
+狀態 | 邏輯閘道和閘道節點的狀態。 範例：線上/離線/受限制/等等。如需這些狀態的相關資訊，請參閱[閘道狀態](#gateway-status)一節。 
+版本 | 顯示邏輯閘道和每個閘道節點的版本。 邏輯閘道的版本取決於群組中大多數節點的版本。 如果邏輯閘道設定中有不同版本的節點，則只有版本號碼和邏輯閘道相同的節點會正常運作。 其他節點會進入受限制模式，並需要加以手動更新 (如果自動更新失敗才需要這麼做)。 
+可用的記憶體 | 閘道節點上可用的記憶體。 這個值是近乎即時的快照集。 
+CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快照集。 
+網路功能 (輸入/輸出) | 閘道節點的網路使用率。 這個值是近乎即時的快照集。 
+並行作業 (執行中/限制) | 每個節點上執行的作業或工作數目。 這個值是近乎即時的快照集。 限制表示每個節點的最大並行作業數。 這個值會根據機器大小來定義。 您可以提高限制以在進階案例 (CPU/記憶體/網路並未充分使用，但活動會逾時的案例) 中相應增加並行作業執行能力。單一節點的閘道也能擁有這樣的能力 (即使該閘道尚未啟用延展性和可用性功能)。  
+角色 | 多節點閘道中的角色有兩種 – 發送器和背景工作角色。 所有節點都是背景工作角色，這表示它們全都能用來執行作業。 發送器節點只有一個，可用來提取雲端服務中的工作/作業，並發送到不同的背景工作節點 (包括發送器節點本身)。
 
-In this page, you see some settings that make more sense when there are two or more nodes (scale out scenario) in the gateway. See [Data Management Gateway - high availability and scalability](data-factory-data-management-gateway-high-availability-scalability.md) for details about setting up a multi-node gateway.
+當閘道中有兩個以上的節點 (相應放大案例) 時，您會在此頁面中看到某些更合理的設定。 如需設定多節點閘道的詳細資料，請參閱[資料管理閘道 - 高可用性和延展性](data-factory-data-management-gateway-high-availability-scalability.md)。
 
-### Gateway status
-The following table provides possible statuses of a **gateway node**: 
+### <a name="gateway-status"></a>閘道狀態
+下表提供**閘道節點**的可能狀態： 
 
-Status  | Comments/Scenarios
+狀態  | 註解/案例
 :------- | :------------------
-Online | Node connected to Data Factory service.
-Offline | Node is offline.
-Upgrading | The node is being auto-updated.
-Limited | Due to Connectivity issue. May be due to HTTP port 8050 issue, service bus connectivity issue, or credential sync issue. 
-Inactive | Node is in a configuration different from the configuration of other majority nodes.<br/><br/> A node can be inactive when it cannot connect to other nodes. 
+線上 | 節點已連線至 Data Factory 服務。
+離線 | 節點已離線。
+升級中 | 節點正在自動更新。
+限制 | 由於連線問題。 可能是因為 HTTP 連接埠 8050 問題、服務匯流排連線問題或認證同步問題。 
+非使用中 | 節點所在的組態不同於其他大多數節點的組態。<br/><br/> 節點無法連線至其他節點時，便會處於非使用中狀態。 
 
 
-The following table provides possible statuses of a **logical gateway**. The gateway status depends on statuses of the gateway nodes. 
+下表提供**邏輯閘道**的可能狀態。 閘道的狀態取決於閘道節點的狀態。 
 
-Status | Comments
+狀態 | 註解
 :----- | :-------
-Needs Registration | No node is yet registered to this logical gateway
-Online | Gateway Nodes are online
-Offline | No node in online status.
-Limited | Not all nodes in this gateway are in healthy state. This status is a warning that some node might be down! <br/><br/>Could be due to credential sync issue on dispatcher/worker node. 
+需要註冊 | 此邏輯閘道還沒有已註冊的節點
+線上 | 閘道節點已連線
+離線 | 沒有處於線上狀態的節點。
+限制 | 此閘道中的節點並非全都處於健康情況良好的狀態。 這個狀態是某些節點可能會關閉的警告！ <br/><br/>可能是因為發送器/背景工作節點有認證同步問題。 
 
-## Scale up gateway
-You can configure the number of **concurrent data movement jobs** that can run on a node to scale up the capability of moving data between on-premises and cloud data stores. 
+## <a name="scale-up-gateway"></a>相應增加閘道
+您可以設定節點中可以執行的**並行資料移動作業**數目，以相應增加在內部部署機器與雲端資料存放區之間移動資料的能力。 
 
-When the available memory and CPU are not utilized well, but the idle capacity is 0, you should scale up by increasing the number of concurrent jobs that can run on a node. You may also want to scale up when activities are timing out because the gateway is overloaded. In the advanced settings of a gateway node, you can increase the maximum capacity for a node. 
+當可用的記憶體和 CPU 並未充分使用，但閒置容量已為 0，就應該增加節點上可執行的並行作業數目來進行相應增加。 當閘道超載而導致活動逾時，您也可以相應增加。 在閘道節點的進階設定中，您可以提高節點的容量上限。 
   
 
-## Troubleshooting gateway issues
-See [Troubleshooting gateway issues](data-factory-troubleshoot-gateway-issues.md) article for information/tips for troubleshooting issues with using the data management gateway.  
+## <a name="troubleshooting-gateway-issues"></a>閘道問題疑難排解
+如需對使用資料管理閘道的問題進行疑難排解的資訊/提示，請參閱[閘道問題疑難排解](data-factory-troubleshoot-gateway-issues.md)一文。  
 
-## Move gateway from one machine to another
-This section provides steps for moving gateway client from one machine to another machine.
+## <a name="move-gateway-from-one-machine-to-another"></a>在機器之間移動閘道
+本節提供將閘道器用戶端從一台電腦移至另一台電腦的步驟。
 
-1. In the portal, navigate to the **Data Factory home page**, and click the **Linked Services** tile.
+1. 在入口網站中，瀏覽至 **Data Factory 首頁**，然後按一下 [連結服務] 圖格。
 
-    ![Data Gateways Link](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
-2. Select your gateway in the **DATA GATEWAYS** section of the **Linked Services** page.
+    ![資料閘道連結](./media/data-factory-data-management-gateway/DataGatewaysLink.png)
+2. 在 [連結服務] 頁面的 [資料閘道器] 區段中選取您的閘道器。
 
-    ![Linked Services page with gateway selected](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
-3. In the **Data gateway** page, click **Download and install data gateway**.
+    ![[已連結的服務] 頁面與所選取的閘道](./media/data-factory-data-management-gateway/LinkedServiceBladeWithGateway.png)
+3. 在 [資料閘道] 頁面中，按一下 [下載並安裝資料閘道]。
 
-    ![Download gateway link](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
-4. In the **Configure** page, click **Download and install data gateway**, and follow instructions to install the data gateway on the machine.
+    ![下載閘道器連結](./media/data-factory-data-management-gateway/DownloadGatewayLink.png)
+4. 在 [設定] 頁面中，按一下 [下載並安裝資料閘道]，然後依照指示在機器上安裝資料閘道。
 
-    ![Configure page](./media/data-factory-data-management-gateway/ConfigureBlade.png)
-5. Keep the **Microsoft Data Management Gateway Configuration Manager** open.
+    ![[設定] 頁面](./media/data-factory-data-management-gateway/ConfigureBlade.png)
+5. 讓 [Microsoft 資料管理閘道組態管理員]  保持開啟。
 
-    ![Configuration Manager](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
-6. In the **Configure** page in the portal, click **Recreate key** on the command bar, and click **Yes** for the warning message. Click **copy button** next to key text that copies the key to the clipboard. The gateway on the old machine stops functioning as soon you recreate the key.  
+    ![組態管理員](./media/data-factory-data-management-gateway/ConfigurationManager.png)    
+6. 在入口網站的 [設定] 頁面中，按一下命令列上的 [重新建立金鑰]，然後按一下警告訊息中的 [是]。 按一下金鑰文字旁的 [複製]  按鈕，以將金鑰複製到剪貼簿。 一旦重新建立索引鍵，舊電腦上的閘道器便會停止運作。  
 
-    ![Recreate key](./media/data-factory-data-management-gateway/RecreateKey.png)
-7. Paste the **key** into text box in the **Register Gateway** page of the **Data Management Gateway Configuration Manager** on your machine. (optional) Click **Show gateway key** check box to see the key text.
+    ![重新建立索引鍵](./media/data-factory-data-management-gateway/RecreateKey.png)
+7. 在您的電腦上，將**索引鍵**貼入**資料管理閘道組態管理員**之 [註冊閘道器] 頁面上的文字方塊。 (選擇性) 按一下 [顯示閘道器金鑰]  核取方塊以查看金鑰文字。
 
-    ![Copy key and Register](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
-8. Click **Register** to register the gateway with the cloud service.
-9. On the **Settings** tab, click **Change** to select the same certificate that was used with the old gateway, enter the **password**, and click **Finish**.
+    ![複製金鑰與註冊](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
+8. 按一下 [註冊]  透過雲端服務註冊閘道器。
+9. 在 [設定] 索引標籤上，按一下 [變更] 以選取舊閘道所使用的憑證，輸入**密碼**，然後按一下 [完成]。
 
-   ![Specify Certificate](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
+   ![指定憑證](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
-   You can export a certificate from the old gateway by doing the following steps: launch Data Management Gateway Configuration Manager on the old machine, switch to the **Certificate** tab, click **Export** button and follow the instructions.
-10. After successful registration of the gateway, you should see the **Registration** set to **Registered** and **Status** set to **Started** on the Home page of the Gateway Configuration Manager.
+   您可以執行下列步驟，從舊閘道器中匯出憑證：啟動舊電腦上的 [資料管理閘道組態管理員]，切換到 [憑證] 索引標籤，按一下 [匯出] 按鈕，然後遵循指示進行。
+10. 成功註冊閘道器後，閘道器組態管理員首頁上的 [註冊] 應會設定為 [已註冊]，[狀態] 會設定為 [已啟動]。
 
-## Encrypting credentials
-To encrypt credentials in the Data Factory Editor, do the following steps:
+## <a name="encrypting-credentials"></a>加密認證
+若要在 Data Factory 編輯器中加密認證，請執行下列步驟︰
 
-1. Launch web browser on the **gateway machine**, navigate to [Azure portal](http://portal.azure.com). Search for your data factory if needed, open data factory in the **DATA FACTORY** page and then click **Author & Deploy** to launch Data Factory Editor.   
-2. Click an existing **linked service** in the tree view to see its JSON definition or create a linked service that requires a data management gateway (for example: SQL Server or Oracle).
-3. In the JSON editor, for the **gatewayName** property, enter the name of the gateway.
-4. Enter server name for the **Data Source** property in the **connectionString**.
-5. Enter database name for the **Initial Catalog** property in the **connectionString**.    
-6. Click **Encrypt** button on the command bar that launches the click-once **Credential Manager** application. You should see the **Setting Credentials** dialog box.
+1. 在「閘道機器」 上啟動網頁瀏覽器，瀏覽至 [Azure 入口網站](http://portal.azure.com)。 視需要搜尋您的 Data Factory，在 [DATA FACTORY] 頁面中開啟 Data Factory，然後按一下 [編寫及部署] 來啟動 Data Factory 編輯器。   
+2. 在樹狀檢視中按一下現有的 **連結服務** ，以查看其 JSON 定義或建立需要資料管理閘道 (例如︰SQL Server 或 Oracle) 的連結服務。
+3. 在 JSON 編輯器中，為 **gatewayName** 屬性輸入閘道的名稱。
+4. 在 **connectionString** 中輸入**資料來源**屬性的伺服器名稱。
+5. 在 **connectionString** 中輸入**初始目錄**屬性的資料庫名稱。    
+6. 在命令列上按一下 [加密] 按鈕，以啟動 Click Once **認證管理員**應用程式。 您應該會看見 [設定認證]  對話方塊。
 
-    ![Setting credentials dialog](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
-7. In the **Setting Credentials** dialog box, do the following steps:
-   1. Select **authentication** that you want the Data Factory service to use to connect to the database.
-   2. Enter name of the user who has access to the database for the **USERNAME** setting.
-   3. Enter password for the user for the **PASSWORD** setting.  
-   4. Click **OK** to encrypt credentials and close the dialog box.
-8. You should see a **encryptedCredential** property in the **connectionString** now.
+    ![[設定認證] 對話方塊](./media/data-factory-data-management-gateway/setting-credentials-dialog.png)
+7. 在 [設定認證]  對話方塊中，執行下列步驟：
+   1. 選取您要 Data Factory 服務用來連接到資料庫的 **驗證** 。
+   2. 在 [使用者名稱]  設定中輸入可存取資料庫的使用者名稱。
+   3. 在 [密碼]  設定中輸入使用者的密碼。  
+   4. 按一下 [確定]  以加密認證並關閉對話方塊。
+8. 您現在應該會在 **connectionString** 中看到 **encryptedCredential** 屬性。
 
     ```JSON
     {

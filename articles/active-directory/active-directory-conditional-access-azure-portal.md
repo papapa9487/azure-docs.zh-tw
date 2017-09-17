@@ -17,10 +17,10 @@ ms.date: 08/24/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c97f05caec4c302c847e2297d136c6614e82fd93
+ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
+ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/02/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
@@ -183,7 +183,7 @@ ms.lasthandoff: 08/29/2017
 ![條件](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-如需可在條件式存取原則中使用的用戶端應用程式完整清單，請參閱 [Azure Active Directory 條件式存取的技術參考](active-directory-conditional-access-technical-reference.md#client-apps-conditions)。
+如需可在條件式存取原則中使用的用戶端應用程式完整清單，請參閱 [Azure Active Directory 條件式存取的技術參考](active-directory-conditional-access-technical-reference.md#client-apps-condition)。
 
 
 
@@ -215,3 +215,4 @@ ms.lasthandoff: 08/29/2017
 - 如果您想要知道如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal-get-started.md)。
 
 - 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](active-directory-conditional-access-best-practices.md)。 
+
