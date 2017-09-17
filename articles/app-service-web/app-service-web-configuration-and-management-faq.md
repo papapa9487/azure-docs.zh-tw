@@ -186,7 +186,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 確認 [網路] 索引標籤已選取，然後選取綠色 [播放] 按鈕。
 4. 執行重現問題的步驟。
 5. 選取紅色 [停止] 按鈕。
-6. 選取 [儲存]按鈕 (磁片圖示)，並儲存 HAR 檔案 (在 Internet Explorer 和 Edge 中) 或者以滑鼠右鍵按一下 HAR 檔案，然後選取 [內容另存為 HAR] (在 Chrome 中)。
+6. 選取 [儲存]按鈕 (磁片圖示)，並儲存 HAR 檔案 (在 Internet Explorer 和 Edge 中) 或者以滑鼠右鍵按一下 HAR 檔案，然後選取 [內容另存為 HAR] \(在 Chrome 中)。
 
 ### <a name="f12-console-output"></a>F12 主控台輸出
 
