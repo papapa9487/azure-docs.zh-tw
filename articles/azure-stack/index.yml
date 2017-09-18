@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Stack 文件
+metadata:
+  document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
+  title: Azure Stack 文件 - 教學課程和 API 參考
+  description: 了解如何使用 Azure Stack 預覽版從資料中心提供 Azure 服務。 了解並示範概念性驗證環境中的功能。
+  services: azure-stack
+  author: czeumault
+  manager: carolz
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 04/28/2017
+  ms.author: carolz
+abstract:
+  description: Microsoft Azure Stack 是混合式雲端平台，可讓您從自己的資料中心提供 Azure 服務。 透過我們的快速入門和教學課程，了解如何部署 Azure Stack 並提供服務。
+sections:
+  - title: 快速入門
+    items:
+      - type: paragraph
+        text: 設定U硬體並部署 Azure Stack：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_deploy.svg'
+            text: 部署 Azure Stack
+            href: azure-stack-deploy-overview.md
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何在您的 Azure Stack 部署中新服務：
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-tenant-vm">在 Azure Stack 上啟用虛擬機器</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-sql-server">在 Azure Stack 上啟用 SQL Database</a>
+          - html: <a href="/azure/azure-stack/azure-stack-tutorial-app-service">在 Azure Stack 上啟用 Web Apps</a>
+          - html: <a href="/azure/azure-stack/azure-stack-solution-pipeline">跨 Azure 與 Azure Stack</a> 部署應用程式
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">PowerShell</a></p>

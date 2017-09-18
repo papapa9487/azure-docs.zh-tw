@@ -64,11 +64,10 @@
 # 相關參考
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [透過 Batch 和 Data Factory 處理的資料](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure 雲端中的 Batch 和 HPC 解決方案](batch-hpc-solutions.md)
+## [Azure 中的 Batch、HPC 和 Big Compute 解決方案](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
-## [大量計算資源](big-compute-resources.md)
 ## [部落格](https://blogs.technet.microsoft.com/windowshpc/)
 ## [C# 程式碼範例](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/)
 ## [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch)

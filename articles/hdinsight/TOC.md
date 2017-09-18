@@ -61,10 +61,12 @@
 ## 使用 Spark 進行記憶體中的處理
 ### 快速入門 - Spark 開發人員
 #### [建立獨立應用程式](hdinsight-apache-spark-create-standalone-application.md)
-#### [使用 Livy 的遠端工作](hdinsight-apache-spark-livy-rest-interface.md) 
+#### [使用互動式 Spark Shell](hdinsight-spark-shell.md)
+#### [使用 Livy 的遠端工作](hdinsight-apache-spark-livy-rest-interface.md)
 ### [搭配 Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [使用 Eclipse 建立應用程式](hdinsight-apache-spark-eclipse-tool-plugin.md)
 ### [使用 IntelliJ 建立應用程式](hdinsight-apache-spark-intellij-tool-plugin.md)
+### [什麼是 Spark 串流？](hdinsight-spark-streaming-overview.md)
 ### [處理串流事件](hdinsight-apache-spark-eventhub-streaming.md)
 ### [預測 HVAC 效能](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
 ### [預測食品檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
@@ -109,6 +111,7 @@
 ### [複寫 Kafka 資料](hdinsight-apache-kafka-mirroring.md)
 ### [設定 Kafka 儲存體和延展性](hdinsight-apache-kafka-scalability.md)
 ### [設定資料高可用性](hdinsight-apache-kafka-high-availability.md)
+### [分析 Kafka 日誌](apache-kafka-log-analytics-operations-management.md)
 ### [搭配使用 Azure 虛擬網路](hdinsight-apache-kafka-connect-vpn-gateway.md)
 ### [與 Spark 搭配使用 (結構化串流)](hdinsight-apache-kafka-spark-structured-streaming.md)
 ### [與 Spark 搭配使用 (DStream)](hdinsight-apache-spark-with-kafka.md)

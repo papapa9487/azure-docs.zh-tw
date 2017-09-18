@@ -358,6 +358,8 @@
   items:
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: 免費試用 Azure Cosmos DB
+      href: 'https://azure.microsoft.com/try/cosmosdb/'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/cosmos-db/'
     - name: 常見問題集

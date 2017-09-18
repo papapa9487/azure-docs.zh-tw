@@ -57,60 +57,35 @@
       href: powershell-samples.md
 - name: 概念
   items:
-    - name: Azure 認可的發佈
-      href: endorsed-distros.md
+    - name: Azure Resource Manager
+      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: 區域和可用性
       href: regions-and-availability.md
+    - name: VM 類型和大小
+      href: sizes.md
+    - name: 背書發佈
+      href: endorsed-distros.md
+    - name: 維護和更新
+      href: maintenance-and-updates.md
     - name: 儲存體
       href: azure-vm-storage-overview.md
     - name: 網路
-      href: azure-vm-network-overview.md
-    - name: VM 擴展集
-      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md
-    - name: 容器
-      href: containers.md
-    - name: 資源管理員
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      items:
-        - name: 部署模型
-          href: ../../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: VM 範本
-          href: ../windows/template-description.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure Linux 代理程式
-      href: agent-user-guide.md
-    - name: Azure 資訊安全中心
-      href: ../../security-center/security-center-linux-virtual-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: 災害復原
-      href: ../virtual-machines-disaster-recovery-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: 預定的維修
-      href: planned-maintenance.md
-    - name: VM 大小
-      items:
-        - name: VM 大小概觀
-          href: sizes.md
-          items:
-            - name: 一般用途
-              href: sizes-general.md
-            - name: 計算最佳化
-              href: sizes-compute.md
-            - name: 記憶體最佳化
-              href: sizes-memory.md
-            - name: 儲存體最佳化
-              href: sizes-storage.md
-            - name: GPU
-              href: sizes-gpu.md
-              items:
-                - name: GPU 驅動程式
-                  href: n-series-driver-setup.md
-            - name: 高效能計算
-              href: sizes-hpc.md
-        - name: Azure 計算單位 (ACU)
-          href: acu.md
-        - name: 計算基準測試分數
-          href: compute-benchmark-scores.md
+      href: network-overview.md
+    - name: 自動調整應用程式
+      href: autoscale.md
+    - name: 基礎結構自動化
+      href: infrastructure-automation.md
+    - name: 安全性與原則
+      href: security-policy.md
+    - name: 監視
+      href: monitor.md
+    - name: 備份與復原
+      href: backup-recovery.md
+    - name: 高效能運算
+      href: high-performance-computing.md
     - name: 部署考量
       items:
-        - name: 基本部署範例
+        - name: 基礎結構方針
           href: infrastructure-example.md
 - name: 使用說明指南
   items:

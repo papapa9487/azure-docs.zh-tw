@@ -28,6 +28,7 @@
 ### [設定原則和排程](devtest-lab-set-lab-policy.md)
 ### [設定成本管理](devtest-lab-configure-cost-management.md)
 ### [設定 Marketplace 映像](devtest-lab-configure-marketplace-images.md)
+### [將標籤加入至實驗室](devtest-lab-add-tag.md)
 
 ## [選取自訂映像或公式](devtest-lab-comparing-vm-base-image-types.md)
 

@@ -130,6 +130,7 @@
 ## 整合
 ### [如何在 Azure 上使用 SendGrid 傳送電子郵件](../app-service-web/sendgrid-dotnet-how-to-send-email.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ### [匯出至 PowerApps 和 Microsoft Flow](app-service-export-api-to-powerapps-and-flow.md)
+### [使用受管理的服務識別](app-service-managed-service-identity.md)
 
 ## 疑難排解
 ### [啟用診斷記錄](../app-service-web/web-sites-enable-diagnostic-log.md?toc=%2fazure%2fapp-service%2ftoc.json)

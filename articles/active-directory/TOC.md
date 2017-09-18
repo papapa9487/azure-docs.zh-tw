@@ -266,34 +266,21 @@
 
 ### [使用 Azure AD Connect 整合內部部署身分識別](./connect/active-directory-aadconnect.md)
 
+## [管理 Azure 的存取權](toc.yml)
+
 ## 委派資源存取
 ### [管理員角色](active-directory-assign-admin-roles.md)
 #### [指派管理員角色](active-directory-users-assign-role-azure-portal.md)
 ### [管理單位](active-directory-administrative-units-management.md)
-### [Azure 中的資源存取](active-directory-understanding-resource-access.md)
-### [角色型存取控制](role-based-access-control-what-is.md)
-#### 管理存取權指派
-##### [依使用者](role-based-access-control-manage-assignments.md)
-##### [依資源](role-based-access-control-configure.md)
-#### [內建角色](role-based-access-built-in-roles.md)
-#### [自訂角色](role-based-access-control-custom-roles.md)
-#### [為內部及外部使用者指派自訂角色](role-based-access-control-create-custom-roles-for-internal-external-users.md)
-#### [報告](role-based-access-control-access-change-history-report.md)
-#### 更多管理角色的方式
-##### [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-##### [PowerShell](role-based-access-control-manage-access-powershell.md)
-##### [REST](role-based-access-control-manage-access-rest.md)
-#### [提高租用戶系統管理員存取權](role-based-access-control-tenant-admin-access.md)
-#### [疑難排解](role-based-access-control-troubleshooting.md)
-#### [資源提供者作業](role-based-access-control-resource-provider-operations.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
 
 ## 保護您的身分識別
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)
+#### [控制項](active-directory-conditional-access-controls.md)
 #### [開始使用](active-directory-conditional-access-azure-portal-get-started.md)
 #### [最佳作法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
-#### [工作]
+#### 工作
 ##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
 ##### [設定應用程式型條件式存取](active-directory-conditional-access-mam.md)
 ##### [設定 VPN 連線能力](active-directory-conditional-access-vpn-connectivity-windows10.md)

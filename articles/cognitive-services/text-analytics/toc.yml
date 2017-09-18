@@ -1,0 +1,56 @@
+- name: 文字分析文件
+  href: index.md
+- name: 概觀
+  items:
+    - name: 關於文字分析
+      href: overview.md
+- name: 快速入門
+  items:
+    - name: 'C#'
+      href: Quickstarts/CSharp.md
+    - name: Java
+      href: Quickstarts/Java.md
+    - name: Node.js
+      href: Quickstarts/NodeJS.md
+    - name: Python
+      href: Quickstarts/Python.md
+    - name: Ruby
+      href: Quickstarts/Ruby.md
+    - name: PHP
+      href: Quickstarts/PHP.md
+- name: 教學課程
+  items:
+    - name: 文字分析與 Power BI
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+- name: 使用說明指南
+  items:
+    - name: 註冊
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: 取得存取金鑰
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: 呼叫文字分析 API
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: 偵測語言種類
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: 分析人氣
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: 擷取關鍵片語
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+- name: 參考
+  items:
+    - name: API 參考
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+    - name: .Net 標準 SDK
+      href: 'https://aka.ms/tasdkdotnet'
+- name: 資源
+  items:
+    - name: 外部及社群內容
+      href: text-analytics-resource-external-community.md
+    - name: 常見問題集
+      href: text-analytics-resource-faq.md
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: 使用者心聲
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

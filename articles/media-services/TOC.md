@@ -183,7 +183,7 @@
 ### [依下載進行傳遞](media-services-deliver-asset-download.md)
 ### [容錯移轉串流案例](media-services-implement-failover.md)
 
-## 取用
+## 播放
 ### [使用現有播放器來播放媒體](media-services-playback-content-with-existing-players.md)
 ### [使用媒體播放器來播放媒體](media-services-develop-video-players.md)
 ### 其他播放選項

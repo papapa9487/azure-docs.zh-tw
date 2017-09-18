@@ -5,6 +5,7 @@
 ## Runbook 教學課程
 ### [建立圖形化 Runbook](automation-first-runbook-graphical.md)
 ### [建立 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
+### [我的第一個 Python Runbook](automation-first-runbook-textual-python2.md)
 ### [建立 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
 # 作法
 ## 驗證和安全性
@@ -37,7 +38,10 @@
 ### [將 JSON 物件傳送至 Azure 自動化 Runbook](automation-pass-json-string.md)
 ## Hybrid Runbook Worker
 ### [部署混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)
+### [Azure 自動化 Windows 混合式 Runbook 背景工作角色](automation-windows-hrw-install.md)
+### [Azure 自動化 Linux 混合式 Runbook 背景工作角色](automation-linux-hrw-install.md)
 ### [在背景工作執行 Runbook](automation-hrw-run-runbooks.md)
+### [移除 Azure 自動化混合式 Runbook 背景工作角色](automation-remove-hrw.md)
 ## 部署組態管理 (DSC)
 ### [期望狀態設定 (DSC) 概觀](automation-dsc-overview.md)
 ### [開始使用](automation-dsc-getting-started.md)
