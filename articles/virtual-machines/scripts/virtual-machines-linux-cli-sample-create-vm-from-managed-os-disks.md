@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 2611698d70a1a5963abaa55c8e9510469c7aa097
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 2141ea4fd25dfc69ada02c54c4f6b6b717b8e7db
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -53,8 +53,8 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意事項 |
 |---|---|
-| [az disk show](https://docs.microsoft.com/cli/azure/disk#show) | 使用磁碟名稱和資源群組名稱取得受控磁碟屬性。 Id 屬性用來將受控磁碟連結至新的 VM |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#create) | 建立使用受控 OS 磁碟的 VM |
+| [az disk show](https://docs.microsoft.com/cli/azure/disk#az_disk_show) | 使用磁碟名稱和資源群組名稱取得受控磁碟屬性。 Id 屬性用來將受控磁碟連結至新的 VM |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | 建立使用受控 OS 磁碟的 VM |
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。

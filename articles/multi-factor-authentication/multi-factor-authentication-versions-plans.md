@@ -4,7 +4,7 @@ description: "Multi-Factor Authentication 用戶端、不同的方法及可用�
 keywords: 
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: 
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
-ms.author: kgremban
+ms.author: joflore
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: c47ca818bd77291338de6e90e5dd27465475e868
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 525ca7733d509b6831e6c5ab7a6f3a5ce5250156
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
@@ -66,7 +66,6 @@ ms.lasthandoff: 08/29/2017
 | 記住受信任裝置的 MFA |● |● |● |
 | MFA SDK | | |● (需要 Multi-Factor Auth Provider 和完整的 Azure 訂用帳戶) |
 | 內部部署應用程式的 MFA | | |● |
-| 條件式存取原則 | | | ● |
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，有數個選項︰

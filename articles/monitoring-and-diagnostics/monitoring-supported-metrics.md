@@ -2,7 +2,7 @@
 title: "Azure 監視器度量 - 每個資源類型所支援的度量 | Microsoft Docs"
 description: "AAzure 監視器每一個資源類型的可用度量清單。"
 author: anirudhcavale
-manager: orenr
+manager: ashwink
 editor: 
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/31/2017
+ms.date: 9/6/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 83a32dba7b74a303b7fd2167b5fc41212087f8ca
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6f40f0cdb998bda9d936ecf87089e85713ed9e1b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的度量
@@ -295,18 +295,6 @@ Azure 監視器提供數種與度量進行互動的方式，包括在入口網�
 |percentProcessorTime9|CPU (分區 9)|百分比|最大值||
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
-
-|度量|度量顯示名稱|單位|彙總類型|說明|
-|---|---|---|---|---|
-|百分比 CPU|百分比 CPU|百分比|平均值|虛擬機器目前使用的配置計算單位百分比。|
-|網路輸入|網路輸入|位元組|總計|虛擬機器 (連入流量) 在所有網路介面上接收到的位元組數目。|
-|網路輸出|網路輸出|位元組|總計|虛擬機器 (連出流量) 在所有網路介面上送出的位元組數目。|
-|Disk Read Bytes/Sec|磁碟讀取|每秒位元組|平均值|監視期間從磁碟讀取的平均位元組。|
-|Disk Write Bytes/Sec|磁碟寫入|每秒位元組|平均值|監視期間寫入磁碟的平均位元組。|
-|磁碟讀取作業數/秒|磁碟讀取作業數/秒|每秒計數|平均值|磁碟讀取 IOPS。|
-|磁碟寫入作業數/秒|磁碟寫入作業數/秒|每秒計數|平均值|磁碟寫入 IOPS。|
-
-## <a name="microsoftclassiccomputedomainnamesslotsroles"></a>Microsoft.ClassicCompute/domainNames/slots/roles
 
 |度量|度量顯示名稱|單位|彙總類型|說明|
 |---|---|---|---|---|

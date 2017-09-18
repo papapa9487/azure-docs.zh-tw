@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: cc41debb2523df77be4db05817a4c7ac55604439
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: fc3fc337a305434745e1e5e716ae7bf2096c2b33
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -421,7 +421,7 @@ module.exports = function (context, info) {
 - [資料表儲存體](functions-bindings-storage-table.md)
 - [事件中樞](functions-bindings-event-hubs.md)
 - [服務匯流排](functions-bindings-service-bus.md)
-- [Cosmos DB](functions-bindings-documentdb.md)
+- [Azure Cosmos DB](functions-bindings-documentdb.md)
 - [SendGrid](functions-bindings-sendgrid.md)
 - [Twilio](functions-bindings-twilio.md)
 - [通知中樞](functions-bindings-notification-hubs.md)

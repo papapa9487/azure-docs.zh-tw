@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 9e62713be30a07ae00dac07de21009d2c379d609
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6234473d9f7f0eb18ea85e52273eb82a9ce04da5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -55,17 +55,17 @@ az group delete -n az-cli-vhd
 
 | 命令 | 注意事項 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#list) | 列出儲存體帳戶 |
-| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#check-name) | 檢查儲存體帳戶名稱有效，而且該它尚不存在 |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#list) | 列出儲存體帳戶的金鑰 |
-| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#exists) | 檢查 blob 是否存在 |
-| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#create) | 在儲存體帳戶中建立容器。 |
-| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#upload) | 透過上傳 VHD 在容器中建立 blob。 |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#list) | 搭配 `--query` 可檢查 VM 名稱是否正在使用中。 | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#create) | 建立虛擬機器。 |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#set-linux-user) | 重設 SSH 金鑰以授與目前使用者對 VM 的存取。 |
-| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#list-ip-addresses) | 取得所建立 VM 的 IP 位址。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | 列出儲存體帳戶 |
+| [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | 檢查儲存體帳戶名稱有效，而且該它尚不存在 |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | 列出儲存體帳戶的金鑰 |
+| [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | 檢查 blob 是否存在 |
+| [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | 在儲存體帳戶中建立容器。 |
+| [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | 透過上傳 VHD 在容器中建立 blob。 |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | 搭配 `--query` 可檢查 VM 名稱是否正在使用中。 | 
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | 建立虛擬機器。 |
+| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | 重設 SSH 金鑰以授與目前使用者對 VM 的存取。 |
+| [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | 取得所建立 VM 的 IP 位址。 |
 
 ## <a name="next-steps"></a>後續步驟
 

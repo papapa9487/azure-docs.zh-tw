@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 版本資訊
@@ -28,7 +29,7 @@ ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
 
 * **Web 工具延伸模組**的相關新功能/案例。 
   
-  * Azure 網站已重新命名為 Azure 應用程式服務。 如需詳細資訊，請參閱 [Azure 應用程式服務與現有的 Azure 服務](../app-service-web/app-service-changes-existing-services.md)。
+  * Azure 網站已重新命名為 Azure 應用程式服務。 
   * 已加入 Azure API 應用程式 (預覽) 支援，讓客戶可以將 ASP.NET 專案發佈為 API 應用程式，然後在 C# 專案中使用 [新增] > [Azure API 應用程式用戶端] 筆勢，根據已部署的 API 應用程式結構產生程式碼。 
   * 在伺服器總管中的 [網站] 節點已淘汰並取代為 Azure 應用程式服務節點，可支援以資源群組為基礎對 Azure API 應用程式、行動應用程式和 Web 應用程式進行分組的功能。
   * 已加入 Azure 行動應用程式 (預覽) 支援，讓客戶可以建立新的行動應用程式專案、新增行動應用程式控制器、發佈專案，以及從遠端偵錯應用程式。
@@ -46,7 +47,7 @@ ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
     
     如需詳細資訊，請參閱 [開始使用 HDInsight Hadoop Tools for Visual Studio](../hdinsight/hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
-## <a name="a-idknownissues251aazure-sdk-for-net-251-known-issues-and-limitations"></a><a id="known_issues_2_5_1"></a>Azure SDK for.NET 2.5.1 的已知問題和限制
+## <a id="known_issues_2_5_1"></a>Azure SDK for.NET 2.5.1 的已知問題和限制
 * Azure API 應用程式會顯示為行動應用程式的部署目標。 在下一個版本之前，Web 應用程式應是行動應用程式的唯一目的地。 
 * Azure API 應用程式佈建通常可順利完成，但偶爾會無法更新 Azure 應用程式服務活動視窗中的進度。 解決方法是在 Azure 入口網站中檢查新的 Azure API 應用程式的狀態。 
 * 在使用 [檔案] > [新增專案] > [API 應用程式] > [F5] 時，會因為沒有 default/index.html 會產生 HTTP 錯誤。 解決方法是手動瀏覽至 /api/values URL。 
@@ -62,10 +63,5 @@ ms.openlocfilehash: dc7b51cd0d015770b1100e895da633e8bde4b8da
 * API 應用程式專案無法與雲端服務專案搭配使用。
 * API 應用程式專案範本僅適用於 C# 中。
 * 只有在 C# 中，才能透過「新增 Azure API 應用程式用戶端」內容功能表來取用 API 應用程式。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

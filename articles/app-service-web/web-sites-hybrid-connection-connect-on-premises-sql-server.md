@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2016
 ms.author: cephalin
-translationtype: Human Translation
-ms.sourcegitcommit: b1a633a86bd1b5997d5cbf66b16ec351f1043901
-ms.openlocfilehash: c940f490908a3b934c108b214b5ef2af44698059
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4aaa4d2b739ef39754d7286bef3721a1b814d2a3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="connect-to-on-premises-sql-server-from-a-web-app-in-azure-app-service-using-hybrid-connections"></a>使用混合式連線從 Azure App Service 內的 Web 應用程式連線至內部部署 SQL Server
@@ -94,7 +94,7 @@ ms.lasthandoff: 01/20/2017
 ### <a name="create-a-sql-server-database-on-premises"></a>在內部部署中建立 SQL Server 資料庫
 您的 Visual Studio Web 應用程式需要可由 Azure 存取的成員資格資料庫。 這必須要有 SQL Server 或 SQL Server Express 資料庫 (不是 MVC 範本依預設使用的 LocalDB 資料庫)，因此您接下來將會建立成員資格資料庫。
 
-1. 在 SQL Server Management Studio 中，連接到您剛剛安裝的 SQL Server。 (如果 [連線到伺服器] 對話方塊未自動出現，請導覽至左窗格中的 [物件總管]，依序按一下 [連接] 和 [資料庫引擎]。) ![連接到伺服器][SSMSConnectToServer]
+1. 在 SQL Server Management Studio 中，連接到您剛剛安裝的 SQL Server。 (如果 [連線到伺服器] 對話方塊未自動出現，請導覽至左窗格中的 [物件總管]，依序按一下 [連接] 和 [資料庫引擎]。)![連接到伺服器][SSMSConnectToServer]
    
     針對 [伺服器類型]，選擇 [資料庫引擎]。 對於 [伺服器名稱]，您可以使用 **localhost** 或您要使用之電腦的名稱。 選擇 [SQL Server 驗證]，然後以您先前建立的 sa 使用者名稱和密碼登入。
 2. 若要使用 SQL Server Management Studio 建立新資料庫，請在 [物件總管] 中以滑鼠右鍵按一下 [資料庫]，然後按一下 [新增資料庫]。
@@ -276,7 +276,7 @@ ms.lasthandoff: 01/20/2017
 
 [透過絕佳的應用程式可攜性建置真實的混合式雲端 (第 9 頻道視訊)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[在 Azure App Service 中使用混合式連線存取內部部署資源](web-sites-hybrid-connection-get-started.md)
+<!-- [Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md) -->
 
 [ASP.NET 身分識別概觀](http://www.asp.net/identity)
 

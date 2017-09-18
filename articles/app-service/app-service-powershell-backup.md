@@ -15,18 +15,13 @@ ms.topic: article
 ms.date: 08/10/2016
 ms.author: nicking
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 34a7e1d025c301ca056753d964bb3c5f4f1a62d8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6866a16e40ea7b6953b13ae72e207f3f69a3030c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="use-powershell-to-back-up-and-restore-app-service-apps"></a>使用 PowerShell 來備份及還原 App Service 應用程式
-> [!div class="op_single_selector"]
-> * [PowerShell](app-service-powershell-backup.md)
-> * [REST API](../app-service-web/websites-csm-backup.md)
-> 
-> 
 
 了解如何使用 Azure PowerShell 來備份及還原 [App Service 應用程式](https://azure.microsoft.com/services/app-service/web/)。 如需有關 Web 應用程式備份的詳細資訊，包括需求和限制，請參閱 [在 Azure App Service 中備份 Web 應用程式](../app-service-web/web-sites-backup.md)。
 

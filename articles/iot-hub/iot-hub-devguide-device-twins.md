@@ -16,10 +16,10 @@ ms.date: 08/24/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b316aa419d558547f90a914a22fb29935076de21
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 257f661dbc5ff23db53591a1b2db59a8dbeac2dc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解和使用 Azure IoT 中樞的裝置對應項
@@ -29,10 +29,6 @@ ms.lasthandoff: 08/28/2017
 * 裝置對應項的結構︰標籤、所需屬性和報告屬性，以及
 * 裝置應用程式和後端可以對裝置對應項執行的作業。
 
-> [!NOTE]
-> 目前，裝置對應項只能從使用 MQTT 通訊協定連線至 IoT 中樞的裝置存取。 請參閱 [MQTT 支援][lnk-devguide-mqtt]文章，以取得如何將現有裝置應用程式轉換為使用 MQTT 的指示。
-> 
-> 
 
 ### <a name="when-to-use"></a>使用時機
 使用裝置對應項可以：
@@ -219,10 +215,6 @@ ms.lasthandoff: 08/28/2017
 
 [Azure IoT 裝置 SDK][lnk-sdks] 可讓您透過許多語言和平台輕鬆使用上述作業。 如需 IoT 中樞之所需屬性同步處理基元的詳細資訊，請參閱[裝置重新連線流程][lnk-reconnection]。
 
-> [!NOTE]
-> 目前，裝置對應項只能從使用 MQTT 通訊協定連線至 IoT 中樞的裝置存取。
-> 
-> 
 
 ## <a name="reference-topics"></a>參考主題：
 下列參考主題會提供您關於控制 IoT 中樞存取權的詳細資訊。

@@ -3,7 +3,7 @@ title: "LDAP 驗證和 Azure MFA Server | Microsoft Docs"
 description: "此 Azure Multi-Factor Authentication 頁面協助您部署 LDAP 驗證與 Azure Multi-Factor Authentication Server。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: e1a68568-53d1-4365-9e41-50925ad00869
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 8f4d5f9e84ad7bb4fff501370036e7f0da589bf3
+ms.author: joflore
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 740624a048e97217767956f3994b6566acce4786
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 驗證和 Azure Multi-Factor Authentication Server
@@ -58,15 +57,15 @@ ms.lasthandoff: 05/15/2017
 
 5. 按一下 [測試] 按鈕來測試 LDAP 連接。
 6. 如果 LDAP 連接測試成功，請按一下 [確定] 按鈕。
-7. 按一下 [篩選] 索引標籤。 「伺服器」已預先設定為從 Active Directory 載入容器、安全性群組和使用者。 如果繫結至不同 LDAP 目錄，您可能需要編輯顯示的篩選。 如需篩選的詳細資訊，請按一下 [說明] 連結。
-8. 按一下 [屬性]  索引標籤。 「伺服器」已預先設定為從 Active Directory 對應屬性。
+7. 按一下 [篩選] 索引標籤。「伺服器」已預先設定為從 Active Directory 載入容器、安全性群組和使用者。 如果繫結至不同 LDAP 目錄，您可能需要編輯顯示的篩選。 如需篩選的詳細資訊，請按一下 [說明] 連結。
+8. 按一下 [屬性]  索引標籤。「伺服器」已預先設定為從 Active Directory 對應屬性。
 9. 如果要繫結至不同 LDAP 目錄，或要變更預先設定的屬性對應，請按一下 [編輯...]
 10. 在 [編輯屬性] 對話方塊中，修改您的目錄的 LDAP 屬性對應。 您可以輸入屬性名稱，或按一下每個欄位旁邊的 [...] 按鈕來選取。 如需屬性的詳細資訊，請按一下 [說明] 連結。
 11. 按一下 [確定] 按鈕。
 12. 按一下 [公司設定] 圖示，然後選取 [使用者名稱解析] 索引標籤。
 13. 如果要從加入網域的伺服器連線到 Active Directory，請將 [使用 Windows 安全性識別碼 (SID) 來比對使用者名稱] 選項按鈕保持選取狀態。 否則，請選取 [使用 LDAP 唯一識別碼屬性來比對使用者名稱] 選項按鈕。 
 
-已選取 [使用 LDAP 唯一識別碼屬性來比對使用者名稱] 選項按鈕時，Azure Multi-factor Authentication Server 會嘗試將每個使用者名稱解析為 LDAP 目錄中的唯一識別碼。 將會對 [目錄整合] -> [屬性] 索引標籤中定義的使用者名稱屬性執行 LDAP 搜尋。 當使用者進行驗證時，使用者名稱會解析為 LDAP 目錄中的唯一識別碼。 唯一識別碼可用來比對 Azure Multi-Factor Authentication 資料檔中的使用者。 這可進行不區分大小寫的比較，且允許完整或簡短的使用者名稱格式。
+已選取 [使用 LDAP 唯一識別碼屬性來比對使用者名稱] 選項按鈕時，Azure Multi-factor Authentication Server 會嘗試將每個使用者名稱解析為 LDAP 目錄中的唯一識別碼。 將會對 [目錄整合] -> [屬性] 索引標籤中定義的使用者名稱屬性執行 LDAP 搜尋。當使用者進行驗證時，使用者名稱會解析為 LDAP 目錄中的唯一識別碼。 唯一識別碼可用來比對 Azure Multi-Factor Authentication 資料檔中的使用者。 這可進行不區分大小寫的比較，且允許完整或簡短的使用者名稱格式。
 
 在完成這些步驟後，MFA Server 會在設定的連接埠上接聽來自所設定用戶端的 LDAP 存取要求，並且會作為 Proxy 將這些要求交由 LDAP 目錄進行驗證。
 

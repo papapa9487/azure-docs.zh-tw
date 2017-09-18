@@ -17,10 +17,10 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 3fe8390e88e609b57a462e066f972346f8e8730e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c5eab88f1b2311d52e582a0aa1121c8001437376
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中監視 Linux 虛擬機器
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/09/2017
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-現在，使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 建立 VM。 下列範例會建立名為 myVM 的 VM。
+現在，使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 建立 VM。 下列範例會建立名為 myVM 的 VM。
 
 ```azurecli-interactive 
 az vm create \
@@ -82,7 +82,7 @@ az storage account create \
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-現在，使用 [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#enable) 啟用開機診斷。 `--storage` 值是在上一個步驟收集到的 blob URI。
+現在，使用 [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_enable) 啟用開機診斷。 `--storage` 值是在上一個步驟收集到的 blob URI。
 
 ```azurecli-interactive 
 az vm boot-diagnostics enable \
@@ -106,7 +106,7 @@ az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-您可以使用 [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#get-boot-log) 命令取得 myVM 的開機診斷資料，如下所示︰
+您可以使用 [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az_vm_boot_diagnostics_get_boot_log) 命令取得 myVM 的開機診斷資料，如下所示︰
 
 ```azurecli-interactive 
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM

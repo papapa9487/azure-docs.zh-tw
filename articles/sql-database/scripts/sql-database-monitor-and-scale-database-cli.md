@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 01911b85268244a8fddb32aa726f8a870abbaf77
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 34d935518f27bc465832b01a0d739f17ee0a13ea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -52,11 +52,11 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意事項 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | 建立主機資料庫的邏輯伺服器。 |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#show-usage) | 顯示資料庫的大小使用量資訊。 |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | 更新資料庫屬性 (例如服務層或效能等級)，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az_sql_server_create) | 建立主機資料庫的邏輯伺服器。 |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_show_usage) | 顯示資料庫的大小使用量資訊。 |
+| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az_sql_db_update) | 更新資料庫屬性 (例如服務層或效能等級)，或將資料庫移入、移出彈性集區或在彈性集區之間移動資料庫。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | 刪除資源群組，包括所有的巢狀資源。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟

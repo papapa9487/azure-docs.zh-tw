@@ -4,7 +4,7 @@ description: "何謂 Azure Multi-factor Authentication、為什麼使用 MFA，�
 keywords: "MFA 的簡介, mfa 概觀, 什麼是 mfa"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: yossib
 ms.assetid: c40d7a34-1274-4496-96b0-784850c06e9b
@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
-ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e028130569a1e55834f68bde87f21f6f7505d41f
-ms.openlocfilehash: 7a47c0278d42d62cc273c6f0671f0613671db4f3
+ms.author: joflore
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 6239e0affd778f8f64222abce769841b27d6be1d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/23/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>什麼是 Azure Multi-Factor Authentication？

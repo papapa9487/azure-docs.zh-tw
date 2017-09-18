@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: ec1c54c8520170cd19095bf8d752c79c2fd812d8
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/15/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>檢閱儀表板、監視器、調整、設定和混合式連線索引標籤
@@ -28,7 +27,7 @@ ms.lasthandoff: 03/15/2017
 
 在您建立 BizTalk 服務和部署應用程式之後，您可以變更某些 BizTalk 服務設定和監視應用程式效能。 
 
-當您開啟 Azure 傳統入口網站時，會自動進入 [ **所有項目** ] 索引標籤。 若要檢視 BizTalk 服務，請在 [所有項目] 索引標籤中選取 BizTalk 服務，或選取 [BIZTALK 服務] 索引標籤，然後選取您的 BizTalk 服務名稱。
+當您開啟 Azure 傳統入口網站時，會自動進入 [ **所有項目** ] 索引標籤。若要檢視 BizTalk 服務，請在 [所有項目] 索引標籤中選取 BizTalk 服務，或選取 [BIZTALK 服務] 索引標籤，然後選取您的 BizTalk 服務名稱。
 
 這樣會開啟新視窗並顯示下列索引標籤。 本主題說明這些索引標籤。
 
@@ -246,7 +245,7 @@ ms.lasthandoff: 03/15/2017
    
     選取灰色的圓圈以啟用 [CPU 使用率] 度量，將其輸出顯示在圖表中：  
    ![CPU 使用量度量已啟用][EnabledMetric]
-6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [ **移除度量** ]。 若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。 選取灰色圓圈以啟用度量。
+6. 若要從顯示圖表和清單中移除度量，請選取工作列中的 [ **移除度量** ]。 若要將度量加回到清單中，請選取工作列的 [加入度量]，勾選度量，然後選取勾選記號以回到 [監視] 索引標籤。選取灰色圓圈以啟用度量。
 
 ## <a name="Metrics"></a>可用的度量
 以下是可用的效能計數器/度量：
@@ -332,8 +331,6 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="HybridConnections"></a>混合式連線
 混合式連線可將 Azure 應用程式 (例如 Azure App Service 中的 Web Apps 或 Mobile Apps) 連線到使用靜態 TCP 連接埠的內部部署資源，例如 SQL Server、MySQL、HTTP Web API 及大部分的自訂 Web 服務。 您可以在 Azure 傳統入口網站內的 BizTalk 服務中管理混合式連接。
-
-若要在 Azure App Service 中建立混合式連線，請參閱[在 Azure App Service 中使用混合式連線存取內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)。
 
 若要在 Azure BizTalk 服務內建立或管理混合式連線，請參閱 [混合式連線](integration-hybrid-connection-overview.md)。
 

@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
-ms.openlocfilehash: eac9c5b0d8d0f7802d88e6f4f27d9d23c406e025
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 17d046f4f5291233cc5dc29c96e2b68d767d5750
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="build-a-hyper-scale-web-app-in-azure"></a>在 Azure 中建置超大規模 Web 應用程式
@@ -66,16 +65,16 @@ Session.Add("visited", "true");
 在此步驟中，您將建立 Azure Web 應用程式，然後在其中部署範例 ASP.NET 應用程式。
 
 ### <a name="create-a-resource-group"></a>建立資源群組   
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 在西歐區域建立[資源群組](../azure-resource-manager/resource-group-overview.md)。 您想要一起管理的所有 Azure 資源都放在資源群組中，例如 Web 應用程式和任何 SQL Database 後端。
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 在西歐區域建立[資源群組](../azure-resource-manager/resource-group-overview.md)。 您想要一起管理的所有 Azure 資源都放在資源群組中，例如 Web 應用程式和任何 SQL Database 後端。
 
 ```azurecli
 az group create --location "West Europe" --name myResourceGroup
 ```
 
-若要查看可用於 `---location` 的可能值，請使用 [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#list-locations) 命令。
+若要查看可用於 `---location` 的可能值，請使用 [az appservice list-locations](https://docs.microsoft.com/en-us/cli/azure/appservice#az_appservice_list_locations) 命令。
 
 ### <a name="create-an-app-service-plan"></a>建立應用程式服務方案
-使用 [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#create) 建立 "B1" [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
+使用 [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan#az_appservice_plan_create) 建立 "B1" [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) 
 
 ```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1
@@ -83,10 +82,10 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 App Service 方案是縮放單位，可包含您想在相同 App Service 基礎結構上一起相應增加或相應放大的應用程式，不限數目。 每個方案也被指派[定價層](https://azure.microsoft.com/en-us/pricing/details/app-service/)。 較高層包括更好的硬體和更多功能，例如更多相應放大的執行個體。
 
-本教學課程中，B1 是可相應放大至三個執行個體的最低層。 稍後，您隨時可以執行 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update)，在定價層上移或下移您的應用程式。 
+本教學課程中，B1 是可相應放大至三個執行個體的最低層。 稍後，您隨時可以執行 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update)，在定價層上移或下移您的應用程式。 
 
 ### <a name="create-a-web-app"></a>建立 Web 應用程式
-使用 [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create)，以 `$appName` 中的唯一名稱建立 Web 應用程式。
+使用 [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_create)，以 `$appName` 中的唯一名稱建立 Web 應用程式。
 
 ```azurecli
 $appName = "<replace-with-a-unique-name>"
@@ -94,14 +93,14 @@ az appservice web create --name $appName --resource-group myResourceGroup --plan
 ```
 
 ### <a name="set-deployment-credentials"></a>設定部署認證
-使用 [az appservice web deployment user set](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment/user#set) 為 App Service 設定您的帳戶等級部署認證。
+使用 [az appservice web deployment user set](https://docs.microsoft.com/en-us/cli/azure/appservice/web/deployment/user#az_appservice_web_deployment_user_set) 為 App Service 設定您的帳戶等級部署認證。
 
 ```azurecli
 az appservice web deployment user set --user-name <letters-numbers> --password <mininum-8-char-captital-lowercase-letters-numbers>
 ```
 
 ### <a name="configure-git-deployment"></a>設定 Git 部署
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) 設定本機 Git 部署。
+使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config_local_git) 設定本機 Git 部署。
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName --resource-group myResourceGroup
@@ -131,7 +130,7 @@ git push azure master
 提示您輸入密碼時，請使用您執行 `az appservice web deployment user set` 時所指定的密碼。
 
 ### <a name="browse-to-azure-web-app"></a>瀏覽至 Azure Web 應用程式
-使用 [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse)查看您正在 Azure 中執行的應用程式，請執行這個命令。
+使用 [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse)查看您正在 Azure 中執行的應用程式，請執行這個命令。
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
@@ -141,7 +140,7 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 在此步驟中，您要將 Azure Redis 快取設定為外部、共置的快取給 Azure Web 應用程式。 您可以快速利用 Redis 來快取頁面輸出。 此外，當您稍後相應放大 Web 應用程式時，Redis 會協助您跨多個執行個體可靠地保存使用者工作階段。
 
 ### <a name="create-an-azure-redis-cache"></a>建立 Azure Redis 快取
-使用 [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) 建立 Azure Redis 快取和儲存 JSON 輸出。 在 `$cacheName` 中使用唯一名稱。
+使用 [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) 建立 Azure Redis 快取和儲存 JSON 輸出。 在 `$cacheName` 中使用唯一名稱。
 
 ```powershell
 $cacheName = "<replace-with-a-unique-cache-name>"
@@ -186,7 +185,7 @@ mycachename.redis.cache.windows.net:6380,password=/rQP/TLz1mrEPpmh9b/gnfns/t9vBR
 
 若要讓應用程式在 Azure 中運作，您需要在 Azure Web 應用程式中設定相同的 Redis 連接字串。 因為 `redis.config` 不是在原始檔控制中維護，它不會在您執行 Git 部署時部署至 Azure。
 
-使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) 新增相同名稱的連接字串 (`RedisConnection`)。
+使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#az_appservice_web_config_appsettings_update) 新增相同名稱的連接字串 (`RedisConnection`)。
 
 az appservice web config appsettings update --settings "RedisConnection=$connstring" --name $appName --resource-group myResourceGroup
 
@@ -204,7 +203,7 @@ git push azure master
 提示您輸入密碼時，請使用您執行 `az appservice web deployment user set` 時所指定的密碼。
 
 ### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
-使用 [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) 查看 Azure 中生效的變更。
+使用 [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) 查看 Azure 中生效的變更。
 
 ```azurecli
 az appservice web browse --name $appName --resource-group myResourceGroup
@@ -213,7 +212,7 @@ az appservice web browse --name $appName --resource-group myResourceGroup
 ## <a name="step-4---scale-to-multiple-instances"></a>步驟 4 - 擴充至多個執行個體
 App Service 方案是 Azure Web 應用程式的縮放單位。 若要相應放大的 Web 應用程式，您可以擴充 App Service 方案。
 
-使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) 將 App Service 方案相應放大至三個執行個體，這是 B1 定價層允許的最大數目。 請記住，B1 是您稍早建立 App Service 方案時選擇的定價層。 
+使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) 將 App Service 方案相應放大至三個執行個體，這是 B1 定價層允許的最大數目。 請記住，B1 是您稍早建立 App Service 方案時選擇的定價層。 
 
 ```azurecli
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --number-of-workers 3 
@@ -225,13 +224,13 @@ az appservice plan update --name myAppServicePlan --resource-group myResourceGro
 在此步驟中，您可以使用 [Azure 流量管理員](https://docs.microsoft.com/en-us/azure/traffic-manager/)，將 ASP.NET Web 應用程式調整至第二個區域。 此步驟結束時，您會有一個在西歐執行的 Web 應用程式 (已建立) 和一個在東南亞執行的 Web 應用程式 (尚未建立)。 兩個應用程式都從相同的流量管理員 URL 供應。
 
 ### <a name="scale-up-the-europe-app-to-standard-tier"></a>將歐洲應用程式相應增加至標準層
-在 App Service 中，需要標準定價層才能與 Azure 流量管理員整合。 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#update) 將 App Service 方案相應增加至 S1。 
+在 App Service 中，需要標準定價層才能與 Azure 流量管理員整合。 使用 [az appservice plan update](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_update) 將 App Service 方案相應增加至 S1。 
 
 ```azurecli
 az appservice plan update --name myAppServicePlan --resource-group myResourceGroup --sku S1
 ```
 ### <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔 
-使用 [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#create) 建立流量管理員設定檔，並新增至資源群組。 在 $dnsName 中使用唯一的 DNS 名稱。
+使用 [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) 建立流量管理員設定檔，並新增至資源群組。 在 $dnsName 中使用唯一的 DNS 名稱。
 
 ```azurecli
 $dnsName = "<replace-with-unique-dns-name>"
@@ -242,21 +241,21 @@ az network traffic-manager profile create --name myTrafficManagerProfile --resou
 > `--routing-method Performance` 指定此設定檔[將使用者流量路由傳送至最靠近的端點](../traffic-manager/traffic-manager-routing-methods.md)。
 
 ### <a name="get-the-resource-id-of-the-europe-app"></a>取得歐洲應用程式的資源識別碼
-使用 [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#show) 取得 Web 應用程式的資源識別碼。
+使用 [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_show) 取得 Web 應用程式的資源識別碼。
 
 ```azurecli
 $appId = az appservice web show --name $appName --resource-group myResourceGroup --query id --output tsv
 ```
 
 ### <a name="add-a-traffic-manager-endpoint-for-the-europe-app"></a>新增歐洲應用程式的流量管理員端點
-使用 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) 將端點新增至流量管理員設定檔，並使用 Web 應用程式的資源識別碼作為目標。
+使用 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) 將端點新增至流量管理員設定檔，並使用 Web 應用程式的資源識別碼作為目標。
 
 ```azurecli
 az network traffic-manager endpoint create --name myWestEuropeEndpoint --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id $appId
 ```
 
 ### <a name="get-the-traffic-manager-endpoint-url"></a>取得流量管理員端點 URL
-流量管理員設定檔現在有一個端點指向現有的 Web 應用程式。 使用 [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#show) 取得其 URL。 
+流量管理員設定檔現在有一個端點指向現有的 Web 應用程式。 使用 [az network traffic-manager profile show](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_show) 取得其 URL。 
 
 ```azurecli
 az network traffic-manager profile show --name myTrafficManagerProfile --resource-group myResourceGroup --query dnsConfig.fqdn --output tsv
@@ -265,7 +264,7 @@ az network traffic-manager profile show --name myTrafficManagerProfile --resourc
 將輸出複製到瀏覽器。 您應該會再次看到您的 Web 應用程式。
 
 ### <a name="create-an-azure-redis-cache-in-asia"></a>在亞洲建立 Azure Redis 快取
-現在，您要將 Azure Web 應用程式複寫至東南亞區域。 若要開始，請使用 [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#create) 在東南亞建立第二個 Azure Redis 快取。 此快取和您的應用程式必須共置於亞洲。
+現在，您要將 Azure Web 應用程式複寫至東南亞區域。 若要開始，請使用 [az redis create](https://docs.microsoft.com/en-us/cli/azure/redis#az_redis_create) 在東南亞建立第二個 Azure Redis 快取。 此快取和您的應用程式必須共置於亞洲。
 
 ```powershell
 $redis = (az redis create --name $cacheName-asia --resource-group myResourceGroup --location "Southeast Asia" --sku-capacity 0 --sku-family C --sku-name Basic | ConvertFrom-Json)
@@ -274,14 +273,14 @@ $redis = (az redis create --name $cacheName-asia --resource-group myResourceGrou
 `--name $cacheName-asia` 將快取命名為西歐快取的名稱，尾碼是 `-asia`。
 
 ### <a name="create-an-app-service-plan-in-asia"></a>在亞洲建立 App Service 方案
-使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create)，以西歐方案使用的相同 S1 層，在東南亞區域建立第二個 App Service 方案。
+使用 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create)，以西歐方案使用的相同 S1 層，在東南亞區域建立第二個 App Service 方案。
 
 ```azurecli
 az appservice plan create --name myAppServicePlanAsia --resource-group myResourceGroup --location "Southeast Asia" --sku S1
 ```
 
 ### <a name="create-a-web-app-in-asia"></a>在亞洲建立 Web 應用程式
-使用 [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#create)，建立第二個 Web 應用程式。
+使用 [az appservice web create](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_create)，建立第二個 Web 應用程式。
 
 ```azurecli
 az appservice web create --name $appName-asia --resource-group myResourceGroup --plan myAppServicePlanAsia
@@ -290,12 +289,12 @@ az appservice web create --name $appName-asia --resource-group myResourceGroup -
 `--name $appName-asia` 將應用程式命名為西歐應用程式的名稱，尾碼是 `-asia`。
 
 ### <a name="configure-the-connection-string-for-redis"></a>設定 Redis 的連接字串
-使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) 將東南亞快取的連接字串新增至 Web 應用程式。
+使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#az_appservice_web_config_appsettings_update) 將東南亞快取的連接字串新增至 Web 應用程式。
 
 az appservice web config appsettings update --settings "RedisConnection=$($redis.hostname):$($redis.sslPort),password=$($redis.accessKeys.primaryKey),ssl=True,abortConnect=False" --name $appName-asia --resource-group myResourceGroup
 
 ### <a name="configure-git-deployment-for-the-asia-app"></a>設定亞洲應用程式的 Git 部署。
-使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#config-local-git) 設定第二個 Web 應用程式的本機 Git 部署。
+使用 [az appservice web source-control config-local-git](https://docs.microsoft.com/en-us/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config_local_git) 設定第二個 Web 應用程式的本機 Git 部署。
 
 ```azurecli
 az appservice web source-control config-local-git --name $appName-asia --resource-group myResourceGroup
@@ -325,28 +324,28 @@ git push azure-asia master
 提示您輸入密碼時，請使用您執行 `az appservice web deployment user set` 時所指定的密碼。
 
 ### <a name="browse-to-the-asia-app"></a>瀏覽至亞洲應用程式
-使用 [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#browse) 驗證您的應用程式正在 Azure 中執行。
+使用 [az appservice web browse](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_browse) 驗證您的應用程式正在 Azure 中執行。
 
 ```azurecli
 az appservice web browse --name $appName-asia --resource-group myResourceGroup
 ```
 
 ### <a name="get-the-resource-id-of-the-asia-app"></a>取得亞洲應用程式的資源識別碼
-使用 [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#show) 取得 Web 應用程式在東南亞的資源識別碼。
+使用 [az appservice web show](https://docs.microsoft.com/en-us/cli/azure/appservice/web#az_appservice_web_show) 取得 Web 應用程式在東南亞的資源識別碼。
 
 ```azurecli
 $appIdAsia = az appservice web show --name $appName-asia --resource-group myResourceGroup --query id --output tsv
 ```
 
 ### <a name="add-a-traffic-manager-endpoint-for-the-asia-app"></a>新增亞洲應用程式的流量管理員端點
-使用 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#create) 將第二個端點新增至流量管理員設定檔。
+使用 [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) 將第二個端點新增至流量管理員設定檔。
 
 ```azurecli
 az network traffic-manager endpoint create --name myAsiaEndpoint --profile-name myTrafficManagerProfile --resource-group myResourceGroup --type azureEndpoints --target-resource-id $appIdAsia
 ```
 
 ### <a name="add-region-identifier-to-web-apps"></a>將區域識別碼新增至 Web 應用程式
-使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#update) 新增區域特定的環境變數。
+使用 [az appservice web config appsettings update](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings#az_appservice_web_config_appsettings_update) 新增區域特定的環境變數。
 
 ```azurecli
 az appservice web config appsettings update --settings "Region=West Europe" --name $appName --resource-group myResourceGroup

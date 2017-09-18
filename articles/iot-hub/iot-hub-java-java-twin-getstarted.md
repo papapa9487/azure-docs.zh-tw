@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 3269cb65cfb59258d761f4c60278c598bc251325
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6d306d4742a53789d8e69c80d7fbdfc4e1ade4bf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
@@ -267,7 +267,7 @@ ms.lasthandoff: 07/14/2017
     private static String deviceId = "myDeviceId";
     ```
 
-    此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 目前，若要使用裝置對應項功能，您必須使用 MQTT 通訊協定。
+    此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 
 
 1. 將以下程式碼新增至 **Main** 方法，以：
     * 建立與 IoT 中樞通訊的裝置用戶端。

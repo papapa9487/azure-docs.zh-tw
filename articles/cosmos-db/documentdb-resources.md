@@ -17,8 +17,8 @@ ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: a8037dfbd799209e453b84374f28b881864d3799
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
 ms.contentlocale: zh-tw
 ms.lasthandoff: 09/07/2017
 
@@ -97,7 +97,7 @@ Azure Cosmos DB 管理的資料庫實體稱為「資源」。 每個資源可透
         </tr>
         <tr>
             <td valign="top"><p>id</p></td>
-            <td valign="top"><p>由系統產生</p></td>
+            <td valign="top"><p>無論是</p></td>
             <td valign="top"><p>使用者定義的資源唯一名稱 (具有相同的分割索引鍵值)。 如果使用者未指定 id，系統產生將會 id</p></td>
         </tr>
     </tbody>

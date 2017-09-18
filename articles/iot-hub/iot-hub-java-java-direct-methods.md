@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 5fa42c4fe7ad04bc74f70b023715bb61f81806ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 4fb759ecd7767c126bc22165494652039ba1caa4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-direct-methods-java"></a>使用直接方法 (Java)
@@ -111,7 +111,7 @@ ms.lasthandoff: 08/09/2017
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 目前，若要使用直接方法，您必須使用 MQTT 通訊協定。
+    此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 
 
 1. 若要將狀態碼傳回 IoT 中樞，請將下列巢狀類別新增到 **App** 類別中：
 

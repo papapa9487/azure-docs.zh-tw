@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 07/13/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 2e8ebbdab2be7bed224a67facec798820615bb22
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: db278f2ecd025257a969e3a9f05f5269a659999d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="process-events-from-azure-event-hubs-with-storm-on-hdinsight-java"></a>使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)
@@ -68,7 +68,7 @@ Azure 事件中樞可讓您從網站、應用程式和裝置處理巨量資料�
 
 #### <a name="event-hub-components"></a>事件中樞元件
 
-讀取和寫入至 Azure 事件中樞的元件位於 [HDInsight 儲存機制](https://github.com/hdinsight/mvn-rep)。 `POM.xml` 檔案的下列各區段可從這個儲存機制載入元件
+讀取和寫入至 Azure 事件中樞的元件位於 [HDInsight 儲存機制](https://github.com/hdinsight/mvn-repo)。 `POM.xml` 檔案的下列各區段可從這個儲存機制載入元件
 
 ```xml
 <repositories>

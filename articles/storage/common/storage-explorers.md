@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 09/06/2017
 ms.author: dineshmurthy
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: 620efda06d8225b21b6bb9b104b79061ebb6515c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c57a300b54c62bbd43c73121c22adbc44cb94776
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-storage-client-tools"></a>Azure 儲存體用戶端工具
@@ -113,20 +113,6 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudportam.com/">Cloud Portam (英文)</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>試用版</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
     <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata：Azure Management Studio (英文)</a></td>
     <td>X</td>
     <td>X</td>
@@ -155,7 +141,7 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure 儲存體總管</a></td>
+    <td><a href="https://github.com/sebagomez/azurestorageexplorer">Azure Web 儲存體總管 (英文)</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -169,7 +155,7 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx">CloudBerry 總管 (英文)</a></td>
+    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry 總管 (英文)</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -221,34 +207,6 @@ Azure 儲存體的使用者經常想要能夠使用 Azure 儲存體用戶端工�
     <td>試用版</td>
     <td></td>
     <td>X</td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="http://storageexplorer.codeplex.com/">Azure Web 儲存體總管 (英文)</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td>X</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td><a href="https://zudio.co/">Zudio</a></td>
-    <td>X</td>
-    <td>X</td>
-    <td></td>
-    <td>X</td>
-    <td>X</td>
-    <td>X</td>
-    <td>試用版</td>
-    <td>X</td>
-    <td></td>
     <td></td>
     <td></td>
   </tr>

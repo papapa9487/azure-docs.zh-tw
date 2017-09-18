@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: bc6c77deb02b145cd412e18ba31d724f2b71e4d1
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2d74331ec1625a53d1af5ab5058b733651271f37
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
@@ -283,7 +283,7 @@ Azure CLI 提供跨平台命令供您處理 Azure，包括支援管理 App Servi
 
 ## <a name="next-steps"></a>後續步驟
 [Azure App Service Web 應用程式 - 封鎖對非生產環境部署位置的 Web 存取 (英文)](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
-[Linux 上的 App Service 簡介](./app-service-linux-intro.md)
+[Linux 上的 App Service 簡介](../app-service/containers/app-service-linux-intro.md)
 [Microsoft Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)
 
 <!-- IMAGES -->

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4475baf3632c9e6870ff90244b773993a66b768c
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -89,8 +89,6 @@ Azure 在其雲端運算平台中提供許多服務。 這些服務包括下列�
 -   App Services (Web Apps、Mobile Apps、Logic Apps、API Apps 和 Function Apps)
 
 -   Azure Batch (適用於大規模的平行和批次計算作業)
-
--   Azure RemoteApp
 
 -   Azure Service Fabric
 

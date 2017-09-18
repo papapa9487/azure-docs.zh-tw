@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 2556b02459886390b803407c5cb828687229a44e
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -60,19 +60,19 @@ az batch pool delete --pool-id mypool-linux
 
 | 命令 | 注意事項 |
 |---|---|
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 對 Batch 帳戶進行驗證。  |
-| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#list) | 列出 Batch 帳戶中可用的應用程式。  |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#create) | 建立 VM 集區。  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#set) | 更新集區的屬性。  |
-| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#list) | 列出可用的節點代理程式 SKU 和映像資訊。  |
-| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#resize) | 調整指定集區的執行中 VM 數大小。  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#show) | 顯示集區的屬性。  |
-| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#delete) | 刪除指定的集區。  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#enable) | 在集區啟用自動調整規模並套用公式。  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#disable) | 在集區停用自動調整規模。  |
-| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#list) | 列出指定集區中的所有計算節點。  |
-| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#reboot) | 重新啟動指定的計算節點。  |
-| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#delete) | 從指定的集區中刪除列出的節點。  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | 對 Batch 帳戶進行驗證。  |
+| [az batch application summary list](https://docs.microsoft.com/cli/azure/batch/application/summary#az_batch_application_summary_list) | 列出 Batch 帳戶中可用的應用程式。  |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | 建立 VM 集區。  |
+| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_set) | 更新集區的屬性。  |
+| [az batch pool node-agent-skus list](https://docs.microsoft.com/cli/azure/batch/pool/node-agent-skus#az_batch_pool_node_agent_skus_list) | 列出可用的節點代理程式 SKU 和映像資訊。  |
+| [az batch pool resize](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_resize) | 調整指定集區的執行中 VM 數大小。  |
+| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_show) | 顯示集區的屬性。  |
+| [az batch pool delete](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_delete) | 刪除指定的集區。  |
+| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | 在集區啟用自動調整規模並套用公式。  |
+| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | 在集區停用自動調整規模。  |
+| [az batch node list](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_list) | 列出指定集區中的所有計算節點。  |
+| [az batch node reboot](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_reboot) | 重新啟動指定的計算節點。  |
+| [az batch node delete](https://docs.microsoft.com/cli/azure/batch/node#az_batch_node_delete) | 從指定的集區中刪除列出的節點。  |
 
 ## <a name="next-steps"></a>後續步驟
 

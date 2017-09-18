@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 2866d9717a0a7f107764008541a0ba71d5001c9e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="programmatically-create-azure-dashboards"></a>以程式設計方式建立 Azure Dashboards
@@ -120,7 +120,7 @@ Azure 可讓您協調多個資源的部署。 您可建立部署範本表示要�
 
 __這份文件的結尾有提供完整的可行範本。__
 
-您製作範本後，可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#create) 或[入口網站的範本部署頁面](https://portal.azure.com/#create/Microsoft.Template)部署範本。
+您製作範本後，可以使用 [REST API](https://docs.microsoft.com/en-us/rest/api/resources/deployments)、[PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)、[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) 或[入口網站的範本部署頁面](https://portal.azure.com/#create/Microsoft.Template)部署範本。
 
 以下是範例儀表板 JSON 的兩個版本。 第一個是我們從已經繫結至資源的入口網站匯出的版本。 第二個是能夠以程式設計方式繫結至任何 VM 並使用 Azure Resource Manager 部署的範本版本。
 

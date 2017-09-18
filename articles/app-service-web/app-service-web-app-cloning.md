@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2016
 ms.author: aelnably
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: e238f804d4a96e10101e7aa2e2a1bcb78a44e967
-ms.lasthandoff: 11/17/2016
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3b82f352f89a7857bfb42be6cee136f245fbd5fa
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 複製 Azure App Service App
@@ -27,8 +27,6 @@ ms.lasthandoff: 11/17/2016
 應用程式複製目前僅支援 Premium 層 App Service 方案。 新的功能使用與 Web Apps 備份功能相同的限制，請參閱 [在 Azure App Service 中備份 Web 應用程式](web-sites-backup.md)。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
-
-若要了解如何使用 Azure Resource Manager 架構 Azure PowerShell Cmdlet 來管理您的 Web Apps，請查看 [適用於 Azure Web App 的 Azure Resource Manager 架構 PowerShell 命令](app-service-web-app-azure-resource-manager-powershell.md)
 
 ## <a name="cloning-an-existing-app"></a>複製現有的應用程式
 案例：使用者想要將位在美國中南部區域的現有 Web 應用程式內容複製到位在美國中北部區域的新 Web 應用程式中。 使用 Azure Resource Manager 版本 PowerShell Cmdlet 利用 -SourceWebApp 選項來建立新的 Web 應用程式，即可實現此目的。
@@ -107,11 +105,10 @@ ms.lasthandoff: 11/17/2016
 * 不會複製資料庫內容
 
 ### <a name="references"></a>參考
-* [適用於 Azure Web 應用程式的 Azure Resource Manager 架構 PowerShell 命令](app-service-web-app-azure-resource-manager-powershell.md)
 * [使用 Azure 入口網站複製 Web 應用程式](app-service-web-app-cloning-portal.md)
 * [在 Azure App Service 中備份 Web 應用程式](web-sites-backup.md)
 * [Azure Resource Manager 的 Azure 流量管理員支援預覽](../traffic-manager/traffic-manager-powershell-arm.md)
 * [App Service 環境簡介](app-service-app-service-environment-intro.md)
-* [搭配使用 Azure PowerShell 與 Azure 資源管理員](../powershell-azure-resource-manager.md)
+* [搭配使用 Azure PowerShell 與 Azure 資源管理員](../azure-resource-manager/powershell-azure-resource-manager.md)
 
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: cacbcf879555907f81d824dc1069b05579dca010
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 443f49c720b47734f330db9bd6790e6a55ac5f9b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
@@ -49,7 +48,7 @@ ms.lasthandoff: 06/21/2017
 <a name="platform"></a>
 **平台**。 選取 Web 應用程式是否會在 32 位元或 64 位元環境中執行。 64 位元環境需要 [基本] 或 [標準] 模式。 [免費] 與 [共用] 模式一律於 32 位元環境中執行。
 
-**Web 通訊端**。 設為 [開啟] 以啟用 WebSocket 通訊協定，例如，如果您的 Web 應用程式使用 [ASP.NET SignalR] 或 [socket.io]。
+**Web 通訊端**。 設為 [開啟] 以啟用 WebSocket 通訊協定，例如，如果您的 Web 應用程式使用 [ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
 
 <a name="alwayson"></a>
 **永遠開啟**。 根據預設，Web 應用程式如果閒置一段時間，就會卸載。 此舉有助於系統保留資源。 在 [基本] 或 [標準] 模式中，您可以啟用 [ **永遠開啟** ]，讓應用程式隨時都能載入。 如果您的應用程式會執行連續的 WebJobs，或執行使用 CRON 運算式觸發的 WebJobs，就應該啟用 [一律開啟]，否則 Web 作業可能無法可靠地執行。
@@ -171,7 +170,6 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 [在 Azure App Service 中監視 Web 應用程式的基本概念]: ./web-sites-monitor.md
 [管線模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure App Service 中調整 Web 應用程式規模]: ./web-sites-scale.md
-[socket.io]: ./web-sites-nodejs-chat-app-socketio.md
 [試用 App Service]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->

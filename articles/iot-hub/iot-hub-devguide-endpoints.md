@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 93ada731fe70cf7d294537241f8104c0b89940ed
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: a5753df2ff6874d9574e268953792cac9765cc54
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
@@ -50,8 +50,6 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
   * *接收直接方法要求*。 裝置使用此端點來接聽[直接方法][lnk-methods]的要求。
 
     公開這些端點時，是使用 [MQTT v3.1.1][lnk-mqtt]、HTTP 1.1 及 [AMQP 1.0][lnk-amqp] 通訊協定來公開。 您也可以透過連接埠 443 上的 [WebSockets][lnk-websockets] 取得 AMQP。
-
-    裝置對應項端點和方法端點只能在使用 [MQTT v3.1.1][lnk-mqtt] 通訊協定時取得。
 
 * **服務端點**。 每個 IoT 中樞都會公開一組端點，供您的解決方案後端用來與您的裝置通訊。 但有一個例外狀況，這些端點只會在使用 [AMQP][lnk-amqp] 通訊協定時公開。 方法引動過程端點會透過 HTTP 通訊協定來公開。
   

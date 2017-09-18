@@ -17,10 +17,10 @@ ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 9eb32e545bdefb8cc0a8ae05bd58d750afeb469e
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 882446ba32252490e27056c7c5c9a8f755e26ee6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -104,7 +104,7 @@ Azure 提供兩種類型的磁碟。
 
 ### <a name="attach-disk-at-vm-creation"></a>在建立 VM 時連結磁碟
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令來建立資源群組。 
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令來建立資源群組。 
 
 ```azurecli-interactive 
 az group create --name myResourceGroupDisk --location eastus
@@ -235,7 +235,7 @@ az vm start --resource-group myResourceGroupDisk --name myVM
 
 ### <a name="create-snapshot"></a>建立快照集
 
-建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show) 命令傳回磁碟識別碼。在此範例中，磁碟會儲存在變數中，以便使用於稍後的步驟。
+建立虛擬機器磁碟快照集之前，需要磁碟的識別碼或名稱。 使用 [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#az_vm_show) 命令傳回磁碟識別碼。在此範例中，磁碟會儲存在變數中，以便使用於稍後的步驟。
 
 ```azurecli-interactive 
 osdiskid=$(az vm show -g myResourceGroupDisk -n myVM --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -273,13 +273,13 @@ az vm create --resource-group myResourceGroupDisk --name myVM --attach-os-disk m
 
 所有資料磁碟都必須重新連結至虛擬機器。
 
-首先使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#list) 命令尋找資料磁碟名稱。 此範例會將磁碟名稱放入名為 datadisk 的變數，該變數使用於下一個步驟。
+首先使用 [az disk list](https://docs.microsoft.com/cli/azure/disk#az_disk_list) 命令尋找資料磁碟名稱。 此範例會將磁碟名稱放入名為 datadisk 的變數，該變數使用於下一個步驟。
 
 ```azurecli-interactive 
 datadisk=$(az disk list -g myResourceGroupDisk --query "[?contains(name,'myVM')].[name]" -o tsv)
 ```
 
-使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#attach) 命令來連結磁碟。
+使用 [az vm disk attach](https://docs.microsoft.com/cli/azure/vm/disk#az_vm_disk_attach) 命令來連結磁碟。
 
 ```azurecli-interactive 
 az vm disk attach –g myResourceGroupDisk –-vm-name myVM –-disk $datadisk

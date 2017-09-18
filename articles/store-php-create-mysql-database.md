@@ -15,19 +15,18 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 66f4b7a5f8eb3f6f125c9420b40caffca3d43dd6
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 017e08b7e1e37c0bcb95ae0d9d702471bb8bc6bc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>在 Azure 中建立 MySQL 資料庫並連接到此資料庫
 本教學課桯將示範如何在 [Azure 入口網站](https://portal.azure.com)中建立 MySQL 資料庫 (提供者是 [ClearDB](http://www.cleardb.com/))，以及如何從在 [Azure App Service](app-service/app-service-value-prop-what-is.md) 中執行的 PHP Web 應用程式連接到此資料庫。
 
 > [!NOTE]
-> 您也可以建立 MySQL 資料庫做為 [Marketplace 應用程式範本](app-service-web/app-service-web-create-web-app-from-marketplace.md)的一部分。
+> 您也可以建立 MySQL 資料庫做為 <a href="https://portal.azure.com/#create/WordPress.WordPress" target="_blank">Marketplace 應用程式範本</a>的一部分。
 >
 >
 

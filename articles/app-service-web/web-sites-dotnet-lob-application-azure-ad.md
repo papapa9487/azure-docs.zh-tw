@@ -15,11 +15,10 @@ ms.workload: web
 ms.date: 09/01/2016
 ms.author: cephalin
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6eadf0a521a32c5bc580908e4e4b7f4305e2bf7e
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 209766e4ebc902d78cf0c83fa8fe0f57c4da73e4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-a-line-of-business-azure-app-with-azure-active-directory-authentication"></a>使用 Azure Active Directory 驗證建立企業營運 Azure 應用程式
@@ -337,7 +336,8 @@ ms.lasthandoff: 07/11/2017
 ## <a name="next-step"></a>後續步驟
 如果您在 Azure 中的企業營運應用程式需要角色型存取控制 (RBAC)，請參閱 [WebApp-RoleClaims-DotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) 以取得 Azure Active Directory 團隊提供的範例。 它會說明如何為 Azure Active Directory 應用程式啟用角色，然後使用 `[Authorize]` 裝飾授權使用者。
 
-如果企業營運應用程式需要存取內部部署資料，請參閱 [在 Azure App Service 中使用混合式連線存取內部部署資源](web-sites-hybrid-connection-get-started.md)。
+<!-- If your line-of-business app needs access to on-premises data, see 
+[Access on-premises resources using hybrid connections in Azure App Service](web-sites-hybrid-connection-get-started.md). -->
 
 <a name="bkmk_resources"></a>
 

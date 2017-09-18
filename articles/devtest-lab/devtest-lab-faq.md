@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 17ad81945deef8d4803898cfe4fc9ddbd88a2a54
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 1f261f97bbd9233d47eadc7e902e00ee87af9e34
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
@@ -136,7 +136,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 ## <a name="how-do-i-automate-the-process-of-uploading-vhd-files-to-create-custom-images"></a>如何自動執行上傳 VHD 檔案的程序以建立自訂映像？
 若要自動上傳 VHD 檔案以建立自訂映像，您有兩個選擇：
 
-* 使用 [AzCopy](../storage/common/storage-use-azcopy.md#blob-upload) 將 VHD 檔案複製或上傳到與實驗室相關聯的儲存體帳戶。
+* 使用 [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) 將 VHD 檔案複製或上傳到與實驗室相關聯的儲存體帳戶。
 * 使用 [Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)。 儲存體總管是在 Windows、OSX 和 Linux 上執行的獨立應用程式。   
 
 若要尋找與實驗室相關聯的目的地儲存體帳戶︰

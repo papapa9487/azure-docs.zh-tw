@@ -1,5 +1,4 @@
 ---
-
 title: "Azure 安全性技術功能 | Microsoft Docs"
 description: "了解雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。"
 services: security
@@ -16,11 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 2983ce5c068e5188fb70ffc9443ce58d6c188c50
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
@@ -346,7 +344,7 @@ Azure 也提供幾項簡單易用的功能，可協助保護您的應用程式�
 
 - [使用點對站 VPN 保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
 
-- [使用混合式連接保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service-web/web-sites-hybrid-connection-get-started)
+- [使用混合式連接保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
 Azure App Service 會使用 Azure 雲端服務和虛擬機器使用的相同反惡意程式碼方案。 若要深入了解此方案，請參閱 [反惡意程式碼文件](https://docs.microsoft.com/azure/security/azure-security-antimalware)。
 

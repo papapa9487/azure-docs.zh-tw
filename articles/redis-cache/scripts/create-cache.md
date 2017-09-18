@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
-ms.openlocfilehash: 75b0602a6c6a0e252ae0bb5eab41ef5cc5636dc5
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 19b582a0cecd72b9f30283ccf822b74cf400a155
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -41,12 +41,12 @@ ms.lasthandoff: 04/07/2017
 
 | 命令 | 注意事項 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az redis create](https://docs.microsoft.com/cli/azure/redis#create) | 建立 Redis 快取執行個體。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az redis create](https://docs.microsoft.com/cli/azure/redis#az_redis_create) | 建立 Redis 快取執行個體。 |
 
 
 ## <a name="next-steps"></a>後續步驟
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
-您可以在 [Azure Redis 快取文件](../cli-samples.md)中找到其他 Azure Redis 快取 CLI 指令碼範例。
+您可以在 [Azure Redis Cache 文件](../cli-samples.md)中找到其他 Azure Redis Cache CLI 指令碼範例。

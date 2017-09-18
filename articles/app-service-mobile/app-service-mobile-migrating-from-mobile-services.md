@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: cd6c75fb12182c1c38c9717f7fe51c6e36922540
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
@@ -33,7 +33,6 @@ ms.lasthandoff: 07/20/2017
 Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的各項功能，其中包括：
 
 * 新的主機功能，包括 [WebJobs] 和[自訂網域名稱]。
-* 除了[混合式連線]以外，使用 [VNet] 連線到您的內部部署資源。
 * 使用 New Relic 或 [Application Insights]進行監視和疑難排解作業。
 * 內建的 DevOps 工具，包括[預備位置]、回復和生產環境測試。
 * [自動調整]、負載平衡，以及[效能監視]。
@@ -389,7 +388,7 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 [自訂網域名稱]: ../app-service-web/web-sites-custom-domain-name.md
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure App Service 的公開上市版]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
-[混合式連線]: ../app-service-web/web-sites-hybrid-connection-get-started.md
+[Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [記錄]: ../app-service-web/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [比較行動服務與App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md

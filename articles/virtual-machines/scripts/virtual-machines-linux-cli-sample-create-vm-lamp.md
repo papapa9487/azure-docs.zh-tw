@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: a95c534d8f2ad5e8e2c7bdfc2b11405c70312727
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 23170923d7c05c9b7230cf331725250b2a3c0f09
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -54,14 +54,14 @@ az group delete -n myResourceGroup
 
 | 命令 | 注意事項 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) | 建立虛擬機器擴展集 |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | 新增負載平衡端點 |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#set) | 建立擴充功能，該擴充功能在 VM 部署上執行自訂指令碼 |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#update-instances) | 在 VM 執行個體上執行自訂指令碼，該執行個體是在擴充功能套用至擴展集之前部署的。 |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) | 藉由新增更多 VM 執行個體以相應增加擴展集。 當這些執行個體部署時，自訂指令碼會在上面執行。 |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) | 取得範例建立之 VM 的 IP 位址。 |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#show) | 取得由負載平衡器使用的前端和後端連接埠。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | 建立虛擬機器擴展集 |
+| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | 新增負載平衡端點 |
+| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | 建立擴充功能，該擴充功能在 VM 部署上執行自訂指令碼 |
+| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | 在 VM 執行個體上執行自訂指令碼，該執行個體是在擴充功能套用至擴展集之前部署的。 |
+| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | 藉由新增更多 VM 執行個體以相應增加擴展集。 當這些執行個體部署時，自訂指令碼會在上面執行。 |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | 取得範例建立之 VM 的 IP 位址。 |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | 取得由負載平衡器使用的前端和後端連接埠。 |
 
 ## <a name="next-steps"></a>後續步驟
 

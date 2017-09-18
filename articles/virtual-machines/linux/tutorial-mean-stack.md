@@ -17,10 +17,10 @@ ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 892d3481b4ec70fb8434cb25013c5cfd8ab85051
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 08/21/2017
 
 ## <a name="create-a-linux-vm"></a>建立 Linux VM
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令建立資源群組，並使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令建立 Linux VM。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+使用 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令建立資源群組，並使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) 命令建立 Linux VM。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 下列範例使用 Azure CLI 在 eastus 位置建立名為 myResourceGroupMEAN 的資源群組。 如果預設的金鑰位置還沒有 SSH 金鑰的話，此範例也會建立具有這些金鑰的 VM (名為 myVM)。 若要使用一組特定金鑰，請使用 --ssh-key-value 選項。
 

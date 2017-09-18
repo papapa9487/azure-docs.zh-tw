@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: 698978fd717091c49a1375e222f46f4325431223
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -57,16 +57,16 @@ az group delete --name myResourceGroup
 
 | 命令 | 注意事項 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#create) | 建立 Batch 帳戶。  |
-| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#set) | 更新 Batch 帳戶的屬性。  |
-| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#show) | 擷取指定的 Batch 帳戶的詳細資料。  |
-| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#list) | 擷取指定的 Batch 帳戶的存取金鑰。  |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
-| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#create) | 建立儲存體帳戶。 |
-| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#create) | 建立金鑰保存庫。 |
-| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#set-policy) | 更新指定的 Key Vault 的安全性原則。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 刪除資源群組，包括所有的巢狀資源。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az batch account create](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_create) | 建立 Batch 帳戶。  |
+| [az batch account set](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_set) | 更新 Batch 帳戶的屬性。  |
+| [az batch account show](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_show) | 擷取指定的 Batch 帳戶的詳細資料。  |
+| [az batch account keys list](https://docs.microsoft.com/cli/azure/batch/account/keys#az_batch_account_keys_list) | 擷取指定的 Batch 帳戶的存取金鑰。  |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | 對指定的 Batch 帳戶驗證以進行進一步的 CLI 互動。  |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | 建立儲存體帳戶。 |
+| [az keyvault create](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_create) | 建立金鑰保存庫。 |
+| [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az_keyvault_set_policy) | 更新指定的 Key Vault 的安全性原則。 |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟
 

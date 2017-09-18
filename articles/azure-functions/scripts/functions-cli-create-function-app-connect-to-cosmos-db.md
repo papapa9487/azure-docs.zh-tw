@@ -16,11 +16,11 @@ ms.workload:
 ms.date: 04/20/2017
 ms.author: rachelap
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: ba7e934f71824493f29b001cea6dd1c567ef3414
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: c2c3530df62a1f291be51739a7918f7b8ab08487
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>建立連線至 Azure Cosmos DB 的 Azure 函式
@@ -52,11 +52,11 @@ ms.lasthandoff: 06/20/2017
 | 命令 | 注意事項 |
 |---|---|
 | [az login](https://docs.microsoft.com/cli/azure/#login) | 登入 Azure。 |
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 指定位置建立資源群組 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 指定位置建立資源群組 |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account) | 建立儲存體帳戶 |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#create) | 建立新的函式應用程式 |
-| [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#create) | 建立 DocumentDB 資料庫 |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#delete) | 清除 |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 建立新的函式應用程式 |
+| [az documentdb create](https://docs.microsoft.com/cli/azure/documentdb#az_documentdb_create) | 建立 DocumentDB 資料庫 |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 清除 |
 
 ## <a name="next-steps"></a>後續步驟
 

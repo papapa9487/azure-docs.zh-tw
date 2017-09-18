@@ -16,11 +16,11 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: df4ca5b1270ada849e231ad9608a5b1d2edda8be
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 9630656a00a8a80c8ffd8fb59113dc1c8c523651
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -46,11 +46,11 @@ ms.lasthandoff: 06/20/2017
 
 | 命令 | 注意事項 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 建立用來存放所有資源的資源群組。 |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#create) | 建立 App Service 方案。 這就像是 Azure Web 應用程式的伺服器陣列。 |
-| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#create) | 建立 Azure Web 應用程式。 |
-| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#config) | 設定 Azure Web 應用程式會保存的記錄。 |
-| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#download) | 將 Azure Web 應用程式的記錄下載到本機電腦。 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 建立用來存放所有資源的資源群組。 |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | 建立 App Service 方案。 這就像是 Azure Web 應用程式的伺服器陣列。 |
+| [az webapp create](https://docs.microsoft.com/cli/azure/webapp#az_webapp_create) | 建立 Azure Web 應用程式。 |
+| [az webapp log config](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_config) | 設定 Azure Web 應用程式會保存的記錄。 |
+| [az webapp log download](https://docs.microsoft.com/cli/azure/webapp/log#az_webapp_log_download) | 將 Azure Web 應用程式的記錄下載到本機電腦。 |
 
 ## <a name="next-steps"></a>後續步驟
 

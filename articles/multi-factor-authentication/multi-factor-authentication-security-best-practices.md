@@ -3,7 +3,7 @@ title: "MFA 的安全性最佳做法 | Microsoft Docs"
 description: "本文件提供搭配 Azure 帳戶使用 Azure MFA 的最佳做法"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 3be7d968-96bb-4320-8701-869fd04a2595
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f43f6e33976325920da9cf0f6aef6decae5bde26
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 6166e20a4652379dc9eeffe522feb651f5e57ea2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 06/28/2017
 * 您不需要 Azure AD 目錄即可建立多因素驗證提供者，但如果有則可以獲得更多功能。 將驗證提供者與 Azure AD 目錄相關聯時，將會啟用下列功能︰  
   * 將雙步驟驗證延伸到所有使用者  
   * 將其他功能提供給全域管理員，例如管理入口網站、自訂問候語和報告。
-* 如果您將內部部署 Active Directory 環境與 Azure AD 目錄同步處理，則需要 DirSync 或 AAD Sync。 如果您使用不與內部部署 Active Directory 執行個體同步處理的 Azure AD 目錄，就不需要 DirSync 或 AAD Sync。
+* 如果您將內部部署 Active Directory 環境與 Azure AD 目錄同步處理，則需要 DirSync 或 AAD Sync。如果您使用不與內部部署 Active Directory 執行個體同步處理的 Azure AD 目錄，就不需要 DirSync 或 AAD Sync。
 * 選擇最適合您企業的使用情況模型。 使用量模型在選取之後，就無法再進行變更。 兩個模型如下︰
   * 每次驗證︰向您收取每次驗證的費用。 如果您想要所有存取特定應用程式的人員都使用雙步驟驗證，請使用這個模型。
   * 每個啟用的使用者︰會針對啟用 Azure MFA 的每個使用者向您數費。 如果您有某些使用者具有 Azure AD Premium 或 Enterprise Mobility Suite 授權，有些則沒有，請使用此模型。
@@ -89,7 +89,7 @@ Azure Multi-Factor Authentication Server 可以使用同盟來保護雲端資源
 如果您的組織使用 SSO 與 Azure AD 同盟，而且您想要使用 Azure MFA 時，請注意下列細節：
 
 * 應用程式密碼由 Azure AD 驗證，因此會略過同盟。 唯有在設定應用程式密碼時才會使用同盟。
-* 對於同盟 (SSO) 使用者，密碼會儲存在組織識別碼中。 如果使用者離開公司，這些資訊必須使用 DirSync 流向組織識別碼。 停用/刪除帳戶可能需要長達三個小時才能完成同步處理，導致 Azure AD 中停用/刪除應用程式密碼時延遲。
+* 對於同盟 (SSO) 使用者，密碼會儲存在組織識別碼中。如果使用者離開公司，這些資訊必須使用 DirSync 流向組織識別碼。 停用/刪除帳戶可能需要長達三個小時才能完成同步處理，導致 Azure AD 中停用/刪除應用程式密碼時延遲。
 * 應用程式密碼不會遵守內部部署用戶端存取控制設定。
 * 應用程式密碼不適用內部部署驗證記錄/稽核功能。
 * 某些進階架構設計在使用雙步驟驗證時，可能需要搭配使用組織使用者名稱和密碼及應用程式密碼，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 對於根據 Azure AD 進行驗證的用戶端，您需要使用應用程式密碼。

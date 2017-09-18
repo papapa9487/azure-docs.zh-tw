@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 05062d7396bdbb3e589d2ab5f0443d1dca54342a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 5050b442540632086eda80bd7fecaf2beb8ddb50
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-webjobs-documentation-resources"></a>Azure WebJobs 文件資源
@@ -69,7 +69,7 @@ Azure 入口網站中的 WebJob 儀表板提供強大的管理功能，讓您能
 
 ## <a name="schedule"></a>排程 WebJob
 * [[新增 Azure WebJob] 對話方塊 (英文)](websites-dotnet-deploy-webjobs.md#configure)
-* [在 Azure 入口網站中建立排定的 WebJob](web-sites-create-web-jobs.md#CreateScheduled)
+* [在 Azure 入口網站中建立排定的 WebJob](web-sites-create-web-jobs.md#CreateScheduledCRON)
 * [將排程器工作連結至 WebJob (英文)](http://blog.davidebbo.com/2015/05/scheduled-webjob.html)
 * [使用 cron 運算式排程 Azure WebJob (英文)](http://blog.amitapple.com/post/2015/06/scheduling-azure-webjobs/)
 * [使用 WebJobs SDK TimerTrigger 排程個別 WebJob 功能](websites-dotnet-webjobs-sdk.md#schedule)

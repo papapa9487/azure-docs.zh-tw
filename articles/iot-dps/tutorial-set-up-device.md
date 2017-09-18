@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: c0ef886a8c51f43cba875d532835acb194e994d9
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 09/06/2017
 
 ## <a name="select-a-hardware-security-module"></a>選取硬體安全模組
 
-[裝置佈建服務用戶端 SDK](https://github.com/Azure/azure-iot-device-auth/tree/master/dps_client) 可支援兩種硬體安全模組 (簡稱 HSM)： 
+[裝置佈建服務用戶端 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) 可支援兩種硬體安全模組 (簡稱 HSM)： 
 
 - [信賴平台模組 (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module)。
     - TPM 是適用於大部分 Windows 裝置平台以及一些 Linux/Ubuntu 架構裝置的公認標準。 身為裝置製造商，如果您的裝置是執行上述任一作業系統，而且您想要使用公認的 HSM 標準，則可以選擇這個 HSM。 若使用 TPM 晶片，裝置就只能個別地向裝置佈建服務進行註冊。 若要進行開發，您可以在 Windows 或 Linux 開發機器上使用 TPM 模擬器。
@@ -79,8 +79,8 @@ ms.lasthandoff: 09/06/2017
 ### <a name="develop-your-custom-repository"></a>開發自訂存放庫
 
 1. 開發 GitHub 存放庫來存取 HSM。 此專案必須產生靜態程式庫以供裝置佈建 SDK 取用。
-1. 程式庫必須實作下列標頭檔所定義的函式：a. 若為自訂 TPM，請實作 `\azure-iot-device-auth\dps_client\adapters\custom_hsm_tpm_impl.h` 所定義的函式。
-    b. 若為自訂 X.509，請實作 `\azure-iot-device-auth\dps_client\adapters\custom_hsm_x509_impl.h` 所定義的函式。 
+1. 程式庫必須實作下列標頭檔所定義的函式：a. 若為自訂 TPM，請實作 `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_tpm_impl.h` 所定義的函式。
+    b. 若為自訂 X.509，請實作 `\azure-iot-sdk-c\dps_client\adapters\custom_hsm_x509_impl.h` 所定義的函式。 
 1. HSM 存放庫還必須在存放庫根目錄包含應建置的 `CMakeLists.txt` 檔案。
 
 ### <a name="integrate-with-the-device-provisioning-service-client"></a>與裝置佈建服務用戶端整合
@@ -98,7 +98,7 @@ ms.lasthandoff: 09/06/2017
     - 建置程序會複製自訂存放庫，並建置程式庫。
     - SDK 會嘗試與 cmake 命令中所定義的自訂 HSM 進行連結。
 
-1. 執行 `\azure-iot-device-auth\dps_client\samples\dps_client_sample\dps_client_sample.c` 範例，以確認 HSM 是否有正確地實作。
+1. 執行 `\azure-iot-sdk-c\dps_client\samples\dps_client_sample\dps_client_sample.c` 範例，以確認 HSM 是否有正確地實作。
 
 <a id="extractsecurity"></a>
 ## <a name="extract-the-security-artifacts"></a>擷取安全構件

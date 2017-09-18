@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: fceb6b0671e0f77c1f8f92bbb49c986fda3660ea
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: b1f22104d530315318685fa4896b710b003ac3cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="create-and-manage-hybrid-connections"></a>建立和管理混合式連線
@@ -52,7 +51,7 @@ ms.lasthandoff: 06/03/2017
 ## <a name="CreateHybridConnection"></a>建立混合式連線
 使用 Web Apps **或** BizTalk 服務可以在 Azure 入口網站中建立「混合式連接」。 
 
-**若要使用 Web Apps 建立「混合式連線」**，請參閱「 [將 Azure Web Apps 連接到內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)」(英文)。 您也可以從 Web 應用程式安裝混合式連線管理員 (HCM)，這是慣用的方法。 
+<!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
 **若要在 BizTalk 服務中建立「混合式連線」**：
 
@@ -76,7 +75,8 @@ ms.lasthandoff: 06/03/2017
 * 每個「混合式連線」都是由一對連接字串建立而成：分別是負責「傳送」的應用程式金鑰，以及負責「接聽」的內部部署金鑰。 每一對都有「主要」和「次要」金鑰。 
 
 ## <a name="LinkWebSite"></a>連結 Azure App Service Web 應用程式或行動應用程式
-若要將 Azure App Service 中的 Web 應用程式或行動應用程式連結至現有的「混合式連線」，請在 [混合式連線] 刀鋒視窗中選取 [使用現有的混合式連線]。 請參閱[在 Azure App Service 中使用混合式連線存取內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)。
+若要將 Azure App Service 中的 Web 應用程式或行動應用程式連結至現有的「混合式連線」，請在 [混合式連線] 刀鋒視窗中選取 [使用現有的混合式連線]。 
+<!-- See [Access on-premises resources using hybrid connections in Azure App Service](../app-service-web/web-sites-hybrid-connection-get-started.md). -->
 
 ## <a name="InstallHCM"></a>在內部部署安裝混合式連線管理員
 建立混合式連線之後，請在內部部署資源上安裝混合式連線管理員。 可從 Azure Web Apps 或 BizTalk 服務下載此程式。 BizTalk 服務步驟： 
@@ -145,8 +145,8 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 複製之後，您可以使用群組原則編輯器來變更原則。
 
 ## <a name="next"></a>下一步
-[將 Azure Web Apps 連接到內部部署資源](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[從 Azure Web Apps 連接至內部部署 SQL Server](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)   
+<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
+[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [混合式連線概觀](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>另請參閱

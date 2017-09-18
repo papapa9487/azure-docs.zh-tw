@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/08/2017
 ms.author: delhan
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: e9b833b07556378f17d9aaff0912c7d73dff44eb
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 9b3a8b964ec2f75c53c03b5099dc1e1eb7d77c65
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
-
-## <a name="introduction"></a>簡介
 
 Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。 應用程式可以連接 Azure、Sovereign 雲端和 Azure Stack 所裝載的 toStorage 帳戶。
 
@@ -32,7 +30,7 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
 
 ## <a name="sign-in-issues"></a>登入問題
 
-僅支援 Azure Active Directory (AAD) 帳戶。 如果使用的是 ADFS 帳戶，應無法登入儲存體總管。 在繼續之前，請先嘗試重新啟動您的應用程式，查看是否能修正問題。
+在繼續之前，請先嘗試重新啟動您的應用程式，查看是否能修正問題。
 
 ### <a name="error-self-signed-certificate-in-certificate-chain"></a>錯誤：憑證鏈結中的自我簽署憑證
 
@@ -69,7 +67,7 @@ Microsoft Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您
 
 如果成功登入後無法擷取您的訂用帳戶，請依照下列步驟對此問題進行疑難排解：
 
-- 透過登入 Azure 入口網站確認您的帳戶可存取訂閱的項目。
+- 確認帳戶可以登入 Azure 入口網站存取訂用帳戶。
 
 - 確定已使用正確的環境登入 (Azure、Azure 中國、Azure 德國、Azure 美國政府或自訂環境/Azure Stack)。
 

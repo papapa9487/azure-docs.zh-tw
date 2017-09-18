@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bfc69712a1ddcd4a225fd35cfcceb7fa0616887d
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -158,7 +158,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
     >**使用時機**：在 Linux 上將 Web 應用程式部署至 Docker 映像時。
 
-    >**開始使用**：[針對 Linux 上的 App Service 使用自訂 Docker 映像](../../app-service-web/app-service-linux-using-custom-docker-image.md)。
+    >**開始使用**：[針對 Linux 上的 App Service 使用自訂 Docker 映像](../../app-service/containers/quickstart-custom-docker-image.md)。
 
 ### <a name="authentication"></a>驗證
 
@@ -168,7 +168,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
     >**使用時機**：當您想要提供 SSO 體驗時，請使用 Graph 資料，或驗證網域使用者。
 
-    >**開始使用**：若要深入了解，請參閱 [Azure Active Directory 開發人員指南](../../active-directory/active-directory-developers-guide.md)。
+    >**開始使用**：若要深入了解，請參閱 [Azure Active Directory 開發人員指南](../../active-directory/develop/active-directory-developers-guide.md)。
 
 -   **App Service 驗證**：當您選擇 App Service 裝載應用程式時，也會取得 Azure AD 的內建驗證支援，以及社交身分識別提供者，包括 Facebook、Google、Microsoft 和 Twitter。
 

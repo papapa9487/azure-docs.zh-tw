@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 67a197ffa04d284e9251d7f79b36a86d03637fd9
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e05f9428b0e0ef94bb499a3caa2e1f9f02d475d3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>針對 Blob 儲存體端點設定自訂網域名稱
@@ -119,7 +119,7 @@ ms.lasthandoff: 08/21/2017
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-使用 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#update) CLI 命令，並指定 `--custom-domain`引數值的空字串 (`""`)，以移除自訂網域註冊。
+使用 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_update) CLI 命令，並指定 `--custom-domain`引數值的空字串 (`""`)，以移除自訂網域註冊。
 
 * 命令格式︰
 

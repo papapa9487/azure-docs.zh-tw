@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0528d660f590e106f61729f10f8f68da3fe58cb7
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -269,10 +269,6 @@ POST
 #### <a name="azure-api-management"></a>Azure API 管理
 
 [Azure API 管理](https://azure.microsoft.com/services/api-management/)具有內部部署連線選項，包括站對站 VPN 和 ExpressRoute 整合，以對內部部署系統提供安全的 Proxy 和通訊。 在邏輯應用程式設計工具中，您可以在工作流程中快速地選取從 Azure API 管理公開的 API，提供對內部部署系統的快速存取。
-
-#### <a name="hybrid-connections-from-azure-app-service"></a>Azure App Service 的混合式連線
-
-您可以使用 Azure API 和 Web 應用程式的內部部署混合式連線功能，以對內部部署進行通訊。  如需混合式連線的詳細資料和設定方式，請參閱[此文章](../app-service-web/web-sites-hybrid-connection-get-started.md)。
 
 ## <a name="next-steps"></a>後續步驟
 [建立部署範本](logic-apps-create-deploy-template.md)  

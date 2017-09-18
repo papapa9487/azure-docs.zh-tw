@@ -3,7 +3,7 @@ title: "Azure MFA 的存取及使用報告 | Microsoft Docs"
 description: "說明如何使用 Azure Multi-Factor Authentication 功能 - 報告。"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: f76e726c6a67de4b0472c0e97f9e72c31c14c4f2
+ms.author: joflore
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/15/2017
-
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
@@ -38,8 +37,8 @@ Azure Multi-Factor Authentication 提供數個供您和貴組織使用的報告�
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 在左側選取 [Active Directory]。
 3. 根據您是否使用驗證提供者來遵循下列兩個選項的其中一個︰
-   * **選項 1**：按一下 [多因素驗證提供者] 索引標籤。 選取您的 MFA 提供者，然後按一下底部的 [管理] 按鈕。
-   * **選項 2**：選取您的目錄，然後移至 [設定] 索引標籤。 在 [Multi-Factor Authentication] 區段底下，選取 [管理服務設定] 。 在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站] 連結。
+   * **選項 1**：按一下 [多因素驗證提供者] 索引標籤。選取您的 MFA 提供者，然後按一下底部的 [管理] 按鈕。
+   * **選項 2**：選取您的目錄，然後移至 [設定] 索引標籤。在 [Multi-Factor Authentication] 區段底下，選取 [管理服務設定] 。 在 [MFA 服務設定] 頁面底部，按一下 [移至入口網站] 連結。
 4. 在 Azure Multi-Factor Authentication 管理入口網站的左側導覽中，從 [檢視報告] 區段中選取您要使用的報告類型。
 
 <center>![雲端](./media/multi-factor-authentication-manage-reports/report.png)</center>

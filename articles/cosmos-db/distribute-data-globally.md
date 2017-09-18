@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/14/2017
+ms.date: 09/13/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: da2cb358d196e41656bd7f6a06ff77e77c7315c1
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
@@ -65,9 +65,6 @@ Azure Cosmos DB 可讓您隨時對資料庫帳戶新增 (關聯) 或移除 (中�
 **Azure Cosmos DB 的租用戶能為和資料庫帳戶相關的區域設定容錯移轉優先順序 (右窗格)**
 
 ![使用 Azure Cosmos DB 設定容錯移轉優先順序](./media/distribute-data-globally/failover-priorities.png)
-
-### <a id="OfflineRegions"></a>讓區域動態「離線」
-Azure Cosmos DB 可讓您將特定區域的資料庫帳戶離線，稍後再讓它重新上線。 標示為離線的區域不會主動參與複寫，也不是容錯移轉順序的一部分。 這可讓您在對應用程式推出可能有風險的升級時，將上一個已知良好的資料庫映像凍結在其中一個讀取區域。
 
 ### <a id="ConsistencyLevels"></a>多個定義完善的一致性模型可供全球複寫資料庫使用
 Azure Cosmos DB 會公開由 SLA 所支援的[多個定義完善的一致性層級](consistency-levels.md)。 您可以根據工作負載/案例選擇特定的一致性模型 (從可用的選項清單中)。 

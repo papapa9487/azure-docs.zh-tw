@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 003a548ef2da2921a699df1aa9f7aee366d341ab
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 9009afc83b40064c6dbf10100f514c681af9b96b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>排定及廣播作業 (Java)
@@ -349,7 +349,7 @@ ms.lasthandoff: 08/28/2017
     private static final int METHOD_NOT_DEFINED = 404;
     ```
 
-    此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 目前，若要使用裝置對應項功能，您必須使用 MQTT 通訊協定。
+    此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。
 
 1. 若要將裝置對應項通知列印至主控台，請在 **App** 類別中新增下列巢狀類別：
 
