@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
-ms.openlocfilehash: 86a2cd8ae9f97c606a378452e44eec8941700531
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>設定 Azure App Service 的部署認證
@@ -47,7 +46,7 @@ ms.lasthandoff: 06/23/2017
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] > &lt;any_app>  >  [部署認證]。
 
     > [!NOTE]
-    > 在入口網站中，您必須至少有一個應用程式，才能存取 [部署認證] 刀鋒視窗。 不過，若使用 [Azure CLI](app-service-web-app-azure-resource-manager-xplat-cli.md)，沒有現有應用程式也可以設定使用者層級認證。
+    > 在入口網站中，您必須至少有一個應用程式，才能存取 [部署認證] 刀鋒視窗。 不過，若使用 [Azure CLI](/cli/azure/webapp/deployment/user#set)，沒有現有應用程式也可以設定使用者層級認證。
 
 2. 設定使用者名稱和密碼，然後按一下 [儲存]。
 
