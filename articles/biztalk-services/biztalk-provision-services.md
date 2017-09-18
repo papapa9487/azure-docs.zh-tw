@@ -18,7 +18,7 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: eca77b4a82eb67e1755717bb4429f8d450a64dc5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/18/2017
 
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>使用 Azure 入口網站建立 BizTalk 服務
@@ -152,7 +152,7 @@ ms.lasthandoff: 08/21/2017
 存取控制服務身分識別是一組認證，可讓應用程式或用戶端直接使用 Azure AD 存取控制進行驗證，並接收權杖。
 
 > [!IMPORTANT]
-> BizTalk 服務會使用 [擁有者] 做為預設服務識別，並使用 [密碼] 值。 如果您使用對稱金鑰值而不是密碼值，則可能發生下列錯誤。<br/><br/>*Could not connect to the Access Control Management Service account with the specified credentials*
+> BizTalk 服務會使用 [擁有者] 做為預設服務識別，並使用 [密碼] 值。 如果您使用對稱金鑰值而不是密碼值，則可能發生下列錯誤。<br/><br/>*無法利用指定的認證連接至存取控制管理服務帳戶*
 > 
 > 
 
