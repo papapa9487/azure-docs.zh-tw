@@ -46,7 +46,7 @@ ms.lasthandoff: 09/02/2017
    
    ![建立新專案][file-new-project]
 
-1. 在 [新增專案] 對話方塊中，選取 [Maven]，然後選取 [maven-archetype-webapp]，再按一下 [下一步]。
+1. 在 **新增專案** 對話方塊中，選取 **Maven** ，然後選取 **maven-archetype-webapp** ，再按一下 [下一步]。
    
    ![選擇 Maven archetype webapp][maven-archetype-webapp]
    

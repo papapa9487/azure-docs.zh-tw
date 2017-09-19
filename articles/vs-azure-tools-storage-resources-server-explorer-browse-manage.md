@@ -89,7 +89,7 @@ ms.lasthandoff: 09/06/2017
    您可以遵循相同的步驟將子資料夾加入至容器資料夾。 如果您未指定資料夾名稱，檔案會上傳至 Blob 容器的最上層。 檔案會出現在容器中的特定資料夾。
    
    ![加入至 blob 容器的資料夾](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC766038.png)
-3. 按兩下資料夾或選取 Enter 鍵以查看資料夾的內容。 當您位於容器的資料夾中，您可以藉由選取 [開啟上層目錄] (箭頭) 按鈕來返回容器的根目錄。
+3. 按兩下資料夾或選取 Enter 鍵以查看資料夾的內容。 當您位於容器的資料夾中，您可以藉由選取 [開啟上層目錄] \(箭頭) 按鈕來返回容器的根目錄。
 
 ### <a name="to-delete-a-container-folder"></a>刪除容器資料夾
 * 刪除資料夾中的所有檔案。
@@ -102,7 +102,7 @@ ms.lasthandoff: 09/06/2017
 ### <a name="to-filter-blobs-in-a-container"></a>在容器中篩選 Blob
 您可以藉由指定一般的前置詞來篩選顯示的 blob。
 
-例如，如果您在篩選文字方塊中輸入前置詞 **hello**，然後選取 [執行] (**!**) 按鈕，則只會出現以 "hello" 開頭的 blob。
+例如，如果您在篩選文字方塊中輸入前置詞 **hello**，然後選取 [執行] \(**!**) 按鈕，則只會出現以 "hello" 開頭的 blob。
 
 ![篩選文字方塊](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC519076.png)
 
