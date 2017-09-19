@@ -57,7 +57,7 @@ ms.lasthandoff: 08/31/2017
 3. 在 [directory-name - 網域名稱]上，選取 [新增網域名稱] 命令。 
   ![選取 [新增] 命令](./media/active-directory-domains-add-azure-portal/add-command.png)
 3. 在 [directory-name - 網域名稱] 上，選取您想要驗證的未驗證網域名稱。
-4. 在 [domainname] (選取的網域名稱為標題) 上，選取 [驗證] 來完成驗證。
+4. 在 [domainname] \(選取的網域名稱為標題) 上，選取 [驗證] 來完成驗證。
 
 現在您可以[指派包含自訂網域名稱的使用者名稱](active-directory-users-create-azure-portal.md)。 您可以建立雲端式使用者帳戶，也可以使用您的自訂網域名稱，更新先前已同步處理的內部部署使用者帳戶資訊。 您也可以使用 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 或[圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)，變更同步處理的使用者帳戶網域尾碼資訊。
 
