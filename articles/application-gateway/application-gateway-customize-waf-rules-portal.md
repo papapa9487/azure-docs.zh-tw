@@ -3,7 +3,7 @@ title: "在 Azure 應用程式閘道中自訂 Web 應用程式防火牆規則 - 
 description: "本文提供如何透過 Azure 入口網站，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: cdcbadbc3765dfc583c26e1b1453863d421c9a72

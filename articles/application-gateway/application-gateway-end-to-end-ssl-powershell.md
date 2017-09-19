@@ -3,7 +3,7 @@ title: "以 Azure 應用程式閘道設定端對端 SSL | Microsoft Docs"
 description: "本文說明如何使用 PowerShell 以 Azure 應用程式閘道設定端對端 SSL"
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: e6d80a33-4047-4538-8c83-e88876c8834e
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: dbc012526b062f21e675576c8269f0076f43cbc6

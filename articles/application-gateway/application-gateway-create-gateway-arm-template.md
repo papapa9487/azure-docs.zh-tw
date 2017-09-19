@@ -3,7 +3,7 @@ title: "建立 Azure 應用程式閘道 - 範本 | Microsoft Docs"
 description: "本頁面提供使用 Azure 資源管理員範本，建立 Azure 應用程式閘道的指示。"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: f44e33ef722cd30787a9d2942ec55ceb73174978

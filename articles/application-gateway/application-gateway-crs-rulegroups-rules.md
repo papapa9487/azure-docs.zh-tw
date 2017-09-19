@@ -3,7 +3,7 @@ title: "Azure 應用程式閘道 Web 應用程式防火牆 CRS 規則群組與�
 description: "此頁面提供關於 Web 應用程式防火牆 CRS 規則群組與規則的資訊。"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
-ms.author: gwallace
-translationtype: Human Translation
+ms.author: davidmu
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/30/2017
-
 
 ---
 

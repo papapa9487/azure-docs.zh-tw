@@ -3,7 +3,7 @@ title: "建立自訂探查 - Azure 應用程式閘道 - PowerShell | Microsoft D
 description: "了解如何在資源管理員中使用 PowerShell 建立應用程式閘道的自訂探查"
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: Human Translation
 ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b54fe5267d87a41eb9e81d5d1dc9b1b16c5c5e88
 ms.contentlocale: zh-tw
 ms.lasthandoff: 04/27/2017
-
 
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>使用 Azure 資源管理員的 PowerShell 建立 Azure 應用程式閘道的自訂探查

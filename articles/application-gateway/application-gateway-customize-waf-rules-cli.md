@@ -3,7 +3,7 @@ title: "在 Azure 應用程式閘道中自訂 Web 應用程式防火牆規則 - 
 description: "本文提供如何透過 Azure CLI 2.0，在應用程式閘道中自訂 Web 應用程式防火牆規則的相關資訊。"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.custom: 
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 456be048dc2d82cd50d145b71f17a84a7189ea96

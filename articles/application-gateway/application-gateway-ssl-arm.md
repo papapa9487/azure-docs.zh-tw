@@ -3,7 +3,7 @@ title: "設定 SSL 卸載 - Azure 應用程式閘道 - PowerShell | Microsoft Do
 description: "本文提供的指示，說明如何使用 Azure Resource Manager 建立具有 SSL 卸載的應用程式閘道"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: tysonn
 ms.assetid: 3c3681e0-f928-4682-9d97-567f8e278e13
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 4bcd002a805f1584323f5baf75f791f2fb64201f
