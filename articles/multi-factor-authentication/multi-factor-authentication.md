@@ -33,10 +33,6 @@ ms.lasthandoff: 09/14/2017
 
 Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決方案。 Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它可以透過一些驗證方法 (包括電話、文字訊息，或行動應用程式驗證) 來提供強大的驗證功能。
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/WA-MFA-Overview/player]
->
->
-
 ## <a name="why-use-azure-multi-factor-authentication"></a>為何使用 Azure Multi-Factor Authentication？
 與以前比較起來，現今人們連線網路的時間越來越長。 透過智慧型手機、平板電腦、膝上型電腦以及電腦，人們有幾種不同選擇可隨時用來連線網路並維持連線。 人們可以從任何地方存取他們的帳戶與應用程式，這表示他們可以完成更多工作並為客戶提供更好的服務。
 
