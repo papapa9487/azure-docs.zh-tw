@@ -175,7 +175,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 如果您使用 [MongoDB 的 Azure Cosmos DB 通訊協定支援](mongodb-introduction.md)，請使用下列連接字串︰
 
-    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true&3t.sslSelfSignedCerts=true
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
 
 您可以使用現有的工具，像是 [Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) 連線到 Azure Cosmos DB 模擬器。 您也可以使用 [Azure Cosmos DB 資料移轉工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos DB 模擬器與 Azure Cosmos DB 服務之間移轉資料。
 

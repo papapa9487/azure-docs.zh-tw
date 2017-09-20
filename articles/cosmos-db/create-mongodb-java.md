@@ -30,12 +30,12 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您必須具備下列必要條件，才能執行此範例：
-   * JDK 1.7+ (如果您沒有 JDK 則執行 `apt-get install default-jdk`)
-   * Maven (如果您沒有 Maven 則執行 `apt-get install maven`)
+您必須具備下列必要條件，才能執行此範例：
+* JDK 1.7+ (如果您沒有 JDK 則執行 `apt-get install default-jdk`)
+* Maven (如果您沒有 Maven 則執行 `apt-get install maven`)
 
-* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-* [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 

@@ -33,8 +33,6 @@
   items:
     - name: 管理裝置註冊
       href: how-to-manage-enrollments.md
-    - name: 使用 HSM 與 SDK
-      href: use-hsm-with-sdk.md
 - name: 參考
   items:
     - name: REST

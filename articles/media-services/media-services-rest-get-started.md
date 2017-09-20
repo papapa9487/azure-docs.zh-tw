@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: b5a852619300c0acad1ea21738921eaf1d2f59b4
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 731c32970941c6a3963dcb48bf03ee0f53e0c7af
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 08/12/2017
 
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>使用 REST 傳遞點播內容入門
@@ -54,7 +54,7 @@ ms.lasthandoff: 09/14/2017
 >[!NOTE]
 >對於不同的 AMS 原則 (例如 Locator 原則或 ContentKeyAuthorizationPolicy) 有 1,000,000 個原則的限制。 如果您一律使用相同的日期 / 存取權限，例如，要長時間維持就地 (非上載原則) 的定位器原則，您應該使用相同的原則識別碼。 如需詳細資訊，請參閱 [這個](media-services-dotnet-manage-entities.md#limit-access-policies) 主題。
 
-如需本主題中所用的 AMS REST 實體的詳細資訊，請參閱 [Azure 媒體服務 REST API 參考](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)。 此外，請參閱 [Azure 媒體服務概念](media-services-concepts.md)。
+如需本主題中所用的 AMS REST 實體的詳細資訊，請參閱 [Azure 媒體服務 REST API 參考](/rest/api/media/services/azure-media-services-rest-api-reference)。 此外，請參閱 [Azure 媒體服務概念](media-services-concepts.md)。
 
 >[!NOTE]
 >在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。

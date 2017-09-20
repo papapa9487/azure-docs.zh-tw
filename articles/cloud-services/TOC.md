@@ -60,7 +60,6 @@
 ### 設定自動調整
 #### [入口網站](cloud-services-how-to-scale-portal.md)
 #### [傳統入口網站](cloud-services-how-to-scale.md)
-#### [PowerShell](cloud-services-how-to-scale-powershell.md)
 ### [使用 Python 管理 Azure 資源](cloud-services-python-how-to-use-service-management.md)
 
 ### [客體 OS 修補程式](cloud-services-guestos-msrc-releases.md)

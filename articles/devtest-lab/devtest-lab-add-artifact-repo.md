@@ -54,7 +54,7 @@ ms.lasthandoff: 09/01/2017
 
 ### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>取得 Visual Studio Team Services 儲存機制複製 URL 和個人存取權杖
 
-1. 移至小組集合首頁 (例如 https://contoso-web-team.visualstudio.com)，然後選取專案。
+1. 移至小組集合首頁 (例如 https://contoso-web-team.visualstudio.com )，然後選取專案。
 2. 在專案首頁上，選取 [程式碼] 。
 3. 若要檢視複製 URL，可在專案 [程式碼] 頁面上，選取 [複製]。
 4. 儲存 URL。 稍後會用到該 URL。

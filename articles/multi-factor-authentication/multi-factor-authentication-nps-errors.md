@@ -3,7 +3,7 @@ title: "針對 Azure MFA NPS 擴充功能的錯誤碼進行移難排解 | Micros
 description: "針對常見錯誤訊息提供特定解決方案，協助您解決 Azure Multi-Factor Authentication NPS 擴充功能的相關問題"
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 173353d67772c2549aa1b8ec9f2a471bd1c65677
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 

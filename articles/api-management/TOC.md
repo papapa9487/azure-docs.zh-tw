@@ -11,8 +11,6 @@
 ### [新增作業](api-management-howto-add-operations.md)
 ### [建立 API](api-management-howto-create-apis.md)
 ### [匯入 API 定義](api-management-howto-import-api.md)
-### [開始使用修訂](api-management-get-started-revise-api.md)
-### [開始使用版本](api-management-get-started-publish-versions.md)
 ## 保護您的後端
 ### [使用 AAD 保護 Web API 後端](api-management-howto-protect-backend-with-aad.md)
 ### [連接到虛擬網路](api-management-using-with-vnet.md)

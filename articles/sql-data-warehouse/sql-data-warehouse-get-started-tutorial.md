@@ -142,7 +142,6 @@ SQL 資料倉儲是一種特殊類型的資料庫，其設計用來進行大量�
 
     ```sql
     CREATE LOGIN MedRCLogin WITH PASSWORD = 'a123reallySTRONGpassword!';
-    CREATE USER LoadingUser FOR LOGIN MedRCLogin;
     ```
 
 3. 現在查詢 *SQL 資料倉儲資料庫*，根據您建立用來對資料庫存取和執行作業的登入來建立資料庫使用者。

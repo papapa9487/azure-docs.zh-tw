@@ -1198,7 +1198,7 @@ Twitter 串流 API 使用 [OAuth](http://oauth.net/) 以授權要求。 使用 O
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
-[website-get-started]: ../app-service-web/app-service-web-get-started-dotnet.md
+[website-get-started]: ../app-service/app-service-web-get-started-dotnet.md
 
 
 

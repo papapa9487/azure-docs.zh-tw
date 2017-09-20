@@ -3,7 +3,7 @@ title: "設定 Azure MFA NPS 延伸模組 | Microsoft Docs"
 description: "安裝 NPS 延伸模組之後，請使用下列步驟進行進階設定，例如 IP 白名單和 UPN 取代。"
 services: multi-factor-authentication
 documentationcenter: 
-author: MicrosoftGuyJFlo
+author: kgremban
 manager: femila
 ms.assetid: 
 ms.service: multi-factor-authentication
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: joflore
+ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.translationtype: HT

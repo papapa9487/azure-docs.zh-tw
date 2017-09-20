@@ -166,7 +166,7 @@ IoT 中樞的裝置管理功能可讓您從解決方案入口網站管理裝置�
 [lnk-what-is-azure-iot]: iot-suite-what-is-azure-iot.md
 [lnk-asa]: https://azure.microsoft.com/documentation/services/stream-analytics/
 [lnk-event-processor]: ../event-hubs/event-hubs-programming-guide.md#event-processor-host
-[lnk-web-job]: ../app-service-web/web-sites-create-web-jobs.md
+[lnk-web-job]: ../app-service/web-sites-create-web-jobs.md
 [lnk-identity-registry]: ../iot-hub/iot-hub-devguide-identity-registry.md
 [lnk-predictive-maintenance]: iot-suite-predictive-overview.md
 [lnk-azureiotsuite]: https://www.azureiotsuite.com/

@@ -145,8 +145,6 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 複製之後，您可以使用群組原則編輯器來變更原則。
 
 ## <a name="next"></a>下一步
-<!-- [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md)  
-[Connect to on-premises SQL Server from Azure Web Apps](../app-service-web/web-sites-hybrid-connection-connect-on-premises-sql-server.md)    -->
 [混合式連線概觀](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>另請參閱

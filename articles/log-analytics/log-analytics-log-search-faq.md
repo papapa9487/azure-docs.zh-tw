@@ -123,7 +123,7 @@ ms.lasthandoff: 09/07/2017
 所有解決方案將會在升級的工作區中繼續運作，如果其轉換為新的查詢語言，將改善其效能。  本節中所述之現有解決方案目前已知存在問題。
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>已知問題：容量與效能解決方案
-[容量與效能] [](log-analytics-capacity.md)檢視中的某些部分可能是空白的。  近期內將提供此問題的修正。
+[容量與效能](log-analytics-capacity.md) 檢視中的某些部分可能是空白的。  近期內將提供此問題的修正。
 
 ### <a name="known-issue-device-health-solution"></a>已知問題：裝置健康情況解決方案
 [裝置健康情況解決方案](https://docs.microsoft.com/windows/deployment/update/device-health-monitor)不會收集升級工作區中的資料。  近期內將提供此問題的修正。
