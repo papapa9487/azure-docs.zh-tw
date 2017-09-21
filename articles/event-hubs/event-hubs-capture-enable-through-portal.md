@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/28/2017
 ms.author: sethm
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 5420c1cdefa99ff30320dd757e04aa0cafc792bc
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 4a4ab1ee022b6b33d35217df916d01f32e04d3a4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -44,24 +44,8 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>建立 Azure Data Lake Store 帳戶和資料夾
 
-1. 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) 中的指示，建立 Data Lake Store 帳戶。 
-2. 遵循[在 Azure Data Lake Store 帳戶中建立資料夾](../data-lake-store/data-lake-store-get-started-portal.md#createfolder)一節中的指示，在此帳戶下建立資料夾。
-3. 在 Data Lake Store 帳戶頁面中，按一下 [資料總管]。
-4. 按一下 [存取]。
-5. 按一下 [新增] 。
-6. 在 [依姓名或電子郵件搜尋] 方塊中輸入 **Microsoft.EventHubs**，然後選取此選項。 
-7. [權限] 索引標籤隨即出現。 設定權限，如下圖所示：
-
-    ![][6]
-
-8. 按一下 [確定] 。
-9. 現在，瀏覽至目標資料夾，然後按一下資料夾名稱，以在根資料夾中建立資料夾。
-10. 按一下 [存取]。
-11. 按一下 [新增] 。
-12. 在 [依姓名或電子郵件搜尋] 方塊中輸入 **Microsoft.EventHubs**，然後選取此選項。
-13. [權限] 索引標籤再次出現。 設定權限，如下圖所示：
-
-    ![][5]
+1. 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) 中的指示，建立 Data Lake Store 帳戶。
+2. 請依照[將權限指派給事件中樞](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs)一節中的指示，在您要從事件中樞擷取資料的 Data Lake Store 帳戶中建立資料夾，並將權限指派給事件中樞，以便將資料寫入 Data Lake Store 帳戶中。  
 
 ### <a name="create-an-event-hub"></a>建立事件中心
 
@@ -87,12 +71,11 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png
 [3]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture3.png
 [4]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture4.png
-[5]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture5.png
-[6]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture6.png
 
 ## <a name="next-steps"></a>後續步驟
 
 - 閱讀[事件中樞擷取概觀][capture-overview]，深入了解事件中樞擷取功能。
 - 您也可以透過 Azure Resource Manager 範本來設定事件中樞擷取。 如需詳細資訊，請參閱[使用 Azure Resource Manager 範本啟用擷取功能](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)。
+- [使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

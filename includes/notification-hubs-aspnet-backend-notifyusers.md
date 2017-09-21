@@ -1,38 +1,57 @@
 ## <a name="create-the-webapi-project"></a>建立 WebAPI 專案
-新的 ASP.NET WebAPI 後端將會在後續各節中建立，而且有三個主要用途：
+下面幾節討論如何建立新的 ASP.NET WebAPI 後端。 此程序有三個主要用途：
 
-1. **驗證用戶端**：稍後會加入訊息處理常式，以驗證用戶端要求並將使用者與要求產生關聯。
-2. **用戶端通知註冊**：之後，您將加入一個控制器來處理新的註冊，以便用戶端裝置接收通知。 經過驗證的使用者名稱會自動加入至註冊作為 [標記](https://msdn.microsoft.com/library/azure/dn530749.aspx)。
-3. **傳送通知給用戶端**：之後，您也會加入一個控制器，以便使用者對與標記相關聯的裝置和用戶端觸發安全的推播。 
+* **驗證用戶端**：您稍後可新增訊息處理常式，以驗證用戶端要求並將使用者與要求產生關聯。
 
-下列步驟說明如何建立新的 ASP.NET WebAPI 後端： 
+* **使用 WebAPI 後端註冊通知**：您可新增一個控制器來處理新的註冊，以便用戶端裝置接收通知。 經過驗證的使用者名稱會自動新增至註冊作為 [標記](https://msdn.microsoft.com/library/azure/dn530749.aspx)。
+
+* **傳送通知給用戶端**：您也可新增一個控制器，以便使用者對與標記相關聯的裝置和用戶端觸發安全的推播。 
+
+執行下列作業，建立新的 ASP.NET WebAPI 後端： 
 
 > [!IMPORTANT]
-> 如果您使用 Visual Studio 2015 或更新版本，在開始本教學課程之前，請確定您已安裝最新版本的 NuGet 套件管理員。 若要檢查版本，請啟動 Visual Studio。 在 [工具] 功能表中，按一下 [擴充功能和更新]。 搜尋您的 Visual Studio 版本適用的 **NuGet Package Manager**，然後確定您已安裝最新版本。 否則的話，請解除安裝，然後重新安裝 NuGet Package Manager。
-> 
-> ![][B4]
-> 
+> 如果您使用 Visual Studio 2015 或更新版本，在開始本教學課程之前，請確定您已安裝適用於 Visual Studio 的最新版 NuGet 套件管理員。 
+>
+>若要檢查版本，請啟動 Visual Studio。 在 [工具] 功能表上，選取 [擴充功能和更新]。 搜尋您的 Visual Studio 版本中的 **NuGet Package Manager**，然後確定您已安裝最新版本。 如果您的版本不是最新版本，請將它解除安裝，然後重新安裝 NuGet 套件管理員。
+ 
+![][B4]
+
 > [!NOTE]
 > 確定您已安裝 Visual Studio [Azure SDK](https://azure.microsoft.com/downloads/) 以供網站部署。
 > 
 > 
 
-1. 啟動 Visual Studio 或 Visual Studio Express。 按一下 [伺服器總管]  並登入您的 Azure 帳戶。 Visual Studio 將需要您登入，才能在您的帳戶上建立網站資源。
-2. 在 Visual Studio 中，依序按一下 [檔案]、[新增]、[專案]，展開 [範本]、[Visual C#]，再按一下 [Web] 和 [ASP.NET Web 應用程式]，輸入名稱 **AppBackend**，然後按一下 [確定]。 
-   
-    ![][B1]
-3. 在 [新增 ASP.NET 專案] 對話方塊中，按一下 [Web API]，然後按一下 [確定]。
-   
-    ![][B2]
-4. 在[設定 Microsoft Azure Web 應用程式] 對話方塊中，選擇訂用帳戶，和您已經建立的 [App Service 方案]。 您也可以選擇 [建立新的應用程式服務計劃]  ，並從對話方塊建立一個。 在此教學課程中您不需要資料庫。 一旦您選取您的應用程式服務計劃，按一下 [確定]  來建立專案。
-   
-    ![][B5]
+1. 啟動 Visual Studio 或 Visual Studio Express。 
 
-## <a name="authenticating-clients-to-the-webapi-backend"></a>向 WebAPI 後端驗證用戶端
-在本節中，您將為新的後端建立名為 **AuthenticationTestHandler** 新訊息處理常式類別。 這個類別衍生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 並加入為訊息處理常式，以便處理進入後端的所有要求。 
+2. 選取 [伺服器總管] ，然後登入您的 Azure 帳戶。 若要在您的帳戶上建立網站資源，您必須登入。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend] 專案，然後依序按一下 [新增] 和 [類別]。 將新類別命名為 **AuthenticationTestHandler.cs**，然後按一下 [新增] 以產生類別。 為了簡單起見，將使用此類別透過 *基本驗證* 驗證使用者。 請注意，您的應用程式可以使用任何驗證結構描述。
-2. 在 AuthenticationTestHandler.cs 中，加入下列 `using` 陳述式：
+3. 在 Visual Studio 中，選取 [檔案] > [新增] > [專案]，依序展開 [範本] 和 [Visual C#]，然後選取 [Web] 和 [ASP.NET Web 應用程式]。
+
+4. 在 [名稱] 方塊中，輸入 **AppBackend**，然後選取 [確定]。 
+   
+    ![[新增專案] 視窗][B1]
+
+5. 在 [新增 ASP.NET 專案] 視窗中，選取 [Web API] 核取方塊，然後選取 [確定]。
+   
+    ![[新增 ASP.NET 專案] 視窗][B2]
+
+6. 在 [設定 Microsoft Azure Web 應用程式] 視窗中，選取訂用帳戶，然後在 [App Service 方案] 清單中，執行下列其中一項：
+
+    * 選取您已建立的 App Service 方案。 
+    * 選取 [建立新的 App Service 方案]，然後建立一個新方案。 
+    
+  在此教學課程中您不需要資料庫。 在您選取 App Service 方案之後，選取 [確定]  來建立專案。
+   
+    ![[定 Microsoft Azure Web 應用程式] 視窗][B5]
+
+## <a name="authenticate-clients-to-the-webapi-back-end"></a>向 WebAPI 後端驗證用戶端
+在本節中，您會為新的後端建立名為 **AuthenticationTestHandler** 新訊息處理常式類別。 這個類別衍生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 並新增為訊息處理常式，以便處理進入後端的所有要求。 
+
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend] 專案，然後依序選取 [新增] 和 [類別]。 
+ 
+2. 將新類別命名為 **AuthenticationTestHandler.cs**，然後選取 [新增] 以產生類別。 為了簡單起見，此類別使用「基本驗證」來驗證使用者。 您的應用程式可以使用任何驗證結構描述。
+
+3. 在 AuthenticationTestHandler.cs 中，加入下列 `using` 陳述式：
    
         using System.Net.Http;
         using System.Threading;
@@ -41,19 +60,24 @@
         using System.Text;
         using System.Threading.Tasks;
 
-3. 在 AuthenticationTestHandler.cs 中，以下列程式碼取代 `AuthenticationTestHandler` 類別定義。 
+4. 在 AuthenticationTestHandler.cs 中，以下列程式碼取代 `AuthenticationTestHandler` 類別定義： 
    
-    下列三個條件都成立時，這個處理常式將授權要求：
+    下列三個條件都成立時，此處理常式將授權要求：
    
-   * 要求已包含 *授權* 標頭。 
+   * 要求包含「授權」標頭。 
    * 要求使用 *基本* 驗證。 
    * 使用者名稱字串和密碼字串是相同的字串。
      
-     否則，將會拒絕此要求。 這不是真正的驗證和授權方法。 這只是本教學課程中一個非常簡單的範例。
+  否則，將會拒絕此要求。 這不是真正的驗證和授權方法。 這只是本教學課程中一個非常簡單的範例。
      
-     如果要求訊息已經由 `AuthenticationTestHandler`驗證及授權，則基本驗證使用者會附加至 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx)上的目前要求。 之後另一個控制器 (RegisterController) 會使用 HttpContext 中的使用者資訊，將 [標記](https://msdn.microsoft.com/library/azure/dn530749.aspx) 新增至通知註冊要求。
+  如果要求訊息已經由 `AuthenticationTestHandler` 驗證及授權，則基本驗證使用者會附加至 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的目前要求。 稍後另一個控制器 (RegisterController) 會使用 HttpContext 中的使用者資訊，將 [標記](https://msdn.microsoft.com/library/azure/dn530749.aspx) 新增至通知註冊要求。
      
-       public class AuthenticationTestHandler : DelegatingHandler   {       protected override Task<HttpResponseMessage> SendAsync(       HttpRequestMessage request, CancellationToken cancellationToken)       {           var authorizationHeader = request.Headers.GetValues("Authorization").First();
+       public class AuthenticationTestHandler : DelegatingHandler
+       {
+           protected override Task<HttpResponseMessage> SendAsync(
+           HttpRequestMessage request, CancellationToken cancellationToken)
+           {
+               var authorizationHeader = request.Headers.GetValues("Authorization").First();
      
                if (authorizationHeader != null && authorizationHeader
                    .StartsWith("Basic ", StringComparison.InvariantCultureIgnoreCase))
@@ -96,29 +120,35 @@
        }
      
      > [!NOTE]
-     > **安全性注意事項`AuthenticationTestHandler`：** 類別未提供真正的驗證。 它僅可用於模仿基本驗證而且並不安全。 您必須在生產應用程式和服務中實作安全的驗證機制。                
+     > 安全性注意事項：`AuthenticationTestHandler` 類別未提供真正的驗證。 它僅可用於模仿基本驗證而且並不安全。 您必須在生產應用程式和服務中實作安全的驗證機制。                
      > 
      > 
-4. 在 **App_Start/WebApiConfig.cs** 類別中 `Register` 方法的結尾加入下列程式碼以註冊訊息處理常式：
+5. 若要註冊訊息處理常式，請在 **App_Start/WebApiConfig.cs** 類別中 `Register` 方法的結尾新增下列程式碼：
    
         config.MessageHandlers.Add(new AuthenticationTestHandler());
-5. 儲存您的變更。
 
-## <a name="registering-for-notifications-using-the-webapi-backend"></a>使用 WebAPI 後端註冊通知
-在本節中，我們會將新的控制器加入至 WebAPI 後端來處理要求，以使用通知中樞的用戶端程式庫，為使用者和裝置註冊通知。 控制器將會對已由 `AuthenticationTestHandler`驗證並附加至 HttpContext 的使用者，新增使用者標記。 此標記會有以下字串格式： `"username:<actual username>"`。
+6. 儲存您的變更。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend] 專案，然後按一下 [管理 NuGet 套件]。
-2. 按一下左側的 [線上]，並在 [搜尋] 方塊中搜尋 **Microsoft.Azure.NotificationHubs**。
-3. 按一下結果清單中的 [Microsoft Azure 通知中樞]，然後按一下 [安裝]。 請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
+## <a name="register-for-notifications-by-using-the-webapi-back-end"></a>使用 WebAPI 後端註冊通知
+在本節中，您會將新的控制器新增至 WebAPI 後端來處理要求，以使用通知中樞的用戶端程式庫為使用者和裝置註冊通知。 控制器會對已由 `AuthenticationTestHandler` 驗證並附加至 HttpContext 的使用者，新增使用者標記。 此標記會有以下字串格式： `"username:<actual username>"`。
+
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AppBackend] 專案，然後選取 [管理 NuGet 套件]。
+
+2. 在左窗格中，選取 [線上]，然後在 [搜尋] 方塊中輸入 **Microsoft.Azure.NotificationHubs**。
+
+3. 選取結果清單中的 [Microsoft Azure 通知中樞]，然後選取 [安裝]。 請完成安裝，然後關閉 [NuGet Package Manager] 視窗。
    
-    這會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 封裝</a>加入對 Azure 通知中樞 SDK 的參考。
-4. 我們現在將建立新的類別檔案，代表與用來傳送通知的通知中樞間的連接。 在 [方案總管] 中，於以滑鼠右鍵按一下 **Models** 資料夾上，按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **Notifications.cs**，然後按一下 [新增] 以產生類別。 
+    此動作會使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 套件</a>來新增對 Azure 通知中樞 SDK 的參考。
+
+4. 建立新的類別檔案，代表與用來傳送通知的通知中樞間的連線。 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，選取 [新增]，然後選取 [類別]。 將新類別命名為 **Notifications.cs**，然後選取 [新增] 以產生類別。 
    
-    ![][B6]
+    ![[新增項目] 視窗][B6]
+
 5. 在 Notifications.cs 中，將下列 `using` 陳述式新增在檔案頂端：
    
         using Microsoft.Azure.NotificationHubs;
-6. 以下列內容取代 `Notifications` 類別定義，並確定以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 傳統入口網站](http://manage.windowsazure.com)取代) 取代兩個預留位置：
+
+6. 以下列程式碼取代 `Notifications` 類別定義，並以通知中樞的連接字串 (含完整存取權) 和中心名稱 (可在 [Azure 傳統入口網站](http://manage.windowsazure.com)取代) 取代兩個預留位置：
    
         public class Notifications
         {
@@ -131,19 +161,25 @@
                                                                              "<hub name>");
             }
         }
-7. 接下來我們將建立名為 **RegisterController** 的新控制器。 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，然後按一下 [新增]，再按一下 [控制器]。 按一下 [Web API 2 控制器 -- 空白] 項目，然後按一下 [新增]。 將新類別命名為 **RegisterController**，然後再次按一下 [新增] 以產生控制器。
+7. 接下來，建立名為 **RegisterController** 的新控制器。 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]，然後選取 [控制器]。 
+
+8. 選取 [Web API 2 控制器 - 空的]，然後選取 [新增]。
    
-    ![][B7]
+    ![[新增 Scaffold] 視窗][B7]
    
-    ![][B8]
-8. 在 RegisterController.cs 中，加入下列 `using` 陳述式：
+9. 在 [控制器名稱] 方塊中，輸入 **RegisterController** 為新的類別命名，然後選取 [新增]。
+
+    ![[新增控制器] 視窗][B8]
+
+10. 在 RegisterController.cs 中，加入下列 `using` 陳述式：
    
         using Microsoft.Azure.NotificationHubs;
         using Microsoft.Azure.NotificationHubs.Messaging;
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-9. 在 `RegisterController` 類別定義中加入下列程式碼。 請注意，在此程式碼中，我們會為已附加至 HttpContext 的使用者新增使用者標記。 我們新增的訊息篩選器 `AuthenticationTestHandler`會驗證此使用者並附加至 HttpContext。 您也可以新增選擇性檢查，以驗證使用者是否有權註冊所要求的標籤。
+
+11. 在 `RegisterController` 類別定義中加入下列程式碼。 請注意，在此程式碼中，我們會為已附加至 HttpContext 的使用者新增使用者標記。 我們新增的訊息篩選器 `AuthenticationTestHandler` 會驗證此使用者並附加至 HttpContext。 您也可以新增選擇性檢查，以驗證使用者是否有權註冊所要求的標籤。
    
         private NotificationHubClient hub;
    
@@ -248,22 +284,24 @@
                     throw new HttpRequestException(HttpStatusCode.Gone.ToString());
             }
         }
-10. 儲存您的變更。
+12. 儲存您的變更。
 
-## <a name="sending-notifications-from-the-webapi-backend"></a>從 WebAPI 後端傳送通知
-在本節中，您會加入新的控制器，以便用戶端裝置使用 ASP.NET WebAPI 後端中的 Azure 通知中樞服務管理程式庫，根據使用者名稱標記傳送通知。
+## <a name="send-notifications-from-the-webapi-back-end"></a>從 WebAPI 後端傳送通知
+在本節中，您會新增控制器，以便用戶端裝置傳送通知。 此通知是以使用者名稱標記為基礎，其使用 ASP.NET WebAPI 後端中的 Azure 通知中樞服務管理程式庫。
 
-1. 建立另一個名為 **NotificationsController**的新控制器。 以您在上一節中建立 **RegisterController** 的相同方式來建立新控制器。
+1. 以您在上一節中建立 **RegisterController** 的相同方式，建立另一個名為 **NotificationsController**的新控制器。
+
 2. 在 NotificationsController.cs 中，加入下列 `using` 陳述式：
    
         using AppBackend.Models;
         using System.Threading.Tasks;
         using System.Web;
-3. 在 **NotificationsController** 類別中新增下列方法。
+
+3. 在 **NotificationsController** 類別中新增下列方法：
    
     此程式碼會傳送以平台通知服務 (PNS) `pns` 參數為基礎的通知類型。 `to_tag` 的值用來設定訊息上的 *username* 標記。 此標記必須符合作用中通知中樞註冊的使用者名稱標記。 通知訊息是取自 POST 要求主體，並針對目標 PNS 格式化。 
    
-    根據您的支援裝置用來接收通知的平台通知服務 (PNS)，使用不同的格式可支援不同的通知。 例如在 Windows 裝置上，您可以搭配 WNS 使用不受其他 PNS 直接支援的 [快顯通知](https://msdn.microsoft.com/library/windows/apps/br230849.aspx) 。 因此您的後端必須針對您想要支援的裝置 PNS，將通知格式化為支援的通知。 然後在 [NotificationHubClient 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)
+    視您的支援裝置用來接收通知的 PNS 而言，可支援各種格式的通知。 例如在 Windows 裝置上，您可以搭配 WNS 使用不受其他 PNS 直接支援的[快顯通知](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)。 在這類情況下，您的後端必須針對您打算支援的裝置 PNS，將通知格式化為支援的通知。 然後在 [NotificationHubClient 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx) 上使用適當的傳送 API。
    
         public async Task<HttpResponseMessage> Post(string pns, [FromBody]string message, string to_tag)
         {
@@ -306,18 +344,28 @@
    
             return Request.CreateResponse(ret);
         }
-4. 按 **F5** 鍵以執行應用程式，並確保工作到目前為止的準確性。 應用程式應即啟動網頁瀏覽器，並顯示 ASP.NET 首頁。 
 
-## <a name="publish-the-new-webapi-backend"></a>發佈新的 WebAPI 後端
-1. 為了可以從所有裝置存取此應用程式，我們現在可以將它部署到 Azure 網站。 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
-2. 選取 [Microsoft Azure App Service] 作為發佈目標，然後按一下 [發佈]。 這會開啟 [建立 App Service] 對話方塊，協助您建立在 Azure 中執行 ASP.NET Web 應用程式所需的 Azure 資源。
+4. 若要執行應用程式並確保工作到目前為止的準確性，請選取 **F5** 鍵。 應用程式會開啟網頁瀏覽器並顯示於 ASP.NET 首頁上。 
 
-    ![][B15]
-3. 在 [建立 App Service] 對話方塊中，選取您的 Azure 帳戶。 按一下 [變更類型] 並選取 [Web 應用程式]。 保留指定的 [Web 應用程式名稱] 並選取 [訂用帳戶]、[資源群組] 和 [App Service 方案]。  按一下 [建立] 。
+## <a name="publish-the-new-webapi-back-end"></a>發佈新的 WebAPI 後端
+接下來，您可將應用程式部署到 Azure 網站，讓它得以從所有裝置存取。 
 
-4. 記下 [摘要] 區段中的 [網站 URL] 屬性。 我們後續將在本教學課程中參考此 URL 作為您的 *後端端點* 。 按一下 [發行] 。
+1. 以滑鼠右鍵按一下 **AppBackend** 專案，然後選取 [發佈]。
 
-5. 精靈完成後，它會將 ASP.NET Web 應用程式發佈至 Azure，然後在預設瀏覽器中啟動該應用程式。  您的應用程式將可在 Azure App Service 中檢視。
+2. 選取 [Microsoft Azure App Service] 作為發佈目標，然後選取 [發佈]。  
+    [建立 App Service] 視窗隨即開啟。 您可以在此建立在 Azure 中執行 ASP.NET Web 應用程式所需的所有 Azure 資源。
+
+    ![[Microsoft Azure App Service] 圖格][B15]
+
+3. 在 [建立 App Service] 視窗中，選取您的 Azure 帳戶。 選取 [變更類型] > [Web 應用程式]。 保留預設 [Web 應用程式名稱]，然後選取 [訂用帳戶]、[資源群組] 和 [App Service 方案]。 
+
+4. 選取 [ **建立**]。
+
+5. 記下 [摘要] 區段中的 [網站 URL] 屬性。 此 URL 是您在本教學課程中稍後使用的「後端端點」。 
+
+6. 選取 [發佈] 。
+
+精靈完成後，它會將 ASP.NET Web 應用程式發佈至 Azure，然後在預設瀏覽器中開啟應用程式。  您的應用程式可在 Azure App Service 中檢視。
 
 URL 會使用您稍早指定的 Web 應用程式名稱，其格式為 http://<app_name>.azurewebsites.net。
 

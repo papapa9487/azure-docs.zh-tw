@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/11/2017
+ms.date: 09/07/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 121b5d8f023a9b663d0e7af26dce8f81db27672c
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: d7aa8544f50b42bacfa1e1f16fdce468d8fc81ef
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure 資訊安全中心的警示驗證
@@ -35,12 +35,15 @@ ms.lasthandoff: 08/12/2017
 3. 開啟命令提示字元並使用引數 (只是假的引數名稱) 執行此檔案，例如：ASC_AlertTest_662jfi039N.exe -foo
 4. 等待 5 到 10 分鐘，然後開啟安全性中心警示。 您應可找到如下所示的警示：
 
-    ![警示驗證](./media/security-center-alert-validation/security-center-alert-validation-fig1.png)
+    ![警示驗證](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
 
 檢閱此警示時，請確定 [啟用引數稽核] 欄位顯示為 true。 如果顯示為 false，您必須啟用命令列引數稽核。 您可以使用下列命令列來啟用這個選項：
 
 *reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
 
+
+> [!NOTE]
+> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看這項功能的示範。 
 
 ## <a name="see-also"></a>另請參閱
 本文介紹警示驗證程序。 現在，您已熟悉此驗證，請嘗試下列文章︰

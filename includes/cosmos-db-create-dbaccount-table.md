@@ -28,4 +28,4 @@
 
 6.  當部署完成時，從 [所有資源] 圖格開啟新的帳戶。 
 
-    ![[所有資源] 圖格上的 DocumentDB 帳戶](./media/cosmos-db-create-dbaccount-table/all-resources.png)
+    ![[所有資源] 圖格上的 Azure Cosmos DB 帳戶](./media/cosmos-db-create-dbaccount-table/all-resources.png)

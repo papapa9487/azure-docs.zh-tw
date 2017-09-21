@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 5553bcb8f9fd38630f694151dc644a684266387c
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>使用 Azure API 管理以頻率限制保護 API
@@ -148,7 +148,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 </quota>
 ```
 
-與 [設定每個訂用帳戶的使用量配額] 原則類似，[設定每個訂用帳戶的使用量配額] 原則允許設定產品的 API 和作業上限。 我們不會在本教學課程中使用該功能，因此請將 **quota** 元素中的 **api** 和 **operation** 元素刪除，如以下範例所示。
+與 [限制每個訂用帳戶的呼叫頻率] 原則類似，[設定每個訂用帳戶的使用量配額] 原則允許設定產品的 API 和作業上限。 我們不會在本教學課程中使用該功能，因此請將 **quota** 元素中的 **api** 和 **operation** 元素刪除，如以下範例所示。
 
 ```xml
 <quota calls="number" bandwidth="kilobytes" renewal-period="seconds">

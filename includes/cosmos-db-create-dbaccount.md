@@ -16,7 +16,7 @@
     設定|建議的值|說明
     ---|---|---
     ID|唯一值|可識別此 Azure Cosmos DB 帳戶的唯一名稱。 因為 documents.azure.com 會附加到您所提供的識別碼以建立 URI，請使用可供辨識的唯一識別碼。 識別碼只能包含小寫字母、數字及連字號 (-) 字元，且必須包含 3 到 50 個字元。
-    API|SQL (DocumentDB)|在本文稍後，我們會針對 [DocumentDB API](../articles/documentdb/documentdb-introduction.md) 來進行程式設計。|
+    API|SQL (DocumentDB)|在本文稍後，我們會針對 [DocumentDB API](../articles/cosmos-db/documentdb-introduction.md) 來進行程式設計。|
     訂用帳戶|*您的訂用帳戶*|您要用於此 Azure Cosmos DB 帳戶的 Azure 訂用帳戶。 
     資源群組|與識別碼相同的值|您帳戶的新資源群組名稱。 為求簡化，您可以使用和識別碼相同的名稱。 
     位置|最接近使用者的區域|用來主控 Azure Cosmos DB 帳戶的地理位置。 請選擇最接近使用者的位置，以便他們能以最快速度存取到資料。
@@ -27,5 +27,5 @@
 
 6.  當 [通知] 視窗表示部署成功時，請關閉 [通知] 視窗並從儀表板上的 [所有資源] 圖格開啟新的帳戶。 
 
-    ![[所有資源] 圖格上的 DocumentDB 帳戶](./media/cosmos-db-create-dbaccount/all-resources.png)
+    ![[所有資源] 圖格上的 Azure Cosmos DB 帳戶](./media/cosmos-db-create-dbaccount/all-resources.png)
  

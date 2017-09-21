@@ -15,18 +15,18 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/21/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: ad4330a1fc7f8de154d9aaa8df3acc2ab59b9dc1
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>在 Azure HDInsight 中建立 Apache Spark 叢集
 
-本文說明如何在 Azure HDInsight 中建立 Apache Spark 叢集。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)。
+本文說明如何在 Azure HDInsight 中建立 Apache Spark 叢集，然後在 Hive 資料表上執行 Spark SQL 查詢。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](hdinsight-apache-spark-overview.md)。
 
    ![描述在 Azure HDInsight 上建立 Apache Spark 叢集之步驟的快速入門圖表](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-quickstart-interactive-spark-query-flow.png "在 HDInsight 中使用 Apache Spark 的 Spark 快速入門。說明的步驟︰建立叢集；執行 Spark 互動式查詢")
 
@@ -65,9 +65,15 @@ ms.lasthandoff: 07/24/2017
 >
 >
 
-## <a name="run-a-hive-query-using-spark-sql"></a>執行使用 Spark SQL 的 Hive 查詢
+## <a name="run-spark-sql-statements-on-a-hive-table"></a>在 Hive 資料表上執行 Spark SQL 陳述式
 
-當您使用針對 HDInsight Spark 叢集設定的 Jupyter Notebook 時，您可取得預設 `sqlContext`，用來執行使用 Spark SQL 的 Hive 查詢。 本節說明如何啟動 Jupyter Notebook，然後執行基本 Hive 查詢。
+SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查詢及定義資料。 Spark 的創立者想要充分利用這項知識，向更多分析師觀眾開放知名的查詢語言，以便他們使用 Hadoop 分散式檔案系統 (HDFS) 上存留的資料。 Spark SQL 就是該供應項目。 它可作為 Apache Spark 的擴充功能，可讓您使用熟悉的 SQL 語法來處理結構化資料。
+
+Spark SQL 支援 SQL 和 HiveQL 查詢語言。 其功能包括 Python、Scala 和 Java 繫結。 您可以透過它，查詢儲存在許多位置的資料，例如外部資料庫、結構化資料檔案 (範例：JSON) 和 Hive 資料表。
+
+### <a name="running-spark-sql-on-an-hdinsight-cluster"></a>在 HDInsight 叢集上執行 Spark SQL
+
+當您使用針對 HDInsight Spark 叢集設定的 Jupyter Notebook 時，您可取得預設 `sqlContext`，用來執行使用 Spark SQL 的 Hive 查詢。 本節說明如何啟動 Jupyter Notebook，然後在現有的 Hive 資料表上執行適用於所有 HDInsight 叢集的基本 Spark SQL 查詢 (**hivesampletable**)。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -87,13 +93,13 @@ ms.lasthandoff: 07/24/2017
    >
 3. 建立 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
 
-   ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
+   ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
    新的 Notebook 隨即建立並以 Untitled(Untitled.pynb) 名稱開啟。
 
 4. 按一下頂端的 Notebook 名稱，然後輸入好記的名稱。
 
-    ![為要執行互動式 Spark 查詢的 Jupter Notebook 命名](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "為要執行互動式 Spark 查詢的 Jupter Notebook 命名")
+    ![為要執行互動式 Spark 查詢的 Jupyter Notebook 命名](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-jupyter-notebook-name.png "為要執行互動式 Spark 查詢的 Jupyter Notebook 命名")
 
 5.  將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵以執行此程式碼。 在以下程式碼中，`%%sql` (稱為 sql magic) 會告知 Jupyter Notebook 使用預設的 `sqlContext` 來執行 Hive 查詢。 此查詢會擷取 Hive 資料表 (**hivesampletable**) 中的前 10 個資料列，該資料表預設可用於所有 HDInsight 叢集上。
 
@@ -117,7 +123,7 @@ ms.lasthandoff: 07/24/2017
 
 8. 如果您打算稍後完成後續步驟，請務必刪除在本文中建立的 HDInsight 叢集。 
 
-    [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
+[!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 ## <a name="next-step"></a>後續步驟 
 

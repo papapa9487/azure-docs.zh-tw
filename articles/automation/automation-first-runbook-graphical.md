@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 9d4b28416376482247127698bec7c99b83308885
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一個圖形化 Runbook
@@ -29,17 +28,17 @@ ms.lasthandoff: 05/18/2017
 > * [圖形化](automation-first-runbook-graphical.md)
 > * [PowerShell](automation-first-runbook-textual-powershell.md)
 > * [PowerShell 工作流程](automation-first-runbook-textual.md)
-> 
+> * [Python](automation-first-runbook-textual-python2.md)
 > 
 
 本教學課程將逐步引導您在 Azure 自動化中建立 [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 。  我們先從測試和發佈的簡單 Runbook 開始，同時說明如何追蹤 Runbook 作業的狀態。  接著我們會修改 Runbook 以實際管理 Azure 資源，在此情況下會啟動 Azure 虛擬機器。  接著我們會新增 Runbook 參數和條件式連結，讓 Runbook 更加穩固，藉此完成本教學課程。
 
 ## <a name="prerequisites"></a>必要條件
-若要完成本教學課程，您需要下列項目。
+若要完成此教學課程，您需要下列項目：
 
-* Azure 訂用帳戶。  如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益<a href="/pricing/free-account/" target="_blank">或](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)[註冊免費帳戶](https://azure.microsoft.com/free/)。
-* [Azure 自動化帳戶](automation-sec-configure-azure-runas-account.md)，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
-* Azure 虛擬機器。  我們將會停止並啟動這台電腦，因此它不應該是生產環境。
+* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* [自動化帳戶](automation-offering-get-started.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
+* Azure 虛擬機器。 我們會停止並啟動這部電腦，因此它不該是生產 VM。
 
 ## <a name="step-1---create-runbook"></a>步驟 1 - 建立 Runbook
 我們會由建立一個可輸出文字 Hello World 的簡單 Runbook 開始。

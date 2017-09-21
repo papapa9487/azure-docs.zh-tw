@@ -8,7 +8,7 @@
 | [佇列和主題](../articles/azure-functions/functions-bindings-service-bus.md) |Azure 服務匯流排 |✔ | |✔ |  
 | [儲存體資料表](../articles/azure-functions/functions-bindings-storage-table.md) |Azure 儲存體 | |✔ |✔ |  
 | [SQL 資料表](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
-| [No-SQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure DocumentDB | |✔ |✔ |  
+| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB | |✔ |✔ |  
 | [推播通知](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure 通知中心 | | |✔ |  
 | [Twilio 簡訊文字](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 | [SendGrid 電子郵件](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 6eadfb0c3f91c1f2c7783d70604b45d5dc9912a3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 85ae54f76fff47b16d7a365ccee87866d0424f82
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -47,7 +47,8 @@ ms.lasthandoff: 08/19/2017
 2. 按一下 [新增] 。<br><br> ![在 Azure 入口網站中選取 [新增] 選項](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 3. 搜尋**自動化**，然後在搜尋結果中選取 [自動化與控制]*。<br><br> ![在 Marketplace 中搜尋並選取自動化](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)<br> 
 3. 在 [自動化帳戶] 刀鋒視窗中，按一下 [新增]。<br><br>![加入自動化帳戶](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
-   
+
+
    > [!NOTE]
    > 如果您在 [新增自動化帳戶] 刀鋒視窗中看到下列警告，這是因為您的帳戶不是訂用帳戶管理員角色的成員和訂用帳戶的共同管理員。<br><br>![加入自動化帳戶警告](media/automation-create-standalone-account/create-account-without-perms.png)
    > 
@@ -72,6 +73,7 @@ ms.lasthandoff: 08/19/2017
 | --- | --- |
 | AzureAutomationTutorial Runbook |此為圖形化 Runbook 範例，示範如何使用執行身分帳戶進行驗證以及取得所有 Resource Manager 資源。 |
 | AzureAutomationTutorialScript Runbook |此為 PowerShell Runbook 範例，示範如何使用執行身分帳戶進行驗證以及取得 Resource Manager 資源。 |
+| AzureAutomationTutorialPython2 Runbook |此為 python Runbook 範例，示範如何使用「執行身分帳戶」進行驗證，然後列出指定的訂用帳戶中存在的資源群組。 |
 | AzureRunAsCertificate |在建立自動化帳戶期間自動建立，或使用下列適用於現有帳戶的 PowerShell 指令碼建立的憑證資產。  它可讓您向 Azure 進行驗證，以便從 Runbook 管理 Azure Resource Manager 資源。  此憑證有一年的有效期。 |
 | AzureRunAsConnection |在建立自動化帳戶期間自動建立，或使用下列適用於現有帳戶的 PowerShell 指令碼建立的連線資產。 |
 
@@ -89,3 +91,5 @@ ms.lasthandoff: 08/19/2017
 * 若要深入了解圖形化編寫，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。
 * 若要開始使用 PowerShell Runbook，請參閱[我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)。
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)。
+* 若要開始使用 Python2 Runbook，請參閱[我的第一個 Python2 Runbook](automation-first-runbook-textual-python2.md)。
+

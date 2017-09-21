@@ -1,6 +1,6 @@
 ---
-title: "註冊 Azure Active Directory Premium"
-description: "說明如何註冊 Azure Active Directory Premium 版本。"
+title: "註冊 Azure Active Directory Premium | Microsoft Docs"
+description: "說明如何註冊 Azure Active Directory Premium 版本"
 services: active-directory
 documentationcenter: 
 author: curtand
@@ -11,21 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 09/07/2017
 ms.author: curtand
+ms.reviewer: piotrci
 ms.custom: it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: fe9f4fa6f776a0c2edb572d0526c7520d1c1c7a0
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 4b86ececefd3724b9e7791d2609b146de052f605
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>快速入門：註冊 Azure Active Directory Premium
-若要開始使用 Azure Active Directory (Azure AD) Premium，您需要購買授權並將其與您的 Azure 訂用帳戶建立關聯。 如果您建立新的 Azure 訂用帳戶，您也需要啟用您的授權方案及 Azure AD 服務存取，如下列各節所述。 
+若要開始使用 Azure Active Directory (Azure AD) Premium，您可以購買授權並將其與您的 Azure 訂用帳戶建立關聯。 如果您建立新的 Azure 訂用帳戶，您也需要啟用您的授權方案及 Azure AD 服務存取，如下列各節所述。 
 
 ## <a name="sign-up-for-active-directory-premium"></a>註冊 Active Directory Premium
 若要註冊 Active Directory Premium，您有數個選項︰ 
+* 使用 Azure 或 Office 365 訂用帳戶
+* 使用 Enterprise Mobility + Security 授權方案
+* 使用 Microsoft 大量授權方案
 
 ### <a name="azure-or-office-365"></a>Azure 或 Office 365 
 身為 Azure 或 Office 365 訂閱者，您可以線上購買 Azure Active Directory Premium。 
@@ -48,10 +52,8 @@ Azure Active Directory Premium 可透過 [Microsoft Enterprise 合約](https://w
 
 > [!NOTE]
 > Azure Active Directory Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。 由 21Vianet 在中國提供的 Microsoft Azure 服務目前不支援 Azure Active Directory Premium 和 Basic 版本。 如需詳細資訊，請透過 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)與我們連絡。
-> 
-> 
 
-如果您先前已針對在前述步驟中使用的相同 Azure 訂用帳戶購買並啟用 Azure AD 授權，這些授權就會自動在相同的目錄中啟用。 您不需要繼續進行本文其餘部分所述的步驟。
+如果您先前已針對在前述步驟中使用的相同 Azure 訂用帳戶購買並啟用 Azure AD 授權，這些授權就會自動在相同的目錄中啟用。 若非如此，請繼續進行本文其餘部分所述的步驟。
 
 ## <a name="activate-your-license-plan"></a>啟用您的授權方案
 這是您向 Microsoft 購買的第一個 Azure AD 授權方案嗎？ 若是如此，系統會在購買完成時產生確認電子郵件並傳送給您。 您必須透過這封電子郵件才能啟用您的第一個授權方案。
@@ -62,7 +64,7 @@ Azure Active Directory Premium 可透過 [Microsoft Enterprise 合約](https://w
    
     ![Sign in][1]
 
-    - 如果您有現有的租用戶，請按一下 [登入]  以使用現有的系統管理員帳戶登入。 使用目錄的全域管理員認證進行登入，且目錄必須已啟用授權。
+    - 如果您有現有的租用戶，請按一下 [登入]  以使用現有的系統管理員帳戶登入。 使用租用戶的全域管理員認證進行登入，且租用戶必須已啟用授權。
 
     - 如果您想要建立新的 Azure AD 租用戶來與您的授權方案搭配使用，請按一下 [註冊] 以開啟 [建立帳戶設定檔] 對話方塊。
 

@@ -61,7 +61,7 @@ Microsoft Azure IoT 套件會充分利用內建於 Azure 平台的安全性和�
 
 一旦資料位於雲端之後，它就能進行處理並儲存於任何使用者定義的工作流程中。 存取資料的每個部分是根據所用的儲存體服務，透過 Azure Active Directory 來控制。
 
-IoT 基礎結構所使用的所有金鑰會儲存於雲端的安全儲存體中，並具備變換能力，以防萬一金鑰需要重新佈建。 資料可以儲存在 [DocumentDB](../articles/documentdb/documentdb-introduction.md) 或 [SQL Database](../articles/sql-database/sql-database-faq.md) 中，啟用所需的安全性層級的定義。 此外，Azure 提供一種方式來監視和稽核資料的所有存取，以提醒您有任何入侵或未經授權的存取。
+IoT 基礎結構所使用的所有金鑰會儲存於雲端的安全儲存體中，並具備變換能力，以防萬一金鑰需要重新佈建。 資料可以儲存在 [Azure Cosmos DB](../articles/cosmos-db/introduction.md) 或 [SQL Database](../articles/sql-database/sql-database-faq.md) 中，讓您能夠定義所需的安全性層級。 此外，Azure 提供一種方式來監視和稽核資料的所有存取，以提醒您有任何入侵或未經授權的存取。
 
 ## <a name="conclusion"></a>結論
 物聯網是從您的事物開始 — 對企業最重要的事物。 IoT 可以藉由降低成本、提高營收，並使企業轉型，為企業提供令人讚嘆的價值。 這個轉型的成功，多半取決於選擇正確的 IoT 軟體和服務提供者。 這表示尋找提供者，其不僅可藉由了解企業需要與需求來催化這個轉型，也會提供使用安全性、隱私權、透明度及相容性建置的服務和軟體做為主要設計考量。 Microsoft 具備開發和部署安全軟體和服務的豐富經驗，並持續在這個新的物聯網紀元中保持領先的地位。 
@@ -72,7 +72,7 @@ Microsoft Azure IoT 套件根據設計會建置安全性措施，啟用安全的
 每個 Azure IoT 套件的預先設定解決方案都會建立 Azure 服務的執行個體，如下所示︰
 
 * [**Azure IoT 中樞**](https://azure.microsoft.com/services/iot-hub/)：將雲端連接到「事物」的閘道。 您可以調整為每個中樞有百萬個連接，並利用每一裝置驗證支援來處理大量資料，以協助保護您的解決方案。
-* [**Azure DocumentDB**](https://azure.microsoft.com/services/documentdb/)：可調整且已完全編製索引的資料庫服務，適用於半結構化資料，可管理您所佈建裝置的中繼資料，例如，屬性、組態及安全性內容。 DocumentDB 提供高效能且高輸送量的處理、無從驗證結構描述且編製索引的資料，以及豐富的 SQL 查詢介面。
+* [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/)：一個適用於半結構化資料的可調整、已完全編製索引的資料庫服務，可管理您所佈建裝置的中繼資料，例如屬性、組態及安全性屬性。 Azure Cosmos DB 提供高效能且高輸送量的處理、無從驗證結構描述的資料索引編製，以及豐富的 SQL 查詢介面。
 * [**Azure 串流分析**](https://azure.microsoft.com/services/stream-analytics/)：雲端中處理的即時串流讓您能夠快速開發並部署低成本的分析方案，以在第一時間提供裝置、感應器、基礎結構與應用程式的深入剖析資料。 來自這個完全受管理服務的資料可調整為任何數量，但仍可達到高輸送量、低遲性和恢復功能。
 * [**Azure App Service**](https://azure.microsoft.com/services/app-service/)：一個雲端平台，可供建置功能強大的 Web 和行動應用程式來連接各地的資料；不論是在雲端還是內部部署環境內。 建置吸引客戶參與的 iOS、Android 和 Windows 版行動應用程式。 與軟體即服務 (SaaS) 和企業應用程式整合，讓您能夠立即連線到數十種雲端服務和企業應用程式。 使用您愛用的語言 (.NET、Node.JS、PHP、Python 或 Java) 和整合式開發環境 (IDE) 撰寫程式碼，以前所未有的速度建置 Web 應用程式和 API。
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/)：Azure App Service 的 Logic Apps 功能可協助您將 IoT 方案整合到現有的企業營運系統並自動化工作流程。 Logic Apps 可讓開發人員設計從觸發程序開始，然後執行一系列步驟的工作流程 — 使用功能強大的連接器來與您的商務程序整合的規則和動作。 Logic Apps 提供與 SaaS、雲端架構及內部部署應用程式的廣大生態系統的即時連接。

@@ -13,10 +13,10 @@ manager: timlt
 ms.devlang: na
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 519ea43bfaa9d61de6ff962d838c197eb9e4edc0
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 09/07/2017
 
 2. 在裝置佈建服務摘要刀鋒視窗上，選取 [連結的 IoT 中樞]。 按一下位於頂端的 [+ 新增] 按鈕。 
 
-3. 在 [將連結新增至 IoT 中樞或集區] 入口網站刀鋒視窗中，選取目前的訂用帳戶，或輸入其他訂用帳戶的名稱和連接字串。 選取 [IoT 中樞] 作為 [資源類型]，並從下拉式清單中選取中樞名稱。 完成時，按一下 [儲存]。 
+3. 在 [將連結新增至 IoT 中樞] 入口網站刀鋒視窗中，選取目前的訂用帳戶，或輸入其他訂用帳戶的名稱和連接字串。 從下拉式清單中選取中樞的名稱。 完成時，按一下 [儲存]。 
 
     ![將中樞名稱連結到入口網站刀鋒視窗中的 DPS 執行個體](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 

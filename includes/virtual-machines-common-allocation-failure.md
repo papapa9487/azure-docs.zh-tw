@@ -1,48 +1,34 @@
 
 若本文中未提及您的 Azure 問題，請前往 [MSDN 及 Stack Overflow 上的 Azure 論壇](https://azure.microsoft.com/support/forums/)。 您可以在這些論壇上張貼您的問題，或將問題貼到 Twitter 上的 @AzureSupport。 此外，您也可以選取 [Azure 支援](https://azure.microsoft.com/support/options/)網站上的 [取得支援]，來提出 Azure 支援要求。
 
-<a id="general-troubleshooting-steps" class="xliff"></a>
-
-## 一般疑難排解步驟
-<a id="troubleshoot-common-allocation-failures-in-the-classic-deployment-model" class="xliff"></a>
-
-### 疑難排解傳統部署模型中常見的配置失敗
+## <a name="general-troubleshooting-steps"></a>一般疑難排解步驟
+### <a name="troubleshoot-common-allocation-failures-in-the-classic-deployment-model"></a>疑難排解傳統部署模型中常見的配置失敗
 這些步驟可協助解決虛擬機器中的許多配置失敗：
 
 * 將 VM 調整為不同的大小。<br>
-   按一下 **[全部瀏覽]** >  **[虛擬機器 (傳統)]** > 您的虛擬機器 > **[設定]** >  **[大小]**。 如需詳細步驟，請參閱 [調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
+    按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的虛擬機器 > [設定] > [大小]。 如需詳細步驟，請參閱 [調整虛擬機器的大小](https://msdn.microsoft.com/library/dn168976.aspx)。
 * 從雲端服務刪除所有 VM，然後重新建立 VM。<br>
-   按一下 **[全部瀏覽]** >  **[虛擬機器 (傳統)]** > 您的虛擬機器 > **[刪除]**。 然後，按一下 [新增]  >  [計算] > [虛擬機器映像]。
+    按一下 [全部瀏覽] > [虛擬機器 (傳統)] > 您的虛擬機器 > [刪除]。 然後，按一下 [新增]  >  [計算] > [虛擬機器映像]。
 
-<a id="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model" class="xliff"></a>
-
-### 疑難排解 Azure 資源管理員部署模型中常見的配置失敗
+### <a name="troubleshoot-common-allocation-failures-in-the-azure-resource-manager-deployment-model"></a>疑難排解 Azure 資源管理員部署模型中常見的配置失敗
 這些步驟可協助解決虛擬機器中的許多配置失敗：
 
 * 停止 (解除配置) 相同可用性設定組中的所有 VM，然後重新啟動每一部 VM。<br>
-   若要停止，請按一下 **[資源群組]** > 您的資源群組 > **[資源]** > 您的可用性設定組 > **[虛擬機器]** > 您的虛擬機器 > **[停止]**。
+    若要停止，請按一下 [資源群組] > 您的資源群組 > [資源] > 您的可用性設定組 > [虛擬機器] > 您的虛擬機器 > [停止]。
   
     所有 VM 都停止之後，請選取第一個 VM，然後按一下 [啟動] 。
 
-<a id="background-information" class="xliff"></a>
-
-## 背景資訊
-<a id="how-allocation-works" class="xliff"></a>
-
-### 配置的運作方式
+## <a name="background-information"></a>背景資訊
+### <a name="how-allocation-works"></a>配置的運作方式
 Azure 資料中心的伺服器分割成叢集。 通常會嘗試向多個叢集提出配置要求，但配置要求可能帶有某些條件約束，而強制 Azure 平台只嘗試向一個叢集提出要求。 在本文中，這種情況稱為「釘選到叢集」。 下圖 1 說明於嘗試向多個叢集提出一般配置的情況。 圖 2 說明釘選到叢集 2 的配置案例，因為叢集 2 是現有雲端服務 CS_1 或可用性設定組的裝載位置。
 ![配置圖表](./media/virtual-machines-common-allocation-failure/Allocation1.png)
 
-<a id="why-allocation-failures-happen" class="xliff"></a>
-
-### 配置失敗的原因
+### <a name="why-allocation-failures-happen"></a>配置失敗的原因
 當配置要求已釘選到叢集時，由於可用的資源集區較小，很可能找不到可用的資源。 此外，如果配置要求已釘選到叢集，但該叢集不支援您所要求的資源類型，即使叢集有可用的資源，您的要求仍會失敗。 下圖 3 說明由於唯一候選叢集沒有可用的資源，導致已釘選的配置失敗的情況。 圖 4 說明因唯一候選叢集不支援所要求的 VM 大小 (雖然叢集有可用的資源)，而導致已釘選的配置失敗的情況。
 
 ![釘選配置失敗](./media/virtual-machines-common-allocation-failure/Allocation2.png)
 
-<a id="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model" class="xliff"></a>
-
-## 傳統部署模型中的詳細疑難排解步驟特定配置失敗案例
+## <a name="detailed-troubleshoot-steps-specific-allocation-failure-scenarios-in-the-classic-deployment-model"></a>傳統部署模型中的詳細疑難排解步驟特定配置失敗案例
 以下是造成釘選配置要求的常見配置案例。 我們將在本文稍後深入探討每一個案例。
 
 * 調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
@@ -66,9 +52,7 @@ Azure 資料中心的伺服器分割成叢集。 通常會嘗試向多個叢集�
 > 
 > 
 
-<a id="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service" class="xliff"></a>
-
-## 配置案例：調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-or-role-instances-to-an-existing-cloud-service"></a>配置案例：調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
 **Error**
 
 Upgrade_VMSizeNotSupported 或 GeneralError
@@ -83,9 +67,7 @@ Upgrade_VMSizeNotSupported 或 GeneralError
 
 如果錯誤是 GeneralError*，很可能是叢集支援資源的類型 (例如特定的 VM 大小)，但叢集目前沒有可用的資源。 類似上述案例，透過建立新的雲端服務 (請注意，新的雲端服務必須使用不同的 VIP) 新增所需的計算資源，並使用區域虛擬網路連接您的雲端服務。
 
-<a id="allocation-scenario-restart-partially-stopped-deallocated-vms" class="xliff"></a>
-
-## 配置案例：重新啟動已部分停止 (已取消配置) 的 VM
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>配置案例：重新啟動已部分停止 (已取消配置) 的 VM
 **錯誤**
 
 GeneralError*
@@ -101,9 +83,7 @@ GeneralError*
 * 如果現有的雲端服務使用區域虛擬網路，只要將新的雲端服務加入至相同的虛擬網路即可。
 * 如果現有的雲端服務不使用區域虛擬網路，請為新的雲端服務建立新的虛擬網路，然後將 [現有的虛擬網路連接到新的虛擬網路](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/)。 深入了解 [區域虛擬網路](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/)。
 
-<a id="allocation-scenario-restart-fully-stopped-deallocated-vms" class="xliff"></a>
-
-## 配置案例：重新啟動已完全停止 (已取消配置) 的 VM
+## <a name="allocation-scenario-restart-fully-stopped-deallocated-vms"></a>配置案例：重新啟動已完全停止 (已取消配置) 的 VM
 **錯誤**
 
 GeneralError*
@@ -116,12 +96,10 @@ GeneralError*
 
 如果可接受使用不同的 VIP，請刪除原始已停止 (已取消配置) 的 VM (但保留相關聯的磁碟)，並刪除對應的雲端服務 (已停止 (已取消配置) VM 時，就已釋放相關聯的計算資源)。 建立新的雲端服務以加回 VM。
 
-<a id="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only" class="xliff"></a>
+## <a name="allocation-scenario-stagingproduction-deployments-platform-as-a-service-only"></a>配置案例：預備/生產環境部署 (僅適用於平台即服務)
+**錯誤**
 
-## 配置案例：預備/生產環境部署 (僅適用於平台即服務)
-**Error**
-
-New_General *或 New_VMSizeNotSupported*
+New_General* 或 New_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
@@ -131,12 +109,10 @@ New_General *或 New_VMSizeNotSupported*
 
 請刪除第一個部署和原始的雲端服務，然後重新部署雲端服務。 這個動作可能將第一個部署安排到有足夠可用資源可滿足這兩個部署的叢集，或安排到支援所要求 VM 大小的叢集。
 
-<a id="allocation-scenario-affinity-group-vmservice-proximity" class="xliff"></a>
+## <a name="allocation-scenario-affinity-group-vmservice-proximity"></a>配置案例：同質群組 (VM/服務鄰近性)
+**錯誤**
 
-## 配置案例：同質群組 (VM/服務鄰近性)
-**Error**
-
-New_General *或 New_VMSizeNotSupported*
+New_General* 或 New_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
@@ -146,12 +122,10 @@ New_General *或 New_VMSizeNotSupported*
 
 如果同質群組不是必要的，請勿使用同質群組或將計算資源分組為多個同質群組。
 
-<a id="allocation-scenario-affinity-group-based-virtual-network" class="xliff"></a>
+## <a name="allocation-scenario-affinity-group-based-virtual-network"></a>配置案例：同質群組式虛擬網路
+**錯誤**
 
-## 配置案例：同質群組式虛擬網路
-**Error**
-
-New_General *或 New_VMSizeNotSupported*
+New_General* 或 New_VMSizeNotSupported*
 
 **叢集釘選的原因**
 
@@ -163,9 +137,7 @@ New_General *或 New_VMSizeNotSupported*
 
 此外，您也可以 [將同質群組式虛擬網路移轉至區域虛擬網路](https://azure.microsoft.com/blog/2014/11/26/migrating-existing-services-to-regional-scope/)，然後再重新加入需要的資源。
 
-<a id="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model" class="xliff"></a>
-
-## Azure Resource Manager 部署模型中的詳細疑難排解步驟特定配置失敗案例
+## <a name="detailed-troubleshooting-steps-specific-allocation-failure-scenarios-in-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 部署模型中的詳細疑難排解步驟特定配置失敗案例
 以下是造成釘選配置要求的常見配置案例。 我們將在本文稍後深入探討每一個案例。
 
 * 調整 VM 大小，或將 VM 或角色執行個體加入至現有的雲端服務
@@ -176,12 +148,10 @@ New_General *或 New_VMSizeNotSupported*
 
 一般而言，只要錯誤不是表示「不支援所要求的 VM 大小」，您永遠都可以稍後再重試，因為到時叢集可能釋放足夠的資源來滿足您的要求。 如果問題在於不支援所要求的 VM 大小，請參閱以下的因應措施。
 
-<a id="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set" class="xliff"></a>
+## <a name="allocation-scenario-resize-a-vm-or-add-vms-to-an-existing-availability-set"></a>配置案例：調整 VM 大小，或將 VM 加入至現有的可用性設定組
+**錯誤**
 
-## 配置案例：調整 VM 大小，或將 VM 加入至現有的可用性設定組
-**Error**
-
-Upgrade_VMSizeNotSupported *或 GeneralError*
+Upgrade_VMSizeNotSupported* 或 GeneralError*
 
 **叢集釘選的原因**
 
@@ -193,9 +163,7 @@ Upgrade_VMSizeNotSupported *或 GeneralError*
 
 如果錯誤是 GeneralError*，很可能是叢集支援資源的類型 (例如特定的 VM 大小)，但叢集目前沒有可用的資源。 如果 VM 可以屬於不同的可用性設定組，請在不同的可用性設定組 (位於相同區域) 中建立新的 VM。 然後，這個新的 VM 就可以加入至相同的虛擬網路。  
 
-<a id="allocation-scenario-restart-partially-stopped-deallocated-vms" class="xliff"></a>
-
-## 配置案例：重新啟動已部分停止 (已取消配置) 的 VM
+## <a name="allocation-scenario-restart-partially-stopped-deallocated-vms"></a>配置案例：重新啟動已部分停止 (已取消配置) 的 VM
 **錯誤**
 
 GeneralError*
@@ -208,9 +176,7 @@ GeneralError*
 
 停止可用性設定組中的所有 VM，再重新啟動第一個 VM。 如此可確保執行新的配置嘗試，而且可以選取有容量可用的新叢集。
 
-<a id="allocation-scenario-restart-fully-stopped-deallocated" class="xliff"></a>
-
-## 配置案例：重新啟動已完全停止 (已取消配置)
+## <a name="allocation-scenario-restart-fully-stopped-deallocated"></a>配置案例：重新啟動已完全停止 (已取消配置)
 **錯誤**
 
 GeneralError*
@@ -223,9 +189,9 @@ GeneralError*
 
 選取新的 VM 大小以進行配置。 如果仍無法解決問題，請稍後再試。
 
-<a id="error-string-lookup" class="xliff"></a>
+<a name="Error string lookup"></a>
 
-## 錯誤字串查詢
+## <a name="error-string-lookup"></a>錯誤字串查詢
 **New_VMSizeNotSupported***
 
 「由於部署要求條件約束，無法佈建此部署所需的 VM 大小 (或 VM 大小的總和)。 可能的話，請嘗試放寬約束條件 (例如虛擬網路繫結)、部署至不具有其他部署的託管服務及不同的同質群組 (或不具有同質群組的託管服務)，或嘗試部署至不同的區域。」

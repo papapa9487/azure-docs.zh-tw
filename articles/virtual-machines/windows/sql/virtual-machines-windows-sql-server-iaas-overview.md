@@ -5,7 +5,6 @@ services: virtual-machines-windows
 documentationcenter: 
 author: rothja
 manager: jhubbard
-editor: 
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
@@ -13,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/07/2017
+ms.date: 09/12/2017
 ms.author: jroth
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: f0100423550046d18642180ce98e93ce3609749b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SQL Server 概觀
@@ -27,34 +26,8 @@ ms.lasthandoff: 06/28/2017
 
 > [!NOTE]
 > 如果您已熟悉 SQL Server，只想要了解如何部署 SQL Server VM，請參閱[ Azure 入口網站中佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。
-> 
-> 
 
-## <a name="overview"></a>Overview
-如果您是資料庫管理員或開發人員，Azure VM 提供您將內部部署 SQL Server 工作負載和應用程式移動到雲端的方式。 下列影片提供 SQL Server Azure VM 的技術概觀。
-
-> [!VIDEO https://channel9.msdn.com/Events/DataDriven/SQLServer2016/Azure-VM-is-the-best-platform-for-SQL-Server-2016/player]
-> 
-> 
-
-影片涵蓋下列領域︰
-
-| 時間 | 領域 |
-| --- | --- |
-| 00:21 |何謂 Azure VM？ |
-| 01:45 |安全性 |
-| 02:50 |連線能力 |
-| 03:30 |儲存體可靠性和效能 |
-| 05:20 |VM 大小 |
-| 05:54 |高可用性和 SLA |
-| 07:30 |組態支援 |
-| 08:00 |監視 |
-| 08:32 |示範︰建立 SQL Server 2016 VM |
-
-> [!NOTE]
-> 影片的重點在於 SQL Server 2016，但 Azure 會提供許多 SQL Server 版本 (包括 2012、2014 和 2016) 的 VM 映像。 
-> 
-> 
+如果您是資料庫管理員或開發人員，Azure VM 提供您將內部部署 SQL Server 工作負載和應用程式移動到雲端的方式。
 
 ## <a name="scenarios"></a>案例
 可能會有許多原因讓您選擇主控 Azure 中的資料。 如果您的應用程式移至 Azure，則也會改善移動資料的效能。 但是還有其他好處。 您會自動取得多個資料中心的存取權，以獲得全域支援和災害復原。 資料也是高度安全且具有持久性。
@@ -126,7 +99,7 @@ Azure VM 可以使用 [自動修補](virtual-machines-windows-sql-automated-patc
 ### <a name="customer-experience-improvement-program-ceip"></a>客戶經驗改進計畫 (CEIP)
 預設會啟用「客戶經驗改進計畫」(CEIP)。 這會定期將報表傳送至 Microsoft 以協助改進 SQL Server。 CEIP 不需要管理工作，除非您要在佈建之後將它停用。 您可以透過遠端桌面連接到 VM，以自訂或停用 CEIP。 然後執行 [SQL Server 錯誤和使用情況報告]  公用程式。 請遵循指示來停用報告功能。 
 
-如需詳細資訊，請參閱[接受授權條款](https://msdn.microsoft.com/library/ms143343.aspx) CEIP 一節。 
+如需有關資料收集的詳細資訊，請參閱 [SQL Server 隱私權聲明](https://www.microsoft.com/EN-US/privacystatement/SQLServer/Default.aspx)。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/15/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1976c52bd7fa56bb07104e205ab3699b2dfa4c50
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39234ca792983178cfd4304e001271ea30e28ae6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introducing-apache-kafka-on-hdinsight-preview"></a>HDInsight 上的 Apache Kafka (預覽) 簡介
@@ -42,7 +42,7 @@ Kafka 提供下列功能：
 
 * 與 Azure 受控磁碟整合：受控磁碟可在 HDInsight 叢集中，針對虛擬機器所使用的磁碟提供更高的級別和輸送量。
 
-    預設會啟用 HDInsight 上 Kafka 的受控磁碟，且在 HDInsight 建立期間，可以設定每個節點使用的磁碟數目。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)。
+    Kafka on HDInsight 預設會啟用受控磁碟。 在 HDInsight 建立期間，可以設定每個節點使用的磁碟數目。 如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)。
 
     如需使用 HDInsight 上的 Kafka 設定受控磁碟的資訊，請參閱[提高 HDInsight 上的 Kafka 延展性](hdinsight-apache-kafka-scalability.md)。
 
@@ -55,6 +55,15 @@ Kafka 提供下列功能：
 * **彙總**︰您可以利用串流處理來彙總不同串流的資訊，將資訊結合並集中而成為可操作的資料。
 
 * **轉換**︰您可以利用串流處理來結合並充實多個輸入主題的資料，而成為一個或多個輸出主題。
+
+## <a name="architecture"></a>架構
+
+![Kafka 叢集組態](./media/hdinsight-apache-kafka-introduction/kafka-cluster.png)
+
+此圖顯示的典型 Kafka 組態使用取用者群組、資料分割及複寫，提供具有容錯功能的事件平行讀取。 Apache ZooKeeper 是針對並行、有彈性且低延遲的交易而建置，因為它可管理 Kafka 叢集的狀態。 Kafka 會在「主題」中儲存記錄。 記錄是由「產生者」產生，並由「取用者」取用。 產生者會從 Kafka「訊息代理程式」擷取記錄。 HDInsight 叢集中的每個背景工作節點都是 Kafka 訊息代理程式。 系統會為每個取用者建立一個磁碟分割，以允許平行處理串流資料。 複寫用於將磁碟分割分散於各節點，以防止節點 (訊息代理程式) 中斷。 以 *(L)* 表示的磁碟分割是指定之磁碟分割的前端項目。 使用 ZooKeeper 所管理的狀態，可將生產者流量路由傳送至每個節點的前端項目。
+
+> [!IMPORTANT]
+> Kafka 並不知道 Azure 資料中心的基礎硬體 (機架)。 若要確保基礎硬體的磁碟分割達到適當平衡，請參閱[設定資料的高可用性 (Kafka)](hdinsight-apache-kafka-high-availability.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

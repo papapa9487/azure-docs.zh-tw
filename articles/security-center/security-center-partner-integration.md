@@ -1,5 +1,5 @@
 ---
-title: "Azure 資訊安全中心中的夥伴整合 | Microsoft Docs"
+title: "Azure 資訊安全中心中的夥伴與解決方案整合 | Microsoft Docs"
 description: "了解 Azure 資訊安全中心如何與夥伴整合，以提高您 Azure 資源的整體安全性。"
 services: security-center
 documentationcenter: na
@@ -12,22 +12,18 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 09/12/2017
 ms.author: yurid
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 44beafeff5cbe58ac8ca37632879f6ffc2b67e53
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 8cc44da0f61362018d2757da58ca4fb3a9a43764
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="partner-integration-in-azure-security-center"></a>Azure 資訊安全中心中的夥伴整合
+# <a name="partner-and-solutions-integration-in-azure-security-center"></a>Azure 資訊安全中心中的夥伴與解決方案整合
 
 在本文中，我們將說明 Azure 資訊安全中心如何與夥伴整合，以協助您提高整體安全性。 資訊安全中心在 Azure 中提供整合體驗，並利用 Azure Marketplace 進行夥伴認證和計費。
-
-> [!NOTE] 
-> 從 2017 年 6 月開始，資訊安全中心會使用 Microsoft Monitoring Agent 來收集和儲存資料。 如需詳細資訊，請參閱 [Azure 資訊安全中心平台移轉](security-center-platform-migration.md)。 本文中的資訊說明轉換至 Microsoft Monitoring Agent 後的資訊安全中心功能。
->
 
 ## <a name="why-deploy-partner-solutions-from-security-center"></a>為什麼要從資訊安全中心部署夥伴解決方案
 
@@ -41,7 +37,7 @@ ms.lasthandoff: 08/19/2017
 
 ## <a name="partners-that-integrate-with-security-center"></a>與資訊安全中心整合的夥伴
 
-資訊安全中心目前與下列這些解決方案整合︰
+目前可在 Azure Marketplace 中與資訊安全中心搭配使用的夥伴解決方案之原生整合如下：
 
 - Endpoint protection ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html)、Symantec 以及 [適用於 Azure 雲端服務和虛擬機器的 Microsoft 反惡意程式碼軟體](https://docs.microsoft.com/azure/security/azure-security-antimalware)) 
 - Web 應用程式防火牆 ([Barracuda](https://www.barracuda.com/products/webapplicationfirewall)、[F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html)、[Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF)、[Fortinet](https://www.fortinet.com/resources.html?limit=10&search=&document-type=data-sheets)，以及 [Azure 應用程式閘道](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/)) 
@@ -61,13 +57,57 @@ ms.lasthandoff: 08/19/2017
 
 ## <a name="manage-partner-solutions"></a>管理夥伴解決方案
 
-在部署後，若要檢視解決方案的健康情況相關資訊並執行基本管理工作，請在 [資訊安全中心] 刀鋒視窗中，選取 [夥伴解決方案] 選項。 如需管理資訊安全中心中合作夥伴解決方案的相關資訊，請參閱[透過 Azure 資訊安全中心監視夥伴解決方案](security-center-partner-solutions.md)。
+在部署後，若要檢視解決方案的健康情況相關資訊並執行基本管理工作，請在 [資訊安全中心] 儀表板中，選取 [夥伴解決方案] 選項。
 
-![夥伴整合](./media/security-center-partner-integration/security-center-partner-integration-fig1-new2.png)
+![夥伴解決方案整合](./media/security-center-partner-integration/security-center-partner-integration-fig8.png)
+
+您在開啟安全性解決方案時所看到的內容會根據您的基礎結構而有所不同。 此頁面使用先前的映像作為範例，具有三個區段：
+
+- **連線的解決方案**：會顯示連線到資訊安全中心的解決方案。
+- **探索到的解決方案**：會顯示未連線到資訊安全中心的解決方案。 您可以連線這些解決方案，它們就會顯示在連線解決方案之下。  如果資訊安全中心未偵測到任何未連線的解決方案，本區段就會加以隱藏。
+- **新增資料來源**：顯示您可以新增到資訊安全中心的 Azure 和非 Azure 資料來源。
+
+### <a name="connected-solutions"></a>連線的解決方案
+
+**連線的解決方案**區段會顯示目前與資訊安全中心連線的所有安全性解決方案。 
+
+![連線的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig4.png)
+
+您在每個解決方案上看到的資訊會根據解決方案而有所不同。 每個圖格上可用的某些資訊包括：
+
+- 夥伴的公司圖示。  如果資訊安全中心沒有公司圖示，就會顯示夥伴名稱的第一個字元。
+- 解決方案類型。
+- 可能會顯示電腦名稱。
+- 健康情況狀態。  如果未傳送健康情況指標，資訊安全中心就會顯示最後收到之事件的日期和時間，以指出應用裝置是否進行報告。 如果資訊安全中心未收到特定解決方案的健康情況指示器，解決方案的圖格就不會出現在本區段中。
 
 > [!NOTE]
-> Symantec Endpoint Protection 支援僅限於探索。 無法使用健康情況警示。
->
+> 監看式資訊安全中心會顯示最後收到之事件的日期和時間，以指出應用裝置是否進行報告。 若在過去 14 天內傳送了警示或事件，未傳送健康情況指標的解決方案會顯示為已連線。
+>  
+
+這些解決方案其中有一些可能會完全整合在 Azure 中，其他則為內部部署。 因為資訊安全中心支援[一般事件格式 (CEF)](https://docs.microsoft.com/azure/operations-management-suite/oms-security-connect-products#what-is-cef)，它可以與使用 CEF (例如支援 CEF 的防火牆) 的解決方案進行連線。 一旦將此解決方案新增至資訊安全中心後，防火牆會將記錄以 CEF 格式傳送至資訊安全中心，從而加以處理為 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)。 防火牆是非 Azure 資源，且會傳送事件而非健康情況指標。  資訊安全中心唯一擁有的健康情況相關資訊是此應用裝置上次傳送事件的時間。  針對所有的非 Azure 資源，資訊安全中心會在圖格的健康情況區域中顯示收到最後一個事件的日期和時間，指出仍在回報非 Azure 資源。
+
+### <a name="discovered-solutions"></a>探索到的解決方案
+
+**探索到的解決方案**區段會顯示透過 Azure 新增的所有解決方案，且建議資訊安全中心加以連線。
+
+![探索到的解決方案](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
+
+資訊安全中心可與內建的 Azure 解決方案進行整合，例如 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)。 如果您有 Azure AD Identity Protection 的授權，但尚未連線到資訊安全中心，Azure AD Identity Protection 將會列在**探索到的解決方案**下。 若要將此解決方案與資訊安全中心進行整合，按一下 [Azure AD Identity Protection] 圖格上的 [連線]，隨即出現下列頁面：
+
+![Azure AD Identity Protection](./media/security-center-partner-integration/security-center-partner-integration-fig6.png)
+
+若要完成連線 Azure AD Identity Protection，您必須選取儲存資料的工作區。 Azure AD Identity Protection 中的所有資料都會從此步驟中已選取的工作區區域流出。  您會瀏覽工作區選取器以選取工作區，且資料會開始流向該處。
+
+您必須是全域管理員或安全性管理員才能連線到資訊安全中心。如果您沒有權限，就會停用 [連線] 按鈕，且如果您沒有權限，就會出現訊息說明停用按鈕的原因。
+
+Azure AD Identity Protection 警示會瀏覽資訊安全中心的偵測管道，這樣可讓您取得資訊安全中心的警示，以及 Azure Active Directory Identity Protection。 資訊安全中心會將看似相關的所有警示加以合併，以建立[安全性事件](https://docs.microsoft.com/azure/security-center/security-center-incident)。 安全性事件描述會讓您更深入了解有關可疑活動的情報。
+
+### <a name="add-data-sources"></a>新增資料來源
+
+您可以新增 Azure 和非 Azure 電腦，來與資訊安全中心進行整合。  新增非 Azure 電腦即表示您可以新增內部部署電腦或支援 CEF 的應用裝置。 
+
+![資料來源](./media/security-center-partner-integration/security-center-partner-integration-fig7.png)
+
 
 ## <a name="see-also"></a>另請參閱
 

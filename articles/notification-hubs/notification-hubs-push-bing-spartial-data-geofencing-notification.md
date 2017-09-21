@@ -13,26 +13,27 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/31/2016
+ms.date: 09/13/2017
 ms.author: dendeli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
-
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>使用 Azure 通知中樞和 Bing 空間資料為推播通知加上地理柵欄
 > [!NOTE]
-> 若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資訊，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02)。
+> 若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02)。
 > 
 > 
 
-在本教學課程中，您將學習如何從通用 Windows 平台應用程式，運用 Azure 通知中樞和 Bing 空間資料來傳遞以位置為基礎的推播通知。
+在本教學課程中，您會了解如何從通用 Windows 平台應用程式，運用 Azure 通知中樞和 Bing 空間資料來傳遞以位置為基礎的推播通知。
 
 ## <a name="prerequisites"></a>必要條件
-首先，您必須確定您擁有所有必要的軟體和服務︰
+首先，確定您擁有所有必要的軟體和服務︰
 
-* [Visual Studio 2015 Update 1](https://www.visualstudio.com/en-us/downloads/download-visual-studio-vs.aspx) 或更新版本 ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) 也行)。 
+* [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 或更新版本 ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409) 也行)。 
 * 最新版的 [Azure SDK](https://azure.microsoft.com/downloads/)。 
 * [Bing 地圖服務開發人員中心帳戶](https://www.bingmapsportal.com/) (您可以免費建立帳戶並將此帳戶關聯到您的 Microsoft 帳戶)。 
 
@@ -54,11 +55,11 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 接著讓我們來深入了解上述各個項目的設定。
 
 ## <a name="setting-up-the-data-source"></a>設定資料來源
-您可以在 Bing 地圖服務開發人員中心進行此設定。 請直接按一下上方導覽列中的 [資料來源]，然後選取 [管理資料來源]。
+您可以在 Bing 地圖服務開發人員中心設定資料來源。 在頂端導覽列中，選擇 [資料來源] > [管理資料來源]。
 
 ![](./media/notification-hubs-geofence/bing-maps-manage-data.png)
 
-如果您之前未曾用過 Bing 地圖服務 API，裡面很可能不會有任何資料來源，因此您可以直接按一下 [上傳資料到資料來源] 來建立新的資料來源。 請確實填寫所有必要欄位︰
+如果您之前未曾用過 Bing 地圖服務 API，裡面很可能不會有任何資料來源，因此您可以選擇 [資料來源] > [上傳資料]，直接建立新的資料來源。 請確實填寫所有必要欄位︰
 
 ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
 
@@ -72,7 +73,7 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 
 ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 
-直接將上述字串複製並貼到新檔案、將它另存為 **NotificationHubsGeofence.pipe**，然後上傳到 Bing 開發人員中心。
+將上述字串複製並貼到新檔案、將它另存為 **NotificationHubsGeofence.pipe**，然後上傳到 Bing 開發人員中心。
 
 > [!NOTE]
 > 您可能會收到提示，要求您為 [主要金鑰] 指定不同於 [查詢金鑰] 的新金鑰。 請直接透過儀表板建立新的金鑰，然後重新整理資料來源上傳頁面。
@@ -81,21 +82,21 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 
 上傳資料檔案後，您必須確實發佈資料來源。 
 
-移至 **[管理資料來源]** \(方法同前)、在清單中找到您的資料來源，然後按一下 [動作] 欄中的 [發佈]。 不用多久，您應該就會在 [已發佈的資料來源]  索引標籤中看到您的資料來源︰
+移至 **[管理資料來源]** (方法同前)、在清單中找到您的資料來源，然後選擇 [動作] 欄中的 [發佈]。 不用多久，您應該就會在 [已發佈的資料來源]  索引標籤中看到您的資料來源︰
 
 ![](./media/notification-hubs-geofence/bing-maps-published-data.png)
 
-如果您按一下 [編輯] ，將可以一眼看到我們在其中引進的所有位置︰
+如果您選擇 [編輯]，將可以一眼看到您在其中引進的所有位置︰
 
 ![](./media/notification-hubs-geofence/bing-maps-data-details.png)
 
-此時，入口網站並不會顯示我們建立之地理柵欄的邊界，我們只需要確認指定的位置位於適當區域內。
+此時，入口網站並不會顯示您建立之地理柵欄的邊界，您只需要確認指定的位置位於適當區域內。
 
-現在您已符合資料來源的所有要求。 若要取得 API 呼叫之要求 URL 的詳細資料，請在 Bing 地圖服務開發人員中心按一下 [資料來源]，然後選取 [資料來源資訊]。
+現在您已符合資料來源的所有要求。 若要取得 API 呼叫之要求 URL 的詳細資料，請在 Bing 地圖服務開發人員中心選擇 [資料來源]，然後選取 [資料來源資訊]。
 
 ![](./media/notification-hubs-geofence/bing-maps-data-info.png)
 
-在這裡我們要找的是 [查詢 URL]  。 我們可以對此端點執行查詢，以檢查裝置目前是否位於某個位置的邊界內。 若要執行這項檢查，我們只需要對查詢 URL 執行 GET 呼叫，並附加下列參數︰
+在這裡我們要找的是 [查詢 URL]  。 我們可以對此端點執行查詢，以檢查裝置目前是否位於某個位置的邊界內。 若要執行這項檢查，我們只要對查詢 URL 執行 GET 呼叫，並附加下列參數︰
 
     ?spatialFilter=intersects(%27POINT%20LONGITUDE%20LATITUDE)%27)&$format=json&key=QUERY_KEY
 
@@ -110,11 +111,11 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 ## <a name="setting-up-the-uwp-application"></a>設定 UWP 應用程式
 現在我們已經備妥資料來源，接下來我們可以開始處理稍早啟動的 UWP 應用程式。
 
-首先，我們必須啟用應用程式的位置服務。 若要這樣做，請按兩下 [方案總管] 中的 `Package.appxmanifest` 檔案。
+首先，我們必須啟用應用程式的位置服務。 若要這樣做，請在 [方案總管] 中開啟 `Package.appxmanifest` 檔案。
 
 ![](./media/notification-hubs-geofence/vs-package-manifest.png)
 
-在剛剛開啟的 [套件屬性] 索引標籤中按一下 [功能]，並確實選取 [位置]：
+在剛剛開啟的 [套件屬性] 索引標籤中，選擇 [功能] 並確實選取 [位置]：
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
@@ -215,9 +216,9 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 
 若要設定連接字串，請開啟 `Models` 資料夾內的 `Notifications.cs`。 `NotificationHubClient.CreateClientFromConnectionString` 函式應該會包含可在 [Azure 入口網站](https://portal.azure.com)內取得之通知中樞的相關資訊 (請查看 [設定] 的 [存取原則] 刀鋒視窗內部)。 儲存經過更新的組態檔。
 
-現在我們需要為 Bing 地圖服務 API 結果建立模型。 若要這麼做，最簡單的方式是以滑鼠右鍵按一下 `Models` 資料夾，然後選取 [新增] > [類別]。 將它命名為 `GeofenceBoundary.cs` 完成後，從我們在第一節所討論的 API 回應複製 JSON，然後在 Visual Studio 中使用 [編輯] > [選擇性貼上] > [貼上 JSON 做為類別]。 
+現在我們需要為 Bing 地圖服務 API 結果建立模型。 若要這麼做，最簡單的方式是開啟 `Models` 資料夾，然後選擇 [新增] > [類別]。 將它命名為 `GeofenceBoundary.cs` 完成後，從我們在第一節所討論的 API 回應複製 JSON，然後在 Visual Studio 中使用 [編輯] > [選擇性貼上] > [貼上 JSON 做為類別]。 
 
-這樣一來，我們就能確保物件將會確實依其設計目的還原序列化。 所產生的類別集應該會與下面類似︰
+如此一來，我們就能確保物件將會確實依其設計目的還原序列化。 所產生的類別集應該會與下面類似︰
 
     namespace AppBackend.Models
     {
@@ -337,23 +338,23 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 > 
 > 
 
-現在，讓我們來確實為 UWP 應用程式註冊推播通知。 在 Visual Studio 中，按一下 [專案] > [市集] > [將應用程式與市集建立關聯]。
+現在，讓我們來確實為 UWP 應用程式註冊推播通知。 在 Visual Studio 中，選擇 [專案] > [市集] > [將應用程式與市集建立關聯]。
 
 ![](./media/notification-hubs-geofence/vs-associate-with-store.png)
 
 一旦您登入開發人員帳戶，請務必選取現有應用程式或建立新應用程式並讓封裝與其建立關聯。 
 
-移至開發人員中心，然後開啟您剛剛建立的應用程式。 按一下 [服務] > [推播通知] > [線上服務網站]。
+移至開發人員中心，然後開啟您剛剛建立的應用程式。 選擇 [服務] > [推播通知] > [線上服務網站]。
 
 ![](./media/notification-hubs-geofence/ms-live-services.png)
 
-記下網站上的 [應用程式密碼] 和 [套件 SID]。 在 Azure 入口網站中需要用到這兩個項目；開啟通知中樞、按一下 [設定] > [通知服務] > [Windows (WNS)]，然後在必要欄位中輸入資訊。
+記下網站上的 [應用程式密碼] 和 [套件 SID]。 在 Azure 入口網站中需要用到這兩個項目；開啟通知中樞、選擇 [設定] > [通知服務] > [Windows (WNS)]，然後在必要欄位中輸入資訊。
 
 ![](./media/notification-hubs-geofence/notification-hubs-wns.png)
 
-按一下 [儲存] 。
+選擇 [儲存]。
 
-在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後選取 [管理 NuGet 套件]。 我們需要新增 **Microsoft Azure 服務匯流排受管理程式庫**的參考；只要搜尋 `WindowsAzure.Messaging.Managed` 並將它新增至專案即可。
+在 [方案總管] 中開啟 [參考]，然後選取 [管理 NuGet 套件]。 我們需要新增 **Microsoft Azure 服務匯流排受管理程式庫**的參考；只要搜尋 `WindowsAzure.Messaging.Managed` 並將它新增至專案即可。
 
 ![](./media/notification-hubs-geofence/vs-nuget.png)
 
@@ -390,10 +391,5 @@ ms.openlocfilehash: b2a84e0479aac9ded08bb64e1ea20ddee6636cce
 在上述方案所說明的案例中，您可能會有各種不同目標平台，因此我們並未限制只有系統特有功能才能使用地理柵欄。 也就是說，通用 Windows 平台內建提供了相關功能來 [偵測地理柵欄](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)。
 
 如需有關通知中樞功能的詳細資訊，請查看我們的 [說明文件入口網站](https://azure.microsoft.com/documentation/services/notification-hubs/)。
-
-
-
-
-<!--HONumber=Dec16_HO2-->
 
 

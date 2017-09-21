@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/28/2017
+ms.date: 09/07/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b8955acc83b0fbb0612e7042d62170ae8078b9ad
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6da4f2527e480b621f4d3a2d74ed3107c970d1b9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="introduction-to-spark-on-hdinsight"></a>Spark on HDInsight 簡介
@@ -30,8 +30,17 @@ ms.lasthandoff: 08/29/2017
 
 當您在 HDInsight 上建立 Spark 叢集時，就是建立了已安裝及設定 Spark 的 Azure 計算資源。 在 HDInsight 中建立 Spark 叢集只需要約 10 分鐘。 系統會將要處理的資料儲存在 Azure 儲存體或 Azure Data Lake Store 中。 請參閱[搭配 HDInsight 使用 Azure 儲存體](hdinsight-hadoop-use-blob-storage.md)。
 
-**若要在 HDInsight 上建立 Spark 叢集**，請參閱[快速入門：在 HDInsight 上建立 Spark 叢集並使用 Jupyter 執行互動式查詢](hdinsight-apache-spark-jupyter-spark-sql.md)。
+![Spark：統一架構](./media/hdinsight-apache-spark-overview/hdinsight-spark-overview.png)
 
+## <a name="spark-vs-traditional-mapreduce"></a>Spark 與傳統 MapReduce
+
+是什麼讓 Spark 變快速？ Apache Spark 架構與傳統 MapReduce 的差異，讓它可以提供更好的資料共用效能？
+
+![傳統 MapReduce 與Spark](./media/hdinsight-apache-spark-overview/mapreduce-vs-spark.png)
+
+Spark 提供用於記憶體內部叢集運算的基本項目。 Spark 作業可將資料載入並快取到記憶體中，重複查詢它，速度比磁碟型系統還要快。 Spark 也會整合到 Scala 程式設計語言中，讓您處理分散式資料集 (像是本機集合)。 您不需要將一切建構成對應和縮減作業。
+
+在 Spark 中，作業之間的資料共用比較快速，因為資料位於記憶體中。 相反地，Hadoop 透過 HDFS 共用資料，其所需的處理時間比較長。
 
 ## <a name="what-is-apache-spark-on-azure-hdinsight"></a>什麼是 Apache Spark on Azure HDInsight？
 HDInsight 上的 Spark 叢集可提供完全受管理的 Spark 服務。 在 HDInsight 上建立 Spark 叢集的優點如下所列。
@@ -44,7 +53,7 @@ HDInsight 上的 Spark 叢集可提供完全受管理的 Spark 服務。 在 HDI
 | 支援 Azure Data Lake Store | HDInsight 上的 Spark 叢集可以設定為使用 Azure Data Lake Store 作為額外的儲存體以及主要儲存體 (只適用於 HDInsight 3.5 叢集)。 如需有關 Data Lake Store 的詳細資訊，請參閱 [Azure Data Lake Store 概觀](../data-lake-store/data-lake-store-overview.md)。 |
 | Azure 服務整合 |HDInsight 上的 Spark 叢集附有連線 Azure 事件中樞的連接器。 除了 Spark 已經提供的 [Kafka](http://kafka.apache.org/)之外，客戶還可以使用事件中樞來建置串流應用程式。 |
 | 支援 R 伺服器 | 您可以在 HDInsight Spark 叢集上設定 R 伺服器，以 Spark 叢集所承諾的速度執行分散式 R 計算。 如需詳細資訊，請參閱 [開始使用 HDInsight 上的 R 伺服器](hdinsight-hadoop-r-server-get-started.md)。 |
-| 第三方 IDE 整合 | HDInsight 會提供 IDEs like IntelliJ IDEA 和 Eclipse 的外掛程式，以供您建立應用程式並將其提交至 HDInsight Spark 叢集。 如需詳細資訊，請參閱[使用 Azure Toolkit for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md)和[使用 Azure Toolkit for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)。|
+| 第三方 IDE 整合 | HDInsight 會提供 IDEs like IntelliJ IDEA 和 Eclipse 的外掛程式，以供您建立應用程式並將其提交至 HDInsight Spark 叢集。 如需詳細資訊，請參閱[使用 Azure Toolkit for IntelliJ](hdinsight-apache-spark-intellij-tool-plugin.md) 和[使用 Azure Toolkit for Eclipse](hdinsight-apache-spark-eclipse-tool-plugin.md)。|
 | 並行查詢 |HDInsight 中的 Spark 叢集支援並行查詢。 它能讓一位使用者執行多個查詢，或讓不同的使用者執行多個查詢，以及讓應用程式共用相同的叢集資源。 |
 | SSD 快取 |您可以選擇將資料快取在記憶體中，或快取在連接叢集節點的 SSD 中。 記憶體快取能提供最高的查詢效能，但可能所費不疵。SSD 快取是改善查詢效能的絕佳選項，而且您不需要根據記憶體中的整個資料集建立滿足其需求的叢集規模。 |
 | BI 工具整合 |HDInsight 上的 Spark 叢集會為 BI 工具 (例如 [Power BI](http://www.powerbi.com/) 和 [Tableau](http://www.tableau.com/products/desktop)) 提供資料分析所需的連接器。 |
@@ -52,8 +61,22 @@ HDInsight 上的 Spark 叢集可提供完全受管理的 Spark 服務。 在 HDI
 | 延展性 |雖然您可以在建立時指定叢集的節點數，但您可以擴大或縮小叢集以配合工作負載。 所有 HDInsight 叢集都允許您變更叢集中的節點數目。 此外，由於所有資料都儲存在 Azure 儲存體或 Data Lake Store 內，因此您可以在不遺失資料的情況下卸除 Spark 叢集。 |
 | 全天候支援 |HDInsight 上的 Spark 叢集附有企業級的全天候支援和保證正常運作時間達 99.9% 的 SLA。 |
 
+## <a name="spark-cluster-architecture"></a>Spark 叢集架構
+
+以下是 Spark 叢集架構與其運作方式：
+
+![Spark 叢集架構](./media/hdinsight-apache-spark-overview/spark-architecture.png)
+
+前端節點的 Spark 主節點可管理應用程式數目，而應用程式會對應到 Spark 驅動程式。 Spark 主節點會以各種方式管理每個應用程式。 Spark 可以部署在 Mesos、YARN 或 Spark 叢集管理員之上，其可將背景工作節點資源配置給應用程式。 在 HDInsight 中，使用 YARN 叢集管理員可執行 Spark。 叢集中的資源是由 HDInsight 中的 Spark 主節點管理。 這表示 Spark 主節點曉得哪些資源 (如記憶體) 遭到佔用或可用於背景工作節點上。
+
+驅動程式會執行使用者的主要功能，並且在背景工作節點上執行各種平行作業。 然後，驅動程式會收集作業的結果。 背景工作節點會在 Hadoop 分散式檔案系統 (HDFS) 中讀取和寫入資料。 背景工作節點也會將記憶體內部已轉換的資料快取為彈性分散式資料集 (RDD)。
+
+一旦在 Spark 主節點中建立應用程式，Spark 主節點就會將資源配置給應用程式，並建立稱為 Spark 驅動程式的執行檔。 Spark 驅動程式也會建立 SparkContext，而且會開始建立 RDD。 RDD 的中繼資料會儲存在 Spark 驅動程式上。
+
+Spark 驅動程式會連線到 Spark 主節點，而且負責將應用程式轉換為個別工作的有向圖 (DAG)，而這些工作會在背景工作節點上的執行程式處理序內執行。 每個應用程式都會取得自己的執行程式處理序，而這些處理序會在整個應用程式的持續時間保持運作，並且在多個執行緒中執行工作。
+
 ## <a name="what-are-the-use-cases-for-spark-on-hdinsight"></a>HDInsight 上的 Spark 有哪些使用案例？
-HDInsight 中的 Spark 叢集適用於下列重要案例。
+HDInsight 中的 Spark 叢集適用於下列重要案例：
 
 ### <a name="interactive-data-analysis-and-bi"></a>互動式資料分析和 BI
 [觀看教學課程](hdinsight-apache-spark-use-bi-tools.md)
@@ -99,7 +122,7 @@ HDInsight 中的 Spark 叢集也提供 [ODBC 驅動程式](http://go.microsoft.c
 * [利用 Livy 在 Spark 叢集上遠端執行作業](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons (使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式)](hdinsight-apache-spark-intellij-tool-plugin.md)
+* [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark Scala 應用程式](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式遠端偵錯 Spark 應用程式](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [利用 HDInsight 上的 Spark 叢集來使用 Zeppelin Notebook](hdinsight-apache-spark-zeppelin-notebook.md)
 * [HDInsight 的 Spark 叢集中 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)

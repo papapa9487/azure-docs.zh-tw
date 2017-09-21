@@ -11,4 +11,4 @@
 | 每個取用者群組的非 epoch 接收者數目 |實體 |靜態 |- |5 |
 | 事件資料的最大保留期間 |實體 |靜態 |- |1-7 天 |
 | 最大輸送量單位 |命名空間 |靜態 |超過輸送量單位限制會導致您的資料受到節流，並產生 **[ServerBusyException](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)**。 您可以篩選[支援要求](/azure/azure-supportability/how-to-create-azure-support-request)，為標準層要求大量的輸送量單位。 [更多輸送量單位](../articles/event-hubs/event-hubs-auto-inflate.md)依承諾購買方式，以 20 個為一組來取得。 |20 |
-
+| 每個命名空間的授權規則數目 |命名空間|靜態 |建立授權規則的後續要求將遭到拒絕。|12 |

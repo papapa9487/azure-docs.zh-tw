@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 52b154895fca9fc465a9c6cc2fb6bf2d5384b057
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 1ea9dfcaec188bac2e92909f4811568b589357d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -59,7 +59,7 @@ Azure 搜尋服務中的 **索引子** 是一種編目程式，其可從外部�
 
 * [Azure SQL Database 或 Azure 虛擬機器中的 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)可用來擷取 PDF、Office 文件、HTML 或 XML 中的文字
+* 適用於所選內容類型的 [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 
 資料來源和使用資料來源的索引子是各自獨立設定與管理，這表示多個索引子可使用同一個資料來源來一次載入多個索引。
@@ -72,7 +72,7 @@ Azure 搜尋服務中的 **索引子** 是一種編目程式，其可從外部�
 
 * [Azure SQL Database 或 Azure 虛擬機器中的 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-documentdb.md)
-* [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)可用來擷取 PDF、Office 文件、HTML 或 XML 中的文字
+* [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
 * [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
 * [使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob](search-howto-index-csv-blobs.md)
 * [使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob](search-howto-index-json-blobs.md)

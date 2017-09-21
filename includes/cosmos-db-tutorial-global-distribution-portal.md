@@ -3,7 +3,7 @@
 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Planet-Scale-NoSQL-with-DocumentDB/player]  
 
-如需有關 Cosmos DB 中全域資料庫複寫運作方式的詳細資訊，請參閱[使用 Cosmos DB 來全域散發資料](../articles/documentdb/documentdb-distribute-data-globally.md)。
+如需有關 Azure Cosmos DB 中全域資料庫複寫運作方式的詳細資訊，請參閱[使用 Cosmos DB 來全域散發資料](../articles/cosmos-db/distribute-data-globally.md)。
 
 ## <a id="addregion"></a>使用 Azure 入口網站新增全球資料庫區域
 全球所有的 [Azure 區域][azureregions]均可使用 Azure Cosmos DB。 選取資料庫帳戶的預設一致性層級之後，您可以關聯一或多個區域 (取決於您對於預設一致性層級和全球發佈需求的選擇)。
@@ -11,7 +11,7 @@
 1. 在 [Azure 入口網站](https://portal.azure.com/)的左列中，按一下 [Azure Cosmos DB]。
 2. 在 [Azure Cosmos DB] 刀鋒視窗中，選取要修改的資料庫帳戶。
 3. 在帳戶刀鋒視窗中，從功能表中按一下 [全域複寫資料]。
-4. 在 [全域複寫資料] 刀鋒視窗中，按一下地圖中的區域以選取要新增或移除的區域，然後按一下 [儲存]。 新增區域需要費用，如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)或[使用 DocumentDB 全球發佈資料](../articles/documentdb/documentdb-distribute-data-globally.md)一文。
+4. 在 [全域複寫資料] 刀鋒視窗中，按一下地圖中的區域以選取要新增或移除的區域，然後按一下 [儲存]。 新增區域需要費用，如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)或[使用 Azure Cosmos DB 全球散發資料](../articles/cosmos-db/distribute-data-globally.md)一文。
    
     ![按一下地圖中的區域以新增或移除它們][1]
     

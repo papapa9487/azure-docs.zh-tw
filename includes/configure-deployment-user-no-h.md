@@ -1,4 +1,4 @@
-使用 [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) 命令來建立部署認證。
+在 Cloud Shell 中，使用 [az webapp deployment user set](/cli/azure/webapp/deployment/user#set) 命令來建立部署認證。
 
 需要部署使用者，才能將 FTP 和本機 Git 部署至 Web 應用程式。 使用者名稱和密碼是帳戶等級。 _它們與您的 Azure 訂用帳戶認證不同。_
 

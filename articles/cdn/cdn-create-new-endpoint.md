@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: bdf6e27463fcc6186a3b15a55653fa468da91bdc
-ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
-
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 09b26f2fe83a24b351cafa06afad6f15a31fe77c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="getting-started-with-azure-cdn"></a>開始使用 Azure CDN
@@ -32,8 +33,13 @@ ms.openlocfilehash: d263e911d0d0b3cdc1e48e300a3c8a0994b38c39
 CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個 CDN 端點。  您可能會想要使用多個設定檔，依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點。
 
 > [!NOTE]
-> 依預設，一個 Azure 訂用帳戶只能擁有八個 CDN 設定檔。 而每個 CDN 設定檔則只能擁有十個 CDN 端點。
-> 
+> Azure 訂用帳戶對下列資源具有預設限制：
+> - 可建立的 CDN 設定檔數目
+> - 可在 CDN 設定檔中建立的端點數目 
+> - 可對應至端點的自訂網域數目
+>
+> 如需 CDN 訂用帳戶限制的相關資訊，請參閱 [CDN 限制](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits)。
+>
 > CDN 定價是根據 CDN 設定檔層級來套用的。 如果您想要混合使用 Azure CDN 定價層，您需要擁有多個 CDN 設定檔。
 > 
 > 
@@ -55,7 +61,7 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
     此時會顯示 [加入端點]  刀鋒視窗。
    
     ![[加入端點] 刀鋒視窗][cdn-add-endpoint]
-3. 輸入這個 CDN 端點的 [名稱]  。  此名稱會用於存取位於網域 `<endpointname>.azureedge.net`的快取資源。
+3. 輸入這個 CDN 端點的 [名稱]  。  此名稱用於存取位於網域 `<endpointname>.azureedge.net` 的快取資源。
 4. 在 [原始來源類型]  下拉式清單中，選取您的原始來源類型。  針對 Azure 儲存體帳戶選取 [儲存體]、針對 Azure 雲端服務選取 [雲端服務]、針對 Azure Web 應用程式選取 [Web 應用程式]，若為其他任何可公開存取的 Web 伺服器來源 (裝載於 Azure 或其他位置)，則請選取 [自訂原始來源]。
    
     ![CDN 原始來源類型](./media/cdn-create-new-endpoint/cdn-origin-type.png)
@@ -77,7 +83,9 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
    > 使用 HTTPS 存取 CDN 內容具有下列限制：
    > 
    > * 您必須使用 CDN 所提供的 SSL 憑證。 不支援第三方憑證。
-   > * 您必須使用 CDN 提供的網域 (`<endpointname>.azureedge.net`) 來存取 HTTPS 內容。 因為 CDN 目前不支援自訂憑證，所以自訂網域名稱 (CNAME) 不提供 HTTPS 支援。
+   > * Azure CDN 自訂網域的 HTTPS 支援僅適用於 **Verizon 提供的 Azure CDN** 產品 (標準版和進階版)。 此功能不支援 **透過 Akamai 提供的 Azure CDN**。 如需詳細資訊，請參閱[在 Azure CDN 自訂網域上啟用 HTTPS](cdn-custom-ssl.md)。
+
+使用 CDN 提供的網域 (`<endpointname>.azureedge.net`) 來存取 HTTPS 內容。 因為 CDN 目前不支援自訂憑證，所以自訂網域名稱 (CNAME) 不提供 HTTPS 支援。
    > 
    > 
 9. 按一下 [加入]  按鈕，以建立新的端點。
@@ -103,9 +111,4 @@ CDN 設定檔就是 CDN 端點的集合。  每個設定檔皆包含一或多個
 [cdn-new-endpoint-button]: ./media/cdn-create-new-endpoint/cdn-new-endpoint-button.png
 [cdn-add-endpoint]: ./media/cdn-create-new-endpoint/cdn-add-endpoint.png
 [cdn-endpoint-success]: ./media/cdn-create-new-endpoint/cdn-endpoint-success.png
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 
