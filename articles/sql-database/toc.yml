@@ -257,14 +257,6 @@
           href: sql-database-ssms-mfa-authentication-configure.md
     - name: 業務持續性
       items:
-        - name: 設定保存庫 - 備份
-          href: sql-database-long-term-backup-retention-configure.md
-        - name: 地理複寫 - 入口網站
-          href: sql-database-geo-replication-portal.md
-        - name: 復原單一資料表
-          href: sql-database-cloud-migrate-restore-single-table-azure-backup.md
-    - name: 載入與移動資料
-      items:
         - name: 使用 BCP 載入資料
           href: sql-database-load-from-csv-with-bcp.md
         - name: 使用 ADF 載入資料

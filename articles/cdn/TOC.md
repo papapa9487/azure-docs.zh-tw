@@ -6,7 +6,7 @@
 
 # 作法
 ## 整合
-### [Web Apps](../app-service-web/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
+### [Web Apps](../app-service/app-service-web-tutorial-content-delivery-network.md?toc=%2fazure%2fcdn%2ftoc.json)
 ### [雲端服務](cdn-cloud-service-with-cdn.md)
 ### [儲存體](cdn-create-a-storage-account-with-cdn.md)
 ### [跨原始資源共用](cdn-cors.md)

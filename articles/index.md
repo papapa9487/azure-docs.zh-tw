@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 81def90a2a17c91db16b2c114e5ead3c59ed2f96
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f1b498499f02b3dd6d83debee6eaaf846ec01839
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 <div id="main" class="v2">
@@ -67,10 +67,10 @@ ms.lasthandoff: 09/14/2017
                     </div>
                 </a>
             </li>
-        </ul>
+        </ul>             
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure 文件</h1>
+        <h1 class="screenReader">Microsoft Azure 文件</h1>   
         <ul class="pivots">
             <li>
                 <a href="#get-started">開始使用</a>
@@ -105,36 +105,38 @@ ms.lasthandoff: 09/14/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>開發應用程式</h3>
-                                                <ul class="noBullet">
-                                                    <li>
+                                                <div class="cols cols2">
+                                                    <div>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/python/azure/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/java/azure/">
                                                             <img src="media/index/logo_java.svg" alt=""> Java</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
-                                                    </li>
-                                                </ul>
-                                                <h4>應用程式模型</h4>
-                                                <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">無伺服器函式</a></li>
-                                                    <li><a class="barLink" href="/azure/container-instances/">容器執行個體</a></li>
-                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">搭配 Kubernetes 的容器</a></li>
-                                                    <li><a class="barLink" href="/azure/service-fabric/">搭配 Service Fabric 的微服務</a></li>
-                                                </ul>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <h4>應用程式模型</h4>
+                                                    <ul class="noBullet">
+                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                        <li><a class="barLink" href="/azure/azure-functions/">無伺服器#</a></li>
+                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">搭配 Kubernetes 的容器</a></li>
+                                                        <li><a class="barLink" href="/azure/service-fabric/">搭配 Service Fabric 的微服務</a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -148,9 +150,9 @@ ms.lasthandoff: 09/14/2017
                                                 <h3>管理資料和 AI</h3>
                                                 <h4>關聯式資料庫</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">SQL 資料庫即服務</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 資料庫即服務</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">MySQL 資料庫即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database 即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">MySQL 即服務</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
@@ -172,16 +174,16 @@ ms.lasthandoff: 09/14/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>命令列工具</h3>
-                                                <ul class="noBullet">
-                                                    <li>
+                                                <div class="cols">
+                                                    <div>
                                                         <a class="barLink" href="/cli/azure/overview">
                                                             <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/powershell/azure/overview">
                                                             <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -193,16 +195,16 @@ ms.lasthandoff: 09/14/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-                                                <ul class="noBullet">
-                                                    <li>
+                                                <div class="cols">
+                                                    <div>
                                                         <a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt=""> Visual Studio Team Services</a>
-                                                    </li>
-                                                    <li>
+                                                    </div>
+                                                    <div>
                                                         <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">Azure VM 上的 Jenkins</a>
-                                                    </li>
-                                                </ul>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

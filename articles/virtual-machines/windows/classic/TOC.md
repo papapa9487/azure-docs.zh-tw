@@ -3,7 +3,7 @@
 ## [磁碟與 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [虛擬網路](../../../virtual-network/virtual-networks-overview.md)
 ## [常見問題集](faq.md)
-## [比較 VM、網站及雲端服務](../../../app-service-web/choose-web-site-cloud-service-vm.md)
+## [比較 VM、網站及雲端服務](../../../app-service/choose-web-site-cloud-service-vm.md)
 ## [容器](../../virtual-machines-windows-containers.md)
 
 # 開始使用

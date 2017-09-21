@@ -131,6 +131,8 @@
           href: download-template.md
         - name: Azure VM 代理程式
           href: agent-user-guide.md
+        - name: 預定的維修
+          href: maintenance-notifications.md
         - name: 排定的事件
           href: scheduled-events.md
         - name: 監視中繼資料
