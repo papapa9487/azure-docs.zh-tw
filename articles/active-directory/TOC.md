@@ -42,6 +42,7 @@
 #### [識別並解決群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
+#### [為使用者和應用程式提供使用規定](active-directory-tou.md)
 #### [群組型授權的 PowerShell 範例](active-directory-licensing-ps-examples.md)
 ### [從其他目錄中新增使用者 (傳統入口網站)](active-directory-create-users-external.md)
 ### [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
@@ -197,6 +198,7 @@
 #### [檢視我的所有應用程式](active-directory-coreapps-view-azure-portal.md)
 #### [管理使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 #### [管理企業應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)
+#### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [自助服務存取](active-directory-self-service-application-access.md)
@@ -273,6 +275,17 @@
 #### [指派管理員角色](active-directory-users-assign-role-azure-portal.md)
 ### [管理單位](active-directory-administrative-units-management.md)
 ### [設定權杖存留期](active-directory-configurable-token-lifetimes.md)
+
+## 存取權檢閱
+### [存取權檢閱概觀](active-directory-azure-ad-controls-access-reviews-overview.md)
+### [完成存取權檢閱](active-directory-azure-ad-controls-complete-access-review.md)
+### [建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)
+### [開始執行存取權檢閱](active-directory-azure-ad-controls-perform-access-review.md)
+### [如何檢閱您的存取權](active-directory-azure-ad-controls-how-to-review-your-access.md)
+### [透過存取權檢閱進行來賓存取](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
+### [透過檢閱管理使用者存取](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
+### [管理程式和控制項](active-directory-azure-ad-controls-manage-programs-controls.md)
+
 
 ## 保護您的身分識別
 ### [條件式存取](active-directory-conditional-access-azure-portal.md)

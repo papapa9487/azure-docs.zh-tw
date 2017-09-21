@@ -27,7 +27,7 @@
 ### [建立輸出](stream-analytics-define-outputs.md)
 ### [輸出至 Azure Functions](stream-analytics-functions-redis.md)
 ### [輸出至 Data Lake Store](stream-analytics-data-lake-output.md)
-### [輸出至 DocumentDB](stream-analytics-documentdb-output.md)
+### [輸出至 Cosmos DB](stream-analytics-documentdb-output.md)
 
 ## 監視和最佳化
 ### [新增警示](stream-analytics-set-up-alerts.md)

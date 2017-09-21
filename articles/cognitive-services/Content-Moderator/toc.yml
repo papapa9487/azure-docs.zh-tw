@@ -4,6 +4,30 @@
   items:
     - name: 有關內容仲裁
       href: overview.md
+- name: 快速入門
+  items:
+    - name: 檢閱工具
+      href: quick-start.md
+    - name: 仲裁 API
+      items:
+        - name: 映像 API
+          href: try-image-api.md
+        - name: 映像清單 API
+          href: try-image-list-api.md
+        - name: 文字 API
+          href: try-text-api.md
+        - name: 字詞清單 API
+          href: try-terms-list-api.md
+    - name: 檢閱 API
+      items:
+        - name: 工作
+          href: try-review-api-job.md
+        - name: 評論
+          href: try-review-api-review.md
+        - name: 工作流程
+          href: try-review-api-workflow.md
+- name: 概念
+  items:
     - name: 影像仲裁
       href: image-moderation-api.md
     - name: 文字仲裁
@@ -14,31 +38,9 @@
       href: video-moderation-api.md
     - name: 檢閱 API
       href: review-api.md
-- name: 開始使用
+- name: 使用說明指南
   items:
     - name: 檢閱工具
-      href: quick-start.md
-    - name: 試用仲裁 API
-      items:
-        - name: 映像
-          href: try-image-api.md
-        - name: 映像清單
-          href: try-image-list-api.md
-        - name: 文字
-          href: try-text-api.md
-        - name: 字詞清單
-          href: try-terms-list-api.md
-    - name: 試用檢閱 API
-      items:
-        - name: 工作
-          href: try-review-api-job.md
-        - name: 評論
-          href: try-review-api-review.md
-        - name: 工作流程
-          href: try-review-api-workflow.md
-- name: 作法
-  items:
-    - name: 使用檢閱工具
       items:
         - name: 迴圈中的人員
           href: Review-Tool-User-Guide/human-in-the-loop.md

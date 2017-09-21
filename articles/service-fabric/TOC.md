@@ -12,8 +12,9 @@
 ### [1- 建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)
 ### [2- 部署應用程式](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 ### [3- 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+### [4- 監視與診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
-## 撤銷並轉移應用程式
+## 將現有的 .NET 應用程式容器化
 ### [1- 在 Azure 上建立安全叢集](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- 使用 Docker Compose 部署 .NET 應用程式](service-fabric-host-app-in-a-container.md)
 

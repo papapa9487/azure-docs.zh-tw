@@ -27,6 +27,7 @@
 ### [適用於已經有 Azure AD 時](active-directory-aadconnect-existing-tenant.md)
 ## [管理 Azure AD Connect](active-directory-aadconnect-whats-next.md)
 ### [O365 和 Azure AD 更新憑證](active-directory-aadconnect-o365-certs.md)
+### [更新適用於 Active Directory 同盟服務 (AD FS) 伺服器陣列的 SSL 憑證](active-directory-aadconnectfed-ssl-update.md)
 ### [啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)
 ### [使用者單一登入選項](active-directory-aadconnect-user-signin.md)
 #### [順暢單一登入](active-directory-aadconnect-sso.md)
