@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: cc96ba9f5abd45a7503ba3327b30e1f809391384
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -40,7 +40,7 @@ Azure Container Registry 是以 Azure 為基礎的私人登錄，用於裝載 Do
 
 ## <a name="before-you-begin"></a>開始之前
 
-本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+本教學課程需要您執行 Azure CLI 2.0.12 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="deploy-azure-container-registry"></a>部署 Azure Container Registry
 
@@ -62,7 +62,7 @@ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --s
 
 ## <a name="container-registry-login"></a>Container Registry 登入
 
-您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) 命令來完成此作業。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
+您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) 命令來完成此作業。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
 
 ```azurecli
 az acr login --name <acrName>

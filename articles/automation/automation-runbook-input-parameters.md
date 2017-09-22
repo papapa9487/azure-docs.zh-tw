@@ -14,19 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
 ms.author: sngun
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0f8308b73a70fc3758a53063bc69d16480df8f02
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6486f3963b18edee8490446cad1f6f2697db699b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="runbook-input-parameters"></a>Runbook 輸入參數
+
 Runbook 輸入參數可讓您將資料傳遞至剛啟動的 Runbook，以增加 Runbook 的彈性。 這些參數可讓Runbook 動作以特定案例和環境做為目標。 在本文中，我們將逐步引導您了解在 Runbook 中使用輸入參數的不同案例。
 
 ## <a name="configure-input-parameters"></a>設定輸入參數
-輸入參數可以在 PowerShell、PowerShell 工作流程和圖形化 Runbook 中設定。 一個 Runbook 可以使用具有不同資料類型的多個參數，或完全不使用參數。 輸入參數可以是強制性或選擇性的，而且您可以為選擇性參數指派預設值。 您可以在透過其中一種可用方法啟動 Runbook 時，指派 Runbook 的輸入參數值。 可用方法包括從入口網站或 Web 服務啟動 Runbook。 您也可以啟動一個 Runbook 做為在另一個 Runbook 中以內嵌方式呼叫的子 Runbook。
+
+輸入參數可以在 PowerShell、PowerShell 工作流程、Python 和圖形化 Runbook 中設定。 一個 Runbook 可以使用具有不同資料類型的多個參數，或完全不使用參數。 輸入參數可以是強制性或選擇性的，而且您可以為選擇性參數指派預設值。 您可以在透過其中一種可用方法啟動 Runbook 時，指派 Runbook 的輸入參數值。 可用方法包括從入口網站或 Web 服務啟動 Runbook。 您也可以啟動一個 Runbook 做為在另一個 Runbook 中以內嵌方式呼叫的子 Runbook。
 
 ## <a name="configure-input-parameters-in-powershell-and-powershell-workflow-runbooks"></a>在 PowerShell 和 PowerShell 工作流程 Runbook 中設定輸入參數
+
 Azure 自動化中的 PowerShell 和 [PowerShell 工作流程 Runbook](automation-first-runbook-textual.md) 支援透過下列屬性定義的輸入參數。  
 
 | **屬性** | **說明** |
@@ -40,7 +44,7 @@ Windows PowerShell 所支援的輸入參數屬性比此處所列的多，例如�
 
 PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其中，多個參數會以逗號分隔。
 
-   ```
+   ```powershell
      Param
      (
          [Parameter (Mandatory= $true/$false)]
@@ -73,6 +77,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>在圖形化 Runbook 中設定輸入參數
+
 為了使用輸入參數[設定圖形化 Runbook](automation-first-runbook-graphical.md)，我們將建立會輸出虛擬機器 (可以是單一 VM 或資源群組內的所有 VM) 相關詳細資料的圖形化 Runbook。 設定 Runbook 包含兩個主要活動，如下所述。
 
 [**使用 Azure 執行身分帳戶驗證 Runbook**](automation-sec-configure-azure-runas-account.md) 以 Azure 驗證。
@@ -112,14 +117,26 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
      * 自訂預設值 - \<包含虛擬機器之資源群組的名稱>
 5. 新增參數之後，請按一下 [確定] 。  現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 [確定]，然後按一下 [儲存] 並 [發佈] 您的 Runbook。
 
+## <a name="configure-input-parameters-in-python-runbooks"></a>在 Python Runbook 中設定輸入參數
+
+Python Runbook 與 PowerShell、PowerShell 工作流程及圖形化 Runbook 不同，其不使用具名參數。
+所有輸入參數都會經過剖析，成為引數值的陣列。
+若要存取陣列，您可以將 `sys` 模組匯入 Python 指令碼，接著再使用 `sys.argv` 陣列。
+請務必注意，陣列的第一個元素 (`sys.argv[0]`) 是指令碼的名稱，所以第一個實際的輸入參數是 `sys.argv[1]`。
+
+如需在 Python Runbook 中使用輸入參數的範例，請參閱[我在 Azure 自動化中的第一個 Python Runbook](automation-first-runbook-textual-python2.md)。
+
 ## <a name="assign-values-to-input-parameters-in-runbooks"></a>將值指派給 Runbook 中的輸入參數
+
 在下列情況下，您可以將值傳遞至 Runbook 中的輸入參數。
 
 ### <a name="start-a-runbook-and-assign-parameters"></a>啟動 Runbook 並指派參數
+
 Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透過 PowerShell Cmdlet、REST API 或 SDK。 以下我們將討論啟動 Runbook 並指派參數的不同方法。
 
 #### <a name="start-a-published-runbook-by-using-the-azure-portal-and-assign-parameters"></a>使用 Azure 入口網站啟動已發佈的 Runbook，並指派參數
-當您[啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) 時，[啟動 Runbook] 刀鋒視窗隨即開啟，而您可以為剛建立的參數設定值。
+
+當您[啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-the-azure-portal) 時，[啟動 Runbook] 刀鋒視窗隨即開啟，而您可以為剛建立的參數輸入值。
 
 ![使用入口網站啟動](media/automation-runbook-input-parameters/automation-04-startrunbookusingportal.png)
 
@@ -133,6 +150,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
 > 
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>使用 PowerShell Cmdlet 啟動已發佈的 Runbook，並指派參數
+
 * **Azure Resource Manager Cmdlet：** 您可以使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx)啟動在資源群組中建立的自動化 Runbook。
   
   **範例：**
@@ -158,6 +176,7 @@ Runbook 有多種啟動方式：透過 Azure 入口網站、透過 Webhook、透
 > 
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>使用 SDK 啟動 Runbook，並指派參數
+
 * **Azure Resource Manager 方法：** 您可以使用程式設計語言的 SDK 來啟動 Runbook。 以下 C# 程式碼片段用於在您的自動化帳戶中啟動 Runbook。 您可以在我們的 [GitHub 儲存機制](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)中檢視完整的程式碼。  
   
   ```
@@ -267,10 +286,5 @@ Runbook 作業可透過 Azure 自動化 REST API，使用 **PUT** 方法和下�
 * 如需以不同方式啟動 Runbook 的詳細資訊，請參閱 [啟動 Runbook](automation-starting-a-runbook.md)。
 * 若要編輯文字 Runbook，請參閱 [編輯文字 Runbook](automation-edit-textual-runbook.md)。
 * 若要編輯圖形化 Runbook，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

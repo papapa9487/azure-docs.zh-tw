@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Development Kit architecture | Microsoft Docs
-description: View the Microsoft Azure Stack Development Kit architecture.
+title: "Microsoft Azure Stack 開發套件架構 | Microsoft Docs"
+description: "檢視 Microsoft Azure Stack 開發套件架構。"
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -15,43 +15,43 @@ ms.topic: article
 ms.date: 08/03/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: ece8cb785ffcceaed476fa729e7471dc7831c155
+ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
+ms.openlocfilehash: feb4f10f9f25515ba85011f467b2ada0cdfcdefb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit architecture
-The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
+# <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack 開發套件架構
+Azure Stack 開發套件是 Azure Stack 的單一節點部署。 所有元件都安裝在於單一主機電腦上執行的虛擬機器中。 
 
-## <a name="logical-architecture-diagram"></a>Logical architecture diagram
-The following diagram illustrates the logical architecture of the Azure Stack development kit and its components.
+## <a name="logical-architecture-diagram"></a>邏輯架構圖
+下圖說明 Azure Stack 開發套件及其元件的邏輯架構。
 
 ![](media/azure-stack-architecture/image1.png)
 
-## <a name="virtual-machine-roles"></a>Virtual machine roles
-The Azure Stack development kit offers services using the following VMs on the host:
+## <a name="virtual-machine-roles"></a>虛擬機器角色
+Azure Stack 開發套件會在主機上使用下列 VM 來提供服務：
 
-| Name | Description |
+| 名稱 | 描述 |
 | ----- | ----- |
-| **AzS-ACS01** | Azure Stack storage services.|
-| **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
-| **AzS-BGPNAT01** | Edge router and provides NAT and VPN capabilities for Azure Stack. |
-| **AzS-CA01** | Certificate authority services for Azure Stack role services.|
-| **AzS-DC01** | Active Directory, DNS, and DHCP services for Microsoft Azure Stack.|
-| **AzS-ERCS01** | Emergency Recovery Console VM. |
-| **AzS-GWY01** | Edge gateway services such as VPN site-to-site connections for tenant networks.|
-| **AzS-NC01** | Network Controller, which manages Azure Stack network services.  |
-| **AzS-SLB01** | Load balancing multiplexer services in Azure Stack for both tenants and Azure Stack infrastructure services.  |
-| **AzS-SQL01** | Internal data store for Azure Stack infrastructure roles.  |
-| **AzS-WAS01** | Azure Stack administrative portal and Azure Resource Manager services.|
-| **AzS-WASP01**| Azure Stack user (tenant) portal and Azure Resource Manager services.|
-| **AzS-XRP01** | Infrastructure management controller for Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.|
+| **AzS-ACS01** | Azure Stack 儲存體服務。|
+| **AzS-ADFS01** | Active Directory 同盟服務 (AD FS)。  |
+| **AzS-BGPNAT01** | 邊緣路由器，並提供適用於 Azure Stack 的 NAT 和 VPN 功能。 |
+| **AzS-CA01** | 適用於 Azure Stack 角色服務的憑證授權單位服務。|
+| **AzS-DC01** | 適用於 Microsoft Azure Stack 的 Active Directory、DNS 及 DHCP 服務。|
+| **AzS-ERCS01** | 緊急修復主控台 VM。 |
+| **AzS-GWY01** | 邊緣閘道服務，例如適用於租用戶網路的 VPN 站對站連線。|
+| **AzS-NC01** | 管理 Azure Stack 網路服務的網路控制器。  |
+| **AzS-SLB01** | Azure Stack 中適用於租用戶和 Azure Stack 基礎結構服務的負載平衡多工器服務。  |
+| **AzS-SQL01** | 適用於 Azure Stack 基礎結構角色的內部資料存放區。  |
+| **AzS-WAS01** | Azure Stack 管理入口網站和 Azure Resource Manager 服務。|
+| **AzS-WASP01**| Azure Stack 使用者 (租用戶) 入口網站和 Azure Resource Manager 服務。|
+| **AzS-XRP01** | 適用於 Microsoft Azure Stack 的基礎結構管理控制器，包括運算、網路和儲存體資源提供者。|
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy Azure Stack](azure-stack-deploy.md)
+## <a name="next-steps"></a>後續步驟
+[部署 Azure Stack](azure-stack-deploy.md)
 
-[First scenarios to try](azure-stack-first-scenarios.md)
+[要嘗試的第一個案例](azure-stack-first-scenarios.md)
 
 

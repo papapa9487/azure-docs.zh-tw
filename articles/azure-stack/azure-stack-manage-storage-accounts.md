@@ -1,6 +1,6 @@
 ---
-title: Manage Azure Stack storage accounts  | Microsoft Docs
-description: Learn how to find, manage, recover and reclaim Azure Stack storage accounts
+title: "管理 Azure Stack 儲存體帳戶 | Microsoft Docs"
+description: "了解如何尋找、管理、復原及回收 Azure Stack 儲存體帳戶"
 services: azure-stack
 documentationcenter: 
 author: AniAnirudh
@@ -18,205 +18,198 @@ ms.translationtype: HT
 ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
-# Manage Storage Accounts in Azure Stack
-<a id="manage-storage-accounts-in-azure-stack" class="xliff"></a>
-Learn how to manage storage accounts in Azure Stack to find, recover, and reclaim storage capacity based on business needs.
+# <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
+了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
 
-## <a name="find"></a>Find a storage account
-The list of storage accounts in the region can be viewed in Azure Stack by:
+## <a name="find"></a>尋找儲存體帳戶
+區域中的儲存體帳戶清單可在 Azure Stack 中，透過下列方式檢視：
 
-1. In an Internet browser, navigate to https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore. For example **(local**).
+1. 在網際網路瀏覽器中，瀏覽至 https://adminportal.local.azurestack.external。
+2. 以雲端操作員身分 (使用您在部署期間所提供的認證)，登入 Azure Stack 系統管理入口網站
+3. 在預設儀表板上，尋找 [區域管理] 清單，然後按一下您想要探索的區域。 例如 **(local**)。
    
    ![](media/azure-stack-manage-storage-accounts/image1.png)
-4. Select **Storage** from the **Resource Providers** list.
+4. 從 [資源提供者] 清單中選取 [儲存體]。
    
    ![](media/azure-stack-manage-storage-accounts/image2.png)
-5. Now, on the storage Resource Provider administrator blade – scroll down to the **Storage accounts** tab and click it.
+5. 現在，在儲存體資源提供者系統管理員刀鋒視窗中，向下捲動至 [儲存體帳戶] 索引標籤，然後按一下它。
    
    ![](media/azure-stack-manage-storage-accounts/image3.png)
    
-   The resulting page is the list of storage accounts in that region.
+   所產生的頁面就是在該區域中的儲存體帳戶清單。
    
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
-By default, the first 10 accounts are displayed. You can choose to fetch more by clicking the  **Load more** link at the bottom of the list.
+預設會顯示前 10 個帳戶。 您可以按一下清單底部的 [載入更多] 連結，選擇擷取更多項目。
 
-OR
+或
 
-If you are interested in a particular storage account – you can **filter and fetch the relevant accounts** only.
+如果您只想看到特定儲存體帳戶，可以只**篩選並擷取相關的帳戶**。
 
 
-**To filter for accounts:**
+**篩選帳戶：**
 
-1. Click **Filter** at the top of the blade.
-2. On the Filter blade, it allows you to specify **account name**, **subscription ID** or **status** to fine-tune the list of storage accounts to be displayed. Use them as appropriate.
-3. Click **Update**. The list should refresh accordingly.
+1. 按一下刀鋒視窗頂端的 [篩選]。
+2. 在 [篩選] 刀鋒視窗上，您可以指定 [帳戶名稱]、[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
+3. 按一下 [更新] 。 清單應該會隨著重新整理。
    
     ![](media/azure-stack-manage-storage-accounts/image5.png)
-4. To reset the filter: click **Filter**, clear out the  selections and update.
+4. 若要重設篩選：按一下 [篩選]、清除選取項目，然後更新。
 
-The search text box (on the top of the storage accounts list blade) lets you highlight the selected text in the list of accounts. This is really handy in the case when the full name or id is not easily available.
+[搜尋] 文字方塊 (在儲存體帳戶清單刀鋒視窗的頂端) 可讓您反白顯示帳戶清單中選取的文字。 如果無法輕易地取得完整名稱或識別碼，這真的很方便。
 
-You can use free text here to help find the account you are interested in.
+您可以在這裡使用任意文字，以協助找出您想看到的帳戶。
 
 ![](media/azure-stack-manage-storage-accounts/image6.png)
 
-## Look at account details
-<a id="look-at-account-details" class="xliff"></a>
-Once you have located the accounts you are interested in viewing, you can click the particular account to view certain details. A new blade opens with the account details such as: the type of the account, creation time, location, etc.
+## <a name="look-at-account-details"></a>查看帳戶詳細資料
+一旦找到您想檢視的帳戶之後，可以按一下特定的帳戶，以檢視特定的詳細資料。 新刀鋒視窗隨即開啟，其中包含帳戶詳細資料，例如：帳戶類型、建立時間、位置等等。
 
 ![](media/azure-stack-manage-storage-accounts/image7.png)
 
-## Recover a deleted account
-<a id="recover-a-deleted-account" class="xliff"></a>
-You may be in a situation where you need to recover a deleted account.
+## <a name="recover-a-deleted-account"></a>復原已刪除的帳戶
+有時候，您必須復原已刪除的帳戶。
 
-In Azure Stack there is a very simple way to do that:
+在 Azure Stack 中，有一個非常簡單的方式可以執行此作業：
 
-1. Browse to the storage accounts list. See [Find a storage account](#find) in this topic for more information.
-2. Locate that particular account in the list. You may need to filter.
-3. Check the *state* of the account. It should say **Deleted**.
-4. Click the account which opens the account details blade.
-5. On top of this blade, locate the **Recover** button and click it.
-6. Click **Yes** to confirm.
+1. 瀏覽至儲存體帳戶清單。 如需詳細資訊，請參閱本主題中的[尋找儲存體帳戶](#find)。
+2. 在清單中找出該特定帳戶。 您可能需要篩選。
+3. 請檢查帳戶的 [狀態]。 它應該指出 [已刪除]。
+4. 按一下可開啟 [帳戶詳細資料] 刀鋒視窗的帳戶。
+5. 在這個刀鋒視窗的頂端，找出 [復原] 按鈕，然後按一下它。
+6. 按一下 [是] 以確認。
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
-7. The recovery is now in *process…wait* for an indication that it was successful.
-   You can also click the “bell” icon at the top of the portal to view progress indications.
+7. 復原現在處於 [處理中...請等待] 的狀態，正在等待復原成功的訊息出現。
+   您也可以按一下入口網站頂端的「鈴鐺」圖示，以檢視進度指示。
    
    ![](media/azure-stack-manage-storage-accounts/image9.png)
    
-   Once the recovered account is successfully synchronized, it can be used again.
+   一旦成功同步處理已復原的帳戶之後，就可以再次使用該帳戶。
 
-### Some Gotchas
-<a id="some-gotchas" class="xliff"></a>
-* Your deleted account shows state as **out of retention**.
+### <a name="some-gotchas"></a>注意事項
+* 已刪除的帳戶顯示 [不再保留] 狀態。
   
-  This means that the deleted account has exceeded the retention period and may not be recoverable.
-* Your deleted account does not show in the accounts list.
+  這表示已刪除的帳戶已超出保留期限，可能無法復原。
+* 已刪除的帳戶未顯示在帳戶清單中。
   
-  This could mean that the deleted account has already been garbage collected. In this case it cannot be recovered. See [Reclaim capacity](#reclaim) in this topic.
+  這可能表示已刪除的帳戶已經被記憶體回收。 在此情況下，便無法復原該帳戶。 請參閱本主題中的[回收容量](#reclaim)。
 
-## Set the retention period
-<a id="set-the-retention-period" class="xliff"></a>
-The retention period setting allows a cloud operator to specify a time period in days (between 0 and 9999 days) during which any deleted account can potentially be recovered. The default retention period is set to 15 days. Setting the value to “0” means that any deleted account is immediately out of retention and marked for periodic garbage collection.
+## <a name="set-the-retention-period"></a>設定保留期限
+保留期限設定可讓雲端操作員指定時間間隔天數 (介於 0 到 9999 天)，在此期間，任何已刪除的帳戶都可能復原。 預設保留期限設定為 15 天。 將值設定為 "0" 表示立即不保留任何已刪除的帳戶，並標示供定期記憶體回收。
 
-**To change the retention period:**
+**變更保留期限：**
 
-1. In an internet browser, navigate to https://adminportal.local.azurestack.external.
-2. Sign in to the Azure Stack administration portal as a cloud operator (using the credentials you provided during deployment)
-3. On the default dashboard – find the **Region management** list and click the region you want to explore – for example **(local**).
-4. Select **Storage** from the **Resource Providers** list.
-5. Click **Settings** at the top to open the setting blade.
-6. Click **Configuration** then edit the retention period value.
+1. 在網際網路瀏覽器中，瀏覽至 https://adminportal.local.azurestack.external。
+2. 以雲端操作員身分 (使用您在部署期間所提供的認證)，登入 Azure Stack 系統管理入口網站
+3. 在預設儀表板上，尋找 [區域管理] 清單，然後按一下您想要探索的區域，例如 **(local**)。
+4. 從 [資源提供者] 清單中選取 [儲存體]。
+5. 按一下頂端的 [設定]，開啟 [設定] 刀鋒視窗。
+6. 按一下 [設定]，然後編輯保留期限值。
 
-   Set the number of days and then save it.
+   設定天數，然後加以儲存。
    
-   This value is immediately effective and is set for your entire region.
+   此值會立即生效，而且會設定您的整個區域。
 
    ![](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>Reclaim capacity
-One of the side effects of having a retention period is that a deleted account continues to consume capacity until it comes out of the retention period. As a cloud operator you may need a way to reclaim the deleted account space even though the retention period has not yet expired.
+## <a name="reclaim"></a>回收容量
+保留期限會有副作用，亦即已刪除的帳戶會繼續耗用容量，直到超出保留期限為止。 身為雲端操作員，即使保留期限尚未到期，您可能還是需要一個回收已刪除帳戶空間的方式。
 
-You can reclaim capacity using either the portal or PowerShell.
+您可以使用入口網站或 PowerShell 來回收容量。
 
-**To reclaim capacity using the portal:**
-1. Navigate to the storage accounts blade. See [Find a storage account](#find).
-2. Click **Reclaim space** at the top of the blade.
-3. Read the message and then click **OK**.
+**使用入口網站回收容量：**
+1. 瀏覽至儲存體帳戶刀鋒視窗。 請參閱[尋找儲存體帳戶](#find)。
+2. 按一下刀鋒視窗頂端的 [回收空間]。
+3. 讀取訊息，然後按一下 [確定]。
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
-4. Wait for success notification See the bell icon on the portal.
+4. 等候成功通知。請查看入口網站上的鈴鐺圖示。
 
     ![](media/azure-stack-manage-storage-accounts/image12.png)
-5. Refresh the Storage accounts page. The deleted accounts are no longer shown in the list because they have been purged.
+5. 重新整理 [儲存體帳戶] 頁面。 已刪除的帳戶已遭到清除，因此不會再顯示在清單中。
 
-You can also use PowerShell to explicitly override the retention period and immediately reclaim capacity.
+您也可以使用 PowerShell 明確地覆寫保留期限，並立即回收容量。
 
-**To reclaim capacity using PowerShell:**   
+**使用 PowerShell 回收容量：**   
 
-1. Confirm that you have Azure PowerShell installed and configured. If not, use the following instructions: 
-   * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Run the following cmdlet:
+1. 確認您已安裝並設定 Azure PowerShell。 否則，請使用下列指示： 
+   * 若要安裝最新的 Azure PowerShell 版本，並將它與您的 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
+   如需有關 Azure Resource Manager Cmdlet 的詳細資訊，請參閱[搭配使用 Azure PowerShell 與 Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+2. 執行下列 Cmdlet：
 
 > [!NOTE]
-> If you run this cmdlet you permanently delete the account and its contents. It is not recoverable. Use this with care.
+> 如果您執行這個 Cmdlet，將會永久刪除帳戶及其內容。 無法復原。 使用時請務必小心。
 
 
         Clear-ACSStorageAccount -ResourceGroupName system.local -FarmName <farm ID>
 
 
-For more details, refer to [Azure Stack powershell documentation.](https://msdn.microsoft.com/library/mt637964.aspx)
+如需詳細資訊，請參閱 [Azure Stack PowerShell 文件](https://msdn.microsoft.com/library/mt637964.aspx) \(英文\)。
  
 
-## Migrate a container
-<a id="migrate-a-container" class="xliff"></a>
-Due to uneven storage use by tenants, an cloud operator may find one or more underlying tenant shares using more space than others. If this occurs, the cloud operator can attempt to free up some space on the stressed share by manually migrating some blob containers to another share. 
+## <a name="migrate-a-container"></a>移轉容器
+由於租用戶的儲存體用量不平均，因此雲端操作員可能會發現其中一個或多個基礎租用戶共用所使用的空間比其他租用戶更多。 如果發生這種情況，雲端操作員可以嘗試將部分 Blob 容器手動移轉至另一個共用，為使用量較大的共用釋放一些空間。 
 
-You must use PowerShell to migrate containers.
+您必須使用 PowerShell 來移轉容器。
 > [!NOTE]
->Blob container migration does not support live migration and currently is an offline operation. During migration and until it is complete the underlying blobs in that container cannot be used and are “offline”. 
+>Blob 容器移轉不支援即時移轉，而且目前是離線作業。 在移轉期間以及完成移轉之前，該容器中的基礎 Blob 都無法使用，而且是處於「離線」狀態。 
 
-**To migrate containers using PowerShell:**
+**使用 PowerShell 來移轉容器：**
 
-1. Confirm that you have Azure PowerShell installed and configured. If not, use the following instructions:
-    * To install the latest Azure PowerShell version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). For more information about Azure Resource Manager cmdlets, see [Using Azure PowerShell with Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
-2. Get the farm name: 
+1. 確認您已安裝並設定 Azure PowerShell。 否則，請使用下列指示：
+    * 若要安裝最新的 Azure PowerShell 版本，並將它與您的 Azure 訂用帳戶建立關聯，請參閱[如何安裝和設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 如需有關 Azure Resource Manager Cmdlet 的詳細資訊，請參閱[搭配使用 Azure PowerShell 與 Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+2. 取得伺服器陣列名稱： 
       
       `$farm = Get-ACSFarm -ResourceGroupName system.local`
-3. Get the shares: 
+3. 取得共用： 
 
    `$shares = Get-ACSShare -ResourceGroupName system.local -FarmName $farm.FarmName`
 
-4. Get the containers for a given share. Note that count and intent are optional parameters:
+4. 取得指定共用的容器。 請注意，count 和 intent 都是選擇性參數：
             
    `$containers = Get-ACSContainer -ResourceGroupName system.local -FarmName $farm.FarmName -ShareName $shares[0].ShareName -Count 4 -Intent Migration`  
 
-   Then examine $containers:
+   接著，檢查 $containers：
 
    `$containers`
 
     ![](media/azure-stack-manage-storage-accounts/image13.png)
-5. Get the best destination shares for the container migration:
+5. 取得用於容器移轉的最佳目的地共用：
 
     `$destinationshares= Get-ACSSharesForMigration  -ResourceGroupName system.local -FarmName $farm.farmname -SourceShareName $shares[0].ShareName`
 
-    Then examine $destinationshares:
+    接著，檢查 $destinationshares：
 
     `$destinationshares`
 
     ![](media/azure-stack-manage-storage-accounts/image14.png)
-6. Kick off migration for a container, notice this is an async implementation, so one can loop all containers in a share and track the status using the returned job id.
+6. 開始進行容器移轉。請注意，這是非同步實作，因此可以循環處理共用中的所有容器，並使用傳回的工作識別碼來追蹤狀態。
 
     `$jobId = Start-ACSContainerMigration -ResourceGroupName system.local -FarmName $farm.farmname -ContainerToMigrate $containers[1] -DestinationShareUncPath $destinationshares.UncPath`
 
-    Then examine $jobId:
+    接著，檢查 $jobId：
 
    ```
    $jobId
    d1d5277f-6b8d-4923-9db3-8bb00fa61b65
    ```
-7. Check status of the migration job by its job id. When the container migration finishes, MigrationStatus is set to “Completed”.
+7. 依工作識別碼檢查移轉工作的狀態。當容器移轉完成時，MigrationStatus 會設定為 「已完成」。
 
     `Get-ACSContainerMigrationStatus -ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 
     ![](media/azure-stack-manage-storage-accounts/image15.png)
 
-8. You can cancel an in-progress migration job. This again is an async operation and can be tracked using $jobid:
+8. 您可以取消進行中的移轉工作。 這仍然是非同步作業，而且可以使用 $jobid 來追蹤：
 
     `Stop-ACSContainerMigration-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId-Verbose`
 
     ![](media/azure-stack-manage-storage-accounts/image16.png)
 
-    You can check the status of the migration cancel again:
+    您可以再次檢查移轉取消的狀態：
 
     `Get-ACSContainerMigrationStatus-ResourceGroupName system.local -FarmName $farm.farmname -JobId $jobId`
 

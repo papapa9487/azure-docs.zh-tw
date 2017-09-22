@@ -1,25 +1,10 @@
----
-title: "傳送使用者內容以啟用 Azure Application Insights 中的使用體驗 | Microsoft Docs"
-description: "為每個使用者指派 Application Insights 中唯一的持續性識別碼字串之後，追蹤使用者如何透過您的服務移動。"
-services: application-insights
-documentationcenter: 
-author: abgreg
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
-ms.devlang: csharp
-ms.topic: article
-ms.date: 08/02/2017
-ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 7d0da5fb0b2c59764b36becd826d8c4cc6efc4ad
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+標題：傳送使用者內容識別碼，以啟用 Azure Application Insights 中的使用體驗 | Microsoft Docs 描述：追蹤使用者如何藉由在 Application Insights 中指派唯一且持續性的識別碼字串，在整個服務之間移動。
+services: application-insights documentationcenter: '' author: abgreg manager: carmonm
+
+ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
 
 ---
-#  <a name="sending-user-context-to-enable-usage-experiences-in-azure-application-insights"></a>傳送使用者內容以啟用 Azure Application Insights 中的使用體驗
+#  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>傳送使用者內容識別碼以啟用 Azure Application Insights 中的使用體驗
 
 ## <a name="tracking-users"></a>追蹤使用者
 
@@ -30,7 +15,7 @@ Application Insights 可讓您透過一組產品使用量工具來監控並追�
 * 同群使用者
 * [活頁簿](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 
-若要追蹤使用者在一段時間內所做的行為，Application Insights 需要每個使用者或工作階段的識別碼。 包括每個自訂事件或頁面檢視中的識別碼。
+若要追蹤使用者在一段時間內所做的行為，Application Insights 需要每個使用者或工作階段的識別碼。 包括下列每個自訂事件或頁面檢視畫面中的識別碼。
 - 使用者、漏斗圖、保留期和同群使用者：包含使用者識別碼。
 - 工作階段：包含工作階段識別碼。
 
@@ -47,13 +32,11 @@ Application Insights 可讓您透過一組產品使用量工具來監控並追�
 
 如果識別碼包含使用者的個人識別資訊，則該值不適合傳送至 Application Insights 做為使用者識別碼。 您可以傳送此類識別碼做為[已驗證的使用者識別碼](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users)，但不符合使用案例的使用者識別碼需求。
 
-## <a name="aspnet-apps-set-user-context-in-an-itelemetryinitializer"></a>ASP.NET 應用程式：在 ITelemetryInitializer 中設定使用者內容
+## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET 應用程式：在 ITelemetryInitializer 中設定使用者內容
 
 建立遙測初始設定式 (依照[這裡](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)的詳細說明)，並設定 Context.User.Id 和 Context.Session.Id。
 
 此範例會將使用者識別碼設定為在工作階段之後到期的識別碼。 如果可能，請使用工作階段期間持續存在的使用者識別碼。
-
-*C#*
 
 ```C#
 
@@ -91,11 +74,10 @@ Application Insights 可讓您透過一組產品使用量工具來監控並追�
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 若要啟用使用體驗，請開始傳送 [自訂事件](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [頁面檢視](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送「自訂事件」[](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或「頁面檢視」[](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     * [使用量概觀](app-insights-usage-overview.md)
     * [使用者、工作階段和事件](app-insights-usage-segmentation.md)
     * [漏斗圖](usage-funnels.md)
     * [保留](app-insights-usage-retention.md)
     * [活頁簿](app-insights-usage-workbooks.md)
-

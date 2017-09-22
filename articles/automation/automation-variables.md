@@ -15,11 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/09/2017
 ms.author: magoedte;bwren
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: dc00e1e5fa8df5cb55e7e2672137d1df44133773
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 43a08898abecb220f3df892473dddfb2729f0561
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自動化中的變數資產
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/11/2017
 * Boolean
 * Null
 
-## <a name="cmdlets-and-workflow-activities"></a>Cmdlet 和工作流程活動
+## <a name="scripting-the-creation-and-management-of-variables"></a>撰寫指令碼來建立及管理變數
 
 下表中的 Cmdlet 是用來使用 Windows PowerShell 建立和管理自動化變數。 它們是隨著 [Azure PowerShell 模組](../powershell-install-configure.md) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
@@ -73,6 +72,16 @@ ms.lasthandoff: 07/11/2017
 
 > [!NOTE] 
 > 您應該避免在 Runbook 或 DSC 設定中 **Get-AutomationVariable** 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與自動化變數之間的相依性變得複雜。
+
+下表中的函式可用來存取和取出 Python2 Runbook 中的變數。 
+
+|Python2 函式|說明|
+|:---|:---|
+|automationassets.get_automation_variable|擷取現有變數的值。 |
+|automationassets.set_automation_variable|設定現有的變數的值。 |
+
+> [!NOTE] 
+> 您必須在 Python Runbook 的頂端匯入「automationassets」模組，才能存取資產函式。
 
 ## <a name="creating-a-new-automation-variable"></a>建立新自動化變數
 
@@ -108,7 +117,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>在 Runbook 或 DSC 設定中使用變數
 
-使用 **Set-AutomationVariable** 活動來設定 Runbook 或 DSC 設定中自動化變數的值，並使用 **Get-AutomationVariable** 來擷取它。  您不應該在 Runbook 或 DSC 設定中使用 **Set-AzureAutomationVariable** 或 **Get-AzureAutomationVariable** Cmdlet，因為它們都不如工作流程活動有效率。  您也無法使用 **Get-AzureAutomationVariable**擷取安全變數的值。  在 Runbook 或 DSC 設定中建立新變數的唯一方法是使用 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) Cmdlet。
+使用 **Set-AutomationVariable** 活動來設定 PowerShell Runbook 或 DSC 設定中自動化變數的值，並使用 **Get-AutomationVariable** 來取出該值。  您不應該在 Runbook 或 DSC 設定中使用 **Set-AzureAutomationVariable** 或 **Get-AzureAutomationVariable** Cmdlet，因為它們都不如工作流程活動有效率。  您也無法使用 **Get-AzureAutomationVariable**擷取安全變數的值。  在 Runbook 或 DSC 設定中建立新變數的唯一方法是使用 [New-AzureAutomationVariable](http://msdn.microsoft.com/library/dn913771.aspx) Cmdlet。
 
 
 ### <a name="textual-runbook-samples"></a>文字式 Runbook 範例
@@ -135,7 +144,6 @@ ms.lasthandoff: 07/11/2017
     $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
     Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
 
-
 在下列程式碼中，值是從變數擷取，且用來啟動虛擬機器。
 
     $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
@@ -160,6 +168,27 @@ ms.lasthandoff: 07/11/2017
           Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
        }
     }
+    
+#### <a name="setting-and-retrieving-a-variable-in-python2"></a>設定和取出 Python2 中的變數
+以下範例程式碼示範如何在 Python2 Runbook 中使用變數、設定變數，以及處理不存在變數的例外狀況。
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a variable
+    value = automationassets.get_automation_variable("test-variable")
+    print value
+
+    # set a variable (value can be int/bool/string)
+    automationassets.set_automation_variable("test-variable", True)
+    automationassets.set_automation_variable("test-variable", 4)
+    automationassets.set_automation_variable("test-variable", "test-string")
+
+    # handle a non-existent variable exception
+    try:
+        value = automationassets.get_automation_variable("non-existing variable")
+    except AutomationAssetNotFound:
+        print "variable not found"
 
 
 ### <a name="graphical-runbook-samples"></a>圖形化 Runbook 範例

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2017
 ms.author: LADocs; jehollan
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 3a8a661f65923476c89763580a98ea240642db99
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="logic-app-limits-and-configuration"></a>邏輯應用程式的限制和設定
@@ -113,7 +113,7 @@ ms.lasthandoff: 08/30/2017
 
 ### <a name="integration-account-limits"></a>整合帳戶限制
 
-以下是針對新增至整合帳戶的構件所規定的限制
+對於能加入到整合帳戶中的成品的限制如下。
 
 |名稱|限制|注意事項|
 |----|----|----|
@@ -123,6 +123,21 @@ ms.lasthandoff: 08/30/2017
 |執行階段端點每 5 分鐘叫用呼叫 |45,000|可以視需要將工作負載分散在多個帳戶|
 |執行階段端點每 5 分鐘追蹤呼叫 |45,000|可以視需要將工作負載分散在多個帳戶|
 |封鎖並行呼叫的執行階段端點 |~1,000|視需要減少並行要求的數目或降低持續時間|
+
+對於能加入到整合帳戶中的成品的數量限制如下。
+
+免費定價層
+
+|名稱|限制|注意事項|
+|----|----|----|
+|合約|10||
+|其他成品類型|25|類型包含夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。|
+
+標準定價層
+
+|名稱|限制|注意事項|
+|----|----|----|
+|任何成品類型|500|類型包含合約、夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。|
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 通訊協定 (AS2、X12、EDIFACT) 訊息大小
 

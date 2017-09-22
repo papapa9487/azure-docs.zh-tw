@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/11/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 59a834f32793e349d5639baf3c80dbcba274dfa8
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 20c22bdbefe238781242ee26e648a77da02a21d2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -28,7 +28,7 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 
 ![Event Grid 運作模型](./media/overview/event-grid-functional-model.png)
 
-目前，Blob 儲存體未公開作為發行者。
+目前，Blob 儲存體未公開作為發行者。 您必須註冊預覽版本，才能回應儲存體 Blob 事件。 如需詳細資訊，請參閱 [將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>概念
 
@@ -119,7 +119,11 @@ Event Grid 每百萬個作業的費用是 0.60 美元 (預覽期間為 0.30 美�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [建立並訂閱自訂事件](custom-event-quickstart.md) 直接進入正題並開始使用 Azure Event Grid 快速入門來將您自己的自訂事件傳送至任何端點。
-* [使用 Logic Apps 來作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md) 有關使用 Logic Apps 建置應用程式以回應 Event Grid 所推送之事件的教學課程。
+* [建立並訂閱自訂事件](custom-event-quickstart.md)  
+  直接進入正題並開始使用 Azure Event Grid 快速入門來將您自己的自訂事件傳送至任何端點。
+* [使用 Logic Apps 來作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+  有關使用 Logic Apps 建置應用程式以回應 Event Grid 所推送之事件的教學課程。
+* [將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md)  
+  使用 Azure Functions 將資料從事件中樞串流到 SQL 資料倉儲的教學課程。
 * [Event Grid REST API 參考](/rest/api/eventgrid)  
   提供更多有關 Azure Event Grid 的技術資訊，以及適用於管理事件訂閱、路由和篩選的參考。

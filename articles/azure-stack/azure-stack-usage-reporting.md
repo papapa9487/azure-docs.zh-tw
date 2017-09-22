@@ -1,6 +1,6 @@
 ---
-title: Report Azure Stack usage data to Azure | Microsoft Docs
-description: Learn how to set up usage data reporting in Azure Stack.
+title: "向 Azure 回報 Azure Stack 使用情況資料 | Microsoft Docs"
+description: "了解如何在 Azure Stack 中設定使用情況資料報告。"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -18,78 +18,77 @@ ms.translationtype: HT
 ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 9bc202fe6aad70cb0f10a2da08e37428f78630d1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 
-# <a name="report-azure-stack-usage-data-to-azure"></a>Report Azure Stack usage data to Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
-Usage data, also called as consumption data represents the amount of resources used. In Azure Stack, usage data must be reported to Azure for billing purpose. Azure Stack cloud administrators should configure their Azure Stack instance to report usage data to Azure.
+使用情況資料 (亦稱為取用資料) 代表使用的資源量。 在 Azure Stack 中，必須針對計費用途向 Azure 回報使用情況資料。 Azure Stack 雲端系統管理員應該設定其 Azure Stack 執行個體，以向 Azure 回報使用情況資料。
 
 > [!NOTE]
-> Usage data reporting is not required for the Azure Stack Development Kit, and users are not charged for consuming resources. However, Azure Stack cloud administrators can test this feature and provide feedback about it. When Azure Stack multi-node becomes generally available, all the multi-node environments must report usage data to Azure.
+> 使用 Azure Stack 開發套件時，不需要回報使用情況資料，而且我們不會因為使用者取用資源而向其收費。 不過，Azure Stack 雲端系統管理員可以測試此功能並提供意見反應。 當 Azure Stack 多節點公開推出時，所有多節點環境都必須向 Azure 回報使用情況資料。
 
-![billing flow](media/azure-stack-usage-reporting/billing-flow.png)
+![計費流程](media/azure-stack-usage-reporting/billing-flow.png)
 
-Usage data is sent from Azure Stack to Azure through the Azure Bridge. In Azure, the commerce system processes the usage data and generates the bill. After the bill is generated, the Azure subscription owner can view and download it from the [Azure Account Center](https://account.windowsazure.com/Subscriptions). To learn about how Azure Stack is licensed, refer to the [Azure Stack packaging and pricing document](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
+使用情況資料是從 Azure Stack 透過 Azure Bridge 傳送到 Azure。 在 Azure 中，商務系統會處理使用情況資料並產生帳單。 產生帳單之後，Azure 訂用帳戶擁有者可以從 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)檢視並下載帳單。 若要了解 Azure Stack 授權，請參閱 [Azure Stack 包裝與定價文件](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409) \(英文\)。
 
-## <a name="set-up-usage-data-reporting"></a>Set up usage data reporting
+## <a name="set-up-usage-data-reporting"></a>設定使用情況資料報告
 
-To set up usage data reporting in Azure Stack, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, Azure Stack is configured with the Azure Bridge, which connects Azure Stack to Azure and sends the usage data. The following usage data is sent from Azure Stack to Azure:
+若要在 Azure Stack 中設定使用情況資料報告，您必須[向 Azure 註冊您的 Azure Stack 執行個體](azure-stack-register.md)。 在註冊程序中，會設定 Azure Stack 以搭配 Azure Bridge 使用，後者會將 Azure Stack 連線到 Azure 並傳送使用情況資料。 下列情況資料會從 Azure Stack 傳送到 Azure：
 
-* **Meter ID** – Unique ID for the resource that was consumed.
-* **Quantity** – Amount of resource usage data that occurred in a certain time frame.
-* **Location** – Location where the current Azure Stack resource is deployed.
-* **Resource URI** – fully qualified URI of the resource for which usage is being reported. 
-* **Subscription ID** – Subscription ID of the Azure Stack user.
-* **Time** – Start and end time of the usage data. There is some delay between the time when these resources are consumed in Azure Stack and when the usage data is reported to commerce. Azure Stack aggregates usage data for every 24 hours and reporting usage data to commerce pipeline in Azure takes another few hours. So, usage that occurs shortly before midnight may show up in Azure the following day.
+* **計量識別碼**：所取用之資源的唯一識別碼。
+* **數量**：在特定時間範圍內發生的資源使用情況資料數量。
+* **位置**：目前 Azure Stack 資源部署所在位置。
+* **資源 URI**：將回報其使用狀況之資源的完整 URI。 
+* **訂用帳戶識別碼**：Azure Stack 使用者的訂用帳戶識別碼。
+* **時間**：使用情況資料的開始與結束時間。 在 Azure Stack 中取用這些資源與向商務系統回報使用情況資料的時間有一些延遲。 Azure Stack 每隔 24 小時會彙總一次使用情況資料，而向 Azure 中的商務管線回報使用情況資料則需要數小時。 因此，在午夜前短暫發生的使用情況可能會在隔天顯示在 Azure 中。
 
-## <a name="test-usage-data-reporting"></a>Test usage data reporting 
+## <a name="test-usage-data-reporting"></a>測試使用情況資料回報 
 
-1. To test usage data reporting, create a few resources in Azure Stack. For example, you can create a [storage account](azure-stack-provision-storage-account.md), [Windows Server VM](azure-stack-provision-vm.md) and a Linux VM with Basic and Standard SKUs to see how core usage is reported. The usage data for different types of resources are reported under different meters.  
+1. 若要測試使用情況資料回報，請在 Azure Stack 中建立一些資源。 例如，您可以建立[儲存體帳戶](azure-stack-provision-storage-account.md)、[Windows Server VM](azure-stack-provision-vm.md) 與 Linux VM (搭配基本與標準 SKU) 以查看核心使用情況的回報方式。 不同類型資源的使用情況資料會在不同的計量下回報。  
 
-2. Leave your resources running for few hours. Usage information is collected approximately once every hour. After collecting, this data is transmitted to Azure and processed into the Azure commerce system. This process can take up to a few hours.  
+2. 讓您的資源執行幾小時。 系統大約每隔一小時會收集一次使用情況資訊。 收集之後，此資料會傳輸到 Azure 並在 Azure 商務系統中處理。 此程序可能需要最多數小時的時間。  
 
-3. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Azure account administrator and select the Azure subscription that you used to register the Azure Stack. You can view the Azure Stack usage data, the amount charged for each of the used resources as shown in the following image:  
-   ![billing flow](media/azure-stack-usage-reporting/pricng-details.png)
+3. 以 Azure 帳戶系統管理員身分登入 [Azure 帳戶中心](https://account.windowsazure.com/Subscriptions)然後選取您用來註冊 Azure Stack 的 Azure 訂用帳戶。 您可以檢視 Azure Stack 使用情況資料，以及針對所使用之每個資源收取的費用，如下列影像所示：  
+   ![計費流程](media/azure-stack-usage-reporting/pricng-details.png)
 
-For the Azure Stack Development Kit, Azure Stack resources are not charged so, the price is shown as $0.00. When Azure Stack multi-node becomes generally available, you can see the actual cost for each of these resources. 
+針對 Azure Stack 開發套件，我們不會就使用的 Azure Stack 資源收費，因此價格顯示為 $0.00。 當 Azure Stack 多節點公開推出時，您可以看到這些資源中每個資源的實際成本。 
 
-## <a name="which-azure-stack-instances-are-charged"></a>Which Azure Stack instances are charged?
-Resource usage is free for Azure Stack Development Kit instances. 
+## <a name="which-azure-stack-instances-are-charged"></a>哪個 Azure Stack 執行個體被收費？
+針對 Azure Stack 開發套件執行個體，資源的使用是免費的。 
 
-At general availability, Azure Stack multi-node systems are charged whereas the development kit environment remains available at no cost. For multi-node systems, workload VMs, Storage services, and App Services are charged. 
+在公開推出時，我們會就 Azure Stack 多節點系統收費，但開發套件環境仍為免費。 針對多節點系統，工作負載 VM、儲存體服務與應用程式服務需收費。 
 
-## <a name="are-users-charged-for-the-infrastructure-vms"></a>Are users charged for the infrastructure VMs?
-No, the usage data for Azure Stack infrastructure VMs, which are created during deployment is reported to Azure, but there are no charges for these VMs. The infrastructure VMs include the VMs that are created by the Azure Stack deployment script, and the VMs that run Microsoft first-party resource providers such as Compute, Storage, SQL.
+## <a name="are-users-charged-for-the-infrastructure-vms"></a>使用基礎結構 VM 是否需要付費？
+否，Azure Stack 基礎結構 VM (在部署期間所建立) 的使用情況資料會被回報給 Azure，但我們並不會就這些 VM 收費。 基礎結構 VM 包括由 Azure Stack 部署指令碼所建立的 VM，以及執行 Microsoft 第一方資源提供者 (例如計算、儲存體、SQL) 的 VM。
 
-## <a name="what-azure-meters-are-used-when-reporting-usage-data"></a>What Azure meters are used when reporting usage data?
-The following are the two sets of meters that are used in usage data reporting:  
+## <a name="what-azure-meters-are-used-when-reporting-usage-data"></a>回報使用情況資料時會使用哪些 Azure 計量？
+下列是會在使用情況資料回報程序中使用的兩組計量：  
 
-* **Full price meters** – used for resources associated with user workloads.  
-* **Admin meters** – used for infrastructure resources. These meters have a price of zero dollars.
+* **完整價格計量**：用於與使用者工作負載關聯的資源。  
+* **系統管理計量**：用於基礎結構資源。 這些計量的價格為零。
 
-## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Which subscription is charged for the resources consumed?
-The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
+## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>會針對哪個訂用帳戶就所取用的資源收費？
+我們會對[向 Azure 註冊 Azure Stack](azure-stack-register.md) 時提供的訂用帳戶收費。
 
-## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>What types of subscriptions are supported for usage data reporting?
-For the Azure Stack Development Kit, Enterprise Agreement (EA), Pay-as-you-go, and MSDN subscriptions support usage data reporting. 
+## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>哪些類型的訂用帳戶支援使用情況資料回報？
+針對 Azure Stack 開發套件，Enterprise 合約 (EA)、即用即付與 MSDN 訂用帳戶支援使用情況資料回報。 
 
-## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Does usage data reporting work in sovereign clouds?
-In the Azure Stack Development Kit, usage data reporting requires subscriptions that are created in the global Azure system. Subscriptions created in one of the sovereign clouds (the Azure Government, Azure Germany, and Azure China clouds) cannot be registered with Azure, so they don’t support usage data reporting. 
+## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>使用情況資料回報在主權雲端中是否能運作？
+在 Azure Stack 開發套件中，使用情況資料回報需要在全球 Azure 系統中建立的訂用帳戶。 在其中一個主權雲端 (Azure Government、Azure 德國與 Azure 中國雲端) 中建立的訂用帳戶無法向 Azure 註冊，因此它們不支援使用情況資料回報。 
 
-## <a name="can-an-administrator-test-usage-data-reporting-before-ga"></a>Can an administrator test usage data reporting before GA?
-Yes, Azure Stack administrators can test the usage data reporting by [registering](azure-stack-register.md) the development kit instance with Azure. After registering, usage data starts flowing from your Azure Stack instance to your Azure subscription. 
+## <a name="can-an-administrator-test-usage-data-reporting-before-ga"></a>在全面推出之前，系統管理員是否可以測試使用情況資料回報？
+是，Azure Stack 系統管理員可以透過向 Azure [註冊](azure-stack-register.md)開發套件執行個體，以測試使用情況資料回報。 註冊之後，使用情況資料會開始從您的 Azure Stack 執行個體傳送到您的 Azure 訂用帳戶。 
 
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>How can users identify Azure Stack usage data in the Azure billing portal?
-Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center](../billing/billing-download-azure-invoice-daily-usage-date.md#download-usage-from-the-account-center-csv) article. The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
+## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>使用者如何在 Azure 計費入口網站中識別 Azure Stack 使用情況資料？
+使用者可以在使用情況詳細資料檔案中看到 Azure Stack 使用情況資料。 若要了解如何取得使用情況詳細資料檔案，請參閱[從 Azure 帳戶中心下載使用情況檔案](../billing/billing-download-azure-invoice-daily-usage-date.md#download-usage-from-the-account-center-csv)文章。 使用情況詳細資料檔案包含可識別 Azure Stack 儲存體與 VM 的 Azure Stack 計量。 在 Azure Stack 中使用的所有資源都會在名為 “Azure Stack” 的區域下回報。
 
-## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
-There is a delay between when the usage data is generated in Azure Stack versus when it is submitted to Azure commerce. The delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. If you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal, you can see a difference.
+## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>為何在 Azure Stack 中回報的使用情況與從 Azure 帳戶中心產生的報告不符？
+在 Azure Stack 中產生使用情況資料的時間與該資料提交到 Azure 商務系統的時間之間有一些延遲。 此延遲是將使用情況資料從 Azure Stack 上傳到 Azure 商務系統的時間。 由於此延遲，在午夜前短暫發生的使用情況可能會在隔天顯示在 Azure 中。 若使用 [Azure Stack 使用情況 API](azure-stack-provider-resource-api.md)，並將結果與在 Azure 計費入口網站中回報的使用情況比較，您可以看到差異。
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-* [Provider usage API](azure-stack-provider-resource-api.md)  
-* [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
-* [Usage FAQ](azure-stack-usage-related-faq.md)
+* [提供者使用量 API](azure-stack-provider-resource-api.md)  
+* [租用戶使用量 API](azure-stack-tenant-resource-usage-api.md)
+* [使用狀況常見問題集](azure-stack-usage-related-faq.md)

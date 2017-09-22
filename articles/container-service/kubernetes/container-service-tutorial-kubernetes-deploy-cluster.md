@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 16070499b7befca26d55259d845d1dbc14110f2a
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -42,27 +42,23 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 Azure Cont
 
 ## <a name="create-kubernetes-cluster"></a>建立 Kubernetes 叢集
 
-在[上一個教學課程](./container-service-tutorial-kubernetes-prepare-acr.md)中，已建立名為 *myResourceGroup* 的資源群組。 如果您尚未這樣做，請立即建立此資源群組。
-
-```azurecli-interactive
-az group create --name myResourceGroup --location westeurope
-```
-
 使用 [az acs create](/cli/azure/acs#create) 命令，在 Azure Container Service 中建立 Kubernetes 叢集。 
 
-下列範例會建立一個名為 *myK8sCluster* 的叢集，其中包含一個 Linux 主要節點和三個 Linux 代理程式節點。
+下列範例會在名為 `myResourceGroup` 的資源群組中，建立名為 `myK8sCluster` 的叢集。 我們已在[先前的教學課程](./container-service-tutorial-kubernetes-prepare-acr.md)中建立此資源群組。
 
 ```azurecli-interactive 
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-幾分鐘之後，此命令就會完成，並以 json 格式傳回 ACS 部署的相關資訊。
+在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#create) 命令來減少預設代理程式的數量。 
+
+幾分鐘之後，部署就會完成，並以 json 格式傳回 ACS 部署的相關資訊。
 
 ## <a name="install-the-kubectl-cli"></a>安裝 kubectl CLI
 
 若要從用戶端電腦連線到 Kubernetes 叢集，請使用 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) (Kubernetes 命令列用戶端)。 
 
-如果您是使用 Azure CloudShell，就已安裝 `kubectl`。 如果您想要在本機進行安裝，請使用 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 命令。
+如果您是使用 Azure CloudShell，則已安裝 kubectl。 如果您想要在本機進行安裝，請使用 [az acs kubernetes install-cli](/cli/azure/acs/kubernetes#install-cli) 命令。
 
 如果執行環境是 Linux 或 macOS，則可能需要使用 sudo 來執行。 在 Windows 上，請確定您的殼層已經是以系統管理員身分執行。
 
@@ -74,7 +70,7 @@ az acs kubernetes install-cli
 
 ## <a name="connect-with-kubectl"></a>使用 kubectl 連線
 
-若要將 `kubectl` 設定為連線到 Kubernetes 叢集，請執行 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 命令。
+若要設定 kubectl 來連線到 Kubernetes 叢集，請執行 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes#get-credentials) 命令。
 
 ```azurecli-interactive 
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster

@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f02ee61ef1cd3b3dfaa051cfabe52866e3e7e838
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -56,16 +56,22 @@ ms.lasthandoff: 08/25/2017
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-複製目錄內有應用程式原始程式碼、預先建立的 Docker Compose 檔案和 Kubernetes 資訊清單檔。 這些檔案可用來建立整套教學課程的資產。 
+變更目錄以從複製的目錄操作。
+
+```
+cd azure-voting-app-redis
+```
+
+目錄內有應用程式原始程式碼、預先建立的 Docker Compose 檔案和 Kubernetes 資訊清單檔。 整套教學課程都會使用到這些檔案。 
 
 ## <a name="create-container-images"></a>建立容器映像
 
 [Docker Compose](https://docs.docker.com/compose/) 可用來將容器映像的組建和多容器應用程式的部署進行自動化。
 
-執行 docker-compose.yml 檔案可建立容器映像、下載 Redis 映像，並啟動應用程式。
+執行 `docker-compose.yml`檔案以建立容器映像、下載 Redis 映像，並啟動應用程式。
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
+docker-compose up -d
 ```
 
 完成時，使 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來查看所建立的映像。
@@ -74,7 +80,7 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yml up -d
 docker images
 ```
 
-請注意，已下載或建立三個映像。 azure-vote-front 映像包含應用程式。 它衍生自 nginx-flask 映像。 已從 Docker Hub 下載 Redis 映像。
+請注意，已下載或建立三個映像。 `azure-vote-front` 映像含有應用程式，並使用 `nginx-flask` 映像做為基礎映像。 `redis` 映像可用來啟動 Redis 執行個體。
 
 ```bash
 REPOSITORY                   TAG        IMAGE ID            CREATED             SIZE
@@ -105,18 +111,18 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="clean-up-resources"></a>清除資源
 
-現已驗證應用程式功能，可以停止並移除執行中的容器。 請勿刪除容器映像。 在下一個教學課程中，會將 azure-vote-front 映像上傳至 Azure Container Registry 執行個體。
+現已驗證應用程式功能，可以停止並移除執行中的容器。 請勿刪除容器映像。 `azure-vote-front`映像會在下一個教學課程中上傳至 Azure Container Registry 執行個體。
 
 執行下列命令來停止執行中的容器。
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml stop
+docker-compose stop
 ```
 
-使用下列命令來刪除已停止的容器。
+使用下列命令來刪除已停止的容器和資源。
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
+docker-compose down
 ```
 
 完成時，您有包含 Azure Vote 應用程式的一個容器映像。
@@ -134,3 +140,4 @@ docker-compose -f ./azure-voting-app-redis/docker-compose.yml rm
 
 > [!div class="nextstepaction"]
 > [將映像推送至 Azure Container Registry](./container-service-tutorial-kubernetes-prepare-acr.md)
+

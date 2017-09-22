@@ -1,6 +1,6 @@
 ---
-title: Deploy a virtual machine with a securely stored certificate on Azure Stack | Microsoft Docs
-description: Learn how to deploy a virtual machine and push a certificate onto it by using a key vault in Azure Stack
+title: "使用安全地存放在 Azure Stack 上的憑證部署虛擬機器 | Microsoft 文件"
+description: "了解如何使用 Azure Stack 中的金鑰保存庫來部署虛擬機器，並將憑證推送至該虛擬機器"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -18,33 +18,33 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 4b4bbf6aa612fe3eca5b860cbddaff8500e21f15
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>Create a virtual machine and include certificate retrieved from a key vault
+# <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>建立虛擬機器，並加入從金鑰保存庫擷取的憑證
 
-This article helps you to create a virtual machine in Azure Stack and push certificates onto it. 
+本文可協助您在 Azure Stack 中建立虛擬機器，並將憑證推送至該虛擬機器。 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>必要條件
 
-* Azure Stack operators must have [created an offer](azure-stack-create-offer.md) that includes the Azure Key Vault service.  
-* Users must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that includes the Key Vault service.  
-* [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)  
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)
+* Azure Stack 操作員必須已經[建立](azure-stack-create-offer.md)包含 Azure Key Vault 服務的供應項目。  
+* 使用者必須[訂閱](azure-stack-subscribe-plan-provision-vm.md)包含 Key Vault 服務的供應項目。  
+* [安裝 Azure Stack 適用的 PowerShell。](azure-stack-powershell-install.md)  
+* [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)
 
-A key vault in Azure Stack is used to store certificates. Certificates are helpful in many different scenarios. For example, consider a scenario where you have a virtual machine in Azure Stack that is running an application that needs a certificate. This certificate can be used for encrypting, for authenticating to Active Directory, or for SSL on a website. Having the certificate in a key vault helps make sure that it's secure.
+Azure Stack 中的金鑰保存庫可用來存放憑證。 憑證在許多不同情況下都很有幫助。 例如，假設您在 Azure Stack 中有一個虛擬機器正在執行需要憑證的應用程式。 此憑證可用於加密、向 Active Directory 進行驗證，或用於網站上的 SSL。 將憑證存放在金鑰保存庫有助於確保憑證的安全。
 
-In this article, we walk you through the steps required to push a certificate onto a Windows virtual machine in Azure Stack. You can use these steps either from the Azure Stack Development Kit, or from a Windows-based external client if you are connected through VPN.
+在本文中，我們會針對如何將憑證推送至 Azure Stack 中的 Windows 虛擬機器，逐步說明所需的步驟。 您可以從 Azure Stack 開發套件，或從 Windows 外部用戶端 (如果是透過 VPN 連線) 來使用這些步驟。
 
-The following steps describe the process required to push a certificate onto the virtual machine:
+下列步驟說明將憑證推送至虛擬機器所需的程序：
 
-1. Create a Key Vault secret.
-2. Update the azuredeploy.parameters.json file.
-3. Deploy the template
+1. 建立 Key Vault 祕密。
+2. 更新 azuredeploy.parameters.json 檔案。
+3. 部署範本
 
-## <a name="create-a-key-vault-secret"></a>Create a Key Vault secret
+## <a name="create-a-key-vault-secret"></a>建立 Key Vault 祕密
 
-The following script creates a certificate in the .pfx format, creates a key vault, and stores the certificate in the key vault as a secret. You must use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
+下列指令碼會建立 .pfx 格式的憑證、建立金鑰保存庫，並將憑證存放在金鑰保存庫中當做祕密。 建立金鑰保存庫時，您必須使用 `-EnabledForDeployment` 參數。 此參數可確保您能夠從 Azure Resource Manager 範本參考金鑰保存庫。
 
 ```powershell
 
@@ -107,13 +107,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-When you run the previous script, the output includes the secret URI. Make a note of this URI. You have to reference it in the [Push certificate to Windows Resource Manager template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate). Download the [vm-push-certificate-windows template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) folder onto your development computer. This folder contains the `azuredeploy.json` and `azuredeploy.parameters.json` files, which you will need in the next steps.
+當您執行上述指令碼時，輸出會包含祕密 URI。 請記下此 URI。 在[將憑證推送至 Windows Resource Manager 範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) \(英文\) 中，您必須參考此 URI。 將 [vm-push-certificate-windows 範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) \(英文\) 資料夾下載至您的開發電腦上。 此資料夾中包含 `azuredeploy.json` 和 `azuredeploy.parameters.json` 檔案，您在接下來的步驟中將需要這些檔案。
 
-Modify the `azuredeploy.parameters.json` file according to your environment values. The parameters of special interest are the vault name, the vault resource group, and the secret URI (as generated by the previous script). The following file is an example of a parameter file:
+根據您的環境值，修改 `azuredeploy.parameters.json` 檔案。 要注意的參數是保存庫名稱、保存庫資源群組以及祕密 URI (產生自先前的指令碼)。 下列檔案是參數檔案的範例：
 
-## <a name="update-the-azuredeployparametersjson-file"></a>Update the azuredeploy.parameters.json file
+## <a name="update-the-azuredeployparametersjson-file"></a>更新 azuredeploy.parameters.json 檔案
 
-Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmName, and other values as per your environment. The following JSON file shows an example of the template parameters file: 
+根據您的環境，以 vaultName、祕密 URI、VmName 和其他值來更新 azuredeploy.parameters.json 檔案。 下列 JSON 檔案會顯示範本參數檔案的範例： 
 
 ```json
 {
@@ -148,9 +148,9 @@ Update the azuredeploy.parameters.json file with the vaultName, secret URI, VmNa
 }
 ```
 
-## <a name="deploy-the-template"></a>Deploy the template
+## <a name="deploy-the-template"></a>部署範本
 
-Now deploy the template by using the following PowerShell script:
+現在，使用下列 PowerShell 指令碼部署範本：
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret onto it
@@ -161,24 +161,24 @@ New-AzureRmResourceGroupDeployment `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
 
-When the template is deployed successfully, it results in the following output:
+成功部署範本之後，會產生下列輸出：
 
-![Deployment output](media\azure-stack-kv-push-secret-into-vm/deployment-output.png)
+![部署輸出](media\azure-stack-kv-push-secret-into-vm/deployment-output.png)
 
-When this virtual machine is deployed, Azure Stack pushes the certificate onto the virtual machine. In Windows, the certificate is added to the LocalMachine certificate location, with the certificate store that the user provided. In Linux, the certificate is placed under the /var/lib/waagent directory, with the file name &lt;UppercaseThumbprint&gt;.crt for the X509 certificate file and &lt;UppercaseThumbprint&gt;.prv for the private key.
+部署此虛擬機器時，Azure Stack 會將憑證推送至虛擬機器。 在 Windows 中，系統會利用使用者提供的憑證存放區，將憑證新增至 LocalMachine 憑證位置。 在 Linux 中，憑證會置於 /var/lib/waagent 目錄底下，其中 X509 憑證檔案的檔案名稱為 &lt;UppercaseThumbprint&gt;.crt，且私密金鑰的檔案名稱為 &lt;UppercaseThumbprint&gt;.prv。
 
-## <a name="retire-certificates"></a>Retire certificates
+## <a name="retire-certificates"></a>淘汰憑證
 
-In the preceding section, we showed you how to push a new certificate onto a virtual machine. Your old certificate is still on the virtual machine, and it can't be removed. However, you can disable the older version of the secret by using the `Set-AzureKeyVaultSecretAttribute` cmdlet. The following is an example usage of this cmdlet. Make sure to replace the vault name, secret name, and version values according to your environment:
+在上一節中，我們示範如何將新的憑證推送至虛擬機器。 您的舊憑證仍然在虛擬機器上，而且無法移除。 不過，您可以使用 `Set-AzureKeyVaultSecretAttribute` Cmdlet 來停用舊版的祕密。 以下是此 Cmdlet 的使用範例。 請務必根據您的環境，取代保存庫名稱、祕密名稱和版本值：
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-* [Deploy a VM with a Key Vault password](azure-stack-kv-deploy-vm-with-secret.md)
-* [Allow an application to access Key Vault](azure-stack-kv-sample-app.md)
+* [使用 Key Vault 密碼部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
+* [允許應用程式存取 Key Vault](azure-stack-kv-sample-app.md)
 
 
 

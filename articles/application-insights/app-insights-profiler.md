@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: cc8655e0bc65007cacf223ce6d7709291c609327
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web Apps
@@ -65,11 +65,17 @@ Application Insights 的這項功能在應用程式服務為 GA，在 Compute �
 現提供 [Azure Compute 資源的分析工具預覽版本](https://go.microsoft.com/fwlink/?linkid=848155)。
 
 
-## <a name="limits"></a>限制
+## <a name="limitations"></a>限制
 
 預設資料保留期為 5 天。 每日擷取最多 10 GB。
 
 分析工具服務不會收取費用。 Web 應用程式必須至少在應用程式服務的基本層中託管。
+
+## <a name="overhead-and-sampling-algorithm"></a>額外負荷和取樣演算法
+
+Profiler 會在裝載已啟用分析工具之應用程式的每個虛擬機器上每小時隨機執行 2 分鐘，以擷取追蹤。 當 Profiler 執行時，它會增加 5-15% 的 CPU 額外負荷至伺服器。
+可用於裝載應用程式的伺服器越多，Profiler 對整體應用程式效能的影響越小。 這是因為取樣演算法導致 Profiler 在任何給定時間只在 5% 的伺服上執行，並且有更多的伺服器可用於 Web 要求以抵消具有 Profiler 額外負荷的伺服器。
+
 
 ## <a name="viewing-profiler-data"></a>檢視分析工具的資料
 
@@ -191,6 +197,21 @@ CPU 正忙於執行指令。
 ### <a name="error-report-in-the-profiling-viewer"></a>分析檢視器的錯誤報表
 
 您可以從入口網站提出支援票證。 請納入錯誤訊息內的相互關聯識別碼。
+
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>部署錯誤，不是空目錄 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+
+如果您要將 Web 應用程式重新部署為具有已啟用 Profiler 的應用程式服務資源，您可能會遇到類似下列的錯誤：不是空目錄 'D:\\home\\site\\wwwroot\\App_Data\\jobs' 如果您是從指令碼或在 VSTS 部署管線上執行 Web Deploy，將會發生此錯誤。
+解決此問題的方法是將以下其他部署參數新增至 Web Deploy 工作中：
+
+```
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
+-skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+```
+
+這會刪除 App Insights Profiler 使用的資料夾，並解除封鎖重新部署程序。 它不會影響目前正在執行的 Profiler 執行個體。
+
 
 ## <a name="manual-installation"></a>手動安裝
 

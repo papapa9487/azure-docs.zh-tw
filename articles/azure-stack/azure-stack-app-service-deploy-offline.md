@@ -1,6 +1,6 @@
 ---
-title: 'Deploy App Service in an offline environment: Azure Stack | Microsoft Docs'
-description: Detailed guidance on how to deploy App Service in a disconnected Azure Stack environment secured by AD FS.
+title: "在離線環境中部署 App Service：Azure Stack | Microsoft Docs"
+description: "如何在中斷連線且受 AD FS 保護的 Azure Stack 環境中部署 App Service 的詳細指導方針。"
 services: azure-stack
 documentationcenter: 
 author: apwestgarth
@@ -18,256 +18,256 @@ ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b733851d4459ead1ae437604a27ca7720e2a3a87
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Add an App Service resource provider to a disconnected Azure Stack environment secured by AD FS
+# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
-You must add an [Azure App Service resource provider](azure-stack-app-service-overview.md) to your Azure Stack deployment:
+您必須將 [Azure App Service 資源提供者](azure-stack-app-service-overview.md)新增到您的 Azure Stack 部署：
 
-* If you're running Azure Stack in an isolated environment secured by Active Directory Federation Services (AD FS). 
-* If you want to give your tenants the capability to create web, mobile, and API applications--and Azure Functions applications--with their Azure Stack subscription. 
+* 如果您在受 Active Directory 同盟服務 (AD FS) 保護的隔離環境中執行 Azure Stack。 
+* 如果您想要讓租用戶能夠使用其 Azure Stack 訂用帳戶來建立 Web、行動裝置版和 API 應用程式 (以及 Azure Functions 應用程式)。 
 
-To do so, follow the steps in this article.
+若要這樣做，請依照此文章中的步驟執行。
 
-## <a name="download-the-required-components"></a>Download the required components
+## <a name="download-the-required-components"></a>下載必要元件
 
-1. Download the [App Service on Azure Stack preview installer](http://aka.ms/appsvconmasrc1installer).
+1. 下載 [Azure Stack 上的 App Service 預覽安裝程式](http://aka.ms/appsvconmasrc1installer)。
 
-2. Download the [App Service on Azure Stack deployment helper scripts](http://aka.ms/appsvconmasrc1helper).
+2. 下載 [Azure Stack 上的 App Service 部署協助程式指令碼](http://aka.ms/appsvconmasrc1helper)。
 
-3. Extract the files from the helper scripts zip file. The following files and folder structure appear:
+3. 從協助程式指令碼 zip 檔案解壓縮檔案。 隨即出現下列檔案與資料夾結構：
 
    - Create-AppServiceCerts.ps1
    - Create-IdentityApp.ps1
-   - Modules
+   - 模組
       - AzureStack.Identity.psm1
       - GraphAPI.psm1
 
-## <a name="create-an-offline-installation-package"></a>Create an offline installation package
+## <a name="create-an-offline-installation-package"></a>建立離線安裝套件
 
-To deploy App Service in an isolated environment, you must create an offline installation package from a machine that connects to the Internet.
+若要在隔離的環境中部署 App Service，您必須從連線到網際網路的電腦建立離線安裝套件。
 
-1. Run the App Service on Azure Stack preview installer (AppService.exe) from a machine that's connected to the Internet.
+1. 從連線到網際網路的電腦，執行 Azure Stack 上的 App Service 預覽安裝程式 (AppService.exe)。
 
-2. Click the **Advanced** tab, and click **Create offline installation package**.
+2. 按一下 [進階] 索引標籤，然後按一下 [建立離線安裝套件]。
 
-    ![App Service on Azure Stack Create offline installation package][1]
+    ![Azure Stack 上的 App Service 會建立離線安裝套件][1]
 
-3. The App Service installer creates an offline installation package, displays the path, and gives an option to open the folder.
+3. App Service 安裝程式會建立離線安裝套件、顯示路徑，並提供開啟該資料夾的選項。
 
-   ![App Service on Azure Stack Offline installation package][2]
+   ![Azure Stack 上的 App Service 離線安裝套件][2]
 
-4. Copy the App Service on Azure Stack preview installer (AppService.exe) and the offline installation package to the Azure Stack host machine.
+4. 將 Azure Stack 上的 App Service 預覽安裝程式 (AppService.exe) 和離線安裝套件複製到 Azure Stack 主機電腦。
 
-## <a name="create-certificates-required-by-app-service-on-azure-stack"></a>Create certificates required by App Service on Azure Stack
+## <a name="create-certificates-required-by-app-service-on-azure-stack"></a>建立 Azure Stack 上之 App Service 所需的憑證
 
-This first script works with the Azure Stack certificate authority to create three certificates that App Service needs. Run the script on the Azure Stack host and ensure that you're running PowerShell as azurestack\administrator.
+這第一個指令碼會搭配 Azure Stack 憑證授權單位運作，以建立 App Service 所需的三個憑證。 在 Azure Stack 主機上執行指令碼，並確定您是以 azurestack\administrator 身分執行 PowerShell。
 
-1. In a PowerShell session running as azurestack\administrator, execute the **Create-AppServiceCerts.ps1** script from the location where you extracted the helper scripts.  The script creates three certificates in the same folder as the create certificates script that are needed by App Service.
+1. 在以 azurestack\administrator 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的位置執行 **Create-AppServiceCerts.ps1** 指令碼。  此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立三個憑證。
 
-2. Enter a password to secure the .pfx files, and make a note of it. You need to enter it in the App Service on Azure Stack installer.
+2. 輸入密碼來保護 .pfx 檔案，並記下密碼。 您需要在 Azure Stack 上的 App Service 安裝程式中輸入此密碼。
 
-### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 parameters
+### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 參數
 
-| Parameter | Required/optional | Default value | Description |
+| 參數 | 必要/選用 | 預設值 | 描述 |
 | --- | --- | --- | --- |
-| pfxPassword | Required | Null | Password used to protect the certificate private key |
-| DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix |
-| CertificateAuthority | Required | AzS-CA01.azurestack.local | Certificate authority endpoint |
+| pfxPassword | 必要 | Null | 用來保護憑證私密金鑰的密碼 |
+| DomainName | 必要 | local.azurestack.external | Azure Stack 區域和網域尾碼 |
+| CertificateAuthority | 必要 | AzS-CA01.azurestack.local | 憑證授權單位端點 |
 
-## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Complete the offline installation of App Service on Azure Stack
+## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>完成 Azure Stack 上的 App Service 離線安裝
 
 > [!NOTE]
-> You *must* use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you're prompted for elevated credentials.
+> 您必須使用已提高權限的帳戶 (本機或網域系統管理員) 來執行安裝程式。 如果您以 azurestack\azurestackuser 身分登入，則系統會提示您提供已提高權限的認證。
 
-1. Run appservice.exe as azurestack\administrator.
+1. 以 azurestack\administrator 身分執行 appservice.exe。
 
-2. Click the **Advanced** tab, and click **Complete offline installation**.
+2. 按一下 [進階] 索引標籤，然後按一下 [完成離線安裝]。
 
-    ![App Service on Azure Stack Complete offline installation][3]
+    ![Azure Stack 上之 App Service 的完成離線安裝][3]
 
-3. Specify the location of the offline installation package you previously created, and click **Next**.
+3. 指定您先前建立的離線安裝套件位置，然後按一下 [下一步]。
 
-    ![App Service on Azure Stack location of offline installation package][4]
+    ![Azure Stack 上的 App Service 離線安裝套件位置][4]
 
-4. Review and accept the Microsoft Software Prerelease License Terms, and click **Next**.
+4. 檢閱並接受 Microsoft 軟體發行前版本授權條款，然後按一下 [下一步]。
 
-5. Review and accept the third-party license terms, and click **Next**.
+5. 檢閱並接受協力廠商授權條款，然後按一下 [下一步]。
 
-6. Review the App Service cloud configuration information, and click **Next**.
+6. 檢閱 App Service 雲端設定資訊，然後按一下 [下一步]。
 
-    ![App Service on Azure Stack cloud configuration][5]
-
-    > [!NOTE]
-    > The App Service on Azure Stack installer provides the default values for a one-node Azure Stack installation. If you customized options when you deployed Azure Stack (for example, the domain suffix), you need to edit the values in this window accordingly. For example, if you use the domain suffix mycloud.com, your admin Azure Resource Manager endpoint needs to change to adminmanagement.[region].mycloud.com.
-
-7. Click the **Connect** button next to the **Azure Stack Subscriptions** box. Enter your admin account, for example, azurestackadmin@azurestack.local. Enter your password, and click **Sign In**.
-
-8. Select your subscription in the **Azure Stack Subscriptions** box.
-
-9. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying. For example, select **local**. Click **Next**.
-
-    ![App Service on Azure Stack subscription selection][6]
-
-10. Enter the **Resource Group Name** for your App Service deployment. By default, it's set to **APPSERVICE-LOCAL**.
-
-11. Enter the **Storage Account Name** you want App Service to create as part of the installation. By default, it's set to **appsvclocalstor**.
-
-12. Enter the SQL Server details for the instance that's used to host the App Service resource provider databases. Click **Next**, and the installer validates the SQL connection properties.
-
-13. Click the **Browse** button next to the **App Service default SSL certificate file** box. Go to the **_.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps). If you specified a different location and domain suffix when you created the certificate, select the corresponding certificate.
-
-14. Enter the certificate password that you set when you created the certificate.
-
-15. Click the **Browse** button next to the **Resource provider SSL certificate file** box. Go to the **api.appservice.local.AzureStack.external** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps). If you specified a different location and domain suffix when you created the certificate, select the corresponding certificate.
-
-16. Enter the certificate password that you set when you created the certificate.
-
-17. Click the **Browse** button next to the **Resource provider root certificate file** box. Go to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
-
-18. Click **Next**. The installer verifies the certificate password provided.
-
-    ![App Service on Azure Stack certificate details][8]
-
-19. Review the App Service role configuration. The defaults are populated with the minimum recommended instance SKUs for each role. A summary of core and memory requirements is provided to help plan your deployment. After you make your selections, click **Next**.
-
-    - **Controller**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Controller role is responsible for managing and maintaining the health of the App Service cloud.
-    - **Management**: By default, one Standard A2 instance is selected. To provide failover, we recommend two instances. The Management role is responsible for the App Service Azure Resource Manager and API endpoints, portal extensions (admin, tenant, Functions portal), and the data service.
-    - **Publisher**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The Publisher role is responsible for publishing content via FTP and web deployment.
-    - **FrontEnd**: By default, one Standard A1 instance is selected. This is the minimum we recommend. The FrontEnd role is responsible for routing requests to App Service applications.
-    - **Shared Worker**: By default, one Standard A1 instance is selected, but you might want to add more. As an administrator, you can define your offering and choose any SKU tier. The tiers must have a minimum of one core. The Shared Worker role is responsible for hosting web, mobile, or API applications and Azure Functions apps.
-
-    ![App Service on Azure Stack role configuration][9]
+    ![Azure Stack 上的 App Service 雲端設定][5]
 
     > [!NOTE]
-    > In the technical previews, the App Service resource provider installer also deploys a Standard A1 instance to operate as a simple file server to support the Azure Resource Manager. This remains for a single-node point of contact. For production workloads, at general availability the App Service installer enables the use of a high-availability file server.
+    > Azure Stack 上的 App Service 安裝程式提供適用於單一節點 Azure Stack 安裝的預設值。 如果您已在部署 Azure Stack 時自訂選項 (例如，網域尾碼)，就需要據以編輯此視窗中的值。 例如，如果您使用網域尾碼 mycloud.com，則您的管理員 Azure Resource Manager 端點必須變更為 adminmanagement.[region].mycloud.com。
 
-20. Choose your deployment **Windows Server 2016** VM image from those available in the compute resource provider for the App Service cloud. Click **Next**. 
+7. 按一下 [Azure Stack 訂用帳戶] 方塊旁邊的 [連線] 按鈕。 輸入您的管理帳戶，例如 azurestackadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
 
-    ![App Service on Azure Stack VM image selection][10]
+8. 在 [Azure Stack 訂用帳戶] 方塊中，選取您的訂用帳戶。
 
-21. Enter a user name and password for the Worker roles configured in the App Service cloud. Enter a user name and password for all other App Service roles. Click **Next**.
+9. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，選取 [本機]。 按一下 [下一步]。
 
-    ![App Service on Azure Stack credential entry][11]
+    ![Azure Stack 上的 App Service 訂用帳戶選取項目][6]
 
-22. On the summary screen, verify the selections you made. To make changes, go back through the screens and modify your selections. If the configuration is how you want it, select the check box. To start the deployment, click **Next**. 
+10. 針對您的 App Service 部署輸入**資源群組名稱**。 根據預設值，它是設定為 **APPSERVICE-LOCAL**。
 
-    ![App Service on Azure Stack selection summary][12]
+11. 輸入您想要 App Service 在安裝期間建立的**儲存體帳戶名稱**。 根據預設值，它是設定為 **appsvclocalstor**。
 
-23. Track the installation progress. App Service on Azure Stack takes about 45 to 60 minutes to deploy based on the default selections.
+12. 針對用於裝載 App Service 資源提供者資料庫的執行個體，輸入 SQL Server 詳細資料。 按一下 [下一步]，安裝程式即會驗證 SQL 連線屬性。
 
-    ![App Service on Azure Stack installation progress][13]
+13. 按一下 [App Service 預設 SSL 憑證檔案] 方塊旁邊的 [瀏覽] 按鈕。 移至[稍早建立](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps)的 **_.appservice.local.AzureStack.external** 憑證。 如果您指定的位置和網域尾碼與您建立憑證時的不同，請選取對應的憑證。
 
-24. After the installer successfully finishes, click **Exit**.
+14. 輸入您建立憑證時所設定的憑證密碼。
 
-## <a name="configure-an-ad-fs-service-principal-for-virtual-machine-scale-set-integration-on-worker-tiers-and-sso-for-the-azure-functions-portal-and-advanced-developer-tools"></a>Configure an AD FS service principal for virtual machine scale set integration on Worker tiers and SSO for the Azure Functions portal and advanced developer tools
+15. 按一下 [資源提供者 SSL 憑證檔案] 方塊旁邊的 [瀏覽] 按鈕。 移至[稍早建立](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps)的 **api.appservice.local.AzureStack.external** 憑證。 如果您指定的位置和網域尾碼與您建立憑證時的不同，請選取對應的憑證。
+
+16. 輸入您建立憑證時所設定的憑證密碼。
+
+17. 按一下 [資源提供者根憑證檔案] 方塊旁邊的 [瀏覽] 按鈕。 移至[稍早建立](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps)的 **AzureStackCertificationAuthority** 憑證。
+
+18. 按一下 [下一步]。 安裝程式會確認所提供的憑證密碼。
+
+    ![Azure Stack 上的 App Service 憑證詳細資料][8]
+
+19. 檢閱 App Service 角色設定。 預設值會使用適用於每個角色的最低建議執行個體 SKU 來填入。 系統會提供核心和記憶體需求的摘要來協助規劃您的部署。 進行選擇之後，按一下 [下一步]。
+
+    - **控制器**：預設會選取一個標準 A1 執行個體。 這是我們建議的最小值。 控制器角色負責管理和維護 App Service 雲端的健康情況。
+    - **管理**：預設會選取一個標準 A2 執行個體。 為了提供容錯移轉，我們建議兩個執行個體。 管理角色負責 App Service Azure Resource Manager 和 API 端點、入口網站擴充功能 (管理員、租用戶、Functions 入口網站)，以及資料服務。
+    - **發行者**：預設會選取一個標準 A1 執行個體。 這是我們建議的最小值。 發行者角色負責透過 FTP 和 Web 部署來發行內容。
+    - **前端**：預設會選取一個標準 A1 執行個體。 這是我們建議的最小值。 前端角色負責將要求路由傳送到 App Service 應用程式。
+    - **共用背景工作**：預設會選取一個標準 A1 執行個體，但您可能想要新增更多。 身為系統管理員，您可以定義您的供應項目，並選擇任何 SKU 層。 各層必須具有至少一個核心。 共用背景工作角色負責主控 Web、行動裝置版或 API 應用程式及 Azure Functions 應用程式。
+
+    ![Azure Stack 上的 App Service 角色設定][9]
+
+    > [!NOTE]
+    > 在技術預覽中，App Service 資源提供者安裝程式也會部署要作為簡單檔案伺服器運作的標準 A1 執行個體，以支援 Azure Resource Manager。 這會針對單一節點的連絡點加以保留。 對於生產工作負載，在公開推出時，App Service 安裝程式會讓高可用性檔案伺服器可供使用。
+
+20. 從可以在適用於 App Service 雲端的運算資源提供者中的可用映像中，選擇您的部署 **Windows Server 2016** VM 映像。 按一下 [下一步]。 
+
+    ![Azure Stack 上的 App Service VM 映像選取項目][10]
+
+21. 針對 App Service 雲端中設定的背景工作角色，輸入使用者名稱和密碼。 針對所有其他的 App Service 角色，輸入使用者名稱和密碼。 按一下 [下一步]。
+
+    ![Azure Stack 上的 App Service 認證項目][11]
+
+22. 在摘要畫面上，確認您所做的選擇。 若要進行變更，請返回畫面並修改您的選擇。 如果設定符合您的需求，請選取核取方塊。 若要開始部署，請按一下 [下一步]。 
+
+    ![Azure Stack 上的 App Service 選取項目摘要][12]
+
+23. 追蹤安裝進度。 根據預設的選取項目而定，部署 Azure Stack 上的 App Service 大約需要 45 到 60 分鐘。
+
+    ![Azure Stack 上的 App Service 安裝進度][13]
+
+24. 當安裝程式順利完成之後，請按一下 [結束]。
+
+## <a name="configure-an-ad-fs-service-principal-for-virtual-machine-scale-set-integration-on-worker-tiers-and-sso-for-the-azure-functions-portal-and-advanced-developer-tools"></a>針對背景工作層上的虛擬機器擴展集整合設定 AD FS 服務主體，以及針對 Azure Functions 入口網站設定 SSO 和進階開發人員工具
 
 >[!NOTE]
-> These steps apply to AD FS secured Azure Stack environments only.
+> 這些步驟只適用於 AD FS 保護的 Azure Stack 環境。
 
-Administrators need to configure SSO to:
+系統管理員需要設定 SSO 來執行下列動作：
 
-* Configure a service principal for virtual machine scale set integration on Worker tiers.
-* Enable the advanced developer tools within App Service (Kudu).
-* Enable the use of the Azure Functions portal experience. 
+* 針對背景工作層上的虛擬機器擴展集整合設定服務主體。
+* 啟用 App Service (Kudu) 內的進階開發人員工具。
+* 讓 Azure Functions 入口網站體驗可供使用。 
 
-Follow these steps:
+依照下列步驟執行：
 
-1. Open a PowerShell instance as azurestack\azurestackadmin.
+1. 以 azurestack\azurestackadmin 身分開啟 PowerShell 執行個體。
 
-2. Go to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
+2. 移至在[先決條件步驟](#Download-Required-Components)中下載並解壓縮的指令碼位置。
 
-3. [Install](azure-stack-powershell-install.md) and [configure an Azure Stack PowerShell environment](azure-stack-powershell-configure-admin.md).
+3. [安裝](azure-stack-powershell-install.md)及[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
 
-4. In the same PowerShell session, run the **CreateIdentityApp.ps1** script. When you're prompted for your Azure Active Directory (Azure AD) tenant ID, enter **ADFS**.
+4. 在同一個 PowerShell 工作階段中，執行 **CreateIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure Active Directory (Azure AD) 租用戶識別碼時，請輸入 **ADFS**。
 
-5. In the **Credential** window, enter your AD FS service admin account and password. Click **OK**.
+5. 在 [認證] 視窗中，輸入您的 AD FS 服務管理帳戶和密碼。 按一下 [確定] 。
 
-6. Enter the certificate file path and certificate password for the [certificate created earlier](# Create certificates to be used by App Service on Azure Stack). The certificate created for this step by default is sso.appservice.local.azurestack.external.pfx.
+6. 輸入[稍早建立的憑證](# Create certificates to be used by App Service on Azure Stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
 
-7. The script creates a new application in the tenant Azure AD and generates a new PowerShell script.
+7. 指令碼會在租用戶 Azure AD 中建立新的應用程式，並產生新的 PowerShell 指令碼。
 
-8. Copy the identity app certificate file and the generated script to the **CN0-VM** by using a remote desktop session.
+8. 使用遠端桌面工作階段，將身分識別應用程式憑證檔案和產生的指令碼複製到 **CN0-VM**。
 
-9. Return to **CN0-VM**.
+9. 返回 **CN0-VM**。
 
-10. Open an administrator PowerShell window, and browse to the directory where the script file and certificate were copied in step 7.
+10. 開啟系統管理員的 PowerShell 視窗，然後瀏覽到步驟 7 中複製指令碼檔案與憑證的目錄。
 
-11. Run the script file. This script file enters the properties in the App Service on Azure Stack configuration and initiates a repair operation on all FrontEnd and Management roles.
+11. 執行指令碼檔案。 此指令碼檔案會在 Azure Stack 上的 App Service 設定中輸入屬性，並在所有前端與管理角色上起始修復作業。
 
-| Parameter | Required/optional | Default value | Description |
+| 參數 | 必要/選用 | 預設值 | 描述 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Mandatory | Null | Use **ADFS** for the AD FS environment |
-| TenantAzure Resource ManagerEndpoint | Mandatory | management.local.azurestack.external | The tenant Azure Resource Manager endpoint |
-| AzureStackCredential | Mandatory | Null | The AD FS service admin account |
-| CertificateFilePath | Mandatory | Null | Path to the identity application certificate file generated earlier |
-| CertificatePassword | Mandatory | Null | Password used to protect the certificate private key |
-| DomainName | Required | local.azurestack.external | Azure Stack region and domain suffix |
-| AdfsMachineName | Optional | AD FS machine name, for example, AzS-ADFS01.azurestack.local |
+| DirectoryTenantName | 強制 | Null | 對 AD FS 環境使用 **ADFS** |
+| TenantAzure Resource ManagerEndpoint | 強制 | management.local.azurestack.external | 租用戶 Azure Resource Manager 端點 |
+| AzureStackCredential | 強制 | Null | AD FS 服務管理帳戶 |
+| CertificateFilePath | 強制 | Null | 稍早產生之身分識別應用程式憑證檔案的路徑 |
+| CertificatePassword | 強制 | Null | 用來保護憑證私密金鑰的密碼 |
+| DomainName | 必要 | local.azurestack.external | Azure Stack 區域和網域尾碼 |
+| AdfsMachineName | 選用 | AD FS 電腦名稱，例如 AzS-ADFS01.azurestack.local |
 
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>Validate the App Service on Azure Stack installation
+## <a name="validate-the-app-service-on-azure-stack-installation"></a>確認 Azure Stack 上的 App Service 安裝
 
-1. In the Azure Stack admin portal, browse to the resource group created by the installer. By default, this group is **APPSERVICE-LOCAL**.
+1. 在 Azure Stack 管理入口網站中，瀏覽到安裝程式所建立的資源群組。 根據預設值，此群組是 **APPSERVICE-LOCAL**。
 
-2. Locate the **CN0-VM**. To connect to the VM, click **Connect** on the **Virtual Machine** blade.
+2. 找出 **CN0-VM**。 若要連線到 VM，請按一下 [虛擬機器] 刀鋒視窗上的 [連線]。
 
-3. On the desktop of this VM, double-click **Web Cloud Management Console**.
+3. 在此 VM 的桌面上，按兩下 [Web 雲端管理主控台]。
 
-4. Go to **Managed Servers**.
+4. 移至 [受管理伺服器]。
 
-5. When all the machines display **Ready** for one or more Workers, proceed to step 6.
+5. 當所有電腦都針對一或多個背景工作顯示 [就緒] 時，請繼續進行步驟 6。
 
-6. Close the remote desktop machine, and return to the machine where you executed the App Service installer.
+6. 關閉遠端桌面電腦，並返回您執行 App Service 安裝程式的電腦。
 
     > [!NOTE]
-    > You don't need to wait for one or more Workers to display **Ready** to complete the installation of App Service on Azure Stack. However, you need a minimum of one Worker that's ready to deploy a web, mobile, or API app or Azure Functions.
+    > 您不需要等候一或多個背景工作顯示 [就緒]，就能完成 Azure Stack 上的 App Service 安裝。 不過，您需要至少一個背景工作已就緒可部署 Web、行動裝置版或 API 應用程式，或是 Azure Functions。
     
-    ![App Service on Azure Stack Managed Servers status][14]
+    ![Azure Stack 上的 App Service 受管理伺服器狀態][14]
 
-## <a name="test-drive-app-service-on-azure-stack"></a>Test drive App Service on Azure Stack
+## <a name="test-drive-app-service-on-azure-stack"></a>測試 Azure Stack 上的 App Service
 
-After you deploy and register the App Service resource provider, test it to make sure that tenants can deploy web, mobile, and API apps.
+當您部署並註冊 App Service 資源提供者之後，請測試它，以確定租用戶可以部署 Web、行動裝置版及 API 應用程式。
 
 > [!NOTE]
-> You need to create an offer that has the Microsoft.Web namespace within the plan. Then you need to have a tenant subscription that subscribes to this offer. For more information, see  [Create offer](azure-stack-create-offer.md) and [Create plan](azure-stack-create-plan.md).
+> 您需要在方案內建立含有 Microsoft.Web 命名空間的供應項目。 然後，您需要具有訂閱此供應項目的租用戶訂用帳戶。 如需詳細資訊，請參閱[建立供應項目](azure-stack-create-offer.md)和[建立方案](azure-stack-create-plan.md)。
 >
 
-You *must* have a tenant subscription to create applications that use App Service on Azure Stack. The only capabilities that a service admin can complete within the admin portal are related to the resource provider administration of App Service. These capabilities include adding capacity, configuring deployment sources, and adding Worker tiers and SKUs.
+您必須具有租用戶訂用帳戶，才能建立使用 Azure Stack 上之 App Service 的應用程式。 服務管理員只能在管理入口網站內完成的功能，與 App Service 的資源提供者管理有關。 這些功能包括新增容量、設定部署來源，以及新增背景工作層和 SKU。
 
-As of the third technical preview, to create web, mobile, and API apps you must use the tenant portal and have a tenant subscription.  
+從第三個技術預覽開始，若要建立 Web、行動裝置版及 API 應用程式，您必須使用租用戶入口網站，並具有租用戶訂用帳戶。  
 
-1. In the Azure Stack tenant portal, click **New** > **Web + Mobile** > **Web App**.
+1. 在 Azure Stack 租用戶入口網站中，按一下 [新增] > [Web + 行動] > [Web 應用程式]。
 
-2. On the **Web App** blade, type a name in the **Web app** box.
+2. 在 [Web 應用程式] 刀鋒視窗中，於 [Web 應用程式] 方塊中輸入名稱。
 
-3. Under **Resource Group**, click **New**. Then type a name in the **Resource Group** box.
+3. 按一下 [資源群組] 下方的 [新增]。 接著在 [資源群組] 方塊中輸入名稱。
 
-4. Click **App Service plan/Location** > **Create New**.
+4. 按一下 [App Service 方案/位置] > [新建]。
 
-5. On the **App Service plan** blade, type a name in the **App Service plan** box.
+5. 在 [App Service 方案] 刀鋒視窗中，於 [App Service 方案] 方塊中輸入名稱。
 
-6. Click **Pricing tier** > **Free-Shared** or **Shared-Shared** > **Select** > **OK** > **Create**.
+6. 按一下 [定價層] > [免費 - 共用] 或 [共用 - 共用] > [選取] > [確定] > [建立]。
 
-7. In under a minute, a tile for the new web app appears on the dashboard. Click the tile.
+7. 新 Web 應用程式的磚隨即出現在儀表板上。 按一下此磚。
 
-8. On the **Web App** blade, click **Browse** to view the default website for this app.
+8. 在 [Web 應用程式] 刀鋒視窗中，按一下 [瀏覽] 以檢視此應用程式的預設網站。
 
-## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Deploy a WordPress, DNN, or Django website (optional)
+## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>部署 WordPress、DNN 或 Django 網站 (選擇性)
 
-1. In the Azure Stack tenant portal, click **+**. Go to the Azure Marketplace, deploy a Django website, and wait for successful completion. The Django web platform uses a file system-based database. It doesn’t require any additional resource providers such as SQL or MySQL.
+1. 在 Azure Stack 租用戶入口網站中，按一下 [+]。 移至 Azure Marketplace、部署 Django 網站，然後等待順利完成。 Django Web 平台會使用以檔案系統為基礎的資料庫。 它不需要任何額外的資源提供者，例如 SQL 或 MySQL。
 
-2. If you also deployed a MySQL resource provider, you can deploy a WordPress website from the Marketplace. When you're prompted for database parameters, enter the user name as *User1@Server1*, with the user name and server name of your choice.
+2. 如果您也會部署 MySQL 資源提供者，就可以從 Marketplace 部署 WordPress 網站。 當系統提示您提供資料庫參數時，請使用您選擇的使用者名稱和伺服器名稱，以 User1@Server1 形式輸入使用者名稱。
 
-3. If you also deployed a SQL Server resource provider, you can deploy a DNN website from the Marketplace. When you're prompted for database parameters, pick a database in the computer running SQL Server that's connected to your resource provider.
+3. 如果您也會部署 SQL Server 資源提供者，就可以從 Marketplace 部署 DNN 網站。 當系統提示您提供資料庫參數時，請挑選執行 SQL Server 且已連線到您資源提供者之電腦中的資料庫。
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md).
+您也可以嘗試其他[平台即服務 (PaaS) 服務](azure-stack-tools-paas-services.md)。
 
-- [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md)
-- [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md)
+- [SQL Server 資源提供者](azure-stack-sql-resource-provider-deploy.md)
+- [MySQL 資源提供者](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-offline-step1.png

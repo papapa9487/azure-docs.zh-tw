@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 09/14/2017
 ms.author: terrylan
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 2ffbaca614d667db565197f3c13b1658fffc2a7c
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="security-center-platform-migration-faq"></a>資訊安全中心平台移轉常見問題集
@@ -53,7 +53,7 @@ ms.lasthandoff: 08/16/2017
 >
 
 ### <a name="am-i-billed-for-log-analytics-or-oms-on-the-workspaces-created-by-security-center"></a>資訊安全中心建立之工作區的 Log Analytics 或 OMS 是否需要付費？
-不用。 資訊安全中心所建立的工作區雖然設定以每節點之 OMS 計費，但實際上不會產生 OMS 費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
+否。 資訊安全中心所建立的工作區雖然設定以每節點之 OMS 計費，但實際上不會產生 OMS 費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：
 
 - **免費層** – 資訊安全中心在預設工作區安裝 SecurityCenterFree 解決方案。 免費層不須付費。
 - **標準層** – 資訊安全中心在預設工作區安裝 SecurityCenterFree 及 Security 解決方案。
@@ -70,6 +70,41 @@ ms.lasthandoff: 08/16/2017
 
 若要復原，請將連線到刪除工作區之虛擬機器上的 Microsoft Monitoring Agent 移除。 資訊安全中心會重新安裝代理程式，並建立新的預設工作區。
 
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>如何使用我現有的 Log Analytics 工作區？
+
+您可以選取現有的 Log Analytics 工作區來儲存資訊安全中心收集的資料。 若要使用現有的 Log Analytics 工作區：
+
+- 工作區必須與您選取的 Azure 訂用帳戶相關聯。
+- 至少必須擁有讀取權限以存取工作區。
+
+若要選取現有的 Log Analytics 工作區：
+
+1. 在 [安全性原則 - 資料收集] 下，選取 [使用其他工作區]。
+
+   ![使用其他工作區][5]
+
+2. 從下拉式功能表中，選取要儲存收集資料的工作區。
+
+   > [!NOTE]
+   > 在下拉式功能表中，只會顯示您可存取，而且在您 Azure 訂用帳戶中的工作區。
+   >
+   >
+
+3. 選取 [ **儲存**]。
+4. 選取 [儲存] 之後，會詢問您是否要重新設定受監控的虛擬機器。
+
+   - 如果您希望新的工作區設定**僅套用在新的虛擬機器**，請選取 [否]。 新的工作區設定只會套用在新安裝的代理程式，以及新探索到的未安裝 Microsoft Monitoring Agent 之虛擬機器。
+   - 如果您希望新的工作區設定**套用在所有虛擬機器**，請選取 [是]。 此外，每個連線到資訊安全中心建立之工作區的虛擬機器會重新連線到新的目標工作區。
+
+   > [!NOTE]
+   > 如果您選取 [是]，您必須刪除資訊安全中心建立的工作區，直到所有虛擬機器已重新連線至新的目標工作區。 如果過早刪除工作區，這項作業將會失敗。
+   >
+   >
+
+   - 選取 [取消] 以取消作業。
+
+      ![重新設定監控的虛擬機器][6]
+
 ### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>如果虛擬機器上 Microsoft Monitoring Agent 已經以擴充功能的形式安裝了呢？
 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會將虛擬機器送出的資料儲存到已經連線的工作區。
 
@@ -80,14 +115,13 @@ ms.lasthandoff: 08/16/2017
 如果您移除了 Microsoft Monitoring 擴充功能，資訊安全中心會無法收集虛擬機器送出的安全性資料，且特定安全性建議及警示將無法使用。 24 小時內，資訊安全中心會判定虛擬機器缺少了擴充功能，並重新安裝。
 
 ### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>我要如何避免自動安裝代理程式和建立工作區？
-您可以在安全性原則中停用訂用帳戶的資料收集，但不建議您這麼做。 關閉資料收集會限制資訊安全中心的建議和警示。 標準層上的訂用帳戶需要進行資料收集。 若要停用資料收集：
+您可以在安全性原則中關閉訂用帳戶的自動佈建，但不建議您這麼做。 關閉自動佈建會限制資訊安全中心的建議和警示。 標準層上的訂用帳戶需要進行自動佈建。 若要停用自動佈建：
 
 1. 如果您的訂用帳戶設定為標準層，請開啟該訂用帳戶的安全性原則，並選取**免費**層。
 
    ![定價層 ][1]
 
-2. 接下來請選取 [安全性原則 – 資料收集] 刀鋒視窗上的 [關閉]，來停用資料收集。
-
+2. 接下來，請選取 [安全性原則 – 資料收集] 刀鋒視窗上的 [關閉]，來停用自動佈建。
    ![資料收集][2]
 
 ### <a name="how-do-i-remove-oms-extensions-installed-by-security-center"></a>我要如何移除資訊安全中心安裝的 OMS 擴充功能？
@@ -159,4 +193,6 @@ Security & Audit 解決方案會用來啟用 Azure 虛擬機器上資訊安全�
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
+[6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
 

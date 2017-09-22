@@ -1,6 +1,6 @@
 ---
-title: Quota types in Azure Stack | Microsoft Docs
-description: Review the different quota types available for services and resources in Azure Stack.
+title: "Azure Stack 中的配額類型 | Microsoft Docs"
+description: "檢閱在 Azure Stack 中可用於服務和資源的不同配額類型。"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -18,49 +18,49 @@ ms.translationtype: HT
 ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 9c65abd596b1a67175a4f91558c318f16ddbb11f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="quota-types-in-azure-stack"></a>Quota types in Azure Stack
-[Quotas](azure-stack-plan-offer-quota-overview.md#plans) define the limits of resources that a user subscription can provision or consume. For example, a quota might allow a user to create up to five VMs. Each resource can have its own types of quotas.
+# <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
+[配額](azure-stack-plan-offer-quota-overview.md#plans)會定義使用者訂用帳戶可以佈建或取用的資源限制。 例如，配額可能會允許使用者建立最多五個 VM。 每個資源都可以有自己的配額類型。
 
-## <a name="compute-quota-types"></a>Compute quota types
-| **Type** | **Default value** | **Description** |
+## <a name="compute-quota-types"></a>計算配額類型
+| **類型** | **預設值** | **說明** |
 | --- | --- | --- |
-| Max number of virtual machines |50 | The maximum number of virtual machines that a subscription can create in this location. |
-| Max number of virtual machine cores |100 | The maximum number of cores that a subscription can create in this location (for example, an A3 VM has four cores). |
-| Max number of availability sets |10 | The maximum number of availability sets that can be created in this location. |
-| Max number of virtual machine scale sets |100 | The maximum number of virtual machine scale sets that can be created in this location. |
+| 虛擬機器的數目上限 |50 | 訂用帳戶可以在這個位置建立的虛擬機器數目上限。 |
+| 虛擬機器核心的數目上限 |100 | 訂用帳戶可以在這個位置建立的核心數目上限 (例如，A3 VM 有四個核心)。 |
+| 可用性設定組的數目上限 |10 | 可以在這個位置建立的可用性設定組數目上限。 |
+| 虛擬機器擴展集的數目上限 |100 | 可以在這個位置建立的虛擬機器擴展集數目上限。 |
 
 > [!NOTE]
-> Compute quotas are not enforced in this technical preview.
+> 此 Technical Preview 中未限制計算配額。
 > 
 > 
 
-## <a name="storage-quota-types"></a>Storage quota types
-| **Item** | **Default value** | **Description** |
+## <a name="storage-quota-types"></a>儲存體配額類型
+| **Item** | **預設值** | **說明** |
 | --- | --- | --- |
-| Maximum capacity (GB) |500 |Total storage capacity that can be consumed by a subscription in this location. |
-| Total number of storage accounts |20 |The maximum number of storage accounts that a subscription can create in this location. |
+| 最大容量 (GB) |500 |訂用帳戶可以在這個位置取用的總儲存體容量。 |
+| 儲存體帳戶的總數 |20 |訂用帳戶可以在這個位置建立的儲存體帳戶數目上限。 |
 
-## <a name="network-quota-types"></a>Network quota types
-| **Item** | **Default value** | **Description** |
+## <a name="network-quota-types"></a>網路配額類型
+| **Item** | **預設值** | **說明** |
 | --- | --- | --- |
-| Max public IPs |50 |The maximum number of public IPs that a subscription can create in this location. |
-| Max virtual networks |50 |The maximum number of virtual networks that a subscription can create in this location. |
-| Max virtual network gateways |1 |The maximum number of virtual network gateways (VPN Gateways) that a subscription can create in this location. |
-| Max network connections |2 |The maximum number of network connections (point-to-point or site-to-site) that a subscription can create across all virtual network gateways in this location. |
-| Max load balancers |50 |The maximum number of load balancers that a subscription can create in this location. |
-| Max NICs |100 |The maximum number of network interfaces that a subscription can create in this location. |
-| Max network security groups |50 |The maximum number of network security groups that a subscription can create in this location. |
+| 公用 IP 的數目上限 |50 |訂用帳戶可以在這個位置建立的公用 IP 數目上限。 |
+| 虛擬網路的數目上限 |50 |訂用帳戶可以在這個位置建立的虛擬網路數目上限。 |
+| 虛擬網路閘道的數目上限 |1 |訂用帳戶可以在這個位置建立的虛擬網路閘道 (VPN 閘道) 數目上限。 |
+| 網路連線的數目上限 |2 |訂用帳戶可以在這個位置所有虛擬網路閘道上建立的網路連線 (點對點或站台對站台) 數目上限。 |
+| 負載平衡器的數目上限 |50 |訂用帳戶可以在這個位置建立的負載平衡器數目上限。 |
+| 最大 NIC |100 |訂用帳戶可以在這個位置建立的網路介面數目上限。 |
+| 網路安全性群組的數目上限 |50 |訂用帳戶可以在這個位置建立的網路安全性群組數目上限。 |
 
-## <a name="view-an-existing-quota"></a>View an existing quota
-1. Click **More services** > **Resource Providers**.
-2. Select the service with the quota that you want to view.
-3. Click **Quotas**, and select the quota you want to view.
+## <a name="view-an-existing-quota"></a>檢視現有的配額
+1. 按一下 [更多服務] > [資源提供者]。
+2. 選取您要檢視的服務及其配額。
+3. 按一下 [配額]，然後選取要檢視的配額。
 
-## <a name="next-steps"></a>Next steps
-[Learn more about plans, offers, and quotas.](azure-stack-plan-offer-quota-overview.md)
+## <a name="next-steps"></a>後續步驟
+[深入了解方案、供應項目與配額。](azure-stack-plan-offer-quota-overview.md)
 
-[Create quotas while creating a plan.](azure-stack-create-plan.md)
+[建立方案時建立配額。](azure-stack-create-plan.md)
 

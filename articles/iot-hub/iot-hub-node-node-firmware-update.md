@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/06/2017
+ms.date: 09/07/2017
 ms.author: juanpere
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ba60cee8848079935111ed3de480081a4aa58f6
-ms.openlocfilehash: 30a707ec15d592c8a10905e13a75ea2f6e52cccc
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6879f51527802591d45ee56aa47ab304623a4323
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/06/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>使用裝置管理來起始裝置韌體更新 (節點/節點)
@@ -41,7 +40,7 @@ ms.lasthandoff: 02/06/2017
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 0.12.x 版或更新版本， <br/>  [準備您的開發環境][lnk-dev-setup]說明如何在 Windows 或 Linux 上安裝本教學課程的 Node.js。
+* Node.js 4.0.x 版或更新版本， <br/>  [準備您的開發環境][lnk-dev-setup]說明如何在 Windows 或 Linux 上安裝本教學課程的 Node.js。
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
 
 請依照[開始使用裝置管理](iot-hub-node-node-device-management-get-started.md)文件，以建立 IoT 中樞及取得 IoT 中樞連接字串。
@@ -58,7 +57,7 @@ ms.lasthandoff: 02/06/2017
     ```
     npm init
     ```
-2. 在 **triggerfwupdateondevice** 資料夾中，於命令提示字元執行下列命令以安裝 **azure-iot-hub** 與 **azure-iot-device-mqtt** 裝置 SDK 套件：
+2. 在 **triggerfwupdateondevice** 資料夾中，於命令提示字元執行下列命令以安裝 **azure-iothub** 套件：
    
     ```
     npm install azure-iothub --save

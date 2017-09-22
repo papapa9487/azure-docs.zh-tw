@@ -1,6 +1,6 @@
 ---
-title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
-description: Detailed guidance for scaling Azure Stack App Services
+title: "在應用程式服務中相應放大背景工作角色 - Azure Stack | Microsoft Docs"
+description: "調整 Azure Stack 應用程式服務的詳細指導方針"
 services: azure-stack
 documentationcenter: 
 author: kathm
@@ -14,115 +14,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/6/2017
 ms.author: kathm
-translationtype: Human Translation
-ms.sourcegitcommit: 6a06d35eeda2662de89a94c274848c827dc24bfa
-ms.openlocfilehash: 2abcb15789c52b64534b4ff69392ccd49f20142f
-ms.lasthandoff: 01/25/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
+ms.openlocfilehash: f844658c6ad2529fd385476be63095bdae7c88e5
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="app-service-on-azure-stack-adding-more-worker-roles"></a>App Service on Azure Stack: Adding more worker roles 
+# <a name="app-service-on-azure-stack-adding-more-worker-roles"></a>Azure Stack 上的 App Service：新增更多背景工作角色 
 
-This document provides instructions about how to scale App Service on Azure Stack worker roles. It contains steps for creating additional worker roles to support applications of any size.
+此文件提供如何調整 Azure Stack 上之 App Service 背景工作角色的相關指示。 其中包含建立額外的背景工作角色以支援任何規模之應用程式的步驟。
 
 > [!NOTE]
-> If your Azure Stack POC Environment does not have more than 96-GB RAM you may have difficulties adding additional capacity.
+> 如果您 Azure Stack POC 環境的 RAM 未超過 96 GB，您可能很難增加額外的容量。
 
-App Service on Azure Stack, by default, supports free and shared worker tiers. To add other worker tiers, you need to add more worker roles.
+根據預設值，Azure Stack 上的 App Service 支援免費和共用背景工作角色層。 若要新增其他背景工作角色層，您需要新增更多背景工作角色。
 
-If you are not sure what was deployed with the default App Service on Azure Stack installation, you can review additional information in the [App Service on Azure Stack overview](azure-stack-app-service-overview.md).
+如果您不確定已透過 Azure Stack 安裝上的預設 App Service 部署了哪個背景工作層，您可以在 [Azure Stack 上的 App Service 概觀](azure-stack-app-service-overview.md)中檢閱其他資訊。
 
-There are two ways to add additional capacity to App Service on Azure Stack:
-1.  [Add additional workers directly from with within the App Service Resource Provider Admin](#Add-additional-workers-directly-from-within-the-App-Service-Resource-Provider-Admin).
-2.  [Create additional VMs manually and add them to the App Service Resource Provider](#Create-additional-VMs-manually-and-add-them-to-the-App-Service-Resource-Provider).
+有兩種方式可將額外的容量新增至 Azure Stack 上的 App Service：
+1.  [直接從 App Service 資源提供者系統管理內新增其他背景工作角色](#Add-additional-workers-directly-from-within-the-App-Service-Resource-Provider-Admin)。
+2.  [手動建立其他的 VM，並將它們新增到 App Service 資源提供者](#Create-additional-VMs-manually-and-add-them-to-the-App-Service-Resource-Provider)。
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>Add additional workers directly within the App Service Resource Provider Admin.
+## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>直接在 App Service 資源提供者系統管理內新增其他背景工作角色。
 
-1.  Log in to the Azure Stack portal as the service administrator;
-2.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. ![Azure Stack Resource Providers][1]
-3.  Click **Roles**.  Here you see the breakdown of all App Service roles deployed.
-4.  Click the option **New Role Instance** ![Add new role instance][2]
-5.  In the **New Role Instance** blade:
-    1. Choose how many additional **role instances** you would like to add.  In the preview, there is a maximum of 10.
-    2. Select the **role type**.  In this preview, this option is limited to Web Worker.
-    3. Select the **worker tier** you would like to deploy this worker into, default choices are Small, Medium, Large, or Shared.  If, you have created your own worker tiers, your worker tiers will also be available for selection.
-    4. Click **OK** to deploy the additional workers
-6.  App Service on Azure Stack will now add the additional VMs, configure them, install all the required software and mark them as ready when this process is complete.  This process can take approximately 80 minutes.
-7.  You can monitor the progress of the readiness of the new workers by viewing the workers in the **roles** blade.
+1.  以服務管理員身分登入 Azure Stack 入口網站。
+2.  瀏覽至 [資源提供者]，然後選取 [App Service 資源提供者管理]。![Azure Stack 資源提供者][1]
+3.  按一下 [角色]。  您可以在這裡看到所有已部署之 App Service 角色的明細。
+4.  按一下 [新的角色執行個體] 選項 ![新增角色執行個體][2]
+5.  在 [新的角色執行個體] 刀鋒視窗中：
+    1. 選擇您想要新增多少個額外的**角色執行個體**。  在此預覽中，上限是 10 個。
+    2. 選取**角色類型**。  在此預覽中，已將此選項限制為 [Web 背景工作]。
+    3. 選取您想要部署這個背景工作的**背景工作層**，預設選項為 [小型]、[中型]、[大型] 或 [共用]。  如果您已建立自己的背景工作層，也可選取您的背景工作層。
+    4. 按一下 [確定] 以部署額外的背景工作
+6.  Azure Stack 上的 App Service 現在將會新增額外的 VM、設定它們、安裝所有必要的軟體，並在完成此程序時將它們標示為就緒。  此程序大約需要 80 分鐘。
+7.  您可以檢視 [角色] 刀鋒視窗中的背景工作，來監視整備新背景工作的進度。
 
 >[!NOTE]
->  In this preview, the integrated New Role Instance flow is limited to Worker Roles and deploy VMs of size A1 only.  We will be expanding this capability in a future release.
+>  在此預覽中，已將整合的 [新的角色執行個體] 流程限制為 [背景工作角色]，而且只會部署 A1 大小的 VM。  我們將在未來版本中擴充此功能。
 
-## <a name="manually-adding-additional-capacity-to-app-service-on-azure-stack"></a>Manually adding additional capacity to App Service on Azure Stack.
+## <a name="manually-adding-additional-capacity-to-app-service-on-azure-stack"></a>手動將額外的容量新增到 Azure Stack 上的 App Service。
 
-The following steps are required to add additional roles:
+以下為新增額外角色所需的步驟：
 
-1. [Create a new virtual machine](#step-1-create-a-new-vm-to-support-the-new-instance-size)
-2. [Configure the virtual machine](#step-2-configure-the-virtual-machine)
-3. [Configure the web worker role in the Azure Stack portal](#step-3-configure-the-web-worker-role-in-the-azure-stack-portal)
-4. [Configure app service plans](#step-4-configure-app-service-plans)
+1. [建立新的虛擬機器](#step-1-create-a-new-vm-to-support-the-new-instance-size)
+2. [設定虛擬機器](#step-2-configure-the-virtual-machine)
+3. [在 Azure Stack 入口網站中設定 Web 背景工作角色](#step-3-configure-the-web-worker-role-in-the-azure-stack-portal)
+4. [設定 App Service 方案](#step-4-configure-app-service-plans)
 
-## <a name="step-1-create-a-new-vm-to-support-the-new-instance-size"></a>Step 1: Create a new VM to support the new instance size
-Create a virtual machine as described in [this article](azure-stack-provision-vm.md), ensuring that the following selections are made:
+## <a name="step-1-create-a-new-vm-to-support-the-new-instance-size"></a>步驟 1：建立新的 VM 以支援新的執行個體大小
+如[此文章](azure-stack-provision-vm.md)中所述的方式建立虛擬機器，確保會進行下列選擇：
 
-* User name and password: Provide the same user name and password you provided when you installed App Service on Azure Stack.
-* Subscription: Use the default provider subscription.
-* Resource group: Choose **AppService-LOCAL**.
+* 使用者名稱和密碼：提供您在安裝 Azure Stack 上的 App Service 時所提供的相同使用者名稱和密碼。
+* 訂用帳戶：使用預設的提供者訂用帳戶。
+* 資源群組：選擇 [AppService-LOCAL]。
 
 > [!NOTE]
-> Store the virtual machines for worker roles in the same resource group as App Service on Azure Stack is deployed to. (This is recommended for this release.)
+> 將適用於背景工作角色的虛擬機器儲存在與要部署 Azure Stack 上之 App Service 相同的資源群組中 (這是適用於此版本的建議作法)。
 > 
 > 
 
-## <a name="step-2-configure-the-virtual-machine"></a>Step 2: Configure the Virtual Machine
-Once the deployment has completed, the following configuration is required to support the web worker role:
+## <a name="step-2-configure-the-virtual-machine"></a>步驟 2：設定虛擬機器
+一旦完成部署，必須進行下列設定，才能支援 Web 背景工作角色：
 
-1. Browse to the **AppService-LOCAL** resource group in the portal and select the new machine you created in Step 1.
-2. Click connect in the VM blade to download the remote desktop profile.  Open the profile to open a remote desktop session to your VM.
-3. Log in to the VM using the username and password you specified in Step 1.
-4. Open PowerShell by clicking the **Start** button and typing PowerShell. Right-click **PowerShell.exe**, and select **Run as administrator** to open PowerShell in administrator mode.
-5. Copy and paste each of the following commands (one at a time) into the PowerShell window, and press enter:
+1. 瀏覽至入口網站中的 [AppService-LOCAL] 資源群組，並選取您在步驟 1 中建立新的機器。
+2. 按一下 VM 刀鋒視窗中的 [連線]，以下載遠端桌面設定檔。  開啟設定檔，以便開啟您 VM 的遠端桌面工作階段。
+3. 使用您在步驟 1 中指定的使用者名稱和密碼來登入 VM。
+4. 依序按一下 [開始] 按鈕並輸入 PowerShell 來開啟 PowerShell。 以滑鼠右鍵按一下 [PowerShell.exe]，然後選取 [以系統管理員身分執行]，在系統管理員模式中開啟 PowerShell。
+5. 複製下列每個命令 (一次一個) 並貼至 PowerShell 視窗，然後按 Enter：
    
    ```netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes```
    ```netsh advfirewall firewall set rule group="Windows Management Instrumentation (WMI)" new enable=yes```
    ```reg add HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\system /v LocalAccountTokenFilterPolicy /t REG\_DWORD /d 1 /f```
    
-6. Close your remote desktop session.
-7. Restart the VM from the portal.
+6. 關閉您的遠端桌面工作階段。
+7. 從入口網站重新啟動 VM。
 
 > [!NOTE]
-> These are minimum requirements for App Service on Azure Stack. They are the default settings of the Windows 2012 R2 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
+> 這些是針對 Azure Stack 上之 App Service 的最低需求。 它們是 Azure Stack 所含之 Windows 2012 R2 映像的預設設定。 這些指示已提供來供日後參考，也可供使用不同映像的那些情況使用。
 > 
 > 
 
-## <a name="step-3-configure-the-worker-role-in-the-azure-stack-portal"></a>Step 3: Configure the worker role in the Azure Stack portal
-1. Open the portal as the service administrator on **ClientVM**.
-2. Navigate to **Resource Providers** &gt; **App Service Resource Provider Admin**.![App Service Resource Provider Admin][3]
-3. In the settings blade, click **Roles**.![App Service Resource Provider Roles][4]
-4. Click **Add Role Instance**.
-5. In the textbox for **Server Name** enter the **IP Address** of the server you created earlier (in Section 1).
-6. Select the **Role Type** you would like to add - Controller, Management Server, Front End, Web Worker, Publisher, or File Server.  In this instance, select Web Worker.
-7. Click the **Tier** you would like to deploy the new instance to (small, medium, large, or shared).  If you have created your own worker tiers these will also be available for selection.
-8. Click **OK.**
-9. Go back to the **Roles** view
-10. Click the row corresponding to the Role Type and Worker Tier combination you assigned your VM to.
-11. Look for the Server Name you just added. Review the status column, and wait to move to the next step until the status is "Ready." This can take approximately 80 minutes. ![App Service Resource Provider Role Ready][5]
+## <a name="step-3-configure-the-worker-role-in-the-azure-stack-portal"></a>步驟 3：在 Azure Stack 入口網站中設定背景工作角色
+1. 在 **ClientVM** 中，以服務管理員身分開啟入口網站。
+2. 瀏覽至 [資源提供者] &gt; [App Service 資源提供者系統管理]。![App Service 資源提供者系統管理][3]
+3. 在 [設定] 刀鋒視窗中，按一下 [角色]。![App Service 資源提供者角色][4]
+4. 按一下 [新增角色執行個體]。
+5. 在 [伺服器名稱] 文字方塊中，輸入您稍早建立 (在區段 1 中) 之伺服器的 **IP 位址**。
+6. 選取您想要新增的**角色類型**：控制器、管理伺服器、前端、Web 背景工作、發行者或檔案伺服器。  在此範例中，請選取 [Web 背景工作]。
+7. 按一下您想要部署新執行個體的 [階層] (小型、中型、大型或共用)。  如果您已建立自己的背景工作層，也可選取這些背景工作層。
+8. 按一下 [確定]。
+9. 返回 [角色] 檢視
+10. 按一下對應至您已指派 VM 之 [角色類型] 與 [背景工作層] 組合的資料列。
+11. 尋找您剛新增的伺服器名稱。 檢閱 [狀態] 欄，並在狀態成為「就緒」之後移至下一個步驟。 這大約需要 80 分鐘。 ![App Service 資源提供者角色就緒][5]
 
-## <a name="step-4-configure-app-service-plans"></a>Step 4: Configure app service plans
+## <a name="step-4-configure-app-service-plans"></a>步驟 4：設定 App Service 方案
 
-1. Sign in to the portal on the ClientVM.
-2. Navigate to **New** &gt; **Web and Mobile**.
-3. Select the type of application you would like to deploy.
-4. Provide the information for the application, and then select **AppService Plan / Location**.
-    1. Click **Create New**.
-    2. Create your plan, selecting the corresponding pricing tier for the plan.
+1. 登入 ClientVM 上的入口網站。
+2. 瀏覽至 [新增] &gt; [Web 與行動裝置]。
+3. 選取您想要部署的應用程式類型。
+4. 提供應用程式的資訊，然後選取 [AppService 方案 / 位置]。
+    1. 按一下 [新建] 。
+    2. 建立您的方案，選取方案的對應定價層。
 
 > [!NOTE]
-> You can create multiple plans while on this blade. Before you deploy, however, ensure you have selected the appropriate plan.
+> 您可以在此刀鋒視窗上建立多個方案。 不過，在部署之前，請確定您已選取適當的方案。
 > 
 > 
 
-The following shows an example of the multiple pricing tiers available by default.  You notice that if there are no available workers for a particular worker tier, the option to choose the corresponding pricing tier is unavailable.![App Service on Azure Stack Default Pricing Tiers][6]
+以下顯示的是預設可用的多個定價層範例。  您會注意到，如果特定的背景工作層沒有可用的背景工作，就無法使用選擇對應定價層的選項。![Azure Stack 上的 App Service 預設定價層][6]
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-add-worker-roles/azure-stack-resource-providers.png

@@ -1,6 +1,6 @@
 ---
-title: Using API version profiles in Azure Stack | Microsoft Docs
-description: Learn about API version profiles in Azure Stack.
+title: "使用 Azure Stack 中的 API 版本設定檔 | Microsoft Docs"
+description: "了解 Azure Stack 中的 API 版本設定檔。"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -18,40 +18,40 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 70ee29b9145c3a92f5d219cf71f33dd783f45bc3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
-# <a name="manage-api-version-profiles-in-azure-stack"></a>Manage API version profiles in Azure Stack
+# <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
-API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+API 版本設定檔提供一個管理 Azure 與 Azure Stack 之間版本差異的方式。 API 版本設定檔是一組具有特定 API 版本的 AzureRM PowerShell 模組。 每個雲端平台都有一組支援的 API 版本設定檔。 例如，Azure Stack 支援特定日期的設定檔版本 (例如 **2017-03-09-profile**)，而 Azure 則支援**最新的** API 版本設定檔。 當您安裝設定檔時，會安裝與指定的設定檔對應的 AzureRM PowerShell 模組。
 
-## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>Install the PowerShell module required to use API version profiles
+## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>安裝使用 API 版本設定檔所需的 PowerShell 模組
 
-The **AzureRM.Bootstrapper** module that is available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles. Use the following cmdlet to install the AzureRM.Bootstrapper module:
+可透過「PowerShell 資源庫」取得的 **AzureRM.Bootstrapper** 模組會提供使用 API 版本設定檔所需的 PowerShell Cmdlet。 請使用下列 Cmdlet 來安裝 AzureRM.Bootstrapper 模組：
 
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-The AzureRM.Bootstrapper module is in preview; details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
+AzureRM.Bootstrapper 模組目前為預覽版；詳細資料與功能可能會有所變更。 若要從「PowerShell 資源庫」下載並安裝此模組的最新版本，請執行下列 Cmdlet：
 
 ```PowerShell
 Update-Module -Name "AzureRm.BootStrapper"
 ```
 
-## <a name="install-a-profile"></a>Install a profile
+## <a name="install-a-profile"></a>安裝設定檔
 
-Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. Note that the Azure Stack operator modules are not installed with this API version profile, and they should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+使用 **Install-AzureRmProfile** Cmdlet 搭配 **2017-03-09-profile** API 版本設定檔，以安裝 Azure Stack 所需的 AzureRM 模組。 請注意，Azure Stack 操作員模組並不會隨著這個 API 版本設定檔一起安裝，應該如[安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md) 一文的步驟 3 中所指定，個別安裝這些模組。
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile
 ```
-## <a name="install-and-import-modules-in-a-profile"></a>Install and import modules in a profile
+## <a name="install-and-import-modules-in-a-profile"></a>安裝並匯入設定檔中的模組
 
-Use the **Use-AzureRmProfile** cmdlet to install and import modules that are associated with an API version profile. You can import only one API version profile in a PowerShell session. To import a different API version profile, you must open a new PowerShell session. The Use-AzureRMProfile cmdlet runs the following tasks:  
-1. Checks if the PowerShell modules associated with the specified API version profile are installed in the current scope.  
-2. Downloads and installs the modules if they are not already installed.   
-3. Imports the modules into the current PowerShell session. 
+使用 **Use-AzureRmProfile** Cmdlet 來安裝並匯入與 API 版本設定檔關聯的模組。 在一個 PowerShell 工作階段中只能匯入一個 API 版本設定檔。 若要匯入不同的 API 版本設定檔，您必須開啟新的 PowerShell 工作階段。 Use-AzureRMProfile Cmdlet 會執行下列工作：  
+1. 檢查目前範圍中是否已安裝與所指定 API 版本設定檔關聯的 PowerShell 模組。  
+2. 下載並安裝這些模組 (如果尚未安裝)。   
+3. 將模組匯入到目前的 PowerShell 工作階段中。 
 
 ```PowerShell
 # Installs and imports the specified API version profile into the current PowerShell session.
@@ -61,16 +61,16 @@ Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
 Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
 ```
 
-To install and import selected AzureRM modules from an API version profile, run the Use-AzureRMProfile cmdlet with the **Module** parameter:
+若要從某個 API 版本設定檔安裝並匯入選取的 AzureRM 模組，請搭配 **Module** 參數執行 Use-AzureRMProfile Cmdlet：
 
 ```PowerShell
 # Installs and imports the compute, Storage and Network modules from the specified API version profile into your current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
 
-## <a name="get-the-installed-profiles"></a>Get the installed profiles
+## <a name="get-the-installed-profiles"></a>取得已安裝的設定檔
 
-Use the **Get-AzureRmProfile** cmdlet to get the list of available API version profiles: 
+使用 **Get-AzureRmProfile** Cmdlet 來取得可用的 API 版本設定檔清單： 
 
 ```PowerShell
 # lists all API version profiles provided by the AzureRM.BootStrapper module.
@@ -79,40 +79,40 @@ Get-AzureRmProfile -ListAvailable
 # lists the API version profiles which are installed on your machine
 Get-AzureRmProfile
 ```
-## <a name="update-profiles"></a>Update profiles
+## <a name="update-profiles"></a>更新設定檔
 
-Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version profile to the latest version of modules that are available in the PSGallery. It's recommended to always run the **Update-AzureRmProfile** cmdlet in a new PowerShell session to avoid conflicts when importing modules. The Update-AzureRmProfile cmdlet runs the following tasks:
+使用 **Update-AzureRmProfile** Cmdlet，以將 API 版本設定檔中的模組更新成 PSGallery 中可用的最新版模組。 建議您在匯入模組時，一律在新的 PowerShell 工作階段中執行 **Update-AzureRmProfile** Cmdlet，以避免發生衝突。 Update-AzureRmProfile Cmdlet 會執行下列工作：
 
-1. Checks if the latest versions of modules are installed in the given API version profile for the current scope.  
-2. Prompts you to install if they are not already installed.  
-3. Installs and imports the updated modules into the current PowerShell session.  
+1. 檢查目前範圍的指定 API 版本設定檔中是否已安裝最新版模組。  
+2. 提示您安裝這些模組 (如果尚未安裝)。  
+3. 將已更新的模組安裝並匯入到目前的 PowerShell 工作階段中。  
 
 ```PowerShell
 Update-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
+若要在更新成最新可用版本之前，先移除先前安裝的模組版本，請搭配 **-RemovePreviousVersions** 參數使用 Update-AzureRmProfile Cmdlet：
 
 ```PowerShell 
 Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
 ```
 
-This cmdlet runs the following tasks:  
+此 Cmdlet 會執行下列工作：  
 
-1. Checks if the latest versions of modules are installed in the given API version profile for the current scope.  
-2. Removes the older versions of modules from the current API version profile and in the current PowerShell session.  
-4. prompts you to install the latest version.  
-5. Installs and imports the updated modules into the current PowerShell session.  
+1. 檢查目前範圍的指定 API 版本設定檔中是否已安裝最新版模組。  
+2. 從目前的 API 版本設定檔並在目前 PowerShell 工作階段中，移除舊版模組。  
+4. 提示您安裝最新版本。  
+5. 將已更新的模組安裝並匯入到目前的 PowerShell 工作階段中。  
  
-## <a name="uninstall-profiles"></a>Uninstall profiles
+## <a name="uninstall-profiles"></a>將設定檔解除安裝
 
-Use the **Uninstall-AzureRmProfile** cmdlet to uninstall the specified API version profile.
+使用 **Uninstall-AzureRmProfile** Cmdlet 將指定的 API 版本設定檔解除安裝。
 
 ```PowerShell 
 Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-## <a name="next-steps"></a>Next steps
-* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
+## <a name="next-steps"></a>後續步驟
+* [安裝 Azure Stack 適用的 PowerShell](azure-stack-powershell-install.md)
+* [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)  
 

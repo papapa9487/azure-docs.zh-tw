@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 25fbbe97d26491fc421f4821315761c18e523ec8
+ms.translationtype: HT
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 來分析網站記錄
@@ -36,9 +35,7 @@ ms.lasthandoff: 06/20/2017
 
   * [使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 * **資料湖分析帳戶。**  請參閱[建立 Azure Data Lake Analytics 帳戶可節省時間](data-lake-analytics-get-started-portal.md)。
-* **將範例資料上傳到資料湖分析帳戶。** 請參閱[複製範例資料檔案](data-lake-analytics-get-started-portal.md)。
-
-    若要執行資料湖分析工作，您需要一些資料。 即使資料湖工具支援上傳資料，您將使用入口網站來上傳範例資料，以方便遵循本教學課程。
+* **安裝範例資料。** 在 Azure 入口網站中開啟 Data Lake Analytics 帳戶，按一下左側功能表上的 [指令碼範例]，然後再按一下 [複製範例資料]。 
 
 ## <a name="connect-to-azure"></a>連接到 Azure
 您必須先連接至 Azure，然後才能建置及測試任何 U-SQL 指令碼。

@@ -3,7 +3,7 @@ title: ".NET 應用程式的 Azure Application Insights 快照集偵錯工具 | 
 description: "在生產環境 .NET 應用程式中擲回例外狀況時，會自動收集偵錯快照集"
 services: application-insights
 documentationcenter: 
-author: qubitron
+author: pharring
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: cb0c74e7a3e3a2044262f94275110d0a55ccc19b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 0761339dfdaaaed418a1414472393ce8e0f37b9c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 應用程式中的例外狀況偵錯快照集
@@ -68,26 +68,13 @@ ms.lasthandoff: 09/06/2017
 
 1. 如果您尚未這麼做，請[在 ASP.NET Core Web 應用程式中啟用 Application Insights](app-insights-asp-net-core.md)。
 
+> [!NOTE]
+> 請確定您的應用程式參考的是 2.1.1 版或更新版本的 Microsoft.ApplicationInsights.AspNetCore 封裝。
+
 2. 將 [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 套件納入您的應用程式。
 
-3. 修改您應用程式的 `Startup` 類別中的`ConfigureServices` 方法，以新增快照集收集器的遙測處理器。 您應新增的程式碼取決於參考的 Microsoft.ApplicationInsights.ASPNETCore NuGet 套件版本。
+3. 修改您應用程式的 `Startup` 類別中的`ConfigureServices` 方法，以新增快照集收集器的遙測處理器。
 
-   對於 Microsoft.ApplicationInsights.AspNetCore 2.1.0，新增：
-   ```C#
-   using Microsoft.ApplicationInsights.SnapshotCollector;
-   ...
-   class Startup
-   {
-       // This method is called by the runtime. Use it to add services to the container.
-       public void ConfigureServices(IServiceCollection services)
-       {
-           services.AddSingleton<Func<ITelemetryProcessor, ITelemetryProcessor>>(next => new SnapshotCollectorTelemetryProcessor(next));
-           // TODO: Add any other services your application needs here.
-       }
-   }
-   ```
-
-   對於 Microsoft.ApplicationInsights.AspNetCore 2.1.1，新增：
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
    ...

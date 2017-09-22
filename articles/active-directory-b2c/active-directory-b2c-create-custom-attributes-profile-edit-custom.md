@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 67c9f6eca18e2dd77e00b8bc8c7bcc546ea3936e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中建立和使用自訂屬性
@@ -62,7 +62,7 @@ Azure AD B2C 可讓您擴充每個使用者帳戶所儲存的屬性組合。 您
 1. 選取 **[建立]。 [通知] 中會出現成功完成
 1. 選取新建立的 Web 應用程式：**WebApp-GraphAPI-DirectoryExtensions**
 1. 選取 [設定]：**必要權限**
-1. 選取 API [Windows Active Directory]
+1. 選取 API [Windows Azure Active Directory]
 1. 在 [應用程式權限] 中標上核取記號：**讀取及寫入目錄資料**，然後**儲存**
 1. 選擇 [授與權限]，然後確認 [是]。
 1. 將來自 WebApp-GraphAPI-DirectoryExtensions>Settings>Properties> 的下列識別碼複製到剪貼簿並儲存
@@ -235,7 +235,7 @@ Azure AD B2C 可讓您擴充每個使用者帳戶所儲存的屬性組合。 您
 
 傳送回應用程式的識別碼權杖，會以自訂宣告的形式來包含新的擴充屬性，且此宣告前面會加上 extension_loyaltyId。 請參閱範例。
 
-```
+```json
 {
   "exp": 1493585187,
   "nbf": 1493581587,
@@ -254,8 +254,8 @@ Azure AD B2C 可讓您擴充每個使用者帳戶所儲存的屬性組合。 您
 
 ## <a name="next-steps"></a>後續步驟
 
-藉由變更下列 TechnicalProfiles，將新宣告新增至社交帳戶登入的流程。 社交/同盟帳戶登入會使用這兩個 TechnicalProfiles，以 alternativeSecurityId 作為使用者物件的定位器來寫入和讀取使用者資料。
-```
+### <a name="add-the-new-claim-to-the-flows-for-social-account-logins-by-changing-the-technicalprofiles-listed-below-these-two-technicalprofiles-are-used-by-socialfederated-account-logins-to-write-and-read-the-user-data-using-the-alternativesecurityid-as-the-locator-of-the-user-object"></a>藉由變更下列 TechnicalProfiles，將新的宣告新增至社交帳戶登入的的流程。 社交/同盟帳戶登入會使用這兩個 TechnicalProfiles，以 alternativeSecurityId 作為使用者物件的定位器來寫入和讀取使用者資料。
+```xml
   <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
   <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">

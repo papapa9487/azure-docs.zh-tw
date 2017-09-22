@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 65a9815525c612bdfac569e5ec56a1db53d82c78
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 688b33710283a82fcd772bf50a171893f3ac124c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/10/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="cloud-to-device-communications-guidance"></a>Cloud-to-device communications guidance
@@ -39,7 +38,7 @@ IoT 中樞提供三個選項以便裝置應用程式對後端應用程式公開�
 | 目標 | 使用 **deviceId** 的單一裝置，或使用[作業][lnk-jobs]的多個裝置。 | 使用 **deviceId** 的單一裝置，或使用[作業][lnk-jobs]的多個裝置。 | 依照 **deviceId** 的單一裝置。 |
 | 大小 | 最多 8KB 要求和 8KB 回應。 | 所需屬性大小上限為 8KB。 | 最多 64KB 的訊息。 |
 | 頻率 | 高。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 | 中。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 | 低。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 |
-| 通訊協定 | 目前僅適用於使用 MQTT 時。 | 目前僅適用於使用 MQTT 時。 | 適用於所有通訊協定。 裝置必須在使用 HTTP 時進行輪詢。 |
+| 通訊協定 | 可使用 MQTT 或 AMQP。 | 可使用 MQTT 或 AMQP。 | 適用於所有通訊協定。 裝置必須在使用 HTTP 時進行輪詢。 |
 
 在下列教學課程中，了解如何使用直接方法、所需屬性和雲端到裝置訊息︰
 

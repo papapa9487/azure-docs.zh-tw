@@ -1,6 +1,6 @@
 ---
-title: Using SQL databases on Azure Stack | Microsoft Docs
-description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter
+title: "在 Azure Stack 上使用 SQL 資料庫 | Microsoft Docs"
+description: "了解如何將 SQL 資料庫部署為 Azure Stack 上的服務，以及了解部署 SQL Server 資源提供者配接器的快速步驟"
 services: azure-stack
 documentationCenter: 
 author: JeffGoldner
@@ -17,70 +17,70 @@ ms.translationtype: HT
 ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 018d556d52aa1a1f436460d9811c43f9b45bd440
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
-# <a name="use-sql-databases-on-microsoft-azure-stack"></a>Use SQL databases on Microsoft Azure Stack
+# <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
 
-Use the SQL Server resource provider adapter to expose SQL databases as a service of Azure Stack. After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create databases for cloud-native apps, websites that are based on SQL, and workloads that are based on SQL without having to provision a virtual machine (VM) that hosts SQL Server each time.
+使用 SQL Server 資源提供者配接器，將 SQL 資料庫公開為 Azure Stack 的服務。 在您安裝資源提供者，並將它連線到一或多個 SQL Server 執行個體之後，您和您的使用者就可以為雲端原生應用程式、以 SQL 為基礎的網站，以及以 SQL 為基礎的工作流程建立資料庫，不需要每次佈建主控 SQL Server 的虛擬機器 (VM)。
 
-The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, elastic database pools and the ability to scale database performance aren't supported. The API is not compatible with SQL DB.
+資源提供者並未支援 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 的所有資料庫管理功能。 例如，不支援彈性資料庫集區和調整資料庫效能的功能。 API 與 SQL DB 不相容。
 
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>SQL Server Resource Provider Adapter architecture
-The resource provider is not based on, nor does it offer all the database management capabilities of Azure SQL Database. For example, elastic database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations.
+## <a name="sql-server-resource-provider-adapter-architecture"></a>SQL Server 資源提供者配接器架構
+資源提供者並非以 Azure SQL Database 為基礎，也不提供 Azure SQL Database 的所有資料庫管理功能。 例如，不提供彈性資料庫集區和自動提高及降低資料庫效能的功能。 但是，資源提供者支援類似的建立、讀取、更新及刪除 (CRUD) 作業。
 
-The resource provider is made up of three components:
+資源提供者由三個元件組成：
 
-- **The SQL resource provider adapter VM**, which is a Windows virtual machine running the provider services.
-- **The resource provider itself**, which processes provisioning requests and exposes database resources.
-- **Servers that host SQL Server**, which provide capacity for databases, called Hosting Servers. 
+- **SQL 資源提供者配接器 VM**，這是執行提供者服務的 Windows 虛擬機器。
+- **資源提供者本身**，它會處理佈建要求並公開資料庫資源。
+- **主控 SQL Server 的伺服器**，它提供資料庫的容量，稱為主控伺服器。 
 
-This release no longer creates a SQL instance. You must create one (or more) and/or provide access to external SQL instances. There are a number of options available to you including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) and Marketplace items. 
+此版本不會再建立 SQL 執行個體。 您必須建立一個 (或多個) 和/或提供外部 SQL 執行個體的存取權。 有一些選項可供您使用，包括 [Azure Stack 快速入門資源庫](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) (\英文\) 中的範本和 Marketplace 項目。 
 
 >[!NOTE]
-If you have downloaded any SQL Marketplace items, make sure you also download the SQL IaaS Extension or these will not deploy.
+如果已下載任何 SQL Marketplace 項目，請確定您也同時下載了 SQL IaaS 延伸模組，否則將不會部署它們。
 
 
-## <a name="deploy-the-resource-provider"></a>Deploy the resource provider
+## <a name="deploy-the-resource-provider"></a>部署資源提供者
 
-1. If you have not already done so, register your development kit and download the Windows Server 2016 EVAL image downloadable through Marketplace Management. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). The .NET 3.5 runtime is no longer required.
+1. 如果您尚未這樣做，請註冊您的開發套件並下載 Windows Server 2016 評估版映像 (可透過 Marketplace 管理下載)。 您也可以使用指令碼建立 [Windows Server 2016 映像](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) (\英文\)。 不再需要 .NET 3.5 執行階段。
 
-2. [Download the SQL resource provider binaries file](https://aka.ms/azurestacksqlrp) and extract it on the development kit host.
+2. [下載 SQL 資源提供者二進位檔案](https://aka.ms/azurestacksqlrp)，並在開發套件主機上解壓縮該檔案。
 
-3. Sign in to the development kit host and extract the SQL RP installer file to a temporary directory.
+3. 登入開發套件主機，並將 SQL RP 安裝程式檔案解壓縮到暫存目錄。
 
-4. The Azure Stack root certificate is retrieved and a self-signed certificate is created as part of this process. 
+4. 系統會在此程序的執行過程中，擷取 Azure Stack 根憑證並建立自我簽署憑證。 
 
-    __Optional:__ If you need to provide your own, prepare the certificates and copy to a local directory if you wish to customize the certificates (passed to the installation script). You need the following certificates:
+    __選擇性：__如果需要提供自己的憑證，請準備好憑證並將它複製到本機目錄 (如果您想要自訂憑證以傳遞到安裝指令碼)。 您需要下列憑證︰
 
-    a. A wildcard certificate for *.dbadapter.\<region\>.\<external fqdn\>. This certificate must be trusted, such as would be issued by a certificate authority (that is, the chain of trust must exist without requiring intermediate certificates.) (A single site certificate can be used with the explicit VM name you provide during install.)
+    a. *.dbadapter.\<地區\>.\<外部 FQDN\>的萬用字元憑證。 此憑證必須受到信任，例如由憑證授權單位簽發 (也就是信任鏈結必須存在而不需要中繼憑證。) (單一站台憑證可搭配您在安裝期間提供的明確 VM 名稱使用。)
 
-    b. The root certificate used by the Azure Resource Manager for your instance of Azure Stack. If it is not found, the root certificate will be retrieved.
+    b. Azure Resource Manager 為您的 Azure Stack 執行個體所使用的根憑證。 如果找不到，則將擷取根憑證。
 
 
-5. Open a **new** elevated PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that may arise from incorrect PowerShell modules already loaded on the system.
+5. 開啟**新的**已提升權限的 PowerShell 主控台，並變更至解壓縮檔案所在的目錄。 使用新視窗，避免因為系統上已載入不正確的 PowerShell 模組而可能發生的問題。
 
-6. If you have installed any versions of the AzureRm or AzureStack PowerShell modules other than 1.2.9 or 1.2.10, you will be prompted to remove them or the install will not proceed. This includes versions 1.3 or greater.
+6. 如果已安裝 1.2.9 或 1.2.10 以外之任何版本的 AzureRm 或 AzureStack PowerShell 模組，系統會提示您將它們移除，否則不會繼續安裝。 這包括 1.3 或更高版本。
 
-7. Run the DeploySqlProvider.ps1 script with the parameters listed below.
+7. 請搭配下方列出的參數執行 DeploySqlProvider.ps1 指令碼。
 
-The script performs these steps:
+指令碼會執行這些步驟：
 
-* If necessary, download a compatible version of Azure PowerShell.
-* Upload the certificates and other artifacts to a storage account on your Azure Stack.
-* Publish gallery packages so that you can deploy SQL databases through the gallery.
-* Deploy a VM using the Windows Server 2016 image created in step 1 and install the resource provider.
-* Register a local DNS record that maps to your resource provider VM.
-* Register your resource provider with the local Azure Resource Manager (Tenant and Admin).
+* 如有必要，請下載相容版本的 Azure PowerShell。
+* 將憑證和其他成品上傳到您 Azure Stack 上的儲存體帳戶。
+* 發佈資源庫套件，以便您可以透過資源庫部署 SQL 資料庫。
+* 使用在步驟 1 中建立的 Windows Server 2016 映像部署 VM，並安裝資源提供者。
+* 註冊對應到您資源提供者 VM 的本機 DNS 記錄。
+* 向本機 Azure Resource Manager 註冊您的資源提供者 (租用戶和管理員)。
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it may fail and you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and core specifications may not be able to deploy the SQL RP.
+> 如果安裝時間超過 90 分鐘，表示安裝可能失敗，且您會在畫面上和記錄檔中看到失敗訊息，但會從失敗的步驟重新嘗試執行部署作業。 不符合建議的記憶體及核心規格的系統可能無法部署 SQL RP。
 >
 
-Here's an example you can run from the PowerShell prompt (but change the account information and portal endpoints as needed):
+以下是可從 PowerShell 提示字元執行的範例 (視需要變更帳戶資訊和入口網站端點)：
 
 ```
 # Install the AzureRM.Bootstrapper module
@@ -119,121 +119,121 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 <extracted file directory>\DeploySQLProvider.ps1 -DirectoryTenantID $tenantID -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -ResourceGroupName "SqlRPRG" -VmName "SqlVM" -ArmEndpoint "https://adminmanagement.local.azurestack.external" -TenantArmEndpoint "https://management.local.azurestack.external" -DefaultSSLCertificatePassword $PfxPass
  ```
 
-### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 parameters
-You can specify these parameters in the command line. If you do not, or any parameter validation fails, you are prompted to provide the required ones.
+### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 參數
+您可以在命令列中指定這些參數。 如果未這麼做，或任何參數驗證失敗，系統會提示您提供必要參數。
 
-| Parameter Name | Description | Comment or Default Value |
+| 參數名稱 | 描述 | 註解或預設值 |
 | --- | --- | --- |
-| **DirectoryTenantID** | The Azure or ADFS Directory ID (guid). | _required_ |
-| **AzCredential** | Provide the credentials for the Azure Stack Service Admin account. You must use the same credentials as you used for deploying Azure Stack). | _required_ |
-| **VMLocalCredential** | Define the credentials for the local administrator account of the SQL resource provider VM. This password is also used for the SQL **sa** account. | _required_ |
-| **ResourceGroupName** | Define a name for a Resource Group in which items created by this script will be stored. For example, *SqlRPRG*. |  _required_ |
-| **VmName** | Define the name of the virtual machine on which to install the resource provider. For example, *SqlVM*. |  _required_ |
-| **DependencyFilesLocalPath** | Your certificate files must be placed in this directory as well. | _optional_ |
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate | _required_ |
-| **MaxRetryCount** | Define how many times you want to retry each operation if there is a failure.| 2 |
-| **RetryDuration** | Define the timeout between retries, in seconds. | 120 |
-| **Uninstall** | Remove the resource provider and all associated resources (see notes below) | No |
-| **DebugMode** | Prevents automatic cleanup on failure | No |
+| **DirectoryTenantID** | Azure 或 ADFS Directory 識別碼 (GUID)。 | _必要_ |
+| **AzCredential** | 提供 Azure Stack 服務管理帳戶的認證。 您必須使用與部署 Azure Stack 時所使用之認證相同的認證)。 | _必要_ |
+| **VMLocalCredential** | 定義 SQL 資源提供者 VM 之本機系統管理員帳戶的認證。 此密碼也會用於 SQL **sa** 帳戶。 | _必要_ |
+| **ResourceGroupName** | 定義資源群組的名稱，此指令碼所建立的項目將儲存在此資源群組中。 例如，*SqlRPRG*。 |  _必要_ |
+| **VmName** | 定義虛擬機器的名稱，資源提供者將安裝在此虛擬機器上。 例如，*SqlVM*。 |  _必要_ |
+| **DependencyFilesLocalPath** | 您的憑證檔案也必須放在這個目錄中。 | _選用_ |
+| **DefaultSSLCertificatePassword** | .pfx 憑證的密碼 | _必要_ |
+| **MaxRetryCount** | 定義作業失敗時重試每個作業的次數。| 2 |
+| **RetryDuration** | 定義重試之間的逾時 (秒)。 | 120 |
+| **解除安裝** | 移除資源提供者和所有關聯的資源 (請參閱下面的附註) | 否 |
+| **DebugMode** | 防止在失敗時自動清除 | 否 |
 
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verify the deployment using the Azure Stack Portal
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>使用 Azure Stack 入口網站確認部署是否成功
 
 > [!NOTE]
->  After the installation script completes, you will need to refresh the portal to see the admin blade.
+>  在安裝指令碼完成之後，將需要重新整理入口網站才會看到管理刀鋒視窗。
 
 
-1. On the Console VM desktop, click **Microsoft Azure Stack Portal** and sign in to the portal as the service administrator.
+1. 在主控台 VM 桌面上，按一下 [Microsoft Azure Stack 入口網站]，然後以服務管理員身分登入入口網站。
 
-2. Verify that the deployment succeeded. Click **Resource Groups** &gt; click the resource group you used and then make sure that the essentials part of the blade (upper half) reads **_date_ (Succeeded)**.
+2. 確認部署成功。 按一下 [資源群組] &gt; 按一下您使用的資源群組，然後確定刀鋒視窗的程式集部分 (上半部) 顯示「_日期_ (成功」**)**。
 
-      ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+      ![確認 SQL RP 的部署是否成功](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-## <a name="provide-capacity-by-connecting-to-a-hosting-sql-server"></a>Provide capacity by connecting to a hosting SQL server
+## <a name="provide-capacity-by-connecting-to-a-hosting-sql-server"></a>透過連線到主控 SQL 伺服器以提供容量
 
-1. Sign in to the Azure Stack admin portal as a service admin
+1. 以服務管理員身分登入 Azure Stack 管理入口網站
 
-2. Create a SQL virtual machine, unless you have one already available. Marketplace Management offers some options for deploying SQL VMs.
+2. 建立 SQL 虛擬機器 (除非您已經有 SQL 虛擬機器)。 「Marketplace 管理」提供一些用於部署 SQL VM 的選項。
 
-3. Click **Resource Providers** &gt; **SQLAdapter** &gt; **Hosting Servers** &gt; **+Add**.
+3. 按一下 [資源提供者] &gt;[SQLAdapter] &gt;[主控伺服器] &gt;[+新增]。
 
-    The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
+    您可以使用 [SQL 主控伺服器] 刀鋒視窗，將 SQL Server 資源提供者連線到作為資源提供者後端的 SQL Server 實際執行個體。
 
-    ![Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.PNG)
+    ![主控伺服器](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.PNG)
 
-4. Fill the form with the connection details of your SQL Server instance.
+4. 在表單中填寫 SQL Server 執行個體的連線詳細資料。
 
-    ![New Hosting Server](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
+    ![新的主控伺服器](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.PNG)
 
     > [!NOTE]
-    > As long as the SQL instance can be accessed by the tenant and admin Azure Resource Manager, it can be placed under control of the resource provider. The SQL instance __must__ be allocated exclusively to the RP.
+    > 只要租用戶和管理 Azure Resource Manager 可以存取 SQL 執行個體，資源提供者就可以控制它。 SQL 執行個體__必須__配置為 RP 專屬。
 
-5. As you add servers, you must assign them to a new or existing SKU to differentiate service offerings. For example, you could have a SQL Enterprise instance providing database capacity and automatic backup, reserve high-performance servers for individual departments, etc. The SKU name should reflect the properties so that tenants can place their databases appropriately and all hosting servers in a SKU should have the same capabilities.
+5. 新增伺服器時，必須將它們指派給新的或現有的 SKU，以將服務產品差異化。 例如，您可以擁有提供資料庫容量和自動備份功能的 SQL 企業執行個體、保留高效能的伺服器供個別部門使用等等。SKU 名稱應反映屬性，讓租用戶可適當地安置其資料庫，且 SKU 中的所有主控伺服器都應具有相同的功能。
 
-    An example:
+    例如：
 
-    ![SKUs](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+    ![SKU](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 >[!NOTE]
-SKUs can take up to an hour to be visible in the portal. You cannot create a database until the SKU is created.
+最多需要一小時才能在入口網站中看到 SKU。 在建立 SKU 前，您無法建立資料庫。
 
 
-## <a name="create-your-first-sql-database-to-test-your-deployment"></a>Create your first SQL database to test your deployment
+## <a name="create-your-first-sql-database-to-test-your-deployment"></a>建立第一個 SQL 資料庫以測試您的部署
 
-1. Sign in to the Azure Stack admin portal as service admin.
+1. 以服務管理員身分登入 Azure Stack 管理入口網站。
 
-2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**.
+2. 按一下 [+新增] &gt;[資料+儲存體] &gt;[SQL Server 資料庫 (預覽)] &gt;[新增]。
 
-3. Fill in the form with database details, including a **Database Name**, **Maximum Size**, and change the other parameters as necessary. You are asked to pick a SKU for your database. As hosting servers are added, they are assigned a SKU and databases are created in that pool of hosting servers that make up the SKU.
+3. 在表單中填入資料庫詳細資料，包括**資料庫名稱**、**大小上限**，並視需要變更其他參數。 系統會要求您為資料庫挑選一個 SKU。 新增主控伺服器時，系統會指派一個 SKU 給它們，並且會在構成 SKU 之主控伺服器的該集區中建立資料庫。
 
-    ![New database](./media/azure-stack-sql-rp-deploy/newsqldb.png)
-
-
-4. Fill in the Login Settings: **Database login**, and **Password**. This is a SQL Authentication credential that is created for your access to this database only. The login user name must be globally unique. Either create a new login setting or select an existing one. You can reuse login settings for other databases using the same SKU.
-
-    ![Create a new database login](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+    ![新資料庫](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
 
-5. Submit the form and wait for the deployment to complete.
+4. 填入登入設定：[資料庫登入] 和 [密碼]。 這是僅為供您存取此資料庫而建立的 SQL 驗證認證。 此登入使用者名稱必須是全域唯一的。 建立新的登入設定或選取現有的設定。 您可以將登入設定重複用於其他使用相同 SKU 的資料庫。
 
-    In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
-
-    ![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
-
-## <a name="add-capacity"></a>Add capacity
-
-Add capacity by adding additional SQL hosts in the Azure Stack portal and associate them with an appropriate SKU. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQLAdapter** &gt; **SQL Hosting Servers** &gt; **+Add**.
-
-## <a name="making-sql-databases-available-to-tenants"></a>Making SQL databases available to tenants
-
-Create plans and offers to make SQL databases available for tenants. You must create a plan, add the Microsoft.SqlAdapter service to the plan, and add an existing Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
-    ![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
-
-## <a name="tenant-usage-of-the-resource-provider"></a>Tenant usage of the Resource Provider
-
-Self-service databases are provided through the tenant portal experience.
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Removing the SQL Adapter Resource Provider
-
-In order to remove the resource provider, it is essential to first remove any dependencies.
-
-1. Ensure you have the original deployment package that you downloaded for this version of the Resource Provider.
-
-2. All tenant databases must be deleted from the resource provider (this will not delete the data). This should be performed by the tenants themselves.
-
-3. Administrator must delete the hosting servers from the SQL Adapter
-
-4. Administrator must delete any plans that reference the SQL Adapter.
-
-5. Administrator must delete any SKUs and quotas associated to the SQL Adapter.
-
-6. Rerun the deployment script with the -Uninstall parameter, Azure Resource Manager endpoints, DirectoryTenantID, and credentials for the service administrator account.
+    ![建立新的資料庫登入](./media/azure-stack-sql-rp-deploy/create-new-login.png)
 
 
+5. 提交表單並等候部署完成。
 
-## <a name="next-steps"></a>Next steps
+    請在產生的刀鋒視窗中注意 [連接字串] 欄位。 您可以在 Azure Stack 中，於需要 SQL Server 存取權的任何應用程式 (例如 Web 應用程式) 中使用該字串。
+
+    ![擷取連接字串](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+
+## <a name="add-capacity"></a>新增容量
+
+透過在 Azure Stack 入口網站中新增額外的 SQL 主機來新增容量，並將它們與適當的 SKU 關聯。 如果不想使用提供者 VM 上安裝的執行個體，而想要使用其他 SQL 執行個體，請按一下 [資源提供者] &gt; [SQLAdapter] &gt; [SQL 主控伺服器] &gt; [+新增]。
+
+## <a name="making-sql-databases-available-to-tenants"></a>將 SQL 資料庫提供給租用戶使用
+
+建立方案和供應項目，將 SQL 資料庫提供給租用戶使用。 您必須建立方案、將 Microsoft.SqlAdapter 服務加到方案，並新增現有的配額或建立新的配額。 如果建立配額，就可以指定容量以允許租用戶使用。
+    ![建立方案和供應項目以包含資料庫](./media/azure-stack-sql-rp-deploy/sqlrp-newplan.png)
+
+## <a name="tenant-usage-of-the-resource-provider"></a>資源提供者的租用戶使用量
+
+自助服務資料庫是透過租用戶入口網站體驗所提供的。
+
+## <a name="removing-the-sql-adapter-resource-provider"></a>移除 SQL 配接器資源提供者
+
+若要移除資源提供者，必須先移除任何相依性。
+
+1. 確認您有為此資源提供者版本下載的原始部署套件。
+
+2. 必須從資源提供者刪除所有租用戶資料庫 (這不會刪除資料)。 必須由租用戶本身執行此作業。
+
+3. 系統管理員必須從 SQL 配接器刪除主控伺服器
+
+4. 系統管理員必須刪除參照 SQL 配接器的任何方案。
+
+5. 系統管理員必須刪除與 SQL 配接器關聯的任何 SKU 和配額。
+
+6. 使用 -Uninstall 參數、Azure Resource Manager 端點、DirectoryTenantID 和服務管理員帳戶的認證，重新執行部署指令碼。
 
 
-Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).
+
+## <a name="next-steps"></a>後續步驟
+
+
+嘗試其他 [PaaS 服務](azure-stack-tools-paas-services.md)，如 [MySQL Server 資源提供者](azure-stack-mysql-resource-provider-deploy.md)和[應用程式服務資源提供者](azure-stack-app-service-overview.md)。
 

@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 07/13/2017
 ms.author: LADocs; dimazaid; estfan
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 24793b83ca284fe9510fe21bc2d13b0589209d36
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>使用內部部署資料閘道從邏輯應用程式存取內部部署資料來源
@@ -141,7 +141,7 @@ ms.lasthandoff: 07/14/2017
 
      ![移至邏輯應用程式，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * 或者，從主要的 Azure 左側功能表中，移至 [更多服務]> [Web 和行動服務]> [API 連線]，來找到與 Azure 訂用帳戶相關聯的所有 API 連線，包括閘道連線。 
+   * 或者，從主要的 Azure 左側功能表中，移至 [更多服務]> [Web + 行動]> [API 連線]，來找到與 Azure 訂用帳戶相關聯的所有 API 連線，包括閘道連線。 
 
    * 或者，在主要的 Azure 左側功能表中，移至 [所有資源]，來找到與 Azure 訂用帳戶相關聯的所有 API 連線，包括閘道連線。
 

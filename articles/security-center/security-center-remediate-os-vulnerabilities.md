@@ -1,6 +1,6 @@
 ---
 title: "修復 Azure 資訊安全中心的 OS 弱點 | Microsoft Docs"
-description: "本文件說明如何實作 Azure 資訊安全中心建議的**修復 OS 弱點**。"
+description: "本文件說明如何實作 Azure 資訊安全中心建議的「修復 OS 弱點」。"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e6b251d5b97c57b3b6f79d14e53fbed5ca37ecb0
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>修復 Azure 資訊安全中心的 OS 弱點
-Azure 資訊安全中心每天會分析可能造成虛擬機器 (VM) 更容易受到攻擊的 VM 作業系統 (OS) 組態，並建議進行組態變更來處理這些弱點。 當 VM 的 OS 設定不符合建議的設定規則時，資訊安全中心會建議您解決這些弱點。
+Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當作業系統設定不符合建議的設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
 
 > [!NOTE]
 > 如需受監視之特定設定的詳細資訊，請參閱[建議的設定規則清單](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。
@@ -31,46 +30,67 @@ Azure 資訊安全中心每天會分析可能造成虛擬機器 (VM) 更容易�
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
+修復 OS 漏洞會以建議的形式在資訊安全中心中呈現。 此建議將顯示在[建議] 和 [計算] 下方。
 
-> [!NOTE]
-> 本文件將使用範例部署來介紹服務。  本文件不是一份逐步解說指南。
->
->
+在此範例中，我們將看見 [計算] 下的 [修復 OS 漏洞 (透過 Microsoft)] 建議。
+1. 在 [資訊安全中心] 主功能表下選取 [計算]。
 
-1. 在 [建議] 刀鋒視窗中，選取 [修復 OS 弱點]。
    ![修復 OS 弱點][1]
 
-    [修復 OS 弱點] 刀鋒視窗會開啟並列出您的 VM 和不符合建議的設定規則的 OS 設定。  針對每部 VM，此刀鋒視窗會識別︰
+2. 在 [計算] 下，選取 [修復 OS 漏洞 (透過 Microsoft)]。 [OS 弱點 (由 Microsoft) 不相符] 儀表板隨即開啟。
 
-   * **失敗規則** -- VM 的 OS 設定不符合的規則數目。
-   * **上次掃描時間** -- 資訊安全中心上次掃描 VM OS 設定的日期與時間。
-   * **狀態** -- 弱點的目前狀態：
+   ![修復 OS 弱點][2]
 
-     * 未處理：尚未解決的弱點
-     * 進行中：正在將建議套用到弱點，您不需要採取任何動作
-     * 已解決：弱點已解決 (問題已解決時，該項目會呈現灰色)。
-   * **嚴重性** -- 所有弱點設為「低」嚴重性，表示弱點應解決，但不需要立即處理。
+  儀表板的頂端提供：
 
-2. 選取 VM。 該 VM 的刀鋒視窗會開啟並顯示失敗的規則。
-   ![失敗的設定規則][2]
+  - 規則總數，依作業系統設定在虛擬機器和電腦上發生故障的嚴重性。
+  - 規則總數，依作業系統設定在虛擬機器和電腦上發生故障的類型。
+  - 您的 Windows OS 設定和 Linux OS 設定失敗的規則總數。
 
-3. 選取規則。 在此範例中，我們選取 [密碼必須符合複雜性需求] 。 隨即開啟說明失敗的規則和影響的刀鋒視窗。 檢閱詳細資訊，並考慮如何套用作業系統設定。
-  ![失敗規則的說明][3]
+  儀表板底部會列出虛擬機器和電腦之間所有失敗的規則，以及缺少更新的嚴重性。 此清單包括：
 
-  資訊安全中心會使用一般設定列舉 (CCE) 指派設定規則的唯一識別碼。 此刀鋒視窗上提供下列資訊︰
+  - **CCEID**：規則的 CCE 唯一識別碼。 資訊安全中心會使用一般設定列舉 (CCE) 指派設定規則的唯一識別碼。
+  - **名稱**：規則的名稱
+  - **規則類型**：登錄機碼、安全性原則或稽核原則
+  - **虛擬機器和電腦數目**：無法套用規則的虛擬機器和計算機總數
+  - **規則嚴重性**：嚴重、重要或警告的 CCE 嚴重性值
+  - **狀態**：建議的目前狀態：
+
+    - **未處理**：建議尚未處理
+    - **進行中**：正在將建議套用到資源，且您不需要採取任何動作
+    - **已解決**︰建議動作已完成  (若問題已解決，該項目會呈現暗灰色)
+
+3. 選取清單中失敗的規則以檢視詳細資料。
+
+   ![失敗的設定規則][3]
+
+  此刀鋒視窗上提供下列資訊︰
 
   - 名稱 -- 規則的名稱
-  - 嚴重性 -- 嚴重、重要或警告的 CCE 嚴重性值
   - CCIED -- 規則的 CCE 唯一識別碼
-  - 說明 -- 規則的說明
+  - 作業系統版本 - 虛擬機器或電腦的作業系統版本
+  - 規則嚴重性 -- 嚴重、重要或警告的 CCE 嚴重性值
+  - 完整說明 -- 規則的說明
   - 弱點 -- 不套用規則的弱點或風險說明
-  - 影響 -- 套用規則時的業務影響
+  - 潛在影響 -- 套用規則時的業務影響
+  - 因應對策 – 補救步驟
   - 預期值 -- 資訊安全中心對照規則分析 VM OS 設定時的預期值
-  - 規則作業 -- 資訊安全中心對照規則分析 VM OS 設定時使用的規則作業
   - 實際值 -- 對照規則分析 VM OS 設定時的傳回值
-  - 評估結果 -- 分析的結果︰通過、失敗
+  - 規則作業 -- 資訊安全中心對照規則分析 VM OS 設定時使用的規則作業
 
-## <a name="see-also"></a>另請參閱
+4. 選取頂端功能區中的 [搜尋] 圖示。 搜尋會列出具有所選取作業系統漏洞之虛擬機器和電腦的工作區。 只有在已選取適用於連線至不同工作區之多個虛擬機器的規則時，才會顯示 [工作區選擇] 刀鋒視窗。
+
+  ![列出的工作區][4]
+
+5. 選取工作區。 Log Analytics 搜尋查詢會開啟具有作業系統漏洞的篩選工作區。
+
+  ![具有作業系統漏洞的工作區][5]
+
+6. 從清單中選取電腦以了解更多資訊。 會出現僅針對該電腦篩選出的其他搜尋結果。
+
+  ![篩選該電腦][6]
+
+## <a name="next-steps"></a>後續步驟
 本文說明了如何實作資訊安全中心建議的「修復 OS 弱點」。 您可在[這裡](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)檢閱設定規則集。 資訊安全中心會使用 CCE (一般設定列舉) 指派設定規則的唯一識別碼。 如需詳細資訊，請造訪 [CCE](https://nvd.nist.gov/cce/index.cfm) 網站。
 
 若要深入了解資訊安全中心，請參閱下列資源：
@@ -85,7 +105,10 @@ Azure 資訊安全中心每天會分析可能造成虛擬機器 (VM) 更容易�
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) - 尋找有關 Azure 安全性與合規性的部落格文章。
 
 <!--Image references-->
-[1]: ./media/security-center-remediate-os-vulnerabilities/recommendation.png
-[2]:./media/security-center-remediate-os-vulnerabilities/vm-remediate-os-vulnerabilities.png
+[1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png
+[2]:./media/security-center-remediate-os-vulnerabilities/os-vulnerabilities.png
 [3]: ./media/security-center-remediate-os-vulnerabilities/vulnerability-details.png
+[4]: ./media/security-center-remediate-os-vulnerabilities/search.png
+[5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
+[6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
 

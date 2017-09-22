@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Stack Storage development tools
-description: Guidance to get started with using Azure Stack Storage development tools
+title: "開始使用 Azure Stack 儲存體開發工具"
+description: "開始使用 Azure Stack 儲存體開發工具的指引"
 services: azure-stack
 author: xiaofmao
 ms.author: xiaofmao
@@ -11,36 +11,36 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a4c1c316022f992750fe60d28b9be61b17242a64
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Get started with Azure Stack Storage development tools 
+# <a name="get-started-with-azure-stack-storage-development-tools"></a>開始使用 Azure Stack 儲存體開發工具 
 
-Microsoft Azure Stack provides a set of storage services, including Azure Blob, Table, and Queue storage.
+Microsoft Azure Stack 提供一組儲存體服務，包括 Azure Blob、資料表和佇列儲存體。
 
-This article provides quick guidance on how to start using Azure Stack Storage development tools. You can find more detailed information and sample code in the corresponding Azure Storage tutorials.
+本文提供如何開始使用 Azure Stack 儲存體開發工具的快速指引。 您可以在對應的 Azure 儲存體教學課程中，找到更詳細的資訊和範例程式碼。
 
-There are known differences between Azure Storage and Azure Stack Storage, including some specific requirements for each platform. For example, there are specific client libraries and specific endpoint suffix requirements for Azure Stack. For more information, see [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md).
+Azure 儲存體和 Azure Stack 儲存體之間有一些已知的差異，包括每個平台的一些特定需求。 例如，Azure Stack 有特定的用戶端程式庫以及特定的端點尾碼需求。 如需詳細資訊，請參閱 [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)。
 
-## <a name="azure-client-libraries"></a>Azure client libraries
-The supported REST API version for Azure Stack Storage is 2015-04-05. It doesn’t have full parity with the latest version of the Azure Storage REST API. So for the storage client libraries, you need to be aware of the version that is compatible with REST API 2015-04-05.
+## <a name="azure-client-libraries"></a>Azure 用戶端程式庫
+支援的 Azure Stack 儲存體 REST API 版本為 2015-04-05。 此版本異於最新版的 Azure 儲存體 REST API。 因此，針對儲存體用戶端程式庫，您需要知道與 REST API 2015-04-05 相容的版本。
 
 
-|Client library|Azure Stack supported version|Link|Endpoint specification|
+|用戶端程式庫|Azure Stack 支援的版本|連結|端點規格|
 |---------|---------|---------|---------|
-|.NET     |6.2.0|Nuget package:<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>GitHub release:<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config file|
-|Java|4.1.0|Maven package:<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|Connection string setup|
-|Node.js     |1.1.0|NPM link:<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(run: `npm install azure-storage@1.1.0)`<br><br>Github release:<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|Service instance declaration||C++|2.4.0|Nuget package:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub release:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Connection string setup|
-|C++|2.4.0|Nuget package:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub release:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Connection string setup|
-|PHP|0.15.0|GitHub release:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Install via Composer (see details below)|Connection string setup|
-|Python     |0.30.0|PIP package:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Run: `pip install -v azure-storage==0.30.0)`<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Service instance declaration|
-|Ruby|0.12.1<br>Preview|RubyGems package:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub release:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Connection string setup|
+|.NET     |6.2.0|Nuget 套件：<br>[https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0](https://www.nuget.org/packages/WindowsAzure.Storage/6.2.0)<br><br>GitHub 版本：<br>[https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1](https://github.com/Azure/azure-storage-net/releases/tag/v6.2.1)|app.config 檔案|
+|Java|4.1.0|Maven 套件：<br>[http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/4.1.0)<br><br>GitHub 版本：<br> [https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0](https://github.com/Azure/azure-storage-java/releases/tag/v4.1.0)|連接字串設定|
+|Node.js     |1.1.0|NPM 連結：<br>[https://www.npmjs.com/package/azure-storage](https://www.npmjs.com/package/azure-storage)<br>(執行：`npm install azure-storage@1.1.0)`<br><br>GitHub 版本：<br>[https://github.com/Azure/azure-storage-node/releases/tag/1.1.0](https://github.com/Azure/azure-storage-node/releases/tag/1.1.0)|服務執行個體宣告||C++|2.4.0|Nuget 套件：<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub 版本：<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|連接字串設定|
+|C++|2.4.0|Nuget 套件：<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub 版本：<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|連接字串設定|
+|PHP|0.15.0|GitHub 版本：<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>透過編輯器安裝 (請參閱下面的詳細資料)|連接字串設定|
+|Python     |0.30.0|PIP 套件：<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(執行：`pip install -v azure-storage==0.30.0)`<br><br>GitHub 版本：<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|服務執行個體宣告|
+|Ruby|0.12.1<br>預覽|RubyGems 套件：<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub 版本：<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|連接字串設定|
 
 > [!NOTE]
-> PHP details<br><br>
->To install via Composer:
->1. Create a file named `composer.json` in the root of the project with following code:<br>
+> PHP 詳細資料<br><br>
+>透過編輯器安裝：
+>1. 在專案的根目錄中，使用下列程式碼建立一個名為 `composer.json` 的檔案：<br>
 >
 >   ```
 >   {
@@ -50,22 +50,22 @@ The supported REST API version for Azure Stack Storage is 2015-04-05. It doesn�
 >    }
 >   ```
 >
->2. Download [composer.phar](http://getcomposer.org/composer.phar) into the project root.
->3. Run: `php composer.phar install`.
+>2. 將 [composer.phar](http://getcomposer.org/composer.phar) 下載到專案根目錄中。
+>3. 執行：`php composer.phar install`。
 >
 
 
-## <a name="endpoint-declaration"></a>Endpoint declaration
-An Azure Stack endpoint includes two parts: the name of a region and the Azure Stack domain.
-In the Azure Stack Development Kit, the default endpoint is **local.azurestack.external**.
-Contact your cloud administrator if you’re not sure about your endpoint.
+## <a name="endpoint-declaration"></a>端點宣告
+Azure Stack 端點包含兩個部分：區域的名稱和 Azure Stack 網域。
+在 Azure Stack 開發套件中，預設端點是 **local.azurestack.external**。
+如果不確定您的端點，請連絡您的雲端系統管理員。
 
-## <a name="examples"></a>Examples
+## <a name="examples"></a>範例
 
 
 ### <a name="net"></a>.NET
 
-For Azure Stack, the endpoint suffix is specified in the app.config file:
+若是 Azure Stack，在 app.config 檔案中會指定端點尾碼：
 
 ```
 <add key="StorageConnectionString" 
@@ -74,7 +74,7 @@ EndpointSuffix=local.azurestack.external;" />
 ```
 ### <a name="java"></a>Java
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
 ```
 public static final String storageConnectionString =
@@ -86,7 +86,7 @@ public static final String storageConnectionString =
 
 ### <a name="nodejs"></a>Node.js
 
-For Azure Stack, the endpoint suffix is specified in the declaration instance:
+若是 Azure Stack，在宣告執行個體中會指定端點尾碼：
 
 ```
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
@@ -94,7 +94,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 ```
 ### <a name="c"></a>C++
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
 ```
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
@@ -105,7 +105,7 @@ EndpointSuffix=local.azurestack.external"));
 
 ### <a name="php"></a>PHP
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
 ```
 $connectionString = 'BlobEndpoint=http://<storage account name>.blob.local.azurestack.external/;
@@ -116,7 +116,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 ### <a name="python"></a>Python
 
-For Azure Stack, the endpoint suffix is specified in the declaration instance:
+若是 Azure Stack，在宣告執行個體中會指定端點尾碼：
 
 ```
 block_blob_service = BlockBlobService(account_name='myaccount',
@@ -125,7 +125,7 @@ endpoint_suffix='local.azurestack.external')
 ```
 ### <a name="ruby"></a>Ruby
 
-For Azure Stack, the endpoint suffix is specified in the setup of connection string:
+若是 Azure Stack，在連接字串設定中會指定端點尾碼：
 
 ```
 set
@@ -135,43 +135,43 @@ AccountKey=mykey;
 EndpointSuffix=local.azurestack.external
 ```
 
-## <a name="blob-storage"></a>Blob storage
+## <a name="blob-storage"></a>Blob 儲存體
 
-The following Azure Blob storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
+下列 Azure Blob 儲存體教學課程適用於 Azure Stack。 請注意先前[範例](#examples)一節中所述的 Azure Stack 特定端點尾碼需求。
 
-* [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [How to use Blob storage from Java](../storage/blobs/storage-java-how-to-use-blob-storage.md)
-* [How to use Blob storage from Node.js](../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
-* [How to use Blob storage from C++](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
-* [How to use Blob storage from PHP](../storage/blobs/storage-php-how-to-use-blobs.md)
-* [How to use Azure Blob storage from Python](../storage/blobs/storage-python-how-to-use-blob-storage.md)
-* [How to use Blob storage from Ruby](../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
+* [以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [如何使用 Java 的 Blob 儲存體](../storage/blobs/storage-java-how-to-use-blob-storage.md)
+* [如何使用 Node.js 的 Blob 儲存體](../storage/blobs/storage-nodejs-how-to-use-blob-storage.md)
+* [如何使用 C++ 的 Blob 儲存體](../storage/blobs/storage-c-plus-plus-how-to-use-blobs.md)
+* [如何使用 PHP 的 Blob 儲存體](../storage/blobs/storage-php-how-to-use-blobs.md)
+* [如何從 Python 使用 Azure Blob 儲存體](../storage/blobs/storage-python-how-to-use-blob-storage.md)
+* [如何使用 Ruby 的 Blob 儲存體](../storage/blobs/storage-ruby-how-to-use-blob-storage.md)
 
-## <a name="queue-storage"></a>Queue storage
+## <a name="queue-storage"></a>佇列儲存體
 
-The following Azure Queue storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
+下列 Azure 佇列儲存體教學課程適用於 Azure Stack。 請注意先前[範例](#examples)一節中所述的 Azure Stack 特定端點尾碼需求。
 
-* [Get started with Azure Queue storage using .NET](../storage/queues/storage-dotnet-how-to-use-queues.md)
-* [How to use Queue storage from Java](../storage/queues/storage-java-how-to-use-queue-storage.md)
-* [How to use Queue storage from Node.js](../storage/queues/storage-nodejs-how-to-use-queues.md)
-* [How to use Queue storage from C++](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
-* [How to use Queue storage from PHP](../storage/queues/storage-php-how-to-use-queues.md)
-* [How to use Queue storage from Python](../storage/queues/storage-python-how-to-use-queue-storage.md)
-* [How to use Queue storage from Ruby](../storage/queues/storage-ruby-how-to-use-queue-storage.md)
+* [以 .NET 開始使用 Azure 佇列儲存體](../storage/queues/storage-dotnet-how-to-use-queues.md)
+* [如何使用 Java 的佇列儲存體](../storage/queues/storage-java-how-to-use-queue-storage.md)
+* [如何使用 Node.js 的佇列儲存體](../storage/queues/storage-nodejs-how-to-use-queues.md)
+* [如何使用 C++ 的佇列儲存體](../storage/queues/storage-c-plus-plus-how-to-use-queues.md)
+* [如何使用 PHP 的佇列儲存體](../storage/queues/storage-php-how-to-use-queues.md)
+* [如何使用 Python 的佇列儲存體](../storage/queues/storage-python-how-to-use-queue-storage.md)
+* [如何使用 Ruby 的佇列儲存體](../storage/queues/storage-ruby-how-to-use-queue-storage.md)
 
 
-## <a name="table-storage"></a>Table storage
+## <a name="table-storage"></a>表格儲存體
 
-The following Azure Table storage tutorials are applicable to Azure Stack. Note the specific endpoint suffix requirement for Azure Stack described in the previous [Examples](#examples) section.
+下列 Azure 資料表儲存體教學課程適用於 Azure Stack。 請注意先前[範例](#examples)一節中所述的 Azure Stack 特定端點尾碼需求。
 
-* [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md)
-* [How to use Table storage from Java](../cosmos-db/table-storage-how-to-use-java.md)
-* [How to use Azure Table storage from Node.js](../cosmos-db/table-storage-how-to-use-nodejs.md)
-* [How to use Table storage from C++](../cosmos-db/table-storage-how-to-use-c-plus.md)
-* [How to use Table storage from PHP](../cosmos-db/table-storage-how-to-use-php.md)
-* [How to use Table storage in Python](../cosmos-db/table-storage-how-to-use-python.md)
-* [How to use Table storage from Ruby](../cosmos-db/table-storage-how-to-use-ruby.md)
+* [以 .NET 開始使用 Azure 表格儲存體](../cosmos-db/table-storage-how-to-use-dotnet.md)
+* [如何使用 Java 的表格儲存體](../cosmos-db/table-storage-how-to-use-java.md)
+* [如何從 Node.js 使用 Azure 資料表儲存體](../cosmos-db/table-storage-how-to-use-nodejs.md)
+* [如何從 C++ 使用資料表儲存體](../cosmos-db/table-storage-how-to-use-c-plus.md)
+* [如何使用 PHP 的表格儲存體](../cosmos-db/table-storage-how-to-use-php.md)
+* [如何在 Python 中使用資料表儲存體](../cosmos-db/table-storage-how-to-use-python.md)
+* [如何使用 Ruby 的表格儲存體](../cosmos-db/table-storage-how-to-use-ruby.md)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-* [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
+* [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)

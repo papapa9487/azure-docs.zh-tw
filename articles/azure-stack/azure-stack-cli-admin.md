@@ -1,6 +1,6 @@
 ---
-title: Enable CLI for Azure Stack users | Microsoft Docs
-description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
+title: "為 Azure Stack 使用者啟用 CLI | Microsoft Docs"
+description: "了解如何使用跨平台命令列介面 (CLI) 在 Azure Stack 上管理及部署資源"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -18,22 +18,22 @@ ms.translationtype: HT
 ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 2f7615e0f0928f4ef70f98b7e2b2dce823621314
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="enable-cli-for-azure-stack-users"></a>Enable CLI for Azure Stack users
+# <a name="enable-cli-for-azure-stack-users"></a>為 Azure Stack 使用者啟用 CLI
 
-There aren't any Azure Stack operator specific tasks that you can perform by using CLI. But before users can manage resources through CLI, Azure Stack operators must provide them with the following:
+您無法使用 CLI 執行任何 Azure Stack 操作員特定工作。 但是在使用者可透過 CLI 管理資源之前，Azure Stack 操作員必須為使用者提供下列項目：
 
-* **The Azure Stack CA root certificate** - The root certificate is required if your users are using CLI from a workstation outside the Azure Stack development kit.  
+* **Azure Stack CA 根憑證**：如果使用者是從 Azure Stack 開發套件以外的工作站使用 CLI，就需要根憑證。  
 
-* **The virtual machine aliases endpoint** - This endpoint is required to create virtual machines by using CLI.
+* **虛擬機器別名端點**：使用 CLI 建立虛擬機器時需要此端點。
 
-The following sections describe how to get these values.
+下列各節會說明如何取得這些值。
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
+## <a name="export-the-azure-stack-ca-root-certificate"></a>匯出 Azure Stack CA 根憑證
 
-The Azure Stack CA root certificate is available on the development kit and on a tenant virtual machine that is running within the development kit environment. Sign in to your development kit or the tenant virtual machine and run the following script to export the Azure Stack root certificate in PEM format:
+您可以在開發套件中，以及在開發套件環境內執行的租用戶虛擬機器中找到 Azure Stack CA 根憑證。 登入您的開發套件或租用戶虛擬機器，然後執行下列指令碼，以 PEM 格式匯出 Azure Stack 根憑證：
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -52,18 +52,18 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
+## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>設定虛擬機器別名端點
 
-Azure Stack operators should set up a publicly accessible endpoint that contains virtual machine image aliases. Azure Stack operators must [Download the image to Azure Stack marketplace](azure-stack-download-azure-marketplace-item.md) before they add it to image aliases endpoint.
+Azure Stack 操作員應該設定可公開存取，且包含虛擬機器映像別名的端點。 Azure Stack 操作員必須先[將映像下載到 Azure Stack 市集](azure-stack-download-azure-marketplace-item.md)，再將它們新增到映像別名端點。
    
-For example, Azure contains uses following URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The operator should set up a similar endpoint for Azure Stack with the images that are available in their marketplace.
+例如，Azure 包含使用以下 URI：https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json。 操作員應該使用其市集中可用的映像，為 Azure Stack 設定類似的端點。
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+[使用 Azure CLI 部署範本](azure-stack-deploy-template-command-line.md)
 
-[Connect with PowerShell](azure-stack-connect-powershell.md)
+[使用 PowerShell 連線](azure-stack-connect-powershell.md)
 
-[Manage user permissions](azure-stack-manage-permissions.md)
+[管理使用者權限](azure-stack-manage-permissions.md)
 
 

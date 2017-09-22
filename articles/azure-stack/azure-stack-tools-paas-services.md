@@ -1,6 +1,6 @@
 ---
-title: Tools and PaaS services for Azure Stack | Microsoft Docs
-description: Learn how to get started with PaaS services in Azure Stack.
+title: "Azure Stack 的工具與 PaaS 服務 |Microsoft Docs"
+description: "了解如何開始使用 Azure Stack 的 PaaS 服務。"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -18,19 +18,18 @@ ms.translationtype: HT
 ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: a3866a91bf2656990c40ead20cedb67fc47a87fd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="paas-services-for-azure-stack"></a>PaaS services for Azure Stack
+# <a name="paas-services-for-azure-stack"></a>Azure Stack 的 PaaS 服務
 
-You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services for Azure Stack from Microsoft and other 3rd party providers. If you want to be notified of new services, follow #AzureStack on Twitter.
+您可以為 Azure Stack 部署 Microsoft 和其他第三方提供者的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 服務。 若希望在有新服務時收到通知，請前往 Twitter 關注 #AzureStack。
 
-[Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+[將 App Service 資源提供者新增到 Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
 
-[Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+[將 SQL 伺服器資源提供者新增到 Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy) (\英文\)
 
-[Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
+[將 MySQL 伺服器資源提供者新增到 Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy) (\英文\)
 
 
 

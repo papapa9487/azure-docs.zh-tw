@@ -1,6 +1,6 @@
 ---
-title: Make virtual machines available to your Azure Stack users| Microsoft Docs
-description: Tutorial to make virtual machines available on Azure Stack
+title: "將虛擬機器提供給您的 Azure Stack 使用者| Microsoft Docs"
+description: "此教學課程說明如何將虛擬機器提供給 Azure Stack"
 services: azure-stack
 documentationcenter: 
 author: vhorne
@@ -19,137 +19,137 @@ ms.translationtype: HT
 ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: d2f38bc1c0b97e408f619f3ea2f704725e3bb460
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>Make virtual machines available to your Azure Stack users
-As an Azure Stack cloud administrator, you can create offers that your users (sometimes referred to as tenants) can subscribe to. Using their subscription, users can then consume Azure Stack services.
+# <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>將虛擬機器提供給您的 Azure Stack 使用者
+身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 利用其訂用帳戶，使用者可以接著取用 Azure Stack 服務。
 
-This article shows you how to create an offer, and then test it. For the test, you will log in to the portal as a user, subscribe to the offer, and then create a virtual machine using the subscription.
+此文章說明如何建立供應項目並進行測試。 針對測試，您將必須以使用者身分登入入口網站，訂閱該供應項目，然後使用訂用帳戶建立虛擬機器。
 
-What you will learn:
+您將了解：
 
 > [!div class="checklist"]
-> * Create an offer
-> * Add an image
-> * Test the offer
+> * 建立供應項目
+> * 新增映像
+> * 測試供應項目
 
 
-In Azure Stack, services are delivered to users using subscriptions, offers, and plans. Users can subscribe to multiple offers. Offers can have one or more plans, and plans can have one or more services.
+在 Azure Stack 中，能透過訂用帳戶、供應項目與方案，為使用者提供服務。 使用者可以訂閱多個供應項目。 供應項目可以有一或多個方案，而方案則可以有一或多個服務。
 
-![Subscriptions, offers, and plans](media/azure-stack-key-features/image4.png)
+![訂用帳戶、供應項目與方案](media/azure-stack-key-features/image4.png)
 
-To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-features.md).
+若要深入了解，請參閱 [Azure Stack 中的主要功能與概念](azure-stack-key-features.md)。
 
-## <a name="create-an-offer"></a>Create an offer
+## <a name="create-an-offer"></a>建立供應項目
 
-Now you can get things ready for your users. When you start the process, you are first prompted to create the offer, then a plan, and finally quotas.
+現在您可以為使用者準備項目。 當您開始進行此程序時，系統會先提示您建立供應項目，然後建立方案，最後建立配額。
 
-3. **Create an offer**
+3. **建立供應項目**
 
-   Offers are groups of one or more plans that providers present to users to purchase or subscribe to.
+   供應項目是一組提供者供使用者購買或訂閱的一或多個方案。
 
-   a. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then click **New** > **Tenant Offers + Plans** > **Offer**.
-   ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
+   a. 以系統管理員身分[登入](azure-stack-connect-azure-stack.md)入口網站，然後按一下 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
+   ![新增供應項目](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-   b. In the **New Offer** section, fill in **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+   b. 在 [新增供應項目] 區段中，填寫 [顯示名稱] 與 [資源名稱]，然後選取新的或現有的 [資源群組]。 [顯示名稱] 是供應項目的易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是系統管理員用來處理其他供應項目 (以 Azure Resource Manager 資源方式) 的名稱。
 
-   ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
+   ![顯示名稱](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-   c. Click **Base plans**, and in the **Plan** section, click **Add** to add a new plan to the offer.
+   c. 按一下 [基本方案]，然後在 [方案] 區段中，按一下 [新增] 以將新方案新增到供應項目中。
 
-   ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
+   ![新增方案](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-   d. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
+   d. 在 [新增方案] 區段中，填寫 [顯示名稱] 與 [資源名稱]。 [顯示名稱] 是使用者看到的方案易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是雲端操作員用來處理其他方案 (以 Azure Resource Manager 資源方式) 的名稱。
 
-   ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
+   ![方案顯示名稱](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
+   e. 按一下 [服務]，選取 [Microsoft.Compute][Microsoft.Network] 與 [Microsoft.Storage]，然後按一下 [選取]。
 
-   ![Plan services](media/azure-stack-tutorial-tenant-vm/image05.png)
+   ![方案服務](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-   f. Click **Quotas**, and then select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
+   f. 按一下 [配額]，然後選取您要建立配額的第一個服務。 針對 IaaS 配額，請針對計算、網路與儲存體服務依照這些步驟執行。
 
-   In this example, we first create a quota for the Compute service. In the namespace list, select the **Microsoft.Compute** namespace and then click **Create new quota**.
+   在此範例中，我們先為計算服務建立配額。 在命名空間清單中，選取 [Microsoft.Compute] 命名空間，然後按一下 [建立新的配額]。
    
-   ![Create new quota](media/azure-stack-tutorial-tenant-vm/image06.png)
+   ![建立新的配額](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   g. On the **Create quota** section, type a name for the quota and set the desired parameters for the quota and click **OK**.
+   g. 在 [建立配額] 區段中，輸入配額名稱並為配額設定想要的參數，然後按一下 [確定]。
 
-   ![Quota name](media/azure-stack-tutorial-tenant-vm/image07.png)
+   ![配額名稱](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-   h. Now, for **Microsoft.Compute**, select the quota that you created.
+   h. 現在，針對 **Microsoft.Compute**，選取您所建立的配額。
 
-   ![Select quota](media/azure-stack-tutorial-tenant-vm/image08.png)
+   ![選取配額](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   Repeat these steps for the Network and Storage services, and then click **OK** on the **Quotas** section.
+   針對網路與儲存體服務重複這些步驟，然後按一下 [配額] 區段中的 [確定]。
 
-   i. Click **OK** on the **New plan** section.
+   i. 按一下 [新的方案] 區段中的 [確定]。
 
-   j. On the **Plan** section, select the new plan and click **Select**.
+   j. 在 [方案] 區段中，選取新方案並按一下 [選取]。
 
-   k. On the **New offer** section, click **Create**. You see a notification when the offer has been created.
+   k. 在 [新增供應項目] 區段中，按一下 [建立]。 建立您的供應項目之後，您會看到通知。
 
-   l. On the dashboard menu, click **Offers** and then click the offer you created.
+   l. 在儀表板功能表上，按一下 [供應項目]，然後按一下您建立的供應項目。
 
-   m. Click **Change State**, and then click **Public**.
+   m. 按一下 [變更狀態]，然後按一下 [公開]。
 
-   ![Public state](media/azure-stack-tutorial-tenant-vm/image09.png)
+   ![公開映像](media/azure-stack-tutorial-tenant-vm/image09.png)
 
-## <a name="add-an-image"></a>Add an image
+## <a name="add-an-image"></a>新增映像
 
-Before you can provision virtual machines, you must add an image to the Azure Stack marketplace. You can add the image of your choice, including Linux images, from the Azure Marketplace.
+佈建虛擬機器之前，您必須新增一張影像到 Azure Stack 市集。 您可以從 Azure Marketplace 新增您選擇的影像，包括 Linux 影像。
 
-If you are operating in a connected scenario and if you have registered your Azure Stack instance with Azure, then you can download the Windows Server 2016 VM image from the Azure Marketplace by using the steps described in the [Download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md) topic.
+若您是在已連結情節中作業，且您已向 Azure 註冊 Azure Stack 執行個體，您可以使用[從 Azure 下載 項目到 Azure Stack](azure-stack-download-azure-marketplace-item.md) 主題中所述的步驟，從 Azure Marketplace 下載 Windows Server 2016 VM 映像。
 
-For information about adding different items to the marketplace, see [The Azure Stack Marketplace](azure-stack-marketplace.md).
+如需有關將不同項目新增到 Marketplace 的資訊，請參閱 [Azure Stack Marketplace](azure-stack-marketplace.md)。
 
-## <a name="test-the-offer"></a>Test the offer
+## <a name="test-the-offer"></a>測試供應項目
 
-Now that you’ve created an offer, you can test it. Log in as a user and subscribe to the offer and then add a virtual machine.
+既然您已經建立供應項目，您可以進行測試。 以使用者身分登入並訂閱該供應項目，然後新增虛擬機器。
 
-1. **Subscribe to an offer**
+1. **訂閱提供項目**
 
-   Now you can log in to the portal as a user to subscribe to an offer.
+   現在您能以使用者身分登入到入口網站，以訂閱供應項目。
 
-   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user and click **Get a Subscription**.
+   a. 在 Azure Stack 開發套件電腦上，以使用者身分登入 `https://portal.local.azurestack.external`，然後按一下 [取得訂用帳戶]。
 
-   ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** section, and then click **Create**.
+   b. 在 [顯示名稱] 欄位中，輸入您的訂閱名稱，按一下 [供應項目]，按一下 [選擇供應項目] 區段中的其中一個供應項目，然後按一下 [建立]。
 
-   ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![建立供應項目](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+   c. 若要檢視您建立的訂用帳戶，請按一下 [更多服務]，按一下 [訂用帳戶]，然後按一下您的新訂用帳戶。  
 
-   After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+   訂閱供應項目之後，請重新整理入口網站以查看哪些服務是新訂用帳戶的一部分。
 
-2. **Provision a virtual machine**
+2. **佈建虛擬機器**
 
-   Now you can log in to the portal as a user to provision a virtual machine using the subscription. 
+   現在您能以使用者身分登入入口網站，以使用訂用帳戶佈建虛擬機器。 
 
-   a. On the Azure Stack Deployment Kit computer, log in to `https://portal.local.azurestack.external` as a user, and then click **New** > **Compute** > **Windows Server 2016 Datacenter Eval**.  
+   a. 在 Azure Stack 開發套件電腦上，以使用者身分登入 `https://portal.local.azurestack.external`，然後按一下 [新增] > [計算] > [Windows Server 2016 Datacenter 評估版]。  
 
-   b. In the **Basics** section, type a **Name**, **User name**, and **Password**. For **VM disk type**, choose **HDD**. Choose a **Subscription**. Create a **Resource group**, or select an existing one, and then click **OK**.  
+   b. 在 [基本] 區段中，輸入 [名稱][使用者名稱]與 [密碼]。 針對 [VM 磁碟類型]，請選擇 [HDD]。 選擇 [訂用帳戶]。 建立**資源群組**，或選取現有的資源群組，然後按一下 [確定]。  
 
-   c. In the **Choose a size** section, click **A1 Basic**, and then click **Select**.  
+   c. 在 [選擇大小] 區段中，按一下 [A1 基本]，然後按一下 [選取]。  
 
-   d. In the **Settings** section, click **Virtual network**. In the **Choose virtual network** section, click **Create new**. In the **Create virtual network** section, accept all the defaults, and click **OK**. In the **Settings** section, click **OK**.
+   d. 在 [設定] 區段中，按一下 [虛擬網路]。 在 [選擇虛擬網路] 區段中，按一下 [建立新項目]。 在 [建立虛擬網路] 區段中，接受所有預設值，然後按一下 [確定]。 在 [設定] 區段中，按一下 [確定]。
 
-   ![Create virtual network](media/azure-stack-provision-vm/image04.png)
+   ![建立虛擬網路](media/azure-stack-provision-vm/image04.png)
 
-   e. In the **Summary** section, click **OK** to create the virtual machine.  
+   e. 在 [摘要] 區段中，按一下 [確定] 以建立虛擬機器。  
 
-   f. To see your new virtual machine, click **All resources**, then search for the virtual machine and click its name.
+   f. 若要查看您的新虛擬機器，請按一下 [所有資源]，然後搜尋虛擬機器並按一下其名稱。
 
-    ![All resources](media/azure-stack-provision-vm/image06.png)
+    ![所有資源](media/azure-stack-provision-vm/image06.png)
 
-What you learned in this tutorial:
+在本教學課程中，您已了解：
 
 > [!div class="checklist"]
-> * Create an offer
-> * Add an image
-> * Test the offer
+> * 建立供應項目
+> * 新增映像
+> * 測試供應項目
 
 > [!div class="nextstepaction"]
-> [Make web, mobile, and API apps available to your Azure Stack users](azure-stack-tutorial-app-service.md)
+> [將 Web、行動裝置與 API 應用程式提供給您的 Azure Stack 使用者](azure-stack-tutorial-app-service.md)

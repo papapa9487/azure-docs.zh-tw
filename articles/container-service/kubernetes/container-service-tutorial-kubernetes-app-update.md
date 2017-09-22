@@ -14,20 +14,20 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 72cdbfe2fe65e5152ca748cbb3989e3ef980ee50
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 081f36c975c4a2d137fa20e346d6b6739b6997fe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
 # <a name="update-an-application-in-kubernetes"></a>在 Kubernetes 中更新應用程式
 
-在 Kubernetes 中部署應用程式之後，您可以藉由指定新的容器映像或映像版本來進行更新。 當您更新應用程式時，更新會分段推出，所以只有一部分的部署會同時更新。 此分段更新可讓應用程式在更新期間繼續執行，並且在發生部署失敗時提供復原機制。 
+在 Kubernetes 中部署應用程式之後，您可以藉由指定新的容器映像或映像版本來進行更新。 當您更新應用程式時，更新會分段進行，所以只有一部分的部署會同時更新。 此分段更新方式可讓應用程式在更新期間保持運作， 此外也能當作部署失敗時的復原機制。 
 
 在本教學課程 (6/7 部分) 中，已更新範例 Azure Vote 應用程式。 您完成的工作包括：
 
@@ -43,20 +43,18 @@ ms.lasthandoff: 07/25/2017
 
 在先前的教學課程中，已將應用程式封裝成容器映像、將這些映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 該應用程式接著便在 Kubernetes 叢集上執行。 
 
+應用程式存放庫也會一併複製，其中包括應用程式原始程式碼，以及本教學課程使用的預先建立 Docker Compose 檔案。 請確認您已建立存放庫的複製品，而且已將目錄變更為複製的目錄。 其中有一個名為 `azure-vote` 的目錄和一個名為 `docker-compose.yml` 的檔案。
+
 如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./container-service-tutorial-kubernetes-prepare-app.md)。 
 
 ## <a name="update-application"></a>更新應用程式
 
-若要完成本教學課程中的步驟，您必須複製一份 Azure Vote 應用程式。 如有必要，請使用下列命令建立此複製的複本：
+在本教學課程中，我們變更了應用程式，並將更新後的應用程式部署到 Kubernetes 叢集。 
+
+您可以在 `azure-vote` 目錄中找到應用程式原始程式碼。 使用任何程式碼或文字編輯器開啟 `config_file.cfg` 檔案。 在此範例中使用 `vi` 。
 
 ```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-使用任何程式碼或文字編輯器開啟 `config_file.cfg` 檔案。 您可以在所複製存放庫的下列目錄下找到這個檔案。
-
-```bash
- /azure-voting-app-redis/azure-vote/azure-vote/config_file.cfg
+vi azure-vote/azure-vote/config_file.cfg
 ```
 
 變更 `VOTE1VALUE` 和 `VOTE2VALUE` 的值，然後儲存檔案。
@@ -69,35 +67,39 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-使用 [docker-compose](https://docs.docker.com/compose/) 重新建立前端映像，並執行已更新的應用程式。
+儲存並關閉檔案。
+
+## <a name="update-container-image"></a>更新容器映像
+
+使用 [docker-compose](https://docs.docker.com/compose/) 重新建立前端映像，並執行已更新的應用程式。 `--build` 引數可用來指示 Docker Compose 重新建立應用程式映像。
 
 ```bash
-docker-compose -f ./azure-voting-app-redis/docker-compose.yml up --build -d
+docker-compose up --build -d
 ```
 
 ## <a name="test-application-locally"></a>在本機測試應用程式
 
-瀏覽至 `http://localhost:8080` 以查看已更新的應用程式。
+瀏覽至 http://localhost:8080 以查看更新後的應用程式。
 
 ![Azure 上 Kubernetes 叢集的影像](media/container-service-kubernetes-tutorials/vote-app-updated.png)
 
 ## <a name="tag-and-push-images"></a>標記和推送映像
 
-以容器登錄的 loginServer 標記 *azure-vote-front* 映像。
+以容器登錄的 loginServer 標記 `azure-vote-front` 映像。 
 
-如果您使用 Azure Container Registry，請使用 [az acr list](/cli/azure/acr#list) 命令取得登入伺服器名稱。
+使用 [az acr list](/cli/azure/acr#list) 命令來取得登入伺服器名稱。
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 來標記映像。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。
+使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 來標記映像。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。 另請注意，映像版本已更新為 `redis-v2`。
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 將映像上傳至您的登錄。 以您的 Azure Container Registry 登入伺服器名稱或公用登錄主機名稱取代 `<acrLoginServer>`。
+使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 將映像上傳至您的登錄。 以您的 Azure Container Registry 登入伺服器名稱取代 `<acrLoginServer>`。
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -121,7 +123,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-如果您沒有執行 azure-vote-front 映像的多個 pod，請調整 *azure-vote-front* 部署。
+如果您沒有執行 azure-vote-front 映像的多個 Pod，請調整 `azure-vote-front` 部署。
 
 
 ```azurecli-interactive
@@ -152,7 +154,7 @@ azure-vote-front-1297194256-zktw9   1/1       Terminating   0         1m
 
 ## <a name="test-updated-application"></a>測試已更新的應用程式
 
-取得 *azure-vote-front* 服務的外部 IP 位址。
+取得 `azure-vote-front` 服務的外部 IP 位址。
 
 ```azurecli-interactive
 kubectl get service azure-vote-front

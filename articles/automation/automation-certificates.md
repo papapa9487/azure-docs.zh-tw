@@ -12,17 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2016
+ms.date: 09/14/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 89e5486f3302098f3a1d49e4390ec5b21617d778
-ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
+ms.translationtype: HT
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 7082f0c4b1a4cf0f67da5254b4ebb019c7299683
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="certificate-assets-in-azure-automation"></a>Azure 自動化中的憑證資產
 
-憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以透過使用 Azure Resource Manager 資源的 **Get-AzureRmAutomationRmCertificate** 活動來存取憑證。 這可讓您建立使用憑證進行驗證的 Runbook 和 DSC 組態，或將它們新增至 Azure 或協力廠商的資源。
+憑證可以安全地儲存在 Azure 自動化中，使得 Runbook 或 DSC 組態可以透過使用 Azure Resource Manager 資源的 **Get-AzureRmAutomationCertificate** 活動來存取憑證。 這可讓您建立使用憑證進行驗證的 Runbook 和 DSC 組態，或將它們新增至 Azure 或協力廠商的資源。
 
 > [!NOTE] 
 > Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。 這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。 儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。
@@ -34,11 +36,23 @@ ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
 
 |Cmdlet|說明|
 |:---|:---|
-|[Get-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603765.aspx)|擷取要在 Runbook 或 DSC 組態中使用的憑證相關資訊。 您只能從 Get-AutomationCertificate 活動擷取憑證本身。|
-|[New-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603604.aspx)|建立新的憑證到 Azure 自動化。|
-[Remove-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603529.aspx)|從 Azure 自動化中移除憑證。|建立新的憑證到 Azure 自動化。
-|[Set-AzureRmAutomationCertificate](https://msdn.microsoft.com/library/mt603760.aspx)|設定現有的憑證，包括上傳憑證檔案和設定 .pfx 的密碼屬性。|
+|[Get-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationcertificate?view=azurermps-4.3.1)|擷取要在 Runbook 或 DSC 組態中使用的憑證相關資訊。 您只能從 Get-AutomationCertificate 活動擷取憑證本身。|
+|[New-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationcertificate?view=azurermps-4.3.1)|建立新的憑證到 Azure 自動化。|
+[Remove-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationcertificate?view=azurermps-4.3.1)|從 Azure 自動化中移除憑證。|建立新的憑證到 Azure 自動化。
+|[Set-AzureRmAutomationCertificate](https://docs.microsoft.com/powershell/module/azurerm.automation/set-azurermautomationcertificate?view=azurermps-4.3.1)|設定現有的憑證，包括上傳憑證檔案和設定 .pfx 的密碼屬性。|
 |[Add-AzureCertificate](https://msdn.microsoft.com/library/azure/dn495214.aspx)|上傳指定雲端服務的服務憑證。|
+
+
+## <a name="python2-functions"></a>Python2 函式
+
+下表中的函式用於存取 Python2 Runbook 中的憑證。
+
+| 函式 | 說明 |
+|:---|:---|
+| automationassets.get_automation_certificate | 擷取憑證資產的相關資訊。 |
+
+> [!NOTE]
+> 您必須在 Python Runbook 的頂端匯入 **automationassets** 模組，才能存取資產函式。
 
 
 ## <a name="creating-a-new-certificate"></a>建立新憑證
@@ -91,13 +105,16 @@ ms.openlocfilehash: fd1737a420c132dace9307436bfea98a9bde94a0
 
 ![範例圖形化編寫 ](media/automation-certificates/graphical-runbook-add-certificate.png)
 
+### <a name="python2-sample"></a>Python2 範例
+下列範例示範如何存取 Python2 Runbook 中的憑證。
+
+    # get a reference to the Azure Automation certificate
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+    
+    # returns the binary cert content  
+    print cert 
 
 ## <a name="next-steps"></a>後續步驟
 
 - 若要深入了解使用連結控制您的 Runbook 設計用來執行的活動之邏輯流程，請參閱[圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)。 
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

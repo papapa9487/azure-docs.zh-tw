@@ -1,6 +1,6 @@
 ---
-title: Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments | Microsoft Docs
-description: Step-by-step procedure that a cloud administrator uses to create a site-to-site VPN connection between two single-node Azure Stack Development Kit environments.
+title: "在不同 Azure Stack 開發套件環境中的兩個虛擬網路之間建立站對站 VPN 連線 |Microsoft Docs"
+description: "雲端系統管理員用來在兩個單節點「Azure Stack 開發套件」環境之間建立站對站 VPN 連線的逐步程序。"
 services: azure-stack
 documentationcenter: 
 author: ScottNapolitan
@@ -18,62 +18,53 @@ ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
-# Create a site-to-site VPN connection between two virtual networks in different Azure Stack Development Kit environments
-<a id="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments" class="xliff"></a>
-## Overview
-<a id="overview" class="xliff"></a>
-This article shows you how to create a site-to-site VPN connection between two virtual networks in two separate Azure Stack Development Kit environments. While you configure the connections, you learn how VPN gateways in Azure Stack work.
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 開發套件環境中的兩個虛擬網路之間建立站對站 VPN 連線
+## <a name="overview"></a>概觀
+此文章說明如何在兩個個別「Azure Stack 開發套件」環境中的兩個虛擬網路之間建立站對站 VPN 連線。 在您設定連線時，會了解 VPN 閘道在 Azure Stack 中的運作方式。
 
-### Connection diagram
-<a id="connection-diagram" class="xliff"></a>
-The following diagram shows what the connection configuration should look like when you’re done.
+### <a name="connection-diagram"></a>連線圖表
+下圖顯示當您完成時應有的連線組態。
 
-![Site-to-site VPN connection configuration](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
+![站對站 VPN 連線組態](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
 
-### Before you begin
-<a id="before-you-begin" class="xliff"></a>
-To complete the connection configuration, ensure that you have the following items before you begin:
+### <a name="before-you-begin"></a>開始之前
+若要完成連線組態，請務必在開始前備妥下列項目：
 
-* Two servers that meet the Azure Stack Development Kit hardware requirements, which are defined by the [Azure Stack deployment prerequisites](azure-stack-deploy.md). Ensure that the other prerequisites that appear in the [article](azure-stack-deploy.md) are fulfilled too.
-* The [Azure Stack Development Kit](https://azure.microsoft.com/en-us/overview/azure-stack/try/) deployment package.
+* 兩部符合 [Azure Stack 部署先決條件](azure-stack-deploy.md)所定義之「Azure Stack 開發套件」硬體需求的伺服器。 此外，也需確定符合該[文章](azure-stack-deploy.md)中提到的其他先決條件。
+* [Azure Stack 開發套件](https://azure.microsoft.com/en-us/overview/azure-stack/try/)部署套件。
 
-## Deploy the Azure Stack Development Kit environments
-<a id="deploy-the-azure-stack-development-kit-environments" class="xliff"></a>
-To complete the connection configuration, you must deploy two Azure Stack Development Kit environments.
+## <a name="deploy-the-azure-stack-development-kit-environments"></a>部署 Azure Stack 開發套件環境
+若要完成連線組態，您必須部署兩個「Azure Stack 開發套件」環境。
 > [!NOTE] 
-> For each Azure Stack Development Kit that you deploy, follow the [deployment instructions](azure-stack-run-powershell-script.md). In this article, the Azure Stack Development Kit environments are called *POC1* and *POC2*.
+> 針對您部署的每個「Azure Stack 開發套件」，依照[部署指示](azure-stack-run-powershell-script.md)操作。 在此文章中，「Azure Stack 開發套件」環境的名稱是 *POC1* 和 *POC2*。
 
 
-## Prepare an offer on POC1 and POC2
-<a id="prepare-an-offer-on-poc1-and-poc2" class="xliff"></a>
-On both POC1 and POC2, prepare an offer so that a user can subscribe to the offer and deploy the virtual machines. For information on how to create an offer, see [Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md).
+## <a name="prepare-an-offer-on-poc1-and-poc2"></a>在 POC1 和 POC2 上準備供應項目
+在 POC1 和 POC2 上都準備一個供應項目，以便讓使用者能夠訂閱該供應項目並部署虛擬機器。 如需有關如何建立供應項目的資訊，請參閱[將虛擬機器提供給您的 Azure Stack 使用者](azure-stack-tutorial-tenant-vm.md)。
 
-## Review and complete the network configuration table
-<a id="review-and-complete-the-network-configuration-table" class="xliff"></a>
-The following table summarizes the network configuration for both Azure Stack Development Kit environments. Use the procedure that appears after the table to add the External BGPNAT address that is specific for your network.
+## <a name="review-and-complete-the-network-configuration-table"></a>檢閱並完成網路組態表
+下表摘要說明這兩個「Azure Stack 開發套件」環境的網路組態。 請使用此表格後面所列的程序來新增您網路特定的外部 BGPNAT 位址。
 
-**Network configuration table**
+**網路組態表**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Virtual network name     |VNET-01|VNET-02 |
-|Virtual network address space |10.0.10.0/23|10.0.20.0/23|
-|Subnet name     |Subnet-01|Subnet-02|
-|Subnet address range|10.0.10.0/24 |10.0.20.0/24 |
-|Gateway subnet     |10.0.11.0/24|10.0.21.0/24|
-|External BGPNAT address     |         |         |
+|虛擬網路名稱     |VNET-01|VNET-02 |
+|虛擬網路位址空間 |10.0.10.0/23|10.0.20.0/23|
+|子網路名稱     |Subnet-01|Subnet-02|
+|子網路位址範圍|10.0.10.0/24 |10.0.20.0/24 |
+|閘道器子網路     |10.0.11.0/24|10.0.21.0/24|
+|外部 BGPNAT 位址     |         |         |
 
 > [!NOTE]
-> The external BGPNAT IP addresses in the example environment are 10.16.167.195 for POC1, and 10.16.169.131 for POC2. Use the following procedure to determine the external BGPNAT IP addresses for your Azure Stack Development Kit hosts, and then add them to the previous network configuration table.
+> 範例環境中的外部 BGPNAT IP 位址是 10.16.167.195 (用於 POC1) 和 10.16.169.131 (用於 POC2)。 使用下列程序來決定您「Azure Stack 開發套件」主機的外部 BGPNAT IP 位址，然後將這些位址新增到先前的網路組態表。
 
 
-### Get the IP address of the external adapter of the NAT VM
-<a id="get-the-ip-address-of-the-external-adapter-of-the-nat-vm" class="xliff"></a>
-1. Sign in to the Azure Stack physical machine for POC1.
-2. Edit the following Powershell code to replace your administrator password, and then run the code on the POC host:
+### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>取得 NAT VM 的外部介面卡 IP 位址
+1. 登入 POC1 的 Azure Stack 實體機器。
+2. 編輯下列 Powershell 程式碼來取代您的系統管理員密碼，然後在 POC 主機上執行該程式碼：
 
    ```powershell
    cd \AzureStack-Tools-master\connect
@@ -85,218 +76,199 @@ The following table summarizes the network configuration for both Azure Stack De
     -HostComputer "AzS-bgpnat01" `
     -Password $Password
    ```
-3. Add the IP address to the network configuration table that appears in the previous section.
+3. 將 IP 位址新增到上一節中出現的網路組態表。
 
-4. Repeat this procedure on POC2.
+4. 在 POC2 上重複執行此程序。
 
-## Create the network resources in POC1
-<a id="create-the-network-resources-in-poc1" class="xliff"></a>
-Now you create the POC1 network resources that you need to set up your gateways. The following instructions show you how to create the resources by using the user portal. You can also use PowerShell code to create the resources.
+## <a name="create-the-network-resources-in-poc1"></a>在 POC 1 中建立網路資源
+現在，您將建立設定閘道所需的 POC1 網路資源。 下列指示說明如何使用使用者入口網站來建立資源。 您也可以使用 PowerShell 程式碼來建立資源。
 
-![Workflow that is used to create resources](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
+![用來建立資源的工作流程](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
-### Sign in as a tenant
-<a id="sign-in-as-a-tenant" class="xliff"></a>
-A service administrator can sign in as a tenant to test the plans, offers, and subscriptions that their tenants might use. If you don’t already have one, [create a tenant account](azure-stack-add-new-user-aad.md) before you sign in.
+### <a name="sign-in-as-a-tenant"></a>以租用戶身分登入
+服務系統管理員可以用租用戶身分登入，以測試其租用戶可能使用的方案、供應項目及訂用帳戶。 如果您還沒有租用戶帳戶，請先[建立租用戶帳戶](azure-stack-add-new-user-aad.md)再登入。
 
-### Create the virtual network and VM subnet
-<a id="create-the-virtual-network-and-vm-subnet" class="xliff"></a>
-1. Use a tenant account to sign in to the user portal.
-2. In the user portal, select **New**.
+### <a name="create-the-virtual-network-and-vm-subnet"></a>建立虛擬網路和 VM 子網路
+1. 使用租用戶帳戶來登入使用者入口網站。
+2. 在使用者入口網站中，選取 [新增]。
 
-    ![Create new virtual network](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
+    ![建立新的虛擬網路](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
 
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. For **Name**, **Address space**, **Subnet name**, and **Subnet address range**, use the values that appear earlier in the network configuration table.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, you can either create a resource group or if you already have one, select **Use existing**.
-8. Verify the default location.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
+3. 移至 [Marketplace]，然後選取 [網路]。
+4. 選取 [虛擬網路]。
+5. 針對 [名稱]、[位址空間]、[子網路名稱] 及 [子網路位址範圍]，使用先前網路組態表中顯示的值。
+6. 在 [訂用帳戶] 中，會顯示您先前建立的訂用帳戶。
+7. 針對 [資源群組]，您可以建立資源群組，或選取 [使用現有的] (如果您已經有資源群組)。
+8. 驗證預設位置。
+9. 選取 [釘選到儀表板]。
+10. 選取 [建立]。
 
-### Create the gateway subnet
-<a id="create-the-gateway-subnet" class="xliff"></a>
-1. On the dashboard, open the VNET-01 virtual network resource that you created earlier.
-2. On the **Settings** blade, select **Subnets**.
-3. To add a gateway subnet to the virtual network, select **Gateway Subnet**.
+### <a name="create-the-gateway-subnet"></a>建立閘道子網路
+1. 在儀表板上，開啟您先前建立的 VNET-01 虛擬網路資源。
+2. 在 [設定] 刀鋒視窗上選取 [子網路]。
+3. 若要將閘道子網路新增到虛擬網路，請選取 [閘道子網路]。
    
-    ![Add gateway subnet](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![新增閘道子網路](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
-4. By default, the subnet name is set to **GatewaySubnet**.
-   Gateway subnets are special. To function properly, they must use the *GatewaySubnet* name.
-5. In **Address range**, verify that the address is **10.0.11.0/24**.
-6. Select **OK** to create the gateway subnet.
+4. 子網路名稱預設為 **GatewaySubnet**。
+   閘道子網路相當特殊。 為了正常運作，它們必須使用 *GatewaySubnet* 名稱。
+5. 在 [位址範圍] 中，確認位址是 **10.0.11.0/24**。
+6. 選取 [確定] 以建立閘道子網路。
 
-### Create the virtual network gateway
-<a id="create-the-virtual-network-gateway" class="xliff"></a>
-1. In the Azure portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, enter **GW1**.
-5. Select the **Virtual network** item to choose a virtual network.
-   Select **VNET-01** from the list.
-6. Select the **Public IP address** menu item. When the **Choose public IP address** blade opens, select **Create new**.
-7. In **Name**, enter **GW1-PiP**, and then select **OK**.
-8.  By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>建立虛擬網路閘道
+1. 在 Azure 入口網站中，選取 [新增]。 
+2. 移至 [Marketplace]，然後選取 [網路]。
+3. 從網路資源清單中，選取 [虛擬網路閘道]。
+4. 在 [名稱] 中，輸入 **GW1**。
+5. 選取 [虛擬網路] 項目以選擇虛擬網路。
+   從清單中選取 [VNET-01]。
+6. 選取 [公用 IP 位址] 功能表項目。 當 [選擇公用 IP 位址] 刀鋒視窗開啟時，請選取 [新建]。
+7. 在 [名稱] 中輸入 **GW1-PiP**，然後選取 [確定]。
+8.  針對 [VPN 類型]，預設會選取 [依路由]。
+    保留 [依路由] VPN 類型。
+9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 您可以將資源釘選到儀表板。 選取 [建立]。
 
-### Create the local network gateway
-<a id="create-the-local-network-gateway" class="xliff"></a>
-The implementation of a *local network gateway* in this Azure Stack evaluation deployment is a bit different than in an actual Azure deployment.
+### <a name="create-the-local-network-gateway"></a>建立區域網路閘道
+在此 Azure Stack 評估部署與實際 Azure 部署中實作*區域網路閘道*的方式有點不同。
 
-In an Azure deployment, a local network gateway represents an on-premises (at the tenant) physical device, that you use to connect to a virtual network gateway in Azure. In this Azure Stack evaluation deployment, both ends of the connection are virtual network gateways!
+在 Azure 部署中，區域網路閘道代表您用來連線到 Azure 中虛擬網路閘道的內部部署 (位於租用戶) 實體裝置。 在這個 Azure Stack 評估部署中，連線的兩端都是虛擬網路閘道！
 
-A way to think about this more generically is that the local network gateway resource always indicates the remote gateway at the other end of the connection. Because of the way the Azure Stack Development Kit was designed, you need to provide the IP address of the external network adapter on the network address translation (NAT) VM of the other Azure Stack Development Kit as the Public IP Address of the local network gateway. You then create NAT mappings on the NAT VM to make sure that both ends are connected properly.
+更廣泛來說，區域網路閘道資源一律是指連線另一端的遠端閘道。 由於「Azure Stack 開發套件」的設計方式緣故，因此您必須提供另一個「Azure Stack 開發套件」之網路位址轉譯 (NAT) VM 上的外部網路介面卡 IP 位址作為區域網路閘道的「公用 IP 位址」。 您接著需在 NAT VM 上建立 NAT 對應，以確保正確連接兩端。
 
 
-### Create the local network gateway resource
-<a id="create-the-local-network-gateway-resource" class="xliff"></a>
-1. Sign in to the Azure Stack physical machine for POC1.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. From the list of resources, select **local network gateway**.
-5. In **Name**, enter **POC2-GW**.
-6. In **IP address**, enter the External BGPNAT address for POC2. This address appears earlier in the network configuration table.
-7. In **Address Space**, for the address space of the POC2 VNET that you create later, enter **10.0.20.0/23**.
-8. Verify that your **Subscription**, **Resource Group**, and **location** are correct, and then select **Create**.
+### <a name="create-the-local-network-gateway-resource"></a>建立區域網路閘道資源
+1. 登入 POC1 的 Azure Stack 實體機器。
+2. 在使用者入口網站中，選取 [新增]。
+3. 移至 [Marketplace]，然後選取 [網路]。
+4. 從資源清單中，選取 [區域網路閘道]。
+5. 在 [名稱] 中，輸入 **POC2-GW**。
+6. 在 [IP 位址] 中，輸入 POC2 的外部 BGPNAT 位址。 此位址先前已顯示在網路組態表中。
+7. 在 [位址空間] 中，針對您稍後建立的 POC2 VNET 的位址空間，輸入 **10.0.20.0/23**。
+8. 確認您的 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤，然後選取 [建立]。
 
-### Create the connection
-<a id="create-the-connection" class="xliff"></a>
-1. In the user portal, select **New**.
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basics** settings blade, for the **Connection type**, select **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** blade,  select **Virtual network gateway**, and then select **GW1**.
-7. Select **Local network gateway**, and then select **POC2-GW**.
-8. In **Connection Name**, enter **POC1-POC2**.
-9. In **Shared key (PSK)**, enter **12345**, and then select **OK**.
-10. On the **Summary** blade, select **OK**.
+### <a name="create-the-connection"></a>建立連線
+1. 在使用者入口網站中，選取 [新增]。
+2. 移至 [Marketplace]，然後選取 [網路]。
+3. 從資源清單中，選取 [連線]。
+4. 在 [基本] 設定刀鋒視窗上，針對 [連線類型]，選取 [站對站 (IPSec)]。
+5. 選取 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。
+6. 在 [設定] 刀鋒視窗上，選取 [虛擬網路閘道]，然後選取 [GW1]。
+7. 選取 [區域網路閘道]，然後選取 [POC2-GW]。
+8. 在 [連線名稱] 中，輸入 **POC1-POC2**。
+9. 在 [共用金鑰 (PSK)] 中輸入 **12345**，然後選取 [確定]。
+10. 在 [摘要] 刀鋒視窗上，選取 [確定]。
 
-### Create a VM
-<a id="create-a-vm" class="xliff"></a>
-To validate the data that travels through the VPN connection, you need the virtual machines to send and receive data in each Azure Stack Development Kit. Create a virtual machine in POC1 now, and then in your virtual network, put it on your VM subnet.
+### <a name="create-a-vm"></a>建立 VM
+若要驗證透過 VPN 連線傳輸的資料，您將需要虛擬機器，以在每個「Azure Stack 開發套件」中傳送和接收資料。 立即在 POC1 中建立虛擬機器，然後將它放在您虛擬網路的 VM 子網路上。
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** blade, in **Name**, enter **VM01**.
-5. Enter a valid username and password. You use this account to sign in to the VM after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** blade, for this instance, select a virtual machine size, and then select **Select**.
-8. On the **Settings** blade, accept the defaults. Ensure that the **VNET-01** virtual network is selected. Verify that the subnet is set to **10.0.10.0/24**. Then select **OK**.
-9. On the **Summary** blade, review the settings, and then select **OK**.
+1. 在 Azure 入口網站中，選取 [新增]。
+2. 移至 [Marketplace]，然後選取 [計算]。
+3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像。
+4. 在 [基本] 刀鋒視窗的 [名稱] 中，輸入 **VM01**。
+5. 輸入有效的使用者名稱和密碼。 建立 VM 之後，您將使用此帳戶來登入 VM。
+6. 提供 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。
+7. 在 [大小] 刀鋒視窗上，為此執行個體選取虛擬機器大小，然後選取 [選取]。
+8. 在 [設定] 刀鋒視窗上，接受預設值。 確定選取的是 [VNET-01] 虛擬網路。 確認子網路已設定為 **10.0.10.0/24**。 然後選取 [確定]。
+9. 在 [摘要] 刀鋒視窗上檢閱設定，然後選取 [確定]。
 
 
 
-## Create the network resources in POC2
-<a id="create-the-network-resources-in-poc2" class="xliff"></a>
+## <a name="create-the-network-resources-in-poc2"></a>在 POC 2 中建立網路資源
 
-The next step is to create the network resources for POC2. The following instructions show how to create the resources by using the user portal.
+下一個步驟是建立 POC2 的網路資源。 下列指示說明如何使用使用者入口網站來建立資源。
 
-### Sign in as a tenant
-<a id="sign-in-as-a-tenant" class="xliff"></a>
-A service administrator can sign in as a tenant to test the plans, offers, and subscriptions that their tenants might use. If you don’t already have one, [create a tenant account](azure-stack-add-new-user-aad.md) before you sign in.
+### <a name="sign-in-as-a-tenant"></a>以租用戶身分登入
+服務系統管理員可以用租用戶身分登入，以測試其租用戶可能使用的方案、供應項目及訂用帳戶。 如果您還沒有租用戶帳戶，請先[建立租用戶帳戶](azure-stack-add-new-user-aad.md)再登入。
 
-### Create the virtual network and VM subnet
-<a id="create-the-virtual-network-and-vm-subnet" class="xliff"></a>
+### <a name="create-the-virtual-network-and-vm-subnet"></a>建立虛擬網路和 VM 子網路
 
-1. Sign in by using a tenant account.
-2. In the user portal, select **New**.
-3. Go to **Marketplace**, and then select **Networking**.
-4. Select **Virtual network**.
-5. Use the information appearing earlier in the network configuration table to identify the values for the POC2 **Name**, **Address space**, **Subnet name**, and **Subnet address range**.
-6. In **Subscription**, the subscription that you created earlier appears.
-7. For **Resource Group**, create a new resource group or, if you already have one, select **Use existing**.
-8. Verify the default **Location**.
-9. Select **Pin to dashboard**.
-10. Select **Create**.
+1. 使用租用戶帳戶來登入。
+2. 在使用者入口網站中，選取 [新增]。
+3. 移至 [Marketplace]，然後選取 [網路]。
+4. 選取 [虛擬網路]。
+5. 使用先前網路組態表中顯示的資訊，來指定 POC2 [名稱]、[位址空間]、[子網路名稱] 及 [子網路位址範圍] 的值。
+6. 在 [訂用帳戶] 中，會顯示您先前建立的訂用帳戶。
+7. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] (如果您已經有資源群組)。
+8. 確認預設 [位置]。
+9. 選取 [釘選到儀表板]。
+10. 選取 [建立]。
 
-### Create the Gateway Subnet
-<a id="create-the-gateway-subnet" class="xliff"></a>
-1. Open the Virtual network resource you created (**VNET-02**) from the dashboard.
-2. On the **Settings** blade, select **Subnets**.
-3. Select  **Gateway subnet** to add a gateway subnet to the virtual network.
-4. The name of the subnet is set to **GatewaySubnet** by default.
-   Gateway subnets are special and must have this specific name to function properly.
-5. In the **Address range** field, verify the address is **10.0.21.0/24**.
-6. Select **OK** to create the gateway subnet.
+### <a name="create-the-gateway-subnet"></a>建立閘道子網路
+1. 從儀表板開啟您建立的虛擬網路資源 (**VNET-02**)。
+2. 在 [設定] 刀鋒視窗上選取 [子網路]。
+3. 選取 [閘道子網路] 以將閘道子網路新增到虛擬網路。
+4. 子網路名稱預設為 **GatewaySubnet**。
+   閘道子網路很特別，必須具有此特定名稱，才能正常運作。
+5. 在 [位址範圍] 欄位中，確認位址是 **10.0.21.0/24**。
+6. 選取 [確定] 以建立閘道子網路。
 
-### Create the virtual network gateway
-<a id="create-the-virtual-network-gateway" class="xliff"></a>
-1. In the Azure portal, select **New**.  
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of network resources, select **Virtual network gateway**.
-4. In **Name**, enter **GW2**.
-5. To choose a virtual network, select **Virtual network**. Then select **VNET-02** from the list.
-6. Select **Public IP address**. When the **Choose public IP address** blade opens, select **Create new**.
-7. In **Name**, enter **GW2-PiP**, and then select **OK**.
-8. By default, for **VPN type**, **Route-based** is selected.
-    Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+### <a name="create-the-virtual-network-gateway"></a>建立虛擬網路閘道
+1. 在 Azure 入口網站中，選取 [新增]。  
+2. 移至 [Marketplace]，然後選取 [網路]。
+3. 從網路資源清單中，選取 [虛擬網路閘道]。
+4. 在 [名稱] 中，輸入 **GW2**。
+5. 若要選擇虛擬網路，請選取 [虛擬網路]。 然後從清單中選取 [VNET-02]。
+6. 選取 [公用 IP 位址]。 當 [選擇公用 IP 位址] 刀鋒視窗開啟時，請選取 [新建]。
+7. 在 [名稱] 中輸入 **GW2-PiP**，然後選取 [確定]。
+8. 針對 [VPN 類型]，預設會選取 [依路由]。
+    保留 [依路由] VPN 類型。
+9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 您可以將資源釘選到儀表板。 選取 [ **建立**]。
 
-### Create the local network gateway resource
-<a id="create-the-local-network-gateway-resource" class="xliff"></a>
+### <a name="create-the-local-network-gateway-resource"></a>建立區域網路閘道資源
 
-1. In the POC2 user portal, select **New**. 
-4. Go to **Marketplace**, and then select **Networking**.
-5. From the list of resources, select **Local network gateway**.
-6. In **Name**, enter **POC1-GW**.
-7. In **IP address**, enter the External BGPNAT address for POC1 that is listed earlier in the network configuration table.
-8. In **Address Space**, from POC1, enter the **10.0.10.0/23** address space of **VNET-01**.
-9. Verify that your **Subscription**, **Resource Group**, and **Location** are correct, and then select **Create**.
+1. 在 POC2 使用者入口網站中，選取 [新增]。 
+4. 移至 [Marketplace]，然後選取 [網路]。
+5. 從資源清單中，選取 [區域網路閘道]。
+6. 在 [名稱] 中，輸入 **POC1-GW**。
+7. 在 [IP 位址] 中，輸入先前網路組態表中所列的 POC1 外部 BGPNAT 位址。
+8. 在 [位址空間] 欄位中，從 POC1，輸入 **VNET-01** 的位址空間 **10.0.10.0/23**。
+9. 確認您的 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤，然後選取 [建立]。
 
-## Create the connection
-<a id="create-the-connection" class="xliff"></a>
-1. In the user portal, select **New**. 
-2. Go to **Marketplace**, and then select **Networking**.
-3. From the list of resources, select **Connection**.
-4. On the **Basic** settings blade, for the **Connection type**, choose **Site-to-site (IPSec)**.
-5. Select the **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-6. On the **Settings** blade, select **Virtual network gateway**, and then select **GW2**.
-7. Select **Local network gateway**, and then select **POC1-GW**.
-8. In **Connection name**, enter **POC2-POC1**.
-9. In **Shared key (PSK)**, enter **12345**. If you choose a different value, remember that it *must* match the value for the shared key that you created on POC1. Select **OK**.
-10. Review the **Summary** blade, and then select **OK**.
+## <a name="create-the-connection"></a>建立連線
+1. 在使用者入口網站中，選取 [新增]。 
+2. 移至 [Marketplace]，然後選取 [網路]。
+3. 從資源清單中，選取 [連線]。
+4. 在 [基本] 設定刀鋒視窗上，針對 [連線類型]，選擇 [站對站 (IPSec)]。
+5. 選取 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。
+6. 在 [設定] 刀鋒視窗上，選取 [虛擬網路閘道]，然後選取 [GW2]。
+7. 選取 [區域網路閘道]，然後選取 [POC1-GW]。
+8. 在 [連線名稱] 中，輸入 **POC2-POC1**。
+9. 在 [共用金鑰 (PSK)] 中，輸入 **12345**。 如果您選擇不同的值，請記住該值「必須」與您在 POC1 上所建立共用金鑰的值相符。 選取 [確定]。
+10. 檢閱 [摘要] 刀鋒視窗，然後選取 [確定]。
 
-## Create a virtual machine
-<a id="create-a-virtual-machine" class="xliff"></a>
-Create a virtual machine in POC2 now, and put it on your VM subnet in your virtual network.
+## <a name="create-a-virtual-machine"></a>建立虛擬機器
+請立即在 POC2 中建立虛擬機器，然後將它放在您虛擬網路的 VM 子網路上。
 
-1. In the Azure portal, select **New**.
-2. Go to **Marketplace**, and then select **Compute**.
-3. In the list of virtual machine images, select the **Windows Server 2016 Datacenter Eval** image.
-4. On the **Basics** blade, for **Name**, enter **VM02**.
-5. Enter a valid username and password. You use this account to sign in to the virtual machine after it's created.
-6. Provide a **Subscription**, **Resource Group**, and **Location**, and then select **OK**.
-7. On the **Size** blade, select a virtual machine size for this instance, and then select **Select**.
-8. On the **Settings** blade, you can accept the defaults. Ensure that the **VNET-02** virtual network is selected, and verify that the subnet is set to **10.0.20.0/24**. Select **OK**.
-9. Review the settings on the **Summary** blade, and then select **OK**.
+1. 在 Azure 入口網站中，選取 [新增]。
+2. 移至 [Marketplace]，然後選取 [計算]。
+3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像。
+4. 在 [基本] 刀鋒視窗上，針對 [名稱]，輸入 **VM02**。
+5. 輸入有效的使用者名稱和密碼。 建立虛擬機器之後，您將使用此帳戶來登入虛擬機器。
+6. 提供 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。
+7. 在 [大小] 刀鋒視窗上，為此執行個體選取虛擬機器大小，然後選取 [選取]。
+8. 在 [設定] 刀鋒視窗上，您可以接受預設值。 確定選取的是 [VNET-02] 虛擬網路，並確認子網路已設定為 **10.0.20.0/24**。 選取 [確定]。
+9. 檢閱 [摘要] 刀鋒視窗上的設定，然後選取 [確定]。
 
-## Configure the NAT virtual machine on each Azure Stack Development Kit for gateway traversal
-<a id="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal" class="xliff"></a>
-Because the Azure Stack Development Kit is self-contained and isolated from the network on which the physical host is deployed, the *external* VIP network that the gateways are connected to is not actually external. Instead, the VIP network is hidden behind a router that performs network address translation. 
+## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>在每個 Azure Stack 開發套件上設定 NAT 虛擬機器以進行閘道周遊
+由於「Azure Stack 開發套件」是獨立的並與實體主機部署所在的網路隔離，因此閘道所連接的「外部」VIP 網路實際上並不在外部。 取而代之的是，VIP 網路隱藏在執行網路位址轉譯的路由器之後。 
 
-The router is a Windows Server virtual machine, called *AzS-bgpnat01*, that runs the Routing and Remote Access Services (RRAS) role in the Azure Stack Development Kit infrastructure. You must configure NAT on the AzS-bgpnat01 virtual machine to allow the site-to-site VPN connection to connect on both ends. 
+路由器是一部名為 *AzS-bgpnat01* 的 Windows Server 虛擬機器，在「Azure Stack 開發套件」基礎結構中執行「路由及遠端存取服務」(RRAS) 角色。 您必須在 AzS-bgpnat01 虛擬機器上設定 NAT，才能允許站對站 VPN 連線連接兩端。 
 
-To configure the VPN connection, you must create a static NAT map route that maps the external interface on the BGPNAT virtual machine to the VIP of the Edge Gateway Pool. A static NAT map route is required for each port in a VPN connection.
+若要設定 VPN 連線，您必須建立靜態 NAT 對應路由，以將 BGPNAT 虛擬機器上的外部介面對應至「邊緣閘道集區」的 VIP。 VPN 連線中的每個連接埠都必須要有一個靜態 NAT 對應路由。
 
 > [!NOTE]
-> This configuration is required for Azure Stack Development Kit environments only.
+> 只有「Azure Stack 開發套件」環境才需要此組態。
 > 
 > 
 
-### Configure the NAT
-<a id="configure-the-nat" class="xliff"></a>
+### <a name="configure-the-nat"></a>設定 NAT
 > [!IMPORTANT]
-> You must complete this procedure for *both* Azure Stack Development Kit environments.
+> 您必須為兩個「Azure Stack 開發套件」環境都完成此程序。
 
-1. Determine the **Internal IP address** to use in the following PowerShell script. Open the virtual network gateway (GW1 and GW2), and then on the **Overview** blade, save the value for the **Public IP address** for later use.
-![Internal IP address](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
-2. Sign in to the Azure Stack physical machine for POC1.
-3. Copy and edit the following PowerShell script. To configure the NAT on each Azure Stack Development Kit, run the script in an elevated Windows PowerShell ISE. In the script, add values to the *External BGPNAT address* and *Internal IP address* placeholders:
+1. 決定要在下列 PowerShell 指令碼中使用的「內部 IP 位址」。 開啟虛擬網路閘道 (GW1 和 GW2)，然後在 [概觀] 刀鋒視窗上，儲存 [公用 IP 位址] 的值以供稍後使用。
+![內部 IP 位址](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
+2. 登入 POC1 的 Azure Stack 實體機器。
+3. 複製並編輯下列 PowerShell 指令碼。 若要在每個「Azure Stack 開發套件」上設定 NAT，請在已提高權限的 Windows PowerShell ISE 中執行該指令碼。 在指令碼中，將值新增到 [外部 BGPNAT 位址] 和 [內部 IP 位址] 預留位置：
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -338,27 +310,25 @@ To configure the VPN connection, you must create a static NAT map route that map
       -InternalPort 4500}
    ```
 
-4. Repeat this procedure on POC2.
+4. 在 POC2 上重複執行此程序。
 
-## Test the connection
-<a id="test-the-connection" class="xliff"></a>
-Now that the site-to-site connection is established, you should validate that you can get traffic flowing through it. To validate, sign in to one of the virtual machines that you created in either Azure Stack Development Kit environment. Then, ping the virtual machine that you created in the other environment. 
+## <a name="test-the-connection"></a>測試連線
+既然已建立站對站連線，您現在應驗證是否可以透過它傳送流量。 若要驗證，請登入您在其中一個「Azure Stack 開發套件」環境中建立的其中一部虛擬機器。 接著，Ping 您在另一個環境中建立的虛擬機器。 
 
-To ensure that you send the traffic through the site-to-site connection, ensure that you ping the Direct IP (DIP) address of the virtual machine on the remote subnet, not the VIP. To do this, find the DIP address on the other end of the connection. Save the address for later use.
+為了確保您是透過站對站連線傳送流量，請確定您 Ping 的是遠端子網路上虛擬機器的直接 IP (DIP) 位址，而非 VIP。 若要這麼做，請找出連線另一端的 DIP 位址。 儲存位址以供稍後使用。
 
-### Sign in to the tenant VM in POC1
-<a id="sign-in-to-the-tenant-vm-in-poc1" class="xliff"></a>
-1. Sign in to the Azure Stack physical machine for POC1, and then use a tenant account to sign in to the user portal.
-2. In the left navigation bar, select **Compute**.
-3. In the list of VMs, find **VM01** that you created previously, and then select it.
-4. On the blade for the virtual machine, click **Connect**, and then open the VM01.rdp file.
+### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>登入 POC1 中的租用戶 VM
+1. 登入 POC1 的 Azure Stack 實體機器，然後使用租用戶帳戶來登入使用者入口網站。
+2. 在左導覽列中，選取 [計算]。
+3. 在 VM 清單中，尋找您先前建立的 **VM01**，然後選取它。
+4. 在虛擬機器的刀鋒視窗上，按一下 [連線]，然後開啟 VM01.rdp 檔案。
    
-     ![Connect button](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Enter **ipconfig /all**.
-8. In the output, find the **IPv4 Address**, and then save the address for later use. This is the address that you will ping from POC2. In the example environment, the address is **10.0.10.4**, but in your environment it might be different. It should fall within the **10.0.10.0/24** subnet that you created previously.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+     ![[連線] 按鈕](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
+5. 使用您建立虛擬網路時所設定的帳戶來登入。
+6. 開啟已提高權限的 [Windows PowerShell] 視窗。
+7. 輸入 **ipconfig /all**。
+8. 在輸出中，尋找「IPv4 位址」，然後儲存該位址以供稍後使用。 這是您將從 POC2 Ping 的位址。 在範例環境中，位址是 **10.0.10.4**，但在您的環境中可能會不同。 它應該落在您先前建立的 **10.0.10.0/24** 子網路內。
+9. 若要建立允許虛擬機器回應 Ping 的防火牆規則，請執行下列 PowerShell 命令：
 
    ```powershell
    New-NetFirewallRule `
@@ -366,17 +336,16 @@ To ensure that you send the traffic through the site-to-site connection, ensure 
     –Protocol ICMPv4
    ```
 
-### Sign in to the tenant VM in POC2
-<a id="sign-in-to-the-tenant-vm-in-poc2" class="xliff"></a>
-1. Sign in to the Azure Stack physical machine for POC2, and then use a tenant account to sign in to the user portal.
-2. In the left navigation bar, click **Compute**.
-3. From the list of virtual machines, find **VM02** that you created previously, and then select it.
-4. On the blade for the virtual machine, click **Connect**.
-5. Sign in with the account that you configured when you created the virtual machine.
-6. Open an elevated **Windows PowerShell** window.
-7. Enter **ipconfig /all**.
-8. You should see an IPv4 address that falls within **10.0.20.0/24**. In the example environment, the address is **10.0.20.4**, but your address might be different.
-9. To create a firewall rule that allows the virtual machine to respond to pings, run the following PowerShell command:
+### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>登入 POC2 中的租用戶 VM
+1. 登入 POC2 的 Azure Stack 實體機器，然後使用租用戶帳戶來登入使用者入口網站。
+2. 在左導覽列中，按一下 [計算]。
+3. 從虛擬機器清單中，尋找您先前建立的 **VM02**，然後選取它。
+4. 在虛擬機器的刀鋒視窗中，按一下 [連線]。
+5. 使用您建立虛擬網路時所設定的帳戶來登入。
+6. 開啟已提高權限的 [Windows PowerShell] 視窗。
+7. 輸入 **ipconfig /all**。
+8. 您應該會看到落在 **10.0.20.0/24** 內的 IPv4 位址。 在範例環境中，該位址是 **10.0.20.4**，但您的位址可能會不同。
+9. 若要建立允許虛擬機器回應 Ping 的防火牆規則，請執行下列 PowerShell 命令：
 
    ```powershell
    New-NetFirewallRule `
@@ -384,19 +353,18 @@ To ensure that you send the traffic through the site-to-site connection, ensure 
     –Protocol ICMPv4
    ```
 
-10. From the virtual machine on POC2, ping the virtual machine on POC1, through the tunnel. To do this, you ping the DIP that you recorded from VM01.
-   In the example environment, this is **10.0.10.4**, but be sure to ping the address you noted in your lab. You should see a result that looks like the following:
+10. 從 POC2 上的虛擬機器，透過通道 Ping POC1 上的虛擬機器。 若要這麼做，您需 Ping 從 VM01 記錄的 DIP。
+   在範例環境中，這是 **10.0.10.4**，但請務必 Ping 您在實驗室中記下的位址。 您應該會看到如下所示的結果：
    
-    ![Successful ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. A reply from the remote virtual machine indicates a successful test! You can close the virtual machine window. To test your connection, you can try other kinds of data transfers like a file copy.
+    ![成功的 Ping](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
+11. 來自遠端虛擬機器的回覆表示測試成功！ 您可以關閉虛擬機器視窗。 若要測試您的連線，您可以嘗試其他類型的資料傳輸，例如檔案複製。
 
-### Viewing data transfer statistics through the gateway connection
-<a id="viewing-data-transfer-statistics-through-the-gateway-connection" class="xliff"></a>
-If you want to know how much data passes through your site-to-site connection, this information is available on the **Connection** blade. This test is also another way to verify that the ping you just sent actually went through the VPN connection.
+### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>檢視透過閘道連線的資料傳輸統計資料
+如果您想要知道有多少資料通過您的站對站連線，可在 [連線] 刀鋒視窗中取得此資訊。 此測試也是確認您剛傳送的 Ping 是否真的通過 VPN 連線的另一種方法。
 
-1. While you're signed in to the tenant virtual machine in POC2, use your tenant account to sign in to the user portal.
-2. Go to **All resources**, and then select the **POC2-POC1** connection. **Connections** appears.
-4. On the **Connection** blade, the statistics for **Data in** and **Data out** appear. In the following screenshot, the large numbers are attributed to additional file transfer. You should see some nonzero values there.
+1. 在您已登入 POC2 中租用戶虛擬機器的情況下，使用您的租用戶帳戶來登入使用者入口網站。
+2. 移至 [所有資源]，然後選取 [POC2-POC1] 連線。 [連線] 隨即顯示。
+4. 在 [連線] 刀鋒視窗上，會顯示 [資料輸入] 和 [資料輸出] 的統計資料。 在以下的螢幕擷取畫面中，那些大的數字歸因於額外的檔案傳輸。 您應該會在該處看到一些非零的值。
    
-    ![Data in and out](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
+    ![資料輸入和輸出](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
 

@@ -12,14 +12,13 @@ ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/13/2016
+ms.date: 09/07/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: f8a6705879905d5cf419fc8c5c2322cb5536d244
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 6ff6f1c331d5a77e7ac0a47af6806f5d90fb0fdc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices-node"></a>使用所需屬性來設定裝置 (Node)
@@ -37,7 +36,7 @@ ms.lasthandoff: 05/09/2017
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 0.10.x 版或更新版本。
+* Node.js 4.0.x 版或更新版本。
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
 
 如果您依照[開始使用裝置對應項][lnk-twin-tutorial]教學課程進行，您便已經有一個 IoT 中樞和一個稱為 **myDeviceId** 的裝置身分識別，您可以直接跳到[建立模擬裝置應用程式][lnk-how-to-configure-createapp]一節。
@@ -170,7 +169,7 @@ ms.lasthandoff: 05/09/2017
     ```
     npm install azure-iothub node-uuid --save
     ```
-3. 使用文字編輯器，在 **addtagsandqueryapp** 資料夾中建立新的 **SetDesiredAndQuery.js** 檔案。
+3. 使用文字編輯器，在 **setdesiredandqueryapp** 資料夾中建立新的 **SetDesiredAndQuery.js** 檔案。
 4. 將下列程式碼新增至 **SetDesiredAndQuery.js** 檔案，並以您建立中樞時所複製的 IoT 中樞連接字串，取代 **{iot hub connection string}** 預留位置︰
    
         'use strict';

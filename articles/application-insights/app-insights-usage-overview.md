@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 80142d9f27abed181bca6f5f536b950198e66e20
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/17/2017
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>將使用者與工作階段識別碼加入您的遙測
 若要追蹤使用者一段時間，Application Insights 需要識別他們的方式。 「事件工具」是唯一不需要使用者識別碼或工作階段識別碼的「使用量工具」。
 
-在[此處](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)開始傳送這些識別碼。
+使用[此流程](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)開始傳送使用者與工作階段識別碼。
 
 ## <a name="explore-usage-demographics-and-statistics"></a>探索使用量人口統計和統計資料
 了解人們在使用您的應用程式時，他們最感興趣的網頁、使用者的所在位置，以及他們使用何種瀏覽器與作業系統。 

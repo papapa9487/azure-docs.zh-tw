@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6a62f7f70982a07646248188da8293c88fbe1b52
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 540362e27e0552780d61038cf8285d934795129c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自動化中的認證資產
@@ -46,8 +46,16 @@ ms.lasthandoff: 04/27/2017
 
 > [!NOTE]
 > 您應該避免在 Get-AutomationPSCredential 的 -Name 參數中使用變數，因為這可能會使在設計階段中探索 Runbook 或 DSC 設定與認證資產之間的相依性變得複雜。
-> 
-> 
+
+## <a name="python2-functions"></a>Python2 函式
+下表中的函式用於存取 Python2 Runbook 中的認證。
+
+| 函式 | 說明 |
+|:---|:---|
+| automationassets.get_automation_credential | 擷取認證資產的相關資訊。 |
+
+> [!NOTE]
+> 您必須在 Python Runbook 的頂端匯入「automationassets」模組，才能存取資產函式。
 
 ## <a name="creating-a-new-credential-asset"></a>建立新的認證資產
 
@@ -96,10 +104,22 @@ ms.lasthandoff: 04/27/2017
 ## <a name="using-a-powershell-credential-in-dsc"></a>在 DSC 中使用 PowerShell 認證
 雖然 Azure 自動化中的 DSC 組態可以使用 **Get-AutomationPSCredential**參考認證資產，但如有需要，也可以透過參數傳入認證資產。 如需詳細資訊，請參閱 [編譯 Azure Automation DSC 中的設定](automation-dsc-compile.md#credential-assets)。
 
+## <a name="using-credentials-in-python2"></a>使用 Python2 中的認證
+下列範例顯示存取 Python2 Runbook 中認證的範例。
+
+    import automationassets
+    from automationassets import AutomationAssetNotFound
+
+    # get a credential
+    cred = automationassets.get_automation_credential("credtest")
+    print cred["username"]
+    print cred["password"]
+
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解圖形化編寫中的連結，請參閱 [圖形化編寫中的連結](automation-graphical-authoring-intro.md#links-and-workflow)
 * 若要了解使用自動化的不同驗證方法，請參閱 [Azure 自動化安全性](automation-security-overview.md)
 * 若要開始使用圖形化 Runbook，請參閱 [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md) 
+* 若要開始使用 Python2 Runbook，請參閱[我的第一個 Python2 Runbook](automation-first-runbook-textual-python2.md) 
 
 

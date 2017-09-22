@@ -6,152 +6,216 @@ manager: timlt
 documentationcenter: 
 author: tfitzmac
 services: azure-resource-manager
-ms.assetid: bb0af466-4f65-4559-ac3a-43985fa096ff
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 09/14/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 3ad4e68b90979fd7f9d3ddf5278e65e19cb07152
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 資源和資源群組
-> [!div class="op_single_selector"]
-> * [入口網站](resource-group-portal.md) 
-> * [Azure CLI](xplat-cli-azure-resource-manager.md)
-> * [Azure PowerShell](powershell-azure-resource-manager.md)
-> * [REST API](resource-manager-rest-api.md)
-> 
-> 
 
-Azure 命令列介面 (Azure CLI) 是您可以使用 Resource Manager 來部署和管理資源的其中一個工具。 本文將介紹以 Resource Manager 模式使用 Azure CLI 來管理 Azure 資源和資源群組的常見方式。 如需使用 CLI 來部署資源的相關資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 部署資源](resource-group-template-deploy-cli.md)。 如需 Azure 資源和 Resource Manager 的背景，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
+在本文中，您會了解如何使用 Azure CLI 和 Azure Resource Manager 管理您的解決方案。 如果您不熟悉如何使用 Resource Manager，請參閱 [Resource Manager 概觀](resource-group-overview.md)。 本主題著重於管理工作。 您將：
 
-> [!NOTE]
-> 若要以 Azure CLI 管理 Azure 資源，您需要[安裝 Azure CLI](../cli-install-nodejs.md) 並使用 `azure login` 命令[登入 Azure](../xplat-cli-connect.md)。 請確定 CLI 是處於 Resource Manager 模式 (執行 `azure config mode arm`)。 如果上述事項都已完成，您就能開始進行了。
-> 
-> 
+1. 建立資源群組
+2. 將資源加入資源群組
+3. 將標籤加入資源
+4. 根據名稱或標籤值查詢資源
+5. 套用和移除資源的鎖定
+6. 刪除資源群組
 
-## <a name="get-resource-groups-and-resources"></a>取得資源群組和資源
-### <a name="resource-groups"></a>資源群組
-若要取得您的訂用帳戶中所有資源群組及其位置的清單，請執行此命令。
+本文不會說明如何將 Resource Manager 範本部署到您的訂用帳戶。 如需該資訊，請參閱[使用 Resource Manager 範本與 Azure CLI 來部署資源](resource-group-template-deploy-cli.md)。
 
-    azure group list
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+若要在本機安裝並使用 CLI，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
-### <a name="resources"></a>資源
- 若要列出群組中的所有資源 (例如具有名稱 *testRG* 的資源)，請使用下列命令：
+## <a name="set-subscription"></a>設定訂用帳戶
 
-    azure resource list testRG
+如果您有多個訂用帳戶，可以切換成其他訂用帳戶。 首先，我們來看看您帳戶的所有訂用帳戶。
 
-若要檢視群組內的個別資源 (例如名為 *MyUbuntuVM* 的 VM)，請使用如下所示的命令：
+```azurecli-interactive
+az account list
+```
 
-    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
+它會傳回您的已啟用與已停用訂用帳戶清單。
 
-請注意 **Microsoft.Compute/virtualMachines** 參數。 此參數表示您正在要求哪類資源的資訊。
-
-> [!NOTE]
-> 使用 **list** 命令以外的 **azure resource** 命令時，必須以**-o** 參數指定資源的 API 版本。 如果不確定要使用的 API 版本，請咨詢範本檔案並尋找資源的 apiVersion 欄位。 如需 Resource Manager 中的 API 版本詳細資訊，請參閱[資源提供者和類型](resource-manager-supported-services.md)。
-> 
-> 
-
-檢視資源的詳細資料時，建議使用 `--json` 參數，更加實用。 這個參數可讓輸出更容易閱讀，因為部分值是巢狀的結構或集合。 下列範例示範如何以 JSON 文件傳回 **show** 命令的結果。
-
-    azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json
-
-> [!NOTE]
-> 若您希望，可以使用 &gt; 字元將輸出導向檔案，藉此將 JSON 資料儲存至檔案。 例如：
-> 
-> `azure resource show testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15" --json > myfile.json`
-> 
-> 
-
-### <a name="tags"></a>標記
-[!INCLUDE [resource-manager-tag-resources-cli](../../includes/resource-manager-tag-resources-cli.md)]
-
-## <a name="manage-resources"></a>管理資源
-若要將例如儲存體帳戶的資源新增至資源群組，請執行類似下列的命令︰
-
-    azure resource create testRG MyStorageAccount "Microsoft.Storage/storageAccounts" "westus" -o "2015-06-15" -p "{\"accountType\": \"Standard_LRS\"}"
-
-除了以 **-o** 參數指定資源的 API 版本，請使用 **-p** 參數來傳遞任何具有必要或其他屬性的 JSON 格式字串。
-
-若要刪除現有的資源 (例如虛擬機器資源)，請使用如下所示的命令：
-
-    azure resource delete testRG MyUbuntuVM Microsoft.Compute/virtualMachines -o "2015-06-15"
-
-若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 **azure resource move** 命令。 下列範例說明如何將 Redis 快取移動到新的資源群組。 請在 **-i** 參數中，為要移動的資源識別碼提供以逗號分隔的清單。
-
-    azure resource move -i "/subscriptions/{guid}/resourceGroups/OldRG/providers/Microsoft.Cache/Redis/examplecache" -d "NewRG"
-
-## <a name="control-access-to-resources"></a>控制資源的存取
-您可以使用 Azure CLI 來建立和管理原則，以控制 Azure 資源的存取權。 如需原則定義和將原則指派給資源的背景，請參閱[使用原則來管理資源並控制存取](resource-manager-policy.md)。
-
-例如，定義下列的原則，以拒絕所有位置不在美國西部或美國中北部的要求，並將其儲存到原則定義檔案 policy.json：
-
-    {
-    "if" : {
-        "not" : {
-        "field" : "location",
-        "in" : ["westus" ,  "northcentralus"]
-        }
-    },
-    "then" : {
-        "effect" : "deny"
+```json
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "<guid>",
+    "isDefault": true,
+    "name": "Example Subscription One",
+    "registeredProviders": [],
+    "state": "Enabled",
+    "tenantId": "<guid>",
+    "user": {
+      "name": "example@contoso.org",
+      "type": "user"
     }
-    }
+  },
+  ...
+]
+```
 
-然後執行 **policy definition create** 命令：
+請注意，其中一個訂用帳戶已標示為預設。 此訂用帳戶是您目前作業的內容。 若要切換成其他訂用帳戶，請使用 **az account set** 命令提供訂用帳戶名稱。
 
-    azure policy definition create MyPolicy -p c:\temp\policy.json
+```azurecli-interactive
+az account set -s "Example Subscription Two"
+```
 
-此命令會顯示如下輸出：
+若要顯示目前的訂用帳戶內容，請使用無任何參數的 **az account show**：
 
-    + Creating policy definition MyPolicy data:    PolicyName:             MyPolicy data:    PolicyDefinitionId:     /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy
+```azurecli-interactive
+az account show
+```
 
-    data:    PolicyType:             Custom data:    DisplayName:            undefined data:    Description:            undefined data:    PolicyRule:             field=location, in=[westus, northcentralus], effect=deny
+## <a name="create-a-resource-group"></a>建立資源群組
+將任何資源部署至訂用帳戶之前，您必須建立將包含該資源的資源群組。
 
- 若要在您想要的範圍內指派原則，請使用從前一個命令傳回的 **PolicyDefinitionId**。 在下列範例中，此範圍是訂用帳戶，但您可以將範圍設為資源群組或個別資源︰
+若要建立資源群組，請使用 **az group create** 命令。 此命令會使用 **name** 參數來指定資源群組的名稱，並使用 **location** 參數來指定其位置。
 
-    azure policy assignment create MyPolicyAssignment -p /subscriptions/########-####-####-####-############/providers/Microsoft.Authorization/policyDefinitions/MyPolicy -s /subscriptions/########-####-####-####-############/
+```azurecli-interactive
+az group create --name TestRG1 --location "South Central US"
+```
 
-您可以使用 **policy definition show**、**policy definition set** 和 **policy definition delete** 命令來取得、變更或移除原則定義。
+輸出的格式如下：
 
-同樣地，您可以使用 **policy assignment show**、**policy assignment set** 和 **policy assignment delete** 命令來取得、變更或移除原則指派。
+```json
+{
+  "id": "/subscriptions/<subscription-id>/resourceGroups/TestRG1",
+  "location": "southcentralus",
+  "managedBy": null,
+  "name": "TestRG1",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
+```
 
-## <a name="export-a-resource-group-as-a-template"></a>匯出資源群組作為範本
-針對現有的資源群組，您可以檢視此資源群組的 Resource Manager 範本。 匯出此範本有兩個優點︰
+如果您稍後需要取出資源群組，請使用下列命令：
 
-1. 因為所有基礎結構都已定義於範本中，所以您可以輕鬆地自動進行解決方案的未來部署。
-2. 您可以查看代表您的解決方案的 JSON，藉此熟悉範本語法。
+```azurecli-interactive
+az group show --name TestRG1
+```
 
-使用 Azure CLI，您可以匯出代表資源群組目前狀態的範本，或下載特定部署所用的範本。
+若要取得訂用帳戶中的所有資源群組，請使用：
 
-* **匯出資源群組的範本** - 這在您已變更資源群組，而且需要擷取其目前狀態的 JSON 表示法時很有用。 不過，產生的範本只包含最少的參數數目，但不包含任何變數。 範本中大部分的值為硬式編碼。 在部署所產生的範本之前，您可能想要將更多的值轉換成參數，以便針對不同的環境自訂部署。
-  
-    若要將資源群組範本匯出至本機目錄中，請執行 `azure group export` 命令，如下列範例所示。 (取代適用於您作業系統環境的本機目錄。)
-  
-        azure group export testRG ~/azure/templates/
-* **下載特定部署的範本** - 這在您需要檢視用來部署資源的實際範本時很有用。 範本會包含針對原始部署定義的所有參數和變數。 不過，如果您組織中有人已變更非此範本中定義的資源群組，此範本並不會代表資源群組的目前狀態。
-  
-    若要將用於特定部署的範本下載至本機目錄，請執行 `azure group deployment template download` 命令。 例如：
-  
-        azure group deployment template download TestRG testRGDeploy ~/azure/templates/downloads/
+```azurecli-interactive
+az group list
+```
 
-> [!NOTE]
-> 範本匯出處於預覽狀態，並非所有的資源類型目前都支援匯出範本。 嘗試匯出範本時，您可能會看到一個錯誤，表示未匯出某些資源。 如有需要，下載範本之後，在範本中手動定義這些資源。
-> 
-> 
+## <a name="add-resources-to-a-resource-group"></a>將資源加入資源群組
+若要將資源加入資源群組，您可以使用 **az resource create** 命令，或是您建立之資源類型的特定命令 (例如 **az storage account create**)。 您可能會發現使用資源類型的特定命令會比較容易，因為它包含新資源所需的屬性參數。 若要使用 **az resource create**，您必須知道要設定的所有屬性而不需經過提示。
+
+不過，透過指令碼新增資源可能會在日後造成混淆，因為新的資源不在 Resource Manager 範本中。 範本可讓您可靠且重複地部署您的解決方案。
+
+下列命令會建立儲存體帳戶。 請不要使用範例所顯示的名稱，而是為儲存體帳戶提供唯一的名稱。 名稱的長度必須介於 3 到 24 個字元，而且只能使用數字和小寫字母。 如果使用範例所顯示的名稱，您會收到錯誤，因為該名稱已在使用中。
+
+```azurecli-interactive
+az storage account create -n myuniquestorage -g TestRG1 -l westus --sku Standard_LRS
+```
+
+如果您稍後需要取出此資源，請使用下列命令：
+
+```azurecli-interactive
+az storage account show --name myuniquestorage --resource-group TestRG1
+```
+
+## <a name="add-a-tag"></a>新增標記
+
+標籤可讓您根據不同的屬性組織您的資源。 例如，您在不同的資源群組中可能有數個資源，屬於相同的部門。 您可以對這些資源套用部門標籤和值，將它們標示為屬於相同的類別目錄。 或者，您可以標記資源是在生產或測試環境中使用。 本主題中，您只會對一個資源套用標籤，但在您的環境中，很有可能會對所有資源套用標籤。
+
+下列命令對您的儲存體帳戶套用兩個標籤︰
+
+```azurecli-interactive
+az resource tag --tags Dept=IT Environment=Test -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+標籤會以一個物件的方式更新。 若要對已經包含標籤的資源新增標籤，請先擷取現有的標籤。 將新的標籤加入包含現有標籤的物件，然後對資源重新套用所有標籤。
+
+```azurecli-interactive
+jsonrtag=$(az resource show -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts" --query tags)
+rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
+az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --resource-type "Microsoft.Storage/storageAccounts"
+```
+
+## <a name="search-for-resources"></a>搜尋資源
+
+使用 **az resource list** 命令取出不同搜尋條件的資源。
+
+* 若要依名稱取得資源，請提供 **name** 參數︰
+
+  ```azurecli-interactive
+  az resource list -n myuniquestorage
+  ```
+
+* 若要取得資源群組中的所有資源，請提供 **resource-group** 參數︰
+
+  ```azurecli-interactive
+  az resource list --resource-group TestRG1
+  ```
+
+* 若要取得有某個標籤名稱和值的所有資源，請提供 **tag** 參數︰
+
+  ```azurecli-interactive
+  az resource list --tag Dept=IT
+  ```
+
+* 若要取得有特定資源類型的所有資源，請提供 **resource-type** 參數︰
+
+  ```azurecli-interactive
+  az resource list --resource-type "Microsoft.Storage/storageAccounts"
+  ```
+
+## <a name="lock-a-resource"></a>鎖定資源
+
+當您必須確保重要資源不會意外被刪除或修改時，就可以對資源進行鎖定。 您可以指定 **CanNotDelete** 或 **ReadOnly**。
+
+若要建立或刪除管理鎖定，您必須擁有 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 動作的存取權。 在內建角色中，只有「擁有者」和「使用者存取管理員」被授與這些動作的存取權。
+
+若要套用鎖定，請使用下列命令：
+
+```azurecli-interactive
+az lock create --lock-type CanNotDelete --resource-name myuniquestorage --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --name storagelock
+```
+
+在上述範例中鎖定的資源要到鎖定移除之後才能刪除。 若要移除鎖定，請使用︰
+
+```azurecli-interactive
+az lock delete --name storagelock --resource-group TestRG1 --resource-type Microsoft.Storage/storageAccounts --resource-name myuniquestorage
+```
+
+如需設定鎖定的詳細資訊，請參閱[使用 Azure Resource Manager 鎖定資源](resource-group-lock-resources.md)。
+
+## <a name="remove-resources-or-resource-group"></a>移除資源或資源群組
+您可以移除資源或資源群組。 當您移除資源群組時，也會移除該資源群組內的所有資源。
+
+* 若要從資源群組中刪除資源，請對於要刪除的資源類型使用 delete 命令。 此命令會刪除資源，但不會刪除資源群組。
+
+  ```azurecli-interactive
+  az storage account delete -n myuniquestorage -g TestRG1
+  ```
+
+* 若要刪除資源群組和其所有資源，請使用 **az group delete** 命令。
+
+  ```azurecli-interactive
+  az group delete -n TestRG1
+  ```
+
+這兩個命令都會要求您確認您想要移除資源或資源群組。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要取得部署作業的詳細資料，並使用 Azure CLI 進行部署錯誤疑難排解，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
-* 如果您想要使用 CLI 來設定應用程式或指令碼以存取資源，請參閱[使用 Azure CLI 來建立服務主體以存取資源](resource-group-authenticate-service-principal-cli.md)。
+* 若要了解如何建立 Resource Manager 範本，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
+* 若要了解部署範本的相關資訊，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy-cli.md)。
+* 您可以將現有的資源移動到新的資源群組。 如需範例，請參閱 [將資源移至新的資源群組或訂用帳戶](resource-group-move-resources.md)。
 * 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
-
-

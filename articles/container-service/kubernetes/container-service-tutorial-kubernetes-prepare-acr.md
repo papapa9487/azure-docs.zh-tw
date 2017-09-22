@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 3e1f7617bf2fc52ee4c15598f51a46276f4dc57d
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 951e4fe32e8074817ad20972925f2f0e9f91b4c8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -34,11 +34,11 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 > * 標記 ACR 的容器映像
 > * 將映像上傳至 ACR
 
-在後續教學課程中，此 ACR 執行個體會與 Azure Container Service 的 Kubernetes 叢集整合，以便安全地執行容器映像。 
+在後續教學課程中，此 ACR 執行個體會與 Azure Container Service 的 Kubernetes 叢集整合。 
 
 ## <a name="before-you-begin"></a>開始之前
 
-在[上一個教學課程](./container-service-tutorial-kubernetes-prepare-app.md)中，已針對簡單的 Azure Voting 應用程式建立容器映像。 在本教學課程中，此映像會推送至 Azure Container Registry。 如果您尚未建立 Azure Voting 應用程式映像，請回到[教學課程 1 – 建立容器映像](./container-service-tutorial-kubernetes-prepare-app.md)。 或者，將這裡詳述的步驟使用於任何容器映像。
+在[上一個教學課程](./container-service-tutorial-kubernetes-prepare-app.md)中，已針對簡單的 Azure Voting 應用程式建立容器映像。 如果您尚未建立 Azure Voting 應用程式映像，請回到[教學課程 1 – 建立容器映像](./container-service-tutorial-kubernetes-prepare-app.md)。
 
 本教學課程需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
@@ -46,7 +46,7 @@ Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝
 
 部署 Azure Container Registry 時，您必須先有資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 在此範例中，會在 westeurope 區域中建立名為 myResourceGroup 的資源群組。
+使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 在此範例中，`westeurope` 區域中會建立名為 `myResourceGroup` 的資源群組。
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
@@ -58,11 +58,11 @@ az group create --name myResourceGroup --location westeurope
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic --admin-enabled true
 ```
 
-在本教學課程的其餘部分，我們使用 "acrname" 作為您選擇之容器登錄名稱的預留位置。
+在本教學課程的其餘部分，我們使用 `<acrname>` 作為容器登錄名稱的預留位置。
 
 ## <a name="container-registry-login"></a>Container Registry 登入
 
-您必須先登入 ACR 執行個體，再將映像推送到它。 使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#login) 命令來完成此作業。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
+使用 [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) 命令登入 ACR 執行個體。 您必須在建立容器登錄時，為容器登錄提供唯一名稱。
 
 ```azurecli
 az acr login --name <acrName>
@@ -71,8 +71,6 @@ az acr login --name <acrName>
 此命令在完成之後會傳回「登入成功」訊息。
 
 ## <a name="tag-container-images"></a>標記容器映像
-
-每個容器映像都必須標記登錄的 loginServer 名稱。 將容器映像推送到映像登錄時，此標籤可用於路由傳送。
 
 若要查看目前的映像清單，請使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令。
 
@@ -89,13 +87,15 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
+每個容器映像都必須標記登錄的 loginServer 名稱。 將容器映像推送到映像登錄時，此標籤可用於路由傳送。
+
 若要取得 loginServer 名稱，請執行下列命令。
 
 ```azurecli
-az acr show --name <acrName> --query loginServer --output table
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-現在，以容器登錄的 loginServer 標記 azure-vote-front 映像。 此外，將 `:redis-v1` 新增至映像名稱的結尾。 此標籤指示映像版本。
+現在，以容器登錄的 loginServer 標記 `azure-vote-front` 映像。 此外，將 `:redis-v1` 新增至映像名稱的結尾。 此標籤指示映像版本。
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v1
@@ -119,7 +119,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>將映像推送到登錄
 
-將 *azure-vote-front* 映像推送到登錄。 
+將 `azure-vote-front`映像推送至登錄。 
 
 使用下列範例，以您環境中的 loginServer 取代 ACR loginServer 名稱。
 

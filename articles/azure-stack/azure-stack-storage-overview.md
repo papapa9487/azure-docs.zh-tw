@@ -1,6 +1,6 @@
 ---
-title: Introduction to Azure Stack storage
-description: Learn about Azure Stack storage
+title: "Azure Stack 儲存體簡介"
+description: "了解 Azure Stack 儲存體"
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -18,74 +18,74 @@ ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c698e685fd395791b12c9db68d443de1cb804a3b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Introduction to Azure Stack storage
+# <a name="introduction-to-azure-stack-storage"></a>Azure Stack 儲存體簡介
 
-## <a name="overview"></a>Overview
-Azure Stack Storage is a set of cloud storage services including Blobs, Tables and Queues which are consistent with Azure Storage services.
+## <a name="overview"></a>概觀
+Azure Stack 儲存體是一組雲端儲存體服務，包括與 Azure 儲存體服務一致的 Blob、資料表和佇列。
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage services
-Azure Stack storage provides the following three services:
+## <a name="azure-stack-storage-services"></a>Azure Stack 儲存體服務
+Azure Stack 儲存體提供下列三項服務：
 
-* **Blob Storage** 
+* **Blob 儲存體** 
 
-    Blob storage stores unstructured object data. A blob can be any type of text or binary data, such as a document, media file, or application installer.
-* **Table Storage** 
+    Blob 儲存體可儲存非結構化物件資料。 Blob 可以是任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。
+* **資料表儲存體** 
 
-    Table storage stores structured datasets. Table storage is a NoSQL key-attribute data store, which allows for rapid development and fast access to large quantities of data.
-* **Queue Storage** 
+    資料表儲存體可儲存結構化的資料集。 表格儲存體屬於 NoSQL 索引鍵屬性資料儲存，可允許快速開發和迅速存取大量資料。
+* **佇列儲存體** 
 
-    Queue storage provides reliable messaging for workflow processing and for communication between components of cloud services.
+    佇列儲存體針對工作流程處理及雲端服務元件間的通訊，提供可靠的訊息服務。
 
-An Azure Stack storage account is a secure account that gives you access to services in Azure Stack Storage. Your storage account provides the unique namespace for your storage resources. The following diagram shows the relationships between the Azure Stack storage resources in a storage account:
+Azure Stack 儲存體帳戶是可讓您存取 Azure Stack 儲存體服務的安全帳戶。 您的儲存體帳戶提供儲存體資源的唯一命名空間。 下圖顯示儲存體帳戶中 Azure Stack 儲存體資源之間的關係：
 
-![Azure Stack Storage overview](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
-
-
-### <a name="blob-storage"></a>Blob storage
-
-For users with a large amount of unstructured object data to store in the cloud, Blob storage offers an effective and scalable solution. You can use Blob storage to store content such as:
-
-* Documents
-* Social data such as photos, videos, music, and blogs
-* Backups of files, computers, databases, and devices
-* Images and text for web applications
-* Configuration data for cloud applications
-* Big data, such as logs and other large datasets
-
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the limit of storage account.
-
-Blob storage offers three types of blobs: 
-* **Block blobs** 
-
-    Block blobs are optimized for streaming and storing cloud objects, and are a good choice for storing documents, media files, backups etc.
-* **Append blobs** 
-
-    Append blobs are similar to block blobs, but are optimized for append operations. An append blob can be updated only by adding a new block to the end. Append blobs are a good choice for scenarios such as logging, where new data needs to be written only to the end of the blob.
-* **Page blobs** 
-
-    Page blobs are optimized for representing IaaS disks and supporting random writes which is up to 1 TB in size. An Azure Stack virtual machine attached IaaS disk is a VHD stored as a page blob.
+![Azure Stack 儲存體概觀](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 
-### <a name="table-storage"></a>Table storage
-Modern applications often demand data stores with greater scalability and flexibility than previous generations of software required. Table storage offers highly available, massively scalable storage, so that your application can automatically scale to meet user demand. Table storage is Microsoft's NoSQL key/attribute store – it has a schemaless design, making it different from traditional relational databases. With a schemaless data store, it's easy to adapt your data as the needs of your application evolve. Table storage is easy to use, so developers can create applications quickly.
+### <a name="blob-storage"></a>Blob 儲存體
 
-Table storage is a key-attribute store, meaning that every value in a table is stored with a typed property name. The property name can be used for filtering and specifying selection criteria. A collection of properties and their values comprise an entity. Since Table storage is schemaless, two entities in the same table can contain different collections of properties, and those properties can be of different types.
+對於擁有大量非結構化物件資料要儲存於雲端的使用者，Blob 儲存體提供有效且可調整的解決方案。 您可以使用 Blob 儲存體來儲存如下所示的內容：
 
-You can use Table storage to store flexible datasets, such as user data for web applications, address books, device information, and any other type of metadata that your service requires. For today's Internet-based applications, NoSQL databases like Table storage offer a popular alternative to traditional relational databases.
+* 文件
+* 社交資料 (例如照片、視訊、音樂和部落格)
+* 檔案、電腦、資料庫和裝置的備份
+* Web 應用程式的影像和文字
+* 雲端應用程式的組態資料
+* 巨量資料 (例如記錄和其他大型資料集)
 
-A storage account can contain any number of tables, and a table can contain any number of entities, up to the capacity limit of the storage account.
+每個 Blob 會組織成一個容器。 容器也提供對物件群組指派安全原則的實用方式。 儲存體帳戶可包含任意數目的容器，而容器可包含任意數目的 Blob，最高可達儲存體帳戶的限制。
 
-### <a name="queue-storage"></a>Queue storage
-In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage provides a reliable messaging solution for asynchronous communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process workflows.
+Blob 儲存體提供三種類型的 Blob： 
+* **區塊 Blob** 
 
-A storage account can contain any number of queues, and a queue can contain any number of messages, up to the capacity limit of the storage account. Individual messages may be up to 64 KB in size.
+    區塊 Blob 已針對串流和儲存雲端物件進行最佳化，是儲存文件、媒體檔案、備份等的不錯選擇。
+* **附加 Blob** 
 
-## <a name="next-steps"></a>Next steps
-* [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
+    附加 Blob 和區塊 Blob 類似，但已針對附加作業最佳化。 附加 Blob 只能透過在結尾新增新的區塊來更新。 對於如記錄等僅需要將新資料寫入 Blob 結尾的情況，附加 Blob 是不錯的選擇。
+* **分頁 Blob** 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../storage/common/storage-introduction.md)
+    分頁 Blob 已針對代表 IaaS 磁碟與支援隨機寫入進行最佳化，且大小可以高達 1 TB。 Azure Stack 虛擬機器連結的 IaaS 磁碟是以分頁 Blob 方式儲存的 VHD。
+
+
+### <a name="table-storage"></a>表格儲存體
+新式應用程式通常會要求以超越前幾代軟體需求的延伸性和彈性儲存資料。 表格儲存體提供高可用性且可大幅擴充的儲存體，方便您的應用程式自動擴充以滿足使用者需求。 表格儲存體屬於 Microsoft 的 NoSQL 索引鍵屬性儲存，它的無結構描述設計讓它有別於傳統的關聯式資料庫。 透過無結構描述資料儲存，便可輕易隨著應用程式發展需求改寫資料。 表格儲存體非常容易使用，方便開發人員可以快速建立應用程式。
+
+資料表儲存體屬於索引鍵屬性儲存，代表資料表中的每個值會與具型別的屬性名稱一起儲存。 屬性名稱可用來篩選與指定選取條件。 一組屬性及其值就構成一個實體。 因為表格儲存體沒有結構描述，因此相同資料表中的兩個實體可包含不同屬性集合，且這些屬性可以是不同類型。
+
+您可以使用表格儲存體來儲存具彈性的資料集，例如 Web 應用程式的使用者資料、通訊錄、裝置資訊，以及服務所需的任何其他中繼資料類型。 在現今的網際網路架構應用程式中，NoSQL 資料庫 (如表格儲存體) 提供傳統關聯式資料庫的熱門替代方式。
+
+儲存體帳戶可包含任意數目的資料表，而資料表可包含任意數目的實體，最高可達儲存體帳戶的容量限制。
+
+### <a name="queue-storage"></a>佇列儲存體
+設計擴充性的應用程式時，會經常分離應用程式元件，以便進行個別擴充。 佇列儲存體針對應用程式元件間的非同步通訊，提供可靠的訊息服務解決方案，無論應用程式元件是在雲端、桌面、內部部署伺服器或行動裝置上執行。 佇列儲存體也支援管理非同步工作並建置處理工作流程。
+
+儲存體帳戶可包含任意數目的佇列，而佇列可包含任意數目的訊息，最高可達儲存體帳戶的容量限制。 個別訊息的大小可能高達 64 KB。
+
+## <a name="next-steps"></a>後續步驟
+* [與 Azure 一致的儲存體：差異與注意事項](azure-stack-acs-differences.md)
+
+* 若要深入了解 Azure 儲存體，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)
 
 

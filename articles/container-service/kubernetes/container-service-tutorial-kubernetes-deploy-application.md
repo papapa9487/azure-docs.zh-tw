@@ -14,14 +14,14 @@ ms.devlang: aurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 81a6a3d5364642b2da75faf875d64d2f4a1939d4
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: b8f747b15bf491b7221a71b5beaa595aa7f1b49b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/25/2017
 在本教學課程 (七個章節的第四部分) 中，已在 Kubernetes 叢集中部署一個應用程式範例。 完成的步驟包括：
 
 > [!div class="checklist"]
-> * 下載 Kubernetes 資訊清單檔
+> * 更新 Kubernetes 資訊清單檔
 > * 在 Kubernetes 中執行應用程式
 > * 測試應用程式
 
@@ -40,29 +40,15 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="before-you-begin"></a>開始之前
 
-在先前的教學課程中，已將應用程式封裝成容器映像、將此映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./container-service-tutorial-kubernetes-prepare-app.md)。 
+在先前的教學課程中，已將應用程式封裝成容器映像、將此映像上傳至 Azure Container Registry，並已建立 Kubernetes 叢集。 
 
-本教學課程至少需要一個 Kubernetes 叢集。
+若要完成本教學課程中的內容，您需要預先建立的 `azure-vote-all-in-one-redis.yml` Kubernetes 資訊清單檔。 在先前的教學課程中，此檔案已連同應用程式原始程式碼一起下載。 請確認您擁有複製的存放庫，而且已將目錄變更為複製的目錄。
 
-## <a name="get-manifest-file"></a>取得資訊清單檔
-
-針對此教學課程，會使用 Kubernetes 資訊清單來部署 [Kubernetes 物件](https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/)。 Kubernetes 資訊清單為 YAML 或 JSON 格式的檔案，包含 Kubernetes 物件部署和設定指示。
-
-Azure Vote 應用程式存放庫中提供了本教學課程中的應用程式資訊清單檔，這是在上一個教學課程中複製的存放庫。 如果您尚未這麼做，請使用下列命令來複製存放庫： 
-
-```bash
-git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
-```
-
-在所複製之存放庫的下列目錄底下，即可找到資訊清單檔。
-
-```bash
-/azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
-```
+如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./container-service-tutorial-kubernetes-prepare-app.md)。 
 
 ## <a name="update-manifest-file"></a>更新資訊清單檔
 
-如果是使用 Azure 容器登錄來儲存容器映像，必須使用 ACR loginServer 名稱來更新資訊清單。
+在本教學課程中，我們一直使用 Azure Container Registry (ACR) 來儲存容器映像。 執行應用程式之前，您需要在 Kubernetes 資訊清單檔中更新 ACR 登入伺服器名稱。
 
 請使用 [az acr list](/cli/azure/acr#list) 命令來取得 ACR 登入伺服器名稱。
 
@@ -70,7 +56,13 @@ git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-已使用 microsoft 的存放庫名稱預先建立範例資訊清單。 使用任何文字編輯器開啟檔案，並將 microsoft 值取代為您 ACR 執行個體的登入伺服器名稱。
+我們已預先建立登入伺服器名稱為 `microsoft` 的資訊清單檔。 使用任何文字編輯器開啟該檔案。 在此範例中，我們使用 `vi` 開啟檔案。
+
+```bash
+vi azure-vote-all-in-one-redis.yml
+```
+
+將 `microsoft` 取代為 ACR 登入伺服器名稱。 您可以在資訊清單檔的第 **47** 行找到這個值。
 
 ```yaml
 containers:
@@ -78,12 +70,14 @@ containers:
   image: microsoft/azure-vote-front:redis-v1
 ```
 
+儲存並關閉檔案。
+
 ## <a name="deploy-application"></a>部署應用程式
 
 使用 [kubectl create](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#create) 命令來執行應用程式。 此命令會剖析資訊清單檔，並建立已定義的 Kubernetes 物件。
 
 ```azurecli-interactive
-kubectl create -f ./azure-voting-app-redis/kubernetes-manifests/azure-vote-all-in-one-redis.yml
+kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 輸出：
@@ -105,7 +99,7 @@ service "azure-vote-front" created
 kubectl get service azure-vote-front --watch
 ```
 
-一開始，azure-vote-front 服務的 **EXTERNAL-IP** 會顯示為 pending。 當 EXTERNAL-IP 位址從 *pending* 變成一個「IP 位址」之後，請使用 `CTRL-C` 來停止 kubectl 監看式流程。
+一開始，`azure-vote-front` 服務的 **EXTERNAL-IP** 會顯示為 `pending`。 當 EXTERNAL-IP 位址從 `pending` 變為 `IP address` 之後，請使用 `CTRL-C` 來停止 kubectl 監看式流程。
 
 ```bash
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE

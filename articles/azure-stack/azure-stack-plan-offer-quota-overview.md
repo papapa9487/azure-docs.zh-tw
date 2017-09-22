@@ -1,6 +1,6 @@
 ---
-title: Azure Stack plan, offer, quota, and subscription overview | Microsoft Docs
-description: As a cloud operator, I want to understand Azure Stack plans, offers, quotas, and subscriptions.
+title: "Azure Stack 方案、供應項目、配額和訂用帳戶概觀 | Microsoft Docs"
+description: "身為雲端操作員，我想要了解 Azure Stack 方案、供應項目、配額和訂用帳戶。"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -18,63 +18,63 @@ ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 9f19d4ea53fb07bff97a5cd06d10af74f605bf1c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>Plan, offer, quota, and subscription overview
+# <a name="plan-offer-quota-and-subscription-overview"></a>方案、供應項目、配額和訂用帳戶概觀
 
-Azure Stack lets you deliver a wide variety of services, like virtual machines, SQL Server databases, SharePoint, Exchange, and even [Azure Marketplace items](azure-stack-marketplace-azure-items.md). As a cloud operator, you configure and deliver such services in Azure Stack by using plans, offers, and quotas.
+Azure Stack 可讓您提供各式各樣的服務，例如虛擬機器、SQL Server 資料庫、SharePoint、Exchange，甚至 [Azure Marketplace 項目](azure-stack-marketplace-azure-items.md)。 身為雲端操作員，您可以使用方案、供應項目與配額，在 Azure Stack 中設定並提供這類服務。
 
-Offers contain one or more plans, and each plan includes one or more services. By creating plans and combining them into different offers, you control
-- which services and resources users can access
-- the amount of those resources that users can consume
-- which regions have access to the resources
+供應項目包含一個或多個方案，而且每個方案包含一個或多個服務。 透過建立方案並將其組合成不同的供應項目，您可以控制
+- 使用者可以存取的服務和資源
+- 使用者可以取用這些資源的數量
+- 可以存取資源的區域
 
-When you deliver a service, you'll follow these high-level steps:
+當您提供服務時，將遵循下列大致步驟：
 
-1. Add a service that you want to deliver to your users.
-2. Create a plan that contains one or more services. When creating a plan, you will select or create quotas that define the resource limits of each service in the plan.
-3. Create an offer that contains one or more plans (including base plans and optional add-on plans).
+1. 新增您要提供給使用者的服務。
+2. 建立包含一個或多個服務的方案。 建立方案時，您將會選取或建立配額，以定義方案中每個服務的資源限制。
+3. 建立包含一個或多個方案 (包含基本方案及選擇性的附加方案) 的供應項目。
 
-After you have created the offer, your users can subscribe to it to access the services and resources it provides. Users can subscribe to as many offers as they want. The following diagram shows a simple example of a user who has subscribed to two offers. Each offer has a plan or two, and each plan gives them access to services.
+建立供應項目之後，您的使用者就可以訂閱供應項目，以存取它所提供的服務和資源。 使用者可以訂閱所需的任意數量供應項目。 下圖顯示的簡單範例是已訂閱兩個供應項目的使用者。 每個供應項目都有一個或兩個方案，而且每個方案都能提供對服務的存取權。
 
 ![](media/azure-stack-key-features/image4.png)
 
-## <a name="plans"></a>Plans
+## <a name="plans"></a>方案
 
-Plans are groupings of one or more services. As a cloud operator, you [create plans](azure-stack-create-plan.md) to offer to your users. In turn, your users subscribe to your offers to use the plans and services they include. When creating plans, make sure to set your quotas, define your base plans, and consider including optional add-on plans.
+方案結合一或多項服務。 身為雲端操作員，您可以[建立方案](azure-stack-create-plan.md)以提供給使用者。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 建立方案時，請務必設定配額、定義基本方案，並考慮包含選擇性的附加方案。
 
-### <a name="quotas"></a>Quotas
+### <a name="quotas"></a>配額
 
-To help you manage your cloud capacity, you select or create a quota for each service in a plan. Quotas define the upper resource limits that a user subscription can provision or consume. For example, a quota might allow a user to create up to five virtual machines. Quotas can limit a variety of resources, like virtual machines, RAM, and CPU limits.
+為了協助管理雲端容量，您可以在方案中，為每個服務選取或建立配額。 配額會定義使用者訂用帳戶可以佈建或取用的資源上限。 例如，配額可能會允許使用者建立最多五部虛擬機器。 配額可以限制各種不同的資源，例如虛擬機器、RAM 和 CPU 限制。
 
-Quotas can be configured by region. For example, a plan containing compute services from Region A could have a quota of two virtual machines, 4-GB RAM, and 10 CPU cores. In the Azure Stack Development Kit, only one region (named *local*) is available.
+配額可依地區設定。 例如，包含來自區域 A 計算服務的方案，其配額可能是兩部虛擬機器、4-GB RAM 與 10 個 CPU 核心。 在 Azure Stack 開發套件中，只有一個區域 (名為 *local*) 可供使用。
 
-### <a name="base-plan"></a>Base plan
+### <a name="base-plan"></a>基本方案
 
-When creating an offer, the service administrator can include a base plan. These base plans are included by default when a user subscribes to that offer. When a user subscribes, they have access to all the resource providers specified in those base plans (with the corresponding quotas).
+建立供應項目時，服務系統管理員可以包含基本方案。 當使用者訂閱該供應項目時，預設會包含這些基本方案。 當使用者訂閱時，即可存取這些基本方案中所指定的所有資源提供者 (同時受到對應的配額限制)。
 
-### <a name="add-on-plans"></a>Add-on plans
+### <a name="add-on-plans"></a>附加方案
 
-You can also include optional add-on plans in an offer. Add-on plans are not included by default in the subscription. Add-on plans are additional plans (with quotas) available in an offer that a subscriber can add to their subscriptions. For example, you can offer a base plan with limited resources for a trial, and an add-on plan with more substantial resources to customers who decide to adopt the service.
+您也可以在供應項目中包含選擇性的附加方案。 訂用帳戶中預設不會包含附加方案。 供應項目中提供的附加方案屬於額外的方案 (具有配額)，訂閱者可將其加入其訂用帳戶中。 例如，您可以提供資源有限的基本方案以供試用，並為決定採用服務的客戶提供更多實質資源的附加方案。
 
-## <a name="offers"></a>Offers
+## <a name="offers"></a>供應項目
 
-Offers are groups of one or more plans that you create so that users can subscribe to them. For example, Offer Alpha can contain Plan A containing a set of compute services and Plan B containing a set of storage and network services. 
+供應項目是您建立的一個或多個方案的群組，使用者可以訂閱這些供應項目。 例如，供應項目 Alpha 可以包含方案 A (其中包含一組計算服務) 與方案 B (其中包含一組儲存體與網路服務)。 
 
-When you [create an offer](azure-stack-create-offer.md), you must include at least one base plan, but you can also create add-on plans that users can add to their subscription.
-
-
-## <a name="subscriptions"></a>Subscriptions
-
-A subscription is how users access your offers. If you’re a cloud operator at a service provider, your users (tenants) buy your services by subscribing to your offers. If you’re a cloud operator at an organization, your users (employees) can subscribe to the services you offer without paying. Each combination of a user with an offer is a unique subscription. Thus, a user can have subscriptions to multiple offers, but each subscription applies to only one offer. Plans, offers, and quotas apply only to each unique subscription – they can’t be shared between subscriptions. Each resource that a user creates is associated with one subscription.
+當您[建立供應項目](azure-stack-create-offer.md)時，必須至少包含一個基本方案，但是您也可以建立使用者可以加入至其訂用帳戶的附加方案。
 
 
-### <a name="default-provider-subscription"></a>Default provider subscription
+## <a name="subscriptions"></a>訂用帳戶
 
-The Default Provider Subscription is automatically created when you deploy the Azure Stack Development Kit. This subscription can be used to manage Azure Stack, deploy further resource providers, and create plans and offers for users. For security and licensing reasons, it should not be used to run customer workloads and applications. 
+訂用帳戶是使用者存取供應項目的方式。 如果您是服務提供者的雲端操作員，使用者 (租用戶) 會透過訂閱供應項目的方式來購買您的服務。 如果您是組織的雲端操作員，使用者 (員工) 可以訂閱您提供的服務，而不必付錢。 使用者與供應項目的每個組合都是一個唯一的訂用帳戶。 因此，使用者可以擁有多個供應項目的訂用帳戶，但是每個訂用帳戶都僅適用於一個供應項目。 方案、供應項目與配額僅適用於每個唯一的訂用帳戶，而無法在訂用帳戶之間共用。 使用者建立的每個資源都與一個訂用帳戶相關聯。
 
-## <a name="next-steps"></a>Next steps
 
-[Create a plan](azure-stack-create-plan.md)
+### <a name="default-provider-subscription"></a>預設的提供者訂用帳戶
+
+當您部署 Azure Stack 開發套件時，會自動建立預設的提供者訂用帳戶。 此訂用帳戶可用來管理 Azure Stack、部署其他資源提供者，以及為使用者建立方案與供應項目。 基於安全性和授權的緣故，此訂用帳戶不應用於執行客戶工作負載和應用程式。 
+
+## <a name="next-steps"></a>後續步驟
+
+[建立方案](azure-stack-create-plan.md)
 

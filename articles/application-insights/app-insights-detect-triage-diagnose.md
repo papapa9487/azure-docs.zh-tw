@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c6bfa094f5f06483a9c59a1e0167e5fa7f8f053e
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: afcfc6bb27506dbcc44217680e779318107b33d9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps 適用的 Application Insights 概觀
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/28/2017
 
 小組使用 Application Insights 密切監視上線 Web 應用程式的下列項目：
 
-* 效能。 他們想要了解回應時間如何隨著要求計數變化；使用多少 CPU、網路、磁碟和其他資源；以及瓶頸所在。
+* 效能。 他們想要了解回應時間如何隨著要求計數變化；使用多少 CPU、網路、磁碟和其他資源；哪個應用程式程式碼降低效能；以及瓶頸所在。
 * 失敗。 如果有例外狀況或失敗的要求，或如果效能計數器超出其舒適範圍，小組必須快速知道以便採取動作。
 * 使用狀況。 當發行新功能時，小組想要知道其使用程度，以及使用者在使用上是否有任何問題。
 
@@ -181,11 +181,14 @@ Marcela 不會無所事事等候警示。 在每次重新部署之後，她都�
 
 **問題在於我們嗎？**  如果特定類型的要求效能突然下降 - 例如客戶想要對帳單時 - 則可能是外部子系統而非 Web 應用程式有問題。 在「計量瀏覽器」中，選取相依性失敗率和相依性期間率，並將其過去幾個小時或幾天的歷程記錄與您偵測到的問題比較。 如果有相互關聯的變更，則外部子系統可能是原因所在。  
 
+
 ![相依性失敗和對相依性呼叫期間的圖表](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 有些緩慢相依性的問題是地理位置問題。 Fabrikam 銀行使用 Azure virtual 機器，並發現他們誤將 Web 伺服器和帳戶伺服器放置在不同國家/地區。 透過移轉其中一部伺服器獲得明顯的改善。
 
-**我們做了什麼？** 如果問題似乎不在於相依性，而且如果不是持續有問題，則可能是由於最近的變更而導致。 度量和事件圖表提供的歷史觀點讓您輕鬆將任何突然的變更與部署產生相互關聯。 它可縮小問題的搜尋範圍。
+**我們做了什麼？** 如果問題似乎不在於相依性，而且如果不是持續有問題，則可能是由於最近的變更而導致。 度量和事件圖表提供的歷史觀點讓您輕鬆將任何突然的變更與部署產生相互關聯。 它可縮小問題的搜尋範圍。 若要識別應用程式程式碼中哪些行讓效能變慢，請啟用 Application Insights Profiler。 請參閱[使用 Application Insights 來即時分析 Azure Web Apps](./app-insights-profiler.md)。 啟用分析工具之後，您會看到類似下列的追蹤。 在此範例中，很容易就能注意到是方法 *GetStorageTableData* 造成問題。  
+
+![App Insights Profiler 追蹤](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
 **發生什麼？** 有些問題很少發生，而且透過離線測試可能難以追蹤。 我們能做的是嘗試在問題發生時擷取錯誤。 您可以在例外狀況報告中檢查堆疊傾印。 此外，您可以使用喜好的記錄架構或使用 TrackTrace() 或 TrackEvent() 來編寫追蹤呼叫。  
 
@@ -203,7 +206,7 @@ Fabrikam 銀行的開發小組對效能測量採取較使用 Application Insight
 ## <a name="monitor-user-activity"></a>監視使用者活動
 當回應時間一直都不錯，而且例外狀況不多時，開發小組可以繼續往可用性的方向努力。 他們可以思考如何改善使用者體驗，以及如何鼓勵更多使用者達到想要的目標。
 
-Application Insights 也可以用來了解使用者在應用程式內執行的動作。 執行順暢時，小組會想要得知哪些功能最受歡迎、使用者喜歡或感到有困難的部份，以及使用者回來的頻率。 這些資訊有助於將他們近期的工作排定優先順序。 而他們可以計劃測量每個功能的成功度，作為開發週期的一部份。 
+Application Insights 也可以用來了解使用者在應用程式內執行的動作。 執行順暢時，小組會想要得知哪些功能最受歡迎、使用者喜歡或感到有困難的部份，以及使用者回來的頻率。 這些資訊有助於將他們近期的工作排定優先順序。 而他們可以計劃測量每個功能的成功度，作為開發週期的一部份。
 
 例如，使用者在網站上的典型使用者旅程是明確的「漏斗圖」。 許多客戶會研究不同類型的貸款利率。 少部分的客戶會繼續填寫報價單。 在取得報價單的客戶當中，有一部分會繼續，並取得貸款。
 

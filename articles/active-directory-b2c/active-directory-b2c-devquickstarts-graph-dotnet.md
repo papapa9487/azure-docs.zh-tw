@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 1e6748f40c7b825615b3f58243afd9d50348214d
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C：使用圖形 API
@@ -59,6 +59,11 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 5. 最後，回到 [必要權限] 功能表，按一下 [授與權限] 按鈕。
 
 現在，您的應用程式具有從 B2C 租用戶建立、讀取和更新使用者的權限。
+
+> [!NOTE]
+> 授與權限可能需要幾分鐘才能完全處理完成。
+> 
+> 
 
 ## <a name="configure-delete-permissions-for-your-application"></a>設定應用程式的刪除權限
 目前，「讀取和寫入目錄資料」權限**不**包含執行任何刪除作業的能力，例如刪除使用者。 如果希望應用程式有能力刪除使用者，您必須執行下列額外步驟 (需要使用 PowerShell)，否則可以跳到下一節。

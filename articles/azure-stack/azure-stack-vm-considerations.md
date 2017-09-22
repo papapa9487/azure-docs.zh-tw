@@ -1,6 +1,6 @@
 ---
-title: Differences and considerations for virtual machines in Azure Stack | Microsoft Docs
-description: Learn about differences and considerations when working with virtual machines in Azure Stack.
+title: "Azure Stack 中虛擬機器的差異與考量 | Microsoft Docs"
+description: "了解使用 Azure Stack 中虛擬機器時的差異與考量。"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,56 +12,56 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/4/2017
+ms.date: 9/15/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: f97433d7db5811c69851002e459eb01b6e97a722
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: b09c035a15453bdaf4eaf590e3bad9db3da15173
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerations for Virtual Machines in Azure Stack
+# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Azure Stack 中虛擬機器的考量
 
-Virtual machines are an on-demand, scalable computing resources offered by Azure Stack. When you use Virtual Machines, you must understand that there are differences between the features that are available in Azure and Azure Stack. This article provides an overview of the unique considerations for Virtual Machines and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+虛擬機器是 Azure Stack 所提供的隨選、可調整計算資源。 當您使用虛擬機器時，必須了解 Azure 與 Azure Stack 中所提供功能之間的差異。 此文章提供 Azure Stack 中虛擬機器及其功能的獨特考量概觀。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)主題。
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Cheat sheet: Virtual machine differences
+## <a name="cheat-sheet-virtual-machine-differences"></a>速查表：虛擬機器差異
 
-| Feature | Azure (global) | Azure Stack |
+| 功能 | Azure (全域) | Azure Stack |
 | --- | --- | --- |
-| Virtual machine images | The Azure Marketplace contains images that you can use to create a virtual machine. See the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) page to view the list of images that are available in the Azure Marketplace. | By default, there aren’t any images available in the Azure Stack marketplace. The Azure Stack cloud administrator should [publish](azure-stack-add-default-image.md) or [download images](azure-stack-download-azure-marketplace-item.md) to the Azure Stack marketplace before users can use them. |
-| Virtual machine sizes | Azure supports a wide variety of sizes for virtual machines. To learn about the available sizes and options, refer to the [Windows virtual machines sizes](../virtual-machines/virtual-machines-windows-sizes.md) and [Linux virtual machine sizes](../virtual-machines/linux/sizes.md) topics. | Azure Stack supports a subset of Virtual Machine sizes that are available in Azure. To view the list of supported sizes, refer to the [virtual machine sizes](#virtual-machine-sizes) section of this article. |
-| Virtual machine quotas | [Quota limits](../azure-subscription-service-limits.md#service-specific-limits) are set by Microsoft | The Azure Stack cloud administrator must [assign quotas](azure-stack-setting-quotas.md) before they offer virtual machines to their users. |
-| Virtual machine extensions |Azure supports a wide variety of virtual machine extensions. To learn about the available extensions, refer to the [virtual machine extensions and features](../virtual-machines/windows/extensions-features.md) topic.| Azure Stack supports a subset of extensions that are available in Azure and each of the extension have specific versions. The Azure Stack cloud administrator can choose which extensions to be made available to for their users. To view the list of supported extensions, refer to the [virtual machine extensions](#virtual-machine-extensions) section of this article. |
-| Virtual machine network | Public IP addresses assigned to tenant virtual machine are accessible over the Internet.<br><br><br>Azure Virtual Machines has a fixed DNS name | Public IP addresses assigned to a tenant virtual machine are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) to connect to a virtual machine that is created in Azure Stack.<br><br>Virtual machines created within a specific Azure Stack instance have a DNS name based on the value that is configured by the cloud administrator. |
-| Virtual machine storage | Supports [managed disks.](../virtual-machines/windows/managed-disks-overview.md) | Managed disks are not yet supported in Azure Stack. |
-| API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
-|Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Single fault domain<br>Single update domain<br>No managed disk support|
-|Virtual machine scale sets|Auto-scale supported|Auto-scale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
+| 虛擬機器映像 | Azure Marketplace 包含您可用來建立虛擬機器的映像。 若要檢視 Azure Marketplace 中可用的映像清單，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) 頁面。 | Azure Stack 市集中預設沒有提供任何映像。 Azure Stack 雲端系統管理員應該先將映像[發行](azure-stack-add-default-image.md)或[下載](azure-stack-download-azure-marketplace-item.md)到 Azure Stack 市集，使用者才能使用這些映像。 |
+| 虛擬機器大小 | Azure 支援各種不同的虛擬機器大小。 若要了解可用的大小和選項，請參考 [Windows 虛擬機器大小](../virtual-machines/virtual-machines-windows-sizes.md)和 [Linux 虛擬機器大小](../virtual-machines/linux/sizes.md)主題。 | Azure Stack 支援 Azure 中一部分可用的虛擬機器大小。 若要檢視支援的大小清單，請參考此文章的[虛擬機器大小](#virtual-machine-sizes)一節。 |
+| 虛擬機器配額 | [配額限制](../azure-subscription-service-limits.md#service-specific-limits)由 Microsoft 設定 | Azure Stack 雲端系統管理員在提供虛擬機器給其使用者之前，必須先[指派配額](azure-stack-setting-quotas.md)。 |
+| 虛擬機器擴充功能 |Azure 支援各種不同的虛擬機器擴充功能。 若要了解可用的擴充功能，請參考[虛擬機器擴充功能和功能](../virtual-machines/windows/extensions-features.md)主題。| Azure Stack 支援 Azure 中一部分可用的擴充功能，且每個擴充功能都有特定的版本。 Azure Stack 雲端系統管理員可以選擇要將哪些擴充功能提供給其使用者使用。 若要檢視支援的擴充功能清單，請參考此文章的[虛擬機器擴充功能](#virtual-machine-extensions)一節。 |
+| 虛擬機器網路 | 指派給租用戶虛擬機器的公用 IP 位址可透過網際網路存取。<br><br><br>Azure 虛擬機器有固定的 DNS 名稱 | 指派給租用戶虛擬機器的公用 IP 位址時，只能在「Azure Stack 開發套件」環境內存取。 使用者必須能夠透過 [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 或 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 存取「Azure Stack 開發套件」，才能連線到在 Azure Stack 中建立的虛擬機器。<br><br>在特定 Azure Stack 執行個體內建立之虛擬機器的 DNS 名稱會以雲端系統管理員所設定的值為基礎。 |
+| 虛擬機器儲存體 | 支援[受控磁碟](../virtual-machines/windows/managed-disks-overview.md)。 | Azure Stack 尚未支援受控磁碟。 |
+| API 版本 | Azure 一律會有所有虛擬機器功能的最新 API 版本。 | Azure Stack 支援特定的 Azure 服務及這些服務的特定 API 版本。 若要檢視支援的 API 版本清單，請參考此文章的 [API 版本](#api-versions)一節。 |
+|虛擬機器可用性設定組|多個容錯網域 (每一區域 2 或 3 個)<br>多個更新網域<br>受控磁碟支援|單一容錯網域<br>單一更新網域<br>無受控磁碟支援|
+|虛擬機器擴展集|支援自動調整|不支援自動調整。<br>使用入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增到擴展集。
 
-## <a name="virtual-machine-sizes"></a>Virtual machine sizes 
+## <a name="virtual-machine-sizes"></a>虛擬機器大小 
 
-The Azure Stack Development Kit supports the following sizes: 
+「Azure Stack 開發套件」支援下列大小： 
 
-| Type | Size | Range of supported sizes |
+| 類型 | 大小 | 支援的大小範圍 |
 | --- | --- | --- |
-|General purpose |Basic A|A0-A4|
-|General purpose |Standard A|A0-A7|
-|General purpose |Standard D|D1-D4|
-|General purpose |Standard Dv2|D1v2-D5v2|
-|Memory optimized|D-series|D11-D14|
-|Memory optimized |Dv2-series|D11v2-D14v2|
+|一般用途 |基本 A|A0-A4|
+|一般用途 |標準 A|A0-A7|
+|一般用途 |標準 D|D1-D4|
+|一般用途 |標準 Dv2|D1v2-D5v2|
+|記憶體最佳化|D 系列|D11-D14|
+|記憶體最佳化 |Dv2 系列|D11v2-D14v2|
 
-Virtual machine sizes in Azure Stack and Azure are consistent in terms of the memory, CPU cores, network bandwidth, disk performance, and other factors that define the size. For example, the Standard D size virtual machine in Azure and Azure Stack is consistent. 
+Azure Stack 與 Azure 之間的虛擬機器大小及其關聯資源數量是一致的。 例如，這包括記憶體數量、核心數目，以及可建立的資料磁碟數目/大小。 不過，Azure Stack 中相同 VM 大小的效能取決於特定 Azure Stack 環境的底層特性。
 
-## <a name="virtual-machine-extensions"></a>Virtual machine extensions 
+## <a name="virtual-machine-extensions"></a>虛擬機器擴充功能 
 
- The Azure Stack Development Kit supports the following virtual machine extension versions:
+ 「Azure Stack 開發套件」支援下列虛擬機器擴充功能版本：
 
-![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
+![VM 擴充功能](media/azure-stack-vm-considerations/vm-extensions.png)
 
-Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
+使用下列 PowerShell 指令碼，來取得您 Azure Stack 環境中所提供虛擬機器擴充功能的清單：
 
 ```powershell 
 Get-AzureRmVmImagePublisher -Location local | `
@@ -71,13 +71,13 @@ Get-AzureRmVmImagePublisher -Location local | `
   Format-Table -Property * -AutoSize 
 ```
 
-## <a name="api-versions"></a>API versions 
+## <a name="api-versions"></a>API 版本 
 
-Virtual machine features in Azure Stack Development Kit support the following API versions:
+「Azure Stack 開發套件」中的虛擬機器功能支援下列 API 版本：
 
-![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
+![VM 資源類型](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
-You can use the following PowerShell script to get the API versions for the virtual machine features that are available in your Azure Stack environment:
+您可以使用下列 PowerShell 指令碼，來取得您 Azure Stack 環境中所提供虛擬機器功能的 API 版本：
 
 ```powershell 
 Get-AzureRmResourceProvider | `
@@ -86,9 +86,9 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
-The list of supported resource types and API versions may vary if the cloud operator updates your Azure Stack environment to a newer version.
+如果雲端操作員將您的 Azure Stack 環境更新成較新的版本，所支援資源類型和 API 版本的清單可能會有所不同。
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-[Create a Windows virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-powershell.md)
+[在 Azure Stack 中使用 PowerShell 來建立 Windows 虛擬機器](azure-stack-quick-create-vm-powershell.md)
 

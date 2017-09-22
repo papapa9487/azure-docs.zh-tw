@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a36283053939ccd53856a394cd9efb66285271ae
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 146a2e16399a3eeed6b178d72234584c76cc8f51
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Device-to-cloud communications guidance
@@ -37,7 +36,7 @@ ms.lasthandoff: 06/01/2017
 | 儲存和擷取 | 由 IoT 中樞暫時儲存 (最多 7 天)。 僅限循序讀取。 | 由裝置對應項中的 IoT 中樞儲存。 使用 [IoT 中樞查詢語言][lnk-query]擷取。 | 儲存在使用者提供的 Azure 儲存體帳戶中。 |
 | 大小 | 最多 256 KB 的訊息。 | 最大回報屬性大小為 8 KB。 | Azure Blob 儲存體所支援的檔案大小上限。 |
 | 頻率 | 高。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 | 中。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 | 低。 如需詳細資訊，請參閱 [IoT 中樞限制][lnk-quotas]。 |
-| 通訊協定 | 適用於所有通訊協定。 | 目前僅適用於使用 MQTT 時。 | 可用於使用任何通訊協定時，但需要是裝置上的 HTTP。 |
+| 通訊協定 | 適用於所有通訊協定。 | 可使用 MQTT 或 AMQP。 | 可用於使用任何通訊協定時，但需要是裝置上的 HTTP。 |
 
 應用程式可能需要以遙測時間序列或警示形式傳送資訊，而且使其可用於裝置對應項。 在此案例中，您可以選擇下列其中一個選項：
 
