@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2017
+ms.date: 09/11/2017
 ms.author: ganesr;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: f17bf3e475a33cfc617e8a026e9606b3792101f3
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: c813dbc0e703c20c869a8f6fc2bb70c2b0e7a807
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="configure-route-filters-for-microsoft-peering"></a>針對 Microsoft 對等互連設定路由篩選
@@ -113,6 +113,10 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 可以選取 [新增線路] 按鈕，並從下拉式清單選取 [ExpressRoute] 線路，以將路由篩選附加至線路。
 
 ![建立路由篩選](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+
+如果連線提供者為您的 ExpressRoute 線路設定對等互連，請先重新整理 ExpressRoute 線路刀鋒視窗的線路，再選取 [新增線路] 按鈕。
+
+![建立路由篩選](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
 ## <a name="getproperties"></a>若要取得路由篩選的屬性
 

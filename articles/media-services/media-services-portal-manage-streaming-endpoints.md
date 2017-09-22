@@ -13,16 +13,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 09/10/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80ba024cd219b10bce8d88c9f11fd2d14d4ed34f
-ms.openlocfilehash: 223fee8930b1aebff94eddaeb82b5c0e364e067c
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 89b4f7cee6d00b5bbbca4799eeca74a280147fc7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/11/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-
 
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>透過 Azure 入口網站管理串流端點
 
@@ -70,6 +69,9 @@ ms.lasthandoff: 02/11/2017
 * 跨站台存取原則
 
 如需這些屬性的詳細資訊，請參閱 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。
+
+>[!NOTE]
+>啟用 CDN 時，您無法使用 IP 存取。 當您沒有 CDN 時，才可使用 IP 存取。
 
 若要設定串流端點，請執行以下作業：
 

@@ -12,12 +12,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 04/10/2017
+ms.date: 09/07/2017
 ms.author: eugenesh
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: c4a9e57cda4ba5b4db742c1a37686a802f58212f
-ms.lasthandoff: 04/11/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/11/2017
 您可以將 Azure 搜尋服務索引填入三個不同的文件，每個都具有「識別碼」和「文字」欄位。
 
 > [!IMPORTANT]
-> JSON 陣列剖析功能目前為預覽版本。 僅適用於使用 **2015-02-28-Preview**版本的 REST API。 請記住，預覽 API 是針對測試與評估，不應該用於生產環境。
+> JSON 陣列剖析功能目前為預覽版本。 僅適用於使用 **2016-09-01-Preview**版本的 REST API。 請記住，預覽 API 是針對測試與評估，不應該用於生產環境。
 >
 >
 

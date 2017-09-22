@@ -16,12 +16,11 @@ ms.tgt_pltfrm: sqldb-performance
 ms.workload: data-management
 ms.date: 11/08/2016
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 46d33a7b2dbaeb447452d8c94e897e59ec915dcc
-ms.openlocfilehash: 104a2d91ee9ca657fcc431d947d6a4be5d57a056
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: c76934d96530889f529eb887469e05d5a6a45e1e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>操作 Azure SQL Database 中的查詢存放區
@@ -39,7 +38,7 @@ Azure 中的查詢存放區是完全受管理的資料庫功能，可持續收�
 
 | 組態 | 說明 | 預設值 | 註解 |
 | --- | --- | --- | --- |
-| MAX_STORAGE_SIZE_MB |指定查詢存放區在 z 客戶資料庫內佔用的資料空間限制 |100 |對新資料庫強制執行 |
+| MAX_STORAGE_SIZE_MB |指定查詢存放區在客戶資料庫內佔用的資料空間限制 |100 |對新資料庫強制執行 |
 | INTERVAL_LENGTH_MINUTES |定義彙總和保存查詢計畫所收集到的執行階段統計資料的時段大小。 對於此組態定義的一段時間，每個使用中的查詢計劃最多會有一個資料列 |60 |對新資料庫強制執行 |
 | STALE_QUERY_THRESHOLD_DAYS |以時間為基礎的清理原則，可控制保存執行階段統計資料和非使用中查詢的保留期限 |30 |對新資料庫和具有先前的預設值 (367) 的資料庫強制執行 |
 | SIZE_BASED_CLEANUP_MODE |指定當查詢存放區資料大小接近限制時，是否進行自動資料清理 |AUTO |對所有資料庫強制執行 |

@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 06/28/2017
 ms.author: daredis
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 4ae3145daa4968ae619f965f3346ef03bccb0109
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
@@ -188,7 +188,7 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 5. 按一下 [儲存] 。
 
 > [!IMPORTANT]
-> 如果您想要自訂稽核事件，您可以透過 PowerShell 或 REST API 來自訂- 請參閱[自動化 (PowerShell / REST API)](sql-database-auditing.md#subheading-7) 一節以了解更多詳細資料。
+> 如果您想要自訂稽核事件，您可以透過 PowerShell 或 REST API 來自訂- 詳細資訊請參閱 [SQL 資料庫稽核](sql-database-auditing.md)。
 >
 
 ## <a name="enable-sql-database-threat-detection"></a>啟用 SQL Database 威脅偵測

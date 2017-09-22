@@ -11,14 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/19/2017
+ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4a19ab310212b93a53495a6fc6c25c77dfb82e79
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f2184f426c0e60ea2b6ce029b80d3d63821794d1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>教學課程：Azure Active Directory 與 Netsuite 整合
@@ -115,7 +114,7 @@ Netsuite 與 Azure AD 整合提供下列優點：
     在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL：`https://<tenant-name>.netsuite.com/saml2/acs` `https://<tenant-name>.na1.netsuite.com/saml2/acs` `https://<tenant-name>.na2.netsuite.com/saml2/acs` `https://<tenant-name>.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na1.sandbox.netsuite.com/saml2/acs` `https://<tenant-name>.na2.sandbox.netsuite.com/saml2/acs`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Netsuite 支援小組](http://www.netsuite.com/portal/services/support.shtml)以取得此值。
+    > 這些不是真正的值。 請使用實際的「回覆 URL」來更新這些值。 請連絡 [Netsuite 支援小組](http://www.netsuite.com/portal/services/support.shtml)以取得這些值。
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
 
@@ -161,7 +160,7 @@ Netsuite 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-Netsuite-tutorial/ns-attributes.png)
 
-13. 在 [屬性名稱] 欄位中，輸入 `account`。 在 [屬性值] 欄位中，輸入您的 Netsuite 帳戶識別碼。這個值是常數，隨帳戶而不同。 如何找出帳戶識別碼的指示如下：
+13. 在 [屬性名稱] 欄位中，輸入 `account`。 在 [屬性值]  欄位中，輸入您的 Netsuite 帳戶識別碼。 這個值是常數，並會隨著帳戶變更。 如何找出帳戶識別碼的指示如下：
 
       ![設定單一登入](./media/active-directory-saas-Netsuite-tutorial/ns-add-attribute.png)
 

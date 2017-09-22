@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: de9d41cfb157c71f324f5662c1c037ff515e7108
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 密碼安全性多層法
@@ -51,7 +51,7 @@ Azure AD 和 Microsoft 帳戶系統使用業界證實可行的方法，以確保
 
 ### <a name="dynamically-banned-passwords"></a>動態禁用的密碼
 
-Azure AD 和 Microsoft 帳戶藉由動態禁用常見密碼來提供密碼保護。 Azure ID Identity Protection 小組會定期分析遭到禁用的密碼清單，並防止使用者選取常用的密碼。 此服務適用於 Azure AD 和 Microsoft 帳戶服務客戶。
+Azure AD 和 Microsoft 帳戶藉由動態禁用常見密碼來提供密碼保護。 Azure AD Identity Protection 小組會定期分析遭到禁用的密碼清單，並防止使用者選取常用的密碼。 此服務適用於 Azure AD 和 Microsoft 帳戶服務客戶。
 
 建立密碼時，系統管理員務必鼓勵使用者選擇密碼片語，片語中須包含唯一的字母、數字、字元或文字組合。 這種方法有助於讓使用者密碼幾乎不可能遭到入侵，但使用者更容易記住。
 

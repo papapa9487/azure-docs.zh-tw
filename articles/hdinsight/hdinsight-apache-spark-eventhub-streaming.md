@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 175a2ad70b1f554d05846eb62fb685d4f259af7e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 串流：在 HDInsight 上使用 Spark 叢集處理來自 Azure 事件中樞的資料
@@ -367,17 +367,7 @@ Spark 串流應用程式會繼續執行，直到您終止為止。 若要這麼�
 
 這些參數類似於您在先前的步驟中為文字輸出指定的參數。 同樣地，您不需要建立做為參數的輸出資料夾 (EventCheckpoint、EventCount/EventCount10) 或輸出 Hive 資料表 (EventHiveTable10)。 串流應用程式會為您建立。 請注意，**jars** 和 **files** 選項會包含您已複製到儲存體帳戶的 .jar 檔案和 hive-site.xml 的路徑。
 
-若要確認 Hive 資料表已成功建立，您可以 SSH 到叢集中，並執行 Hive 查詢。 如需指示，請參閱 [利用 SSH 搭配使用 Hive 與 HDInsight 中的 Hadoop](hdinsight-hadoop-use-hive-ssh.md)。 當您使用 SSH 連線之後，您可以執行下列命令，以確認 Hive 資料表 **EventHiveTable10**已建立。
-
-    show tables;
-
-您應該會看到如下所示的輸出：
-
-    OK
-    eventhivetable10
-    hivesampletable
-
-您也可以執行 SELECT 查詢，以檢視資料表的內容。
+若要確認已成功建立 hive 資料表，請使用 [Ambari Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)。 您也可以執行 SELECT 查詢，以檢視資料表的內容。
 
     SELECT * FROM eventhivetable10 LIMIT 10;
 

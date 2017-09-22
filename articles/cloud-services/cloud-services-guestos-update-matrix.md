@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/24/2017
+ms.date: 9/14/2017
 ms.author: raiye
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: be0092e62033da249015b211db148da57bb82765
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
@@ -38,6 +38,8 @@ ms.lasthandoff: 08/28/2017
 不確定客體 OS 為何或客體 OS 版次如何工作？ 請閱讀 [本節內容](#how-it-works) 。
 
 ## <a name="news-updates"></a>新聞更新
+###### <a name="september-14-2017"></a>**2017 年 9 月 14 日**
+9 月客體 OS 的首度發行期間從 9 月 14 日開始，預訂的正式發行日為 10 月 9 日。
 
 ###### <a name="august-24-2017"></a>**2017 年 8 月 24 日**
 8 月客體 OS 已發行。
@@ -65,12 +67,6 @@ ms.lasthandoff: 08/28/2017
 
 ###### <a name="april-18-2017"></a>**2017 年 4 月 18 日**
 4 月客體 OS 的首度發行期間從 4 月 18 日開始，預訂的正式發行日為 5 月 9 日。
-
-###### <a name="april-10-2017"></a>**2017 年 4 月 10 日**
-3 月的客體 OS 的度發行期間從 2017 年 3 月 14 日開始，預訂發行日為 2017 年 4 月 10 日。
-
-###### <a name="january-10-2017"></a>**2017 年 1 月 10 日**
-1 月客體 OS 包含只影響 OS 系列 2 (Windows 2008 Server R2) 的修補程式。 因此，這個月我們只發行了「OS 系列 2」映像 (WA-GUEST-OS-2.59_201701-01)。 就所有其他 OS 系列而言，12 月 OS (201612-01) 仍是最新版。
 
 
 ## <a name="releases"></a>版次

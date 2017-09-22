@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 441227d84b9c1ec721ae36fdc423ba797654f128
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: b080e323c4195f640a256c4726916dbf40ef2698
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
@@ -29,6 +29,8 @@ AzCopy on Linux 是個命令列公用程式，專為使用簡單命令高效率�
 ## <a name="download-and-install-azcopy"></a>下載並安裝 AzCopy
 ### <a name="installation-on-linux"></a>在 Linux 上安裝
 
+文章包含用於多種不同版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令來確認您的發行版本和 codename。 
+
 AzCopy on Linux 需要在平台上有 .NET Core framework。 請參閱 [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) \(英文\) 頁面上的安裝指示。
 
 例如，讓我們在 Ubuntu 16.10 上安裝 .NET Core。 如需最新安裝指南，請造訪 [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) \(英文\) 安裝頁面。
@@ -38,7 +40,7 @@ AzCopy on Linux 需要在平台上有 .NET Core framework。 請參閱 [.NET Cor
 sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
 sudo apt-get update
-sudo apt-get install dotnet-dev-1.0.3
+sudo apt-get install dotnet-sdk-2.0.0
 ```
 
 安裝 .NET Core 之後，下載並安裝 AzCopy。

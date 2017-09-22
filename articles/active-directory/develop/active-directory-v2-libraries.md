@@ -12,24 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2017
+ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: c8dc0fab1a4da2bf9ae1463cb5e17fc2c2b12e5c
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0 驗證程式庫
-Azure Active Directory (Azure AD) v2.0 端點支援業界標準 OAuth 2.0 和 OpenID Connect 1.0 通訊協定。 您可以使用 Microsoft 和其他廠商提供的各種程式庫搭配 v2.0 端點。
+[Azure Active Directory (Azure AD) v2.0 端點](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare)支援業界標準 OAuth 2.0 和 OpenID Connect 1.0 通訊協定。 您可以使用 Microsoft 和其他廠商提供的各種程式庫搭配 v2.0 端點。
 
 在建置使用 v2.0 端點的應用程式時，建議您使用通訊協定網域專家遵循安全性開發生命週期 (SDL) 方法 (例如 [Microsoft 遵循的方法][Microsoft-SDL]) 所撰寫的程式庫。 如果您決定手工撰寫通訊協定的支援，建議您遵循 SDL 方法並仔細觀察各通訊協定的標準規格中的安全性考量。
 
+> [!NOTE]
+> 在尋找 Azure AD v1.0 程式庫 (ADAL) 嗎？ 請參閱 [ADAL 程式庫指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries)。 
+> 
+> 
+
 ## <a name="types-of-libraries"></a>程式庫類型
-Azure AD v2.0 適用於兩種程式庫類型︰
+Azure AD v2.0 端點適用於兩種程式庫類型︰
 
 * **用戶端程式庫**。 原生用戶端和伺服器會使用用戶端程式庫，取得用來呼叫資源 (例如 Microsoft Graph) 的存取權杖。
 * **伺服器中介軟體程式庫**。 Web 應用程式會使用伺服器中介軟體程式庫進行使用者登入。 Web API 會使用伺服器中介軟體程式庫來驗證原生用戶端或其他伺服器所傳送的權杖。

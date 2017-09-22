@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 09/08/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: f28c37b777bbd321c1c7ee8e7a18d92492a78d3e
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7b8732a06e54f7828418cba0c0d172e34f1f4ef7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>如何搭配 .NET 使用 Media Encoder Standard 產生縮圖
@@ -28,10 +28,10 @@ ms.lasthandoff: 07/17/2017
 如需用於範例預設中項目的詳細資料，您應該檢閱 [Media Encoder Standard 結構描述](media-services-mes-schema.md)。
 
 請務必閱讀 [考量](media-services-dotnet-generate-thumbnail-with-mes.md#considerations) 一節。
+    
+## <a name="example-of-a-single-png-file-preset"></a>「單一 PNG 檔」預設值範例
 
-## <a name="example--single-png-file"></a>範例 – 單一 PNG 檔案
-
-下列 JSON 和 XML 預設可以用來從輸入視訊的前幾秒產生單一輸出 PNG 檔，在這前幾秒，編碼器會進行最佳嘗試，尋找「有趣」的畫面。 請注意，輸出影像大小已設定為 100%，表示這些會符合輸入視訊的大小。 另外也請注意，“Outputs” 中的 “Format” 設定必須如何符合 “Codecs” 區段中的 “PngLayers” 使用。 
+下列 JSON 和 XML 預設值可以用來從輸入視訊的前幾秒產生單一輸出 PNG 檔，在這前幾秒，編碼器會進行最佳嘗試，尋找「有趣」的畫面。 請注意，輸出影像大小已設定為 100%，表示這些會符合輸入視訊的大小。 另外也請注意，"Outputs" 中的 “Format” 設定必須如何符合 “Codecs” 區段中的 "PngLayers" 使用。 
 
 ### <a name="json-preset"></a>JSON 預設值
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 07/17/2017
       </Outputs>
     </Preset>
 
-## <a name="example--a-series-of-jpeg-images"></a>範例 – 一系列的 JPEG 影像
+## <a name="example-of-a-series-of-jpeg-images-preset"></a>「一系列的 JPEG 影像」預設值範例
 
 下列 JSON 和 XML 預設可以用來產生一組 10 個影像，分別是在輸入時間軸的時間戳記 5%、15%、...、95% 等等，其中影像大小指定為輸入視訊影像大小的四分之一。
 
@@ -100,8 +100,8 @@ ms.lasthandoff: 07/17/2017
             }
           ],
           "Start": "5%",
-          "Step": "1",
-          "Range": "1",
+          "Step": "10%",
+          "Range": "96%",
           "Type": "JpgImage"
         }
       ],
@@ -137,9 +137,9 @@ ms.lasthandoff: 07/17/2017
       </Outputs>
     </Preset>
 
-## <a name="example--one-image-at-a-specific-timestamp"></a>範例 – 在特定時間戳記的一個影像
+## <a name="example-of-a-one-image-at-a-specific-timestamp-preset"></a>「特定時間戳記的一個影像」預設值範例
 
-下列 JSON 和 XML 預設可以用來在輸入視訊的 30 秒標記處產生單一 JPEG 影像。 此預設會預期輸入的持續時間為 30 秒以上 (否則作業將會失敗)。
+下列 JSON 和 XML 預設可以用來在輸入視訊的 30 秒標記處產生單一 JPEG 影像。 此預設值會預期輸入視訊的持續時間為 30 秒以上 (否則作業將會失敗)。
 
 ### <a name="json-preset"></a>JSON 預設值
 
@@ -176,7 +176,7 @@ ms.lasthandoff: 07/17/2017
     <?xml version="1.0" encoding="utf-16"?>
     <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
       <Encoding>
-        <JpgImage Start="00:00:30" Step="00:00:02" Range="00:00:01">
+        <JpgImage Start="00:00:30" Step="00:00:01" Range="00:00:01">
           <JpgLayers>
             <JpgLayer>
               <Width>25%</Width>
@@ -192,142 +192,82 @@ ms.lasthandoff: 07/17/2017
         </Output>
       </Outputs>
     </Preset>
+    
+## <a name="example-of-a-thumbnails-at-different-resolutions-preset"></a>「不同解析度縮圖」的預設值範例
 
-## <a id="code_sample"></a>範例 – 編碼視訊，並產生縮圖
+您可以使用下列預設值，在一個工作中產生不同解析度的縮圖。 在範例中，編碼器會在輸入時間軸的 5%、15%、…、95% 等位置產生兩個影像，一個在輸入視訊解析度的 100% 位置，另一個在 50%。
 
-下列程式碼範例使用媒體服務 .NET SDK 執行下列工作：
+請注意 FileName 中的 {Resolution} 巨集用法；該巨集會指示編碼器使用的寬度與高度，是產生輸出影像的檔案名稱時，您在預設值編碼區段所指定的。 這也有助於您輕鬆區別不同影像
 
-* 建立編碼工作。
-* 取得對 Media Encoder Standard 編碼器的參考
-* 載入預設 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)，其包含產生縮圖所需的編碼預設以及資訊。 您可以在檔案中儲存此 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)，並使用下列程式碼載入檔案。
-  
-        // Load the XML (or JSON) from the local file.
-        string configuration = File.ReadAllText(fileName);  
-* 將單一編碼工作加入工作。 
-* 指定要編碼的輸入資產。
-* 建立將包含已編碼資產的輸出資產。
-* 加入事件處理常式來檢查工作進度。
-* 提交作業。
+### <a name="json-preset"></a>JSON 預設值
 
-請參閱[使用 .NET 的 Media Services 開發](media-services-dotnet-how-to-use.md)主題，以取得如何設定開發環境的指示。
-
-        using System;
-        using System.Configuration;
-        using System.IO;
-        using System.Linq;
-        using Microsoft.WindowsAzure.MediaServices.Client;
-        using System.Threading;
-
-        namespace EncodeAndGenerateThumbnails
+    {
+      "Version": 1.0,
+      "Codecs": [
         {
-        class Program
+          "JpgLayers": [
         {
-            // Read values from the App.config file.
-            private static readonly string _AADTenantDomain =
-            ConfigurationManager.AppSettings["AADTenantDomain"];
-            private static readonly string _RESTAPIEndpoint =
-            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
-
-            private static CloudMediaContext _context = null;
-
-            private static readonly string _mediaFiles =
-            Path.GetFullPath(@"../..\Media");
-
-            private static readonly string _singleMP4File =
-            Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
-
-            static void Main(string[] args)
-            {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
-            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
-
-            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
-
-            // Get an uploaded asset.
-            var asset = _context.Assets.FirstOrDefault();
-
-            // Encode and generate the thumbnails.
-            EncodeToAdaptiveBitrateMP4Set(asset);
-
-            Console.ReadLine();
-            }
-
-            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
-            {
-            // Declare a new job.
-            IJob job = _context.Jobs.Create("Media Encoder Standard Job");
-            // Get a media processor reference, and pass to it the name of the 
-            // processor to use for the specific task.
-            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
-
-            // Load the XML (or JSON) from the local file.
-            string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
-
-            // Create a task
-            ITask task = job.Tasks.AddNew("Media Encoder Standard encoding task",
-                processor,
-                configuration,
-                TaskOptions.None);
-
-            // Specify the input asset to be encoded.
-            task.InputAssets.Add(asset);
-            // Add an output asset to contain the results of the job. 
-            // This output is specified as AssetCreationOptions.None, which 
-            // means the output asset is not encrypted. 
-            task.OutputAssets.AddNew("Output asset",
-                AssetCreationOptions.None);
-
-            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
-            job.Submit();
-            job.GetExecutionProgressTask(CancellationToken.None).Wait();
-
-            return job.OutputMediaAssets[0];
-            }
-
-            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
-            {
-            Console.WriteLine("Job state changed event:");
-            Console.WriteLine("  Previous state: " + e.PreviousState);
-            Console.WriteLine("  Current state: " + e.CurrentState);
-            switch (e.CurrentState)
-            {
-                case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-                case JobState.Canceling:
-                case JobState.Queued:
-                case JobState.Scheduled:
-                case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-                case JobState.Canceled:
-                case JobState.Error:
-
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
-
-                // Display or log error details as needed.
-                break;
-                default:
-                break;
-            }
-            }
-
-            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
-            {
-            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
-            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
-
-            if (processor == null)
-                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
-
-            return processor;
-            }
-        }
+          "Quality": 90,
+          "Type": "JpgLayer",
+          "Width": "100%",
+          "Height": "100%"
+        },
+        {
+          "Quality": 90,
+          "Type": "JpgLayer",
+          "Width": "50%",
+          "Height": "50%"
         }
 
-## <a id="json"></a>縮圖 JSON 預設
+          ],
+          "Start": "5%",
+          "Step": "10%",
+          "Range": "96%",
+          "Type": "JpgImage"
+        }
+      ],
+      "Outputs": [
+        {
+          "FileName": "{Basename}_{Resolution}_{Index}{Extension}",
+          "Format": {
+        "Type": "JpgFormat"
+          }
+        }
+      ]
+    }
+
+### <a name="xml-preset"></a>XML 預設值
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <Preset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Encoding>
+    <JpgImage Start="5%" Step="10%" Range="96%"><JpgImage Start="00:00:01" Step="00:00:15">
+      <JpgLayers>
+       <JpgLayer>
+        <Width>100%</Width>
+        <Height>100%</Height>
+        <Quality>90</Quality>
+       </JpgLayer>
+       <JpgLayer>
+        <Width>50%</Width>
+        <Height>50%</Height>
+        <Quality>90</Quality>
+       </JpgLayer>
+      </JpgLayers>
+    </JpgImage>
+    </Encoding>
+    <Outputs>
+      <Output FileName="{Basename}_{Resolution}_{Index}{Extension}">
+        <JpgFormat/>
+      </Output>
+    </Outputs>
+    </Preset>
+    
+## <a name="example-of-generating-a-thumbnail-while-encoding"></a>編碼時產生縮圖範例
+
+上述範例已討論如何提交產生影像的編碼工作，但您也可以在縮圖產生時結合視訊/音訊編碼。 下列 JSON 和 XML 預設值會告知**媒體編碼器標準**在編碼期間產生縮圖。
+
+### <a id="json"></a>JSON 預設值
 如需結構描述的資訊，請參閱 [這個主題](https://msdn.microsoft.com/library/mt269962.aspx) 。
 
     {
@@ -390,7 +330,7 @@ ms.lasthandoff: 07/17/2017
       ]
     }
 
-## <a id="xml"></a>縮圖 XML 預設
+### <a id="xml"></a>XML 預設值
 如需結構描述的資訊，請參閱 [這個主題](https://msdn.microsoft.com/library/mt269962.aspx) 。
     
     <?xml version="1.0" encoding="utf-16"?>
@@ -441,7 +381,141 @@ ms.lasthandoff: 07/17/2017
           <JpgFormat />
         </Output>
       </Outputs>
-    </Preset>
+    </Preset>   
+
+## <a id="code_sample"></a>使用 .NET 編碼視訊並產生縮圖
+
+下列程式碼範例使用媒體服務 .NET SDK 執行下列工作：
+
+* 建立編碼工作。
+* 取得對 Media Encoder Standard 編碼器的參考
+* 載入預設 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)，其包含產生縮圖所需的編碼預設以及資訊。 您可以在檔案中儲存此 [XML](media-services-dotnet-generate-thumbnail-with-mes.md#xml) 或 [JSON](media-services-dotnet-generate-thumbnail-with-mes.md#json)，並使用下列程式碼載入檔案。
+  
+        // Load the XML (or JSON) from the local file.
+        string configuration = File.ReadAllText(fileName);  
+* 將單一編碼工作加入工作。 
+* 指定要編碼的輸入資產。
+* 建立將包含已編碼資產的輸出資產。
+* 加入事件處理常式來檢查工作進度。
+* 提交作業。
+
+請參閱[使用 .NET 的 Media Services 開發](media-services-dotnet-how-to-use.md)主題，以取得如何設定開發環境的指示。
+
+        using System;
+        using System.Configuration;
+        using System.IO;
+        using System.Linq;
+        using Microsoft.WindowsAzure.MediaServices.Client;
+        using System.Threading;
+
+        namespace EncodeAndGenerateThumbnails
+        {
+        class Program
+        {
+            // Read values from the App.config file.
+            private static readonly string _AADTenantDomain =
+            ConfigurationManager.AppSettings["AADTenantDomain"];
+            private static readonly string _RESTAPIEndpoint =
+            ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+
+            private static CloudMediaContext _context = null;
+
+            private static readonly string _mediaFiles =
+            Path.GetFullPath(@"../..\Media");
+
+            private static readonly string _singleMP4File =
+            Path.Combine(_mediaFiles, @"BigBuckBunny.mp4");
+
+            static void Main(string[] args)
+            {
+            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
+
+            _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
+
+            // Get an uploaded asset.
+            var asset = _context.Assets.FirstOrDefault();
+
+            // Encode and generate the thumbnails.
+            EncodeToAdaptiveBitrateMP4Set(asset);
+
+            Console.ReadLine();
+            }
+
+            static public IAsset EncodeToAdaptiveBitrateMP4Set(IAsset asset)
+            {
+            // Declare a new job.
+            IJob job = _context.Jobs.Create("Media Encoder Standard Thumbnail Job");
+            // Get a media processor reference, and pass to it the name of the 
+            // processor to use for the specific task.
+            IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standard");
+
+            // Load the XML (or JSON) from the local file.
+            string configuration = File.ReadAllText("ThumbnailPreset_JSON.json");
+
+            // Create a task
+            ITask task = job.Tasks.AddNew("Media Encoder Standard Thumbnail task",
+                processor,
+                configuration,
+                TaskOptions.None);
+
+            // Specify the input asset to be encoded.
+            task.InputAssets.Add(asset);
+            // Add an output asset to contain the results of the job. 
+            // This output is specified as AssetCreationOptions.None, which 
+            // means the output asset is not encrypted. 
+            task.OutputAssets.AddNew("Output asset",
+                AssetCreationOptions.None);
+
+            job.StateChanged += new EventHandler<JobStateChangedEventArgs>(JobStateChanged);
+            job.Submit();
+            job.GetExecutionProgressTask(CancellationToken.None).Wait();
+
+            return job.OutputMediaAssets[0];
+            }
+
+            private static void JobStateChanged(object sender, JobStateChangedEventArgs e)
+            {
+            Console.WriteLine("Job state changed event:");
+            Console.WriteLine("  Previous state: " + e.PreviousState);
+            Console.WriteLine("  Current state: " + e.CurrentState);
+            switch (e.CurrentState)
+            {
+                case JobState.Finished:
+                Console.WriteLine();
+                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                Console.WriteLine("Please wait...\n");
+                break;
+                case JobState.Canceled:
+                case JobState.Error:
+
+                // Cast sender as a job.
+                IJob job = (IJob)sender;
+
+                // Display or log error details as needed.
+                break;
+                default:
+                break;
+            }
+            }
+
+            private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
+            {
+            var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
+            ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
+
+            if (processor == null)
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+
+            return processor;
+            }
+        }
+
 
 ## <a name="considerations"></a>考量
 您必須考量下列事項：

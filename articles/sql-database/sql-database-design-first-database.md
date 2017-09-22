@@ -17,10 +17,10 @@ ms.workload:
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 63833db74eb5889611d4aeb45d00542217730910
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -83,7 +83,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 
 5. 按一下 [選取] 。
 
-6. 按一下 [定價層] 可指定服務層、DTU 數目和儲存體數量。 瀏覽 DTU 數量的選項，以及可供您每個服務層使用的儲存體。 
+6. 按一下 [定價層] 可指定服務層、DTU 數目和儲存體數量。 瀏覽數據傳輸單元 (DTU) 數目的選項，以及可供您每個服務層使用的儲存體。 
 
 7. 在此教學課程中，選取 [標準] 服務層，然後使用滑桿選取 **100 DTU (S3)** 和 **400** GB 的儲存體。
 
@@ -92,7 +92,7 @@ Azure SQL Database 會使用一組定義的[計算和儲存體資源](sql-databa
 8. 若要使用 [附加元件儲存體] 選項，請接受預覽條款。 
 
    > [!IMPORTANT]
-   > \* 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
+   > \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
    >
    >\* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：美國東部 2、美國西部、美國維吉尼亞州政府、西歐、德國中部、東南亞、日本東部、澳大利亞東部、加拿大中部和加拿大東部。 請參閱 [P11-P15 目前限制](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
    > 
@@ -157,7 +157,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
    | 設定       | 建議的值 | 說明 | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | 伺服器類型 | 資料庫引擎 | 這是必要值 |
-   | 伺服器名稱 | 完整伺服器名稱 | 此名稱應該類似這樣︰**mynewserver20170313.database.windows.net**。 |
+   | 伺服器名稱 | 完整伺服器名稱 | 名稱應該類似這樣︰**mynewserver20170824.database.windows.net**。 |
    | 驗證 | SQL Server 驗證 | 在本教學課程中，我們只設定了 SQL 驗證這個驗證類型。 |
    | 登入 | 伺服器管理帳戶 | 這是您在建立伺服器時所指定的帳戶。 |
    | 密碼 | 伺服器管理帳戶的密碼 | 這是您在建立伺服器時所指定的密碼。 |

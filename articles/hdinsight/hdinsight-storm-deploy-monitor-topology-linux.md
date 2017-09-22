@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/16/2017
+ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: b9e82463030807d2674594e73f762fe93515d423
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="submit-a-topology-visual-studio"></a>提交拓撲︰Visual Studio
 
-HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 下列步驟使用範例應用程式。 如需使用 HDInsight Tools 建立您專屬拓撲的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
+HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 下列步驟使用範例應用程式。 如需使用 HDInsight Tools 建立的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
 
 1. 如果您尚未安裝最新版的 Data Lake Tools for Visual Studio，請參閱[開始使用 Data Lake Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)。
 
@@ -97,11 +96,11 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
 ## <a name="submit-a-topology-programmatically"></a>提交拓撲︰以程式設計的方式
 
-您可以用程式設計方式與裝載於叢集中的 Nimbus 服務進行通訊，以對 Storm on HDInsight 部署拓撲。 [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 提供範例 Java 應用程式，以示範如何透過 Nimbus 服務部署和啟動拓撲。
+您可以透過程式設計的方式，使用 Nimbus 服務部署拓撲。 [https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology](https://github.com/Azure-Samples/hdinsight-java-deploy-storm-topology) 提供範例 Java 應用程式，以示範如何透過 Nimbus 服務部署和啟動拓撲。
 
 ## <a name="monitor-and-manage-visual-studio"></a>監視和管理︰Visual Studio
 
-使用 Visual Studio 順利提交拓撲之後，隨即會出現叢集的 [Storm 拓撲] 檢視。 從清單中選取拓撲，以檢視執行中拓撲的詳細資訊。
+使用 Visual Studio 提交拓撲之後，隨即會出現 [Storm 拓撲] 檢視。 從清單中選取拓撲，以檢視執行中拓撲的詳細資訊。
 
 ![Visual Studio 監視器](./media/hdinsight-storm-deploy-monitor-topology/vsmonitor.png)
 
@@ -207,9 +206,9 @@ Storm UI 的主頁面會提供下列資訊：
 * **元件摘要**：Spout 或 Bolt 的基本資訊。
 * **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
 * **輸入統計資料** (僅限 Bolt)：Bolt 所使用輸入資料流的資訊。
-* **輸出統計資料**：此 Spout 或 Bolt 所發出資料流的資訊。
+* **輸出統計資料**：Spout 或 Bolt 所發出資料流的資訊。
 * **執行程式**：Spout 或 Bolt 執行個體的資訊。 選取特定執行程式的 [連接埠]  項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
-* **錯誤**：此 Spout 或 Bolt 的任何錯誤資訊。
+* **錯誤**：Spout 或 Bolt 的任何錯誤資訊。
 
 ## <a name="monitor-and-manage-rest-api"></a>監視和管理︰REST API
 
@@ -227,7 +226,7 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 您可以用幾種不同的方式尋找叢集前端節點的完整網域名稱 (FQDN)：
 
 * **從 SSH 工作階段**：使用命令 `headnode -f` (從 SSH 工作階段到叢集)。
-* **從 Ambari Web**：從頁面頂端選取 [服務]，然後選取 [Storm]。 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 Storm UI 和 REST API 執行所在節點的 FQDN 位於頁面頂端。
+* **從 Ambari Web**：從頁面頂端選取 [服務]，然後選取 [Storm]。 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。
 * **從 Ambari REST API**：使用命令 `curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **PASSWORD** 取代為叢集的系統管理員密碼。 將 **CLUSTERNAME** 取代為叢集名稱。 在回應中，"host_name" 項目包含節點的 FQDN。
 
 ### <a name="authentication"></a>驗證
@@ -239,11 +238,11 @@ REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢�
 
 ### <a name="return-values"></a>傳回值
 
-從 REST API 傳回的資訊只能從叢集或與叢集相同之 Azure 虛擬網路上的虛擬機器內使用。 例如，無法從網際網路存取針對 Zookeeper 伺服器所傳回的完整網域名稱 (FQDN)。
+從 REST API 傳回的資訊可能只可在叢集中使用。 例如，無法從網際網路存取針對 Zookeeper 伺服器傳回的完整網域名稱 (FQDN)。
 
 ## <a name="next-steps"></a>後續步驟
 
-現在，您已經了解如何使用 Storm 儀表板來部署和監視拓撲、了解如何 [使用 Maven 來開發以 Java 為基礎的拓撲](hdinsight-storm-develop-java-topology.md)。
+了解如何[使用 Maven 開發 Java 型拓撲](hdinsight-storm-develop-java-topology.md)。
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
 

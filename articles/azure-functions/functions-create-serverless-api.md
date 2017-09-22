@@ -12,10 +12,10 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f5d0bb05d0e9caebfc6c13d983518d65f7409527
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 1b4ef5dc0af6bea8af02ad63843acc91713666ad
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -37,37 +37,34 @@ ms.lasthandoff: 07/28/2017
 
 根據預設，HTTP 觸發函式會設定為接受任何 HTTP 方法。 另外還有 `http://<yourapp>.azurewebsites.net/api/<funcname>?code=<functionkey>` 格式的預設 URL。 如果您遵循快速入門，則 `<funcname>` 可能會像 "HttpTriggerJS1" 一樣。 在本節中，您會將函式修改為只回應 `/api/hello` 路由的 GET 要求。 
 
-在 Azure 入口網站中瀏覽至您的函式。 在左側導覽列中，選取 [整合]。
+1. 在 Azure 入口網站中瀏覽至您的函式。 在左側導覽列中，選取 [整合]。
 
-![自訂 HTTP 函式](./media/functions-create-serverless-api/customizing-http.png)
+    ![自訂 HTTP 函式](./media/functions-create-serverless-api/customizing-http.png)
 
-使用表格中指定的 HTTP 觸發程序設定。
+1. 使用表格中指定的 HTTP 觸發程序設定。
 
-| 欄位 | 範例值 | 說明 |
-|---|---|---|
-| 允許的 HTTP 方法 | 選取的方法 | 決定哪些 HTTP 方法可用來叫用此函式 |
-| 選取的 HTTP 方法 | GET | 只允許使用選取的 HTTP 方法來叫用此函式 |
-| 路由範本 | /hello | 決定使用什麼路由來叫用此函式 |
+    | 欄位 | 範例值 | 說明 |
+    |---|---|---|
+    | 允許的 HTTP 方法 | 選取的方法 | 決定哪些 HTTP 方法可用來叫用此函式 |
+    | 選取的 HTTP 方法 | GET | 只允許使用選取的 HTTP 方法來叫用此函式 |
+    | 路由範本 | /hello | 決定使用什麼路由來叫用此函式 |
+    | 授權層級 | 匿名 | 選擇性：讓您的函式不需要 API 金鑰即可存取 |
 
-請注意，您並未在路由範本中包含 `/api` 基底路徑前置詞，因為這是由全域設定來處理。
+    > [!NOTE] 
+    > 請注意，您並未在路由範本中包含 `/api` 基底路徑前置詞，因為這是由全域設定來處理。
 
-按一下 [儲存] 。
+1. 按一下 [儲存] 。
 
 您可以在 [Azure Functions HTTP 和 webhook 繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint)中，進一步了解自訂 HTTP 函式。
 
 ### <a name="test-your-api"></a>測試您的 API
 
 接下來，測試您的函式，確定可以搭配新的 API 介面一起使用。
-
-在左側導覽中按一下函式的名稱，返回開發頁面。
-
-按一下 [取得函式 URL] 並複製 URL。 您應該會看到它現在使用 `/api/hello` 路由。
-
-將 URL 複製到新的瀏覽器索引標籤或您慣用的 REST 用戶端。 根據預設，瀏覽器會使用 GET。
-
-執行函式，確認它可以運作。 您可能需要提供 "name" 參數作為查詢字串，以滿足快速入門程式碼。
-
-您也可以嘗試使用另一個 HTTP 方法呼叫端點，以確認不會執行此函式。 為此，您必須使用 REST 用戶端，例如 cURL、Postman 或 Fiddler。
+1. 在左側導覽中按一下函式的名稱，返回開發頁面。
+1. 按一下 [取得函式 URL] 並複製 URL。 您應該會看到它現在使用 `/api/hello` 路由。
+1. 將 URL 複製到新的瀏覽器索引標籤或您慣用的 REST 用戶端。 根據預設，瀏覽器會使用 GET。
+1. 執行函式，確認它可以運作。 您可能需要提供 "name" 參數作為查詢字串，以滿足快速入門程式碼。
+1. 您也可以嘗試使用另一個 HTTP 方法呼叫端點，以確認不會執行此函式。 為此，您必須使用 REST 用戶端，例如 cURL、Postman 或 Fiddler。
 
 ## <a name="proxies-overview"></a>Proxy 概觀
 
@@ -76,7 +73,7 @@ ms.lasthandoff: 07/28/2017
 Proxy 可以指向任何 HTTP 資源，例如︰
 - Azure Functions 
 - [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is) 中的 API 應用程式
-- [Linux 上的 App Service](https://docs.microsoft.com/azure/app-service/app-service-linux-readme) 中的 Docker 容器
+- [Linux 上的 App Service](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro) 中的 Docker 容器
 - 其他任何裝載 API
 
 若要深入了解 Proxy，請參閱[使用 Azure Functions Proxy (預覽)]。
@@ -87,44 +84,39 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
 ### <a name="setting-up-the-frontend-environment"></a>設定前端環境
 
-重複[建立函式應用程式](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app)的步驟建立新的函式應用程式，您將在其中建立您的 Proxy。 這個新的應用程式將作為我們 API 的前端，而您先前編輯的函式應用程式將作為後端。
+重複[建立函式應用程式](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function#create-a-function-app)的步驟建立新的函式應用程式，您將在其中建立您的 Proxy。 這個新的應用程式 URL 將作為我們 API 的前端，而您先前編輯的函式應用程式將作為後端。
 
-在入口網站中瀏覽至新的前端函式應用程式。
+1. 在入口網站中瀏覽至新的前端函式應用程式。
+1. 選取 [Settings] \(設定) 。 然後，將 [啟用 Azure Functions Proxy (預覽)] 切換為 [開啟]。
+1. 選取 [平台設定]，然後選擇 [應用程式設定]。
+1. 向下捲動至 [應用程式設定]，並使用金鑰 "HELLO_HOST" 建立新的設定。 將值設定為後端函式應用程式的主機，例如 `<YourBackendApp>.azurewebsites.net`。 這是您先前測試 HTTP 函式時複製之 URL 的一部分。 稍後，您將在設定中參考這項設定。
 
-選取 [Settings] \(設定) 。 然後，將 [啟用 Azure Functions Proxy (預覽)] 切換為 [開啟]。
+    > [!NOTE] 
+    > 建議使用應用程式設定作為主機設定，以避免 Proxy 依賴硬式編碼的環境。 使用應用程式設定表示您可以在不同環境之間移動 Proxy 設定，將會套用環境特定的應用程式設定。
 
-選取 [平台設定]，然後選擇 [應用程式設定]。
-
-向下捲動至 [應用程式設定]，並使用金鑰 "HELLO_HOST" 建立新的設定。 將值設定為後端函式應用程式的主機，例如 `<YourApp>.azurewebsites.net`。 這是您先前測試 HTTP 函式時複製之 URL 的一部分。 稍後，您將在設定中參考這項設定。
-
-> [!NOTE] 
-> 建議使用應用程式設定作為主機設定，以避免 Proxy 依賴硬式編碼的環境。 使用應用程式設定表示您可以在不同環境之間移動 Proxy 設定，將會套用環境特定的應用程式設定。
-
-按一下 [儲存] 。
+1. 按一下 [儲存] 。
 
 ### <a name="creating-a-proxy-on-the-frontend"></a>在前端建立 Proxy
 
-在入口網站中瀏覽回到前端函式應用程式。
+1. 在入口網站中瀏覽回到前端函式應用程式。
+1. 在左側導覽中，按一下 [Proxy (預覽)] 旁邊的加號 '+'。
+    ![建立 Proxy](./media/functions-create-serverless-api/creating-proxy.png)
+1. 使用表格中指定的 Proxy 設定。 
 
-在左側導覽中，按一下 [Proxy (預覽)] 旁邊的加號 '+'。
-
-![建立 Proxy](./media/functions-create-serverless-api/creating-proxy.png)
-
-使用表格中指定的 Proxy 設定。
-
-| 欄位 | 範例值 | 說明 |
-|---|---|---|
-| 名稱 | HelloProxy | 僅用於管理的易記名稱 |
-| 路由範本 | /api/hello | 決定使用什麼路由來叫用此 Proxy |
-| 後端 URL | https://%HELLO_HOST%/api/hello | 指定端點，而其要求應該透過代理 |
-
-請注意，Proxy 不提供 `/api` 基底路徑前置詞，這必須加入路由範本中。
-
-`%HELLO_HOST%` 語法會參考您稍早建立的應用程式設定。 解析後的 URL 會指向您的原始函式。
-
-按一下 [建立] 。
-
-您可以複製 Proxy URL，然後在瀏覽器或您最愛的 HTTP 用戶端測試，以試驗新的 Proxy。
+    | 欄位 | 範例值 | 說明 |
+    |---|---|---|
+    | 名稱 | HelloProxy | 僅用於管理的易記名稱 |
+    | 路由範本 | /api/hello | 決定使用什麼路由來叫用此 Proxy |
+    | 後端 URL | https://%HELLO_HOST%/api/hello | 指定端點，而其要求應該透過代理 |
+    
+1. 請注意，Proxy 不提供 `/api` 基底路徑前置詞，這必須加入路由範本中。
+1. `%HELLO_HOST%` 語法會參考您稍早建立的應用程式設定。 解析後的 URL 會指向您的原始函式。
+1. 按一下 [建立] 。
+1. 您可以複製 Proxy URL，然後在瀏覽器或您最愛的 HTTP 用戶端測試，以試驗新的 Proxy。
+    1. 針對匿名函式使用：
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+    1. 針對具有授權的函式使用：
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
 
 ## <a name="create-a-mock-api"></a>建立模擬 API
 

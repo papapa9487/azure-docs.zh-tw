@@ -1,6 +1,6 @@
 ---
 title: "針對 Azure 備份失敗：無法使用客體代理程式狀態進行疑難排解 | Microsoft Docs"
-description: "與「無法與 VM 代理程式通訊」錯誤相關之 Azure 備份失敗的徵狀、原因和解決方案"
+description: "與代理程式、延伸模組、磁碟相關之 Azure 備份失敗的徵狀、原因和解決方案"
 services: backup
 documentationcenter: 
 author: genlin
@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 6ed651bb8caafd18cec93e68ac70e27f92133e5c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 
@@ -67,6 +67,10 @@ ms.lasthandoff: 08/17/2017
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>原因 3︰[VM 中安裝的代理程式已過時 (針對 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>原因 4︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>原因 5︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)
+
+## <a name="the-specified-disk-configuration-is-not-supported"></a>系統不支援指定的磁碟設定
+
+Azure 備份目前不支援容量大於 1023 GB 的磁碟。 請分割磁碟，確定磁碟大小低於限制。 若要分割磁碟，您需要從大於 1023 GB 的磁碟中將資料複製到新建立的小於 1023 GB 的磁碟。
 
 
 ## <a name="causes-and-solutions"></a>原因和解決方案
@@ -148,7 +152,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 | VM 已設定 SQL Server 備份。 | 根據預設，VM 備份會在 Windows VM 上執行 VSS 完整備份。 在執行以 SQL Server 為基礎的伺服器並設定了 SQL Server 備份的 VM 上，可能會發生快照延遲執行。<br><br>如果您因為快照問題而遇到備份失敗，請設定下列登錄機碼：<br><br>**[HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT] "USEVSSCOPYBACKUP"="TRUE"** |
 | 因為 RDP 中的 VM 關機，而導致報告的 VM 狀態不正確。 | 如果您關閉遠端桌面通訊協定 (RDP) 中的 VM，請檢查入口網站，以判斷 VM 狀態是否正確。 如果不正確，可使用 VM 儀表板上的 [關閉] 選項來關閉入口網站中的 VM。 |
 | 相同的雲端服務中的許多 VM 都設定為同時備份。 | 最佳做法是向外分配相同雲端服務中 VM 的備份排程。 |
-| VM 正在以高 CPU 或記憶體使用量執行。 | 如果 VM 正在以高 CPU 使用量 (超過 90%) 或高記憶體使用量執行，即會將快照工作排入佇列並延遲，而其最終會逾時。 在此情況下，請嘗試隨選備份。 |
+| VM 正在以高 CPU 或記憶體使用量執行。 | 如果 VM 正在以高 CPU 使用量 (超過 90%) 或高記憶體使用量執行，即會將快照工作排入佇列並延遲，而其最終會逾時。在此情況下，請嘗試隨選備份。 |
 | VM 無法從 DHCP 取得主機/網狀架構位址。 | 必須在來賓內啟用 DHCP，IaaS VM 備份才能運作。  如果 VM 無法從 DHCP 回應 245 取得主機/網狀架構位址，則無法下載或執行任何擴充功能。 如果您需要靜態私人 IP 位址，您應該透過平台來進行設定。 VM 內的 DHCP 選項應保持啟用。 如需詳細資訊，請參閱[設定靜態內部私人 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)。 |
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>備份擴充功能無法更新或載入
@@ -156,9 +160,9 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>方案
 
- **Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
+** Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
 
- **Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
+** Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
 
 
 如果還是無法更新或載入備份擴充功能，您可以透過解除安裝擴充功能來強制重新載入 VMSnapshot 擴充功能。 下一次的備份嘗試將會重新載入擴充功能。

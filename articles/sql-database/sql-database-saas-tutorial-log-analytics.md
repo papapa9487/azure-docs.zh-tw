@@ -1,6 +1,6 @@
 ---
 title: "使用 Log Analytics 搭配 SQL Database 多租用戶應用程式 | Microsoft Docs"
-description: "設定及使用 Log Analytics (OMS) 搭配 Azure SQL Database 範例 Wingtip SaaS 應用程式"
+description: "設定及使用 Log Analytics (OMS) 搭配多租用戶 Azure SQL Database SaaS 應用程式"
 keywords: SQL Database Azure
 services: sql-database
 documentationcenter: 
@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: billgib; sstein
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 26f6f519ecb3abf6343dc2776aa141dff99ced15
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f9428871eab19f56e439ba529a9dcfde833d4fbf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="setup-and-use-log-analytics-oms-with-the-wingtip-saas-app"></a>設定及使用 Log Analytics (OMS) 搭配 Wingtip SaaS 應用程式
+# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>設定及使用 Log Analytics (OMS) 搭配多租用戶 Azure SQL Database SaaS 應用程式
 
-在本教學課程中，您會設定及使用 *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))*，以便監視彈性集區和資料庫。 它是以[效能監視與管理教學課程](sql-database-saas-tutorial-performance-monitoring.md)為基礎，並示範如何使用 *Log Analytics*，以增強 Azure 入口網站中提供的監視和警示功能。 Log Analytics 特別適合用於大規模監視和警示，因為它可支援數百個集區和數十萬個資料庫。 它也提供單一監視解決方案，可以跨多個 Azure 訂用帳戶，整合不同應用程式和 Azure 服務的監視。
+在本教學課程中，您會設定及使用 *Log Analytics([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))*，以便監視彈性集區和資料庫。 本教學課程是架構在[效能監視與管理教學課程](sql-database-saas-tutorial-performance-monitoring.md)之上。 示範如何使用 *Log Analytics*，以增強 Azure 入口網站中提供的監視和警示功能。 Log Analytics 適合用於大規模監視和警示，因為它可支援數百個集區和數十萬個資料庫。 它也提供單一監視解決方案，可以跨多個 Azure 訂用帳戶，整合不同應用程式和 Azure 服務的監視。
 
 在本教學課程中，您了解如何：
 
@@ -48,15 +48,15 @@ ms.lasthandoff: 07/28/2017
 
 您可以在 Azure 入口網站和 OMS 中開啟 Log Analytics 工作區和分析解決方案。 Azure 入口網站是較新的存取點，但在某些區域可能位於 OMS 入口網站的後面。
 
-### <a name="start-the-load-generator-to-create-data-to-analyze"></a>啟動負載產生器來建立要分析的資料
+### <a name="create-data-by-starting-the-load-generator"></a>藉由啟動負載產生器來建立資料 
 
 1. 在 **PowerShell ISE** 中開啟 **Demo-PerformanceMonitoringAndManagement.ps1**。 讓此指令碼保持開啟，因為您會在本教學課程期間執行數個負載產生案例。
-1. 如果您擁有少於五個租用戶，請佈建一批租用戶以提供更有趣的監視內容︰
+1. 如果您的租用戶少於五個，請佈建一批租用戶以提供更有趣的監視內容︰
    1. 設定 **$DemoScenario = 1**，**佈建一批租用戶**
-   1. 按 **F5** 以執行指令碼。
+   1. 若要執行指令碼，按 **F5**。
 
 1. 設定 **$DemoScenario** = 2，**產生一般強度負載 (約為 40 DTU)**。
-1. 按 **F5** 以執行指令碼。
+1. 若要執行指令碼，按 **F5**。
 
 ## <a name="get-the-wingtip-application-scripts"></a>取得 Wingtip 應用程式指令碼
 
@@ -64,10 +64,10 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>安裝及設定 Log Analytics 和 Azure SQL 分析解決方案
 
-Log Analytics 是需要設定的個別服務。 Log Analytics 會收集 Log Analytics 工作區中的記錄資料和遙測以及計量。 就像 Azure 中的其他資源一樣，工作區是必須建立的資源。 雖然工作區不一定要建立在與其監視之應用程式相同的資源群組中，但這麼做通常最有意義。 在 Wingtip SaaS 應用程式的情況下，這可讓工作區輕鬆地與應用程式一起刪除，只要刪除資源群組即可。
+Log Analytics 是需要設定的個別服務。 Log Analytics 會收集 Log Analytics 工作區中的記錄資料和遙測以及計量。 就像 Azure 中的其他資源一樣，工作區是必須建立的資源。 雖然工作區不一定要建立在與其監視之應用程式相同的資源群組中，但這麼做通常最有意義。 針對 Wingtip SaaS 應用程式，這可讓工作區輕鬆地與應用程式一起刪除，只要刪除資源群組即可。
 
 1. 在 **PowerShell ISE** 中開啟 ...\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\*Demo-LogAnalytics.ps1*。
-1. 按 **F5** 以執行指令碼。
+1. 若要執行指令碼，按 **F5**。
 
 此時，您應可在 Azure 入口網站 (或 OMS 入口網站) 中開啟 Log Analytics。 需要花幾分鐘的時間才能在 Log Analytics 工作區中收集遙測並顯示出來。 您讓系統蒐集資料的時間越長，體驗將會更有趣。 現在是放鬆一下的好時機 - 只要確定負載產生器仍在執行中！
 

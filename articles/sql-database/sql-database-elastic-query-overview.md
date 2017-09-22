@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/27/2016
 ms.author: mlandzic
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b3151248a1d036117bbdc9af03a98dff71ca535
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 0130b1d4f3ee7b27786764a275ce4e3c0ee93b2d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
@@ -142,7 +142,7 @@ ms.lasthandoff: 08/17/2017
 * 目前不支援外部資料表的資料行統計資料。 支援資料表統計資料，但必須以手動方式建立。
 
 ## <a name="feedback"></a>意見反應
-請在下面 Disqus、MSDN 論壇或 Stackoverflow 上，與我們分享您的彈性查詢體驗意見。 我們很樂意接受關於服務的各種意見 (缺失、不完善、功能落差)。
+請在下面 Livefyre、MSDN 論壇或 Stackoverflow 上，與我們分享您的彈性查詢體驗意見。 我們很樂意接受關於服務的各種意見 (缺失、不完善、功能落差)。
 
 ## <a name="next-steps"></a>後續步驟
 

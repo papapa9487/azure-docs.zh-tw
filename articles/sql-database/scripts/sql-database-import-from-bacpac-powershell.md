@@ -1,6 +1,6 @@
 ---
-title: "PowerShell 範例 - 匯入 - bacpac 檔案 - Azure SQL Database | Microsoft Docs"
-description: "將 bacpac 圖格匯入 SQL Database 的 Azure PowerShell 範例指令碼"
+title: "PowerShell 範例：將 BACPAC 檔案匯入 Azure SQL Database | Microsoft Docs"
+description: "將 BASPAC 檔案匯入 SQL Database 的 Azure PowerShell 範例指令碼"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,17 +16,17 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: ba477c19a7c7bd6809aa3b78c0ef23e9cc7d5497
+ms.translationtype: HT
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 815ba6e1eb775399e747514843dbd0f201156a3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
-# <a name="use-powershell-to-import-a-bacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 將 bacpac 檔案匯入 Azure SQL Database
+# <a name="use-powershell-to-import-a-pacpac-file-into-an-azure-sql-database"></a>使用 PowerShell 將 BASPAC 檔案匯入 Azure SQL Database
 
-此 PowerShell 指令碼範例會從 **bacpac** 檔案將資料庫匯入 Azure SQL Database。  
+此 PowerShell 指令碼範例會從 BACPAC 檔案將資料庫匯入 Azure SQL Database。  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 06/28/2017
 在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -51,7 +51,7 @@ Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | 建立主控 SQL Database 的邏輯伺服器。 |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) | 建立防火牆規則以允許從輸入的 IP 位址範圍存取伺服器上的所有 SQL Database。 |
-| [New-AzureRmSqlDatabaseImport (英文)](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | 在伺服器上匯入 .bacpac 檔案並建立新的資料庫。 |
+| [New-AzureRmSqlDatabaseImport (英文)](/powershell/module/azurerm.sql/new-azurermsqldatabaseimport) | 在伺服器上匯入 BACPAC 檔案並建立新的資料庫。 |
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 刪除資源群組，包括所有的巢狀資源。 |
 
 ## <a name="next-steps"></a>後續步驟

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 096f54b23a8223da89785b2e7f00c9b8a10c2906
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 # <a name="develop-azure-functions-with-media-services"></a>開發具有媒體服務的 Azure Functions
@@ -32,10 +32,6 @@ ms.lasthandoff: 09/06/2017
 - 您必須先具備有效的 Azure 帳戶，才可以建立第一個函式。 如果您還沒有 Azure 帳戶， [可以使用免費帳戶](https://azure.microsoft.com/free/)。
 - 如果您要建立會對 Azure 媒體服務 (AMS) 帳戶執行動作或是會接聽媒體服務所傳送之事件的 Azure Functions，您應該建立 AMS 帳戶，如[這裡](media-services-portal-create-account.md)所述。
     
-## <a name="considerations"></a>考量
-
--  在 Consumption 方案下執行的 Azure Functions 有 5 分鐘的逾時限制。
-
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
 1. 移至 [Azure 入口網站](http://portal.azure.com) ，然後以您的 Azure 帳戶登入。
@@ -47,10 +43,6 @@ ms.lasthandoff: 09/06/2017
 ## <a name="configure-function-app-settings"></a>設定函式應用程式設定
 
 開發媒體服務函式時，您可以很方便地新增要在整個函式中使用的環境變數。 若要設定應用程式設定，請按一下 [設定應用程式設定] 連結。 如需詳細資訊，請參閱[如何設定 Azure Function 應用程式設定](../azure-functions/functions-how-to-use-azure-function-app-settings.md)。 
-
-例如：
-
-![設定](./media/media-services-azure-functions/media-services-azure-functions001.png)
 
 本文中所定義的函式會假設您在應用程式設定中具有下列環境變數：
 
@@ -344,6 +336,9 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 2. 按一下 [Blob]。
 3. 按一下 [+容器]。 將容器命名為 **input**。
 4. 按 [上傳] 並瀏覽至您要上傳的 .mp4 檔案。
+
+>[!NOTE]
+> 當您在使用情況方案中使用 blob 觸發程序時，函數應用程式進入閒置狀態之後，處理新 blob 最多會有 10 分鐘的延遲。 在函數應用程式開始執行之後，會立即處理 blob。 如需詳細資訊，請參閱 [Blob 儲存體觸發程序與繫結](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings)。
 
 ## <a name="next-steps"></a>後續步驟
 

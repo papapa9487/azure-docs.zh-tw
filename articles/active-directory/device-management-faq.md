@@ -11,17 +11,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2017
+ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 1ab6a2b949101f60d6eef1ba7603d1c2cf81f90a
+ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
+ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
+
+
+
+**問：我要如何註冊 macOS 裝置？**
+
+**答：**若要註冊 macOS 裝置：
+
+1.  [建立裝置相容性原則](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [定義 macOS 裝置的條件式存取原則](active-directory-conditional-access-azure-portal.md) 
+
+**備註：**
+
+- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) 才能存取資源。 
+
+- 在首次存取嘗試期間，系統會提示使用者使用公司入口網站註冊裝置。
+
+---
 
 **問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？**
 
@@ -136,20 +153,10 @@ ms.lasthandoff: 09/05/2017
 
 ---
 
-**問︰哪裡可以找到設定自動裝置註冊的指示？**
+**問︰哪裡可以找到設定混合式 Azure AD 已加入裝置的設定指示？**
 
-**答：**如需詳細指示，請參閱[如何設定讓已加入網域的 Windows 裝置自動向 Azure Active Directory 註冊](active-directory-conditional-access-automatic-device-registration-setup.md)
+**：**如需詳細指示，請參閱[設定混合式 Azure Active Directory 已加入裝置](device-management-hybrid-azuread-joined-devices-setup.md)。
 
----
-
-**問：哪裡可以找到有關自動裝置註冊的疑難排解資訊？**
-
-**答：**如需疑難排解資訊，請參閱：
-
-- [針對已加入 Azure AD 網域之電腦的自動註冊進行疑難排解 – Windows 10 和 Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
-
-- [針對已加入 Azure AD 網域之 Windows 下層用戶端電腦的自動註冊進行疑難排解](device-management-troubleshoot-hybrid-join-windows-legacy.md)
- 
 ---
 
 

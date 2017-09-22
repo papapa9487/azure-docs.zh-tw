@@ -8,12 +8,12 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 09/15/2017
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 77e1b6266a2cf47949fa06358ec003f6b6b38065
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 38e68712699b3e89a10c3d44d8ec313f531fcbdc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫
@@ -25,7 +25,7 @@ ms.lasthandoff: 08/09/2017
 
 ## <a name="step-2-bind-ssl"></a>步驟 2：繫結 SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 透過 SSL 連線至伺服器
-設定使 MySQL Workbench 安全地透過 SSL 連線。 瀏覽至 MySQL Workbench [設定新連線] 對話方塊中的 [SSL] 索引標籤。 在 [SSL CA 檔案:] 欄位中輸入 **BaltimoreCyberTrustRoot.crt.pem** 的檔案位置。
+設定使 MySQL Workbench 安全地透過 SSL 連線。 在 [設定新連線] 對話方塊上的 MySQL Workbench 中，瀏覽至 [SSL] 索引標籤。在 [SSL CA 檔案:] 欄位中輸入 **BaltimoreCyberTrustRoot.crt.pem** 的檔案位置。
 ![儲存自訂的圖格](./media/howto-configure-ssl/mysql-workbench-ssl.png)
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>使用 MySQL CLI 透過 SSL 連線至伺服器
@@ -35,8 +35,8 @@ mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4d
 ```
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>步驟 3：強制在 Azure 中使用 SSL 連線 
-### <a name="using-azure-portal"></a>使用 Azure 入口網站
-使用 Azure 入口網站，瀏覽適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連線安全性]。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線] 設定。 然後按一下 [儲存] 。 Microsoft 建議一律啟用 [強制使用 SSL 連線] 設定，以增強安全性。
+### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
+使用 Azure 入口網站，瀏覽適用於 MySQL 的 Azure 資料庫伺服器，然後按一下 [連線安全性]。 使用切換按鈕來啟用或停用 [強制使用 SSL 連線] 設定，然後按一下 [儲存]。 Microsoft 建議一律啟用 [強制使用 SSL 連線] 設定，以增強安全性。
 ![啟用 ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>使用 Azure CLI
@@ -45,12 +45,12 @@ mysql.exe -h mysqlserver4demo.mysql.database.azure.com -u Username@mysqlserver4d
 az mysql server update --resource-group myresource --name mysqlserver4demo --ssl-enforcement Enabled
 ```
 
-## <a name="step-4-verify-ssl-connection"></a>步驟 4：確認 SSL 連線
+## <a name="step-4-verify-the-ssl-connection"></a>步驟 4：確認 SSL 連線
 執行 mysql **status** 命令，確認您已使用 SSL 連線至 MySQL 伺服器︰
 ```dos
 mysql> status
 ```
-檢閱輸出來確認連線已加密。 輸出應該會顯示：**SSL：使用中的編碼器是 AES256-SHA** 
+藉由檢閱輸出確認連線已加密，顯示結果應類似：**SSL: Cipher in use is AES256-SHA** 
 
 ## <a name="sample-code"></a>範例程式碼
 ### <a name="php"></a>PHP

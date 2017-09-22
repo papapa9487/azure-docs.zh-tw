@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/07/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3c7ab236d0a9efee6ac3fa97ed6de85cacbc9a89
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: e8ac4bef5af7a98857278b82304bb58f1ac6e342
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
@@ -64,12 +64,31 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 如需詳細資料，請參閱 [Azure Cosmos DB 定價詳細資料](https://azure.microsoft.com/pricing/details/cosmos-db/)頁面。 Azure Cosmos DB 使用量費用取決於已佈建的容器數目、容器在線上的時數，以及每個容器的佈建輸送量。 這裡的「容器」一詞指的是 DocumentDB API 集合、圖形 API 圖形、MongoDB API 集合及資料表 API 資料表。 
 
 ### <a name="is-a-free-account-available"></a>有免費的帳戶嗎？
+是，您可以免費註冊限時的帳戶，沒有承諾用量。 若要註冊，請造訪[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，或在[試用 Azure Cosmos DB 常見問題集](#try-cosmos-db)中深入了解。
+
 如果您不熟悉 Azure，可以註冊 [Azure 免費帳戶](https://azure.microsoft.com/free/)，就能得到 30 天免費試用以及信用額度，讓您試用所有 Azure 服務。 如果您有 Visual Studio 訂用帳戶，也享有[免費的 Azure 信用額度](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)，可用於所有 Azure 服務。 
 
 您也可以免費使用 [Azure Cosmos DB 模擬器](local-emulator.md)在本機開發及測試應用程式，而不需建立 Azure 訂用帳戶。 如果您滿意應用程式在 Azure Cosmos DB 模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。
 
 ### <a name="how-can-i-get-additional-help-with-azure-cosmos-db"></a>如何取得 Azure Cosmos DB 的其他協助？
 如果您需要任何協助，請透過 [Stack Overflow (英文)](http://stackoverflow.com/questions/tagged/azure-cosmosdb) 或 [MSDN 論壇](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDocumentDB)聯繫我們，或是傳送郵件給 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) 來安排與 Azure Cosmos DB 工程小組的一對一談話。 
+
+<a id="try-cosmos-db"></a>
+## <a name="try-azure-cosmos-db-subscriptions"></a>試用 Azure Cosmos DB 訂用帳戶
+
+您現在不需要訂用帳戶即可享用限時的 Azure Cosmos DB 體驗，不僅免費，也沒有任何承諾用量。 若要註冊試用 Azure Cosmos DB 訂用帳戶，請移至[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)。 此訂用帳戶與 [Azure 免費試用](https://azure.microsoft.com/free/)有所區別，有了 Azure 免費試用或 Azure 付費訂用帳戶之後，還是可以使用這個訂用帳戶。 
+
+試用 Azure Cosmos DB 訂用帳戶會顯示在 Azure 入口網站中，與您的使用者識別碼相關聯的其他訂用帳戶旁。 
+
+下列條件適用於試用 Azure Cosmos DB 訂用帳戶：
+
+* SQL (DocumentDB API)、Gremlin (Graph API) 和資料表帳戶的每個訂用帳戶一個容器。
+* MongoDB 帳戶的每個訂用帳戶最多 3 個集合。
+* 10 GB 儲存體容量。
+* 全域複寫適用於下列 [Azure 區域](https://azure.microsoft.com/regions/)：美國中部、北歐和東南亞
+* 輸送量上限 5K RU/s。
+* 訂用帳戶將於 24 小時之後到期，可以擴充到最多總時數 48 小時。
+* 無法為試用 Azure Cosmos DB 帳戶建立 Azure 支援票證，不過，會以現有支援計劃為訂閱者提供支援。 
 
 ## <a name="set-up-azure-cosmos-db"></a>設定 Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>如何註冊 Azure Cosmos DB？

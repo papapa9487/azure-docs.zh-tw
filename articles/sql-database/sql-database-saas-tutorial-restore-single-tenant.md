@@ -1,11 +1,11 @@
 ---
-title: "在多租用戶應用程式中還原 Azure SQL Database | Microsoft Docs"
+title: "在多租用戶 SaaS 應用程式中還原 Azure SQL Database | Microsoft Docs"
 description: "了解如何在不小心刪除資料之後還原單一租用戶 SQL Database"
 keywords: SQL Database Azure
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,15 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: 547851972f13ec69a8f65d01290874ad7d07f192
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 792476849e796695dde3f2ec80b56431a17e8fc0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="restore-a-wingtip-saas-tenants-sql-database"></a>還原 Wingtip SaaS 租用戶 SQL 資料庫
+# <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>在多租用戶 SaaS 應用程式中還原單一租用戶 Azure SQL Database
 
 Wingtip SaaS 應用程式是使用每一租用戶一個資料庫的模型來建置的，其中每個租用戶都有自己的資料庫。 此模型的其中一個優點是很容易以隔離方式還原單一租用戶的資料，而不會影響到其他租用戶。
 

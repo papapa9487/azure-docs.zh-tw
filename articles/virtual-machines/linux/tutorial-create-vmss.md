@@ -13,23 +13,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/11/2017
+ms.date: 09/08/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 2b8d519e11f70eda164bd8f6e131a3989f242ab0
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 1f54bb04023ad61f4eae51389c6a902a029e9399
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
 # <a name="create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux"></a>在 Linux 上建立虛擬機器擴展集及部署高可用性應用程式
-虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU 使用量、記憶體需求或網路流量自動調整。 在本教學課程中，您將會在 Azure 部署虛擬機器擴展集。 您會了解如何：
+虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據如 CPU、記憶體需求或網路流量的資源使用量來自動調整。 在本教學課程中，您將會在 Azure 部署虛擬機器擴展集。 您會了解如何：
 
 > [!div class="checklist"]
 > * 使用 Cloud-init 來建立要調整的應用程式
 > * 建立虛擬機器擴展集
 > * 增加或減少擴展集內的執行個體數目
+> * 建立自動調整規則
 > * 檢視擴展集執行個體的連線資訊
 > * 在擴展集內使用資料磁碟
 
@@ -39,11 +40,11 @@ ms.lasthandoff: 08/12/2017
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="scale-set-overview"></a>擴展集概觀
-虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 擴展集使用的元件，與您在[建立高可用性 VM](tutorial-availability-sets.md) 的先前教學課程中所學習到的元件相同。 擴展集中的 VM 會建立於可用性設定組中並分散於邏輯容錯網域和更新網域。
+虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 擴展集中的 VM 會分散於一或多個放置群組中的邏輯容錯網域和更新網域。 這些是類似設定 VM 的群組，類似於[可用性設定組](tutorial-availability-sets.md)。
 
 VM 會視需要建立於擴展集中。 您將定義自動調整規則，以控制如何及何時新增或移除擴展集中的 VM。 您可以根據計量 (例如 CPU 負載、記憶體使用量或網路流量) 觸發這些規則。
 
-當您使用 Azure 平台映像時，擴展集可支援多達 1,000 部 VM。 對於生產工作負載，您可以[建立自訂 VM 映像](tutorial-custom-images.md)。 使用自訂映像時，您可以在擴展集中建立多達 100 部 VM。
+當您使用 Azure 平台映像時，擴展集可支援多達 1,000 部 VM。 對於包含重要安裝作業或 VM 自訂要求的工作負載，您可能想要[建立自訂的 VM 映像](tutorial-custom-images.md)。 使用自訂映像時，您可以在擴展集中建立多達 300 部 VM。
 
 
 ## <a name="create-an-app-to-scale"></a>建立要調整的應用程式
@@ -113,7 +114,7 @@ az vmss create \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
 建立及設定所有擴展集資源和 VM 需要幾分鐘的時間。 在 Azure CLI 將您返回提示字元之後，背景工作會繼續執行。 可能需要再等候幾分鐘，才能存取應用程式。
@@ -197,7 +198,79 @@ az vmss scale \
     --new-capacity 5
 ```
 
-自動調整規則可讓您定義如何在擴展集中相應增加或相應減少 VM 的數目，以回應例如網路流量或 CPU 使用率的需求。 目前，無法在 Azure CLI 2.0 中設定這些規則。 使用 [Azure 入口網站](https://portal.azure.com)以設定自動調整。
+
+### <a name="configure-autoscale-rules"></a>設定自動調整規則
+除了手動調整擴展集中的執行個體數目，您可以定義自動調整規則。 這些規則會監視擴展集中的執行個體，並根據您定義的計量和臨界值進行回應。 下列範例會示範當 CPU 平均負載大於 60% 並持續 5 分鐘以上時，如何增加一個執行個體來相應放大執行個體數目。 如果之後 CPU 平均負載降到低於 30% 且持續 5 分鐘以上，則減少一個執行個體來相應縮小執行個體數目。 您的訂用帳戶 ID 用於建置各種擴展集元件的資源 URI。 若要使用 [az monitor autoscale-settings create](/cli/azure/monitor/autoscale-settings#create) 建立這些規則，請複製及貼上以下的自動調整命令設定檔：
+
+```azurecli-interactive 
+sub=$(az account show --query id -o tsv)
+
+az monitor autoscale-settings create \
+    --resource-group myResourceGroupScaleSet \
+    --name autoscale \
+    --parameters '{"autoscale_setting_resource_name": "autoscale",
+      "enabled": true,
+      "location": "East US",
+      "notifications": [],
+      "profiles": [
+        {
+          "name": "Auto created scale condition",
+          "capacity": {
+            "minimum": "2",
+            "maximum": "10",
+            "default": "2"
+          },
+          "rules": [
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "GreaterThan",
+                "threshold": 70
+              },
+              "scaleAction": {
+                "direction": "Increase",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            },
+            {
+              "metricTrigger": {
+                "metricName": "Percentage CPU",
+                "metricNamespace": "",
+                "metricResourceUri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet",
+                "metricResourceLocation": "eastus",
+                "timeGrain": "PT1M",
+                "statistic": "Average",
+                "timeWindow": "PT5M",
+                "timeAggregation": "Average",
+                "operator": "LessThan",
+                "threshold": 30
+              },
+              "scaleAction": {
+                "direction": "Decrease",
+                "type": "ChangeCount",
+                "value": "1",
+                "cooldown": "PT5M"
+              }
+            }
+          ]
+        }
+      ],
+      "tags": {},
+      "target_resource_uri": "/subscriptions/'$sub'/resourceGroups/myResourceGroupScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet"
+    }'
+```
+
+若要重複使用自動調整設定檔，您可以建立 JSON (JavaScript 物件標記法) 檔案，並傳遞至 `az monitor autoscale-settings create` 命令搭配 `--parameters @autoscale.json` 參數。 如需使用自動調整的詳細設計資訊，請參閱[自動調整最佳做法](/azure/architecture/best-practices/auto-scaling)。
+
 
 ### <a name="get-connection-info"></a>取得連線資訊
 若要取得擴展集中 VM 的相關連線資訊，請使用 [az vmss list-instance-connection-info](/cli/azure/vmss#list-instance-connection-info)。 此命令會輸出每部 VM 的公用 IP 位址和連接埠，可讓您與 SSH 連線︰
@@ -258,6 +331,7 @@ az vmss disk detach \
 > * 使用 Cloud-init 來建立要調整的應用程式
 > * 建立虛擬機器擴展集
 > * 增加或減少擴展集內的執行個體數目
+> * 建立自動調整規則
 > * 檢視擴展集執行個體的連線資訊
 > * 在擴展集內使用資料磁碟
 
@@ -265,3 +339,4 @@ az vmss disk detach \
 
 > [!div class="nextstepaction"]
 > [平衡虛擬機器的負載](tutorial-load-balancer.md)
+

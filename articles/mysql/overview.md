@@ -8,13 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/15/2017
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: a1becaf8465f68ecac768c5c6b2dbc95e8ff7278
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
@@ -22,10 +22,10 @@ ms.lasthandoff: 08/03/2017
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>什麼是 Azure Database for MySQL？ 服務簡介
 Azure Database for MySQL 是 Microsoft 雲端中以 [MySQL Community Edition](https://www.mysql.com/products/community/) 資料庫引擎為基礎的關聯式資料庫服務。  Azure Database for MySQL 提供：
 
-- 多個服務層級的可預測效能
-- 零應用程式停機的動態延展性
-- 內建高可用性
-- 資料保護
+- 多個服務層級的可預測效能。
+- 零應用程式停機的動態延展性。
+- 內建高可用性。
+- 資料保護。
 
 這些功能幾乎不需要管理，而且免費提供。 這些功能可讓您專注於快速開發應用程式及加快上市時間，而不是將寶貴的時間和資源耗費在管理虛擬機器和基礎結構上。 此外，您可以使用開放原始碼工具與選擇的平台繼續開發應用程式，並提供企業所需的速度和效率而不需要學習新技能。
 

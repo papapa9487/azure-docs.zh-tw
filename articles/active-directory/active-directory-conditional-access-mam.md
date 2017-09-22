@@ -1,6 +1,6 @@
 ---
-title: "Azure Active Directory 行動裝置應用程式管理的條件式存取 | Microsoft Docs"
-description: "了解 Azure Active Directory 行動裝置應用程式管理的條件式存取如何運作。"
+title: "Azure Active Directory 應用程式型條件式存取 | Microsoft Docs"
+description: "了解 Azure Active Directory 應用程式型條件式存取有何作用。"
 services: active-directory
 keywords: "應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則"
 documentationcenter: 
@@ -13,66 +13,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: spunukol
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: c6bc39dc151c80ffe1306464da60a029e54cc6b1
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 48c9f55e2296b88acc697ab818f13787695643a5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
-# <a name="conditional-access-with-mobile-app-management-in-azure-active-directory"></a>Azure Active Directory 行動裝置應用程式管理的條件式存取  
+# <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 應用程式型條件式存取  
 
-Azure 入口網站的 Azure Active Directory (Azure AD) 應用程式型條件式存取結合了 Intune 應用程式防護原則，有助於將雲端應用程式的存取權侷限於可支援 Intune 應用程式保護的行動裝置應用程式，例如將 Exchange Online 的存取權侷限於 Outlook 應用程式。 這項支援讓未申請由 Intune MDM 管理的裝置仍然能夠保護公司資料。   
+您的員工使用行動裝置來處理個人和工作事務。 在維護員工的生產力時，您也希望能預防資料遺失。 有了 Azure Active Directory (Azure AD) 應用程式型條件式存取，您可以將雲端應用程式的存取限制為能保護公司資料的用戶端應用程式。  
 
-行動裝置應用程式管理條件式存取可和其他原則結合，裝置型條件式存取原則即是一例，如此可讓保護個人和公司裝置資料的方式更具彈性。 
+本主題說明如何設定 Azure AD 應用程式型條件式存取。
+
+## <a name="overview"></a>概觀
+
+透過 [Azure AD 應用程式型條件式存取](active-directory-conditional-access-azure-portal.md)，您可以微調授權使用者如何存取您的資源。 例如，您可以將雲端應用程式的存取限制為受信任的裝置。
+
+您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來協助保護公司資料。 Intune 應用程式保護原則不需要行動裝置管理 (MDM) 解決方案，因此不論您是否在裝置管理解決方案中註冊裝置，都可以保護公司的資料。
+
+Azure Active Directory 應用程式型條件式存取，可讓您將雲端應用程式的存取限制為支援 Intune 應用程式保護原則的用戶端應用程式。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。
+
+在條件式存取術語中，這些用戶端應用程式稱為**核准的用戶端應用程式**。  
+
+
+![條件式存取](./media/active-directory-conditional-access-mam/05.png)
+
+
+如需核准的用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)。
+
+
+您可以將應用程式型條件式存取與其他原則 (如[裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)) 結合，讓保護個人和公司裝置資料的方式更具彈性。
+
+ 
+
 
 ##<a name="before-you-begin"></a>開始之前
 
 本主題假設您已熟悉：
 
+- [核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)技術參考。
+
+
 - [Azure Active Directory 中的條件式存取](active-directory-conditional-access-azure-portal.md)的基本概念。
 
 - 如何[設定條件式存取原則](active-directory-conditional-access-azure-portal-get-started.md)。
 
-
-此外，建議您查看一下 [Azure Active Directory 中條件式存取最佳做法](active-directory-conditional-access-best-practices.md)。  
-
-
+- [條件式存取原則的移轉](active-directory-conditional-access-best-practices.md#policy-migration)。
+ 
 
 ## <a name="prerequisites"></a>必要條件
 
-1.  建立應用程式型條件式存取原則之前，您必須擁有 Enterprise Mobility + Security 或 Azure Active Directory Premium 訂用帳戶，而且使用者必須獲得 EMS 或 Azure AD 的授權。 
-2.  您使用行動裝置應用程式管理原則建立新的條件式存取之前，需先檢閱情節和移轉考量
-
-## <a name="supported-platforms"></a>支援的平台
-
--   iOS
-
--   Android
-
-## <a name="approved-client-applications"></a>已核准的用戶端應用程式 
-
-- Microsoft Outlook
-
-- Microsoft SharePoint
-
-- Microsoft OneDrive
-
-- Microsoft Teams
-
-- Microsoft Word
-
-- Microsoft Excel
-
-- Microsoft PowerPoint
+若要建立應用程式型條件式存取原則，您必須擁有 Enterprise Mobility + Security 或 Azure Active Directory Premium 訂用帳戶，而且使用者必須獲得 EMS 或 Azure AD 的授權。 
 
 
 ## <a name="exchange-online-policy"></a>Exchange Online 原則 
 
-以下情節為使用受核准的應用程式以採取行動裝置應用程式管理原則的條件式存取來存取 Exchange Online。
+本案例包含存取 Exchange Online 的應用程式型條件式存取原則。
 
 
 ### <a name="scenario-playbook"></a>情節腳本
@@ -246,9 +246,9 @@ Azure 入口網站的 Azure Active Directory (Azure AD) 應用程式型條件式
 如需詳細資訊，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。
 
 
-## <a name="mobile-application-management-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 或 SharePoint Online 的行動應用程式管理或相容裝置原則
+## <a name="app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>適用於 Exchange Online 和 SharePoint Online 的應用程式型或相容裝置原則
 
-以下情節為使用受核准的應用程式以採取行動裝置應用程式管理原則或相容裝置原則的條件式存取來存取 Exchange Online。
+本案例包含存取 Exchange Online 的應用程式型或相容裝置條件式存取原則。
 
 
 ### <a name="scenario-playbook"></a>情節腳本
@@ -338,9 +338,10 @@ Azure 入口網站的 Azure Active Directory (Azure AD) 應用程式型條件式
 
 
 
-## <a name="mobile-application-management-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>Exchange Online 和 SharePoint Online 的行動應用程式管理或合規裝置原則
+## <a name="app-based-and-compliant-device-policy-for-exchange-online-and-sharepoint-online"></a>適用於 Exchange Online 和 SharePoint Online 的應用程式型和相容裝置原則
 
-以下情節為使用受核准的應用程式以採取行動裝置應用程式管理原則及相容裝置原則的條件式存取來存取 Exchange Online。
+本案例包含存取 Exchange Online 的應用程式型和相容裝置條件式存取原則。
+
 
 ### <a name="scenario-playbook"></a>情節腳本
 
@@ -436,87 +437,6 @@ Azure 入口網站的 Azure Active Directory (Azure AD) 應用程式型條件式
 如需詳細資訊，請參閱[使用 Microsoft Intune 保護應用程式和資料](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)。
 
 
-
-## <a name="migration-considerations"></a>移轉考量
-
-如果您已在 Azure 傳統入口網站中設定原則，請將這些原則移轉到 Azure 入口網站，因為：
-
-
-- 在 Azure 傳統入口網站原則和 Azure 入口網站原則中的使用者必須符合這兩項原則的需求 
-
-- 如果您不移轉您現有的原則，將無法實作授與存取權的原則
-
-
-## <a name="migration-from-the-azure-classic-portal"></a>從 Azure 傳統入口網站移轉
-
-在此情節中： 
-
-- 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，已設定：
-
-    - SharePoint Online
-
-    ![條件式存取](./media/active-directory-conditional-access-mam/14.png)
-
-    - 裝置型條件式存取原則
-
-    ![條件式存取](./media/active-directory-conditional-access-mam/15.png)
-
-- 您想要在 Azure 入口網站中設定行動應用程式管理條件式存取原則 
- 
-
-### <a name="configuration"></a>組態 
-
-- 檢閱您的裝置型條件式存取原則
-
-- 將這些原則移轉到 Azure 入口網站 
-
-- 新增行動應用程式管理條件式存取原則
-
-
-## <a name="migrating-from-intune"></a>從 Intune 移轉 
-
-在此情節中：
-
-- 在 [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) 中，您已設定 Exchange Online 或 SharePoint Online 的行動應用程式管理條件式存取原則
-
-    ![條件式存取](./media/active-directory-conditional-access-mam/15.png)
-
-- 您想要在 Azure 入口網站中移轉為使用行動應用程式管理條件式存取
-
-
-### <a name="configuration"></a>組態 
- 
-- 檢閱您的裝置型條件式存取原則
-
-- 將這些原則移轉到 Azure 入口網站 
-
-- 檢閱已在 Intune 中設定的 Exchange Online 或 SharePoint Online 的行動應用程式管理條件式存取原則
-
-- 除了裝置型控制項之外，新增 [需要經過核准的應用程式] 控制項 
- 
-
-## <a name="migrating-from-the-azure-classic-portal-and-intune"></a>從 Azure 傳統入口網站和 Intune 移轉
-
-在此情節中：
-
-- 您已設定下列項目：
-
-    - **Azure 傳統入口網站：**裝置型條件式 
-
-    - **Intune：**行動應用程式管理條件式存取原則 
-    
-- 您想要在 Azure 入口網站中將兩個原則移轉為使用行動應用程式管理條件式存取原則
-
-
-### <a name="configuration"></a>組態
-
-- 檢閱您的裝置型條件式存取原則
-
-- 將這些原則移轉到 Azure 入口網站 
-
-- 檢閱已在 Intune 中設定的 Exchange Online 或 SharePoint Online 的行動應用程式管理條件式存取原則
-
-- 除了裝置型之外，新增 [需要經過核准的應用程式] 控制項 
 
 
 

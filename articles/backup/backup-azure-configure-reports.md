@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/24/2017
+ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4629665e6fbe26c26eb45af7509de338367c4e18
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
@@ -140,6 +140,12 @@ ms.lasthandoff: 08/21/2017
 
    是。您可以在不同的保存庫上設定相同的儲存體帳戶，以檢視跨保存庫的報告。 您也可以針對跨訂用帳戶的保存庫設定相同的儲存體帳戶。 您接著可以在連線至 Power BI 中的 Azure 備份內容套件時，使用這個儲存體帳戶來檢視報告。 不過，選取的儲存體帳戶應與復原服務保存庫位於相同的區域。
    
+## <a name="troubleshooting-errors"></a>錯誤疑難排解
+| 錯誤詳細資料 | 解決方案 |
+| --- | --- |
+| 設定備份報告的儲存體帳戶之後，[儲存體帳戶] 依然顯示 [未設定]。 | 如果您已成功設定儲存體帳戶，不論這個問題是否發生，報表資料仍然會流動。 若要解決此問題，請移至 Azure 入口網站 > [更多服務] > [診斷設定] > [RS 保存庫] > [編輯設定]。 刪除先前配置的設定，再從同一個刀鋒視窗建立新設定。 這次將 [名稱] 欄位設定為 [服務]。 這樣應該能顯示設定的儲存體帳戶。 |
+|在 Power BI 中匯入 Azure 備份內容套件後，會發生 **404 - 找不到容器**錯誤。 | 如本文件所建議，在復原服務保存庫中設定報表後，您必須等待 24 小時才能在 Power BI 中正確查看。 如果您在 24 小時之前嘗試存取報表，便會發生這個錯誤，因為完整的資料還不存在，無法顯示有效的報表。 |
+
 ## <a name="next-steps"></a>後續步驟
 現在您已經設定好儲存體帳戶並匯入 Azure 備份內容套件，下一個步驟是自訂這些報告，並使用報告資料模型建立報告。 如需詳細資料，請參閱下列文章。
 

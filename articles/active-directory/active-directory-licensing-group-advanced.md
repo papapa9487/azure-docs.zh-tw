@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 55e2e095138842f8e2d31a4f79ffb22b81d18dba
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 
@@ -123,7 +123,7 @@ ms.lasthandoff: 07/21/2017
 
 3. 移至 [[Azure Active Directory] > [授權] > [所有產品]](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) 刀鋒視窗並選取 [Office 365 企業版 E5]，然後選取 [經過授權的群組] 以檢視該產品的所有群組清單。
 
-4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」)。 這會開啟 [授權] 索引標籤。 按一下 E5 授權會開啟刀鋒視窗，其中列出所有已啟用的服務。
+4. 按一下您要檢閱的群組 (在本例中為「O365 E5 - 僅 Exchange」)。 這會開啟 [授權] 索引標籤。按一下 E5 授權會開啟刀鋒視窗，其中列出所有已啟用的服務。
 > [!NOTE]
 > 在此群組中，除了 *Exchange Online* 服務，還會自動新增並啟用 *Microsoft Stream* 服務：
 
@@ -213,6 +213,8 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 - 當使用者從群組移除且失去授權時，來自該授權的服務方案 (例如 SharePoint Online) 會設定為「暫停」狀態。 服務方案不會設定為最終的已停用狀態。 此預防措施可避免系統管理員在群組成員資格管理時犯錯，而意外移除使用者資料。
 
 - 當指派或修改大型群組 (例如 100,000 個使用者) 的授權時，可能會影響效能。 具體來說，Azure AD 自動化所產生的大量變更，可能會降低 Azure AD 和內部部署系統之間目錄同步作業的效能。
+
+- 在某些高負載情況下，授權處理可能會延遲，導致諸如新增/移除群組授權或新增/移除群組使用者等變更，可能需要很長的時間來處理。 如果您發現變更需要 24 小時以上才能處理完畢，請[開啟支援票證](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest)讓我們調查。 我們會在這項功能「正式運作」之前改善它的效能特性。
 
 - 授權管理自動化並不會自動對環境中所有類型的變更做出回應。 例如，您可能已用盡授權，導致某些使用者處於錯誤狀態。 若要釋出可用的授權數量，您可以移除其他使用者的一些直接指派授權。 不過，系統不會自動回應這項變更，也不會修正處於該錯誤狀態的使用者。
 

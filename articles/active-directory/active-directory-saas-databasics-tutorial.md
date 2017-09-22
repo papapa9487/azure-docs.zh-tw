@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/08/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 26943282701302b61252e17850b71381afb1629b
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 3a9776e6d11a54220a3b055d59e89d2eb4161a1a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-databasics"></a>教學課程：Azure Active Directory 與 DATABASICS 整合
@@ -124,11 +124,14 @@ DATABASICS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-databasics-tutorial/tutorial_general_400.png)
 
-6. 若要在 **DATABASICS** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [DATABASICS 支援小組](https://www.data-basics.com/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+6. 若要在 DATABASICS 端設定單一登入，請先使用下列 URL 完成表單。 提交表單後，[DATABASICS 用戶端支援小組](https://www.data-basics.com/support/)將會與您連絡。
+    
+    [https://www.data-basics.com/support/submit-sso-onboarding-request/](https://www.data-basics.com/support/submit-sso-onboarding-request/)
+
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

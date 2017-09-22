@@ -3,7 +3,7 @@ title: "使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 設計高可用�
 description: "如何使用 Azure RA-GRS 儲存體來設計高可用性應用程式的架構，使其有足夠的彈性來處理中斷。"
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
@@ -12,28 +12,35 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
-ms.author: robinsh
+ms.date: 9/06/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: adc7e23d8c9f869f2951490020e3d0f1a2b2e81c
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 2889faf7bfa86f40eb38c50f146bd59ecfb6001f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
-雲端式基礎結構的常見功能是提供高可用性平台來裝載應用程式。 雲端式應用程式的開發人員必須仔細考慮如何運用此平台，來為使用者提供高可用性應用程式。 本文特別著重於開發人員如何利用 Azure 儲存體讀取權限異地備援儲存體 (RA-GRS)，來提高其應用程式的可用性。
+雲端式基礎結構 (例如 Azure 儲存體) 的常見功能是提供高可用性平台來裝載應用程式。 雲端式應用程式的開發人員必須仔細考慮如何運用此平台，來為使用者提供高可用性應用程式。 本文著重於開發人員如何利用讀取權限異地備援儲存體 (RA-GRS)，來確定其 Azure 儲存體應用程式的高可用性。
 
-有四種備援選項 - LRS (本地備援儲存體)、ZRS (區域備援儲存體)、GRS (異地備援儲存體) 和 RA-GRS (讀取權限異地備援儲存體)。 我們將在本文中討論 GRS 和 RA-GRS。 使用 GRS 時，會在您設定儲存體帳戶時選取的主要區域中保留三份您的資料。 另外會以非同步方式在 Azure 所指定的次要區域中保留三個額外複本。 除了您具備次要複本的讀取權限之外，RA-GRS 與 GRS 一樣。 如需各種 Azure 儲存體備援選項的詳細資訊，請參閱 [Azure 儲存體複寫](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy)。 該複寫文章也會示範主要和次要區域的配對。
+Azure 儲存體為儲存體帳戶中的資料備援提供四個選項：
+
+– LRS (本地備援儲存體)
+- ZRS (區域備援儲存體) 
+- GRS (異地備援儲存體)
+- RA-GRS (讀取權限異地備援儲存體) 
+
+本文的重點在於 GRS 和 RA-GRS。 使用 GRS 時，會在您設定儲存體帳戶時選取的主要區域中保留三份您的資料。 另外會以非同步方式在 Azure 所指定的次要區域中保留三個額外複本。 除了您具備次要複本的讀取權限之外，RA-GRS 與 GRS 一樣。 如需各種 Azure 儲存體備援選項的詳細資訊，請參閱 [Azure 儲存體複寫](https://docs.microsoft.com/azure/storage/storage-redundancy)。 該複寫文章也會示範主要和次要區域的配對。
 
 本文提供一些程式碼片段，並在結尾處提供完整範例的連結，可供您下載並執行。
 
 ## <a name="key-features-of-ra-grs"></a>RA-GRS 的主要功能
 
-在討論如何使用 RA-GRS 儲存體之前，讓我們先談論它的屬性和行為。
+針對 RA-GRS 設計您的應用程式時請記住這些要點：
 
-* Azure 儲存體會在次要區域中保留一份您儲存於主要區域之資料的唯讀複本；如前所述，儲存體服務會判斷次要區域的位置。
+* Azure 儲存體會維護您在主要區域、次要區域中儲存之資料的唯讀副本。 如先前所述，儲存體服務會決定次要區域的位置。
 
 * 唯讀複本與主要區域中的資料是[最終一致](https://en.wikipedia.org/wiki/Eventual_consistency)的。
 
@@ -43,17 +50,19 @@ ms.lasthandoff: 07/12/2017
 
 * 如果產生會影響主要區域中資料可存取性的主要問題，Azure 團隊可能會觸發異地複寫容錯移轉，此時指向主要區域的 DNS 項目將會變更為指向次要區域。
 
-* 發生異地複寫容錯移轉時，Azure 將會選取新的次要位置並將資料複寫到該位置，然後將次要 DNS 項目指向它。 次要端點要到儲存體帳戶複寫完成之後才能使用。 如需詳細資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](https://docs.microsoft.com/en-us/azure/storage/storage-disaster-recovery-guidance)。
+* 發生異地複寫容錯移轉時，Azure 將會選取新的次要位置並將資料複寫到該位置，然後將次要 DNS 項目指向它。 次要端點要到儲存體帳戶複寫完成之後才能使用。 如需詳細資訊，請參閱[如果 Azure 儲存體發生中斷怎麼辦](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance)。
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>使用 RA-GRS 時的應用程式設計考量
 
-本文的主要目的是示範如何設計即使主要資料中心發生重大災害，仍能繼續運作 (儘管容量有限) 的應用程式。 為了達成此目的，您可以讓應用程式在發生問題切換到從次要區域讀取，然後在主要區域再次可用時切換回來，藉以處理暫時性或長時間執行的問題。
+本文的目的是示範如何設計即使主要資料中心發生重大災害，仍能繼續運作 (儘管容量有限) 的應用程式。 您可以設計您的應用程式，藉由當從主要區域讀取發生干擾問題時從次要區域讀取，來處理暫時性或長時間執行的問題。 當主要區域再次可用時，您的應用程式可以回到從主要區域讀取。
 
 ### <a name="using-eventually-consistent-data"></a>使用最終一致的資料
 
-這個建議的解決方案假設可以將可能過時的資料傳回呼叫的應用程式。 由於次要資料最終會維持一致，因此有可能已將資料寫入主要區域，但對次要區域的更新因為主要區域變成不可存取而無法完成複寫。
+這個建議的解決方案假設可以接受將可能過時的資料傳回呼叫的應用程式。 由於次要區域中的資料最終會一致，因此在次要區域的更新完成複寫之前，主要區域可能會無法存取。
 
-例如，您的客戶成功提交更新，接著主要區域在將該更新傳播到次要區域時當機。 在此情況下，如果客戶接著要求讀回資料，則他會接收到過時的資料，而不是更新的資料。 您必須決定是否可接受此情況，如果可以，您該如何傳達給為客戶。 您將在本文後續內容中看到如何檢查次要資料的上次同步處理時間，以查看該次要資料是否為最新狀態。
+例如，假設您的客戶成功提交更新，但是在更新傳播到次要區域之前主要區域會失敗。 當客戶要求讀回資料，他會從次要區域接收到過時的資料，而不是更新的資料。 設計您的應用程式時，您必須決定是否可接受此情況，如果可以，您該如何傳達給客戶。 
+
+在本文後續內容中，我們會看到如何檢查次要資料的上次同步處理時間，以查看該次要資料是否為最新狀態。
 
 ### <a name="handling-services-separately-or-all-together"></a>個別處理服務或一併處理所有服務
 
@@ -75,11 +84,11 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="running-your-application-in-read-only-mode"></a>在唯讀模式中執行您的應用程式
 
-若要使用 RA-GRS 儲存體，您必須能夠同時處理失敗的讀取要求和失敗的更新要求 (透過更新，在此案例中表示插入、更新和刪除)。 如果主要資料中心失敗，可將讀取要求重新導向到次要資料中心，但由於次要資料中心是唯讀的，所以無法對更新要求執行此動作。 基於這個理由，您必須想辦法在唯讀模式中執行您的應用程式。
+若要使用 RA-GRS 儲存體，您必須能夠同時處理失敗的讀取要求和失敗的更新要求 (透過更新，在此案例中表示插入、更新和刪除)。 如果主要資料中心失敗，可將讀取要求重新導向到次要資料中心。 不過，因為次要資料中心是唯讀的，所以無法將更新要求重新導向到次要資料中心。 基於這個理由，您必須設計您的應用程式在唯讀模式中執行。
 
-例如，您可以設定旗標，在將任何更新提交到儲存體服務之前先加以檢查。 當其中一個更新要求傳入時，您可以略過它，並將適當的回應傳回給客戶。 您甚至可以在問題解決之前完全停用某些功能，並通知使用者，這些功能暫時無法使用。
+例如，您可以設定旗標，在將任何更新要求提交到 Azure 儲存體之前先加以檢查。 當其中一個更新要求傳入時，您可以略過它，並將適當的回應傳回給客戶。 您甚至可以在問題解決之前完全停用某些功能，並通知使用者，這些功能暫時無法使用。
 
-如果您決定要個別處理每個服務的錯誤，也需要處理服務在唯讀模式中執行您應用程式的能力。 您可以針對每個可啟用和停用的服務設定唯讀旗標，然後在程式碼的適當位置處理適當的旗標。
+如果您決定要個別處理每個服務的錯誤，也需要處理服務在唯讀模式中執行您應用程式的能力。 例如，您可以對可啟用和停用的每個服務加上唯讀旗標。 然後您可以在程式碼中的適當位置處理旗標。
 
 能夠在唯讀模式中執行您的應用程式有另一個好處 - 這讓您能夠在主要應用程式升級期間確保有限的功能。 您可以觸發應用程式在唯讀模式中執行並指向次要資料中心，確保當您進行升級時，不會有人正在存取主要區域中的資料。
 
@@ -145,7 +154,7 @@ ms.lasthandoff: 07/12/2017
 
 您有三個主要選項可用來監視主要區域中的重試頻率，以判斷何時要切換到次要區域，並將應用程式變更為在唯讀模式中執行。
 
-*   針對您傳遞到儲存體要求的 [**OperationContext**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.aspx) 物件上的 [**Retrying**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 事件新增處理常式 - 這是本文所示的方法，並會在隨附的範例中使用。 每當用戶端重試要求時，這些事件即會觸發，讓您能夠追蹤用戶端在主要端點上發生可重試錯誤的頻率。
+*   針對您傳遞到儲存體要求的 [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 物件上的 [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) 事件新增處理常式 - 這是本文所示的方法，並會在隨附的範例中使用。 每當用戶端重試要求時，這些事件即會觸發，讓您能夠追蹤用戶端在主要端點上發生可重試錯誤的頻率。
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -156,7 +165,7 @@ ms.lasthandoff: 07/12/2017
     };
     ```
 
-*   在自訂重試原則的 [**Evaluate**](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，您可以在每次進行重試時執行自訂程式碼。 除了記錄重試發生的時間，這也能讓您有機會修改重試行為。
+*   在自訂重試原則的 [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，您可以在每次進行重試時執行自訂程式碼。 除了記錄重試發生的時間，這也能讓您有機會修改重試行為。
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -164,12 +173,12 @@ ms.lasthandoff: 07/12/2017
     {
         var statusCode = retryContext.LastRequestResult.HttpStatusCode;
         if (retryContext.CurrentRetryCount >= this.maximumAttempts
-        || ((statusCode &gt;= 300 && statusCode &lt; 500 && statusCode != 408)
-        || statusCode == 501 // Not Implemented
-        || statusCode == 505 // Version Not Supported
+            || ((statusCode >= 300 && statusCode < 500 && statusCode != 408)
+            || statusCode == 501 // Not Implemented
+            || statusCode == 505 // Version Not Supported
             ))
         {
-        // Do not retry
+            // Do not retry
             return null;
         }
 
@@ -232,7 +241,7 @@ static function OnBeforeResponse(oSession: Session) {
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需讀取存取異地備援的詳細資訊 (包括另一個如何設定 LastSyncTime 的範例)，請參閱 [Microsoft Azure 儲存體備援選項與讀取權限異地備援儲存體 (英文)](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
+* 如需讀取存取異地備援的詳細資訊 (包括另一個如何設定 LastSyncTime 的範例)，請參閱 [Microsoft Azure 儲存體備援選項與讀取權限異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 
 * 如需示範如何在主要和次要端點之間來回切換的完整範例，請參閱 [Azure 範例 - 搭配 RA-GRS 儲存體使用斷路器模式 (英文)](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)。
 

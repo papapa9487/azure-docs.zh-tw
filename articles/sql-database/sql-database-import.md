@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: d42df0cbfa20741d4848dbefabb9028128b42ae1
+ms.translationtype: HT
+ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
+ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>將 BACPAC 檔案匯入到新的 Azure SQL Database
@@ -38,7 +37,7 @@ ms.lasthandoff: 07/08/2017
 
 本文提供的指示將說明如何使用 [Azure 入口網站](https://portal.azure.com)，從 BACPAC 檔案 (儲存於 Azure Blob 儲存體中) 建立 Azure SQL Database。 使用 Azure 入口網站匯入的方式只支援從 Azure Blob 儲存體匯入 BACPAC 檔案。
 
-若要使用 Azure 入口網站匯入資料庫，請開啟資料庫頁面，然後按一下工具列上的 [匯入]。 指定儲存體帳戶和容器，然後選取您要匯入的 BACPAC 檔案。 選取新資料庫的大小 (通常與來源相同)，並提供目的地 SQL Server 認證。  
+若要使用 Azure 入口網站匯入資料庫，開啟資料庫頁面讓伺服器與資料庫產生關聯，然後按一下工具列上的 [匯入]。 指定儲存體帳戶和容器，然後選取您要匯入的 BACPAC 檔案。 選取新資料庫的大小 (通常與來源相同)，並提供目的地 SQL Server 認證。  
 
    ![資料庫匯入](./media/sql-database-import/import.png)
 
@@ -63,8 +62,6 @@ ms.lasthandoff: 07/08/2017
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=ServerAdmin;Password=<change_to_your_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
-
-   ![sqlpackage 匯入](./media/sql-database-migrate-your-sql-server-database/sqlpackage-import.png)
 
 > [!IMPORTANT]
 > Azure SQL Database 邏輯伺服器會接聽連接埠 1433。 如果您嘗試從公司防火牆連線至 Azure SQL Database 邏輯伺服器，則必須在公司防火牆中開啟此連接埠，您才能成功連線。

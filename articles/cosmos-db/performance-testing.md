@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 11f2f72073fd23c0a7c61dedb270f64d42b98025
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
-效能和規模測試是應用程式開發過程中的關鍵步驟。 對許多應用程式來說，資料庫層對整體效能和延展性具有相當重大的影響，因此是效能測試的重要元件。 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是為了能夠彈性延展及獲得可預測的效能而建置，因此非常適合需要高效能資料庫層的應用程式。 
+效能和規模測試是應用程式開發過程中的關鍵步驟。 對許多應用程式而言，資料庫層在整體效能和延展性上有很大的影響。 因此，它是效能測試的重要元素。 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 就是專門為彈性化規模和可預測效能而建置。 這些功能完全符合應用程式需要高效能資料庫層的要求。 
 
-這篇文章適合做為針對其 Cosmos DB 工作負載實作效能測試套件或針對高效能應用程式案例評估 Cosmos DB 之開發人員的參考。 主要是著重在隔離的資料庫效能測試，但也包含適用於實際執行應用程式的最佳做法。
+本文可讓開發人員在為他們的 Azure Cosmos DB 工作負載實作效能測試套件時作為參考。 也可以用來針對高效能應用程式案例評估 Azure Cosmos DB。 主要是著重在隔離的資料庫效能測試，但也包含適用於實際執行應用程式的最佳做法。
 
-閱讀本文後，您將能夠回答下列問題：   
+閱讀本文後，您將能夠回答下列問題： 
 
-* 哪裡可以找到可供進行 Cosmos DB 效能測試的範例 .NET 用戶端應用程式？ 
-* 如何藉由 Cosmos DB 從我的用戶端應用程式達到高輸送量層級？
+* 哪裡可以找到可供進行 Azure Cosmos DB 效能測試的範例 .NET 用戶端應用程式？ 
+* 如何藉由 Azure Cosmos DB 從我的用戶端應用程式達到高輸送量層級？
 
 若要開始使用程式碼，請從 [Azure Cosmos DB 效能測試範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)下載專案。 
 
@@ -39,17 +39,17 @@ ms.lasthandoff: 08/30/2017
 > 
 > 
 
-如果您要尋找用戶端設定選項，以改善 Cosmos DB 效能，請參閱 [Azure Cosmos DB 效能祕訣](performance-tips.md)。
+如果您要尋找用戶端設定選項，以改善 Azure Cosmos DB 效能，請參閱 [Azure Cosmos DB 效能祕訣](performance-tips.md)。
 
 ## <a name="run-the-performance-testing-application"></a>執行效能測試應用程式
-若要開始使用，最快的方法就是依以下步驟所述，編譯並執行 .NET 範例：您也可以檢閱原始程式碼，然後對自己的用戶端應用程式實作類似的設定。
+若要開始使用，最快的方法就是依以下步驟所述，編譯並執行 .NET 範例。 您也可以檢閱原始程式碼，然後對自己的用戶端應用程式實作類似的組態。
 
 **步驟 1：**從 [Azure Cosmos DB 效能測試範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) 或 GitHub 存放庫的分支下載專案。
 
 **步驟 2：**修改 App.config 中 EndpointUrl、AuthorizationKey、CollectionThroughput 及 DocumentTemplate (選擇性) 的設定。
 
 > [!NOTE]
-> 以高輸送量佈建集合之前，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)以估算每個集合的成本。 Azure Cosmos DB 對儲存體和輸送量是以小時為基礎獨立計費，因此您可以藉由在測試後刪除或降低 Azure Cosmos DB 集合的輸送量來節省成本。
+> 以高輸送量佈建集合之前，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)以估算每個集合的成本。 Azure Cosmos DB 會以小時為單位，對儲存體和輸送量分別計價。 測試完成後，您可以藉由刪除或降低 Azure Cosmos DB 集合的輸送量來節省成本。
 > 
 > 
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 08/30/2017
 讓應用程式處於執行狀態之後，您便可以嘗試不同的[索引編製原則](indexing-policies.md)和[一致性層級](consistency-levels.md)，以了解它們對輸送量和延遲的影響。 您也可以檢閱原始程式碼，然後對自己的測試套件或實際執行應用程式實作類似的組態。
 
 ## <a name="next-steps"></a>後續步驟
-在這篇文章中，我們探討了如何使用 .NET 主控台應用程式來執行 Cosmos DB 的相關效能和規模測試。 如需詳細資訊，請參閱下列文章。
+在這篇文章中，我們探討了如何使用 .NET 主控台應用程式來執行 Azure Cosmos DB 的相關效能和規模測試。 如需詳細資訊，請參閱下列文章。
 
 * [Azure Cosmos DB 效能測試範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [改善 Azure Cosmos DB 效能的用戶端設定選項](performance-tips.md)

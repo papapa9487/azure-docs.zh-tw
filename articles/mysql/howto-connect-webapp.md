@@ -8,17 +8,17 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/23/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: 2488a28353f3cfe76dc5aa9f9a9159a37ee9901b
+ms.date: 09/15/2017
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 0028b0c918b573f6884e6f63fa82dbe23079882a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>將現有的 Azure App Service 連線到適用於 MySQL 伺服器的 Azure 資料庫
-本文件說明如何將現有的 Azure App Service 連線到適用於 MySQL 伺服器的 Azure 資料庫。
+本主題說明如何將現有的 Azure App Service 連線到適用於 MySQL 伺服器的 Azure 資料庫。
 
 ## <a name="before-you-begin"></a>開始之前
 登入 [Azure 入口網站](https://portal.azure.com)。 建立適用於 MySQL 伺服器的 Azure 資料庫。 如需詳細資訊，請參閱[如何從入口網站建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-portal.md)或[如何使用 CLI 建立適用於 MySQL 伺服器的 Azure 資料庫](quickstart-create-mysql-server-database-using-azure-cli.md)。
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/25/2017
 
    ![Azure 入口網站 - 按一下 [連線安全性]](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. 輸入 [規則名稱]、[起始 IP] 和 [結束 IP]。 然後按一下 [儲存] 。
+2. 輸入 [規則名稱]、[起始 IP] 和 [結束 IP]，然後按 下 [儲存]。
    - 規則名稱：允許所有 IP
    - 起始 IP：0.0.0.0
    - 結束 IP：255.255.255.255
@@ -57,7 +57,7 @@ ms.lasthandoff: 05/25/2017
 
 3. 記得**儲存**您的防火牆規則。
 
-雖然 Azure App Service 會嘗試將 IP 位址保持固定一段時間，IP 位址有時還是可能會變更。 例如，發生應用程式回收或調整規模作業時，或在 Azure 地區資料中心內新增機器以增加容量時。 當 IP 位址變更時，應用程式可能會在無法再連線到 MySQL 伺服器時發生停機。 選擇上述其中一種解決方案時，請考慮這個可能性。
+雖然 Azure App Service 會嘗試將 IP 位址保持固定一段時間，IP 位址有時還是可能會變更。 例如，此狀控可能發生應用程式回收或調整規模作業時，或在 Azure 地區資料中心內新增電腦以增加容量時。 當 IP 位址變更時，應用程式可能會在無法再連線到 MySQL 伺服器時發生停機。 選擇上述其中一種解決方案時，請考慮這個可能性。
 
 ## <a name="ssl-configuration"></a>SSL 設定
 適用於 MySQL 的 Azure 資料庫預設會啟用 SSL。 如果您的應用程式未使用 SSL 連線到資料庫，則必須在 MySQL 伺服器上停用 SSL。 如需如何設定 SSL 的詳細資訊，請參閱[使用 SSL 與適用於 MySQL 的 Azure 資料庫](howto-configure-ssl.md)。

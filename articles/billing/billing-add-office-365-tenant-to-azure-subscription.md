@@ -13,19 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 09/13/2017
 ms.author: cjiang
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ff1cc44c01061aa924917e082d582bdebfb40c21
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/14/2017
 
 ---
-# <a name="associate-an-office-365-tenant-to-an-azure-subscription"></a>將 Office 365 租用戶與 Azure 訂用帳戶產生關聯
-連結個別的 Azure 和 Office 365 訂用帳戶，這樣您就可以從 Azure 訂用帳戶存取 Office 365 租用戶。 若要連結您的訂用帳戶，請使用 Azure 服務系統管理員帳戶登入 Azure，新增一個目錄，然後將 Office 365 組織帳戶新增到 Azure Active Directory 租用戶。
+# <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>連結 Office 365 租用戶與 Azure 訂用帳戶
+連結個別的 Azure 和 Office 365 訂用帳戶，這樣您就可以從 Azure 訂用帳戶存取 Office 365 租用戶。 若要連結您的訂用帳戶，請使用 Azure 服務系統管理員帳戶登入 Azure，新增一個目錄，然後將 Office 365 公司或學校帳戶新增到 Azure Active Directory 租用戶。
 
-如果您要讓 Azure Active Directory 執行個體中的使用者擁有 Office 365 訂用帳戶，或您有 Office 365 帳戶但沒有 Azure 帳戶，請參閱[使用 Office 365 帳戶註冊 Azure](billing-use-existing-office-365-account-azure-subscription.md)。 
+**想要將您現有的 Azure 訂用帳戶移至 Office 365 工作或學校帳戶嗎？** 如果您使用個人 Microsoft 帳戶註冊 Azure，並且想要使用它或登入 Office 365 帳戶，我們強烈建議您轉移訂用帳戶。 請參閱[將 Azure 訂用帳戶擁有權轉移給另一個帳戶](billing-subscription-transfer.md)。 
+
+**想要使用 Office 365 註冊 Azure 嗎？** 請參閱[使用 Office 365 帳戶註冊 Azure](billing-use-existing-office-365-account-azure-subscription.md)。 
 
 ## <a name="before-you-begin"></a>開始之前
 * 您必須有 Azure 訂用帳戶服務的系統管理員認證。 共同管理員無法執行本文中某些步驟。 若要變更服務管理員，請參閱[如何新增或變更 Azure 管理員角色](billing-add-change-azure-subscription-administrator.md#change-service-administrator-for-a-subscription)。
@@ -92,6 +94,5 @@ ms.lasthandoff: 08/31/2017
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
-
 
 

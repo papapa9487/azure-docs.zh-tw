@@ -12,35 +12,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 9cf8ca88c9df4082590b18acd5c4a87a91bb1afd
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 驗證程式庫
-Azure Active Directory 驗證程式庫 (ADAL) 可讓用戶端應用程式開發人員輕鬆地向雲端或內部部署 Active Directory (AD) 驗證使用者，並取得存取權杖來保護 API 呼叫。 ADAL 透過下列功能使開發人員更容易驗證：
- - 支援非同步方法呼叫
+Azure Active Directory 驗證程式庫 (ADAL) 可讓應用程式開發人員向雲端或內部部署 Active Directory (AD) 驗證使用者，並取得權杖來保護 API 呼叫。 ADAL 透過下列功能使開發人員更容易驗證：
  - 儲存存取權杖和重新整理權杖的可設定權杖快取
  - 存取權杖到期而有重新整理權杖可用時的自動權杖重新整理
+ - 支援非同步方法呼叫
  - 還有更多
- 
-藉由處理大部分的複雜度，ADAL 可協助開發人員專注從事商務邏輯工作，並輕鬆地保護資源而無須成為安全性方面的專家。
 
-ADAL 可用於各種平台上。
+> [!NOTE]
+> 在尋找 Azure AD v2.0 程式庫 (MSAL) 嗎？ 請參閱 [MSAL 程式庫指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)。 
+> 
+> 
 
 ### <a name="client-libraries"></a>用戶端程式庫
 
 | 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考
 | --- | --- | --- | --- | --- | --- |
-| .NET 用戶端、Windows 市集、UWP、Xamarin iOS 和 Android |適用於 .NET 的 MSAL (預覽) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [傳統型應用程式](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[參考](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
-| JavaScript |適用於 JavaScript 的 MSAL (預覽) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [單一頁面應用程式](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [參考](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
-| iOS |適用於 iOS 的 MSAL (預覽) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS App](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [參考](https://azuread.github.io/docs/objc/) |
-| Android |適用於 Android 的 MSAL (預覽) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android App](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [參考](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 | .NET 用戶端、Windows 市集、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [傳統型應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[參考](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) | 
 | .NET 用戶端、Windows 市集、Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [傳統型應用程式](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | | 
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[單一頁面應用程式](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
@@ -49,6 +46,7 @@ ADAL 可用於各種平台上。
 | Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
 | Java |ADAL4J |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web 應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-webapp-java) | |
 | Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) | | |
+
 ### <a name="server-libraries"></a>伺服器程式庫 
 
 | 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考
@@ -60,7 +58,16 @@ ADAL 可用於各種平台上。
 | .NET |適用於 .NET 4.5 的身分識別通訊協定延伸模組 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 | .NET |適用於 .NET 4.5 的 JWT 處理常式 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
 
+### <a name="v20-client-libraries-msal"></a>v2.0 用戶端程式庫 (MSAL)
 
+[Azure AD v2.0 端點](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare)透過一個端點結合 Azure AD 和 Microsoft 帳戶。 若要存取此端點，開發人員可以使用[支援生產環境的預覽 MSAL 程式庫](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-libraries)，而不是 ADAL。
+
+| 平台 | 程式庫 | 下載 | 原始程式碼 | 範例 | 參考
+| --- | --- | --- | --- | --- | --- |
+| .NET 用戶端、Windows 市集、UWP、Xamarin iOS 和 Android |適用於 .NET 的 MSAL (預覽) |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client/1.1.0-preview) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [傳統型應用程式](~/articles/active-directory/develop/guidedsetups/active-directory-windesktop.md) |[參考](https://docs.microsoft.com/dotnet/api/?view=identityclient-1.1.0-preview) | 
+| JavaScript |適用於 JavaScript 的 MSAL (預覽) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js) | [單一頁面應用程式](~/articles/active-directory/develop/GuidedSetups/active-directory-javascriptspa.md) | [參考](https://htmlpreview.github.io/?https://raw.githubusercontent.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/docs/classes/_useragentapplication_.msal.useragentapplication.html) | 
+| iOS |適用於 iOS 的 MSAL (預覽) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS App](~/articles/active-directory/develop/GuidedSetups/active-directory-ios.md) | [參考](https://azuread.github.io/docs/objc/) |
+| Android |適用於 Android 的 MSAL (預覽) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android App](~/articles/active-directory/develop/GuidedSetups/active-directory-android.md) | [參考](http://javadoc.io/doc/com.microsoft.identity.client/msal/0.1.1) |
 
 ## <a name="scenarios"></a>案例
 

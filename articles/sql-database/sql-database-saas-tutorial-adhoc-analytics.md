@@ -1,11 +1,11 @@
 ---
 title: "跨多個 Azure SQL Database 執行臨機操作分析查詢 | Microsoft Docs"
-description: "在 Wingtip SaaS 多租用戶應用程式中，跨多個 SQL Database 執行臨機操作分析查詢。"
+description: "在多租用戶應用程式範例中，跨多個 SQL 資料庫執行臨機操作分析查詢"
 keywords: SQL Database Azure
 services: sql-database
 documentationcenter: 
 author: stevestein
-manager: jhubbard
+manager: craigg
 editor: 
 ms.assetid: 
 ms.service: sql-database
@@ -16,17 +16,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: billgib; sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c287fe5d6b333c749b0580b5253e7e46ac27232b
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: a27a65627fecf35b59122110250a40c6fe8077b5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
-# <a name="run-ad-hoc-analytics-queries-across-all-wingtip-saas-tenants"></a>對所有 Wingtip SaaS 租用戶執行臨機操作分析查詢
+# <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL Database 執行臨機操作分析查詢
 
-在本教學課程中，您會在整個租用戶資料庫集合執行分散式查詢以啟用臨機操作分析。 利用「彈性查詢」來啟用分散式查詢，這需要部署額外的分析資料庫 (到目錄伺服器)。 這些查詢可以擷取藏在 Wingtip SaaS 應用程式日常操作資料中的深入解析。
+在本教學課程中，您會在整個多租用戶資料庫集合執行分散式查詢以啟用臨機操作分析。 利用「彈性查詢」來啟用分散式查詢，這需要部署額外的分析資料庫 (到目錄伺服器)。 這些查詢可以擷取藏在 Wingtip SaaS 應用程式日常操作資料中的深入解析。
 
 
 您會在本教學課程中學到：
@@ -48,11 +47,11 @@ ms.lasthandoff: 06/28/2017
 
 ## <a name="ad-hoc-analytics-pattern"></a>臨機操作分析模式
 
-SaaS 應用程式的其中一個絕佳機會是使用集中儲存在雲端的大量租用戶資料。 使用此資料可深入了解應用程式的作業與使用方式、租用戶、其使用者、喜好設定、行為等。這些深入解析可以引導應用程式和服務中的功能開發、使用性改進及其他投資。
+SaaS 應用程式的其中一個絕佳機會是使用集中儲存在雲端的大量租用戶資料。 使用此資料來深入了解應用程式的作業與使用方式。 這些深入解析可以引導應用程式和服務中的功能開發、使用性改進及其他投資。
 
 在單一多租用戶資料庫中存取此資料很容易，但資料大規模分散於可能數千個資料庫時則不太容易存取。 其中一個方法是使用[彈性查詢](sql-database-elastic-query-overview.md)，這可對一組具有共用結構描述的分散式資料庫啟用查詢。 彈性查詢會使用單一 head 資料庫，其中定義的外部資料表會鏡射分散式 (租用戶) 資料庫中的資料表或檢視。 提交至此 head 資料庫的查詢會經過編譯，以產生分散式查詢計劃 (包含視需要往下推送到租用戶資料庫的查詢部分)。 彈性查詢會使用目錄資料庫中的分區對應，提供租用戶資料庫的位置。 安裝程式和查詢會直接使用標準 [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)，以及支援從 Power BI 和 Excel 等工具進行臨機操作查詢。
 
-彈性查詢將查詢分散到整個租用戶資料庫，能夠立即深入了解即時的實際執行資料。 不過，因為彈性查詢可能會從多個資料庫提取資料，所以查詢延遲有時可能會高於提交至單一多租用戶資料庫的對等查詢。 設計查詢來最小化傳回的資料時請務必小心。 彈性查詢通常最適合查詢少量的即時資料，而非建立常用或複雜的分析查詢或報告。 如果查詢的效能不佳，請查看[執行計畫](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)以查看查詢的哪個部分已向下推送至遠端資料庫，以及傳回多少資料。 需要複雜分析處理的查詢，在某些情況下透過將租用戶資料擷取到針對分析查詢最佳化的專用資料庫或資料倉儲來提供服務，可能會比較好。 [租用戶分析教學課程](sql-database-saas-tutorial-tenant-analytics.md)會說明此模式。 
+彈性查詢將查詢分散到整個租用戶資料庫，能夠立即深入了解即時的實際執行資料。 不過，因為彈性查詢可能會從多個資料庫提取資料，所以查詢延遲有時可能會高於提交至單一多租用戶資料庫的對等查詢。 請務必設計查詢來最小化傳回的資料。 彈性查詢通常最適合查詢少量的即時資料，而非建立常用或複雜的分析查詢或報告。 如果查詢的效能不佳，請查看[執行計畫](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan)以查看查詢的哪個部分已向下推送至遠端資料庫，以及傳回多少資料。 需要複雜分析處理的查詢，在某些情況下透過將租用戶資料擷取到針對分析查詢最佳化的專用資料庫或資料倉儲來提供服務，可能會比較好。 [租用戶分析教學課程](sql-database-saas-tutorial-tenant-analytics.md)會說明此模式。 
 
 ## <a name="get-the-wingtip-application-scripts"></a>取得 Wingtip 應用程式指令碼
 
@@ -64,13 +63,13 @@ SaaS 應用程式的其中一個絕佳機會是使用集中儲存在雲端的大
 
 1. 在 *PowerShell ISE* 中開啟 ...*Learning Modules*Operational Analytics\\Adhoc Analytics\\\\Demo-AdhocAnalytics.ps1\\ 指令碼，然後設定下列值：
    * **$DemoScenario** = 1，**購買各地事件的票證**。
-2. 按 **F5** 以執行指令碼並產生票證銷售。 執行指令碼時，請繼續本教學課程中的步驟。 票證資料會在 [執行臨機操作分散式查詢] 區段中查詢，如果您進行到該練習時，票證產生器仍在執行，請等候它完成。
+2. 按 **F5** 以執行指令碼並產生票證銷售。 執行指令碼時，請繼續本教學課程中的步驟。 票證資料會在 [執行臨機操作分散式查詢] 區段中查詢，請等候它完成。
 
 ## <a name="explore-the-global-views"></a>瀏覽全域檢視
 
 Wingtip SaaS 應用程式是使用 tenant-per-database 模型建置，因此會從單一租用戶的觀點定義租用戶資料庫結構描述。 租用戶特定資訊位於一個 *Venue* 資料表中，該資料表一律有單一資料列，且會實作成一個沒有主索引鍵的堆積。 結構描述中的其他資料表不必與 Venue 資料表相關，因為正常使用時，資料屬於哪個租用戶絕對毫無疑慮。
 
-不過，在跨所有資料庫查詢時，務必讓彈性查詢可以將資料視為是依租用戶分區之單一邏輯資料庫的一部分。 若要達成此目的，需將一組「全域」檢視新增至租用戶資料庫，將租用戶識別碼對應到全域查詢的每個資料表。 例如，*VenueEvents* 檢視將計算的 *VenueId* 新增至從 *Events* 資料表對應的資料行。 透過在 head 資料庫中針對 *VenueEvents* (而不是基礎 *Events* 資料表) 定義外部資料表，彈性查詢就能夠根據 *VenueId* 向下推送聯結，讓聯結可以在每個遠端資料庫 (而不是在 head 資料庫) 上平行執行。 這會大幅減少傳回的資料量，進而大幅增加許多查詢的效能。 這些全域檢視已在所有租用戶資料庫 (以及在*basetenantdb*) 中預先建立。
+不過，在跨所有資料庫查詢時，務必讓彈性查詢可以將資料視為是依租用戶分區之單一邏輯資料庫的一部分。 若要模擬此模式，需將一組「全域」檢視新增至租用戶資料庫，將租用戶識別碼對應到全域查詢的每個資料表。 例如，*VenueEvents* 檢視將計算的 *VenueId* 新增至從 *Events* 資料表對應的資料行。 透過在 head 資料庫中針對 *VenueEvents* (而不是基礎 *Events* 資料表) 定義外部資料表，彈性查詢就能夠根據 *VenueId* 向下推送聯結，讓聯結可以在每個遠端資料庫 (而不是在 head 資料庫) 上平行執行。 這會大幅減少傳回的資料量，進而大幅增加許多查詢的效能。 這些全域檢視已在所有租用戶資料庫 (以及在*basetenantdb*) 中預先建立。
 
 1. 開啟 SSMS 並[連線到 tenants1-&lt;USER&gt; 伺服器](sql-database-wtp-overview.md#explore-database-schema-and-execute-sql-queries-using-ssms)。
 2. 展開 [資料庫]，以滑鼠右鍵按一下 **contosoconcerthall**，然後選取 [新增查詢]。
@@ -105,7 +104,7 @@ Wingtip SaaS 應用程式是使用 tenant-per-database 模型建置，因此會�
 
 ## <a name="deploy-the-database-used-for-ad-hoc-distributed-queries"></a>部署用於臨機操作分散式查詢的資料庫
 
-此練習會部署 adhocanalytics 資料庫。 這就是將包含用來查詢所有租用戶資料庫之結構描述的 head 資料庫。 此資料庫會部署到現有的目錄伺服器，也就是在範例應用程式中供所有管理相關資料庫使用的伺服器。
+此練習會部署 adhocanalytics 資料庫。 這就是包含用來查詢所有租用戶資料庫之結構描述的 head 資料庫。 此資料庫會部署到現有的目錄伺服器，也就是在範例應用程式中供所有管理相關資料庫使用的伺服器。
 
 1. 在 PowerShell ISE 中開啟 ...\\Learning Modules\\Operational Analytics\\Adhoc Analytics\\Demo-AdhocAnalytics.ps1 並設定下列值：
    * **$DemoScenario** = 2，**部署臨機操作分析資料庫**。
@@ -118,7 +117,7 @@ Wingtip SaaS 應用程式是使用 tenant-per-database 模型建置，因此會�
 
 此練習將結構描述 (外部資料來源和外部資料表定義) 新增至臨機操作分析資料庫，讓您能跨所有租用戶資料庫進行查詢。
 
-1. 開啟 SQL Server Management Studio，並連線到您在上一個步驟中建立的臨機操作分析資料庫。 資料庫的名稱會是 adhocanalytics。
+1. 開啟 SQL Server Management Studio，並連線到您在上一個步驟中建立的臨機操作分析資料庫。 資料庫的名稱是 *adhocanalytics*。
 2. 在 SSMS 中開啟 ...\Learning Modules\Operational Analytics\Adhoc Analytics\ *Initialize-AdhocAnalyticsDB.sql*。
 3. 檢閱 SQL 指令碼並注意下列事項︰
 

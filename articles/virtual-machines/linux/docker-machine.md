@@ -14,16 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: a69951ed60edab8ae20374ab3869b468979c4907
+ms.translationtype: HT
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>如何使用 Docker 電腦在 Azure 中建立主機
-這篇文章說明如何使用 [Docker 電腦](https://docs.docker.com/machine/)在 Azure 中建立主機。 `docker-machine` 命令會在 Azure 中建立 Linux 虛擬機器 (VM)，然後安裝 Docker。 接著，您可以使用相同本機工具和工作流程，在 Azure 中管理您的 Docker 主機。
+這篇文章說明如何使用 [Docker 電腦](https://docs.docker.com/machine/)在 Azure 中建立主機。 `docker-machine` 命令會在 Azure 中建立 Linux 虛擬機器 (VM)，然後安裝 Docker。 接著，您可以使用相同本機工具和工作流程，在 Azure 中管理您的 Docker 主機。 若要在 Windows 10 中使用 docker-machine，您必須使用 Linux bash。
 
 ## <a name="create-vms-with-docker-machine"></a>使用 Docker 電腦建立 VM
 首先，使用 [az account show](/cli/azure/account#show) 取得您的 Azure 訂用帳戶識別碼，如下所示：
@@ -34,13 +33,14 @@ sub=$(az account show --query "id" -o tsv)
 
 您使用 `docker-machine create`，將 *azure* 指定為驅動程式，在 Azure 中建立 Docker 主機 VM。 如需詳細資訊，請參閱 [Docker Azure 驅動程式文件](https://docs.docker.com/machine/drivers/azure/)
 
-下列範例會建立名為 *myVM* 的 VM，建立名為 *azureuser* 的使用者帳戶，並且在主機 VM 上開啟連接埠 80。 依照任何提示登入您的 Azure 帳戶，並且授與 Docker 電腦權限以建立及管理資源。
+下列範例會根據 "Standard D2 v2" 方案建立名為 *myVM* 的 VM、建立名為 *azureuser* 的使用者帳戶，並且在主機 VM 上開啟連接埠 *80*。 依照任何提示登入您的 Azure 帳戶，並且授與 Docker 電腦權限以建立及管理資源。
 
 ```bash
 docker-machine create -d azure \
     --azure-subscription-id $sub \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
+    --azure-size "Standard_D2_v2 \
     myvm
 ```
 

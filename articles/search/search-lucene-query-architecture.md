@@ -13,10 +13,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 510f8abd839c3c025e955aecfdd787ce85540caf
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 
@@ -238,7 +238,13 @@ Spacious,||air-condition*+"Ocean view"
 
 若要了解擷取，那麼了解有關編製索引的幾個基本概念會有所幫助。 儲存體的單位是反向索引，每個可搜尋的欄位會有一個。 反向索引內會有所有文件中所有詞彙的排序清單。 每個詞彙會對應到它在其中出現的文件清單，如下列範例中所示。
 
-若要在反向索引中產生詞彙，搜尋引擎會透過文件的內容執行語彙分析，類似於查詢處理期間所發生的動作。 文字輸入會傳遞至分析器、小寫、除去標點符號等等，視分析器組態而定。 使用相同的分析器進行搜尋和編製索引作業很常見但並非必要，可讓查詢詞彙看起來比較像索引內的詞彙。
+若要在反向索引中產生詞彙，搜尋引擎會透過文件的內容執行語彙分析，類似於查詢處理期間所發生的動作：
+
+1. *文字輸入*會傳遞至分析器、小寫、除去標點符號等等，視分析器組態而定。 
+2. *權杖*是文字分析的輸出。
+3. *字詞*會新增至索引。
+
+使用相同的分析器進行搜尋和編製索引作業很常見但並非必要，可讓查詢詞彙看起來比較像索引內的詞彙。
 
 > [!Note]
 > Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過其他的 `indexAnalyzer` 和 `searchAnalyzer` 欄位參數進行搜尋。 如果未指定，以 `analyzer` 屬性設定的分析器可用於編製索引和搜尋。  

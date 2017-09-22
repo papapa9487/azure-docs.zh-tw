@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/07/2017
+ms.date: 09/07/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 71482e24e519319d506d61e0582420e35f1cae70
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 84cd9ff84eafae1498313008081f45c87a2eb817
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="example-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>HDInsight 上 Apache Storm 的範例 Storm 拓撲及元件
 
-以下是 Microsoft 所建立和維護的範例清單，可搭配 Apache Storm on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務，例如事件中樞、Cosmos DB、Power BI、SQL Database、HBase on HDInsight 和 Azure 儲存體。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
+以下是 Microsoft 所建立和維護的範例清單，可搭配 Apache Storm on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務，例如事件中樞、Cosmos DB、SQL Database、HBase on HDInsight 和 Azure 儲存體。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
 
 | 說明 | 示範 | 語言/架構 |
 |:--- |:--- |:--- |
@@ -36,7 +36,6 @@ ms.lasthandoff: 08/10/2017
 | [在 C# Storm 拓撲中建立多個資料流][ec5a4064] |多個資料流 |C# |
 | [利用 Storm on HDInsight 處理 Azure 事件中樞的事件 (C#)][844d1d81] |事件中樞 |C# 和 Java |
 | [使用 Storm on HDInsight 處理 Azure 事件中樞的事件 (Java)](hdinsight-storm-develop-java-event-hub-topology.md) |事件中樞 |Java |
-| [使用 Power BI 視覺化 Storm 拓撲的資料][94d15238] |Power BI |C# |
 | [在 HDInsight 中使用 Storm 和 HBase 分析感應器資料][ab894747] |事件中心、HBase、Socket.IO、Web 儀表板 |C#、Java、JavaScript、HTML |
 | [使用 Storm on HDInsight 處理事件中樞的車輛感應器資料][246ee964] |事件中樞、Cosmos DB、Azure 儲存體 Blob (WASB) |C#，Java |
 | [使用 Storm on HDInsight，從 Azure 事件中樞擷取、轉換及載入 (ETL) 至 HBase][b4b68194] |事件中心，HBase |C# |
@@ -55,7 +54,6 @@ ms.lasthandoff: 08/10/2017
 [6eb0d3b8]: hdinsight-storm-deploy-monitor-topology.md "了解如何使用 Web 型 Storm 儀表板和 Storm UI 或 HDInsight Tools for Visual Studio 部署和管理拓撲。"
 [16fce2d1]: hdinsight-storm-develop-csharp-visual-studio-topology.md "了解如何使用 HDInsight Tools for Visual Studio 建立 C# Storm 拓撲。"
 [5797064f]: hdinsight-storm-develop-java-topology.md "了解如何建立基本字數統計拓撲，以使用 Maven 在 Java 中建立 Storm 拓撲。"
-[94d15238]: hdinsight-storm-power-bi-topology.md "示範如何從 C# 拓撲，將資料寫入 Power BI，然後從資料建立圖表和儀表板。"
 [ec5a4064]: https://github.com/Blackmist/csharp-storm-example "示範執行在 C# 中實作之字數統計的基本 Storm 拓撲。這也會示範如何建立 C# 拓撲中的多個資料流。"
 [844d1d81]: hdinsight-storm-develop-csharp-event-hub-topology.md "了解如何利用 Storm on HDInsight 從 Azure 事件中樞讀取和寫入資料。"
 [ab894747]: hdinsight-storm-sensor-data-analysis.md "了解如何使用 Apache Storm on HDInsight 處理 Azure 事件中樞的感應器資料，使用 D3.js 將視覺化，並將它 (選擇性) 儲存至 HBase。"

@@ -18,10 +18,10 @@ ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 8778dcfdb5859d212a2a3eb28a5ed297b5f07460
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: b2f506a90c6b55624c8fe0392511b8098f058812
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Azure Functions 主控方案比較
@@ -56,7 +56,7 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 
 ## <a name="app-service-plan"></a>App Service 方案
 
-在 App Service 方案中，您的函數應用程式是依據基本、標準或進階 SKU 在專用的 VM 上執行，就像 Web Apps 一樣。 會配置專用的 VM 給您的 App Service 應用程式，這表示函式主機執行不間斷。
+在 App Service 方案中，您的函式應用程式是依據基本、標準、進階和隔離 SKU 在專用的 VM 上執行，就像 Web Apps 一樣。 會配置專用的 VM 給您的 App Service 應用程式，這表示函式主機執行不間斷。
 
 在下列情況中請考慮使用 App Service 方案︰
 - 您有現有的、使用量過低的 VM 已在執行其他 App Service 執行個體。
@@ -96,7 +96,7 @@ VM 會減少執行階段和記憶體大小的成本。 如此一來，您不會�
 
 ### <a name="runtime-scaling"></a>執行階段調整
 
-Azure Functions 使用名為「縮放控制器」的元件來監視事件的速率，並判斷是否相應放大或相應減少。 縮放控制器會在每種觸發程序類型使用啟發學習法。 例如，當使用 Azure 佇列儲存體觸發程序時，會根據佇列長度和最舊佇列訊息的壽命調整規模。
+Azure Functions 使用名為「縮放控制器」的元件來監視事件的速率，並判斷是否相應放大或相應縮小。 縮放控制器會在每種觸發程序類型使用啟發學習法。 例如，當使用 Azure 佇列儲存體觸發程序時，會根據佇列長度和最舊佇列訊息的壽命調整規模。
 
 調整的單位是函數應用程式。 當函數應用程式相應放大時，會配置更多資源來執行 Azure Functions 主機的多個執行個體。 反之，當計算需求降低時，縮放控制器會移除 Functions 主機的執行個體。 執行個體的數目最終會在函數應用程式中沒有任何函式執行時相應減少至零個。
 
@@ -104,9 +104,9 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 
 ### <a name="billing-model"></a>計費模式
 
-[Azure Functions 價格頁面]會詳細說明取用方案的計費方式。 使用量是在函數應用程式層級彙總，且只會計算函式程式碼執行的時間。 計費單位如下︰ 
+[Azure Functions 價格頁面]會詳細說明取用方案的計費方式。 使用量是在函式應用程式層級彙總，且只會計算函式程式碼執行的時間。 計費單位如下︰ 
 * **以十億位元組-秒 (GB-s) 為單位的資源取用量**。 會計算為在函數應用程式中執行之所有函式的記憶體大小和執行時間組合。 
 * **執行**。 每次函式為回應事件而執行 (由繫結所觸發)，就算一次。
 
-[Azure Functions 價格頁面]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions 定價頁面]: https://azure.microsoft.com/pricing/details/functions
 

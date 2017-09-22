@@ -11,29 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 9069166259265f5d2b43043b75039e239f397f6c
+ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
+ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/09/2017
 
 ---
 
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
-本文討論如何設定應用程式來將使用者導向自訂首頁。 當您使用應用程式 Proxy 發佈應用程式時，您會設定內部 URL，但有時這不是您的使用者應該先看到的頁面。 設定自訂首頁，以便使用者從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式時，會前往正確的頁面。
+本文討論如何設定應用程式來將使用者導向自訂首頁。 當您使用應用程式 Proxy 發佈應用程式時，您會設定內部 URL，但有時這不是您的使用者應該先看到的頁面。 設定自訂首頁，讓使用者在存取應用程式時能前往正確的頁面。 不論使用者從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式，都能看到您設定的自訂首頁。
 
 當使用者啟動應用程式時，預設會將他們導向已發佈應用程式的根網域 URL。 登陸頁面通常設定為首頁 URL。 如果您想要讓應用程式使用者登陸應用程式內的特定頁面，請使用 Azure AD PowerShell 模組定義自訂首頁 URL。 
 
-例如：
+公司為什麼要設定自訂首頁，以下即是一例：
 - 在您的公司網路內部，使用者前往 *https://ExpenseApp/login/login.aspx* 登入並存取您的應用程式。
 - 由於您有應用程式 Proxy 需要在資料夾結構最上層存取的其他資產 (例如影像)，因此您以 *https://ExpenseApp* 作為內部 URL 來發佈應用程式。
 - 預設外部 URL 是 *https://ExpenseApp-contoso.msappproxy.net*，不會引導使用者登入頁面。  
-- 將 *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* 設定為首頁 URL，為使用者提供順暢的體驗。 
+- 將 *https://ExpenseApp-contoso.msappproxy.net/login/login.aspx* 設定為首頁 URL。 
 
 >[!NOTE]
 >當您將已發佈應用程式的存取權提供給使用者時，應用程式會顯示在 [Azure AD 存取面板](active-directory-saas-access-panel-introduction.md)和 [Office 365 應用程式啟動器](https://blogs.office.com/2016/09/27/introducing-the-new-office-365-app-launcher)。
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/24/2017
 
 取得應用程式中的 ObjectID，然後依其首頁搜尋應用程式。
 
-1. 開啟 PowerShell 並匯入 Azure AD 模組。
+1. 在相同的 PowerShell 視窗中，匯入 Azure AD 模組。
 
     ```
     Import-Module AzureAD
@@ -105,9 +105,9 @@ ms.lasthandoff: 08/24/2017
 
 ### <a name="update-the-home-page-url"></a>更新首頁 URL
 
-在您於步驟 1 所使用的相同 PowerShell 模組中，執行下列步驟：
+建立首頁 URL，並使用該值更新您的應用程式。 繼續使用相同的 PowerShell 視窗執行下列命令。 或者，如果您使用新的 PowerShell 視窗，請再次使用 `Connect-AzureAD` 登入 Azure AD 模組。 
 
-1. 確認您有正確的應用程式，並將 *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* 取代為您在前一個步驟中複製的 ObjectID。
+1. 確認您有正確的應用程式，並將 *8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4* 取代為您在前一節複製的 ObjectID。
 
     ```
     Get-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4.
@@ -138,7 +138,7 @@ ms.lasthandoff: 08/24/2017
     ```
 
 >[!NOTE]
->您對應用程式所做的任何變更都可能會重設首頁 URL。 如果您的首頁 URL 重設，請重複步驟 2。
+>您對應用程式所做的任何變更都可能會重設首頁 URL。 如果您的首頁 URL 重設，請重複本節中的步驟重新設定。
 
 ## <a name="next-steps"></a>後續步驟
 

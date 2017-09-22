@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5b73fec119a88cd86e68537199e7567afa3fdba8
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -40,7 +40,7 @@ Microsoft Azure 匯入/匯出工具是磁碟機準備及修復工具，可搭配
 * 您需要安裝 Windows 7、Windows Server 2008 R2 或更新版本 Windows 作業系統的電腦 (「複製電腦」)。
 * 複製電腦上必須安裝 .NET Framework 4。
 * 複製電腦上必須啟用 BitLocker。
-* 您需要一或多個連接至複製電腦的空白 3.5 英吋 SATA 硬碟。
+* 您需要一或多個連接至複製電腦的空白 2.5 英吋或 3.5 英吋 SATAII 或 III 或 SSD 硬碟。
 * 您想匯入的檔案必須可從複製機器上存取，無論它們是在網路共用或本機硬碟上。
 
 如果您正嘗試**修復已部分失敗的匯入**，您需要：

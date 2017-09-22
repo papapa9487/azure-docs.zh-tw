@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
-translationtype: Human Translation
-ms.sourcegitcommit: b75f7aa757679a29a42cdfc04799873ee30bab2e
-ms.openlocfilehash: e89ba5613c615c41af93e8f63b3703da8395095c
-ms.lasthandoff: 01/20/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
@@ -31,7 +31,6 @@ App Service 使用同盟身分識別，由第三方識別提供者儲存帳戶�
 
 * [將驗證新增至 iOS 應用程式][iOS] (或 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova])
 * [Azure App Service 中 API Apps 的使用者驗證][apia-user]
-* [開始使用 Azure App Service - 第 2 部分][web-getstarted]
 
 ## <a name="how-authentication-works-in-app-service"></a>App Service 中驗證的運作方式
 若要使用其中一個識別提供者進行驗證，您首先需要設定讓識別提供者了解您的應用程式。 識別提供者接著會提供識別碼和密碼，讓您提供給 App Service。 這樣就完成信任關係，讓 App Service 能夠驗證來自識別提供者的使用者判斷提示，例如驗證權杖。
@@ -91,7 +90,7 @@ App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特
   
     在此情況下，會關閉驗證/授權功能。 將驗證和授權工作全部交由應用程式程式碼來處理。
 
-上述行為是由 Azure 入口網站中的 [當要求未經驗證時所要採取的動作] 選項所控制。 如果您選擇 [使用提供者名稱登入]**，則必須驗證所有要求。[允許要求 (無動作)]** 會將授權決策交由您的程式碼決定，但仍會提供驗證資訊。 如果您想要程式碼能夠處理所有要求，可以停用驗證/授權功能。
+上述行為是由 Azure 入口網站中的 [當要求未經驗證時所要採取的動作] 選項所控制。 如果您選擇 **[使用提供者名稱登入]**，則必須驗證所有要求。 [允許要求 (無動作)] 會將授權決策交由您的程式碼決定，但仍會提供驗證資訊。 如果您想要程式碼能夠處理所有要求，可以停用驗證/授權功能。
 
 ## <a name="working-with-user-identities-in-your-application"></a>在應用程式中使用您的使用者身分識別
 App Service 會使用特殊標頭，將某些使用者資訊傳遞至您的應用程式。 外部要求會禁止這些標頭，必須由 App Service 驗證/授權設定才會出現。 某些範例標頭包括︰
@@ -159,8 +158,6 @@ App Service 會使用特殊標頭，將某些使用者資訊傳遞至您的應�
 
 [apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
 [apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
-
-[web-getstarted]: ../app-service-web/app-service-web-get-started-2.md#authenticate-your-users
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 43025adeaf954fedfbcee32e636fb30935f2126b
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: a761249e7345991bd570cde6170515fafd692d61
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
@@ -240,7 +240,7 @@ Cosmos DB 預設便支援[動態分割 (英文)](https://azure.microsoft.com/blo
 
 Cosmos DB 可讓您按幾下就能透明地[將資料複寫至全球](../cosmos-db/tutorial-global-distribution-documentdb.md)，並且自動從您的[用戶端程式碼](../cosmos-db/tutorial-global-distribution-documentdb.md)選取可用的區域。 這也表示您可以擁有[多個容錯移轉區域](regional-failover.md)。 
 
-當您將資料複寫至全球時，您必須確保您的用戶端能充分利用它。 如果您是使用 Web 前端，或是從行動用戶端存取 API，您可以部署 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)並將您的 Azure App Service 複製到所有需要的區域，並使用[效能設定](../app-service-web/web-sites-traffic-manager.md)來支援擴展的全球涵蓋範圍。 當用戶端存取您的前端或 API 時，系統會將它們路由至最接近的 App Service，以便連接到當地的 Cosmos DB 複本。
+當您將資料複寫至全球時，您必須確保您的用戶端能充分利用它。 如果您是使用 Web 前端，或是從行動用戶端存取 API，您可以部署 [Azure 流量管理員](https://azure.microsoft.com/services/traffic-manager/)並將您的 Azure App Service 複製到所有需要的區域，並使用效能設定來支援擴展的全球涵蓋範圍。 當用戶端存取您的前端或 API 時，系統會將它們路由至最接近的 App Service，以便連接到當地的 Cosmos DB 複本。
 
 ![為您的社交平台加入全球涵蓋範圍](./media/social-media-apps/social-media-apps-global-replicate.png)
 

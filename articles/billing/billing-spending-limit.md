@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 0c9825f11733127a547e06e159172a08cef736eb
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 311a1af35b7fecb5f0d4fac7f38af705c945d714
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
@@ -69,7 +69,11 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>如何在移除消費限制之後再將其開啟？
 
-消費限制設為自動開啟。 很抱歉，移除之後也沒有手動開啟該服務的選項。 如果您擔心系統未重新開啟消費限制，請務必選取 [移除目前計費週期的消費限制] 選項。
+唯有無限期移除消費限制時，才能使用這項功能。 請將它變更為在下一個計費週期開始時自動開啟。
+
+1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
+1. 按一下黃色橫幅以變更消費限制選項。
+1. 選擇 [在下一個計費週期 \<計費週期開始日期\> 啟用消費限制]
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>如何設定自訂消費限制？
 

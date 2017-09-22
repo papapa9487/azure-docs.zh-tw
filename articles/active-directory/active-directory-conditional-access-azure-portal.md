@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
+ms.date: 09/10/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 681e91e3581f80c0cda64f95fed5cc01aaac2367
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
@@ -60,31 +60,22 @@ ms.lasthandoff: 09/02/2017
 
 在條件式存取原則中，控制項定義滿足條件陳述式時所應發生的狀況。  
 利用控制項，您可以封鎖存取，或允許有額外需求的存取。
-當您設定可允許存取的原則時，您必須選取至少一個需求。   
+當您設定可允許存取的原則時，您必須選取至少一個需求。  
 
-### <a name="grant-controls"></a>授與控制
+控制項分為兩種： 
+
+- **授與控制項** - 授與控制項控管使用者是否能完成驗證，連接他們嘗試登入的資源。 如果您選取多個控制項，可以設定在處理您的原則時是否全都為必要。
 目前的 Azure Active Directory 實作可讓您設定下列授與控制權需求︰
 
-![控制](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![控制](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **Multi-Factor Authentication** - 您可以透過 Multi-Factor Authentication 來要求增強式驗證。 身為提供者，您可以使用 Azure Multi-Factor Authentication，或使用結合 Active Directory Federation Services (AD FS) 的內部部署多重要素驗證提供者。 對於未獲授權但已取得有效使用者之認證存取權的使用者，使用 Multi-Factor Authentication 有助於防止其存取資源。
+- **工作階段控制項** - 工作階段控制項可讓您限制雲端應用程式內的體驗。 工作階段控制項是由雲端應用程式強制執行，並依賴 Azure AD 對應用程式提供有關工作階段的其他資訊。
 
-- **符合規範的裝置** - 您可以設定以裝置作為基礎的條件式存取原則。 以裝置作為基礎的條件式存取原則目標在於只從信任的裝置授與已設定資源的存取權。 要定義受信任裝置的選項之一，是要求符合規範的裝置。 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
+    ![控制](./media/active-directory-conditional-access-azure-portal/31.png)
 
-- **已加入網域的裝置** – 設定以裝置作為基礎的條件式存取原則的另一個選項，是要求已加入網域的裝置。 這項需求是指加入內部部署 Active Directory 的 Windows 桌上型電腦、膝上型電腦和企業平板電腦。 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](active-directory-conditional-access-policy-connected-applications.md)。
 
-如果您選取多個控制項，也可以設定在處理您的原則時是否全都為必要。
+如需詳細資訊，請參閱 [Azure Active Directory 條件式存取中的控制項](active-directory-conditional-access-controls.md)。
 
-![控制](./media/active-directory-conditional-access-azure-portal/06.png)
-
-### <a name="session-controls"></a>工作階段控制項
-工作階段控制項可讓您限制雲端應用程式內的體驗。 工作階段控制項是由雲端應用程式強制執行，並依賴 Azure AD 對應用程式提供有關工作階段的其他資訊。
-
-![控制](./media/active-directory-conditional-access-azure-portal/31.png)
-
-#### <a name="use-app-enforced-restrictions"></a>使用應用程式強制執行限制
-您可以使用這個控制項，要求 Azure AD 將裝置資訊傳遞至雲端應用程式。 這有助於雲端應用程式了解使用者是否來自符合規範的裝置或加入網域的裝置。 此控制項目前僅支援使用 SharePoint 作為雲端應用程式。 視裝置狀態而定，SharePoint 會使用裝置資訊來提供使用者有限或完整的經驗。
-若要深入了解如何要求 SharePoint 的有限存取，請參閱[從未受管理的裝置控制存取](https://aka.ms/spolimitedaccessdocs)。
 
 ## <a name="condition-statement"></a>條件陳述式
 

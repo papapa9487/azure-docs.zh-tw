@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: dff0bb9b4040ea712519a94bf2bc04de634209c2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/04/2017
 
 您在將備份保存庫升級至復原服務保存庫之前，請檢查下列問題。
 
-- **代理程式最低版本**︰若要升級您的保存庫，請確定 Microsoft Azure 復原服務 (MARS) 代理程式至少是 2.0.9070.0 版。 如果 MARS 代理程式低於 2.0.9070.0 版，則在開始升級程序前，請先更新代理程式。
+- **代理程式最低版本**︰若要升級您的保存庫，請確定 Microsoft Azure 復原服務 (MARS) 代理程式至少是 2.0.9083.0 版。 如果 MARS 代理程式低於 2.0.9083.0 版，則在開始升級程序前，請先更新代理程式。
 - **以執行個體為基礎的計費模型**︰復原服務保存庫僅支援以執行個體為基礎的計費模型。 如果您的備份保存庫是使用舊版以儲存體為基礎的計費模型，請在升級期間轉換計費模型。
 - **沒有持續進行的備份設定作業**︰在升級期間，會限制存取管理平面。 完成所有的管理平面動作，然後再開始升級。
 
@@ -84,7 +84,7 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 ### <a name="pre-requisites-checking"></a>必要條件檢查
 一旦您輸入 Azure 認證後，Azure 就會檢查您的環境是否符合下列必要條件︰
 
-- **代理程式最低版本** - 將備份保存庫升級至復原服務保存庫需要至少 2.0.9070 版的 MARS 代理程式。 如果您的項目所登錄之備份保存庫是包含 2.0.9070 版以前的代理程式，必要條件檢查就會失敗。 如果必要條件檢查失敗，請更新代理程式，然後嘗試再次升級保存庫。 您可以從 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 下載最新版的代理程式。
+- **代理程式最低版本** - 將備份保存庫升級至復原服務保存庫需要至少 2.0.9083.0 版的 MARS 代理程式。 如果您的項目所登錄之備份保存庫是包含 2.0.9083.0 版以前的代理程式，必要條件檢查就會失敗。 如果必要條件檢查失敗，請更新代理程式，然後嘗試再次升級保存庫。 您可以從 [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe) 下載最新版的代理程式。
 - **持續的設定作業**︰如果有人要設定的是已設定為要升級之備份保存庫的作業，或是要將項目進行登錄，必要條件檢查就會失敗。 完成設定或完成登錄項目，然後再開始進行保存庫升級程序。
 - **以儲存體為基礎的計費模型**︰復原服務保存庫支援以執行個體為基礎的計費模型。 如果您執行的保存庫升級是在使用以儲存體為基礎之計費模型的備份保存庫上，系統會提示您升級計費模型以及保存庫。 否則，您可以先更新計費模型，然後再執行保存庫升級。
 - 識別復原服務保存庫的資源群組。 若要充分利用 Resource Manager 部署功能，您必須將復原服務保存庫放入資源群組。 如果您不知道要使用哪一個資源群組，請提供名稱，升級程序就會為您建立資源群組。 升級程序也會將保存庫與新的資源群組建立關聯。
@@ -147,8 +147,8 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 如果您需要使用存放區作為這台電腦長期保存的備份，就無法升級保存庫。 在日後的版本中，我們會新增這類保存庫的升級支援。
 如果您不需要再儲存此電腦的備份，請從保存庫取消登錄此電腦，然後再次嘗試升級。
 
-**為什麼我在升級之後看不到內部部署資源的作業資訊**</br>
-當您將備份保存庫升級至復原服務保存庫時，會取得監視內部部署備份 (MARS 代理程式、DPM 和 Azure 備份伺服器) 的新功能。 監視資訊最多需花費 12 小時才能與服務進行同步處理。
+**為什麼我在升級之後看不到資源的作業資訊？**</br>
+當您將備份保存庫升級至復原服務保存庫時，會取得監視備份 (MARS 代理程式和 IaaS) 的新功能。 監視資訊最多需花費 12 小時才能與服務進行同步處理。
 
 **如何回報問題？**</br>
 如果保存庫升級過程中發生任何失敗，請記下錯誤所列出的 OperationId。 Microsoft 支援服務會積極解決問題。 您可以尋求協助，或將包含訂用帳戶識別碼、保存庫名稱和 OperationId 的電子郵件傳送至 rsvaultupgrade@service.microsoft.com。 我們會試著盡快解決問題。 除非 Microsoft 明確指示，否則請勿重試作業。

@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
+ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2e0347854b5d30c955a50a01d6f7ba08e24f94b6
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: 5f1ce4c76aadc5fdfe53b15f0d82da5ce6b43346
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何驗證傳輸到虛擬網路的 VPN 輸送量
 
 VPN 閘道連線可讓您在 Azure 內的虛擬網路和內部部署 IT 基礎結構之間建立安全的跨單位連線。
 
-本文章說明如何驗證從內部部署資源到 Azure 虛擬機器的網路輸送量。 本文章也提供疑難排解指引。
+本文章說明如何驗證從內部部署資源到 Azure 虛擬機器 (VM) 的網路輸送量。 本文章也提供疑難排解指引。
 
 >[!NOTE]
 >本文章旨在協助診斷和修正常見的問題。 如果您在使用下列資訊後仍無法解決問題，[請連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
@@ -40,7 +40,7 @@ VPN 閘道連線涉及下列元件：
 - 內部部署 VPN 裝置 (檢視[已經驗證的 VPN 裝置列表)](vpn-gateway-about-vpn-devices.md#devicetable)。
 - 公用網際網路
 - Azure VPN 閘道
-- Azure 虛擬機器
+- Azure VM
 
 下圖顯示內部部署網路透過 VPN 到 Azure 虛擬網路的邏輯連線能力。
 

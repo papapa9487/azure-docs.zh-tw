@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 08/15/2017
 ms.author: jeedes
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 3c68c3ac7d6be593476d419f8c015931b206eead
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: f5f20fee648cf26b4db49b9a8f5f5e5bcecd453e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>教學課程：Azure Active Directory 與 Absorb LMS
@@ -124,7 +124,7 @@ ms.lasthandoff: 08/05/2017
 
     ![設定單一登入儲存按鈕](./media/active-directory-saas-absorblms-tutorial/tutorial_general_400.png)
     
-7. 在 [Absorb LMS 組態] 區段上，按一下 [設定 Absorb LMS] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL 和 SAML 單一登入服務 URL]。
+7. 在 [Absorb LMS 組態] 區段上，按一下 [設定 Absorb LMS] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [登出 URL]
 
     ![Absorb LMS 設定](./media/active-directory-saas-absorblms-tutorial/tutorial_absorblms_configure.png) 
 
@@ -146,13 +146,13 @@ ms.lasthandoff: 08/05/2017
 
     ![設定單一登入](./media/active-directory-saas-absorblms-tutorial/4.png)
 
-    a. 選取適當**模式**。
+    a. 選取 [識別提供者起始]。
 
     b. 在記事本中開啟您從 Azure 入口網站下載的憑證，移除 **---BEGIN CERTIFICATE---** 和 **---END CERTIFICATE---** 標記，然後在 [金鑰] 文字方塊中貼上其餘內容。
     
     c. 在 [識別碼屬性] 中，選取您已設定為 Azure AD 使用者識別碼的適當屬性 (例如，如果在 Azure AD 中選取 userprinciplename，則這裡會選取使用者名稱)。
 
-    d. 在 [登入 URL] 中，貼上您從 Azure 入口網站的 [設定登入] 視窗所複製的 **SAML 單一登入服務 URL** 值。
+    d. 在 [登入 URL] 中，從應用程式的 Azure 入口網站 [屬性] 頁面貼上**使用者存取 URL**。
 
     e. 在 [登出 URL] 中，貼上您從 Azure 入口網站的 [設定登入] 視窗所複製的**登出 URL** 值。
 
@@ -276,6 +276,7 @@ ms.lasthandoff: 08/05/2017
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
+
 
 
 <!--Image references-->

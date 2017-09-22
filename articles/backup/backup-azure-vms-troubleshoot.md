@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 2f74637fe9887a9a1afbb32647d3fa98b9f88761
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
@@ -31,9 +31,13 @@ ms.lasthandoff: 09/05/2017
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
 
 ## <a name="backup"></a>備份
+
+## <a name="error-the-specified-disk-configuration-is-not-supported"></a>錯誤：系統不支援指定的磁碟設定
+
+Azure 備份目前不支援容量大於 1023 GB 的磁碟。 請分割磁碟，確定磁碟大小低於限制。 若要分割磁碟，您需要從大於 1023 GB 的磁碟中將資料複製到新建立的小於 1023 GB 的磁碟。
+
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
-| 不支援指定的磁碟設定，請遵循 http://go.microsoft.com/fwlink/?LinkId=808978 解決警示，或連絡 Microsoft 支援服務尋求協助。| Azure 備份目前不支援容量大於 1023 GB 的磁碟。 請分割磁碟，確定磁碟大小低於限制。 若要分割磁碟，您需要從大於 1023 GB 的磁碟中將資料複製到新建立的小於 1023 GB 的磁碟。 |
 | 無法執行作業，因為 VM 已不存在。 - 停止保護虛擬機器，但不刪除備份資料。 http://go.microsoft.com/fwlink/?LinkId=808124 有更多詳細資料 |刪除主要 VM 後，但備份原則繼續尋找 VM 來備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 [更多詳細資料](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | 因為虛擬機器沒有網路連線，所以快照集作業失敗 - 請確定 VM 可存取網路。 若要讓快照集成功，請將 Azure 資料中心 IP 範圍設為白名單，或設定網路存取的 Proxy 伺服器。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034。 如果您已經使用 Proxy 伺服器，請確定已正確設定 Proxy 伺服器設定 | 當您拒絕虛擬機器上的輸出網際網路連線時，就會擲回這個錯誤。 VM 快照集延伸模組需要網際網路連線，才能建立虛擬機器基礎磁碟的快照集。 [進一步了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)如何修正封鎖網路存取所造成的快照集失敗。 |
 | VM 代理程式無法與 Azure 備份服務通訊。 - 請確認 VM 具有網路連線，且 VM 代理程式是最新版且正在執行。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#vm-agent-unable-to-communicate-with-azure-backup)如何進行 VM 快照集問題偵錯。<br> 如果 VM 代理程式並未造成任何問題，請重新啟動 VM。 有時，不正確的 VM 狀態可能會造成問題，重新啟動 VM 就可清除此「錯誤狀態」。 |

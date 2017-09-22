@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/08/2017
+ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c211c59b00d445a62ebe3ae9334101c983e05c57
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 權杖參考
@@ -30,7 +30,7 @@ Azure AD 支援 [OAuth 2.0 授權通訊協定](active-directory-protocols-oauth-
 
 持有人權杖是輕巧型的安全性權杖，授權「持有者」存取受保護的資源。 從這個意義上說，「持有者」是可出示權杖的任何一方。 雖然必須向 Azure AD 驗證才能接收持有人權杖，但必須採取步驟來保護權杖，以避免遭非預期人士攔截。 因為持有人權杖沒有內建的機制可防止未經授權的人士使用權杖，必須在安全通道，例如傳輸層安全性 (HTTPS) 來傳輸它們。 如果以純文字傳輸持有人權杖，便可能利用攔截式攻擊來取得權杖，然後取得對受保護的資源未經授權的存取。 儲存或快取持有者權杖供以後使用時，也適用相同的安全性原則。 務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。 關於持有者權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
 
-許多由 Azure AD 所簽發的權杖都會實作為 JSON Web 權杖或 JWT。  JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。  JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。  JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。  因為 Azure AD 所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。  有數個工具可以進行這項操作，例如 [jwt.calebb.net](http://jwt.calebb.net)。 如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
+許多由 Azure AD 所簽發的權杖都會實作為 JSON Web 權杖或 JWT。  JWT 是一種精簡的 URL 安全方法，可在兩方之間傳輸資訊。  JWT 中包含的資訊也稱為權杖持有人及主體相關資訊的「宣告」或判斷提示。  JWT 中的宣告是為了傳輸而編碼和序列化的 JSON 物件。  因為 Azure AD 所簽發的 JWT 已簽署但未加密，所以您可以輕鬆地檢查 JWT 的內容以便偵錯。  有數個工具可以進行這項操作，例如 [jwt.ms](https://jwt.ms/)。 如需 JWT 的詳細資訊，您可以參考 [JWT 規格](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html)。
 
 ## <a name="idtokens"></a>Id_tokens
 Id_tokens 是您的應用程式使用 [OpenID Connect](active-directory-protocols-openid-connect-code.md) 執行驗證時收到的一種登入安全性權杖形式。  其以 [JWT](#types-of-tokens)表示，而且包含可用於讓使用者登入您的應用程式的宣告。  您可以適時使用 id_token 中的宣告 - 通常用來顯示顯示帳戶資訊或在應用程式中進行存取控制決策。
@@ -45,7 +45,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 ```
 
 > [!TIP]
-> 練習時，請試著將範例 id_token 中的宣告貼入 [calebb.net](http://jwt.calebb.net) 中進行檢查。
+> 練習時，請試著將範例 id_token 中的宣告貼入 [jwt.ms](https://jwt.ms/) 中進行檢查。
 > 
 > 
 

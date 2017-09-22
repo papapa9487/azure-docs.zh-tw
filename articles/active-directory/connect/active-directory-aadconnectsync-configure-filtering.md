@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 064642ebb9cafb0c6e1b3ff306241182a95215cc
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/07/2017
 
 ---
 
@@ -35,7 +35,7 @@ ms.lasthandoff: 07/25/2017
 本文介紹如何設定不同的篩選方法。
 
 > [!IMPORTANT]
-> Microsoft 不支援在正式記載的動作以外修改和操作 Azure AD Connect 同步處理。 任何這些動作都可能會導致 Azure AD Connect 同步處理的不一致或不受支援狀態。 如此一來，Microsoft 無法提供這類部署的技術支援人員。
+> Microsoft 不支援在正式記載的動作以外修改和操作 Azure AD Connect 同步處理。 任何這些動作都可能會導致 Azure AD Connect 同步處理的不一致或不受支援狀態。如此一來，Microsoft 無法提供這類部署的技術支援人員。
 
 ## <a name="basics-and-important-notes"></a>基本概念和重要事項
 在 Azure AD Connect 同步處理中，您隨時都能啟用篩選功能。 如果您一開始是使用目錄同步作業的預設組態，接著設定了篩選，則篩選出的物件就不會再同步處理至 Azure AD。 因為這項變更，系統會在 Azure AD 中，刪除 Azure AD 中先前已同步處理但接著篩選出的所有物件。
@@ -137,7 +137,7 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
         ![連接器執行設定檔 4](./media/active-directory-aadconnectsync-configure-filtering/runprofilesdeletestep.png)  
     3. 驗證您的變更。 想要同步處理的每個網域應該皆已列為每個執行設定檔中的步驟。
 4. 若要關閉 [設定執行設定檔] 對話方塊，請按一下 [確定]。
-5.  若要完成組態，您必須執行「完整匯入」與「差異同步處理」。 繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
+5.  若要完成組態，您必須執行「完整匯入」與「差異同步處理」。繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
 
 ## <a name="organizational-unitbased-filtering"></a>組織單位型篩選
 變更 OU 型篩選的慣用方法是執行安裝精靈，然後變更[網域與 OU 篩選](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering)。 安裝精靈將會自動執行本主題中記載的所有工作。
@@ -161,7 +161,7 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
    * 如果您使用群組型篩選，則必須包含群組所屬的 OU。
    * 請注意，在篩選設定完成後，您可以設定要不要同步處理新增的新 OU。 如需詳細資料，請參閱下一節。
 7. 當您完成時，請按一下 [確定] 來關閉 [屬性] 對話方塊。
-8. 若要完成組態，您必須執行「完整匯入」與「差異同步處理」。 繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
+8. 若要完成組態，您必須執行「完整匯入」與「差異同步處理」。繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
 
 ### <a name="synchronize-new-ous"></a>同步處理新 OU
 依預設，設定篩選之後，會同步處理建立的新 OU。 此狀態是以所選取的核取方塊表示。 您也可以取消選取某些子 OU。 做法是按一下方塊，直到它變成白色方塊且其中有藍色打勾記號 (其預設狀態)。 然後取消選取任何您不想同步處理的子 OU。
@@ -216,7 +216,7 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 6. 將 [聯結] 規則保留空白，然後按 [下一步]。
 7. 按一下 [新增轉換]、選取 [FlowType] 做為 [常數]，選取 [cloudFiltered] 做為 [目標屬性]。 在 [來源] 文字方塊中，輸入 **True**。 按一下 [新增]  以儲存規則。  
    ![輸入 3 轉換](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)
-8. 若要完成組態，您必須執行「完整同步處理」。 繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
+8. 若要完成組態，您必須執行「完整同步處理」。繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
 
 #### <a name="positive-filtering-only-sync-these"></a>正面篩選：「只同步處理這些項目」
 表述正面篩選的程序比較困難，因為您必須同時考慮不是明顯需要同步處理的物件，例如會議室。 您也將覆寫全新規則 [In from AD - User Join] 中的預設篩選器。 當您建立自訂篩選時，請確定不包含 Azure AD connect 的關鍵性系統物件、複寫衝突物件、特殊信箱和服務帳戶。
@@ -242,7 +242,7 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 10. 將 [聯結] 規則保留空白，然後按 [下一步]。
 11. 按一下 [新增轉換]、選取 [常數] 做為 [FlowType]，選取 [cloudFiltered] 做為 [目標屬性]。 在 [來源] 方塊中，輸入 **True**。 按一下 [新增]  以儲存規則。  
     ![輸入 3 轉換](./media/active-directory-aadconnectsync-configure-filtering/inbound3.png)  
-12. 若要完成組態，您必須執行「完整同步處理」。 繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
+12. 若要完成組態，您必須執行「完整同步處理」。繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
 
 如有需要，您可以建立更多第一種類型的規則，以在同步處理作業中納入更多物件。
 
@@ -254,12 +254,12 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 1. 使用隸屬於 **ADSyncAdmins** 安全性群組的帳戶，登入執行 Azure AD Connect 同步處理的伺服器。
 2. 從 [開始] 功能表啟動 [同步處理規則編輯器]。
 3. 在 [規則類型] 下方按一下 [輸出]。
-4. 尋找名為 **Out to AAD – User Join** 的規則，然後按一下 [編輯]。
+4. 根據您使用的 Connect 版本，請尋找名為 **Out to AAD – User Join** 或 **Out to AAD-User Join SOAInAD** 的規則，然後按一下 [編輯]。
 5. 在快顯視窗中，回答 [是]  來建立規則的複本。
 6. 在 [描述] 頁面上，將 [優先順序] 變更為一個未使用的值，例如 50。
 7. 按一下左邊導覽列上的 [範圍設定篩選]，然後按一下 [新增子句]。 在 [屬性] 中，選取 [郵件]。 在 [運算子] 中，選取 [ENDSWITH]。 在 [值] 中，輸入 **@contoso.com**，然後按一下 [新增子句]。 在 [屬性] 中，選取 [userPrincipalName]。 在 [運算子] 中，選取 [ENDSWITH]。 在 [值] 中，輸入 **@contoso.com**。
 8. 按一下 [儲存] 。
-9. 若要完成組態，您必須執行「完整同步處理」。 繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
+9. 若要完成組態，您必須執行「完整同步處理」。繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
 
 ## <a name="apply-and-verify-changes"></a>套用並驗證變更
 在變更組態後，必須將這些變更套用至系統中已有的物件。 情況也可能是目前不在同步處理引擎中的物件應受到處理，因此同步處理引擎需要再次讀取來源系統，以確認其內容。

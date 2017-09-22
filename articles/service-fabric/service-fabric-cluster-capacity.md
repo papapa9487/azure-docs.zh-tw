@@ -1,6 +1,6 @@
 ---
 title: "規劃 Service Fabric 叢集容量 | Microsoft Docs"
-description: "Service Fabric 叢集容量規劃考量。 Nodetypes、持久性和可靠性層級"
+description: "Service Fabric 叢集容量規劃考量。 Nodetypes、Operations、持久性和可靠性層級"
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 09/12/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 36b96360fabdcc64ffd2356540c580594637d48e
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 04964175f06675a486fcf252f194f0d790acea4a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 叢集容量規劃考量
@@ -75,7 +75,7 @@ ms.lasthandoff: 08/23/2017
 * Bronze - 無權限。 這是預設值。 針對_僅_執行無狀態工作負載的節點類型，只能使用這個持久性等級。 
 
 > [!WARNING]
-> 執行 Bronze 持久性的節點類型_沒有權限_。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業。 這類作業很可能仍會影響您的工作負載，導致停機時間或其他問題。 對於任何種類的生產工作負載，建議至少以 Silver 執行。 
+> 執行 Bronze 持久性的節點類型_沒有權限_。 這表示不會停止或延遲對您的無狀態工作負載造成影響的基礎結構作業。 這類作業很可能仍會影響您的工作負載，導致停機時間或其他問題。 對於任何種類的生產工作負載，建議至少以 Silver 執行。 針對具有 Gold 或 Silver 持久性的節點類型，您必須維持至少 5 個節點。 
 > 
 
 您可以個別為節點類型選擇持久性層級。您可以為單一節點類型選擇 Gold 或 Silver 持久性層級，並為相同叢集中的其他節點類型選擇 Bronze 持久性層級。**對於具有 Gold 或 Silver 持久性的任何節點類型，您必須維持最少 5 個節點計數**。 
@@ -99,14 +99,14 @@ ms.lasthandoff: 08/23/2017
 1. 使叢集和應用程式持續保持良好的狀況，並確保應用程式會及時回應所有[服務複本生命週期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (例如當組建中的複本陷入停滯)。
 2. 採用更安全的方式來進行 VM SKU 變更 (相應增加/減少)：變更虛擬機器擴展集的 VM SKU 本身是一種不安全的作業，因此請盡可能避免這種做法。 以下為您可以遵循以避免發生常見問題的程序。
     - **針對非主要 Nodetype：**建議您建立新的虛擬機器擴展集，修改服務放置條件約束以包含新的虛擬機器擴展集/節點類型，然後以一次一個節點的方式，將舊的虛擬機器擴展集執行個體計數減少至 0 (這是為了確保移除節點不會影響到叢集的可靠性)。
-    - **針對主要 Nodetype：**建議您不要變更主要節點類型的 VM SKU。 如果是基於容量的原因而需要新的 SKU，我們建議新增更多執行個體，或在可行的情況下建立新的叢集。 如果您沒有選擇，請對虛擬機器擴展集模型定義進行修改以反映新的 SKU。 如果您的叢集只有單一 Nodetype，請確保所有具狀態應用程式會及時回應所有[服務複本生命週期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (例如當組建中的複本陷入停滯)，且您的服務複本重建期間為少於五分鐘 (針對 Silver 持久性層級)。 
+    - **針對主要 Nodetype：**建議您不要變更主要節點類型的 VM SKU。 不支援變更主要節點類型的 SKU。 如果是基於容量的原因而需要新的 SKU，我們建議新增更多執行個體。 如果不能的話，從舊叢集建立新的叢集並[還原應用程式狀態](service-fabric-reliable-services-backup-restore.md) (如果適用的話)。 您不需要還原任何系統服務狀態，它們會在您部署應用程式到新叢集時重新建立。 如果您之前只在叢集上執行無狀態應用程式，那麼您要做的只有部署應用程式到新叢集，不需還原任何東西。 如果您決定採取不支援的做法，並想要變更 VM SKU，請修改虛擬機器擴展集模型定義以反映新的 SKU。 如果您的叢集只有單一 Nodetype，請確保所有具狀態應用程式會及時回應所有[服務複本生命週期事件](service-fabric-reliable-services-advanced-usage.md#stateful-service-replica-lifecycle) (例如當組建中的複本陷入停滯)，且您的服務複本重建期間為少於五分鐘 (針對 Silver 持久性層級)。 
 
 
 > [!WARNING]
 > 不建議對未至少執行 Silver 持久性的 VM 擴展集變更 VM SKU 大小。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有至少延遲或監視此變更的某些能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 
 > 
     
-3. 針對所有啟用 MR 的虛擬機器擴展集維持至少五個節點
+3. 針對所有啟用 Gold 或 Silver 持久性 的虛擬機器擴展集維持至少五個節點
 4. 請勿隨機刪除 VM 執行個體，而一律使用虛擬機器擴展集的相應減少功能。 刪除隨機的 VM 執行個體可能會在 UD 和 FD 上的 VM 執行個體中產生不平衡。 此不平衡可能會嚴重影響系統對服務執行個體/服務複本正確進行負載平衡的能力。
 6. 如果您使用自動調整功能，則請設定規則使系統一次只會針對一個節點進行相應縮小 (移除 VM 執行個體)。 一次相應減少超過一個執行個體並不安全。
 7. 如果相應減少主要節點類型，您絕對不應將其相應減少超過可靠性層級允許的程度。
@@ -163,6 +163,9 @@ ms.lasthandoff: 08/23/2017
 - 局部核心 VM SKU 不支援生產工作負載，例如標準 A0。
 - 基於效能理由，標準 A1 SKU 不支援生產工作負載。
 
+> [!WARNING]
+> 目前不支援變更執行中叢集上的主要節點 VM SKU 大小。 因此請謹慎選擇主要節點類型的 VM SKU，將未來的容量需求列入考量。 現階段，若要將主要節點類型移到新的 VM SKU (較小或較大)，唯一支援的方法是建立具有正確容量的新叢集，將您的應用程式部署至新叢集，然後使用從舊叢集取得的[最新服務備份](service-fabric-reliable-services-backup-restore.md)還原應用程式狀態 (如果適用)。 您不需要還原任何系統服務狀態，它們會在您部署應用程式到新叢集時重新建立。 如果您之前只在叢集上執行無狀態應用程式，那麼您要做的只有部署應用程式到新叢集，不需還原任何東西。
+> 
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>非主要節點類型 - 具狀態工作負載的容量指引
 
@@ -211,7 +214,7 @@ ms.lasthandoff: 08/23/2017
 一旦您完成容量規劃並設定叢集之後，請閱讀︰
 
 * [Service Fabric 叢集安全性](service-fabric-cluster-security.md)
-* [Service Fabric 健康情況模型簡介](service-fabric-health-introduction.md)
+* [災害復原規劃](service-fabric-disaster-recovery.md)
 * [Nodetypes 與虛擬機器擴展集的關聯性](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a4a78b92c8bb9e8aff25fd724ed78283de8f2fd8
-ms.openlocfilehash: 92b9c88ec49424c96c3bd21bc5c4ce390352c17b
+ms.translationtype: HT
+ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
+ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/14/2017
 
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Azure Active Directory 中的專用群組
@@ -36,7 +36,7 @@ ms.lasthandoff: 02/13/2017
 
 **啟用專用群組**
 
-1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，選取 [Active Directory]，然後開啟您組織的目錄。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [Active Directory]，然後開啟您組織的目錄。
 2. 選取 [群組]  索引標籤，然後開啟您想要編輯的群組。
 3. 選取 [設定] 索引標籤，然後將 [啟用專用群組] 設定為 [是]。
 

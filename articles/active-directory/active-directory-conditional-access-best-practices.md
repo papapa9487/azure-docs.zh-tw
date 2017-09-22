@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2017
+ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 3e524c116479c1af6eb6a601c9b57d27a697c5a2
+ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
+ms.openlocfilehash: fedc72f8fe1ada9a991d417cc77b8ca659589f55
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
+ms.lasthandoff: 09/08/2017
 
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
@@ -96,6 +96,99 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 **針對所有使用者、所有雲端應用程式、所有裝置平台：**
 
 - **封鎖存取** - 此組態會封鎖您整個組織，這絕對不是一個好方法。
+
+
+
+## <a name="policy-migration"></a>原則移轉
+
+如果您已在 Azure 傳統入口網站中設定原則，請將這些原則移轉到 Azure 入口網站，因為：
+
+
+- 在 Azure 傳統入口網站原則和 Azure 入口網站原則中的使用者必須符合這兩項原則的需求 
+
+- 如果您不移轉您現有的原則，將無法實作授與存取權的原則
+
+
+### <a name="migration-from-the-azure-classic-portal"></a>從 Azure 傳統入口網站移轉
+
+在此情節中： 
+
+- 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，已設定：
+
+    - SharePoint Online
+
+    ![條件式存取](./media/active-directory-conditional-access-best-practices/14.png)
+
+    - 裝置型條件式存取原則
+
+    ![條件式存取](./media/active-directory-conditional-access-best-practices/15.png)
+
+- 您想要在 Azure 入口網站中設定行動應用程式管理條件式存取原則 
+ 
+
+#### <a name="configuration"></a>組態 
+
+- 檢閱您的裝置型條件式存取原則
+
+- 將這些原則移轉到 Azure 入口網站 
+
+- 新增行動應用程式管理條件式存取原則
+
+
+### <a name="migrating-from-intune"></a>從 Intune 移轉 
+
+在此情節中：
+
+- 在 [Intune](https://portal.azure.com/#blade/Microsoft_Intune/SummaryBlade ) 中，您已設定 Exchange Online 或 SharePoint Online 的行動應用程式管理條件式存取原則
+
+    ![條件式存取](./media/active-directory-conditional-access-best-practices/15.png)
+
+- 您想要在 Azure 入口網站中移轉為使用行動應用程式管理條件式存取
+
+
+#### <a name="configuration"></a>組態 
+ 
+- 檢閱您的裝置型條件式存取原則
+
+- 將這些原則移轉到 Azure 入口網站 
+
+- 檢閱已在 Intune 中設定的 Exchange Online 或 SharePoint Online 的行動應用程式管理條件式存取原則
+
+- 除了裝置型控制項之外，新增 [需要經過核准的應用程式] 控制項 
+ 
+
+### <a name="migrating-from-the-azure-classic-portal-and-intune"></a>從 Azure 傳統入口網站和 Intune 移轉
+
+在此情節中：
+
+- 您已設定下列項目：
+
+    - **Azure 傳統入口網站：**裝置型條件式 
+
+    - **Intune：**行動應用程式管理條件式存取原則 
+    
+- 您想要在 Azure 入口網站中將兩個原則移轉為使用行動應用程式管理條件式存取原則
+
+
+#### <a name="configuration"></a>組態
+
+- 檢閱您的裝置型條件式存取原則
+
+- 將這些原則移轉到 Azure 入口網站 
+
+- 檢閱已在 Intune 中設定的 Exchange Online 或 SharePoint Online 的行動應用程式管理條件式存取原則
+
+- 除了裝置型之外，新增 [需要經過核准的應用程式] 控制項 
+
+
+
+
+
+
+
+
+
+
 
 
 ## <a name="common-scenarios"></a>常見案例

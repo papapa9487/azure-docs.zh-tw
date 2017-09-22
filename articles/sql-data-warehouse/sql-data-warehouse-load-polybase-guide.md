@@ -12,16 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 6/5/2016
+ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6938b92d8e5b46d908dc5b2155bdfdc89bb1dc8c
+ms.translationtype: HT
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
-
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用 PolyBase 的指南
@@ -46,21 +44,9 @@ ms.lasthandoff: 06/07/2017
 2. 卸除以主要儲存體存取金鑰為基礎的第一個資料庫範圍認證
 3. 登入 Azure 並重新產生主要存取金鑰供下一次使用
 
-## <a name="query-azure-blob-storage-data"></a>查詢 Azure blob 儲存體資料
-針對外部資料表的查詢只使用資料表名稱，如同關聯式資料表一樣。
 
-```sql
--- Query Azure storage resident data via external table.
-SELECT * FROM [ext].[CarSensor_Data]
-;
-```
 
-> [!NOTE]
-> 針對外部資料表的查詢可能會失敗，並顯示 *「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」*錯誤訊息。 這表示您的外部資料包含 *「錯誤」* 記錄。 如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。 若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。 萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
-> 
-> 
-
-## <a name="load-data-from-azure-blob-storage"></a>從 Azure blob 儲存體載入資料
+## <a name="load-data-with-external-tables"></a>使用外部資料表載入資料
 此範例將 Azure blob 儲存體中的資料載入至 SQL 資料倉儲資料庫。
 
 直接儲存資料可免除查詢時的資料傳輸時間。 搭配 columnstore 索引儲存資料可讓分析查詢的查詢效能提升 10 倍。
@@ -86,6 +72,12 @@ FROM   [ext].[CarSensor_Data]
 
 請參閱 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)]。
 
+> [!NOTE]
+> 使用外部資料表的載入可能會失敗，並顯示「查詢已中止 -- 從外部來源讀取時已達最大拒絕閾值」錯誤訊息。 這表示您的外部資料包含 *「錯誤」* 記錄。 如果實際的資料類型/資料行數目不符合外部資料表的資料行定義，或資料不符合指定的外部檔案格式，則會將資料記錄視為「錯誤」。 若要修正此問題，請確定您的外部資料表及外部檔案格式定義皆正確，且這些定義與您的外部資料相符。 萬一外部資料記錄的子集有錯誤，您可以使用 CREATE EXTERNAL TABLE DDL 中的拒絕選項，選擇拒絕這些查詢記錄。
+> 
+> 
+
+
 ## <a name="create-statistics-on-newly-loaded-data"></a>建立新載入資料的統計資料
 Azure 資料倉儲尚未支援自動建立或自動更新統計資料。  為了獲得查詢的最佳效能，在首次載入資料，或是資料中發生重大變更之後，建立所有資料表的所有資料行統計資料非常重要。  如需統計資料的詳細說明，請參閱「開發」主題群組中的[統計資料][Statistics]主題。  以下是快速範例，說明如何在此範例中建立載入資料表的統計資料。
 
@@ -97,8 +89,8 @@ create statistics [Speed] on [Customer_Speed] ([Speed]);
 create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
-## <a name="export-data-to-azure-blob-storage"></a>將資料匯出至 Azure Blob 儲存體
-這一節說明如何將資料從 SQL 資料倉儲匯出至 Azure Blob 儲存體。 此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 Transact-SQL 陳述式) 將資料從所有計算節點平行匯出。
+## <a name="export-data-with-external-tables"></a>使用外部資料表匯出資料
+這一節說明如何使用外部資料表將資料從 SQL 資料倉儲匯出至 Azure Blob 儲存體。 此範例使用 CREATE EXTERNAL TABLE AS SELECT (高效能 Transact-SQL 陳述式) 將資料從所有計算節點平行匯出。
 
 下列範例會使用 dbo.Weblogs 資料表中的資料行定義和資料從 dbo 建立外部資料表 Weblogs2014。 外部資料表定義會儲存在 SQL 資料倉儲中，而 SELECT 陳述式的結果會匯出至資料來源所指定的 blob 容器下的 "/archive/log2014/" 目錄。 以指定的文字檔案格式匯出的資料。
 
@@ -132,6 +124,21 @@ WHERE
 ```   
  在此情況下，user_A 和 user_B 現在應該從其他部門的結構描述加以鎖定。
  
+## <a name="polybase-performance-optimizations"></a>PolyBase 效能功能和最佳化
+為了達到使用 PolyBase 的最佳載入效能，我們的建議如下：
+- 將大型的壓縮檔案分成較小的壓縮檔案。 目前支援的壓縮類型不可分割。 因此，效能會受到載入單一大型檔案的影響。
+- 若要載入速度最快，載入堆積暫存表格 round_robin。 這是將資料從儲存層移到資料倉儲最有效率的方式。
+- 每種檔案格式具有不同的效能特性。 若要最快載入，使用壓縮的分隔文字檔案。 UTF-8 和 UTF-16 效能之間的差異最小。
+- 共置儲存層和資料倉儲以將延遲降至最低。
+- 如果您預期會有大量載入作業，將資料倉儲相應增加。
+
+## <a name="polybase-limitations"></a>PolyBase 的限制
+SQL DW 的PolyBase 有下列限制，在設計載入作業時必須納入考量：
+- 單一資料列不能比 1,000,000 個位元組更寬。 不論資料表定義的結構描述為何 (包括 (n)varchar(max) 資料行)，這一點都成立。 這表示外部資料表的 (n)varchar(max) 資料行可以是最大的 1,000,000 個位元組寬，不是資料類型定義的 2 GB 限制。
+- 將資料從 SQL Server 或 Azure SQL 資料倉儲匯出成 ORC 檔案格式時，由於 java 的記憶體不足錯誤，可能會限制大量文字的資料行只能有 50 個資料行。 要解決這個問題，只能匯出部分資料行。
+
+
+
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -13,30 +13,39 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: denlee
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: af4c67accf43c2f4f1498e3cafad6e9087a923af
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 02d4042803bdbc3b982019e0e5d3bcd7ed3e0173
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB：圖形 API 簡介
 
-[Azure Cosmos DB](introduction.md) 是 Microsoft 推出的全域散發多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供[周全的全域散發](distribute-data-globally.md)、全球[彈性調整的輸送量和儲存體](partition-data.md)、達到第 99 個百分位數的個位數毫秒延遲、[五個定義完善的一致性層級](consistency-levels.md)，以及保證的高可用性，全部都由[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) (英文) 所支援。 Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，可支援文件、索引鍵/值、圖表和單欄式資料模型。
+[Azure Cosmos DB](introduction.md) 是 Microsoft 推出的全域散發多模型資料庫服務，適用於任務關鍵性應用程式。 Azure Cosmos DB 提供下列功能，這些功能都有[領先業界的 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/) 作為後盾：
 
-我們建議您從觀看下列影片來開始，在此影片中，Kirill Gavrylyuk 會說明如何在 Azure Cosmos DB 上開始使用圖表。
+* [周全且立即可用的全域分散式資料庫](distribute-data-globally.md)
+* 在全球[彈性調整輸送量與儲存體](partition-data.md)
+* 99 百分位數的單一數字毫秒延遲
+* [五個定義完善的一致性層級](consistency-levels.md)
+* 保證高可用性 
+
+Azure Cosmos DB 會[自動編製資料的索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)，您不需要處理結構描述和索引管理。 它是多重模型，可支援文件、索引鍵/值、圖表和單欄式資料模型。
+
+我們建議您觀看下列影片，在此影片中，Kirill Gavrylyuk 會說明如何在 Azure Cosmos DB 上開始使用圖表：
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Graphs-with-Azure-Cosmos-DB-Gremlin-API/player]
 > 
 > 
+
 Azure Cosmos DB 圖形 API 提供：
 
-- 圖形模型化
-- 周遊 API
-- 周全的全域散發
-- 可彈性調整的儲存體和輸送量，小於 10 毫秒的讀取延遲和低於 15 毫秒 (第 99 個百分位數)
-- 透過立即查詢可用性自動編製索引
-- 可調式一致性層級
-- 完整的 SLA (包括 99.99% 可用性)
+- 圖形模型化。
+- 周遊 API。
+- 周全的全域發佈。
+- 可彈性調整的儲存體和輸送量，小於 10 毫秒的讀取延遲和低於 15 毫秒 (第 99 個百分位數)。
+- 透過立即查詢可用性自動編製索引。
+- 可調式一致性層級。
+- 完整的 SLA (包括 99.99% 可用性)。
 
 若要查詢 Azure Cosmos DB，您可以使用 [Apache TinkerPop](http://tinkerpop.apache.org) 圖形周遊語言 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)，或是其他 TinkerPop 相容的圖形系統 (如 [Apache Spark GraphX](spark-connector-graph.md))。
 
@@ -47,7 +56,7 @@ Azure Cosmos DB 圖形 API 提供：
 
 [圖形](http://mathworld.wolfram.com/Graph.html)是由[頂點](http://mathworld.wolfram.com/GraphVertex.html)和[邊緣](http://mathworld.wolfram.com/GraphEdge.html)組成的結構。 頂點和邊緣的屬性數量不限。 頂點代表特定的物件，例如人員、地點或事件。 邊緣代表頂點之間的關聯性。 比方說，某個人可能會知道其他人、參與某個事件，以及在最近前往某個位置。 屬性表達頂點和邊緣的相關資訊。 屬性的例子包括具有名稱、年齡的頂點，以及具有時間戳記和/或加權的邊緣。 更正式的說，這種模型稱為[屬性圖表](http://tinkerpop.apache.org/docs/current/reference/#intro)。 Azure Cosmos DB 支援屬性圖表模型。
 
-例如，下圖中的範例圖表顯示人員、行動裝置、興趣和作業系統之間的關聯性。
+例如，下圖中的範例圖表顯示人員、行動裝置、興趣和作業系統之間的關聯性：
 
 ![顯示人員、裝置和興趣的範例資料庫](./media/graph-introduction/sample-graph.png)
 
@@ -58,7 +67,7 @@ Azure Cosmos DB 圖形 API 提供：
 您可以結合圖表資料庫所提供的快速周遊和圖表演算法，例如深度優先搜尋、廣度優先搜尋、Dijkstra 的演算法等等，解決各種領域的問題，例如社交網路、內容管理、地理空間和推薦。
 
 ## <a name="planet-scale-graphs-with-azure-cosmos-db"></a>行星級圖表與 Azure Cosmos DB
-Azure Cosmos DB 是一種完全受管理的圖表資料庫，提供全域散發、彈性調整的儲存體和輸送量、自動編製索引和查詢、可調整的一致性等級，而且支援 TinkerPop 標準。  
+Azure Cosmos DB 是一種完全受管理的圖表資料庫，提供全域散發、彈性調整的儲存體和輸送量、自動編製索引和查詢、可調整的一致性等級，而且支援 TinkerPop 標準。
 
 ![Azure Cosmos DB 圖表架構](./media/graph-introduction/cosmosdb-graph-architecture.png)
 
@@ -78,7 +87,7 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
 * 受到完整管理
 
- Azure Cosmos DB 能消除資料庫和電腦資源的管理需求。 因為是受到完整管理的 Microsoft Azure 服務，您不需要管理虛擬機器、部署和設定軟體、管理調整事宜，或處理複雜的資料層升級。 每個圖表都會自動備份，以防區域性失敗。 您可以輕鬆地新增 Azure Cosmos DB 帳戶，並在需要時佈建容量，將精力投注在應用程式，不用浪費時間來操作和管理資料庫。
+ Azure Cosmos DB 能消除資料庫和電腦資源的管理需求。 做為受到完整管理的 Microsoft Azure 服務，您不需要管理虛擬機器、部署和設定軟體、管理調整，或處理複雜的資料層升級。 每個圖表都會自動備份，以防區域性失敗。 您可以輕鬆地新增 Azure Cosmos DB 帳戶，並在需要時佈建容量，將精力投注在應用程式，不用浪費時間來操作和管理資料庫。
 
 * 自動編製索引
 
@@ -94,8 +103,8 @@ Azure Cosmos DB 提供以下有別於市場上其他圖表資料庫的功能：
 
 Azure Cosmos DB 也能在相同的容器/資料庫內使用多個模型，例如文件和圖表。 您可以使用文件集合來同時儲存圖表資料與文件。 您可以使用 JSON 的 SQL 查詢和 Gremlin 查詢，查詢與圖表相同的資料。
 
-## <a name="getting-started"></a>開始使用
-您可以透過 Azure 命令列介面 (CLI)、Azure Powershell 或 Azure 入口網站，搭配圖形 API 的支援，建立 Azure Cosmos DB 帳戶。 建立之後，Azure 入口網站會提供像 `https://<youraccount>.graphs.azure.com` 一樣的服務端點，提供 Gremlin 的 WebSocket 前端。 您可以設定 TinkerPop 相容性工具 (例如 [Gremin 主控台](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)) 連線至此端點，然後在 Java、Node.js 或任何 Gremlin 用戶端驅動程式中建置應用程式。
+## <a name="get-started"></a>開始使用
+您可以透過 Azure 命令列介面 (CLI)、Azure PowerShell 或 Azure 入口網站，搭配圖形 API 的支援，建立 Azure Cosmos DB 帳戶。 建立之後，Azure 入口網站會提供像 `https://<youraccount>.graphs.azure.com` 一樣的服務端點，提供 Gremlin 的 WebSocket 前端。 您可以設定 TinkerPop 相容性工具 (例如 [Gremlin 主控台](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)) 連線至此端點，然後在 Java、Node.js 或任何 Gremlin 用戶端驅動程式中建置應用程式。
 
 下表顯示您可以運用在 Azure Cosmos DB 上的常用 Gremlin 驅動程式︰
 
@@ -111,7 +120,10 @@ Azure Cosmos DB 也透過 NuGet 提供 .NET 程式庫，其中包含以 [Azure C
 | --- | --- |
 | [.NET](https://www.nuget.org/packages/Microsoft.Azure.Graphs/) |[Microsoft.Azure.Graphs](https://msdn.microsoft.com/library/azure/dn948556.aspx) |
 
-[Azure Cosmos DB 模擬器](local-emulator.md)可讓您使用圖形 API 在本機開發和測試，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。
+[Azure Cosmos DB 模擬器](local-emulator.md)可讓您使用上述的 .NET Graph API 在本機開發和測試，不需建立 Azure 訂用帳戶，也不會產生任何費用。 如果您滿意應用程式在模擬器中的運作方式，就可以切換成使用雲端的 Azure Cosmos DB 帳戶。
+
+> [!NOTE]
+> 針對 [Azure Cosmos DB 模擬器](local-emulator.md)驗證 Gremlin 查詢的支援，僅能透過 .NET Graph API 取用。
 
 ## <a name="scenarios-for-graph-support-of-azure-cosmos-db"></a>Azure Cosmos DB 的圖表支援案例
 以下是某些可以使用 Azure Cosmos DB 圖表支援的案例︰
@@ -130,7 +142,7 @@ Azure Cosmos DB 也透過 NuGet 提供 .NET 程式庫，其中包含以 [Azure C
 
 * 物聯網
 
- 以圖形模擬 IoT 裝置之間的網路和連線，可讓您更了解裝置和資產的狀態，以及網路的某個部分變動時可能對其他部分造成什麼影響。
+ 以圖形模擬 IoT 裝置之間的網路和連線，可讓您更了解裝置和資產的狀態。 您也可以了解網路的某個部分變動時可能對其他部分造成什麼影響。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure Cosmos DB 中的圖表支援，請參閱︰

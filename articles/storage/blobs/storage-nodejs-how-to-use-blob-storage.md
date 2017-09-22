@@ -15,8 +15,8 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: marsma
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 1a706b8c17cc493532ac3f63e9f0e897bed90fdb
+ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
+ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
 ms.contentlocale: zh-tw
 ms.lasthandoff: 09/07/2017
 
@@ -64,8 +64,6 @@ var azure = require('azure-storage');
 
 ## <a name="set-up-an-azure-storage-connection"></a>設定 Azure 儲存體連接
 Azure 模組會讀取環境變數 `AZURE_STORAGE_ACCOUNT` 及 `AZURE_STORAGE_ACCESS_KEY`，或讀取 `AZURE_STORAGE_CONNECTION_STRING` 以取得連接 Azure 儲存體帳戶所需的資訊。 如果未設定這些環境變數，則呼叫 **createBlobService**時必須指定帳戶資訊。
-
-如需針對 Azure Web 應用程式在 [Azure 入口網站](https://portal.azure.com)中設定環境變數的範例，請參閱[使用 Azure 表格服務的 Node.js Web 應用程式](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)。
 
 ## <a name="create-a-container"></a>建立容器
 **BlobService** 物件讓您能使用容器及 blob。 下列程式碼會建立 **BlobService** 物件。 將下列內容新增至接近 **server.js**的頂端：
@@ -416,18 +414,17 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 如需詳細資訊，請參閱下列資源。
 
 * [Azure Storage SDK for Node API 參考][Azure Storage SDK for Node API Reference]  
-* [Azure 儲存體團隊部落格][Azure 儲存體團隊部落格]  
+* [Azure 儲存體團隊部落格][Azure Storage Team Blog]  
 * GitHub 上的 [Azure Storage SDK for Node][Azure Storage SDK for Node] 儲存機制  
 * [Node.js 開發人員中心](https://azure.microsoft.com/develop/nodejs/)  
 * [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)  
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node  
 
-[使用 Azure 表格服務的 Node.js Web 應用程式](../../app-service-web/storage-nodejs-use-table-storage-web-site.md)    
-[使用 Web Matrix 建立 Node.js Web 應用程式並部署至 Azure]：https://www.microsoft.com/web/webmatrix/  
-[使用 REST API]：http://msdn.microsoft.com/library/azure/hh264518.aspx  
-[Azure 入口網站]：https://portal.azure.com  
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/  
+[Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx  
+[Azure portal]: https://portal.azure.com  
 [建立 Node.js 應用程式並部署到 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
-[Azure 儲存體團隊部落格]：http://blogs.msdn.com/b/windowsazurestorage/  
-[Azure Storage SDK for Node API 參考]：http://dl.windowsazure.com/nodestoragedocs/index.html  
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/  
+[Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html  
 

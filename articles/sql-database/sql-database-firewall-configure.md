@@ -5,7 +5,7 @@ keywords: "資料庫防火牆"
 services: sql-database
 documentationcenter: 
 author: BYHAM
-manager: jhubbard
+manager: craigg
 editor: cgronlun
 tags: 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 04/10/2017
+ms.date: 09/12/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 71c7eaf2272245bd681387947812f7d5c0f58094
+ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
+ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/13/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 伺服器層級和資料庫層級防火牆規則 
@@ -67,7 +67,7 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 > 
 
 ## <a name="creating-and-managing-firewall-rules"></a>建立和管理防火牆規則
-您可使用 [Azure 入口網站](https://portal.azure.com/)，或是以程式設計方式使用 [Azure PowerShell](https://msdn.microsoft.com/library/azure/dn546724.aspx)、[Azure CLI](/cli/azure/sql/server/firewall-rule#create) 或 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)，建立第一個伺服器層級防火牆設定。 後續的伺服器層級防火牆規則可以使用這些方法，以及透過 Transact-SQL 來建立和管理。 
+您可使用 [Azure 入口網站](https://portal.azure.com/)，或是以程式設計方式使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql)、[Azure CLI](/cli/azure/sql/server/firewall-rule#create) 或 [REST API](https://docs.microsoft.com/rest/api/sql/firewallrules)，建立第一個伺服器層級防火牆設定。 後續的伺服器層級防火牆規則可以使用這些方法，以及透過 Transact-SQL 來建立和管理。 
 
 > [!IMPORTANT]
 > 資料庫層級防火牆規則只能使用 Transact-SQL 來建立和管理。 
@@ -79,7 +79,7 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 > 您可以使用 [SQL Database 稽核](sql-database-auditing.md)來稽核伺服器等級和資料庫等級防火牆的變更。
 >
 
-### <a name="azure-portal"></a>Azure 入口網站
+## <a name="manage-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站管理防火牆規則
 
 若要在 Azure 入口網站中設定伺服器層級防火牆規則，您可前往 Azure SQL Database 的 [概觀] 頁面，或是 Azure Database 邏輯伺服器的 [概觀] 頁面。
 
@@ -101,15 +101,11 @@ Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提�
 
 伺服器的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver20170403.database.windows.net**)，並提供進一步的組態選項。
 
-1. 若要從伺服器概觀頁面設定伺服器層級規則，請按一下左側功能表中 [設定] 下方的 [防火牆]，如下圖所示： 
-
-     ![邏輯伺服器概觀](./media/sql-database-migrate-your-sql-server-database/logical-server-overview.png)
+1. 若要從伺服器概觀頁面設定伺服器層級規則，按一下左側功能表中 [設定] 下方的 [防火牆]： 
 
 2. 按一下工具列上的 [新增用戶端 IP]，以新增您目前所用電腦的 IP 位址，然後再按一下 [儲存]。 系統便會為目前的 IP 位址建立伺服器層級防火牆規則。
 
-     ![設定伺服器防火牆規則](./media/sql-database-migrate-your-sql-server-database/server-firewall-rule-set.png)
-
-### <a name="transact-sql"></a>Transact-SQL
+## <a name="manage-firewall-rules-using-transact-sql"></a>使用 Transact-SQL 管理防火牆規則
 | 目錄檢視或預存程序 | 等級 | 說明 |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |伺服器 |顯示目前的伺服器層級防火牆規則 |
@@ -139,13 +135,13 @@ EXECUTE sp_set_firewall_rule @name = N'ContosoFirewallRule',
 EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 ```   
 
-### <a name="azure-powershell"></a>Azure PowerShell
+## <a name="manage-firewall-rules-using-azure-powershell"></a>使用 Azure PowerShell 管理防火牆規則
 | Cmdlet | 等級 | 說明 |
 | --- | --- | --- |
-| [Get-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546731.aspx) |伺服器 |返回目前的伺服器層級防火牆規則 |
-| [New-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546724.aspx) |伺服器 |建立新的伺服器層級防火牆規則 |
-| [Set-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546739.aspx) |伺服器 |更新現有伺服器層級防火牆規則的屬性 |
-| [Remove-AzureSqlDatabaseServerFirewallRule](https://msdn.microsoft.com/library/azure/dn546727.aspx) |伺服器 |移除伺服器層級防火牆規則 |
+| [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |伺服器 |返回目前的伺服器層級防火牆規則 |
+| [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |伺服器 |建立新的伺服器層級防火牆規則 |
+| [Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule) |伺服器 |更新現有伺服器層級防火牆規則的屬性 |
+| [Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule) |伺服器 |移除伺服器層級防火牆規則 |
 
 
 下列範例會使用 PowerShell 設定伺服器層級防火牆規則：
@@ -160,7 +156,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 > 如需快速入門內容中的 PowerShell 範例資訊，請參閱[建立 DB - PowerShell](sql-database-get-started-powershell.md)以及[使用 PowerShell 建立單一資料庫和設定防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md)
 >
 
-### <a name="azure-cli"></a>Azure CLI
+## <a name="manage-firewall-rules-using-azure-cli"></a>使用 Azure CLI 管理防火牆規則
 | Cmdlet | 等級 | 說明 |
 | --- | --- | --- |
 | [az sql server firewall create](/cli/azure/sql/server/firewall-rule#create) | 建立防火牆規則以允許從輸入的 IP 位址範圍存取伺服器上的所有 SQL Database。|
@@ -180,13 +176,12 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 > 如需快速入門內容中的 Azure CLI 範例資訊，請參閱[建立 DB - Azure CLI](sql-database-get-started-cli.md) 以及[使用 Azure CLI 建立單一資料庫和設定防火牆規則](scripts/sql-database-create-and-configure-database-cli.md)
 >
 
-### <a name="rest-api"></a>REST API
+## <a name="manage-firewall-rules-using-rest-api"></a>使用 REST API 建立防火牆規則
 | API | 等級 | 說明 |
 | --- | --- | --- |
-| [列出防火牆規則](https://msdn.microsoft.com/library/azure/dn505715.aspx) |伺服器 |顯示目前的伺服器層級防火牆規則 |
-| [建立防火牆規則](https://msdn.microsoft.com/library/azure/dn505712.aspx) |伺服器 |建立或更新伺服器層級防火牆規則 |
-| [設定防火牆規則](https://msdn.microsoft.com/library/azure/dn505707.aspx) |伺服器 |更新現有伺服器層級防火牆規則的屬性 |
-| [刪除防火牆規則](https://msdn.microsoft.com/library/azure/dn505706.aspx) |伺服器 |移除伺服器層級防火牆規則 |
+| [列出防火牆規則](https://docs.microsoft.com/rest/api/sql/FirewallRules/ListByServer) |伺服器 |顯示目前的伺服器層級防火牆規則 |
+| [建立或更新防火牆規則](https://docs.microsoft.com/rest/api/sql/FirewallRules/CreateOrUpdate) |伺服器 |建立或更新伺服器層級防火牆規則 |
+| [刪除防火牆規則](https://docs.microsoft.com/rest/api/sql/FirewallRules/Delete) |伺服器 |移除伺服器層級防火牆規則 |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>伺服器層級防火牆規則與資料庫層級防火牆規則
 問： 某個資料庫的使用者是否應該完全與另一個資料庫隔離？   
