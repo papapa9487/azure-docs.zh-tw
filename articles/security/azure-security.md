@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/03/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b0749847af81521e0ffe6b5f1e115fff558df5cd
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 54bbd7dd1d0ecad79f86e0ab16be3a48854093ac
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -111,7 +111,7 @@ Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工
 本節提供關於應用程式安全性中主要功能的其他資訊，以及這些功能的摘要資訊。
 
 ### <a name="web-application-vulnerability-scanning"></a>Web 應用程式弱點掃描
-開始測試您 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)上是否有弱點的最簡單方式之一是使用[與 Tinfoil Security 的整合 (英文)](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)，以在您的應用程式上執行單鍵弱點掃描。 您可以在容易了解的報告中檢視測試結果，並且了解如何以逐步指示修正每個弱點。
+開始測試您 [App Service 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-overview)上是否有弱點的最簡單方式之一是使用[與 Tinfoil Security 的整合 (英文)](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)，以在您的應用程式上執行單鍵弱點掃描。 您可以在容易了解的報告中檢視測試結果，並且了解如何以逐步指示修正每個弱點。
 
 ### <a name="penetration-testing"></a>滲透測試
 如果您想要執行專屬的滲透測試，或想要使用另一個掃描器套件或提供者，您必須依照 [Azure 滲透測試核准程序](https://security-forms.azure.com/penetration-testing/terms) 並取得先前核准，才能執行所需的滲透測試。
@@ -123,10 +123,10 @@ Log Analytics 在鑑識和其他安全性分析方面是一個非常實用的工
 [App Service 驗證/授權](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)是可讓應用程式接受使用者登入的一種功能，而不需要您在應用程式後端變更程式碼。 它提供簡單的方法來保護您的應用程式，以及使用每位使用者的資料。
 
 ### <a name="layered-security-architecture"></a>分層式安全性架構
-由於 [App Service 環境](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-intro)提供部署至 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)的隔離執行階段環境，因此開發人員能夠建立分層式安全性架構，針對每個應用程式層提供不同層級的網路存取。 常見的需求之一，是要隱藏對 API 後端的一般網際網路存取，而只允許由上游 Web 應用程式呼叫 API。 [網路安全性群組 (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) 可用於包含 App Service 環境的 Azure 虛擬網路子網路，以限制對 API 應用程式的公用存取。
+由於 [App Service 環境](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-intro)提供部署至 [Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)的隔離執行階段環境，因此開發人員能夠建立分層式安全性架構，針對每個應用程式層提供不同層級的網路存取。 常見的需求之一，是要隱藏對 API 後端的一般網際網路存取，而只允許由上游 Web 應用程式呼叫 API。 [網路安全性群組 (NSG)](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/) 可用於包含 App Service 環境的 Azure 虛擬網路子網路，以限制對 API 應用程式的公用存取。
 
 ### <a name="web-server-diagnostics-and-application-diagnostics"></a>Web 伺服器診斷和應用程式診斷
-App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。 這些資訊邏輯上可區分為 [Web 伺服器診斷](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)與[應用程式診斷](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)。 Web 伺服器在針對網站和應用程式進行診斷及疑難排解方面包含了兩個重大進展。
+App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提供診斷功能。 這些資訊邏輯上可區分為 [Web 伺服器診斷](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)與[應用程式診斷](https://technet.microsoft.com/library/hh530058(v=sc.12).aspx)。 Web 伺服器在針對網站和應用程式進行診斷及疑難排解方面包含了兩個重大進展。
 
 第一個新功能是關於應用程式集區、背景工作處理序、網站、應用程式定義域和執行中要求的即時狀態資訊。 第二個新優點是詳細的追蹤事件，可在整個完成要求與回應程序中追蹤要求。
 
@@ -142,7 +142,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 -   Web 伺服器記錄：使用 W3C 擴充記錄檔格式的 HTTP 交易相關資訊。 當您需要判斷整體網站指標 (例如，處理的要求數量，或者有多少要求來自特定的 IP 位址) 時，這非常實用。
 
 #### <a name="application-diagnostics"></a>應用程式診斷
-[應用程式診斷](https://docs.microsoft.com/azure/app-service-web/web-sites-enable-diagnostic-log)可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 在應用程式診斷中，有兩種主要的事件類型：與應用程式效能相關的類型，以及與應用程式失敗和錯誤相關的類型。 失敗和錯誤可進一步細分為連線、安全性和失敗問題。 失敗問題通常與應用程式程式碼的問題有關。
+[應用程式診斷](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 在應用程式診斷中，有兩種主要的事件類型：與應用程式效能相關的類型，以及與應用程式失敗和錯誤相關的類型。 失敗和錯誤可進一步細分為連線、安全性和失敗問題。 失敗問題通常與應用程式程式碼的問題有關。
 
 在應用程式診斷中，您可以檢視以下列方式分組的事件：
 

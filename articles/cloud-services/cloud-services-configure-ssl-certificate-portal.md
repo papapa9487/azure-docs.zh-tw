@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: e5c8c3b098772c0586712305a577b24a6f0d924c
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7b0e76f86ec6443fcb394f7be1e6b417de99d4b7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>在 Azure 設定應用程式的 SSL
@@ -30,7 +30,7 @@ ms.lasthandoff: 05/31/2017
 安全通訊端層 (SSL) 加密是最常用來保護在網際網路上傳送之資料的方法。 此常見工作會討論如何為 Web 角色指定 HTTPS 端點，以及如何上傳 SSL 憑證來保護應用程式的安全。
 
 > [!NOTE]
-> 此工作的程序適用於 Azure 雲端服務，若為應用程式服務，請參閱 [此處](../app-service-web/web-sites-configure-ssl-certificate.md)。
+> 此工作的程序適用於 Azure 雲端服務，若為應用程式服務，請參閱 [此處](../app-service/app-service-web-tutorial-custom-ssl.md)。
 >
 
 此工作使用生產部署。 本主題最後將提供關於如何使用預備部署的資訊。

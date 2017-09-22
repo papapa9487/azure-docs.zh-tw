@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 1032c4e7d378016e36c92efa9478be72e9a557c4
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 9520e4c2680e1dd0158a35b4ee65496a42a02563
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
@@ -179,9 +179,9 @@ Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azur
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>我可以搭配使用 Azure App Service Web Apps 和 VNet 嗎？
 是。 您可以使用 ASE (App Service 環境) 在 VNet 中部署 Web Apps。 如果您已針對 VNet 設定點對站連線，則 Web Apps 可以安全地連線並存取 Azure VNet 中的資源。 如需詳細資訊，請參閱下列文章。
 
-* [在 App Service 環境中建立 Web Apps](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md)
-* [將您的應用程式與 Azure 虛擬網路整合](../app-service-web/web-sites-integrate-with-vnet.md)
-* [使用 VNet 整合和混合式連接搭配 Web Apps](../app-service-web/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
+* [在 App Service 環境中建立 Web Apps](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md)
+* [將您的應用程式與 Azure 虛擬網路整合](../app-service/web-sites-integrate-with-vnet.md)
+* [使用 VNet 整合和混合式連接搭配 Web Apps](../app-service/web-sites-integrate-with-vnet.md#hybrid-connections-and-app-service-environments)
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>我可以在 VNet 中使用 Web 和背景工作角色 (PaaS) 部署雲端服務嗎？
 是。 您可以 (選擇性地) 在 VNet 內部署雲端服務角色執行個體。 若要這樣做，請在服務組態的網路組態區段中，指定 VNet 名稱和角色/子網路對應。 您不需要更新任何二進位檔。

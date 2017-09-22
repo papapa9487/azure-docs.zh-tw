@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 94ddae4473b2d9d212e05d3df089eb6b2b87cbd8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>使用 Node.js 模組與 Azure 應用程式搭配
@@ -84,7 +84,7 @@ Azure App Service 不支援所有的原生模組，而且在編譯具有特定�
 > 
 
 ## <a name="next-steps"></a>後續步驟
-現在，您了解如何搭配使用 Node.js 模組與 Azure，接著了解如何[指定 Node.js 版本]、[建置與部署 Node.js Web 應用程式](app-service-web/app-service-web-get-started-nodejs.md)，和[如何使用適用於 Mac 和 Linux 的 Azure 命令列介面]。
+現在，您了解如何搭配使用 Node.js 模組與 Azure，接著了解如何[指定 Node.js 版本]、[建置與部署 Node.js Web 應用程式](app-service/app-service-web-get-started-nodejs.md)，和[如何使用適用於 Mac 和 Linux 的 Azure 命令列介面]。
 
 如需詳細資訊，請參閱 [Node.js 開發人員中心](/nodejs/azure/)。
 

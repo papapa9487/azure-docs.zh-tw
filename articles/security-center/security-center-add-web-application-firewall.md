@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 資訊安全中心新增 Web 應用程式防火牆 | Microsoft Docs"
-description: "本文件說明如何實作「Azure 資訊安全中心」的「新增 Web 應用程式防火牆」和「完成應用程式保護」建議。"
+description: "本文件說明如何實作 Azure 資訊安全中心建議的「新增 Web 應用程式防火牆」和「完成應用程式保護」。"
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: d04a07237029953d8a9b20704d85e852ce45d867
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e858db97c3e7a832ad01e16a60d486a758109d7c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>在 Azure 資訊安全中心新增 Web 應用程式防火牆
@@ -27,7 +26,7 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 
 系統會針對任何具有相關聯網路安全性群組 (包含開放輸入 Web 連接埠 (80,443)) 的公開 IP (執行個體層級 IP 或負載平衡 IP)，顯示 WAF 建議。
 
-資訊安全中心建議您佈建 WAF，協助對抗以虛擬機器和 App Service 環境上的 Web 應用程式為目標的攻擊。 App Service 環境 (ASE) 是Azure App Service 的 [Premium](https://azure.microsoft.com/pricing/details/app-service/) 服務方案選項，可提供完全隔離和專用的環境，以便安全地執行 Azure App Service 應用程式。 若要深入了解 ASE，請參閱 [App Service 環境的文件](../app-service/app-service-app-service-environments-readme.md)。
+資訊安全中心建議您佈建 WAF，協助對抗以虛擬機器和 App Service 環境上的 Web 應用程式為目標的攻擊。 App Service 環境 (ASE) 是Azure App Service 的 [Premium](https://azure.microsoft.com/pricing/details/app-service/) 服務方案選項，可提供完全隔離和專用的環境，以便安全地執行 Azure App Service 應用程式。 若要深入了解 ASE，請參閱 [App Service 環境的文件](../app-service/environment/intro.md)。
 
 > [!NOTE]
 > 本文件將使用範例部署來介紹服務。  本文件不是一份逐步解說指南。
@@ -70,7 +69,7 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 ## <a name="next-steps"></a>後續步驟
 本文件說明如何實作資訊安全中心建議的「新增 Web 應用程式」。 若要深入了解如何設定 Web 應用程式防火牆，請參閱下列各項：
 
-* [設定 App Service 環境的 Web 應用程式防火牆 (WAF)](../app-service-web/app-service-app-service-environment-web-application-firewall.md)
+* [設定 App Service 環境的 Web 應用程式防火牆 (WAF)](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
 
 如要深入了解資訊安全中心，請參閱下列主題：
 

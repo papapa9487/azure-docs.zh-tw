@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 38c342802ed687985ac6f84f5a590a1a0dcc6c6a
-ms.lasthandoff: 05/03/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫
@@ -98,7 +98,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 
 在應用程式新增至 Azure Active Directory 之後，您將會進入應用程式頁面。 按一下 [設定] 索引標籤，然後尋找並複製 [用戶端識別碼] 值。 記下用戶端識別碼以供後續步驟使用。
 
-接下來，產生金鑰，以便應用程式與 Azure Active Directory 互動。 您可以在 [設定] 索引標籤的 [金鑰] 區段底下建立此金鑰。 記下從 Azure Active Directory 應用程式新產生的金鑰，以供後續步驟使用。
+接下來，產生金鑰，以便應用程式與 Azure Active Directory 互動。 您可以在 [設定] 索引標籤的 [金鑰] 區段底下建立此金鑰。記下從 Azure Active Directory 應用程式新產生的金鑰，以供後續步驟使用。
 
 ![Azure Active Directory 應用程式金鑰](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
 
@@ -263,7 +263,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id
 
 若要建立 Azure 函式，請在 Azure 入口網站中選擇 [新增] -> [函式應用程式]。 在建立期間，您可以使用現有的主控方案，或建立新的方案。 您也可以選擇動態主控。 如需函式主控選項的詳細資訊，請參閱[如何調整 Azure Functions](../azure-functions/functions-scale.md)。
 
-建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。然後按一下 [建立此函式]。
+建立 Azure 函式後，請瀏覽到該函式並選擇計時器函式和 C\#。 然後按一下 [建立此函式]。
 
 ![Azure Functions 啟動刀鋒視窗](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -406,7 +406,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 ```
 在 [儲存] 時，Azure Functions 會下載所需的二進位檔。
 
-切換至 [整合]  索引標籤，然後為計時器參數提供有意義的名稱以在函式內使用。 前面的程式碼預期計時器名稱為 myTimer。 依下列方式為計時器指定 [CRON 運算式](../app-service-web/web-sites-create-web-jobs.md#CreateScheduledCRON)︰0 \* \* \* \* \*，這會讓函式每分鐘執行一次。
+切換至 [整合]  索引標籤，然後為計時器參數提供有意義的名稱以在函式內使用。 前面的程式碼預期計時器名稱為 myTimer。 依下列方式為計時器指定 [CRON 運算式](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON)︰0 \* \* \* \* \*，這會讓函式每分鐘執行一次。
 
 在同一個 [整合] 索引標籤上，新增 [Azure Blob 儲存體] 類型的輸入。 這會指向包含函式所查看之最後一個事件的時間戳記的 sync.txt 檔案。 這會在函式中依參數名稱提供。 在前面的程式碼中，Azure Blob 儲存體輸入預期參數名稱為 inputBlob。 選擇 sync.txt 檔案所位於的儲存體帳戶 (可能是相同或不同的儲存體帳戶)。 在 [路徑] 欄位中，以 {container-name}/path/to/sync.txt 格式提供檔案所在位置的路徑。
 

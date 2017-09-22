@@ -17,10 +17,10 @@ ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 3dfcf25856ede50266336c2ebb057dd3f7b8897e
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -100,12 +100,12 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 
 ### <a name="libraries"></a>程式庫
 
-需要有下列兩個程式庫：
+這些程式庫會自動連同延伸模組一起安裝。
 
-* [適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-* 適用於 Windows PowerShell 1.1.166.0 版或更新版本的 Microsoft Azure Active Directory 模組。 如需最新版本和安裝的指示，請參閱 [Microsoft Azure Active Directory PowerShell 模組版本發行歷程記錄](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx)。
+-   [適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+-   [適用於 Windows PowerShell 1.1.1660 版本的 Microsoft Azure Active Directory 模組](https://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)
 
-儘管現有文件另有說明，但這些程式庫並未封裝在 NPS 擴充功能安裝程式檔案 (0.9.1.2 版) 中。 您最少必須安裝適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件。 如果您還沒有適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組，系統會透過您在安裝過程中執行的設定指令碼來加以安裝。 因此，如果您尚未安裝此模組，就不必事先安裝。
+如果您還沒有適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組，系統會透過您在安裝過程中執行的設定指令碼來加以安裝。 因此，如果您尚未安裝此模組，就不必事先安裝。
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>與內部部署 Active Directory 同步的 Azure Active Directory 
 
@@ -229,7 +229,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 >如果您已將 VPN 用戶端設定為連線到 VPN 伺服器並已儲存各項設定，您可以略過與設定和儲存 VPN 連線物件有關的步驟。
 >
 
-1. 在 VPN 用戶端電腦上按一下 [啟動]，然後按一下 [設定] \(齒輪圖示)。
+1. 在 VPN 用戶端電腦上按一下 [啟動]，然後按一下 [設定] (齒輪圖示)。
 2. 在 [視窗設定] 中按一下 [網路和網際網路]。
 3. 按一下 [VPN]。
 4. 按一下 [新增 VPN 連線]。
@@ -277,7 +277,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 
  ![預設目錄](./media/nps-extension-vpn/image23.png)
 
-4. 在 [名稱] 資料行中按一下 [預設目錄] \(或其他目錄，視情況而定)。
+4. 在 [名稱] 資料行中按一下 [預設目錄] (或其他目錄，視情況而定)。
 5. 在 [快速入門] 頁面上，按一下 [設定]。
 
  ![設定預設值](./media/nps-extension-vpn/image24.png)

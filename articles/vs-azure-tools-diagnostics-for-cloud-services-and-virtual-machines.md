@@ -15,14 +15,14 @@ ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 2516c0eb8ce470577731db9b844d5b9038465477
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>為 Azure 雲端服務和虛擬機器設定診斷功能
-當您需要疑難排解 Azure 雲端服務或 Azure 虛擬機器時，您可以使用 Visual Studio 更輕鬆地設定 Azure 診斷。 Azure 診斷會在執行雲端服務的虛擬機器和虛擬機器執行個體上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。 如需有關 Azure 中診斷記錄的詳細資訊，請參閱 [在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](app-service-web/web-sites-enable-diagnostic-log.md)。
+當您需要疑難排解 Azure 雲端服務或 Azure 虛擬機器時，您可以使用 Visual Studio 更輕鬆地設定 Azure 診斷。 Azure 診斷會在執行雲端服務的虛擬機器和虛擬機器執行個體上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。 如需有關 Azure 中診斷記錄的詳細資訊，請參閱 [在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](app-service/web-sites-enable-diagnostic-log.md)。
 
 本主題說明如何在部署前後啟用及設定 Visual Studio 以及 Azure 虛擬機器中的 Azure 診斷。 它也說明如何選取要收集的診斷資訊類型，以及如何在收集之後檢視資訊。
 
@@ -137,7 +137,7 @@ ms.lasthandoff: 08/28/2017
 
   ![應用程式記錄檔](./media/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines/IC758145.png)
 
-  如需有關應用程式記錄檔的詳細資訊，請參閱 [在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](app-service-web/web-sites-enable-diagnostic-log.md)。
+  如需有關應用程式記錄檔的詳細資訊，請參閱 [在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](app-service/web-sites-enable-diagnostic-log.md)。
 
 ### <a name="windows-event-logs"></a>Windows 事件記錄檔
 如果您想要擷取 Windows 事件記錄檔，請選取 [啟用 Windows 事件記錄檔傳輸] 核取方塊。 您可以在事件記錄檔傳輸至儲存體帳戶時，藉由變更**傳輸期間 (分鐘)** 值來增加或減少分鐘數。 選取您想要追蹤之事件類型的核取方塊。
@@ -301,6 +301,6 @@ RoleEntryPoint 的方法是在 WAIISHost.exe 的內容中呼叫，而不是 IIS�
 此時在 [屬性] 視窗中，將 [複製到輸出目錄] 屬性設為 [永遠複製]。
 
 ## <a name="next-steps"></a>後續步驟
-若要深入了解 Azure 中的診斷記錄，請參閱[在 Azure 雲端服務](cloud-services/cloud-services-dotnet-diagnostics.md)和[虛擬機器中啟用診斷和在 Azure App Service 中啟用 web 應用程式的診斷記錄](app-service-web/web-sites-enable-diagnostic-log.md)。
+若要深入了解 Azure 中的診斷記錄，請參閱[在 Azure 雲端服務](cloud-services/cloud-services-dotnet-diagnostics.md)和[虛擬機器中啟用診斷和在 Azure App Service 中啟用 web 應用程式的診斷記錄](app-service/web-sites-enable-diagnostic-log.md)。
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: d687f94bebfd0b6c1ec0690da798be5409640954
+ms.translationtype: HT
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 ## <a name="intro-on-role-based-access-control"></a>角色型存取控制簡介
@@ -35,6 +34,7 @@ RBAC 可提供更好的安全性管理，對象包括大型組織，以及與需
 * 具有 Azure 訂用帳戶的擁有者角色
 * 具有 [Azure 入口網站](https://portal.azure.com)的存取權
 * 請確定使用者訂用帳戶已登錄下列資源提供者︰**Microsoft.Authorization**。 如需有關如何登錄資源提供者的詳細資訊，請參閱 [Resource Manager 提供者、區域、API 版本及結構描述](/azure-resource-manager/resource-manager-supported-services.md)。
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > 從 O365 入口網站佈建的 Office 365 訂用帳戶或 Azure Active Directory 授權 (例如︰存取 Azure Active Directory) 沒有資格使用 RBAC。
@@ -78,6 +78,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 ![在 Azure 入口網站的存取控制 IAM 功能中新增使用者](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 角色型存取控制的內建角色](/active-directory/role-based-access-built-in-roles.md)。
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
 
 然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，他會與目前已指派訂用帳戶範圍內之 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
 
@@ -124,6 +125,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 * 傳統入口網站中不同的來源點
 
 不過，除非**全域管理員**加以允許，否則將**擁有者**或**參與者**存取權授與給**訂用帳戶**範圍內的外部使用者，並不允許存取管理使用者的目錄。 在使用者內容中，可以識別具有 **Member** 和 **Guest** 這兩個常見的參數的**使用者類型**。 當來賓為外部來源受邀至目錄的使用者時，在目錄中登錄的使用者就是成員。 如需詳細資訊，請參閱 [Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者](/active-directory/active-directory-b2b-admin-add-users)。
+<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
 
 > [!NOTE]
 > 在入口網站中輸入認證後，請確定外部使用者選取正確的目錄進行登入。 相同使用者可以存取多個目錄，並且可以選擇其中一個目錄，方法是按一下 Azure 入口網站右上角的使用者名稱，然後從下拉式清單中選取適當的目錄。

@@ -12,10 +12,10 @@ ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 6a4c32d73050795a70a86f745840536bb3fc2a49
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -51,6 +51,6 @@ ms.lasthandoff: 08/29/2017
  外掛程式可供部署到下列服務和環境：
 
 - [Linux 上的 Azure Web 應用程式](/azure/app-service-web/app-service-linux-intro)。 請參閱[教學課程](java-deploy-webapp-tutorial.md)以便開始使用。
-- [Azure Web 應用程式](/azure/app-service-web/app-service-web-overview)。 請參閱[作法](deploy-Jenkins-app-service-plugin.md)以便開始使用。
+- [Azure Web 應用程式](/azure/app-service/app-service-web-overview)。 請參閱[作法](deploy-Jenkins-app-service-plugin.md)以便開始使用。
 
 

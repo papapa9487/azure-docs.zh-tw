@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 4ede35cf96e88a6f0c4f6622f6319f26a47d64fc
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 443893ed038e293b27f7781818ffcee9dcc5fc38
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用 Android 版 Azure Mobile Apps SDK
@@ -623,7 +623,7 @@ ToDoItem entity = mToDoTable
 
 傳回的實體會符合插入後端資料表的資料，包括識別碼和後端上設定的任何其他值 (例如 `createdAt`、`updatedAt` 和 `version` 欄位)。
 
-Mobile Apps 資料表需要名為 **識別碼**的主索引鍵資料行。 此資料行必須是字串。 識別碼資料行的預設值是 GUID。  您可以提供其他的唯一值，例如電子郵件地址或使用者名稱。 未針對插入的記錄提供字串識別碼值時，後端會產生新的 GUID。
+Mobile Apps 資料表需要名為 **識別碼**的主索引鍵資料行。此資料行必須是字串。 識別碼資料行的預設值是 GUID。  您可以提供其他的唯一值，例如電子郵件地址或使用者名稱。 未針對插入的記錄提供字串識別碼值時，後端會產生新的 GUID。
 
 字串識別碼值提供下列優點：
 
@@ -1312,7 +1312,7 @@ client.setGsonBuilder(
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
 

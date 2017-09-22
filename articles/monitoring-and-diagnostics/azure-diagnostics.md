@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: e2d3a6725ee53dc6d6986b185fac143901ba6955
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-is-azure-diagnostics"></a>什麼是 Azure 診斷
@@ -48,7 +48,7 @@ Azure 診斷擴充可以將這項資料傳送到 Azure 儲存體帳戶，或傳�
 請選擇您嘗試要在哪個服務上收集診斷資料，並使用下列文件來開始。 如需特定工作的參考，請使用一般的 Azure 診斷連結。
 
 ## <a name="web-apps"></a>Web 應用程式
-請注意，Web Apps 不會使用 Azure 診斷。 在 [Web Apps](../app-service-web/web-sites-enable-diagnostic-log.md) 上尋找同等的資訊
+請注意，Web Apps 不會使用 Azure 診斷。 在 [Web Apps](../app-service/web-sites-enable-diagnostic-log.md) 上尋找同等的資訊
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>使用 Azure 診斷的雲端服務
 * 如果您使用 Visual Studio，請參閱[使用 Visual Studio 來追蹤雲端服務應用程式](../vs-azure-tools-debug-cloud-services-virtual-machines.md)來開始。 否則，請參閱

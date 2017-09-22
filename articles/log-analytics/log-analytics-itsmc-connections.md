@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: e4f2e0a23aa52a0e02e7047916b77fb15107defa
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>將 ITSM 產品/服務與 IT 服務管理連接器進行連線 (預覽)
@@ -270,7 +270,7 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 請確定您已符合這些必要條件：
 
 - 已安裝 IT 服務管理連接器。 詳細資訊︰[設定](log-analytics-itsmc-overview.md#configuration)。
-- 應該向 Azure AD 註冊 Provance 應用程式 - 並將用戶端識別碼設為可用。 如需詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。
+- 應該向 Azure AD 註冊 Provance 應用程式 - 並將用戶端識別碼設為可用。 如需詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。
 - 使用者角色：管理員。
 
 ### <a name="connection-procedure"></a>連線程序
@@ -293,7 +293,7 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 | **使用者名稱**   | 輸入可連線到 IT 服務管理連接器的使用者名稱。    |
 | **密碼**   | 將與此使用者名稱與相關聯的密碼輸入。 **請注意**︰使用者名稱和密碼僅用來產生驗證權杖，並不會儲存在 OMS 服務內。|
 | **伺服器 URL**   | 輸入您想要連線到 IT 服務管理連接器之 Provance 執行個體的 URL。 |
-| **用戶端識別碼**   | 將您在 Provance 執行個體中產生的用戶端識別碼輸入以驗證此連線。  如需用戶端識別碼的詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。 |
+| **用戶端識別碼**   | 將您在 Provance 執行個體中產生的用戶端識別碼輸入以驗證此連線。  如需用戶端識別碼的詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。 |
 | **資料同步範圍**   | 選取您想要透過 IT 服務管理連接器同步到 OMS 的 Provance 工作項目。  系統會將這些工作項目匯入 Log Analytics。   **選項︰**事件、變更要求。|
 | **同步資料** | 輸入您想要起算資料的過去天數。 **上限**：120 天。 |
 | **在 ITSM 解決方案中建立新的設定項目** | 如果您想要在 ITSM 產品中建立設定項目，請選取此選項。 選取時，OMS 會在支援的 ITSM 系統中建立受影響的 CI 作為設定項目 (如果 CI 不存在)。 **預設**︰停用。|

@@ -14,11 +14,11 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: a3debf3380b57faa5b7b30f612698fe6de5b7067
-ms.lasthandoff: 04/15/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a0f3b294f2a655a5ff891d4fd1be9137080349a6
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-cli-samples-for-azure-redis-cache"></a>Azure Redis Cache 的 Azure CLI 範例
@@ -33,7 +33,7 @@ ms.lasthandoff: 04/15/2017
 | [取得快取詳細資料](./scripts/show-cache.md) | 取得 Azure Redis Cache 執行個體的詳細資料，包括佈建狀態。 |
 | [取得主機名稱、連接埠及金鑰](./scripts/cache-keys-ports.md) | 取得 Azure Redis Cache 執行個體的主機名稱、連接埠和金鑰。 |
 |**Web 應用程式加上快取**||
-| [將 Web 應用程式連線至 redis 快取](./../app-service-web/scripts/app-service-cli-app-service-redis.md) | 建立 Azure Web 應用程式和 Redis Cache,，然後將 Redis 連線詳細資料新增至應用程式設定。 |
+| [將 Web 應用程式連線至 redis 快取](./../app-service/scripts/app-service-cli-app-service-redis.md) | 建立 Azure Web 應用程式和 Redis Cache,，然後將 Redis 連線詳細資料新增至應用程式設定。 |
 |**刪除快取**||
 | [刪除快取](./scripts/delete-cache.md) | 刪除 Azure Redis Cache 執行個體  |
 | | |

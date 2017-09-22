@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/26/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 268299d82ce79b10eb8061467f4bad61194457f8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a32693a274c2615a515838306d72dbe64a5d1763
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 安全性技術功能
@@ -318,12 +318,10 @@ Web 應用程式防火牆防禦的一些常見 Web 弱點包括︰
 
 Azure 也提供幾項簡單易用的功能，可協助保護您的應用程式的輸入和輸出流量。 Azure 也藉由外部提供的功能來掃描您 Web 應用程式的弱點，協助客戶保護他們的應用程式程式碼。
 
-- [使用各種驗證和授權方法保護 Web 應用程式](https://docs.microsoft.com/azure/app-service-web/web-sites-authentication-authorization)
-
-    - [為應用程式設定 Azure Active Directory 驗證](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
+- [為應用程式設定 Azure Active Directory 驗證](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
 
-- [啟用傳輸層安全性 (TLS/SSL) - HTTPS 來保護傳入應用程式的流量](https://docs.microsoft.com/azure/app-service-web/web-sites-configure-ssl-certificate)
+- [啟用傳輸層安全性 (TLS/SSL) - HTTPS 來保護傳入應用程式的流量](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
     - [強制所有傳入流量透過 HTTPS 連線](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -336,13 +334,13 @@ Azure 也提供幾項簡單易用的功能，可協助保護您的應用程式�
 
 - [使用 Tinfoil 安全性掃描來掃描 Web 應用程式程式碼的弱點](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)
 
-- [設定 TLS 相互驗證以要求用戶端憑證來連線到 Web 應用程式](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)
+- [設定 TLS 相互驗證以要求用戶端憑證來連線到 Web 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-configure-tls-mutual-auth)
 
 - [設定保護應用程式對外部資源連線的用戶端憑證](https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/)
 
 - [移除標準伺服器標頭以避免工具記錄應用程式的特徵](https://azure.microsoft.com/blog/removing-standard-server-headers-on-windows-azure-web-sites/)
 
-- [使用點對站 VPN 保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service-web/web-sites-integrate-with-vnet)
+- [使用點對站 VPN 保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
 
 - [使用混合式連接保護應用程式與私人網路中資源的連線](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0c388862d927a1492745832225c686670c071f86
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -216,8 +216,8 @@ ms.lasthandoff: 08/10/2017
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
 [Azure Java 開發人員中心]: https://azure.microsoft.com/develop/java/
 [Azure 入口網站]: https://portal.azure.com/
-[在 Azure App Service 中設定 Web 應用程式]: /azure/app-service-web/web-sites-configure
-[使用 FTP/S 將您的應用程式部署至 Azure App Service]: https://docs.microsoft.com/azure/app-service-web/app-service-deploy-ftp
+[在 Azure App Service 中設定 Web 應用程式]: /azure/app-service/web-sites-configure
+[使用 FTP/S 將您的應用程式部署至 Azure App Service]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
 [免費的 Azure 帳戶]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java 開發工具組 (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/

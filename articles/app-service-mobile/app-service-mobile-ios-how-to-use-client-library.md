@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: yuaxu
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 65817208e1b26fb5f9eb56d164f48b44d57dce56
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bd5e2fce31ae597f8ce48fb8f5492e280cbbf28f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
@@ -547,7 +547,7 @@ if (error.code == MSErrorPreconditionFailed) {
 3. 使用終端機，從包含您專案的目錄執行 `pod install`，然後開啟產生的 Xcode 工作區 (而不是專案)。
 4. 根據您使用的語言，將下列程式碼新增至您的應用程式。 取代每個程式碼的以下項目：
 
-   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站] 複製到 Azure Active Directory 的 [網域] 索引標籤以外。
    * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
    * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
    * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應與 *https://contoso.azurewebsites.net/.auth/login/done* 類似。
@@ -688,7 +688,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="twitter-fabric"></a>作法：使用 Twitter Fabric for iOS 來驗證使用者
 您可以使用 Fabric for iOS，利用 Twitter 將使用者登入應用程式。 與使用 `loginWithProvider:completion:` 方法相比，較建議使用用戶端流程驗證，因為它提供更原生的 UX 風格，並可允許進行其他自訂。
 
-1. 依照 [如何設定 App Service 來進行 Twitter 登入](app-service-mobile-how-to-configure-twitter-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 Twitter 登入。
+1. 依照 [如何設定 App Service 來進行 Twitter 登入](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 Twitter 登入。
 2. 依照 [Fabric for iOS - 開始使用]文件並設定 TwitterKit，在專案中新增網狀架構。
 
    > [!NOTE]
@@ -762,7 +762,7 @@ if (error.code == MSErrorPreconditionFailed) {
 ## <a name="google-sdk"></a>作法：使用 Google Sign-In SDK for iOS 來驗證使用者
 您可以使用 Google Sign-In SDK for iOS，利用 Google 帳戶將使用者登入應用程式。  近期內，Google 宣布他們的 OAuth 安全性原則變更。  這些原則變更要求您未來必須使用 Google SDK。
 
-1. 依照 [如何設定 App Service 來進行 Google 登入](app-service-mobile-how-to-configure-google-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 Google 登入。
+1. 依照 [如何設定 App Service 來進行 Google 登入](../app-service/app-service-mobile-how-to-configure-google-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 Google 登入。
 2. 請依照 [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) 文件安裝 Google SDK for iOS。 您可以略過＜使用後端伺服器進行驗證＞一節。
 3. 請根據您使用的語言，將下列內容新增到委派的 `signIn:didSignInForUser:withError:` 方法。
 
@@ -846,7 +846,7 @@ if (error.code == MSErrorPreconditionFailed) {
 <!-- Images. -->
 
 <!-- URLs. -->
-[Azure Mobile Apps 快速入門]: app-service-mobile-ios-get-started.md
+[Azure Mobile Apps 快速啟動]: app-service-mobile-ios-get-started.md
 
 [Add Mobile Services to Existing App]: /develop/mobile/tutorials/get-started-data
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
@@ -876,8 +876,8 @@ if (error.code == MSErrorPreconditionFailed) {
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
 [5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 [8]: ../active-directory/active-directory-devquickstarts-ios.md
-[9]: app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
 [10]: https://developers.facebook.com/docs/ios/getting-started
 

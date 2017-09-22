@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/19/2017
 ms.author: oanapl
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: 598a4d35faebb592f840b1bec7e77c7a091ea2de
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 330ef58d89ebabaa2af7fa8e98e693ddd64dcc4e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Service Fabric 健康狀態監視簡介
@@ -26,7 +26,7 @@ Azure Service Fabric 導入了健康狀態模型，提供豐富、彈性且可�
 
 Service Fabric 元件會使用此健康狀態模型來報告其目前狀態。 您可以使用相同機制來報告應用程式的健康狀態。 只要投入時間規劃高品質的健康狀態報告來擷取您的自訂條件，就能更輕鬆地偵測並修正執行中應用程式的問題。
 
-下列 Microsoft Virtual Academy 影片也會說明 Service Fabric 健康狀態模型及其使用方式︰<center><a target="_blank" href="https://mva.microsoft.com/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
+下列 Microsoft Virtual Academy 影片也會說明 Service Fabric 健康狀態模型及其使用方式︰<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
 <img src="./media/service-fabric-health-introduction/HealthIntroVid.png" WIDTH="360" HEIGHT="244">
 </a></center>
 
@@ -212,7 +212,7 @@ Service Fabric 會使用三種健康狀態來描述實體的健康狀態是否�
 * **Description**。 可讓報告程式提供健康狀態事件相關詳細資訊的字串。 **SourceId**、**Property** 和 **HealthState** 應在報告中完整說明。 說明可增加人們可讀取的報告相關資訊。 文字可讓系統管理員和使用者更容易了解健全狀況報告。
 * **HealthState**。 描述報告健康狀態的 [列舉](service-fabric-health-introduction.md#health-states) 。 接受的值是「OK」、「Warning」和「Error」。
 * **TimeToLive**。 指出健康狀態報告持續有效的時間範圍。 可以搭配 **RemoveWhenExpired**，讓健康狀態資料存放區知道如何評估過期的事件。 根據預設，該值為「Infinite」，代表報告將永遠有效。
-* **RemoveWhenExpired**。 布林值。 若設為 True，則過期的健康狀態報告會自動從健康狀態資料存放區移除，且報告不會影響實體健康狀態評估。 只有當報告在一段指定時間內有效時才會使用此值，且報告程式不需明確地將其清除。 它也會用來從健康狀態資料存放區刪除報告 (例如，變更看門狗，並停止傳送含有先前來源和屬性的報告)。 其傳送的報告可以使用短暫的 TimeToLive 和 RemoveWhenExpired，以便從健康狀態資料存放區清除任何先前的狀態。 若將此值設為 False，則會將過期的報告視為健康狀態評估的錯誤。 False 值示意健康狀態資料存放區，來源應定期報告此屬性。 如果沒有，則一定是看門狗發生了某些錯誤。 看門狗的健康狀態是藉由將事件視為錯誤來擷取。
+* **RemoveWhenExpired**。 布林值。 若設為 True，則過期的健康狀態報告會自動從健康狀態資料存放區移除，且報告不會影響實體健康狀態評估。 只有當報告在一段指定時間內有效時才會使用此值，且報告程式不需明確地將其清除。它也會用來從健康狀態資料存放區刪除報告 (例如，變更看門狗，並停止傳送含有先前來源和屬性的報告)。 其傳送的報告可以使用短暫的 TimeToLive 和 RemoveWhenExpired，以便從健康狀態資料存放區清除任何先前的狀態。 若將此值設為 False，則會將過期的報告視為健康狀態評估的錯誤。 False 值示意健康狀態資料存放區，來源應定期報告此屬性。 如果沒有，則一定是看門狗發生了某些錯誤。 看門狗的健康狀態是藉由將事件視為錯誤來擷取。
 * **SequenceNumber**。 這個值是必須持續增加的正整數，其表示報告的順序。 健康狀態資料存放區會使用其來偵測因網路延遲或其他問題而較晚收到的陳舊報告。 針對相同的實體、來源和屬性，若序號小於或等於最新套用的數字，則報告會遭到拒絕。 如果未指定，即會自動產生序號。 只有在報告狀態轉換時，才需放入序號。 在此情況下，來源必須記住它所傳送的報告，並保留在容錯移轉復原的資訊。
 
 每個健康狀態報告都需要四種資訊 (SourceId、實體識別碼、Property 和 HealthState)。 不允許 SourceId 字串以前置詞 "**System.**" 開頭，因為這是保留給系統報告。 針對相同的實體，相同的來源和屬性僅能有一個報告。 無論在健康狀態用戶端 (若是批次處理) 或健康狀態資料存放區端，相同來源和屬性的多個報告會互相覆寫。 取代是以序號為根據；較新的報告 (具有較大的序號) 會取代較舊的報告。

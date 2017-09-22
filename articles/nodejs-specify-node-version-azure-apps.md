@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ea03adaabc1cd9e62aa91d4237481d8330704a1
-ms.openlocfilehash: 7129137e6deca6ae4cbb5096058b58b32056d415
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>在 Azure 應用程式中指定 Node.js 版本
@@ -90,12 +90,12 @@ Azure 提供的 Node.js 版本會持續進行更新。 除非另有指定，否�
     發行應用程式後，使用瀏覽器開啟網站。 您應該會看見 "Hello from Azure running node version: v0.8.1" 訊息。
 
 ## <a name="next-steps"></a>後續步驟
-您已了解如何指定應用程式使用的 Node.js 版本，現在請了解如何[使用模組]、[建置並部署 Node.js 網站](app-service-web/app-service-web-get-started-nodejs.md)和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。
+您已了解如何指定應用程式使用的 Node.js 版本，現在請了解如何[使用模組]、[建置並部署 Node.js 網站](app-service/app-service-web-get-started-nodejs.md)和[如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]。
 
 如需詳細資訊，請參閱 [Node.js 開發人員中心](https://azure.microsoft.com/develop/nodejs/)。
 
 [如何使用適用於 Mac 和 Linux 的 Azure 命令列工具]:cli-install-nodejs.md
 [Azure 命令列工具]:cli-install-nodejs.md
 [使用模組]: nodejs-use-node-modules-azure-apps.md
-[build and deploy a Node.js Web Site]: app-service-web/app-service-web-get-started-nodejs.md
+[build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
 

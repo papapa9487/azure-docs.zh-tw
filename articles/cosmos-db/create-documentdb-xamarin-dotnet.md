@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c8e2e688a7a8b99272c304df37ceff0f9ec52b19
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ed1d30be780e0882b8e75c01bc7822c3350f3fee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure CosmosDB︰使用 .NET、Xamarin 和 Facebook 驗證建置 Web 應用程式
@@ -108,7 +108,7 @@ Xamarin 資料夾中的程式碼包含︰
 
 4. 開啟 Xamarin 專案，並瀏覽至 TodoItemManager.cs。 填寫 accountURL、collectionId、databaseId 及 resourceTokenBrokerURL 的值，作為資源權杖訊息代理程式網站的基底 https url。
 
-5. 完成[如何設定 App Service 應用程式以使用 Facebook 登入](../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md)教學課程，以設定 Facebook 驗證及設定 ResourceTokenBroker 網站。
+5. 完成[如何設定 App Service 應用程式以使用 Facebook 登入](../app-service/app-service-mobile-how-to-configure-facebook-authentication.md)教學課程，以設定 Facebook 驗證及設定 ResourceTokenBroker 網站。
 
     執行 Xamarin 應用程式。
 

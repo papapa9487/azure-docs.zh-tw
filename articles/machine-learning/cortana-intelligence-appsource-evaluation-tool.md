@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: e79ca131bddc9e65dd24da109b9e8a08606f7bc6
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 264bd9ecb413d2685dca351d7f4090efcadf4988
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/20/2017
 
 --- 
 # <a name="cortana-intelligence-solution-evaluation-tool"></a>Cortana Intelligence 解決方案評估工具
@@ -99,7 +99,7 @@ ms.lasthandoff: 07/08/2017
 | AAD 搭配 SQL Database 和 SQL 資料倉儲 | [利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication) |
 | 設定和管理 AAD | [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication-configure) |
 | Azure WebApps 驗證 | [Azure App Service 中的驗證與授權](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-overview) |
-| 設定 WebApps 以搭配 AAD | [如何設定 App Service 應用程式使用 Azure Active Directory 登入](https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication)|
+| 設定 WebApps 以搭配 AAD | [如何設定 App Service 應用程式使用 Azure Active Directory 登入](https://docs.microsoft.com/en-us/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)|
 
 ### <a name="datasets-accessible-to-end-users-should-support-role-based-access-control"></a>使用者可存取的資料集應支援角色型存取控制
 執行評估工具時，系統會要求您指定任何報告或發佈資源。 系統會假設這些資源是提供給使用者存取，而非開發人員。 您應該為這些資源提供角色型存取控制 (RBAC)，以確保使用者只能存取經過授權的資料。

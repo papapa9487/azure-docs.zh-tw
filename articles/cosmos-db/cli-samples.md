@@ -16,10 +16,10 @@ ms.workload: database
 ms.date: 06/07/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
-ms.openlocfilehash: 709d2ccce0f4b9827a8076f683c7e0f74cbdd4ea
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 189034b049e776a3b929930be937ec60bc1db241
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -43,6 +43,6 @@ ms.lasthandoff: 07/25/2017
 |**高可用性、災害復原、備份和還原**||
 |[設定容錯移轉原則](scripts/ha-failover-policy-cli.md?toc=%2fcli%2fazure%2ftoc.json)|針對要在其中複寫帳戶的每個區域，設定容錯移轉優先順序。|
 |**將 Azure Cosmos DB 連線到資源**||
-|[將 Web 應用程式連線到 Azure Cosmos DB](https://docs.microsoft.com/azure/app-service-web/scripts/app-service-cli-app-service-documentdb?toc=%2fcli%2fazure%2ftoc.json)|建立 Azure Cosmos DB 資料庫和 Azure Web 應用程式並將兩者連線。|
+|[將 Web 應用程式連線到 Azure Cosmos DB](../app-service/scripts/app-service-cli-app-service-documentdb.md?toc=%2fcli%2fazure%2ftoc.json)|建立 Azure Cosmos DB 資料庫和 Azure Web 應用程式並將兩者連線。|
 |||
 

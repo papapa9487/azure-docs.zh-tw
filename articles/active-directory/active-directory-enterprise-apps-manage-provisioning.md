@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 6cb0269e87f7ecffe7030b86237fb88fd58ef77b
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 44476bbf0e878e347d176077e08706d1afd44479
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>在 Azure 入口網站中管理企業應用程式的使用者帳戶佈建
@@ -46,7 +46,7 @@ ms.lasthandoff: 05/08/2017
 選取 **自動** 選項會顯示分成四個部分的畫面︰
 
 ### <a name="admin-credentials"></a>管理員認證
-可在這個地方輸入 Azure AD 連接到應用程式的使用者管理 API 所需的認證。 所需的輸入依應用程式而有所不同。 若要深入了解認證類型，以及針對特定應用程式的需求，請參閱 [針對該特定應用程式的設定教學課程](active-directory-saas-app-provisioning.md#list-of-apps-that-support-automated-user-provisioning)。
+可在這個地方輸入 Azure AD 連接到應用程式的使用者管理 API 所需的認證。 所需的輸入依應用程式而有所不同。 若要深入了解認證類型，以及針對特定應用程式的需求，請參閱 [針對該特定應用程式的設定教學課程](active-directory-saas-app-provisioning.md)。
 
 選取 [測試連線]  按鈕，會讓 Azure AD 使用提供的認證嘗試連接到應用程式的佈建應用程式，可測試認證。
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 000eaead1805ff06278b312a240aca07035e7289
-ms.lasthandoff: 04/18/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
@@ -81,7 +81,7 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 是，可以就地升級基本系列資料庫 (基本 60 到基本 500)。 可以就地升級專業系列 (專業 125 到專業 1000)，但專業 60 除外。 我們目前不支援升級專業 60 資料庫。 
 
 ## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>當我把資源從某個訂用帳戶移轉到另一個訂用帳戶時，我的 ClearDB MySQL 資料庫也會跟著移轉嗎？
-當跨訂用帳戶執行資源移轉時，適用某些 [限制](app-service-web/app-service-move-resources.md) 。 ClearDB MySQL 資料庫是第三方服務，因此在 Azure 訂用帳戶移轉期間是不會移轉的。 如果您在移轉 Azure 資源之前，沒有管理自己 MySQL 資料庫的移轉作業，您的 ClearDB MySQL 資料庫可能會遭到停用。 請先手動移轉資料庫，然後再為您的 Web 應用程式執行 Azure 訂用帳戶移轉作業。 
+當跨訂用帳戶執行資源移轉時，適用某些 [限制](app-service/app-service-move-resources.md) 。 ClearDB MySQL 資料庫是第三方服務，因此在 Azure 訂用帳戶移轉期間是不會移轉的。 如果您在移轉 Azure 資源之前，沒有管理自己 MySQL 資料庫的移轉作業，您的 ClearDB MySQL 資料庫可能會遭到停用。 請先手動移轉資料庫，然後再為您的 Web 應用程式執行 Azure 訂用帳戶移轉作業。 
 
 ## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>我達到訂用帳戶的消費限制。 我移除了限制，且 App Service 也上線，但仍無法存取資料庫。 我如何重新啟用 ClearDB 資料庫？
 連絡 [ClearDB 支援](https://www.cleardb.com/developers/help/support)，以重新啟用資料庫。 提供您的 Azure 訂用帳戶資訊和資料庫名稱。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 0e9f0ef3c87b5c0da1cc4ad16d37178c8f5c9625
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -76,19 +76,19 @@ ms.lasthandoff: 08/16/2017
 
    ![選擇 [方案庫]](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
-5. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] \(Logic Apps 管理) 解決方案的磚。
+5. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] (Logic Apps 管理) 解決方案的磚。
 
-   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![選擇 [Logic Apps Management] (Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
 6. 若要在您的 OMS 工作區中安裝解決方案，請選擇 [新增]。
 
-   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![針對 [Logic Apps Management] (Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
 ## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>在 OMS 工作區中檢視邏輯應用程式執行
 
-1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] \(Logic Apps 管理) 磚中的詳細資料。
+1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] (Logic Apps 管理) 磚中的詳細資料。
 
    ![顯示邏輯應用程式執行計數和狀態的概觀磚](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
@@ -133,7 +133,7 @@ ms.lasthandoff: 08/16/2017
      ![檢視邏輯應用程式執行的動作和詳細資料](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
 
      在這裡的 [Azure Log Analytics] 頁面上，您可以更新查詢並檢視資料表的結果。 
-     此查詢使用 [Kusto 查詢語言](https://docs.loganalytics.io/learn/tutorials/getting_started_with_queries.html)，如果您想要檢視不同的結果，可予以編輯。 
+     此查詢使用 [Kusto 查詢語言](https://docs.loganalytics.io/docs/Language-Reference)，如果您想要檢視不同的結果，可予以編輯。 
 
      ![Azure Log Analytics - 查詢檢視](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 2a5ac8d7bfbed4969cb9baf46e0fc35e5c84b4a3
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受管理的用戶端
@@ -62,7 +62,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 是用來定義用戶端欄位與資料表欄位之間的 *PropertyName* 對應。
 
-若要了解如何在 Mobile Apps 後端中建立資料表，請參閱 [.NET 伺服器 SDK 主題][7] 或 [Node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [Azure 入口網站]設定。
+若要了解如何在 Mobile Apps 後端中建立資料表，請參閱 [.NET 伺服器 SDK 主題][7] 或 [Node.js 伺服器 SDK 主題][8]。 如果您已使用＜快速入門＞在 Azure 入口網站中建立行動應用程式後端，也可以使用 **Azure 入口網站** 中的 [簡易表]設定。
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>做法︰安裝受管理的用戶端 SDK 封裝
 使用下列其中一種方法，從 [NuGet][9] 安裝適用於 Mobile Apps 的受管理用戶端 SDK 套件：
@@ -292,7 +292,7 @@ JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$o
 您將收到可用作屬性包的 JSON 值。 如需有關 JToken 和 Newtonsoft Json.NET 的詳細資訊，請參閱 [Json.NET] 網站。
 
 ### <a name="inserting"></a>如何：將資料插入行動應用程式後端
-所有用戶端類型都必須包含名為 **Id**的成員，其預設為字串。 需要有此 **Id** 才能執行 CRUD 作業和離線同步處理。 下列程式碼將說明如何使用 [InsertAsync] 方法，將新的資料列插入資料表。 參數包含要作為 .NET 物件插入的資料。
+所有用戶端類型都必須包含名為 **Id**的成員，其預設為字串。 需要有此 **Id** 才能執行 CRUD 作業和離線同步處理。下列程式碼將說明如何使用 [InsertAsync] 方法，將新的資料列插入資料表。 參數包含要作為 .NET 物件插入的資料。
 
 ```
 await todoTable.InsertAsync(todoItem);
@@ -628,7 +628,7 @@ Mobile Apps 支援使用各種外部識別提供者 (Facebook、Google、Microso
 > [!NOTE]
 > 我們建議在生產應用程式中使用用戶端管理的流程。
 
-若要設定驗證，您必須向一或多個識別提供者註冊您的應用程式。  識別提供者會產生應用程式的用戶端識別碼和用戶端密碼。  這些值接著會設定於後端中以啟用 Azure App Service 驗證/授權。  如需詳細資訊，請依照教學課程 [將驗證新增至您的應用程式]中的詳細指示操作。
+若要設定驗證，您必須向一或多個識別提供者註冊您的應用程式。  識別提供者會產生應用程式的用戶端識別碼和用戶端密碼。  這些值接著會設定於後端中以啟用 Azure App Service 驗證/授權。  如需詳細資訊，請依照教學課程 [將驗證新增至您的 Windows 應用程式]中的詳細指示操作。
 
 這一節涵蓋下列主題：
 
@@ -652,7 +652,7 @@ Mobile Apps 支援使用各種外部識別提供者 (Facebook、Google、Microso
 2. 在 Visual Studio 或 Xamarin Studio 中，開啟您的專案，然後新增對 `Microsoft.IdentityModel.CLients.ActiveDirectory` NuGet 封裝的參考。 搜尋時，包含發行前版本。
 3. 根據您使用的平台，將下列程式碼新增至您的應用程式。 在每個程式碼中，進行下列取代：
 
-   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。 此值可從 [Azure 傳統入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
+   * 以您佈建應用程式的租用戶名稱取代 **INSERT-AUTHORITY-HERE** 。 格式應該為 https://login.microsoftonline.com/contoso.onmicrosoft.com。此值可從 [Azure 傳統入口網站]複製到 Azure Active Directory 的 [網域] 索引標籤以外。
    * 以您行動應用程式後端的用戶端識別碼取代 INSERT-RESOURCE-ID-HERE  。 您可以從入口網站 [Azure Active Directory 設定] 底下的 [進階] 索引標籤取得用戶端識別碼。
    * 以您從原生用戶端應用程式中複製的用戶端識別碼取代 INSERT-CLIENT-ID-HERE  。
    * 使用 HTTPS 配置，以您網站的 **/.auth/login/done** 端點取代 *INSERT-REDIRECT-URI-HERE* 。 此值應與 *https://contoso.azurewebsites.net/.auth/login/done* 類似。
@@ -1093,16 +1093,16 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[將驗證新增至您的應用程式]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[將驗證新增至應用程式中]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Azure Mobile Apps 中的離線資料同步處理]: app-service-mobile-offline-data-sync.md
 [將推播通知新增至您的應用程式]: app-service-mobile-windows-store-dotnet-get-started-push.md
-[註冊您的應用程式以使用 Microsoft 帳戶登入]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[如何設定 App Service 來進行 Active Directory 登入]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[註冊您的應用程式以使用 Microsoft 帳戶登入]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[如何針對 Active Directory 登入設定 App Service]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/en-us/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/en-us/library/azure/dn268408(v=azure.10).aspx
-[MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[LoginAsync]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/en-us/library/azure/jj554275(v=azure.10).aspx
@@ -1117,12 +1117,12 @@ public class MyHandler : DelegatingHandler
 [OrderByDescending]: https://msdn.microsoft.com/en-us/library/azure/dn250568(v=azure.10).aspx
 [ReadAsync]: https://msdn.microsoft.com/en-us/library/azure/mt691741(v=azure.10).aspx
 [Take]: https://msdn.microsoft.com/en-us/library/azure/dn250574(v=azure.10).aspx
-[Select]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
+[選取]: https://msdn.microsoft.com/en-us/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/en-us/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/en-us/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
-[Where]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
-[Azure 入口網站]: https://portal.azure.com/
+[其中]: https://msdn.microsoft.com/en-us/library/azure/dn250579(v=azure.10).aspx
+[簡易表]: https://portal.azure.com/
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/en-us/library/system.guid.newguid(v=vs.110).aspx

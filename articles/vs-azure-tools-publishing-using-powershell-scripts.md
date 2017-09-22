@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d5e9a300dcea137bf0d3db2da2dfb5c2e6a152af
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ba36ad0f46ce681b61acc576448fd36441b43f72
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 指令碼來發行至開發和測試環境
@@ -38,7 +38,7 @@ ms.lasthandoff: 04/27/2017
 我們有提供其他工具和資源，以供您在 Visual Studio 中使用 PowerShell 進行 Azure 開發。 請參閱 [PowerShell Tools for Visual Studio](http://go.microsoft.com/fwlink/?LinkId=404012)。
 
 ## <a name="generating-the-publish-scripts"></a>產生發佈指令碼
-您可以遵循 [這些指示](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，在建立新專案時產生裝載網站之虛擬機器的發佈指令碼。 您也可以 [在 Azure App Service 中產生 Web 應用程式的發佈指令碼](app-service-web/app-service-web-get-started-dotnet.md)。
+您可以遵循 [這些指示](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)，在建立新專案時產生裝載網站之虛擬機器的發佈指令碼。 您也可以 [在 Azure App Service 中產生 Web 應用程式的發佈指令碼](app-service/app-service-web-get-started-dotnet.md)。
 
 ## <a name="scripts-that-visual-studio-generates"></a>Visual Studio 所產生的指令碼
 Visual Studio 會產生名為 **PublishScripts** 的方案層級資料夾，並內含兩個 Windows PowerShell 檔案，一個是用於虛擬機器或網站的發佈指令碼，一個是含有可在指令碼中使用之函式的模組。 Visual Studio 也會產生 JSON 格式的檔案，以指定您要部署之專案的詳細資料。
@@ -141,7 +141,7 @@ JSON 檔案建立在 [組態]  資料夾，其包含的組態資料可確切指�
 
 您可以編輯 JSON 組態以變更執行發佈指令碼時會進行的作業。 `cloudService` 和 `virtualMachine` 是必要區段，但如果您不需要 `databases` 區段，則可以將它刪除。 Visual Studio 所產生的預設組態檔中的空白屬性是選用屬性；預設組態檔中具有值的屬性則是必要屬性。
 
-如果您有內含多個部署環境 (稱為位置) 的網站而不是在 Azure 中的單一生產網站，您可以在 JSON 組態檔的網站名稱中加入位置名稱。 例如，如果您擁有名為 **mysite** 的網站和名為 **test** 的位置，則 URI 是 mysite-test.cloudapp.net，但要在組態檔中使用的正確名稱是 mysite(test)。 只有在訂用帳戶中已存在網站和位置時才能這麼做。 如果不存在，請執行指令碼 (不指定位置) 來建立網站，然後在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)中建立位置，之後再以修改過的網站名稱執行指令碼。 如需 Web 應用程式部署位置的詳細資訊，請參閱 [針對 Azure App Service 中的 Web 應用程式設定預備環境](app-service-web/web-sites-staged-publishing.md)。
+如果您有內含多個部署環境 (稱為位置) 的網站而不是在 Azure 中的單一生產網站，您可以在 JSON 組態檔的網站名稱中加入位置名稱。 例如，如果您擁有名為 **mysite** 的網站和名為 **test** 的位置，則 URI 是 mysite-test.cloudapp.net，但要在組態檔中使用的正確名稱是 mysite(test)。 只有在訂用帳戶中已存在網站和位置時才能這麼做。 如果不存在，請執行指令碼 (不指定位置) 來建立網站，然後在 [Azure 傳統入口網站](http://go.microsoft.com/fwlink/?LinkID=213885)中建立位置，之後再以修改過的網站名稱執行指令碼。 如需 Web 應用程式部署位置的詳細資訊，請參閱 [針對 Azure App Service 中的 Web 應用程式設定預備環境](app-service/web-sites-staged-publishing.md)。
 
 ## <a name="how-to-run-the-publish-scripts"></a>如何執行發佈指令碼
 如果您之前未曾執行過 Windows PowerShell 指令碼，您必須先設定執行原則以啟用要執行的指令碼。 如果 Windows PowerShell 指令碼容易受到涉及執行指令碼的惡意程式碼或病毒的威脅，這項安全性功能可防止使用者執行 Windows PowerShell 指令碼。

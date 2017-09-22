@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 72ec71814d3c56d1f1df947329eaf66b7dc8f1cf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>我該選擇雲端服務還是其他服務？
@@ -28,7 +28,7 @@ Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同�
 <a name="tellmecs"></a>
 
 ## <a name="tell-me-about-cloud-services"></a>我想了解雲端服務
-雲端服務是 [平台即服務 (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) 的一個範例。 這項技術如同 [App Service](../app-service-web/app-service-web-overview.md)，是專為支援可調整、穩定可靠且操作成本低的應用程式而設計。 雲端服務也如同 App Service 在 VM 上託管，不過，雲端服務更易於透過 VM 控制。 您可以在雲端服務 VM 上安裝您自己的軟體，並且可從遠端加以操控。
+雲端服務是 [平台即服務 (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) 的一個範例。 這項技術如同 [App Service](../app-service/app-service-web-overview.md)，是專為支援可調整、穩定可靠且操作成本低的應用程式而設計。 雲端服務也如同 App Service 在 VM 上託管，不過，雲端服務更易於透過 VM 控制。 您可以在雲端服務 VM 上安裝您自己的軟體，並且可從遠端加以操控。
 
 ![cs_diagram](./media/cloud-services-choose-me/diagram.png)
 

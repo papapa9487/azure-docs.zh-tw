@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: 298679883416a871016563aa789522413ff4c019
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure 簡介
@@ -37,7 +38,7 @@ Azure 在管理入口網站和各種視覺輔助工具 (如 [什麼是 Azure 資
 本文將使用 **不同的組織** 來討論採用類似功能的服務，並叫出屬於大型服務一部分的重要子服務。  
 
 ![Azure 元件](./media/fundamentals-introduction-to-azure/AzureComponentsIntroNew780.png)   
-圖：Azure 提供可存取網際網路、在 Azure 資料中心執行的應用程式服務。 **
+ 圖：Azure 提供可存取網際網路、在 Azure 資料中心執行的應用程式服務。
 
 ## <a name="management-portal"></a>管理入口網站
 Azure 有個稱為 [管理入口網站](http://manage.windowsazure.com) 的 Web 介面，可供系統管理員存取與管理大部分 (但並非全部) 的 Azure 功能。  Microsoft 通常會推出 Beta 版的新版 UI 入口網站之後，才會淘汰舊版的 UI 入口網站。 新版的入口網站稱為 [「Azure Preview 入口網站」](https://portal.azure.com/)。
@@ -71,7 +72,7 @@ Azure 有個稱為 [管理入口網站](http://manage.windowsazure.com) 的 Web 
 
 ### <a name="web-apps"></a>Web Apps
 ![Azure Web Apps ROBBCSIART_TEST](./media/fundamentals-introduction-to-azure/mscsiart_AzureWebsitesIntroNew_12345.png)   
-圖：Azure Web Apps 可在雲端中執行網站應用程式，而無需管理底層 Web 伺服器。 **
+ 圖：Azure Web Apps 可在雲端中執行網站應用程式，而無需管理底層 Web 伺服器。
 
 人們在雲端最常做的其中一件事就是執行網站和 Web 應用程式。 Azure 虛擬機器雖允許這麼做，但您仍需負責管理一或多部 VM 及基礎作業系統。 雲端服務 Web 角色可以辦得到，但部署與管理他們仍需進行管理工作。  如果您只想要一個有人可為您處理管理工作的網站，該怎麼辦？
 
@@ -102,7 +103,7 @@ Azure Web Apps 允許建立此種 Web 應用程式，但有一些限制。 例�
 當您需要比 Azure Web Apps 所提供還要高的平台控制能力，但無需控制底層作業系統時，「雲端服務」是支援大型向外延展的理想選擇。
 
 #### <a name="choosing-a-compute-model"></a>選擇計算模型
-[Azure Web Apps、雲端服務和虛擬機器的比較](app-service-web/choose-web-site-cloud-service-vm.md) 頁面提供有關如何選擇運算模型的詳細資訊。
+[Azure Web Apps、雲端服務和虛擬機器的比較](app-service/choose-web-site-cloud-service-vm.md) 頁面提供有關如何選擇運算模型的詳細資訊。
 
 ## <a name="data-management"></a>資料管理
 應用程式都需要資料，而不同類型的應用程式會需要不同類型的資料。 因為如此，Azure 提供了數種儲存和管理資料的方式。 Azure 提供許多儲存體選項，但這些選項全都是專為非常堅固耐用的儲存體所設計的。  無論選擇任一個選項，一定會有 3 份您的資料複本與所有 Azure 資料中心保持同步 -- 如果允許 Azure 使用異地備援來備份至相距 300 哩以上的另一個資料中心，則可以有 6 份。     
@@ -310,7 +311,7 @@ Azure Active Directory 存取控制是這項服務的另一個功能，可讓應
 * 您擁有的某些東西 (不容易輕易複製的信任裝置，例如電話)
 * 您身上的某些特徵 (生物識別技術)
 
-因此，當使用者登入時，您可以要求他們透過行動應用程式、電話或簡訊結合其密碼的方式一起驗證身分。 依預設，Azure Active Directory 支援使用密碼作為使用者登入的唯一驗證方法。 透過 MFA SDK，您可以將 MFA 與 Azure AD 或自訂應用程式和目錄搭配使用。 您也可以將它與內部部署應用程式搭配使用，方法是使用 Multi-Factor Authentication Server。
+因此，當使用者登入時，您可以要求他們透過行動應用程式、電話或簡訊結合其密碼的方式一起驗證身分。 依預設，Azure Active Directory 支援使用密碼作為使用者登入的唯一驗證方法。透過 MFA SDK，您可以將 MFA 與 Azure AD 或自訂應用程式和目錄搭配使用。 您也可以將它與內部部署應用程式搭配使用，方法是使用 Multi-Factor Authentication Server。
 
 **MFA 案例**
 
@@ -412,7 +413,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
 
 #### <a name="service-bus-topics-and-subscriptions"></a>服務匯流排主題和訂用帳戶
 ![Azure 服務匯流排主題](./media/fundamentals-introduction-to-azure/ServiceBusTopicsSubsIntroNew.png)   
-圖：服務匯流排主題允許多個應用程式張貼訊息，其他應用程式可訂閱以接收符合特定條件的訊息。 **
+ 圖：服務匯流排主題允許多個應用程式張貼訊息，其他應用程式可訂閱以接收符合特定條件的訊息。
 
 服務匯流排提供一個稱為主題和訂用帳戶的發佈與訂用帳戶機制。 透過發佈與訂用帳戶，應用程式可將訊息傳送到某個主題，而其他應用程式則可建立此主題的訂用帳戶。 如此一來，在一組應用程式當中的一對多通訊，可讓多位收件者讀取相同的訊息。
 
@@ -422,7 +423,7 @@ Azure 備份會將資料從執行 Windows Server 的內部部署伺服器備份�
 
 ### <a name="biztalk-services"></a>BizTalk 服務
 ![BizTalk 服務](./media/fundamentals-introduction-to-azure/BizTalkServicesIntroNew.png)   
-圖：BizTalk 服務提供在雲端轉換 XML 訊息格式的能力。 **
+ 圖：BizTalk 服務提供在雲端轉換 XML 訊息格式的能力。
 
 有時候，您會需要連接使用不同訊息格式進行通訊的系統。 即使在可以使用常用標準的情況下，企業有不同的資料庫結構描述和 XML 訊息格式是很普遍的作法。 與其撰寫大量自訂程式碼，您可以使用內部部署的 BizTalk 伺服器整合各種系統。  Azure BizTalk 服務提供相同類型的服務，但會在雲端中。 您只需就所使用的服務付費，而無需擔心必須像內部部署一樣擴充。
 
@@ -537,9 +538,4 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。 它提
 您現在已大致了解概況，接下來就要撰寫您的第一個 Azure 應用程式。 選擇語言、 [取得適當的 SDK](/downloads/)，然後全力以赴。 雲端運算是新的預設值--立刻開始使用。
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

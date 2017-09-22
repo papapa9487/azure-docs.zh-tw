@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: bfd970a78becfe3f29518b71c4ece24ada2861b2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
@@ -517,7 +517,7 @@ ms.lasthandoff: 09/13/2017
 5. 若要停止應用程式，請在終端機視窗中按 CTRL+C，然後按一下 **Y** 以終止批次作業。
 
 ## <a name="_Toc395783182"></a>步驟 7：將應用程式開發專案部署至 Azure 網站
-1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。 您可以在 [Azure App Service 的本機 Git 部署](../app-service-web/app-service-deploy-local-git.md) 主題中找到有關如何執行這項操作的指示。
+1. 如果您還沒有這麼做，請為您的 Azure 網站提供一個 Git 儲存機制。 您可以在 [Azure App Service 的本機 Git 部署](../app-service/app-service-deploy-local-git.md) 主題中找到有關如何執行這項操作的指示。
 2. 新增您的 Azure 網站做為 Git 遠端。
    
         git remote add azure https://username@your-azure-website.scm.azurewebsites.net:443/your-azure-website.git

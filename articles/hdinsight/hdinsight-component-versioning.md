@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 26512049dba3d4dde575c5a67ba884fb56374236
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7f4981feb0b2f524bab095d76000e01aa88bc81f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Hadoop 元件和版本有哪些？
@@ -112,7 +112,7 @@ Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您的�
 Azure HDInsight 版本 3.3 是最後一個適用於 Windows 的 HDInsight 版本。 您必須在 Windows 上的 HDInsight 停用之前，將所有的 HDInsight Windows 叢集版本 3.3 或更早版本移轉至 Linux 上的 HDInsight 版本 3.5 或更新版本。 將您的叢集移轉至 Linux 上的 HDInsight，可讓您保留建立新叢集或調整現有叢集的能力。 
 
 ### <a name="what-do-i-need-to-do"></a>我需要做什麼事嗎？
-在 2018 年 7 月 31 日之前，將您的 HDInsight Windows 叢集移轉到支援的 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux)。 如需 Azure HDInsight 版本的詳細資訊，請參閱[支援的版本](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions)清單。 
+在 2018 年 7 月 31 日之前，將您的 HDInsight Windows 叢集移轉到支援的 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](hdinsight-migrate-from-windows-to-linux.md)。 如需 Azure HDInsight 版本的詳細資訊，請參閱[支援的版本](hdinsight-component-versioning.md#supported-hdinsight-versions)清單。 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>哪裡可以找到叢集 OS 類型？
 在 Azure 入口網站中，移至 HDInsight 叢集的概觀頁面，然後在 [基本資訊] 下方找到 [叢集類型]。 叢集 OS 類型會列在該頁面上。 
@@ -121,7 +121,7 @@ Azure HDInsight 版本 3.3 是最後一個適用於 Windows 的 HDInsight 版本
 HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight Windows 叢集，或調整現有的 HDInsight Windows 叢集。 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>我的叢集具有 .NET 相依性。 如何在 Linux 上解析此相依性？
-您可以使用 [Mono 專案](http://www.mono-project.com/) \(英文\) 來解析 Linux 叢集相依性。 這個 .NET 開放原始碼實作適用於 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux)。 
+您可以使用 [Mono 專案](http://www.mono-project.com/) \(英文\) 來解析 Linux 叢集相依性。 這個 .NET 開放原始碼實作適用於 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](hdinsight-migrate-from-windows-to-linux.md)。 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>我是 Windows 上 HDInsight 的新客戶。 該如何建立 HDInsight Windows 叢集？
 從 2017 年 7 月 3 日開始，只有現有的 HDInsight Windows 客戶可以建立新的 HDInsight Windows 叢集。 新客戶無法在 Azure 入口網站中，使用 PowerShell 或 SDK 來建立 HDInsight Windows 叢集。 我們建議新客戶建立 Linux HDInsight 叢集。 現有的客戶可以在 Windows上 HDInsight 的停用日期之前，建立新的 HDInsight Windows 叢集。 
@@ -138,7 +138,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 其中包含 Apache Ranger、Kafka、Interactive Hive、Spark、HDInsight 的應用程式，以及作為主要檔案系統的 Azure Data Lake Store。 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 叢集版本的服務等級協定
-服務等級協定 (SLA) 是根據「支援期間」來定義。 支援期間是 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。 如果已超過版本的「支援到期日」，則表示該 HDInsight 叢集不在支援期間內。 如需支援版本的詳細資訊，請參閱[支援的 HDInsight 叢集版本](https://docs.microsoft.com/en-gb/azure/hdinsight/hdinsight-migrate-from-windows-to-linux)清單。 特定 HDInsight 版本 X (在較新的 X+1 版本推出後) 的支援到期日計算方式會以下列較晚的時間為準：  
+服務等級協定 (SLA) 是根據「支援期間」來定義。 支援期間是 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。 如果已超過版本的「支援到期日」，則表示該 HDInsight 叢集不在支援期間內。 如需支援版本的詳細資訊，請參閱[支援的 HDInsight 叢集版本](hdinsight-migrate-from-windows-to-linux.md)清單。 特定 HDInsight 版本 X (在較新的 X+1 版本推出後) 的支援到期日計算方式會以下列較晚的時間為準：  
 
 * 公式 1：將 HDInsight 叢集版本 X 的發行日期加上 180 天。
 * 公式 2：將 Azure 入口網站中推出 HDInsight 叢集版本 X+1 的日期加上 90 天。

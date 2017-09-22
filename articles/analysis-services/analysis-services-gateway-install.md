@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 09/20/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 6ef296fb98478be9240f0231c8ad39cd2a0af995
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
@@ -57,11 +57,7 @@ ms.lasthandoff: 08/24/2017
 
    ![安裝位置和授權條款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. 選取 [內部部署資料閘道 ()]。 Azure Analysis Services 不支援個人模式。
-
-   ![選擇閘道的類型](media/analysis-services-gateway-install/aas-gateway-installer-shared.png)
-
-4. 輸入用來登入 Azure 的帳戶。 此帳戶必須位於租用戶的 Azure Active Directory 中。 此帳戶用於閘道管理員。 
+3. 輸入用來登入 Azure 的帳戶。 此帳戶必須位於租用戶的 Azure Active Directory 中。 此帳戶用於閘道管理員。 
 
    ![輸入用來登入 Azure 的帳戶](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 

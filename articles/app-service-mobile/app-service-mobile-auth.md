@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8b676aee5353d0e5d85224950a537b3fe31f2f29
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Azure Mobile Apps 中的驗證與授權
@@ -102,9 +102,9 @@ App Service 驗證 / 授權會公開 **未驗證要求時要採取的動作**的
 [將驗證新增至 Xamarin.Android 應用程式]: app-service-mobile-xamarin-android-get-started-users.md
 [將驗證新增至您的 Windows App]: app-service-mobile-windows-store-dotnet-get-started-users.md
 
-[如何設定您的 App 以使用 Azure Active Directory 登入]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[如何設定 App 以使用 Facebook 登入]: app-service-mobile-how-to-configure-facebook-authentication.md
-[如何設定 App 以使用 Google 登入]: app-service-mobile-how-to-configure-google-authentication.md
-[如何設定 App 以使用 Microsoft 帳戶登入]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[如何設定 App 以使用 Twitter 登入]: app-service-mobile-how-to-configure-twitter-authentication.md
+[如何設定您的 App 以使用 Azure Active Directory 登入]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[如何設定 App 以使用 Facebook 登入]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[如何設定 App 以使用 Google 登入]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[如何設定 App 以使用 Microsoft 帳戶登入]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[如何設定 App 以使用 Twitter 登入]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
 

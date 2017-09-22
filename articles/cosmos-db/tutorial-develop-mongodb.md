@@ -17,10 +17,10 @@ ms.date: 05/10/2017
 ms.author: anhoh
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: a5f34e487a6b2a99f5fcd5c4639ceb6da36806d4
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a0598d32b5bad240c0a5d77a6e19285115a9f6b0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-cosmos-db-connect-to-a-mongodb-app-using-net"></a>Azure Cosmos DB：使用 .NET 來連線到 MongoDB 應用程式
@@ -62,7 +62,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="set-up-your-mongodb-app"></a>設定您的 MongoDB 應用程式
 
-您可以使用[在 Azure 中建立一個連線到在虛擬機器上執行之 MongoDB 的 Web 應用程式](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md)教學課程，在進行最少修改的情況下，快速設定連線到適用於 MongoDB 帳戶之 API 的 MongoDB 應用程式 (在本機或發佈至 Azure Web 應用程式)。  
+您可以使用[在 Azure 中建立一個連線到在虛擬機器上執行之 MongoDB 的 Web 應用程式](../app-service/app-service-web-tutorial-nodejs-mongodb-app.md)教學課程，在進行最少修改的情況下，快速設定連線到適用於 MongoDB 帳戶之 API 的 MongoDB 應用程式 (在本機或發佈至 Azure Web 應用程式)。  
 
 1. 請遵循教學課程，只有一項修改。  使用下列項目取代 Dal.cs 程式碼：
 

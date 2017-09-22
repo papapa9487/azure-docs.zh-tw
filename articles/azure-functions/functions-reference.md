@@ -16,17 +16,17 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: chrande
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 879be48150cfe13e31064475aa637f13f5f5f9d5
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
 
-本文假設您已閱讀過 [Azure Functions 概觀](functions-overview.md)，並熟悉 [WebJobs SDK 概念 (例如觸發程序、繫結和 JobHost 執行階段)](../app-service-web/websites-dotnet-webjobs-sdk.md)。 Azure Functions 是以 WebJobs SDK 為基礎。 
+本文假設您已閱讀過 [Azure Functions 概觀](functions-overview.md)，並熟悉 [WebJobs SDK 概念 (例如觸發程序、繫結和 JobHost 執行階段)](https://github.com/Azure/azure-webjobs-sdk/wiki)。 Azure Functions 是以 WebJobs SDK 為基礎。 
 
 ## <a name="function-code"></a>函式程式碼
 「函數」  是 Azure Functions 中的主要概念。 您使用選擇的語言撰寫函式的程式碼，並將程式碼和組態檔儲存在相同的資料夾。 組態會命名為 `function.json`，其中包含 JSON 組態資料。 支援各種語言，而且每種語言的最適合最佳化經驗稍有不同。 
@@ -79,7 +79,7 @@ function.json 檔案會定義函式繫結和其他組態設定。 執行階段�
 ## <a id="fileupdate"></a> 如何更新函式應用程式檔案
 Azure 入口網站內建的函式編輯器可讓您更新「function.json」  檔案和函式的程式碼檔案。 若要上傳或更新其他檔案 (例如 *package.json*、*project.json* 或相依項目)，您必須使用其他部署方法。
 
-函式應用程式建置於 App Service 之上，因此[標準 Web 應用程式可用的部署選項](../app-service-web/web-sites-deploy.md)也可供函式應用程式使用。 以下是一些您可以用來上傳或更新函式應用程式檔案的方法。 
+函式應用程式建置於 App Service 之上，因此[標準 Web 應用程式可用的部署選項](../app-service/app-service-deploy-local-git.md)也可供函式應用程式使用。 以下是一些您可以用來上傳或更新函式應用程式檔案的方法。 
 
 #### <a name="to-use-app-service-editor"></a>使用 App Service 編輯器
 1. 在 Azure Functions 入口網站中，按一下 [函式應用程式設定] 。

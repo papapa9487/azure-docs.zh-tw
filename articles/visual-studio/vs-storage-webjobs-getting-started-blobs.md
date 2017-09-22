@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: a50a265feff8c0aec28825eb0bc4e33585ea5a02
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7d683f950e8847a18f38158a8f8727b1274fc711
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>概觀
-本文提供 C# 程式碼範例，示範如何在建立或更新 Azure Blob 時觸發程序。 此程式碼範例會使用 [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk.md) 1.x 版。 當您使用 Visual Studio [加入連接的服務]  對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 套件會隨即安裝、適當的 .NET 參考會隨即加入專案中，而儲存體帳戶的連接字串也會隨即在 App.config 檔案中更新。
+本文提供 C# 程式碼範例，示範如何在建立或更新 Azure Blob 時觸發程序。 此程式碼範例會使用 [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 1.x 版。 當您使用 Visual Studio [加入連接的服務]  對話方塊將儲存體帳戶加入 WebJob 專案時，適當的 Azure 儲存體 NuGet 套件會隨即安裝、適當的 .NET 參考會隨即加入專案中，而儲存體帳戶的連接字串也會隨即在 App.config 檔案中更新。
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>如何在建立或更新 Blob 時觸發函數
 本節示範如何使用 **BlobTrigger** 屬性。
 
- **附註：** WebJobs SDK 會掃描要監看的的記錄檔，找出新的或變更的 Blob。 此程序的速度原本就很慢；可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。  如果您的應用程式需要立即處理 Blob，建議的方法是在您建立 Blob 時建立佇列訊息，並在處理 Blob 的函數上使用 [QueueTrigger](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#trigger) 屬性，而不是 **BlobTrigger** 屬性。
+ **附註：** WebJobs SDK 會掃描要監看的的記錄檔，找出新的或變更的 Blob。 此程序的速度原本就很慢；可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。  如果您的應用程式需要立即處理 Blob，建議的方法是在您建立 Blob 時建立佇列訊息，並在處理 Blob 的函數上使用 **QueueTrigger** 屬性，而不是 **BlobTrigger** 屬性。
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>適用於含有副檔名之 Blob 名稱的單一預留位置
 下列程式碼範例會將出現在 *input* 容器中的文字 Blob 複製到 *output* 容器：
@@ -142,7 +142,7 @@ ms.lasthandoff: 08/28/2017
 ## <a name="how-to-handle-poison-blobs"></a>如何處理有害的 Blob
 當 **BlobTrigger** 函數失敗時，SDK 會再次加以呼叫，以防失敗是因暫時性錯誤而造成。 如果失敗是因為 Blob 的內容所造成，則此函數會在其每次嘗試處理該 Blob 時失敗。 根據預設，SDK 最多會針對指定的 Blob 呼叫函數 5 次。 如果第五次嘗試失敗，則 SDK 會在名為 *webjobs-blobtrigger-poison*的佇列中新增一則訊息。
 
-您可以設定重試次數上限。 相同的 [MaxDequeueCount](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md#configqueue) 設定可用於處理有害的 Blob 和處理有害的佇列訊息。
+您可以設定重試次數上限。 相同的 **MaxDequeueCount** 設定可用於處理有害的 Blob 和處理有害的佇列訊息。
 
 適用於有害 Blob 的佇列訊息是一個 JSON 物件，其中包含下列屬性：
 
@@ -204,7 +204,7 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 如果您想要強制重新處理某個 Blob，可以從 *azure-webjobs-hosts* 容器中手動刪除該 Blob 的 Blob 回條。
 
 ## <a name="related-topics-covered-by-the-queues-article"></a>佇列文章所涵蓋的相關主題
-如需如何處理佇列訊息所觸發的 Blob 處理的相關資訊，或是非 Blob 處理特有的 WebJobs SDK 案例，請參閱 [如何透過 WebJobs SDK 使用 Azure 佇列儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to.md)。
+如需如何處理佇列訊息所觸發的 Blob 處理的相關資訊，或是非 Blob 處理特有的 WebJobs SDK 案例，請參閱 [如何透過 WebJobs SDK 使用 Azure 佇列儲存體](https://github.com/Azure/azure-webjobs-sdk/wiki)。
 
 該文章中涵蓋的相關主題如下：
 

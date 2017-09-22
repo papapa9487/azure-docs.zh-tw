@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e0e7144c38c36f1583e0bcb7dfffba26e9a8bdad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 41c1649bfff035bc641d7c1f5d7803cd105e8297
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -136,9 +136,9 @@ Azure IoT 沒有服務本身所需的任何自訂。 若要搭配使用自訂網
 
 ![圖 1](./media/dns-custom-domain/finalnslookup.png)
 
-若要深入了解自訂網域對應至 App Service，請造訪[將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json)。
+若要深入了解自訂網域對應至 App Service，請造訪[將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json)。
 
-如果您需要購買自訂網域，請造訪[購買 Azure Web Apps 的自訂網域名稱](../app-service-web/custom-dns-web-site-buydomains-web-app.md)，以深入了解 App Service 網域。
+如果您需要購買自訂網域，請造訪[購買 Azure Web Apps 的自訂網域名稱](../app-service/custom-dns-web-site-buydomains-web-app.md)，以深入了解 App Service 網域。
 
 ## <a name="blob-storage"></a>Blob 儲存體
 

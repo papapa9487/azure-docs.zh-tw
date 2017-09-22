@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/23/2017
 ms.author: alkarche
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: e9499d036c8c5ef5a56a70f7e7ecf9afbff4e6b0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions 中的 OpenAPI 2.0 中繼資料支援 (預覽)
 Azure Functions 中的 OpenAPI 2.0 (先前稱為 Swagger) 中繼資料支援是預覽功能，可讓您用來撰寫函式應用程式內的 OpenAPI 2.0 定義。 接著您可以使用函式應用程式裝載該檔案。
 
-[OpenAPI 中繼資料](http://swagger.io/)可讓裝載 REST API 的函式供其他各種軟體使用。 此軟體包含諸如 PowerApps 和 [Azure App Service 的 API Apps 功能](https://docs.microsoft.com/azure/app-service-api/app-service-api-dotnet-get-started#a-idcodegena-generate-client-code-for-the-data-tier)等 Microsoft 供應項目、諸如 [Postman](https://www.getpostman.com/docs/importing_swagger) 等第三方開發人員工具，以及[許多其他套件](http://swagger.io/tools/)。
+[OpenAPI 中繼資料](http://swagger.io/)可讓裝載 REST API 的函式供其他各種軟體使用。 此軟體包含諸如 PowerApps 和 [Azure App Service 的 API Apps 功能](../app-service/app-service-web-overview.md)等 Microsoft 供應項目、諸如 [Postman](https://www.getpostman.com/docs/importing_swagger) 等第三方開發人員工具，以及[許多其他套件](http://swagger.io/tools/)。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 

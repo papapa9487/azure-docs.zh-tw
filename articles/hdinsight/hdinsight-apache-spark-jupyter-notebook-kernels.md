@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6cfd1c1e7b22f5460b78687c815d149e6c6deac9
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: dd1c18e32f3d0386e522dba82ce494394abbf8ed
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 叢集上的 Jupyter Notebook 核心 
@@ -69,12 +69,13 @@ HDInsight Spark 叢集提供的核心，可讓您用於 Spark 上的 Jupyter Not
    
    * **sc** - 代表 Spark 內容
    * **sqlContext** - 代表 Hive 內容
-
-    因此，您不需要執行如下的陳述式來設定這些內容：
-
-        sc = SparkContext('yarn-client')    sqlContext = HiveContext(sc)
-
-    您可以直接在您的應用程式中使用現有的內容。
+   
+   因此，您不需要執行如下的陳述式來設定這些內容：
+   
+          sc = SparkContext('yarn-client')
+          sqlContext = HiveContext(sc)
+   
+   您可以直接在您的應用程式中使用現有的內容。
 
 - **Cell magic**。 PySpark 核心提供一些預先定義的 “magic”，這是您可以使用 `%%` 呼叫的特殊命令 (例如 `%%MAGIC` <args>)。 magic 命令必須是程式碼儲存格中的第一個字，而且允許多行的內容。 magic 這個字應該是儲存格中的第一個字。 在 magic 前面加入任何項目，甚至是註解，將會造成錯誤。     如需 magic 的詳細資訊，請參閱 [這裡](http://ipython.readthedocs.org/en/stable/interactive/magics.html)。
    

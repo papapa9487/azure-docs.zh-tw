@@ -3,7 +3,7 @@ title: "建立自訂探查 - Azure 應用程式閘道 - Azure 入口網站 | Mic
 description: "了解如何使用入口網站建立應用程式閘道的自訂探查"
 services: application-gateway
 documentationcenter: na
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 65e9bba4ce9ac41ae2a9a8c3fa7f661165fc1403
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bb77c9b39e1aa89f6411de8ec3b1fca41e954bf2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>使用入口網站建立應用程式閘道的自訂探查
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/14/2017
   |**Host**|亦即 contoso.com|此值是用於探查的主機名稱。 只有當應用程式閘道上設定多站台時適用，否則請使用 '127.0.0.1'。 此值與 VM 主機名稱不同。|
   |**路徑**|/ 或另一個路徑|自訂探查完整 URL 的其餘部分。 有效路徑的開頭為 '/'。 針對 http://contoso.com 的預設路徑，只要使用 '/' |
   |**間隔 (秒)**|30|執行探查以檢查健康狀態的頻率。 建議您不要設定低於 30 秒。|
-  |**逾時 (秒)**|30|探查逾時前所等待的時間。 逾時間隔需要高到足以進行 http 呼叫，以確保可使用後端的健康狀態頁面。|
+  |**逾時 (秒)**|30|探查逾時前所等待的時間。逾時間隔需要高到足以進行 http 呼叫，以確保可使用後端的健康狀態頁面。|
   |**狀況不良臨界值**|3|視為狀況不良的失敗嘗試次數。 臨界值為 0 表示，如果健康狀態檢查失敗，後端會被立即斷定為狀況不良。|
 
   > [!IMPORTANT]

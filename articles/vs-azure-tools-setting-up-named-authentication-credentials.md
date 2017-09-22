@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: b75d190724da284324b0337e95a50a64902e19d8
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-named-authentication-credentials"></a>設定具名的驗證認證
@@ -77,7 +77,7 @@ Visual Studio 會使用您的訂用帳戶識別碼連同憑證資料做為認證
    d. 選取您的 Azure 訂用帳戶，貼上您剛剛建立之 .cer 檔案的完整路徑，並選取 [上傳]。
 
 ## <a name="next-steps"></a>後續步驟
-* [Web Apps 的一般概觀](https://docs.microsoft.com/azure/app-service-web/)
-* [將您的應用程式部署至 Azure App Service](https://docs.microsoft.com/en-us/azure/app-service-web/web-sites-deploy?toc=%2fazure%2fapp-service-api%2ftoc.json) 
-* [使用 Visual Studio 部署 WebJob](https://docs.microsoft.com/en-us/azure/app-service-web/websites-dotnet-deploy-webjobs)
+* [Web Apps 的一般概觀](https://docs.microsoft.com/azure/app-service/)
+* [將您的應用程式部署至 Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-local-git) 
+* [使用 Visual Studio 部署 WebJob](https://docs.microsoft.com/en-us/azure/app-service/websites-dotnet-deploy-webjobs)
 * [建立及部署雲端服務](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-create-deploy-portal)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db677614c23a3447e3e40ae867711a754b06d0d
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a7a1179f815395028c4d0324e2bfb6fbed77229c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -290,7 +290,7 @@ SQL Database 威脅偵測器會使用下列其中一種偵測方法：
 
 ### <a name="application-gateway-web-application-firewall"></a>應用程式閘道 Web 應用程式防火牆
 
-[Web 應用程式防火牆](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)是 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)的一項功能，可保護使用應用程式閘道執行標準[應用程式傳遞控制 (英文)](https://kemptechnologies.com/in/application-delivery-controllers) 功能的 Web 應用程式。 Web 應用程式防火牆的做法是保護應用程式，以防範 [OWASP 前 10 個最常見的 Web 弱點 (英文)](https://www.owasp.org/index.php/Top_10_2010-Main)。
+[Web 應用程式防火牆](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)是 [Azure 應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-webapplicationfirewall-overview)的一項功能，可保護使用應用程式閘道執行標準[應用程式傳遞控制 (英文)](https://kemptechnologies.com/in/application-delivery-controllers) 功能的 Web 應用程式。 Web 應用程式防火牆的做法是保護應用程式，以防範 [OWASP 前 10 個最常見的 Web 弱點 (英文)](https://www.owasp.org/index.php/Top_10_2010-Main)。
 
 ![應用程式閘道 Web 應用程式防火牆](./media/azure-threat-detection/azure-threat-detection-fig13.png)
 

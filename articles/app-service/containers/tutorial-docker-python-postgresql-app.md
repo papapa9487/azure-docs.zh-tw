@@ -16,15 +16,15 @@ ms.date: 05/03/2017
 ms.author: beverst
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7757ecf442314d294432266750502e384e39bde0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 36cf3c0bb4a28a4ccfd5fc94b72fba023516a9ce
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>在 Azure 中建置 Docker Python 和 PostgreSQL Web 應用程式
 
-Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何在 Azure 中建立基本的 Docker Python Web 應用程式。 您會將此應用程式連線至 PostgreSQL 資料庫。 完成之後，您在 [Azure App Service Web Apps](../../app-service-web/app-service-web-overview.md) 上就會有 Docker 容器內執行的 Python Flask 應用程式。
+Azure Web Apps 提供可高度擴充、自我修復的 Web 主機服務。 本教學課程會示範如何在 Azure 中建立基本的 Docker Python Web 應用程式。 您會將此應用程式連線至 PostgreSQL 資料庫。 完成之後，您在 [Azure App Service Web Apps](../app-service-web-overview.md) 上就會有 Docker 容器內執行的 Python Flask 應用程式。
 
 ![Azure App Service 中的 Docker Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/docker-flask-in-azure.png)
 
@@ -111,7 +111,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-在瀏覽器中，瀏覽至 http://127.0.0.1:5000 。 按一下 [註冊!] 並且建立測試使用者。
+在瀏覽器中，瀏覽至 `http://127.0.0.1:5000`。 按一下 [註冊!] 並且建立測試使用者。
 
 ![在本機執行的 Python Flask 應用程式](./media/tutorial-docker-python-postgresql-app/local-app.png)
 
@@ -554,5 +554,5 @@ http://<app_name>.azurewebsites.net
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
 
 > [!div class="nextstepaction"] 
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
 

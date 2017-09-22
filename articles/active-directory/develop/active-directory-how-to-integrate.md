@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 54b5b8d0040dc30651a98b3f0d02f5374bf2f873
-ms.openlocfilehash: 32c236c7082e48990f41a1a9069cea53d0cab96f
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/28/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="integrating-with-azure-active-directory"></a>與 Azure Active Directory 整合
@@ -34,7 +33,7 @@ Azure Active Directory 為組織提供企業等級的雲端應用程式身分識
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>支援 Azure AD 作為登入應用程式的方式
 **減少登入的不便，並降低支援成本。** 透過使用 Azure AD 來登入您的應用程式，您的使用者會少一個要記住的名稱和密碼。  身為開發人員，您會少一個要儲存及保護的密碼。  單單無需處理忘記密碼重設就可以省下大量時間與金錢。  Azure AD 支援部分世界上最受歡迎雲端應用程式 (包括 Office 365 和 Microsoft Azure) 的登入。  有來自數百萬個組織的數百萬名使用者，可能是您的使用者已經登入 Azure AD。  深入了解[新增 Azure AD 登入支援](active-directory-authentication-scenarios.md)。
 
-**簡化應用程式的註冊程序。**  註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。  使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。  任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。  深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。
+**簡化應用程式的註冊程序。**  註冊應用程式的過程中，Azure AD 會寄出使用者的基本資訊，讓您可以預先填入註冊表單，或者完全不需要用到。  使用者可以透過類似社交媒體和行動應用程式所使用的常見同意程序，使用其 Azure AD 帳戶來註冊應用程式。  任何使用者都可以註冊並登入已與 Azure AD 整合的應用程式，而無需 IT 人員的介入。  深入了解[註冊應用程式以進行 Azure AD 帳戶登入](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。
 
 ### <a name="browse-for-users-manage-user-provisioning-and-control-access-to-your-application"></a>瀏覽以尋找使用者、管理使用者佈建，及控制存取應用程式
 **瀏覽以尋找目錄中的使用者。**  邀請他人或授與存取權限時，與其要求使用者輸入電子郵件位址，您可以使用 Graph API 來協助使用者搜尋及瀏覽以尋找組織中的其他人。  使用者可以使用常見的通訊錄樣式介面進行瀏覽，包括檢視組織階層的詳細資料。  深入了解[圖形 API](active-directory-graph-api.md)。
