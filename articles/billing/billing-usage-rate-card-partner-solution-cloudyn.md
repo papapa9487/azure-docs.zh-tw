@@ -3,7 +3,7 @@ title: "Microsoft Azure 使用量和 RateCard API 可讓 Cloudyn 提供 ITFM 給
 description: "提供 Microsoft Azure 計費合作夥伴 Cloudyn 將 Azure 計費 API 整合至其產品的經驗所得來的獨特觀點。  這特別適用於有興趣使用/嘗試將 Cloudyn 用於 Azure 服務的客戶。"
 services: 
 documentationcenter: 
-author: BryanLa
+author: tonguyen10
 manager: tonguyen
 editor: 
 tags: billing
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 02/03/2017
-ms.author: mobandyo;bryanla
+ms.author: tonguyen
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fac0ee2e9cbc87c8b3d04675551bba61f7a532b6
 ms.contentlocale: zh-tw
 ms.lasthandoff: 06/28/2017
-
 
 ---
 # <a name="microsoft-azure-usage-and-ratecard-apis-enable-cloudyn-to-provide-itfm-for-customers"></a>Microsoft Azure 使用情況和 RateCard API 可讓 Cloudyn 提供 ITFM 給客戶
