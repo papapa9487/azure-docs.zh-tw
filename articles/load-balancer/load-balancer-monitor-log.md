@@ -3,7 +3,7 @@ title: "監視負載平衡器的作業、事件和計數器 | Microsoft Docs"
 description: "了解如何啟用 Azure 負載平衡器的警示事件和探查健全狀況狀態記錄"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: 56656d74-0241-4096-88c8-aa88515d676d
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 638ecd5e02889bd8cb6e7429dfcec335feaac4a3
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/29/2017
 
 ---
 
 # <a name="log-analytics-for-azure-load-balancer"></a>Azure 負載平衡器的記錄檔分析
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 您可以在 Azure 中使用不同類型的記錄檔來管理和疑難排解負載平衡器。 透過入口網站可以存取其中一些記錄檔。 從 Azure Blob 儲存體可以擷取所有記錄，並且在不同的工具中進行檢視 (例如 Excel 和 PowerBI)。 您可以從下列清單進一步了解不同類型的記錄檔。
 

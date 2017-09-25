@@ -3,7 +3,7 @@ title: "建立網際網路對向負載平衡器 - Azure 入口網站傳統 | Mic
 description: "了解如何使用 Azure 傳統入口網站在傳統部署模型中建立網際網路面向的負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
 ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
+ms.contentlocale: zh-tw
+ms.lasthandoff: 01/24/2017
 
 ---
 
@@ -67,9 +69,4 @@ ms.openlocfilehash: a022154f5eca6de2d2dbfc1b9aa30d2ea0a7d650
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

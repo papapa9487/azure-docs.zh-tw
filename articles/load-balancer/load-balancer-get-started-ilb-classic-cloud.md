@@ -3,7 +3,7 @@ title: "建立 Azure 雲端服務的內部負載平衡器 | Microsoft Docs"
 description: "了解如何在傳統部署模型中使用 PowerShell 建立內部負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -22,9 +22,7 @@ ms.lasthandoff: 06/28/2017
 
 ---
 
-<a id="get-started-creating-an-internal-load-balancer-classic-for-cloud-services" class="xliff"></a>
-
-# 開始為雲端服務建立內部負載平衡器 (傳統)
+# <a name="get-started-creating-an-internal-load-balancer-classic-for-cloud-services"></a>開始為雲端服務建立內部負載平衡器 (傳統)
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -34,9 +32,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 了解如何[使用 Resource Manager 模型執行這些步驟](load-balancer-get-started-ilb-arm-ps.md)。
 
-<a id="configure-internal-load-balancer-for-cloud-services" class="xliff"></a>
-
-## 設定雲端服務的內部負載平衡器
+## <a name="configure-internal-load-balancer-for-cloud-services"></a>設定雲端服務的內部負載平衡器
 
 虛擬機器和雲端服務都支援內部負載平衡器。 在區域虛擬網路外的雲端服務中建立的內部負載平衡器端點，將只能在雲端服務內存取。
 
@@ -45,9 +41,7 @@ ms.lasthandoff: 06/28/2017
 > [!IMPORTANT]
 > 執行下列步驟的必要條件是已經為雲端部署建立虛擬網路。 您需要虛擬網路名稱和子網路名才能建立內部負載平衡。
 
-<a id="step-1" class="xliff"></a>
-
-### 步驟 1
+### <a name="step-1"></a>步驟 1
 
 在 Visual Studio 中開啟雲端部署的服務組態檔 (.cscfg) 並新增下列區段，以在網路組態的最後一個 "`</Role>`" 項目下建立內部負載平衡。
 
@@ -75,9 +69,7 @@ ms.lasthandoff: 06/28/2017
 
 如需關於負載平衡器結構描述的詳細資訊，請參閱 [新增負載平衡器](https://msdn.microsoft.com/library/azure/dn722411.aspx)
 
-<a id="step-2" class="xliff"></a>
-
-### 步驟 2
+### <a name="step-2"></a>步驟 2
 
 變更服務定義 (.csdef) 檔案，以將端點新增至內部負載平衡。 建立角色執行個體時，服務定義檔會將角色執行個體新增至內部負載平衡。
 
@@ -101,9 +93,7 @@ ms.lasthandoff: 06/28/2017
 
 網路流量會使用 testLB 負載平衡器進行負載平衡，使用連接埠 80 進行連入要求，也在連接埠 80 上傳送背景工作角色執行個體。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 [使用來源 IP 同質性設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 

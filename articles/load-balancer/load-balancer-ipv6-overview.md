@@ -3,7 +3,7 @@ title: "Azure Load Balancer 的 IPv6 概觀 | Microsoft Docs"
 description: "了解 Azure Load Balancer 和負載平衡 VM 的 IPv6 支援。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行動, iot"
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
@@ -24,6 +24,9 @@ ms.lasthandoff: 07/14/2017
 ---
 
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer 的 IPv6 概觀
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 網際網路面向的負載平衡器可以部署 IPv6 位址。 除了 IPv4 連線功能，這還具有下列功能︰
 

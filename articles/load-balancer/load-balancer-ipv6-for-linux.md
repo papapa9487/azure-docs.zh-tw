@@ -3,7 +3,7 @@ title: "設定 Linux VM 的 DHCPv6 | Microsoft Docs"
 description: "如何設定 Linux VM 的 DHCPv6。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 keywords: "ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行動, iot"
@@ -13,16 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
+ms.translationtype: Human Translation
 ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 5c591e7f1838c86ca74caea9dd3a5e8f874fd8a7
+ms.contentlocale: zh-tw
 ms.lasthandoff: 03/29/2017
 
 ---
 
 # <a name="configuring-dhcpv6-for-linux-vms"></a>設定 Linux VM 的 DHCPv6
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Marketplace 中的一些 Linux 虛擬機器映像沒有預設的 DHCPv6 設定。 若要支援 IPv6，在您使用的 Linux OS 散發套件內必須設定 DHCPv6。 不同 Linux 散發套件的 DHCPv6 設定方式不同，因為它們使用不同的套件。
 

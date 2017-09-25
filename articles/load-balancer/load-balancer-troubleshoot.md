@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
 ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
@@ -23,6 +23,8 @@ ms.lasthandoff: 07/12/2017
 ---
 
 # <a name="troubleshoot-azure-load-balancer"></a>針對 Azure Load Balancer 進行疑難排解
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 此頁面提供 Azure Load Balancer 常見問題的疑難排解資訊。 當負載平衡器的連線無法使用時，最常見的徵兆如下︰ 
 - 負載平衡器後方的 VM 未回應健康狀態探查 

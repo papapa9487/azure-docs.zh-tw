@@ -3,7 +3,7 @@ title: "單一雲端服務有多重 VIP"
 description: "MultiVIP 的概觀以及如何在雲端服務上設定多重 VIP"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 8827793d771a2982a3dccb5d5d1674af0cd472ce
@@ -22,6 +22,8 @@ ms.lasthandoff: 07/06/2017
 ---
 
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>為單一雲端服務設定多個 VIP
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 您可以使用 Azure 所提供的 IP 位址，透過公用網際網路存取 Azure 雲端服務。 此公用 IP 位址也稱為 VIP (虛擬 IP)，因為它會連結至 Azure Load Balancer，而且不是雲端服務中的虛擬機器 (VM) 執行個體。 您可以使用單一 VIP 來存取雲端服務中的任何 VM 執行個體。
 
