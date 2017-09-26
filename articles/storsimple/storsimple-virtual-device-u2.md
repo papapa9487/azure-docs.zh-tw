@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f9a9ff81913dda1457123525fe509d194798db14
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>部署和管理 Azure 中的 StorSimple 虛擬裝置
@@ -64,7 +64,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 | **服務資料加密金鑰** |在實體裝置上重新產生金鑰，然後以新的金鑰更新虛擬裝置。 |無法從虛擬裝置重新產生。 |
 
 ## <a name="prerequisites-for-the-virtual-device"></a>虛擬裝置的必要條件
-下列各節說明 StorSimple 虛擬裝置的設定必要條件。 在部署虛擬裝置之前，請檢閱 [使用虛擬裝置的安全性考量](storsimple-security.md#storsimple-virtual-device-security)。
+下列各節說明 StorSimple 虛擬裝置的設定必要條件。 在部署虛擬裝置之前，請檢閱 [使用虛擬裝置的安全性考量](storsimple-security.md)。
 
 #### <a name="azure-requirements"></a>Azure 需求
 佈建虛擬裝置之前，您需要在 Azure 環境中做好下列準備：

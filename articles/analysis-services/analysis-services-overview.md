@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: owend
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: ff03ce6463176bad8e8d89985441d23c7d76b183
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8b3a538fc0fe34d0b7af8a99510cfb19abd32d55
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
@@ -39,7 +39,7 @@ Azure Analysis Services 與 SQL Server Analysis Services Enterprise Edition 中�
 表格式模型可供快速進行開發，並可高度自訂。 對於開發人員而言，表格式模型包含可說明模型物件的表格式物件模型 (TOM)。 TOM 會經由 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 命名空間透過[表格式模型指令碼語言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)和 AMO 資料定義語言以 JSON 公開。
 
 ## <a name="better-with-azure"></a>透過 Azure 獲得較佳效能
-Azure Analysis Services 與許多 Azure 服務整合，讓您能建置複雜的分析解決方案。 與 [Azure Active Directory](../active-directory/active-directory-whatis.md) 整合可對重要資料提供安全的角色型存取。 納入可將資料載入模型中的活動，進而與 [Azure Data Factory](../data-factory/data-factory-introduction.md) 管線整合。 [Azure 自動化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 可用於使用自訂程式碼之模型的輕量型協調流程。
+Azure Analysis Services 與許多 Azure 服務整合，讓您能建置複雜的分析解決方案。 與 [Azure Active Directory](../active-directory/active-directory-whatis.md) 整合可對重要資料提供安全的角色型存取。 納入可將資料載入模型中的活動，進而與 [Azure Data Factory](../data-factory/introduction.md) 管線整合。 [Azure 自動化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 可用於使用自訂程式碼之模型的輕量型協調流程。
 
 ## <a name="get-up-and-running-quickly"></a>快速啟動並執行
 您可以在短短幾分鐘內，於 Azure 入口網站中[建立伺服器](analysis-services-create-server.md)。 此外，若是使用 Azure Resource Manager [範本](../azure-resource-manager/resource-manager-create-first-template.md)和 PowerShell，您可以使用宣告式範本來佈建伺服器。 在單一範本中，您可以部署多項服務以及其他 Azure 元件 (例如儲存體帳戶和 Azure Functions)。 

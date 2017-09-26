@@ -56,7 +56,7 @@ Azure Data Factory 支援下列格式類型：
 * 您正從文字檔複製，並想略過不包含資料或標頭資訊的開頭幾行。 指定 `skipLineCount` 以表示要略過的行數。 如果檔案其餘部分包含標頭行，您也可以指定 `firstRowAsHeader`。 如果 `skipLineCount` 和 `firstRowAsHeader` 都指定，則會先略過那幾行，再從輸入檔讀取標頭資訊
 
 ### <a name="specifying-jsonformat"></a>指定 JsonFormat
-若要**將 JSON 檔案以現況匯入到/匯出自 Cosmos DB**，請參閱 Azure Cosmos DB 連接器中的[匯入/匯出 JSON 文件](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents)一節，以取得詳細資訊。
+若要**將 JSON 檔案以現況匯入到/匯出自 Cosmos DB**，請參閱 Azure Cosmos DB 連接器中的[匯入/匯出 JSON 文件](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md#importexport-json-documents)一節，以取得詳細資訊。
 
 如果您想要剖析 JSON 檔案，或以 JSON 格式寫入資料，請將 `format``type` 屬性設定為 **JsonFormat**。 您也可以在 `format` 區段中指定下列**選擇性**屬性。 關於如何設定，請參閱 [JsonFormat 範例](#jsonformat-example)一節。
 

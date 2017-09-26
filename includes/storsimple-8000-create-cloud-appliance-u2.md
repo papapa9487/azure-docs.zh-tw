@@ -20,7 +20,7 @@
    7. 選取核取方塊，表示您了解雲端設備上儲存的資料將裝載於 Microsoft 資料中心。
        * 若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。
 
-       * 當您使用雲端設備時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。 如需詳細資訊，請參閱[使用雲端設備的安全性考量](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security)。
+       * 當您使用雲端設備時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。 如需詳細資訊，請參閱[使用雲端設備的安全性考量](../articles/storsimple/storsimple-security.md)。
    8. 按一下 [建立] 即可佈建雲端設備。 裝置可能需要大約 30 分鐘的時間，才能完成佈建。 成功建立雲端設備時，您會收到通知。 請移至 [裝置] 刀鋒視窗，將會重新整理裝置清單來顯示雲端設備。 設備的狀態是 [就緒可進行設定]。
       
       ![StorSimple 雲端設備就緒可進行設定](./media/storsimple-8000-create-cloud-appliance-u2/sca-create3.png)

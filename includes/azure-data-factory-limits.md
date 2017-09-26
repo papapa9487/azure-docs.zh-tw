@@ -16,7 +16,7 @@
 
 <sup>2</sup> 隨選 HDInsight 核心並非配置在包含資料處理站的訂用帳戶之中。 因此，上述限制為 Data Factory 針對隨選 HDInsight 核心所強制的核心限制，不同於您 Azure 訂用帳戶相關聯的核心限制。
 
-<sup>3</sup> 雲端資料移動單位 (DMU) 正用於雲端到雲端複製作業。 它是一項量值，代表 Data Factory 中單一單位的能力 (CPU、記憶體和網路資源配置的組合)。 在某些情況下，利用更多 DMU 可以達到更高的複製輸送量。 如需詳細資料，請參閱[雲端資料移動單位](../articles/data-factory/data-factory-copy-activity-performance.md#cloud-data-movement-units)小節。
+<sup>3</sup> 雲端資料移動單位 (DMU) 正用於雲端到雲端複製作業。 它是一項量值，代表 Data Factory 中單一單位的能力 (CPU、記憶體和網路資源配置的組合)。 在某些情況下，利用更多 DMU 可以達到更高的複製輸送量。 如需詳細資料，請參閱[雲端資料移動單位](../articles/data-factory/v1/data-factory-copy-activity-performance.md#cloud-data-movement-units)小節。
 
 | **Resource** | **預設下限** | **下限** |
 | --- | --- | --- |

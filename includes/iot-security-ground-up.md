@@ -24,7 +24,7 @@ Microsoft Azure 提供完整的雲端解決方案，其中結合了持續成長�
 
 Microsoft Azure IoT 套件會充分利用內建於 Azure 平台的安全性和隱私權，以及我們針對所有 Microsoft 軟體進行的安全開發和作業所提供的 SDL 和 OSA 程序。 這些程序提供基礎結構保護、網路保護，以及身分識別與管理功能，以做為任何解決方案安全性的基礎。 
 
-[IoT 套件](../articles/iot-suite/iot-suite-what-is-azure-iot.md)內的 [Azure IoT 中樞](../articles/iot-hub/iot-hub-what-is-iot-hub.md)提供完全受管理的服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md) 和 [Azure 串流分析](../articles/stream-analytics/stream-analytics-introduction.md)。  
+[IoT 套件](../articles/iot-suite/iot-suite-what-is-azure-iot.md)內的 [Azure IoT 中樞](../articles/iot-hub/iot-hub-what-is-iot-hub.md)提供完全受管理的服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 和 [Azure 串流分析](../articles/stream-analytics/stream-analytics-introduction.md)。  
 
 為了以最佳方式傳達內建於 Azure IoT 套件的安全性和隱私權功能，我們已將套件細分成三個主要的安全性領域。 
 

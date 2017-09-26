@@ -28,7 +28,7 @@
     如上所述，“structure” 區段中的類型資訊是選擇性的。 針對結構化的來源，類型資訊已可使用做為資料存放區中的資料集定義的一部分，因此當您包含 “structure” 區段時不應包含類型資訊。
 * **讀取的資料來源 (尤其是 Azure blob) 的結構描述**，您可以選擇儲存資料但不儲存任何結構描述或類型資訊。 針對這些類型的資料來源，在以下 2 種案例中應包含 “structure”：
   * 您想要進行對應。
-  * 當資料集是「複製」活動中的來源時，您可以在 “structure” 中提供類型資訊，資料處理站轉換為原生類型以利接收時會使用此類型資訊。 如需詳細資訊請參閱 [移動資料進出 Azure Blob](../articles/data-factory/data-factory-azure-blob-connector.md) 的文章。
+  * 當資料集是「複製」活動中的來源時，您可以在 “structure” 中提供類型資訊，資料處理站轉換為原生類型以利接收時會使用此類型資訊。 如需詳細資訊請參閱 [移動資料進出 Azure Blob](../articles/data-factory/v1/data-factory-azure-blob-connector.md) 的文章。
 
 ### <a name="supported-net-based-types"></a>支援 .NET 型的類型
 資料處理站支援下列符合 CLS 標準的 .NET 型類型，以利針對讀取的資料來源 (如 Azure blob) 的結構描述在 “structure” 中提供類型資訊。

@@ -12,7 +12,7 @@
 
 * 您可能需要增加 Azure 訂用帳戶的核心配額 (依地區)，以及增加 NC 或 NV 核心的個別配額。 若要要求增加配額，可免費[開啟線上客戶支援要求](../articles/azure-supportability/how-to-create-azure-support-request.md)。 預設限制會視您的訂用帳戶類別而有所不同。
 
-* 您可以在 N 系列 VM 上部署的一個 VM 映像是 [Azure 資料科學虛擬機器](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)。 資料科學虛擬機器會預先安裝和設定許多常用的資料科學和深入學習工具。 它也會針對 NC 執行個體預先安裝 NVIDIA Tesla GPU 驅動程式。
+* 您可以在 N 系列 VM 上部署的一個 VM 映像是 [Azure 資料科學虛擬機器](../articles/machine-learning/data-science-virtual-machine/overview.md)。 資料科學虛擬機器會預先安裝和設定許多常用的資料科學和深入學習工具。 它也會針對 NC 執行個體預先安裝 NVIDIA Tesla GPU 驅動程式。
 
 
 

@@ -21,7 +21,7 @@
       > 
    7. 按一下勾號，表示您了解虛擬裝置上儲存的資料將裝載於 Microsoft 資料中心。 若您只使用實體裝置，加密金鑰就會與裝置放在一起。因此，Microsoft 無法將它解密。 
       
-       當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。 如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](../articles/storsimple/storsimple-security.md#storsimple-virtual-device-security)。
+       當您使用虛擬裝置時，加密金鑰和解密金鑰都會儲存於 Microsoft Azure 中。 如需詳細資訊，請參閱[使用虛擬裝置的安全性考量](../articles/storsimple/storsimple-security.md)。
    8. 按一下核取圖示，以建立虛擬裝置。 裝置可能需要大約 30 分鐘的時間，才能完成佈建。
       
       ![StorSimple 虛擬裝置建立中階段](./media/storsimple-create-virtual-device-u2/StorSimple_VirtualDeviceCreating1M.png)

@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 3/1/2017
 ms.author: victorh
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: de32c0ce79e8357274cc19cd1ea4ec23b85b918f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 41c9ee37c43d4ad41c51ea2ed023d3b47d460dd1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的儲存體帳戶
@@ -35,7 +35,7 @@ ms.lasthandoff: 09/15/2017
     ![](media/azure-stack-provision-storage-account/image03.png)
 
 ### <a name="next-steps"></a>後續步驟
-[使用 Azure 資源管理員範本](azure-stack-arm-templates.md)
+[使用 Azure Resource Manager 範本](user/azure-stack-arm-templates.md)
 
 [深入了解 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
 

@@ -3,7 +3,7 @@ title: "建立網際網路對向負載平衡器 - Azure CLI | Microsoft Docs"
 description: "了解如何使用 Azure CLI 在資源管理員中建立網際網路面向的負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 3b1780033cbc8aa3e108a213a4d2bfd0332fd7d7
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ba36b7f6d2ae3cc4d63829ffb757ff7b311e467b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="creating-an-internet-load-balancer-using-the-azure-cli"></a>使用 Azure CLI 建立網際網路負載平衡器
@@ -28,6 +29,9 @@ ms.lasthandoff: 03/21/2017
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-internet-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
@@ -78,14 +82,14 @@ ms.lasthandoff: 03/21/2017
         azure network vnet subnet create NRPRG NRPVnet NRPVnetSubnet -a 10.0.0.0/24
     ```
 
-2. 建立名為 NRPPublicIP 的公用 IP 位址，以供 DNS 名稱為 loadbalancernrp.eastus.cloudapp.azure.com 的前端 IP 集區使用。 下列命令使用靜態配置類型和 4 分鐘的閒置逾時。
+2. 建立名為 NRPPublicIP 的公用 IP 位址，以供 DNS 名稱為 loadbalancernrp.eastus.cloudapp.azure.com 的前端 IP 集區使用。下列命令使用靜態配置類型和 4 分鐘的閒置逾時。
 
     ```azurecli
         azure network public-ip create -g NRPRG -n NRPPublicIP -l eastus -d loadbalancernrp -a static -i 4
     ```
 
    > [!IMPORTANT]
-   > 負載平衡器將使用公用 IP 的網域標籤作為其 FQDN。 這是一項來自傳統部署的變更，該部署使用雲端服務作為負載平衡器完整網域名稱 (FQDN)。
+   > 負載平衡器會使用公用 IP 的網域標籤作為其 FQDN。 這是一項來自傳統部署的變更，該部署使用雲端服務作為負載平衡器完整網域名稱 (FQDN)。
    > 在此範例中，FQDN 是 *loadbalancernrp.eastus.cloudapp.azure.com*。
 
 ## <a name="create-a-load-balancer"></a>建立負載平衡器
