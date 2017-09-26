@@ -18,10 +18,10 @@ ms.date: 07/25/2017
 ms.author: danlep
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 65556049d33c84848f015a095acf9c1f69348c6d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ebf35877dcd6f980af75f46b437070a6a29b7c54
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -140,7 +140,7 @@ omsagent   3         3         3         0            3           <none>        
 
 同樣地，在 Azure 入口網站中，移至 [Log Analytics] 並選取您的工作區名稱。 若要查看 [Containers] 摘要圖格，請按一下 [解決方案] > [Containers]。 若要查看詳細資料，按一下圖格。
 
-請參閱 [Azure Log Analytics 文件](../../log-analytics/index.md)，以取得查詢及分析監視資料的詳細指引。
+請參閱 [Azure Log Analytics 文件](../../log-analytics/index.yml)，以取得查詢及分析監視資料的詳細指引。
 
 ## <a name="next-steps"></a>後續步驟
 

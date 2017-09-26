@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 0230ec0e4fc4ff7fe98a7c3e82f252bd8dd66d16
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>整合 Data Lake Store 與其他 Azure 服務
@@ -41,7 +41,7 @@ Azure Data Lake Store 可以與其他 Azure 服務一起使用，以啟用更廣
 ## <a name="use-data-lake-store-with-azure-data-factory"></a>搭配 Azure Data Factory 使用 Data Lake Store
 您可以使用 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 從 Azure 資料表、Azure SQL Database、Azure SQL 資料倉儲、Azure 儲存體 Blob 和內部部署資料庫擷取資料。 Azure 生態系統中的首選，Azure Data Factory 可以用來協調從這些來源到 Azure Data Lake Store 的資料擷取。
 
-如需有關如何搭配 Data Lake Store 使用 Azure Data Factory 的指示，請參閱 [使用 Data Factory 移動 Data Lake Store 的資料](../data-factory/data-factory-azure-datalake-connector.md)。
+如需有關如何搭配 Data Lake Store 使用 Azure Data Factory 的指示，請參閱 [使用 Data Factory 移動 Data Lake Store 的資料](../data-factory/connector-azure-data-lake-store.md)。
 
 ## <a name="copy-data-from-azure-storage-blobs-into-data-lake-store"></a>將資料從 Azure 儲存體 Blob 複製到 Data Lake Store 中
 Azure Data Lake Store 提供命令列工具 AdlCopy，可讓您將資料從 Azure Blob 儲存體複製到 Data Lake Store 帳戶。 如需詳細資訊，請參閱 [將資料從 Azure 儲存體 Blob 複製到 Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)。

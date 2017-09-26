@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 9458b3b619649d094ddab1638e146571d9268fb0
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2fee04ee11210b9081fc7edb64da1f0210f1bd06
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 06/06/2017
 
 函數應用程式需要以下資源：
 
-* [Azure 儲存體](../storage/index.md)帳戶
+* [Azure 儲存體](../storage/index.yml)帳戶
 * 主控方案 (取用方案或 App Service 方案)
 * 函數應用程式 
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2017
 ms.author: kraigb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0abc33bb5b0ffe46397baa5a2d53637bc3f2984c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bd8957f1257a5fdd867658be9c708bbdc8717f36
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="get-started-with-storage-explorer-preview"></a>開始使用儲存體總管 (預覽)
@@ -68,7 +68,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
 ## <a name="connect-to-an-azure-stack-subscription"></a>連線到 Azure Stack 訂用帳戶
 
-如需連線到 Azure Stack 訂用帳戶的詳細資訊，請參閱[將儲存體總管連線至 Azure Stack 訂用帳戶](azure-stack/azure-stack-storage-connect-se.md)。
+如需連線到 Azure Stack 訂用帳戶的詳細資訊，請參閱[將儲存體總管連線至 Azure Stack 訂用帳戶](azure-stack/user/azure-stack-storage-connect-se.md)。
 
 ## <a name="work-with-local-development-storage"></a>使用本機開發儲存體
 使用儲存體總管 (預覽)，您可以使用 Azure 儲存體模擬器來處理本機儲存體。 此方法可讓您撰寫程式碼並測試儲存體，而不需在 Azure 上部署儲存體帳戶，因為 Azure 儲存體模擬器正在模擬儲存體帳戶。

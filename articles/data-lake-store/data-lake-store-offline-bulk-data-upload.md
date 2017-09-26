@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b469c0ebe9838a1ea986cff3043e3008941e9aa9
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>使用 Azure 匯入/匯出服務將資料離線複製到 Data Lake Store
@@ -70,7 +70,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
 ## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>將資料從 Azure 儲存體 Blob 複製到 Azure Data Lake Store
 匯入作業的狀態顯示為完成之後，您可以確認您指定的 Azure 儲存體 Blob 中是否有該資料。 接下來，您可以使用各種方法將該資料從 Blob 移至 Azure Data Lake Store。 如需所有可用的上傳資料選項，請參閱[將資料內嵌到 Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store)。
 
-在本節中，我們會提供您可用來建立 Azure Data Factory 管線以供複製資料的 JSON 定義。 您可以從 [Azure 入口網站](../data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](../data-factory/data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](../data-factory/data-factory-copy-activity-tutorial-using-powershell.md) 使用這些 JSON 定義。
+在本節中，我們會提供您可用來建立 Azure Data Factory 管線以供複製資料的 JSON 定義。 您可以從 [Azure 入口網站](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md) 使用這些 JSON 定義。
 
 ### <a name="source-linked-service-azure-storage-blob"></a>來源連結服務 (Azure 儲存體 Blob)
 ````
@@ -188,7 +188,7 @@ Azure 匯入/匯出服務可讓您將硬碟運送到 Azure 資料中心，更安
     }
 }
 ````
-如需詳細資訊，請參閱[使用 Azure Data Factory 將資料從 Azure 儲存體 Blob 移到 Azure Data Lake Store](../data-factory/data-factory-azure-datalake-connector.md)。
+如需詳細資訊，請參閱[使用 Azure Data Factory 將資料從 Azure 儲存體 Blob 移到 Azure Data Lake Store](../data-factory/connector-azure-data-lake-store.md)。
 
 ## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>在 Azure Data Lake Store 中重新建構資料檔
 我們從 319 GB 的檔案開始著手並將它分割成數個較小的檔案，以便使用 Azure 匯入/匯出服務來傳輸它。 現在，該資料在 Azure Data Lake Store 中，我們可以將檔案重新建構成其原始大小。 您可以使用下列 Azure PowerShell Cmdlet 來這麼做。

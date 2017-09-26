@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: d0771509dfa6ca4fc005edfdbc7c0a9cb5ca0e9e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 65ba6deaf5391b013c5337e00c80099e81aa4bea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>在串流分析中整合機器學習服務
@@ -33,7 +33,7 @@ Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您�
 * **端點**： *端點* 是 Azure Machine Learning 物件，可供用來將功能做為輸入、套用指定的機器學習服務模型，並傳回經過評分的輸出。
 * **評分 Web 服務**： *評分 Web 服務* 是上述端點的集合。
 
-每個端點都有適用於批次執行和同步執行的 API。 串流分析使用同步執行。 該特定服務在 AzureML Studio 中的名稱為 [要求/回應服務](../machine-learning/machine-learning-consume-web-services.md) 。
+每個端點都有適用於批次執行和同步執行的 API。 串流分析使用同步執行。 該特定服務在 AzureML Studio 中的名稱為 [要求/回應服務](../machine-learning/studio/consume-web-services.md) 。
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>串流分析作業所需的機器學習服務資源
 為了處理串流分析作業，必須要有要求/回應端點、 [apikey](../machine-learning/machine-learning-connect-to-azure-machine-learning-web-service.md)和 swagger 定義才能順利執行。 串流分析有其他端點可建構 swagger 端點的 URL、查閱介面，以及將預設 UDF 定義傳回給使用者。

@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: f0bcbdb03fbb70ff91ac3a56974a88eb1b26c245
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 38b107513e72635fd034bb86d0d866bcb0fcb8e4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：技術性深入探討
 
 本文提供 Azure Active Directory 無縫單一登入 (無縫 SSO) 功能運作方式的技術詳細資料。
-
->[!IMPORTANT]
->無縫 SSO 功能目前為預覽狀態。
 
 ## <a name="how-does-seamless-sso-work"></a>順暢 SSO 如何運作？
 
@@ -38,15 +35,15 @@ ms.lasthandoff: 08/04/2017
 ### <a name="how-does-set-up-work"></a>設定如何運作？
 
 無縫 SSO 是使用 Azure AD Connect 所啟用，如[這裏](active-directory-aadconnect-sso-quick-start.md)所示。 啟用此功能時，會執行下列步驟：
-- 名為 `AZUREADSSOACCT` 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
+- 名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD) 是在您的內部部署 Active Directory (AD) 中建立。
 - 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。
 - 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
 
 >[!NOTE]
-> 在您同步處理至 Azure AD (使用 Azure AD Connect) 的每個 AD 樹系中，以及您想要為其使用者啟用無縫 SSO 者，建立電腦帳戶和 Kerberos SPN。 將 `AZUREADSSOACCT` 電腦帳戶移至儲存其他電腦帳戶的組織單位 (OU)，確保它是透過相同方式進行管理，而且不會予以刪除。
+> 在您同步處理至 Azure AD (使用 Azure AD Connect) 的每個 AD 樹系中，以及您想要為其使用者啟用無縫 SSO 者，建立電腦帳戶和 Kerberos SPN。 將 `AZUREADSSOACC` 電腦帳戶移至儲存其他電腦帳戶的組織單位 (OU)，確保它是透過相同方式進行管理，而且不會予以刪除。
 
 >[!IMPORTANT]
->強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACCT` 電腦帳戶的 [Kerberos 解密金鑰](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account)。
+>強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
 
 ### <a name="how-does-sign-in-with-seamless-sso-work"></a>使用無縫 SSO 登入的運作方式？
 
@@ -60,7 +57,7 @@ ms.lasthandoff: 08/04/2017
 
 3. 使用者將他們的使用者名稱鍵入 Azure AD 登入頁面中。
 4. 在背景中使用 JavaScript 時，Azure AD 會透過 401 未授權回應來挑戰瀏覽器，以提供 Kerberos 票證。
-5. 瀏覽器接著會從 Active Directory 要求 `AZUREADSSOACCT` 電腦帳戶 (代表 Azure AD) 的票證。
+5. 瀏覽器接著會從 Active Directory 要求 `AZUREADSSOACC` 電腦帳戶 (代表 Azure AD) 的票證。
 6. Active Directory 會找出該電腦帳戶，並將 Kerberos 票證傳回給瀏覽器 (使用電腦帳戶的祕密加密)。
 7. 瀏覽器會將它需要的 Kerberos 票證從 Active Directory 轉送到 Azure AD (在其中一個[先前新增至瀏覽器內部網路區域設定的 Azure AD URL](active-directory-aadconnect-sso-quick-start.md#step-3-roll-out-the-feature) 上)。
 8. Azure AD 會解密 Kerberos 票證，其中包含使用先前共用的金鑰登入公司裝置之使用者的身分識別。

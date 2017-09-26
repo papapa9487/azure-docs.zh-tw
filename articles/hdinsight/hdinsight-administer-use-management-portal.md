@@ -17,10 +17,10 @@ ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: f69fa4f838b22ccbb25186c08cac9744bb31c6d1
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集
@@ -211,7 +211,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 有許多方法可以設計程序：
 
-* 使用 Azure Data Factory。 請參閱 [Azure HDInsight 連結服務](../data-factory/data-factory-compute-linked-services.md)和[使用 Azure Data Factory 進行轉換和分析](../data-factory/data-factory-data-transformation-activities.md)，以取得隨選和自行定義的 HDInsight 連結服務。
+* 使用 Azure Data Factory。 請參閱 [Azure HDInsight 連結服務](../data-factory/compute-linked-services.md)和[使用 Azure Data Factory 進行轉換和分析](../data-factory/transform-data.md)，以取得隨選和自行定義的 HDInsight 連結服務。
 * 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
 * 使用 Azure CLI。 請參閱 [使用 Azure CLI 管理 HDInsight 叢集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 請參閱 [提交 Hadoop 工作](hdinsight-submit-hadoop-jobs-programmatically.md)。

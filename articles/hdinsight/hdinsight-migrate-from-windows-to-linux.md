@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/12/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 2efd8e9981ac5d8f2ff28df9ffe1e6b5c01ba953
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4ea38d3b47ff4b50446f4ffdc3dc544fdcf938e7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
@@ -256,8 +256,8 @@ Spark 叢集可以在 Windows 叢集預覽期間取得。 Spark GA 只適用於�
 
 Azure Data Factory 自訂 .NET 活動目前並不受以 Linux 為基礎的 HDInsight 叢集所支援。 您應該改為使用下列其中一個方法，來將自訂活動實作為 ADF 管線的一部分。
 
-* 在 Azure Batch 集區上執行 .NET 活動。 請參閱 [在 Azure Data Factory 管線中使用自訂活動](../data-factory/data-factory-use-custom-activities.md)
-* 將活動實作為 MapReduce 活動。 如需詳細資訊，請參閱[從 Data Factory 叫用 MapReduce 程式](../data-factory/data-factory-map-reduce.md)。
+* 在 Azure Batch 集區上執行 .NET 活動。 請參閱 [在 Azure Data Factory 管線中使用自訂活動](../data-factory/transform-data-using-dotnet-custom-activity.md)
+* 將活動實作為 MapReduce 活動。 如需詳細資訊，請參閱[從 Data Factory 叫用 MapReduce 程式](../data-factory/transform-data-using-hadoop-map-reduce.md)。
 
 ### <a name="line-endings"></a>行尾結束符號
 

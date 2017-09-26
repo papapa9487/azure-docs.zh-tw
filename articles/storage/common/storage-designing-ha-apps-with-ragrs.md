@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 2889faf7bfa86f40eb38c50f146bd59ecfb6001f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
@@ -44,7 +44,7 @@ Azure 儲存體為儲存體帳戶中的資料備援提供四個選項：
 
 * 唯讀複本與主要區域中的資料是[最終一致](https://en.wikipedia.org/wiki/Eventual_consistency)的。
 
-* 針對 Blob、資料表和佇列，您可以查詢次要區域來取得 [上次同步處理時間] 值，讓您知道上次從主要區域複寫到次要區域是在何時發生 (Azure 檔案儲存體不支援此動作，它目前沒有 RA-GRS 備援)。
+* 針對 Blob、資料表和佇列，您可以查詢次要區域來取得 [上次同步處理時間] 值，讓您知道上次從主要區域複寫到次要區域是在何時發生 (Azure 檔案服務不支援此動作，它目前沒有 RA-GRS 備援)。
 
 * 您可以使用儲存體用戶端程式庫，來與主要或次要區域中的資料進行互動。 如果對主要區域的讀取要求逾時，您也可以將讀取要求自動重新導向到次要區域。
 

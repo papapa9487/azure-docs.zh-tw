@@ -1,9 +1,9 @@
 ---
 title: "設定負載平衡器使用 SQL 一律開啟 | Microsoft Docs"
-description: "設定負載平衡器以與 SQL Always On 搭配運作，以及如何運用 PowerShell 來建立 SQL 實作的負載平衡器"
+description: "設定負載平衡器使用 SQL 一律開啟，以及如何運用 powershell 來建立 SQL 實作的負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 ms.assetid: d7bc3790-47d3-4e95-887c-c533011e4afd
 ms.service: load-balancer
@@ -11,16 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
-ms.openlocfilehash: 68aad6253f185d53fdd7f11c8660c7287ef12655
-ms.lasthandoff: 01/11/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ebbf1c4009d89b1f18b2ff8ff5dd243c456dff8
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="configure-load-balancer-for-sql-always-on"></a>設定負載平衡器使用 SQL 一律開啟
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 SQL Server AlwaysOn 可用性群組現在可以與 ILB 搭配執行。 可用性群組是 SQL Server 針對高可用性和災難復原的旗艦解決方案。 不論組態中的複本數目為何，可用性群組接聽程式可讓用戶端應用程式順暢地連接到主要複本。
 

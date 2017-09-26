@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 00b2f08ef40266ad4b99adfa9c8632bd817f9a81
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ee8e282feacfb6b5db2f746b468fe2cd26cb0a52
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>將資料從 Azure 儲存體 Blob 複製到 Data Lake Store
@@ -175,7 +174,7 @@ Azure Data Lake Store 提供命令列工具 [AdlCopy](http://aka.ms/downloadadlc
 
 ## <a name="performance-considerations-for-using-adlcopy"></a>使用 AdlCopy 時的效能考量
 
-AdlCopy 支援複製包含數千個檔案和資料夾的資料。 不過，如果您在複製大型資料集時遇到問題，您可以將檔案/資料夾分散至較小的子資料夾。 AdlCopy 適用於臨時複製。 如果您嘗試反覆地複製資料，請考慮使用 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)，它能夠完整地管理複製作業。
+AdlCopy 支援複製包含數千個檔案和資料夾的資料。 不過，如果您在複製大型資料集時遇到問題，您可以將檔案/資料夾分散至較小的子資料夾。 AdlCopy 適用於臨時複製。 如果您嘗試反覆地複製資料，請考慮使用 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)，它能夠完整地管理複製作業。
 
 ## <a name="release-notes"></a>版本資訊
 * 1.0.13 - 如果您在多個 adlcopy 命令中將資料複製到相同的 Azure Data Lake Store 帳戶，則您每次執行時已不需要重新輸入認證。 Adlcopy 現在會在多次執行之間快取該資訊。

@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 518b2719f24be96dffba3458f6c15e65f16b7e0d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f603c4f0305184bfefe23a02b07cef134c83e678
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
 本文將會解決 Azure Active Directory 無縫單一登入 (無縫 SSO) 的常見問題。 請隨時回來查看新內容。
-
->[!IMPORTANT]
->無縫 SSO 功能目前為預覽狀態。
 
 ## <a name="what-sign-in-methods-do-seamless-sso-work-with"></a>無縫 SSO 與哪些登入方法搭配運作？
 
@@ -49,9 +46,9 @@ ms.lasthandoff: 08/04/2017
 
 是，此案例需要 2.1 版或更新版本的[加入工作場所用戶端](https://www.microsoft.com/download/details.aspx?id=53554)。
 
-## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacct-computer-account"></a>如何才能變換 `AZUREADSSOACCT` 電腦帳戶的 Kerberos 解密金鑰？
+## <a name="how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account"></a>如何才能變換 `AZUREADSSOACC` 電腦帳戶的 Kerberos 解密金鑰？
 
-請務必經常變換在內部部署 AD 樹系中建立之 `AZUREADSSOACCT` 電腦帳戶 (這表示 Azure AD) 的 Kerberos 解密金鑰。
+請務必經常變換在內部部署 AD 樹系中建立之 `AZUREADSSOACC` 電腦帳戶 (這表示 Azure AD) 的 Kerberos 解密金鑰。
 
 >[!IMPORTANT]
 >強烈建議您至少每隔 30 天變換一次 Kerberos 解密金鑰。
@@ -70,7 +67,7 @@ ms.lasthandoff: 08/04/2017
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>步驟 2. 在已設定 Kerberos 解密金鑰的每個 AD 樹系上更新該金鑰
 
 1. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Azure AD 樹系的網域系統管理員認證。
-2. 呼叫 `Update-AzureADSSOForest -OnPremCredentials $creds`。 此命令會更新此特定 AD 樹系中 `AZUREADSSOACCT` 電腦帳戶的 Kerberos 解密金鑰，並且在 Azure AD 中更新它。
+2. 呼叫 `Update-AzureADSSOForest -OnPremCredentials $creds`。 此命令會更新此特定 AD 樹系中 `AZUREADSSOACC` 電腦帳戶的 Kerberos 解密金鑰，並且在 Azure AD 中更新它。
 3. 針對您已設定此功能的每個 AD 樹系，重複上述步驟。
 
 >[!IMPORTANT]

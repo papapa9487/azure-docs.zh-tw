@@ -15,17 +15,17 @@ ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 910365d58a3d3ab672988459f6b9c2bd26a5a3a7
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 37a45bb0dd3927a131fc216fe9452962a0fdacfa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中樞將檔案從裝置上傳至雲端
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-本教學課程是以[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-java-java-c2d.md)教學課程中的程式碼來建置，示範如何使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)將檔案上傳至 [Azure Blob 儲存體](../storage/index.md)。 本教學課程說明如何：
+本教學課程是以[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-java-java-c2d.md)教學課程中的程式碼來建置，示範如何使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)將檔案上傳至 [Azure Blob 儲存體](../storage/index.yml)。 本教學課程說明如何：
 
 - 安全地將 Azure Blob URI 提供給裝置，以便上傳檔案。
 - 您可以使用 IoT 中樞檔案上傳通知來觸發在您的應用程式後端中處理此檔案。
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 * 取樣高頻率的震動資料
 * 某種經前置處理過的資料。
 
-這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/index.md) 或 [Hadoop](../hdinsight/index.md) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
+這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/introduction.md) 或 [Hadoop](../hdinsight/index.md) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
 
 在本教學課程結尾，您將執行兩個 Java 主控台應用程式：
 

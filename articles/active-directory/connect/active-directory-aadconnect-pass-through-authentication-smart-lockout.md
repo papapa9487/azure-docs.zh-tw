@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: c84b2406e6373701c83c509342129bd6d7d4034b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -79,7 +79,7 @@ Azure AD 可防範暴力密碼破解攻擊，並防止正版使用者遭到其 O
 1. 以租用戶全域管理員的身分登入 Graph 總管。 如果出現提示，請授與所要求權限的存取權。
 2. 按一下 [修改權限]，然後選取 [Directory.ReadWrite.All] 權限。
 3. 如下所示來設定圖形 API 要求：將版本設為 [BETA]，要求類型設為 [POST]，並將 URL 設為 `https://graph.microsoft.com/beta/<your-tenant-domain>/settings`。
-4. 複製下列 JSON 要求並貼到 [要求本文] 欄位。 適當變更智慧鎖定值，並為 `templateId` 使用隨機 GUID。
+4. 複製下列 JSON 要求並貼到 [要求本文] 欄位。
 5. 按一下 [執行查詢] 以設定租用戶的智慧鎖定值。
 
 ```

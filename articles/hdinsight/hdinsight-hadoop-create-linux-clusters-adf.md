@@ -17,22 +17,22 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e68f1d72965d9516e0552c84d03d234c21739390
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-[Azure Data Factory](../data-factory/data-factory-introduction.md) 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 它可以建立 HDInsight Hadoop 叢集 Just-in-Time 來處理輸入資料配量並在處理序完成時刪除叢集。 使用隨選 HDInsight Hadoop 叢集的優點包括︰
+[Azure Data Factory](../data-factory/introduction.md) 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 它可以建立 HDInsight Hadoop 叢集 Just-in-Time 來處理輸入資料配量並在處理序完成時刪除叢集。 使用隨選 HDInsight Hadoop 叢集的優點包括︰
 
 - 您只需支付作業在 HDInsight Hadoop 叢集上執行的時間 (加上簡短的可設定閒置時間)。 不論使用與否，HDInsight 叢集都是按分鐘計費。 當您在 Data Factory 中使用隨選 HDInsight 連結服務時，會隨選建立叢集。 而叢集會在作業完成時自動刪除。 所以您只需對作業執行時間和短暫閒置時間 (存留時間設定) 付費。
 - 您可以使用 Data Factory 管線建立工作流程。 例如，您可以用管線將資料從內部部署 SQL Server 複製到 Azure blob 儲存體，在隨選 HDInsight Hadoop 叢集上執行 Hive 指令碼和 Pig 指令碼來處理資料。 然後，將結果資料複製到 Azure SQL 資料倉儲以供 BI 應用程式使用。
 - 您可以排程定期 (每小時、每天、每週、每月等) 執行工作流程。
 
-在 Azure Data Factory 中，資料處理站可以有一或多個資料管線。 資料管線具有一或多個活動。 兩種活動類型︰[資料移動活動](../data-factory/data-factory-data-movement-activities.md)和[資料轉換活動](../data-factory/data-factory-data-transformation-activities.md)。 您可以使用資料移動活動 (目前，只有複製活動)，將資料從來源資料存放區移到目的地資料存放區。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
+在 Azure Data Factory 中，資料處理站可以有一或多個資料管線。 資料管線具有一或多個活動。 兩種活動類型︰[資料移動活動](../data-factory/copy-activity-overview.md)和[資料轉換活動](../data-factory/transform-data.md)。 您可以使用資料移動活動 (目前，只有複製活動)，將資料從來源資料存放區移到目的地資料存放區。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
 
 您可以設定 Hive 活動使用您自己的 HDInsight Hadoop 叢集或隨選 HDInsight Hadoop 叢集。 在本教學課程中，資料處理站管線中的 Hive 活動會設定為使用隨 HDInsight 叢集。 因此，當執行活動以處理資料配量時，以下是會發生的事︰
 
@@ -62,7 +62,7 @@ adfgetstarted/partitioneddata/year=2014/month=2/000000_0
 adfgetstarted/partitioneddata/year=2014/month=3/000000_0
 ```
 
-如需 Data Factory 資料轉換活動 (Hive 活動除外) 的清單，請參閱 [使用 Azure Data Factory 進行轉換和分析](../data-factory/data-factory-data-transformation-activities.md)。
+如需 Data Factory 資料轉換活動 (Hive 活動除外) 的清單，請參閱 [使用 Azure Data Factory 進行轉換和分析](../data-factory/transform-data.md)。
 
 > [!NOTE]
 > 目前，您只可以從 Azure Data Factory 建立 HDInsight 叢集 3.2 版。
@@ -188,7 +188,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 7. 開啟資料夾並檢查資料夾中的檔案。 Inputdata 包含 input.log 檔案與輸入資料，而指令碼資料夾包含 HiveQL 指令碼檔案。
 
 ## <a name="create-a-data-factory-using-resource-manager-template"></a>使用 Resource Manager 範本建立資料處理站
-備妥儲存體帳戶、輸入資料和 HiveQL 指令碼，您就準備好建立 Azure Data Factory。 有數種方法可建立 Data Factory。 在本教學課程中，您會使用 Azure 入口網站部署 Azure Resource Manager 範本來建立資料處理站。 您也可以使用 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 和 [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template) 部署 Resource Manager 範本。 如需其他 Data Factory 建立方法，請參閱 [教學課程︰建立您的第一個 Data Factory](../data-factory/data-factory-build-your-first-pipeline.md)。
+備妥儲存體帳戶、輸入資料和 HiveQL 指令碼，您就準備好建立 Azure Data Factory。 有數種方法可建立 Data Factory。 在本教學課程中，您會使用 Azure 入口網站部署 Azure Resource Manager 範本來建立資料處理站。 您也可以使用 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 和 [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy-local-template) 部署 Resource Manager 範本。 如需其他 Data Factory 建立方法，請參閱 [教學課程︰建立您的第一個 Data Factory](../data-factory/quickstart-create-data-factory-dot-net.md)。
 
 1. 按一下以下影像，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。 範本是位於 https://hditutorialdata.blob.core.windows.net/adfhiveactivity/data-factory-hdinsight-on-demand.json。 請參閱[範本中的 Data Factory 實體](#data-factory-entities-in-the-template)一節以取得範本中所定義的實體詳細資訊。 
 
@@ -278,7 +278,7 @@ DataFactoryName 是您在部署範本時指定的資料處理站名稱。 目前
 * [具有複製活動的管線](#data-pipeline)
 
 #### <a name="azure-storage-linked-service"></a>Azure 儲存體連結服務
-Azure 儲存體已連結的服務會連結 Azure 儲存體帳戶至資料處理站。 在本教學課程中，相同的儲存體帳戶會做為預設 HDInsight 儲存體帳戶、輸入資料儲存體和輸出資料儲存體。 因此，您只定義一個 Azure 儲存體連結服務。 在連結的服務定義中，您指定 Azure 儲存體帳戶的名稱和金鑰。 如需用來定義 Azure 儲存體連結服務之 JSON 屬性的詳細資料，請參閱 [Azure 儲存體連結服務](../data-factory/data-factory-azure-blob-connector.md#azure-storage-linked-service)。
+Azure 儲存體已連結的服務會連結 Azure 儲存體帳戶至資料處理站。 在本教學課程中，相同的儲存體帳戶會做為預設 HDInsight 儲存體帳戶、輸入資料儲存體和輸出資料儲存體。 因此，您只定義一個 Azure 儲存體連結服務。 在連結的服務定義中，您指定 Azure 儲存體帳戶的名稱和金鑰。 如需用來定義 Azure 儲存體連結服務之 JSON 屬性的詳細資料，請參閱 [Azure 儲存體連結服務](../data-factory/connector-azure-blob-storage.md)。
 
 ```json
 {
@@ -297,7 +297,7 @@ Azure 儲存體已連結的服務會連結 Azure 儲存體帳戶至資料處理�
 **connectionString** 會使用 storageAccountName 和 storageAccountKey 參數。 您在部署範本時指定這些參數的值。  
 
 #### <a name="hdinsight-on-demand-linked-service"></a>HDInsight 隨選連結服務
-在隨選 HDInsight 連結服務定義中，您可以指定由 Data Factory 服務用來在執行階段建立 HDInsight Hadoop 叢集的組態參數值。 請參閱[計算連結服務](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)文章，以取得關於用來定義 HDInsight 隨選連結服務之 JSON 屬性的詳細資訊。  
+在隨選 HDInsight 連結服務定義中，您可以指定由 Data Factory 服務用來在執行階段建立 HDInsight Hadoop 叢集的組態參數值。 請參閱[計算連結服務](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service)文章，以取得關於用來定義 HDInsight 隨選連結服務之 JSON 屬性的詳細資訊。  
 
 ```json
 
@@ -330,13 +330,13 @@ Azure 儲存體已連結的服務會連結 Azure 儲存體帳戶至資料處理�
 * 請注意 timeToLive  設定。 Data Factory 會在叢集閒置 30 分鐘後自動刪除叢集。
 * HDInsight 叢集會在您於 JSON 中指定的 Blob 儲存體 (**linkedServiceName**) 建立**預設容器**。 HDInsight 不會在刪除叢集時刪除此容器。 這是設計的行為。 在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每當需要處理配量時，就會建立 HDInsight 叢集，並在處理完成時予以刪除。
 
-如需詳細資訊，請參閱 [HDInsight 隨選連結服務](../data-factory/data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 。
+如需詳細資訊，請參閱 [HDInsight 隨選連結服務](../data-factory/compute-linked-services.md#azure-hdinsight-on-demand-linked-service) 。
 
 > [!IMPORTANT]
 > 隨著處理的配量越來越多，您會在 Azure Blob 儲存體中看到許多容器。 如果在疑難排解作業時不需要這些容器，建議您加以刪除以降低儲存成本。 這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。 請使用 [Microsoft 儲存體總管](http://storageexplorer.com/) 之類的工具刪除 Azure Blob 儲存體中的容器。
 
 #### <a name="azure-blob-input-dataset"></a>Azure Blob 輸入資料集
-在輸入資料集定義中，您可以指定 blob 容器、資料夾和包含輸入資料之檔案的名稱。 請參閱 [Azure Blob 資料集屬性](../data-factory/data-factory-azure-blob-connector.md#dataset-properties)，以取得用來定義 Azure Blob 資料集之 JSON 屬性的詳細資訊。
+在輸入資料集定義中，您可以指定 blob 容器、資料夾和包含輸入資料之檔案的名稱。 請參閱 [Azure Blob 資料集屬性](../data-factory/connector-azure-blob-storage.md)，以取得用來定義 Azure Blob 資料集之 JSON 屬性的詳細資訊。
 
 ```json
 
@@ -378,7 +378,7 @@ Azure 儲存體已連結的服務會連結 Azure 儲存體帳戶至資料處理�
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Azure Blob 輸出資料集
-在輸出資料集定義中，您可以指定 blob 容器和包含輸出資料之資料夾的名稱。 請參閱 [Azure Blob 資料集屬性](../data-factory/data-factory-azure-blob-connector.md#dataset-properties)，以取得用來定義 Azure Blob 資料集之 JSON 屬性的詳細資訊。  
+在輸出資料集定義中，您可以指定 blob 容器和包含輸出資料之資料夾的名稱。 請參閱 [Azure Blob 資料集屬性](../data-factory/connector-azure-blob-storage.md)，以取得用來定義 Azure Blob 資料集之 JSON 屬性的詳細資訊。  
 
 ```json
 
@@ -415,7 +415,7 @@ FolderPath 會指定包含輸出資料的資料夾路徑︰
 "folderPath": "adfgetstarted/partitioneddata",
 ```
 
-[資料集可用性](../data-factory/data-factory-create-datasets.md#dataset-availability) 設定如下︰
+[資料集可用性](../data-factory/concepts-datasets-linked-services.md) 設定如下︰
 
 ```json
 "availability": {
@@ -425,10 +425,10 @@ FolderPath 會指定包含輸出資料的資料夾路徑︰
 },
 ```
 
-在 Azure Data Factory 中，輸出資料集可用性會推動管線。 在此範例中，每個月會在當月的最後一天產生配量 (EndOfInterval)。 如需詳細資訊，請參閱 [Data Factory 排程和執行](../data-factory/data-factory-scheduling-and-execution.md)。
+在 Azure Data Factory 中，輸出資料集可用性會推動管線。 在此範例中，每個月會在當月的最後一天產生配量 (EndOfInterval)。 
 
 #### <a name="data-pipeline"></a>Data Pipeline
-您可以定義在隨選 Azure HDInsight 叢集上執行 Hive 指令碼以轉換資料的管線。 請參閱[管線 JSON](../data-factory/data-factory-create-pipelines.md#pipeline-json)，以取得用來在此範例中定義管線的 JSON 元素之描述。
+您可以定義在隨選 Azure HDInsight 叢集上執行 Hive 指令碼以轉換資料的管線。 請參閱[管線 JSON](../data-factory/concepts-pipelines-activities.md)，以取得用來在此範例中定義管線的 JSON 元素之描述。
 
 ```json
 {
@@ -480,7 +480,7 @@ FolderPath 會指定包含輸出資料的資料夾路徑︰
 }
 ```
 
-此管線包含一個活動，HDInsightHive 活動。 由於開始和結束日期都在 2016 年 1 月，因此只處理一個月的資料 (配量)。 活動的開始和結束都擁有過去的日期，因此 Data Factory 會立即處理月份的資料。 如果結束為未來日期，則 Data Factory 屆時會建立另一個配量。 如需詳細資訊，請參閱 [Data Factory 排程和執行](../data-factory/data-factory-scheduling-and-execution.md)。
+此管線包含一個活動，HDInsightHive 活動。 由於開始和結束日期都在 2016 年 1 月，因此只處理一個月的資料 (配量)。 活動的開始和結束都擁有過去的日期，因此 Data Factory 會立即處理月份的資料。 如果結束為未來日期，則 Data Factory 屆時會建立另一個配量。 如需詳細資訊，請參閱 [Data Factory 排程和執行](../data-factory/v1/data-factory-scheduling-and-execution.md)。
 
 ## <a name="clean-up-the-tutorial"></a>清除教學課程
 

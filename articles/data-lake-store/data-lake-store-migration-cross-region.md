@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/27/2017
 ms.author: stewu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a0eecbb50b001325c91d1d721bf8de7244f04674
-ms.lasthandoff: 04/27/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 7292e1954418186d8820529c54d4d781c79e1ae4
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="migrate-data-lake-store-across-regions"></a>跨區域移轉 Data Lake Store
@@ -29,7 +29,7 @@ ms.lasthandoff: 04/27/2017
 
 * **Azure 訂用帳戶**。 如需詳細資訊，請參閱[立即建立免費的 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 * **兩個不同區域中的 Data Lake Store 帳戶**。 如需詳細資訊，請參閱[開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)。
-* **Azure Data Factory**。 如需詳細資訊，請參閱 [Azure Data Factory 簡介](../data-factory/data-factory-introduction.md)。
+* **Azure Data Factory**。 如需詳細資訊，請參閱 [Azure Data Factory 簡介](../data-factory/introduction.md)。
 
 
 ## <a name="migration-considerations"></a>移轉考量
@@ -44,7 +44,7 @@ ms.lasthandoff: 04/27/2017
 
 * **Data Lake Store 帳戶名稱**。 新區域中的新帳戶名稱必須是全域唯一的。 例如，在美國東部 2 的舊 Data Lake Store 帳戶名稱可能是 contosoeastus2.azuredatalakestore.net。 您可能會將歐盟北部的新 Data Lake Store 帳戶命名為 contosonortheu.azuredatalakestore.net。
 
-* **工具**。 建議您使用 [Azure Data Factory 複製活動](../data-factory/data-factory-azure-datalake-connector.md)來複製 Data Lake Store 檔案。 Data Factory 支援高效能與可靠性的資料移動。 請記住，Data Factory 只會複製資料夾階層和檔案內容。 您必須將用於舊帳戶的任何存取控制清單 (ACL) 手動套用到新帳戶。 如需詳細資訊 (包括最佳狀況案例的效能目標)，請參閱[複製活動的效能及微調指南](../data-factory/data-factory-copy-activity-performance.md)。 如果您想要更快速地複製資料，您可能需要使用其他雲端資料移動單位。 AdlCopy 等其他工具不支援在區域之間複製資料。  
+* **工具**。 建議您使用 [Azure Data Factory 複製活動](../data-factory/connector-azure-data-lake-store.md)來複製 Data Lake Store 檔案。 Data Factory 支援高效能與可靠性的資料移動。 請記住，Data Factory 只會複製資料夾階層和檔案內容。 您必須將用於舊帳戶的任何存取控制清單 (ACL) 手動套用到新帳戶。 如需詳細資訊 (包括最佳狀況案例的效能目標)，請參閱[複製活動的效能及微調指南](../data-factory/copy-activity-performance.md)。 如果您想要更快速地複製資料，您可能需要使用其他雲端資料移動單位。 AdlCopy 等其他工具不支援在區域之間複製資料。  
 
 * **頻寬費用**。 適用[頻寬費用](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)，因為資料會傳出 Azure 區域。
 

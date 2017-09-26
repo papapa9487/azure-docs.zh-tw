@@ -16,16 +16,16 @@ ms.custom: loading
 ms.date: 02/08/2017
 ms.author: cakarst;barbkess
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12a35213e07ff16bdc1c27be106792bcc032ac80
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6399f1a3390119685c1c9fd7332937e0cdb6f9ea
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="load-data-into-sql-data-warehouse-with-data-factory"></a>使用 Data Factory 將資料載入 SQL 資料倉儲
 
-您可以從任何[支援來源資料存放區](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)，使用 Azure Data Factory 將資料載入至 Azure SQL 資料倉儲。 例如，您可以使用 Data Factory，將 Azure SQL Database 或 Oracle 資料庫中的資料載入 SQL 資料倉儲。 本文中的教學課程會示範如何從內部部署 SQL Server 資料庫將資料載入 SQL 資料倉儲。
+您可以從任何[支援來源資料存放區](../data-factory/copy-activity-overview.md)，使用 Azure Data Factory 將資料載入至 Azure SQL 資料倉儲。 例如，您可以使用 Data Factory，將 Azure SQL Database 或 Oracle 資料庫中的資料載入 SQL 資料倉儲。 本文中的教學課程會示範如何從內部部署 SQL Server 資料庫將資料載入 SQL 資料倉儲。
 
 **預估時間**︰一旦符合先決條件後，本教學課程需要大約 10-15 分鐘才能完成。
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 08/21/2017
     > [!NOTE]
     > 如果來源資料存放區是在內部部署或在 Azure IaaS 虛擬機器中，資料管理閘道是必要的。 閘道與 Data Factory 有 1 對 1 關聯性。 它不能從另一個 Data Factory 使用，但可供相同 Data Factory 中的多個資料載入工作使用。 閘道可以用來在執行資料載入工作時連接至多個資料存放區。
     >
-    > 如需閘道的詳細資訊，請參閱[資料管理閘道](../data-factory/data-factory-data-management-gateway.md)文章。
+    > 如需閘道的詳細資訊，請參閱[資料管理閘道](../data-factory/v1/data-factory-data-management-gateway.md)文章。
 
 3. 隨即出現 [建立閘道] 對話方塊。 針對名稱，輸入 **GatewayForDWLoading**，然後按一下 [建立]。
 
@@ -154,9 +154,9 @@ ms.lasthandoff: 08/21/2017
 
 若要深入了解 Azure Data Factory 和其資料移動功能，請參閱下列文章︰
 
-- [Azure Data Factory 簡介](../data-factory/data-factory-introduction.md)
-- [使用複製活動來移動資料](../data-factory/data-factory-data-movement-activities.md)
-- [使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料](../data-factory/data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Data Factory 簡介](../data-factory/introduction.md)
+- [使用複製活動來移動資料](../data-factory/copy-activity-overview.md)
+- [使用 Azure Data Factory 從 Azure SQL 資料倉儲來回移動資料](../data-factory/connector-azure-sql-data-warehouse.md)
 
 若要瀏覽 SQL 資料倉儲中的資料，請參閱下列文章︰
 

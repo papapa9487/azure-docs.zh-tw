@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b7cc8bc2b39e544a5807a2f6f9ff86ba73c54564
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
@@ -48,7 +48,7 @@ ms.lasthandoff: 08/21/2017
 
 讓我們看看標準儲存體的一些功能。 如需詳細資訊，請參閱 [Azure 儲存體簡介](../storage-introduction.md)。
 
-**標準儲存體**：Azure 標準儲存體支援 Azure 磁碟、Azure Blob、Azure 檔案儲存體、Azure 資料表和 Azure 佇列。 若要使用標準儲存體服務，首先請[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。
+**標準儲存體**：Azure 標準儲存體支援 Azure 磁碟、Azure Blob、Azure 檔案、Azure 資料表和 Azure 佇列。 若要使用標準儲存體服務，首先請[建立 Azure 儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)。
 
 **標準儲存體磁碟︰**標準儲存體磁碟可以附加至所有 Azure VM，包括進階儲存體使用的大小系列 VM，例如 DSv2 和 GS 系列。 標準儲存體磁碟只能附加至一個 VM。 不過，您可以將一或多個這些磁碟附加至 VM，最多為該 VM 大小所定義的最大磁碟計數。 在下一節的「標準儲存體延展性和效能目標」中，我們會更詳細地說明規格。 
 

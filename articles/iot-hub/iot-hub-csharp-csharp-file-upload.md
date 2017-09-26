@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: b45d85d0d77cf47f36cb793bc8c0dbe2d5c12634
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>以使用 .NET 的 IoT 中樞將檔案從裝置上傳至雲端
@@ -37,7 +37,7 @@ ms.lasthandoff: 07/14/2017
 * 取樣高頻率的震動資料
 * 某種經前置處理過的資料
 
-這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/index.md) 或 [Hadoop](../hdinsight/index.md) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
+這些檔案通常會使用工具 (例如 [Azure Data Factory](../data-factory/introduction.md) 或 [Hadoop](../hdinsight/index.md) 堆疊) 在雲端中進行批次處理。 當您需要從裝置上傳檔案時，您仍然可以使用安全可靠的 IoT 中樞。
 
 在本教學課程結尾處，您會執行兩個 .NET 主控台應用程式：
 

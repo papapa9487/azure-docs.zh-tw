@@ -11,15 +11,15 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 11ecaa8ec017a9eb1285928e3d3d367ddfc43022
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>將 Web、行動裝置與 API 應用程式提供給您的 Azure Stack 使用者
@@ -28,18 +28,18 @@ ms.lasthandoff: 09/15/2017
 
 > [!div class="checklist"]
 > * 部署 App Service 資源提供者
-> * 建立供應項目
+> * 建立優惠
 > * 測試供應項目
 
 ## <a name="deploy-the-app-service-resource-provider"></a>部署 App Service 資源提供者
 
 1. [準備 Azure Stack 開發套件主機](azure-stack-app-service-before-you-get-started.md)。 這包括部署 SQL Server 資源提供者，而這是建立某些應用程式的必要條件。
-2. [下載安裝程式與協助程式指令碼](azure-stack-app-service-deploy.md#download-the-required-components)。
-3. [執行協助程式指令碼以建立必要憑證](azure-stack-app-service-deploy.md#create-certificates-required-by-app-service-on-azure-stack)。
-4. [安裝 App Service 資源提供者](azure-stack-app-service-deploy.md#use-the-installer-to-download-and-install-app-service-on-azure-stack) (安裝資源提供者並讓所有背景工作角色出現將需要數小時)。
+2. [下載安裝程式與協助程式指令碼](azure-stack-app-service-deploy.md)。
+3. [執行協助程式指令碼以建立必要憑證](azure-stack-app-service-deploy.md)。
+4. [安裝 App Service 資源提供者](azure-stack-app-service-deploy.md) (安裝資源提供者並讓所有背景工作角色出現將需要數小時)。
 5. [驗證安裝](azure-stack-app-service-deploy.md#validate-the-app-service-on-azure-stack-installation)。
 
-## <a name="create-an-offer"></a>建立供應項目
+## <a name="create-an-offer"></a>建立優惠
 
 例如，您可以建立供應項目，以讓使用者 建立 DNN Web 內容管理系統。 它需要 SQL Server 服務 (您已透過安裝 SQL Server 資源提供者而啟用)。
 
@@ -71,7 +71,7 @@ ms.lasthandoff: 09/15/2017
     - **資源群組**：DNN-RG
 3. 按一下 [登入設定]輸入資料庫認證，然後按一下 [確定]**OK**。 稍後您將在這些步驟中用到這些認證。
 4. 按一下 [SKU] > 選取您為 SQL 主控伺服器 建立的 SQL SKU > [確定]。
-5. 按一下 [建立]。
+5. 按一下 [建立] 。
 
 ### <a name="create-a-dnn-app"></a>建立 DNN 應用程式    
 
@@ -80,17 +80,17 @@ ms.lasthandoff: 09/15/2017
 3. 按一下 [設定必要設定] > [新建] > 輸入 [App Service 方案] 名稱。
 4. 按一下 [定價層] > [F1 免費] > [選取] > [確定]。
 5. 按一下 [資料庫] 並輸入您稍早建立之 SQL 資料庫的資訊。
-6. 按一下 [建立]。
+6. 按一下 [建立] 。
 
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 部署 App Service 資源提供者
-> * 建立供應項目
+> * 建立優惠
 > * 測試供應項目
 
 請前進到下一個教學課程，以了解如何：
 
 > [!div class="nextstepaction"]
-> [將應用程式部署到 Azure 和 Azure Stack](azure-stack-solution-pipeline.md)
+> [將應用程式部署到 Azure 和 Azure Stack](user/azure-stack-solution-pipeline.md)
 

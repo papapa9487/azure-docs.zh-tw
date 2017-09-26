@@ -3,7 +3,7 @@ title: "內部負載平衡器概觀 | Microsoft Docs"
 description: "內部負載平衡器與其功能的概觀。負載平衡器如何作用於 Azure 和可能案例，以設定內部端點"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
-ms.openlocfilehash: d324aaf8ec2c8766d5cf11452158d14c19cba4d9
-ms.lasthandoff: 04/13/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ec07c77119c2da408da21fbdc7877d0b43d16556
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internal-load-balancer-overview"></a>內部負載平衡器概觀
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 不同於網際網路面向的負載平衡器，內部負載平衡器 (ILB) 只會將流量引導到雲端服務內部的資源，或使用 VPN 來存取 Azure 基礎結構。 基礎結構會限制對雲端服務或虛擬網路的負載平衡虛擬 IP 位址 (VIP) 的存取，因此絕對不會直接向網際網路端點公開這些 IP 位址。 這可讓內部企業營運 (LOB) 應用程式在 Azure 中執行，而且可從雲端內或從內部部署資源存取。
 

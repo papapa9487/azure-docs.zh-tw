@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: c88bf04f904d6784b882f524ac8737ca70003c91
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a9f61ec7c051ccdd867aec94121347db19b059b5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 #<a name="introduction-to-r-server-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 R 伺服器與開放原始碼 R 功能簡介
@@ -32,7 +32,7 @@ HDInsight 上的 R 伺服器所提供的最新功能，適用於幾乎任何大�
 
 叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 ScaleR 的平行分散式函數。 您也可以使用 ScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨越叢集的節點來執行這些函數。
 
-可以下載分析所產生的模型或預測，以便在內部部署使用。 它們也可以在 Azure 中的其他地方實際運作，特別是透過 [Azure Machine Learning Studio](http://studio.azureml.net) [Web 服務](../machine-learning/machine-learning-publish-a-machine-learning-web-service.md)。
+可以下載分析所產生的模型或預測，以便在內部部署使用。 它們也可以在 Azure 中的其他地方實際運作，特別是透過 [Azure Machine Learning Studio](http://studio.azureml.net) [Web 服務](../machine-learning/studio/publish-a-machine-learning-web-service.md)。
 
 ## <a name="get-started-with-r-on-hdinsight"></a>開始使用 HDInsight 上的 R
 若要在 HDInsight 叢集中包含 R 伺服器，您必須在使用 Azure 入口網站建立 HDInsight 叢集的時候選取 R 伺服器叢集類型。 R 伺服器叢集類型包括在叢集資料節點上的 R 伺服器，以及在邊緣節點上的 R 伺服器，可當作以 R 伺服器為基礎之分析的登陸區域。 請參閱[開始使用 HDInsight 上的 R 伺服器](hdinsight-hadoop-r-server-get-started.md)，以了解有關如何建立叢集的逐步解說。

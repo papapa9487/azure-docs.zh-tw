@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2a2801e5c506dcc8aa9ca2ecd275b52c72d5fbbf
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>使用 Azure Data Lake Store 處理巨量資料需求
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/21/2017
 | 資料來源 | 內嵌方式 |
 | --- | --- |
 | 本機電腦 |<ul> <li>[Azure 入口網站](/data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure 跨平台 CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li> <li>[使用適用於 Visual Studio 的 Data Lake Tools](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Azure 儲存體 Blob |<ul> <li>[Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)</li> <li>[AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 叢集上執行的 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Azure 儲存體 Blob |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 叢集上執行的 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>串流資料
 代表可能由應用程式、裝置、感應器等各種來源產生的資料。這些資料可透過多種工具內嵌到 Data Lake 存放區。 這些工具通常能以事件為基礎即時擷取及處理資料，然後再以批次將事件寫入 Data Lake 存放區，以供進一步處理。
@@ -57,7 +57,7 @@ ms.lasthandoff: 08/21/2017
 您也可以從關聯式資料庫取得資料。 每經過一段時間，關聯式資料庫就會收集大量資料，在經過巨量資料管線處理後，這些資料將可提供重要情資。 您可以使用下列工具，將這類資料移動到 Data Lake 存放區。
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
+* [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Web 伺服器記錄資料 (使用自訂應用程式上傳)
 我們會特別強調這類資料集的原因在於，因為 Web 伺服器記錄資料是巨量資料應用程式的常見使用案例，且需要將大量記錄檔上傳到 Data Lake 存放區。 您可以使用以下任何工具來撰寫自己的指令碼或應用程式，以便上傳這類資料。
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
 * [Azure 跨平台 CLI 2.0](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [Azure Data Lake 存放區 .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
+* [Azure Data Factory](../data-factory/copy-activity-overview.md)
 
 若要上傳 Web 伺服器記錄資料及上傳其他類型的資料 (如社交情緒資料)，撰寫自己的自訂指令碼/應用程式是個不錯方法，因為您可以彈性地將自己的資料上傳元件納入較大型的巨量資料應用程式中。 在某些情況下，這段程式碼可能會採用指令碼或簡易命令列公用程式的形式。 在其他情況下，程式碼可用來將巨量資料處理整合到商務應用程式或解決方案中。
 
@@ -74,22 +74,22 @@ ms.lasthandoff: 08/21/2017
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 * [AdlCopy 服務](data-lake-store-copy-data-azure-storage-blob.md)
-* [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+* [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>儲存於內部部署環境或 IaaS Hadoop 叢集中的資料
 您可能會使用 HDFS，在本機電腦上將大量資料儲存於現有的 Hadoop 叢集中。 Hadoop 叢集可能位於內部部署環境中，也可能位於 Azure 上的 IaaS 叢集內。 可能有一些需求，要以一次性方法或週期性方式來將這類資料複製到 Azure Data Lake Store。 有各種不同的選項可用來達到此目的。 以下是替代項目和相關考量的清單。
 
 | 方法 | 詳細資料 | 優點 | 考量 |
 | --- | --- | --- | --- |
-| 使用 Azure Data Factory (ADF)，將資料從 Hadoop 叢集直接複製到 Azure Data Lake Store |[ADF 支援 HDFS 做為資料來源](../data-factory/data-factory-hdfs-connector.md) |ADF 針對 HDFS 提供全新支援，以及一流的端對端管理與監視 |需要將「資料管理閘道」部署在內部部署環境或 IaaS 叢集中 |
+| 使用 Azure Data Factory (ADF)，將資料從 Hadoop 叢集直接複製到 Azure Data Lake Store |[ADF 支援 HDFS 做為資料來源](../data-factory/connector-hdfs.md) |ADF 針對 HDFS 提供全新支援，以及一流的端對端管理與監視 |需要將「資料管理閘道」部署在內部部署環境或 IaaS 叢集中 |
 | 從 Hadoop 將資料匯出為檔案。 然後使用適當的機制，將檔案複製到 Azure Data Lake Store。 |您可以使用下列方法，將檔案複製到 Azure Data Lake Store︰ <ul><li>[適用於 Windows OS 的 Azure PowerShell](data-lake-store-get-started-powershell.md)</li><li>[適用於非 Windows OS 的 Azure 跨平台 CLI 2.0](data-lake-store-get-started-cli-2.0.md)</li><li>使用任何 Data Lake Store SDK 的自訂應用程式</li></ul> |快速開始使用。 可以執行自訂的上傳 |牽涉到多種技術的多步驟程序。 考慮到自訂的工具性質，管理和監視會在經過一段時間之後逐漸變成是一項挑戰 |
-| 使用 Distcp，將資料從 Hadoop 複製到 Azure 儲存體。 然後使用適當的機制，將資料從 Azure 儲存體複製到 Data Lake Store。 |您可以使用下列方法，將資料從「Azure 儲存體」複製到 Data Lake Store︰ <ul><li>[Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)</li><li>[AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 叢集上執行的 Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |您可以使用開放原始碼工具。 |牽涉到多種技術的多步驟程序 |
+| 使用 Distcp，將資料從 Hadoop 複製到 Azure 儲存體。 然後使用適當的機制，將資料從 Azure 儲存體複製到 Data Lake Store。 |您可以使用下列方法，將資料從「Azure 儲存體」複製到 Data Lake Store︰ <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 叢集上執行的 Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |您可以使用開放原始碼工具。 |牽涉到多種技術的多步驟程序 |
 
 ### <a name="really-large-datasets"></a>大型資料集
 若要上傳動輒數 TB 的資料集，使用上述方法有時候可能會過於緩慢且昂貴。 此時，您可以使用下列選項。
 
 * **使用 Azure ExpressRoute**。 Azure ExpressRoute 可讓您在 Azure 資料中心與內部部署的基礎結構之間建立私人連線。 這是傳輸大量資料的可靠選項。 如需詳細資訊，請參閱 [Azure ExpressRoute 文件](../expressroute/expressroute-introduction.md)。
-* **「離線」上傳資料**。 如果因為任何原因而無法使用 Azure ExpressRoute，您可以使用 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md) ，將含有您資料的硬碟送到 Azure 資料中心。 您的資料會先上傳到 Azure 儲存體 Blob。 接下來，您可以使用 [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md) 或 [AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)，將資料從 Azure 儲存體 Blob 複製到 Data Lake Store。
+* **「離線」上傳資料**。 如果因為任何原因而無法使用 Azure ExpressRoute，您可以使用 [Azure 匯入/匯出服務](../storage/common/storage-import-export-service.md) ，將含有您資料的硬碟送到 Azure 資料中心。 您的資料會先上傳到 Azure 儲存體 Blob。 接下來，您可以使用 [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) 或 [AdlCopy 工具](data-lake-store-copy-data-azure-storage-blob.md)，將資料從 Azure 儲存體 Blob 複製到 Data Lake Store。
 
   > [!NOTE]
   > 使用「匯入/匯出」服務時，運送到 Azure 資料中心之磁碟上的檔案大小應不大於 195 GB。
@@ -117,7 +117,7 @@ ms.lasthandoff: 08/21/2017
 在這些案例中，您可以使用下列任何選項。
 
 * [Apache Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
-* [Azure Data Factory](../data-factory/data-factory-data-movement-activities.md)
+* [Azure Data Factory](../data-factory/copy-activity-overview.md)
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
 
 您也可以使用下列方法來撰寫自己的指令碼/應用程式，以便從 Data Lake 存放區下載資料。
@@ -131,6 +131,6 @@ ms.lasthandoff: 08/21/2017
 
 ![將 Data Lake Store 中的資料視覺化](./media/data-lake-store-data-scenarios/visualize-data.png "將 Data Lake Store 中的資料視覺化")
 
-* 您可以從使用 [Azure Data Factory 將資料從 Data Lake Store 移到 Azure SQL 資料倉儲](../data-factory/data-factory-data-movement-activities.md#supported-data-stores-and-formats)
+* 您可以從使用 [Azure Data Factory 將資料從 Data Lake Store 移到 Azure SQL 資料倉儲](../data-factory/copy-activity-overview.md)
 * 之後，您可以 [將 Power BI 與 Azure SQL 資料倉儲整合](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) ，以視覺化方式呈現資料。
 
