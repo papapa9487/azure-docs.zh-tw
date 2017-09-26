@@ -12,15 +12,14 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/07/2017
+ms.date: 09/19/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: b02d79fcd9cd2a2ef0041aac4e85528263c8d58a
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e2f26c1abe09feff77e1e2633d8bfcf4ca527aee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>在 Linux 上探索 Azure IoT Edge 架構
@@ -35,7 +34,7 @@ ms.lasthandoff: 06/09/2017
 
 build 指令碼會將 **liblogger.so** 放在 **build/modules/logger/** 資料夾中，並將 **libhello\_world.so** 放在 **build/modules/hello_world/** 資料夾中。 使用這些路徑作為**模組路徑**值 (如下列範例 JSON 設定檔所示)。
 
-hello\_world\_sample 程序會採用 JSON 組態檔的路徑做為命令列引數。 下列範例 JSON 檔案提供於 SDK 儲存裝置中 (位於 **samples/hello\_world/src/hello\_world\_lin.json**)。 除非您修改 build 指令碼以將 IoT Edge 模組或範例可執行檔放置在非預設位置，否則此組態檔將保有原始功能。
+hello\_world\_sample 程序會採用 JSON 組態檔的路徑作為命令列引數。 下列範例 JSON 檔案提供於 SDK 儲存裝置中 (位於 **samples/hello\_world/src/hello\_world\_lin.json**)。 除非您修改 build 指令碼以將 IoT Edge 模組或範例可執行檔放置在非預設位置，否則此組態檔將保有原始功能。
 
 > [!NOTE]
 > 模組路徑是 hello\_world\_sample 可執行檔啟動之目前工作目錄的相對路徑，不是可執行檔所在的目錄。 範例 JSON 組態檔的預設值為在目前的工作目錄中寫入 'log.txt'。

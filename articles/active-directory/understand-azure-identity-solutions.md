@@ -14,10 +14,10 @@ ms.technology:
 ms.assetid: 
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: b7328eea378dde886419be8a4ab5b6f69c0b0d24
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="understand-azure-identity-solutions"></a>了解 Azure 身分識別解決方案
@@ -40,7 +40,7 @@ Microsoft Azure 可提供數種方式，運用包含不同複雜性等級的身�
 |Azure AD 目錄 | 每個 Azure 租用戶都具有專用、受信任的 Azure AD 目錄，其中包含租用戶的使用者、群組和應用程式。 它可用來執行身分識別和存取租用戶資源的管理功能。 當您註冊諸如 Azure、Microsoft Intune 或 Office 365 等 Microsoft 雲端服務時，會自動佈建唯一的 Azure AD 目錄來代表貴組織，因此有時候您會看到租用戶、Azure AD 和 Azure AD directory這些詞彙在交換使用。 |
 |自訂網域 | 當您第一次註冊 Microsoft 雲端服務訂用帳戶時，您的租用戶 (組織) 會使用 .onmicrosoft.com 網域名稱。 不過，大部分的組織會使用一或多個網域名稱來執行業務，並讓使用者用來存取公司資源。 您可以將自訂網域名稱新增至 Azure AD，讓您的使用者熟悉網域名稱，例如 *alice@contoso.com* 而不是 *alice@contoso.onmicrosoft.com*。 |
 |Azure AD 帳戶 | 這些身分識別是使用 Azure AD 或其他 Microsoft 雲端服務 (例如 Office 365) 所建立的。 它們儲存在 Azure AD 中，且組織的任何雲端服務訂用帳戶皆可存取。 |
-|Azure 訂用帳戶管理員| 帳戶管理員就是註冊或購買 Azure 訂用帳戶的人員。 他們可以使用[帳戶中心](https://account.windowsazure.com/Home/Index)來執行各種管理工作，例如，建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式或變更服務管理員。 |
+|Azure 訂用帳戶管理員| 帳戶管理員就是註冊或購買 Azure 訂用帳戶的人員。 他們可以使用[帳戶中心](https://account.azure.com/Subscriptions)來執行各種管理工作，例如，建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式或變更服務管理員。 |
 |Azure AD 全域系統管理員 | Azure AD 全域系統管理員可完整存取所有的 Azure AD 系統管理功能。 依預設，註冊 Microsoft 雲端服務訂用帳戶的人員會自動成為全域系統管理員。 您可以擁有一個以上的全域系統管理員，但只有全域系統管理員才能將任何[其他的系統管理員角色](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)指派給使用者。 |
 |Microsoft 帳戶 | Microsoft 帳戶 (您基於個人用途所建立) 可提供存取消費者導向的 Microsoft 產品和雲端服務，例如 Outlook (Hotmail)、OneDrive、Xbox LIVE 或 Office 365。 會在 Microsoft 所執行的 Microsoft 取用者身分識別帳戶系統中建立這些身分識別並加以儲存。|
 |工作或學校帳戶 | 工作或學校帳戶 (系統管理員為了商業/學術用途所發出) 可提供存取所有企業商業層級 Microsoft 雲端服務，例如 Azure、Intune 或 Office 365。|

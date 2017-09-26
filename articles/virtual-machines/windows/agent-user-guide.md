@@ -15,10 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 6cf561b269c4d873a894b47265e39a057cc415c3
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 24ad2c2d2872f844e32d3fae559683c3d992bd00
-
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虛擬機器代理程式概觀
@@ -82,8 +83,3 @@ foreach ($vm in $vms) {
 ## <a name="upgrade-the-vm-agent"></a>升級 VM 代理程式
 
 適用於 Windows 的 Azure VM 代理程式會自動升級。 當新的虛擬機器部署至 Azure 時，這些機器會收到最新的 VM 代理程式。 自訂 VM 映像應進行手動更新，以包含新的 VM 代理程式。
-
-
-<!--HONumber=Dec16_HO1-->
-
-
