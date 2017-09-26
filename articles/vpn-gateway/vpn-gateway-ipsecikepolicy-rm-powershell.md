@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 798014b6e8d4495db99ef2e2d2ea487ae7d02fd0
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: edeaec04c040d0cbe419f357541915b56c2c33b9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="configure-ipsecike-policy-for-s2s-vpn-or-vnet-to-vnet-connections"></a>設定 S2S VPN 或 VNet 對 VNet 連線的 IPsec/IKE 原則
@@ -74,9 +74,24 @@ IPsec 和 IKE 通訊協定標準支援各種不同的密碼編譯演算法的各
 |  |  |
 
 > [!IMPORTANT]
-> 1. **如果 GCMAES 會用於 IPsec 加密演算法，您必須基於 IPsec 完整性選取相同的 GCMAES 演算法和金鑰長度；例如，針對這兩者使用 GCMAES128**
-> 2. Azure VPN 閘道的 IKEv2 主要模式 SA 存留期會固定為 28,800 秒
-> 3. 在連線上將 "UsePolicyBasedTrafficSelectors" 設定為 $True，將設定 Azure VPN 閘道連線至內部部署的原則式 VPN 防火牆。 如果您啟用 PolicyBasedTrafficSelectors，則必須確定 VPN 裝置的流量選取器已定義內部部署網路 (區域網路閘道) 前置詞往/返 Azure 虛擬網路前置詞的所有組合，而不是任意對任意的組合。 例如，如果內部部署網路的前置詞為 10.1.0.0/16 和 10.2.0.0/16，而虛擬網路的前置詞為 192.168.0.0/16 和 172.16.0.0/16，則需要指定下列流量選取器︰
+> 1. **內部部署 VPN 裝置組態必須符合或包含您在 Azure IPsec/IKE 原則中指定的下列演算法和參數︰**
+>    * IKE 加密演算法 (主要模式/第 1 階段)
+>    * IKE 完整性演算法 (主要模式/第 1 階段)
+>    * DH 群組 (主要模式/第 1 階段)
+>    * IPsec 加密演算法 (快速模式/第 2 階段)
+>    * IPsec 完整性演算法 (快速模式/第 2 階段)
+>    * PFS 群組 (快速模式/第 2 階段)
+>    * 流量選取器 (如果使用 UsePolicyBasedTrafficSelectors)
+>    * SA 存留期只需要在本機指定，不需要相符。
+>
+> 2. **如果 GCMAES 會用於 IPsec 加密演算法，您必須基於 IPsec 完整性選取相同的 GCMAES 演算法和金鑰長度；例如，針對這兩者使用 GCMAES128**
+> 3. 在上表中：
+>    * IKEv2 會對應到主要模式或第 1 階段
+>    * IPsec 會對應到快速模式或第 2 階段
+>    * DH 群組會指定在主要模式或第 1 階段中使用的 Diffie-Hellmen 群組
+>    * PFS 群組會指定在快速模式或第 2 階段中使用的 Diffie-Hellmen 群組
+> 4. Azure VPN 閘道的 IKEv2 主要模式 SA 存留期會固定為 28,800 秒
+> 5. 在連線上將 "UsePolicyBasedTrafficSelectors" 設定為 $True，將設定 Azure VPN 閘道連線至內部部署的原則式 VPN 防火牆。 如果您啟用 PolicyBasedTrafficSelectors，則必須確定 VPN 裝置的流量選取器已定義內部部署網路 (區域網路閘道) 前置詞往/返 Azure 虛擬網路前置詞的所有組合，而不是任意對任意的組合。 例如，如果內部部署網路的前置詞為 10.1.0.0/16 和 10.2.0.0/16，而虛擬網路的前置詞為 192.168.0.0/16 和 172.16.0.0/16，則需要指定下列流量選取器︰
 >    * 10.1.0.0/16 <====> 192.168.0.0/16
 >    * 10.1.0.0/16 <====> 172.16.0.0/16
 >    * 10.2.0.0/16 <====> 192.168.0.0/16
@@ -169,7 +184,7 @@ $vnet1      = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
 $subnet1    = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 $gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku HighPerformance
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
 
 New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix $LNGPrefix61,$LNGPrefix62
 ```
@@ -181,19 +196,19 @@ New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location
 下列範例指令碼會使用下列演算法和參數來建立 IPsec/IKE 原則：
 
 * IKEv2：AES256、SHA384、DHGroup24
-* IPsec：AES256、SHA256、PFS24、SA 存留期 7200 秒和 2048KB
+* IPsec：AES256、SHA256、PFS 無、SA 存留期 7200 秒和 102400000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
 如果您針對 IPsec 使用 GCMAES，就必須針對 IPsec 加密和完整性使用相同的 GCMAES 演算法和金鑰長度，例如：
 
 * IKEv2：AES256、SHA384、DHGroup24
-* IPsec：**GCMAES256、GCMAES256**、PFS24、SA 存留期 7200 秒和 2048KB
+* IPsec：**GCMAES256、GCMAES256**、PFS 無、SA 存留期 7200 秒和 102400000 KB
 
 ```powershell
-$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup PFS24 -SALifeTimeSeconds 7200 -SADataSizeKilobytes 2048
+$ipsecpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup None -SALifeTimeSeconds 7200 -SADataSizeKilobytes 102400000
 ```
 
 #### <a name="2-create-the-s2s-vpn-connection-with-the-ipsecike-policy"></a>2.使用 IPsec/IKE 原則建立 S2S VPN 連線
