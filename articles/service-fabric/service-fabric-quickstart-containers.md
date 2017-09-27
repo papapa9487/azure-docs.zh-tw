@@ -96,7 +96,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 
 在 [連接端點] 欄位中鍵入叢集的連接端點，然後按一下 [發行]。 註冊合作對象叢集時，會在瀏覽器中會提供連線端點，例如 `winh1x87d1d.westus.cloudapp.azure.com:19000`。
 
-開啟瀏覽器並瀏覽至 http://winh1x87d1d.westus.cloudapp.azure.com:80。 您應會看到 IIS 預設網頁：![IIS 預設網頁][iis-default]
+開啟瀏覽器並瀏覽至 http://winh1x87d1d.westus.cloudapp.azure.com:80 。 您應會看到 IIS 預設網頁：![IIS 預設網頁][iis-default]
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>完整範例 Service Fabric 應用程式和服務資訊清單
 以下是本快速入門中使用的完整服務和應用程式資訊清單。
