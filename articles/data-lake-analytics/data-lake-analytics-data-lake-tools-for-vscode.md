@@ -146,7 +146,8 @@ ext install usql-vscode-ext
                       D( DepID, DepName );
          
         OUTPUT @departments
-            TO “/Output/departments.csv”
+            TO "/Output/departments.csv"
+        USING Outputters.Csv();
 
     這個指令碼會在 /output 資料夾中建立 departments.csv 檔案並納入一些資料。
 

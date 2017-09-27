@@ -37,7 +37,7 @@ ms.lasthandoff: 08/21/2017
 | 資料作業 - 驗證通訊協定 |OAuth 2.0。 呼叫必須包含由 Azure Active Directory 發行的有效 JWT (JSON Web 權杖) |雜湊式訊息驗證碼 (HMAC)。 呼叫必須包含透過 HTTP 要求之一部分的 Base64 編碼 SHA-256 雜湊。 |
 | 資料作業 - 授權 |POSIX 存取控制清單 (ACL)  ACL 採用 Azure Active Directory 身分識別，可設為檔案或資料夾層級。 |針對帳戶層級授權 – 使用[帳戶存取金鑰](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>針對帳戶、容器或 Blob 授權 - 使用[共用存取簽章金鑰](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | 資料作業 - 稽核 |可用。 需詳細資訊請參閱 [這裡](data-lake-store-diagnostic-logs.md) 。 |可用 |
-| 待用資料加密 |透明、伺服器端 <ul><li>使用服務管理的金鑰</li><li>在 Azure KeyVault 中使用客戶管理的金鑰</li></ul> |<ul><li>透明、伺服器端</li> <ul><li>使用服務管理的金鑰</li><li>在 Azure KeyVault 中使用客戶管理的金鑰 (即將推出)</li></ul><li>用戶端加密</li></ul> |
+| 待用資料加密 |<ul><li>透明、伺服器端</li> <ul><li>使用服務管理的金鑰</li><li>在 Azure KeyVault 中使用客戶管理的金鑰</li></ul></ul> |<ul><li>透明、伺服器端</li> <ul><li>使用服務管理的金鑰</li><li>在 Azure KeyVault 中使用客戶管理的金鑰 (即將推出)</li></ul><li>用戶端加密</li></ul> |
 | 管理作業 (例如帳戶建立) |[角色型存取控制](../active-directory/role-based-access-control-what-is.md) (RBAC) |[角色型存取控制](../active-directory/role-based-access-control-what-is.md) (RBAC) |
 | 開發人員 SDK |.NET、Java、Python、Node.js |.Net、Java、Python、Node.js、C++、Ruby |
 | 分析的工作負載效能 |平行分析工作負載的效能最佳化。 高輸送量和 IOPS。 |未針對分析工作負載最佳化 |

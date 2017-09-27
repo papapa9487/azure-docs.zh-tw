@@ -151,8 +151,8 @@ Azure 串流分析可讓您快速開發及部署低成本的解決方案，即�
     private static Lazy<ConnectionMultiplexer> lazyConnection = 
         new Lazy<ConnectionMultiplexer>(() =>
             {
-                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString
-                return ConnectionMultiplexer.Connect();
+                var cnn = ConfigurationManager.ConnectionStrings["CONN NAME"].ConnectionString;
+                return ConnectionMultiplexer.Connect(cnn);
             });
 
     public static ConnectionMultiplexer Connection
