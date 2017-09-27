@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/02/2016
 ms.author: cjiang
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: c65ede134971c034006781e058c05a82ffb68a19
 ms.contentlocale: zh-tw
 ms.lasthandoff: 04/03/2017
-
 
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-linux-vms-in-azure"></a>在 Azure 中建立、重新啟動或調整 Linux VM 大小時，對配置失敗進行疑難排解

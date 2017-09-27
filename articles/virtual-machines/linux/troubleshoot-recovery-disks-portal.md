@@ -1,5 +1,4 @@
 ---
-
 title: "在 Azure 入口網站中使用 Linux 疑難排解 VM | Microsoft Docs"
 description: "了解如何使用 Azure 入口網站將 OS 磁碟連接至復原 VM，以針對 Linux 虛擬機器問題進行疑難排解"
 services: virtual-machines-linux
@@ -9,7 +8,7 @@ manager: timlt
 editor: 
 ms.service: virtual-machines-linux
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/14/2016
@@ -19,7 +18,6 @@ ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: c96ff625c3e83f6fc9057f1163c877e8e0aed5e3
 ms.contentlocale: zh-tw
 ms.lasthandoff: 05/12/2017
-
 
 ---
 
