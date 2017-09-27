@@ -69,6 +69,8 @@
           href: container-service-deploy-spring-boot-app-on-linux.md
         - name: 將 Spring Boot 應用程式部署到 Azure Container Service 中的 Kubernetes 叢集
           href: container-service-deploy-spring-boot-app-on-kubernetes.md
+        - name: 使用 fabric8 Maven 外掛程式部署 Spring Boot 應用程式
+          href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: 參考
   items:
     - name: Azure CLI 2.0

@@ -53,7 +53,7 @@
 #### [Windows](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
 
 ## 自動化
-### [使用 PowerShell 來部署和管理通知中樞](notification-hubs-deploy-and-manage-powershell.md)
+### [使用 Azure PowerShell 來部署和管理通知中樞](notification-hubs-deploy-and-manage-powershell.md)
 ### [傳送排定通知](notification-hubs-send-push-notifications-scheduled.md)
 
 ## 疑難排解
@@ -61,7 +61,7 @@
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs)
-## [PowerShell](/powershell/module/azurerm.notificationhubs)
+## [Azure PowerShell](/powershell/module/azurerm.notificationhubs)
 ## [.NET](/dotnet/api/microsoft.azure.notificationhubs)
 ## [REST](/rest/api/notificationhubs)
 

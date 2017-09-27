@@ -2,11 +2,12 @@
 ## [特殊權限的安全存取](active-directory-securing-privileged-access.md)
 ## [什麼是 Azure AD PIM？](../active-directory-privileged-identity-management-configure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [角色](../active-directory-privileged-identity-management-roles.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [Azure AD Privileged Identity Management](azure-pim-resource-rbac.md)
 ## [Privileged Identity Management 核准的工作流程](azure-ad-pim-approval-workflow.md)
 
 # 開始使用
 ## [訂用帳戶需求](subscription-requirements.md)
-## [開始使用入口網站](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+## [在 Azure 入口網站中開始使用](../active-directory-privileged-identity-management-getting-started.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [安全性精靈](../active-directory-privileged-identity-management-security-wizard.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 ## [授與 PIM 存取](../active-directory-privileged-identity-management-how-to-give-access-to-pim.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
 

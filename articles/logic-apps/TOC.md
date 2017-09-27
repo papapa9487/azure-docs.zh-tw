@@ -19,8 +19,19 @@
 ### [批次程序訊息](logic-apps-batch-process-send-receive-messages.md)
 ### [撰寫邏輯應用程式定義](logic-apps-author-definitions.md)
 ### [呼叫、觸發或巢狀邏輯應用程式](logic-apps-http-endpoint.md)
-### [建立邏輯應用程式的自訂 API](logic-apps-create-api-app.md)
-### [呼叫邏輯應用程式的自訂 API](logic-apps-custom-hosted-api.md)
+### 開發自訂連接器
+#### [自訂連接器概觀](custom-connector-overview.md)
+#### [從 Web API 建立連接器](custom-connector-build-web-api-app-tutorial.md)
+#### [使用 Azure AD 保護連接器](custom-connector-azure-active-directory-authentication.md)
+#### [使用 Postman 描述 API](custom-connector-api-postman-collection.md)
+#### [擴充 OpenAPI 以便使用自訂連接器](custom-connector-openapi-extensions.md)
+#### [註冊您的連接器](logic-apps-custom-connector-register.md)
+#### [認證您的連接器](custom-connector-submit-certification.md)
+#### [自訂連接器的常見問題集](custom-connector-faq.md)
+### 開發自訂 API
+#### [建立邏輯應用程式的自訂 API](logic-apps-create-api-app.md)
+#### [保護自訂 API 的呼叫](logic-apps-custom-api-authentication.md)
+#### [部署和呼叫自訂 API](logic-apps-custom-api-host-deploy-call.md)
 ### [處理錯誤和例外狀況](logic-apps-exception-handling.md)
 ### [處理內容類型](logic-apps-content-type.md)
 ### [保護邏輯應用程式](logic-apps-securing-a-logic-app.md)
@@ -73,8 +84,7 @@
 #### [X12 追蹤結構描述](logic-apps-track-integration-account-x12-tracking-schema.md)
 #### [自訂追蹤結構描述](logic-apps-track-integration-account-custom-tracking-schema.md)
 
-## 範例、案例和逐步解說
-### [概觀](logic-apps-examples-and-scenarios.md)
+## [範例、案例和逐步解說](logic-apps-examples-and-scenarios.md)
 ### [建立無伺服器的社交儀表板](logic-apps-scenario-social-serverless.md)
 ### [使用 Azure Functions 呼叫邏輯應用程式](logic-apps-scenario-function-sb-trigger.md)
 ### [新增錯誤和例外狀況處理](logic-apps-scenario-error-and-exception-handling.md)
@@ -98,7 +108,7 @@
 ## [工作流程定義語言](logic-apps-workflow-definition-language.md)
 ## [工作流程動作與觸發程序](logic-apps-workflow-actions-triggers.md)
 ## [REST API](/rest/api/logic/)
-## [PowerShell](/powershell/module/azurerm.logicapp)
+## [Azure PowerShell](/powershell/module/azurerm.logicapp)
 ## 連接器︰深入主題
 ### [AS2](logic-apps-enterprise-integration-as2.md)
 ### [Azure Blob 儲存體](../connectors/connectors-create-api-azureblobstorage.md)

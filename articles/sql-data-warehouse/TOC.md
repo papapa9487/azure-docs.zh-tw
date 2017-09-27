@@ -8,7 +8,8 @@
 # 開始使用
 
 ## [初學者教學課程](sql-data-warehouse-get-started-tutorial.md)
-## [最佳做法](sql-data-warehouse-best-practices.md)
+## [彈性查詢教學課程](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md)
+## [最佳作法](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
 
 
@@ -20,7 +21,7 @@
 ### [備份概觀](sql-data-warehouse-backups.md)
 ### [還原概觀](sql-data-warehouse-restore-database-overview.md)
 #### [Azure 入口網站](sql-data-warehouse-restore-database-portal.md)
-#### [PowerShell](sql-data-warehouse-restore-database-powershell.md)
+#### [Azure PowerShell](sql-data-warehouse-restore-database-powershell.md)
 #### [REST](sql-data-warehouse-restore-database-rest-api.md)
 
 ## 連線
@@ -34,7 +35,7 @@
 
 ## 建立
 ### [Azure 入口網站](sql-data-warehouse-get-started-provision.md)
-### [PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
+### [Azure PowerShell](sql-data-warehouse-get-started-provision-powershell.md)
 ### [T-SQL](sql-data-warehouse-get-started-create-database-tsql.md)
 
 ## 開發
@@ -79,6 +80,8 @@
 ### [Power BI](sql-data-warehouse-integrate-power-bi.md)
 ### [Power BI 視覺效果](sql-data-warehouse-get-started-visualize-with-power-bi.md)
 ### [串流分析](sql-data-warehouse-integrate-azure-stream-analytics.md)
+
+### [使用 SQL Database 和 SQL 資料倉儲進行彈性查詢](how-to-use-elastic-query-with-sql-data-warehouse.md)
 
 ## 載入
 

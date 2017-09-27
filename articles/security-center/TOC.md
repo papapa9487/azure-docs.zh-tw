@@ -74,6 +74,7 @@
 
 ## 雲端防禦
 ### [及時存取](security-center-just-in-time.md)
+### [自動調整應用程式控制項](security-center-adaptive-application.md)
 
 ## 自動化與協調流程
 ### [Playbooks](security-center-playbooks.md)

@@ -24,7 +24,7 @@
 ###[使用虛擬網路保護快取](cache-how-to-premium-vnet.md)
 ###[利用叢集來散發您的快取](cache-how-to-premium-clustering.md)
 ## 自動化
-###[使用 Powershell 進行部署和管理](cache-howto-manage-redis-cache-powershell.md)
+###[使用 Azure Powershell 進行部署和管理](cache-howto-manage-redis-cache-powershell.md)
 ###[使用 Azure CLI 進行部署和管理](cli-samples.md)
 ###[佈建 Redis 快取](cache-redis-cache-arm-provision.md)
 ###[佈建 Web 應用程式和 Redis 快取](cache-web-app-arm-with-redis-cache-provision.md)
@@ -32,13 +32,13 @@
 ###[工作階段狀態提供者](cache-aspnet-session-state-provider.md)
 ###[輸出快取提供者](cache-aspnet-output-cache-provider.md)
 ## 管理
-###[在入口網站中設定](cache-configure.md)
+###[在 Azure 入口網站中進行設定](cache-configure.md)
 ###[設定異地複寫](cache-how-to-geo-replication.md)
 ###[匯入/匯出資料](cache-how-to-import-export-data.md)
 ###[重新啟動](cache-administration.md#reboot)
 ###[排程更新](cache-administration.md#schedule-updates)
 ## 監視及疑難排解
-###[在入口網站中監視](cache-how-to-monitor.md)
+###[在 Azure 入口網站中進行監視](cache-how-to-monitor.md)
 ###[快取問題進行疑難排解](cache-how-to-troubleshoot.md)
 ###[為例外狀況設定警示](cache-how-to-monitor.md#operations-and-alerts)
 ## 調整
@@ -49,8 +49,8 @@
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=redis-cache)
-## [PowerShell](/powershell/module/azurerm.rediscache)
-## [Azure CLI 2.0 Preview](/cli/azure/redis)
+## [Azure PowerShell](/powershell/module/azurerm.rediscache)
+## [Azure CLI 預覽](/cli/azure/redis)
 ## [.NET](/dotnet/api/microsoft.azure.management.redis)
 ## [Java](/java/api/com.microsoft.azure.management.redis._redis_cache)
 ## [Redis 用戶端](http://redis.io/clients)

@@ -65,23 +65,26 @@ sections:
           - html: <a href="/azure/virtual-machines/windows/tutorial-azure-security">管理 VM 安全性</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-vsts-iis-cicd">使用 Visual Studio 建立持續整合管線</a>
           - html: <a href="/azure/virtual-machines/windows/tutorial-secure-web-server">使用 SSL 保護 Web 伺服器</a>
-  - title: 免費 PluralSight 影片訓練
+  - title: 免費 Pluralsight 影片訓練
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">管理基礎結構</a></p>'
+          - title: 管理基礎結構
+            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-infrastructure.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">開始使用虛擬機器</a></p>'
+          - title: 開始使用虛擬機器
+            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-vms.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">開始使用 IaaS 監視</a></p>'
+          - title: 開始使用 IaaS 監視
+            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/video-training-iaas-monitoring.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
   - title: 範例
     items:

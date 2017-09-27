@@ -45,6 +45,7 @@
 ## 部署組態管理 (DSC)
 ### [期望狀態設定 (DSC) 概觀](automation-dsc-overview.md)
 ### [開始使用](automation-dsc-getting-started.md)
+### [使用 Azure 自動化將伺服器設定為所需狀態並管理漂移](tutorial-configure-servers-desired-state.md)
 ### [上架管理機器](automation-dsc-onboarding.md)
 ### [編譯 DSC 設定](automation-dsc-compile.md)
 ### [使用 Chocolatey 持續進行部署](automation-dsc-cd-chocolatey.md)
@@ -68,8 +69,12 @@
 ### [從 Log Analytics 警示呼叫 Azure 自動化 Runbook](automation-invoke-runbook-from-omsla-alert.md)
 ### [在 Azure 自動化 PowerShell Runbook 中部署 Azure Resource Manager 範本](automation-deploy-template-runbook.md)
 ## 解決方案
-### [變更追蹤](../log-analytics/log-analytics-change-tracking.md)
 ### [更新管理](../operations-management-suite/oms-solution-update-management.md)
+#### [管理多個 VM 的更新](manage-update-multi.md)
+#### [整合 SCCMr 與 OMS 更新管理](oms-solution-updatemgmt-sccmintegration.md)
+### [變更追蹤](../log-analytics/log-analytics-change-tracking.md)
+### [追蹤 VM 的變更](automation-vm-change-tracking.md)
+### [使用清查集合來管理 VM](automation-vm-inventory.md)
 ### [於下班時間開始/停止 VM](automation-solution-vm-management.md)
 ## 監視
 ### [將 Azure 自動化作業資料轉送到 Log Analytics](automation-manage-send-joblogs-log-analytics.md)
@@ -81,8 +86,8 @@
 ### [針對常見錯誤進行疑難排解](automation-troubleshooting-automation-errors.md)
 ### [混合式 Runbook 背景工作的疑難排解](automation-troubleshooting-hybrid-runbook-worker.md)
 # 參考
-## [PowerShell](/powershell/module/azurerm.automation)
-## [PowerShell (傳統)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/module/azurerm.automation)
+## [Azure PowerShell (傳統)](/powershell/module/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](/rest/api/automation)
 ## [REST (傳統)](https://msdn.microsoft.com/library/azure/mt163781)

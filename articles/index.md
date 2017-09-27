@@ -4,10 +4,10 @@ hide_bc: true
 title: "Microsoft Azure 文件"
 description: "了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。"
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: f1b498499f02b3dd6d83debee6eaaf846ec01839
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1e8b6749e445b7b8787b5b0246445a2bb810f80f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 <div id="main" class="v2">
@@ -67,10 +67,10 @@ ms.lasthandoff: 09/20/2017
                     </div>
                 </a>
             </li>
-        </ul>             
+        </ul>
     </div>
     <div class="container">
-        <h1 class="screenReader">Microsoft Azure 文件</h1>   
+        <h1 class="screenReader">Microsoft Azure 文件</h1>
         <ul class="pivots">
             <li>
                 <a href="#get-started">開始使用</a>
@@ -98,6 +98,34 @@ ms.lasthandoff: 09/20/2017
                                         </div>
                                     </div>
                                 </div>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>管理資源</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/monitoring-and-diagnostics/">Azure 監視器</a></li>
+                                                    <li><a class="barLink" href="/azure/application-insights/">Azure Application Insights</a></li>
+                                                    <li><a class="barLink" href="/azure/cost-management/">Azure 成本管理</a></li>
+                                                    <li><a class="barLink" href="/azure/backup/">Azure 備份</a></li>
+                                                    <li><a class="barLink" href="/azure/site-recovery/">Azure Site Recovery</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardText">
+                                                <h3>混合式</h3>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/azure-stack/">Azure Stack</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </li>
                             <li>
                                 <div class="cardSize">
@@ -105,38 +133,37 @@ ms.lasthandoff: 09/20/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>開發應用程式</h3>
-                                                <div class="cols cols2">
-                                                    <div>
+                                                <table cellpadding="0" cellspacing="0" border="0"><tr><td style="border-top-color:transparent!important;padding-left:0;">
+                                                <ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" href="/dotnet/azure/?view=azure-dotnet">
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/python/azure/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/java/azure/">
                                                             <img src="media/index/logo_java.svg" alt=""> Java</a>
-                                                    </div>
-                                                    <div>
+                                                    </li></ul></td><td style="border-top-color:transparent!important;padding-left:0;"><ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" href="/azure/app-service-web/app-service-web-get-started-php">
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
-                                                    </div>
-                                                    <div>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <h4>應用程式模型</h4>
-                                                    <ul class="noBullet">
-                                                        <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
-                                                        <li><a class="barLink" href="/azure/azure-functions/">無伺服器#</a></li>
-                                                        <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
-                                                        <li><a class="barLink" href="/azure/container-service/kubernetes/">搭配 Kubernetes 的容器</a></li>
-                                                        <li><a class="barLink" href="/azure/service-fabric/">搭配 Service Fabric 的微服務</a></li>
-                                                    </ul>
-                                                </div>
+                                                    </li>
+                                                </ul></td></tr></table>
+                                               <h4>應用程式模型</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">無伺服器#</a></li>
+                                                    <li><a class="barLink" href="/azure/container-instances/">Container Instances</a></li>
+                                                    <li><a class="barLink" href="/azure/container-service/kubernetes/">搭配 Kubernetes 的容器</a></li>
+                                                    <li><a class="barLink" href="/azure/service-fabric/">搭配 Service Fabric 的微服務</a></li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -150,16 +177,21 @@ ms.lasthandoff: 09/20/2017
                                                 <h3>管理資料和 AI</h3>
                                                 <h4>關聯式資料庫</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database 即服務</a></li>
-                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 即服務</a></li>
-                                                    <li><a class="barLink" href="/azure/mysql/">MySQL 即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL 資料庫即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/postgresql/">PostgreSQL 資料庫即服務</a></li>
+                                                    <li><a class="barLink" href="/azure/mysql/">MySQL 資料庫即服務</a></li>
                                                 </ul>
                                                 <h4>NoSQL</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
+                                                <h4>儲存體</h4>
+                                                <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/storage/">Blob 儲存體</a></li>
+                                                </ul>
                                                 <h4>辨識服務</h4>
                                                 <ul class="noBullet">
+                                                    <li><a class="barLink" href="/azure/machine-learning/preview">機器學習服務</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/computer-vision/">電腦視覺 API</a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/face/">臉部 API</a></li>
                                                 </ul>
@@ -174,16 +206,16 @@ ms.lasthandoff: 09/20/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>命令列工具</h3>
-                                                <div class="cols">
-                                                    <div>
+                                                <ul class="noBullet">
+                                                    <li>
                                                         <a class="barLink" href="/cli/azure/overview">
-                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI</a>
-                                                    </div>
-                                                    <div>
+                                                            <img src="media/index/azure_dev-7.svg" alt=""> Azure CLI </a>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
-                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell</a>
-                                                    </div>
-                                                </div>
+                                                            <img src="media/index/azure_dev-8.svg" alt=""> Azure PowerShell </a>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -195,16 +227,16 @@ ms.lasthandoff: 09/20/2017
                                         <div class="card">
                                             <div class="cardText">
                                                 <h3>DevOps</h3>
-                                                <div class="cols">
-                                                    <div>
-                                                        <a class="barLink" href="https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins">
-                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_visual-studio.svg" alt=""> Visual Studio Team Services</a>
-                                                    </div>
-                                                    <div>
+                                                <ul class="noBullet">
+                                                    <li>
+                                                        <a class="barLink" href="https://docs.microsoft.com/vsts/deploy-azure/">
+                                                            <img src="https://docs.microsoft.com/en-us/media/logos/logo_vs-team-services.svg" alt=""> 部署至 Azure </a>
+                                                    </li>
+                                                    <li>
                                                         <a class="barLink" href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">
                                                             <img src="https://docs.microsoft.com/en-us/media/logos/logo_jenkins.svg" alt="">Azure VM 上的 Jenkins</a>
-                                                    </div>
-                                                </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -215,17 +247,16 @@ ms.lasthandoff: 09/20/2017
                             <li></li>
                             <li class="bottomRightItem">
                                 <a href="https://aka.ms/j3wr7y">
-                                <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">檢視所有 Azure 服務<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z"/></svg></button>
+                                    <button style="cursor: pointer;position: relative; background: #0050C5; border:none; padding:8px 16px; padding-right:30px;color: white; font-size:14px;">檢視所有 Azure 服務<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 14" style="fill:white;height: 14px;position: absolute;bottom: 13px;right: 12px;width: 1em;"><path d="M7.4 7L1 .6l.6-.6 7 7-7 7-.6-.7L7.4 7z" /></svg></button>
                                 </a>
-                            </li>
                             </li>
                         </ul>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="#services">服務</a>
-                <ul id="services">
+                <a href="#products">產品</a>
+                <ul id="products">
                     <li>
                         <a href="#all">全部</a>
                         <ul id="all" class="directory">
@@ -270,11 +301,23 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/container-service/">
+                                                <img src="media/index/containerservice.svg" alt="" />
+                                                <p>Azure Container Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
+                                                <p>批次</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                         <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
@@ -297,6 +340,18 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/mysql/">
+                                                <img src="media/index/MySQL.svg" alt="" />
+                                                <p>適用於 MySQL 的 Azure 資料庫</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/postgresql/">
+                                                <img src="media/index/PostgreSQL.svg" alt="" />
+                                                <p>適用於 PostgreSQL 的 Azure 資料庫</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
                                                 <p>SQL 資料倉儲</p>
@@ -315,15 +370,9 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/postgresql/">
-                                                <img src="media/index/PostgreSQL.svg" alt="" />
-                                                <p>PostgreSQL</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/mysql/">
-                                                <img src="media/index/MySQL.svg" alt="" />
-                                                <p>MySQL</p>
+                                            <a href="/azure/cosmos-db/table-storage-overview">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>資料表儲存體</p>
                                             </a>
                                         </li>
                                         <li>
@@ -332,25 +381,19 @@ ms.lasthandoff: 09/20/2017
                                                 <p>Redis 快取</p>
                                             </a>
                                         </li>
-                                        <li>
-                                            <a href="/azure/data-factory/">
-                                                <img src="media/index/DataFactory.svg" alt="" />
-                                                <p>Data Factory</p>
-                                            </a>
-                                        </li>
                                     </ul>
                                     <h3>容器</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-instances/">
-                                                <img src="media/index/ContainerInstances.svg" alt="" />
-                                                <p>Azure Container Instances</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-instances/">
+                                                <img src="media/index/ContainerInstances.svg" alt="" />
+                                                <p>Azure Container Instances</p>
                                             </a>
                                         </li>
                                         <li>
@@ -366,15 +409,15 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/app-service/">
+                                            <a href="/azure/app-service/containers/">
                                                 <img src="media/index/AppService.svg" alt="" />
-                                                <p>App Service</p>
+                                                <p>適用於容器的 Web 應用程式</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/batch/">
                                                 <img src="media/index/Batch.svg" alt="" />
-                                                <p>Batch</p>
+                                                <p>批次</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -411,9 +454,21 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>資料目錄</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-factory/">
                                                 <img src="media/index/DataFactory.svg" alt="" />
                                                 <p>Data Factory</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Event Grid</p>
                                             </a>
                                         </li>
                                         <li>
@@ -423,7 +478,22 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                     </ul>
-                                    <h3>其他雲端</h3>
+                                    <h3>Azure Stack</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/azure-stack/">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack 操作員</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-stack/user">
+                                                <img src="media/index/azure-stack.svg" alt="" />
+                                                <p>Azure Stack 使用者</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <h3>Sovereign Clouds</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/azure-government/">
@@ -435,12 +505,6 @@ ms.lasthandoff: 09/20/2017
                                             <a href="/azure/germany/">
                                                 <img src="media/index/azure-germany.svg" alt="" />
                                                 <p>Azure Germany</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/azure-stack/">
-                                                <img src="media/index/azure-stack.svg" alt="" />
-                                                <p>Azure Stack</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -487,11 +551,11 @@ ms.lasthandoff: 09/20/2017
                                         <li>
                                             <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>內容傳遞網路</p>
                                             </a>
                                         </li>
                                         <li>
-                                        <a href="/azure/traffic-manager/">
+                                            <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>流量管理員</p>
                                             </a>
@@ -500,6 +564,12 @@ ms.lasthandoff: 09/20/2017
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
                                                 <p>ExpressRoute</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/virtual-network/ddos-protection-overview">
+                                                <img src="media/index/ddos.svg" alt="" />
+                                                <p>DDOS 保護</p>
                                             </a>
                                         </li>
                                         <li>
@@ -512,105 +582,21 @@ ms.lasthandoff: 09/20/2017
                                     <h3>辨識服務</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/cognitive-services/emotion/home">
-                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
-                                                <p>表情 API</p>
+                                            <a href="/azure/machine-learning/preview">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning 服務</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/face/">
-                                                <img src="media/index/API_Vis_Face.svg" alt="" />
-                                                <p>臉部</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/academic-knowledge/home">
-                                                <img src="media/index/API_Know_Academic.svg" alt="" />
-                                                <p>學術知識 API</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
-                                                <img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />
-                                                <p>Bing 自動建議</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-custom-search/overview">
-                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                <p>Bing 自訂搜尋</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-image-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingImageSearch.svg" alt="" />
-                                                <p>Bing 圖片</p>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/cs-bing-knowledge-graph.svg" alt="" />
-                                                <p>Bing Knowledge Graph</p>
-                                            </a>
-                                        </li> -->
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
-                                                <p>Bing 新聞</p>
-                                            </a>
-                                        </li>
-                                        <!-- <li>
-                                            <a href="/azure/cognitive-services/">
-                                                <img src="media/index/API_Spc_BingSpeech.svg" alt="" />
-                                                <p>Bing Speech Service</p>
-                                            </a>
-                                        </li> -->
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-spell-check/proof-text">
-                                                <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
-                                                <p>Bing 拼字檢查</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-video-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />
-                                                <p>Bing 影片</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
-                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                <p>Bing Web 搜尋</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/computer-vision/">
-                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
-                                                <p>電腦視覺</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/content-moderator/overview">
-                                                <img src="media/index/cs-content-moderator.svg" alt="" />
-                                                <p>內容仲裁</p>
+                                            <a href="/bot-framework/azure-bot-service-overview">
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Azure Bot 服務</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview">
                                                 <img src="media/index/cs-decision-maker.svg" alt="" />
                                                 <p>自訂決策服務</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
-                                                <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
-                                                <p>自訂語音服務</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/Custom-Vision-Service/home">
-                                                <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>自訂辨識搜尋</p>
                                             </a>
                                         </li>
                                         <li>
@@ -626,18 +612,6 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/luis/home">
-                                                <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
-                                                <p>Language Understanding Intelligent Services (LUIS)</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/linguisticanalysisapi/home">
-                                                <img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" />
-                                                <p>語言</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/cognitive-services/qnamaker/home">
                                                 <img src="media/index/API_Know_QandA_Maker.svg" alt="" />
                                                 <p>QnAMaker</p>
@@ -650,9 +624,27 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/speaker-recognition/home">
-                                                <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
-                                                <p>說話者辨識</p>
+                                            <a href="/azure/cognitive-services/academic-knowledge/home">
+                                                <img src="media/index/API_Know_Academic.svg" alt="" />
+                                                <p>學術知識 API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-spell-check/proof-text">
+                                                <img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />
+                                                <p>Bing 拼字檢查</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/luis/home">
+                                                <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
+                                                <p>Language Understanding Intelligent Services (LUIS)</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/linguisticanalysisapi/home">
+                                                <img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" />
+                                                <p>語言分析</p>
                                             </a>
                                         </li>
                                         <li>
@@ -662,27 +654,117 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/translator/translator-info-overview">
+                                            <a href="/azure/cognitive-services/translator/">
                                                 <img src="media/index/cognitive-services-translator.svg" alt="" />
-                                                <p>翻譯</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/cs-video.svg" alt="" />
-                                                <p>影片</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
-                                                <img src="media/index/cs-video-indexer.svg" alt="" />
-                                                <p>影片索引子</p>
+                                                <p>Translator Text API</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/web-language-model/home">
                                                 <img src="media/index/API_Lang_WebLM.svg" alt="" />
                                                 <p>Web 語言模型</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-news-search/search-the-web">
+                                                <img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />
+                                                <p>Bing 新聞</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-video-search/search-the-web">
+                                                <img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />
+                                                <p>Bing 影片搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-web-search/search-the-web">
+                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
+                                                <p>Bing Web 搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms">
+                                                <img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />
+                                                <p>Bing 自動建議</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-custom-search/overview">
+                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
+                                                <p>Bing 自訂搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-entities-search/overview">
+                                                <img src="media/index/API_Sear_BingSearch.svg" alt="" />
+                                                <p>Bing 實體搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/bing-image-search/search-the-web">
+                                                <img src="media/index/API_Sear_BingImageSearch.svg" alt="" />
+                                                <p>Bing 影像搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speech/">
+                                                <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
+                                                <p>Bing 語音服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
+                                                <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
+                                                <p>自訂語音服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/speaker-recognition/home">
+                                                <img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" />
+                                                <p>說話者辨識</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/computer-vision/">
+                                                <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
+                                                <p>電腦視覺</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/content-moderator/overview">
+                                                <img src="media/index/cs-content-moderator.svg" alt="" />
+                                                <p>內容仲裁</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/Custom-Vision-Service/home">
+                                                <img src="media/index/cs-custom-vision.svg" alt="" />
+                                                <p>自訂辨識搜尋</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/emotion/home">
+                                                <img src="media/index/API_Vis_Emotion.svg" alt="" />
+                                                <p>Emotion API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/face/">
+                                                <img src="media/index/API_Vis_Face.svg" alt="" />
+                                                <p>人臉識別 API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video/home">
+                                                <img src="media/index/cs-video.svg" alt="" />
+                                                <p>影片 API</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
+                                                <img src="media/index/cs-video-indexer.svg" alt="" />
+                                                <p>影片索引子</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -705,9 +787,9 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/virtual-machines/disks/">
-                                                <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>磁碟</p>
+                                            <a href="/azure/storage/queues/storage-queues-introduction/">
+                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                <p>佇列儲存體</p>
                                             </a>
                                         </li>
                                         <li>
@@ -717,15 +799,15 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/storage/queues/storage-queues-introduction/">
-                                                <img src="media/index/logo_azure-storage-q.svg" alt="" />
-                                                <p>佇列儲存體</p>
+                                            <a href="/azure/virtual-machines/disks/">
+                                                <img src="media/index/Disks-color.svg" alt="" />
+                                                <p>磁碟儲存體</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-store/">
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>資料湖存放區</p>
+                                                <p>Data Lake Store</p>
                                             </a>
                                         </li>
                                         <li>
@@ -745,7 +827,7 @@ ms.lasthandoff: 09/20/2017
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
                                                 <p>Site Recovery</p>
                                             </a>
-                                        </li>                                        
+                                        </li>
                                     </ul>
                                     <h3>資料及分析</h3>
                                     <ul>
@@ -756,21 +838,9 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/">
-                                                <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>Machine Learning</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
                                                 <p>串流分析</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/data-catalog/">
-                                                <img src="media/index/data-catalog.svg" alt="" />
-                                                <p>資料目錄</p>
                                             </a>
                                         </li>
                                         <li>
@@ -780,9 +850,15 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/data-lake-store/">
-                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
-                                                <p>Data Lake Store</p>
+                                            <a href="/azure/analysis-services/">
+                                                <img src="media/index/AnalysisServices.svg" alt="" />
+                                                <p>Analysis Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-hubs/">
+                                                <img src="media/index/eventhubs.svg" alt="" />
+                                                <p>事件中樞</p>
                                             </a>
                                         </li>
                                         <li>
@@ -792,29 +868,41 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/en-us/azure/sql-data-warehouse/">
+                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                <p>SQL 資料倉儲</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/machine-learning/studio">
+                                                <img src="media/index/MachineLearning.svg" alt="" />
+                                                <p>Machine Learning Studio</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>資料目錄</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/data-lake-store/">
+                                                <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                <p>Data Lake Store</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/power-bi-embedded/">
                                                 <img src="media/index/PowerBIEmbedded.svg" alt="" />
                                                 <p>Power BI Embedded</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/analysis-services/">
-                                                <img src="media/index/AnalysisServices.svg" alt="" />
-                                                <p>Analysis Services</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
-                                                <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Azure Bot 服務</p>
                                             </a>
                                         </li>
                                     </ul>
                                     <h3>開發人員工具</h3>
                                     <ul>
                                         <li>
-                                            <a href="https://www.visualstudio.com/docs/overview">
-                                                <img src="media/index/VisualStudioTeamServices.svg" alt="" />
+                                            <a href="/vsts/">
+                                                <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                 <p>Visual Studio Team Services</p>
                                             </a>
                                         </li>
@@ -840,6 +928,12 @@ ms.lasthandoff: 09/20/2017
                                             <a href="https://support.hockeyapp.net/kb">
                                                 <img src="media/index/HockeyApp.svg" alt="" />
                                                 <p>HockeyApp</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                                <img src="media/index/logo_xamarin.svg" alt="" />
+                                                <p>Xamarin</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -871,14 +965,8 @@ ms.lasthandoff: 09/20/2017
                                         </li>
                                         <li>
                                             <a href="/azure/event-hubs/">
-                                                <img src="media/index/EventHubs.svg" alt="" />
+                                                <img src="media/index/eventhubs.svg" alt="" />
                                                 <p>事件中樞</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/notification-hubs/">
-                                                <img src="media/index/NotificationHubs.svg" alt="" />
-                                                <p>通知中樞</p>
                                             </a>
                                         </li>
                                         <li>
@@ -888,15 +976,39 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/machine-learning/">
+                                            <a href="/azure/machine-learning/preview">
                                                 <img src="media/index/MachineLearning.svg" alt="" />
-                                                <p>機器學習服務</p>
+                                                <p>Machine Learning 服務</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/notification-hubs/">
+                                                <img src="media/index/NotificationHubs.svg" alt="" />
+                                                <p>通知中樞</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/time-series-insights/">
                                                 <img src="media/index/time-series-insights.svg" alt="" />
                                                 <p>Time Series Insights</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/event-grid/">
+                                                <img src="media/index/azure_event_grid.svg" alt="" />
+                                                <p>Event Grid</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cosmos-db/">
+                                                <img src="media/index/cosmosdb.svg" alt="" />
+                                                <p>Azure Cosmos DB</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/logic-apps/">
+                                                <img src="media/index/LogicApp.svg" alt="" />
+                                                <p>Logic Apps</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -911,6 +1023,12 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/app-service/containers/">
+                                                <img src="media/index/AppService.svg" alt="" />
+                                                <p>適用於容器的 Web 應用程式</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/app-service-mobile/">
                                                 <img src="media/index/app-service-mobile.svg" alt="" />
                                                 <p>Mobile Apps</p>
@@ -919,19 +1037,13 @@ ms.lasthandoff: 09/20/2017
                                         <li>
                                             <a href="/azure/app-service-api/">
                                                 <img src="media/index/app-service-api.svg" alt="" />
-                                                <p>API Apps</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/logic-apps/">
-                                                <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>API 應用程式</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/cdn/">
                                                 <img src="media/index/ContentDeliveryNetwork.svg" alt="" />
-                                                <p>CDN</p>
+                                                <p>內容傳遞網路</p>
                                             </a>
                                         </li>
                                         <li>
@@ -943,7 +1055,7 @@ ms.lasthandoff: 09/20/2017
                                         <li>
                                             <a href="/azure/search/">
                                                 <img src="media/index/Search.svg" alt="" />
-                                                <p>搜尋</p>
+                                                <p>Azure 搜尋服務</p>
                                             </a>
                                         </li>
                                         <li>
@@ -968,6 +1080,12 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>開發人員適用的 Azure Active Directory</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
                                                 <p>金鑰保存庫</p>
@@ -988,7 +1106,7 @@ ms.lasthandoff: 09/20/2017
                                         <li>
                                             <a href="/azure/active-directory-domain-services">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
-                                                <p>Azure Active Directory Domain Services</p>
+                                                <p>Azure Active Directory for Domain Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1007,6 +1125,24 @@ ms.lasthandoff: 09/20/2017
                                     <h3>監視 + 管理</h3>
                                     <ul>
                                         <li>
+                                            <a href="/azure/azure-policy/">
+                                                <img src="media/index/governance.svg" alt="" />
+                                                <p>Azure 原則</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cost-management/">
+                                                <img src="media/index/billing.svg" alt="" />
+                                                <p>Azure 成本管理</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/monitoring-and-diagnostics/">
+                                                <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                <p>Azure 監視器</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
                                                 <p>Application Insights</p>
@@ -1019,12 +1155,6 @@ ms.lasthandoff: 09/20/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/automation/">
-                                                <img src="media/index/Automation.svg" alt="" />
-                                                <p>自動化</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/backup/">
                                                 <img src="media/index/Backup.svg" alt="" />
                                                 <p>備份</p>
@@ -1033,19 +1163,19 @@ ms.lasthandoff: 09/20/2017
                                         <li>
                                             <a href="/azure/site-recovery/">
                                                 <img src="media/index/SiteRecovery.svg" alt="" />
-                                                <p>Site Recovery</p>
+                                                <p>站台復原</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/automation/">
+                                                <img src="media/index/automation.svg" alt="" />
+                                                <p>自動化</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/scheduler/">
-                                                <img src="media/index/Scheduler.svg" alt="" />
+                                                <img src="media/index/scheduler.svg" alt="" />
                                                 <p>排程器</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/monitoring-and-diagnostics/">
-                                                <img src="media/index/AzureMonitoring.svg" alt="" />
-                                                <p>Azure 監視器</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1068,14 +1198,8 @@ ms.lasthandoff: 09/20/2017
                                         </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Azure Resource Manager</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/event-grid/">
-                                                <img src="media/index/azure_event_grid.svg" alt="" />
-                                                <p>Azure Event Grid</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1201,6 +1325,44 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/container-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Service</h3>
+                                                    <p>使用 Kubernetes、DC/OS 或 Docker Swarm 調整及協調容器</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-instances/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerInstances.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Instances</h3>
+                                                    <p>使用單一指令輕鬆執行容器</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/batch/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1261,7 +1423,8 @@ ms.lasthandoff: 09/20/2017
                     </li>
                     <li>
                         <a href="#network">網路功能</a>
-                        <ul id="network" class="cardsA"><li>
+                        <ul id="network" class="cardsA">
+                            <li>
                                 <a href="/azure/networking/networking-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1330,7 +1493,8 @@ ms.lasthandoff: 09/20/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>應用程式閘道</h3>
-                                                    <p>內建 HTTP 負載平衡及傳遞控制的第 7 層負載平衡器</p>
+                                                    <p>
+內建 HTTP 負載平衡及傳遞控制的第 7 層負載平衡器 </p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1386,8 +1550,8 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
-                                                    <p>透過全球資料中心的強大網路，將內容傳送給使用者 </p>
+                                                    <h3>內容傳遞網路</h3>
+                                                    <p>透過全球資料中心的強大網路，將內容傳送給使用者</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1426,6 +1590,25 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>ExpressRoute</h3>
                                                     <p>Azure 的專用私人光纖網路連線</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/virtual-network/ddos-protection-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ddos.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>DDOS 保護</h3>
+                                                    <p>保護您的應用程式免於遭遇分散式阻斷服務 (DDoS) 攻擊</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1495,18 +1678,18 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                <a href="/azure/storage/queues/storage-queues-introduction/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Disks-color.svg" alt="" />
+                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>磁碟</h3>
-                                                    <p>適用於 VM 的磁碟儲存體</p>
+                                                    <h3>佇列儲存體</h3>
+                                                    <p>適用於大量雲端服務的耐久佇列</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1533,18 +1716,18 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/storage/queues/storage-queues-introduction/">
+                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/logo_azure-storage-q.svg" alt="" />
+                                                        <img src="media/index/Disks-color.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>佇列儲存體</h3>
-                                                    <p>適用於大量雲端服務的耐久佇列</p>
+                                                    <h3>磁碟儲存體</h3>
+                                                    <p>適用於 VM 的磁碟儲存體</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1562,7 +1745,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>資料湖存放區</h3>
+                                                    <h3>Data Lake Store</h3>
                                                     <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
                                                 </div>
                                             </div>
@@ -1619,14 +1802,14 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Site Recovery</h3>
-                                                    <p>協調對私人雲端的保護與復原</p>
+                                                    <h3>站台復原</h3>
+                                                    <p>協調 Azure VM 以及內部部署 VM 和實體伺服器的災害復原</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1645,6 +1828,25 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>Web Apps</h3>
                                                     <p>大規模地快速建立及部署關鍵性 Web Apps</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/app-service/containers/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/appservice.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>適用於容器的 Web 應用程式</h3>
+                                                    <p>輕鬆部署及執行可隨業務調整的容器化 Web 應用程式</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1690,25 +1892,6 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/logic-apps/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/LogicApp.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Logic Apps</h3>
-                                                    <p>無需撰寫程式碼，就能跨雲端自動存取並使用資料</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/cdn/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1719,7 +1902,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>CDN</h3>
+                                                    <h3>內容傳遞網路</h3>
                                                     <p>透過全球資料中心的強大網路，將內容傳送給使用者 </p>
                                                 </div>
                                             </div>
@@ -1757,7 +1940,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>搜尋</h3>
+                                                    <h3>Azure 搜尋服務</h3>
                                                     <p>受到完整管理的搜尋即服務</p>
                                                 </div>
                                             </div>
@@ -1828,25 +2011,6 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-registry/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/container-registry.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Container Registry</h3>
-                                                    <p>儲存及管理所有 Azure 部署類型的容器映像</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/container-instances/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1866,37 +2030,18 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/app-service/">
+                                <a href="/azure/container-registry/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AppService.svg" alt="" />
+                                                        <img src="media/index/container-registry.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service</h3>
-                                                    <p>使用容器在 Linux 上部署 Web 應用程式</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/batch/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Batch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>批次</h3>
-                                                    <p>雲端化作業排程和計算管理</p>
+                                                    <h3>Azure Container Registry</h3>
+                                                    <p>儲存及管理所有 Azure 部署類型的容器映像</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1922,6 +2067,44 @@ ms.lasthandoff: 09/20/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/app-service/containers/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AppService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>適用於容器的 Web 應用程式</h3>
+                                                    <p>輕鬆部署及執行可隨業務調整的容器化 Web 應用程式</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/batch/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Batch.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>批次</h3>
+                                                    <p>雲端化作業排程和計算管理</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1940,6 +2123,44 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>SQL Database</h3>
                                                     <p>受管理的關聯式資料庫即服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/mysql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MySQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>適用於 MySQL 的 Azure 資料庫</h3>
+                                                    <p>適用於應用程式開發人員的受管 MySQL 資料庫服務</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/postgresql/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>適用於 PostgreSQL 的 Azure 資料庫</h3>
+                                                    <p>適用於應用程式開發人員的受管 PostgreSQL 資料庫服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2004,37 +2225,18 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/postgresql/">
+                                <a href="/azure/cosmos-db/table-storage-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/PostgreSQL.svg" alt="" />
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>PostgreSQL</h3>
-                                                    <p>適用於應用程式開發人員的受管 PostgreSQL 資料庫服務</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mysql/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MySQL.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>MySQL</h3>
-                                                    <p>適用於應用程式開發人員的受管 MySQL 資料庫服務</p>
+                                                    <h3>資料表儲存體</h3>
+                                                    <p>全域散發的多模型資料庫，適用於任何規模</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2054,182 +2256,6 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>Redis 快取</h3>
                                                     <p>高輸送量、低延遲資料存取，可讓您建置快速、可擴充的應用程式</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-factory/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/DataFactory.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Data Factory</h3>
-                                                    <p>編排和管理資料轉換與移動</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#cognitive">AI 及辨識服務</a>
-                        <ul id="cognitive" class="cardsA">
-                            <li>
-                                <a href="/azure/cognitive-services/computer-vision/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Vis_ComputerVision.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>電腦視覺</h3>
-                                                    <p>從影像擷取可操作的資訊</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/face/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Vis_Face.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>臉部</h3>
-                                                    <p>偵測、識別、分析、組織和標記相片中的臉孔</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/bing-web-search/search-the-web">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bing Web 搜尋</h3>
-                                                    <p>將功能強大的 Web 搜尋與您的應用程式結合</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>自訂語音服務</h3>
-                                                    <p>克服語音辨識障礙</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/custom-vision-service/home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>自訂辨識服務</h3>
-                                                    <p>自訂的 Web 服務，可學習辨識圖像中的特定內容</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/video-indexer/video-indexer-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/cs-video-indexer.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>影片索引子</h3>
-                                                    <p>搜尋、編輯、分析並了解您的影片</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/luis/home">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Language Understanding Intelligent Services (LUIS)</h3>
-                                                    <p>教導您的應用程式理解使用者發出的命令</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/cognitive-services/bing-custom-search/overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/API_Sear_BingSearch.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Bing 自訂搜尋</h3>
-                                                    <p>建置您想要的搜尋結果</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2261,25 +2287,6 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MachineLearning.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Machine Learning</h3>
-                                                    <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2292,25 +2299,6 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>串流分析</h3>
                                                     <p>從數百萬台 IoT 裝置即時資料串流處理</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/data-catalog/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/data-catalog.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>資料目錄</h3>
-                                                    <p>實現全企業自助式資料來源探索</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2337,18 +2325,37 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/data-lake-store/">
+                                <a href="/azure/analysis-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                        <img src="media/index/AnalysisServices.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Data Lake Store</h3>
-                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                    <h3>Analysis Services</h3>
+                                                    <p>雲端中企業級資料模型化</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/event-hubs/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/eventhubs.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>事件中樞</h3>
+                                                    <p>從數百萬台裝置接收遙測</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2375,6 +2382,82 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/en-us/azure/sql-data-warehouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>SQL 資料倉儲</h3>
+                                                    <p>彈性的資料倉儲即服務，並提供企業級功能</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/machine-learning/studio">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Machine Learning Studio</h3>
+                                                    <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>資料目錄</h3>
+                                                    <p>實現全企業自助式資料來源探索</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-lake-store/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Lake Store</h3>
+                                                    <p>可容納巨量資料分析工作負載的超大規模儲存機制</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/power-bi-embedded/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2393,19 +2476,27 @@ ms.lasthandoff: 09/20/2017
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#cognitive">AI 及辨識服務</a>
+                        <ul id="cognitive" class="cardsA">
+                            <li class="fullSpan">
+                                <h2>人工智慧</h2>
+                            </li>
                             <li>
-                                <a href="/azure/analysis-services/">
+                                <a href="/azure/machine-learning/preview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AnalysisServices.svg" alt="" />
+                                                        <img src="media/index/MachineLearning.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Analysis Services</h3>
-                                                    <p>雲端中企業級資料模型化</p>
+                                                    <h3>Machine Learning 服務</h3>
+                                                    <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2413,7 +2504,7 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                <a href="/bot-framework/azure-bot-service-overview/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2430,6 +2521,163 @@ ms.lasthandoff: 09/20/2017
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                            <li class="fullSpan">
+                                <h2 style="margin-top:24px;margin-bottom:18px;">辨識服務</h2>
+                                <ul id="cognitive-services" class="cardsL panelContent singlePanelContent" style="display:flex!important;">
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>視覺</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/computer-vision/">電腦視覺<img src="media/index/API_Vis_ComputerVision.svg" alt="" /></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/content-moderator/overview"><img src="media/index/cs-content-moderator.svg" alt="" />內容仲裁</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Custom-Vision-Service/home"><img src="media/index/cs-custom-vision.svg" alt="" /><span>自訂辨識搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/emotion/home"><img src="media/index/API_Vis_Emotion.svg" alt="" /><span>表情 API&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Vis_Face.svg" alt="" />臉部 API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/video/home"><img src="media/index/cs-video.svg" alt="" /><span>影片 API&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/cs-video-indexer.svg" alt="" /><span>影片索引子&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>語音</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speech/"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" />Bing 語音服務</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><img src="media/index/API_Spc_CustomSpeechService.svg" alt="" /><span>自訂語音服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/speaker-recognition/home"><img src="media/index/API_Spc_SpeakerRecognition.svg" alt="" /><span>說話者辨識&nbsp;預覽<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>語言</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-spell-check/proof-text"><img src="media/index/API_Lang_BingSpellCheck.svg" alt="" />Bing 拼字檢查</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Lang_LanguageUnderstanding.svg" alt="" /><span>Language Understanding Intelligent Services (LUIS)&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_Lang_LinguisticAnalysis.svg" alt="" /><span>語言分析&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/text-analytics/overview"><img src="media/index/API_Lang_TextAnalytics.svg" alt="" /><span>文字分析&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/translator/"><img src="media/index/cognitive-services-translator.svg" alt="" />Translator Text API</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/web-language-model/home"><img src="media/index/API_Lang_WebLM.svg" alt="" /><span>Web 語言模型&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>知識</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/custom-decision-service/custom-decision-service-overview"><img src="media/index/cs-decision-maker.svg" alt="" /><span>自訂決策服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/entitylinking/home"><img src="media/index/API_Know_EntityLink.svg" alt="" /><span>實體連結&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/kes/overview"><img src="media/index/API_Know_Exploration.svg" alt="" /><span>知識探索服務 (KES)&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/qnamaker/home"><img src="media/index/API_Know_QandA_Maker.svg" alt="" /><span>QnAMaker&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/recommendations/overview"><img src="media/index/API_Know_Recommendations.svg" alt="" /><span>建議&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/academic-knowledge/home"><img src="media/index/API_Know_Academic.svg" alt="" /><span>學術知識&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+                                                        <h3>搜尋</h3>
+                                                        <ul class="noBullet">
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Sear_BingNewsSearch.svg" alt="" />Bing 新聞</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-video-search/search-the-web"><img src="media/index/API_Sear_BingVideoSearch.svg" alt="" />Bing 影片搜尋</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-web-search/search-the-web"><img src="media/index/API_Sear_BingSearch.svg" alt="" />Bing Web 搜尋</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-autosuggest/get-suggested-search-terms"><img src="media/index/API_Sear_BingAutoSuggest.svg" alt="" />Bing 自動建議</a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-custom-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing 自訂搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-entities-search/overview"><img src="media/index/API_Sear_BingSearch.svg" alt="" /><span>Bing 實體搜尋&nbsp;<sup style="font-size:70%">預覽</sup></span></a>
+                                                            </li>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/bing-image-search/search-the-web"><img src="media/index/API_Sear_BingImageSearch.svg" alt="" />Bing 影像搜尋</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>
@@ -2466,7 +2714,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT 中樞</h3>
+                                                    <h3>IoT 中樞</h3>
                                                     <p>連接、監視並控制數十億個 IoT 資產</p>
                                                 </div>
                                             </div>
@@ -2504,7 +2752,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure IoT 套件</h3>
+                                                    <h3>IoT 套件</h3>
                                                     <p>擷取並分析未開發的資料來改善商務結果</p>
                                                 </div>
                                             </div>
@@ -2513,13 +2761,13 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/event-hubs/">
+                                <a href="/en-us/azure/event-hubs/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/EventHubs.svg" alt="" />
+                                                        <img src="media/index/eventhubs.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2551,7 +2799,7 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/machine-learning/">
+                                <a href="/azure/machine-learning/preview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2561,7 +2809,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Machine Learning</h3>
+                                                    <h3>Machine Learning 服務</h3>
                                                     <p>功能強大的雲端架構預測性分析工具，可用來提供預測性維護</p>
                                                 </div>
                                             </div>
@@ -2601,6 +2849,63 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>Time Series Insights</h3>
                                                     <p>立即探索及分析時間序列資料</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Grid</h3>
+                                                    <p>取得可靠的大規模事件傳遞</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cosmos-db/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/CosmosDB_rgb_ui_lighttheme.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Cosmos DB</h3>
+                                                    <p>全域散發的多模型資料庫，適用於任何規模</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/logic-apps/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/LogicApp.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Logic Apps</h3>
+                                                    <p>無需撰寫程式碼，就能跨雲端自動存取並使用資料</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2708,6 +3013,25 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>資料目錄</h3>
+                                                    <p>實現全企業自助式資料來源探索</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-factory/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2720,6 +3044,25 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>Data Factory</h3>
                                                     <p>編排和管理資料轉換與移動</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/event-grid/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Event Grid</h3>
+                                                    <p>取得可靠的大規模事件傳遞</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2763,6 +3106,25 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>資訊安全中心</h3>
                                                     <p>透過增加的可見度來預防、偵測威脅，並做出回應</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>開發人員適用的 Azure Active Directory</h3>
+                                                    <p>行動應用程式和網站適用的可調式跨平台驗證</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2837,7 +3199,7 @@ ms.lasthandoff: 09/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Active Directory Domain Services</h3>
+                                                    <h3>Active Directory for Domain Services</h3>
                                                     <p>將 Azure 虛擬機器加入沒有網域控制站的網域中</p>
                                                 </div>
                                             </div>
@@ -2889,13 +3251,13 @@ ms.lasthandoff: 09/20/2017
                         <a href="#devtools">開發人員工具</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/docs/overview">
+                                <a href="/vsts/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/VisualStudioTeamServices.svg" alt="" />
+                                                        <img src="media/index/logo_vs-team-services.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2983,11 +3345,87 @@ ms.lasthandoff: 09/20/2017
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/en-us/features/xamarin">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_xamarin.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Xamarin</h3>
+                                                    <p>更快速地建立由雲端提供的絕佳行動應用程式</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#mgmt">監視 + 管理</a>
                         <ul id="mgmt" class="cardsA">
+                            <li>
+                                <a href="/azure/azure-policy/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/governance.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 原則</h3>
+                                                    <p>建立、指派和管理原則定義 </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cost-management/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/billing.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 成本管理</h3>
+                                                    <p>追蹤雲端使用量和支出</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/monitoring-and-diagnostics/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 監視器</h3>
+                                                    <p>即時精密監視任何 Azure 資源的資料</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                             <li>
                                 <a href="/azure/application-insights/">
                                     <div class="cardSize">
@@ -3020,25 +3458,6 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>Log Analytics</h3>
                                                     <p>了解如何將機器資料轉換為作業智慧</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/automation/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/Automation.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>自動化</h3>
-                                                    <p>使用程序自動化來簡化雲端管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3084,18 +3503,18 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/scheduler/">
+                                <a href="/azure/automation/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/Scheduler.svg" alt="" />
+                                                        <img src="media/index/automation.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>排程器</h3>
-                                                    <p>依簡單或複雜的週期性排程執行工作</p>
+                                                    <h3>自動化</h3>
+                                                    <p>使用程序自動化來簡化雲端管理</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3103,18 +3522,18 @@ ms.lasthandoff: 09/20/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/monitoring-and-diagnostics/">
+                                <a href="/azure/scheduler/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureMonitoring.svg" alt="" />
+                                                        <img src="media/index/scheduler.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 監視器</h3>
-                                                    <p>即時精密監視任何 Azure 資源的資料</p>
+                                                    <h3>排程器</h3>
+                                                    <p>依簡單或複雜的週期性排程執行工作</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3185,7 +3604,7 @@ ms.lasthandoff: 09/20/2017
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3197,20 +3616,42 @@ ms.lasthandoff: 09/20/2017
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#stack">Azure Stack</a>
+                        <ul id="stack" class="cardsA">
                             <li>
-                                <a href="/azure/event-grid/">
+                                <a href="/azure/azure-stack/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azure_event_grid.svg" alt="" />
+                                                        <img src="media/index/azure-stack.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure Event Grid</h3>
-                                                    <p>取得可靠的大規模事件傳遞</p>
+                                                    <h3>Azure Stack 操作員</h3>
+                                                    <p>從您自己的資料中心搭配新的混合式雲端平台傳遞 Azure 服務</p>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/azure-stack/user">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/azure-stack.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>Azure Stack 使用者</h3>
+                                                <p>使用服務並建置 Azure Stack 的應用程式</p>
                                             </div>
                                         </div>
                                     </div>
@@ -3219,7 +3660,7 @@ ms.lasthandoff: 09/20/2017
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">其他雲端</a>
+                        <a href="#other">Sovereign Clouds</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -3253,25 +3694,6 @@ ms.lasthandoff: 09/20/2017
                                                 <div class="cardText">
                                                     <h3>Microsoft Azure Germany</h3>
                                                     <p>讓資料信任者進行額外的控管，以建置並託管符合德國規範及重要國際標準的應用程式</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/azure-stack/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-stack.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Microsoft Azure Stack</h3>
-                                                    <p>從您自己的資料中心搭配新的混合式雲端平台傳遞 Azure 服務</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3458,7 +3880,8 @@ ms.lasthandoff: 09/20/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 </h3>
+                                                <h3>
+Azure CLI 2.0 </h3>
                                                 <p>
                                                     <a href="/cli/azure/overview">開始使用</a>
                                                 </p>
@@ -3508,7 +3931,8 @@ ms.lasthandoff: 09/20/2017
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>
+Azure CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">開始使用</a>
                                                 </p>
@@ -3623,7 +4047,7 @@ ms.lasthandoff: 09/20/2017
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">開始使用</a>
                                                 </p>
                                                 <p>
-                                                     <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">針對 Linux 下載</a>
+                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">針對 Linux 下載</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://go.microsoft.com/fwlink/?LinkId=708342">針對 Mac 下載</a>
@@ -3672,7 +4096,9 @@ ms.lasthandoff: 09/20/2017
                         <ul id="architecture1" class="cardsC">
                             <li>
                                 <div class="container intro">
-                                    <p>一組適用於雲端應用程式的建議架構。 每個架構都包含建議的作法、規定步驟，以及讓建議具體化的可執行元件。</p>
+                                    <p>
+一組適用於雲端應用程式的建議架構。 每個架構都包含建議的作法、規定步驟，以及讓建議具體化的可執行元件。
+                                    </p>
                                 </div>
                             </li>
                             <li>
@@ -3744,34 +4170,16 @@ ms.lasthandoff: 09/20/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>雲端應用程式的最佳做法</h3>
-                                                    <p>一組適用於雲端應用程式的最佳做法，其中涵蓋自動調整、快取、資料分割、API 設計和監視等層面。</p>
+                                                    <p>
+一組適用於雲端應用程式的最佳做法，其中涵蓋自動調整、快取、資料分割、API 設計和監視等層面。
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
-<!--                            <li>
-                                <a href="/azure/architecture/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/index/azure_scenarios.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario Guides</h3>
-                                                    <p>Guidance for various end-to-end application scenarios in the cloud. Includes
-                                                        written guidance and reference implementations.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
--->                     </ul>
+                        </ul>
                     </li>
                 </ul>
             </li>

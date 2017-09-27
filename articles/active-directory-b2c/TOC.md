@@ -67,12 +67,17 @@
 ### 整合 RESTful API
 #### [驗證使用者輸入](active-directory-b2c-rest-api-validation-custom.md)
 #### [取得額外宣告](active-directory-b2c-rest-api-step-custom.md)
-### 自訂登入
+### 使用者流程
 #### [設定使用者輸入](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [自訂 UI](active-directory-b2c-ui-customization-custom.md)
 #### [自訂權杖](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
-#### [自訂密碼](active-directory-b2c-reference-password-complexity-custom.md)
+#### [密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)
+
+#### [密碼變更](active-directory-b2c-reference-password-change-custom.md)
+
+#### [啟用讓我保持登入](active-directory-b2c-reference-kmsi-custom.md)
+
 ### 疑難排解
 #### [使用 Application Insights 收集記錄](active-directory-b2c-troubleshoot-custom.md)
 ## 參考

@@ -7,8 +7,12 @@
 - name: 快速入門
   expanded: true
   items:
-    - name: 建立容器執行個體
+    - name: 建立容器 - CLI
       href: container-instances-quickstart.md
+    - name: 建立容器 - 入口網站
+      href: container-instances-quickstart-portal.md
+    - name: 建立容器 - PowerShell
+      href: container-instances-quickstart-powershell.md
 - name: 教學課程
   items:
     - name: 建置和部署容器
@@ -39,7 +43,7 @@
       href: container-instances-troubleshooting.md
 - name: 參考
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/container
     - name: REST
       href: /rest/api/container-instances

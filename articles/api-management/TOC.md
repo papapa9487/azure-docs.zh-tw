@@ -6,6 +6,10 @@
 ## [新增快取以改善效能](api-management-howto-cache.md)
 ## [常見問題集](api-management-faq.md)
 # 作法
+## 設定 APIM 服務
+### [建立 APIM 執行個體](get-started-create-service-instance.md)
+### [升級和縮放](upgrade-and-scale.md)
+### [設定自訂網域](configure-custom-domain.md)
 ## 開發 API
 ### [新增與發佈 API 產品](api-management-howto-add-products.md)
 ### [新增作業](api-management-howto-add-operations.md)
@@ -51,7 +55,7 @@
 #### [快速入門](../service-fabric/service-fabric-api-management-quick-start.md)
 
 # 參考
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (原始)](/rest/api/apimanagement/ApiManagementREST/api-management-REST)
 ## [原則](api-management-policies.md)

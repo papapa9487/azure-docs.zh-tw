@@ -11,7 +11,7 @@
       href: sql-database-get-started-portal.md
     - name: 建立 DB - Azure CLI
       href: sql-database-get-started-cli.md
-    - name: 建立 DB - PowerShell
+    - name: 建立 DB - Azure PowerShell
       href: sql-database-get-started-powershell.md
     - name: 連線和查詢
       items:
@@ -51,7 +51,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
     - name: Azure CLI
       href: sql-database-cli-samples.md
-    - name: PowerShell
+    - name: Azure PowerShell
       href: sql-database-powershell-samples.md
 - name: 概念
   items:
@@ -71,6 +71,8 @@
           href: sql-database-connectivity-architecture.md
         - name: 防火牆規則
           href: sql-database-firewall-configure.md
+        - name: 防火牆虛擬網路規則
+          href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: DTU 和 eDTU
           href: sql-database-what-is-a-dtu.md
         - name: DTU 基準測試
@@ -95,6 +97,8 @@
           href: sql-database-elastic-transactions-overview.md
         - name: 彈性工作
           href: sql-database-elastic-jobs-overview.md
+        - name: SQL 弱點評估
+          href: sql-vulnerability-assessment.md
         - name: SQL Server 常用功能
           href: sql-database-features.md
     - name: 安全性
@@ -155,6 +159,10 @@
           href: sql-database-advisor.md
         - name: 自動微調
           href: sql-database-automatic-tuning.md
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Intelligence Insights 診斷記錄
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
         - name: 手動微調
           href: sql-database-performance-guidance.md
         - name: 操作查詢存放區
@@ -229,7 +237,7 @@
           href: sql-database-elastic-jobs-service-installation.md
         - name: 建立作業 - 入口網站
           href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 建立作業 - PowerShell
+        - name: 建立作業 - Azure PowerShell
           href: sql-database-elastic-jobs-powershell.md
         - name: 建立作業 - 範例應用程式
           href: sql-database-elastic-jobs-getting-started.md
@@ -255,12 +263,14 @@
           href: sql-database-dynamic-data-masking-get-started-portal.md
         - name: 設定多因素驗證
           href: sql-database-ssms-mfa-authentication-configure.md
+        - name: PowerShell 的虛擬網路規則
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: 業務持續性
       items:
         - name: 使用 BCP 載入資料
           href: sql-database-load-from-csv-with-bcp.md
         - name: 使用 ADF 載入資料
-          href: ../data-factory/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
         - name: 同步資料
           href: sql-database-get-started-sql-data-sync.md
     - name: 監視與微調
@@ -273,6 +283,8 @@
           href: sql-database-advisor-portal.md
         - name: 啟用自動微調
           href: sql-database-automatic-tuning-enable.md
+        - name: Intelligent Insights 效能疑難排解
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
         - name: 使用 DMV 監視效能
           href: sql-database-monitoring-with-dmvs.md
         - name: 建立警示
@@ -335,7 +347,7 @@
           href: sql-database-connect-excel.md
 - name: 參考
   items:
-    - name: PowerShell
+    - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
     - name: PowerShell (彈性資料庫)
       href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'

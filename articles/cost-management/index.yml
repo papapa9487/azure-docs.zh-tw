@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 成本管理文件
+metadata:
+  title: 成本管理文件 - 教學課程和 API 參考 | Microsoft Docs
+  description: 來自 Cloudyn 的 Azure Cost Management 是多雲端成本管理解決方案，可協助您使用 Azure 和其他雲端資源。 了解如何透過我們的快速入門和教學課程，檢閱使用量和成本、主動管理成本、預測花費，以及達到成本最佳化。
+  services: cost-management
+  author: czeumault
+  manager: carolz
+  ms.service: cost-management
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/18/2017
+  ms.author: carolz
+abstract:
+  description: 來自 Cloudyn 的 Azure Cost Management 是多雲端成本管理解決方案，可協助您充分利用及管理 Azure 和其他雲端資源。 了解如何透過我們的快速入門和教學課程，檢閱使用量和成本、主動管理成本、預測花費，以及達到成本最佳化。
+sections:
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 了解如何向「成本管理」註冊 Azure 合約或訂用帳戶資訊，並開始檢視成本資料。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: 檢視成本資料
+            href: quick-register-azure-sub
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何利用「成本管理」檢閱使用量和成本、主動管理成本、預測花費，以及達到成本最佳化。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-review-usage">檢閱使用量和成本以偵測異常狀況和效率</a>
+          - html: <a href="tutorial-user-access">指派成本管理資料的存取權</a>

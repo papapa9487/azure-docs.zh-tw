@@ -2,7 +2,7 @@
 ## [什麼是虛擬機器擴展集？](virtual-machine-scale-sets-overview.md)
 
 # 開始使用
-## [在入口網站中部署擴展集](virtual-machine-scale-sets-portal-create.md)
+## [在 Azure 入口網站中部署擴展集](virtual-machine-scale-sets-portal-create.md)
 ## [使用 PowerShell 或 Azure CLI 部署擴展集](virtual-machine-scale-sets-create.md)
 ## [使用範本部署自動調整應用程式](virtual-machine-scale-sets-deploy-scaling-app-template.md)
 
@@ -17,9 +17,9 @@
 ### [使用來賓型自動調整搭配 Linux 擴展集範本](virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md)
 
 ## 部署
-### [使用入口網站建立](virtual-machine-scale-sets-portal-create.md)
+### [使用 Azure 入口網站建立](virtual-machine-scale-sets-portal-create.md)
 ### [使用 Visual Studio 建立](virtual-machine-scale-sets-vs-create.md)
-### [使用 PowerShell 或 Azure CLI 建立](virtual-machine-scale-sets-create.md)
+### [使用 Azure PowerShell 或 Azure CLI 建立](virtual-machine-scale-sets-create.md)
 ### [搭配受控磁碟的擴展集](virtual-machine-scale-sets-managed-disks.md)
 ### [具有自動調整的 Linux 擴展集](virtual-machine-scale-sets-linux-autoscale.md)
 ### [具有自動調整的 Windows 擴展集](virtual-machine-scale-sets-windows-autoscale.md)
@@ -31,7 +31,7 @@
 
 
 ## 管理
-### [使用 PowerShell 的 Windows 擴展集](virtual-machine-scale-sets-windows-manage.md)
+### [使用 Azure PowerShell 的 Windows 擴展集](virtual-machine-scale-sets-windows-manage.md)
 ### [自動調整與擴展集](virtual-machine-scale-sets-autoscale-overview.md)
 ### [進階自動調整](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [擴展集內的垂直縮放比例](virtual-machine-scale-sets-vertical-scale-reprovision.md)
@@ -47,7 +47,7 @@
 ### [擴展集常見問題](virtual-machine-scale-sets-faq.md)
 
 # 參考
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/virtualmachinescalesets/)
 

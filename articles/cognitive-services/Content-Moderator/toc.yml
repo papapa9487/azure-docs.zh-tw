@@ -62,6 +62,10 @@
           href: Review-Tool-User-Guide/Workflows.md
         - name: 檢視儀表板
           href: Review-Tool-User-Guide/View-Dashboard.md
+- name: 教學課程
+  items:
+    - name: Facebook 文章調節
+      href: facebook-post-moderation.md
 - name: API 參考
   items:
     - name: 所有 API
@@ -73,6 +77,6 @@
     - name: Windows SDK
       href: 'https://github.com/MicrosoftContentModerator/Microsoft.CognitiveServices.ContentModerator-Windows/'
     - name: 範例
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services'
+      href: 'https://github.com/MicrosoftContentModerator'
     - name: 常見問題集
       href: FAQs.md

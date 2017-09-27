@@ -15,7 +15,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: carolz
 abstract:
-  description: Azure Linux 虛擬機器依您的選擇使用 Red Hat、Ubuntu 或 Linux 發行版本提供隨選、高度可調整、安全且虛擬化的基礎結構。 了解如何使用快速入門、教學課程和範例建立、設定、管理和調整 Linux VM。
+  description: Azure Linux 虛擬機器依您的選擇使用 Red Hat、Ubuntu 或 Linux 發行版本提供隨選、高度可調整、安全且虛擬化的基礎結構。 了解如何使用快速入門、教學課程和範例，建立、設定、管理、更新和調整 Linux VM。
   aside:
     image:
       alt: null
@@ -61,29 +61,32 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">負載平衡的 VM</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">管理 VM 和虛擬網路</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">備份 VM</a>
-          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">監視 VM</a>
+          - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">監視及更新 VM</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">管理 VM 安全性</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">以 Jenkins、Docker 和 GitHub 建立 CI/CD 基礎結構</a>
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">透過 Team Services 設定 CI/CD</a>
           - html: 以 <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a><a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a>或 <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a> 建立 Web 伺服器堆疊
           - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">使用 SSL 保護 Web 伺服器</a>
-  - title: 免費 PluralSight 影片訓練
+  - title: 免費 Pluralsight 影片訓練
     items:
       - type: list
         style: cards
-        className: cardsW
+        className: cardsFTitle
         items:
-          - html: '<p><a href="https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">管理基礎結構</a></p>'
+          - title: 在 Azure 上管理基礎結構
+            href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-infrastructure.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/managing-infrastructure-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">開始使用虛擬機器</a></p>'
+          - title: 開始使用 Azure 虛擬機器
+            href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-vms.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-vms-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
-          - html: '<p><a href="https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02">開始使用 IaaS 監視</a></p>'
+          - title: 開始使用 IaaS 監視
+            href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
             image:
-              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png'
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
               href: 'https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02'
   - title: 範例
     items:

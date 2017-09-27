@@ -60,13 +60,14 @@
 #### [建立命名空間和佇列的授權規則](service-bus-resource-manager-namespace-auth-rule.md)
 #### [建立命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 #### 
-### [使用 PowerShell 佈建實體](service-bus-manage-with-ps.md)
+### [使用 Azure PowerShell 佈建實體](service-bus-manage-with-ps.md)
 
 # 參考
 ## .NET
 ### [Microsoft.ServiceBus.Messaging (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging)
 ### [Microsoft.Azure.ServiceBus (.NET Standard)](/dotnet/api/microsoft.azure.servicebus)
-## [PowerShell](/powershell/module/azurerm.servicebus)
+## [Java](/java/api/overview/azure/servicebus)
+## [Azure PowerShell](/powershell/module/azurerm.servicebus)
 ## [REST](/rest/api/servicebus)
 ## [例外狀況](service-bus-messaging-exceptions.md)
 ## [配額](service-bus-quotas.md)

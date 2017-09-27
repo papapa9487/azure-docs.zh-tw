@@ -1,8 +1,10 @@
 # 概觀
 ## [何謂負載平衡器？](load-balancer-overview.md)
+## [何謂 Load Balancer 標準？](load-balancer-standard-overview.md)
 ## [網際網路負載平衡器](load-balancer-internet-overview.md)
 ## [內部負載平衡器](load-balancer-internal-overview.md)
 ## [了解負載平衡器偵查](load-balancer-custom-probe-overview.md)
+## [了解高可用性連接埠](load-balancer-ha-ports-overview.md)
 ## [Azure Resource Manager 支援](load-balancer-arm.md)
 ## [IPv6 支援](load-balancer-ipv6-overview.md)
 ## [多個 VIP](load-balancer-multivip-overview.md)
@@ -33,6 +35,10 @@
 ### [建立使用 IPv6 的網際網路對向負載平衡器 (CLI)](load-balancer-ipv6-internet-cli.md)
 ### [建立使用 IPv6 的網際網路對向負載平衡器 (範本)](load-balancer-ipv6-internet-template.md)
 
+## [建立區域備援公用負載平衡器標準](load-balancer-get-started-internet-az-portal.md)
+### [建立區域備援公用負載平衡器標準 (PowerShell)](load-balancer-get-started-internet-az-powershell.md)
+### [建立區域備援公用負載平衡器標準 (CLI)](load-balancer-get-started-internet-az-cli.md)
+
 # 作法
 ## [設定負載平衡器的 TCP 閒置逾時](load-balancer-tcp-idle-timeout.md)
 ## [設定負載平衡器的分配模式](load-balancer-distribution-mode.md)
@@ -44,13 +50,17 @@
 ### [使用多個 IP 組態 (PowerShell)](load-balancer-multiple-ip-powershell.md)
 ## [Azure 負載平衡器的 Log Analytics](load-balancer-monitor-log.md)
 ## [設定 Linux VM 的 DHCPv6](load-balancer-ipv6-for-linux.md)
+## [設定內部負載平衡器的高可用性連接埠](load-balancer-configure-ha-ports.md)
+## [在可用性區域中建立公用 IP 位址](../virtual-network/create-public-ip-availability-zone-portal.md)
+## [在可用性區域中建立公用 IP 位址 (PowerShell)](../virtual-network/create-public-ip-availability-zone-powershell.md)
+## [在可用性區域中建立公用 IP 位址 (CLI)](../virtual-network/create-public-ip-availability-zone-cli.md)
 ## 疑難排解
 ### [針對 Azure Load Balancer 的問題進行疑難排解](load-balancer-troubleshoot.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer)
-## [PowerShell](/powershell/module/azurerm.network)
-## [Azure CLI 2.0](/cli/azure/network/lb)
+## [Azure PowerShell](/powershell/module/azurerm.network)
+## [Azure CLI](/cli/azure/network/lb)
 ## [.NET](/dotnet/api/microsoft.azure.management.network.models)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html)

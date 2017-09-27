@@ -30,12 +30,12 @@
 ## 商業智慧
 ### [Azure VM 中的 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)
 ### [在裝載於 Azure 的網站中使用 ReportViewer](virtual-machines-windows-classic-sql-server-reportviewer.md)
-### [使用 PowerShell 建立具有報告伺服器的 Azure VM](virtual-machines-windows-classic-ps-sql-report.md)
+### [使用 Azure PowerShell 建立具有報告伺服器的 Azure VM](virtual-machines-windows-classic-ps-sql-report.md)
 ## [效能最佳做法](../sql/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 ## [應用程式模式](../sql/virtual-machines-windows-sql-server-app-patterns-dev-strategies.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json)
 
 # 參考
-## [PowerShell 傳統](/powershell/azure/overview?view=azuresmps-3.7.0)
+## [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://docs.microsoft.com/sql/t-sql/language-reference)
 ## [SQL Server 驅動程式](https://docs.microsoft.com/sql/connect/sql-server-drivers)

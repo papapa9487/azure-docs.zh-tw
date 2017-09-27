@@ -36,6 +36,7 @@
 #### [管理工作](storsimple-virtual-array-manage-jobs.md)
 #### [變更裝置密碼](storsimple-virtual-array-change-device-admin-password.md)
 #### [在 Windows Server 主機上設定 MPIO](storsimple-virtual-array-configure-mpio-windows-server.md)
+#### [使用警示進行監視](storsimple-virtual-array-manage-alerts.md)
 #### [診斷和疑難排解](storsimple-virtual-array-diagnose-problems.md)
 #### [記錄支援要求](storsimple-virtual-array-log-support-ticket.md)
 
@@ -56,6 +57,7 @@
 ### [解決方案為何？](storsimple-overview.md)
 ### [StorSimple 學習圖](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [安全性考量](storsimple-8000-security.md)
+### [常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)
 
 ## 開始使用
 

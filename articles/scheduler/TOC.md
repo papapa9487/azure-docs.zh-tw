@@ -21,7 +21,7 @@
 ### [輸出驗證](scheduler-outbound-authentication.md)
 
 # 參考
-## [PowerShell](/powershell/module/azurerm.scheduler)
+## [Azure PowerShell](/powershell/module/azurerm.scheduler)
 ## [REST](/rest/api/scheduler)
 
 # 資源

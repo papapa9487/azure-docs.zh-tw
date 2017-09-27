@@ -34,13 +34,13 @@
 #### [使用工作在雲端服務角色上安裝 .NET](cloud-services-dotnet-install-dotnet.md)
 
 ### 設定遠端桌面
-#### [入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
+#### [Azure 入口網站](cloud-services-role-enable-remote-desktop-new-portal.md)
 #### [傳統入口網站](cloud-services-role-enable-remote-desktop.md)
-#### [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
+#### [Azure PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 
 ## 部署
 ### 在入口網站中建立和部署雲端服務
-#### [入口網站](cloud-services-how-to-create-deploy-portal.md)
+#### [Azure 入口網站](cloud-services-how-to-create-deploy-portal.md)
 #### [傳統入口網站](cloud-services-how-to-create-deploy.md)
 ### [使用 PowerShell 建立空的雲端服務容器](cloud-services-powershell-create-cloud-container.md)
 ### 設定自訂網域名稱
@@ -51,14 +51,14 @@
 
 ## 管理服務
 ### 一般管理工作
-#### [入口網站](cloud-services-how-to-manage-portal.md)
+#### [Azure 入口網站](cloud-services-how-to-manage-portal.md)
 #### [傳統入口網站](cloud-services-how-to-manage.md)
 ### 設定雲端服務
-#### [入口網站](cloud-services-how-to-configure-portal.md)
+#### [Azure 入口網站](cloud-services-how-to-configure-portal.md)
 #### [傳統入口網站](cloud-services-how-to-configure.md)
 ### [使用 Azure 自動化管理雲端服務](automation-manage-cloud-services.md)
 ### 設定自動調整
-#### [入口網站](cloud-services-how-to-scale-portal.md)
+#### [Azure 入口網站](cloud-services-how-to-scale-portal.md)
 #### [傳統入口網站](cloud-services-how-to-scale.md)
 ### [使用 Python 管理 Azure 資源](cloud-services-python-how-to-use-service-management.md)
 
@@ -80,7 +80,7 @@
 ### [測試效能](../vs-azure-tools-performance-profiling-cloud-services.md)
 #### [使用 Visual Studio 分析工具進行測試](cloud-services-performance-testing-visual-studio-profiler.md)
 ### 啟用診斷
-#### [PowerShell](cloud-services-diagnostics-powershell.md)
+#### [Azure PowerShell](cloud-services-diagnostics-powershell.md)
 #### [.NET](cloud-services-dotnet-diagnostics.md)
 #### [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
 ### [使用 Azure 診斷中的效能計數器](cloud-services-dotnet-diagnostics-performance-counters.md)
@@ -108,8 +108,14 @@
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=cloud-services)
-## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
-## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
+## [.csdef XML 結構描述](schema-csdef-file.md)
+### [LoadBalancerProbe 結構描述](schema-csdef-loadbalancerprobe.md)
+### [WebRole 結構描述](schema-csdef-webrole.md)
+### [WorkerRole 結構描述](schema-csdef-workerrole.md)
+### [NetworkTrafficRules 結構描述](schema-csdef-networktrafficrules.md)
+## [.cscfg XML 結構描述](schema-cscfg-file.md)
+### [角色結構描述](schema-cscfg-role.md)
+### [NetworkConfiguration 結構描述](schema-cscfg-networkconfiguration.md)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
 
 # 資源

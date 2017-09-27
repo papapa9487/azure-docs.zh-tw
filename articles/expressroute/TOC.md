@@ -18,23 +18,23 @@
 # 作法
 ## 建立及修改電路
 ### [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-circuit-arm.md)
+### [Azure PowerShell](expressroute-howto-circuit-arm.md)
 ### [Azure CLI](howto-circuit-cli.md)
 ## 建立和修改對等互連組態
 ### [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-routing-arm.md)
+### [Azure PowerShell](expressroute-howto-routing-arm.md)
 ### [Azure CLI](howto-routing-cli.md)
 ## 將虛擬網路連結到 ExpressRoute 線路
 ### [Azure 入口網站](expressroute-howto-linkvnet-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-linkvnet-arm.md)
+### [Azure PowerShell](expressroute-howto-linkvnet-arm.md)
 ### [Azure CLI](howto-linkvnet-cli.md)
 ## 為 ExpressRoute 設定虛擬網路閘道
 ### [Azure 入口網站](expressroute-howto-add-gateway-portal-resource-manager.md)
-### [PowerShell](expressroute-howto-add-gateway-resource-manager.md)
+### [Azure PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 ## [設定 ExpressRoute 和站對站並存連線](expressroute-howto-coexist-resource-manager.md)
 ## 針對 Microsoft 對等互連設定路由篩選
 ### [Azure 入口網站](how-to-routefilter-portal.md)
-### [PowerShell](how-to-routefilter-powershell.md)
+### [Azure PowerShell](how-to-routefilter-powershell.md)
 ## [將電路從傳統移到 Resource Manager](expressroute-howto-move-arm.md)
 ## [將關聯的虛擬網路從傳統移至 Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## 設定 ExpressRoute 的路由器
@@ -53,7 +53,7 @@
 ### [取得 ARP 表格 (傳統)](expressroute-troubleshooting-arp-classic.md)
 
 # 參考
-## [PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
+## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#expressroute)
 ## [Azure CLI](/cli/azure/network/express-route)
 ## [REST](https://msdn.microsoft.com/library/azure/mt586720)
 ## [REST (傳統)](https://msdn.microsoft.com/library/azure/dn606310)

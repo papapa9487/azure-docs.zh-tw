@@ -15,53 +15,53 @@
 # 開始使用
 ## 建立應用程式閘道
 ### 公眾對應
-#### [入口網站](application-gateway-create-gateway-portal.md)
-#### [PowerShell](application-gateway-create-gateway-arm.md)
+#### [Azure 入口網站](application-gateway-create-gateway-portal.md)
+#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
 #### [Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
 #### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI 2.0](application-gateway-create-gateway-cli.md)
-#### [PowerShell (傳統)](application-gateway-create-gateway.md)
+#### [Azure CLI](application-gateway-create-gateway-cli.md)
+#### [Azure PowerShell (傳統)](application-gateway-create-gateway.md)
 ### 內部對向
-#### [PowerShell](application-gateway-ilb-arm.md)
-#### [PowerShell (傳統)](application-gateway-ilb.md)
+#### [Azure PowerShell](application-gateway-ilb-arm.md)
+#### [Azure PowerShell (傳統)](application-gateway-ilb.md)
 # 作法
 ## 設定 Web 應用程式防火牆
-### [入口網站](application-gateway-web-application-firewall-portal.md)
-### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-### [Azure CLI 2.0](application-gateway-web-application-firewall-cli.md)
+### [Azure 入口網站](application-gateway-web-application-firewall-portal.md)
+### [Azure PowerShell](application-gateway-web-application-firewall-powershell.md)
+### [Azure CLI](application-gateway-web-application-firewall-cli.md)
 ## 自訂 Web 應用程式防火牆規則
-### [入口網站](application-gateway-customize-waf-rules-portal.md)
-### [Azure CLI 2.0](application-gateway-customize-waf-rules-cli.md)
+### [Azure 入口網站](application-gateway-customize-waf-rules-portal.md)
+### [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 ## 設定 SSL
-### [入口網站](application-gateway-ssl-portal.md)
-### [PowerShell](application-gateway-ssl-arm.md)
-### [PowerShell (傳統)](application-gateway-ssl.md)
-### [Azure CLI 2.0](application-gateway-ssl.md)
+### [Azure 入口網站](application-gateway-ssl-portal.md)
+### [Azure PowerShell](application-gateway-ssl-arm.md)
+### [Azure PowerShell (傳統)](application-gateway-ssl.md)
+### [Azure CLI](application-gateway-ssl.md)
 ### [端對端](application-gateway-end-to-end-ssl-powershell.md)
 ### [SSL 原則](application-gateway-configure-ssl-policy-powershell.md)
 ## 設定 URL 路徑型路由
-### [入口網站](application-gateway-create-url-route-portal.md)
-### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-### [Azure CLI 2.0](application-gateway-create-url-route-cli.md)
+### [Azure 入口網站](application-gateway-create-url-route-portal.md)
+### [Azure PowerShell](application-gateway-create-url-route-arm-ps.md)
+### [Azure CLI](application-gateway-create-url-route-cli.md)
 ## 設定多網站主控
-### [入口網站](application-gateway-create-multisite-portal.md)
-### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
+### [Azure 入口網站](application-gateway-create-multisite-portal.md)
+### [Azure PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
 ## 設定重新導向
-### [PowerShell](application-gateway-configure-redirect-powershell.md)
+### [Azure PowerShell](application-gateway-configure-redirect-powershell.md)
 ## 將 Web 應用程式設定為後端集區成員
-### [PowerShell](application-gateway-web-app-powershell.md)
+### [Azure PowerShell](application-gateway-web-app-powershell.md)
 ## 設定健全狀態探查
-### [入口網站](application-gateway-create-probe-portal.md)
-### [PowerShell](application-gateway-create-probe-ps.md)
-### [PowerShell (傳統)](application-gateway-create-probe-classic-ps.md)
+### [Azure 入口網站](application-gateway-create-probe-portal.md)
+### [Azure PowerShell](application-gateway-create-probe-ps.md)
+### [Azure PowerShell (傳統)](application-gateway-create-probe-classic-ps.md)
 ## [Azure 資訊安全中心整合](application-gateway-integration-security-center.md)
 ## [合併負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## 疑難排解
 ### [對應用程式閘道中閘道的錯誤進行疑難排解](application-gateway-troubleshooting-502.md)
 ### [診斷記錄與計量](application-gateway-diagnostics.md)
 # 參考
-## [PowerShell](/powershell/azure/overview)
-## [Azure CLI 2.0](/cli/azure/network/application-gateway)
+## [Azure PowerShell](/powershell/azure/overview)
+## [Azure CLI](/cli/azure/network/application-gateway)
 ## [.NET](/dotnet/api)
 ## [Java](/java/api/com.microsoft.azure.management.network)
 ## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)

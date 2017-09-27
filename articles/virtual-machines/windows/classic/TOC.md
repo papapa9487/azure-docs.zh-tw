@@ -7,7 +7,7 @@
 ## [容器](../../virtual-machines-windows-containers.md)
 
 # 開始使用
-## [使用入口網站建立 VM](tutorial.md)
+## [使用 Azure 入口網站建立 VM](tutorial.md)
 ## [登入 VM](connect-logon.md)
 ## [安裝 Azure PowerShell](/powershell/azure/overview)
 ## [安裝 Azure CLI](../../../cli-install-nodejs.md)
@@ -85,7 +85,7 @@
 ### [將虛擬硬碟附加至進行疑難排解的 VM](troubleshoot-recovery-disks-portal.md)
 
 # 參考
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)

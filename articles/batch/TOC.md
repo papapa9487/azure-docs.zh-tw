@@ -42,7 +42,7 @@
 #### [執行作業和工作](./scripts/batch-cli-sample-run-job.md)
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=batch)
-## [PowerShell](/powershell/module/azurerm.batch)
+## [Azure PowerShell](/powershell/module/azurerm.batch)
 ## [Azure CLI](/cli/azure/batch)
 ## [.NET](/dotnet/api/microsoft.azure.batch)
 ## [Java](/java/api/com.microsoft.azure.batch)
@@ -63,8 +63,8 @@
 
 # 相關參考
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
-## [透過 Batch 和 Data Factory 處理的資料](../data-factory/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
-## [Azure 中的 Batch、HPC 和 Big Compute 解決方案](../virtual-machines/linux/high-performance-computing.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [透過 Batch 和 Data Factory 處理的資料](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
+## [Azure 雲端中的 Batch 和 HPC 解決方案](batch-hpc-solutions.md)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)

@@ -75,6 +75,7 @@ sections:
           - html: 透過 Cosmos DB 查詢資料：<a href="/azure/cosmos-db/tutorial-query-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-query-table">Table</a> | <a href="/azure/cosmos-db/tutorial-query-graph">Graph</a>
           - html: 透過 Cosmos DB 複寫全域資料庫：<a href="/azure/cosmos-db/tutorial-global-distribution-documentdb">DocumentDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-table">Table</a> | <a href="/azure/cosmos-db/tutorial-global-distribution-graph">Graph</a>
           - html: <a href="local-emulator">使用模擬器在本機開發應用程式</a>
+          - html: <a href="/azure/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 輸入繫結建立 HTTP 觸發程序</a>
   - title: 範例
     items:
       - type: list

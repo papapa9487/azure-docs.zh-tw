@@ -93,14 +93,20 @@
           href: local-emulator.md
         - name: 匯出憑證
           href: local-emulator-export-ssl-certificates.md
+    - name: 6 - 與 Functions 整合
+      items:
+        - name: HTTP 觸發程序
+          href: tutorial-functions-http-trigger.md
 - name: 範例
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: cli-samples.md
-    - name: Azure PowerShell
+    - name: PowerShell
       href: powershell-samples.md
 - name: 概念
   items:
+    - name: 無伺服器資料庫
+      href: serverless-computing-database.md
     - name: 全球發佈
       href: distribute-data-globally.md
     - name: 分割
@@ -268,6 +274,8 @@
           href: geospatial.md
         - name: 編製索引
           href: indexing-policies.md
+        - name: Visual Studio 中的已連線服務
+          href: connected-service.md
     - name: 管理
       items:
         - name: 符合成本效益的讀取和寫入
@@ -282,8 +290,14 @@
           href: set-throughput.md
         - name: 監視 SLA
           href: monitor-accounts.md
+        - name: 使用計量
+          href: use-metrics.md
+        - name: 診斷記錄
+          href: logging.md
         - name: 管理金鑰和一致性
           href: manage-account.md
+        - name: Azure 儲存體總管
+          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
         - name: 安全性
           items:
             - name: 待用加密
@@ -309,7 +323,7 @@
         - name: 與 Azure 搜尋服務整合
           href: ../search/search-howto-index-documentdb.md
         - name: 使用 Azure Data Factory 移動資料
-          href: ../data-factory/data-factory-azure-documentdb-connector.md
+          href: ../data-factory/connector-azure-cosmos-db.md
         - name: 使用 Azure 串流分析來分析即時資料
           href: '../stream-analytics/stream-analytics-define-outputs.md#documentdb'
         - name: 使用 Logic Apps 取得已變更的 HL7 FHIR 記錄

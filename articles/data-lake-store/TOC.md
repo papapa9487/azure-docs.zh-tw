@@ -5,18 +5,18 @@
 ## [適用於 Azure Data Lake Store 的開放原始碼應用程式](data-lake-store-compatible-oss-other-applications.md)
 
 # 開始使用
-## [使用入口網站](data-lake-store-get-started-portal.md)
-## [使用 PowerShell](data-lake-store-get-started-powershell.md)
+## [使用 Azure 入口網站](data-lake-store-get-started-portal.md)
+## [使用 Azure PowerShell](data-lake-store-get-started-powershell.md)
 ## [使用 .NET SDK](data-lake-store-get-started-net-sdk.md)
 ## [使用 Java SDK](data-lake-store-get-started-java-sdk.md)
 ## [使用 REST API](data-lake-store-get-started-rest-api.md)
-## [使用 Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
+## [使用 Azure CLI](data-lake-store-get-started-cli-2.0.md)
 ## [使用 Node.js](data-lake-store-manage-use-nodejs.md)
 ## [使用 Python](data-lake-store-get-started-python.md)
 
 # 作法
 ## 複製資料
-### [使用 Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)
+### [使用 Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 ### [使用 AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [使用 DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [使用 Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -40,14 +40,14 @@
 
 ## 與 Azure 服務整合
 ### 搭配 HDInsight
-#### [使用入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
-#### [使用 PowerShell (預設儲存體)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-#### [使用 PowerShell (其他儲存體)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+#### [使用 Azure 入口網站](data-lake-store-hdinsight-hadoop-use-portal.md)
+#### [使用 Azure PowerShell (預設儲存體)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
+#### [使用 Azure PowerShell (其他儲存體)](data-lake-store-hdinsight-hadoop-use-powershell.md)
 #### [使用 Azure 範本](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 ### [從 Azure VNET 內的 VM 存取](data-lake-store-connectivity-from-vnets.md)
 ### [使用 Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [搭配使用 Azure 事件中樞](data-lake-store-archive-eventhub-capture.md)
-### [搭配 Data Factory 使用](../data-factory/data-factory-azure-datalake-connector.md)
+### [搭配 Data Factory 使用](../data-factory/connector-azure-data-lake-store.md)
 ### [搭配串流分析使用](data-lake-store-stream-analytics.md)
 ### [搭配 Power BI 使用](data-lake-store-power-bi.md)
 ### [搭配資料目錄使用](data-lake-store-with-data-catalog.md)
@@ -61,14 +61,14 @@
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=data-lake-store)
-## [PowerShell](/powershell/module/azurerm.datalakestore)
+## [Azure PowerShell](/powershell/module/azurerm.datalakestore)
 ## [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 ## [Java](/java/api/com.microsoft.azure.datalake.store)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-store)
 ## [Python (帳戶管理)](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
 ## [Python (檔案系統管理)](http://azure-datalake-store.readthedocs.io/en/latest)
 ## [REST](/rest/api/datalakestore)
-## [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/dls)
+## [Azure CLI](https://docs.microsoft.com/cli/azure/dls)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)

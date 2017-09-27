@@ -16,8 +16,8 @@
 #### [自動化 - 使用範本](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 #### [手動 - 必要條件](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [手動 - 教學課程](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
-#### [負載平衡器 - 入口網站](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
-#### [負載平衡器 - PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
+#### [負載平衡器 - Azure 入口網站](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
+#### [負載平衡器 - Azure PowerShell](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md)
 #### [多個區域嗎](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### 容錯移轉叢集執行個體
 #### [設定](virtual-machines-windows-portal-sql-create-failover-cluster.md)
@@ -36,7 +36,7 @@
 ## [應用程式模式](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
 
 # 參考
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
 ## [SQL Server 驅動程式](https://msdn.microsoft.com/library/mt654049.aspx)

@@ -12,6 +12,8 @@
   items:
     - name: 監視 VM 變更與邏輯應用程式
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
+    - name: 調整上傳映像的大小
+      href: resize-images-on-storage-blob-upload-event.md
 - name: 概念
   items:
     - name: Event Grid 概念

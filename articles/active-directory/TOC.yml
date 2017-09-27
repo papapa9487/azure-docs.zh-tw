@@ -1,6 +1,6 @@
 - name: Azure 中的資源存取
   href: active-directory-understanding-resource-access.md
-- name: 角色型存取控制
+- name: 角色型存取控制 (RBAC)
   href: role-based-access-control-what-is.md
   items:
     - name: 管理存取權指派
@@ -31,10 +31,14 @@
       href: role-based-access-control-troubleshooting.md
     - name: 資源提供者作業
       href: role-based-access-control-resource-provider-operations.md
+- name: RBAC 的 Privileged Identity Management (PIM)
+  href: pim-azure-resource.md
+- name: Azure 管理的條件式存取
+  href: conditional-access-azure-management.md
 - name: 受管理的服務識別
   href: msi-overview.md
   items:
-    - name: 設定適用於 Windows VM 的 MSI
+    - name: 設定 Azure VM 的 MSI
       items:
         - name: 透過 Azure 入口網站
           href: msi-qs-configure-portal-windows-vm.md

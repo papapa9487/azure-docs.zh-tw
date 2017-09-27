@@ -4,31 +4,34 @@
 ## [DNS 區域和記錄](dns-zones-records.md)
 ## [使用 Azure DNS 委派 DNS](dns-domain-delegation.md)
 ## [DNS 常見問題](dns-faq.md)
+## [使用私人 DNS 區域](private-dns-overview.md)
 
 # 開始使用
 
 ## 建立 DNS 區域和記錄
-### [入口網站](dns-getstarted-portal.md)
-### [PowerShell](dns-getstarted-powershell.md)
+### [Azure 入口網站](dns-getstarted-portal.md)
+### [Azure PowerShell](dns-getstarted-powershell.md)
 ### [Azure CLI 1.0](dns-getstarted-cli-nodejs.md)
-### [Azure CLI 2.0](dns-getstarted-cli.md)
+### [Azure CLI](dns-getstarted-cli.md)
 
+## 建立私人 DNS 區域和記錄
+### [PowerShell](private-dns-getstarted-powershell.md)
 ## [將您的網域委派給 Azure DNS](dns-delegate-domain-azure-dns.md)
 ## [建立 Web 應用程式的自訂 DNS 記錄](dns-web-sites-custom-domain.md)
 
 # 作法
 
 ## 管理 DNS 區域
-### [入口網站](dns-operations-dnszones-portal.md)
-### [PowerShell](dns-operations-dnszones.md)
+### [Azure 入口網站](dns-operations-dnszones-portal.md)
+### [Azure PowerShell](dns-operations-dnszones.md)
 ### [Azure CLI 1.0](dns-operations-dnszones-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-dnszones-cli.md)
+### [Azure CLI](dns-operations-dnszones-cli.md)
 
 ## 管理 DNS 記錄
-### [入口網站](dns-operations-recordsets-portal.md)
-### [PowerShell](dns-operations-recordsets.md)
+### [Azure 入口網站](dns-operations-recordsets-portal.md)
+### [Azure PowerShell](dns-operations-recordsets.md)
 ### [Azure CLI 1.0](dns-operations-recordsets-cli-nodejs.md)
-### [Azure CLI 2.0](dns-operations-recordsets-cli.md)
+### [Azure CLI](dns-operations-recordsets-cli.md)
 
 ## 管理反向 DNS
 ### [概觀](dns-reverse-dns-overview.md)
@@ -46,7 +49,7 @@
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=dns)
-## [PowerShell](/powershell/module/azurerm.dns)
+## [Azure PowerShell](/powershell/module/azurerm.dns)
 ## [Azure CLI](/cli/azure/network/dns)
 ## [.NET](/dotnet/api/microsoft.azure.management.dns.models)
 ## [Java](/java/api/com.microsoft.azure.management.dns)

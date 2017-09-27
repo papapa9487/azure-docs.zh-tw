@@ -70,7 +70,7 @@
     - name: 德國
       tocHref: /azure/germany/
       topicHref: /azure/germany/
-    - name: 入口網站
+    - name: Azure 入口網站
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/
     - name: Resource Manager
@@ -79,6 +79,9 @@
     - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
+    - name: Azure Stack 使用者
+      tocHref: /azure/azure-stack/user/
+      topicHref: /azure/azure-stack/user/
     - name: 支援能力
       tocHref: /azure/azure-supportability/
       topicHref: /azure/azure-supportability/
@@ -162,7 +165,7 @@
     - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: 資料湖存放區
+    - name: Data Lake Store
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Devtest Lab
@@ -207,6 +210,19 @@
     - name: 機器學習服務
       tocHref: /azure/machine-learning/
       topicHref: /azure/machine-learning/
+      items:
+        - name: 服務 (預覽)
+          tocHref: /azure/machine-learning/preview
+          topicHref: /azure/machine-learning/preview/
+        - name: Studio
+          tocHref: /azure/machine-learning/studio
+          topicHref: /azure/machine-learning/studio/
+        - name: Team Data Science Process
+          tocHref: /azure/machine-learning/team-data-science-process
+          topicHref: /azure/machine-learning/team-data-science-process/overview
+        - name: 資料科學虛擬機器
+          tocHref: /azure/machine-learning/data-science-virtual-machine
+          topicHref: /azure/machine-learning/data-science-virtual-machine/virtual-machine-overview
     - name: Marketplace 取用者
       tocHref: /azure/marketplace-consumer/
       topicHref: /azure/marketplace-consumer/

@@ -109,23 +109,24 @@
 ### 使用裝置作業更新裝置韌體
 #### [Node 後端/Node 裝置](iot-hub-node-node-firmware-update.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-firmware-update.md)
+#### [Java 後端/Java 裝置](iot-hub-java-java-firmware-update.md)
 ### 排程及廣播作業
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
 ## 管理
 ### 建立 IoT 中樞 
-#### [使用入口網站](iot-hub-create-through-portal.md)
-#### [使用 PowerShell](iot-hub-create-using-powershell.md)
-#### [使用 CLI 2.0](iot-hub-create-using-cli.md)
+#### [使用 Azure 入口網站](iot-hub-create-through-portal.md)
+#### [使用 Azure PowerShell](iot-hub-create-using-powershell.md)
+#### [使用 Azure CLI](iot-hub-create-using-cli.md)
 #### [使用 CLI](iot-hub-create-using-cli-nodejs.md)
 #### [使用 REST API](iot-hub-rm-rest.md)
-#### [使用 PowerShell 範本](iot-hub-rm-template-powershell.md)
+#### [使用 Azure PowerShell 範本](iot-hub-rm-template-powershell.md)
 #### [使用 .NET 範本](iot-hub-rm-template.md)
 ### 設定檔案上傳
-#### [使用入口網站](iot-hub-configure-file-upload.md)
-#### [使用 PowerShell](iot-hub-configure-file-upload-powershell.md)
-#### [使用 CLI 2.0](iot-hub-configure-file-upload-cli.md)
+#### [使用 Azure 入口網站](iot-hub-configure-file-upload.md)
+#### [使用 Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
+#### [使用 Azure CLI](iot-hub-configure-file-upload-cli.md)
 ### [大量管理 IoT 裝置](iot-hub-bulk-identity-mgmt.md)
 ### [用量度量](iot-hub-metrics.md)
 ### [作業監視](iot-hub-operations-monitoring.md)

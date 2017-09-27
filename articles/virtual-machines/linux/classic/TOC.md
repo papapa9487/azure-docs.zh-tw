@@ -5,7 +5,7 @@
 ## [常見問題集](faq.md)
 
 # 開始使用
-## [使用入口網站建立 Linux VM](createportal.md)
+## [使用 Azure 入口網站建立 Linux VM](createportal.md)
 ## [安裝 Azure CLI](../../../cli-install-nodejs.md)
 ## [建立 SSH 金鑰](../mac-create-ssh-keys.md)
 
@@ -22,7 +22,7 @@
 ### [重設 Linux 的密碼或金鑰、修正 SSH 並檢查磁碟](reset-access.md)
 ### [維護](planned-maintenance-schedule.md)
 ### [使用 CLI 建立 Docker 主機](cli-use-docker.md)
-### [使用入口網站建立 Docker 主機](portal-use-docker.md)
+### [使用 Azure 入口網站建立 Docker 主機](portal-use-docker.md)
 ### [如何搭配swarm 使用 Docker](../../virtual-machines-linux-docker-swarm.md)
 
 ## 使用儲存體
@@ -67,7 +67,7 @@
 ### [將虛擬硬碟附加至進行疑難排解的 VM](troubleshoot-recovery-disks-portal.md)
 
 # 參考
-## [PowerShell](/powershell/azure/overview)
+## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)
 ## [製作 Resource Manager 範本](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

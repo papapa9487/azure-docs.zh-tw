@@ -1,3 +1,5 @@
+- name: Azure 儲存體文件
+  href: index.yml
 - name: 概觀
   items:
     - name: 簡介

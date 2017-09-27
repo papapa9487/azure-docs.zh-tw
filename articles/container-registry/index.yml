@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Container Registry 文件
+metadata:
+  title: Azure Container Registry 文件 - 教學課程 | Microsoft Docs
+  description: Azure Container Registry 可讓您儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
+  services: container-registry
+  author: czeumault
+  manager: carolz
+  ms.service: container-registry
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/26/2017
+  ms.author: carolz
+abstract:
+  description: Azure Container Registry 可讓您儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
+sections:
+  - title: 5 分鐘快速入門
+    items:
+      - type: paragraph
+        text: 了解如何部署 Azure Container Registry。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
+            text: Azure CLI
+            href: /azure/container-registry/container-registry-get-started-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/portal.svg'
+            text: Azure 入口網站
+            href: /azure/container-registry/container-registry-get-started-portal
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/logo_powershell.svg'
+            text: Azure PowerShell
+            href: /azure/container-registry/container-registry-get-started-powershell
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何使用 Azure Container Registry 搭配 Azure Container Instances 和 Azure Container Service。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry 搭配 Azure Container Instances</a>
+          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Container Registry 搭配 Azure Container Service</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/containerregistry">REST API 參考</a></p>

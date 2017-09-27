@@ -1,0 +1,52 @@
+- name: 資料科學虛擬機器文件
+  items: null
+- name: 概觀
+  items:
+    - name: 什麼是資料科學 VM？
+      href: overview.md
+    - name: 什麼是深度學習 VM？
+      href: deep-learning-dsvm-overview.md
+- name: 開始使用
+  items:
+    - name: 建立 Windows 資料科學 VM
+      href: provision-vm.md
+    - name: 建立 Ubuntu 資料科學 VM
+      href: dsvm-ubuntu-intro.md
+    - name: 建立 CentOS 資料科學 VM
+      href: linux-dsvm-intro.md
+    - name: 建立深度學習 VM
+      href: provision-deep-learning-dsvm.md
+- name: 作法
+  items:
+    - name: 使用 Windows 資料科學 VM
+      href: vm-do-ten-things.md
+    - name: 使用 Linux 資料科學 VM
+      href: linux-dsvm-walkthrough.md
+    - name: 使用深度學習 VM
+      href: use-deep-learning-dsvm.md
+- name: 參考
+  items:
+    - name: 深度學習和 AI 架構
+      href: dsvm-deep-learning-ai-frameworks.md
+    - name: ML 和資料科學工具
+      href: dsvm-ml-data-science-tools.md
+    - name: 語言
+      href: dsvm-languages.md
+    - name: 開發工具
+      href: dsvm-tools-development.md
+    - name: 資料擷取工具
+      href: dsvm-tools-ingestion.md
+    - name: 資料探索和虛擬化工具
+      href: dsvm-tools-explore-and-visualize.md
+    - name: 資料平台
+      href: dsvm-data-platforms.md
+    - name: 範例和逐步解說
+      href: dsvm-samples-and-walkthroughs.md
+- name: 資源
+  items:
+    - name: 部落格
+      href: 'https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/'
+    - name: MSDN 論壇
+      href: 'https://social.microsoft.com/Forums/en-US/home?forum=dsvm'
+    - name: 堆疊溢位
+      href: 'https://stackoverflow.com/search?q=dsvm'

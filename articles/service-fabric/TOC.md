@@ -4,8 +4,8 @@
 
 # 快速入門
 ## [建立 .NET 應用程式](service-fabric-quickstart-dotnet.md)
-## [部署 Windows 容器應用程式](service-fabric-quickstart-containers.md)
 ## [部署 Linux 容器應用程式](service-fabric-quickstart-containers-linux.md)
+## [部署 Windows 容器應用程式](service-fabric-quickstart-containers.md)
 
 # 教學課程
 ## 部署 .NET 應用程式
@@ -17,11 +17,24 @@
 ## 將現有的 .NET 應用程式容器化
 ### [1- 在 Azure 上建立安全叢集](service-fabric-tutorial-create-cluster-azure-ps.md)
 ### [2- 使用 Docker Compose 部署 .NET 應用程式](service-fabric-host-app-in-a-container.md)
+### [3 - 監視您的容器](service-fabric-tutorial-monitoring-wincontainers.md)
+
+## 建立 Linux 容器應用程式
+### [1 - 建立容器映像](service-fabric-tutorial-create-container-images.md)
+### [2 - 封裝和部署容器](service-fabric-tutorial-package-containers.md)
+### [3 - 容錯移轉和調整](service-fabric-tutorial-containers-failover.md)
+
+## 建立和管理叢集
+### 1 - 在 Azure 上建立叢集
+#### [1a - 在 Azure 上建立安全的 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b - 在 Azure 上建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+### [2 - 使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
 # 範例
-## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=service-fabric)
-## [PowerShell](service-fabric-powershell-samples.md)
+## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=service-fabric)
+## [Azure PowerShell](service-fabric-powershell-samples.md)
 ## [Service Fabric CLI](samples-cli.md)
+
 # 概念
 ## [了解微服務](service-fabric-overview-microservices.md)
 ## [概觀](service-fabric-content-roadmap.md)
@@ -67,6 +80,8 @@
 #### [服務狀態](service-fabric-concepts-state.md)
 #### [服務分割](service-fabric-concepts-partitioning.md)
 #### [服務可用性](service-fabric-availability-services.md)
+#### [複本和執行個體](service-fabric-concepts-replica-lifecycle.md)
+#### [重新設定](service-fabric-concepts-reconfiguration.md)
 #### 服務通訊
 ##### [概觀](service-fabric-connect-and-communicate-with-services.md)
 ##### [DNS 服務](service-fabric-dnsservice.md)
@@ -91,7 +106,6 @@
 
 ## 建立和管理叢集
 ### [概觀](service-fabric-deploy-anywhere.md)
-### [Linux 上的 Service Fabric](service-fabric-linux-overview.md)
 ### 規劃和準備
 #### [容量規劃](service-fabric-cluster-capacity.md)
 #### [災害復原](service-fabric-disaster-recovery.md)
@@ -130,6 +144,8 @@
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
+
+## [設定 Service Fabric CLI](service-fabric-cli.md)
 
 ## 建置應用程式
 ### [在 Visual Studio 中建立您的第一個 C# 應用程式](service-fabric-create-your-first-application-in-visual-studio.md)
@@ -225,13 +241,13 @@
 
 ### 部署或移除應用程式
 #### [在本機叢集上部署應用程式](service-fabric-get-started-with-a-local-cluster.md)
-#### [PowerShell](service-fabric-deploy-remove-applications.md)
+#### [Azure PowerShell](service-fabric-deploy-remove-applications.md)
 #### [Service Fabric CLI](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [FabricClient API](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### 升級應用程式
-#### [使用 Powershell 升級](service-fabric-application-upgrade-tutorial-powershell.md)
+#### [使用 Azure Powershell 升級](service-fabric-application-upgrade-tutorial-powershell.md)
 #### [使用 Visual Studio 進行升級](service-fabric-application-upgrade-tutorial.md)
 #### [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)
 
@@ -280,8 +296,6 @@
 
 ### [視覺化叢集](service-fabric-visualizing-your-cluster.md)
 ### [連線到安全的叢集](service-fabric-connect-to-secure-cluster.md)
-
-### [開始使用 Service Fabric CLI](service-fabric-cli.md)
 ### [修補叢集節點](service-fabric-patch-orchestration-application.md)
 
 ### 管理和組織叢集資源
@@ -326,7 +340,7 @@
 ### [針對本機叢集進行疑難排解](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # 參考
-## [PowerShell (Azure)](/powershell/module/azurerm.servicefabric/)
+## [Azure PowerShell](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
 ## [Azure CLI](/cli/azure/sf)
 ## [Java API](/java/api/overview/azure/servicefabric)
