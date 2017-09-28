@@ -24,8 +24,7 @@
 ### 為受管理的網域設定安全 LDAP
 #### [工作 1 - 取得安全 LDAP 的憑證](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [工作 2 - 匯出安全 LDAP 憑證](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
-#### [工作 3 - 使用 Azure 傳統入口網站為受管理的網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
-#### [工作 3 - 使用 Azure 入口網站 (預覽) 為受管理的網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [工作 3：使用 Azure 入口網站，為受管理的網域啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [在受管理的網域上建立 OU](active-directory-ds-admin-guide-create-ou.md)
 ### [受管理網域中的管理群組](active-directory-ds-admin-guide-administer-group-policy.md)

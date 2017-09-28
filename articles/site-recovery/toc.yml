@@ -82,6 +82,8 @@
   items:
     - name: 災害復原
       items:
+        - name: 針對 Azure for VMware VM 支援多租用戶
+          href: site-recovery-multi-tenant-support-vmware-using-csp.md
         - name: 目的地為 Azure (針對 Hyper-V VM)
           href: tutorial-hyper-v-to-azure.md
         - name: 目的地為 Azure (針對實體伺服器)

@@ -1,3 +1,5 @@
+- name: 管理存取概觀
+  href: manage-access-to-azure-resources.md
 - name: Azure 中的資源存取
   href: active-directory-understanding-resource-access.md
 - name: 角色型存取控制 (RBAC)

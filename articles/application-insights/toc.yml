@@ -226,6 +226,13 @@
       items:
         - name: 連續匯出
           href: app-insights-export-telemetry.md
+          items:
+            - name: 程式碼範例
+              items:
+                - name: 使用串流分析匯出至 SQL
+                  href: app-insights-code-sample-export-sql-stream-analytics.md
+                - name: 匯出至串流分析簡介
+                  href: app-insights-export-stream-analytics.md
         - name: 匯出資料模型
           href: app-insights-export-data-model.md
         - name: 匯出至 Power BI

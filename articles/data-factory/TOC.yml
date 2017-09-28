@@ -172,22 +172,34 @@
           href: control-flow-expression-language-functions.md
         - name: 系統變數
           href: control-flow-system-variables.md
-    - name: 在金鑰保存庫中儲存認證
-      href: store-credentials-in-key-vault.md
+    - name: 安全性
+      items:
+        - name: 資料移動安全性考量
+          href: data-movement-security-considerations.md
+        - name: 在 Azure Key Vault 中儲存認證
+          href: store-credentials-in-key-vault.md
+        - name: 對自我託管的整合執行階段認證進行加密
+          href: encrypt-credentials-self-hosted-integration-runtime.md
     - name: 監視及管理
       items:
         - name: 使用 .NET
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: 使用 Azure 監視器
           href: monitor-using-azure-monitor.md
+        - name: 管理 Azure-SSIS 整合執行階段
+          href: manage-azure-ssis-integration-runtime.md
+        - name: 監視 Azure 整合執行階段
+          href: monitor-integration-runtime.md
     - name: 建立整合執行階段
       items:
         - name: Azure 整合執行階段
           href: create-azure-integration-runtime.md
-        - name: Azure SSIS 整合執行階段
-          href: create-azure-ssis-integration-runtime.md
         - name: 自我裝載的整合執行階段
           href: create-self-hosted-integration-runtime.md
+        - name: Azure SSIS 整合執行階段
+          href: create-azure-ssis-integration-runtime.md
+        - name: 將 Azure SSIS 整合執行階段新增至 VNET
+          href: join-azure-ssis-integration-runtime-virtual-network.md
 - name: 參考
   items:
     - name: .NET
@@ -200,6 +212,8 @@
       href: /python/api/overview/azure/datafactory?view=azure-python
 - name: 資源
   items:
+    - name: 常見問題集
+      href: frequently-asked-questions.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: 價格

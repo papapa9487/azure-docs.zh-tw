@@ -9,6 +9,8 @@
 ### [.NET](relay-hybrid-connections-dotnet-get-started.md)
 ### [Node](relay-hybrid-connections-node-get-started.md)
 ## [WCF 轉送](relay-wcf-dotnet-get-started.md)
+## [WCF 轉送教學課程](service-bus-relay-tutorial.md)
+## [WCF 轉送的 REST 教學課程](service-bus-relay-rest-tutorial.md)
 
 # 作法
 ## 規劃和設計

@@ -23,7 +23,7 @@
       href: powershell-samples.md
 - name: 概念
   items:
-    - name: 常見問題集
+    - name: Log Analytics 常見問題集
       href: log-analytics-faq.md
     - name: 資料耗用量
       href: log-analytics-usage.md
@@ -31,6 +31,14 @@
       href: log-analytics-manage-access.md
     - name: 服務提供者的功能
       href: log-analytics-service-providers.md
+    - name: 記錄搜尋
+      items:
+        - name: 記錄搜尋常見問題
+          href: log-analytics-log-search-faq.md
+        - name: 記錄檔搜尋概觀
+          href: log-analytics-log-search-new.md
+        - name: 記錄搜尋入口網站
+          href: log-analytics-log-search-portals.md
 - name: 作法
   items:
     - name: 收集資料
@@ -92,15 +100,6 @@
       items:
         - name: 升級您的工作區
           href: log-analytics-log-search-upgrade.md
-        - name: 常見問題集
-          href: log-analytics-log-search-faq.md
-        - name: 記錄檔搜尋概觀
-          href: log-analytics-log-search-new.md
-        - name: 記錄搜尋入口網站
-          href: log-analytics-log-search-portals.md
-          items:
-            - name: 使用記錄搜尋入口網站
-              href: log-analytics-log-search-log-search-portal.md
         - name: 從舊版語言轉換
           href: log-analytics-log-search-transition.md
         - name: 流程連接器

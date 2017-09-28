@@ -43,6 +43,7 @@
 ### [合作夥伴](logic-apps-enterprise-integration-partners.md)
 ### [合約](logic-apps-enterprise-integration-agreements.md)
 ### [B2B 處理](logic-apps-enterprise-integration-b2b.md)
+### [批次傳送 EDI 訊息](logic-apps-scenario-edi-send-batch-messages.md)
 ### [XML 處理](logic-apps-enterprise-integration-xml.md)
 ### [一般檔案處理](logic-apps-enterprise-integration-flatfile.md)
 ### [驗證 XML](logic-apps-enterprise-integration-xml-validation.md)
@@ -88,7 +89,7 @@
 ### [建立無伺服器的社交儀表板](logic-apps-scenario-social-serverless.md)
 ### [使用 Azure Functions 呼叫邏輯應用程式](logic-apps-scenario-function-sb-trigger.md)
 ### [新增錯誤和例外狀況處理](logic-apps-scenario-error-and-exception-handling.md)
-### [B2B 處理](logic-apps-enterprise-integration-b2b.md)
+### [B2B 處理](logic-apps-enterprise-integration-b2b.md) 
 
 ## 定價與計費
 ### [價格](https://azure.microsoft.com/pricing/details/logic-apps/)

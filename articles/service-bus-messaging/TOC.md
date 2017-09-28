@@ -43,6 +43,7 @@
 ### [無效信件佇列](service-bus-dead-letter-queues.md)
 ### [交易處理](service-bus-transactions.md)
 ### [診斷記錄](service-bus-diagnostic-logs.md)
+### [配對的命名空間實作](service-bus-paired-namespaces.md)
 ### AMQP
 #### [AMQP 概觀](service-bus-amqp-overview.md)
 #### [.NET](service-bus-amqp-dotnet.md)
