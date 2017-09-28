@@ -349,7 +349,7 @@ Azure Functions 透過 `{rand-guid}` 繫結運算式，提供在繫結中產生 
       "name": "info",
       "type": "httpTrigger",
       "direction": "in",
-      "webHookType": "genericJson",
+      "webHookType": "genericJson"
     },
     {
       "name": "blobContents",
