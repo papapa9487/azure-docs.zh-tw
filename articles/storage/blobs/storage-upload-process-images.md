@@ -15,10 +15,10 @@ ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: b0b043f0e30eec7a9456ef15b28b9c89fccf33df
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -46,13 +46,13 @@ ms.lasthandoff: 09/25/2017
 
 使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
  
-下列範例會建立名為 `myResourceGroup` 的資源群組。   
+下列範例會建立名為 `myResourceGroup` 的資源群組。
  
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westcentralus 
 ``` 
 
-## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
+## <a name="create-a-storage-account"></a>建立儲存體帳戶
  
 此範例會將影像上傳至 Azure 儲存體帳戶的 Blob 容器。 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 在使用 [az storage account create](/cli/azure/storage/account#create) 命令所建立的資源群組中建立儲存體帳戶。 
 
@@ -67,7 +67,7 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## <a name="create-blob-storage-containers"></a>建立 Blob 儲存體容器 
+## <a name="create-blob-storage-containers"></a>建立 Blob 儲存體容器
  
 應用程式在 Blob 儲存體帳戶中使用兩個容器。 容器類似資料夾，用來儲存 Blob。 應用程式會將高解析度的影像上傳到 [影像] 容器。 在系列的後半部分，Azure 函式應用程式會將已調整大小的影像縮圖上傳到 [縮圖] 容器。 
 
@@ -107,7 +107,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式 
 
-Web 應用程式提供裝載範例應用程式程式碼的空間，此程式碼是從 GitHub 範例存放庫部署。 使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service-web/app-service-web-overview.md)。  
+Web 應用程式提供裝載範例應用程式程式碼的空間，此程式碼是從 GitHub 範例存放庫部署。 使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service/app-service-web-overview.md)。  
  
 在下列命令中，使用唯一的名稱取代 `<web_app>` (有效的字元為 `a-z`、`0-9` 和 `-`)。 如果 `<web_app>` 不是唯一，您會收到錯誤訊息：_具有指定名稱 `<web_app>` 的網站已經存在。_ Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。  
 
@@ -222,7 +222,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 > * 將 Web 應用程式部署至 Azure
 > * 與 Web 應用程式互動
 
-在系列的第二個部分，了解使用事件格線觸發 Azure 函式，以調整影像大小。  
+在系列的第二個部分，了解使用事件格線觸發 Azure 函式，以調整影像大小。
 
 > [!div class="nextstepaction"]
 > [使用事件格線觸發 Azure 函式以調整上傳的影像大小](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
