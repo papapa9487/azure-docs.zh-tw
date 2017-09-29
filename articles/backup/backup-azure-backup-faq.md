@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 7/21/2017
-ms.author: markgal;arunak;trinadhk;
+ms.author: markgal;arunak;trinadhk;sogup;
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: a765aeffbaa7fd94aa0ef8e3885c03e5b5098c6e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 94b649d7949b6fbc2ec734afc955dabbfc84fc4d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="questions-about-the-azure-backup-service"></a>關於 Azure 備份服務的問題
@@ -47,7 +47,7 @@ ms.lasthandoff: 08/09/2017
 [傳統入口網站](https://manage.windowsazure.com)中所有現有的備份保存庫會繼續受到支援。 不過，您無法再使用傳統入口網站來部署新的備份保存庫。 Microsoft 建議使用所有部署的復原服務保存庫，因為未來的增強功能僅適用於復原服務保存庫。 如果您嘗試在傳統入口網站中建立備份保存庫，您將重新導向至 [Azure 入口網站](https://portal.azure.com)。
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>是否可以將備份保存庫移轉至復原服務保存庫？ <br/>
-很遺憾，不行，您無法將備份保存庫的內容移轉至復原服務保存庫。 我們正著手新增這項功能，但目前仍未提供。
+您現在可以將備份保存庫升級至 Microsoft Azure 復原服務保存庫。 如需詳細資訊，請參閱[將備份保存庫升級至 Microsoft Azure 復原服務保存庫](backup-azure-upgrade-backup-to-recovery-services.md)文章。
 
 ### <a name="i-backed-up-my-classic-vms-in-a-backup-vault-can-i-migrate-my-vms-from-classic-mode-to-resource-manager-mode-and-protect-them-in-a-recovery-services-vault"></a>我已在備份保存庫中備份我的傳統 VM。 我可以將我的 VM 從傳統模式移轉至 Resource Manager 模式，並在復原服務保存庫中保護它們嗎？
 當您將 VM 從傳統模式移至 Resource Manager 模式時，備份保存庫中的傳統 VM 復原點不會自動移轉至復原服務保存庫。 請遵循下列步驟來傳輸您的 VM 備份：

@@ -16,15 +16,15 @@ ms.date: 08/31/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1203a77ebc117c646f587f0d64466364f0e47751
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e1bc68426f93717dcf466652d2481b6ab1db2a18
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-apps-for-containers"></a>在適用於容器的 Azure Web 應用程式中建置 Node.js 和 MongoDB Web 應用程式
+# <a name="build-a-nodejs-and-mongodb-web-app-in-azure-web-app-for-containers"></a>在適用於容器的 Azure Web 應用程式中建置 Node.js 和 MongoDB Web 應用程式
 
-[容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 Node.js Web 應用程式，並將它連線到 MongoDB 資料庫。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在適用於容器的 Web 應用程式中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](http://meanjs.org/)。
+[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 Node.js Web 應用程式，並將它連線到 MongoDB 資料庫。 完成之後，您的 MEAN 應用程式 (MongoDB、Express、AngularJS 及 Node.js) 將會在適用於容器的 Web 應用程式中執行。 為了簡單起見，範例應用程式會使用 [MEAN.js web 架構](http://meanjs.org/)。
 
 ![在 Azure App Service 中執行的 MEAN.js 應用程式](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -103,7 +103,7 @@ MEAN.JS version: 0.5.0
 --
 ```
 
-在瀏覽器中瀏覽至 http://localhost:3000 。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 
+在瀏覽器中，瀏覽至 `http://localhost:3000`。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 
 
 MEAN.js 範例應用程式會將使用者資料儲存於資料庫中。 如果您成功建立使用者並且登入，則您的應用程式正在將資料寫入本機 MongoDB 資料庫。
 
@@ -228,7 +228,7 @@ App version:     0.5.0
 MEAN.JS version: 0.5.0
 ```
 
-在瀏覽器中瀏覽至 http://localhost:8443 。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 如果您成功建立使用者並且登入，則您的應用程式正在將資料寫入 Azure 中的 Cosmos DB 資料庫。 
+在瀏覽器中，瀏覽至 `http://localhost:8443`。 按一下上層功能表中的 [註冊]，然後建立測試使用者。 如果您成功建立使用者並且登入，則您的應用程式正在將資料寫入 Azure 中的 Cosmos DB 資料庫。 
 
 在終端機中，輸入 `Ctrl+C` 以停止 Node.js。 
 
@@ -479,5 +479,5 @@ git push azure master
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
 
 > [!div class="nextstepaction"] 
-> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../../app-service-web/app-service-web-tutorial-custom-domain.md)
+> [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
 

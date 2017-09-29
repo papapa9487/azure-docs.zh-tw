@@ -1,6 +1,6 @@
 ---
 title: "針對 Azure Web App for Containers 執行自訂 Docker Hub 映像 | Microsoft Docs"
-description: "如何針對 Azure Web App for Containers 使用自訂 Docker Hub 映像"
+description: "如何針對 Azure Web App for Containers 使用自訂 Docker 映像。"
 keywords: "azure app service, web 應用程式, linux, docker, 容器"
 services: app-service
 documentationcenter: 
@@ -12,18 +12,19 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/05/2017
-ms.author: naziml;wesmc
+ms.author: wesmc
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 47eec572272eb22cd6cd881874d7ecb87d7e08ad
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: da47bc9dd6fd980a37e2fdb57485858c2f1b2a73
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="run-a-custom-docker-hub-image-in-azure-web-apps-for-containers"></a>針對 Azure Web App for Containers 執行自訂 Docker Hub 映像 #
+# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>針對 Azure Web App for Containers 執行自訂 Docker Hub 映像 #
 
 App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特定的版本，例如 PHP 7.0 和 Node.js 4.5。 您也可以使用自訂 Docker 映像，將您的 Web 應用程式部署到尚未定義在 Azure 中的應用程式堆疊。 本快速入門示範如何建立 Web 應用程式，並將 Python 的映像部署到其中。 [使用 Azure CLI 建立 Web 應用程式](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
 
@@ -37,7 +38,7 @@ App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特�
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service-web/app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
+使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name elnably/dockerimagetest
@@ -72,7 +73,7 @@ http://<app_name>.azurewebsites.net
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-custom-docker-image/hello-world-in-browser.png)
 
-**恭喜！** 您已部署自訂 Docker Hub 映像至 Azure Web App for Containers 。
+**恭喜！** 您已部署自訂 Docker Hub 映像至 Azure Web App for Containers。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -16,15 +16,15 @@ ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 1b10636848198ab0ff46e6a492373ecf42a96202
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>在 Azure 中的 Linux 容器中建立 PHP Web 應用程式
 
-[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門教學課程會顯示如何將 PHP 應用程式部署至適用於容器的 Azure Web Apps。 您將會在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 建立 Web 應用程式，並使用 Git 將 PHP 程式碼部署至 Web 應用程式。
+[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門教學課程會顯示如何將 PHP 應用程式部署至適用於容器的 Azure Web App。 您將會在 Cloud Shell 中使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) 建立 Web 應用程式，並使用 Git 將 PHP 程式碼部署至 Web 應用程式。
 
 ![在 Azure 中執行的範例應用程式]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -56,7 +56,7 @@ cd php-docs-hello-world
 php -S localhost:8080
 ```
 
-開啟網頁瀏覽器，然後瀏覽至範例應用程式 (位於 http://localhost:8080 ) 。
+開啟網頁瀏覽器，然後巡覽至位於 `http://localhost:8080` 的範例應用程式。
 
 您會看到來自範例應用程式的 **Hello World!** 訊息顯示在網頁中。
 

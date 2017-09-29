@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 657e3ff08127e612b2e00b7d992e3f7ce648b8df
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 874dc9aab8561a3d0e5158ffd943f773e91acdfb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -51,16 +51,16 @@ ms.lasthandoff: 09/14/2017
 
 4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
 5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
-6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更 [支援的磁碟類型] 篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
+6. 選取 VM 的大小。 若要查看更多大小，請選取 [檢視全部] 或變更支援的磁碟類型篩選條件。 在 [設定] 刀鋒視窗上，保留預設值並按一下 [確定]。
 
 ## <a name="enable-msi-on-your-vm"></a>在您的 VM 上啟用 MSI
 
 虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並啟用 VM 的 MSI。  
 
 1. 選取您想要在其中啟用 MSI 的 [虛擬機器]。
-2. 在左側的導覽列上，按一下 [設定] 。
+2. 在左側的導覽列上，按一下 [設定]。
 3. 您會看到**受管理的服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
-4. 確認按一下 [儲存] 儲存設定。
+4. 按一下 [儲存] 確認儲存設定。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -86,14 +86,14 @@ ms.lasthandoff: 09/14/2017
 
 若要完成這些步驟，您需要 SSH 用戶端。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 用戶端。 
 
-1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀]中按一下 [連線]。  
+1. 在入口網站中，瀏覽至 [Linux VM]，並在 [概觀] 中按一下 [連線]。  
 2. 使用您所選擇的 SSH 用戶端來**連線**到 VM。 
 3. 在終端機視窗中使用 CURL，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。  
  
     存取權杖的 CURL 要求如下。  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
+    curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true   
     ```
     
     > [!NOTE]
@@ -107,7 +107,7 @@ ms.lasthandoff: 09/14/2017
     {"access_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyIsImtpZCI6IkhIQnlLVS0wRHFBcU1aaDZaRlBkMlZXYU90ZyJ9.eyJhdWQiOiJodHRwczovL21hbmFnZW1lbnQuYXp1cmUuY29tIiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3LyIsImlhdCI6MTUwNDEyNjYyNywibmJmIjoxNTA0MTI2NjI3LCJleHAiOjE1MDQxMzA1MjcsImFpbyI6IlkyRmdZTGg2dENWSzRkSDlGWGtuZzgyQ21ZNVdBZ0E9IiwiYXBwaWQiOiI2ZjJmNmU2OS04MGExLTQ3NmEtOGRjZi1mOTgzZDZkMjUxYjgiLCJhcHBpZGFjciI6IjIiLCJpZHAiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwib2lkIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwic3ViIjoiMTEyODJiZDgtMDNlMi00NGVhLTlmYjctZTQ1YjVmM2JmNzJlIiwidGlkIjoiNzJmOTg4YmYtODZmMS00MWFmLTkxYWItMmQ3Y2QwMTFkYjQ3IiwidXRpIjoib0U5T3JVZFJMMHVKSEw4UFdvOEJBQSIsInZlciI6IjEuMCJ9.J6KS7b9kFgDkegJ-Vfff19LMnu3Cfps4dL2uNGucb5M76rgDM5f73VO-19wZSRhQPxWmZLETzN3SljnIMQMkYWncp79MVdBud_xqXYyLdQpGkNinpKVJhTo1j1dY27U_Cjl4yvvpBTrtH3OX9gG0GtQs7PBFTTLznqcH3JR9f-bTSEN4wUhalaIPHPciVDtJI9I24_vvMfVqxkXOo6gkL0mEPfpXZRLwrBNd607AzX0KVmLFrwA1vYJnCV-sSV8bwTh2t6CVEj240t0iyeVWVc2usJ0NY2rxPzKd_UckQ_zzrECG3kS4vuYePKz6GqNJFVzm2w2c61lX0-O1CwvQ9w","refresh_token":"","expires_in":"3599","expires_on":"1504130527","not_before":"1504126627","resource":"https://management.azure.com","token_type":"Bearer"} 
     ```
     
-    您可以使用此存取權杖來存取 Azure Resource Manager，例如讀取您先前授與此 VM 存取的資源群組詳細資料。 使用您稍早建立的值來取代 <SUBSCRIPTION ID>、<RESOURCE GROUP>和 <ACCESS TOKEN>。 
+    您可以使用此存取權杖來存取 Azure Resource Manager，例如讀取您先前授與此 VM 存取的資源群組詳細資料。 將 \<SUBSCRIPTION ID\>、\<RESOURCE GROUP\> 和 \<ACCESS TOKEN\> 的值以您稍早建立的值取代。 
     
     > [!NOTE]
     > URL 區分大小寫，因此請確定您使用的是稍早在命名資源群組時，您所使用的相同大小寫，而且 "resourceGroup" 中的 "G" 為大寫。  

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 300958a69fc854cb8db02120a383a4cbbfcacd7b
-ms.openlocfilehash: 9f72a4900f20282827ff939aa41bc4f306e547a3
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: de2d41d8c2787ffdc80daddf959487f6031da87d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/20/2017
+ms.lasthandoff: 09/16/2017
 
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>適用於 IT 專業人員的 Azure AD 自助式密碼重設
@@ -55,8 +55,8 @@ Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR) 以容易使用�
 
 視您的訂用帳戶而定，Azure AD 自助式密碼重設會以 3 個層級提供。
 
-* **Azure AD Free** – 僅限雲端的系統管理員可以重設自己的密碼
-* **Azure AD Basic** 或任何**付費 Office 365 訂用帳戶** – 僅限雲端的使用者及僅限雲端的系統管理員可以重設自己的密碼
+* **Azure AD Free** – 僅限雲端的系統管理員可以重設自己的密碼。
+* **Azure AD Basic** 或任何**付費 Office 365 訂用帳戶** – 僅限雲端的使用者可變更其自己的密碼，僅限雲端的系統管理員則可重設自己的密碼。
 * **Azure AD Premium** – 任何使用者或系統管理員，包括僅限雲端、同盟或密碼同步使用者可以重設自己的密碼。 內部部署密碼需要啟用密碼回寫。
 
 ## <a name="azure-ad-self-service-password-reset-a-sum-of-the-parts"></a>Azure AD 自助式密碼重設 (組件的概要)
@@ -88,11 +88,11 @@ Azure Active Directory (Azure AD) 自助式密碼重設 (SSPR) 以容易使用�
 * [**快速入門**](active-directory-passwords-getting-started.md) - 開始執行 Azure AD 自助式密碼管理 
 * [**授權**](active-directory-passwords-licensing.md) - 設定 Azure AD 授權
 * [**資料**](active-directory-passwords-data.md) -了解所需的資料以及如何將它使用於密碼管理
-* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並部署給使用者
+* [**推出**](active-directory-passwords-best-practices.md) - 使用此處提供的指引來規劃 SSPR 並將它部署至使用者
 * [**自訂**](active-directory-passwords-customize.md) - 為您的公司自訂 SSPR 體驗的外觀與風格。
 * [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
 * [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
-* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - 您一直想要詢問之問題的答案
+* [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - -您一直想要詢問之問題的答案
 * [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
 
 

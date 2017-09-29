@@ -12,14 +12,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: genli;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: d2dda47bb3ba5a397ad9626ca4705214dd2560f8
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 1eb8c05f24fcf41f9c188e1153f96a53d8828a39
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -70,8 +70,11 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>系統不支援指定的磁碟設定
 
-Azure 備份目前不支援容量大於 1023 GB 的磁碟。 請分割磁碟，確定磁碟大小低於限制。 若要分割磁碟，您需要從大於 1023 GB 的磁碟中將資料複製到新建立的小於 1023 GB 的磁碟。
-
+Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁碟。 
+- 如果您有容量大於 1 TB 的磁碟，請[附加新磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)，磁碟需要小於 1 TB <br>
+- 然後，將大於 1 TB 的磁碟中的資料複製到小於 1 TB 的新建磁碟。 <br>
+- 請確認所有資料皆已複製，然後移除大於 1 TB 的磁碟
+- 起始備份
 
 ## <a name="causes-and-solutions"></a>原因和解決方案
 
@@ -160,9 +163,9 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 #### <a name="solution"></a>方案
 
-** Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
+ **Windows 客體：**確認 iaasvmprovider 服務已啟用，而且啟動類型為「自動」。 如果服務不是使用此方式所設定，請啟用該服務以判斷下一次備份是否成功。
 
-** Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
+ **Linux 客體：**VMSnapshot for Linux (備份所使用的擴充功能) 的最新版本是 1.0.91.0。<br>
 
 
 如果還是無法更新或載入備份擴充功能，您可以透過解除安裝擴充功能來強制重新載入 VMSnapshot 擴充功能。 下一次的備份嘗試將會重新載入擴充功能。

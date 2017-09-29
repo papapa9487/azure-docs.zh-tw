@@ -16,10 +16,10 @@ ms.date: 08/22/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: a26c40351c6b982fd90acb4bf06220ef3f79f399
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: a57edd30975ec0e943fd84b2c66137d328a89b8b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>設定 Azure Active Directory 裝置型條件式存取原則
@@ -57,7 +57,9 @@ ms.lasthandoff: 08/23/2017
 裝置可由下列項目在目錄中標示為符合規範：
 
 - Intune 
-- 與 Azure AD 整合的第三方行動裝置管理系統  
+- 協力廠商行動裝置受管理系統，可透過 Azure AD 整合來管理 Windows 10 裝置 
+ 
+  
 
 只有連線到 Azure AD 的裝置可標示為符合規範。 若要將裝置連線到 Azure Active Directory，您有下列選項： 
 

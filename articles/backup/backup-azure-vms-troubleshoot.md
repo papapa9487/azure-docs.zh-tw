@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: bb058b11d211c4c41ff8f8c3849a4630886c78d5
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
@@ -32,9 +32,13 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="backup"></a>備份
 
-## <a name="error-the-specified-disk-configuration-is-not-supported"></a>錯誤：系統不支援指定的磁碟設定
+### <a name="error-the-specified-disk-configuration-is-not-supported"></a>錯誤：系統不支援指定的磁碟設定
 
-Azure 備份目前不支援容量大於 1023 GB 的磁碟。 請分割磁碟，確定磁碟大小低於限制。 若要分割磁碟，您需要從大於 1023 GB 的磁碟中將資料複製到新建立的小於 1023 GB 的磁碟。
+Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm) 的磁碟。 
+- 如果您有容量大於 1 TB 的磁碟，請[附加新磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)，磁碟需要小於 1 TB <br>
+- 然後，將大於 1 TB 的磁碟中的資料複製到小於 1 TB 的新建磁碟。 <br>
+- 請確認所有資料皆已複製，然後移除大於 1 TB 的磁碟
+- 起始備份。
 
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |

@@ -16,10 +16,10 @@ ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6624d683edb548a65d07ab4012c599faaf940ed0
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -36,6 +36,7 @@ ms.lasthandoff: 08/17/2017
 > * [建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)
 > * 將應用程式部署到遠端叢集
 > * [使用 Visual Studio Team Services 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前：
@@ -54,6 +55,8 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 免費！
 
 若要存取合作對象叢集，請瀏覽到此網站：http://aka.ms/tryservicefabric，並遵循指示來存取叢集。 您需要存取合作對象叢集，才能存取 Facebook 或 GitHub 帳戶。
+
+如果想要的話，您可以使用自己的叢集，代替合作對象叢集。  ASP.NET 核心 Web 前端會使用反向 Proxy 與具狀態服務後端通訊。  合作對象叢集和本機開發叢集預設為啟用反向 Proxy。  如果將 Voting 範例應用程式部署至自己的叢集，您必須[啟用叢集中的反向 Proxy](service-fabric-reverseproxy.md#setup-and-configuration)。
 
 > [!NOTE]
 > 合作對象叢集不安全，因為其他人都會看見應用程式以及您在其中輸入的任何資料。 請勿部署不想讓其他人看見的任何項目。 務必閱讀我們的使用條款，以便瞭解所有的詳細資料。

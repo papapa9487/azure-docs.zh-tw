@@ -14,12 +14,13 @@ ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
-ms.author: aelnably;wesmc;mikono;rachelap;cephalin;cfowler
+ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 5d84e558e2fd998df31725b71d1474c0a774490b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 3ae0f28272d70a63b74a9f249566ae789f07aad5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>在 Azure 中的 Linux 容器中建立 .NET Core Web 應用程式
@@ -63,7 +64,7 @@ dotnet restore
 dotnet run
 ```
 
-開啟網頁瀏覽器，然後瀏覽至應用程式 (位於 http://localhost:5000)。
+開啟網頁瀏覽器，然後巡覽至位於 `http://localhost:5000` 的應用程式。
 
 您會看到來自範例應用程式的 **Hello World** 訊息顯示在網頁中。
 
@@ -87,7 +88,7 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service-web/app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
+使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
 
 下列命令中的執行階段會設定為 `DOTNETCORE|1.1`。 若要查看所有支援的執行階段，請執行 [az webapp list-runtimes](/cli/azure/webapp#list-runtimes)。
 

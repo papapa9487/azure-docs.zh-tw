@@ -11,28 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 86d88e3d44f442171f69d0baea5e7d689b963277
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 09d4f81b190329421fc9fd2ebf98b941cb033a08
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-storage"></a>使用 Windows VM 受管理的服務身分識別 (MSI) 來存取 Azure 儲存體
+# <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage"></a>使用 Windows VM 受管理的服務身分識別來存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Linux 虛擬機器 (VM) 啟用受管理的服務身分識別 (MSI)，並使用身分識別存取儲存體金鑰。 在執行儲存作業時 (例如使用儲存體 SDK)，您可以如往常般使用儲存體金鑰。 在此教學課程中，我們將使用 Azure CLI 上傳和下載 blob。 您將了解如何：
+本教學課程會示範如何為 Windows 虛擬機器 (VM) 啟用受管理的服務身分識別 (MSI)，並使用身分識別存取儲存體金鑰。 在執行儲存作業時 (例如使用儲存體 SDK)，您可以如往常般使用儲存體金鑰。 在此教學課程中，我們將使用 Azure 儲存體 PowerShell 來上傳和下載 Blob。 您將了解如何：
 
 
 > [!div class="checklist"]
 > * 在 Windows 虛擬機器上啟用 MSI 
-> * 建立新的儲存體帳戶
-> * 將您的 VM 存取權授與儲存體 
-> * 使用 VM 身分識別取得儲存體帳戶的存取權杖 
+> * 在 Resource Manager 中將您的 VM 存取權授與儲存體金鑰 
+> * 使用 VM 身分識別取得存取權杖，並使用它從 Resource Manager 擷取儲存體金鑰 
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -58,31 +57,44 @@ ms.lasthandoff: 09/14/2017
 
 虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並啟用虛擬機器的 MSI。  
 
-1. 選取您想要在其中啟用 MSI 的**虛擬機器**。
-2. 在左側的導覽列上，按一下 [設定]。
-3. 您會看到**受管理的服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
+1. 巡覽 至新虛擬機器的資源群組，並選取您在上一個步驟中建立的虛擬機器。
+2. 在左側的 [VM 設定] 下，按一下 [組態]。
+3. 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
 4. 按一下 [儲存] 確認儲存設定。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. 如果您想要檢查哪些延伸模組會在此 **Windows VM** 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforWindows** 會出現在清單中。
+5. 如果您想要檢查哪些延伸模組會在此 VM 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforWindows** 會出現在清單中。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
-## <a name="create-a-new-storage-account"></a>建立新的儲存體帳戶 
+## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
-在執行儲存作業時，您可以如往常般使用儲存體金鑰，在此範例中我們將著重在使用 Azure CLI 上傳和下載 blob。 
+如果您還沒有帳戶，您現在將建立一個儲存體帳戶。 您也可以略過此步驟，並將您的 VM MSI 存取權授與現有儲存體帳戶的金鑰。 
 
-1. 瀏覽至提要欄位並選取 [儲存體]。  
-2. 建立新的 [儲存體帳戶]。  
-3. 在 [部署模型] 中輸入 **Resource Manager**，以及在 [帳戶類型] 中輸入**一般用途**。  
-4. 請確定 [訂用帳戶] 和 [資源群組] 是您在上述步驟中建立 [Linux 虛擬機器] 時所使用的。
+1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
+2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]，就會顯示新的 [建立儲存體帳戶] 面板。
+3. 輸入儲存體帳戶的名稱，您稍後將會使用它。  
+4. [部署模型] 和 [帳戶類型] 應該分別設定為「資源管理員」和「一般用途」。 
+5. 確定 [訂用帳戶] 和 [資源群組] 符合您在上一個步驟中建立 VM 時指定的值。
+6. 按一下 [建立] 。
 
-    ![替代映像文字](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![建立新的儲存體帳戶](media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+
+## <a name="create-a-blob-container-in-the-storage-account"></a>在儲存體帳戶中建立 Blob 容器
+
+稍後我們將上傳和下載檔案到新的儲存體帳戶。 由於檔案需要 Blob 儲存體，我們需要建立 Blob 容器，用來儲存檔案。
+
+1. 巡覽回到您新建立的儲存體帳戶。
+2. 按一下左側導覽列中 [Blob 服務] 下的 [容器] 連結。
+3. 按一下頁面上方的 [+ 容器]，[新的容器] 面板隨即會滑出。
+4. 指定容器的名稱，選取存取層級，然後按一下 [確定]。 稍後在教學課程中將會用到您指定的名稱。 
+
+    ![建立儲存體容器](media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 ## <a name="grant-your-vm-identity-access-to-use-storage-keys"></a>授與您 VM 的身分識別存取權以使用儲存體金鑰 
 
-您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。   
+Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 MSI 從 Resource Manager 擷取儲存體金鑰，並使用這些金鑰來存取儲存體。  在此步驟中，您會將您的 VM MSI 存取權授與儲存體帳戶的金鑰。   
 
 1. 瀏覽至 [儲存體] 的索引標籤。  
 2. 選取您稍早建立的特定 [儲存體帳戶]。   
@@ -96,7 +108,7 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 
-在這裡您必須使用 **PowerShell**。  如果您尚未安裝，請在[這裡](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)下載。 
+在這個部分您必須使用 Azure Resource Manager **PowerShell**。  如果您沒有安裝它，請[下載最新版本](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)之後再繼續。
 
 1. 在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。 
 2. 輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
@@ -104,7 +116,7 @@ ms.lasthandoff: 09/14/2017
 4. 使用 Powershell 的 Invoke-WebRequest，向本機 MSI 端點提出要求來取得 Azure Resource Manager 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri http://localhost/50342/oauth2/token -Method GET -Body @resource="https://management.azure.com/"} -Headers @{Metadata="true"}
+       $response = Invoke-WebRequest -Uri http://localhost:50342/oauth2/token -Method GET -Body @{resource="https://management.azure.com/"} -Headers @{Metadata="true"}
     ```
     
     > [!NOTE]
@@ -113,53 +125,43 @@ ms.lasthandoff: 09/14/2017
     接下來，擷取完整的回應，它會儲存為 $response 物件中的 JavaScript 物件標記法 (JSON) 格式字串。 
     
     ```powershell
-    $content = $repsonse.Content | ConvertFrom-Json
+    $content = $response.Content | ConvertFrom-Json
     ```
     再來，從回應中擷取存取權杖。
     
     ```powershell
     $ArmToken = $content.access_token
     ```
-    
-    最後，使用存取權杖呼叫 Azure Resource Manager。 在此範例中，我們也將使用 PowerShell 的 Invoke-WebRequest 進行呼叫 Azure Resource Manager，並將存取權杖包含在授權標頭中。
-    
-    ```powershell
-    (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $ArmToken"}).content
-    ```
-    > [!NOTE]
-    > URL 區分大小寫，因此請確定您使用的是稍早在命名資源群組時，您所使用的相同大小寫，而且 "resourceGroup" 中的 "G" 為大寫。
-    
-## <a name="get-the-storage-keys-from-azure-resource-manager"></a>從 Azure Resource Manager 取得儲存體金鑰 
+ 
+## <a name="get-storage-keys-from-azure-resource-manager-to-make-storage-calls"></a>從 Azure Resource Manager 取得儲存體金鑰以進行儲存體呼叫 
+
+現在我們將利用在上一節中擷取的存取權杖，使用 PowerShell 對 Resource Manager 進行呼叫，以擷取儲存體存取金鑰。 一旦有了儲存體存取金鑰，我們便可呼叫儲存體進行上傳/下載作業。
 
 ```powershell
-PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/97f51385-2edc-4b69-bed8-7778dd4cb761/resourceGroups/SKwan_Test/providers/Microsoft.Storage/storageAccounts/skwanteststorage/listKeys/?api-version=2016-12-01 -Method POST$ -Headers @{Authorization="Bearer $ARMToken"}
+PS C:\> $keysResponse = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE-ACCOUNT>/listKeys/?api-version=2016-12-01 -Method POST -Headers @{Authorization="Bearer $ARMToken"}
 ```
+> [!NOTE] 
+> URL 區分大小寫，因此請確定您使用的是稍早在命名資源群組時，您所使用的相同大小寫，而且 "resourceGroups" 中的 "G" 為大寫。 
 
 ```powershell
 PS C:\> $keysContent = $keysResponse.Content | ConvertFrom-Json
-```
-
-```powershell
 PS C:\> $key = $keysContent.keys[0].value
 ```
 
-**使用 Azure CLI 建立要上傳的檔案**
+接著，我們會建立一個名為 "test.txt" 的檔案。 然後使用儲存體金鑰來向 Azure 儲存體 PowerShell 進行驗證，並將檔案上傳到我們的 Blob 容器，然後下載檔案。
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-**使用 Azure CLI 上傳檔案並透過儲存體金鑰進行驗證。**
-
 > [!NOTE]
 > 首先請記得安裝 Azure commandlet “Install-Module Azure.Storage”。 
 
-PowerShell 要求：
-
+您可以使用 `Set-AzureStorageBlobContent` PowerShell Cmdlet 來上傳您剛剛建立的 Blob：
 
 ```powershell
-PS C:\> $ctx = New-AzureStorageContext -StorageAccountName skwanteststorage -StorageAccountKey $key
-PS C:\> Set-AzureStorageBlobContent -File test.txt -Container testcontainer -Blob testblob -Context $ctx
+PS C:\> $ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT> -StorageAccountKey $key
+PS C:\> Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 回應：
@@ -176,12 +178,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-**使用 Azure CLI 下載檔案並透過儲存體金鑰進行驗證。**
-
-PowerShell 要求：
+您也可以使用 `Get-AzureStorageBlobContent` PowerShell Cmdlet 來下載您剛剛上傳的 Blob：
 
 ```powershell
-PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <container name> -Destination <file> -Context $ctx
+PS C:\> Get-AzureStorageBlobContent -Blob <blob name> -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 回應：

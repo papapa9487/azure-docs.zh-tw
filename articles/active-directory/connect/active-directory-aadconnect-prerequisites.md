@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: eb9697edc5a6085417ec1339c334db6451ebbf12
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: e09017cbd6c4060ea24bb17c751277b4f4c6daf8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的必要條件
@@ -76,7 +76,8 @@ ms.lasthandoff: 05/31/2017
 * 如果您的內部網路有防火牆，而您需要開放 Azure AD Connect 伺服器與網域控制站之間的連接埠，請參閱 [Azure AD Connect 連接埠](active-directory-aadconnect-ports.md)以了解詳細資訊。
 * 如果您的 Proxy 或防火牆會限制可以存取的 URL，則必須開啟 [Office 365 URL 和 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中記載的 URL。
   * 如果您是使用 Microsoft Cloud Germany，或是使用 Microsoft Azure Government 雲端，則請參閱 [Azure AD Connect：執行個體的特殊考量](active-directory-aadconnect-instances.md) 中的 URL。
-* Azure AD Connect 預設使用 TLS 1.0 來和 Azure AD 通訊。 您可以依照 [啟用 Azure AD Connect 的 TLS 1.2](#enable-tls-12-for-azure-ad-connect)中的步驟變更為使用 TLS 1.2。
+* Azure AD Connect (1.1.614.0 和更高版本) 預設會使用 TLS 1.2 來加密同步引擎與 Azure AD 之間的通訊。 若 TLS 1.2 無法在基礎作業系統上使用，Azure AD Connect 會逐步回到較舊的通訊協定 (TLS 1.1 和 TLS 1.0)。 例如，Windows Server 2008 上執行的 Azure AD Connect 會使用 TLS 1.0，因為 Windows Server 2008 不支援 TLS 1.1 或 TLS 1.2。
+* 在 1.1.614.0 版之前的版本中，Azure AD Connect 預設會使用 TLS 1.0 來加密同步引擎與 Azure AD 之間的通訊。 若要變更為 TLS 1.2，請依照[啟用 Azure AD Connect 的 TLS 1.2](#enable-tls-12-for-azure-ad-connect) 中的步驟。
 * 如果您使用連出 Proxy 來連線到網際網路，就必須在 **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** 檔案中新增下列設定，安裝精靈和 Azure AD Connect 同步處理才能夠連線到網際網路和 Azure AD。 必須在檔案底部輸入此文字。 在此程式碼中，&lt;PROXYADRESS&gt; 代表實際的 Proxy IP 位址或主機名稱。
 
 ```
@@ -91,7 +92,7 @@ ms.lasthandoff: 05/31/2017
     </system.net>
 ```
 
-* 如果您的 Proxy 伺服器需要驗證，則[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)必須位於網域中，且您必須使用自訂的設定安裝路徑來指定[自訂服務帳戶](active-directory-aadconnect-get-started-custom.md#install-required-components)。 您也需要對 machine.config 進行不同的變更。 在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。 在所有安裝精靈頁面中 ([設定]  頁面除外)，都會使用已登入之使用者的認證。 在安裝精靈結尾的 [設定] 頁面上，內容會切換到您建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 Machine.config 區段應該看起來像這樣。
+* 如果您的 Proxy 伺服器需要驗證，則[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)必須位於網域中，且您必須使用自訂的設定安裝路徑來指定[自訂服務帳戶](active-directory-aadconnect-get-started-custom.md#install-required-components)。 您也需要對 machine.config 進行不同的變更。在 machine.config 中進行這項變更之後，安裝精靈和同步處理引擎就會回應來自 Proxy 伺服器的驗證要求。 在所有安裝精靈頁面中 ([設定]  頁面除外)，都會使用已登入之使用者的認證。 在安裝精靈結尾的 [設定] 頁面上，內容會切換到您建立的[服務帳戶](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)。 Machine.config 區段應該看起來像這樣。
 
 ```
     <system.net>
@@ -128,7 +129,7 @@ Azure AD Connect 需要 Microsoft PowerShell 和 .NET Framework 4.5.1。 您需�
   * .NET Framework 4.5.1 和更新版本可從 [Microsoft 下載中心](http://www.microsoft.com/downloads)取得。
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>啟用 Azure AD Connect 的 TLS 1.2
-Azure AD Connect 預設使用 TLS 1.0 將同步引擎伺服器和 Azure AD 之間的通訊加密。 您可以在伺服器上將 .Net 應用程式設定變更為預設使用 TLS 1.2。 您可以在 [Microsoft 資訊安全摘要報告 2960358](https://technet.microsoft.com/security/advisory/2960358) 中找到 TLS 1.2 的相關詳細資訊。
+在 1.1.614.0 版之前的版本中，Azure AD Connect 預設會使用 TLS 1.0 來加密同步引擎伺服器與 Azure AD 之間的通訊。 您可以在伺服器上將 .Net 應用程式設定變更為預設使用 TLS 1.2。 您可以在 [Microsoft 資訊安全摘要報告 2960358](https://technet.microsoft.com/security/advisory/2960358) 中找到 TLS 1.2 的相關詳細資訊。
 
 1. TLS 1.2 無法在 Windows Server 2008 上啟用。 您需要 Windows Server 2008R2 或更新版本。 請確定您已經為作業系統安裝 .Net 4.5.1 Hotfix，請參閱 [Microsoft 資訊安全摘要報告 2960358 ](https://technet.microsoft.com/security/advisory/2960358)。 您的伺服器上可能已經安裝此 Hotfix 或更新版本。
 2. 如果您使用 Windows Server 2008R2，請確定已啟用 TLS 1.2。 在 Windows Server 2012 伺服器和更新版本上，TLS 1.2 應該已經啟用。

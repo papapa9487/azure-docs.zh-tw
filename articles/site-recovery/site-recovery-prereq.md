@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: rajanaki
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: ccc2b53e0824042c0f07b9fe63e8777aa68c6dc1
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -56,22 +56,27 @@ VMware VM 或實體 Windows 或 Linux 伺服器的災害復原需要下列元件
 
 ### <a name="configuration-server-or-additional-process-server"></a>組態伺服器或其他處理伺服器
 
-設定內部部署機器做為組態伺服器，協調內部部署網站與 Azure 之間的通訊。 內部部署機器也會管理資料複寫。 <br/></br>
+設定內部部署機器做為組態伺服器，協調內部部署網站與 Azure 之間的通訊。 下表討論可設定為組態伺服器之虛擬機器的系統和軟體需求。
 
-*   **VMware vCenter 或 vSphere 主機必要條件**
+> [!IMPORTANT]
+> 部署用於保護 VMWare 虛擬機器的組態伺服器時，我們建議您將其部署為**高可用 (HA)** 虛擬機器。
 
-    | **元件** | **需求** |
-    | --- | --- |
-    | **vSphere** | 您必須有一個或多個 VMware vSphere Hypervisor。<br/><br/>Hypervisor 必須執行 vSphere 6.0、5.5 或 5.1 版 (含最新更新)。<br/><br/>我們建議 vSphere 主機與 vCenter 伺服器兩者位於和處理序伺服器相同的網路中。 除非您已設定專用的處理序伺服器，否則這是組態伺服器所在的網路。 |
-    | **vCenter** | 建議您部署 VMware vCenter 伺服器來管理您的 vSphere 主機。 它必須執行 vCenter 6.0 或 5.5 版 (含最新更新)。<br/><br/>**限制**：Site Recovery 不支援 vCenter vMotion 執行個體之間的複寫。 在重新保護作業之後，主要目標虛擬機器亦不支援儲存體 DRS 和 Storage vMotion。||
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
-* **複寫之機器的必要條件**
+### <a name="vmware-vcenter-or-vsphere-host-prerequisites"></a>VMWare vCenter 或 vSphere 主機必要條件
 
-    | **元件** | **需求** |
-    | --- | --- |
-    | **內部部署機器** (VMware VM) | 複寫的虛擬機器必須安裝並執行 VMware 工具。<br/><br/> 虛擬機器必須符合[Azure 的必要條件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)用於建立 Azure VM。<br/><br/>每部受保護的電腦上的磁碟容量不可超過 1,023 GB。 <br/><br/>安裝磁碟機上必須至少有 2 GB 的可用空間來進行元件安裝。<br/><br/>如果您想要啟用多部 VM 虛擬機器一致性，必須在虛擬機器本機防火牆上開啟連接埠 20004。<br/><br/>機器名稱的長度必須介於 1 到 63 個字元 (可使用字母、數字和連字號)。 名稱必須以字母或數字開頭，並以字母或數字結尾。 <br/><br/>您可以在為機器啟用複寫後修改 Azure 名稱。<br/><br/> |
-    | **Windows 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Windows Server 2012 R2<br/>- Windows Server 2012<br/>- Windows Server 2008 R2 SP1 或更新版本<br/><br/> 作業系統必須安裝在 C 磁碟機上。作業系統磁碟必須是 Windows 基本磁碟而非動態磁碟。 資料磁碟可以為動態。<br/><br/>|
-    | **Linux 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Red Hat Enterprise Linux 5.2 至 5.11、6.1 至 6.9、7.0 至 7.3<br/>- CentOS 5.2 至 5.11、6.1 至 6.9、7.0 至 7.3<br/>- Ubuntu 14.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>- Ubuntu 16.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>-  Debian 7 或 Debian 8<br/>-  Oracle Enterprise Linux 6.5 或 6.4，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)<br/>- SUSE Linux Enterprise Server 11 SP4 或 SUSE Linux Enterprise Server 11 SP3<br/><br/>受保護機器上您的 /etc/hosts 檔案必須有將本機主機名稱對應到所有網路介面卡相關聯 IP 位址的項目。<br/><br/>容錯移轉之後，如果您想要連線到使用安全殼層 (SSH) 用戶端執行 Linux 的 Azure VM，請確定受保護的機器上的 SSH 服務已設定為系統啟動時自動啟動。 也請確定防火牆規則允許對於受保護的機器進行的 SSH 連線。<br/><br/>主機名稱、掛接點、裝置名稱和 Linux 系統路徑和檔案名稱 (例如 /etc/ 和 /usr) 必須僅使用英文。<br/><br/>下列目錄必須一律位於來源伺服器的同個磁碟 (OS 磁碟) (若設為獨立資料分割/檔案系統)：<br/>- / (根)<br/>- /boot<br/>- /usr<br/>- /usr/local<br/>- /var<br/>- /etc<br/><br/>目前，XFS v5 功能 (例如，中繼資料總和檢查碼) 不支援 XFS 檔案系統的 Site Recovery。 請確定 XFS 檔案系統未使用任何 v5 功能。 您可使用 xfs_info 公用程式來檢查資料分割的 XFS 超級區塊。 若 **ftype** 設為 **1**，則會使用 XFS v5 功能。<br/><br/>在 Red Hat Enterprise Linux 7 和 CentOS 7 伺服器上，必須安裝和提供可用的 lsof 公用程式。<br/><br/>
+| **元件** | **需求** |
+| --- | --- |
+| **vSphere** | 您必須有一個或多個 VMware vSphere Hypervisor。<br/><br/>Hypervisor 必須執行 vSphere 6.0、5.5 或 5.1 版 (含最新更新)。<br/><br/>我們建議 vSphere 主機與 vCenter 伺服器兩者位於和處理序伺服器相同的網路中。 除非您已設定專用的處理序伺服器，否則這是組態伺服器所在的網路。 |
+| **vCenter** | 建議您部署 VMware vCenter 伺服器來管理您的 vSphere 主機。 它必須執行 vCenter 6.0 或 5.5 版 (含最新更新)。<br/><br/>**限制**：Site Recovery 不支援 vCenter vMotion 執行個體之間的複寫。 在重新保護作業之後，主要目標虛擬機器亦不支援儲存體 DRS 和 Storage vMotion。|
+
+### <a name="replicated-machine-prerequisites"></a>複寫之機器的必要條件
+
+| **元件** | **需求** |
+| --- | --- |
+| **內部部署機器** (VMware VM) | 複寫的虛擬機器必須安裝並執行 VMware 工具。<br/><br/> 虛擬機器必須符合[Azure 的必要條件](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)用於建立 Azure VM。<br/><br/>每部受保護的電腦上的磁碟容量不可超過 1,023 GB。 <br/><br/>安裝磁碟機上必須至少有 2 GB 的可用空間來進行元件安裝。<br/><br/>如果您想要啟用多部 VM 虛擬機器一致性，必須在虛擬機器本機防火牆上開啟連接埠 20004。<br/><br/>機器名稱的長度必須介於 1 到 63 個字元 (可使用字母、數字和連字號)。 名稱必須以字母或數字開頭，並以字母或數字結尾。 <br/><br/>您可以在為機器啟用複寫後修改 Azure 名稱。<br/><br/> |
+| **Windows 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Windows Server 2012 R2<br/>- Windows Server 2012<br/>- Windows Server 2008 R2 SP1 或更新版本<br/><br/> 作業系統必須安裝在 C 磁碟機上。作業系統磁碟必須是 Windows 基本磁碟而非動態磁碟。 資料磁碟可以為動態。<br/><br/>|
+| **Linux 機器** (實體或 VMware) | 機器必須執行下列其中一個受支援的 64 位元作業系統： <br/>- Red Hat Enterprise Linux 5.2 至 5.11、6.1 至 6.9、7.0 至 7.3<br/>- CentOS 5.2 至 5.11、6.1 至 6.9、7.0 至 7.3<br/>- Ubuntu 14.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>- Ubuntu 16.04 LTS 伺服器 (如需支援的 Ubuntu 核心版本清單，請參閱[支援的作業系統](site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions))<br/>-  Debian 7 或 Debian 8<br/>-  Oracle Enterprise Linux 6.5 或 6.4，執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)<br/>- SUSE Linux Enterprise Server 11 SP4 或 SUSE Linux Enterprise Server 11 SP3<br/><br/>受保護機器上您的 /etc/hosts 檔案必須有將本機主機名稱對應到所有網路介面卡相關聯 IP 位址的項目。<br/><br/>容錯移轉之後，如果您想要連線到使用安全殼層 (SSH) 用戶端執行 Linux 的 Azure VM，請確定受保護的機器上的 SSH 服務已設定為系統啟動時自動啟動。 也請確定防火牆規則允許對於受保護的機器進行的 SSH 連線。<br/><br/>主機名稱、掛接點、裝置名稱和 Linux 系統路徑和檔案名稱 (例如 /etc/ 和 /usr) 必須僅使用英文。<br/><br/>下列目錄必須一律位於來源伺服器的同個磁碟 (OS 磁碟) (若設為獨立資料分割/檔案系統)：<br/>- / (根)<br/>- /boot<br/>- /usr<br/>- /usr/local<br/>- /var<br/>- /etc<br/><br/>目前，XFS v5 功能 (例如，中繼資料總和檢查碼) 不支援 XFS 檔案系統的 Site Recovery。 請確定 XFS 檔案系統未使用任何 v5 功能。 您可使用 xfs_info 公用程式來檢查資料分割的 XFS 超級區塊。 若 **ftype** 設為 **1**，則會使用 XFS v5 功能。<br/><br/>在 Red Hat Enterprise Linux 7 和 CentOS 7 伺服器上，必須安裝和提供可用的 lsof 公用程式。<br/><br/>
 
 
 ## <a name="disaster-recovery-of-hyper-v-vms-to-azure-no-vmm"></a>Hyper-V 虛擬機器至 Azure (無 VMM) 的災害復原
