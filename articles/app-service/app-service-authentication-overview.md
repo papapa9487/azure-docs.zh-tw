@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/29/2016
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: ea1666007b88cdf45017b0bd91e100dc1218fb2b
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 4ba4155515e587038ffe2dbca064ad27aca97445
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
@@ -69,9 +69,9 @@ App Service 會驗證您的應用程式核發來驗證使用者的任何 Cookie 
 > 
 > 
 
-在服務對服務案例下，App Service 可以使用 Azure Active Directory 保護您的應用程式。 呼叫端應用程式只需要提供 Azure Active Directory 服務主體授權權杖，而此權杖是經由提供用戶端識別碼和用戶端密碼而從 Azure Active Directory 取得。 [API Apps 的服務主體驗證][apia-service]教學課程中說明這個使用 ASP.NET API 應用程式的案例範例。
+在服務對服務案例下，App Service 可以使用 Azure Active Directory 保護您的應用程式。 呼叫端應用程式只需要提供 Azure Active Directory 服務主體授權權杖，而此權杖是經由提供用戶端識別碼和用戶端密碼而從 Azure Active Directory 取得。 [API Apps 的服務主體驗證][apia-service] 教學課程中會說明使用 ASP.NET API 應用程式的案例範例。
 
-如果您想要使用 App Service 驗證來處理服務對服務案例，您可以使用用戶端憑證或基本驗證。 如需 Azure 中用戶端憑證的詳細資訊，請參閱 [如何設定 Web Apps 的 TLS 相互驗證](../app-service-web/app-service-web-configure-tls-mutual-auth.md)。 如需 ASP.NET 中基本驗證的詳細資訊，請參閱 [ASP.NET Web API 2 中的驗證篩選](http://www.asp.net/web-api/overview/security/authentication-filters)。
+如果您想要使用 App Service 驗證來處理服務對服務案例，您可以使用用戶端憑證或基本驗證。 如需 Azure 中用戶端憑證的詳細資訊，請參閱 [如何設定 Web Apps 的 TLS 相互驗證](app-service-web-configure-tls-mutual-auth.md)。 如需 ASP.NET 中基本驗證的詳細資訊，請參閱 [ASP.NET Web API 2 中的驗證篩選](http://www.asp.net/web-api/overview/security/authentication-filters)。
 
 App Service 邏輯應用程式至 API 應用程式的服務帳戶驗證屬於特殊案例，在 [將您裝載在 App Service 上的自訂 API 與邏輯應用程式一起使用](../logic-apps/logic-apps-custom-hosted-api.md)中有詳細說明。
 
@@ -150,14 +150,11 @@ App Service 會使用特殊標頭，將某些使用者資訊傳遞至您的應�
 
 * [使用 Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 
-### <a name="api-applications"></a>API 應用程式
-下列教學課程示範如何保護您的 API 應用程式︰
+<!-- ### API applications
+The following tutorials show how to protect your API apps:
 
-* [Azure App Service 中 API Apps 的使用者驗證][apia-user]
-* [Azure App Service 中 API Apps 的服務主體驗證][apia-service]
-
-[apia-user]: ../app-service-api/app-service-api-dotnet-user-principal-auth.md
-[apia-service]: ../app-service-api/app-service-api-dotnet-service-principal-auth.md
+* [User authentication for API Apps in Azure App Service][apia-user]
+* [Service principal authentication for API Apps in Azure App Service][apia-service] -->
 
 [iOS]: ../app-service-mobile/app-service-mobile-ios-get-started-users.md
 [Android]: ../app-service-mobile/app-service-mobile-android-get-started-users.md
@@ -167,11 +164,11 @@ App Service 會使用特殊標頭，將某些使用者資訊傳遞至您的應�
 [Windows]: ../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-users.md
 [Cordova]: ../app-service-mobile/app-service-mobile-cordova-get-started-users.md
 
-[AAD]: ../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md
-[Facebook]: ../app-service-mobile/app-service-mobile-how-to-configure-facebook-authentication.md
-[Google]: ../app-service-mobile/app-service-mobile-how-to-configure-google-authentication.md
-[MSA]: ../app-service-mobile/app-service-mobile-how-to-configure-microsoft-authentication.md
-[Twitter]: ../app-service-mobile/app-service-mobile-how-to-configure-twitter-authentication.md
+[AAD]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[Facebook]: app-service-mobile-how-to-configure-facebook-authentication.md
+[Google]: app-service-mobile-how-to-configure-google-authentication.md
+[MSA]: app-service-mobile-how-to-configure-microsoft-authentication.md
+[Twitter]: app-service-mobile-how-to-configure-twitter-authentication.md
 
 [custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
 
