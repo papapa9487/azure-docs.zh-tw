@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: elkuzmen
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: c5daf4622c8b6c4f572062d5db9b567413daaec0
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -38,10 +38,7 @@ ms.lasthandoff: 09/14/2017
 
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
-<<<<<<< HEAD 登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。=======
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4
-
-登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。
+登入 Azure 入口網站，位址是 [https://portal.azure.com](https://portal.azure.com)。 
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>在新的資源群組中建立 Linux 虛擬機器
 
@@ -50,9 +47,8 @@ ms.lasthandoff: 09/14/2017
 1. 按一下 Azure 入口網站左上角的 [新增] 按鈕。
 2. 選取 [計算]，然後選取 [Ubuntu Server 16.04 LTS]。
 3. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰] 或 [密碼]。 建立的認證可讓您登入 VM。
-<<<<<<< HEAD =======
 
->>>>>>> 9556aed7734bda473c8b60bfa42ff4f82a6eedd4 ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 在下拉式清單中選擇適用於虛擬機器的**訂用帳戶**。
 5. 若要選取要在其中建立虛擬機器的新 [資源群組]，請選擇 [新建]。 完成時，按一下 [確定]。
@@ -111,7 +107,7 @@ ms.lasthandoff: 09/14/2017
     存取權杖的 CURL 要求如下。  
     
     ```bash
-    curl http://localhost:50432/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
+    curl http://localhost:50342/oauth2/token --data "resource=https://vault.azure.net" -H Metadata:true  
     ```
     此回應包含您存取 Resource Manager 所需的存取權杖。 
     

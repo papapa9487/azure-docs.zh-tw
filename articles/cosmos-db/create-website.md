@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42146cdc20bcff84d54110c8fba6d00951558bd0
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 633b88761de4d2c99cfd196cfac8e664fc83c546
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本部署 Azure Cosmos DB 和 Azure App Service Web Apps
@@ -130,9 +130,13 @@ ms.lasthandoff: 09/14/2017
 ## <a name="next-steps"></a>後續步驟
 恭喜！ 您已使用 Azure Resource Manager 範本部署了 Azure Cosmos DB、App Service Web 應用程式及範例 Web 應用程式。
 
-* 若要深入了解 Azure Cosmos DB，請參閱 [Azure Cosmos DB 服務頁面](https://azure.microsoft.com/services/cosmos-db/)。
-* 若要深入了解 Azure App Service Web Apps，請參閱 [Web Apps 文件](http://go.microsoft.com/fwlink/?LinkId=325362)。
-* 若要深入了解 Azure Resource Manager 範本，請參閱 [Resource Manager REST API：部署](https://docs.microsoft.com/rest/api/resources/deployments)。
+* 若要深入了解 Azure Cosmos DB，請按一下[這裡](http://azure.com/docdb)。
+* 若要深入了解 Azure App Service Web Apps，請按一下 [這裡](http://go.microsoft.com/fwlink/?LinkId=325362)。
+* 若要深入了解 Azure 資源管理員範本，請按一下 [這裡](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
+
+## <a name="whats-changed"></a>變更的項目
+* 如需從網站變更為 App Service 的指南，請參閱： [Azure App Service 及其對現有 Azure 服務的影響](http://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從舊的入口網站變更為新入口網站的指南，請參閱： [瀏覽 Azure 傳統入口網站的參考](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 > [!NOTE]
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](http://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；沒有承諾。

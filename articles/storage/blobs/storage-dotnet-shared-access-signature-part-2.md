@@ -3,7 +3,7 @@ title: "透過 Azure Blob 儲存體來建立和使用共用存取簽章 (SAS) | 
 description: "本教學課程說明如何建立搭配 Blob 儲存體使用的共用存取簽章，以及如何在用戶端應用程式中使用共用存取簽章。"
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/15/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0d7bede352667931527c8583cb172a46a37b5aa8

@@ -3,7 +3,7 @@ title: "如何使用拼音的佇列儲存體 | Microsoft Docs"
 description: "了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Ruby 撰寫。"
 services: storage
 documentationcenter: ruby
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 59c2d81b-db9c-46ee-ade2-2f0caae6b1e6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: b1a7dd36af6c45bf085342cdf9c1c926a5040792

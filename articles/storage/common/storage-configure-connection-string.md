@@ -3,7 +3,7 @@ title: "設定 Azure 儲存體的連接字串 | Microsoft Docs"
 description: "設定 Azure 儲存體帳戶的連接字串。 連接字串包含在執行階段從應用程式驗證儲存體帳戶存取所需的資訊。"
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4b21e75fde55f195362809ce486a2615954ff93c

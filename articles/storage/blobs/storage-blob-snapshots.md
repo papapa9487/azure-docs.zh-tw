@@ -3,7 +3,7 @@ title: "在 Azure 儲存體中建立 Blob 的唯讀快照集 | Microsoft Docs"
 description: "了解如何建立 Blob 的快照集以便在給定的時間點備份 Blob 資料。 了解快照集計費的方式，以及如何使用它們將容量費用降至最低。"
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 3710705d-e127-4b01-8d0f-29853fb06d0d
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
 ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b1d87cd66457b08bba594bfc7de1e9e4e2dff1e6

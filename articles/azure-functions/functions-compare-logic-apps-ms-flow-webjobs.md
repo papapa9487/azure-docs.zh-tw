@@ -17,10 +17,10 @@ ms.date: 09/07/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d8edabe1198f37513fc292e0bffc5c83e7e566e7
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1c39b2d9943532c8ccf0a11d3cf4bc8896669cfb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
@@ -60,7 +60,7 @@ Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如取�
 ## <a name="functions-vs-webjobs"></a>Functions 與 WebJobs
 我們可以將 Azure Functions 和 Azure App Service WebJobs 放在一起討論，因為兩者都是針對開發人員所設計的「程式碼優先」  整合服務。 它們可讓您執行指令碼或一段程式碼以回應各種事件，例如[新的儲存體 Blob](functions-bindings-storage.md) 或 [WebHook 要求](functions-bindings-http-webhook.md)。 以下是其相似之處︰ 
 
-* 兩者都是以 [Azure App Service](../app-service/app-service-value-prop-what-is.md) 為基礎所建置，並享有[原始檔控制](../app-service-web/app-service-continuous-deployment.md)、[驗證](../app-service/app-service-authentication-overview.md)和[監視](../app-service-web/web-sites-monitor.md)之類的功能。
+* 兩者都是以 [Azure App Service](../app-service/app-service-web-overview.md) 為基礎所建置，並享有[原始檔控制](../app-service/app-service-continuous-deployment.md)、[驗證](../app-service/app-service-authentication-overview.md)和[監視](../app-service/web-sites-monitor.md)之類的功能。
 * 兩者都是以開發人員為主的服務。
 * 兩者皆支援標準的指令碼和程式設計語言。
 * 兩者都有 NuGet 和 NPM 支援。
@@ -81,7 +81,7 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 | 調整大小 |無組態調整 |隨著 App Service 方案調整 |
 | 價格 |按使用次數付費或屬於 App Service 方案的一部分 |屬於 App Service 方案的一部分 |
 | 執行類型 |觸發、排程 (依計時器觸發程序) |觸發、連續、排程 |
-| 觸發程序事件 |[計時器](functions-bindings-timer.md)、[Azure Cosmos DB](functions-bindings-documentdb.md)、[Azure 事件中樞](functions-bindings-event-hubs.md)、[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)、[Azure App Service Mobile Apps](functions-bindings-mobile-apps.md)、[Azure 通知中樞](functions-bindings-notification-hubs.md)、[Azure 服務匯流排](functions-bindings-service-bus.md)、[Azure 儲存體](functions-bindings-storage.md) |[Azure 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)、[Azure 服務匯流排](../app-service-web/websites-dotnet-webjobs-sdk-service-bus.md) |
+| 觸發程序事件 |[計時器](functions-bindings-timer.md)、[Azure Cosmos DB](functions-bindings-documentdb.md)、[Azure 事件中樞](functions-bindings-event-hubs.md)、[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)、[Azure App Service Mobile Apps](functions-bindings-mobile-apps.md)、[Azure 通知中樞](functions-bindings-notification-hubs.md)、[Azure 服務匯流排](functions-bindings-service-bus.md)、[Azure 儲存體](functions-bindings-storage-blob.md) |[Azure 儲存體](functions-bindings-storage-blob.md)、[Azure 服務匯流排](functions-bindings-service-bus.md) |
 | 瀏覽器中開發 |支援 | 不支援 |
 | Windows 指令碼 (.cmd、.bat) |實驗性 |支援 |
 | PowerShell |實驗性 |支援 |
@@ -115,7 +115,7 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 * [開始使用 Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)
 * [建立您的第一個 Azure 函式](functions-create-first-azure-function.md)
-* [使用 Visual Studio 部署 WebJob](../app-service-web/websites-dotnet-deploy-webjobs.md)
+* [使用 Visual Studio 部署 WebJob](../app-service/websites-dotnet-deploy-webjobs.md)
 
 或者，透過下列連結取得有關這些整合服務的詳細資訊︰
 
@@ -123,6 +123,5 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 * [整合變得簡單，主講人：Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 即時網路廣播](http://aka.ms/logicappslive)
 * [Microsoft Flow 常見問題集](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-* [Azure WebJobs 文件資源](../app-service-web/websites-webjobs-resources.md)
 
 

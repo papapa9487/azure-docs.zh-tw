@@ -3,7 +3,7 @@ title: "建立 OpenBSD VM 映像並上傳至 Azure | Microsoft Docs"
 description: "了解如何建立及上傳包含 OpenBSD 作業系統的虛擬硬碟 (VHD)，以透過 Azure CLI 建立 Azure 虛擬機器"
 services: virtual-machines-linux
 documentationcenter: 
-author: KylieLiang
+author: thomas1206
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: kyliel
+ms.author: huishao
 ms.translationtype: HT
 ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: 716c07f6a738189d6cf2b3caafa16b753927d182
@@ -178,3 +178,4 @@ ssh azureuser@<ip address>
 如果您想要深入了解 OpenBSD6.1 上的 Hyper-V 支援，請參閱 [OpenBSD 6.1](https://www.openbsd.org/61.html) 和 [hyperv.4](http://man.openbsd.org/hyperv.4)。
 
 如果您想要從受管理的磁碟建立 VM，請參閱 [az 磁碟](/cli/azure/disk)。 
+
