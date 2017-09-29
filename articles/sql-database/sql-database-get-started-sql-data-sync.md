@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 2d0f9d7f32ad79f49d58165d734b9df4af862835
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>開始使用 Azure SQL 資料同步 (預覽)
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/05/2017
 
     ![Azure SQL 資料庫清單](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
-3.  在 [SQL 資料庫] 刀鋒視窗中，選取您想要作為資料同步的中樞資料庫使用的現有 SQL 資料庫。 [SQL 資料庫] 刀鋒視窗隨即開啟。
+3.  在 [SQL 資料庫] 刀鋒視窗中，選取您想要作為資料同步的中樞資料庫使用的現有 SQL 資料庫。[SQL 資料庫] 刀鋒視窗隨即開啟。
 
 4.  在所選取資料庫的 [SQL 資料庫] 刀鋒視窗上，選取 [同步至其他資料庫]。 [資料同步] 刀鋒視窗隨即開啟。
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/05/2017
     2.  在 [同步中繼資料的資料庫] 區段中，選擇要建立新的資料庫 (建議) 或使用現有的資料庫。
 
         > [!NOTE]
-        > Microsoft 建議您建立新的空白資料庫作為同步中繼資料的資料庫。 資料同步會在此資料庫中建立資料表，並頻繁執行工作負載。 這個資料庫會作為同步中繼資料的資料庫，自動和選取區域中所有同步群組共用。 您必須先卸除同步中繼資料的資料庫之後，才能變更它、它的名稱或其服務等級。
+        > Microsoft 建議您建立新的空白資料庫作為同步中繼資料的資料庫。 資料同步會在此資料庫中建立資料表，並頻繁執行工作負載。 這個資料庫會作為同步中繼資料的資料庫，自動和選取區域中所有同步群組共用。 您無法在不卸除同步中繼資料資料庫或其名稱的情況下變更它。
 
         如果您選擇 [新資料庫]，請選取 [建立新的資料庫]。 [SQL Database] 刀鋒視窗隨即開啟。 在 [SQL Database] 刀鋒視窗中，命名並設定新的資料庫。 然後選取 [確定]。
 
@@ -162,7 +162,7 @@ ms.lasthandoff: 08/05/2017
 
         ![新增和設定 SQL Server 資料庫](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. 在 [SQL Server 組態] 對話方塊方塊中，選擇要使用 SQL Server 驗證或 Windows 驗證來連線。 如果您選擇 SQL Server 驗證，請輸入現有的認證。 提供 SQL Server 名稱和您要同步之資料庫的名稱。 選取 [測試連接] 來測試您的設定。 然後選取 [儲存]。 已註冊的資料庫會出現在清單中。
+    10. 在 [SQL Server 組態] 對話方塊方塊中，選擇要使用 SQL Server 驗證或 Windows 驗證來連線。 如果您選擇 SQL Server 驗證，請輸入現有的認證。 提供 SQL Server 名稱和您要同步之資料庫的名稱。選取 [測試連接] 來測試您的設定。 然後選取 [儲存]。 已註冊的資料庫會出現在清單中。
 
         ![現在已註冊 SQL Server 資料庫](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
@@ -190,7 +190,7 @@ ms.lasthandoff: 08/05/2017
 
     ![選取要同步的資料表](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
-3.  預設會選取資料表中的所有資料行。 如果您不想同步所有資料行，請取消選取您不想要同步的資料行核取方塊。 請務必保留選取的主索引鍵資料行。
+3.  預設會選取資料表中的所有資料行。 如果您不想同步所有資料行，請取消選取您不想要同步的資料行核取方塊。請務必保留選取的主索引鍵資料行。
 
     ![選取要同步的欄位](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 

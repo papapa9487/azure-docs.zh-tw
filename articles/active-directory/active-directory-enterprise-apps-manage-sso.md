@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2017
+ms.date: 09/19/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 73c0917702e2c222f3dc09ddfa2d6d54cf005abf
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 882180a553fffee05a612cf70ddd9a0f30108415
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="managing-single-sign-on-for-enterprise-apps"></a>管理企業應用程式的單一登入
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/06/2017
 ## <a name="single-sign-on-modes"></a>單一登入模式
 [單一登入] 一開始是 [模式] 功能表，可在此設定單一登入模式。 可用的選項包括：
 
-* **SAML 型登入** - 如果應用程式支援使用 SAML 2.0 通訊協定的 Azure Active Directory 完整同盟單一登入，便可使用此選項。
+* **SAML 型登入** - 如果應用程式支援使用 SAML 2.0 通訊協定、WS 服務同盟或 OpenID connect 通訊協定的 Azure Active Directory 完整同盟單一登入，便可使用此選項。
 * **密碼型登入** - 如果 Azure AD 支援此應用程式的密碼表單填入，便可使用此選項。
 * **連結型登入** - 之前稱為「現有單一登入」，此選項可讓管理員將此應用程式的連結放在其使用者的 Azure AD 存取面板或 Office 365 應用程式啟動程式中。
 

@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 09/14/2017
 ms.author: muralikk
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5696c99b719fb1c5ca9c3da7dbf23d365cc64a2e
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: d96c2f565e6462716ccf702188bdac03dcde9dce
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/16/2017
 
 ---
-# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-blob-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Blob 儲存體
-Azure 匯入/匯出服務可讓您藉由將硬碟寄送到 Azure 資料中心，安全地將大量資料傳入 Azure Blob 儲存體。 您也可以使用這項服務，從 Azure Blob 儲存體傳輸資料到硬碟，然後運送到您的內部部署網站。 這項服務適合您想要將數 TB 資料傳入或傳出 Azure 的情形，但是無法透過網路上傳或下載，因為頻寬有限或是網路成本高昂。
+# <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Microsoft Azure 匯入/匯出服務將資料傳入 Azure 儲存體
+Azure 匯入/匯出服務可讓您藉由將硬碟寄送到 Azure 資料中心，安全地將大量資料傳入 Azure 儲存體。 您也可以使用這項服務，從 Azure 儲存體傳輸資料到硬碟，然後運送到您的內部部署網站。 這項服務適合您想要將數 TB 資料傳入或傳出 Azure 的情形，但是無法透過網路上傳或下載，因為頻寬有限或是網路成本高昂。
 
 服務需要硬碟使用 BitLocker 進行加密，以提供資料的安全性。 服務支援所有公用 Azure 區域中的傳統和 Azure Resource Manager 儲存體帳戶 (標準層和非經常性存取層)。 您必須將硬碟運送到本文中稍後指定的其中一個支援位置。
 
@@ -36,7 +36,7 @@ Azure 匯入/匯出服務可讓您藉由將硬碟寄送到 Azure 資料中心，
 * 將資料移轉至雲端︰快速地將大量資料移至 Azure，並符合成本效益。
 * 內容發佈︰快速將資料傳送至您的客戶網站。
 * 備份︰備份內部部署資料以便儲存在 Azure Blob 儲存體。
-* 資料復原︰復原儲存在 Blob 儲存體中的大量資料，並將它傳遞到您的內部部署位置。
+* 資料復原︰復原儲存在儲存體中的大量資料，並將它傳遞到您的內部部署位置。
 
 ## <a name="prerequisites"></a>必要條件
 在本節中，我們列出了使用此服務所需的必要條件。 請先仔細檢閱，再運送您的磁碟機。
@@ -44,11 +44,11 @@ Azure 匯入/匯出服務可讓您藉由將硬碟寄送到 Azure 資料中心，
 ### <a name="storage-account"></a>儲存體帳戶
 您必須有現有的 Azure 訂用帳戶以及一或多個儲存體帳戶，才能使用匯入/匯出服務。 每項工作都只能從僅只一個儲存體帳戶收送資料。 換句話說，單一匯入/匯出作業不能跨越多個儲存體帳戶。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-create-storage-account.md#create-a-storage-account)(英文)。
 
-### <a name="blob-types"></a>Blob 類型
-您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob 或**分頁** Blob。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。
+### <a name="data-types"></a>資料類型
+您可以使用 Azure 匯入/匯出服務，將資料複製到**區塊** Blob、**分頁** Blob 或**檔案**。 相反地，您只能使用此服務從 Azure 儲存體匯出**區塊** Blob、**分頁** Blob 或**附加** Blob。 服務不支援 Azure 檔案的匯出，而且只能將檔案匯入至 Azure 儲存體。
 
-### <a name="job"></a>工作 (Job)
-若要開始進行 Blob 儲存體的匯入或匯出程序，請先建立「工作」。 此工作可以是「匯入工作」或「匯出工作」：
+### <a name="job"></a>作業
+若要開始進行儲存體的匯入或匯出程序，請先建立工作。 此工作可以是「匯入工作」或「匯出工作」：
 
 * 當您要將內部部署的資料移轉至 Azure 儲存體帳戶中的 Blob 時，請建立匯入工作。
 * 當您要將目前儲存為儲存體帳戶中 Blob 的資料移轉至要運送給您的硬碟時，請建立匯出作業。當您建立作業時，會通知匯入/匯出服務，您要將一或多個硬碟運送至 Azure 資料中心。
@@ -154,7 +154,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 > 
 
 ## <a name="how-does-the-azure-importexport-service-work"></a>Azure 匯入/匯出服務如何運作？
-您可以建立作業並運送硬碟機到 Azure 資料中心，在內部部署網站與 Azure Blob 儲存體之間使用 Azure 匯入/匯出服務傳輸資料。 您運送的每個硬碟都與單一作業相關聯。 每個工作都與單一儲存體帳戶相關聯。 請仔細檢閱 [＜必要條件＞一節](#pre-requisites) ，了解此服務的細節，例如支援的 Blob 類型、磁碟類型、位置和運送。
+您可以建立作業並運送硬碟機到 Azure 資料中心，在內部部署網站與 Azure 儲存體之間使用 Azure 匯入/匯出服務傳輸資料。 您運送的每個硬碟都與單一作業相關聯。 每個工作都與單一儲存體帳戶相關聯。 請仔細檢閱 [＜必要條件＞一節](#pre-requisites)，了解此服務的細節，例如支援的資料類型、磁碟類型、位置和運送。
 
 在本節中，我們將說明匯入和匯出作業中所涉及的步驟。 稍後在[快速入門](#quick-start)一節中，我們將提供如何建立匯入和匯出作業的逐步指示。
 
@@ -162,7 +162,7 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
 概括而言，匯入工作包含下列步驟︰
 
 * 決定要匯入的資料，以及您將需要的磁碟機數目。
-* 在 Blob 儲存體中識別資料的目的地 Blob 位置。
+* 在 Azure 儲存體中識別目的地 Blob 或檔案位置。
 * 使用 WAImportExport 工具將資料複製到一或多個硬碟，並用 BitLocker 將它們加密。
 * 使用 Azure 入口網站或匯入/匯出 REST API，在您的目標儲存體帳戶中建立匯入工作。 如果使用 Azure 入口網站，請上傳磁碟機日誌檔案。
 * 提供送回用的寄件地址和貨運公司客戶編號，以便將磁碟機送回給您。
@@ -174,6 +174,12 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
     ![圖 1: 匯入工作流程](./media/storage-import-export-service/importjob.png)
 
 ### <a name="inside-an-export-job"></a>匯出作業之內
+> [!IMPORTANT]
+79 服務僅支援的 Azure Blob 的匯出，而不支援 Azure 檔案的匯出。
+> 80
+> 
+81
+> 
 概括而言，匯出工作包含下列步驟︰
 
 * 決定要匯出的資料，以及您將需要的磁碟機數目。
@@ -267,15 +273,22 @@ Azure 匯入/匯出服務支援與所有公用 Azure 儲存體帳戶相互複製
     
     **資料集 CSV 檔案**
     
-    以下是範例資料集 CSV 檔案範例︰
+  以下是範例資料集 CSV 檔案範例，可將資料匯入為 Azure Blob︰
     
     ```
-    BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
-   
-    在上述範例中，100M_1.csv.txt 會複製到名為 “containername” 之容器的根目錄。 如果容器名稱 “containername” 不存在，則會建立一個。 50M_original 底下的所有檔案和資料夾會以遞迴方式複製到 containername。 將保留資料夾結構。
+  
+  以下是範例資料集 CSV 檔案範例，可將資料匯入為 Azure 檔案：
+  
+    ```
+    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
+    "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
+    "F:\50M_original\","fileshare/",file,rename,"None",None 
+    ```
+   在上述範例中，100M_1.csv.txt 會複製到名為 “containername” 或 "fileshare" 之容器的根目錄。 如果容器名稱 “containername” 或  "Fileshare" 不存在，則會建立一個。 50M_original 底下的所有檔案和資料夾會以遞迴方式複製到 containername 或 fileshare。 將保留資料夾結構。
 
     深入了解[準備資料集 CSV 檔案](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
     
@@ -431,7 +444,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 **我可以使用 Azure 匯入/匯出服務複製 Azure 檔案儲存體嗎？**
 
-否，Azure 匯入/匯出服務僅支援區塊 Blob 和分頁 Blob。 不支援其他所有儲存體類型，包括 Azure 檔案儲存體、表格儲存體和佇列儲存體。
+是，Azure 匯入/匯出服務支援匯入至 Azure 檔案儲存體。 目前不支援 Azure 檔案匯出。
 
 **Azure 匯入/匯出服務可用於 CSP 訂用帳戶嗎？**
 

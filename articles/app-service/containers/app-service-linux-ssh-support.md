@@ -1,6 +1,6 @@
 ---
-title: "Azure App Service Web Apps for Containers 的 SSH 支援 | Microsoft Docs"
-description: "了解如何使用 SSH 搭配 Azure App Service Web Apps for Containers。"
+title: "Azure App Service Web App for Containers 的 SSH 支援 | Microsoft Docs"
+description: "了解如何使用 SSH 搭配 Azure App Service Web App for Containers。"
 keywords: "azure app service, web 應用程式, linux, oss"
 services: app-service
 documentationcenter: 
@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7cbdbc65bac97aef5d4215fd6b188830795a86f2
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 7ce9b23e8925d4c79827c7c4e8bec63067ce33e0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
-# <a name="ssh-support-for-azure-web-apps-for-containers"></a>Azure Web Apps for Containers 的 SSH 支援
+# <a name="ssh-support-for-azure-web-app-for-containers"></a>Azure Web App for Containers 的 SSH 支援
 
 [安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 是密碼編譯網路通訊協定，可保護網絡服務的使用安全。 它最常用於從命令列遠端安全地登入系統，以及從遠端執行系統管理命令。
 
-Web Apps for Containers 會利用每個用於新 Web 應用程式「執行階段堆疊」的內建 Docker 映像來提供應用程式容器內的 SSH 支援。 
+Web App for Containers 會利用每個用於新 Web 應用程式「執行階段堆疊」的內建 Docker 映像來提供應用程式容器內的 SSH 支援。 
 
 ![執行階段堆疊](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -67,7 +67,7 @@ https://<your sitename>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-1. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據我們[這裡](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
+1. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據我們[這裡](https://github.com/Azure-App-Service/node/blob/master/6.11.0/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
 
     > [!NOTE]
     > sshd_config 檔案必須包含下列項目，否則無法連線︰ 
@@ -103,9 +103,9 @@ Dockerfile 會使用 [`CMD` 指示](https://docs.docker.com/engine/reference/bui
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Web Apps for Containers 的相關資訊，請參閱下列連結。 您可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
+如需 Web App for Containers 的相關資訊，請參閱下列連結。 您可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
 
 * [如何針對 Azure Web App for Containers 使用自訂 Docker 映像](quickstart-custom-docker-image.md)
-* [在 Azure Web Apps for Containers 中使用 .NET Core](quickstart-dotnetcore.md)
-* [在 Azure Web Apps for Containers 中使用 Ruby](quickstart-ruby.md)
+* [在 Azure Web App for Containers 中使用 .NET Core](quickstart-dotnetcore.md)
+* [在 Azure Web App for Containers 中使用 Ruby](quickstart-ruby.md)
 * [Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)

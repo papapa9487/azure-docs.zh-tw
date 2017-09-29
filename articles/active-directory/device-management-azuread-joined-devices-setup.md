@@ -16,49 +16,37 @@ ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: f548833cca27debb67cb155be0791299470f28dd
+ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
+ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>設定 Azure Active Directory 已加入裝置
 
-Azure Active Directory (Azure AD) 中的裝置管理可協助您確保使用者會從符合安全性與合規性標準的裝置存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)。
+使用 Azure Active Directory (Azure AD) 中的裝置管理，您可以確保使用者會從符合安全性與合規性之標準的裝置來存取您的資源。 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)。
 
-透過 [Azure AD 已加入裝置](device-management-introduction.md#azure-ad-joined-devices)，您可以讓組織擁有的 Windows 10 裝置交由 Azure AD 控管。 這些裝置不應該已[加入內部部署 AD](device-management-introduction.md#hybrid-azure-ad-joined-devices)。
+如果您想要將公司擁有的 Windows 10 裝置整合到 Azure AD 的控制下，您可以透過設定已加入 Azure AD 的裝置來完成這項作業。 本主題為您提供相關步驟。 
 
-本主題提供向 Azure AD 註冊 Windows 10 裝置的指示。 
 
 ## <a name="prerequisites"></a>必要條件
 
-在開始之前，您應該確認：
-
-- 您擁有將裝置加入 Azure AD 的權限。
-
-    ![連線](./media/device-management-azuread-joined-devices-setup/21.png)
-
-- 您尚未超過每位使用者的裝置數目上限 
-
-    ![連線](./media/device-management-azuread-joined-devices-setup/22.png)
-
-
-如需詳細資訊，請參閱[設定裝置設定](device-management-azure-portal.md#configure-device-settings)。
+若要加入 Windows 10 裝置，必須設定 Device Registration Service，才能註冊裝置。 除了擁有在 Azure AD 租用戶中加入裝置的權限之外，您所擁有的已註冊裝置必須少於已設定的最大值。 如需詳細資訊，請參閱[設定裝置設定](device-management-azure-portal.md#configure-device-settings)。
 
 
 
 ## <a name="what-you-should-know"></a>您應該知道的事情
 
 
-- Windows 會將裝置註冊在 Azure AD 中的組織目錄。
+- Windows 會在 Azure AD 中加入組織目錄中的裝置。
 
-- 您可能必須通過 Multi-Factor Authentication 挑戰。 您的 IT 管理員可以設定這項挑戰。
+- 您可能必須經過 Multi-Factor Authentication 挑戰。 這項挑戰可由 IT 系統管理員設定。
 
-- Azure AD 會確認裝置是否需要註冊行動裝置管理。 它會視情況註冊裝置。
+- Azure AD 會檢查這個裝置是否需要註冊行動裝置管理，如果適用的話就加以註冊。
 
-- Windows 會透過自動登入程序將受管理的使用者重新導向桌面。
+- 如果您是受管理的使用者，Windows 會透過自動登入將您導向桌面。
 
-- 同盟使用者會重新導向 Windows 登入頁面以便輸入認證。
+- 如果您是同盟使用者，您必須使用自己的認證登入。
 
 
 ## <a name="joining-a-device"></a>加入裝置
@@ -135,9 +123,8 @@ Azure Active Directory (Azure AD) 中的裝置管理可協助您確保使用者�
 如需詳細資訊，請參閱： 
 
 - [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)
-
 - [使用 Azure 入口網站管理裝置](device-management-azure-portal.md)
-
+- 
 
 
 

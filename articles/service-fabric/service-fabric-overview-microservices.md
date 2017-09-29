@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 53c142217c67465d29fa413f4edb4f96fcb4c6cc
+ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
+ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/15/2017
 
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>為何要用微服務方式建置應用程式？
@@ -156,7 +156,7 @@ Service Fabric 的一個主要方法是重複使用現有的程式碼，而這�
 
 ![移轉成微服務][Image3]
 
-再重新強調一遍，您可以**在這當中任何階段開始和停止**，不會被迫移至下一個階段。 現在，讓我們看看這每一個階段的範例。
+再重新強調一遍，您可以**在這當中任何階段開始和停止**。 不會被迫移至下一個階段。 現在，讓我們看看這每一個階段的範例。
 
 **原封不動轉移** - 許多公司將現有單體式應用程式原封不動轉移到容器中的原因有兩個：
 

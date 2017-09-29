@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 69eb021014c2ae04fc71a03cd27c0e113a2b062b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="continuous-deployment-with-azure-web-app-for-containers"></a>使用 Azure Web App for Containers 進行持續部署
@@ -86,11 +86,11 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 ## <a name="next-steps"></a>後續步驟
 
-* [什麼是 Azure Web Apps for Containers？](./app-service-linux-intro.md)
+* [什麼是 Azure Web App for Containers？](./app-service-linux-intro.md)
 * [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [在 Azure Web Apps for Containers 中使用 .NET Core](quickstart-dotnetcore.md)
-* [在 Azure Web Apps for Containers 中使用 Ruby](quickstart-ruby.md)
+* [在 Azure Web App for Containers 中使用 .NET Core](quickstart-dotnetcore.md)
+* [在 Azure Web App for Containers 中使用 Ruby](quickstart-ruby.md)
 * [如何針對 Azure Web App for Containers 使用自訂 Docker 映像](quickstart-custom-docker-image.md)
 * [Azure App Service Web App for Containers 常見問題集](./app-service-linux-faq.md) 
-* [使用 Azure CLI 2.0 管理 Web Apps for Containers](./app-service-linux-cli.md)
+* [使用 Azure CLI 2.0 管理 Web App for Containers](./app-service-linux-cli.md)
 

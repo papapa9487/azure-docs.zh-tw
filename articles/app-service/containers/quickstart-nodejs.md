@@ -13,17 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
-ms.author: cfowler;cephalin
+ms.author: cephalin
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 8dba82b37a1584199f6a16cd2b05129e2adca276
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>在 Azure 中的 Linux 容器中建立 Node.js Web 應用程式
 
-[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門會顯示如何將 Node.js 應用程式部署至 適用於容器的 Azure Web 應用程式。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，而且使用 Git 將 Node.js 程式碼部署至 Web 應用程式。
+[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門會顯示如何將 Node.js 應用程式部署至適用於容器的 Azure Web 應用程式。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，而且使用 Git 將 Node.js 程式碼部署至 Web 應用程式。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -62,7 +63,7 @@ cd nodejs-docs-hello-world
 npm start
 ```
 
-開啟網頁瀏覽器，然後瀏覽至範例應用程式 (位於 http://localhost:1337 )。
+開啟網頁瀏覽器，然後巡覽至位於 `http://localhost:1337` 的範例應用程式。
 
 您會看到來自範例應用程式的 **Hello World** 訊息顯示在網頁中。
 

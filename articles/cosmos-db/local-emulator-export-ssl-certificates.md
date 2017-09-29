@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 4add5028d50972316902cecd8c399781c012cb77
+ms.translationtype: HT
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: bafbd43d65a0f46f87a13cea4a2a6299d3bf43ef
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -105,8 +104,8 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 > * 匯出 SSL 憑證
 > * 了解如何使用 Java、Python 和 Node.js 中的憑證
 
-您現在可以繼續進行＜概念＞一節了解有關 Cosmos DB 的詳細資訊。
+您現在可以繼續進行「使用 Azure Cosmos DB 輸入繫結建立 Azure Functions HTTP 觸發程序」教學課程。
 
 > [!div class="nextstepaction"]
-> [全球發佈](distribute-data-globally.md) 
+> [使用來自 Azure Cosmos DB 的輸入建立 Azure Function](tutorial-functions-http-trigger.md) 
 

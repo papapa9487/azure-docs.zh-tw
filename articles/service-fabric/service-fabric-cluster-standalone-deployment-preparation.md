@@ -3,7 +3,7 @@ title: "Azure Service Fabric 獨立叢集部署準備 | Microsoft Docs"
 description: "文件說明關於在部署用來處理生產工作負載的叢集之前，需要考慮準備的環境和建立的叢集組態。"
 services: service-fabric
 documentationcenter: .net
-author: maburlik
+author: dkkapur
 manager: timlt
 editor: 
 ms.service: service-fabric
@@ -11,44 +11,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/17/2017
-ms.author: maburlik;chackdan
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: f332193f9a53260173a1010b8bf9f08726bea427
-ms.lasthandoff: 03/31/2017
-
+ms.date: 9/12/2017
+ms.author: dekapur;maburlik;chackdan
+ms.translationtype: HT
+ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
+ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/16/2017
 
 ---
 
 <a id="preparemachines"></a>
 
-## <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>規劃和準備您的 Service Fabric 獨立叢集部署
+# <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>規劃和準備您的 Service Fabric 獨立叢集部署
 建立叢集之前，請先執行下列步驟。
 
-### <a name="step-1-plan-your-cluster-infrastructure"></a>步驟 1︰規劃叢集基礎結構
-您即將在您所擁有的電腦上建立 Service Fabric 叢集，因此您可以決定您希望叢集不受何種失敗的影響。 例如，您是否需要提供給這些電腦的個別電源線或網際網路連線？ 此外，請考慮這些電腦的實體安全性。 電腦位於何處？哪些人需要存取這些電腦？ 您做出這些決定之後，可依據邏輯將電腦對應到多個容錯網域 (請參閱步驟 4)。 生產叢集的基礎結構規劃比起測試叢集更為複雜。
+## <a name="plan-your-cluster-infrastructure"></a>規劃叢集基礎結構
+您即將「自行」在您所擁有的電腦上建立 Service Fabric 叢集，因此您可以決定您希望叢集不受何種失敗的影響。 例如，您是否需要提供給這些電腦的個別電源線或網際網路連線？ 此外，請考慮這些電腦的實體安全性。 電腦位於何處？哪些人需要存取這些電腦？ 您做出這些決定之後，可依據邏輯將電腦對應到多個容錯網域 (請參閱下一個步驟)。 生產叢集的基礎結構規劃比起測試叢集更為複雜。
 
-### <a name="step-2-prepare-the-machines-to-meet-the-prerequisites"></a>步驟 2︰準備符合必要條件的電腦
-您想要新增到叢集的每部電腦的必要條件︰
-
-* 建議至少 16 GB RAM。
-* 建議至少 40 GB 的可用磁碟空間。
-* 建議 4 核心或以上的 CPU。
-* 所有電腦的安全網路連線。
-* Windows Server 2012 R2 或 Windows Server 2016。 
-* [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)，完整安裝。
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)。
-* [RemoteRegistry 服務](https://technet.microsoft.com/library/cc754820) 應該在所有電腦上執行。
-
-部署和設定叢集的叢集系統管理員必須擁有每部電腦的 [系統管理員權限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 您無法在網域控制站上安裝 Service Fabric。
-
-### <a name="step-3-determine-the-initial-cluster-size"></a>步驟 3︰決定初始叢集大小
-獨立 Service Fabric 叢集中的每個節點都已部署 Service Fabric 執行階段，並且是叢集的成員。 在一般生產部署中，每個作業系統執行個體 (實體或虛擬) 都有一個節點。 叢集大小取決於您的業務需求。 不過，您必須有三個節點 (電腦或虛擬機器) 的最小叢集大小。
-基於開發目的，在一部指定的電腦上可以有多個節點。 在生產環境中，對於每個實體或虛擬機器，Service Fabric 只支援一個節點。
-
-### <a name="step-4-determine-the-number-of-fault-domains-and-upgrade-domains"></a>步驟 4︰決定容錯網域和升級網域的數目
-*容錯網域* (FD) 是故障的實體單元，而且與資料中心內的實體基礎結構直接相關。 容錯網域是由共用單一失敗點的硬體元件 (電腦、交換器、網路等) 所組成。 雖然容錯網域和機架之間沒有 1:1 對應，但是大致上來說，可以將每個機架視為一個容錯網域。 考慮叢集中的節點時，強烈建議至少在三個容錯網域之間散佈節點。
+## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>決定容錯網域和升級網域的數目
+[*容錯網域* (FD)](service-fabric-cluster-resource-manager-cluster-description.md) 是故障的實體單元，而且與資料中心內的實體基礎結構直接相關。 容錯網域是由共用單一失敗點的硬體元件 (電腦、交換器、網路等) 所組成。 雖然容錯網域和機架之間沒有 1:1 對應，但是大致上來說，可以將每個機架視為一個容錯網域。
 
 當您在 ClusterConfig.json 中指定 FD 時，可以選擇每個 FD 的名稱。 Service Fabric 支援階層式 FD，因此，您可以在 FD 中反映您的基礎結構拓撲。  例如，下列 FD 有效：
 
@@ -67,12 +49,35 @@ ms.lasthandoff: 03/31/2017
 * "upgradeDomain": "DomainRed"
 * "upgradeDomain": "Blue"
 
-如需升級網域和容錯網域的詳細資訊，請參閱[描述 Service Fabric 叢集](service-fabric-cluster-resource-manager-cluster-description.md)。
+如需詳細 FD 和 UD 的詳細資訊，請參閱[描述 Service Fabric 叢集](service-fabric-cluster-resource-manager-cluster-description.md)。
 
-### <a name="step-5-download-the-service-fabric-standalone-package-for-windows-server"></a>步驟 5︰下載適用於 Windows Server 的 Service Fabric 獨立封裝
+如果您對節點的維修和管理有完整控制權，也就是您負責更新和更換機器，生產環境中的叢集應該跨越至少 3 個 FD，以便在生產環境中獲得支援。 對於在您不需對機器具有完整控制權的環境中執行的叢集 (例如 Amazon Web Services VM 執行個體)，在您的叢集中應該至少有 5 個 FD。 每個 FD 可以有一或多個節點。 這是為了防止機器升級和更新所造成的問題，因為根據執行的時機，可能會干擾叢集中執行的應用程式和服務。
+
+## <a name="determine-the-initial-cluster-size"></a>決定初始叢集大小
+
+一般而言，叢集中的節點數目是根據您的業務需求 (也就是說，叢集上將執行的服務和容器的數目)，以及要維持您的工作負載所需的資源數目而決定。 針對生產環境叢集，我們建議在您的叢集中至少有 5 個節點，跨越 5 個 FD。 不過，如上所述，如果您可以完整控制您的節點，並且可以跨越 3 個 FD，那個，3 個節點應該也可行。
+
+執行可設定狀態工作負載的測試叢集應該有三個節點，而在執行無狀態工作負載的測試叢集則只需要一個節點。 您應該注意，基於開發目的，在一部指定的電腦上可以有多個節點。 不過，在生產環境中，對於每個實體或虛擬機器，Service Fabric 只支援一個節點。
+
+## <a name="prepare-the-machines-that-will-serve-as-nodes"></a>準備將做為節點的機器
+
+以下是對您想要新增到叢集的每部機器的一些建議規格：
+
+* 至少 16 GB 的 RAM
+* 至少 40 GB 的可用磁碟空間
+* 4 核心或更高的 CPU
+* 所有電腦的安全網路連線
+* Windows Server 2012 R2 或 Windows Server 2016
+* [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)，完整安裝
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* [RemoteRegistry 服務](https://technet.microsoft.com/library/cc754820) 應該在所有電腦上執行
+
+部署和設定叢集的叢集系統管理員必須擁有每部電腦的 [系統管理員權限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 您無法在網域控制站上安裝 Service Fabric。
+
+## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>下載適用於 Windows Server 的 Service Fabric 獨立封裝
 [下載連結 - Service Fabric 獨立封裝 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)，並將封裝解壓縮至不屬於叢集一部分的部署電腦，或解壓縮至將屬於叢集的其中一部電腦。
 
-### <a name="step-6-modify-cluster-configuration"></a>步驟 6︰修改叢集組態
+## <a name="modify-cluster-configuration"></a>修改叢集組態
 若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 您可以根據可在下面連結找到的範本來建立組態檔。 <br>
 [獨立叢集組態](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
@@ -88,7 +93,7 @@ ms.lasthandoff: 03/31/2017
 
 <a id="environmentsetup"></a>
 
-### <a name="step-7-environment-setup"></a>步驟 7. 環境設定
+## <a name="environment-setup"></a>環境設定
 
 當叢集系統管理員設定 Service Fabric 獨立叢集時，必須根據下列準則設定環境︰ <br>
 1. 對叢集組態檔中列為節點的所有電腦，建立叢集的使用者應擁有系統管理員層級的安全性權限。
@@ -104,8 +109,8 @@ ms.lasthandoff: 03/31/2017
 3. 叢集節點電腦應無一是網域控制站。
 4. 如果要部署的叢集是安全叢集，驗證安全性必要條件已就緒，並已正確設定組態。
 5. 如果叢集電腦不可存取網際網路，在叢集組態中設定下列各項：
-* 停用遙測：在 *properties* 下設定   *"enableTelemetry": false*
-* 停用自動的 Fabric 版本下載，以及目前叢集版本接近終止支援的通知：在 [屬性] 底下，設定   *"fabricClusterAutoupgradeEnabled": false*
+* 停用遙測：在 *properties* 下設定 *"enableTelemetry": false*
+* 停用自動的 Fabric 版本下載，以及目前叢集版本接近終止支援的通知：在 [屬性] 底下，設定 *"fabricClusterAutoupgradeEnabled": false*
 * 或者，如果網路的網際網路存取僅限於允許清單上的網域，則自動升級將需要下列網域：   go.microsoft.com   download.microsoft.com
 
 6. 設定適當的 Service Fabric 防毒排除項目︰
@@ -131,7 +136,7 @@ ms.lasthandoff: 03/31/2017
 | FabricRM.exe |
 | FileStoreService.exe |
 
-### <a name="step-8-validate-environment-using-testconfiguration-script"></a>步驟 8。 使用 TestConfiguration 指令碼驗證環境
+## <a name="validate-environment-using-testconfiguration-script"></a>使用 TestConfiguration 指令碼驗證環境
 您可以在獨立封裝中找到 TestConfiguration.ps1 指令碼。 它可做為「最佳做法分析程式」用來驗證上述的一些準則，並應做為例行性檢查用來驗證是否能在指定的環境上部署叢集。 如果發生任何錯誤，請參閱[環境設定](service-fabric-cluster-standalone-deployment-preparation.md)下的清單進行疑難排解。 
 
 此指令碼可以在以系統管理員身分存取叢集組態檔中列為節點的所有電腦的任何電腦上執行。 執行此指令碼所在的電腦不一定是叢集的一部分。

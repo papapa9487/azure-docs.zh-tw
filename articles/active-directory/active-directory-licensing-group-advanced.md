@@ -17,10 +17,10 @@ ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87cc66752dae1f4bd0903607d8a8ae9bd9125b11
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 75cafa6868d54f9d8a7e0dbe9f2a9e85ed43f16f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -199,6 +199,16 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 
 >[!TIP]
 > 按一下與「變更使用者授權」相關的項目，會顯示套用至每個使用者之授權變更的詳細資料。
+
+## <a name="deleting-a-group-with-an-assigned-license"></a>刪除含指派授權的群組
+
+您無法刪除被指派使用中授權的群組。 系統管理員可能會刪除群組，但他不知道這會從使用者移除授權；基於這個理由，我們需要先從群組移除任何授權，之後才能刪除它。
+
+嘗試在 Azure 入口網站中刪除群組時，您可能會看到如下的錯誤通知：![螢幕擷取畫面群組刪除失敗](media/active-directory-licensing-group-advanced/groupdeletionfailed.png)
+
+移至群組 [授權] 索引標籤，並查看是否有任何指派的授權。 如果是，移除這些授權，並試著再次刪除群組。
+
+嘗試透過 PowerShell 或圖形 API 刪除群組時，您可能會看到類似的錯誤。 如果您使用從內部部署同步的群組，當 Azure AD Connect 無法在 Azure AD 中刪除群組時，可能也會報告錯誤。 在所有情況下，請務必檢查是否有指派給群組的任何授權，並先移除它們。
 
 ## <a name="limitations-and-known-issues"></a>限制與已知問題
 

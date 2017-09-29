@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 531d645bab8c80caba96bc5292354b5490a53804
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
@@ -69,7 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 >[!NOTE]
 > 資源群組名稱具有條件約束。 請務必遵循指導方針；若無法這樣做，可能導致保存庫升級失敗。
 >
->
+>執行指令碼期間，**Azure 美國政府**客戶需要將環境設為「AzureUSGovernment」。
 
 下列程式碼片段是您 PowerShell 命令的範例︰
 

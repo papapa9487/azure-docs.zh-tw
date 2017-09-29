@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 8/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: e1fe2b94d462a30f09cb23ab905542aa121ba46b
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
@@ -164,7 +164,7 @@ ms.lasthandoff: 08/17/2017
 [完成還原磁碟作業](#Track-the-restore-operation)之後，您可以使用還原作業過程所產生的範本，以不同於備份組態的組態來建立新的 VM，或自訂從還原點建立新的 VM 時所建立的資源名稱。 
 
 > [!NOTE]
-> 對於 2017年 3 月 1 日之後建立的復原點，範本會新增為還原磁碟的一部分。 這些範本適用於非加密和非受控磁碟 VM。 即將發行的版本中支援加密的 VM 和受控磁碟 VM。 
+> 對於 2017年 3 月 1 日之後建立的復原點，範本會新增為還原磁碟的一部分。 這些範本適用於非受控磁碟 VM。 即將發行的版本中支援受控磁碟 VM。 
 >
 >
 

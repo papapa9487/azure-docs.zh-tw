@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 2c5842822e347113e388d570f6ae603a313944d6
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: bcd1d13265350d8ac96250c5cd5b4b2880e1c146
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -274,6 +274,17 @@ ms.lasthandoff: 08/24/2017
   ...
 ]
 ```
+
+以下描述 JSON 的欄位。
+
+欄位 | 值 | 詳細資料
+-- | -- | --
+OperationResult | 0 - 成功<br> 1 - 成功但發生錯誤<br> 2 - 失敗<br> 3 - 已中止<br> 4 - 中止但逾時 | 指出整體作業 (通常牽涉到安裝一或多個更新) 的結果。
+ResultCode | 與 OperationResult 相同 | 此欄位指出個別更新安裝作業的結果。
+OperationType | 1 - 安裝<br> 0 - 搜尋和下載。| 「安裝」是依預設會顯示在結果中的唯一一個 OperationType。
+WindowsUpdateQuery | 預設值為 "IsInstalled=0" |用來搜尋更新的 Windows Update 查詢。 如需詳細資訊，請參閱 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)。
+RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | 指出完成更新的安裝是否需要重新開機。
+
 如果尚未排程更新，JSON 結果會是空的。
 
 登入叢集，查詢 Windows Update 的結果。 接著，找出主要協調器服務的複本位址，然後點閱瀏覽器的 URL：http://&lt;REPLICA-IP&gt;:&lt;ApplicationPort&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults。
@@ -363,7 +374,7 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 
 問： **為什麼看到 Windows Update 結果中的某些更新是透過 REST API 取得，而不是電腦上的 Windows Update 歷程記錄下？**
 
-A. 某些產品更新需要簽入其各自的更新/修補歷程記錄。 例如：Windows Defender 更新不會顯示在 Windows Server 2016 上的 Windows Update 歷程記錄。
+A. 某些產品更新需要簽入其各自的更新/修補歷程記錄。 例如，Windows Defender 更新不會顯示在 Windows Server 2016 上的 Windows Update 歷程記錄。
 
 ## <a name="disclaimers"></a>免責聲明
 
@@ -403,7 +414,7 @@ A. 某些產品更新需要簽入其各自的更新/修補歷程記錄。 例如
 
 系統管理員必須介入，判斷應用程式或叢集為何因為 Windows Update 變成健康情況不良。
 
-## <a name="release-notes-"></a>版本資訊：
+## <a name="release-notes"></a>版本資訊
 
 ### <a name="version-110"></a>1.1.0 版
 - 公開版本

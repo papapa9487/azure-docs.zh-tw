@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b8fac1b258535fd668b45acbe2c1c8580fb8a340
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ea4421f7b22cf60b2c3e42b59057162ad56f412e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -58,7 +58,7 @@ Azure Active Directory (AD) 提供數種方式來保護您的應用程式並保�
 某些情節需要程式碼變更才能處理條件式存取，而其他情節則是以原狀運作。  以下幾個情節使用條件式存取來執行多重要素驗證，能深入解析一些差異。
 
 * 您要建置單一租用戶 iOS 應用程式，並套用條件式存取原則。  應用程式會將使用者登入，且不會要求存取 API。  當使用者登入時，會自動叫用原則，而使用者必須執行多重要素驗證 (MFA)。 
-* 您要建置使用 Microsoft Graph 在其他服務之間存取 Exchange 的多租用戶 web 應用程式。  採用此應用程式的企業客戶要設定 SharePoint Online 上的原則。  當 web 應用程式要求權杖提供 MS 圖形時，會套用任何 Microsoft 服務上的原則 (特別是可以透過圖表存取的服務)。  系統會提示這個使用者進行 MFA。 在案例中，使用者會使用有效的權杖登入，宣告「挑戰」隨即傳回至 web 應用程式。  
+* 您要建置使用 Microsoft Graph 在其他服務之間存取 Exchange 的多租用戶 Web 應用程式。  採用此應用程式的企業客戶要設定 SharePoint Online 上的原則。  當 web 應用程式要求權杖提供 MS 圖形時，會套用任何 Microsoft 服務上的原則 (特別是可以透過圖表存取的服務)。  系統會提示這個使用者進行 MFA。 在案例中，使用者會使用有效的權杖登入，宣告「挑戰」隨即傳回至 web 應用程式。  
 * 您所建置的原生應用程式會使用中介層服務來存取 Microsoft Graph。  公司中使用此應用程式的企業客戶會將原則套用到 Exchange Online。  當使用者登入時，原生應用程式會要求存取中介層並傳送權杖。  中介層會執行代理者流程來要求存取 MS Graph。  此時，宣告「挑戰」會呈現至中介層。 中介層會將挑戰傳送回原生應用程式，其必須遵守條件式存取原則。
 
 ### <a name="complying-with-a-conditional-access-policy"></a>遵守條件式存取原則
@@ -90,9 +90,9 @@ Azure AD 條件式存取是 [Azure AD Premium](../active-directory-whatis.md#cho
 
 在下列章節中，我們會進入更複雜的常見情節。  核心作業的原則是在要求權杖提供已套用條件式存取原則的服務時評估條件式存取原則，除非它是透過 Microsoft Graph 進行存取。
 
-### <a name="scenario-app-accessing-the-microsoft-graph"></a>情節：存取 Microsoft Graph 的應用程式
+### <a name="scenario-app-accessing-microsoft-graph"></a>情節：存取 Microsoft Graph 的應用程式
 
-在此情節中，我們會逐步解說 web 應用程式要求存取 Microsoft Graph 時的案例。 在此案例中，可以將條件式存取原則指派給 SharePoint、Exchange，或是透過 Microsoft Graph 存取作為工作負載的一些其他服務。  在此範例中，假設 Sharepoint Online 上具有條件式存取原則。
+在此情節中，我們會逐步解說 Web 應用程式要求存取 Microsoft Graph 時的案例。 在此案例中，可以將條件式存取原則指派給 SharePoint、Exchange，或是透過 Microsoft Graph 存取作為工作負載的一些其他服務。  在此範例中，假設 Sharepoint Online 上具有條件式存取原則。
 
 ![存取 Microsoft Graph 流程圖的應用程式](media/active-directory-conditional-access-developer/app-accessing-microsoft-graph-scenario.png)
 

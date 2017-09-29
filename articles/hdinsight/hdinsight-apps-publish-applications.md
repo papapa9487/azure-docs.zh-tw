@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/21/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: a7e389037a458c91d67643f7c0fca0691c22224f
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 9bda115455ff1e122ac2764cec612546c71365c4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>將 HDInsight 應用程式發佈到 Azure Marketplace
@@ -41,16 +41,17 @@ HDInsight 應用程式會使用「自備授權 (BYOL)」模型。 在 BYOL 案�
 ## <a name="define-the-application"></a>定義應用程式
 將應用程式發佈到 Marketplace 包括兩個步驟。 首先，定義 createUiDef.json 檔案。 CreateUiDef.json 檔案表示您的應用程式與哪些叢集相容。 接著，從 Azure 入口網站發佈範本。 以下是範例 createUiDef.json 檔案：
 
-    {
-        "handler": "Microsoft.HDInsight",
-        "version": "0.0.1-preview",
-        "clusterFilters": {
-            "types": ["Hadoop", "HBase", "Storm", "Spark"],
-            "tiers": ["Standard", "Premium"],
-            "versions": ["3.4"]
-        }
+```json
+{
+    "handler": "Microsoft.HDInsight",
+    "version": "0.0.1-preview",
+    "clusterFilters": {
+        "types": ["Hadoop", "HBase", "Storm", "Spark"],
+        "tiers": ["Standard", "Premium"],
+        "versions": ["3.4"]
     }
-
+}
+```
 
 | 欄位 | 描述 | 可能的值 |
 | --- | --- | --- |
@@ -64,7 +65,7 @@ HDInsight 應用程式會使用「自備授權 (BYOL)」模型。 在 BYOL 案�
   > [!IMPORTANT]
   > 應用程式安裝指令碼的名稱在特定叢集上必須是唯一的。 指令碼名稱必須具有以下格式：
   > 
-  > name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
+  > "name": "[concat('hue-install-v0','-' ,uniquestring(‘applicationName’)]"
   > 
   > 指令碼名稱有三個部分：
   > 

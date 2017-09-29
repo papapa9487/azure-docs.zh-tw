@@ -1,30 +1,30 @@
 ---
 title: "Azure Event Grid 事件結構描述"
-description: "描述 Azure Event Grid 中事件提供的屬性。"
+description: "描述 Azure Event Grid 中事件提供的屬性"
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 09/18/2017
 ms.author: babanisa
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6736c6a60021b51db612f0a596086a9e988d7aef
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
-# <a name="event-grid-event-schema"></a>Event Grid 事件結構描述
+# <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
-本文提供事件之屬性與結構描述。 事件包含一組五個必要字串屬性和一個必要**資料**物件。 這些屬性通用於任何發行者的所有事件。 **資料**物件含有各發行者特有的屬性。 系統主題下的屬性專屬於資源提供者，像是儲存體或事件中樞。
+本文提供事件之屬性與結構描述。 事件包含一組五個必要字串屬性和一個必要資料物件。 這些屬性通用於任何發行者的所有事件。 資料物件含有各發行者特有的屬性。 系統主題下的屬性專屬於資源提供者，像是 Microsoft Azure 儲存體或 Azure 事件中樞。
 
-事件會以陣列型態傳送至 Azure Event Grid，陣列中可包含多個事件物件。 如果陣列中只有一個事件，則陣列長度為 1。 
+事件會以陣列型態傳送至 Azure Event Grid，陣列中可包含多個事件物件。 如果陣列中只有一個事件，則陣列長度為 1。 陣列可以具有的最多 1 MB 的總計大小。 陣列中的每個事件會限制為 64 KB。
  
 ## <a name="event-properties"></a>事件屬性
 
-所有事件皆包含下列最高層級資料。
+所有事件皆包含下列最高層級資料：
 
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
@@ -128,7 +128,7 @@ Azure 訂用帳戶現在可從 Azure Resource Manager 發出管理事件，像�
 
 ## <a name="event-hubs"></a>事件中樞
 
-事件中樞事件目前只有在使用擷取功能自動傳送檔案至儲存體時發出。
+事件中樞事件目前只有在透過擷取功能自動傳送檔案至儲存體時發出。
 
 ### <a name="available-event-types"></a>可用的事件類型
 
@@ -136,7 +136,7 @@ Azure 訂用帳戶現在可從 Azure Resource Manager 發出管理事件，像�
 
 ### <a name="example-event"></a>事件範例
 
-此範例顯示在擷取功能儲存檔案時引發之事件中樞事件的結構描述。 
+此範例顯示在擷取功能儲存檔案時引發之事件中樞事件的結構描述： 
 
 ```json
 [
@@ -163,10 +163,11 @@ Azure 訂用帳戶現在可從 Azure Resource Manager 發出管理事件，像�
 ```
 
 
-
 ## <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
-Azure Blob 儲存體目前提供私人預覽，註冊後可與 Event Grid 整合使用。
+>[!IMPORTANT]
+>您必須註冊，Blob 儲存體事件預覽才能使用 Blob 儲存體事件。 如需預覽計畫的詳細資訊，請參閱[Azure Blob 儲存體事件](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview)。  
+
 
 ### <a name="available-event-types"></a>可用的事件類型
 
@@ -175,7 +176,7 @@ Azure Blob 儲存體目前提供私人預覽，註冊後可與 Event Grid 整合
 
 ### <a name="example-event"></a>事件範例
 
-此事件範例顯示建立 blob 時引發之儲存體事件的結構描述。 
+此事件範例顯示建立 blob 時引發之儲存體事件的結構描述： 
 
 ```json
 [
@@ -208,7 +209,7 @@ Azure Blob 儲存體目前提供私人預覽，註冊後可與 Event Grid 整合
 
 ## <a name="custom-topics"></a>自訂主題
 
-您自訂事件的資料承載由您定義，可用任何格式正確的 JSON 來進行。 最高層級的資料應包含與標準資源定義事件相同的欄位。 在發佈事件至自訂主題時，您應考慮以幫助路由與篩選為目標建立事件的主體。
+您自訂事件的資料承載由您定義，可用任何格式正確的 JSON 物件來進行。 最高層級的資料應包含與標準資源定義事件相同的欄位。 在發佈事件至自訂主題時，您應考慮以幫助路由與篩選為目標建立事件的主體。
 
 ### <a name="example-event"></a>事件範例
 
@@ -232,6 +233,6 @@ Azure Blob 儲存體目前提供私人預覽，註冊後可與 Event Grid 整合
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要初步了解 Event Grid，請參閱[什麼是 Event Grid？](overview.md)
+* 若要初步了解 Azure Event Grid，請參閱[什麼是 Event Grid？](overview.md)。
 * 若要了解 Event Grid 訂用帳戶的建立，請參閱 [Event Grid 訂用帳戶結構描述](subscription-creation-schema.md)。
 

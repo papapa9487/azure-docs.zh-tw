@@ -3,8 +3,8 @@ title: "保護 Azure AD 的特殊權限存取 | Microsoft 文件"
 description: "這個主題說明在 Azure、Azure Active Directory 和 Microsoft Online Services 之間保護特殊權限存取的方法。"
 services: active-directory
 documentationcenter: 
-author: kgremban
-manager: femila
+author: barclayn
+manager: mbaldwin
 editor: mwahl
 ms.assetid: 235a0ce9-1daf-4433-8f65-9c6afcd64d08
 ms.service: active-directory
@@ -12,15 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: c96a0bd6710d60629bc631fe7e1f642cdb2bada6
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>保護 Azure AD 中的特殊權限存取
@@ -52,7 +51,7 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 ## <a name="time-bound-privileges"></a>時間界限權限
 某些組織可能會發現它們有太多擁有高權限角色的使用者。 使用者可能因為某個特定活動，像是登入服務，而加入角色中，但之後卻不經常使用這些權限。
 
-若要降低權限的曝光時間，並增加其使用的能見度，請限制使用者只在需要執行工作時才 (Just in Time, JIT) 使用其權限。 Azure Active Directory 與 Microsoft Online Services 可以使用 [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM)。
+若要減少權限的曝光時間並增加您對其用法的了解，將使用者的權限限制為只有「即時」(JIT)，或縮短指派這些角色的持續時間，隨後權限將會自動撤銷。 針對 Azure Active Directory、Azure 資源 (預覽) 與 Microsoft 線上服務，您可以使用 [Azure AD Privileged Identity Management (PIM)](http://aka.ms/AzurePIM)。
 
 ![PIM 儀表板][2]
 
