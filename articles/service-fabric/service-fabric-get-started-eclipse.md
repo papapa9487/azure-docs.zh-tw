@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/21/2016
 ms.author: saysa
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 98c1b99972b9ad7a396d72b98e727286f6822e42
+ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
+ms.openlocfilehash: 4fa77da8665908553072792d7f2ede47bf5567dd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -45,6 +45,10 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 
 > [!NOTE]
 > 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除所有網站的核取方塊，除了指向 Service Fabric 外掛程式位置 (http://dl.microsoft.com/eclipse/azure/servicefabric) 的網站以外。
+
+> [!NOTE]
+>如果 Eclipse 在 Mac 上未如預期一般運作，或需要您以進階使用者身分執行，請移至 **ECLIPSE_INSTALLATION_PATH** 資料夾，並瀏覽至子資料夾 **Eclipse.app/Contents/MacOS**。 執行 `./eclipse` 來啟動 Eclipse。
+
 
 ## <a name="create-a-service-fabric-application-in-eclipse"></a>在 Eclipse 中建立 Service Fabric 應用程式
 

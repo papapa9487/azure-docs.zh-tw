@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 08/15/2017
+ms.date: 09/04/2017
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 696f8025d0d7a65f59be650fac0a6e0e68f1a2ca
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 639f008eea61b973b9d32dc734d42d5c4e93e924
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>將 Azure 虛擬機器備份到復原服務保存庫
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/21/2017
 * 標準儲存體 VM
 * 進階儲存體 VM
 * 在受控磁碟上執行的 VM
-* 使用 Azure 磁碟加密，搭配 BEK 與 KEK 來加密的 VM
+* 使用 Azure 磁碟加密來加密的 VM
 * 使用 VSS 之 Windows VM 和使用自訂快照前與快照後指令碼之 Linux VM 的應用程式一致備份
 
 如需保護進階儲存體 VM 的詳細資訊，請參閱[備份和還原進階儲存體 VM](backup-introduction-to-azure-backup.md#using-premium-storage-vms-with-azure-backup)一文。 如需受控磁碟 VM 支援的詳細資訊，請參閱[備份及還原受控磁碟上的 VM](backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。 如需有關 Linux VM 備份之前置和後置指令碼架構的詳細資訊，請參閱 [使用前置指令碼和後置指令碼的應用程式一致 Linux VM 備份] (https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。

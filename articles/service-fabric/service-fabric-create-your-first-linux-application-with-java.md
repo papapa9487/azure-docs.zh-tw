@@ -12,13 +12,13 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2017
+ms.date: 09/20/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: baf948587ede31fe3d5b4f6f0981269b4cfe4d3d
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 68f9492231d367b1ede6ab032ec1c66c75150957
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
@@ -127,7 +127,7 @@ Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令
 在 Service Fabric 總管中，您可看到不再出現於 [應用程式] 節點中的應用程式和應用程式類型。
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven 上的 Service Fabric Java 程式庫
-Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``pom.xml`` 或 ``build.gradle`` 中新增相依性，以從 **mavenCentral** 使用 Service Fabric Java 程式庫。
+Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``pom.xml`` 或 ``build.gradle`` 中新增相依性，以從 **mavenCentral** 使用 Service Fabric Java 程式庫。 
 
 ### <a name="actors"></a>動作項目
 
@@ -137,7 +137,7 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-actors-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -146,19 +146,19 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-actors-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-actors-preview:0.12.0'
   }
   ```
 
 ### <a name="services"></a>服務
 
-您應用程式的 Service Fabric 無狀態服務支援。
+您應用程式的 Service Fabric Reliable Services 支援。
 
   ```XML
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-services-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -167,7 +167,7 @@ Service Fabric Java 程式庫已裝載於 Maven 中。 您可以在專案的 ``p
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-services-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-services-preview:0.12.0'
   }
   ```
 
@@ -180,7 +180,7 @@ Service Fabric Java 應用程式的傳輸層支援。 除非您在傳輸層進�
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-transport-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -189,7 +189,7 @@ Service Fabric Java 應用程式的傳輸層支援。 除非您在傳輸層進�
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-transport-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-transport-preview:0.12.0'
   }
   ```
 
@@ -201,7 +201,7 @@ Service Fabric 的系統層級支援，其可與原生 Service Fabric 執行階�
   <dependency>
       <groupId>com.microsoft.servicefabric</groupId>
       <artifactId>sf-preview</artifactId>
-      <version>0.10.0</version>
+      <version>0.12.0</version>
   </dependency>
   ```
 
@@ -210,7 +210,7 @@ Service Fabric 的系統層級支援，其可與原生 Service Fabric 執行階�
       mavenCentral()
   }
   dependencies {
-      compile 'com.microsoft.servicefabric:sf-preview:0.10.0'
+      compile 'com.microsoft.servicefabric:sf-preview:0.12.0'
   }
   ```
 

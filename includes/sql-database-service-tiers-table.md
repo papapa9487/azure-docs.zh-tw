@@ -19,7 +19,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier"></a>標準服務層
 | **效能等級** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|---:|
-| 最大 DTU | 10 | 20 | 50 | 100 |
+| 最大 DTU** | 10 | 20 | 50 | 100 |
 | 內含儲存體 (GB) | 250 | 250 | 250 | 250 |
 | 最大儲存體選擇 (GB)* | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | OLTP 記憶體內部儲存體上限 (GB) | N/A | N/A | N/A | N/A |
@@ -31,7 +31,7 @@ sql-database-single-database-resources.md
 ### <a name="standard-service-tier-continued"></a>標準服務層 (續)
 | **效能等級** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|---:|
-| 最大 DTU | 200 | 400 | 800 | 1600 | 3000 |
+| 最大 DTU** | 200 | 400 | 800 | 1600 | 3000 |
 | 內含儲存體 (GB) | 250 | 250 | 250 | 250 | 250 |
 | 最大儲存體選擇 (GB)* | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
 | OLTP 記憶體內部儲存體上限 (GB) | N/A | N/A | N/A | N/A |N/A |
@@ -65,7 +65,9 @@ sql-database-single-database-resources.md
 |||||||
 
 > [!IMPORTANT]
-> \* 大於內含儲存體數量的儲存體大小為預覽版，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
+> \* 大於內含儲存體數量的儲存體大小尚在預覽中，而且會產生額外成本。 如需詳細資訊，請參閱 [SQL Database 定價](https://azure.microsoft.com/pricing/details/sql-database/)。 
 >
 >\* 在進階層中，超過 1 TB 的儲存體目前在下列區域為可用狀態：美國東部 2、美國西部、美國維吉尼亞州政府、西歐、德國中部、東南亞、日本東部、澳大利亞東部、加拿大中部和加拿大東部。 請參閱 [P11-P15 目前限制](../articles/sql-database/sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 > 
+>\*\* 標準中起始數量為 200 DTU 以上的每個資料庫 DTU 上限目前為預覽版。
+>

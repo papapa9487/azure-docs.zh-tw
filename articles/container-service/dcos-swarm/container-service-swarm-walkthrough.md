@@ -18,10 +18,10 @@ ms.date: 08/14/2017
 ms.author: nepeters
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 1d10c347795227ed056a95d1bcd4aff82af7b876
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 876135d62d548e155f4ebefd8bbd9d9cca8b87d6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -67,6 +67,8 @@ az group create --name myResourceGroup --location westus
 ```azurecli-interactive
 az acs create --name mySwarmCluster --orchestrator-type Swarm --resource-group myResourceGroup --generate-ssh-keys
 ```
+
+在有限試用之類的某些情況下，Azure 訂用帳戶只擁有 Azure 資源的有限存取權。 如果部署因可用核心受限而失敗，請將 `--agent-count 1` 加入 [az acs create](/cli/azure/acs#create) 命令來減少預設代理程式的數量。 
 
 幾分鐘之後，此命令就會完成，並以 json 格式傳回叢集的相關資訊。
 

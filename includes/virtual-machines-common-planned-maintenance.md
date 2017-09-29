@@ -8,6 +8,8 @@
 
 在虛擬機器中執行的應用程式可以使用適用於 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md)或 [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md) 的Azure 中繼資料服務，蒐集近期更新的相關資訊。
 
+如需管理計劃性維護的「作法」資訊，請參閱適用於 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的「處理計劃性維護通知」。
+
 ## <a name="in-place-vm-migration"></a>就地 VM 移轉
 
 當更新不需要完整重新開機時，則會使用就地即時移轉。 在更新期間，虛擬機器會暫停 30 秒並將記憶體保留在 RAM 中，而主控環境會套用必要的更新和修補程式。 虛擬機器會接著繼續執行，而系統會自動同步虛擬機器的時鐘。

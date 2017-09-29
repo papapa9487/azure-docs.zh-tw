@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: yushwang;cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: c8e1db0a5488b1296206a4d557e47599edc59a88
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 7b7e5f0f089cc87c9e63eee1fd3d29b7a2c0d49f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>關於 VPN 裝置和站對站 VPN 閘道連線的 IPsec/IKE 參數
@@ -28,7 +28,6 @@ ms.lasthandoff: 07/28/2017
 
 > [!IMPORTANT]
 > 如果您的內部部署 VPN 裝置與 VPN 閘道之間發生連線問題，請參考[已知的裝置相容性問題](#known)。
->
 >
 
 ### <a name="items-to-note-when-viewing-the-tables"></a>檢視表格時應注意的項目：
@@ -56,9 +55,9 @@ ms.lasthandoff: 07/28/2017
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X-series |Barracuda Firewall 6.5 |[設定指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不相容 |
 | Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[設定指南](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |不相容 |
 | Check Point |Security Gateway |R77.30 |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[設定指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| Cisco              |ASA       |8.3 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |不相容 |
+| Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASA) |[設定指南*](vpn-gateway-3rdparty-device-config-cisco-asa.md) |
 | Cisco |ASR |原則式：IOS 15.1<br>路由式：IOS 15.2 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ASR) |
-| Cisco |ISR |原則式：IOS 15.0<br>路由式*：IOS 15.1 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[設定範例*](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
+| Cisco |ISR |原則式：IOS 15.0<br>路由式*：IOS 15.1 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |[設定範例**](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Cisco/Current/ISR) |
 | Citrix |NetScaler MPX、SDX、VPX |10.1 和更新版本 |[設定指南](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |不相容 |
 | F5 |BIG-IP 系列 |12.0 |[設定指南](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[設定指南](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.4.2 |  |[設定指南](http://cookbook.fortinet.com/ipsec-vpn-microsoft-azure-54) |
@@ -69,12 +68,15 @@ ms.lasthandoff: 07/28/2017
 | Juniper |SSG |ScreenOS 6.2 |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |[設定範例](https://github.com/Azure/Azure-vpn-config-samples/tree/master/Juniper/Current/SSG) |
 | Microsoft |路由及遠端存取服務 |Windows Server 2012 |不相容 |[設定範例](http://go.microsoft.com/fwlink/p/?LinkId=717761) |
 | 開啟系統 AG |任務控制安全性閘道 |N/A |[設定指南](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |不相容 |
-| Openswan |Openswan |2.6.32 |(敬請期待) |不相容 |
 | Palo Alto Networks |所有執行 PAN-OS 的裝置 |PAN-OS<br>原則式：6.1.5 或更新版本<br>路由式：7.1.4 |[設定指南](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[設定指南](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| SonicWall |TZ 系列、NSA 系列<br>SuperMassive 系列<br>E-Class NSA 系列 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |[SonicOS 6.2 設定指南](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 設定指南](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |[SonicOS 6.2 設定指南](http://documents.software.dell.com/sonicos/6.2/microsoft-azure-configuration-guide?ParentProduct=646)<br>[SonicOS 5.9 設定指南](http://documents.software.dell.com/sonicos/5.9/microsoft-azure-configuration-guide?ParentProduct=850) |
+| SonicWall |TZ 系列、NSA 系列<br>SuperMassive 系列<br>E-Class NSA 系列 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |不支援|[設定指南](https://www.sonicwall.com/en-us/support/knowledge-base/170505320011694) |
 | WatchGuard |全部 |Fireware XTM<br> 原則式：v11.11.x<br>路由式：v11.12.x |[設定指南](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[設定指南](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
 
-(*) ISR 7200 系列路由器僅支援原則式 VPN。
+> [!NOTE]
+>
+> (*) Cisco ASA 8.4 版以上新增了 IKEv2 支援，可使用自訂 IPsec/IKE 原則並搭配 "UsePolicyBasedTrafficSelectors" 選項來連線到 Azure VPN 閘道。 請參閱這篇[操作說明文章](vpn-gateway-connect-multiple-policybased-rm-ps.md)。
+>
+> (**) ISR 7200 系列路由器僅支援原則式 VPN。
 
 ## <a name="additionaldevices"></a>未經驗證的 VPN 裝置
 
@@ -105,9 +107,10 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="ipsec"></a>IPsec/IKE 參數
 
-> [!NOTE]
-> 雖然 VPN 閘道支援下表所列的值，但您目前沒有任何機制可指定，或從 VPN 閘道選取演算法或參數的特定組合。 您必須指定內部部署 VPN 裝置的任何條件約束。 此外，您必須將 **MSS** 固定在 **1350**。
-> 
+> [!IMPORTANT]
+> 1. 下面的資料表包含了 Azure VPN 閘道在預設組態中使用的演算法和參數的組合。 對於使用 Azure Resource Management 部署模型所建立的路由式 VPN 閘道，您可以對每個個別的連線指定自訂原則。 如需詳細指示，請參閱[設定 IPsec/IKE 原則](vpn-gateway-ipsecikepolicy-rm-powershell.md)。
+>
+> 2. 此外，您必須將 TCP **MSS** 固定在 **1350**。 或者，如果您的 VPN 裝置不支援 MSS 固定，您也可以將通道介面上的 **MTU** 改設為 **1400** 位元組。
 >
 
 在下列資料表中：

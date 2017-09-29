@@ -5,7 +5,7 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 [![Cloud Shell](./media/cloud-shell-try-it/cloud-shell-menu.png)](https://portal.azure.com)
 
-按鈕會啟動互動式殼層，可讓您用來執行本主題中的所有步驟：
+按鈕會啟動互動式殼層，可讓您用來執行本主題中的步驟：
 
 [![顯示 Cloud Shell 視窗的螢幕擷取畫面](./media/cloud-shell-try-it/cloud-shell-safari.png)](https://portal.azure.com)
 
