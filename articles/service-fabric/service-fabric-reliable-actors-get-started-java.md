@@ -3,7 +3,7 @@ title: "使用 Java 建立您的第一個動作項目型 Azure 微服務 | Micro
 description: "本教學課程將引導您使用 Service Fabric Reliable Actors，建立、偵錯及部署簡易動作項目型服務的步驟。"
 services: service-fabric
 documentationcenter: .net
-author: vturecek
+author: rwike77
 manager: timlt
 editor: 
 ms.assetid: d31dc8ab-9760-4619-a641-facb8324c759
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2017
-ms.author: vturecek
+ms.author: ryanwi
 ms.translationtype: HT
 ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 288f1ed1016f50031065e66444d2562427194dc7

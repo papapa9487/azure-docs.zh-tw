@@ -3,7 +3,7 @@ title: "Azure 計費企業版 API - PriceSheet| Microsoft Docs"
 description: "了解可讓企業 Azure 客戶以程式設計方式提取使用情況資料的報告 API。"
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing

@@ -2,7 +2,7 @@
 
 需要部署使用者，才能將 FTP 和本機 Git 部署至 Web 應用程式。 使用者名稱和密碼是帳戶等級。 _它們與您的 Azure 訂用帳戶認證不同。_
 
-在下列命令中，將 *\<user-name>* 和 *\<password>* 取代為新的使用者名稱和密碼。 使用者名稱必須是唯一的。 密碼長度必須至少為 8 個字元，包含下列三個元素其中兩個：字母、數字、符號。 
+在下列命令中，將 *\<username>* 和 *\<password>* 取代為新的使用者名稱和密碼。 使用者名稱必須是唯一的。 密碼長度必須至少為 8 個字元，包含下列三個元素其中兩個：字母、數字、符號。 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
