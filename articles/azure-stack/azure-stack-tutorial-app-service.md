@@ -58,7 +58,7 @@ ms.lasthandoff: 09/25/2017
 既然您已部署 App Service 資源提供者並建立供應項目，您能以使用者身分登入並訂閱該供應項目，然後建立應用程式。 針對此範例，我們將建立 DNN 平台內容管理系統。 您必須先建立 SQL 資料庫，然後再建立 DNN Web 應用程式。
 
 ### <a name="subscribe-to-the-offer"></a>訂閱該供應項目
-1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external)。
+1. 以租用戶身分登入 Azure Stack 入口網站 ( https://portal.local.azurestack.external )。
 2. 按一下 [取得訂用帳戶] > 在 [顯示名稱] 下輸入 **TestAppServiceSubscription** > [選取服務] > [TestAppServiceOffer] > [建立]。
 
 ### <a name="create-a-sql-database"></a>建立 SQL 資料庫
