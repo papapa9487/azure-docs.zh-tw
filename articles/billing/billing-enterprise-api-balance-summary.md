@@ -3,7 +3,7 @@ title: "Azure 計費企業版 API - 餘額與摘要| Microsoft Docs"
 description: "了解 Azure 計費使用情況和 RateCard API，其可用來提供 Azure 資源耗用量和趨勢的見解。"
 services: 
 documentationcenter: 
-author: aedwin
+author: cwatson-cat
 manager: aedwin
 editor: 
 tags: billing
