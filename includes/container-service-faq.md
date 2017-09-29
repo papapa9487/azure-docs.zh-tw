@@ -17,7 +17,7 @@
 ### <a name="do-you-recommend-a-specific-orchestrator-in-azure-container-service"></a>是否建議在 Azure Container Service 中使用特定 Orchestrator？ 
 我們一般不建議使用特定 Orchestrator。 如果您有使用其中一種受支援 Orchestrator 的經驗，則可以在 Azure Container Service 中套用該經驗。 不過，資料趨勢表明，DC/OS 已在生產環境中證明適用於巨量資料和 IoT 工作負載，Kubernetes 適合用於雲端原生的工作負載，而 Docker Swarm 則眾所皆知可與 Docker 工具整合且容易上手。
 
-根據您的情況，您也可以使用其他 Azure 服務建置並管理自訂的容器解決方案。 這些服務包括[虛擬機器](../articles/virtual-machines/linux/overview.md)、[Service Fabric](../articles/service-fabric/service-fabric-overview.md)、[Web Apps](../articles/app-service-web/app-service-web-overview.md) 和 [Batch](../articles/batch/batch-technical-overview.md)。  
+根據您的情況，您也可以使用其他 Azure 服務建置並管理自訂的容器解決方案。 這些服務包括[虛擬機器](../articles/virtual-machines/linux/overview.md)、[Service Fabric](../articles/service-fabric/service-fabric-overview.md)、[Web Apps](../articles/app-service/app-service-web-overview.md) 和 [Batch](../articles/batch/batch-technical-overview.md)。  
 
 ### <a name="what-is-the-difference-between-azure-container-service-and-acs-engine"></a>Azure Container Service 和 ACS 引擎有何不同？ 
 Azure Container Service 是具有 SLA 保證的 Azure 服務，其功能可在 Azure 入口網站、Azure 命令列工具和 Azure API 中使用。 此服務可讓您快速實作和管理執行標準容器協調流程工具的叢集，但設定選擇相對較少。 

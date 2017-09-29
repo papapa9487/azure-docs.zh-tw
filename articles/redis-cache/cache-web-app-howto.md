@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/09/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: f23f71cc01eccf17d36885f786de9a7517606803
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 21dc87b3e8c26bfbda36202b31b3b4d44be32179
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="how-to-create-a-web-app-with-redis-cache"></a>如何使用 Redis 快取建立 Web 應用程式
@@ -71,7 +70,7 @@ ms.lasthandoff: 05/10/2017
 
     確保已針對 [驗證] 設定指定 [不需要驗證]。 視您的 Visual Studio 版本而言，預設值可能會設定為其他項目。 若要加以變更，請按一下 [變更驗證]，然後選取 [不需要驗證]。
 
-    如果您密切注意 Visual Studio 2015，請清除 [雲端中的主機] 核取方塊。 在本教學課程的後續步驟中，您將會[佈建 Azure 資源](#provision-the-azure-resources)和[發佈應用程式至 Azure](#publish-the-application-to-azure)。 如需在保持核取 [雲端中的主機]  的狀態下從 Visual Studio 佈建 App Service Web 應用程式的範例，請參閱 [使用 ASP.NET 和 Visual Studio 在 Azure App Service 中開始使用 Web Apps](../app-service-web/app-service-web-get-started-dotnet.md)。
+    如果您密切注意 Visual Studio 2015，請清除 [雲端中的主機] 核取方塊。 在本教學課程的後續步驟中，您將會[佈建 Azure 資源](#provision-the-azure-resources)和[發佈應用程式至 Azure](#publish-the-application-to-azure)。 如需在保持核取 [雲端中的主機]  的狀態下從 Visual Studio 佈建 App Service Web 應用程式的範例，請參閱 [使用 ASP.NET 和 Visual Studio 在 Azure App Service 中開始使用 Web Apps](../app-service/app-service-web-get-started-dotnet.md)。
    
     ![選取專案範本][cache-select-template]
 4. 按一下 [確定]  以建立專案。
@@ -827,7 +826,7 @@ ms.lasthandoff: 05/10/2017
 * 如需在 App Service 中建立 ASP.NET Web 應用程式的範例，請參閱 [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [示範](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/)中的[在 Azure App Service 中建立和部署 ASP.NET Web 應用程式](https://github.com/Microsoft/HealthClinic.biz/wiki/Create-and-deploy-an-ASP.NET-web-app-in-Azure-App-Service)。
   * 如需來自 HealthClinic.biz 示範的更多快速入門，請參閱 [Azure 開發人員工具快速入門](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts)。
 * 深入了解本教學課程中使用之 Entity Framework 的 [Code First 至新的資料庫](https://msdn.microsoft.com/data/jj193542) 方法。
-* 深入了解 [Azure App Service 中的 Web 應用程式](../app-service-web/app-service-web-overview.md)。
+* 深入了解 [Azure App Service 中的 Web 應用程式](../app-service/app-service-web-overview.md)。
 * 了解如何在 Azure 入口網站中 [監視](cache-how-to-monitor.md) 您的快取。
 * 瀏覽 Azure Redis 快取進階功能
   

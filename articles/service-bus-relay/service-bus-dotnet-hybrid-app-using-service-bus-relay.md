@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 366922a083b9d18ef50e04eb8b459d2725315e1e
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>使用 Azure WCF 轉送的 .NET 內部部署/雲端混合式應用程式
@@ -232,7 +231,7 @@ ms.lasthandoff: 06/16/2017
     ![][18]
 
 7. 回到 [新增 ASP.NET Web 應用程式] 對話方塊，按一下 [確定] 以建立 MVC 應用程式。
-8. 您現在必須設定新 Web 應用程式的 Azure 資源。 完成[本文的「發佈至 Azure」一節](../app-service-web/app-service-web-get-started-dotnet.md)中的步驟。 然後，回到本教學課程並繼續進行下一個步驟。
+8. 您現在必須設定新 Web 應用程式的 Azure 資源。 完成[本文的「發佈至 Azure」一節](../app-service/app-service-web-get-started-dotnet.md)中的步驟。 然後，回到本教學課程並繼續進行下一個步驟。
 10. 在 [方案總管] 中，於 [模型] 上按一下滑鼠右鍵、按一下 [新增]，再按一下 [類別]。 在 [名稱] 方塊中，鍵入名稱 **Product.cs**。 然後按一下 [ **新增**]。
 
     ![][17]

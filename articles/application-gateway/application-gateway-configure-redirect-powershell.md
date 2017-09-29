@@ -3,7 +3,7 @@ title: "設定 Azure 應用程式閘道的重新導向 - PowerShell | Microsoft 
 description: "此頁面會提供使用 PowerShell 為應用程式閘道設定重新導向的案例"
 documentationcenter: na
 services: application-gateway
-author: georgewallace
+author: davidmu1
 manager: timlt
 editor: 
 ms.service: application-gateway
@@ -12,12 +12,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
-ms.author: gwallace
+ms.author: davidmu
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 84a25e572a27df2fe46e07c4ab0a4aab5969d68e
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
+ms.lasthandoff: 09/19/2017
 
 ---
 
@@ -133,7 +133,7 @@ Set-AzureRmApplicationGateway -ApplicationGateway $gw
 
 ## <a name="multi-site-redirect"></a>多站台重新導向
 
-下列範例會建立新的應用程式閘道，其在連接埠 80 上有 2 個多站台接聽程式。 這些接聽程式適用於 adatum.com 和 adatum.org。 建立重新導向規則，將流量從 adatum.org 重新導向到 adatum.com。 設定應用程式閘道公用 IP 位址的 CNAME 別名時需要額外組態，如需將您的網域委派給 Azure DNS 並建立網域之 CNAME 記錄的詳細資訊，請參閱[將網域委派給 Azure DNS](../dns/dns-delegate-domain-azure-dns.md)。
+下列範例會建立新的應用程式閘道，其在連接埠 80 上有 2 個多站台接聽程式。 這些接聽程式適用於 adatum.com 和 adatum.org。建立重新導向規則，將流量從 adatum.org 重新導向到 adatum.com。設定應用程式閘道公用 IP 位址的 CNAME 別名時需要額外組態，如需將您的網域委派給 Azure DNS 並建立網域之 CNAME 記錄的詳細資訊，請參閱[將網域委派給 Azure DNS](../dns/dns-delegate-domain-azure-dns.md)。
 
 ```powershell
 # Create a new resource group for the application gateway

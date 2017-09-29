@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d2c197db73477d06d86d1c4faa8c4a2f58c7b391
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/21/2017
 此應用程式會使用 [以佇列為中心的工作模式](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) ，將建立縮圖的 CPU 密集工作轉變為後端程序。
 
 ## <a name="alternative-architecture-websites-and-webjobs"></a>替代架構：網站和 WebJobs
-本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service-web/choose-web-site-cloud-service-vm.md)。
+本教學課程示範如何在 Azure 雲端服務中執行前端與後端。 替代方式是在 [Azure 網站](/services/web-sites/)中執行前端，並且將 [WebJob](http://go.microsoft.com/fwlink/?LinkId=390226) 功能 (目前處於預覽) 用於後端。 如需使用 WebJob 的教學課程，請參閱 [開始使用 Azure WebJob SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。 如需如何選擇最符合您的案例之服務的詳細資訊，請參閱 [Azure 網站、雲端服務和虛擬機器比較](../app-service/choose-web-site-cloud-service-vm.md)。
 
 ## <a name="what-youll-learn"></a>您將學到什麼
 * 如何安裝 Azure SDK 好讓電腦適合用於進行 Azure 開發。

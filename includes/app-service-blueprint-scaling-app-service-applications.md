@@ -1,4 +1,4 @@
-* [調整 Azure App Service](../articles/app-service-web/web-sites-scale.md)
+* [調整 Azure App Service](../articles/app-service/web-sites-scale.md)
   
   * 了解備援性與可靠性
   * 比較「具狀態」與「無狀態」應用程式

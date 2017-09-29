@@ -1,4 +1,4 @@
-使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../articles/app-service-web/app-service-web-overview.md)。 
+在 Cloud Shell 中，使用 [az webapp create](/cli/azure/webapp#create) 命令，在 [ App Service 方案中建立 ](../articles/app-service/app-service-web-overview.md)Web 應用程式`myAppServicePlan`。 
 
 Web 應用程式會為您的程式碼提供裝載空間，以及提供 URL 來檢視已部署的應用程式。
 

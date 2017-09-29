@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2016
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: eec7d1402bdea4e5433c473dd713eed23aa80464
-ms.lasthandoff: 03/29/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: b590fb06a3dba8aec66a380217269e1ca39bb5e7
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>教學課程︰DevOps 與 Azure 入口網站
@@ -264,7 +264,7 @@ Azure 提供許多用來監視和針對執行中應用程式進行疑難排解�
 
 ## <a name="next-steps"></a>後續步驟
 * Azure Resource Manager 對於在 Azure 平台上啟用 DevOps 來說至關重要。  若要深入了解，請造訪 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
-* 若要深入了解 Azure App Service 部署，請瀏覽 [將您的應用程式部署至 Azure App Service](../app-service-web/web-sites-deploy.md)
+* 若要深入了解 Azure App Service 部署，請瀏覽 [將您的應用程式部署至 Azure App Service](../app-service/app-service-deploy-local-git.md)
 
 [image1]: ./media/tutorial-azureportal-devops/image1.png
 [image2]: ./media/tutorial-azureportal-devops/image2.png

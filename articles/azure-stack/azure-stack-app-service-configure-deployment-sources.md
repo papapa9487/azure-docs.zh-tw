@@ -112,8 +112,8 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 > [!NOTE]
 > 您必須有 DropBox 帳戶才能完成這項工作。  您可能會想要使用組織的帳戶，而非個人帳戶。
 
-1. 瀏覽至 https://www.dropbox.com/developers/apps，並使用 DropBox 帳戶登入
-2. 按一下 [建立應用程式]**** 
+1. 瀏覽至 https://www.dropbox.com/developers/apps ，並使用 DropBox 帳戶登入
+2. 按一下 **建立應用程式** 
 ![Dropbox 應用程式][14]
 3. 選取 [DropBox API]
 4. 將存取層級設為 [應用程式資料夾]
