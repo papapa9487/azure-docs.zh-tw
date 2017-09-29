@@ -16,10 +16,10 @@ ms.workload: NA
 ms.date: 04/14/2017
 ms.author: sashan
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: e5242b5f76866ca382b31005deca07cd722af423
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 535dcd8b03a0fd92eaa5800a924ca17fc958d630
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
@@ -64,7 +64,7 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 * [使用 Azure 入口網站容錯移轉至異地複寫的次要資料庫](sql-database-geo-replication-portal.md)
 * [使用 PowerShell 容錯移轉至異地複寫的次要資料庫](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
-* [使用 T-SQL 容錯移轉至異地複寫的次要資料庫](/sql/t-sql/statements/alter-database-azure-sql-database.md)
+* [使用 T-SQL 容錯移轉至異地複寫的次要資料庫](/sql/t-sql/statements/alter-database-azure-sql-database)
 
 ## <a name="recover-using-geo-restore"></a>使用異地還原進行復原
 如果您應用程式的停機不會導致任何商務責任，您可以使用[異地還原](sql-database-recovery-using-backups.md)來作為復原應用程式資料庫的方法。 它會從其最新的異地備援備份建立資料庫的複本。

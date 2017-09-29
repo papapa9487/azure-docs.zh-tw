@@ -11,15 +11,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ac68ae449a03b6d9e77e6093531a47c905654f16
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: f1aa4117b389bb127eb7235f69f587dcb715ac25
 ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>疑難排解 Azure 備份的檔案和資料夾備份速度緩慢問題
@@ -48,7 +47,7 @@ Windows 提供了稱為 [效能監視器](https://technet.microsoft.com/magazine
 | 計數器 | 狀態 |
 | --- | --- |
 | 邏輯磁碟 (實體磁碟)--% 閒置 |• 100% 閒置至 50% 閒置 = 狀況良好</br>• 49% 閒置至 20% 閒置 = 警告或監視</br>• 19% 閒置至 0% 閒置 = 重大或超出規範 |
-| 邏輯磁碟 (實體磁碟)--% 平均 磁碟的讀取或寫入秒數 |• 0.001 毫秒到 0.015 毫秒 = 狀況良好</br>• 0.015 毫秒到 0.025 毫秒 = 警告或監視</br>• 0.026 毫秒或更長 = 嚴重或超出規範 |
+| 邏輯磁碟 (實體磁碟)--% 平均磁碟的讀取或寫入秒數 |• 0.001 毫秒到 0.015 毫秒 = 狀況良好</br>• 0.015 毫秒到 0.025 毫秒 = 警告或監視</br>• 0.026 毫秒或更長 = 嚴重或超出規範 |
 | 邏輯磁碟 (實體磁碟)--(所有執行個體) 目前的磁碟佇列長度 |80 個要求超過 6 分鐘 |
 | 記憶體--集區未分頁位元組 |• 耗用不到 60% 集區 = 狀況良好<br>• 耗用 61% 到 80% 集區 = 警告或監視</br>• 耗用超過 80% 集區 = 重大或超出規範 |
 | 記憶體--集區分頁位元組 |• 耗用不到 60% 集區 = 狀況良好</br>• 耗用 61% 到 80% 集區 = 警告或監視</br>• 耗用超過 80% 集區 = 重大或超出規範 |

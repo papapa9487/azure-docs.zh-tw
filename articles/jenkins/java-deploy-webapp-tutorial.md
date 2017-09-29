@@ -12,16 +12,16 @@ ms.date: 08/02/2017
 ms.author: routlaw
 ms.custom: Jenkins
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 22288cd1468b410df77b27721ccda32c3d033e47
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: dcc60feb4c0b3a961689f3d365d49ac1690696a6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>使用 Jenkins 設定 Azure App Service 的持續整合和部署
 
-本教學課程使用 Jenkins，設定 [Spring Boot](http://projects.spring.io/spring-boot/) 架構開發的 Java Web 應用程式範例到 [Linux 上的 Azure App Service Web 應用程式](/azure/app-service-web/app-service-linux-intro)的持續整合與部署 (CI/CD)。
+本教學課程使用 Jenkins，設定 [Spring Boot](http://projects.spring.io/spring-boot/) 架構開發的 Java Web 應用程式範例到 [Linux 上的 Azure App Service Web 應用程式](/azure/app-service/containers/app-service-linux-intro)的持續整合與部署 (CI/CD)。
 
 您會在本教學課程中執行下列工作：
 
@@ -83,7 +83,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="configure-azure-app-service"></a>設定 Azure App Service 
 
-1. 使用 Azure CLI 或 [Cloud Shell](/azure/cloud-shell/overview)，建立新的 [Linux 上的 Web 應用程式](/azure/app-service-web/app-service-linux-intro)。 本教學課程中的 Web 應用程式名稱是 `myJavaApp`，但是您必須為自己的應用程式使用唯一名稱。
+1. 使用 Azure CLI 或 [Cloud Shell](/azure/cloud-shell/overview)，建立新的 [Linux 上的 Web 應用程式](/azure/app-service/containers/app-service-linux-intro)。 本教學課程中的 Web 應用程式名稱是 `myJavaApp`，但是您必須為自己的應用程式使用唯一名稱。
    
     ```azurecli-interactive
     az group create --name myResourceGroupJenkins --location westus

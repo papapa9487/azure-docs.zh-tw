@@ -17,10 +17,10 @@ ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9211b28debc2f0df194eded564e2a4d52303f3e6
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -110,7 +110,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
 
 此基本範例使用 JSON 檔案來指定 Microsoft Internet Information Server (IIS) 容器，然後使用 `kubctl apply` 命令來建立 Pod。 
 
-建立名為 `iis.json` 的本機檔案，並複製下列文字。 此檔案會告訴 Kubernetes 使用來自 [Docker 中樞](https://hub.docker.com/r/nanoserver/iis/)的公用容器映像，在 Windows Server 2016 Nano Server 上執行 IIS。 該容器會使用連接埠 80，但一開始只能在叢集網路中存取。
+建立名為 `iis.json` 的本機檔案，並複製下列文字。 此檔案會告訴 Kubernetes 使用來自 [Docker 中樞](https://hub.docker.com/r/microsoft/iis/)的公用容器映像，在 Windows Server 2016 Nano Server 上執行 IIS。 該容器會使用連接埠 80，但一開始只能在叢集網路中存取。
 
  ```JSON
  {
@@ -126,7 +126,7 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.5.3
     "containers": [
       {
         "name": "iis",
-        "image": "nanoserver/iis",
+        "image": "microsoft/iis:nanoserver",
         "ports": [
           {
           "containerPort": 80

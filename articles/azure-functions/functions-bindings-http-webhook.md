@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 08/26/2017
 ms.author: mahender
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: cac0f437cee86aa933763e5133ac1a0e892ffb52
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 3c3247592cbe2bc382d220264b0c646ee566b8a7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions HTTP 和 Webhook 繫結
@@ -202,7 +202,7 @@ module.exports = function (context, req) {
 
 如需有關如何更新您函數 *host.json* 檔案的詳細資訊，請參閱[如何更新函數應用程式檔案](functions-reference.md#fileupdate)。 
 
-如需有關您可以在 *host.json* 檔案中設定之其他屬性的資訊，請參閱 [host.json 參考](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)。
+如需有關您可以在 *host.json* 檔案中設定之其他屬性的資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
 
 <a name="keys"></a>

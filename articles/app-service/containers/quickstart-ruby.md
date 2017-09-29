@@ -12,19 +12,20 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 08/29/2017
 ms.author: cfowler
+ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 007f9232e2c09f128ea39f9a2e3c78ab92ad5f69
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7080a655040918c6cc059023ad3d62389dd6ab71
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-a-ruby-app-with-web-apps-on-linux"></a>使用 Linux 上的 Web Apps 建立 Ruby 應用程式
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何建立基本的 Ruby on Rails 應用程式，然後將它當作 Linux 上的 Web 應用程式部署至 Azure。
+[Azure Web Apps](../app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何建立基本的 Ruby on Rails 應用程式，然後將它當作 Linux 上的 Web 應用程式部署至 Azure。
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -170,5 +171,5 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>後續步驟
 
-[Linux 上的 Azure App Service Web 應用程式常見問題集](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
+[Linux 上的 Azure App Service Web 應用程式常見問題集](app-service-linux-faq.md)
 

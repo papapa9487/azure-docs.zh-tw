@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 6a9993aa31142681f3f6c57684913bf932fd5e7d
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 68eadf7a7eef4ba5e6bcd9af1279227a01efdf70
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/15/2017
-
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>將 Excel 連接到 Azure SQL Database 並建立報告
@@ -80,6 +79,6 @@ ms.lasthandoff: 04/15/2017
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [使用 SQL Server Management Studio 連接到 SQL Database](sql-database-connect-query-ssms.md) ，以便進行進階查詢和分析。
 * 了解 [彈性集區](sql-database-elastic-pool.md)的優點。
-* 了解如何 [建立 Web 應用程式以連接到後端的 SQL Database](../app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md)。
+* 了解如何 [建立 Web 應用程式以連接到後端的 SQL Database](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md)。
 
 

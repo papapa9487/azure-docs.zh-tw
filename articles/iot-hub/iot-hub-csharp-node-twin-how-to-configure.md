@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: ca5ee2733df51faa5025c4d8eb687c81df4a3b4f
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 8f9626fc47e7d32cb104b960bea9b7de9efa6f3e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-desired-properties-to-configure-devices"></a>使用所需屬性來設定裝置
@@ -37,7 +37,7 @@ ms.lasthandoff: 05/09/2017
 若要完成此教學課程，您需要下列項目：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 0.10.x 版或更新版本。
+* Node.js 4.0.x 版或更新版本。
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。
 
 如果您遵循[開始使用裝置對應項][lnk-twin-tutorial]教學課程進行，您便已經有一個 IoT 中樞和一個稱為 **myDeviceId** 的裝置身分識別。 在該情況下，您可以直接跳到[建立模擬裝置應用程式][lnk-how-to-configure-createapp]一節。

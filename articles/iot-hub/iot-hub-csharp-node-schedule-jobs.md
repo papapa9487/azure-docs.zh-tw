@@ -15,11 +15,10 @@ ms.workload: na
 ms.date: 07/10/2017
 ms.author: juanpere
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: a8f4f34aa99c4a9966957cac213ec9170de80a46
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 1f335b8b04821e1c0ab26af3df20c3318e9c26cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="schedule-and-broadcast-jobs-netnodejs"></a>排程及廣播作業 (.NET/Node.js)
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/11/2017
 若要完成此教學課程，您需要下列項目：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 0.12.x 版或更新版本。 [準備您的開發環境][lnk-dev-setup]一文說明如何在 Windows 或 Linux 上安裝本教學課程的 Node.js。
+* Node.js 4.0.x 版或更新版本。 [準備您的開發環境][lnk-dev-setup]一文說明如何在 Windows 或 Linux 上安裝本教學課程的 Node.js。
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]

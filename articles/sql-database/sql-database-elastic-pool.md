@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 4e4483ce7473070591128375960daa2b2c26a55d
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2af5be1c2250c3ec363b97c21bc3fa05c8ace984
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -122,7 +122,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 1. 估計集區所需的 eDTU，如下所示：
 
    最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
+   <並行尖峰 DB 的數目** X 每個 DB 的尖峰 DTU 使用量**)
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。 如需以 eDTU 集區大小為基礎的集區儲存體限制，請參閱 [彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 3. 採用步驟 1 和步驟 2 中較大的 eDTU 估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/) 並尋找大於步驟 3 估計值的最小 eDTU 集區大小。
@@ -375,7 +375,7 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 |[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
 |[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
 |[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
-|[資料庫 - 更新](/api/sql/databases/update)|更新現有的資料庫。|
+|[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
 
 ## <a name="next-steps"></a>後續步驟
 

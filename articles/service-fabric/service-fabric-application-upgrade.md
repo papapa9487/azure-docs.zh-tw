@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b4637922e7b280b0e9954c9e51788202e784b4f9
-ms.openlocfilehash: 743223f78f279fedf33f73ff52b56f4a7358cd51
+ms.translationtype: HT
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 02/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 應用程式升級
@@ -50,7 +50,7 @@ Service Fabric 在升級期間進行的健康狀態原則以及檢查不限於�
 
 1. 會建立不存在於叢集中的新[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)中的預設服務。
 > [!TIP]
-> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md#fabric-settings-that-you-can-customize) 必須設為 true，以啟用下列規則。 從 v5.5 可支援此功能。
+> [EnableDefaultServicesUpgrade](service-fabric-cluster-fabric-settings.md) 必須設為 true，以啟用下列規則。 從 v5.5 可支援此功能。
 
 2. 會更新在上一個[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)及新版本中的預設服務。 在新版本中的服務描述將會覆寫已在叢集中的部分。 在更新預設服務失敗時，應用程式升級會自動回復。
 3. 會刪除上一個[應用程式資訊清單](service-fabric-application-model.md#describe-an-application)中的預設服務，但不會刪除新版中的預設服務。 **請注意，無法還原此刪除預設服務。**

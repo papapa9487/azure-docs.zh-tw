@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
-ms.openlocfilehash: 58194b71b22b63f7d4a2a6bf0f4e66f456a96d03
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 03/22/2017
 
 本文說明如何建立具有**優先順序**路由類型的設定檔，用以將使用者路由傳送至兩個 Azure Web Apps 端點。 使用**優先順序**路由類型時，所有流量會路由傳送至第一個端點，而第二個端點會保留做為備份。 因此，如果第一個端點變成狀況不良，就可將使用者路由傳送至第二個端點。
 
-本文中，先前建立的兩個 Azure Web 應用程式端點會與這個新建立的流量管理員設定檔相關聯。 若要深入了解如何建立 Azure Web 應用程式端點，請瀏覽 [Azure Web Apps 文件頁面](https://docs.microsoft.com/azure/app-service-web/)。 您可以新增具有 DNS 名稱且可透過公用網際網路觸達的任何端點，我們使用 Azure Web Apps 端點做為例子。
+本文中，先前建立的兩個 Azure Web 應用程式端點會與這個新建立的流量管理員設定檔相關聯。 若要深入了解如何建立 Azure Web 應用程式端點，請瀏覽 [Azure Web Apps 文件頁面](https://docs.microsoft.com/azure/app-service/)。 您可以新增具有 DNS 名稱且可透過公用網際網路觸達的任何端點，我們使用 Azure Web Apps 端點做為例子。
 
 ### <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
@@ -54,13 +55,13 @@ ms.lasthandoff: 03/22/2017
     5. 在 [優先順序] 中，選取 [1]。 這會使得所有流量傳送至此端點 (如果狀況良好)。
     6. 維持不勾選 [新增為已停用]。
     7. 按一下 [檔案] &gt; [新增] &gt; [專案] 
-5.    針對下一個 Azure Web Apps 端點，重複步驟 3 和 4。 新增它時務必將 [優先順序] 值設為 [2]。
-6.    這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 刀鋒視窗中，而且監視狀態是 [線上]。
+5.  針對下一個 Azure Web Apps 端點，重複步驟 3 和 4。 新增它時務必將 [優先順序] 值設為 [2]。
+6.  這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 刀鋒視窗中，而且監視狀態是 [線上]。
 
     ![新增流量管理員端點](./media/traffic-manager-create-profile/add-traffic-manager-endpoint.png)
 
 ## <a name="use-the-traffic-manager-profile"></a>使用流量管理員設定檔
-1.    在入口網站的搜尋列中，搜尋您在上一節建立的**流量管理員設定檔**名稱。 在顯示的結果中，按一下流量管理員設定檔。
+1.  在入口網站的搜尋列中，搜尋您在上一節建立的**流量管理員設定檔**名稱。 在顯示的結果中，按一下流量管理員設定檔。
 2. 在 [流量管理員設定檔] 刀鋒視窗中，按一下 [概觀]。
 3. [流量管理員設定檔] 刀鋒視窗會顯示新建立之流量管理員設定檔的 DNS 名稱。 這可由任何用戶端使用 (例如使用網頁瀏覽器進行瀏覽)，以路由傳送至由路由類型所決定的正確端點。 在此情況下，所有的要求都將路由傳送到第一個端點，且如果流量管理員偵測到端點狀況不良，流量會自動容錯移轉到下一個端點。
 

@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 35132eae4d6a7f85b19a7a49ad4034e795d7df13
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 916652f2d6336da625be91431c3771a730204a73
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # 使用 OAuth 2.0 和 Azure Active Directory 授權存取 Web 應用程式
@@ -207,7 +207,7 @@ Azure AD 在成功回應時會傳回存取權杖。 為了減少來自用戶端�
 | 宣告類型 | 說明 |
 | --- | --- |
 | aud |權杖的對象。 向用戶端應用程式發出權杖時，對象是用戶端的 `client_id` 。 |
-| exp |到期時間。 權杖的到期時間。 權杖若要有效，目前的日期/時間必須小於或等於 `exp` 值。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖發出時間的秒數。 |
+| exp |到期時間。 權杖的到期時間。 權杖若要有效，目前的日期/時間必須小於或等於 `exp` 值。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖有效時間到期的秒數。|
 | family_name |使用者的姓氏。 應用程式可以顯示這個值。 |
 | given_name |使用者的名字。 應用程式可以顯示這個值。 |
 | iat |發出時間。 發出 JWT 的時間。 時間會表示為從 1970 年 1 月 1 日 (1970-01-01T0:0:0Z) UTC 到權杖發出時間的秒數。 |

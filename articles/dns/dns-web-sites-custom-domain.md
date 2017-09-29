@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 02f7f42b56419ad9e7ff829462bc4508f066369c
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: d4b0aa817c3fd7f3304b5122ac584166d8079d3c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -202,5 +202,5 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 
 ## <a name="next-steps"></a>後續步驟
 
-依照 [設定 App Service 的自訂網域名稱](../app-service-web/web-sites-custom-domain-name.md) 中的步驟設定 Web 應用程式使用自訂網域。
+依照 [設定 App Service 的自訂網域名稱](../app-service/app-service-web-tutorial-custom-domain.md) 中的步驟設定 Web 應用程式使用自訂網域。
 

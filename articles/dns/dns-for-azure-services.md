@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: gwallace
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 5b95d5455c08d09a088c740e9df9605d3d7f719b
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a286508fe445208b6bb348d07434b5722cc3f11e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>Azure DNS 如何與其他 Azure 服務搭配運作
@@ -38,7 +38,7 @@ Azure DNS 是一種託管的 DNS 管理與名稱解析服務。 這可讓您為�
 | 負載平衡器 |[前端公用 IP](dns-custom-domain.md#public-ip-address)  |您可以建立 DNS A 或 CNAME 記錄。 負載平衡器可以有動態指派的 IPv6 公用 IP 位址。 因此，您必須建立用於 IPv6 位址的 CNAME 記錄。 |
 | 流量管理員 |公開名稱 |您只能建立對應至指派給您的流量管理員設定檔之 trafficmanager.net 名稱的 CNAME。 如需詳細資訊，請參閱 [流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#traffic-manager-example)。 |
 | 服務雲端 |[公用 IP](dns-custom-domain.md#public-ip-address) |若使用靜態配置的 IP 位址，您可以建立 DNS A 記錄。 若使用動態配置的 IP 位址，您必須建立對應至 *cloudapp.net* 名稱的 CNAME 記錄。 此規則適用於在傳統入口網站建立的 VM，因為它們被部署為雲端服務。 如需詳細資訊，請參閱 [在 雲端服務中設定自訂網域名稱](../cloud-services/cloud-services-custom-domain-name-portal.md)。 |
-| App Service | [外部 IP](dns-custom-domain.md#app-service-web-apps) |若使用外部 IP 位址，您可以建立 DNS A 記錄。 若不是，則必須建立對應至 azurewebsites.net 名稱的 CNAME 記錄。 如需詳細資訊，請參閱 [將自訂網域名稱對應至 Azure 應用程式](../app-service-web/web-sites-custom-domain-name.md) |
+| App Service | [外部 IP](dns-custom-domain.md#app-service-web-apps) |若使用外部 IP 位址，您可以建立 DNS A 記錄。 若不是，則必須建立對應至 azurewebsites.net 名稱的 CNAME 記錄。 如需詳細資訊，請參閱 [將自訂網域名稱對應至 Azure 應用程式](../app-service/app-service-web-tutorial-custom-domain.md) |
 | Resource Manager VM |[公用 IP](dns-custom-domain.md#public-ip-address) |Resource Manager VM 可以有公用 IP 位址。 帶有公用 IP 位址的 VM 也可能擺在負載平衡器後。 您可以為公用位址建立 DNS A 或 CNAME 記錄。 這個自訂名稱可以用來略過負載平衡器上的 VIP。 |
 | 傳統 VM |[公用 IP](dns-custom-domain.md#public-ip-address) |使用 PowerShell 或 CLI 建立的傳統 VM 可設定為使用動態或靜態 (保留) 的虛擬位址。 您可以分別建立 DNS CNAME 或 A 記錄。 |
 

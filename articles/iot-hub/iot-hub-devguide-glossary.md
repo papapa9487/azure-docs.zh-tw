@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5631484bd2106ab5abff79dd3cbbf539c62bb164
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c2c95373912131445b584fa8518785b26caa9c02
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中樞術語詞彙
@@ -44,7 +44,7 @@ IoT Edge 可讓您撰寫應用程式，讓閘道連線的裝置能與 [IoT 中�
 適用於多種語言的_服務 SDK_ 可讓您建立[後端應用程式](#back-end-app) 來與 IoT 中樞互動。 IoT 中樞教學課程示範如何使用這些服務 SDK。 您可以在此 GitHub [儲存機制](https://github.com/Azure/azure-iot-sdks)中找到原始程式碼和進一步的服務 SDK 資訊。
 
 ## <a name="azure-portal"></a>Azure 入口網站
-[Microsoft Azure 入口網站](https://portal.azure.com)是一個可以佈建和管理 Azure 資源的中央位置。 它會使用_刀鋒視窗_來組織其內容。 某些 IoT 中樞教學課程可能會要求您使用 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+[Microsoft Azure 入口網站](https://portal.azure.com)是一個可以佈建和管理 Azure 資源的中央位置。 它會使用_刀鋒視窗_來組織其內容。
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 [Azure PowerShell](/powershell/azure/overview) 是 Cmdlet 集合，可用於透過 Windows PowerShell 管理 Azure。 您可以使用 Cmdlet 來建立、測試、部署和管理透過 Azure 平台傳遞的解決方案和服務。

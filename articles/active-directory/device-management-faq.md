@@ -15,10 +15,10 @@ ms.date: 09/13/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 8b8ab2883234850fe243c4d7473d737c497204b4
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 3b37033e0c96e01c73bef15af1b85116f404c354
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
@@ -34,7 +34,7 @@ ms.lasthandoff: 09/14/2017
 
 **備註：**
 
-- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](active-directory-conditional-access-technical-reference.md#supported-mobile-apps-and-desktop-clients) 才能存取資源。 
+- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](active-directory-conditional-access-technical-reference.md#client-apps-condition) 才能存取資源。 
 
 - 在首次存取嘗試期間，系統會提示使用者使用公司入口網站註冊裝置。
 
@@ -153,10 +153,20 @@ ms.lasthandoff: 09/14/2017
 
 ---
 
-**問︰哪裡可以找到設定混合式 Azure AD 已加入裝置的設定指示？**
+**問︰哪裡可以找到設定自動裝置註冊的指示？**
 
-**：**如需詳細指示，請參閱[設定混合式 Azure Active Directory 已加入裝置](device-management-hybrid-azuread-joined-devices-setup.md)。
+**答：**如需詳細指示，請參閱[如何設定讓已加入網域的 Windows 裝置自動向 Azure Active Directory 註冊](active-directory-conditional-access-automatic-device-registration-setup.md)
 
+---
+
+**問：哪裡可以找到有關自動裝置註冊的疑難排解資訊？**
+
+**答：**如需疑難排解資訊，請參閱：
+
+- [針對已加入 Azure AD 網域之電腦的自動註冊進行疑難排解 – Windows 10 和 Windows Server 2016](device-management-troubleshoot-hybrid-join-windows-current.md)
+
+- [針對已加入 Azure AD 網域之 Windows 下層用戶端電腦的自動註冊進行疑難排解](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+ 
 ---
 
 

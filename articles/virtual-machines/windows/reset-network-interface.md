@@ -11,15 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 06/26/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 220e426be20086841854d89831f6c9d67529867f
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: b8eecb9d546d5922844ede3744d80b951334b5d3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>如何重設 Azure Windows VM 的網路介面 
@@ -65,7 +64,7 @@ ms.lasthandoff: 06/28/2017
 2.  選取 [檢視] > [顯示隱藏的裝置]。
 3.  選取 [網路介面卡]。 
 4.  檢查名稱為「Microsoft Hyper-V 網路介面卡」的介面卡。
-5.  無法使用的介面卡會以灰色來顯示。 以滑鼠右鍵按一下介面卡，然後選取 [解除安裝]。
+5.  無法使用的介面卡會以灰色來顯示。以滑鼠右鍵按一下介面卡，然後選取 [解除安裝]。
 
     ![NIC 的影像](media/reset-network-interface/nicpage.png)
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 5347bf85cad32b59677369d51a1f36529aef6662
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/06/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 轉送教學課程
@@ -56,7 +55,7 @@ ms.lasthandoff: 06/06/2017
 
 3. 安裝服務匯流排 NuGet 套件。 此套件會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。 服務匯流排會使用 WCF 的許多物件和屬性來定義服務合約。
 
-    在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 套件]。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 確定已在 [版本] 方塊中選取此專案名稱。 按一下 [安裝] 並接受使用條款。
+    在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 套件]。按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 確定已在 [版本] 方塊中選取此專案名稱。 按一下 [安裝] 並接受使用條款。
 
     ![][3]
 4. 在 [方案總管] 中，按兩下 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
@@ -695,13 +694,11 @@ namespace Microsoft.ServiceBus.Samples
 
     以下是主控台視窗的範例輸出。 請注意，此處提供的值僅適用於範例。
 
-    `Your Service Namespace: myNamespace`
-    `Your SAS Key: <SAS key value>`
+    `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
     服務應用程式會將它所接聽的位址列印到主控台視窗，如下列範例所示。
 
-    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/`
-    `Press [Enter] to exit`
+    `Service address: sb://mynamespace.servicebus.windows.net/EchoService/` `Press [Enter] to exit`
 10. 在 **EchoClient** 主控台視窗中，輸入您先前針對此服務應用程式輸入的相同資訊。 遵循上述步驟，為此用戶端應用程式輸入相同的服務命名空間和 SAS 金鑰值。
 11. 輸入這些值後，用戶端就會開啟服務通道，並提示您輸入一些文字，如下列主控台輸出範例所示。
 
@@ -725,8 +722,6 @@ namespace Microsoft.ServiceBus.Samples
 * [Azure 服務匯流排架構概觀](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure 轉送概觀](relay-what-is-it.md)
 * [如何使用 WCF 轉送服務搭配 .NET](relay-wcf-dotnet-get-started.md)
-
-[Azure classic portal]: http://manage.windowsazure.com
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png

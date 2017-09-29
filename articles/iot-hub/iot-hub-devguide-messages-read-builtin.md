@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: fcc3743028e369fdc42b71887d49fb41fba2c0dc
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f17f3084138d667b2584142ed90ecc8fc1586189
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>從內建端點讀取裝置對雲端訊息
@@ -61,7 +60,7 @@ IoT 中樞 SDK 需要 IoT 中樞端點名稱，也就是 [端點] 刀鋒視窗�
 
 您可以搭配 IoT 中樞公開之事件中樞相容端點使用的 SDK 和整合項目包含下列清單中的項目：
 
-* [Java 事件中樞用戶端](https://github.com/hdinsight/eventhubs-client)。
+* [Java 事件中樞用戶端](https://github.com/Azure/azure-event-hubs-java)。
 * [Apache Storm Spout](../hdinsight/hdinsight-storm-develop-csharp-event-hub-topology.md)。 您可以檢視 GitHub 上的 [Spout 原始檔](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
 * [Apache Spark 整合](../hdinsight/hdinsight-apache-spark-eventhub-streaming.md)。
 
