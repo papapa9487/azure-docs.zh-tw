@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: bcfffe05dbce2824ea4933997865e8c7e86610b6
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -42,9 +42,9 @@ ms.lasthandoff: 06/21/2017
 ## <a name="system-requirements"></a>系統需求
 開始之前，請檢閱下列詳細資料，以確認符合必要條件。
 
-* OMS 僅支援 Operations Manager 2016、Operations Manager 2012 SP1 UR6 和更新版本，以及 Operations Manager 2012 R2 UR2 和更新版本。  Operations Manager 2012 SP1 UR7 和 Operations Manager 2012 R2 UR3 中已加入 Proxy 支援。
+* OMS 僅支援 Operations Manager 2016、Operations Manager 2012 SP1 UR10 和更新版本，以及 Operations Manager 2012 R2 UR11 和更新版本。
 * 所有 Operations Manager 代理程式必須符合最低支援需求。 請確定代理程式已安裝最低更新版本，否則 Windows 代理程式流量會失敗，許多錯誤可能會填滿 Operations Manager 事件記錄。
-* OMS 訂用帳戶。  如需進一步資訊，請檢閱 [開始使用 Log Analytics](log-analytics-get-started.md)。
+* Azure Log Analytics 訂用帳戶。  如需進一步資訊，請檢閱 [開始使用 Log Analytics](log-analytics-get-started.md)。
 
 ### <a name="network"></a>網路
 下列資訊列出 Operations Manager 代理程式、管理伺服器及 Operations 主控台與 OMS 通訊所需的 Proxy 和防火牆組態資訊。  每個元件的流量會從您的網路輸出至 OMS 服務。     

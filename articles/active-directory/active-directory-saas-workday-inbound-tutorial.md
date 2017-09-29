@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
-ms.openlocfilehash: f9cc94ca1fc44d10af19debab49435b265bf6e7c
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/14/2017
-
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>教學課程︰以內部部署 Active Directory 和 Azure Active Directory 設定自動化使用者佈建的 Workday
@@ -38,9 +37,9 @@ ms.lasthandoff: 06/14/2017
 
 ### <a name="scenarios-covered"></a>涵蓋的案例
 
-Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，可啟用下列人力資源和身分識別生命週期管理案例的自動化：
+Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，可讓下列人力資源和身分識別生命週期管理案例的自動化：
 
-* **雇用新員工** - 將新員工新增至 Workday 時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](active-directory-saas-app-provisioning.md)中自動建立使用者帳戶，並將電子郵件地址回寫至 Workday。
+* **雇用新員工** - 將新員工新增至 Workday 時，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](active-directory-saas-app-provisioning.md)中自動建立使用者帳戶，並將電子郵件地址寫回 Workday。
 
 * **員工屬性和設定檔更新** - 在 Workday 中更新員工記錄時 (例如姓名、職稱或經理)，系統會在 Active Directory、Azure Active Directory、Office 365 (選擇性) 和 [Azure AD 支援的其他 SaaS 應用程式](active-directory-saas-app-provisioning.md)中自動更新其使用者帳戶。
 
@@ -63,9 +62,6 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 * 佈建至 Active Directory 的使用者，需要執行 Windows Service 2012 或更新版本的已加入網域伺服器，才能裝載[內部部署同步代理程式](https://go.microsoft.com/fwlink/?linkid=847801)
 * 可在 Active Directory 與 Azure AD 之間同步處理的 [Azure AD Connect](connect/active-directory-aadconnect.md)
 
-> [!NOTE]
-> 如果您的 Azure AD 租用戶位於歐洲，請參閱下列[已知問題](#known-issues)一節。
-
 
 ### <a name="solution-architecture"></a>方案架構
 
@@ -85,7 +81,7 @@ Azure AD 提供一組豐富的佈建連接器，協助您解決從 Workday 到 A
 
 Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式的預先整合佈建連接器。 
 
-其為具有單一來源系統 API 的單一佈建連接器介面，且有助於將資料佈建至單一目標系統。 Azure AD 支援的大部分佈建連接器都適用於單一來源和目標系統 (例如 Azure AD 至 ServiceNow)，且只要從 Azure AD 應用程式庫新增上述應用程式即可輕鬆設定 (例如 ServiceNow)。 
+其為具有單一來源系統 API 的單一佈建連接器介面，且有助於將資料佈建至單一目標系統。 Azure AD 支援的大部分佈建連接器都適用於單一來源和目標系統 (例如 Azure AD 至 ServiceNow)，並可透過從 Azure AD 應用程式庫新增上述應用程式 (例如 ServiceNow) 來設定。 
 
 在 Azure AD 中佈建連接器執行個體與應用程式執行個體之間具有一對一關聯性：
 
@@ -187,7 +183,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 3. 在 [系統] 功能區域的安全性原則清單中，展開 [安全性管理]，並選取 [外部帳戶佈建] 網域安全性原則。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750988.png "網域安全性原則")  
-4. 按一下 [編輯權限] 按鈕，然後在 [編輯權限] 畫面上，將新的安全性群組新增具有 **Get** 和 **Put** 整合權限的群組清單。 
+4. 按一下 [編輯權限]，然後在 [編輯權限]對話 畫面上，將新的安全性群組新增到具有 **Get** 和 **Put** 整合權限的群組清單中。 
    
     ![編輯權限](./media/active-directory-saas-workday-inbound-tutorial/IC750989.png "編輯權限")  
 5. 重複上述步驟 1，以返回選取功能區域的畫面，這次改為搜尋 staffing，然後選取 [人員配置] 功能區域，再按一下 [確定]。
@@ -322,7 +318,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 -   對應至 parentDistinguishedName AD 屬性的運算式可用於根據一或多個 Workday 來源屬性，將使用者佈建至特定 OU。 此範例會根據使用者在 Workday 中的城市資料，將其置於不同的 OU。
 
--   對應至 userPrincipalName AD 屬性的運算式會建立 firstName.LastName@contoso.com 的 UPN。 其也會取代不合法的特殊字元。
+-   對應至 userPrincipalName AD 屬性的運算式會建立 firstName.LastName@contoso.com 的 UPN。其也會取代不合法的特殊字元。
 
 -   [此為有關撰寫運算式的文件](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 
@@ -340,7 +336,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 | **Fax**      | facsimileTelephoneNumber     |     |    建立 + 更新 |
 | **名字**   | givenName       |     |    建立 + 更新 |
 | **Switch(\[Active\], , "0", "True", "1",)** |  accountDisabled      |     | 建立 + 更新 |
-| **Mobile**  |    mobile       |     |       僅於建立時寫入 |
+| **Mobile**  |    mobile       |     |       建立 + 更新 |
 | **EmailAddress**    | mail    |     |     建立 + 更新 |
 | **ManagerReference**   | manager  |     |  建立 + 更新 |
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  建立 + 更新 |
@@ -350,7 +346,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 | **姓氏**   |   sn   |     |  建立 + 更新 |
 | **CountryRegionReference** |  st     |     | 建立 + 更新 |
 | **AddressLineData**    |  streetAddress  |     |   建立 + 更新 |
-| **PrimaryWorkTelephone**  |  telephoneNumber   |     | 僅於建立時寫入 |
+| **PrimaryWorkTelephone**  |  telephoneNumber   |     | 建立 + 更新 |
 | **BusinessTitle**   |  title     |     |  建立 + 更新 |
 | **Join("@",Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Join(".", [FirstName], [LastName]), , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , ), "contoso.com")**   | userPrincipalName     |     | 建立 + 更新                                                   
 | **Switch(\[Municipality\], "OU=Standard Users,OU=Users,OU=Default,OU=Locations,DC=contoso,DC=com", "Dallas", "OU=Standard Users,OU=Users,OU=Dallas,OU=Locations,DC=contoso,DC=com", "Austin", "OU=Standard Users,OU=Users,OU=Austin,OU=Locations,DC=contoso,DC=com", "Seattle", "OU=Standard Users,OU=Users,OU=Seattle,OU=Locations,DC=contoso,DC=com", “London", "OU=Standard Users,OU=Users,OU=London,OU=Locations,DC=contoso,DC=com")**  | parentDistinguishedName     |     |  建立 + 更新 |
@@ -382,6 +378,10 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 * 輸入：Azure AD 租用戶的全域系統管理員使用者名稱和密碼
 
+>[!IMPORTANT]
+>目前有一項已知問題：若使用自訂網域，則全域管理員認證無法運作 (範例：admin@contoso.com)。 因應措施是以 onmicrosoft.com 網域來建立和使用全域管理員帳戶 (範例：admin@contoso.onmicrosoft.com)
+
+
 **命令 4**
 
 > Get-AdSyncAgentProvisioningTasks
@@ -410,8 +410,39 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 > net start aadsyncagent
 
+>[!TIP]
+>除了在 Powershell 中的「net」命令以外，也可以使用 **Services.msc** 來啟動和停止同步處理代理程式服務。 若在執行 Powershell 命令時收到錯誤訊息，請確定 **Microsoft Azure AD 連線佈建代理程式**是在 **Services.msc** 下執行。
+
+![服務](./media/active-directory-saas-workday-inbound-tutorial/Services.png)  
+
+**針對歐盟客戶的其他設定**
+
+若您的 Azure Active Directory 租用戶位於其中一個 EU 資料中心，請遵循下列的額外步驟。
+
+1. 開啟 **Services.msc**，並停止 **Microsoft Azure AD 連線佈建代理程式**服務。
+2. 移至代理程式安裝資料夾 (例如：C:\Program Files\Microsoft Azure AD Connect Provisioning Agent)。
+3. 在文字編輯器中開啟 **SyncAgnt.exe.config**。
+4. 以 **https://eu.manage.hub.syncfabric.windowsazure.com/Management** 取代 https://manage.hub.syncfabric.windowsazure.com/Management
+5. 以 **https://eu.provision.hub.syncfabric.windowsazure.com/Provisioning** 取代 https://provision.hub.syncfabric.windowsazure.com/Provisioning
+6. 儲存 **SyncAgnt.exe.config** 檔案。
+7. 開啟 **Services.msc**，並啟動 **Microsoft Azure AD 連線佈建代理程式**服務。
+
+**代理程式疑難排解**
+
+裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx)中，包含了所有代理程式所執行的作業事件。 若要檢視這些事件：
+    
+1. 請開啟 **Eventvwr.msc**。
+2. 選取 [Windows 記錄檔 > 應用程式]。
+3. 檢視來源 **AADSyncAgent** 底下記錄的所有事件。 
+4. 請檢查錯誤和警告。
+
+若 Powershell 命令中所提供的 Active Directory 或 Azure Active Directory 認證有任何權限問題，您將會看到這種錯誤： 
+    
+![事件記錄檔](./media/active-directory-saas-workday-inbound-tutorial/Windows_Event_Logs.png) 
+
+
 ### <a name="part-4-start-the-service"></a>第 4 部分：啟動服務
-完成第 1-3 部分之後，您可以在 Azure 管理入口網站中重新啟動佈建服務。
+完成第 1-3 部分之後，您就可以在 Azure 入口網站中重新啟動佈建服務。
 
 1.  在 [佈建] 索引標籤中，將 [佈建狀態] 設定為 [開啟]。
 
@@ -419,11 +450,12 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
-4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件 (例如，正在 Workday 外讀取哪些使用者，然後接著新增或更新至 Active Directory)。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
+4. 您可隨時檢查 Azure 入口網站中的 [稽核記錄] 索引標籤，查看佈建服務執行了哪些動作。 稽核記錄會列出佈建服務執行的所有個別同步處理事件，例如從 Workday 外部讀取了哪些使用者，接著又新增到或更新到 Active Directory 中。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
 
-5.  代理程式電腦上的 Windows 應用程式記錄檔將會顯示透過代理程式執行的所有作業。
+5.  請檢查裝載代理程式的 Windows Server 機器上的 [Windows 事件記錄檔](https://technet.microsoft.com/en-us/library/cc722404(v=ws.11).aspx)中，有哪些新錯誤或警告。 可透過在伺服器上啟動 **Eventvwr.msc** 並選取 [Windows 記錄檔 > 應用程式]，來檢視這些事件。 所有佈建相關的訊息都會記錄在來源 **AADSyncAgent** 底下。 
+    
 
-6. 完成之後，其會寫入  **[佈建]** 索引標籤中的稽核摘要報告，如下所示。
+6. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
 ![Azure 入口網站](./media/active-directory-saas-workday-inbound-tutorial/WD_3.PNG)
 
@@ -468,7 +500,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
    * **系統管理員密碼 –** 輸入 Workday 整合系統帳戶的密碼
 
-   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 其應該類似於：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中請將 contoso4 取代為正確的租用戶名稱，並將 wd3-impl 取代為正確的環境字串 (如有必要)。
+   * **租用戶 URL –** 輸入租用戶 Workday Web 服務端點的 URL。 其應該類似於：https://wd3-impl-services1.workday.com/ccx/service/contoso4，其中請將 contoso4 取代為正確的租用戶名稱，並將 wd3-impl 取代為正確的環境字串。 如果不知道此 URL，請與您的 Workday 整合夥伴或支援代表合作，來判斷要使用的正確 URL。
 
    * **電子郵件通知 –** 輸入您的電子郵件地址，然後勾選 [發生失敗時傳送電子郵件] 核取方塊。
 
@@ -541,9 +573,9 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
-4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
+4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
 
-5. 完成之後，其會寫入  **[佈建]** 索引標籤中的稽核摘要報告，如下所示。
+5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
 
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>設定將電子郵件地址回寫至 Workday
@@ -602,13 +634,15 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 3. 這會啟動初始同步，取決於 Workday 中的使用者人數，其可能要花費數小時。
 
-4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。 **[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
+4. 您可以在 [稽核記錄] 索引標籤中檢視個別同步事件。**[請參閱佈建報告指南，瞭解有關如何讀取稽核記錄的詳細指示](active-directory-saas-provisioning-reporting.md)**
 
-5. 完成之後，其會寫入  **[佈建]** 索引標籤中的稽核摘要報告，如下所示。
+5. 完成之後，其會寫入 [佈建] 索引標籤中的稽核摘要報告內，如下所示。
 
 ## <a name="known-issues"></a>已知問題
 
-* **歐洲地區設定中的稽核記錄** - 發布此技術預覽版本後，已存在[稽核記錄](active-directory-saas-provisioning-reporting.md)的已知問題，如果 Azure AD 租用戶位於歐洲資料中心，則 Workday 連接器應用程式不會顯示於 [Azure 入口網站](https://portal.azure.com)。 我們即將推出此問題的修正。 請於近期再次檢查此空間以取得更新。 
+* 執行 **Add-ADSyncAgentAzureActiveDirectoryConfiguration** Powershell 命令時，目前有一項已知問題：若使用自訂網域，則全域管理員認證無法運作 (範例：admin@contoso.com)。 因應措施是在 Azure AD 以 onmicrosoft.com 網域來建立和使用全域管理員帳戶 (範例：admin@contoso.onmicrosoft.com)。
+
+* 已解決之前位於歐盟的 Azure AD 租用戶上並未出現稽核記錄的問題。 不過，位於歐盟的 Azure AD 租用戶需要進行其他代理程式設定。 欲知詳情，請參閱[第 3 部分：設定內部部署同步代理程式](#Part 3: Configure the on-premises synchronization agent)
 
 ## <a name="additional-resources"></a>其他資源
 * [教學課程：設定 Workday 與 Azure Active Directory 之間的單一登入](active-directory-saas-workday-tutorial.md)

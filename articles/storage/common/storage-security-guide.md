@@ -3,7 +3,7 @@ title: "Azure 儲存體安全性指南 | Microsoft Docs"
 description: "詳述許多保護 Azure 儲存體的方法，包括但不限於 RBAC、儲存體服務加密、用戶端加密、SMB 3.0 及 Azure 磁碟加密。"
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e71d9baf36ea7acb8dc8fa1daf9ddde3a2856f85
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
@@ -157,11 +157,14 @@ Azure 儲存體提供一組完整的安全性功能，讓開發人員能夠共�
   本文說明如何使用 Active Directory 來控制 Azure 金鑰保存庫中 Azure 儲存體金鑰的存取。 它也會示範如何使用 Azure 自動化工作，每小時重新產生金鑰。
 
 ## <a name="data-plane-security"></a>資料平面安全性
-資料平面安全性是指用來保護儲存在 Azure 儲存體的資料物件 (Blob、佇列、表格和檔案) 的方法。 我們已了解在傳輸資料期間加密資料和安全性的方法，但您該從何處著手來允許存取物件？
+資料平面安全性是指用來保護儲存在 Azure 儲存體的資料物件 (Blob、佇列、表格和檔案) 的方法。 我們已了解在傳輸資料期間加密資料和安全性的方法，但您該從何處著手來控制對物件的存取？
 
-基本上有兩個方法可用來控制對資料物件本身的存取。 第一個是控制對儲存體帳戶金鑰的存取，第二個則是使用共用存取簽章，來授與一段特定時間對特定資料物件的存取權。
+有兩個方法可授權對資料物件本身的存取。 這些方法包括控制對儲存體帳戶金鑰的存取，以及使用共用存取簽章，來授與一段特定時間對特定資料物件的存取。
 
-要注意的一個例外狀況是，您可以藉由設定要據以保存 Blob 之容器的存取層級，來允許對您的 Blob 進行公用存取。 如果您將容器的存取權設定為「Blob」或「容器」，將允許該容器中 Blob 的公用讀取存取權。 這表示 URL 指向該容器中 Blob 的任何人都可以在瀏覽器中開啟它，而不需使用共用存取簽章或擁有儲存體帳戶金鑰。
+此外，針對 Blob 儲存體，您可以藉由設定要據以保存 Blob 之容器的存取層級，來允許對您的 Blob 進行公用存取。 如果您將容器的存取權設定為「Blob」或「容器」，將允許該容器中 Blob 的公用讀取存取權。 這表示 URL 指向該容器中 Blob 的任何人都可以在瀏覽器中開啟它，而不需使用共用存取簽章或擁有儲存體帳戶金鑰。
+
+除了透過授權限制存取，您也可以使用[防火牆和虛擬網路](storage-network-security.md)，根據網路規則來限制對儲存體帳戶的存取。  此方法可讓您拒絕對公用網際網路流量的存取，只授與對特定 Azure 虛擬網路或公用網際網路 IP 位址範圍的存取。
+
 
 ### <a name="storage-account-keys"></a>儲存體帳戶金鑰
 儲存體帳戶金鑰是由 Azure 所建立的 512 位元字串，搭配儲存體帳戶名稱就能用來存取儲存於儲存體帳戶中的資料物件。
@@ -243,15 +246,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
   * [共用存取簽章，第 2 部分：透過 Blob 服務來建立與使用 SAS](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     本文包含 SAS 模型的說明、共用存取簽章的範例，以及使用 SAS 最佳做法的建議。 同時也會討論撤銷授與的權限。
-* 依 IP 位址 (IP ACL) 限制存取
 
-  * [什麼是端點存取控制清單 (ACL)？](../../virtual-network/virtual-networks-acl.md)
-  * [建構服務 SAS](https://msdn.microsoft.com/library/azure/dn140255.aspx)
-
-    這是適用於服務層級 SAS 的參考文章，其中包括執行 IP ACL 的範例。
-  * [建構帳戶 SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx)
-
-    這是適用於帳戶層級 SAS 的參考文章，其中包括執行 IP ACL 的範例。
 * 驗證
 
   * [Azure 儲存體服務的驗證](https://msdn.microsoft.com/library/azure/dd179428.aspx)
@@ -268,22 +263,21 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 透過啟用儲存體帳戶[所需的安全傳輸](../storage-require-secure-transfer.md)，您可於呼叫 REST API 來存取儲存體帳戶中的物件時強制使用 HTTPS。 啟用此選項後，使用 HTTP 的連線將被拒絕。
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>傳輸期間透過 Azure 檔案共用使用加密
-使用 REST API 時，Azure 檔案儲存體支援 HTTPS，但較常用來做為連接到 VM 的 SMB 檔案共用。 SMB 2.1 不支援加密，因此只允許在 Azure 中的相同區域內連接。 不過，SMB 3.0 支援加密，而且可在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中使用，允許跨區域存取，甚至是電腦上的存取。
+使用 REST API 時，Azure 檔案服務支援 HTTPS，但較常用來作為附加到 VM 的 SMB 檔案共用。 SMB 2.1 不支援加密，因此只允許在 Azure 中的相同區域內連接。 不過，SMB 3.0 支援加密，而且可在 Windows Server 2012 R2、Windows 8、Windows 8.1 和 Windows 10 中使用，允許跨區域存取，甚至是電腦上的存取。
 
 請注意，雖然 Azure 檔案共用可以與 Unix 搭配使用，但 Linux SMB 用戶端尚未支援加密，因此只允許在 Azure 區域內存取。 適用於 Linux 的加密支援已列入開發藍圖中，負責 SMB 功能的 Linux 開發人員將著手開發。 當他們新增加密功能時，您在 Linux 系統中存取 Azure 檔案共用的能力將與在 Windows 系統中相同。
 
 透過啟用儲存體帳戶[所需的安全傳輸](../storage-require-secure-transfer.md)，您可以強制為 Azure 檔案服務使用加密。 如果使用 REST API，則需要 HTTPs。 針對 SMB，只有支援加密的 SMB 連線可以成功連線。
 
 #### <a name="resources"></a>資源
-* [如何搭配使用 Azure 檔案儲存體與 Linux](../storage-how-to-use-files-linux.md)
+* [Azure 檔案服務簡介](../files/storage-files-introduction.md)
+* [在 Windows 上開始使用 Azure 檔案服務](../files/storage-how-to-use-files-windows.md)
+
+  本文概述 Azure 檔案共用，以及如何在 Windows 上掛接和使用它們。
+
+* [如何搭配使用 Azure 檔案服務與 Linux](../files/storage-how-to-use-files-linux.md)
 
   本文說明如何在 Linux 系統上掛接 Azure 檔案共用，以及上傳/下載檔案。
-* [在 Windows 上開始使用 Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)
-
-  本文概述 Azure 檔案共用，以及如何使用 PowerShell 與 .NET 來掛接和使用它們。
-* [Azure 檔案儲存體內部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-
-  本文發表了 Azure 檔案儲存體的一般可用性，並提供關於 SMB 3.0 加密技術的詳細資料。
 
 ### <a name="using-client-side-encryption-to-secure-data-that-you-send-to-storage"></a>使用用戶端加密來保護傳送到儲存體的資料
 另一個可協助您確保在用戶端應用程式和儲存體之間傳輸時資料安全性的選項是用戶端加密。 資料會先加密，然後才傳輸到 Azure 儲存體。 從 Azure 儲存體擷取資料時，在用戶端上收到資料之後要將之解密。 即使資料在通過連線時已加密，但還是建議您使用 HTTPS，因為其內建資料完整性檢查，有助於降低影響資料完整性的網路錯誤。
@@ -350,7 +344,7 @@ SSE 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加
 * 在 Linux IaaS VM 的 OS 磁碟機上停用加密
 * 使用傳統 VM 建立方法所建立的 IaaS VM
 * 與您的內部部署金鑰管理服務整合
-* Azure 檔案儲存體 (共用檔案系統)、網路檔案系統 (NFS)、動態磁碟區，以及使用軟體型 RAID 系統設定的 Windows VM
+* Azure 檔案 (共用檔案系統)、網路檔案系統 (NFS)、動態磁碟區和以軟體型 RAID 系統所設定的 Windows VM
 
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: "將 Azure PowerShell 與 Azure 儲存體搭配使用 | Microsoft Docs"
 description: "了解如何使用適用於 Azure 儲存體的 Azure PowerShell Cmdlet 建立和管理儲存體帳戶；使用 Blob、資料表、佇列和檔案；設定和查詢儲存體分析，並建立共用存取簽章。"
 services: storage
 documentationcenter: na
-author: robinsh
+author: tamram
 manager: timlt
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 87a116111d085fe2913bf6f5f8751c3ff5f3c076
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8306ae5d4a943b9246da1d941725150c60026ca5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -689,9 +689,9 @@ $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
 ## <a name="how-to-manage-azure-file-shares-and-files"></a>如何管理 Azure 檔案共用和檔案
-Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
+Azure 檔案為使用標準 SMB 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
 
-如需 Azure 檔案儲存體的詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)和[檔案服務 REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx)。
+如需 Azure 檔案的詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案](../files/storage-files-introduction.md)和[File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (檔案服務 REST API)。
 
 ## <a name="how-to-set-and-query-storage-analytics"></a>如何設定及查詢儲存體分析
 您可以使用 [Azure 儲存體分析](../storage-analytics.md) 收集 Azure 儲存體帳戶的計量，以及傳送至儲存體帳戶之要求的相關記錄資料。 也可以使用儲存體計量監視儲存體帳戶的健康狀態，並使用儲存體記錄診斷和疑難排解儲存體帳戶的問題。 若要設定監視，可以使用 Azure 入口網站或 Windows PowerShell，或使用儲存體用戶端程式庫以程式設計方式進行。 系統會在伺服器端執行儲存體記錄，這可讓您在儲存體帳戶中記錄成功和失敗要求的詳細資料。 這些記錄檔可讓您查看資料表、佇列和 Blob 的讀取、寫入和刪除作業詳細資料，以及失敗要求的原因。

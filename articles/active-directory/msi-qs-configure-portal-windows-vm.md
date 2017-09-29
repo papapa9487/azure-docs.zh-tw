@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/19/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 9406ba2bbbea41f4677cd0d5aaddf16b0f4f26c8
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 169417530da21e0c8c58cbf770fd1d26660387f7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 09/14/2017
 
 在 Azure Active Directory 中，「受管理的服務身分識別」會提供自動受管理的身分給 Azure 服務。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在本文中，您將了解如何使用入口網站啟用和移除 Azure Windows VM 的 MSI，。
+在本文中，您將了解如何使用 Azure 入口網站啟用和移除 Azure VM 的 MSI。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,13 +35,18 @@ ms.lasthandoff: 09/14/2017
 
 ## <a name="enable-msi-during-creation-of-an-azure-vm"></a>在建立 Azure VM 時啟用 MSI
 
-從本文編寫完成後，不支援在 Azure 入口網站中建立 VM 期間啟用 MSI。 相反地，請參閱[使用 Azure 入口網站建立 Windows 虛擬機器](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)快速入門，來取得建立 VM 的詳細資料。 然後進入下一節，取得啟用 MSI 的詳細資料。
+從本文編寫完成後，不支援在 Azure 入口網站中建立 VM 期間啟用 MSI。 因此，請參閱下列 VM 建立快速入門文章之一，先建立 VM：
+
+- [使用 Azure 入口網站建立 Windows 虛擬機器](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [使用 Azure 入口網站建立 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
+
+然後進入下一節，取得在虛擬機器上啟用 MSI 的詳細資料。
 
 ## <a name="enable-msi-on-an-existing-azure-vm"></a>在現有的 Azure VM 上啟用 MSI
 
 如果您的 VM 原本沒有佈建MSI：
 
-1. 使用您想部署 VM 且與 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
+1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」。
 
 2. 瀏覽到需要的虛擬機器。
 
@@ -53,7 +58,7 @@ ms.lasthandoff: 09/14/2017
 
 如果您的虛擬機器不再需要 MSI：
 
-1. 使用您想部署 VM 且與 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
+1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」。
 
 2. 瀏覽到需要的虛擬機器。
 
@@ -64,7 +69,6 @@ ms.lasthandoff: 09/14/2017
 ## <a name="related-content"></a>相關內容
 
 - 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](msi-overview.md)。
-- 本文改編自[使用 Azure 入口網站建立 Windows 虛擬機器](../virtual-machines/windows/quick-create-portal.md)快速入門，為包含 MSI 特定指示而修改。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/01/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d6a13ceb8ccd9207ecacc166247535d496d5dec7
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 76606189e7bed1a5179c7486d7c10f3c253884b5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
@@ -312,6 +312,8 @@ static string GetAccessToken(AzureActiveDirectoryMetadata aad)
 `http://<your-cluster-endpoint>:19080/Explorer`
 
 Azure 入口網站的叢集基本資訊窗格中也會提供完整 URL。
+
+如需使用瀏覽器連線到 Windows 或 OS X 上的安全叢集，您可以匯入用戶端憑證，然後瀏覽器將會提示您指定要用於連線到叢集所需的憑證。  在 Linux 機器上，則必須使用進階瀏覽器設定 (每種瀏覽器會有不同的機制) 來匯入憑證，並指向磁碟上的憑證位置。
 
 ### <a name="connect-to-a-secure-cluster-using-azure-active-directory"></a>使用 Azure Active Directory 連線到安全的叢集
 

@@ -1,6 +1,6 @@
 ---
-title: "針對 Windows 中的 Azure 檔案儲存體問題進行疑難排解 | Microsoft Docs"
-description: "針對 Windows 中的 Azure 檔案儲存體問題進行疑難排解"
+title: "針對 Windows 中的 Azure 檔案服務問題進行疑難排解 | Microsoft Docs"
+description: "針對 Windows 中的 Azure 檔案服務問題進行疑難排解"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 0e3bbf5ad2ae9cda72876af6bdf880e3aa4f63ac
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5aacc8a920c9343c5efa89128aabb1505fc2d9aa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-windows"></a>針對 Windows 中的 Azure 檔案儲存體問題進行疑難排解
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
-本文列出當您從 Windows 用戶端連線時，與 Microsoft Azure 檔案儲存體相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 除了本文中的疑難排解步驟，您也可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) \(英文\) 來確保 Windows 用戶端環境具備正確的必要條件。 AzFileDiagnostics 會自動偵測本文中提及的大部分徵兆，並協助設定您的環境以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此資訊，其提供步驟以協助您解決連線/對應/掛接 Azure 檔案共用的問題。
+本文列出當您從 Windows 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。 除了本文中的疑難排解步驟，您也可以使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) \(英文\) 來確保 Windows 用戶端環境具備正確的必要條件。 AzFileDiagnostics 會自動偵測本文中提及的大部分徵兆，並協助設定您的環境以取得最佳效能。 您也可以在 [Azure 檔案共用疑難排解員](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到此資訊，其提供步驟以協助您解決連線/對應/掛接 Azure 檔案共用的問題。
 
 
 <a id="error53-67-87"></a>
@@ -50,7 +50,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 ### <a name="cause-2-port-445-is-blocked"></a>原因 2：連接埠 445 遭到封鎖
 
-如果連接埠 445 至 Azure 檔案儲存體資料中心的輸出通訊遭到封鎖，可能會發生系統錯誤 53 或系統錯誤 67。 若要查看 ISP 是否允許從連接埠 445 進行存取的摘要，請參閱 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) \(英文\)。
+如果連接埠 445 至 Azure 檔案服務資料中心的輸出通訊遭到封鎖，可能會發生系統錯誤 53 或系統錯誤 67。 若要查看 ISP 是否允許從連接埠 445 進行存取的摘要，請參閱 [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx) \(英文\)。
 
 若要了解這是否為「系統錯誤 53」訊息的原因，您可以使用 Portqry 查詢 TCP:445 端點。 如果篩選顯示 TCP:445 端點，則 TCP 連接埠會被封鎖。 查詢範例如下：
 
@@ -68,7 +68,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 ### <a name="cause-3-ntlmv1-is-enabled"></a>原因 3：已啟用 NTLMv1
 
-如果用戶端上已啟用 NTLMv1 通訊，就會發生系統錯誤 53 或系統錯誤 87。 Azure 檔案儲存體僅支援 NTLMv2 驗證。 啟用 NTLMv1 會使用戶端變得較不安全。 因此，Azure 檔案儲存體會封鎖通訊。 
+如果用戶端上已啟用 NTLMv1 通訊，就會發生系統錯誤 53 或系統錯誤 87。 Azure 檔案僅支援 NTLMv2 驗證。 啟用 NTLMv1 會使用戶端變得較不安全。 因此，Azure 檔案服務會封鎖通訊。 
 
 若要判斷這是否為錯誤的原因，請確認已將下列登錄子機碼的值設為 3：
 
@@ -94,7 +94,7 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 關閉一些控制代碼以減少同時開啟的控制代碼數，然後再試一次。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-windows"></a>從 Windows 中的 Azure 檔案儲存體複製檔案或將檔案複製到其中的速度變慢
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>從 Windows 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
 
 當您嘗試將檔案傳輸到 Azure 檔案服務時，可能會看到效能變慢。
 
@@ -153,7 +153,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 - 除非斜線是第一個字元，否則，可以用雙引號括住金鑰來解決此問題。 如果是，可使用互動模式分開輸入您的密碼，或者，重新產生金鑰，以取得不是斜線開頭的金鑰。
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-file-storage-drive"></a>應用程式或服務無法存取掛接的 Azure 檔案儲存體磁碟機
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>應用程式或服務無法存取掛接的 Azure 檔案服務磁碟機
 
 ### <a name="cause"></a>原因
 
@@ -174,7 +174,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 透過網路複製檔案時，該檔案會在來源電腦上解密、以純文字傳送，並在目的地上重新加密。 不過，您可能會在嘗試複製加密的檔案時看到下列錯誤：「您正在將檔案複製到不支援加密的目的地。」
 
 ### <a name="cause"></a>原因
-如果您使用加密檔案系統 (EFS)，可能會發生此問題。 BitLocker 加密的檔案可以複製到 Azure 檔案儲存體。 不過，Azure 檔案儲存體不支援 NTFS EFS。
+如果您使用加密檔案系統 (EFS)，可能會發生此問題。 BitLocker 加密的檔案可以複製到 Azure 檔案服務。 不過，Azure 檔案服務不支援 NTFS EFS。
 
 ### <a name="workaround"></a>因應措施
 若要透過網路複製檔案，您必須先將它解密。 使用下列其中一種方法：

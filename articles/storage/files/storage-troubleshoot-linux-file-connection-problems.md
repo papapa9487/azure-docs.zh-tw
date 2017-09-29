@@ -1,6 +1,6 @@
 ---
-title: "針對 Linux 中的 Azure 檔案儲存體問題進行疑難排解 | Microsoft Docs"
-description: "針對 Linux 中的 Azure 檔案儲存體問題進行疑難排解"
+title: "針對 Linux 中的 Azure 檔案服務問題進行疑難排解 | Microsoft Docs"
+description: "針對 Linux 中的 Azure 檔案服務問題進行疑難排解"
 services: storage
 documentationcenter: 
 author: genlin
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: dc32a57bf49d20faa2e0c241f99b1af7d02b586f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="troubleshoot-azure-file-storage-problems-in-linux"></a>針對 Linux 中的 Azure 檔案儲存體問題進行疑難排解
+# <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
-本文列出當您從 Linux 用戶端連線時，與 Microsoft Azure 檔案儲存體相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。
+本文列出當您從 Linux 用戶端連線時，與 Microsoft Azure 檔案服務相關的常見問題。 文中也會提供這些問題的可能原因和解決方案。
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>當您嘗試開啟檔案時，「[使用權限被拒] 超出磁碟配額」
@@ -41,7 +41,7 @@ ms.lasthandoff: 09/08/2017
 關閉一些控點以減少同時開啟的控點數，然後再次嘗試操作。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體效能與延展性檢查清單](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-file-storage-in-linux"></a>從 Linux 中的 Azure 檔案儲存體複製檔案或將檔案複製到其中的速度變慢
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>從 Linux 中的 Azure 檔案服務複製檔案或將檔案複製到其中的速度變慢
 
 -   如果您沒有特定的 I/O 大小需求下限，建議您使用 1 MB 的 I/O 大小以獲得最佳效能。
 -   如果您知道擴充寫入檔案的最終大小，而且當檔案上未寫入的結尾中有零時您的軟體不會產生相容性問題，則請事先設定檔案大小，而不是將每次寫入設為擴充寫入。
@@ -79,15 +79,15 @@ ms.lasthandoff: 09/08/2017
 如果您無法升級至最新的核心版本，您可以使用下列因應措施解決此問題：在 Azure 檔案共用中保留一個每 30 秒 (或更短時間) 就會寫入的檔案。 這必須是寫入作業，例如重寫檔案的建立或修改日期。 否則，您可能會取得快取的結果，而您的作業可能不會觸發重新連線。
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-file-storage-by-using-smb-30"></a>當您使用 SMB 3.0 掛接 Azure 檔案儲存體時，發生「掛接錯誤 (115)：作業進行中」
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>當您使用 SMB 3.0 掛接 Azure 檔案服務時，發生「掛接錯誤 (115)：作業進行中」
 
 ### <a name="cause"></a>原因
 
-某些 Linux 散發套件尚未支援 SMB 3.0 的加密功能，如果使用者因為功能遺失而嘗試使用 SMB 3.0 來掛接 Azure 檔案儲存體，可能會收到「115」錯誤訊息。
+某些 Linux 發行版本尚未支援 SMB 3.0 的加密功能，如果使用者因為功能遺失而嘗試使用 SMB 3.0 來掛接 Azure 檔案服務，可能會收到「115」錯誤訊息。
 
 ### <a name="solution"></a>方案
 
-4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果您的 Linux SMB 用戶端不支援加密，在與檔案儲存體帳戶相同的資料中心上，從 Azure Linux VM 使用 SMB 2.1 掛接 Azure 檔案儲存體。
+4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 發佈時，這項功能已向前移植到 Ubuntu 17.04 和 Ubuntu 16.10。 如果您的 Linux SMB 用戶端不支援加密，在與檔案儲存體帳戶相同的資料中心上，從 Azure Linux VM 使用 SMB 2.1 掛接 Azure 檔案服務。
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>掛接在 Linux VM 上的 Azure 檔案共用效能變慢
@@ -110,7 +110,7 @@ ms.lasthandoff: 09/08/2017
 
 `//mabiccacifs.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=3.0,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
 
-如果沒有 **cache=strict** 或 **serverino** 選項，請執行[文件](../storage-how-to-use-files-linux.md)中的掛接命令，將 Azure 檔案儲存體卸載並再次掛接。 然後，重新檢查 **/etc/fstab** 項目是否有正確的選項。
+如果沒有 **cache=strict** 或 **serverino** 選項，請執行[文件](../storage-how-to-use-files-linux.md)中的掛接命令，將 Azure 檔案服務卸載並再次掛接。 然後，重新檢查 **/etc/fstab** 項目是否有正確的選項。
 
 <a id="timestampslost"></a>
 ## <a name="time-stamps-were-lost-in-copying-files-from-windows-to-linux"></a>將檔案從 Windows 複製到 Linux 時，遺失時間戳記

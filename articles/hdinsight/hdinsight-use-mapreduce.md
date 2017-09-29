@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/26/2017
+ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: df8ac578a56de72df667b1fa7f90f981c79d9999
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 625bbf802888b70ccac57b7da3d7060a9706ddec
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 HDInsight 上的 Hadoop 中使用 MapReduce
@@ -40,7 +39,7 @@ ms.lasthandoff: 07/08/2017
 
 ## <a id="whatis"></a>什麼是 MapReduce
 
-Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。 輸入資料會分割成幾個獨立區塊，然後在叢集中跨多個節點平行處理。 MapReduce 工作由兩項功能組成：
+Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。 輸入的資料會分割成獨立的區塊。 每個區塊會在叢集的節點之間平行處理。 MapReduce 工作由兩項功能組成：
 
 * **對應程式**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
 
@@ -50,7 +49,7 @@ Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。
 
 ![HDI.WordCountDiagram][image-hdi-wordcountdiagram]
 
-此工作的輸出是分析的文字中每個單字出現的次數統計。
+此工作的輸出是文字中每個單字出現的次數統計。
 
 * 對應程式從輸入的文字中取得每一行當作一個輸入，然後將其打散成單字。 對應程式會在單字出現時發出機碼/值組，並在該字之後加上 1。 輸出會先經過排序再傳送至減壓器。
 * 接著，減壓器會加總每個單字的個別計數並發出單一機碼/值組，其中包含該單字和尾隨在後的出現次數總和。

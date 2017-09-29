@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 36da8c7d0f3ace194522e5288f26069cf46d470e
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -26,15 +26,19 @@ ms.lasthandoff: 06/30/2017
 
 組態伺服器做為 Site Recovery 服務和您的內部部署基礎結構之間的協調者。 本文說明如何安裝、設定及管理組態伺服器。
 
-## <a name="prerequisites"></a>必要條件
-下列為安裝組態伺服器所需的最基本硬體、軟體及網路設定。
-
 > [!NOTE]
 > [容量規劃](site-recovery-capacity-planner.md)是確保以符合負載需求的設定來部署組態伺服器的重要步驟。 深入了解[組態伺服器的大小需求](#sizing-requirements-for-a-configuration-server)。
+
+
+## <a name="prerequisites"></a>必要條件
+下列為安裝組態伺服器所需的最基本硬體、軟體及網路設定。
+> [!IMPORTANT]
+> 部署用於保護 VMware 虛擬機器的組態伺服器時，我們建議您將其部署為**高可用 (HA)** 虛擬機器。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 ## <a name="downloading-the-configuration-server-software"></a>下載組態伺服器軟體
+
 1. 登入 Azure 入口網站並瀏覽至您的復原服務保存庫。
 2. 瀏覽至 [Site Recovery 基礎結構] > [組態伺服器] \(位於 [適用於 VMware 和實體機器] 底下)。
 
@@ -131,10 +135,10 @@ ProxyPassword="Password"
 1. 登入您的組態伺服器。
 2. 從系統管理命令提示字元中，執行命令
 
-```
-reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-net stop dra
-```
+    ```
+    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    net stop dra
+    ```
 3. 使用捷徑啟動 cspsconfigtool.exe。
 4. 按一下 [保存庫註冊] 索引標籤。
 5. 從入口網站下載新的註冊檔案，並當做輸入提供給工具。
@@ -149,6 +153,17 @@ net stop dra
     net stop obengine
     net start obengine
     ```
+
+## <a name="updating-a-configuration-server"></a>更新組態伺服器
+
+> [!WARNING]
+> 更新只支援到 N 系列第 4 代的版本。 例如，若市面上的最新版本是 9.11，則您可從 9.10、9.9、9.8 或 9.7 版更新到 9.11 版。 但若您使用的是任何小於或等於 9.6 的版本，則您必須先至少更新到 9.7 版，才能將最新的更新套用到組態伺服器。 您可以在 [Azure Site Recovery 服務更新](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)底下找到舊版本的下載連結
+
+1. 將更新安裝程式下載到組態伺服器上。
+2. 按兩下安裝程式將其啟動。
+3. 安裝程式會偵測機器上的 Site Recovery 元件版本，並提示您進行確認。 
+4. 按一下 [確定] 按鈕加以確認，並繼續進行升級。
+
 
 ## <a name="decommissioning-a-configuration-server"></a>解除委任組態伺服器
 在開始解除委任組態伺服器之前，請確認下列事項。

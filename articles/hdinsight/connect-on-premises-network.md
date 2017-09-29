@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 09/21/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 6fc863010cc59e20e7d86ea9344489e574be75f2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 27a5d0e69ec9c47feab2b23d7c79fe2547edfc08
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 
@@ -34,9 +34,6 @@ ms.lasthandoff: 08/21/2017
 * HDInsight 在虛擬網路上提供的連接埠。
 
 ## <a name="create-the-virtual-network-configuration"></a>建立虛擬網路設定
-
-> [!IMPORTANT]
-> 如果您要尋找使用 Azure 虛擬網路將 HDInsight 連線到內部網路的逐步指引，請參閱[將 HDInsight 連線至內部部署網路](connect-on-premises-network.md)文件。
 
 使用下列文件可了解如何建立已連線到內部部署網路的 Azure 虛擬網路：
     
@@ -74,7 +71,10 @@ ms.lasthandoff: 08/21/2017
 若要建立使用[繫結](https://www.isc.org/downloads/bind/) DNS 軟體的 Linux VM，請使用下列步驟：
 
 > [!NOTE]
-> 下列步驟會使用 [Azure 入口網站](https://portal.azure.com)來建立 Azure 虛擬機器。 如需其他建立虛擬機器的方式，請參閱[建立 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) 和[建立 VM - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md) 文件。
+> 下列步驟會使用 [Azure 入口網站](https://portal.azure.com)來建立 Azure 虛擬機器。 如需建立虛擬機器的其他方式，請參閱下列文件：
+>
+> * [建立 VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md)
+> * [建立虛擬機器 - Azure PowerShell](../virtual-machines/linux/quick-create-portal.md)
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取__+__、__Compute__ 和 __Ubuntu Server 16.04 LTS__。
 
@@ -300,6 +300,8 @@ nslookup dnsproxy.icb0d0thtw0ebifqt0g1jycdxd.ex.internal.cloudapp.net 196.168.0.
 ## <a name="connecting-to-hdinsight"></a>連線至 HDInsight
 
 HDInsight 上大部分的文件都假設您透過網際網路擁有叢集存取權。 例如，您可以連線到 https://CLUSTERNAME.azurehdinsight.net 的叢集。 這個位址會使用公用閘道，如果您已經使用 NSG 或 UDR 來限制網際網路的存取，則無法使用。
+
+某些文件在從 SSH 工作階段連線到叢集時也會參考 `headnodehost`。 此位址只有從叢集內的節點才可使用，而無法在透過虛擬網路連線的用戶端上使用。
 
 若要透過虛擬網路直接連線至 HDInsight，請使用下列步驟：
 

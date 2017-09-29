@@ -3,7 +3,7 @@ title: "如何監視 Azure 儲存體帳戶 | Microsoft Docs"
 description: "了解如何使用 Azure 入口網站來監視 Azure 中的儲存體帳戶。"
 services: storage
 documentationcenter: 
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: b83cba7b-4627-4ba7-b5d0-f1039fe30e78
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: e8fbc4ecdffe62806019f494e1412cfedbccf71f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bb2d019a751131e031f244e09b524227348bc190
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/21/2017
 > [!NOTE]
 > 在 Azure 入口網站中查看監視資料會衍生相關成本。 如需詳細資訊，請參閱 [儲存體分析及計費](/rest/api/storageservices/Storage-Analytics-and-Billing)。
 >
-> Azure 檔案儲存體目前支援儲存體分析度量，但還不支援記錄。
+> Azure 檔案服務目前支援儲存體分析計量，但還不支援記錄。
 >
 > 複寫類型為區域備援儲存體 (ZRS) 的儲存體帳戶目前未啟用度量或記錄功能。
 > 
@@ -138,7 +138,7 @@ ms.lasthandoff: 08/21/2017
 您可以指示 Azure 儲存體，讓它將 Blob、資料表和佇列服務之讀取、寫入及刪除要求的診斷記錄儲存起來。 您已設定的資料保留原則同樣適用於這些記錄。
 
 > [!NOTE]
-> Azure 檔案儲存體目前支援儲存體分析度量，但還不支援記錄。
+> Azure 檔案服務目前支援儲存體分析計量，但還不支援記錄。
 >
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [儲存體帳戶]，然後選取儲存體帳戶名稱以開啟 [儲存體帳戶] 刀鋒視窗。

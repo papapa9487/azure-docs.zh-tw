@@ -14,19 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9541cd195e8afa6e692a5a0214b0d614e429c33b
-ms.openlocfilehash: 234f06a858987b03ec2ed0bbe0899423d8f0bcdd
+ms.translationtype: HT
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 12/20/2016
+ms.lasthandoff: 09/23/2017
 
 ---
-# Azure AD Connect：自動升級
-<a id="azure-ad-connect-automatic-upgrade" class="xliff"></a>
+# <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自動升級
 此功能是隨組建 1.1.105.0 (於 2016 年 2 月發行) 一起導入。
 
-## Overview
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Overview
 使用「自動升級」  功能是可確保您 Azure AD Connect 安裝永遠維持在最新狀態的最簡單方式。 此功能預設為啟用，以供進行快速安裝及 DirSync 升級。 新版本發行時，您的安裝會自動升級。
 
 預設會針對下列情況啟用自動升級：
@@ -50,8 +48,7 @@ ms.lasthandoff: 12/20/2016
 
 如果伺服器上正在執行 **Synchronization Service Manager** UI，則會暫止升級，直到 UI 關閉為止。
 
-## 疑難排解
-<a id="troubleshooting" class="xliff"></a>
+## <a name="troubleshooting"></a>疑難排解
 如果您的 Connect 安裝未如預期般自動升級，請遵循下列步驟來找出可能的錯誤。
 
 首先，不建議您在新版本發行的第一天就自動升級。 由於升級前有刻意設計的隨機性，因此不用擔心您的安裝沒有立即升級。
@@ -90,6 +87,7 @@ ms.lasthandoff: 12/20/2016
 | UpgradeAbortedSyncExeInUse |伺服器上的 [Synchronization Service Manager UI](active-directory-aadconnectsync-service-manager-ui.md) 為開啟。 |
 | UpgradeAbortedSyncOrConfigurationInProgress |安裝精靈正在執行或排程器外部已排定同步處理。 |
 | **UpgradeNotSupported** | |
+| UpgradeNotSupportedAdfsSignInMethod | 您已選取 ADFS 作為登入方法。 | 
 | UpgradeNotSupportedCustomizedSyncRules |您已將自己的自訂規則加入組態。 |
 | UpgradeNotSupportedDeviceWritebackEnabled |您已啟用 [裝置回寫](active-directory-aadconnect-feature-device-writeback.md) 功能。 |
 | UpgradeNotSupportedGroupWritebackEnabled |您已啟用 [群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback) 功能。 |
@@ -98,10 +96,11 @@ ms.lasthandoff: 12/20/2016
 | UpgradeNotSupportedMultiForestSetup |您正連接到多個樹系。 快速安裝只會連接到一個樹系。 |
 | UpgradeNotSupportedNonLocalDbInstall |您不是使用 SQL Server Express LocalDB 資料庫。 |
 | UpgradeNotSupportedNonMsolAccount |[AD 連接器帳戶](active-directory-aadconnect-accounts-permissions.md#active-directory-account)已不再是預設的 MSOL_ 帳戶。 |
+| UpgradeNotSupportedNotConfiguredSignInMethod | 您已選取 [請勿設定] 作為登入方法。 | 
+| UpgradeNotSupportedPtaSignInMethod | 您已選取 [傳遞驗證] 作為登入方法。 |
 | UpgradeNotSupportedStagingModeEnabled |伺服器設定為 [預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。 |
 | UpgradeNotSupportedUserWritebackEnabled |您已啟用 [使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback) 功能。 |
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 

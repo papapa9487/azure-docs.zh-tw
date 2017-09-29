@@ -3,7 +3,7 @@ title: "待用資料的 Azure 儲存體服務加密 | Microsoft Docs"
 description: "使用 Azure 儲存體服務加密功能，在儲存資料時於服務端加密您的 Azure Blob 儲存體，在擷取資料時將它解密。"
 services: storage
 documentationcenter: .net
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bac7b3292f21aa97d02a18dd58f79a4f10485b7d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f3486ca87a1797c312caa3fe27f692037c80b747
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>待用資料的 Azure 儲存體服務加密
@@ -84,7 +84,7 @@ AzCopy 是個 Windows 命令列公用程式，專為使用簡單命令高效率�
 若要深入了解，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。
 
 #### <a name="using-smb"></a>使用 SMB
-Azure 檔案儲存體可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 您可以從內部部署或 Azure 中的用戶端掛接檔案共用。 一旦掛接，您就能使用如 Robocopy 的工具來將檔案複製到 Azure 檔案共用。 如需詳細資訊，請參閱[如何在 Windows 上掛接 Azure 檔案共用](../files/storage-how-to-use-files-windows.md)與[如何在 Linux 上掛接 Azure 檔案共用](../storage-how-to-use-files-linux.md)。
+Azure 檔案服務可在雲端中使用標準的 SMB 通訊協定提供檔案共用。 您可以從內部部署或 Azure 中的用戶端掛接檔案共用。 一旦掛接，您就能使用如 Robocopy 的工具來將檔案複製到 Azure 檔案共用。 如需詳細資訊，請參閱[如何在 Windows 上掛接 Azure 檔案共用](../files/storage-how-to-use-files-windows.md)與[如何在 Linux 上掛接 Azure 檔案共用](../files/storage-how-to-use-files-linux.md)。
 
 
 #### <a name="using-the-storage-client-libraries"></a>使用儲存體用戶端程式庫

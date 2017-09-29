@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 60d35b230534ca5721a49a770ea81cc79d52ec02
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/23/2017
 
 ---
-
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>如何針對自助式密碼重設進行疑難排解
 
 如果自助式密碼重設發生問題，下列項目可協助您更快順利運作。
@@ -152,17 +151,21 @@ ms.lasthandoff: 08/29/2017
 | 33008| ADPasswordPolicyError| 當密碼回寫服務嘗試在本機目錄上設定不符合密碼使用期限、歷程記錄、複雜度或網域篩選需求的密碼時，就會發生此錯誤。 <br> <br> 如果您有最短的密碼使用期限，且最近在該時段內變更過密碼，則必須在到達網域中指定的使用期限後，才能再次變更密碼。 若要進行測試，最短使用期限應該設定為 0。 <br> <br> 如果已啟用密碼歷程記錄需求，則必須選取最近 N 次未用過的密碼，其中 N 是密碼歷程記錄設定。 如果您選取最近 N 次用過的密碼，則會在此案例中看到失敗。 若要進行測試，歷程記錄應該設定為 0。 <br> <br> 如果您有密碼複雜度需求，則會在使用者嘗試變更或重設密碼時強制執行這些需求。 <br> <br> 如果您啟用密碼篩選功能，則當使用者選取的密碼不符合篩選準則時，重設或變更作業就會失敗。|
 | 33009| ADConfigurationError| 這個事件表示 Active Directory 的設定有問題，因此在將密碼回寫到內部部署目錄時發生問題。 請檢查 Azure AD Connect 電腦的應用程式事件記錄檔中來自 ADSync 服務的訊息，以獲得所發生錯誤的詳細資訊。|
 
-
 ## <a name="troubleshoot-password-writeback-connectivity"></a>疑難排解密碼回寫連線
 
 如果 Azure AD Connect 的密碼回寫元件發生服務中斷，以下是可供用來解決此問題的一些快速步驟：
 
+* [檢查網路連線](#confirm-network-connectivity)
 * [重新啟動 Azure AD Connect 同步處理服務](#restart-the-azure-ad-connect-sync-service)
 * [停用再重新啟用密碼回寫功能](#disable-and-re-enable-the-password-writeback-feature)
 * [安裝最新版的 Azure AD Connect](#install-the-latest-azure-ad-connect-release)
 * [疑難排解密碼回寫](#troubleshoot-password-writeback)
 
 一般而言，我們會建議您依上述順序執行這些步驟，以最快速的方式復原服務。
+
+### <a name="confirm-network-connectivity"></a>檢查網路連線
+
+最常見的失敗點是防火牆和 Proxy 連接埠，以及閒置逾時的設定不正確。 如需詳細資訊，請檢閱文件 [Azure AD 中的自助式密碼重設深入探討](active-directory-passwords-how-it-works.md#network-requirements)中的網路需求。
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>重新啟動 Azure AD Connect 同步處理服務
 

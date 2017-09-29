@@ -1,6 +1,6 @@
 ---
-title: "使用 C++ 開發 Azure 檔案儲存體 | Microsoft Docs"
-description: "了解如何開發使用 Azure 檔案儲存體來儲存檔案資料的 C++ 應用程式和服務。"
+title: "使用 C++ 開發 Azure 檔案服務 | Microsoft Docs"
+description: "了解如何開發 C++ 應用程式和服務，以使用 Azure 檔案服務來儲存檔案資料。"
 services: storage
 documentationcenter: .net
 author: renashahmsft
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renashahmsft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 86c3714327074f5576e535f67a0a2a8e761ffb46
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-c"></a>使用 C++ 開發 Azure 檔案儲存體
+# <a name="develop-for-azure-files-with-c"></a>使用 C++ 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>關於本教學課程
 
-在本教學課程中，您將學習如何對 Azure 檔案儲存體執行基本作業。 透過以 C++ 撰寫的範例，您將學習如何建立共用和目錄、上傳、列出及刪除檔案。 如果您是 Azure 檔案儲存體的新手，閱讀下列各節中的概念，對於了解範例很有幫助。
+在本教學課程中，您將學習如何執行 Azure 檔案服務的基本作業。 透過以 C++ 撰寫的範例，您將學習如何建立共用和目錄、上傳、列出及刪除檔案。 如果您是 Azure 檔案服務的新手，閱讀下列各節中的概念對於了解範例會很有幫助。
 
 
 * 建立及刪除 Azure 檔案共用
@@ -40,7 +40,7 @@ ms.lasthandoff: 08/21/2017
 * 為使用共用上所定義之共用存取原則的檔案建立共用存取簽章 (SAS 金鑰)。
 
 > [!Note]  
-> 由於 Azure 檔案儲存體可透過 SMB 存取，因此便可使用標準 C++ I/O 類別和函式撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 C++ SDK 的應用程式，它會使用 [Azure 檔案儲存體 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案儲存體通訊。
+> 由於 Azure 檔案服務可透過 SMB 存取，因此您可以使用標準 C++ I/O 類別和函式撰寫簡單的應用程式，以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 C++ SDK 的應用程式，其會使用 [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
 ## <a name="create-a-c-application"></a>建立 C++ 應用程式
 若要建置範例，您必須安裝適用於 C++ 的 Azure 儲存體用戶端程式庫 2.4.0。 您也應該建立 Azure 儲存體帳戶。
@@ -54,8 +54,8 @@ ms.lasthandoff: 08/21/2017
 Install-Package wastorage
 ```
 
-## <a name="set-up-your-application-to-use-azure-file-storage"></a>設定您的應用程式以使用 Azure 檔案儲存體
-在您要操作 Azure 檔案儲存體的 C++ 來源檔案頂端，新增下列 include 陳述式：
+## <a name="set-up-your-application-to-use-azure-files"></a>設定您的應用程式以使用 Azure 檔案服務
+在您要用來管理 Azure 檔案服務的 C++ 來源檔案頂端，新增下列 include 陳述式：
 
 ```cpp
 #include <was/storage_account.h>
@@ -81,15 +81,15 @@ azure::storage::cloud_storage_account storage_account =
 ```
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
-Azure 檔案儲存體中的所有檔案和目錄都位於名為 [共用] 的容器中。 您的儲存體帳戶可以有帳戶容量允許數量的共用。 若要取得共用及其內容的存取權，您必須使用 Azure 檔案儲存體用戶端。
+Azure 檔案共用中的所有檔案和目錄都位於名為 **Share** 的容器中。 您的儲存體帳戶可以有帳戶容量允許數量的共用。 若要取得共用及其內容的存取權，您必須使用 Azure 檔案服務用戶端。
 
 ```cpp
-// Create the Azure File storage client.
+// Create the Azure Files client.
 azure::storage::cloud_file_client file_client = 
   storage_account.create_cloud_file_client();
 ```
 
-使用 Azure 檔案儲存體用戶端，您可以取得共用的參考。
+使用 Azure 檔案服務用戶端時，您即可取得共用的參考。
 
 ```cpp
 // Get a reference to the file share
@@ -120,7 +120,7 @@ share.delete_share_if_exists();
 ```
 
 ## <a name="create-a-directory"></a>建立目錄
-您可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案儲存體可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **my-sample-directory** 的目錄，以及名為 **my-sample-subdirectory** 的子目錄。
+您可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **my-sample-directory** 的目錄，以及名為 **my-sample-subdirectory** 的子目錄。
 
 ```cpp
 // Retrieve a reference to a directory
@@ -241,7 +241,7 @@ outfile.close();
 ```
 
 ## <a name="delete-a-file"></a>刪除檔案
-另一個常見的 Azure 檔案儲存體作業是刪除檔案。 下列程式碼會刪除名為 my-sample-file-3 且儲存在根目錄底下的檔案。
+另一個常見的 Azure 檔案服務作業是刪除檔案。 下列程式碼會刪除名為 my-sample-file-3 且儲存在根目錄底下的檔案。
 
 ```cpp
 // Get a reference to the root directory for the share.    

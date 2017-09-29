@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 09/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 2c7431723906c912eb2a38fb0600dd13d5bc46a5
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>在 HDInsight 中搭配 Linux 型 HBase 叢集使用 Apache Phoenix
@@ -36,14 +36,13 @@ ms.lasthandoff: 09/09/2017
 ### <a name="prerequisites"></a>必要條件
 開始使用 SQLLine 之前，您必須具備下列項目：
 
-* **HDInsight 中的 HBase 叢集**。 如需有關佈建 HBase 叢集的資訊，請參閱[開始使用 HDInsight 中的 Apache HBase][hdinsight-hbase-get-started]。
-* **透過遠端桌面通訊協定連接到 HBase 叢集**。 如需詳細資訊，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集][hdinsight-manage-portal]。
+* **HDInsight 中的 HBase 叢集**。 若要建立，請參閱[開始使用 HDInsight 中的 Apache HBase](./hdinsight-hbase-tutorial-get-started.md)。
 
 連線到 HBase 叢集時，您必須連線到其中一個 ZooKeeper VM。 每個 HDInsight 叢集有三個 ZooKeeper VM。
 
 **取得 ZooKeeper 主機名稱**
 
-1. 移至 **https://\<叢集名稱\>.azurehdinsight.net** 以開啟 Ambari。
+1. 瀏覽至 **https://\<叢集名稱\>.azurehdinsight.net** 來開啟 Ambari。
 2. 輸入 HTTP (叢集) 使用者名稱和密碼來登入。
 3. 在左側功能表中，選取 **ZooKeeper**。 系統會列出三個 **ZooKeeper 伺服器** 執行個體。
 4. 選取其中一個 **ZooKeeper 伺服器**執行個體。 在 [摘要] 窗格中，找到 [主機名稱]。 主機名稱會類似 *zk1-jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*。
@@ -55,7 +54,7 @@ ms.lasthandoff: 09/09/2017
 2. 在 SSH 中使用下列命令以執行 SQLLine：
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
-        ./sqlline.py <ClusterName>:2181:/hbase-unsecure
+        ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. 若要建立 HBase 資料表並插入一些資料，請執行下列命令︰
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
@@ -84,7 +83,6 @@ ms.lasthandoff: 09/09/2017
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
 
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md

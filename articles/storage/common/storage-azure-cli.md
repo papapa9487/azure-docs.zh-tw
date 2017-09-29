@@ -3,7 +3,7 @@ title: "使用 Azure CLI 2.0 搭配 Azure 儲存體 | Microsoft Docs"
 description: "了解如何使用「Azure 命令列介面」(Azure CLI) 2.0 搭配「Azure 儲存體」來建立和管理儲存體帳戶，以及處理 Azure Blob 和檔案。 Azure CLI 2.0 是一種以 Python 撰寫的跨平台工具。"
 services: storage
 documentationcenter: na
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: marsma
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8dfa91de25eadb93186d994095f0a0107fe1a9d0
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b1f192a935dbf234936690b0d36b6ce708d38b14
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>使用 Azure CLI 2.0 搭配 Azure 儲存體
@@ -317,7 +317,7 @@ az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
 ## <a name="create-and-manage-file-shares"></a>建立和管理檔案共用
-Azure 檔案儲存體為使用伺服器訊息區 (SMB) 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。 您可以透過 Azure CLI 管理檔案共用和檔案資料。 如需 Azure 檔案儲存體的詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)或[如何搭配 Linux 使用 Azure 檔案儲存體](../storage-how-to-use-files-linux.md)。
+針對使用伺服器訊息區 (SMB) 通訊協定的應用程式，Azure 檔案服務可提供適用的共用儲存體。 Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。 您可以透過 Azure CLI 管理檔案共用和檔案資料。 如需 Azure 檔案服務的詳細資訊，請參閱 [Azure 檔案服務簡介](../files/storage-files-introduction.md)。
 
 ### <a name="create-a-file-share"></a>建立檔案共用
 Azure 檔案共用是 Azure 中的 SMB 檔案共用。 所有目錄和檔案都必須在檔案共用中建立。 帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。 下列範例會建立名為 **myshare** 的檔案共用。

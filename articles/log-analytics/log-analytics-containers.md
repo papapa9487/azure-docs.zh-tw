@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/20/2017
 ms.author: magoedte;banders
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: cd21a08de9dbf795b9a295de22e55a24fa9535ef
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 562a7a73e2d440c0c3e3e8ab9e94ffd6c1fba7d9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
@@ -289,12 +289,12 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
      WSID:   37 bytes  
     ```
 
-#### <a name="configure-an-oms-agent-for-kubernetes"></a>為 Kubernetes 設定 OMS 代理程式
+#### <a name="configure-an-oms-linux-agent-for-kubernetes"></a>為 Kubernetes 設定 OMS Linux 代理程式
 
-針對 Kubernetes，您可以使用指令碼為工作區識別碼與主索引鍵產生密碼 YAML 檔案。 [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 頁面含有您可以在有或無祕密資訊的情況下使用的檔案。
+針對 Kubernetes，您可以使用指令碼為工作區 ID 與主索引鍵產生密碼 YAML 檔案，來安裝適用於 Linux 的 OMS 代理程式。 [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes) 頁面含有您可以在有或無祕密資訊的情況下使用的檔案。
 
-- 預設 OMS 代理程式精靈集 (omsagent.yaml) 沒有密碼資訊
-- OMS 代理程式精靈集YAML 檔案使用密碼資訊 (omsagent-ds-secrets.yaml) 搭配密碼產生指令碼來產生密碼 YAML (omsagentsecret.yaml) 檔案。
+- 適用於 Linux 的預設 OMS 代理程式 DaemonSet 沒有祕密資訊 (omsagent.yaml)
+- 適用於 Linux 的 OMS 代理程式 DaemonSet YAML 檔案會使用祕密資訊 (omsagent-ds-secrets.yaml) 搭配祕密產生指令碼來產生祕密 YAML (omsagentsecret.yaml) 檔案。
 
 您可以選擇在有或無祕密的情況下建立 omsagent DaemonSet。
 
@@ -371,7 +371,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     ```
 
 
-針對 Kubernetes，使用指令碼為工作區識別碼與主索引鍵產生祕密 yaml 檔案。 搭配 [omsagent yaml 檔案](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)使用下列範例資訊來保護您的祕密資訊。
+針對 Kubernetes，請使用指令碼為適用於 Linux 的 OMS 代理程式工作區 ID 與主索引鍵產生祕密 YAML 檔案。 搭配 [omsagent yaml 檔案](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)使用下列範例資訊來保護您的祕密資訊。
 
 ```
 keiko@ubuntu16-13db:~# sudo kubectl describe secrets omsagent-secret
@@ -387,6 +387,98 @@ Data
 WSID:   36 bytes
 KEY:    88 bytes
 ```
+
+#### <a name="configure-an-oms-agent-for-windows-kubernetes"></a>為 Windows Kubernetes 設定 OMS 代理程式
+針對 Kubernetes，您可以使用指令碼為工作區 ID 與主索引鍵產生密碼 YAML 檔案，來安裝 OMS 代理程式。 [OMS Docker Kubernetes GitHub](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes/windows) 頁面含有可搭配祕密資訊使用的檔案。  您必須分別為主要節點和代理程式節點安裝 OMS 代理程式。  
+
+1. 若要使用在主要節點上使用祕密資訊的 OMS 代理程式 DaemonSet，請先登入並建立祕密。
+    1. 複製指令碼和祕密範本檔案，並確定它們位於相同的目錄。
+        - 祕密產生指令碼 - secret-gen.sh
+        - 祕密範本 - secret-template.yaml
+
+    2. 執行指令碼，如下列範例所示。 指令碼會要求 OMS 工作區識別碼與主索引鍵，在您輸入這兩個資訊之後，指令碼會建立一個密碼 YAML 檔案讓您能夠執行它。   
+
+        ```
+        #> sudo bash ./secret-gen.sh
+        ```
+    3. 執行 ``` kubectl create -f omsagentsecret.yaml ``` 以建立您的 omsagent daemon-set
+    4. 若要檢查，請執行下列命令：
+    
+        ``` 
+        root@ubuntu16-13db:~# kubectl get secrets
+        ```
+
+        輸出會像下面這樣：
+
+        ```
+        NAME                  TYPE                                  DATA      AGE
+        default-token-gvl91   kubernetes.io/service-account-token   3         50d
+        omsagent-secret       Opaque                                2         1d
+        root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+        Name:           omsagent-secret
+        Namespace:      default
+        Labels:         <none>
+        Annotations:    <none>
+    
+        Type:   Opaque
+    
+        Data
+        ====
+        WSID:   36 bytes
+        KEY:    88 bytes 
+        ```
+
+    5. 執行 ```kubectl create -f ws-omsagent-de-secrets.yaml``` 以建立您的 omsagent daemon-set
+
+2. 確認 OMS 代理程式 DaemonSet 正在執行，如下所示：
+
+    ```
+    root@ubuntu16-13db:~# kubectl get deployment omsagent
+    NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
+    omsagent   1         1         <none>          1h
+    ```
+
+3. 若要在執行 Windows 的背景工作節點上安裝代理程式，請遵循[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)一節中的步驟。 
+
+#### <a name="use-helm-to-deploy-oms-agent-on-linux-kubernetes"></a>使用 Helm 在 Linux Kubernetes 上部署 OMS 代理程式 
+若要使用 Helm 在 Linux Kubernetes 環境下部署 OMS 代理程式，請執行下列步驟。
+
+1. 執行 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` 以建立您的 omsagent daemon-set
+2. 結果將看起來如下所示：
+
+    ```
+    NAME:   omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     3s
+
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         3s
+    ```
+3. 您可以執行 ```helm status "omsagent"``` 來檢查 omsagent 的狀態，而輸出將看起來如下所示：
+
+    ```
+    keiko@k8s-master-3814F33-0:~$ helm status omsagent
+    LAST DEPLOYED: Tue Sep 19 20:37:46 2017
+    NAMESPACE: default
+    STATUS: DEPLOYED
+ 
+    RESOURCES:
+    ==> v1/Secret
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
+    ==> v1beta1/DaemonSet
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
+    ```
+如需進一步的資訊，請造訪[容器解決方案 Helm Chart](https://aka.ms/omscontainerhelm)。
 
 ### <a name="install-and-configure-windows-container-hosts"></a>安裝和設定 Windows 容器主機
 

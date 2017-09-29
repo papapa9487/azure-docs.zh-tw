@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 5ff4d86082c03dcd7098743a984a97aa70232d1d
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c7b4d0e7d7d95f2e3f8c5a97b78c60c52cc862a0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何使用 Xamarin 的 Blob 儲存體
@@ -245,10 +245,9 @@ namespace XamarinApp.WinPhone
 在本教學課程中，您已學會如何在使用 Azure 儲存體的 Xamarin 中建立跨平台的應用程式，尤其將焦點放在 Blob 儲存體中的一個案例中。 不過，除了 Blob 儲存體以外，您還可以處理更多，例如資料表、檔案和佇列儲存體。 若要深入了解，請參閱下列文章：
 
 * [以 .NET 開始使用 Azure Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+* [Azure 檔案服務簡介](../files/storage-files-introduction.md)
+* [使用 .NET 開發 Azure 檔案服務](../files/storage-dotnet-how-to-use-files.md)
 * [以 .NET 開始使用 Azure 表格儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [以 .NET 開始使用 Azure 佇列儲存體](../queues/storage-dotnet-how-to-use-queues.md)
-* [在 Windows 上開始使用 Azure 檔案儲存體](../files/storage-dotnet-how-to-use-files.md)
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-
-
