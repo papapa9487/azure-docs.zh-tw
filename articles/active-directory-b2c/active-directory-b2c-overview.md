@@ -21,7 +21,7 @@ ms.contentlocale: zh-tw
 ms.lasthandoff: 08/21/2017
 
 ---
-# <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C︰將焦點放在您的應用程式，我們會擔心註冊和登入
+# <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C︰將焦點放在您的應用程式，讓 Azure AD 來擔心註冊和登入
 
 Azure AD B2C 是適用於 Web 和行動應用程式的雲端身分識別管理解決方案。 這是高可用性的全域服務，可處理數億規模的身分識別。 Azure AD B2C 建置於企業級安全平台，可確保您的應用程式、企業和客戶受到安全防護。
 

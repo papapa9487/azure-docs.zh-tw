@@ -13,13 +13,13 @@ ms.devlang:
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/14/2017
+ms.date: 09/20/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 03e6996f0f44e04978080b3bd267e924f342b7fc
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>開始在 HDInsight 上使用 Apache Kafka (預覽)
@@ -47,6 +47,9 @@ ms.lasthandoff: 08/15/2017
     * **安全殼層 (SSH) 使用者名稱**：透過 SSH 存取叢集時使用的登入資訊。 依預設，密碼要與叢集登入密碼相同。
     * **資源群組**：在其中建立叢集的資源群組。
     * **位置**：在其中建立叢集的 Azure 區域。
+
+        > [!IMPORTANT]
+        > 若要獲得高度資料可用性，建議您選取包含__三個故障網域__的位置 (區域)。 如需詳細資訊，請參閱[資料高可用性](#data-high-availability)一節。
    
  ![選取訂用帳戶](./media/hdinsight-apache-kafka-get-started/hdinsight-basic-configuration.png)
 
@@ -73,12 +76,12 @@ ms.lasthandoff: 08/15/2017
 7. 從 [叢集大小]，選取 [下一步] 以繼續。
 
     > [!WARNING]
-    > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。
+    > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 如需詳細資訊，請參閱[資料高可用性](#data-high-availability)一節。
 
     ![設定 Kafka 叢集大小](./media/hdinsight-apache-kafka-get-started/kafka-cluster-size.png)
 
-    > [!NOTE]
-    > [每個背景工作角色節點的磁碟數] 項目會控制 Kafka on HDInsight 的延展性。 如需詳細資訊，請參閱[設定 HDInsight 上 Kafka 的儲存體和延展性](hdinsight-apache-kafka-scalability.md)。
+    > [!IMPORTANT]
+    > [每個背景工作角色節點的磁碟數] 項目會控制 Kafka on HDInsight 的延展性。 HDInsight 上的 Kafka 會在叢集中使用虛擬機器的本機磁碟。 Kafka 的 I/O 非常大量，因此會使用 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)來提供高輸送量，並提供每個節點更多儲存空間。 受控磁碟的類型可以是__標準__ (HDD) 或__進階__ (SSD)。 進階磁碟會與 DS 和 GS 系列搭配使用。 所有其他的 VM 類型是使用標準磁碟。
 
 8. 從 [進階設定]，選取 [下一步] 以繼續。
 
@@ -340,6 +343,27 @@ Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 �
 
 7. 使用 __Ctrl + C__ 結束取用者，然後使用 `fg` 命令將串流背景工作帶回前景。 使用 __Ctrl + C__ 將它結束。
 
+## <a name="data-high-availability"></a>資料高可用性
+
+每個 Azure 區域 (位置) 提供_容錯網域_。 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
+
+如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
+
+> [!IMPORTANT]
+> 我們建議使用包含三個容錯網域的 Azure 地區，以及使用複寫因子 3。
+
+如果您必須使用只包含兩個容錯網域的區域，請使用複寫因子 4 將複本平均分散於兩個容錯網域。
+
+### <a name="kafka-and-fault-domains"></a>Kafka 和容錯網域
+
+Kafka 不知道容錯網域。 為主題建立副本時，可能無法正確發散副本以實現高可用性。 若要確保高可用性，請使用[Kafka 分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必須從 Kafka 叢集前端節點的 SSH 工作階段執行此工具。
+
+若要確保 Kafka 資料的最高的可用性，您應該在下列時間重新平衡您主題的磁碟分割複本：
+
+* 建立新主題或磁碟分割時
+
+* 當您相應增加叢集時
+
 ## <a name="delete-the-cluster"></a>刪除叢集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
@@ -352,11 +376,10 @@ Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 �
 
 在本文件中，您已學會使用 Apache Kafka on HDInsight 的基本概念。 使用下列各項來深入了解 Kafka 的使用方式︰
 
-* [使用 HDInsight 上的 Kafka 確保您資料的高可用性](hdinsight-apache-kafka-high-availability.md)
-* [使用 HDInsight 上的 Kafka 設定受控磁碟來提高延展性](hdinsight-apache-kafka-scalability.md)
-* kafka.apache.org 上的 [Apache Kafka 文件](http://kafka.apache.org/documentation.html)。
-* [使用 MirrorMaker 建立 Apache Kafka on HDInsight 複本](hdinsight-apache-kafka-mirroring.md)
+* [分析 Kafka 日誌](apache-kafka-log-analytics-operations-management.md)
+* [在Kafka 叢集之間複寫資料](hdinsight-apache-kafka-mirroring.md)
+* [搭配 HDInsight 上的 Kafka 使用 Apacha Spark 串流 (DStream)](hdinsight-apache-spark-with-kafka.md)
+* [搭配 HDInsight 上的 Kafka 使用 Spark 結構化串流](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [使用 Apache Storm 搭配 HDInsight 上的 Kafka](hdinsight-apache-storm-with-kafka.md)
-* [使用 Apache Spark 搭配 Kafka on HDInsight](hdinsight-apache-spark-with-kafka.md)
-* [透過 Azure 虛擬網路連線至 Kafka](hdinsight-apache-kafka-connect-vpn-gateway.md)
+* [透過 Azure 虛擬網路連線到 Kafka](hdinsight-apache-kafka-connect-vpn-gateway.md)
 

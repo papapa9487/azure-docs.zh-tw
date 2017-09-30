@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 6/7/2017
 ms.author: cephalin;robmcm
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.translationtype: HT
 ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d4b84efa3370308d1d99a9361acad1801aa5330b

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 2d90baf42d067ad8476995fba524a46f0815b6d5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
@@ -48,6 +48,10 @@ Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管�
 
 * **無狀態：**當服務的持續狀態儲存在外部儲存服務 (例如「Azure 儲存體」、Azure SQL Database 或 Azure Cosmos DB) 時，請使用無狀態服務。 當服務完全沒有持續性儲存體時，請使用無狀態服務。 以計算機服務為例，首先要傳遞值給服務，然後服務用這些值執行計算並傳回結果。
 * **具狀態：** 當您要讓 Service Fabric 透過其 Reliable Collections 或 Reliable Actors 程式設計模型管理您的服務狀態，則使用具狀態服務。 請指定您在建立具名服務時，想要讓狀態分散到多少個資料分割 (提供延展性)。 也請指定跨節點覆寫狀態的次數 (提供可靠性)。 每個具名服務都有一個主要複本和多個次要複本。 您可以透過寫入主要複本來修改具名服務的狀態。 然後，Service Fabric 會將此狀態複寫至所有次要複本以保持狀態同步。當主要複本失敗時，Service Fabric 會自動偵測到此狀況，並將現有的次要複本升級為主要複本。 然後 Service Fabric 會建立新的次要複本。  
+
+**複本和執行個體**會參照正在部署與執行之服務的程式碼 (及具狀態服務的狀態)。 請參閱[複本和執行個體](service-fabric-concepts-replica-lifecycle.md)
+
+**重新設定**是指在服務複本集中進行任何變更的流程。 請參閱[重新設定](service-fabric-concepts-reconfiguration.md)
 
 **服務套件**：磁碟目錄，包含此服務類型的 `ServiceManifest.xml` 檔案。 這個檔案會參考此服務類型的程式碼、靜態資料和組態封裝。 此應用程式類型的 `ApplicationManifest.xml` 檔會參考此服務封裝目錄中的檔案。 例如，服務套件可能會參考構成資料庫服務的程式碼、靜態資料和組態封裝。
 
@@ -80,6 +84,8 @@ Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管�
 如需映像存放區服務的詳細資訊，請參閱[了解 ImageStoreConnectionString 設定](service-fabric-image-store-connection-string.md)。
 
 如需有關將應用程式部署至映像存放區服務的詳細資訊，請閱讀 [部署應用程式](service-fabric-deploy-remove-applications.md) 一文。
+
+**容錯移轉管理員服務 (FM)**：每個 Service Fabric 叢集都有容錯移轉管理員服務負責執行與高可用性和服務一致性相關的功能，以及協調應用程式與叢集升級，並與其他系統元件互動。
 
 ## <a name="built-in-programming-models"></a>內建的程式設計模型
 有一些 .NET Framework 程式設計模型可讓您建置 Service Fabric 服務：

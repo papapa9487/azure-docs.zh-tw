@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 17ddb30c87d757176ce9428264135252c02bf713
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 254d5d43f0f665f64ddfe276fe31702f66f16758
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -189,6 +189,13 @@ ms.lasthandoff: 08/15/2017
 > 雖然您可以使用入口網站建立具有私人 IPv6 位址的網路介面，但無法使用入口網站將現有的網路介面新增到新的或現有的虛擬機器。 使用 PowerShell 或 Azure CLI 2.0 來建立具有私人 IPv6 位址的網路介面，再於建立虛擬機器時連結該網路介面。 您無法將具有私人 IPv6 位址的網路介面連接至現有的虛擬機器。 您無法使用任何工具 (入口網站、CLI 或 PowerShell)，將私人 IPv6 位址新增至連接至虛擬機器的任一網路介面的 IP 組態。
 
 您無法將公用 IPv6 位址指派給主要或次要 IP 組態。
+
+## <a name="skus"></a>SKU
+
+公用 IP 位址是透過基本或標準 SKU 建立而成。  如需 SKU 差異的詳細資訊，請參閱[管理公用 IP 位址](virtual-network-public-ip-address.md)。
+
+> [!NOTE]
+> 當您將標準 SKU 的公用 IP 位址指派給虛擬機器的網路介面時，必須使用[網路安全性群組](security-overview.md#network-security-groups)明確地允許預定的流量。 在建立和關聯網路安全性群組並明確地允許所要流量前，與資源進行的通訊都會失敗。
 
 ## <a name="next-steps"></a>後續步驟
 若要建立具有不同 IP 組態的虛擬機器，請閱讀下列文章：

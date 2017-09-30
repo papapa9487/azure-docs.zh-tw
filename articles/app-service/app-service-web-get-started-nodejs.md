@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cfowler
-ms.custom: mvc
+ms.custom: mvc, devcenter
 ms.translationtype: HT
 ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c39f0480c17a5cb0056553f54d01e26447060ebe

@@ -16,10 +16,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b1390ba45f52473129dce6b904690b040af8f7e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 85e24587f07a4dc65a2f116499f3f7e00c3ac2b8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="manage-your-azure-ad-directory"></a>管理 Azure AD 目錄
@@ -59,12 +59,14 @@ Azure AD 提供大部分 Microsoft 雲端服務的核心目錄和身分識別管
 
 ### <a name="how-to-change-the-default-directory-for-a-subscription"></a>如何變更訂用帳戶的預設目錄
 
-1. 以訂用帳戶之帳戶管理員的帳戶登入 [Azure 帳戶中心](https://account.windowsazure.com/Home/Index)，以便移轉訂用帳戶擁有權。
+1. 以訂用帳戶之帳戶管理員的帳戶登入 [Azure 帳戶中心](https://account.azure.com/Subscriptions)，以便移轉訂用帳戶擁有權。
 2. 確定您希望成為訂用帳戶擁有者的使用者位於目標目錄中。
 3. 按一下 [移轉訂用帳戶]。
 4. 指定接受者。 接受者會自動收到含有接受連結的電子郵件。
 5. 接受者按一下連結並遵循指示進行，包括輸入他們的付款資訊。 當接受者成功時，訂用帳戶就轉移完成。 
 6. 若訂用帳戶擁有權移轉成功，則訂用帳戶的預設目錄會變更為使用者所在的目錄。
+
+若要深入了解，請參閱[將 Azure 訂用帳戶擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
 
 ### <a name="manage-the-default-directory-in-azure"></a>管理 Azure 中的預設目錄
 當您註冊 Azure 時，預設 Azure AD 目錄會與您的訂用帳戶相關聯。 使用 Azure AD 不需要成本，而您的目錄為免費資源。 付費 Azure AD 服務會分開授權並提供其他功能 (例如登入時的公司商標和自助式密碼重設)。 您也可以使用您擁有的 DNS 名稱建立自訂網域，而非使用預設 *.onmicrosoft.com 網域。
