@@ -26,9 +26,8 @@
 ### [設定網際網路對向負載平衡器 (CLI)](load-balancer-get-started-internet-arm-cli.md)
 ### [設定網際網路對向負載平衡器 (範本)](load-balancer-get-started-internet-arm-template.md)
 
-## [設定網際網路對向負載平衡器 (傳統入口網站)](load-balancer-get-started-internet-classic-portal.md)
+## [設定網際網路對向 Load Balancer (傳統 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [設定網際網路對向負載平衡器 (傳統雲端)](load-balancer-get-started-internet-classic-cloud.md)
-### [設定網際網路對向負載平衡器 (傳統 PowerShell)](load-balancer-get-started-internet-classic-ps.md)
 ### [設定網際網路對向負載平衡器 (傳統 CLI)](load-balancer-get-started-internet-classic-cli.md)
 
 ## [建立使用 IPv6 的網際網路對向負載平衡器](load-balancer-ipv6-internet-ps.md)

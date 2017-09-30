@@ -33,6 +33,7 @@
 
 ## 偵錯 U-SQL 程式
 ### [工作的監視和疑難排解](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+### [針對異常的週期性工作進行疑難排解](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
 ### [在 U-SQL 中進行 C# 程式碼偵錯](data-lake-analytics-debug-u-sql-jobs.md)
 ### [使用作業瀏覽器和作業檢視](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [使用頂點執行檢視](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
