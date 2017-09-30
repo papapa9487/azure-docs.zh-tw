@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 837cf0f2b8db011b38de795339560574027030f8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 55b857bd5b3d0c32553a60ff0649aeeb721cd6da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="using-the-azure-cli-10-with-azure-storage"></a>使用 Azure CLI 1.0 搭配 Azure 儲存體
@@ -183,7 +183,7 @@ azure storage blob delete mycontainer myBlockBlob2
 ```
 
 ## <a name="create-and-manage-file-shares"></a>建立和管理檔案共用
-Azure 檔案儲存體為使用標準 SMB 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。 您可以透過 Azure CLI 管理檔案共用和檔案資料。 如需 Azure 檔案儲存體的詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)或[如何搭配 Linux 使用 Azure 檔案儲存體](../storage-how-to-use-files-linux.md)。
+Azure 檔案服務為使用標準 SMB 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務，以及內部部署應用程式，可以透過掛接共用，共用檔案資料。 您可以透過 Azure CLI 管理檔案共用和檔案資料。 如需 Azure 檔案服務的詳細資訊，請參閱 [Azure 檔案服務簡介](../files/storage-files-introduction.md)。
 
 ### <a name="create-a-file-share"></a>建立檔案共用
 Azure 檔案共用是 Azure 中的 SMB 檔案共用。 所有目錄和檔案都必須在檔案共用中建立。 帳戶可包含無限制數目的共用，而共用可儲存無限制數目的檔案，最多可達儲存體帳戶的容量限制。 下列範例會建立名為 **myshare** 的檔案共用。

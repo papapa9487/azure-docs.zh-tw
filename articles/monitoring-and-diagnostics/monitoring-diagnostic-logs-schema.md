@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/21/2017
+ms.date: 09/25/2017
 ms.author: johnkem
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: aa4fa6e0310b2725005dfa34e3225c89fb4282d6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 23da12e518d88109fd7271fd363b6c1f099c5ab6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
@@ -37,18 +37,22 @@ ms.lasthandoff: 08/24/2017
 | Customer Insights | 無法使用結構描述。 |
 | 內容傳遞網路 | 無法使用結構描述。 |
 | CosmosDB | 無法使用結構描述。 |
-| Data Lake Analytics |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| 資料湖分析 |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[存取 Azure Data Lake Store 的診斷記錄](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | 事件中樞 |[Azure 事件中樞診斷記錄](../event-hubs/event-hubs-diagnostic-logs.md) |
+| IoT 中樞佈建服務 | 無法使用結構描述。 |
 | 金鑰保存庫 |[Azure 金鑰保存庫記錄](../key-vault/key-vault-logging.md) |
 | 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md) |
+| 公用 IP 位址 DDOS 保護 | 無法使用結構描述。 |
 | [復原服務] | 無法使用結構描述。|
 | 搜尋 |[啟用和使用搜尋流量分析](../search/search-traffic-analytics.md) |
 | 伺服器管理 | 無法使用結構描述。 |
 | 服務匯流排 |[Azure 服務匯流排診斷記錄](../service-bus-messaging/service-bus-diagnostic-logs.md) |
+| SQL Database | [Azure SQL Database 診斷記錄](../sql-database/sql-database-metrics-diag-logging.md) |
 | 串流分析 |[作業診斷記錄](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| 虛擬網路 | 無法使用結構描述。 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>每個資源類型支援的記錄檔類別
 |資源類型|類別|類別顯示名稱|
@@ -64,6 +68,8 @@ ms.lasthandoff: 08/24/2017
 |Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄檔|
 |Microsoft.DataLakeStore/accounts|要求|要求記錄檔|
+|Microsoft.Devices/provisioningServices|DeviceOperations|裝置作業|
+|Microsoft.Devices/provisioningServices|ServiceOperations|服務作業|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄檔|
 |Microsoft.EventHub/namespaces|OperationalLogs|作業記錄|
@@ -75,6 +81,8 @@ ms.lasthandoff: 08/24/2017
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|網路安全性群組規則計數器|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|負載平衡器警示事件|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|負載平衡器探查健全狀況狀態|
+|Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 保護通知|
+|Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM 保護警示|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|應用程式閘道存取記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|應用程式閘道效能記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|應用程式閘道防火牆記錄檔|
@@ -82,8 +90,18 @@ ms.lasthandoff: 08/24/2017
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作業|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 事件|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Azure Site Recovery 複寫項目|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Azure Site Recovery 複寫統計資料|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Azure Site Recovery 復原點|
 |Microsoft.Search/searchServices|OperationLogs|作業記錄|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|作業記錄|
+|Microsoft.Sql/servers/databases|QueryStore|查詢存放區|
+|Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|查詢存放區執行階段統計資料|
+|Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|查詢存放區等候統計資料|
+|Microsoft.Sql/servers/databases|Errors|Errors|
+|Microsoft.Sql/servers/databases|DatabaseWaitStatistics|資料庫等候統計資料|
+|Microsoft.Sql/servers/databases|Timeouts|逾時|
+|Microsoft.Sql/servers/databases|Blocks|區塊|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.StreamAnalytics/streamingjobs|執行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
 

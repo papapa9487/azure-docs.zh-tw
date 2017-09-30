@@ -1,9 +1,9 @@
 ---
-title: "使用 Java 開發 Azure 檔案儲存體 | Microsoft Docs"
-description: "了解如何開發使用 Azure 檔案儲存體來儲存檔案資料的 Java 應用程式和服務。"
+title: "使用 Java 開發 Azure 檔案服務 | Microsoft Docs"
+description: "了解如何開發使用 Azure 檔案服務來儲存檔案資料的 Java 應用程式和服務。"
 services: storage
 documentationcenter: java
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 3bfbfa7f-d378-4fb4-8df3-e0b6fcea5b27
@@ -12,23 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 05/27/2017
-ms.author: robinsh
+ms.date: 09/19/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ce38944b9d5e663505c5808864ba61a5e2284f3b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 192c4b5b89feca2a2e39c5e0670d05cc8868eb03
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-java"></a>使用 Java 開發 Azure 檔案儲存體
+# <a name="develop-for-azure-files-with-java"></a>使用 Java 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
 ## <a name="about-this-tutorial"></a>關於本教學課程
-本教學課程將示範使用 Java 來開發使用 Azure 檔案儲存體來儲存檔案資料的應用程式和服務之基本概念。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 Java 和 Azure 檔案儲存體的基本動作：
+本教學課程將示範基本概念，說明如何利用 Java來開發使用 Azure 檔案服務以儲存檔案資料的應用程式或服務。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 Java 和 Azure 檔案服務的基本動作：
 
 * 建立及刪除 Azure 檔案共用
 * 建立及刪除目錄
@@ -36,12 +36,12 @@ ms.lasthandoff: 08/21/2017
 * 上傳、下載及刪除檔案
 
 > [!Note]  
-> 由於 Azure 檔案儲存體可透過 SMB 存取，因此便可使用標準 Java I/O 類別撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Java SDK 的應用程式，此應用程式將使用 [Azure 檔案儲存體 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案儲存體通訊。
+> 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用標準 Java I/O 類別撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Java SDK 的應用程式，它會使用 [Azure 檔案服務 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
 ## <a name="create-a-java-application"></a>建立 Java 應用程式
 如要建置範例，您將需要 Java Development Kit (JDK) 和 適用於 Java 的 Azure 儲存體 SDK。 您也應該建立 Azure 儲存體帳戶。
 
-## <a name="setup-your-application-to-use-azure-file-storage"></a>設定您的應用程式以使用 Azure 檔案儲存體
+## <a name="set-up-your-application-to-use-azure-files"></a>設定您的應用程式以使用 Azure 檔案服務
 若要使用 Azure 儲存體 API，請將下列陳述式加入至您要從其存取儲存體服務的 Java 檔案頂端。
 
 ```java
@@ -50,8 +50,8 @@ import com.microsoft.azure.storage.*;
 import com.microsoft.azure.storage.file.*;
 ```
 
-## <a name="setup-an-azure-storage-connection-string"></a>設定 Azure 儲存體連接字串
-若要使用 Azure 檔案儲存體，您必須連接到您的 Azure 儲存體帳戶。 第一個步驟是設定連接字串，我們會用來連接到您的儲存體帳戶。 讓我們定義靜態變數以便進行。
+## <a name="set-up-an-azure-storage-connection-string"></a>設定 Azure 儲存體連接字串
+若要使用 Azure 檔案服務，您必須連接到您的 Azure 儲存體帳戶。 第一個步驟是設定連接字串，我們將用它來連線至您的儲存體帳戶。 讓我們定義靜態變數以便進行。
 
 ```java
 // Configure the connection-string with your values
@@ -81,14 +81,14 @@ try {
 **CloudStorageAccount.parse** 會擲回 InvalidKeyException，因此您必須將其放在 try/catch 區塊內。
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
-Azure 檔案儲存體中的所有檔案和目錄都位於名為 [共用] 的容器中。 您的儲存體帳戶可以有帳戶容量允許數量的共用。 若要取得共用及其內容的存取權，您必須使用 Azure 檔案儲存體用戶端。
+Azure 檔案服務中的所有檔案和目錄都位於名為 [共用] 的容器中。 您的儲存體帳戶可以有帳戶容量允許數量的共用。 若要取得共用及其內容的存取權，您必須使用 Azure 檔案服務用戶端。
 
 ```java
-// Create the Azure File storage client.
+// Create the Azure Files client.
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-使用 Azure 檔案儲存體用戶端，您可以取得共用的參考。
+使用 Azure 檔案服務用戶端，您可以取得共用的參考。
 
 ```java
 // Get a reference to the file share
@@ -129,7 +129,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>建立目錄
-您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案儲存體可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
+您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
 
 ```java
 //Get a reference to the root directory for the share.
@@ -194,7 +194,7 @@ CloudFileDirectory rootDir = share.getRootDirectoryReference();
 ```
 
 ## <a name="download-a-file"></a>下載檔案
-您針對 Azure 檔案儲存體執行的其中一個較頻繁作業是下載檔案。 在下列範例中，程式碼會下載 SampleFile.txt，並顯示其內容。
+您針對 Azure 檔案服務執行的其中一個較頻繁作業是下載檔案。 在下列範例中，程式碼會下載 SampleFile.txt，並顯示其內容。
 
 ```java
 //Get a reference to the root directory for the share.
@@ -211,7 +211,7 @@ System.out.println(file.downloadText());
 ```
 
 ## <a name="delete-a-file"></a>刪除檔案
-另一個常見的 Azure 檔案儲存體作業是刪除檔案。 下列程式碼會刪除儲存在名為 **sampledir**之目錄內名為 SampleFile.txt 的檔案。
+另一個常見的 Azure 檔案服務作業是刪除檔案。 下列程式碼會刪除儲存在名為 **sampledir**之目錄內名為 SampleFile.txt 的檔案。
 
 ```java
 // Get a reference to the root directory for the share.
@@ -238,5 +238,5 @@ if ( file.deleteIfExists() ) {
 * [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
-* [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md* [Troubleshooting Azure File storage problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-)
+* [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md)
+* [針對 Azure 檔案服務問題進行疑難排解 - Windows](storage-troubleshoot-windows-file-connection-problems.md)

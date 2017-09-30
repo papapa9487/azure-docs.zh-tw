@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: ancav
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: ea15705bf02d9773507c6cb59f2da4c1dd0f9d77
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 7347be8520e643cd166851d3f525a9a0726b40c8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
@@ -30,8 +30,8 @@ ms.lasthandoff: 08/24/2017
 動作群組的每個動作類型可以有多達 10 個。 每個動作是由下列屬性所組成：
 
 * **名稱**：動作群組內的唯一識別碼。  
-* **動作類型**：傳送 SMS、傳送電子郵件或呼叫 Webhook。  
-* **詳細資料**：對應的電話號碼、電子郵件地址或 Webhook URI。
+* **動作類型**：傳送簡訊、傳送電子郵件、呼叫 Webhook，或將資料傳送到 ITSM 工具。
+* **詳細資料**：對應的電話號碼、電子郵件地址、Webhook URI 或 ITSM 連線詳細資料。
 
 如需如何使用 Azure Resource Manager 範本設定動作群組的資訊，請參閱[動作群組 Resource Manager 範本](monitoring-create-action-group-with-resource-manager-template.md)。
 
@@ -57,9 +57,14 @@ ms.lasthandoff: 08/24/2017
 
     a. **名稱**：輸入此動作的唯一識別碼。
 
-    b. **動作類型**：選取 SMS、電子郵件或 Webhook。
+    b. **作類型**選取簡訊、電子郵件、Webhook 或 ITSM。
 
-    c. **詳細資料**：根據動作類型，輸入電話號碼、電子郵件地址或 Webhook URI。
+    c. **詳細資料**：根據動作類型，輸入電話號碼、電子郵件地址、Webhook URI 或 ITSM 連線詳細資料。 針對 ITSM 動作，請額外指定 [工作項目] 與您 ITSM 工具所需的其他欄位。 
+
+> [!NOTE]
+> ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../log-analytics/log-analytics-itsmc-overview.md)。 ITSM 動作目前只能搭配活動記錄警示使用。 針對其他警示類型，此動作目前無作用。
+>
+>
 
 8. 選取 [確定] 來建立動作群組。
 
@@ -72,6 +77,7 @@ ms.lasthandoff: 08/24/2017
 ## <a name="next-steps"></a>後續步驟 ##
 * 進一步了解 [SMS 警示行為](monitoring-sms-alert-behavior.md)。  
 * 了解[活動記錄警示 Webhook 結構描述](monitoring-activity-log-alerts-webhook.md)。  
+* 深入了解 [ITSM 連接器](../log-analytics/log-analytics-itsmc-overview.md)
 * 深入了解警示的[速率限制](monitoring-alerts-rate-limiting.md)。 
 * 取得[活動記錄警示的概觀](monitoring-overview-alerts.md)，並了解如何收到警示。  
 * 了解如何[設定每當服務健康狀態通知公佈時的警示](monitoring-activity-log-alerts-on-service-notifications.md)。

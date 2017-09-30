@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: ebac24385560377bac27a8b8c425323c57392bd2
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
@@ -43,7 +43,8 @@ ms.lasthandoff: 08/12/2017
         "ClusterCertificateCommonNames": {
             "CommonNames": [
             {
-                "CertificateCommonName": "[CertificateCommonName]"
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
             }
             ],
             "X509StoreName": "My"
@@ -56,7 +57,8 @@ ms.lasthandoff: 08/12/2017
         "ServerCertificateCommonNames": {
             "CommonNames": [
             {
-                "CertificateCommonName": "[CertificateCommonName]"
+                "CertificateCommonName": "[CertificateCommonName]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]"
             }
             ],
             "X509StoreName": "My"
@@ -108,9 +110,9 @@ ms.lasthandoff: 08/12/2017
 | **CertificateInformation 設定** | **說明** |
 | --- | --- |
 | ClusterCertificate |建議針對測試環境。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用兩個不同的憑證 (主要和次要) 進行更新。 在 **Thumbprint** 區段中設定主要憑證的指紋，以及在 **ThumbprintSecondary** 變數中設定次要憑證的指紋。 |
-| ClusterCertificateCommonNames |建議針對生產環境。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用一或兩個叢集憑證通用名稱。 |
+| ClusterCertificateCommonNames |建議針對生產環境。 需有此憑證，才能保護叢集上節點之間的通訊。 您可以使用一或兩個叢集憑證通用名稱。 **CertificateIssuerThumbprint** 會對應至此憑證的簽發者指紋。 如果您正在使用 1 個以上具相同一般名稱的憑證，則可指定多個簽發者指紋。|
 | ServerCertificate |建議針對測試環境。 用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 為了方便起見，您可以選擇對 *ClusterCertificate* 和 *ServerCertificate* 使用相同的憑證。 您可以使用兩個不同的伺服器憑證 (主要和次要) 進行更新。 在 **Thumbprint** 區段中設定主要憑證的指紋，以及在 **ThumbprintSecondary** 變數中設定次要憑證的指紋。 |
-| ServerCertificateCommonNames |建議針對生產環境。 用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 為了方便起見，您可以選擇對 ClusterCertificateCommonNames 和 ServerCertificateCommonNames 使用相同的憑證。 您可以使用一或兩個伺服器憑證通用名稱。 |
+| ServerCertificateCommonNames |建議針對生產環境。 用戶端嘗試連線到此叢集時，會向用戶端此憑證顯示此憑證。 **CertificateIssuerThumbprint** 會對應至此憑證的簽發者指紋。 如果您正在使用 1 個以上具相同一般名稱的憑證，則可指定多個簽發者指紋。 為了方便起見，您可以選擇對 ClusterCertificateCommonNames 和 ServerCertificateCommonNames 使用相同的憑證。 您可以使用一或兩個伺服器憑證通用名稱。 |
 | ClientCertificateThumbprints |這是您想在經過驗證的用戶端上安裝的一組憑證。 在您要允許存取叢集的電腦上，您可以安裝數個不同的用戶端憑證。 在 **CertificateThumbprint** 變數中設定每個憑證的指紋。 如果您將 **IsAdmin** 設為 *true*，則已安裝此憑證的用戶端可以對叢集執行系統管理員管理活動。 如果 **IsAdmin** 是 *false*，有此憑證的用戶端只能執行其使用者存取權限允許的動作，通常是唯讀。 如需角色的詳細資訊，請參閱 [角色型存取控制 (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |針對 **CertificateCommonName**設定第一個用戶端憑證的一般名稱。 **CertificateIssuerThumbprint** 是此憑證的簽發者指紋。 閱讀 [使用憑證](https://msdn.microsoft.com/library/ms731899.aspx) ，以深入了解一般名稱和簽發者。 |
 | ReverseProxyCertificate |建議針對測試環境。 如果您想要保護[反向 Proxy](service-fabric-reverseproxy.md)，可以指定此選擇性憑證。 如果您使用此憑證，請務必在 nodeTypes 中設定 reverseProxyEndpointPort。 |
@@ -161,7 +163,8 @@ ms.lasthandoff: 08/12/2017
                 "ClusterCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myClusterCertCommonName"
+                      "CertificateCommonName": "myClusterCertCommonName",
+                      "CertificateIssuerThumbprint": "7c fc 91 97 13 66 8d 9f a8 ee 71 2b a2 f4 37 62 00 03 49 0d"
                     }
                   ],
                   "X509StoreName": "My"
@@ -169,7 +172,8 @@ ms.lasthandoff: 08/12/2017
                 "ServerCertificateCommonNames": {
                   "CommonNames": [
                     {
-                      "CertificateCommonName": "myServerCertCommonName"
+                      "CertificateCommonName": "myServerCertCommonName",
+                      "CertificateIssuerThumbprint": "7c fc 91 97 13 16 8d ff a8 ee 71 2b a2 f4 62 62 00 03 49 0d"
                     }
                   ],
                   "X509StoreName": "My"
@@ -218,7 +222,7 @@ ms.lasthandoff: 08/12/2017
 
 ## <a name="certificate-roll-over"></a>憑證變換
 使用憑證通用名稱而非指紋時，憑證變換並不需要叢集設定升級。
-如果憑證變換涉及簽發者變換，請在安裝新的簽發者憑證之後，將舊的簽發者憑證保留在憑證存放區至少 2 小時。
+針對簽發者指紋升級，請確定新的指紋清單與舊清單有交集。 您將必須先使用新的簽發者指紋進行設定升級，然後在存放區中安裝新的憑證 (叢集/服務憑證和簽發者憑證)。 請在安裝新的簽發者憑證之後，將舊的簽發者憑證保留在憑證存放區至少 2 小時。
 
 ## <a name="acquire-the-x509-certificates"></a>取得 X.509 憑證
 若要保護叢集內的通訊，您必須先取得叢集節點的 X.509 憑證。 此外，若要將此叢集的連線限制於經過授權的電腦/使用者，您必須取得並安裝這些用戶端電腦的憑證。

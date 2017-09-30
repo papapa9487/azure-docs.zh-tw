@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/16/2017
+ms.date: 09/25/2017
 ms.author: annahar
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 151d0ff3e05a0b4823eb2bb85e068b5789a386cb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c391e4219d167aa6c9c86bdeebc8be2e22ea4c5c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,7 +29,9 @@ ms.lasthandoff: 08/11/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-本文說明如何對次要網路介面 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。 在此案例中，我們有兩部執行 Windows 的 VM，每部各有一個主要和次要 NIC。 每個次要 Nic 有兩個 IP 組態。 每部 VM 都裝載 contoso.com 和 fabrikam.com 兩個網站。 每個網站繫結到次要 NIC 上的其中一個 IP 組態。 我們使用 Azure Load Balancer 來公開兩個前端 IP 位址，每個網站各使用其中一個，以將流量分散給網站的個別 IP 組態。 此案例會在兩個前端以及兩個後端集區 IP 位址使用相同的連接埠號碼。
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+本文說明如何對次要網路介面 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。 在此案例中，我們有兩部執行 Windows 的 VM，每部各有一個主要和次要 NIC。 每個次要 NIC 都有兩個 IP 組態。 每部 VM 都裝載 contoso.com 和 fabrikam.com 兩個網站。每個網站繫結到次要 NIC 上的其中一個 IP 組態。 我們使用 Azure Load Balancer 來公開兩個前端 IP 位址，每個網站各使用其中一個，以將流量分散給網站的個別 IP 組態。 此案例會在兩個前端以及兩個後端集區 IP 位址使用相同的連接埠號碼。
 
 ![LB 案例影像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 

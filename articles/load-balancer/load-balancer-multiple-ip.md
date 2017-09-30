@@ -1,9 +1,9 @@
 ---
-title: "在 Azure 中多個 IP 組態上進行負載平衡 | Microsoft Docs"
+title: "在 Azure 中的多個 IP 組態上進行負載平衡 | Microsoft Docs"
 description: "在主要和次要 IP 組態間進行負載平衡。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
@@ -12,12 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 1429bf0d06843da4743bd299e65ed2e818be199d
-ms.openlocfilehash: cf1e68c7b37b2506de007bdf24eea63a27187a33
-ms.lasthandoff: 03/22/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8c0fc8d11a872b99fee2efa3a32a9e1ccce67f3c
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +29,9 @@ ms.lasthandoff: 03/22/2017
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 > * [CLI](load-balancer-multiple-ip-cli.md)
 
-本文說明如何對次要網路介面 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。在此案例中，我們有兩部執行 Windows 的 VM，每部各有一個主要和次要 NIC。 每個次要 Nic 有兩個 IP 組態。 每個 VM 裝載 contoso.com 和 fabrikam.com 兩個網站。 每個網站繫結到次要 NIC 上的其中一個 IP 組態。 我們使用 Azure Load Balancer 來公開兩個前端 IP 位址，每個網站各使用其中一個，以將流量分散給網站的個別 IP 組態。 此案例會在兩個前端以及兩個後端集區 IP 位址使用相同的連接埠號碼。
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+本文說明如何對次要網路介面 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。在此案例中，我們有兩部執行 Windows 的 VM，每部各有一個主要和次要 NIC。 每個次要 NIC 都有兩個 IP 組態。 每部 VM 都裝載 contoso.com 和 fabrikam.com 兩個網站。每個網站繫結到次要 NIC 上的其中一個 IP 組態。 我們使用 Azure Load Balancer 來公開兩個前端 IP 位址，每個網站各使用其中一個，以將流量分散給網站的個別 IP 組態。 此案例會在兩個前端以及兩個後端集區 IP 位址使用相同的連接埠號碼。
 
 ![LB 案例影像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
@@ -39,7 +42,7 @@ ms.lasthandoff: 03/22/2017
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多個 IP 組態上進行負載平衡的步驟
 
-請遵循下列步驟來達成本文所述案例︰
+請完成下列步驟來達成本文所述案例︰
 
 ### <a name="step-1-configure-the-secondary-nics-for-each-vm"></a>步驟 1︰設定每個 VM 的次要 NIC
 
@@ -64,7 +67,7 @@ ms.lasthandoff: 03/22/2017
 2. 在畫面左側按一下 [新增] > [網路] > [負載平衡器]。 接下來，按一下 [建立]。
 3. 在 [建立負載平衡器] 刀鋒視窗中，輸入負載平衡器的名稱。 在此我們將其稱為 mylb。
 4. 在 [公用 IP 位址] 底下建立稱為 **PublicIP1** 的新公用 IP。
-5. 在 [資源群組] 底下，選取 VM 的現有資源群組 (例如，contosofabrikam)。 接著選取適當位置，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
+5. 在 [資源群組] 底下，選取 VM 的現有資源群組 (例如，contosofabrikam)。 接著選取適當位置，然後按一下 [確定]。 負載平衡器接著會開始部署，並且會需要幾分鐘的時間才能順利完成部署。
 6. 負載平衡器在部署後會顯示為資源群組中的資源。
 
 ### <a name="step-3-configure-the-frontend-ip-pool"></a>步驟 3︰設定前端 IP 集區
@@ -81,9 +84,9 @@ ms.lasthandoff: 03/22/2017
 3. 在入口網站中，按一下 [更多服務]，在篩選方塊中輸入**負載平衡器**，然後按一下 [負載平衡器]。  
 4. 選取要將前端 IP 集區新增到的負載平衡器 (mylb)。
 5. 在 [設定] 底下選取 [前端集區]。 然後按一下出現的刀鋒視窗中靠近上方的 [新增]。
-6. 輸入前端 IP 位址的名稱 (farbikamfe 或 *contosofe)。
+6. 輸入前端 IP 位址的名稱 (*farbikamfe* 或 *contosofe*)。
 7. 按一下 [IP 位址]，然後在 [選擇公用 IP 位址] 刀鋒視窗上，選取前端的 IP 位址 (PublicIP1 或 PublicIP2)。
-8. 重複本節中的步驟 3 到 7，以建立第二個前端 IP 位址。
+8. 請重複本節中的步驟 3 到 7，以建立第二個前端 IP 位址。
 9. 當前端 IP 集區組態設定完成時，這兩個前端 IP 位址會顯示在負載平衡器的 [前端 IP 集區] 刀鋒視窗中。 
     
 ### <a name="step-4-configure-the-backend-pool"></a>步驟 4︰設定後端集區   
@@ -119,13 +122,13 @@ ms.lasthandoff: 03/22/2017
 4. 在 [連接埠] 和 [後端連接埠] 中，保留預設值 **80**。
 5. 在 [浮動 IP (伺服器直接回傳)] 中，按一下 [啟用]。
 6. 按一下 [確定] 。
-7. 重複本節中的步驟 1 到 6，以建立第二個負載平衡器規則。
+7. 請重複本節中的步驟 1 到 6，以建立第二個負載平衡器規則。
 8. 當負載平衡規則組態設定完成時，這兩個規則 (HTTPc 和 HTTPf) 會顯示在負載平衡器的 [負載平衡規則] 刀鋒視窗中。
 
 ### <a name="step-7-configure-dns-records"></a>步驟 7︰設定 DNS 記錄
 最後，您必須將 DNS 資源記錄設定為指向負載平衡器的個別前端 IP 位址。 您可以在 Azure DNS 中裝載網域。 如需搭配使用 Azure DNS 與 Load Balancer 的詳細資訊，請參閱[使用 Azure DNS 搭配其他 Azure 服務](../dns/dns-for-azure-services.md)。
 
 ## <a name="next-steps"></a>後續步驟
-- 如需深入了解如何在 Azure 中合併負載平衡服務，請參閱[在 Azure 中使用負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 如需深入了解如何在 Azure 中使用不同類型的 記錄來管理和疑難排解負載平衡器，請參閱 [Azure Load Balancer 的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+- 若要深入了解如何在 Azure 中合併負載平衡服務，請參閱[在 Azure 中使用負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md)。
+- 若要深入了解如何使用不同類型的記錄檔來管理負載平衡器和針對其問題進行疑難排解，請參閱 [Azure Load Balancer 的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
 

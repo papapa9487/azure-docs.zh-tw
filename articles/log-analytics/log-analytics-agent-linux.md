@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/05/2017
+ms.date: 09/23/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: 17b451b1fc91cf9fdc895ad28f2c455af5d28b07
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -129,8 +129,8 @@ sudo sh ./omsagent-<version>.universal.x64.sh --upgrade
 sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -w <workspace id> -s <shared key> -d opinsights.azure.us
 ```
 
-## <a name="configuring-the-agent-for-use-with-an-http-proxy-server-or-oms-gateway"></a>設定代理程式搭配 HTTP Proxy 伺服器或 OMS 閘道使用
-適用於 Linux 的 OMS 代理程式支援透過 HTTP 或 HTTPS Proxy 伺服器或 OMS 閘道，與 OMS 服務進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  
+## <a name="configuring-the-agent-for-use-with-a-proxy-server-or-oms-gateway"></a>設定代理程式以搭配 Proxy 伺服器或 OMS 閘道使用
+適用於 Linux 的 OMS 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺服器或 OMS 閘道，與 OMS 服務進行通訊。  不支援匿名和基本驗證 (使用者名稱/密碼)。  
 
 ### <a name="proxy-configuration"></a>Proxy 組態
 Proxy 組態值的語法如下︰
@@ -139,13 +139,13 @@ Proxy 組態值的語法如下︰
 
 屬性|說明
 -|-
-通訊協定|http 或 https
+通訊協定|https
 user|用於驗證 Proxy 的選擇性使用者名稱
 password|用於驗證 Proxy 的選擇性密碼
 proxyhost|Proxy 伺服器/OMS 閘道的位址或 FQDN
 port|Proxy 伺服器/OMS 閘道的選擇性連接埠號碼
 
-例如：`http://user01:password@proxy01.contoso.com:8080`
+例如：`https://user01:password@proxy01.contoso.com:30443`
 
 可在安裝期間指定或在安裝後透過修改 proxy.conf 組態檔案指定的 Proxy 伺服器。   
 
@@ -153,13 +153,13 @@ port|Proxy 伺服器/OMS 閘道的選擇性連接埠號碼
 omsagent 安裝套件組合的 `-p` 或 `--proxy` 引數可指定要使用的 Proxy 組態。 
 
 ```
-sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p http://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
+sudo sh ./omsagent-<version>.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>
 ```
 
 ### <a name="define-the-proxy-configuration-in-a-file"></a>在檔案中定義 Proxy 組態
 可在檔案 `/etc/opt/microsoft/omsagent/proxy.conf` 和 `/etc/opt/microsoft/omsagent/conf/proxy.conf ` 中設定 Proxy 組態。 可以直接建立或編輯檔案，但必須更新其權限，才能對 omiuser 使用者授與檔案的讀取權限。 例如：
 ```
-proxyconf="https://proxyuser:proxypassword@proxyserver01:8080"
+proxyconf="https://proxyuser:proxypassword@proxyserver01:30443"
 sudo echo $proxyconf >>/etc/opt/microsoft/omsagent/proxy.conf
 sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/proxy.conf
 sudo chmod 600 /etc/opt/microsoft/omsagent/proxy.conf /etc/opt/microsoft/omsagent/conf/proxy.conf  
@@ -240,7 +240,7 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 1. 將下列命令搭配已啟用的 `-v` 選項使用，以透過 OMS Agent for Linux 重新上架至 OMS 服務。 這可讓透過 Proxy 連接到 OMS 服務的代理程式產生詳細資訊輸出。 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
-2. 檢閱 [設定代理程式搭配 HTTP Proxy 伺服器(#configuring the-agent-for-use-with-a-http-proxy-server) 一節，以確認您已適當地設定代理程式透過 Proxy 伺服器通訊。    
+2. 檢閱[設定代理程式以搭配 Proxy 伺服器或 OMS 閘道使用](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway)一節，以確認您已適當地設定代理程式透過 Proxy 伺服器通訊。    
 * 再次檢查以確認下列 OMS 服務端點已在允許清單中：
 
     |代理程式資源| 連接埠 |  

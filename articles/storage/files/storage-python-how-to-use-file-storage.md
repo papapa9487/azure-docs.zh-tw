@@ -1,9 +1,9 @@
 ---
-title: "使用 Python 開發 Azure 檔案儲存體 | Microsoft Docs"
-description: "了解如何開發使用 Azure 檔案儲存體來儲存檔案資料的 Python 應用程式和服務。"
+title: "使用 Python 開發 Azure 檔案服務 | Microsoft Docs"
+description: "了解如何開發使用 Azure 檔案服務的 Python 應用程式和服務來儲存檔案資料。"
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -12,23 +12,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 12/08/2016
-ms.author: robinsh
+ms.date: 09/19/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3dd14e8d3ea7d1e50f41633a7920a6d36becf789
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-python"></a>使用 Python 開發 Azure 檔案儲存體
+# <a name="develop-for-azure-files-with-python"></a>使用 Python 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>關於本教學課程
-本教學課程將示範使用 Python 來開發使用 Azure 檔案儲存體來儲存檔案資料的應用程式和服務之基本概念。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 Python 和 Azure 檔案儲存體的基本動作：
+本教學課程將示範基本概念，說明如何利用 Python 來開發使用 Azure 檔案服務以儲存檔案資料的應用程式或服務。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 Python 和 Azure 檔案服務的基本動作：
 
 * 建立 Azure 檔案共用
 * 建立目錄
@@ -36,16 +36,16 @@ ms.lasthandoff: 08/21/2017
 * 上傳、下載及刪除檔案
 
 > [!Note]  
-> 由於 Azure 檔案儲存體可透過 SMB 存取，因此便可使用標準 Python I/O 類別和函式撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Python SDK 的應用程式，它會使用 [Azure 檔案儲存體 REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案儲存體通訊。
+> 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用標準 Python I/O 類別和函式撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Python SDK 的應用程式，它會使用 [Azure 檔案服務 REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
-### <a name="set-up-your-application-to-use-azure-file-storage"></a>設定您的應用程式以使用 Azure 檔案儲存體
+### <a name="set-up-your-application-to-use-azure-files"></a>設定您的應用程式以使用 Azure 檔案服務
 將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 來源檔案內的頂端附近。
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-file-storage"></a>設定連接至 Azure 檔案儲存體 
+### <a name="set-up-a-connection-to-azure-files"></a>設定 Azure 檔案服務的連線 
 `FileService` 物件可讓您使用共用、目錄和檔案。 下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 `FileService` 物件。 以您的帳戶名稱和金鑰取代 `<myaccount>` 和 `<mykey>`。
 
 ```python
@@ -60,7 +60,7 @@ file_service.create_share('myshare')
 ```
 
 ### <a name="create-a-directory"></a>建立目錄
-您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案儲存體可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
+您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
@@ -111,7 +111,7 @@ file_service.delete_file('myshare', None, 'myfile')
 ```
 
 ## <a name="next-steps"></a>後續步驟
-您現在已經學會如何使用 Python 操作 Azure 檔案儲存體，請遵循下列連結深入了解。
+您現在已經學會如何使用 Python 操作 Azure 檔案服務，請遵循這些連結深入了解。
 
 * [Python 開發人員中心](/develop/python/)
 * [Azure 儲存體服務 REST API](http://msdn.microsoft.com/library/azure/dd179355)

@@ -3,7 +3,7 @@ title: "使用 Azure 儲存體分析收集記錄檔和計量資料 | Microsoft D
 description: "儲存體分析可讓您追蹤所有儲存體服務的度量資料，以及收集 Blob、佇列和資料表儲存體的記錄檔。"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 7894993b-ca42-4125-8f17-8f6dfe3dca76
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: a477c1eaf2388f31d4fd36b90f9a830c782873d3
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 61e4f599d17417c11d7ff79489300b82df0bc9c8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="storage-analytics"></a>儲存體分析
@@ -38,7 +38,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 只有在發生儲存體服務活動時，才會建立記錄檔項目。 例如，如果儲存體帳戶在其 Blob 服務中有活動，而不是在其資料表或佇列服務中，則只會建立關於 Blob 服務的記錄檔。
 
-儲存體分析記錄不適用於 Azure 檔案儲存體。
+儲存體分析記錄不適用於 Azure 檔案。
 
 ### <a name="logging-authenticated-requests"></a>記錄驗證要求
 系統將記錄下列類型的驗證要求：

@@ -1,6 +1,6 @@
 ---
-title: "OMS IT 服務管理連接器中的 ITSM 連線 | Microsoft Docs"
-description: "將 OMS 中的 ITSM 產品/服務與 IT 服務管理連接器進行連線，並將 ITSM 工作項目集中監視及管理。"
+title: "Azure Log Analytics 中 IT 服務管理連接器支援的連線 | Microsoft Docs"
+description: "將 Azure Log Analytics 中的 ITSM 產品/服務與 IT 服務管理連接器進行連線，並將 ITSM 工作項目集中監視及管理。"
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: cf9963be162df3bd886b6fd44535c3d09e06284b
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>將 ITSM 產品/服務與 IT 服務管理連接器進行連線 (預覽)
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/20/2017
 請確定您已符合這些必要條件：
 
 - 已安裝 IT 服務管理連接器。
-詳細資訊︰[設定](log-analytics-itsmc-overview.md#configuration)。
+更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - 已部署及設定 Service Manager Web 應用程式 (Web 應用程式)。 Web 應用程式的相關在[這裡](#create-and-deploy-service-manager-web-app-service)。
 - 已建立及設定的混合式連線。 詳細資訊︰[設定混合式連線](#configure-the-hybrid-connection)。
 - Service Manager 的支援版本：2012 R2 或 2016。
@@ -176,7 +176,7 @@ ms.lasthandoff: 09/20/2017
 
 請確定您已符合這些必要條件：
 
-- 已安裝 IT 服務管理連接器。 詳細資訊︰[設定。](log-analytics-itsmc-overview.md#configuration)
+- 已安裝 IT 服務管理連接器。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - ServiceNow 支援版本 – Fuji、Geneva、Helsinki。
 
 ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
@@ -269,8 +269,10 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 
 請確定您已符合這些必要條件：
 
-- 已安裝 IT 服務管理連接器。 詳細資訊︰[設定](log-analytics-itsmc-overview.md#configuration)。
-- 應該向 Azure AD 註冊 Provance 應用程式 - 並將用戶端識別碼設為可用。 如需詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)。
+
+- 已安裝 IT 服務管理連接器。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
+- 應該向 Azure AD 註冊 Provance 應用程式 - 並將用戶端識別碼設為可用。 如需詳細資訊，請參閱[如何設定 Active Directory 驗證](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md)。
+
 - 使用者角色：管理員。
 
 ### <a name="connection-procedure"></a>連線程序
@@ -313,7 +315,7 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 
 請確定您已符合這些必要條件：
 
-- 已安裝 IT 服務管理連接器。 詳細資訊︰[設定](log-analytics-itsmc-overview.md#configuration)。
+- 已安裝 IT 服務管理連接器。 更多資訊：[新增 IT 服務管理連接器解決方案](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution)。
 - 所產生的用戶端識別碼。 詳細資訊︰[產生 Cherwell 的用戶端識別碼](#generate-client-id-for-cherwell)。
 - 使用者角色：管理員。
 

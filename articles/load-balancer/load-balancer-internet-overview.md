@@ -3,7 +3,7 @@ title: "網際網路面向的負載平衡器概觀 | Microsoft Docs"
 description: "網際網路面向的負載平衡器及其功能的概觀。 負載平衡器如何作用於使用虛擬機器和雲端服務的 Azure。"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: 529b37aa-a45c-41d1-8877-fee8cc1fa375
@@ -12,23 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: c420b38fbe8054bc4b701f89ebc417677ca47a27
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5b9ffeadf6b1ffc4eaf4f49b85ba752c27da0e46
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="internet-facing-load-balancer-overview"></a>網際網路面向的負載平衡器概觀
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 負載平衡器將連入流量的公用 IP 位址和連接埠號碼對應至虛擬機器的私人 IP 位址和連接埠號碼，來自虛擬機器的回應流量也是如此。 負載平衡規則可讓您將特定類型的流量分配至多個虛擬機器或服務。 例如，您可以將 Web 要求的流量負載分散在多個 Web 伺服器或 Web 角色。
 
 對於包含 Web 角色或背景工作角色執行個體的雲端服務，您可以在服務定義 (.csdef) 檔案中定義公用端點。
 
 *servicedefinition.csdef* 檔案將包含端點組態，而當一個 Web 或背景工作角色部署具有多個角色執行個體時，負載平衡器將會針對它進行設定。 將執行個體加入至雲端部署的方法就是變更服務組態檔 (.csfg) 上的執行個體計數。
+
+## <a name="example-of-an-internet-facing-load-balancer"></a>網際網路對向負載平衡器範例
 
 下圖顯示在三部虛擬機器中共用，且公用和私人 TCP 通訊埠均為 80 的 Web 流量負載平衡端點。 這三部虛擬機器均位在負載平衡集合中。
 

@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
+ms.date: 09/25/2017
 ms.author: annahar
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: bd15713752ea01ad403d8e3dcfed0c9a7adcc7fa
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1d88c53784cec302f5e67b9d50f84780bbec37db
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="load-balancing-on-multiple-ip-configurations"></a>在多個 IP 組態上進行負載平衡
@@ -30,16 +29,18 @@ ms.lasthandoff: 07/10/2017
 > * [CLI](load-balancer-multiple-ip-cli.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
 
-本文說明如何對次要網路介面 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。 在此案例中，我們有兩部執行 Windows 的 VM，每部各有一個主要和次要 NIC。 每個次要 Nic 有兩個 IP 組態。 每部 VM 都裝載 contoso.com 和 fabrikam.com 兩個網站。 每個網站繫結到次要 NIC 上的其中一個 IP 組態。 我們使用 Azure Load Balancer 來公開兩個前端 IP 位址，每個網站各使用其中一個，以將流量分散給網站的個別 IP 組態。 此案例會在兩個前端以及兩個後端集區 IP 位址使用相同的連接埠號碼。
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
+本文說明如何對次要網路介面 (NIC) 上的多個 IP 位址使用 Azure Load Balancer。 在此案例中，我們有兩部執行 Windows 的 VM，每部各有一個主要和次要 NIC。 每個次要 NIC 都有兩個 IP 組態。 每部 VM 都裝載 contoso.com 和 fabrikam.com 兩個網站。每個網站繫結到次要 NIC 上的其中一個 IP 組態。 我們使用 Azure Load Balancer 來公開兩個前端 IP 位址，每個網站各使用其中一個，以將流量分散給網站的個別 IP 組態。 此案例會在兩個前端以及兩個後端集區 IP 位址使用相同的連接埠號碼。
 
 ![LB 案例影像](./media/load-balancer-multiple-ip/lb-multi-ip.PNG)
 
 ## <a name="steps-to-load-balance-on-multiple-ip-configurations"></a>在多個 IP 組態上進行負載平衡的步驟
 
-請遵循下列步驟來達成本文所述案例︰
+請完成下列步驟來達成本文所述案例︰
 
 1. [安裝和設定 Azure CLI](../cli-install-nodejs.md)，方法是遵循所連結文章內的步驟並登入 Azure 帳戶。
-2. 如上所述[建立資源群組](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) (稱為 contosofabrikam)。
+2. 如下所述[建立資源群組](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) (稱為 *contosofabrikam*)。
 
     ```azurecli
     azure group create contosofabrikam westcentralus
@@ -92,13 +93,13 @@ ms.lasthandoff: 07/10/2017
     azure network lb rule create --resource-group contosofabrikam --lb-name mylb --name HTTPf --protocol tcp --probe-name http --frontend-port 5000 --backend-port 5000 --frontend-ip-name fabrkamfe --backend-address-pool-name fabrikampool
     ```
 
-9. 執行下列命令，然後檢查輸出以[確認負載平衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)已正確建立︰
+9. 執行下列命令，檢查輸出以[確認負載平衡器](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json)已正確建立︰
 
     ```azurecli
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. 為第一個虛擬機器 VM1 [建立公用 IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address) (myPublicIp) 和[儲存體帳戶](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (mystorageaccont1)，如下所示︰
+10. 如下所示為第一個虛擬機器 VM1 [建立公用 IP](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address) (*myPublicIp*) 和[儲存體帳戶](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (*mystorageaccont1*)︰
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
@@ -106,7 +107,7 @@ ms.lasthandoff: 07/10/2017
     azure storage account create --location westcentralus --resource-group contosofabrikam --kind Storage --sku-name GRS mystorageaccount1
     ```
 
-11. 為 VM1 [建立網路介面](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic) 及新增第二個 IP 組態 (VM1-ipconfig2)，然後[建立 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms)，如下所示︰
+11. 如下所示為 VM1 [建立網路介面](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-nic)與新增第二個 IP 組態 (*VM1-ipconfig2*)，然後[建立 VM](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms)︰
 
     ```azurecli
     azure network nic create --resource-group contosofabrikam --location westcentralus --subnet-vnet-name myVnet --subnet-name mySubnet --name VM1Nic1 --ip-config-name NIC1-ipconfig1
