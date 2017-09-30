@@ -15,7 +15,7 @@
 
     ![StorSimple 雲端設備虛擬機器](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 
-5. 一旦 VM 停止後，按一下 [啟動] (按鈕會變成可用) 可將 VM 啟動。 雲端設備啟動後，其狀態為 [已啟動]。
+5. 一旦 VM 停止後，按一下 [啟動] \(按鈕會變成可用) 可將 VM 啟動。 雲端設備啟動後，其狀態為 [已啟動]。
 
     ![StorSimple 雲端設備虛擬機器](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart5.png)
 

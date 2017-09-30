@@ -29,6 +29,11 @@
 ### [輸出至 Data Lake Store](stream-analytics-data-lake-output.md)
 ### [輸出至 Cosmos DB](stream-analytics-documentdb-output.md)
 
+## 使用 Visual Studio 工具
+### [安裝](stream-analytics-tools-for-visual-studio-install.md)
+### [開始使用](stream-analytics-tools-for-visual-studio.md)
+### [設定 CI/CD 管線](stream-analytics-tools-for-visual-studio-cicd.md)
+
 ## 監視和最佳化
 ### [新增警示](stream-analytics-set-up-alerts.md)
 ### [監視工作](stream-analytics-monitoring.md)
@@ -52,7 +57,6 @@
 ### [診斷記錄](stream-analytics-job-diagnostic-logs.md)
 
 ## 自動化
-### [Visual Studio 適用的工具](stream-analytics-tools-for-visual-studio.md)
 ### [使用 Management .NET SDK](stream-analytics-dotnet-management-sdk.md)
 ### [一鍵式 Azure PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 

@@ -148,13 +148,14 @@
 ### [開始使用](active-directory-integrating-applications-getting-started.md)
 ### [SaaS 應用程式整合教學課程](active-directory-saas-tutorial-list.md)
 ### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [什麼是 Cloud App Discovery？](active-directory-cloudappdiscovery-whatis.md)
-#### [設定步驟](cloudappdiscovery-get-started.md)
+#### [設定無代理程式探索](cloudappdiscovery-get-started.md)
 #### [建立快照集報告](cloudappdiscovery-set-up-snapshots.md)
 #### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-#### [更新登錄設定](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
-#### [了解安全性和隱私權](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
+#### 代理程式型探索
+##### [什麼是 Cloud App Discovery？](active-directory-cloudappdiscovery-whatis.md)
+##### [更新登錄設定](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md)
+##### [了解安全性和隱私權](active-directory-cloudappdiscovery-security-and-privacy-considerations.md)
 
 
 ### [透過 App Proxy 遠端存取應用程式](active-directory-application-proxy-get-started.md)
