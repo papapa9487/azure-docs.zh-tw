@@ -8,10 +8,15 @@
 | [佇列和主題](../articles/azure-functions/functions-bindings-service-bus.md) |Azure 服務匯流排 |✔ | |✔ |  
 | [儲存體資料表](../articles/azure-functions/functions-bindings-storage-table.md) |Azure 儲存體 | |✔ |✔ |  
 | [SQL 資料表](../articles/azure-functions/functions-bindings-mobile-apps.md) |Azure Mobile Apps | |✔ |✔ |  
-| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB | |✔ |✔ |  
+| [NoSQL DB](../articles/azure-functions/functions-bindings-documentdb.md) | Azure Cosmos DB |✔ |✔ |✔ |  
 | [推播通知](../articles/azure-functions/functions-bindings-notification-hubs.md) |Azure 通知中心 | | |✔ |  
 | [Twilio 簡訊文字](../articles/azure-functions/functions-bindings-twilio.md) |Twilio | | |✔ |
 | [SendGrid 電子郵件](../articles/azure-functions/functions-bindings-sendgrid.md) | SendGrid | | |✔ |
+| [Excel 資料表](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [OneDrive 檔案](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ |✔ |
+| [Outlook 電子郵件](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | | |✔ |
+| [Microsoft Graph 事件](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph |✔ |✔ |✔ |
+| [驗證權杖](../articles/azure-functions/functions-bindings-microsoft-graph.md) | Microsoft Graph | |✔ | |
 
 (\* - 所有觸發程序都具有相關聯的輸入資料)
 

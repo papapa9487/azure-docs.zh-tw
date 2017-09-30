@@ -1,4 +1,4 @@
-## <a name="add-function-apps-to-your-portal-favorites"></a>將函式應用程式新增至入口網站內的我的最愛 
+## <a name="favorite-functions-in-the-portal"></a>入口網站中的我的最愛函式 
 
 如果您尚未這麼做，請將函式應用程式新增至 Azure 入口網站中的我的最愛。 這可方便您尋找函式應用程式。 如果您已這麼做，請跳至下一節。 
 

@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/23/2017
+ms.date: 9/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 8d902ba9e2077b4b70762c76cfb3ebf12752fb11
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: da9aff17c16e179be200677bfbfd1287fff269e3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上準備您的開發環境
@@ -29,13 +29,28 @@ ms.lasthandoff: 09/14/2017
 >
 >  
 
-若要在 Linux 開發機器上部署和執行 [Azure Service Fabric 應用程式](service-fabric-application-model.md) ，請安裝執行階段和通用 SDK。 您也可以安裝 Java 和 .NET Core 的選擇性 SDK。
+若要在 Linux 開發機器上部署和執行 [Azure Service Fabric 應用程式](service-fabric-application-model.md) ，請安裝執行階段和通用 SDK。 您也可以安裝 Java 和 .NET Core 開發的選擇性 SDK。
 
 ## <a name="prerequisites"></a>必要條件
 
 下列為支援開發的作業系統版本：
 
 * Ubuntu 16.04 (`Xenial Xerus`)
+
+## <a name="installation-methods"></a>安裝方法
+
+### <a name="1-script-installation"></a>1.指令碼安裝
+
+提供的指令碼方便隨著 **sfctl** CLI 安裝 Service Fabric 執行階段和 Service Fabric 通用 SDK。 在下一節中執行手動安裝步驟，以判斷所要安裝的項目和所要同意的授權。 執行指令碼，即表示您同意所要安裝之所有軟體的授權。 
+
+指令碼執行成功之後，您可以直接跳到[設定本機叢集](#set-up-a-local-cluster)。
+
+```bash
+sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+```
+
+### <a name="2-manual-installation"></a>2.手動安裝
+若要手動安裝 Service Fabric 執行階段和通用 SDK，請遵循本指南的其餘部分。
 
 ## <a name="update-your-apt-sources"></a>更新 APT 來源
 若要透過 apt-get 命令列工具安裝 SDK 和相關聯的執行階段套件，您必須先更新 Advanced Packaging Tool (APT) 來源。
@@ -79,7 +94,7 @@ ms.lasthandoff: 09/14/2017
     sudo apt-get update
     ```
 
-## <a name="install-and-set-up-the-sdk-for-local-cluster-setup"></a>針對本機叢集設定安裝和設定 SDK
+## <a name="install-and-set-up-the-service-fabric-sdk-for-local-cluster-setup"></a>針對本機叢集設定來安裝和設定 Service Fabric SDK
 
 在您已更新來源後，就可以安裝 SDK。 安裝 Service Fabric SDK 套件、確認安裝，並同意授權合約。
 
@@ -90,12 +105,12 @@ sudo apt-get install servicefabricsdkcommon
 >   [!TIP]
 >   下列命令會自動接受 Service Fabric 套件的授權︰
 >   ```bash
->   echo "servicefabric servicefabric/accepted-eula-v1 select true" | sudo debconf-set-selections
->   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-v1 select true" | sudo debconf-set-selections
+>   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
+>   echo "servicefabricsdkcommon servicefabricsdkcommon/accepted-eula-ga select true" | sudo debconf-set-selections
 >   ```
 
 ## <a name="set-up-a-local-cluster"></a>設定本機叢集
-  如果安裝順利，您應該能夠啟動本機叢集。
+  安裝完成後，您應該能夠啟動本機叢集。
 
   1. 執行叢集安裝指令碼。
 
@@ -111,7 +126,7 @@ sudo apt-get install servicefabricsdkcommon
 
 
   > [!NOTE]
-  > Linux 不支援獨立叢集。 預覽只支援一整體和 Azure Linux 多電腦叢集。
+  > Linux 不支援獨立叢集。
   >
 
 ## <a name="set-up-the-service-fabric-cli"></a>設定 Service Fabric CLI
@@ -120,8 +135,8 @@ sudo apt-get install servicefabricsdkcommon
 請遵循 [Service Fabric CLI](service-fabric-cli.md) 的指示來安裝 CLI。
 
 
-## <a name="install-and-set-up-the-generators-for-containers-and-guest-executables"></a>安裝並設定容器和來賓可執行檔的產生器
-Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman 範本產生器建立 Service Fabric 應用程式。 請遵循下列步驟來確保您有 Service Fabric yeoman 範本產生器可在電腦上運作。
+## <a name="set-up-yeoman-generators-for-containers-and-guest-executables"></a>設定容器和來賓可執行檔的 Yeoman 產生器
+Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman 範本產生器建立 Service Fabric 應用程式。 請遵循下列步驟來設定 Service Fabric Yeoman 範本產生器：
 
 1. 在電腦上安裝 nodejs 和 NPM
 
@@ -141,11 +156,15 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
   sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
   ```
 
-在您安裝上述產生器後，就能分別執行 `yo azuresfguest` 或 `yo azuresfcontainer`，以使用來賓可執行檔或容器服務建立應用程式。
+在您安裝產生器後，分別執行 `yo azuresfguest` 或 `yo azuresfcontainer`，就能夠建立來賓可執行檔或容器服務。
 
-## <a name="install-the-necessary-java-artifacts-optional-if-you-want-to-use-the-java-programming-models"></a>安裝所需的 Java 構件 (選擇性，如果您想要使用 Java 程式設計模型)
+## <a name="set-up-net-core-20-development"></a>設定 .NET Core 2.0 開發
 
-若要使用 Java 建置 Service Fabric 服務，確定您已隨著用來執行建置工作的 Gradle 一起安裝 JDK 1.8。 下列程式碼片段會隨著 Gradle 安裝 Open JDK 1.8。 系統會從 Maven 提取 Service Fabric Java 程式庫。
+安裝 [.NET Core 2.0 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) 以開始[建立 C# Service Fabric 應用程式](service-fabric-create-your-first-linux-application-with-csharp.md)。 .NET Core 2.0 Service Fabric 應用程式的套件裝載於 NuGet.org (目前處於預覽狀態)。
+
+## <a name="set-up-java-development"></a>設定 Java 開發
+
+若要使用 Java 建置 Service Fabric 服務，請安裝 JDK 1.8 和 Gradle 來執行建置工作。 下列程式碼片段會隨著 Gradle 安裝 Open JDK 1.8。 系統會從 Maven 提取 Service Fabric Java 程式庫。
 
   ```bash
   sudo apt-get install openjdk-8-jdk-headless
@@ -154,7 +173,7 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 ## <a name="install-the-eclipse-neon-plug-in-optional"></a>安裝 Eclipse Neon 外掛程式 (選擇性)
 
-您可以從**適用於 Java 開發人員的 Eclipse 整合式開發環境 (IDE)** 安裝適用於 Service Fabric 的 Eclipse 外掛程式。 除了 Service Fabric Java 應用程式之外，您可以使用 Eclipse 來建立 Service Fabric 來賓可執行檔應用程式和容器應用程式。
+您可以從適用於 Java 開發人員的 Eclipse 整合式開發環境 (IDE) 安裝適用於 Service Fabric 的 Eclipse 外掛程式。 除了 Service Fabric Java 應用程式之外，您可以使用 Eclipse 來建立 Service Fabric 來賓可執行檔應用程式和容器應用程式。
 
 1. 在 Eclipse 中，確定已安裝最新版 Eclipse Neon 和最新的 Buildship 版本 (1.0.17 或更新版本)。 您可以選取 [說明]  >  [安裝詳細資料]，檢查已安裝的元件版本。 您可以使用 [Eclipse Buildship：適用於 Gradle 的 Eclipse 外掛程式][buildship-update]的指示來更新 Buildship。
 
@@ -174,26 +193,28 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
 
 如需詳細資訊，請參閱[適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式](service-fabric-get-started-eclipse.md)。
 
-
-## <a name="install-the-net-core-sdk-optional-if-you-want-to-use-the-net-core-programming-models"></a>安裝 .NET Core SDK (選擇性，如果您想要使用 .NET Core 程式設計模型)
-.NET Core SDK 提供了使用 .NET Core 建置 Service Fabric 服務所需的程式庫和範本。 執行下列命令來安裝 .NET Core SDK 套件 -
-
-   ```bash
-   sudo apt-get install servicefabricsdkcsharp
-   ```
-
 ## <a name="update-the-sdk-and-runtime"></a>更新 SDK 和執行階段
 
-若要更新為最新版的 SDK 和執行階段，請執行下列命令 (取消選取您不想要的 SDK)︰
+若要更新為最新版的 SDK 和執行階段，請執行下列命令︰
 
 ```bash
 sudo apt-get update
-sudo apt-get install servicefabric servicefabricsdkcommon servicefabricsdkcsharp
+sudo apt-get install servicefabric servicefabricsdkcommon
 ```
 若要更新 Maven 提供的 Java SDK 二進位檔，您必須在 ``build.gradle`` 檔案中更新對應二進位檔的版本詳細資料，以指向最新版本。 若想知道您需要更新版本的確切位置，您可以[在此](https://github.com/Azure-Samples/service-fabric-java-getting-started)參考 Service Fabric 快速入門範例中的任何``build.gradle`` 檔案。
 
 > [!NOTE]
 > 更新套件可能會導致本機開發叢集停止執行。 請依照本頁上的指示，在升級之後重新啟動本機叢集。
+
+## <a name="remove-the-sdk"></a>移除 SDK
+若要移除 Service Fabric SDK，請執行下列命令：
+
+```bash
+sudo apt-get remove servicefabric servicefabicsdkcommon
+sudo npm uninstall generator-azuresfcontainer
+sudo npm uninstall generator-azuresfguest
+sudo apt-get install -f
+```
 
 ## <a name="next-steps"></a>後續步驟
 

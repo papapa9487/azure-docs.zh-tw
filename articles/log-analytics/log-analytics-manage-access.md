@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Log Analytics 和 OMS 入口網站中管理工作區 | Microsoft Docs"
-description: "您可以在 Azure Log Analytics 和 OMS 入口網站中使用有關使用者、帳戶、工作區及 Azure 帳戶的各種系統管理工作來管理工作區。"
+title: "在 Azure Log Analytics 中管理工作區 | Microsoft Docs"
+description: "您可以在 Azure Log Analytics 中使用有關使用者、帳戶、工作區及 Azure 帳戶的各種系統管理工作來管理工作區。"
 services: log-analytics
 documentationcenter: 
 author: MGoedtel
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/06/2017
+ms.date: 09/12/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: ff4c937fe06d88c6189d39cf799a5d349d0e280a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="manage-workspaces"></a>管理工作區
@@ -54,16 +54,16 @@ ms.lasthandoff: 08/08/2017
 
 使用代理程式收集資料時，您可以[設定每個代理程式向一或多個工作區回報](log-analytics-windows-agents.md)。
 
-如果您使用 System Center Operations Manager，每個 Operations Manager 管理群組只能連接一個工作區。 您可以將 Microsoft Monitoring Agent 安裝在 Operations Manager 所管理的電腦上，由代理程式向 Operations Manager 和不同的 Log Analytics 工作區回報。
+如果您使用 System Center Operations Manager，每個 Operations Manager 管理群組只能連接一個工作區。 不過，您可以將電腦上的 Microsoft Monitoring Agent 設定為同時向 Operations Manager 和不同的 Log Analytics 工作區回報。  
 
 ### <a name="workspace-information"></a>工作區資訊
 
-您可以在 Azure 入口網站中檢視工作區的相關詳細資料。 您也可以在 OMS 入口網站中檢視詳細資料。
+您可以在 Azure 入口網站中檢視工作區的相關詳細資料。 
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>在 Azure 入口網站中檢視工作區資訊
 
-1. 如果您尚未這麼做，請使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在 [中樞] 功能表上按一下 [更多服務]，然後在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [Log Analytics]。  
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下 Azure 入口網站左下角的 [更多服務]。  在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 按一下 [Log Analytics]。  
     ![Azure 中樞](./media/log-analytics-manage-access/hub.png)  
 3. 在 [Log Analytics 訂用帳戶] 刀鋒視窗中選取工作區。
 4. [工作區] 刀鋒視窗會顯示工作區的詳細資料和其他資訊的連結。  
@@ -160,10 +160,10 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 使用[自訂角色](../active-directory/role-based-access-control-custom-roles.md)建立具備所需特定權限的角色。
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure 使用者角色和 Log Analytics 入口網站使用者角色
-如果您至少具有 Log Analytics 工作區的 Azure 讀取權限，您可以在檢視 Log Analytics 工作區時按一下 **OMS 入口網站**工作來開啟 Log Analytics 入口網站。
+如果您至少具有 Log Analytics 工作區的 Azure 讀取權限，您可以在檢視 Log Analytics 工作區時按一下 **OMS 入口網站**工作來開啟 OMS 入口網站。
 
-開啟 Log Analytics 入口網站時，您會改為使用舊版 Log Analytics 使用者角色。 如果您沒有 Log Analytics 入口網站的角色指派，服務會[檢查您在工作區上擁有的 Azure 權限](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)。
-您在 Log Analytics 入口網站中的角色指派是使用如下方式來決定︰
+開啟 OMS 入口網站時，您會改為使用舊版 Log Analytics 使用者角色。 如果您沒有 Log Analytics 入口網站的角色指派，服務會[檢查您在工作區上擁有的 Azure 權限](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)。
+您在 OMS 入口網站中的角色指派是使用如下方式來決定︰
 
 | 條件                                                   | 指派的 Log Analytics 使用者角色 | 注意事項 |
 |--------------------------------------------------------------|----------------------------------|-------|
@@ -281,83 +281,6 @@ Azure 有兩個適用於 Log Analytics 的內建使用者角色：
 >
 >
 
-## <a name="upgrade-a-workspace-to-a-paid-plan"></a>將工作區升級為付費方案
-OMS 有三種工作區方案類型：[免費]、[獨立] 和 [OMS]。  如果您是使用「免費」方案，則每天傳送至 Log Analytics 的限制是 500 MB 的資料。  如果您超過此數量，則需要將工作區變更為付費方案，避免收集不到超出此限制的資料。 您隨時都可以變更方案類型。  如需 OMS 定價的詳細資訊，請參閱[價格詳細資料](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite-pricing)。
-
-### <a name="using-entitlements-from-an-oms-subscription"></a>使用 OMS 訂用帳戶的權利
-若要使用來自購買 OMS E1、OMS E2 OMS 或 OMS Add-On for System Center 的權利，請選擇 OMS Log Analytics 的 [OMS] 方案。
-
-當您購買 OMS 訂用帳戶時，會將權利新增至 Enterprise 合約。 依此合約建立的任何 Azure 訂用帳戶都享有此權利。 這些訂用帳戶中的所有工作區都使用 OMS 權利。
-
-若要確保將工作區的使用量套用到 OMS 訂用帳戶的權利，您需要︰
-
-1. 在 Azure 訂用帳戶中建立工作區，這個 Azure 訂用帳戶屬於包含 OMS 訂用帳戶的 Enterprise 合約
-2. 選取工作區的 [OMS] 方案
-
-> [!NOTE]
-> 如果您的工作區是在 2016 年 9 月 26 日之前建立，而且您的 Log Analytics 定價方案是 [進階]，此工作區會使用 OMS Add-On for System Center 的權利。 變更為 [OMS] 定價層，也可以使用權利。
->
->
-
-在 Azure 或 OMS 入口網站中看不到 OMS 訂用帳戶權利。 您可以看到企業版入口網站中的權利和使用量。  
-
-如果需要變更工作區所連結的 Azure 訂用帳戶，則可以使用 Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) Cmdlet。
-
-### <a name="using-azure-commitment-from-an-enterprise-agreement"></a>透過 Enterprise 合約使用 Azure 承諾
-如果您沒有 OMS 訂用帳戶，則會分別支付 OMS 的每個元件，而且使用量會出現在您的 Azure 帳單上。
-
-在您的 Azure 訂用帳戶連結的企業註冊上，如果您還有 Azure 承諾用量金額，則 Log Analytics 的使用量會自動從剩餘的承諾用量金額中扣抵。
-
-如果需要變更工作區所連結的 Azure 訂用帳戶，則可以使用 Azure PowerShell [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx) Cmdlet。  
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-azure-portal"></a>在 Azure 入口網站中將工作區變更為付費定價層
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
-2. 瀏覽 **Log Analytics**，然後加以選取。
-3. 您會看到現有工作區清單。 選取工作區。  
-4. 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [定價層]。  
-5. 在 [定價層] 之下，按一下 [選取定價層]，然後按一下 [選取]。  
-    ![選取方案](./media/log-analytics-manage-access/manage-access-change-plan03.png)
-6. 重新整理您在 Azure 入口網站中的檢視時，會看到所選取層級的 [定價層] 已更新。  
-    ![更新的方案](./media/log-analytics-manage-access/manage-access-change-plan04.png)
-
-> [!NOTE]
-> 如果您的工作區連結到自動化帳戶，必須先刪除任何**自動化和控制**解決方案以及取消連結自動化帳戶，才可以選取 [獨立 (每 GB)] 定價層。 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [解決方案] 以查看和刪除解決方案。 若要取消連結自動化帳戶，請按一下 [定價層] 刀鋒視窗上的自動化帳戶名稱。
->
->
-
-### <a name="change-a-workspace-to-a-paid-pricing-tier-in-the-oms-portal"></a>在 OMS 入口網站中將工作區變更為付費定價層
-
-若要使用 OMS 入口網站變更定價層，您必須有 Azure 訂用帳戶。
-
-1. 在 OMS 入口網站中，按一下 [設定] 圖格。
-2. 按一下 [帳戶] 索引標籤，然後按一下 [Azure 訂用帳戶和行動數據方案] 索引標籤。
-3. 按一下您想要使用的定價層。
-4. 按一下 [儲存] 。  
-   ![訂用帳戶和行動數據方案](./media/log-analytics-manage-access/subscription-tab.png)
-
-新的行動數據方案會顯示在網頁頂端的 OMS 入口網站功能區中。
-
-![OMS 功能區](./media/log-analytics-manage-access/data-plan-changed.png)
-
-
-## <a name="change-how-long-log-analytics-stores-data"></a>變更 Log Analytics 儲存資料的時間長度
-
-在免費定價層，Log Analytics 會提供過去七天的資料。
-在標準定價層，Log Analytics 會提供過去 30 天的資料。
-在進階定價層，Log Analytics 會提供過去 365 天的資料。
-在獨立和 OMS 定價層，Log Analytics 預設會提供過去 31 天的資料。
-
-當您使用獨立和 OMS 定價層時，您最多可以保留 2 年的資料 (730 天)。 儲存超過預設值 31 天的資料會產生資料保留費用。 如需價格的詳細資訊，請參閱[超額費用](https://azure.microsoft.com/pricing/details/log-analytics/)。
-
-若要變更資料保留的長度：
-
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
-2. 瀏覽 **Log Analytics**，然後加以選取。
-3. 您會看到現有工作區清單。 選取工作區。  
-4. 在 [工作區] 刀鋒視窗的 [一般] 下方，按一下 [保留]。  
-5. 使用滑桿來增加或減少保留天數，然後按一下 [儲存]。  
-    ![變更保留](./media/log-analytics-manage-access/manage-access-change-retention01.png)
-
 ## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>變更工作區的 Azure Active Directory 組織
 
 您可以變更工作區的 Azure Active Directory 組織。 變更 Azure Active Directory 組織可讓您將該目錄中的使用者和群組新增至工作區。
@@ -370,22 +293,6 @@ OMS 有三種工作區方案類型：[免費]、[獨立] 和 [OMS]。  如果您
 3. 輸入您 Azure Active Directory 網域之系統管理員的身分識別資訊。 之後，您會看到通知，指出您的工作區連結到 Azure Active Directory 網域。  
     ![連結的工作區通知](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
-
-## <a name="delete-a-log-analytics-workspace"></a>刪除 Log Analytics 工作區
-當您刪除 Log Analytics 工作區時，會在 30 天內從 OMS 服務中刪除所有與您工作區相關的資料。
-
-如果您是管理員，而且有多位使用者與工作區關聯，則這些使用者與工作區之間的關聯將會中斷。 如果使用者與其他工作區相關聯，則他們可以繼續搭配使用 OMS 與其他工作區。 不過，如果使用者未與其他工作區相關聯，則他們必須建立工作區才能使用 OMS。
-
-### <a name="to-delete-a-workspace"></a>刪除工作區
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
-2. 瀏覽 **Log Analytics**，然後加以選取。
-3. 您會看到現有工作區清單。 選取您想要刪除的工作區。
-4. 在 [工作區] 刀鋒視窗中，按一下 [刪除]。  
-    ![delete](./media/log-analytics-manage-access/delete-workspace01.png)
-5. 在 [刪除工作區] 確認對話方塊中，按一下 [是]。
-
 ## <a name="next-steps"></a>後續步驟
-* 請參閱 [將 Windows 電腦連接到 Log Analytics](log-analytics-windows-agents.md)，以新增代理程式和收集資料。
-* [從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)，以新增功能和收集資料。
-* [在 Log Analytics 中設定 Proxy 和防火牆設定](log-analytics-proxy-firewall.md) ，讓代理程式可與 Log Analytics 服務通訊。
-
+* 請參閱[了解資料使用方式](log-analytics-usage.md)，以了解如何分析解決方案所收集和電腦所送來的大量資料。
+* [從 Azure Marketplace 新增 Log Analytics 管理解決方案](log-analytics-add-solutions.md)，以新增功能和收集資料。

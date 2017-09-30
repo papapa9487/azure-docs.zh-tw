@@ -1,6 +1,6 @@
 ---
-title: "使用 .NET 開發 Azure 檔案儲存體 | Microsoft Docs"
-description: "了解如何開發使用 Azure 檔案儲存體來儲存檔案資料的 .NET 應用程式和服務。"
+title: "使用 .NET 開發 Azure 檔案服務 | Microsoft Docs"
+description: "了解如何開發使用 Azure 檔案服務來儲存檔案資料的 .NET 應用程式和服務。"
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7b94e70619324bb8dc8e7f8306f00f06e7476c1f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="develop-for-azure-file-storage-with-net"></a>使用 .NET 開發 Azure 檔案儲存體 
+# <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務 
 > [!NOTE]
-> 本文將說明如何使用 .NET 程式碼管理 Azure 檔案儲存體。 若要深入了解 Azure 檔案儲存體，請參閱 [Azure 檔案儲存體簡介](storage-files-introduction.md)。
+> 本文將說明如何使用 .NET 程式碼管理 Azure 檔案服務。 若要深入了解 Azure 檔案服務，請參閱 [Azure 檔案服務簡介](storage-files-introduction.md)。
 >
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -32,7 +32,7 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="about-this-tutorial"></a>關於本教學課程
-本教學課程將示範使用 .NET 來開發使用 Azure 檔案儲存體來儲存檔案資料的應用程式和服務之基本概念。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 .NET 和 Azure 檔案儲存體的基本動作：
+本教學課程將示範基本概念，說明如何利用 .NET 開發使用 Azure 檔案服務來儲存檔案資料的應用程式或服務。 在本教學課程中，我們將建立簡單的主控台應用程式，並說明如何執行 .NET 和 Azure 檔案服務的基本動作：
 
 * 取得檔案的內容
 * 設定檔案共用的配額 (大小上限)。
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/21/2017
 * 使用 Azure 儲存體度量進行疑難排解
 
 > [!Note]  
-> 由於 Azure 檔案儲存體可透過 SMB 存取，因此便可使用檔案 I/O 的標準 System.IO 類別撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 .NET SDK 的應用程式，它會使用 [Azure 檔案儲存體 REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案儲存體通訊。 
+> 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用檔案 I/O 的標準 System.IO 類別撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 .NET SDK 的應用程式，它會使用 [File REST API](https://docs.microsoft.com/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。 
 
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>建立主控台應用程式並取得組件
@@ -86,7 +86,7 @@ ms.lasthandoff: 08/21/2017
 ```
 
 > [!NOTE]
-> 最新版本的 Azure 儲存體模擬器不支援 Azure 檔案儲存體。 您的連接字串必須以雲端中的 Azure 儲存體帳戶為目標，才能與 Azure 檔案儲存體搭配使用。
+> 最新版本的 Azure 儲存體模擬器不支援 Azure 檔案服務。 您的連接字串必須以雲端中的 Azure 儲存體帳戶為目標，才能與 Azure 檔案服務搭配使用。
 
 ## <a name="add-using-directives"></a>新增 using 指示詞
 在 [方案總管] 中開啟 `Program.cs` 檔案，並在檔案的開頭處新增下列 using 指示詞。
@@ -95,7 +95,7 @@ ms.lasthandoff: 08/21/2017
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
 using Microsoft.WindowsAzure.Storage; // Namespace for Storage Client Library
 using Microsoft.WindowsAzure.Storage.Blob; // Namespace for Azure Blobs
-using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
+using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 ```
 
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
@@ -104,7 +104,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure File storage
 接著，在 `Main()` 方法 (上述程式碼後面) 新增下列程式碼，以擷取連接字串。 此程式碼會取得稍早所建立檔案的參考，並將其內容輸出到主控台視窗。
 
 ```csharp
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -149,7 +149,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -184,7 +184,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -242,7 +242,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Get a reference to the file share we created previously.
@@ -286,7 +286,7 @@ if (share.Exists())
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
     Microsoft.Azure.CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
-// Create a CloudFileClient object for credentialed access to Azure File storage.
+// Create a CloudFileClient object for credentialed access to Azure Files.
 CloudFileClient fileClient = storageAccount.CreateCloudFileClient();
 
 // Create a new file share, if it does not already exist.
@@ -327,14 +327,12 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 您可以用相同方式將 Blob 複製到檔案。 如果來源物件為 Blob，則請建立 SAS，以便在複製作業期間驗證該 Blob 存取權。
 
-## <a name="troubleshooting-azure-file-storage-using-metrics"></a>使用度量針對 Azure 檔案儲存體進行疑難排解
-Azure 儲存體分析現在支援 Azure 檔案儲存體的度量。 利用度量資料，您可以追蹤要求及診斷問題。
+## <a name="troubleshooting-azure-files-using-metrics"></a>使用計量針對 Azure 檔案服務進行疑難排解
+Azure 儲存體分析現在支援 Azure 檔案服務的計量。 利用度量資料，您可以追蹤要求及診斷問題。
 
+您可以透過 [Azure 入口網站](https://portal.azure.com)啟用 Azure 檔案服務的計量。 您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
 
-您可以透過 [Azure 入口網站](https://portal.azure.com)啟用 Azure 檔案儲存體度量。 您也可以透過 REST API 或儲存體用戶端程式庫中的其中一個同類工具來呼叫設定檔案服務屬性作業，以程式設計方式啟用度量。
-
-
-下列程式碼範例會示範如何使用適用於 .NET 的儲存體用戶端程式庫，啟用 Azure 檔案儲存體的計量。
+下列程式碼範例會示範如何使用適用於 .NET 的儲存體用戶端程式庫，啟用 Azure 檔案服務的計量。
 
 首先，將下列 `using` 指示詞新增您的 `Program.cs` 檔案中，連同上述所新增的陳述式︰
 
@@ -343,7 +341,7 @@ using Microsoft.WindowsAzure.Storage.File.Protocol;
 using Microsoft.WindowsAzure.Storage.Shared.Protocol;
 ```
 
-請注意，雖然 Azure Blob、表格以及 Azure 佇列會在 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 命名空間中使用共用的 `ServiceProperties` 類型，但 Azure 檔案儲存體會使用自己的類型，其會在 `Microsoft.WindowsAzure.Storage.File.Protocol` 命名空間中使用 `FileServiceProperties` 類型。 不過，這兩個命名空間都必須從您的程式碼加以參考，以供下列程式碼進行編譯。
+請注意，雖然 Azure Blob、表格以及 Azure 佇列會在 `Microsoft.WindowsAzure.Storage.Shared.Protocol` 命名空間中使用共用的 `ServiceProperties` 類型，但 Azure 檔案服務會使用自己的類型，其會在 `Microsoft.WindowsAzure.Storage.File.Protocol` 命名空間中使用 `FileServiceProperties` 類型。 不過，這兩個命名空間都必須從您的程式碼加以參考，以供下列程式碼進行編譯。
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -386,26 +384,26 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-此外，您可以參考 [Azure 檔案儲存體疑難排解文章](storage-troubleshoot-windows-file-connection-problems.md)以取得端對端疑難排解指引。
+此外，您可以參考 [Azure 檔案疑難排解文章](storage-troubleshoot-windows-file-connection-problems.md)以取得端對端疑難排解指引。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
+請參閱這些連結，以取得 Azure 檔案服務的相關詳細資訊。
 
 ### <a name="conceptual-articles-and-videos"></a>概念性文章和影片
-* [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [如何搭配使用 Azure 檔案儲存體與 Linux](storage-how-to-use-files-linux.md)
+* [Azure 檔案服務：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [如何搭配使用 Azure 檔案服務與 Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>檔案儲存體的工具支援
 * [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [使用 Azure CLI 搭配 Azure 儲存體](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [針對 Azure 檔案儲存體的問題進行疑難排解](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [針對 Azure 檔案服務問題進行疑難排解](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>參考
 * [Storage Client Library for .NET 參考資料](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [檔案服務 REST API 參考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 
 ### <a name="blog-posts"></a>部落格文章
-* [Azure 檔案儲存體現已公開推出](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure 檔案儲存體內部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure 檔案服務現在已正式推出](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure 檔案服務的內部觀點](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [保留與 Microsoft Azure 檔案儲存體的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
+* [保留與 Microsoft Azure 檔案的連線](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

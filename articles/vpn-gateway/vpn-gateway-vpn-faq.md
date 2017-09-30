@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/30/2017
 ms.author: cherylmc,yushwang
 ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
-ms.openlocfilehash: 9f7eb8e63f30d0f3450ad913620e59cd461b75bc
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
@@ -113,9 +113,9 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。 當建立 VPN 通道時，�
 * Azure 入口網站︰瀏覽至傳統虛擬網路 > VPN 連線 > 站對站 VPN 連線 > 本機網站名稱 > 本機網站 > 用戶端位址空間。 
 * 傳統入口網站：在 [網路] 頁面的 [區域網路] 下，新增每一個您想要虛擬網路透過閘道傳送的範圍。 
 
-### <a name="can-i-configure-forced-tunneling"></a>是否可以設定強制通道？
+### <a name="can-i-configure-force-tunneling"></a>是否可以設定強制通道？
 
-是。 請參閱 [設定強制通道](vpn-gateway-about-forced-tunneling.md)。
+是。 請參閱[設定強制通道](vpn-gateway-about-forced-tunneling.md)。
 
 ### <a name="can-i-set-up-my-own-vpn-server-in-azure-and-use-it-to-connect-to-my-on-premises-network"></a>是否可以在 Azure 中設定自己的 VPN 伺服器，並用來連接到內部部署網路？
 
@@ -159,9 +159,13 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 其他軟體 VPN 解決方案只要符合業界標準 IPsec 實作，應該就能使用我們的閘道。 如需設定和支援指示，請連絡軟體供應商。
 
-## <a name="P2S"></a>點對站連線
+## <a name="P2S"></a>點對站 - 原生 Azure 憑證驗證
 
-[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
+
+## <a name="P2SRADIUS"></a>點對站 - RADIUS 驗證
+
+[!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
 ## <a name="V2VMulti"></a>VNet 對 VNet 和多站台連線
 

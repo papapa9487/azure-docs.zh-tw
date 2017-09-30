@@ -9,17 +9,11 @@
 4. 在 [註冊] 中，選取您從保存庫下載的註冊金鑰。
 
     ![註冊](./media/site-recovery-add-configuration-server/combined-wiz3.png)
-5. 在 [網際網路設定] 中，指定在設定伺服器上執行的 Provider 要如何透過網際網路連接到 Azure Site Recovery。
+5. 在 [網際網路設定] 中，指定在設定伺服器上執行的 Provider 要如何透過網際網路連接到 Azure Site Recovery。 確定您已允許必要的 URL。
 
-   a. 如果您想要使用電腦上目前設定的 Proxy 來連線，請選取 [使用 Proxy 伺服器連線至 Azure Site Recovery]。
-
-   b.這是另一個 C# 主控台應用程式。 如果您想要讓提供者直接連接，請選取 [不使用 Proxy 伺服器直接連線到 Azure Site Recovery]。
-
-   c. 如果現有的 Proxy 需要驗證，或是您想要讓 Provider 使用自訂 Proxy 來連線，請選取 [以自訂 Proxy 設定連線]。
-
-     * 如果您使用自訂 Proxy，您必須指定位址、連接埠以及認證。
-     * 如果您是使用 Proxy，應該已經允許[必要條件](#prerequisites)中所述的 URL。
-
+    - 如果您想要使用電腦上目前設定的 Proxy 來連線，請選取 [使用 Proxy 伺服器連線至 Azure Site Recovery]。
+    - 如果您想要讓提供者直接連接，請選取 [不使用 Proxy 伺服器直接連線到 Azure Site Recovery]。
+    - 如果現有的 Proxy 需要驗證，或是您想要讓提供者使用自訂 Proxy 來連線，請選取 [以自訂 Proxy 設定連線]，並指定位址、連接埠和認證。
      ![防火牆](./media/site-recovery-add-configuration-server/combined-wiz4.png)
 6. 在 [必要條件檢查] 中，安裝程式會執行檢查來確定可以執行安裝。 如果出現有關「通用時間同步處理檢查」的警告，請確認系統時鐘上的時間 ([日期和時間] 設定) 與時區相同。
 

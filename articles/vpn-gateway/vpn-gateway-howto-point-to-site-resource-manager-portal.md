@@ -1,5 +1,5 @@
 ---
-title: "使用點對站和憑證驗證將電腦連線至虛擬網路︰入口網站 | Microsoft Docs"
+title: "使用點對站和原生 Azure 憑證驗證將電腦連線至 Azure 虛擬網路︰Azure 入口網站 | Microsoft Docs"
 description: "使用憑證驗證建立點對站 VPN 閘道連線，進而將電腦安全地連線到您的 Azure 虛擬網路。 本文適用於 Resource Manager 部署模型並使用 Azure 入口網站。"
 services: vpn-gateway
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: cc9018d95ffce3b5b4a5ee20d5c78a2122e0223e
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: fbb3bb5f538d1d26b6fe8d653724d80faf96e277
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線：Azure 入口網站
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：Azure 入口網站
 
-本文顯示如何使用 Azure 入口網站，在 Resource Manager 部署模型中建立具有點對站連線的 VNet。 這項設定使用憑證來驗證連線用戶端。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
+本文顯示如何使用 PowerShell，在 Resource Manager 部署模型中建立具有點對站連線的 VNet。 此組態會使用憑證來進行驗證。 此組態會由 Azure VPN 閘道執行憑證驗證，而不是由 RADIUS 伺服器來執行。 您也可從下列清單中選取不同的選項，以使用不同的部署工具或部署模型來建立此組態：
 
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
@@ -33,22 +33,31 @@ ms.lasthandoff: 08/31/2017
 >
 >
 
-點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。 
+點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。 P2S VPN 連線會從 Windows 和 Mac 裝置啟動。
 
-P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的 VPN 通訊協定。 P2S VPN 連線的建立方式是從用戶端電腦開始。
+您可使用下列驗證方法來與用戶端連線：
 
-![Point-to-Site-diagram](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-connection-diagram.png)
+* RADIUS 伺服器 - 目前為預覽狀態
+* VPN 閘道原生 Azure 憑證驗證
 
-點對站連線驗證連線需要下列各項：
+本文會協助您設定使用原生 Azure 憑證驗證來進行驗證的 P2S 組態。 如果您想要使用 RADIUS 來驗證要連線的使用者，請參閱[使用 RADIUS 驗證的 P2S](point-to-site-how-to-radius-ps.md)。
+
+![將電腦連接至 Azure VNet - 點對站連線圖表](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeps.png)
+
+點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。
+
+* SSTP 是僅在 Windows 用戶端平台上支援的 SSL 型 VPN 通道。 它可以穿透防火牆，這是從任何地方連線到 Azure 的理想選項。 我們在伺服器端上支援 SSTP 1.0、1.1 和 1.2 版。 用戶端會決定要使用的版本。 若為 Windows 8.1 和更新版本，SSTP 預設使用 1.2。
+
+* IKEv2 VPN，標準型 IPsec VPN 解決方案。 IKEv2 VPN 可用於從 Mac 裝置連線 (OSX 版本 10.11 和更新版本)。 IKEv2 目前為預覽狀態。
+
+點對站原生 Azure 憑證驗證連線需要下列各項：
 
 * RouteBased VPN 閘道。
 * 已上傳至 Azure 之根憑證的公開金鑰 (.cer 檔案)。 一旦上傳憑證，憑證就會被視為受信任的憑證並且用於驗證。
 * 用戶端憑證是從根憑證產生，並安裝在每部即將連線到 VNet 的用戶端電腦上。 此憑證使用於用戶端憑證。
-* VPN 用戶端組態套件。 VPN 用戶端組態套件包含用戶端連線到 VNet 的必要資訊。 此套件會設定 Windows 作業系統原生的現有 VPN 用戶端。 必須使用組態套件設定每個連線的用戶端。
+* VPN 用戶端組態。 VPN 用戶端組態檔包含要讓用戶端連線到 VNet 所需的資訊。 此檔案會設定作業系統原生的現有 VPN 用戶端。 您必須使用組態檔中的設定來設定每個進行連線的用戶端。
 
-點對站連線不需要 VPN 裝置或內部部署公眾對應 IP 位址。 已透過 SSTP (安全通訊端通道通訊協定) 建立 VPN 連線。 我們在伺服器端上支援 SSTP 1.0、1.1 和 1.2 版。 用戶端會決定要使用的版本。 若為 Windows 8.1 和更新版本，SSTP 預設使用 1.2。
-
-如需有關點對站連線的詳細資訊，請參閱本文結尾的[點對站常見問題集](#faq)。
+如需點對站連線的詳細資訊，請參閱[關於點對站連線](point-to-site-about.md)。
 
 #### <a name="example"></a>範例值
 
@@ -84,7 +93,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
 ## <a name="dns"></a>3.指定 DNS 伺服器 (選擇性)
 
-建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便處理名稱解析。 在此此組態中，DNS 伺服器為選擇性，但如果您想要進行名稱解析則，為必要。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您所連線之資源名稱的 DNS 伺服器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。
+建立虛擬網路之後，您可以新增 DNS 伺服器的 IP 位址，以便處理名稱解析。 在此此組態中，DNS 伺服器為選擇性，但如果您想要進行名稱解析則，為必要。 指定一個值並不會建立新的 DNS 伺服器。 您指定的 DNS 伺服器 IP 位址應該是可以解析您所連線之資源名稱的 DNS 伺服器。 在此範例中，我們使用了私人 IP 位址，但這可能不是您 DNS 伺服器的 IP 位址。 請務必使用您自己的值。 您指定的值會供部署至 VNet 的資源使用，而非供 P2S 連線或 VPN 用戶端使用。
 
 [!INCLUDE [vpn-gateway-add-dns-rm-portal](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
@@ -128,35 +137,21 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
   ![憑證上傳](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/rootcertupload.png)
 
-## <a name="clientconfig"></a>8.產生和安裝 VPN 用戶端組態套件
+## <a name="installclientcert"></a>8.安裝匯出的用戶端憑證
 
-若要使用點對站 VPN 連線至 VNet，每個用戶端必須用戶端組態套件，以使用連線至虛擬網路所需的設定和檔案來設定原生 VPN 用戶端。 VPN 用戶端組態套件可設定原生 Windows VPN 用戶端，它不會安裝新的或不同的 VPN 用戶端。
+如果您想要從不同於用來產生用戶端憑證的用戶端電腦建立 P2S 連線，您需要安裝用戶端憑證。 安裝用戶端憑證時，您需要匯出用戶端憑證時所建立的密碼。
 
-您可以在每個用戶端電腦上使用相同的 VPN 用戶端組態套件，只要版本符合用戶端的架構。 如需支援的用戶端作業系統清單，請參閱本文結尾的[點對站連線常見問題集](#faq)。
+請確定用戶端憑證已隨著整個憑證鏈結匯出為 .pfx (這是預設值)。 否則，根憑證資訊不存在於用戶端電腦上，而且用戶端將無法正確驗證。 
 
-### <a name="1-generate-and-download-the-client-configuration-package"></a>1.產生並下載用戶端組態套件
+如需安裝步驟，請參閱[安裝用戶端憑證](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
-1. 在 [點對站組態] 頁面上，按一下 [下載 VPN 用戶端] 來開啟 [下載 VPN 用戶端] 頁面。 需要幾分鐘的時間來產生套件。
+## <a name="clientconfig"></a>9.產生和安裝 VPN 用戶端組態套件
 
-  ![VPN 用戶端下載 1](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/downloadvpnclient1.png)
-2. 為您的用戶端選取正確的套件，然後按一下 [下載]。 儲存組態封裝檔案。 您在連線至虛擬網路的每個用戶端電腦上安裝 VPN 用戶端組態套件。
-
-  ![VPN 用戶端下載 2](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/vpnclient.png)
-
-### <a name="2-install-the-client-configuration-package"></a>2.安裝用戶端組態套件
-
-1. 在本機將組態檔複製到您要連線至虛擬網路的電腦上。 
-2. 在用戶端電腦上按兩下 .exe 檔案以安裝套件。 因為是您建立組態套件，所以它尚未簽署，且您可能會看到一則警告。 如果您看到 Windows SmartScreen 快顯視窗，請按一下 [更多資訊] \(左側)，然後按一下 [仍要執行] 來安裝套件。
-3. 在用戶端電腦上安裝封裝。 如果您看到 Windows SmartScreen 快顯視窗，請按一下 [更多資訊] \(左側)，然後按一下 [仍要執行] 來安裝套件。
-4. 在用戶端電腦上，瀏覽至 [網路設定]，然後按一下 [VPN]。 VPN 連線會顯示其連線的虛擬網路名稱。
-
-## <a name="installclientcert"></a>9.安裝匯出的用戶端憑證
-
-如果您想要從不同於用來產生用戶端憑證的用戶端電腦建立 P2S 連線，您需要安裝用戶端憑證。 安裝用戶端憑證時，您需要匯出用戶端憑證時所建立的密碼。 一般而言，只要按兩下憑證並加以安裝。
-
-請確定用戶端憑證已隨著整個憑證鏈結匯出為 .pfx (這是預設值)。 否則，根憑證資訊不存在於用戶端電腦上，而且用戶端將無法正確驗證。 如需詳細資訊，請參閱[安裝匯出的用戶端憑證](vpn-gateway-certificates-point-to-site.md#install)。
+VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S 連線來連線至 VNet。 如需產生和安裝 VPN 用戶端組態檔的指示，請參閱[建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔](point-to-site-vpn-client-configuration-azure-cert.md)。
 
 ## <a name="connect"></a>10.連接到 Azure
+
+### <a name="to-connect-from-a-windows-vpn-client"></a>從 Windows VPN 用戶端連線
 
 1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 按一下 [繼續] 以使用較高的權限。
 
@@ -167,11 +162,19 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
   ![連線已建立](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/connected.png)
 
-#### <a name="troubleshooting-p2s-connections"></a>針對 P2S 連線進行疑難排解
+#### <a name="troubleshoot-windows-p2s-connections"></a>針對 Windows P2S 連線進行疑難排解
 
 [!INCLUDE [verifies client certificates](../../includes/vpn-gateway-certificates-verify-client-cert-include.md)]
 
-## <a name="verify"></a>11.確認您的連接
+### <a name="to-connect-from-a-mac-vpn-client"></a>從 Mac VPN 用戶端連線
+
+從 [網路] 對話方塊，找出您要使用的用戶端設定檔，然後按一下 [連線]。
+
+  ![Mac 連線](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
+
+## <a name="verify"></a>驗證您的連線
+
+這些指示適用於 Windows 用戶端。
 
 1. 若要驗證您的 VPN 連線為作用中狀態，請開啟提升權限的命令提示字元，並執行 *ipconfig/all*。
 2. 檢視結果。 請注意，您接收到的 IP 位址是您在組態中指定的點對站 VPN 用戶端位址集區中的其中一個位址。 結果類似於此範例：
@@ -190,6 +193,8 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
   ```
 
 ## <a name="connectVM"></a>連線至虛擬機器
+
+這些指示適用於 Windows 用戶端。
 
 [!INCLUDE [Connect to a VM](../../includes/vpn-gateway-connect-vm-p2s-include.md)]
 
@@ -213,7 +218,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
 常見的做法是使用根憑證管理小組或組織層級的存取權，然後使用撤銷的用戶端憑證針對個別使用者進行細部的存取控制。
 
-### <a name="to-revoke-a-client-certificate"></a>若要撤銷用戶端憑證
+### <a name="revoke-a-client-certificate"></a>撤銷用戶端憑證
 
 您可以藉由將指紋新增至撤銷清單來撤銷用戶端憑證。
 
@@ -227,7 +232,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
 ## <a name="faq"></a>點對站常見問題集
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。

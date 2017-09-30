@@ -3,7 +3,7 @@ title: "Azure 儲存體簡介 | Microsoft Docs"
 description: "Azure 儲存體 (Microsoft 的雲端資料儲存體) 簡介。"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/09/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 163f35682a4fdaa971f715c7429153bfdcf6a584
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a854a0033c365336c5ab13fb65524d84da92618c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<!-- this is the same version that is in the MVC branch -->
+
 # <a name="introduction-to-microsoft-azure-storage"></a>Microsoft Azure 儲存體簡介
 
 Microsoft Azure 儲存體是 Microsoft 管理的雲端服務，可提供高度可用、安全、持久、可擴充和備援的儲存體。 Microsoft 會為您進行維護和處理重大問題。 
@@ -37,13 +37,9 @@ Azure 儲存體包含三項資料服務：Blob 儲存體、檔案儲存體和佇
 * 將資料傳入或傳出儲存體
 * 許多可用的儲存體用戶端程式庫。 
 
-
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
-
+若要快速啟動並執行 Azure 儲存體，請參閱下列其中一個快速入門：
+* [使用 PowerShell 建立儲存體帳戶](storage-quickstart-create-storage-account-powershell.md)
+* [使用 CLI 建立儲存體帳戶](storage-quickstart-create-storage-account-cli.md)
 
 ## <a name="introducing-the-azure-storage-services"></a>Azure 儲存體服務簡介
 
@@ -55,7 +51,7 @@ Blob 基本上類似您在電腦 (或平板電腦、行動裝置等) 上儲存�
 
 在 Blob 儲存體中儲存檔案之後，您可以從世界各地使用 URL、REST 介面，或其中一個 Azure SDK 儲存體用戶端程式庫存取這些檔案。 儲存體用戶端程式庫提供多種語言，包括 Node.js、Java、PHP、Ruby、Python 和 .NET。 
 
-Blob 有三種類型：區塊 Blob、附加 Blob 和分頁 Blob (用於 VHD 檔案)。
+Blob 有三種類型：區塊 Blob、分頁 Blob (用於 VHD 檔案) 和附加 Blob。
 
 * 區塊 Blob 用來保存高達 4.7 TB 的一般檔案。 
 * 分頁 Blob 用來保存隨機存取檔案 (大小上限為 8 TB)。 這些用來備份 VM 的 VHD 檔案。
@@ -63,11 +59,10 @@ Blob 有三種類型：區塊 Blob、附加 Blob 和分頁 Blob (用於 VHD 檔�
 
 若是超大型資料集，網路限制會使得透過線路上傳或下載資料至 Blob 儲存體變得不切實際，您可以將一組硬碟送至 Microsoft，以便直接從資料中心匯入或匯出資料。 請參閱 [使用 Microsoft Azure 匯入/匯出服務將資料移轉至 Blob 儲存體](../storage-import-export-service.md)。
 
-## <a name="file-storage"></a>檔案儲存體
+## <a name="azure-files"></a>Azure 檔案
+[Azure 檔案服務](../files/storage-files-introduction.md)可讓您設定高可用性網路檔案共用，其可使用標準伺服器訊息區塊 (SMB) 通訊協定來存取。 這表示多個 VM 可以透過讀取和寫入權限共用相同的檔案。 您也可以使用 REST 介面或儲存體用戶端程式庫來讀取檔案。 
 
-Azure 檔案服務可讓您設定高可用性網路檔案共用，其可使用標準伺服器訊息區塊 (SMB) 通訊協定來存取。 這表示多個 VM 可以透過讀取和寫入權限共用相同的檔案。 您也可以使用 REST 介面或儲存體用戶端程式庫來讀取檔案。 
-
-區分 Azure 檔案儲存體與公司檔案共用上的檔案的方法之一，就是您可以使用指向檔案並包含共用存取簽章 (SAS) 權杖的 URL，從世界各地存取檔案。 您可以產生 SAS 權杖；SAS 權杖可允許特定一段時間內私人資產的特定存取。 
+區分 Azure 檔案服務與公司檔案共用上的檔案的方法之一，就是您可以使用指向檔案並包含共用存取簽章 (SAS) 權杖的 URL，從世界各地存取檔案。 您可以產生 SAS 權杖；SAS 權杖可允許特定一段時間內私人資產的特定存取。 
 
 檔案共用可以用於許多常見案例： 
 
@@ -85,14 +80,13 @@ Azure 佇列服務用來儲存及擷取訊息。 佇列訊息的大小上限為 
 
 例如，假設您希望客戶能夠上傳圖片，而且要建立每張圖片的縮圖。 您可以讓客戶在上傳圖片時等候您建立縮圖。 另外，也可以使用佇列。 當客戶完成上傳時，將訊息寫入佇列。 然後讓 Azure Function 從佇列擷取訊息並建立縮圖。 這項處理的每個部分都可以個別調整，讓您在針對您的使用量進行微調時有更多控制權。
 
-<!-- this bookmark is used by other articles; you'll need to update them before this goes into production ROBIN-->
 ## <a name="table-storage"></a>表格儲存體
-<!-- add a link to the old table storage to this paragraph once it's moved -->
-標準 Azure 表格儲存體現在屬於 Cosmos DB。 Azure 表格儲存體也有進階資料表，可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 若要深入了解並試用新的進階體驗，請查看 [Azure Cosmos DB：資料表 API](https://aka.ms/premiumtables)。
+
+標準 Azure 表格儲存體現在屬於 Cosmos DB。 若要查看該文件，請參閱 [Azure 資料表儲存體概觀](../../cosmos-db/table-storage-overview.md)。 Azure 表格儲存體也有進階資料表，可提供輸送量最佳化的資料表、全域發佈，以及自動次要索引。 若要深入了解並試用新的進階體驗，請查看 [Azure Cosmos DB：資料表 API](https://aka.ms/premiumtables)。
 
 ## <a name="disk-storage"></a>磁碟儲存體
 
-Azure 儲存體小組也擁有磁碟，其中包含虛擬機器所使用的所有受控和非受控磁碟功能。 如需有關這些功能的詳細資訊，請參閱[計算服務文件](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。
+Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能。 如需有關這些功能的詳細資訊，請參閱[計算服務文件](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。
 
 ## <a name="types-of-storage-accounts"></a>儲存體帳戶類型 
 
@@ -227,11 +221,9 @@ Azure 匯入/匯出服務可用於從儲存體帳戶匯入或匯出大量 blob �
 * [深入了解檔案儲存體](../storage-files-introduction.md)
 * [深入了解佇列儲存體](../queues/storage-queues-introduction.md)
 
-<!-- RE-ENABLE THESE AFTER MVC GOES LIVE 
-To get up and running with Azure Storage quickly, check out one of the following Quickstarts:
-* [Create a storage account using PowerShell](storage-quick-create-storage-account-powershell.md)
-* [Create a storage account using CLI](storage-quick-create-storage-account-cli.md)
--->
+若要快速啟動並執行 Azure 儲存體，請參閱下列其中一個快速入門：
+* [使用 PowerShell 建立儲存體帳戶](storage-quickstart-create-storage-account-powershell.md)
+* [使用 CLI 建立儲存體帳戶](storage-quickstart-create-storage-account-cli.md)
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 
@@ -273,9 +265,6 @@ To learn more about Azure Storage, explore these resources:
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Create a storage account](../storage-create-storage-account.md)
 
-<!-- after our quick starts are available, replace this link with a link to one of those. 
-Had to remove this article, it refers to the VS quickstarts, and they've stopped publishing them. Robin --> 
-<!--* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
 -->
 
 ### <a name="for-administrators"></a>針對系統管理員
@@ -284,15 +273,15 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-net-developers"></a>針對 .NET 開發人員
 * [以 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)
+* [使用 .NET 開發 Azure 檔案服務](../files/storage-dotnet-how-to-use-files.md)
 * [以 .NET 開始使用 Azure 表格儲存體](../../cosmos-db/table-storage-how-to-use-dotnet.md)
 * [以 .NET 開始使用 Azure 佇列儲存體](../storage-dotnet-how-to-use-queues.md)
-* [在 Windows 上開始使用 Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)
 
 ### <a name="for-javaandroid-developers"></a>針對 Java/Android 開發人員
 * [如何使用 Java 的 Blob 儲存體](../blobs/storage-java-how-to-use-blob-storage.md)
+* [使用 Java 開發 Azure 檔案服務](../files/storage-java-how-to-use-file-storage.md)
 * [如何使用 Java 的表格儲存體](../../cosmos-db/table-storage-how-to-use-java.md)
 * [如何使用 Java 的佇列儲存體](../storage-java-how-to-use-queue-storage.md)
-* [如何使用 Java 的檔案儲存體](../storage-java-how-to-use-file-storage.md)
 
 ### <a name="for-nodejs-developers"></a>針對 Node.js 開發人員
 * [如何使用 Node.js 的 Blob 儲存體](../blobs/storage-nodejs-how-to-use-blob-storage.md)
@@ -311,7 +300,6 @@ Had to remove this article, it refers to the VS quickstarts, and they've stopped
 
 ### <a name="for-python-developers"></a>針對 Python 開發人員
 * [如何使用 Python 的 Blob 儲存體](../blobs/storage-python-how-to-use-blob-storage.md)
+* [使用 Python 開發 Azure 檔案服務](../files/storage-python-how-to-use-file-storage.md)
 * [如何使用 Python 的表格儲存體](../../cosmos-db/table-storage-how-to-use-python.md)
-* [如何使用 Python 的佇列儲存體](../storage-python-how-to-use-queue-storage.md)   
-* [如何使用 Python 的檔案儲存體](../storage-python-how-to-use-file-storage.md) 
--->
+* [如何使用 Python 的佇列儲存體](../storage-python-how-to-use-queue-storage.md)

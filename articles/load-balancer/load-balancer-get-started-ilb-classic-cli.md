@@ -3,7 +3,7 @@ title: "建立內部負載平衡器 - Azure CLI 傳統 | Microsoft Docs"
 description: "瞭解如何使用 Azure CLI 在傳統部署模型中建立內部負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: d24b95f75b5ffd1116b07cf9f8bac33767a9c835
-ms.lasthandoff: 03/21/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f740633230b2479f77d7d09a31dbbf3f72ffb174
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -40,9 +41,9 @@ ms.lasthandoff: 03/21/2017
 
 若要建立內部負載平衡器集以及向其傳送流量的伺服器，您必須執行下列動作：
 
-1. 建立將會是連入流量端點的內部負載平衡執行個體，連入流量會在負載平衡集合的不同伺服器之間進行負載平衡。
-2. 新增對應到虛擬機器 (將會接收連入流量) 的端點。
-3. 設定即將傳送流量進行負荷平衡的伺服器將其流量傳送到內部負載平衡執行個體的虛擬 IP (VIP) 位址。
+1. 建立會是連入流量端點的內部負載平衡執行個體，連入流量會在負載平衡集合的不同伺服器之間進行負載平衡。
+2. 新增對應到虛擬機器 (可接收連入流量) 的端點。
+3. 設定伺服器以將其流量傳送到內部負載平衡執行個體的虛擬 IP (VIP) 位址。
 
 ## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>使用 CLI 逐步建立內部負載平衡器
 
@@ -63,7 +64,7 @@ ms.lasthandoff: 03/21/2017
 
 此案例假設在稱為「mytestcloud」的雲端服務中，具有虛擬機器「DB1」和「DB2」。 這些虛擬機器使用稱為我的「testvnet」，且具子網路「subnet-1」的虛擬網路。
 
-本指南將使用連接埠 1433 做為私用連接埠與本機連接埠，以建立內部負載平衡器集。
+本指南會使用連接埠 1433 作為私用連接埠與本機連接埠，以建立內部負載平衡器集。
 
 此為常見案例：若您在後端具有 SQL 虛擬機器，則可使用內部負載平衡器確保不會透過公用 IP 位址直接公開資料庫伺服器。
 
@@ -92,7 +93,7 @@ azure service internal-load-balancer add --serviceName mytestcloud --internalLBN
 
 ### <a name="step-2"></a>步驟 2
 
-您可在新增第一個端點時，設定內部負載平衡器集。 您會在此步驟中，將端點、虛擬機器和探查連接埠與內部負載平衡器集建立關聯。
+您可在新增第一個端點時，設定內部負載平衡器集。 您可以在此步驟中，將端點、虛擬機器和探查連接埠與內部負載平衡器集建立關聯。
 
 ```azurecli
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
@@ -106,7 +107,7 @@ azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 
 azure vm show DB1
 ```
 
-輸出將是：
+輸出如下所示：
 
     azure vm show DB1
     info:    Executing command vm show
