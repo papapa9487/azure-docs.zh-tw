@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 745a9c016bd037f1051025a2c5a468c3935e4550
-ms.lasthandoff: 03/31/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>在 Azure 監視器中為 Azure 服務建立計量警示 - Azure 入口網站
@@ -30,12 +30,12 @@ ms.lasthandoff: 03/31/2017
 >
 
 ## <a name="overview"></a>概觀
-此文章說明如何使用 Azure 入口網站設定 Azure 計量警示。   
+此文章說明如何使用 Azure 入口網站設定 Azure 計量警示。 
 
 您可以收到以您 Azure 服務的監視計量或事件為基礎的警示。
 
 * **計量值** - 當指定的計量值超出您在任一方向指派的臨界值時會觸發警示。 也就是說，當先符合條件而之後該條件不再符合時，兩方面皆會觸發。    
-* **活動記錄檔事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 若要深入了解活動記錄檔警示，請[按一下這裡](monitoring-activity-log-alerts.md)
+* **活動記錄事件** - 警示可在*每一個*事件上觸發，或是僅在發生特定事件時才觸發。 深入了解[活動記錄警示](monitoring-activity-log-alerts.md)。
 
 您可以設定當計量警示觸發時執行下列動作︰
 
@@ -43,6 +43,11 @@ ms.lasthandoff: 03/31/2017
 * 傳送電子郵件至您指定的其他電子郵件
 * 呼叫 webhook
 * 啟動執行 Azure Runbook (現階段只能從 Azure 入口網站啟動)
+
+> [!NOTE]
+> Azure 監視器現已支援公開預覽版的近乎即時計量警示。 這些警示會使用動作群組。 深入了解[近乎即時計量警示](monitoring-near-real-time-metric-alerts.md)。
+>
+>
 
 您可以透過下列方式設定和取得有關計量警示規則的資訊
 
@@ -64,7 +69,7 @@ ms.lasthandoff: 03/31/2017
 
 4. 為您的警示規則命名 ([名稱])，選擇將會顯示在電子郵件通知中的 [描述]。
 
-5. 選取您要監視的 [計量]，然後為計量選擇 [條件] 和 [臨界值]。 同時選擇警示觸發程序之前，計量規則必須滿足的 [期間]  。 例如，如果您使用「PT5M」期間，且您的警示會尋找高於 80% 的 CPU，當 CPU 已持續 5 分鐘高於 80%，警示就會觸發。 一旦發生第一次觸發，它會在 CPU 持續 5 分鐘低於 80 % 時再次觸發。 CPU 度量每隔 1 分鐘發生一次。   
+5. 選取您要監視的 [計量]，然後為計量選擇 [條件] 和 [臨界值]。 同時選擇警示觸發程序之前，計量規則必須滿足的 [期間]。 例如，如果您使用「超過最後 5 分鐘」期間，且您的警示會尋找高於 80% 的 CPU，當 CPU 已持續 5 分鐘高於 80%，警示就會觸發。 一旦發生第一次觸發，它會在 CPU 持續 5 分鐘低於 80 % 時再次觸發。 系統每隔一分鐘就會測量一次 CPU 計量。
 
 6. 如果您想要在警示引發時傳送電子郵件給系統管理員和共同管理員，請勾選 [電子郵件的擁有者...]  。
 
@@ -87,6 +92,7 @@ ms.lasthandoff: 03/31/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [取得 Azure 監視的概觀](monitoring-overview.md) 中說明您可以收集和監視的資訊類型。
+* 深入了解新的[近乎即時計量警示 (預覽)](monitoring-near-real-time-metric-alerts.md)
 * 深入了解 [在警示中設定 webhook](insights-webhooks-alerts.md)。
 * 深入了解[在活動記錄檔事件上設定警示](monitoring-activity-log-alerts.md)。
 * 深入了解 [Azure 自動化 Runbook](../automation/automation-starting-a-runbook.md)。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 940cb4466ef5d730c42d04d0107f6901f55eb155
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a7293f2b3a366b25e780ee75601dfbb2b35ddaa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 08/08/2017
 
 1. **升級 Azure AD Connect**：依照[本文](./active-directory-aadconnect-upgrade-previous-version.md)操作並升級至最新版的 Azure AD Connect。
 2. **解除預覽版的安裝驗證代理程式**：下載[此 PowerShell 指令碼](https://aka.ms/rmpreviewagent)並在伺服器上以系統管理員身分執行該指令碼。
-3. **下載最新版的驗證代理程式 (1.5.193.0 版或更新版本)**：使用您租用戶的全域管理員認證登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受服務條款並下載最新版的驗證代理程式。
+3. **下載最新版的驗證代理程式 (1.5.193.0 版或更新版本)**：使用您租用戶的全域管理員認證登入 [Azure Active Directory 管理中心](https://aad.portal.azure.com)。 選取 [Azure Active Directory] -> [Azure AD Connect] -> [傳遞驗證] -> [下載代理程式]。 接受[服務條款](https://aka.ms/authagenteula)並下載最新版的驗證代理程式。 您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。
 4. **安裝最新版的驗證代理程式**：執行在步驟 3 中下載的可執行檔。 出現提示時，提供您租用戶的全域管理員認證。
 5. **已安裝最新版本**：如之前所示，請移至 [控制台]-> [程式]-> [程式和功能]，並確認有 [Microsoft Azure AD Connect 驗證代理程式] 項目。
 

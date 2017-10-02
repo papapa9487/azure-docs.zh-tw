@@ -17,10 +17,10 @@ ms.date: 08/22/2017
 ms.author: adegeo
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7489c3d0534a695c6fc39ad95890db7ba2a52f25
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fee02a5fd8aa27ac2c75a362c66d1dbcc395fa34
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,9 +28,15 @@ ms.lasthandoff: 08/24/2017
 
 下表包含 [Service Fabric CLI](service-fabric-cli.md) 指令碼範例的連結，這些範例可管理 Service Fabric 叢集、應用程式和服務。
 
+[!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
+
 | | |
 |-|-|
+| **建立叢集** ||
+| [建立安全的 Linux 叢集](./scripts/cli-create-cluster.md)| 建立 Azure Service Fabric 叢集。 |
 | **管理應用程式** ||
+| [列出應用程式](./scripts/sfctl-list-applications.md)| 列出佈建到叢集的應用程式。|
 | [部署應用程式](./scripts/cli-deploy-application.md)| 將應用程式部署到叢集。|
 | [移除應用程式](./scripts/cli-remove-application.md)| 從叢集移除應用程式。|
+| [升級應用程式](./scripts/sfctl-upgrade-application.md)| 升級已部署的應用程式。|
 

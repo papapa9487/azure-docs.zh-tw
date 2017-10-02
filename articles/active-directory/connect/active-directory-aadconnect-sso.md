@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 5a390208f4b7c22e96d7888bcbbd14d8b27667eb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: dd619ddf62b079ecc06bdf3699e3e32c35313284
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ ms.lasthandoff: 08/08/2017
 
 使用者位於連線到公司網路的公司裝置時，Azure Active Directory 無縫單一登入 (Azure AD 無縫 SSO) 就會自動將他們登入。 當此功能啟用時，使用者不需要輸入密碼就能登入 Azure AD，而且在大部分情況下，甚至也不用輸入其使用者名稱。 這項功能可讓使用者輕鬆存取雲端式應用程式，而不需要任何額外的內部部署元件。
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PyeAC85Gm7w" frameborder="0" allowfullscreen></iframe>
+
 無縫 SSO 可以與[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)或[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)登入方法合併使用。
 
 ![無縫單一登入](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->無縫 SSO 目前為預覽狀態。 此功能_不_適用於 Active Directory 同盟服務 (ADFS)。
+>無縫 SSO 不適用於 Active Directory 同盟服務 (ADFS)。
 
 ## <a name="key-benefits"></a>主要權益
 
@@ -64,9 +66,6 @@ ms.lasthandoff: 08/08/2017
 |Mac OS X|N/A|N/A|是\*|是\*|是\*
 
 \*需要[其他設定](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
-
->[!IMPORTANT]
->我們最近已復原對 Edge 的支援，以調查客戶回報的問題。
 
 >[!NOTE]
 >對於 Windows 10，建議使用 [Azure AD Join](../active-directory-azureadjoin-overview.md) 以獲得 Azure AD 最佳單一登入體驗。

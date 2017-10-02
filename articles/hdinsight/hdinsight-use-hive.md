@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/03/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 6b3ee17141f773bec07cf40e0b6d63363e9b5164
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 90422088897fd5aa10ebd6e76910c74ad5718b07
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
@@ -32,7 +32,7 @@ Hive 可讓您將結構投影在大量非結構化資料上。 定義結構後�
 
 HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 下列叢集類型最常用於 Hive 查詢︰
 
-* __Interactive Hive__︰提供[低延遲分析處理 (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 功能的 Hadoop 叢集，可改善互動式查詢的回應時間。 如需詳細資訊，請參閱[開始使用 HDInsight 中的 Interactive Hive](hdinsight-hadoop-use-interactive-hive.md) 文件。
+* __互動式查詢__︰提供[低延遲分析處理 (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 功能的 Hadoop 叢集，可改善互動式查詢的回應時間。 如需詳細資訊，請參閱[開始使用 HDInsight 中的互動式查詢](hdinsight-hadoop-use-interactive-hive.md)文件。
 
 * __Hadoop__︰已針對批次處理工作負載進行微調的 Hadoop 叢集。 如需詳細資訊，請參閱[開始使用 HDInsight 中的 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md) 文件。
 
@@ -194,7 +194,7 @@ HDInsight 上的 Hive 已預先載入名為 `hivesampletable` 的內部資料表
 
 [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) (有時也稱為 Live Long and Process) 是 Hive 2.0 的新功能，允許在記憶體中快取查詢。 LLAP 讓 Hive 查詢的速讀變快，在某些情況下可達到[比 Hive 1.x 快 26 倍](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/)。
 
-HDInsight 可提供 Interactive Hive 叢集類型的 LLAP。 如需詳細資訊，請參閱[開始使用 Interactive Hive](hdinsight-hadoop-use-interactive-hive.md) 文件。
+HDInsight 可提供互動式查詢叢集類型的 LLAP。 如需詳細資訊，請參閱[開始使用互動式查詢](hdinsight-hadoop-use-interactive-hive.md)文件。
 
 ## <a name="hive-jobs-and-sql-server-integration-services"></a>Hive 工作和 SQL Server 整合服務
 

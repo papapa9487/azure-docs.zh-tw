@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/06/2017
+ms.date: 09/06/2017
 ms.author: jgao
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 8d7f397145bbecf0c651872f04b81cf44e25dbff
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、Interactive Hive、HBase、R 伺服器或 Storm 安裝並設定叢集。 此外，了解如何自訂叢集，並將叢集加入網域以提升安全性。
+了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、互動式查詢、HBase、R 伺服器或 Storm 安裝並設定叢集。 此外，了解如何自訂叢集，並將叢集加入網域以提升安全性。
 
 Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業。 Azure HDInsight 會處理個別節點所安裝和設定的實作細節，您只需要提供一般設定資訊即可。 
 
@@ -83,7 +83,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 | [Spark](hdinsight-apache-spark-overview.md) |記憶體內處理、互動式查詢、微批次串流處理 |
 | [Kafka (預覽)](hdinsight-apache-kafka-introduction.md) | 可用來建置即時串流資料管線和應用程式的分散式串流平台 |
 | [R 伺服器](hdinsight-hadoop-r-server-overview.md) |各種巨量資料統計資料、預測模型和機器學習功能 |
-| [互動式 Hive (預覽)](hdinsight-hadoop-use-interactive-hive.md) |更快速之互動式 Hive 查詢的記憶體內快取 |
+| [互動式查詢](hdinsight-hadoop-use-interactive-hive.md) |更快速之互動式 Hive 查詢的記憶體內快取 |
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
 每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
@@ -112,7 +112,7 @@ Azure HDInsight 提供兩種服務層的巨量資料雲端提供項目：Standar
 ## <a name="cluster-login-and-ssh-user-name"></a>叢集登入和 SSH 使用者名稱
 使用 HDInsight 叢集，您可以在建立叢集期間設定兩個使用者帳戶：
 
-* HTTP 使用者：預設使用者名稱為 *admin*。 使用 Azure 入口網站上的基本組態。 有時稱之為「叢集使用者」。
+* HTTP 使用者：預設使用者名稱為 *admin*。使用 Azure 入口網站上的基本組態。 有時稱之為「叢集使用者」。
 * SSH 使用者 (Linux 叢集)：用來透過 SSH 連線到叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="location"></a>叢集與儲存體的位置 (區域)

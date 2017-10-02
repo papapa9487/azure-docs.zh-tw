@@ -3,7 +3,7 @@ title: "Azure Resource Manager 的 Load Balancer 支援 | Microsoft Docs"
 description: "搭配使用適用於 Load Balancer 的 PowerShell 與 Azure Resource Manager。 在負載平衡器中使用範本"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: tysonn
 ms.assetid: d0394f11-ee5a-4407-9d86-79c936297265
@@ -12,15 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: b0bbde6828ed556eef8063a56a35b325fee1865c
-ms.openlocfilehash: d06c924f384a2684b5a91c202039c581796c1091
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6ba329e55f03cf984ae795c1d3a509e196064e2a
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>搭配 Azure Load Balancer 使用 Azure Resource Manager 支援
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Resource Manager 是 Azure 中慣用的服務管理架構。 Azure Load Balancer 可使用以 Azure Resource Manager 為基礎的 API 和工具進行管理。
 
@@ -31,7 +35,7 @@ Azure Resource Manager 是 Azure 中慣用的服務管理架構。 Azure Load Ba
 * 前端 IP 組態 - Load balancer 可以包括一或多個前端 IP 位址 (亦稱為虛擬 IP (VIP))。 這些 IP 位址做為流量的輸入。
 * 後端位址集區 - 這些是與虛擬機器網路介面卡 (NIC) 相關聯的 IP 位址，而負載會散發到那些虛擬機器網路介面卡。
 * 負載平衡規則 - 規則屬性會將指定的前端 IP 與連接埠組合對應到一組後端 IP 位址與連接埠組合。 單一負載平衡器可以有多個負載平衡規則。 每個規則都是與 VM 相關聯的前端 IP 和連接埠以及後端 IP 和連接埠的組合。
-* 探查 - 探查可讓您追蹤 VM 執行個體的健全狀況。 如果健全狀況探查失敗，則 VM 執行個體不會自動進入輪替。
+* 探查 - 探查可讓您追蹤 VM 執行個體的健全狀況。 如果健康情況探查失敗，則 VM 執行個體不會自動進入輪替。
 * 輸入 NAT 規則 - 定義流經前端 IP 並散發到後端 IP 之輸入流量的 NAT 規則。
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
@@ -46,7 +50,7 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單�
 
 [深入了解網路資源](../virtual-network/resource-groups-networking.md)
 
-您可以在 [GitHub 儲存機制](https://github.com/Azure/azure-quickstart-templates) (裝載了一組社群產生的範本) 中找到使用 Azure Load Balancer 的快速入門範本。
+如需使用 Azure Load Balancer 的快速入門範本，請參閱 [GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates) (裡面裝載了一組由社群產生的範本)。
 
 範本的範例：
 
@@ -68,9 +72,4 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單�
 您也可以[開始建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)，以及為特定負載平衡器的網路流量行為設定[分配模式](load-balancer-distribution-mode.md)類型。
 
 了解如何管理 [負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)。 當您的應用程式需要讓負載平衡器後方的伺服器保持連線時，這很重要。
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

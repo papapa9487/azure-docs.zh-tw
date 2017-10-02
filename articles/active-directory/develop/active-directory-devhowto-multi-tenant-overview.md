@@ -1,9 +1,9 @@
 ---
-title: "如何建置可讓任何 Azure AD 使用者登入的應用程式 | Microsoft Docs"
+title: "如何建置可讓任何 Azure AD 使用者登入的應用程式"
 description: "如何建置可讓使用者從任何 Azure Active Directory 租用戶登入之應用程式 (也稱為多租用戶應用程式) 的逐步解說。"
 services: active-directory
 documentationcenter: 
-author: dstrockis
+author: bryanla
 manager: mbaldwin
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
@@ -12,19 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2017
-ms.author: dastrock
+ms.date: 09/26/2017
+ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 4b44b83d22c0d10466198df5cb3e820323fdba39
+ms.translationtype: HT
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>如何使用多租用戶應用程式模式登入任何 Azure Active Directory (AD) 使用者
-如果您提供「軟體即服務」應用程式給許多公司，您可以將您的應用程式設定為可接受來自任何 Azure AD 租用戶的登入。  在 Azure AD 中，這稱為讓您的應用程式成為多租用戶應用程式。  任何 Azure AD 租用戶中的使用者在同意搭配您的應用程式使用其帳戶之後，便可登入您的應用程式。  
+如果您提供「軟體即服務」應用程式給許多公司，您可以將您的應用程式設定為可接受來自任何 Azure AD 租用戶的登入。  Azure AD 會呼叫此組態來讓您的應用程式可使用多租用戶。  任何 Azure AD 租用戶中的使用者在同意搭配您的應用程式使用其帳戶之後，便可登入您的應用程式。  
 
 如果您的現有應用程式有其自己的帳戶系統，或支援從其他雲端提供者執行其他登入方式，則新增從任何租用戶執行 Azure AD 登入很簡單。 只要註冊您的應用程式、透過 OAuth2、OpenID Connect 或 SAML 新增登入程式碼，然後將 [使用 Microsoft 登入] 按鈕放在您的應用程式上即可。 按下面的按鈕來深入了解如何將應用程式加上商標。
 
@@ -59,7 +58,7 @@ Azure AD 中的 Web 應用程式/API 註冊預設是單一租用戶。  您只�
 
 當 Azure AD 在 /common 端點收到要求時，它會讓使用者登入，藉此探索使用者來自哪個租用戶。  /common 端點可以與 Azure AD 支援的所有驗證通訊協定搭配使用：OpenID Connect、OAuth 2.0、SAML 2.0 及「WS-同盟」。
 
-然後，傳給應用程式的登入回應會包含代表使用者的權杖。  權杖中的簽發者值會告知應用程式該使用者來自哪個租用戶。  從 /common 端點傳回回應時，權杖中的簽發者值將會與使用者的租用戶對應。  請務必注意，/common 端點不是租用戶，也不是簽發者，而只是一個多工器。  使用 /common 時，必須更新您應用程式中用來驗證權杖的邏輯，以便將這一點納入考量。 
+然後，傳給應用程式的登入回應會包含代表使用者的權杖。  權杖中的簽發者值會告知應用程式該使用者來自哪個租用戶。  從 /common 端點傳回回應時，權杖中的簽發者值會與使用者的租用戶對應。  請務必注意，/common 端點不是租用戶，也不是簽發者，而只是一個多工器。  使用 /common 時，必須更新您應用程式中用來驗證權杖的邏輯，以便將這一點納入考量。 
 
 如先前所述，多租用戶應用程式也應該為使用者提供一致的登入體驗，以遵循 Azure AD 應用程式的商標指導方針。 按下面的按鈕來深入了解如何將應用程式加上商標。
 
@@ -89,7 +88,7 @@ Web 應用程式和 Web API 會接收並驗證來自 Azure AD 的權杖。
 
 其中的 GUID 值是租用戶的租用戶識別碼重新命名安全版本。  如果您按一下上方的 `contoso.onmicrosoft.com` 中繼資料連結，您可以在文件中看到此簽發者值。
 
-當單一租用戶應用程式驗證權杖時，它會根據中繼資料文件中的簽署金鑰來檢查權杖的簽章。 這可讓它確定權杖中的簽發者值符合中繼資料文件中找到的值。
+當單一租用戶應用程式驗證權杖時，它會根據中繼資料文件中的簽署金鑰來檢查權杖的簽章。 這項檢查可讓它確定權杖中的簽發者值符合中繼資料文件中找到的值。
 
 因為 /common 端點既不對應租用戶也不是簽發者，所以當您檢查 /common 之中繼資料中的簽發者值時，它擁有的是一個樣板化的 URL 而不是實際值︰
 
@@ -126,17 +125,17 @@ Web 應用程式和 Web API 會接收並驗證來自 Azure AD 的權杖。
 
 如果應用程式要求的權限不需要系統管理員同意，則應用程式也可以使用 `prompt=admin_consent` 參數。 這是在應用程式需要一種體驗的情況下完成，也就是租用戶系統管理員「註冊」一次，此後就不會再提示其他使用者要表示同意。
 
-如果應用程式需要系統管理員同意，當系統管理員登入，但未傳送 `prompt=admin_consent` 參數時，系統管理員**只針對其使用者帳戶**才會順利同意此應用程式。  一般使用者將仍然無法登入此應用程式並對其行使同意權。  當您想要先讓租用戶系統管理員能夠瀏覽您的應用程式，然後才允許其他使用者存取時，這會相當有用。
+如果應用程式需要系統管理員同意，當系統管理員登入，但未傳送 `prompt=admin_consent` 參數時，系統管理員**只針對其使用者帳戶**才會順利同意此應用程式。  一般使用者仍然無法登入此應用程式並對其行使同意權。  當您想要先讓租用戶系統管理員能夠瀏覽您的應用程式，然後才允許其他使用者存取時，這個功能相當有用。
 
 租用戶系統管理員可以停用一般使用者對應用程式行使同意權的能力。  如果停用這項功能，就一律需要系統管理員同意，才能在租用戶中設定應用程式。  如果您想要在停用一般使用者同意的情況下測試您的應用程式，您可以在 [Azure 入口網站][AZURE-portal]的 Azure AD 租用戶設定區段中找到設定參數。
 
 > [!NOTE]
-> 有些應用程式想要提供一種體驗，讓一般使用者能夠一開始即表示同意，之後應用程式即可讓系統管理員參與操作並要求需要系統管理員同意的權限。  目前在 Azure AD 中還沒有任何方法可以使用單一應用程式註冊來達到這個目的。  即將推出 Azure AD v2 端點將可允許應用程式在執行階段 (而不是在註冊階段) 要求權限，這將使得此情況變成可行。  如需詳細資訊，請參閱 [Azure AD 應用程式模型 v2 開發人員指南][AAD-V2-Dev-Guide]。
+> 有些應用程式想要提供一種體驗，讓一般使用者能夠一開始即表示同意，之後應用程式即可讓系統管理員參與操作並要求需要系統管理員同意的權限。  目前在 Azure AD 中還沒有任何方法可以使用單一應用程式註冊來達到這個目的。  即將推出的 Azure AD Resource Manager 部署模型端點可讓應用程式在執行階段 (而不是在註冊階段) 要求權限，從而實現此情況。  如需詳細資訊，請參閱 [Azure AD 應用程式模型 Resource Manager 部署模型開發人員指南][AAD-V2-Dev-Guide]。
 > 
 > 
 
 ### <a name="consent-and-multi-tier-applications"></a>同意和多層應用程式
-您的應用程式可能會有多層，每一層皆由它自己在 Azure AD 中的註冊代表。  例如，一個呼叫 Web API 的原生應用程式，或是一個呼叫 Web API 的 Web 應用程式。  在這兩種情況下，用戶端 (原生應用程式或 Web 應用程式) 都會要求可呼叫資源 (Web API) 的權限。  若要讓用戶端順利獲得客戶同意新增到其租用戶中，則它要求權限的所有資源必須都已經存在於客戶的租用戶中。  如果不符合此條件，Azuer AD 將會傳回錯誤，指出必須先新增資源。
+您的應用程式可能會有多層，每一層皆由它自己在 Azure AD 中的註冊代表。  例如，一個呼叫 Web API 的原生應用程式，或是一個呼叫 Web API 的 Web 應用程式。  在這兩種情況下，用戶端 (原生應用程式或 Web 應用程式) 都會要求可呼叫資源 (Web API) 的權限。  若要讓用戶端順利獲得客戶同意新增到其租用戶中，則它要求權限的所有資源必須都已經存在於客戶的租用戶中。  如果不符合此條件，Azuer AD 會傳回錯誤，指出必須先新增資源。
 
 **單一租用戶中的多層**
 
@@ -191,7 +190,7 @@ Web 應用程式和 Web API 會接收並驗證來自 Azure AD 的權杖。
 * [Microsoft Graph API 權限範圍][MSFT-Graph-permision-scopes]
 * [Azure AD Graph API 權限範圍][AAD-Graph-Perm-Scopes]
 
-請使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
+使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 06/30/2017
+ms.date: 09/20/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 28aa6d79f999fe9b247d9bb2c61a149a21e72a4a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: d373ecaf585233f5daa4cf987e55adab9e099f8f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
@@ -85,16 +85,20 @@ Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.mi
 
 採用 SQL Database，您可取得內建智慧來協助您大幅降低執行和管理資料庫的成本，並將應用程式的效能和安全性最大化。 SQL Database 隨時執行數以百萬計的客戶工作負載，並收集和處理大量的遙測資料，同時完全尊重幕後的客戶隱私權。 各種演算法會持續評估遙測資料，讓服務能夠了解您的應用程式並隨之調整。 根據這項分析，服務會提出針對特定工作負載量身訂做的效能改善建議。 
 
-### <a name="automatic-performance-tuning"></a>自動效能調整
+### <a name="automatic-performance-monitoring-and-tuning"></a>自動的效能監視和微調
 
-SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database 會了解您的資料庫模式，並可讓您根據您的工作負載調整資料庫結構描述。 SQL Database 會使用 [SQL Database Advisor](sql-database-advisor.md) 提供效能微調建議，您可以在其中檢閱微調動作並加以套用。 不過，持續監視資料庫是冗長乏味的艱辛工作，尤其是在處理許多資料庫時。 即使使用 SQL Database 和 Azure 入口網站提供的所有可用工具和報告，都可能無法有效率地管理大量資料庫。 您可以考慮使用自動調整功能將一些監視和微調動作委派給 SQL Database，而不是監視和手動調整您的資料庫。 SQL Database 會自動套用建議、測試及驗證每個調整動作，以確保持續改善效能。 如此一來，SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每個調整動作前後，資料庫效能都會受到仔細的監控和比較，而如果效能沒有改善，則會還原調整動作。
+SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database 會了解您的資料庫模式，並可讓您根據您的工作負載調整資料庫結構描述。 SQL Database 提供[效能微調建議](sql-database-advisor.md)，您可以在其中檢閱微調動作並加以套用。 
+
+不過，持續監視資料庫是冗長乏味的艱辛工作，尤其是在處理許多資料庫時。 [智慧型深入解析](sql-database-intelligent-insights.md)會自動地大規模監視 SQL Database 效能來替您代勞，並通知效能降低的問題，還會識別問題的根本原因，然後盡可能提供效能改善建議。
+
+即使使用 SQL Database 和 Azure 入口網站提供的所有可用工具和報告，都可能無法有效率地管理大量資料庫。 除了手動監視和調整資料庫，您也可以考慮使用[自動調整](sql-database-automatic-tuning.md)，將一些監視和微調動作委派給 SQL Database。 SQL Database 會自動套用建議、測試及驗證每個調整動作，以確保持續改善效能。 如此一來，SQL Database 會以受控制且安全的方式自動調整您的工作負載。 自動調整表示在每個調整動作前後，資料庫效能都會受到仔細的監控和比較，而如果效能沒有改善，則會還原調整動作。
 
 現今，在 SQL Database 之上執行 [SaaS 多租用戶應用程式](sql-database-design-patterns-multi-tenancy-saas-applications.md)的許多合作夥伴都依賴自動效能微調，來確保其應用程式始終擁有穩定且可預測的效能。 對他們而言，這項功能可大幅降低夜間發生效能事件的風險。 此外，由於其部分客戶也使用 SQL Server，所以他們會使用 SQL Database 所提供的相同索引建議來協助其 SQL Server 客戶。
 
-SQL Database 中可用的自動調整層面有兩個：
+[SQL Database 中可用的](sql-database-automatic-tuning.md)自動調整層面有兩個：
 
-- **[自動索引管理](sql-database-automatic-tuning.md#automatic-index-management)**：識別您的資料庫中應該新增的索引，以及應該移除的索引。
-- **[自動計劃更正](sql-database-automatic-tuning.md#automatic-plan-choice-correction)**：識別有問題的計劃並修正 SQL 計劃效能問題 (即將推出，已可用於 SQL Server 2017)。
+- **自動索引管理**：識別應該在資料庫中新增的索引，以及應該移除的索引。
+- **自動計劃修正**：識別有問題的計劃並修正 SQL 計劃效能問題 (即將推出，SQL Server 2017 中已提供)。
 
 ### <a name="adaptive-query-processing"></a>自適性查詢處理
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: da517c096357bb8db4334715fa46aa209c273f22
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 使用者登入選項
@@ -26,14 +26,14 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 
 如果您已熟悉 Azure AD 身分識別模型，而想要深入了解特定的方法，請參閱適當的連結：
 
-* 使用[單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[密碼同步作業](#password-synchronization)
-* [傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
+* 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[密碼雜湊同步處理](#password-synchronization)
+* 使用[無縫單一登入 (SSO)](active-directory-aadconnect-sso.md) 進行[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)
 * [同盟 SSO (搭配 Active Directory Federation Services (AD FS))](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>為您的組織選擇使用者登入方法
-針對只想要讓使用者登入 Office 365、SaaS 應用程式及其他 Azure AD 型資源的大多數組織，建議使用預設的密碼同步處理選項。 不過，有些組織有無法使用此選項的特定原因。 它們可以選擇同盟登入選項 (例如 AD FS) 或傳遞驗證。 您可使用下表來協助您做正確的選擇。
+針對只想要讓使用者登入 Office 365、SaaS 應用程式及其他 Azure AD 型資源的大多數組織，建議使用預設的密碼雜湊同步處理選項。 不過，有些組織有無法使用此選項的特定原因。 它們可以選擇同盟登入選項 (例如 AD FS) 或傳遞驗證。 您可使用下表來協助您做正確的選擇。
 
-我需要 | PS 搭配 SSO| PA 搭配 SSO| AD FS |
+我需要 | PHS 搭配 SSO| PTA 與 SSO| AD FS |
  --- | --- | --- | --- |
 自動將內部部署 Active Directory 中的新使用者、連絡人及群組帳戶同步至雲端。|x|x|x|
 設定適用於 Office 365 混合式案例的租用戶。|x|x|x|
@@ -42,19 +42,16 @@ Azure Active Directory (Azure AD) Connect 可讓您的使用者使用相同的�
 確定沒有任何密碼儲存在雲端。||x*|x|
 啟用內部部署多重要素驗證解決方案。|||x|
 
-*透過輕量連接器。
+*透過輕量型代理程式。
 
->[!NOTE]
-> 傳遞驗證目前對於豐富型用戶端有一些限制。 如需詳細資訊，請參閱[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)。
+### <a name="password-hash-synchronization"></a>密碼雜湊同步處理
+使用密碼雜湊同步處理時，可以將使用者密碼的雜湊從內部部署 Active Directory 同步至 Azure AD。 在內部部署環境中變更或重設密碼之後，新的密碼雜湊會立即同步至 Azure AD，讓使用者能夠一律使用相同的密碼來存取雲端資源和內部部署資源。 這些密碼一律不會傳送至 Azure AD，也不會以純文字的形式儲存在 Azure AD 中。 您可以將密碼雜湊同步處理與密碼回寫功能搭配使用，以在 Azure AD 中啟用自助式密碼重設功能。
 
-### <a name="password-synchronization"></a>密碼同步處理
-使用密碼同步處理時，可以將使用者密碼的雜湊從內部部署 Active Directory 同步至 Azure AD。 在內部部署環境中變更或重設密碼之後，新密碼會立即同步至 Azure AD，讓使用者能夠一律使用相同的密碼來存取雲端資源和內部部署資源。 這些密碼一律不會傳送至 Azure AD，也不會以純文字的形式儲存在 Azure AD 中。 您可以將密碼同步處理與密碼回寫功能搭配使用，以在 Azure AD 中啟用自助式密碼重設功能。
+此外，您也可以針對公司網路中已加入網域的電腦上使用者啟用[無縫 SSO](active-directory-aadconnect-sso.md)。 在使用單一登入的情況下，已啟用的使用者只需輸入使用者名稱，即可安全地存取雲端資源。
 
-此外，您也可以針對公司網路中已加入網域的電腦上使用者啟用 [SSO](active-directory-aadconnect-sso.md)。 在使用單一登入的情況下，已啟用的使用者只需輸入使用者名稱，即可安全地存取雲端資源。
+![密碼雜湊同步處理](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
-![密碼同步處理](./media/active-directory-aadconnect-user-signin/passwordhash.png)
-
-如需詳細資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
+如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)一文。
 
 ### <a name="pass-through-authentication"></a>傳遞驗證
 使用傳遞驗證時，會向內部部署 Active Directory 控制器驗證使用者的密碼。 密碼不以任何形式存在於 Azure AD 中。 這可允許在進行雲端服務驗證的期間評估內部部署原則，例如登入時數限制。
@@ -140,7 +137,7 @@ userPrincipalName 屬性是使用者登入 Azure AD 和 Office 365 時會使用�
 
 針對以下資訊，讓我們假設所關注的是 UPN 尾碼 contoso.com，這會在內部部署目錄中作為 UPN 的一部分，例如 user@contoso.com。
 
-###### <a name="express-settingspassword-synchronization"></a>快速設定/密碼同步處理
+###### <a name="express-settingspassword-hash-synchronization"></a>快速設定/密碼雜湊同步處理
 | State | 對使用者的 Azure 登入體驗的影響 |
 |:---:|:--- |
 | 未新增 |在此案例中，Azure AD 目錄內並未針對 contoso.com 新增任何自訂網域。 內部部署 UPN 尾碼為 @contoso.com 的使用者將無法使用其內部部署 UPN 來登入 Azure。 他們必須改為使用 Azure AD 透過為預設 Azure AD 目錄新增尾碼來提供給他們的新 UPN。 例如，如果您要將使用者同步至 Azure AD 目錄 azurecontoso.onmicrosoft.com，則內部部署使用者 user@contoso.com 將得到的 UPN 會是 user@azurecontoso.onmicrosoft.com。 |
@@ -159,7 +156,7 @@ userPrincipalName 屬性是使用者登入 Azure AD 和 Office 365 時會使用�
 | Verified |在此案例中，您可以繼續進行設定，而不需採取任何進一步的動作。 |
 
 ## <a name="changing-the-user-sign-in-method"></a>變更使用者登入方法
-您可以在使用精靈完成 Azure AD Connect 的初始設定之後，使用 Azure AD Connect 中的可用工作，將使用者登入方法從同盟變更為密碼同步處理或傳遞驗證。 請再次執行 Azure AD Connect 精靈，您將會看到您可執行的工作清單。 在工作清單中選取 [變更使用者登入]  。
+您可以在使用精靈完成 Azure AD Connect 的初始設定之後，使用 Azure AD Connect 中的可用工作，將使用者登入方法從同盟變更為密碼雜湊同步處理或傳遞驗證。 請再次執行 Azure AD Connect 精靈，您將會看到您可執行的工作清單。 在工作清單中選取 [變更使用者登入]  。
 
 ![變更使用者登入](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
@@ -172,7 +169,7 @@ userPrincipalName 屬性是使用者登入 Azure AD 和 Office 365 時會使用�
 ![連接至 Azure AD](./media/active-directory-aadconnect-user-signin/changeusersignin2a.png)
 
 > [!NOTE]
-> 如果您只是要暫時切換到密碼同步處理，則請選取 [請勿轉換使用者帳戶] 核取方塊。 不勾選該選項將導致將每個使用者都轉換為同盟使用者，而這可能耗費數小時。
+> 如果您只是要暫時切換到密碼雜湊同步處理，則請選取 [請勿轉換使用者帳戶] 核取方塊。 不勾選該選項將導致將每個使用者都轉換為同盟使用者，而這可能耗費數小時。
 >
 >
 

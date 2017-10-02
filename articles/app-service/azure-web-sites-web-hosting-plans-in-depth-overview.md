@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: byvinyal
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: f97be571d104e3cc1c6ee732886fa7133ba0dc83
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 688f57de662fec6a04227c35d6578097c795c6da
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-app-service-plans-in-depth-overview"></a>Azure App Service 方案深入概觀
@@ -31,22 +31,36 @@ App Service 方案可定義：
 - 區域 (美國西部、美國東部等)
 - 級別計數 (一、二、三個執行個體等)
 - 執行個體大小 (小型、中型、大型)
-- SKU (免費、共用、基本、標準、進階)
+- SKU (免費、共用、基本、標準、進階、PremiumV2、隔離)
 
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web Apps、Mobile Apps、Function Apps (或 Functions) 全部都在 App Service 方案中執行。  相同訂用帳戶及區域中的應用程式可以共用 App Service 方案。 
 
 所有指派給 **App Service 方案**的應用程式都會共用其所定義的資源。 這可讓您在單一 App Service 方案中託管多個應用程式時，能夠節省成本。
 
-**App Service 方案**可以從 [免費] 和 [共用] SKU 調整為 [基本]、[標準] 和 [進階] SKU，以便存取更多資源和功能。
+您的 **App Service 方案**涵蓋 [免費] 和 [共用] 層，以及 [基本]、[標準]、[進階] 和 [隔離] 層。 每個較高層級都可讓您存取更多的資源與功能。
 
-如果 App Service 方案設為 [基本] 或更高的 SKU，則您可以控制 VM 的**大小**和級別計數。
+如果 App Service 方案設為 [基本] 或更高的層級，則您可以控制 VM 的**大小**和級別計數。
 
-比方說，如果您的方案設定為使用標準服務層中的兩個「小型」執行個體，則與該方案相關聯的所有應用程式會在兩個執行個體上執行。 應用程式也可以存取標準服務層功能。 應用程式在其上執行的方案執行個體完全受管理且高度可用。
+比方說，如果您的方案設定為使用**標準**層中的兩個「小型」執行個體，則該方案中的所有應用程式會在兩個執行個體上執行。 應用程式也可以存取**標準**層功能。 應用程式在其上執行的方案執行個體完全受管理且高度可用。
 
 > [!IMPORTANT]
-> App Service 方案的 **SKU** 和**級別**可決定成本，而不是其中裝載的應用程式數目。
+> App Service 方案的定價層 (SKU) 可決定成本，而不是其中裝載的應用程式數目。
 
-本文探討重要的特性，例如 App Service 方案的層級與規模，以及這些特性如何在管理您的應用程式時發揮效用。
+本文探討 App Service 方案的重要特性 (例如定價層和級別)，以及這些特性在您管理應用程式時的運作方式。
+
+## <a name="new-pricing-tier-premiumv2"></a>新的定價層：PremiumV2
+
+新的 **PremiumV2** 層提供搭載更快速處理器的 [Dv2 系列 VM](../virtual-machines/windows/sizes-general.md#dv2-series)、SSD 儲存體，以及**標準**層雙倍的記憶體/核心比率。 **PremiumV2** 也支援透過增加執行個體計數來提高規模，同時仍提供標準方案中的所有進階功能。 現有**進階**層中可用的所有功能都包含在 **PremiumV2** 中。
+
+類似於其他專用層，此層有三個可用的 VM 大小：
+
+- 小型 (1 個 CPU 核心，3.5 GiB 記憶體) 
+- 中型 (2 個 CPU 核心，7 GiB 記憶體) 
+- 大型 (4 個 CPU 核心，14 GiB 記憶體)  
+
+如需 **PremiumV2** 價格資訊，請參閱 [App Service 價格](/pricing/details/app-service/)。
+
+若要開始使用新的 **PremiumV2** 定價層，請參閱[設定 App Service 的 PremiumV2 層](app-service-configure-premium-tier.md)。
 
 ## <a name="apps-and-app-service-plans"></a>應用程式和 App Service 方案
 
@@ -64,9 +78,7 @@ App Service 方案可定義：
 
 ## <a name="create-an-app-service-plan-or-use-existing-one"></a>建立 App Service 方案或使用現有的方案
 
-在建立應用程式時，請考慮建立資源群組。 另一方面，如果此應用程式是較大應用程式的元件，請在配置給該較大應用程式的資源群組內建立此應用程式。
-
-不論應用程式是全新的應用程式，還是較大應用程式的一部分，您都可以選擇使用現有的方案來裝載它，或建立新的方案。 這項決定其實是容量和預期負載方面的問題。
+在 App Service 中建立新的 Web 應用程式時，將應用程式放入現有的 App Service 方案中，即可共用裝載的資源。 若要判斷新的應用程式是否會有所需的資源，您必須了解現有 App Service 方案的容量，以及新應用程式預期的負載。 過度配置的資源可能會導致新的和現有應用程式停機。
 
 如果有下列情況，建議將您的應用程式隔離至新的 App Service 方案中：
 
@@ -79,9 +91,9 @@ App Service 方案可定義：
 ## <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
 > [!TIP]
-> 如果您有 App Service 環境，您可以檢閱這裡的 App Service 環境相關文件︰[在 App Service 環境中建立 App Service 方案](../app-service-web/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)
+> 如果您有 App Service 環境，請參閱[在 App Service 環境中建立 App Service 方案](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)。
 
-您可以從 App Service 方案瀏覽體驗或在應用程式建立期間，建立空白的 App Service 方案。
+您可以在應用程式建立期間，建立空白的 App Service 方案。
 
 在 [Azure 入口網站](https://portal.azure.com)中，按一下 **[新增]** > **[Web + 行動]**，然後選取 **[Web 應用程式]** 或其他 App Service 應用程式種類。
 
@@ -95,7 +107,7 @@ App Service 方案可定義：
 
 ## <a name="move-an-app-to-a-different-app-service-plan"></a>將應用程式移到不同的應用程式服務方案
 
-您可以在 [Azure 入口網站](https://portal.azure.com)中將應用程式移至不同的 App Service 方案。 只要方案都位於相同的資源群組與地理區域中，您就可以在這些方案之間移動應用程式。
+您可以在 [Azure 入口網站](https://portal.azure.com)中將應用程式移至不同的 App Service 方案。 只要方案都位於_相同的資源群組與地理區域_中，您就可以在這些方案之間移動應用程式。
 
 若要將應用程式移到另一個方案︰
 
@@ -103,16 +115,7 @@ App Service 方案可定義：
 - 在 [功能表] 中，尋找 [App Service 方案]區段。
 - 選取 [變更 App Service 方案]，以啟動程序。
 
-[變更 App Service 方案] 會開啟 [App Service 方案] 選取器。 此時，您可以挑選要將此應用程式移往的現有方案。
-
-> [!IMPORTANT]
-> 選取的 App Service 方案 UI 會依下列準則進行篩選：
-> - 存在相同的資源群組內
-> - 存在相同的地理區域內
-> - 存在相同的網路空間內
->
-> 網路空間是 App Service 內的邏輯結構，會定義伺服器資源的群組。 地理區域 (例如美國西部) 包含許多網路空間，可配置使用 App Service 的客戶。 目前，App Service 資源無法在網路空間之間移動。
->
+[變更 App Service 方案] 會開啟 [App Service 方案] 選取器。 此時，您可以挑選要將此應用程式移往的現有方案。 只會顯示相同資源群組和區域中的方案。
 
 ![App Service 方案選取器。][change]
 
@@ -125,7 +128,7 @@ App Service 方案可定義：
 您可以在功能表的 [開發工具] 區段中找到 [複製應用程式]。
 
 > [!IMPORTANT]
-> 複製具有某些限制，若要深入了解，請閱讀 [使用 Azure 入口網站的 Azure App Service 應用程式複製](../app-service-web/app-service-web-app-cloning-portal.md)。
+> 複製具有某些限制，若要深入了解，請閱讀 [Azure App Service 應用程式複製](app-service-web-app-cloning.md)。
 
 ## <a name="scale-an-app-service-plan"></a>調整 App Service 方案
 
@@ -144,7 +147,7 @@ App Service 方案可定義：
 > [!IMPORTANT]
 > 沒有相關聯應用程式的 **App Service 方案**仍會產生費用，因為它們會繼續保留計算容量。
 
-為了避免非預期的費用，刪除 App Service 方案中裝載的最後一個應用程式時，也會刪除產生的空白 App Service 方案。
+為了避免非預期的費用，刪除 App Service 方案中裝載的最後一個應用程式時，也會根據預設刪除所產生的空白 App Service 方案。
 
 ## <a name="summary"></a>摘要
 

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中監視 Linux 虛擬機器 | Microsoft Docs"
-description: "了解如何在 Azure 中監視 Linux 虛擬機器的開機診斷和效能計量"
+title: "在 Azure 中監視和更新 Linux 虛擬機器 | Microsoft Docs"
+description: "了解如何在 Azure 中監視 Linux 虛擬機器上的開機診斷和效能計量及管理套件更新"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: davidmu1
@@ -17,15 +17,15 @@ ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: c5eab88f1b2311d52e582a0aa1121c8001437376
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="how-to-monitor-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中監視 Linux 虛擬機器
+# <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>如何在 Azure 中監視和更新 Linux 虛擬機器
 
-為了確保您的虛擬機器 (VM) 在 Azure 中正確執行，您可以檢閱開機診斷和效能計量。 在本教學課程中，您將了解如何：
+為了確保您的虛擬機器 (VM) 在 Azure 中正確執行，您可以檢閱開機診斷、效能計量及管理套件更新。 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 啟用 VM 上的開機診斷
@@ -34,6 +34,7 @@ ms.lasthandoff: 09/09/2017
 > * 啟用 VM 上的診斷擴充功能
 > * 檢視 VM 計量
 > * 依據診斷計量建立警示
+> * 管理套件更新
 > * 設定進階監視
 
 
@@ -163,6 +164,92 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 6. (選擇性) 選取 [電子郵件的擁有者、參與者及讀者] 核取方塊以傳送電子郵件通知。 預設動作是在入口網站中顯示通知。
 7. 按一下 [確定] 按鈕。
 
+## <a name="manage-package-updates"></a>管理套件更新
+
+您可以使用更新管理來管理 Azure Linux VM 的套件更新和修補程式。 您可以直接從 VM 快速評估可用更新的狀態、排定何時安裝必要的更新，並檢閱部署結果來確認更新已成功套用至 VM。
+
+如需價格資訊，請參閱[更新管理的自動化價格](https://azure.microsoft.com/pricing/details/automation/)
+
+### <a name="enable-update-management-preview"></a>啟用更新管理 (預覽)
+
+啟用 VM 的更新管理
+
+1. 在畫面左邊，選取 [虛擬機器]。
+1. 從清單中選取 VM。
+1. 在 [VM] 畫面的 [作業] 區段中，按一下 [更新管理]。 [啟用更新管理] 畫面隨即開啟。
+
+將會執行驗證來判斷此 VM 是否已啟用更新管理。 驗證包括檢查 Log Analytics 工作區及連結的自動化帳戶，以及解決方法是否在工作區中。
+
+Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產生的資料。 工作區提供單一位置來檢閱和分析來自多個來源的資料。 若要在需要更新的 VM 上執行其他動作，Azure 自動化可讓您對 VM 執行指令碼，例如下載和套用更新。
+
+驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和混合式背景工作角色佈建。 此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。 
+
+如果不符合這些必要條件，將會出現橫幅讓您選擇啟用此解決方案。
+
+![更新管理上架設定橫幅](./media/tutorial-monitoring/manage-updates-onboard-solution-banner.png)
+
+按一下橫幅以啟用解決方案。 如果在驗證之後遺漏下列任何必要條件，則會自動新增：
+
+* [Log Analytics](../../log-analytics/log-analytics-overview.md) 工作區
+* [自動化](../../automation/automation-offering-get-started.md)
+* VM 上已啟用 [Hybrid Runbook 背景工作角色](../../automation/automation-hybrid-runbook-worker.md)
+
+[啟用更新管理] 畫面隨即開啟。 進行設定，然後按一下 [啟用]。
+
+![啟用更新管理解決方案](./media/tutorial-monitoring/manage-updates-update-enable.png)
+
+啟用解決方案可能需要長達 15 分鐘，在這段時間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關 VM 上的封裝管理員遺漏更新的相關資訊會流向 Log Analytics。
+可能需要 30 分鐘到 6 小時，資料才可供分析。
+
+### <a name="view-update-assessment"></a>檢視更新評量
+
+啟用 [更新管理] 解決方案之後，[更新管理] 畫面隨即出現。 您可以在 [遺漏更新] 索引標籤上看到遺漏的更新清單。
+
+![檢視更新狀態](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
+
+### <a name="schedule-an-update-deployment"></a>排程更新部署
+
+若要安裝更新，請將部署排程在發行排程和維護時段之前。
+
+按一下 [更新管理] 畫面頂端的 [排程更新部署]，以針對 VM 來排程新的更新部署。 在 [新增更新部署] 畫面上，指定下列資訊：
+
+* **名稱** - 提供唯一名稱來識別更新部署。
+* **要排除的更新** - 選取此選項，以輸入要排除更新的套件名稱。
+* **排程設定** - 您可以接受預設的日期和時間 (目前時間之後的 30 分鐘)，或指定不同的時間。 您也可以指定部署是否發生一次，或設定週期性排程。 按一下 [週期] 下的 [週期性] 選項，以設定週期性排程。
+
+  ![更新排程設定畫面](./media/tutorial-monitoring/manage-updates-schedule-linux.png)
+
+* **維護時間範圍 (分鐘)** - 指定您要執行更新部署的時段。  這有助於確保在您定義的維護時段內執行變更。 
+
+排程設定完成之後，請按一下 [建立] 按鈕，並回到狀態儀表板。
+請注意，[已排程] 表格會顯示您已建立的部署排程。
+
+> [!WARNING]
+> 如果維護時段內有足夠的時間，則安裝更新之後，VM 會自動重新啟動。
+
+更新管理會使用 VM 上現有的封裝管理員來安裝套件。
+
+### <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
+
+已排程的部署開始之後，您可以在 [更新管理] 畫面的 [更新部署] 索引標籤上看到該部署的狀態。
+如果目前正在執行，狀態會顯示為 [進行中]。 完成時，如果成功，狀態會變更為 [成功]。
+如果部署中的一或多個更新失敗，則狀態為 [失敗]。
+按一下已完成的更新部署，以查看該更新部署的儀表板。
+
+![特定部署的更新部署狀態儀表板](./media/tutorial-monitoring/manage-updates-view-results.png)
+
+[更新結果] 磚包含 VM 上的更新總數和部署結果的摘要。
+右邊表格是每個更新和安裝結果的詳細解析，可能是下列其中一個值：
+
+* **未嘗試** - 未安裝更新，因為在已定義的維護時段內，沒有足夠的時間可用。
+* **成功** - 更新已成功下載並安裝在 VM 上
+* **失敗** - 更新無法下載或安裝在 VM 上。
+
+按一下 [所有記錄] 以查看部署已建立的所有記錄項目。
+
+按一下 [輸出] 磚，以查看負責在目標 VM 上管理更新部署之 Runbook 的作業串流。
+
+按一下 [錯誤]，以查看部署傳回之任何錯誤的詳細資訊。
 
 ## <a name="advanced-monitoring"></a>進階監視 
 
@@ -187,7 +274,7 @@ az vm extension set \
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您利用 Azure 資訊安全中心設定並檢閱 VM。 您已了解如何︰
+在本教學課程中，您已設定、檢閱和管理 VM 的更新。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 啟用 VM 上的開機診斷
@@ -196,9 +283,11 @@ az vm extension set \
 > * 啟用 VM 上的診斷擴充功能
 > * 檢視 VM 計量
 > * 依據診斷計量建立警示
+> * 管理套件更新
 > * 設定進階監視
 
-請前進到下一個教學課程，了解 Azure 資訊安全中心。
+請前進到下一個教學課程，以了解 Azure 資訊安全中心。
 
 > [!div class="nextstepaction"]
 > [管理 VM 安全性](./tutorial-azure-security.md)
+

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: bc4ff9125553c8918df3a1f84041560a5b7d4cd8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,12 +28,14 @@ ms.lasthandoff: 08/08/2017
 
 ## <a name="known-issues"></a>已知問題
 
+- 在某些情況下，啟用無縫 SSO 最久可能需要 30 分鐘。
+- 不支援 Edge 瀏覽器。
+- 在 Office 用戶端啟用授權 (尤其是在共用的電腦案例中) 會導致使用者收到額外的登入輸入。
+- 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。 和 
+- Internet Explorer 在開啟「增強保護」模式時也無法使用無縫 SSO。
+- iOS 和 Android 上的行動瀏覽器無法使用無縫 SSO。
 - 如果您正在同步處理 30 個或更多的 AD 樹系，您無法使用 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-azure-ad-seamless-sso)此功能，以解決這個問題。
 - 將 Azure AD 服務 URL (https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net) 新增至「信任的網站」區域而非「近端內部網路」區域，**以阻止使用者登入**。
-- 無縫 SSO 無法在 Firefox 和 Edge 的私人瀏覽模式中運作。 此外當「增強保護」模式開啟時，Internet Explorer 也是如此。
-
->[!IMPORTANT]
->我們最近已復原對 Edge 的支援，以調查客戶回報的問題。
 
 ## <a name="check-status-of-the-feature"></a>檢查功能的狀態
 
