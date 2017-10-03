@@ -1,6 +1,6 @@
 ---
 title: "Linux 與 Windows 之間的 Azure Service Fabric 差異 | Microsoft Docs"
-description: "Linux 上的 Azure Service Fabric 預覽和 Windows 上的 Azure Service Fabric 之間的差異。"
+description: "Linux 上的 Azure Service Fabric 與 Windows 上的 Azure Service Fabric 之間的差異。"
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
@@ -12,36 +12,28 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 09/19/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7b80bb7d4a4e6a1b4cf47ce87200f47339785c53
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 25976ba919454e26f1dd7965de5db7c4f80b9355
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux (預覽) 和 Windows (正式推出) 上 Service Fabric 之間的差異
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 與 Windows 上的 Service Fabric 差異
 
-由於 Linux 上的 Service Fabric 是預覽，有一些 Windows 上支援的功能在 Linux 上尚未支援。 最後，當 Linux 上的 Service Fabric 正式推出時，功能集將位於同位檢查。 在即將推出的版本中，兩者間的功能差異會減少。 可用的最新版本之間 (也就是 Windows 上的 5.6 版和 Linux 上的 5.5 版之間) 存在下列差異： 
+Windows 上支援的一些功能，在 Linux 上尚未提供支援。 最終，功能集會處於同等地位，而隨著每次發行，此功能差距將會縮小。 可用的最新版本之間 (也就是 Windows 上的 6.0 版和 Linux 上的 6.0 版之間) 存在下列差異： 
 
-* 可靠的集合 (和可靠的具狀態服務) 
-* ReverseProxy 
-* 獨立安裝程式 
-* 資訊清單檔案的 XML 結構描述驗證 
-* 主控台重新導向 
-* 錯誤分析服務 (FAS)
-* 容器的 Docker Compose 和磁碟區與記錄驅動程式 
-* 容器和服務的資源管理 
-* DNS 服務
-* Azure Active Directory 支援
-* 某些 Powershell 命令的對等 CLI 命令 
-* 僅可針對 Linux 叢集執行 Powershell 命令的子集 (如下一節中展開)。
+* 所有程式設計模型都處於預覽狀態 (Java/C# Reliable Actors、Reliable Stateless Services 和 Reliable Stateful Services)
+* Envoy (ReverseProxy) 在 Linux 上處於預覽狀態
+* 適用於 Linux 的獨立安裝程式還無法在 Linux 上使用
+* 主控台重新導向 (Linux 或 Windows 生產叢集中不支援)
+* Linux 上的錯誤分析服務 (FAS)
+* Service Fabric 服務的 DNS 服務 (Linux 上的容器支援 DNS 服務)
+* 特定 Powershell 命令的 CLI 命令對等項目 (在下面的清單中，大多數項目只適用於獨立叢集)
 
->[!NOTE]
->在生產環境叢集中不支援主控台重新導向，即使是在 Windows 上亦然。
-
-Windows 與 Linux 上的開發工具也不同。 在 Windows 上使用 VisualStudio、Powershell、VSTS 和 ETW，而在 Linux 上使用 Yeoman、Eclipse、Jenkins 和 LTTng。
+Windows 與 Linux 上的開發工具也不同。 在 Windows 上使用 Visual Studio、Powershell、VSTS 和 ETW，而在 Linux 上使用 Yeoman、Eclipse、Jenkins 和 LTTng。
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>無法針對 Linux Service Fabric 叢集運作的 Powershell Cmdlet
 
@@ -67,7 +59,6 @@ Windows 與 Linux 上的開發工具也不同。 在 Windows 上使用 VisualStu
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus

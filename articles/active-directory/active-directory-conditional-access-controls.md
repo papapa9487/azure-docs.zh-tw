@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0f7d847c98e790c542f3a3e666b9a887099a6cbc
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: be3631db20ae744965f9f6677c536ade45e34c49
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,6 +29,7 @@ ms.lasthandoff: 09/13/2017
 透過 [Azure Active Directory (Azure AD) 條件式存取](active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您可以定義對特定條件 ("when this happens") 做出的回應 ("do this")。 在條件式存取的情境中， 
 
 - "**When this happens**" 稱為**條件陳述式**
+
 - "**Then do this**" 成為**控制項**
 
 ![控制](./media/active-directory-conditional-access-controls/11.png)
@@ -54,7 +55,7 @@ ms.lasthandoff: 09/13/2017
 - 滿足所有選取的控制項 (*AND*) 
 - 滿足一項選取的控制項 (*OR*)
 
-![控制](./media/active-directory-conditional-access-controls/51.png)
+![控制](./media/active-directory-conditional-access-controls/17.png)
 
 
 
@@ -89,6 +90,63 @@ ms.lasthandoff: 09/13/2017
 
 
 藉由核准的用戶端應用程式，您可以要求嘗試存取雲端應用程式的用戶端應用程式支援 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。 要求通過核准之用戶端應用程式的條件式存取原則，也稱為[應用程式型條件式存取原則](active-directory-conditional-access-mam.md)。 如需支援的核准用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](active-directory-conditional-access-technical-reference.md#approved-client-app-requirement)。
+
+
+### <a name="terms-of-use"></a>使用條款
+
+您可以要求租用戶中的使用者先同意使用條款，再授與他們存取資源的權利。 身為系統管理員，您可以上傳 PDF 文件來設定及自訂使用條款。 使用者如果落在此控制項的控制範圍內，就必須同意使用條款才會獲得應用程式的存取權。 
+
+
+### <a name="custom-controls"></a>自訂控制項 
+
+您可以在條件式存取中建立自訂控制項，以將使用者重新導向至相容的服務，從而滿足 Azure Active Directory 之外的其他需求。 這可讓您使用某些外部的多重要素驗證和驗證提供者，來強制執行條件式存取規則或建置您自己的自訂服務。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。 
+
+## <a name="custom-controls"></a>自訂控制項
+
+條件式存取中的自訂控制項會將使用者重新導向至相容的服務，從而滿足 Azure Active Directory 之外的其他需求。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 Azure Active Directory 會確認回應，而且使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。
+
+這些控制項會允許使用某些外部或自訂的服務來作為條件式存取控制項，而且一般都能擴充條件式存取的功能。
+
+目前提供相容服務的提供者包括：
+
+- Duo Security
+
+- RSA
+
+- Trusona
+
+如需這些服務的詳細資訊，請直接連絡相關提供者。
+
+### <a name="creating-custom-controls"></a>建立自訂控制項
+
+若要建立自訂控制項，請先連絡您想要使用的提供者。 每個非 Microsoft 的提供者在註冊、訂閱或成為服務一部分等方面，以及在指出您想要與條件式存取整合的方面，都有自己的處理程序和需求。 屆時，提供者會提供您 JSON 格式的資料區塊。 這項資料可讓提供者和條件式存取一起為您的租用戶工作，建立新的控制項，以及定義條件式存取要如何分辨使用者是否已成功執行提供者所提出的驗證。
+
+複製 JSON 資料並貼到相關文字方塊中。 除非您明確地了解您要進行的變更，否則請勿變更 JSON。 進行變更可能會讓提供者與 Microsoft 之間的連線中斷，進而可能將您的帳戶鎖定，讓您和您的使用者無法使用。
+
+用來建立自訂控制項的選項位於 [條件式存取] 頁面的 [管理] 區段。
+
+![控制](./media/active-directory-conditional-access-controls/82.png)
+
+按一下 [新增自訂控制項] 隨即會開啟刀鋒視窗，裡面有文字方塊可供輸入控制項的 JSON 資料。  
+
+
+![控制](./media/active-directory-conditional-access-controls/81.png)
+
+
+### <a name="deleting-custom-controls"></a>刪除自訂控制項
+
+若要刪除自訂控制項，您必須先確定沒有任何條件式存取原則正在使用它。 完成之後：
+
+1. 移至 [自訂控制項] 清單
+
+2. 按一下 [...]  
+
+3. 選取 [刪除] 。
+
+### <a name="editing-custom-controls"></a>編輯自訂控制項
+
+若要編輯自訂控制項，您必須先刪除目前的控制項，然後使用更新後的資訊建立新的控制項。
+
 
 
 

@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/13/2017
+ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 80c5a2a43302e1cc8ec3b4298eb393a1861252d3
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="create-a-secure-cluster-on-azure-using-powershell"></a>使用 PowerShell 在 Azure 上建立安全叢集
-本教學課程會示範如何建立在 Azure 中執行的 Service Fabric 叢集 (Windows 或 Linux)。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。
+# <a name="create-a-windows-cluster-in-azure-using-powershell"></a>使用 PowerShell 在 Azure 中建立 Windows 叢集
+本教學課程會示範如何建立在 Azure 中執行的 Windows Service Fabric 叢集。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。
 
 在本教學課程中，您將了解如何：
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 08/16/2017
 如需建立 Service Fabric 叢集的詳細資訊，請參閱[使用 Azure Resource Manager 來建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
 
 ## <a name="create-the-cluster-using-azure-powershell"></a>使用 Azure PowerShell 建立叢集
-1. 從 [適用於 Service Fabric 的 Azure Resource Manager 範本](https://aka.ms/securepreviewonelineclustertemplate) GitHub 存放庫，下載 Azure Resource Manager 範本和參數檔案的本機複本。  *azuredeploy.json* 是可定義 Service Fabric 叢集的 Azure Resource Manager 範本。 *azuredeploy.parameters.json* 是可供您自訂叢集部署的參數檔。
+1. 從 [適用於 Service Fabric 的 Azure Resource Manager 範本](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) GitHub 存放庫，下載 Azure Resource Manager 範本和參數檔案的本機複本。  *azuredeploy.json* 是可定義 Service Fabric 叢集的 Azure Resource Manager 範本。 *azuredeploy.parameters.json* 是可供您自訂叢集部署的參數檔。
 
 2. 自訂 *azuredeploy.parameters.json* 參數檔中的下列參數：
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 08/16/2017
    | clusterName     | 您想要建立之叢集的名稱。 | *例如 bobs-sfpreviewcluster* |
    | adminUserName   | 叢集虛擬機器上的本機管理帳戶。 | *任何有效的 Windows Server 使用者名稱* |
    | adminPassword   | 叢集虛擬機器上本機管理帳戶的密碼。 | *任何有效的 Windows Server 密碼* |
-   | clusterCodeVersion | 要執行的 Service Fabric 版本。 (255.255.X.255 是預覽版本)。 | **255.255.5718.255** |
+   | clusterCodeVersion | 要執行的 Service Fabric 版本。 (255.255.X.255 是預覽版本)。 | **5.7.198.9494** |
    | vmInstanceCount | 叢集中的虛擬機器數目 (可以是 1 或 3-99)。 | **1** | *對於預覽叢集，請僅指定一部虛擬機器* |
 
 3. 開啟 PowerShell 主控台，登入 Azure，並選取想要在叢集中部署的訂用帳戶：

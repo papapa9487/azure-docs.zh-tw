@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 07063ea53e96c6467e40e8a7ca70e5c03ce53284
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b0327b37b56987d52557f3f4e305f27eb2e5296d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/24/2017
 Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密碼登入內部部署和雲端式應用程式。 它會直接向內部部署 Active Directory 驗證使用者的密碼，以決定是否讓使用者登入。
 
 >[!IMPORTANT]
->Azure AD 傳遞驗證目前為預覽功能。 如果您已透過預覽版使用這項功能，請務必使用[這裡](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)提供的指示將驗證代理程式的預覽版本升級。
+>如果您已透過預覽版使用這項功能，請務必使用[這裡](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)提供的指示將驗證代理程式的預覽版本升級。
 
 請依照下列指示部署傳遞驗證：
 
@@ -130,7 +130,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 >您也可以從[這裡](https://aka.ms/getauthagent)下載驗證代理程式。 請確定在安裝_之前_，檢閱並接受驗證代理程式的[服務條款](https://aka.ms/authagenteula)。
 
 ## <a name="next-steps"></a>後續步驟
-- [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 此功能目前為預覽狀態。 了解支援的情節和不支援的情節。
+- [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 了解支援的情節和不支援的情節。
 - [**技術性深入探討**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解這項功能的運作方式。
 - [**常見問題集**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常見問題集的答案。
 - [**疑難排解**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解決此功能的常見問題。

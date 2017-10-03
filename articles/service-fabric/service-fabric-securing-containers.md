@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a262730aec6ce5a1c6f3b7d2d41056a6e6edfbe0
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 3e41e293cc5340c0e32cf2cc6ef7ab7534330884
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,7 +28,7 @@ Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows
 
 ## <a name="certificate-management-for-containers"></a>容器的憑證管理
 
-您可以藉由指定憑證來保護您的容器服務。 此憑證必須安裝在叢集節點上。 憑證資訊會在應用程式資訊清單的 `ContainerHostPolicies` 標記底下提供，如下列程式碼片段所示：
+您可以藉由指定憑證來保護您的容器服務。 此憑證必須安裝在叢集所有節點上的 LocalMachine 中。 憑證資訊會在應用程式資訊清單的 `ContainerHostPolicies` 標記底下提供，如下列程式碼片段所示：
 
 ```xml
   <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
@@ -36,16 +36,28 @@ Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows
     <CertificateRef Name="MyCert2" X509FindValue="[Thumbprint2]"/>
  ```
 
-在啟動應用程式時，執行階段會讀取憑證，並為每個憑證產生 PFX 檔和密碼。 此 PFX 檔和密碼可使用下列環境變數從容器內部存取： 
+對於 Windows 叢集，在啟動應用程式時，執行階段會讀取憑證，並為每個憑證產生 PFX 檔和密碼。 此 PFX 檔和密碼可使用下列環境變數從容器內部存取： 
 
-* **Certificate_[CodePackageName]_[CertName]_PFX**
-* **Certificate_[CodePackageName]_[CertName]_Password**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PFX**
+* **Certificate_ServicePackageName_CodePackageName_CertName_Password**
 
-容器服務或程序會負責將 PFX 檔匯入容器。 若要匯入憑證，您可以使用 `setupentrypoint.sh` 指令碼或在容器程序內執行自訂程式碼。 用來匯入 PFX 檔的 C# 程式碼範例如下：
+對於 Linux 叢集，只會從容器上 X509StoreName 指定的存放區複製憑證 (PEM)。 Linux 上對應的環境變數為：
+
+* **Certificate_ServicePackageName_CodePackageName_CertName_PEM**
+* **Certificate_ServicePackageName_CodePackageName_CertName_PrivateKey**
+
+或者，如果您已經有所需格式的憑證，且只要在容器內存取該憑證，您可以在應用程式套件內建立資料套件，並在應用程式資訊清單中指定下列項目：
+
+```xml
+  <ContainerHostPolicies CodePackageRef="NodeContainerService.Code">
+   <CertificateRef Name="MyCert1" DataPackageRef="[DataPackageName]" DataPackageVersion="[Version]" RelativePath="[Relative Path to certificate inside DataPackage]" Password="[password]" IsPasswordEncrypted="[true/false]"/>
+ ```
+
+容器服務或流程會負責將憑證檔案匯入容器。 若要匯入憑證，您可以使用 `setupentrypoint.sh` 指令碼，或在容器流程內執行自訂程式碼。 用來匯入 PFX 檔的 C# 程式碼範例如下：
 
 ```c#
-    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_PFX");
-    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_NodeContainerService.Code_MyCert1_Password");
+    string certificateFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_PFX");
+    string passwordFilePath = Environment.GetEnvironmentVariable("Certificate_MyServicePackage_NodeContainerService.Code_MyCert1_Password");
     X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
     string password = File.ReadAllLines(passwordFilePath, Encoding.Default)[0];
     password = password.Replace("\0", string.Empty);
@@ -54,7 +66,7 @@ Service Fabric 為容器內的服務提供了一種機制，供其存取 Windows
     store.Add(cert);
     store.Close();
 ```
-此 PFX 憑證可用於驗證應用程式或服務，也可以用來保護與其他服務的通訊。
+此 PFX 憑證可用於驗證應用程式或服務，也可以用來保護與其他服務的通訊。 根據預設，檔案只會列入系統的 ACL。 您可以視服務的需求，將它列入其他帳戶的 ACL。
 
 
 ## <a name="set-up-gmsa-for-windows-containers"></a>為 Windows 容器設定 gMSA

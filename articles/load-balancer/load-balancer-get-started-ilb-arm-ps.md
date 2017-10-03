@@ -3,7 +3,7 @@ title: "建立 Azure 內部負載平衡器 - PowerShell | Microsoft Docs"
 description: "了解如何使用資源管理員中的 PowerShell 建立內部負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -12,11 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8feb3b5f9dddc7b54b9c5e733675c2a9aca2f223
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,6 +29,8 @@ ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -39,10 +43,10 @@ ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
 
 下列步驟說明如何搭配 PowerShell 使用 Azure Resource Manager，來建立內部負載平衡器。 使用 Azure Resource Manager 時，會個別設定建立內部負載平衡器所需的項目，然後結合在一起以建立負載平衡器。
 
-您需要建立和設定下列物件以部署負載平衡器：
+建立並設定下列物件以部署負載平衡器：
 
-* 前端 IP 組態 - 會設定傳入網路流量的私人 IP 位址
-* 後端位址集區 - 會設定可接收來自前端 IP 集區之負載平衡流量的網路介面
+* 前端 IP 組態 - 會設定傳入網路流量的私人 IP 位址。
+* 後端位址集區 - 會設定可接收來自前端 IP 集區之負載平衡流量的網路介面。
 * 負載平衡規則 - 負載平衡器的來源與本機連接埠組態。
 * 探查 - 設定虛擬機器執行個體的健全狀態探查。
 * 傳入 NAT 規則 - 設定直接存取其中一個虛擬機器執行個體的連接埠規則。
@@ -51,7 +55,7 @@ ms.openlocfilehash: 7bd31ab8f52ec5e81f6966000554be46eaa59396
 
 下列步驟說明如何在兩部虛擬機器之間設定負載平衡器。
 
-## <a name="setup-powershell-to-use-resource-manager"></a>設定 PowerShell 以使用資源管理員
+## <a name="set-up-powershell-to-use-resource-manager"></a>設定 PowerShell 以使用 Resource Manager
 
 請確定您的 PowerShell 的 Azure 模組具有最新的實際執行版本，以及正確設定 PowerShell 以存取您的 Azure 訂用帳戶。
 
@@ -87,11 +91,11 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
-Azure 資源管理員需要所有的資源群組指定一個位置。 這用來作為該資源群組中資源的預設位置。 請確定所有建立負載平衡器的命令都是使用同一個資源群組。
+Azure Resource Manager 需要所有的資源群組指定一個位置。 此位置會作為該資源群組中之資源的預設位置。 請確定所有建立負載平衡器的命令都是使用同一個資源群組。
 
-在上述範例中，我們已建立名為 "NRP-RG" 的資源群組，且位置為「美國西部」。
+在上述範例中，我們建立了名為 **NRP-RG** 的資源群組，且位置為**美國西部**。
 
-## <a name="create-virtual-network-and-a-private-ip-address-for-front-end-ip-pool"></a>建立前端 IP 集區的虛擬網路和私人 IP 位址
+## <a name="create-a-virtual-network-and-a-private-ip-address-for-a-front-end-ip-pool"></a>建立前端 IP 集區的虛擬網路和私人 IP 位址
 
 建立虛擬網路的子網路，並指派給變數 $backendSubnet
 
@@ -107,13 +111,13 @@ $vnet= New-AzureRmVirtualNetwork -Name NRPVNet -ResourceGroupName NRP-RG -Locati
 
 建立虛擬網路，並將子網路 lb-subnet-be 加入至虛擬網路 NRPVNet，並指派給變數 $vnet
 
-## <a name="create-front-end-ip-pool-and-backend-address-pool"></a>建立前端 IP 集區和後端位址集區
+## <a name="create-a-front-end-ip-pool-and-back-end-address-pool"></a>建立前端 IP 集區與後端位址集區
 
 設定傳入負載平衡器網路流量的前端 IP 集區以及後端位址集區，以接收負載平衡流量。
 
 ### <a name="step-1"></a>步驟 1
 
-使用私人 IP 位址 10.0.2.5 為子網路 10.0.2.0/24 建立前端 IP 集區，做為傳入網路流量端點。
+使用私人 IP 位址 10.0.2.5 為子網路 10.0.2.0/24 建立前端 IP 集區，作為傳入網路流量端點。
 
 ```powershell
 $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
@@ -127,9 +131,9 @@ $frontendIP = New-AzureRmLoadBalancerFrontendIpConfig -Name LB-Frontend -Private
 $beaddresspool= New-AzureRmLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 ```
 
-## <a name="create-lb-rules-nat-rules-probe-and-load-balancer"></a>建立 LB 規則、NAT 規則、探查及負載平衡器
+## <a name="create-load-balancing-rules-nat-rules-probe-and-load-balancer"></a>建立負載平衡規則、NAT 規則、探查及負載平衡器
 
-建立前端 IP 集區和後端位址集區之後，您必須建立將屬於負載平衡器資源的規則：
+建立前端 IP 集區和後端位址集區之後，請建立屬於負載平衡器資源的規則：
 
 ### <a name="step-1"></a>步驟 1
 
@@ -145,10 +149,10 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguratio
 
 上述範例會建立下列項目：
 
-* NAT 規則，連接埠 3441 的所有傳入流量都會移至連接埠 3389。
-* 第二個 NAT 規則，連接埠 3442 的所有傳入流量都會移至連接埠 3389。
+* NAT 規則，讓連接埠 3441 的所有傳入流量都移至連接埠 3389。
+* 第二個 NAT 規則，讓連接埠 3442 的所有傳入流量都移至連接埠 3389。
 * 負載平衡器規則，將公用連接埠 80 上的所有傳入流量，負載平衡至後端位址集區中的本機連接埠 80。
-* 探查規則，檢查路徑 "HealthProbe.aspx" 的健全狀態。
+* 探查規則，以檢查路徑 "HealthProbe.aspx" 的健康情況
 
 ### <a name="step-2"></a>步驟 2
 
@@ -160,7 +164,7 @@ $NRPLB = New-AzureRmLoadBalancer -ResourceGroupName "NRP-RG" -Name "NRP-LB" -Loc
 
 ## <a name="create-network-interfaces"></a>建立網路介面
 
-建立內部負載平衡器之後，您需要定義要由哪些網路介面接收傳入的負載平衡網路流量，以及定義 NAT 規則和探查。 在此情況下需個別設定網路介面，並在稍後指派給虛擬機器。
+建立內部負載平衡器之後，您需要定義哪些網路介面可以接收傳入的負載平衡網路流量、NAT 規則和探查。 在此情況下需個別設定網路介面，並在稍後指派給虛擬機器。
 
 ### <a name="step-1"></a>步驟 1
 
@@ -188,7 +192,7 @@ $backendnic1= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
-最終結果會顯示如下：
+最終結果會顯示下列輸出：
 
     $backendnic1
 
@@ -250,7 +254,7 @@ $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-n
 
 ### <a name="step-1"></a>步驟 1
 
-將負載平衡器資源載入到變數之中 (如果您還沒這麼做)。 所使用的變數稱為 $lb，並使用來自以上建立之負載平衡器資源的相同名稱。
+將負載平衡器資源載入到變數之中 (如果您還沒這麼做)。 所使用的變數稱為 $lb，並使用來自上述步驟所建立之負載平衡器資源的相同名稱。
 
 ```powershell
 $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -261,7 +265,7 @@ $lb = Get-AzureRmLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 將後端組態載入到變數之中。
 
 ```powershell
-$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name backendpool1 -LoadBalancer $lb
+$backend = Get-AzureRmLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
 ### <a name="step-3"></a>步驟 3
@@ -331,9 +335,4 @@ Remove-AzureRmLoadBalancer -Name NRPLB -ResourceGroupName NRP-RG
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

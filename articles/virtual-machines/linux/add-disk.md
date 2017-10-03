@@ -17,60 +17,31 @@ ms.devlang: azurecli
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 7a989ffd72dd3636419dfb91f696f0e38f9271c2
+ms.translationtype: HT
+ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
+ms.openlocfilehash: 9db7d300b745001906bdc38769dcbe6e4d7c7b83
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-<a id="add-a-disk-to-a-linux-vm" class="xliff"></a>
-
-# 在 Linux VM 中新增磁碟
-本文說明如何將持續性磁碟連接到您的 VM，以便您保留資料 - 即使您的 VM 會由於維護或調整大小而重新佈建。 
-
-<a id="quick-commands" class="xliff"></a>
-
-## 快速命令
-下列範例會將 `50`GB 磁碟附加至名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
-
-若要使用受控磁碟：
-
-```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
-```
-
-若要使用非受控磁碟：
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
-```
-
-<a id="attach-a-managed-disk" class="xliff"></a>
-
-## 附加受控磁碟
-
-使用受控磁碟，可讓您專注於您的 VM 及其磁碟，而不需擔心 Azure 儲存體帳戶。 您可以使用相同的 Azure 資源群組，快速建立受控磁碟並將它附加至 VM，也可以建立任意數目的磁碟，然後予以附加。
+# <a name="add-a-disk-to-a-linux-vm"></a>在 Linux VM 中新增磁碟
+本文說明如何將持續性磁碟連結到您的 VM，以便您保留資料 - 即使您的 VM 會由於維護或調整大小而重新佈建。 
 
 
-<a id="attach-a-new-disk-to-a-vm" class="xliff"></a>
+## <a name="use-managed-disks"></a>使用受控磁碟
+Azure 受控磁碟會藉由管理與 VM 磁碟相關聯的儲存體帳戶，來簡化 Azure VM 的磁碟管理。 您只需要指定類型 (進階或標準) 還有您需要的磁碟大小，Azure 就會替您建立並管理磁碟。 如需詳細資訊，請參閱[受控磁碟概觀](managed-disks-overview.md)。
 
-### 將新磁碟附加至 VM
 
-如果您的 VM 上只需要新磁碟，您可以使用 `az vm disk attach` 命令。
+### <a name="attach-a-new-disk-to-a-vm"></a>將新磁碟附加至 VM
+如果您的 VM 只需要新的磁碟，請使用 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令並搭配 `--new` 參數。 如果您的 VM 位於可用性區域，系統會自動在與 VM 相同的區域中建立磁碟。 如需詳細資訊，請參閱[可用性區域概觀](../../availability-zones/az-overview.md)。 下列範例會建立名為 myDataDisk 的磁碟，其大小為 50 GB：
 
 ```azurecli
 az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
   --new --size-gb 50
 ```
 
-<a id="attach-an-existing-disk" class="xliff"></a>
-
-### 連接現有磁碟 
-
-在許多情況下，您可以附加已建立的磁碟。 您要先找出磁碟識別碼，接著將該識別碼傳遞至 `az vm disk attach` 命令。 下列範例會使用以 `az disk create -g myResourceGroup -n myDataDisk --size-gb 50` 建立的磁碟。
+### <a name="attach-an-existing-disk"></a>連接現有磁碟 
+在許多情況下，您會連結已建立的磁碟。 you attach disks that have already been created. 若要連結現有磁碟，請找出磁碟識別碼，並將識別碼傳遞到 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 命令。 下列範例會查詢 myResourceGroup 中名為 myDataDisk 的磁碟，然後將其連結至名為 myVM 的 VM：
 
 ```azurecli
 # find the disk id
@@ -106,74 +77,29 @@ az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
 ```
 
 
-<a id="attach-an-unmanaged-disk" class="xliff"></a>
-
-## 附加非受控磁碟
-
-如果您不介意在與您的 VM 相同的儲存體帳戶中建立磁碟，附加新磁碟便很快速。 輸入 `azure vm disk attach-new` ，就能為 VM 建立並連接新的 GB 磁碟。 如果您未明確識別儲存體帳戶，則您所建立的任何磁碟都會放在作業系統磁碟所在的相同儲存體帳戶中。 下列範例會將 `50`GB 磁碟附加至名為 `myResourceGroup` 的資源群組中名為 `myVM` 的 VM：
+## <a name="use-unmanaged-disks"></a>使用非受控磁碟
+非受控磁碟需要額外的負荷來建立及管理基礎儲存體帳戶。 非受控磁碟會建立在與作業系統磁碟相同的儲存體帳戶中。 若要建立及連結非受控磁碟，請使用 [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) 命令。 下列範例會將 50 GB 的非受控磁碟，連結到 myResourceGroup 資源群組中名為 myVM 的 VM：
 
 ```azurecli
 az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
   --new --size-gb 50
 ```
 
-<a id="connect-to-the-linux-vm-to-mount-the-new-disk" class="xliff"></a>
 
-## 連接到 Linux VM 以掛接新磁碟
-> [!NOTE]
-> 本主題會利用使用者名稱和密碼連線到 VM。 若要使用公開和私密金鑰組來與您的 VM 通訊，請參閱 [如何搭配使用 SSH 與 Azure 上的 Linux](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。 
-> 
-> 
-
-您必須使用 SSH 登入 Azure VM 來分割、格式化和掛接新磁碟，以供 Linux VM 使用。 如果您不熟悉使用 **ssh** 進行連接，此命令會採用 `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` 形式，如下所示：
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>連接到 Linux VM 以掛接新磁碟
+若要分割、格式化和掛接新磁碟以供 Linux VM 使用，請使用 SSH 登入 Azure VM。 如需詳細資訊，請參閱[如何在 Azure 上搭配使用 SSH 與 Linux](mac-create-ssh-keys.md)。 下列範例會以 azureuser 這個使用者名稱，利用 mypublicdns.westus.cloudapp.azure.com 的公用 DNS 項目來連線至 VM： 
 
 ```bash
-ssh ops@mypublicdns.westus.cloudapp.azure.com -p 22
+ssh azureuser@mypublicdns.westus.cloudapp.azure.com
 ```
 
-輸出
-
-```bash
-The authenticity of host 'mypublicdns.westus.cloudapp.azure.com (191.239.51.1)' can't be established.
-ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mypublicdns.westus.cloudapp.azure.com,191.239.51.1' (ECDSA) to the list of known hosts.
-ops@mypublicdns.westus.cloudapp.azure.com's password:
-Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
-
-* Documentation:  https://help.ubuntu.com/
-
-System information as of Fri May 22 21:02:32 UTC 2015
-
-System load: 0.37              Memory usage: 2%   Processes:       207
-Usage of /:  41.4% of 1.94GB   Swap usage:   0%   Users logged in: 0
-
-Graph this data and manage this system at:
-  https://landscape.canonical.com/
-
-Get cloud support with Ubuntu Advantage Cloud Guest:
-  http://www.ubuntu.com/business/services/cloud
-
-0 packages can be updated.
-0 updates are security updates.
-
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-ops@myVM:~$
-```
-
-現在已連線到 VM，您已準備好連接磁碟。  請先使用 `dmesg | grep SCSI` (您用來探索新磁碟的方法可能有所不同) 尋找該磁碟。 在此案例中，它看起來如下：
+在連線到 VM 後，您就可以連結磁碟。 請先使用 `dmesg` (您用來探索新磁碟的方法可能有所不同) 尋找該磁碟。 下列範例會使用 dmesg 來篩選 SCSI 磁碟：
 
 ```bash
 dmesg | grep SCSI
 ```
 
-輸出
+輸出類似於下列範例：
 
 ```bash
 [    0.294784] SCSI subsystem initialized
@@ -183,13 +109,13 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-而且，在本主題的案例中， `sdc` 磁碟是我們想要的磁碟。 現在使用 `sudo fdisk /dev/sdc` 來分割磁碟 -- 假設在您的案例中，磁碟為 `sdc`，使它成為磁碟分割 1 上的主要磁碟，並接受其他預設值。
+在這裡，sdc 是我們想要的磁碟。 使用 `fdisk` 來分割磁碟，將它設為磁碟分割 1 上的主要磁碟，並接受其他預設值。 下列範例會在 /dev/sdc 上啟動 `fdisk` 程序：
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-輸出
+輸出類似於下列範例：
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -211,7 +137,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-在命令提示字元中，輸入 `p` 來建立磁碟分割：
+在命令提示字元中輸入 `p` 來建立磁碟分割，如下所示：
 
 ```bash
 Command (m for help): p
@@ -233,13 +159,13 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-同時，使用 **mkfs** 命令來指定檔案系統類型和裝置名稱，將檔案系統寫入磁碟分割。 在本主題中，我們將使用先前內容中的 `ext4` 和 `/dev/sdc1`：
+現在，使用 `mkfs` 命令將檔案系統寫入至磁碟分割。 指定檔案系統類型和裝置名稱。 下列範例會在前述步驟所建立的 /dev/sdc1 磁碟分割上，建立 ext4 檔案系統：
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
 ```
 
-輸出
+輸出類似於下列範例：
 
 ```bash
 mke2fs 1.42.9 (4-Feb-2014)
@@ -264,38 +190,25 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-現在我們會使用 `mkdir`，建立目錄來掛接檔案系統：
+現在，使用 `mkdir` 建立用來掛接檔案系統的目錄。 下列範例會在 /datadrive 建立目錄：
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-而您可以使用 `mount`來掛接目錄：
+然後，使用 `mount` 掛接檔案系統。 下列範例會將 /dev/sdc1 磁碟分割掛接至 /datadrive 掛接點：
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-資料磁碟現在可以當做 `/datadrive`來使用。
-
-```bash
-ls
-```
-
-輸出
-
-```bash
-bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
-boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
-```
-
-為了確保重新開機之後自動重新掛接磁碟機，必須將磁碟機新增至 /etc/fstab 檔案。 此外，強烈建議在 /et/fstab 中使用全域唯一識別碼 (Universally Unique IDentifier, UUID) 來參考磁碟機，而不只是裝置名稱 (例如， `/dev/sdc1`)。 如果作業系統在開機期間偵測到磁碟錯誤，使用 UUID 可避免將不正確的磁碟掛接到指定的位置。 其餘的資料磁碟則會被指派這些相同的裝置識別碼。 若要尋找新磁碟機的 UUID，請使用 **blkid** 公用程式：
+為了確保重新開機之後自動重新掛接磁碟機，必須將磁碟機新增至 /etc/fstab 檔案。 此外，強烈建議在 /et/fstab 中使用全域唯一識別碼 (Universally Unique IDentifier, UUID) 來參考磁碟機，而不只是使用裝置名稱 (例如，/dev/sdc1)。 如果作業系統在開機期間偵測到磁碟錯誤，使用 UUID 可避免將不正確的磁碟掛接到指定的位置。 其餘的資料磁碟則會被指派這些相同的裝置識別碼。 若要尋找新磁碟機的 UUID，請使用 `blkid` 公用程式：
 
 ```bash
 sudo -i blkid
 ```
 
-輸出大致如下：
+輸出大致如下列範例所示：
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -305,34 +218,30 @@ sudo -i blkid
 
 > [!NOTE]
 > 不當編輯 **/etc/fstab** 檔案會導致系統無法開機。 如果不確定，請參閱散發套件的文件，以取得如何適當編輯此檔案的相關資訊。 在編輯之前，也建議先備份 /etc/fstab 檔案。
-> 
-> 
 
-接下來，在文字編輯器中開啟 **/etc/fstab** 檔案：
+接下來，在文字編輯器中開啟 /etc/fstab 檔案，如下所示：
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-在此範例中，我們會使用先前步驟所建立之新的 **/dev/sdc1** 裝置的 UUID 值，並使用掛接點 **/datadrive**。 在 **/etc/fstab** 檔案的結尾加入以下程式碼：
+在此範例中，我們會使用先前步驟所建立之 /dev/sdc1 裝置的 UUID 值，並使用掛接點 /datadrive。 在 */etc/fstab* 檔案的結尾加入以下程式碼：
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> 稍後移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。 大多數的散發套件會提供 `nofail` 和/或 `nobootwait` fstab 選項。 即使磁碟在開機時無法掛接，這些選項也能讓系統開機。 請查閱散發套件的文件，以取得這些參數的相關資訊。
+> 稍後移除資料磁碟而不編輯 fstab，可能會造成 VM 無法開機。 大多數的發行版本會提供 nofail 和 (或) nobootwait fstab 選項。 即使磁碟在開機時無法掛接，這些選項也能讓系統開機。 請查閱散發套件的文件，以取得這些參數的相關資訊。
 > 
-> **Nofail** 選項可確保即使檔案系統已損毀或磁碟在開機時並不存在，仍然會啟動 VM。 若不使用此選項，您可能會遇到[因為 FSTAB 錯誤所以無法 SSH 到 Linux VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) 中所述的行為
+> *Nofail* 選項可確保即使檔案系統已損毀或磁碟在開機時並不存在，仍然會啟動 VM。 若不使用此選項，您可能會遇到[因為 FSTAB 錯誤所以無法 SSH 到 Linux VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) 中所述的行為
 
-<a id="trimunmap-support-for-linux-in-azure" class="xliff"></a>
-
-### Azure 中 Linux 的 TRIM/UNMAP 支援
-有些 Linux 核心會支援 TRIM/UNMAP 作業以捨棄磁碟上未使用的區塊。 這主要是在標準儲存體中相當實用，可用來通知 Azure 已刪除的頁面已不再有效而可予以捨棄。 如果您建立大型檔案，然後再將它們刪除，這便可節省成本。
+### <a name="trimunmap-support-for-linux-in-azure"></a>Azure 中 Linux 的 TRIM/UNMAP 支援
+有些 Linux 核心會支援 TRIM/UNMAP 作業以捨棄磁碟上未使用的區塊。 此功能主要是在標準儲存體中相當實用，可用來通知 Azure 已刪除的頁面已不再有效而可予以捨棄，而且如果您建立大型檔案，然後再將它們刪除，也可以節省成本。
 
 有兩種方式可在 Linux VM 中啟用 TRIM 支援。 像往常一樣，請參閱您的散發套件以了解建議的方法︰
 
-* 在 `/etc/fstab` 中使用 `discard` 掛接選項，例如：
+* 在 /etc/fstab 中使用 `discard` 掛接選項，例如：
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
@@ -353,16 +262,12 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
     sudo fstrim /datadrive
     ```
 
-<a id="troubleshooting" class="xliff"></a>
-
-## 疑難排解
+## <a name="troubleshooting"></a>疑難排解
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 * 請記住，如果將新磁碟重新開機，除非您將該資訊寫入 [/etc/fstab](http://en.wikipedia.org/wiki/Fstab) 檔案，否則該磁碟無法供 VM 使用。
-* 若要確保您的 Linux VM 已正確設定，請檢閱 [最佳化您的 Linux 機器效能](optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 建議。
-* 新增其他磁碟以擴充儲存體容量，並 [設定 RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 以提升效能。
+* 若要確保您的 Linux VM 已正確設定，請檢閱 [最佳化您的 Linux 機器效能](optimization.md) 建議。
+* 新增其他磁碟以擴充儲存體容量，並 [設定 RAID](configure-raid.md) 以提升效能。
 
 

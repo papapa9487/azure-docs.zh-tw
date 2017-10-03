@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/05/2017
+ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 357a25a665894c86ddb0f93beeb4dd59d8837489
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="performance-recommendations"></a>效能建議
 
 Azure SQL Database 會學習和配合您的應用程式，並提供自訂的建議讓您將 SQL Database 的效能最大化。 同時藉由分析 SQL Database 的使用記錄來持續評估效能。 根據資料庫的獨特工作負載模式提供建議，並協助改善其效能。
 
-> [!NOTE]
-> 建議在您的資料庫上啟用 [自動調整] 來使用建議。 如需詳細資訊，請參閱[自動調整](sql-database-automatic-tuning.md)。
+> [!TIP]
+> [自動調整](sql-database-automatic-tuning.md)是建議的效能調整方法。 [Intelligent Insights](sql-database-intelligent-insights.md) 是建議的效能監視方法。 
 >
 
 ## <a name="create-index-recommendations"></a>建立索引建議
@@ -78,12 +77,10 @@ Azure SQL Database 會持續監視正在執行的查詢，並找出可改善效�
 ## <a name="next-steps"></a>後續步驟
 監視建議，並繼續套用建議以改善效能。 資料庫工作負載會動態地持續變更。 SQL Database 建議程式會繼續監視並提供可能改善資料庫效能的建議。 
 
+* 如需了解如何自動調整資料庫索引和查詢執行計畫，請參閱 [Azure SQL Database 自動調整](sql-database-automatic-tuning.md)。
+* 如需了解如何使用效能問題的自動化診斷與根本原因分析來自動監視資料庫效能，請參閱 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)。
 * 如需如何在 Azure 入口網站中使用效能建議的步驟，請參閱 [Azure 入口網站中的效能建議](sql-database-advisor-portal.md)。
 * 請參閱[查詢效能深入解析](sql-database-query-performance.md)，以了解和檢視排名最前面查詢的效能影響。
 
-## <a name="additional-resources"></a>其他資源
-* [查詢存放區](https://msdn.microsoft.com/library/dn817826.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [角色型存取控制](../active-directory/role-based-access-control-what-is.md)
 
 

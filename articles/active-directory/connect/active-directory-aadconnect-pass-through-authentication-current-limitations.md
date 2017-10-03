@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/18/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 37c0ea094d02208f2516a4a040f75894e046c670
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e193efe391c614a17d2861d4ba7d7776a7d441c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 傳遞驗證：目前的限制
 
 >[!IMPORTANT]
->Azure AD 傳遞驗證目前為預覽功能。 這是免費功能，您不需要任何付費的 Azure AD 版本即可使用。 傳遞驗證僅適用於 Azure AD 的全球執行個體，不適用於 [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) 和 [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)。
+>Azure AD 傳遞驗證是免費功能，您不需要擁有任何 Azure AD 付費版本即可使用此功能。 傳遞驗證僅適用於 Azure AD 的全球執行個體，不適用於 [Microsoft Cloud Germany](http://www.microsoft.de/cloud-deutschland) 和 [Microsoft Azure Government Cloud](https://azure.microsoft.com/features/gov/)。
 
 ## <a name="supported-scenarios"></a>支援的案例
 
-預覽期間完全支援的案例如下︰
+下列案例會有完整支援︰
 
 - 使用者登入所有網頁瀏覽器應用程式。
 - 使用者登入支援[新式驗證](https://aka.ms/modernauthga)的 Office 365 用戶端應用程式。
@@ -38,14 +38,16 @@ ms.lasthandoff: 08/04/2017
 
 ## <a name="unsupported-scenarios"></a>不支援的情節
 
-預覽期間「不」支援的案例如下︰
+下列案例不受支援︰
 
 - 使用者登入舊版 Office 用戶端應用程式c (Office 2013 或更早版本)。 組織應該盡可能切換到新式驗證。 新式驗證提供傳遞驗證支援，但也可使用 Multi-Factor Authentication (MFA) 等[條件式存取](../active-directory-conditional-access.md)功能，協助您保護使用者帳戶。
 - 使用者登入商務用 Skype 用戶端應用程式，包括商務用 Skype 2016。
 - 使用者登入 PowerShell 1.0 版。 建議您改為使用 PowerShell 2.0 版。
+- MFA 的應用程式密碼。
+- 偵測[認證外洩](../active-directory-reporting-risk-events.md#leaked-credentials)的使用者。
 
 >[!IMPORTANT]
->對於不支援的情節，請在 Azure AD Connect 精靈的[選用功能](active-directory-aadconnect-get-started-custom.md#optional-features)頁面上，啟用 [密碼雜湊同步處理] 作為因應措施。 密碼雜湊同步處理「只是」作為先前情節的後援 (「不是」作為傳遞驗證的一般後援)。 如果您不需要這些情節，請關閉 [密碼雜湊同步處理]。
+>對於不支援的情節，請在 Azure AD Connect 精靈的[選用功能](active-directory-aadconnect-get-started-custom.md#optional-features)頁面上，啟用 [密碼雜湊同步處理] 作為因應措施。 密碼雜湊同步處理「只是」作為先前情節的後援 (「不是」作為傳遞驗證的一般後援)。 啟用密碼雜湊同步處理也可讓您選擇在內部部署基礎結構中斷時，(透過 Microsoft 支援服務) 將驗證容錯移轉。
 
 ## <a name="next-steps"></a>後續步驟
 - [**快速入門**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 開始使用 Azure AD 傳遞驗證。

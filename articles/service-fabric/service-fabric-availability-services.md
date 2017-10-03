@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: b0d4615a9b8ab566f69b27e4879b6e2d597b4990
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3e46b4bdcf7b55c31afe5e7bc84a1fb95ad98701
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -37,16 +37,9 @@ Azure Service Fabric 服務可能是具狀態或無狀態。 無狀態服務是�
 
 只能有一個「主要複本」，但可以有多個「作用中次要複本」。 「作用中次要複本」的數目是可設定的，且複本數目越高，所能容許的並行軟體和硬體失敗次數就越多。
 
-如果「主要複本」當機，Service Fabric 就會讓其中一個「作用中次要複本」成為新的「主要複本」。 此「作用中次要複本」已經有更新過的狀態版本 (透過「複寫」)，因此能夠繼續處理進一步的讀取和寫入作業。
+如果「主要複本」當機，Service Fabric 就會讓其中一個「作用中次要複本」成為新的「主要複本」。 此「作用中次要複本」已經有更新過的狀態版本 (透過「複寫」)，因此能夠繼續處理進一步的讀取和寫入作業。 此流程也就是所謂的重新設定，會在[重新設定](service-fabric-concepts-reconfiguration.md)中進一步說明。
 
-此概念 (即複本不是「主要複本」就是「作用中次要複本」) 稱為「複本角色」。
-
-### <a name="replica-roles"></a>複本角色
-複本角色用來管理由該複本管理的狀態生命週期。 扮演「主要」角色的複本會為讀取要求提供服務。 「主要複本」同時也會藉由更新寫入要求的狀態並複寫變更，來處理所有寫入要求。 這些變更會套用至複本集內的「作用中次要複本」。 「作用中次要複本」的工作是接收「主要複本」已複寫的狀態變更，並更新其狀態檢視。
-
-> [!NOTE]
-> 更高階的程式設計模型 (例如 [Reliable Actors](service-fabric-reliable-actors-introduction.md) 和 [Reliable Services](service-fabric-reliable-services-introduction.md)) 會對開發人員隱藏複本角色的概念。 在 Actor 中，角色的概念是不必要的；但在 Services 中，則針對大多數案例大部分會予以簡化。
->
+此概念 (即複本不是「主要複本」就是「作用中次要複本」) 稱為「複本角色」。 這些皆會在[複本和執行個體](service-fabric-concepts-replica-lifecycle.md)中進一步說明。 
 
 ## <a name="next-steps"></a>後續步驟
 如需有關 Service Fabric 概念的詳細資訊，請參閱下列文章：

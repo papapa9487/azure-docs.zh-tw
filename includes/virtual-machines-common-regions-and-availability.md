@@ -74,8 +74,8 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 
 如需有關不同儲存體類型和可用性選項的定價資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/) 。
 
-## <a name="availability-sets"></a>可用性設定組
-可用性設定組是 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 當單一 VM 是使用 [Azure 進階儲存體](../articles/storage/common/storage-premium-storage.md)時，非計劃性的維護事件適用 Azure SLA。 
+## <a name="availability-sets"></a>可用性集合
+可用性設定組是資料中心內 VM 的邏輯群組，可讓 Azure 了解您應用程式的建置方式，以提供備援和可用性。 建議您在可用性設定組內建立兩個或多個 VM，以提供具高可用性的應用程式，以及符合 [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/)。 當單一 VM 是使用 [Azure 進階儲存體](../articles/storage/common/storage-premium-storage.md)時，非計劃性的維護事件適用 Azure SLA。 
 
 可用性設定組是由可防止硬體故障及允許安全地套用更新的兩個額外群組所組成 - 容錯網域 (FD) 和更新網域 (UD)。 您可以深入了解如何管理 [Linux VM](../articles/virtual-machines/linux/manage-availability.md) 或 [Windows VM](../articles/virtual-machines/windows/manage-availability.md)。
 
@@ -87,6 +87,16 @@ Azure 在世界各地多個資料中心運作。 這些資料中心會依據地�
 
 ### <a name="managed-disk-fault-domains"></a>受控磁碟容錯網域
 若 VM 使用 [Azure 受控磁碟](../articles/virtual-machines/windows/faq-for-disks.md)，VM 會在使用受管理的可用性設定組時配合使用受控磁碟容錯網域。 此一配合行為可確保連接到 VM 的所有受控磁碟都位於相同的受控磁碟容錯網域。 在受管理的可用性設定組中只能建立使用受控磁碟的 VM。 受控磁碟容錯網域數目會依區域而異，每個區域會有兩個或三個受控磁碟容錯網域。 閱讀更多適用於 [Linux VM](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 或 [Windows VM](../articles/virtual-machines/linux/manage-availability.md?#use-managed-disks-for-vms-in-an-availability-set) 的這些受控磁碟容錯網域相關資訊。
+
+## <a name="availability-zones"></a>可用性區域
+
+[可用性區域](../articles/availability-zones/az-overview.md) (預覽) (可用性設定組的替代項目) 可擴展您必須在 VM 上維護應用程式和資料可用性的控制層級。 可用性區域實際上是 Azure 地區內的個別區域。 每個 Azure 地區支援三個可用性區域。 每個可用性區域都有不同的電源、網路和冷卻系統，並以邏輯方式與 Azure 地區內的其他可用性區域分隔。 將您的解決方案架構為使用區域中複寫的 VM，即可保護您的應用程式和資料免於遭受資料中心損失。 如果有個區域遭到入侵，就可以立即在另一個區域中使用複寫的應用程式和資料。 
+
+![可用性區域](./media/virtual-machines-common-regions-and-availability/three-zones-per-region.png)
+
+[!INCLUDE [availability-zones-preview-statement.md](availability-zones-preview-statement.md)]
+
+深入了解如何在可用性區域中部署 [Windows](../articles/virtual-machines/windows/create-powershell-availability-zone.md) 或[Linux](../articles/virtual-machines/linux/create-cli-availability-zone.md) VM。
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以開始使用這些可用性和備援功能來建置 Azure 環境。 如需最佳作法資訊，請參閱 [Azure 可用性最佳作法](../articles/best-practices-availability-checklist.md)。

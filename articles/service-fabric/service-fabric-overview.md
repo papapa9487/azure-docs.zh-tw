@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
-ms.author: mfussell
+ms.date: 09/20/2017
+ms.author: msfussell
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 32e84984a61bb54ea459826f191de7fc25fc2158
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 8ff0d38a679b673b148dd808050eda82060cfe80
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概觀
@@ -50,7 +50,9 @@ Service Fabric 可在任何環境執行。 您可以在許多環境 (包括 Azur
 
 ![Service Fabric 平台][Image1]
 
-如需建立叢集內部部署的詳細資訊，請參閱[在 Windows Server 或 Linux 上建立叢集](service-fabric-deploy-anywhere.md)，或是[透過 Azure 入口網站](service-fabric-cluster-creation-via-portal.md)針對 Azure 建立叢集。
+對於 Windows 開發，Service Fabric.NET SDK 與 Visual Studio 和 Powershell 整合。 請參閱[在 Windows 上準備您的開發環境](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)。 對於 Linux 開發，Service Fabric Java SDK 與 Eclipse 整合，Yeoman 用於為 Java、.NET Core 和容器應用程式產生範本。 請參閱[在 Linux 上準備您的開發環境](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started.md)
+
+如需建立叢集的詳細資訊，請參閱[在 Windows Server 或 Linux 上建立叢集](service-fabric-deploy-anywhere.md)，或是[透過 Azure 入口網站](service-fabric-cluster-creation-via-portal.md)針對 Azure 建立叢集。
 
 ## <a name="stateless-and-stateful-microservices-for-service-fabric"></a>Service Fabric 的無狀態與具狀態微服務
 Service Fabric 可讓您建置由微服務或容器組成的應用程式。 無狀態微服務 (如通訊協定閘道器、Web Proxy) 不會維護要求之外的可變動狀態及來自服務的回應。 Azure 雲端服務背景工作角色即為無狀態服務的範例。 可設定狀態的微服務 (如使用者帳戶、資料庫、裝置、購物車、佇列) 會維護要求及其回應外的可變動授權狀態。 現今的網際網路級別應用程式包含無狀態與可設定狀態微服務的組合。 
@@ -89,7 +91,8 @@ Service Fabric 已與 CI/CD 工具 (例如 [Visual Studio Team Services](https:/
 * 其他資訊：
   * [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
   * [術語概觀](service-fabric-technical-overview.md)
-* 設定 Service Fabric [開發環境](service-fabric-get-started.md)  
+* 設定 [Windows 開發環境](service-fabric-get-started.md)  
+* 設定 [Linux 開發環境](service-fabric-get-started-linux.md)
 * 了解 [Service Fabric 支援選項](service-fabric-support.md)
 
 [Image1]: media/service-fabric-overview/Service-Fabric-Overview.png

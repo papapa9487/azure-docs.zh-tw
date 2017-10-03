@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 283c9903501a1e497e4dde81146d21edb869e9e2
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 081cf2bde44a0b55508cc7f0197fa7f8e378189b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="how-azure-subscriptions-are-associated-with-azure-active-directory"></a>Azure 訂用帳戶如何與 Azure Active Directory 產生關聯
@@ -48,13 +48,14 @@ Azure AD 提供大部分 Microsoft 雲端服務的核心目錄和身分識別管
 ## <a name="to-add-an-existing-subscription-to-your-azure-ad-directory"></a>將現有的訂用帳戶新增至您的 Azure AD 目錄
 您用於登入的帳戶必須同時存在於與訂用帳戶相關聯的目前目錄中和您想要將訂用帳戶新增至的目錄中。 
 
-1. 以您想要移轉擁有權之訂用帳戶的帳戶管理員之帳戶登入 [Azure 帳戶中心](https://account.windowsazure.com/Home/Index)。
+1. 以您想要移轉擁有權之訂用帳戶的帳戶管理員之帳戶登入 [Azure 帳戶中心](https://account.azure.com/Subscriptions)。
 2. 確定您希望成為訂用帳戶擁有者的使用者位於目標目錄中。
 3. 按一下 [移轉訂用帳戶]。
 4. 指定接受者。 接受者會自動收到含有接受連結的電子郵件。
 5. 接受者按一下連結並遵循指示進行，包括輸入他們的付款資訊。 當接受者成功時，訂用帳戶就轉移完成。 
 6. 訂用帳戶的預設目錄會變更為使用者所在的目錄。
 
+若要深入了解，請參閱[將 Azure 訂用帳戶擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
 
 ## <a name="suggestions-to-manage-both-a-subscription-and-a-directory"></a>管理訂用帳戶和目錄的建議
 Azure 訂用帳戶的系統管理角色會管理繫結至 Azure 訂用帳戶的資源。 本節說明 Azure 訂用帳戶管理員與 Azure AD 目錄管理員之間的差異。 系統管理角色和使用這些角色來管理訂用帳戶的其他建議，均涵蓋於[在 Azure Active Directory 中指派系統管理員角色](active-directory-assign-admin-roles.md)。

@@ -3,7 +3,7 @@ title: "建立網際網路對向負載平衡器 - Azure PowerShell 傳統 | Micr
 description: "了解如何使用 PowerShell 在傳統模式中建立網際網路面向的負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 tags: azure-service-management
 ms.assetid: 73e8bfa4-8086-4ef0-9e35-9e00b24be319
@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: c06be7a2d17b655c958c4ba4618739f5b218b8d7
-ms.lasthandoff: 04/27/2017
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 0a0b4cd516033ffe74d6992a98711be7a8150842
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="set-up-load-balancer-using-powershell"></a>使用 PowerShell 設定負載平衡器
 
-若要使用 PowerShell 設定負載平衡器，請依照下列步驟執行：
+若要使用 PowerShell 設定負載平衡器，請完成下列步驟：
 
 1. 如果您從未用過 Azure PowerShell，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) ，並遵循其中的所有指示登入 Azure，然後選取您的訂用帳戶。
 2. 建立虛擬機器之後，您可以使用 PowerShell cmdlet，將負載平衡器新增至相同雲端服務內的虛擬機器。
@@ -73,5 +74,5 @@ Get-azureVM -ServiceName mytestcloud  -Name web1 |Remove-AzureEndpoint -Name htt
 
 您也可以[開始建立內部負載平衡器](load-balancer-get-started-ilb-classic-ps.md)，以及為特定負載平衡器的網路流量行為設定何種[分配模式](load-balancer-distribution-mode.md)。
 
-如果您的應用程式需要讓負載平衡器後方的伺服器保持連接狀態，您可以深入了解 [負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)。 當您使用 Azure 負載平衡器時，該文章可幫助您了解閒置連接行為。
+如果您的應用程式需要讓負載平衡器後方的伺服器保持連接狀態，您可以深入了解 [負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)。 當您使用 Azure 負載平衡器時，該文章可幫助您了解閒置連線行為。
 

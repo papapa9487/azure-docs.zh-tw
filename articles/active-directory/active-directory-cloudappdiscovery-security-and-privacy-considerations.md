@@ -11,33 +11,29 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b621a1716b731c99f9ad54d2e29006fb7bddadbb
-ms.openlocfilehash: 5c4ab6e08c8f1af89ea80ac7f4d58d82ee931ec9
+ms.translationtype: HT
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
 ms.contentlocale: zh-tw
-ms.lasthandoff: 01/12/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Cloud App Discovery 的安全性和隱私權考量
-Microsoft 致力於保護您的隱私權和保護資料安全，同時提供軟體和服務，協助您管理組織的安全性。  
-我們了解當您將資料委託給他人管理時，必須有投資嚴密的安全性工程，以及背後支援的專業知識，才能獲得您的信任。
-Microsoft 從實行安全的軟體開發週期到運作服務，均遵守嚴格的規範與安全性指導方針。  
-保全和保護資料在 Microsoft 是第一要務。
+本主題說明在 Azure Active Directory Cloud App Discovery 內如何收集、處理以及保護資料。 Microsoft 致力於保護您的隱私權和確保資料安全。 Microsoft 在運作服務時，會遵守安全軟體開發生命週期作法。 保全和保護資料在 Microsoft 是第一要務。
 
-本主題說明在 Azure Active Directory Cloud App Discovery 內如何收集、處理以及保護資料
+> [!TIP] 
+> 請查看 Azure Active Directory (Azure AD) 中新的無代理程式 Cloud App Discovery，其已藉由[與 Microsoft Cloud App Security 整合](https://portal.cloudappsecurity.com)而獲得增強。 
 
 ## <a name="overview"></a>概觀
 Cloud App Discovery 是 Azure AD 的功能，裝載在 Microsoft Azure 中。  
-您可以使用 Cloud App Discovery Endpoint Agent，從受 IT 管理的電腦收集應用程式探索資料。  
-收集的資料會透過加密的通道安全地傳送到 Azure AD Cloud App Discovery 服務。  
-然後在 Azure 入口網站中就會看到組織的 Cloud App Discovery 資料。 
+您可以使用 Cloud App Discovery Endpoint Agent，從受 IT 管理的電腦收集應用程式探索資料。 收集的資料會透過加密的通道安全地傳送到 Azure AD Cloud App Discovery 服務。 然後在 Azure 入口網站中就會看到組織的 Cloud App Discovery 資料。 
 
 ![Cloud App Discovery 的運作方式](./media/active-directory-cloudappdiscovery-security-and-privacy-considerations/cad01.png) 
 
-下列各節會依照資訊的流程，並且描述資訊從您的組織移動到 Cloud App Discovery 服務時如何受到保護，最後到達 Cloud App Discovery 入口網站。
+下列各節會依照資訊的安全流程來推進，完整的流程會從您的組織到 Cloud App Discovery 服務，最後再到 Cloud App Discovery 入口網站。
 
 ## <a name="collecting-data-from-your-organization"></a>從您的組織收集資料
 若要使用 Azure Active Directory 的 Cloud App Discovery 功能，以深入了解組織中員工所使用的應用程式，您必須先在組織的電腦上部署 Azure AD Cloud App Discovery Endpoint Agent。
@@ -48,26 +44,19 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 
 
 ### <a name="data-collected-by-the-agent"></a>代理程式收集的資料
-下列清單中描述的資訊是在連線到 Web 應用程式時由代理程式所收集的資訊。 只會針對系統管理員已設定進行探索的應用程式收集此資訊。  
-您可以透過 Microsoft [Azure 入口網站](https://portal.azure.com/)中的 [Cloud App Discovery] 刀鋒視窗，在 [設定] -> [資料收集] -> [應用程式集合清單] 下方，編輯代理程式監視的雲端應用程式清單。 如需詳細資訊，請參閱 [開始使用 Cloud App Discovery](http://social.technet.microsoft.com/wiki/contents/articles/30962.getting-started-with-cloud-app-discovery.aspx)
-
+下列清單中描述的資訊是在連線到 Web 應用程式時由代理程式所收集的資訊。 只會針對系統管理員已設定進行探索的應用程式收集此資訊。 您可以在 Microsoft [Azure 入口網站](https://portal.azure.com/)的 [設定]->[資料收集]->[應用程式集合清單] 下方，透過 Azure AD 中的 Cloud App Discovery 編輯代理程式所監視的雲端應用程式清單。 
 
 **資訊類別**：使用者資訊  
-**描述**：  
-向目標 Web 應用程式提出要求之程序的 Windows 使用者名稱 (例如：DOMAIN\username) 以及該使用者的 Windows 安全性識別碼 (SID)。
+**說明**：向目標 Web 應用程式提出要求之程序的 Windows 使用者名稱 (例如 DOMAIN\username) 以及該使用者的 Windows 安全性識別碼 (SID)。
 
 **資訊類別**：處理資訊  
-**描述**：  
-向目標 Web 應用程式提出要求的處理序名稱 (例如：“iexplore.exe”)
+**說明**：向目標 Web 應用程式提出要求的處理序名稱 (例如 iexplore.exe)
 
 **資訊類別**：電腦資訊  
-**描述**：  
-安裝代理程式的電腦 NetBIOS 名稱。
+**說明**：安裝代理程式的電腦 NetBIOS 名稱。
 
 **資訊類別**：應用程式流量資訊  
-**描述**： 
-
-下列連線資訊：
+**說明**：下列連線資訊：
 
 * 來源 (本機電腦) IP 位址和目的地 IP 位址，以及連接埠號碼
 * 將要求送出的組織公用 IP 位址。
@@ -93,7 +82,10 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 > 
 > 
 
-除了代理程式所收集有關網路活動的資料外，它也會收集關於軟體和硬體組態的匿名資訊、錯誤報告和代理程式使用情形的相關資訊。
+除了代理程式所收集之有關網路活動的資料外，它也會收集有關下列項目的匿名資料
+* 軟體和硬體組態
+* 錯誤報告
+* 有關代理程式使用情形的資料。
 
 
 ### <a name="how-the-agent-works"></a>代理程式的運作方式
@@ -102,9 +94,7 @@ Azure Active Directory 租用戶 (或其委派) 的系統管理員可以從 Azur
 * 使用者模式元件
 * 核心模式驅動程式元件 (Windows 篩選平台驅動程式)
 
-第一次安裝代理程式時，會在電腦上儲存特定電腦的受信任憑證，然後再使用這個憑證與 Cloud App Discovery 服務建立安全連線。  
-代理程式會透過這個安全連線，定期從 Cloud App Discovery 服務擷取原則組態。  
-此原則包括要監視哪些雲端應用程式，以及是否應啟用自動更新等相關資訊。
+第一次安裝代理程式時，會在電腦上儲存特定電腦的受信任憑證，然後再使用這個憑證與 Cloud App Discovery 服務建立安全連線。 代理程式會透過這個安全連線，定期從 Cloud App Discovery 服務擷取原則組態。 此原則包括要監視哪些雲端應用程式，以及是否應啟用自動更新等相關資訊。
 
 在電腦上傳送和接收來自 Internet Explorer 和 Chrome 的 Web 流量時，Cloud App Discovery 代理程式會分析該流量並擷取相關的中繼資料 (請參閱上列 **代理程式收集的資料** 一節)。  
 代理程式每分鐘都會透過加密通道，將收集的中繼資料上傳到 Cloud App Discovery 服務。

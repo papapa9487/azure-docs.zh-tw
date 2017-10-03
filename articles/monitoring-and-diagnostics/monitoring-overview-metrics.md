@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2017
+ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 86e025f9211a1d7ed07e831b7ce4c21be351513b
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/09/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -43,6 +43,7 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 * 所有度量皆有**一分鐘的頻率**。 您每分鐘會從您的資源收到度量值，讓您可幾乎即時地看到資源的狀態和健全狀況。
 * 度量**可立即使用**。 您不需要選擇加入或設定其他診斷。
 * 您可以針對每個度量存取 **30 天的歷程記錄** 。 您可以快速查看最近和每個月的資源效能或健全狀況趨勢。
+* 某些計量可能有成對的名稱和數值屬性，稱為**維度**。 這些可讓您以更有意義的方式進一步分類和探索計量。
 
 您也可以：
 
@@ -85,14 +86,16 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 >
 >
 
+Azure 監視器的預覽版本也可讓使用者體驗新的計量圖表。 這項體驗可讓使用者在一個圖表上重疊多個資源的計量。 透過這項新的計量圖表體驗，使用者也可以繪製、分類和篩選多維度計量。 若要深入了解，請按一下[這裡](https://aka.ms/azuremonitor/new-metrics-charts)
+
 ## <a name="access-metrics-via-the-rest-api"></a>透過 REST API 存取度量
 可以透過 Azure 監視器 API 存取 Azure 度量。 有兩個 API 可協助您探索及存取度量：
 
-* 使用 [Azure 監視器度量定義 REST API](https://msdn.microsoft.com/library/mt743621.aspx) 來存取可供服務使用的度量清單。
-* 使用 [Azure 監視器度量 REST API](https://msdn.microsoft.com/library/mt743622.aspx) 來存取實際的度量資料。
+* 使用 [Azure 監視器計量定義 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) 來存取可供服務使用的計量清單和任何維度。
+* 使用 [Azure 監視器計量 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) 來分類、篩選和存取實際的計量資料。
 
 > [!NOTE]
-> 本文章透過 Azure 資源的 [新度量 API](https://msdn.microsoft.com/library/dn931930.aspx) 涵蓋度量。 新度量定義 API 的 API 版本為 2016-03-01，度量 API 的版本為 2016-09-01。 可以使用 API 版本 2014-04-01 存取舊版的度量定義和度量。
+> 本文章透過 Azure 資源的 [新度量 API](https://docs.microsoft.com/en-us/rest/api/monitor/) 涵蓋度量。 新計量定義和計量 API 的 API 版本為 2017-05-01-preview。 可以使用 API 版本 2014-04-01 存取舊版的度量定義和度量。
 >
 >
 
@@ -109,9 +112,14 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 若要收到通知或對度量資料採取自動化的動作，您可以設定警示規則或 [自動調整] 設定。
 
 ### <a name="configure-alert-rules"></a>設定警示規則
-您可以設定度量的警示規則。 這些警示規則可以檢查度量是否已超過某個臨界值， 然後透過電子郵件通知您，或引發可用來執行任何自訂指令碼的 Webhook。 您也可以使用 Webhook 來設定第三方產品整合。
+您可以設定度量的警示規則。 這些警示規則可以檢查度量是否已超過某個臨界值， Azure 監視器提供兩個計量警示功能。
+
+計量警示：可透過電子郵件通知您，或引發可用來執行任何自訂指令碼的 Webhook。 您也可以使用 Webhook 來設定第三方產品整合。
 
  ![Azure 監視器中的度量和警示規則](./media/monitoring-overview-metrics/MetricsOverview4.png)
+
+近呼即時警示 (預覽)：能夠監視資源的多個計量和閾值，然後透過[動作群組](/monitoring-action-groups.md)通知您。 深入了解[近乎即時計量警示](https://aka.ms/azuremonitor/near-real-time-alerts)。
+
 
 ### <a name="autoscale-your-azure-resources"></a>自動調整您的 Azure 資源
 某些 Azure 資源可支援相應放大或縮小多個執行個體，以便處理您的工作負載。 自動調整可套用至 App Service (Web Apps)、虛擬機器擴展集和傳統 Azure 雲端服務。 您可以設定自動調整規則，以在影響您工作負載的特定度量超出您所指定的閾值時相應放大或縮小。 如需詳細資訊，請參閱 [自動調整的概觀](monitoring-overview-autoscale.md)。

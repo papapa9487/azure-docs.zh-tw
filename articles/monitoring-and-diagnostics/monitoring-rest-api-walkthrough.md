@@ -1,6 +1,6 @@
 ---
 title: "Azure 監視 REST API 逐步解說 | Microsoft Docs"
-description: "如何驗證 Azure 監視 REST API 的要求，並使用 Azure 監視 REST API。"
+description: "如何驗證要求，以及使用 Azure 監視器 REST API 來取出可用的計量定義和計量值。"
 author: mcollier
 manager: 
 editor: 
@@ -8,25 +8,29 @@ services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.assetid: 565e6a88-3131-4a48-8b82-3effc9a3d5c6
 ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.workload: 
+ms.tgt_pltfrm: 
+ms.devlang: 
+ms.search.region: 
+ms.search.scope: 
+ms.search.validFrom: 
+ms.dyn365.ops.version: 
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 09/18/2017
 ms.author: mcollier
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 454a85c4752ec9c7522ef147d5ce594ef5992c32
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 本文將說明如何執行驗證，讓您的程式碼可以使用 [Microsoft Azure 監視器 REST API 參考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。         
 
-Azure 監視器 API 讓您能夠以程式設計方式擷取可用的預設度量定義 (例如 CPU 時間、要求等度量類型)、資料粒度和度量值。 一旦擷取之後，資料就可以儲存於個別的資料存放區，例如 Azure SQL Database、Azure Cosmos DB 或 Azure Data Lake。 其他分析可視需要從該處執行。
+Azure 監視器 API 可讓您以程式設計方式取出可用的預設計量定義、細微性和計量值。 資料可以儲存在另一個資料存放區，例如 Azure SQL Database、Azure Cosmos DB 或 Azure Data Lake。 其他分析可視需要從該處執行。
 
-除了使用不同的度量資料點之外，如本文所示範，監視 API 讓您能夠列出警示規則、檢視活動記錄檔等等。 如需可用作業的完整清單，請參閱 [Microsoft Azure 監視器 REST API 參考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。
+除了使用各種計量資料點，監視器 API 還可讓您列出警示規則、檢視活動記錄等等。 如需可用作業的完整清單，請參閱 [Microsoft Azure 監視器 REST API 參考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。
 
 ## <a name="authenticating-azure-monitor-requests"></a>驗證 Azure 監視器要求
 第一步是驗證要求。
@@ -36,7 +40,6 @@ Azure 監視器 API 讓您能夠以程式設計方式擷取可用的預設度量
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
 $resourceGroupName = "{resource-group-name}"
-$location = "centralus"
 
 # Authenticate to a specific Azure subscription.
 Login-AzureRmAccount -SubscriptionId $subscriptionId
@@ -60,7 +63,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-若要查詢 Azure 監視器 API，用戶端應用程式應使用先前建立的服務主體來進行驗證。 下列範例 PowerShell 指令碼使用 [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) 說明其中一個方法，協助取得 JWT 驗證權杖。 JWT 權杖會做為要求中 HTTP 授權參數的一部分傳遞至 Azure 監視器 API。
+若要查詢 Azure 監視器 API，用戶端應用程式應使用先前建立的服務主體來進行驗證。 下列範例 PowerShell 指令碼示範一種方法：使用 [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) 取得 JWT 驗證權杖。 JWT 權杖會做為要求中 HTTP 授權參數的一部分傳遞至 Azure 監視器 API。
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -84,37 +87,342 @@ $authHeader = @{
 }
 ```
 
-一旦驗證設定步驟完成後，即可針對 Azure 監視器 REST API 執行查詢。 有兩個實用的查詢︰
+驗證之後，即可針對 Azure 監視器 REST API 執行查詢。 有兩個實用的查詢︰
 
 1. 列出資源的度量定義
 2. 擷取度量值
 
-## <a name="retrieve-metric-definitions"></a>擷取度量定義
+## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>取出計量定義 (多維度 API)
+
+使用 [Azure 監視器度量定義 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) 來存取可供服務使用的度量清單。
+
+**方法**：GET
+
+**要求 URI**：https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+
+例如，若要取出 Azure 儲存體帳戶的計量定義，則要求看起來如下所示：
+
+```PowerShell
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricDefinitions?api-version=2017-05-01-preview"
+
+Invoke-RestMethod -Uri $request `
+                  -Headers $authHeader `
+                  -Method Get `
+                  -OutFile ".\contosostorage-metricdef-results.json" `
+                  -Verbose
+
+```
+> [!NOTE]
+> 若要使用多維度 Azure 監視器計量 REST API 取出計量定義，請使用 "2017-05-01-preview" 作為 API 版本。
+>
+>
+
+產生的 JSON 回應本文看起來會像下列範例：(請注意，第二個計量具有維度)
+
+```JSON
+{
+    "value": [
+        {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/UsedCapacity",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "category": "Capacity",
+            "name": {
+                "value": "UsedCapacity",
+                "localizedValue": "Used capacity"
+            },
+            "isDimensionRequired": false,
+            "unit": "Bytes",
+            "primaryAggregationType": "Average",
+            "metricAvailabilities": [
+                {
+                    "timeGrain": "PT1M",
+                    "retention": "P30D"
+                },
+                {
+                    "timeGrain": "PT1H",
+                    "retention": "P30D"
+                }
+            ]
+        },
+        {
+            "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metricdefinitions/Transactions",
+            "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage",
+            "category": "Transaction",
+            "name": {
+                "value": "Transactions",
+                "localizedValue": "Transactions"
+            },
+            "isDimensionRequired": false,
+            "unit": "Count",
+            "primaryAggregationType": "Total",
+            "metricAvailabilities": [
+                {
+                    "timeGrain": "PT1M",
+                    "retention": "P30D"
+                },
+                {
+                    "timeGrain": "PT1H",
+                    "retention": "P30D"
+                }
+            ],
+            "dimensions": [
+                {
+                    "value": "ResponseType",
+                    "localizedValue": "Response type"
+                },
+                {
+                    "value": "GeoType",
+                    "localizedValue": "Geo type"
+                },
+                {
+                    "value": "ApiName",
+                    "localizedValue": "API name"
+                }
+            ]
+        },
+        ...
+    ]
+}
+```
+
+## <a name="retrieve-dimension-values-multi-dimensional-api"></a>取出維度值 (多維度 API)
+知道可用的計量定義後，有一些計量可能是有維度的。 查詢計量之前，建議您先探索維度的值範圍。 在查詢計量時，您就可以選擇根據這些維度值來篩選或分類計量。 將度量名稱 ‘value’ (而非 ‘localizedValue’) 用於任何篩選要求 (例如，擷取 ‘CpuTime’ 和 ‘Requests’ 度量資料點)。 如果未指定篩選器，則會傳回預設度量。
+
+> [!NOTE]
+> 若要使用 Azure 監視器 REST API 取出維度值，請使用 "2017-05-01-preview" 作為 API 版本。
+>
+>
+
+**方法**：GET
+
+**要求 URI**：https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+
+例如，若要取出 'Transactions' 計量的「API 名稱維度」在給定時間範圍內可能的值清單，要求如下所示：
+
+```PowerShell
+$filter = "APIName eq '*'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-01T00:00:00Z/2017-09-10T00:00:00Z&resultType=metadata&$filter=${filter}&api-version=2017-05-01-preview"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contosostorage-dimension-values.json" `
+    -Verbose
+```
+產生的 JSON 回應本文看起來會像下列範例：
+
+```JSON
+{
+  "timespan": "2017-09-01T00:00:00Z/2017-09-10T00:00:00Z",
+  "value": [
+    {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Transactions",
+        "localizedValue": "Transactions"
+      },
+      "unit": "Count",
+      "timeseries": [
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "DeleteBlob"
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "SetBlobProperties"
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "PutPage"
+            }
+          ]
+        },
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "Unknown"
+            }
+          ]
+        },
+        ...
+      ]    
+    }
+  ]
+}
+```
+
+## <a name="retrieve-metric-values-multi-dimensional-api"></a>取出計量值 (多維度 API)
+知道可用的計量定義和可能的維度值之後，就可以取出相關的計量值。 在任何篩選要求中，請使用計量的名稱 ‘value’ (不是 ‘localizedValue’)。 如果未指定維度篩選條件，則會傳回積存的彙總計量。
+
+> [!NOTE]
+> 若要使用 Azure 監視器 REST API 取出多維度計量值，請使用 "2017-05-01-preview" 作為 API 版本。
+>
+>
+
+**方法**：GET
+
+**要求 URI**：https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+
+例如，針對 API 名稱 'GetBlobProperties' 的所有交易，若要取出儲存體 'Transactions' 在 5 分鐘範圍內的計量值，要求如下所示：
+
+```PowerShell
+$filter = "APIName eq 'GetBlobProperties'"
+$request = "https://management.azure.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/microsoft.insights/metrics?metric=Transactions&timespan=2017-09-19T02:00:00Z/2017-09-19T02:05:00Z&$filter=${filter}&interval=PT1M&aggregation=Count&api-version=2017-05-01-preview"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contosostorage-metric-values.json" `
+    -Verbose
+```
+產生的 JSON 回應本文看起來會像下列範例：
+
+```JSON
+{
+  "cost": 0,
+  "timespan": "2017-09-19T02:00:00Z/2017-09-19T02:05:00Z",
+  "interval": "PT1M",
+  "value": [
+    {
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/accounts/ContosoStorage/providers/Microsoft.Insights/metrics/Transactions",
+      "type": "Microsoft.Insights/metrics",
+      "name": {
+        "value": "Transactions",
+        "localizedValue": "Transactions"
+      },
+      "unit": "Count",
+      "timeseries": [
+        {
+          "metadatavalues": [
+            {
+              "name": {
+                "value": "apiname",
+                "localizedValue": "apiname"
+              },
+              "value": "GetBlobProperties"
+            }
+          ],
+          "data": [
+            {
+              "timeStamp": "2017-09-19T02:00:00Z",
+              "count": 2.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:01:00Z",
+              "count": 1.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:02:00Z",
+              "count": 3.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:03:00Z",
+              "count": 7.0
+            },
+            {
+              "timeStamp": "2017-09-19T02:04:00Z",
+              "count": 2.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+## <a name="retrieve-metric-definitions"></a>取出計量定義
+使用 [Azure 監視器度量定義 REST API](https://msdn.microsoft.com/library/mt743621.aspx) 來存取可供服務使用的度量清單。
+
+**方法**：GET
+
+**要求 URI**：https://management.azure.com/subscriptions/*{subscriptionId}*/resourceGroups/*{resourceGroupName}*/providers/*{resourceProviderNamespace}*/*{resourceType}*/*{resourceName}*/providers/microsoft.insights/metricDefinitions?api-version=*{apiVersion}*
+
+例如，若要取出 Azure Logic App 的計量定義，則要求看起來如下所示：
+
+```PowerShell
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01"
+
+Invoke-RestMethod -Uri $request `
+                  -Headers $authHeader `
+                  -Method Get `
+                  -OutFile ".\contostweets-metricdef-results.json" `
+                  -Verbose
+```
 > [!NOTE]
 > 若要使用 Azure 監視器 REST API 擷取度量定義，請使用 "2016-03-01" 做為 API 版本。
 >
 >
 
-```PowerShell
-$apiVersion = "2016-03-01"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metricDefinitions?api-version=${apiVersion}"
-
-Invoke-RestMethod -Uri $request `
-                  -Headers $authHeader `
-                  -Method Get `
-                  -Verbose
+產生的 JSON 回應本文看起來會像下列範例：
+```JSON
+{
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions",
+  "value": [
+    {
+      "name": {
+        "value": "RunsStarted",
+        "localizedValue": "Runs Started"
+      },
+      "category": "AllMetrics",
+      "startTime": "0001-01-01T00:00:00Z",
+      "endTime": "0001-01-01T00:00:00Z",
+      "unit": "Count",
+      "primaryAggregationType": "Total",
+      "resourceUri": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets",
+      "resourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets",
+      "metricAvailabilities": [
+        {
+          "timeGrain": "PT1M",
+          "retention": "P30D",
+          "location": null,
+          "blobLocation": null
+        },
+        {
+          "timeGrain": "PT1H",
+          "retention": "P30D",
+          "location": null,
+          "blobLocation": null
+        }
+      ],
+      "properties": null,
+      "dimensions": null,
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricdefinitions/RunsStarted",
+      "supportedAggregationTypes": [ "None", "Average", "Minimum", "Maximum", "Total", "Count" ]
+    }
+  ]
+}
 ```
-若為 Azure 邏輯應用程式，度量定義會出現類似下列的螢幕擷取畫面︰
-
-![替代「度量定義回應的 JSON 檢視。」](./media/monitoring-rest-api-walkthrough/available_metric_definitions_logic_app_json_response_clean.png)
 
 如需詳細資訊，請參閱 [列出 Azure 監視器 REST API 中的資源度量定義](https://msdn.microsoft.com/library/azure/mt743621.aspx) 文件。
 
-## <a name="retrieve-metric-values"></a>擷取度量值
+## <a name="retrieve-metric-values"></a>取出計量值
 一旦已知可用的度量定義後，便可擷取相關的度量值。 將度量名稱 ‘value’ (而非 ‘localizedValue’) 用於任何篩選要求 (例如，擷取 ‘CpuTime’ 和 ‘Requests’ 度量資料點)。 如果未指定篩選器，則會傳回預設度量。
 
 > [!NOTE]
-> 若要使用 Azure 監視器 REST API 擷取度量值，請使用 "2016-06-01" 做為 API 版本。
+> 若要使用 Azure 監視器 REST API 取出計量值，請使用 "2016-09-01" 作為 API 版本。
 >
 >
 
@@ -125,47 +433,133 @@ Invoke-RestMethod -Uri $request `
 例如，若要擷取給定時間範圍及時間粒紋為 1 小時的 RunsSucceeded 度量資料點，要求如下所示︰
 
 ```PowerShell
-$apiVersion = "2016-06-01"
-$filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2016-09-23 and endTime eq 2016-09-24 and timeGrain eq duration'PT1H'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=${apiVersion}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
+$filter = "(name.value eq 'RunsSucceeded') and aggregationType eq 'Total' and startTime eq 2017-08-18T19:00:00 and endTime eq 2017-08-18T23:00:00 and timeGrain eq duration'PT1H'"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?$filter=${filter}&api-version=2016-09-01"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contostweets-metrics-results.json" `
+    -Verbose
 ```
 
-結果隨即出現，類似下列螢幕擷取畫面範例︰
+產生的 JSON 回應本文看起來會像下列範例：
 
-![替代「顯示平均回應時間度量值的 JSON 回應」](./media/monitoring-rest-api-walkthrough/available_metrics_logic_app_json_response.png)
+```JSON
+{
+  "value": [
+    {
+      "data": [
+        {
+          "timeStamp": "2017-08-18T19:00:00Z",
+          "total": 0.0
+        },
+        {
+          "timeStamp": "2017-08-18T20:00:00Z",
+          "total": 159.0
+        },
+        {
+          "timeStamp": "2017-08-18T21:00:00Z",
+          "total": 174.0
+        },
+        {
+          "timeStamp": "2017-08-18T22:00:00Z",
+          "total": 97.0
+        }
+      ],
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/RunsSucceeded",
+      "name": {
+        "value": "RunsSucceeded",
+        "localizedValue": "Runs Succeeded"
+      },
+      "type": "Microsoft.Insights/metrics",
+      "unit": "Count"
+    }
+  ]
+}
+```
 
 若要擷取多個資料或彙總點，將度量定義名稱和彙總類型新增至篩選器，如下列範例所示︰
 
 ```PowerShell
-$apiVersion = "2016-06-01"
-$filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2016-09-23T13:30:00Z and endTime eq 2016-09-23T14:30:00Z and timeGrain eq duration'PT1M'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/${resourceProviderNamespace}/${resourceType}/${resourceName}/providers/microsoft.insights/metrics?`$filter=${filter}&api-version=${apiVersion}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
+$filter = "(name.value eq 'ActionsCompleted' or name.value eq 'RunsSucceeded') and (aggregationType eq 'Total' or aggregationType eq 'Average') and startTime eq 2017-08-18T21:00:00 and endTime eq 2017-08-18T21:30:00 and timeGrain eq duration'PT1M'"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metrics?$filter=${filter}&api-version=2016-09-01"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -OutFile ".\contostweets-metrics-multiple-results.json" `
+    -Verbose
+```
+產生的 JSON 回應本文看起來會像下列範例：
+
+```JSON
+{
+  "value": [
+    {
+      "data": [
+        {
+          "timeStamp": "2017-08-18T21:03:00Z",
+          "total": 5.0,
+          "average": 1.0
+        },
+        {
+          "timeStamp": "2017-08-18T21:04:00Z",
+          "total": 7.0,
+          "average": 1.0
+        }
+      ],
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/ActionsCompleted",
+      "name": {
+        "value": "ActionsCompleted",
+        "localizedValue": "Actions Completed "
+      },
+      "type": "Microsoft.Insights/metrics",
+      "unit": "Count"
+    },
+    {
+      "data": [
+        {
+          "timeStamp": "2017-08-18T21:03:00Z",
+          "total": 5.0,
+          "average": 1.0
+        },
+        {
+          "timeStamp": "2017-08-18T21:04:00Z",
+          "total": 7.0,
+          "average": 1.0
+        }
+      ],
+      "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/Microsoft.Insights/metrics/RunsSucceeded",
+      "name": {
+        "value": "RunsSucceeded",
+        "localizedValue": "Runs Succeeded"
+      },
+      "type": "Microsoft.Insights/metrics",
+      "unit": "Count"
+    }
+  ]
+}
 ```
 
 ### <a name="use-armclient"></a>使用 ARMClient
-使用 PowerShell (如上所示) 的替代方案，是使用 Windows 電腦上的 [ARMClient](https://github.com/projectkudu/ARMClient) 。 ARMClient 會自動處理 Azure AD 驗證 (以及產生的 JWT 權杖)。 下列步驟概述使用 ARMClient 來擷取度量資料︰
+另一種方法是在 Windows 機器上使用 [ARMClient](https://github.com/projectkudu/armclient)。 ARMClient 會自動處理 Azure AD 驗證 (以及產生的 JWT 權杖)。 下列步驟概述使用 ARMClient 來取出計量資料︰
 
-1. 安裝 [Chocolatey](https://chocolatey.org/) 和 [ARMClient](https://github.com/projectkudu/ARMClient)。
-2. 在終端機視窗中，輸入 armclient.exe login 。 這會提示您登入 Azure。
+1. 安裝 [Chocolatey](https://chocolatey.org/) 和 [ARMClient](https://github.com/projectkudu/armclient)。
+2. 在終端機視窗中，輸入 armclient.exe login 。 這樣做會提示您登入 Azure。
 3. 輸入 *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
-4. 輸入 *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-06-01*
+4. 輸入 *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
-![替代「使用 ARMClient 來使用 Azure 監視 REST API」](./media/monitoring-rest-api-walkthrough/armclient_metricdefinitions.png)
+例如，若要取出特定邏輯應用程式的計量定義，請發出下列命令：
+```
+armclient GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets/providers/microsoft.insights/metricDefinitions?api-version=2016-03-01
+```
 
-## <a name="retrieve-the-resource-id"></a>擷取資源識別碼
+
+## <a name="retrieve-the-resource-id"></a>取出資源識別碼
 使用 REST API 可實際協助了解可用的度量定義、細微度以及相關值。 使用 [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx)時，該資訊會很實用。
 
 上述程式碼中，要使用的資源識別碼是所需 Azure 資源的完整路徑。 例如，若要查詢 Azure Web 應用程式，資源識別碼為︰
 
-*/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/*
+<bpt id="p1">*</bpt>/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Web/sites/{site-name}/<ept id="p1">*</ept>
 
 下列範例清單包含各種 Azure 資源的資源識別碼格式︰
 
@@ -173,7 +567,7 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 * **SQL 彈性集區** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{pool-db}*/elasticpools/*{sql-pool-name}*
 * **SQL Database (v12)** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Sql/servers/*{server-name}*/databases/*{database-name}*
 * **服務匯流排** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.ServiceBus/*{namespace}*/*{servicebus-name}*
-* **VM 擴展集** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
+* **虛擬機器擴展集** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachineScaleSets/*{vm-name}*
 * **VM** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.Compute/virtualMachines/*{vm-name}*
 * **事件中樞** - /subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/Microsoft.EventHub/namespaces/*{eventhub-namespace}*
 
@@ -185,31 +579,97 @@ $request = "https://management.azure.com/subscriptions/${subscriptionId}/resourc
 ![替代「Azure 資源總管」](./media/monitoring-rest-api-walkthrough/azure_resource_explorer.png)
 
 ### <a name="azure-portal"></a>Azure 入口網站
-也可以從 Azure 入口網站取得資源識別碼。 若要這樣做，請瀏覽至所需的資源，然後選取 [內容]。 資源識別碼會顯示在 [屬性] 刀鋒視窗中，如下列螢幕擷取畫面所示︰
+也可以從 Azure 入口網站取得資源識別碼。 若要這樣做，請瀏覽至所需的資源，然後選取 [內容]。 「資源識別碼」會顯示在 [屬性] 區段中，如下列螢幕擷取畫面所示︰
 
 ![替代「Azure 入口網站的 [屬性] 刀鋒視窗中顯示的資源識別碼」](./media/monitoring-rest-api-walkthrough/resourceid_azure_portal.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-可以使用 Azure PowerShell Cmdlet 來擷取資源識別碼。 例如，若要取得 Azure Web 應用程式的資源識別碼，請執行 Get-AzureRmWebApp Cmdlet，如下列螢幕擷取畫面所示︰
-
-![替代「透過 PowerShell 取得的資源識別碼」](./media/monitoring-rest-api-walkthrough/resourceid_powershell.png)
-
-### <a name="azure-cli"></a>Azure CLI
-若要使用 Azure CLI 擷取資源識別碼，請執行 'azure webapp show' 命令，指定 '-json' 選項，如下列螢幕擷取畫面所示︰
-
-![替代「透過 PowerShell 取得的資源識別碼」](./media/monitoring-rest-api-walkthrough/resourceid_azurecli.png)
-
-## <a name="retrieve-activity-log-data"></a>擷取活動記錄檔資料
-除了使用度量定義及相關值，也可以擷取關於 Azure 資源的其他有趣深入見解。 例如，可以查詢 [活動記錄檔](https://msdn.microsoft.com/library/azure/dn931934.aspx) 資料。 下列範例示範使用 Azure 監視器 REST API 查詢 Azure 訂用帳戶特定日期範圍內的活動記錄檔資料︰
+可以使用 Azure PowerShell Cmdlet 來擷取資源識別碼。 例如，若要取得 Azure Logic App 的資源識別碼，請執行 Get-AzureLogicApp Cmdlet，如下列範例所示︰
 
 ```PowerShell
-$apiVersion = "2014-04-01"
-$filter = "eventTimestamp ge '2016-09-23' and eventTimestamp le '2016-09-24'and eventChannels eq 'Admin, Operation'"
-$request = "https://management.azure.com/subscriptions/${subscriptionId}/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&`$filter=${filter}"
-(Invoke-RestMethod -Uri $request `
-                   -Headers $authHeader `
-                   -Method Get `
-                   -Verbose).Value | ConvertTo-Json
+Get-AzureRmLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
+```
+
+結果應該類似於下列範例：
+```
+Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
+Name           : ContosoTweets
+Type           : Microsoft.Logic/workflows
+Location       : centralus
+ChangedTime    : 8/21/2017 6:58:57 PM
+CreatedTime    : 8/18/2017 7:54:21 PM
+AccessEndpoint : https://prod-08.centralus.logic.azure.com:443/workflows/f3a91b352fcc47e6bff989b85446c5db
+State          : Enabled
+Definition     : {$schema, contentVersion, parameters, triggers...}
+Parameters     : {[$connections, Microsoft.Azure.Management.Logic.Models.WorkflowParameter]}
+SkuName        :
+AppServicePlan :
+PlanType       :
+PlanId         :
+Version        : 08586982649483762729
+```
+
+
+### <a name="azure-cli"></a>Azure CLI
+若要使用 Azure CLI 取出 Azure 儲存體帳戶的資源識別碼，請執行 'az storage account show' 命令，如下列範例所示：
+
+```
+az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
+```
+
+結果應該類似於下列範例：
+```JSON
+{
+  "accessTier": null,
+  "creationTime": "2017-08-18T19:58:41.840552+00:00",
+  "customDomain": null,
+  "enableHttpsTrafficOnly": false,
+  "encryption": null,
+  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Storage/storageAccounts/contosotweets2017",
+  "identity": null,
+  "kind": "Storage",
+  "lastGeoFailoverTime": null,
+  "location": "centralus",
+  "name": "contosotweets2017",
+  "networkAcls": null,
+  "primaryEndpoints": {
+    "blob": "https://contosotweets2017.blob.core.windows.net/",
+    "file": "https://contosotweets2017.file.core.windows.net/",
+    "queue": "https://contosotweets2017.queue.core.windows.net/",
+    "table": "https://contosotweets2017.table.core.windows.net/"
+  },
+  "primaryLocation": "centralus",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "azmon-rest-api-walkthrough",
+  "secondaryEndpoints": null,
+  "secondaryLocation": "eastus2",
+  "sku": {
+    "name": "Standard_GRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "available",
+  "statusOfSecondary": "available",
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
+}
+```
+
+> [!NOTE]
+> 由於還無法透過 Azure CLI 使用 Azure Logic Apps，因此，上述範例中顯示 Azure 儲存體帳戶。
+>
+>
+
+## <a name="retrieve-activity-log-data"></a>取出活動記錄資料
+除了計量定義及相關值，也可以使用 Azure Monitor REST API 取出關於 Azure 資源的其他有用的深入解析。 例如，可以查詢 [活動記錄檔](https://msdn.microsoft.com/library/azure/dn931934.aspx) 資料。 下列範例示範使用 Azure 監視器 REST API 查詢 Azure 訂用帳戶特定日期範圍內的活動記錄檔資料︰
+
+```PowerShell
+$apiVersion = "2015-04-01"
+$filter = "eventTimestamp ge '2017-08-18' and eventTimestamp le '2017-08-19'and eventChannels eq 'Admin, Operation'"
+$request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/microsoft.insights/eventtypes/management/values?api-version=${apiVersion}&$filter=${filter}"
+Invoke-RestMethod -Uri $request `
+    -Headers $authHeader `
+    -Method Get `
+    -Verbose
 ```
 
 ## <a name="next-steps"></a>後續步驟

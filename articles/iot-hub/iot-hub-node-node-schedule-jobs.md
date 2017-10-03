@@ -206,12 +206,15 @@ Azure IoT 中樞是一項完全受管理的服務，可讓後端應用程式建�
    
     ```
     var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
+       etag: '*', 
+       properties: {
+           desired: {
+               building: '43', 
+               floor: 3
+           }
+       }
     };
+   
    
     var twinJobId = uuid.v4();
    

@@ -65,21 +65,21 @@ ms.lasthandoff: 07/14/2017
 
 首先，使用以下命令列出發行者：
 
-```powershell
+```azurepowershell-interactive
 $locName="<Azure location, such as West US>"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 填入您選擇的發行者名稱，然後執行以下命令：
 
-```powershell
+```azurepowershell-interactive
 $pubName="<publisher>"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
 填入您選擇的提供項目名稱，然後執行以下命令：
 
-```powershell
+```azurepowershell-interactive
 $offerName="<offer>"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
@@ -88,7 +88,7 @@ Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName |
 
 下圖顯示完整範例：
 
-```powershell
+```azurepowershell-interactive
 $locName="West US"
 Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
@@ -114,7 +114,7 @@ Canonical
 
 針對 "MicrosoftWindowsServer" 發佈者：
 
-```powershell
+```azurepowershell-interactive
 $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
@@ -131,7 +131,7 @@ WindowsServer-HUB
 
 針對 "WindowsServer" 提供項目：
 
-```powershell
+```azurepowershell-interactive
 $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```

@@ -3,7 +3,7 @@ title: "SAP HANA on Azure (大型執行個體) 的高可用性和災害復原 | 
 description: "建立高可用性並為 SAP HANA on Azure (大型執行個體) 的災害復原做規劃"
 services: virtual-machines-linux
 documentationcenter: 
-author: RicksterCDN
+author: saghorpa
 manager: timlt
 editor: 
 ms.service: virtual-machines-linux
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2016
-ms.author: rclaus
+ms.date: 09/15/2016
+ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 87ea8b808c0b7e5fe79a5bee038a3d34ed59a1e6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure 上 SAP Hana (大型執行個體) 的高可用性和災害復原 
@@ -41,9 +41,9 @@ SAP HANA on Azure (大型執行個體) 會在兩個 Azure 區域提供，以地�
 | 主機自動容錯移轉：N+m<br /> 包括 1 + 1 | 可透過擔任作用中角色的待命節點來實現。<br /> HANA 會控制角色的切換。 | 專用 DR 設定。<br /> 多用途 DR 設定。<br /> 使用儲存體複寫進行的 DR 同步處理。 | HANA 磁碟區組會連結至所有節點 (n+m)。<br /> DR 網站必須具有相同數目的節點。 |
 | HANA 系統複寫 | 可透過主要或次要設定來實現。<br /> 在容錯移轉的情況下，次要節點會轉而成為主要節點。<br /> HANA 系統複寫和 OS 控制容錯移轉。 | 專用 DR 設定。<br /> 多用途 DR 設定。<br /> 使用儲存體複寫進行的 DR 同步處理。<br /> 若沒有第三方元件，則還無法實現使用 HANA 系統複寫來進行的 DR。 | 另一組不同的磁碟區會連結至每個節點。<br /> 只有生產網站中次要複本的磁碟區會複寫到 DR 位置。<br /> DR 網站需要一組磁碟區。 | 
 
-作為專用 DR 設定時，DR 網站中的 HANA 大型執行個體單位不會用於執行任何其他工作負載或非生產系統。 該單位是被動的，只會在災害容錯移轉執行時部署。 到目前為止，我們還沒有任何客戶採用此組態。
+作為專用 DR 設定時，DR 網站中的 HANA 大型執行個體單位不會用於執行任何其他工作負載或非生產系統。 該單位是被動的，只會在災害容錯移轉執行時部署。 然而，這不是許多客戶偏好的選擇。
 
-作為多用途 DR 設定時，DR 網站上的 HANA 大型執行個體單位會執行非生產工作負載。 在災害情況下，您會關閉非生產系統，掛接儲存體複寫的 (其他) 磁碟區組，然後啟動生產 HANA 執行個體。 到目前為止，所有使用 HANA 大型執行個體災害復原功能的客戶都使用此替代組態。 
+作為多用途 DR 設定時，DR 網站上的 HANA 大型執行個體單位會執行非生產工作負載。 在災害情況下，您會關閉非生產系統，掛接儲存體複寫的 (其他) 磁碟區組，然後啟動生產 HANA 執行個體。 許多使用 HANA 大型執行個體災害復原功能的客戶都使用此組態。 
 
 
 您可以在下列 SAP 文章中找到更多關於 SAP HANA 高可用性的資訊： 
@@ -221,7 +221,15 @@ MACs hmac-sha1
 
 輸入 `hdbuserstore` 命令，如下所示︰
 
-![輸入 hdbuserstore 命令](./media/hana-overview-high-availability-disaster-recovery/image4-hdbuserstore-command.png)
+**非 MDC HANA 安裝程式**
+```
+hdbuserstore set <key> <host><3[instance]15> <user> <password>
+```
+
+**MDC HANA 安裝程式**
+```
+hdbuserstore set <key> <host><3[instance]13> <user> <password>
+```
 
 在以下範例中，使用者為 **SCADMIN01**、主機名稱為 **lhanad01**，而執行個體編號是 **01**：
 ```
@@ -231,8 +239,8 @@ hdbuserstore set SCADMIN01 lhanad01:30115 <backup username> <password>
 
 ```
 hdbuserstore set SCADMIN01 lhanad01:30115 SCADMIN <password>
-hdbuserstore set SCADMIN02 lhanad02:30215 SCADMIN <password>
-hdbuserstore set SCADMIN03 lhanad03:30315 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad02:30115 SCADMIN <password>
+hdbuserstore set SCADMIN01 lhanad03:30115 SCADMIN <password>
 ```
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>步驟 6：取得快照集指令碼、設定快照集並測試組態與連線能力
@@ -285,7 +293,7 @@ Storage IP Address: 10.240.20.31
 #hdbuserstore utility.
 Node 1 IP Address: 
 Node 1 HANA instance number:
-Node 1 HANA Backup Name:
+Node 1 HANA userstore Name:
 ```
 
 >[!NOTE]
@@ -376,28 +384,28 @@ Snapshot created successfully.
 當所有準備步驟都完成後，您就可以開始設定實際的儲存體快照集組態。 要排程的指令碼可與 SAP HANA 相應增加和相應放大組態搭配運作。 您應透過 cron 來排定指令碼的執行。 
 
 可以建立的快照集備份有三種：
-- **HANA**：合併的快照集備份，其中包含 /hana/data、/hana/log 和 /hana/shared (也包含 /usr/sap) 的磁碟區會由協調式快照集所涵蓋。 您可以從這個快照集還原單一檔案。
+- **HANA**：合併的快照集備份，其中包含 /hana/data 和 /hana/shared (也包含 /usr/sap) 的磁碟區會由協調式快照集所涵蓋。 您可以從這個快照集還原單一檔案。
 - **記錄**︰/hana/logbackups 磁碟區的快照集備份。 不會觸發 HANA 快照集來執行此儲存體快照集。 此存放磁碟區是應包含 SAP HANA 交易記錄備份的磁碟區。 SAP HANA 交易記錄備份會提高執行頻率，以限制記錄成長並防止資料遺失。 您可以從這個快照集還原單一檔案。 請勿將執行頻率降低到 5 分鐘以下。
 - **開機**：包含 HANA 大型執行個體之開機邏輯單元編號 (LUN) 的磁碟區快照集。 您只能透過 HANA 大型執行個體的 Type I SKU 來進行此快照集備份。 您無法從包含開機 LUN 之磁碟區的快照集還原單一檔案。  
 
 
 這三種不同快照集的呼叫語法如下所示：
 ```
-HANA backup covering /hana/data, /hana/log, /hana/shared (includes/usr/sap)
+HANA backup covering /hana/data and /hana/shared (includes/usr/sap)
 ./azure_hana_backup.pl hana <HANA SID> manual 30
 
 For /hana/logbackups snapshot
 ./azure_hana_backup.pl logs <HANA SID> manual 30
 
 For snapshot of the volume storing the boot LUN
-./azure_hana_backup.pl boot manual 30
+./azure_hana_backup.pl boot none manual 30
 
 ```
 
 您必須指定下列參數︰
 
 - 第一個參數描繪快照集備份的類型。 允許的值為 **hana**、**logs** 和 **boot**。 
-- 第二個值是 HANA SID (例如 HM3)。 不必使用這個參數就能備份開機磁碟區。
+- 第二個參數是 **HANA SID** (如 HM3) 或 **none**。 如果第一個提供的參數值 **hana** 或 **logs**，則此參數的值是 **HANA SID** (如 HM3)，否則對開機磁碟區備份而言，這個值是 **none**。 
 - 第三個參數是屬於快照集類型的快照集或備份標籤。 它有兩個目的。 其中一個目的是為它命名，好讓您知道這些快照集的相關內容。 第二個的目的是要讓指令碼 azure\_hana\_backup.pl 判斷保留在該特定標籤之下的儲存體快照集數目。 如果您使用兩個不同的標籤來排定兩個相同類型的儲存體快照集備份 (例如**hana**)，並定義各自應該保留 30 個快照集，您最後將會得到受影響磁碟區的 60 個儲存體快照集。 
 - 第四個參數會藉由定義要保留且具有相同快照集首碼 (標籤) 的快照集數目，來間接定義快照集的保留期。 對於透過 cron 進行的已排定執行作業來說，這個參數很重要。 
 
@@ -428,7 +436,7 @@ For snapshot of the volume storing the boot LUN
 - 每個磁碟區的快照集數目只能有 255 個。
 
 
-對於不使用 HANA 大型執行個體災害復原功能的客戶，快照集期間較不頻繁。 在這種情況下，我們發現客戶會以 12 小時或 24 小時的期間來對 /hana/data、/hana/log 和 /hana/shared (包括 /usr/sap) 執行合併的快照集，並保留這些快照集以涵蓋一整個月。 記錄備份磁碟區的快照集也是如此。 然而，記錄備份磁碟區的 SAP HANA 交易記錄備份，則會以 5 到 15 分鐘的期間來執行。
+對於不使用 HANA 大型執行個體災害復原功能的客戶，快照集期間較不頻繁。 在這種情況下，我們發現客戶會以 12 小時或 24 小時的期間來對 /hana/data 和 /hana/shared (包括 /usr/sap) 執行合併的快照集，並保留這些快照集以涵蓋一整個月。 記錄備份磁碟區的快照集也是如此。 然而，記錄備份磁碟區的 SAP HANA 交易記錄備份，則會以 5 到 15 分鐘的期間來執行。
 
 我們鼓勵您利用 cron 執行排定的儲存體快照集。 我們也建議您使用相同的指令碼來符合所有備份和災害復原需求。 您需要修改指令碼輸入，以符合各種要求的備份時間。 這些快照集在 cron 中都會根據其執行時間以不同方式排定：每小時、12 小時、每天或每週。 
 
@@ -440,9 +448,9 @@ For snapshot of the volume storing the boot LUN
 22 12 * * *  ./azure_hana_backup.pl log HM3 dailylogback 28
 30 00 * * *  ./azure_hana_backup.pl boot dailyboot 28
 ```
-在上述範例中，有每小時的合併快照集會涵蓋含有 /hana/data、/hana/log 和 /hana/shared (包括 /usr/sap) 位置的磁碟區。 這種快照集可會來加快過去兩天內的時間點復原速度。 此外，這些磁碟區會有每日快照集。 因此，您會獲得涵蓋兩天的每小時快照集，以及涵蓋四週的每日快照集。 此外，每天會備份一次交易記錄備份磁碟區。 這些備份也會保存四週。 正如您在 crontab 第三行所看到的，系統會排定每五分鐘執行一次 HANA 交易記錄備份。 執行儲存體快照集之不同 cron 作業的開始時間會錯開，以免系統在特定時間點一次執行所有快照集。 
+在上述範例中，有每小時的合併快照集會涵蓋含有 /hana/data 和 /hana/shared (包括 /usr/sap) 位置的磁碟區。 這種快照集可會來加快過去兩天內的時間點復原速度。 此外，這些磁碟區會有每日快照集。 因此，您會獲得涵蓋兩天的每小時快照集，以及涵蓋四週的每日快照集。 此外，每天會備份一次交易記錄備份磁碟區。 這些備份也會保存四週。 正如您在 crontab 第三行所看到的，系統會排定每五分鐘執行一次 HANA 交易記錄備份。 執行儲存體快照集之不同 cron 作業的開始時間會錯開，以免系統在特定時間點一次執行所有快照集。 
 
-在以下範例中，您會每小時執行一次合併的快照集，其所涵蓋的磁碟區包含 /hana/data、/hana/log 和 /hana/shared (包括 /usr/sap) 位置。 您會將這些快照集保留兩天。 交易記錄備份磁碟區的快照集會每隔五分鐘執行一次，並保留四個小時。 和之前一樣，系統會將 HANA 交易記錄檔排定為每五分鐘備份一次。 在開始交易記錄備份後，系統會延後兩分鐘再執行交易記錄備份磁碟區的快照集。 一般情況下，SAP HANA 交易記錄備份應該能在這兩分鐘的時間內完成。 和之前一樣，儲存體快照集每天會將包含開機 LUN 的磁碟區備份一次，並保留四週之久。
+在以下範例中，您會每小時執行一次合併的快照集，其所涵蓋的磁碟區包含 /hana/data 和 /hana/shared (包括 /usr/sap) 位置。 您會將這些快照集保留兩天。 交易記錄備份磁碟區的快照集會每隔五分鐘執行一次，並保留四個小時。 和之前一樣，系統會將 HANA 交易記錄檔排定為每五分鐘備份一次。 在開始交易記錄備份後，系統會延後兩分鐘再執行交易記錄備份磁碟區的快照集。 一般情況下，SAP HANA 交易記錄備份應該能在這兩分鐘的時間內完成。 和之前一樣，儲存體快照集每天會將包含開機 LUN 的磁碟區備份一次，並保留四週之久。
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana HM3 hourlyhana 48
@@ -453,9 +461,9 @@ For snapshot of the volume storing the boot LUN
 
 下圖說明上述範例的順序，但不包括開機 LUN：
 
-![備份與快照集之間的關聯性](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot.PNG)
+![備份與快照集之間的關聯性](./media/hana-overview-high-availability-disaster-recovery/backup_snapshot_updated0921.PNG)
 
-SAP HANA 會定期對 /hana/log 磁碟區執行寫入作業，以將認可的變更記錄至資料庫。 SAP HANA 會定期將儲存點寫入 /hana/data 磁碟區。 SAP HANA 交易記錄備份會依照 crontab 的指定每五分鐘執行一次。 您也會看到系統會因為針對 /hana/data、hana/log 和 /hana/shared 磁碟區觸發合併的儲存體快照集，而每小時執行一次 SAP HANA 快照集。 HANA 快照集成功之後，就會執行合併的儲存體快照集。 在 HANA 交易記錄備份完成大約兩分鐘後，系統會依照 crontab 的指示，每隔五分鐘在 /hana/logbackup 磁碟區上執行一次儲存體快照集。
+SAP HANA 會定期對 /hana/log 磁碟區執行寫入作業，以將認可的變更記錄至資料庫。 SAP HANA 會定期將儲存點寫入 /hana/data 磁碟區。 SAP HANA 交易記錄備份會依照 crontab 的指定每五分鐘執行一次。 您也會看到系統會因為針對 /hana/data 和 /hana/shared 磁碟區觸發合併的儲存體快照集，而每小時執行一次 SAP HANA 快照集。 HANA 快照集成功之後，就會執行合併的儲存體快照集。 在 HANA 交易記錄備份完成大約兩分鐘後，系統會依照 crontab 的指示，每隔五分鐘在 /hana/logbackup 磁碟區上執行一次儲存體快照集。
 
 
 >[!IMPORTANT]
@@ -463,7 +471,7 @@ SAP HANA 會定期對 /hana/log 磁碟區執行寫入作業，以將認可的變
 
 如果您已對使用者承諾執行 30 天的時間點復原，請執行下列作業︰
 
-- 在極端情況下，您必須能夠存取針對 /hana/data、/hana/log 和 /hana/shared 所建立的合併儲存體快照集，而且可達 30 天之久。
+- 在極端情況下，您必須能夠存取針對 /hana/data 和 /hana/shared 所建立的合併儲存體快照集，而且可達 30 天之久。
 - 擁有連續交易記錄備份，其涵蓋任何合併儲存體快照之間的時間。 因此，最舊的交易記錄備份磁碟區快照集必須達 30 天之久。 如果您將交易記錄備份複製到位於 Azure 儲存體上的另一個 NFS 共用，情況並非如此。 在這種情況下，您可以從該 NFS 共用提取舊的交易記錄備份。
 
 若要受惠於儲存體快照集並最終受益於交易記錄備份的儲存體複寫，您必須變更 SAP HANA 用來寫入交易記錄備份的目的地位置。 您可以在 HANA Studio 中進行這項變更。 雖然 SAP HANA 會自動備份完整的記錄區段，但您應該指定記錄備份間隔來加以確定。 使用災害復原選項時尤其如此，因為您通常會想要以確定的期間來執行記錄備份。 在下面的案例中，我們採用 15 分鐘的記錄備份間隔。

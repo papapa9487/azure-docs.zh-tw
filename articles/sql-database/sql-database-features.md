@@ -16,12 +16,13 @@ ms.workload: data-management
 ms.date: 09/22/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75575fec0047dd653dca86df1daf234676859600
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 59bb9778c89142212708b660fb200de3f0f1f9d4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
+
 # <a name="azure-sql-database-features"></a>Azure SQL Database 功能
 
 Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫層級支援大部分相同的功能。 Azure SQL Database 和 SQL Server 之間的主要功能差異是執行個體層級。 
@@ -93,7 +94,7 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 否 |
 | [原則式管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 |
 | [述詞](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 大部分 - 請參閱個別述詞 |
-| [R 服務](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 否 |
+| [R 服務](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 預覽版；請參閱[機器學習服務的新功能](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [資源管理員](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 |
 | [RESTORE 陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 | 
 | [從備份還原資料庫](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | 僅限從內建的備份 - 請參閱[SQL Database 復原](sql-database-recovery-using-backups.md) |

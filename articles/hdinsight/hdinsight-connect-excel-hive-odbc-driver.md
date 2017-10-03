@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 7818093e42c34ee671a035cde783a6622fb2a798
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a0563af9a7fc62fe3923562dd352d756f4945287
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Hadoop
@@ -104,9 +104,12 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用 Microsoft Hive ODBC 驅動程式將 HDInsight 服務中的資料擷取至 Excel。 同樣地，您也可以將 HDInsight 服務中的資料擷取至 SQL Database。 此外也可以將資料上傳至 HDInsight 服務。 若要深入了解，請參閱：
 
-* [使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-data]
-* [將資料上傳至 HDInsight][hdinsight-upload-data]
-* [搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]
+* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](./hdinsight-connect-hive-power-bi.md)。
+* [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./hdinsight-connect-hive-zeppelin.md)。
+* [使用 Power Query 將 Excel 連線到 Hadoop](./hdinsight-connect-excel-power-query.md)。
+* [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
+* [使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code](hdinsight-for-vscode.md)。
+* [將資料上傳至 HDInsight](./hdinsight-upload-data.md)。
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md

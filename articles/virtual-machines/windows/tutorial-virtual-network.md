@@ -42,7 +42,7 @@ VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的
 
 您必須先使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 來建立資源群組，才能建立任何其他 Azure 資源。 下列範例會在 EastUS 位置建立名為 myRGNetwork 的資源群組。
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 ```
 
@@ -50,7 +50,7 @@ New-AzureRmResourceGroup -ResourceGroupName myRGNetwork -Location EastUS
 
 使用 [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) 來建立子網路：
 
-```powershell
+```azurepowershell-interactive
 $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
   -Name myFrontendSubnet `
   -AddressPrefix 10.0.0.0/24
@@ -58,7 +58,7 @@ $frontendSubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 使用 myFrontendSubnet 和 [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) 建立一個名為 *myVNet* 的 VNET：
 
-```powershell
+```azurepowershell-interactive
 $vnet = New-AzureRmVirtualNetwork `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -73,7 +73,7 @@ $vnet = New-AzureRmVirtualNetwork `
 
 使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 來建立公用 IP 位址：
 
-```powershell
+```azurepowershell-interactive
 $pip = New-AzureRmPublicIpAddress `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -84,7 +84,7 @@ $pip = New-AzureRmPublicIpAddress `
 使用 [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) 來建立 NIC：
 
 
-```powershell
+```azurepowershell-interactive
 $frontendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -95,13 +95,13 @@ $frontendNic = New-AzureRmNetworkInterface `
 
 使用 [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential) 來設定 VM 上系統管理員帳戶所需的使用者名稱和密碼。 您需要執行其他步驟以使用這些認證來連線至 VM：
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 使用 [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig)、[Set-AzureRmVMOperatingSystem](/powershell/module/azurerm.compute/set-azurermvmoperatingsystem)、[Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)、[Set-AzureRmVMOSDisk](/powershell/module/azurerm.compute/set-azurermvmosdisk)、[Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface) 和 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 來建立 VM。 
 
-```powershell
+```azurepowershell-interactive
 $frontendVM = New-AzureRmVMConfig `
     -VMName myFrontendVM `
     -VMSize Standard_D1
@@ -139,7 +139,7 @@ New-AzureRmVM `
 
 您可以使用 [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) 來取得 myFrontendVM 的公用 IP 位址。 下列範例會取得稍早建立的 *myPublicIPAddress* IP 位址︰
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmPublicIPAddress `
     -ResourceGroupName myRGNetwork `
     -Name myPublicIPAddress | select IpAddress
@@ -157,7 +157,7 @@ mstsc /v:<publicIpAddress>
 
 使用 [Install-WindowsFeature](https://technet.microsoft.com/itpro/powershell/windows/servermanager/install-windowsfeature) 來執行會安裝 IIS Web 伺服器的自訂指令碼擴充功能：
 
-```powershell
+```azurepowershell-interactive
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
@@ -173,7 +173,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 您可以為後端子網路建立 NSG，以僅允許從 myFrontendVM 傳送內部流量給 myBackendVM。 下列範例會使用 [New-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/new-azurermnetworksecurityruleconfig) 來建立名為 myBackendNSGRule 的 NSG 規則︰
 
-```powershell
+```azurepowershell-interactive
 $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
   -Name myBackendNSGRule `
   -Protocol Tcp `
@@ -188,7 +188,7 @@ $nsgBackendRule = New-AzureRmNetworkSecurityRuleConfig `
 
 使用 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) 來新增名為 myBackendNSG 的網路安全性群組：
 
-```powershell
+```azurepowershell-interactive
 $nsgBackend = New-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -199,7 +199,7 @@ $nsgBackend = New-AzureRmNetworkSecurityGroup `
 
 使用 [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig) 將 myBackEndSubnet 新增至 myVNet：
 
-```powershell
+```azurepowershell-interactive
 Add-AzureRmVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -VirtualNetwork $vnet `
@@ -217,7 +217,7 @@ $vnet = Get-AzureRmVirtualNetwork `
 
 建立 myBackendNic：
 
-```powershell
+```azurepowershell-interactive
 $backendNic = New-AzureRmNetworkInterface `
   -ResourceGroupName myRGNetwork `
   -Location EastUS `
@@ -227,13 +227,13 @@ $backendNic = New-AzureRmNetworkInterface `
 
 使用 Get-Credential 來設定 VM 上系統管理員帳戶所需的使用者名稱和密碼：
 
-```powershell
+```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
 建立 myBackendVM：
 
-```powershell
+```azurepowershell-interactive
 $backendVM = New-AzureRmVMConfig `
   -VMName myBackendVM `
   -VMSize Standard_D1

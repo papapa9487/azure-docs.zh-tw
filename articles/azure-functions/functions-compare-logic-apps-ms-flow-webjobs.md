@@ -3,7 +3,7 @@ title: "在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇 | Microsof
 description: "比較和對照 Microsoft 的雲端整合服務，並決定您應該使用哪一項服務。"
 services: functions,app-service\logic
 documentationcenter: na
-author: cephalin
+author: ggailey777
 manager: wpickett
 tags: 
 keywords: "microsoft flow, 流程, logic apps, azure functions, 函數, azure webjobs, webjobs, 事件處理, 動態計算, 無伺服器架構"

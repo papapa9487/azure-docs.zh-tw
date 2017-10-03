@@ -1,0 +1,279 @@
+---
+title: "在 Azure 中建立 Service Fabric 叢集 | Microsoft Docs"
+description: "了解如何在 Azure 中使用範本建立 Windows 叢集。"
+services: service-fabric
+documentationcenter: .net
+author: rwike77
+manager: timlt
+editor: 
+ms.assetid: 
+ms.service: service-fabric
+ms.devlang: dotNet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 09/06/2017
+ms.author: ryanwi
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5d56fd468998ee4b1253b47aa133812e0141062b
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
+
+---
+
+# <a name="deploy-a-secure-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
+本教學課程是一個系列的第一部分。 您將了解如何建立 Azure 中執行的 Service Fabric 叢集 (Windows)，並將它部署到現有的虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。  若要建立 Linux 叢集，請參閱[在 Azure 上使用範本建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+
+在本教學課程中，您將了解如何：
+
+> [!div class="checklist"]
+> * 在 Azure 中使用範本建立 VNET
+> * 建立金鑰保存庫並上傳憑證
+> * 在 Azure 中使用範本建立安全的 Service Fabric 叢集
+> * 使用 X.509 憑證保護叢集
+> * 使用 PowerShell 連線到叢集
+> * 刪除叢集
+
+在本教學課程系列中，您將了解如何：
+> [!div class="checklist"]
+> * 在 Azure 上使用範本建立安全叢集
+> * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+
+## <a name="prerequisites"></a>必要條件
+開始進行本教學課程之前：
+- 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- 安裝 [Service Fabric SDK 和 PowerShell 模組](service-fabric-get-started.md)
+- 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
+
+下列程序會建立五個節點的 Service Fabric 叢集。 叢集由放入金鑰保存庫中的自我簽署憑證所保護。 
+
+若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
+如需建立 Service Fabric 叢集的詳細資訊，請參閱[使用 Azure Resource Manager 來建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
+
+## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 並選取您的訂用帳戶
+本指南使用 Azure PowerShell。 開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
+ 
+執行下列指令碼，以登入您的 Azure 帳戶並選取您的訂用帳戶：
+
+```powershell
+Login-AzureRmAccount
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
+```
+
+## <a name="create-a-resource-group"></a>建立資源群組
+針對您的部署建立新的資源群組，並指定名稱和位置。
+
+```powershell
+$ResourceGroupName = "sfclustertutorialgroup"
+New-AzureRmResourceGroup -Name $ResourceGroupName -Location centralus
+```
+
+## <a name="deploy-the-network-topology"></a>部署網路拓撲
+接下來，設定將作為 API 管理與 Service Fabric 叢集部署位置的網路拓撲。 [Network.json][network-arm] Resource Manager 範本已設定來建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG) 以及適用於 API 管理的子網路和 NSG。 在[這裡](../virtual-network/virtual-networks-overview.md)深入了解 VNET、子網路與 NSG。
+
+[Network.parameters.json][network-parameters-arm] 參數檔包含要作為 Service Fabric 與 API 管理部署位置之子網路和 NSG 的名稱。  [下一個教學課程](service-fabric-tutorial-deploy-api-management.md)會部署 API 管理。 就這份指南而言，參數值無須變更。 Service Fabric Resource Manager 範本會使用這些值。  如果在此處修改這些值，您也必須在本教學課程和[部署 API 管理教學課程](service-fabric-tutorial-deploy-api-management.md)所使用的其他 Resource Manager 範本中修改這些值。 
+
+下載下列 Resource Manager 範本和參數檔：
+- [network.json][network-arm]
+- [network.parameters.json][network-parameters-arm]
+
+使用下列 PowerShell 命令來部署用於網路設定的 Resource Manager 範本和參數檔：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+```
+
+<a id="createvaultandcert" name="createvaultandcert_anchor"></a>
+## <a name="create-a-key-vault-and-upload-a-certificate"></a>建立金鑰保存庫並上傳憑證
+下一個步驟中的 Service Fabric 叢集 Resource Manager 範本已設定為建立具有憑證安全性的安全叢集。 此憑證可用來保護您叢集的節點對節點通訊，以及管理使用者對您 Service Fabric 叢集的存取。 「API 管理」也會使用此憑證來存取「Service Fabric 命名服務」以探索服務。 基於叢集安全性考量，Key Vault 中必須有憑證。
+
+下列指令碼會在 Azure 中建立金鑰保存庫、建立自我簽署憑證，並將憑證上傳至金鑰保存庫。  如果您想要使用現有的憑證，請將 **$CreateSelfSignedCertificate** 設為 "$false"，並在 **$ExistingPfxFilePath** 中指定位置。
+
+```powershell
+$VaultResourceGroupName = 'ryanwikeyvaultgroup'
+$VaultName= 'ryanwikeyvault'
+$Location = "westus"
+$CertificateName = "ryanwicertificate1"
+$Password = 'mypa$$word!'
+$DnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
+$OutputPath = "C:\MyCertificates" # location where you want the .PFX to be stored
+$CreateSelfSignedCertificate = $true
+$ExistingPfxFilePath = 'C:\MyCertificates\ryanwicertificate1.pfx'
+
+$ErrorActionPreference = 'Stop'
+
+Write-Host "Switching context to SubscriptionId $SubscriptionId"
+Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+
+# New-AzureRmResourceGroup is idempotent as long as the location matches
+Write-Host "Ensuring ResourceGroup $VaultResourceGroupName in $Location"
+New-AzureRmResourceGroup -Name $VaultResourceGroupName -Location $Location -Force | Out-Null
+$resourceId = $null
+
+try
+{
+    $existingKeyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName
+    $resourceId = $existingKeyVault.ResourceId
+
+    Write-Host "Using existing vault $VaultName in $($existingKeyVault.Location)"
+}
+catch
+{
+}
+
+if(!$existingKeyVault)
+{
+    Write-Host "Creating new vault $VaultName in $location"
+    $newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $VaultResourceGroupName -Location $Location -EnabledForDeployment
+    $resourceId = $newKeyVault.ResourceId
+}
+
+if($CreateSelfSignedCertificate)
+{
+    $securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
+
+    $NewPfxFilePath = Join-Path $OutputPath $($CertificateName+".pfx")
+
+    Write-Host "Creating new self signed certificate at $NewPfxFilePath"
+    
+    ## Changes to PSPKI version 3.5.2 New-SelfSignedCertificate replaced by New-SelfSignedCertificateEx
+    $PspkiVersion = (Get-Module PSPKI).Version
+    if($PSPKIVersion.Major -ieq 3 -And $PspkiVersion.Minor -ieq 2 -And $PspkiVersion.Build -ieq 5) {
+        New-SelfsignedCertificateEx -Subject "CN=$DnsName" -EKU "Server Authentication", "Client authentication" -KeyUsage "KeyEncipherment, DigitalSignature" -Path $NewPfxFilePath -Password $securePassword -Exportable
+    }
+    else {
+        New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -DnsName $DnsName | Export-PfxCertificate -FilePath $NewPfxFilePath -Password $securePassword | Out-Null
+    }
+
+    $ExistingPfxFilePath = $NewPfxFilePath
+}
+
+Write-Host "Reading pfx file from $ExistingPfxFilePath"
+$cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $ExistingPfxFilePath, $Password
+
+$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
+$base64 = [System.Convert]::ToBase64String($bytes)
+
+$jsonBlob = @{
+   data = $base64
+   dataType = 'pfx'
+   password = $Password
+   } | ConvertTo-Json
+
+    $contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
+    $content = [System.Convert]::ToBase64String($contentbytes)
+
+    $secretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
+
+Write-Host "Writing secret to $CertificateName in vault $VaultName"
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertificateName -SecretValue $secretValue
+
+$output = @{};
+$output.SourceVault = $resourceId;
+$output.CertificateURL = $secret.Id;
+$output.CertificateThumbprint = $cert.Thumbprint;
+
+Write-Host "Source vault: " $output.SourceVault
+Write-Host "Certificate URL: " $output.CertificateURL
+Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
+```
+
+## <a name="deploy-the-service-fabric-cluster"></a>部署 Service Fabric 叢集
+當網路資源部署完成，而您也將憑證上傳至金鑰保存庫之後，下一個步驟是將 Service Fabric 叢集部署到為 Service Fabric 叢集指定之子網路與 NSG 中的 VNET。 針對本教學課程，Service Fabric Resource Manager 範本已預先設定為使用您在上一個步驟中設定之 VNET、子網路及 NSG 的名稱。
+
+下載下列 Resource Manager 範本和參數檔：
+- [cluster.json][cluster-arm]
+- [cluster.parameters.json][cluster-parameters-arm]
+
+填寫用於您部署之 `cluster.parameters.json` 檔案中的空白參數，包括您叢集憑證的 [Key Vault 資訊](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault)。
+
+使用下列 PowerShell 命令來部署 Resource Manager 範本和參數檔，以建立 Service Fabric 叢集：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+```
+
+## <a name="modify-the-certificate--access-service-fabric-explorer"></a>修改憑證和存取 Service Fabric Explorer 
+
+1. 按兩下憑證，即可開啟 [憑證匯入精靈]。
+
+2. 請使用預設設定，但務必勾選 [將此金鑰標記為可匯出] 核取方塊 (在「私密金鑰保護」步驟中)。 設定 Azure Container Registry 時，Visual Studio 必須匯出憑證，以進行本教學課程稍後的 Service Fabric 叢集驗證。
+
+3. 現在，您可以在瀏覽器中開啟 Service Fabric Explorer。 若要這樣做，請使用網頁瀏覽器導覽至叢集的 **ManagementEndpoint** URL，然後選取您的機器上儲存的憑證。
+
+>[!NOTE]
+>由於您使用自我簽署的憑證，因此開啟 Service Fabric Explorer 時會顯示憑證錯誤。 在 Edge 中，您必須依序按一下 [詳細資料] 與 [繼續瀏覽網頁] 連結。 在 Chrome 中，您必須依序按一下 [進階] 與 [繼續] 連結。
+
+>[!NOTE]
+>如果叢集建立失敗，您隨時可以重新執行命令，藉此更新已部署的資源。 如果憑證是與失敗的部署一起建立，則會產生一個新憑證。 若要對叢集建立問題進行疑難排解，請參閱[使用 Azure Resource Manager 來建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
+
+## <a name="connect-to-the-secure-cluster"></a>連線到安全的叢集
+使用隨 Service Fabric SDK 一起安裝的 Service Fabric PowerShell 模組連線到叢集。  首先，將憑證安裝到您的電腦上目前使用者的個人 (My) 存放區。  執行下列 PowerShell 命令：
+
+```powershell
+$certpwd="Password#1234" | ConvertTo-SecureString -AsPlainText -Force
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\mycertificates\mysfcluster20170531104310.pfx `
+        -Password $certpwd
+```
+
+您現在即可連線到您安全的叢集。
+
+**Service Fabric** PowerShell 模組提供許多 Cmdlet 來管理 Service Fabric 叢集、應用程式和服務。  使用 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster) Cmdlet 連接到安全的叢集。 在上一個步驟的輸出中找到憑證指紋和連線端點詳細資訊。
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.cloudapp.azure.com:19000 `
+          -KeepAliveIntervalInSec 10 `
+          -X509Credential -ServerCertThumbprint C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -FindType FindByThumbprint -FindValue C4C1E541AD512B8065280292A8BA6079C3F26F10 `
+          -StoreLocation CurrentUser -StoreName My
+```
+
+使用 [Get-ServiceFabricClusterHealth](/powershell/module/servicefabric/get-servicefabricclusterhealth) Cmdlet 檢查已連線，而且叢集狀況良好。
+
+```powershell
+Get-ServiceFabricClusterHealth
+```
+
+```azurecli
+sfctl cluster health
+```
+
+## <a name="clean-up-resources"></a>清除資源
+
+叢集是由叢集資源本身和其他 Azure 資源所構成。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
+
+登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](http://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup Cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 刪除資源群組和所有叢集資源。
+
+```powershell
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId "Subcription ID"
+
+$ResourceGroupName = "sfclustertutorialgroup"
+Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
+```
+
+## <a name="next-steps"></a>後續步驟
+在本教學課程中，您已了解如何：
+
+> [!div class="checklist"]
+> * 在 Azure 中使用範本建立 VNET
+> * 建立金鑰保存庫並上傳憑證
+> * 在 Azure 中使用範本建立安全的 Service Fabric 叢集
+> * 使用 X.509 憑證保護叢集
+> * 使用 PowerShell 連線到叢集
+> * 刪除叢集
+
+接下來，前進到下列的教學課程，了解如何部署現有的應用程式。
+> [!div class="nextstepaction"]
+> [部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
+
+
+[network-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.json
+[network-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/network.parameters.json
+
+[cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.json
+[cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/cluster.parameters.json
+

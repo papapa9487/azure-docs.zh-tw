@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 48a0eaeb10d406d551c9e5870edde06809bd7544
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5f04f3b9135167c0f339c58323ebd931b260109
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
@@ -77,7 +76,7 @@ Windows 代理程式若要連線到 OMS 服務並向其註冊，就必須能夠�
 
 
 ## <a name="download-the-agent-setup-file-from-oms"></a>從 OMS 下載代理程式安裝檔案
-1. 在 OMS 入口網站的 [概觀] 頁面中，按一下 [設定] 圖格。  按一下頂端的 [連接的來源] 索引標籤。  
+1. 在 [OMS 入口網站](https://www.mms.microsoft.com)的 [概觀] 頁面中，按一下 [設定] 圖格。  按一下頂端的 [連接的來源] 索引標籤。  
     ![連接的來源索引標籤](./media/log-analytics-windows-agents/oms-direct-agent-connected-sources.png)
 2. 按一下 [Windows 伺服器]，然後按一下適用於電腦處理器類型的 [下載 Windows 代理程式] 來下載安裝檔案。
 3. 按一下 [工作區識別碼] 右邊的複製圖示，然後將識別碼貼入記事本中。

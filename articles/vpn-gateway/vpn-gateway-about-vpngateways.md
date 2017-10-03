@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2017
+ms.date: 09/25/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: ecfe6dab6e4deaa75d073badcb88d536396fe678
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 70deefe92212742f76e7221a661fd79fd38c4280
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
@@ -82,19 +82,19 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 [!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>點對站 (透過 SSTP 的 VPN)
+## <a name="P2S"></a>點對站 (透過 IKEv2 或 SSTP 的 VPN)
 
-點對站 (P2S) VPN 閘道可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的方案 (而不是使用站對站 VPN)。 
+點對站 (P2S) VPN 閘道連線可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 P2S 連線的建立方式是從用戶端電腦開始。 此解決方案適合於想要從遠端位置 (例如從住家或會議) 連線到 Azure VNet 的遠距工作者。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的解決方案 (而不是 S2S VPN)。
 
 如同 S2S 連線，P2S 連線不需要內部部署公眾對應 IP 位址或 VPN 裝置。 P2S 連線可與 S2S 連線透過相同的 VPN 閘道一起使用，前提是這兩個連線的所有設定需求都相容。
 
-P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的 VPN 通訊協定。 P2S VPN 連線的建立方式是從用戶端電腦開始。
+>[!NOTE]
+>P2S RADIUS 驗證和 IKEv2 目前皆處於預覽狀態。
+>
 
-![Azure VPN 閘道點對站連接範例](./media/vpn-gateway-about-vpngateways/vpngateway-point-to-site-connection-diagram.png)
+如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
-### <a name="deployment-models-and-methods-for-point-to-site"></a>點對站的部署模型和方法
-
-[!INCLUDE [vpn-gateway-table-point-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
+![Azure VPN 閘道點對站連接範例](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 
 ## <a name="V2V"></a>VNet 對 VNet 連線 (IPsec/IKE VPN 通道)
 

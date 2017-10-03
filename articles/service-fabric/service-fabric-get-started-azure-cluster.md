@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: ec59450052b377412a28f7eaf55d1f1512b55195
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -70,18 +70,6 @@ ms.lasthandoff: 08/28/2017
 
     您可以在通知功能中看到叢集的建立進度。 (請按一下畫面右上角狀態列附近的鈴噹圖示。)如果您在建立叢集時按了 [釘選到「開始面板」]，您會看到 [部署 Service Fabric 叢集] 已釘選到 [開始] 面板。
 
-### <a name="view-cluster-status"></a>檢視叢集狀態
-建立叢集之後，您就可以在入口網站的 [概觀] 刀鋒視窗中檢查您的叢集。 現在儀表板會顯示叢集的詳細資料，包括叢集的公用端點和 Service Fabric Explorer 的連結。
-
-![叢集狀態][cluster-status]
-
-### <a name="visualize-the-cluster-using-service-fabric-explorer"></a>使用 Service Fabric Explorer 將叢集視覺化
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一個理想的工具，可將叢集視覺化及管理應用程式。  Service Fabric Explorer 是在叢集中執行的一項服務。  按一下入口網站中叢集 [概觀]頁面 的 [Service Fabric Explorer] 連結，即可使用網頁瀏覽器進行存取。  您也可以直接在瀏覽器中輸入位址︰[http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer](http://quickstartcluster.westus.cloudapp.azure.com:19080/Explorer)
-
-叢集儀表板會提供您叢集的概觀，包括應用程式和節點健康情況的摘要。 節點檢視會顯示叢集的實體配置。 對於指定的節點，您可以檢查已經在該節點上部署程式碼的應用程式。
-
-![Service Fabric Explorer][service-fabric-explorer]
-
 ### <a name="connect-to-the-cluster-using-powershell"></a>使用 PowerShell 連線到叢集
 使用 PowerShell 進行連線，以確認叢集正在執行。  ServiceFabric PowerShell 模組會隨著 [Service Fabric SDK](service-fabric-get-started.md) 一起安裝。  [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) Cmdlet 會建立叢集連線。   
 
@@ -112,7 +100,7 @@ Service Fabric 叢集是由叢集資源本身和其他 Azure 資源所構成。 
     ![刪除資源群組][cluster-delete]
 
 
-## <a name="use-azure-powershell-to-deploy-a-secure-cluster"></a>使用 Azure Powershell 來部署安全的叢集
+## <a name="use-azure-powershell-to-deploy-a-secure-windows-cluster"></a>使用 Azure Powershell 來部署安全的 Windows 叢集
 1. 在您的電腦下載 [Azure Powershell 模組 4.0 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
 2. 開啟 Windows PowerShell 視窗並執行下列命令。 
@@ -205,10 +193,6 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mycluster.southcentralus.clouda
 Get-ServiceFabricClusterHealth
 
 ```
-### <a name="publish-your-apps-to-your-cluster-from-visual-studio"></a>從 Visual Studio 將您的應用程式發佈至叢集
-
-您現在已設定好 Azure 叢集，即可依照[發佈至叢集](service-fabric-publish-app-remote-cluster.md)文件中所述，從 Visual Studio 將您的應用程式發佈至該叢集。 
-
 ### <a name="remove-the-cluster"></a>移除叢集
 叢集是由叢集資源本身和其他 Azure 資源所構成。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。 
 
@@ -217,12 +201,62 @@ Get-ServiceFabricClusterHealth
 Remove-AzureRmResourceGroup -Name $RGname -Force
 
 ```
+## <a name="use-azure-cli-to-deploy-a-secure-linux-cluster"></a>使用 Azure CLI 來部署安全的 Linux 叢集
+
+1. 在您的電腦上安裝 [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)。
+2. 登入 Azure 並選取您要在其中建立叢集的訂用帳戶。
+   ```azurecli
+   az login
+   az account set --subscription <GUID>
+   ```
+3. 執行 [az sf cluster create](/cli/azure/sf/cluster?view=azure-cli-latest#az_sf_cluster_create) 命令來建立安全的叢集。
+
+    ```azurecli
+    #!/bin/bash
+
+    # Variables
+    ResourceGroupName="aztestclustergroup" 
+    ClusterName="aztestcluster" 
+    Location="southcentralus" 
+    Password="q6D7nN%6ck@6" 
+    Subject="aztestcluster.southcentralus.cloudapp.azure.com" 
+    VaultName="aztestkeyvault" 
+    VaultGroupName="testvaultgroup"
+    VmPassword="Mypa$$word!321"
+    VmUserName="sfadminuser"
+
+    # Create resource groups
+    az group create --name $ResourceGroupName --location $Location 
+    az group create --name $VaultGroupName --location $Location
+
+    # Create secure five node Linux cluster. Creates a key vault in a resource group
+    # and creates a certficate in the key vault. The certificate's subject name must match 
+    # the domain that you use to access the Service Fabric cluster.  The certificate is downloaded locally.
+    az sf cluster create --resource-group $ResourceGroupName --location $Location --certificate-output-folder . \
+        --certificate-password $Password --certificate-subject-name $Subject --cluster-name $ClusterName \
+        --cluster-size 5 --os UbuntuServer1604 --vault-name $VaultName --vault-resource-group $VaultGroupName \
+        --vm-password $VmPassword --vm-user-name $VmUserName
+    ```
+    
+### <a name="connect-to-the-cluster"></a>連接到叢集
+執行下列 CLI 命令以使用憑證來連線到叢集。  使用用戶端憑證來進行驗證時，憑證詳細資料必須與部署至叢集節點的憑證相符。  對自我簽署憑證使用 `--no-verify` 選項。
+
+```azurecli
+az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.azure.com:19080 --pem ./linuxcluster201709161647.pem --no-verify
+```
+
+執行下列命令來檢查您連線的叢集是否狀況良好。
+
+```azurecli
+az sf cluster health
+```
 
 ## <a name="next-steps"></a>後續步驟
 您已設定好開發叢集，請嘗試下列作業︰
-* [在入口網站中建立安全的叢集](service-fabric-cluster-creation-via-portal.md)
-* [從範本建立叢集](service-fabric-cluster-creation-via-arm.md) 
+* [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
+* [移除叢集](service-fabric-cluster-delete.md) 
 * [使用 PowerShell 部署應用程式](service-fabric-deploy-remove-applications.md)
+* [使用 CLI 部署應用程式](service-fabric-application-lifecycle-sfctl.md)
 
 
 [cluster-setup-basics]: ./media/service-fabric-get-started-azure-cluster/basics.png

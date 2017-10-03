@@ -3,7 +3,7 @@ title: "建立內部負載平衡器 - Azure 入口網站 | Microsoft Docs"
 description: "了解如何使用 Azure 入口網站在資源管理員中建立內部負載平衡器"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-service-management
@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -28,6 +30,9 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
+
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -53,7 +58,7 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 7. 在 [IP 位址指派] 下，按一下 [動態] 或 [靜態]，視您想要讓負載平衡器的 IP 位址固定 (靜態) 或不固定而定。
 
    > [!NOTE]
-   > 如果您選擇使用靜態 IP 位址，您必須提供負載平衡器的位址。
+   > 如果您選擇使用靜態 IP 位址，則必須提供負載平衡器的位址。
 
 8. 在 [資源群組] 下，指定負載平衡器的新資源群組名稱，或按一下 [選取現有]，然後選取現有的資源群組。
 9. 按一下 [建立] 。
@@ -61,22 +66,22 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 ## <a name="configure-load-balancing-rules"></a>設定負載平衡規則
 
 負載平衡器建立之後，瀏覽至負載平衡器資源來設定它。
-您必須先設定後端位址集區和探查，然後再設定負載平衡規則。
+請先設定後端位址集區和探查，然後再設定負載平衡規則。
 
-### <a name="step-1-configure-a-back-end-pool"></a>步驟 1：設定後端集區
+### <a name="step-1-configure-a-backend-pool"></a>步驟 1：設定後端集區
 
-1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您先前建立的負載平衡器。
+1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您稍早建立的負載平衡器。
 2. 在 [設定] 刀鋒視窗中，按一下 [後端集區]。
 3. 在 [後端位址集區] 刀鋒視窗中，按一下 [加入]。
 4. 在 [加入後端集區] 刀鋒視窗中，輸入後端集區的**名稱**，然後按一下 [確定]。
 
 ### <a name="step-2-configure-a-probe"></a>步驟 2：設定探查
 
-1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您先前建立的負載平衡器。
+1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您稍早建立的負載平衡器。
 2. 在 [設定] 刀鋒視窗中，按一下 [探查]。
 3. 在 [探查] 刀鋒視窗中，按一下 [加入]。
 4. 在 [加入探查] 刀鋒視窗中，輸入探查的**名稱**。
-5. 在 [通訊協定] 下，選取 [HTTP] \(適用於網站) 或 [TCP] \(適用於其他 TCP 型應用程式)。
+5. 在 [通訊協定] 下，選取 [HTTP] (適用於網站) 或 [TCP] (適用於其他 TCP 型應用程式)。
 6. 在 [連接埠] 下，指定用於存取探查的連接埠。
 7. 在 [路徑]  \(僅適用於 HTTP 探查) 下，指定要用來作為探查的路徑。
 8. 在 [間隔]  下，指定探查應用程式的頻率。
@@ -85,14 +90,14 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 
 ### <a name="step-3-configure-load-balancing-rules"></a>步驟 3：設定負載平衡規則
 
-1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您先前建立的負載平衡器。
+1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您稍早建立的負載平衡器。
 2. 在 [設定] 刀鋒視窗中，按一下 [負載平衡規則]。
 3. 在 [負載平衡規則] 刀鋒視窗中，按一下 [加入]。
 4. 在 [加入負載平衡規則] 刀鋒視窗中，輸入規則的**名稱**。
-5. 在 [通訊協定] 下，選取 [HTTP]\(適用於網站) 或 [TCP] \(適用於其他 TCP 型應用程式)。
+5. 在 [通訊協定] 下，選取 [HTTP] (適用於網站) 或 [TCP] (適用於其他 TCP 型應用程式)。
 6. 在 [連接埠] 下，指定用戶端在負載平衡器中連接的連接埠。
 7. 在 [後端連接埠] 下，指定要用於後端集區的連接埠 (負載平衡器連接埠和後端連接埠通常會相同)。
-8. 在 [後端集區] 下，選取您先前建立的後端集區。
+8. 在 [後端集區] 下，選取您稍早建立的後端集區。
 9. 在 [工作階段持續性] 下，選取要保存工作階段的方式。
 10. 在 [閒置逾時 (分鐘)] 下，指定閒置逾時。
 11. 在 [浮動 IP (伺服器直接回傳)] 下，按一下 [停用] 或 [啟用]。
@@ -103,10 +108,5 @@ ms.openlocfilehash: 8fbe9d5d04d745de51e0e41516d6c12683c98637
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
 
 

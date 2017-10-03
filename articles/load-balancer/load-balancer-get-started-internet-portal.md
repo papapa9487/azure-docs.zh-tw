@@ -13,11 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 09/25/2017
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: fd5960a4488f2ecd93ba117a7d775e78272cbffd
-ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -29,11 +31,13 @@ ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
 > * [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [範本](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-本文涵蓋之內容包括資源管理員部署模型。 您也可以 [了解如何使用傳統部署建立網際網路面向的負載平衡器](load-balancer-get-started-internet-classic-portal.md)
+本文涵蓋之內容包括資源管理員部署模型。
 
 [!INCLUDE [load-balancer-get-started-internet-scenario-include.md](../../includes/load-balancer-get-started-internet-scenario-include.md)]
 
@@ -47,7 +51,7 @@ ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
 * 後端位址集區 - 包含虛擬機器的網路介面 (NIC)，可從負載平衡器接收網路流量。
 * 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則。
 * 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器之連接埠的規則。
-* 探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
+* t探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
 
 您可以在 [Azure Resource Manager 的負載平衡器支援](load-balancer-arm.md)中取得關於負載平衡器元件與 Azure Resource Manager 的詳細資訊。
 
@@ -81,7 +85,7 @@ ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
     在負載平衡器的 [設定] 底下選取 [探查]。 然後按一下位於刀鋒視窗頂端的 [新增]  。
 
     有兩種方式可以設定探查：HTTP 或 TCP。 此範例示範 HTTP，但您可以透過類似方式設定 TCP。
-    更新所需資訊。 如前所述， **myLoadBalancer** 會對連接埠 80 上的流量進行負載平衡。 選取的路徑為 HealthProbe.aspx、間隔為 15 秒，而狀況不良臨界值為 2。 完成後，按一下 [確定]  以建立探查。
+    更新所需資訊。 如前所述，**myLoadBalancer** 會對連接埠 80 上的流量進行負載平衡。 選取的路徑為 HealthProbe.aspx、間隔為 15 秒，而狀況不良臨界值為 2。 完成後，按一下 [確定]  以建立探查。
 
     將指標停留在 'i' 圖示上可深入了解這些個別組態，以及如何變更它們以符合您的需求。
 
@@ -112,9 +116,4 @@ ms.openlocfilehash: db7c328b2ba7008b9d34275341fa4bad9522b028
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

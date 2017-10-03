@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: chackdan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8d876a0f2168ee9375a3905d5d5a562ab1194cf3
-ms.openlocfilehash: 9159f40fed17e52e6576efa1ea7e8a2dee98728e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 47152d05eb7e31e7fe1f35e33a10fe8e903e21e2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集
@@ -539,7 +539,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 <a name="assign-roles"></a>
 
 ## <a name="assign-users-to-roles"></a>將使用者指派給角色
-建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。 您可以使用 [Azure 傳統入口網站][azure-classic-portal]來指派角色。
+建立應用程式來代表您的叢集之後，請將使用者指派給 Service Fabric 所支援的角色︰唯讀和系統管理員。您可以使用 [Azure 傳統入口網站][azure-classic-portal]來指派角色。
 
 1. 在 Azure 入口網站中，移至您的租用戶，然後選取 [應用程式]。
 2. 選取 Web 應用程式 (其名稱類似 `myTestCluster_Cluster`)。
@@ -591,7 +591,7 @@ CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 
 憑證的主體名稱必須與您用來存取 Service Fabric 叢集的網域相符。 必須如此相符，才能為叢集的 HTTPS 管理端點和 Service Fabric Explorer 提供 SSL。 您無法從 CA 取得 `.cloudapp.azure.com` 網域的 SSL 憑證。 您必須為您的叢集取得自訂網域名稱。 當您向 CA 要求憑證時，憑證的主體名稱必須與用於您叢集的自訂網域名稱相符。
 
-這些主體名稱是您建立安全 Service Fabric 叢集 (不含 Azure AD) 所需的項目，如[設定 Resource Manager 範本參數](#configure-arm)所述。 您可以依照[驗證用戶端對叢集的存取權](service-fabric-connect-to-secure-cluster.md)的指示來連接到安全叢集。 Linux 預覽叢集不支援 Azure AD 驗證。 您可以指派系統管理員和用戶端角色，如[將使用者指派給角色](#assign-roles)一節所述。 為 Linux 預覽叢集指定系統管理員和用戶端角色時，您必須提供用於驗證的憑證指紋。 (您不須提供主體名稱，因為在此預覽版本中不會執行任何鏈結驗證或撤銷)。
+這些主體名稱是您建立安全 Service Fabric 叢集 (不含 Azure AD) 所需的項目，如[設定 Resource Manager 範本參數](#configure-arm)所述。 您可以依照[驗證用戶端對叢集的存取權](service-fabric-connect-to-secure-cluster.md)的指示來連接到安全叢集。 Linux 叢集不支援 Azure AD 驗證。 您可以指派系統管理員和用戶端角色，如[將使用者指派給角色](#assign-roles)一節所述。 為 Linux 叢集指定系統管理員和用戶端角色時，您必須提供用於驗證的憑證指紋。 您不須提供主體名稱，因為不會執行任何鏈結驗證或撤銷。
 
 如果您想要使用自我簽署的憑證來進行測試，可以使用相同的指令碼來產生該憑證。 您可以接著提供旗標 `ss` 而不是提供憑證名稱和憑證路徑，來將該憑證上傳到 Key Vault。 例如，請參閱下列命令來建立及上傳自我簽署的憑證︰
 

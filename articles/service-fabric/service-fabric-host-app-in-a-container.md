@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/19/2017
 ms.author: mikhegn
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 484db494e7975df950543d19bf841a4df7cdd139
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 021c695a91ff46274b2a5174918711d04bcff239
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -131,11 +131,11 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 ### <a name="expose-the-port-for-the-app"></a>公開應用程式的連接埠
 根據預設，Azure Load Balancer 會為我們設定好的 Service Fabric 叢集開啟連接埠 *80*，以平衡叢集的傳入流量。 透過 docker-compose.yml 檔案，我們可以在此連接埠上公開容器。
 
-在 Visual Studio 中，開啟**方案總管**，尋找 **docker-compose**，然後開啟檔案 **docker-compose.override.yml**。
+在 Visual Studio 中，開啟**方案總管**，尋找 **docker-compose**，然後開啟檔案 **docker-compose.yml**。
 
 修改 `fabrikamfiber.web:` 節點，新增一個名為 `ports:` 的子節點。
 
-新增字串項目 `- "80:80"`。
+新增字串項目 `- "80:80"`。 docker-compose.yml 檔案看起來應該如下所示：
 
 ```yml
   version: '3'
@@ -167,7 +167,7 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 若要開始進行，您的程式碼必須裝載在原始檔控制中。 本節的其餘部分會假設使用 **git**。
 
 ### <a name="set-up-a-vsts-repo"></a>設定 VSTS 存放庫
-在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] \(或您慣用的任何一個選項)。
+在 Visual Studio 右下角，按一下 [加入至原始檔控制] > [Git] (或您慣用的任何一個選項)。
 
 ![按原始檔控制按鈕][image-source-control]
 
@@ -216,6 +216,8 @@ Edge 會使用容器在內部 NAT 網路上的 IP 位址 (通常是 172.x.x.x) �
 > * 在 Visual Studio 中建立 Docker 專案
 > * 將現有的應用程式容器化
 > * 使用 Visual Studio 和 VSTS 設定持續整合
+
+在本教學課程的下一個部分，了解如何設定[監視您的容器](service-fabric-tutorial-monitoring-wincontainers.md)。
 
 <!--   NOTE SURE WHAT WE SHOULD DO YET HERE
 

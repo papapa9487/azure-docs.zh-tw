@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 3ff04f031b2d170ac63fc1c6f4e2b6ba6a6c46bd
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -131,4 +131,4 @@ Service Fabric 基於各種原因變更具狀態服務的「主要」。 最常�
 - [Reliable Services 簡介](service-fabric-reliable-services-introduction.md)
 - [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
 - [Reliable Services 的進階用法](service-fabric-reliable-services-advanced-usage.md)
-
+- [複本和執行個體](service-fabric-concepts-replica-lifecycle.md)

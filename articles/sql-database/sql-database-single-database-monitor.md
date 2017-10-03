@@ -14,18 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 01/10/2017
+ms.date: 09/20/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: e11ed3275413b428523eef78a5a89b537f6a4afc
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 50d635191ff65f8b892595c954673b2820b22ecb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>監視 Azure SQL Database 中的資料庫效能
 在 Azure 中監視 SQL Database 的效能，必須從監視您選擇之資料庫效能等級相關的資源使用率開始。 監視可協助您判斷您的資料庫是否有超量的容量或因為資源超量而發生問題，然後判斷是否開始調整您資料庫的效能等級和[服務層](sql-database-service-tiers.md)。 您可以使用 [Azure 入口網站](https://portal.azure.com)中的圖形化工具或使用 SQL [動態管理檢視](https://msdn.microsoft.com/library/ms188754.aspx)，監視您的資料庫。
+
+> [!TIP]
+> 使用 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) 來自動監視您的資料庫效能。 在偵測到效能問題之後，系統就會產生包含問題詳細資料和「根本原因分析」(RCA) 的診斷記錄。 在可能的情況下會提供效能改進建議。
+>
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 入口網站監視資料庫
 在 [Azure 入口網站](https://portal.azure.com/)中，您可以透過選取資料庫，並按一下 [監視] 圖表，監視單一資料庫的使用率。 如此會帶出您可變更的 [度量] 視窗，只要按一下 [編輯圖表] 按鈕即可。 新增下列度量：
@@ -209,4 +212,9 @@ Azure SQL Database 會在每個伺服器 **master** 資料庫的 **sys.resource_
 同樣地，這些查詢傳回的是某一時間點的計數。 如果您收集一段時間內的多個範例，您就可以充分了解您的工作階段使用量。
 
 若要進行 SQL Database 分析，您可以查詢 [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)檢視，並檢閱 **active_session_count** 資料行，以取得工作階段的歷史統計資料。 
+
+## <a name="next-steps"></a>後續步驟
+
+- 使用 [Azure SQL Database 自動調整](sql-database-automatic-tuning.md)來自動調整資料庫索引和查詢執行計畫。
+- 使用 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) 來自動監視資料庫效能。 此功能會提供效能問題的診斷資訊和根本原因分析。
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 12db22d1444dc07a45db430c01407f9398e13bad
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/21/2017
 若要成功管理這類應用程式，您除了需要主動監視它們之外，還需要了解如何為其各層面與相依技術進行診斷與疑難排解。 身為 Azure 儲存體服務的使用者，您應持續監視應用程式所使用的儲存體服務，以預防發生非預期的行為改變 (例如，回應速度明顯比平時慢)，並使用記錄功能來收集更多的詳細資料，同時深入分析問題的成因。 從監視與記錄手段中取得的診斷資訊，將在應用程式遭遇問題時，協助您判斷根本原因。 接著才能為問題進行疑難排解，並決定該採取哪些合宜的步驟來加以矯正。 Azure 儲存體是 Azure 的核心服務之一，更在客戶部署至 Azure 基礎結構的主要解決方案之中扮演著重要的環節。 Azure 儲存體會在您的雲端架構應用程式裡加入各項功能，從而簡化儲存體問題的監視、診斷與疑難排解程序。
 
 > [!NOTE]
-> Azure 檔案儲存體目前不支援記錄。
+> Azure 檔案服務目前不支援記錄。
 > 
 
 如需在 Azure 儲存體應用程式進行端對端疑難排解的實際操作指南，請參閱 [使用 Azure 儲存體度量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解](../storage-e2e-troubleshooting.md)。
@@ -71,8 +71,8 @@ ms.lasthandoff: 08/21/2017
   * [您的問題起因於使用儲存體模擬器進行開發或測試]
   * [安裝 Azure SDK for .NET 時發生問題]
   * [您的儲存體服務出現其他問題]
-  * [使用 Windows 針對 Azure 檔案儲存體進行疑難排解](../files/storage-troubleshoot-windows-file-connection-problems.md)   
-  * [使用 Linux 針對 Azure 檔案儲存體進行疑難排解](../files/storage-troubleshoot-linux-file-connection-problems.md)
+  * [使用 Windows 針對 Azure 檔案服務問題進行疑難排解](../files/storage-troubleshoot-windows-file-connection-problems.md)   
+  * [使用 Linux 針對 Azure 檔案服務問題進行疑難排解](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [附錄]
   * [附錄 1：使用 Fiddler 擷取 HTTP 與 HTTPS 流量]
   * [附錄 2：使用 Wireshark 擷取網路流量]
@@ -236,29 +236,29 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 使用各種記錄檔案進行的端對端追蹤方式，是調查潛在問題的有效方法。 您可以使用度量資料裡的日期/時間資訊當作參考，來判斷該從記錄檔的哪個區段開始檢視，以獲得問題的詳細資訊，並協助您進行疑難排解。
 
 ### <a name="correlating-log-data"></a>為記錄資料建立相互關聯
-檢視來自用戶端應用程式、網路追蹤與伺服器端儲存體記錄的記錄時，您必須要能為各記錄檔的要求建立相互關聯。 這些記錄檔包含一些可當成相互關聯識別碼來使用的不同欄位。 需為不同記錄中的項目建立相互關聯時，用戶端要求 ID 是最有用處的欄位。 然而，有時使用伺服器要求 ID 或是時間戳記也是可以的。 以下章節針對這些選項提供詳盡的說明。
+檢視來自用戶端應用程式、網路追蹤與伺服器端儲存體記錄的記錄時，您必須要能為各記錄檔的要求建立相互關聯。 這些記錄檔包含一些可當成相互關聯識別碼來使用的不同欄位。 需為不同記錄中的項目建立相互關聯時，用戶端要求識別碼是最有用處的欄位。 不過，有時使用伺服器要求識別碼或是時間戳記也是可以的。 以下章節針對這些選項提供詳盡的說明。
 
 ### <a name="client-request-id"></a>用戶端要求 ID
-儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求 ID。
+儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求識別碼。
 
-* 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求 ID 會顯示在與該要求相關之每個記錄項目的 **用戶端要求 ID** 欄位。
-* 以 Fiddler 所擷取的網路追蹤為例，用戶端要求 ID 會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
-* 在伺服器端的儲存體記錄中，用戶端要求 ID 會顯示在 用戶端要求 ID 資料欄。
+* 在儲存體用戶端程式庫所建立的用戶端記錄上，用戶端要求識別碼會顯示在與該要求相關之每個記錄項目的 [用戶端要求識別碼] 欄位。
+* 以 Fiddler 所擷取的網路追蹤為例，用戶端要求用戶端要求識別碼會顯示在要求訊息中，並呈現為 **x-ms-client-request-id** HTTP 標頭值。
+* 在伺服器端的儲存體記錄中，用戶端要求用戶端要求識別碼會顯示在用戶端要求用戶端要求識別碼資料行。
 
 > [!NOTE]
-> 多個要求可以共用同一個用戶端要求 ID，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。 如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求 ID。如果批次是從用戶端傳送，則該批次具有單一用戶端要求 ID。
+> 多個要求可以共用同一個用戶端要求識別碼，這是因為用戶端可以指派此值 (雖然儲存體用戶端程式庫會自動指派新的值)。 如果重試來自用戶端，則所有嘗試都共用相同的用戶端要求識別碼。 如果批次是從用戶端傳送，則該批次具有單一用戶端要求識別碼。
 > 
 > 
 
 ### <a name="server-request-id"></a>伺服器要求 ID
 儲存體服務會自動產生伺服器要求 ID。
 
-* 在伺服器端的儲存體記錄中，伺服器要求 ID 會顯示在 [Request ID header]  資料欄。
-* 以 Fiddler 所擷取的網路追蹤為例，伺服器要求 ID 會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。
-* 在儲存體用戶端程式庫所建立的用戶端記錄中，伺服器要求 ID 會顯示在內含伺服器回應詳細資料之記錄項目的 [Operation Text] 資料欄  。
+* 在伺服器端的儲存體記錄中，伺服器要求識別碼會顯示在 [要求識別碼標頭] 資料行。
+* 以 Fiddler 所擷取的網路追蹤為例，伺服器要求識別碼會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。
+* 在儲存體用戶端程式庫所建立的用戶端記錄中，伺服器要求識別碼會顯示在內含伺服器回應詳細資料之記錄項目的 [Operation Text] \(作業文字\) 資料行。
 
 > [!NOTE]
-> 儲存體服務一律會為每個收到的要求指派唯一的伺服器要求 ID，因此用戶端的每一次重試以及批次裡所包含的每一項操作，都會具備唯一的伺服器要求 ID。
+> 儲存體服務一律會為每個收到的要求指派唯一的伺服器要求識別碼，因此用戶端的每一次重試以及批次裡所包含的每一項作業，都會具備唯一的伺服器要求識別碼。
 > 
 > 
 
@@ -574,7 +574,7 @@ queueServicePoint.UseNagleAlgorithm = false;
 | 驗證類型| Sas                          |
 | 服務類型       | Blob                         |
 | 要求 URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
-| nbsp;              |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
+| &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | 要求 ID 標頭  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | 用戶端要求 ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -653,7 +653,7 @@ client.SetServiceProperties(sp);
 您可以在[常見的 REST API 錯誤碼](http://msdn.microsoft.com/library/azure/dd179357.aspx)頁面找到儲存體服務傳回的常見 REST API 錯誤碼清單。
 
 ### <a name="capacity-metrics-show-an-unexpected-increase"></a>容量度量顯示非預期的儲存體容量使用增加
-如果您發現儲存體帳戶裡突然出現非預期的容量改變，可以先察看可用性度量來調查其原因；舉例來說，刪除要求的失敗次數一旦增加，可能會造成您所使用的 Blob 儲存體數量增加，這是因為您認為應該可以騰出一些空間的特定應用程式清除作業沒有如預期發揮作用所致 (例如，因為用於騰出空間的 SAS 權杖已經過期)。
+如果您發現儲存體帳戶裡突然出現非預期的容量改變，可以先查看可用性度量來調查原因。舉例來說，刪除要求的失敗次數一旦增加，可能會造成您所使用的 Blob 儲存體數量增加，這是因為您認為應該可以釋放一些空間的特定應用程式清除作業沒有如預期發揮作用所致 (例如，因為用於釋放空間的 SAS 權杖已經過期)。
 
 ### <a name="you-are-experiencing-unexpected-reboots"></a>附加大量 VHD 的 Azure 虛擬機器出現非預期的重新開機情況
 當 Azure 虛擬機器 (VM) 裡有大量的附加 VHD 位於同一個儲存體帳戶內時，您可能會超出個別儲存體帳戶的延展性目標，導致 VM 作業失敗。 您應該檢查儲存體帳戶的每分鐘度量 (**TotalRequests**/**TotalIngress**/**TotalEgress**)，查看是否有超出儲存體帳戶延展性目標的流量暴增情況。 請參閱「[度量顯示 PercentThrottlingError 增加]」一節，取得如何判斷儲存體帳戶是否發生節流作業的協助。
@@ -756,7 +756,7 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。 您也�
 
 ![][7]
 
-您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] 。 當您不使用擷取篩選器而擷取到傾印時，這個方法會特別有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
+您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法會特別有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
 
 ![][8]
 
@@ -816,7 +816,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 * 確保您的 Web 服務可用且迅速回應。 無論您的應用程式是網站或是使用 Web 服務的裝置應用程式，此工具都可以每幾分鐘從全球各地測試您的 URL，然後讓您知道是否有問題。
 * 快速診斷 Web 服務中的任何效能問題或例外。 了解 CPU 或其他資源是否過度使用，從例外中取得堆疊追蹤資料，並且輕鬆地搜尋記錄追蹤項目。 當應用程式的效能低於可接受的範圍，我們可以傳送一封電子郵件給您。 我們可以同時監視 .NET 與 Java Web 服務。
 
-您可以在 [什麼是 Application Insights？](../../application-insights/app-insights-overview.md)中找到詳細資訊。
+您可以在[什麼是 Application Insights](../../application-insights/app-insights-overview.md) 中找到詳細資訊。
 
 <!--Anchors-->
 [簡介]: #introduction

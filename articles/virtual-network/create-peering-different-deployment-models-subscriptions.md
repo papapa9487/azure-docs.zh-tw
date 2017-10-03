@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2017
-ms.author: jdial;narayan;annahar
+ms.date: 09/15/2017
+ms.author: jdial;anavin
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: 93d5676e9188e67f1f6a9bba1d4d30a93b3883d8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c7d2333c90f6ceca93b3eb702c3a010c37a0f70b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>建立虛擬網路對等互連 - 不同部署模型和訂用帳戶
 
-在本教學課程中，您會了解如何在透過不同部署模型建立的虛擬網路之間，建立虛擬網路對等互連。 這些虛擬網路存在於不同的訂用帳戶中。 對等互連兩個虛擬網路，可讓不同虛擬網路中的資源彼此通訊，且通訊時會有相同的頻寬和延遲，彷彿這些資源是位於相同的虛擬網路中。 深入了解[虛擬網路對等互連](virtual-network-peering-overview.md)。 
+在本教學課程中，您會了解如何在透過不同部署模型建立的虛擬網路之間，建立虛擬網路對等互連。 這些虛擬網路存在於不同的訂用帳戶中。 對等互連兩個虛擬網路，可讓不同虛擬網路中的資源彼此通訊，且通訊時會有相同的頻寬和延遲，彷彿這些資源是位於相同的虛擬網路中。 深入了解[虛擬網路對等互連](virtual-network-peering-overview.md)。
 
 建立虛擬網路對等互連的步驟會因一些因素而有所不同，這取決於虛擬網路是位於相同還是不同的訂用帳戶中，以及是透過哪一個 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)建立虛擬網路。 請按一下下表中的案例，以了解如何在其他案例中建立虛擬網路對等互連：
 
@@ -34,36 +34,48 @@ ms.lasthandoff: 07/26/2017
 |[兩者皆使用 Resource Manager](create-peering-different-subscriptions.md) |不同|
 |[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models.md) |相同|
 
-虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 只能在存在於相同 Azure 區域中的兩個虛擬網路之間建立虛擬網路對等互連。 在存在於不同訂用帳戶中的虛擬網路之間建立虛擬網路對等互連時，兩個訂用帳戶必須都與相同的 Azure Active Directory 租用戶關聯。 如果您還沒有 Azure Active Directory 租用戶，可以快速地[建立一個租用戶](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch)。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接、將存在於不同 Azure 區域中的虛擬網路連接，或是將存在於與不同 Azure Active Directory 租用戶關聯之訂用帳戶中的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。 
+虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 只能在存在於相同 Azure 區域中的兩個虛擬網路之間建立虛擬網路對等互連。 
 
-> [!WARNING]
-> 在透過不同 Azure 部署模型建立且存在於不同訂用帳戶中的虛擬網路之間建立虛擬網路對等互連，目前是預覽版功能。 在此情況下建立的虛擬網路對等互連，與在正式發行版情況下建立的虛擬網路對等互連，可能不會有相同等級的可用性和可靠性。 在此情況下建立的虛擬網路對等互連不受支援、可能功能受限，且可能並非在所有 Azure 區域中都可供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
+  > [!WARNING]
+  > 在不同地區的虛擬網路之間建立虛擬網路對等互連的功能，目前只提供預覽版。 在下方註冊訂用帳戶可以獲得預覽版。 在此情況下建立的虛擬網路對等互連，與在正式發行版情況下建立的虛擬網路對等互連，可能不會有相同等級的可用性和可靠性。 在此情況下建立的虛擬網路對等互連不受支援、可能功能受限，且可能並非在所有 Azure 區域中都可供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
+
+在存在於不同訂用帳戶中的虛擬網路之間建立虛擬網路對等互連時，兩個訂用帳戶必須都與相同的 Azure Active Directory 租用戶關聯。 如果您還沒有 Azure Active Directory 租用戶，可以快速地[建立一個租用戶](../active-directory/develop/active-directory-howto-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#start-from-scratch)。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接、將存在於不同 Azure 區域中的虛擬網路連接，或是將存在於與不同 Azure Active Directory 租用戶關聯之訂用帳戶中的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。
 
 您可以使用 [Azure 入口網站](#portal)、Azure [命令列介面](#cli) (CLI) 或 Azure [PowerShell](#powershell) 來建立虛擬網路對等互連。 按一下任何先前的工具連結，直接前往使用您所選工具建立虛擬網路對等互連的步驟。
 
-## <a name="register"></a>註冊預覽版
+## <a name="register"></a>註冊可獲得 VNet 對等互連全球預覽版
 
-若要註冊預覽版，請針對包含您想要對等互連之虛擬網路的兩個訂用帳戶，完成接下來的步驟。 您唯一可用來註冊預覽版的工具是 PowerShell。
+若要跨地區建立虛擬網路的對等互連，請註冊以取得預覽版。請為包含您想要建立對等互連之虛擬網路的兩個訂用帳戶，執行下列步驟。 您唯一可用來註冊預覽版的工具是 PowerShell。
 
 1. 安裝最新版的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 啟動 PowerShell 工作階段，然後使用 `login-azurermaccount` 命令來登入 Azure。
+2. 啟動 PowerShell 工作階段，然後使用 `Login-AzureRmAccount` 命令來登入 Azure。
 3. 輸入下列命令來針對預覽版註冊您的訂用帳戶︰
 
     ```powershell
     Register-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+
+    Register-AzureRmProviderFeature `
       -FeatureName AllowClassicCrossSubscriptionPeering `
       -ProviderNamespace Microsoft.Network
-    
+
     Register-AzureRmResourceProvider `
       -ProviderNamespace Microsoft.Network
     ```
     請等到您為兩個訂用帳戶輸入下列命令後所收到的 **RegistrationState** 輸出都變成 **Registered** 之後，才完成本文中入口網站、Azure CLI 或 PowerShell 等節中的步驟：
 
-    ```powershell    
+    ```powershell
     Get-AzureRmProviderFeature `
-      -FeatureName AllowClassicCrossSubscriptionPeering `
+      -FeatureName AllowGlobalVnetPeering `
+      -ProviderNamespace Microsoft.Network
+    
+    Get-AzureRmProviderFeature `
+      -FeatureName AllowGlobalVnetPeering `
       -ProviderNamespace Microsoft.Network
     ```
+  > [!WARNING]
+  > 在不同地區的虛擬網路之間建立虛擬網路對等互連的功能，目前只提供預覽版。 用預覽版建立之虛擬網路對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
 
 ## <a name="portal"></a>建立對等互連 - Azure 入口網站
 
@@ -135,7 +147,7 @@ ms.lasthandoff: 07/26/2017
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 5. 完成剩餘步驟的方式是必須使用 Bash 殼層並搭配[安裝](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure CLI 2.0.4 或更新版本，或是使用 Azure Cloud Shell。 Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網站內執行。 它具有預先安裝和設定的 Azure CLI，可與您的帳戶搭配使用。 按一下以下指令碼中的 [試試看] 按鈕，這會開啟可讓您登入 Azure 帳戶的 Cloud Shell。 如需在 Windows 用戶端上執行 Bash CLI 指令碼的選項，請參閱[在 Windows 中執行 Azure CLI](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 
-6. 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-Id>` 。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。 請複製修改過的指令碼並貼到您的 CLI 2.0 工作階段中，然後按 `Enter`。 
+6. 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-Id>` 。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。請複製修改過的指令碼並貼到您的 CLI 2.0 工作階段中，然後按 `Enter`。 
 
     ```azurecli-interactive
     az role assignment create \
@@ -180,7 +192,7 @@ ms.lasthandoff: 07/26/2017
       --scope $vNetAId
     ```
 
-9. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-id>` 。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。 Azure 已將您在步驟 4 中建立的虛擬網路 (傳統) 建立在名為 *Default-Networking* 的資源群組中。 請將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。
+9. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<SubscriptionB-id>` 。如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。Azure 已將您在步驟 4 中建立的虛擬網路 (傳統) 建立在名為 *Default-Networking* 的資源群組中。 請將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。
 
     ```azurecli-interactive
     # Peer VNet1 to VNet2.

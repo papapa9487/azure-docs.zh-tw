@@ -8,7 +8,7 @@
 
     ![API 定義](media/functions-export-api-definition/api-definition.png)
 
-1. 按一下 [Export to PowerApps + Flow] (匯出至 PowerApps + Flow)。
+1. 按一下 [Export to PowerApps + Flow] \(匯出至 PowerApps + Flow)。
 
     ![API 定義來源](media/functions-export-api-definition/export-api-1.png)
 
@@ -16,8 +16,8 @@
 
     |設定|說明|
     |--------|------------|
-    |**匯出模式**|選取 [快速] 以自動產生自訂 API。 選取 [手動] 以匯出 API 定義，但您必須接著手動將它匯入 PowerApps 和 Microsoft Flow。 如需詳細資訊，請參閱[匯出至 PowerApps 和 Microsoft Flow](https://docs.microsoft.com/azure/app-service/app-service-export-api-to-powerapps-and-flow?toc=%2fazure%2fazure-functions%2ftoc.json)。|
-    |**環境**|選取應該儲存自訂 API 的目標環境。 如需詳細資訊，請參閱[環境概觀 (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/)或 [環境概觀 (Microsoft Flow)] (https://us.flow.microsoft.com/documentation/environments-overview-admin/。|
+    |**匯出模式**|選取 [快速] 以自動產生自訂 API。 選取 [手動] 以匯出 API 定義，但您必須接著手動將它匯入 PowerApps 和 Microsoft Flow。 如需詳細資訊，請參閱[匯出至 PowerApps 和 Microsoft Flow](../articles/azure-functions/app-service-export-api-to-powerapps-and-flow.md)。|
+    |**環境**|選取應該儲存自訂 API 的目標環境。 如需詳細資訊，請參閱[環境概觀 (PowerApps)](https://powerapps.microsoft.com/tutorials/environments-overview/) 或[環境概觀 (Microsoft Flow)](https://us.flow.microsoft.com/documentation/environments-overview-admin/)。|
     |**自訂 API 名稱**|輸入名稱，例如 `Turbine Repair`。|
     |**API 金鑰名稱**|輸入應該會在自訂 API UI 中看到的應用程式和流程建立器名稱。 請注意，此範例包含有用的資訊。|
  

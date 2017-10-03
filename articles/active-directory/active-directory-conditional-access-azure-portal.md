@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/10/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 19bc7abbbf7e133018b234399d91604dfdbfe73f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 中的條件式存取
@@ -67,7 +67,7 @@ ms.lasthandoff: 09/13/2017
 - **授與控制項** - 授與控制項控管使用者是否能完成驗證，連接他們嘗試登入的資源。 如果您選取多個控制項，可以設定在處理您的原則時是否全都為必要。
 目前的 Azure Active Directory 實作可讓您設定下列授與控制權需求︰
 
-    ![控制](./media/active-directory-conditional-access-azure-portal/05.png)
+    ![控制](./media/active-directory-conditional-access-azure-portal/73.png)
 
 - **工作階段控制項** - 工作階段控制項可讓您限制雲端應用程式內的體驗。 工作階段控制項是由雲端應用程式強制執行，並依賴 Azure AD 對應用程式提供有關工作階段的其他資訊。
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 09/13/2017
 
 只要您的應用程式存取是在可控制的條件下執行，就可能不需要對使用者存取您雲端應用程式的方式強加其他控制項。 不過，如果從不受信任的網路或不符合規範的裝置執行您的雲端應用程式存取，情況可能會有所不同。 在條件陳述式中，您可以定義某些存取條件，其對應用程式存取的執行方式有額外需求。
 
-![條件](./media/active-directory-conditional-access-azure-portal/21.png)
+![條件](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
 ## <a name="conditions"></a>條件
@@ -119,8 +119,9 @@ ms.lasthandoff: 09/13/2017
 - 裝置平台
 - 位置
 - 用戶端應用程式
+- 時間
 
-![條件](./media/active-directory-conditional-access-azure-portal/21.png)
+![條件](./media/active-directory-conditional-access-azure-portal/01.png)
 
 ### <a name="sign-in-risk"></a>登入風險
 
@@ -147,22 +148,35 @@ ms.lasthandoff: 09/13/2017
 
 ### <a name="locations"></a>位置
 
-您用來連線到 Azure Active Directory 之用戶端 IP 位址所識別的位置。 此條件要求您需熟悉**具名位置**和 **MFA 信任 IP**。  
+透過位置，您可以選擇定義以連線嘗試起始點作為基礎的條件。 位置清單中的項目不是**具名位置**就是 **MFA 信任的 IP**。  
 
-**具名位置**是 Azure Active Directory 的一個功能，可讓您標記組織中信任的 IP 位址範圍。 在您的環境中，您可以在[風險事件](active-directory-reporting-risk-events.md)偵測內容中使用具名位置以及條件式存取。 如需有關在 Azure Active Directory 中設定具名位置的詳細資訊，請參閱 [Azure Active Directory 中的具名位置](active-directory-named-locations.md)。
+**具名位置**是一項 Azure Active Directory 功能，此功能可讓您定義連線嘗試起始位置的標籤。 若要定義位置，您可以設定 IP 位址範圍，或者也可以選取國家/區域。  
 
-您可以設定的位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定：
+![條件](./media/active-directory-conditional-access-azure-portal/42.png)
+
+此外，您也可以將具名位置標示為信任的位置。 在條件式存取原則中，信任的位置是另一個篩選選項，此選項可讓您在位置條件中選取「所有信任的位置」。
+在偵測[風險事件](active-directory-reporting-risk-events.md)的情境中，具名位置也非常重要，因為它能減少「不可能到達非典型位置」風險事件的誤判次數。 
+
+您可以設定的具名位置數目受到 Azure AD 中相關物件大小的限制。 您可以設定：
  
  - 一個具名位置最多有 500 個 IP 範圍
  - 最多 60 個具名位置 (預覽)，每個位置皆指派一個 IP 範圍 
 
+如需詳細資訊，請參閱 [Azure Active Directory 中的具名位置](active-directory-named-locations.md)。
+
 
 **MFA 信任的 IP** 是 Multi-Factor Authentication 的功能，可讓您定義信任的 IP 位址範圍，以代表您組織的區域內部網路。 當您設定位置條件時，信任的 IP 可讓您區分從您組織的網路與所有其他位置進行的連線。 如需詳細資訊，請參閱[信任的 IP](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips)。  
 
+在條件式存取原則中，您可以：
 
-
-您可以包含所有位置或所有信任的 IP，也可以排除所有信任的 IP。
-
+- 包含
+    - 任何位置
+    - 所有信任的位置
+    - 選取的位置
+- 排除
+    - 所有信任的位置
+    - 選取的位置
+     
 ![條件](./media/active-directory-conditional-access-azure-portal/03.png)
 
 
@@ -175,6 +189,7 @@ ms.lasthandoff: 09/13/2017
 
 
 如需可在條件式存取原則中使用的用戶端應用程式完整清單，請參閱 [Azure Active Directory 條件式存取的技術參考](active-directory-conditional-access-technical-reference.md#client-apps-condition)。
+
 
 
 

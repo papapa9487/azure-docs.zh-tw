@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 1db13c30e2ec1de62d5103f85b4181a5750403c5
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
@@ -139,9 +139,9 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 
 您可透過 [Azure 入口網站](service-fabric-cluster-creation-via-portal.md)、[範本](service-fabric-cluster-creation-via-arm.md)或 [Visual Studio](service-fabric-cluster-creation-via-visual-studio.md)，在 Azure 上建立叢集。
 
-Linux 上的 Service Fabric 預覽版可讓您如同在 Windows 上一樣，在 Linux 上建置、部署和管理高可用性、可高度調整的應用程式。 Service Fabric 架構 (Reliable Services 和 Reliable Actors) 除了可在 C# (.NET Core) 中使用，也可在 Linux 上的 Java 中使用。 您也可以使用任何語言或架構來建置 [來賓可執行檔服務](service-fabric-deploy-existing-app.md) 。 此外，預覽也支援協調 Docker 容器。 Docker 容器可以執行使用 Service Fabric 架構的來賓可執行檔或原生 Service Fabric 服務。 如需詳細資訊，請參閱 [Linux 上的 Service Fabric](service-fabric-linux-overview.md)。
+Linux 上的 Service Fabric 可讓您如同在 Windows 上一樣，在 Linux 上建置、部署和管理可用性高、可大幅調整的應用程式。 Service Fabric 架構 (Reliable Services 和 Reliable Actors) 除了可在 C# (.NET Core) 中使用，也可在 Linux 上的 Java 中使用。 您也可以使用任何語言或架構來建置 [來賓可執行檔服務](service-fabric-deploy-existing-app.md) 。 也支援協調 Docker 容器。 Docker 容器可以執行使用 Service Fabric 架構的來賓可執行檔或原生 Service Fabric 服務。 如需詳細資訊，請參閱 [Linux 上的 Service Fabric](service-fabric-deploy-anywhere.md)。
 
-由於 Linux 上的 Service Fabric 是預覽，有一些 Windows 上支援的功能在 Linux 上並不支援。 若要深入了解詳細資訊，請參閱 [Linux 與 Windows 上的 Service Fabric 差異](service-fabric-linux-windows-differences.md)。
+有一些 Windows 上支援的功能，在 Linux 上未提供。 若要深入了解詳細資訊，請參閱 [Linux 與 Windows 上的 Service Fabric 差異](service-fabric-linux-windows-differences.md)。
 
 ### <a name="standalone-clusters"></a>獨立叢集
 Service Fabric 提供安裝套件，可讓您在內部部署環境或任何雲端提供者上建立獨立 Service Fabric 叢集。 獨立叢集可讓您在任何想要的位置自由裝載叢集。 若您的資料受限於合規性或法規限制，或是您想要將資料保留在本機，則可以自行裝載叢集和應用程式。 Service Fabric 應用程式無須進行任何變更，即可在多個主控環境中執行，因此您的應用程式建置知識可以運用在不同的主控環境。 

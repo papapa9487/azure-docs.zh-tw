@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 07/19/2017
+ms.date: 09/13/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 4585be186554d5d7aa9bc79029b6f8506b278701
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2ad643d5f099457018d02a43252db4c259f5b613
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -134,6 +134,7 @@ Azure 資料庫邏輯伺服器：
 |[Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule)|取得伺服器的防火牆規則|
 |[Set-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/set-azurermsqlserverfirewallrule)|修改伺服器中的防火牆規則|
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|刪除伺服器的防火牆規則|
+| New-AzureRmSqlServerVirtualNetworkRule | 根據同時是虛擬網路服務端點的子網路，建立[*虛擬網路規則*](sql-database-vnet-service-endpoint-rule-overview.md)。 |
 
 > [!TIP]
 > 如需 PowerShell 快速入門教學課程，請參閱[使用 PowerShell 建立單一 Azure SQL Database](sql-database-get-started-portal.md)。 如需 PowerShell 範例指令碼，請參閱[使用 PowerShell 建立單一 Azure SQL Database 並設定防火牆規則](scripts/sql-database-create-and-configure-database-powershell.md)和[使用 PowerShell 監視和調整單一 SQL Database](scripts/sql-database-monitor-and-scale-database-powershell.md)。
@@ -219,7 +220,7 @@ Azure 資料庫邏輯伺服器：
 |[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
 |[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
 |[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
-|[資料庫 - 更新](/api/sql/databases/update)|更新現有的資料庫。|
+|[資料庫 - 更新](/rest/api/sql/databases/update)|更新現有的資料庫。|
 |[防火牆規則 - 建立或更新](/rest/api/sql/firewallrules/createorupdate)|建立或更新防火牆規則。|
 |[防火牆規則 - 刪除](/rest/api/sql/firewallrules/delete)|刪除防火牆規則。|
 |[防火牆規則 - 取得](/rest/api/sql/firewallrules/get)|取得防火牆規則。|
@@ -231,4 +232,3 @@ Azure 資料庫邏輯伺服器：
 - 如需了解 Azure SQL Database 服務的相關資訊，請參閱[什麼是 SQL Database？](sql-database-technical-overview.md)。
 - 若要深入了解如何將 SQL Server 資料庫移轉至 Azure，請參閱[移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
 - 如需支援功能的相關資訊，請參閱「[功能](sql-database-features.md)」。
-

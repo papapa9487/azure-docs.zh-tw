@@ -1,0 +1,1 @@
+標準 Load Balancer 公開預覽版可能沒有與正式發行版本功能相同等級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure Load Balancer 更新](https://azure.microsoft.com/en-us/updates/?product=load-balancer)頁面。

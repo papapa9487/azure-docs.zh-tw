@@ -39,7 +39,7 @@ ms.lasthandoff: 08/10/2017
 
 在下列範例中，我們會示範如何將 VM 的所有磁碟從標準儲存體切換成進階儲存體。 若要使用進階受控磁碟，您的 VM 必須使用可支援進階儲存體的 [VM 大小](sizes.md)。 此範例也會切換成可支援進階儲存體的大小。
 
-```powershell
+```azurepowershell-interactive
 # Name of the resource group that contains the VM
 $rgName = 'yourResourceGroup'
 
@@ -82,7 +82,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 對於您的開發/測試工作負載，您可能希望混合標準和進階磁碟，以降低成本。 您可以藉由升級至進階儲存體來完成此作業，僅限需要更佳效能的磁碟。 在下列範例中，我們會示範如何將 VM 的單一磁碟從標準儲存體切換成進階儲存體，反之亦然。 若要使用進階受控磁碟，您的 VM 必須使用可支援進階儲存體的 [VM 大小](sizes.md)。 此範例也會切換成可支援進階儲存體的大小。
 
-```powershell
+```azurepowershell-interactive
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk

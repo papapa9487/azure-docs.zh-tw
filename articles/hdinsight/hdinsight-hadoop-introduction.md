@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: cgronlun
 ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
-ms.openlocfilehash: b413b6f1a6c73251dfdbe6bf9d23cdfa6510839a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e5ed09ddb1556e6c76813e71bcb31cf4f792b616
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="introduction-to-azure-hdinsight-the-hadoop-technology-stack-and-hadoop-clusters"></a>Azure HDInsight、Hadoop 技術堆疊和 Hadoop 叢集簡介
@@ -53,7 +53,7 @@ Hadoop 叢集最常用於已儲存資料的批次處理。 HDInsight 中的其�
 ## <a name="overview"></a>HDInsight 中的叢集類型
 HDInsight 包含特定叢集類型和叢集自訂功能，例如新增元件、公用程式及語言。
 
-### <a name="spark-kafka-interactive-hive-hbase-customized-and-other-cluster-types"></a>Spark、Kafka、Interactive Hive、HBase、自訂和其他叢集類型
+### <a name="spark-kafka-interactive-query-hbase-customized-and-other-cluster-types"></a>Spark、Kafka、互動式查詢、HBase、自訂和其他叢集類型
 HDInsight 提供下列叢集類型：
 
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**︰使用 [HDFS](#hdfs)、[YARN](#yarn) 資源管理，以及簡單的 [MapReduce](#mapreduce) 程式設計模型來平行處理和分析批次資料。
@@ -61,7 +61,7 @@ HDInsight 提供下列叢集類型：
 * **[Apache HBase](http://hbase.apache.org/)**：建置於 Hadoop 上的 NoSQL 資料庫，可針對大量非結構化及半結構化資料 (可能是數十億的資料列乘以數百萬的資料行)，提供隨機存取功能和強大一致性。 請參閱[什麼是 HDInsight 上的 HBase？](hdinsight-hbase-overview.md)
 * **[Microsoft R 伺服器](https://msdn.microsoft.com/microsoft-r/rserver)**︰可用來裝載和管理並行、分散式 R 程序的伺服器。 這項新功能可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。 請參閱 [HDInsight 中的 R 伺服器概觀](hdinsight-hadoop-r-server-overview.md)。
 * **[Apache Storm](https://storm.incubator.apache.org/)**：分散式、即時的運算系統，可快速處理大型的資料串流。 Storm 以受管理叢集的形式在 HDInsight 中提供。 請參閱＜ [使用 Storm 和 Hadoop 來分析即時感應器資料](hdinsight-storm-sensor-data-analysis.md)＞。
-* **[Apache 互動式 Hive 預覽 (也稱為︰Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**︰更快速之互動式 Hive 查詢的記憶體內快取。 請參閱[在 HDInsight 中使用互動式 Hive](hdinsight-hadoop-use-interactive-hive.md)。
+* **[Apache 互動式查詢預覽 (也稱為︰Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**︰更快速之互動式 Hive 查詢的記憶體內快取。 請參閱[在 HDInsight 中使用互動式查詢](hdinsight-hadoop-use-interactive-hive.md)。
 * **[Apache Kafka](https://kafka.apache.org/)**︰用來建立串流資料管線和應用程式的開放原始碼平台。 Kafka 也提供訊息佇列功能，可讓您發佈和訂閱資料串流。 請參閱 [HDInsight 上的 Apache Kafka 簡介](hdinsight-apache-kafka-introduction.md)。
 
 您也可以使用下列方法來設定叢集：

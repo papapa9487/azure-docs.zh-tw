@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> 有兩個 CLI 公用程式用來與 Service Fabric 互動。 [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 用來管理 Azure 資源，例如 Azure 託管的 Service Fabric 叢集。 Service Fabric CLI 用來直接連線到 Service Fabric 叢集 (不論裝載於何處) 及管理叢集、應用程式和服務。 

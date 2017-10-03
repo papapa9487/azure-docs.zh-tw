@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: a8e4900bee81763300d976f0c966d7d20662ca27
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>掛接 Azure 檔案共用並在 Windows 中存取共用
-[Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)是 Microsoft 容易使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中掛接。 本文將說明在 Windows 中掛接 Azure 檔案共用的三種不同方式：使用檔案總管 UI、透過 PowerShell，以及透過命令提示字元。 
+[Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中掛接。 本文將說明在 Windows 中掛接 Azure 檔案共用的三種不同方式：使用檔案總管 UI、透過 PowerShell，以及透過命令提示字元。 
 
 若要在 Azure 區域之外掛接 Azure 檔案共用，例如內部部署或是在不同的 Azure 區域，作業系統必須支援 SMB 3.0。 
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 09/02/2017
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows 10 版本 1507、1511、1607 和 1703
+<sup>1</sup>Windows 10 版本 1507、1511、1607、1703 和 1709。
 
 > [!Note]  
 > 我們一律建議針對您的 Windows 版本採取最新的 KB。
@@ -49,7 +49,7 @@ ms.lasthandoff: 09/02/2017
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您需要主要 (或次要) 金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **請確定已開啟連接埠 445**：Azure 檔案儲存體使用 SMB 通訊協定。 SMB 透過 TCP 通訊埠 445 進行通訊 - 請檢查您的防火牆不會將 TCP 通訊埠 445 從用戶端電腦封鎖。
+* **確定已開啟連接埠 445**：Azure 檔案服務會使用 SMB 通訊協定。 SMB 透過 TCP 通訊埠 445 進行通訊 - 請檢查您的防火牆不會將 TCP 通訊埠 445 從用戶端電腦封鎖。
 
 ## <a name="mount-the-azure-file-share-with-file-explorer"></a>使用檔案總管掛接 Azure 檔案共用
 > [!Note]  
@@ -63,7 +63,7 @@ ms.lasthandoff: 09/02/2017
 
 3. **從 Azure 入口網站中的 [連線] 窗格複製 UNC 路徑**：您可以在[這裡](storage-how-to-use-files-portal.md#connect-to-file-share)找到如何尋找這項資訊的詳細描述。
 
-    ![Azure 檔案儲存體連線窗格的 UNC 路徑](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
+    ![[Azure 檔案服務連線] 窗格中的 UNC 路徑](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
 4. **選取磁碟機代號並輸入 UNC 路徑。** 
     
@@ -121,24 +121,24 @@ ms.lasthandoff: 09/02/2017
 >   ```
 
 ## <a name="next-steps"></a>後續步驟
-請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
+請參閱這些連結，以取得 Azure 檔案服務的相關詳細資訊。
 
 * [常見問題集](../storage-files-faq.md)
 * [在 Windows 上進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)      
 
 ### <a name="conceptual-articles-and-videos"></a>概念性文章和影片
-* [Azure 檔案儲存體：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [如何搭配使用 Azure 檔案儲存體與 Linux](../storage-how-to-use-files-linux.md)
+* [Azure 檔案服務：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [如何搭配使用 Azure 檔案服務與 Linux](../storage-how-to-use-files-linux.md)
 
-### <a name="tooling-support-for-azure-file-storage"></a>Azure 檔案儲存體的工具支援
+### <a name="tooling-support-for-azure-files"></a>Azure 檔案服務的工具支援
 * [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [使用 Azure CLI 搭配 Azure 儲存體](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [針對 Azure 檔案儲存體問題進行疑難排解 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [針對 Azure 檔案儲存體問題進行疑難排解 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
+* [針對 Azure 檔案服務問題進行疑難排解 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
+* [針對 Azure 檔案服務問題進行疑難排解 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
 
 ### <a name="blog-posts"></a>部落格文章
-* [Azure 檔案儲存體現已公開推出](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure 檔案儲存體內部](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Azure 檔案服務現在已正式推出](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Azure 檔案服務的內部觀點](https://azure.microsoft.com/blog/inside-azure-file-storage/)
 * [Microsoft Azure 檔案服務簡介](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [將資料移轉至 Azure 檔案](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
 

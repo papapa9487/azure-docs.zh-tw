@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 9667cc728d9700e9ca985969f3566cd8ea47e80e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a62aef7b4bb7ebc085adbdbf0b58f2bb34730dcc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中透過 JDBC 驅動程式查詢 Hive
@@ -197,6 +197,12 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 現在您已學會如何搭配 Hive 使用 JDBC，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
+* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](./hdinsight-connect-hive-power-bi.md)。
+* [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./hdinsight-connect-hive-zeppelin.md)。
+* [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](./hdinsight-connect-excel-hive-odbc-driver.md)。
+* [使用 Power Query 將 Excel 連線到 Hadoop](./hdinsight-connect-excel-power-query.md)。
+* [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
+* [使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code](hdinsight-for-vscode.md)。
 * [將資料上傳至 HDInsight](hdinsight-upload-data.md)
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)

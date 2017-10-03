@@ -12,22 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: ded80330ad323a0019ad59ac54d076a78b70f521
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
 本文將會解決 Azure Active Directory (Azure AD) 傳遞驗證的常見問題。 請隨時回來查看新內容。
-
->[!IMPORTANT]
->傳遞驗證功能目前為預覽功能。
 
 ## <a name="which-of-the-azure-ad-sign-in-methods---pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs---should-i-choose"></a>我應該選擇哪一種 Azure AD 登入方法，傳遞驗證、密碼雜湊同步處理還是 Active Directory 同盟服務 (AD FS)？
 
@@ -132,7 +129,7 @@ ms.lasthandoff: 08/04/2017
 從伺服器解除安裝傳遞驗證代理程式，會讓該伺服器不再接受登入要求。 在執行這項操作之前，請先確定您有其他執行中的驗證代理程式，以免使用者無法登入您的租用戶。
 
 ## <a name="next-steps"></a>後續步驟
-- [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 此功能目前為預覽狀態。 了解支援的情節和不支援的情節。
+- [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 了解支援的情節和不支援的情節。
 - [**快速入門**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 開始使用 Azure AD 傳遞驗證。
 - [**技術性深入探討**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) - 了解這項功能的運作方式。
 - [**疑難排解**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解決此功能的常見問題。

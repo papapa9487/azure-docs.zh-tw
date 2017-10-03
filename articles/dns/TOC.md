@@ -64,7 +64,7 @@
 ## [虛擬機器](/azure/virtual-machines/)
 ## [負載平衡器](/azure/load-balancer/)
 ## [流量管理員](/azure/traffic-manager/)
-## [Web Apps](/azure/app-service-web/)
+## [Web Apps](/azure/app-service/)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=networking)

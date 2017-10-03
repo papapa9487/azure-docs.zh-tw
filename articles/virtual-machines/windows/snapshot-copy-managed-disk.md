@@ -54,7 +54,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 1. 設定部分參數。 
 
- ```powershell
+ ```azurepowershell-interactive
 $resourceGroupName = 'myResourceGroup' 
 $location = 'southeastasia' 
 $dataDiskName = 'ContosoMD_datadisk1' 
@@ -68,17 +68,17 @@ $snapshotName = 'ContosoMD_datadisk1_snapshot1'
 
 2. 取得要複製的 VHD 磁碟。
 
- ```powershell
+ ```azurepowershell-interactive
 $disk = Get-AzureRmDisk -ResourceGroupName $resourceGroupName -DiskName $dataDiskName 
 ```
 3. 建立快照集設定。 
 
- ```powershell
+ ```azurepowershell-interactive
 $snapshot =  New-AzureRmSnapshotConfig -SourceUri $disk.Id -CreateOption Copy -Location $location 
 ```
 4. 建立快照集。
 
- ```powershell
+ ```azurepowershell-interactive
 New-AzureRmSnapshot -Snapshot $snapshot -SnapshotName $snapshotName -ResourceGroupName $resourceGroupName 
 ```
 如果您計劃使用快照集建立受控磁碟，並將它連結至必須是高效能的 VM，請在 New-AzureRmSnapshot 命令中使用參數 `-AccountType Premium_LRS`。 此參數建立的快照集會儲存為進階受控磁碟。 進階受控磁碟的價格高於「標準」受控磁碟。 因此，使用該參數之前，請確定您真的需要「進階」受控磁碟。

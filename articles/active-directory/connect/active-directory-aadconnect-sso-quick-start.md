@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 977108687734a5eb7f7a30419de2a6bdef184d0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -27,9 +27,6 @@ ms.lasthandoff: 08/08/2017
 ## <a name="how-to-deploy-seamless-sso"></a>如何部署無縫 SSO
 
 使用者位於連線到公司網路的公司桌上型電腦時，Azure Active Directory 無縫單一登入 (Azure AD 無縫 SSO) 就會自動將他們登入。 它可讓使用者輕鬆存取雲端式應用程式，而不需要任何額外的內部部署元件。
-
->[!IMPORTANT]
->無縫 SSO 功能目前為預覽狀態。
 
 若要部署無縫 SSO，您需要遵循下列步驟：
 
@@ -73,7 +70,7 @@ ms.lasthandoff: 08/08/2017
 
 ## <a name="step-3-roll-out-the-feature"></a>步驟 3：推出功能
 
-若要對使用者推出此功能，您需要透過 Active Directory 中的群組原則，將兩個 Azure AD URL (https://autologon.microsoftazuread-sso.com 和 https://aadg.windows.net.nsatc.net) 新增至使用者的內部網路區域設定。
+若要對使用者推出功能，您必須在 Active Directory 中使用群組原則，以在使用者的內部網路區域設定中新增幾個 Azure AD URL。
 
 >[!NOTE]
 > 下列指示僅適用於 Windows 上的 Internet Explorer 和 Google Chrome (如果它與 Internet Explorer 共用一組受信任的網站 URL)。 如需在 Mac 上設定 Mozilla Firefox 和 Google Chrome 的指示，請閱讀下節。
@@ -122,7 +119,7 @@ Mozilla Firefox 不會自動執行 Kerberos 驗證。 每個使用者都必須�
 
 使用協力廠商 Active Directory 群組原則延伸模組向 Mac 使用者上的 Firefox 和 Google Chrome 推出 Azure AD URL，不在本文的範圍內。
 
-#### <a name="known-limitations"></a>已知限制
+#### <a name="known-browser-limitations"></a>已知的瀏覽器限制
 
 無縫 SSO 無法在 Firefox 和 Edge 瀏覽器的私人瀏覽模式中運作。 如果瀏覽器是在「增強保護」模式中執行，它也無法在 Internet Explorer 上運作。
 
@@ -146,7 +143,7 @@ Mozilla Firefox 不會自動執行 Kerberos 驗證。 每個使用者都必須�
 
 ## <a name="step-5-roll-over-keys"></a>步驟 5：變換金鑰
 
-在步驟 2 中，Azure AD Connect 會在您已啟用無縫 SSO 的所有 AD 樹系中建立電腦帳戶 (代表 Azure AD)。 在[這裡](active-directory-aadconnect-sso-how-it-works.md)詳細了解。 為了提升安全性，建議您經常變換這些電腦帳戶的 Kerberos 解密金鑰。
+在步驟 2 中，Azure AD Connect 會在您已啟用無縫 SSO 的所有 AD 樹系中建立電腦帳戶 (代表 Azure AD)。 在[這裡](active-directory-aadconnect-sso-how-it-works.md)詳細了解。 為了提升安全性，建議您定期變換這些電腦帳戶的 Kerberos 解密金鑰。 [這裡](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)有如何變換的指示。
 
 >[!IMPORTANT]
 >您不需要在啟用此功能後「立即」執行此步驟。 至少每隔 30 天變換一次 Kerberos 解密金鑰。

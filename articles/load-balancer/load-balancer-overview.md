@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: 617da1cf41db08d319d6fe9fa7bc96b794a0001e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-load-balancer-overview"></a>Azure 負載平衡器概觀
 
 Azure 負載平衡器可為您的應用程式提供高可用性和網路效能。 這是 Layer 4 (TCP、UDP) 負載平衡器，可將連入流量分配到負載平衡集中所定義服務的狀況良好執行個體。
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure Load Balancer 可以設定為：
 
@@ -33,38 +35,6 @@ Azure Load Balancer 可以設定為：
 * 將外部流量轉送到特定的虛擬機器。
 
 雲端中的所有資源都需要可從網際網路觸及的公用 IP 位址。 Azure 中的雲端基礎結構會針對其資源使用無法路由傳送的 IP 位址。 Azure 會使用具有公用 IP 位址的網路位址轉譯 (NAT) 來與網際網路通訊。
-
-## <a name="azure-deployment-models"></a>Azure 部署模型
-
-請務必了解 Azure 傳統與 Resource Manager [部署模型](../azure-resource-manager/resource-manager-deployment-model.md)之間的差異。 每個模型中設定 Azure Load Balancer 的方式均不同。
-
-### <a name="azure-classic-deployment-model"></a>Azure 傳統部署模型
-
-部署於雲端服務界限內的虛擬機器可群組來使用負載平衡器。 在此模型中，會將公用 IP 位址和完整網域名稱 (FQDN) 指派給雲端服務。 負載平衡器利用雲端服務的公用 IP 位址來進行連接埠轉譯作業，以及進行網路流量的負載平衡。
-
-負載平衡的流量是由端點所定義。 連接埠轉譯端點在公用 IP 位址中指派的公用通訊埠與指派給特定虛擬機器上服務的本機連接埠間具有一對一關聯。 負載平衡端點在公用 IP 位址與指派給雲端服務中虛擬機器上服務的本機連接埠間具有一對多關聯。
-
-![傳統部署模型中的 Azure Load Balancer](./media/load-balancer-overview/asm-lb.png)
-
-圖 1 - 傳統部署模型中的 Azure Load Balancer
-
-在此部署模型中，負載平衡器所使用的公用 IP 位址網域標籤是 \<雲端服務名稱\>.cloudapp.net。 下圖顯示此模型中的 Azure Load Balancer。
-
-### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 部署模型
-
-在 Resource Manager 部署模型中，不需要建立雲端服務。 負載平衡器是建立來在多個虛擬機器之間明確路由傳送流量。
-
-公用 IP 位址是具有網域標籤 (DNS 名稱) 的個別資源。 公用 IP 位址會與負載平衡器資源相關聯。 負載平衡器規則和傳入 NAT 規則會使用公用 IP 位址做為接收負載平衡網路流量之資源的網際網路端點。
-
-私人或公用 IP 位址會指派給連接至虛擬機器的網路介面資源。 一旦將網路介面加入到負載平衡器的後端 IP 位址集區之後，負載平衡器就能根據建立的負載平衡規則傳送負載平衡的網路流量。
-
-下圖顯示此模型中的 Azure Load Balancer：
-
-![Resource Manager 中的 Azure Load Balancer](./media/load-balancer-overview/arm-lb.png)
-
-圖 2 - Resource Manager 中的 Azure Load Balancer
-
-負載平衡器可以透過以 Resource Manager 為基礎的範本、API 及工具來管理。 若要深入了解 Resource Manager，請參閱 [Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
 
 ## <a name="load-balancer-features"></a>負載平衡器功能
 
@@ -76,7 +46,7 @@ Azure Load Balancer 可以設定為：
 
     ![雜湊型分散](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    圖 3 - 雜湊型分配
+    圖：雜湊型分散
 
 * 連接埠轉送
 

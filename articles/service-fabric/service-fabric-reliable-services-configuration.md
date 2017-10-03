@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/02/2017
 ms.author: sumukhs
 ms.translationtype: HT
 ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: fa77eaf44f4d90d1a78f5de69e36432a53d80ecd
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="configure-stateful-reliable-services"></a>設定具狀態可靠服務

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/28/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 8355478cb2fff3a63bc4a9b359ec8e2b132c80f6
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -166,7 +166,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 為應用程式命名 (例如 "mycontainer")。 
 
-在容器登錄中提供容器映像的 URL (例如，"")。 
+在容器登錄中提供容器映像的 URL (例如，"myregistry.azurecr.io/samples/helloworldapp")。 
 
 此映像已定義工作負載進入點，所以需要明確指定輸入命令 (命令會在容器內執行，這會讓容器在啟動後繼續執行)。 
 
@@ -175,23 +175,35 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ![容器的 Service Fabric Yeoman 產生器][sf-yeoman]
 
 ## <a name="configure-port-mapping-and-container-repository-authentication"></a>設定連接埠對應和容器存放庫驗證
-您的容器化服務需要端點進行通訊。  現在，將通訊協定、連接埠和類型新增至 ServiceManifest.xml 檔案中的 `Endpoint`。 在本文中，容器化服務會接聽連接埠 4000： 
+您的容器化服務需要端點進行通訊。  現在將通訊協定、連接埠和類型新增至 ServiceManifest.xml 檔案中 'Resources' 標籤之下的 `Endpoint`。 在本文中，容器化服務會接聽連接埠 4000： 
 
 ```xml
-<Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-```
+
+<Resources>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+           listen. Please note that if your service is partitioned, this port is shared with 
+           replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+    </Endpoints>
+  </Resources>
+ ```
+ 
 提供 `UriScheme`，就會自動向「Service Fabric 命名」服務註冊容器端點以供搜尋。 本文結尾會提供完整的 ServiceManifest.xml 範例檔案。 
 
-在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中指定 `PortBinding`，以設定容器連接埠與主機連接埠的對應。  在本文中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "myserviceTypeEndpoint" (服務資訊清單中定義的端點)。  通訊埠 4000 上服務的連入要求會對應到容器上的連接埠 80。  如果您的容器需要向私人存放庫進行驗證，則新增 `RepositoryCredentials`。  在本文中，新增 myregistry.azurecr.io 容器登錄的帳戶名稱和密碼。 
+在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中指定 `PortBinding`，以設定容器連接埠與主機連接埠的對應。  在本文中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "myServiceTypeEndpoint" (服務資訊清單中定義的端點)。  通訊埠 4000 上服務的連入要求會對應到容器上的連接埠 80。  如果您的容器需要向私人存放庫進行驗證，則新增 `RepositoryCredentials`。  在本文中，新增 myregistry.azurecr.io 容器登錄的帳戶名稱和密碼。 確保該原則已新增在對應至正確服務套件的 'ServiceManifestImport' 標籤之下。
 
 ```xml
-<Policies>
-    <ContainerHostPolicies CodePackageRef="Code">
+   <ServiceManifestImport>
+      <ServiceManifestRef ServiceManifestName="MyServicePkg" ServiceManifestVersion="1.0.0" />
+    <Policies>
+        <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-    </ContainerHostPolicies>
-</Policies>
-```
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
+        </ContainerHostPolicies>
+    </Policies>
+   </ServiceManifestImport>
+``` 
 
 ## <a name="build-and-package-the-service-fabric-application"></a>建置及封裝 Service Fabric 應用程式
 Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令碼，可用來從終端機建置應用程式。 若要建置和封裝應用程式，請執行下列指令碼：
@@ -278,7 +290,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
+      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
     </Endpoints>
   </Resources>
 </ServiceManifest>
@@ -300,7 +312,7 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
         <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
+        <PortBinding ContainerPort="80" EndpointRef="myServiceTypeEndpoint"/>
       </ContainerHostPolicies>
     </Policies>
   </ServiceManifestImport>

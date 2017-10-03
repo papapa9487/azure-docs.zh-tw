@@ -12,33 +12,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 09/23/2017
 ms.author: robb
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 619a004b9aff99be68988e1f7be3ccad400a8a0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="overview-of-azure-monitor"></a>Azure 監視器的概觀
 本文提供 Microsoft Azure 中 Azure 監視器服務的概觀。 它會討論 Azure 監視器所執行的作業，並提供關於如何使用 Azure 監視器之其他資訊的指標。  如果您偏好影片介紹，請參閱本文最後的＜後續步驟＞連結。 
 
-## <a name="why-monitor-your-application-or-system"></a>為什麼要監視您的應用程式或系統
-雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。 除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這些知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
-
-
 ## <a name="azure-monitor-and-microsofts-other-monitoring-products"></a>Azure 監視器及 Microsoft 的其他監視產品
 Azure 監視器可針對 Microsoft Azure 中的大多數服務提供基本等級的基礎結構計量與記錄。 尚未將其資料放入 Azure 監視器的 Azure 服務，未來會將其資料放入。
 
 Microsoft 隨附額外的產品和服務，可針對同時擁有內部部署安裝的開發人員、DevOps 及 IT Ops 提供其他監視功能。 如需概觀及了解這些不同產品和服務如何一起運作的相關資訊，請參閱 [Microsoft Azure 中的監視](monitoring-overview.md)。
 
-## <a name="monitoring-sources---compute"></a>監視來源：計算
+## <a name="portal-overview-page"></a>入口網站概觀頁面
+
+Azure 監視器具有登陸頁面，可協助使用者： 
+- 了解 Azure 所提供的監視功能。
+- 探索、設定及開始使用 Azure 的平台與進階監視功能。
+
+當 Azure 監視器服務發行時，登陸概觀頁面處於預覽狀態。 
+
+該頁面試是瀏覽的起點 (包括開始使用)。 它顯示來自不同服務的精心策劃問題，並可讓使用者深入瀏覽。
+ 
+![非計算資源的監視與診斷模型](./media/monitoring-overview-azure-monitor/monitor-overview-ux2.png)
+
+當您開啟該頁面時，您可以選取您有讀取存取權的訂用帳戶。 針對選取的訂用帳戶，您可以看到：
+
+- **已觸發的警示與警示來源** - 此表格顯示摘要計數、警示來源，以及警示在選取的時間範圍內觸發的次數。 它同時適用於計量與活動記錄警示。
+- **活動記錄錯誤** - 若您的任何 Azure 資源記錄具有嚴重性錯誤層級的事件，您可以檢視高階計數並點擊到活動記錄頁面以調查每個事件。
+- **Azure 服務健康情況** - 您可以看到「服務健康情況」服務問題、已規劃的維護事件與健康情況建議的計數。 當 Azure 基礎結構的問題影響您的服務時，Azure 服務健康情況將提供個人化資訊。  如需詳細資訊，請參閱 [Azure 服務健康情況](../service-health/service-health-overview.md)。  
+- **Application Insights** - 查看目前訂用帳戶中每個 AppInsights 資源的 KPI。 KPI 已針對伺服器端應用程式 (包括 ASP.NET Web 應用程式、Java、Node 與一般應用程式類型) 監視最佳化。 KPI 包括要求速率、回應期間、失敗率與可用性百分比的計量。 
+
+若您尚未開始使用 Log Analytics 或 Application Insights，或您尚未在目前訂用帳戶中設定任何 Azure 警示，該頁面提供連結協助您上手。
+
+
+
+## <a name="azure-monitor-sources---compute-subset"></a>Azure 監視器資源 - 計算子集
 
 ![非計算資源的監視與診斷模型](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-compute_v6.png)
 
-計算服務包括 
+這裡的計算服務包括 
 - 雲端服務 
 - 虛擬機器 
 - 虛擬機器擴展集 
@@ -64,7 +83,7 @@ Microsoft 隨附額外的產品和服務，可針對同時擁有內部部署安�
 ### <a name="activity-log"></a>活動記錄檔
 您可以搜尋活動記錄檔 (之前稱為「作業記錄」或「稽核記錄」)，以取得 Azure 基礎結構所見之資源的相關資訊。 此記錄檔包含資源的建立或終結時間等資訊。  如需詳細資訊，請參閱[活動記錄概觀](monitoring-overview-activity-logs.md)。 
 
-## <a name="monitoring-sources---everything-else"></a>監視來源：其他項目
+## <a name="azure-monitor-sources---everything-else"></a>Azure 監視器來源 - 其他項目
 
 ![計算資源的監視與診斷模型](./media/monitoring-overview-azure-monitor/Monitoring_Azure_Resources-non-compute_v6.png)
 
@@ -79,10 +98,10 @@ Microsoft 隨附額外的產品和服務，可針對同時擁有內部部署安�
 活動記錄與計算資源一樣。  
 
 ## <a name="uses-for-monitoring-data"></a>監視資料的用途
-一旦您收集資料之後，就可以在 Azure 監視器中使用它來執行下列各項
+一旦您收集資料，就可以在 Azure 監視器中使用它來執行下列動作。
 
 ### <a name="route"></a>路由
-您可以將監視資料即時串流到其他位置。
+您可以將監視資料串流到其他位置。 
 
 範例包括：
 
@@ -95,7 +114,7 @@ Microsoft 隨附額外的產品和服務，可針對同時擁有內部部署安�
 - 活動記錄項目會儲存 90 天。 
 - 診斷記錄完全不會儲存。 
 
-如果您想要儲存資料的時間長度超過上面所列的時間週期，您可以使用 Azure 儲存體。 監視資料會根據您設定的保留原則，保留於您的儲存體帳戶中。 您需要支付資料在 Azure 儲存體中所佔用的空間。 
+如果您想要儲存資料的時間長度超過上面所列的時間週期，您可以使用 Azure 儲存體。 監視資料會根據您設定的保留原則，保留在您的儲存體帳戶中。 您需要支付資料在 Azure 儲存體中所佔用的空間。 
 
 以下為使用此資料的幾個方式：
 
@@ -142,7 +161,8 @@ Microsoft 隨附額外的產品和服務，可針對同時擁有內部部署安�
 ## <a name="next-steps"></a>後續步驟
 深入了解
 - 僅 Azure 監視器的影片逐步解說位於  
-[開始使用 Azure 監視器](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor)。 在[探索 Microsoft Azure 監視和診斷 (英文)](https://channel9.msdn.com/events/Ignite/2016/BRK2234) 和[來自 Ignite 2016 的 Azure 監視器影片 (英文)](https://myignite.microsoft.com/videos/4977) 可取得額外影片，該影片說明您可以使用 Azure 監視器的案例
+[開始使用 Azure 監視器](https://channel9.msdn.com/Blogs/Azure-Monitoring/Get-Started-with-Azure-Monitor)。 
+- 在[探索 Microsoft Azure 監視和診斷 ](https://channel9.msdn.com/events/Ignite/2016/BRK2234) \(英文\) 和[來自 Ignite 2016 的 Azure 監視器影片](https://myignite.microsoft.com/videos/4977) \(英文\) 可取得影片，該影片說明您可以使用 Azure 監視器的案例
 - 在[開始使用 Azure 監視器](monitoring-get-started.md)中完整執行 Azure 監視器介面
 - 設定 [Azure 診斷擴充功能](../azure-diagnostics.md)，如果您正在嘗試診斷雲端服務、虛擬機器或 Service Fabric 應用程式中的問題。
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) ，如果您正在嘗試診斷 App Service Web 應用程式中的問題。

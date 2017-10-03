@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/27/2017
+ms.date: 09/19/2017
 ms.author: renash
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc3d67745afb8bbffe7ec3462e995104daff9632
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 6e71a13f99160fdd310be1e9a59717c9fecbf35d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>透過 macOS 的 SMB 掛接 Azure 檔案共用
-[Azure 檔案儲存體](../storage-dotnet-how-to-use-files.md)是 Microsoft 的服務，可讓您在 Azure 中使用業界標準建立和使用網路檔案共用。 Azure 檔案共用可在 macOS Sierra (10.12) 和 El Capitan (10.11) 中掛接。 本文將說明兩種不同的方式，在 macOS 上使用搜尋工具 UI 和使用終端機來掛接 Azure 檔案共用。
+[Azure 檔案服務](storage-files-introduction.md)是 Microsoft 的服務，可讓您在 Azure 中使用業界標準建立和使用網路檔案共用。 Azure 檔案共用可在 macOS Sierra (10.12) 和 El Capitan (10.11) 中掛接。 本文將說明兩種不同的方式，在 macOS 上使用搜尋工具 UI 和使用終端機來掛接 Azure 檔案共用。
 
 > [!Note]  
 > 在透過 SMB 掛接 Azure 檔案共用之前，建議您停用 SMB 封包簽章。 不這樣做可能會導致從 macOS 存取 Azure 檔案共用時效能不佳。 SMB 連線將會加密，因此這不會影響您連線的安全性。 從終端機中，下列命令會停用 SMB 封包簽章，如同[停用 SMB 封包簽章的 Apple 支援文章](https://support.apple.com/HT205926)所描述：  
@@ -65,7 +65,7 @@ ms.lasthandoff: 08/21/2017
     ![已掛接之 Azure 檔案共用的快照集](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>後續步驟
-請參閱這些連結以取得 Azure 檔案儲存體的相關詳細資訊。
+請參閱這些連結，以取得 Azure 檔案服務的相關詳細資訊。
 
 * [Apple 支援文章 - 如何在 Mac 上連線檔案共用](https://support.apple.com/HT204445)
 * [常見問題集](../storage-files-faq.md)

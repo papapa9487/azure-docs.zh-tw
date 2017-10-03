@@ -15,197 +15,135 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 78306672e812745fd1902ae264c2adea196ab721
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="deploy-a-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Service Fabric Linux 容器應用程式
+# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
 
-在 Service Fabric 叢集上的 Linux 容器中執行現有的應用程式，無需變更您的應用程式。 本快速入門示範如何在 Service Fabric 應用程式中部署預先建立的 Docker 容器映像。 當您完成時，您會有執行中的 nginx 容器。  本快速入門說明如何部署 Linux 容器，請閱讀[本快速入門](service-fabric-quickstart-containers.md)以部署 Windows 容器。
+本快速入門示範如何將 Linux 容器部署到 Service Fabric 叢集。 完成後，您會有一個投票應用程式，它是由在 Service Fabric 叢集中執行的 python web 前端和 Redis 後端所組成。 
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
 
 在此快速入門中，您可了解如何：
 > [!div class="checklist"]
-> * 封裝 Docker 映像容器
-> * 設定通訊
-> * 建置及封裝 Service Fabric 應用程式
-> * 將容器應用程式部署至 Azure
+> * 將 Linux 容器部署至 Service Fabric
+> * 在 Service Fabric 中縮放和容錯移轉容器
 
-## <a name="prerequisites"></a>必要條件
-安裝 [Service Fabric SDK、Service Fabric CLI 和 Service Fabric yeoman 範本產生器](service-fabric-get-started-linux.md)。
+## <a name="prerequisite"></a>必要條件
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/en-us/free/) 。
   
-## <a name="package-a-docker-image-container-with-yeoman"></a>使用 Yeoman 封裝 Docker 映像容器
-適用於 Linux 的 Service Fabric SDK 包含 [Yeoman](http://yeoman.io/) 產生器，可讓您輕鬆建立應用程式並新增容器映像。 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-若要建立 Service Fabric 容器應用程式，請開啟終端機視窗並執行 `yo azuresfcontainer`。  
+如果您選擇在本機安裝和使用命令列介面 (CLI)，則可確保您執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 az --version。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)。
 
-將應用程式命名為 "MyFirstContainer"，並將應用程式服務命名為 "MyContainerService"。
+## <a name="get-application-package"></a>取得應用程式套件
+若要將容器部署至 Service Fabric，您需要一組可描述個別容器和應用程式的資訊清單檔案 (應用程式定義)。
 
-提供容器映像名稱 "nginx:latest" (Docker 中書上的 [nginx 容器映像](https://hub.docker.com/r/_/nginx/))。 
+在雲端殼層中，使用 git 來複製一份應用程式定義。
 
-此映像已定義工作負載進入點，因此您必須明確地指定輸入命令。 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-指定執行個體計數為 "1"。
-
-![容器的 Service Fabric Yeoman 產生器][sf-yeoman]
-
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>設定通訊和容器連接埠對主機連接埠的對應
-設定 HTTP 端點，讓用戶端可以與您的服務通訊。  開啟 ./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml 檔案並在 **ServiceManifest** 元素中宣告端點資源。  新增通訊協定、連接埠和名稱。 在此快速入門中，服務會接聽連接埠 80： 
-
-```xml
-<Resources>
-  <Endpoints>
-    <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-  </Endpoints>
-</Resources>
-
-```
-提供 `UriScheme`，就會自動向「Service Fabric 命名」服務註冊容器端點以供搜尋。 本文結尾會提供完整的 ServiceManifest.xml 範例檔案。 
-
-在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 中使用 `PortBinding` 原則，將容器連接埠對應至服務 `Endpoint`。  在本快速入門中，`ContainerPort` 為 80 (容器會公開連接埠 80)，而 `EndpointRef` 為 "myserviceTypeEndpoint" (先前在服務資訊清單中定義的端點)。  通訊埠 80 上服務的連入要求會對應到容器上的連接埠 80。  
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
-## <a name="build-and-package-the-service-fabric-application"></a>建置及封裝 Service Fabric 應用程式
-Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令碼，可用來從終端機建置應用程式。 儲存您的所有變更。  若要建置和封裝應用程式，請執行下列指令碼：
+## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>將容器部署到 Azure 中的 Service Fabric 叢集
+若要將應用程式部署到 Azure 中的叢集，請使用自己的叢集，或使用合作對象叢集。
 
-```bash
-cd MyFirstContainer
-gradle
-```
-## <a name="create-a-cluster"></a>建立叢集
-若要將應用程式部署到 Azure 中的叢集，您可以選擇建立自己的叢集，或使用合作對象叢集。
-
-合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。  
+合作對象是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所維護。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 
 如需建立您自己叢集的資訊，請參閱[在 Azure 上建立您的第一個 Service Fabric 叢集](service-fabric-get-started-azure-cluster.md)。
 
-記下您在下面步驟中使用的連線端點。
+> [!Note]
+> Web 前端服務設定為在連接埠 80 上接聽傳入流量。 請確定您的叢集中已開啟該連接埠。 如果您使用合作對象叢集，此連接埠已開啟。
+>
 
-## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure
-建置應用程式後，可以使用 Service Fabric CLI 將它部署到 Azure 叢集。
+### <a name="deploy-the-application-manifests"></a>部署應用程式資訊清單 
+在 CLI 環境中安裝 Service Fabric 命令列 (sfctl)
 
-連線到 Azure 中的 Service Fabric 叢集。
+```azurecli-interactive
+pip3 install --user sfctl 
+export PATH=$PATH:~/.local/bin
+```
+使用 Azure CLI 連線到 Azure 中的 Service Fabric 叢集。 此端點是叢集的管理端點，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080`。
 
-```bash
-sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
+```azurecli-interactive
+sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
-使用範本中所提供的安裝指令碼，將應用程式套件複製到叢集的映像存放區、註冊應用程式類型，以及建立應用程式的執行個體。
+使用所提供的安裝指令碼將投票應用程式定義複製到叢集、註冊應用程式類型，以及建立應用程式的執行個體。
 
-```bash
+```azurecli-interactive
 ./install.sh
 ```
 
-開啟瀏覽器並瀏覽至 Service Fabric Explorer (http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer)。 展開 [應用程式] 節點，請注意，您的應用程式類型現在有一個項目，而另一個則是該類型的第一個執行個體。
+開啟瀏覽器並瀏覽至 Service Fabric Explorer (http://\<my-azure-service-fabric-cluster-url>:80)，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:80`。 展開 [應用程式] 節點，可看到投票應用程式類型和您建立的執行個體現在有一個項目。
 
 ![Service Fabric Explorer][sfx]
 
-連線到執行中的容器。  開啟 Web 瀏覽器並指向連接埠 80 上傳回的 IP 位址，例如 "lnxt10vkfz6.westus.cloudapp.azure.com:80"。 您應會看到瀏覽器中顯示 nginx 歡迎使用頁面。
+連線到執行中的容器。  開啟 Web 瀏覽器並指向您叢集的 URL，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:80`。 您應會在瀏覽器中看到投票應用程式。
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
+
+## <a name="fail-over-a-container-in-a-cluster"></a>容錯移轉叢集中的容器
+Service Fabric 可確保如果發生失敗，容器執行個體會自動移至叢集中的其他節點。 您也可以手動清空容器的節點，並將它們依正常程序移至叢集中的其他節點。 您有多種方式可調整您的服務，在此範例中，我們會使用 Service Fabric Explorer。
+
+若要容錯移轉前端容器，請執行下列步驟：
+
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080`。
+2. 按一下樹狀檢視中的 **fabric:/Voting/azurevotefront** 節點，然後展開資料分割節點 (以 GUID 表示)。 請注意樹狀檢視中的節點名稱，其中顯示哪些節點上的容器目前正在執行 - 例如 `_nodetype_4`
+3. 展開樹狀檢視中的 [節點] 節點。 按一下正在執行容器之節點旁邊的省略符號 (三個點)。
+4. 選擇 [重新啟動] 以重新啟動節點並確認重新啟動動作。 重新啟動會造成容器容錯移轉至叢集中的其他節點。
+
+![sfxquickstartshownodetype][sfxquickstartshownodetype]
+
+## <a name="scale-applications-and-services-in-a-cluster"></a>調整叢集中的應用程式和服務
+您可以在整個叢集內輕鬆地調整 Service Fabric 服務，以符合服務的負載。 您可以藉由變更叢集中執行的執行個體數目來調整服務。
+
+若要調整 Web 前端服務，請執行下列步驟：
+
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080`。
+2. 按一下樹狀檢視中 **fabric:/Voting/azurevotefront** 節點旁邊的省略符號 (三個點)，然後選擇 [調整服務]。
+
+    ![containersquickstartscale][containersquickstartscale]
+
+  您現在可以選擇調整 Web 前端服務的執行個體數目。
+
+3. 將數字變更為 **2**，然後按一下 [調整服務]。
+4. 按一下樹狀檢視中的 **fabric:/Voting/azurevotefront** 節點，然後展開資料分割節點 (以 GUID 表示)。
+
+    ![containersquickstartscaledone][containersquickstartscaledone]
+
+    您現在可以看到服務有兩個執行個體。 在樹狀檢視中，您可看到執行個體在哪些節點上執行。
+
+藉由這項簡單的管理工作，我們會加倍前端服務可用來處理使用者負載的資源。 請務必了解，您不需要多個服務執行個體，就能夠可靠地執行。 如果服務失敗，Service Fabric 可確保新的服務執行個體在叢集中執行。
 
 ## <a name="clean-up"></a>清除
-使用範本中提供的解除安裝指令碼，刪除叢集中的應用程式執行個體並取消註冊應用程式類型。
+使用範本中提供的解除安裝指令碼，刪除叢集中的應用程式執行個體並取消註冊應用程式類型。 這個命令會花一些時間來清除執行個體，而且不得在此指令碼之後立即執行 'install'sh' 命令。 
 
 ```bash
 ./uninstall.sh
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>完整範例 Service Fabric 應用程式和服務資訊清單
-以下是本快速入門中使用的完整服務和應用程式資訊清單。
-
-### <a name="servicemanifestxml"></a>ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ContainerHost>
-            <ImageName>nginx:latest</ImageName>
-            <Commands></Commands>
-         </ContainerHost>
-      </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
-   </CodePackage>
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- </ServiceManifest>
-
-```
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest  ApplicationTypeName="MyFirstContainerType" ApplicationTypeVersion="1.0.0"
-                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-   <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-</ServiceManifestImport>
-   
-   <DefaultServices>
-      <Service Name="MyContainerService">
-        <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-        cluster, set InstanceCount to -1 for the container service to run on every node in 
-        the cluster.
-        -->
-        <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="1">
-            <SingletonPartition />
-        </StatelessService>
-      </Service>
-   </DefaultServices>
-   
-</ApplicationManifest>
-
-```
-
 ## <a name="next-steps"></a>後續步驟
-在此快速入門中，您可了解如何：
+在此快速入門中，您已了解如何：
 > [!div class="checklist"]
-> * 封裝 Docker 映像容器
-> * 設定通訊
-> * 建置及封裝 Service Fabric 應用程式
-> * 將容器應用程式部署至 Azure
+> * 將 Linux 容器應用程式部署至 Azure
+> * 容錯移轉 Service Fabric 叢集中的容器
+> * 調整 Service Fabric 叢集中的容器
 
 * 深入了解如何[在 Service Fabric 上執行容器](service-fabric-containers-overview.md)。
-* 閱讀[在容器中部署 .NET 應用程式](service-fabric-host-app-in-a-container.md)教學課程。
 * 深入了解 Service Fabric [應用程式生命週期](service-fabric-application-lifecycle.md)。
-* 請查看 GitHub 上的[ Service Fabric 容器程式碼範例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)。
+* 請查看 GitHub 上的 [ Service Fabric 容器程式碼範例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)。
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
-[nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
-[sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png
+[sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
+[quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
+[containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
+[containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png
 

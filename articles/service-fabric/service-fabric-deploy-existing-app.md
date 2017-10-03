@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: a1db3dda674ffe43587333d88f3816549af3019c
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: a8579c66cbfb0968a3659316aa5f03b798f4e332
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-a-guest-executable-to-service-fabric"></a>將來賓可執行檔部署至 Service Fabric
@@ -68,7 +67,7 @@ Service Fabric 將來賓可執行檔視為無狀態服務。 因此會根據可�
 ApplicationPackageRoot 包含可定義應用程式的 ApplicationManifest.xml 檔案。 對於應用程式包含的每個服務，都有一個子目錄用來包含服務所需的所有構件。 這些子目錄是 ServiceManifest.xml，通常如下︰
 
 * *Code*。 此目錄包含服務程式碼。
-* *Config*。 此目錄包含服務可在執行階段存取的 settings.xml 檔案 (和其他必要檔案)，以擷取特定組態設定。
+* *Config*。此目錄包含服務可在執行階段存取的 settings.xml 檔案 (和其他必要檔案)，以擷取特定組態設定。
 * *Data*。 這是額外的目錄，用來儲存服務可能需要的其他本機資料。 資料應該只用來儲存短期資料。 如果必須重新定位服務 (例如在容錯移轉期間)，Service Fabric 不會將變更複製/複寫到資料目錄。
 
 > [!NOTE]
@@ -101,7 +100,7 @@ Visual Studio 會提供 Service Fabric 服務範本，協助您將來賓可執�
 6. 您現在可以藉由在 Visual Studio 中偵錯方案，對本機叢集執行封裝和發佈動作。 準備好時，即可將應用程式發佈至遠端叢集，或將方案簽入到原始檔控制。
 7. 請移至本文結尾，以了解如何檢視 Service Fabric Explorer 中執行的來賓執行檔服務。
 
-## <a name="use-yoeman-to-package-and-deploy-an-existing-executable-on-linux"></a>使用 Yoeman 在 Linux 上封裝及部署現有的可執行檔
+## <a name="use-yeoman-to-package-and-deploy-an-existing-executable-on-linux"></a>使用 Yoeman 在 Linux 上封裝及部署現有的可執行檔
 
 在 Linux 上建立及部署來賓可執行檔的程序與部署 csharp 或 java 應用程式的程序相同。
 
