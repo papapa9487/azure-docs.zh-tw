@@ -1,11 +1,5 @@
 # 概觀
 ## [開發人員指南](azure-developer-guide.md) 
-### [何謂 Azure？](azure-developer-guide.md#what-is-azure)
-### [我該從哪裡開始？](azure-developer-guide.md#where-do-i-start)
-### [Azure 區域](azure-developer-guide.md#azure-regions)
-### [如何管理我的應用程式和專案？](azure-developer-guide.md#how-do-i-manage-my-applications-and-projects)
-### [了解帳戶、訂用帳戶和計費](azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)
-
 ## [Azure 服務概觀](https://docs.microsoft.com/azure/fundamentals-introduction-to-azure?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [入口網站概觀](https://docs.microsoft.com/azure/azure-portal-overview?toc=%2fazure%2fdeveloper-guide%2ftoc.json)
 ## [SDK 及工具](https://docs.microsoft.com/azure/index#pivot=sdkstools)

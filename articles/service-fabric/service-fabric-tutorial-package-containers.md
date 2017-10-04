@@ -101,7 +101,7 @@ Service Fabric 提供 Scaffolding 工具，可協助您使用 Yeoman 範本產�
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: suhuruli.azurecr.io/azure-vote-back:v1
+? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml

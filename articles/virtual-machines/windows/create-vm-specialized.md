@@ -21,7 +21,6 @@ ms.openlocfilehash: b315a37f72f34d45bb55c2bbe6be20cca8c42424
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/01/2017
 
-
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk"></a>從特製化磁碟建立 Windows VM
 
@@ -129,7 +128,7 @@ New-AzureRmResourceGroup -Location $location -Name $destinationResourceGroup
 從已上傳的 VHD 建立新的 OS 磁碟。 
 
 ```powershell
-$sourceUri = https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
+$sourceUri = (https://storageaccount.blob.core.windows.net/vhdcontainer/osdisk.vhd)
 $osDiskName = 'myOsDisk'
 $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk `
     (New-AzureRmDiskConfig -AccountType StandardLRS  -Location $location -CreateOption Import `
