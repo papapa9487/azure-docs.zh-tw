@@ -92,7 +92,7 @@ Azure SDK for Python 內含的元件可讓您開發、部署及管理適用於 A
 [Python 封裝索引][Python Package Index] (PyPI) 具有選擇性豐富的 Python 程式庫。  如果您選擇了安裝散發版本，則您將已擁有從 Web 開發到「工程運算」的各種案例中大多數令人關注的部分。
 
 ## <a name="python-tools-for-visual-studio"></a>Python Tools for Visual Studio
-[Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS) 是 Microsoft 提供的免費/OSS 外掛程式，它能將 VS 轉變為成熟的 Python IDE：
+[適用於 Visual Studio 的 Python 工具][適用於 Visual Studio 的 Python 工具] (PTVS) 是 Microsoft 提供的免費/OSS 外掛程式，它能將 VS 轉變為成熟的 Python IDE：
 
 ![how-to-install-python-ptvs](./media/python-how-to-install/how-to-install-python-ptvs.png)
 
@@ -145,7 +145,7 @@ PTVS 可以和您現有的 Visual Studio 2013、2015 或 2017 安裝一同運作
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [IPython]: http://ipython.org
-[Python Tools for Visual Studio]: http://aka.ms/ptvs
+[適用於 Visual Studio 的 Python 工具]: http://aka.ms/ptvs
 [Python Tools for Visual Studio on GitHub]: https://github.com/microsoft/ptvs
 [Python Package Index]: http://pypi.python.org/pypi
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
