@@ -212,9 +212,9 @@ key_resolver.put_key(kek)
 
 # Define the encryption resolver_function.
 def my_encryption_resolver(pk, rk, property_name):
-        if property_name == 'foo':
-                return True
-        return False
+    if property_name == 'foo':
+        return True
+    return False
 
 # Set the KEK and key resolver on the service object.
 my_table_service.key_encryption_key = kek
@@ -242,3 +242,4 @@ encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)
 ## <a name="next-steps"></a>後續步驟
 * 下載 [適用於 Java PyPi 封裝的 Azure 儲存體用戶端程式庫](https://pypi.python.org/pypi/azure-storage)
 * 從 GitHub 下載 [適用於 Python 的 Azure 儲存體用戶端程式庫來源程式碼](https://github.com/Azure/azure-storage-python)
+

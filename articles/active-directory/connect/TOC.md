@@ -43,7 +43,7 @@
 ##### [智慧鎖定](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [常見問題集](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [疑難排解](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
-##### [深入探討安全性](active-directory-aadconnect-pta-security-deep-dive.md)
+##### [深入探討安全性](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)
 ### [對同盟的多網域支援](active-directory-aadconnect-multiple-domains.md)
 ### [自動升級](active-directory-aadconnect-feature-automatic-upgrade.md)
 ### [使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入](active-directory-aadconnect-federation-saml-idp.md)
