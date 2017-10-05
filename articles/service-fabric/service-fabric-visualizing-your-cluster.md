@@ -31,7 +31,7 @@ Service Fabric 總管是一個 Web 型工具，可檢查和管理 Azure Service 
 [<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## <a name="connect-to-service-fabric-explorer"></a>連線到 Service Fabric 總管
-如果您已依照[準備開發環境](service-fabric-get-started.md)的指示操作，可以瀏覽至 http://localhost:19080/Explorer，啟動您本機叢集上的 [Service Fabric 總管]。
+如果您已依照[準備開發環境](service-fabric-get-started.md)的指示操作，可以瀏覽至 http://localhost:19080/Explorer ，啟動您本機叢集上的 [Service Fabric 總管]。
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>了解 Service Fabric 總管配置
 您可以使用左邊的樹狀目錄來瀏覽 Service Fabric 總管。 在樹狀目錄的根目錄，叢集儀表板會提供您叢集的概觀，包括應用程式和節點健康情況的摘要。
