@@ -33,7 +33,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="current-version-21063477"></a>目前版本 (2.10.6347.7)
 
 ### <a name="enhancements-"></a>增強功能
-- 您可以新增 DNS 項目來將「服務匯流排」加入白名單，而不是將所有 Azure IP 位址都加入防火牆的白名單 (如有需要)。 您可以在 Azure 入口網站上找到各自的 DNS 項目 (Data Factory-> [製作和部署] -> [閘道] -> [serviceUrls] (在 JSON 中)
+- 您可以新增 DNS 項目來將「服務匯流排」加入白名單，而不是將所有 Azure IP 位址都加入防火牆的白名單 (如有需要)。 您可以在 Azure 入口網站上找到各自的 DNS 項目 (Data Factory-> [製作和部署] -> [閘道] -> [serviceUrls] \(在 JSON 中)
 - HDFS 連接器現在支援自我簽署的公開憑證，方法是讓您略過 SSL 驗證。
 - 已修正︰更新期間的閘道離線問題 (因為時鐘誤差)
 

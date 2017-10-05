@@ -160,7 +160,7 @@ Azure Mobile Apps 可讓您在服務內設定 Azure Active Directory、Facebook�
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service 價格]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 定價]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [驗證概念]: ../app-service/app-service-authentication-overview.md
 [驗證快速入門]: app-service-mobile-auth.md

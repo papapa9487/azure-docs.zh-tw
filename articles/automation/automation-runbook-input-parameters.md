@@ -115,7 +115,7 @@ PowerShell 工作流程 Runbook 中的參數定義具有下列一般形式，其
      * Mandatory - No
      * Default value - Custom
      * 自訂預設值 - \<包含虛擬機器之資源群組的名稱>
-5. 新增參數之後，請按一下 [確定] 。  現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 [確定]，然後按一下 [儲存] 並 [發佈] 您的 Runbook。
+5. 新增參數之後，請按一下 [確定] 。  現在，您可以在 [輸入和輸出] 刀鋒視窗中加以檢視。 再按一下 確定，然後按一下儲存 並 發佈 您的 Runbook。
 
 ## <a name="configure-input-parameters-in-python-runbooks"></a>在 Python Runbook 中設定輸入參數
 

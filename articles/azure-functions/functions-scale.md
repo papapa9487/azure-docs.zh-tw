@@ -108,5 +108,5 @@ Azure Functions 使用名為「縮放控制器」的元件來監視事件的速�
 * **以十億位元組-秒 (GB-s) 為單位的資源取用量**。 會計算為在函數應用程式中執行之所有函式的記憶體大小和執行時間組合。 
 * **執行**。 每次函式為回應事件而執行 (由繫結所觸發)，就算一次。
 
-[Azure Functions 定價頁面]: https://azure.microsoft.com/pricing/details/functions
+[Azure Functions 價格頁面]: https://azure.microsoft.com/pricing/details/functions
 
