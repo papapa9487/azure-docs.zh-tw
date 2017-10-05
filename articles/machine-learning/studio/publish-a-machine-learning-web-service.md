@@ -186,7 +186,7 @@ For more information on how to manage Azure Machine Learning web service endpoin
 [建立訓練實驗]: #create-a-training-experiment
 [將其轉換為預測實驗]: #convert-the-training-experiment-to-a-predictive-experiment
 [將其部署為 Web 服務]: #deploy-it-as-a-web-service
-[new]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[新式]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [傳統]: #deploy-the-predictive-experiment-as-a-new-Web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
