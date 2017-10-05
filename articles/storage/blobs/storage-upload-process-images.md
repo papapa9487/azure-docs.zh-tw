@@ -145,7 +145,7 @@ AzureStorageConfig__AccountKey=<blob_storage_key>
 
 ## <a name="upload-an-image"></a>上傳影像 
 
-若要測試 Web 應用程式，請瀏覽至已發佈應用程式的 URL。 Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。 選取 [Upload photos] (上傳相片) 區域以選取並上傳檔案，或將檔案拖放至區域。 如果上傳成功，影像就會消失。
+若要測試 Web 應用程式，請瀏覽至已發佈應用程式的 URL。 Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。 選取 [Upload photos] \(上傳相片) 區域以選取並上傳檔案，或將檔案拖放至區域。 如果上傳成功，影像就會消失。
 
 ![ImageResizer 應用程式](media/storage-upload-process-images/figure1.png)
 
