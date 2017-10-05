@@ -34,7 +34,7 @@ ms.lasthandoff: 09/20/2017
 ## <a name="architecture"></a>架構
 ![][1]
 
-本架構圖中的關鍵是提供主題/訂用帳戶程式撰寫模型的 Azure 服務匯流排 (如需詳細資料，請參閱 [服務匯流排發行/訂用帳戶程式撰寫])。 本案例中的接收器是行動後端 (通常是 [Azure 行動服務]，它會將推播發送給行動裝置)，它不會直接接收來自後端系統的訊息，反之，我們會加入由 [Azure 服務匯流排]提供的中繼抽象層，讓行動後端得以接收來自一或多個後端系統的訊息。 您需要為每個後端系統建立服務匯流排主題 (如客戶、人事、財務)，基本上它們是讓訊息能以推播通知形式傳送的興趣「主題」。 後端系統會將訊息傳送到這些主題。 藉由建立服務匯流排訂閱，行動後端能訂閱一或多個這類型的主題。 如此一來，行動後端便能接收由對應後端系統所傳送的通知。 行動後端會持續接聽與其訂閱相關的訊息，待訊息抵達後，它會立即轉向並以通知形式將訊息傳送到通知匯流排。 通知匯流排再接著將訊息傳遞給行動應用程式。 總結以上關鍵元件，我們可以得出：
+本架構圖中的關鍵是提供主題/訂用帳戶程式撰寫模型的 Azure 服務匯流排 (如需詳細資料，請參閱 [服務匯流排發佈/訂用帳戶程式撰寫])。 本案例中的接收器是行動後端 (通常是 [Azure 行動服務]，它會將推播發送給行動裝置)，它不會直接接收來自後端系統的訊息，反之，我們會加入由 [Azure 服務匯流排]提供的中繼抽象層，讓行動後端得以接收來自一或多個後端系統的訊息。 您需要為每個後端系統建立服務匯流排主題 (如客戶、人事、財務)，基本上它們是讓訊息能以推播通知形式傳送的興趣「主題」。 後端系統會將訊息傳送到這些主題。 藉由建立服務匯流排訂閱，行動後端能訂閱一或多個這類型的主題。 如此一來，行動後端便能接收由對應後端系統所傳送的通知。 行動後端會持續接聽與其訂閱相關的訊息，待訊息抵達後，它會立即轉向並以通知形式將訊息傳送到通知匯流排。 通知匯流排再接著將訊息傳遞給行動應用程式。 總結以上關鍵元件，我們可以得出：
 
 1. 後端系統 (LoB/舊版系統)
    * 建立服務匯流排主題
@@ -262,7 +262,7 @@ ms.lasthandoff: 09/20/2017
 [通知中樞範例]: https://github.com/Azure/azure-notificationhubs-samples
 [Azure 行動服務]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure 服務匯流排]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[服務匯流排發行/訂用帳戶程式撰寫]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[服務匯流排發佈/訂用帳戶程式撰寫]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
 [通知中樞 - Windows Universal 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
