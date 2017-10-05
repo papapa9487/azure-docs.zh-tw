@@ -97,9 +97,9 @@ curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect
 
 下載 [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) 並安裝應用程式。
 
-啟動應用程式，然後選擇 [檔案] > [開啟] > [From Other File Sources] (從其他檔案來源)。
+啟動應用程式，然後選擇 [檔案] > [開啟] > [From Other File Sources] \(從其他檔案來源)。
 
-在 [檔案選取器] 對話方塊中，選取 [+ Add Azure Connection] (+ 新增 Azure 連線)。 輸入**儲存體帳戶的名稱**和**帳戶金鑰**，然後按一下 [確定]。
+在 [檔案選取器] 對話方塊中，選取 [+ Add Azure Connection] \(+ 新增 Azure 連線)。 輸入**儲存體帳戶的名稱**和**帳戶金鑰**，然後按一下 [確定]。
 
 ![Microsoft Message Analyzer - [新增 Azure 儲存體連線] 對話方塊](media/storage-monitor-troubleshoot-storage-application/figure3.png)
 

@@ -37,7 +37,7 @@ ms.lasthandoff: 09/21/2017
 3. 選取 [+ 新增修訂]
 
     > [!TIP]
-    > 您也可以在 API 上選擇操作功能表中的 [新增修訂] (**...**)。
+    > 您也可以在 API 上選擇操作功能表中的 [新增修訂] \(**...**)。
 ![畫面頂端附近的修訂功能表](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. 提供新修訂的描述，以協助您記住其用途。
