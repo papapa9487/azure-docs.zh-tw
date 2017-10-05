@@ -35,7 +35,7 @@ ms.lasthandoff: 08/21/2017
 |H:\Video\ |視訊集合|12 TB|
 |H:\Photo\ |相片集合|30 GB|
 |K:\Temp\FavoriteMovie.ISO|藍光 (Blu-Ray™) 磁碟映像|25 GB|
-|\\\bigshare\john\music\|網路共用上的音樂檔案集合|10 GB|
+|\\\bigshare\john\music\ |網路共用上的音樂檔案集合|10 GB|
 
 ## <a name="storage-account-destinations"></a>儲存體帳戶目的地
 
