@@ -29,7 +29,7 @@ ms.lasthandoff: 09/20/2017
 ## <a name="express"> </a>使用快速設定設定 Azure Active Directory
 1. 在 [Azure 入口網站]中，瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
 2. 如果 [驗證/授權] 功能未啟用，請切換到 [開] 。
-3. 按一下 [Azure Active Directory]，然後按一下 [管理模式] 下方的 [快速]。
+3. 按一下 Azure Active Directory，然後按一下管理模式 下方的 快速。
 4. 按一下 [確定]  以在 Azure Active Directory 中註冊應用程式。 這樣會建立新的註冊。 如果您想改為選擇現有的註冊，請按一下 [選取現有的應用程式]  ，然後在您的租用戶內搜尋先前建立之註冊的名稱。
    按一下註冊以選取它，然後按一下 [確定] 。 然後在 Azure Active Directory 設定刀鋒視窗上按一下 [確定]  。
    
@@ -46,7 +46,7 @@ ms.lasthandoff: 09/20/2017
 
 ### <a name="register"> </a>向 Azure Active Directory 註冊您的應用程式
 1. 登入 [Azure 入口網站]，並瀏覽到您的應用程式。 複製您的 **URL**。 您將使用此資訊設定 Azure Active Directory 應用程式。
-2. 登入 [Azure 傳統入口網站] ，並瀏覽到 **Active Directory**。
+2. 登入 [Active Directory] ，並瀏覽到 **Active Directory**。
    
     ![][2]
 3. 選取您的目錄，然後選取頂端的 [ **應用程式** ] 索引標籤。 按一下底部的 [ **新增** ]，以建立新的應用程式註冊。
@@ -63,7 +63,7 @@ ms.lasthandoff: 09/20/2017
 ### <a name="secrets"> </a>將 Azure Active Directory 資訊新增至應用程式
 1. 回到 [Azure 入口網站]，並瀏覽到您的應用程式。 依序按一下 [設定] 及 [驗證/授權]。
 2. 如果 [驗證/授權] 功能未啟用，請切換到 [ **開啟**]。
-3. 按一下 [Azure Active Directory]，然後按一下 [管理模式] 下方的 [進階]。 貼入您先前取得的用戶端識別碼和簽發者 URL 值。 然後按一下 [確定] 。
+3. 按一下 Azure Active Directory，然後按一下管理模式 下方的 進階。 貼入您先前取得的用戶端識別碼和簽發者 URL 值。 然後按一下 [確定] 。
    
    ![][1]
    
@@ -101,6 +101,6 @@ Azure Active Directory 也可讓您註冊更能控制權限對應的原生用戶
 <!-- URLs. -->
 
 [Azure 入口網站]: https://portal.azure.com/
-[Azure 傳統入口網站]: https://manage.windowsazure.com/
+[Active Directory]: https://manage.windowsazure.com/
 [alternative method]:#advanced
 
