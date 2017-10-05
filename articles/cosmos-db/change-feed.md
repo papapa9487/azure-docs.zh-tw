@@ -309,7 +309,7 @@ private async Task<Dictionary<string, string>> GetChanges(
 
         while (query.HasMoreResults)
         {
-            FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+            FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>();
 
             foreach (DeviceReading changedDocument in readChangesResponse)
             {
@@ -339,7 +339,7 @@ checkpoints = await GetChanges(client, collection, checkpoints);
 您也可以使用用戶端邏輯以選擇性地處理事件，來篩選變更摘要。 例如，以下是使用用戶端 LINQ 處理僅來自裝置感應器之溫度變更事件的程式碼片段。
 
 ```csharp
-FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>;
 
 foreach (DeviceReading changedDocument in 
     readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
