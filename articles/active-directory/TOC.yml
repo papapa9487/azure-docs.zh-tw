@@ -40,6 +40,8 @@
 - name: 受管理的服務識別
   href: msi-overview.md
   items:
+    - name: 如何登入或取得權杖
+      href: msi-how-to-get-access-token-using-msi.md
     - name: 設定 Azure VM 的 MSI
       items:
         - name: 透過 Azure 入口網站
@@ -50,6 +52,8 @@
           href: msi-qs-configure-cli-windows-vm.md
         - name: 透過 Azure Resource Manager 範本
           href: msi-qs-configure-template-windows-vm.md
+        - name: 包含 Azure SDK
+          href: msi-qs-configure-sdk-windows-vm.md
     - name: 指派 MSI 存取權給 Azure 資源
       items:
         - name: 透過 Azure 入口網站

@@ -165,7 +165,7 @@
     - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
-    - name: Data Lake Store
+    - name: 資料湖存放區
       tocHref: /azure/data-lake-store/
       topicHref: /azure/data-lake-store/
     - name: Devtest Lab
@@ -269,6 +269,9 @@
     - name: Power BI Embedded
       tocHref: /azure/power-bi-embedded/
       topicHref: /azure/power-bi-embedded/
+    - name: Power BI 工作區集合
+      tocHref: /azure/power-bi-workspace-collections/
+      topicHref: /azure/power-bi-workspace-collections/
     - name: Redis 快取
       tocHref: /azure/redis-cache/
       topicHref: /azure/redis-cache/

@@ -26,8 +26,8 @@
 
 ## 建立和管理叢集
 ### 1 - 在 Azure 上建立叢集
-#### [1a - 在 Azure 上建立安全的 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b - 在 Azure 上建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a- 建立 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b- 建立 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2 - 使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
 # 範例
@@ -198,7 +198,6 @@
 ### 建置 Reliable Actors 服務
 #### 開始使用
 ##### [Windows 上的 C# ](service-fabric-reliable-actors-get-started.md)
-##### [在 Linux 上使用 Java](service-fabric-reliable-actors-get-started-java.md)
 ##### [Linux 上的 Java Actor](service-fabric-create-your-first-linux-application-with-java.md)
 #### [傳送通知](service-fabric-reliable-actors-events.md)
 #### [設定計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)

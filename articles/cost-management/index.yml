@@ -36,3 +36,4 @@ sections:
         items:
           - html: <a href="tutorial-review-usage">檢閱使用量和成本以偵測異常狀況和效率</a>
           - html: <a href="tutorial-user-access">指派成本管理資料的存取權</a>
+          - html: <a href="tutorial-forecast-spending">測未來花費</a>

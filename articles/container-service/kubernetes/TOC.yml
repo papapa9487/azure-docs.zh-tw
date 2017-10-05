@@ -1,13 +1,13 @@
-- name: 搭配 Kubernetes 的 ACS
+- name: Azure 上的 Kubernetes
   href: ./index.yml
 - name: 概觀
   items:
-    - name: 有關 Container Service
+    - name: Azure 上的 Kubernetes
       href: container-service-intro-kubernetes.md
 - name: 快速入門
   expanded: true
   items:
-    - name: Kubernetes Linux
+    - name: Azure 上的 Kubernetes
       href: container-service-kubernetes-walkthrough.md
 - name: 教學課程
   items:
@@ -25,14 +25,8 @@
       href: container-service-tutorial-kubernetes-app-update.md
     - name: 7 - 透過 OMS 進行監視
       href: container-service-tutorial-kubernetes-monitor.md
-- name: 範例
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
 - name: 概念
   items:
-    - name: 安全容器
-      href: container-service-security.md
     - name: 服務主體 - Kubernetes
       href: container-service-kubernetes-service-principal.md
 - name: 使用說明指南
@@ -41,18 +35,14 @@
       href: container-service-kubernetes-windows-walkthrough.md
     - name: Kubernetes Web 介面
       href: container-service-kubernetes-ui.md
-    - name: 部署 Helm 圖表
+    - name: 使用 Helm 圖表
       href: container-service-kubernetes-helm.md
-    - name: Jenkins 和 ACS Kubernetes
+    - name: 使用 Jenkins 與 ACS
       href: container-service-kubernetes-jenkins.md
-    - name: 使用 Draft 搭配 ACR 和 ACS
+    - name: 使用 Draft 與 ACS
       href: container-service-draft-up.md
-    - name: 與 ACS 叢集連接
-      href: container-service-connect.md
-    - name: 調整 ACS 叢集的規模
+    - name: 調整叢集
       href: container-service-scale.md
-    - name: Kubernetes ACS 叢集負載平衡
-      href: container-service-kubernetes-load-balancing.md
     - name: 監視
       items:
         - name: 透過 OMS 進行監視
@@ -73,10 +63,10 @@
           href: container-service-deploy-spring-boot-app-using-fabric8-maven-plugin.md
 - name: 參考
   items:
-    - name: Azure CLI 2.0
+    - name: Azure CLI
       href: /cli/azure/acs
     - name: REST
-      href: /rest/api/container-services
+      href: /rest/api/container-service
 - name: 資源
   items:
     - name: Azure 藍圖
