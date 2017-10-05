@@ -66,6 +66,8 @@
   items:
     - name: Facebook 文章調節
       href: facebook-post-moderation.md
+    - name: 電子商務目錄合適性
+      href: ecommerce-retail-catalog-moderation.md
 - name: API 參考
   items:
     - name: 所有 API

@@ -145,6 +145,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
+    - name: host.json 參考
+      href: functions-host-json.md
+    - name: 應用程式設定參考
+      href: functions-app-settings.md
     - name: OpenAPI 參考
       href: functions-api-definition.md
 - name: 資源

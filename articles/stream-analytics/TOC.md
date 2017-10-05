@@ -25,7 +25,6 @@
 ### [整合 JavaScript UDF](stream-analytics-javascript-user-defined-functions.md)
 ### [整合 REST API 與 Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 ### [建立輸出](stream-analytics-define-outputs.md)
-### [輸出至 Azure Functions](stream-analytics-functions-redis.md)
 ### [輸出至 Data Lake Store](stream-analytics-data-lake-output.md)
 ### [輸出至 Cosmos DB](stream-analytics-documentdb-output.md)
 
@@ -39,7 +38,8 @@
 ### [監視工作](stream-analytics-monitoring.md)
 ### [以程式設計方式監視作業](stream-analytics-monitor-jobs.md)
 ### [使用 PowerShell 監視作業](stream-analytics-monitor-and-manage-jobs-use-powershell.md)
-### [最佳化資料流單位](stream-analytics-streaming-unit-consumption.md)
+### [了解及調整串流處理單位](stream-analytics-streaming-unit-consumption.md)
+### [利用查詢平行化作業](stream-analytics-parallelization.md)
 ### [調整規模以增加輸送量](stream-analytics-scale-jobs.md)
 ### [為 Machine Learning 函式進行規模調整](stream-analytics-scale-with-machine-learning-functions.md)
 

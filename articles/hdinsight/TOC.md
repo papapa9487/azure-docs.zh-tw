@@ -12,6 +12,7 @@
 ### [封存](hdinsight-release-notes-archive.md)
 
 # 開始使用
+## [HDInsight 叢集容量的規劃](hdinsight-capacity-planning.md)
 ## [開始使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## 開始使用 Spark
 ### [建立 Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)
@@ -167,6 +168,8 @@
 ### [搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 ### [使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)
 ### [限制對資料的存取](hdinsight-storage-sharedaccesssignature-permissions.md)
+### [授權 Ambari 檢視的使用者](hdinsight-authorize-users-to-ambari.md)
+### [管理檔案與資料夾層級的使用者權限](hdinsight-add-acls-at-file-folder-levels.md)
 ## 管理
 ### [建立 Linux 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 #### [使用 Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -200,6 +203,7 @@
 ### [使用 Azure Log Analytics](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 ### [叢集特定儀表板](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
 ### [透過 Log Analytics 使用查詢](hdinsight-hadoop-oms-log-analytics-use-queries.md)
+### [監視叢集效能](hdinsight-key-scenarios-to-monitor.md)
 ## [疑難排解](hdinsight-troubleshoot-guide.md)
 ### [HBASE 疑難排解](hdinsight-troubleshoot-hbase.md)
 ### [HDFS 疑難排解](hdinsight-troubleshoot-hdfs.md)

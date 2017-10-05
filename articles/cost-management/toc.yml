@@ -19,6 +19,8 @@
       href: tutorial-review-usage.md
     - name: 2 - 控制資料的存取
       href: tutorial-user-access.md
+    - name: 3 - 預測的花費
+      href: tutorial-forecast-spending.md
 - name: 資源
   items:
     - name: Azure 藍圖

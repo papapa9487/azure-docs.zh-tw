@@ -73,6 +73,8 @@
           href: tutorial-iris-azure-cli.md
         - name: 追蹤執行歷程記錄和模型計量
           href: how-to-use-run-history-model-metrics.md
+        - name: 如何尋找包含最佳精確度與最低持續時間的執行
+          href: how-to-find-best-accuracy-cli.md
         - name: 讀取和寫入資料
           href: how-to-read-write-files.md
         - name: MMLSpark 程式庫

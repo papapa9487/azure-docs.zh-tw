@@ -16,8 +16,9 @@
 # 作法
 ## 加入受管理的網域
 ### [加入 Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [使用 Azure PowerShell 加入 Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [加入 Linux VM](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [使用 PowerShell 加入 Windows Server VM](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 管理受管理的網域
 ### [管理受管理的網域](active-directory-ds-admin-guide-administer-domain.md)
 ### [管理受管理網域上的 DNS](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## 疑難排解
 ### [常見問題集](active-directory-ds-faqs.md)
 ### [疑難排解指南](active-directory-ds-troubleshooting.md)
-### [啟用 Azure 入口網站預覽體驗](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [解析不相符的租用戶錯誤](active-directory-ds-mismatched-tenant-error.md)
 
 # 參考
