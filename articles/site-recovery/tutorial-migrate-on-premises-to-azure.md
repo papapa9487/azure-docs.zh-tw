@@ -59,9 +59,9 @@ ms.lasthandoff: 09/25/2017
 1. 按一下 [復原服務保存庫] > 保存庫。
 2. 在 [資源功能表] 中，按一下 [Site Recovery] > [準備基礎結構] > [保護目標]。
 3. 在 [保護目標] 中，選取：
-    - **VMware**：選取 [至 Azure] > [es, with VMWare vSphere Hypervisor] (是，使用 VMware vSphere Hypervisor)。
+    - **VMware**：選取 [至 Azure] > [es, with VMWare vSphere Hypervisor] \(是，使用 VMware vSphere Hypervisor)。
     - **實體機器**：選取 [至 Azure] > [未虛擬化/其他]。
-    - **Hyper-V**：選取 [至 Azure] > [Yes, with Hyper-V] (是，使用 Hyper-V)。
+    - **Hyper-V**：選取 [至 Azure] > [Yes, with Hyper-V] \(是，使用 Hyper-V)。
 
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境

@@ -260,7 +260,7 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 
 [Azure 入口網站]: https://portal.azure.com/
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
-[什麼是 Mobile Apps？]: app-service-mobile-value-prop.md
+[何謂 Mobile Apps？]: app-service-mobile-value-prop.md
 [I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
 [行動應用程式伺服器 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
@@ -271,6 +271,6 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 [如何使用 .NET 伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[App Service 價格]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[App Service 定價]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 

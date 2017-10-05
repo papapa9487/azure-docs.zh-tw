@@ -46,7 +46,7 @@ Azure Backup 可以復原 Windows Server 備份中的個別項目。 如果必�
 
     ![待備份](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. 在 [入門] 頁面上，選取 [This server (server name)] (這部伺服器 (伺服器名稱))，然後按一下 [下一步]。
+3. 在 [入門] 頁面上，選取 [This server (server name)] \(這部伺服器 (伺服器名稱))，然後按一下 [下一步]。
 
 4. 在 [選取復原模式] 頁面上，選取 [個別檔案與資料夾]，然後按一下 [下一步] 開始復原點選取程序。
  
