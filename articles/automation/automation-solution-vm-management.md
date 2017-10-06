@@ -3,7 +3,7 @@ title: "在離峰期間啟動/停止 VM [預覽] 方案 | Microsoft Docs"
 description: "VM 管理方案會依照排程啟動和停止 Azure Resource Manager 虛擬機器，並從 Log Analytics 主動監視。"
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883

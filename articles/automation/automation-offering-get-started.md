@@ -3,7 +3,7 @@ title: "開始使用 Azure 自動化 | Microsoft Docs"
 description: "本文藉由回顧準備從 Auzre Marketplace 將供應項目上架的設計和實作詳細資料，提供 Azure 自動化服務的概觀。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

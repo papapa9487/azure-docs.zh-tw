@@ -3,7 +3,7 @@ title: "我在 Azure 自動化中的第一個圖形化 Runbook | Microsoft Docs"
 description: "教學課程將逐步引導您建立、測試和發佈簡單的圖形化 Runbook。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "runbook, runbook 範本, runbook 自動化, azure runbook"

@@ -3,7 +3,7 @@ title: "移除 Azure 自動化混合式 Runbook 背景工作 | Microsoft Docs"
 description: "本文提供有關管理已部署之 Azure 自動化混合式 Runbook 背景工作角色的資訊，它可讓您在本機資料中心或雲端環境內的電腦上執行 Runbook。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 

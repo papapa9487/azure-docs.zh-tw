@@ -3,7 +3,7 @@ title: "針對 Azure 自動化混合式 Runbook 背景工作角色進行疑難�
 description: "說明 Azure 自動化中最常見混合式 Runbook 背景工作角色問題的徵狀、原因和解決方法。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
