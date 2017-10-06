@@ -3,7 +3,7 @@ title: "Azure 自動化原始檔控制與 GitHub Enterprise 的整合 | Microsof
 description: "詳細描述如何設定自動化 Runbook 原始檔控制與 GitHub Enterprise 的整合。"
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: jwhit
 editor: 
 ms.assetid: e01d817c-7d38-421c-adf5-647a4b526eb4

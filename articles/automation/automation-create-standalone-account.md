@@ -3,7 +3,7 @@ title: "建立獨立的 Azure 自動化帳戶 | Microsoft Docs"
 description: "引導您在 Azure 自動化中建立、測試和舉例使用安全性主體驗證的逐步解說教學課程。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3

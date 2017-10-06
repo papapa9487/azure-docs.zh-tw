@@ -3,7 +3,7 @@ title: "我在 Azure 自動化中的第一個 PowerShell 工作流程 Runbook | 
 description: "本教學課程逐步引導您使用 PowerShell 工作流程建立、測試和發佈簡單的文字 Runbook。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "powershell 工作流程, powershell 工作流程範例, 工作流程 powershell"

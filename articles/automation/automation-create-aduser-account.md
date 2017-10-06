@@ -3,7 +3,7 @@ title: "建立 Azure AD 使用者帳戶 | Microsoft Docs"
 description: "本文說明如何在 Azure 自動化中為 Runbook 建立 Azure AD 使用者帳戶認證，以在 Azure 和傳統 Azure 中進行驗證。"
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "azure active directory 使用者, azure 服務管理, azure ad 使用者帳戶"

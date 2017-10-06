@@ -3,7 +3,7 @@ title: "什麼是 Azure 自動化 |Microsoft Docs"
 description: "了解 Azure 自動化提供的價值，並取得常見問題的解答，以便您可以開始建立及使用 Runbook 和 Azure Automation DSC。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "何謂自動化, azure 自動化, azure 自動化範例"
@@ -20,7 +20,6 @@ ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/11/2017
-
 
 ---
 # <a name="azure-automation-overview"></a>Azure 自動化概觀

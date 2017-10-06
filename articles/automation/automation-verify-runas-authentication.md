@@ -3,7 +3,7 @@ title: "驗證 Azure 自動化帳戶組態 | Microsoft Docs"
 description: "本文說明如何確認已正確設定您的自動化帳戶組態。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 

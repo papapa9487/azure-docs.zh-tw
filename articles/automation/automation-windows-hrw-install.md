@@ -3,7 +3,7 @@ title: "Azure 自動化 Windows 混合式 Runbook 背景工作角色 | Microsoft
 description: "本文提供有關安裝 Azure 自動化混合式 Runbook 背景工作角色的資訊，它可讓您在本機資料中心或雲端環境內以 Windows 為基礎的電腦上，執行 Runbook。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 
