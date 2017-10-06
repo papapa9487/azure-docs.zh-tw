@@ -43,7 +43,7 @@ ms.lasthandoff: 09/25/2017
 
 在您備份 Windows Server 之前，您必須先為備份建立一個位置，或建立一個要還原的還原點。 [復原服務保存庫](backup-azure-recovery-services-vault-overview.md)是 Azure 中儲存 Windows Server 備份的容器。 請遵循下列步驟來在 Azure 入口網站上建立復原服務保存庫。 
 
-1. 在左側功能表中，選取 [More services] (更多服務)，然後在 [服務] 清單中鍵入「復原服務」。 按一下 [復原服務保存庫] 。
+1. 在左側功能表中，選取 [More services] \(更多服務)，然後在 [服務] 清單中鍵入「復原服務」。 按一下 [復原服務保存庫] 。
 
    ![開啟復原服務保存庫](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
 
@@ -115,7 +115,7 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
     ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. 按一下 [下一步] 來巡覽至 [elect Items to Back up] (選取要備份之項目) 頁面。
+3. 按一下 [下一步] 來巡覽至 [elect Items to Back up] \(選取要備份之項目) 頁面。
 
 4. 按一下 [新增項目]，並在開啟的對話方塊中，選取 [系統狀態] 及您要備份的檔案和資料夾。 然後按一下 [確定] 。
 
@@ -128,8 +128,8 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 
 7.  在 [選取保留原則] 頁面上，為檔案和資料夾的備份複本選取保留原則。 系統狀態備份的預設保留期間會自動設定為 60 天。
-8.  在 [Choose Initial Back up Type] (選擇初始備份類型) 頁面上，將選取選項維持在 [自動透過網路]，然後按一下 [下一步]。
-9.  在 [確認] 頁面上檢閱資訊，然後按一下 [完成]。
+8.  在 Choose Initial Back up Type (選擇初始備份類型) 頁面上，將選取選項維持在 自動透過網路，然後按一下下一步。
+9.  在 確認 頁面上檢閱資訊，然後按一下完成。
 10. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ## <a name="perform-an-ad-hoc-back-up"></a>執行臨機操作備份
