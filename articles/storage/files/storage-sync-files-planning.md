@@ -89,7 +89,7 @@ Windows Server 的未來版本將會在發行時新增，舊版 Windows 可能�
 > 僅支援 NTFS 磁碟區。
 
 ### <a name="failover-clustering"></a>容錯移轉叢集
-Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Windows Server 容錯移轉叢集。 [用於應用程式資料的向外延展檔案伺服器] (SOFS) 或叢集共用磁碟區 (CSV) 不支援容錯移轉叢集。
+Azure 檔案同步的 [一般用途的檔案伺服器] 部署選項支援 Windows Server 容錯移轉叢集。 [用於應用程式資料的向外延展檔案伺服器] \(SOFS) 或叢集共用磁碟區 (CSV) 不支援容錯移轉叢集。
 
 > [!Note]  
 > 您必須在容錯移轉叢集中的每個節點上安裝 Azure 檔案同步代理程式，同步才能正常運作。
