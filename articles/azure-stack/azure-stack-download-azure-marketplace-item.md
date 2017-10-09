@@ -15,13 +15,15 @@ ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 4baa1b675d2930cd111b5b8368ac081dc2b77841
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 4d7c335a3c68cc9bb8cb0c823883716a3dd6620a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
+
+*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 當您決定要將哪些內容包含在 Azure Stack 市集中時，應該考慮可從 Azure Marketplace 取得的內容。 您可以從已預先測試而能在 Azure Stack 上執行的 Azure Marketplace 項目策劃清單下載。 新項目會不斷新增到此清單中，因此請務必回來查看是否有新內容。
 
@@ -45,7 +47,7 @@ ms.lasthandoff: 09/15/2017
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
-6. 下載完成之後，您可以用雲端操作員或租用戶使用者身分來部署新市集項目。 按一下 [+新增]，在類別中搜尋新市集項目，然後選取該項目。
+6. 下載完成之後，您可以用 Azure Stack 操作員或使用者身分來部署新市集項目。 按一下 [+新增]，在類別中搜尋新市集項目，然後選取該項目。
 7. 按一下 [建立] 以開啟新下載項目的建立體驗。 依照逐步指示來部署您的項目。
 
 ## <a name="next-steps"></a>後續步驟

@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 601cfb136530d2595cded0dd147703d6b272c3ce
+ms.sourcegitcommit: d07d5d59632791a52bcb3a2f54bebe194cc76a54
+ms.openlocfilehash: 44eaaae123490934bc62b4ea30968656900d48fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 10/04/2017
 
 ---
 
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
 
-本快速入門示範如何將 Linux 容器部署到 Service Fabric 叢集。 完成後，您會有一個投票應用程式，它是由在 Service Fabric 叢集中執行的 python web 前端和 Redis 後端所組成。 
+本快速入門示範如何將 Linux 容器部署到 Service Fabric 叢集。 完成後，您會有一個投票應用程式，它是由在 Service Fabric 叢集中執行的 Python Web 前端和 Redis 後端所組成。 
 
 ![quickstartpic][quickstartpic]
 
@@ -53,7 +53,7 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>將容器部署到 Azure 中的 Service Fabric 叢集
-若要將應用程式部署到 Azure 中的叢集，請使用自己的叢集，或使用合作對象叢集。
+若要將應用程式部署到 Azure 中的叢集，請使用您自己的叢集，或使用合作對象叢集。
 
 合作對象是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所維護。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 
@@ -64,7 +64,7 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 >
 
 ### <a name="deploy-the-application-manifests"></a>部署應用程式資訊清單 
-在 CLI 環境中安裝 Service Fabric 命令列 (sfctl)
+在 CLI 環境中安裝 [Service Fabric CLI (sfctl)](service-fabric-cli.md)
 
 ```azurecli-interactive
 pip3 install --user sfctl 
@@ -82,7 +82,7 @@ sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:190
 ./install.sh
 ```
 
-開啟瀏覽器並瀏覽至 Service Fabric Explorer (http://\<my-azure-service-fabric-cluster-url>:80)，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:80`。 展開 [應用程式] 節點，可看到投票應用程式類型和您建立的執行個體現在有一個項目。
+開啟瀏覽器並瀏覽至 Service Fabric Explorer (http://\<my-azure-service-fabric-cluster-url>:19080/Explorer)，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`。 展開 [應用程式] 節點，可看到投票應用程式類型和您建立的執行個體現在有一個項目。
 
 ![Service Fabric Explorer][sfx]
 
@@ -95,7 +95,7 @@ Service Fabric 可確保如果發生失敗，容器執行個體會自動移至�
 
 若要容錯移轉前端容器，請執行下列步驟：
 
-1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080`。
+1. 在您的叢集中開啟 Service Fabric Explorer，例如 `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`。
 2. 按一下樹狀檢視中的 **fabric:/Voting/azurevotefront** 節點，然後展開資料分割節點 (以 GUID 表示)。 請注意樹狀檢視中的節點名稱，其中顯示哪些節點上的容器目前正在執行 - 例如 `_nodetype_4`
 3. 展開樹狀檢視中的 [節點] 節點。 按一下正在執行容器之節點旁邊的省略符號 (三個點)。
 4. 選擇 [重新啟動] 以重新啟動節點並確認重新啟動動作。 重新啟動會造成容器容錯移轉至叢集中的其他節點。

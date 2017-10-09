@@ -53,9 +53,9 @@
 
 ## <a name="create-a-vm-from-the-original-hard-disk"></a>從原始硬碟建立 VM
 
-若要從原始虛擬硬碟建立 VM，請使用 [Azure 傳統入口網站](https://manage.windowsazure.com)。
+若要從原始虛擬硬碟建立 VM，請使用 [Azure 入口網站](https://portal.azure.com)。
 
-1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
-2. 在入口網站底部，選取 [新增] > [計算] > [虛擬機器] > [從資源庫]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在入口網站左上方，選取 [新增] > [計算] > [虛擬機器] > [從資源庫]。
 3. 在 [選擇映像] 區段中，選取 [我的磁碟]，然後選取原始虛擬硬碟。 檢查位置資訊。 這是必須部署 VM 的區域。 選取下一步按鈕。
 4. 在 [虛擬機器設定] 區段中，輸入 VM 名稱並選取 VM 的大小。

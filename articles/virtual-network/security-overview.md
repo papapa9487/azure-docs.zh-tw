@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 341128e4a1ad6902f6052eb954ffae08e5d78121
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="network-security"></a>網路安全性
@@ -129,7 +129,7 @@ ms.lasthandoff: 09/25/2017
 * **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表 Azure 公用 IP 位址空間。 這個標籤包含的位址會列在 [Azure 擁有的公用 IP 空間](https://www.microsoft.com/download/details.aspx?id=41653)文件中，該文件會定期更新。
 * **AzureTrafficManager** (僅限 Resource Manager)：這個標籤代表 Azure 流量管理員服務的 IP 位址空間。
 * **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 其他可用的地區性服務標籤：Storage.AustraliaEast、Storage.AustraliaSoutheast、Storage.EastUS、Storage.UKSouth、Storage.WestCentralUS、Storage.WestUS 和 Storage.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。
-* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 您只可以為此服務標籤指定特定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 您無法針對所有 Azure 地區指定 Sql，您必須個別指定地區。 其他可用的地區性服務標籤：Storage.AustraliaEast、Storage.AustraliaSoutheast、Storage.EastUS、Storage.UKSouth、Storage.WestCentralUS、Storage.WestUS 和 Storage.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure SQL Database 服務，但不代表特定的 Azure SQL Database。
+* **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 您只可以為此服務標籤指定特定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 您無法針對所有 Azure 地區指定 Sql，您必須個別指定地區。 有其他區域服務標籤可用：Sql.AustraliaEast、Sql.AustraliaSoutheast、Sql.EastUS、Sql.UKSouth、Sql.WestCentralUS、Sql.WestUS 和 Sql.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure SQL Database 服務，但不代表特定的 Azure SQL Database。
 
 > [!WARNING]
 > AzureTrafficManager、Storage 和 Sql 服務標籤已在預覽版本中提供。 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 這些服務標籤只在下列地區提供：美國東部、美國西部、美國西部 2、美國西部、澳大利亞東部、澳大利亞東南部和英國南部。

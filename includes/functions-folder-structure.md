@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-*host.json* 檔案包含一些執行階段特定的組態，並位在函數應用程式的根資料夾中。 如需可用設定的資訊，請參閱 WebJobs.Script 百科儲存庫中的 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) 。
+*host.json* 檔案包含一些執行階段特定的組態，並位在函數應用程式的根資料夾中。 如需可用設定的資訊，請參閱 [host.json 參考](../articles/azure-functions/functions-host-json.md)。
 
 每個函數都會有一個資料夾，其中包含一或多個程式碼檔案、function.json 組態及其他相依性。
 

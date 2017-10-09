@@ -28,4 +28,8 @@ RADIUS 驗證在閘道上所支援的 SSTP 連線數目上限並未變更。 上
 
 在 RADIUS 驗證憑證中，驗證要求會轉送至 RADIUS 伺服器以處理實際的憑證驗證。 如果您想要與您已透過 RADIUS 而擁有的憑證驗證基礎結構整合，這個選項非常有用。
   
-在使用 Azure 進行憑證驗證時，Azure VPN 閘道會執行憑證驗證。 您需要將憑證公開金鑰上傳到閘道。 您也可以指定不該允許連線的已撤銷憑證清單。  
+在使用 Azure 進行憑證驗證時，Azure VPN 閘道會執行憑證驗證。 您需要將憑證公開金鑰上傳到閘道。 您也可以指定不該允許連線的已撤銷憑證清單。
+
+### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>RADIUS 驗證可以同時與 IKEv2 和 SSTP VPN 搭配運作嗎？
+
+是，IKEv2 和 SSTP VPN 都支援 RADIUS 驗證。  

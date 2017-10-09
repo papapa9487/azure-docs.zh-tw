@@ -20,13 +20,9 @@
 
 Azure 支援兩種點對站 VPN 選項：
 
-* 安全通訊端通道通訊協定 (SSTP)
+* 安全通訊端通道通訊協定 (SSTP)。 SSTP 是 Microsoft 專屬的 SSL 型解決方案，因為大部分的防火牆都會開啟 443 SSL 所使用的 TCP 連接埠，所以 SSTP 可以穿透防火牆。
 
-  SSTP 是 Microsoft 專屬的 SSL 型解決方案，因為大部分的防火牆都會開啟 443 SSL 所使用的 TCP 連接埠，所以 SSTP 可以穿透防火牆。
-
-* IKEv2 VPN
-
-  IKEv2 VPN 是標準型 IPsec VPN 解決方案，會使用 UDP 連接埠 500 和 4500 以及第 50 號的 IP 通訊協定。 50. 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
+* IKEv2 VPN。 IKEv2 VPN 是標準型 IPsec VPN 解決方案，會使用 UDP 連接埠 500 和 4500 以及 第 50 號的 IP 通訊協定。 防火牆不一定會開啟這些連接埠，因此 IKEv2 VPN 有可能無法周遊 Proxy 和防火牆。
 
 ### <a name="if-i-restart-a-client-computer-configured-for-point-to-site-will-the-vpn-automatically-reconnect"></a>如果我重新啟動針對點對站台設定的用戶端電腦，VPN 將自動重新連線嗎？
 
@@ -51,3 +47,21 @@ Azure 支援兩種點對站 VPN 選項：
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>是否可以對支援 SSTP 和 (或) IKEv2 的點對站使用任何軟體 VPN 用戶端？
 
 否。 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 請參閱支援的用戶端作業系統清單。
+
+### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>透過 P2S VPN 連線時，可以存取網際網路嗎？
+
+是，位在 P2S VPN 時，您可以存取網際網路。
+
+### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
+
+使用者可以使用確實支援 IKEv2 的內建 Windows VPN 用戶端來連線到 Azure。 但是，來自 Windows 裝置的 IKEv2 連線不適用於下列案例：
+
+  使用者裝置包含大量受信任根憑證時，IKE 交換期間的訊息承載大小會很大，並造成 IP 層級分散。 在 Azure 結束時會拒絕這些分散，這會導致連線失敗。 很難估計發生這個問題時的確切憑證計數。 因此，來自 Windows 裝置的 IKEv2 連線不一定會運作。 當您在混合環境 (包含 Windows 和 Mac 裝置) 中設定 SSTP 和 IKEv2 時，Windows VPN 設定檔一律會先嘗試 IKEv2 通道。 如果因這裡所述的問題而失敗，則會回復為 SSTP。
+
+### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>除了 Windows 和 Mac 以外，Azure 還支援哪些其他平台使用 P2S VPN？
+
+Azure 只支援 Windows 和 Mac 使用 P2S VPN。
+
+### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enabled-radius-andor-ikev2-vpn-on-it"></a>我已經部署 Azure VPN 閘道。 可以在其上啟用 RADIUS 和 (或) IKEv2 VPN 嗎？
+
+是，您可以透過 Powershell 和 Azure 入口網站，在已部署的閘道上啟用這些新功能。

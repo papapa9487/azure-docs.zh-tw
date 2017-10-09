@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/02/2017
+ms.date: 09/27/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
@@ -50,12 +50,12 @@ ms.lasthandoff: 08/04/2017
 
 | 單一登入選項 | 說明 |
 | --- | --- |
-| 密碼同步處理 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。 使用者密碼會以密碼雜湊的形式同步至 Azure AD，並在雲端中進行驗證。 詳細資訊請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 |
-|傳遞驗證 (預覽)|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  使用者密碼會傳遞至內部部署 Active Directory 控制站進行驗證。
+| 密碼雜湊同步處理 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。 使用者密碼會以密碼雜湊的形式同步至 Azure AD，並在雲端中進行驗證。 如需詳細資訊，請參閱[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 |
+|傳遞驗證|使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  使用者密碼會傳遞至內部部署 Active Directory 控制站進行驗證。
 | 與 AD FS 同盟 |使用者可使用他們在內部部署網路中使用的相同密碼登入 Microsoft Cloud 服務，例如 Office 365。  系統會將使用者重新導向至他們的內部部署 AD FS 執行個體以進行登入，並在內部部署中進行驗證。 |
 | 請勿設定 |不會安裝和設定任何功能。 如果您已經有第三方的同盟伺服器或另一個現有的適當方案，請選擇此選項。 |
 |啟用單一登入|此選項同時適用於密碼同步處理和傳遞驗證，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。  如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。</br>(如果 PTA 未同時發行)
-|登入選項|此選項適用於密碼同步處理客戶，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。  </br>如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。
+|登入選項|此選項適用於密碼雜湊同步處理客戶，並可為公司網路上的桌上型電腦使用者提供單一登入體驗。  </br>如需詳細資訊，請參閱[單一登入](active-directory-aadconnect-sso.md)。 </br>請注意，AD FS 客戶無法使用此選項，因為 AD FS 已提供相同層級的單一登入。
 
 
 ### <a name="connect-to-azure-ad"></a>連接至 Azure AD
@@ -169,7 +169,7 @@ ms.lasthandoff: 08/04/2017
 | Exchange 混合部署 |Exchange 混合部署功能允許在內部部署和 Office 365 中並存 Exchange 信箱。 Azure AD Connect 會將一組特定的[屬性](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback)從 Azure AD 同步處理回內部部署目錄。 |
 | Exchange 郵件公用資料夾 | 「Exchange 郵件公用資料夾」功能可讓您將擁有郵件功能的公用資料夾物件從內部部署 Active Directory 同步處理到 Azure AD。 |
 | Azure AD 應用程式和屬性篩選 |透過啟用 Azure AD 應用程式和屬性篩選，即可調整這組同步處理的屬性。 這個選項會在精靈中另外新增兩個組態頁面。 如需詳細資訊，請參閱 [Azure AD 應用程式和屬性篩選](#azure-ad-app-and-attribute-filtering)。 |
-| 密碼同步處理 |如果您選取同盟做為登入解決方案，您可以啟用此選項。 密碼同步處理可做為備份選項。 如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 </br></br>如果您選取了傳遞驗證，便會依預設啟用此選項，以確保能夠支援舊版用戶端並做為備用選項。 如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。|
+| 密碼同步處理 |如果您選取同盟做為登入解決方案，您可以啟用此選項。 密碼同步處理可做為備份選項。 如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。 </br></br>如果您已選取傳遞驗證，則預設也會啟用此選項，確保能夠支援舊版用戶端並作為備用選項。 如需其他資訊，請參閱[密碼同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)。|
 | 密碼回寫 |透過啟用密碼回寫，在 Azure AD 中產生的密碼變更會回寫至內部部署目錄。 如需詳細資訊，請參閱[開始使用密碼管理](../active-directory-passwords-getting-started.md)。 |
 | 群組回寫 |如果您使用 [Office 365 群組]  功能，就可以在內部部署的 Active Directory 中顯示這些群組。 只有當您內部部署的 Active Directory 中已經有 Exchange 時，才能使用此選項。 如需詳細資訊，請參閱[群組回寫](active-directory-aadconnect-feature-preview.md#group-writeback)。 |
 | 裝置回寫 |在條件式存取情況下，可讓您將 Azure AD 中的裝置物件回寫到內部部署的 Active Directory。 如需詳細資訊，請參閱[在 Azure AD Connect 中啟用裝置回寫](active-directory-aadconnect-feature-device-writeback.md)。 |
