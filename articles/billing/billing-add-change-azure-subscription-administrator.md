@@ -12,19 +12,19 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/12/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 38742fd84dafc3fb68829a55ab7be0827ad0b451
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色
 
-您可以變更管理您的 Azure 訂用帳戶或訂用帳戶中所使用 Azure 服務的 Azure 系統管理員。 若要檢視 Azure 帳單資訊及管理訂用帳戶，您必須以帳戶管理員的身分登入[帳戶中心](https://account.windowsazure.com/Home/Index)。 
+您可以變更管理您的 Azure 訂用帳戶或訂用帳戶中所使用 Azure 服務的 Azure 系統管理員。 若要檢視 Azure 帳單資訊及管理訂用帳戶，您必須以帳戶管理員的身分登入帳戶中心。 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -101,7 +101,7 @@ ms.lasthandoff: 09/13/2017
 
 | 管理角色 | 限制 | 說明 |
 | --- | --- | --- |
-| 帳戶管理員 (AA) |每個 Azure 帳戶 1 名 |這就是註冊或購買 Azure 訂用帳戶，且經過授權可存取 [帳戶中心](https://account.windowsazure.com/Home/Index) 及執行各種管理工作的那個人。 包括能夠建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式以及變更服務管理員。 |
+| 帳戶管理員 (AA) |每個 Azure 帳戶 1 名 |這就是註冊或購買 Azure 訂用帳戶，且經過授權可存取 [帳戶中心](https://account.azure.com/Subscriptions) 及執行各種管理工作的那個人。 包括能夠建立訂用帳戶、取消訂用帳戶、變更訂用帳戶的計費方式以及變更服務管理員。 |
 | 服務管理員 (SA) |每個 Azure 訂用帳戶 1 名 |此角色經過授權，可管理 [Azure 入口網站](https://portal.azure.com)上的服務。 根據預設，新訂用帳戶的帳戶管理員也是服務管理員。 |
 | [Azure 傳統入口網站](https://manage.windowsazure.com) |每個訂用帳戶 200 名 |此角色的存取權限與服務管理員相同，但無法變更訂用帳戶與 Azure 目錄的關聯。 |
 

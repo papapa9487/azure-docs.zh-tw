@@ -17,10 +17,10 @@ ms.date: 07/05/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: af8a7bbc4bf007dfa5bef7ceb9cf940ad752239a
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 5f9d4e580b0d4d7c3ea39c53b1bf4067a59d4d52
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
+ms.lasthandoff: 09/23/2017
 
 ---
 # <a name="troubleshoot-sign-up-issues-for-azure"></a>針對 Azure 的註冊問題進行疑難排解
@@ -30,8 +30,8 @@ ms.lasthandoff: 09/06/2017
 
 若要解決此問題，請依照下列步驟執行︰
 
-1. 使用帳戶管理員認證登入 [Azure 帳戶中心](https://account.azure.com)。 
-2. 按一下 [設定檔]，然後按一下 [編輯詳細資料]。
+1. 使用帳戶管理員認證登入 [Azure 帳戶中心](https://account.azure.com/Profile)。 
+2. 按一下 [編輯詳細資料]。
 3. 確定所有地址欄位皆已填寫完畢且正確無誤。 
 4. 註冊 Azure 訂閱時，在信用卡註冊期間輸入的帳單地址務必和您銀行記錄的地址相同。
 
