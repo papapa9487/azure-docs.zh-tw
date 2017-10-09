@@ -16,10 +16,10 @@ ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ebafcb2463bc92f15c1299963e054fcddd47b0b3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="web-apps-overview"></a>Web 應用程式概觀
@@ -40,7 +40,7 @@ ms.lasthandoff: 09/20/2017
 
 計算資源可能位於共用或專用的虛擬機器 (VM)，一切視您選擇的定價層而定。 應用程式的程式碼會在與其他客戶隔離開來的受管理 VM 中執行。
 
-程式碼可以使用 [Azure App Service](../app-service/app-service-web-overview.md)所支援的任何語言或架構，例如 ASP.NET、Node.js、Java、PHP 或 Python。 您也可以在 Web 應用程式中，執行使用 [PowerShell 和其他指令碼語言](web-sites-create-web-jobs.md#acceptablefiles) 的指令碼。
+程式碼可以使用 Azure App Service 所支援的任何語言或架構，例如 ASP.NET、Node.js、Java、PHP 或 Python。 您也可以在 Web 應用程式中，執行使用 [PowerShell 和其他指令碼語言](web-sites-create-web-jobs.md#acceptablefiles) 的指令碼。
 
 如需可使用 Web Apps 的典型應用程式案例的範例，請參閱 [Web 應用程式案例](https://azure.microsoft.com/documentation/scenarios/web-app/)和 [Azure App Service、雲端服務、虛擬機器及 Service Fabric 的比較](choose-web-site-cloud-service-vm.md#scenarios)的**案例和建議**一節。
 

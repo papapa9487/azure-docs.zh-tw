@@ -16,10 +16,10 @@ ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 354eec1b0850edc1b2039e0c736b129936a27381
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 48f5f4db60c104778a6c391d254e0bc0c4c95cee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>將您的 Azure 預付型方案訂閱變更為其他優惠
@@ -106,7 +106,7 @@ Azure 優惠是您擁有之 Azure 訂用帳戶的「類型」。 例如，[隨�
 
 ### <a name="can-i-migrate-from-pay-as-you-go-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>我可以從隨用隨付移轉為[雲端解決方案提供者](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) 或 [Enterprise 合約](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA) 嗎？
 
-* 若要移轉為 CSP，請參閱 [Azure 訂用帳戶移轉至 CSP](https://blogs.technet.microsoft.com/hybridcloudbp/2016/08/26/azure-subscription-migration-to-csp/)。
+* 若要移轉為 CSP，請參閱 [Azure 隨收隨付訂用帳戶移轉至 CSP](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/migration/migration-from-payg-to-csp)。
 * 若要移轉至 EA，可請您的註冊系統管理員將您的帳戶新增至 EA。 請遵循邀請電子郵件中的指示，將訂用帳戶移至 EA 註冊底下。 若要深入了解，請參閱 EA 入口網站中的[與現有帳戶相關聯](https://ea.azure.com/helpdocs/associateExistingAccount)。
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>是否可以將資料與服務移轉至新的訂用帳戶？
@@ -117,3 +117,4 @@ Azure 優惠是您擁有之 Azure 訂用帳戶的「類型」。 例如，[隨�
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 
 如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+

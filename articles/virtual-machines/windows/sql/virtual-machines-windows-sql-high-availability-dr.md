@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 27d05c1681f7d7b3090fc7abd4a6b15d1c030e2c
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: a81b956107ef82f40ad5304808068a7573ca7d27
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 高可用性和災害復原
@@ -62,6 +61,8 @@ ms.lasthandoff: 06/28/2017
 | **可用性群組** |為了進行嚴重損壞修復，可用性複本會在 Azure VM 的多個資料中心執行。 這種跨區域解決方案可防止網站完全中斷。 <br/> ![可用性群組](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>在區域內，所有複本都應位於相同的雲端服務與 VNet 中。 由於每個區域會有不同的 VNet，因此這些解決方案會需要 VNet 對 VNet 連線。 如需詳細資訊，請參閱[使用 Azure 入口網站設定 VNet 對 VNet 連接](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)。 如需詳細指示，請參閱[在不同區域中的 Azure 虛擬機器上設定 SQL Server 可用性群組](virtual-machines-windows-portal-sql-availability-group-dr.md)。|
 | **資料庫鏡像** |為了進行嚴重損壞修復，主體、鏡像和伺服器會在不同的資料中心內執行。 由於 Active Directory 網域無法跨多個資料中心，因此您必須使用伺服器憑證進行部署。<br/>![資料庫鏡像](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **備份及還原與 Azure Blob 儲存體服務** |生產資料庫直接備份到不同資料中心的 blob 儲存體以進行災害復原。<br/>![備份與還原](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](virtual-machines-windows-sql-backup-recovery.md)。 |
+| **使用 Azure Site Recovery 複寫 SQL Server 並將其容錯移轉至 Azure** |某個 Azure 資料中心的實際執行 SQL Server 直接複寫至不同 Azure 資料中心的 Azure 儲存體進行嚴重損壞修復。<br/>![使用 Azure Site Recovery 複寫](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>如需詳細資訊，請參閱[使用 SQL Server 嚴重損壞修復和 Azure Site Recovery 保護 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
+
 
 ## <a name="hybrid-it-disaster-recovery-solutions"></a>混合式 IT：災害復原解決方案
 您可以使用可用性群組、資料庫鏡像及記錄傳送，為混合式 IT 環境中的 SQL Server 資料庫提供災害復原解決方案，以及使用 Azure Blob 儲存體進行備份和還原。
@@ -72,6 +73,7 @@ ms.lasthandoff: 06/28/2017
 | **資料庫鏡像** |為了使用伺服器憑證進行跨網站嚴重損壞修復，一個合作夥伴會在 Azure VM 中執行，而其他合作夥伴會在內部部署中執行。 合作夥伴不需要位於相同的 Active Directory 網域，且不需要 VPN 連線。<br/>![資料庫鏡像](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_dbmirroring.gif)<br/>另一個資料庫鏡像案例，則是為了進行跨網站災害復原復，讓一個合作夥伴在 Azure VM 中執行，並讓其他合作夥伴在相同 Active Directory 網域的內部部署中執行。 需要 [Azure 虛擬網路與內部部署之間的 VPN 連線](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)。<br/><br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。 |
 | **記錄傳送** |為了進行跨網站嚴重損壞修復，一個合作夥伴會在 Azure VM 中執行，而其他合作夥伴會在內部部署中執行。 記錄傳送依賴 Windows 檔案共用，因此需要 Azure 虛擬網路和內部部署網路之間的 VPN 連線。<br/>![記錄傳送](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_log_shipping.gif)<br/>若要成功對資料庫進行災害復原，您也應該在災害復原網站安裝複本網域控制站。 |
 | **備份及還原與 Azure Blob 儲存體服務** |內部部署生產資料庫直接備份到 Azure blob 儲存體以進行災害復原。<br/>![備份與還原](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_backup_restore.gif)<br/>如需詳細資訊，請參閱 [Azure 虛擬機器中 SQL Server 的備份與還原](virtual-machines-windows-sql-backup-recovery.md)。 |
+| **使用 Azure Site Recovery 複寫 SQL Server 並將其容錯移轉至 Azure** |內部部署實際執行 SQL Server 直接複寫至 Azure 儲存體進行嚴重損壞修復。<br/>![使用 Azure Site Recovery 複寫](./media/virtual-machines-windows-sql-high-availability-dr/hybrid_dr_standalone_sqlserver-asr.png)<br/>如需詳細資訊，請參閱[使用 SQL Server 嚴重損壞修復和 Azure Site Recovery 保護 SQL Server](../../../site-recovery/site-recovery-sql.md)。 |
 
 ## <a name="important-considerations-for-sql-server-hadr-in-azure"></a>Azure 中 SQL Server HADR 的重要考量
 與內部部署、非虛擬化的 IT 基礎結構相較之下，Azure VM、儲存體和網路各有不同的作業特性。 若要在 Azure 中成功實作 HADR SQL Server 解決方案，您必須了解這些差異，並配合這些差異設計您的解決方案。

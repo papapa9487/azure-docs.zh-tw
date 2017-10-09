@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/22/2017
+ms.date: 09/27/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7db1761a9a3b8a74a39b2d441849fb89d44cd42b
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
@@ -50,45 +50,30 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 ## <a name="setup"></a>設定  
 
 1. 瀏覽 [.NET Core 安裝指南](https://www.microsoft.com/net/core)以安裝 .NET Core。 選取環境時，請選擇命令列選項。 
-2. 從命令列為專案建立目錄。 瀏覽到此目錄中，然後輸入 `dotnet new` 以建立 C# 主控台專案。
-3. 在 Visual Studio Code 中開啟此目錄。 您可以透過在命令列中輸入 `code .` 來快速完成此步驟。  
+2. 從命令列為專案建立目錄。 瀏覽到此目錄中，然後輸入 `dotnet new console -o <sample-project-name>` 以建立 C# 主控台專案。
+3. 在 Visual Studio Code 中開啟此目錄。 您可以透過在 Windows 中於命令列輸入 `code .` 來快速完成此步驟。  
 4. 從 Visual Studio Code Marketplace 安裝 [C# 擴充 (英文)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 重新啟動 Visual Studio Code。 
 5. 這時，您應該會看到兩個提示。 其中一個是新增「建置和偵錯的必要資產。」 按一下 [是]。 另一個提示是還原無法解析的相依性。 按一下 [還原]。
-6. 您的應用程式現在應該會包含 `launch.json` 檔案 (位於 `.vscode` 目錄之下)。 將此檔案中的 `externalConsole` 值變更為 `true`。
+6. 修改 `.vscode` 下的 `launch.json` 以將外部終端機作為主控台。 這項設定應讀取為 ` "console": "externalTerminal"`
 7. Visual Studio Code 可讓您偵錯 .NET Core 應用程式。 按 `F5` 以執行應用程式，並確定您的設定運作正常。 您應該會看到「Hello World!」 印出到主控台。 
 
 ## <a name="add-data-movement-library-to-your-project"></a>將資料移動程式庫加入至專案
 
-1. 將最新版本的資料移動程式庫加入到 `project.json` 檔案的 `dependencies` 區段。 撰寫本文時，此版本為 `"Microsoft.Azure.Storage.DataMovement": "0.5.0"` 
-2. 將 `"portable-net45+win8"` 加入到 `imports` 區段。 
-3. 您應該會看到提示顯示以還原專案。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
+1. 將最新版本的資料移動程式庫加入到 `<project-name>.csproj` 檔案的 `dependencies` 區段。 撰寫本文時，此版本為 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"` 
+2. 您應該會看到提示顯示以還原專案。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
 
-修改 `project.json`：
+修改 `<project-name>.csproj`：
 
-    {
-      "version": "1.0.0-*",
-      "buildOptions": {
-        "debugType": "portable",
-        "emitEntryPoint": true
-      },
-      "dependencies": {
-        "Microsoft.Azure.Storage.DataMovement": "0.5.0"
-      },
-      "frameworks": {
-        "netcoreapp1.1": {
-          "dependencies": {
-            "Microsoft.NETCore.App": {
-              "type": "platform",
-              "version": "1.1.0"
-            }
-          },
-          "imports": [
-            "dnxcore50",
-            "portable-net45+win8"
-          ]
-        }
-      }
-    }
+    <Project Sdk="Microsoft.NET.Sdk">
+
+        <PropertyGroup>
+            <OutputType>Exe</OutputType>
+            <TargetFramework>netcoreapp2.0</TargetFramework>
+        </PropertyGroup>
+        <ItemGroup>
+            <PackageReference Include="Microsoft.Azure.Storage.DataMovement" Version="0.6.2" />
+            </ItemGroup>
+        </Project>
 
 ## <a name="set-up-the-skeleton-of-your-application"></a>設定應用程式的基本架構
 我們要做的第一件事是設定應用程式的「基本架構」程式碼。 此程式碼會提示我們輸入儲存體帳戶的名稱及帳戶金鑰，並使用該認證來建立 `CloudStorageAccount` 物件。 這個物件是用來在所有的傳輸案例中與儲存體帳戶互動。 該程式碼也會提示我們選擇要執行的傳輸作業類型。 
@@ -98,6 +83,7 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 ```csharp
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;

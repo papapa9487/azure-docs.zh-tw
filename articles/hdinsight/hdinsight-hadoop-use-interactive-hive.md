@@ -15,13 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ad47c3b6d7f44815208741e686f11675c81eca8b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>搭配 HDInsight 使用互動式查詢
@@ -82,7 +82,7 @@ ms.lasthandoff: 09/25/2017
 * 了解如何[在 Azure HDInsight 中使用 Power BI 將巨量資料視覺化](./hdinsight-connect-hive-power-bi.md)。
 * 了解如何[使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./hdinsight-connect-hive-zeppelin.md)。
 * 了解如何[使用 Data Lake Tools for Visual Studio 執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md#run-a-hive-query)。
-* 了解如何[使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code](hdinsight-for-vscode.md)。
+* 了解如何[使用 HDInsight Tools for Visual Studio Code](hdinsight-for-vscode.md)。
 * 了解如何[在 HDInsight 中搭配 Hadoop 使用 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)
 * 了解如何[使用 Beeline 在 HDInsight 中執行 Hive 查詢](hdinsight-hadoop-use-hive-beeline.md)。
 * 了解如何[使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)。

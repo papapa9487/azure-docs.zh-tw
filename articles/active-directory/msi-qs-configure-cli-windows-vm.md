@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -45,7 +45,7 @@ ms.lasthandoff: 09/23/2017
 
 若要建立啟用 MSI 的虛擬機器：
 
-1. 如果您不是從 Azure 入口網站中使用 Azure Cloud Shell，初次登入 Azure 請使用 [az 登入](/cli/azure/#login)。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/#login) 登入 Azure。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
 
    ```azurecli-interactive
    az login
@@ -67,7 +67,7 @@ ms.lasthandoff: 09/23/2017
 
 如果您要在現有的虛擬機器上啟用 MSI：
 
-1. 如果您不是從 Azure 入口網站中使用 Azure Cloud Shell，初次登入 Azure 請使用 [az 登入](/cli/azure/#login)。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/#login) 登入 Azure。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」：
 
    ```azurecli-interactive
    az login
@@ -83,7 +83,7 @@ ms.lasthandoff: 09/23/2017
 
 如果您的虛擬機器不再需要 MSI：
 
-1. 如果您不是從 Azure 入口網站中使用 Azure Cloud Shell，初次登入 Azure 請使用 [az 登入](/cli/azure/#login)。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/#login) 登入 Azure。 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶。 此外也請確定您的帳戶屬於在 VM 上具有寫入權限的角色，例如「虛擬機器參與者」：
 
    ```azurecli-interactive
    az login

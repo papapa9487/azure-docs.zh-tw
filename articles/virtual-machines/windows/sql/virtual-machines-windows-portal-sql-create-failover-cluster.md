@@ -14,13 +14,13 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/17/2017
+ms.date: 09/26/2017
 ms.author: mikeray
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 439353b7d22fb7376049ea8e1433a8d5840d3e0f
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -153,7 +153,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
       ![移除功能](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-   - 按一下 [下一步]，然後按一下 [移除]。
+   - 按一下 下一步，然後按一下移除。
 
 1. <a name="ports"></a>開啟防火牆連接埠。
 
@@ -199,7 +199,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 1. [將容錯移轉叢集功能新增至每部虛擬機器](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms)。
 
    若要從 UI 安裝容錯移轉叢集功能，請於兩部虛擬機器上執行下列步驟。
-   - 在 [伺服器管理員] 中，按一下 [管理]，然後按一下 [新增角色及功能]。
+   - 在 伺服器管理員 中，按一下 管理，然後按一下新增角色及功能。
    - 在 [新增角色及功能精靈] 中，連續按 [下一步] 直到到達 [選取功能]。
    - 在 [選取功能] 中，按一下 [容錯移轉叢集]。 選取所有所需功能與管理工具。 按一下 [新增功能]。
    - 按一下 [下一步]，然後按一下 [完成] 以安裝功能。
@@ -427,19 +427,37 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 設定 PowerShell 中的叢集探查連接埠參數。
 
-若要設定叢集探查連接埠參數，請從您環境的下列指令碼中更新變數。
+若要設定叢集探查連接埠參數，請將下列指令碼中的變數更新為您環境中的值。 從指令碼移除角括弧 `<>`。 
 
-  ```PowerShell
-   $ClusterNetworkName = "<Cluster Network Name>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
-   $IPResourceName = "IP Address Resource Name" # the IP Address cluster resource name.
-   $ILBIP = "<10.0.0.x>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <59999>
+   ```PowerShell
+   $ClusterNetworkName = "<Cluster Network Name>"
+   $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
+   $ILBIP = "<n.n.n.n>" 
+   [int]$ProbePort = <nnnnn>
 
    Import-Module FailoverClusters
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
 
+在上述指令碼中，設定您環境的值。 下列清單說明這些值：
+
+   - `<Cluster Network Name>`：Windows Server 容錯移轉叢集網路名稱。 在 **[容錯移轉叢集管理員]** > **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+
+   - `<SQL Server FCI IP Address Resource Name>`：SQL Server FCI IP 位址資源名稱。 在 **[容錯移轉叢集管理員]** > **[角色]** 中，SQL Server FCI 角色的 [伺服器名稱] 底下，以滑鼠右鍵按一下 IP 位址資源，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+
+   - `<ILBIP>`：ILB IP 位址。 此位址在 Azure 入口網站中會設定為 ILB 前端位址。 這也是 SQL Server FCI IP 位址。 您可以在 [容錯移轉叢集管理員] 中，您找到 `<SQL Server FCI IP Address Resource Name>` 所在位置的相同內容頁面上找到該位址。  
+
+   - `<nnnnn>`：您在負載平衡器健全狀況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
+
+>[!IMPORTANT]
+>叢集參數的子網路遮罩必須是 TCP IP 廣播位址：`255.255.255.255`。
+
+設定叢集探查之後，您可以在 PowerShell 中查看所有叢集參數。 執行下列指令碼：
+
+   ```PowerShell
+   Get-ClusterResource $IPResourceName | Get-ClusterParameter 
+  ```
 
 ## <a name="step-7-test-fci-failover"></a>步驟 7：測試 FCI 容錯移轉
 

@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>使用資料視覺效果工具搭配 Azure HDInsight 的 Apache Spark BI
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/28/2017
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
 
-2. 從 Spark 叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+2. 從 Spark 叢集刀鋒視窗按一下 叢集儀表板，然後按一下Jupyter Notebook。 出現提示時，輸入叢集的系統管理員認證。
 
    > [!NOTE]
    > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/28/2017
    >
    >
 
-3. 建立 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立 Notebook。 按一下 新增，然後按一下PySpark。
 
     ![建立 Apache Spark BI 的 Jupyter Notebook](./media/hdinsight-apache-spark-use-bi-tools/create-jupyter-notebook-for-spark-bi.png "建立 Apache Spark BI 的 Jupyter Notebook")
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 07/28/2017
 
       ![列出 Apache Spark BI 儀表板上的資料表](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "列出 Apache Spark BI 儀表板上的資料表")
 
-8. 建置視覺效果，顯示每棟建築物之目標溫度和實際溫度間的差異。 若要將資料視覺化，請選取 [區域圖] \(在紅色方框中)。 如要定義軸線，請把 [BuildingID] 欄位拖放到 [軸] 的下方，然後把 [ActualTemp]/[TargetTemp] 欄位拖放到 [值] 的下方。
+8. 建置視覺效果，顯示每棟建築物之目標溫度和實際溫度間的差異。 若要將資料視覺化，請選取 [區域圖] 圖示 (在紅色方框中)。 如要定義軸線，請把 [BuildingID] 欄位拖放到 [軸] 的下方，然後把 [ActualTemp]/[TargetTemp] 欄位拖放到 [值] 的下方。
 
     ![使用 Apache Spark BI 建立 Spark 資料視覺效果](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "使用 Apache Spark BI 建立 Spark 資料視覺效果")
 
@@ -174,12 +174,12 @@ ms.lasthandoff: 07/28/2017
 2. 確保這部電腦也也安裝 Microsoft Spark ODBC 驅動程式。 您可以前往 [這裡](http://go.microsoft.com/fwlink/?LinkId=616229)來安裝驅動程式。
 
 1. 啟動 Tableau Desktop。 在左窗格上可連線的伺服器清單中，按一下 [Spark SQL] 。 如果左窗格沒有預設列出 Spark SQL，您可以按一下 [更多伺服器] 來尋找它。
-2. 在 Spark SQL 連線對話方塊中，提供螢幕擷取畫面中所示的值，然後按一下 [確定]。
+2. 在 Spark SQL 連線對話方塊中，提供螢幕擷取畫面中所示的值，然後按一下確定。
 
     ![連線至 Apache Spark BI 的叢集](./media/hdinsight-apache-spark-use-bi-tools/connect-to-tableau-apache-spark-bi.png "連線至 Apache Spark BI 的叢集")
 
     您必須先在電腦上安裝 [Microsoft Spark ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229)，驗證下拉式清單中才會出現 **Microsoft Azure HDInsight 服務**。
-3. 在下一個畫面中，按一下 [結構描述] 下拉式清單的 [尋找] 圖示，然後按一下 [預設]。
+3. 在下一個畫面中，按一下 結構描述 下拉式清單的 尋找 圖示，然後按一下預設。
 
     ![尋找 Apache Spark BI 的結構描述](./media/hdinsight-apache-spark-use-bi-tools/tableau-find-schema-apache-spark-bi.png "尋找 Apache Spark BI 的結構描述")
 4. 對於 [資料表] 欄位，再次按一下 [尋找] 圖示以列出叢集中所有可用的 Hive 資料表。 您應該會看到自己先前使用 Notebook 建立的 **hvac** 資料表。

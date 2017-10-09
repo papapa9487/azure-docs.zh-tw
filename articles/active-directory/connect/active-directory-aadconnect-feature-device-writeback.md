@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 310dcb176c2e1556af4ed0e0f50ea77c4644ec98
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7af8fadca15e07e178f12db27fec2467f43c5d36
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect：啟用裝置回寫
@@ -44,19 +44,27 @@ ms.lasthandoff: 07/06/2017
 使用下列步驟來準備使用裝置回寫。
 
 1. 從已安裝 Azure AD Connect 的電腦上，以提升權限的模式啟動 PowerShell。
-2. 如果未安裝 Active Directory PowerShell 模組，請使用下列命令安裝：
-   
-   `Add-WindowsFeature RSAT-AD-PowerShell`
-3. 如果「未」安裝 Azure Active Directory PowerShell 模組，請從 [適用於 Windows PowerShell 的 Azure Active Directory 模組 (64 位元版本)](http://go.microsoft.com/fwlink/p/?linkid=236297)下載並安裝。 此元件依存於隨 Azure AD Connect 一併安裝的登入小幫手。
+2. 如果「未」安裝 Active Directory PowerShell 模組，請安裝其中包含 AD PowerShell 模組的遠端伺服器管理工具，以及執行指令碼所需的 dsacls.exe。  執行以下命令：
+  
+   ``` powershell
+   Add-WindowsFeature RSAT-AD-Tools
+   ```
+
+3. 如果「未」安裝 Azure Active Directory PowerShell 模組，請從 [適用於 Windows PowerShell 的 Azure Active Directory 模組 (64 位元版本)](http://go.microsoft.com/fwlink/p/?linkid=236297)下載並安裝。 此元件依存於隨 Azure AD Connect 一併安裝的登入小幫手。  
 4. 使用企業系統管理員認證執行下列命令，然後結束 PowerShell。
    
-   `Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'`
-   
-   `Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}`
+   ``` powershell
+   Import-Module 'C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1'
+   ```
+
+   ``` powershell
+   Initialize-ADSyncDeviceWriteback {Optional:–DomainName [name] Optional:-AdConnectorAccount [account]}
+   ```
 
 因為需要變更設定命名空間，所以需要有企業系統管理員認證。 網域系統管理員沒有足夠的權限。
 
 ![啟用裝置回寫的 Powershell](./media/active-directory-aadconnect-feature-device-writeback/powershell.png)
+
 
 Description:
 
@@ -75,7 +83,7 @@ Description:
 
 1. 再次執行安裝精靈。 選取 [其他工作] 頁面中的 [自訂同步處理選項]，然後按 [下一步]。
    ![自訂安裝自訂同步處理選項](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback2.png)
-2. 在 [選用功能] 頁面中，裝置回寫不再呈現灰色。 請注意，如果 Azure AD Connect 準備步驟未完成，[選用功能] 頁面中的裝置回寫會變成灰色。 核取裝置回寫的方塊，然後按一下 [下一步 ]。 如果此核取方塊仍然停用中，請參閱＜ [疑難排解](#the-writeback-checkbox-is-still-disabled)＞一節。
+2. 在 [選用功能] 頁面中，裝置回寫不再呈現灰色。請注意，如果 Azure AD Connect 準備步驟未完成，[選用功能] 頁面中的裝置回寫會變成灰色。 核取裝置回寫的方塊，然後按一下 [下一步 ]。 如果此核取方塊仍然停用中，請參閱＜ [疑難排解](#the-writeback-checkbox-is-still-disabled)＞一節。
    ![自訂安裝裝置回寫可選功能](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3. 在 [回寫] 頁面中，您會看到提供的網域已成為預設的裝置回寫樹系。
    ![自訂安全裝置回寫樹系](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)

@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 08/25/2017
 ms.author: carlrab
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 12bf76deebda27cdc7e7611e0585dc0bf92bde2f
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL Database 中單一資料庫的資源
@@ -97,12 +97,12 @@ ALTER DATABASE <myDatabaseName>
 | --- | --- |
 |[資料庫 - 建立或更新](/rest/api/sql/databases/createorupdate)|建立新的資料庫或更新現有資料庫。|
 |[資料庫 - 取得](/rest/api/sql/databases/get)|取得資料庫。|
-|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區中的資料庫。|
-|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得建議之彈性集區中的資料庫。|
-|[資料庫 - 依彈性集區列示](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
-|[資料庫 - 依建議的彈性集區列示](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區中的資料庫清單。|
-|[資料庫 - 依伺服器列示](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
-|[資料庫 - 更新](/api/sql/databases/update)|更新現有的資料庫。|
+|[資料庫 - 依彈性集區取得](/rest/api/sql/databases/getbyelasticpool)|取得彈性集區內的資料庫。|
+|[資料庫 - 依建議的彈性集區取得](/rest/api/sql/databases/getbyrecommendedelasticpool)|取得建議之彈性集區內的資料庫。|
+|[資料庫 - 依彈性集區列出](/rest/api/sql/databases/listbyelasticpool)|傳回將彈性集區中的資料庫列出的清單。|
+|[資料庫 - 依建議的彈性集區列出](/rest/api/sql/databases/listbyrecommendedelasticpool)|傳回建議彈性集區內的資料庫清單。|
+|[資料庫 - 依伺服器列出](/rest/api/sql/databases/listbyserver)|傳回伺服器中的資料庫清單。|
+|[資料庫 - 更新]((/rest/api/sql/databases/update)|更新現有的資料庫。|
 
 
 

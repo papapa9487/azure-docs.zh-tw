@@ -16,16 +16,16 @@ ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>開始使用 Azure AD 中的 Cloud App Discovery
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>在 Azure AD 中設定 Cloud App Discovery
 
-Cloud App Discovery 增強功能的公用預覽版本現在可透過 Azure Active Directory Premium P1 授權提供。 這些增強功能以與 Microsoft Cloud App Security 的整合為基礎。 Cloud App Discovery 會比較您的流量記錄與超過 15,000 個雲端應用程式的 Cloud App Security 目錄，持續為您提供雲端使用和陰影 IT 的資訊。 
+Azure AD 中的 Cloud App Discovery 增強功能現在可透過 Azure Active Directory Premium P1 授權提供。 這些增強功能以與 Microsoft Cloud App Security 的整合為基礎。 Cloud App Discovery 會比較您的流量記錄與超過 15,000 個雲端應用程式的 Cloud App Security 目錄，持續為您提供雲端使用和陰影 IT 的資訊。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,14 +33,14 @@ Cloud App Discovery 增強功能的公用預覽版本現在可透過 Azure Activ
 
 若要設定 Cloud App Discovery，您必須是 Azure Active Directory 中的全域管理員或安全性讀取者。 獲指派管理員角色的使用者對於貴公司訂閱的所有雲端應用程式，具有相同的權限。
 
-## <a name="snapshot-and-continuous-reports"></a>快照集和連續報告
+## <a name="setup-steps"></a>設定步驟
 
-您可以產生兩種報告：
+1. [設定快照集報表](cloudappdiscovery-set-up-snapshots.md)來檢查記錄格式，確定記錄向 Cloud App Discovery 提供有用的資訊。 它們也可對您從防火牆和 Proxy 伺服器手動上傳的流量記錄，提供特定可見性。
 
-* **快照集報告**可對您從防火牆和 Proxy 伺服器手動上傳的流量記錄，提供特定可見性。 您可以使用這類報告，確保您的記錄會提供有用的資訊給 Cloud App Discovery。
+2. [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)會分析使用 Cloud App Security 記錄收集器從您的網路轉送的所有記錄。 您可以使用這類報告來識別新的應用程式和使用趨勢。
 
-* **連續報告**會分析使用 [Cloud App Security 記錄收集器](https://docs.microsoft.com/cloud-app-security/discovery-docker)從您的網路轉送的所有記錄。 您可以使用這類報告來識別新的應用程式和使用趨勢。
-
+3. 如果目前不支援記錄，請[設定自訂記錄剖析器](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser)，讓 Cloud App Discovery 可以分析它們。
+  
 ## <a name="log-processing-flow"></a>記錄處理流程
 
 視資料量而定，產生報告可能需要數分鐘到數小時的時間不等。 以下是分析的內容：
@@ -134,8 +134,8 @@ Cloud App Discovery 無法顯示，或分析記錄中未包含的屬性。 例�
 
 
 ## <a name="next-steps"></a>後續步驟
-使用下列連結繼續在 Azure AD 中設定增強的 Cloud App Discovery。
+使用下列連結繼續在 Azure AD 中設定 Cloud App Discovery。
 
-* [建立 Cloud App Discovery 快照集報告](cloudappdiscovery-set-up-snapshots.md)
-* [設定自動記錄上傳以便進行連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [建立快照集報告](cloudappdiscovery-set-up-snapshots.md)
+* [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [使用自訂記錄剖析器](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

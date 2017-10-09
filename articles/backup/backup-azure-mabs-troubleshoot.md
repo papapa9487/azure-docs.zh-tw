@@ -15,16 +15,28 @@ ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 5672bb1e17dac4ae0aaa67f936676d6c2fc5ef12
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
 您可以針對使用 Azure 備份伺服器搭配下表列出的資訊時所發生的錯誤進行疑難排解。
+
+## <a name="error-invalid-vault-credentials-provided-the-file-is-either-corrupted-or-does-not-have-the-latest-credentials-associated-with-recovery-service"></a>錯誤：提供的保存庫認證無效。 檔案可能損毀或沒有復原服務所關聯的最新認證 
+
+若要解決此問題，請遵循這些[疑難排解步驟](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues)。
+
+## <a name="error-the-agent-operation-failed-because-of-a-communication-error-with-the-dpm-agent-coordinator-service-on-server"></a>錯誤：代理程式作業因為伺服器上的 DPM 代理程式協調員服務發生通訊錯誤而失敗 
+
+若要解決此問題，請遵循這些[疑難排解步驟](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#registration-and-agent-related-issues)。
+
+## <a name="error-setup-could-not-update-registry-metadata"></a>錯誤：安裝程式無法更新登錄中繼資料
+
+若要解決此問題，請遵循這些[疑難排解步驟](https://docs.microsoft.com/en-us/azure/backup/backup-azure-mabs-troubleshoot#installation-issues)。
 
 
 ## <a name="installation-issues"></a>安裝問題

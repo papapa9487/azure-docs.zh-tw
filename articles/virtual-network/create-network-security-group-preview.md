@@ -17,10 +17,10 @@ ms.date: 09/20/2017
 ms.author: jdial
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 21729bc6af282abc47c9b226f343bf2d44153d55
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>使用網路和應用程式安全性群組 (預覽) 來篩選網路流量
@@ -39,10 +39,22 @@ ms.lasthandoff: 09/25/2017
 無論您是從 Windows、Linux 或 macOS 執行命令，所使用的 Azure CLI 命令都相同。 不過，不同作業系統殼層的指令碼編寫會有差異。 下列步驟中的指令碼會在 Bash 殼層中執行。 
 
 1. [安裝和設定 Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 輸入 `az --version` 命令，以確定您所使用的是高於 2.0.17 的 CLI 2.0 版本。 如果不是，請安裝最新版本。
+2. 輸入 `az --version` 命令來確定您使用 2.0.18 版或更高版本的 Azure CLI。 如果不是，請安裝最新版本。
 3. 使用 `az login` 命令登入 Azure。
-4. 在 [PowerShell](#powershell) 中完成步驟 1-5，以註冊本教學課程中使用的預覽功能。 您只可以使用 PowerShell 註冊預覽版。 請等到註冊成功後再繼續進行其餘步驟，否則步驟會失敗。
-5. 執行下列指令碼以建立資源群組：
+4. 輸入下列命令來註冊預覽版︰
+    
+    ```azurecli-interactive
+    az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ``` 
+
+5. 藉由輸入下列命令，確認您已註冊預覽版︰
+
+    ```azurecli-interactive
+    az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    ```
+
+    在前面的命令所傳回之輸出的 **state** 中出現「已註冊」前，請勿繼續進行其餘步驟。 如果您在完成註冊前就繼續進行，其餘步驟將會失敗。
+6. 執行下列 bash 指令碼以建立資源群組：
 
     ```azurecli-interactive
     #!/bin/bash
@@ -52,7 +64,7 @@ ms.lasthandoff: 09/25/2017
       --location westcentralus
     ```
 
-6. 建立三個應用程式安全性群組，每種伺服器類型一個：
+7. 建立三個應用程式安全性群組，每種伺服器類型一個：
 
     ```azurecli-interactive
     az network asg create \
@@ -71,7 +83,7 @@ ms.lasthandoff: 09/25/2017
       --location westcentralus
     ```
 
-7. 建立網路安全性群組：
+8. 建立網路安全性群組：
 
     ```azurecli-interactive
     az network nsg create \
@@ -80,7 +92,7 @@ ms.lasthandoff: 09/25/2017
       --location westcentralus
     ```
 
-8. 在 NSG 中建立安全性規則。
+9. 建立 NSG 內的安全性規則，將應用程式安全性群組設定為目的地：
     
     ```azurecli-interactive    
     az network nsg rule create \
@@ -120,7 +132,7 @@ ms.lasthandoff: 09/25/2017
       --protocol "TCP" 
     ``` 
 
-9. 建立虛擬網路： 
+10. 建立虛擬網路： 
     
     ```azurecli-interactive
     az network vnet create \
@@ -129,8 +141,9 @@ ms.lasthandoff: 09/25/2017
       --subnet-name mySubnet \
       --address-prefix 10.0.0.0/16 \
       --location westcentralus
+    ```
 
-10. Associate the network security group to the subnet in the virtual network:
+11. 建立網路安全性群組與虛擬網路中子網路的關聯：
 
     ```azurecli-interactive
     az network vnet subnet update \
@@ -138,8 +151,9 @@ ms.lasthandoff: 09/25/2017
       --resource-group myResourceGroup \
       --vnet-name myVnet \
       --network-security-group myNsg
-
-11. Create three network interfaces, one for each server type. 
+    ```
+    
+12. 建立三個網路介面，每種伺服器類型一個： 
 
     ```azurecli-interactive
     az network nic create \
@@ -170,9 +184,9 @@ ms.lasthandoff: 09/25/2017
       --application-security-groups "DatabaseServers"
     ```
 
-    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 8 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myWebNic 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myWebNic，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
+    根據網路介面所屬於的應用程式安全性群組，只有您在步驟 9 中建立的對應安全性規則會套用到網路介面。 例如，只有 WebRule 會對 myWebNic 起作用，因為該網路介面是 WebServers 應用程式安全性群組的成員，而且該規則會指定讓 WebServers 應用程式安全性群組作為其目的地。 AppRule 和 DatabaseRule 規則不會套用至 myWebNic，因為該網路介面不是 AppServers 和 DatabaseServers 應用程式安全性群組的成員。
 
-12. 為每種伺服器類型建立一個虛擬機器，並對每個虛擬機器連結對應的網路介面。 這個範例會建立 Windows 虛擬機器，但您可以將 win2016datacenter 變更為 UbuntuLTS 來改為建立 Linux 虛擬機器。
+13. 為每種伺服器類型建立一個虛擬機器，並對每個虛擬機器連結對應的網路介面。 這個範例會建立 Windows 虛擬機器，但您可以將 win2016datacenter 變更為 UbuntuLTS 來改為建立 Linux 虛擬機器。
 
     ```azurecli-interactive
     # Update for your admin password
@@ -206,7 +220,7 @@ ms.lasthandoff: 09/25/2017
       --admin-password $AdminPassword    
     ```
 
-13. **選擇性︰**完成[刪除資源](#delete-cli)中的步驟，以刪除您在本教學課程中所建立的資源。
+14. **選擇性︰**完成[刪除資源](#delete-cli)中的步驟，以刪除您在本教學課程中所建立的資源。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -426,7 +440,7 @@ ms.lasthandoff: 09/25/2017
 
 1. 在入口網站的搜尋方塊中，輸入 **myResourceGroup**。 在搜尋結果中按一下 [myResourceGroup]。
 2. 在 [myResourceGroup] 刀鋒視窗中，按一下 [刪除] 圖示。
-3. 若要確認刪除動作，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+3. 若要確認刪除動作，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroup**，然後按一下刪除。
 
 ### <a name="delete-cli"></a>Azure CLI
 

@@ -3,7 +3,7 @@ title: "如何使用 Node.js 中的佇列儲存體 | Microsoft Docs"
 description: "了解如何使用 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。 範例以 Node.js 撰寫。"
 services: storage
 documentationcenter: nodejs
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: a8a92db0-4333-43dd-a116-28b3147ea401
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: aec5eb551ef438015d4f6a3d1578d0fa890d737e
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 649c656b08c03ca9c902b0d80e77d9b3b662635b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>如何使用 Node.js 的佇列儲存體
@@ -341,9 +341,8 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
 [Azure Portal]: https://portal.azure.com
 [在 Azure App Service 中建立 Node.js Web 應用程式](../../app-service/app-service-web-get-started-nodejs.md)
-   
 
 
-[建立 Node.js 應用程式並部署到 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)   
-[Azure 儲存體團隊部落格]：http://blogs.msdn.com/b/windowsazurestorage/ [使用 Web Matrix 建立 Node.js Web 應用程式並部署至 Azure]：https://www.microsoft.com/web/webmatrix/   
+
+[建立 Node.js 應用程式並部署到 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Azure 儲存體小組部落格]: http://blogs.msdn.com/b/windowsazurestorage/ \(英文\) [使用 Web Matrix 建立 Node.js Web 應用程式並部署至 Azure]: https://www.microsoft.com/web/webmatrix/ \(英文\)
 

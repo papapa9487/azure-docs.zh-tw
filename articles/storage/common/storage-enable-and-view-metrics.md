@@ -3,7 +3,7 @@ title: "在 Azure 入口網站中啟用儲存體計量功能 | Microsoft Docs"
 description: "如何啟用 Blob、佇列、表格和檔案服務的儲存體度量"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: robinsh
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1525a2258dd6ab8e72e8607826523eca8121483c
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>啟用 Azure 儲存體計量和檢視計量資料
@@ -27,19 +27,19 @@ ms.lasthandoff: 08/21/2017
 ## <a name="overview"></a>概觀
 當您建立新的儲存體帳戶時，預設會啟用「儲存體計量」。 您可以透過 [Azure 入口網站](https://portal.azure.com)或 Windows PowerShell 設定監視功能，或透過其中一個儲存體用戶端程式庫以程式設計方式設定該功能。
 
-您可以為計量資料設定保留期間：這段期間會決定儲存體服務用來保存計量的時間長短，以及針對儲存這些計量所需的空間收取的費用。 一般而言，您應該針對每分鐘度量使用比每小時度量還短的保留期限，因為每分鐘度量明顯需要額外的空間。 您應該選擇保留期限，讓您擁有足夠的時間來分析資料，並下載任何您想要保留以供離線分析或報告使用的度量。 請記住，您還是必須支付從儲存體帳戶下載度量資料的費用。
+您可以為計量資料設定保留期間：這段期間會決定儲存體服務用來保存計量的時間長短，以及針對儲存這些計量所需的空間收取的費用。 一般而言，您應該針對每分鐘度量使用比每小時度量還短的保留期限，因為每分鐘度量明顯需要額外的空間。 選擇保留期限，讓您擁有足夠的時間來分析資料，並下載任何您想要保留以供離線分析或報告使用的計量。 請記住，您也必須支付從儲存體帳戶下載計量資料的費用。
 
 ## <a name="how-to-enable-metrics-using-the-azure-portal"></a>如何使用 Azure 入口網站啟用計量功能
 依照下列步驟在 [Azure 入口網站](https://portal.azure.com)中啟用計量功能：
 
 1. 瀏覽至儲存體帳戶。
-1. 選取 [功能表] 刀鋒視窗上的 [診斷]
+1. 選取 [功能表] 窗格上的 [診斷]。
 1. 確定 [狀態] 設為 [開啟]。
 1. 選取您要監視之服務的計量。
 1. 指定保留原則，以表示要保留計量與記錄資料的時間。
 1. 選取 [ **儲存**]。
 
-請注意，[Azure 入口網站](https://portal.azure.com)目前無法讓您在儲存體帳戶中設定每分鐘計量功能；您必須使用 PowerShell 或以程式設計方式啟用每分鐘計量功能。
+[Azure 入口網站](https://portal.azure.com)目前無法讓您在儲存體帳戶中設定每分鐘計量功能，您必須使用 PowerShell 或以程式設計方式啟用每分鐘計量功能。
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>如何使用 PowerShell 啟用計量功能
 您可以在本機電腦上使用 PowerShell 來設定儲存體帳戶中的儲存體度量，做法是使用 Azure PowerShell Cmdlet Get-AzureStorageServiceMetricsProperty 來擷取目前的設定，並使用 Cmdlet Set-AzureStorageServiceMetricsProperty 來變更目前的設定。
@@ -101,12 +101,12 @@ blobClient.SetServiceProperties(properties);
 在您設定儲存體分析計量監視您的儲存體帳戶後，儲存體分析會將計量記錄在您儲存體帳戶中一組已知資料表中。 您可以在 [Azure 入口網站](https://portal.azure.com)中將圖表設定為檢視每小時計量：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的儲存體帳戶。
-1. 針對您要檢視其計量的服務選取 [功能表] 刀鋒視窗中的 [計量]。
+1. 針對您要檢視其計量的服務，選取 [功能表] 窗格中的 [計量]。
 1. 在您要設定的圖表上選取 [編輯]。
-1. 在 [編輯圖表] 刀鋒視窗中，選取 [時間範圍]、[圖表類型] 與您要在圖表中顯示的計量。
+1. 在 [編輯圖表] 窗格中，選取 [時間範圍]、[圖表類型] 與您要在圖表中顯示的計量。
 1. 選取 [確定]
 
-如果要下載長期儲存體的度量，或在本機加以分析，您必須：
+如果要下載計量以長期儲存，或在本機加以分析，您必須：
 
 * 使用可感知這些資料表、且可讓您檢視及下載它們的工具。
 * 撰寫自訂應用程式或指令碼來讀取和儲存資料表。
@@ -143,7 +143,7 @@ blobClient.SetServiceProperties(properties);
 | 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
 | 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
-在這個每分鐘度量資料範例中，資料分割索引鍵會在每分鐘解析中使用時間。 資料列索引鍵會識別資料列中儲存的資訊類型，而這是由兩部分的資訊 (存取類型及要求類型) 所組成：
+在這個每分鐘度量資料範例中，資料分割索引鍵會在每分鐘解析中使用時間。 資料列索引鍵可識別儲存在資料列中的資訊類型。 資料列索引鍵是由存取類型和要求類型兩項資訊所組成：
 
 * 存取類型是使用者或系統，其中使用者是指對儲存體服務所提出的所有使用者要求，而系統是指對儲存體分析所提出的要求。
 * 要求類型就是全部 (在此情況下它是摘要行)，或者它會識別特定的 API，例如 QueryEntity 或 UpdateEntity。
@@ -151,10 +151,10 @@ blobClient.SetServiceProperties(properties);
 上述範例資料會為單一分鐘 (從上午 11:00 開始) 顯示所有記錄，因此 QueryEntities 要求的數目加上 QueryEntity 要求的數目再加上 UpdateEntity 要求的數目最多七個，也就是 user:All 資料列上顯示的總數。 同樣地，您可以藉由計算 ((143.8 * 5) + 3 + 9)/7，在 user:All 資料列上衍生平均的端對端延遲 104.4286。
 
 ## <a name="metrics-alerts"></a>計量警示
-您應該考慮在 [Azure 入口網站](https://portal.azure.com)中設定警示，以便讓「儲存體計量」自動通知您有關您儲存體服務行為的重要變更。 若使用儲存體總管工具來下載此計量資料 (以使用分隔字元分隔的形式)，您可以使用 Microsoft Excel 來分析資料。 如需可用的儲存體總管工具清單，請參閱 [Azure 儲存體用戶端工具](storage-explorers.md)。 您可以在 [警示規則] 刀鋒視窗 (可從儲存體帳戶功能表刀鋒視窗中的 [監視] 下存取) 中設定警示。
+您應該考慮在 [Azure 入口網站](https://portal.azure.com)中設定警示，以便讓「儲存體計量」自動通知您有關您儲存體服務行為的重要變更。 若使用儲存體總管工具來下載此計量資料 (以使用分隔字元分隔的形式)，您可以使用 Microsoft Excel 來分析資料。 如需可用的儲存體總管工具清單，請參閱 [Azure 儲存體用戶端工具](storage-explorers.md)。 您可以在 [警示規則] 窗格 (可從 [儲存體帳戶] 功能表窗格中的 [監視] 下存取) 中設定警示。
 
 > [!IMPORTANT]
-> 發生儲存體事件與記錄對應的每小時或分鐘計量資料之間可能會有延遲。 就分鐘計量而言，可能會一次寫入數分鐘的資料。 這可能導致將來自較早分鐘的交易彙總至目前分鐘的交易。 當發生這種情況時，警示服務可能不會擁有所設定警示間隔的所有可用計量資料，這可能導致非預期地觸發警示。
+> 發生儲存體事件與記錄對應的每小時或分鐘計量資料之間可能會有延遲。 記錄分鐘計量時，可能會一次寫入數分鐘的資料。 幾分鐘前的交易可能會彙總至目前分鐘的交易。 當發生這種情況時，警示服務可能不會擁有所設定警示間隔的所有可用計量資料，這可能導致非預期地觸發警示。
 >
 
 ## <a name="accessing-metrics-data-programmatically"></a>以程式設計方式存取度量資料

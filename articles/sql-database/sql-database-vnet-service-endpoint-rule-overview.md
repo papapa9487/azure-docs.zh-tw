@@ -14,18 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/15/2017
+ms.date: 09/27/2017
 ms.author: genemi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: eb409b6e5cb0f6bfbf6bfa8103c01482abf928cf
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: e4ee69abe0b3b5d594ee191cc8210d25c325efaa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>對 Azure SQL Database 使用虛擬網路服務端點和規則
 
-Microsoft Azure「虛擬網路規則」是一項防火牆功能，可控制 Azure SQL Database 伺服器是否接受虛擬網路中的特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 安全地接受通訊的最佳選項。
+「虛擬網路規則」是一項防火牆功能，可控制 Azure SQL Database 伺服器是否接受虛擬網路中的特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓 Azure SQL Database 安全地接受通訊的最佳選項。
+
+若要建立虛擬網路規則，必須先有[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]規則可供參考。
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>如何建立虛擬網路規則
 
@@ -44,7 +46,7 @@ Microsoft Azure「虛擬網路規則」是一項防火牆功能，可控制 Azur
 
 **子網路：**虛擬網路包含**子網路**。 您有的任何 Azure 虛擬機器 (VM) 會指派給子網路。 一個子網路可以包含多個 VM 或其他計算節點。 計算虛擬網路外部的節點無法存取虛擬網路，除非您設定安全性來允許存取。
 
-**虛擬網路服務端點：**虛擬網路服務端點是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 本文中我們探討類型名稱 **Microsoft.Sql**，它參考名為 SQL Database 的 Azure 服務。
+**虛擬網路服務端點：**[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 本文中我們探討類型名稱 **Microsoft.Sql**，它參考名為 SQL Database 的 Azure 服務。
 
 **虛擬網路規則：**SQL Database 伺服器的虛擬網路規則是 SQL Database 伺服器的存取控制清單 (ACL) 中所列的子網路。 子網路必須包含 **Microsoft.Sql** 類型名稱，才能列在 SQL Database 的 ACL 中。
 
@@ -118,15 +120,21 @@ RBAC 替代方案：
 
 #### <a name="limitations"></a>限制
 
-虛擬網路規則功能具有下列限制：
+對於 Azure SQL Database，虛擬網路規則功能具有下列限制：
 
-- 在任何給定的虛擬網路中，每個 Azure SQL Database 伺服器最多只能有 128 個 IP-ACL 項目。
+- 在任何給定的虛擬網路中，每個 Azure SQL Database 伺服器最多只能有 128 個 ACL 項目。
 
 - 虛擬網路規則只套用至 Azure Resource Manager 虛擬網路，而不是[傳統部署模型][arm-deployment-model-568f]網路。
 
-- 虛擬網路規則不會延伸到下列任何網路項目：
-    - 透過 [Expressroute][expressroute-indexmd-744v] 的內部部署
+- 在防火牆上，IP 位址範圍會套用到下列網路項目，但虛擬網路規則不這麼做：
     - [站對站 (S2S) 虛擬私人網路 (VPN)][vpn-gateway-indexmd-608y]
+    - 透過 [ExpressRoute][expressroute-indexmd-744v] 的內部部署
+
+#### <a name="expressroute"></a>ExpressRoute
+
+如果您的網路使用 [ExpressRoute][expressroute-indexmd-744v] 連線至 Azure 網路，則每個線路在 Microsoft Edge 會設定兩個公用 IP 位址。 兩個 IP 位址可使用 Azure 公用對等互連來連線至 Microsoft 服務，例如 Azure 儲存體。
+
+若要允許從您的線路與 Azure SQL Database 通訊，您必須為電路的公用 IP 位址建立 IP 網路規則。 若要尋找您 ExpressRoute 線路的公用 IP 位址，請使用 Azure 入口網站開啟具有 ExpressRoute 的支援票證。
 
 
 <!--
@@ -175,7 +183,7 @@ PowerShell 指令碼也可以建立虛擬網路規則。 重要的 Cmdlet **New-
 5. 在新的 [建立/更新] 窗格中，將您的 Azure 資源名稱填入控制項中。
  
     > [!TIP]
-    > 必須包含子網路的正確 [位址首碼]。 您可以在入口網站中找到值。 瀏覽 [所有資源] &gt;  **[所有類型]** &gt;  **[虛擬網路]**。 篩選條件會顯示您的虛擬網路。 按一下您的虛擬網路，然後按一下 [子網路]。 [位址範圍] 資料行具有您需要的位址首碼。
+    > 必須包含子網路的正確 [位址首碼]。 您可以在入口網站中找到值。 瀏覽 [所有資源] &gt;  **[所有類型]** &gt;  **[虛擬網路]**。 篩選條件會顯示您的虛擬網路。 按一下您的虛擬網路，然後按一下子網路。 [位址範圍] 資料行具有您需要的位址首碼。
 
     ![填入新規則的欄位。][image-portal-firewall-create-update-vnet-rule-20-png]
 
@@ -195,6 +203,7 @@ PowerShell 指令碼也可以建立虛擬網路規則。 重要的 Cmdlet **New-
 ## <a name="related-articles"></a>相關文章
 
 - [使用 PowerShell 建立 Azure SQL Database 的虛擬網路服務端點和虛擬網路規則][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Azure 虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]
 - [Azure SQL Database 伺服器層級和資料庫層級防火牆規則][sql-db-firewall-rules-config-715d]
 
 Microsoft Azure 虛擬網路服務端點功能，以及 Azure SQL Database 的虛擬網路規則功能，都在 2017 年 9 月底推出。
@@ -228,6 +237,8 @@ Microsoft Azure 虛擬網路服務端點功能，以及 Azure SQL Database 的�
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
 

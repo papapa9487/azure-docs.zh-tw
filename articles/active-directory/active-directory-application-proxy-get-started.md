@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -81,7 +81,7 @@ Azure AD 應用程式 Proxy 會針對使用整合式 Windows 驗證 (IWA) 的應
 如需有關 Kerberos 的詳細資訊，請參閱[有關 Kerberos 限制委派 (KCD) 您想要知道的一切](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)。
 
 ### <a name="managing-apps"></a>管理應用程式
-應用程式隨同 Application Proxy 發佈後，即可管理該應用程式，如同管理 Azure 入口網站中的其他任何企業應用程式一般。 您可以使用 Azure Active Directory 安全性功能，例如條件式存取和雙步驟驗證、控制使用者權限，以及自訂您應用程式的商標。 
+一旦使用應用程式 Proxy 發佈應用程式後，即可管理該應用程式，如同管理 Azure 入口網站中的其他任何企業應用程式一般。 您可以使用 Azure Active Directory 安全性功能，例如條件式存取和雙步驟驗證、控制使用者權限，以及自訂您應用程式的商標。 
 
 ## <a name="get-started"></a>開始使用
 

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 87f4d219a678cab78980af2ff8b98ae55739f04c
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
@@ -130,7 +130,11 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
   3.  **前端**：務必選取此項目。 清除其他節點類型。
   4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
 
-            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    
+    >[!note]
+    >
+    > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
 
 6. 選取 [ **建立**]。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。
 

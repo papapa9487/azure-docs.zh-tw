@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ae17a712b0b2a6ba0b9cdf4749fe2aa8b7f535fb
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
@@ -46,7 +46,7 @@ ms.lasthandoff: 09/20/2017
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>如何將 ASP.NET 應用程式從 Visual Studio 部署到 App Service？
 <a id="deployasp"></a>
 
-本教學課程[五分鐘內在 Azure 中建立第一個 ASP.NET Web 應用程式](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/)示範如何使用 Visual Studio 2015，將 ASP.NET Web 應用程式部署到 App Service 中的 Web 應用程式。
+本教學課程[五分鐘內在 Azure 中建立第一個 ASP.NET Web 應用程式](app-service-web-get-started-dotnet.md)示範如何使用 Visual Studio 2017，將 ASP.NET Web 應用程式部署到 App Service 中的 Web 應用程式。
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>不同類型的部署認證有哪些？
 

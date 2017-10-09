@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: cherylmc
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 95f14f2b77565b53c6e270f6afbf9873cdac606a
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 4abfdcc0a50c229555088dff0ac2c00c15f49218
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
@@ -45,26 +45,29 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 在開始之前，請確定所有要連線的使用者都已在使用者裝置上安裝有效的憑證。 如需如何安裝用戶端憑證的詳細資訊，請參閱[安裝用戶端憑證](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
-1. 在產生 VPN 用戶端組態檔時，「-AuthenticationMethod」的值是「EapTls」。 使用下列命令來產生 VPN 用戶端組態檔：
-
-  ```powershell
-  New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls"
-  ```
-2. 前面的命令會傳回連結以供您下載用戶端組態檔。 將該連結複製並貼到網頁瀏覽器，以下載「VpnClientConfiguration.zip」檔案。 將該檔案解壓縮以檢視下列資料夾：
+您可以使用 PowerShell 或使用 Azure 入口網站來產生用戶端組態檔。 任一方法都會傳回相同的 zip 檔案。 將該檔案解壓縮以檢視下列資料夾：
 
   * **WindowsAmd64** 和 **WindowsX86**，這兩個資料夾分別包含 Windows 32 位元和 64 位元的安裝程式套件。 **WindowsAmd64** 安裝程式套件不只適用於 AMD，也適用於所有受支援的 64 位元 Windows 用戶端。
   * **Generic**，這個資料夾包含用來建立自有 VPN 用戶端組態的一般資訊。 請略過此資料夾。 當閘道上設定了 IKEv2 或 SSTP+IKEv2 時才會提供 Generic 資料夾。 如果只設定了 SSTP，則不會提供 Generic 資料夾。
 
-### <a name="to-retrieve-client-configuration-files"></a>擷取用戶端組態檔
+### <a name="zipportal"></a>使用 Azure 入口網站產生檔案
 
-如果您已經產生用戶端組態檔，而且您只需要擷取這些組態檔，您可以使用 'Get-AzureRmVpnClientConfiguration' Cmdlet。 'Get-AzureRmVpnClientConfiguration' Cmdlet 會傳回一個 URL (連結) 以供您下載 VpnClientConfiguration.zip 檔案。 如果您對 P2S VPN 組態進行任何變更 (例如，VPN 通訊協定類型或驗證類型)，該組態不會自動更新。 您必須改為執行 'New-AzureRmVpnClientConfiguration' Cmdlet 來重新建立組態。
+1. 在 Azure 入口網站中，瀏覽至您想要連線之虛擬網路的虛擬網路閘道。
+2. 在虛擬網路閘道頁面上，按一下 [點對站組態]。
+3. 在 [點對站台組態] 頁面頂端，按一下 [下載 VPN 用戶端]。 產生用戶端組態套件需耗費幾分鐘的時間。
+4. 您的瀏覽器指出用戶端組態 zip 檔可用。 它會命名為您閘道的相同名稱。 解壓縮檔案以檢視資料夾。
 
-若要擷取先前產生的用戶端組態檔，請使用下列範例：
+### <a name="zipps"></a>使用 PowerShell 產生檔案
 
-```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
-```
- 
+1. 在產生 VPN 用戶端組態檔時，「-AuthenticationMethod」的值是「EapTls」。 使用下列命令來產生 VPN 用戶端組態檔：
+
+  ```powershell
+  $profile=New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+
+  $profile.VPNProfileSASUrl
+  ```
+2. 將 URL 複製到您的瀏覽器來下載 zip 檔案，然後解壓縮檔案以檢視資料夾。
+
 ## <a name="installwin"></a>安裝 Windows VPN 用戶端組態套件
 
 您可以在每個 Windows 用戶端電腦上使用相同的 VPN 用戶端組態套件，但前提是版本必須符合用戶端的架構。 如需用戶端支援的作業系統清單，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md#P2S)的＜點對站＞一節。
@@ -77,7 +80,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 
 ## <a name="installmac"></a>安裝 Mac (OSX) VPN 用戶端組態
 
-您必須為每個連線到 Azure VNet 的 Mac 裝置建立各自的 VPN 用戶端組態。 請勿將相同組態檔重複用於多個 Mac 裝置。 這是因為您必須在 VPN 用戶端組態檔中為這些裝置指定使用者憑證。 **Generic** 資料夾含有建立 VPN 用戶端組態所需的所有資訊。 Generic 資料夾包含下列檔案：
+您必須為每個連線到 Azure VNet 的 Mac 裝置建立各自的 VPN 用戶端組態。 請勿將相同組態檔重複用於多個 Mac 裝置。 這是因為您必須在 VPN 用戶端組態檔中為這些裝置指定使用者憑證。 **Generic** 資料夾含有建立 VPN 用戶端組態所需的所有資訊。 如果未出現下載的 Generic 資料夾，則可能是未將 IKEv2 選為通道型別。 一旦選取 IKEv2 後，重新產生 zip 檔案以擷取 Generic 資料夾。 Generic 資料夾包含下列檔案：
 
 * **VpnSettings.xml**，此檔案包含重要的設定，例如伺服器位址和通道類型。 
 * **VpnServerRoot.cer**，此檔案包含所需的根憑證，以供您在 P2S 連線設定期間驗證 Azure VPN 閘道。
@@ -105,7 +108,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 6. [選擇身分識別] 會顯示一份憑證清單供您選擇。 選取適當憑證，然後按一下 [繼續]。
 
   ![身分識別](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
-7. 在 [地區設定識別碼] 欄位中指定憑證名稱 (來自步驟 5)。 在此範例中，名稱是 "ikev2Client.com"。 然後，按一下 [套用] 按鈕以儲存變更。
+7. 在 [地區設定識別碼] 欄位中指定憑證名稱 (來自步驟 6)。 在此範例中，名稱是 "ikev2Client.com"。 然後，按一下 [套用] 按鈕以儲存變更。
 
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 8. 在 [網路] 對話方塊中按一下 [套用] 以儲存所有變更。 然後，按一下 [連線] 以啟動 Azure VNet 的 P2S 連線。
@@ -113,3 +116,4 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 ## <a name="next-steps"></a>後續步驟
 
 回到本文以[完成 P2S 設定](vpn-gateway-howto-point-to-site-rm-ps.md)。
+

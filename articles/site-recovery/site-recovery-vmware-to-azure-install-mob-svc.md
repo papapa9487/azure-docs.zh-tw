@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 848284f37ae2470a169d8f8a8c9c0bb5b926abe3
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -30,7 +30,7 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 * [使用 Azure 自動化和預期狀態設定 (Automation DSC) 安裝行動服務](site-recovery-automate-mobility-service-install.md)
 * [使用圖形化使用者介面 (GUI) 手動安裝行動服務](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-by-using-the-gui)
 * [在命令提示字元中手動安裝行動服務](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-manually-at-a-command-prompt)
-* [透過推送安裝從 Azure Site Recovery 安裝行動服務](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
+* [透過推送安裝從 Site Recovery 安裝行動服務](site-recovery-vmware-to-azure-install-mob-svc.md#install-mobility-service-by-push-installation-from-azure-site-recovery)
 
 
 >[!IMPORTANT]
@@ -64,7 +64,7 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>使用 GUI 手動安裝行動服務
 
 >[!IMPORTANT]
-> 如果您是使用**設定伺服器**從一個 Azure 訂用帳戶/區域將 **Azure IaaS 虛擬機器**複寫到另一個 Azure 訂用帳戶/區域，請**使用以命令列為基礎的安裝方法**
+> 如果您是使用「設定伺服器」從某個 Azure 訂用帳戶/區域將「Azure IaaS 虛擬機器」複寫到另一個 Azure 訂用帳戶/區域，請「使用以命令列為基礎的安裝方法」
 
 [!INCLUDE [site-recovery-install-mob-svc-gui](../../includes/site-recovery-install-mob-svc-gui.md)]
 
@@ -78,7 +78,7 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 
 
 ## <a name="install-mobility-service-by-push-installation-from-azure-site-recovery"></a>透過推送安裝從 Azure Site Recovery 安裝行動服務
-若要使用 Site Recovery 來執行行動服務安裝推送安裝，所有目標電腦都必須符合下列必要條件。
+若要使用 Site Recovery 來執行行動服務的推送安裝，所有目標電腦都必須符合下列必要條件：
 
 [!INCLUDE [site-recovery-prepare-push-install-mob-svc-win](../../includes/site-recovery-prepare-push-install-mob-svc-win.md)]
 
@@ -86,7 +86,21 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 
 
 > [!NOTE]
-安裝行動服務之後，選取 Azure 入口網站中的 [複寫] 按鈕以開始保護這些 VM。
+安裝行動服務之後，選取 Azure 入口網站中的 [+複寫] 按鈕以開始保護這些 VM。
+
+## <a name="update-mobility-service"></a>更新行動服務
+
+> [!WARNING]
+> 在開始更新受保護伺服器上的行動服務之前，請確保設定伺服器、相應放大處理序伺服器，以及作為部署之一部分的所有主要目標伺服器皆已完成更新。 請進一步參閱[如何更新設定伺服器](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server)和[如何更新相應放大處理序伺服器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+
+1. 在 Azure 入口網站上，請瀏覽至 <Your Vault> -> [複寫的項目] 檢視。
+2. 如果「設定伺服器」已經更新至最新版本，您應該會看到內容為「有新的 Site Recovery 複寫代理程式更新可用。按一下可安裝」的通知
+3. 按一下該通知以開啟虛擬機器選取頁面。
+4. 選取要升級行動服務的虛擬機器，然後按一下 [確定] 按鈕。
+5. 這將會針對每個選取的虛擬機器啟動「更新行動服務」作業。
+
+> [!NOTE]
+> [深入了解](site-recovery-vmware-to-azure-manage-configuration-server.md)如何更新用來安裝行動服務之帳戶的密碼 
 
 ## <a name="uninstall-mobility-service-on-a-windows-server-computer"></a>將 Windows Server 電腦上的行動服務解除安裝
 您可以使用下列其中一種方法將 Windows Server 電腦上的行動服務解除安裝。

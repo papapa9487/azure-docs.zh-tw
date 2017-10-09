@@ -14,14 +14,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 36285fbaf1da3c566d338bd5612eebad327eaf50
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c72de1c83fe73019ac3ad8b8487aa25bbd078555
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>在 Java 中建立 Apache Storm 拓撲
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* [Java Developer Kit (JDK) 第 7 版](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+* [Java Developer Kit (JDK) 第 8 版](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 * [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi)：Maven 是適用於 Java 專案的專案建置系統。
 
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/13/2017
 
 當您安裝 Java 和 JDK 時可能會設定下列環境變數。 不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
 
-* **JAVA_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。 例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-7-oracle` 在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** - 應該指向已安裝 Java 執行階段環境 (JRE) 的目錄。 例如，在 Unix 或 Linux 散發套件上，它的值應該類似 `/usr/lib/jvm/java-8-oracle` 在 Windows 中，它的值應該類似 `c:\Program Files (x86)\Java\jre1.8`
 
 * **PATH** - 應該包含下列路徑：
 
@@ -133,9 +133,9 @@ Maven 可讓您定義稱為屬性的專案層級值。 在 __pom.xml__ 中，在
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.5.
     -->
-    <storm.version>1.0.1.2.5.3.0-37</storm.version>
+    <storm.version>1.1.0.2.6.1.9-1</storm.version>
 </properties>
 ```
 
@@ -611,40 +611,42 @@ YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您�
 
 2. 在 `resources` 目錄中，建立名稱為 `topology.yaml` 的檔案。 使用下列文字做為此檔案的內容。
 
-        name: "wordcount"       # friendly name for the topology
+    ```yaml
+    name: "wordcount"       # friendly name for the topology
+
+    config:                 # Topology configuration
+      topology.workers: 1     # Hint for the number of workers to create
+
+    spouts:                 # Spout definitions
+    - id: "sentence-spout"
+      className: "com.microsoft.example.RandomSentenceSpout"
+      parallelism: 1      # parallelism hint
+
+    bolts:                  # Bolt definitions
+    - id: "splitter-bolt"
+      className: "com.microsoft.example.SplitSentence"
+      parallelism: 1
         
-        config:                 # Topology configuration
-        topology.workers: 1     # Hint for the number of workers to create
-        
-        spouts:                 # Spout definitions
-        - id: "sentence-spout"
-            className: "com.microsoft.example.RandomSentenceSpout"
-            parallelism: 1      # parallelism hint
-        
-        bolts:                  # Bolt definitions
-        - id: "splitter-bolt"
-            className: "com.microsoft.example.SplitSentence"
-            parallelism: 1
-         
-        - id: "counter-bolt"
-            className: "com.microsoft.example.WordCount"
-            constructorArgs:
-                - 10
-            parallelism: 1
-        
-        streams:                # Stream definitions
-            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-            from: "sentence-spout"       # The stream emitter
-            to: "splitter-bolt"          # The stream consumer
-            grouping:                    # Grouping type
-                type: SHUFFLE
-          
-            - name: "Splitter -> Counter"
-            from: "splitter-bolt"
-            to: "counter-bolt"
-            grouping:
-            type: FIELDS
-                args: ["word"]           # field(s) to group on
+    - id: "counter-bolt"
+      className: "com.microsoft.example.WordCount"
+      constructorArgs:
+        - 10
+      parallelism: 1
+
+    streams:                # Stream definitions
+    - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+      from: "sentence-spout"       # The stream emitter
+      to: "splitter-bolt"          # The stream consumer
+      grouping:                    # Grouping type
+        type: SHUFFLE
+    
+    - name: "Splitter -> Counter"
+      from: "splitter-bolt"
+      to: "counter-bolt"
+      grouping:
+        type: FIELDS
+        args: ["word"]           # field(s) to group on
+    ```
 
 3. 對 `pom.xml`檔案進行下列變更。
    
@@ -722,14 +724,14 @@ YAML 檔案會定義要用於拓撲的元件以及其間的資料流程。 您�
     ```
 
     > [!WARNING]
-    > 如果您的拓撲使用 Storm 1.0.1 位元，此命令就會失敗。 此失敗是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 所造成。 請改為[在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，並使用下列資訊。
-
-    如果您已[在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，您可以改用下列命令：
-
-    ```bash
-    mvn compile package
-    storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
-    ```
+    > 如果您的拓撲使用 Storm 1.0.1 位元，此命令就會失敗。 此失敗是由 [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055) 所造成。 請改為[在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，並使用下列步驟：
+    >
+    > 如果您已[在開發環境中安裝 Storm](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html)，您可以改用下列命令：
+    >
+    > ```bash
+    > mvn compile package
+    > storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
+    > ```
 
     `--local` 參數會在開發環境上以本機模式執行拓撲。 `-R /topology.yaml` 參數會使用 jar 檔案中的 `topology.yaml` 檔案資源來定義拓撲。
 

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 25c5f72be8dc79d8b33a598c7be494bd955eb850
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c9dfd3e3b9c155255959f76fd9b58b6935888db2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Azure Functions C# 指令碼開發人員參考
@@ -96,7 +96,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ## <a name="logging"></a>記錄
 若要使用 C# 將輸出記錄至串流記錄，請包含 `TraceWriter` 類型的引數。 建議您將它命名為 `log`。 避免在 Azure Functions 中使用 `Console.Write`。 
 
-`TraceWriter` 已定義於 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs)。 可以在 [host\.json] 中設定 `TraceWriter` 的記錄層級。
+`TraceWriter` 已定義於 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs)。 可以在 [host.json](functions-host-json.md) 中設定 `TraceWriter` 的記錄層級。
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -198,7 +198,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 
 ### <a name="watched-directories"></a>監看的目錄
 
-系統會自動監看包含函式指令碼檔案之目錄中的組件變更。 若要監看其他目錄中的組件變更，將它們新增至 [host\.json] 中的 `watchDirectories` 清單。
+系統會自動監看包含函式指令碼檔案之目錄中的組件變更。 若要監看其他目錄中的組件變更，請將它們新增至 [host.json](functions-host-json.md) 中的 `watchDirectories` 清單。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 套件
 若要在 C# 函式中使用 NuGet 套件，請將 project.json  檔案上傳至函式應用程式檔案系統中的函式資料夾。 以下是範例 project.json  檔案，該檔案會加入對 Microsoft.ProjectOxford.Face 1.1.0 版的參考：
@@ -217,7 +217,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 
 只支援 .NET Framework 4.6，因此請確認您的 *project.json* 檔案指定 `net46`，如以下所示。
 
-當您上傳 project.json  檔案時，執行階段會取得封裝並自動加入對封裝組件的參考。 您不需要加入 `#r "AssemblyName"` 指示詞。 若要使用 NuGet 套件中定義的類型，請將所需的 `using` 陳述式新增到 *run.csx* 檔案 
+當您上傳 project.json  檔案時，執行階段會取得封裝並自動加入對封裝組件的參考。 您不需要加入 `#r "AssemblyName"` 指示詞。 若要使用 NuGet 套件中定義的類型，請將所需的 `using` 陳述式新增到 *run.csx* 檔案。 
 
 在 Functions 執行階段中，NuGet 還原會透過比較 `project.json` 和 `project.lock.json` 來運作。 如果檔案的日期和時間戳記**不**相符，會執行 NuGet 還原，且 NuGet 會下載更新的套件。 不過，如果檔案的日期和時間戳記**相符**，NuGet 不會執行還原。 因此，不應該部署 `project.lock.json`，因為它會導致 NuGet 略過還原。 若要避免部署鎖定檔案，請將 `project.lock.json` 加入至 `.gitignore` 檔案。
 
@@ -379,7 +379,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-其中 `BindingTypeAttribute` 是可定義繫結的.NET 屬性，而 `T` 是該繫結類型支援的輸入或輸出類型。 `T` 也不能是 `out` 參數類型 (例如 `out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以對 `T` 使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
+`BindingTypeAttribute` 是可定義繫結的.NET 屬性，而 `T` 是該繫結類型所支援的輸入或輸出類型。 `T` 也不能是 `out` 參數類型 (例如 `out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以對 `T` 使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
 
 下列範例程式碼會使用在執行階段定義的 blob 路徑來建立[儲存體 blob 輸出繫結](functions-bindings-storage-blob.md#using-a-blob-output-binding)，然後將字串寫入 blob。
 
@@ -443,6 +443,4 @@ public static async Task Run(string input, Binder binder)
 * [Azure Functions F# 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
-
-[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json
 

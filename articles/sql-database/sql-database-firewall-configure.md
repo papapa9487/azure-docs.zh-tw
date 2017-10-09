@@ -15,18 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/12/2017
+ms.date: 09/15/2017
 ms.author: rickbyh
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 6ba04cd62aff587e56308bb332e31b2da75398cb
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: a683481c9ebcdb8be6f9fefe442541e222482823
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-sql-database-server-level-and-database-level-firewall-rules"></a>Azure SQL Database 伺服器層級和資料庫層級防火牆規則 
 
 Microsoft Azure SQL Database 為 Azure 和其他網際網路式應用程式提供關聯式資料庫服務。 為了協助保護您的資料，防火牆會防止對您的資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與資料庫存取權。
+
+#### <a name="virtual-netowrk-rules-as-alternatives-to-ip-rules"></a>虛擬網路規則可作為 IP 規則的替代方案
+
+除了 IP 規則，防火牆也會管理「虛擬網路規則」。 虛擬網路規則是以虛擬網路服務端點為基礎。 在某些情況下，相較於 IP 規則，最好使用虛擬網路規則。 若要深入了解，請參閱 [Azure SQL Database 的虛擬網路服務端點和規則](sql-database-vnet-service-endpoint-rule-overview.md)。
 
 ## <a name="overview"></a>概觀
 

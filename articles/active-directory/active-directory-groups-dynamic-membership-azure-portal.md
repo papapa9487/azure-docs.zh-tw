@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: edf3b0a80712e8287a66978e0e9574949805a27a
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
@@ -292,7 +292,75 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 
 
 
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>將動態成員資格變更為靜態，反之亦然
+您可以變更在群組中管理成員資格的方式。 當您想要在系統中保留相同的群組名稱和識別碼，讓任何現有的群組參考仍然有效時，這非常實用；建立新的群組需要更新這些參考。
 
+我們正在更新 Azure 入口網站以支援此功能。 同時，您可以使用 [Azure 傳統入口網站](https://manage.windowsazure.com) (依照[這裡](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)的指示) 或使用 PowerShell Cmdlet，如下所示。
+
+> [!WARNING]
+> 將現有的靜態群組變更為動態群組時，系統將從群組中移除所有現有的成員，然後再處理成員資格規則，以加入新的成員。 如果群組用來控制對應用程式或資源的存取，則在完全處理成員資格規則之前，原始成員可能會失去存取權。
+>
+> 建議的作法是，事先測試新的成員資格規則，以確保群組中的新成員資格如預期般運作。
+
+**使用 PowerShell 變更群組上的成員資格管理**
+
+> [!NOTE]
+> 若要變更動態群組屬性，您必須使用 [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。
+>
+> 目前只有最新預覽版本的程式庫包含所需的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝它。
+
+以下是在現有群組上切換成員資格管理的函式範例。 請注意，請小心並正確地操作 GroupTypes 屬性，並保留可能存在該處，與動態成員資格不相關的任何值。
+
+```
+#The moniker for dynamic groups as used in the GroupTypes property of a group object
+$dynamicGroupTypeString = "DynamicMembership"
+
+function ConvertDynamicGroupToStatic
+{
+    Param([string]$groupId)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -eq $null -or !$groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a static group. Aborting conversion.";
+    }
+
+
+    #remove the type for dynamic groups, but keep the other type values
+    $groupTypes.Remove($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to remove the dynamic type, ii) pause execution of the current rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "Paused"
+}
+
+function ConvertStaticGroupToDynamic
+{
+    Param([string]$groupId, [string]$dynamicMembershipRule)
+
+    #existing group types
+    [System.Collections.ArrayList]$groupTypes = (Get-AzureAdMsGroup -Id $groupId).GroupTypes
+
+    if($groupTypes -ne $null -and $groupTypes.Contains($dynamicGroupTypeString))
+    {
+        throw "This group is already a dynamic group. Aborting conversion.";
+    }
+    #add the dynamic group type to existing types
+    $groupTypes.Add($dynamicGroupTypeString)
+
+    #modify the group properties to make it a static group: i) change GroupTypes to add the dynamic type, ii) start execution of the rule, iii) set the rule
+    Set-AzureAdMsGroup -Id $groupId -GroupTypes $groupTypes.ToArray() -MembershipRuleProcessingState "On" -MembershipRule $dynamicMembershipRule
+}
+```
+若要讓群組變成靜態的：
+```
+ConvertDynamicGroupToStatic "a58913b2-eee4-44f9-beb2-e381c375058f"
+```
+若要讓群組變成動態的：
+```
+ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.displayName -startsWith ""Peter"""
+```
 ## <a name="next-steps"></a>後續步驟
 這些文章提供有關 Azure Active Directory 中群組的其他資訊。
 

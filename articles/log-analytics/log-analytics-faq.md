@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/26/2017
 ms.author: magoedte
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: 8ddea06b1a90e9b1599466ad4d1c3af7a6dc8ba9
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 0b27386cd0f9f3ae50314b8c5d7708aea3e3d028
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常見問題集
-此 Microsoft 常見問題集是 Microsoft Operations Management Suite (OMS) 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
+此 Microsoft 常見問題集是 Microsoft Azure 中 Log Analytics 常見問題的清單。 若您有任何關於 Log Analytics 的其他問題，請前往[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題。 當問到常見問題時，我們會將其新增至此文章，以便其他人可以快速輕鬆地找到此問題。
 
 ## <a name="general"></a>一般
 
@@ -40,21 +40,17 @@ A. 下列查詢會顯示目前執行的所有檢查的描述：
 
 然後可將結果匯出至 Excel 供進一步檢閱。
 
-### <a name="q-why-do-i-see-something-different-than-oms-in-system-center-operations-manager-console"></a>問：為什麼我在 System Center Operations Manager 主控台中看到與 *OMS* 不同的項目？
+### <a name="q-why-do-i-see-something-different-than-oms-in-the-system-center-operations-manager-console"></a>問：為什麼我在 System Center Operations Manager 主控台中看到與 OMS 不同的項目？
 
 答：根據您所採用的 Operations Manager 更新彙總套件而定，您可能會看到 *System Center Advisor*、*Operational Insights* 或 *Log Analytics* 節點。
 
 對 *OMS* 文字字串的更新包含在管理組件西，必須手動匯入它。 若要查看目前文字和功能，請遵循最新 System Center Operations Manager 更新彙總套件知識庫文章中的指示，並重新整理主控台。
 
-### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>問：Log Analytics 是否有「內部部署」版本？
+### <a name="q-is-there-an-on-premises-version-of-log-analytics"></a>問：Log Analytics 是否有內部部署版本？
 
-答：否。 Log Analytics 可以處理並儲存大量資料。 作為一項雲端服務，Log Analytics 在必要時可以向上延展，並避免對您的環境效能的任何影響。
+答：否。 Log Analytics 是一個可擴充的雲端服務，可處理並儲存大量資料。 
 
-其他優點包括：
-- Microsoft 執行 Log Analytics 基礎結構，為您節省成本
-- 定期部署功能更新和修正程式。
-
-### <a name="q-how-do-i-troubleshoot-that-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
+### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>問： 如何針對 Log Analytics 不再收集資料的問題進行疑難排解？
 
 答：如果您在免費定價層並在某天傳送了超過 500 MB 的資料，就會停止收集當天其餘資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。
 
@@ -127,13 +123,13 @@ A. `Move-AzureRmResource` Cmdlet 可讓您將 Log Analytics 工作區及自動�
 
 答：若要確保代理程式可以與 OMS 通訊，請移至：[控制台] > [安全性和設定] > [Microsoft Monitoring Agent]。
 
-在 [Azure Log Analytics (OMS)]  索引標籤中，找出綠色的核取記號。 綠色核取記號圖示可確認代理程式能夠與 OMS 服務進行通訊。
+在 [Azure Log Analytics (OMS)]  索引標籤中，找出綠色的核取記號。 綠色核取記號圖示可確認代理程式能夠與 Azure 服務進行通訊。
 
-黃色警告圖示表示代理程式有與 OMS 通訊的問題。 一個常見原因是 Microsoft Monitoring Agent 服務已停止。 使用服務控制管理員來重新啟動服務。
+黃色警告圖示表示代理程式有與 Log Analytics 通訊的問題。 一個常見原因是 Microsoft Monitoring Agent 服務已停止。 使用服務控制管理員來重新啟動服務。
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>問：如何阻止代理程式與 Log Analytics 通訊？
 
-答：在 System Center Operations Manager 中，從 Advisor 受管理的電腦清單中移除該電腦。 Operations Manager 會將代理程式的設定更新為不再向 Log Analytics 回報。 針對直接連線到 Log Analytics 的代理程式，您可以透過 [控制台] > [安全性和設定] > [Microsoft Monitoring Agent] 來阻止其通訊。
+答：在 System Center Operations Manager 中，從 OMS 受管理的電腦清單中移除該電腦。 Operations Manager 會將代理程式的設定更新為不再向 Log Analytics 回報。 針對直接連線到 Log Analytics 的代理程式，您可以透過 [控制台] > [安全性和設定] > [Microsoft Monitoring Agent] 來阻止其通訊。
 在 **Azure Log Analytics (OMS)** 下，移除所有列出的工作區。
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>問︰當我試著將工作區從某個 Azure 訂用帳戶移到另一個時，為什麼會發生錯誤？
@@ -162,15 +158,13 @@ A. 每個代理程式所傳送的資料量取決於：
 * 記錄檔和要收集之效能計數器的數目
 * 記錄檔中的資料量
 
-免費定價層是將數個伺服器上架和量測典型資料量的好方法。 [使用量](log-analytics-usage.md) 頁面會顯示整體使用方式。
+免費定價層是將數個伺服器上架和量測典型資料量的好方法。 [使用量] [](log-analytics-usage.md) 頁面會顯示整體使用方式。
 
 對於可執行 WireData 代理程式的電腦，請使用下列查詢查看正在傳送的資料量：
 
 ```
 Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent\\MonitoringHost.exe") (Direction=Outbound) | measure Sum(TotalBytes) by Computer
 ```
-
-
 
 ## <a name="next-steps"></a>後續步驟
 * [開始使用 Log Analytics](log-analytics-get-started.md) 以深入了解 Log Analytics，並幾分鐘內就啟動並執行。

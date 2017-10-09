@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4f46c0ee94cbeb39bc7b28874cd41f1faf5deb5
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: bef3e7bf8b1fd9199d0c8a083d94660b8eed3365
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
@@ -129,6 +129,32 @@ COPYFILE 中的強制旗標 **f** 會導致在 Unix 上執行 **cp -p -f**。 �
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
+
+## <a name="cannot-connect-or-mount-an-azure-file-share"></a>無法連線到或掛接 Azure 檔案共用
+
+### <a name="cause"></a>原因
+
+此問題的常見原因為：
+
+
+- 您使用的是不相容的 Linux 散發套件用戶端。 建議您使用下列的 Linux 散發套件來連線到 Azure 檔案共用：
+
+    - Ubuntu Server 14.04+ 
+    - RHEL 7+ 
+    - CentOS 7+ 
+    - Debian 8 
+    - openSUSE 13.2+ 
+    - SUSE Linux Enterprise Server 12
+
+- 用戶端上未安裝 CIFS 公用程式。
+- 用戶端未安裝 SMB/CIFS 的最低版本 (2.1 版)。
+- 用戶端不支援 SMB 3.0 加密。 SMB 3.0 加密可於 Ubuntu 16.4 和更新版本，以及 SUSE 12.3 和更新版本中使用。 其他散發套件需要核心 4.11 和更新版本。
+- 您正在嘗試透過不支援的 TCP 通訊埠 445 連線到儲存體帳戶。
+- 您正在嘗試從 Azure VM 連線到 Azure 檔案共用，而該 VM 與儲存體帳戶位於不同的區域。
+
+### <a name="solution"></a>方案
+
+若要解決此問題，請使用[適用於 Linux 上 Azure 檔案服務掛接錯誤的疑難排解工具](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) \(英文\)。 此工具可協助您驗證用戶端執行環境、偵測可能造成 Azure 檔案服務存取錯誤的不相容用戶端設定、提供自行修正的規範指引，以及收集診斷追蹤。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 

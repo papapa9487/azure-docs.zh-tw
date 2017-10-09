@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 08/21/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e0df5b4c4ce23a746e60b491193e5a69df5ffdbd
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
+
+「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+
 ## <a name="create-a-marketplace-item"></a>建立 Marketplace 項目
 1. [下載](http://www.aka.ms/azurestackmarketplaceitem) Azure Gallery Packager 工具和範例 Azure Stack Marketplace 項目。
 2. 開啟範例 Marketplace 項目，並重新命名 **SimpleVMTemplate** 資料夾。 (使用與您的 Marketplace 項目相同的名稱 - 例如 **Contoso.TodoList**。)此資料夾包含：
@@ -80,7 +83,7 @@ ms.lasthandoff: 09/25/2017
    | SubscriptionID |管理訂用帳戶 ID。 您可以使用 PowerShell 來擷取它。 如果您偏好在入口網站中取得它，請移至提供者的訂用帳戶，並複製該訂用帳戶識別碼。 |
    | GalleryItemUri |已上傳至儲存體的您的資源庫套件的 Blob URI。 |
    | Apiversion |設定為 **2015-04-01**。 |
-4. 移至入口網站。 身為系統管理員或租用戶的使用者，現在可以在入口網站中看到 Marketplace 項目。
+4. 移至入口網站。 身為操作員或使用者，現在可以在入口網站中看到 Marketplace 項目。
    
    > [!NOTE]
    > 套件可能需要幾分鐘才會出現。

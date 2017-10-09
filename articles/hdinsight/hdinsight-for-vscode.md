@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 09/26/2017
 ms.author: jejiang
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17900c88fcfccd9c56ac548d1e9167b16a92b433
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="use-azure-hdinsight-tool-for-visual-studio-code-hive-llap-or-pyspark"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具 (Hive、LLAP 或 pySpark)
+# <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
 了解如何使用適用於 Visual Studio Code (VSCode) 的 Azure HDInsight 工具來建立、提交 Hive 批次作業、互動式 Hive 查詢和 pySpark 指令碼。 Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows、Linux 和 MacOS。 您可以找到不同平台的必要條件。
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 09/25/2017
 **安裝 Azure HDInsight 工具**
 
 1. 開啟 **Visual Studio Code**。
-2. 按一下左窗格的 [擴充功能]。 在搜尋方塊中輸入 **Azure HDInsight 工具**。
+2. 按一下左窗格的 [擴充功能]。 在搜尋方塊中輸入 **HDInsight**。
 3. 按一下 [Azure HDInsight 工具] 旁邊的 [安裝]。 幾秒鐘後，[安裝] 按鈕就會變為 [重新載入]。
 4. 按一下 [重新載入] 來啟動 **Azure HDInsight 工具**擴充功能。
 5. 按一下 [重新載入視窗] 進行確認。 您會在 [擴充功能] 窗格中看到 **Azure HDInsight 工具**。
@@ -86,13 +86,9 @@ ms.lasthandoff: 09/25/2017
 2. 以滑鼠右鍵按一下指令碼編輯器，然後從快顯功能表選取 [HDInsight: 登入]。 您也可以按 **CTRL+SHIFT+P** 並輸入 **HDInsight: 登入**。
 
     ![「適用於 Visual Studio Code 的 HDInsight 工具」登入](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-3. 按一下 [Azure] 或 [AzureChina] (視訂用帳戶而定)。
-
-    ![「適用於 Visual Studio Code 的 HDInsight 工具」登入選項](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
-
 3. 遵循 [輸出] 窗格中的登入指示來登入。
 
-    **Azure：**![「適用於 Visual Studio Code 的 HDInsight 工具」登入資訊](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png) **AzureChina：**![「適用於 Visual Studio Code 的 HDInsight 工具」(中國) 登入資訊](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
+    **Azure：**![適用於 Visual Studio Code 的 HDInsight 工具登入資訊](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
 
     連線之後，您的 Azure 帳戶名稱會顯示在 VSCode 視窗左下角的狀態列上。 
 
@@ -126,7 +122,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="set-default-cluster"></a>設定預設叢集
 1. 開啟工作區，然後連線到 Azure。 請參閱[開啟 HDInsight 工作區](#open-hdinsight-workspace)和[連線到 Azure](#connect-to-azure)。
-2. 以滑鼠右鍵按一下指令碼編輯器，然後按一下 [HDInsight: 設定預設叢集]。 
+2. 以滑鼠右鍵按一下指令碼編輯器，然後按一下HDInsight: 設定預設叢集。 
 3. 選取某個叢集來作為目前指令碼檔案的預設叢集。 工具會自動更新組態檔 **XXXX_hdi_settings.json**。 
 
    ![設定預設叢集組態](./media/hdinsight-for-vscode/set-default-cluster-configuration.png)
@@ -150,7 +146,7 @@ ms.lasthandoff: 09/25/2017
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. 以滑鼠右鍵按一下指令碼編輯器，然後按一下 [HDInsight: 互動式 Hive] 以提交查詢。 此工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 不久之後，系統就會在新的索引標籤中顯示查詢結果：
+3. 以滑鼠右鍵按一下指令碼編輯器，然後按一下HDInsight: 互動式 Hive 以提交查詢。 此工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 不久之後，系統就會在新的索引標籤中顯示查詢結果：
 
    ![互動式 Hive 結果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -168,7 +164,7 @@ ms.lasthandoff: 09/25/2017
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. 以滑鼠右鍵按一下指令碼編輯器，然後按一下 [HDInsight: 提交 Hive 批次指令碼] 以提交 Hive 作業。 
+3. 以滑鼠右鍵按一下指令碼編輯器，然後按一下HDInsight: 提交 Hive 批次指令碼 以提交 Hive 作業。 
 4. 選取要提交到哪個叢集。  
 
     在提交 Hive 作業之後，[輸出] 面板中就會顯示提交成功資訊和 jobid。 並且會開啟**網頁瀏覽器**，在其中顯示作業即時記錄和狀態。
@@ -204,7 +200,7 @@ ms.lasthandoff: 09/25/2017
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. 以滑鼠右鍵按一下指令碼編輯器，然後按一下 [HDInsight: 提交 PySpark 作業]。 
+4. 以滑鼠右鍵按一下指令碼編輯器，然後按一下HDInsight: 提交 PySpark 作業。 
 5. 選取一個叢集來提交 PySpark 作業。 
 
    ![提交 python 作業結果](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 

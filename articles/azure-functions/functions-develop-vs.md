@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Azure Functions Tools for Visual Studio  
@@ -57,7 +57,7 @@ Azure Functions Tools 提供下列優點：
 
 當您使用 Azure Functions 範本建立新專案時，會取得空 C# 專案，其中包含下列檔案：
 
-* **host.json**：讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) \(英文\) 參考文章。
+* **host.json**：讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
     
 * **local.settings.json**：維持在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 使用此檔案來指定設定，例如連至其他 Azure 服務的連接字串。 針對專案中函數所需的每個連接，將新機碼新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞主題中的[本機設定檔](functions-run-local.md#local-settings-file)。
 

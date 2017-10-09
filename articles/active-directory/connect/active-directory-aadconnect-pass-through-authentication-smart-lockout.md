@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -56,7 +56,7 @@ Azure AD 可防範暴力密碼破解攻擊，並防止正版使用者遭到其 O
 
 ![AD 帳戶鎖定原則](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values"></a>使用圖形 API 來管理租用戶的智慧鎖定值
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>使用圖形 API 管理租用戶的智慧鎖定值 (需要 Premium 授權)
 
 >[!IMPORTANT]
 >使用圖形 API 來修改 Azure AD 的鎖定閾值和鎖定期間值是 Azure AD Premium P2 的功能。 另外，您也必須是租用戶的全域管理員。

@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 641afd78aae145c5e1b16a08567a22c1aafe59a8
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: a20f6db8bbbc9b7936cf102e8cd2ff1b2a995fb2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
@@ -202,7 +202,7 @@ Functions 讓您定義寫入至主控台的閾值追蹤層級，這可讓您輕�
 }  
 ```
 
-**consoleLevel** 的值對應至 `context.log` 方法的名稱。 若要停用主控台的所有追蹤記錄，請將 **consoleLevel** 設為 _off_。 如需 host.json 檔案的詳細資訊，請參閱 [host.json 參考主題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json) (英文)。
+**consoleLevel** 的值對應至 `context.log` 方法的名稱。 若要停用主控台的所有追蹤記錄，請將 **consoleLevel** 設為 _off_。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
 ## <a name="http-triggers-and-bindings"></a>HTTP 觸發程序和繫結
 

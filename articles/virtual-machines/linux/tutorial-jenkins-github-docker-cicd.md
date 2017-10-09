@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/08/2017
+ms.date: 09/25/2017
 ms.author: iainfou
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d9849b5e061dd7f2ae0744a3522dc2eb1fb37035
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 84bddd0cb6e53786d3aafb3f7acde34b7e19f83b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -120,22 +120,22 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 現在開啟瀏覽器，前往 `http://<publicIps>:8080`。 完成初始 Jenkins 設定，如下所示︰
 
 - 輸入上一個步驟從 VM 取得的 initialAdminPassword。
-- 按一下 [選取要安裝的外掛程式]
-- 在頂端的文字方塊中搜尋 GitHub，選取 GitHub 外掛程式，然後按一下 [安裝]
+- 選擇 [選取要安裝的外掛程式]
+- 在頂端的文字方塊中搜尋「GitHub」，選取「GitHub 外掛程式」，然後選取 [安裝]
 - 若要建立 Jenkins 使用者帳戶，依所需填寫表單。 從安全性角度來看，您應該建立第一個 Jenkins 使用者，而不是繼續使用預設管理帳戶。
-- 完成後，按一下 [開始使用 Jenkins]
+- 完成後，選取 [開始使用 Jenkins]
 
 
 ## <a name="create-github-webhook"></a>建立 GitHub webhook
-若要設定與 GitHub 整合，開啟 Azure 範例存放庫中的 [Node.js Hello World 範例應用程式](https://github.com/Azure-Samples/nodejs-docs-hello-world)。 為了將存放庫分支至您自己的 GitHub 帳戶，按一下右上角的 [分支] 按鈕。
+若要設定與 GitHub 整合，開啟 Azure 範例存放庫中的 [Node.js Hello World 範例應用程式](https://github.com/Azure-Samples/nodejs-docs-hello-world)。 若要將存放庫分支至您自己的 GitHub 帳戶，請選取右上角的 [分支] 按鈕。
 
 在您建立的分支內建立 webhook︰
 
-- 按一下 [設定]，然後選取左手邊的 [整合與服務]。
-- 按一下 [新增服務]，在篩選方塊中輸入 Jenkins。
+- 選取 [設定]，然後選取左側的 [整合與服務]。
+- 選擇 [新增服務]，然後在篩選方塊中輸入 *Jenkins*。
 - 選取 [Jenkins (GitHub 外掛程式)]
 - 在 [Jenkins 勾點 URL] 輸入 `http://<publicIps>:8080/github-webhook/`。 別漏掉最後的斜線 (/)。
-- 按一下 [新增服務]。
+- 選取 [新增服務]
 
 ![將 GitHub webhook 新增至您的分支存放庫](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -143,28 +143,28 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 ## <a name="create-jenkins-job"></a>建立 Jenkins 作業
 為了讓 Jenkins 回應 GitHub 中的事件，例如認可程式碼，請建立 Jenkins 作業。 
 
-在您的 Jenkins 網站中，按一下首頁中的 [建立新作業]︰
+在您的 Jenkins 網站中，選取首頁中的 [建立新作業]︰
 
 - 輸入 HelloWorld 作為作業名稱。 選擇 [自由樣式專案]，然後選取 [確定]。
 - 在 [一般] 區段中，選取 [GitHub] 專案，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 .git URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
-- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
-- 按一下作業視窗底部的 [儲存]。
+- 在 [組建] 區段中，選擇 [新增建置步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
+- 選取作業視窗底部的 [儲存]。
 
 
 ## <a name="test-github-integration"></a>測試 GitHub 整合
 若要測試 GitHub 與 Jenkins 的整合，請認可您分支中的變更。 
 
-回到 GitHub 的網路介面，選取您的分支存放庫，然後按一下 index.js 檔案。 按一下鉛筆圖示以編輯此檔案，將第 6 行改為︰
+回到 GitHub 的 Web UI，選取您的分支存放庫，然後選取 **index.js** 檔案。 選取鉛筆圖示以編輯此檔案，並將第 6 行改為︰
 
 ```nodejs
 response.end("Hello World!");
 ```
 
-若要認可變更，按一下底部的 [認可變更] 按鈕。
+若要認可變更，請選取位於底部的 [認可變更] 按鈕。
 
-在 Jenkins 在作業頁面左下角的 [組建歷程記錄] 區段中會啟動新的組建。 按一下組建編號的連結，選取左側大小的 [主控台輸出]。 在從 GitHub 提取您的程式碼時，您可以檢視 Jenkins 進行的步驟，組建動作會將 `Testing` 訊息輸出到主控台。 每次在 GitHub 中認可，webhook 就會連線到 Jenkins，以這種方式觸發新的組建。
+在 Jenkins 在作業頁面左下角的 [組建歷程記錄] 區段中會啟動新的組建。 選擇組建編號的連結，然後選取左側的 [主控台輸出]。 在從 GitHub 提取您的程式碼時，您可以檢視 Jenkins 進行的步驟，組建動作會將 `Testing` 訊息輸出到主控台。 每次在 GitHub 中認可，webhook 就會連線到 Jenkins，以這種方式觸發新的組建。
 
 
 ## <a name="define-docker-build-image"></a>定義 Docker 組建映像
@@ -193,12 +193,12 @@ COPY index.js /var/www/
 
 
 ## <a name="create-jenkins-build-rules"></a>建立 Jenkins 組建規則
-您已在上一個步驟中建立基本 Jenkins 組建規則，將訊息輸出至主控台。 現在要建立組建步驟來使用我們的 Dockerfile 並執行應用程式。
+您已在上一個步驟中建立基本 Jenkins 組建規則，將訊息輸出至主控台。 現在要建立建置步驟來使用我們的 Dockerfile 並執行應用程式。
 
-回到您的 Jenkins 執行個體，選取在上一個步驟建立的作業。 按一下左手邊的 [設定]，向下捲動至 [組建] 區段︰
+回到您的 Jenkins 執行個體，選取在上一個步驟建立的作業。 選取左側的 [設定]，然後向下捲動至 [建置] 區段︰
 
-- 移除現有的 `echo "Test"` 組建步驟。 按一下現有組建步驟方塊右上角的紅色叉叉。
-- 按一下 [新增組件步驟]，然後選取 [執行殼層]。
+- 移除現有的 `echo "Test"` 建置步驟。 選取現有建置步驟方塊右上角的紅色叉號。
+- 選擇 [新增建置步驟]，然後選取 [執行殼層]
 - 在 [命令] 方塊中輸入下列 Docker 命令，然後選取 [儲存]：
 
   ```bash
@@ -207,11 +207,11 @@ COPY index.js /var/www/
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Docker 組建步驟會建立映像，並標記 Jenkins 組建編號，讓您可以維護映像的歷程記錄。 系統會停止任何執行應用程式的現有容器，並加以移除。 然後會使用映像啟動新的容器將，並根據 GitHub 中最新的認可執行您的 Node.js 應用程式。
+Docker 建置步驟會建立映像，並標記 Jenkins 組建編號，讓您可以維護映像的歷程記錄。 系統會停止任何執行應用程式的現有容器，並加以移除。 然後會使用映像啟動新的容器將，並根據 GitHub 中最新的認可執行您的 Node.js 應用程式。
 
 
 ## <a name="test-your-pipeline"></a>測試您的管線
-若要查看作用中的整個管線，再次編輯您的分支 GitHub 存放庫中的 index.js 檔案，然後按一下 [認可變更]。 在 Jenkins 中會依據 GitHub 的 webhook啟動新的作業。 系統約需要幾秒鐘來建立 Docker 映像並在新容器中啟動應用程式。
+若要查看整個管線的作用情況，請再次編輯您分支 GitHub 存放庫中的 *index.js* 檔案，然後選取 [認可變更]。 在 Jenkins 中會依據 GitHub 的 webhook啟動新的作業。 系統約需要幾秒鐘來建立 Docker 映像並在新容器中啟動應用程式。
 
 如有需要，再次取得您的 VM 公用 IP 位址：
 

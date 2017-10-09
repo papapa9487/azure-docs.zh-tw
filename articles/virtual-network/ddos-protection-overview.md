@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0fa58c8bf0e50314c61272eb221878eca2c3def
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection Standard 概觀
 
 >[!IMPORTANT]
->Azure DDoS Protection Standard 目前為預覽狀態。 支援 DDoS Protection Standard 的 Azure 資源數量有限，並在幾個精選的區域提供支援。 您必須在有限的預覽期間[註冊此服務](http://aka.ms/ddosprotection)，才能為您的訂用帳戶啟用 DDoS Protection Standard。 註冊時，Azure DDoS 小組會與您連絡，引導您完成啟用程序。 DDoS Protection Standard 適用於美國東部、美國西部和美國中部地區。 預覽版期間，使用該服務無須付費。
+>Azure DDoS Protection Standard 目前為預覽狀態。 支援 DDoS Protection Standard 的 Azure 資源數量有限，並在幾個精選的區域提供支援。 您必須在有限的預覽期間[註冊此服務](http://aka.ms/ddosprotection)，才能為您的訂用帳戶啟用 DDoS Protection Standard。 註冊時，Azure DDoS 小組會與您連絡，引導您完成啟用程序。 DDoS Protection Standard 適用於美國東部、美國西部和美國中部等美國地區。 預覽版期間，使用該服務無須付費。
 
 分散式阻絕服務 (DDoS) 攻擊是將應用程式移至雲端的客戶所面臨的最大可用性和安全性顧慮之一。 DDoS 攻擊會嘗試耗盡應用程式的資源，讓合法使用者無法使用該應用程式。 DDoS 攻擊可以鎖定可透過網際網路公開觸達的任何端點。
 

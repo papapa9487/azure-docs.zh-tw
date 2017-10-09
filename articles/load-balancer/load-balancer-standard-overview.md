@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/21/2017
+ms.date: 09/28/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
-ms.openlocfilehash: 77d157800d71d1afc3411553b31c1182a1d0bc28
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/22/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 
@@ -369,6 +369,9 @@ Azure [網路服務的服務限制](https://docs.microsoft.com/en-us/azure/azure
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+
+>[!NOTE]
+>註冊 Load Balancer Standard 功能最多可能需要一小時的時間。
 
 >[!NOTE]
 >如果您想要搭配 Load Balancer 和 Public IP 使用可用性區域，您也必須註冊可用性區域預覽的訂用帳戶。

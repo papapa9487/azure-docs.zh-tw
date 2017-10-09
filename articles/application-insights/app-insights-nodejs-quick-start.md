@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f7351f310752803b910eef69e71d081ddc923c5e
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 279838150c94ab04eaea08dc30ee8b0f9f7ee3d5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -30,7 +30,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 - 您需要 Azure 訂用帳戶和現有的 Node.js Web 應用程式。
 
-如果您沒有 Node.js Web 應用程式，請依照[建立 Node.js Web 應用程式快速入門](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs)來建立。
+如果您沒有 Node.js Web 應用程式，請依照[建立 Node.js Web 應用程式快速入門](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)來建立。
  
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
 
@@ -69,7 +69,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    npm install applicationinsights --save
    ```
 
-3. 編輯應用程式的第一個 .js 檔案，將下列兩行新增至指令碼的最頂端部分。 如果您使用 [Node.js 快速入門應用程式](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-nodejs)，請修改 index.js 檔案。 
+3. 編輯應用程式的第一個 .js 檔案，將下列兩行新增至指令碼的最頂端部分。 如果您使用 [Node.js 快速入門應用程式](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs)，請修改 index.js 檔案。 
 
    ```JavaScript
    const appInsights = require('applicationinsights');

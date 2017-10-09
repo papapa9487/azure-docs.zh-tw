@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -38,6 +38,9 @@ ms.lasthandoff: 06/15/2017
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>為什麼容錯回復只有計劃性容錯移轉動作？
 Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃性活動，可讓您決定只要短暫停機，以便工作負載可以在內部部署再次開始執行。 這樣不會遺失資料。 因此，只有計劃性容錯移轉動作可用，它會關閉 Azure 中的 VM、下載最新的變更，並確保不會遺失任何資料。
 
+## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>Azure 中是否需要流程伺服器才能容錯回復至 Hyper-v？
+否，只有在您要保護 VMware 虛擬機器時，才需要流程伺服器。 保護/容錯回復 Hyper-v 虛擬機器時，不需要部署其他元件。
+
 ## <a name="initiate-failback"></a>起始容錯回復
 從主要位置容錯移轉至次要位置之後，複寫的虛擬機器就不會受到 Site Recovery 所保護，而次要位置現在會成為使用中位置。 請遵循這些程序，以容錯回復到原始的主要站台。 此程序說明如何針對復原方案執行計劃性容錯移轉。 或者，您可以在 [虛擬機器]  索引標籤上針對單一虛擬機器執行容錯移轉。
 
@@ -53,10 +56,6 @@ Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃�
 
     >[!NOTE]
     >如果您已經執行 Azure 一段時間 (一個月以上) 或已刪除內部部署虛擬機器，則建議您使用這個選項。這個選項不會執行任何總和檢查碼計算。
-    >
-    >
-
-
 
 
 4. 如果已針對雲端啟用資料加密，請在 [加密金鑰] 中，選取當您在 VMM 伺服器上安裝提供者期間啟用資料加密時所發出的憑證。
@@ -85,9 +84,13 @@ Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃�
 
     > [!NOTE]
     > 如果您取消正在「資料同步處理」步驟中的容錯回復作業，內部部署 VM 會變成損毀狀態。 這是因為資料同步處理會將 Azure VM 磁碟中最新的資料複製到內部部署資料磁碟，而在同步處理完成之前，資料可能會處於不一致狀態。 如果內部部署 VM 在取消資料同步處理後開機，則可能無法開機。 重新觸發容錯移轉以完成資料同步處理。
-    >
-    >
 
+## <a name="time-taken-to-failback"></a>容錯回復花費時間
+完成資料同步並啟動虛擬機器所花的時間取決於各種因素。 為了了解所花費的時間，我們會說明資料同步期間發生什麼事。
+
+資料同步會取得虛擬機器磁碟的快照集，並開始逐區塊進行檢查，以及計算其總和檢查碼。 此計算總和檢查碼會傳送至內部部署環境，以與相同區塊的內部部署總和檢查碼進行比較。 如果符合總和檢查碼，則不會轉送資料區塊。 如果不相符，則會將資料區塊轉送至內部部署環境。 此轉送時間取決於可用的頻寬。 總和檢查碼的速度是一分鐘數個 GB。 
+
+若要加速資料下載，您可以設定 MARS 代理程式使用更多執行緒來平行化下載。 請參閱[這裡的文件](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage)，了解如何在代理程式中變更下載執行緒。
 
 
 ## <a name="next-steps"></a>後續步驟

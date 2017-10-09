@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: banders
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -45,7 +45,7 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 | [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不使用從 SCOM 代理程式直接連線到 Log Analytics。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |
-| [Azure 診斷](log-analytics-azure-storage.md) | 是 | Azure 會將 Azure 計量資料直接傳送至 Log Analytics。 |
+| [Azure 診斷](log-analytics-azure-storage.md) | 是 | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,9 +63,9 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
 3. 在 [監視 + 管理] 清單中，按一下 [檢視全部]。
 4. 在 [建議]清單中，按一下 [詳細]，然後在新的清單中，尋找 **Azure SQL 分析 (預覽)**，然後選取它。  
     ![Azure SQL 分析解決方案](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. 在 **Azure SQL 分析 (預覽)** 刀鋒視窗中，按一下 [建立]。  
+5. 在 [Azure SQL 分析 (預覽)] 窗格中，按一下 [建立]。  
     ![建立](./media/log-analytics-azure-sql/portal-create.png)
-6. 在 [建立新方案] 刀鋒視窗中，選取您想要新增解決方案的工作區，然後按一下 [建立]。  
+6. 在 [建立新方案] 窗格中，選取您想要新增解決方案的工作區，然後按一下 [建立]。  
     ![新增到工作區](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -85,39 +85,71 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>使用解決方案
 
+>[!NOTE]
+> 升級 Log Analytics 工作區以取得最新版的 Azure SQL 分析。
+>
+
 當您將解決方案新增至您的工作區時，Azure SQL 分析圖格會新增至您的工作區，而且會顯示在 [概觀] 中。 圖格會顯示 Azure SQL Database 和解決方案所連接之 Azure SQL 彈性集區的數目。
 
 ![Azure SQL 分析圖格](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
 ### <a name="viewing-azure-sql-analytics-data"></a>檢視 Azure SQL 分析資料
 
-按一下 [Azure SQL 分析] 圖格以開啟 Azure SQL 分析儀表板。 此儀表板包含下面定義的刀鋒視窗。 每個刀鋒視窗最多可列出 15 個資源 (訂用帳戶、伺服器、彈性集區及資料庫)。 按一下任何資源，以開啟該特定資源的儀表板。 彈性集區或資料庫包含的圖表具有所選資源的計量。 按一下圖表，以開啟 [記錄搜尋] 對話方塊。
+按一下 [Azure SQL 分析] 圖格以開啟 Azure SQL 分析儀表板。 儀表板包含透過不同檢視方塊監視之所有資料庫的概觀。 若要讓不同的檢視方塊運作，您必須在要串流處理至 Azure Log Analytics 工作區的 SQL 資源上，啟用適當的計量或記錄。 
 
-| 刀鋒視窗 | 說明 |
-|---|---|
-| 訂用帳戶 | 具有已連線伺服器、集區及資料庫數目的訂用帳戶清單。 |
-| 伺服器 | 具有已連線集區和資料庫數目的伺服器清單。 |
-| 彈性集區 | 具有觀察期間內最大 GB 和 eDTU 的已連線彈性集區清單。 |
-|資料庫 | 具有觀察期間內最大 GB 和 DTU 的已連線資料庫清單。|
+![Azure SQL 分析概觀](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
+選取任何磚，以便在特定的檢視方塊中開啟向下鑽研報表。
+
+![Azure SQL 分析逾時](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+
+每個檢視方塊都會提供訂用帳戶、伺服器、彈性集區和資料庫層級的摘要。 此外，每個檢視方塊都會在右側顯示檢視方塊專屬的報表。 從清單中選取訂用帳戶、伺服器、集區或資料庫可繼續往下鑽研。
+
+| 檢視方塊 | 說明 |
+| --- | --- |
+| 資源 (依類型) | 可計算所有受監視資源的檢視方塊。 向下鑽研可提供 DTU 及 GB 計量的摘要。 |
+| 深入解析 | 可透過階層的方式，向下鑽研至 Intelligent Insights。 深入了解 Intelligent Insights。 |
+| Errors | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 錯誤。 |
+| 逾時 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 逾時。 |
+| 封鎖 | 可透過階層的方式，向下鑽研至資料庫上發生的 SQL 封鎖。 |
+| 資料庫等候 | 可透過階層的方式，向下鑽研至資料庫層級的 SQL 等候統計資料。 包含總等候時間及每種等候類型等候時間的摘要。 |
+| 查詢持續時間 | 可透過階層的方式，向下鑽研至查詢執行統計資料，例如查詢持續時間、CPU 使用量、資料 IO 使用量、記錄 IO 使用量。 |
+| 查詢等候 | 可透過階層的方式，依等候類別，向下鑽研至查詢等候統計資料。 |
+
+### <a name="intelligent-insights-report"></a>Intelligent Insights 報表
+
+收集的所有 Intelligent Insights 都可以透過 Insights 檢視方塊視覺化及存取。 [按一下這裡可深入了解 Intelligent Insights](../sql-database/sql-database-intelligent-insights.md)
+
+![Azure SQL 分析見解](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+
+### <a name="elastic-pool-and-database-reports"></a>彈性集區和資料庫報表
+
+彈性集區和資料庫都有自己特定的報表，可顯示在指定的時間，針對資源收集的所有資料。
+
+![Azure SQL 分析資料庫](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
+
+![Azure SQL 分析彈性集區](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+
+### <a name="query-reports"></a>查詢報表
+
+您可以透過查詢持續時間和查詢等候檢視方塊，將任何查詢的效能透過查詢報表相互關聯。 此報表會比較不同資料庫上的查詢效能，並可讓您輕鬆地找出所選查詢執行速度良好與緩慢的資料庫。
+
+![Azure SQL 分析查詢](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
 
 您可以使用來自 Azure SQL Database 資源的資料，輕鬆建立警示。 以下是您可用於警示的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
-
 Azure SQL Database 上的高 DTU
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 Azure SQL Database 彈性集區上的高 DTU
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 您可以針對 Azure SQL Database 和彈性集區，使用這些警示型查詢發出特定閾值警示。 若要設定您 OMS 工作區的警示：
@@ -132,25 +164,6 @@ Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"*
 ![在搜尋中建立警示](./media/log-analytics-azure-sql/create-alert01.png)
 6. 在 [新增警示規則] 頁面上，設定您要的適當屬性和特定臨界值，然後按一下 [儲存]。  
 ![新增警示規則](./media/log-analytics-azure-sql/create-alert02.png)
-
-### <a name="act-on-azure-sql-analytics-data"></a>對 Azure SQL 分析資料採取行動
-
-做為範例，您可以執行的其中一個最有用查詢，是跨所有 Azure 訂用帳戶比較所有 Azure SQL 彈性集區的 DTU 使用量。 資料庫輸送量單位 (DTU) 提供說明 Basic、Standard 和 Premium 資料庫與集區的效能層級相對容量。 DTU 是根據 CPU、記憶體、讀與寫的混合測量。 當 DTU 增加時，會增加效能層級所提供的強大功能。 例如，具有 5 個 DTU 的效能層級比具有 1 個 DTU 的效能層級有五倍的能力。 最大 DTU 配額適用於每個伺服器和彈性集區。
-
-藉由執行下列記錄搜尋查詢，您可以輕易地分辨是否未充分使用或過度使用您的 SQL Azure 彈性集區。
-
-```
-Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
-```
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
->
->`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
-
-在下列範例中，您可以看到一個彈性集區有接近 100 % DTU 的高使用量，而有些則有極少的使用量。 您可以進一步調查以在您環境中使用 Azure 活動記錄疑難排解潛在的最新變更。
-
-![記錄搜尋結果 - 高使用率](./media/log-analytics-azure-sql/log-search-high-util.png)
 
 ## <a name="see-also"></a>另請參閱
 

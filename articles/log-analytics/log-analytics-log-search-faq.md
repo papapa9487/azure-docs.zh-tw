@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 507136beef9718dc6a7f42a4b84f8030d4a60563
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -58,6 +58,18 @@ ms.lasthandoff: 09/07/2017
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>問題： 為什麼我的查詢結果未排序？
 根據預設，使用新的查詢語言不會排序結果。  使用 [sort 運算子](https://go.microsoft.com/fwlink/?linkid=856079)，依照一或多個屬性來排序結果。
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>問題：升級之後，「縮短」功能到哪裡去了？
+「縮短」是一種功能，可為您的搜尋結果提供摘要檢視。  升級之後，[縮短] 選項不會再出現在記錄搜尋入口網站中。  您可以使用 [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) 或 [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster)，搭配新的搜尋語言，取得類似的功能。 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>已知問題：清單中的搜尋結果可能包含沒有資料的屬性
 清單中的記錄搜尋結果可能會顯示沒有資料的屬性。  升級之前，不會包含這些屬性。  未來將修正此問題，以避免顯示空白屬性。
@@ -123,13 +135,13 @@ ms.lasthandoff: 09/07/2017
 所有解決方案將會在升級的工作區中繼續運作，如果其轉換為新的查詢語言，將改善其效能。  本節中所述之現有解決方案目前已知存在問題。
 
 ### <a name="known-issue-capacity-and-performance-solution"></a>已知問題：容量與效能解決方案
-[容量與效能](log-analytics-capacity.md) 檢視中的某些部分可能是空白的。  近期內將提供此問題的修正。
-
-### <a name="known-issue-device-health-solution"></a>已知問題：裝置健康情況解決方案
-[裝置健康情況解決方案](https://docs.microsoft.com/windows/deployment/update/device-health-monitor)不會收集升級工作區中的資料。  近期內將提供此問題的修正。
+[容量與效能] [](log-analytics-capacity.md)檢視中的某些部分可能是空白的。  近期內將提供此問題的修正。
 
 ### <a name="known-issue-application-insights-connector"></a>已知問題：Application Insights Connector
 已升級工作區目前不支援 [Application Insights Connector 解決方案](log-analytics-app-insights-connector.md)中的檢視方塊。  此問題的修正目前正在進行分析。
+
+### <a name="known-issue-backup-solution"></a>已知問題：備份解決方案
+備份解決方案不會收集升級工作區中的資料。 可搭配升級工作區使用的新備份解決方案很快就會公佈。
 
 ## <a name="upgrade-process"></a>升級程序
 

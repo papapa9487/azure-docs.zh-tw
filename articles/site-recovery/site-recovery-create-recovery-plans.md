@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/23/2017
+ms.date: 09/25/2017
 ms.author: raynew
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="create-recovery-plans"></a>建立復原方案
@@ -77,17 +77,20 @@ ms.lasthandoff: 08/12/2017
 * 確認您的 VMM 部署中至少有一部程式庫伺服器。 根據預設，VMM 伺服器的程式庫共用路徑位於本機的 VMM 伺服器上，資料夾名稱為 MSCVMMLibrary。
     * 如果您的程式庫共用路徑位於遠端 (或是位於本機上，但未與 MSCVMMLibrary 共用)，請依以下所示設為共用 (以 \\libserver2.contoso.com\share\ 為例)：
       * 開啟登錄編輯程式，並瀏覽至 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**。
-      * 編輯值 **ScriptLibraryPath**，並將其設為 \\libserver2.contoso.com\share\. 指定完整的 FQDN。 提供共用位置的權限。
+      * 編輯值 **ScriptLibraryPath**，並將其設為 \\libserver2.contoso.com\share\. 指定完整的 FQDN。 提供共用位置的權限。 請注意，這是共用的根節點。 **若要檢查此情形，您可以在 VMM 的根節點中開啟並瀏覽程式庫。開啟的路徑會是路徑的根目錄，就是您需要在變數中使用的路徑**。
       * 請確定您使用與 VMM 服務帳戶具有相同權限的使用者帳戶來測試指令碼。 這會檢查該獨立測試指令碼以它們在復原計畫中的相同方式執行。 在 VMM 伺服器上，設定要略過的執行原則，如下所示：
-        * 以較高的權限開啟 64 位元 Windows PowerShell 主控台。
+        * 以較高的權限開啟 **64 位元 Windows PowerShell** 主控台。
         * 類型： **Set-executionpolicy bypass**。 [深入了解](https://technet.microsoft.com/library/ee176961.aspx)。
+
+> [!IMPORTANT]
+> 只有在 64 位元 PowerShell 上，您才應該將執行原則設為 [略過]。 如果您已針對 32 位元 PowerShell 設定它，則不會執行指令碼。
 
 ## <a name="add-a-script-or-manual-action-to-a-plan"></a>將指令碼或手動動作新增至方案
 
 將 VM 或複寫群組新增至預設的復原計畫群組並建立計畫後，可將指令碼新增至復原計畫群組。
 
 1. 開啟復原計畫。
-2. 按一下 [步驟] 清單中的任意項目，然後按一下 [指令碼] 或 [手動動作]。
+2. 按一下 步驟 清單中的任意項目，然後按一下指令碼 或 手動動作。
 3. 指定要在已選取項目之前或之後新增指令碼或動作。 使用 [上移] 和 [下移] 按鈕，上下移動指令碼的位置。
 4. 如果您新增 VMM 指令碼，請選取 [容錯移轉至 VMM 指令碼]。 在**指令碼路徑**中，輸入要共用的相對路徑。 在下列 VMM 範例中，您指定路徑︰**\RPScripts\RPScript.PS1**。
 5. 如果新增 Azure 自動化 Runbook，請指定 Runbook 所在的 [Azure 自動化帳戶]，並選取適當的 [Azure Runbook 指令碼]。

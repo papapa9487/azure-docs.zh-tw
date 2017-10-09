@@ -14,14 +14,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/29/2017
+ms.date: 09/27/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e69d96e5f18b4334a63445b08979c457d241e818
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 7af2657b01b954c3f43a687dedebad7e4a814e6a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -340,7 +340,7 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 
 摘要︰高可用性 (HA) 和災害復原 (DR) 對於執行關鍵任務 SAP HANA on Azure (大型執行個體) 伺服器是非常重要的層面。 它匯入以使用 SAP、您的系統整合者和/或 Microsoft 以正確架構，並為您實作正確的 HA/DR 策略。 您必須考量您的環境特定的復原點目標 (RPO) 和復原時間目標 (RTO) 等重要考量。  本文件說明啟用您慣用層級 HA 和 DR 的選項。
 
-更新日期：2016 年 12 月
+更新時間：2017 年 9 月
 
 [可以在這裡找到這份文件](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

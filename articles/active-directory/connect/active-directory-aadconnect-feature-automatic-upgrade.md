@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 57cd81a92817171a23ffd0f607eb127005bc1e0d
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: 894e387b4b83ed859139b4aecb3d8bb5df9ab56f
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect：自動升級
@@ -26,7 +26,6 @@ ms.lasthandoff: 09/23/2017
 
 ## <a name="overview"></a>Overview
 使用「自動升級」  功能是可確保您 Azure AD Connect 安裝永遠維持在最新狀態的最簡單方式。 此功能預設為啟用，以供進行快速安裝及 DirSync 升級。 新版本發行時，您的安裝會自動升級。
-
 預設會針對下列情況啟用自動升級：
 
 * 快速設定安裝和 DirSync 升級。
@@ -45,6 +44,7 @@ ms.lasthandoff: 09/23/2017
 您可以使用 `Set-ADSyncAutoUpgrade` 在 [已啟用] 與 [已停用] 之間進行變更。 應該只有系統才能設定 [已暫止] 狀態。
 
 自動升級使用 Azure AD Connect Health 做為升級基礎結構。 為了讓自動升級能夠運作，請確定您已依照 **Office 365 URL 與 IP 位址範圍** 中的記載，在您 Proxy 伺服器中開啟 [Azure AD Connect Health](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)的 URL。
+
 
 如果伺服器上正在執行 **Synchronization Service Manager** UI，則會暫止升級，直到 UI 關閉為止。
 
@@ -96,7 +96,7 @@ ms.lasthandoff: 09/23/2017
 | UpgradeNotSupportedMultiForestSetup |您正連接到多個樹系。 快速安裝只會連接到一個樹系。 |
 | UpgradeNotSupportedNonLocalDbInstall |您不是使用 SQL Server Express LocalDB 資料庫。 |
 | UpgradeNotSupportedNonMsolAccount |[AD 連接器帳戶](active-directory-aadconnect-accounts-permissions.md#active-directory-account)已不再是預設的 MSOL_ 帳戶。 |
-| UpgradeNotSupportedNotConfiguredSignInMethod | 您已選取 [請勿設定] 作為登入方法。 | 
+| UpgradeNotSupportedNotConfiguredSignInMethod | 若要設定 AAD Connect，請在選取登入方法時，選擇 [不設定]。 | 
 | UpgradeNotSupportedPtaSignInMethod | 您已選取 [傳遞驗證] 作為登入方法。 |
 | UpgradeNotSupportedStagingModeEnabled |伺服器設定為 [預備模式](active-directory-aadconnectsync-operations.md#staging-mode)。 |
 | UpgradeNotSupportedUserWritebackEnabled |您已啟用 [使用者回寫](active-directory-aadconnect-feature-preview.md#user-writeback) 功能。 |

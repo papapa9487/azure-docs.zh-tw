@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3365bc81b17e0225652504a71d3aff42a399ce67
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>從 Azure 重新保護至內部部署網站
@@ -29,10 +29,13 @@ ms.lasthandoff: 09/02/2017
 此文章說明如何將 Azure 虛擬機器從 Azure 重新保護到內部部署網站。 當您準備好使用已從內部部署網站容錯移轉至 Azure 的 VMware 虛擬機器或 Windows/Linux 實體伺服器容錯回復時，請依照此文章中的指示執行 (如[使用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器複寫至 Azure](site-recovery-failover.md)所述)。
 
 > [!WARNING]
-> 您[完成移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、將虛擬機器移至另一個資源群組，或刪除 Azure 虛擬機器之後，則無法執行容錯回復。
+> 如果您已[完成移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、將虛擬機器移至另一個資源群組，或刪除 Azure 虛擬機器，則您無法在之後執行容錯回復。 如果您停用虛擬機器的保護，便無法進行容錯回復。
 
 
 完成重新保護且受保護的虛擬機器開始複寫之後，您可以在虛擬機器上起始容錯回復，以將它們回復到內部部署網站。
+
+> [!NOTE]
+> 您只能針對 ESXi 主機進行重新保護和容錯回復。 您無法將虛擬機器容錯回復至 Hyper-v 主機、VMware 工作站，或任何其他虛擬化平台。
 
 在本文末尾或 [Azure Recovery Services Forum (Azure 復原服務論壇)](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr) 中張貼意見或問題。
 
@@ -41,6 +44,11 @@ ms.lasthandoff: 09/02/2017
 
 
 ## <a name="prerequisites"></a>必要條件
+
+> [!IMPORTANT]
+> 在針對 Azure 的容錯移轉期間，可能會無法存取內部部署網站，因此設定伺服器可能會無法使用或關機。 在重新保護和容錯回復期間，內部部署設定伺服器應該會執行，並處於連線正常的狀態。
+
+
 您準備要重新保護虛擬機器時，請採取或考量下列的必要動作：
 
 * 如果 vCenter 伺服器管理您想要容錯回復到的目標虛擬機器，您必須確定已擁有在 vCenter 伺服器上探索虛擬機器的[必要權限](site-recovery-vmware-to-azure-classic.md)。
@@ -93,13 +101,15 @@ ms.lasthandoff: 09/02/2017
  ![VPN 的架構圖](./media/site-recovery-failback-azure-to-vmware-classic/architecture2.png)
 
 
-請記住，複寫只能透過 S2S VPN 或您 ExpressRoute 網路的私人對等互連。 請確定該網路通道上有足夠的可用頻寬。
+請記住，從 Azure 至內部部署的複寫只會在 S2S VPN 或您 ExpressRoute 網路的私人對等互連上進行。 請確定該網路通道上有足夠的可用頻寬。
 
 如需安裝 Azure 型處理序伺服器的資訊，請參閱[管理在 Azure 中執行的處理伺服器](site-recovery-vmware-setup-azure-ps-resource-manager.md)。
 
 > [!TIP]
 > 我們建議在容錯回復期間使用 Azure 型處理序伺服器。 如果處理序伺服器比較接近複寫的虛擬機器 (在 Azure 中容錯移轉的機器)，則複寫效能較高。 不過，在概念證明 (POC) 或示範的期間，您可以透過私人對等互連，使用內部部署處理序伺服器以及 ExpressRoute 更快完成 POC。
 
+> [!NOTE]
+> 從內部部署至 Azure 的複寫，只能透過網際網路或是搭配公用對等互連的 ExpressRoute 發生。 從 Azure 至內部部署的複寫，只能透過 S2S VPN 或是搭配私人對等互連的 ExpressRoute 發生
 
 
 #### <a name="what-ports-should-i-open-on-different-components-so-that-reprotection-can-work"></a>在不同的元件上應該開啟哪些連接埠，重新保護才能運作？
@@ -248,7 +258,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 1. 您要重新保護的虛擬機器是 Windows Server 2016。 此作業系統目前不支援容錯回復，但很快就會受到支援。
 2. 在您要容錯回復的對象主要目標伺服器上，已經存在具有相同名稱的虛擬機器。
 
-若要解決這個問題，您可以在不同的主機上選取不同的主要目標伺服器，使重新保護可在不同的主機上建立機器，而其中的名稱不會衝突。 您也可以將主要目標 vMotion 到不同的主機，而其中的名稱不會發生衝突。
+若要解決這個問題，您可以在不同的主機上選取不同的主要目標伺服器，使重新保護可在不同的主機上建立機器，而其中的名稱不會衝突。 您也可以將主要目標 vMotion 到不同的主機，而其中的名稱不會發生衝突。 如果現有的虛擬機器為偏離機器，您可以重新命名它，以在相同的 ESXi 主機上建立新的虛擬機器。
 
 ### <a name="error-code-78093"></a>錯誤碼 78093
 
@@ -256,6 +266,10 @@ VM 非執行中，處於無回應狀態或無法存取。
 
 若要重新保護容錯移轉的虛擬機器回到內部部署，Azure 虛擬機器必須為執行中。 如此一來，行動服務就會向組態伺服器內部部署進行註冊，並可與流程伺服器通訊，開始進行複寫。 如果電腦在不正確的網路上或未執行 (停止回應狀態或關機)，組態伺服器就無法觸達虛擬機器中的行動服務以開始重新保護。 您可以重新啟動虛擬機器，讓它能夠開始通訊回內部部署。 啟動 Azure 虛擬機器之後，重新啟動重新保護作業
 
+### <a name="error-code-8061"></a>錯誤碼 8061
 
+*無法從 ESXi 主機存取資料存放區。*
+
+請參閱[主要目標必要條件](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server)和[支援資料存放區](site-recovery-how-to-reprotect.md#what-datastore-types-are-supported-on-the-on-premises-esxi-host-during-failback)以進行容錯回復
 
 

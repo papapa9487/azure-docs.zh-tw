@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: d234d9c97064e22a0ea882f199da326b0aae0674
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c4723a7d174991f5bf679bf3e8c97fe2338926a2
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="use-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
@@ -95,7 +95,7 @@ ms.lasthandoff: 09/20/2017
 ## <a name="choosing-a-vm-restore-configuration"></a>選擇 VM 還原組態
 既然您已選取還原點，請選擇還原 VM 的組態。 設定還原 VM 的選項包括使用︰Azure 入口網站或 PowerShell。
 
-1. 如果您尚未到達該位置，請移至 [還原]  刀鋒視窗。 確定[已選取還原點](#select-restore-point-for-restore)，然後按一下 [還原組態] 以開啟 [復原組態] 刀鋒視窗。
+1. 如果您尚未到達該位置，請移至 [還原]  刀鋒視窗。 確定[已選取還原點](#select-restore-point-for-restore)，然後按一下 [還原設定] 以開啟 [還原設定] 刀鋒視窗。
 
     ![已設定復原組態精靈](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
 2. 在 [還原組態] 刀鋒視窗上有兩個選擇︰

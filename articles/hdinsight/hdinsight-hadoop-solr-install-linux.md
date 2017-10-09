@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Solr
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/13/2017
 > [!WARNING]
 > Microsoft 對隨 HDInsight 叢集提供的元件提供完整支援。
 >
-> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/13/2017
 
 若要建立已安裝 Solr 的叢集，請使用[建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)文件中的步驟。 在建立過程中，使用下列步驟來安裝 Solr：
 
-1. 從 [叢集摘要]刀鋒視窗中，依序選取 [進階設定] 和 [指令碼動作]。 使用下列資訊來填入表單：
+1. 從 [叢集摘要] 區段，依序選取 [進階設定] 和 [指令碼動作]。 使用下列資訊來填入表單：
 
    * **名稱**：輸入指令碼動作的易記名稱。
    * **SCRIPT URI**：https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +68,7 @@ ms.lasthandoff: 07/13/2017
    * **ZOOKEEPER**：勾選此選項以在 Zookeeper 節點上安裝
    * **參數**：將此欄位保留空白
 
-2. 在 [指令碼動作] 刀鋒視窗的底部，使用 [選取] 按鈕以儲存組態。 最後，使用 [下一步] 按鈕回到 [叢集摘要]。
+2. 在 [指令碼動作] 區段底部，使用 [選取] 按鈕以儲存組態。 最後，使用 [下一步] 按鈕回到 [叢集摘要]。
 
 3. 從 [叢集摘要] 頁面，選取 [建立] 以建立叢集。
 

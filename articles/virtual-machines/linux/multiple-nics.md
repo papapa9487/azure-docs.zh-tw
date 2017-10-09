@@ -4,7 +4,7 @@ description: "了解如何使用 Azure CLI 2.0 或 Resource Manager 範本，來
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: ff3e3121102eedaa1f439e517570d0a97cf07c22
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 61d50f0abce0fb5c8d0b82652b488d9b79978ca8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中建立有多個網路介面卡的 Linux 虛擬機器
@@ -102,7 +102,7 @@ az vm create \
 ```
 
 ## <a name="add-a-nic-to-a-vm"></a>將 NIC 新增至 VM
-先前的步驟建立了一個有多個 NIC 的 VM。 您也可以使用 Azure CLI 2.0 將 NIC 新增至現有的 VM。 
+先前的步驟建立了一個有多個 NIC 的 VM。 您也可以使用 Azure CLI 2.0 將 NIC 新增至現有的 VM。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。 如有需要，您可以[調整 VM 的大小](change-vm-size.md)。
 
 使用 [az network nic create](/cli/azure/network/nic#create) 建立另一個 NIC。 下列範例會建立一個名為 myNic3 的 NIC，此 NIC會連線到後端子網路與在先前步驟中建立的網路安全性群組：
 
@@ -149,7 +149,7 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 ```azurecli
 az vm nic remove \
     --resource-group myResourceGroup \
-    --vm-name myVM 
+    --vm-name myVM \
     --nics myNic3
 ```
 
@@ -180,25 +180,20 @@ Azure Resource Manager 範本會使用宣告式 JSON 檔案來定義您的環境
 
 您可以閱讀 [使用 Resource Manager 範本建立多個 NIC](../../virtual-network/virtual-network-deploy-multinic-arm-template.md)的完整範例。
 
+
 ## <a name="configure-guest-os-for-multiple-nics"></a>針對多個 NIC 設定客體作業系統
+當您將多個 NIC 新增至 Linux VM 時，您需要建立路由規則。 這些規則可讓 VM 傳送和接收屬於特定 NIC 的流量。 否則，已定義的預設路由便無法正確處理屬於 *eth1* 的流量。
 
-當您針對以 Linux 客體作業系統為基礎的 VM 建立多個 NIC 時，必須建立其他的路由規則，以允許傳送和接收僅屬於特定 NIC 的流量。 否則，就會因為已定義的預設路由而無法正確處理屬於 eth1 的流量。  
-
-
-### <a name="solution"></a>方案
-
-先將兩個路由表新增至檔案 /etc/iproute2/rt_tables
+若要更正此路由問題，請先將兩個路由表新增至 */etc/iproute2/rt_tables*，如下所示：
 
 ```bash
 echo "200 eth0-rt" >> /etc/iproute2/rt_tables
 echo "201 eth1-rt" >> /etc/iproute2/rt_tables
 ```
 
-若要在網路堆疊啟用期間使變更持續並加以套用，必須改變 /etc/sysconfig/network-scipts/ifcfg-eth0 和 /etc/sysconfig/network-scipts/ifcfg-eth1 檔案。
-將行 "NM_CONTROLLED=yes" 改變為 "NM_CONTROLLED=no"。
-若未進行這個步驟，我們要新增的其他規則/路由就不會生效。
+若要在網路堆疊啟用期間使變更持續並加以套用，請編輯 */etc/sysconfig/network-scipts/ifcfg-eth0* 和 */etc/sysconfig/network-scipts/ifcfg-eth1*。 將行 "NM_CONTROLLED=yes" 改變為 "NM_CONTROLLED=no"。 如果沒有這個步驟，就不會自動套用其他規則/路由。
  
-下一個步驟是要擴充路由資料表。 為了使後續步驟更明顯，我們假設已備妥下列安裝程式
+接下來，擴充路由表。 假設我們已備妥下列設定：
 
 *路由*
 
@@ -209,7 +204,7 @@ default via 10.0.1.1 dev eth0 proto static metric 100
 168.63.129.16 via 10.0.1.1 dev eth0 proto dhcp metric 100
 169.254.169.254 via 10.0.1.1 dev eth0 proto dhcp metric 100
 ```
-    
+
 *介面*
 
 ```bash
@@ -217,37 +212,45 @@ lo: inet 127.0.0.1/8 scope host lo
 eth0: inet 10.0.1.4/24 brd 10.0.1.255 scope global eth0    
 eth1: inet 10.0.1.5/24 brd 10.0.1.255 scope global eth1
 ```
-    
-    
-透過上述資訊就可以建立下列的其他檔案作為根目錄
 
-*   /etc/sysconfig/network-scripts/rule-eth0
-*   /etc/sysconfig/network-scripts/route-eth0
-*   /etc/sysconfig/network-scripts/rule-eth1
-*   /etc/sysconfig/network-scripts/route-eth1
+您接著會建立下列檔案，然後在每個檔案中新增適當的規則和路由：
 
-每個檔案的內容如下所示
+- */etc/sysconfig/network-scripts/rule-eth0*
+
+    ```bash
+    from 10.0.1.4/32 table eth0-rt
+    to 10.0.1.4/32 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth0*
+
+    ```bash
+    10.0.1.0/24 dev eth0 table eth0-rt
+    default via 10.0.1.1 dev eth0 table eth0-rt
+    ```
+
+- */etc/sysconfig/network-scripts/rule-eth1*
+
+    ```bash
+    from 10.0.1.5/32 table eth1-rt
+    to 10.0.1.5/32 table eth1-rt
+    ```
+
+- */etc/sysconfig/network-scripts/route-eth1*
+
+    ```bash
+    10.0.1.0/24 dev eth1 table eth1-rt
+    default via 10.0.1.1 dev eth1 table eth1-rt
+    ```
+
+若要套用變更，請重新啟動 *network* (網路) 服務，如下所示：
+
 ```bash
-cat /etc/sysconfig/network-scripts/rule-eth0
-from 10.0.1.4/32 table eth0-rt
-to 10.0.1.4/32 table eth0-rt
-
-cat /etc/sysconfig/network-scripts/route-eth0
-10.0.1.0/24 dev eth0 table eth0-rt
-default via 10.0.1.1 dev eth0 table eth0-rt
-
-cat /etc/sysconfig/network-scripts/rule-eth1
-from 10.0.1.5/32 table eth1-rt
-to 10.0.1.5/32 table eth1-rt
-
-cat /etc/sysconfig/network-scripts/route-eth1
-10.0.1.0/24 dev eth1 table eth1-rt
-default via 10.0.1.1 dev eth1 table eth1-rt
+systemctl restart network
 ```
 
-建立和填入檔案後，必須重新啟動網路服務 `systemctl restart network`
+路由規則現在已正確備妥，而且您可以視需要，使用其中一個介面連線。
 
-現在可以從外部針對 eth0 或 eth1 進行連線
 
 ## <a name="next-steps"></a>後續步驟
 當您嘗試建立一個有多個 NIC 的 VM 時，請檢閱 [Linux VM 大小](sizes.md)。 注意每個 VM 大小所支援的 NIC 數目上限。 

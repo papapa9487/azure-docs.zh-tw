@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/18/2017
 ms.author: mobandyo;bryanla
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d3e1dd894c1548b44257bcc02c12cfafe364d5eb
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 85b53620a886625920e8e057a14e1ed5fa3e5333
 ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -43,13 +42,13 @@ ms.lasthandoff: 04/27/2017
 * **每小時或每日彙總** - 呼叫端可以指定要 Azure 使用情況資料的每小時值區或每日值區。 預設值為每日值區。
 * **執行個體中繼資料 (包括資源標記)** – 取得執行個體層級詳細資料，例如完整的資源 uri (/subscriptions/{subscription-id}/..)、資源群組資訊與資源標記。 此中繼資料可協助您以決定性及程式設計方式，根據標記為跨領域收費之類的使用案例配置使用量。
 * **資源中繼資料** - 資源詳細資料 (例如計量名稱、計量類別、計量子類別、單位和區域) 可讓呼叫端深入了解耗用的內容。 我們也致力於跨 Azure 入口網站、Azure 使用情況 CSV、EA 計費 CSV 和其他向外公開的體驗統一資源中繼資料術語，以讓您跨體驗將資料相互關聯。
-* **所有優惠類型的使用情況** – 所有優惠類型 (例如隨收隨付、MSDN、貨幣承諾、貨幣信用額度和 EA) 皆有提供使用情況資料。
+* **不同優惠類型的使用情況** – [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription) 以外的優惠類型 (例如隨收隨付、MSDN、貨幣承諾、貨幣信用額度和 EA) 皆有提供使用情況資料。
 
 ## <a name="azure-resource-ratecard-api-preview"></a>Azure 資源 RateCard API (預覽)
 使用 [Azure 資源 RateCard API](https://msdn.microsoft.com/library/azure/mt219005) 來取得可用 Azure 資源的清單，以及每個資源的預估價格資訊。 此 API 包含︰
 
 * **Azure 角色型存取控制** - 在 [Azure 入口網站](https://portal.azure.com)上或透過 [Azure PowerShell Cmdlet](/powershell/azure/overview) 設定存取原則，以指定哪些使用者或應用程式可以存取 RateCard 資料。 呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。 將呼叫端新增至讀取者、擁有者或參與者角色，以存取特定 Azure 訂用帳戶的使用情況資料。
-* **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度優惠 (不支援 EA)** - 此 API 提供 Azure 優惠層級費率資訊。  此 API 的呼叫端必須輸入優惠資訊以取得資源詳細資料和費率。 由於 EA 優惠已自訂每個註冊的費率，所以我們目前無法提供 EA 費率。 
+* **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度優惠 (不支援 EA 和 [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card))** - 此 API 提供 Azure 優惠層級費率資訊。  此 API 的呼叫端必須輸入優惠資訊以取得資源詳細資料和費率。 由於 EA 優惠已自訂每個註冊的費率，所以我們目前無法提供 EA 費率。 
 
 ## <a name="scenarios"></a>案例
 以下是一些案例，可產生使用情況和 RateCard API 的組合：

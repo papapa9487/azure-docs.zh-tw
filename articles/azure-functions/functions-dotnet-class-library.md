@@ -17,10 +17,10 @@ ms.workload: na
 ms.date: 06/09/2017
 ms.author: donnam
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 0613bb96d3afb85ff7e684246b128e4eef518d23
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>使用 .NET 類別庫搭配 Azure Functions
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/28/2017
 
 ## <a name="functions-class-library-project"></a>Functions 類別庫專案
 
-從 Visual Studio 中建立 Azure Functions 專案。 新的專案範本會建立 host.json 和 local.settings.json 檔案。 您可以[在 host.json 中自訂 Azure Functions 執行階段設定](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json)。 
+從 Visual Studio 中建立 Azure Functions 專案。 新的專案範本會建立 host.json 和 local.settings.json 檔案。 您可以[在 host.json 中自訂 Azure Functions 執行階段設定](functions-host-json.md)。 
 
 local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Functions Core Tools 的設定。 若要深入了解其結構，請參閱[在本機撰寫程式碼和測試 Azure Functions](functions-run-local.md#local-settings)。
 
@@ -46,7 +46,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 ### <a name="conversion-to-functionjson"></a>轉換成 function.json
 
-建置 Azure Functions 專案時，它會在目錄中產生一個檔案 `function.json`，比對由 `[FunctionName]` 所定義的函式名稱。 它會指定觸發程序和繫結，並指向專案組件檔。
+當您建置 Azure Functions 專案時，會在函式的目錄中建立 *function.json* 檔案。 目錄名稱會與 `[FunctionName]` 屬性所指定的函式名稱相同。 *function.json* 檔案包含觸發程序和繫結，並指向專案組件檔。
 
 此轉換是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 來源可在 GitHub 存放庫 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) 提供使用。
 

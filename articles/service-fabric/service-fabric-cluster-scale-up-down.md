@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>使用自動調整規模規則相應縮小或放大 Service Fabric 叢集
@@ -100,7 +100,7 @@ Service Fabric Explorer 列出的節點會反映出 Service Fabric 系統服務 
 
 為確保移除 VM 時也移除節點，您有兩個選項︰
 
-1) 為叢集中的節點類型選擇 Gold 或 Silver 持久性 (即將開放)，提供您基礎結構的整合。 它會在您相應減少時，從我們的系統服務 (FM) 狀態自動移除節點。
+1) 為叢集中的節點類型選擇 Gold 或 Silver 持久性層級，提供您基礎結構的整合。 它會在您相應減少時，從我們的系統服務 (FM) 狀態自動移除節點。
 請參閱 [持久性層級的詳細資訊](service-fabric-cluster-capacity.md)
 
 2) VM 執行個體一旦相應減少，您就必須呼叫 [Remove-ServiceFabricNodeState Cmdlet](https://msdn.microsoft.com/library/mt125993.aspx)。

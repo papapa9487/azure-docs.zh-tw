@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f72ee8b6ef51046a64e794b17d1c389a25246358
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 5e54464ceabfe1fea2af80d63e538bea6a0a50a5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式運作](v1/data-factory-usql-activity.md)
+> * [第 1 版 - 正式推出](v1/data-factory-usql-activity.md)
 > * [第 2 版 - 預覽](transform-data-using-data-lake-analytics.md)
 
 Azure Data Factory 中的「管線」會使用連結的計算服務，來處理連結的儲存體服務中的資料。 它包含一系列活動，其中每個活動都會執行特定的處理作業。 本文將說明 **Data Lake Analytics U-SQL 活動**，它在 **Azure Data Lake Analytics** 計算連結的服務上執行 **U-SQL** 指令碼。 
@@ -123,7 +123,7 @@ Azure Data Lake Analytics 已連結的服務需要服務主體驗證，才能連
 | 名稱                | 管線中的活動名稱     | 是      |
 | 說明         | 說明活動用途的文字。  | 否       |
 | 類型                | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **DataLakeAnalyticsU-SQL**。 | 是      |
-| linkedServiceName   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |          |
+| linkedServiceName   | Azure Data Lake Analytics 之已連結的服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。  |是       |
 | scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 是      |
 | scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 是      |
 | degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否       |

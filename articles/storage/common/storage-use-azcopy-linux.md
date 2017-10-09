@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2017
+ms.date: 28/9/2017
 ms.author: seguler
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: b080e323c4195f640a256c4726916dbf40ef2698
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 0b6417b616a9e4e74b5fb8a67e1414ad74e8f258
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
@@ -31,16 +31,17 @@ AzCopy on Linux 是個命令列公用程式，專為使用簡單命令高效率�
 
 文章包含用於多種不同版本 Ubuntu 的命令。  使用 `lsb_release -a` 命令來確認您的發行版本和 codename。 
 
-AzCopy on Linux 需要在平台上有 .NET Core framework。 請參閱 [.NET Core](https://www.microsoft.com/net/core#linuxubuntu) \(英文\) 頁面上的安裝指示。
+AzCopy on Linux 要求平台具有 .NET Core Framework (1.1.x 版)。 請參閱 [.NET Core](https://www.microsoft.com/net/download/linux) \(英文\) 頁面上的安裝指示。
 
-例如，讓我們在 Ubuntu 16.10 上安裝 .NET Core。 如需最新安裝指南，請造訪 [.NET Core on Linux](https://www.microsoft.com/net/core#linuxubuntu) \(英文\) 安裝頁面。
+作為範例，讓我們在 Ubuntu 16.04 上安裝 .NET Core。 如需最新安裝指南，請造訪 [.NET Core on Linux](https://www.microsoft.com/net/download/linux) \(英文\) 安裝頁面。
 
 
 ```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
 sudo apt-get update
-sudo apt-get install dotnet-sdk-2.0.0
+sudo apt-get install dotnet-dev-1.1.4
 ```
 
 安裝 .NET Core 之後，下載並安裝 AzCopy。
@@ -53,76 +54,6 @@ sudo ./install.sh
 
 安裝 AzCopy on Linux 之後，您便可移除解壓縮後的檔案。 或者，如果您沒有 superuser 權限，也可以使用解壓縮資料夾中的 shell 指令碼「azcopy」執行 AzCopy。 
 
-### <a name="alternative-installation-on-ubuntu"></a>Ubuntu 上的替代安裝
-
-**Ubuntu 14.04**
-
-新增適用於 .Net Core 的 apt 來源：
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ trusty main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-新增適用於 Microsoft Linux 產品存放庫的 apt 來源並安裝 AzCopy：
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/14.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.04**
-
-新增適用於 .Net Core 的 apt 來源：
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-新增適用於 Microsoft Linux 產品存放庫的 apt 來源並安裝 AzCopy：
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
-
-**Ubuntu 16.10**
-
-新增適用於 .Net Core 的 apt 來源：
-
-```bash
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ yakkety main" > /etc/apt/sources.list.d/dotnetdev.list' 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
-```
-
-新增適用於 Microsoft Linux 產品存放庫的 apt 來源並安裝 AzCopy：
-
-```bash
-curl https://packages.microsoft.com/config/ubuntu/16.10/prod.list > ./microsoft-prod.list
-sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-```
-
-```bash
-sudo apt-get update
-sudo apt-get install azcopy
-```
 
 ## <a name="writing-your-first-azcopy-command"></a>撰寫第一個 AzCopy 命令
 AzCopy 命令的基本語法是：

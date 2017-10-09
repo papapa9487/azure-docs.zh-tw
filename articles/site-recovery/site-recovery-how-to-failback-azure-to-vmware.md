@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 622604dc3ce69085feff6705168d58ad9938c429
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>從 Azure 容錯回復至內部部署網站
@@ -27,7 +26,7 @@ ms.lasthandoff: 06/16/2017
 本文說明如何將虛擬機器從 Azure 虛擬機器容錯回復到內部部署網站。 請遵循本文中的指示，將已使用[使用 Azure Site Recovery 將 VMWare 虛擬機器和實體伺服器複寫至 Azure](site-recovery-vmware-to-azure-classic.md) 教學課程從內部部署網站容錯移轉至 Azure 的 VMware 虛擬機器或 Windows/Linux 實體伺服器進行容錯回復。
 
 > [!WARNING]
-> 如果您已[完成移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、已將虛擬機器移至另一個資源群組，或已刪除 Azure 虛擬機器，則您無法在之後執行容錯回復。
+> 如果您已[完成移轉](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration)、將虛擬機器移至另一個資源群組，或刪除 Azure 虛擬機器，則您無法在之後執行容錯回復。 如果您停用虛擬機器的保護，便無法進行容錯回復。
 
 > [!NOTE]
 > 如果您已對 VMware 虛擬機器進行容錯移轉，便無法容錯回復到 Hyper-v 主機。
@@ -65,9 +64,9 @@ ms.lasthandoff: 06/16/2017
 如果在重新保護虛擬機器之前，內部部署虛擬機器不存在，則此案例稱為替代位置復原。 重新保護工作流程會重新建立內部部署虛擬機器。 這也會導致下載完整資料。
 
 * 當您容錯回復至替代位置時，虛擬機器會復原到主要目標伺服器部署所在的相同 ESX 主機上。 用於建立磁碟的資料存放區將會是重新保護虛擬機器時選取的相同資料存放區。
-* 您只能容錯回復到虛擬機器檔案系統 (VMFS) 資料存放區。 若您有 vSAN 或 RDM，重新保護與容錯回復將無法運作。
+* 您只能容錯回復到虛擬機器檔案系統 (VMFS) 或 vSAN 資料存放區。 如果您有 RDM，重新保護與容錯回復將無法運作。
 * 重新保護程序涉及一項大型的初始資料傳輸作業以及緊接著的變更作業。 之所以會有此程序，是因為虛擬機器未存在於內部部署環境。 系統需要將完整資料複寫回來。 此重新保護作業也需要比原始位置復原更長的時間。
-* 您無法容錯回復至 vSAN 或 RDM 型磁碟。 新的虛擬機器磁碟 (VMDK) 才能建立在 VMFS 資料存放區上。
+* 您無法容錯回復到以 RDM 為基礎的磁碟。 只能在 VMFS/vSAN 資料存放區上建立新的虛擬機器磁碟 (VMDK)。
 
 將實體機器容錯回復到 Azure 時，只能容錯回復為 VMware 虛擬機器 (亦稱為 P2A2V)。 此流程是屬於替代位置復原的範圍。
 
@@ -79,8 +78,11 @@ ms.lasthandoff: 06/16/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* 執行容錯回復時，組態伺服器必須為內部部署。 在容錯回復期間，虛擬機器必須存在於組態伺服器資料庫中，否則容錯回復會失敗。 因此，請確定您有排定來定期備份伺服器。 發生災害時，您需要使用相同的 IP 位址來還原伺服器，以便容錯回復能夠運作。
-* 觸發容錯回復之前，主要目標伺服器不能有任何快照集。
+> [!IMPORTANT]
+> 在針對 Azure 的容錯移轉期間，可能會無法存取內部部署網站，因此設定伺服器可能會無法使用或關機。 在重新保護和容錯回復期間，內部部署設定伺服器應該會執行並處於連線正常狀態。
+
+* 執行容錯回復時，組態伺服器必須為內部部署。 伺服器應該處於執行中狀態並連線至服務，因此其健康情況為「正常」。 在容錯回復期間，虛擬機器必須存在於組態伺服器資料庫中，否則容錯回復會失敗。 因此，請確定您有排定來定期備份伺服器。 發生災害時，您需要使用相同的 IP 位址來還原伺服器，以便容錯回復能夠運作。
+* 觸發重新保護/容錯回復之前，主要目標伺服器不能有任何快照集。
 
 ## <a name="steps-to-fail-back"></a>容錯回復的步驟
 
@@ -117,13 +119,13 @@ ms.lasthandoff: 06/16/2017
 
 ### <a name="commit"></a>認可
 需要認可，以便從 Azure 移除容錯移轉的虛擬機器。
-請以滑鼠右鍵按一下受保護的項目，然後按一下 [認可]。 此時會有作業移除 Azure 中已容錯移轉的虛擬機器。
+請以滑鼠右鍵按一下受保護的項目，然後按一下認可。 此時會有作業移除 Azure 中已容錯移轉的虛擬機器。
 
 ### <a name="reprotect-from-on-premises-to-azure"></a>從內部部署移至 Azure 來重新保護
 
 在認可完成後，虛擬機器會回到內部部署網站上，但不會受到保護。 若要再次開始複寫至 Azure，請執行下列動作：
 
-1. 在 [保存庫] > [設定] > [已複寫的項目] 中，選取已容錯回復的虛擬機器，然後按一下 [重新保護]。
+1. 在 保存庫 > 設定 > 已複寫的項目 中，選取已容錯回復的虛擬機器，然後按一下重新保護。
 2. 提供必須用來將資料傳送回 Azure 之處理伺服器的值。
 3. 按一下 [確定] 以開始重新保護作業。
 

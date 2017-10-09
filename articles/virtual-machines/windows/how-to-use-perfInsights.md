@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: f22bd42302b96118dba0d4e5e387c6798a0b8777
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights 
@@ -87,18 +87,18 @@ PerfInsights 可以收集並分析合併到唯一案例的多種資訊。
 | IOPS         | 資料要求/秒             |
 |              | 讀取要求/秒             |
 |              | 寫入要求/秒            |
-| 延遲      | Avg. 秒/資料要求         |
-|              | Avg. 秒/讀取                 |
-|              | Avg. 秒/寫入                |
-| IO 大小      | Avg. 位元組/資料要求       |
-|              | Avg. 位元組/讀取               |
-|              | Avg. 位元組/寫入              |
+| Latency      | 平均秒/資料要求         |
+|              | 平均秒/讀取                 |
+|              | 平均秒/寫入                |
+| IO 大小      | Avg.位元組/資料要求       |
+|              | Avg.位元組/讀取               |
+|              | Avg.位元組/寫入              |
 | 輸送量   | 資料位元組/秒                |
 |              | 讀取位元組/秒                |
 |              | 寫入位元組/秒               |
-| 佇列長度 | Avg. 讀取佇列長度        |
-|              | Avg. 寫入佇列長度       |
-|              | Avg. 資料佇列長度        |
+| 佇列長度 | Avg.讀取佇列長度        |
+|              | Avg.寫入佇列長度       |
+|              | Avg.資料佇列長度        |
 
 ### <a name="custom-configuration"></a>自訂組態 
 
@@ -144,7 +144,7 @@ PerfInsights 可以收集並分析合併到唯一案例的多種資訊。
 
 - HighCpuUsage 規則：偵測高 CPU 使用量時段，並顯示在這些時段內前幾名的 CPU 使用量取用者。
 - HighDiskUsage 規則：偵測實體磁碟的高磁碟使用量時段，並顯示在這些時段內前幾名的磁碟使用量取用者。
-- HighResolutionDiskMetric 規則： 顯示每部實體磁碟每 50 毫秒的 IOPS、輸送量和 IO 延遲計量。 它有助於快速找出磁碟節流時段。
+- HighResolutionDiskMetric 規則：顯示每個實體磁碟每 50 毫秒的 IOPS、輸送量和 IO 延遲計量。 它有助於快速找出磁碟節流時段。
 - HighMemoryUsage 規則：偵測高記憶體使用量時段，並顯示在這些時段內前幾名的記憶體使用量取用者。
 
 > [!NOTE] 
@@ -279,7 +279,7 @@ Diskspd IO 工作負載測試 [OS 磁碟 (寫入) 和集區磁碟 (讀取/寫入
 
 在 PerfInsights 產生的 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip 檔案內**，您會找到詳細說明 PerfInsights 結果的 HTML 報表。 若要檢閱報表，請展開 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 檔案，然後開啟 **PerfInsights Report.html** 檔案。
 
-選取 [Findings] \(結果) 索引標籤。
+選取 [Findings] (結果) 索引標籤。
 
 ![[尋找] 索引標籤](media/how-to-use-perfInsights/findingtab.png)
 
@@ -299,7 +299,7 @@ Diskspd IO 工作負載測試 [OS 磁碟 (寫入) 和集區磁碟 (讀取/寫入
 
 [DiskMap] 和 [VolumeMap] 兩區段說明邏輯磁碟區和實體磁碟如何在雙重檢視方塊上彼此相關。
 
-在 [PhysicalDisk] 檢視方塊 ([DiskMap]) 中，資料表會顯示在磁碟上執行的所有邏輯磁碟區。 在下列範例中，PhysicalDrive2 執行 2 個建立在多個分割區的邏輯磁碟區 (J 和 H)：
+在 [PhysicalDisk] 檢視方塊 ([DiskMap]) 中，資料表會顯示在磁碟上執行的所有邏輯磁碟區。 在下列範例中，PhysicalDrive2 執行在多個分割區建立的 2 個邏輯磁碟區 (J 和 H)：
 
 ![[資料] 索引標籤](media/how-to-use-perfInsights/disktab.png)
 
@@ -309,7 +309,7 @@ Diskspd IO 工作負載測試 [OS 磁碟 (寫入) 和集區磁碟 (讀取/寫入
 
 ### <a name="sql-server-tab"></a>[SQL Server] 索引標籤
 
-如果目標 VM 裝載任何 SQL Server 執行個體，您在報表中會看到名為 [SQL Server] 的其他索引標籤：
+如果目標 VM 裝載任何 SQL Server 執行個體，您將在報表中看到名為 **SQL Server** 的其他索引標籤：
 
 ![[SQL] 索引標籤](media/how-to-use-perfInsights/sqltab.png)
 

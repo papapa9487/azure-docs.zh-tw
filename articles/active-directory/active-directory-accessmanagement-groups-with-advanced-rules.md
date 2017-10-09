@@ -17,10 +17,10 @@ ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: b136d3841243ad7aa88786f76b2d31e5dfae9079
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -239,7 +239,8 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 
-使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。 目前我們不支援從內部部署 Active Directory 同步處理的多重值屬性。 
+使用 [Graph 總管] 查詢使用者的屬性並搜尋屬性名稱，即可在目錄中找到自訂屬性名稱。
+目前我們不支援從內部部署 Active Directory 同步處理的多重值屬性。
 
 ## <a name="direct-reports-rule"></a>「直屬員工」規則
 您可以建立一個群組，其中包含某位經理的所有直屬員工。 當經理的直屬員工在未來變更時，系統將會自動調整群組的成員資格。
@@ -287,6 +288,19 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 > 無法在 Azure 傳統入口網站中使用 [簡單規則] 下拉式清單建立這些裝置規則。
 >
 >
+
+## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>將動態成員資格變更為靜態，反之亦然
+您可以變更在群組中管理成員資格的方式。 當您想要在系統中保留相同的群組名稱和識別碼，讓任何現有的群組參考仍然有效時，這非常實用；建立新的群組需要更新這些參考。
+
+> [!WARNING]
+> 將現有的靜態群組變更為動態群組時，系統將從群組中移除所有現有的成員，然後再處理成員資格規則，以加入新的成員。 如果群組用來控制對應用程式或資源的存取，則在完全處理成員資格規則之前，原始成員可能會失去存取權。
+>
+> 建議的作法是，事先測試新的成員資格規則，以確保群組中的新成員資格如預期般運作。
+
+1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，開啟群組。
+2. 選取 [設定] 索引標籤來檢視動態成員資格的目前狀態。
+3. 若要將群組變成靜態的，只要將 [啟用動態成員資格] 設定切換為 [否] 即可。 按一下下方工具列中的 [儲存] 按鈕來確認。 現有的成員將保留在群組中，而且從現在開始，系統將不會處理成員資格規則。
+4. 若要將群組變成動態的，將設定切換為 [是]、指定所需的成員資格規則，然後按一下 [儲存]。 系統將移除現有的成員，並開始處理新的規則以加入新成員。
 
 ## <a name="next-steps"></a>後續步驟
 這些文章提供有關 Azure Active Directory 的其他資訊。

@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2e41c70b982b97c6aab7b6c0322c193c61370a26
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 2219aeb725b207fd92ff3e7603d7ee9c78f2844c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
-# <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
+# <a name="high-availability-ports-overview-preview"></a>高可用性連接埠概觀 (預覽)
 
 Azure Load Balancer 的標準 SKU 導入了高可用性 (HA) 連接埠功能，以便分散來自所有連接埠的流量，並適用於所有支援的通訊協定。 在設定內部負載平衡器時，使用者可以設定 HA 連接埠規則，以將前端和後端連接埠設定為 **0**，並將通訊協定設定為**全部**，從而讓所有流量可以流經內部負載平衡器。
+
+>[!NOTE]
+> 高可用性連接埠概觀目前為預覽版。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 負載平衡演算法維持不變，目的地則會依據五個 Tuple <來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠、通訊協定> 來做選取。 但是，這個組態可讓您使用單一 LB 規則就能處理所有可用流量，並減少組態複雜度，以及減少使用者所能新增之負載平衡規則數目上限所施加的任何限制。
 
@@ -43,6 +46,32 @@ HA 連接埠不需要較為複雜的解決方案 (例如 ZooKeeper)，所以能�
 
 圖 1 - 中樞和輪輻虛擬網路 (具有以 HA 模式部署的 NVA)
 
+
+## <a name="region-availability"></a>區域可用性
+
+HA 連接埠目前已在以下地區內上市：
+- 美國東部 2
+- 美國中部
+- 北歐
+- 美國中西部
+- 西歐
+- 東南亞 
+
+## <a name="preview-sign-up"></a>註冊預覽
+
+若要參加 Load Balancer Standard SKU 中 HA 連接埠功能的預覽，請使用 PowerShell 或 Azure CLI 2.0 來註冊您的訂用帳戶以獲得存取。
+
+- 使用 PowerShell 註冊
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- 使用 Azure CLI 2.0 註冊
+
+    ```cli
+    az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network 
+    ```
 ## <a name="caveats"></a>需要注意的事項
 
 以下是 HA 連接埠的支援組態或例外狀況：

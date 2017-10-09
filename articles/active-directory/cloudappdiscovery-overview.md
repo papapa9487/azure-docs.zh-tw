@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 46d21ac6fe0992ebe6dca93e8ebd381931e49962
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 59af2a5de5936d15456058aaeacfc334b9b34d4c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="cloud-app-discovery-enhancements-in-azure-active-directory"></a>Azure Active Directory 中的 Cloud App Discovery 增強功能 
@@ -32,9 +32,14 @@ ms.lasthandoff: 09/25/2017
 * **不需要代理程式** 這個新版的 Cloud App Discovery 不需要在使用者裝置上安裝代理程式。 相反地，系統會根據從防火牆和 Proxy 匯入的記錄檔執行探索。 無論裝置或作業系統為何，您可以探索所有組織網路流量中的應用程式。
 * **持續分析和警示** Azure AD 中的 Cloud App Discovery 現在可提供詳細的持續風險分析，並且在有新的應用程式使用中時提供警示。 您現在可以更深入了解您組織中的雲端應用程式使用量，例如有關探索之應用程式的輸入流量、輸出流量，以及使用者排行榜相關資訊。
 
-如果您沒有 Activity Directory Premium，請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)以取得詳細資訊。
-
-## <a name="next-steps"></a>後續步驟
+如果您沒有 Active Directory Premium，請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)以取得詳細資訊。
 
 使用此連結來探索 [Azure AD 中的新 Cloud App Discovery 體驗](https://portal.cloudappsecurity.com)。
 
+## <a name="next-steps"></a>後續步驟
+使用下列連結在 Azure AD 中設定 Cloud App Discovery。
+
+* [開始使用 Cloud App Discovery](cloudappdiscovery-get-started.md)
+* [建立快照集報告](cloudappdiscovery-set-up-snapshots.md)
+* [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [使用自訂記錄剖析器](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 79d2f5265c05a1e5f83325295d3d750e1796e1cc
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -97,11 +97,11 @@ ms.lasthandoff: 09/25/2017
 
 是。 如果 AD 樹系之間有樹系信任且名稱尾碼路由已正確設定，就支援多樹系環境。
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>傳遞驗證代理程式是否提供負載平衡功能？
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>我需要安裝幾個傳遞驗證代理程式？
 
-否，安裝多個傳遞驗證代理程式可確保[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)，但不會提供負載平衡。 最後可能會由其中的一個或兩個驗證代理程式處理大量的登入要求。
+安裝多個傳遞驗證代理程式可確保[高可用性](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)。 但是它不提供負載平衡。 最後可能會由其中的一個或兩個驗證代理程式處理大量的登入要求。
 
-驗證代理程式所需要處理的密碼驗證要求並不多。 因此對大多數客戶來說，總共只要兩到三個驗證代理程式就能輕鬆應付尖峰負載和平均負載。
+請考慮您預期在租用戶上看到的登入要求的尖峰與平均負載。 作為基準測試，在標準的 4 核心 CPU，16 GB RAM 伺服器上，單一驗證代理程式每秒可處理 300,000 到 400,000 次驗證。 對大多數客戶來說，總計中兩個或三個驗證代理程式已足以因應高可用性和容量。
 
 我們的建議是，您可以在靠近網域控制站的地方安裝驗證代理程式，以改善登入的延遲情形。
 

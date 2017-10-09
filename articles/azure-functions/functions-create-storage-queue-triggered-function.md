@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
+ms.translationtype: HT
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>建立 Azure 佇列儲存體所觸發的函式
@@ -59,9 +59,9 @@ ms.lasthandoff: 06/02/2017
     
     | 設定 | 建議的值 | 說明 |
     |---|---|---|
-    | **佇列名稱**   | myqueue-items    | 儲存體帳戶中的連線目標佇列名稱。 |
-    | **儲存體帳戶連線** | AzureWebJobStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |
     | **函式命名** | 函式應用程式中的唯一名稱 | 這個由佇列所觸發之函式的名稱。 |
+    | **佇列名稱**   | myqueue-items    | 儲存體帳戶中的連線目標佇列名稱。 |
+    | **儲存體帳戶連線** | AzureWebJobStorage | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。  |    
 
 3. 按一下 [建立] 可建立函式。
 
@@ -69,9 +69,9 @@ ms.lasthandoff: 06/02/2017
 
 ## <a name="create-the-queue"></a>建立佇列
 
-1. 在您的函式中，按一下 [整合]，展開 [文件]，然後複製**帳戶名稱**和**帳戶金鑰**。 您會使用這些認證來連線至儲存體帳戶。 如果您已連線至儲存體帳戶，請跳至步驟 4。
+1. 在您的函式中，按一下 [整合]，展開 [文件]，然後複製**帳戶名稱**和**帳戶金鑰**。 您會使用這些認證來連線至 Azure 儲存體總管中的儲存體帳戶。 如果您已連線至儲存體帳戶，請跳至步驟 4。
 
-    ![取得儲存體帳戶的連線認證。](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
+    ![取得儲存體帳戶的連線認證。](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
 1. 執行 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)工具，按一下左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後按 [下一步]。
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 06/02/2017
 
     ![輸入儲存體認證和連線。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. 展開連結的儲存體帳戶，以滑鼠右鍵按一下 [佇列]，按一下 [建立佇列]，輸入 `myqueue-items`，然後按 Enter 鍵。
+1. 展開連結的儲存體帳戶、以滑鼠右鍵按一下 [佇列]、按一下 [建立佇列]、鍵入 `myqueue-items`，然後按 Enter 鍵。
 
     ![建立儲存體佇列。](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 06/02/2017
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 回到 Azure 入口網站，瀏覽至您的函式，展開頁面底部的 [記錄]，並確定記錄串流並未暫停。
+1. 回到 Azure 入口網站，並瀏覽至您的函式，然後展開頁面底部的 [記錄]，再確定記錄串流並未暫停。
 
 1. 在儲存體總管中，依序展開您的儲存體帳戶、[佇列] 和 [myqueue-items]，然後按一下 [新增訊息]。
 
@@ -114,3 +114,4 @@ ms.lasthandoff: 06/02/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 如需佇列儲存體觸發程序的詳細資訊，請參閱 [Azure Functions 儲存體佇列繫結](functions-bindings-storage-queue.md)。
+

@@ -13,19 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17fee798661b7db4f9933684fceefbfed51409cd
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>如何設定內部負載平衡器的高可用性連接埠
 
 本文提供如何在內部負載平衡器上部署高可用性 (HA) 連接埠的範例。 如需網路虛擬設備特有的組態，請參閱對應的提供者網站。
+
+>[!NOTE]
+> 高可用性連接埠概觀目前為預覽版。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 圖 1 會說明本文所述部署範例的下列組態：
 - NVA 部署在 HA 連接埠組態背後之內部負載平衡器的後端集區中。 
@@ -37,6 +40,22 @@ ms.lasthandoff: 09/25/2017
 ![HA 連接埠的部署範例](./media/load-balancer-configure-ha-ports/haports.png)
 
 圖 1 - 部署在具有高可用性連接埠之內部負載平衡器後方的網路虛擬設備 
+
+## <a name="preview-sign-up"></a>註冊預覽
+
+若要參加 Load Balancer Standard SKU 中 HA 連接埠功能的預覽，請使用 PowerShell 或 Azure CLI 2.0 來註冊您的訂用帳戶以獲得存取。
+
+- 使用 PowerShell 註冊
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- 使用 Azure CLI 2.0 註冊
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## <a name="configuring-ha-ports"></a>設定 HA 連接埠
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/26/2017
 ms.author: seanmck
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 012a48410bb08cb54f42a4f87e952f67ad18c112
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 71a16c71a18b63efe039d3a47ab6f2ce7244caba
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -41,7 +41,7 @@ Azure Container Instances 能讓您在 Azure 中輕鬆建立及管理 Docker 容
 
 Azure Container Instances 是 Azure 資源，必須放在 Azure 資源群組中，這是可用來部署和管理 Azure 資源的邏輯集合。
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。
+使用 [az group create][az-group-create] 命令來建立資源群組。
 
 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
@@ -51,13 +51,13 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>建立容器
 
-您可以提供名稱、Docker 映像和 Azure 資源群組來建立容器。 您可以選擇使用公用 IP 位址向網際網路公開容器。 在此案例中，我們使用的容器裝載一個非常簡單的 Web 應用程式 (以 [Node.js](http://nodejs.org) 撰寫)。
+您可以向 [az container create][az-container-create] 命令提供名稱、Docker 映像和 Azure 資源群組來建立容器。 您可以選擇使用公用 IP 位址向網際網路公開容器。 在此案例中，我們使用的容器裝載一個非常簡單的 Web 應用程式 (以 [Node.js](http://nodejs.org) 撰寫)。
 
 ```azurecli-interactive
 az container create --name mycontainer --image microsoft/aci-helloworld --resource-group myResourceGroup --ip-address public
 ```
 
-在幾秒內，您就能取得要求的回應。 一開始，容器會處於**建立中**狀態，但應該會在幾秒鐘內啟動。 您可以使用 `show` 命令來檢查狀態：
+在幾秒內，您就能取得要求的回應。 一開始，容器會處於**建立中**狀態，但應該會在幾秒鐘內啟動。 您可以使用 [az container show][az-container-show] 命令來檢查狀態：
 
 ```azurecli-interactive
 az container show --name mycontainer --resource-group myResourceGroup
@@ -87,7 +87,7 @@ az container show --name mycontainer --resource-group myResourceGroup
 
 ## <a name="pull-the-container-logs"></a>提取容器記錄
 
-您可以使用 `logs` 命令來提取您所建立之容器的記錄：
+您可以使用 [az container logs][az-container-logs] 命令來提取您所建立之容器的記錄：
 
 ```azurecli-interactive
 az container logs --name mycontainer --resource-group myResourceGroup
@@ -103,7 +103,7 @@ listening on port 80
 
 ## <a name="delete-the-container"></a>刪除容器
 
-當容器使用完畢後，您可以使用 `delete` 命令來移除容器：
+當容器使用完畢後，您可以使用 [az container delete][az-container-delete] 命令來移除容器：
 
 ```azurecli-interactive
 az container delete --name mycontainer --resource-group myResourceGroup
@@ -119,6 +119,13 @@ az container delete --name mycontainer --resource-group myResourceGroup
 
 <!-- LINKS -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
+[az-group-create]: /cli/azure/group?view=azure-cli-latest#az_group_create
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
+[az-container-delete]: /cli/azure/container?view=azure-cli-latest#az_container_delete
+[az-container-list]: /cli/azure/container?view=azure-cli-latest#az_container_list
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png

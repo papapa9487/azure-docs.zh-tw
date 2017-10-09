@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/22/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a0563af9a7fc62fe3923562dd352d756f4945287
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 65a93003eb829a2eaf4684d2a6ecacf74b0adc75
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Hadoop
@@ -58,7 +58,7 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
     ![OBDC 資料來源管理員](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.DataSourceAdmin1.png "使用 ODBC 資料來源管理員設定 DSN")
 
 3. 在 [使用者 DNS] 中按一下 [新增]，以開啟 [建立新資料來源] 精靈。
-4. 選取 [Microsoft Hive ODBC 驅動程式]，然後按一下 [完成]。 您應該會看到 [Microsoft Hive ODBC 驅動程式 DNS 設定] 對話方塊。
+4. 選取 Microsoft Hive ODBC 驅動程式，然後按一下完成。 您應該會看到 [Microsoft Hive ODBC 驅動程式 DNS 設定] 對話方塊。
 5. 輸入或選取下列值：
    
    | 屬性 | 描述 |
@@ -91,12 +91,12 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 下列步驟將說明如何使用您在上一節中建立的 ODBC 資料來源，將資料從 Hive 資料表匯入 Excel 活頁簿中。
 
 1. 在 Excel 中開啟新的或現有的活頁簿。
-2. 從 [資料] 索引標籤，依序按一下 [取得資料] 和 [從其他來源]，然後按一下 [從 ODBC] 以啟動 [資料連接精靈]。
+2. 從 資料 索引標籤，依序按一下 取得資料 和 從其他來源，然後按一下從 ODBC 以啟動 資料連接精靈。
    
     ![開啟資料連線精靈](./media/hdinsight-connect-excel-hive-ODBC-driver/HDI.SimbaHiveOdbc.Excel.DataConnection1.png "開啟資料連線精靈")
-4. 選取您在上一節中建立的資料來源名稱，然後按一下 [確定]。
-5. 輸入 Hadoop 使用者名稱 (預設名稱為 admin) 和密碼，然後按一下 [連接]。
-6. 在導覽器中，依序展開 [HIVE] 和 [default]，按一下 [hivesampletable]，然後按一下 [載入]。 經過數秒後，資料即會匯入至 Excel。
+4. 選取您在上一節中建立的資料來源名稱，然後按一下確定。
+5. 輸入 Hadoop 使用者名稱 (預設名稱為 admin) 和密碼，然後按一下連接。
+6. 在導覽器中，依序展開 HIVE 和 default，按一下 hivesampletable，然後按一下載入。 經過數秒後，資料即會匯入至 Excel。
 
     ![HDInsight Hive ODBC 導覽器](./media/hdinsight-connect-excel-hive-ODBC-driver/hdinsight.hive.odbc.navigator.png "開啟資料連接精靈")
 
@@ -108,7 +108,7 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 * [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./hdinsight-connect-hive-zeppelin.md)。
 * [使用 Power Query 將 Excel 連線到 Hadoop](./hdinsight-connect-excel-power-query.md)。
 * [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
-* [使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code](hdinsight-for-vscode.md)。
+* [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](hdinsight-for-vscode.md)。
 * [將資料上傳至 HDInsight](./hdinsight-upload-data.md)。
 
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md

@@ -1,6 +1,6 @@
 ---
-title: "在 Azure 中建立 Service Fabric 叢集 | Microsoft Docs"
-description: "了解如何在 Azure 中使用範本建立 Windows 叢集。"
+title: "在 Azure 中建立 Windows Service Fabric 叢集 | Microsoft Docs"
+description: "了解如何使用 PowerShell，將 Windows Service Fabric 叢集部署到現有的 Azure 虛擬網路。"
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,32 +12,32 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/06/2017
+ms.date: 09/26/2017
 ms.author: ryanwi
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5d56fd468998ee4b1253b47aa133812e0141062b
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 7cee4f8d68062dcfd2b6f61d55319160a2a80a98
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
-# <a name="deploy-a-secure-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
-本教學課程是一個系列的第一部分。 您將了解如何建立 Azure 中執行的 Service Fabric 叢集 (Windows)，並將它部署到現有的虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。  若要建立 Linux 叢集，請參閱[在 Azure 上使用範本建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
+# <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>將安全的 Service Fabric Windows 叢集部署到 Azure 虛擬網路
+本教學課程是一個系列的第一部分。 您將會了解如何使用 PowerShell 將 Windows Service Fabric 叢集部署到現有的 Azure 虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。  若要使用 Azure CLI 建立 Linux 叢集，請參閱[在 Azure 上建立安全的 Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)。
 
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 在 Azure 中使用範本建立 VNET
+> * 使用 PowerShell 在 Azure 中建立 VNET
 > * 建立金鑰保存庫並上傳憑證
-> * 在 Azure 中使用範本建立安全的 Service Fabric 叢集
+> * 在 Azure PowerShell 中建立安全的 Service Fabric 叢集
 > * 使用 X.509 憑證保護叢集
 > * 使用 PowerShell 連線到叢集
 > * 刪除叢集
 
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
-> * 在 Azure 上使用範本建立安全叢集
+> * 在 Azure 上建立安全叢集
 > * [使用 Service Fabric 部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>必要條件
@@ -46,10 +46,7 @@ ms.lasthandoff: 09/25/2017
 - 安裝 [Service Fabric SDK 和 PowerShell 模組](service-fabric-get-started.md)
 - 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
 
-下列程序會建立五個節點的 Service Fabric 叢集。 叢集由放入金鑰保存庫中的自我簽署憑證所保護。 
-
-若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
-如需建立 Service Fabric 叢集的詳細資訊，請參閱[使用 Azure Resource Manager 來建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
+下列程序會建立五個節點的 Service Fabric 叢集。 若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 並選取您的訂用帳戶
 本指南使用 Azure PowerShell。 開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
@@ -181,33 +178,17 @@ Write-Host "Certificate Thumbprint: " $output.CertificateThumbprint
 ```
 
 ## <a name="deploy-the-service-fabric-cluster"></a>部署 Service Fabric 叢集
-當網路資源部署完成，而您也將憑證上傳至金鑰保存庫之後，下一個步驟是將 Service Fabric 叢集部署到為 Service Fabric 叢集指定之子網路與 NSG 中的 VNET。 針對本教學課程，Service Fabric Resource Manager 範本已預先設定為使用您在上一個步驟中設定之 VNET、子網路及 NSG 的名稱。
-
-下載下列 Resource Manager 範本和參數檔：
+部署完網路資源之後，下一個步驟是將 Service Fabric 叢集部署至為 Service Fabric 叢集指定之子網路與 NSG 中的 VNET。 將叢集部署至現有的 VNET 和子網路 (先前已在本文中部署) 需要 Resource Manager 範本。  如需詳細資訊，請參閱[使用 Azure Resource Manager 建立叢集](service-fabric-cluster-creation-via-arm.md)。 本教學課程系列已將範本預先設定為使用您在上一個步驟中設定之 VNET、子網路及 NSG 的名稱。  下載下列 Resource Manager 範本和參數檔：
 - [cluster.json][cluster-arm]
 - [cluster.parameters.json][cluster-parameters-arm]
 
-填寫用於您部署之 `cluster.parameters.json` 檔案中的空白參數，包括您叢集憑證的 [Key Vault 資訊](service-fabric-cluster-creation-via-arm.md#set-up-a-key-vault)。
+在部署的 *cluster.parameters.json* 檔案中填入空白的 **clusterName**、**adminUserName**、**adminPassword**、**certificateThumbprint**、**certificateUrlValue** 和 **sourceVaultValue** 參數。  如果您有已上傳至金鑰保存庫的現有憑證，請為該憑證填寫 **certificateThumbprint**、**certificateUrlValue** 和 **sourceVaultValue** 值。
 
 使用下列 PowerShell 命令來部署 Resource Manager 範本和參數檔，以建立 Service Fabric 叢集：
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
 ```
-
-## <a name="modify-the-certificate--access-service-fabric-explorer"></a>修改憑證和存取 Service Fabric Explorer 
-
-1. 按兩下憑證，即可開啟 [憑證匯入精靈]。
-
-2. 請使用預設設定，但務必勾選 [將此金鑰標記為可匯出] 核取方塊 (在「私密金鑰保護」步驟中)。 設定 Azure Container Registry 時，Visual Studio 必須匯出憑證，以進行本教學課程稍後的 Service Fabric 叢集驗證。
-
-3. 現在，您可以在瀏覽器中開啟 Service Fabric Explorer。 若要這樣做，請使用網頁瀏覽器導覽至叢集的 **ManagementEndpoint** URL，然後選取您的機器上儲存的憑證。
-
->[!NOTE]
->由於您使用自我簽署的憑證，因此開啟 Service Fabric Explorer 時會顯示憑證錯誤。 在 Edge 中，您必須依序按一下 [詳細資料] 與 [繼續瀏覽網頁] 連結。 在 Chrome 中，您必須依序按一下 [進階] 與 [繼續] 連結。
-
->[!NOTE]
->如果叢集建立失敗，您隨時可以重新執行命令，藉此更新已部署的資源。 如果憑證是與失敗的部署一起建立，則會產生一個新憑證。 若要對叢集建立問題進行疑難排解，請參閱[使用 Azure Resource Manager 來建立 Service Fabric 叢集](service-fabric-cluster-creation-via-arm.md)。
 
 ## <a name="connect-to-the-secure-cluster"></a>連線到安全的叢集
 使用隨 Service Fabric SDK 一起安裝的 Service Fabric PowerShell 模組連線到叢集。  首先，將憑證安裝到您的電腦上目前使用者的個人 (My) 存放區。  執行下列 PowerShell 命令：
@@ -237,13 +218,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster.southcentralus.clou
 Get-ServiceFabricClusterHealth
 ```
 
-```azurecli
-sfctl cluster health
-```
-
 ## <a name="clean-up-resources"></a>清除資源
-
-叢集是由叢集資源本身和其他 Azure 資源所構成。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
+本教學課程系列的其他文章會使用您剛才建立的叢集。 如果您現在不打算繼續閱讀下一篇文章，您可能要刪除該叢集以避免產生費用。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
 
 登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](http://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup Cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 刪除資源群組和所有叢集資源。
 
@@ -259,14 +235,14 @@ Remove-AzureRmResourceGroup -Name $ResourceGroupName -Force
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 在 Azure 中使用範本建立 VNET
+> * 使用 PowerShell 在 Azure 中建立 VNET
 > * 建立金鑰保存庫並上傳憑證
-> * 在 Azure 中使用範本建立安全的 Service Fabric 叢集
+> * 使用 PowerShell 在 Azure 中建立安全的 Service Fabric 叢集
 > * 使用 X.509 憑證保護叢集
 > * 使用 PowerShell 連線到叢集
 > * 刪除叢集
 
-接下來，前進到下列的教學課程，了解如何部署現有的應用程式。
+接下來，請前進到下列教學課程，了解如何使用 Service Fabric 部署 API 管理。
 > [!div class="nextstepaction"]
 > [部署 API 管理](service-fabric-tutorial-deploy-api-management.md)
 

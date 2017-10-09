@@ -14,15 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 09/25/2017
 ms.author: jgao
-ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 8e77153493b6f37f5f48116b86bad6b25a50d1a1
+ms.translationtype: HT
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 802aacb923f14758124fc02117a99a4fb58710fa
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
@@ -62,23 +60,26 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-首先，將 sample.log 和 hivesampletable 匯出至 Azure SQL Database 或 SQL Server，然後使用下列路徑，將包含行動裝置資料的資料表匯回 HDInsight：
-
-    /tutorials/usesqoop/importeddata
+在本教學課程中，您要使用這兩個資料集測試 Sqoop 匯入和匯出。
 
 ## <a name="create-cluster-and-sql-database"></a>建立叢集與 SQL Database
 本節說明如何建立叢集、SQL Database 和 SQL Database 結構描述，以使用 Azure 入口網站和 Azure Resource Manager 範本來執行本教學課程。 範本可在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到。 Resource Manager 範本會呼叫 bacpac 套件，以將資料表結構描述部署到 SQL Database。  Bacpac 套件位於公用 Blob 容器中，https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
    
-        "storageKeyType": "Primary",
-        "storageKey": "<TheAzureStorageAccountKey>",
+```json
+"storageKeyType": "Primary",
+"storageKey": "<TheAzureStorageAccountKey>",
+```
 
 如果您想要使用 Azure PowerShell 來建立叢集與 SQL Database，請參閱[附錄 A](#appendix-a---a-powershell-sample)。
 
+> [!NOTE]
+> 使用範本或 Azure 入口網站匯入的方式只支援從 Azure Blob 儲存體匯入 BACPAC 檔案。
+
+**若要使用資源管理範本設定環境**
 1. 在 Azure 入口網站中，按一下以下影像以開啟 Resource Manager 範本。         
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
-
 2. 輸入下列屬性：
 
     - **訂用帳戶**：輸入您的 Azure 訂用帳戶。
@@ -92,22 +93,16 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
     - **_artifacts 位置 SAS 權杖**︰保留為空白。
     - **Bacpac 檔案名稱**︰除非您想要使用自有 backpac 檔案，否則請使用預設值。
      
-     變數區段中的下列值為硬式編碼︰
+        變數區段中的下列值為硬式編碼︰
+        
+        |名稱|值|
+        |----|-----|
+        | 預設儲存體帳戶名稱 | &lt;CluterName>store |
+        | Azure SQL Database 伺服器名稱 | &lt;ClusterName>dbserver |
+        | Azure SQL Database 名稱 | &lt;ClusterName>db |
      
-     | 預設儲存體帳戶名稱 | <CluterName>store |
-     | --- | --- |
-     | Azure SQL Database 伺服器名稱 |<ClusterName>dbserver |
-     | Azure SQL Database 名稱 |<ClusterName>db |
-     
-     請記下這些值。  稍後在教學課程中需要這些資訊。
-
-3. 按一下 [確定] 儲存參數。
-
-4. 在 [自訂部署] 刀鋒視窗中，按一下 [資源群組] 下拉式方塊，然後按一下 [新增] 來建立新的資源群組。 資源群組是聚集叢集、相依儲存體帳戶和其他已連結資源的容器。
-
-5. 按一下 [法律條款]，然後按一下 [建立]。
-
-6. 按一下 [建立]。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
+3. 選取 [我同意上方所述的條款及條件]。
+4. 按一下 [購買]。 您會看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集和 SQL Database。
 
 如果您選擇使用現有的 Azure SQL Database 或 Microsoft SQL Server
 
@@ -140,6 +135,20 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
     > 
     > 
 
+**若要驗證設定**
+
+1. 在 Azure 入口網站中，開啟資源群組。 您應該會在群組中看到四個資源：
+
+    - 叢集
+    - 資料庫伺服器
+    - 資料庫
+    - 預設的儲存體帳戶
+
+2. 在 Microsoft SQL Server Management Studio 中開啟資料庫。  您應該會看到部署的兩個資料庫：
+
+    ![Azure HDInsight Sqoop SQL Management Studio](./media/hdinsight-use-sqoop/hdinsight-sqoop-sql-management-studio.png)
+
+
 ## <a name="run-sqoop-jobs"></a>執行 Sqoop 工作
 HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定適合您的方法，然後跟著連結逐項閱讀介紹。
 
@@ -158,8 +167,6 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
-* [搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]：在 Oozie 工作流程中使用 Sqoop 動作。
-* [使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-data]：使用 Hive 分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL Database。
 * [將資料上傳至 HDInsight][hdinsight-upload-data]：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 
 ## <a name="appendix-a---a-powershell-sample"></a>附錄 A - PowerShell 範例
@@ -204,7 +211,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    這在使用此資料的其他範例中並沒有問題，但我們必須移除這些例外狀況，才能將資料匯入 Azure SQL Database 或 SQL Server 中。 如果有空白字串，或某一行的項目數少於 Azure SQL Database 資料表中定義的欄位數，Sqoop 匯出就會失敗。 log4jlogs 資料表有 7 個字串類型欄位。
+    這在使用此資料的其他範例中並沒有問題，但我們必須移除這些例外狀況，才能將資料匯入 Azure SQL Database 或 SQL Server 中。 如果有空白字串，或某一行的元素數少於 Azure SQL Database 資料表中定義的欄位數，Sqoop 匯出就會失敗。 log4jlogs 資料表有 7 個字串類型欄位。
    
     此程序會在叢集上建立新檔案：tutorials/usesqoop/data/sample.log。 若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。 [開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 6. 將資料檔案匯出至 Azure SQL Database。
@@ -225,396 +232,403 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
     若要檢查已修改的資料檔案，可以使用 Azure 入口網站、Azure 儲存體總管工具或 Azure PowerShell。  [開始使用 HDInsight][hdinsight-get-started] 提供了使用 Azure PowerShell 來下載檔案及顯示檔案內容的程式碼範例。
 
 ### <a name="the-powershell-sample"></a>PowerShell 範例
-    # Prepare an Azure SQL database to be used by the Sqoop tutorial
 
-    #region - provide the following values
+```powershell
+# Prepare an Azure SQL database to be used by the Sqoop tutorial
 
-    $subscriptionID = "<Enter your Azure Subscription ID>"
+#region - provide the following values
 
-    $sqlDatabaseLogin = "<Enter a SQL Database Login name>" #SQL Database server login
-    $sqlDatabasePassword = "<Enter a Password>"
+$subscriptionID = "<Enter your Azure Subscription ID>"
 
-    $httpUserName = "admin"  #HDInsight cluster username
-    $httpPassword = "<Enter a Password>"
+$sqlDatabaseLogin = "<Enter a SQL Database Login name>" #SQL Database server login
+$sqlDatabasePassword = "<Enter a Password>"
 
-    # used for creating Azure service names
-    $nameToken = "<Enter an alias>" 
-    $namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
-    #endregion
+$httpUserName = "admin"  #HDInsight cluster username
+$httpPassword = "<Enter a Password>"
 
-    #region - variables
+$sshUserName = "sshuser" #HDInsight ssh username
+$sshPassword = $httpPassword 
 
-    # Resource group variables
-    $resourceGroupName = $namePrefix + "rg"
-    $location = "East US 2" # used by all Azure services defined in this tutorial
+# used for creating Azure service names
+$nameToken = "<Enter an alias>" 
+$namePrefix = $nameToken.ToLower() + (Get-Date -Format "MMdd")
+#endregion
 
-    # SQL database varialbes
-    $sqlDatabaseServerName = $namePrefix + "sqldbserver"
-    $sqlDatabaseName = $namePrefix + "sqldb"
-    $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
-    $sqlDatabaseMaxSizeGB = 10
+#region - variables
 
-    # Used for retrieving external IP address and creating firewall rules
-    $ipAddressRestService = "http://bot.whatismyipaddress.com"
-    $fireWallRuleName = "UseSqoop"
+# Resource group variables
+$resourceGroupName = $namePrefix + "rg"
+$location = "East US 2" # used by all Azure services defined in this tutorial
 
-    # Used for creating tables and clustered indexes
-    $cmdCreateLog4jTable = "CREATE TABLE [dbo].[log4jlogs](
-        [t1] [nvarchar](50),
-        [t2] [nvarchar](50),
-        [t3] [nvarchar](50),
-        [t4] [nvarchar](50),
-        [t5] [nvarchar](50),
-        [t6] [nvarchar](50),
-        [t7] [nvarchar](50))"
+# SQL database varialbes
+$sqlDatabaseServerName = $namePrefix + "sqldbserver"
+$sqlDatabaseName = $namePrefix + "sqldb"
+$sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServerName.database.windows.net;Initial Catalog=$sqlDatabaseName;User ID=$sqlDatabaseLogin;Password=$sqlDatabasePassword;Encrypt=true;Trusted_Connection=false;"
+$sqlDatabaseMaxSizeGB = 10
 
-    $cmdCreateLog4jClusteredIndex = "CREATE CLUSTERED INDEX log4jlogs_clustered_index on log4jlogs(t1)"
+# Used for retrieving external IP address and creating firewall rules
+$ipAddressRestService = "http://bot.whatismyipaddress.com"
+$fireWallRuleName = "UseSqoop"
 
-    $cmdCreateMobileTable = " CREATE TABLE [dbo].[mobiledata](
-    [clientid] [nvarchar](50),
-    [querytime] [nvarchar](50),
-    [market] [nvarchar](50),
-    [deviceplatform] [nvarchar](50),
-    [devicemake] [nvarchar](50),
-    [devicemodel] [nvarchar](50),
-    [state] [nvarchar](50),
-    [country] [nvarchar](50),
-    [querydwelltime] [float],
-    [sessionid] [bigint],
-    [sessionpagevieworder][bigint])"
+# Used for creating tables and clustered indexes
+$cmdCreateLog4jTable = "CREATE TABLE [dbo].[log4jlogs](
+    [t1] [nvarchar](50),
+    [t2] [nvarchar](50),
+    [t3] [nvarchar](50),
+    [t4] [nvarchar](50),
+    [t5] [nvarchar](50),
+    [t6] [nvarchar](50),
+    [t7] [nvarchar](50))"
 
-    $cmdCreateMobileDataClusteredIndex = "CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)"
+$cmdCreateLog4jClusteredIndex = "CREATE CLUSTERED INDEX log4jlogs_clustered_index on log4jlogs(t1)"
 
-    # HDInsight variables
-    $hdinsightClusterName = $namePrefix + "hdi"
-    $defaultStorageAccountName = $namePrefix + "store"
-    $defaultBlobContainerName = $hdinsightClusterName
-    #endregion
+$cmdCreateMobileTable = " CREATE TABLE [dbo].[mobiledata](
+[clientid] [nvarchar](50),
+[querytime] [nvarchar](50),
+[market] [nvarchar](50),
+[deviceplatform] [nvarchar](50),
+[devicemake] [nvarchar](50),
+[devicemodel] [nvarchar](50),
+[state] [nvarchar](50),
+[country] [nvarchar](50),
+[querydwelltime] [float],
+[sessionid] [bigint],
+[sessionpagevieworder][bigint])"
 
-    # Treat all errors as terminating
-    $ErrorActionPreference = "Stop"
+$cmdCreateMobileDataClusteredIndex = "CREATE CLUSTERED INDEX mobiledata_clustered_index on mobiledata(clientid)"
 
-    #region - Connect to Azure subscription
-    Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-    try{Get-AzureRmContext}
-    catch{Login-AzureRmAccount}
-    #endregion
+# HDInsight variables
+$hdinsightClusterName = $namePrefix + "hdi"
+$defaultStorageAccountName = $namePrefix + "store"
+$defaultBlobContainerName = $hdinsightClusterName
+#endregion
 
-    #region - Create Azure resouce group
-    Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
-    try{
-        Get-AzureRmResourceGroup -Name $resourceGroupName
+# Treat all errors as terminating
+$ErrorActionPreference = "Stop"
+
+#region - Connect to Azure subscription
+Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
+try{Get-AzureRmContext}
+catch{Login-AzureRmAccount}
+#endregion
+
+#region - Create Azure resouce group
+Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
+try{
+    Get-AzureRmResourceGroup -Name $resourceGroupName
+}
+catch{
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+}
+#endregion
+
+#region - Create Azure SQL database server
+Write-Host "`nCreating an Azure SQL Database server ..." -ForegroundColor Green
+try{
+    Get-AzureRmSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
+catch{
+    Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
+
+    $sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
+    $credential = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
+
+    $sqlDatabaseServerName = (New-AzureRmSqlServer `
+                                -ResourceGroupName $resourceGroupName `
+                                -ServerName $sqlDatabaseServerName `
+                                -SqlAdministratorCredentials $credential `
+                                -Location $location).ServerName
+    Write-Host "`tThe new SQL database server name is $sqlDatabaseServerName." -ForegroundColor Cyan
+
+    Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
+    $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
+    New-AzureRmSqlServerFirewallRule `
+        -ResourceGroupName $resourceGroupName `
+        -ServerName $sqlDatabaseServerName `
+        -FirewallRuleName "$fireWallRuleName-workstation" `
+        -StartIpAddress $workstationIPAddress `
+        -EndIpAddress $workstationIPAddress
+
+    #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
+    #Note that this allows Azure traffic from any Azure subscription to access the server.
+    New-AzureRmSqlServerFirewallRule `
+        -ResourceGroupName $resourceGroupName `
+        -ServerName $sqlDatabaseServerName `
+        -FirewallRuleName "$fireWallRuleName-Azureservices" `
+        -StartIpAddress "0.0.0.0" `
+        -EndIpAddress "0.0.0.0"
+}
+
+#endregion
+
+#region - Create and validate Azure SQL database
+Write-Host "`nCreating an Azure SQL database ..." -ForegroundColor Green
+
+try {
+    Get-AzureRmSqlDatabase `
+        -ResourceGroupName $resourceGroupName `
+        -ServerName $sqlDatabaseServerName `
+        -DatabaseName $sqlDatabaseName
+}
+catch {
+    Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
+    New-AzureRMSqlDatabase `
+        -ResourceGroupName $resourceGroupName `
+        -ServerName $sqlDatabaseServerName `
+        -DatabaseName $sqlDatabaseName `
+        -Edition "Standard" `
+        -RequestedServiceObjectiveName "S1"
+}
+
+#endregion
+
+#region - Create tables
+Write-Host "Creating the log4jlogs table and the mobiledata table ..." -ForegroundColor Green
+
+$conn = New-Object System.Data.SqlClient.SqlConnection
+$conn.ConnectionString = $sqlDatabaseConnectionString
+$conn.Open()
+
+# Create the log4jlogs table and index
+$cmd = New-Object System.Data.SqlClient.SqlCommand
+$cmd.Connection = $conn
+$cmd.CommandText = $cmdCreateLog4jTable
+$ret = $cmd.ExecuteNonQuery()
+$cmd.CommandText = $cmdCreateLog4jClusteredIndex
+$cmd.ExecuteNonQuery()
+
+# Create the mobiledata table and index
+$cmd.CommandText = $cmdCreateMobileTable
+$cmd.ExecuteNonQuery()
+$cmd.CommandText = $cmdCreateMobileDataClusteredIndex
+$cmd.ExecuteNonQuery()
+
+$conn.close()
+
+#endregion
+
+
+#region - Create HDInsight cluster
+
+Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
+
+# Create the default storage account
+New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $defaultStorageAccountName `
+    -Location $location `
+    -Type Standard_LRS
+
+# Create the default Blob container
+$defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
+                                -ResourceGroupName $resourceGroupName `
+                                -Name $defaultStorageAccountName)[0].Value
+$defaultStorageAccountContext = New-AzureStorageContext `
+                                    -StorageAccountName $defaultStorageAccountName `
+                                    -StorageAccountKey $defaultStorageAccountKey 
+New-AzureStorageContainer `
+    -Name $defaultBlobContainerName `
+    -Context $defaultStorageAccountContext 
+
+# Create the HDInsight cluster
+$pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
+$httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
+
+New-AzureRmHDInsightCluster `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $HDInsightClusterName `
+    -Location $location `
+    -ClusterType Hadoop `
+    -OSType Linux `
+    -Version 3.6 `
+    -ClusterSizeInNodes 2 `
+    -HttpCredential $httpCredential `
+    -SshCredential $sshCredential `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultStorageContainer $defaultBlobContainerName  
+
+# Validate the cluster
+Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
+#endregion
+
+#region - pre-process the source file
+
+Write-Host "Preprocessing the source file ..." -ForegroundColor Green
+
+# This procedure creates a new file with $destBlobName
+$sourceBlobName = "example/data/sample.log"
+$destBlobName = "tutorials/usesqoop/data/sample.log"
+
+# Define the connection string
+$storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
+
+# Create block blob objects referencing the source and destination blob.
+$storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
+$storageClient = $storageAccount.CreateCloudBlobClient();
+$storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
+$sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
+$destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
+
+# Define a MemoryStream and a StreamReader for reading from the source file
+$stream = New-Object System.IO.MemoryStream
+$stream = $sourceBlob.OpenRead()
+$sReader = New-Object System.IO.StreamReader($stream)
+
+# Define a MemoryStream and a StreamWriter for writing into the destination file
+$memStream = New-Object System.IO.MemoryStream
+$writeStream = New-Object System.IO.StreamWriter $memStream
+
+# Pre-process the source blob
+$exString = "java.lang.Exception:"
+while(-Not $sReader.EndOfStream){
+    $line = $sReader.ReadLine()
+    $split = $line.Split(" ")
+
+    # remove the "java.lang.Exception" from the first element of the array
+    # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
+    if ($split[0] -eq $exString){
+        #create a new ArrayList to remove $split[0]
+        $newArray = [System.Collections.ArrayList] $split
+        $newArray.Remove($exString)
+
+        # update $split and $line
+        $split = $newArray
+        $line = $newArray -join(" ")
     }
-    catch{
-        New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+    # remove the lines that has less than 7 elements
+    if ($split.count -ge 7){
+        write-host $line
+        $writeStream.WriteLine($line)
     }
-    #endregion
+}
 
-    #region - Create Azure SQL database server
-    Write-Host "`nCreating an Azure SQL Database server ..." -ForegroundColor Green
-    try{
-        Get-AzureRmSqlServer -ServerName $sqlDatabaseServerName -ResourceGroupName $resourceGroupName}
-    catch{
-        Write-Host "`nCreating SQL Database server ..."  -ForegroundColor Green
+# Write to the destination blob
+$writeStream.Flush()
+$memStream.Seek(0, "Begin")
+$destBlob.UploadFromStream($memStream)
 
-        $sqlDatabasePW = ConvertTo-SecureString -String $sqlDatabasePassword -AsPlainText -Force
-        $credential = New-Object System.Management.Automation.PSCredential($sqlDatabaseLogin,$sqlDatabasePW)
+#endregion
 
-        $sqlDatabaseServerName = (New-AzureRmSqlServer `
-                                    -ResourceGroupName $resourceGroupName `
-                                    -ServerName $sqlDatabaseServerName `
-                                    -SqlAdministratorCredentials $credential `
-                                    -Location $location).ServerName
-        Write-Host "`tThe new SQL database server name is $sqlDatabaseServerName." -ForegroundColor Cyan
+#region - export a log file from the cluster to the SQL database
 
-        Write-Host "`nCreating firewall rule, $fireWallRuleName ..." -ForegroundColor Green
-        $workstationIPAddress = Invoke-RestMethod $ipAddressRestService
-        New-AzureRmSqlServerFirewallRule `
-            -ResourceGroupName $resourceGroupName `
-            -ServerName $sqlDatabaseServerName `
-            -FirewallRuleName "$fireWallRuleName-workstation" `
-            -StartIpAddress $workstationIPAddress `
-            -EndIpAddress $workstationIPAddress
+Write-Host "Preprocessing the source file ..." -ForegroundColor Green
 
-        #To allow other Azure services to access the server add a firewall rule and set both the StartIpAddress and EndIpAddress to 0.0.0.0. 
-        #Note that this allows Azure traffic from any Azure subscription to access the server.
-        New-AzureRmSqlServerFirewallRule `
-            -ResourceGroupName $resourceGroupName `
-            -ServerName $sqlDatabaseServerName `
-            -FirewallRuleName "$fireWallRuleName-Azureservices" `
-            -StartIpAddress "0.0.0.0" `
-            -EndIpAddress "0.0.0.0"
-    }
+$tableName_log4j = "log4jlogs"
 
-    #endregion
+# Connection string for Azure SQL Database.
+# Comment if using SQL Server
+$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
+# Connection string for SQL Server.
+# Uncomment if using SQL Server.
+#$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$sqlDatabaseName"
 
-    #region - Create and validate Azure SQL database
-    Write-Host "`nCreating an Azure SQL database ..." -ForegroundColor Green
+$exportDir_log4j = "/tutorials/usesqoop/data"
 
-    try {
-        Get-AzureRmSqlDatabase `
-            -ResourceGroupName $resourceGroupName `
-            -ServerName $sqlDatabaseServerName `
-            -DatabaseName $sqlDatabaseName
-    }
-    catch {
-        Write-Host "`nCreating SQL Database, $sqlDatabaseName ..."  -ForegroundColor Green
-        New-AzureRMSqlDatabase `
-            -ResourceGroupName $resourceGroupName `
-            -ServerName $sqlDatabaseServerName `
-            -DatabaseName $sqlDatabaseName `
-            -Edition "Standard" `
-            -RequestedServiceObjectiveName "S1"
-    }
+# Submit a Sqoop job
+$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
+    -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1"
+$sqoopJob = Start-AzureRmHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef #-Debug -Verbose
+Wait-AzureRmHDInsightJob `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId
 
-    #endregion
+Write-Host "Standard Error" -BackgroundColor Green
+Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
+Write-Host "Standard Output" -BackgroundColor Green
+Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
 
-    #region - Create tables
-    Write-Host "Creating the log4jlogs table and the mobiledata table ..." -ForegroundColor Green
+#endregion
 
-    $conn = New-Object System.Data.SqlClient.SqlConnection
-    $conn.ConnectionString = $sqlDatabaseConnectionString
-    $conn.Open()
+#region - export a Hive table
 
-    # Create the log4jlogs table and index
-    $cmd = New-Object System.Data.SqlClient.SqlCommand
-    $cmd.Connection = $conn
-    $cmd.CommandText = $cmdCreateLog4jTable
-    $ret = $cmd.ExecuteNonQuery()
-    $cmd.CommandText = $cmdCreateLog4jClusteredIndex
-    $cmd.ExecuteNonQuery()
+$tableName_mobile = "mobiledata"
+$exportDir_mobile = "/hive/warehouse/hivesampletable"
 
-    # Create the mobiledata table and index
-    $cmd.CommandText = $cmdCreateMobileTable
-    $cmd.ExecuteNonQuery()
-    $cmd.CommandText = $cmdCreateMobileDataClusteredIndex
-    $cmd.ExecuteNonQuery()
+$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
+    -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
+$sqoopJob = Start-AzureRmHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef #-Debug -Verbose
 
-    $conn.close()
+Wait-AzureRmHDInsightJob `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId
 
-    #endregion
+Write-Host "Standard Error" -BackgroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardError
 
+Write-Host "Standard Output" -BackgroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardOutput
 
-    #region - Create HDInsight cluster
+#endregion
 
-    Write-Host "Creating the HDInsight cluster and the dependent services ..." -ForegroundColor Green
+#region - import a database
 
-    # Create the default storage account
-    New-AzureRmStorageAccount `
-        -ResourceGroupName $resourceGroupName `
-        -Name $defaultStorageAccountName `
-        -Location $location `
-        -Type Standard_LRS
+$targetDir_mobile = "/tutorials/usesqoop/importeddata/"
 
-    # Create the default Blob container
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey `
-                                    -ResourceGroupName $resourceGroupName `
-                                    -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext `
-                                        -StorageAccountName $defaultStorageAccountName `
-                                        -StorageAccountKey $defaultStorageAccountKey 
-    New-AzureStorageContainer `
-        -Name $defaultBlobContainerName `
-        -Context $defaultStorageAccountContext 
+$sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
+    -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
 
-    # Create the HDInsight cluster
-    $pw = ConvertTo-SecureString -String $httpPassword -AsPlainText -Force
-    $httpCredential = New-Object System.Management.Automation.PSCredential($httpUserName,$pw)
+$sqoopJob = Start-AzureRmHDInsightJob `
+                -ClusterName $hdinsightClusterName `
+                -HttpCredential $httpCredential `
+                -JobDefinition $sqoopDef #-Debug -Verbose
 
-    New-AzureRmHDInsightCluster `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $HDInsightClusterName `
-        -Location $location `
-        -ClusterType Hadoop `
-        -OSType Windows `
-        -ClusterSizeInNodes 2 `
-        -HttpCredential $httpCredential `
-        -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultStorageContainer $defaultBlobContainerName 
+Wait-AzureRmHDInsightJob `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId
 
-    # Validate the cluster
-    Get-AzureRmHDInsightCluster -ClusterName $hdinsightClusterName
-    #endregion
+Write-Host "Standard Error" -BackgroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardError
 
-    #region - pre-process the source file
+Write-Host "Standard Output" -BackgroundColor Green
+Get-AzureRmHDInsightJobOutput `
+    -ResourceGroupName $resourceGroupName `
+    -ClusterName $hdinsightClusterName `
+    -DefaultStorageAccountName $defaultStorageAccountName `
+    -DefaultStorageAccountKey $defaultStorageAccountKey `
+    -DefaultContainer $defaultBlobContainerName `
+    -HttpCredential $httpCredential `
+    -JobId $sqoopJob.JobId `
+    -DisplayOutputType StandardOutput
 
-    Write-Host "Preprocessing the source file ..." -ForegroundColor Green
-
-    # This procedure creates a new file with $destBlobName
-    $sourceBlobName = "example/data/sample.log"
-    $destBlobName = "tutorials/usesqoop/data/sample.log"
-
-    # Define the connection string
-    $storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=$defaultStorageAccountName;AccountKey=$defaultStorageAccountKey"
-
-    # Create block blob objects referencing the source and destination blob.
-    $storageAccount = [Microsoft.WindowsAzure.Storage.CloudStorageAccount]::Parse($storageConnectionString)
-    $storageClient = $storageAccount.CreateCloudBlobClient();
-    $storageContainer = $storageClient.GetContainerReference($defaultBlobContainerName)
-    $sourceBlob = $storageContainer.GetBlockBlobReference($sourceBlobName)
-    $destBlob = $storageContainer.GetBlockBlobReference($destBlobName)
-
-    # Define a MemoryStream and a StreamReader for reading from the source file
-    $stream = New-Object System.IO.MemoryStream
-    $stream = $sourceBlob.OpenRead()
-    $sReader = New-Object System.IO.StreamReader($stream)
-
-    # Define a MemoryStream and a StreamWriter for writing into the destination file
-    $memStream = New-Object System.IO.MemoryStream
-    $writeStream = New-Object System.IO.StreamWriter $memStream
-
-    # Pre-process the source blob
-    $exString = "java.lang.Exception:"
-    while(-Not $sReader.EndOfStream){
-        $line = $sReader.ReadLine()
-        $split = $line.Split(" ")
-
-        # remove the "java.lang.Exception" from the first element of the array
-        # for example: java.lang.Exception: 2012-02-03 19:11:02 SampleClass8 [WARN] problem finding id 153454612
-        if ($split[0] -eq $exString){
-            #create a new ArrayList to remove $split[0]
-            $newArray = [System.Collections.ArrayList] $split
-            $newArray.Remove($exString)
-
-            # update $split and $line
-            $split = $newArray
-            $line = $newArray -join(" ")
-        }
-
-        # remove the lines that has less than 7 elements
-        if ($split.count -ge 7){
-            write-host $line
-            $writeStream.WriteLine($line)
-        }
-    }
-
-    # Write to the destination blob
-    $writeStream.Flush()
-    $memStream.Seek(0, "Begin")
-    $destBlob.UploadFromStream($memStream)
-
-    #endregion
-
-    #region - export a log file from the cluster to the SQL database
-
-    Write-Host "Preprocessing the source file ..." -ForegroundColor Green
-
-    $tableName_log4j = "log4jlogs"
-
-    # Connection string for Azure SQL Database.
-    # Comment if using SQL Server
-    $connectionString = "jdbc:sqlserver://$sqlDatabaseServerName.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServerName;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-    # Connection string for SQL Server.
-    # Uncomment if using SQL Server.
-    #$connectionString = "jdbc:sqlserver://$sqlDatabaseServerName;user=$sqlDatabaseLogin;password=$sqlDatabasePassword;database=$sqlDatabaseName"
-
-    $exportDir_log4j = "/tutorials/usesqoop/data"
-
-    # Submit a Sqoop job
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_log4j --export-dir $exportDir_log4j --input-fields-terminated-by \0x20 -m 1"
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
-
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardError
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName -DefaultStorageAccountName $defaultStorageAccountName -DefaultStorageAccountKey $defaultStorageAccountKey -DefaultContainer $defaultBlobContainerName -HttpCredential $httpCredential -JobId $sqoopJob.JobId -DisplayOutputType StandardOutput
-
-    #endregion
-
-    #region - export a Hive table
-
-    $tableName_mobile = "mobiledata"
-    $exportDir_mobile = "/hive/warehouse/hivesampletable"
-
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "export --connect $connectionString --table $tableName_mobile --export-dir $exportDir_mobile --fields-terminated-by \t -m 1"
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
-
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
-
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardError
-
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardOutput
-
-    #endregion
-
-    #region - import a database
-
-    $targetDir_mobile = "/tutorials/usesqoop/importeddata/"
-
-    $sqoopDef = New-AzureRmHDInsightSqoopJobDefinition `
-        -Command "import --connect $connectionString --table $tableName_mobile --target-dir $targetDir_mobile --fields-terminated-by \t --lines-terminated-by \n -m 1"
-
-    $sqoopJob = Start-AzureRmHDInsightJob `
-                    -ClusterName $hdinsightClusterName `
-                    -HttpCredential $httpCredential `
-                    -JobDefinition $sqoopDef #-Debug -Verbose
-
-    Wait-AzureRmHDInsightJob `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId
-
-    Write-Host "Standard Error" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardError
-
-    Write-Host "Standard Output" -BackgroundColor Green
-    Get-AzureRmHDInsightJobOutput `
-        -ResourceGroupName $resourceGroupName `
-        -ClusterName $hdinsightClusterName `
-        -DefaultStorageAccountName $defaultStorageAccountName `
-        -DefaultStorageAccountKey $defaultStorageAccountKey `
-        -DefaultContainer $defaultBlobContainerName `
-        -HttpCredential $httpCredential `
-        -JobId $sqoopJob.JobId `
-        -DisplayOutputType StandardOutput
-
-    #endregion
-
+#endregion
+```
 
 
 [azure-management-portal]: https://portal.azure.com/

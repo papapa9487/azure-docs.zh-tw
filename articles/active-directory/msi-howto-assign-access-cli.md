@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 09/25/2017
 ms.author: bryanla
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: e6eede1c093145894f4330a0c4385969cd4dd7da
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: e77915c1d982ccf6262ffcbc09dc91dfd986dac5
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 09/14/2017
 
 您在 Azure 資源 ([例如 Azure VM](msi-qs-configure-cli-windows-vm.md)) 上啟用 MSI 之後： 
 
-1. 如果您不是從 Azure 入口網站中使用 Azure Cloud Shell，初次登入 Azure 請使用 [az 登入](/cli/azure/#login)。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
+1. 如果您要在本機主控台中使用 Azure CLI，請先使用 [az login](/cli/azure/#login) 登入 Azure。 使用您想部署 VM 且已與 Azure 訂用帳戶相關聯的帳戶：
 
    ```azurecli-interactive
    az login
@@ -52,7 +52,7 @@ ms.lasthandoff: 09/14/2017
 2. 在此範例中，我們會將 Azure VM 存取權給予儲存體帳戶。 首先我們使用 [az 資源清單](/cli/azure/resource/#list)取得 VM 名為 "myVM" 的服務主體，這是我們在 VM 上啟用 MSI 時所建立的：
 
    ```azurecli-interactive
-   $spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
+   spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
    ```
 
 3. 一旦我們有服務主體 ID 後，使用 [az 角色指派建立](/cli/azure/role/assignment#az_role_assignment_create)將 VM「讀取」存取權提供給稱為 "myStorageAcct" 的儲存體帳戶：

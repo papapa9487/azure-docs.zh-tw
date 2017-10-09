@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5c08b1361dfd2d13e0e7ca2ce6f9a2cf357a8dff
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -99,7 +99,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ### <a name="cloud-service-configuration-to-change-distribution-mode"></a>可變更分配模式的雲端服務組態
 
-您可以利用 Azure SDK for .NET 2.5 (將於 11 月發行) 來更新雲端服務。 雲端服務的端點設定是設定於 .csdef 中。 若要更新雲端服務部署的負載平衡器分配模式，部署升級是必要的。
+您可以利用 Azure SDK for .NET 2.5 來更新雲端服務。 雲端服務的端點設定是設定於 .csdef 中。 若要更新雲端服務部署的負載平衡器分配模式，部署升級是必要的。
 適用於端點設定的 .csdef 變更範例如下：
 
 ```xml

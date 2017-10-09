@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jgao
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 415ecc7398e9fc5b29522265e17084000ad4588b
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: c8ba8743fbadc2c40762d555a8c573c741a75282
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>使用 Power Query 將 Excel 連接到 Hadoop
@@ -49,7 +49,7 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 
     - Excel 2016
 
-        - 按一下 [Data] \(資料\) 功能表，從 [Get & Transform Data] \(取得並轉換資料\) 功能區中按一下 [Get Data] \(取得資料\)，按一下 [From Azure] \(從 Azure\)，然後按一下 [From Azure HDInsight(HDFS)] \(從 Azure HDInsight(HDFS)\)。
+        - 按一下 Data \(資料\) 功能表，從 Get & Transform Data \(取得並轉換資料\) 功能區中按一下 Get Data \(取得資料\)，按一下 From Azure \(從 Azure\)，然後按一下From Azure HDInsight(HDFS) \(從 Azure HDInsight(HDFS)\)。
 
         ![HDI.PowerQuery.SelectHdiSource](./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.excel2016.png)
 
@@ -62,8 +62,8 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
         **附註：**如果 [Power Query] 功能表未顯示，請移至 [檔案] > [選項] > [增益集]，然後從頁面底部的下拉式 [管理] 方塊中，選取 [COM 增益集]。 選取 [移至...] 按鈕，並驗證 Power Query for Excel 增益集的方塊已勾選。
        
         **附註：** Power Query 也可讓您從 HDFS 匯入資料，方法是按一下 [從其他來源]。
-4. 對於 [帳戶名稱]，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下 [確定]。 此帳戶可以是[預設儲存體帳戶](hdinsight-administer-use-management-portal.md#find-the-default-storage-account)或連結儲存體帳戶。  其格式為 *https://&lt;StorageAccountName>.blob.core.windows.net/*。
-5. 對於 [帳戶金鑰]，輸入 Blob 儲存體帳戶的金鑰，然後按一下 [儲存]。 (只有在您第一次存取這個存放區時才必須輸入帳戶資訊)。
+4. 對於 帳戶名稱，輸入叢集相關 Azure Blob 儲存體帳戶的名稱，然後按一下確定。 此帳戶可以是[預設儲存體帳戶](hdinsight-administer-use-management-portal.md#find-the-default-storage-account)或連結儲存體帳戶。  其格式為 *https://&lt;StorageAccountName>.blob.core.windows.net/*。
+5. 對於 帳戶金鑰，輸入 Blob 儲存體帳戶的金鑰，然後按一下儲存。 (只有在您第一次存取這個存放區時才必須輸入帳戶資訊)。
 6. 在 [查詢編輯器] 左側的 [ **瀏覽器** ] 窗格中，按兩下 Blob 儲存體容器名稱。 依預設，容器名稱與叢集名稱相同。
 7. 在 [名稱] 欄中找出 **HiveSampleData.txt** (資料夾路徑為 **../hive/warehouse/hivesampletable/**)，然後按一下 HiveSampleData.txt 左側的 [二進位]。 HiveSampleData.txt 隨附於所有叢集。 您也可以選擇使用您自己的檔案。
    
@@ -79,7 +79,7 @@ Power Query add-in for Excel 可協助您將 HDInsight 叢集中的資料匯入�
 * [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](./hdinsight-connect-excel-hive-odbc-driver.md)。
 * [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
-* [使用適用於 Hive、LLAP 或 pySpark 的 Visual Studio Code](hdinsight-for-vscode.md)。
+* [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](hdinsight-for-vscode.md)。
 * [將資料上傳至 HDInsight](./hdinsight-upload-data.md)。
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png

@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
-ms.lasthandoff: 04/14/2017
-
+ms.translationtype: HT
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/27/2017
 
 ---
-# <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Acto 如何使用 Service Fabric 平台
+# <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Reliable Actors 如何使用 Service Fabric 平台
 本文說明 Reliable Actors 在 Azure Service Fabric 平台上的運作方式。 Reliable Actors 會在名為*動作項目服務*的具狀態可靠服務實作上裝載的架構中執行。 動作項目服務包含管理生命週期和您的動作項目用於發送之訊息所需的所有元件︰
 
 * 動作項目執行階段會管理生命週期、記憶體回收，並強制執行單一執行緒存取。
@@ -31,7 +31,7 @@ ms.lasthandoff: 04/14/2017
 這些元件一起構成 Reliable Actor 架構。
 
 ## <a name="service-layering"></a>將服務分層
-由於動作項目服務本身是一個 Reliable Service，因此 Reliable Services 的所有 [應用程式模型](service-fabric-application-model.md)、生命週期、[封裝](service-fabric-package-apps.md)、[部署](service-fabric-deploy-remove-applications.md)、升級及調整概念都會以相同方式套用到動作項目服務。 
+由於動作項目服務本身是一個 Reliable Service，因此 Reliable Services 的所有 [應用程式模型](service-fabric-application-model.md)、生命週期、[封裝](service-fabric-package-apps.md)、[部署](service-fabric-deploy-remove-applications.md)、升級及調整概念都會以相同方式套用到動作項目服務。
 
 ![將動作項目服務分層][1]
 
@@ -372,6 +372,35 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 ```
 
 您使用 GUID/UUID 和字串時，已將值雜湊為 Int64。 不過，在您將 Int64 明確提供給 `ActorId`之前，Int64 將會直接對應到分割區，而不需進一步雜湊。 您可以使用這項技術控制要將動作項目放置於哪個分割區。
+
+## <a name="actor-using-remoting-v2-stack"></a>使用 Remoting V2 堆疊的動作項目
+透過 2.8 NuGet 套件，使用者現在可以使用 Remoting V2 堆疊，它的效能更好，並提供像是自訂序列化等功能。 Remoting V2 與現有的 Remoting 堆疊 (我們稱現在的是 V1 Remoting 堆疊) 不相容。
+
+若要使用 Remoting V2 堆疊，必須進行下列變更。
+ 1. 在動作項目介面上新增下列組件屬性。
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. 建置和升級 ActorService 和動作項目用戶端專案來開始使用 V2 堆疊。
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>動作項目服務升級至 Remoting V2 堆疊，不會影響服務可用性。
+此項變更是 2 個步驟的升級作業。 依照列出的步驟順序進行。
+
+1.  在動作項目介面上新增下列組件屬性。 此屬性將會為 ActorService 啟動兩個接聽程式：V1 (現有) 與 V2 接聽程式。 透過下列變更升級 ActorService。
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. 完成上述升級之後，升級 ActorClients。
+此步驟可確保動作項目 Proxy 使用 Remoting V2 堆疊。
+
+3. 此為選用步驟。 變更上述屬性以移除 V1 接聽程式。
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 * [動作項目狀態管理](service-fabric-reliable-actors-state-management.md)

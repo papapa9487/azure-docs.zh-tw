@@ -15,10 +15,10 @@ ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: bf62fb21dfac99038e3b3759d9e78c6870f52f9e
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -33,7 +33,7 @@ ms.lasthandoff: 09/23/2017
 ## <a name="prerequisites"></a>必要條件
 下列為安裝組態伺服器所需的最基本硬體、軟體及網路設定。
 > [!IMPORTANT]
-> 部署用於保護 VMware 虛擬機器的組態伺服器時，我們建議您將其部署為**高可用 (HA)** 虛擬機器。
+> 部署用於保護 VMWare 虛擬機器的組態伺服器時，我們建議您將其部署為**高可用 (HA)** 虛擬機器。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -111,6 +111,17 @@ ProxyPassword="Password"
   >[!WARNING]
   如果您有連結至此組態伺服器的相應放大處理序伺服器，您需要在部署中[修正所有相應放大處理序伺服器上的 Proxy 設定](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#modifying-proxy-settings-for-scale-out-process-server)。
 
+## <a name="modify-user-accounts-and-passwords"></a>修改使用者帳戶和密碼
+
+CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」的使用者帳戶，以及用來執行「受保護機器上之行動服務推送安裝」。 
+
+1. 登入您的設定伺服器。
+2. 按一下桌面上的捷徑來啟動 CSPSConfigtool.exe。
+3. 按一下 [管理帳戶] 索引標籤。
+4. 選取要修改密碼的帳戶，然後按一下 [編輯] 按鈕。
+5. 輸入新的密碼，然後按一下 [確定]
+
+
 ## <a name="re-register-a-configuration-server-with-the-same-recovery-services-vault"></a>向相同的復原服務保存庫註冊組態伺服器
   1. 登入您的組態伺服器。
   2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
@@ -132,6 +143,10 @@ ProxyPassword="Password"
   如果您有連結至此組態伺服器的相應放大處理序伺服器，您需要在部署中[重新註冊所有相應放大處理序伺服器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#re-registering-a-scale-out-process-server)。
 
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>向不同的復原服務保存庫註冊組態伺服器。
+
+> [!WARNING]
+> 下列步驟會解除設定伺服器和目前保存庫之間的關聯，且設定伺服器底下所有受保護虛擬機器的複寫都會停止。
+
 1. 登入您的組態伺服器。
 2. 從系統管理命令提示字元中，執行命令
 
@@ -157,7 +172,7 @@ ProxyPassword="Password"
 ## <a name="updating-a-configuration-server"></a>更新組態伺服器
 
 > [!WARNING]
-> 更新只支援到 N 系列第 4 代的版本。 例如，若市面上的最新版本是 9.11，則您可從 9.10、9.9、9.8 或 9.7 版更新到 9.11 版。 但若您使用的是任何小於或等於 9.6 的版本，則您必須先至少更新到 9.7 版，才能將最新的更新套用到組態伺服器。 您可以在 [Azure Site Recovery 服務更新](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)底下找到舊版本的下載連結
+> 更新只支援到 N 系列第 4 代的版本。 例如，若市面上的最新版本是 9.11，則您可從 9.10、9.9、9.8 或 9.7 版更新到 9.11 版。 但若您使用的是任何小於或等於 9.6 的版本，則您必須先至少更新到 9.7 版，才能將最新的更新套用到組態伺服器。 您可以在 [Azure Site Recovery 服務更新](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) \(英文\) 底下找到舊版本的下載連結
 
 1. 將更新安裝程式下載到組態伺服器上。
 2. 按兩下安裝程式將其啟動。
@@ -227,6 +242,17 @@ ProxyPassword="Password"
 
   >[!TIP]
   如果您不是看到 [立即更新] 按鈕，而是 [立即升級] 按鈕， 這表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。
+
+## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>在安全通訊端層 (SSL) 憑證過期的情況下恢復設定伺服器
+
+1. 將設定伺服器更新至[最新版本](http://aka.ms/unifiedinstaller)
+2. 如果您有任何相應放大處理序伺服器、容錯回復主要目標伺服器，或容錯回復處理序伺服器，請將它們更新至最新版本
+3. 將所有受保護虛擬機器上的行動服務更新至最新版本。
+4. 登入設定伺服器並開啟具有系統管理員權限的命令提示字元。
+5. 瀏覽至 %ProgramData%\ASR\home\svsystems\bin 資料夾
+6. 執行 RenewCerts.exe 以更新設定伺服器上的 SSL 憑證。
+7. 如果程序成功，您應該會看見「憑證更新為成功」的訊息
+
 
 ## <a name="sizing-requirements-for-a-configuration-server"></a>組態伺服器的大小需求
 

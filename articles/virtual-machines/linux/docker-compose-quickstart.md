@@ -4,7 +4,7 @@ description: "如何透過 Azure CLI 在 Linux 虛擬機器上使用 Docker 和 
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 02ab8cf9-318d-4a28-9d0c-4a31dccc2a84
@@ -13,13 +13,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
 ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 541722cb02dd991228726e62a2304b49cdd806f2
+ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
+ms.openlocfilehash: e187b51769754a757991f7b5bdb335e62512b488
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 # <a name="get-started-with-docker-and-compose-to-define-and-run-a-multi-container-application-in-azure"></a>在 Azure 中開始使用 Docker 和 Compose 定義並執行多容器應用程式
@@ -35,13 +35,13 @@ ms.lasthandoff: 08/09/2017
 ### <a name="create-docker-host-with-azure-cli-20"></a>使用 Azure CLI 2.0 建立 Docker 主機
 請安裝最新的 [Azure CLI 2.0](/cli/azure/install-az-cli2) 並使用 [az login](/cli/azure/#login) 來登入 Azure 帳戶。
 
-首先，使用 [az group create](/cli/azure/group#create) 建立 Docker 環境的資源群組。 下列範例會在 westus 位置建立名為 myResourceGroup 的資源群組：
+首先，使用 [az group create](/cli/azure/group#create) 建立 Docker 環境的資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組：
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-接下來，使用 [az group deployment create](/cli/azure/group/deployment#create) 來部署 VM，其中包含來自 [GitHub 上此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)的 Azure Docker VM 擴充功能。 針對 newStorageAccountName、adminUsername、adminPassword 和 dnsNameForPublicIP 提供您自己的值：
+接下來，使用 [az group deployment create](/cli/azure/group/deployment#create) 來部署 VM，其中包含來自 [GitHub 上此 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu)的 Azure Docker VM 擴充功能。 針對 *newStorageAccountName*、*adminUsername*、*adminPassword* 和 *dnsNameForPublicIP* 提供您自己唯一的值：
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -68,10 +68,21 @@ az vm show \
 
 
 ## <a name="verify-that-compose-is-installed"></a>確認已安裝 Compose
-部署完成之後，請使用您在部署期間提供的 DNS 名稱，透過 SSH 連接到新的 Docker 主機。 您可以使用 `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv` 檢視您 VM 的詳細資料，包括 DNS 名稱。
+若要檢視 VM 的詳細資料，包括 DNS 名稱，請使用 [az vm show](/cli/azure/vm#show)：
+
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
+```
+
+以 SSH 連線到新的 Docker 主機。 請提供您自己的 DNS 名稱，如下所示：
 
 ```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
 ```
 
 若要檢查 Compose 是否已安裝在 VM 上，請執行下列命令：
@@ -89,19 +100,13 @@ docker-compose --version
 ## <a name="create-a-docker-composeyml-configuration-file"></a>建立 docker-compose.yml 組態檔
 接下來，您需建立 `docker-compose.yml` 檔案，這只是一個文字組態檔，用來定義要在 VM 上執行的 Docker 容器。 此檔案會指定要在每個容器上執行的映像 (或可能是來自 Dockerfile 的組建)、必要的環境變數和相依性、連接埠，以及容器之間的連結。 如需有關 yml 檔案語法的詳細資料，請參閱 [Compose file reference (Compose 檔案參考)](https://docs.docker.com/compose/compose-file/)。
 
-建立 docker-compose.yml 檔案，如下所示：
+建立 *docker-compose.yml* 檔案。 使用慣用的文字編輯器將一些資料新增至檔案。 下列範例會建立提示 `sensible-editor` 挑選您要使用之編輯器的檔案：
 
 ```bash
-touch docker-compose.yml
+sensible-editor docker-compose.yml
 ```
 
-使用慣用的文字編輯器將一些資料新增至檔案。 下列範例使用 vi 編輯器：
-
-```bash
-vi docker-compose.yml
-```
-
-將下列範例貼入文字檔案。 此組態會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/) 的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB SQL 資料庫。 輸入您自已的 MYSQL_ROOT_PASSWORD，如下所示：
+將下列範例貼入 Docker Compose 檔案。 此組態會使用來自 [DockerHub 登錄](https://registry.hub.docker.com/_/wordpress/) 的映像，安裝 WordPress (開放原始碼部落格和內容管理系統) 和連結的後端 MariaDB SQL 資料庫。 輸入您自已的 MYSQL_ROOT_PASSWORD，如下所示：
 
 ```sh
 wordpress:
@@ -145,7 +150,7 @@ azureuser_db_1          docker-entrypoint.sh mysqld      Up      3306/tcp
 azureuser_wordpress_1   docker-entrypoint.sh apach ...   Up      0.0.0.0:80->80/tcp
 ```
 
-您現在可以在 VM 的連接埠 80 上直接連線到 WordPress。 開啟網頁瀏覽器並輸入您 VM 的 DNS 名稱 (例如 `http://mypublicdns.westus.cloudapp.azure.com`)。 您現在應該會看到 WordPress 起始畫面，您可以在其中完成安裝，然後開始使用此應用程式。
+您現在可以在 VM 的連接埠 80 上直接連線到 WordPress。 開啟網頁瀏覽器並輸入您 VM 的 DNS 名稱 (例如 `http://mypublicdns.eastus.cloudapp.azure.com`)。 您現在應該會看到 WordPress 起始畫面，您可以在其中完成安裝，然後開始使用此應用程式。
 
 ![WordPress 起始畫面][wordpress_start]
 

@@ -3,7 +3,7 @@ title: "Azure Blob 儲存體簡介 | Microsoft Docs"
 description: "Azure Blob 儲存體簡介"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 
@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: robinsh
+ms.date: 09/28/2017
+ms.author: tamram
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 051f1b37eab254d4ab4f806166ac8d0b8cab944d
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 7fe3db3d31dc7212c47a0f8dd48c86c98fb498c1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
+ms.lasthandoff: 09/29/2017
 
 ---
 # <a name="introduction-to-blob-storage"></a>Blob 儲存體簡介
@@ -47,7 +47,7 @@ Blob 服務包含下列元件：
   
     *區塊 Blob* 很適合儲存文字或二進位檔案，例如文件和媒體檔案。 *附加 Blob* 和區塊 Blob 相似，但已針對附加作業最佳化，因此適合用於記錄的情況。 單一區塊 blob 可包含高達 50,000 個區塊，每個區塊最大為 100 MB，大小總計稍高於 4.75 TB (100 MB X 50,000)。 單一附加 blob 可包含高達 50,000 個區塊，每個區塊最大為 4 MB，大小總計稍高於 195 GB (4 MB X 50,000)。
   
-    *分頁 Blob* 大小可達 1 TB，且在頻繁進行讀寫操作時更有效率。 Azure 虛擬機器會使用分頁 Blob 作為作業系統和資料磁碟。
+    「分頁 Blob」大小可達 8 TB，且在頻繁進行讀寫作業時更有效率。 Azure 虛擬機器會使用分頁 Blob 作為作業系統和資料磁碟。
   
     如需有關命名容器和 Blob 的詳細資訊，請參閱 [命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata)。
 
@@ -55,3 +55,4 @@ Blob 服務包含下列元件：
 
 * [建立儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [透過 .NET 開始使用 Blob 儲存體](storage-dotnet-how-to-use-blobs.md)
+

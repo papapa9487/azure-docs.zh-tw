@@ -14,10 +14,10 @@ ms.workload: NA
 ms.date: 9/12/2017
 ms.author: dekapur;maburlik;chackdan
 ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
-ms.openlocfilehash: e5d582431b53aafb977e219ecf3bc882232efaaa
+ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
+ms.openlocfilehash: 67d47739c27081c4e10bf11988ed121ff02d8bb0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/16/2017
+ms.lasthandoff: 09/27/2017
 
 ---
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 09/16/2017
 5. 如果叢集電腦不可存取網際網路，在叢集組態中設定下列各項：
 * 停用遙測：在 *properties* 下設定 *"enableTelemetry": false*
 * 停用自動的 Fabric 版本下載，以及目前叢集版本接近終止支援的通知：在 [屬性] 底下，設定 *"fabricClusterAutoupgradeEnabled": false*
-* 或者，如果網路的網際網路存取僅限於允許清單上的網域，則自動升級將需要下列網域：   go.microsoft.com   download.microsoft.com
+* 或者，如果網路的網際網路存取僅限於允許清單上的網域，則自動升級需要下列網域：   go.microsoft.com   download.microsoft.com
 
 6. 設定適當的 Service Fabric 防毒排除項目︰
 

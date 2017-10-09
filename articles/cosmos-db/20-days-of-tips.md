@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 09/27/2017
 ms.author: mimig
 ms.custom: cda
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 947920783be3e2a8cd299cdcc667456adf140b57
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -140,6 +140,24 @@ ms.lasthandoff: 09/25/2017
 > [!VIDEO https://www.youtube.com/embed/w8HyW8AHHZQ]
 
 [![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
+
+
+## <a name="tip-16-functions-and-twilio-demo"></a>秘訣 16：函式和 Twilio 示範
+
+秘訣 16：真棒的示範！ 整合 Azure #cosmosDB，函式和 @twilio，在任何資料庫變更上傳送 SMS。 請參閱 [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 上的文件 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## <a name="tip-17-using-mongoose-discriminators"></a>秘訣 17：使用 Mongoose 鑑別子
+
+秘訣 17：使用 Mongoose 鑑別子來儲存單一 #CosmosDB 集合中的多個項目，藉此最佳化成本 [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+部落格：[使用 Mongoose 鑑別子來儲存單一 CosmosDB 集合中的多個項目，藉此最佳化成本，作者 Anthony Chu](https://aka.ms/M488jm)
+
+[![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
 ## <a name="next-steps"></a>後續步驟
 

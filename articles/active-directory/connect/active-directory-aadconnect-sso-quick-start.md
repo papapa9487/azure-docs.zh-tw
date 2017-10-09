@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
+ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 
@@ -70,7 +70,10 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="step-3-roll-out-the-feature"></a>步驟 3：推出功能
 
-若要對使用者推出功能，您必須在 Active Directory 中使用群組原則，以在使用者的內部網路區域設定中新增幾個 Azure AD URL。
+若要對使用者推出功能，您必須在 Active Directory 中使用群組原則，以在使用者的內部網路區域設定中新增下列 Azure AD URL：
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > 下列指示僅適用於 Windows 上的 Internet Explorer 和 Google Chrome (如果它與 Internet Explorer 共用一組受信任的網站 URL)。 如需在 Mac 上設定 Mozilla Firefox 和 Google Chrome 的指示，請閱讀下節。

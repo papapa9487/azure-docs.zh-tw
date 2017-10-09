@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 09/25/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 07ad15c61bd4b3912dfa2f629218deebdebd6dc8
+ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
+ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
+ms.lasthandoff: 09/29/2017
 
 ---
-# <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure 函式並在本機進行測試
+# <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
 雖然 [Azure 入口網站] 有提供開發及測試 Azure Functions 的完整工具集，有許多開發人員仍偏好本機開發體驗。 Azure Functions 可讓您輕鬆使用最喜愛的程式碼編輯器及本機開發工具，在本機電腦上開發並測試您的函式。 您的函式可以透過 Azure 中的事件觸發，您也可以在本機電腦上對 C# 和 JavaScript 函式進行偵錯。 
 
@@ -29,25 +29,64 @@ ms.lasthandoff: 07/14/2017
 
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
-Azure Functions Core Tools 是 Azure Functions 執行階段的本機版本，可讓您在本機 Windows 電腦上執行。 它不是模擬器。 它與在 Azure 中提供 Functions 的執行階段是相同的執行階段。
+[Azure Functions Core Tools] 是 Azure Functions 執行階段的本機版本，可讓您在本機開發電腦上執行。 它不是模擬器。 它與在 Azure 中提供 Functions 的執行階段是相同的執行階段。 Azure Functions Core Tools 有兩個版本，一個版本適用於 1.x 版的執行階段，一個版本則適用於 2.x 版。 這兩個版本都會提供為 [npm 套件](https://docs.npmjs.com/getting-started/what-is-npm)。
 
-[Azure Functions Core Tools] 是以 npm 套件的形式提供。 您必須先[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) \(英文\)，它將會包含 npm。  
+>[!NOTE]  
+> 您必須[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) (內含 npm)，再安裝任一版本。 針對 2.x 版的工具，只支援 Node.js 8.5 和更新版本。 
 
->[!NOTE]
->目前 Azure Functions Core Tools 套件只能安裝在 Windows 電腦上。 此限制是因為 Functions 主機的暫時性限制所造成。
+### <a name="version-1x-runtime"></a>1.x 版執行階段
 
-[Azure Functions Core Tools]新增了下列命令別名：
+工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework，並且只有在 Windows 電腦上才予以支援。 使用下列命令來安裝 1.x 版工具：
+
+```bash
+npm install -g azure-functions-core-tools
+```
+
+### <a name="version-2x-runtime"></a>2.x 版執行階段
+
+工具的 2.x 版會使用以 .NET Core 為建置基礎的 Azure Functions 執行階段 2.x。 .NET Core 2.x 支援的所有平台都支援這個版本。 進行跨平台開發以及需要 Functions 執行階段 2.x 時，請使用這個版本。 
+
+>[!IMPORTANT]   
+> 安裝 Azure Functions Core Tools 之前，請[安裝 .NET Core 2.0](https://www.microsoft.com/net/core)。  
+>
+> Azure Functions 執行階段 2.0 為預覽版本，而且目前不支援所有 Azure Functions 功能。 如需詳細資訊，請參閱 [Azure Functions 執行階段 2.0 已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。 
+
+ 使用下列命令來安裝 2.0 版工具：
+
+```bash
+npm install -g azure-functions-core-tools@core
+```
+
+安裝在 Ubuntu 上時，請使用 `sudo`，如下所示：
+
+```bash
+sudo npm install -g azure-functions-core-tools@core
+```
+
+安裝在 macOS 和 Linux 上時，您可能需要包括 `unsafe-perm` 旗標，如下所示：
+
+```bash
+sudo npm install -g azure-functions-core-tools@core --unsafe-perm true
+```
+
+## <a name="run-azure-functions-core-tools"></a>執行 Azure Functions Core Tools
+ 
+Azure Functions Core Tools 新增下列命令別名：
 * **func**
 * **azfun**
 * **azurefunctions**
 
-這些別名都可以用來取代本主題範例中所顯示的 `func`。
+在範例中顯示 `func` 時，可以使用下列任何別名。
+
+```
+func init MyFunctionProj
+```
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 
-在本機執行時，Functions 專案是具有 host.json 和 local.settings.json 檔案的目錄。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Azure Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
+在本機執行時，Functions 專案是具有 [host.json](functions-host-json.md) 和 [local.settings.json](#local-settings) 檔案的目錄。 此目錄相當於 Azure 中的函式應用程式。 若要深入了解 Azure Functions 的資料夾結構，請參閱 [Azure Functions 的開發人員指南](functions-reference.md#folder-structure)。
 
-在命令提示字元中，執行下列命令：
+在終端機視窗或命令提示字元中，執行下列命令來建立專案和本機 Git 存放庫：
 
 ```
 func init MyFunctionProj
@@ -63,7 +102,7 @@ Created launch.json
 Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 ```
 
-若要選擇不建立 Git 存放庫，請使用 `--no-source-control [-n]` 選項。
+若要建立不含本機 Git 存放庫的專案，請使用 `--no-source-control [-n]` 選項。
 
 <a name="local-settings"></a>
 
@@ -90,9 +129,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 | 設定      | 說明                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | 設定為 **true** 時，所有的值都會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 **false**。 |
-| **值** | 於本機執行時使用的應用程式設定集合。 請將您的應用程式設定新增至此物件。  |
-| **AzureWebJobsStorage** | 設定針對由 Azure Functions 執行階段於內部使用之 Azure 儲存體帳戶的連接字串。 該儲存體帳戶支援您函式的觸發程序。 所有函式都必須設定此儲存體帳戶連接字串 (由 HTTP 觸發的函式除外)。  |
-| **AzureWebJobsDashboard** | 設定針對用來儲存函式記錄之 Azure 儲存體帳戶的連接字串。 此選擇性值能使記錄可在入口網站中存取。|
+| **值** | 於本機執行時使用的應用程式設定集合。 **AzureWebJobsStorage** 和 **AzureWebJobsDashboard** 是範例；如需完整清單，請參閱[應用程式設定參考](functions-app-settings.md)。  |
 | **Host** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 | 
 | **LocalHttpPort** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **CORS** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (**\***)，它能允許來自任何來源的要求。 |
@@ -112,7 +149,7 @@ local.settings.json 檔案中的值，只會由於本機執行的 Functions 工�
 
 ### <a name="configure-app-settings"></a>進行應用程式設定
 
-若要設定連接字串的值，您可以執行下列其中一項：
+若要設定連接字串的值，您可以執行下列其中一個選項：
 * 從 [Azure 儲存體總管](http://storageexplorer.com/) \(英文\) 輸入連接字串。
 * 使用下列其中一個命令：
 
@@ -120,7 +157,7 @@ local.settings.json 檔案中的值，只會由於本機執行的 Functions 工�
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
     ```
-    func azure functionapp storage fetch-connection-string <StorageAccountName>
+    func azure storage fetch-connection-string <StorageAccountName>
     ```
     這兩個命令都需要先登入 Azure。
 
@@ -233,7 +270,18 @@ func azure functionapp publish <FunctionAppName>
 | **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。|
 | **`--overwrite-settings -y`** | 必須與 `-i` 搭配使用。 使用本機值在 Azure 中覆寫 AppSettings (如果不同)。 預設值為提示。|
 
-`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。
+此命令會發行至 Azure 中的現有函式應用程式。 訂用帳戶中沒有 `<FunctionAppName>` 時，會發生錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或 [終端機] 視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。
+
+`publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。  
+
+>[!IMPORTANT]  
+> 當您在 Azure 中建立函式應用程式時，預設會使用 1.x 版的 Function 執行階段。 若要讓函式應用程式使用 2.x 版的執行階段，請新增應用程式設定 `FUNCTIONS_EXTENSION_VERSION=beta`。  
+使用下列 Azure CLI 程式碼，將這個設定新增至函式應用程式： 
+```azurecli-interactive
+az functionapp config appsettings set --name <function_app> \
+--resource-group myResourceGroup \
+--settings FUNCTIONS_EXTENSION_VERSION=beta   
+```
 
 ## <a name="next-steps"></a>後續步驟
 

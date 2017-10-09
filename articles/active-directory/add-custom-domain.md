@@ -10,15 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 07aaefc0b2f806178651c2192f6abcbae9a31f83
+ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
+ms.openlocfilehash: 2ea119b56f467f57b5929dec05bfd645028578ef
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
+ms.lasthandoff: 09/26/2017
 
 ---
 # <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>快速入門：將自訂網域名稱新增到 Azure Active Directory
@@ -62,7 +62,7 @@ ms.lasthandoff: 08/31/2017
 現在您可以[指派包含自訂網域名稱的使用者名稱](active-directory-users-create-azure-portal.md)。 您可以建立雲端式使用者帳戶，也可以使用您的自訂網域名稱，更新先前已同步處理的內部部署使用者帳戶資訊。 您也可以使用 [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) 或[圖形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations)，變更同步處理的使用者帳戶網域尾碼資訊。
 
 > [!TIP]
-> 您可以新增多達 900 個自訂網域名稱，但只能有一個[設為 Azure AD 目錄的主要網域名稱](active-directory-domains-manage-azure-portal.md#set-the-primary-domain-name-for-your-azure-ad-directory)，在您建立新帳戶時作為預設值。
+> 您最多可以新增 900 個受管理的網域名稱。 如果您想要使用內部部署 Active Directory 設定同盟的所有網域，您最多可以在每個目錄中新增 450 個網域名稱。 如需詳細資訊，請參閱[同盟和受管理的網域名稱](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names)。
 
 ## <a name="troubleshooting"></a>疑難排解
 如果無法確認自訂網域名稱，請嘗試下列疑難排解步驟：
