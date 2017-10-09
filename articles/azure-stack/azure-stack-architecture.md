@@ -12,16 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: feb4f10f9f25515ba85011f467b2ada0cdfcdefb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack 開發套件架構
+
+適用於：Azure Stack 開發套件
+
 Azure Stack 開發套件是 Azure Stack 的單一節點部署。 所有元件都安裝在於單一主機電腦上執行的虛擬機器中。 
 
 ## <a name="logical-architecture-diagram"></a>邏輯架構圖
@@ -32,7 +35,7 @@ Azure Stack 開發套件是 Azure Stack 的單一節點部署。 所有元件都
 ## <a name="virtual-machine-roles"></a>虛擬機器角色
 Azure Stack 開發套件會在主機上使用下列 VM 來提供服務：
 
-| 名稱 | 描述 |
+| 名稱 | 說明 |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack 儲存體服務。|
 | **AzS-ADFS01** | Active Directory 同盟服務 (AD FS)。  |

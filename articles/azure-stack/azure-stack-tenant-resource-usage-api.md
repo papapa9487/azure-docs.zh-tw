@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/10/2016
 ms.author: alfredop
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 0ad10564e631f9079b2544a6888c1d0dc467d7ef
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="tenant-resource-usage-api"></a>租用戶資源使用情況 API
@@ -35,9 +35,9 @@ ms.lasthandoff: 09/15/2017
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### <a name="arguments"></a>引數
-| **引數** | **描述** |
+| **引數** | **說明** |
 | --- | --- |
-| *Armendpoint* |您 Azure Stack 環境的 Azure Resource Manager 端點。 依 Azure Stack 慣例，Azure Resource Manager 端點名稱的格式是 `https://management.{domain-name}`。 例如，如果網域名稱是 local.azurestack.external，則 Resource Manager 端點名稱是 `https://management.local.azurestack.external`。 |
+| *Armendpoint* |您 Azure Stack 環境的 Azure Resource Manager 端點。 依 Azure Stack 慣例，Azure Resource Manager 端點名稱的格式是 `https://management.{domain-name}`。 例如，如果是開發套件，則網域名稱會是 local.azurestack.external，而 Resource Manager 端點會是 `https://management.local.azurestack.external`。 |
 | *subId* |正在進行呼叫之使用者的訂用帳戶識別碼。 您只能使用此 API 查詢單一訂用帳戶的使用情況。 提供者可以使用提供者資源使用情況 API 查詢所有租用戶的使用情況。 |
 | *reportedStartTime* |查詢的開始時間。 *DateTime* 值應該以 UTC 格式及小時開始時的時間呈現，例如 13:00。 對於每日彙總，請將這個值設定為 UTC 午夜。 格式是*逸出的* ISO 8601，例如 2015-06-16T18%3a53%3a11%2b00%3a00Z，其中冒號會逸出為 %3a 而加號會逸出為 %2b，使其符合 URI 規範。 |
 | *reportedEndTime* |查詢的結束時間。 適用於 *reportedStartTime* 的限制也適用於此引數。 *reportedEndTime* 的值不能是未來的時間。 |
@@ -45,43 +45,35 @@ ms.lasthandoff: 09/15/2017
 | *api-version* |用來提出此要求的通訊協定版本。 您必須使用 2015-06-01-preview。 |
 | *continuationToken* |從上次呼叫使用情況 API 提供者所擷取的權杖。 回應大於 1000 行時就需要這個權杖，可作為進度的書籤。 若無此權杖，則會從一天或小時開始時的時間擷取資料，取決於所傳遞的細微性。 |
 
-### <a name="response"></a>回應
+### <a name="response"></a>Response
 GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
 
+```json
+{
+"value": [
 {
 
-"value": \[
-
-{
-
-"id": "/subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregate/sub1-meterID1",
-
+"id":
+"/subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregate/sub1-meterID1",
 "name": "sub1-meterID1",
-
 "type": "Microsoft.Commerce/UsageAggregate",
 
 "properties": {
-
 "subscriptionId":"sub1",
-
 "usageStartTime": "2015-03-03T00:00:00+00:00",
-
 "usageEndTime": "2015-03-04T00:00:00+00:00",
-
-"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
-
+"instanceData":"{\"Microsoft.Resources\":{\"resourceUri\":\"resourceUri1\",\"location\":\"Alaska\",\"tags\":null,\"additionalInfo\":null}}",
 "quantity":2.4000000000,
-
 "meterId":"meterID1"
 
 }
-
 },
 
 …
+```
 
 ### <a name="response-details"></a>回應詳細資料
-| **引數** | **描述** |
+| **引數** | **說明** |
 | --- | --- |
 | *id* |使用情況彙總的唯一識別碼 |
 | *name* |使用情況彙總的名稱 |
@@ -96,6 +88,6 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 ## <a name="next-steps"></a>後續步驟
 [提供者資源使用狀況 API](azure-stack-provider-resource-api.md)
 
-[使用量相關常見問題集](azure-stack-usage-related-faq.md)
+[使用狀況相關常見問題集](azure-stack-usage-related-faq.md)
 
 

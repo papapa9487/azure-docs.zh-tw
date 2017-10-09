@@ -11,15 +11,15 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: bba8257bc4477f985d1a9399e65a1338d237f134
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>將 SQL 資料庫提供給您的 Azure Stack 使用者
@@ -28,18 +28,18 @@ ms.lasthandoff: 09/15/2017
 
 > [!div class="checklist"]
 > * 部署 SQL Server 資源提供者
-> * 建立供應項目
+> * 建立優惠
 > * 測試供應項目
 
 ## <a name="deploy-the-sql-server-resource-provider"></a>部署 SQL Server 資源提供者
 
 部署程序於[在 Azure Stack 上使用 SQL 資料庫](azure-stack-sql-resource-provider-deploy.md)文章中詳細說明，而且由下列主要步驟組成：
 
-1.  [部署 SQL 資源提供者]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider)。
-2.  [驗證部署]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)。
-3.  [透過連線到主控 SQL 伺服器以提供容量]( azure-stack-sql-resource-provider-deploy.md#provide-capacity-by-connecting-to-a-hosting-sql-server)。
+1. [部署 SQL 資源提供者]( azure-stack-sql-resource-provider-deploy.md#deploy-the-resource-provider)。
+2. [驗證部署]( azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal)。
+3. 透過連線到主控 SQL 伺服器來提供容量。
 
-## <a name="create-an-offer"></a>建立供應項目
+## <a name="create-an-offer"></a>建立優惠
 
 1.  [設定配額](azure-stack-setting-quotas.md)並將它命名為 *SQLServerQuota*。 選取 [命名空間] 欄位的 [Microsoft.SQLAdapter]。
 2.  [建立方案](azure-stack-create-plan.md)。 將它命名為 *TestSQLServerPlan*，選取 [Microsoft.SQLAdapter] 服務，並選取 [SQLServerQuota] 配額。
@@ -70,15 +70,17 @@ ms.lasthandoff: 09/15/2017
     - **大小上限 (MB)**：100
     - **訂用帳戶**：TestSQLOffer
     - **資源群組**：SQL-RG
-3. 按一下 [登入設定]，輸入資料庫認證，然後按一下 [確定]。
+3. 按一下 登入設定，輸入資料庫認證，然後按一下確定。
 4. 按一下 [SKU] > 選取您為 SQL 主控伺服器 建立的 SQL SKU > [確定]。
-5. 按一下 [建立]。
+5. 按一下 [建立] 。
+
+## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 部署 SQL Server 資源提供者
-> * 建立供應項目
+> * 建立優惠
 > * 測試供應項目
 
 請前進到下一個教學課程，以了解如何：

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: edcf294856582569c00f7cf49beb3a481e28d7d8
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights 中分析的教學課程
@@ -58,6 +58,16 @@ ms.lasthandoff: 08/02/2017
 > 按一下資料行的標頭，以重新排列網頁瀏覽器中可用的結果。 但請注意，對大型結果集而言，下載至瀏覽器的資料列數目有限。 以這種方式排序並不一定會顯示實際的最高或最低項目。 若要可靠地將項目排序，請使用 `top` 或 `sort` 運算子。
 >
 >
+
+## <a name="query-across-applications"></a>跨應用程式進行查詢
+如果您想要結合來自多個 Application Insights 應用程式的資料，請使用 **app** 關鍵字來指定應用程式及資料表名稱。  此查詢會使用 **union** 命令結合來自兩個不同應用程式的要求。
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Top](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) 和 [sort](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` 可用來取得快速的結果範例，但它不會依特定順序顯示資料表中的資料列。 若要取得已排序的檢視，請使用 `top` (適用於某個範例) 或 `sort` (整個資料表)。

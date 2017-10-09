@@ -1,6 +1,6 @@
 ---
-title: Download Azure Stack tools from GitHub | Microsoft Docs
-description: Learn how to download tools required to work with Azure Stack.
+title: "從 GitHub 下載 Azure Stack 工具 | Microsoft Docs"
+description: "瞭解如何下載必要的工具來處理 Azure Stack。"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -12,21 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e8e4c7381e0bd9c036c6601fd0df9dba2a46391a
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 20cac6eace89d86f8fa6d7640357e19c8d7359b3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="download-azure-stack-tools-from-github"></a>Download Azure Stack tools from GitHub
+# <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
-AzureStack-Tools is a GitHub repository that hosts PowerShell modules that you can use to manage and deploy resources to Azure Stack. You can download and use these PowerShell modules to the Azure Stack Development Kit, or to a windows-based external client if you are planning to establish VPN connectivity. To obtain these tools, clone the GitHub repository or download the AzureStack-Tools folder. 
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-To clone the repository, download [Git](https://git-scm.com/download/win) for Windows, open a Command Prompt window and run the following script:
+AzureStack-Tools 是裝載 PowerShell 模組的 GitHub 存放庫，可用來管理和部署至 Azure Stack 的資源。 您可以針對 Azure Stack 開發套件，或針對以 Windows 為基礎的外部用戶端 (如果您打算建立 VPN 連線能力) 下載並使用這些 PowerShell 模組。 若要取得這些工具，請複製 GitHub 存放庫或下載 AzureStack-Tools 資料夾。 
+
+若要複製存放庫，請下載 [Git](https://git-scm.com/download/win) for Windows，開啟命令提示字元視窗，然後執行下列指令碼：
 
 ```PowerShell
 # Change directory to the root directory 
@@ -39,7 +41,7 @@ git clone https://github.com/Azure/AzureStack-Tools.git --recursive
 cd AzureStack-Tools
 ```
 
-To download the tools folder, run the following script:
+若要下載工具資料夾，請執行下列指令碼：
 
 ```PowerShell
 # Change directory to the root directory 
@@ -60,24 +62,24 @@ cd AzureStack-Tools-master
 
 ```
 
-## <a name="functionalities-provided-by-the-modules"></a>Functionalities provided by the modules
+## <a name="functionalities-provided-by-the-modules"></a>模組所提供的功能
 
-The AzureStack-Tools repository contains PowerShell modules that support the following functionalities for Azure Stack:  
+AzureStack-Tools 存放庫包含 PowerShell 模組，其支援下列 Azure Stack 功能：  
 
-| Functionality | Description | who can use this module? |
+| 功能 | 說明 | 可以使用此模組的人員？ |
 | --- | --- | --- |
-| [Cloud capabilities](azure-stack-validate-templates.md) | Use this module to get the cloud capabilities of a cloud. For example, you can get the cloud capabilities such as API version, Azure Resource Manager resources, VM extensions etc. for Azure Stack and Azure clouds using this module. | Azure Stack operators and users. |
-| [Azure Stack compute administration](azure-stack-add-vm-image.md) | Use this module to add or remove a VM image from the Azure Stack marketplace. | Azure Stack operators. |
-| [Azure Stack Infrastructure administration](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | Use this module to manage Azure Stack infrastructure VMs, alerts, updates etc. |  Azure Stack operators.|
-| [Resource Manager policy for Azure Stack](azure-stack-policy-module.md) | Use this module to configure an Azure subscription or an Azure resource group with the same versioning and service availability as Azure Stack. | Azure Stack operators and users. |
-| [Register with Azure](azure-stack-register.md) | Use this module to register your development kit instance with Azure. After registering, you can download the marketplace items from Azure and use them in Azure Stack. | Azure Stack operators. |
-| [Azure Stack deployment](azure-stack-run-powershell-script.md) | Use this module to prepare the Azure Stack host computer to deploy and redeploy by using the Azure Stack Virtual Hard Disk(VHD) image. | Azure Stack operators. |
-| [Connecting to Azure Stack](azure-stack-connect-powershell.md) | Use this module to connect to an Azure Stack instance through PowerShell and to configure VPN connectivity to Azure Stack. |Azure Stack operators and users. |
-| [Azure Stack service administration](azure-stack-create-offer.md) | Azure Stack operators can use this module to create a default tenant offer with unlimited quota across Compute, Storage, Network, and Key Vault services.   | Azure Stack operators.|
-| [Template validator](azure-stack-validate-templates.md) | Use this module to verify if an existing or a new template can be deployed to Azure Stack. | Azure Stack operators and users. |
+| [雲端功能](user/azure-stack-validate-templates.md) | 使用此模組來取得雲端的雲端功能。 例如，您可以針對 Azure Stack 和使用此模組的 Azure 雲端取得雲端功能，例如 API 版本、Azure Resource Manager 資源、VM 擴充功能等。 | 雲端操作員和使用者。 |
+| [Azure Stack 計算系統管理](azure-stack-add-vm-image.md) | 使用此模組，從 Azure Stack Marketplace 新增或移除 VM 映像。 | 雲端操作員。 |
+| [Azure Stack 基礎結構系統管理](https://github.com/Azure/AzureStack-Tools/blob/master/Infrastructure/README.md) | 使用此模組來管理 Azure Stack 基礎結構 VM、警示、更新等。 |  雲端操作員。|
+| [適用於 Azure Stack 的 Resource Manager 原則](user/azure-stack-policy-module.md) | 使用此模組來設定 Azure 訂用帳戶或 Azure 資源群組，包含與 Azure Stack 相同的版本和服務可用性。 | 雲端操作員和使用者 |
+| [註冊 Azure](azure-stack-register.md) | 搭配使用此模組與 Azure 來註冊您的開發套件執行個體。 註冊之後，您可以從 Azure 下載 Marketplace 項目，並在 Azure Stack 中使用它們。 | 雲端操作員 |
+| [Azure Stack 部署](azure-stack-run-powershell-script.md) | 搭配使用此模組與 Azure Stack 虛擬硬碟 (VHD) 映像，準備要部署與重新部署的 Azure Stack 主機電腦。 | 雲端操作員。 |
+| [連線至 Azure Stack](azure-stack-connect-powershell.md) | 使用此模組，透過 PowerShell 連線至 Azure Stack 執行個體，並設定 Azure Stack 的 VPN 連線。 | 雲端操作員和使用者 |
+| [Azure Stack 服務系統管理](azure-stack-create-offer.md) | Azure Stack 系統管理員可以使用此模組來建立在「計算」、「儲存體」、「網路」及 Key Vault 服務具有無限配額的預設租用戶供應項目。   | 雲端操作員。|
+| [範本驗證程式](user/azure-stack-validate-templates.md) | 使用此模組來確認現有或新範本是否可以部署到 Azure Stack。 | 雲端操作員和使用者 |
 
 
-## <a name="next-steps"></a>Next steps
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)   
-* [Connect to Azure Stack Development Kit over a VPN](azure-stack-connect-azure-stack.md)  
+## <a name="next-steps"></a>後續步驟
+* [設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)   
+* [透過 VPN 連線至 Azure Stack 開發套件](azure-stack-connect-azure-stack.md)  
 

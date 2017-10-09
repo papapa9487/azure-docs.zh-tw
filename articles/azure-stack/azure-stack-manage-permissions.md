@@ -1,6 +1,6 @@
 ---
-title: Manage permissions to resources per user in Azure Stack (service administrator and tenant) | Microsoft Docs
-description: As a service administrator or tenant, learn how to manage RBAC permissions.
+title: "在 Azure Stack 中針對每位使用者管理資源的權限 (服務系統管理員與租用戶) | Microsoft Docs"
+description: "您身為服務系統管理員或租用戶，應了解如何管理 RBAC 權限。"
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -12,30 +12,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: 80837ff9adb9b02b7a12ce1039e4c50be172bee8
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: e558f9de9bc3182bbe20ceb9d8f3f96e47fa542c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 03/24/2017
-
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control
-A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
+# <a name="manage-role-based-access-control"></a>管理角色型存取控制
 
-* Reader: User can view everything, but can’t make any changes.
-* Contributor: User can manage everything except access to resources.
-* Owner: User can manage everything, including access to resources.
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-## <a name="set-access-permissions-for-a-user"></a>Set access permissions for a user
-1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).
-3. In the **Users** blade, click **Roles**.
-4. In the **Roles** blade, click **Add** to add permissions for the user.
+Azure Stack 中的使用者可以是訂用帳戶、資源群組或服務中每個執行個體的讀者、擁有者或參與者。 例如，使用者 A 對於訂用帳戶 1 可能擁有讀者權限，但對於虛擬機器 7 則具備擁有者權限。
 
-## <a name="next-steps"></a>Next steps
-[Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
+* 讀者：使用者可以檢視所有項目，但無法進行任何變更。
+* 參與者：使用者可以管理除了存取以外的所有項目
+* 擁有者：使用者可以管理所有項目，包括存取資源。
+
+## <a name="set-access-permissions-for-a-user"></a>設定使用者的存取權限
+1. 使用具備擁有者權限的帳戶登入您想要管理的資源。
+2. 在 [資源] 刀鋒視窗中，按一下 [存取] 圖示 ![](media/azure-stack-manage-permissions/image1.png)。
+3. 在 [使用者] 刀鋒視窗中，按一下 [角色]。
+4. 在 [角色] 刀鋒視窗中，按一下 [新增] 即可加入使用者的權限。
+
+## <a name="next-steps"></a>後續步驟
+[新增 Azure Stack 租用戶](azure-stack-add-new-user-aad.md)
 
 

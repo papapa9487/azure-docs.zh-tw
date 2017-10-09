@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
+ms.date: 09/25/2017
 ms.author: juluk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 191a5d12fa899db48bbb751409ce3a732a56095e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: eddbc6e977b52e3a068a1b55792512b966a58c18
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="pricing"></a>價格
 
 ## <a name="compute-cost"></a>計算成本
-Azure Cloud Shell 免費提供在電腦上執行，但需要已連接的 Azure 檔案共用才能使用。 
+Azure 免費提供的 Azure Cloud Shell 是在電腦上執行，但需要 Azure 檔案共用才能使用。 
 
 ## <a name="storage-cost"></a>儲存成本
-Cloud Shell 會在您的檔案共用中建立預設 5GB 的映像，以保存您的 $HOME 目錄。 Azure 檔案共用會產生固定的成本。
+Cloud Shell 需要掛接新的或現有 Azure 檔案共用，才能跨工作階段保存檔案。 儲存體會產生一般成本。
 
 請查看[這裡以取得 Azure 檔案服務成本的詳細資訊](https://azure.microsoft.com/pricing/details/storage/files/)。 

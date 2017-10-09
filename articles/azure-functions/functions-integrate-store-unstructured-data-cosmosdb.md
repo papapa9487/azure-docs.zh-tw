@@ -1,9 +1,9 @@
 ---
-title: "使用 Azure Functions 和 Cosmos DB 儲存非結構化資料"
+title: "使用 Azure Cosmos DB 和 Functions 儲存非結構化資料 | Microsoft Docs"
 description: "使用 Azure Functions 和 Cosmos DB 儲存非結構化資料"
 services: functions
 documentationcenter: functions
-author: rachelappel
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 
@@ -14,17 +14,17 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/03/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 00e9a76fed5743d7d74bafd333b87edf59a4f8bb
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="store-unstructured-data-using-azure-functions-and-cosmos-db"></a>使用 Azure Functions 和 Cosmos DB 儲存非結構化資料
+# <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>使用 Azure Functions 和 Azure Cosmos DB 儲存非結構化資料
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是儲存非結構化和 JSON 資料的好方法。 Cosmos DB 與 Azure Functions 結合，能夠讓儲存資料輕鬆快速，所使用的程式碼比起在關聯式資料庫中儲存資料所需的程式碼更少。
 
@@ -54,10 +54,10 @@ ms.lasthandoff: 08/02/2017
     | ------------ | ---------------- | ------------------------------------------ |
     | **文件參數名稱** | taskDocument | 該名稱參考程式碼中的 Cosmos DB 物件。 |
     | **資料庫名稱** | taskDatabase | 用於儲存文件的資料庫名稱。 |
-    | **集合名稱** | TaskCollection | Cosmos DB 資料庫的集合名稱。 |
+    | **集合名稱** | TaskCollection | 資料庫集合的名稱。 |
     | **如果為 true，就會建立 Cosmos DB 資料庫和集合** | 已檢查 | 集合尚未存在，因此加以建立。 |
 
-4. 選取 [Cosmos DB 文件連線] 標籤旁的 [新增]，然後選取 [+ 新建]。 
+4. 選取 [Azure Cosmos DB 文件連線] 標籤旁的 [新增]，然後選取 [+ 建立新的]。 
 
 5. 使用表格中所指定的 [新增帳戶] 設定︰ 
 
@@ -65,13 +65,13 @@ ms.lasthandoff: 08/02/2017
 
     | 設定      | 建議的值  | 說明                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **識別碼** | 資料庫名稱 | Cosmos DB 資料庫的唯一識別碼  |
+    | **識別碼** | 資料庫名稱 | Azure Cosmos DB 資料庫的唯一識別碼  |
     | **API** | SQL (DocumentDB) | 選取文件資料庫 API。  |
     | **訂用帳戶** | Azure 訂閱 | Azure 訂閱  |
     | **資源群組** | myResourceGroup |  使用含有您的函式應用程式的現有資源群組。 |
     | **位置**  | WestEurope | 選取您的函式應用程式或其他使用已儲存文件的應用程式附近的位置。  |
 
-6. 按一下 [確定]  以建立資料庫。 建立資料庫可能需要幾分鐘的時間。 建立資料庫之後，資料庫連接字串會儲存為函式應用程式設定。 此應用程式設定的名稱會插入在 **Cosmos DB 帳戶連接字串**中。 
+6. 按一下 [確定]  以建立資料庫。 建立資料庫可能需要幾分鐘的時間。 建立資料庫之後，資料庫連接字串會儲存為函式應用程式設定。 此應用程式設定的名稱會插入在 **Azure Cosmos DB 帳戶連線**中。 
  
 8. 設定連接字串之後，請選取 [儲存] 以建立繫結。
 
@@ -129,11 +129,13 @@ public static HttpResponseMessage Run(HttpRequestMessage req, out object taskDoc
 
     ![搜尋 Cosmos DB 服務](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-search-cosmos-db.png)
 
-2. 選取您建立的資料庫，然後選取 [資料總管]。 展開 [集合] 節點，選取新文件，並確認文件包含您的查詢字串值，以及一些額外的中繼資料。 
+2. 選擇您的 Azure Cosmos DB 帳戶，然後選取 [資料總管]。 
+
+3. 展開 [集合] 節點，選取新文件，並確認文件包含您的查詢字串值，以及一些額外的中繼資料。 
 
     ![確認 Cosmos DB 項目](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-verify-cosmosdb-output.png)
 
-您已將繫結成功新增至可在 Cosmos DB 資料庫中儲存非結構化資料的 HTTP 觸發程序。
+您已將繫結成功新增至可在 Azure Cosmos DB 中儲存非結構化資料的 HTTP 觸發程序。
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack administration basics | Microsoft Docs
-description: Learn what you need to know to administer Azure Stack.
+title: "Azure Stack 管理基本知識 | Microsoft Docs"
+description: "了解要管理 Azure Stack 需要知道哪些事項。"
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -12,108 +12,130 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
+ms.date: 09/25/2017
 ms.author: twooley
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 73f2c739a792825ccccda39ca76abef2dd490808
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-stack-administration-basics"></a>Azure Stack administration basics
+# <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 
-There are several things you need to know if you're new to Azure Stack administration. This guidance provides an overview of your role as a cloud operator, and what you need to tell your users for them to become productive quickly.
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-## <a name="understand-development-kit-builds"></a>Understand development kit builds
+若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
 
-Review the [What is Azure Stack?](azure-stack-poc.md) article to make sure you understand the purpose of the Azure Stack Development Kit, and its limitations. You should use the development kit as a "sandbox," where you can evaluate Azure Stack, and develop and test your apps in a non-production environment. (For deployment information, see the [Azure Stack Development Kit deployment](azure-stack-deploy-overview.md) quickstart.)
+## <a name="understand-the-builds"></a>了解組建
 
-Like Azure, we innovate rapidly. We'll regularly release new builds. When you want to move to the latest build, you must [redeploy Azure Stack](azure-stack-redeploy.md). This process takes time, but the benefit is that you can try out the latest features. The documentation on our website reflects the latest release build.
+### <a name="integrated-systems"></a>整合系統
 
-## <a name="learn-about-available-services"></a>Learn about available services
+如果您使用 Azure Stack 整合系統，將會透過更新套件散發 Azure Stack 更新版本給您。 您可以使用系統管理員入口網站中的 [更新 ] 圖格來匯入及套用這些套件。
+ 
+### <a name="development-kit"></a>開發套件
 
-You'll need an awareness of which services you can make available to your users. Azure Stack supports a subset of Azure services. The list of supported services will continue to evolve.
+如果您使用的是「Azure Stack 開發套件」，請檢閱[什麼是 Azure Stack？](azure-stack-poc.md)一文，以確保您了解開發套件的目的及其限制。 您應該將開發套件當作「沙箱」使用，在其中評估 Azure Stack，並在非生產環境中開發和測試您的應用程式。 (如需部署資訊，請參閱 [Azure Stack 開發套件部署](azure-stack-deploy-overview.md)快速入門。)
 
-**Foundational services**
+就像 Azure 一樣，我們迅速地進行創新。 我們會定期發行新組建。 如果您執行的是開發套件並且想要移至最新的組建，就必須[重新部署 Azure Stack](azure-stack-redeploy.md)。 您無法套用更新套件。 此流程需要時間，但好處是您可以嘗試最新的功能。 我們網站上的開發套件文件會反映最新發行的組建。
 
-By default, Azure Stack includes the following "foundational services" when you deploy Azure Stack:
+## <a name="learn-about-available-services"></a>了解可用的服務
 
-- Compute
-- Storage
-- Networking
-- Key Vault
+您需要意識到有哪些服務您可以提供給您的使用者。 Azure Stack 支援 Azure 服務的子集。 支援的服務清單將持續改進。
 
-With these foundational services, you can offer Infrastructure-as-a-Service (IaaS) to your users with minimal configuration.
+**基礎服務**
 
-**Additional services**
+依預設，當您部署 Azure Stack 時，Azure Stack 會包含下列的「基礎服務」：
 
-Currently, we support the following additional Platform-as-a-Service (PaaS) services:
+- 計算
+- 儲存體
+- 網路
+- 金鑰保存庫
+
+利用這些基礎服務，您可用最少的設定，將基礎結構即服務 (IaaS) 提供給您的使用者。
+
+**其他服務**
+
+目前，我們支援下列的其他平台即服務 (PaaS) 服務：
 
 - App Service
 - Azure Functions
-- SQL and MySQL databases
+- SQL 和 MySQL 資料庫
 
-These services require additional configuration before you can make them available to your users. For more information, see the "Tutorials" and the "How-to guides\Offer services" sections of our documentation.
+在可讓使用您的使用者使用之前，這些服務需要其他設定。 如需詳細資訊，請參閱 Azure Stack 操作員文件的＜教學課程＞和＜做法指南\提供服務＞小節。
 
-**Service roadmap**
+**服務藍圖**
 
-Azure Stack will continue to add support for Azure services. For the projected roadmap, see the [Hybrid Application Innovation with Azure and Azure Stack](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) whitepaper. You can also monitor the [Azure Stack blog posts](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) for new announcements.
+Azure Stack 會持續新增對 Azure 服務的支援。 如需了解所規劃的藍圖，請參閱 [Azure Stack：Azure 的延伸](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) \(英文\) 白皮書。 您也可以留意 [Azure Stack 部落格文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)的新宣告。
 
-## <a name="what-tools-do-i-use-to-manage"></a>What tools do I use to manage?
+## <a name="what-tools-do-i-use-to-manage"></a>我可以使用哪些工具來管理？
  
-You can use the [administrator portal](azure-stack-manage-portals.md) or PowerShell to manage Azure Stack. The easiest way to learn the basic concepts is through the portal. If you want to use PowerShell, there are preparation steps. You must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-admin.md) PowerShell.
+您可以使用[系統管理員入口網站](azure-stack-manage-portals.md)或 PowerShell 來管理 Azure Stack。 了解基本概念最簡單的方式是透過入口網站。 如果您想要使用 PowerShell，則有些準備步驟。 您必須[安裝](azure-stack-powershell-install.md) PowerShell、[下載](azure-stack-powershell-download.md)其他模組，並[設定](azure-stack-powershell-configure-admin.md) PowerShell。
 
-Azure Stack uses Azure Resource Manager as its underlying deployment, management, and organization mechanism. If you're going to manage Azure Stack and help support users, you should learn about Resource Manager. See the [Getting Started with Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) whitepaper.
+Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及組織機制。 如果您要管理 Azure Stack 並協助支援使用者，您應該了解 Resource Manager。 請參閱[開始使用 Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) 白皮書。
 
-## <a name="your-typical-responsibilities"></a>Your typical responsibilities
+## <a name="your-typical-responsibilities"></a>您的一般責任
 
-Your users want to use services. From their perspective, your main role is to make these services available to them. You must decide which services to offer, and make those services available by creating [quotas](azure-stack-setting-quotas.md), [plans](azure-stack-create-plan.md), and [offers](azure-stack-create-offer.md). 
+您的使用者想要使用服務。 從其觀點看來，您的主要角色是將這些服務提供給他們。 您必須決定所要提供的服務，並藉由建立方案、供應項目及配來提供這些服務。 如需詳細資訊，請參閱 [Azure Stack 中的服務提供概觀](azure-stack-offer-services-overview.md)。 
 
-You'll also need to add items to the marketplace, such as virtual machine images. The easiest way is to [download marketplace items from Azure to Azure Stack](azure-stack-download-azure-marketplace-item.md).
+您也需要將項目 (例如虛擬機器映像) 新增到[市集](azure-stack-marketplace.md)。 最簡單方式是[從 Azure 下載 Marketplace 項目到 Azure Stack 中](azure-stack-download-azure-marketplace-item.md)。
 
 > [!NOTE]
-> If you want to test your plans, offers, and services, you should use the [user portal](azure-stack-manage-portals.md); not the administrator portal.
+> 如果您想要測試您的方案、產品和服務，您應該使用[使用者入口網站](azure-stack-manage-portals.md)，而非系統管理員入口網站。
 
-In addition to providing services, you must perform all the regular  duties of a cloud operator to keep Azure Stack up and running. These duties include the following:
+除了提供服務之外，您還必須執行操作員的所有一般職務，以保持 Azure Stack 正常運作。 這些工作包括：
 
-- Add user accounts (for [Azure Active Directory](azure-stack-add-new-user-aad.md) deployment or for [Active Directory Federation Services](azure-stack-add-users-adfs.md) deployment)
-- [Assign role-based access control (RBAC) roles](azure-stack-manage-permissions.md) (This is not restricted to administrators.)
-- [Monitor infrastructure health](azure-stack-monitor-health.md)
-- Manage [network](azure-stack-viewing-public-ip-address-consumption.md) and [storage](azure-stack-manage-storage-accounts.md) resources
-- Replace bad hardware
+- 新增使用者帳戶 (如 [Azure Active Directory](azure-stack-add-new-user-aad.md) 部署或 [Active Directory 同盟服務](azure-stack-add-users-adfs.md)部署)
+- [指派角色型存取控制 (RBAC) 角色](azure-stack-manage-permissions.md) (這不限於系統管理員)。
+- [監視基礎結構健康情況](azure-stack-monitor-health.md)
+- 管理[網路](azure-stack-viewing-public-ip-address-consumption.md)和[儲存體](azure-stack-manage-storage-accounts.md)資源
+- 更換故障的硬體，例如[更換故障的磁碟](azure-stack-replace-disk.md)。
 
-## <a name="what-to-tell-your-users"></a>What to tell your users
+## <a name="what-to-tell-your-users"></a>要告訴使用者的內容
 
-You'll need to let your users know how to work with services in Azure Stack, how to connect to the development kit environment, and how to subscribe to offers.
+您將需要讓使用者知道如何使用 Azure Stack 中的服務、如何連線到環境，以及如何訂閱供應項目。 除了任何您想要提供給使用者的自訂文件之外，您還可以將使用者導向「Azure Stack 使用者文件」網站。
 
-**Understand how to work with services in Azure Stack**
+**了解如何使用 Azure Stack 中的服務**
 
-There's information your users must understand before they use services and build apps in Azure Stack. For example, there are specific PowerShell and API version requirements. Also, there are some feature deltas between a service in Azure and the equivalent service in Azure Stack. Make sure that your users review the following articles:
+在使用服務和 Azure Stack 中的應用程式之前，有些資訊您的使用者必須先了解。 例如，有特定的 PowerShell 和 API 版本需求。 此外，在 Azure 中的服務與 Azure Stack 中的對等服務之間有一些功能差異。 請確保您的使用者會檢閱下列文章：
 
-- [Key considerations: Using services or building apps for Azure Stack](azure-stack-considerations.md)
-- [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
-- [Storage: differences and considerations](azure-stack-acs-differences-tp2.md)
+- [關鍵考量：使用 Azure Stack 的服務或組建 Azure Stack 應用程式](user/azure-stack-considerations.md)
+- [Azure Stack 中虛擬機器的考量](user/azure-stack-vm-considerations.md)
+- [儲存體：差異和考量](user/azure-stack-acs-differences.md)
 
-The information in these articles summarizes the differences between a service in Azure and Azure Stack. It supplements the information that's available for an Azure service in the global Azure documentation. 
+這些文件中的資訊摘要了說明在 Azure 中與 Azure Stack 中服務之間的差異。 它補充了全域 Azure 文件中所提供的 Azure 服務相關資訊。
 
-**Connect to Azure Stack as a user**
+**以使用者的身分連線到 Azure Stack**
 
-In a development kit environment, if a user doesn't have Remote Desktop access to the development kit host, they must configure a virtual private network (VPN) connection before they can access Azure Stack. See [Connect to Azure Stack](azure-stack-connect-azure-stack.md). 
+在開發套件環境中，如果使用者沒有遠端桌面對開發套件主機的存取權，就必須設定虛擬私人網路 (VPN) 連線，才能存取 Azure Stack。 請參閱[連線到 Azure Stack](azure-stack-connect-azure-stack.md)。 
 
-Your users will want to know how to [access the user portal ](azure-stack-manage-portals.md) or how to connect through PowerShell. If using PowerShell, users may have to register resource providers before they can use services. (A resource provider manages a service. For example, the networking resource provider manages resources such as virtual networks, network interfaces, and load balancers.) They must [install](azure-stack-powershell-install.md) PowerShell, [download](azure-stack-powershell-download.md) additional modules, and [configure](azure-stack-powershell-configure-user.md) PowerShell (which includes resource provider registration).
+您的使用者會想要知道如何[存取使用者入口網站](user/azure-stack-use-portal.md)或如何透過 PowerShell 連線。 在整合系統環境中，使用者入口網站位址會因部署而異。 您將必須提供正確的 URL 給使用者。
 
-**Subscribe to an offer**
+如果使用 PowerShell，使用者可能需要先註冊資源提供者，才能使用服務。 (資源提供者負責管理服務。 例如，網路資源提供者負責管理如虛擬網路、網路介面和負載平衡器等資源。)他們必須[安裝](user/azure-stack-powershell-install.md) PowerShell、[下載](user/azure-stack-powershell-download.md) 其他模組，並[設定](user/azure-stack-powershell-configure-user.md) PowerShell (其中包含資源提供者註冊)。
 
-Before a user can access services, they must [subscribe to an offer](azure-stack-subscribe-plan-provision-vm.md) that you've created as a cloud operator.
+**訂閱供應項目**
 
-## <a name="where-to-get-support"></a>Where to get support
+使用者必須先[訂閱供應項目](azure-stack-subscribe-plan-provision-vm.md) (您以操作員身分所建立)，才能存取服務。
 
-For the Azure Stack Development Kit, you can ask support-related questions in the [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). If you click the Help and support icon (question mark) in the upper-right corner of the administrator portal, and then click **New support request**, this opens the forums site directly. These forums are regularly monitored. Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
+## <a name="where-to-get-support"></a>從哪裡取得支援
 
-## <a name="next-steps"></a>Next steps
+### <a name="integrated-systems"></a>整合系統
 
-- [Region management in Azure Stack](azure-stack-region-management.md)
+就整合系統而言，在 Microsoft 與原始設備製造商 (OEM) 硬體合作夥伴之間有一個協調的呈報和解決程序。
+
+如果雲端服務發生問題，將會透過「Microsoft 客戶支援服務」(CSS).提供支援。 如果您按一下系統管理員入口網站右上角的 說明及支援 圖示 (問號)，然後按一下新增支援要求，就會開啟一個可供您直接建立支援要求的網站。
+
+如果部署、修補程式和更新、硬體 (包括現場可更換單元) 及任何硬體品牌化軟體 (例如在硬體生命週期主機上執行的軟體) 發生問題，請先連絡您的 OEM 硬體廠商。
+
+針對任何其他情況，則請連絡 Microsoft CSS。
+
+### <a name="development-kit"></a>開發套件
+
+針對開發套件，您可以在 [Microsoft 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中詢問與支援相關的問題。 如果您按一下系統管理員入口網站右上角的 說明及支援 圖示 (問號)，然後按一下新增支援要求，這會直接開啟論壇網站。 我們會定期留意這些論壇。 由於開發套件是一個評估環境，因此並未透過 Microsoft CSS 提供官方支援。
+
+## <a name="next-steps"></a>後續步驟
+
+- [Azure Stack 中的區域管理](azure-stack-region-management.md)
 
 
 

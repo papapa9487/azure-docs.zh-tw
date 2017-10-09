@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
+ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,6 +30,8 @@ ms.lasthandoff: 09/13/2017
 您會在本主題中根據風力渦輪機的維護案例建置一個應用程式。 本主題說明如何呼叫您在[為函式建立 OpenAPI 定義](functions-openapi-definition.md)中定義的函式。 此函式可判斷風力渦輪機的緊急修復是否符合成本效益。
 
 ![PowerApps 中已完成的應用程式](media/functions-powerapps-scenario/finished-app.png)
+
+如需從 Microsoft Flow 呼叫同一個函式的相關資訊，請參閱[從 Microsoft Flow 呼叫函式](functions-flow-scenario.md)。
 
 在本主題中，您將了解如何：
 
@@ -251,4 +253,4 @@ ms.lasthandoff: 09/13/2017
 
 若要深入了解 PowerApps，請參閱 [PowerApps 簡介](https://powerapps.microsoft.com/tutorials/getting-started/)。
 
-若要了解另一個使用 Azure Functions 的相關案例，請參閱[建立與 Azure Logic Apps 整合的函式](functions-twitter-email.md)。
+若要了解其他使用 Azure Functions 的有趣情節，請參閱[從 Microsoft Flow 呼叫函式](functions-flow-scenario.md)和[建立與 Azure Logic Apps 整合的函式](functions-twitter-email.md)。

@@ -11,18 +11,21 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 8/22/2017
+ms.topic: tutorial
+ms.date: 9/25/2017
 ms.author: victorh
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: d2f38bc1c0b97e408f619f3ea2f704725e3bb460
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>將虛擬機器提供給您的 Azure Stack 使用者
+
+*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 利用其訂用帳戶，使用者可以接著取用 Azure Stack 服務。
 
 此文章說明如何建立供應項目並進行測試。 針對測試，您將必須以使用者身分登入入口網站，訂閱該供應項目，然後使用訂用帳戶建立虛擬機器。
@@ -30,22 +33,22 @@ ms.lasthandoff: 09/15/2017
 您將了解：
 
 > [!div class="checklist"]
-> * 建立供應項目
+> * 建立優惠
 > * 新增映像
 > * 測試供應項目
 
 
-在 Azure Stack 中，能透過訂用帳戶、供應項目與方案，為使用者提供服務。 使用者可以訂閱多個供應項目。 供應項目可以有一或多個方案，而方案則可以有一或多個服務。
+在 Azure Stack 中，能透過訂用帳戶、供應項目與方案，為使用者提供服務。 使用者可以訂閱多個供應項目。 優惠可以有一個或多個方案，而方案則可有一或多項服務。
 
 ![訂用帳戶、供應項目與方案](media/azure-stack-key-features/image4.png)
 
 若要深入了解，請參閱 [Azure Stack 中的主要功能與概念](azure-stack-key-features.md)。
 
-## <a name="create-an-offer"></a>建立供應項目
+## <a name="create-an-offer"></a>建立優惠
 
 現在您可以為使用者準備項目。 當您開始進行此程序時，系統會先提示您建立供應項目，然後建立方案，最後建立配額。
 
-3. **建立供應項目**
+3. **建立優惠**
 
    供應項目是一組提供者供使用者購買或訂閱的一或多個方案。
 
@@ -64,7 +67,7 @@ ms.lasthandoff: 09/15/2017
 
    ![方案顯示名稱](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. 按一下 [服務]，選取 [Microsoft.Compute][Microsoft.Network] 與 [Microsoft.Storage]，然後按一下 [選取]。
+   e. 按一下 服務，選取 Microsoft.Compute、Microsoft.Network 及 Microsoft.Storage，然後按一下選取。
 
    ![方案服務](media/azure-stack-tutorial-tenant-vm/image05.png)
 
@@ -82,7 +85,7 @@ ms.lasthandoff: 09/15/2017
 
    ![選取配額](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   針對網路與儲存體服務重複這些步驟，然後按一下 [配額] 區段中的 [確定]。
+   針對網路與儲存體服務重複這些步驟，然後按一下配額 區段中的 確定。
 
    i. 按一下 [新的方案] 區段中的 [確定]。
 
@@ -92,7 +95,7 @@ ms.lasthandoff: 09/15/2017
 
    l. 在儀表板功能表上，按一下 [供應項目]，然後按一下您建立的供應項目。
 
-   m. 按一下 [變更狀態]，然後按一下 [公開]。
+   m. 按一下 變更狀態，然後按一下公開。
 
    ![公開映像](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -112,15 +115,17 @@ ms.lasthandoff: 09/15/2017
 
    現在您能以使用者身分登入到入口網站，以訂閱供應項目。
 
-   a. 在 Azure Stack 開發套件電腦上，以使用者身分登入 `https://portal.local.azurestack.external`，然後按一下 [取得訂用帳戶]。
+   a. 以使用者身分登入使用者入口網站，並按一下 [Get a Subscription]\(取得訂用帳戶\)。
+   - 整合系統的 URL 會由於操作員的地區和外部網域名稱而有所不同，格式為 https://portal.&lt;地區&gt;.&lt;FQDN&gt;。
+   - 如果您使用 Azure Stack 開發封裝，入口網站位址是 https://portal.local.azurestack.external。
 
    ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. 在 [顯示名稱] 欄位中，輸入您的訂閱名稱，按一下 [供應項目]，按一下 [選擇供應項目] 區段中的其中一個供應項目，然後按一下 [建立]。
+   b. 在 顯示名稱 欄位中，輸入您的訂閱名稱，按一下 供應項目，按一下 選擇供應項目 區段中的其中一個供應項目，然後按一下建立。
 
-   ![建立供應項目](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![建立優惠](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. 若要檢視您建立的訂用帳戶，請按一下 [更多服務]，按一下 [訂用帳戶]，然後按一下您的新訂用帳戶。  
+   c. 若要檢視您建立的訂用帳戶，請按一下 [更多服務]、按一下 [訂用帳戶]，然後按一下您的新訂用帳戶。  
 
    訂閱供應項目之後，請重新整理入口網站以查看哪些服務是新訂用帳戶的一部分。
 
@@ -128,11 +133,13 @@ ms.lasthandoff: 09/15/2017
 
    現在您能以使用者身分登入入口網站，以使用訂用帳戶佈建虛擬機器。 
 
-   a. 在 Azure Stack 開發套件電腦上，以使用者身分登入 `https://portal.local.azurestack.external`，然後按一下 [新增] > [計算] > [Windows Server 2016 Datacenter 評估版]。  
+   a. 以使用者身分登入使用者入口網站，然後按一下新增 > **計算** > **Windows Server 2016 Datacenter 評估版**。
+      - 整合系統的 URL 會由於操作員的地區和外部網域名稱而有所不同，格式為 https://portal.&lt;地區&gt;.&lt;FQDN&gt;。
+   - 如果您使用 Azure Stack 開發封裝，入口網站位址是 https://portal.local.azurestack.external。
 
-   b. 在 [基本] 區段中，輸入 [名稱][使用者名稱]與 [密碼]。 針對 [VM 磁碟類型]，請選擇 [HDD]。 選擇 [訂用帳戶]。 建立**資源群組**，或選取現有的資源群組，然後按一下 [確定]。  
+   b. 在 [基本] 區段中，輸入 [名稱][使用者名稱]與 [密碼]。 針對 [VM 磁碟類型]，請選擇 [HDD]。 選擇 [訂用帳戶] 。 建立 資源群組，或選取現有的資源群組，然後按一下確定。  
 
-   c. 在 [選擇大小] 區段中，按一下 [A1 基本]，然後按一下 [選取]。  
+   c. 在 選擇大小 區段中，按一下 A1 基本，然後按一下選取。  
 
    d. 在 [設定] 區段中，按一下 [虛擬網路]。 在 [選擇虛擬網路] 區段中，按一下 [建立新項目]。 在 [建立虛擬網路] 區段中，接受所有預設值，然後按一下 [確定]。 在 [設定] 區段中，按一下 [確定]。
 
@@ -147,7 +154,7 @@ ms.lasthandoff: 09/15/2017
 在本教學課程中，您已了解：
 
 > [!div class="checklist"]
-> * 建立供應項目
+> * 建立優惠
 > * 新增映像
 > * 測試供應項目
 

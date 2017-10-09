@@ -1,6 +1,6 @@
 ---
-title: Offering services in Azure Stack | Microsoft Docs
-description: As a cloud operator, you can offer services to your users.
+title: "在 Azure Stack 中提供服務 | Microsoft Docs"
+description: "作為雲端操作員，您可以向使用者提供服務。"
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,34 +15,35 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 785acbeba7eebea5a0414ac8bb9942410bf4252e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="overview-of-offering-services-in-azure-stack"></a>Overview of offering services in Azure Stack
+# <a name="overview-of-offering-services-in-azure-stack"></a>Azure Stack 中的服務供應項目概觀
 
-Microsoft Azure Stack is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-- Platform as a Service (PaaS) services like App Services, Mobile Apps, API Apps, API Functions, SQL, MySQL.
-- Software as a Service (SaaS) services like Sharepoint.
+[Microsoft Azure Stack](azure-stack-poc.md) 是一個混合式雲端平台，可讓您從資料中心提供服務。 作為服務提供者，您可以提供服務給租用戶。 在企業或政府機構中，您可以提供內部部署服務給您的員工。 您可以傳遞的服務包括、但不限於：
 
-You can even combine services to integrate and build complex solutions for different users.
+- 平台即服務 (PaaS) 服務，例如應用程式服務、行動應用程式、API Apps、API 函式、SQL、MySQL。
 
-To deliver these services to your users, you must create [plans, offers, and quotas](azure-stack-plan-offer-quota-overview.md). Your users can then subscribe to your offers to use the services.
+您甚至可以結合服務，針對不同的使用者整合和建置複雜的解決方案。
 
-## <a name="plan-your-service-offers"></a>Plan your service offers
+若要將這些服務提供給您的使用者，您必須建立[計劃、產品和配額](azure-stack-plan-offer-quota-overview.md)。 您的使用者接著會訂閱您的產品來使用服務。
 
-When you’re planning your offers, keep the following points in mind:
+## <a name="plan-your-service-offers"></a>規劃服務產品
 
-**Trial offers**: You can use trial offers to attract new users, who can then upgrade to additional services. To create a trial offer, create a small [base plan](azure-stack-plan-offer-quota-overview.md#base-plan) with an optional larger add-on plan.
+規劃產品時，請記住下列重點：
 
-**Capacity planning**: You might be concerned about users grabbing large amounts of resources and clogging the system for all users. To help performance, you can [configure your plans with quotas](azure-stack-plan-offer-quota-overview.md#plans) to cap usage.
+**試用產品**：您可以使用試用產品來吸引新使用者，接著升級到其他服務。 若要建立試用產品，請建立小型的[基本方案](azure-stack-plan-offer-quota-overview.md#base-plan)與選用的大附加元件方案。
 
-**Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
+**容量規劃**：您可能會擔心使用者擷取大量資源，然後阻礙系統的所有使用者使用。 若要協助改善效能，您可以[設定方案與配額](azure-stack-plan-offer-quota-overview.md#plans)來規劃使用方式。
 
-## <a name="next-steps"></a>Next steps
-[Learn more about offers, plans, quotas, and subscriptions](azure-stack-plan-offer-quota-overview.md)
+**委派的提供者**：您可將在您的環境中建立產品的能力授與其他人。 例如，如果您是服務提供者，您可以將此能力[委派](azure-stack-delegated-provider.md)給您的轉售商。 或者，如果您是組織，您可以委派給其他部門/分公司。
+
+## <a name="next-steps"></a>後續步驟
+[深入瞭解產品、方案、配額和訂用帳戶](azure-stack-plan-offer-quota-overview.md)
 
 

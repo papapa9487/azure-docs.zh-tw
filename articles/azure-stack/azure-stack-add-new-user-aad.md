@@ -12,15 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 4401de010dec808f080f5460298bb738ddd39312
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
+
+適用於：Azure Stack 開發套件
+
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中新增 Azure Stack 租用戶帳戶
 在[部署 Azure Stack 開發套件](azure-stack-run-powershell-script.md)之後，您將需要租用戶使用者帳戶，以便可以瀏覽租用戶入口網站並測試您的供應項目與方案。 您可以[使用 Azure 入口網站](#create-an-azure-stack-tenant-account-using-the-azure-portal)或[使用 PowerShell](#create-an-azure-stack-tenant-account-using-powershell) 來建立租用戶帳戶。
 
@@ -28,13 +31,13 @@ ms.lasthandoff: 09/15/2017
 您必須擁有 Azure 訂用帳戶，才能使用 Azure 入口網站。
 
 1. 登入 [Azure](http://manage.windowsazure.com)。
-2. 在 Microsoft Azure 左側的導覽列中，按一下 [Active Directory]。
+2. 在 Microsoft Azure 左側的導覽列中，按一下 [Active Directory] 。
 3. 在目錄清單中，按一下您想要用於 Azure Stack 的目錄，或建立一個新的目錄。
-4. 在此目錄頁面上，按一下 [使用者]。
-5. 按一下 [新增使用者]。
+4. 在此目錄頁面上，按一下 [使用者] 。
+5. 按一下 [新增使用者] 。
 6. 在 [新增使用者] 精靈的 [使用者類型] 清單中，選擇 [您組織中的新使用者]。
-7. 在 [使用者名稱] 方塊中，輸入使用者名稱。
-8. 在 [新增使用者精靈]**@** 方塊中，選擇適當的項目。
+7. 在 [使用者名稱]  方塊中，輸入使用者名稱。
+8. 在 [新增使用者精靈] **@** 方塊中，選擇適當的項目。
 9. 按下一個箭頭。
 10. 在精靈的 [使用者設定檔]頁面中，輸入**名字**、**姓氏**和**顯示名稱**。
 11. 在 [角色] 清單中，選擇 [使用者]。

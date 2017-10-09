@@ -1,10 +1,10 @@
 ---
-title: Monitor health and alerts in Azure Stack | Microsoft Docs
-description: Learn how to monitor health and alerts in Azure Stack.
+title: "在 Azure Stack 中監視健康情況和警示 | Microsoft Docs"
+description: "了解如何在 Azure Stack 中監視健康情況和警示。"
 services: azure-stack
 documentationcenter: 
-author: chasat-MS
-manager: dsavage
+author: twooley
+manager: byronr
 editor: 
 ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
 ms.service: azure-stack
@@ -12,68 +12,68 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
-ms.author: chasat
+ms.date: 09/25/2017
+ms.author: twooley
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 93835eabcf9622735aada0f5dfa46028553c25bd
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitor health and alerts in Azure Stack
+# <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中監視健康情況和警示
 
-Azure Stack includes infrastructure monitoring capabilities that enable a cloud operator to view health and alerts for an Azure Stack region.
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile, pinned by default in the administrator portal for the Default Provider Subscription, lists all the deployed regions of Azure Stack. It also shows the count of active critical and warning alerts for each region. This tile is your entry point into the health and alert functionality of Azure Stack.
+Azure Stack 包含基礎結構監視功能，可讓您檢視 Azure Stack 區域的健康情況和警示。 [區域管理] 圖格預設會釘選在「預設提供者訂用帳戶」的系統管理員入口網站上，當中會列出 Azure Stack 的所有已部署區域。 此圖格除了會顯示每個區域的作用中重大警示和警告警示數目之外，也是您到 Azure Stack 之健康情況和警示功能的進入點。
 
- ![The Region Management tile](media/azure-stack-monitor-health/image1.png)
+ ![區域管理磚](media/azure-stack-monitor-health/image1.png)
 
- ## <a name="understand-health-in-azure-stack"></a>Understand health in Azure Stack
+ ## <a name="understand-health-in-azure-stack"></a>了解 Azure Stack 中的健康情況
 
- Health and alerts are managed in Azure Stack by the Health resource provider. Azure Stack infrastructure components register with the Health resource provider during Azure Stack deployment and configuration. This registration enables the display of health and alerts for each component. Health in Azure Stack is a simple concept. If alerts for a registered instance of a component exist, the health state of that component reflects the worst active alert severity; warning, or critical.
+ 健康情況和警示是由「健康情況」資源提供者所管理的。 在 Azure Stack 部署和設定期間，Azure Stack 基礎結構元件會向健康情況資源提供者註冊。 這項註冊讓每個元件的健康情況和警示得以顯示。 在 Azure Stack 中健康情況是個簡單的概念。 如果元件的已註冊執行個體有警示存在，該元件的健康情況狀態會反映出最差的作用中警示嚴重性：警告或重要。
  
- ## <a name="view-and-manage-component-health-state"></a>View and manage component health state
+ ## <a name="view-and-manage-component-health-state"></a>檢視和管理元件健康情況狀態
  
- You can view the health state of components in both the Azure Stack administrator portal and through Rest API and PowerShell.
+ 身為 Azure Stack 操作員，您可以在系統管理員入口網站中及透過 REST API 和 PowerShell 來檢視元件的健康狀態。
  
-To view the health state in the portal, click the region that you want to view in the **Region management** tile. You can view the health state of infrastructure roles and of resource providers. Note that in this release, the Compute resource provider does not report health state.
+若要在入口網站中檢視健康情況狀態，請在 [區域管理] 磚中按一下您想要檢視的區域。 您可以檢視基礎結構角色和資源提供者的健康情況狀態。 在此版本中，「計算」資源提供者並不會回報健康狀態。
 
-![List of infrastructure roles](media/azure-stack-monitor-health/image2.png)
+![基礎結構角色的清單](media/azure-stack-monitor-health/image2.png)
 
-You can click a resource provider or infrastructure role to view more detailed information.
+您可以按一下資源提供者或基礎結構角色，以檢視更詳細的資訊。
 
 > [!WARNING]
->If you click an infrastructure role, and then click the role instance, there are options in the **Role instance** blade to Start, Restart, or Shutdown. Do **not** use these options in an Azure Stack Development Kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability. For troubleshooting assistance, please post your issue to the [Azure Stack forum](https://aka.ms/azurestackforum).
+>如果您按一下基礎結構角色，然後按一下角色執行個體，就會看到可用來「啟動」、「重新啟動」或「關機」的選項。 當您對整合系統套用更新時，請勿使用這些動作。 此外，也**請勿**在「Azure Stack 開發套件」環境中使用這些選項。 這些選項是僅針對每個基礎結構角色有多個角色執行個體的整合系統環境而設計的。 重新啟動開發套件中的角色執行個體 (特別是 AzS-Xrp01) 會導致系統不穩定。 如需疑難排解協助，請將您的問題張貼到 [Azure Stack 論壇](https://aka.ms/azurestackforum)。
 >
  
-## <a name="view-alerts"></a>View alerts
+## <a name="view-alerts"></a>檢視警示
 
-The list of active alerts for each Azure Stack region is available directly from the **Region management** blade. The first tile in the default configuration is the **Alerts** tile, which displays a summary of the critical and warning alerts for the region. You can pin the Alerts tile, like any other tile on this blade, to the dashboard for quick access.   
+可直接從 [區域管理] 刀鋒視窗檢視每個 Azure Stack 區域的作用中警示清單。 預設設定下的第一個磚是 [警示] 磚，其中會顯示該區域的重要和警告警示摘要。 就像這個刀鋒視窗中的其他磚一樣，您可以將 [警示] 磚釘選到儀表板上以便快速存取。   
 
-![Alerts tile that shows a warning](media/azure-stack-monitor-health/image3.png)
+![會顯示警告的 [警示] 磚](media/azure-stack-monitor-health/image3.png)
 
-By selecting the top portion of the **Alerts** tile, you navigate to the list of all active alerts for the region. If you select either the **Critical** or **Warning** line item within the tile, you navigate to a filtered list of alerts (Critical or Warning). 
+您可以藉由選取 [警示] 圖格的上半部，瀏覽至區域的所有作用中警示清單。 如果您選取磚內的 [重要] 或 [警告] 明細項目，就會瀏覽至警示的篩選清單 (重要或警告)。 
 
-![Filtered warning alerts](media/azure-stack-monitor-health/image4.png)
+![篩選的警告警示](media/azure-stack-monitor-health/image4.png)
   
-The **Alerts** blade supports the ability to filter both on status (Active or Closed) and severity (Critical or Warning). The default view displays all Active alerts. All closed alerts are removed from the system after seven days.
+[警示] 刀鋒視窗支援依狀態 (作用中或已關閉) 和嚴重性 (重要或警告) 進行篩選。 預設檢視會顯示所有作用中的警示。 所有已關閉的警示會在七天後從系統中移除。
 
-![Filter pane to filter by critical or warning status](media/azure-stack-monitor-health/image5.png)
+![依重要或警告狀態進行篩選的篩選器](media/azure-stack-monitor-health/image5.png)
 
-The Alerts blade also exposes the **View API** action, which displays the Rest API that was used to generate the list view. This action provides a quick way to become familiar with the Rest API syntax that you can use to query alerts. You can use this API in automation or for integration with your existing datacenter monitoring, reporting, and ticketing solutions. 
+[檢視 API] 動作會顯示用來產生清單檢視的 REST API。 這個動作可讓您快速熟悉可用來查詢警示的 REST API 語法。 您可用自動化方式使用此 API，或與您現有的資料中心監視、報告及票證解決方案整合。 
 
-![The View API option that shows the Rest API](media/azure-stack-monitor-health/image6.png)
+![顯示 REST API 的 [檢視 API] 選項](media/azure-stack-monitor-health/image6.png)
 
-From the Alerts blade, you can select an alert to navigate to the **Alert details** blade. This blade displays all fields that are associated with the alert, and enables quick navigation to the affected component and source of the alert. For example, the following alert occurs if one of the infrastructure role instances goes offline or is not accessible.  
+您可以按一下特定警示來檢視警示詳細資料。 警示詳細資料會顯示與警示相關的所有欄位，並可讓您快速瀏覽至受影響的元件和警示來源。 例如，如果其中一個基礎結構角色執行個體離線或無法存取，就會發生以下警示。  
 
-![The Alert Details blade](media/azure-stack-monitor-health/image7.png)
+![[警示詳細資料] 刀鋒視窗](media/azure-stack-monitor-health/image7.png)
 
-After the infrastructure role instance is back online, this alert automatically closes.
+基礎結構角色執行個體回到線上之後，會自動關閉此警示。 許多 (但並非每一個) 警示都會在相關問題解決時自動關閉。 建議您在執行補救步驟之後選取 [關閉警示]。 如果問題仍然存在，Azure Stack 會產生新警示。 如果您將問題解決，警示就會保持關閉而無須進行任何其他動作。
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>後續步驟
 
-[Manage updates in Azure Stack](azure-stack-updates.md)
+[在 Azure Stack 中管理更新](azure-stack-updates.md)
 
-[Region management in Azure Stack](azure-stack-region-management.md)
+[Azure Stack 中的區域管理](azure-stack-region-management.md)
 

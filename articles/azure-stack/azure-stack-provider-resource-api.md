@@ -1,6 +1,6 @@
 ---
-title: Provider Resource Usage API | Microsoft Docs
-description: Reference for resource usage API, which retrieve Azure Stack usage information.
+title: "提供者資源使用狀況 API | Microsoft Docs"
+description: "資源使用狀況 API (用以擷取 Azure Stack 使用狀況資訊) 的參考。"
 services: azure-stack
 documentationcenter: 
 author: AlfredoPizzirani
@@ -15,94 +15,84 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: alfredop
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 0b15ee20f4461af6d0173495fd8456d7a7a29aba
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: c54dca9d734cf909cf20d5235a90b9b46f0af11c
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="provider-resource-usage-api"></a>Provider Resource Usage API
-The term provider applies to the service administrator and to any delegated providers. Azure Stack operator's and delegated providers can use the Provider Usage API to view the usage of their direct tenants. For example, P0 can call the Provider API to get usage information on P1's and P2's direct usage, and P1 can call for usage information on P3 and P4.
+# <a name="provider-resource-usage-api"></a>提供者資源使用狀況 API
+「提供者」一詞適用於服務管理員和任何委派的提供者。 Azure Stack 操作員和委派的提供者可使用提供者使用狀況 API，檢視其直接租用戶的使用狀況。 例如，P0 可以呼叫提供者 API，以取得 P1 和 P2 直接使用的使用狀況資訊；而 P1 可呼叫以取得 P3 和 P4 的使用狀況資訊。
 
-![Conceptual model of provider hierarchy](media/azure-stack-provider-resource-api/image1.png)
+![提供者階層的概念模型](media/azure-stack-provider-resource-api/image1.png)
 
-## <a name="api-call-reference"></a>API call reference
-### <a name="request"></a>Request
-The request gets consumption details for the requested subscriptions and for the requested time frame. There is no request body.
+## <a name="api-call-reference"></a>API 呼叫參考
+### <a name="request"></a>要求
+要求會取得所要求的訂用帳戶在要求的時間範圍內的耗用量詳細資料。 沒有要求主體。
 
-This usage API is a Provider API, so the caller must be assigned an Owner, Contributor, or Reader role in the provider’s subscription.
+此使用狀況 API 是提供者 API，因此必須將提供者訂用帳戶中的「擁有者」、「參與者」或「讀者」角色指派給呼叫者。
 
-| **Method** | **Request URI** |
+| **方法** | **要求 URI** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
-### <a name="arguments"></a>Arguments
-| **Argument** | **Description** |
+### <a name="arguments"></a>引數
+| **引數** | **說明** |
 | --- | --- |
-| *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://adminmanagement.{domain-name}`. For example, if the domain name is local.azurestack.external, then the Resource Manager endpoint is `https://adminmanagement.local.azurestack.external`. |
-| *subId* |Subscription ID of the user who is making the call. |
-| *reportedStartTime* |Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
-| *reportedEndTime* |End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future or the current date. If it is, the result is set to "processing not complete." |
-| *aggregationGranularity* |Optional parameter that has two discrete potential values: daily and hourly. As the values suggest, one returns the data in daily granularity, and the other is an hourly resolution. The daily option is the default. |
-| *subscriberId* |Subscription ID. To get filtered data, the subscription ID of a direct tenant of the provider is required. If no subscription ID parameter is specified, the call returns usage data for all the provider’s direct tenants. |
-| *api-version* |Version of the protocol that is used to make this request. This value is set to 2015-06-01-preview. |
-| *continuationToken* |Token retrieved from the last call to the Usage API provider. This token is needed when a response is greater than 1,000 lines and it acts as a bookmark for the progress. If not present, the data is retrieved from the beginning of the day or hour, based on the granularity passed in. |
+| *armendpoint* |您 Azure Stack 環境的 Azure Resource Manager 端點。 依 Azure Stack 慣例，Azure Resource Manager 端點名稱的格式是 `https://adminmanagement.{domain-name}`。 例如，如果是開發套件，則網域名稱會是 local.azurestack.external，而 Resource Manager 端點會是 `https://adminmanagement.local.azurestack.external`。 |
+| *subId* |正在進行呼叫的使用者訂用帳戶 ID。 |
+| *reportedStartTime* |查詢的開始時間。 *DateTime* 值應該以 UTC 格式及小時開始時的時間呈現，例如 13:00。 對於每日彙總，請將這個值設定為 UTC 午夜。 格式是*逸出的* ISO 8601，例如 2015-06-16T18%3a53%3a11%2b00%3a00Z，其中冒號會逸出為 %3a 而加號會逸出為 %2b，使其符合 URI 規範。 |
+| *reportedEndTime* |查詢的結束時間。 適用於 *reportedStartTime* 的限制也適用於此引數。 *reportedEndTime* 的值不得為未來或目前的日期。 如果是，結果會設為「處理未完成。」 |
+| *aggregationGranularity* |這是選擇性引數，它可以有兩個截然不同的可能值 (每日及每小時)。 如同以上兩個值所暗示，一個會每日傳回資料，另一個則會每小時傳回資料。 預設值為 [每日] 選項。 |
+| *subscriberId* |訂用帳戶 ID。 若要取得篩選的資料，需要提供者的直接租用戶訂用帳戶 ID。 如果未指定訂用帳戶 ID 參數，呼叫會傳回所有提供者直接租用戶的使用狀況資料。 |
+| *api-version* |用來提出此要求的通訊協定版本。 此值會設定為 2015-06-01-preview。 |
+| *continuationToken* |從上次呼叫使用狀況 API 提供者所擷取的權杖。 回應大於 1000 行時就需要這個權杖，可作為進度的書籤。 若無此權杖，則會從一天或小時開始時的時間擷取資料，取決於所傳遞的細微性。 |
 
 ### <a name="response"></a>Response
 GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
 
+```json
+{
+"value": [
 {
 
-"value": \[
-
-{
-
-"id": "/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
+"id":
+"/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
 
 meterID1",
-
 "name": "sub1.1-meterID1",
-
 "type": "Microsoft.Commerce/UsageAggregate",
 
 "properties": {
-
 "subscriptionId":"sub1.1",
-
 "usageStartTime": "2015-03-03T00:00:00+00:00",
-
 "usageEndTime": "2015-03-04T00:00:00+00:00",
-
-"instanceData":"{\\"Microsoft.Resources\\":{\\"resourceUri\\":\\"resourceUri1\\",\\"location\\
-
-":\\"Alaska\\",\\"tags\\":null,\\"additionalInfo\\":null}}",
-
+"instanceData":"{\"Microsoft.Resources\":{\"resourceUri\":\"resourceUri1\",\"location\":\"Alaska\",\"tags\":null,\"additionalInfo\":null}}",
 "quantity":2.4000000000,
-
 "meterId":"meterID1"
 
 }
-
 },
 
 …
+```
 
-### <a name="response-details"></a>Response details
-| **Argument** | **Description** |
+### <a name="response-details"></a>回應詳細資料
+| **引數** | **說明** |
 | --- | --- |
-| *id* |Unique ID of the usage aggregate |
-| *name* |Name of the usage aggregate |
-| *type* |Resource definition |
-| *subscriptionId* |Subscription identifier of the Azure Stack user |
-| *usageStartTime* |UTC start time of the usage bucket to which this usage aggregate belongs |
-| *usageEndTime* |UTC end time of the usage bucket to which this usage aggregate belongs |
-| *instanceData* |Key-value pairs of instance details (in a new format):<br> *resourceUri*: Fully qualified resource ID, which includes the resource groups and the instance name <br> *location*: Region in which this service was run <br> *tags*: Resource tags that are specified by the user <br> *additionalInfo*: More details about the resource that was consumed, for example, OS version or image type |
-| *quantity* |Amount of resource consumption that occurred in this time frame |
-| *meterId* |Unique ID for the resource that was consumed (also called *ResourceID*) |
+| *id* |使用情況彙總的唯一識別碼 |
+| *name* |使用情況彙總的名稱 |
+| *type* |資源定義 |
+| *subscriptionId* |Azure Stack 使用者訂用帳戶識別碼 |
+| *usageStartTime* |此使用情況彙總所屬的使用情況貯體 UTC 開始時間 |
+| *usageEndTime* |此使用情況彙總所屬的使用情況貯體 UTC 結束時間 |
+| *instanceData* |執行個體詳細資料的機碼值組 (新格式)：<br> *resourceUri*：完整資源 ID，包含資源群組和執行個體名稱 <br> *location*：此服務執行所在的區域 <br> *tags*：使用者所指定的資源標記 <br> *additionalInfo*：更多關於所耗用資源的詳細資料 (例如，作業系統版本或映像類型) |
+| *quantity* |此時間範圍內發生的資源取用數量 |
+| *meterId* |所取用資源的唯一識別碼 ( *ResourceID*) |
 
-## <a name="next-steps"></a>Next steps
-[Tenant resource usage API reference](azure-stack-tenant-resource-usage-api.md)
+## <a name="next-steps"></a>後續步驟
+[租用戶資源使用狀況 API 參考](azure-stack-tenant-resource-usage-api.md)
 
-[Usage-related FAQ](azure-stack-usage-related-faq.md)
+[使用狀況相關常見問題集](azure-stack-usage-related-faq.md)
 
 

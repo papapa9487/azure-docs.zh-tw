@@ -12,23 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 09/25/2017
 ms.author: helaw
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 9e82cf367bdc03aaafe1050078194cc3bd746bac
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 2bd93faf01c5d1790989a0231020ce8340eff57d
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
+
+適用於：Azure Stack 開發套件
+
 這些版本資訊提供新功能和已知問題的相關資訊。
 
 ## <a name="release-build-201706271"></a>版本組建 20170627.1
 從 [20170627.1](azure-stack-updates.md#determine-the-current-version) 版本開始，Azure Stack 概念證明已重新命名為 Azure Stack 開發套件。  與 Azure Stack POC 一樣，Azure Stack 開發套件也是作為開發和評估環境，用於探索 Azure Stack 功能，並提供 Azure Stack 的開發平台。
 
-### <a name="whats-new"></a>新增功能
+### <a name="whats-new"></a>新功能
 - 您現在可以使用 CLI 2.0，從熱門作業系統中的命令列管理 Azure Stack 資源。
 - DSV2 虛擬機器大小支援 Azure 和 Azure Stack 之間的範本可攜性。
 - 雲端操作員可以在容量管理刀鋒視窗中預覽容量管理體驗。

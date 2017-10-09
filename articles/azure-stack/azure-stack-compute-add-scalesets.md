@@ -1,52 +1,55 @@
 ---
-title: Make virtual machine scale sets available in Azure Stack
-description: Learn how a cloud administrator can add virtual machine scale to the Azure Stack Marketplace
+title: "在 Azure Stack 中提供虛擬機器擴展集"
+description: "了解雲端系統管理員如何可以將虛擬機器擴展新增至 Azure Stack Marketplace"
 services: azure-stack
 author: anjayajodha
 ms.service: azure-stack
 ms.topic: article
-ms.date: 8/4/2017
+ms.date: 9/25/2017
 ms.author: anajod
 keywords: 
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c3ce40b182085dbd2fe54d0f6b6cbe704ab28e86
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Make virtual machine scale sets available in Azure Stack
-Virtual machine scale sets are an Azure Stack compute resource. You can use them to deploy and manage a set of identical virtual machines. With all virtual machines configured the same, scale sets don’t require pre-provisioning of virtual machines. It's easier to build large-scale services that target big compute, big data, and containerized workloads.
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
-This topic guides you through the process to make scale sets available in the Azure Stack Marketplace. After you complete this procedure, your users can add virtual machine scale sets to their subscriptions.
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-Virtual machine scale sets on Azure Stack are like virtual machine scale sets on Azure. For more information, see the following videos:
-* [Mark Russinovich talks Azure scale sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
-* [Virtual Machine Scale Sets with Guy Bowerman](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
+虛擬機器擴展集是 Azure Stack 計算資源。 您可以使用它們來部署和管理一組相同的虛擬機器。 由於所有虛擬機器具有相同的設定，擴展集不需要預先佈建虛擬機器。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
 
-On Azure Stack, Virtual Machine Scale Sets do not support auto-scale. You can add more instances to a scale set using the Azure Stack portal, Resource Manager templates, or PowerShell.
+本主題會引導您完成讓擴展集可在 Azure Stack Marketplace 中使用的程序。 完成此程序之後，您的使用者可以將虛擬機器擴展集新增至其訂用帳戶。
 
-## <a name="prerequisites"></a>Prerequisites
-* **Powershell and tools**
+Azure Stack 上的虛擬機器擴展集就像是 Azure 上的虛擬機器擴展集。 如需詳細資訊，請參閱下列視訊：
+* [Mark Russinovich 講述 Azure 擴展集](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
+* [Guy Bowerman 與虛擬機器擴展集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-   Install and configured PowerShell for Azure Stack and the Azure Stack tools. See [Get up and running with PowerShell in Azure Stack](azure-stack-powershell-configure-quickstart.md).
+在 Azure Stack 上，虛擬機器擴展集不支援自動擴展。 您可以使用 Azure Stack 入口網站、Resource Manager 範本或 PowerShell 將更多執行個體新增至擴展集。
 
-   After you install the Azure Stack tools, make sure you import the following PowerShell module (path relative to the .\ComputeAdmin folder in the AzureStack-Tools-master folder):
+## <a name="prerequisites"></a>必要條件
+* **Powershell 和工具**
+
+   安裝和設定適用於 Azure Stack 的 PowerShell 和 Azure Stack 工具。 請參閱[在 Azure Stack 使用 PowerShell 啟動和執行](azure-stack-powershell-configure-quickstart.md)。
+
+   安裝 Azure Stack 工具之後，請確定您匯入下列 PowerShell 模組 (AzureStack-Tools-master 資料夾中 \ComputeAdmin 資料夾的相對路徑)：
 
         Import-Module .\AzureStack.ComputeAdmin.psm1
 
-* **Operating system image**
+* **作業系統映像**
 
-   If you haven’t added an operating system image to your Azure Stack Marketplace, see [Add the Windows Server 2016 VM image to the Azure Stack marketplace](azure-stack-add-default-image.md).
+   如果您尚未新增至您的 Azure Stack Marketplace 作業系統映像，請參閱[Windows Server 2016 VM 映像新增至 Azure Stack Marketplace](azure-stack-add-default-image.md)。
 
-   For Linux support, download Ubuntu Server 16.04 and add it using ```Add-AzsVMImage``` with the following parameters: ```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```.
+   如需 Linux 支援，請下載 Ubuntu Server 16.04，並將使用 ```Add-AzsVMImage``` 搭配下列參數來新增它：```-publisher "Canonical" -offer "UbuntuServer" -sku "16.04-LTS"```。
 
-## <a name="add-the-virtual-machine-scale-set"></a>Add the virtual machine scale set
+## <a name="add-the-virtual-machine-scale-set"></a>新增虛擬機器擴展集
 
-Edit the following PowerShell script for your environment and then run it to add a virtual machine scale set to your Azure Stack Marketplace. 
+為您的環境編輯下列 PowerShell 指令碼，然後執行它以將虛擬機器擴展集新增至您的 Azure Stack Marketplace。 
 
-``$User`` is the account you use to connect the administrator portal. For example, serviceadmin@contoso.onmicrosoft.com.
+``$User`` 是您用來連線系統管理員入口網站的帳戶。 例如： serviceadmin@contoso.onmicrosoft.com。
 
 ```
 $Arm = "https://adminmanagement.local.azurestack.external"
@@ -69,17 +72,17 @@ Select-AzureRmSubscription -SubscriptionName "Default Provider Subscription"
 Add-AzsVMSSGalleryItem -Location $Location
 ```
 
-## <a name="remove-a-virtual-machine-scale-set"></a>Remove a virtual machine scale set
+## <a name="remove-a-virtual-machine-scale-set"></a>移除虛擬機器擴展集
 
-To remove a virtual machine scale set gallery item, run the following PowerShell command:
+若要移除虛擬機器擴充集資源庫項目，請執行下列 PowerShell 命令：
 
     Remove-AzsVMSSGalleryItem
 
 > [!NOTE]
-> The gallery item may not be removed immediately. You may need to refresh the portal several times before it is removed from the Marketplace.
+> 資源庫項目可能不會立即移除。 您可能需要重新整理入口網站數次，它才會從 Marketplace 中移除。
 
 
-## <a name="next-steps"></a>Next steps
-[Frequently asked questions for Azure Stack](azure-stack-faq.md)
+## <a name="next-steps"></a>後續步驟
+[Azure Stack 的常見問題集](azure-stack-faq.md)
 
 

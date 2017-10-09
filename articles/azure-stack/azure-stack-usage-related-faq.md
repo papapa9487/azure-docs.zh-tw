@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/18/2016
 ms.author: alfredop
 ms.translationtype: HT
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 6dde832fe6b4679bd36575ca6aa3c274fed84f0c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 166147c8cb4949be1b23e0a06868e66c8a5844f4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-stack-usage-api-faqs"></a>Azure Stack 使用情況 API 常見問題集
+# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 使用量 API 的常見問題集 
 此文章提供 Azure Stack 使用情況 API 的一些常見問題集解答。
 
 ## <a name="what-meter-ids-can-i-see"></a>我可以看到哪個計量識別碼？
 目前，系統是針對網路、儲存體與計算資源提供者回報使用情況。
 
-| **資源提供者** | **Meter ID** | **計量名稱** | **單位** | **其他資訊** |
+| **資源提供者** | <bpt id="p1">**</bpt>Meter ID<ept id="p1">**</ept> | **計量名稱** | **單位** | **其他資訊** |
 | --- | --- | --- | --- | --- | 
 | **網路** |F271A8A388C44D93956A063E1D2FA80B |靜態 IP 位址使用情況 |IP 位址|已使用的 IP 位址計數 | 
 | |9E2739BA86744796B465F64674B822BA |動態 IP 位址使用情況 |IP 位址|已使用的 IP 位址計數 | 
@@ -47,7 +47,7 @@ ms.lasthandoff: 09/15/2017
 | **計算** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |基礎 VM 大小小時 |虛擬核心分鐘數 | VM 所執行的虛擬核心數目時間 (分鐘) |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Windows VM 大小小時 |虛擬核心分鐘數 | VM 所執行的虛擬核心數目時間 (分鐘) |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |VM 大小小時 |VM 小時 |同時擷取基本與 VM。 不針對虛擬核心調整 |
-| **Key Vault** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault 交易 | 要求計數 (以萬為單位)| 由 Key Vault 所接收的 REST API 要求數目 |
+| **金鑰保存庫** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Key Vault 交易 | 要求計數 (以萬為單位)| 由 Key Vault 所接收的 REST API 要求數目 |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Azure Stack 使用情況 API 與 [Azure 使用情況 API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (目前為公開預覽版) 相較有何異同？
 * 租用戶使用量 API 與 Azure API 相同，但有一點除外：Azure Stack 目前不支援 *showDetails* 旗標。
@@ -65,7 +65,7 @@ ms.lasthandoff: 09/15/2017
 目前，您只能依「回報時間」查詢。
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>這些使用情況 API 錯誤碼的意義為何？
-| **HTTP 狀態碼** | **錯誤碼** | **描述** |
+| **HTTP 狀態碼** | **錯誤碼** | **說明** |
 | --- | --- | --- |
 | 400/不正確的要求 |*NoApiVersion* |未提供 *api-version* 查詢參數。 |
 | 400/不正確的要求 |*InvalidProperty* |缺少屬性或屬性具有無效的值。 回應主體錯誤碼中的訊息指出缺少的屬性。 |

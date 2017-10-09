@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions Cosmos DB 繫結 | Microsoft Docs"
-description: "了解如何在 Azure Functions 中使用 Azure Cosmos DB 繫結。"
+title: "適用於 Functions 的 Azure Cosmos DB 繫結 | Microsoft Docs"
+description: "了解如何在 Azure Functions 中使用 Azure Cosmos DB 觸發程序和繫結。"
 services: functions
 documentationcenter: na
 author: christopheranderson
@@ -9,33 +9,105 @@ editor:
 tags: 
 keywords: "azure functions, 函數, 事件處理, 動態運算, 無伺服器架構"
 ms.assetid: 3d8497f0-21f3-437d-ba24-5ece8c90ac85
-ms.service: functions
+ms.service: functions; cosmos-db
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/26/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fb79e2ad7514ae2cf48b9a5bd486e54b9b407bee
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ad058929eb888920823fddf549ada4ce2c6d9eee
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="azure-functions-cosmos-db-bindings"></a>Azure Functions Cosmos DB 繫結
+# <a name="azure-cosmos-db-bindings-for-functions"></a>適用於 Functions 的 Azure Cosmos DB 繫結
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
-本文說明如何在 Azure Functions 中設定 Azure Cosmos DB 繫結和撰寫其程式碼。 Azure Functions 支援 Cosmos DB 的輸入和輸出繫結。
+本文說明如何在 Azure Functions 中設定 Azure Cosmos DB 繫結和撰寫其程式碼。 Functions 支援適用於 Azure Cosmos DB 的觸發程序、輸入和輸出繫結。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-如需 Cosmos DB 的詳細資訊，請參閱 [Cosmos DB 簡介](../documentdb/documentdb-introduction.md)和[建置 Cosmos DB 主控台應用程式](../documentdb/documentdb-get-started.md)。
+如需如何使用 Azure Cosmos DB 進行無伺服器計算的詳細資訊，請參閱 [Azure Cosmos DB：使用 Azure Functions 的無伺服器資料庫計算](..\cosmos-db\serverless-computing-database.md)。
+
+<a id="trigger"></a>
+<a id="cosmosdbtrigger"></a>
+
+## <a name="azure-cosmos-db-trigger"></a>Azure Cosmos DB 觸發程序
+
+Azure Cosmos DB 觸發程序會使用 [Azure Cosmos DB 變更摘要](../cosmos-db/change-feed.md)，跨分割區接聽變更。 觸發程序需要第二個集合，用來在分割區上儲存「租用」。
+
+要監視的集合和包含租用的集合必須可供觸發程序用來運作。
+
+Azure Cosmos DB 觸發程序支援下列屬性：
+
+|屬性  |說明  |
+|---------|---------|
+|**type** | 必須設為 `cosmosDBTrigger`。 |
+|**name** | 函式程式碼中使用的變數名稱，代表有變更的文件清單。 | 
+|**direction** | 必須設為 `in`。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此參數。 |
+|**connectionStringSetting** | 應用程式設定的名稱，包含用來連接到要監視之 Azure Cosmos DB 帳戶的連接字串。 |
+|**databaseName** | 含有要監視之集合的 Azure Cosmos DB 資料庫名稱。 |
+|**collectionName** | 要監視的集合名稱。 |
+| **leaseConnectionStringSetting** | (選擇性) 應用程式設定的名稱，包含連至保存租用集合之服務的連接字串。 如果未設定，會使用 `connectionStringSetting` 值。 在入口網站中建立繫結時，會自動設定此參數。 |
+| **leaseDatabaseName** | (選擇性) 保存用來儲存租用之集合的資料庫名稱。 如果未設定，會使用 `databaseName` 設定的值。 在入口網站中建立繫結時，會自動設定此參數。 |
+| **leaseCollectionName** | (選擇性) 用來儲存租用的集合名稱。 如果未設定，會使用 `leases` 值。 |
+| **createLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動加以建立。 預設值為 `false`。 |
+| **leaseCollectionThroughput** | (選擇性) 定義要在建立租用集合時指派的要求單位數。 只有在將 `createLeaseCollectionIfNotExists` 設為 `true` 時才會使用此設定。 使用入口網站建立繫結時，會自動設定此參數。
+
+>[!NOTE] 
+>用來連接到租用集合的連接字串必須具有寫入權限。
+
+這些屬性可以在 Azure 入口網站上函式的 [整合] 索引標籤中設定，或是藉由編輯 `function.json` 專案檔來設定。
+
+## <a name="using-an-azure-cosmos-db-trigger"></a>使用 Azure Cosmos DB 觸發程序
+
+本節包含如何使用 Azure Cosmos DB 觸發程序的範例。 範例假設觸發程序中繼資料看起來如下：
+
+```json
+{
+  "type": "cosmosDBTrigger",
+  "name": "documents",
+  "direction": "in",
+  "leaseCollectionName": "leases",
+  "connectionStringSetting": "<connection-app-setting>",
+  "databaseName": "Tasks",
+  "collectionName": "Items",
+  "createLeaseCollectionIfNotExists": true
+}
+```
+ 
+如需如何從入口網站中的函式應用程式建立 Azure Cosmos DB 觸發程序的範例，請參閱[建立由 Azure Cosmos DB 所觸發的函式](functions-create-cosmos-db-triggered-function.md)。 
+
+### <a name="trigger-sample-in-c"></a>C# 中的觸發程序範例 #
+```cs 
+    #r "Microsoft.Azure.Documents.Client"
+    using Microsoft.Azure.Documents;
+    using System.Collections.Generic;
+    using System;
+    public static void Run(IReadOnlyList<Document> documents, TraceWriter log)
+    {
+        log.Verbose("Documents modified " + documents.Count);
+        log.Verbose("First document Id " + documents[0].Id);
+    }
+```
+
+
+### <a name="trigger-sample-in-javascript"></a>以 JavaScript 撰寫的觸發程序範例
+```javascript
+    module.exports = function (context, documents) {
+        context.log('First document Id modified : ', documents[0].id);
+
+        context.done();
+    }
+```
 
 <a id="docdbinput"></a>
 
 ## <a name="documentdb-api-input-binding"></a>DocumentDB API 輸入繫結
-DocumentDB API 輸入繫結會擷取 Cosmos DB 文件，並將它傳遞給函式的具名輸入參數。 您可以根據叫用該函式的觸發程序來判斷文件識別碼。 
+DocumentDB API 輸入繫結會擷取 Azure Cosmos DB 文件，並將它傳遞給函式的具名輸入參數。 您可以根據叫用該函式的觸發程序來判斷文件識別碼。 
 
 DocumentDB API 輸入繫結在 *function.json* 中具有下列屬性：
 
@@ -46,8 +118,8 @@ DocumentDB API 輸入繫結在 *function.json* 中具有下列屬性：
 |**databaseName** | 包含文件的資料庫。        |
 |**collectionName**  | 包含文件的集合名稱。 |
 |**id**     | 要擷取之文件的識別碼。 此屬性支援繫結參數。 若要深入了解，請參閱[在繫結運算式中繫結到自訂輸入屬性](functions-triggers-bindings.md#bind-to-custom-input-properties-in-a-binding-expression)。 |
-|**sqlQuery**     | 用來擷取多份文件的 Cosmos DB SQL 查詢。 此查詢支援執行階段繫結，例如以下範例：`SELECT * FROM c where c.departmentId = {departmentId}`。        |
-|**連接**     |包含 Cosmos DB 連接字串的應用程式設定名稱。        |
+|**sqlQuery**     | 用來擷取多份文件的 Azure Cosmos DB SQL 查詢。 此查詢支援執行階段繫結，例如以下範例：`SELECT * FROM c where c.departmentId = {departmentId}`。        |
+|**連接**     |包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
 |**direction**     | 必須設為 `in`。         |
 
 您無法同時設定 **id** 和 **sqlQuery** 屬性。 如果未設定任何一項，就會擷取整個集合。
@@ -189,7 +261,7 @@ DocumentDB API 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資料
 |**databaseName** | 包含其中將建立文件之集合的資料庫。     |
 |**collectionName**  | 包含其中將建立文件之集合的名稱。 |
 |**createIfNotExists**     | 一個布林值，用來指出當集合不存在時，是否要建立集合。 預設值為 *false*。 這是因為會使用保留的輸送量來建立新集合，可能會涉及成本。 如需詳細資訊，請瀏覽 [定價頁面](https://azure.microsoft.com/pricing/details/documentdb/)。  |
-|**連接**     |包含 Cosmos DB 連接字串的應用程式設定名稱。        |
+|**連接**     |包含 Azure Cosmos DB 連接字串的應用程式設定名稱。        |
 |**direction**     | 必須設為 `out`。         |
 
 ## <a name="using-a-documentdb-api-output-binding"></a>使用 DocumentDB API 輸出繫結
@@ -229,7 +301,7 @@ DocumentDB API 輸出繫結可讓您將新的文件寫入 Azure Cosmos DB 資料
 }
 ```
 
-而且您想要針對每一筆記錄建立下列格式的 Cosmos DB 文件︰
+而且您想要針對每一筆記錄建立下列格式的 Azure Cosmos DB 文件：
 
 ```json
 {

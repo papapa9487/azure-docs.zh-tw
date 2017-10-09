@@ -3,7 +3,7 @@ title: "Azure 流量管理員 - 常見問題集 | Microsoft Docs"
 description: "本文提供 Azure 流量管理員常見問題集的解答。"
 services: traffic-manager
 documentationcenter: 
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/15/2017
+ms.date: 09/18/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 44762864e0a5adf568fcd4928b48661196f05b9e
+ms.translationtype: HT
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
 ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 06/16/2017
 
 如[流量管理員的運作方式](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)所述，流量管理員是在 DNS 層級運作。 它會傳送 DNS 回應，將用戶端導向適當的服務端點。 用戶端會接著直接連線到服務端點，而不會透過「流量管理員」。
 
-因此，「流量管理員」並不提供端點或 IP 位址來供用戶端連線。 因此，如果您的服務需要靜態 IP 位址，則必須在服務上設定，而不是在流量管理員中設定。
+因此，「流量管理員」並不提供端點或 IP 位址來供用戶端連線。 如果您的服務需要靜態 IP 位址，就必須在服務上設定，而不是在「流量管理員」中設定。
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>流量管理員是否支援「黏性」工作階段？
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 06/16/2017
 
 因此，進一步的調查應該將焦點放在應用程式上。
 
-從用戶端的瀏覽器傳送的 HTTP 主機標頭是最常見的問題來源。 請確定應用程式已設定為接受您使用之網域名稱的正確主機標頭。 關於使用 Azure App Service 的端點，請參閱[在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱](../app-service-web/web-sites-traffic-manager-custom-domain-name.md)。
+從用戶端的瀏覽器傳送的 HTTP 主機標頭是最常見的問題來源。 請確定應用程式已設定為接受您使用之網域名稱的正確主機標頭。 關於使用 Azure App Service 的端點，請參閱[在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱](../app-service/web-sites-traffic-manager-custom-domain-name.md)。
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>使用「流量管理員」對效能有什麼影響？
 
@@ -69,9 +69,8 @@ ms.lasthandoff: 06/16/2017
 我們的功能待處理項目中追蹤了對「流量管理員」中裸網域的完整支援。 您可以[在我們的社群意見反應站投票](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly)，以表達您支持這項功能要求。
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>處理 DNS 查詢時，流量管理員會考量用戶端子網路位址嗎？ 
-否，目前流量管理員在執行地理和效能路由方法的查閱時，只會考量它所接收到的 DNS 查詢的來源 IP 位址，通常是 DNS 解析程式的 IP 位址。  
-具體來說，流量管理員中目前不支援 [RFC 7871 – DNS 查詢中的用戶端子網路 (英文)](https://tools.ietf.org/html/rfc7871)，這提供 [DNS (EDNS0) 的延伸模組機制 (英文)](https://tools.ietf.org/html/rfc2671)，其可將用戶端子網路位址從支援它的解析程式傳遞到 DNS 伺服器。 您可以透過我們的[社群意見反應站 (英文)](https://feedback.azure.com/forums/217313-networking) 來表達您支持這項功能要求。
-
+是，除了所收到 DNS 查詢的來源 IP 位址 (通常是 DNS 解析程式的 IP 位址) 之外，在執行「地理」和「效能」路由方法的查閱時，如果代表使用者發出要求的解析程式在查詢中包含了用戶端子網路位址，則流量管理員也會考量該位址。  
+具體而言即 [RFC 7871 – DNS 查詢中的用戶端子網路](https://tools.ietf.org/html/rfc7871) (英文)，此子網路提供 [DNS 的延伸機制 (EDNS0)](https://tools.ietf.org/html/rfc2671) (英文)，可將用戶端子網路位址從支援它的解析程式傳遞出去。
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>什麼是 DNS TTL，以及它如何影響我的使用者？
 
@@ -118,13 +117,119 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>為什麼強烈建議客戶建立巢狀設定檔，而不是在啟用地理路由的設定檔下新增端點？ 
 
-在使用地理路由類型的設定檔內，一個區域只能指派給一個端點。 如果該端點不是已連結子設定檔的巢狀類型，萬一該端點變成狀況不良，流量管理員會繼續將流量傳送給它，因為選擇不傳送任何流量也沒有比較好。 即使指派的區域位於指派給狀況不良端點的區域「上層」，流量管理員也不會容錯移轉至另一個端點 (例如，如果端點的西班牙區域狀況不良，我們不會容錯移轉至另一個已被指派歐洲地區的端點)。 這是為了確保流量管理員會顧及客戶在其設定檔中已設定的地理界限。 若要在端點變成狀況不良時能夠容錯移轉至另一個端點，建議將地理區域指派給內有多個端點的巢狀設定檔，而不是指派給個別的端點。 如此一來，如果巢狀子設定檔中的端點失敗，流量就可以容錯移轉至相同巢狀子設定檔內的另一個端點。
+在使用地理路由類型的設定檔內，一個區域只能指派給一個端點。 如果該端點不是已連結子設定檔的巢狀類型，萬一該端點變成狀況不良，流量管理員會繼續將流量傳送給它，因為選擇不傳送任何流量也沒有比較好。 即使指派的區域位於指派給狀況不良端點的區域「上層」，「流量管理員」也不會容錯移轉至另一個端點 (例如，如果端點的西班牙區域狀況不良，我們將不會容錯移轉至另一個已被指派歐洲地區的端點)。 這是為了確保流量管理員會顧及客戶在其設定檔中已設定的地理界限。 若要在端點變成狀況不良時能夠容錯移轉至另一個端點，建議將地理區域指派給內有多個端點的巢狀設定檔，而不是指派給個別的端點。 如此一來，如果巢狀子設定檔中的端點失敗，流量就可以容錯移轉至相同巢狀子設定檔內的另一個端點。
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>支援此路由類型的 API 版本有任何限制嗎？
 
 是，只有 2017 年 3 月 1 日的 API 版本和更新版本支援地理路由類型。 任何舊版 API 都無法用來建立地理路由類型的設定檔，或將地理區域指派給端點。 如果使用舊版 API 從 Azure 訂用帳戶擷取設定檔，將不會傳回地理路由類型的任何設定檔。 此外，使用舊版 API 時，傳回的任何設定檔如果有已指派地理區域的端點，則不會顯示其地理區域指派。
 
+## <a name="real-user-measurements"></a>實際使用者度量
 
+>[!NOTE]
+>「流量管理員」中的「實際使用者度量」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)頁面。
+
+### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>使用「實際使用者度量」有哪些優點？
+當您使用效能路由方法時，「流量管理員」會檢查來源 IP 和「EDNS 用戶端子網路」(如果已傳入)，並根據服務所維護的網路延遲智慧功能檢查這些資訊，為您的使用者挑選最佳的 Azure 區域來進行連線。 「實際使用者度量」可藉由除了確保延遲表格將使用者網路從使用者連線位置充分延伸到 Azure 之外，也將使用者體驗加到此延遲表格中，為您的使用者加強這項功能。 這可提升使用者路由的精確度。
+
+### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>我是否可以將「實際使用者度量」與非 Azure 區域搭配使用？
+「實際使用者度量」只會測量連線到 Azure 區域的延遲並進行回報。 如果您將效能型路由與非 Azure 區域中所裝載的端點搭配使用，您仍然可以從這項功能受益，因為您會獲得更多有關所選取要與此端點建立關聯之代表性 Azure 區域的延遲資訊。
+
+### <a name="which-routing-method-benefits-from-real-user-measurements"></a>哪個路由方法可從「實際使用者度量」受益？
+透過「實際使用者度量」取得的額外資訊僅適用於使用效能路由方法的設定檔。 請注意，透過 Azure 入口網站檢視「實際使用者度量」時，從所有設定檔都可以使用 [實際使用者度量] 連結。
+
+### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>我是否需要為每個設定檔個別啟用「實際使用者度量」？
+否，每一訂用帳戶只需啟用一次，所測量到和回報的所有延遲資訊便可供所有設定檔使用。
+
+### <a name="how-do-i-turn-off-real-user-measurements-for-my-subscription"></a>如何關閉我訂用帳戶的「實際使用者度量」？
+當您從用戶端應用程式停止收集及傳回延遲度量時，即可停止產生與「實際使用者度量」相關的費用。 例如，當度量 JavaScript 內嵌在網頁中時，您可以移除該 JavaScript，或是在轉譯頁面時關閉其引動過程，來停止使用這項功能。
+另一個關閉「實際使用者度量」的方法是刪除您的金鑰。 一旦您這麼做，所有傳送給「流量管理員」且具有該金鑰的度量就都會被捨棄。
+
+### <a name="can-i-use-real-user-measurements-with-client-applications-other-than-web-pages"></a>我是否可以將「實際使用者度量」與網頁以外的用戶端應用程式搭配使用？
+是，「實際使用者度量」是設計成可以內嵌透過各種不同類型的使用者用戶端收集的資料。 當支援新類型的用戶端應用程式時，將會更新這個 FAQ。
+
+### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>每次轉譯已啟用「實際使用者度量」功能的網頁時，會執行多少個度量？
+將「實際使用者度量」與所提供的度量 JavaScript 搭配使用時，每個頁面轉譯都會進行 6 個度量。 這些度量會接著回報給「流量管理員」服務。 請注意，將會根據回報給「流量管理員」的度量數目向您收取費用。 例如，如果使用者在進行度量時但在回報度量前離開您的網頁，這些度量就不列入計費。
+
+### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>「實際使用者度量」在我的網頁中執行前是否會有延遲？
+否，在叫用此指令碼前沒有任何以程式設計方式設定的延遲。
+
+### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>我是否可以將「實際使用者度量」只搭配我想要測量的 Azure 區域使用？
+否，每次叫用「實際使用者度量」指令碼時，它都會測量服務所決定的 6 個 Azure 區域。 這個集合會在不同的引動過程之間變更，當發生大量這樣的引動過程時，度量涵蓋範圍就會跨不同的 Azure 區域。
+
+### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>我是否可以將度量數目限制為特定數目？
+度量 JavaScript 內嵌在您網頁內，因此您可以完全控制要何時開始或停止使用它。 只要「流量管理員」服務收到索取要測量之 Azure 區域清單的要求，就會傳回一組區域。 此外，請記住，在預覽版期間，針對回報給「流量管理員」的任何度量，您都無須支付費用
+
+### <a name="can-i-see-the-measurements-taken-by-my-client-application-as-part-of-real-user-measurements"></a>我是否可以查看用戶端應用程式在「實際使用者度量」過程中所進行的度量？
+由於度量邏輯是從您用戶端應用程式執行的，因此您可以完全控制所進行的作業，包括查看延遲度量。 「流量管理員」不會回報在連結至您訂用帳戶之金鑰底下收到的度量彙總檢視
+
+### <a name="can-i-modify-the-measurement-script-provided-by-traffic-manager"></a>我是否可以修改「流量管理員」所提供的度量指令碼？
+雖然您可以控制網頁上內嵌的指令碼，但強烈建議您不要對度量指令碼進行任何變更，以確保它可正確測量並回報延遲。
+
+### <a name="will-it-be-possible-for-others-to-see-the-key-i-use-with-real-user-measurements"></a>其他人是否可能看到我搭配「實際使用者度量」使用的金鑰？
+當您將度量指令碼內嵌到網頁中時，其他人可能看到該指令碼及您的「實際使用者度量」(RUM) 金鑰。 但值得注意的是，這個金鑰與您的訂用帳戶識別碼不同，是由「流量管理員」所產生且僅供此用途使用。 得知您的 RUM 金鑰並不會危害您 Azure 帳戶的安全性
+
+### <a name="can-others-abuse-my-rum-key"></a>其他人是否可能濫用我的 RUM 金鑰？
+雖然其他人可能使用您的金鑰來傳送錯誤資訊給 Azure，但請注意，幾個錯誤的度量並不會改變路由，因為我們會將這些度量與所收到的所有其他度量一併納入考量。 如果您需要變更金鑰，您可以在舊金鑰被捨棄時重新產生金鑰。
+
+###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>我是否需要將度量 JavaScript 放在所有網頁中？
+「實際使用者度量」會隨著度量數目增加而變得更有價值。 儘管如此，是要將它放在所有網頁中，還是放在幾個選取的網頁中，仍是取決於您。 建議您一開始將它放在瀏覽次數最多且使用者應該至少會停留 5 秒的頁面中。
+
+### <a name="can-information-about-my-end-users-be-identified-by-traffic-manager-if-i-use-real-user-measurements"></a>如果我使用「實際使用者度量」，「流量管理員」是否可以識別出使用者的相關資訊？
+使用所提供的度量 JavaScript 時，「流量管理員」將可以檢視使用者的用戶端 IP 位址，以及他們所用本機 DNS 解析程式的來源 IP 位址。 「流量管理員」會在將用戶端 IP 位址截斷成無法識別出傳送度量的特定使用者之後，才使用該 IP 位址。 
+
+### <a name="does-the-webpage-measuring-real-user-measurements-need-to-be-using-traffic-manager-for-routing"></a>測量「實際使用者度量」的網頁是否必須使用「流量管理員」來進行路由？
+否，它不需要使用「流量管理員」。 「流量管理員」的路由端與「實際使用者度量」部分是分開運作的，雖然最好是將它們都放在相同的 Web 屬性中，但不一定要這麼做。
+
+### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>我是否必須在 Azure 區域裝載任何服務，才能搭配使用「實際使用者度量」？
+否，您不需要在 Azure 裝載任何伺服器端元件，「實際使用者度量」便能運作。 度量 JavaScript 所下載的單一像素影像，以及在不同 Azure 區域中執行它的服務，是由 Azure 所裝載並管理的。 
+
+### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>使用「實際使用者度量」時，我的 Azure 頻寬使用量是否會增加？
+如先前的回答中所述，「實際使用者度量」的伺服器端元件是由 Azure 所擁有和管理的。 這意謂著您的 Azure 頻寬使用量將不會因為使用「實際使用者度量」而增加。 請注意，這並不包括 Azure 收費項目以外的任何頻寬使用量。 我們藉由只下載一個單一像素影像來測量連線到 Azure 區域的延遲，將使用的頻寬降到最低。 
+
+## <a name="traffic-view"></a>流量檢視
+
+>[!NOTE]
+>「流量管理員」中的「流量檢視」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)頁面。
+
+### <a name="what-does-traffic-view-do"></a>「流量檢視」有哪些功能？
+「流量檢視」是「流量管理員」的一項功能，可協助您進一步了解使用者及他們的體驗情況。 它會使用「流量管理員」所收到的查詢和此服務所維護的網路延遲智慧表格，來提供您下列資訊：
+- 使用者從哪些區域連線到您在 Azure 中的端點。
+- 有多少使用者從這些區域連線。
+- 使用者被路由傳送到哪些 Azure 區域。
+- 使用者連線到這些 Azure 區域時的延遲體驗。
+
+此資訊除了以未經處理資料的形式供您下載之外，也可供您透過入口網站中的表格式檢視取用。
+
+### <a name="how-can-i-benefit-from-using-traffic-view"></a>我如何從使用「流量檢視」受益？
+
+「流量檢視」可提供您「流量管理員」所接收流量的整體檢視。 尤其是可用來了解您的使用者群從何處連線，以及同樣重要的是他們的平均延遲體驗。 您可以接著使用此資訊來找出所需專注的領域，例如，將您的 Azure 電腦設備擺設區域擴充到可以為這些使用者提供較低延遲的區域。 另一個您可以透過「流量檢視」獲得的深入解析是查看不同區域的流量模式，這可進而協助您決定是要在這些區域增加還是減少投資。
+
+### <a name="how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor"></a>「流量檢視」與透過 Azure 監視器提供的「流量管理員」計量有何不同？
+
+「Azure 監視器」可用來了解設定檔及其端點所收到流量的彙總層級。 它也可以顯示端點的健康情況檢查結果，來讓您追蹤端點的健康狀態。 當您不僅要了解這些，還必須了解使用者連線到 Azure 的區域層級體驗時，便可以使用「流量檢視」來達到該目的。
+
+### <a name="does-traffic-view-use-edns-client-subnet-information"></a>「流量檢視」是否使用「EDNS 用戶端子網路」資訊？
+
+「流量檢視」在建立輸出時並不會考量「EDNS 用戶端子網路」。 它會使用您使用者本機 DNS 解析程式的 IP 位址來將它們分組。
+
+### <a name="how-many-days-of-data-does-traffic-view-use"></a>「流量檢視」會使用多少天的資料？
+
+「流量檢視」會處理從您檢視資料的前一天算起往前推 7 天的資料來建立輸出。 這是一個移動時段，每次您瀏覽時都會使用最新的資料。
+
+### <a name="how-does-traffic-view-handle-external-endpoints"></a>「流量檢視」如何處理外部端點？
+
+當您在「流量管理員」設定檔中使用裝載在 Azure 區域外的外部端點時，可以選擇讓它對應到作為其延遲特性之 Proxy 的 Azure 區域 (事實上，如果您使用效能路由方法，就必須這麼做)。 如果它擁有這個 Azure 區域對應，當建立「流量檢視」輸出時，就會使用該 Azure 區域的延遲計量。 如果未指定任何 Azure 區域，這些外部端點的資料中就不會有任何延遲資訊。
+
+### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>我是否必須為訂用帳戶中的每個設定檔啟用「流量檢視」？
+在預覽版期間，「流量檢視」是在訂用帳戶層次啟用的，並且可供該訂用帳戶下的所有「流量管理員」設定檔使用。
+
+### <a name="how-can-i-turn-off-traffic-view"></a>我是否可以關閉「流量檢視」？
+在預覽版期間，我們會要求您必須建立支援票證，才能停用訂用帳戶的「流量檢視」。
+
+### <a name="how-does-traffic-view-billing-work"></a>「流量檢視」如何計費？
+
+「流量檢視」價格取決於用來建立輸出的資料點數目。 目前，唯一支援的資料類型是您設定檔所接收的查詢。 此外，您只需針對在已啟用「流量檢視」之期間所執行的處理支付費用。 這意謂著如果您在一個月中的某個期間啟用「流量檢視」，而在其他期間關閉此功能，則只有在啟用此功能之期間處理的資料點會列入您的帳單中。
+在預覽期間，您無須支付使用「流量檢視」的費用。
 
 ## <a name="traffic-manager-endpoints"></a>流量管理員端點
 
@@ -236,6 +341,16 @@ Azure 未提供關於過去端點健全狀況的歷程記錄資訊，或針對�
 * 13.75.152.253
 * 104.41.187.209
 * 104.41.190.203
+* 52.173.90.107
+* 52.173.250.232
+* 104.45.149.110
+* 40.114.5.197
+* 52.240.151.125
+* 52.240.144.45
+* 13.65.95.152
+* 13.65.92.252
+* 40.78.67.110
+* 104.42.192.195
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>流量管理員會對端點進行多少健康情況檢查？
 
