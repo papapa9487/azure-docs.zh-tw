@@ -15,14 +15,17 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: ff34bcd6ba485806baf7963e11393633dd893fa7
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: ddd69acaed4d56211092866571350d855b14e8b3
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中建立方案
-[方案](azure-stack-key-features.md)結合一或多個服務。 身為提供者，您可以為租用戶建立方案。 租用戶接著即可訂閱各個供應項目，使用其內含的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
+
+「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+
+[方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為租用戶製作方案。 租用戶接著即可訂閱各項優惠，使用其內含的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
 
 1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
 
@@ -35,7 +38,7 @@ ms.lasthandoff: 09/15/2017
 4. 建立新的 [資源群組]或選取現有的資源群組，以作為方案的容器。
 
    ![](media/azure-stack-create-plan/image02a.png)
-5. 按一下 [服務]，選取 [Microsoft.Compute]、[Microsoft.Network] 及 [Microsoft.Storage]，然後按一下 [選取]。
+5. 按一下 服務，選取 Microsoft.Compute、Microsoft.Network 及 Microsoft.Storage，然後按一下選取。
 
    ![](media/azure-stack-create-plan/image03.png)
 6. 依序按一下 [配額]、[Microsoft.Storage (本機)]，然後選取預設配額，或按一下 [建立新的配額] 來自訂配額。
@@ -64,5 +67,5 @@ ms.lasthandoff: 09/15/2017
     ![](media/azure-stack-create-plan/image12.png)
 
 ### <a name="next-steps"></a>後續步驟
-[建立供應項目](azure-stack-create-offer.md)
+[建立優惠](azure-stack-create-offer.md)
 

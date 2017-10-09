@@ -15,14 +15,17 @@ ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: bde1bc7e140f9eb7bb864c1c0a1387b9da5d4d22
-ms.openlocfilehash: ce2978d345262b68b177a38a978133a71da2806f
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 530a9558df2323e1aa49d9f4b974c142ee5ecf37
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>部署 Azure Stack 開發套件
-若要部署開發套件，您必須完成下列步驟：
+
+「適用於：Azure Stack 開發套件」
+
+若要部署 [Azure Stack 開發套件](azure-stack-poc.md)，您必須完成下列步驟：
 
 1. [下載部署封裝](https://azure.microsoft.com/overview/azure-stack/try/?v=try)以取得 Cloudbuilder.vhdx。
 2. 執行 asdk-installer.ps1 指令碼來設定安裝開發套件所在的電腦 (開發套件主機)，以[準備 cloudbuilder.vhdx](#prepare-the-development-kit-host)。 在這個步驟之後，開發套件主機將會開機進入 Cloudbuilder.vhdx。
@@ -48,7 +51,7 @@ ms.lasthandoff: 09/15/2017
 8. 檢閱 [自我解壓縮程式精靈] 的 [隱私權聲明] 畫面和資訊，然後按一下 [下一步]。
 9. 選取要解壓縮檔案的目的地，然後按一下 [下一步]。
    * 預設值是：<drive letter>:\<目前資料夾>\Microsoft Azure Stack
-10. 檢閱 [自我解壓縮程式精靈] 的 [目的地位置] 畫面和資訊，然後按一下 [解壓縮] 來解壓縮 CloudBuilder.vhdx (~ 25 GB) 和 ThirdPartyLicenses.rtf 檔案。 這個程序需要一些時間才會完成。
+10. 檢閱 自我解壓縮程式精靈 的 目的地位置 畫面和資訊，然後按一下解壓縮 來解壓縮 CloudBuilder.vhdx (~ 25 GB) 和 ThirdPartyLicenses.rtf 檔案。 這個程序需要一些時間才會完成。
 
 > [!NOTE]
 > 將檔案解壓縮之後，您可以刪除 exe 和 bin 檔案來恢復電腦上的空間。 或者，您可以將這些檔案移到其他位置。如此一來，如果您需要重新部署，就不必重新下載這些檔案。
@@ -80,7 +83,7 @@ ms.lasthandoff: 09/15/2017
     - **電腦名稱**：此選項會設定開發套件主機的名稱。 名稱必須符合 FQDN 需求，且長度必須等於或少於 15 個字元。 預設值是由 Windows 產生的隨機電腦名稱。
     - **時區**：設定開發套件主機的時區。 預設值是 (UTC-8:00) 太平洋時間 (美國和加拿大)。
     - **靜態 IP 組態**：將您的部署設定為使用靜態 IP 位址。 否則，當安裝程式重新開機進入 cloudbuilder.vhx 時，會使用 DHCP 來設定網路介面。
-11. 按一下 [下一步]。
+11. 按一下 [下一步] 。
 12. 如果您在上一個步驟中選擇靜態 IP 組態，您現在必須：
     - 選取網路介面卡。 請先確定您可以連接到介面卡，然後再按一下 [下一步]。
     - 請確定 [IP 位址]、[閘道] 和 [DNS] 值正確無誤，然後按一下 [下一步]。
@@ -98,7 +101,7 @@ ms.lasthandoff: 09/15/2017
 3. 在 [類型] 方塊中，選取 [Azure 雲端] 或 [ADFS]。
     - **Azure 雲端**：Azure Active Directory 為識別提供者。 使用此參數可指定 AAD 帳戶具有全域系統管理員權限的特定目錄。 AAD 目錄租用戶的完整名稱，格式為 .onmicrosoft.com。 
     - **ADFS**：預設戳記目錄服務為識別提供者、登入身分的預設帳戶是 azurestackadmin@azurestack.local，且要使用的密碼是您在安裝時所提供的密碼。
-4. 在 [本機系統管理員密碼] 底下的 [密碼] 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按一下 [下一步]。
+4. 在 本機系統管理員密碼 底下的 密碼 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按一下下一步。
 5. 選取要用於開發套件的網路介面卡，然後按一下 [下一步]。
 6. 為 BGPNAT01 虛擬機器選取 DHCP 或靜態網路組態。
     - **DHCP** (預設值)：虛擬機器會從 DHCP 伺服器取得 IP 網路組態。
@@ -107,7 +110,7 @@ ms.lasthandoff: 09/15/2017
     - **VLAN 識別碼**：設定 VLAN 識別碼。 只有當主機與 AzS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此選項。 
     - **DNS 轉寄站**：DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。
     - **時間伺服器**：設定特定的時間伺服器。 
-8. 按一下 [下一步]。 
+8. 按一下 [下一步] 。 
 9. 在 [驗證網路介面卡內容] 頁面上，您將會看到一個進度列。 
     - 如果顯示 [無法下載更新]，請遵循頁面上的指示執行。
     - 顯示 [已完成] 時，按一下 [下一步]。

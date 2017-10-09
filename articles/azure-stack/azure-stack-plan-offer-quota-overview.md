@@ -15,15 +15,17 @@ ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 9f19d4ea53fb07bff97a5cd06d10af74f605bf1c
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
-# <a name="plan-offer-quota-and-subscription-overview"></a>方案、供應項目、配額和訂用帳戶概觀
+# <a name="plan-offer-quota-and-subscription-overview"></a>方案、優惠、配頭和訂用帳戶概觀
 
-Azure Stack 可讓您提供各式各樣的服務，例如虛擬機器、SQL Server 資料庫、SharePoint、Exchange，甚至 [Azure Marketplace 項目](azure-stack-marketplace-azure-items.md)。 身為雲端操作員，您可以使用方案、供應項目與配額，在 Azure Stack 中設定並提供這類服務。
+「適用於：Azure Stack 開發套件」
+
+[Azure Stack](azure-stack-marketplace-azure-items.md) 可讓您提供各式各樣的服務，例如虛擬機器、SQL Server 資料庫、SharePoint、Exchange，甚至 [Azure Marketplace 項目](azure-stack-poc.md)。 身為雲端操作員，您可以使用方案、供應項目與配額，在 Azure Stack 中設定並提供這類服務。
 
 供應項目包含一個或多個方案，而且每個方案包含一個或多個服務。 透過建立方案並將其組合成不同的供應項目，您可以控制
 - 使用者可以存取的服務和資源
@@ -56,9 +58,9 @@ Azure Stack 可讓您提供各式各樣的服務，例如虛擬機器、SQL Serv
 
 ### <a name="add-on-plans"></a>附加方案
 
-您也可以在供應項目中包含選擇性的附加方案。 訂用帳戶中預設不會包含附加方案。 供應項目中提供的附加方案屬於額外的方案 (具有配額)，訂閱者可將其加入其訂用帳戶中。 例如，您可以提供資源有限的基本方案以供試用，並為決定採用服務的客戶提供更多實質資源的附加方案。
+您也可以在供應項目中包含選擇性的附加方案。 訂用帳戶中預設不會包含加購方案。 供應項目中提供的附加方案屬於額外的方案 (具有配額)，訂閱者可將其加入其訂用帳戶中。 例如，您可以提供資源有限的基本方案以供試用，並為決定採用服務的客戶提供更多實質資源的附加方案。
 
-## <a name="offers"></a>供應項目
+## <a name="offers"></a>優惠
 
 供應項目是您建立的一個或多個方案的群組，使用者可以訂閱這些供應項目。 例如，供應項目 Alpha 可以包含方案 A (其中包含一組計算服務) 與方案 B (其中包含一組儲存體與網路服務)。 
 

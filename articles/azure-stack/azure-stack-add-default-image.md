@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 2cbdca8c795346864b6e39e42858f3dc46def199
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 62f467f1dae5a2cb04e5230ed43b77ec3ec8c1a1
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>將 Windows Server 2016 VM 映像新增到 Azure Stack 市集
@@ -43,7 +43,7 @@ Azure Stack 市集中預設沒有提供任何虛擬機器映像。 Azure Stack �
 
 ## <a name="add-the-image-by-using-powershell"></a>使用 PowerShell 來新增映像
 
-### <a name="prerequisites"></a>先決條件 
+### <a name="prerequisites"></a>必要條件 
 
 從[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或從 Windows 型外部用戶端 (如果您是[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn))，執行下列先決條件：
 
@@ -66,19 +66,25 @@ Azure Stack 市集中預設沒有提供任何虛擬機器映像。 Azure Stack �
 
    ```
 
-2. 登入您的 Azure Stack 環境。 根據部署您 Azure Stack 環境時使用的是 AAD 還是 AD FS (請務必取代 AAD 租用戶名稱) 而定，執行下列指令碼：  
+2. 登入您的 Azure Stack 環境。 根據您的 Azure Stack 環境是使用 AAD 還是 AD FS 部署而定，執行下列指令碼 (務必按照您的環境設定來取代 AAD tenantName、GraphAudience 端點和 ArmEndpoint 值)：  
 
    a. **Azure Active Directory** - 使用下列 Cmdlet：
 
    ```PowerShell
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+   
    # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+     -ArmEndpoint $ArmEndpoint
 
    Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
+    -GraphAudience $GraphAudience
 
    $TenantID = Get-AzsDirectoryTenantId `
      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -92,14 +98,20 @@ Azure Stack 市集中預設沒有提供任何虛擬機器映像。 Azure Stack �
    b. **Active Directory 同盟服務** - 使用下列 Cmdlet：
     
    ```PowerShell
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
    # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+     -ArmEndpoint $ArmEndpoint
 
    Set-AzureRmEnvironment `
      -Name "AzureStackAdmin" `
-     -GraphAudience "https://graph.local.azurestack.external/" `
+     -GraphAudience $GraphAudience `
      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
@@ -126,11 +138,11 @@ Azure Stack 市集中預設沒有提供任何虛擬機器映像。 Azure Stack �
 
 ## <a name="parameters"></a>參數
 
-|New-AzsServer2016VMImage 參數|必要？|描述|
+|New-AzsServer2016VMImage 參數|必要？|說明|
 |-----|-----|------|
 |ISOPath|是|所下載 Windows Server 2016 ISO 的完整路徑。|
 |Net35|否|此參數可讓您在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 true。 映像必須包含 .NET 3.5 執行階段，才能安裝 SQL 和 MYSQL 資源提供者。 |
-|Version|否|此參數可讓您選擇是要新增 **Core** (核心)、**Full** (完整) Windows Server 2016 映像，還是 **Both** (兩者都新增)。 此值預設會設定為 "Full"。|
+|版本|否|此參數可讓您選擇是要新增 **Core** (核心)、**Full** (完整) Windows Server 2016 映像，還是 **Both** (兩者都新增)。 此值預設會設定為 "Full"。|
 |VHDSizeInMB|否|設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40960 MB。|
 |CreateGalleryItem|否|指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 true。|
 |location |否 |指定應作為 Windows Server 2016 映像發行目的地的位置。|

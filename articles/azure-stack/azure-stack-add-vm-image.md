@@ -12,16 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/10/2017
+ms.date: 09/25/2017
 ms.author: sngun
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: e726ef05632c7983a45fae191bb0a2ad18fc2553
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: de8540397b63093457382cf427a65ea0e48b93e0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供自訂虛擬機器映像
+
+「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
 
 Azure Stack 可讓操作員將自訂虛擬機器映像提供給其使用者使用。 這些映像可供 Azure Resource Manager 範本參考，或藉由建立 Marketplace 項目新增到 Azure Marketplace UI。 
 
@@ -50,19 +52,25 @@ Azure Stack 可讓操作員將自訂虛擬機器映像提供給其使用者使�
    Import-Module .\ComputeAdmin\AzureStack.ComputeAdmin.psm1
    ``` 
 
-2. 登入您的 Azure Stack 環境。 根據部署您 Azure Stack 環境時使用的是 AAD 還是 AD FS (請務必取代 AAD 租用戶名稱) 而定，執行下列指令碼： 
+2. 登入您的 Azure Stack 環境。 根據您的 Azure Stack 環境是使用 AAD 還是 AD FS 部署而定，執行下列指令碼 (務必按照您的環境設定來取代 AAD tenantName、GraphAudience 端點和 ArmEndpoint 值)： 
 
    a. **Azure Active Directory** - 使用下列 Cmdlet：
 
    ```PowerShell
-   # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.windows.net/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
+   #Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external" 
+     -ArmEndpoint $ArmEndpoint 
 
    Set-AzureRmEnvironment `
     -Name "AzureStackAdmin" `
-    -GraphAudience "https://graph.windows.net/"
+    -GraphAudience $GraphAudience
 
    $TenantID = Get-AzsDirectoryTenantId `
      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -76,14 +84,20 @@ Azure Stack 可讓操作員將自訂虛擬機器映像提供給其使用者使�
    b. **Active Directory 同盟服務** - 使用下列 Cmdlet：
     
    ```PowerShell
+   # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
+   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
+
+   # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. To get this value for Azure Stack integrated systems, contact your service provider.
+   $GraphAudience = "<GraphAuidence endpoint for your environment>"
+
    # Create the Azure Stack operator's AzureRM environment by using the following cmdlet:
    Add-AzureRMEnvironment `
      -Name "AzureStackAdmin" `
-     -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+     -ArmEndpoint $ArmEndpoint
 
    Set-AzureRmEnvironment `
      -Name "AzureStackAdmin" `
-     -GraphAudience "https://graph.local.azurestack.external/" `
+     -GraphAudience $GraphAudience `
      -EnableAdfsAuthentication:$true
 
    $TenantID = Get-AzsDirectoryTenantId `
@@ -132,7 +146,7 @@ Remove-AzsVMImage `
 
 ## <a name="parameters"></a>參數
 
-| 參數 | 描述 |
+| 參數 | 說明 |
 | --- | --- |
 | **publisher** |部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 ‘Microsoft’。 請勿在此欄位中包含空格或其他特殊字元。 |
 | **offer** |部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 ‘WindowsServer’。 請勿在此欄位中包含空格或其他特殊字元。 |
@@ -144,7 +158,7 @@ Remove-AzsVMImage `
 | **CreateGalleryItem** |可決定是否要在 Marketplace 中建立項目的布林值旗標。 預設會設定為 true。 |
 | **title** |Marketplace 項目的顯示名稱。 預設會設定為 VM 映像的 Publisher-Offer-Sku。 |
 | **description** |Marketplace 項目的描述。 |
-| **location** |應作為 VM 映像發行目的地的位置。 此值預設會設定為 local。|
+| **位置** |應作為 VM 映像發行目的地的位置。 此值預設會設定為 local。|
 | **osDiskBlobURI** |此指令碼也可視需要接受 osDisk 的 Blob 儲存體 URI。 |
 | **dataDiskBlobURIs** |此指令碼也可視需要接受 Blob 儲存體 URI 陣列，以將資料磁碟新增到映像。 |
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a9df4ee4f1fb33f7c99be44b8337a18929175c0e
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 14975454cbc0afcfbdbd3aa6b52983be4d4b1785
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
 
 
-在 Azure Container Service 中，Kubernetes 叢集需要 [Azure Active Directory 服務主體](../../active-directory/develop/active-directory-application-objects.md)，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由](../../virtual-network/virtual-networks-udr-overview.md)及[第 4 層 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)。 
+在 Azure Container Service 中，Kubernetes 叢集需要 [Azure Active Directory 服務主體](../../active-directory/develop/active-directory-application-objects.md)，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由](../../virtual-network/virtual-networks-udr-overview.md)及[第 4 層 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)。
 
 
 本文說明為 Kubernetes 叢集設定服務主體的各種選項。 例如，如果您已安裝並設定 [Azure CLI 2.0](/cli/azure/install-az-cli2)，您可以執行 [`az acs create`](/cli/azure/acs#create) 命令，在同一時間建立 Kubernetes 叢集與服務主體。
@@ -37,19 +37,19 @@ ms.lasthandoff: 07/25/2017
 
 您可以使用符合下列需求的現有 Azure AD 服務主體，或建立一個新的服務主體。
 
-* **範圍**︰訂用帳戶中用來部署 Kubernetes 叢集的資源群組，或 (限制較少) 用來部署叢集的訂用帳戶。
+* **範圍**：用來部署叢集的訂用帳戶。
 
 * **角色**：**參與者**
 
 * **用戶端密碼**：必須是密碼。 目前，您無法使用針對憑證驗證設定的服務主體。
 
-> [!IMPORTANT] 
-> 若要建立服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 若要查看您是否有必要的權限，請[在入口網站中檢查](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。 
+> [!IMPORTANT]
+> 若要建立服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 若要查看您是否有必要的權限，請[在入口網站中檢查](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>選項 1：在 Azure AD 中建立服務主體
 
-如果您想要在部署 Kubernetes 叢集之前建立 Azure AD 服務主體，Azure 會提供數種方法。 
+如果您想要在部署 Kubernetes 叢集之前建立 Azure AD 服務主體，Azure 會提供數種方法。
 
 下列範例命令示範如何使用 [Azure CLI 2.0](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md) 執行這項作業。 或者，您也可以使用 [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md)、[入口網站](../../azure-resource-manager/resource-group-create-service-principal-portal.md)或其他方法來建立服務主體。
 
@@ -58,9 +58,9 @@ az login
 
 az account set --subscription "mySubscriptionID"
 
-az group create -n "myResourceGroupName" -l "westus"
+az group create --name "myResourceGroup" --location "westus"
 
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName"
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
 ```
 
 輸出如下所示 (以下顯示擬定的輸出)：
@@ -76,7 +76,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscri
 
 使用 [Azure 命令列介面 (CLI) 2.0](container-service-kubernetes-walkthrough.md)、[Azure 入口網站](../dcos-swarm/container-service-deployment.md)或其他方法部署 Kubernetes 叢集時，您可以指定這些參數。
 
->[!TIP] 
+>[!TIP]
 >指定**用戶端識別碼**時，務必使用服務主體的 `appId`，而非 `ObjectId`。
 >
 
@@ -95,8 +95,8 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscri
 
     az account set --subscription "mySubscriptionID"
 
-    az group create --name "myResourceGroup" --location "westus" 
-    
+    az group create --name "myResourceGroup" --location "westus"
+
     az group deployment create -g "myResourceGroup" --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" --parameters @azuredeploy.parameters.json
     ```
 
@@ -105,7 +105,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscri
 
 如果您執行 [`az acs create`](/cli/azure/acs#create) 命令來建立 Kubernetes 叢集，您可以選擇自動產生服務主體。
 
-至於其他 Kubernetes 叢集建立選項，您可以在執行 `az acs create` 時指定現有服務主體的參數。 不過，當您省略這些參數時，Azure CLI 會自動建立一個參數以搭配 Container Service 使用。 這會在部署期間以透明方式發生。 
+至於其他 Kubernetes 叢集建立選項，您可以在執行 `az acs create` 時指定現有服務主體的參數。 不過，當您省略這些參數時，Azure CLI 會自動建立一個參數以搭配 Container Service 使用。 這會在部署期間以透明方式發生。
 
 下列命令會建立 Kubernetes 叢集並產生 SSH 金鑰和服務主體認證︰
 
@@ -115,11 +115,11 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 > [!IMPORTANT]
 > 如果您的帳戶沒有 Azure AD 和訂用帳戶權限可建立服務主體，則命令會產生類似 `Insufficient privileges to complete the operation.` 的錯誤。
-> 
+>
 
 ## <a name="additional-considerations"></a>其他考量
 
-* 如果您沒有在訂用帳戶中建立服務主體的權限，您可能需要要求 Azure AD 或訂用帳戶管理員指派所需的權限，或要求他們提供服務主體以搭配 Azure Container Service 使用。 
+* 如果您沒有在訂用帳戶中建立服務主體的權限，您可能需要要求 Azure AD 或訂用帳戶管理員指派所需的權限，或要求他們提供服務主體以搭配 Azure Container Service 使用。
 
 * Kubernetes 的服務主體是叢集組態的一部分。 不過，請勿使用身分識別來部署叢集。
 
@@ -129,7 +129,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 * 在 Kubernetes 叢集中的主要和代理程式 VM 上，服務主體認證會儲存在 /etc/kubernetes/azure.json 檔案中。
 
-* 當您使用 `az acs create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 ~/.azure/acsServicePrincipal.json 檔案。 
+* 當您使用 `az acs create` 命令自動產生服務主體時，服務主體認證會寫入用來執行命令之電腦上的 ~/.azure/acsServicePrincipal.json 檔案。
 
 * 當您使用 `az acs create` 命令自動產生服務主體時，服務主體也可以向在訂用帳戶中建立的 [Azure Container Registry](../../container-registry/container-registry-intro.md) 進行驗證。
 

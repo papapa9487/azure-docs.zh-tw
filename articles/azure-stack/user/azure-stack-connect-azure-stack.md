@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/25/2017
+ms.date: 08/22/2017
 ms.author: sngun
 ms.translationtype: HT
 ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 09c626e97832821009ce2da360ceea2b54273ffa
+ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
 ms.contentlocale: zh-tw
 ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
-
-「適用於：Azure Stack 開發套件」
 
 若要管理資源，您必須連線到「Azure Stack 開發套件」。 此主題將詳細說明連線到開發套件所需的步驟。 您可以使用下列其中一個連線選項：
 
@@ -33,15 +31,16 @@ ms.lasthandoff: 09/25/2017
 ## <a name="connect-to-azure-stack-with-remote-desktop"></a>使用遠端桌面來連線到 Azure Stack
 使用「遠端桌面」連線時，單一並行使用者可以使用入口網站來管理資源。
 
-1. 開啟一個「遠端桌面連線」並連線到開發套件。 輸入 **AzureStack\AzureStackAdmin** 作為使用者名稱，並輸入您進行 Azure Stack 設定時所提供的操作員密碼。  
+1. 開啟一個「遠端桌面連線」並連線到開發套件。 輸入 **AzureStack\AzureStackAdmin** 作為使用者名稱，並輸入您在 Azure Stack 設定期間所提供的系統管理密碼。  
 
 2. 從開發套件電腦開啟 [伺服器管理員]，按一下 [本機伺服器]、關閉 [Internet Explorer 增強式安全性]，然後關閉 [伺服器管理員]。
 
-3. 若要開啟使用者[入口網站](azure-stack-key-features.md#portal)，請瀏覽至 (https://portal.local.azurestack.external/)，然後使用使用者認證登入。 若要開啟 Azure Stack 操作員的[入口網站](azure-stack-key-features.md#portal)，請瀏覽至 (https://adminportal.local.azurestack.external/)，然後使用安裝時所指定的 Azure Active Directory 認證登入。
+3. 若要開啟入口網站，請瀏覽至 https://portal.local.azurestack.external/，然後以使用者認證登入。
+
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>使用 VPN 來連線到 Azure Stack
 
-您可以建立一個連至「Azure Stack 開發套件」的分割通道「虛擬私人網路」(VPN) 連線。 透過 VPN 連線，您可以存取 Azure Stack 操作員的入口網站、使用者入口網站及安裝在本機的工具 (例如 Visual Studio 和 PowerShell)，來管理 Azure Stack 資源。 Azure Active Directory(AAD) 和「Active Directory 同盟服務」(AD FS) 型部署都支援 VPN 連線。 VPN 連線可讓多個用戶端同時連線到 Azure Stack。 
+您可以建立一個連至「Azure Stack 開發套件」的分割通道「虛擬私人網路」(VPN) 連線。 透過 VPN 連線，您可以存取系統管理員入口網站、使用者入口網站及安裝在本機的工具 (例如 Visual Studio 和 PowerShell)，以管理 Azure Stack 資源。 Azure Active Directory(AAD) 和「Active Directory 同盟服務」(AD FS) 型部署都支援 VPN 連線。 VPN 連線可讓多個用戶端同時連線到 Azure Stack。 
 
 > [!NOTE] 
 > 這個 VPN 連線並無法連線到 Azure Stack 基礎結構 VM。 
@@ -69,7 +68,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $hostIP = "<Azure Stack host IP address>"
 
 $Password = ConvertTo-SecureString `
-  "<operator's password provided when deploying Azure Stack>" `
+  "<Administrator password provided when deploying Azure Stack>" `
   -AsPlainText `
   -Force
 
@@ -105,10 +104,10 @@ Add-AzsVpnConnection `
 
 ### <a name="test-the-vpn-connectivity"></a>測試 VPN 連線
 
-若要測試入口網站連線，請開啟網際網路瀏覽器並瀏覽至使用者入口網站 (https://portal.local.azurestack.external/) 或操作員入口網站 (https://adminportal.local.azurestack.external/)、登入，然後建立資源。  
+若要測試入口網站連線，請開啟網際網路瀏覽器，瀏覽至使用者入口網站 (https://portal.local.azurestack.external/)，然後登入並建立資源。  
 
 ## <a name="next-steps"></a>後續步驟
 
-[將虛擬機器提供給您的 Azure Stack 使用者](azure-stack-tutorial-tenant-vm.md)
+
 
 

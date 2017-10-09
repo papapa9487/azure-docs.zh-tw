@@ -15,18 +15,21 @@ ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: e4e2293149b64056d1ec9d1900119e9f4f511d06
+ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
+ms.lasthandoff: 09/25/2017
 
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack 部署先決條件
-部署 Azure Stack [開發套件](azure-stack-poc.md)之前，請先確定您的電腦符合下列需求：
+
+「適用於：Azure Stack 開發套件」
+
+部署 [Azure Stack 開發套件](azure-stack-poc.md)之前，請先確定您的電腦符合下列需求：
 
 
 ## <a name="hardware"></a>硬體
-| 元件 | 最低 | 建議 |
+| 元件 | 最小值 | 建議 |
 | --- | --- | --- |
 | 磁碟機：作業系統 |1 個 OS 磁碟 (SSD 或 HDD)，最少有 200 GB 供系統磁碟分割使用 |1 個 OS 磁碟 (SSD 或 HDD)，最少有 200 GB 供系統磁碟分割使用 |
 | 磁碟機：一般開發套件資料* |4 個磁碟。 每個磁碟 (SSD 或 HDD) 提供最少 140 GB 的容量。 將會使用所有可用的磁碟。 |4 個磁碟。 每個磁碟 (SSD 或 HDD) 至少提供 250 GB 的容量。 將會使用所有可用的磁碟。 |
@@ -57,7 +60,7 @@ ms.lasthandoff: 09/15/2017
 
 \* 不具備穿通功能的 RAID 控制器無法辨識媒體類型。 這類控制站會將 SSD 和 HDD，皆標示為未指定。 在此情況下，SSD 會當作永續性儲存體使用，而非快取裝置。 因此，您可以在那些 SSD 上部署開發套件。
 
-**範例 HBA**：穿通模式中的 LSI 9207-8i、LSI-9300-8i 或 LSI-9265-8i
+**範例 HBA**：傳遞模式中的 LSI 9207-8i、LSI-9300-8i 或 LSI-9265-8i
 
 範例 OEM 設定可供使用。
 
@@ -88,12 +91,12 @@ ms.lasthandoff: 09/15/2017
    | **Azure Active Directory 帳戶** | **是否支援？** |
    | --- | --- |
    | 具備有效公用 Azure 訂用帳戶的公司或學校帳戶 |是 |
-   | 具備有效公用 Azure 訂用帳戶的 Microsoft 帳戶 |是 |
+   | 具備有效的公用 Azure 訂用帳戶之 Microsoft 帳戶 |是 |
    | 具備有效中國 Azure 訂用帳戶的公司或學校帳戶 |是 |
    | 具備有效美國政府 Azure 訂用帳戶的公司或學校帳戶 |是 |
 
 ## <a name="network"></a>網路
-### <a name="switch"></a>交換器
+### <a name="switch"></a>Switch
 一個在開發套件機器交換器上的可用連接埠。  
 
 開發套件機器支援連線到交換器存取連接埠或主幹連接埠。 此交換器不需要有任何特殊的功能。 如果您使用主幹連接埠，或如果您需要設定 VLAN ID，就必須提供 VLAN ID 作為部署參數。 若要查看範例，請參閱[開發參數清單](azure-stack-run-powershell-script.md)。
@@ -142,7 +145,7 @@ Azure Stack 需要能夠直接或透過 Transparent Proxy 存取網際網路。 
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
 ### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name "AllowTelemetry" -Value '0'  
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
 -Name AllowTelemetry).AllowTelemetry
