@@ -1,5 +1,5 @@
 ---
-title: "針對雲端服務資源啟用 Azure Application Insights Profiler | Microsoft Docs"
+title: "針對 Azure 計算資源啟用 Azure Application Insights Profiler | Microsoft Docs"
 description: "了解如何在 Azure 雲端服務資源所裝載的 ASP.NET 應用程式上設定分析工具。"
 services: application-insights
 documentationcenter: 
@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c2cae6129386260f2bf35f75d44fa001f7541d40
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 65ba755f35df7bd09dd652ac6fccf96a878c6ca9
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 
@@ -113,13 +113,15 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 
 
 ## <a name="enable-the-profiler"></a>啟用分析工具
-1. 移至 Application Insights 的 [效能] 刀鋒視窗，然後選取 [設定]。
-   
-   ![設定圖示](./media/enable-profiler-compute/enableprofiler1.png)
- 
+
+1. 移至 Application Insights [效能] 刀鋒視窗，然後按一下右下角中的 [分析工具] 來設定它。
+
+   ![設定分析工具按鈕](./media/enable-profiler-compute/PerformanceTriageViewPofilerButton.png)
+
 2. 選取 [啟用分析工具]。
-   
-   ![啟用分析工具圖示](./media/enable-profiler-compute/enableprofiler2.png)
+
+   ![啟用分析工具按鈕](./media/enable-profiler-compute/enableprofiler2.png)
+
 
 ## <a name="add-a-performance-test-to-your-application"></a>將效能測試新增至您的應用程式
 遵循下列步驟，就能收集要在 Application Insights Profiler 中顯示的一些範例資料：
@@ -134,9 +136,15 @@ New-AzureRmResourceGroup -Name "Replace_With_Resource_Group_Name" -Location "Rep
 
 1. 等候 10-15 分鐘，讓分析工具收集和分析資料。 
 
-2. 移至 Application Insights 資源中的 [效能] 刀鋒視窗，並檢視當其低於負載時應用程式執行的狀況。
+2. 移至 Application Insights 資源中的 [效能] 刀鋒視窗，並檢視當其低於負載時應用程式執行的狀況。 依 [計數] 資料行排序作業格線，將焦點放在具有足夠使用量、感興趣的緩慢作業上。 藉由查看持續時間分佈上方的分析工具通道，觀察哪些持續時間範圍有分析工具追蹤。 請注意，監視您的應用程式越久，分析工具收集的追蹤越多，分析工具追蹤所支援的豐富程式碼層級範例會涵蓋更多個分佈。 
 
-   ![檢視效能](./media/enable-profiler-compute/aiperformance.png)
+   ![效能分級檢視中的分析工具追蹤](./media/enable-profiler-compute/PerformanceTriageViewProfilerTraces.png)
+
+    您可以放大感興趣的持續時間範圍，例如在第 95 個百分位數的第三個高峰。 這將會限制 [採取動作] 按鈕中範例和分析工具追蹤的數目。 
+
+    ![縮放到持續時間範圍](./media/enable-profiler-compute/DurationRangeZoomedTo95th.png)
+
+    現在按一下 [分析工具追蹤] 按鈕，開啟分析工具的適當追蹤。
 
 3. 按一下 [範例] 下方的圖示，以開啟 [追蹤檢視] 刀鋒視窗。
 

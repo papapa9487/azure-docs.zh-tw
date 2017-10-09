@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: ddfed2be315ae261e9c3015aa21d0b44405d6109
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web Apps
@@ -50,6 +50,7 @@ Application Insights 的這項功能在應用程式服務為 GA，在 Compute �
 
 ![設定刀鋒視窗][linked app services]
 
+## <a name="disable-the-profiler"></a>停用分析工具
 若要停止或重新啟動個別 App Service 執行個體的分析工具，您可以在 [App Service 資源] 的 [Web 作業] 中找到它。 若要刪除它，請在 [擴充功能] 底下查看。
 
 ![停用 web 作業的分析工具][disable-profiler-webjob]
@@ -91,9 +92,13 @@ Profiler 會在裝載已啟用分析工具之應用程式的每個虛擬機器�
 * **計數** - 這些要求在刀鋒視窗之時間範圍內的數目。
 * **中位數** - 應用程式回應要求時一般會使用的時間長度。 在所有的回應中，有一半會快過此時間。
 * **第 95 個百分位數** - 95% 的回應會快過此時間。 如果此數字和中位數差異極大，則表示應用程式可能有間歇性問題  (或者，可能的解釋為有某者設計功能導致此結果，例如快取)。
-* **範例** - 一個圖示，用來指出分析工具已擷取這項作業的堆疊追蹤。
+* **分析工具追蹤** - 一個圖示，用來指出分析工具已擷取這項作業的堆疊追蹤。
 
-按一下 [範例] 圖示就能開啟追蹤總管。 此總管會顯示分析工具已擷取的數個範例，並依回應時間來分類。
+按一下 [檢視] 按鈕以開啟追蹤總管。 此總管會顯示分析工具已擷取的數個範例，並依回應時間來分類。
+
+如果您使用 [預覽效能] 刀鋒視窗，請移至右下角的 [採取的動作] 區段來要檢視分析工具追蹤。 按一下 [分析工具追蹤] 按鈕。
+
+![Application Insights [效能] 刀鋒視窗預覽分析工具追蹤][performance-blade-v2-examples]
 
 選取某個範例就會顯示要求在執行時所用時間的程式碼層級細目。
 
@@ -158,6 +163,10 @@ CPU 正忙於執行指令。
 
 ## <a id="troubleshooting"></a>疑難排解
 
+### <a name="too-many-active-profiling-sessions"></a>太多個使用中分析工作階段
+
+目前，您最多可以在執行於相同服務方案的 4 個 Azure Web 應用程式與部署位置上啟用分析工具。 如果您看到分析工具 Web 作業報告太多使用中分析工作階段，您需要將某些 Web 應用程式移至不同的服務方案。
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>如何知道 Application Insights 分析工具是否有執行？
 
 在 Web 應用程式中，分析工具會以連續性 Web 作業的形式來執行。 您可以在 https://portal.azure.com 中開啟 Web 應用程式資源，然後檢查 [Webjob] 刀鋒視窗中的「ApplicationInsightsProfiler」狀態。 如果它沒有執行，請開啟 [記錄] 以進一步了解。
@@ -204,10 +213,7 @@ CPU 正忙於執行指令。
 解決此問題的方法是將以下其他部署參數新增至 Web Deploy 工作中：
 
 ```
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
 這會刪除 App Insights Profiler 使用的資料夾，並解除封鎖重新部署程序。 它不會影響目前正在執行的 Profiler 執行個體。
@@ -237,6 +243,7 @@ ASP.NET Core 應用程式需要安裝 Microsoft.ApplicationInsights.AspNetCore N
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png

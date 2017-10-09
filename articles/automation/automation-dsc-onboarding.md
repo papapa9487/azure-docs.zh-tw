@@ -13,12 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
-ms.openlocfilehash: 7aaede3e93938553ee6d372478e3516e72885057
+ms.translationtype: HT
+ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
+ms.openlocfilehash: 581bee11729e6fef5dbe7e752962f7ab9896066b
 ms.contentlocale: zh-tw
-ms.lasthandoff: 05/01/2017
-
+ms.lasthandoff: 09/19/2017
 
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>上架由 Azure 自動化 DSC 管理的機器
@@ -36,6 +35,10 @@ Azure 自動化 DSC 可以用來管理各種不同的機器：
 * 位於內部部署、Azure 或 Azure 以外之雲端中的實體/虛擬 Linux 機器
 
 此外，如果您不準備從雲端管理機器組態，Azure Automation DSC 也可用來當做報告專用端點。 這可讓您透過 DSC 內部部署設定 (推送) 所需的組態，以及檢視與 Azure 自動化中的期望狀態相符節點的豐富報告詳細資料。
+
+> [!NOTE]
+> 如果安裝的虛擬機器 DSC 延伸模組大於 2.7，則使用 DSC 管理 Azure VM 是免費隨附的。  如需詳細資料，請參閱[**自動化定價頁面**](https://azure.microsoft.com/en-us/pricing/details/automation/)。
+
 
 下列各節概述如何將每個類型的機器上架到 Azure 自動化 DSC。
 
@@ -123,13 +126,13 @@ Azure 自動化 DSC 可讓您輕鬆上架 Azure 虛擬機器以進行組態管�
 
 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您想要佈建虛擬機器的「Azure 自動化」帳戶。 在 [自動化帳戶] 儀表板上，按一下 [DSC 節點] -> [新增 Azure VM]。
 
-在 [選取要上架的虛擬機器] 下，選取一或多個要上架的 Azure 虛擬機器。
+選取要上架的 Azure 虛擬機器。
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_2.png)
+如果電腦沒有 PowerShell 預期安裝的狀態延伸模組，並且電源狀態為執行中，請按一下 [連接]。
 
-在 [設定註冊資料] 下，輸入您的使用情況所需的 [PowerShell DSC 本機設定管理員值](https://msdn.microsoft.com/powershell/dsc/metaconfig4) ，並選擇性地輸入要指派給 VM 的節點組態。
+在 [註冊]下，輸入您的使用情況所需的 [PowerShell DSC 本機 Configuration Manager 值](https://msdn.microsoft.com/powershell/dsc/metaconfig4)，並選擇性地輸入要指派給 VM 的節點組態。
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_3.png)
+![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 

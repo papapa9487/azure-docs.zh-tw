@@ -17,10 +17,10 @@ ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 5aed57e69924f03221fc0d9909889358d80df9a4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 
@@ -92,7 +92,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
     ```
     此函式程式碼會傳回 `Yes` 或 `No` 的訊息，指出緊急修復是否符合成本效益，以及渦輪機所代表的收入機會與修復渦輪機的成本。 
 
-1. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。針對 [要求本文] 輸入下列值，然後按一下 [執行]。
+1. 若要測試函式，請按一下最右邊的 測試，將 測試 索引標籤展開。針對 要求本文 輸入下列值，然後按一下執行。
 
     ```json
     {
@@ -113,7 +113,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
 ## <a name="generate-the-openapi-definition"></a>產生 OpenAPI 定義
 
-您現在已經準備好產生 OpenAPI 定義。 此定義可供其他 Microsoft 技術使用 (例如 [API Apps](../app-service-api/app-service-api-dotnet-get-started.md)、[PowerApps](functions-powerapps-scenario.md) 和 [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md))，以及供協力廠商開發人員工具使用 (例如 [Postman](https://www.getpostman.com/docs/importing_swagger) 和[許多其他套件](http://swagger.io/tools/))。
+您現在已經準備好產生 OpenAPI 定義。 此定義可供其他 Microsoft 技術使用 (例如 API Apps、[PowerApps](functions-powerapps-scenario.md) 和 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md))，以及供協力廠商開發人員工具使用 (例如 [Postman](https://www.getpostman.com/docs/importing_swagger) 和[許多其他封裝](http://swagger.io/tools/))。
 
 1. 只選取您的 API 支援的「指令動詞」(在本例中為 POST)。 這會讓產生的 API 定義更清楚。
 
@@ -175,20 +175,9 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
     此定義會描述為「範本」，因為它需要更多中繼資料才能成為完整的 OpenAPI 定義。 您將修改下一個步驟中的定義。
 
 ## <a name="modify-the-openapi-definition"></a>修改 OpenAPI 定義
-現在您已擁有範本定義，您可以對其進行修改，以提供 API 作業和資料結構的其他相關中繼資料。 在本教學課程中，您可以直接將以下修改過的定義貼到 [API 定義] 窗格中，然後按一下 [儲存]。
+現在您已擁有範本定義，您可以對其進行修改，以提供 API 作業和資料結構的其他相關中繼資料。 在 [API 定義] 中，刪除產生的定義，從 `post` 到定義的底部，在下列內容中貼上，然後按一下 [儲存]。
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +237,7 @@ securityDefinitions:
     in: query
 ```
 
-不過，請務必了解我們對預設範本所做的修改類型：
+在此情況下，您可以只貼上更新的中繼資料，不過，請務必了解我們對預設範本所做的修改類型：
 
 + 指定 API 會產生並取用 JSON 格式的資料。
 

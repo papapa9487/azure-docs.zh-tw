@@ -18,10 +18,10 @@ ms.date: 02/27/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 77538db308c657392ac8bc6a0b7665f9b8427256
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: 891640526b25c030f7e01d79e981aad517dfafb4
 ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
+ms.lasthandoff: 09/20/2017
 
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
@@ -37,7 +37,7 @@ Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解�
 * **自備相依性** - Functions 支援 NuGet 和 NPM，以便您使用您最愛的程式庫。  
 * **整合式安全性** - 利用 OAuth 提供者 (如 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶) 保護 HTTP 觸發的函數。  
 * **簡化整合** - 輕鬆地利用 Azure 服務和軟體即服務 (SaaS) 供應項目。 請參閱[整合區段](#integrations)以取得相關範例。  
-* **彈性開發** - 直接在入口網站中撰寫函數的程式碼，或透過 GitHub、Visual Studio Team Services 和其他 [支援的開發工具](../app-service-web/web-sites-deploy.md#deploy-using-an-ide)設定連續整合和部署程式碼。  
+* **彈性開發** - 直接在入口網站中撰寫函數的程式碼，或透過 [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md)、[Visual Studio Team Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) 和其他[支援的開發工具](../app-service/app-service-deploy-local-git.md)設定連續整合和部署程式碼。  
 * **開放原始碼** - Functions 執行階段是開放原始碼的平台並 [可在 GitHub 上取得](https://github.com/azure/azure-webjobs-sdk-script)。  
 
 ## <a name="what-can-i-do-with-functions"></a>我可以用 Functions 來做什麼？
@@ -47,7 +47,7 @@ Functions 提供範本，可讓您開始使用重要的案例，包括下列案�
 
 * **HTTPTrigger** - 使用 HTTP 要求觸發程式碼的執行。 如需範例，請參閱[建立您的第一個函式](functions-create-first-azure-function.md)。
 * **TimerTrigger** - 在預先定義的排程執行清除或其他批次工作。 如需範例，請參閱[建立由計時器觸發的函式](functions-create-scheduled-function.md)。
-* **GitHub webhook** - 回應您的 GitHub 儲存機制中發生的事件。 如需範例，請參閱[建立由 GitHub Webhook 所觸發的函式](functions-create-a-web-hook-or-api-function.md)。
+* **GitHub webhook** - 回應您的 GitHub 儲存機制中發生的事件。 如需範例，請參閱[建立由 GitHub Webhook 所觸發的函式](functions-create-github-webhook-triggered-function.md)。
 * **泛型 webhook** - 處理來自支援 webhook 的任何服務的 webhook HTTP 要求。 如需範例，請參閱[建立由一般 Webhook 所觸發的函式](functions-create-generic-webhook-triggered-function.md)。
 * **BlobTrigger** - 在新增至容器時，處理 Azure 儲存體 blob。 您可以使用此函式調整映像大小。 如需詳細資訊，請參閱 [Blob 儲存體繫結](functions-bindings-storage-blob.md)。
 * **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需範例，請參閱[建立連線至其他 Azure 服務的函式](functions-create-an-azure-connected-function.md)。
@@ -87,7 +87,7 @@ Azure Functions 有兩種定價方案。 請選擇最符合您需求的方案：
   說明可用於測試函式的各種工具和技巧。
 * [如何調整 Azure 函式](functions-scale.md)  
   討論 Azure Functions 可用的服務方案，包括使用情況主控方案，以及如何選擇正確的方案。 
-* [深入了解 Azure App Service](../app-service/app-service-value-prop-what-is.md)  
+* [深入了解 Azure App Service](../app-service/app-service-web-overview.md)  
   Azure Functions 會利用 Azure App Service 來執行核心功能，例如部署、環境變數和診斷。 
 
 

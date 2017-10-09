@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2015
+ms.date: 09/20/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 69ead621c179bf49f17ed3274be4b625fc587556
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 9efe10fa35c6a7c84e0d448bbe53127d16d20870
 ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="monitor-performance-in-web-applications"></a>監視 Web 應用程式的效能
@@ -106,7 +106,7 @@ HTTP 要求包括分頁、資料及映像的所有 GET 或 POST 要求。
 
 請小心注意系統要求您輸入臨界值時所使用的單位。
 
-*I don't see the Add Alert button.* 我沒有看到 [新增警示] 按鈕 - 您只擁有此群組帳戶的唯讀權限嗎？ 請洽詢帳戶管理員。
+<bpt id="p1">*</bpt>I don't see the Add Alert button.<ept id="p1">*</ept> 我沒有看到 [新增警示] 按鈕 - 您只擁有此群組帳戶的唯讀權限嗎？ 請洽詢帳戶管理員。
 
 ## <a name="diagnosis"></a>診斷問題
 以下是幾個尋找及診斷效能問題的訣竅：
@@ -117,9 +117,38 @@ HTTP 要求包括分頁、資料及映像的所有 GET 或 POST 要求。
 * 使用[即時計量資料流][livestream]監視作業中的 Web 應用程式。
 * 使用[快照集偵錯工具][snapshot]擷取 .Net 應用程式的狀態。
 
-## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-performance-investigation"></a>使用互動式效能調查尋找及修正效能瓶頸
+>[!Note]
+> 我們正在將 Application Insights 效能調查的程序轉換到互動式的全螢幕體驗。 下列文件先涵蓋新的體驗，接著檢閱先前的體驗，萬一您仍需要存取它時，仍可在整個轉換時取得。
 
-您可以使用新的 Application Insights 互動式效能調查，以找出減緩整體效能的 Web 應用程式區域。 您可以快速地找出減緩速度的特定分頁，並且使用[分析工具](app-insights-profiler.md)以查看這些分頁之間是否有相互關聯。
+## <a name="find-and-fix-performance-bottlenecks-with-an-interactive-full-screen-performance-investigation"></a>使用互動式效能調查尋找及修正全螢幕效能瓶頸
+
+您可以使用新的 Application Insights 互動式效能調查，來檢閱 Web 應用程式中緩慢執行的作業。 您可以快速地選取特定的緩慢作業，並使用[分析工具](app-insights-profiler.md)來查詢程式碼中使作業緩慢的根本原因。 使用所選取作業的新持續時間分佈，您可以快速地一眼看出該體驗對客戶的不良影響程度。 事實上，對於每個緩慢作業，您可以查看受到影響的使用者互動數量。 在下列範例中，我們已決定要詳細看看「取得客戶/詳細資料」作業的體驗。 在分佈持續時間中，我們可以看到有三個高峰。 最左邊的高峰大約在 400 毫秒，並代表良好的回應體驗。 中間的高峰大約在 1.2 秒，並代表中等體驗。 最後在 3.6 秒有另一個小型高峰，代表第 99 個百分位數體驗，它可能導致我們的客戶離開時不滿意。 該體驗較相同作業的良好體驗低十倍。 
+
+![取得客戶/詳細資料，三個持續時間高峰](./media/app-insights-web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
+
+若要獲得此作業使用者體驗的較佳意義，我們可以選取較大的時間範圍。 然後我們也可以將時間縮小在作業特別緩慢的特定時間間隔位置。 在下列範例中，我們已從預設的 24 小時時間範圍切換至 7 天的時間範圍，然後放大到 12 日星期二與 13 日星期三之間的 9:47 至 12:47 時段。 請注意，右邊的分佈持續時間和範例與分析工具的追蹤數目已更新。
+
+![取得客戶/詳細資料，7 天範圍的時段中三個持續時間高峰](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+
+若要縮小到緩慢的體驗，我們接下來放大到落在第 95 個及第 99 個百分位數之間的持續時間。 這些代表的是特別緩慢的 4% 使用者互動。
+
+![取得客戶/詳細資料，7 天範圍的時段中三個持續時間高峰](./media/app-insights-web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+
+我們現在可以按一下 [範例] 按鈕來查看代表性的範例，或按一下 [分析工具追蹤] 按鈕來查看代表性的分析工具追蹤。 在此範例中，針對感興趣的時間段和範圍持續時間，已對取得客戶/詳細資料已收集到四個追蹤。
+
+有時候問題不會在您的程式碼，而是在程式碼呼叫的相依性中。 您可以切換到 [效能分級] 檢視的 [相依性] 索引標籤，以調查這類緩慢的相依性。 請注意，根據預設，效能檢視是趨勢的平均，但您真正要查看的是第 95 個百分位數 (或第 99 個，萬一您要監視的是非常成熟的服務)。 在下列範例中，我們已經著重於緩慢的 Azure BLOB 相依性，我們在此處呼叫 PUT fabrikamaccount。 良好的體驗叢集大約為 40 毫秒，而對相同相依性的緩慢呼叫則慢了三倍，叢集處理大約為 120 毫秒。 它不會接受許多呼叫的加總，讓對應作業明顯變慢。 您可以切入代表性範例和分析工具追蹤，就像透過 [作業] 索引標籤可以完成的工作一般。
+
+![取得客戶/詳細資料，7 天範圍的時段中三個持續時間高峰](./media/app-insights-web-monitor-performance/SlowDependencies95thTrend.png)
+
+另一個互動式全螢幕效能調查的新非常強大功能是與深入解析的整合。 Application Insights 可以偵測及浮現深入解析回應性迴歸，並協助您識別您決定專注的範例集合中的通用屬性。 查看所有可用的深入解析的最佳方式是切換到 30 天的時間範圍，然後選取 [整體] 來查看過去一個月所有作業的深入解析。
+
+![取得客戶/詳細資料，7 天範圍的時段中三個持續時間高峰](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
+
+新效能分級檢視中的 Application Insights 可確實協助您在造成 Web 應用程式使用者體驗不佳的大海中撈針。
+
+## <a name="deprecated-find-and-fix-performance-bottlenecks-with-a-narrow-bladed-legacy-performance-investigation"></a>已淘汰：使用窄刀鋒傳統效能調查尋找及修正效能瓶頸
+
+您可以使用舊版 Application Insights 刀鋒視窗效能調查，以找出減緩整體效能的 Web 應用程式區域。 您可以尋找速度正在變緩慢的特定頁面，並使用[分析工具](app-insights-profiler.md)來追蹤程式碼中這些問題的根本原因。 
 
 ### <a name="create-a-list-of-slow-performing-pages"></a>建立一份執行緩慢分頁的清單 
 

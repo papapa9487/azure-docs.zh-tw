@@ -1,9 +1,25 @@
-標題：傳送使用者內容識別碼，以啟用 Azure Application Insights 中的使用體驗 | Microsoft Docs 描述：追蹤使用者如何藉由在 Application Insights 中指派唯一且持續性的識別碼字串，在整個服務之間移動。
-services: application-insights documentationcenter: '' author: abgreg manager: carmonm
-
-ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
+---
+title: "傳送使用者內容識別碼以啟用 Azure Application Insights 中的使用體驗 | Microsoft Docs"
+description: "追蹤使用者如何在您的服務移動，方法是為每個使用者指派 Application Insights 中唯一的持續性識別碼字串。"
+services: application-insights
+documentationcenter: 
+author: abgreg
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/02/2017
+ms.author: bwren
+ms.translationtype: HT
+ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
+ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
+ms.contentlocale: zh-tw
+ms.lasthandoff: 09/20/2017
 
 ---
+
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>傳送使用者內容識別碼以啟用 Azure Application Insights 中的使用體驗
 
 ## <a name="tracking-users"></a>追蹤使用者
@@ -81,3 +97,4 @@ Application Insights 可讓您透過一組產品使用量工具來監控並追�
     * [漏斗圖](usage-funnels.md)
     * [保留](app-insights-usage-retention.md)
     * [活頁簿](app-insights-usage-workbooks.md)
+

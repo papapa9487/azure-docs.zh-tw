@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 09/19/2017
 ms.author: bwren
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 8c73344b07e07cc89a18a10648b1a9c82c4b361a
+ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
+ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
 ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
+ms.lasthandoff: 09/21/2017
 
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 在 Web 應用程式中診斷例外狀況
@@ -58,15 +58,19 @@ ms.lasthandoff: 08/17/2017
 ![CodeLens 的例外狀況通知。](./media/app-insights-asp-net-exceptions/35.png)
 
 ## <a name="diagnosing-failures-using-the-azure-portal"></a>使用 Azure 入口網站診斷失敗
-從應用程式的 [Application Insights] 概要，失敗磚會顯示例外狀況和失敗的 HTTP 要求的圖表，以及導致最頻繁失敗的要求 URL 的清單。
+Application Insights 隨附策劃的 APM 體驗，可協助您診斷受監視應用程式中的失敗。 若要開始，請按一下位於 [調查] 區段 Application Insights 資源功能表中的 [失敗] 選項。 您應該會看到全螢幕檢視，其中顯示要求的失敗率趨勢、有多少個失敗的要求，以及多少個使用者受到影響。 在右邊，您會看到所選失敗中作業特定的一些最實用分佈，包括前 3 個回應代碼、前 3 個例外狀況類型，以及前 3 個失敗相依性類型。 
 
-![選取 [設定]、[失敗]](./media/app-insights-asp-net-exceptions/012-start.png)
+![失敗分級檢視 ([作業] 索引標籤)](./media/app-insights-asp-net-exceptions/FailuresTriageView.png)
 
-按一下清單中其中一個失敗的例外狀況類型，可取得該例外狀況的個別發生次數，您可以在其中查看詳細資料和堆疊追蹤︰
+只要按一下，您即可以檢閱每個作業子集的代表性範例。 特別是，若要診斷例外狀況，您可以按一下要使用 [例外狀況] 詳細資料刀鋒視窗呈現的特定例外狀況的計數：
 
-![選取失敗要求的執行個體，並在例外狀況詳細資料底下，取得例外狀況的執行個體。](./media/app-insights-asp-net-exceptions/030-req-drill.png)
+![例外狀況詳細資料刀鋒視窗](./media/app-insights-asp-net-exceptions/ExceptionDetailsBlade.png)
 
-**或者，**您可以從要求清單中啟動，並尋找與它相關的例外狀況。
+**或者，**不要查看特定失敗中作業的例外狀況，您可以透過切換到 [例外狀況] 索引標籤，從例外狀況的整體檢視開始：
+
+![失敗分級檢視 ([例外狀況] 索引標籤)](./media/app-insights-asp-net-exceptions/FailuresTriageView_Exceptions.png)
+
+您可以在此處查看為您的受監視應用程式收集的所有例外狀況。
 
 *未顯示例外狀況？請參閱[擷取例外狀況](#exceptions)。*
 
@@ -431,7 +435,7 @@ VB
 
 .NET framework 會計算間隔中的例外狀況次數並除以間隔長度，以計算得出例外狀況比率。
 
-請注意，其與 Application Insights 入口網站執行 TrackException 報告計數算得的「例外狀況」計數不同。 取樣間隔不同，且 SDK 不會針對所有已處理與未處理的例外狀況傳送 TrackException 報告。
+這與 Application Insights 入口網站執行 TrackException 報告計數算得的「例外狀況」計數不同。 取樣間隔不同，且 SDK 不會針對所有已處理與未處理的例外狀況傳送 TrackException 報告。
 
 ## <a name="video"></a>影片
 
