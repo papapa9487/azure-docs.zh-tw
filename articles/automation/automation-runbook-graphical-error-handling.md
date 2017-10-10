@@ -51,7 +51,7 @@ Azure 自動化的圖形化 Runbook 已納入錯誤處理功能。 您現在可�
 1. 傳送關於這個問題的通知。
 2. 改為啟動另一個會自動佈建新 VM 的 Runbook。
 
-解決方案之一是擁有錯誤連結，以指向可處理步驟&1; 的活動。 例如，您可以將 **Write-Warning** Cmdlet 連接至步驟&2; 的活動，例如 **Start-AzureRmAutomationRunbook** Cmdlet。
+解決方案之一是擁有錯誤連結，以指向可處理步驟 1 的活動。 例如，您可以將 **Write-Warning** Cmdlet 連接至步驟 2 的活動，例如 **Start-AzureRmAutomationRunbook** Cmdlet。
 
 將這兩個活動放在不同的錯誤處理 Runbook 中，並遵循稍早建議的指導方針，也可以讓此行為廣泛用於許多 Runbook。 在呼叫此錯誤處理 Runbook 之前，您可以從原始 Runbook 中的資料建構自訂訊息，然後將此訊息做為參數傳遞至錯誤處理 Runbook。
 
