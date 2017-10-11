@@ -21,7 +21,6 @@ ms.openlocfilehash: 964ea38569062a7127f60dd6309b328db263bf6f
 ms.contentlocale: zh-tw
 ms.lasthandoff: 07/11/2017
 
-
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>將 ExpressRoute 關聯的虛擬網路從傳統移至 Resource Manager
 
@@ -76,8 +75,9 @@ ms.lasthandoff: 07/11/2017
 4. 驗證、準備和移轉。 若要移轉虛擬網路，請使用下列 PowerShell 程式碼片段︰
 
   ```powershell
-  Move-AzureVirtualNetwork -Prepare $vnetName  
-  Move-AzureVirtualNetwork -Commit $vnetName
+  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
   ```
 
   您也可以執行下列 PowerShell Cmdlet 來中止移轉：
