@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 413e72e9a39fcde84f56bfc61a6bc72dbadf1c97
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>啟用 Azure 雲端服務中角色的遠端桌面連線
 
 > [!div class="op_single_selector"]
@@ -137,4 +135,3 @@ Azure 傳統入口網站會使用遠端桌面延伸模組方法，因此即使�
 ## <a name="additional-resources"></a>其他資源
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 [雲端服務常見問題集 - 遠端桌面](cloud-services-faq.md)
-

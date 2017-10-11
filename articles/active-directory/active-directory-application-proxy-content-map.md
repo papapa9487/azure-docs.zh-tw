@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 9fe3f343ef95106c52c4ea3ff22143a5e855c6c7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a2cd51279476f0964164705cf60b9b4e177972fd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-configuring-the-azure-ad-application-proxy"></a>設定 Azure AD 應用程式 Proxy 時發生問題
 
 
@@ -53,4 +51,3 @@ ms.lasthandoff: 04/17/2017
 ## <a name="im-having-a-problem-with-the-application-proxy-agent-connector"></a>我在使用應用程式 Proxy 代理程式連接器時遇到問題
   下列文件可協助您解決此類別的一些最常見問題。
   * [我在安裝應用程式 Proxy 代理程式連接器時遇到問題](https://docs.microsoft.com/azure/active-directory/application-proxy-connector-installation-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

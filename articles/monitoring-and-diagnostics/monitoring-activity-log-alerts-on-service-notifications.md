@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bf6a98fd7e7e11764bef174f9efd0635fa7efe9a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -45,7 +44,7 @@ ms.lasthandoff: 08/24/2017
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立服務健康情況通知的警示
 1. 在 [入口網站](https://portal.azure.com) 中，選取 **監視**。
 
-    ![「監視」服務](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
+    ![監視」服務](./media/monitoring-activity-log-alerts-on-service-notifications/home-monitor.png)
 
 2. 在 [活動記錄] 區段中，選取 [警示]。
 
@@ -92,7 +91,7 @@ ms.lasthandoff: 08/24/2017
 
 2. 在 [Alert via]\(警示媒介\) 下，選取 [現有] 動作群組按鈕。 選取適當的動作群組。
 
-3. 選取 [確定] 以建立警示。
+3. 選取 [確定] 可建立警示。
 
 在幾分鐘之內會啟用警示，開始根據建立時所指定的條件觸發警示。
 
@@ -102,12 +101,11 @@ ms.lasthandoff: 08/24/2017
 
 * 進行編輯。
 * 進行刪除。
-* 如果您想要暫時停止或恢復接收警示的通知，可以停用或啟用警示。
+* 如果您需要暫時停止或恢復接收警示的通知，可以將警示停用或啟用。
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[服務健康情況通知](monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](monitoring-service-notifications.md)。
 - 深入了解[通知速率限制](monitoring-alerts-rate-limiting.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](monitoring-activity-log-alerts-webhook.md)。
 - 取得[活動記錄警示的概觀](monitoring-overview-alerts.md)，並了解如何收到警示。 
 - 深入了解[動作群組](monitoring-action-groups.md)。
-

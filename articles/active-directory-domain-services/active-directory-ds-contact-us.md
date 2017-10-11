@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 0a4a08a58302c113405756ad7d3bb6487887a72a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD 網域服務 - 與我們連絡
 ## <a name="contact-the-product-team"></a>連絡產品小組
@@ -36,4 +35,3 @@ ms.lasthandoff: 08/24/2017
 我們非常歡迎您透過 **[Azure Active Directory User Voice 通道](https://feedback.azure.com/forums/169401-azure-active-directory/)**提供對於 Azure AD 網域服務的意見反應。
 
 請務必在問題或意見反應前加上 **'AADDS'**字樣，它才可送達我們。
-

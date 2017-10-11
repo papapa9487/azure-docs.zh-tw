@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 1c22e4fc17226578aaaf272fdf79178da65c63c2
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
 本教學課程的目的是要示範 Azure 與 TOPdesk - Secure 的整合。  
@@ -92,7 +91,7 @@ ms.lasthandoff: 02/23/2017
    
     a. 按 [下載]  來下載公用中繼資料檔案，然後再將它儲存在本機電腦上。
    
-    b.這是另一個 C# 主控台應用程式。 開啟此中繼資料檔案，然後找到 **AssertionConsumerService** 節點。
+    b. 開啟此中繼資料檔案，然後找到 **AssertionConsumerService** 節點。
     
     ![判斷提示取用者服務](./media/active-directory-saas-topdesk-secure-tutorial/IC790856.png "判斷提示取用者服務")
    
@@ -105,7 +104,7 @@ ms.lasthandoff: 02/23/2017
 
 6. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **Azure 傳統入口網站** 。
 
-7. 在 [TOPdesk - Secure] 應用程式整合頁面上，按一下 [設定單一登入] 以開啟 [設定單一登入] 對話方塊。
+7. 在**TOPdesk-Secure**應用程式整合頁面上，按一下 **設定單一登入**開啟 * * 設定單一登入 * * 對話方塊。
    
     ![設定單一登入](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "設定單一登入")
 
@@ -119,9 +118,9 @@ ms.lasthandoff: 02/23/2017
    
     a. 在 [TOPdesk - Secure 登入 URL] 文字方塊中，輸入使用者用來登入 TOPdesk - Secure 應用程式的 URL (例如："*https://qssolutions.topdesk.net*")。
    
-    b.這是另一個 C# 主控台應用程式。 在 [TOPdesk - Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Secure AssertionConsumerService URL** (例如："*https://qssolutions.topdesk.net/tas/public/login/saml*")。
+    b. 在 [TOPdesk - Public 回覆 URL] 文字方塊中，貼上 **TOPdesk - Secure AssertionConsumerService URL** (例如："*https://qssolutions.topdesk.net/tas/public/login/saml*")。
    
-    c. 按 [下一步] 。
+    c. 按一下 [下一步] 。
 
 10. 在 [設定在 TOPdesk - Secure 單一登入] 頁面上，若要下載您的中繼資料檔，請按一下 [下載中繼資料]，然後將檔案儲存在本機電腦上。
     
@@ -132,7 +131,7 @@ ms.lasthandoff: 02/23/2017
     ![憑證](./media/active-directory-saas-topdesk-secure-tutorial/IC790606.png "憑證")
     
     a. 開啟下載的中繼資料檔案。
-    b.這是另一個 C# 主控台應用程式。 展開 **RoleDescriptor** 節點，其具有 **fed:ApplicationServiceType** 的 **xsi:type**。
+    b. 展開 **RoleDescriptor** 節點，其具有 **fed:ApplicationServiceType** 的 **xsi:type**。
     c. 複製 **X509Certificate** 節點的值。
     d. 儲存複製的 **X509Certificate** 值到本機電腦的檔案中。
 
@@ -158,7 +157,7 @@ ms.lasthandoff: 02/23/2017
     
     a. 若要上傳您下載的中繼資料檔，請在 [同盟中繼資料] 下按一下 [瀏覽]。
 
-    b.這是另一個 C# 主控台應用程式。 若要上傳您的憑證檔案，請在 [憑證 (RSA)] 下按一下 [瀏覽]。
+    b. 若要上傳您的憑證檔案，請在 [憑證 (RSA)] 下按一下 [瀏覽]。
 
     c. 若要上傳您從 TOPdesk 支援小組取得的標誌檔案，請在 [標誌圖示] 下按一下 [瀏覽]。
 
@@ -188,7 +187,7 @@ TOPdesk - Secure 需以手動的方式佈建。
    
     a. 按一下 [一般] 索引標籤。
    
-    b.這是另一個 C# 主控台應用程式。 在 [一般] 區段的 [姓氏] 文字方塊中，輸入您要佈建之有效 Azure Active Directory 帳戶的姓氏。
+    b. 在 [一般] 區段的 [姓氏] 文字方塊中，輸入您要佈建之有效 Azure Active Directory 帳戶的姓氏。
    
     c. 在 [位置] 區段中選取該帳戶的 [網站]。
    
@@ -206,7 +205,7 @@ TOPdesk - Secure 需以手動的方式佈建。
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>若要指派使用者給 TOPdesk - Secure，請執行下列步驟：
 1. 在 Azure 傳統入口網站中建立測試帳戶。
-2. 在 [TOPdesk - Secure] 應用程式整合頁面上，按一下 [指派使用者]。
+2. 在 * * TOPdesk-Secure * * 應用程式整合頁面上，按一下 **指派使用者**。
    
     ![指派使用者](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "指派使用者")
 
@@ -215,5 +214,4 @@ TOPdesk - Secure 需以手動的方式佈建。
     ![是](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "是")
 
 如果要測試您的單一登入設定，請開啟存取面板。 如需 [存取面板] 的詳細資訊，請參閱 [存取面板簡介](active-directory-saas-access-panel-introduction.md)。
-
 

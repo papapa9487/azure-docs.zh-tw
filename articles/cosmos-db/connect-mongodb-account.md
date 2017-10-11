@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: anhoh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5a47001705531d971d3181df9c0aa8f957168845
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>將 MongoDB 應用程式連接到 Azure Cosmos DB
 了解如何使用 MongoDB 連接字串，將 MongoDB 應用程式連線至 Azure Cosmos DB 帳戶。 您可以使用 Azure Cosmos DB 資料庫作為 MongoDB 應用程式的資料存放區。 
 
@@ -80,4 +77,3 @@ Azure Cosmos DB 支援標準 MongoDB 連接字串 URI 格式，有幾個特定�
 ## <a name="next-steps"></a>後續步驟
 * 了解如何[使用 MongoChef](mongodb-mongochef.md) 搭配 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶
 * 檢視[範例](mongodb-samples.md)，以瀏覽 MongoDB 適用的 Azure Cosmos DB API。
-

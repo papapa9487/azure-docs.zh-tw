@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/09/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 58ac7665abf7e75a43bb0b92bdf6f41005c3efe8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受管理的應用程式
 
  MSP、ISV 和系統整合業者 (SI) 可以使用 Azure 受管理的應用程式，將其解決方案提供給所有 Azure Marketplace 客戶。 這類解決方案能減少客戶的維護與服務額外負荷。 發行者可以透過 Marketplace 銷售基礎結構和軟體。 他們可以將服務和操作支援附加至受管的應用程式。 如需詳細資訊，請參閱[受管理的應用程式概觀](managed-application-overview.md)。
@@ -279,4 +277,3 @@ Marketplace 表單會要求 [Azure Marketplace](https://azuremarketplace.microso
 * 如需從 Marketplace 使用受管理應用程式的詳細資訊，請參閱[在 Marketplace 中使用 Azure 受管理的應用程式](managed-application-consume-marketplace.md)。
 * 如需發佈 Service Catalog 受管理應用程式的資訊，請參閱[建立和發佈 Service Catalog 受管理的應用程式](managed-application-publishing.md)。
 * 如需使用 Service Catalog 受管理應用程式的詳細資訊，請參閱[使用 Service Catalog 受管理的應用程式](managed-application-consumption.md)。
-

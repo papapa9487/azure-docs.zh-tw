@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: LADocs; klam
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
-ms.openlocfilehash: 10a2c7771d9d2ec57f3e57e1d6bb4f82c55aa7f1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/17/2017
-
+ms.openlocfilehash: 63784c5e3af360b2f3f8cb330a9df8b27a85d859
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="logic-apps-pricing-model"></a>Logic Apps 的定價模式
 Azure Logic Apps 可讓您在雲端中執行整合工作流程和調整其規模。  以下是 Logic Apps 計費和定價方案的詳細資料。
@@ -64,5 +63,4 @@ App Service 方案和其每日允許的動作執行次數︰
 [pricing]: https://azure.microsoft.com/pricing/details/logic-apps/
 [whatis]: logic-apps-what-are-logic-apps.md
 [create]: logic-apps-create-a-logic-app.md
-
 

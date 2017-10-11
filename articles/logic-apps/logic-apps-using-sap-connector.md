@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2017
 ms.author: LADocs; padmavc
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 3fea93f558d5a4ef62550fd1f6486903cb812930
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connect-to-an-on-premises-sap-system-from-logic-apps-with-the-sap-connector"></a>使用 SAP 連接器，從邏輯應用程式連線到內部部署 SAP 系統 
 
 內部部署資料閘道可讓您管理資料，並且安全地存取內部部署的資源。 本主題示範如何將邏輯應用程式連線到內部部署 SAP 系統。 在此範例中，邏輯應用程式會透過 HTTP 要求 IDOC，並傳回回應。    
@@ -92,4 +90,3 @@ SAP 連接器具有動作，但沒有觸發程序。 因此，我們需要在工
 
 - 了解如何驗證、轉換及[企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md)中其他與 BizTalk 類似的功能。 
 - 從邏輯應用程式[連線到內部部署資料](../logic-apps/logic-apps-gateway-connection.md)
-

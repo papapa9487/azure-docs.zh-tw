@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d4741921806e443d92c385a04b781cec296c2ae8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-expiration-of-azure-storage-blobs-in-azure-cdn"></a>在 Azure CDN 中管理 Azure 儲存體 Blob 的到期
 > [!div class="op_single_selector"]
@@ -119,5 +118,4 @@ class Program
 ## <a name="next-steps"></a>後續步驟
 * [了解 *Cache-Control* 標頭](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9)
 * [了解如何在 Azure CDN 中管理雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
-
 

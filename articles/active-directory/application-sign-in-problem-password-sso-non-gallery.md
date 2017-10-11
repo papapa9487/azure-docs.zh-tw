@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4f8ebf5e734cc2e79819593c942f0e55227e522c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: c90b61812affb7e7af05cf3e302d045958da59be
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>登入針對密碼單一登入設定之 Azure AD 資源庫應用程式的問題
 
 存取面板是網頁型入口網站，可讓在 Azure Active Directory (Azure AD) 中具有公司或學校帳戶的使用者，檢視和啟動 Azure AD 系統管理員已授權他們存取的雲端式應用程式。 具有 Azure AD 版本的使用者也可以透過存取面板使用自助群組和應用程式管理功能。 存取面板與 Azure 入口網站分開，使用者不需要具備 Azure 訂用帳戶也能使用。
@@ -46,7 +44,7 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板瀏覽器延伸模組
 
-若要安裝存取面板瀏覽器延伸模組，請依照下列步驟執行：
+若要安裝存取面板的瀏覽器延伸模組，請遵循下列步驟：
 
 1.  在其中一種支援的瀏覽器中開啟[存取面板](https://myapps.microsoft.com)，然後在您的 Azure AD 中以**使用者**身分登入。
 
@@ -86,7 +84,7 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定密碼單一登入
 
-若要從 Azure AD 資源庫設定應用程式，您必須：
+若要設定 Azure AD 資源庫中的應用程式，您必須：
 
 -   [新增不在資源庫內的應用程式](#add-a-non-gallery-application)
 
@@ -98,7 +96,7 @@ ms.lasthandoff: 04/17/2017
 
 若要從 Azure AD 資源庫新增應用程式，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com)，以**全域管理員**或**共同管理員**身分登入
+1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -198,5 +196,4 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 [使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)
-
 

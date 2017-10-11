@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/30/2017
 ms.author: markgal;masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>執行 Azure 備份伺服器 v2 的自動安裝
 
@@ -72,4 +70,3 @@ ms.lasthandoff: 06/20/2017
 - [使用備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)
 - [使用備份伺服器來備份 SQL Server](backup-azure-sql-mabs.md)
 - [在備份伺服器中新增新式備份儲存體](backup-mabs-add-storage.md)
-

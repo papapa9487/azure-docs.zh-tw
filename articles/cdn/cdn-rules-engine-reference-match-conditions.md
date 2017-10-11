@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: f4886b1d78dfa87cf25737fb46c12b5963034f27
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Azure CDN 規則引擎比對條件
 本主題會針對 Azure 內容傳遞網路 (CDN) [規則引擎](cdn-rules-engine.md)列出可用比對條件的詳細說明。
 
@@ -124,10 +123,4 @@ URL 查詢萬用字元 | 根據要求的查詢字串來比較指定的值。
 * [規則引擎條件運算式](cdn-rules-engine-reference-conditional-expressions.md)
 * [規則引擎功能](cdn-rules-engine-reference-features.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

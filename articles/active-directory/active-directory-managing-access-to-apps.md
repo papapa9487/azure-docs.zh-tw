@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d08131936f856ed671a2358867918d5ba40a5897
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 46e001b440802e0d5d16b7cf75344c7b9ce6fad3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-access-to-apps"></a>管理應用程式的存取
 在應用程式整合到您的組織的身分識別系統之後，進行中的存取管理、使用方式評估和報告持續成為一項挑戰。 在許多情況下，IT 系統管理員或技術服務人員都需要持續積極地為您管理應用程式存取權。 有時候，指派是由一般或分區 IT 小組執行。 通常，指派決策要委派給商務決策人員，在 IT 進行指派之前需要其核准。  其他組織投資於與現有的自動化身分識別與存取管理系統的整合，像是角色型存取控制 (RBAC) 或屬性型存取控制 (ABAC)。 整合與規則開發往往需要特製且所費不貲。 監視或報告任一管理方式是自己單獨、昂貴且複雜的投資。
@@ -57,7 +55,7 @@ ms.lasthandoff: 12/29/2016
 ## <a name="how-can-i-get-started"></a>如何開始使用？
 首先，如果您還未使用 Azure AD，而且您是 IT 系統管理員：
 
-* [試試看！](https://azure.microsoft.com/trial/get-started-active-directory/)  - 您可以立即註冊免費的 30 天試用版，並使用此連結在 5 分鐘內部署第一個雲端解決方案
+* [試試看！](https://azure.microsoft.com/trial/get-started-active-directory/) - 您可以立即註冊免費的 30 天試用版，並使用此連結在 5 分鐘內部署第一個雲端解決方案
 
 啟用帳戶共用的 Azure AD 功能包括：
 
@@ -71,5 +69,4 @@ ms.lasthandoff: 12/29/2016
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [使用條件式存取來保護應用程式](active-directory-conditional-access.md)
 * [自助式群組管理/SSAA](active-directory-accessmanagement-self-service-group-management.md)
-
 

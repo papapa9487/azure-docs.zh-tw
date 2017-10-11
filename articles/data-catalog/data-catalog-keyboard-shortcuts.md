@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 15e72950ef30b8540d0303292fb9882f500c875e
-ms.openlocfilehash: 809b010fbbc0b5c1cbc2d5d5474374a4467defb4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: d498eac2d0dfe7d271bdb5e47159faa113545ab4
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Azure 資料目錄的鍵盤快速鍵
 ## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>資料目錄之資料來源註冊工具的鍵盤快速鍵
@@ -86,5 +85,4 @@ ms.lasthandoff: 01/24/2017
 | 切換 [搜尋相符項目] 功能表 |ALT 鍵 + S |
 | 切換 [開啟位置]  功能表 |ALT+O |
 | 如果資產是容器，請瀏覽容器 |ALT+L |
-
 

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e83488f4ec420c2af40d373239ba6989387da3cb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: b8d577326d23ec45cb4a9ec0e450ebf7afd945f3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="encode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 EDIFACT 訊息編碼
 
@@ -42,7 +40,7 @@ ms.lasthandoff: 05/17/2017
 
 2. 編碼 EDIFACT 訊息連接器沒有觸發程序，因此您必須新增觸發程序 (例如要求觸發程序) 來啟動邏輯應用程式。 在 Logic Apps 設計工具中，新增觸發程序，然後將動作新增至您的邏輯應用程式。
 
-3.    在搜尋方塊中，輸入 "EDIFACT" 做為篩選條件。 選取 [依照合約名稱編碼為 EDIFACT 訊息] 或是 [依照身分識別編碼為 EDIFACT 訊息]。
+3.  在搜尋方塊中，輸入 "EDIFACT" 做為篩選條件。 選取 [依照合約名稱編碼為 EDIFACT 訊息] 或是 [依照身分識別編碼為 EDIFACT 訊息]。
    
     ![搜尋 EDIFACT](media/logic-apps-enterprise-integration-edifact-encode/edifactdecodeimage1.png)  
 
@@ -57,7 +55,7 @@ ms.lasthandoff: 05/17/2017
     | 連線名稱 * |為連接器輸入任何名稱。 |
     | 整合帳戶 * |輸入整合帳戶的名稱。 確定您的整合帳戶和邏輯應用程式位於相同的 Azure 位置。 |
 
-5.    當您完成時，連線詳細資料看起來類似此範例。 若要完成連線建立，請選擇 [建立]。
+5.  當您完成時，連線詳細資料看起來類似此範例。 若要完成連線建立，請選擇 [建立]。
 
     ![整合帳戶連線詳細資料](media/logic-apps-enterprise-integration-edifact-encode/edifactencodeimage2.png)
 
@@ -100,5 +98,4 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件") 
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7db56a4c0efb208591bb15aa03a4c0dbf833d22e
-ms.openlocfilehash: a17bf35abb54eded78d112ac4b25ddebaf5fb5e8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: 3fdc1b405b95180d031aa4ad45b406f7fc149d8f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="generic-sql-connector-step-by-step"></a>一般 SQL 連接器的逐步解說
 本主題是一份逐步解說指南。 它會建立簡單的範例 HR 資料庫，並用於匯入某些使用者和他們的群組成員資格。
@@ -203,4 +202,3 @@ GO
 ALTER TABLE [dbo].[USERPHONE] CHECK CONSTRAINT [FK_USERPHONE_USER]
 GO
 ```
-

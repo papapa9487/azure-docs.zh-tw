@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 04/12/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: ba782270f3280e52235bc13148d232284b55762a
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>稽核和報告 B2B 共同作業使用者
 使用來賓使用者時，您具有與成員使用者相似的稽核功能。 以下範例是受邀者 Sam Oogle 的邀請與兌換記錄：
 
@@ -50,4 +47,3 @@ ms.lasthandoff: 04/12/2017
 * [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
 * [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
 * [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)
-

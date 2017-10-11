@@ -1,6 +1,6 @@
 ---
 title: "深入了解 Azure SQL 資料倉儲作業 |Microsoft Docs"
-description: 'SQL Data Warehouse''s elasticity lets you grow, shrink, or pause compute power by using a sliding scale of data warehouse units (DWUs). This article explains the data warehouse metrics and how they relate to DWUs. '
+description: "SQL 資料倉儲的彈性可讓您以滑動的方式調整資料倉儲單位 (DWU)，來增加、縮減或暫停計算能力。 本文說明資料倉儲指標以及它們與 DWU 之間的關係。 "
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: 79fedaabc438bc4cd884af6b494e43d32361950a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 629ce22bf669a760d041bbd006b836d2da5d237b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="data-warehouse-workload"></a>資料倉儲工作負載
 資料倉儲工作負載是指所有針對資料倉儲所發生的作業。 資料倉儲工作負載包含將資料載入倉儲、對資料倉儲執行分析和報告、管理資料倉儲中的資料，以及從資料倉儲匯出資料的整個程序。 這些元件的廣度與深度多半與資料倉儲的成熟度相當。
@@ -79,4 +77,3 @@ ms.lasthandoff: 01/24/2017
 <!--MSDN references-->
 
 <!--Other web references-->
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: b0d98688518acd2157905fda6a9a847763e45ae7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b082e345ca1bb3b12c548e05e699474d3aa9306c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-docker-applications-in-application-insights"></a>在 Application Insights 中監視 Docker 應用程式
 [Docker](https://www.docker.com/) 容器的週期事件和效能計數器可以在 Application Insights 上繪製成圖表。 在您的主機的容器中安裝 [Application Insights](app-insights-overview.md) 映像，它會顯示主機及其他映像的效能計數器。
@@ -130,4 +129,3 @@ ms.lasthandoff: 08/17/2017
 * [適用於 Java 的 Application Insights](app-insights-java-get-started.md)
 * [適用於 Node.js 的 Application Insights](app-insights-nodejs.md)
 * [適用於 ASP.NET 的 Application Insights](app-insights-asp-net.md)
-

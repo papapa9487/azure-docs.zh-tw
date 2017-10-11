@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: asmalser-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 278ebf464fbe815568fbe332f80d5ea6b29e1811
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="tutorial-configuring-samanage-for-automatic-user-provisioning"></a>教學課程︰設定 Samanage 來自動佈建使用者
 
 
@@ -105,4 +103,3 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 ## <a name="next-steps"></a>後續步驟
 
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](active-directory-saas-provisioning-reporting.md)
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 0a09b35e98dc0b2f5283c2a707a3a2b8ac9a39f2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-physical-servers-to-azure-with-site-recovery"></a>使用 Site Recovery 將實體伺服器複寫至 Azure
 
@@ -98,5 +96,4 @@ ms.lasthandoff: 06/29/2017
 在初始複寫完成且差異複寫執行之後，您可以執行測試容錯移轉，以確定一切如預期般運作。
 
 移至[步驟 11：執行測試容錯移轉](physical-walkthrough-test-failover.md)
-
 

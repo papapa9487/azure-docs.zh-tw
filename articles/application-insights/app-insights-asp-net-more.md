@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f9d586a140b27f672f8cff463ba0607e2bd844f
-ms.openlocfilehash: 6f2a184242f3f69bdc4a15ac02c095a45c723565
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 127fd6e3012bdb0788ed23ae5e8921df651d863b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>更多來自 Application Insights 的遙測
 在您已經 [將 Application Insights 加入到您的 ASP.NET 程式碼](app-insights-asp-net.md)之後，您可以採取幾個動作來取得更多遙測。 
@@ -31,7 +30,6 @@ ms.lasthandoff: 02/08/2017
 |[確定 buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) 由 MSBuild 產生|[建置度量圖表中的註解](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[寫入自訂事件和度量](app-insights-api-custom-events-metrics.md)|計算商務事件和度量、追蹤詳細使用方式等等。|
 |[剖析您的即時網站](https://aka.ms/AIProfilerPreview)|從作用中的 Web 應用程式取得詳細的函式計時|
-
 
 
 

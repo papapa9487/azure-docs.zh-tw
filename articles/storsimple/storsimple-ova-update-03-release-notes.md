@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/15/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fe9d4f6b232e9abcf1fe9fc5657044b6c72fedb8
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-virtual-array-update-03-release-notes"></a>StorSimple Virtual Array Update 0.3 版本資訊
 ## <a name="overview"></a>概觀
@@ -41,8 +41,8 @@ Update 0.3 主要是錯誤修正組建。 在此版本中，已修正數個在�
 
 | 編號 | 功能 | 問題 |
 | --- | --- | --- |
-| 1 |備份 |在舊版中發生無法完成檔案共用備份的問題。 如果發生此問題，備份作業將會失敗並在 StorSimple Manager 服務引發重大警示來通知使用者。 這個問題不會影響共用上的資料或對該資料的存取。 此版本已找出根本原因並加以修正。 <br></br>  此修正無法溯及既往地套用到已發生此問題的共用。 發生此問題的客戶應該先套用 Update 0.3，然後連絡「Microsoft 支援服務」來執行完整的系統備份，以修正此問題。 客戶也可以不連絡「Microsoft 支援服務」，而是針對受影響的共用，從狀況良好備份還原到新的共用。 |
-| 2 |iSCSI |在舊版中發生將資料複製到 StorSimple Virtual Array 上的磁碟區時磁碟區會消失的問題。 此版本已經修正這個問題。 <br></br>  這些修正只有在新建立的磁碟區上才會生效。 這些修正無法溯及既往地套用到已發生此問題的磁碟區。 建議客戶透過 Azure 傳統入口網站讓受影響磁碟區上線、備份這些磁碟區，然後將這些磁碟區還原到新的磁碟區。 |
+| 1 |備份 |在舊版中發生無法完成檔案共用備份的問題。 如果發生此問題，備份作業將會失敗並在 StorSimple Manager 服務引發重大警示來通知使用者。 這個問題不會影響共用上的資料或對該資料的存取。 此版本已找出根本原因並加以修正。 <br></br> 此修正無法溯及既往地套用到已發生此問題的共用。 發生此問題的客戶應該先套用 Update 0.3，然後連絡「Microsoft 支援服務」來執行完整的系統備份，以修正此問題。 客戶也可以不連絡「Microsoft 支援服務」，而是針對受影響的共用，從狀況良好備份還原到新的共用。 |
+| 2 |iSCSI |在舊版中發生將資料複製到 StorSimple Virtual Array 上的磁碟區時磁碟區會消失的問題。 此版本已經修正這個問題。 <br></br> 這些修正只有在新建立的磁碟區上才會生效。 這些修正無法溯及既往地套用到已發生此問題的磁碟區。 建議客戶透過 Azure 傳統入口網站讓受影響磁碟區上線、備份這些磁碟區，然後將這些磁碟區還原到新的磁碟區。 |
 
 ## <a name="known-issues-in-the-update-03"></a>Update 0.3 中的已知問題
 下表提供 StorSimple Virtual Array 的已知問題摘要，並包含舊版所列的問題。 
@@ -72,10 +72,4 @@ Update 0.3 主要是錯誤修正組建。 在此版本中，已修正數個在�
 
 * [StorSimple Virtual Array Update 0.1 和 0.2 版本資訊](storsimple-ova-update-01-release-notes.md)
 * [StorSimple Virtual Array 正式運作版版本資訊](storsimple-ova-pp-release-notes.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

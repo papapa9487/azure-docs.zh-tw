@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ad4140eb1183094a67822ad92eabcd35101360b6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>教學課程：Azure Active Directory 與 SAP NetWeaver 整合
 
@@ -117,7 +115,7 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<your company instance of SAP NetWeaver>`
 
-    c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
+    c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
      
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的識別碼和回覆 URL 與登入 URL 更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [SAP NetWeaver 用戶端支援小組](https://www.sap.com/support.html)以取得這些值。 
@@ -229,5 +227,4 @@ SAP NetWeaver 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_203.png
-
 

@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: partners
 ms.date: 12/27/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 70bc2363172199455785e90753560cc2281432b1
-ms.openlocfilehash: eeb858514af80d1e6074b7c86ead5955f0d22ad2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 2fc8d1876e8a26252e83928857f5e7e9bf6ad47f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL 資料倉儲資料管理合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。 本文將重點放在具有可支援「Azure SQL 資料倉儲」之資料管理工具和解決方案的 Microsoft 合作夥伴公司。
@@ -100,4 +98,3 @@ ms.lasthandoff: 02/17/2017
 [sql_sentry_twitter]:https://twitter.com/SQLSentry
 
 <!--Video links-->
-

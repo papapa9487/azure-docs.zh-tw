@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 8/2/2017
 ms.author: markgal;trinadhk;jimpark
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5f0f06adb8177ce2d17aa0b40666470279c04e22
-ms.contentlocale: zh-tw
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="use-azurermbackup-cmdlets-to-back-up-virtual-machines"></a>使用 AzureRM.Backup Cmdlet 備份虛擬機器
 > [!div class="op_single_selector"]
@@ -358,4 +357,3 @@ $DAILYBACKUPSTATS | Out-GridView
 
 ## <a name="next-steps"></a>後續步驟
 如果您偏好使用 PowerShell 來與您的 Azure 資源交流，請參閱保護 Windows Server 的 PowerShell 文章：[部署和管理 Windows Server 的備份](backup-client-automation-classic.md)。 另請參閱管理 DPM 備份的 PowerShell 文章：[部署和管理 DPM 的備份](backup-dpm-automation-classic.md)。 這兩篇文章都有適用於 Resource Manager 部署以及傳統部署的版本。
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: aa27175165f4b15477bef4e70ad1c25016db31a2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>教學課程：Azure Active Directory 與 EmpCenter 整合
 
@@ -230,5 +229,4 @@ EmpCenter 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-EmpCenter-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-EmpCenter-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-EmpCenter-tutorial/tutorial_general_203.png
-
 

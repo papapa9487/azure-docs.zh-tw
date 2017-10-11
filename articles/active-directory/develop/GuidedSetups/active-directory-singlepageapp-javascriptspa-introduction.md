@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 4f40ba0eb6ce3e55a1e5458bc6e83060fcf6624c
-ms.contentlocale: zh-tw
-
+ms.openlocfilehash: 3d195d0d67f8f82c9450ffd93767917698addee3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>從 JavaScript 單一頁面應用程式 (SPA) 呼叫 Microsoft Graph API
 
@@ -47,4 +47,3 @@ ms.contentlocale: zh-tw
 > msal.js 的目標是 Azure Active Directory v2 端點 - 它會啟用個人、學校及公司帳戶以登入和取得權杖。 Azure Active Directory v2 端點具有[一些限制](..\active-directory-v2-limitations.md)。 如果您只對於學校和公司帳戶感到興趣，請使用 adal.js 和 V1 端點。 若要了解 v1 和 v2 端點之間的差異，請參閱 [v1-v2 比較](..\active-directory-v2-compare.md)。
 
 <!--end-collapse-->
-

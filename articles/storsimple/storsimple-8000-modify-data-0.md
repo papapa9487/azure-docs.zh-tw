@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 90df43e22f17fd32fe642514df098b72700e77af
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>修改 StorSimple 8000 系列裝置上的 DATA 0 網路介面設定
 
@@ -69,5 +68,4 @@ DATA 0 介面會在初始部署 StorSimple 裝置期間，透過安裝精靈進�
 ## <a name="next-steps"></a>後續步驟
 * 若要設定 DATA 0 以外的網路介面，您可以使用[在 Azure 入口網站中設定網路設定](storsimple-8000-modify-device-config.md)。 
 * 如果您在設定您的網路介面時遇到任何問題，請參閱 [疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: eaf5a2f9fdfcec33e8b4e2ddf77505980cd37c5e
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-view-and-manage-charts-of-data-about-your-application"></a>如何檢視和管理應用程式的資料圖表
 UI 的 [儀表板] 區段可讓客戶藉由提供想要的確切資訊，而不是在 [分析] 區段中搜尋，來建立自訂的圖表以節省時間。 儀表板會顯示在指定的一段時間內 (小時/日/週/月/自訂)，應用程式和不同應用程式版本的 [作用中使用者計數] 趨勢。 顯示的趨勢是以過去 7 天為基礎。
@@ -132,5 +131,4 @@ UI 的 [儀表板] 區段可讓客戶藉由提供想要的確切資訊，而不�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

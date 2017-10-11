@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 03/28/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: cc3c0ad193af7625c8c4c1c2e82b6bdc8be33310
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-are-storsimple-8000-series-system-limits"></a>StorSimple 8000 系列的系統有何限制？
 
@@ -60,5 +59,4 @@ StorSimple 提供您的資料中心的擴充性和彈性儲存體。 不過，�
 
 ## <a name="next-steps"></a>後續步驟
 請檢閱 [StorSimple 系統需求](storsimple-8000-system-requirements.md)。
-
 

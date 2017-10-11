@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 23d819ddc3bbcbaf2847cdcc9191407ead0ff43d
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-an-ebod-controller-on-your-storsimple-device"></a>更換 StorSimple 裝置上的 EBOD 控制器
 ## <a name="overview"></a>概觀
@@ -102,10 +102,4 @@ ms.openlocfilehash: 23d819ddc3bbcbaf2847cdcc9191407ead0ff43d
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/27/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: dde0bb6b4f6bc10afdd7d40adc6689d42b37de81
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site"></a>將 VMWare 虛擬機器和實體伺服器容錯回復至內部部署網站
 
@@ -244,4 +243,3 @@ ms.lasthandoff: 07/14/2017
 
 * ExpressRoute 連線應該設定在來源機器所要容錯移轉到的 Azure 虛擬網路上，以及容錯移轉發生時 Azure VM 所位於的 Azure 虛擬網路上。
 * 資料會複寫至公用端點上的 Azure 儲存體帳戶。 若要使用 ExpressRoute 連線，請在 ExpressRoute 中設定與目標資料中心的公用對等互連以進行 Site Recovery 複寫才。
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 141c8adc5e86bddc8a41fd4b760f0c21c63def0f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>使用 .NET 透過 Media Encoder Standard 為資產編碼
 編碼工作是媒體服務中最常見的處理作業。 您建立編碼工作以將媒體檔案從一種編碼轉換成另一種編碼。 編碼時，您可以使用媒體服務內建的 Media Encoder。 您也可以使用媒體服務合作夥伴提供的編碼器；第三方編碼器可透過 Azure Marketplace 取得。 
@@ -192,5 +191,4 @@ Media Encoder Standard 使用 [這裡](http://go.microsoft.com/fwlink/?linkid=61
 ## <a name="next-steps"></a>後續步驟
 [如何使用媒體編碼器標準搭配 .NET 產生縮圖](media-services-dotnet-generate-thumbnail-with-mes.md)
 [媒體服務編碼概觀](media-services-encode-asset.md)
-
 

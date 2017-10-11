@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: a874bc48cc94fff32382ccdb832f0fbd3d08e03f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: eada8f2bcd2488d5ed36b0c24aa3d1b917815517
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒體服務作業 REST API 概觀
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
@@ -121,5 +120,4 @@ Microsoft Azure 媒體服務會接受以 OData 為基礎的 HTTP 要求，而且
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

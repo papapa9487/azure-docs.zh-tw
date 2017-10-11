@@ -8,14 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自訂映像來建立虛擬機器的集區
 
 當您在 Azure Batch 中建立虛擬機器的集區時，可指定虛擬機器 (VM) 映像，以提供集區中每個計算節點的作業系統。 使用 Azure Marketplace 映像，或提供您已備妥的自訂 VHD 映像，即可建立虛擬機器的集區。 當您提供自訂映像時，您可以控制在佈建每個計算節點時的作業系統設定方式。 自訂映像也可以包含已佈建計算節點上可用的應用程式和參考資料。

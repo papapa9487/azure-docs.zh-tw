@@ -17,15 +17,12 @@ ms.date: 06/27/2017
 ms.author: curtand
 ms.custom: aaddev
 ms.reviewer: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fbc12a52555b190d43b5e953fd4d19923a25b0ed
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-azure-ad-b2b-collaboration"></a>什麼是 Azure AD B2B 共同作業？
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AhwrweCBdsc" frameborder="0" allowfullscreen></iframe>
@@ -125,4 +122,3 @@ B2B 共同作業者可以使用自己選擇的身分識別來登入。 如果使
 * [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
 * [B2B 共同作業使用者稽核和報告](active-directory-b2b-auditing-and-reporting.md)
 * [Azure Active Directory 中應用程式管理的文章索引](active-directory-apps-index.md)
-

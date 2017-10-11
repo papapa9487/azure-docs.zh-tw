@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 4dfe9c755f3e7d5414ae04dd4027defd6cef2e4a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
 大部分的行動應用程式都需要將資料儲存在雲端，而 Azure Cosmos DB 正是適用於行動應用程式的雲端資料庫。 行動應用程式開發人員所需的一切盡在其中。 它是完全受管理的資料庫即服務，可依需求進行調整。 無論您的使用者位於全球哪個地方，它都可以透明方式將資料送至您的應用程式。 使用 [Azure Cosmos DB .NET Core SDK](documentdb-sdk-dotnet-core.md)，您可以讓 Xamarin 行動應用程式直接與 Azure Cosmos DB 互動，而不需要經過中介層。
@@ -43,7 +42,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 下列教學課程示範如何使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式。 您可以在 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 中找到本教學課程的完整原始程式碼。
 
 ### <a name="get-started"></a>開始使用
-您可以輕鬆地開始使用 Azure Cosmos DB。 移至 Azure 入口網站，然後建立新的 Azure Cosmos DB 帳戶。 按一下 [快速入門] 索引標籤。 下載已連接至您 Azure Cosmos DB 帳戶的 Xamarin 表單待辦事項清單範例。 
+您可以輕鬆地開始使用 Azure Cosmos DB。 移至 Azure 入口網站，然後建立新的 Azure Cosmos DB 帳戶。 按一下 [快速入門] 索引標籤。下載已連接至您 Azure Cosmos DB 帳戶的 Xamarin 表單待辦事項清單範例。 
 
 ![適用於行動應用程式的 Azure Cosmos DB 快速入門](media/mobile-apps-with-xamarin/cosmos-db-quickstart.png)
 
@@ -105,7 +104,6 @@ Azure Cosmos DB 是受管理的資料庫即服務。 隨著使用者人數成長
 * 尋找更多 [.NET 應用程式](documentdb-dotnet-samples.md)的程式碼範例。
 * 了解 [Azure Cosmos DB 豐富查詢功能](documentdb-sql-query.md)。
 * 了解 [Azure Cosmos DB 中的地理空間支援](geospatial.md)。
-
 
 
 

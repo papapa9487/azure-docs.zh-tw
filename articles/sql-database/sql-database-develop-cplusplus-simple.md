@@ -15,12 +15,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: ee7398304b7ba864eff17eb6e7d7c3777f4a9fe6
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>使用 C 和 C++ 連接到 SQL Database
 這篇文章是以嘗試連接到 Azure SQL DB 的 C 和 C++ 開發人員為目標。 它會分成區段，讓您可以跳到您最感興趣的區段。 
@@ -135,5 +134,4 @@ Azure 目前有兩個裝載 SQL Server 工作負載的選項︰Azure SQL Databas
 ## <a name="additional-resources"></a>其他資源
 * [多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * 瀏覽所有 [SQL Database 的能力](https://azure.microsoft.com/services/sql-database/)
-
 

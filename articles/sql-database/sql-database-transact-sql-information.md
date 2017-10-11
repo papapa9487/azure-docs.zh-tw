@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 105255696c59346f3a8f0013d98602c9f17b7661
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: c4efec378a31852feacfce4ed4f040f80284e230
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解決移轉至 SQL Database 期間的 Transact-SQL 差異   
 [將您的資料庫從 SQL Server 移轉](sql-database-cloud-migrate.md)至 Azure SQL Server 時，您可能會發現您的資料庫必須先進行一些再造，才能移轉 SQL Server。 本主題提供一些指引，以協助您執行此再造作業，以及了解為何必須執行再造的基礎原因。 若要偵測不相容性，請使用 [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595)。
@@ -92,5 +90,4 @@ Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關主�
 ## <a name="next-steps"></a>後續步驟
 
 如需 SQL Database 所支援和不支援的功能清單，請參閱 [Azure SQL Database 功能比較](sql-database-features.md)。 此頁面上的清單可補充該指引和功能主題，並將焦點放在 Transact-SQL 陳述式。
-
 

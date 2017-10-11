@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-importexport-service-manifest-file-format"></a>Azure 匯入/匯出服務資訊清單檔案格式
 磁碟機資訊清單檔案描述 Azure Blob 儲存體中的 Blob 與包含匯入或匯出工作的磁碟機上的檔案之間的對應。 針對匯入作業，在磁碟機準備程序期間會建立資訊清單檔案，此檔案在磁碟機傳送至 Azure 資料中心之前會儲存在磁碟機上。 匯出作業期間，Azure 匯入/匯出服務會建立資訊清單，並將其儲存在磁碟機上。  
   
@@ -137,4 +135,3 @@ block-list ::=
 ## <a name="next-steps"></a>後續步驟
  
 * [儲存體匯入/匯出 REST API](/rest/api/storageimportexport/)
-

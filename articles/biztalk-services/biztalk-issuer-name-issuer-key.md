@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71f9dd111ebdbe885f33d162b2ea320dfaa167bb
-ms.openlocfilehash: 4fb13a158c660105a5fc8f79a92c67ba65c5356d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b9fd985c23558596408e78eadae00dd0f95c4214
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk 服務：簽發者名稱和簽發者金鑰
 
@@ -52,7 +50,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 4. 選取您的訂用帳戶：`select-azuresubscription <name of your subscription>` 
 5. 建立新的命名空間：`new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
-    範例：    `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+    範例：`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
 5. 建立新的 ACS 命名空間時 (這可能要花幾分鐘的時間)，會在連接字串中列出簽發者名稱和簽發者金鑰值： 
 
@@ -102,5 +100,4 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 * [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
 * [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-
 

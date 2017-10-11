@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="generic-sql-connector-technical-reference" class="xliff"></a>
-
-# 一般 SQL 連接器技術參考
+# <a name="generic-sql-connector-technical-reference"></a>一般 SQL 連接器技術參考
 本文說明一般 SQL 連接器。 本文適用於下列產品：
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -34,9 +31,7 @@ ms.lasthandoff: 05/12/2017
 
 若要查看這個作用中的連接器，請參閱 [Generic SQL Connector step-by-step (一般 SQL 連接器的逐步解說)](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) 一文。
 
-<a id="overview-of-the-generic-sql-connector" class="xliff"></a>
-
-## 一般 SQL 連接器概觀
+## <a name="overview-of-the-generic-sql-connector"></a>一般 SQL 連接器概觀
 一般 SQL 連接器可讓您整合同步處理服務與提供 ODBC 連線的資料庫系統。  
 
 目前的連接器版本大致支援下列功能：
@@ -48,37 +43,27 @@ ms.lasthandoff: 05/12/2017
 | 作業 |<li>完整匯入和差異匯入、匯出</li><li>針對匯出：新增、刪除、更新和取代</li><li>設定密碼、變更密碼</li> |
 | 結構描述 |<li>動態探索物件和屬性</li> |
 
-<a id="prerequisites" class="xliff"></a>
-
-### 必要條件
+### <a name="prerequisites"></a>必要條件
 在您使用連接器之前，請確定同步處理伺服器上有下列項目：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本
 * 64 位元的 ODBC 用戶端驅動程式
 
-<a id="permissions-in-connected-data-source" class="xliff"></a>
-
-### 連接的資料來源權限
+### <a name="permissions-in-connected-data-source"></a>連接的資料來源權限
 若要在一般 SQL 連接器中建立或執行任何支援的工作，您必須具備：
 
 * db_datareader
 * db_datawriter
 
-<a id="ports-and-protocols" class="xliff"></a>
-
-### 連接埠和通訊協定
+### <a name="ports-and-protocols"></a>連接埠和通訊協定
 如需 ODBC 驅動程式運作所需的連接埠，請參閱資料庫廠商的說明文件。
 
-<a id="create-a-new-connector" class="xliff"></a>
-
-## 建立新的連接器
+## <a name="create-a-new-connector"></a>建立新的連接器
 若要建立一般 SQL 連接器，請在 [同步處理服務] 中選取 [管理代理程式] 和 [建立]。 選取 [一般 SQL (Microsoft)] 連接器。
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/createconnector.png)
 
-<a id="connectivity" class="xliff"></a>
-
-### 連線能力
+### <a name="connectivity"></a>連線能力
 連接器會使用 ODBC DSN 檔案進行連線。 使用在 [系統管理工具] 下的開始功能表中找到的 [ODBC 資料來源]，建立 DSN 檔案。 在系統管理工具中，建立 [檔案 DSN]  ，以便提供給連接器。
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/connectivity.png)
@@ -102,9 +87,7 @@ ms.lasthandoff: 05/12/2017
 
 **匯出類型：物件取代**：在匯出期間，只有一些屬性已變更時，包含所有屬性的整個物件則會匯出並取代現有的物件。
 
-<a id="schema-1-detect-object-types" class="xliff"></a>
-
-### 結構描述 1 (偵測物件類型)
+### <a name="schema-1-detect-object-types"></a>結構描述 1 (偵測物件類型)
 此頁面上，您將設定連接器要如何在資料庫中尋找不同的物件類型。
 
 每個物件類型會顯示為一個資料分割，並且在 [設定資料分割和階層] 上進一步設定。
@@ -119,9 +102,7 @@ ms.lasthandoff: 05/12/2017
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 * **SQL 查詢**：此選項可讓您提供 SQL 查詢，以傳回包含物件類型的單一資料行，例如 `SELECT [Column Name] FROM TABLENAME`。 傳回的資料行必須是字串類型 (varchar)。
 
-<a id="schema-2-detect-attribute-types" class="xliff"></a>
-
-### 結構描述 2 (偵測屬性類型)
+### <a name="schema-2-detect-attribute-types"></a>結構描述 2 (偵測屬性類型)
 在此頁面上，您將設定要如何偵測屬性名稱和類型。 系統會針對在前一頁偵測到的每個物件類型，列出設定選項。
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
@@ -131,9 +112,7 @@ ms.lasthandoff: 05/12/2017
 * **資料表/檢視/預存程序**：提供資料表/檢視/預存程序的名稱，以便用來尋找屬性名稱。 如果您使用預存程序，也需以下列格式提供其參數： **[名稱]:[方向]:[值]**。 在個別一行上提供每個參數 (使用 Ctrl+Enter 來換行)。 若要偵測多重值屬性中的屬性名稱，請提供以逗號分隔的資料表或檢視清單。 當父和子資料表具有相同的資料行名稱時，則不支援多重值案例。
 * **SQL 查詢**：此選項可讓您提供 SQL 查詢，以傳回包含屬性名稱的單一資料行，例如 `SELECT [Column Name] FROM TABLENAME`。 傳回的資料行必須是字串類型 (varchar)。
 
-<a id="schema-3-define-anchor-and-dn" class="xliff"></a>
-
-### 結構描述 3 (定義錨點和 DN)
+### <a name="schema-3-define-anchor-and-dn"></a>結構描述 3 (定義錨點和 DN)
 此頁面可讓您為每個偵測到的物件類型設定錨點和 DN 屬性。 您可以選取多個屬性，讓錨點變成唯一的。
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
@@ -144,9 +123,7 @@ ms.lasthandoff: 05/12/2017
 
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
-<a id="schema-4-define-attribute-type-reference-and-direction" class="xliff"></a>
-
-### 結構描述 4 (定義屬性類型、參考和方向)
+### <a name="schema-4-define-attribute-type-reference-and-direction"></a>結構描述 4 (定義屬性類型、參考和方向)
 此頁面可讓您設定每個屬性的屬性類型，如整數、二進位或布林值和方向。 [結構描述 2]  頁面中的所有屬性都會列出，包括多重值屬性。
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
@@ -162,9 +139,7 @@ ms.lasthandoff: 05/12/2017
 * **巢狀資料表** 視為一個資料行的資料庫資料表。 Oracle 不會以任何特定順序儲存巢狀資料表的資料列。 不過，當您將巢狀資料表擷取至 PL/SQL 變數時，資料列便會有從 1 開始的連續下標。 這可讓您取得個別資料列的類似陣列存取。
 * **VARRYS** 。
 
-<a id="schema-5-define-partition-for-reference-attributes" class="xliff"></a>
-
-### 結構描述 5 (定義參考屬性的資料分割)
+### <a name="schema-5-define-partition-for-reference-attributes"></a>結構描述 5 (定義參考屬性的資料分割)
 在此頁面上，您會為所有參考屬性設定屬性所參考的資料分割 (物件類型)。
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
@@ -189,9 +164,7 @@ ms.lasthandoff: 05/12/2017
 
 
 
-<a id="global-parameters" class="xliff"></a>
-
-### 全域參數
+### <a name="global-parameters"></a>全域參數
 [全域參數] 頁面用來設定差異匯入、日期/時間格式，以及密碼方法。
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
@@ -230,9 +203,7 @@ ms.lasthandoff: 05/12/2017
 您也必須在 [設定延伸模組]  頁面上啟用密碼管理。
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
 
-<a id="configure-partitions-and-hierarchies" class="xliff"></a>
-
-### 設定資料分割和階層
+### <a name="configure-partitions-and-hierarchies"></a>設定資料分割和階層
 在資料分割和階層頁面上，選取所有物件類型。 每個物件類型都在自己的資料分割中。
 
 ![partitions1](./media/active-directory-aadconnectsync-connector-genericsql/partitions1.png)
@@ -241,21 +212,15 @@ ms.lasthandoff: 05/12/2017
 
 ![partitions2](./media/active-directory-aadconnectsync-connector-genericsql/partitions2.png)
 
-<a id="configure-anchors" class="xliff"></a>
-
-### 設定錨點
+### <a name="configure-anchors"></a>設定錨點
 此頁面是唯讀頁面，因為已經定義錨點。 選取的錨點屬性一律會附加物件類型，以確保它在所有物件類型中保持獨一無二。
 
 ![錨點](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)
 
-<a id="configure-run-step-parameter" class="xliff"></a>
-
-## 設定執行步驟參數
+## <a name="configure-run-step-parameter"></a>設定執行步驟參數
 這些步驟設定於連接器的執行設定檔。 這些設定會進行匯入和匯出資料的實際工作。
 
-<a id="full-and-delta-import" class="xliff"></a>
-
-### 完整和差異匯入
+### <a name="full-and-delta-import"></a>完整和差異匯入
 一般 SQL 連接器支援使用下列方法的完整和差異匯入：
 
 * 資料表
@@ -294,9 +259,7 @@ ms.lasthandoff: 05/12/2017
 * 不支援多個結果集查詢。
 * SQL 查詢支援分頁並提供開始索引和結束索引做為變數，以支援分頁。
 
-<a id="delta-import" class="xliff"></a>
-
-### 差異匯入
+### <a name="delta-import"></a>差異匯入
 ![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)
 
 相較於完整匯入，差異匯入設定需要一些更詳細的設定。
@@ -307,9 +270,7 @@ ms.lasthandoff: 05/12/2017
 * 如果您者選擇 [浮水印] 來追蹤差異變更，則在 [浮水印資料行名稱] 中提供包含作業資訊的資料行名稱。
 * 變更類型需要 [變更型別屬性]  資料行。 此資料行會將主要資料表或多重值資料表中發生的變更，對應至差異檢視中的變更類型。 此資料行可以包含適用於屬性層級變更的 Modify_Attribute 變更類型，或適用於物件層級變更的 [新增]、[修改] 或 [刪除] 變更類型。 如果除了預設值 [新增]、[修改] 或 [刪除] 以外，您可以使用此選項來定義這些值。
 
-<a id="export" class="xliff"></a>
-
-### 匯出
+### <a name="export"></a>匯出
 ![runstep7](./media/active-directory-aadconnectsync-connector-genericsql/runstep7.png)
 
 一般 SQL 連接器支援使用下列四種方法的匯出：
@@ -343,8 +304,5 @@ ms.lasthandoff: 05/12/2017
 * **刪除查詢**：如有任何物件來到連接器以便在各自的資料表中刪除，就會執行此查詢。
 * 從結構描述選取的屬性會做為查詢的參數值，例如 `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
-<a id="troubleshooting" class="xliff"></a>
-
-## 疑難排解
+## <a name="troubleshooting"></a>疑難排解
 * 如需如何啟用記錄來疑難排解連接器的資訊，請參閱 [如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
-

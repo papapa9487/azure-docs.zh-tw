@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理員設定檔
 
 流量管理員設定檔會使用流量路由方法來控制分散到您雲端服務或網站端點的流量。 本文說明如何建立及管理這些設定檔。
@@ -76,4 +74,3 @@ ms.lasthandoff: 06/02/2017
 * [設定地理路由方法](traffic-manager-configure-geographic-routing-method.md) 
 * [設定加權路由方法](traffic-manager-configure-weighted-routing-method.md)
 * [設定效能路由方法](traffic-manager-configure-performance-routing-method.md)
-

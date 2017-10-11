@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f2b0655bdddc162c7c8ef7d478b2ce1fd1993f15
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7df2fd7ef838465a60e3b0ce2f889127b7487684
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="managing-alerts-with-microsoft-monitoring"></a>使用 Microsoft 監視管理警示
 警示表示有一些需要系統管理員注意的問題。  在如何建立警示、如何管理和分析警示以及在偵測到嚴重問題時如何通知您的方面，System Center Operations Manager (SCOM) 與 Operations Management Suite (OMS) 中的 Log Analytics 之間有一些顯著的差異。
@@ -74,5 +73,4 @@ SCOM 中的復原以及 OMS 中的 Runbook 都可以包含 PowerShell 指令碼�
 
 ## <a name="next-steps"></a>後續步驟
 * 了解 [System Center Operations Manager (SCOM) 中警示](https://technet.microsoft.com/library/hh212913.aspx)的詳細資料。
-
 

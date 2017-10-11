@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 6656c9abf8483ee98c0cb1a16c06d078e32240f2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>教學課程：Azure Active Directory 與 Kantega SSO for Bitbucket 整合
 
@@ -345,5 +343,4 @@ Kantega SSO for Bitbucket 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforbitbucket-tutorial/tutorial_general_203.png
-
 

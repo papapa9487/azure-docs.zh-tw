@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 1303815755584e912891d501018b257b96e5f063
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-overview"></a>Azure 安全性概觀
 Azure.com 上的 Microsoft Azure 安全性資訊網站是您 Azure 安全性問題的技術答案的位置。 如果您對 Azure 法規遵循以及 Azure 如何保護其專屬基礎結構感興趣，請瀏覽 [Microsoft 信任中心](https://www.microsoft.com/TrustCenter/default.aspx)。
@@ -53,4 +51,3 @@ Azure 安全性資訊網站目前處理下列類別︰
 >
 
 我們希望您的輸入！ 如果有您想要新增的類別，請讓我們知道！ 如果有您想要新增至現有類別的文章，也請讓我們知道！ 您可以使用下面的 [註解] 區段，或寫信給我們： [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) ，我們會將您的建議加入我們的計畫中。
-

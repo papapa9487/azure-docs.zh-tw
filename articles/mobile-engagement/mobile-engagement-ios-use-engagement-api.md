@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: bf672384407588ddc2c4998f42f6893e2638c592
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a31424da98205e97bdf57010cccfd044360f03dd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-ios"></a>如何在 iOS 上使用 Engagement API
 本文件是＜如何在 iOS 上整合 Engagement＞文件的附加說明：有關如何使用 Engagement API 來報告您應用程式的統計資料，本文件提供了深入的詳細說明。
@@ -268,4 +267,3 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
     {"birthdate":"1983-12-07","gender":"female"}
-

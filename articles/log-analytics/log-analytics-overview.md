@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 9fcf23f5ff47bd7457e5afa69eb2b9b33e0bf0fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-log-analytics"></a>什麼是 Log Analytics？
 Log Analytics 是 [Operations Management Suite \(OMS\)](../operations-management-suite/operations-management-suite-overview.md) 中的一項服務，可監視您的雲端和內部部署環境，以維護其可用性和效能。  它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。  本文提供 Log Analytics 所提供值的簡短討論、其運作方式的概觀，並連結至更詳細的內容，以便您進一步探究。
@@ -81,5 +79,4 @@ Log Analytics 的部署需求非常少，因為中心元件託管於 Azure 雲�
 * [申請免費的 Log Analytics 帳戶](log-analytics-get-started.md) ，在自己的環境中測試。
 * 檢視可用來將資料收集到 OMS 存放庫的不同 [資料來源](log-analytics-data-sources.md) 。
 * [瀏覽方案庫中可用的方案](log-analytics-add-solutions.md)，將功能新增至 Log Analytics。
-
 

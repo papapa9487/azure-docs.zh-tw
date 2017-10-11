@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cf39b922e51dd60b5b2c51cb7030436c60232a5
-ms.openlocfilehash: 88fc29b81c9502374a25cb34175ad1ee7c25423f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>使用 StorSimple Snapshot Manager 來建立和管理備份原則
 ## <a name="overview"></a>概觀
@@ -63,11 +61,11 @@ ms.lasthandoff: 11/17/2016
 
 建立備份原則之後，下列資訊會出現在 [ **結果** ] 窗格中：
 
-* **名稱** ] – 備份原則的名稱。
-* **類型** ] – 本機快照或雲端快照。
-* **Volume Group** ] – 與原則相關聯的磁碟區群組。
-* **保留** ] – 保留的快照數目；上限為 64。
-* **建立時間** ] – 此原則的建立日期。
+* **名稱**  – 備份原則的名稱。
+* **類型**  – 本機快照或雲端快照。
+* **Volume Group**  – 與原則相關聯的磁碟區群組。
+* **保留**  – 保留的快照數目；上限為 64。
+* **建立時間**  – 此原則的建立日期。
 * [已啟用] – 原則目前是否生效：**True** 表示生效；**False** 表示未生效。
 
 ## <a name="edit-a-backup-policy"></a>編輯備份原則
@@ -95,4 +93,3 @@ ms.lasthandoff: 11/17/2016
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 * 了解如何 [使用 StorSimple Snapshot Manager 來檢視和管理備份工作](storsimple-snapshot-manager-manage-backup-jobs.md)。
-

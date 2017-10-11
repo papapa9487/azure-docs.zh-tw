@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: f9bcaa8e55be6e8fddaf88ebc3f18f5dbb2811e4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-6-prepare-hyper-v-hosts-for-replication-to-azure"></a>步驟 6：準備 Hyper-V 主機複寫至 Azure
 
 使用本文中的指示來準備內部部署 Hyper-V 主機與 Azure Site Recovery 進行互動。
@@ -45,5 +43,4 @@ ms.lasthandoff: 07/20/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 7：建立保存庫](hyper-v-site-walkthrough-create-vault.md)
-
 

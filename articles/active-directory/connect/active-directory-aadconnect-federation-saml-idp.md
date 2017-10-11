@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 048697f87383662506fb851bb3ea510c2cddf043
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 識別提供者 (IdP) 來進行單一登入
 
 本主題所含的資訊是關於使用 SAML 2.0 相容 SP-Lite 設定檔型識別提供者來作為慣用的 Security Token Service (STS)/識別提供者。 在已有內部部署的使用者目錄和密碼存放區並可使用 SAML 2.0 來加以存取時，這種做法非常實用。 您可以使用這個現有的使用者目錄來登入 Office 365 和其他受到 Azure AD 保護的資源。 SAML 2.0 SP-Lite 設定檔是以廣為使用的安全性聲明標記語言 (SAML) 同盟身分識別標準作為基礎，以提供登入和屬性交換架構。
@@ -271,4 +269,3 @@ Microsoft 已提供一項工具供您用來測試 SAML 2.0 型識別提供者。
 - [使用 Azure AD Connect 管理和自訂 Active Directory Federation Services](active-directory-aadconnect-federation-management.md)
 - [Azure AD 同盟相容性清單](active-directory-aadconnect-federation-compatibility.md)
 - [Azure AD Connect 自訂安裝](active-directory-aadconnect-get-started-custom.md)
-

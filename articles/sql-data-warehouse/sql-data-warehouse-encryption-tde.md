@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: b1db3bdfdfb54bda325c9b971cfcb4dd5efa333a
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>開始使用 SQL 資料倉儲中的透明資料加密 (TDE)
 > [!div class="op_single_selector"]
@@ -41,7 +40,7 @@ ms.lasthandoff: 04/03/2017
 2. 在資料庫刀鋒視窗中，按一下 [設定]  按鈕
 3. 選取 [透明資料加密]  選項 ![][1]
 4. 選取 [開啟] 設定 ![][2]
-5. 選取 [儲存]****
+5. 選取 [儲存]
    ![][3]  
 
 ## <a name="disabling-encryption"></a>停用加密
@@ -51,7 +50,7 @@ ms.lasthandoff: 04/03/2017
 2. 在資料庫刀鋒視窗中，按一下 [設定]  按鈕
 3. 選取 [透明資料加密]  選項 ![][1]
 4. 選取 [關閉] 設定 ![][4]
-5. 選取 [儲存]****
+5. 選取 [儲存]
    ![][5]  
 
 ## <a name="encryption-dmvs"></a>加密 DMV
@@ -73,4 +72,3 @@ ms.lasthandoff: 04/03/2017
 [5]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png
 
 <!--Link references-->
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/09/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 07635b0eb4650f0c30898ea1600697dacb33477c
 ms.openlocfilehash: b78e9b7161207a74880e912241d5e965b353d1c5
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>教學課程：Azure Active Directory 與 Splunk Enterprise and Splunk Cloud 整合
 
 在本教學課程中，您會了解如何整合 Splunk Enterprise and Splunk Cloud 與 Azure Active Directory (Azure AD)。
@@ -127,13 +125,13 @@ Splunk Enterprise and Splunk Cloud 與 Azure AD 整合提供下列優點：
   1. 在 [登入 URL] 文字方塊中，使用以下模式輸入使用者登入您的 Splunk Enterprise and Splunk Cloud 應用程式時所使用的 URL：`https://<splunkserverUrl>/en-US/app/launcher/home`
   2. 在 [識別碼] 文字方塊中，輸入 Splunk 伺服器的 URL。
   3. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<splunkserver>/saml/acs`
-  4. 按 [下一步] 。
+  4. 按一下 [下一步] 。
  
 4. 在 [設定在 Splunk Enterprise and Splunk Cloud 設定單一登入] 頁面上，執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_splunk_05.png)
   1. 按一下 [下載中繼資料]，然後將檔案儲存在您的電腦上。
-  2. 按 [下一步] 。
+  2. 按一下 [下一步] 。
 
 5. 若要為您的應用程式設定 SSO，請連絡 Splunk Enterprise and Splunk Cloud 支援小組，並提供下列資訊：
 
@@ -172,7 +170,7 @@ Splunk Enterprise and Splunk Cloud 與 Azure AD 整合提供下列優點：
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/create_aaduser_05.png) 
   1. 針對 [使用者類型]，選取 [您組織中的新使用者]。
   2. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
-  3. 按 [下一步] 。
+  3. 按一下 [下一步] 。
 
 6.  在 [使用者設定檔]  對話方塊頁面上，執行下列步驟：
   
@@ -181,7 +179,7 @@ Splunk Enterprise and Splunk Cloud 與 Azure AD 整合提供下列優點：
   2. 在 [姓氏] 文字方塊中，輸入 **Simon**。
   3. 在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
   4. 在 [角色] 清單中選取 [使用者]。
-  5. 按 [下一步] 。
+  5. 按一下 [下一步] 。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
 
@@ -254,4 +252,3 @@ Splunk Enterprise and Splunk Cloud 與 Azure AD 整合提供下列優點：
 [203]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-splunk-enterprise-and-splunk-cloud-tutorial/tutorial_general_205.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 3f457b1b82d1f75ec8796152b5c93f852175e1a5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: ed20fca35070c190bb63925d0a57cf919bcdd96c
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -447,5 +446,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 �
 
 ## <a name="next-steps"></a>後續步驟
 現在，您已設定內容金鑰授權原則，請移至 [如何設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md) 主題。
-
 

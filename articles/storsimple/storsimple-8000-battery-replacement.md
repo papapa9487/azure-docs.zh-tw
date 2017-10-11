@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 174a3163082594ea6a49b7f5a78857848f8f0566
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>更換 StorSimple 裝置上的備份電池模組
 
@@ -109,5 +107,4 @@ StorSimple 裝置的備份電池模組是現場可置換裝置。 在 PCM 中安
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [StorSimple 硬體元件更換](storsimple-8000-hardware-component-replacement.md)。
-
 

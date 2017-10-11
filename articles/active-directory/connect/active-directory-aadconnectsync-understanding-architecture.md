@@ -14,23 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d3ba2d11d66ecc253a34e7c4da422bf9fdbd1bd
-ms.openlocfilehash: da69c6f8d0d831349e50548c8883db249b4ee60f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 51082ad453d53f56f30f814b78578801c00f4827
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-# Azure AD Connect 同步處理：了解架構
-<a id="azure-ad-connect-sync-understanding-the-architecture" class="xliff"></a>
+# <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect 同步處理：了解架構
 本主題涵蓋 Azure AD Connect 同步處理的基本架構。 在許多方面，它類似於其前身產品 MIIS 2003、ILM 2007 和 FIM 2010。 Azure AD Connect 同步處理是這些技術的進化。 如果您很熟悉上述任何較早期的技術，也會對本主題的內容感到熟悉。 如果您是同步處理的新手，這個主題很適合您。 但是，不一定需要了解本主題的詳細資料，才能成功地自訂 Azure AD Connect 同步處理 (在本主題中稱為「同步處理引擎」)。
 
-## 架構
-<a id="architecture" class="xliff"></a>
+## <a name="architecture"></a>架構
 同步處理引擎會為多個已連接的資料來源中儲存的物件建立整合式檢視，並管理這些資料來源中的身分識別資訊。 此整合式檢視取決於從連接的資料來源擷取的身分識別資訊，以及一組用來決定如何處理此資訊的規則。
 
-### 連接的資料來源和連接器
-<a id="connected-data-sources-and-connectors" class="xliff"></a>
+### <a name="connected-data-sources-and-connectors"></a>連接的資料來源和連接器
 同步處理引擎會處理來自不同資料儲存機制 (例如 Active Directory 或 SQL Server 資料庫) 的身分識別資訊。 每個會將其資料組織成類似資料庫格式並提供標準資料存取方法的資料儲存機制，都是同步處理引擎的潛在資料來源候選項目。 由同步處理引擎進行同步處理的資料儲存機制稱為**連接的資料來源**或**連接的目錄** (CD)。
 
 同步處理引擎會在稱為 **連接器**的模組中，對與連接之資料來源的互動進行封裝。 每種類型的連接資料來源都有特定的連接器。 連接器會將必要的作業轉譯成連接的資料來源所認識的格式。
@@ -47,8 +43,7 @@ ms.lasthandoff: 02/06/2017
 
 如果連接的資料來源使用結構化元件 (例如資料分割或容器) 來組織物件，您可以限制連接的資料來源中用於特定解決方案的區域。
 
-### 同步處理引擎命名空間的內部結構
-<a id="internal-structure-of-the-sync-engine-namespace" class="xliff"></a>
+### <a name="internal-structure-of-the-sync-engine-namespace"></a>同步處理引擎命名空間的內部結構
 整個同步處理引擎命名空間是由用來儲存身分識別資訊的兩個命名空間所組成。 這兩個命名空間為：
 
 * 連接器空間 (CS)
@@ -66,12 +61,10 @@ ms.lasthandoff: 02/06/2017
 
 ![Arch2](./media/active-directory-aadconnectsync-understanding-architecture/arch2.png)
 
-## 同步處理引擎身分識別物件
-<a id="sync-engine-identity-objects" class="xliff"></a>
+## <a name="sync-engine-identity-objects"></a>同步處理引擎身分識別物件
 同步處理引擎中的物件是連接的資料來源中任一個物件的代表項目，或同步處理引擎對於這些物件的整合式檢視。 每一個同步處理引擎物件都必須有全域唯一識別碼 (GUID)。 Guid 可提供資料完整性以及物件之間的快速關聯性。
 
-### 連接器空間物件
-<a id="connector-space-objects" class="xliff"></a>
+### <a name="connector-space-objects"></a>連接器空間物件
 當同步處理引擎與連接的資料來源通訊時，它會讀取連接的資料來源中的身分識別資訊，並使用該資訊在連接器空間中建立身分識別物件的代表項目。 您無法個別建立或刪除這些物件。 不過，您可以手動刪除連接器空間中的所有物件。
 
 連接器空間中的所有物件都具有兩個屬性：
@@ -90,8 +83,7 @@ ms.lasthandoff: 02/06/2017
 * 預備物件
 * 預留位置
 
-### 預備物件
-<a id="staging-objects" class="xliff"></a>
+### <a name="staging-objects"></a>預備物件
 預備物件表示連接的資料來源中指定的物件類型執行個體。 除了 GUID 和辨別名稱以外，預備物件一律有可指出物件類型的值。
 
 已匯入的預備物件一律有錨點屬性的值。 同步處理引擎最近佈建且正在連接的資料來源中進行建立的預備物件，沒有錨點屬性的值。
@@ -112,24 +104,21 @@ ms.lasthandoff: 02/06/2017
 
 同步處理引擎會從連接的資料來源重新匯入物件，以確認匯出物件。 當同步處理引擎在下一次從該連接的資料來源匯入期間收到物件時，匯出物件就會變成匯入物件。
 
-### 預留位置
-<a id="placeholders" class="xliff"></a>
+### <a name="placeholders"></a>預留位置
 同步處理引擎會使用一般命名空間來儲存物件。 不過，有些連接的資料來源 (例如 Active Directory) 會使用階層式命名空間。 若要將階層式命名空間中的資訊轉換成一般命名空間，同步處理引擎會使用預留位置來保留階層。
 
 每個預留位置均代表物件的階層名稱元件 (例如，組織單位)，而且該物件尚未匯入同步處理引擎，但需要建構階層式名稱。 預留位置會填補在連接的資料來源中參考不是連接器空間中預備物件的物件所產生的間距。
 
 同步處理引擎也會使用預留位置來儲存尚未匯入的參考物件。 例如，如果已設定同步處理要包含 *Abbie Spencer* 物件的管理員屬性，而且接收的值是尚未匯入的物件 (例如 *CN=Lee Sperry,CN=Users,DC=fabrikam,DC=com)*，則管理員資訊會儲存為連接器空間中的預留位置。 如果稍後匯入管理員物件，則代表此管理員的預備物件會覆寫預留位置物件。
 
-### Metaverse 物件
-<a id="metaverse-objects" class="xliff"></a>
+### <a name="metaverse-objects"></a>Metaverse 物件
 Metaverse 物件包含同步處理引擎具有的連接器空間中預備物件的彙總檢視。 同步處理引擎會使用匯入物件中的資訊建立 Metaverse 物件。 數個連接器空間物件可以連結至單一 Metaverse 物件，但連接器空間物件無法連結到一個以上的 Metaverse 物件。
 
 無法以手動方式建立或刪除 Metaverse 物件。 同步處理引擎會自動刪除沒有連接器空間中任何連接器空間物件之連結的 Metaverse 物件。
 
 若要將連接的資料來源中的物件對應至 Metaverse 中對應的物件類型，同步處理引擎會提供可延伸的結構描述，其中包含一組預先定義的物件類型和相關聯的屬性。 您可以為 metaverse 物件建立新的物件類型和屬性。 屬性可以有單一值或多個值，而屬性類型可以是字串、參考、數字和布林值。
 
-### 預備物件和 Metaverse 物件之間的關聯性
-<a id="relationships-between-staging-objects-and-metaverse-objects" class="xliff"></a>
+### <a name="relationships-between-staging-objects-and-metaverse-objects"></a>預備物件和 Metaverse 物件之間的關聯性
 在同步處理引擎命名空間內，預備物件和 Metaverse 物件之間的連結關聯性會啟用資料流。 連結至 Metaverse 物件的預備物件稱為**聯結的物件** (或**連接器物件**)。 未連結至 Metaverse 物件的預備物件稱為**分離的物件** (或**中斷器物件**)。 偏好使用聯結和分離詞彙，才不會與負責從連接的目錄匯入和匯出資料的連接器混淆。
 
 預留位置永遠不會連結至 Metaverse 物件
@@ -150,8 +139,7 @@ Metaverse 物件包含同步處理引擎具有的連接器空間中預備物件�
 
 匯入物件會建立為分離物件。 匯出物件必須是聯結物件。 系統邏輯會強制執行這項規則，並刪除每一個不是聯結物件的匯出物件。
 
-## 同步處理引擎身分識別管理程序
-<a id="sync-engine-identity-management-process" class="xliff"></a>
+## <a name="sync-engine-identity-management-process"></a>同步處理引擎身分識別管理程序
 身分識別管理程序可控制在不同的連接資料來源之間更新身分識別資訊的方式。 身分識別管理可分為三個程序：
 
 * Import
@@ -168,8 +156,7 @@ Metaverse 物件包含同步處理引擎具有的連接器空間中預備物件�
 
 ![Arch6](./media/active-directory-aadconnectsync-understanding-architecture/arch6.png)
 
-### 匯入程序
-<a id="import-process" class="xliff"></a>
+### <a name="import-process"></a>匯入程序
 在匯入過程中，同步處理引擎會評估身分識別資訊的更新。 同步處理引擎會比較從連接的資料來源收到的身分識別資訊與預備物件的身分識別資訊，以判斷預備物件是否需要更新。 如果必須使用新資料更新預備物件，則預備物件會標示為「擱置匯入」。
 
 在同步處理之前預備連接器空間中的物件，同步處理引擎即可只處理已變更的身分識別資訊。 此處理可提供下列優點：
@@ -197,8 +184,7 @@ Metaverse 物件包含同步處理引擎具有的連接器空間中預備物件�
 
 設定預備物件的擱置匯入狀態，就可以大幅減少在同步處理期間處理的資料量，因為這麼做可讓系統只處理已更新資料的物件。
 
-### 同步處理程序
-<a id="synchronization-process" class="xliff"></a>
+### <a name="synchronization-process"></a>同步處理程序
 同步處理是由兩個相關的程序所組成：
 
 * 輸入同步處理：適用於使用連接器空間中的資料更新 Metaverse 的內容時。
@@ -254,8 +240,7 @@ Metaverse 物件包含同步處理引擎具有的連接器空間中預備物件�
 
 匯出屬性流程也會發生在輸出同步處理過程中，就類似於匯入屬性流程發生於輸入同步處理期間。 匯出屬性流程只會發生於聯結的 Metaverse 與匯出物件之間。
 
-### 匯出程序
-<a id="export-process" class="xliff"></a>
+### <a name="export-process"></a>匯出程序
 在匯出過程中，同步處理引擎會檢查連接器空間中所有標示為「擱置匯出」的匯出物件，然後將更新傳送到連接的資料來源。
 
 同步處理引擎可以判斷匯出是否成功，但無法充分判斷身分識別管理程序是否完成。 其他程序永遠可以變更連接的資料來源中的物件。 因為同步處理引擎對於連接的資料來源沒有持續連線，所以無法只根據成功匯出通知，對連接的資料來源中的物件屬性進行假設。
@@ -268,10 +253,8 @@ Metaverse 物件包含同步處理引擎具有的連接器空間中預備物件�
 
 例如，如果同步處理引擎將值為 5 的屬性 C 匯出至連接的資料來源，它會在匯出狀態記憶體中儲存 C=5。 此物件的每次額外匯出都會導致嘗試再度將 C=5 匯出到連接的資料來源，因為同步處理引擎假設此值尚未持續地套用至物件 (也就是說，除非最近從連接的資料來源匯入了不同的值)。 在物件匯入作業期間收到 C=5 時，就會清除匯出記憶體。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md) 組態。
 
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-
 

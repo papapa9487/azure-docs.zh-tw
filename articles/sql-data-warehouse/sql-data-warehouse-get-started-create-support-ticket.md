@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 889776269aa3d722115ea0632b7c3db2775924eb
-ms.openlocfilehash: cc3bc8a0463842ba11b9cdcc996319e2d811ce8a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 058ff1229acee5d03db7c0305c5565ae95a85758
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-a-support-ticket-for-sql-data-warehouse"></a>如何為 SQL 資料倉儲建立支援票證
 如果您的 SQL 資料倉儲有任何問題，請建立支援票證，以便我們的工程小組協助您。
@@ -100,5 +98,4 @@ ms.lasthandoff: 02/17/2017
 [Microsoft Premier online portal]: https://premier.microsoft.com/
 [Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw/
 [Azure SQL Data Warehouse MSDN forum]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/
-
 

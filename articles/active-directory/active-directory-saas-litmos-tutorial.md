@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: fa962b3f0547b1afcf1c85abb0f28205f26ef96d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: ef1b5860ba0a406022bbd11afb366d14bee2c57d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>教學課程：Azure Active Directory 與 Litmos 整合
 
@@ -295,5 +294,4 @@ Litmos 應用程式支援 Just-in-Time 佈建。 這表示，在使用存取面�
 [201]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-litmos-tutorial/tutorial_general_203.png
-
 

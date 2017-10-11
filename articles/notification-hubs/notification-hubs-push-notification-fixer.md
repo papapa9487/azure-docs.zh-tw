@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b0b067f02f02f722534238891f7412153635df80
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 32e3a2e6f840afd865375a622cfae0d33ba65090
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs---diagnosis-guidelines"></a>Azure 通知中樞 - 診斷指導方針
 ## <a name="overview"></a>Overview
@@ -240,5 +239,4 @@ Azure 通知中樞需要在開發人員應用程式的內容中自行驗證，�
 [EnableTestSend 功能]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
 [程式設計遙測存取]: http://msdn.microsoft.com/library/azure/dn458823.aspx
 [透過 API 存取遙測範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-
 

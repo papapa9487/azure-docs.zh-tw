@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
 ms.author: rsinha
-translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: c485e8a3d12e7d2dcbfd6304a67aaa4fc2838b3f
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 3cf019bf9a08574c984e92985452df438f3eeb77
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-fabric-architecture"></a>Service Fabric 架構
 Service Fabric 是使用分層的子系統所建置。 這些子系統可讓您撰寫的應用程式為：
@@ -63,5 +62,4 @@ Service Fabric 是使用分層的子系統所建置。 這些子系統可讓您�
 
 ## <a name="testability-subsystem"></a>可測試性子系統
 可測試性是一組工具套件，專門用來測試建置於 Service Fabric 上的服務。 這些工具可讓開發人員輕鬆誘發有意義的錯誤及執行測試案例，並使用受控制的安全方式，執行及驗證服務在其生命週期會發生的各種狀態和轉換情形。 可測試性也會提供一種機制，透過執行較長時間的測試，逐一查看各種可能的失敗，而不會減損可用性。 如此可為您提供生產環境中的測試。
-
 

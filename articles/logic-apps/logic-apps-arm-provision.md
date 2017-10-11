@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f407a428aa176cc5c2a3b6bb236b522bda5ab64
-ms.openlocfilehash: 1305fdc4cf87905eef701ec5471d6329006c2b5f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/31/2017
-
-
+ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>使用範本建立邏輯應用程式
 範本提供快速的方式，在邏輯應用程式中使用不同連接器。 邏輯應用程式包含 Azure Resource Manager 範本，供您用來建立可用於定義商務工作流程的邏輯應用程式。 您可以定義要部署的資源，以及部署邏輯應用程式時定義參數的方式。 您可以直接在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。
@@ -109,7 +107,6 @@ ms.lasthandoff: 01/31/2017
 
 ### <a name="azure-cli"></a>Azure CLI
     azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
-
 
 
 

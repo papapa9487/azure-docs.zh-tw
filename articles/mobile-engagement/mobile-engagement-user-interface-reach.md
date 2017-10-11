@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0f09a4118c3cfbd014e1c53fd22da06eb7ede260
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: ce30456e41ff1a2f4824bcb64246ee115fdd1ef7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-reach-out-to-the-users-of-your-application-with-push-notifications"></a>如何透過推播通知觸及應用程式的使用者
 本文說明 **Mobile Engagement** 入口網站的 [觸達] 索引標籤。 使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。 請注意，若要開始使用入口網站，您必須先建立 **Azure Mobile Engagement** 帳戶。 如需詳細資訊，請參閱[建立 Azure Mobile Engagement 帳戶](mobile-engagement-create.md)。
@@ -55,7 +54,7 @@ UI 的 [觸達] 區段是推送活動管理工具，您可以在此建立/編輯
    4. 在 iOS 裝置上，如果裝置電力偏低或應用程式在處理遠端通知時耗用大量的電力，訊息有時會無法傳遞。 這是 iOS 裝置的一項限制。   
 3. **已顯示** - 這會指出已透過通知中心內的系統推送/應用程式外通知或行動應用程式內的應用程式內通知的形式，對裝置上的應用程式使用者成功顯示的訊息數。  [進階]  索引標籤會分別指出系統通知和應用程式內通知的數量。 
    
-   *Reasons for Displayed count being less than Delivered count (waiting to be displayed)*
+   <bpt id="p1">*</bpt>Reasons for Displayed count being less than Delivered count (waiting to be displayed)<ept id="p1">*</ept>
    
    1. 如果通知活動上有結束日期，有可能通知已傳遞，但到了開始時間並該顯示給應用程式使用者時就已經過期而永遠不會顯示。   
    2. 如果通知是應用程式內通知，則只有在應用程式使用者開啟應用程式時，才會顯示通知。 在應用程式使用者尚未開啟應用程式的情況下，SDK 會回報為已傳遞通知，但直到應用程式開啟時才會顯示通知。 
@@ -175,5 +174,4 @@ UI 的 [觸達] 區段是推送活動管理工具，您可以在此建立/編輯
 [Link 27]: mobile-engagement-user-interface-reach-campaign.md
 [Link 28]: mobile-engagement-user-interface-reach-criterion.md
 [Link 29]: mobile-engagement-user-interface-reach-content.md
-
 

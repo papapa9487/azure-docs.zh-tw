@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 311cee724fc77256748153b5167d2a38ccba9775
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 65d11d30e23cd7671b769c3c17e4aba32c432340
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>管理 Application Insights 的價格和資料量
 
@@ -129,7 +128,7 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 
 * 使用 [取樣](app-insights-sampling.md)。 這項技術可減少資料率而不會曲解您的計量，且不會中斷在 [搜尋] 中於相關項目之間瀏覽的能力。 在伺服器應用程式，它會自動運作。
 * [限制可回報的 Ajax 呼叫次數](app-insights-javascript.md#detailed-configuration) (在每個頁面檢視中) 或關閉 Ajax 報告功能。
-* 藉由 [編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)來關閉您不需要的集合模組。 例如，您可能會決定效能計數器或相依性資料是不必要的。
+* 藉由 [編輯 ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)來關閉您不需要的集合模組。例如，您可能會決定效能計數器或相依性資料是不必要的。
 * 分割您的遙測，以區隔檢測金鑰。 
 * 預先彙總度量。 如果您在應用程式中呼叫 TrackMetric，您可以使用接受批次測量之平均及標準差計算的多載來減少流量。 您也可以使用 [預先彙總套件](https://www.myget.org/gallery/applicationinsights-sdk-labs)。
 
@@ -187,5 +186,4 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
 [pricing]: http://azure.microsoft.com/pricing/details/application-insights/
-
 

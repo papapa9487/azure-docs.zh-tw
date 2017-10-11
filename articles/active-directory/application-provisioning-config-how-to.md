@@ -13,25 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: d24031955f57794d6796ea37d8d1b0984f066286
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/20/2017
-
+ms.openlocfilehash: 2e38fcb30ea7632339a3ba8815a536872cfcc69e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application" class="xliff"></a>
-
-# 如何設定 Azure AD 資源庫應用程式的使用者佈建
+# <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>如何設定 Azure AD 資源庫應用程式的使用者佈建
 
 *使用者帳戶佈建*是指在應用程式的本機使用者設定檔儲存中建立、更新及/或停用使用者帳戶記錄的動作。 大部分的雲端和 SaaS 應用程式都會在自己的本機使用者設定檔儲存中儲存使用者角色和權限，而這類使用者記錄「必須」存在於其本機存放區中，才能讓單一登入和存取運作。
 
 在 Azure 入口網站中，位於企業應用程式左側瀏覽窗格中的 [佈建] 索引標籤會顯示該應用程式支援哪些佈建模式。 這可能是下列其中一個值：
 
-<a id="configuring-an-application-for-manual-provisioning" class="xliff"></a>
-
-## 設定應用程式以進行手動佈建
+## <a name="configuring-an-application-for-manual-provisioning"></a>設定應用程式以進行手動佈建
 
 「手動」佈建表示必須以手動方式使用該應用程式所提供的方法來建立使用者帳戶。 這可能表示登入該應用程式的系統管理員入口網站，然後使用 Web 架構使用者介面新增使用者。 或者，它可能會使用該應用程式所提供的機制，來上傳含有使用者帳戶詳細資料的試算表。 請參閱應用程式提供的文件，或洽詢應用程式開發人員以判斷有哪些機制可供使用。
 
@@ -39,9 +33,7 @@ ms.lasthandoff: 04/20/2017
 
 如果您想要求支援自動佈建指定的應用程式，可在 <http://aka.ms/aadapprequest> 上填寫要求。
 
-<a id="configuring-an-application-for-automatic-provisioning" class="xliff"></a>
-
-## 設定應用程式以進行自動佈建
+## <a name="configuring-an-application-for-automatic-provisioning"></a>設定應用程式以進行自動佈建
 
 「自動」表示已經為此應用程式開發 Azure AD 佈建連接器。 如需 Azure AD 佈建服務及其運作方式的詳細資訊，請參閱[自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)。
 
@@ -58,9 +50,6 @@ ms.lasthandoff: 04/20/2017
 
 設定佈建時必須考量的重點是，檢視和設定屬性 (Attribute) 對應，以及定義哪些使用者 (或群組) 屬性 (Property) 會從 Azure AD 流向應用程式的工作流程。 這包括設定「比對屬性」，此屬性可用於唯一識別並比對兩個系統之間的使用者/群組。 如需這個重要程序的詳細資訊。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 [在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
-
 

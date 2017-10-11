@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
-translationtype: Human Translation
-ms.sourcegitcommit: f68563587d375dde22fd1ca45591fd49042533d0
 ms.openlocfilehash: 01f9c01c9e04e02dbb548b68cf99684ba6ddd57e
-ms.lasthandoff: 02/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-automation-scenario---automation-source-control-integration-with-visual-studio-team-services"></a>Azure 自動化案例 - 自動化原始檔控制與 Visual Studio Team Services 的整合
 
@@ -100,4 +100,3 @@ VSAccessTokenVariableName | 保留 VSTS 個人存取權杖的安全變數 (VSTok
 如果您以手動執行而非由 VSTS 觸發此 Runbook，您可以將 webhookdata 參數保留為空白，它會從指定的 VSTS 資料夾執行完整同步處理。
 
 如果您想要將案例解除安裝，請從 VSTS 移除其服務掛勾，刪除 Runbook 和 VSToken 變數。
-

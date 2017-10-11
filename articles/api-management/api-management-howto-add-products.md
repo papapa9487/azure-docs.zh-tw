@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 1568bbba999018e26493654e0286a6b8d93f3ae7
-
-
+ms.openlocfilehash: 73bf4451ba1b71807e22440beecc73a7e8045c5e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-and-publish-a-product-in-azure-api-management"></a>如何在 Azure API 管理中建立及發行產品
 在 Azure API 管理中，產品包含一或多個 API，以及使用量配額與使用規定。 發行產品之後，開發人員便可訂閱產品，並開始使用產品的 API。 本主題提供建立產品、加入 API 和發行供開發人員使用的指引。
@@ -151,9 +151,3 @@ API 管理中的產品可以是 [開放] 或 [受保護]。 受保護產品必�
 [Next steps]: #next-steps
 [How to create and use groups to manage developer accounts in Azure API Management]: api-management-howto-create-groups.md
 [How create and configure advanced product settings in Azure API Management]: api-management-howto-product-with-rules.md 
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

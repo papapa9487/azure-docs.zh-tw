@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: ed35d081b191ec41ed9e5970515057a4715c0d59
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的基本原則
 
 Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制實驗室的成本並儘可能避免浪費。 在本文中，您將從學習如何設定兩個最重要的原則來開始使用原則：限制單一使用者可建立或宣告的虛擬機器 (VM) 數目，以及設定自動關機。 若要了解如何設定每個實驗室原則，請參閱[在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md)一文。  
@@ -92,4 +89,3 @@ Azure DevTest Labs 可讓您管理每個實驗室的原則 (設定)，以控制�
 ## <a name="next-steps"></a>後續步驟
 
 - [在 Azure DevTest Labs 中定義實驗室原則](devtest-lab-set-lab-policy.md) - 了解如何修改其他實驗室原則 
-

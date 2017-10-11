@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 928c3d85f98f0bd073a5aaadf0ae4495840c5da6
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 43987962ea2b7b825b88643d18b4db65f1f1670e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-adm-with-engagement"></a>如何整合 ADM 與 Engagement
 > [!IMPORTANT]
@@ -109,4 +108,3 @@ ms.lasthandoff: 11/17/2016
 [ADM 用戶端程式庫]:https://developer.amazon.com/sdk/adm/setup.html
 [整合的 ADM]:https://developer.amazon.com/sdk/adm/integrating-app.html
 [此程序]:https://developer.amazon.com/sdk/adm/integrating-app.html#Asset
-

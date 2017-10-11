@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>教學課程：Azure Active Directory 與 Moxtra 整合
 
@@ -139,7 +137,7 @@ ms.lasthandoff: 07/04/2017
 
     c. 在 [值] 清單中，選取該列所顯示的值。
 
-    d. 按一下 [ **確定**]。
+    d. 按一下 [確定] 。
     
 5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -301,5 +299,4 @@ ms.lasthandoff: 07/04/2017
 [201]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-moxtra-tutorial/tutorial_general_203.png
-
 

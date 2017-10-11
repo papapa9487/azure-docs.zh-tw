@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>在 Log Analytics 中分析資料使用量
 Log Analytics 包含下列資訊：收集的資料量、傳送資料的電腦，以及傳送的不同資料類型。  使用 [Log Analytics 使用量] 儀表板，查看傳送到 Log Analytics 服務的資料量。 此儀表板會顯示每個解決方案所收集的資料量，以及您的電腦正在傳送的資料量。
@@ -173,4 +172,3 @@ Log Analytics [警示](log-analytics-alerts-creating.md)會使用搜尋查詢。
 * 變更[效能計數器組態](log-analytics-data-sources-performance-counters.md)
 * 變更[事件記錄組態](log-analytics-data-sources-windows-events.md)
 * 變更 [Syslog 組態](log-analytics-data-sources-syslog.md)
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>V2.0 端點有哪些差異？
 如果您熟悉 Azure Active Directory 或過去已整合 app 與 Azure AD，v2.0 端點中可能會有一些您預期不到的差異。  本文件集結了這些差異，讓您得以瞭解。
@@ -127,4 +125,3 @@ V2.0 端點所簽發的權杖中的宣告與公開上市 Azure AD 端點所簽�
 
 ## <a name="limitations"></a>限制
 使用 v2.0 端點時有一些要注意的限制。  請參閱 [v2.0 限制文件](active-directory-v2-limitations.md) ，以了解是否有任何限制適用於您特定的案例。
-

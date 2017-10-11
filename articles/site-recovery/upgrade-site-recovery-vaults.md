@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>將 Site Recovery 保存庫升級成以 Azure Resource Manager 為基礎的復原服務保存庫
 
@@ -186,4 +185,3 @@ ms.lasthandoff: 08/24/2017
 在 Site Recovery 保存庫中，每個保護群組皆有設定複製頻率、復原點保留期、應用程式一致的快照頻率，以及其他複寫設定。 在復原服務保存庫中，這些設定會設成複寫原則。 原則的名稱即為保護群組的名稱，也就是 primarycloud_Policy。
 
 如需複寫原則的詳細資訊，請參閱[管理 VMware 至 Azure 的複寫原則](site-recovery-setup-replication-settings-vmware.md)。
-

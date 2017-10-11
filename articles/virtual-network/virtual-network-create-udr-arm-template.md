@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 78936ac34cc582684e938efa74133426f1b53741
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>使用範本建立使用者定義的路由 (UDR)
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 04/27/2017
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"    
+      "displayName": "UDR - FrontEnd"   
     },
     "properties": {
       "routes": [
@@ -407,4 +406,3 @@ ms.lasthandoff: 04/27/2017
 > [!TIP]
 > 如果沒看到所有資源，請執行 `azure group deployment show` 命令，以確保部署的佈建狀態為 [成功]。
 > 
-

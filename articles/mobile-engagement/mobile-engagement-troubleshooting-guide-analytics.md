@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c407e8f0beb110844ba2ae4ca1a065a122d0fdbd
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: e30c9ac0a8421ffcf4fc3e2548cfd7ac49701900
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-analytics-monitoring-segmentation-and-dashboard-issues"></a>分析、監視、分割，以及儀表板問題的疑難排解指南
 以下是您可能會遇到，有關 Azure Mobile Engagement 如何收集應用程式、裝置和使用者相關資訊的問題。
@@ -60,5 +59,4 @@ ms.lasthandoff: 11/17/2016
 ### <a name="causes"></a>原因
 * 如果要疑難排解分析、監視或儀表板中發生的應用程式當機，請務必查看版本資訊，了解舊版 SDK 的已知問題。
 * 若要進一步疑難排解應用程式當機，請在已安裝您應用程式的測試裝置上執行事件，並在 Azure Mobile Engagement UI 的 [監視 – 事件] 區段中查詢您的裝置識別碼。 然後執行造成應用程式當機的事件，並查詢 Azure Mobile Engagement UI 的 [監視 – 當機] 區段中的其他資訊。 
-
 

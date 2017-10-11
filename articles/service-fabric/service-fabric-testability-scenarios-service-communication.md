@@ -14,16 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 6356b4e69892b90ff74aa9db0157930dc00f4a08
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c182cc2062ada40029504de5b2b64b021c614ce6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# Service Fabric Testability 案例：服務通訊
-<a id="service-fabric-testability-scenarios-service-communication" class="xliff"></a>
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Testability 案例：服務通訊
 微服務及服務導向的架構樣式會在 Azure Service Fabric 中自然出現。 在這些類型的分散式架構中，元件化的微服務應用程式通常是由需要彼此通訊的多個服務所組成。 即使在最簡單的情況下，您通常至少會有一個無狀態網路服務及一個可設定狀態的資料儲存服務需要相互通訊。
 
 服務之間的通訊是整合應用程式的重要環節，因為各服務會向其他服務公開遠端 API。 與 I/O 相關的一組 API 界限通常需要謹慎處理，且需經過大量測試和驗證。
@@ -36,8 +33,7 @@ ms.lasthandoff: 11/17/2016
 
 不論您使用 Service Fabric 提供的其中一種內建服務通訊元件，或者您選擇自行建立，測試服務之間的互動永遠是確保應用程式復原能力的重要部分。
 
-## 準備讓服務移動
-<a id="prepare-for-services-to-move" class="xliff"></a>
+## <a name="prepare-for-services-to-move"></a>準備讓服務移動
 服務執行個體經過一段時間後可能會移動。 尤其在它們設有負載度量，以自訂最佳資源平衡時更是如此。 即使在升級、容錯移轉、向外延展及其他分散式系統存留時間內發生的各種情況期間，Service Fabric 都可以移動您的服務執行個體以最大化其可用性。
 
 由於服務會在叢集中移動，您的用戶端和其他服務應在與服務通訊時準備就緒，以因應兩種案例：
@@ -51,8 +47,7 @@ ms.lasthandoff: 11/17/2016
 * 當服務執行個體再次開啟接聽程式時，服務延遲時間可能會短暫增加。 這需取決於服務在服務執行個體移動後開啟接聽程式的速度。
 * 必須先關閉任何現有的連線，然後等服務於新的節點上開啟之後再重新開啟。 妥善關閉節點或重新開啟，可讓現有連線擁有足夠時間正常關閉。
 
-### 測試：移動服務執行個體
-<a id="test-it-move-service-instances" class="xliff"></a>
+### <a name="test-it-move-service-instances"></a>測試：移動服務執行個體
 藉由使用 Service Fabric 的 Testability 工具，您可以撰寫測試案例，以不同方式測試這些情況：
 
 1. 移動具狀態服務的主要複本。
@@ -76,14 +71,12 @@ ms.lasthandoff: 11/17/2016
    
     ```
 
-## 維護服務可用性
-<a id="maintain-service-availability" class="xliff"></a>
+## <a name="maintain-service-availability"></a>維護服務可用性
 做為平台，Service Fabric 專為服務提供高可用性。 但是在極端情況下，基礎結構的基礎問題仍可能導致無法使用服務。 請務必也測試這些情況。
 
 具狀態服務會使用仲裁式系統來複寫狀態，藉以達到高可用性。 換句話說，必須要能使用複本仲裁，才能執行寫入作業。 在極罕見情況下，例如大規模的硬體故障，有可能無法使用複本仲裁。 在這些情況下，您將無法執行寫入作業，但仍能執行讀取作業。
 
-### 測試：撰寫作業無法使用
-<a id="test-it-write-operation-unavailability" class="xliff"></a>
+### <a name="test-it-write-operation-unavailability"></a>測試：撰寫作業無法使用
 藉由使用 Service Fabric 中的 testability 工具，您可以插入引發仲裁遺失的錯誤做為測試。 雖然這樣的案例極為罕見，但仰賴具狀態狀態服務的用戶端和服務務必做好準備，以處理無法要求執行寫入作業的各種情況。 具狀態服務本身也應了解發生這種情況的可能性，並能依正常程序與呼叫者通訊。
 
 您可以藉由使用 **Invoke-ServiceFabricPartitionQuorumLoss PowerShell** Cmdlet 引發仲裁遺失：
@@ -96,10 +89,8 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 在此範例中，我們將 `QuorumLossMode` 設為 `QuorumReplicas`，以便在引發仲裁遺失時，不會關閉所有複本。 如此才能正常執行讀取作業。 若要測試整個分割區都無法使用的案例，您可將此參數設定為 `AllReplicas`。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 [深入了解 Testability 動作](service-fabric-testability-actions.md)
 
 [深入了解 Testability 案例](service-fabric-testability-scenarios.md)
-
 

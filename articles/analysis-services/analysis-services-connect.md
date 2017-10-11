@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
-ms.openlocfilehash: 2e1b9495cecac0095a9364752967f868f8e92530
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: deb3ef28d20decef01826450bd6091f87dd069de
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="connect-to-an-azure-analysis-services-server"></a>連接到 Azure Analysis Services 伺服器
 
@@ -81,5 +80,4 @@ ms.lasthandoff: 04/18/2017
 [使用 Excel 進行連接](analysis-services-connect-excel.md)    
 [使用 Power BI 進行連接](analysis-services-connect-pbi.md)   
 [管理您的伺服器](analysis-services-manage.md)   
-
 

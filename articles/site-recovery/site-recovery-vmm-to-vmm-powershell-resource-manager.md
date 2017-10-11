@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 118dd3a69f140d57a3779e86c658982d58dbb718
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5a6e00877b0a2b139d5322f610c1901ad76a710f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager"></a>使用 PowerShell 將位於 VMM 雲端中的 Hyper-V 虛擬機器複寫至次要 VMM 站台 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -321,4 +319,3 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="next-steps"></a>後續步驟
 [閱讀更多](/powershell/module/azurerm.recoveryservices.backup/#recovery) 使用 Azure Resource Manager PowerShell Cmdlet 進行 Azure Site Recovery 的相關資訊。
-

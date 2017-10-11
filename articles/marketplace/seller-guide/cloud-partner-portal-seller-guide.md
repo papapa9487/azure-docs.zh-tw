@@ -12,12 +12,11 @@ ms.workload: na
 ms.date: 03/30/2017
 ms.author: rupesk@microsoft.com
 ms.robots: NOINDEX, NOFOLLOW
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: c78708687fbb5716e3e8d62967013310d6ccc735
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Azure Marketplace 賣方指南
 
@@ -235,4 +234,3 @@ Marketplace 會提供有關訂單、使用量和客戶的報告，您可透過 M
 歡迎您使用我們的 ISV 賣方社群，期待看到您的供應項目。
 
 ---
-

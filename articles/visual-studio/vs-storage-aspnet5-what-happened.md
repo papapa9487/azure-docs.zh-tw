@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 2a25c24fd7625374d269622a805f386fcd52bb5f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-happened-to-my-aspnet-5-project-visual-studio-azure-storage-connected-services"></a>我的 ASP.NET 5 專案 (Visual Studio Azure 儲存體連接的服務) 發生什麼狀況？
 ## <a name="references-added"></a>加入參考
@@ -41,5 +40,4 @@ Azure 儲存體 NuGet 封裝已加入至 Visual Studio 專案。
 在專案的 config.json 檔案中，已使用所選儲存體帳戶的連接字串和金鑰建立一個元素。
 
 如需詳細資訊，請參閱 [ASP.NET 5](http://www.asp.net/vnext)。
-
 

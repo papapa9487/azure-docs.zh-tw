@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: fd35f1774ffda3d3751a6fa4b6e17f2132274916
 ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.lasthandoff: 03/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>部署 StorSimple Virtual Array：在 VMware 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -119,7 +119,7 @@ ms.lasthandoff: 03/16/2017
 14. 返回 vSphere 用戶端視窗。 在選取 ESXi 伺服器之後按一下滑鼠右鍵，然後選取 [新增虛擬機器] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. 畫面會出限 [建立新虛擬機器]  視窗。 在 [設定] 頁面上，選取 [自訂] 選項。 按一下 [下一步]。
+15. 畫面會出限 [建立新虛擬機器]  視窗。 在 [設定] 頁面上，選取 [自訂] 選項。 按一下 [下一步] 。
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. 在 [名稱和位置] 頁面上，指定虛擬機器的名稱。 這個名稱應該與您之前在步驟 8 中指定的資料夾名稱 (建議的最佳做法) 相同。
 
@@ -133,10 +133,10 @@ ms.lasthandoff: 03/16/2017
 19. 在 [客體作業系統] 頁面上，將 [客體作業系統] 選取為 [Windows]。 而對於 [版本]，請從下拉式清單中選取 [Microsoft Windows Server 2012 (64 位元)]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. 在 [CPU] 頁面上，調整 [虛擬通訊端的數目] 和 [每個虛擬通訊端的核心數目]，以便讓 [核心總數] 至少為 4。 按一下 [下一步]。
+20. 在 [CPU] 頁面上，調整 [虛擬通訊端的數目] 和 [每個虛擬通訊端的核心數目]，以便讓 [核心總數] 至少為 4。 按一下 [下一步] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. 在 [記憶體]  頁面上，將 RAM 指定為至少為 8 GB。 按一下 [下一步]。
+21. 在 [記憶體]  頁面上，將 RAM 指定為至少為 8 GB。 按一下 [下一步] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. 在 [網路]  頁面上，指定網路介面的數目。 最低需求是一個網路介面。
@@ -145,10 +145,10 @@ ms.lasthandoff: 03/16/2017
 23. 在 [SCSI 控制器] 頁面上，接受預設的 [LSI Logic SAS 控制器]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. 在 [選取磁碟] 頁面上，選擇 [使用現有的虛擬硬碟]。 按一下 [下一步]。
+24. 在 [選取磁碟] 頁面上，選擇 [使用現有的虛擬硬碟]。 按一下 [下一步] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. 在 [選取現有的磁碟] 頁面的 [磁碟檔案路徑] 下方，按一下 [瀏覽]。 這會開啟 [瀏覽資料存放區]  對話方塊。 瀏覽至您之前上傳 VMDK 的位置。 因為您最初上傳回的兩個檔案已合併，所以您現在於資料存放區中只會看到一個檔案。 選取檔案，然後按一下 [確定] 。 按一下 [下一步]。
+25. 在 [選取現有的磁碟] 頁面的 [磁碟檔案路徑] 下方，按一下 [瀏覽]。 這會開啟 [瀏覽資料存放區]  對話方塊。 瀏覽至您之前上傳 VMDK 的位置。 因為您最初上傳回的兩個檔案已合併，所以您現在於資料存放區中只會看到一個檔案。 選取檔案，然後按一下 [確定] 。 按一下 [下一步] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. 在 [進階選項] 頁面上，接受預設值並按一下 [下一步]。
@@ -163,10 +163,10 @@ ms.lasthandoff: 03/16/2017
 29. 您會看到 [新增硬體] 視窗。 在 [裝置類型] 頁面的 [選擇您想要新增的裝置類型] 下方，選取 [硬碟] 並按一下 [下一步]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. 在 [選取磁碟] 頁面上，選擇 [建立新的虛擬磁碟]。 按一下 [下一步]。
+30. 在 [選取磁碟] 頁面上，選擇 [建立新的虛擬磁碟]。 按一下 [下一步] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. 在 [建立磁碟] 頁面上，將 [磁碟大小] 變更為至少 500 GB。 500 GB 是最低需求，您永遠可以佈建更大的磁碟。 請注意，佈建之後您無法擴充或縮小磁碟。 如需有關要佈建之磁碟大小的詳細資訊，請檢閱[最佳作法文件](storsimple-ova-best-practices.md)中的＜調整大小＞一節。 在 [磁碟佈建] 下方，選取 [精簡佈建]。 按一下 [下一步]。
+31. 在 [建立磁碟] 頁面上，將 [磁碟大小] 變更為至少 500 GB。 500 GB 是最低需求，您永遠可以佈建更大的磁碟。 請注意，佈建之後您無法擴充或縮小磁碟。 如需有關要佈建之磁碟大小的詳細資訊，請檢閱[最佳作法文件](storsimple-ova-best-practices.md)中的＜調整大小＞一節。 在 [磁碟佈建] 下方，選取 [精簡佈建]。 按一下 [下一步] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. 在 [進階選項]  頁面上，接受預設值。
@@ -243,4 +243,3 @@ ms.lasthandoff: 03/16/2017
 ## <a name="next-steps"></a>後續步驟
 * [Set up your StorSimple Virtual Array as a file server (將 StorSimple 虛擬陣列設定為檔案伺服器)](storsimple-virtual-array-deploy3-fs-setup.md)
 * [Set up your StorSimple Virtual Array as an iSCSI server (將 StorSimple 虛擬陣列設定為 iSCSI 伺服器)](storsimple-virtual-array-deploy3-iscsi-setup.md)
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 服務的版本資訊
 
@@ -223,5 +221,4 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 
 ### <a name="concepts"></a>概念
 [BizTalk 服務](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 0d9afb1554158a4d88b7f161c62fa51c1bf61a7d
 ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>設定 Azure 虛擬機器中的 Always On 可用性群組 (傳統)
 > [!div class="op_single_selector"]
@@ -114,7 +113,7 @@ ms.lasthandoff: 04/12/2017
    > 
    
     ![新增角色對話方塊](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784624.png)
-7. 連續按 [下一步] 直到到達 [確認] 區段。 選取 [必要時自動重新啟動目的地伺服器]  核取方塊。
+7. 連續按 [下一步] 直到到達 [確認] 區段。 選取 [必要時自動重新啟動目的地伺服器] 核取方塊。
 8. 按一下 [Install] 。
 9. 功能安裝完畢後，請回到 [伺服器管理員]  儀表板。
 10. 在左側窗格中選取新的 [AD DS]  選項。
@@ -415,5 +414,4 @@ SQL Server 虛擬機器現已佈建完成和執行，但每部虛擬機器都採
 現在，您已透過在 Azure 中建立可用性群組的方式，成功實作 SQL Server Always On。 若要為此可用性群組設定接聽程式，請參閱 [設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](../classic/ps-sql-int-listener.md)。
 
 如需在 Azure 中使用 SQL Server 的其他資訊，請參閱 [Azure 虛擬機器上的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
-
 

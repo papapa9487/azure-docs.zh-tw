@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: e23a4f182e6bb0ba53927aa6195967c2464e4233
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.openlocfilehash: 22397b6b448b418d5b54a457c3bafaf5c68ecc7b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="getting-started"> </a>我使用行動服務，App Service 有何幫助？
 ## <a name="overview"></a>概觀
@@ -64,4 +63,3 @@ ms.lasthandoff: 07/11/2017
 利用 *Azure App Service* ，您現在可以為行動應用程式建立多個私人測試和預備環境。 您可以在部署之前，使用這些環境來執行測試。 不需停機即可切換至生產環境。 Web 應用程式已預先載入，可確保最佳的客戶體驗。
 
 您可以藉由遵循此 *教學課程* ，開始將 [App Service](app-service-mobile-migrating-from-mobile-services.md)運用於您現有的行動服務。
-

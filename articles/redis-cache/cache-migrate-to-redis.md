@@ -14,13 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>從受管理的快取服務移轉至 Azure Redis 快取
 若想將使用 Azure 受管理的快取服務的應用程式移轉至 Azure Redis 快取，您幾乎不需要變更應用程式就可達成，詳細情形取決於快取應用程式所使用的受管理的快取服務功能。 API 雖非完全相同，但卻極為類似，而且您現有使用受管理的快取服務來存取快取的程式碼，大多只需要略做變更即可重複使用。 本主題說明如何對設定和應用程式進行必要的變更，以將受管理的快取服務應用程式移轉為使用 Azure Redis 快取，並說明如何使用 Azure Redis 快取的某些功能，來實作受管理的快取服務快取的功能。
@@ -191,5 +189,4 @@ Azure Redis 快取有適用於 ASP.NET 工作階段狀態和頁面輸出快取�
 
 ## <a name="next-steps"></a>後續步驟
 瀏覽 [Azure Redis 快取文件](https://azure.microsoft.com/documentation/services/cache/) 中的教學課程、範例、影片及其他資訊。
-
 

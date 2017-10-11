@@ -13,13 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。
@@ -136,5 +134,4 @@ S3 HD 會以使用資料分割相應放大索引的能力換取在單一服務�
 「Azure 搜尋服務」對許多應用程式而言是相當具吸引力的選擇，請 [深入了解此服務的強大功能](http://aka.ms/whatisazsearch)。 評估多租用戶應用程式的各種設計模式時，請考量[各種定價層](https://azure.microsoft.com/pricing/details/search/)和個別的[服務限制](search-limits-quotas-capacity.md)，以便量身打造「Azure 搜尋服務」來配合各種規模的應用程式工作負載和架構。
 
 如果您有任何關於「Azure 搜尋服務」和多租用戶案例的問題，都可以寄送郵件給 azuresearch_contact@microsoft.com。
-
 

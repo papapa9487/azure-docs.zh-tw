@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.reviwer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 9ea5744d77b90929598ea5feb80c7bbdff3772fc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>指派的應用程式未出現在存取面板上
 
 存取面板是網頁型入口網站，可讓在 Azure Active Directory (Azure AD) 中具有公司或學校帳戶的使用者，檢視和啟動 Azure AD 系統管理員已授權他們存取的雲端式應用程式。 在 Azure AD 入口網站中可代表使用者設定這些應用程式。 應用程式必須經過正確的設定並指派至使用者或使用者所屬的群組，才能在存取面板中顯示該應用程式。
@@ -671,5 +669,4 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 ## <a name="next-steps"></a>後續步驟
 [將新的使用者加入 Azure Active Directory](active-directory-users-create-azure-portal.md)
-
 

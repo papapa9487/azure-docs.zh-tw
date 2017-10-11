@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="windows-powershell-connector-technical-reference" class="xliff"></a>
-
-# Windows PowerShell 連接器技術參考
+# <a name="windows-powershell-connector-technical-reference"></a>Windows PowerShell 連接器技術參考
 本文說明 Windows PowerShell 連接器。 本文適用於下列產品：
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -32,14 +29,10 @@ ms.lasthandoff: 02/06/2017
 
 對於 MIM2016 和 FIM2010R2，可以從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=717495)下載此連接器。
 
-<a id="overview-of-the-powershell-connector" class="xliff"></a>
-
-## PowerShell 連接器概觀
+## <a name="overview-of-the-powershell-connector"></a>PowerShell 連接器概觀
 PowerShell 連接器可讓您整合同步處理服務與可提供 Windows PowerShell 型 API 的外部系統。 此連接器會在呼叫型可延伸連線管理代理程式 2 (ECMA2) 架構和 Windows PowerShell 的功能之間提供橋樑。 如需 ECMA 架構的詳細資訊，請參閱 [可延伸的連線 2.2 管理代理程式參考](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx)。
 
-<a id="prerequisites" class="xliff"></a>
-
-### 必要條件
+### <a name="prerequisites"></a>必要條件
 在您使用連接器之前，請確定同步處理伺服器上有下列項目：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本
@@ -48,9 +41,7 @@ PowerShell 連接器可讓您整合同步處理服務與可提供 Windows PowerS
 同步處理服務伺服器上的執行原則必須設定為允許連接器執行 Windows PowerShell 指令碼。 除非連接器執行的指令碼是經過數位簽署的，否則請執行下列命令來設定執行原則：  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-<a id="create-a-new-connector" class="xliff"></a>
-
-## 建立新的連接器
+## <a name="create-a-new-connector"></a>建立新的連接器
 若要在同步處理服務中建立 Windows PowerShell 連接器，您必須提供一系列 Windows PowerShell 指令碼來執行同步處理服務所要求的步驟。 根據您所連接的資料來源和所需的功能，您必須實作的指令碼會有所不同。 本節概述可以實作的每個指令碼以及何時需要用到它們。
 
 Windows PowerShell 連接器是設計用來儲存同步處理服務資料庫內的每個指令碼。 雖然您可以執行儲存在檔案系統的指令碼，但將每個指令碼的主體直接插入連接器組態會更為容易。
@@ -59,9 +50,7 @@ Windows PowerShell 連接器是設計用來儲存同步處理服務資料庫內�
 
 ![建立連接器](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)
 
-<a id="connectivity" class="xliff"></a>
-
-### 連線能力
+### <a name="connectivity"></a>連線能力
 提供用來連接至遠端系統的組態參數。 這些值會由同步處理服務妥善保存，並在連接器執行時提供給 Windows PowerShell 指令碼。
 
 ![連線能力](./media/active-directory-aadconnectsync-connector-powershell/connectivity.png)
@@ -126,9 +115,7 @@ Windows PowerShell 連接器是設計用來儲存同步處理服務資料庫內�
 
 若要從指令碼中存取自訂組態設定，您必須在名稱後面加上底線 (\_) 和參數範圍 (全域、資料分割或 RunStep)。 例如，若要存取全域檔案名稱參數，請使用此程式碼片段： `$ConfigurationParameters["FileName_Global"].Value`
 
-<a id="capabilities" class="xliff"></a>
-
-### 功能
+### <a name="capabilities"></a>功能
 Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為和功能。 建立連接器後，就無法修改在此索引標籤上所做的選擇。 此表格列出功能設定。
 
 ![功能](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
@@ -153,9 +140,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 | 啟用密碼作業 |核取時，可支援密碼同步處理指令碼。 |
 | 在第一個階段啟用匯出密碼 |核取時，會在建立物件時匯出佈建期間所設定的密碼。 |
 
-<a id="global-parameters" class="xliff"></a>
-
-### 全域參數
+### <a name="global-parameters"></a>全域參數
 [管理代理程式設計工具] 中的 [全域參數] 索引標籤可讓您設定連接器所執行的 Windows PowerShell 指令碼。 您也可以針對 [連線能力] 索引標籤上定義的自訂組態設定設定全域值。
 
 **資料分割探索**  
@@ -183,9 +168,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 指令碼必須傳回單一 HierarchyNode 子物件或 HierarchyNode 子物件 List[T] 至管線中。
 
-<a id="import" class="xliff"></a>
-
-#### Import
+#### <a name="import"></a>Import
 支援匯入作業的連接器必須實作三個指令碼。
 
 **開始匯入**  
@@ -231,9 +214,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 指令碼必須傳回單一 [CloseImportConnectionResults][cicres] 物件到管線中，例如：`Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
-<a id="export" class="xliff"></a>
-
-#### 匯出
+#### <a name="export"></a>匯出
 與連接器的匯入架構相同，支援匯出的連接器必須實作三個指令碼。
 
 **開始匯出**  
@@ -279,9 +260,7 @@ Management Agent Designer 的 [功能] 索引標籤會定義連接器的行為�
 
 指令碼不應傳回任何輸出到管線。
 
-<a id="password-synchronization" class="xliff"></a>
-
-#### 密碼同步處理
+#### <a name="password-synchronization"></a>密碼同步處理
 Windows PowerShell 連接器可以做為密碼變更/重設的目標。
 
 密碼指令碼會接收連接器中的下列參數：
@@ -303,17 +282,11 @@ Windows PowerShell 連接器可以做為密碼變更/重設的目標。
 * [PasswordIllFormedException][pwdex2] – 所連接系統不接受密碼時便會擲回。
 * [PasswordExtension][pwdex3] – 密碼指令碼中發生其他所有錯誤時便會擲回。
 
-<a id="sample-connectors" class="xliff"></a>
-
-## 範例連接器
+## <a name="sample-connectors"></a>範例連接器
 如需可用範例連接器的完整概觀，請參閱 [Windows PowerShell 連接器範例連接器集合][samp]。
 
-<a id="other-notes" class="xliff"></a>
-
-## 其他注意事項
-<a id="additional-configuration-for-impersonation" class="xliff"></a>
-
-### 模擬的其他組態
+## <a name="other-notes"></a>其他注意事項
+### <a name="additional-configuration-for-impersonation"></a>模擬的其他組態
 對模擬的使用者授與同步處理服務伺服器上的下列權限：
 
 下列登錄機碼的讀取權限：
@@ -336,9 +309,7 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 
 用 Windows PowerShell 連接器的名稱替換 {ConnectorName} 預留位置。
 
-<a id="troubleshooting" class="xliff"></a>
-
-## 疑難排解
+## <a name="troubleshooting"></a>疑難排解
 * 如需如何啟用記錄來疑難排解連接器的資訊，請參閱 [如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -371,4 +342,3 @@ $account.Translate([System.Security.Principal.SecurityIdentifier]).Value
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-

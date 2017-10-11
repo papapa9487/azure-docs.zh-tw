@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 091f0884417535427c52beee7bcdc5ed1dd83315
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-vmware-vcenter-server-in-azure-site-recovery"></a>在 Azure Site Recovery 中管理 VMware vCenter Server
 本文討論可以在 VMware vCenter 上執行的各種 Site Recovery 作業。
 
@@ -85,4 +83,3 @@ Site Recovery 需要存取 VMware，才能讓處理序伺服器自動探索虛�
 
 > [!NOTE]
 如果您需要修改 vCenter IP 位址/FQDN、連接埠詳細資料，您必須刪除 vCenter Server 並再次新增它。
-

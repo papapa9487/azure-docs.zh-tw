@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.lasthandoff: 01/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>部署 StorSimple Virtual Array 的 StorSimple 裝置管理員服務
 ## <a name="overview"></a>概觀
@@ -121,5 +121,4 @@ StorSimple 裝置管理員服務相關的一般工作包括︰
 ## <a name="next-steps"></a>後續步驟
 * 深入了解[開始使用](storsimple-virtual-array-deploy1-portal-prep.md) StorSimple Virtual Array。
 * 深入了解 [管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
-
 

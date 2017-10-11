@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 9128fa76cc0b0f4d879faaaf98d55b5b9180f46e
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 7c3283799806135060bb8ca57ea398c93d1106bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security"></a>安全性
 ## <a name="overview"></a>概觀
@@ -46,5 +45,4 @@ ms.lasthandoff: 11/17/2016
 | 管理 |對通知中樞執行 CRUD (包含更新 PNS 認證及安全性金鑰) 並依標記讀取的註冊 |建立/更新/讀取/刪除通知中樞<br><br>依標記讀取註冊 |
 
 通知中樞接受授 Microsoft Azure 存取控制權杖所授與的宣告，以及直接在通知中樞設定，由共用金鑰所產生之簽章權杖所授與的宣告。
-
 

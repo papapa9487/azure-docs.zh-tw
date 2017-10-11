@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 96b2b4976729da5b7d8b75909dbe099090240c08
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上 Hadoop 元件的版本資訊
 
@@ -103,7 +102,6 @@ Spark 2.0.1 現已可在 Spark 叢集上取得 (HDInsight 3.5 版)。
 * HDInsight 上 R 伺服器的叢集佈建已簡化。
 * HDInsight 上的 R 伺服器現在可做為一般 HDInsight「R 伺服器」叢集類型，不會再安裝為個別的 HDInsight 應用程式。 邊緣節點和 R 伺服器二進位檔現在會佈建為 R 伺服器叢集部署的一部分。 這可改善佈建速度和可靠性。 R 伺服器的定價模式也會隨之更新。
 * R 伺服器叢集類型價格現在會根據標準層價格加上 R 伺服器額外費用價格。 進階層會保留給不同叢集類型皆有提供的進階功能，不會用於 R 伺服器叢集類型。 這項變更不會影響 R 伺服器的實際價格，它只會變更帳單中費用的呈現方式。 所有現有的 R 伺服器叢集會繼續運作，而 Resource Manager 範本則會繼續運作，直到取代通知發出為止。 **雖然如此，仍建議更新已編寫指令碼的部署，以使用新的 Resource Manager 範本。**
-
 
 
 

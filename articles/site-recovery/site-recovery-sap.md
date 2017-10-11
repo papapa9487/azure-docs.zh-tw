@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: manayar
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 951980eeba61e53c983d5b23c301c81eee9528bd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-using-azure-site-recovery"></a>使用 Azure Site Recovery 保護多層式 SAP NetWeaver 應用程式部署
 
@@ -119,4 +118,3 @@ Azure Site Recovery 是應用程式層的建議解決方案 (包括 (A)SCS)。 �
 請參閱[本白皮書](http://aka.ms/asr-sap)，了解如何使用 Azure Site Recovery 為 SAP NetWeaver 部署建置災害復原解決方案。 本白皮書也會討論不同 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案可行的測試方案。
 
 深入了解如何使用 Site Recovery [複寫其他工作負載](site-recovery-workload.md)。
-

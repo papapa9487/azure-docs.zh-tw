@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2420d31c73fcb43e680edf2a95995e4ed4969236
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f0a7b5ce61feaead608d457465f64813737fa112
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="elastic-database-tools-faq"></a>彈性資料庫工具常見問題集
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>如果我的每一分區各有單一租用戶，卻沒有分區化索引鍵，我要如何填入結構描述資訊的分區化索引鍵？
@@ -34,7 +32,7 @@ ms.lasthandoff: 11/17/2016
 使用彈性資料庫用戶端程式庫不會產生任何成本。 只有您使用於分區和分區對應管理員的 Azure SQL Database 和您為分割合併工具佈建的 Web/背景工作角色才會產生成本。
 
 #### <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>為什麼從其他伺服器新增分區時我的認證無法使用？
-請勿使用 “User ID=username@servername”, 格式的認證，只需使用 “User ID = username”。  此外，請確認 "username" 登入擁有分區的權限。
+不使用認證的形式 」 使用者 ID =username@servername"，改為只使用 「 使用者識別碼 = 使用者名稱 」。  此外，請確認 "username" 登入擁有分區的權限。
 
 #### <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>每次啟動應用程式，都必須建立分區對應管理員和填入分區嗎？
 否，建立分區對應管理員 (例如，**[ShardMapManagerFactory.CreateSqlShardMapManager](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.createsqlshardmapmanager.aspx)**) 是一次性作業。  您的應用程式應在應用程式啟動時使用 **[ShardMapManagerFactory.TryGetSqlShardMapManager()](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.trygetsqlshardmapmanager.aspx)** 呼叫。  每一應用程式網域應只有一個這類呼叫。
@@ -52,5 +50,4 @@ ms.lasthandoff: 11/17/2016
 不會。 如果是「分割」  作業，目標資料庫必須有適當的結構描述，而且必須向分區對應管理員登錄。  如果是「合併」  作業，您必須從分區對應管理員刪除分區，然後再刪除資料庫。
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

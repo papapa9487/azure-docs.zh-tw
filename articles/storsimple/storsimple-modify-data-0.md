@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 3a47ff1eed220cede820e8698c3384300e94688d
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-device"></a>修改 StorSimple 裝置上的 DATA 0 網路介面設定
 ## <a name="overview"></a>Overview
@@ -68,10 +68,4 @@ DATA 0 介面會在初始部署 StorSimple 裝置期間，透過安裝精靈進�
 ## <a name="next-steps"></a>後續步驟
 * 若要設定 DATA 0 以外的網路介面，您可以使用 [Azure 傳統入口網站中的設定頁面](storsimple-modify-device-config.md)。 
 * 如果您在設定您的網路介面時遇到任何問題，請參閱 [疑難排解部署問題](storsimple-troubleshoot-deployment.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

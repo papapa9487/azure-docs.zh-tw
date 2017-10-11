@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/25/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>在 Azure 中管理 Office 365 訂用帳戶的目錄
 本文說明如何使用 Azure 傳統入口網站，管理針對 Office 365 訂用帳戶建立的目錄。 您必須是服務管理員或 Azure 訂用帳戶的共同管理員，才能登入 Azure 傳統入口網站。 如果您尚未擁有 Azure 訂用帳戶，您可以立即註冊 [免費 30 天試用版](https://azure.microsoft.com/trial/get-started-active-directory/) ，並使用此連結在 5 分鐘內部署第一個雲端解決方案。 請確認使用您用來登入 Office 365 的工作或學校帳戶來註冊。
@@ -70,4 +69,3 @@ ms.lasthandoff: 07/26/2017
 
 ## <a name="next-steps"></a>後續步驟
 如需訂用帳戶與目錄間的關聯性詳細資訊，請參閱 [如何將訂用帳戶如何關聯至目錄](active-directory-how-subscriptions-associated-directory.md)。
-

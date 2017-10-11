@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 1be54552d236e1808116d9ff22eda793af920617
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.openlocfilehash: bbf357b902474a1812eb7a5a2c914d0c8b91934b
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-exception-management--mitigations"></a>安全性架構︰例外狀況管理 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |

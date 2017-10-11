@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 125d4d4bc916883e3bb53b9b3b4bf46bbb4bf139
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.lasthandoff: 01/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 本文將逐步引導您完成要成為 Azure Marketplace 核准的 Microsoft 開發人員所必須執行的帳戶建立和註冊程序。
@@ -54,7 +53,7 @@ ms.lasthandoff: 01/06/2017
 
 ### <a name="instructions"></a>範例的指示
 1. 開啟新的 Chrome Incognito 或 Internet Explorer InPrivate 瀏覽工作階段，確定您未登入現有帳戶。
-2. 使用 [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx) 連結，將電子郵件 (如上述指導方針的 windowsapp@fabrikam.com)) 註冊為 Microsoft 帳戶。 請遵循下列指示：
+2. 使用 [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx) 連結，將電子郵件 (如上述指導方針的 windowsapp@fabrikam.com) 註冊為 Microsoft 帳戶。 請遵循下列指示：
 
    1. 將您的帳戶註冊為 Microsoft 帳戶時，您必須提供有效的電話號碼，讓系統能以簡訊或自動語音傳送帳戶驗證碼。
    2. 將您的帳戶註冊為 Microsoft 帳戶時，您必須提供有效的電子郵件識別碼來接收進行帳戶驗證的自動發送電子郵件。
@@ -160,13 +159,13 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
    > 如果您需要更新或變更您的付款帳戶，請遵循上述的相同步驟，以新資訊取代目前的資訊。 變更您的付款帳戶會延遲您的付款最多一次付款週期。 會發生此延遲是因為我們必須確認帳戶變更，就像我們在您第一次設定付款帳戶時所做的一樣。 您仍然會在帳戶確認之後收到全額款項。當期付款週期未付的款項會新增至下一期。
    >
    >
-4. 按 [下一步] 。
+4. 按一下 [下一步] 。
 
 **稅務資訊**
 
 1. 使用您的 Microsoft 帳戶登入 [Microsoft 開發人員中心](http://dev.windows.com/registration?accountprogram=azure) (視需要)。
 2. 按一下左側功能表中的 [稅務設定檔]  。
-3. 在 [設定您的稅單]  頁面上，選取您的永久居住國家或區域，並選取您擁有主要國籍的國家或區域。 按 [下一步] 。
+3. 在 [設定您的稅單]  頁面上，選取您的永久居住國家或區域，並選取您擁有主要國籍的國家或區域。 按一下 [下一步] 。
 4. 輸入稅務詳細資料，然後按 [下一步] 。
 
 > [!WARNING]
@@ -214,7 +213,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
 2. 嘗試新增共同管理員之前，請確定管理員帳戶下至少有一個應用程式。
 3. 上述步驟完成之後，請以共同管理員電子郵件識別碼登入再登出發佈入口網站。
 4. 現在請使用管理員電子郵件識別碼登入發佈入口網站。
-5. 瀏覽至 [發行者] -> [選取您的帳戶] -> [管理員] -> [新增共同管理員] (如以下螢幕擷取畫面所示)
+5. 瀏覽至 [發行者] -> [選取您的帳戶] -> [管理員] -> [新增共同管理員] \(如以下螢幕擷取畫面所示)
 
    ![繪圖](media/marketplace-publishing-accounts-creation-registration/imgAddAdmin_05.png)
 
@@ -259,4 +258,3 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
 [link-devsvc]:marketplace-publishing-dev-service-creation.md
 [link-devsvc-prereq]:marketplace-publishing-dev-service-creation-prerequisites.md
 [link-pushstaging]:marketplace-publishing-push-to-staging.md
-

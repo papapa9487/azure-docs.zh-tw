@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: caeb0569de89b1af7b87f393601c7aa1a1e293dc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: fc98bdd8b3597810b0c07563af507e93c611f769
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Service Fabric 應用程式的容量規劃
 本文將說明您如何估計執行 Azure Service Fabric 應用程式所需的資源量 (CPU、RAM、磁碟儲存空間)。 資源需求隨著時間改變是很常見的。 開發/測試您的服務時通常需要少數資源，之後進入生產環境且您的應用程式受歡迎度增長時會需要更多資源。 設計您的應用程式時，請考慮長期需求，並且選擇可讓您調整以符合高度客戶需求的服務。
@@ -67,4 +66,3 @@ Number of Nodes = (DB_Size * RF)/Node_Size
 
 <!--Link references--In actual articles, you only need a single period before the slash-->
 [10]: service-fabric-concepts-partitioning.md
-

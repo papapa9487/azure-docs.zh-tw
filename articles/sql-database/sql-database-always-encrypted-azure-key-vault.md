@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 15db9db72a80dc95c615e52b889f6470b2e6eed0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 61bfd420425b4740f6d4ebc01a403a88ff351382
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>一律加密：保護 SQL Database 中的機密資料，並將加密金鑰儲存在「Azure 金鑰保存庫」中
 
@@ -152,7 +151,7 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 SSN 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 BirthDate 資料行將使用不支援操作的隨機加密。
 
-將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按 [下一步] 。
+將 SSN 資料行的 [加密類型] 設定為 [決定性]，並將 BirthDate 資料行設定為 [隨機化]。 按一下 [下一步] 。
 
 ![加密資料行](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -163,7 +162,7 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 
 1. 選取 [Azure 金鑰保存庫] 。
 2. 從下拉式清單中選取想要的金鑰保存庫。
-3. 按 [下一步] 。
+3. 按一下 [下一步] 。
 
 ![主要金鑰組態](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
@@ -641,5 +640,4 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [一律加密精靈](https://msdn.microsoft.com/library/mt459280.aspx)
 * [一律加密部落格](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

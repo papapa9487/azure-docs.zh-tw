@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: alkohli;anbacker
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 6b0e763769564eaa191c78df05c008150c9a363f
 ms.openlocfilehash: cecc2566b432e897b5eff0c12e66598f0518ed80
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="contact-microsoft-support-for-your-storsimple"></a>連絡 Microsoft 支援服務以解決 StorSimple 問題
 如果您使用 Microsoft Azure StorSimple 解決方案時遇到任何問題，您可以向技術支援人員提出服務要求。 在與支援工程師進行線上工作階段時，可能也需要在您的 StorSimple 裝置上啟動支援工作階段。 本文將引導您：
@@ -50,7 +49,7 @@ ms.lasthandoff: 03/01/2017
    2. 從下拉式清單中，選取 [訂用帳戶]  。
    3. 從 [服務] 下拉式清單中，選取 [StorSimple]。 
    4. 從下拉式清單中，選取 [支援方案]  。 您必須已付費購買支援方案，才能啟用技術支援。
-4. 按 [下一步] 。 [問題]  對話方塊隨即出現。
+4. 按一下 [下一步] 。 [問題]  對話方塊隨即出現。
    
     ![新的支援要求窗格](./media/storsimple-contact-microsoft-support/Ibiza5a.png) 
 5. 在 [問題]  對話方塊中，完成下列操作：
@@ -62,7 +61,7 @@ ms.lasthandoff: 03/01/2017
    5. 在 [時間範圍]  方塊中，指出對應到最近發生問題的日期、時間和時區。
    6. 在 [檔案上傳] 底下，按一下資料夾圖示，即可瀏覽至您的支援封裝。
    7. 選取 [共用診斷資訊]  核取方塊。
-6. 按 [下一步] 。 [連絡資訊]  對話方塊隨即出現。
+6. 按一下 [下一步] 。 [連絡資訊]  對話方塊隨即出現。
    
     ![新的支援要求窗格](./media/storsimple-contact-microsoft-support/Ibiza6a.png) 
 7. 輸入您的連絡資訊，並選取一個連絡方法 (電話或電子郵件)。 
@@ -93,5 +92,4 @@ ms.lasthandoff: 03/01/2017
 > 您可以執行 `Disable-HcsSupportAccess` 來停用支援存取。 在起始工作階段之後 8 小時，StorSimple 裝置也會嘗試停用支援存取。 最好在起始支援工作階段之後變更 StorSimple 裝置認證。
 > 
 > 
-
 

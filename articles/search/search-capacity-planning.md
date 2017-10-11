@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 02/08/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08682b7986cc2210ed21f254e2a9a63b5355e583
-ms.openlocfilehash: bfed40417d800e86de7ef437c42162b1e1a0d886
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/24/2017
-
+ms.openlocfilehash: 26f5e71f3d00161a92de702209e224008ec8a5ae
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="scale-resource-levels-for-query-and-indexing-workloads-in-azure-search"></a>在 Azure 搜尋服務中調整適用於查詢和編製索引工作負載的資源等級
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
 
@@ -129,4 +127,3 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 特定組合共使用多少 SU 的計算公式是複本數和分割區數的「乘積」，也就是 (R X P = SU)。 例如， 3 個複本乘以 3 個資料分割為 9 個 SU 費用。
 
 每個 SU 的成本由該層決定，基本層的每單位費率比標準層低。 如需每一層的費率，請參閱 [定價詳細資料](https://azure.microsoft.com/pricing/details/search/)。
-

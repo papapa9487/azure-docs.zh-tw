@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: da10b213bc2543942b5ac77cf5c5d8547c00220c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure"></a>將 Hyper-V 虛擬機器 (不含 VMM) 複寫至 Azure 
 
 > [!div class="op_single_selector"]
@@ -39,14 +37,14 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="step-1-review-architecture-and-prerequisites"></a>步驟 1：檢閱架構和必要條件
 
-在開始部署之前，請檢閱情節架構，並確定您了解部署所需要的所有元件
+在開始部署之前，請檢閱案例架構，並確定您了解部署所需的一切元件
 
 移至[步驟 1：檢閱架構](hyper-v-site-walkthrough-architecture.md)
 
 
 ## <a name="step-2-review-prerequisites"></a>步驟 2：檢閱必要條件
 
-請確定您具備每個部署元件的適當必要條件：
+請確定您已備妥每個部署元件的必要條件：
 
 - **Azure 必要條件**您需要 Microsoft Azure 帳戶、Azure 網路和儲存體帳戶。
 - **內部部署 Hyper-V 必要條件**：請確定備妥 Hyper-V 主機可進行 Site Recovery 部署。
@@ -56,19 +54,19 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="step-3-plan-capacity"></a>步驟 3：規劃產能
 
-如果您要執行完整部署，就必須找出您需要哪些複寫資源。 有幾個工具可幫助您執行這項操作。 移至步驟 2。 如果您要進行快速設定來測試環境，可以略過此步驟。
+如果您要執行完整部署，就必須了解需要哪些複寫資源。 有幾個工具可幫助您執行這項操作。 移至步驟 2。 如果您要進行快速設定來測試環境，則可以略過此步驟。
 
-移至[步驟 3：規劃產能](hyper-v-site-walkthrough-capacity.md)
+移至[步驟 3：規劃容量](hyper-v-site-walkthrough-capacity.md)
 
-## <a name="step-4-plan-networking"></a>步驟 4：規劃網路服務
+## <a name="step-4-plan-networking"></a>步驟 4：規劃網路
 
-您必須進行一些網路規劃，確保 Azure VM 在發生容錯移轉之後是連線到網路，以及它們具有正確的 IP 位址。
+您必須進行一些網路規劃，以確保 Azure VM 在發生容錯移轉之後會連線到網路，並且它們具有正確的 IP 位址。
 
-移至[步驟 4：規劃網路服務](hyper-v-site-walkthrough-network.md)
+移至[步驟 4：規劃網路](hyper-v-site-walkthrough-network.md)
 
 ##  <a name="step-5-prepare-azure-resources"></a>步驟 5：準備 Azure 資源
 
-在開始之前，請先設定 Azure 網路和存放裝置。 您可以在部署期間執行這項操作，但我們建議您在開始之前進行。
+在開始之前，請先設定 Azure 網路和儲存體。 您可以在部署期間執行這項操作，但建議您在開始之前進行。
 
 移至[步驟 5：準備 Azure](hyper-v-site-walkthrough-prepare-azure.md)
 
@@ -81,7 +79,7 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="step-7-set-up-a-vault"></a>步驟 7：設定保存庫
 
-您需要設定復原服務保存庫才能協調和管理複寫。 當您設定保存庫時，請指定您想要複寫的項目，以及您要複寫它的位置。
+您必須設定「復原服務」保存庫，才能協調和管理複寫。 當您設定保存庫時，請指定您想要複寫的項目，以及您要複寫它的位置。
 
 移至[步驟 7：建立保存庫](hyper-v-site-walkthrough-create-vault.md)
 
@@ -109,4 +107,3 @@ ms.lasthandoff: 06/23/2017
 初始複寫完成，且差異複寫執行之後，您可以執行測試容錯移轉，以確定一切如預期運作。
 
 移至[步驟 11：執行測試容錯移轉](hyper-v-site-walkthrough-test-failover.md)
-

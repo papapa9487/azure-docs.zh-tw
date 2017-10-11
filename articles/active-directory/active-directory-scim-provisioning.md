@@ -16,12 +16,11 @@ ms.date: 07/28/2017
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
 
@@ -83,7 +82,7 @@ Azure AD 可以設定為將已指派的使用者和群組佈建至實作 [System
     >[!NOTE]
     >您可以選擇性地藉由停用「群組」對應以停用同步處理群組物件。 
 
-11. 在 [設定] 底下的 [範圍] 欄位定義哪些使用者或群組會進行同步處理。 選取 [僅同步處理指派的使用者和群組] \(建議選項) 只會同步處理 [使用者和群組] 索引標籤中指派的使用者和群組。
+11. 在 [設定] 底下的 [範圍] 欄位定義哪些使用者或群組會進行同步處理。 選取 [僅同步處理指派的使用者和群組]\(建議選項) 只會同步處理 [使用者和群組] 索引標籤中指派的使用者和群組。
 12. 一旦您的設定完成，請將 [佈建狀態] 變更為 [開啟]。
 13. 按一下 [儲存] 以啟動 Azure AD 佈建服務。 
 14. 如果僅同步處理指派的使用者和群組 (建議選項)，請務必選取 [使用者和群組] 索引標籤，並且指派您想要同步處理的使用者和/或群組。
@@ -714,4 +713,3 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 [3]: ./media/active-directory-scim-provisioning/scim-figure-3.PNG
 [4]: ./media/active-directory-scim-provisioning/scim-figure-4.PNG
 [5]: ./media/active-directory-scim-provisioning/scim-figure-5.PNG
-

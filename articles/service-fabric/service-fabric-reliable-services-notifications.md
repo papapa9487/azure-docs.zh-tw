@@ -14,16 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 18c71608f7429f7c52720282ca66f44c88de2d84
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: c6a53d851510ed5e6eec1f3ac0f636ad034a6d4c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# Reliable Services 通知
-<a id="reliable-services-notifications" class="xliff"></a>
+# <a name="reliable-services-notifications"></a>Reliable Services 通知
 通知可讓用戶端追蹤對於他們感興趣物件所進行的變更。 兩種類型的物件支援通知：「可靠的狀態管理員」和「可靠的字典」。
 
 使用通知的常見原因如下：
@@ -33,8 +30,7 @@ ms.lasthandoff: 11/17/2016
 
 套用作業過程中即會引發通知。 因為如此，應該以最快速度處理通知，且同步事件不應包含任何耗費資源的作業。
 
-## 可靠的狀態管理員通知
-<a id="reliable-state-manager-notifications" class="xliff"></a>
+## <a name="reliable-state-manager-notifications"></a>可靠的狀態管理員通知
 可靠的狀態管理員提供下列事件的通知︰
 
 * 交易
@@ -109,8 +105,7 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 }
 ```
 
-## 可靠的字典通知
-<a id="reliable-dictionary-notifications" class="xliff"></a>
+## <a name="reliable-dictionary-notifications"></a>可靠的字典通知
 可靠的字典提供下列事件的通知︰
 
 * 重建︰在 **ReliableDictionary** 從過去復原或複製的本機狀態或備份，復原其狀態時呼叫。
@@ -207,8 +202,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 }
 ```
 
-## 建議
-<a id="recommendations" class="xliff"></a>
+## <a name="recommendations"></a>建議
 *  完成通知事件。
 *  執行任何耗費資源的作業 (例如 IO 作業) 做為同步事件的一部分。
 *  Action 類型。 未來可能會加入新的 Action 類型。
@@ -221,11 +215,9 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 * 如果是包含多個作業的交易，作業將依使用者在主要本上收到它們的順序套用。
 * 在處理錯誤的進度過程中，某些作業可能會復原。 通知會針對這類復原作業加以引發，將複本狀態輪換回到可靠的時間點。 復原通知的一個重要差異，是使用重複索引鍵的事件會彙總在一起。 例如，如果復原上述的 T1，使用者將會看到 Delete(X) 的單一通知。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 * [可靠的集合](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
 * [備份與還原 Reliable Services (災害復原)](service-fabric-reliable-services-backup-restore.md)
 * [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

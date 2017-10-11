@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft 雲端服務和網路安全性
 Microsoft 雲端服務提供超大規模的服務和基礎結構、企業級的功能，以及許多混合式連線選項。 客戶可以選擇透過網際網路或透過 Azure ExpressRoute (提供私人網路連線能力) 存取這些服務。 Microsoft Azure 平台可讓客戶順暢地將基礎結構延伸至雲端並建置多層式架構。 另外，協力廠商可以提供安全性服務和虛擬設備，以啟用增強的功能。 當客戶使用透過 ExpressRoute 存取的 Microsoft 雲端服務，這份白皮書提供他們應該考慮的安全性和架構性問題的概觀。 也包括在 Azure 虛擬網路中建立更安全的服務。
 
@@ -79,7 +77,7 @@ Microsoft 有完整的方法來保護執行超大規模全域服務所需的雲�
 
 1.    **DDoS 保護**：DDoS 保護是 Azure 實體網路層，保護 Azure 平台本身免於大規模的網際網路攻擊。 這些攻擊會使用多個 "Bot" 節點嘗試灌爆網際網路服務。 Azure 有一層很強大的 DDoS 保護網可篩選所有輸入、輸出及跨 Azure 區域的連線。 這個 DDoS 保護層沒有可讓使用者設定的屬性，客戶也無法接觸。 DDoS 保護層級會將 Azure 當做平台來保護，防範大規模攻擊，它也會監視輸出流量和跨 Azure 區域的流量。 在虛擬網路上使用網路虛擬設備，可以由客戶針對較小規模的攻擊設定多幾層的彈性，不會令平台層級保護破功。 DDoS 的實際執行範例；如果網際網路對向的 IP 位址遭到大規模 DDoS 攻擊，Azure 會偵測攻擊的來源，並在有問題的流量到達其目的地之前中止它。 在大多數情況下，受到攻擊的端點不會被攻擊影響。 在少數端點會受影響的情況下，其流量不會影響到其他端點，只會影響受攻擊的端點。 因此，其他客戶和服務也不會看到此攻擊所造成的影響。 請務必注意，Azure DDoS 只尋找大規模攻擊。 在超過平台層級保護臨界值之前，您的特定服務有可能被覆蓋。 例如，單一 A0 IIS 伺服器上的網站，在 Azure 平台層級 DDoS 保護註冊威脅之前，可能被 DDoS 攻擊而離線。
 
-2.    **公用 IP 位址**︰公用 IP 位址允許雲端服務或資源群組將公用的網際網路 IP 位址和連接埠公開；公用 IP 位址是透過服務端點、公用 IP 位址、應用程式閘道器以及其他 Azure 功能 (可向路由至您的資源的網際網路顯示公用 IP 位址) 啟用。 端點使用網路位址轉譯 (NAT) 將流量路由到 Azure 虛擬網路的內部位址和連接埠。 這個路徑是外部流量進入虛擬網路的主要方式。 公用 IP 位址可由使用者設定，用於判斷傳入什麼流量，以及該流量在虛擬網路上如何轉譯及轉譯至何處。
+2.  **公用 IP 位址**︰公用 IP 位址允許雲端服務或資源群組將公用的網際網路 IP 位址和連接埠公開；公用 IP 位址是透過服務端點、公用 IP 位址、應用程式閘道器以及其他 Azure 功能 (可向路由至您的資源的網際網路顯示公用 IP 位址) 啟用。 端點使用網路位址轉譯 (NAT) 將流量路由到 Azure 虛擬網路的內部位址和連接埠。 這個路徑是外部流量進入虛擬網路的主要方式。 公用 IP 位址可由使用者設定，用於判斷傳入什麼流量，以及該流量在虛擬網路上如何轉譯及轉譯至何處。
 
 一旦流量到達虛擬網路，就有許多功能可派上用場。 Azure 虛擬網路是客戶連接工作負載的基礎，也是套用基本網路層級安全性的位置。 它是客戶在 Azure 中的私人網路 (虛擬網路覆疊)，具有下列功能和特性：
 
@@ -552,4 +550,3 @@ IP 轉送是 UDR 的隨附功能。 IP 轉送是虛擬設備的一項設定，�
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

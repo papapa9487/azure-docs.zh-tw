@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="generic-ldap-connector-technical-reference" class="xliff"></a>
-
-# 一般 LDAP 連接器技術參考
+# <a name="generic-ldap-connector-technical-reference"></a>一般 LDAP 連接器技術參考
 本文說明一般 LDAP 連接器。 本文適用於下列產品：
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -35,9 +32,7 @@ ms.lasthandoff: 03/14/2017
 提到 IETF RFC 時，本文件會使用 (RFC [RFC 編號]/[RFC 文件中的區段]) 格式，例如：(RFC 4512/4.3)。
 您可以在 http://tools.ietf.org/html/rfc4500 找到詳細資訊 (您需要以正確的 RFC 編號取代 4500)。
 
-<a id="overview-of-the-generic-ldap-connector" class="xliff"></a>
-
-## 一般 LDAP 連接器概觀
+## <a name="overview-of-the-generic-ldap-connector"></a>一般 LDAP 連接器概觀
 一般 LDAP 連接器可讓您整合同步處理服務與 LDAP v3 伺服器。
 
 IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差異匯入的項目。 對於這些作業，只支援明確指定的 LDAP 目錄。
@@ -51,9 +46,7 @@ IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差�
 | 作業 |所有 LDAP 目錄都支援下列作業： <li>完整匯入</li><li>匯出</li>僅在特定目錄上支援下列作業：<li>差異匯入</li><li>設定密碼、變更密碼</li> |
 | 結構描述 |<li>從 LDAP 結構描述 (RFC3673 和 RFC4512/4.2) 中偵測到結構描述</li><li>支援結構化類別、aux 類別和 extensibleObject 物件類別 (RFC4512/4.3)</li> |
 
-<a id="delta-import-and-password-management-support" class="xliff"></a>
-
-### 差異匯入和密碼管理支援
+### <a name="delta-import-and-password-management-support"></a>差異匯入和密碼管理支援
 支援差異匯入和密碼管理的目錄：
 
 * Microsoft Active Directory Lightweight Directory Services (AD LDS)
@@ -99,33 +92,23 @@ IETF RFC 中未指定某些作業和結構描述項目，例如需要執行差�
   * 支援所有作業進行差異匯入
   * 支援設定密碼和變更密碼
 
-<a id="prerequisites" class="xliff"></a>
-
-### 必要條件
+### <a name="prerequisites"></a>必要條件
 在您使用連接器之前，請確定同步處理伺服器上有下列項目：
 
 * Microsoft .NET 4.5.2 Framework 或更新版本
 
-<a id="detecting-the-ldap-server" class="xliff"></a>
-
-### 偵測 LDAP 伺服器
+### <a name="detecting-the-ldap-server"></a>偵測 LDAP 伺服器
 連接器會依賴各種技巧來偵測和識別 LDAP 伺服器。 連接器會使用根 DSE、廠商名稱/版本，而且檢查結構描述，以找出已知存在某些 LDAP 伺服器中的唯一物件和屬性。 如果找到此資料，則會用來預先填入連接器的設定選項。
 
-<a id="connected-data-source-permissions" class="xliff"></a>
-
-### 連接的資料來源權限
+### <a name="connected-data-source-permissions"></a>連接的資料來源權限
 若要在連接的目錄中的物件上執行匯入及匯出作業，連接器帳戶必須具有足夠的權限。 連接器需要寫入權限才能匯出，需要讀取權限才能匯入。 權限設定是在目標目錄本身的管理經驗內執行。
 
-<a id="ports-and-protocols" class="xliff"></a>
-
-### 連接埠和通訊協定
+### <a name="ports-and-protocols"></a>連接埠和通訊協定
 連接器會使用組態中指定的連接埠號碼，依預設 LDAP 使用 389 及 LDAPS 使用 636 。
 
 對於 LDAPS，您必須使用 SSL 3.0 或 TLS。 不支援 SSL 2.0，而且無法啟用。
 
-<a id="required-controls-and-features" class="xliff"></a>
-
-### 必要的控制項和功能
+### <a name="required-controls-and-features"></a>必要的控制項和功能
 LDAP 伺服器必須提供下列 LDAP 控制項/功能，連接器才能正常運作：  
 `1.3.6.1.4.1.4203.1.5.3` True/False 篩選器
 
@@ -151,9 +134,7 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 
 連接器會嘗試偵測選項是否出現在伺服器上。 如果偵測不到選項，則連接器屬性的 [全域] 頁面上會出現警告。 並非所有 LDAP 伺服器都會顯示其支援的所有控制項/功能，即使出現此警告，連接器也可能正常運作。
 
-<a id="delta-import" class="xliff"></a>
-
-### 差異匯入
+### <a name="delta-import"></a>差異匯入
 只有在偵測到支援目錄時，才可使用差異匯入。 目前使用下列方法：
 
 * LDAP Accesslog。 請參閱 [http://www.openldap.org/doc/admin24/overlays.html#Access Logging](http://www.openldap.org/doc/admin24/overlays.html#Access Logging)
@@ -161,23 +142,17 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 * TimeStamp。 對於 Novell/NetIQ eDirectory，連接器會使用最後的日期/時間來取得已建立和更新的物件。 Novell/NetIQ eDirectory 不提供對等方法來擷取已刪除的物件。 如果 LDAP 伺服器上沒有其他作用中的差異匯入方法，也可以使用此選項。 此選項無法匯入已刪除的物件。
 * USNChanged。 請參閱： [https://msdn.microsoft.com/library/ms677627.aspx](https://msdn.microsoft.com/library/ms677627.aspx)
 
-<a id="not-supported" class="xliff"></a>
-
-### 不支援
+### <a name="not-supported"></a>不支援
 不支援下列 LDAP 功能：
 
 * 伺服器之間的 LDAP 轉介 (RFC 4511/4.1.10)
 
-<a id="create-a-new-connector" class="xliff"></a>
-
-## 建立新的連接器
+## <a name="create-a-new-connector"></a>建立新的連接器
 若要建立一般 LDAP 連接器，請在 [同步處理服務] 中選取 [管理代理程式] 和 [建立]。 選取 [一般 LDAP (Microsoft)] 連接器。
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericldap/createconnector.png)
 
-<a id="connectivity" class="xliff"></a>
-
-### 連線能力
+### <a name="connectivity"></a>連線能力
 在 [連線能力] 頁面上，您必須指定 [主機]、[連接埠] 和 [繫結] 資訊。 視選取的 [繫結] 而定，下列各區段中可能會提供其他資訊。
 
 ![連線能力](./media/active-directory-aadconnectsync-connector-genericldap/connectivity.png)
@@ -199,9 +174,7 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 
 若已使用可延伸物件 (RFC4512/4.3)，則選取 [在結構描述中包含可延伸屬性]  ，而且啟用此選項可讓每個屬性使用於所有物件上。 選取此選項會讓結構描述變得非常大，所以除非連接的目錄使用這項功能，否則建議不要選取這個選項。
 
-<a id="global-parameters" class="xliff"></a>
-
-### 全域參數
+### <a name="global-parameters"></a>全域參數
 在 [全域參數] 頁面上，您可以設定差異變更記錄檔的 DN 和其他 LDAP 功能。 此頁面會預先填入以 LDAP 伺服器所提供的資訊。
 
 ![連線能力](./media/active-directory-aadconnectsync-connector-genericldap/globalparameters.png)
@@ -239,18 +212,14 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 
 在其他資料分割清單中，可以新增其他未自動偵測到的命名空間。 比方說，如果有幾部應同時全部匯入的伺服器組成一個邏輯叢集，則可使用此設定。 就如同 Active Directory 可以在一個樹系中有多個網域，而所有網域都共用一個結構描述，在此方塊中輸入其他命名空間就可以模擬此狀況。 每個命名空間都可以從不同的伺服器匯入，並可在 [設定資料分割和階層] 頁面上進一步設定。 使用 Ctrl+Enter 來換行。
 
-<a id="configure-provisioning-hierarchy" class="xliff"></a>
-
-### 設定佈建階層
+### <a name="configure-provisioning-hierarchy"></a>設定佈建階層
 此頁面用於將 DN 元件 (例如 OU) 對應至應該佈建的物件類型 (例如 organizationalUnit)。
 
 ![佈建階層](./media/active-directory-aadconnectsync-connector-genericldap/provisioninghierarchy.png)
 
 藉由設定佈建階層，您可以設定連接器在必要時自動建立結構。 例如，如果有命名空間 dc=contoso,dc=com 並已佈建一個新物件 (cn=Joe、ou=Seattle、c=US、dc=contoso、dc=com)，則連接器可以建立國家類型為美國而 organizationalUnit 為西雅圖的物件 (如果目錄中尚未出現這些項目)。
 
-<a id="configure-partitions-and-hierarchies" class="xliff"></a>
-
-### 設定資料分割和階層
+### <a name="configure-partitions-and-hierarchies"></a>設定資料分割和階層
 在資料分割和階層頁面上，選取具有您打算匯入和匯出之物件的所有命名空間。
 
 ![分割數](./media/active-directory-aadconnectsync-connector-genericldap/partitions.png)
@@ -266,9 +235,7 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 
 ![僅搜尋所選容器](./media/active-directory-aadconnectsync-connector-genericldap/partitions-only-selected-containers.png)
 
-<a id="configure-anchors" class="xliff"></a>
-
-### 設定錨點
+### <a name="configure-anchors"></a>設定錨點
 此頁面一定有預先設定的值，而且無法變更。 如果已識別出伺服器廠商，則錨點可能會填入不可變的屬性，例如物件的 GUID。 如果尚未偵測到或已知沒有不可變的屬性，則連接器會使用 dn (辨別名稱) 做為錨點。
 
 ![錨點](./media/active-directory-aadconnectsync-connector-genericldap/anchors.png)
@@ -290,22 +257,15 @@ True/False 篩選器通常因為由 LDAP 目錄所支援而不回報，而且可
 | RadiantOne VDS |dn |
 | Sun One Directory Server |dn |
 
-<a id="other-notes" class="xliff"></a>
-
-## 其他注意事項
+## <a name="other-notes"></a>其他注意事項
 本節提供此連接器特用層面的資訊，或因為其他原因而需得知的重要資訊。
 
-<a id="delta-import" class="xliff"></a>
-
-### 差異匯入
+### <a name="delta-import"></a>差異匯入
 Open LDAP 中的差異浮水印是 UTC 日期/時間。 基於這個理由，FIM 同步處理服務與 Open LDAP 之間的時鐘必須同步。 如果沒有同步，則可能會省略差異變更記錄檔中的某些項目。
 
 對於 Novell eDirectory，差異匯入不會偵測任何物件刪除。 基於這個理由，必須定期執行完整匯入才可找到所有刪除的物件。
 
 對於差異變更記錄檔以日期 / 時間為基礎的目錄，強烈建議定期執行完整匯入。 此程序可讓同步處理引擎找出 LDAP 伺服器與連接器空間中目前內容之間的差異。
 
-<a id="troubleshooting" class="xliff"></a>
-
-## 疑難排解
+## <a name="troubleshooting"></a>疑難排解
 * 如需如何啟用記錄來疑難排解連接器的資訊，請參閱 [如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
-

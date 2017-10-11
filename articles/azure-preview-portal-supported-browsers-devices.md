@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2d3046381892978e3aea12752f526d7cdf8184f5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: f8718e240eaefb47b18b6098be083e335ccbc89d
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 入口網站支援的瀏覽器和裝置
 您可以在所有新式的桌上型電腦、平板電腦裝置和瀏覽器上執行 [Azure 入口網站](https://portal.azure.com)。
@@ -37,5 +36,4 @@ Azure 入口網站可在新式的 PC、Mac 和平板電腦上順利執行。 如
 * Safari (最新版本，僅限 Mac)
 * Chrome (最新版本)
 * Firefox (最新版本)
-
 

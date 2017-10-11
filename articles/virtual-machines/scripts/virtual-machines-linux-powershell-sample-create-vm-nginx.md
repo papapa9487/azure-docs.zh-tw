@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bcf8071454cd598d6aa309823f5cd551779747c3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: e4b2a02d6019d7610fc1dce95d94efa764c6f04c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-an-nginx-vm-with-powershell"></a>使用 PowerShell 建立 NGINX VM
 
 此指令碼會建立 Azure 虛擬機器，然後使用 Azure 虛擬機器自訂指令碼擴充功能來安裝 NGINX。 執行指令碼之後，您可以在虛擬機器的公用 IP 位址上存取示範網站。
@@ -68,4 +66,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 如需有關 Azure PowerShell 模組的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
 
 您可以在 [Azure Linux VM 文件](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中找到其他的虛擬機器 PowerShell 指令碼範例。
-

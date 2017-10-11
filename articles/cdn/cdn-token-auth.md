@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>使用權杖驗證保護 Azure CDN 資產
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -147,4 +144,3 @@ ms.lasthandoff: 03/29/2017
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN 功能和提供者定價
 
 請參閱 [CDN 概觀](cdn-overview.md)主題。
-

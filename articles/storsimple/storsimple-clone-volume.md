@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 8f1936fac543f559a44ad0f9c35b30d1a92dce68
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-clone-a-volume"></a>使用 StorSimple Manager 服務來複製磁碟區
 [!INCLUDE [storsimple-version-selector-clone-volume](../../includes/storsimple-version-selector-clone-volume.md)]
@@ -90,5 +89,4 @@ StorSimple Manager 服務 [備份類別目錄]  頁面會顯示在進行手動�
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
 * 了解如何 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
 

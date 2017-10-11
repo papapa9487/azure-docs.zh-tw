@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 77e2fcf9c306259286b15767f3a992510d6d79d8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -58,7 +57,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 
 **若要從資源庫新增 HR2day by Merces，請採取下列步驟：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com) 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。 
+1. 在 [Azure 入口網站][](https://portal.azure.com) 的左方瀏覽窗格中，選取 [Azure Active Directory] 圖示。 
 
     ![Active Directory][1]
 
@@ -268,5 +267,4 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hr2day-tutorial/tutorial_general_203.png
-
 

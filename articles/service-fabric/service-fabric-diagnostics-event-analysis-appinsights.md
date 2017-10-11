@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/26/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
 Azure Application Insights 是監視和診斷應用程式的擴充式平台。 它包含強大的分析和查詢工具、可自訂的儀表板和視覺效果，以及包括自動化警示的進一步選項。 我們建議使用此平台監視和診斷 Service Fabric 應用程式和服務。
@@ -30,7 +28,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 ### <a name="creating-an-ai-resource"></a>建立 AI 資源
 
-若要建立 AI 資源，請前往 Azure Marketplace 搜尋 "Application Insights"。 它應該會顯示為第一個解決方案 (在 [Web + 行動] 類別目錄下)。 找到正確的資源時，請按一下 [建立]  \(確認您的路徑與下圖相符)。
+若要建立 AI 資源，請前往 Azure Marketplace 搜尋 "Application Insights"。 它應該會顯示為第一個解決方案 (在 [Web + 行動] 類別目錄下)。 找到正確的資源時，請按一下 [建立] (確認您的路徑與下圖相符)。
 
 ![新增 Application Insights 資源](media/service-fabric-diagnostics-event-analysis-appinsights/create-new-ai-resource.png)
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
-ms.openlocfilehash: 5cb387c4d1a2a2ae5ee8822241b11e79f53f0d6a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/25/2017
-
+ms.openlocfilehash: 6958d61b29961f59cb22f62bec55f2d467e7e7cb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>利用 Azure CLI 2.0 開始使用 Azure DNS
 
 > [!div class="op_single_selector"]
@@ -123,4 +121,3 @@ az group delete --name MyResourceGroup
 若要深入了解在 Azure DNS 中管理 DNS 區域，請參閱[使用 Azure CLI 2.0 在 Azure DNS 中管理 DNS 區域](dns-operations-dnszones-cli.md)。
 
 若要深入了解在 Azure DNS 中管理 DNS 記錄，請參閱[使用 Azure CLI 2.0 在 Azure DNS 中管理 DNS 記錄和記錄集](dns-operations-recordsets-cli.md)。
-

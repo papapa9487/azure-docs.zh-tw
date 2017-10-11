@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2016
 ms.author: cherylmc
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1206d7444f32216597a6f546c71131b2de0ec3f8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f62254b2a7df50aa55a2a49009702848a9aecebd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-network-for-expressroute-in-the-classic-portal"></a>在傳統入口網站中建立 ExpressRoute 的虛擬網路
 本文中的步驟將引導您使用傳統部署模型與傳統入口網站來設定虛擬網路和虛擬網路閘道，以和 ExpressRoute 搭配使用。
@@ -76,5 +75,4 @@ ms.lasthandoff: 11/17/2016
 ## <a name="next-steps"></a>後續步驟
 * 如果您想要將虛擬機器新增至虛擬網路，請參閱 [虛擬機器學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)。
 * 如果您想要深入了解 ExpressRoute，請參閱 [ExpressRoute 概觀](expressroute-introduction.md)。
-
 

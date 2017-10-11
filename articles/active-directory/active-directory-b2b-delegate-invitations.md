@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 78613cc978b585a98d235245194c02371f7f3849
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>委派 Azure Active Directory B2B 共同作業邀請
 
 使用 Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業時，您不需要是全域系統管理員即可傳送邀請。 相反地，您可以使用相關原則並將邀請委派給其角色允許他們傳送邀請的使用者。 委派來賓使用者邀請的一個重要新方式是透過「來賓邀請者」角色。
@@ -64,4 +61,3 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 * [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
 * [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
 * [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)
-

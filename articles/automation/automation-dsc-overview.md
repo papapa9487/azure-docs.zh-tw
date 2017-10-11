@@ -14,14 +14,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 23a6e09d410616b135506df778d6fdd5ed68bb41
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-automation-dsc-overview"></a>Azure 自動化 DSC 概觀
 
 Azure Automation DSC 是一種 Azure 服務，可讓您撰寫、管理和編譯 PowerShell Desired State Configuration (DSC) [設定](https://msdn.microsoft.com/powershell/dsc/configurations)、匯入 [DSC 資源](https://msdn.microsoft.com/powershell/dsc/resources)，以及將設定指派給目標節點，而這些作業都是在雲端中進行。
@@ -67,4 +65,4 @@ Azure Automation DSC 為 [PowerShell Desired State Configuration](https://msdn.m
 * 若要了解如何編譯 DSC 設定，以將它們指派給目標節點，請參閱[編譯 Azure Automation DSC 中的設定](automation-dsc-compile.md)。
 * 如需 Azure Automation DSC 的 PowerShell Cmdlet 參考，請參閱 [Azure Automation DSC Cmdlet](/powershell/module/azurerm.automation/#automation)。
 * 如需定價資訊，請參閱 [Azure Automation DSC 定價](https://azure.microsoft.com/pricing/details/automation/)。
-* 若要查看在持續部署管線中使用 Azure Automation DSC 的範例，請參閱 [使用 Azure Automation DSC 和 Chocolatey 的 IaaS VM 持續部署](automation-dsc-cd-chocolatey.md)。
+* 若要查看 Azure 自動化 DSC 使用連續部署管線中的範例，請參閱[IaaS Vm 使用 Azure 自動化 DSC 和 Chocolatey 連續部署](automation-dsc-cd-chocolatey.md)

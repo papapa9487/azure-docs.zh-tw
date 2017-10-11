@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 9ee460b29deba598e648e72958b08e77015a5505
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: e61001161e632a5d2e513107e30f1eaf06103989
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>使用 Sysdig 監視 Azure 容器服務叢集
 本文中，我們會將 Sysdig 代理程式部署到 Azure 容器服務叢集中的所有代理程式節點。 您需要 Sysdig 帳戶以進行這項設定。 
@@ -56,4 +55,3 @@ Sysdig 是一項監視服務，可讓您在叢集內監視您的容器。 Sysdig
 安裝套件之後回到 Sysdig UI，您就可以瀏覽叢集內不同的容器使用情況計量。 
 
 您也可以透過[新的儀表板精靈](https://app.sysdigcloud.com/#/dashboards/new)來安裝 Mesos 和 Marathon 專用儀表板。
-

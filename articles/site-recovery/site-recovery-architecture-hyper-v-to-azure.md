@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 552794a2c7bba6f551ada5f431cacc236e7732a4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>在 Site Recovery 中將 Hyper-V 複寫至 Azure 如何運作？
 
 
@@ -38,7 +35,7 @@ Site Recovery 可以在 Hyper-V 叢集和獨立主機上，複寫不論是否使
 
 將 Hyper-V VM 複寫至 Azure 時，涉及許多元件。
 
-**元件** | **Location** | **詳細資料**
+**元件** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **詳細資料**
 --- | --- | ---
 **Azure** | 在 Azure 中，您需要 Microsoft Azure 帳戶、Azure 儲存體帳戶和 Azure 網路。 | 所複寫的資料會儲存在儲存體帳戶中，而在從內部部署網站進行容錯移轉時，便會以複寫的資料建立 Azure VM。<br/><br/> Azure VM 在建立後會連線到 Azure 虛擬網路。
 **VMM 伺服器** | 位於 VMM 雲端的 Hyper-V 主機 | 如果 Hyper-V 主機是在 VMM 雲端中進行管理，您是在復原服務保存庫中註冊 VMM 伺服器。<br/><br/> 在 VMM 伺服器上安裝 Site Recovery Provider，以協調與 Azure 的複寫。<br/><br/> 您需要邏輯和 VM 網路設定以設定網路對應。 VM 網路應該連結到與雲端相關聯的邏輯網路。
@@ -68,8 +65,7 @@ Site Recovery 可以在 Hyper-V 叢集和獨立主機上，複寫不論是否使
 2. 作業會檢查符合必要條件的機器，然後叫用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 方法，以使用您進行的設定來設定複寫。
 3. 作業會啟動初始複寫，方法是叫用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法，以初始化完整的 VM 複寫，並且將 VM 的虛擬磁碟傳送至 Azure。
 4. 您可以在 [作業] 索引標籤中監視作業。
-        ![作業清單](media/site-recovery-hyper-v-azure-architecture/image1.png)
-        ![啟用保護向下鑽研](media/site-recovery-hyper-v-azure-architecture/image2.png)
+        ![作業清單](media/site-recovery-hyper-v-azure-architecture/image1.png) ![啟用保護向下鑽研](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>複寫初始資料
 
@@ -126,4 +122,3 @@ Site Recovery 可以在 Hyper-V 叢集和獨立主機上，複寫不論是否使
 ## <a name="next-steps"></a>後續步驟
 
 檢閱[支援矩陣](site-recovery-support-matrix-to-azure.md)
-

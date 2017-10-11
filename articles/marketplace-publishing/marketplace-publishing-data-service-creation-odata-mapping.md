@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: a853b4dbd1952ba4ea8ee68ea3ca98f588bb71a2
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mapping-an-existing-web-service-to-odata-through-csdl"></a>透過 CSDL 將現有的 Web 服務對應至 OData
 > [!IMPORTANT]
@@ -47,7 +47,7 @@ CSDL (概念結構定義語言) 是一項規格，會定義如何使用常見的
 
 如需 Atom、Atom Pub 和 OData 通訊協定 (Azure Marketplace 延伸模組會據以建置) 的背景，請檢閱： [http://msdn.microsoft.com/library/ff478141.aspx](http://msdn.microsoft.com/library/ff478141.aspx)
 
-摘錄自上述連結：      *「開放式資料通訊協定 (以下稱為 OData) 的目的是根據公開為資料服務的資源，為 CRUD 樣式的操作 (建立、讀取、更新及刪除) 提供以 REST 為基礎的通訊協定。「資料服務」是一個端點，其中含有公開自一或多個「集合」的資料，每個集合均包含零到多個「項目」，這些項目是由具類型的具名值組所組成。OData 是 Microsoft 基於 OASIS (Organization for the Advancement of Structured Information Standards) 標準所發佈，因此，任何有需要的人都能建置伺服器、用戶端或工具，而沒有任何權利金或限制。」*
+摘錄自上述連結：*「開放式資料通訊協定 (以下稱為 OData) 的目的是根據公開為資料服務的資源，為 CRUD 樣式的操作 (建立、讀取、更新及刪除) 提供以 REST 為基礎的通訊協定。「資料服務」是一個端點，其中含有公開自一或多個「集合」的資料，每個集合均包含零到多個「項目」，這些項目是由具類型的具名值組所組成。OData 是 Microsoft 基於 OASIS (Organization for the Advancement of Structured Information Standards) 標準所發佈，因此，任何有需要的人都能建置伺服器、用戶端或工具，而沒有任何權利金或限制。」*
 
 ### <a name="three-critical-pieces-that-have-to-be-defined-by-the-csdl-are"></a>以下是三個必須由 CSDL 定義的關鍵部分：
 * 服務提供者的**端點**。服務的 Web 位址 (URI)
@@ -140,8 +140,7 @@ CSDL 的範例如下：(複製下列範例 CSDL 並貼至 XML 編輯器，然後
 * PPUI 中的 MyCompany 與 [Microsoft 開發人員中心](http://dev.windows.com/registration?accountprogram=azure) UI 中的 [發行者顯示名稱] 相關聯
 * 您的 API 與 Web 或資料服務相關聯 (在 PPUI 中的計畫)
 
-**階層：**
- 公司 (內容提供者) 擁有具有方案 (即服務) 的優惠，可利用 API 來排列。
+**階層：** 公司 (內容提供者) 擁有具有方案 (即服務) 的優惠，可利用 API 來排列。
 
 ### <a name="webservice-csdl-example"></a>WebService CSDL 範例
 連接至公開 Web 應用程式端點 (例如 C# 應用程式) 的服務
@@ -317,10 +316,4 @@ CSDL 的範例如下：(複製下列範例 CSDL 並貼至 XML 編輯器，然後
 * 如果您有興趣學習和了解特定節點及其參數，請閱讀 [資料服務 OData 對應節點](marketplace-publishing-data-service-creation-odata-mapping-nodes.md) 一文，來了解定義和說明、範例，以及使用案例內容。
 * 如果您有興趣檢閱範例，請閱讀 [資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 一文，來查看範例程式碼，並了解程式碼語法與內容。
 * 若要返回用於將資料服務發佈至 Azure Marketplace 的指定路徑，請閱讀 [資料服務發佈指南](marketplace-publishing-data-service-creation.md)一文。
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d8f6da61b02a1289be0fa3444fd4dcfbe487068f
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 0659ab9d304dbfcce72e8c3c79edad68e70b9630
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-device"></a>更換 StorSimple 裝置上的磁碟機
 ## <a name="overview"></a>Overview
@@ -56,7 +55,7 @@ ms.lasthandoff: 11/17/2016
 2. 以逆時鐘方向旋轉鑰匙，直到在鑰匙上方的孔中看不到紅色指示器。
 3. 取下鑰匙。
    
-    ![ 已解除鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![已解除鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **圖 2** 已解除鎖定磁碟機
 4. 現在可以取下磁碟機。
@@ -115,5 +114,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
-
 

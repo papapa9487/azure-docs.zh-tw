@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 30ec6f45da114b6c7bc081f8a2df46f037de61fd
-ms.openlocfilehash: 496aa7754b35877900da020283c8b7efe0e04cef
-
-
+ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>如何在 Azure API 管理中建立 API
 API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。 新的 API 是在發行者入口網站中建立，然後新增所需的作業。 加入操作之後，API 就可加入至產品，接著就可發佈。 API 發佈之後，就可供開發人員訂閱和使用。
@@ -47,7 +47,7 @@ API 是在發行者入口網站中建立和設定。 若要存取發行者入口
 *  提供 API 的獨特描述性名稱。 它會顯示在開發人員和發行者入口網站中。
 *  會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。
 *  會附加到 API 管理服務的基礎 URL。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。
-* **Web API URL 配置** ] 決定可使用哪些通訊協定來存取 API。 預設會指定 HTTPs。
+* **Web API URL 配置**  決定可使用哪些通訊協定來存取 API。 預設會指定 HTTPs。
 * 若要選擇性地將此新 API 加入產品，請按一下 [產品 (選擇性)]  下拉式清單，並選擇產品。 可以重複此步驟多次來將 API 加入多個產品。
 
 設定需要的值之後，請按一下 [儲存] 。 建立新 API 之後，API 的摘要頁面隨即會顯示在發行者入口網站中。
@@ -94,9 +94,3 @@ API 是在發行者入口網站中建立和設定。 若要存取發行者入口
 [Create an API Management service instance]: api-management-get-started.md#create-service-instance
 [How to secure back-end services using client certificate authentication in Azure API Management]: api-management-howto-mutual-certificates.md
 [How to authorize developer accounts using OAuth 2.0 in Azure API Management]: api-management-howto-oauth2.md
-
-
-
-<!--HONumber=Dec16_HO3-->
-
-

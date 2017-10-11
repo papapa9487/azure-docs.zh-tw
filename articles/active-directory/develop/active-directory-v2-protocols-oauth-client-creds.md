@@ -1,4 +1,3 @@
-
 ---
 title: "使用 Azure AD v2.0 存取安全資源且無需使用者互動 | Microsoft Docs"
 description: "使用 Azure AD 實作 OAuth 2.0 驗證通訊協定以建置 Web 應用程式。"
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 93b54c3fc4397573f77b2e157c6f1866786690da
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # Azure Active Directory v2.0 和 OAuth 2.0 用戶端認證流程
 您可以使用 [OAuth 2.0 用戶端認證授與](http://tools.ietf.org/html/rfc6749#section-4.4) (有時稱為「雙腳 OAuth」)，透過使用應用程式的身分識別來存取 Web 主控資源。 這類型的授與通常用於必須在背景中執行 (不需與使用者直接互動) 的伺服器對伺服器互動。 這些類型的應用程式通常稱為「精靈」或「服務帳戶」。
@@ -232,4 +229,3 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## 程式碼範例
 若要查看使用系統管理員同意端點來實作用戶端認證授與的應用程式範例，請參閱我們的 [v2.0 精靈程式碼範例](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。
-

@@ -1,5 +1,4 @@
-### 每個區域的容錯網域數目
-<a id="number-of-fault-domains-per-region" class="xliff"></a>
+### <a name="number-of-fault-domains-per-region"></a>每個區域的容錯網域數目
 
 | 區域              | 容錯網域的數目上限  |
 |---------------------|-------------------------|

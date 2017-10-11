@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: d35aceb9be2d0ff49f86a00cc84f5deb198d88f0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>教學課程：Azure Active Directory 與 MOVEit Transfer - Azure AD integration 整合
 
@@ -268,5 +267,4 @@ ms.lasthandoff: 07/28/2017
 [201]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-moveittransfer-tutorial/tutorial_general_203.png
-
 

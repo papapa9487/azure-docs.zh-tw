@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 66ee6ce15e51b14366eac0512c899d1c425c6092
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>為 StorSimple 裝置設定 Web Proxy
 ## <a name="overview"></a>Overview
@@ -139,10 +139,4 @@ Web Proxy 設定已透過 Windows PowerShell 介面設定，無法從傳統入�
 ## <a name="next-steps"></a>後續步驟
 * 如果您在部署裝置或設定 Web Proxy 設定時遇到任何問題，請參閱 [疑難排解 StorSimple 裝置部署](storsimple-troubleshoot-deployment.md)。
 * 若要了解如何使用 StorSimple Manager，請移至 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 81d7d09f48d08943623b24e7e7a26847a0d129fe
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 2f73266b65a4eda6c8751a2d56bc3f11bf4e6a57
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="monitoring-resources-in-operations-management-suite-security-and-audit-solution"></a>在 Operations Management Suite 安全性和稽核內監視資源
 本文件可協助您使用 OMS 安全性和稽核的功能來監視您的資源及識別安全性問題。
@@ -112,5 +111,4 @@ OMS 安全性和稽核方案可讓 IT 人員主動監視所有資源，此舉有
 * [Operations Management Suite (OMS) 概觀](operations-management-suite-overview.md)
 * [開始使用 Operations Management Suite 安全性和稽核解決方案](oms-security-getting-started.md)
 * [在 Operations Management Suite 安全性和稽核內監視及回應安全性警示](oms-security-responding-alerts.md)
-
 

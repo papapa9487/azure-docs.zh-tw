@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>在 Resource Manager 範本中設定子資源的名稱和類型
 建立範本時，您經常需要包含與父資源相關的子資源。 例如，您的範本可能包含 SQL Server 和資料庫。 SQL Server 是父系的資源，而資料庫則為子資源。 
@@ -88,4 +86,3 @@ ms.lasthandoff: 06/02/2017
 ## <a name="next-steps"></a>後續步驟
 * 如需如何建立範本的建議，請參閱 [建立 Azure Resource Manager 範本的最佳做法](resource-manager-template-best-practices.md)。
 * 如需建立多個子資源的範例，請參閱[在 Azure Resource Manager 範本中部署資源的多個執行個體](resource-group-create-multiple.md)。
-

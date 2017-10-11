@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 12f540a700fbf85e579e8aadc9f6def039299ff7
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-software-raid-on-linux"></a>在 Linux 上設定軟體 RAID
 在 Azure 的 Linux 虛擬機器上使用軟體 RAID，以單一 RAID 裝置的形式顯示多個連接的資料磁碟，這種案例很常遇到。 相較於只使用單一磁碟，這通常可用來提高效能並允許增加輸送量。
@@ -62,7 +61,7 @@ zypper install mdadm
                     sectors (command 'u').
     ```
 
-2. 出現提示時請按 'n'，以建立 **新的**磁碟分割：
+2. 按下 'n' 個提示字元來建立在 **n**新增磁碟分割：
 
     ```bash
     Command (m for help): n
@@ -239,4 +238,3 @@ zypper install mdadm
     # sudo yum install util-linux
     # sudo fstrim /data
     ```
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: e172f55d45bccfd126928225eb9f78da61a670d3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: ce462c90746e6af0dc201686557121665b82b93d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="an-application-proxy-application-takes-too-long-to-load"></a>Application Proxy 應用程式載入時間過長
 
 這篇文章會協助您了解為何 Azure AD Application Proxy 應用程式的載入時間可能很長，以及您如何解決此問題。
@@ -39,4 +37,3 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 [使用現有的內部部署 Proxy 伺服器](application-proxy-working-with-proxy-servers.md)
-

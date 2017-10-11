@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 187642db18806f4034dcecf4c25b5c71028fdfe3
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="about-images-for-linux-virtual-machines"></a>關於 Linux 虛擬機器的映像
 > [!IMPORTANT]
@@ -35,4 +34,3 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>後續步驟
 您也可以[上傳自己的映像](create-upload-vhd.md)。
-

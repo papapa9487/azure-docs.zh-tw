@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/12/2017
 ms.author: kgremban
 robots: noindex
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d30ebb5a0e3e7b1560e1eff04bc5a54f0c45a595
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 29d63bd5781dc7ef9e84840dd4b1b70222cf6892
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-and-applications-assigning-users-to-an-application"></a>Azure AD 和應用程式：將使用者指派給應用程式
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。  若要了解如何要求使用者指派，請參閱 [要求使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md) 文章。
@@ -38,5 +37,4 @@ ms.lasthandoff: 12/29/2016
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 47c1e122f6f38654cd63bb59e50e68803f76c83d
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-azure-mobile-engagement-app"></a>建立 Azure Mobile Engagement 應用程式
 本文將說明如何使用**快速建立**方法來建立新的 **Azure Mobile Engagement** 應用程式。 本文也會說明如何前往至您的 **Mobile Engagement** 入口網站，以便開始監視和管理您的應用程式。 
@@ -48,5 +47,4 @@ ms.lasthandoff: 03/01/2017
 [定義 Mobile Engagement 策略](mobile-engagement-define-your-mobile-engagement-strategy.md)
 
 [開始使用 Azure Mobile Engagement](mobile-engagement-windows-store-dotnet-get-started.md) (您可以在頁面頂端選取其他行動平台)。
-
 

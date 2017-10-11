@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 863a15d716161bfa9d3e041174504b73a2956e8d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-the-bing-search-connector"></a>開始使用 Bing 搜尋連接器
 連線到 Bing 搜尋來搜尋新聞、搜尋影片等等。 您可以利用 Bing 搜尋來： 
@@ -38,5 +36,4 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="more-connectors"></a>其他連接器
 返回 [API 清單](apis-list.md)。
-
 

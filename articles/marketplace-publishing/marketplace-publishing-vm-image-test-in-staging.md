@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ad057a9129156c0ad5094a73c0da2899fc2a3812
-
-
+ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>在預備環境中測試您將發佈到 Azure Marketplace 的 VM 供應項目
 預備環境代表將您的 SKU 部署在私人的「沙箱」中，您可以在部署到 Marketplace 之前在沙箱中測試與驗證其功能。 SKU 會出現在預備環境中，就如同客戶已部署該項目一樣。 您的 VM 映像必須經過認證才能推送至預備環境。
@@ -61,10 +61,4 @@ ms.openlocfilehash: ad057a9129156c0ad5094a73c0da2899fc2a3812
 
 ## <a name="see-also"></a>另請參閱
 * [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

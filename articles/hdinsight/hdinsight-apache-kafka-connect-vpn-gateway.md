@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/01/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b73ab6914bad3d08e1833338634abf62aa3e9c05
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
-
+ms.openlocfilehash: 245bee7c1dbb0236afdc2506e7ab84b5573cbc85
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>透過 Azure 虛擬網路連線到 HDInsight (預覽版) 上的 Kafka
 
 了解如何使用 Azure 虛擬網路直接連線到 HDInsight 上的 Kafka。 本文件提供使用下列設定連線到 Kafka 的相關資訊：
@@ -391,4 +389,3 @@ Zookeeper 預設會將 Kafka 代理程式的網域名稱傳回給用戶端。 �
 
 * [開始使用 HDInsight 上的 Kafka](hdinsight-apache-kafka-get-started.md)
 * [對 HDInsight 上的 Kafka 使用鏡像](hdinsight-apache-kafka-mirroring.md)
-

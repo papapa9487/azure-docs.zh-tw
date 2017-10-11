@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: sashan;carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 4f5131fdd2ca83e7a0a2f986a2fa1e3551814c6e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>使用 SQL Database 彈性集區之應用程式的災害復原策略
 多年來，我們已了解雲端服務不是萬無一失的作法，災難性事件還是會發生。 SQL Database 提供許多功能，以在這些事件發生時提供應用程式的商務持續性。 [彈性集區](sql-database-elastic-pool.md)和單一資料庫支援相同類型的災害復原功能。 本文說明利用這些 SQL Database 商務持續性功能之彈性集區的數種 DR 策略。
@@ -173,5 +171,4 @@ ms.lasthandoff: 06/22/2017
 * 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)。
 * 若要了解更快速的復原選項，請參閱[主動式異地複寫](sql-database-geo-replication-overview.md)。
 * 若要了解如何使用自動備份進行封存，請參閱 [資料庫複製](sql-database-copy.md)。
-
 

@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: LuisCa
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: e40b69f97878a6072a64912f017f8e5621ba6e71
-ms.lasthandoff: 04/03/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="datamarket-is-now-deprecated"></a>DataMarket 現在已過時
 
 [Microsoft DataMarket](https://datamarket.azure.com/datasets) 現在已過時，因此裝載在該處的 Machine Learning API 現在也已過時。
@@ -39,4 +38,3 @@ ms.lasthandoff: 04/03/2017
 辨識服務文字分析 API 支援舊版 DataMarket 的所有案例，以及批次支援等其他案例，還提供較佳的離線度量來評估模型品質。 
 
 如需如何開始使用辨識服務建議 API 的詳細資訊，請參閱[移轉至 Azure 辨識服務建議 API](http://aka.ms/recomigrate) (英文)。
-

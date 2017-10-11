@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d47f493d0ec80318805303c8192477d7002533eb
-
-
+ms.openlocfilehash: 1ca24a4bf08ecdbe1c1e47a931613144309a04a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="templates"></a>範本
 ## <a name="overview"></a>概觀
@@ -148,10 +148,4 @@ iOS 用戶端 app 註冊的範本如下：
         </binding>  
       </visual>
     </tile>
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

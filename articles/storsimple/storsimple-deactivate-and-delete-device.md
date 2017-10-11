@@ -15,13 +15,11 @@ ms.workload: na
 ms.date: 05/17/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>透過 StorSimple Manager 服務來停用及刪除 StorSimple 8000 系列裝置
 ## <a name="overview"></a>概觀
@@ -96,5 +94,4 @@ ms.lasthandoff: 05/18/2017
 * 若要將已停用的裝置還原為原廠預設值，請移至 [將裝置重設為原廠預設設定](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings)。
 * 如需技術協助， [請連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
 * 若要了解如何使用 StorSimple Manager，請移至 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。 
-
 

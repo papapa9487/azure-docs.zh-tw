@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 354648461adf77ccf753cf24721ab7dd82b34d3c
-ms.openlocfilehash: ab4f6cf29f03491b117bcf752cb16dc6d48a08c8
-
-
+ms.openlocfilehash: efb0cfa4b7950a2d9418282965a23498a67cbffc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="security-architecture-overview"></a>安全性架構概觀
 提到在 Azure 中安全的解決方案部署，擁有強大的架構基礎是成功的關鍵之一。 知道這一點，由於能提出適當的問題，並更有能力找到問題的答案，您便更能了解您的需求。 取得適當問題的適當答案對於最佳化您的部署的安全性很有幫助。
@@ -28,10 +28,4 @@ ms.openlocfilehash: ab4f6cf29f03491b117bcf752cb16dc6d48a08c8
 * [雲端整備的資料分類](azure-security-data-classification.md)
 * [Microsoft Azure 上的應用程式架構](security-application-architecture-on-azure.md)
 * [Azure 安全性最佳作法與模式](security-best-practices-and-patterns.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

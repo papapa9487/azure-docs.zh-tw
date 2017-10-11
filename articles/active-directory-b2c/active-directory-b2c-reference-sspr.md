@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4b13c040a15bef2f04d2cd2126e2270d061898bd
 ms.openlocfilehash: 0508868e3b00c5771cc26038a3dd71fde6625a84
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/05/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C：為您的取用者設定自助式密碼重設
 自助式密碼重設功能可讓您的取用者 (已註冊本機帳戶的使用者) 自行重設自己的密碼。 這可大幅減輕支援人員的負擔，特別是在您的應用程式具有數百萬名定期使用的取用者時更是如此。 目前僅支援使用已驗證的電子郵件地址做為復原方法。 我們將在未來新增其他復原方法 (例如已驗證的電話號碼、安全性問題等)。
@@ -47,5 +45,4 @@ ms.lasthandoff: 05/05/2017
 > 您可以使用 [公司商標功能](../active-directory/active-directory-add-company-branding.md)自訂自助式密碼重設頁面。
 > 
 > 
-
 

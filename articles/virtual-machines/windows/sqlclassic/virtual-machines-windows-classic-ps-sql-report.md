@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 
@@ -67,7 +66,7 @@ ms.lasthandoff: 03/31/2017
    *  是建議 SQL Server 工作負載採用的 VM 大小。 若 VM 只作為報表伺服器使用，那麼除非報表伺服器需處理大量的工作負載，否則 A2 的 VM 大小就已經足夠。 如需 VM 的價格資訊，請參閱 [虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/)。
    * [新的使用者名稱]：系統會使用您提供的名稱建立 VM 上的系統管理員。
    * [新增密碼] 並**確認**。 此密碼將用於新的系統管理員帳戶，因此建議您使用強式密碼。
-   * 按 [下一步] 。 ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
+   * 按一下 [下一步] 。 ![next](./media/virtual-machines-windows-classic-ps-sql-report/IC692021.gif)
 7. 在下一個頁面中，編輯下列欄位：
    
    * [雲端服務]：選取 [建立新的雲端服務]。
@@ -512,7 +511,7 @@ ms.lasthandoff: 03/31/2017
    
    1. 按一下 [變更資料庫] 。
    2. 按一下 [建立新的報告伺服器資料庫]，然後按 [下一步]。
-   3. 將預設的 [伺服器名稱] 保留為 VM 名稱，並將預設的 [驗證類型] 保留為 [目前使用者 – 整合式安全性]。 按 [下一步] 。
+   3. 將預設的 [伺服器名稱] 保留為 VM 名稱，並將預設的 [驗證類型] 保留為 [目前使用者 – 整合式安全性]。 按一下 [下一步] 。
    4. 將預設的 [資料庫名稱] 保留為 **ReportServer**，然後按 [下一步]。
    5. 將預設的 [驗證類型] 保留為 [服務認證]，然後按 [下一步]。
    6. 按一下左窗格中的 [虛擬機器]  on the  。
@@ -608,5 +607,4 @@ ms.lasthandoff: 03/31/2017
 
 ### <a name="links-to-other-resources-for-sql-server-in-azure-vms"></a>Azure VM 中的 SQL Server 的其他資源連結
 [Azure 虛擬機器上的 SQL Server 概觀](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
-
 

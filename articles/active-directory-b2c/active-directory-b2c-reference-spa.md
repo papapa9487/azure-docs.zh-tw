@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
 
@@ -94,7 +92,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給您應用程式的應用程式識別碼。 |
+| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含回應類型 `token`。 如果您使用 `token`，您的應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。  如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
 | response_mode |建議 |指定用來將產生的權杖送回應用程式的方法。  針對隱含流程，請使用 `fragment`。 |
@@ -106,7 +104,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 此時會要求使用者完成原則的工作流程。 這可能會牽涉到讓使用者輸入自己的使用者名稱及密碼、以社交身分識別登入、註冊目錄，或是其他任何數目的步驟。 使用者動作取決於原則的定義方式。
 
-當使用者完成原則之後，Azure AD 會以您針對 `redirect_uri` 使用的值來將回應傳回您的應用程式。 它會使用 `response_mode` 參數中指定的方法。 對於每個使用者動作案例來說，回應完全相同，與已執行的原則無關。
+當使用者完成原則之後，Azure AD 會透過您用於 `redirect_uri` 的值，將回應傳回給您的應用程式。 它會使用 `response_mode` 參數中指定的方法。 對於每個使用者動作案例來說，回應完全相同，與已執行的原則無關。
 
 ### <a name="successful-response"></a>成功回應
 使用 `response_mode=fragment` 和 `response_type=id_token+token` 的成功回應如下所示 (內含換行符號以利閱讀)：
@@ -205,7 +203,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給您應用程式的應用程式識別碼。 |
+| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含回應類型 `token`。 如果您在這裡使用 `token`，應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。 如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
 | scope |必要 |範圍的空格分隔清單。  若要取得權杖，請包含您針對所需資源要求的所有範圍。 |
@@ -289,5 +287,4 @@ p=b2c_1_sign_in
 
 * [使用 Node.js 建立單一頁面應用程式](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) \(英文\)
 * [使用 .NET 建立單一頁面應用程式](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) \(英文\)
-
 

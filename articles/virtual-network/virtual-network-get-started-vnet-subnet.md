@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e653764d7cb514d50b44fadd0cc5963dd404d99e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="create-your-first-virtual-network"></a>建立您的第一個虛擬網路
 
 了解如何建立具有兩個子網路的虛擬網路 (VNet)、建立兩個虛擬機器 (VM)，並且將各個 VM 連線至其中一個子網路，如下圖所示：
@@ -253,4 +251,3 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 您可以控�
 - [網路介面](virtual-network-network-interface.md)
 - [網路安全性群組](virtual-networks-nsg.md)
 - [虛擬機器](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-

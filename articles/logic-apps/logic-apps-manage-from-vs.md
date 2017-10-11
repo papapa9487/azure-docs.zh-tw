@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>使用 Visual Studio Cloud Explorer 管理邏輯應用程式
 
 雖然 [Azure 入口網站](https://portal.azure.com/)提供一種絕佳的方式讓您能夠設計和管理 Azure Logic Apps，但您可以使用 Visual Studio Cloud Explorer 來管理許多 Azure 資產 (包括 Logic Apps)。 Visual Studio Cloud Explorer 可讓您瀏覽、管理、編輯和下載已發佈的 Logic Apps。 管理工作包括啟用、停用及檢視執行歷程記錄。 
@@ -92,4 +90,3 @@ ms.lasthandoff: 08/04/2017
 * [檢視常見的範例和案例](logic-apps-examples-and-scenarios.md)
 * [影片：Automate business processes with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) (使用 Azure Logic Apps 自動化商業程序)
 * [影片：Integrate your systems with Azure Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462) (整合您的系統與 Azure Logic Apps)
-

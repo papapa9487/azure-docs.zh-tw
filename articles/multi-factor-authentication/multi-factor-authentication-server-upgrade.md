@@ -15,15 +15,12 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>升級為最新的 Azure Multi-Factor Authentication Server
 
 本文將逐步引導您完成升級 Azure Multi-Factor Authentication (MFA) Server v6.0 或更新版本的程序。 如果您需要升級舊版的 PhoneFactor Agent，請參閱[將 PhoneFactor Agent 升級為 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-upgrade.md)。
@@ -116,4 +113,3 @@ ms.lasthandoff: 09/20/2017
 - [將 MFA Server 與 Windows Server Active Directory 同步處理](multi-factor-authentication-get-started-server-dirint.md)
 
 - 為您的應用程式[設定 Windows 驗證](multi-factor-authentication-get-started-server-windows.md)
-

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 06bd0112eab46f3347dfb039a99641a37c2b0197
 ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>在 Microsoft Azure CDN 中分析邊緣節點效能
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -66,7 +66,7 @@ ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
 * 此圖表是根據每天整理的資料產生。
 * 將滑鼠暫留在線條圖上的某一天，將指出日期和那一天的度量值。
 * 按一下 [反白顯示週末] 可在圖表上覆疊一個代表週末的淺灰色垂直長條。 這種覆疊有助於識別週末的流量模式。
-* 按一下 [檢視&1; 年前] 可在圖表上覆疊前一年同期間的活動。 這種比較可讓您深入了解長期的 CDN 使用模式。 圖表右上角的圖例指出每個線條圖的色彩代碼。
+* 按一下 [檢視 1 年前] 可在圖表上覆疊前一年同期間的活動。 這種比較可讓您深入了解長期的 CDN 使用模式。 圖表右上角的圖例指出每個線條圖的色彩代碼。
 
 #### <a name="updating-the-chart"></a>更新圖表
 * 時間範圍：執行下列其中一項：
@@ -187,10 +187,4 @@ ms.openlocfilehash: ad285b4e2226c85859acb22ba214cc44c77c08e2
 * [Microsoft Azure CDN 中的即時統計資料](cdn-real-time-stats.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
 * [進階的 HTTP 報表](cdn-advanced-http-reports.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

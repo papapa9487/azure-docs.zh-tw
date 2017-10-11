@@ -14,33 +14,27 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: jroth
-experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 4218b6d274abbeda542c1507aec998ba56f5c145
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# 連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
-<a id="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment" class="xliff"></a>
+# <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>連線到 Azure 上的 SQL Server 虛擬機器 (傳統部署)
 > [!div class="op_single_selector"]
 > * [資源管理員](../sql/virtual-machines-windows-sql-connect.md)
 > * [傳統](../classic/sql-connect.md)
 > 
 > 
 
-## Overview
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>Overview
 本主題說明如何連線到在 Azure 虛擬機器上執行的 SQL Server 執行個體。 其中涵蓋一些[一般連線案例](#connection-scenarios)並提供[在 Azure VM 中設定 SQL Server 連線的詳細步驟](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
 
 > [!IMPORTANT] 
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 如果您是使用 Resource Manager VM，請參閱 [使用 Resource Manager 連接到 Azure 上的 SQL Server 虛擬機器](../sql/virtual-machines-windows-sql-connect.md)。
 
-## 連接案例
-<a id="connection-scenarios" class="xliff"></a>
+## <a name="connection-scenarios"></a>連接案例
 用戶端連接在虛擬機器上執行的 SQL Server 方式，取決於用戶端的位置與電腦/網路組態。 這些案例包括：
 
 * [連接相同雲端服務中的 SQL Server](#connect-to-sql-server-in-the-same-cloud-service)
@@ -52,16 +46,14 @@ ms.lasthandoff: 05/12/2017
 > 
 > 
 
-### 連接相同雲端服務中的 SQL Server
-<a id="connect-to-sql-server-in-the-same-cloud-service" class="xliff"></a>
+### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>連接相同雲端服務中的 SQL Server
 可以在相同的雲端服務中建立多個虛擬機器。 若要了解此虛擬機器案例，請參閱 [如何連接虛擬機器與虛擬網路或雲端服務](../classic/connect-vms.md#connect-vms-in-a-standalone-cloud-service)。 此案例為當虛擬機器上的用戶端嘗試連接到在同一個雲端服務中執行的另一部虛擬機器上的 SQL Server。
 
 在此案例中，您可以使用 VM **名稱** (在入口網站中也稱為**電腦名稱**或**主機名稱**) 來連接。 這是您在建立期間提供給 VM 的名稱。 例如，如果將您的 SQL VM 命名為 **mysqlvm**，則在相同雲端服務中的用戶端 VM 將可以使用下列連接字串來連接：
 
     "Server=mysqlvm;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-### 連接網際網路中的 SQL Server
-<a id="connect-to-sql-server-over-the-internet" class="xliff"></a>
+### <a name="connect-to-sql-server-over-the-internet"></a>連接網際網路中的 SQL Server
 如果您希望透過網際網路連接您的 SQL Server 資料庫引擎，您必須建立虛擬機器端點以進行傳入 TCP 通訊。 此 Azure 組態步驟能將傳入 TCP 連接埠流量導向虛擬機器可存取的 TCP 連接埠。
 
 若要透過網際網路連接，您必須使用 VM 的 DNS 名稱和 VM 端點連接埠號碼 (稍後在本文中設定)。 若要尋找 DNS 名稱，請瀏覽至 Azure 入口網站，然後選取 [虛擬機器 (傳統)]。 然後選取您的虛擬機器。 [摘要] 區段中會顯示 [DNS 名稱]。
@@ -77,8 +69,7 @@ ms.lasthandoff: 05/12/2017
 > 
 > 
 
-### 連接相同虛擬網路中的 SQL Server
-<a id="connect-to-sql-server-in-the-same-virtual-network" class="xliff"></a>
+### <a name="connect-to-sql-server-in-the-same-virtual-network"></a>連接相同虛擬網路中的 SQL Server
 [虛擬網路](../../../virtual-network/virtual-networks-overview.md) 讓其他案例變得可行。 您可連接相同虛擬網路中的 VM，即使這些 VM 位於不同的雲端服務也沒關係。 [站對站 VPN](../../../vpn-gateway/vpn-gateway-site-to-site-create.md)可讓您建立能將 VM 連接至內部部署網路和電腦的混合式架構。
 
 虛擬網路也可讓您將 Azure VM 加入網域。 這是在 SQL Server 使用的 Windows 驗證的唯一方式。 其他連接案例則需要使用者名稱和密碼進行 SQL 驗證。
@@ -87,8 +78,7 @@ ms.lasthandoff: 05/12/2017
 
     "Server=mysqlvm;Integrated Security=true"
 
-## Azure VM 中設定 SQL Server 連線的步驟
-<a id="steps-for-configuring-sql-server-connectivity-in-an-azure-vm" class="xliff"></a>
+## <a name="steps-for-configuring-sql-server-connectivity-in-an-azure-vm"></a>Azure VM 中設定 SQL Server 連線的步驟
 下列步驟示範如何使用 SQL Server Management Studio (SSMS) 透過網際網路連線到 SQL Server 執行個體。 不過，相同的步驟適用於讓您在內部部署或 Azure 中執行的應用程式可存取 SQL Server 虛擬機器。
 
 您必須先完成後續各小節描述的下列工作，才能從其他 VM 或網際網路連接 SQL Server 的執行個體：
@@ -111,8 +101,7 @@ ms.lasthandoff: 05/12/2017
 
 [!INCLUDE [Connect to SQL Server in a VM Classic Steps](../../../../includes/virtual-machines-sql-server-connection-steps-classic.md)]
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 如果您計畫針對高可用性和嚴重損壞修復使用 AlwaysOn 可用性群組，您應該考慮實作接聽程式。 資料庫用戶端會連接至接聽程式，而非直接連接其中一個 SQL Server 執行個體。 接聽程式路由傳送用戶端至可用性群組中的主要複本。 如需詳細資訊，請參閱 [設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](../classic/ps-sql-int-listener.md)。
 
 請務必檢閱在 Azure 虛擬機器上執行之 SQL Server 的所有安全性最佳做法。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 安全性考量](../sql/virtual-machines-windows-sql-security.md)。
@@ -120,5 +109,4 @@ ms.lasthandoff: 05/12/2017
 [探索學習路徑](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) ：Azure 虛擬機器上的 SQL Server。 
 
 如需有關在 Azure VM 中執行 SQL Server 的其他主題，請參閱 [Azure 虛擬機器上的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
-
 

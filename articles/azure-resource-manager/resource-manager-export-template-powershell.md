@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 74bf865d796c965b4843092215639b32f033d807
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
-
-
+ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>使用 PowerShell 來匯出 Azure Resource Manager 範本
 
@@ -223,4 +221,3 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup `
 * 如需使用入口網站來匯出範本的相關資訊，請參閱[從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
 * 若要在範本中定義參數，請參閱 [編寫範本](resource-group-authoring-templates.md#parameters)。
 * 如需解決常見部署錯誤的秘訣，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 5047635555a6b4592c0714677c2b942e50bad344
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="azure-database-security-checklist"></a>Azure 資料庫安全性檢查清單
 
 為了協助改善安全性，Azure 資料庫包含數個內建安全性控制項，您可用來限制和控制存取。
@@ -65,5 +63,4 @@ Azure 資料庫是強固的資料庫平台，具有完整的安全性功能，�
 - 設定伺服器和/或資料庫的[防火牆規則](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure)。
 - 使用[加密](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption)來保護您的資料。
 - 啟用 [SQL Database 稽核](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing)。
-
 

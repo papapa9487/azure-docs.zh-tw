@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: b028a75836f7c762431bfb9e3fc30822b7dee885
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>使用來自 Azure AD 的持有者權杖來保護 Web API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -155,4 +153,3 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 如需參考資料，請參閱 [GitHub](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip) 中的完整範例 (不含您的組態值)。 您現在可以繼續前進到更多的身分識別案例。
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

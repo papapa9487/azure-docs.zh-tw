@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 8d79626fa8516f226a82d3dac693c2033904c91d
-ms.lasthandoff: 01/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings"></a>使用查詢字串控制 Azure CDN 快取行為
 > [!div class="op_single_selector"]
@@ -62,5 +61,4 @@ ms.lasthandoff: 01/25/2017
 > 設定變更可能無法立即看見，因為註冊資訊需要一段時間才能傳遍 CDN。  在 [通訊協定] <b>來自 Akamai 的 Azure CDN</b> 設定檔，通常會在一分鐘之內完成傳播。  若為<b>來自 Verizon 的 Azure CDN</b> 設定檔，則通常會在 90 分鐘之內完成傳播，但在某些情況下可能會更久。
 > 
 > 
-
 

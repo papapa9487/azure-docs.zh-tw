@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 581daaaa5cc0cf8be782f834c6bdb3f27ee413fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>在傳統入口網站中使用 PowerShell 將 Hyper-V VM 複寫至 Azure
 > [!div class="op_single_selector"]
@@ -405,4 +404,3 @@ marsagentinstaller.exe /q /nu
 
 ## <a name="next-steps"></a>後續步驟
 [閱讀更多](/powershell/azure/overview) Azure Site Recovery PowerShell Cmdlet 的相關資訊。 </a>。
-

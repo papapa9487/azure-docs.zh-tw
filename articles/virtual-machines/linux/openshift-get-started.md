@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: jbinder
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
 ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>將 OpenShift Origin 部署至 Azure 虛擬機器 
 
 [OpenShift Origin](https://www.openshift.org/) 是建置在 [Kubernetes](https://kubernetes.io/) 上的開放原始碼容器平台。 它可簡化部署、調整及操作多租用戶應用程式的程序。 
@@ -164,4 +162,3 @@ az group delete --name myResourceGroup
 > * 安裝和設定 [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) 來管理叢集。
 
 現在您已部署 OpenShift Origin 叢集。 您可以遵循 OpenShift 教學課程，了解如何部署第一個應用程式，以及如何使用 OpenShift 工具。 若要開始使用，請參閱[開始使用 OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)。 
-

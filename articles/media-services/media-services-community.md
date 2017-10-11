@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 735f8d81ce089727b14b8b67de7233ab71fc5abd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: ef77ed3a4efee7ebcdd716376be78db38ce46f8f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-media-services-community"></a>Azure 媒體服務社群
 Azure 媒體服務 (AMS) 社群頁面討論您可以取得 AMS 更新資訊、檢視新的影片和播客、提出問題並提供意見反應的不同方式。   
@@ -60,5 +59,4 @@ Azure 媒體服務的主要電子郵件是： **mediaservices@microsoft.com**。
 | Azure Media Player |ampinfo@microsoft.com |
 | Azure 媒體瀏覽器 |amse@microsoft.com |
 | 工作流程設計工具 |mepd@microsoft.com |
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Jira by resolution GmbH 整合
 
@@ -153,7 +151,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-samlssojira-tutorial/addon9.png)
 
-12.    按一下 [管理] 。
+12. 按一下 [管理] 。
 
     ![設定單一登入](./media/active-directory-saas-samlssojira-tutorial/addon10.png)
     
@@ -177,7 +175,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     d. 按一下 [載入] 按鈕。
 
-    e. 它會讀取 IdP 中繼資料，並且填入螢幕擷取畫面中反白顯示的欄位。    
+    e. 它會讀取 IdP 中繼資料，並且填入螢幕擷取畫面中反白顯示的欄位。 
 
 16. 按一下 [儲存設定] 按鈕以儲存設定。
 
@@ -251,7 +249,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     d. 在 [密碼] 文字方塊中，輸入使用者的密碼。
 
-    e. 按一下 [建立使用者]。    
+    e. 按一下 [建立使用者]。   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -310,5 +308,4 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssojira-tutorial/tutorial_general_203.png
-
 

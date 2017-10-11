@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: LADocs; klam
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5913c81088724ef946ae147f4f3154fa6aefd22e
-ms.openlocfilehash: 17486fd41b471356648656b65ca66e1234313d4c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 89272869f7dfaa34cbd2ad32d67dca0955e6158b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-a-workflow-using-a-pre-built-template-or-pattern-to-get-started-quickly"></a>使用預先建置的範本或模式設定工作流程，以便快速開始
 
@@ -71,5 +69,4 @@ VETER (驗證、擷取、轉換、擴充、路由) 管線的組態、透過 AS2 
  ![](../../includes/media/app-service-logic-templates/template6.png)  
 
 如果您需要如何對現有邏輯應用程式範本新增更多步驟或進行一般編輯的詳細資訊，請參閱 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。
-
 

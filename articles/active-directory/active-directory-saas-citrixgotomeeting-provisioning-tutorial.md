@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1ddfcd991431a11e5c3e306bd5905003d094ac18
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-configuring-citrix-gotomeeting-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Citrix GoToMeeting
 
@@ -93,6 +91,5 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 * [管理企業應用程式的使用者帳戶佈建](active-directory-saas-tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
 * [設定單一登入](active-directory-saas-citrix-gotomeeting-tutorial.md)
-
 
 

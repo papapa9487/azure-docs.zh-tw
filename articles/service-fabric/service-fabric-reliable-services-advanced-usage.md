@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>可靠服務程式設計模型的進階用法
 Azure Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服務。 本指南會討論到 Reliable Services 的進階用法，以在您的服務中取得更多控制權和彈性。 在閱讀這份指南之前，請您先熟悉＜ [可靠的服務程式設計模型](service-fabric-reliable-services-introduction.md)＞。
@@ -71,4 +69,3 @@ Azure Service Fabric 可簡化撰寫和管理可靠的無狀態與具狀態服�
 * [Service Fabric 健康狀態簡介](service-fabric-health-introduction.md)
 * [使用系統健康狀態報告進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [使用 Service Fabric 叢集資源管理員設定服務](service-fabric-cluster-resource-manager-configure-services.md)
-

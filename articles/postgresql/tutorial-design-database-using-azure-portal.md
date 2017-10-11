@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 977d47fb72d1c9e2a482602aacc456ae95547676
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 2aa9d10749b54537495ad3e09566c43718f67a9e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫
 
@@ -39,7 +38,7 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="create-an-azure-database-for-postgresql"></a>建立適用於 PostgreSQL 的 Azure 資料庫
 
-所建立的「適用於 PostgreSQL 的 Azure 資料庫」伺服器會有一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
+「適用於 PostgreSQL 的 Azure 資料庫」伺服器是以一組已定義的[計算和儲存體資源](./concepts-compute-unit-and-storage.md)所建立。 伺服器會建立在 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
 請依照下列步驟來建立「適用於 PostgreSQL 的 Azure 資料庫」伺服器：
 1.  按一下 Azure 入口網站左上角的 [+ 新增] 按鈕。
@@ -66,9 +65,9 @@ ms.lasthandoff: 05/10/2017
   > 選取 [釘選到儀表板] 選項以輕鬆追蹤部署。
 
 7.  在工具列上，按一下 [通知] 以監視部署程序。
- ![適用於 PostgreSQL 的 Azure 資料庫 - 請參閱通知](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+ ![適用於 PostgreSQL 的 Azure 資料庫 - 查看通知](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
    
-  根據預設，**postgres** 資料庫會建立在您的伺服器底下。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 資料庫是要供使用者、公用程式及協力廠商應用程式使用的預設資料庫。 
+  根據預設，**postgres** 資料庫會建立在您的伺服器底下。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 資料庫是要供使用者、公用程式及第三方應用程式使用的預設資料庫。 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
 
@@ -204,4 +203,3 @@ SELECT * FROM inventory;
 > * 還原資料
 
 接著，了解如何使用 Azure CLI 來執行類似的工作，請檢閱此教學課程：[使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫](tutorial-design-database-using-azure-cli.md)
-

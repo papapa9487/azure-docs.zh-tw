@@ -15,13 +15,11 @@ ms.workload: big-data
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 3889fa1c3523eb0330cbe3b7640fd8590a5ceadf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 上使用 Tez UI 偵錯 Tez 作業
 對於在以 Windows 為基礎的 HDInsight 叢集上使用 Tez 作為執行引擎的作業，Tez UI 是一個可用來了解和偵錯這些作業的網頁。 Tez UI 可讓您把作業視覺化有已連接項目的圖表、深入每個項目、取得統計資料，以及記錄資訊。
@@ -144,4 +142,3 @@ Tez UI 只包含正在或曾經使用 Tez 引擎來執行之作業的資料。 �
 既然您已了解如何使用 Tez 檢視，請深入了解 [在 HDInsight 上使用 Hive](hdinsight-use-hive.md)。
 
 如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Tez 頁面](http://hortonworks.com/hadoop/tez/)。
-

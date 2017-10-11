@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>將隨選「高載」節點新增至 Azure 中的 HPC Pack 叢集
 如果您在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集，您可能想迅速相應增加或相應減少叢集容量，而不用維護一組預先設定的計算節點 VM。 本文說明如何將隨選「高載」節點 (在雲端服務中執行的背景工作角色執行個體) 新增至 Azure 中的前端節點作為運算資源。 
@@ -82,4 +81,3 @@ ms.lasthandoff: 07/12/2017
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
-

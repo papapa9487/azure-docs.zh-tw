@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
 ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換適用於企業整合的 AS2 訊息
 
@@ -181,4 +179,3 @@ ms.lasthandoff: 06/10/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
-

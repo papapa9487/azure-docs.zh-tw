@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-translationtype: Human Translation
-ms.sourcegitcommit: 1a4206c80bc3581034b140de0003c64556b90303
 ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>在傳統部署模型中取得 ARP 表格
 > [!div class="op_single_selector"]
@@ -168,10 +168,4 @@ ARP 表格可協助您驗證第 2 層組態，並針對基本的第 2 層連線�
   * 取得路由表以判斷哪些首碼是透過 ExpressRoute 來公告。
 * 檢閱輸入和輸出的位元組來驗證資料傳輸。
 * 如果問題持續發生，請向 [Microsoft Azure 說明 + 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 開啟支援要求。
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

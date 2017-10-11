@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0bb32a6c60011d71606c896cc506f430bc3c27
-ms.openlocfilehash: ce60eb0586b4756aabab0bad830e7fc3ca506097
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
-
-
+ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="important-updates-to-the-v20-authentication-protocols"></a>v2.0 驗證通訊協定的重要更新
 開發人員請注意！ 在接下來兩週，我們會對 v2.0 驗證通訊協定進行一些更新，這些更新對於您在我們的預覽期間撰寫的任何應用程式可能是重大變更。  
@@ -238,5 +236,4 @@ https://login.microsoftonline.com/{some-guid}/v2.0
 祝各位編碼程式愉快！
 
 Microsoft 身分識別部門
-
 

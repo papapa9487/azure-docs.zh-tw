@@ -17,12 +17,11 @@ ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 042e2f4117a35e80694a1643dd95fa54d508f1f7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 > [!div class="op_single_selector"]
@@ -187,4 +186,3 @@ ms.lasthandoff: 07/26/2017
 * [管理使用者](active-directory-create-users.md)
 * [管理密碼](active-directory-manage-passwords.md)
 * [管理群組](active-directory-manage-groups.md)
-

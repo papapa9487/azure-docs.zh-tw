@@ -15,14 +15,12 @@ ms.date: 08/01/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
 當您透過 Azure Active Directory 應用程式 Proxy 發佈應用程式時，您會建立可供使用者在遠端工作時移至的外部 URL。 此 URL 會取得預設網域 *yourtenant.msappproxy.net*。 例如，如果您發佈一個名為 Expenses 的應用程式，且您的租用戶名為 Contoso，則外部 URL 會是 https://expenses-contoso.msappproxy.net。 如果您想要使用自己的網域名稱，請為您的應用程式設定自訂網域。 
@@ -88,6 +86,5 @@ ms.lasthandoff: 08/05/2017
 * [啟用單一登入](active-directory-application-proxy-sso-using-kcd.md)以登入您使用 Azure AD 驗證發佈的應用程式。
 * [啟用條件式存取](active-directory-application-proxy-conditional-access.md)以存取您發佈的應用程式。
 * [將自訂網域名稱新增至 Azure AD](active-directory-domains-add-azure-portal.md)
-
 
 

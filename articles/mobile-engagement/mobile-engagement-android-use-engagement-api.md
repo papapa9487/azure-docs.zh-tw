@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d353cd2fe47c54a0282cc5bb1b22b4a56e0cd82c
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-engagement-api-on-android"></a>如何在 Android 上使用 Engagement API
 此文件是 [Android Mobile Engagement SDK 的進階報告選項](mobile-engagement-android-advanced-reporting.md)文件的補充。 它會提供關於如何使用 Engagement API 來回報您應用程式的統計資料之詳細資訊。
@@ -281,9 +281,3 @@ Engagement API 是由 `EngagementAgent` 類別提供。 此類別的執行個體
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
             {"expiration":"2016-12-07","status":"premium"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

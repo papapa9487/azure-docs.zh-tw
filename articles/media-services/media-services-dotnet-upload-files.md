@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 08dfdb54db0655bc025f8c268988804b069f70c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>使用 .NET 將檔案上傳至媒體服務帳戶
 > [!div class="op_single_selector"]
@@ -299,5 +298,4 @@ IngestManifestAsset 會建立資產與大量 IngestManifest 的關聯，以進�
 您已將資產上傳至媒體服務，現在請移至 [如何取得媒體處理器][How to Get a Media Processor]主題。
 
 [How to Get a Media Processor]: media-services-get-media-processor.md
-
 

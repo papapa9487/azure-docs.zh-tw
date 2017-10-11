@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: d31ad53525ef75bdb61c42409dc07bba4138fc25
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 9da76bb5f649817cd2f027f3d0eb46d58a996b4f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview-using-azure-powershell"></a>使用 Azure PowerShell 設定已加入網域的 HDInsight 叢集 (預覽)
 了解如何使用 Azure PowerShell 設定具有 Azure Active Directory (Azure AD) 和 [Apache Ranger](http://hortonworks.com/apache/ranger/) 的 Azure HDInsight 叢集。 Azure PowerShell 指令碼可供用來加快設定速度並減少出錯機會。 您可以只在 Linux 架構的叢集上設定已加入網域的 HDInsight。 如需詳細資訊，請參閱[已加入網域的 HDInsight 叢集簡介](hdinsight-domain-joined-introduction.md)。
@@ -192,5 +190,4 @@ ms.lasthandoff: 06/28/2017
 
 * 如需設定 Hive 原則和執行 Hive 查詢，請參閱[針對已加入網域的 HDInisight 叢集設定 Hive 原則](hdinsight-domain-joined-run-hive.md)。
 * 若要使用 SSH 連線到已加入網域的 HDInsight 叢集，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 78996fdb1bbb9bc2e532f80dc9611efad389119e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: c8386ffc5d68260eeb75edf7efb77db1163dcef8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
 [Azure Application Insights][start] 可在 Web 應用程式中發生效能或使用量計量變更時對您發出警示。 
@@ -46,7 +45,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 如果您已設定回應通知的 Web 應用程式，請設定 [Webhook 位址](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 系統會在警示啟動和解決時加以呼叫。 (不過請注意，查詢參數目前不會當作 Webhook 屬性傳遞)。
 * 您可以停用或啟用警示：請參閱位於刀鋒視窗頂端的按鈕。
 
-*I don't see the Add Alert button.* 
+<bpt id="p1">*</bpt>I don't see the Add Alert button.<ept id="p1">*</ept> 
 
 * 您是否使用組織帳戶？ 如果您有這個應用程式資源的擁有者或參與者存取權，您可以設定警示。 請看一下 [存取控制] 刀鋒視窗。 [深入了解存取控制][roles]。
 
@@ -111,5 +110,4 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 [platforms]: app-insights-platforms.md
 [roles]: app-insights-resources-roles-access-control.md
 [start]: app-insights-overview.md
-
 

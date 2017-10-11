@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 5dd6701f25c69f5e870d3add79c312f9aeec6bf4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>適用於 Android 的 Azure Authenticator
 IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行登入以存取您的工作資源。 此應用程式提供下列兩個登入選項：
@@ -39,7 +37,7 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 
 1. 在應用程式的主畫面上，接受使用者授權合約 (EULA)。
 2. 在 [啟用帳戶] 畫面上，按一下右邊的內容功能表，然後選取 [工作帳戶] 。
-3. 在 [新增帳戶] 畫面上，選取 [工作帳戶]。
+3. 在新增帳戶畫面上，選取 * * 工作帳戶 * *。
 4. 在 [啟動裝置管理員] 畫面上，按一下 [啟動] 。
 5. 在 [隱私權原則] 畫面上，選取此核取方塊並按一下 [確認] 。
 6. 在 [加入工作場所] 畫面上，輸入您的組織所提供的 userID，然後按一下 [加入] 。
@@ -120,5 +118,4 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 
 ## <a name="troubleshooting"></a>疑難排解
 如果您看到 [金鑰存放區錯誤]，這可能是因為您未使用 PIN 設定鎖定畫面。 若要解決這個問題，請將 Azure Authenticator 應用程式解除安裝、設定鎖定螢幕的 PIN，以及重新安裝應用程式。
-
 

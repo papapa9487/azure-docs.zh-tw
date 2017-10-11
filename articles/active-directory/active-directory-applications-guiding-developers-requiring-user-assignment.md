@@ -1,5 +1,5 @@
 ---
-title: "要求使用者指派 - Azure AD | Microsoft Docs&quot;"
+title: "要求使用者指派 - Azure AD | Microsoft Docs'"
 description: "如何要求 Azure 應用程式的使用者指派。"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: kgremban
 robots: noindex
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66b606433f8924a509f2d04dae67ff00ded6dca
-ms.openlocfilehash: f5804d258c609f2bf289dcf4d173dc67137e7691
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 079b806c041a4a21e9350342867aee581c57bf45
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-ad-and-applications-require-user-assignment"></a>Azure AD 和應用程式：要求使用者指派
 ## <a name="requiring-user-assignment"></a>要求使用者指派
@@ -37,4 +36,3 @@ ms.lasthandoff: 02/07/2017
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-

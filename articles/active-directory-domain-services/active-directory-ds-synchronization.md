@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 0c9a9a56e1489ee91fcc332beeef36cdc9c93dc1
-ms.lasthandoff: 03/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 受管理網域中的同步處理
 下圖說明同步處理在 Azure AD Domain Services 受管理網域中的運作方式。
@@ -122,4 +121,3 @@ ms.lasthandoff: 03/07/2017
 * [部署案例 - Azure AD 網域服務](active-directory-ds-scenarios.md)
 * [Azure AD Domain Services 的網路考量](active-directory-ds-networking.md)
 * [開始使用 Azure AD Domain Services](active-directory-ds-getting-started.md)
-

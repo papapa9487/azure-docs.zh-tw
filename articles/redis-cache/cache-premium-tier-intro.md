@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
 ms.openlocfilehash: c7a70e74f8b275ed9e10118b0ae9e81309f97ba3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="introduction-to-the-azure-redis-cache-premium-tier"></a>Azure Redis Cache 高階層簡介
 Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資料存取，藉此協助您建置具高度延展性且快速回應的應用程式。 
@@ -103,5 +101,4 @@ Azure Redis Cache 是一種分散式受管理快取，可提供超快速的資�
 * [如何設定高階 Azure Redis Cache 的叢集](cache-how-to-premium-clustering.md)
 * [如何將資料匯入 Azure Redis 快取與從其中匯出資料](cache-how-to-import-export-data.md)
 * [如何管理 Azure Redis 快取](cache-administration.md)
-
 

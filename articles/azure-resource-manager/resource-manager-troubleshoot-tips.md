@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: b67bb30fa259fa08e37e11afec724c8b8c3eb633
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="understand-azure-deployment-errors"></a>了解 Azure 部署錯誤
 本主題說明部署錯誤，以及如何找出與錯誤相關的詳細資訊。 如需常見部署錯誤的解決方案，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 
@@ -207,4 +205,3 @@ Resource Manager 範本會在驗證期間識別循環相依性。 它會傳回�
 * 如需常見部署錯誤的解決方案，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 * 若要了解稽核動作，請參閱 [使用 Resource Manager 來稽核作業](resource-group-audit.md)。
 * 若要了解部署期間可採取哪些動作來判斷錯誤，請參閱 [檢視部署作業](resource-manager-deployment-operations.md)。
-

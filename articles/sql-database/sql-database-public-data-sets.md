@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 03/20/2017
 ms.author: douglasl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: 53ae23dba61cf835c6a4826b528772b1cd2e1622
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: b6f8d327123fc0ebe13790cbb3760f6eba90f5b5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>用於測試和建立原型的公用資料集
 
@@ -60,4 +59,3 @@ ms.lasthandoff: 03/29/2017
 | [GitHub 封存](https://www.githubarchive.org/) | 「GitHub 封存是一個專案，可記錄 [事件] 公用 GitHub 時間表，加以封存，並讓它可輕鬆存取以供進一步分析。」 | 從 Web 用戶端下載 .gz (Gzip) 格式的 JSON 編碼事件封存。 |
 | [來自 GHTorrent 專案的 GitHub 活動資料](http://ghtorrent.org/) | 「GHTorrent 專案 [是] 建立透過 GitHub REST API 提供之資料的可調整、可查詢、離線鏡像的成果。 GHTorrent 會監視 GitHub 公用事件時間表。 對於每個事件，它會詳盡地擷取其內容及其相依性。」 | MySQL 資料庫傾印採用 CSV 格式。 |
 | [Stack Overflow 資料傾印](https://archive.org/details/stackexchange) | 「這是 Stack Exchange 網路 [包括 Stack Overflow] 上所有使用者貢獻之內容的匿名傾印。」 | "每個網站 [例如 Stack Overflow] 會格式為個別的封存，而此封存是由透過使用 bzip2 壓縮的 7-zip 進行壓縮的 XML 檔案所組成。 每個網站封存都包含貼文、使用者、投票、註解、PostHistory 和 PostLinks。」 |
-

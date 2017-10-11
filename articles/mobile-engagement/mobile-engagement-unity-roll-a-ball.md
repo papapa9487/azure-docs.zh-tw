@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# <a name="a-idunity-roll-a-ballacreate-unity-roll-a-ball-game"></a><a id="unity-roll-a-ball"></a>建立 Unity Roll a Ball 遊戲
+# <a id="unity-roll-a-ball"></a>建立 Unity Roll a Ball 遊戲
 本教學課程逐步引導您完成稍微修改過的 [Unity Roll a Ball 教學課程](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)的主要步驟。 此範例遊戲由 app 使用者控制的球面「玩家」物件所組成，遊戲的目標是使用這些可收集的物件碰撞玩家物件來「收集」可收集的物件。 這是假設使用者對 Unity 編輯器環境有基本的熟悉度。 如果您遇到任何問題，應該參閱完整的教學課程。 
 
 ### <a name="setting-up-the-game"></a>設定遊戲
@@ -329,11 +329,5 @@ ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
 
 
 
-
-
-
-
-
-<!--HONumber=Nov16_HO3-->
 
 

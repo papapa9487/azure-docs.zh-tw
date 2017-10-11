@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 0625787ddcbc0091e70b111f687e25929720ad15
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="receive-data-in-logic-apps-with-the-b2b-features-in-the-enterprise-integration-pack"></a>使用企業整合套件中的 B2B 功能在邏輯應用程式中接收資料
 
@@ -80,7 +78,7 @@ ms.lasthandoff: 05/25/2017
     現在，請新增步驟以將接收自交易夥伴的 X12 資料解碼，並輸出 JSON 物件中的一些項目。 
     若要通知合作夥伴已收到資料，您可以在 HTTP 回應動作中送回包含 AS2 郵件處置通知 (MDN) 的回應。
 
-12.    若要新增 [回應] 動作，請選擇 [新增動作]。
+12. 若要新增 [回應] 動作，請選擇 [新增動作]。
 
     ![](./media/logic-apps-enterprise-integration-b2b/b2b-14.png)
 
@@ -113,4 +111,3 @@ ms.lasthandoff: 05/25/2017
 
 ## <a name="learn-more"></a>詳細資訊
 [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md)
-

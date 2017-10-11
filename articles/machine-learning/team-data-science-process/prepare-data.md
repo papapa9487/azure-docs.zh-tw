@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-translationtype: Human Translation
-ms.sourcegitcommit: e899487e9445955cea3a9387c73ea7c5dca37ddc
 ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>準備增強機器學習服務的資料的工作
 前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。 如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中概述的步驟。
@@ -102,10 +102,4 @@ ms.openlocfilehash: cfaccad0a7d81950d80486dcb0d9e6520deab9b3
 > *Data Mining: Concepts and Techniques*(資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO5-->
-
 

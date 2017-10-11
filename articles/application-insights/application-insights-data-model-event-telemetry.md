@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 1cad3594be32e59ea6bd3d3ba2289d391bd92c0b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 422e193ae10938954602a6ef8c49fd47f473bc01
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>事件遙測：Application Insights 資料模型
 
@@ -44,4 +43,3 @@ ms.lasthandoff: 04/27/2017
 - 如需 Application Insights 類型和資料模型，請參閱[資料模型](application-insights-data-model.md)。
 - [撰寫自訂事件遙測](app-insights-api-custom-events-metrics.md#trackevent)
 - 查看 Application Insights 支援的[平台](app-insights-platforms.md)。
-

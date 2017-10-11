@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: saurse;trinadhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 300b2b17b44e21ed446fd63d572a2461e2fc1343
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-the-classic-deployment-model"></a>使用傳統部署模型將檔案還原到 Windows Server 或 Windows 用戶端電腦
 > [!div class="op_single_selector"]
@@ -241,4 +240,3 @@ ms.lasthandoff: 08/12/2017
 * [Azure 備份概觀](http://go.microsoft.com/fwlink/p/?LinkId=222425)
 * [備份 Azure 虛擬機器](backup-azure-vms-introduction.md)
 * [備份 Microsoft 工作負載](backup-azure-dpm-introduction.md)
-

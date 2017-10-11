@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-demo-app"></a>Azure Mobile Engagement 示範應用程式
 我們已針對 **iOS**、**Android** 和 **Windows** 平台發行 Azure Mobile Engagement 示範應用程式，協助您找到有用的資源，並深入了解 Mobile Engagement。
@@ -185,9 +185,3 @@ ms.openlocfilehash: 8381edb569e19a85c1259f7791b477cfa6e51ea3
 [31]: ./media/mobile-engagement-demo-apps/in-app-pop-up.png
 [32]: ./media/mobile-engagement-demo-apps/notification-poll.png
 [33]: ./media/mobile-engagement-demo-apps/notification-data-push.png
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

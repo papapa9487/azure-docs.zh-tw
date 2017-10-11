@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的驗證案例
 Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發人員的驗證工作，支援業界標準通訊協定，例如 OAuth 2.0 和 OpenID Connect，以及適用於不同平台的開放原始碼程式庫，協助您開始快速撰寫程式碼。 本文件將協助您了解 Azure AD 支援的各種案例，並示範如何開始著手。 分成下列各節：
@@ -107,7 +106,7 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 * 單一租用戶應用程式：單一租用戶應用程式適合在一個組織中使用。 這些通常是由企業開發人員撰寫的企業營運 (LoB) 應用程式。 單一租用戶應用程式只需要由一個目錄中的使用者存取，因此，它只需要佈建在一個目錄中。 這些應用程式通常是由組織中的開發人員註冊。
 * 多租用戶應用程式：多租用戶應用程式適合在許多組織中使用，而不只一個組織。 這些通常是由獨立軟體廠商 (ISV) 撰寫的軟體即服務 (SaaS) 應用程式。 多租用戶應用程式需要佈建在將會用到它們的每個目錄中，而這需要使用者或系統管理員同意才能註冊。 當應用程式目錄中已在目錄中註冊並獲權存取 Graph API 或其他 Web API 時，此同意程序會啟動。 當不同組織的使用者或系統管理員註冊來使用應用程式時，他們會看到一個對話方塊顯示應用程式需要的權限。 使用者或系統管理員可以同意應用程式，讓應用程式存取所述的資料，最後將應用程式註冊在他們的目錄中。 如需詳細資訊，請參閱 [同意架構的概觀](active-directory-integrating-applications.md#overview-of-the-consent-framework)。
 
-開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。 例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。 單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。 為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。 對 Azure AD 中的所有目錄而言，此端點是 https://login.microsoftonline.com/common，其中租用戶專屬端點可能是 https://login.microsoftonline.com/contoso.onmicrosoft.com。 開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
+開發多租用戶應用程式，而非單一租用戶應用程式時，有一些其他考量需要注意。 例如，如果要讓您的應用程式供多個目錄中的使用者使用，您需要有機制來判斷他們所在的租用戶。 單一租用戶應用程式只需要在它自己的目錄中查看使用者，但多租用戶應用程式需要從 Azure AD 的所有目錄中識別特定的使用者。 為了完成這項工作，Azure AD 提供一個共同驗證端點，供任何多租用戶應用程式引導登入要求，而非提供租用戶特定的端點。 對 Azure AD 中的所有目錄而言，此端點是 https://login.microsoftonline.com/common，其中租用戶專屬端點可能是 https://login.microsoftonline.com/contoso.onmicrosoft.com。開發您的應用程式時尤其必須考量共同端點，因為在登入、登出和權杖驗證期間，您需要必要的邏輯來處理多個租用戶。
 
 如果您目前正在開發單一租用戶應用程式，但想要提供給許多組織使用，您可以在 Azure AD 中輕鬆地變更應用程式及其組態，將它變成具備多租用戶功能。 此外，不論您是在單一租用戶或多租用戶應用程式中提供驗證，Azure AD 對所有目錄中的所有權杖都使用相同的簽署金鑰。
 
@@ -296,5 +295,4 @@ Azure AD 所簽發的安全性權杖包含宣告，或已驗證之主體的相�
 [Azure AD 中簽署金鑰變換的相關重要資訊](active-directory-signing-key-rollover.md)
 
 [Azure AD 中的 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 919d2262cf9f14159a13370037301005b5b69da2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>教學課程：Azure Active Directory 與 Domo 整合
 
@@ -154,7 +152,7 @@ Domo 與 Azure AD 整合提供下列優點：
     
     c. 在 [值] 清單中，選取該列所顯示的值。
     
-    d. 按一下 [ **確定**]。 
+    d. 按一下 [確定] 。 
  
 6. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -268,5 +266,4 @@ Domo 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-domo-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-domo-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-domo-tutorial/tutorial_general_203.png
-
 

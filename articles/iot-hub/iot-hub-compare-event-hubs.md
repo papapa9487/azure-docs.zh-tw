@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 12389b4be03b714d99edcf3fd621bd2d9c586540
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.openlocfilehash: a37df79a38a35b61cca72918d4d893a4bfc83b7e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Azure IoT 中樞和 Azure 事件中樞的比較
 IoT 中樞的主要使用案例之一是從裝置收集遙測。 因此，經常會比較 IoT 中樞與 [Azure 事件中樞][Azure Event Hubs]。 類似於 IoT 中樞，事件中樞是事件處理服務，它能提供大規模進入雲端的事件和遙測入口，並具備低延遲和高可靠性等特性。
@@ -66,4 +65,3 @@ IoT 中樞的主要使用案例之一是從裝置收集遙測。 因此，經常
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
-

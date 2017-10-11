@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/29/2016
 ms.author: golive
-translationtype: Human Translation
-ms.sourcegitcommit: d883cdc007beaf17118c6b6ddbc8345c3bfb5ef2
-ms.openlocfilehash: 0f2f25175e3988c58961be3d23e0e7aabcb0da8d
-ms.lasthandoff: 11/22/2016
-
-
+ms.openlocfilehash: f23d7374a8954a0a95853fa9e00b54a8d9c468c4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-dsc-and-chocolatey"></a>使用範例：使用 Automation DSC 和 Chocolatey 持續部署至虛擬機器
 DevOps 領域中有許多工具可協助處理持續整合管線中的各個點。  Azure 自動化預期狀態設定 (DSC) 是 DevOps 團隊可以採用的新選項。  本文示範如何為 Windows 電腦設定持續部署 (CD)。  您可以輕鬆地擴充技術，在角色 (例如網站) 中依需要加入更多 Windows 電腦，還能從該角色再延伸至其他角色。
@@ -177,5 +176,4 @@ New-ConfigurationScript.ps1：
 * [Azure 自動化 DSC 概觀](automation-dsc-overview.md)
 * [Azure 自動化 DSC Cmdlet](https://msdn.microsoft.com/library/mt244122.aspx)
 * [上架由 Azure 自動化 DSC 管理的機器](automation-dsc-onboarding.md)
-
 

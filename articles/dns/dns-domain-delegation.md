@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: gwallace
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: ab6dd0e1e5975770bec741ed4a06b6eb4745e174
-ms.lasthandoff: 04/21/2017
-
+ms.openlocfilehash: 31a500502a4d3e729ecb79929ed6c1de156d6259
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>使用 Azure DNS 的 DNS 區域委派
 
 Azure DNS 可讓您裝載 DNS 區域，並在 Azure 中管理網域的 DNS 記錄。 網域必須從父系網域委派給 Azure DNS，該網域的 DNS 查詢才能送達 Azure DNS。 請記住，Azure DNS 不是網域註冊機構。 本文說明網域委派的運作方式，以及如何將網域委派給 Azure DNS。
@@ -71,5 +70,4 @@ Azure DNS 提供具權威性的 DNS 服務。  它不提供遞迴 DNS 服務。 
 ## <a name="next-steps"></a>後續步驟
 
 了解如何[將您的網域委派給 Azure DNS](dns-delegate-domain-azure-dns.md)
-
 

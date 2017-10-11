@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics 中的網路效能監視器解決方案
 
@@ -315,4 +314,3 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 
 ## <a name="next-steps"></a>後續步驟
 * [搜尋記錄檔](log-analytics-log-searches.md)以檢視詳細的網路效能資料記錄。
-

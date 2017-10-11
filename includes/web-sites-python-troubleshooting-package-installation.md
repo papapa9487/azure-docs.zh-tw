@@ -5,18 +5,18 @@
 ### <a name="request-wheels"></a>要求 Wheel
 如果封裝安裝需要編譯器，您應該嘗試連絡封裝擁有者，要求提供適用於封裝的 Wheel。
 
-透過最近上市的 [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7]，現在建置擁有 Python 2.7 原生程式碼的套件更容易。
+新的可用性[Microsoft Visual c + + 編譯器的 Python 2.7][Microsoft Visual C++ Compiler for Python 2.7]，現在是您更輕鬆地建置具有原生程式碼的 Python 2.7 的封裝。
 
 ### <a name="build-wheels-requires-windows"></a>建置 Wheel (需要 Windows)
 注意：使用此選項時，請務必使用符合 Azure App Service 中 Web 應用程式上使用之平台/架構/版本 (Windows/32 位元/2.7 或 3.4) 的 Python 環境編譯封裝。
 
 如果封裝因為需要編譯器而無法安裝，您可以在本機電腦上安裝編譯器，並建置封裝的 Wheel，然後將其包含在您的儲存機制中。
 
-Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱 [建立執行 Windows 的虛擬機器][建立執行 Windows 的虛擬機器]，了解如何在 Azure 上建立虛擬機器。  您可以使用該虛擬機器建置 Wheel、將它們加入至儲存機制，以及在您想要捨棄虛擬機器時捨棄。 
+Mac/Linux 使用者： 如果您沒有存取權的 Windows 電腦，請參閱[建立虛擬機器執行 Windows] [ Create a Virtual Machine Running Windows]如何在 Azure 上建立 VM。  您可以使用該虛擬機器建置 Wheel、將它們加入至儲存機制，以及在您想要捨棄虛擬機器時捨棄。 
 
-對於 Python 2.7，您可以安裝 [Microsoft Visual C++ Compiler for Python 2.7][Microsoft Visual C++ Compiler for Python 2.7]。
+您可以安裝 Python 2.7 [Microsoft Visual c + + 編譯器的 Python 2.7][Microsoft Visual C++ Compiler for Python 2.7]。
 
-對於 Python 3.4，您可以安裝 [Microsoft Visual C++ 2010 Express][Microsoft Visual C++ 2010 Express]。
+您可以安裝 Python 3.4 [Microsoft Visual c + + 2010 Express][Microsoft Visual C++ 2010 Express]。
 
 若要建置 Wheel，您需要有 Wheel 封裝：
 
@@ -59,6 +59,6 @@ Mac/Linux 使用者：如果您無法存取 Windows 電腦，請參閱 [建立�
 
 建議您刪除應用程式上現有的虛擬環境，以防止在自動管理虛擬環境時遺留檔案。
 
-[建立執行 Windows 的虛擬機器]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
+[Create a Virtual Machine Running Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-hero-tutorial/
 [Microsoft Visual C++ Compiler for Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949

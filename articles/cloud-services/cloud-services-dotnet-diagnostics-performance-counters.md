@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>在 Azure 應用程式中建立及使用效能計數器
 本文說明效能計數器的優點，以及如何將效能計數器放入 Azure 應用程式中。 您可以使用它們來收集資料、找出瓶頸，以及調整系統和應用程式效能。
@@ -321,4 +320,3 @@ public class PerformanceCountersEntity : TableEntity
 
 ## <a name="next-steps"></a>後續步驟
 [檢視有關 Azure 診斷的其他文章](../azure-diagnostics.md)
-

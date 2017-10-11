@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 10/31/2016
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 07ca2321852e276502187e768177e7e82bdfd080
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>將您的結構描述移轉至 SQL 資料倉儲
 將您的 SQL 結構描述移轉至 SQL 資料倉儲的指引。 
@@ -86,4 +84,3 @@ SQL 資料倉儲是一種分散式資料庫系統。 每個資料表都會分散
 
 
 <!--Other Web references-->
-

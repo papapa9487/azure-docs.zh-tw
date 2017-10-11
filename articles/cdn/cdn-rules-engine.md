@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>使用 Azure CDN 規則引擎覆寫 HTTP 行為
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -85,8 +85,3 @@ ms.openlocfilehash: abfe283476206b181018d187675b47112dc5ad2f
 * [規則引擎功能](cdn-rules-engine-reference-features.md)
 * [使用規則引擎覆寫預設的 HTTP 行為](cdn-rules-engine.md)
 * [Azure Fridays: Azure CDN's powerful new Premium Features (影片：Azure 星期五：Azure CDN 強大的新高階功能)](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/)
-
-
-<!--HONumber=Jan17_HO4-->
-
-

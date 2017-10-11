@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: fc1e1b2de0a138dbe88d794f802b002321948ab8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>教學課程：Azure Active Directory 與 Lesson.ly 整合
 
@@ -121,7 +119,7 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
     >[!NOTE]
     >參考一般名稱時，**companyname** 需要由實際名稱取代。
     
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `https://<companyname>.lesson.ly/auth/saml/metadata`|
@@ -156,7 +154,7 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
 
     c. 在 [值] 清單中，選取該列所顯示的值。
     
-    d. 按一下 [ **確定**]。     
+    d. 按一下 [確定] 。     
 
 7. 按一下 [儲存]  按鈕。
 
@@ -265,5 +263,4 @@ Lesson.ly 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lessonly-tutorial/tutorial_general_203.png
-
 

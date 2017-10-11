@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: ce5ba551f071055a9aaebb99395ada4e96ffcc76
-ms.openlocfilehash: 47e81ad02c544cb269abed0a4936c30fc404f01a
-ms.lasthandoff: 02/07/2017
-
-
+ms.openlocfilehash: f36f16a7bb00ace9fd5164eb38ba77f015f22f5c
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>在受管理的網域上設定 Kerberos 限制委派 (KCD)
 許多應用程式都需要以使用者的登入身分存取資源。 Active Directory 支援稱為 Kerberos 委派的機制，可用於此使用案例。 再者，您可以限制委派，讓使用者的登入身分只能用來存取特定資源。 Azure AD Domain Services 受管理的網域與傳統Active Directory 網域不同，因為前者的權限更為嚴格且更為安全。
 
@@ -63,4 +61,3 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 ## <a name="related-content"></a>相關內容
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
 * [Kerberos 限制委派概觀](https://technet.microsoft.com/library/jj553400.aspx)
-

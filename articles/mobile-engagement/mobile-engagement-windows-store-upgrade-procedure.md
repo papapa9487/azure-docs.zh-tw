@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: c7b3441892484cf54e2055e9153858171d738e85
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Windows 通用 app SDK 升級程序
 如果您已經整合舊版 Engagement 到您的應用程式，在升級 SDK 時您必須考慮以下幾點。
@@ -309,5 +308,4 @@ Engagement 使用連接字串。 您不需要為 Mobile Engagement 指定應用�
 * GetCapptainPageName 現在名為 GetEngagementPageName
 
 請注意，重新命名也會影響覆寫方法。
-
 

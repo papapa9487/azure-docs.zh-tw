@@ -25,7 +25,7 @@
     \.deployment
     \deploy.cmd
 
-您可以使用 [Azure command-line interface][Azure command-line interface] 建立檔案。  從您的專案資料夾中使用此命令：
+您可以使用[Azure 命令列介面][ Azure command-line interface] ，建立檔案。  從您的專案資料夾中使用此命令：
 
     azure site deploymentscript --python
 

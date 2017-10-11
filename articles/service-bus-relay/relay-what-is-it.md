@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
 
@@ -72,5 +71,4 @@ WCF 轉送適用於完整的 .NET Framework (NETFX) 和 WCF。 您在內部部�
 * [建立命名空間](relay-create-namespace-portal.md)
 * [開始使用 .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [開始使用 Node](relay-hybrid-connections-node-get-started.md)
-
 

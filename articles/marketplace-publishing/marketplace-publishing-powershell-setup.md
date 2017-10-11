@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/04/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7ea4b87e723c2ce194186af39ba8e6f0f593347a
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: bbcce5093d2bbd5326523063db7d0e565fe4de6d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>設定 Azure PowerShell 以在 Azure Marketplace 上建立供應項目
 如需如何設定 Azure PowerShell 的詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。 簡單的方式就是使用憑證方法，該方法會下載並匯入驗證所需的憑證。 若要取得所需的憑證，請使用 **Get-AzurePublishSettingsFile** Cmdlet。 出現系統提示時儲存檔案。 若要將憑證匯入 PowerShell 工作階段，請使用 **Import-AzurePublishSettingsFile** Cmdlet。
@@ -34,5 +33,4 @@ ms.lasthandoff: 04/27/2017
 ## <a name="see-also"></a>另請參閱
 * [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 * [建立 Marketplace 的虛擬機器映像](marketplace-publishing-vm-image-creation.md)
-
 

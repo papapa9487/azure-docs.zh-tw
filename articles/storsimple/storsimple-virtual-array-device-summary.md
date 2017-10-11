@@ -14,10 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2016
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-device-summary-blade-for-storsimple-device-manager-connected-to-storsimple-virtual-array"></a>在連接至 Microsoft Azure StorSimple Virtual Array 的 StorSimple 裝置管理員中使用裝置摘要刀鋒視窗
 
@@ -54,10 +55,4 @@ ms.openlocfilehash: 35413d597c3b6b1c7600241a78572b63f982d175
 - [管理 StorSimple Virtual Array 上的共用](storsimple-virtual-array-manage-shares.md)
     
 - [管理 StorSimple Virtual Array 上的磁碟區](storsimple-virtual-array-manage-volumes.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

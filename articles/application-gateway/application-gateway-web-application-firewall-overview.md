@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 50863b60f2843f033bdb07f4564d937cd6f0b7be
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
 
 Web 應用程式防火牆 (WAF) 是一項應用程式閘道功能，可提供 Web 應用程式的集中式保護，免於遭遇常見的攻擊和弱點。 
@@ -174,5 +171,4 @@ WAF 計費於 2017 年 5 月 5 日生效，直到 WAF SKU 閘道繼續以標準�
 ## <a name="next-steps"></a>後續步驟
 
 深入了解 WAF 的功能之後，請瀏覽[如何在應用程式閘道上設定 Web 應用程式防火牆](application-gateway-web-application-firewall-portal.md)。
-
 

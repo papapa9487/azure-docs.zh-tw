@@ -12,13 +12,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 05/02/2017
 ms.author: sama
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: 068adc72976ec8429312f1909d0fd65460b73e98
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 8f5703d15766f221517cd89352d41685652d32d6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C：使用自訂原則來管理 SSO 和權杖自訂
 使用自訂原則所提供給您的控制項和透過內建原則所取到的控制項相同，均可讓您控制權杖、工作階段和單一登入 (SSO) 組態。  若要了解每個設定的功用，請參閱[這裡](#active-directory-b2c-token-session-sso)的文件。
@@ -93,4 +91,3 @@ ms.lasthandoff: 05/04/2017
 **Web 應用程式工作階段存留期 (分鐘)** 若要變更 Web 應用程式工作階段存留期，您必須修改 `<SessionExpiryInSeconds>` 元素的值。  內建原則的預設值為 86400 秒 (1440 分鐘)。
 
 **Web 應用程式工作階段逾時** 若要變更 Web 應用程式工作階段逾時，您必須修改 `<SessionExpiryType>` 的值。  適用的值為 `Absolute` 和 `Rolling`。
-

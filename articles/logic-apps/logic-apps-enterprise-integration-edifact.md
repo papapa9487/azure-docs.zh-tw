@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e3aeaee3a71ae8b024153996431fba203a1cdfce
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換 EDIFACT 訊息以進行企業整合
 
@@ -44,7 +42,7 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="create-an-edifact-agreement"></a>建立 EDIFACT 合約 
 
-1.    登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 從左側功能表中選取 [更多服務]。
+1.  登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 從左側功能表中選取 [更多服務]。
 
     > [!TIP]
     > 如果沒有看到 [更多服務]，您可能必須先展開功能表。 在摺疊功能表的頂端，選取 [顯示功能表]。
@@ -87,7 +85,7 @@ ms.lasthandoff: 05/17/2017
 
 您現在已經設定合約屬性，您可以設定此合約如何識別及處理您透過此合約從夥伴接收的內送訊息。
 
-1.    在 [新增] 之下，選取 [接收設定]。
+1.  在 [新增] 之下，選取 [接收設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
     [接收設定] 分成下列各區段：識別碼、通知、結構描述、控制編號、驗證和內部設定。
@@ -160,7 +158,7 @@ ms.lasthandoff: 05/17/2017
 
 您可以設定此合約如何識別及處理您透過此合約傳送給夥伴的外寄訊息。
 
-1.    在 [新增] 之下，選取 [傳送設定]。
+1.  在 [新增] 之下，選取 [傳送設定]。
 根據您與其交換訊息之夥伴所簽署的合約，設定這些屬性。 如需屬性說明，請參閱本節中的資料表。
 
     [傳送設定] 分成下列各區段：識別碼、通知、結構描述、信封、字元集和分隔符號、控制編號以及驗證。
@@ -242,11 +240,11 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="find-your-created-agreement"></a>尋找您建立的合約
 
-1.    完成所有合約屬性的設定之後，請在 [新增] 刀鋒視窗中選擇 [確定]，以完成合約建立並回到整合帳戶刀鋒視窗。
+1.  完成所有合約屬性的設定之後，請在 [新增] 刀鋒視窗中選擇 [確定]，以完成合約建立並回到整合帳戶刀鋒視窗。
 
     您新增的合約現在顯示於您的 [合約] 清單中。
 
-2.    您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶刀鋒視窗上，選擇 [概觀]，然後選取 [合約] 圖格。 
+2.  您也可以在整合帳戶概觀中檢視您的合約。 在整合帳戶刀鋒視窗上，選擇 [概觀]，然後選取 [合約] 圖格。 
 
     ![選擇 [合約] 圖格來檢視所有合約](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
@@ -255,5 +253,4 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="learn-more"></a>詳細資訊
 * [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件")  
-
 

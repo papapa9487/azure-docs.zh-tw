@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/11/2017
 ms.author: manuaery
-translationtype: Human Translation
-ms.sourcegitcommit: a437ef2ba20970e2dd9a06fbc9e39fff2bb82da7
 ms.openlocfilehash: 22eb95bf0e3a20893acbb860ad10cfe6a3bcf088
-ms.lasthandoff: 01/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 本機固定磁碟區︰常見問題集 (FAQ)
 ## <a name="overview"></a>概觀
@@ -98,7 +97,7 @@ ms.lasthandoff: 01/12/2017
 
 **問：** 我刪除了本機固定磁碟區。 當我嘗試建立新的磁碟區時，為什麼看不到回收的空間反映於可用的空間？ 
 
-**答：** 如果您刪除固定在本機的磁碟區，新的磁碟區的可用空間可能不會立即更新。 StorSimple Manager 服務會每小時更新大致的本機可用空間。 建議您等候&1; 小時，然後再嘗試建立新的磁碟區。
+**答：** 如果您刪除固定在本機的磁碟區，新的磁碟區的可用空間可能不會立即更新。 StorSimple Manager 服務會每小時更新大致的本機可用空間。 建議您等候 1 小時，然後再嘗試建立新的磁碟區。
 
 **問：** 雲端應用裝置是否支援本機固定磁碟區？
 
@@ -215,5 +214,4 @@ ms.lasthandoff: 01/12/2017
 **問：** 是否可以將具有本機固定磁碟區的磁碟區容器容錯移轉到雲端應用裝置？
 
 **答：** 是，您可以這麼做。 本機固定磁碟區會容錯移轉為階層式磁碟區。 [跨越版本的本機固定磁碟區容錯移轉和 DR](storsimple-device-failover-disaster-recovery.md#considerations-for-device-failover)
-
 

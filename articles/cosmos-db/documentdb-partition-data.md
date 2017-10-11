@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 81010d91ac7fe8fa7149c52ed56af304cf4e83d9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="partitioning-in-azure-cosmos-db-using-the-documentdb-api"></a>使用 DocumentDB API 在 Azure Cosmos DB 進行資料分割
 
@@ -146,7 +145,7 @@ await client.CreateDocumentAsync(
     });
 ```
 
-請依資料分割索引鍵和識別碼來讀取項目，並加以更新，然後最後一個步驟是依資料分割索引鍵和識別碼刪除項目。 請注意，讀取包括 PartitionKey 值 (對應至 REST API 中的 `x-ms-documentdb-partitionkey` 要求標頭)。
+請依資料分割索引鍵和識別碼來讀取項目，並加以更新，然後最後一個步驟是依資料分割索引鍵和識別碼刪除項目。請注意，讀取包括 PartitionKey 值 (對應至 REST API 中的 `x-ms-documentdb-partitionkey` 要求標頭)。
 
 ```csharp
 // Read document. Needs the partition key and the ID to be specified
@@ -229,5 +228,4 @@ await client.ExecuteStoredProcedureAsync<DeviceReading>(
 * 使用 Azure Cosmos DB 執行規模和效能測試。 如需範例，請參閱 [Azure Cosmos DB 的效能和規模測試](performance-testing.md)。
 * 使用 [SDK](documentdb-sdk-dotnet.md) 或 [REST API](/rest/api/documentdb/) 開始撰寫程式碼
 * 了解 [Azure Cosmos DB 中佈建的輸送量](request-units.md)
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3e0f8d92495c976040113f8edc0d4c789920c549
-ms.openlocfilehash: e22dca7b666720edfcbfd1b871d98b9468441fbd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。 如需 ACS 的詳細資訊，請參閱 [後續步驟](#next_steps) 一節。
@@ -171,7 +169,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
    
     ![Add a JSP file for ACS example][add_jsp_file_acs]
    
-    按 [下一步] 。
+    按一下 [下一步] 。
 4. 在 [Select JSP Template] \(選取 JSP 範本) 對話方塊中，選取 [New JSP File (html)] \(新增 JSP 檔案 (html))，然後按一下 [Finish] \(完成)。
 5. 在 Eclipse 中開啟 index.jsp 檔案時，請加入文字以顯示 **Hello ACS World!** (在現有的 `<body>` 元素內加入)。 您更新的 `<body>` 內容應該出現如下：
    
@@ -299,5 +297,4 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
-
 

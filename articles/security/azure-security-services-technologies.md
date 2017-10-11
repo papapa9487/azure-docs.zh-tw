@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2016
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0bea62a43cf6cac9132fe64f2d6c54e52def4c55
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-security-services-and-technologies"></a>Azure 安全性服務和技術
 在我們與目前和未來的 Azure 客戶的討論中，我們經常被詢問「您有 Azure 提供的所有安全性相關服務和技術的清單嗎？」
@@ -73,4 +72,3 @@ ms.lasthandoff: 08/21/2017
 * [Azure ExpressRoute](../expressroute/expressroute-introduction.md)
 * [Azure 流量管理員](../traffic-manager/traffic-manager-overview.md)
 * [Azure 應用程式 Proxy](../active-directory/active-directory-application-proxy-enable.md)
-

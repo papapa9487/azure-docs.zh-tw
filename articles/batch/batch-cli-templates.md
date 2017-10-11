@@ -11,14 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: markscu
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 範本和檔案傳輸 (預覽)
 
 使用 Azure CLI 就可直接執行 Batch 作業而不需要撰寫程式碼。
@@ -265,4 +263,3 @@ az batch file download --file-group ffmpeg-output --local-path
 
 - 請參閱 Batch 範本部落格文章：[使用 Azure CLI 執行 Azure Batch 作業 – 不需要程式碼](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/)。
 - 您可在 [Azure GitHub 存放庫](https://github.com/Azure/azure-batch-cli-extensions)中取得詳細的安裝與使用文件、範例和原始程式碼。
-

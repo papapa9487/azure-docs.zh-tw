@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
 ## <a name="overview"></a>概觀
@@ -203,5 +202,4 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [StorSimple 錯誤和疑難排解可運作的裝置](storsimple-troubleshoot-operational-device.md)。
-
 

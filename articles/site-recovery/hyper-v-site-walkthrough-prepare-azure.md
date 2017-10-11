@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 1a30cadaab7e053184f0be133f1da5bfddc1fd91
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-5-prepare-azure-resources-for-hyper-v-replication-to-azure"></a>步驟 5：準備要將 Hyper-V 複寫至 Azure 的 Azure 資源
 
 使用本文章中的指示來準備 Azure 資源，讓您可以使用 [Azure Site Recovery](site-recovery-overview.md) 服務，將內部部署 Hyper-V VM (不含 System Center VMM) 複寫至 Azure。
@@ -63,4 +61,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 6：準備 Hyper-V 資源](hyper-v-site-walkthrough-prepare-hyper-v.md)
-

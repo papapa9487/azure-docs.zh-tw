@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: bf92ffdb16b86c4033cc96ae2abb060d90f9505e
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="failover-and-disaster-recovery-for-your-storsimple-device"></a>StorSimple 裝置的容錯移轉與災害復原
 ## <a name="overview"></a>概觀
@@ -178,10 +178,4 @@ A.  如果刪除作業失敗，您就必須手動觸發磁碟區容器的刪除�
 ## <a name="next-steps"></a>後續步驟
 * 執行容錯移轉之後，您可能需要 [停用或刪除 StorSimple 裝置](storsimple-deactivate-and-delete-device.md)。
 * 如需如何使用 StorSimple Manager 服務的相關資訊，請移至 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

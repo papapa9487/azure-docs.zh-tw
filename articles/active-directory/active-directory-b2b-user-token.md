@@ -15,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 57b170539513953bd6a01ab4dd362a65cf905496
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>了解 Azure AD B2B 共同作業中的使用者權杖
 
 如果您想要了解 B2B 共同作業使用者的權杖看起來像什麼樣子，以下是資源租用戶 (適用於 tenantid:04dcc6ab-388a-4559-b527-fbec656300ea) 中 Azure Active Directory (Azure AD) 來賓與 Microsoft 帳戶來賓的持有人權杖詳細資料和權杖內容。 若要查看「JSON Web 權杖」(JWT) 內容，請使用 [https://jwt.io/](https://jwt.io/) 或 [http://calebb.net](http://calebb.net/)。
@@ -54,4 +50,3 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 * [B2B 共同作業使用者宣告對應](active-directory-b2b-claims-mapping.md)
 * [Office 365 外部共用](active-directory-b2b-o365-external-user.md)
 * [B2B 共同作業目前的限制](active-directory-b2b-current-limitations.md)
-

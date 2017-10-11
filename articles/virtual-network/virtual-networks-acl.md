@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9a0c85367968c9b38104012d75b1f3975be82cc1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>什麼是端點存取控制清單？
 
@@ -93,5 +91,4 @@ ACL 是包含規則清單的物件。 當您建立 ACL 並將它套用到虛擬�
 
 ## <a name="next-steps"></a>後續步驟
 [使用 PowerShell 來管理端點的存取控制清單](virtual-networks-acl-powershell.md)
-
 

@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: liamca
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: f4e371fc16bc57e6963f1ec51c0ea864fa568f0c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure 搜尋服務的效能與最佳化考量
 絕佳搜尋體驗是許多行動和 Web 應用程式成功的關鍵。 從房地產到二手車市場，再到線上目錄，快速搜尋和相關結果都將影響客戶體驗。 本文旨在協助您探索如何充分利用 Azure 搜尋服務的最佳做法，特別適用於對延展性、多語言支援或自訂排名有複雜需求的進階案例。  此外，本文件也會概述本質，並涵蓋可在真實世界客戶應用程式中有效率地工作的處理方法。
@@ -115,4 +113,3 @@ STA 是可從 Azure 搜尋服務觀點了解延遲率的寶貴工具。  由於�
 [1]: ./media/search-performance-optimization/geo-redundancy.png
 [2]: ./media/search-performance-optimization/scale-indexers.png
 [3]: ./media/search-performance-optimization/geo-search-traffic-mgr.png
-

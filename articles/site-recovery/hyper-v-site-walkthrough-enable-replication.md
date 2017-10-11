@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: aabe99dbd375b80e4a87ca7a067927008672b4ed
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-10-enable-replication-for-hyper-v-vms-replicating-to-azure"></a>步驟 10：啟用將 Hyper-V VM 複寫至 Azure 的複寫功能
 
 
@@ -82,4 +80,3 @@ ms.lasthandoff: 06/23/2017
 
 
 移至[步驟 11：執行測試容錯移轉](hyper-v-site-walkthrough-test-failover.md)
-

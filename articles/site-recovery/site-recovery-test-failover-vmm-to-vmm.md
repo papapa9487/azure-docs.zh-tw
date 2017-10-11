@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: afc4790d5714ce7145c8f4291a05acc2e9882a9b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-failover-vmm-to-vmm-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉 (VMM 到 VMM)
 
@@ -119,4 +117,3 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 成功執行測試容錯移轉之後，您就可以嘗試執行[容錯移轉](site-recovery-failover.md)。
-

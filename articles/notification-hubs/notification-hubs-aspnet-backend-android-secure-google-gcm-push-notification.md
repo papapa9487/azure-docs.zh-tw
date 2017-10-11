@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: ce4bc214d4428393d8130831d628c324ad3485e8
-
-
+ms.openlocfilehash: 29f8c516e611c13fb73c7edc15e7c52708c75bb0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-secure-push-notifications-with-azure-notification-hubs"></a>使用 Azure 通知中樞傳送安全的推播通知
 > [!div class="op_single_selector"]
@@ -135,10 +135,4 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 2. 在 Eclipse 中，在實體 Android 裝置或模擬器上執行此應用程式。
 3. 在 Android 應用程式 UI 中，輸入使用者名稱和密碼。 這些可以是任何字串，但必須是相同值。
 4. 在 Android 應用程式 UI 中，按一下 [登入] 。 然後按一下 [傳送推播] 。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

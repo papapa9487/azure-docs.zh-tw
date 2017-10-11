@@ -15,23 +15,21 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>新增控制器以處理登入和登出要求
 
 這個步驟說明如何建立新的控制器來公開登入和登出方法。
 
-1.    以滑鼠右鍵按一下 `Controllers` 資料夾並選取 `Add` > `Controller`
-2.    選取 `MVC (.NET version) Controller – Empty`。
-3.    按一下 [新增]
-4.    將它命名為 `HomeController`，然後按一下 [新增]
-5.    新增 *OWIN* 參考至類別：
+1.  以滑鼠右鍵按一下 `Controllers` 資料夾並選取 `Add` > `Controller`
+2.  選取 `MVC (.NET version) Controller – Empty`。
+3.  按一下 [新增]
+4.  將它命名為 `HomeController`，然後按一下 [新增]
+5.  新增 *OWIN* 參考至類別：
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -75,9 +73,9 @@ public void SignOut()
 
 在 Visual Studio 中建立新的檢視來新增登入按鈕，並在驗證之後顯示使用者資訊：
 
-1.    以滑鼠右鍵按一下 `Views\Home` 資料夾並選取 `Add View`
-2.    將它命名為 `Index`
-3.    在以下檔案中新增下列 HTML (包括登入按鈕)：
+1.  以滑鼠右鍵按一下 `Views\Home` 資料夾並選取 `Add View`
+2.  將它命名為 `Index`
+3.  在以下檔案中新增下列 HTML (包括登入按鈕)：
 
 ```html
 <html>
@@ -124,11 +122,11 @@ else
 ## <a name="add-a-controller-to-display-users-claims"></a>新增控制器來顯示使用者的宣告
 此控制器示範如何使用 `[Authorize]` 屬性來保護控制器。 此屬性會設定限制，只允許經過驗證的使用者存取控制器。 下面的程式碼會利用屬性來顯示在登入過程中擷取的使用者宣告。
 
-1.    以滑鼠右鍵按一下 `Controllers` 資料夾：`Add` > `Controller`
-2.    選取 `MVC {version} Controller – Empty`。
-3.    按一下 [新增]
-4.    將它命名為 `ClaimsController`
-5.    以下面的程式碼取代您控制器類別的程式碼 ，這會將 `[Authorize]` 屬性新增至類別：
+1.  以滑鼠右鍵按一下 `Controllers` 資料夾：`Add` > `Controller`
+2.  選取 `MVC {version} Controller – Empty`。
+3.  按一下 [新增]
+4.  將它命名為 `ClaimsController`
+5.  以下面的程式碼取代您控制器類別的程式碼 ，這會將 `[Authorize]` 屬性新增至類別：
 
 ```csharp
 [Authorize]
@@ -167,9 +165,9 @@ public class ClaimsController : Controller
 
 在 Visual Studio 中，建立新的檢視以在網頁中顯示使用者的宣告：
 
-1.    以滑鼠右鍵按一下 `Views\Claims` 資料夾，然後按一下：`Add View`
-2.    將它命名為 `Index`
-3.    將下列 HTML 新增至檔案：
+1.  以滑鼠右鍵按一下 `Views\Claims` 資料夾，然後按一下：`Add View`
+2.  將它命名為 `Index`
+3.  將下列 HTML 新增至檔案：
 
 ```html
 <html>
@@ -200,4 +198,3 @@ public class ClaimsController : Controller
 </body>
 </html>
 ```
-

@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: e1a28c70edddca878c18d860b3029324955fff15
-ms.contentlocale: zh-tw
-
+ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>從 iOS 應用程式呼叫 Microsoft Graph API
 
 本指南示範原生 iOS 應用程式 (Swift) 如何取得存取權杖，以及如何呼叫 Microsoft Graph API 或需要來自 Azure Active Directory v2 端點之存取權杖的其他 API。
@@ -53,5 +52,4 @@ MSAL 會為您管理快取和重新整理存取權杖，因此您的應用程式
 |程式庫|說明|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|適用於 iOS 的 Microsoft Authentication Library 預覽|
-
 

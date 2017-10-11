@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 797b6236afad45e3e308ce073a8beb90cb7e94a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 4153910bc03f112f84c26cda6f9c78f11028b934
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="help-secure-angularjs-single-page-apps-by-using-azure-ad"></a>使用 Azure AD 保護 AngularJS 單一頁面應用程式
 
@@ -162,4 +160,3 @@ adal.js 可讓您輕鬆地將常見的身分識別功能納入您的應用程式
 您現在可以繼續探索其他案例。 您可以嘗試︰[從單一頁面應用程式呼叫 CORS Web API](https://github.com/AzureAdSamples/SinglePageApp-WebAPI-AngularJS-DotNet)。
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

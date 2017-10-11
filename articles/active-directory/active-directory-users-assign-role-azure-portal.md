@@ -1,5 +1,4 @@
 ---
-
 title: "在 Azure Active Directory 中將使用者指派給系統管理員角色 | Microsoft Docs"
 description: "說明如何在 Azure Active Directory 中變更使用者系統管理資訊"
 services: active-directory
@@ -16,13 +15,11 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: ebbadff39c736ec7364999f7644694e8a177073f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
-
-
+ms.openlocfilehash: bfadf133154488f9827cfbeaa98ddb0eb84b52f6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-a-user-to-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中將使用者指派給系統管理員角色
 本文說明如何在 Azure Active Directory (Azure AD) 中將系統管理角色指派給使用者。 如需有關在您組織中新增新使用者的資訊，請參閱[將新的使用者新增到 Azure Active Directory](active-directory-users-create-azure-portal.md)。 新增的使用者預設不會有系統管理員權限，但是您可以隨時指派角色給他們。
@@ -47,4 +44,3 @@ ms.lasthandoff: 05/08/2017
 * [變更使用者的工作資訊](active-directory-users-work-info-azure-portal.md)
 * [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
 * [在 Azure AD 中刪除使用者](active-directory-users-delete-user-azure-portal.md)
-

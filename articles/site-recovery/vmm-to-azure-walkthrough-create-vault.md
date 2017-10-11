@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: af453ec27ba15ad8c59cf9f544584ad18dc0f74a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>步驟 7：設定 Hyper-V 複寫的保存庫
 
 本文說明如何使用 Azure 入口網站中的 [Azure Site Recovery](site-recovery-overview.md) 服務來設定保存庫，並指定要從內部部署位置複寫到 Azure 的項目。
@@ -50,4 +48,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 8：設定來源和目標](vmm-to-azure-walkthrough-source-target.md)
-

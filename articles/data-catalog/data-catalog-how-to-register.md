@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 3f7eb053db6b6a545990f31f64628594f7f3e2c1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/06/2017
-
+ms.openlocfilehash: 30166823b33669dda88b41a4aee2dfc34f01466f
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="register-data-sources-in-azure-data-catalog"></a>在 Azure 資料目錄中註冊資料來源
 ## <a name="introduction"></a>簡介
@@ -88,4 +87,3 @@ Azure 資料目錄是受到完整管理的雲端服務，可作為企業資料�
 
 ## <a name="next-steps"></a>後續步驟
 如需註冊資料來源的詳細資訊，請參閱[開始使用 Azure 資料目錄](data-catalog-get-started.md)教學課程。
-

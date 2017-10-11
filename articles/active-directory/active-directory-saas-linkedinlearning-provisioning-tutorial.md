@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 5eb2b1594eedb2a135d7b8cd501a33d8264e136b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-learning-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 LinkedIn Learning
 
 
@@ -48,9 +46,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>將使用者指派給 LinkedIn Learning 的重要秘訣
 
-*    建議將單一 Azure AD 使用者指派給 LinkedIn Learning，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
+*   建議將單一 Azure AD 使用者指派給 LinkedIn Learning，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
 
-*    將使用者指派給 LinkedIn Learning 時，您必須在 [指派] 對話方塊中選取 [使用者] 角色。 「預設存取」角色不適用於佈建。
+*   將使用者指派給 LinkedIn Learning 時，您必須在 [指派] 對話方塊中選取 [使用者] 角色。 「預設存取」角色不適用於佈建。
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-learning"></a>設定使用者佈建至 LinkedIn Learning
@@ -93,9 +91,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 8) 如果您已經設定 LinkedIn Learning 單一登入，使用 [搜尋] 欄位搜尋您的 LinkedIn Learning 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [LinkedIn Learning]。 從搜尋結果中選取 LinkedIn Learning，並將它新增至您的應用程式清單。
 
-9)    選取您的 LinkedIn Learning 執行個體，然後選取 [佈建] 索引標籤。
+9)  選取您的 LinkedIn Learning 執行個體，然後選取 [佈建] 索引標籤。
 
-10)    將 [佈建模式] 設定為 [自動]。
+10) 將 [佈建模式] 設定為 [自動]。
 
 ![LinkedIn Learning 佈建](./media/active-directory-saas-linkedinlearning-provisioning-tutorial/linkedin_3.PNG)
 
@@ -126,4 +124,3 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-

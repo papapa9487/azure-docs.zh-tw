@@ -16,15 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 29733f6f6b725dd4735219ed221431805558a5e2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>在 HDInsight 中結合 ScaleR 與 SparkR
 
 本文說明如何透過以 **SparkR** 聯結的班機延誤和天氣資料來使用 **ScaleR** 羅吉斯迴歸模型，以預測班機抵達延誤。 本案例說明搭配使用 Spark 上用於資料操作的 ScaleR 功能與用於分析的 Microsoft R Server。 這些技術的結合可讓您套用分散式處理的最新功能。
@@ -562,4 +559,3 @@ logmsg(paste('Elapsed time=',sprintf('%6.2f',elapsed),'(sec)\n\n'))
 - [Apache SparkR 文件](https://spark.apache.org/docs/2.1.0/sparkr.html)
 
 - Databricks 提供的 [SparkR 概觀](https://docs.databricks.com/spark/latest/sparkr/overview.html)
-

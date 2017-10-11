@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 9b5556fabd2ccfc026037a411a2f8e83f97ffb81
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: de94633cabaa7a1562a5a4839a8a8924da91a283
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 深入診斷 Web 應用程式
 ## <a name="why-do-i-need-application-insights"></a>我為什麼需要 Application Insights 呢？
@@ -175,5 +174,4 @@ Visual Studio 和 Eclipse 提供工具，可為您正在開發的專案設定正
 * 檢測已在執行的 Web 應用程式。 這可為您提供所有內建的效能遙測。 其適用於 [Java](app-insights-java-live.md) 和 [IIS 伺服器](app-insights-monitor-performance-live-website-now.md)，以及 [Azure Web 應用程式](app-insights-azure.md)。
 * 在開發期間檢測您的專案。 您可以針對 [ASP.NET](app-insights-asp-net.md) 或 [Java](app-insights-java-get-started.md) 應用程式，以及 [Node.js](app-insights-nodejs.md) 和許多[其他類型](app-insights-platforms.md)執行此動作。 
 * 藉由新增簡短的程式碼片段來檢測 [任何網頁](app-insights-javascript.md) 。
-
 

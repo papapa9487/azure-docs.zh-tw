@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0b10fc7c51d9fee306b0e71d405f0fd7ec7a6816
-ms.openlocfilehash: 9270df5e880cc9a512ae673c1c25449376d8a7b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 62adf8a9fd4400a056e2c0f59c79431acbad5865
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>透過 Windows Hello 企業版不需要密碼就能驗證身分識別
 目前單獨驗證密碼的方法不足以保障使用者的安全。 使用者會重複使用和忘記密碼。 密碼是可破壞、可進行網路釣魚、易於破解且可猜測的。 密碼也很難記住，而且易於遭受攻擊，例如「[傳送雜湊](https://technet.microsoft.com/dn785092.aspx)」。
@@ -72,5 +70,4 @@ ms.lasthandoff: 02/23/2017
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
-
 

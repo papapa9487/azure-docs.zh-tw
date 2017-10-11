@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5ff7c4ee612fd1261d85870be4d6fcbd66b64735
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: a767c93fb271f3aa33d9556c69c511bcac7cb0d5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>在 Visual Studio 中使用已連接服務加入 Azure Active Directory
 藉由使用 Azure Active Directory (Azure AD)，您便可以針對 ASP.NET MVC Web 應用程式支援「單一登入」(SSO)，或在 Web API 服務中支援「Active Directory 驗證」。 在使用「Azure Active Directory 驗證」的情況下，您的使用者可以從 Azure Active Directory 使用其帳戶來連接到您的 Web 應用程式。 「Azure Active Directory 驗證」搭配 Web API 的優點包括在從 Web 應用程式公開 API 時，可增強資料安全性。 有了 Azure AD，您不必以各自的帳戶和使用者管理作業來管理個別的驗證系統。
@@ -59,5 +58,4 @@ ms.lasthandoff: 03/27/2017
 * [MSDN 的 Azure Active Directory 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=WindowsAzureAD)
 * [Azure Active Directory 文件](https://azure.microsoft.com/documentation/services/active-directory/)
 * [部落格文章：Azure Active Directory 簡介 (英文)](http://blogs.msdn.com/b/brunoterkaly/archive/2014/03/03/introduction-to-windows-azure-active-directory.aspx)
-
 

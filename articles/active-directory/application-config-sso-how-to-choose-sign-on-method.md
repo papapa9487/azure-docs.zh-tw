@@ -13,31 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 6aba9206ab0634e9379d63520ad9e2d0256b7e94
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 80f4a965920fec9cb578c1bee235c7857f37431e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-determine-what-single-sign-on-method-to-use" class="xliff"></a>
-
-# 如何決定要使用的單一登入方法
+# <a name="how-to-determine-what-single-sign-on-method-to-use"></a>如何決定要使用的單一登入方法
 
 本文協助您了解 Azure AD 支援的單一登入模式，以及如何為您感興趣的應用程式選擇何種模式。
 
-<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
-
-## 特定應用程式類型所支援的單一登入和佈建模式
+## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>特定應用程式類型所支援的單一登入和佈建模式
 
 下表描述以上每個應用程式類型所支援的不同單一登入和佈建模式。 請利用此表格，協助您了解需要新增哪個應用程式以支援特定目標。
 
   ![應用程式類型表格](./media/application-tables/table1.png)
 
-<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
-
-## 如何選擇單一登入模式
+## <a name="how-to-choose-a-single-sign-on-mode"></a>如何選擇單一登入模式
 
 以下列出 Azure AD 應用程式支援的**單一登入**模式。
 
@@ -53,9 +45,7 @@ ms.lasthandoff: 04/11/2017
 
 -   **整合式 Windows 驗證** – 當公開您想要執行單一登入的內部部署 WIA 應用程式時，請選擇[整合式 Windows 驗證](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd)單一登入模式 *(**附註：** 只有在已設定應用程式的應用程式 Proxy 時，才能使用此選項)*
 
-<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
-
-## 自訂開發之應用程式的單一登入模式
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>自訂開發之應用程式的單一登入模式
 
 您透過[自訂開發的應用程式](#_Custom-Developed_Applications)經驗所自訂開發的應用程式，也支援以上未列出的其他單一登入模式。 其中包含：
 
@@ -69,31 +59,26 @@ ms.lasthandoff: 04/11/2017
 
 請參閱 [Azure Active Directory 開發人員手冊](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)，以深入了解如何建立支援這些單一登入模式的自訂開發應用程式。
 
-<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
-
-## 如何設定應用程式的單一登入模式
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>如何設定應用程式的單一登入模式
 
 若要設定應用程式的**單一登入**模式，請遵循下列指示：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
 4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+   * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  選取您要設定單一登入的應用程式
 
 7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [單一登入]。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
-[使用應用程式 Proxy 提供應用程式的單一登入](active-directory-application-proxy-sso-using-kcd.md)
-
+## <a name="next-steps"></a>後續步驟
+[使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)
 

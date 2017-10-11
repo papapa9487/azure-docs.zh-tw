@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: 57d00f2192fed7a2e89ac94e110ebb7e84c83b72
 ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium"></a>使用查詢字串控制 Azure CDN 快取行為 - Premium
 > [!div class="op_single_selector"]
@@ -58,10 +58,4 @@ ms.openlocfilehash: 145067c2ce50b41c4783f4de4052c0e7cb529fc7
 > 設定變更可能無法立即看見，因為註冊資訊需要一段時間才能傳遍 CDN。  若為<b>來自 Verizon 的 Azure CDN</b> 設定檔，則通常會在 90 分鐘之內完成傳播，但在某些情況下可能會更久。
 > 
 > 
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

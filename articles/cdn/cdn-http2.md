@@ -13,18 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: rli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 4f8dd685c3ae89535217d7a17a01c5129ca7e6e4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN 中的 HTTP/2 支援
 
-HTTP/2 是 HTTP/1.1 的重大修訂版\.它提供更快的 Web 效能、更短的回應時間和改善的使用者體驗，但保留常用的 HTTP 方法、狀態碼和語意。 雖然 HTTP/2 是設計來搭配 HTTP 和 HTTPS，但許多用戶端 Web 瀏覽器僅支援透過 TLS 使用 HTTP/2。
+HTTP/2 是主要 HTTP/1.1\ 有所修訂。 它會提供更快速 web 效能、 降低的回應時間，以及改善的使用者體驗，同時維持類似的 HTTP 方法，狀態碼和語意。 雖然 HTTP/2 是設計來搭配 HTTP 和 HTTPS，但許多用戶端 Web 瀏覽器僅支援透過 TLS 使用 HTTP/2。
 
 ###<a name="http2-benefits"></a>HTTP/2 的優點
 

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7e7fe49de7814b6058468d630f8638720e5864f3
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-high-availability-and-reliability"></a>排程器高可用性和可靠性
 ## <a name="azure-scheduler-high-availability"></a>Azure 排程器高可用性
@@ -79,9 +79,3 @@ Azure 排程器可讓您設定重試原則。 根據預設，如果工作失敗�
 [1]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image1.png
 
 [2]: ./media/scheduler-high-availability-reliability/scheduler-high-availability-reliability-image2.png
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

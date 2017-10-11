@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>將登入新增至 Windows 桌面應用程式
 v2.0 端點可讓您快速地將驗證加入您的桌面應用程式，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。  它也可讓您的應用程式安全地與後端 Web API，以及 [Microsoft Graph](https://graph.microsoft.io) 和幾個 [Office 365 統一 API](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 進行通訊。
@@ -262,5 +260,4 @@ MSAL 可使用個人和工作帳戶，輕鬆地將通用的身分識別功能納
 
 ## <a name="get-security-updates-for-our-products"></a>取得產品的安全性更新
 我們鼓勵您造訪 [此頁面](https://technet.microsoft.com/security/dd252948) 並訂閱資訊安全摘要報告警示，以在安全性事件發生時收到通知。
-
 

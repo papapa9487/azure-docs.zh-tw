@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5e3528d490cd11fab3fb10126713f81694d7e2d0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a99b3d7336c3dc1a1f249915d6971a49f4b69be6
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-administer-your-storsimple-solution"></a>使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案
 
@@ -62,5 +60,4 @@ StorSimple Snapshot Manager 中央管理主控台可讓您建立一致、 時間
 
 ## <a name="next-steps"></a>後續步驟
 [下載 StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220)。
-
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 85911fcc66dcedff0d43bd986bce4500a1a2f00b
-
-
+ms.openlocfilehash: db03b3cd668bf8e35913872ac4225de6d4d3edd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>10 GbE 網路介面在 StorSimple 裝置上支援的硬體
-## <a name="overview"></a>Overview
+## <a name="overview"></a>概觀
 本文章提供補充使用 Microsoft Azure StorSimple 裝置的補充硬體之相關資訊。
 
 ## <a name="list-of-devices-tested-by-microsoft"></a>已經過 Microsoft 測試的裝置清單
@@ -57,7 +57,7 @@ Microsoft 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以
 | 交換器作業系統版本 |JunOS 12.3R9.4 |
 | 刀鋒視窗型號 |Ports onboard (PIC 0) |
 | 收發器樣式 |Juniper |
-| 收發器型號 |零件編號 740-021308  <br></br>  零件編號 740-030658 |
+| 收發器型號 |零件編號 740-021308  <br></br> 零件編號 740-030658 |
 | 收發器韌體版本 |Rev 01 Version 0.0 (已回報) |
 | 纜線型號 |Duplex jumper LC/LC 50/125µ, OM3, LSZH |
 | StorSimple 型號 |8600 |
@@ -122,10 +122,4 @@ Mellanox 已經測試下列小型尺寸隨插即用 (SFP) 收發器、纜線以�
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 StorSimple 硬體元件與狀態](storsimple-monitor-hardware-status.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

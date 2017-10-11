@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/11/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 6d7eeaf460674c3ab98425a5412ffa465b9ffd1d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
 針對每個訂用帳戶和租用戶，Resource Manager 限制每小時只能有 15000 個讀取要求和 1200 個寫入要求。 這些限制會套用到每個 Azure Resource Manager 執行個體；每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比上面列出的還要高，因為通常是由多個不同的執行個體來服務使用者要求。
@@ -113,4 +111,3 @@ silly: returnObject
 
 * 如需有關限制和配額的詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 * 若要了解如何處理非同步 REST 要求，請參閱[追蹤非同步 Azure 作業 (英文)](resource-manager-async-operations.md)。
-

@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: saeda
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 8c79df33cd5f04f490e2cc6372f7e8ac1c4d9bbe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C︰收集記錄
 
 本文提供從 Azure AD B2C 收集記錄的步驟，讓您可以診斷自訂原則的問題。
@@ -118,4 +116,3 @@ traces \| where timestamp > ago(1d) | 查看 Azure AD B2C 在最後一天產生�
 ## <a name="next-steps"></a>後續步驟
 
 瀏覽 Application Insights 中的資料，可協助您了解身分識別體驗架構基礎 B2C 的運作方式，從而傳遞您自己的身分識別體驗。
-

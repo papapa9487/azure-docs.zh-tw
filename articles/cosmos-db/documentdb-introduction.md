@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/22/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 2cb4bd74ea973c8ff980d208a8c5f63a98ec1edd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-documentdb-api"></a>Azure Cosmos DB 簡介：DocumentDB API
 
@@ -111,5 +110,4 @@ DocumentDB API 可讓您將應用程式邏輯撰寫成完全以 JavaScript 撰�
 已經有 Azure 帳戶嗎？ 接著，您可以依照我們的[快速入門](../cosmos-db/create-documentdb-dotnet.md)開始使用 Azure Cosmos DB，這會逐步引導您建立帳戶及開始使用 Cosmos DB。
 
 [1]: ./media/documentdb-introduction/json-database-resources1.png
-
 

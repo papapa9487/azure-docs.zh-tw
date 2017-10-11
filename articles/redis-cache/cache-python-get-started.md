@@ -14,11 +14,11 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/10/2017
 ms.author: sdanie
-translationtype: Human Translation
-ms.sourcegitcommit: 5369dcd6ad1ec93c63eb442db9fc5ffdcca37375
 ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-azure-redis-cache-with-python"></a>如何搭配使用 Azure Redis 快取與 Python
 > [!div class="op_single_selector"]
@@ -61,9 +61,3 @@ ms.openlocfilehash: cdbee52574d0ffbe82ef3dc98f2848f4d00ba2ff
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png
 [2]: ./media/cache-python-get-started/redis-cache-cache-create.png
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 3672beda8a502e5fe2c8182076a8edef7ee9ebf6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="build-a-serverless-app-in-visual-studio-with-logic-apps-and-functions"></a>在 Visual Studio 中使用 Logic Apps 和 Functions 建置邏輯應用程式
 
@@ -47,8 +46,7 @@ Azure 中是在資源群組內管理資源。  資源群組是資源的邏輯群
 1. 在 [雲端] 分類中，選擇建立 Azure [資源群組] 專案  
  * 如果您沒看到分類或專案列出，請確定您已經為 Visual Studio 安裝 Azure SDK
 1. 指定專案的名稱和位置，然後選取 [確定] 開始建立。Visual Studio 會提示您選取範本。  您可以選擇從 [空白]、邏輯應用程式或其他資源開始。  但在此案例中，我們使用 [Azure 快速入門範本] 開始打造無伺服器應用程式。
-1. 選擇顯示 **Azure 快速入門**
-    ![選取 Azure 快速入門範本][1]中的範本
+1. 選取即可顯示從範本**Azure 快速入門**![選取 Azure 快速入門範本][1]
 1. 選取無伺服器快速入門範本︰**101-logic-app-and-function-app**，然後按一下 [確定]
 
 快速入門範本會在您的資源群組專案中建立部署範本。  此範本包含一個簡單的邏輯應用程式，它會呼叫 Azure Functions，然後傳回結果。  如果您在 [方案總管] 中開啟 `azuredeploy.json` 檔案，您可以看到無伺服器應用程式的資源。
@@ -57,7 +55,7 @@ Azure 中是在資源群組內管理資源。  資源群組是資源的邏輯群
 
 需要有預先部署的 Azure 資源群組，您才能在 Visual Studio 中開啟邏輯應用程式視覺化設計工具。  這樣可讓設計師在邏輯應用程式中建立和使用資源和服務的連線。  首先，我們只需要部署已建立的方案。
 
-1. 以滑鼠右鍵按一下 Visual Studio 中的專案，選取 [部署]，並建立 [新部署] ![選取新的資源部署][2]
+1. 以滑鼠右鍵按一下 Visual Studio 專案中，選取**部署**，並建立**新增**部署![選取新的資源部署][2]
 1. 選取有效的 Azure 訂用帳戶和資源群組
 1. 選擇**部署**方案
 1. 輸入邏輯應用程式和 Azure 函式應用程式的名稱。  Azure 函式名稱不必是全域唯一
@@ -94,4 +92,3 @@ Azure 中是在資源群組內管理資源。  資源群組是資源的邏輯群
 <!-- Image references -->
 [1]: ./media/logic-apps-serverless-get-started-vs/select-template.png
 [2]: ./media/logic-apps-serverless-get-started-vs/deploy.png
-

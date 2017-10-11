@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: d2dd84007832c56f5893f0ea9f5effcf5ec5816b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>向 Azure Active Directory 租用戶註冊您的應用程式
 
 您可以使用 Azure 入口網站向 Azure Active Directory (Azure AD) 租用戶註冊應用程式。 這會為應用程式建立應用程式識別碼，並加以啟用以接收權杖。
@@ -64,4 +62,3 @@ ms.lasthandoff: 03/29/2017
 
 1. 查看[快速入門](active-directory-developers-guide.md)，以取得使用 Azure AD 執行應用程式驗證的詳細逐步解說。
 2. 查看 [GitHub](https://github.com/azure-samples) 中完整的程式碼範例清單。
-

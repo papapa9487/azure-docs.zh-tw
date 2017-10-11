@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08fcdb4ec6dd124760cff54c522d998d5a0327
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>在組織中啟用 Microsoft Windows Hello 企業版
 [連接已加入網域的 Windows 10 裝置與 Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md) 後，請依下列方式在組織中啟用 Microsoft Windows Hello 企業版。
@@ -78,7 +76,7 @@ ms.lasthandoff: 12/29/2016
    
     a. 在 [名稱] 文字方塊中，輸入您的設定名稱 (例如：**My WHfB Profile**)。
    
-    b. 按 [下一步] 。
+    b. 按一下 [下一步] 。
 4. 在 [支援的平台] 對話方塊中，選取將使用此 Windows Hello 企業版設定檔佈建的平台，然後按 [下一步]。
    
     ![設定 Windows Hello 企業版](./media/active-directory-azureadjoin-passport-deployment/04.png)
@@ -92,7 +90,7 @@ ms.lasthandoff: 12/29/2016
    
     c. 對於 [驗證方法]，選取 [憑證型]。
    
-    d. 按 [下一步] 。
+    d. 按一下 [下一步] 。
 6. 在 [摘要] 對話方塊上，按 [下一步]。
 7. 在 [完成] 對話方塊上，按一下 [關閉]。
 8. 在頂端工具列中，按一下 [部署] 。
@@ -114,5 +112,4 @@ ms.lasthandoff: 12/29/2016
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)
-
 

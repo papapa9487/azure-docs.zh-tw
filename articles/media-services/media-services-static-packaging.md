@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4f05f188633e2d5103e29ae4501f7ea9a832acba
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: cd36e46821eb85db523a5c84ec44895f68cc60e1
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>使用 Azure Media Packager 完成靜態封裝工作
 > [!NOTE]
@@ -702,7 +701,7 @@ ms.lasthandoff: 11/17/2016
 > [!NOTE]
 > 若要將您的內容轉換為 HLS，必須先將其轉換/編碼為 Smooth Streaming。
 > 此外，針對使用 AES 加密的 HLS，請務必設定 MediaPackager_SmoothToHLS.xml 檔案中的下列屬性：將加密屬性設為 true、設定金鑰值和指向驗證/授權伺服器的 KeyURI 值。
-> 媒體服務將會建立金鑰檔案，並將其放到資產容器中。 您應該將 /asset-containerguid/*.key 檔案複製到伺服器中 (或自行建立金鑰檔案)，然後從資產容器中刪除 *.key 檔案。
+> 媒體服務將會建立金鑰檔案，並將其放到資產容器中。 您應該將 /asset-containerguid/*.key 檔案複製到您的伺服器 （或建立您自己金鑰的檔案），然後從資產容器刪除 *.key 檔案。
 > 
 > 
 
@@ -1459,5 +1458,4 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

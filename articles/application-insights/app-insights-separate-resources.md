@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/22/2017
-
+ms.openlocfilehash: f51fa4639aaa60686cc349683713c6e5f9732bb9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>區分開發、測試及生產環境的遙測
 
@@ -133,7 +132,7 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
     </PropertyGroup>
     ```
 
-    這會產生一個稱為 *yourProjectName*.BuildInfo.config 的檔案。 發佈程序會將這個檔案重新命名為 BuildInfo.config。
+    這會產生一個稱為 *yourProjectName*.BuildInfo.config 的檔案。發佈程序會將這個檔案重新命名為 BuildInfo.config。
 
     當您使用 Visual Studio 建置時，組建標籤會包含預留位置 (AutoGen_...)。 但是當使用 MSBuild 建立時，則會填入正確的版本號碼。
 
@@ -161,4 +160,3 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
 
 * [多個角色的共用資源](app-insights-monitor-multi-role-apps.md)
 * [建立遙測初始設定式來區分 A |B 變體](app-insights-api-filtering-sampling.md#add-properties)
-

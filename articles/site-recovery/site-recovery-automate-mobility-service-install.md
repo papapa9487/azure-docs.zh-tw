@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: krnese
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: cdb88505427cdea05f594277170633183dbe6d3e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.openlocfilehash: bcc5f11afbecac8fe63935f3401dd3e2d767e8aa
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="deploy-the-mobility-service-with-azure-automation-dsc-for-replication-of-vm"></a>使用 Azure Automation DSC 部署行動服務，以進行 VM 複寫
 在 Operations Management Suite 中，我們提供您一個全方位的備份和災害復原解決方案，可供您融入到您的商務持續性計畫中。
@@ -511,4 +510,3 @@ New-AzureRmResourceGroupDeployment @RGDeployArgs -Verbose
 
 ## <a name="next-steps"></a>後續步驟
 部署行動服務代理程式之後，您可以為虛擬機器 [啟用複寫](site-recovery-vmware-to-azure.md) 。
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: anhoh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 4dbf91a3c1d6a287d7337647f9e059566c7ddbe5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB 簡介：適用於 MongoDB 的 API
 
@@ -70,4 +69,3 @@ Azure Cosmos DB 的 MongoDB API 相關資訊已整合至整體 Azure Cosmos DB �
 * 使用 [Robomongo](mongodb-robomongo.md) 連線至 API for MongoDB 帳戶。
 * 使用 [GetLastRequestStatistics 命令和 Azure 入口網站計量](request-units.md#GetLastRequestStatistics)，了解您的作業使用多少 RU。
 * 了解如何[設定全球分散式應用程式的讀取喜好設定](../cosmos-db/tutorial-global-distribution-mongodb.md)。
-

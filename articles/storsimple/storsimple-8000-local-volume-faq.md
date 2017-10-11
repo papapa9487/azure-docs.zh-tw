@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/26/2017
 ms.author: manuaery
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 857647e89b7ac5d9bc72bc4b2ace0ea7279353f9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 本機固定磁碟區︰常見問題集 (FAQ)
 ## <a name="overview"></a>概觀
@@ -202,5 +200,4 @@ ms.lasthandoff: 07/08/2017
 **問：** 是否可以將具有本機固定磁碟區的磁碟區容器容錯移轉到雲端應用裝置？
 
 **答：** 是，您可以這麼做。 本機固定磁碟區會容錯移轉為階層式磁碟區。 [跨越版本的本機固定磁碟區容錯移轉和 DR](storsimple-8000-device-failover-disaster-recovery.md#common-considerations-for-device-failover)
-
 

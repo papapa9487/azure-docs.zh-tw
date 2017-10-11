@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Microsoft Azure CDN 中的即時統計資料
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -92,10 +92,4 @@ HTTP 狀態碼的清單會顯示於圖表正上方。 此清單表示每個可�
 * 透過 [Azure CDN 中的即時警示](cdn-real-time-alerts.md)
 * 進一步了解 [進階 HTTP 報告](cdn-advanced-http-reports.md)
 * 分析 [使用模式](cdn-analyze-usage-patterns.md)
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-translationtype: Human Translation
-ms.sourcegitcommit: 6d749e5182fbab04adc32521303095dab199d129
 ms.openlocfilehash: db69852cffd1ff331ac4a640b04ea4360d00bf75
-ms.lasthandoff: 03/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>如何設定 Web 應用程式的 TLS 相互驗證
 ## <a name="overview"></a>Overview
@@ -195,4 +194,3 @@ Azure Web 應用程式平台不會對傳送給應用程式的用戶端憑證進�
             }
         }
     }
-

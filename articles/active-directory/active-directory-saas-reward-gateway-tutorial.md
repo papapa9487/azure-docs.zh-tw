@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: b1a468caa22159ad603dbec1ef530e7e0e24f96d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reward-gateway"></a>教學課程：Azure Active Directory 與 Replicon Gateway 整合
 
@@ -112,7 +110,7 @@ ms.lasthandoff: 07/04/2017
 
     ![設定單一登入](./media/active-directory-saas-reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `https://<companyname>.rewardgateway.com` |
@@ -236,5 +234,4 @@ ms.lasthandoff: 07/04/2017
 [201]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-reward-gateway-tutorial/tutorial_general_203.png
-
 

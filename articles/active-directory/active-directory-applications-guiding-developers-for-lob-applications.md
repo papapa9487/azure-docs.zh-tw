@@ -1,5 +1,5 @@
 ---
-title: "開發適用於 Azure AD 的應用程式 | Microsoft Docs&quot;"
+title: "開發適用於 Azure AD 的應用程式 | Microsoft Docs'"
 description: "針對 IT 專業人員所撰寫，本文提供整合 Azure 應用程式與 Active Directory 的指導方針。"
 services: active-directory
 documentationcenter: 
@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: aa3c83f82d1a60253f70350e88aa96fb285ef3d9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>開發適用於 Azure Active Directory 的企業營運應用程式
 本指南提供開發適用於 Azure Active Directory (AD) 的企業營運 (LoB) 應用程式的概觀。適用對象為 Active Directory/Office 365 全域系統管理員。
@@ -82,4 +81,3 @@ ms.lasthandoff: 02/28/2017
 * [SaaS 應用程式的 Azure 條件式存取預覽](active-directory-conditional-access-azuread-connected-apps.md)
 * [使用 Azure AD 管理應用程式的存取](active-directory-managing-access-to-apps.md)
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
-

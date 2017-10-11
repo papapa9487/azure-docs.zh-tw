@@ -12,14 +12,12 @@ ms.date: 05/15/2017
 ms.topic: article
 ms.author: markgal,masaran
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 3608c310f43ff9f97563d252437d50d962162f47
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
 
 本文列出您可以使用 Azure 備份伺服器保護的各種伺服器和工作負載。 下列矩陣列出可使用 Azure 備份伺服器 v1 和 v2 保護的項目。
@@ -112,4 +110,3 @@ Azure 備份伺服器可以保護下列叢集應用程式中的資料：
 -   SQL Server - Azure 備份伺服器不支援備份裝載於叢集共用磁碟區 (CSV) 上的 SQL Server 資料庫。
 
 Azure 備份伺服器可以保護位於與 DPM 伺服器相同的網域中，以及位於子網域或受信任網域中的叢集工作負載。 如果您想要保護未信任網域或工作群組中的資料來源，請針對單一伺服器使用 NTLM 或憑證驗證，或是針對叢集只使用憑證驗證。
-

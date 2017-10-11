@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0974b9eda2cb7e3ba54a4a0fad0a768db644caf9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-11-run-a-test-failover-for-hyper-v-replication-to-azure"></a>步驟 11：執行 Hyper-V 複寫至 Azure 的測試容錯移轉
 
 本文說明如何在 Azure 入口網站中使用 [Azure Site Recovery](site-recovery-overview.md) 服務，從內部部署 Hyper-V 虛擬機器 (非 System Center VMM 所管理) 執行測試容錯移轉。
@@ -100,5 +98,4 @@ ms.lasthandoff: 08/21/2017
 
 - [深入了解](site-recovery-failover.md)不同類型的容錯移轉及如何執行。
 - [深入了解容錯回復](site-recovery-failback-from-azure-to-hyper-v.md)，以便將 Azure VM 容錯回復和複寫回到主要內部部署 Hyper-V 站台。
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 971f23a01b53ed6d7d19438567392e0b43b57120
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: f36f6512bb30e4b109b1bd1c3cdab10300f4edc9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>將 Raspberry Pi 3 連線到遠端監視解決方案，並且使用 C 來啟用遠端韌體更新
 

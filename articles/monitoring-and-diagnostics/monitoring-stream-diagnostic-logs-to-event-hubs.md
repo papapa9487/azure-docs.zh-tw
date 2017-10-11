@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 01ba8ddfcf90e1368ac147296fd180f99420d96f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hubs-namespace"></a>將 Azure 診斷記錄串流至事件中樞命名空間
 您可以使用入口網站中內建的「匯出至事件中樞」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 來啟用診斷設定中服務匯流排規則識別碼的方式，以近乎即時的速度將 **[Azure 診斷記錄](monitoring-overview-of-diagnostic-logs.md)**串流至任何應用程式。
@@ -62,11 +61,11 @@ ms.lasthandoff: 08/24/2017
 
 2. 選擇性地依資源群組或資源類型篩選清單，然後按一下您要設定診斷設定的資源。
 
-3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下 [開啟診斷]。
+3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下「開啟診斷」。
 
    ![新增診斷設定 - 無現有的設定](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-none.png)
 
-   如果資源上已有設定，您將會看此資源上已設定的設定清單。 按一下 [新增診斷設定]。
+   如果資源上已有設定，您將會看此資源上已設定的設定清單。 按一下「新增診斷設定」。
 
    ![新增診斷設定 - 現有的設定](media/monitoring-stream-diagnostic-logs-to-event-hubs/diagnostic-settings-multiple.png)
 
@@ -180,5 +179,4 @@ azure insights diagnostic set --resourceId <resourceID> --serviceBusRuleId <serv
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 Azure 診斷記錄檔](monitoring-overview-of-diagnostic-logs.md)
 * [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
 

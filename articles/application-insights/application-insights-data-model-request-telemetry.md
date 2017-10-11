@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 8e782e45b706cadec66e7404dd9abc2e01dea917
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
 
@@ -85,4 +84,3 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 - 如需 Application Insights 類型和資料模型，請參閱[資料模型](application-insights-data-model.md)。
 - 了解如何使用 Application Insights [設定 ASP.NET Core](app-insights-asp-net.md) 應用程式。
 - 查看 Application Insights 支援的[平台](app-insights-platforms.md)。
-

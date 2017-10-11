@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: febecd5f53077c2e3daa0845964e95025b97893b
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 6ea45c40bc428282faf24b4a08f8b0d345adb3fd
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>保護 SQL 資料倉儲中的資料庫
 > [!div class="op_single_selector"]
@@ -111,4 +110,3 @@ Azure SQL 資料倉儲透明資料加密 (TDE) 可以對待用資料執行即時
 
 <!--Other Web references-->
 [Role-based access control in Azure Portal]: https://azure.microsoft.com/documentation/articles/role-based-access-control-configure
-

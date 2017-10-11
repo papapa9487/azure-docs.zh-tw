@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>規劃和設計 Azure 虛擬網路
 建立要實驗的 VNet 很簡單，但關鍵在於，您會隨著時間部署多個 Vnet，以支援您的組織的生產需求。 經過一些規劃和設計，您就能夠部署 Vnet 且更有效率地連接您所需的資源。 如果您不熟悉 VNet，建議您先[了解 Vnet](virtual-networks-overview.md) 及[如何部署](virtual-networks-create-vnet-arm-pportal.md) Vnet，再繼續執行。
@@ -253,4 +252,3 @@ VNET 包含下列屬性：
 * 了解如何使 IaaS VM [負載平衡](../load-balancer/load-balancer-overview.md)及[管理多個 Azure 區域的路由傳送](../traffic-manager/traffic-manager-overview.md)。
 * 深入了解 [NSG，以及如何規劃和設計](virtual-networks-nsg.md) NSG 方案。
 * 深入了解您的 [跨單位和 VNet 連線選項](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)。
-

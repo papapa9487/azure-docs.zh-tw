@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>教學課程：Azure Active Directory 與 ServiceChannel 整合
 
@@ -122,7 +120,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 4. ServiceChannel 應用程式需要特定格式的 SAML 判斷提示，所以您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示上述的範例。 **NameIdentifier(使用者識別碼)**是唯一的強制宣告，預設值是 **user.userprincipalname**，但 ServiceChannel 會需要此值對應至 **user.mail**。 如果您打算啟用 Just In Time 使用者佈建，則應該新增下列宣告，如下所示。 **角色**宣告需要對應到 **user.assignedroles**，其中包含使用者的角色。  
 
     您可以參考[這裡](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example)的 ServiceChannel 指南，以取得宣告的詳細指引。
-      
+    
     ![設定單一登入](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

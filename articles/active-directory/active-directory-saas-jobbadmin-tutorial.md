@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
 ms.openlocfilehash: 848a6d6d0f072bc3f697ff57756714fc45e7dcc4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>教學課程：Azure Active Directory 與 Jobbadmin 整合
 
@@ -231,5 +229,4 @@ Jobbadmin 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-jobbadmin-tutorial/tutorial_general_203.png
-
 

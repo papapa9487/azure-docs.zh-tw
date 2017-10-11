@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: df1a5b2c200b7fa69961247ac036ee35fd14f54d
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="oms-architecture"></a>OMS 架構
 [Operations Management Suite (OMS)](https://azure.microsoft.com/documentation/services/operations-management-suite/) 是管理內部部署和雲端環境的雲端型服務集合。  本文描述 OMS 的不同內部部署和雲端元件以及其高階雲端運算架構。  您可以參考每個服務的文件，以取得進一步詳細資料。
@@ -84,5 +83,4 @@ Azure Site Recovery 有三種基本複寫案例。
 * 了解 [Azure 自動化](https://azure.microsoft.com/documentation/services/automation)。
 * 了解 [Azure 備份](http://azure.microsoft.com/documentation/services/backup)。
 * 了解 [Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery)。
-
 

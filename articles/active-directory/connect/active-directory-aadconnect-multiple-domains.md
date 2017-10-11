@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fa1c3d9cb07d417f5dbde41d6269fb1d157c3104
-ms.openlocfilehash: a6a97cd187036222f5a47e55670da613117a2318
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
 以下文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個最上層網域和子網域的指引。
@@ -67,7 +66,7 @@ ms.lasthandoff: 01/12/2017
 
 因此在 Azure AD 或 Office 365 驗證期間，系統會以使用者權杖的 IssuerUri 項目來尋找 Azure AD 中的網域。  如果找不到相符項目，驗證將會失敗。 
 
-例如，如果使用者的 UPN 是 bsimon@bmcontoso.com,，AD FS 簽發之權杖中的 IssuerUri 項目將會設定為 http://bmcontoso.com/adfs/services/trust。 這會比對 Azure AD 組態，且驗證將會成功。
+例如，如果使用者的 UPN 是bsimon@bmcontoso.com，IssuerUri 中的項目語彙基元 AD FS 問題將會設定為 http://bmcontoso.com/adfs/services/trust。 這會比對 Azure AD 組態，且驗證將會成功。
 
 以下是實作此邏輯的自訂宣告規則：
 
@@ -163,5 +162,4 @@ ms.lasthandoff: 01/12/2017
     ![取代宣告](./media/active-directory-multiple-domains/sub2.png)
 
 5. 按一下 [確定]。  按一下 [套用]。  按一下 [確定]。  關閉 [AD FS 管理]。
-
 

@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/01/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
 ms.openlocfilehash: 2443dd73fdf441721bd6f6f340da515d9f5a22a2
-ms.lasthandoff: 03/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="working-with-management-solutions-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中使用管理解決方案 (預覽)
 > [!NOTE]
@@ -114,5 +113,4 @@ ms.lasthandoff: 03/22/2017
 ## <a name="next-steps"></a>後續步驟
 * 搜尋 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates)不同 Resource Manager 範本的範例。
 * 建立自己的[管理解決方案](operations-management-suite-solutions-creating.md)。
-
 

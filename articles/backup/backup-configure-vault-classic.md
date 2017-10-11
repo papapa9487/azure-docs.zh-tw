@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>使用傳統入口網站將 Windows 伺服器或工作站備份至 Azure
 > [!div class="op_single_selector"]
@@ -115,7 +114,7 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
 3. 在排程備份精靈的 [開始使用] 頁面上，按 [下一步] 。
 4. 在 [選取要備份的項目] 頁面上，按一下 [新增項目] 。
 5. 選取您要備份的檔案和資料夾，然後按一下 [確定] 。
-6. 按一下 [下一步] 。
+6. 按 [下一步] 。
 7. 在 [指定備份排程] 頁面上，指定[備份排程]，然後按 [下一步]。
 
     您可以排程每日 (一天最多三次) 或每週備份。
@@ -171,4 +170,3 @@ Azure 建立和處理資源的部署模型有二種：資源管理員和傳統�
 * [備份 IaaS VM](backup-azure-vms-prepare.md)
 * [使用 Microsoft Azure 備份伺服器備份工作負載](backup-azure-microsoft-azure-backup.md)
 * [使用 DPM 將工作負載備份到 Azure](backup-azure-dpm-introduction.md)
-

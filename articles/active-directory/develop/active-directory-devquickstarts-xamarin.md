@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9c40d273f102339fac8ea633c870b869d10106a7
-ms.openlocfilehash: ccbc051f49220e824782ed4831a31ab1a716570a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 54ee403f283bc5dc79911e2e813dd513ff595828
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="integrate-azure-ad-with-xamarin-apps"></a>將 Azure AD 整合至 Xamarin 應用程式
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -63,7 +61,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 這個動作可讓應用程式查詢使用者的圖形 API。
 
 ## <a name="step-3-install-and-configure-adal"></a>步驟 3：安裝及設定 ADAL
-既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。 若要啟用 ADAL 以與 Azure AD 進行通訊，提供一些應用程式註冊的相關資訊。
+既然您在 Azure AD 中已經擁有應用程式，您可以安裝 ADAL，並撰寫身分識別相關程式碼。 若要讓 ADAL 與 Azure AD 進行通訊，請提供它一些應用程式註冊相關資訊。
 
 1. 使用 Package Manager Console 將 ADAL 新增到 DirectorySearcher 專案中。
 
@@ -91,7 +89,7 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 2. 在 DirectorySearcherLib 專案中，開啟 DirectorySearcher.cs。
 3. 將類別成員值取代為您在 Azure 入口網站中輸入的值。 每當使用 ADAL 時，您的程式碼便會參考這些值。
 
-  * 租用戶 是指您的 Azure AD 租用戶網域 (例如 contoso.onmicrosoft.com)。
+  * *tenant* 是您 Azure AD 租用戶的網域 (例如 contoso.onmicrosoft.com)。
   * ClientId 是您從入口網站複製的應用程式用戶端識別碼。
   * ReturnUri 是您在入口網站中輸入的重新導向 URI (例如， http://DirectorySearcher )。
 
@@ -186,14 +184,13 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 如果您還沒有這麼做，現在是將使用者植入租用戶的時候。
 
-1. 執行 DirectorySearcher 應用程式，然後使用其中一個使用者登入。
+1. 執行 DirectorySearcher 應用程式，然後使用其中一個使用者來登入。
 2. 根據 UPN 搜尋其他使用者。
 
-ADAL 可讓您輕鬆地將常見的身分識別功能納入應用程式。 它會為您處理一切麻煩的事，包括快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI，以及重新整理過期權杖。 您只需要知道單一 API 呼叫，`authContext.AcquireToken*(…)`。
+ADAL 可讓您輕鬆地將常見的身分識別功能納入應用程式。 它會為您處理一切麻煩的事，包括快取管理、OAuth 通訊協定支援、向使用者顯示登入 UI，以及重新整理過期權杖。 您只需要知道單一 API 呼叫 `authContext.AcquireToken*(…)`。
 
-如需參考，下載[完整的範例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (不含您的設定值)。
+如需參考資料，請下載[完整的範例](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip) (不含您的組態值)。
 
-您現在可以繼續其他身分識別案例。 例如，嘗試[使用 Azure AD 保護 .NET Web API](active-directory-devquickstarts-webapi-dotnet.md)。
+您現在可以繼續其他身分識別案例。 例如，嘗試[使用 Azure AD 來保護 .NET Web API](active-directory-devquickstarts-webapi-dotnet.md)。
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

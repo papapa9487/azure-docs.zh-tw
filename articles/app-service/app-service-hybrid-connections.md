@@ -14,20 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2017
 ms.author: ccompy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b0c27ca561567ff002bbb864846b7a3ea95d7fa3
 ms.openlocfilehash: fef9e7b280387934cb093f51b4c8aa134a3b87e7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-app-service-hybrid-connections"></a>Azure App Service 混合式連線 #
 
 ## <a name="overview"></a>概觀 ##
 
-混合式連線既是 Azure 服務，也是 Azure App Service 功能。  作為服務時，它的用途和功能都比 Azure App Service 所使用的更加強大。  若要深入了解混合式連線以及其在 Azure App Service 之外的使用方式，您可以從 [Azure 轉送混合式連線][HCService]來開始
+混合式連線既是 Azure 服務，也是 Azure App Service 功能。  作為服務時，它具有 Azure App Service 所利用之用途和功能以外的用途和功能。  若要深入了解混合式連線以及其在 Azure App Service 之外的使用方式，您可以從 [Azure 轉送混合式連線][HCService]來開始
 
 在 Azure App Service 中，混合式連線可用來存取其他網路的應用程式資源。 它可讓您從應用程式存取應用程式端點。  它無法讓您以其他功能來存取應用程式。  和在 App Service 中使用時相同，每個混合式連線都會與單一 TCP 主機和連接埠的組合相互關聯。  這表示混合式連線端點可以位於任何作業系統和任何應用程式上，只要您有叫用 TCP 接聽連接埠就行。 混合式連線不知道 (或不在意) 應用程式通訊協定為何或您要存取什麼資源。  它只負責提供網路存取。  
 
@@ -198,5 +195,4 @@ App Service 中有一個稱為 tcpping 的工具，您可以從主控台叫用�
 [portal]: http://portal.azure.com/
 [oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
 [sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
-
 

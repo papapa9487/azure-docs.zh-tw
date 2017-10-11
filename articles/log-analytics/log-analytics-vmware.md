@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 17072c4b6e4fdf6e4dc2b7a6a4ded7fa9f9f6fde
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
 
 ![VMware 符號](./media/log-analytics-vmware/vmware-symbol.png)
@@ -205,4 +203,3 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
 * 使用 Log Analytics 中的 [Log Analytics](log-analytics-log-searches.md) 檢視詳細的 VMware 主機資料。
 * [建立您自己的儀表板](log-analytics-dashboards.md)來顯示 VMware 主機的資料。
 * 在特定的 VMware 主機事件發生時[建立警示](log-analytics-alerts.md)。
-

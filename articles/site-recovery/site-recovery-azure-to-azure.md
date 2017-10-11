@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>使用 Azure Site Recovery 在區域之間椱寫 Azure VM
 
 >[!NOTE]
@@ -148,4 +145,3 @@ Site Recovery 提供在區域之間複寫 Azure VM 的簡易方式：
 
 - [深入了解](site-recovery-failover.md)不同類型的容錯移轉及執行方法。
 - 深入了解[使用復原計劃](site-recovery-create-recovery-plans.md)降低 RTO。
-

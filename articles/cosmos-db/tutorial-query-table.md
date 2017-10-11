@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: govindk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB：如何使用資料表 API (預覽) 來查詢資料表資料？
 
 Azure Cosmos DB [資料表 API](table-introduction.md) (預覽) 支援對索引鍵/值 (資料表) 資料進行 OData 和 [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) 查詢。  
@@ -118,4 +115,3 @@ await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
 
 > [!div class="nextstepaction"]
 > [全域散發您的資料](tutorial-global-distribution-documentdb.md)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: markgal,masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份系統狀態及還原為裸機
 
 Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
@@ -227,5 +225,4 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
     使用版本識別碼來開始系統狀態還原。 在命令提示字元中，輸入：```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     確認您想要開始復原。 您可以在 [命令提示字元] 視窗中看到復原程序。 系統會建立還原記錄。 在還原之後，請重新啟動伺服器。
-
 

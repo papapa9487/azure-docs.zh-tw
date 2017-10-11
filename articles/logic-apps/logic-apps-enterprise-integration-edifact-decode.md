@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 39d9661adc90e6113e2152d844473f9f4caa755a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>使用企業整合套件將 Azure Logic Apps 的 EDIFACT 訊息解碼
 
 使用 Decode EDIFACT 訊息連接器，您可以驗證 EDI 和夥伴特定的屬性、將交換分割為交易集或保留整個交換，並產生已處理交易的通知。 若要使用此連接器，您必須將連接器新增至邏輯應用程式中的現有觸發程序。
@@ -87,13 +84,13 @@ ms.lasthandoff: 05/17/2017
   * 針對交換中的其他群組控制編號檢查群組控制編號。 
   * 針對該群組中其他交易集控制編號檢查交易集控制編號。
 * 將交換分割為交易集，或保留整個交換︰
-  * 將交換分割為交易集 - 暫停發生錯誤的交易集︰將交換分割為交易集，並剖析每個交易集。 
-  X12 Decode 動作只會輸出未通過 `badMessages`驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
-  * 將交換分割為交易集 - 暫停發生錯誤的交換︰將交換分割為交易集，並剖析每個交易集。 
+  * 將交換分割為交易集 - 暫止發生錯誤的交易集︰將交換分割為交易集，並剖析每個交易集。 
+  X12 Decode 動作只會輸出未通過 `badMessages` 驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
+  * 將交換分割為交易集 - 暫止發生錯誤的交換︰將交換分割為交易集，並剖析每個交易集。 
   如果交換中有一或多個交易集無法通過驗證，X12 Decode 動作會將該交換中的所有交易集輸出到 `badMessages`。
-  * 保留交換 - 暫停發生錯誤的交易集︰保留交換並處理整個批次交換。 
-  X12 Decode 動作只會輸出未通過 `badMessages`驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
-  * 保留交換 - 暫停發生錯誤的交換︰保留交換並處理整個批次交換。 
+  * 保留交換 - 暫止發生錯誤的交易集︰保留交換並處理整個批次交換。 
+  X12 Decode 動作只會輸出未通過 `badMessages` 驗證的交易集，並將剩餘的交易輸出到 `goodMessages`。
+  * 保留交換 - 暫止發生錯誤的交換︰保留交換並處理整個批次交換。 
   如果交換中有一或多個交易集無法通過驗證，X12 Decode 動作會將該交換中的所有交易集輸出到 `badMessages`。
 * 產生技術 (控制) 和/或功能確認 (若已設定)。
   * 技術確認或 CONTRL ACK 會報告完整接收的交換所進行的語法檢查結果。
@@ -104,5 +101,4 @@ ms.lasthandoff: 05/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解企業整合套件](logic-apps-enterprise-integration-overview.md "了解企業整合套件") 
-
 

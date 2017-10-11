@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 7198fa8d1a512d10ca7022078aa2ea7bde3a4c02
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件 (預覽)
 
@@ -379,5 +378,4 @@ if __name__ == '__main__':
 
 - 深入了解[執行個體中繼資料服務](instance-metadata-service.md)中提供的 API。
 - 了解 [Azure 中 Windows 虛擬機器預定進行的維修](planned-maintenance.md)。
-
 

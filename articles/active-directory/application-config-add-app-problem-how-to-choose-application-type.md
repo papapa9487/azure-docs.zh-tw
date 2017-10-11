@@ -13,17 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 1acd4119ebf9c9fd364d0eddd970c362756309ee
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: e0d41d1933531c2c633613bcbc1bbcbf075d6a69
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-choose-which-application-type-to-use-when-adding-an-application" class="xliff"></a>
-
-# 新增應用程式時如何選擇要使用的應用程式類型
+# <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>新增應用程式時如何選擇要使用的應用程式類型
 
 本文協助您了解可以與 Azure AD 整合的四種主要的應用程式類型︰
 
@@ -31,9 +27,7 @@ ms.lasthandoff: 04/11/2017
 * 您可能選擇哪個應用程式的理由
 * 如何設定這些應用程式的核心屬性，像是如何**佈建**使用者，或使用何種**單一登入**技術。
 
-<a id="supported-application-types-in-azure-ad" class="xliff"></a>
-
-## Azure AD 中支援的應用程式類型
+## <a name="supported-application-types-in-azure-ad"></a>Azure AD 中支援的應用程式類型
 
 Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用程式]下的 [新增] 功能新增這幾種類型。 其中包含：
 
@@ -45,9 +39,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 -   **不在資源庫內的應用程式** – 引進您自己的應用程式！ 您想要的任何網頁連結，或任何呈現使用者名稱和密碼欄位的應用程式，都支援 SAML 或 OpenID Connect 通訊協定，或支援您想要與 Azure AD 整合以啟用單一登入的 SCIM。
 
-<a id="features-and-capabilities-supported-by-all-the-above-application-types" class="xliff"></a>
-
-## 上述所有應用程式類型所支援的功能
+## <a name="features-and-capabilities-supported-by-all-the-above-application-types"></a>上述所有應用程式類型所支援的功能
 
 在 Azure AD 中，上述 4 種應用程式類型都支援下列功能︰
 
@@ -67,17 +59,13 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 -   **權限檢視** – 從單一位置檢視應用程式在您的目錄中可存取的任何 [OAuth2 權限](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
 
-<a id="single-sign-on-and-provisioning-modes-supported-by-specific-application-types" class="xliff"></a>
-
-## 特定應用程式類型所支援的單一登入和佈建模式
+## <a name="single-sign-on-and-provisioning-modes-supported-by-specific-application-types"></a>特定應用程式類型所支援的單一登入和佈建模式
 
 下表描述以上每個應用程式類型所支援的不同單一登入和佈建模式。 請利用此表格，協助您了解需要新增哪個應用程式以支援特定目標。
 
   ![應用程式類型表格](./media/application-tables/table1.png)
 
-<a id="how-to-choose-a-single-sign-on-mode" class="xliff"></a>
-
-## 如何選擇單一登入模式
+## <a name="how-to-choose-a-single-sign-on-mode"></a>如何選擇單一登入模式
 
 以下列出 Azure AD 應用程式支援的**單一登入**模式。
 
@@ -108,9 +96,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
    >
    >
 
-<a id="single-sign-on-modes-for-custom-developed-applications" class="xliff"></a>
-
-## 自訂開發之應用程式的單一登入模式
+## <a name="single-sign-on-modes-for-custom-developed-applications"></a>自訂開發之應用程式的單一登入模式
 
 您透過[自訂開發的應用程式](#_Custom-Developed_Applications)經驗所自訂開發的應用程式，也支援以上未列出的其他單一登入模式。 其中包含：
 
@@ -124,21 +110,19 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 請參閱 [Azure Active Directory 開發人員手冊](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)，以深入了解如何建立支援這些單一登入模式的自訂開發應用程式。
 
-<a id="how-to-set-an-applications-single-sign-on-mode" class="xliff"></a>
-
-## 如何設定應用程式的單一登入模式
+## <a name="how-to-set-an-applications-single-sign-on-mode"></a>如何設定應用程式的單一登入模式
 
 若要設定應用程式的**單一登入**模式，請遵循下列指示：
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
 4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
@@ -146,9 +130,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [單一登入]。
 
-<a id="how-to-choose-a-provisioning-mode" class="xliff"></a>
-
-## 如何選擇佈建模式
+## <a name="how-to-choose-a-provisioning-mode"></a>如何選擇佈建模式
 
 -   **手動佈建** – 如果您有現有的帳戶，或想要在 Azure AD 外部管理這個應用程式的帳戶，請選擇[手動](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning#provisioning-modes)佈建模式。
 
@@ -166,9 +148,7 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
    >
    >
 
-<a id="how-to-set-an-applications-provisioning-mode" class="xliff"></a>
-
-## 如何設定應用程式的佈建模式
+## <a name="how-to-set-an-applications-provisioning-mode"></a>如何設定應用程式的佈建模式
 
 若要設定應用程式的**佈建**模式，請遵循下列指示：
 
@@ -176,13 +156,13 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
 4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
   * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
@@ -190,8 +170,5 @@ Azure AD 支援四種主要的應用程式類型，您可以使用 [企業應用
 
 7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [佈建]。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
-

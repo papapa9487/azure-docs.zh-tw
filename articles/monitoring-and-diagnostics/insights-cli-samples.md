@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: ec4512500dc3c77a40d2ebd1e6b460d5bb005811
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-monitor--cross-platform-cli-10-quick-start-samples"></a>Azure 監視器跨平台 CLI 1.0 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的命令列介面 (CLI) 命令範例。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
@@ -51,7 +50,7 @@ azure help
 azure login
 ```
 
-執行此命令之後，您必須透過螢幕上的指示來登入。 之後，您會看到您的帳戶、TenantId 和預設的訂用帳戶識別碼。 所有命令都會在您的預設訂用帳戶內容中運作。
+執行此命令之後，您必須透過螢幕上的指示來登入。 之後，您會看到您的帳戶、TenantId 和預設的訂用帳戶識別碼。所有命令都會在您的預設訂用帳戶內容中運作。
 
 若要列出目前訂用帳戶的詳細資料，使用下列命令。
 
@@ -202,4 +201,3 @@ azure insights autoscale setting list montest2 -n setting2
 ```console
 azure insights autoscale setting set montest2 -n setting2 --settingSpec
 ```
-

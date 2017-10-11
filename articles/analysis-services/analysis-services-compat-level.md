@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Analysis Services 表格式模型的相容性層級
 
 *相容性層級*是指 Analysis Services 引擎中特定版本的表現方式。 相容性層級的變更通常與 SQL Server 的主要版本相符。 這些變更也會在 Azure Analysis Services 中實作，以維護兩個平台之間的同位。 相容性層級變更也會影響您的表格式模型中的可用功能。 例如，DirectQuery 和表格式物件中繼資料根據相容性層級而有不同的實作方式。 
@@ -58,4 +56,3 @@ Azure Analysis Services 支援 1200 和 1400 相容性層級的表格式模型�
 ## <a name="next-steps"></a>後續步驟
   [在 Azure 入口網站中建立模型](analysis-services-create-model-portal.md)   
   [ Analysis Services](analysis-services-manage.md)  
-

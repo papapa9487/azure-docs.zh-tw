@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: a2f0cecb93cc382bcfd710c44eb70f80ae67f9b6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>教學課程：Azure Active Directory 與 Asana 整合
 
@@ -220,7 +219,7 @@ ms.lasthandoff: 08/10/2017
 
 本節的目標是要測試您的 Azure AD 單一登入。
 
-移至 Asana 登入頁面。 在 [電子郵件地址] 文字方塊中，插入電子郵件地址 britta.simon@contoso.com。 讓 [密碼] 文字方塊保持空白，然後按一下 [登入]。 系統會將您重新導向至 Azure AD 登入頁面。 完成您的 Azure AD 認證。 現在，您已在 Asana 上登入。
+移至 Asana 登入頁面。 在 [電子郵件地址] 文字方塊中，插入電子郵件地址 britta.simon@contoso.com。讓 [密碼] 文字方塊保持空白，然後按一下 [登入]。 系統會將您重新導向至 Azure AD 登入頁面。 完成您的 Azure AD 認證。 現在，您已在 Asana 上登入。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -243,4 +242,3 @@ ms.lasthandoff: 08/10/2017
 [203]: ./media/active-directory-saas-asana-tutorial/tutorial_general_203.png
 [10]: ./media/active-directory-saas-asana-tutorial/tutorial_general_060.png
 [11]: ./media/active-directory-saas-asana-tutorial/tutorial_general_070.png
-

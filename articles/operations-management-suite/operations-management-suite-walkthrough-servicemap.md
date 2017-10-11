@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 7f469fb309f92b86dbf289d3a0462ba9042af48a
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.lasthandoff: 04/13/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Operations Management Suite (OMS) 自學示範 - 服務對應
 這是一個自學示範，會逐步解說如何使用 Operations Management Suite (OMS) 中的[服務對應解決方案](operations-management-suite-service-map.md)來找出及診斷 Web 應用程式中的模擬問題。  服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。  它也會合併其他 OMS 服務所收集的資料，協助您分析效能和找出問題。  您也會使用 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)，向下切入收集的資料以便找出根本問題。
 
@@ -69,7 +67,7 @@ ms.lasthandoff: 04/13/2017
 
 ### <a name="5-view-alert"></a>5.檢視警示
 
-我們現在看到 **acmetomcat** 相依性顯示警示，因此這是可能的問題。  按一下 **acmetomcat** 中的警示圖示，以顯示警示詳細資料。  我們可以看到我們有重大的 CPU 使用率並可將其展開，以取得更詳細的資料。  這可能是造成效能變慢的原因。 
+我們現在看到 **acmetomcat** 相依性顯示警示，因此這是可能的問題。  按一下 **acmetomcat** 中的警示圖示，以顯示警示詳細資料。  我們可以看到 CPU 使用率有重大警示並可將其展開，以取得更詳細的資料。  這可能是造成效能變慢的原因。 
 
 ![警示](./media/operations-management-suite-walkthrough-servicemap/alert.png)
 

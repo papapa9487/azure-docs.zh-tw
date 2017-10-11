@@ -16,14 +16,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f4efac7b74620e68e727292e02a5a904b03d6e2f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="configure-office-365-groups-expiration-preview"></a>設定 Office 365 群組到期日 (預覽)
 
 您現在可以藉由設定到期日，對您選取任何 Office 365 群組管理 Office 365 群組的生命週期。 一旦設定此到期日，如果這些群組的擁有者仍需要群組，則會要求他們續訂。 未續訂的任何 Office 365 群組將會予以刪除。 群組擁有者或系統管理員可在 30 天內還原已刪除的任何 Office 365 群組。  
@@ -81,4 +79,3 @@ ms.lasthandoff: 08/08/2017
 * [管理群組的成員](active-directory-groups-members-azure-portal.md)
 * [管理群組的成員資格](active-directory-groups-membership-azure-portal.md)
 * [管理群組中使用者的動態規則](active-directory-groups-dynamic-membership-azure-portal.md)
-

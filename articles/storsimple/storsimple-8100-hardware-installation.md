@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.lasthandoff: 01/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>打開包裝、掛接機架和佈線 StorSimple 8100 裝置
 ## <a name="overview"></a>Overview
@@ -248,5 +247,4 @@ ms.lasthandoff: 01/26/2017
 
 ## <a name="next-steps"></a>後續步驟
 了解如何 [部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough-u2.md)。
-
 

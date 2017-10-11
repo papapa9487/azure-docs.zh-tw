@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4c0040db9e232b2bb1506282cad57175c61a5b81
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: b154a01d1690bff4950ebc1ff5a5b89894d4d111
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights 中的使用者、工作階段和事件分析
 
 了解人們在使用您的 Web 應用程式時，他們最感興趣的網頁、使用者的所在位置，以及他們使用何種瀏覽器與作業系統。 使用 [Azure Application Insights](app-insights-overview.md) 來分析商務和使用量遙測。
@@ -67,12 +65,11 @@ ms.lasthandoff: 08/17/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-- 若要啟用使用體驗，請開始傳送 [自訂事件](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [頁面檢視](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送「自訂事件」[](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或「頁面檢視」[](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     - [漏斗圖](usage-funnels.md)
     - [保留](app-insights-usage-retention.md)
     - [使用者流程](app-insights-usage-flows.md)
     - [活頁簿](app-insights-usage-workbooks.md)
     - [新增使用者內容](app-insights-usage-send-user-context.md)
-
 

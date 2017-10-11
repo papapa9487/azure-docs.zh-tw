@@ -13,36 +13,28 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 01db792077bbb464400de1c00117d97443b4c2dc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-<a id="azure-sdk-for-net-26-release-notes" class="xliff"></a>
-
-# Azure SDK for .NET 2.6 版本資訊
+# <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 版本資訊
 本文件包含 Azure SDK for .NET 2.6 版的版本資訊。 
 
 您可以使用 Azure SDK 2.6 開發以 .NET 4.5.2 或.NET 4.6 為目標的雲端服務應用程式 (PaaS)，前提是您必須在雲端服務角色上手動安裝目標 .NET Framework。 請參閱 [在雲端服務角色上安裝 .NET](http://go.microsoft.com/fwlink/?LinkID=309796)。
 
-<a id="service-bus-updates" class="xliff"></a>
-
-## 服務匯流排更新
+## <a name="service-bus-updates"></a>服務匯流排更新
 * 事件中心： 
   
   * 現在藉由公開事件中心的其他發行者端點，可在傳送事件時提供目標存取控制。
   * 其他加入至事件中心功能的穩定性和改良。
   * 在訊息和事件中心內，加入 WebSocket 上的 Amqp 通訊協定支援。
 
-<a id="hdinsight-tools-for-visual-studio-updates" class="xliff"></a>
-
-## HDInsight Tools for Visual Studio 更新
+## <a name="hdinsight-tools-for-visual-studio-updates"></a>HDInsight Tools for Visual Studio 更新
 * **IntelliSense 的增強功能**：遠端中繼資料建議
   
-    HDInsight Tools for Visual Studio 現在支援在編輯 Hive 指令碼時取得遠端中繼資料。 例如，您可以輸入 **SELECT * FROM**，即可顯示所有的資料表名稱。 此外，資料行名稱會在指定資料表之後顯示。
+    HDInsight Tools for Visual Studio 現在支援在編輯 Hive 指令碼時取得遠端中繼資料。 例如，您可以輸入**選取 * FROM**且將顯示所有資料表名稱。 此外，資料行名稱會在指定資料表之後顯示。
 * **HDInsight 模擬器支援**
   
     HDInsight Tools for Visual Studio 現在支援連接到 HDInsight 模擬器，方便您在不產生任何費用的情況下本機開發 Hive 指令碼，然後對您的 HDInsight 叢集執行這些指令碼。 
@@ -58,9 +50,7 @@ ms.lasthandoff: 11/17/2016
     
     如需詳細資訊，請參閱 [本手冊](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409)。
 
-<a id="in-role-cache-updates" class="xliff"></a>
-
-## 角色中快取更新
+## <a name="in-role-cache-updates"></a>角色中快取更新
 * **In-Role Cache** 已更新為使用 **Microsoft Azure 儲存體 SDK** 4.3 版本。 過去， **角色中快取** 一直是使用 Azure 儲存體 SDK 1.7 版本。
   
     使用 Azure SDK 2.5 或更低版本的客戶應該更新到 Azure SDK 2.6，並移至新的 Azure 儲存體 SDK 版本。 
@@ -72,9 +62,7 @@ ms.lasthandoff: 11/17/2016
 > 
 > 
 
-<a id="azure-app-service-tools" class="xliff"></a>
-
-## Azure App Service 工具
+## <a name="azure-app-service-tools"></a>Azure App Service 工具
 Azure SDK 2.6 版中已更新下列項目。
 
 * 已增強 Azure 發行的功能，以將 Azure API Apps 納為部署目標。
@@ -83,30 +71,20 @@ Azure SDK 2.6 版中已更新下列項目。
 * 加入已新增至大部分 C# 專案的 Azure API Apps 用戶端手勢，將可自動產生啟用 Swagger 功能並可在使用者的 Azure 訂用帳戶中執行的 API Apps。
 * [伺服器總管] 中的 API Apps 工具和 App Service 節點僅可以在 Visual Studio 2013 中使用。 
 
-<a id="azure-resource-manager-tools-updates" class="xliff"></a>
-
-## Azure 資源管理員工具更新
+## <a name="azure-resource-manager-tools-updates"></a>Azure 資源管理員工具更新
 Azure 資源管理員工具已經更新，以納入虛擬機器、網路和儲存體的範本。 JSON 編輯體驗已經更新，以納入新的範本大綱檢視以及使用 JSON 程式碼片段編輯範本的能力。 從 Visual Studio 部署的範本會使用專案所提供的 PowerShell 指令碼，以便 Visual Studio 使用針對指令碼所做的任何變更。
 
-<a id="diagnostics-improvements-for-cloud-services" class="xliff"></a>
-
-## 雲端服務的診斷改良功能
+## <a name="diagnostics-improvements-for-cloud-services"></a>雲端服務的診斷改良功能
 Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄檔，並將它們傳送到開發儲存體的支援。 在模擬器中執行應用程式時所產生的任何診斷記錄檔 (包括應用程式追蹤記錄檔、Windows 事件追蹤 (ETW) 記錄檔、效能計數器、基礎結構記錄檔和 Windows 事件記錄檔) 會被傳輸到開發儲存體，以確認診斷記錄功能可在本機電腦上運作。 
 
 您現在可以在服務組態 (.cscfg) 檔中指定診斷儲存體帳戶，讓您輕而易舉便可在不同的環境中使用不同的診斷儲存體帳戶。 連接字串在 Azure SDK 2.4 和 Azure SDK 2.6 中的運作方式有一些顯著的差異。 如需有關如何使用診斷儲存體連接字串，以及它會如何影響您的專案等詳細資訊，請參閱 [設定 Azure 雲端服務的診斷](http://go.microsoft.com/fwlink/?LinkID=532784)。
 
-<a id="breaking-changes" class="xliff"></a>
-
-## 重大變更
-<a id="azure-resource-manager-tools" class="xliff"></a>
-
-### Azure 資源管理員工具
+## <a name="breaking-changes"></a>重大變更
+### <a name="azure-resource-manager-tools"></a>Azure 資源管理員工具
 * Azure SDK 2.5 所提供的**雲端部署專案**專案類型已重新命名為 **Azure 資源群組**。
-* **雲端部署專案** ] 專案類型仍然可以在 2.6 中使用，但從 Visual Studio 部署範本將會失敗。 不過，使用 PowerShell 指令碼進行部署仍可像先前一樣運作。  如需如何在 2.6 中使用 **雲端部署專案** 的相關資訊，請閱讀 [本文](http://go.microsoft.com/fwlink/?LinkID=534086)。
+* **雲端部署專案**  專案類型仍然可以在 2.6 中使用，但從 Visual Studio 部署範本將會失敗。 不過，使用 PowerShell 指令碼進行部署仍可像先前一樣運作。  如需如何在 2.6 中使用 **雲端部署專案** 的相關資訊，請閱讀 [本文](http://go.microsoft.com/fwlink/?LinkID=534086)。
 
-<a id="known-issues" class="xliff"></a>
-
-## 已知問題
+## <a name="known-issues"></a>已知問題
 * 收集模擬器中的診斷記錄檔需要 64 位元的作業系統。 在 32 位元的作業系統上執行時，將無法收集診斷記錄檔。 這並不會影響任何其他模擬器功能。 
 * 2015 年 4 月 29 日發行的 Azure SDK 2.6 有兩個問題： 
   
@@ -117,9 +95,6 @@ Azure SDK 2.6 重新提供針對收集 Azure 計算模擬器中的診斷記錄�
     
     如果您仍會遇到上述問題，請為 [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409)、[VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) 或 [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409) 安裝最新版的 Azure 2.6 SDK。
 
-<a id="see-also" class="xliff"></a>
-
-## 另請參閱
+## <a name="see-also"></a>另請參閱
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
 

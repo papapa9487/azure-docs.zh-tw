@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
 ms.openlocfilehash: c19f81da495eb7116b62797d1755d312a23f3805
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>教學課程：Azure Active Directory 與 LCVista 整合
 
@@ -114,7 +112,7 @@ LCVista 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.lcvista.com/rainier/login`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.lcvista.com`    
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.lcvista.com` 
      
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和登入 URL 將這些值更新。 請連絡 [LCVista 用戶端支援小組](https://lcvista.com/contact)以取得這些值。 
@@ -246,5 +244,4 @@ LCVista 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_203.png
-
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: d57cbc5b205cfb020070d567097f3bb648ce5300
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-azure"></a>步驟 1：檢閱 Hyper-V 複寫至 Azure 的架構
 
 
@@ -36,7 +33,7 @@ ms.lasthandoff: 07/26/2017
 
 將 Hyper-V VM 複寫至 Azure (不含 VMM) 時，會涉及許多元件。
 
-**元件** | **Location** | **詳細資料**
+**元件** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **詳細資料**
 --- | --- | ---
 **Azure** | 在 Azure 中，您需要 Microsoft Azure 帳戶、Azure 儲存體帳戶和 Azure 網路。 | 所複寫的資料會儲存在儲存體帳戶中，而在從內部部署網站進行容錯移轉時，便會以複寫的資料建立 Azure VM。<br/><br/> Azure VM 在建立後會連線到 Azure 虛擬網路。
 **Hyper-V** | Hyper-V 主機和叢集會蒐集到 Hyper-V 網站中。 Azure Site Recovery 提供者和復原服務代理程式會安裝在每部 Hyper-V 主機上。 | 此提供者會透過網際網路與 Site Recovery 協調複寫作業。 復原服務代理程式會處理資料複寫。<br/><br/> 來自提供者和代理程式的通訊都是安全且加密的。 Azure 儲存體中的複寫的資料也會加密。
@@ -116,4 +113,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 2：檢閱部署先決條件](hyper-v-site-walkthrough-prerequisites.md)
-

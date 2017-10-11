@@ -16,12 +16,11 @@ ms.date: 07/26/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: 5ae19bb370064de96cf466ca09b13d02563d65a4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 網域名稱可以是許多目錄資源的重要識別碼，其屬於：
@@ -78,5 +77,4 @@ Azure Active Directory (Azure AD) 中的資源可包含已驗證為目錄 (其�
 ## <a name="next-steps"></a>後續步驟
 * [了解 Azure AD 中的網域名稱](active-directory-add-domain-concepts.md)
 * [管理自訂網域名稱](active-directory-add-manage-domain-names.md)
-
 

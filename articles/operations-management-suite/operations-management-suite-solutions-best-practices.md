@@ -14,14 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: b3d07ad3164609a5628c0d9805de55a32870ab94
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="best-practices-for-creating-management-solutions-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中建立管理解決方案的最佳作法 (預覽)
 > [!NOTE]
@@ -57,5 +54,4 @@ ms.lasthandoff: 04/27/2017
 * 在您的管理解決方案中[新增儲存的搜尋和警示](operations-management-suite-solutions-resources-searches-alerts.md)。
 * 在您的管理解決方案中[新增檢視](operations-management-suite-solutions-resources-views.md)。
 * 在您的管理解決方案中[新增自動化 Runbook 及其他資源](operations-management-suite-solutions-resources-automation.md)。
-
 

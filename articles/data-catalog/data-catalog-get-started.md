@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>開始使用 Azure 資料目錄
 Azure 資料目錄是受到完整管理的雲端服務，可作為企業資料資產的註冊系統和探索系統。 如需詳細的概觀，請參閱 [什麼是 Azure 資料目錄](data-catalog-what-is-data-catalog.md)。
@@ -363,5 +362,4 @@ Azure 資料目錄支援支援群眾外包 (crowd-sourcing) 的註解作法。 A
 * [如何記載資料資產](data-catalog-how-to-documentation.md)
 * [如何連線到資料資產](data-catalog-how-to-connect.md)
 * [如何管理資料資產](data-catalog-how-to-manage.md)
-
 

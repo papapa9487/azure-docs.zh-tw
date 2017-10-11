@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 99018277392cab44a6b579ad45b4611739a803d8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>教學課程：Azure Active Directory 與 Neota Logic Studio 整合
 
 在本教學課程中，您會了解如何整合 Neota Logic Studio 與 Azure Active Directory (Azure AD)。
@@ -117,7 +115,7 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<sub domain>.neotalogic.com/a/<sub application>`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<sub domain>.neotalogic.com/wb`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<sub domain>.neotalogic.com/wb`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」和「識別碼」來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 請連絡 [Neota Logic Studio 客戶支援小組](https://www.neotalogic.com/contact-us/)以取得這些值。 
@@ -226,5 +224,4 @@ Neota Logic Studio 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-neotalogicstudio-tutorial/tutorial_general_203.png
-
 

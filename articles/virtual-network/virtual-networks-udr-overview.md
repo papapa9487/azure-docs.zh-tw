@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 6274e0101f6fb0864c8d1efaef7fcde78b8760c3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="user-defined-routes-and-ip-forwarding"></a>使用者定義的路由和 IP 轉送
 
@@ -112,5 +110,4 @@ ms.lasthandoff: 05/31/2017
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [在資源管理員部署模型中建立路由](virtual-network-create-udr-arm-template.md) 並將其關聯至子網路。 
 * 了解如何 [在傳統部署模型中建立路由](virtual-network-create-udr-classic-ps.md) 並將其關聯至子網路。
-
 

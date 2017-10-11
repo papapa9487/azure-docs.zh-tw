@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: dc4a362b5737bb424ca2c196c85f4c51b6ee5e30
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>使用 Reliable Services 的遠端服務
 > [!div class="op_single_selector"]
@@ -107,4 +105,3 @@ ServiceProxy 會處理服務分割區 (ServiceProxy 即是為其建立) 的所�
 
 ## <a name="next-steps"></a>後續步驟
 * [Reliable Services 的安全通訊](service-fabric-reliable-services-secure-communication.md)
-

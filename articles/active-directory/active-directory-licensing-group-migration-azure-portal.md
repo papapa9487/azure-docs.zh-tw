@@ -1,5 +1,4 @@
 ---
-
 title: "如何將個別授權的使用者移轉至 Azure Active Directory 中的群組 | Microsoft Docs"
 description: "如何使用 Azure Active Directory 從個別使用者授權切換至以群組為基礎的授權"
 services: active-directory
@@ -17,15 +16,12 @@ ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: d7c5ba12738c4713517743ae8c44e236c5e1a210
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/08/2017
-
-
+ms.openlocfilehash: 6b77dd4e9a6d361a05382397e89b575896fdad84
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>如何將已授權的使用者新增至群組以便在 Azure Active Directory 中授權
 
 您可能會透過「直接指派」將現有授權部署給組織中的使用者，也就是，使用 PowerShell 指令碼或其他工具來指派個別使用者授權。 如果您想要開始使用以群組為基礎的授權來管理您組織中的授權，您需要移轉方案，以順暢地將現有的解決方案取代為以群組為基礎的授權。
@@ -93,4 +89,3 @@ ms.lasthandoff: 03/08/2017
 * [什麼是 Azure Active Directory 中以群組為基礎的授權？](active-directory-licensing-whatis-azure-portal.md)
 * [識別及解決 Azure Active Directory 中群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [Azure Active Directory 群組型授權其他案例](active-directory-licensing-group-advanced.md)
-

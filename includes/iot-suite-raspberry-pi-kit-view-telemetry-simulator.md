@@ -25,7 +25,7 @@ Raspberry Pi 現在會將遙測資料傳送至遠端監視解決方案。 您可
 - 您可以使用 **ChangeLightStatus** 方法並將 **LightStatusValue** 設定為 **1** (開啟) 或 **0** (關閉)，以開啟和關閉 LED。
 
 > [!WARNING]
-> 如果讓遠端監視解決方案繼續在您的 Azure 帳戶中執行，您需支付其執行期間的費用。 如需減少遠端監視解決方案執行時之耗用量的詳細資訊，請參閱[設定 Azure IoT 套件預先設定的解決方案以供示範][lnk-demo-config]。 使用完畢時，從您的 Azure 帳戶刪除預先設定的解決方案。
+> 如果讓遠端監視解決方案繼續在您的 Azure 帳戶中執行，您需支付其執行期間的費用。 如需將遠端監視解決方案執行時的耗用量降低的詳細資訊，請參閱[設定 Azure IoT 套件預先設定的解決方案以供示範][lnk-demo-config]。 使用完畢時，從您的 Azure 帳戶刪除預先設定的解決方案。
 
 
 [img-telemetry-display]: media/iot-suite-raspberry-pi-kit-view-telemetry-simulator/telemetry.png

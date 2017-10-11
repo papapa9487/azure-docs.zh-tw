@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 6abad7d9d501a1fdead83a1a678f1b053ee70a25
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: fcfa277cdd0f3cebc0fbbb23e771fb23ffbe2ca6
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-elk"></a>使用 ELK 監視 Azure Container Service 叢集
 在此文章中，我們示範如何在 Azure Container Service 中的 DC/OS 叢集上部署 ELK (Elasticsearch、Logstash、Kibana) 堆疊。 
@@ -70,5 +69,4 @@ ELK 容器開始運作之後，您需要讓 Marathon-LB 能夠存取 Kibana。 �
 * 若要篩選記錄檔，請參閱[使用 ELK 篩選記錄檔 (英文)](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/)。 
 
  
-
 

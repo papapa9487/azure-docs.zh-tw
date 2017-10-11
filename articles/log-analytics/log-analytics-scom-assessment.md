@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 80fd9ee9b9de5c7547b9f840ac78a60d52153a5a
 ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/14/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>使用 System Center Operations Manager 評定 (預覽) 解決方案進行環境最佳化
 
 ![System Center Operations Manager 評定符號](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
@@ -292,4 +290,3 @@ AdvisorAssessment.exe 程序在哪裡執行？ AdvisorAssessment.exe 會在啟�
 ## <a name="next-steps"></a>後續步驟
 
 - [搜尋記錄檔](log-analytics-log-searches.md)，以檢視詳細的 System Center Operations Manager 評定資料和建議。
-

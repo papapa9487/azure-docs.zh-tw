@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: a2beec313c0dfcd9cf7f7c1ad716223dcaf453b7
 ms.openlocfilehash: 7b0639c6515298731f88346c2e4ca82664653a2b
-ms.lasthandoff: 02/11/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>教學課程：Azure Active Directory 與 Inkling 整合
 
@@ -108,7 +107,7 @@ Inkling 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入][4]
 
-2. 在 [單一登入] 對話方塊上，選取 [SAML 登入] 作為 [模式]，以啟用單一登入。
+2. 在 [單一登入] 對話方塊上，選取 [SAML 型登入] 做為 [模式]，以啟用單一登入。
  
     ![設定單一登入](./media/active-directory-saas-inkling-tutorial/tutorial_general_300.png)
     
@@ -125,13 +124,13 @@ Inkling 與 Azure AD 整合提供下列優點：
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [建立新憑證]。
 
-    ![設定單一登入](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)     
+    ![設定單一登入](./media/active-directory-saas-inkling-tutorial/tutorial_general_400.png)    
 
 5. 在 [建立新憑證] 對話方塊中，按一下行事曆圖示並選取 [到期日]。 然後按一下 [儲存] 按鈕。
 
     ![設定單一登入](./media/active-directory-saas-inkling-tutorial/tutorial_general_500.png)
 
-6. 在 [SAML 簽署憑證] 區段上，選取 [啟用新憑證] 並按一下 [儲存] 按鈕。
+6. 在 [SAML 簽署憑證] 區段中，選取 [啟用新憑證] 並按一下 [儲存] 按鈕。
 
     ![設定單一登入](./media/active-directory-saas-inkling-tutorial/tutorial_inkling_02.png)
 
@@ -147,13 +146,13 @@ Inkling 與 Azure AD 整合提供下列優點：
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
-本節的目標是要在 Azure 管理入口網站中建立名為 Britta Simon 的測試使用者。
+本節目標是在 Azure 管理入口網站中建立名為 Britta Simon 的測試使用者。
 
 ![建立 Azure AD 使用者][100]
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在「Azure 管理入口網站」的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **Azure 管理入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-inkling-tutorial/create_aaduser_01.png) 
 
@@ -165,13 +164,13 @@ Inkling 與 Azure AD 整合提供下列優點：
  
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-inkling-tutorial/create_aaduser_03.png) 
 
-4. 在 [使用者] 對話頁面上，執行下列步驟：
+4. 在 [使用者]  對話頁面上，執行下列步驟：
  
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-inkling-tutorial/create_aaduser_04.png) 
 
     a. 在 [名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的「電子郵件地址」。
+    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 文字方塊中，輸入 BrittaSimon 的**電子郵件地址**。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 

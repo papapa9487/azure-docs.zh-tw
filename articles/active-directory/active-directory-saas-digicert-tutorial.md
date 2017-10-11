@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: 2ceb3c0833edcd4ecd875c5e8006961ed7216c66
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>教學課程：Azure Active Directory 與 DigiCert 整合
 
@@ -136,7 +134,7 @@ DigiCert 與 Azure AD 整合提供下列優點：
 
     c. 在 [值] 清單中，選取該列所顯示的值。
     
-    d. 按一下 [ **確定**]。 
+    d. 按一下 [確定] 。 
 
 6. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -243,5 +241,4 @@ DigiCert 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_203.png
-
 

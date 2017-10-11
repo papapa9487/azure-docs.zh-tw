@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e86e4dcc39f9d34dc04afbdccb017d89969f548f
-ms.openlocfilehash: fade348a599c41a7f099e7bbd8b45a3b4ccbf910
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: 5a89e9ba4376d0c4f49feb3783692e28a28902a2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="understand-your-azure-marketplace-payout-reports"></a>了解您的 Azure Marketplace 支出報告
 ## <a name="access-and-view-your-payout-reports"></a>存取及檢視您的支出報告
@@ -109,4 +107,3 @@ ms.lasthandoff: 02/11/2017
 [7]: ./media/marketplace-publishing-report-payout/financialdefinitions.png
 [8]: ./media/marketplace-publishing-report-payout/ledgerdefinitions.png
 [9]: ./media/marketplace-publishing-report-payout/payoutquestions.png
-

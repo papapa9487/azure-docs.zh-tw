@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: d8dcf0171b93fec15347e810a1b525bd815dbf04
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>教學課程：Azure Active Directory 與 8x8 Virtual Office 整合
 
@@ -112,13 +110,13 @@ ms.lasthandoff: 06/16/2017
 
     ![設定單一登入](./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
 
     | `https://sso.8x8.com/<companyname>` |
     | `https://www.8x8.com/<companyname>` |
     | `https://sso.8x8pilot.com/<companyname>` |
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
 
     | `https://<subdomain>.8x8.com/saml2` |
     | `https://<subdomain>.8x8pilot.com/saml2`|
@@ -269,5 +267,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-8x8virtualoffice-tutorial/tutorial_general_203.png
-
 

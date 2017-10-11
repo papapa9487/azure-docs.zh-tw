@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d84ab993b1d9489ca9d2edaa1cb9672d9bced899
-ms.openlocfilehash: 6f87eaf58c9c8dcd301a6ac245119621244a1c27
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9d7e2a390adf10cbf5d88dd0084ce09136987309
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitoring-usage-and-performance-in-windows-desktop-apps"></a>監視 Windows 傳統型應用程式的使用情況和效能
 
@@ -90,5 +89,4 @@ ms.lasthandoff: 11/17/2016
 * [診斷搜尋](app-insights-diagnostic-search.md)
 * [探索度量](app-insights-metrics-explorer.md)
 * [撰寫分析查詢](app-insights-analytics.md)
-
 

@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 9d59e7f0e8f326c40be86e199d7712f6c565cc13
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="app-types-for-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點的應用程式類型
 Azure Active Directory (Azure AD) v2.0 端點支援各種新型應用程式架構的驗證，它們全都以產業標準通訊協定 [OAuth 2.0 或 OpenID Connect](active-directory-v2-protocols.md) 為基準。 本文描述您可以使用 Azure AD v2.0 來建置的應用程式類型，不論您慣用的語言或平台是哪一種。 本文中的資訊是設計來協助您在[開始使用程式碼](active-directory-appmodel-v2-overview.md#getting-started)之前，先了解概要的案例。
@@ -123,4 +121,3 @@ Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺�
 ![精靈應用程式驗證流程](../../media/active-directory-v2-flows/convergence_scenarios_daemon.png)
 
 若要建置精靈應用程式，請參閱[開始使用](active-directory-appmodel-v2-overview.md#getting-started)一節中的用戶端認證文件，或試試 [.NET 範例應用程式](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。
-

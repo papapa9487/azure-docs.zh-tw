@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>使用 Azure AD B2C 識別體驗架構定義信任架構
 
 使用識別體驗架構的 Azure Active Directory B2C (Azure AD B2C) 自訂原則，可為貴組織提供集中式服務。 此服務會降低感興趣的大型社群中，身分識別同盟的複雜度。 複雜度會降低為單一信任關係和單一中繼資料交換。
@@ -130,4 +128,3 @@ TF 規格是一或多份文件，可供您參考如何對管制社群內數位�
 使用者旅程圖包括通訊協定設定檔和中繼資料，其可供用來在信賴憑證者和其他參與者之間檢測「線上」互通性。 身分識別資訊交換要求/回應訊息也會有適用的作業執行階段規則，以便強制它們符合 TF 規格中已發佈原則的規範。 使用者旅程圖的想法是自訂客戶體驗的關鍵。 它也會闡述系統在通訊協定層級的運作方式。
 
 在該基礎上，信賴憑證者應用程式和入口網站可以根據其內容，叫用利用識別體驗架構的 Azure AD B2C 自訂原則來傳遞特定原則的名稱，並精確取得其想要的行為和資訊交換，而不會有任何混亂、複雜或風險。
-

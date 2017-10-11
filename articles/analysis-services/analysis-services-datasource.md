@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: a0fe91568d747148b3940e9c90db15481c765a9c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 Azure Analysis Services 伺服器支援連線到您組織中的雲端和內部部署資料來源。 其他支援的資料來源持續新增。 請經常回來查看。 
@@ -103,5 +102,4 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 ## <a name="next-steps"></a>後續步驟
 如果您有內部部署資料來源，請務必安裝 [內部部署閘道](analysis-services-gateway.md)。   
 若要深入了解在 SSDT 或 SSMS 中管理您伺服器的相關資訊，請參閱[管理您的伺服器](analysis-services-manage.md)。
-
 

@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: 3bf8cc49223e3e612a2343e8a3383bbbe02dcd82
-ms.openlocfilehash: 3d18551823abbb9beca4212aa8095b6757a080cb
-
-
+ms.openlocfilehash: 2cbb9ff3b2d13996b1b8dc64aa833807c264c877
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SQL Server Always On 可用性群組簡介 #
 
 本文介紹 Azure 虛擬機器上的 SQL Server 可用性群組。 
@@ -51,9 +50,3 @@ ms.openlocfilehash: 3d18551823abbb9beca4212aa8095b6757a080cb
 ## <a name="next-steps"></a>後續步驟
 
 [在不同區域中的 Azure 虛擬機器上設定 SQL Server Always On 可用性群組](virtual-machines-windows-portal-sql-availability-group-dr.md)。
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

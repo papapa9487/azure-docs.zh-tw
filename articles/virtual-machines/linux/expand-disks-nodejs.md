@@ -14,28 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 0aedcd70b54c2ed47ec327ccf0529a48351353c0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/11/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-# 透過 Azure CLI 1.0 使用 Azure CLI 擴充 Linux VM 上的 OS 磁碟
-<a id="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10" class="xliff"></a>
+# <a name="expand-os-disk-on-a-linux-vm-using-the-azure-cli-with-the-azure-cli-10"></a>透過 Azure CLI 1.0 使用 Azure CLI 擴充 Linux VM 上的 OS 磁碟
 在 Azure 中，Linux 虛擬機器 (VM) 上作業系統 (OS) 的預設虛擬硬碟大小通常是 30 GB。 您可以[新增資料磁碟](add-disk.md)，以提供更多儲存空間，但您也可能想要擴充 OS 磁碟。 本文將詳細說明如何搭配使用非受控磁碟與 Azure CLI 1.0，來擴充 Linux VM 的 OS 磁碟。
 
-## 用以完成工作的 CLI 版本
-<a id="cli-versions-to-complete-the-task" class="xliff"></a>
+## <a name="cli-versions-to-complete-the-task"></a>用以完成工作的 CLI 版本
 您可以使用下列其中一個 CLI 版本來完成工作︰
 
 - [Azure CLI 1.0](#prerequisites) – 適用於傳統和資源管理部署模型的 CLI (本文章)
 - [Azure CLI 2.0](expand-disks.md) - 適用於資源管理部署模型的新一代 CLI
 
-## 必要條件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>必要條件
 您需要安裝[最新的 Azure CLI 1.0](../../cli-install-nodejs.md)，而且已使用 Resource Manager 模式登入 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)，如下所示：
 
 ```azurecli
@@ -44,8 +38,7 @@ azure config mode arm
 
 在下列範例中，請以您自己的值取代範例參數名稱。 範例參數名稱包含 myResourceGroup 與 myVM。
 
-## 擴充 OS 磁碟
-<a id="expand-os-disk" class="xliff"></a>
+## <a name="expand-os-disk"></a>擴充 OS 磁碟
 
 1. 當 VM 正在執行時，無法對虛擬硬碟執行作業。 下列範例會停止並解除配置名為 myResourceGroup 的資源群組中名為 myVM 的 VM：
 
@@ -80,7 +73,5 @@ azure config mode arm
     /dev/sda1        49G  1.3G   48G   3% /
     ```
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 如果您需要更多儲存空間，您也可以[將資料磁碟新增至 Linux VM](add-disk.md)。 如需磁碟加密的詳細資訊，請參閱[使用 Azure CLI 將 Linux VM 上的磁碟加密](encrypt-disks.md)。
-

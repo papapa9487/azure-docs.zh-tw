@@ -1,6 +1,4 @@
-<a id="use-the-azure-portal" class="xliff"></a>
-
-## 使用 Azure 入口網站
+## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 1. 選取您想要重新部署的 VM，然後選取下 [設定] 刀鋒視窗中的 [重新部署] 按鈕。 您可能需要向下捲動以查看 [支援與疑難排解]  區段，其中包含 [重新部署] 按鈕，如下列範例所示︰
    
     ![Azure VM 刀鋒視窗](./media/virtual-machines-common-redeploy-to-new-node/vmoverview.png)

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: c0bb99976277405cfd79c37ebd754311c3c6004e
 ms.openlocfilehash: 3cddd5b9508159089bf344dbb3882d462799747c
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>教學課程：Azure Active Directory 與 FirmPlay - Employee Advocacy for Recruiting 整合
 
@@ -121,7 +120,7 @@ FirmPlay - Employee Advocacy for Recruiting 與 Azure AD 整合提供下列優�
 
 4. 在 [SAML 簽署憑證] 區段中，按一下 [建立新憑證]。
 
-    ![設定單一登入](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![設定單一登入](./media/active-directory-saas-firmplay-tutorial/tutorial_firmplay_03.png)   
 
 5. 在 [建立新憑證] 對話方塊中，按一下行事曆圖示並選取 [到期日]。 然後按一下 [儲存] 按鈕。
 

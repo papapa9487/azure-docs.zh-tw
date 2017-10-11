@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 668c094d5330be1c5f71d51d2e76170dc69d1bce
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>教學課程：Azure Active Directory 與 Capriza Platform 整合
 
@@ -115,7 +113,7 @@ ms.lasthandoff: 06/20/2017
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.capriza.com/<tenantid>`
 
     > [!NOTE] 
-    > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Capriza Platform 用戶端支援小組](mailTo:support@capriza.com)以取得此值。 
+    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Capriza Platform 用戶端支援小組](mailTo:support@capriza.com)以取得此值。 
 
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -227,5 +225,4 @@ ms.lasthandoff: 06/20/2017
 [201]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-capriza-tutorial/tutorial_general_203.png
-
 

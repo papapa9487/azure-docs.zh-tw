@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b422dd2cf23426de2f154a553b38509082536309
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>將位於 VMM 雲端中的 Hyper-V 虛擬機器複寫至次要 VMM 站台
 
@@ -101,4 +100,3 @@ ms.lasthandoff: 08/01/2017
 執行測試容錯移轉，確定一切都沒問題。
 
 移至[步驟 10：執行測試容錯移轉](vmm-to-vmm-walkthrough-test-failover.md)。
-

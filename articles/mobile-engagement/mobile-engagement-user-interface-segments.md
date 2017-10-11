@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b4f1df6f46b7b8349fcea649ebcdf34fc363491d
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>如何建立和管理使用者的使用者分佈以分辨使用模式
 本文說明 **Mobile Engagement** 入口網站的 [區段]索引標籤。 使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。
@@ -95,7 +94,7 @@ UI 的 [使用者分佈] 區段可讓您根據不同的行為和分析，對您�
 
 1. 從清單中選取 [運算子]。
 2. 提供每個工作階段的 [長度]。
-3. 按 [下一步]。
+3. 按一下 [下一步]。
    此範例表示在根據發生區段計算而得的所有工作階段中，只選取在每個工作階段花費超過 30 秒的使用者。
    
    ![segments10][44]
@@ -206,5 +205,4 @@ UI 的 [使用者分佈] 區段可讓您根據不同的行為和分析，對您�
 [Link 31]: ../mobile-engagement-how-tos-schedule-campaign.md
 [Link 32]: ../mobile-engagement-how-tos-text-view.md
 [Link 33]: ../mobile-engagement-how-tos-web-view.md
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
-translationtype: Human Translation
-ms.sourcegitcommit: ce78b996a5f45b0b074563bc50af5aaab85f2667
-ms.openlocfilehash: 56eacc48102302961132bba6d14838327a899c59
-ms.lasthandoff: 01/05/2017
-
-
+ms.openlocfilehash: b3c01f8d332d26e92dc3052681a4b2c95142d440
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="enterprise-state-roaming-overview"></a>企業狀態漫遊概觀
 使用 Windows 10， [Azure Active Directory (Azure AD)](active-directory-whatis.md) 使用者能夠安全地將其使用者設定和應用程式設定資料同步處理至雲端。 企業狀態漫遊提供使用者跨 Windows 裝置的一致體驗，並且減少設定新的裝置所需的時間。 企業狀態漫遊的運作類似於首先在 Windows 8 中引進的標準 [取用者設定同步處理](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) 。 此外，企業狀態漫遊提供：
@@ -38,5 +37,4 @@ ms.lasthandoff: 01/05/2017
 | [設定同步處理的群組原則和 MDM 設定](active-directory-windows-enterprise-state-roaming-group-policy-settings.md) |Windows 10 提供群組原則和行動裝置管理 (MDM) 原則設定，以限制設定同步處理。 |
 | [Windows 10 漫遊設定參考](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md) |以下是在 Windows 10 中進行漫遊及/或備份的所有設定的完整清單。 |
 | [疑難排解](active-directory-windows-enterprise-state-roaming-troubleshooting.md) |本主題會執行一些疑難排解基本步驟，並且包含一份已知問題清單。 |
-
 

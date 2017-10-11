@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.contentlocale: zh-tw
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
 ms.lasthandoff: 08/03/2017
-
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>備份 Azure 虛擬機器 (傳統入口網站)
 > [!div class="op_single_selector"]
@@ -200,4 +199,3 @@ ms.lasthandoff: 08/03/2017
 ## <a name="next-steps"></a>後續步驟
 * [管理和監視虛擬機器](backup-azure-manage-vms.md)
 * [還原虛擬機器](backup-azure-restore-vms.md)
-

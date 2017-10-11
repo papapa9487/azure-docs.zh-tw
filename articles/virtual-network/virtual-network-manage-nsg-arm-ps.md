@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: edb23ae41e175061607d3a191c839e1194fa862b
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: ca7f4926ca4edf9d20612aca74f6ae5f0ed847b3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-network-security-groups-using-powershell"></a>使用 PowerShell 管理網路安全性群組
 
@@ -515,5 +514,4 @@ Get-AzureRmNetworkSecurityGroup -ResourceGroupName RG-NSG -Name NSG-FrontEnd
 
 ## <a name="next-steps"></a>後續步驟
 * [啟用 NSG 的記錄](virtual-network-nsg-manage-log.md) 。
-
 

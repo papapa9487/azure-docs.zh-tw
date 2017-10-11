@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>針對 Azure Web Apps 購買自訂網域名稱
 
@@ -240,4 +239,3 @@ App Service 網域 (預覽) 是直接在 Azure 中管理的頂層網域。 它�
 選取 [確定] 來確認作業。 如果您不想繼續，請按一下確認對話方塊之外的任何位置。
 
 作業完成之後，該網域就會從您的訂用帳戶中釋放，並可再次供任何人購買。 
-

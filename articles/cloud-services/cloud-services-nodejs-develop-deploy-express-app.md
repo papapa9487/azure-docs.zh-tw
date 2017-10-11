@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff60ebaddd3a7888cee612f387bd0c50799496ac
-ms.openlocfilehash: 331d82a987aebe422ca2f560d856dad9f1b733f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/05/2017
-
+ms.openlocfilehash: 54b715695e24786ec4e8dfcabefc648d76179c8b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>在 Azure 雲端服務上使用 Express 建立 Node.js Web 應用程式
 Node.js 包含核心執行時期的一組最低功能。
@@ -123,6 +122,5 @@ Node.js 包含核心執行時期的一組最低功能。
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/
 [http://jade-lang.com]: http://jade-lang.com
-
 
 

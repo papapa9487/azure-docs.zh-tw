@@ -1,5 +1,4 @@
 ---
-
 title: "Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？ | Microsoft Docs"
 description: "系統管理員可以使用 Azure Active Directory B2B 共同作業，將來自合作夥伴組織的來賓使用者新增到 Azure AD。"
 services: active-directory
@@ -16,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 03/15/2017
 ms.author: sasubram
-translationtype: Human Translation
-ms.sourcegitcommit: afe143848fae473d08dd33a3df4ab4ed92b731fa
 ms.openlocfilehash: 7f33165141f31c1b495313f2da0d6e4681bdf8f2
-ms.lasthandoff: 03/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="how-do-azure-active-directory-admins-add-b2b-collaboration-users"></a>Azure Active Directory 系統管理員如何新增 B2B 共同作業使用者？
 
 全域系統管理員與受限的系統管理員可以使用 [Azure 入口網站](https://portal.azure.com)邀請 B2B 共同作業使用者加入目錄、加入任何群組或加入任何應用程式。
@@ -70,4 +66,3 @@ ms.lasthandoff: 03/17/2017
 * [Azure Active Directory B2B 共同作業 API 和自訂](active-directory-b2b-api.md)
 * [在沒有邀請的情況下新增 B2B 共同作業使用者](active-directory-b2b-add-user-without-invite.md)
 * [Azure Active Directory 中應用程式管理的文章索引](active-directory-apps-index.md)
-

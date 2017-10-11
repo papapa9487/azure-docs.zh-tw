@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 9c56bf57250093e5f76e2e4e02e8734af6cf4102
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.openlocfilehash: 171f27c92ee9de14301ebb664e9ba3bcd98c394d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 啟用 Azure 雲端服務中角色的遠端桌面連線
 > [!div class="op_single_selector"]
@@ -111,4 +110,3 @@ Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallCo
 
 [如何設定雲端服務](cloud-services-how-to-configure.md)
 [雲端服務常見問題集 - 遠端桌面](cloud-services-faq.md)
-

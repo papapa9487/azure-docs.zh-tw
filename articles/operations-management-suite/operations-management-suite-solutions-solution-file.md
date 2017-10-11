@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: ee3462c13101d18921dc488b08c79e1e4e02ff3a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="creating-a-management-solution-file-in-operations-management-suite-oms-preview"></a>在 Operations Management Suite (OMS) 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -246,4 +244,3 @@ Operations Management Suite (OMS) 中的管理解決方案會實作為 [Resource
 * 在您的管理解決方案中[新增 Runbook 及其他自動化資源](operations-management-suite-solutions-resources-automation.md)。
 * 了解[編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)的詳細資料。
 * 搜尋 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates)不同 Resource Manager 範本的範例。
-

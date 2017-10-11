@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
 本主題包含如何在用戶端上插入各種類型廣告的相關資訊。
@@ -792,5 +791,4 @@ Microsoft 媒體平台：Player Framework for iOS 包含範例應用程式集合
 
 ## <a name="see-also"></a>另請參閱
 [開發視訊播放程式應用程式](media-services-develop-video-players.md)
-
 

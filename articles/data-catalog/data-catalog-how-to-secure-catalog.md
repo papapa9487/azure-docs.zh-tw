@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/17/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 629601df7395e6ae9eacc98f8da7db69c272a264
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 9664a7bc8493b08c8e0797ac6f1b212079829833
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>如何保護對資料目錄及資料資產的存取
 > [!IMPORTANT]
@@ -57,5 +56,4 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="next-steps"></a>後續步驟
 - [開始使用 Azure 資料目錄](data-catalog-get-started.md)
-
 

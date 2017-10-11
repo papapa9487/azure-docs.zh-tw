@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 1ae47899443d5552178078a417b7d1ebe91966d2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.openlocfilehash: 4e8a77e3644bb726d1b8e2050dab61893ccfa3c9
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-web-pages"></a>適用於網頁的 Application Insights
 了解您的網頁或應用程式的效能和使用量。 如果將 [Application Insights](app-insights-overview.md) 新增至頁面指令碼，您會取得頁面載入的時間和 AJAX 呼叫、計數和瀏覽器例外狀況與 AJAX 失敗的詳細資料，以及使用者和工作階段計數。 這些項目可以依據頁面、用戶端作業系統和瀏覽器版本、地區位置和其他維度分割。 您可以對失敗計數或緩慢頁面載入設定警示。 而在 JavaScript 程式碼中插入追蹤呼叫，即可追蹤網頁應用程式的各種功能使用方式。
@@ -52,7 +51,7 @@ Application Insights 資源是您的頁面的效能和使用量相關資料顯�
 
 ![在您的應用程式概觀刀鋒視窗中，選擇 [快速入門]，取得程式碼以監視我的網頁。 複製指令碼。](./media/app-insights-javascript/02-monitor-web-page.png)
 
-在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。 如果您的網站有主版頁面，您可以那裡放入指令碼。 例如：
+在您想要追蹤的每一頁的 `</head>` 標記之前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如：
 
 * 在 ASP.NET MVC 專案中，可放在 `View\Shared\_Layout.cshtml`
 * 在 SharePoint 網站中，在控制台中開啟 [站台設定/主要頁面](app-insights-sharepoint.md)。
@@ -231,5 +230,4 @@ Ajax 呼叫包含從您的網頁指令碼所做的任何 HTTP/HTTPS 呼叫。 �
 * [追蹤流量](app-insights-web-track-usage.md)
 * [自訂事件和計量](app-insights-api-custom-events-metrics.md)
 * [Build-measure-learn](app-insights-web-track-usage.md)
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 50a3cb726646c46d1f46767b51428eb751e6d3fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: c979a8bfbeecacc7c0bbc112e02a4b68e874c219
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的資源、角色及存取控制
 您可以使用 [Microsoft Azure 中的角色型存取控制](../active-directory/role-based-access-control-configure.md) ，控制誰對您在 Azure [Application Insights][start] 中的資料具有讀取和更新存取權。
@@ -100,4 +99,3 @@ ms.lasthandoff: 03/21/2017
 [group]: ../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.com/
 [start]: app-insights-overview.md
-

@@ -17,13 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 01/23/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 51edd390c065dd7312ecc54694b5a95ecc11eab8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="controlling-and-granting-database-access"></a>控制和授與資料庫存取權
 
@@ -194,4 +192,3 @@ GRANT ALTER ANY USER TO Mary;
 - 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。
 - 如需檢視和預存程序的相關資訊，請參閱[建立檢視和預存程序](https://msdn.microsoft.com/library/ms365311.aspx)
 - 如需授與資料庫物件存取權的相關資訊，請參閱[授與資料庫物件的存取權](https://msdn.microsoft.com/library/ms365327.aspx)
-

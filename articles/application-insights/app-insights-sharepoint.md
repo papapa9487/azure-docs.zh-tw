@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/24/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 41ce9b0e323c0938b6db98b99d8d687d1ed0f0ef
-ms.openlocfilehash: 3977cbc0f111de39621a875cce2d6714559a73fd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: a3b37674469a131016f46af590e1eee3ba4cdc73
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>使用 Application Insights 監視 SharePoint 網站
 Azure Application Insights 會監視應用程式的可用性、效能和使用情況。 您將在這裡深入了解如何針對 SharePoint 網站進行設定。
@@ -35,7 +34,7 @@ Azure Application Insights 會監視應用程式的可用性、效能和使用�
 
 ![](./media/app-insights-sharepoint/02-monitor-web-page.png)
 
-在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記前插入指令碼。 如果您的網站有主版頁面，您可以那裡放入指令碼。 例如，在 ASP.NET MVC 專案中，可放在 View\Shared\_Layout.cshtml 中
+在您想要追蹤之每一個頁面的 &lt;/head&gt; 標記前插入指令碼。如果您的網站有主版頁面，您可以那裡放入指令碼。 例如，在 ASP.NET MVC 專案中，可放在 View\Shared\_Layout.cshtml 中
 
 指令碼包含檢測金鑰，會將遙測導向您的 Application Insights 資源。
 
@@ -145,6 +144,5 @@ function onRequestFail(sender, args) {
 * [Application Insights](app-insights-overview.md) 。
 
 <!--Link references-->
-
 
 

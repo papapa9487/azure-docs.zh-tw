@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>從邏輯應用程式邏輯應用程式連線至 Dynamics 365
 
 使用 Logic Apps，您可以連線至 Dynamics 365 (線上)，並建立實用的商務流程以建立記錄、更新項目或傳回記錄清單。 使用 Dynamics 365 連接器，您可以︰
@@ -38,27 +36,27 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>每次在 Dynamics 365 中建立了新的潛在客戶時便建立工作
 
-1.    [登入 Azure](https://portal.azure.com)。
+1.  [登入 Azure](https://portal.azure.com)。
 
-2.    在 Azure 搜尋服務方塊中，輸入 `Logic apps` 並按 Enter 鍵。
+2.  在 Azure 搜尋服務方塊中，輸入 `Logic apps` 並按 Enter 鍵。
 
       ![尋找Logic Apps](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.    在 [邏輯應用程式] 下，按一下 [新增]。
+3.  在 [邏輯應用程式] 下，按一下 [新增]。
 
       ![LogicApp 新增](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.    要建立邏輯應用程式，請完成 [名稱]、[訂用帳戶]、[資源群組] 和 [位置] 欄位，然後按一下 [建立]。
+4.  要建立邏輯應用程式，請完成 [名稱]、[訂用帳戶]、[資源群組] 和 [位置] 欄位，然後按一下 [建立]。
 
-5.    選取新的邏輯應用程式。 當您收到 [部署成功] 通知時，按一下 [重新整理]。
+5.  選取新的邏輯應用程式。 當您收到 [部署成功] 通知時，按一下 [重新整理]。
 
-6.    在 [開發工具] 下，按一下 [邏輯應用程式設計工具]。 在範本清單中，按一下 [將邏輯應用程式留白]。
+6.  在 [開發工具] 下，按一下 [邏輯應用程式設計工具]。 在範本清單中，按一下 [將邏輯應用程式留白]。
 
-7.    在搜尋方塊中，輸入 `Dynamics 365`。 從 Dynamics 365 觸發程序清單中，選取 [Dynamics 365 – 建立記錄時]。
+7.  在搜尋方塊中，輸入 `Dynamics 365`。 從 Dynamics 365 觸發程序清單中，選取 [Dynamics 365 – 建立記錄時]。
 
-8.    如果系統提示您登入 Dynamics 365，請立即登入。
+8.  如果系統提示您登入 Dynamics 365，請立即登入。
 
-9.    在觸發程序詳細資料中，輸入下列資訊：
+9.  在觸發程序詳細資料中，輸入下列資訊：
 
   * **組織名稱**。 選取要讓邏輯應用程式接聽的 Dynamics 365 執行個體。
 
@@ -174,4 +172,3 @@ ms.lasthandoff: 05/26/2017
 
 ## <a name="next-steps"></a>後續步驟
 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
-

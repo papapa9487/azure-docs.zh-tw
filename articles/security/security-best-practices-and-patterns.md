@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
 ms.openlocfilehash: 1cc0d2d1e9a62ff8531f963413ff573713d508ad
-ms.lasthandoff: 03/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Azure 安全性最佳作法與模式
 我們目前有下列的 Azure 安全性最佳作法和模式文章。 請務必定期瀏覽此網站，以查看日益增加的 Azure 安全性最佳作法和模式的清單是否有更新︰  
@@ -48,4 +47,3 @@ Azure 提供安全的平台，您可以在其中建立您的解決方案。 我�
 * 如何學習啟用最佳作法
 
 我們希望在 Azure 安全性架構和最佳作法中納入更多文章。 如果您有希望我們納入的主題，請在本頁面底部的討論區中讓我們知道。
-

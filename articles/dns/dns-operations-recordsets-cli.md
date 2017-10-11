@@ -14,14 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 9543759d7ba88c7c5068021cebbeec6b8d63633e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 管理 Azure DNS 中的 DNS 記錄和記錄集
 
 > [!div class="op_single_selector"]
@@ -301,4 +299,3 @@ az network dns record-set a delete --resource-group myresourcegroup --zone-name 
 深入了解[ Azure DNS 中的區域和記錄](dns-zones-records.md)。
 <br>
 了解使用 Azure DNS 時，如何[保護區域和記錄](dns-protect-zones-recordsets.md)。
-

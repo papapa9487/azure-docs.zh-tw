@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 2363e725d44facc5417c0baf3f80c8b55fdca470
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 7f7ca19ab171278bbd82f68e3822bc650b25373d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>使用 Application Insights 進行 Web 應用程式的使用者保留期分析
 
 [Azure Application Insights](app-insights-overview.md) 中的保留功能可協助您分析回來使用您應用程式的使用者人數，以及他們執行特定工作或達成目標的頻率。 例如，如果您執行遊戲網站，您可以比較使用者在遊戲落敗與遊戲獲勝後，回到網站的數目。 這項知識可以協助您改善使用者體驗和商務策略。
@@ -65,13 +63,12 @@ ms.lasthandoff: 08/17/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-- 若要啟用使用體驗，請開始傳送 [「自訂事件」](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) 或 [「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送「自訂事件」[](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或「頁面檢視」[](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     - [使用者、工作階段、事件](app-insights-usage-segmentation.md)
     - [漏斗圖](usage-funnels.md)
     - [使用者流程](app-insights-usage-flows.md)
     - [活頁簿](app-insights-usage-workbooks.md)
     - [新增使用者內容](app-insights-usage-send-user-context.md)
-
 
 

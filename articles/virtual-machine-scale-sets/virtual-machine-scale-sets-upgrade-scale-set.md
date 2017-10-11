@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>升級虛擬機器擴展集
 本文說明如何在不需停機的情況下，對 Azure 虛擬機器擴展集推出 OS 更新。 在此背景環境下，OS 更新包括變更 OS 的版本或 SKU，或是變更自訂映像的 URI。 在不需停機的情況下進行更新意謂著一次更新一部虛擬機器，或依群組 (例如一次一個容錯網域) 更新虛擬機器，而不是全部一起更新。 透過這種方式，任何非升級中的虛擬機器都可繼續執行。
@@ -100,5 +98,4 @@ $vmss.virtualMachineProfile.storageProfile.imageReference.id = $newImageReferenc
 當您依序按一下 [升級] 和 [取得詳細資料] 之後，UD 0 中的虛擬機器將會開始更新。
 
 ![顯示更新進行中的 vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
-
 

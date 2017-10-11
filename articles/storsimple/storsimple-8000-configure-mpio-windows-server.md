@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>為 StorSimple 裝置設定多重路徑 I/O
 
@@ -192,5 +190,4 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 ## <a name="next-steps"></a>後續步驟
 
 深入了解[使用 StorSimple 裝置管理員服務修改 StorSimple 裝置設定](storsimple-8000-modify-device-config.md)。
-
 

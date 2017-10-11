@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
-ms.openlocfilehash: b23624fc7e82af1cb593a1aedd138ae0d6637ae7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/29/2017
-
+ms.openlocfilehash: 4ac79df703de00ac009d9845772d8be740e74f29
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="replicate-a-multi-tier-iis-based-web-application-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 IIS 型 web 應用程式
 
@@ -166,4 +165,3 @@ d) IP 位址 – 如果針對 IIS 伺服器的 IP 發行 SSL 憑證，需要對 
 
 ## <a name="next-steps"></a>後續步驟
 您可以使用站台復原深入了解[複寫其他應用程式](site-recovery-workload.md)。
-

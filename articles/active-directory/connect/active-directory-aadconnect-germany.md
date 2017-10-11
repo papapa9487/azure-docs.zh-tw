@@ -15,17 +15,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 780728950199bac6a317767ef1db4462b3fe6ffd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 4c55b116c0dc080ae316caca873a7b693caa793b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-# Microsoft Cloud Germany 中的 Azure AD Connect - 公開預覽
-<a id="azure-ad-connect-in-microsoft-cloud-germany---public-preview" class="xliff"></a>
-## 簡介
-<a id="introduction" class="xliff"></a>
+# <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud Germany 中的 Azure AD Connect - 公開預覽
+## <a name="introduction"></a>簡介
 Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directory 之間的同步處理。
 [Microsoft Cloud Germany](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) 中目前有許多案例必須由操作員來完成。 使用 Microsoft Cloud Germany 時，您必須注意下列事項︰
 
@@ -39,12 +36,10 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
   * Azure AD Connect Health
   * 自動更新
  
-## 下載
-<a id="download" class="xliff"></a>
+## <a name="download"></a>下載
 您可以從入口網站中的 [Azure AD Connect] 刀鋒視窗下載 Azure AD Connect。  使用下列指示來尋找 Azure AD Connect 刀鋒視窗。
 
-### Azure AD Connect 刀鋒視窗
-<a id="the-azure-ad-connect-blade" class="xliff"></a>
+### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect 刀鋒視窗
 登入 Azure 入口網站後，請執行下列動作：
 
 1. 移至瀏覽
@@ -63,12 +58,9 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
 | 上次同步處理 |上次成功完成同步處理。 |
 | 同盟網域 |顯示目前設定的同盟網域數目。 |
 
-## 安裝
-<a id="installation" class="xliff"></a>
+## <a name="installation"></a>安裝
 若要安裝 Azure AD Connect，您可以使用 [這裡](active-directory-aadconnect.md#install-azure-ad-connect)的文件。
 
-## 進階功能和其他資訊
-<a id="advanced-features-and-additional-information" class="xliff"></a>
+## <a name="advanced-features-and-additional-information"></a>進階功能和其他資訊
 如需自訂設定或進階組態的其他資訊和指引，請從 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)著手。  此頁面會提供其他指引的資訊和連結。
-
 

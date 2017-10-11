@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 0544cb9aaf9ec03c16cc07f2974b6b8d90b3c61d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple Manager 服務監視硬體元件和狀態
 ## <a name="overview"></a>Overview
@@ -88,7 +87,7 @@ ms.lasthandoff: 11/17/2016
 | SSD 儲存體集區 |N/A |邏輯 |共用 |N/A |顯示從裝置 SSD 建立之邏輯儲存體集區的狀態。 |
 | 控制器 [0-1] [狀態] |I/O |實體 |Controller |是 |顯示控制器的狀態，以及它在底座內是作用中或待命模式。 |
 | 控制器中的溫度感應器 |I/O |實體 |Controller |否 |I/O 模組、CPU 溫度、DIMM 和 PCIe 感應器等許多溫度感應器都會顯示其狀態，指出溫度是否在容許範圍內。 |
-| ﻿SAS 擴展器 |I/O |實體 |Controller |否 |指出序列連接 SCSI (SAS) 擴展器的狀態，此擴展器用來連接到控制器的整合式儲存體。 |
+| SAS 擴展器 |I/O |實體 |Controller |否 |指出序列連接 SCSI (SAS) 擴展器的狀態，此擴展器用來連接到控制器的整合式儲存體。 |
 | SAS 連接器 [0-1] |I/O |實體 |Controller |否 |指出每個 SAS 連接器的狀態，用來將整合式儲存體連接到 SAS 擴展器。 |
 | SBB 中間板相互連接 |I/O |實體 |Controller |否 |指出中間板連接器的狀態，用來連接到中間板的每個控制器。 |
 | 處理器核心 |I/O |實體 |Controller |否 |指出每個控制器內的處理器核心狀態。 |
@@ -117,7 +116,7 @@ ms.lasthandoff: 11/17/2016
 | 本機儲存體 [HDD] |N/A |邏輯 |共用 |N/A |顯示從裝置 HDD 建立之邏輯儲存體集區的狀態。 |
 | 控制器 [0-1] [狀態] |I/O |實體 |Controller |是 |EBOD 模組中會顯示控制器的狀態。 |
 | EBOD 中的溫度感應器 |I/O |實體 |Controller |否 |來自每部控制器的許多溫度感應器都會顯示其狀態，其指出溫度是否在容許範圍內。 |
-| ﻿SAS 擴展器 |I/O |實體 |Controller |否 |指出 SAS 擴展器的狀態，此擴展器用來連接到控制器的整合式儲存體。 |
+| SAS 擴展器 |I/O |實體 |Controller |否 |指出 SAS 擴展器的狀態，此擴展器用來連接到控制器的整合式儲存體。 |
 | SAS 連接器 [0-2] |I/O |實體 |Controller |否 |指出每個 SAS 連接器的狀態，用來將整合式儲存體連接到 SAS 擴展器。 |
 | SBB 中間板相互連接 |I/O |實體 |Controller |否 |指出中間板連接器的狀態，用來連接到中間板的每個控制器。 |
 | 機箱電子裝置電源 |I/O |實體 |Controller |否 |指出機箱所使用的電源系統狀態。 |
@@ -129,5 +128,4 @@ ms.lasthandoff: 11/17/2016
 * 如果您需要疑難排解降級或失敗狀態的裝置元件，請參閱 [StorSimple 監視指示器](storsimple-monitoring-indicators.md)。 
 * 若要更換故障的硬體元件，請參閱 [StorSimple 硬體元件更換](storsimple-hardware-component-replacement.md)。
 * 如果持續發生裝置問題，請 [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
-
 

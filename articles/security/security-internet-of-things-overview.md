@@ -1,6 +1,6 @@
 ---
 title: "在 Azure 中保護您的物聯網 (IoT) | Microsoft Docs"
-description: " Azure 物聯網 (IoT) 服務提供廣泛的功能。 本文章協助您了解如何在 Azure 中保護您的 IoT 解決方案. "
+description: " Azure 物聯網 (IoT) 服務提供廣泛的功能。 本文章協助您了解如何在 Azure 中保護您的 IoT 解決方案。 "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2017
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: af191f7eed529c7d4541b28eb62979f25da89892
 ms.openlocfilehash: 3793f5453b74b6c06d9e58b426d89099298e1288
-ms.lasthandoff: 01/24/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-overview"></a>物聯網安全性概觀
 Azure 物聯網 (IoT) 服務提供廣泛的功能。 這些企業等級的服務可讓您：
@@ -68,4 +67,3 @@ IoT 使得全球企業面臨獨特的安全性、隱私權及相容性挑戰。 
 * [IoT 解決方案開發人員](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
 * [IoT 解決方案部署人員](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
 * [IoT 解決方案操作人員](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
-

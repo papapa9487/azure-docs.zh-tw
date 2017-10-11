@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2017
 ms.author: markvi
-ms.translationtype: HT
-ms.sourcegitcommit: 2d978248c78b84fe4ad37ecf7429e827a25d896f
 ms.openlocfilehash: 8d4460b3059558de2253c6f6a2d2fc8e7564d6d9
-ms.contentlocale: zh-tw
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
 ms.lasthandoff: 08/18/2017
-
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -86,7 +85,7 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 
 **答：**您只需要在內部部署目錄與 Azure AD 之間設定單一登入 (SSO)。 只要您透過 Azure AD 存取雲端應用程式，該服務就會自動讓使用者使用其內部部署認證正確地進行驗證。
 
-透過同盟解決方案 (例如 Active Directory Federation Services (AD FS)) 或藉由設定密碼雜湊同步處理，就能輕鬆實現從內部部署實作 SSO。 您可以使用 Azure AD Connect 組態精靈輕鬆部署這兩個選項。
+透過同盟解決方案 (例如 Active Directory Federation Services (AD FS)) 或藉由設定密碼雜湊同步處理，就能輕鬆實現從內部部署實作 SSO。您可以使用 Azure AD Connect 組態精靈輕鬆部署這兩個選項。
 
 如需詳細資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
 
@@ -213,4 +212,3 @@ Azure AD 有一組不同的系統管理角色，可用來管理目錄和識別�
 **問︰是否可以設定與 Azure AD 之間的安全 LDAP 連線？**
 
 **答：**否。 Azure AD 不支援 LDAP 通訊協定。
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 6f08f986e66e40211f60beef6ebd00bb041a8ada
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: c1591c3e436981e621830916cf0cdc4b7f395d7b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-media-app"></a>對媒體應用程式實作 Mobile Engagement
 ## <a name="overview"></a>Overview
@@ -57,7 +56,7 @@ John 根據他與重要關係人的會面結果，定義了他的業務 KPI。 �
 他針對每個 KPI 分類出所需的資料，並將其記錄在腳本的適當位置。
 
 ## <a name="engagement-program-and-integration"></a>業務開發計劃和整合
-現在 John 已定義好 KPI，於是他開始進行業務開發策略階段，他定義 4 個業務開發計劃和計劃目標：    ![][1]
+現在 John 已定義好 KPI，於是他開始進行業務開發策略階段，他定義 4 個業務開發計劃和計劃目標：![][1]
 
 然後 John 更進一步，詳細說明每個計劃的推播通知。 推播通知是由五個項目所定義而成：
 
@@ -99,4 +98,3 @@ John 決定使用觸達 API，這種 HTTP REST API 可讓他們管理觸達活�
 
 <!--Link references-->
 [Media Playbook link]: https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks
-

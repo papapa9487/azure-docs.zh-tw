@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 6d49c742f72440e22830915c90de009d9188db2a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-a-nodejs-web-app"></a>將登入新增至 Node.js Web 應用程式
 
@@ -423,5 +421,4 @@ Passport 會針對其所有策略 (Twitter、Facebook 等) 使用類似的模式
 
 ### <a name="get-security-updates-for-our-products"></a>取得產品的安全性更新
 我們建議您註冊，即可在發生安全性事件時收到通知。 請在 [Microsoft 技術安全性通知](https://technet.microsoft.com/security/dd252948)頁面上，訂閱資訊安全摘要報告警示。
-
 

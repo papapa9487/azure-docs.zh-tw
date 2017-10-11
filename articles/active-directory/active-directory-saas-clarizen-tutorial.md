@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 3908c354a8551d7b16c759a48ef3e5316bfa11fa
 ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.lasthandoff: 02/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>教學課程：Azure Active Directory 與 Clarizen 整合
 
@@ -99,14 +98,14 @@ ms.lasthandoff: 02/21/2017
 
     a. 在 [識別碼] 方塊中，以下列形式輸入值：[Clarizen]
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 方塊中，使用下列模式輸入 URL：**https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
+    b. 在 [回覆 URL] 方塊中，使用下列模式輸入 URL：**https://<company name>.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx**
 
     > [!NOTE]
     > 這些不是真正的值。 您必須使用實際的識別碼和回覆 URL。 在此建議您使用唯一的字串值做為識別碼。 若要取得實際的值，請連絡 [Clarizen 支援小組](https://success.clarizen.com/hc/en-us/requests/new)。
 
 4. 在 [SAML 簽署憑證] 區段中，按一下 [建立新憑證]。
 
-    ![按一下 [建立新的憑證]](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)     
+    ![按一下 [建立新的憑證]](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_03.png)  
 
 5. 在 [建立新的憑證] 對話方塊中，按一下行事曆圖示並選取到期日。 然後按一下 [儲存] 。
 
@@ -179,7 +178,7 @@ ms.lasthandoff: 02/21/2017
 
     a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
 
-    b.這是另一個 C# 主控台應用程式。 在 [使用者名稱] 方塊中，輸入 Britta Simon 帳戶的電子郵件地址。
+    b. 在 [使用者名稱] 方塊中，輸入 Britta Simon 帳戶的電子郵件地址。
 
     c. 選取 [顯示密碼] 並記下 [密碼] 的值。
 
@@ -259,4 +258,3 @@ ms.lasthandoff: 02/21/2017
 [201]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clarizen-tutorial/tutorial_general_203.png
-

@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Azure Active Directory 中的應用程式、權限及同意
 在 Azure Active Directory 內，您可以在目錄中新增應用程式。  應用程式可能會根據應用程式類型而有所不同。  若要在傳統入口網站中檢視應用程式，請選取目錄並選擇應用程式。
 
@@ -220,5 +218,4 @@ ms.lasthandoff: 08/01/2017
 (**ClientId** 是 FabrikamMail 的服務主體物件識別碼 (剛剛建立的)，**PrincipalId** 是 (已同意之使用者的) 使用者物件識別碼，**ResourceId** 是 Exchange 的服務主體物件識別碼，Scope 是已同意之 Exchange 中的權限)。
 
 如果不允許使用者同意，他們就會看到一個畫面，指出需要有權限。
-
 

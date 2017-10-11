@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67b4861ac564565b2a36932ae15141a1e1f56035
-ms.openlocfilehash: 29084a52aca22b31a2fa42660ec2cdf050aec7ca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>使用 SAN 搭配 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站
 
@@ -350,4 +348,3 @@ VM 啟用複寫後，就會顯示在 Site Recovery 主控台。 您可以檢視 
 ## <a name="next-steps"></a>後續步驟
 
 在您執行測試容錯移轉以檢查您的環境是否如預期般運作之後，請參閱 [Site Recovery 容錯移轉](site-recovery-failover.md)，以深入了解不同類型的容錯移轉。
-

@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: a43d7e30a6f4176afba27f0de2c2c116df741080
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>設定專案
 
 > 想要改為下載此範例的 Android Studio 專案嗎？ [下載專案](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip) 並跳至[設定步驟](#create-an-application-express)，以在執行之前先設定程式碼範例。
@@ -109,5 +107,4 @@ compile 'com.android.volley:volley:1.0.0'
         android:visibility="invisible" />
 </LinearLayout>
 ```
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 4d9e1564c3fcbdfd59edb0e24158df9954c26026
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 25b3ca9af2639860d9cfcb1492aef745fb47beb9
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>使用 Visual Studio 發佈 Azure 應用程式精靈
 在 Visual Studio 中開發 web 應用程式之後，您可以使用 [發佈 Azure 應用程式] 精靈，將應用程式發佈至 Azure 雲端服務。 

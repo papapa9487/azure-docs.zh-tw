@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="create-activity-log-alerts"></a>建立活動記錄警示
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 08/24/2017
     ![監視」服務](./media/monitoring-activity-log-alerts/home-monitor.png)
 2. 在 [活動記錄] 區段中，選取 [警示]。
 
-    ![[警示] 索引標籤](./media/monitoring-activity-log-alerts/alerts-blades.png)
+    ![「警示」索引標籤](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. 選取 [新增活動記錄警示]，並填寫各欄位。
 
 4. 在 [活動記錄警示名稱] 方塊中輸入名稱，並選取 [描述]。
@@ -118,8 +117,8 @@ ms.lasthandoff: 08/24/2017
 
 建立警示之後，它會顯示在 [監視] 刀鋒視窗的 [警示] 區段中。 選取您要管理的警示：
 
-* 編輯它。
-* 刪除它。
+* 進行編輯。
+* 進行刪除。
 * 如果您需要暫時停止或恢復接收警示的通知，可以將警示停用或啟用。
 
 ## <a name="next-steps"></a>後續步驟
@@ -130,4 +129,3 @@ ms.lasthandoff: 08/24/2017
 - 深入了解[服務健康狀態通知](monitoring-service-notifications.md)。
 - [建立活動記錄警示以監視訂用帳戶的所有自動調整引擎作業](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)。
 - [建立活動記錄警示以監視訂用帳戶中所有失敗的相應縮小/相應放大自動調整作業](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)。
-

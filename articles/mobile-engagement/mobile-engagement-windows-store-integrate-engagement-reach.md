@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 8fc1faac88cab0e3d3755fdf16fe3d7188169961
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 9311e998e67d8d0d56da68fc9460df32ce7ce5a9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-reach-sdk-integration"></a>Windows 通用 app Reach SDK 整合
 依照本指南進行之前，您必須先遵循 [Windows 通用 Engagement SDK 整合](mobile-engagement-windows-store-integrate-engagement.md) 文件中所述的整合程序。
@@ -280,7 +279,7 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。 
 > 
 > 
 
-## <a name="a-idpush-channel-sharinga-push-channel-sharing"></a><a id="push-channel-sharing"></a> 推播通道共用
+## <a id="push-channel-sharing"></a> 推播通道共用
 如果您在應用程式中將推播通知用於其他目的，則您必須使用 Engagement SDK 的推播通道共用功能。 這是為了避免遺失推播。
 
 * 您可以對 Engagement Reach 初始化提供自己的推播通道。 SDK 將會使用它而不是要求新的。
@@ -338,5 +337,4 @@ NotfificationHTML 是 `ms-appx-web:///Resources/EngagementNotification.html`。 
                 }
               }
               #endregion
-
 

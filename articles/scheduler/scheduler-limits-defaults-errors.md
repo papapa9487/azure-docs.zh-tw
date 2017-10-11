@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="scheduler-limits-and-defaults"></a>排程器限制及預設值
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>排程器配額、限制、預設值和節流
@@ -45,10 +45,4 @@ ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
  [Azure 排程器高可用性和可靠性](scheduler-high-availability-reliability.md)
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

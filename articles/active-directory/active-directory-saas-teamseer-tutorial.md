@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 2a5e8f6d1443681c43db95da5cef0b7f2ef92291
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>教學課程：Azure Active Directory 與 TeamSeer 整合
 
@@ -115,7 +113,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
      在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://www.teamseer.com/<companyid>`
 
     > [!NOTE] 
-    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [TeamSeer 客戶支援小組](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html)以取得這些值。 
+    > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [TeamSeer 客戶支援小組](http://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html)以取得這些值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -279,5 +277,4 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamseer-tutorial/tutorial_general_203.png
-
 

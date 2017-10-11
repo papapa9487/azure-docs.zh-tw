@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>將 VMware 伺服器備份到 Azure
 
@@ -385,4 +384,3 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 如果您使用 Azure 備份伺服器來保護 VMware 工作負載，對於要如何使用 Azure 備份伺服器來協助保護 [Microsoft Exchange Server](./backup-azure-exchange-mabs.md)、[Microsoft SharePoint 伺服器陣列](./backup-azure-backup-sharepoint-mabs.md)或 [SQL Server 資料庫](./backup-azure-sql-mabs.md)，想必您會感到興趣。
 
 如需註冊代理程式、設定保護群組或備份作業等問題的相關資訊，請參閱[針對 Azure 備份伺服器進行疑難排解](./backup-azure-mabs-troubleshoot.md)。
-

@@ -10,14 +10,12 @@ ms.date: 05/17/2017
 ms.topic: article
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 44eac1ae8676912bc0eb461e7e38569432ad3393
 ms.openlocfilehash: e4f231c1f9b903d6cc7f2b062b30d2a072be8493
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="work-in-the-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows PC 在 HDInsight 上的 Hadoop 生態系統中作業
 
 深入了解 Windows 電腦上的開發和管理選項，以便在 HDInsight 上的 Hadoop 生態系統中作業。 

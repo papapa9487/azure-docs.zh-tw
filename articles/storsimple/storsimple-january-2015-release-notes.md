@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/16/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
-
-
+ms.openlocfilehash: 2fc50f7faddb4b61ea5e7d328469fc3cc0eb6f3e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-02-release-notes---january-2015"></a>StorSimple 8000 系列 Update 0.2 版本資訊 - 2015 年 1 月
 ## <a name="overview"></a>概觀
@@ -71,10 +71,4 @@ ms.openlocfilehash: e9b5773f0152a8ff377169041b28fa1782288217
 
 ## <a name="virtual-device-updates-in-the-january-release"></a>1 月發行的虛擬裝置更新
 此版本包含更新的虛擬裝置影像。 2015 年 1 月 20 日之後建立之所有虛擬裝置的軟體都將顯示為 6.3.9600.17361 版。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

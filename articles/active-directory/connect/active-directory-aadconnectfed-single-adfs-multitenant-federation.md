@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: 22f2bcfdd8c3978a6924c8c8cdea2744001000fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 436bf5905d2b203dc4cceea97f4fb90593df7111
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 #<a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>將多個 Azure AD 執行個體和單一 AD FS 執行個體建立同盟
 
 如果樹系之間有雙向信任，單一高可用 AD FS 伺服器陣列就可以聯合多個樹系。 這些樹系可能會也可能不會對應到相同的 Azure Active Directory。 本文提供有關如何在單一 AD FS 部署和同步至不同 Azure AD 的多個樹系之間建立同盟的指示。
@@ -66,4 +64,3 @@ ms.lasthandoff: 04/10/2017
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 與 Active Directory 連線](active-directory-aadconnect.md)
-

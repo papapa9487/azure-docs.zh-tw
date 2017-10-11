@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: dadobali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c579135f798ea0c2a5461fdd7c88244d2d6d78c6
-ms.openlocfilehash: 2dfe58c032888ca34e905f4e549fcc4d6e36d324
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: c0a5a818c61f7af7ff04bf890b54e8364f3b21b1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="add-sign-in-to-an-android-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>使用 v2.0 端點透過圖形 API 將登入新增至使用協力廠商程式庫的 Android 應用程式
 Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID Connect。 開發人員可以使用任何想要的程式庫，來與我們的服務整合。 為了協助開發人員使用我們的平台搭配其他程式庫，我們撰寫了數篇逐步解說，示範如何設定協力廠商程式庫以連接到 Microsoft 身分識別平台。 大部分實作 [RFC6749 OAuth2 規格](https://tools.ietf.org/html/rfc6749) 的程式庫都能連接到 Microsoft 身分識別平台。
@@ -95,8 +93,7 @@ git@github.com:kalemontes/OIDCAndroidLib.git
     ![預設應用程式模組](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample5.PNG)
 5. 從複製的儲存機制將模組匯入目前的專案。
    
-    ![匯入 gradle 專案](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)
-    ![建立新的模組頁面](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
+    ![匯入 gradle 專案](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample6.PNG)![建立新的模組網頁](../media/active-directory-android-native-oidcandroidlib-v2/SetUpSample7.PNG)
 6. 對 `oidlib-sample` 模組重複執行這些步驟。
 7. 檢查 `oidlib-sample` 模組上的 oidclib 相依性。
    
@@ -191,5 +188,4 @@ git@github.com:kalemontes/OIDCAndroidLib.git
 
 ## <a name="get-security-updates-for-our-product"></a>取得產品的安全性更新
 我們鼓勵您造訪 [安全性 TechCenter](https://technet.microsoft.com/security/dd252948) 並訂閱資訊安全摘要報告警示，以收到有關安全性事件的通知。
-
 

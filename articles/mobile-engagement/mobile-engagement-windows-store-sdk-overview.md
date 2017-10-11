@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: d616ad58156a19e89b3e106639a38df67cbd0abb
-ms.lasthandoff: 02/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-sdk-integration-for-azure-mobile-engagement"></a>適用於 Azure Mobile Engagement 的 Windows 通用 SDK 整合
 此文件說明適用於 Azure Mobile Engagement Windows 通用 SDK 的所有整合及組態選項。
@@ -74,5 +73,4 @@ SDK 所產生的主控台記錄檔現在可以啟用/停用/篩選。 若要自�
 
 ### <a name="upgrade-from-older-versions"></a>從舊版升級
 請參閱 [升級程序](mobile-engagement-windows-store-upgrade-procedure.md)
-
 

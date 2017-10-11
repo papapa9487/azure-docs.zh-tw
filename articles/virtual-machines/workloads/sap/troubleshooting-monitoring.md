@@ -14,12 +14,11 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>如何針對 Azure 上 SAP HANA (大型執行個體) 進行疑難排解和監視
 
@@ -189,5 +188,4 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 **HANA\_Configuration\_Parameters\_Rev70+**：用來檢查 SAP HANA 參數。
 
 ![HANA\_Configuration\_Parameters\_Rev70+：用來檢查 SAP HANA 參數](./media/troubleshooting-monitoring/image15-configuration-parameters.png)
-
 

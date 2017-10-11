@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: e443259507aacbefca141be4c9c1688ab19bf6ec
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用資源提供者 REST API 建立 IoT 中樞 (.NET)
 
@@ -169,10 +168,10 @@ ms.lasthandoff: 08/09/2017
 
 3. 按一下 [偵錯]，然後按一下 [開始偵錯] 以執行應用程式。 可能需要數分鐘的時間，部署才會開始執行。
 
-4. 若要確認您的應用程式已新增新的 IoT 中樞，請前往 [Azure 入口網站][lnk-azure-portal] 並檢視您的資源清單。 或者，使用 **Get-AzureRmResource** PowerShell Cmdlet。
+4. 若要確認您的應用程式已新增新的 IoT 中樞，請前往 [Azure 入口網站][ lnk-azure-portal]並檢視您的資源清單。 或者，使用 **Get-AzureRmResource** PowerShell Cmdlet。
 
 > [!NOTE]
-> 此範例應用程式會加入您付費的「S1 標準 IoT 中樞」。 完成後，您可透過 [Azure 入口網站][lnk-azure-portal] 刪除此 IoT 中樞，或在完成後使用 **Remove-AzureRmResource** PowerShell Cmdlet 加以刪除。
+> 此範例應用程式會加入您付費的「S1 標準 IoT 中樞」。 完成後，您可透過 [Azure 入口網站][lnk-azure-portal]刪除此 IoT 中樞，或在完成後使用 **Remove-AzureRmResource** PowerShell Cmdlet 加以刪除。
 
 ## <a name="next-steps"></a>後續步驟
 現在您已經使用資源提供者 REST API 部署 IoT 中樞，您可以進一步探索：
@@ -201,4 +200,3 @@ ms.lasthandoff: 08/09/2017
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: e02150cb27768d7b403bdca191bc1f189821def4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>教學課程：Azure Active Directory 與 Flatter Files 整合
 
@@ -272,5 +270,4 @@ Flatter Files 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-flatter-files-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-flatter-files-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-flatter-files-tutorial/tutorial_general_203.png
-
 

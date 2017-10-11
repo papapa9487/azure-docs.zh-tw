@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: b5ac3afd973b5765ba151e766754934b49ac0e0c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>教學課程：Azure Active Directory 與 EthicsPoint Incident Management (EPIM) 整合
 
@@ -227,5 +225,4 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ethicspoint-incident-management-tutorial/tutorial_general_203.png
-
 

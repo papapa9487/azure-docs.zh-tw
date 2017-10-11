@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ea9ae8373ff67bf9557b06bbc8a4b0d82a03e2d0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="application-gateway-redirect-overview"></a>應用程式閘道重新導向概觀
 
 許多 Web 應用程式的常見案例是支援自動 HTTP 至 HTTPS 的重新導向，以確保應用程式與其使用者之間的通訊會透過加密的路徑進行。 在過去，客戶會使用一些技巧 (例如建立專屬後端集區)，其唯一目的是要將其在 HTTP 上接收的要求重新導向至 HTTPS。  應用程式閘道現在支援應用程式閘道上重新導向流量的功能。 這可簡化應用程式組態、將資源使用量最佳化，並支援新的重新導向案例，包括全域和路徑式重新導向。 應用程式閘道重新導向支援不只限於 HTTP -> HTTPS 重新導向。 這是泛型重新導向機制，可將在一個接聽程式接收的流量重新導向至應用程式閘道上的另一個接聽程式。 它也支援重新導向至外部網站。 應用程式閘道重新導向提供下列功能：
@@ -37,4 +35,3 @@ ms.lasthandoff: 07/20/2017
 ### <a name="next-steps"></a>後續步驟
 
 [在應用程式閘道上設定 URL 重新導向](application-gateway-configure-redirect-powershell.md)
-

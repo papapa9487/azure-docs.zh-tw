@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: 416420d855505508735ebd8526e93efdb230ad53
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="installing-rstudio-with-r-server-on-hdinsight"></a>在 HDInsight 上使用 R 伺服器安裝 RStudio
 
@@ -98,7 +96,7 @@ ms.lasthandoff: 06/20/2017
 
      1. 開啟 PuTTY，並輸入連線資訊。
      2. 在對話方塊左側的 [類別] 區段中，依序展開 [連線] 和 [SSH]，然後選取 [通道]。
-     3. 在 [控制 SSH 連接埠轉送的選項] 表單中提供下列資訊：
+     3. 在 [ **控制 SSH 連接埠轉送的選項** ] 表單中提供下列資訊：
 
         * **來源連接埠** - 您想要轉送之用戶端上的連接埠。 例如， **8787**。
         * **目的地** - 必須對應至本機用戶端電腦的目的地。 例如，**localhost:8787**。
@@ -135,5 +133,4 @@ ms.lasthandoff: 06/20/2017
 
 * [適用於 HDInsight 叢集上的 R 伺服器的計算內容選項](hdinsight-hadoop-r-server-compute-contexts.md)
 * [適用於 HDInsight 上 R 伺服器的 Azure 儲存體選項](hdinsight-hadoop-r-server-storage.md)
-
 

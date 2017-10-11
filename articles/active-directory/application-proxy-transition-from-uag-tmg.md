@@ -15,12 +15,11 @@ ms.date: 07/27/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 6c9f70493155de6989b26fd4e8bcf1dff01c835c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="compare-remote-access-solutions"></a>比較遠端存取解決方案
 
@@ -65,4 +64,3 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 - [使用 Azure AD 應用程式提供對內部部署應用程式的安全遠端存取](active-directory-application-proxy-get-started.md)
 - [從 Forefront TMG 和 UAG 轉換至應用程式 Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)。
-

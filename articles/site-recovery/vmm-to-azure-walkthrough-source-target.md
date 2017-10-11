@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c72f839d0a1288dccb7deb3e44fc2b20d64818f0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-with-vmm-replication-to-azure"></a>步驟 8：設定將 Hyper-V (含 VMM) 複寫至 Azure 時的來源與目標
 
 [建立保存庫](vmm-to-azure-walkthrough-create-vault.md)和指定複寫的目標後，請使用本文來設定來源和目標設定，以在使用 Azure 入口網站中的 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中的內部部署 Hyper-V 虛擬機器複寫至 Azure 時套用。
@@ -133,4 +131,3 @@ S1. 按一下 [準備基礎結構]  >  [來源]。
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 9：設定網路對應](vmm-to-azure-walkthrough-network-mapping.md)
-

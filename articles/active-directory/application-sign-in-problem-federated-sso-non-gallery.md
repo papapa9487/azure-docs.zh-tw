@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 3afc7bca878caef424d3fa3c64aa17df0fda7de5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之非資源庫應用程式的問題
 
 若要疑難排解您的問題，您必須在 Azure AD 中驗證應用程式組態，如下所示：
@@ -242,4 +239,3 @@ Azure AD 不支援應用程式為單一登入傳送的 SAML 要求。 以下為�
 
 ## <a name="next-steps"></a>後續步驟
 [Azure AD 單一登入 SAML 通訊協定需求](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference)
-

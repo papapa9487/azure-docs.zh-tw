@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 5/21/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 3178a09dab1cb972a3460d54dc9908fb95cce68b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>客體作業系統系列 1 淘汰通知
 我們早在 2013 年 6 月 1 日宣佈客體作業系統系列 1 的淘汰資訊。
@@ -75,4 +73,3 @@ foreach($subscription in Get-AzureSubscription) {
 
 ## <a name="next-steps"></a>後續步驟
 檢閱最新的 [客體作業系統版本](cloud-services-guestos-update-matrix.md)。
-

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/05/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 573e940c5390e7b990d889681eb37b73c5b253d9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-audit-api-reference"></a>Azure Active Directory 稽核 API 參考
 本主題是 Azure Active Directory 報告 API 相關主題集合的一部分。  
@@ -241,5 +240,4 @@ datetime 應採用 UTC 格式
 ## <a name="next-steps"></a>後續步驟
 * 您想要查看篩選過的系統活動範例嗎？ 請查看 [Azure Active Directory 稽核 API 範例](active-directory-reporting-api-audit-samples.md)。
 * 您想要深入了解 Azure AD 報告 API 嗎？ 請參閱 [開始使用 Azure Active Directory 報告 API](active-directory-reporting-api-getting-started.md)。
-
 

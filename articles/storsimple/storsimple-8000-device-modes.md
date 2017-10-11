@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: dd160ede1189b0de544c8cf5db3b13228d212419
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>變更 StorSimple 裝置的裝置模式
 
@@ -165,5 +163,4 @@ StorSimple 裝置可以在標準、維護和復原模式下運作。 以下簡�
 ## <a name="next-steps"></a>後續步驟
 
 了解如何在 StorSimple 裝置上 [套用標準和維護模式更新](storsimple-update-device.md) 。
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-translationtype: Human Translation
-ms.sourcegitcommit: cb2e480a45871ad0c956dc976de955ca48ecdfd0
 ms.openlocfilehash: ed172d552e1e4c9ee27c58abcd7ad2d98df21579
-ms.lasthandoff: 01/05/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-classic-powershell"></a>範例 1 – 使用 NSG 搭配傳統 PowerShell 建立簡單的 DMZ
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -204,7 +203,7 @@ ms.lasthandoff: 01/05/2017
 
 #### <a name="allowed-web-server-dns-look-up-on-dns-server"></a>(允許) DNS 伺服器上的 Web 伺服器 DNS 查閱
 1. Web 伺服器 IIS01 需要 www.data.gov 的資料摘要，但需要解析位址。
-2. VNet 的網路組態將 DNS01 (Backend 子網路上的&10;.0.2.4) 列為主要 DNS 伺服器，IIS01 將 DNS 要求傳送至 DNS01
+2. VNet 的網路組態將 DNS01 (Backend 子網路上的 10.0.2.4) 列為主要 DNS 伺服器，IIS01 將 DNS 要求傳送至 DNS01
 3. Frontend 子網路上沒有輸出規則，允許流量
 4. Backend 子網路開始處理輸入規則：
    * NSG 規則 1 (DNS) 適用，允許流量，停止處理規則
@@ -590,5 +589,4 @@ Else { Write-Host "Validation passed, now building the environment." -Foreground
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
-
 

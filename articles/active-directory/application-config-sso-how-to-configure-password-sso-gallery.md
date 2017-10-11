@@ -13,17 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: d4678afa4d7a9000761d3a60a54539fc1730f76a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: d4dc110eb25c3e550ac4663d28e626a696b58f62
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application" class="xliff"></a>
-
-# 如何為 Azure AD 資源庫應用程式設定密碼單一登入
+# <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>如何為 Azure AD 資源庫應用程式設定密碼單一登入
 
 當您從 [Azure AD 應用程式庫](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)新增應用程式時，您可以選擇希望使用者如何登入該應用程式。 您可以隨時在 [Azure 入口網站](https://portal.azure.com/)中選取企業應用程式的 [單一登入] 瀏覽項目，以設定這個選項。
 
@@ -45,9 +41,7 @@ ms.lasthandoff: 04/11/2017
 
 以下說明如何為已在 [Azure AD 應用程式庫](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#get-started-with-the-azure-ad-application-gallery)中的應用程式啟用[以密碼為基礎的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work)。
 
-<a id="overview-of-steps-required" class="xliff"></a>
-
-## 所需步驟的概觀
+## <a name="overview-of-steps-required"></a>所需步驟的概觀
 若要設定 Azure AD 資源庫中的應用程式，您必須：
 
 -   [從 Azure AD 資源庫新增應用程式](#add-an-application-from-the-azure-ad-gallery)
@@ -60,15 +54,13 @@ ms.lasthandoff: 04/11/2017
 
     -   [將應用程式直接指派至群組](#assign-an-application-to-a-group-directly)
 
-<a id="add-an-application-from-the-azure-ad-gallery" class="xliff"></a>
-
-## 從 Azure AD 資源庫新增應用程式
+## <a name="add-an-application-from-the-azure-ad-gallery"></a>從 Azure AD 資源庫新增應用程式
 
 若要從 Azure AD 資源庫新增應用程式，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入
+1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
@@ -80,29 +72,27 @@ ms.lasthandoff: 04/11/2017
 
 7.  選取您要設為單一登入的應用程式
 
-8.  在新增應用程式前，您可以從 [名稱] 文字方塊變更其名稱。
+8.  新增應用程式之前，您可以從 [名稱] 文字方塊變更其名稱。
 
-9.  按一下 [新增] 按鈕以新增應用程式。
+9.  按一下 [新增] 按鈕新增應用程式。
 
-稍待片刻，您便能看見應用程式的設定刀鋒視窗。
+稍候片刻，您便能看見應用程式的設定刀鋒視窗。
 
-<a id="configure-the-application-for-password-single-sign-on" class="xliff"></a>
+## <a name="configure-the-application-for-password-single-sign-on"></a>設定應用程式使用密碼單一登入
 
-## 設定應用程式使用密碼單一登入
+若要設定應用程式使用單一登入，請依照下列步驟執行：
 
-若要為應用程式設定單一登入，請依照下列步驟執行：
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**或**共同管理員**身分登入。
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**或 **共同管理員**身分登入
-
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
 4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  選取您要設定單一登入的應用程式
 
@@ -114,23 +104,21 @@ ms.lasthandoff: 04/11/2017
 
 10. 此外，您也可以選取使用者資料列，按一下 [更新認證]，然後代表使用者輸入使用者名稱和密碼，以代表使用者提供認證。 否則，系統會提示使用者在啟動時自行輸入認證。
 
-<a id="assign-a-user-to-an-application-directly" class="xliff"></a>
-
-## 將使用者直接指派至應用程式
+## <a name="assign-a-user-to-an-application-directly"></a>將使用者直接指派至應用程式
 
 若要直接將一或多個使用者指派至應用程式，請依照下列步驟執行︰
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
+1.  開啟 [**Azure 入口網站**](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
 4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  從清單中選取您想要指派使用者的應用程式。
 
@@ -142,33 +130,31 @@ ms.lasthandoff: 04/11/2017
 
 10. 在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入您有興趣指派之使用者的**全名**或**電子郵件地址**。
 
-11. 將滑鼠停留在清單中的**使用者**以顯示**核取方塊**。 按一下使用者設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
+11. 將滑鼠停留在清單中的**使用者**上方，以顯示**核取方塊**。 按一下使用者設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
-12. **選擇性︰**如果您想要**新增多個使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
+12. **選擇性︰**如果您想要**新增多位使用者**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**全名**或**電子郵件地址**，然後按一下核取方塊，將此使用者新增至 [已選取] 清單。
 
 13. 當您完成選取使用者時，按一下 [選取] 按鈕，將他們新增到要指派至應用程式的使用者和群組清單。
 
-14. **選擇性︰**按一下 [新增指派] 刀鋒視窗中的 [選取角色] 選取器，以選取角色來指派至您已選取的使用者。
+14. **選擇性︰**按一下 [新增指派] 刀鋒視窗中的 [選取角色] 選取器，以選取要指派給您已選取使用者的角色。
 
 15. 按一下 [指派] 按鈕，將應用程式指派至選取的使用者。
 
-<a id="assign-an-application-to-a-group-directly" class="xliff"></a>
-
-## 將應用程式直接指派至群組
+## <a name="assign-an-application-to-a-group-directly"></a>將應用程式直接指派至群組
 
 若要直接將一或多個群組指派至應用程式，請依照下列步驟執行︰
 
 1.  開啟 [Azure 入口網站](https://portal.azure.com/)，以**全域管理員**身分登入。
 
-2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 擴充]。
+2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
 3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
 4.  從 Azure Active Directory 左邊瀏覽功能表，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式] 以檢視所有應用程式的清單。
+5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
-  * 若在這裡沒看到您要的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
+  * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
 6.  從清單中選取您想要指派使用者的應用程式。
 
@@ -180,20 +166,17 @@ ms.lasthandoff: 04/11/2017
 
 10. 在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入您有興趣指派之群組的**完整群組名稱**。
 
-11. 將滑鼠停留在清單中的**群組**以顯示**核取方塊**。 按一下群組設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
+11. 將滑鼠停留在清單中的**群組**上方，以顯示**核取方塊**。 按一下群組設定檔照片或標誌旁邊的核取方塊，將使用者新增至 [已選取] 清單。
 
 12. **選擇性︰**如果您想要**新增多個群組**，請在 [依姓名或電子郵件地址搜尋] 搜尋方塊中，輸入另一個**完整群組名稱**，然後按一下核取方塊，將此群組新增至 [已選取] 清單。
 
-13. 當您完成選取群組時，按一下 [選取] 按鈕，將它們新增到要指派至應用程式的使用者和群組清單。
+13. 當您完成選取群組時，按一下 [選取] 按鈕，將它們新增到要指派給應用程式的使用者和群組清單。
 
-14. **選擇性︰**按一下 [新增指派] 刀鋒視窗中的 [選取角色] 選取器，以選取角色來指派至您已選取的群組。
+14. **選擇性︰**按一下 [新增指派] 刀鋒視窗中的 [選取角色] 選取器，以選取要指派給您已選取群組的角色。
 
-15. 按一下 [指派] 按鈕，將應用程式指派至選取的群組。
+15. 按一下 [指派] 按鈕，將應用程式指派給選取的群組。
 
 稍待片刻，您已選取的使用者便能在存取面板中啟動這些應用程式。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
-[使用應用程式 Proxy 提供應用程式的單一登入](active-directory-application-proxy-sso-using-kcd.md)
-
+## <a name="next-steps"></a>後續步驟
+[使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)

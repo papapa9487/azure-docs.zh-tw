@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0bec803e4b49f3ae53f2cc3be6b9cb2d256fe5ea
-ms.openlocfilehash: b4cc2ce4d05b035829584a610d52e6079a13a9c1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/24/2017
-
-
+ms.openlocfilehash: 7379b7f58563675f28d77928d933c0d9c7992e71
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="sqlruleaction-syntax"></a>SQLRuleAction 語法
 
 *SqlRuleAction* 是 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 類別的執行個體，代表對 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)執行的以 SQL 語言為基礎之語法所撰寫的動作集。   
@@ -226,4 +223,3 @@ ms.lasthandoff: 03/24/2017
 
 - [SQLRuleAction 類別](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
 - [SQLFilter 類別](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-

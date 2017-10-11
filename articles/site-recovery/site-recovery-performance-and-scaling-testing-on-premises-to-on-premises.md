@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>使用 Site Recovery 進行內部部署對內部部署 Hyper-V 複寫的測試結果
 
@@ -188,4 +186,3 @@ Hyper-V 複本會使用復原伺服器上的少量記憶體來最佳化儲存作
 ## <a name="next-steps"></a>後續步驟
 
 [設定兩個內部部署 VMM 站台之間的複寫](site-recovery-vmm-to-vmm.md)
-
