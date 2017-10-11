@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: cdb1436d33fed61210724d55ffbf06f653f24f7c
-
-
+ms.openlocfilehash: 8efc0053458e338ac1afe98d9ce970c1d5cbfa81
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="internet-of-things-security-best-practices"></a>物聯網安全性最佳作法
 保護物聯網 (IoT) 基礎結構是任何涉入 IoT 解決方案的人的重要任務。 由於涉及的裝置數目和這些裝置的分散式質性，危及數百萬個 IoT 裝置的相關安全性事件影響廣泛，不可等閒視之。
@@ -63,10 +63,4 @@ IoT 最佳作法可分類如下︰
 * **經常稽核**：回應安全性事件時，針對安全性相關問題稽核 IoT 基礎結構是關鍵所在。
 * **實體保護 IoT 基礎結構**：對 IoT 基礎結構最嚴重的安全性攻擊是透過實際接觸裝置的方式進行攻擊。
 * **保護雲端認證**：用來設定及操作 IoT 部署的雲端驗證認證可能是存取及危及 IoT 系統的最簡單方式。 
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

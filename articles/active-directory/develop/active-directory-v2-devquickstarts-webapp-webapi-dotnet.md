@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9cd676554542e4effef54790bf9095c5b7a8f75b
-ms.openlocfilehash: c6cca8fda4ba6a26d5ee74b43e0bae37639865c5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/03/2017
-
-
+ms.openlocfilehash: dc3162ae8e6ce622139125c2e78fa45d2e90d534
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="calling-a-web-api-from-a-net-web-app"></a>從 .NET Web 應用程式呼叫 Web API
 透過 v2.0 端點，您可以快速地將驗證加入 Web 應用程式和 Web API，同時支援個人 Microsoft 帳戶以及工作或學校帳戶。  我們將在此處建置 MVC Web 應用程式，借 Microsoft OWIN 中介軟體之力，使用 OpenID Connect 登入使用者。  Web 應用程式將針對 OAuth 2.0 保護的 Web API 取得 OAuth 2.0 存取權杖，以允許建立、讀取及刪除特定使用者的「待辦事項清單」。
@@ -201,5 +199,4 @@ catch (MsalException ee)
 
 ## <a name="get-security-updates-for-our-products"></a>取得產品的安全性更新
 我們鼓勵您造訪 [此頁面](https://technet.microsoft.com/security/dd252948) 並訂閱資訊安全摘要報告警示，以在安全性事件發生時收到通知。
-
 

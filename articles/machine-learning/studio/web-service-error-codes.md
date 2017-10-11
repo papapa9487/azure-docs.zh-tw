@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: e8a6db7963203d747b1f506d0cfae8b3e98d58d3
-ms.openlocfilehash: 4b5c9e4c62fbcf548aad1dbe242e2df0f2f5d41f
-ms.lasthandoff: 11/18/2016
-
-
+ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
- 
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API 錯誤碼
  
 Azure Machine Learning Web 服務上的作業可以傳回下列錯誤碼。
@@ -255,4 +253,3 @@ Web 服務套件無效。 確認所提供的 Web 套件正確無誤，然後再�
 | BackendInitializationTimeout | 無法在允許的時間內完成 Web 服務初始化。 |
 | BackendScoreTimeout | 無法在允許的時間內完成 Web 服務要求執行。 |
  
-

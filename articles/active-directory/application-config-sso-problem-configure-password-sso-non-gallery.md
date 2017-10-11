@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 2fc922cb591bcd9ef333fbe3d77ee3dd03005915
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 9c76b6f3495e2dd759a156fcef97b57aece8d632
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定密碼單一登入時遇到的問題
 
 本文可協助您了解使用者在搭配不在資源庫內的應用程式設定**密碼單一登入**時所面臨的常見問題。
@@ -61,7 +59,7 @@ ms.lasthandoff: 04/17/2017
 
 7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [單一登入]。
 
-8.  選取 [密碼登入] 模式。
+8.  選取 [以密碼為基礎的登入] 模式。
 
 9.  輸入**登入 URL**。 這是使用者輸入其使用者名稱及密碼來登入的 URL。 **確定在您提供的 URL 上看得到登入欄位**。
 
@@ -91,7 +89,7 @@ ms.lasthandoff: 04/17/2017
 
 7.  應用程式載入之後，按一下應用程式左邊瀏覽功能表中的 [單一登入]。
 
-8.  選取 [密碼登入] 模式。
+8.  選取 [以密碼為基礎的登入] 模式。
 
 9.  輸入**登入 URL**。 這是使用者輸入其使用者名稱及密碼來登入的 URL。 **確定在您提供的 URL 上看得到登入欄位**。
 
@@ -258,6 +256,5 @@ ms.lasthandoff: 04/17/2017
     -   範例 - ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>後續步驟
-[使用應用程式 Proxy 提供應用程式的單一登入](active-directory-application-proxy-sso-using-kcd.md)
-
+[使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)
 

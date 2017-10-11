@@ -14,23 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="azure-ad-connect-sync-scheduler" class="xliff"></a>
-
-# Azure AD Connect 同步處理：排程器
+# <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步處理：排程器
 本主題說明 Azure AD Connect 同步處理 (又稱為 同步處理引擎) 中內建的排程器。
 
 此功能是隨組建 1.1.105.0 (於 2016 年 2 月發行) 一起導入。
 
-<a id="overview" class="xliff"></a>
-
-## 概觀
+## <a name="overview"></a>概觀
 Azure AD Connect 同步處理會使用排程器來同步處理您內部部署目錄中發生的變更。 有兩個排程器程序，一個用於密碼同步處理，另一個用於物件/屬性同步處理以及維護工作。 本主題包含後者。
 
 在舊版中，物件和屬性的排程器是在同步處理引擎的外部。 它使用 Windows 工作排程器或個別的 Windows 服務來觸發同步處理程序。 排程器已隨 1.1 版內建於同步處理引擎中，並且允許進行一些自訂。 新的預設同步處理頻率為 30 分鐘。
@@ -42,9 +37,7 @@ Azure AD Connect 同步處理會使用排程器來同步處理您內部部署目
 
 排程器本身永遠處於執行狀態，但是您可以將它設定為只執行這些工作其中之一或完全不執行這些工作。 例如，如果您需要使用自己的同步處理循環程序，您可以將此工作在排程器中停用，但仍執行維護工作。
 
-<a id="scheduler-configuration" class="xliff"></a>
-
-## 排程器組態
+## <a name="scheduler-configuration"></a>排程器組態
 若要查看目前的組態設定，請移至 PowerShell 並執行 `Get-ADSyncScheduler`。 它會向您顯示類似以下圖片︰
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
@@ -74,9 +67,7 @@ Azure AD Connect 同步處理會使用排程器來同步處理您內部部署目
 
 排程器組態儲存在 Azure AD 中。 如果您有預備伺服器，主要伺服器上的任何變更也會影響預備伺服器 (IsStagingModeEnabled 除外)。
 
-<a id="customizedsynccycleinterval" class="xliff"></a>
-
-### CustomizedSyncCycleInterval
+### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 語法： `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - 天、HH - 小時、mm - 分鐘、ss - 秒
 
@@ -86,9 +77,7 @@ d - 天、HH - 小時、mm - 分鐘、ss - 秒
 範例： `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 將排程器變更為每天執行。
 
-<a id="disable-the-scheduler" class="xliff"></a>
-
-### 停用排程器  
+### <a name="disable-the-scheduler"></a>停用排程器  
 如果您需要變更組態，那麼您需要停用排程器。 例如，當您[設定篩選](active-directory-aadconnectsync-configure-filtering.md)或[變更同步處理規則](active-directory-aadconnectsync-change-the-configuration.md)時。
 
 若要停用排程器，請執行 `Set-ADSyncScheduler -SyncCycleEnabled $false`。
@@ -97,9 +86,7 @@ d - 天、HH - 小時、mm - 分鐘、ss - 秒
 
 當您完成變更之後，不要忘記使用 `Set-ADSyncScheduler -SyncCycleEnabled $true` 再次啟用排程器。
 
-<a id="start-the-scheduler" class="xliff"></a>
-
-## 啟動排程器
+## <a name="start-the-scheduler"></a>啟動排程器
 排程器預設為每隔 30 分鐘執行一次。 在某些情況下，您可能會想要在排定的循環之間執行同步處理循環，或是需要執行不同類型的同步處理循環。
 
 **差異同步處理循環**  
@@ -126,9 +113,7 @@ d - 天、HH - 小時、mm - 分鐘、ss - 秒
 
 若要起始完整同步處理循環，請從 PowerShell 提示字元執行 `Start-ADSyncSyncCycle -PolicyType Initial` 。 此命令會啟動完整同步處理循環。
 
-<a id="stop-the-scheduler" class="xliff"></a>
-
-## 停止排程器
+## <a name="stop-the-scheduler"></a>停止排程器
 如果排程器目前正在執行同步處理循環，您可能必須將它停止。 例如，如果您啟動安裝精靈並收到以下錯誤：
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
@@ -141,16 +126,12 @@ d - 天、HH - 小時、mm - 分鐘、ss - 秒
 
 排程器仍在作用中，並且會在下次有機會時重新啟動。
 
-<a id="custom-scheduler" class="xliff"></a>
-
-## 自訂排程器
+## <a name="custom-scheduler"></a>自訂排程器
 本節記載的 Cmdlet 只有在組建 [1.1.130.0](active-directory-aadconnect-version-history.md#111300) 和更新版本中才有提供。
 
 如果內建的排程器無法滿足您的需求，您可以使用 PowerShell 來排程連接器。
 
-<a id="invoke-adsyncrunprofile" class="xliff"></a>
-
-### Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 您可使用下列方式，啟動連接器的設定檔：
 
 ```
@@ -174,9 +155,7 @@ Invoke-ADSyncRunProfile -ConnectorName "name of connector" -RunProfileName "name
 
 此順序是內建的排程器執行連接器的方式。
 
-<a id="get-adsyncconnectorrunstatus" class="xliff"></a>
-
-### Get-ADSyncConnectorRunStatus
+### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
 您也可以監視同步處理引擎，以查看其為忙碌或閒置。 如果同步處理引擎處於閒置狀態且沒有執行連接器，這個 Cmdlet 會傳回空的結果。 如果連接器正在執行，它會傳回連接器的名稱。
 
 ```
@@ -186,15 +165,10 @@ Get-ADSyncConnectorRunStatus
 ![連接器執行狀態](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
 在上圖中，第一行是來自同步處理引擎處於閒置狀態時。 第二行則是從 Azure AD 連接器執行時。
 
-<a id="scheduler-and-installation-wizard" class="xliff"></a>
-
-## 排程器和安裝精靈
+## <a name="scheduler-and-installation-wizard"></a>排程器和安裝精靈
 如果您啟動安裝精靈，則排程器將會暫時停用。 此行為是因為系統會假設您進行組態變更，而如果同步處理引擎正在執行中，將會無法套用這些設定。 基於這個理由，請勿讓安裝精靈保持開啟，因為這會阻止同步處理引擎執行任何同步處理動作。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md) 組態。
 
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-

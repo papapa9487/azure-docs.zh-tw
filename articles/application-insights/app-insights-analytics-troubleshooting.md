@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
-ms.openlocfilehash: 82a1888cca687ce60f811c2c3cec6b971d4a0461
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/12/2017
-
+ms.openlocfilehash: 02df117908fc1790e8cfb9ec0a7218c1b8be856c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>疑難排解 Application Insights 中的分析
 有關於 [Application Insights 分析](app-insights-analytics.md)的問題嗎？ 從這裡開始。 「分析」是強大的 Azure Application Insights 搜尋工具。
@@ -54,7 +53,7 @@ ms.lasthandoff: 04/12/2017
 1. 確認已在瀏覽器中 [啟用協力廠商 Cookie](#cookies) 。 
 2. 您使用我的最愛、書籤或儲存的連結來開啟分析入口網站嗎？ 您登入時所使用的認證與您儲存連結時使用的認證不同嗎？
 3. 嘗試使用 InPrivate/incognito 瀏覽器視窗 (關閉所有這類視窗之後)。 您必須提供認證。 
-4. 開啟另一個 (一般) 瀏覽器視窗並前往 [Azure](https://portal.azure.com)。 登出。 然後開啟您的連結並使用正確的認證登入。
+4. 開啟另一個 (一般) 瀏覽器視窗並前往 [Azure](https://portal.azure.com)。 登出。然後開啟您的連結並使用正確的認證登入。
 5. Edge 和 Internet Explorer 的使用者也會在不支援信任的區域設定時收到此錯誤。
    
     確認[分析入口網站](https://analytics.applicationinsights.io)和 [Azure Active Directory 入口網站](https://portal.azure.com)位於相同的安全性區域：
@@ -109,5 +108,4 @@ URL 無效。
 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

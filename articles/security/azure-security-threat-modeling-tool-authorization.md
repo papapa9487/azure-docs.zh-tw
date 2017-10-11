@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>安全框架︰授權 | 緩和措施 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
 | **步驟** | 現場閘道應授權呼叫端檢查呼叫端是否具有執行所要求動作的必要權限。 例如︰系統管理員使用者介面/API 應使用不同的權限來設定與其連線的現場閘道 v/s 裝置。|
-

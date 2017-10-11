@@ -9,15 +9,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: 0dcec61c03a84197e2c351761c743683caa98a06
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)  
 
 SQL Database 和 SQL 資料倉儲都支援 Microsoft 條件式存取。 下列步驟示範如何將 SQL Database 設定為強制執行條件式存取原則。  
@@ -51,4 +48,3 @@ SQL Database 和 SQL 資料倉儲都支援 Microsoft 條件式存取。 下列�
 ## <a name="next-steps"></a>後續步驟  
 
 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。
-

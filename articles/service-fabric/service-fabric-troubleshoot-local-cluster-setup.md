@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: mikkelhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: aa393f884b564cee81fcf75cc2eff895efea9471
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-your-local-development-cluster-setup"></a>疑難排解本機開發叢集設定
 如果您在與本機 Azure Service Fabric 開發叢集互動時遇到問題，請檢閱下列建議，以尋求可能的解決方法。
@@ -91,5 +89,4 @@ ms.lasthandoff: 06/09/2017
 ## <a name="next-steps"></a>後續步驟
 * [透過系統健康情況報告了解及疑難排解您的叢集](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
-
 

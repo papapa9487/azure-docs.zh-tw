@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a4c44b356ac97f4ee4c1122885d4d13f85c80cbc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.openlocfilehash: 6fa23728680779e33eda7bb9aa8a01b9cad9a82b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>使用 Dynatrace SaaS/Managed 監視 Azure Container Service DC/OS 叢集
 在本文中，我們會示範如何部署 [Dynatrace](https://www.dynatrace.com/) OneAgent，以監視 Azure Container Service 叢集中的所有代理程式節點。 您需要 Dynatrace SaaS/Managed 帳戶以進行這項設定。 

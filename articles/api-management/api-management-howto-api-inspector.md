@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: a9d4d3be7f046af975f6dc25670070204848588c
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-the-api-inspector-to-trace-calls-in-azure-api-management"></a>如何在 Azure API 管理中使用 API 偵測器來追蹤呼叫
 API 管理提供 API 偵測器工具協助您進行 API 的偵錯和疑難排解。 API 偵測器可以程式設計的方式使用，也可以直接從開發人員入口網站使用。 
@@ -263,11 +264,5 @@ ocp-apim-trace-location : https://contosoltdxw7zagdfsprykd.blob.core.windows.net
 [api-management-send-results]: ./media/api-management-howto-api-inspector/api-management-send-results.png
 
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

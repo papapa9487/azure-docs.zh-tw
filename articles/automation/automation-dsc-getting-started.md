@@ -14,13 +14,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 2a6daccdc70ff285a6993da0b2fdcfbe85e635cf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>開始使用 Azure 自動化 DSC
 本主題說明如何使用 Azure 自動化期望狀態設定 (DSC) 來執行常見的工作，例如建立、匯入和編譯組態、將要管理的機器上架，以及檢視報告。 如需何謂 Azure 自動化 DSC 的概觀，請參閱 [Azure 自動化 DSC 概觀](automation-dsc-overview.md)。 如需 DSC 文件，請參閱 [Windows PowerShell 預期狀態設定概觀](https://msdn.microsoft.com/PowerShell/dsc/overview)。
@@ -220,5 +218,4 @@ Azure 會啟動 VM 上架的程序。 完成時，VM 將會顯示在自動化帳
 * [Windows PowerShell 預期狀態設定概觀](https://msdn.microsoft.com/powershell/dsc/overview)
 * [Azure 自動化 DSC Cmdlet](/powershell/module/azurerm.automation/#automation)
 * [Azure 自動化 DSC 價格](https://azure.microsoft.com/pricing/details/automation/)
-
 

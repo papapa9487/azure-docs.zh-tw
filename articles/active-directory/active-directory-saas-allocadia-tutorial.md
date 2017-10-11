@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 8e97c365383ecdb72cc1cd449b522b75875fc1db
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-allocadia"></a>教學課程：Azure Active Directory 與 Allocadia 整合
 
@@ -127,7 +125,7 @@ ms.lasthandoff: 06/16/2017
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Allocadia 支援小組](mailTo:support@allocadia.com)以取得這些值。
 
-4. Allocadia 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示此組態的範例。 
+4. Allocadia 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 以下螢幕擷取畫面顯示此設定的範例。 
 
     ![設定單一登入](./media/active-directory-saas-allocadia-tutorial/tutorial_allocadia_attributes.png)
     
@@ -149,7 +147,7 @@ ms.lasthandoff: 06/16/2017
 
     c. 在 [值] 清單中，選取該列所顯示的值。
  
-    d. 按一下 [ **確定**]。
+    d. 按一下 [確定] 。
 
 
 
@@ -260,5 +258,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-allocadia-tutorial/tutorial_general_203.png
-
 

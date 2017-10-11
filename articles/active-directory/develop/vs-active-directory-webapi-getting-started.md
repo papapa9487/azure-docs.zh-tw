@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 333db54fe01aad42cfcd050995b64f3725b31ae9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: a756316054dd3bb63f3b0a9f59621bb1345bc693
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="get-started-with-azure-active-directory-and-visual-studio-connected-services-webapi-projects"></a>開始使用 Azure Active Directory 和 Visual Studio 已連接服務 (WebApi 專案)
 > [!div class="op_single_selector"]
@@ -34,5 +33,4 @@ ms.lasthandoff: 03/21/2017
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

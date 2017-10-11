@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: d5d5aa67d14d2344c58e67ee78ea3f2b5d8fd415
-
-
+ms.openlocfilehash: 22924da07434a06f4c822d97a2afd02ea982e0e0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-administer-your-storsimple-device"></a>使用 StorSimple Manager 服務管理 StorSimple 裝置
 ## <a name="overview"></a>Overview
@@ -42,8 +42,8 @@ StorSimple Manager 服務可在 Microsoft Azure 中執行，並且連接至多�
 StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 
 * **StorSimple Manager** 登陸頁面將帶您到適用於服務內所有裝置的 UI 服務層級頁面。
-* **裝置** ] 頁面會將您導向適用於特定裝置的裝置層級 UI 頁面。
-* **磁碟區容器** ] 頁面會將您導向顯示與裝置相關聯之所有磁碟區的磁碟區頁面。
+* **裝置**  頁面會將您導向適用於特定裝置的裝置層級 UI 頁面。
+* **磁碟區容器**  頁面會將您導向顯示與裝置相關聯之所有磁碟區的磁碟區頁面。
 
 #### <a name="storsimple-manager-service-navigational-hierarchy"></a>StorSimple Manager 服務瀏覽階層
 | 登陸頁面 | 服務層級頁面 | 裝置層級頁面 | 裝置層級頁面 |
@@ -102,10 +102,4 @@ StorSimple Manager 服務 UI 的瀏覽階層顯示於下表。
 * [使用 StorSimple 監視 LED 指示燈](storsimple-monitoring-indicators.md)
 
 如果您不能解決問題，且您必須建立服務要求，請參閱： [連絡 Microsoft 支援服務](storsimple-contact-microsoft-support.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

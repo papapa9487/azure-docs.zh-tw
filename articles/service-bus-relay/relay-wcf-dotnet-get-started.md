@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何使用 Azure 轉送 WCF 轉送搭配 .NET
 本文說明如何使用 Azure 轉送服務。 這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件中的擴充功能。 如需 Azure 轉送的詳細資訊，請參閱 [Azure 轉送概觀](relay-what-is-it.md)。
 
@@ -39,8 +37,8 @@ Azure 轉送可讓您代管位於現有企業環境內的 WCF 服務。 您可�
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="get-the-service-bus-nuget-package"></a>取得服務匯流排 NuGet 套件
-[服務匯流排 NuGet 套件](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 為取得服務匯流排 API，並設定具有所有服務匯流排相依性的應用程式的最容易方式。 若要在專案中安裝 NuGet 套件，請執行下列動作：
+## <a name="get-the-service-bus-nuget-package"></a>取得服務匯流排 NuGet 封裝
+[服務匯流排 NuGet 套件](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 為取得服務匯流排 API，並設定具有所有服務匯流排相依性的應用程式的最容易方式。 若要在專案中安裝 NuGet 封裝，請執行下列動作：
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後按一下 [管理 NuGet 套件]。
 2. 搜尋「服務匯流排」並選取 [Microsoft Azure 服務匯流排]  項目。 按一下 [安裝] 完成安裝作業，然後關閉下列對話方塊：
@@ -55,7 +53,7 @@ Azure 轉送可讓您代管位於現有企業環境內的 WCF 服務。 您可�
 開始這些步驟之前，請完成下列設定環境的程序：
 
 1. 在 Visual Studio 中，建立解決方案中包含兩個專案 ("Client" 和 "Service") 的主控台應用程式。
-2. 對兩個專案新增服務匯流排 NuGet 套件。 此套件會將所有必要組件參考新增至您的專案。
+2. 對兩個專案新增服務匯流排 NuGet 套件。 此封裝會將所有必要組件參考新增至您的專案。
 
 ### <a name="how-to-create-the-service"></a>如何建立服務
 首先建立服務本身。 任何 WCF 服務都包含至少三個獨特部分：
@@ -227,4 +225,3 @@ using (var ch = cf.CreateChannel())
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 [overview of Service Bus samples]: ../service-bus-messaging/service-bus-samples.md
-

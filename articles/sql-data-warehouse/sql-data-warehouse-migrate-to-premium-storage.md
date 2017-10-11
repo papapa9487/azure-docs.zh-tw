@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66f808da8d301e0adc393ba0ae67ab8618ce814
-ms.openlocfilehash: e73e52665dd22e33054745907613c269b6d57915
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/16/2016
-
-
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>將您的資料倉儲移轉到進階儲存體
 Azure SQL 資料倉儲最新引進了[進階儲存體，以獲得更高的效能可預測性][premium storage for greater performance predictability]。 現在可以將目前在標準儲存體上的現有資料倉儲移轉至進階儲存體。 您可以利用自動移轉，或如果您想要控制何時要移轉 (未包含某些停機時間)，您可以自行完成移轉。
@@ -118,7 +116,7 @@ Microsoft 會採取下列步驟來完成移轉 (這些不需要您採取任何�
 **必要條件：**
 
 - 資料倉儲應以 1,000 個資料倉儲單位或更多數量來執行 (請參閱[調整計算能力][scale compute power])。
-- 執行指令碼的使用者應具有 [mediumrc 角色][mediumrc role]或更高權限。 若要將使用者新增至此角色，請執行下列作業︰    ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- 執行指令碼的使用者應具有 [mediumrc 角色][mediumrc role]或更高權限。 若要將使用者新增至此角色，請執行下列作業︰````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -184,4 +182,3 @@ go
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.com
-

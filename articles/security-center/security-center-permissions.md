@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: 0aaa99dda44d2020afd3e841e84020eb4ff87a85
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="permissions-in-azure-security-center"></a>Azure 資訊安全中心的權限
 
 Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../active-directory/role-based-access-built-in-roles.md)。
@@ -66,4 +63,3 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../active-direct
 - [監視您的 Azure 資源的安全性健全狀況](security-center-monitoring.md)
 - [在資訊安全中心管理和回應安全性警示](security-center-managing-and-responding-alerts.md)
 - [監視合作夥伴安全性解決方案](security-center-partner-solutions.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 63f951fbfc9ab5adad8f9225c2827abcbdb7f784
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: e01e6fa3b9871541bf9573963ced05848a3726e3
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-common-scenarios"></a>Azure 資料目錄常見案例
 本文介紹 Azure 資料目錄幫助您的組織從其現有的資料來源獲得更多價值的常見案例。
@@ -68,4 +67,3 @@ Azure 資料目錄可讓您的組織打破這種工作循環。 透過傳統方�
 資料專家通常會設法記錄他們的知識，包括透過電子郵件，或在小組 SharePoint 網站上的 Word 文件中進行共用。 雖然此方式很有價值，但也引起新的探索問題：如何知道有那些文件，以及到哪裡尋找？
 
 利用 Azure 資料目錄，您的組織可提供一個中心位置，供您用來儲存及共用此部落知識，以及輕鬆地進行探索。 在資料目錄中，您的資料專家可以直接標註資料資產，並提供現有文件的連結。 當組織成員使用目錄來探索資料來源時，他們不只會發現來源本身，還會發現以前只存在於貴組織專家腦中的知識。
-

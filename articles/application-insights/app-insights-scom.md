@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dea21a59b189d1d3d474cbc5e67f64df485a1981
-ms.openlocfilehash: 68ec072b972e38d8cd020adda4dcc85cdaccfb76
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9c205465981fabdbb696cdc44f765532bbb992b5
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>使用 Application Insights 的 SCOM 應用程式效能監視
 如果您使用 System Center Operations Manager (SCOM) 來管理您的伺服器，您便可以透過 [Azure Application Insights](app-insights-asp-net.md) 的協助來監視效能及診斷效能問題。 Application Insights 會監視 Web 應用程式的連入要求、REST 和 SQL 傳出呼叫、例外狀況，以及記錄追蹤。 它提供的儀表板具有度量圖表和智慧警示，以及透過此遙測來實現的強大診斷搜尋和分析查詢功能。 
@@ -99,5 +98,4 @@ ms.lasthandoff: 11/17/2016
 * [診斷效能問題](app-insights-detect-triage-diagnose.md)
 * [功能強大的分析查詢](app-insights-analytics.md)
 * [可用性 Web 測試](app-insights-monitor-web-app-availability.md)
-
 

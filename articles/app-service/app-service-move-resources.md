@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-translationtype: Human Translation
-ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
-ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
-ms.lasthandoff: 12/21/2016
-
-
+ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="supported-move-configurations"></a>支援的移動組態
 您可以使用 [Resource Manager 移動資源 API](../azure-resource-manager/resource-group-move-resources.md) 來移動 Azure Web 應用程式資源。
@@ -31,6 +30,5 @@ Azure Web Apps 目前支援下列移動案例：
    > 在此案例中，目的地資源群組不能包含任何 Microsoft.Web 資源。
 
 * 將個別 Web 應用程式移到不同的資源群組，但同時仍將它們裝載在其目前的 App Service 方案中 (App Service 方案會保留在舊的資源群組中)。
-
 
 

@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1b08a0b376cbcae8522364c9b6ef22e9c0176438
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](active-directory-application-proxy-connectors-azure-portal.md)
@@ -133,6 +131,5 @@ ms.lasthandoff: 08/25/2017
 
 * [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)
 * [啟用單一登入](application-proxy-sso-overview.md)
-
 
 

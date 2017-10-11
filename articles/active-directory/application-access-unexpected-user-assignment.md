@@ -13,23 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: 43ed4b0e96c583d8fd9da57eec40ddd2e96fee2f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: 916238ba402a2555bac620d7f08e02799d981ae0
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="how-to-assign-users-to-applications" class="xliff"></a>
-
-# 將使用者指派至應用程式
+# <a name="how-to-assign-users-to-applications"></a>將使用者指派至應用程式
 
 本文協助您了解如何將使用者指派至租用戶中的應用程式。
 
-<a id="how-do-users-get-assigned-to-an-application-in-azure-ad" class="xliff"></a>
-
-## 如何將使用者指派至 Azure AD 中的應用程式？
+## <a name="how-do-users-get-assigned-to-an-application-in-azure-ad"></a>如何將使用者指派至 Azure AD 中的應用程式？
 
 若要讓使用者存取應用程式，必須先設法將他們指派至應用程式。 可以由系統管理員、企業代理人，或有時是使用者本身來指派。 以下描述將使用者指派至應用程式的方法︰
 
@@ -63,8 +57,5 @@ ms.lasthandoff: 04/11/2017
 
 10. 使用者本身登入應用程式以[同意應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
-

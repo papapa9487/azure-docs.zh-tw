@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ba74e0c442ac10f096d465f989e03d2ceae8cd88
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-ios"></a>如何在 iOS 上整合 Engagement Reach
 在遵循此指南之前，您必須先遵循 [如何在 iOS 上整合 Engagement](mobile-engagement-ios-integrate-engagement.md) 文件中所說明的整合程序。
@@ -502,4 +501,3 @@ SDK 會用 `UNUserNotificationCenter` 委派來監視在 iOS 10 或更新版本�
     }
 
     @end
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/25/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 61cb8eb0ad23a7d4b333bf54342b872a3a8ae1da
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 4fb77ed0241d15338c2574fd22828507c3e40cb3
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-iot-gateway-to-connect-things-to-the-cloud---sensortag-to-azure-iot-hub"></a>使用 IoT 閘道將裝置連接到雲端 - 將 SensorTag 連接到 Azure IoT 中樞
 
@@ -172,4 +171,3 @@ Bluetooth Low Energy (BLE) 範例應用程式是由 Azure IoT Edge 提供。 範
 ## <a name="next-steps"></a>後續步驟
 
 [搭配 Azure IoT Edge 使用 IoT 閘道進行感應器資料轉換](iot-hub-gateway-kit-c-use-iot-gateway-for-data-conversion.md)
-

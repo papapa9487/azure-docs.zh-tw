@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="what-is-search-traffic-analytics"></a>什麼是搜尋流量分析
 搜尋流量分析是一種模式，可用來實作搜尋服務的意見反應管道。 這個模式描述必要的資料，以及如何使用監視多平台服務中的業界領導者 Application Insights 來加以收集。
 
@@ -176,11 +175,11 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 Power BI Desktop 範本中所包含的計量︰
 
-*    點選率 (CTR)：點選特定文件的使用者數與總搜尋數的比率。
-*    無點選搜尋︰註冊無點選的熱門查詢詞彙
-*    最多點選的文件︰過去 24 小時、7 天和 30 天內，依識別碼排序最多點選的文件。
-*    常用的詞彙文件組︰依點選排序，造成點選相同文件的詞彙。
-*    點選的時間︰自搜尋查詢起按照時間分組的點選
+*   點選率 (CTR)：點選特定文件的使用者數與總搜尋數的比率。
+*   無點選搜尋︰註冊無點選的熱門查詢詞彙
+*   最多點選的文件︰過去 24 小時、7 天和 30 天內，依識別碼排序最多點選的文件。
+*   常用的詞彙文件組︰依點選排序，造成點選相同文件的詞彙。
+*   點選的時間︰自搜尋查詢起按照時間分組的點選
 
 ![從 Application Insights 讀取的 Power BI 範本][3]
 
@@ -196,4 +195,3 @@ Power BI Desktop 範本中所包含的計量︰
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
 [2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
 [3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本教戰守則
 ## <a name="executive-summary"></a>執行摘要
@@ -254,13 +252,13 @@ Cortana Intelligence Suite 是位於雲端的整合式環境。 在雲端環境�
 
 下表顯示正確用電量和溫度資料格式的範例︰
 
-| **Date** | **Time** | **Meter ID** | **Phase 1** | **Phase 2** | **Phase 3** |
+| <bpt id="p1">**</bpt>Date<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Meter ID<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Phase 1<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Phase 2<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Phase 3<ept id="p1">**</ept> |
 | --- | --- | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |ABC1234 |7.0 |2.1 |5.3 |
 | 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
 | 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-| **Date** | **Time** | **Location** | **Temperature** |
+| **Date** | <bpt id="p1">**</bpt>Time<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | <bpt id="p1">**</bpt>Temperature<ept id="p1">**</ept> |
 | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |11242 |24.4 |
 | 7/1/2015 |10:00:01 |11242 |24.4 |
@@ -402,5 +400,4 @@ MAPE (Mean Absolute Percentage Error) 代表「平均絕對百分比誤差」。
 ![端對端部署架構](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 如需每個元件和整個架構的詳細資訊，請參閱「能源解決方案範本」。
-
 

@@ -14,25 +14,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.author: heidist
 ms.date: 10/27/2016
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a67637d149a84313270c03d21acf8a9c1870be05
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-<a id="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview" class="xliff"></a>
-
-# 評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)
+# <a name="scoring-profiles-azure-search-rest-api-version-2015-02-28-preview"></a>評分設定檔 (Azure 搜尋服務 REST API 2015-02-28-Preview 版)
 > [!NOTE]
 > 本文說明 [2015-02-28-Preview](search-api-2015-02-28-preview.md)的評分設定檔。 記載於 [MSDN](http://msdn.microsoft.com/library/azure/mt183328.aspx) 的 `2016-09-01` 版本和此處描述的 `2015-02-28-Preview` 版本，目前並無差別，不過為使文件內容完整涵蓋 API，我們仍提供此文件。
 >
 >
 
-<a id="overview" class="xliff"></a>
-
-## Overview
+## <a name="overview"></a>Overview
 計分是指對搜尋結果中傳回的每個項目所做的搜尋分數計算。 分數是某個項目在目前搜尋作業的內容中有何相關性的指標。 分數越高，該項目的相關性就愈高。 在搜尋結果中，項目會根據為每個項目計算的搜尋分數由高至低排序。
 
 Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評分設定檔自訂計算方式。 評分設定檔可讓您更佳地控制搜尋結果中的項目排名。 舉例來說，您可能想根據營收潛力提升某些項目、亦或是提升新項目或庫存過久的項目。
@@ -70,9 +64,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 按一下 [範例](#example) ，可檢閱更多評分設定檔的詳細範例。
 
-<a id="what-is-default-scoring" class="xliff"></a>
-
-## 什麼是預設計分？
+## <a name="what-is-default-scoring"></a>什麼是預設計分？
 計分會計算排名排序的結果集中每個項目的搜尋分數。 搜尋結果集中的每個項目會被指派一個搜尋分數，然後從最高排名到最低。 具有較高分數的項目會傳回給應用程式。 依預設會傳回前 50 名，但您可以使用 `$top` 參數，以傳回較少或更多的項目數目 (單一回應中最多 1000 個)。
 
 根據預設，搜尋分數會根據資料和查詢的統計屬性來計算。 Azure 搜尋服務會尋找包含查詢字串中的搜尋詞彙的文件 (部分或全部，視 `searchMode`而定)，優先列出包含多個搜尋詞彙執行個體的文件。 如果詞彙在資料主體間很少見，但在文件中很常見，搜尋分數會更高。 這種計算相關性的方法基礎稱為 TF-IDF 或 (term frequency-inverse document frequency)。
@@ -81,18 +73,14 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 搜尋分數值可以在整個結果集內重複。 例如，您可以有 10 個項目的分數為 1.2、20 個項目的分數為 1.0，20 個項目的分數為 0.5。 有多個命中具有相同的搜尋分數時，分數相同的項目並未定義順序，因此順序是不穩定的。 若再次執行查詢，您可能會發現項目的位置有所更換。 若有兩個項目的分數完全相同，則無法保證哪個項目先出現。
 
-<a id="when-to-use-custom-scoring" class="xliff"></a>
-
-## 使用自訂計分的時機
+## <a name="when-to-use-custom-scoring"></a>使用自訂計分的時機
 當預設排名行為不足以因應您的商業目標時，您應建立一或多個評分設定檔。 例如，您可以決定讓新增的項目具有較高的搜尋相關性。 同樣地，您可以讓某個欄位包含毛利率，或讓其他欄位指出潛在營收。 提高為企業帶來利益的命中率，是決定使用評分設定檔時的重要因素。
 
 此外也會透過評分設定檔實作以相關性為基礎的排序。 請考量您過去曾經使用、讓您依價格、日期、評等或相關性排序的搜尋結果頁面。 在 Azure 搜尋服務中，評分設定檔會啟用「相關性」選項。 相關性的定義由您控制，取決於商業目標和您要提供的搜尋經驗類型。
 
 <a name="example"></a>
 
-<a id="example" class="xliff"></a>
-
-## 範例
+## <a name="example"></a>範例
 如前所述，自訂計分是透過索引結構描述中定義的一或多個評分設定檔而實作的。
 
 此範例說明具有兩個評分設定檔 (`boostGenre`、`newAndHighlyRated`) 的索引結構描述。 任何以其中一個設定檔做為查詢參數而對此索引所做的查詢，都將使用該設定檔為結果集評分。
@@ -161,9 +149,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
     }
 
 
-<a id="workflow" class="xliff"></a>
-
-## 工作流程
+## <a name="workflow"></a>工作流程
 若要實作自訂的計分行為，請將評分設定檔新增至定義索引的結構描述。 一個索引內最多可以有 16 個評分設定檔 (請參閱[服務限制](search-limits-quotas-capacity.md))，但在任何特定查詢中您一次只能指定一個設定檔。
 
 請從本主題所提供的 [範本](#bkmk_template) 開始作業。
@@ -172,14 +158,10 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 評分設定檔的主體是從加權欄位和函數建構的。
 
-<a id="weights" class="xliff"></a>
-
-### Weights
+### <a name="weights"></a>Weights
 評分設定檔的 `weights` 屬性指定將相對權數指派給欄位的名稱值組。 在 [範例](#example)中，albumTitle、內容類型和 artistName 欄位分別會提升 1.5、5 和 2。 為何內容類型提升的程度遠比其他多？ 如果是對帶有同質性的資料進行搜尋 (如同 `musicstoreindex`中的 ’genre')，則相對加權可能需要較大的變異數。 例如，在 `musicstoreindex`中，'rock' 不僅以內容類型的形式出現，也出現在相同措詞的內容類型說明中。 如果您要讓類型的權數高於類型說明，則類型欄位需要更高的相對權數。
 
-<a id="functions" class="xliff"></a>
-
-### Functions
+### <a name="functions"></a>Functions
 函數是在特定內容需要額外計算時使用。 有效的函數類型 `freshness`、`magnitude`、`distance` 和 `tag`。 每個函數都有對其唯一的參數。
 
 * `freshness` 。 此函數僅適用於 datetime 欄位 (`Edm.DataTimeOffset`)。 請注意， `boostingDuration` 屬性只能用於有效函數。
@@ -187,9 +169,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 * `distance` 。 此函數僅適用於 `Edm.GeographyPoint` 欄位。
 * `tag` 。 此函數僅適用於 `Edm.String` 和 `Collection(Edm.String)` 欄位。
 
-<a id="rules-for-using-functions" class="xliff"></a>
-
-#### 使用函數的規則
+#### <a name="rules-for-using-functions"></a>使用函數的規則
 * 函數類型 (freshness、magnitude、distance、tag) 必須是小寫。
 * 函數不可包含 null 或空值。 明確而言，如果您包含欄位名稱，則必須加以設定。
 * 函數只能套用至可篩選的欄位。 請參閱[建立索引](search-api-2015-02-28-preview.md#CreateIndex)以了解更多有關可篩選欄位的相關資訊。
@@ -199,9 +179,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 <a name="bkmk_template"></a>
 
-<a id="template" class="xliff"></a>
-
-## 範本
+## <a name="template"></a>範本
 本節說明評分設定檔的語法與範本。 如需屬性的說明，請參閱下一節中的 [索引屬性參考](#bkmk_indexref) 。
 
     ...
@@ -256,9 +234,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 <a name="bkmk_indexref"></a>
 
-<a id="scoring-profile-property-reference" class="xliff"></a>
-
-## 評分設定檔屬性參考
+## <a name="scoring-profile-property-reference"></a>評分設定檔屬性參考
 > [!NOTE]
 > 評分函式只能套用至可篩選的欄位。
 >
@@ -290,9 +266,7 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 <a name="bkmk_interpolation"></a>
 
-<a id="set-interpolations" class="xliff"></a>
-
-## 設定內插補點
+## <a name="set-interpolations"></a>設定內插補點
 內插補點可讓您定義從範圍開始到範圍結束提升分數的增加斜率。 可用的內插補點如下：
 
 * `Linear`：對於在最大和最小範圍內的項目，套用至項目的提升將會已持續遞減的量執行。 線性是評分設定檔的預設插補。
@@ -300,14 +274,11 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 * `Quadratic`：相較於採用持續遞減提升的線性插補，二次方程式一開始會以較小的步調減少，等到接近結束範圍時，再以較大的間隔減少。 標記計分函數中不允許此插補選項。
 * `Logarithmic`：相較於採用持續遞減提升的線性插補，對數一開始會以較大的步調減少，等到接近結束範圍時，再以較小的間隔減少。 標記計分函數中不允許此插補選項。
 
-<a name="Figure1"></a>
- ![][1]
+<a name="Figure1"></a> ![][1]
 
 <a name="bkmk_boostdur"></a>
 
-<a id="set-boostingduration" class="xliff"></a>
-
-## 設定 boostingDuration
+## <a name="set-boostingduration"></a>設定 boostingDuration
 `boostingDuration` 是 freshness 函數的屬性。 您可以用它來設定要開始停止對特定文件進行提升的到期時間。 例如，若要在為期 10 天的促銷期間提升某個產品系列或品牌，您可以為這些文件指定 10 天的期間 "P10D"。 或者，若要提升下一週即將發生的事件，請指定 "-P7D"。
 
 `boostingDuration` 必須格式化為 XSD "dayTimeDuration" 值 (ISO 8601 持續時間值的限定子集)。 間隔的模式為： `[-]P[nD][T[nH][nM][nS]]`。
@@ -323,11 +294,10 @@ Azure 搜尋服務會使用預設計分來計算分數，但您可以透過評�
 
 如需更多範例，請參閱 [XML 結構描述：資料類型 (W3.org 網站)](http://www.w3.org/TR/xmlschema11-2/)。
 
-**另請參閱 MSDN 上的**
+**另請參閱 MSDN 上的** 
 [Azure 搜尋服務 REST API](http://msdn.microsoft.com/library/azure/dn798935.aspx) <br/>MSDN 上的 
 [建立索引 (Azure 搜尋服務 API)](http://msdn.microsoft.com/library/azure/dn798941.aspx)<br/>MSDN 上的 
 [將評分設定檔新增至搜尋索引](http://msdn.microsoft.com/library/azure/dn798928.aspx)<br/>
 
 <!--Image references-->
 [1]: ./media/search-api-scoring-profiles-2015-02-28-Preview/scoring_interpolations.png
-

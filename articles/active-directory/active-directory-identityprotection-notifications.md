@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ce3379d5b5e883c6601c40aca191e8b84e3ad8d3
-ms.openlocfilehash: 0170b5d2435f6e856478ee9e55ae26c626288f75
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/22/2016
-
+ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection 通知
 Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助您管理使用者風險和風險事件：
@@ -42,25 +41,24 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 * Identity Protection 中相關報告的連結
 
 <br>
-![補救](./media/active-directory-identityprotection-notifications/400.png "Remediation")
+![補救](./media/active-directory-identityprotection-notifications/400.png "補救")
 <br>
 
 您可以關閉每週精選文章電子郵件的傳送。
 <br><br>
-![使用者風險](./media/active-directory-identityprotection-notifications/62.png "User risks")
+![使用者風險](./media/active-directory-identityprotection-notifications/62.png "使用者風險")
 <br>
 
 **開啟相關的組態對話方塊**：
 
 1. 在 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。
    <br><br>
-   ![使用者風險原則](./media/active-directory-identityprotection-notifications/401.png "User risk policy")
+   ![使用者的風險原則](./media/active-directory-identityprotection-notifications/401.png "使用者風險原則")
    <br>
 2. 在 [一般] 區段中，按一下 [通知]。
    <br><br>
-   ![使用者風險原則](./media/active-directory-identityprotection-notifications/405.png "User risk policy")
+   ![使用者的風險原則](./media/active-directory-identityprotection-notifications/405.png "使用者風險原則")
    <br>
 
 ## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-

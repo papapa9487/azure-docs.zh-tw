@@ -14,12 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
-translationtype: Human Translation
-ms.sourcegitcommit: 503f5151047870aaf87e9bb7ebf2c7e4afa27b83
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.lasthandoff: 03/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -110,7 +109,7 @@ ms.lasthandoff: 03/29/2017
 7. 按一下 [完成] 。
 8. 選取 [視窗] > [喜好設定] > [Java] > [已安裝的 JRE] > [新增]。
 9. 在 [Add JRE (新增 JRE)] 中，選取 [Standard VM (標準 VM)]。
-10. 按 [下一步] 。
+10. 按一下 [下一步] 。
 11. 在 [JRE Definition (JRE 定義)] 的 [JRE home (JRE 主資料夾)] 中按一下 [Directory (目錄)] 。
 12. 瀏覽至 [程式檔案] > [Java]，然後選取您先前安裝的 JDK。 請務必選取 JDK 做為 JRE。
 13. 在 [Installed JREs (安裝的 JRE)] 中選擇 **JDK**。 您的設定應該類似以下的螢幕擷取畫面。
@@ -180,4 +179,3 @@ USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜�
 [10]: ./media/search-get-started-java/AzSearch-Java-BuildProject1.PNG
 [11]: ./media/search-get-started-java/rogerwilliamsschool1.PNG
 [12]: ./media/search-get-started-java/AzSearch-Java-SelectProject.png
-

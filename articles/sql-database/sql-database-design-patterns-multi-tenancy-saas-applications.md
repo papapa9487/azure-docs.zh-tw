@@ -16,13 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式
 在本文中，您可以了解雲端環境中執行的多租用戶軟體即服務 (SaaS) 資料庫應用程式的需求和通用資料架構模式。 其中也說明您需要考量的因素，以及不同設計模式的利弊取捨。 Azure SQL Database 中的彈性集區和彈性工具可協助您符合特定需求，而不會影響其他目標。
@@ -169,5 +167,4 @@ SQL Database 中的彈性集區會結合租用戶隔離與租用戶資料庫之�
 ## <a name="questions-and-feature-requests"></a>問題和功能要求
 
 如有問題，您可在 [SQL Database 論壇](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)中找到我們。 在 [SQL Database 意見反應論壇](https://feedback.azure.com/forums/217321-sql-database/)中提出功能要求。
-
 

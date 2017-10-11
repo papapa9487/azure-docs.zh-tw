@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
 ms.openlocfilehash: d6d3fa7aa0e8b2462b3a6b4b66d3d87ab5535314
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 匯入和匯出 DNS 區域檔案 
 
 本文會引導您了解如何使用 Azure CLI 1.0 匯入和匯出 Azure DNS 的 DNS 區域檔案。
@@ -219,4 +217,3 @@ azure network dns zone export [options] <resource group> <zone name> <zone file 
     ```azurecli
     azure network dns zone export myresourcegroup contoso.com contoso.com.txt
     ```
-

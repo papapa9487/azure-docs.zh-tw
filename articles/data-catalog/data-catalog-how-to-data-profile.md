@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1d825277b63e00d93136161d50d780daa95ea8a7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 8f4174f0ed74706b8275c8b1f0a62753f2834fa2
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="data-profile-data-sources"></a>對資料來源進行資料分析
 ## <a name="introduction"></a>簡介
@@ -93,4 +92,3 @@ ms.lasthandoff: 11/17/2016
 ## <a name="see-also"></a>另請參閱
 * [如何註冊資料來源](data-catalog-how-to-register.md)
 * [開始使用 Azure 資料目錄](data-catalog-get-started.md)
-

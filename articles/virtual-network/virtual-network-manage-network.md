@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -199,4 +198,3 @@ ms.lasthandoff: 08/15/2017
 - 若要篩選虛擬網路之間的網路流量，請參閱[建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)。
 - 若要讓兩個虛擬交換器對等互連，請參閱[建立虛擬網路對等互連](virtual-network-create-peering.md#portal)。
 - 若要了解用於將虛擬網路連線到內部部署網路的選項，請參閱[關於 VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams)。
-

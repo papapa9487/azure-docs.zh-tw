@@ -1,5 +1,4 @@
 ---
-
 title: "取得 Azure Active Directory B2B 共同作業的支援 | Microsoft Docs"
 description: "什麼是 Azure Active Directory B2B 共同作業的支援體驗？"
 services: active-directory
@@ -16,16 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: ce4731966baefa76b72e5a1a065c06379fac065d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-
 # <a name="getting-support-for-b2b-collaboration"></a>取得 B2B 共同作業的支援
 
 您已詳細閱讀文件，您的操作都正確，但仍然無法正常運作嗎？ 開啟支援票證 (需有支援方案)：
@@ -47,4 +42,3 @@ ms.lasthandoff: 05/26/2017
   ![支援票證問題描述](media/active-directory-b2b-support/problem-description.png)
 
 3. 若要讓支援人員與您連絡以進行疑難排解，請新增您的連絡人資訊。
-

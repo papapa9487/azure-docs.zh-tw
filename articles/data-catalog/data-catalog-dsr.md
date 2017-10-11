@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 1ef3903bc4c401988c0f8b27dc9f9f0f3ec99466
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: d6867c73bc6ea3c238cceef8a68466d451f3365c
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure 資料目錄中支援的資料來源
 
 您可以使用公用 API 或 Click Once 註冊工具，或是直接在「Azure 資料目錄」Web 入口網站中手動輸入資訊，來發佈中繼資料。 下表摘要說明現今目錄支援的所有資料來源，以及每個資料來源適用的發佈功能。 此外，也列出每個資料來源可以從我們的入口網站「開啟」體驗啟動的外部資料工具。 第二個表格包含每個資料來源連線屬性的較技術性規格。
@@ -980,4 +978,3 @@ ms.lasthandoff: 07/08/2017
       </td>
     </tr>
 </table>
-

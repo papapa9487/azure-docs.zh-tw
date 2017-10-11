@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 0d2ff3ce90c355ba63f3fb66982baa621091ae6e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 3edfd34d368228be32afef48688739639a3b03ed
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>在 SQL 資料倉儲中分割資料表
 > [!div class="op_single_selector"]
@@ -376,4 +374,3 @@ DROP TABLE #partitions;
 
 
 <!-- Other web references -->
-

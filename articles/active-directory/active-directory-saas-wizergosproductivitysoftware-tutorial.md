@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 2d8d925f80830a0d7047e9567fdd413af2e8c5c3
 ms.openlocfilehash: 73b3bc05aeb337c12acb7e47c0dbebe6d0196530
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>教學課程：Azure Active Directory 與 Wizergos Productivity Software 整合
 本教學課程旨在說明如何整合 Wizergos Productivity Software 與 Azure Active Directory (Azure AD)。
@@ -156,7 +155,7 @@ Wizergos Productivity Software 與 Azure AD 整合提供下列優點：
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_05.png) 
   1. 針對 [使用者類型]，選取 [您組織中的新使用者]。
   2. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
-  3. 按 [下一步] 。
+  3. 按一下 [下一步] 。
 6. 在 [使用者設定檔]  對話方塊頁面上，執行下列步驟：
    
    ![建立 Azure AD 測試使用者](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_06.png)
@@ -164,7 +163,7 @@ Wizergos Productivity Software 與 Azure AD 整合提供下列優點：
   2. 在 [姓氏] 文字方塊中，輸入 **Simon**。
   3. 在 [顯示名稱] 文字方塊中，輸入 **Britta Simon**。
   4. 在 [角色] 清單中選取 [使用者]。
-  5. 按 [下一步] 。
+  5. 按一下 [下一步] 。
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
    
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/create_aaduser_07.png)
@@ -224,4 +223,3 @@ Wizergos Productivity Software 與 Azure AD 整合提供下列優點：
 [203]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_general_205.png
-

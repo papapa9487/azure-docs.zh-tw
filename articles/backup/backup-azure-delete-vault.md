@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: ae4a73d12898c62fe2c5cf3683bc7c1c8c845fdf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務保存庫。 先是備份保存庫。 然後是復原服務保存庫，以支援擴充的 Resource Manager 部署。 由於擴充的功能和資訊相依性必須儲存在保存庫中，刪除備份或復原服務保存庫可能會造成混淆。 此文章說明如何在傳統入口網站和 Azure 入口網站中刪除保存庫。  
@@ -203,7 +202,7 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
 
   ![選取 Windows Server](./media/backup-azure-delete-vault/select-windows-server.png)
 
-6. 在索引標籤清單中，按一下 [儀表板]  以開啟該索引標籤。 請確認沒有任何已註冊的伺服器或雲端中受保護的 Azure 虛擬機器。 此外，也確認儲存體中沒有資料。 按一下 [刪除]  來刪除保存庫。
+6. 在索引標籤清單中，按一下 [儀表板]  以開啟該索引標籤。請確認沒有任何已註冊的伺服器或雲端中受保護的 Azure 虛擬機器。 此外，也確認儲存體中沒有資料。 按一下 [刪除]  來刪除保存庫。
 
     ![刪除備份資料](./media/backup-azure-delete-vault/classic-portal-list-of-tabs-dashboard.png)
 
@@ -227,4 +226,3 @@ Azure 備份服務有兩種類型的保存庫：備份保存庫和復原服務�
 5. 若要刪除清單中的伺服器，以滑鼠右鍵按一下伺服器的名稱，然後按一下 [刪除] 。
     [刪除]  刀鋒視窗隨即開啟。
 6. 在 [刪除]  刀鋒視窗中，提供伺服器的名稱。 如果名稱很長，您可以從的備份管理伺服器的清單中複製並貼上。 然後按一下 [刪除] 。  
-

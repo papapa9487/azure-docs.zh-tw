@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f37fd4de0d6895f55508d1a51d981a047be15031
 ms.openlocfilehash: 260a23003d705e6598da8c51bb5a96f2539a0014
-ms.lasthandoff: 03/01/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>透過 StorSimple 裝置管理員變更 StorSimple Virtual Array 裝置系統管理員密碼
 
@@ -78,5 +78,4 @@ ms.lasthandoff: 03/01/2017
 
 ## <a name="next-steps"></a>後續步驟
 了解如何 [管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
-
 

@@ -9,14 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/20/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 49d1a893f4c7c7d99bf30ac7f7665c05019b02f4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3fbdb7741481bd3620466c3489d3609f9ea6961f
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 PostgreSQL 的 Azure 資料庫中備份和還原伺服器
 
 ## <a name="backup-happens-automatically"></a>備份會自動進行
@@ -45,8 +43,8 @@ ms.lasthandoff: 05/10/2017
 
    ![適用於 PostgreSQL 的 Azure 資料庫 - 還原資訊 ](./media/postgresql-howto-restore-server-portal/3_restore.png)
   - **還原點**：選取在變更伺服器之前的時間點
-  - **目標伺服器**︰提供新的伺服器名稱作為還原目的地
-  - **位置**︰您無法選取區域，依預設與來源伺服器相同
+  - **目標伺服器**︰提供要作為還原目的地的新伺服器名稱
+  - **位置**︰您無法選取區域，預設是與來源伺服器相同的區域
   - **定價層**︰還原伺服器時，您無法變更此值。 它與來源伺服器相同。 
 
 5. 按一下 [確定] 將伺服器還原至某個時間點。 
@@ -55,4 +53,3 @@ ms.lasthandoff: 05/10/2017
 
 ## <a name="next-steps"></a>後續步驟
 - [「適用於 PostgreSQL 的 Azure 資料庫」的連線庫](concepts-connection-libraries.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>為 StorSimple 裝置設定多重路徑 I/O
 Microsoft 為 Windows Server 中的多重路徑 I/O (MPIO) 功能建立支援，協助建立高可用性、容錯的 SAN 組態。 MPIO 使用備援實體路徑元件 — 配接器、纜線以及交換器 — 以在伺服器與存放裝置之間建立邏輯路徑。 如果元件故障而導致邏輯路徑失敗，多重路徑邏輯使用替代的 I/O 路徑，讓應用程式仍然可以存取其資料。 此外，依照您的設定，MPIO 也能藉由重新平衡所有路徑的負載來改善效能。 如需詳細資訊，請參閱 [MPIO 概觀](https://technet.microsoft.com/library/cc725907.aspx "MPIO 概觀 and features")。  
@@ -54,7 +53,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
    
    * 在 [開始之前] 頁面中按 [下一步]。
    * 在 [選取安裝類型] 頁面上，接受 [角色型或功能型安裝] 的預設值。 按一下 [伺服器管理員] &gt; [儀表板] &gt; [新增角色及功能] 。![新增角色及功能精靈 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   * 在 [選取目的地伺服器] 頁面上，選擇 [從伺服器集區選取伺服器]。 應該會自動探索主機伺服器。 按 [下一步] 。
+   * 在 [選取目的地伺服器] 頁面上，選擇 [從伺服器集區選取伺服器]。 應該會自動探索主機伺服器。 按一下 [下一步] 。
    * 在 [選取伺服器角色] 頁面上，按 [下一步]。
    * 在 [選取功能] 頁面上，選取 [多重路徑 I/O]，然後按 [下一步]。![新增角色及功能精靈 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
    * 在 [確認安裝選項] 頁面上，確認選取項目，然後選取 [需要時自動重新啟動目的地伺服器]，如下所示。 按一下 [安裝]。![新增角色及功能精靈 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
@@ -169,5 +168,4 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [使用 StorSimple Manager 服務修改 StorSimple 裝置設定](storsimple-modify-device-config.md)。
-
 

@@ -16,7 +16,7 @@
 
     ![StorSimple 最小裝置設定網路介面](./media/storsimple-complete-minimum-device-setup-u1/HCS_MinDeviceSetupNetworkInterfaces2-include.png)
 
-    適用於控制站的固定 IP 位址可用來為裝置提供更新，因此，固定的 IP 必須可路由傳送，而且能夠連線到網際網路。 您可以檢查您的固定控制器 IP 是否可路由傳送，方法是使用 [Test-HcsmConnection][Test] Cmdlet。 下列範例會顯示固定控制器 IP 路由傳送至網際網路，並且可以存取 Microsoft Update 伺服器。 
+    適用於控制站的固定 IP 位址可用來為裝置提供更新，因此，固定的 IP 必須可路由傳送，而且能夠連線到網際網路。 您可以檢查固定的控制器 IP 是否可路由傳送，方法是使用 [Test-HcsmConnection][Test] Cmdlet。 下列範例會顯示固定控制器 IP 路由傳送至網際網路，並且可以存取 Microsoft Update 伺服器。 
 
      ![Test-HcsmConnection 顯示可路由傳送 IP](./media/storsimple-complete-minimum-device-setup-u1/Test-HcsmConnectionOutputRegisteredDevice.png)
 

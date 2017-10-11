@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 91ff3c96e4d7928131eba83c0e8c1951782447be
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>使用 C&#x23; 建立 Azure IoT Edge 模組
 
@@ -386,5 +385,4 @@ ms.lasthandoff: 07/04/2017
 
 >[!IMPORTANT]
 不建議使用 `Ctrl` + `C` 來終止 `IoT Edge` 閘道應用程式 (即 **gw.exe**)。 因為此動作可能會造成程序異常終止。
-
 

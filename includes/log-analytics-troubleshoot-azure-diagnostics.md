@@ -6,11 +6,11 @@
 
 若要註冊資源提供者，請在 Azure 入口網站中執行下列步驟：
 
-1.    在左側的導覽窗格中，按一下 [訂用帳戶]。
-2.    選取錯誤訊息中識別的訂用帳戶
-3.    按一下 [資源提供者]
-4.    尋找 Microsoft.insights 提供者
-5.    按一下 [註冊] 連結
+1.  在左側的導覽窗格中，按一下 [訂用帳戶]。
+2.  選取錯誤訊息中識別的訂用帳戶
+3.  按一下 [資源提供者]
+4.  尋找 Microsoft.insights 提供者
+5.  按一下 [註冊] 連結
 
 ![註冊 microsoft.insights 資源提供者](./media/log-analytics-troubleshoot-azure-diagnostics/log-analytics-register-microsoft-diagnostics-resource-provider.png)
 

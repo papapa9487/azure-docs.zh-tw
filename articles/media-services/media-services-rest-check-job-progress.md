@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 23b6c0f7abd40d67792d45e4ea0fae02efeae861
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.openlocfilehash: fea4383e81f3ca21955252cf1d573f1b347b5a38
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="how-to-check-job-progress"></a>作法：檢查工作進度
 > [!div class="op_single_selector"]
@@ -79,4 +78,3 @@ ms.lasthandoff: 08/12/2017
 ## <a name="see-also"></a>另請參閱
 
 [媒體服務作業 REST API 概觀](media-services-rest-how-to-use.md)
-

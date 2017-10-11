@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: 8a7481b71df5ca407dbed5da3d3cc26991504c82
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-maxxpoint"></a>教學課程：Azure Active Directory 與 MaxxPoint 整合
 
@@ -143,7 +142,7 @@ ms.lasthandoff: 04/18/2017
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在「Azure 入口網站」的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-maxxpoint-tutorial/create_aaduser_01.png) 
 

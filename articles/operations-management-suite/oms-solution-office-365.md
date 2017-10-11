@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的 Office 365 解決方案
 
@@ -305,4 +304,3 @@ Office 365 解決方案不會從任何 [OMS 代理程式](../log-analytics/log-a
 * 使用 [Log Analytics](../log-analytics/log-analytics-log-searches.md) 中的記錄搜尋，檢視詳細的更新資料。
 * [建立自己的儀表板](../log-analytics/log-analytics-dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
 * [建立警示](../log-analytics/log-analytics-alerts.md)來讓系統主動通知您重要的 Office 365 活動。  
-

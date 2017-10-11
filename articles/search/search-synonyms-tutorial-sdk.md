@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 03/31/2017
 ms.author: heidist
-translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
 ms.openlocfilehash: 014959ed471f796d2184f0f8ff10d15cdc8a2ec6
-ms.lasthandoff: 04/17/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonym-preview-c-tutorial-for-azure-search"></a>Azure 搜尋服務的同義字 (預覽) C# 教學課程
 
@@ -167,4 +167,3 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 * 檢閱[如何在 Azure 搜尋服務中使用同義字](search-synonyms.md)
 * 檢閱[同義字 REST API 文件](https://aka.ms/rgm6rq)
 * 瀏覽 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 及 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 參考文章。
-

@@ -16,13 +16,11 @@ ms.workload: data-services
 ms.custom: create
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5d3bcc3c1434b16279778573ccf3034f9ac28a4d
-ms.openlocfilehash: 836d72e32e54ecef9691b55214766a1fc3ff9701
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/07/2016
-
-
+ms.openlocfilehash: 10d8aa2b3ab8d7d8a9b91e95ffccf03faa89d237
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-sql-data-warehouse-database-by-using-transact-sql-tsql"></a>使用 Transact-SQL (TSQL) 建立 SQL 資料倉儲資料庫
 > [!div class="op_single_selector"]
@@ -38,7 +36,7 @@ ms.lasthandoff: 12/07/2016
 若要開始，您需要：
 
 * **Azure 帳戶**︰請瀏覽 [Azure 免費試用][Azure Free Trial]或 [MSDN Azure 點數][MSDN Azure Credits]以建立帳戶。
-* **Azure SQL Server**︰如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure SQL Database 邏輯伺服器][Create an Azure SQL Database logical server with the Azure Portal]或[使用 PowerShell 建立 Azure SQL Database 邏輯伺服器][Create an Azure SQL Database logical server with PowerShell]。
+* **Azure SQL server**： 請參閱 [透過 Azure 入口網站建立 Azure SQL Database 邏輯伺服器] [透過 Azure 入口網站建立 Azure SQL Database 邏輯伺服器] 或 [使用 PowerShell 建立 Azure SQL Database 邏輯伺服器] [建立 Azure SQL使用 PowerShell 邏輯伺服器的資料庫] 如需詳細資訊。
 * **資源群組**︰使用與 Azure SQL Server 相同的資源群組，或參閱[如何建立資源群組][how to create a resource group]。
 * **執行 T-SQL 的環境**︰您可以使用 [Visual Studio][Installing Visual Studio and SSDT]、[sqlcmd][sqlcmd] 或 [SSMS][SSMS] 執行 T-SQL。
 
@@ -89,4 +87,3 @@ sqlcmd -S <Server Name>.database.windows.net -I -U <User> -P <Password> -Q "CREA
 [SQL Data Warehouse pricing]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Azure Free Trial]: https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F
 [MSDN Azure Credits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-

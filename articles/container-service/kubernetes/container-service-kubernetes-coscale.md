@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: f894191baced710fc0f5a8c8692df98033341a48
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>使用 CoScale 監視 Azure Container Service Kubernetes 叢集
 
 在本文中，我們會示範如何部署 [CoScale](https://www.coscale.com/) 代理程式，監視 Azure Container Service 中 Kubernetes 叢集的所有節點和容器。 您需要 CoScale 帳戶以進行這項設定。 
@@ -89,5 +87,4 @@ CoScale 代理程式會自動部署在叢集中的新機器上。 新版本發�
 ## <a name="next-steps"></a>後續步驟
 
 如需 CoScale 監視解決方案的詳細資訊，請參閱 [CoScale 文件](http://docs.coscale.com/)和[部落格](https://www.coscale.com/blog)。 
-
 

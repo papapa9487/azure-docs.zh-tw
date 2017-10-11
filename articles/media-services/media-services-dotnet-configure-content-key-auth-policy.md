@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako;mingfeiy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6d6b7b1051a22bbc865b237905f8df84e832231
-ms.openlocfilehash: 3dcd45307716b7343fbac00e083e8f26c9eb967f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/11/2017
-
+ms.openlocfilehash: 75dd9107dca215a0b31db3d44bada69210fe9ac6
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>動態加密：設定內容金鑰授權原則
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -150,7 +149,7 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 �
       <xs:element name="SymmetricVerificationKey" nillable="true" type="tns:SymmetricVerificationKey" />
     </xs:schema>
 
-設定 **token** 限制原則時，您必須指定主要**驗證金鑰**、**簽發者**和**對象**參數。 **主要驗證金鑰**包含簽署權杖使用的金鑰，**簽發者**是發行權杖的安全權杖服務。 **對象** (有時稱為**範圍**) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。 
+設定 **token** 限制原則時，您必須指定主要**驗證金鑰**、**簽發者**和**對象**參數。 **主要驗證金鑰**包含簽署權杖使用的金鑰，**簽發者**是發行權杖的安全性權杖服務。 **對象** (有時稱為**範圍**) 描述權杖或權杖獲授權存取之資源的用途。 媒體服務金鑰傳遞服務會驗證權杖中的這些值符合在範本中的值。 
 
 使用 **Media Services SDK for .NET** 時，您可以使用 **TokenRestrictionTemplate** 類別來產生限制權杖。
 下列範例會建立具有 token 限制的授權原則。 在此範例中，用戶端必須提出權杖，權杖中包含簽署金鑰 (VerificationKey)、權杖簽發者和必要的宣告。
@@ -426,5 +425,4 @@ Open 限制表示系統將會傳送金鑰給提出金鑰要求的任何人。 �
 
 ## <a name="next-step"></a>後續步驟
 現在，您已設定內容金鑰授權原則，請移至 [如何設定資產傳遞原則](media-services-dotnet-configure-asset-delivery-policy.md) 主題。
-
 

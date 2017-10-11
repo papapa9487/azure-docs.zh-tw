@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: cd777291a1321eabf4efe0d7b9b101f932d9398b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>如何使用 FreeBSD 的「封包篩選器」在 Azure 中建立安全防火牆
 本文介紹如何透過 Azure Resource Manager 範本，針對常見的 Web 伺服器案例，使用 FreeBSD 的「封包篩選器」來部署 NAT 防火牆。
 
@@ -62,4 +60,3 @@ az network public-ip list --resource-group myResourceGroup
 如果您想要了解 Azure 中的 FreeBSD 方案，請參閱[Azure 上的 FreeBSD 簡介](freebsd-intro-on-azure.md)。
 
 如果您想要深入了解 PF，請參考 [FreeBSD 手冊 (英文)](https://www.freebsd.org/doc/handbook/firewalls-pf.html) 或 [PF 使用者指南 (英文)](https://www.freebsd.org/doc/handbook/firewalls-pf.html)。
-

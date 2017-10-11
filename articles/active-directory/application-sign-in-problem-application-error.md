@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c04cfea4c6c0a8211db2579eccc0c05a93cc0a35
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="error-on-an-applications-page-after-signing-in"></a>登入後應用程式頁面的錯誤
 
 在此案例中，Azure AD 已將使用者登入，但應用程式顯示不允許使用者成功完成登入流程的錯誤。 在此案例中，應用程式不接受由 Azure AD 發出的回應。
@@ -159,4 +157,3 @@ Azure AD 會根據由應用程式以 SAML AuthRequest 選取的值或要求的�
 
 ## <a name="next-steps"></a>後續步驟
 [如何偵錯 SAML 型單一登入 Azure Active Directory 中的應用程式](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
-

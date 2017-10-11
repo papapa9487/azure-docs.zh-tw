@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: 75028b4fbda43d90f56690a33c7eb624fce049c8
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>調查使用方式資料並且與 Application Insights 中的互動式活頁簿共用
 
 活頁簿將 [Azure Application Insights](app-insights-overview.md) 資料視覺效果、[分析查詢](app-insights-analytics.md) 及文字合併為互動式文件。 活頁簿可以由具有相同 Azure 資源存取權的其他小組成員編輯。 這表示用來建立活頁簿的查詢和控制項都可供讀取活頁簿的其他人使用，使其易於探索、擴充和檢查錯誤。
@@ -119,7 +117,7 @@ ms.lasthandoff: 08/17/2017
 ## <a name="next-steps"></a>後續步驟
 
 ## <a name="next-steps"></a>後續步驟
-- 若要啟用使用體驗，請開始傳送[「自訂事件」](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或[「頁面檢視」](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要啟用使用體驗，請開始傳送「自訂事件」[](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或「頁面檢視」[](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
 - 如果您已傳送自訂事件或頁面檢視，請探索「使用量工具」，以了解使用者如何使用您的服務。
     - [使用者、工作階段、事件](app-insights-usage-segmentation.md)
     - [漏斗圖](usage-funnels.md)
@@ -127,4 +125,3 @@ ms.lasthandoff: 08/17/2017
     - [使用者流程](app-insights-usage-flows.md)
     - [新增使用者內容](app-insights-usage-send-user-context.md)
     
-

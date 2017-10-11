@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 763ae02d1196a924bbf89e423871af2ec22e9e6c
-ms.openlocfilehash: 84f582e8d767466ce9dec83203ec78047648caea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: f6bc8671410dc7015a8d2a4bea1ba11f9ae526c3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>還原 Azure SQL 資料倉儲 (入口網站)
 > [!div class="op_single_selector"]
@@ -114,4 +112,3 @@ ms.lasthandoff: 02/16/2017
 
 <!--Other Web references-->
 [Azure portal]: https://portal.azure.com/
-

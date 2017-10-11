@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>建立 Azure Resource Manager 範本的最佳做法
 下列指導方針可協助您建立可靠又容易使用的 Azure Resource Manager 範本。 指導方針僅為建議。 除了另有註明外，它們並非必要項目。 您的案例可能需要下列其中一個方法或範例的變化。
@@ -396,5 +395,4 @@ ms.lasthandoff: 08/21/2017
 * 如需設計虛擬機器解決方案架構的指引，請參閱[在 Azure 中執行 Windows VM](../guidance/guidance-compute-single-vm.md) 和[在 Azure 中執行 Linux VM](../guidance/guidance-compute-single-vm-linux.md)。
 * 如需有關設定儲存體帳戶的指引，請參閱 [Azure 儲存體效能與延展性檢查清單](../storage/common/storage-performance-checklist.md)。
 * 若要深入了解企業如何使用 Resource Manager 有效地管理訂閱，請參閱 [Azure 企業 Scaffold：規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
-
 

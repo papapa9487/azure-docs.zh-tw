@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 298e0218c51385caa2de6a684ac40503fc07f5fa
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 64675c51abf80daa3a55220f910aa8fdee1042ca
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
 您可以在 [Application Insights](app-insights-overview.md) 中自動設定[警示](app-insights-alerts.md)的組態。
@@ -140,4 +139,3 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 * [從範本建立 Application Insights 和 Web 測試資源](app-insights-powershell.md)
 * [自動化 Microsoft Azure 診斷與 Application Insights 的耦合](app-insights-powershell-azure-diagnostics.md)
 * [自動回應至警示](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/03/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 51858d6daca27a75e7f87af507600c7a193c874f
 ms.openlocfilehash: c4e8ceee4104c3d3a6c3e6b79322ba1cf8463b22
-ms.lasthandoff: 02/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-phone-silverlight-sdk-overview-for-azure-mobile-engagement"></a>適用於 Azure Mobile Engagement 的 Windows Phone Silverlight SDK 概觀
 從這裡開始了解在 Windows Phone Silverlight 應用程式中整合 Azure Mobile Engagement 的細節。 如果您想要先試用一下，請務必先完成我們的 [15 分鐘教學課程](mobile-engagement-windows-phone-get-started.md)。
@@ -53,5 +52,4 @@ SDK 所產生的主控台記錄檔現在可以啟用/停用/篩選。 若要自�
 
 ### <a name="upgrade-from-older-versions"></a>從舊版升級
 請參閱 [升級程序](mobile-engagement-windows-phone-upgrade-procedure.md)
-
 

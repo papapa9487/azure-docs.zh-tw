@@ -15,22 +15,20 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 05/31/2016
 ms.author: LADocs; stepsic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ae5ce7d16ac9ed3a06c313ff3c48e8cbf79c54
-ms.openlocfilehash: f1bf19e6dfbcf187635730a53c93162244c17c6a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 35d7a56d5607dcc18a4407c65b92962d3d0dcd1d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps 的結構描述更新 - 2015 年 8 月 1 日預覽
 
 這個新的結構描述和 Azure Logic Apps 的 API 版本包含重要的改良功能，讓邏輯應用程式更可靠且更輕鬆地使用︰
 
-*    **APIApp** 動作類型更新為新的 [**APIConnection**](#api-connections) 動作類型。
-*    **Repeat** 重新命名為 [**Foreach**](#foreach) 。
-*    不再需要 [**HTTP 接聽程式** API 應用程式](#http-listener)。
-*    呼叫子工作流程時使用[新的結構描述](#child-workflows)。
+*   **APIApp** 動作類型更新為新的 [**APIConnection**](#api-connections) 動作類型。
+*   **Repeat** 重新命名為 [**Foreach**](#foreach) 。
+*   不再需要 [**HTTP 接聽程式** API 應用程式](#http-listener)。
+*   呼叫子工作流程時使用[新的結構描述](#child-workflows)。
 
 <a name="api-connections"></a>
 ## <a name="move-to-api-connections"></a>移至 API 連線
@@ -480,4 +478,3 @@ HTTP 接聽程式功能現在是內建的。 因此您不再需要部署 HTTP �
 ## <a name="coming-soon-enterprise-integration-apis"></a>敬請期待：企業整合 API
 
 我們還沒有企業整合 API 的受管理版本，像是 AS2。 同時，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 
-

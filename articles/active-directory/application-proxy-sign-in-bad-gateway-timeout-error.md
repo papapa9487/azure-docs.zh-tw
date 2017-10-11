@@ -13,23 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 7c4e2f084571a2146e5013f24bd5da55319118af
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 78ff8763a461162cbcfa04c6a86123973271928a
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
-<a id="cant-access-this-corporate-application-error-when-using-an-application-proxy-application" class="xliff"></a>
-
-# 使用 Application Proxy 應用程式時發生「無法存取此企業應用程式」錯誤
+# <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>使用 Application Proxy 應用程式時發生「無法存取此企業應用程式」錯誤
 
 這篇文章可協助您為在 Azure AD Application Proxy 應用程式上看到「無法存取此企業應用程式」錯誤時所面臨的常見問題疑難排解。
 
-<a id="overview" class="xliff"></a>
-
-## 概觀
+## <a name="overview"></a>概觀
 當您看見此錯誤時，頁面也會顯示狀態碼。 狀態碼可能代表下列其中一種狀態：
 
 -   **閘道逾時**：Application Proxy 服務會無法連線到連接器。 這通常表示連接器指派、連接器本身，或連接器相關的網路規則有問題。
@@ -44,16 +38,12 @@ ms.lasthandoff: 07/06/2017
 
 如需如何為這些錯誤的根本原因疑難排解的詳細資訊，以及建議的修正程式詳細資料，請參閱下方對應的章節。
 
-<a id="gateway-timeout-errors" class="xliff"></a>
-
-## 閘道逾時錯誤
+## <a name="gateway-timeout-errors"></a>閘道逾時錯誤
 
 當服務嘗試連線到連接器時，若無法在逾時時間範圍內連線，即發生閘道逾時。 這通常是因為指派至連接器群組的應用程式沒有運作中的連接器，或連接器所需的某些連接埠並未開啟所造成的。
 
 
-<a id="bad-gateway-errors" class="xliff"></a>
-
-## 閘道錯誤
+## <a name="bad-gateway-errors"></a>閘道錯誤
 
 不正確的閘道是指連接器無法連線到後端應用程式。 請確定您所發佈的是正確的應用程式。 造成此錯誤的常見過失︰
 
@@ -65,9 +55,7 @@ ms.lasthandoff: 07/06/2017
 
 -   後端應用程式有問題
 
-<a id="forbidden-errors" class="xliff"></a>
-
-## 禁止錯誤
+## <a name="forbidden-errors"></a>禁止錯誤
 
 如果您看到禁止錯誤，則表示使用者尚未指派至該應用程式。 這可能發生在 Azure Active Directory 或後端應用程式。
 
@@ -75,15 +63,11 @@ ms.lasthandoff: 07/06/2017
 
 如果您確認使用者已指派至 Azure 中的應用程式，請在後端應用程式中檢查使用者組態。 如果您使用的是 Kerberos 限制委派/整合式 Windows 驗證，您可以在我們的 [KCD 疑難排解] 頁面上看到部分指導方針。
 
-<a id="check-the-applications-internal-url" class="xliff"></a>
-
-## 檢查應用程式的內部 URL
+## <a name="check-the-applications-internal-url"></a>檢查應用程式的內部 URL
 
 第一個快速步驟就是反覆檢查內部 URL 並加以修正，做法是透過 [企業應用程式] 開啟應用程式，然後選取 [Application Proxy] 功能表。 確認內部 URL 正確無誤，亦即從您的內部網路用於存取應用程式的 URL。
 
-<a id="check-the-application-is-assigned-to-a-working-connector-group" class="xliff"></a>
-
-## 確認應用程式已指派至運作中的連接器群組
+## <a name="check-the-application-is-assigned-to-a-working-connector-group"></a>確認應用程式已指派至運作中的連接器群組
 
 若要確認應用程式已指派至運作中的連接器群組：
 
@@ -103,23 +87,17 @@ ms.lasthandoff: 07/06/2017
 
 在使用這些步驟確認應用程式已指派至有運作中連接器的群組後，請再次測試應用程式。 如果仍然無法運作，繼續進行下一節。
 
-<a id="check-all-required-ports-are-whitelisted" class="xliff"></a>
-
-## 檢查所有必要連接埠皆在允許清單中
+## <a name="check-all-required-ports-are-whitelisted"></a>檢查所有必要連接埠皆在允許清單中
 
 若要確認所有必要連接埠皆已開啟，請參閱我們有關開啟連接埠的文件。 如果所有必要連接埠皆已開啟，請移至下一節。
 
-<a id="check-for-other-connector-errors" class="xliff"></a>
-
-## 檢查有無其他連接器錯誤
+## <a name="check-for-other-connector-errors"></a>檢查有無其他連接器錯誤
 
 如果上述方法都無法解決此問題，下一步就是找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors)中看見一些常見錯誤。 
 
 您也可以直接查看連接器記錄檔，以找出任何錯誤。 我們的錯誤訊息中有許多能夠分享更具體的修正程式建議。 若要了解如何檢視記錄檔，請參閱[連接器文件](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood)。
 
-<a id="additional-resolutions" class="xliff"></a>
-
-## 其他解決方式
+## <a name="additional-resolutions"></a>其他解決方式
 
 如果上述方法皆無法修正問題，有幾個不同的可能原因。 若要找出問題︰
 
@@ -131,8 +109,5 @@ ms.lasthandoff: 07/06/2017
 
 如果您可以從電腦連線到應用程式，請找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors)中看見一些常見錯誤。 您也可以直接查看連接器記錄檔，以找出任何錯誤。 我們的錯誤訊息中有許多能夠分享更具體的修正程式建議。 若要了解如何檢視記錄檔，請參閱[連接器文件](https://docs.microsoft.com/azure/active-directory/application-proxy-understand-connectors#under-the-hood)。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)
-

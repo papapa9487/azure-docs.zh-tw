@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 0ca1ccd273317d67537d31724d566625a4eb2c85
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL Database 存取控制
 為了提供安全性，SQL Database 會透過以下機制來控制存取：依 IP 位址限制連線的防火牆規則、要求使用者證明其身分識別的驗證機制，以及將使用者限制在特定動作和資料的授權機制。 
@@ -68,4 +67,3 @@ SQL Database 支援兩種驗證類型：
 - 若要了解使用者和登入，請參閱[管理登入](sql-database-manage-logins.md)。 
 - 關於主動式監視的討論，請參閱[資料庫稽核](sql-database-auditing.md)和 [SQL Database 威脅偵測](sql-database-threat-detection.md)。
 - 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。
-

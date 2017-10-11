@@ -13,21 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 3578684ac8c92ff195b19740b28ef9adebdc7309
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 6966cf145375bf3d830d476564c428502ae40fd4
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何為指定的 API 選取權限
 
 您可以在 [Azure 入口網站](https://portal.azure.com)尋找應用程式的驗證端點。
 
 -   瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 
--   從左側瀏覽窗格中，按一下 [Azure Active Directory]。
+-   從左方的瀏覽窗格，按一下 [Azure Active Directory]。
 
 -   按一下 [應用程式註冊]，然後選擇 [端點]。
 
@@ -37,4 +35,3 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>後續步驟
 [Azure Active Directory 開發人員指南](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)
-

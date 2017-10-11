@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: 43ab6a2f71ab51c50847b1ba5249f51c48e03fea
-ms.openlocfilehash: d6409f1eb87787e5e023aa53b7b264116c9d8026
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: 40a872ff310f48bfd543ac184fe7301b85b50258
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="loops-in-sql-data-warehouse"></a>SQL 資料倉儲中的迴圈
 SQL 資料倉儲支援 [WHILE][WHILE] 迴圈重複執行陳述式區塊。 只要指定的條件都成立，或者在程式碼使用 `BREAK` 關鍵字特別終止迴圈之前，這個情況都會繼續下去。 迴圈特別適用於取代 SQL 程式碼中定義的資料指標。 幸運的是，幾乎所有以 SQL 程式碼撰寫的資料指標都是向前快轉，並且只讀取多樣性。 因此，如果您發現自己必須將其取代， [WHILE] 迴圈是絕佳的替代方案。
@@ -86,4 +85,3 @@ DROP TABLE #tbl;
 
 
 <!--Other Web references-->
-

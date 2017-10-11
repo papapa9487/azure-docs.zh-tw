@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2015
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>在預備環境中測試您的解決方案範本供應項目
 預備環境代表將您的供應項目部署在私人的「沙箱」中，您可以在推送到生產環境之前在沙箱中測試與驗證其功能。 供應項目會出現在預備環境中，就如同客戶已部署該項目一樣。 您的供應項目必須經過認證才能推送至預備環境。
@@ -45,10 +45,4 @@ ms.openlocfilehash: da1fc4713fd1d832c7ba91226f72cbef63b241bc
 > 
 
 如需所有發行者工作的指南，請參閱 [快速入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md) 。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

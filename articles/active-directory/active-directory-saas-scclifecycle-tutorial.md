@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 0f8f9d03e8c35109b74088350ef1d68f6b823e8b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>教學課程：Azure Active Directory 與 SCC LifeCycle 整合
 
@@ -237,5 +236,4 @@ SCC LifeCycle 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-scclifecycle-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-scclifecycle-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-scclifecycle-tutorial/tutorial_general_203.png
-
 

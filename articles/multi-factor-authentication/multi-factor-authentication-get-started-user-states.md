@@ -15,14 +15,12 @@ ms.date: 06/26/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>如何要求使用者或群組使用雙步驟驗證
 
 可供您要求使用雙步驟驗證的方法有兩種。 第一個選項是為每個使用者啟用 Azure Multi-Factor Authentication (MFA)。 當您個別地為使用者啟用時，這些使用者永遠會執行雙步驟驗證 (但有一些例外，例如當他們從受信任的 IP 位址登入時，或如果他們開啟已記住的裝置功能)。 第二個選項是設定條件式存取原則，以在某些情況下要求使用雙步驟驗證。

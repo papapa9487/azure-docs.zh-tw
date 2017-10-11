@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: d1660c9ea528741ea02e6bbae7b1f8fd7afea0eb
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>教學課程：Azure Active Directory 與 Coupa 整合
 本教學課程的目的是要示範 Azure 與 Coupa 的整合。  
@@ -91,7 +90,7 @@ ms.lasthandoff: 02/17/2017
    1. 在 [登入 URL] 文字方塊中，輸入您的使用者用來登入 Coupa 應用程式的 URL (例如： “*http://company.Coupa.com*”)。
    2. 開啟您已下載的 Coupa 中繼資料檔案，然後複製 **AssertionConsumerService index/URL**。
    3. 在 [Coupa 回覆 URL] 文字方塊中，貼上 **AssertionConsumerService index/URL** 值。
-   4. 按 [下一步] 。
+   4. 按一下 [下一步] 。
 8. 在 [設定在 Coupa 單一登入] 頁面上，請按一下 [下載中繼資料] 來下載您的中繼資料，然後將檔案儲存在您的本機電腦上。
    
    ![設定單一登入](./media/active-directory-saas-coupa-tutorial/IC791905.png "設定單一登入")
@@ -143,7 +142,7 @@ ms.lasthandoff: 02/17/2017
 **若要指派使用者給 Coupa，請執行下列步驟：**
 
 1. 在 Azure 傳統入口網站中建立測試帳戶。
-2. 在 [Coupa] 應用程式整合頁面上，按一下 [指派使用者]。
+2. 在 * * Coupa * * 應用程式整合頁面上，按一下 **指派使用者**。
    
    ![指派使用者](./media/active-directory-saas-coupa-tutorial/IC791911.png "指派使用者")
 3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
@@ -151,5 +150,4 @@ ms.lasthandoff: 02/17/2017
    ![是](./media/active-directory-saas-coupa-tutorial/IC767830.png "是")
 
 如果要測試您的單一登入設定，請開啟存取面板。 如需 [存取面板] 的詳細資訊，請參閱 [存取面板簡介](active-directory-saas-access-panel-introduction.md)。
-
 

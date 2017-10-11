@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: fe776e24a4f78b389c6096694055b38befa3c419
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="traffic-manager-routing-methods"></a>流量管理員路由方法
 
 Azure 流量管理員支援四種流量路由方法，以決定如何將網路流量路由傳送至不同的服務端點。 流量管理員會將流量路由方法套用至它收到的每個 DNS 查詢。 流量路由方法決定 DNS 回應中傳回哪一個端點。
@@ -136,7 +134,6 @@ Azure 流量管理員支援四種流量路由方法，以決定如何將網路�
 [1]: ./media/traffic-manager-routing-methods/priority.png
 [2]: ./media/traffic-manager-routing-methods/weighted.png
 [3]: ./media/traffic-manager-routing-methods/performance.png
-
 
 
 

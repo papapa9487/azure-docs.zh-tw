@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/17/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: a74d767d57eb5ce2b3a716f9ba908a451f25f538
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="event-hubs-features-overview"></a>事件中樞功能概觀
 
 事件中樞是可調整的事件處理服務，它會擷取和處理大量的事件和資料，具有低延遲和高可靠性。 如需服務的高階概觀，請參閱[何謂事件中樞？](event-hubs-what-is-event-hubs.md)。
@@ -173,4 +171,3 @@ ms.lasthandoff: 08/28/2017
 
 [Event Hubs tutorial]: event-hubs-dotnet-standard-getstarted-send.md
 [事件中樞範例]: https://github.com/Azure/azure-event-hubs/tree/master/samples
-

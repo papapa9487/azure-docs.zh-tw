@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 5edd37a3a042f710e7d1b9e148c24d9a548a4fea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 2e6987d30b56407559f54c02817ee94eff8df46b
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Developer Analytics 工具的版本資訊
 
@@ -295,4 +294,3 @@ Windows Forms 專案節點的內容功能表現在包含將組建上傳至 Hocke
 HockeyApp 可讓您在任何所選的平台上建置應用程式，無論是 iOS、Android 或 Windows，或是 Xamarin、Cordova 或 Unity 之類的跨平台解決方案上。
 
 在未來版本的 Application Insights 延伸模組中，我們會在 HockeyApp 與 Visual Studio 之間提供更為整合的體驗。 現在您只要新增 NuGet 參考，即可開始使用 HockeyApp。 如需詳細資訊，請參閱 [文件](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) 。
-

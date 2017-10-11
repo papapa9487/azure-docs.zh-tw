@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7a702354de137e1bca033146626dad1ca53fd3ed
-ms.openlocfilehash: b644ef0a8da726b2b23a4bfc81516c112be2de2e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/17/2017
-
-
+ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>部署分割合併服務
 分割合併工具可讓您在分區化資料庫之間移動資料。 請參閱 [在相應放大的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -344,5 +342,4 @@ Web 角色：
 [3]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/staging.png
 [4]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/upload.png
 [5]: ./media/sql-database-elastic-scale-configure-deploy-split-and-merge/storage.png
-
 

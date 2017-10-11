@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/07/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 54c22ce6a03e382b1bbde102bccc97deec249b30
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-azure-mobile-engagement-api-in-a-web-application"></a>在 Web 應用程式中使用 Azure Mobile Engagement API
 此文件是文件的補充，說明如何 [在您的 Web 應用程式中整合 Mobile Engagement](mobile-engagement-web-integrate-engagement.md)。 它會提供關於如何使用 Azure Mobile Engagement API 來回報您應用程式的統計資料之詳細資訊。
@@ -215,9 +215,3 @@ Mobile Engagement API 是由 `engagement.agent` 物件提供。 預設 Azure Mob
 在上述範例中，傳送到伺服器的 JSON 會是 44 個字元：
 
     {"birthdate":"1983-12-07","gender":"female"}
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

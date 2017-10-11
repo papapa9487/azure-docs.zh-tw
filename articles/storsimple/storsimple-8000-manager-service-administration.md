@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>使用 StorSimple 裝置管理員服務管理 StorSimple 裝置
 
@@ -88,5 +87,4 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 * [使用 StorSimple 監視 LED 指示燈](storsimple-monitoring-indicators.md)
 
 如果您不能解決問題，且您必須建立服務要求，請參閱： [連絡 Microsoft 支援服務](storsimple-8000-contact-microsoft-support.md)。
-
 

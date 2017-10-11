@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 949f34158f4fc8ee6d86cf3dd408c3c903234109
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.openlocfilehash: a96e7fe671dc051da35168fa7b49ecba53b4c4a5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
 用戶端程式庫是用戶端應用程式和工具連接到 Analysis Services 伺服器的必備條件。 
@@ -44,4 +42,3 @@ Microsoft 用戶端應用程式 (例如 Power BI Desktop 和 Excel) 會安裝這
 ## <a name="next-steps"></a>後續步驟
 [使用 Excel 進行連接](analysis-services-connect-excel.md)    
 [與 Power BI 連線](analysis-services-connect-pbi.md)
-

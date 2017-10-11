@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/01/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: f3fbca281dbbfca7ff9392d003429719c589afbd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="governance-in-azure"></a>Azure 中的治理
 
 我們知道安全性是雲端中的首要工作和其重要性，因為您可在其中找到精確且及時的 Azure 安全性資訊。 針對您的應用程式和服務使用 Azure 的最佳原因之一是可以利用它的各種安全性工具和功能。 這些工具和功能可協助您在安全的 Azure 平台上建立安全的解決方案。
@@ -265,7 +263,7 @@ Azure Resource Manager 會分析相依性，確保以正確的順序建立資源
 
 資源鎖定目前支援兩個值︰CanNotDelete 和 ReadOnly。 CanNotDelete 表示使用者 (具有適當權限) 仍可讀取或修改資源，但無法加以刪除。 ReadOnly 表示經過授權的使用者無法刪除或修改資源。
 
-Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 <https://management.azure.com> 的作業。 鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL 資料庫的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、更新或刪除資料庫中的資料。
+Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 <https://management.azure.com> 的作業。鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL 資料庫的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、更新或刪除資料庫中的資料。
 
 套用 **ReadOnly** 會導致無法預期的結果，因為有些看似讀取作業的作業會需要進行其他動作。 例如，將 **ReadOnly** 鎖定放置在儲存體帳戶上，會防止所有使用者列出金鑰。 清單金鑰作業是透過 POST 要求進行處理，因為傳回的金鑰可用於寫入作業。
 
@@ -493,4 +491,3 @@ Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將�
 - [實作 Azure 訂用帳戶治理的範例](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-examples)。
 
 - [Microsoft Azure Government](https://docs.microsoft.com/azure/azure-government/) \(英文\)。
-

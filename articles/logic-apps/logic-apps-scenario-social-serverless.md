@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2017
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 26d460a699e31f6c19e3b282fa589ed07ce4a068
 ms.openlocfilehash: 0b6e118cb13ab8185d8eeb42bec6147155967967
-ms.lasthandoff: 04/04/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-real-time-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>使用 Azure Logic Apps 與 Azure Functions 來建立即時的客戶深入解析儀表板
 
@@ -29,7 +29,7 @@ Azure 無伺服器工具提供了強大的功能，可在雲端中快速建置�
 
 為了實作此解決方案，我們會在 Azure 中利用無伺服器應用程式的兩個重要元件︰[Azure Functions](https://azure.microsoft.com/services/functions/) 和 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)。
 
-Logic Apps 是雲端中的無伺服器工作流程引擎。  它可跨無伺服器元件提供協調流程，而且也會連線到超過 100 個服務和 API。  在此案例中，我們會建立針對客戶的意見反映而觸發的邏輯應用程式。  某些連接器有助於回應客戶的意見反應，這些連接器包括 Outlook.com、Office 365、Survey Monkey、Twitter 和[來自 Web 表單](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)的 HTTP 要求。  針對下面的工作流程，我們會監視 Twitter 上的雜湊標記。
+Logic Apps 是雲端中的無伺服器工作流程引擎。  它可跨無伺服器元件提供協調流程，而且也會連線到超過 100 個服務和 API。  在此案例中，我們會建立針對客戶的意見反映而觸發的邏輯應用程式。  某些連接器有助於回應客戶的意見反應，這些連接器包括 Outlook.com、Office 365、Survey Monkey、Twitter 和[來自 Web 表單](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/)的 HTTP 要求。  針對下面的工作流程，我們會監視 Twitter 上的主題標籤。
 
 函式可在雲端中提供無伺服器計算。  在此案例中，我們會使用 Azure Functions 來根據一系列的預先定義關鍵字，為客戶所發的推文加上旗標。
 
@@ -40,7 +40,7 @@ Logic Apps 是雲端中的無伺服器工作流程引擎。  它可跨無伺服�
 在 Visual Studio 或 Azure 入口網站中[建立邏輯應用程式](logic-apps-create-a-logic-app.md)之後︰
 
 1. 針對來自 Twitter 的**新推文**新增觸發程序
-2. 設定觸發程序來接聽推文上的關鍵字或雜湊標記。
+2. 設定觸發程序來接聽推文上的關鍵字或主題標籤。
 
    > [!NOTE]
    > 觸發程序的循環屬性會決定邏輯應用程式檢查輪詢式觸發程序上是否有新項目的頻率

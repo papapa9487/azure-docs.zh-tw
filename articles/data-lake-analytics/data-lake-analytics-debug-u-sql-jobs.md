@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: saveenr
-ms.translationtype: HT
-ms.sourcegitcommit: 2812039649f7d2fb0705220854e4d8d0a031d31e
 ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/22/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 
@@ -56,7 +55,7 @@ Azure Data Lake Tools for Visual Studio 提供稱為**頂點失敗偵錯**的功
 如果 U-SQL 作業失敗，而且作業包含使用者程式碼 (U-SQL 專案中通常命名為 `Script.usql.cs`)，原始程式碼會匯入偵錯方案。  您可從這裡使用 Visual Studio 偵錯工具 (監看式、變數等等) 對問題進行疑難排解。
 
 > [!NOTE]
-> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] \(**Ctrl + Alt + E**)。
+> 在進行偵錯之前，請確定核取 [例外狀況設定] 視窗中的 [Common Language Runtime 例外狀況] (**Ctrl + Alt + E**)。
 
 ![Azure Data Lake Analytics U-SQL 偵錯 Visual Studio 設定](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
@@ -122,4 +121,3 @@ The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 - [U-SQL 可程式性指南](data-lake-analytics-u-sql-programmability-guide.md)
 - [針對 Azure Data Lake Analytics 作業開發 U-SQL 使用者定義運算子](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - [教學課程：使用適用於 Visual Studio 的資料湖工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
-

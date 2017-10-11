@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: baf456740bddd562391ed64d707f990c8921d710
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="consume-azure-managed-applications-in-the-marketplace"></a>使用 Marketplace 中 Azure 受管理的應用程式
 
 如[受管理的應用程式概觀](managed-application-overview.md)一文中所討論，端對端體驗中有兩種案例。 其中一個是發行者或廠商，是要建立受管理的應用程式供客戶使用。 第二個是受管理應用程式的客戶或取用者。 本文涵蓋第二個案例。 它會描述您可以如何從 Microsoft Azure Marketplace 部署受管理的應用程式。

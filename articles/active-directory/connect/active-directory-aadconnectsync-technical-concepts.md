@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9bf2e87353901a043f01ff7d634e1b174cd6a52a
-ms.openlocfilehash: 3623537c80bd0e4190d1e51f289a4b194c13878d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="azure-ad-connect-sync-technical-concepts" class="xliff"></a>
-
-# Azure AD Connect 同步處理：技術概念
+# <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步處理：技術概念
 本文是 [了解架構](active-directory-aadconnectsync-technical-concepts.md)主題的摘要。
 
 Azure AD Connect 同步建置在一個穩固的中繼目錄同步處理平台上。
@@ -40,9 +37,7 @@ Azure AD Connect 同步建置在一個穩固的中繼目錄同步處理平台上
 * Metaverse
 * 佈建
 
-<a id="connector" class="xliff"></a>
-
-## 連接器
+## <a name="connector"></a>連接器
 用來與連接的目錄通訊之程式碼模組，稱為連接器 (之前稱為管理代理程式 (MA))。
 
 這些模組是安裝在執行 Azure AD Connect 同步的電腦上。
@@ -54,31 +49,23 @@ Azure AD Connect 同步建置在一個穩固的中繼目錄同步處理平台上
 
 匯入與匯出作業只會在排程時進行，以進一步與系統中發生的變更隔絕，因為變更不會自動傳播至連接的資料來源。 此外，開發人員也可以建立自己的連接器，幾乎可連接至任何一個資料來源。
 
-<a id="attribute-flow" class="xliff"></a>
-
-## 屬性流程
+## <a name="attribute-flow"></a>屬性流程
 Metaverse 是鄰近連接器空間中所有聯結的身份識別的合併檢視。 在上圖中，屬性流程是利用具有箭頭的線條來繪製輸入和輸出流程。 屬性流程是將資料從一個系統複製或轉換到另一個系統以及所有屬性流程 (輸入或輸出) 的程序。
 
 當同步處理 (完整或差異) 作業已安排要執行時，屬性流程會在連接器空間與 Metaverse 的雙向通訊之間進行。
 
 屬性流程只會在執行這些同步處理時進行。 屬性流動則是在同步化規則中定義。 這些可以是輸入 (如上圖之 ISR) 或輸出 (如上圖之 OSR)。
 
-<a id="connected-system" class="xliff"></a>
-
-## 連接的系統
+## <a name="connected-system"></a>連接的系統
 連接的系統 (也稱為連接的目錄) 是指 Azure AD Connect 同步處理已連接且來回讀取和寫入身分識別資料的遠端系統。
 
-<a id="connector-space" class="xliff"></a>
-
-## 連接器空間
+## <a name="connector-space"></a>連接器空間
 每個已連接的資料來源都會以連接器空間中物件和屬性的已篩選子集的方式表示。
 這可讓同步服務在本機作業，而不需要在同步處理物件時連接遠端系統並將互動限制為僅匯入及匯出。
 
 當資料來源及連接器具有提供變更清單 (差異匯入) 的能力時，因為只在最後一次輪詢循環交換之後變更，作業效率會大幅提升。 連接器空間可透過要求連接器排程匯入及匯出，讓已連接的資料來源不會受到自動傳播變更影響。 這項新增的預防措施讓您在測試、預覽，或確認下次更新時可以更加放心。
 
-<a id="metaverse" class="xliff"></a>
-
-## Metaverse
+## <a name="metaverse"></a>Metaverse
 Metaverse 是鄰近連接器空間中所有聯結的身份識別的合併檢視。
 
 由於身份識別連結在一起，且授權透過匯入流程對應指派給各種屬性，中心 Metaverse 物件要從多個系統開始彙總資訊。 從此物件屬性流程，對應包含輸出系統的資訊。
@@ -90,21 +77,16 @@ Metaverse 是鄰近連接器空間中所有聯結的身份識別的合併檢視�
 探索可能具有既存需管理之物件的新資料來源 時，Azure AD Connect 同步會使用名為「聯結規則」的程序，評估建立連結的潛在候選項目。
 連結一旦建立，此評估就不會重新執行，而一般屬性流程則可在遠端連結的資料來源和 Metaverse 間進行。
 
-<a id="provisioning" class="xliff"></a>
-
-## 佈建
+## <a name="provisioning"></a>佈建
 當授權來源投影一個新物件至 Metaverse　時，會在另一個連接器中建立新的連接器空間物件，代表一個下游的已連接資料來源。
 
 這本身就會建立連結，且屬性流程可以雙向進行。
 
 每當規則判斷需要建立新的連接器空間物件，此即稱為佈建。 不過，因為此作業只會在連接器空間中進行，所以在執行匯出之前不會影響已連接的資料來源。
 
-<a id="additional-resources" class="xliff"></a>
-
-## 其他資源
+## <a name="additional-resources"></a>其他資源
 * [Azure AD Connect 同步處理：自訂同步處理選項](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-aadsync-technical-concepts/ic750598.png
-

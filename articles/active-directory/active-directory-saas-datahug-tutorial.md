@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: e0bfa7620feeb1bad33dd2fe4b32cb237d3ce158
 ms.openlocfilehash: ec431dd5ccfa53e4b975e46da247704dd1e15c2c
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>教學課程：Azure Active Directory 與 Datahug 整合
 
@@ -66,7 +65,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
     ![應用程式][2]
     
-3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![應用程式][3]
 
@@ -157,7 +156,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 **若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
 
-1. 在「Azure 入口網站」的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
+1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-datahug-tutorial/create_aaduser_01.png) 
 
@@ -203,7 +202,7 @@ Datahug 與 Azure AD 整合提供下列優點：
     ![新增員工](./media/active-directory-saas-datahug-tutorial/3.png)
 
     > [!NOTE] 
-    > 您也可以選取 [傳送歡迎電子郵件] 核取方塊，將註冊郵件傳送給使用者。    
+    > 您也可以選取 [傳送歡迎電子郵件] 核取方塊，將註冊郵件傳送給使用者。  
     > 如果您建立的是 Salesforce 帳戶，則不會傳送歡迎電子郵件。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
@@ -261,5 +260,4 @@ Datahug 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-datahug-tutorial/tutorial_general_203.png
-
 

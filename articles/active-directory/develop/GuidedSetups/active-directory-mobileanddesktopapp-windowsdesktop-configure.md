@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 1dfaa7ade664e43dcb9aa788b0197ca17e6ec4cc
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="create-an-application-express"></a>建立應用程式 (快速)
 現在您需要在「Microsoft 應用程式註冊入口網站」註冊應用程式：
 1. 透過 [Microsoft 應用程式註冊入口網站 (英文)](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=windowsDesktop&step=configure) 註冊您的應用程式
@@ -41,4 +39,3 @@ ms.contentlocale: zh-tw
 ```csharp
 private static string ClientId = "your_application_id_here";
 ```
-

@@ -15,15 +15,12 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: barclayn
 ms.custom: pim
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9364a1449ba17568c82832bc1e97d40febbb30ab
-ms.openlocfilehash: c6aea0b7280ad8f1365c04203c78a1499ba0aa58
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/27/2017
-
-
+ms.openlocfilehash: 62d8f80fa1bec3a1b75e316f0b0ee7be8cbefbff
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 訂用帳戶需求
 
 Azure AD Privileged Identity Management 可在 Azure AD 的 Premium P2 Edition 中使用。 如需 P2 的其他功能資訊以及其與 Premium P1 的比較詳細資訊，請參閱 [Azure Active Directory 版本](../active-directory-editions.md)。
@@ -64,4 +61,3 @@ Azure Active Directory (Azure AD) Privileged Identity Management 處於預覽狀
 
 - [開始使用 Azure AD Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)
 - [Azure AD Privileged Identity Management 中的角色](../active-directory-privileged-identity-management-roles.md)
-

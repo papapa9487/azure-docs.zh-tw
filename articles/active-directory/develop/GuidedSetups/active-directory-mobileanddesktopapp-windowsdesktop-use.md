@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 826ba0a00b26993d4f37f0a8ce587d7bb77e7eb4
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 Microsoft Authentication Library (MSAL) 取得 Microsoft 圖形 API 的權杖
 
 本節說明如何使用 MSAL 取得 Microsoft 圖形 API 的權杖。
@@ -203,5 +201,4 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 透過 *OpenID Connect* 取得的權杖也包含一小部分與使用者有關的資訊。 `DisplayBasicTokenInfo` 會顯示權杖中包含的基本資訊：例如，使用者的顯示名稱和識別碼，以及權杖到期日期和代表存取權杖本身的字串。 系統會顯示此資訊供您查看。 您可以按下 [呼叫 Microsoft 圖形 API] 按鈕多次，以了解相同的權杖如何重複用於多個後續要求。 您也可以在 MSAL 決定應該要更新權杖時，看到延長的到期日期。
 <!--end-collapse-->
-
 

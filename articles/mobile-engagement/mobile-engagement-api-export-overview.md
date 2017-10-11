@@ -1,4 +1,3 @@
-
 ---
 title: "Mobile Engagement 匯出 API 概觀"
 description: "了解匯出使用者裝置所產生之原始資料，以運用在自己工具中的基本概念。"
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 04/26/2016
 ms.author: kapiteir
-translationtype: Human Translation
-ms.sourcegitcommit: b1e2ddb613e713972820621d0fa836c41eb61f91
 ms.openlocfilehash: 346e0e480ff84ee849f135a7605d27df9e32f966
-ms.lasthandoff: 01/19/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="mobile-engagement-export-api-overview"></a>Mobile Engagement 匯出 API 概觀
 ## <a name="introduction"></a>簡介
@@ -74,5 +72,4 @@ Mobile Engagement 可讓其使用者收集許多類型的資料，因此有幾�
 一旦建立工作之後，就可以檢查其狀態，查看它是否仍在執行，或是否已完成。
 
 工作成功之後，產生的資料檔案會在提供的儲存體容器上。
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>在無網際網路存取下使用 OMS 閘道將電腦連線到 OMS
 
 此文件說明您受 OMS 管理的電腦與受 System Center Operations Manager 監視的電腦如何在它們沒有網際網路存取時傳送資料給 OMS 服務。 OMS 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 OMS 服務。  
@@ -109,7 +107,7 @@ OMS 閘道有下列語言版本︰
    1. 輸入要用於閘道的 TCP 連接埠號碼。 安裝程式會使用此連接埠號碼在 Windows 防火牆上設定輸入規則。  預設值為 8080。
       連接埠號碼的有效範圍是 1 到 65535。 如果輸入的值不在此範圍內，就會顯示錯誤訊息。
    2. 如果閘道安裝所在的伺服器需要透過 Proxy 進行通訊，您也可以選擇輸入閘道需要連線的 Proxy 位址。 例如， `http://myorgname.corp.contoso.com:80`。  如果空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。<br><br> ![閘道精靈 Proxy 組態](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
-   3. 按 [下一步] 。
+   3. 按一下 [下一步] 。
 5. 如果您沒有啟用 Microsoft Update，系統會顯示 Microsoft Update 頁面，您可以在其中選擇啟用 Microsoft Update。 選擇想要的選項，然後按一下 [下一步]。 否則，請繼續下一個步驟。
 6. 在 [目的地資料夾] 頁面上，保留預設資料夾 C:\Program Files\OMS Gateway 或輸入您想要安裝閘道的位置，然後按 [下一步]。
 7. 在 [準備安裝] 頁面上，按一下 [安裝]。 系統可能會顯示 [使用者帳戶控制] 來要求安裝權限。 如果有顯示，請按一下 [是]。
@@ -212,13 +210,13 @@ OMS 閘道有下列語言版本︰
 
 如果您的電腦是使用更新管理方案自動註冊為混合式 Runbook 背景工作以進行修補，請遵循下列步驟：
 
-1. 將作業執行階段資料服務 URL 新增到 OMS 閘道上的「允許的主機」清單。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. 將作業執行階段資料服務 URL 新增到 OMS 閘道上的「允許的主機」清單。 例如：`Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 2. 使用以下 PowerShell Cmdlet 重新啟動 OMS 閘道服務：`Restart-Service OMSGatewayService`
 
 如果您的電腦已使用混合式 Runbook 背景工作註冊 Cmdlet 加入 Azure 自動化，請遵循下列步驟：
 
 1. 將代理程式服務註冊 URL 新增到 OMS 閘道上的「允許的主機」清單。 例如：`Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. 將作業執行階段資料服務 URL 新增到 OMS 閘道上的「允許的主機」清單。 例如： `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. 將作業執行階段資料服務 URL 新增到 OMS 閘道上的「允許的主機」清單。 例如：`Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 3. 重新啟動 OMS 閘道服務。
     `Restart-Service OMSGatewayService`
 
@@ -292,4 +290,3 @@ Cmdlet 可以協助您完成更新 OMS 閘道的組態設定時需執行的作�
 
 ## <a name="next-steps"></a>後續步驟
 * [新增資料來源](log-analytics-data-sources.md) 來從您 OMS 工作區的 [連接的來源] 收集資料，並將它儲存在 OMS 存放庫中。
-

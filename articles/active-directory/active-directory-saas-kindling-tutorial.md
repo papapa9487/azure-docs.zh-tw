@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 131c2c3f46c60193d512b1779e917c8322732fbc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>教學課程：Azure Active Directory 與 Kindling 整合
 
@@ -114,7 +112,7 @@ Kindling 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.kindlingapp.com`
 
-    b.  在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
+    b.  在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Kindling 支援小組](mailto:support@kindlingapp.com)以取得這些值。
@@ -230,5 +228,4 @@ Kindling 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kindling-tutorial/tutorial_general_203.png
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: a1e5461ef2188a42a3edd6cc35827874ddd6e3f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.openlocfilehash: e53f60979e01a0eabe118d3ae6457a61bd4b0ded
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>使用 SQL Server 災害復原和 Azure Site Recovery 保護 SQL Server
 
@@ -203,4 +202,3 @@ SQL Always On 原本就不支援測試容錯移轉。 因此，我們建議您�
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解](site-recovery-components.md) Site Recovery 架構。
-

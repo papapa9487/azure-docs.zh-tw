@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 01862d158f4771989ae6eb3b20fe8e080123a231
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: f13fd0540b783120014b3a8d4e41f78808c7fade
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-guide-for-service-issues"></a>服務問題的疑難排解指南
 以下是您可能會遇到，有關 Azure Mobile Engagement 執行的問題。
@@ -89,5 +88,4 @@ ms.lasthandoff: 11/17/2016
   * 使用逗號 "," 做為分隔字元 (您可以開啟服務要求，來要求將 .csv 分隔字元從逗號變更為另一個字元，例如分號 ";")。
   * 使用全部小寫的布林值 "true" 和 "false"。
   * 使用小於 35MB 檔案大小上限的檔案。
-
 

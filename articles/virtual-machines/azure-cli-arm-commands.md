@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: db7cb109a0131beee9beae4958232e1ec5a1d730
 ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.lasthandoff: 04/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Resource Manager 模式中的 Azure CLI 命令
 本文提供在 Azure Resource Manager 部署模型中建立和管理 Azure 資源時，常用的 Azure 命令列介面 (CLI) 命令的語法和選項。 您可以在 Resource Manager (ARM) 模式中執行 CLI 來存取這些命令。 這不是完整的參考，您的 CLI 版本可能會顯示稍微不同的命令或參數。 如需 Azure 資源及資源群組的一般概觀，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。  
@@ -969,7 +968,7 @@ ms.lasthandoff: 04/18/2017
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
-    network lb address-pool delete [options] <resource-group> <lb-name> <name>
+    網路 lb 位址集區刪除 [選項] < 資源群組 >< lb-n a m ><name>
 
 移除來自負載平衡器的後端 IP 集區範圍資源。
 
@@ -1333,7 +1332,7 @@ ms.lasthandoff: 04/18/2017
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
-    network public-ip list [options] <resource-group> 列出資源群組中的所有公用 IP 資源。
+    network public-ip list [options] &lt;resource-group&gt; 列出資源群組中的所有公用 IP 資源。
 
     azure network public-ip list -g myresourcegroup
 
@@ -1354,7 +1353,7 @@ ms.lasthandoff: 04/18/2017
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
 <BR>
-    network public-ip show [options] <resource-group> <name>
+    網路的公用 ip 會顯示 [選項] < 資源群組 ><name>
 
 顯示資源群組中公用 IP 資源的公用 IP 屬性。
 
@@ -1784,4 +1783,3 @@ ms.lasthandoff: 04/18/2017
     vm image list-offers [options] <location> <publisher>
     vm image list-skus [options] <location> <publisher> <offer>
     vm image list [options] <location> <publisher> [offer] [sku]
-

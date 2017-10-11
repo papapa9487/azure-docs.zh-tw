@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 54f62af6abcdd38254fd5379b95baa05656dc90b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
 
@@ -127,4 +125,3 @@ ms.lasthandoff: 07/08/2017
 
 ## <a name="next-steps"></a>後續步驟
 一旦您成功嘗試測試容錯移轉之後，您就可以嘗試執行[容錯移轉](site-recovery-failover.md)。
-

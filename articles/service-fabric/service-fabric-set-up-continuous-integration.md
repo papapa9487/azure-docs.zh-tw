@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>使用 Visual Studio Team Services 設定 Service Fabric 連續整合和部署
 本文說明使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式之持續整合和部署的步驟。
@@ -132,5 +130,4 @@ Team Services 發行定義描述由一組循序執行的工作所組成的工作
 * [Team Services 文件首頁](https://www.visualstudio.com/docs/overview)
 * [Team Services 中的組建管理](https://www.visualstudio.com/docs/build/overview)
 * [Team Services 中的發行管理](https://www.visualstudio.com/docs/release/overview)
-
 

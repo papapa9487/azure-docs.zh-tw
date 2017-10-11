@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
-translationtype: Human Translation
-ms.sourcegitcommit: 0c23ee550d8ac88994e8c7c54a33d348ffc24372
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.lasthandoff: 02/16/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="using-load-balancing-services-in-azure"></a>在 Azure 中使用負載平衡服務
 
 ## <a name="introduction"></a>簡介
@@ -211,4 +210,3 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 * [流量管理員概觀](traffic-manager-overview.md)
 * [應用程式閘道概觀](../application-gateway/application-gateway-introduction.md)
 * [Azure 負載平衡器概觀](../load-balancer/load-balancer-overview.md)
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: trinadhk; jimpark;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: fc52c909df5e91741ec1fa21fb911487be039fdc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="restore-virtual-machines-in-azure"></a>還原 Azure 中的虛擬機器
 > [!div class="op_single_selector"]
@@ -167,4 +166,3 @@ PowerShell 能夠只從備份還原 VM 磁碟，而不建立虛擬機器。 在�
 ## <a name="next-steps"></a>後續步驟
 * [錯誤疑難排解](backup-azure-vms-troubleshoot.md#restore)
 * [管理虛擬機器](backup-azure-manage-vms.md)
-

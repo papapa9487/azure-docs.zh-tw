@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 09/16/2016
 ms.author: lenalepa
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: b961254274409215d79b5cb2c9ee230a97b42769
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: c60499c425a7fd800f7ca9a5bac1fed5af73b801
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="app-registration-reference"></a>App 註冊參考
 本文件提供可在 Microsoft App 註冊入口網站 [https://apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 中找到的各種功能的內容和說明。
@@ -48,5 +46,4 @@ App 註冊入口網站的設定檔區段可以用來自訂您應用程式的登�
 停用 Live SDK 支援將可確保系統只會將應用程式密碼寫入 Azure AD 資料存放區。  Azure AD 資料存放區包含企業級法規，使其符合特定的標準，例如 FISMA 相容性。  如果您啟用 Live SDK 支援，您的應用程式可能不會遵守這其中的部分標準。
 
 如果您只打算使用 Azure AD v2.0 端點，您可以安全地停用 Live SDK 支援。
-
 

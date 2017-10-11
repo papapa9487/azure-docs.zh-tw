@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: ccadf55c492c097ef96f25e469dbf36fc87b6102
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書散發套件的資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -187,5 +186,4 @@ Azure 上的 VHD 映像必須具有與 1 MB 對應的虛擬大小。  一般而�
   > 
 
 * 接著，您必須關閉虛擬機器，並將 VHD 上傳至 Azure。
-
 

@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 470b9ddd8df4a4e74ec7174f79020c252323e502
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-11-enable-replication-for-vmware-virtual-machines-to-azure"></a>步驟 11：啟用將 VMware 虛擬機器複寫至 Azure 的複寫功能
 
@@ -84,4 +82,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 12：執行測試容錯移轉](vmware-walkthrough-test-failover.md)
-

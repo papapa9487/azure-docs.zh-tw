@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 878badf2753b4ceb471abc789e388fd784c4c42a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: a2731e3e44f8f3d104d8abc7dbe71fe3a4c3a690
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>適用於使用中 Java Web 應用程式的 Application Insights
 
@@ -137,5 +136,4 @@ ms.lasthandoff: 04/13/2017
 * [設定 Web 測試](app-insights-monitor-web-app-availability.md) ，以確認應用程式處於線上狀態且能夠回應。
 * [擷取記錄追蹤](app-insights-java-trace-logs.md)
 * [搜尋事件和記錄](app-insights-diagnostic-search.md) 以協助診斷問題。
-
 

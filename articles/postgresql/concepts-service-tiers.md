@@ -10,12 +10,11 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/31/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: e141c15b9999a33206285290b9a34c8616bf3791
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.openlocfilehash: 59ac187e50527517c402a5cc2aa871717dde5650
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-database-for-postgresql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>適用於 PostgreSQL 的 Azure 資料庫選項和效能：了解每個定價層中可用的項目
 當您建立適用於 PostgreSQL 伺服器的 Azure 資料庫時，有三個主要選項可供您決定如何設定配置給該伺服器的資源。 這些選項會影響伺服器的效能和規模。
@@ -105,4 +104,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 - 如需計算單位的詳細資訊，請參閱[說明計算單位](concepts-compute-unit-and-storage.md)
 - 了解如何[使用 Azure CLI 監視和調整單一 PostgreSQL 伺服器](scripts/sample-scale-server-up-or-down.md)
-

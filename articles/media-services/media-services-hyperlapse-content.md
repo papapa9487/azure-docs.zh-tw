@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: adsolank
-translationtype: Human Translation
-ms.sourcegitcommit: cea53acc33347b9e6178645f225770936788f807
 ms.openlocfilehash: 02f634c2af04b6b372642ab0e6a17a5d29f16450
-ms.lasthandoff: 03/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media 檔案與 Azure Media Hyperlapse
 Azure Media Hyperlapse 是可以使用第一人稱視角或運動攝影機內容建立流暢縮時攝影影片的「媒體處理器 (MP)」。  Azure 媒體服務的雲端型 Microsoft Hyperlapse 與 [Microsoft Research 的桌面 Hyperlapse Pro 和手機型 Hyperlapse Mobile](http://aka.ms/hyperlapse)相似，它運用大規模的 Azure 媒體服務媒體處理平台來水平調整，並平行化大量的 Hyperlapse 處理。
@@ -36,7 +35,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
 ## <a name="hyperlapse-an-asset"></a>將資產進行 Hyperlapse 處理
 首先您需要上傳要輸入 Azure 媒體服務的檔案。  若要深入了解上傳和管理內容的相關概念，請閱讀 [內容管理文章](media-services-portal-vod-get-started.md)。
 
-### <a name="a-idconfigurationaconfiguration-preset-for-hyperlapse"></a><a id="configuration"></a>Hyperlapse 的預設組態
+### <a id="configuration"></a>Hyperlapse 的預設組態
 一旦內容在媒體服務帳戶中，您將需要建構預設組態。  下表說明使用者指定的欄位：
 
 | 欄位 | 說明 |
@@ -75,7 +74,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
         }
     }
 
-### <a name="a-idsamplecodea-microsoft-hyperlapse-with-the-ams-net-sdk"></a><a id="sample_code"></a> 包含 AMS .NET SDK 的 Microsoft Hyperlapse
+### <a id="sample_code"></a> 包含 AMS .NET SDK 的 Microsoft Hyperlapse
 下列方法會將媒體檔案上傳為資產，並使用 Azure 媒體 Hyperlapse 媒體處理器建立工作。
 
 > [!NOTE]
@@ -199,7 +198,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
         return processor;
     }
 
-### <a name="a-idfiletypesasupported-file-types"></a><a id="file_types"></a>支援的檔案類型
+### <a id="file_types"></a>支援的檔案類型
 * MP4
 * MOV
 * WMV
@@ -214,5 +213,4 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
 [Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
 [Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

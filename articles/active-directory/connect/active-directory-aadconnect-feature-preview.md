@@ -14,19 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b110b2e3041cf7839d1bf1c4d384b28b243efbd8
-ms.openlocfilehash: c1653c769a6b42d18ffb0da71220ce06c6556587
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: cbf8f729d0ebfb271bb0d8702ac043442b42c262
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-# 有關預覽中之功能的其他詳細資料
-<a id="more-details-about-features-in-preview" class="xliff"></a>
+# <a name="more-details-about-features-in-preview"></a>有關預覽中之功能的其他詳細資料
 本主題描述如何使用預覽中目前的功能。
 
-## 群組回寫
-<a id="group-writeback" class="xliff"></a>
+## <a name="group-writeback"></a>群組回寫
 選用功能中的群組回寫選項可讓您將「Office 365 群組」回寫至已安裝 Exchange 的樹系。 這是一律在雲端中控制的群組。 如果您有 Exchange 內部部署，則可以將這些群組回寫到內部部署，讓具有內部部署 Exchange 信箱的使用者可以從這些群組傳送和接收電子郵件。
 
 如需有關 Office 365 群組及其使用方式的詳細資訊，可在 [這裡](http://aka.ms/O365g)找到。
@@ -45,16 +42,13 @@ Office 365 群組將會在內部部署 AD DS 中顯示為通訊群組。 您的�
 > 
 >
 
-## 使用者回寫
-<a id="user-writeback" class="xliff"></a>
+## <a name="user-writeback"></a>使用者回寫
 > [!IMPORTANT]
 > 在 Azure AD Connect 的 2015 年 8 月更新中，已移除使用者的回寫預覽功能。 如果已啟用它，則您應該停用這個功能。
 >
 >
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 繼續[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。
 
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-

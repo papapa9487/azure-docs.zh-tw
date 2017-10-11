@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-translationtype: Human Translation
-ms.sourcegitcommit: dccb945e170bd3e3f23283359db25e574a2d4296
 ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>依國家/地區限制 Azure CDN 內容
 
@@ -62,15 +62,9 @@ ms.openlocfilehash: 30160088d9c770400f342e67527e1cf1cabc4f6b
 ### <a name="country-codes"></a>國碼
 **地區篩選**功能可使用國碼 (地區碼) 來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。 您可以在 [Azure CDN 國家 (地區) 代碼 (英文)](https://msdn.microsoft.com/library/mt761717.aspx) 找到國家 (地區) 代碼。 
 
-## <a name="a-idconsiderationsaconsiderations"></a><a id="considerations"></a>考量
+## <a id="considerations"></a>考量
 * 您對國家 (地區) 篩選組態的變更，Verizon 需要 90 分鐘，Akamai 需要數分鐘，才會生效。
 * 這項功能不支援萬用字元 (例如，‘*’)。
 * 會將相對路徑相關聯的地區篩選組態，遞迴地套用到該路徑。
 * 只有一個規則可套用至相同的相對路徑，您無法建立指向相同之相對路徑的多個國家 (地區) 篩選。 不過，一個資料夾可有多個國家 (地區) 篩選。 這是因為國家 (地區) 篩選的遞迴本質。 換句話說，可以將不同的國家 (地區) 篩選指派給先前設定之資料夾的子資料夾。
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

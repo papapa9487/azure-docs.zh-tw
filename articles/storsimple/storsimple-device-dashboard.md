@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 182d7b2bd4d9f663b545684f2bc2a02d06952b61
 ms.openlocfilehash: 0d8035b9608ca3bac3d4822c7c755b81c96d481e
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-device-dashboard-in-storsimple-manager-service"></a>在 StorSimple Manager 服務中使用裝置儀表板  
 
@@ -84,5 +83,4 @@ StorSimple Manager 裝置儀表板可提供特定 StorSimple 裝置的資訊概�
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 StorSimple Manager 服務儀表板](storsimple-service-dashboard.md)。
 * 深入了解 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
 

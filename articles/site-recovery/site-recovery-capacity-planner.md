@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d4183b73bcb0441c9ad5f12e7a3a1e4d8e31f4b5
-ms.openlocfilehash: 243fbea75c4ba9b280c65a378d6f2d069add1098
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>針對 Azure Site Recovery 中的虛擬機器和實體伺服器保護規劃容量
 
@@ -128,4 +126,3 @@ Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site R
 2. 如果您想要進行變更，您必須修改 [工作負載限定性條件] 工作表，然後再按一次 [將資料提交至規劃工具]。  
 
    ![容量規劃](./media/site-recovery-capacity-planner/capacity-planner.png)
-

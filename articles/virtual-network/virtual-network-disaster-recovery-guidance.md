@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dbb749b056c36f16e921933fb8345211e3eaa697
-
-
+ms.openlocfilehash: 4e125406d2e798138c45e3fbbf61a610afab69fc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="virtual-network--business-continuity"></a>虛擬網路 – 商務持續性
 ## <a name="overview"></a>概觀
@@ -46,10 +46,4 @@ VNet 是在區域的範圍內建立。 您可以在兩個不同的區域中建�
 答︰是，您可以事先在兩個不同的區域中，使用相同的私人 IP 位址空間和資源來建立兩個 VNet。 如果客戶在 VNet 中裝載網際網路面向服務，他們可能已設定「流量管理員」將流量異地路由傳送至使用中的區域。 不過，客戶無法將兩個具有相同位址空間的 VNet 連接到其內部部署網路，因為這會造成路由問題。 當發生災害而失去一個區域中的 VNet 時，客戶可以將位於可用區域中具有相符位址空間的另一個 VNet 連接到其內部部署網路。
 
 [這裡](virtual-networks-create-vnet-arm-pportal.md)提供建立 VNet 的相關指示。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

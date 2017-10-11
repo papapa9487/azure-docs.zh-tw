@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虛擬機器的 DNS 名稱解析選項
 Azure 預設會提供單一虛擬網路中所有虛擬機器的 DNS 名稱解析。 您可以在 Azure 託管的虛擬機器上設定專屬 DNS 服務，以實作專屬 DNS 名稱解析解決方案。 下列案例應該可協助您選擇哪一種適合您的情況。
@@ -52,7 +50,7 @@ Azure 預設會提供單一虛擬網路中所有虛擬機器的 DNS 名稱解析
 * 在虛擬網路的虛擬機器之間提供名稱解析，不需要 FQDN。
 * 您可以使用最能描述部署的主機名稱，而不是使用自動產生的名稱。
 
-**Considerations:**
+<bpt id="p1">**</bpt>Considerations:<ept id="p1">**</ept>
 
 * Azure 建立的 DNS 尾碼不能修改。
 * 您無法手動註冊您自己的記錄。
@@ -141,4 +139,3 @@ DNS 轉送也允許虛擬網路之間的 DNS 解析，並可讓您的內部部�
 > 為了達到最佳效能，當您在 Azure DNS 伺服器中使用虛擬機器時，請停用 IPv6，並將[執行個體層級公用 IP](../../virtual-network/virtual-networks-instance-level-public-ip.md) 指派給每部 DNS 伺服器虛擬機器。  
 >
 >
-

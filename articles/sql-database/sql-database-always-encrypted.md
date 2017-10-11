@@ -16,13 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2017
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e2474b2f69ee0301ba00bd2a49afa90f83935cb6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: d1fdfc4f739e65ff532b159eefaffe1622ad0963
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-the-windows-certificate-store"></a>一律加密：保護 SQL Database 中的機密資料，並將加密金鑰儲存在 Windows 憑證存放區中
 
@@ -109,7 +107,7 @@ SSMS 提供一個精靈，可為您設定 CMK、CEK 及加密的資料行，來�
 
 請加密每個病患的 **SSN** 和 **BirthDate** 資訊。 **SSN** 資料行將使用決定性加密，這可支援等式查閱、聯結及群組依據。 **BirthDate** 資料行將使用不支援操作的隨機加密。
 
-將 **SSN** 資料行的 [加密類型] 設定為 [決定性]，並將 **BirthDate** 資料行設定為 [隨機化]。 按 [下一步] 。
+將 **SSN** 資料行的 [加密類型] 設定為 [決定性]，並將 **BirthDate** 資料行設定為 [隨機化]。 按一下 [下一步] 。
 
 ![加密資料行](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -519,5 +517,4 @@ SSMS 提供一個精靈，可為您設定 CMK、CEK 及加密的資料行，來�
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted Wizard (一律加密精靈)](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Always Encrypted Blog (一律加密部落格)](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-
 

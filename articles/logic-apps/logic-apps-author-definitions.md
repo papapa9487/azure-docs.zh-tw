@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/29/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e94837bf79e42602e2f72cda747ea629eed45a20
-ms.openlocfilehash: 920940d8ebe23d24216d3e886bd8ae58be12ce34
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/01/2017
-
-
+ms.openlocfilehash: 7f9e5a10066df8a464c285273e77a85c0d562ebb
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-workflow-definitions-for-logic-apps-using-json"></a>使用 JSON 建立邏輯應用程式的工作流程定義
 
@@ -277,9 +275,9 @@ ms.lasthandoff: 03/01/2017
 
 這裡要注意的某些時間︰ 
 
-*    [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 函式會檢查類別是否符合其中一個已知的定義類別。
+*   [ `intersection()` ](https://msdn.microsoft.com/library/azure/mt643789.aspx#intersection) 函式會檢查類別是否符合其中一個已知的定義類別。
 
-*    在取得類別後，我們可以使用方括號從對應提取項目：`parameters[...]`
+*   在取得類別後，我們可以使用方括號從對應提取項目：`parameters[...]`
 
 ## <a name="process-strings"></a>處理序字串
 
@@ -452,4 +450,3 @@ ms.lasthandoff: 03/01/2017
 在每個環境中，您可以提供不同的值給 `connection` 參數。 
 
 如需有關建立及管理邏輯應用程式的所有可用選項，請參閱 [REST API 文件](https://msdn.microsoft.com/library/azure/mt643787.aspx)。 
-

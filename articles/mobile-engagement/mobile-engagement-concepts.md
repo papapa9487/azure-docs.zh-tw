@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 2db8af1badf908ec69e4d994755bad87e8653dee
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 8450651528007b4527366b89a6ad7615169f93c0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-concepts"></a>Azure Mobile Engagement 概念
 Mobile Engagement 定義所有支援平台共同的一些概念。 本文會簡短說明這些概念。
@@ -87,5 +86,4 @@ Mobile Engagement 藉由為每台裝置產生唯一識別碼來識別使用者�
 * [適用於 Azure Mobile Engagement 的 Windows Phone Silverlight SDK 概觀](mobile-engagement-windows-phone-sdk-overview.md)
 * [Azure Mobile Engagement iOS SDK](mobile-engagement-ios-sdk-overview.md)
 * [適用於 Azure Mobile Engagement 的 Android SDK](mobile-engagement-android-sdk-overview.md)
-
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: c9bdd0862397dcac0a48375476002b42e6a8e331
-
-
+ms.openlocfilehash: 3793df974175a5c41b83800f73748c52c8223572
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 系列 Update 2.2 版本資訊
 ## <a name="overview"></a>概觀
@@ -95,10 +95,4 @@ Update 2.2 包含以下重要的改良功能。
 
 ## <a name="next-step"></a>後續步驟
 了解如何在 StorSimple 裝置上 [安裝 Update 2.2](storsimple-install-update-21.md) 。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

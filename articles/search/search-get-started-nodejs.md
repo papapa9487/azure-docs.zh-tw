@@ -14,13 +14,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
 ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>開始在 Node.js 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -116,4 +114,3 @@ USGS 資料集包含與羅德島州相關的記錄。 如果您在空白的搜�
 [3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
 [5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
 [9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
-

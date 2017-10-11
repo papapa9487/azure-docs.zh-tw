@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: f2b0a1d4bc44f8d0cd57c61e2d78950cb6a99854
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>教學課程：Azure Active Directory 與 InsideView 整合
 
@@ -253,5 +251,4 @@ InsideView 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_203.png
-
 

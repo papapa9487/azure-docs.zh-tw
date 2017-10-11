@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
 ms.openlocfilehash: fac6ee69b5f0377e0515ac9abeb28788cbef9b79
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="filter-network-traffic-with-network-security-groups"></a>使用網路安全性群組來篩選網路流量
 
@@ -263,4 +262,3 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 * [部署 NSG (傳統)](virtual-networks-create-nsg-classic-ps.md).
 * [管理 NSG 記錄檔](virtual-network-nsg-manage-log.md)。
 * [針對 NSG 進行疑難排解] (virtual-network-nsg-troubleshoot-portal.md)
-

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: piyushjo;ricksal
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="advanced-configuration-for-windows-universal-apps-engagement-sdk"></a>適用於 Windows 通用 App Engagement SDK 的進階組態
 > [!div class="op_single_selector"]
@@ -76,9 +76,3 @@ ms.openlocfilehash: cb9454212c94cf65093219c3d24c71277ede7877
 
 [here]:http://www.nuget.org/packages/Capptain.WindowsCS
 [NuGet website]:http://docs.nuget.org/docs/start-here/overview
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

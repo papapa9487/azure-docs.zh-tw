@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/15/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: 44a756ba437b2ce9f625017998d9ae7d09acae1f
 ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="using-connectors-in-a-logic-app"></a>在邏輯應用程式中使用連接器
 連接器可讓您跨服務、通訊協定與平台快速存取事件、資料和動作。  Logic Apps 所支援的連接器完整清單可以 [在這裡找到](apis-list.md)。  連接器可做為邏輯應用程式的觸發程序或動作，而且可能需要設定「連線」  才能使用 (例如︰授權 Twitter 帳戶代表您存取或張貼)。
@@ -63,9 +63,3 @@ ms.openlocfilehash: 9cbb258ae9e32549669623e6824dd9b18fa1f68f
 <!--Image References -->
 [1]: ./media/connectors-overview/addAction.png
 [2]: ./media/connectors-overview/configureAction.png
-
-
-
-<!--HONumber=Jan17_HO3-->
-
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 85b125ab19671b61d2541af6378c95feb88bf952
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-windows-high-performance-computing-hpc-cluster-with-the-hpc-pack-iaas-deployment-script"></a>使用 HPC Pack IaaS 部署指令碼建立 Windows 高效能運算 (HPC) 叢集
 執行 HPC Pack IaaS 部署 PowerShell 指令碼，以在 Azure 虛擬機器中為 Windows 工作負載部署完整的 HPC Pack 2012 R2 叢集。 叢集是由加入 Active Directory、且執行 Windows Server 和 Microsoft HPC Pack 的前端節點，以及您指定的其他 Windows 計算資源所組成。 如果您想要在 Azure 中為 Linux 工作負載部署 HPC Pack 叢集，請參閱 [使用 HPC Pack IaaS 部署指令碼建立 Linux HPC 叢集](../../linux/classic/hpcpack-cluster-powershell-script.md)。 您也可以使用 Azure 資源管理員範本來部署 HPC Pack 叢集。 如需範例，請參閱[建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster/)和[使用自訂的計算節點映像建立 HPC 叢集](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-custom-image/)。
@@ -263,7 +262,7 @@ ms.lasthandoff: 03/27/2017
 * **從 Azure 虛擬網路存取網際網路時發生問題** - 如果您使用部署指令碼建立具有新網域控制站的叢集，或手動將前端節點 VM 升級到網域控制站，則在將 VM 連接到網際網路時，可能會發生問題。 如果網域控制站上自動設定了轉寄站 DNS 伺服器，而此轉寄站 DNS 伺服器未正確解析，就可能發生這種問題。
   
     若要解決此問題，請登入網域控制站，並選擇移除轉寄站組態設定，或設定有效的轉寄站 DNS 伺服器。 若要設定這項設定，請在「伺服器管理員」中按一下 [工具]**** >
-  [DNS]  **** 以開啟 [DNS 管理員]，然後按兩下 [轉寄站]****。
+    [DNS]**** 以開啟 [DNS 管理員]，然後按兩下 [轉寄站]****。
 * **從計算密集型 VM 存取 RDMA 網路時發生問題** - 如果您使用支援 RDMA 大小 (例如 A8 或 A9) 的 VM 來新增 Windows Server 計算節點 VM 或訊息代理程式節點 VM，則在將這些 VM 連接到 RDMA 應用程式網路時，可能會發生問題。 之所以會發生此問題，其中一個原因是在將 VM 新增到叢集時，未正確安裝 HpcVmDrivers 擴充功能。 比方說，延伸模組可能卡在安裝中狀態。
   
     若要解決這個問題，請先檢查 VM 中的延伸模組狀態。 如果延伸模組未正確安裝，請嘗試從 HPC 叢集中移除節點，然後重新新增節點。 例如，您可以在前端節點上執行 Add-HpcIaaSNode.ps1 指令碼，以新增計算節點 VM。
@@ -273,5 +272,4 @@ ms.lasthandoff: 03/27/2017
 * 如需編寫叢集部署指令碼及執行 HPC 工作負載的教學課程，請參閱 [開始使用 Azure 中的 HPC Pack 叢集執行 Excel 和 SOA 工作負載](../../virtual-machines-windows-excel-cluster-hpcpack.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 嘗試以 HPC Pack 的工具啟動、停止、新增和移除您所建立之叢集中的計算節點。 請參閱 [在 Azure 中管理 HPC Pack 叢集的計算節點](hpcpack-cluster-node-manage.md)。
 * 若要設定將工作從本機電腦提交至叢集，請參閱 [將 HPC 工作從內部部署電腦提交至 Azure 中的 HPC Pack 叢集](../../virtual-machines-windows-hpcpack-cluster-submit-jobs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-
 

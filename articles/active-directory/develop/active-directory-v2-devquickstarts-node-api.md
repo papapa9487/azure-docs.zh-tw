@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/13/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
-ms.openlocfilehash: d42b96b0fb02b6c2df364d5e19f3345991ee03b1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: 94e945a52b9df7c495de1611baa08083357670c9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="secure-a-web-api-by-using-nodejs"></a>使用 Node.js 保護 Web API 安全
 > [!NOTE]
@@ -41,7 +39,7 @@ ms.lasthandoff: 05/04/2017
 您也可以在本教學課程結束時取得完整的應用程式。
 
 ## <a name="1-register-an-app"></a>1：註冊應用程式
-在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 建立新的應用程式，或遵循[下列詳細步驟](active-directory-v2-app-registration.md)註冊應用程式。 請確定您：
+在 [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) 建立新的應用程式，或遵循[這些詳細步驟](active-directory-v2-app-registration.md)來註冊應用程式。 請確定您已執行下列動作：
 
 * 複製指派給您的應用程式的「應用程式識別碼」。 您在本教學課程中將需要用到它。
 * 為您的應用程式新增 **行動** 平台。
@@ -833,7 +831,7 @@ next();
 在未使用 OAuth 2.0 相容用戶端的情況下，您已經儘可能地使用此伺服器的所有功能。 在這方面，您必須檢閱其他教學課程。
 
 ## <a name="next-steps"></a>後續步驟
-[這裡以 .zip 檔案提供](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip)完整範例 (不含您的設定值) 供您參考。 您也可以從 Github 複製它：
+做為參考，我們以 [.zip 檔案](https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs/archive/complete.zip)的形式提供已完成的範例 (不含您的設定值)。 您也可以從 Github 複製它：
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/AppModelv2-WebAPI-nodejs.git```
 
@@ -842,9 +840,8 @@ next();
 以下是一些其他資源：
 
 * [Azure AD v2.0 開發人員指南](active-directory-appmodel-v2-overview.md)
-* [堆疊溢位 "azure-active-directory" 標記](http://stackoverflow.com/questions/tagged/azure-active-directory)
+* [Stack Overflow "azure-active-directory" 標籤 (英文)](http://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ### <a name="get-security-updates-for-our-products"></a>取得產品的安全性更新
-我們建議您註冊，即可在發生安全性事件時收到通知。 前往 [Microsoft 技術安全性通知](https://technet.microsoft.com/security/dd252948) 頁面，訂閱 Security Advisories Alerts。
-
+我們建議您註冊，即可在發生安全性事件時收到通知。 請在 [Microsoft 技術安全性通知](https://technet.microsoft.com/security/dd252948)頁面上，訂閱資訊安全摘要報告警示。
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: v-jysur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: ad69d82e57be8bfd9ba40dd88cbc0a979c9e1722
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="create-service-manager-web-app-using-the-automated-script-preview"></a>使用自動化的指令碼建立 Service Manager Web 應用程式 (預覽)
 
 使用下列指令碼來建立您 Service Manager 執行個體的 Web 應用程式。 可在這裡找到 Service Manager 連線的相關詳細資訊：[Service Manager Web 應用程式](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
@@ -323,4 +320,3 @@ if(!$err)
 ```
 ## <a name="next-steps"></a>後續步驟
 [設定混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)。
-

@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0837cb33bf438fb7fd9665d21d411f0170cdd393
-ms.openlocfilehash: a0a101c34ffd4adb6816d9db8313d10b0ffbb3ae
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/23/2017
-
+ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>教學課程：Azure Active Directory 與 SuccessFactors 整合
 本教學課程旨在說明如何整合 SuccessFactors 與 Azure Active Directory (Azure AD)。
@@ -130,7 +129,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     | `https://<company name>.sapsf.eu` |
     | `https://<company name>.sapsf.eu/<company name>` |
    
-    c. 按 [下一步] 。 
+    c. 按一下 [下一步] 。 
 
     > [!NOTE]
     > 請注意這些不是真正的值。 您必須使用實際的「登入 URL」及「回覆 URL」來更新這些值。 若要取得這些值，請連絡 [SuccessFactors 支援小組](https://www.successfactors.com/en_us/support.html)。
@@ -235,7 +234,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
    
     b. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
    
-    c. 按 [下一步] 。
+    c. 按一下 [下一步] 。
 6. 在 [使用者設定檔]  對話方塊頁面上，執行下列步驟：
    
     ![建立 Azure AD 測試使用者][21]
@@ -248,7 +247,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
    
     d. 在 [角色] 清單中選取 [使用者]。
    
-    e. 按 [下一步] 。
+    e. 按一下 [下一步] 。
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
    
     ![建立 Azure AD 測試使用者][22]
@@ -331,4 +330,3 @@ SuccessFactors 需以手動方式佈建。
 [27]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_09.png
 [28]: ./media/active-directory-saas-successfactors-tutorial/tutorial_general_10.png
 [29]: ./media/active-directory-saas-successfactors-tutorial/tutorial_successfactors_10.png
-

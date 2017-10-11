@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>比較 Azure Mobile Engagement 與其他類似的 Azure 服務
 Microsoft Azure 所提供之軟體的清單會不斷擴大，且您有時可能會想要知道 Azure Mobile Engagement 和您剛剛閱讀或聽過的其他服務有什麼不同。 此文章會嘗試釐清您的疑惑，並在 Azure Mobile Engagement 是最適合您使用的服務時，指示您選擇 Azure Mobile Engagement。 
@@ -64,5 +62,4 @@ Azure Mobile Engagement 是針對**數位行銷人員/CMO** 特別提供的服�
 總而言之，Mobile Engagement 的用途不止是用來收集分析 - 它「還不是 Microsoft 的另一項分析產品」。 這與傳送目標性推播通知，以及我們為此目標性通知收集行為分析資料有關，但是重點還是在於向應用程式使用者傳送最有意義的推播通知，以避免通知變成垃圾通知。 
 
 如需詳細資料，請參考這段有關 Mobile Engagement 簡略說明的 [快速上手影片](mobile-engagement-overview.md) 。 
-
 

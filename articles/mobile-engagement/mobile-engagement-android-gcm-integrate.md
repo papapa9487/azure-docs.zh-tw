@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/10/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-integrate-gcm-with-mobile-engagement"></a>如何整合 GCM 與 Mobile Engagement
 > [!IMPORTANT]
@@ -82,9 +82,3 @@ ms.openlocfilehash: 0282abbf44406cac89c13520bc2a4e375817ed1f
 遵循 [本指南](mobile-engagement-android-get-started.md#grant-mobile-engagement-access-to-your-gcm-api-key) 來授與 Mobile Engagement 的存取權給 GCM API 金鑰。
 
 [Google Play SDK]:https://developers.google.com/cloud-messaging/android/start
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

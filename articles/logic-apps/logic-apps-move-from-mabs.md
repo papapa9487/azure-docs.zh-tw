@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="move-from-biztalk-services-to-logic-apps"></a>從 BizTalk 服務移至 Logic Apps
 
 Microsoft Azure BizTalk 服務 (MABS) 即將停用。 您可以使用本主題，將 MABS 整合解決方案移至 Azure Logic Apps。 
@@ -31,8 +28,8 @@ Microsoft Azure BizTalk 服務 (MABS) 即將停用。 您可以使用本主題�
 
 BizTalk 服務包含兩個子服務：
 
-1.    Microsoft BizTalk 服務混合式連線
-2.    EAI 和 EDI 橋接器架構整合
+1.  Microsoft BizTalk 服務混合式連線
+2.  EAI 和 EDI 橋接器架構整合
 
 如果您想要移動混合式連線，[Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)說明這項服務的變更和功能。 Azure 混合式連線取代了 BizTalk 服務混合式連線。 Azure 混合式連線隨附於 Azure App Service，而 Azure 入口網站中也有提供。 Azure 混合式連線還提供新的混合式連線管理員，可管理現有的 BizTalk 服務混合式連線，以及您在入口網站中建立的新混合式連線。 Azure App Service 混合式連線已正式上市 (GA)。
 
@@ -132,4 +129,3 @@ Logic Apps 在[Azure 入口網站](../logic-apps/logic-apps-monitor-your-logic-a
 * [什麼是 Logic Apps](logic-apps-what-are-logic-apps.md)
 * [建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)，或使用[預先建置的範本](logic-apps-use-logic-app-templates.md)來快速上手  
 * [檢視可在邏輯應用程式中使用的所有可用連接器](../connectors/apis-list.md)
-

@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
 您必須先填入資料，才能搜尋 [Azure 搜尋服務索引](search-what-is-an-index.md)。 如果資料已存在於 Azure SQL 資料庫中，**適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**) 就能將編製索引的程序自動化，這表示可減少編寫程式碼的工作，並減少需要處理的基礎結構。
@@ -358,4 +356,3 @@ SQL 索引子公開數個組態設定︰
 + 您可以確保在索引子執行時，已編製索引的資料表上沒有任何未完成的交易 (例如，所有資料表更新均會在排程中以批次形式執行，以及已設定 Azure 搜尋服務索引子排程以防止與資料表更新排程重疊)。  
 
 + 您會定期進行完整的重新編製索引，以挑選出任何遺失的資料列。 
-

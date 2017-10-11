@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c0c83361f94ffd9c30d7fcc551ff4b85ad7d6fa5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk 服務：使用作業記錄檔進行疑難排解
 
@@ -38,7 +36,7 @@ ms.lasthandoff: 06/01/2017
 ## <a name="view-biztalk-services-operation-logs"></a>檢視 BizTalk 服務作業記錄檔
 1. 在 Azure 傳統入口網站中，選取 [管理服務]，然後選取 [作業記錄檔] 索引標籤。
 2. 您可以根據不同的參數篩選記錄檔，例如訂用帳戶、日期範圍、服務類型 (例如 BizTalk 服務)、服務名稱或作業狀態 (例如「成功」、「失敗」)。
-3. 選取核取記號以檢視篩選清單。 下圖顯示 testbiztalkservice 的相關活動： ![檢視作業記錄檔][ViewLogs] 
+3. 選取核取記號以檢視篩選清單。 下圖顯示 testbiztalkservice 的相關活動：![檢視作業記錄檔][ViewLogs] 
 4. 若要檢視特定作業的詳細資訊，請選取資料列，然後按一下底部工作列中的 [ **詳細資料** ]。
 
 ## <a name="bizops"></a>使用 Azure 管理服務進行追蹤的作業
@@ -74,5 +72,4 @@ ms.lasthandoff: 06/01/2017
 * [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
-
 

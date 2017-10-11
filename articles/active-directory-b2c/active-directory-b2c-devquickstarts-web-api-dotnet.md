@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 48452eb68f826d1c7aa61d5e5531f941ac1422b0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-ad-b2c-call-a-net-web-api-from-a-net-web-app"></a>Azure AD B2C：從 .NET Web 應用程式呼叫 .NET Web API
 
@@ -187,5 +186,4 @@ public async Task<ActionResult> Index()
 ## <a name="run-the-sample-app"></a>執行範例應用程式
 
 最後，建置並執行這兩個應用程式。 註冊和登入，並為登入的使用者建立工作。 請登出應用程式，再以不同的使用者身分登入， 然後為該使用者建立工作。 您會發現，這些工作在 API 上是依照使用者來儲存的 ，因為 API 會從自己收到的權杖中擷取使用者的身分識別。 也可以嘗試使用範圍。 移除「寫入」的權限，然後嘗試新增一項工作。 只需確定每次您變更範圍時會登出。
-
 

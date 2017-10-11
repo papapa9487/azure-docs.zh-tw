@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 35b51ab7fa40e16ebe5170c3dea33b02a653d23b
-
-
+ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft 安全性回應中心
 Microsoft 安全性回應中心 (MSRC) 是由某些世界上最資深安全性專家帶領。 這些專家會每天日以繼夜地尋找、監視、回應和解決安全性事件與內部部署和雲端弱點。
@@ -39,9 +39,3 @@ Microsoft 獎勵計畫會就嶄新的入侵技術、可以減輕嶄新入侵的�
 在 [MSRC 錯誤獎勵](https://technet.microsoft.com/security/dn425036)頁面和 [MSRC 部落格](https://blogs.technet.microsoft.com/msrc/)深入了解這些計畫。
 
 若要深入了解 MSRC，請造訪 [MSRC 首頁](https://technet.microsoft.com/library/dn440717.aspx)。
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

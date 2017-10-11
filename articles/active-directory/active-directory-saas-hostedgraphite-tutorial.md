@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: f6ed02cc67be4090402a115c30819ff6cff99c99
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>教學課程：Azure Active Directory 與 Hosted Graphite 整合
 
@@ -112,9 +110,9 @@ ms.lasthandoff: 06/22/2017
 
     ![設定單一登入](./media/active-directory-saas-hostedgraphite-tutorial/tutorial_hostedgraphite_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.hostedgraphite.com/metadata/<user id>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： `https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://www.hostedgraphite.com/complete/saml/<user id>`
 
 4. 如果您想要以「SP 起始模式」設定應用程式，請在 [Hosted Graphite 網域與 URL] 區段上，執行下列步驟：
    
@@ -265,5 +263,4 @@ ms.lasthandoff: 06/22/2017
 [201]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hostedgraphite-tutorial/tutorial_general_203.png
-
 

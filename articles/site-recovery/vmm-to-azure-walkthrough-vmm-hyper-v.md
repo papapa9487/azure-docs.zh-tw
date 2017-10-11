@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ec118ed837dbf140083b3ae1e4ecd41c81562018
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
-
 # <a name="step-6-prepare-vmm-servers-and-hyper-v-hosts-for-hyper-v-replication-to-azure"></a>步驟 6：準備 VMM 伺服器和 Hyper-V 主機以將 Hyper-V 複寫至 Azure
 
 設定好部署所需的 [Azure 元件](vmm-to-azure-walkthrough-prepare-azure.md)後，請使用本文中的指示來準備內部部署 VMM 伺服器和 Hyper-V 主機，以和 Azure Site Recovery 進行互動。
@@ -49,5 +47,4 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 7：建立保存庫](vmm-to-azure-walkthrough-create-vault.md)
-
 

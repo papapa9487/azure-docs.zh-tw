@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 1754c40a4c555ae1349549657e5906e023cb3bd8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 9faee35fea8fbbc79b4cbcf8af2b4b3e2b6aa946
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>如何辨識委派與應用程式權限之間的差異
 
 ## <a name="recommended-documents"></a>建議的文件
@@ -31,4 +29,3 @@ ms.lasthandoff: 04/14/2017
 
 ## <a name="next-steps"></a>後續步驟
 [AzureAD StackOverflow (英文)](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

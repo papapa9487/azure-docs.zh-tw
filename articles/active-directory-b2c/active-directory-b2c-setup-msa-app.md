@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 59879dc0b3fc1d7af3e2a1f67f1701f451de9126
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-microsoft-accounts"></a>Azure Active Directory B2C：針對具有 Microsoft 帳戶的取用者提供註冊和登入
 ## <a name="create-a-microsoft-account-application"></a>建立 Microsoft 帳戶應用程式
@@ -32,7 +31,7 @@ ms.lasthandoff: 08/08/2017
 3. 為應用程式提供 [名稱]，然後按一下 [建立應用程式]。
    
     ![Microsoft 帳戶 - 應用程式名稱](./media/active-directory-b2c-setup-msa-app/msa-app-name.png)
-4. 複製 [應用程式識別碼] 的值。 您必須使用此值，將 Microsoft 帳戶於租用戶中設定為識別提供者。
+4. 複製 [應用程式識別碼] 的值。您必須使用此值，將 Microsoft 帳戶於租用戶中設定為識別提供者。
    
     ![Microsoft 帳戶 - 應用程式識別碼](./media/active-directory-b2c-setup-msa-app/msa-app-id.png)
 5. 按一下 [新增平台]，然後選擇 [Web]。
@@ -60,5 +59,4 @@ ms.lasthandoff: 08/08/2017
 5. 按一下 [識別提供者類型]、選取 [Microsoft 帳戶]，然後按一下 [確定]。
 6. 按一下 [設定此身分識別提供者]  ，然後輸入您先前建立的 Microsoft 帳戶應用程式的應用程式識別碼和密碼。
 7. 依序按一下 [確定] 與 [建立]，以儲存您的 Microsoft 帳戶設定。
-
 

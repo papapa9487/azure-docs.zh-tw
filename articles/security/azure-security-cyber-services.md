@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e3502015d20b172214369b05c3ea12bd5b5c98e9
-
-
+ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft 網路安全性服務
 Microsoft 服務提供安全性、身分識別和網路安全性的完整方法。 Microsoft 服務提供跨策略、規劃、實作和持續性支援的一系列安全性和身分識別服務，協助企業用戶實作符合其策略性目標的整體安全性解決方案。
@@ -39,9 +39,3 @@ Microsoft 服務提供安全性、身分識別和網路安全性的完整方法�
 * [事件回應和復原](http://download.microsoft.com/download/5/1/6/516F59A7-91EE-4463-8612-C85FD3BEBDC7/microsoft-incident-response-and-recovery-process-brief.pdf)
 
 [深入了解](https://aka.ms/cyberserv) Microsoft 服務安全性諮詢服務。
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

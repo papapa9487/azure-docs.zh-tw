@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: b7ad7b91c6b836f26b45959ef65a99666a4bf69a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票
 
@@ -227,7 +226,7 @@ ms.lasthandoff: 12/08/2016
 在本主題中，我們將說明如何使用範例中提供的 **Tutorial Client** 應用程式來測試方案。  
 
 1. 在 Visual Studio 中，按 F5 以啟動 **Tutorial Client**。
-2. 畫面上必須已預先填入我們用來建立服務匯流排佇列之步驟所指定的值。 按 [下一步] 。
+2. 畫面上必須已預先填入我們用來建立服務匯流排佇列之步驟所指定的值。 按一下 [下一步] 。
 3. 在下一個視窗中，提供 BizTalk 服務訂用帳戶的 ACS 認證，以及 EAI 和 EDI (接收) 橋接器部署所在的端點。
    
    您已在上一個步驟中複製 EAI 橋接器端點。 至於 EDI 接收橋接器端點，請在 BizTalk 服務入口網站中，移至 [協議] > [接收設定] > [傳輸] > [端點]。
@@ -253,10 +252,10 @@ BizTalk 服務 EDI 橋接器也支援批次處理傳出訊息。 對於想要接
 
 1. 在 BizTalk 服務入口網站中，按一下您稍早建立的協議。 按一下 [傳送設定] > [批次處理] > [新增批次]。
 2. 對批次名稱輸入 **InvoiceBatch**、提供描述，然後按 [下一步]。
-3. 指定定義必須批次處理哪些訊息的批次準則。 在此方案中，我們會批次處理所有訊息。 因此，請選取 [使用進階定義] 選項，然後輸入 **1 = 1**。 這個條件永遠會成立，因此會批次處理所有訊息。 按 [下一步] 。
+3. 指定定義必須批次處理哪些訊息的批次準則。 在此方案中，我們會批次處理所有訊息。 因此，請選取 [使用進階定義] 選項，然後輸入 **1 = 1**。 這個條件永遠會成立，因此會批次處理所有訊息。 按一下 [下一步] 。
    
    ![][17]  
-4. 指定批次釋放準則。 從下拉式方塊中，選取 [MessageCountBased]，然後在 [計數] 中指定 **3**。 這表示每批次會傳送三個訊息至 Northwind。 按 [下一步] 。
+4. 指定批次釋放準則。 從下拉式方塊中，選取 [MessageCountBased]，然後在 [計數] 中指定 **3**。 這表示每批次會傳送三個訊息至 Northwind。 按一下 [下一步] 。
    
    ![][18]  
 5. 檢閱摘要，然後按一下 [儲存] 。 按一下 [部署]  來重新部署協議。
@@ -281,5 +280,4 @@ BizTalk 服務 EDI 橋接器也支援批次處理傳出訊息。 對於想要接
 [16]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-16.PNG  
 [17]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-17.PNG  
 [18]: ./media/biztalk-process-edifact-invoice/process-edifact-invoices-with-auzure-bts-18.PNG
-
 

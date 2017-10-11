@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 5db4e5b18ad385e7eba125a1296a9c5054213446
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>將 IaaS 資源從傳統移轉至 Azure Resource Manager 的規劃
 雖然 Azure Resource Manager 提供了許多令人讚嘆的功能，但請務必詳加規劃您的移轉作業，以確保一切順利進行。 詳細規劃可確保您在執行移轉活動期間不會遇到問題。 
 
@@ -96,7 +94,7 @@ ms.lasthandoff: 05/08/2017
 - **ExpressRoute 線路和 VPN**。 目前具有授權連結的 ExpressRoute 閘道，無法在沒有停機時間的情況下進行移轉。 如需因應措施，請參閱[將 ExpressRoute 線路和相關聯的虛擬網路從傳統部署模型移轉至 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 
 - **VM 擴充功能** - 虛擬機器擴充功能可能是移轉執行中 VM 其中一個最大的障礙。 VM 擴充功能的修復可能需要多達 1-2 天，因此請適當地進行規劃。  需要使用中的 Azure 代理程式，才能向 VM 擴充功能回報執行中 VM 的狀態。 如果執行中 VM 的狀態恢復為已損毀，這種情況將會中止移轉。 代理程式本身不需要採用工作順序即可啟用移轉，但如果 VM 上存在擴充功能，則將需要工作代理程式與輸出網際網路連線 (具有 DNS)，移轉才能繼續進行。
-  - 如果在移轉期間，對 DNS 伺服器的連線遺失，則在準備移轉之前，必須先從每個 VM 移除 BGInfo v1.\* 以外的所有 VM 擴充功能，並後續在 Azure Resource Manager 移轉之後，重新新增回 VM。  **這僅適用於執行中的 VM。**  如果 VM 已停止 (解除配置)，則不需要移除 VM 擴充功能。 **注意：**許多擴充功能 (例如 Azure 診斷和資訊安全中心監視) 在移轉之後將會自行重新安裝，因此移除這些功能不是問題。
+  - DNS 伺服器的連線遺失時在移轉期間，除了 BGInfo v1 的所有 VM 擴充功能。\*需要先移除從每個 VM 之前移轉的準備和後續重新加入的回至 VM 在 Azure 資源管理員移轉之後。  **這僅適用於執行中的 VM。**  如果 VM 已停止 (解除配置)，則不需要移除 VM 擴充功能。 **注意：**許多擴充功能 (例如 Azure 診斷和資訊安全中心監視) 在移轉之後將會自行重新安裝，因此移除這些功能不是問題。
   - 此外，請確定網路安全性群組不會限制輸出網際網路存取。 某些網路安全性群組組態可能會發生此情況。 需要輸出網際網路存取 (和 DNS)，才能將 VM 擴充功能移轉至 Azure Resource Manager。 
   - BGInfo 擴充功能有兩個版本：v1 和 v2。  如果 VM 是使用傳統入口網站或 PowerShell 建立，VM 上可能會有 v1 擴充功能。 不需要移除此擴充功能，且移轉 API 將會略過它 (不移轉)。 不過，如果傳統 VM 是使用新的 Azure 入口網站建立，在代理程式運作中，且具有輸出網際網路存取 (DNS) 的前提下，可能會有以 JSON 為基礎，且可以移轉至 Azure Resource Manager 的 BGInfo v2 版本。 
   - **修復選項 1**。 如果您知道您的 VM 在不會有輸出網際網路存取、使用中 DNS 服務，和使用中 Azure 代理程式，則請在準備移轉之前解除安裝所有 VM 擴充功能，然後在移轉之後重新安裝 VM 擴充功能。 
@@ -213,4 +211,3 @@ ms.lasthandoff: 05/08/2017
 * [用於協助將 IaaS 資源從傳統移轉至 Azure Resource Manager 的社群工具](../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [檢閱最常見的移轉錯誤](migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [檢閱有關將 IaaS 資源從傳統移轉至 Azure Resource Manager 的常見問題集](migration-classic-resource-manager-faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

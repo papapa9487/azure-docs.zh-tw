@@ -15,12 +15,11 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: f2d197264f066a23468db80686444bd24f6d796f
 ms.openlocfilehash: ae37f49916445a9486457af61aa9bf8bc1d7eb87
-ms.lasthandoff: 02/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的硬體元件
 
@@ -66,7 +65,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 下表彙總裝置中的主要硬體元件。 按一下 [更換程序]  資料行中的連結，即可移到相關聯的教學課程。
 
-| 元件 | # 存在 | 外掛程式模組？ | 更換程序 |
+| 元件 | # Present | 外掛程式模組？ | 更換程序 |
 |:--- |:--- |:--- |:--- |
 | 底座 |1 |否 |[更換 StorSimple 裝置上的底座](storsimple-chassis-replacement.md) |
 | 主要控制器 |2 |是 |[更換 StorSimple 裝置上的控制器模組](storsimple-controller-replacement.md) |
@@ -78,7 +77,7 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 主要機箱和 EBOD 機箱在其 I/O 模組中各有不同。 此外，PCM 有具不同的瓦數。 主要機箱中的 PCM 為 764 瓦，而 EBOD 機箱中的 PCM 則為 580 瓦。主要機箱中的 PCM 也包含備用電池模組。
 
-| 元件 | # 存在 | 外掛程式模組？ | 更換程序 |
+| 元件 | # Present | 外掛程式模組？ | 更換程序 |
 |:--- |:--- |:--- |:--- |
 | 底座 |1 |否 |[更換 StorSimple 裝置上的底座](storsimple-chassis-replacement.md) |
 | EBOD 控制器 |2 |是 |[更換 StorSimple 裝置上的 EBOD 控制器](storsimple-ebod-controller-replacement.md) |
@@ -137,5 +136,4 @@ StoreSimple 8000 系列裝置由主要和/或 EBOD 機箱的數個外掛程式�
 
 ## <a name="next-steps"></a>後續步驟
 請先閱讀所有 [安全資訊](storsimple-safety.md) ，再嘗試更換 StorSimple 硬體元件。
-
 

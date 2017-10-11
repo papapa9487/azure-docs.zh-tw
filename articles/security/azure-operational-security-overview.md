@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資料、應用程式和其他資產的服務、控制及功能。 [Azure 作業安全性](https://docs.microsoft.com/azure/security/azure-operational-security)的基礎架構涵蓋透過 Microsoft 特有之各種功能獲得的知識，包括 Microsoft 安全性開發週期 (SDL)、Microsoft 安全性回應中心方案，以及對網路安全性威脅型態的深層認知。
 
@@ -162,4 +160,3 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 - [Operations Management Suite | 安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)。
 - [在 Operations Management Suite 安全性和稽核解決方案內監視及回應安全性警示](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-responding-alerts)。
 - [在 Operations Management Suite 安全性和稽核解決方案內監視資源](https://docs.microsoft.com/en-us/azure/operations-management-suite/oms-security-monitoring-resources)。
-

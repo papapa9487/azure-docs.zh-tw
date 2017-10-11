@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: parakhj
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 00c5d3781455c80b33bdbb4c872ae354531baf3e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C：針對具有 Weibo 帳戶的取用者提供註冊和登入
 
@@ -64,5 +63,4 @@ ms.lasthandoff: 08/08/2017
 7. 輸入您稍早複製為**用戶端識別碼**的**應用程式金鑰**。
 8. 輸入您稍早複製為**用戶端密碼**的**應用程式密碼**。
 9. 依序按一下 [確定] 和 [建立]，儲存您的 Weibo 設定。
-
 

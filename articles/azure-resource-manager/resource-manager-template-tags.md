@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
 ms.openlocfilehash: adc10ade79af3087a8b24ea5b6709182cb1edb92
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tag-resources-in-azure-resource-manager-templates"></a>標記 Azure Resource Manager 範本中的資源
 [!INCLUDE [resource-manager-tag-introduction](../../includes/resource-manager-tag-introduction.md)]
@@ -31,5 +30,4 @@ ms.lasthandoff: 07/21/2017
 ## <a name="next-steps"></a>後續步驟
 * 如需管理標籤的詳細資訊，請參閱 [使用標記來組織您的 Azure 資源](resource-group-using-tags.md)。
 * 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
-
 

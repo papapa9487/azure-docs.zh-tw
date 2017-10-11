@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 61e0877187759d76b6f7efcef0a5ed8bec8500fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>為 StorSimple 裝置設定 CHAP
 
@@ -172,5 +170,4 @@ CHAP 代表 Challenge Handshake 驗證通訊協定。 它是伺服器用來驗�
 
 * 深入了解 [StorSimple 安全性](storsimple-8000-security.md)。
 * 深入了解[使用 StorSimple 裝置管理員服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
-
 

@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 98d1e2ad162f4b69be4fdf9a5b004f640fbb5d7e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.openlocfilehash: cb98d5f2aaa526555820c15ba5a32fb7e78ffc5a
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="azure-functions-runtime-overview"></a>Azure Functions 執行階段概觀
 
 Azure Functions 執行階段提供新的方法，讓您在內部部署利用 Azure Functions 程式設計模型的簡易性和彈性。 與 Azure Functions 一樣，Azure Functions 執行階段以相同的開放原始碼根源為基礎，並於內部部署，提供與雲端服務幾乎完全相同的開發經驗。
@@ -56,4 +54,3 @@ Azure Functions 背景工作角色部署在 Windows 容器中，您的函式程�
 
 <!--Image references-->
 [1]: ./media/functions-runtime-overview/AzureFunctionsRuntime_Portal.png
-

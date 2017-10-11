@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 06a1d301818f025270137f7eaa9f40e5e4503112
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-jira"></a>教學課程：Azure Active Directory 與 Kantega SSO for JIRA 整合
 
@@ -336,5 +335,4 @@ Kantega SSO for JIRA 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforjira-tutorial/tutorial_general_203.png
-
 

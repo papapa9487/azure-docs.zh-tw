@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 65bfb0a759a624c98a19f3c2c9c72aa5a6780df7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: f8521d1386bba8004e84fe8862a5f59a65ea19ad
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之 Azure AD 資源庫應用程式的問題
 
 存取面板是網頁型入口網站，可讓在 Azure Active Directory (Azure AD) 中具有公司或學校帳戶的使用者，檢視和啟動 Azure AD 系統管理員已授權他們存取的雲端式應用程式。 具有 Azure AD 版本的使用者也可以透過存取面板使用自助群組和應用程式管理功能。 存取面板與 Azure 入口網站分開，使用者不需要具備 Azure 訂用帳戶也能使用。
@@ -45,7 +43,7 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>如何安裝存取面板瀏覽器延伸模組
 
-若要安裝存取面板瀏覽器延伸模組，請依照下列步驟執行：
+若要安裝存取面板的瀏覽器延伸模組，請遵循下列步驟：
 
 1.  在其中一種支援的瀏覽器中開啟[存取面板](https://myapps.microsoft.com)，然後在您的 Azure AD 中以**使用者**身分登入。
 
@@ -85,7 +83,7 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="how-to-configure-password-single-sign-on-for-an-azure-ad-gallery-application"></a>如何為 Azure AD 資源庫應用程式設定密碼單一登入
 
-若要從 Azure AD 資源庫設定應用程式，您必須：
+若要設定 Azure AD 資源庫中的應用程式，您必須：
 
 -   [從 Azure AD 資源庫新增應用程式](#_Add_an_application)
 
@@ -97,7 +95,7 @@ ms.lasthandoff: 04/17/2017
 
 若要從 Azure AD 資源庫新增應用程式，請依照下列步驟執行：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com)，以**全域管理員**或**共同管理員**身分登入
+1.  開啟 [Azure 入口網站](https://portal.azure.com)，然後以**全域管理員**或**共同管理員**身分登入。
 
 2.  按一下左邊主瀏覽功能表底部的 [更多服務]，以開啟 [Azure Active Directory 延伸模組]。
 
@@ -109,7 +107,7 @@ ms.lasthandoff: 04/17/2017
 
 6.  在 [從資源庫新增] 區段的 [輸入名稱] 文字方塊中，輸入應用程式名稱。
 
-7.  選取您要設定使用單一登入的應用程式。
+7.  選取您要設為單一登入的應用程式。
 
 8.  新增應用程式之前，您可以從 [名稱] 文字方塊變更其名稱。
 
@@ -198,4 +196,3 @@ ms.lasthandoff: 04/17/2017
 
 ## <a name="next-steps"></a>後續步驟
 [使用應用程式 Proxy 提供單一登入應用程式](active-directory-application-proxy-sso-using-kcd.md)
-

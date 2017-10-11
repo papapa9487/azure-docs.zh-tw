@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2016
 ms.author: vybavar
-translationtype: Human Translation
-ms.sourcegitcommit: a9b48f149427e5ceb69bcaa97b1bf08519499b6f
 ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-private-templates-on-the-azure-portal"></a>開始在 Azure 入口網站上使用私人範本
 [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) 範本是用來定義您的部署的宣告式範本。 您可以定義要對解決方案部署的資源，並指定可讓您針對不同環境輸入值的參數和變數。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
@@ -132,10 +132,4 @@ ms.openlocfilehash: 01657619cbe579c6818a790cc3ab95a33936a565
 * 若要了解如何建立 Resource Manager 範本，請參閱 [撰寫範本](../azure-resource-manager/resource-group-authoring-templates.md)
 * 若要了解您可用於 Resource Manager 範本中的函數，請參閱 [範本函式](../azure-resource-manager/resource-group-template-functions.md)
 * 如需設計範本的指引，請參閱 [設計 Azure 資源管理員範本的最佳做法](../azure-resource-manager/best-practices-resource-manager-design-templates.md)
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

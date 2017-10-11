@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: f8caa023da05863372b7ef92b47a92168445d741
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benselect"></a>教學課程：Azure Active Directory 與 BenSelect 整合
 
@@ -115,7 +113,7 @@ ms.lasthandoff: 06/23/2017
     在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
 
     > [!NOTE] 
-    > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [BenSelect 支援小組](mailto:support@selerix.com)以取得此值。
+    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [BenSelect 支援小組](mailto:support@selerix.com)以取得此值。
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (原始)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -236,5 +234,4 @@ ms.lasthandoff: 06/23/2017
 [201]: ./media/active-directory-saas-benselect-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-benselect-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-benselect-tutorial/tutorial_general_203.png
-
 

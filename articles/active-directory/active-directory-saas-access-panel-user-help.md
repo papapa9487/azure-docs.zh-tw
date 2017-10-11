@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>是否需要 My Apps 入口網站的協助？
 
@@ -109,5 +108,4 @@ ms.lasthandoff: 07/17/2017
 ## <a name="next-steps"></a>後續步驟
 
 如需與疑難排解相關的資訊，請參閱[使用應用程式的存取面板網站或行動應用程式時發生問題](active-directory-application-access-panel-content-map.md)
-
 

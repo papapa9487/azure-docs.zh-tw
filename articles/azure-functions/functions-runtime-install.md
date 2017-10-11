@@ -14,15 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="install-the-azure-functions-runtime-preview"></a>安裝 Azure Functions 執行階段預覽
 
 如果您想要安裝 Azure Functions 執行階段預覽，您必須遵循下列步驟︰

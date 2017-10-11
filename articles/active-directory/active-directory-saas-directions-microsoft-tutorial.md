@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c69630688e4bcd68ab3b4ee6d9fdb0e0c46d04b
 ms.openlocfilehash: f9c068c71eb00a4c779c91c8ee0f0dc9d6ba85ae
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/24/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>教學課程：Azure Active Directory 與 Directions on Microsoft 整合
 
@@ -118,7 +116,7 @@ Directions on Microsoft 與 Azure AD 整合提供下列優點：
     | `https://www.directionsonmicrosoft.com/user/login` |
     | `https://<subdomain>.devcloud.acquia-sites.com/<companyname>` |
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     |  |
     | --- |
     | `https://rhelmdirectionsonmicrosoftcomtest.devcloud.acquia-sites.com/simplesaml/<companyname>` |
@@ -237,5 +235,4 @@ Directions on Microsoft 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-directions-microsoft-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-directions-microsoft-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-directions-microsoft-tutorial/tutorial_general_203.png
-
 

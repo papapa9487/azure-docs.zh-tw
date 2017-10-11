@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -612,4 +611,3 @@ Azure Site Recovery Deployment Planner 公開預覽版本 1.0 具有下列已知
 * 此工具僅適用於 VMware 到 Azure 案例，而不適用於 Hyper-V 到 Azure 部署。 對於 Hyper-V 到 Azure 案例，使用 [Hyper-V 容量規劃工具](./site-recovery-capacity-planning-for-hyper-v-replication.md)。
 * 美國政府和中國 Microsoft Azure 區域不支援 GetThroughput 作業。
 * 如果 vCenter Server 在各種 ESXi 主機上有兩部或多部 VM 具有相同的名稱或 IP 位址，此工具就無法剖析 VM。 在此版本中，此工具會略過 VMListFile 中重複 VM 名稱或 IP 位址的剖析。 因應措施是使用 ESXi 主機 (而非 vCenter Server) 剖析 VM。 您必須為每部 ESXi 主機執行一個執行個體。
-

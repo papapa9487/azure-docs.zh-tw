@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 0b28c5e93dc8f53597b1d2fa6f4ae154acf16068
 ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>部署適用於雲端解決方案提供者方案的 StorSimple Virtual Array
 
 ## <a name="overview"></a>概觀
@@ -104,9 +104,3 @@ ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
 
 - 關於 StorSimple in CSP，如果您還有其他問題，請移至 [StorSimple in CSP︰常見問題集](storsimple-partner-csp-faq.md)。
 - 如果您已準備好部署 StorSimple，請移至[部署 StorSimple in CSP](storsimple-partner-csp-deploy.md)。
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

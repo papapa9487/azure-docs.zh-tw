@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>教學課程：Azure Active Directory 與 Teamphoria 整合
 
@@ -158,7 +157,7 @@ To enable single sign-on with Teamphoria, it must be configured to use Azure Act
 
     d. **進入點**︰貼上稍早從 Azure 入口網站複製的 **SAML 單一登入服務 URL**。
 
-    e. 將選項切換為 [開啟]，然後按一下 [儲存]。    
+    e. 將選項切換為 [開啟]，然後按一下 [儲存]。   
 
 <!--### Next steps
 
@@ -218,11 +217,11 @@ To ensure users can sign-in to Teamphoria after it has been configured to use Az
 
 3. 按一下 [手動邀請] 選項。
 
-    ![邀請人員](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![邀請人員](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. 在這個頁面上執行下列動作。 
     
-    ![邀請人員](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![邀請人員](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. 在 [電子郵件地址] 文字方塊中，輸入 Britta Simon 的**電子郵件地址**。
 
@@ -288,5 +287,4 @@ To ensure users can sign-in to Teamphoria after it has been configured to use Az
 [201]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_203.png
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 60abdc490cefc7362ca6ed0dec7dbfd53984201f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: d3db9bee0558cac5fb4f5b8fb4ab67a35ce0f141
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-data-catalog-release-notes"></a>Azure 資料目錄版本資訊
 ## <a name="notes-for-the-november-20-2015-release-of-azure-data-catalog"></a>Azure 資料目錄 2015 年 11 月 20 日版本的注意事項
@@ -78,4 +77,3 @@ ms.lasthandoff: 11/17/2016
 
 
 若要找出 RegistrationTool.exe.config 檔案，請啟動註冊工具，然後開啟 Windows 工作管理員公用程式。 在工作管理員的 [詳細資料] 索引標籤，以滑鼠右鍵按一下 RegistrationTool.exe，再從快顯功能表中選擇 [開啟檔案位置]。
-

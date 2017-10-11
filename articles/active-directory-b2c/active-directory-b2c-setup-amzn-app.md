@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: dcc97e1b7f6287bd7692c52bf068950065a26572
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-amazon-accounts"></a>Azure Active Directory B2C：針對具有 Amazon 帳戶的取用者提供註冊和登入
 ## <a name="create-an-amazon-application"></a>建立 Amazon 應用程式
@@ -48,5 +47,4 @@ ms.lasthandoff: 08/08/2017
 5. 按一下 [識別提供者類型]、選取 [Amazon]，然後按一下 [確定]。
 6. 按一下 [設定此身分識別提供者]  ，然後輸入您先前建立之 Amazon 應用程式的用戶端識別碼與用戶端密碼。
 7. 依序按一下 [確定] 和 [建立]，以儲存您的 Amazon 設定。
-
 

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="view-azure-activity-logs"></a>檢視 Azure 活動記錄
 
 ![Azure 活動記錄符號](./media/log-analytics-activity/activity-log-analytics.png)
@@ -93,10 +90,10 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 | 刀鋒視窗 | 說明 |
 | --- | --- |
-| Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下長條圖，以執行 <code>Type=AzureActivity</code> 的記錄搜尋。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
-| 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下該圖，以執行 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code> 的記錄搜尋。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |
-| 依資源列出的活動記錄 | 顯示活動記錄的資源總數，並對於各個資源列出記錄計數的前 10 個資源。 按一下總計範圍執行 <code>Type=AzureActivity &#124; measure count() by Resource</code> 的記錄搜尋，這將顯示解決方案可用的所有 Azure 資源。 按一下資源來執行記錄搜尋，以傳回該資源的所有活動記錄。 |
-| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前 10 個。 按一下總計區域執行 <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code> 的記錄搜尋，這將顯示所有 Azure 資源提供者。 按一下資源提供者執行記錄搜尋，以傳回提供者的所有活動記錄。 |
+| Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下橫條圖，若要執行的記錄搜尋<code>Type=AzureActivity</code>。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
+| 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表，即可執行的記錄搜尋<code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |
+| 依資源列出的活動記錄 | 顯示活動記錄的資源總數，並對於各個資源列出記錄計數的前 10 個資源。 按一下要執行記錄檔中的搜尋的總區域<code>Type=AzureActivity &#124; measure count() by Resource</code>，其中顯示所有的 Azure 資源可用方案。 按一下資源來執行記錄搜尋，以傳回該資源的所有活動記錄。 |
+| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前 10 個。 按一下要執行記錄檔中的搜尋的總區域<code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>，其中顯示所有的 Azure 資源提供者。 按一下資源提供者執行記錄搜尋，以傳回提供者的所有活動記錄。 |
 
 ![Azure 活動記錄儀表板](./media/log-analytics-activity/activity-log-dash.png)
 
@@ -104,4 +101,3 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 - 特定活動時建立[警示](log-analytics-alerts-creating.md)。
 - 使用[記錄搜尋](log-analytics-log-searches.md)檢視活動記錄的詳細資訊。
-

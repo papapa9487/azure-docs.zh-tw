@@ -14,22 +14,22 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 85a0e302626ca14ac039ee6f662f372ddbeb62c5
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>如何使用 SendGrid 透過 Java 傳送電子郵件
 本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。 相關範例是以 Java 撰寫的。 涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。 如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 ## <a name="what-is-the-sendgrid-email-service"></a>什麼是 SendGrid 電子郵件服務？
-SendGrid 是[雲端架構電子郵件服務]，能提供可靠的[交易式電子郵件傳遞]、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。 常見的 SendGrid 使用案例包括：
+SendGrid 是 [雲端架構電子郵件服務]，能提供可靠的 [交易式電子郵件傳遞]、擴充性和即時分析，以及有彈性的 API 來輕鬆進行自訂整合。 常見的 SendGrid 使用案例包括：
 
 * 自動傳送回條給客戶
 * 管理通訊群組清單，以便將每月電子傳單和特別優惠傳送給客戶
 * 收集封鎖的電子郵件、客戶的回應情形等項目的即時度量
-* 產生報告，協助找出趨勢
+* 產生報表，協助找出趨勢
 * 轉寄客戶查詢
 * 透過電子郵件從您的應用程式傳送通知
 
@@ -158,7 +158,7 @@ SendGrid 運用「篩選器」提供其他電子郵件功能。 這些設定可�
           {\"enable\":1}}}}");
 
 ## <a name="how-to-update-email-properties"></a>如何：更新電子郵件屬性
-某些電子郵件屬性可使用 **set*Property*** 進行覆寫，或使用 **add*Property*** 進行附加。
+某些電子郵件內容會被覆寫使用**設定*屬性** * 或附加**新增*屬性** *。
 
 例如，若要指定 **ReplyTo** 地址，請使用下列程式碼：
 
@@ -194,9 +194,3 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
 [雲端架構電子郵件服務]: https://sendgrid.com/email-solutions
 [交易式電子郵件傳遞]: https://sendgrid.com/transactional-email
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

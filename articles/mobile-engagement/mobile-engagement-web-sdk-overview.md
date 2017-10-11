@@ -14,11 +14,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 770a83131a3e661771db50b22ce7de25b2d541cf
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-mobile-engagement-web-sdk"></a>Azure Mobile Engagement Web SDK
 從這裡開始取得有關如何在 Web 應用程式中整合 Azure Mobile Engagement 的所有詳細資料。 如果您想要在開始使用您自己的 Web 應用程式之前，先嘗試一下，請參閱我們的 [15 分鐘教學課程](mobile-engagement-web-app-get-started.md)。
@@ -130,10 +130,4 @@ Mobile Engagement 使用連接字串來設定 SDK 識別碼，例如應用程式
 例如，`capptain.deviceId` 會變成 `engagement.deviceId`，`capptain.agent.startActivity` 會變成 `engagement.agent.startActivity`，依此類推。
 
 如果您已經將舊版 Azure Mobile Engagement Web SDK 整合到您的 Web 應用程式，請參閱 [升級程序](mobile-engagement-web-upgrade-procedure.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

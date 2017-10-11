@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 70a4762383d64dc8d568c628cf260ebd8f2d179d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-create-an-azure-support-request"></a>如何建立 Azure 支援要求
 ## <a name="summary"></a>摘要
@@ -108,5 +106,4 @@ Azure 客戶可以在 Azure 入口網站 ( [https://portal.azure.com](https://po
 
 ## <a name="learn-more"></a>詳細資訊
 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq)
-
 

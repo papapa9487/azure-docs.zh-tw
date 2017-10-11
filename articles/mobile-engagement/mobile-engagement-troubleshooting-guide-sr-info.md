@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 05abc6a620468aff9a26ed1d37562c8cd2b2acc8
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: a4497046df74003a733d80f190e82b5e798d398e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-request-sr-information"></a>服務要求 (SR) 資訊
 當您開啟任何 Mobile Engagement 服務時，請提供下列資訊：
@@ -41,5 +40,4 @@ ms.lasthandoff: 11/17/2016
 * 應用程式的 SDK 版本與平台 (Android SDK 2.4.1、iOS 1.16.2 等等)
 * 應用程式產品的下載位置 (或是您開發應用程式的 APK/TGZ 檔案)
 * 「AndroidManifest.xm」和/或任何您的應用程式與 Azure Mobile Engagement 相關的程式碼片段 (進階疑難排解)
-
 

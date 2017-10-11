@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: cbb5d3598ef91512991d7d1e9f854eb12980752b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-hyper-v-without-vmm-to-azure-replication"></a>步驟 2：檢閱 Hyper-V (不含 VMM) 對 Azure 複寫的必要條件
 
 資料表中會摘要列出必要條件。
@@ -40,4 +38,3 @@ ms.lasthandoff: 07/20/2017
 
 - 如果您要進行完整部署，請移至[步驟 3：規劃容量](hyper-v-site-walkthrough-capacity.md)
 - 如果您要進行簡單的測試部署，請移至[步驟 4：規劃網路](hyper-v-site-walkthrough-network.md)。
-

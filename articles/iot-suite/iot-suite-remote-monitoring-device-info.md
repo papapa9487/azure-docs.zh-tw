@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
-ms.openlocfilehash: cef08b7c9a50e02948a1fa495158f3d0fab416e9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: f8fd452806a0a0b98cf8e434c9bd55700083a6c5
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>遠端監視預先設定方案中的裝置資訊中繼資料
 
@@ -133,4 +132,3 @@ IoT 中樞會針對連線至遠端監視解決方案的每個模擬與實體裝�
 [lnk-predictive-overview]: iot-suite-predictive-overview.md
 [lnk-faq]: iot-suite-faq.md
 [lnk-security-groundup]: securing-iot-ground-up.md
-

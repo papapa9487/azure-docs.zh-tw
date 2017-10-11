@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 0981872ff819fdf49a9cc97afce3c212013ce76b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>在 Azure 入口網站中建立執行 Windows 的虛擬機器
 > [!div class="op_single_selector"]
@@ -50,4 +48,3 @@ ms.lasthandoff: 06/02/2017
 * 深入了解如何在 Azure 入口網站，[使用 Resource Manager 部署模型建立 VM](../../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 登入虛擬機器。 如需相關指示，請參閱 [登入執行 Windows Server 的虛擬機器](connect-logon.md)。
 * 附加磁碟來儲存資料。 您可以附加空的磁碟和含有資料的磁碟。 如需相關指示，請參閱 [將資料磁碟連接至以傳統部署模型建立的 Windows 虛擬機器](attach-disk.md)。
-

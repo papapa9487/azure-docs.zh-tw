@@ -13,14 +13,12 @@ ms.devlang:
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ffb2d2da1e2439df6f5da543411e3c2c68d3435
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="use-azure-file-shares-with-windows-vms"></a>搭配 Windows VM 使用 Azure 檔案共用 
 
 您可以使用 Azure 檔案共用，用以從 VM 儲存及存取檔案。 例如，您可以儲存您想要所有 VM 共用的指令碼或應用程式組態檔。 本主題會示範如何建立和掛接 Azure 檔案共用，以及如何上傳和下載檔案。
@@ -76,4 +74,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>後續步驟
 
 您也可以使用 PowerShell 建立和管理檔案共用。 如需詳細資訊，請參閱[開始使用 Windows 上的 Azure 檔案儲存體](../../storage/files/storage-dotnet-how-to-use-files.md)。
-

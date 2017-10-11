@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: masnider;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 538f282b28e5f43f43bf6ef28af20a4d8daea369
-ms.openlocfilehash: 6b1627ee9c55ecb58bdb1263eb49458caab99322
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/07/2017
-
+ms.openlocfilehash: 601b1c7713c9785d949c1c72000ec7f3f63dd682
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="reliable-services-overview"></a>Reliable Services 概觀
 Azure Service Fabric 可簡化撰寫和管理無狀態與具狀態的 Reliable Services。 本主題涵蓋︰
@@ -118,4 +117,3 @@ Service Fabric 中常見的無狀態服務使用範例是做為前端，其公�
 * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 的進階用法](service-fabric-reliable-services-advanced-usage.md)
 * [Reliable Actors 程式設計模型](service-fabric-reliable-actors-introduction.md)
-

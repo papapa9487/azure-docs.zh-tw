@@ -4,7 +4,7 @@
 
 1. 在 SQL Server 組態管理員的主控台窗格中，展開 [SQL Server 網路組態] 。
 
-1. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] \(預設的執行個體名稱)。在詳細資料窗格中，用滑鼠右鍵按一下 [TCP]，然後如果尚未啟用，請按一下 [啟用]。
+1. 在主控台窗格中，按一下 [MSSQLSERVER 的通訊協定] (預設的執行個體名稱)。在詳細資料窗格中，用滑鼠右鍵按一下 [TCP]，然後如果尚未啟用，請按一下 [啟用]。
 
     ![啟用 TCP](./media/virtual-machines-sql-server-connection-tcp-protocol/enable-tcp.png)
 

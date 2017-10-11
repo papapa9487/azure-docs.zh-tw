@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>步驟 4：針對 VMware 到 Azure 的複寫進行網路規劃
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將內部部署 VMware VM 複寫至 Azure 時的網路規劃考量。
@@ -92,4 +89,3 @@ Woodgrove 若要既能將其 VM 複寫至 Azure，同時又保留 IP 位址，�
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 5：準備 Azure](vmware-walkthrough-prepare-azure.md)
-

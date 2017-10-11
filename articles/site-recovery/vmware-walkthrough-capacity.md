@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: rayne
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f5b334e594e3d002e1862b25c4faba7163efa7d4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="step-3-plan-capacity-and-scaling-for-vmware-to-azure-replication"></a>步驟 3：針對 VMware 到 Azure 的複寫進行容量和規模調整規劃
 
@@ -167,4 +165,3 @@ ms.lasthandoff: 06/29/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 4：規劃網路](vmware-walkthrough-network.md)。
-

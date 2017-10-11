@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
 ms.openlocfilehash: 2ba9676ed2afce7f18446642527971f5001b5ca7
-ms.lasthandoff: 04/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-update-a-cloud-service"></a>如何更新雲端服務
 
@@ -190,4 +189,3 @@ Azure 會將角色的執行個體平均分散於一組升級網域，而升級�
 [如何管理雲端服務](cloud-services-how-to-manage.md)  
 [如何監視雲端服務](cloud-services-how-to-monitor.md)  
 [如何設定雲端服務](cloud-services-how-to-configure.md)  
-

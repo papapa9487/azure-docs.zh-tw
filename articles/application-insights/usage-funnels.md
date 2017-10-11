@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 2b25ffd844507074a8467b1135b1331feb9d3ed7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 59c4dfafc102b26e3b9873f433065715f4aec9ec
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>使用 Application Insights 漏斗圖來探索客戶如何使用您的應用程式
 
 了解客戶體驗對於您的企業非常重要。 如果您的應用程式牽涉到多個階段，您必須了解大部分客戶是否進行了整個流程，或是在某個時間點結束流程。 在 Web 應用程式中通過一系列步驟的過程便稱為「漏斗圖」。 您可以使用 Application Insights 漏斗圖來深入了解使用者，並監視各步驟的轉換率。 
@@ -50,4 +48,3 @@ ms.lasthandoff: 08/09/2017
   * [保留](app-insights-usage-retention.md)
   * [活頁簿](app-insights-usage-workbooks.md)
   * [新增使用者內容](app-insights-usage-send-user-context.md)
-

@@ -15,14 +15,12 @@ ms.date: 07/25/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 149af1f68e574f78127a9c2de8a0e79ed8774d29
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
 您可以針對透過應用程式 Proxy 發佈並使用整合式 Windows 驗證保護的內部部署應用程式，提供單一登入。 這些應用程式需要 Kerberos 票證以進行存取。 應用程式 Proxy 會使用 Kerberos 限制委派 (KCD) 來支援這些應用程式。 
@@ -79,7 +77,7 @@ Sharepointserviceaccount 可以是 SPS 電腦帳戶，或是用來執行 SPS 應
 1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)中的所述指示來發佈您的應用程式。 請務必選取 [Azure Active Directory] 作為 [預先驗證方法]。
 2. 應用程式出現於企業應用程式清單後，將其選取並按一下 [單一登入]。
 3. 將單一登入模式設定為 [整合式 Windows 驗證]。  
-4. 輸入應用程式伺服器的 [內部應用程式 SPN]  。 在此範例中，已發佈應用程式的 SPN 為 http/www.contoso.com。 此 SPN 必須在連接器可以呈送委派認證的服務清單中。 
+4. 輸入應用程式伺服器的 [內部應用程式 SPN]  。 在此範例中，已發佈應用程式的 SPN 為 http/www.contoso.com。此 SPN 必須在連接器可以呈送委派認證的服務清單中。 
 5. 針對要代表使用者使用的連接器選擇 [委派的登入身分識別]。 如需詳細資訊，請參閱[使用不同的內部部署和雲端身分識別](#Working-with-different-on-premises-and-cloud-identities)
 
    ![進階應用程式組態](./media/active-directory-application-proxy-sso-using-kcd/cwap_auth2.png)  
@@ -130,5 +128,4 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
 
 
 如需最新消息，請查閱 [應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
-
 

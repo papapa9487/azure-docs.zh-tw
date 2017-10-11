@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 88099e942319f16dd721da83e4e69b8fcb836c0d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>教學課程：Azure Active Directory 與 IdeaScale 整合
 
@@ -114,7 +112,7 @@ IdeaScale 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<companyname>.ideascale.com`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `http://<companyname>.ideascale.com`  |
@@ -286,5 +284,4 @@ IdeaScale 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-ideascale-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ideascale-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ideascale-tutorial/tutorial_general_203.png
-
 

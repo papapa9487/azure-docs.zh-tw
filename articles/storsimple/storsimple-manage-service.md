@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>在 Azure 傳統入口網站中部署 StorSimple Manager 服務
 
@@ -102,4 +101,3 @@ StorSimple Manager 登陸頁面會列出所有 StorSimple Manager 服務，您�
 * 深入了解 [StorSimple 部署程序](storsimple-deployment-walkthrough-u2.md)。
 * 深入了解 [管理 StorSimple 儲存體帳戶](storsimple-manage-storage-accounts.md)。
 * 深入了解如何 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-

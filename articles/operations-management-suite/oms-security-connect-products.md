@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: 5cb5c6b6cc047974013df59d615d4f094d8d60a4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/06/2016
-
+ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>將安全性產品連接至 Operations Management Suite (OMS) 安全性和稽核解決方案 
 本文件可協助您將安全性產品連接至 OMS 安全性和稽核解決方案。 支援的來源如下：
@@ -64,7 +63,7 @@ OMS 安全性支援收集使用 CEF over Syslogs 的記錄檔和 [Cisco ASA](htt
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. 下載 security_events.conf 檔案並放在 OMS Agent 電腦中的 */etc/opt/microsoft/omsagent/conf/omsagent.d/*。
-4. 輸入下列命令來重新啟動 syslog 精靈︰  *若為 syslog-ng 執行* ︰
+4. 輸入下列命令重新啟動 syslog 服務精靈：*的 syslog ng 執行：*
     
     ```
     sudo service rsyslog restart
@@ -113,5 +112,4 @@ OMS 支援 Windows Server 2008 R2 至 Windows Server 2012 R2 的網域成員基�
 * [Operations Management Suite (OMS) 概觀](operations-management-suite-overview.md)
 * [在 Operations Management Suite 安全性和稽核內監視及回應安全性警示](oms-security-responding-alerts.md)
 * [在 Operations Management Suite 安全性和稽核解決方案內監視資源](oms-security-monitoring-resources.md)
-
 

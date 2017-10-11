@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 06/21/2016
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2681dd3792a351fecc0c72eb7fe546113a451d24
-ms.openlocfilehash: 7b9b222be1a131d2a80d37404cbdd309b61785f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/13/2017
-
-
+ms.openlocfilehash: 57178352e0a402f3559c94ce25f125dcbefd1374
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sql-database-benchmark-overview"></a>Azure SQL Database 基準測試概觀
 ## <a name="overview"></a>概觀
@@ -134,4 +132,3 @@ Azure SQL Database 基準測試會測量跨某範圍可用服務層和效能等�
 [服務層和效能層級](sql-database-service-tiers.md)
 
 [單一資料庫的效能指引](sql-database-performance-guidance.md)
-

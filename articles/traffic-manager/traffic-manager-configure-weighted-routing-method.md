@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
 ms.openlocfilehash: 7aa4c9120d44ff1b3e59a57090ea04e3f8021fc4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>在流量管理員中設定加權流量路由方法
 
 常見的流量路由方法提供一組完全相同的端點 (包括雲端服務和網站)，並以循環配置資源方式將流量傳送到每一個端點。 下列步驟概述如何設定這種類型的流量路由方法。
@@ -41,9 +39,9 @@ ms.lasthandoff: 05/08/2017
         2. 針對 [路徑]，輸入正斜線 */*。 若要監視端點，您必須指定路徑和檔案名稱。 正斜線 "/" 是相對路徑的有效項目，表示檔案位於根目錄 (預設值)。
         3. 按一下頁面頂端的 [儲存]。
 5. 測試組態中的變更，如下所示：
-    1.    在入口網站的搜尋列中，搜尋流量管理員設定檔名稱，並按一下於結果中顯示的流量管理員設定檔。
-    2.    在 [流量管理員設定檔] 刀鋒視窗中，按一下 [概觀]。
-    3.    [流量管理員設定檔] 刀鋒視窗會顯示新建立流量管理員設定檔的 DNS 名稱。 這可由任何用戶端使用 (例如使用網頁瀏覽器進行瀏覽)，以路由傳送到由路由類型所決定的正確端點。 在此情況下，所有要求都會以循環配置資源方式路由到每個端點。
+    1.  在入口網站的搜尋列中，搜尋流量管理員設定檔名稱，並按一下於結果中顯示的流量管理員設定檔。
+    2.  在 [流量管理員設定檔] 刀鋒視窗中，按一下 [概觀]。
+    3.  [流量管理員設定檔] 刀鋒視窗會顯示新建立流量管理員設定檔的 DNS 名稱。 這可由任何用戶端使用 (例如使用網頁瀏覽器進行瀏覽)，以路由傳送到由路由類型所決定的正確端點。 在此情況下，所有要求都會以循環配置資源方式路由到每個端點。
 6. 在流量管理員設定檔運作後，您可以編輯授權 DNS 伺服器上的 DNS 記錄，以將您的公司網域名稱指向流量管理員網域名稱。
 
 ![使用流量管理員設定加權流量路由方法][1]
@@ -57,4 +55,3 @@ ms.lasthandoff: 05/08/2017
 
 <!--Image references-->
 [1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
-

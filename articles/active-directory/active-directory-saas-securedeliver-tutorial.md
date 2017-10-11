@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: f6e5b1e34893f6b8fe14e238e24086bb47d009a5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>教學課程：Azure Active Directory 與 SECURE DELIVER 整合
 
@@ -227,5 +226,4 @@ SECURE DELIVER 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-securedeliver-tutorial/tutorial_general_203.png
-
 

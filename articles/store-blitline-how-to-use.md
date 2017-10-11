@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/09/2014
 ms.author: support@blitline.com
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f8b7e8dd557ddeeaa295a9849d471d74259941c2
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>如何使用搭配 Azure 和 Azure 儲存體的 Blitline
 本指南將說明如何存取 Blitline 服務，以及如何將工作提交至 Blitline。
@@ -125,5 +124,4 @@ SAS 必須包含整個 SAS URL，包括目的地檔案的檔案名稱。
 * Blitline API 函式 <http://www.blitline.com/docs/functions>
 * Blitline API 範例 <http://www.blitline.com/docs/examples>
 * 協力廠商 Nuget 程式庫 <http://nuget.org/packages/Blitline.Net>
-
 

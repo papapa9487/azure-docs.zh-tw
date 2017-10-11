@@ -14,12 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>在 Azure VM 上建立 MATLAB Distributed Computing Server 叢集
 使用 Microsoft Azure 虛擬機器建立一或多個 MATLAB Distributed Computing Server 叢集，以執行需密集計算的平行 MATLAB 工作負載。 在 VM 上安裝 MATLAB Distributed Computing Server 軟體來作為基礎映像，並使用 Azure 快速入門範本或 Azure PowerShell 指令碼 (可在 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)上取得) 來部署和管理叢集。 在部署之後，連接到叢集以執行工作負載。
@@ -73,4 +72,3 @@ MATLAB 用戶端節點、MATLAB 作業排程器節點和 MATLAB Distributed Comp
 ## <a name="next-steps"></a>後續步驟
 * 如需在 Azure 中部署和管理 MATLAB Distributed Computing Server 叢集的詳細指示，請參閱包含範本和指令碼的 [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) 儲存機制。
 * 如需 MATLAB 和 MATLAB Distributed Computing Server 的詳細文件，請移至 [MathWorks 網站](http://www.mathworks.com/) 。
-

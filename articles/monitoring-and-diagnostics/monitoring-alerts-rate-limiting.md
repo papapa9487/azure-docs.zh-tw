@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>SMS 訊息、電子郵件和 Webhook 文章的速率限制
 速率限制是當傳送了太多通知給特定電話號碼或電子郵件地址時所發生的通知暫停。 速率限制可確保警示為可管理且可採取動作。
 
@@ -42,4 +40,3 @@ SMS 和電子郵件的規則相同。 以下項目的速率限制閾值：
 * 進一步了解 [SMS 警示行為](monitoring-sms-alert-behavior.md)。
 * 取得[活動記錄警示的概觀](monitoring-overview-alerts.md)，並了解如何收到警示。  
 * 了解如何[設定每當服務健康狀態通知公佈時的警示](monitoring-activity-log-alerts-on-service-notifications.md)。
-

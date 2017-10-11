@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 8212ff011633c3a89d3310e828b6d5f1cda6ce3f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>步驟 7：設定 Hyper-V 複寫的保存庫
 
 本文說明如何使用 Azure 入口網站中的 [Azure Site Recovery](site-recovery-overview.md) 服務來設定保存庫，並指定要從內部部署位置複寫到 Azure 的項目。
@@ -35,7 +33,7 @@ ms.lasthandoff: 06/23/2017
 
 
 
-## <a name="select-a-protection-goal"></a>選擇保護目標
+## <a name="select-a-protection-goal"></a>選取保護目標
 
 選取您要複寫的項目以及您要複寫到的位置。
 
@@ -50,4 +48,3 @@ ms.lasthandoff: 06/23/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 8：設定來源和目標](hyper-v-site-walkthrough-source-target.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.custom: reference
 ms.date: 03/30/2017
 ms.author: barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 9fe41f12960dc099700e01573b4f03ebf63f8749
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="all-topics-for-azure-sql-data-warehouse-service"></a>Azure SQL 資料倉儲服務的所有主題
 本主題會列出每一個直接適用於 Azure **SQL 資料倉儲** 服務的主題。 您可以使用 **Ctrl+F**，利用關鍵字搜尋本網頁，以尋找目前感興趣的主題。
@@ -165,5 +164,4 @@ ms.lasthandoff: 04/03/2017
 | 85 |[開始使用威脅偵測](sql-data-warehouse-security-threat-detection.md) |如何開始使用威脅偵測 |
 | 86 |[SQL 資料倉儲容量限制](sql-data-warehouse-service-capacity-limits.md) |SQL 資料倉儲的連接、資料庫、資料表及查詢最大值。 |
 | 87 |[針對 Azure SQL 資料倉儲問題進行疑難排解](sql-data-warehouse-troubleshoot.md) |針對 Azure SQL 資料倉儲問題進行疑難排解。 |
-
 

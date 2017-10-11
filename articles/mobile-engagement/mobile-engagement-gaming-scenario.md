@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
 ms.openlocfilehash: 0ca35a3d634db8eb5c63afacba046a35b8a3e7ed
-ms.lasthandoff: 03/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="implement-mobile-engagement-with-gaming-app"></a>對遊戲應用程式實作 Mobile Engagement
 ## <a name="overview"></a>Overview
@@ -62,12 +61,10 @@ ms.lasthandoff: 03/01/2017
 * 超過 20 級的使用者會開始每週花費超過 10 美元。
 * 使用者往往會在 16 級、24 級和 32 級時購買高階套件。
 
-多虧了這項分析，行動裝置專案主任決定建立特定的推播通知順序，以增加應用程式內銷售額。 他建立了三個他稱為「歡迎計劃」、「銷售計劃」和「無活動計劃」的推播順序。 如需詳細資訊，請參閱[腳本](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)
-    ![][1]
+多虧了這項分析，行動裝置專案主任決定建立特定的推播通知順序，以增加應用程式內銷售額。 他建立了三個他稱為「歡迎計劃」、「銷售計劃」和「無活動計劃」的推播順序。 如需詳細資訊請參閱[Playbooks](https://github.com/Azure/azure-mobile-engagement-samples/tree/master/Playbooks)![][1]
 
 <!--Image references-->
 
 [1]: ./media/mobile-engagement-game-scenario/notification-scenario.png
 
 <!--Link references-->
-

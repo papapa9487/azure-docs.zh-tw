@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1cd23eac464d48ebc6dd618c52c252444b47e21
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: d407c29f99fd7537590ec787febd84a9e3f4f353
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="leverage-other-services-with-sql-data-warehouse"></a>以 SQL 資料倉儲來搭配運用其他服務
 除了其核心功能，SQL 資料倉儲可讓使用者搭配運用許多其他 Azure 中的服務。  具體而言，我們目前已經採取步驟來深入整合下列項目：
@@ -78,4 +76,3 @@ Azure 串流分析是複雜、完全受管理的基礎結構，可處理和取�
 <!--MSDN references-->
 
 <!--Other Web references-->
-

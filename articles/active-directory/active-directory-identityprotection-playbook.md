@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77031b3bbe2372bf2cac34bac45368ac40911641
-ms.openlocfilehash: 87070d7680a6d48e94099b47f9dc336a75332f6c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 這個腳本可協助您︰
@@ -110,7 +109,7 @@ Azure Active Directory Identity Protection：
 11. 按一下 [儲存] 。
 12. 您現在可以使用具有提高風險等級的使用者進行登入，以測試以風險為基礎的條件式存取。 如果使用者風險為「中」，則視您的原則設定而定，您的登入會被封鎖，或者會強制您變更密碼。 
     <br><br>
-    ![腳本](./media/active-directory-identityprotection-playbook/201.png "Playbook")
+    ![腳本](./media/active-directory-identityprotection-playbook/201.png "腳本")
     <br>
 
 ## <a name="sign-in-risk"></a>登入風險
@@ -120,7 +119,7 @@ Azure Active Directory Identity Protection：
 2. 瀏覽至 [Identity Protection] 。
 3. 在主要的 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。 
 4. 在 [入口網站設定] 刀鋒視窗的 [安全性規則] 之下，按一下 [登入風險]。
-5. 在 [登入風險] 刀鋒視窗中，選取 [啟用規則] 之下的 [開啟]。 
+5. 在 * * 登入風險 * * 刀鋒視窗中，選取**上**下**規則啟用**。 
 6. 選取下列其中一個選項：
    
    a. 若要封鎖，請選取 [封鎖登入] 之下的 [中]
@@ -137,5 +136,4 @@ Azure Active Directory Identity Protection：
 
 ## <a name="see-also"></a>另請參閱
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

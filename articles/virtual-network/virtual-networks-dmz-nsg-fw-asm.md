@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>範例 2 – 建置 DMZ 以透過防火牆和 NSG 保護應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]
 
 此範例會建立 DMZ，其內含防火牆、四個 Windows 伺服器和網路安全性群組。 此範例也會逐步解說每個相關命令，以讓您更加深入地了解每個步驟。 另外您還會看到＜流量案例＞一節，本節提供深入的逐步說明，讓您知道流量是如何流經 DMZ 內的各個防禦層。 最後則有＜參考＞一節，本節提供完整的程式碼和指示，以供您建置此環境來測試和試驗各種案例。 
 
-![具有 NVA 和 NSG 的輸入 DMZ][1]
+![輸入 DMZ NVA 與 NSG][1]
 
 ## <a name="environment-description"></a>環境描述
 此範例中，有一個訂用帳戶包含下列項目：
@@ -94,7 +94,7 @@ ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
 
 建立新規則並提供名稱，例如 "WebTraffic"。 
 
-目的地 NAT 規則圖示看起來像這樣： ![目的地 NAT 圖示][2]
+目的地 NAT 規則圖示看起來像這樣：![目的地 NAT 圖示][2]
 
 規則本身則看起來像這樣：
 
@@ -579,9 +579,3 @@ Web 伺服器、IIS01 和防火牆都在相同的雲端服務中，因此共用�
 [HOME]: ../best-practices-network-security.md
 [SampleApp]: ./virtual-networks-sample-app.md
 [Example1]: ./virtual-networks-dmz-nsg-asm.md
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

@@ -1,5 +1,5 @@
 ---
-title: 'Troubleshooting: ''Active Directory'' item is missing or not available | Microsoft Docs'
+title: "疑難排解: 'Active Directory' 項目已遺失或無法使用 |Microsoft 文件"
 description: "若 Active Directory 功能表項目未出現在 Azure 管理入口網站中，該怎麼做。"
 services: active-directory
 documentationcenter: na
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9c52e9257272c5b0c55c488d2c7ca6fef500260b
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>疑難排解：'Active Directory' 項目遺失或無法使用
 許多使用 Azure Active Directory 功能和服務的相關指示都是以「前往 Azure 管理入口網站並按一下 **Active Directory**」為開頭。 但是，如果 Active Directory 擴充功能或功能表項目未出現，或者標示為 [無法使用]，該怎麼辦？ 本主題旨在提供協助。 它將說明 **Active Directory** 未出現或無法使用的情況，並說明如何繼續執行。
@@ -52,5 +51,4 @@ ms.lasthandoff: 11/17/2016
 不過，當網頁正在載入時，該項目會呈暗灰色且標示為 [無法使用] 。 這是暫時性狀態。 如果您稍待片刻，該項目將變成可用狀態。 如果延遲太久，重新整理網頁通常就能解決問題。
 
 ![螢幕擷取畫面：Active Directory 無法使用](./media/active-directory-troubleshooting/not-available.png)
-
 

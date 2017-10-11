@@ -15,11 +15,11 @@ ms.devlang: java
 ms.topic: hero-article
 ms.date: 07/14/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sending-push-notifications-to-android-with-azure-notification-hubs"></a>使用 Azure 通知中樞將推播通知傳送至 Android
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -64,13 +64,13 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
 ## <a name="configure-a-new-notification-hub"></a>設定新的通知中樞
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
-&emsp;&emsp;6.在通知中樞的 [設定] 刀鋒視窗中，選取 [通知服務]，然後選取 [Google (GCM)]。 輸入您先前從 [Firebase 主控台](https://firebase.google.com/console/)複製的 FCM 伺服器金鑰，然後按一下 [儲存]。
+&emsp;&emsp;6. 在通知中樞的 [設定] 刀鋒視窗中，選取 [通知服務]，然後選取 [Google (GCM)]。 輸入您先前從 [Firebase 主控台](https://firebase.google.com/console/)複製的 FCM 伺服器金鑰，然後按一下 [儲存]。
 
 &emsp;&emsp;![Azure 通知中樞 - Google (GCM)](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-gcm-api.png)
 
 現在已將您的通知中樞設定成使用 Firebase Cloud Messagin，而且您已擁有可用來註冊應用程式以接收和傳送推播通知的連接字串。
 
-## <a name="a-idconnecting-appaconnect-your-app-to-the-notification-hub"></a><a id="connecting-app"></a>將您的應用程式連接到通知中樞
+## <a id="connecting-app"></a>將您的應用程式連接到通知中樞
 ### <a name="add-google-play-services-to-the-project"></a>新增 Google Play 服務至專案
 [!INCLUDE [Add Play Services](../../includes/notification-hubs-android-studio-add-google-play-services.md)]
 
@@ -669,17 +669,11 @@ ms.openlocfilehash: 45a3fa5c7190e039fd637c78a41eeb3f6ede9bc7
 
 
 <!-- URLs. -->
-[開始在行動服務中使用推播通知]: ../mobile-services-javascript-backend-android-get-started-push.md  
-[行動服務 Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[參考程式庫專案]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Azure 傳統入口網站]: https://manage.windowsazure.com/
+[Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md  
+[Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
+[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
+[Azure Classic Portal]: https://manage.windowsazure.com/
 [通知中樞指引]: notification-hubs-push-notification-overview.md
 [使用通知中樞將通知推播給使用者]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [使用通知中樞傳送即時新聞]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure 入口網站]: https://portal.azure.com
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

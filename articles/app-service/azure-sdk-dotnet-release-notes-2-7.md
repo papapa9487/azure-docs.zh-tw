@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 877fb34d2fe5d4b85157a8338e180358d2226ef1
-
-
+ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊
 ## <a name="overview"></a>概觀
@@ -63,7 +63,7 @@ Azure SDK 2.7 隨附的登入增強功能只有在 Visual Studio 2015 中才能�
 #### <a name="known-issues"></a>已知問題
 伺服器總管的 [位置] 節點下方沒有出現 Web App 部署位置節點，而雲端總管下方沒有載入 Web App 部署位置的子節點。 這個問題已經解決，下一個 SDK 版本將不再發生。 
 
-### <a name="a-namecloudexploreracloud-explorer-for-visual-studio-2015"></a><a name="cloud_explorer"></a>適用 Visual Studio 2015 的雲端總管
+### <a name="cloud_explorer"></a>適用 Visual Studio 2015 的雲端總管
 Azure SDK 2.7 包含適用 Visual Studio 2015 的雲端總管，可讓您從 Visual Studio 中檢視您的 Azure 資源、檢查其屬性，以及執行重要的開發人員動作。 
 
 雲端總管支援下列功能：
@@ -136,10 +136,4 @@ LightSwitch 專案與這個版本不相容。 這個問題將在下個 SDK 版�
 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 
 [Azure SDK for .NET 和 API 的支援和停用資訊](https://msdn.microsoft.com/library/azure/dn479282.aspx/)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

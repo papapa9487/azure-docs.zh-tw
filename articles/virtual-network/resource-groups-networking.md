@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 27df1166a23e3ed89fdc86f861353c80a4a467ad
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="network-resource-provider"></a>網路資源提供者
 現今企業成功的基礎是可以使用靈活、具彈性、安全且可重複的方式來建置和管理大規模網路感知應用程式。 Azure Resource Manager 可讓您以資源群組中單一資源集合的形式，建立這類應用程式。 管理這類資源時，是透過 Resource Manager 底下的各種資源提供者進行管理。
@@ -265,10 +265,4 @@ Rest API 符合 HTTP 1.1 通訊協定規格。 API 的一般 URI 結構顯示如
 [Azure Resource Manager 與傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)
 
 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)
-
-
-
-
-<!--HONumber=Dec16_HO4-->
-
 

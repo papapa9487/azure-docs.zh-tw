@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ea47cba55c9689e23eb3592ae2559649d3377055
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: b28d525ab16487b963772e23fdecd11f94dcabd1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="windows-universal-apps-sdk-content"></a>Windows 通用 app SDK 內容
 本文件列出及說明 SDK 在應用程式中部署的內容。
@@ -41,5 +40,4 @@ ms.lasthandoff: 11/17/2016
 
 ### <a name="overlay-folder"></a>/overlay 資料夾
 * `EngagementPageOverlay.cs` ：負責將 Engagement Reach 應用程式內 UI 加入子系的重疊頁面。
-
 

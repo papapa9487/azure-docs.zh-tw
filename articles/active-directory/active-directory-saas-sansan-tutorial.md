@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: e1a9653d5feea910308cefabdbdfe3a6af44bbe4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>教學課程：Azure Active Directory 與 Sansan 整合
 
@@ -243,5 +241,4 @@ Sansan 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sansan-tutorial/tutorial_general_203.png
-
 

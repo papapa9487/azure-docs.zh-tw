@@ -14,21 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: 4a88cf56eea3dd562d4d5dcc4fe7364ea226a348
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration" class="xliff"></a>
-
-# Azure AD Connect 同步處理：如何變更預設組態
+# <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：如何變更預設組態
 本主題的目的在於逐步解說如何對 Azure AD Connect 同步處理中的預設組態進行變更。 其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行一些簡單的變更。
 
-<a id="synchronization-rules-editor" class="xliff"></a>
-
-## 同步處理規則編輯器
+## <a name="synchronization-rules-editor"></a>同步處理規則編輯器
 同步處理規則編輯器用於查看和變更預設組態。 您可以在 [開始] 功能表的 [Azure AD Connect]  群組之下找到它。  
 ![內含同步處理規則編輯器的開始功能表](./media/active-directory-aadconnectsync-change-the-configuration/startmenu2.png)
 
@@ -36,9 +31,7 @@ ms.lasthandoff: 05/16/2017
 
 ![同步處理規則編輯器](./media/active-directory-aadconnectsync-change-the-configuration/sre2.png)
 
-<a id="navigating-in-the-editor" class="xliff"></a>
-
-### 在編輯器中瀏覽
+### <a name="navigating-in-the-editor"></a>在編輯器中瀏覽
 編輯器頂端的下拉式清單可讓您快速找到特定規則。 例如，如果您想要查看已納入屬性 proxyAddresses 的規則，您可將下拉式清單變更如下︰  
 ![SRE 篩選](./media/active-directory-aadconnectsync-change-the-configuration/filtering.png)  
 若要重設篩選並載入全新的組態，請按鍵盤上的 **F5** 。
@@ -47,21 +40,15 @@ ms.lasthandoff: 05/16/2017
 
 底部有可供您處理選取的同步處理規則的按鈕。 [編輯] 和 [刪除] 會如您預期般執行。  會產生 PowerShell 指令碼以便重新建立同步處理規則。 此程序可讓您將同步處理規則從一部伺服器移到另一部伺服器。
 
-<a id="create-your-first-custom-rule" class="xliff"></a>
-
-## 建立您的第一個自訂規則
+## <a name="create-your-first-custom-rule"></a>建立您的第一個自訂規則
 最常見的變更是屬性流程的變更。 您來源目錄中的資料可能不會與 Azure AD 中的一樣。 在本節的範例中，您要確保使用者的名稱一律為 **適當的大小寫**。
 
-<a id="disable-the-scheduler" class="xliff"></a>
-
-### 停用排程器
+### <a name="disable-the-scheduler"></a>停用排程器
 [排程器](active-directory-aadconnectsync-feature-scheduler.md) 預設會每隔 30 分鐘執行一次。 您要確保在您進行變更時，排程器未啟動，並疑難排解您的新規則。 若要暫時停用排程器，請啟動 PowerShell，然後執行 `Set-ADSyncScheduler -SyncCycleEnabled $false`
 
 ![停用排程器](./media/active-directory-aadconnectsync-change-the-configuration/schedulerdisable.png)  
 
-<a id="create-the-rule" class="xliff"></a>
-
-### 建立規則
+### <a name="create-the-rule"></a>建立規則
 1. 按一下 [新增規則] 。
 2. 在 [說明] 頁面上輸入下列各項：  
    ![輸入規則篩選](./media/active-directory-aadconnectsync-change-the-configuration/description2.png)  
@@ -83,9 +70,7 @@ ms.lasthandoff: 05/16/2017
 
 新的自訂規則應與其他同步處理規則一起顯示在系統中。
 
-<a id="verify-the-change" class="xliff"></a>
-
-### 驗證變更
+### <a name="verify-the-change"></a>驗證變更
 利用這項新變更，您可確保其如預期般運作，而且不會擲回任何錯誤。 視您擁有的物件數目而言，有兩種不同的方式可執行此步驟。
 
 1. 在所有物件上執行完整同步處理
@@ -106,19 +91,13 @@ ms.lasthandoff: 05/16/2017
 您現在可挑選幾個範例物件，確定這是預期的值並已套用規則。 從頂端選取 [Metaverse 搜尋]  。 新增您需要的任何篩選，以尋找相關的物件。 從搜尋結果中，開啟物件。 查看屬性值，同時在 [同步處理規則]  資料行中確認已如預期套用規則。  
 ![Metaverse search](./media/active-directory-aadconnectsync-change-the-configuration/mvsearch.png)  
 
-<a id="enable-the-scheduler" class="xliff"></a>
-
-### 停用排程器
+### <a name="enable-the-scheduler"></a>停用排程器
 如果一切如同預期，您可以再次啟用排程器。 從 PowerShell，執行 `Set-ADSyncScheduler -SyncCycleEnabled $true`。
 
-<a id="other-common-attribute-flow-changes" class="xliff"></a>
-
-## 其他常見屬性流程變更
+## <a name="other-common-attribute-flow-changes"></a>其他常見屬性流程變更
 上一節說明如何變更屬性流程。 本節提供了一些其他的範例。 如何建立同步處理規則的步驟已縮減，但您可以在上一節中找到完整的步驟。
 
-<a id="use-another-attribute-than-the-default" class="xliff"></a>
-
-### 使用預設以外的其他屬性
+### <a name="use-another-attribute-than-the-default"></a>使用預設以外的其他屬性
 Fabrikam 中有對名字、姓氏和顯示名稱使用當地字母的樹系。 在擴充屬性中可以找到以拉丁字母表示的這些屬性。 在 Azure AD 和 Office 365 中建立全域通訊清單時，組織反而想要使用這些屬性。
 
 在使用預設組態時，當地樹系中的物件看起來像這樣：  
@@ -140,31 +119,23 @@ Fabrikam 中有對名字、姓氏和顯示名稱使用當地字母的樹系。 �
 這是具有此自訂規則之相同物件的結果：  
 ![屬性流程 4](./media/active-directory-aadconnectsync-change-the-configuration/attributeflowjp4.png)
 
-<a id="length-of-attributes" class="xliff"></a>
-
-### 屬性的長度
+### <a name="length-of-attributes"></a>屬性的長度
 字串屬性預設會設定為可索引，且最大長度為 448 個字元。 如果您使用的字串屬性可能包含更多字元，則確定在屬性流程中包含下列項目：  
 `attributeName` <- `Left([attributeName],448)`
 
-<a id="changing-the-userprincipalsuffix" class="xliff"></a>
-
-### 變更 userPrincipalSuffix
+### <a name="changing-the-userprincipalsuffix"></a>變更 userPrincipalSuffix
 由於使用者未必會知道 Active Directory 中的 userPrincipalName 屬性，因此這個屬性可能不適合做為登入識別碼。 Azure AD Connect 同步處理安裝精靈允許挑選不同的屬性，例如 mail。 但是在某些情況下必須計算屬性。 例如，Contoso 公司有兩個 Azure AD 目錄，一個用於生產環境，一個用於測試。 他們想讓其測試租用戶中的使用者在登入識別碼中使用其他後置詞。  
 `userPrincipalName` <- `Word([userPrincipalName],1,"@") & "@contosotest.com"`
 
 在此運算式中，取出第一個 @-sign 左邊的所有內容 (Word)，然後使用固定的字串串連。
 
-<a id="convert-a-multi-value-to-a-single-value" class="xliff"></a>
-
-### 將多重值轉換成單一值
+### <a name="convert-a-multi-value-to-a-single-value"></a>將多重值轉換成單一值
 Active Directory 中的某些屬性在結構描述中是多重值，但是在 [Active Directory 使用者和電腦] 中看起來是單一值。 描述屬性是其中一個範例。  
 `description` <- `IIF(IsNullOrEmpty([description]),NULL,Left(Trim(Item([description],1)),448))`
 
 在此運算式中，如果屬性有值，請取屬性中的第一個項目 (Item)、移除開頭和結尾的空格 (Trim)，然後保留字串中的前 448 個字元 (Left)。
 
-<a id="do-not-flow-an-attribute" class="xliff"></a>
-
-### 請勿傳送屬性
+### <a name="do-not-flow-an-attribute"></a>請勿傳送屬性
 如需本節案例的背景，請參閱 [控制屬性流程程序](active-directory-aadconnectsync-understanding-declarative-provisioning.md#control-the-attribute-flow-process)。
 
 有兩種方式可防止傳送屬性。 第一個可在安裝精靈中使用，而且可讓您 [移除選取的屬性](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering)。 如果您先前不曾同步處理該屬性，則適用這個選項。 不過，如果您已開始同步處理這個屬性，且稍後利用這個功能來移除它，則同步處理引擎會停止管理屬性，而現有的值會留在 Azure AD 中。
@@ -181,19 +152,13 @@ Active Directory 中的某些屬性在結構描述中是多重值，但是在 [A
 * 藉由搜尋連接器空間，來確認即將匯出所需的變更。
   ![分段刪除](./media/active-directory-aadconnectsync-change-the-configuration/deletetobeexported.png)
 
-<a id="create-rules-with-powershell" class="xliff"></a>
-
-## 使用 PowerShell 建立規則
+## <a name="create-rules-with-powershell"></a>使用 PowerShell 建立規則
 當您只需要進行一些變更時，使用同步處理規則編輯器就足以完成工作。 如果您需要進行許多變更，則 PowerShell 可能是較好的選擇。 某些進階功能只有 PowerShell 才提供。
 
-<a id="get-the-powershell-script-for-an-out-of-box-rule" class="xliff"></a>
-
-### 取得 PowerShell 指令碼，獲得可立即使用的內建規則
+### <a name="get-the-powershell-script-for-an-out-of-box-rule"></a>取得 PowerShell 指令碼，獲得可立即使用的內建規則
 若要查看已建立內建規則的 PowerShell 指令碼，請在同步處理規則編輯器中選取規則，然後按一下 [匯出]。 此動作會為您提供已建立規則的 PowerShell 指令碼。
 
-<a id="advanced-precedence" class="xliff"></a>
-
-### 進階優先順序
+### <a name="advanced-precedence"></a>進階優先順序
 內建同步處理規則具有從 100 開始算起的優先順序值。 如果您有許多樹系且需要進行許多自訂變更，那麼 99 同步處理規則可能不太夠。
 
 您可以指示同步處理引擎，指定要在內建規則前面插入其他規則。 若要取得此行為，請依照下列步驟執行︰
@@ -207,9 +172,7 @@ Active Directory 中的某些屬性在結構描述中是多重值，但是在 [A
 您可以依據自己的需求，擁有許多個使用相同 **PrecedenceBefore** 值的自訂同步處理規則。
 
 
-<a id="enable-synchronization-of-preferreddatalocation" class="xliff"></a>
-
-## 啟用 PreferredDataLocation 的同步處理
+## <a name="enable-synchronization-of-preferreddatalocation"></a>啟用 PreferredDataLocation 的同步處理
 Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **PreferredDataLocation** 屬性進行同步處理。 更具體地說，我們已導入下列變更︰
 
 * Azure AD 連接器中**使用者**物件類型的結構描述已擴充而納入了 PreferredDataLocation 屬性，此屬性是字串類型，且具備單一值。
@@ -254,9 +217,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 > [!NOTE]
 > 本節的剩餘內容會詳述這些步驟。 用來說明這些步驟的環境是某個 Azure AD 部署，其具有單一樹系拓撲，但沒有自訂的同步處理規則。 如果您設定了多樹系拓撲和自訂同步處理規則，或具有預備伺服器，則需要據此現況調整這些步驟。
 
-<a id="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress" class="xliff"></a>
-
-### 步驟 1：停用同步排程器，並確認沒有任何同步處理在進行中
+### <a name="step-1-disable-sync-scheduler-and-verify-there-is-no-synchronization-in-progress"></a>步驟 1：停用同步排程器，並確認沒有任何同步處理在進行中
 請確定在您更新同步處理規則時系統不會進行同步處理，以免將不想要的變更匯出到 Azure AD。 若要停用內建的同步排程器︰
 
  1. 在 Azure AD Connect 伺服器上啟動 PowerShell 工作階段。
@@ -269,9 +230,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 ![同步處理服務管理員 - 確認沒有進行中的作業](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step1.png)
 
-<a id="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema" class="xliff"></a>
-
-### 步驟 2：在內部部署 AD 連接器結構描述中新增來源屬性
+### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>步驟 2：在內部部署 AD 連接器結構描述中新增來源屬性
 並非所有 AD 屬性都會匯入至內部部署 AD 連接器空間。 若要在所匯入屬性的清單中新增來源屬性︰
 
  1. 移至 Synchronization Service Manager 中的 [連接器] 索引標籤。
@@ -286,9 +245,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 ![在內部部署 AD 連接器結構描述中新增來源屬性](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step2.png)
 
-<a id="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema" class="xliff"></a>
-
-### 步驟 3：在 Azure AD 連接器結構描述中新增 PreferredDataLocation
+### <a name="step-3-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>步驟 3：在 Azure AD 連接器結構描述中新增 PreferredDataLocation
 根據預設，系統不會在 Azure AD Connect 空間中匯入 PreferredDataLocation 屬性。 若要在所匯入屬性的清單中新增 PreferredDataLocation 屬性︰
 
  1. 移至 Synchronization Service Manager 中的 [連接器] 索引標籤。
@@ -303,9 +260,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 ![在 Azure AD 連接器結構描述中新增來源屬性](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step3.png)
 
-<a id="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory" class="xliff"></a>
-
-### 步驟 4：建立輸入同步處理規則，以從內部部署 Active Directory 傳輸屬性值
+### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>步驟 4：建立輸入同步處理規則，以從內部部署 Active Directory 傳輸屬性值
 輸入同步處理規則允許屬性值從內部部署 Active Directory 的來源屬性傳輸到 Metaverse︰
 
 1. 移至 [開始] → [同步處理規則編輯器] 來啟動**同步處理規則編輯器**。
@@ -344,9 +299,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 ![建立輸入同步處理規則](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step4.png)
 
-<a id="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad" class="xliff"></a>
-
-### 步驟 5：建立輸出同步處理規則，以將屬性值傳輸到 Azure AD
+### <a name="step-5-create-an-outbound-synchronization-rule-to-flow-the-attribute-value-to-azure-ad"></a>步驟 5：建立輸出同步處理規則，以將屬性值傳輸到 Azure AD
 輸出同步處理規則允許屬性值從 Metaverse 傳輸到 Azure AD 中的 PreferredDataLocation 屬性︰
 
 1. 移至**同步處理規則**編輯器。
@@ -386,9 +339,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 ![建立輸出同步處理規則](./media/active-directory-aadconnectsync-change-the-configuration/preferredDataLocation-step5.png)
 
-<a id="step-6-run-full-synchronization-cycle" class="xliff"></a>
-
-### 步驟 6：執行完整的同步處理週期
+### <a name="step-6-run-full-synchronization-cycle"></a>步驟 6：執行完整的同步處理週期
 由於我們已在 AD 和 Azure AD 連接器結構描述中同時新增屬性，並導入了自訂同步處理規則，因此一般來說，我們必須經歷完整的同步處理週期。 建議您先驗證變更，再將它們匯出至 Azure AD。 在手動執行構成完整同步處理週期的步驟時，您可以使用下列步驟來驗證變更。 
 
 1. 在**內部部署 AD 連接器**上執行**完整匯入**步驟：
@@ -449,9 +400,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 > [!NOTE]
 > 您可能會發現，Azure AD 連接器的步驟並未包含「完整同步處理」步驟和「匯出」步驟。 屬性值只會從內部部署 Active Directory 傳輸到 Azure AD，因此 Azure AD 不需要這些步驟。
 
-<a id="step-7-re-enable-sync-scheduler" class="xliff"></a>
-
-### 步驟 7：重新啟用同步排程器
+### <a name="step-7-re-enable-sync-scheduler"></a>步驟 7：重新啟用同步排程器
 重新啟用內建的同步排程器︰
 
 1. 啟動 PowerShell 工作階段。
@@ -460,9 +409,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 * 如需組態模型的詳細資訊，請參閱 [了解宣告式佈建](active-directory-aadconnectsync-understanding-declarative-provisioning.md)。
 * 如需運算式語言的詳細資訊，請參閱 [了解宣告式佈建運算式](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)。
 
@@ -470,4 +417,3 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 * [Azure AD Connect 同步處理：了解及自訂同步處理](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

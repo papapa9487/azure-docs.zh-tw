@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>串流分析 Data Lake Store 輸出
-串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure Data Lake Store 是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
+串流分析工作支援數種輸出方法，其中一個是 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。 Data Lake Store 可讓您存放任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
 
 ## <a name="authorize-a-data-lake-store-account"></a>授權 Data Lake Store 帳戶
 1. 在 Azure 入口網站中選取 Data Lake Store 作為輸出時，系統會提示您授權使用現有的 Data Lake Store，或要求透過 Azure 傳統入口網站存取 Data Lake Store。
@@ -88,5 +87,4 @@ ms.lasthandoff: 08/12/2017
 若要解決這個問題，請停止執行中的工作，並移至 Data Lake Store 輸出。 按一下 [更新授權] 連結，很快就會出現一個頁面，指出 「正在重新導向至授權...」。 此頁面將會自動關閉，而且如果成功，就會指出「已成功更新授權」。 接著，您必須按一下頁面底部的 [儲存]，然後可以從上次停止的時間重新開始您的工作繼續，以避免資料遺失。
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
 

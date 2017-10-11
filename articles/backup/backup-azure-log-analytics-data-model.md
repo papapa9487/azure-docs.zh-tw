@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>適用於 Azure 備份資料的 Log Analytics 資料模型
 本文描述將報告資料推送到 Log Analytics 所使用的資料模型。 使用此資料模型，您就可以建立自訂查詢、儀表板，並在 OMS 中加以利用。 
@@ -288,4 +287,3 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 一旦您檢閱建立 Azure 備份報告的資料模型後，就可以開始在 Log Analytics 和 OMS 中[建立儀表板](../log-analytics/log-analytics-dashboards.md)。
-

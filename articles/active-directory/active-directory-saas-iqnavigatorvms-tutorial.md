@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 1164723a171843541098f6adbda0e65f7e82a0cb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -254,5 +253,4 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-iqnavigatorvms-tutorial/tutorial_general_203.png
-
 

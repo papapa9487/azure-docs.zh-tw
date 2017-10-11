@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 92a3250a4b07a8a473bd3343181176a2623cd476
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>對於容錯移轉的 Azure 區域在回復到主要區域時重新保護
 
@@ -109,4 +108,3 @@ ms.lasthandoff: 06/16/2017
 -   [起始虛擬機器測試容錯移轉的步驟](site-recovery-test-failover-to-azure.md)
 
 -   [起始虛擬機器容錯移轉的步驟](site-recovery-failover.md)
-

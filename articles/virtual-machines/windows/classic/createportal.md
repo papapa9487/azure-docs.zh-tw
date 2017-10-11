@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 4d7b7a17751cc476d0365cbcbff3fcf23dd0c6ff
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>使用傳統部署模型建立執行 Windows 的自訂虛擬機器
 > [!IMPORTANT]
@@ -33,4 +31,3 @@ ms.lasthandoff: 06/02/2017
 
 ## <a name="next-steps"></a>後續步驟 
 您也可以[建立執行 Linux 的自訂虛擬機器](../../linux/classic/createportal.md)。
-

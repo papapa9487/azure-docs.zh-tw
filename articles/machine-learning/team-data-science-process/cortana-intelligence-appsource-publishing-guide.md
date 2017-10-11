@@ -13,13 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
---- 
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
+---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 發佈指南
 
 ## <a name="overview"></a>概觀
@@ -116,5 +115,4 @@ AppSource 對於合作夥伴的其中一個重要價值主張，是能夠與 Mic
 您透過在 AppSource 上發佈應用程式所取得的收益多寡，主要取決於您對目標對象的影響程度。 請參閱[將您在 AppSource 上的 Cortana Intelligence 應用程式發揚光大](http://aka.ms/aagrowthhackguide) \(英文\)，了解如何將您的收益最大化。
 
 如果您有任何問題或建議，請透過 <appsourcecissupport@microsoft.com> 連絡我們。
-
 

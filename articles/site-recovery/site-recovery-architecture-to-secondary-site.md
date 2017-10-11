@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>在 Site Recovery 中將內部部署機器複寫至次要網站如何運作？
 
@@ -39,7 +37,7 @@ ms.lasthandoff: 06/15/2017
 
 以下是要將 Hyper-V VM 複寫到次要網站的所需項目。
 
-**元件** | **Location** | **詳細資料**
+**元件** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **詳細資料**
 --- | --- | ---
 **Azure** | 您需要 Microsoft 帳戶。 |
 **VMM 伺服器** | 我們建議主要網站與次要網站中各要有一部 VMM 伺服器 | 每部 VMM 伺服器應連線至網際網路。<br/><br/> 每一部伺服器都應該有至少一個 VMM 私人雲端，並設定好 Hyper-V 功能設定檔。<br/><br/> 您會在 VMM 伺服器上安裝 Azure Site Recovery Provider。 此提供者會透過網際網路與 Site Recovery 服務協調進行複寫。 Provider 和 Azure 之間的通訊都是安全且加密的。
@@ -81,7 +79,7 @@ ms.lasthandoff: 06/15/2017
 
 ### <a name="architectural-components"></a>架構元件
 
-**元件** | **Location** | **詳細資料**
+**元件** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **詳細資料**
 --- | --- | ---
 **Azure** | InMage Scout。 | 若要取得 InMage Scout，您必須要有 Azure 訂用帳戶。<br/><br/> 建立復原服務保存庫之後，您可下載 InMage Scout 並安裝最新的更新，以設定部署。
 **處理序伺服器** | 位於主要網站 | 您部署處理序伺服器來處理快取、壓縮和資料最佳化。<br/><br/> 它也會處理您想要保護的機器的整合代理程式推入安裝。
@@ -106,4 +104,3 @@ ms.lasthandoff: 06/15/2017
 ## <a name="next-steps"></a>後續步驟
 
 檢閱[支援矩陣](site-recovery-support-matrix-to-sec-site.md)
-

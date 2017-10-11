@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 08/16/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-your-storsimple-device"></a>使用 StorSimple Manager 服務監視 StorSimple 裝置
 ## <a name="overview"></a>概觀
@@ -55,9 +55,9 @@ ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
   
     這也可以由下列方程式來說明：
   
-    *Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i))*
+    <bpt id="p1">*</bpt>Primary data (All volumes) = Sum of (Primary data (volume i) + Size of snapshot data (volume i))<ept id="p1">*</ept>
   
-    *where, Primary data (volume i) = Size of primary data allocated to volume i*
+    <bpt id="p1">*</bpt>where, Primary data (volume i) = Size of primary data allocated to volume i<ept id="p1">*</ept>
   
     如果透過服務刪除快照，將會在背景中以非同步方式進行刪除。 刪除快照之後，可能需要一些時間才會更新磁碟區資料大小。 
   
@@ -65,7 +65,7 @@ ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
   
     *主要資料 (所有磁碟區) = (主要資料 (磁碟區 i)) 的總和
   
-    *where, Primary data (volume i) = Size of primary data allocated to volume i*
+    <bpt id="p1">*</bpt>where, Primary data (volume i) = Size of primary data allocated to volume i<ept id="p1">*</ept>
 * **所有磁碟區中包含已停用監視的磁碟區**：如果您的裝置上有已關閉監視的磁碟區，圖表中將不會有這些個別磁碟區的監視資料。 不過，圖表中所有磁碟區的資料會包含已關閉監視功能的磁碟區。 
 * **所有磁碟區的資料包含已刪除且具有即時關聯備份的磁碟區**：如果刪除包含快照資料的磁碟區，但關聯的快照仍然存在，您就可能看到不相符。
 * **所有磁碟區的資料包含已刪除的磁碟區**：在某些情況下，舊磁碟區即使在被刪除後仍然會存在。 刪除的效果無法呈現，而裝置可能會顯示較低的可用容量。 您必須連絡「Microsoft 支援服務」以移除這些磁碟區。
@@ -115,10 +115,4 @@ ms.openlocfilehash: d45bb37c8417785db0ea38be4375a998b6d9f109
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [使用 StorSimple Manager 服務裝置儀表板](storsimple-device-dashboard.md)。
 * 了解如何 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

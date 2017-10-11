@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -138,5 +137,4 @@ ms.lasthandoff: 04/27/2017
 * [設定索引子以從其他服務載入資料](search-indexer-overview.md)
 * [如何以 .NET 使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)
 * [分析 Azure 搜尋服務的流量](search-traffic-analytics.md)
-
 

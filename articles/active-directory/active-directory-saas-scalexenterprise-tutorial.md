@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be747170a0d8a7a6defd790a3f8a122c4d397671
 ms.openlocfilehash: 0ebed0c2605862426384c0e219e52c9d626b6246
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>教學課程：Azure Active Directory 與 ScaleX Enterprise 整合
 
@@ -135,7 +133,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 
     b.這是另一個 C# 主控台應用程式。 按一下 **emailaddress** 屬性以開啟 [編輯屬性] 視窗。 將它的值從 **user.mail** 變更為 **user.userprincipalname**，然後按一下 [確定]。
 
-    ![設定單一登入](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)    
+    ![設定單一登入](./media/active-directory-saas-scalexenterprise-tutorial/edit_email_attribute.png)   
     
 5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -278,5 +276,4 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-scalexenterprise-tutorial/tutorial_general_203.png
-
 

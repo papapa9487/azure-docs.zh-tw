@@ -15,12 +15,11 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 53ce95811bbeb306ae986fda91d3387db4e71998
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.openlocfilehash: b402ae326ab34ec71ad9de966e22be00045fee3e
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>如何使用群組原則部署 Internet Explorer 的存取面板延伸模組
 本教學課程示範如何使用群組原則，在您的使用者電腦上遠端安裝 Internet Explorer 的存取面板延伸模組。 需要登入使用 [密碼單一登入](active-directory-appssoaccess-whatis.md#password-based-single-sign-on)設定的應用程式的 Internet Explorer 使用者，都需要此延伸模組。
@@ -40,7 +39,7 @@ ms.lasthandoff: 07/18/2017
 2. 在 [伺服器管理員] 視窗中，移至 [檔案和存放服務]。
    
     ![開啟檔案和存放服務](./media/active-directory-saas-ie-group-policy/files-services.png)
-3. 移至 [共用]  索引標籤。 然後按一下 [工作] > [新增共用...]
+3. 移至 [共用]  索引標籤。然後按一下 [工作] > [新增共用...]
    
     ![開啟檔案和存放服務](./media/active-directory-saas-ie-group-policy/shares.png)
 4. 完成 [新增共用精靈]  並設定權限以確保可以從您的使用者電腦存取該精靈。 [深入了解共用。](https://technet.microsoft.com/library/cc753175.aspx)
@@ -165,5 +164,4 @@ ms.lasthandoff: 07/18/2017
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)
 * [疑難排解 Internet explorer 的存取面板擴充功能](active-directory-saas-ie-troubleshooting.md)
-
 

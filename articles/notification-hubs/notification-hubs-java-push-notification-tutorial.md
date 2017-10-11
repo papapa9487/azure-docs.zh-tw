@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 41f978750ddef9f7e878c65b0017e909720154aa
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何從 Java 使用通知中樞
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -271,7 +271,7 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。 您要求的作�
 
 執行 Java 程式碼現在應會產生一則顯示於目標裝置的通知。
 
-## <a name="a-namenext-stepsanext-steps"></a><a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 在本主題中，我們會說明如何為通知中心建立簡單的 Java REST 用戶端。 您可以在這裡執行下列動作：
 
 * 下載完整的 [Java SDK]，其中包含完整的 SDK 程式碼。 
@@ -283,17 +283,11 @@ CreateOrUpdate、Patch 和 Delete 最終都會與 Get 一致。 您要求的作�
   * [傳送跨平台通知給已驗證的使用者]
 
 [Java SDK]: https://github.com/Azure/azure-notificationhubs-java-backend
-[開始使用教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Get started tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [開始使用通知中樞]: http://www.windowsazure.com/manage/services/notification-hubs/getting-started-windows-dotnet/
 [傳送即時新聞]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-dotnet/
 [傳送當地語系化的即時新聞]: http://www.windowsazure.com/manage/services/notification-hubs/breaking-news-localized-dotnet/
 [傳送通知給已驗證的使用者]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users/
 [傳送跨平台通知給已驗證的使用者]: http://www.windowsazure.com/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 [Maven]: http://maven.apache.org/
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

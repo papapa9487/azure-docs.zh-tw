@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim;oldportal;it-pro;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 5dde6b98f72306d6fe78f3c12377d3ce2ec5ddea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 3ac07bb7b070f44595c099a454b3d0dbc66126c9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-privileged-identity-management-how-to-add-or-remove-a-user-role"></a>Azure AD Privileged Identity Management：如何新增或移除使用者角色
 使用 Azure Active Directory (AD)，全域系統管理員 (或公司系統管理員) 可以更新哪些使用者獲 **永久** 指派 Azure AD 的角色。 做法是使用 PowerShell Cmdlet，如 `Add-MsolRoleMember` 和 `Remove-MsolRoleMember`。 或者可以依 [在 Azure Active Directory (Azure AD) 中指派系統管理員角色](active-directory-assign-admin-roles.md)中所述，使用 Azure 傳統入口網站。
@@ -48,7 +47,7 @@ Azure AD Privileged Identity Management 應用程式也允許特殊權限角色�
 
 > [!NOTE]
 > 角色中的新使用者預設僅是該角色的合格使用者。 如果想要讓角色變成永久，請按一下清單中的使用者。 該使用者的資訊即會出現在新的刀鋒視窗中。 在使用者資訊功能表中，選取 [設為永久]  。  
-> 如果使用者無法註冊 Azure Multi-Factor Authentication (MFA)，或使用者使用的是 Microsoft 帳戶 (通常是 @outlook.com), 您就需要將他們在其所有角色中設為永久。 系統會要求合格系統管理員在啟用啟用期間註冊 MFA。
+> 如果使用者無法註冊的 Azure Multi-factor Authentication (MFA)，或使用 Microsoft 帳戶 (通常@outlook.com)，您需要自行永久的所有角色。 系統會要求合格系統管理員在啟用啟用期間註冊 MFA。
 
 既然使用者有資格扮演某個角色，請讓他們知道他們可以根據[如何啟用或停用角色](active-directory-privileged-identity-management-how-to-activate-role.md)中的指示來啟用角色。
 
@@ -66,5 +65,4 @@ Azure AD Privileged Identity Management 應用程式也允許特殊權限角色�
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
 

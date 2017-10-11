@@ -15,16 +15,13 @@ ms.workload: data-services
 ms.custom: overview
 ms.date: 2/28/2017
 ms.author: jrj;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 575c49f83c8845edcea984459f3907490c62d269
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# 什麼是 Azure SQL 資料倉儲？
-<a id="what-is-azure-sql-data-warehouse" class="xliff"></a>
+# <a name="what-is-azure-sql-data-warehouse"></a>什麼是 Azure SQL 資料倉儲？
 Azure SQL 資料倉儲是一種巨量平行處理 (MPP) 以雲端為基礎、相應放大的關聯式資料庫，可處理大量的資料。 
 
 SQL 資料倉儲：
@@ -38,8 +35,7 @@ SQL 資料倉儲：
 
 本文說明 SQL 資料倉儲的重要功能。
 
-## 巨量平行處理架構
-<a id="massively-parallel-processing-architecture" class="xliff"></a>
+## <a name="massively-parallel-processing-architecture"></a>巨量平行處理架構
 SQL 資料倉儲是大量平行處理 (MPP) 分散式資料庫系統。 在幕後，SQL 資料倉儲會將您的資料分散於多個不共用的儲存和處理單元。 資料會儲存在進階本地備援儲存體層級，在其頂端動態連結的計算節點會執行查詢。 SQL 資料倉儲可以採用「分治法」來執行載入和複雜的查詢。 要求是由控制節點接收、針對分佈最佳化，然後傳遞至計算節點來平行執行其工作。
 
 使用減少的儲存體和計算，SQL 資料倉儲可以︰
@@ -61,8 +57,7 @@ SQL 資料倉儲是大量平行處理 (MPP) 分散式資料庫系統。 在幕�
 
 **資料移動服務︰** 資料移動服務 (DMS) 可在節點之間移動資料。 DMS 可讓計算節點存取聯結和彙總所需的資料。 DMS 不是 Azure 服務。 它是一項在所有節點上與 SQL Database 並排執行的 Windows 服務。 DMS 是背景處理序，無法直接互動。 不過，您可以查閱查詢計劃以查看 DMS 作業的發生時機，因為資料移動必須平行執行每項查詢。
 
-## 已針對資料倉儲工作負載最佳化
-<a id="optimized-for-data-warehouse-workloads" class="xliff"></a>
+## <a name="optimized-for-data-warehouse-workloads"></a>已針對資料倉儲工作負載最佳化
 MPP 方法由許多資料倉儲特定效能最佳化輔助，包括：
 
 * 一項分散式查詢最佳化工具和一組複雜的統計資料。 使用資料大小和散發的資訊，服務就能夠藉由評估特定分散式查詢作業的成本來最佳化查詢。
@@ -70,8 +65,7 @@ MPP 方法由許多資料倉儲特定效能最佳化輔助，包括：
 * 預設的叢集 **資料行存放** 區索引。 與傳統的資料列導向儲存體相比，使用資料行儲存體的 SQL 資料倉儲最多可讓壓縮平均提升 5 倍，查詢效能提升 10 倍以上。 需要掃描大量資料列的分析查詢更適合使用資料行存放區索引。
 
 
-## 可預測且可調整的效能與資料倉儲單位
-<a id="predictable-and-scalable-performance-with-data-warehouse-units" class="xliff"></a>
+## <a name="predictable-and-scalable-performance-with-data-warehouse-units"></a>可預測且可調整的效能與資料倉儲單位
 SQL 資料倉儲是使用與 SQL Database 類似的技術建置，表示使用者對於分析查詢可以預期一致且可預測的效能。 當使用者新增或減去計算節點時，他們應該會看到以線性方式調整的效能。 SQL 資料倉儲的資源配置是使用資料倉儲單位 (DWU) 測量。 DWU 是配置給 SQL 資料倉儲的基礎資源 (例如 CPU、記憶體、IOPS) 的量值。 增加 DWU 數目可增加資源和效能。 具體而言，DWU 有助於確保：
 
 * 您可以調整您的資料倉儲，而不必擔心基礎硬體或軟體。
@@ -88,8 +82,7 @@ SQL 資料倉儲是使用與 SQL Database 類似的技術建置，表示使用�
 
 **Create Table As Select (CTAS)** ：CTAS 會測量複製資料表的能力。 這牽涉到從儲存體讀取資料、跨應用裝置的節點散發，以及重新寫入至儲存體。 這是 CPU、IO 和網路密集作業。
 
-## 建置在 SQL Server 上
-<a id="built-on-sql-server" class="xliff"></a>
+## <a name="built-on-sql-server"></a>建置在 SQL Server 上
 SQL 資料倉儲以 SQL Server 關聯式資料庫引擎為基礎，且包含企業資料倉儲的許多功能。 如果您已經熟悉 T-SQL，則可輕鬆地將您的知識傳輸到 SQL 資料倉儲。 無論您是進階或新手使用者，文件範例都能夠協助您開始著手。 整體來說，您可以考慮我們建構 SQL 資料倉儲的語言元素的方式，如下所示：
 
 * SQL 資料倉儲會將 T-SQL 語法用於許多作業。 並且支援一組廣泛的傳統 SQL 建構，例如預存程序、使用者定義函式、資料表資料分割、索引和定序。
@@ -98,12 +91,10 @@ SQL 資料倉儲以 SQL Server 關聯式資料庫引擎為基礎，且包含企�
 
 透過 SQL Server、SQL 資料倉儲、SQL Database 和「分析平台系統」之間的 Transact-SQL 與功能共通性，您能夠開發符合您資料需求的解決方案。 您可以根據效能、安全性和調整需求，決定儲存資料的位置，然後視需要在不同系統之間傳輸資料。
 
-## 資料保護
-<a id="data-protection" class="xliff"></a>
+## <a name="data-protection"></a>資料保護
 SQL 資料倉儲會將所有資料儲存在 Azure Premium 本地備援儲存體中。 並在當地資料中心維護多份資料的同步複本，確保當地語系化失敗時能夠提供透明的資料保護。 此外，SQL 資料倉儲會使用 Azure 儲存體快照集，定期自動備份作用中 (未暫停) 的資料庫。 若要深入了解備份和還原的運作方式，請參閱[備份與還原概觀][Backup and restore overview]。
 
-## 與 Microsoft 工具整合
-<a id="integrated-with-microsoft-tools" class="xliff"></a>
+## <a name="integrated-with-microsoft-tools"></a>與 Microsoft 工具整合
 SQL 資料倉儲也整合了許多 SQL Server 使用者可能很熟悉的工具。 這些工具包括：
 
 **傳統的 SQL Server 工具** ：SQL 資料倉儲會與 SQL Server Analysis Services、Integration Services 和 Reporting Services 完整整合。
@@ -112,20 +103,17 @@ SQL 資料倉儲也整合了許多 SQL Server 使用者可能很熟悉的工具�
 
 **協力廠商工具**：許多協力廠商工具提供者與 SQL 資料倉儲整合的工具都已經過認證。 如需完整清單，請參閱 [SQL 資料倉儲解決方案合作夥伴][SQL Data Warehouse solution partners]。
 
-## 混合式資料來源案例
-<a id="hybrid-data-sources-scenarios" class="xliff"></a>
+## <a name="hybrid-data-sources-scenarios"></a>混合式資料來源案例
 Polybase 可讓您透過使用熟悉的 T-SQL 命令來運用不同來源的資料。 Polybase 讓查詢 Azure Blob 儲存體中的非關聯式資料就像查詢一般資料表般容易。 使用 Polybase 即可查詢非關聯式資料，或將非關聯式資料匯入 SQL 資料倉儲。
 
 * PolyBase 使用外部資料表存取非關聯式資料。 資料表定義會儲存在 SQL 資料倉儲中，您可以像存取一般關聯式資料一樣，使用 SQL 和工具進行存取。
 * 在其整合中無從得知 Polybase。 它會為其支援的所有來源提供相同的功能。 Polybase 可讀取各種格式的資料，包括分隔檔案或 ORC 檔案。
 * PolyBase 可用來存取 Blob 儲存體，該儲存體也用來做為 HDInsight 叢集的儲存體。 這可讓您使用關聯式與非關聯式工具，以最新的方式存取相同的資料。
 
-## SLA
-<a id="sla" class="xliff"></a>
+## <a name="sla"></a>SLA
 SQL 資料倉儲提供產品層級的服務等級協定 (SLA) 做為 Microsoft Online Services SLA 的一部分。 如需詳細資訊，請參閱 [SQL 資料倉儲的 SLA][SLA for SQL Data Warehouse]。 如需關於所有其他產品的 SLA 資訊，您可以造訪[服務等級協定] Azure 頁面，或在[大量授權][Volume Licensing]頁面上下載。 
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]和[載入範例資料][load sample data]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
@@ -165,4 +153,3 @@ SQL 資料倉儲提供產品層級的服務等級協定 (SLA) 做為 Microsoft O
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/en-us/support/legal/sla/sql-data-warehouse/v1_0/
 [Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [服務等級協定]: https://azure.microsoft.com/en-us/support/legal/sla/
-

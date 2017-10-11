@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/24/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: eb56cae77722268f42e5126c45ad2878af7db94a
 ms.openlocfilehash: 309ceba2d65c0745ba1acac698acb62526ab8078
-ms.lasthandoff: 01/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>打開包裝、掛接機架和佈線 StorSimple 8600 裝置
 ## <a name="overview"></a>Overview
@@ -172,8 +171,8 @@ ms.lasthandoff: 01/26/2017
 開始您的裝置佈線之前，您需要：
 
 * 完全打開您的主要機箱與 EBOD 機箱的包裝
-* 隨附於您的裝置的&4; 條電源線 (主要及 EBOD 機箱各&2; 條)
-* 裝置隨附的&2; 條 SAS 纜線以連接主要機箱與 EBOD 機箱
+* 隨附於您的裝置的 4 條電源線 (主要及 EBOD 機箱各 2 條)
+* 裝置隨附的 2 條 SAS 纜線以連接主要機箱與 EBOD 機箱
 * 可以存取 2 個電源分配單元 (PDU) (建議)
 * 網路纜線
 * 提供的序列纜線
@@ -234,7 +233,7 @@ ms.lasthandoff: 01/26/2017
 
 針對高可用性和效能，請記住：
 
-* 可能的話，請在各個控制器上設定一組用於雲端存取 (1 GbE)，和另一組用於 iSCSI (建議&10; GbE) 的網路介面。
+* 可能的話，請在各個控制器上設定一組用於雲端存取 (1 GbE)，和另一組用於 iSCSI (建議 10 GbE) 的網路介面。
 * 可能的話，請將各個控制器的網路介面連接到兩個不同的交換器，以確保交換器發生錯誤時的可用性。 下圖說明兩個從各個控制器連接到兩個不同交換器的 10 GbE 網路介面 (DATA 2 和 DATA 3)。 如需詳細資訊，請參閱 **StorSimple 裝置的高可用性需求** 下的 [網路介面](storsimple-system-requirements.md#high-availability-requirements-for-storsimple)。
 
 > [!NOTE]
@@ -268,5 +267,4 @@ ms.lasthandoff: 01/26/2017
 
 ## <a name="next-steps"></a>後續步驟
 您現在已準備好[部署和設定您的內部部署 StorSimple 裝置](storsimple-deployment-walkthrough-u2.md)。
-
 

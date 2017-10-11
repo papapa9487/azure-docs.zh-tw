@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2016
 ms.author: adegeo
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 88541f6054df1476866d68fdc1c9690a73ada83c
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: d09a020b903e5f43afe03b86c675bcc1eb536cbc
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-virtual-machines-in-a-virtual-machine-scale-set"></a>管理虛擬機器擴展集中的虛擬機器
 您可以使用本文中的工作來管理虛擬機器擴展集中的虛擬機器。
@@ -213,5 +212,4 @@ ms.lasthandoff: 04/27/2017
     Update-AzureRmVmss -ResourceGroupName "resource group name" -Name "scale set name" -VirtualMachineScaleSet $vmss 
 
 如果您要從擴展集移除虛擬機器，會先移除具有最高識別碼的虛擬機器。
-
 

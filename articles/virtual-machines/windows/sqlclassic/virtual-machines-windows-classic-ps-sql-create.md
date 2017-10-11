@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 8d7b9dc3df9c68a18c95fe71b100b516becd4b5c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: c3bd4329e8a22ce8503d6593560d29c2a3135e83
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>使用 Azure PowerShell 佈建 SQL Server 虛擬機器 (傳統)
 
@@ -205,4 +204,3 @@ New-AzureVM –ServiceName $svcname -VMs $vm1
 如果您也想了解如何使用 Azure 入口網站建立 SQL 虛擬機器，請參閱 [在 Azure 入口網站中佈建 SQL Server 虛擬機器](../sql/virtual-machines-windows-portal-sql-server-provision.md)。 請注意，本教學課程將逐步說明從入口網站利用建議的資源管理員模型建立 VM，而不是利用本 PowerShell 主題中所使用的傳統模型建立 VM。
 
 除了上述資源，我們也建議您檢閱 [在 Azure 虛擬機器中執行 SQL Server 的其他相關主題](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
-

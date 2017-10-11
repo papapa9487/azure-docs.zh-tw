@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 39bb294c96ce0c12d91cf8b3488ac3e1a7b2f7b2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>如何設定雲端服務
 > [!div class="op_single_selector"]
@@ -77,5 +76,4 @@ Azure 傳統入口網站也可讓您 [啟用 Azure 雲端服務中角色的遠�
 * [管理您的雲端服務](cloud-services-how-to-manage.md)。
 * [啟用 Azure 雲端服務中角色的遠端桌面連線](cloud-services-role-enable-remote-desktop.md)
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
-
 

@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/17/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 63f2f6dde56c1b5c4b3ad2591700f43f6542874d
-ms.openlocfilehash: e7a8f4cff0889a02ef1f7a4d32fda4e57c5d35b0
-ms.lasthandoff: 02/28/2017
-
-
+ms.openlocfilehash: 8efb3ab66d07875b51f723fed5594bcb477ed025
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-network-security-groups-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立網路安全性群組
 
@@ -38,7 +37,7 @@ ms.lasthandoff: 02/28/2017
 
 [!INCLUDE [virtual-networks-create-nsg-scenario-include](../../includes/virtual-networks-create-nsg-scenario-include.md)]
 
-以下的範例 Azure CLI 2.0 命令是假設您已根據上述案例建立簡單的環境。 
+以下的 Azure CLI 2.0 命令範例是假設您已根據上述案例建立簡單的環境。 
 
 ## <a name="create-the-nsg-for-the-frontend-subnet"></a>建立 `FrontEnd` 子網路的 NSG
 
@@ -84,7 +83,7 @@ ms.lasthandoff: 02/28/2017
 
 
 
-3. 使用 [az network nsg rule create](/cli/azure/network/nsg/rule#create) 命令來建立允許從網際網路存取連接埠 3389 (RDP) 的規則。
+3. 使用 [az network nsg rule create](/cli/azure/network/nsg/rule#create) 命令來建立規則，允許從網際網路存取連接埠 3389 (RDP)。
 
     > [!NOTE]
     > 根據您所使用的殼層，您可能需要修改下列引數中的 `*` 字元，以免在執行之前就展開引數。
@@ -141,7 +140,7 @@ ms.lasthandoff: 02/28/2017
 
 
 
-4. 使用 **az network nsg rule create** 命令來建立允許從網際網路存取連接埠 80 (HTTP) 的規則。
+4. 使用 **az network nsg rule create**  命令來建立規則，允許從網際網路存取連接埠 80 (HTTP)。
    
     ```azurecli
     az network nsg rule create \
@@ -246,7 +245,7 @@ ms.lasthandoff: 02/28/2017
    
     和前面的步驟 2 一樣，預期的輸出會相當大，其中會包括預設規則。
    
-2. 使用 **az network nsg rule create** 命令來建立允許從 `FrontEnd` 子網路存取連接埠 1433 (SQL) 的規則。
+2. 使用 **az network nsg rule create** 命令來建立允許從 `FrontEnd` 子網路存取連接埠 1433 (SQL)。
    
     ```azurecli
     az network nsg rule create \
@@ -362,4 +361,3 @@ ms.lasthandoff: 02/28/2017
     "routeTable": null
     }
     ```
-

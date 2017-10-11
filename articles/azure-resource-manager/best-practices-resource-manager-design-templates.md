@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>部署複雜的解決方案時，設計 Azure Resource Manager 範本的模式
 在 Azure Resource Manager 範本上使用彈性的做法，您可以快速且一致地部署複雜的拓撲。 您可以輕鬆調整這些部署，以因應核心供應項目的發展或是適應極端案例或客戶的變化。
@@ -347,5 +346,4 @@ Redis 只會使用單一節點類型，因此您將建立名為 node-resources.j
 ## <a name="next-steps"></a>後續步驟
 * 若要了解進出範本的共用狀態，請參閱〈 [Azure 資源管理員範本中的共用狀態](best-practices-resource-manager-state.md)〉。
 * 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
-
 

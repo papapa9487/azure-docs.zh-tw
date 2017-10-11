@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: bae6cf7f5025936deba301dc4fd05f6fd5fd8fa6
 ms.openlocfilehash: 1d9bb681a864bdc3e5a2f9c9a531d9566b16ada4
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="azure-dns-troubleshooting-guide"></a>Azure DNS 疑難排解指南
 
 此頁面提供 Azure DNS 常見問題的疑難排解資訊。
@@ -104,10 +104,4 @@ Azure DNS 是以記錄集的方式管理 DNS 記錄—記錄集是名稱與類�
 * 了解 [DNS 區域和記錄](dns-zones-records.md)
 * 若要開始使用 Azure DNS，請學習如何[建立 DNS 區域](dns-getstarted-create-dnszone-portal.md)和[建立 DNS 記錄](dns-getstarted-create-recordset-portal.md)。
 * 若要移轉現有的 DNS 區域，請學習如何[匯入和匯出 DNS 區域檔案](dns-import-export.md)。
-
-
-
-
-<!--HONumber=Jan17_HO3-->
-
 

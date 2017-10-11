@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: c7891c188c2cecbbf056fa79672a13bb16fa7fcf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-3-plan-capacity-and-scaling-for-hyper-v-to-azure-replication"></a>步驟 3：規劃產能並調整 Hyper-V 對 Azure 的複寫
 
 使用這份文件找出在將內部部署 Hyper-V VM (不含 System Center VMM) 複寫至 Azure 時，使用 [Azure Site Recovery](site-recovery-overview.md) 規劃產能和調整的方法。
@@ -32,7 +30,7 @@ ms.lasthandoff: 06/23/2017
 ## <a name="how-do-i-start-capacity-planning"></a>如何開始容量規劃？
 
 
-您要收集複寫環境的相關資訊，然後使用這項資訊規劃產能，並搭配本文中強調的考量。
+您需收集複寫環境的相關資訊，然後使用此資訊搭配本文中強調的考量事項來規劃容量。
 
 
 ## <a name="gather-information"></a>收集資訊
@@ -84,5 +82,4 @@ ms.lasthandoff: 06/23/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-移至[步驟 4：規劃網路服務](hyper-v-site-walkthrough-network.md)。
-
+移至[步驟 4：規劃網路](hyper-v-site-walkthrough-network.md)。

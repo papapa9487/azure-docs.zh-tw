@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: eb53ed852b6175fbc7faea44a243e8c7d5ce1753
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>開始使用 Microsoft Azure 安全性
 當您建置 IT 資產或將其移轉至雲端提供者時，您可以依賴該組織的能力來保護您的應用程式和資料，並利用他們所提供的安全性控制來管理您雲端架構資產的安全性。
@@ -195,4 +194,3 @@ Azure 有安全性控制可實作威脅防護功能，並協助客戶降低其�
 [Microsoft 安全性回應中心](https://technet.microsoft.com/library/dn440717.aspx)
 
 [Active Directory 部落格](http://blogs.technet.com/b/ad/)
-

@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
-
 # <a name="azure-network-security"></a>Azure 網路安全性
 
 我們知道安全性是雲端中的首要工作和其重要性，因為您可在其中找到精確且及時的 Azure 安全性資訊。 針對您的應用程式和服務使用 Azure 的最佳原因之一，就是可以利用 Azure 的各種安全性工具和功能。 這些工具和功能可協助您在 Azure 平台上建立安全的解決方案。
@@ -78,7 +75,7 @@ Azure 有許多與網路安全性討論的網路元件。 我們會說明這些�
 
 ### <a name="basic-network-connectivity"></a>基本網路連線
 
-[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)服務可讓 Azure 資源與虛擬網路 (VNet) 安全地彼此連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 網路基礎結構邏輯隔離。 您也可以使用站對站 VPN 和專用 [WAN 連結](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)，讓 VNet 彼此連線和連線到內部部署網路。
+[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)服務可讓 Azure 資源與虛擬網路 (VNet) 安全地彼此連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 網路基礎結構邏輯隔離。 您可以也 Vnet 彼此連線並連線到您使用站對站 Vpn 的內部部署網路和專用[WAN 連結](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)。
 
 ![基本網路連線](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -665,4 +662,3 @@ Log Analytics 提供下列解決方案來監視您的網路︰
 -   [Microsoft 建置其快速且可靠全域網路的方式](https://azure.microsoft.com/blog/how-microsoft-builds-its-fast-and-reliable-global-network/)
 
 -   [點燃網路創新](https://azure.microsoft.com/blog/lighting-up-network-innovation/)
-

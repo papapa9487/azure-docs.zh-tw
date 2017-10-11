@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: scottnap
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 開發套件環境中的兩個虛擬網路之間建立站對站 VPN 連線
 ## <a name="overview"></a>概觀
 此文章說明如何在兩個個別「Azure Stack 開發套件」環境中的兩個虛擬網路之間建立站對站 VPN 連線。 在您設定連線時，會了解 VPN 閘道在 Azure Stack 中的運作方式。
 
-### <a name="connection-diagram"></a>連線圖表
+### <a name="connection-diagram"></a>連接圖表
 下圖顯示當您完成時應有的連線組態。
 
 ![站對站 VPN 連線組態](media/azure-stack-create-vpn-connection-one-node-tp2/OneNodeS2SVPN.png)
@@ -101,7 +100,7 @@ ms.lasthandoff: 09/15/2017
 7. 針對 [資源群組]，您可以建立資源群組，或選取 [使用現有的] \(如果您已經有資源群組)。
 8. 驗證預設位置。
 9. 選取 [釘選到儀表板]。
-10. 選取 [建立]。
+10. 選取 [ **建立**]。
 
 ### <a name="create-the-gateway-subnet"></a>建立閘道子網路
 1. 在儀表板上，開啟您先前建立的 VNET-01 虛擬網路資源。
@@ -126,7 +125,7 @@ ms.lasthandoff: 09/15/2017
 7. 在 [名稱] 中輸入 **GW1-PiP**，然後選取 [確定]。
 8.  針對 [VPN 類型]，預設會選取 [依路由]。
     保留 [依路由] VPN 類型。
-9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 您可以將資源釘選到儀表板。 選取 [建立]。
+9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 您可以將資源釘選到儀表板。 選取 [ **建立**]。
 
 ### <a name="create-the-local-network-gateway"></a>建立區域網路閘道
 在此 Azure Stack 評估部署與實際 Azure 部署中實作*區域網路閘道*的方式有點不同。
@@ -191,14 +190,14 @@ ms.lasthandoff: 09/15/2017
 7. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] (如果您已經有資源群組)。
 8. 確認預設 [位置]。
 9. 選取 [釘選到儀表板]。
-10. 選取 [建立]。
+10. 選取 [ **建立**]。
 
 ### <a name="create-the-gateway-subnet"></a>建立閘道子網路
 1. 從儀表板開啟您建立的虛擬網路資源 (**VNET-02**)。
 2. 在 [設定] 刀鋒視窗上選取 [子網路]。
 3. 選取 [閘道子網路] 以將閘道子網路新增到虛擬網路。
 4. 子網路名稱預設為 **GatewaySubnet**。
-   閘道子網路很特別，必須具有此特定名稱，才能正常運作。
+   閘道子網路很特別﹐必須具有此特定名稱，才能正常運作。
 5. 在 [位址範圍] 欄位中，確認位址是 **10.0.21.0/24**。
 6. 選取 [確定] 以建立閘道子網路。
 
@@ -233,7 +232,7 @@ ms.lasthandoff: 09/15/2017
 6. 在 [設定] 刀鋒視窗上，選取 [虛擬網路閘道]，然後選取 [GW2]。
 7. 選取 [區域網路閘道]，然後選取 [POC1-GW]。
 8. 在 [連線名稱] 中，輸入 **POC2-POC1**。
-9. 在 [共用金鑰 (PSK)] 中，輸入 **12345**。 如果您選擇不同的值，請記住該值「必須」與您在 POC1 上所建立共用金鑰的值相符。 選取 [確定]。
+9. 在 [共用金鑰 (PSK)] 中，輸入 **12345**。 如果您選擇不同的值，請記住該值「必須」與您在 POC1 上所建立共用金鑰的值相符。 選取 [確定] 。
 10. 檢閱 [摘要] 刀鋒視窗，然後選取 [確定]。
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
@@ -246,7 +245,7 @@ ms.lasthandoff: 09/15/2017
 5. 輸入有效的使用者名稱和密碼。 建立虛擬機器之後，您將使用此帳戶來登入虛擬機器。
 6. 提供 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。
 7. 在 [大小] 刀鋒視窗上，為此執行個體選取虛擬機器大小，然後選取 [選取]。
-8. 在 [設定] 刀鋒視窗上，您可以接受預設值。 確定選取的是 [VNET-02] 虛擬網路，並確認子網路已設定為 **10.0.20.0/24**。 選取 [確定]。
+8. 在 [設定] 刀鋒視窗上，您可以接受預設值。 確定選取的是 [VNET-02] 虛擬網路，並確認子網路已設定為 **10.0.20.0/24**。 選取 [確定] 。
 9. 檢閱 [摘要] 刀鋒視窗上的設定，然後選取 [確定]。
 
 ## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>在每個 Azure Stack 開發套件上設定 NAT 虛擬機器以進行閘道周遊
@@ -340,7 +339,7 @@ ms.lasthandoff: 09/15/2017
 1. 登入 POC2 的 Azure Stack 實體機器，然後使用租用戶帳戶來登入使用者入口網站。
 2. 在左導覽列中，按一下 [計算]。
 3. 從虛擬機器清單中，尋找您先前建立的 **VM02**，然後選取它。
-4. 在虛擬機器的刀鋒視窗中，按一下 [連線]。
+4. 在虛擬機器的刀鋒視窗中，按一下 [ **連線**]。
 5. 使用您建立虛擬網路時所設定的帳戶來登入。
 6. 開啟已提高權限的 [Windows PowerShell] 視窗。
 7. 輸入 **ipconfig /all**。
@@ -367,4 +366,3 @@ ms.lasthandoff: 09/15/2017
 4. 在 [連線] 刀鋒視窗上，會顯示 [資料輸入] 和 [資料輸出] 的統計資料。 在以下的螢幕擷取畫面中，那些大的數字歸因於額外的檔案傳輸。 您應該會在該處看到一些非零的值。
    
     ![資料輸入和輸出](media/azure-stack-create-vpn-connection-one-node-tp2/image20.png)
-

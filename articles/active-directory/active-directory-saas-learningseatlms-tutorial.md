@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: 877e0288fdd1f590acf064c204aff0741539b112
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>教學課程：Azure Active Directory 與 Learning Seat LMS 整合
 
@@ -229,5 +227,4 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-learnconnect-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-learnconnect-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-learnconnect-tutorial/tutorial_general_203.png
-
 

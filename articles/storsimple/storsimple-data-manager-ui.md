@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 692f00bf342e2cd6d3d76754d18751c773aeedc5
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>使用 StorSimple Data Manager 服務 UI 來管理 (私人預覽)
 
 本文說明如何使用 StorSimple Data Manager UI，對 StorSimple 8000 系列裝置上的資料執行資料轉換。 然後，轉換後的資料就可供其他 Azure 服務取用，例如 Azure 媒體服務、Azure HDInsight、Azure Machine Learning 和 Azure 搜尋服務。 
@@ -109,8 +109,3 @@ StorSimple Data Manager 是可讓您具現化資料轉換的資源。 資料轉�
 ## <a name="next-steps"></a>後續步驟
 
 [使用 .NET SDK 啟動 StorSimple Data Manager 作業](storsimple-data-manager-dotnet-jobs.md)。
-
-
-<!--HONumber=Nov16_HO4-->
-
-

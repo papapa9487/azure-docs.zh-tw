@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: f9003c65d1818952c6a019f81080d595791f63bf
-ms.openlocfilehash: 5b2abb76fc2bfcf719292db1fdafc8b353d13a3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.openlocfilehash: 25eab41c3f0c986bcce33123f86f4c9638b77191
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
 在 Azure Container Instances 中，最上層的資源就是容器群組。 本文說明容器群組為何，以及這些群組能夠實現哪些類型的案例。

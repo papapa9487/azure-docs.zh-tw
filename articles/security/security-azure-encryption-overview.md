@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ums.workload: na
 ms.date: 08/18/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 752568747ab96bc0a9c7fc5f24ff28c3bce4e09f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="azure-encryption-overview"></a>Azure 加密概觀
 
@@ -206,4 +205,3 @@ Azure Key Vault 讓組織不需要設定、修補及維護硬體安全模組 (HS
 - [Azure 虛擬機器安全性概觀](security-virtual-machines-overview.md)
 - [待用資料加密](azure-security-encryption-atrest.md)
 - [資料安全性與加密的最佳做法](azure-security-data-encryption-best-practices.md)
-

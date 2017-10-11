@@ -15,16 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4e9412caa9fed15f42a04260f12fa802caf7a2e2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: bf6234d0810f870909957ee1c1e33c225a4922b9
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="changing-the-azure-ad-connect-sync-service-account-password" class="xliff"></a>
-
-# 變更 Azure AD Connect 同步處理服務帳戶密碼
+# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>變更 Azure AD Connect 同步處理服務帳戶密碼
 如果您變更 Azure AD Connect 同步服務帳戶密碼，「同步處理服務」將會無法正確啟動，直到您放棄加密金鑰並將 Azure AD Connect 同步服務帳戶密碼重新初始化為止。 
 
 Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲存 AD DS 與 Azure AD 服務帳戶的密碼。  這些帳戶會先加密再儲存到資料庫中。 
@@ -33,9 +30,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 如果您需要變更服務帳戶的密碼，您可以使用[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序來完成這項作業。  如果您基於任何原因而需要放棄加密金鑰，您也應該使用這些程序。
 
-<a id="issues-that-arise-from-changing-the-password" class="xliff"></a>
-
-##變更密碼而引發的問題
+##<a name="issues-that-arise-from-changing-the-password"></a>變更密碼而引發的問題
 當您在變更服務帳戶的密碼時，有兩件事必須完成。
 
 第一件事，您必須在 Windows 服務控制管理員底下變更密碼。  在此問題獲得解決之前，您會看到下列錯誤︰
@@ -52,17 +47,13 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 若要確保不會收到這些錯誤，請在變更密碼時遵循[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序。
  
-<a id="abandoning-the-azure-ad-connect-sync-encryption-key" class="xliff"></a>
-
-## 放棄 Azure AD Connect 同步處理加密金鑰
+## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>放棄 Azure AD Connect 同步處理加密金鑰
 >[!IMPORTANT]
 >下列程序只適用於 Azure AD Connect 組建 1.1.443.0 或更舊版本。
 
 使用下列程序來放棄加密金鑰。
 
-<a id="what-to-do-if-you-need-to-abandon-the-encryption-key" class="xliff"></a>
-
-### 需要放棄加密金鑰時的作法
+### <a name="what-to-do-if-you-need-to-abandon-the-encryption-key"></a>需要放棄加密金鑰時的作法
 
 如果您需要放棄加密金鑰，請使用下列程序來完成這項作業。
 
@@ -74,9 +65,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 4. [啟動同步處理服務](#start-the-synchronization-service)
 
-<a id="abandon-the-existing-encryption-key" class="xliff"></a>
-
-#### 放棄現有的加密金鑰
+#### <a name="abandon-the-existing-encryption-key"></a>放棄現有的加密金鑰
 放棄現有的加密金鑰，以便能夠建立新的加密金鑰︰
 
 1. 以系統管理員身分登入您的 Azure AD Connect 伺服器。
@@ -89,9 +78,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 
 ![Azure AD Connect 同步處理加密金鑰公用程式](media/active-directory-aadconnectsync-encryption-key/key5.png)
 
-<a id="provide-the-password-of-the-ad-ds-account" class="xliff"></a>
-
-#### 提供 AD DS 帳戶的密碼
+#### <a name="provide-the-password-of-the-ad-ds-account"></a>提供 AD DS 帳戶的密碼
 因為儲存在資料庫內的現有密碼無法再解密，您必須為同步處理服務提供 AD DS 帳戶的密碼。 同步處理服務會使用新的加密金鑰來將密碼加密︰
 
 1. 啟動同步處理服務管理員 ([開始] → [同步處理服務])。
@@ -104,9 +91,7 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 7. 按一下 [確定] 以儲存新密碼，然後關閉快顯對話方塊。
 ![Azure AD Connect 同步處理加密金鑰公用程式](media/active-directory-aadconnectsync-encryption-key/key6.png)
 
-<a id="reinitialize-the-password-of-the-azure-ad-sync-account" class="xliff"></a>
-
-#### 重新初始化 Azure AD 同步處理帳戶的密碼
+#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>重新初始化 Azure AD 同步處理帳戶的密碼
 您無法將 Azure AD 服務帳戶的密碼直接提供給同步處理服務。 相反地，您必須使用 **Add-ADSyncAADServiceAccount** Cmdlet 來重新初始化 Azure AD 服務帳戶。 此 Cmdlet 會重設帳戶密碼，並將密碼提供給同步處理服務︰
 
 1. 在 Azure AD Connect 伺服器上啟動新的 PowerShell 工作階段。
@@ -115,21 +100,16 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 ![Azure AD Connect 同步處理加密金鑰公用程式](media/active-directory-aadconnectsync-encryption-key/key7.png)
 4. 如果成功，您會看到 PowerShell 命令提示字元。
 
-<a id="start-the-synchronization-service" class="xliff"></a>
-
-#### 啟動同步處理服務
+#### <a name="start-the-synchronization-service"></a>啟動同步處理服務
 由於同步處理服務已可存取所需要的加密金鑰和所有密碼，您可以在 Windows 服務控制管理員中重新啟動該服務︰
 
 
 1. 移至 Windows 服務控制管理員 ([開始] → [服務])。
 2. 選取 [Microsoft Azure AD 同步處理]，然後按一下 [重新啟動]。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
 * [Azure AD Connect 同步處理：了解及自訂同步處理](active-directory-aadconnectsync-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

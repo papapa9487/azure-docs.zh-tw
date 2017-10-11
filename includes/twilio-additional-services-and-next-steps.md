@@ -5,7 +5,7 @@
 了解基本的 Twilio 服務之後，請參考下列連結以取得更多資訊：
 
 * [Twilio 安全性方針][twilio_security_guidelines]
-* [Twilio 做法與範例程式碼][twilio_howtos]
+* [Twilio 作法與範例程式碼][twilio_howtos]
 * [Twilio 快速入門教學課程][twilio_quickstarts] 
 * [GitHub 上的 Twilio][twilio_on_github]
 * [洽詢 Twilio 支援][twilio_support]

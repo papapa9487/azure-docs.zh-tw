@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 0651f497de446bd6b66f8eaccd7114d262925afd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 3a768c30cb874d42d7b4fbd2eeaa6c0e23904e10
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-kerberos-constrained-delegation"></a>如何設定應用程式 Proxy 應用程式以使用 Kerberos 限制委派
 
 可用來針對已發佈應用程式達成 SSO 的方法會因應用程式而異，而 Azure 應用程式 Proxy 提供的其中一個現成選項，便是 Kerberos 限制委派 (KCD)。 我們會在此設定連接器主機，來代表使用者對後端應用程式執行受限制 Kerberos 驗證。
@@ -171,4 +169,3 @@ KCD SSO 若要運作，必須要能夠向 Azure 進行預先驗證。 如果有�
 
 ## <a name="next-steps"></a>後續步驟
 [在受管理的網域上設定 Kerberos 限制委派 (KCD)](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-enable-kcd)
-

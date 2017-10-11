@@ -14,35 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08ec09275bbcaffaf25cf45a0f2f466fdeb60dc5
-ms.openlocfilehash: 954923e699ef2160b0a16cb369f8a86b3beacd39
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: b723ad800ccc0f3040eb480bb72960943b1fdb16
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-<a id="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration" class="xliff"></a>
-
-# Azure AD Connect 同步處理：變更預設組態的最佳作法
+# <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態的最佳作法
 本主題的目的旨在說明支援及不支援的 Azure AD Connect 同步處理變更。
 
 Azure AD Connect 所建立的組態適用於大部分同步內部部署 Active Directory 與 Azure AD 的「現狀」環境。 不過，在某些情況下，組態必須套用某些變更以滿足特定需要或需求。
 
-<a id="changes-to-the-service-account" class="xliff"></a>
-
-## 服務帳戶的變更
+## <a name="changes-to-the-service-account"></a>服務帳戶的變更
 Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行。 這個服務帳戶會存放同步處理所使用的資料庫加密金鑰。 它是使用 127 個字元長的密碼所建立的，而且密碼已設定為永不到期。
 
 * 它 **不支援** 變更或重設服務帳戶的密碼。 這麼做會損毀加密金鑰，而服務無法存取資料庫且無法啟動。
 
-<a id="changes-to-the-scheduler" class="xliff"></a>
-
-## 排程器的變更
+## <a name="changes-to-the-scheduler"></a>排程器的變更
 從組建 1.1 (2016 年 2 月) 的版本開始，您可以將 [排程器](active-directory-aadconnectsync-feature-scheduler.md) 的同步處理週期設定為預設值 30 分鐘以外的值。
 
-<a id="changes-to-synchronization-rules" class="xliff"></a>
-
-## 同步處理規則的變更
+## <a name="changes-to-synchronization-rules"></a>同步處理規則的變更
 安裝精靈所提供的組態應該適用於最常見的案例。 萬一您需要對組態進行變更，則您必須遵循這些規則，以便仍能具備支援的組態。
 
 * 如果預設的直接屬性流程不適合您的組織使用，您可以 [變更屬性流程](active-directory-aadconnectsync-change-the-configuration.md#other-common-attribute-flow-changes) 。
@@ -54,9 +45,7 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 > [!WARNING]
 > 現成可用的同步處理規則具有憑證指紋。 如果您變更這些規則，將不再符合憑證指紋。 未來當您嘗試套用新版的 Azure AD Connect 時可能會遇到問題。 僅利用本文所述的方式進行變更。
 
-<a id="disable-an-unwanted-sync-rule" class="xliff"></a>
-
-### 停用不必要的同步處理規則
+### <a name="disable-an-unwanted-sync-rule"></a>停用不必要的同步處理規則
 請勿刪除現成可用的同步處理規則。 升級期間會重新建立此規則。
 
 在某些情況下，安裝精靈所產生的組態不適用於您的拓撲。 例如，如果您具備帳戶與資源樹系拓撲，但已在具備 Exchange 結構描述的帳戶樹系中擴充該結構描述，則系統會針對帳戶樹系和資源樹系建立適用於 Exchange 的規則。 在此情況下，您需要停用適用於 Exchange 的同步處理規則。
@@ -65,9 +54,7 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 
 在上圖中，安裝精靈已在帳戶樹系中找到舊的 Exchange 2003 結構描述。 此結構描述擴充是在 Fabrikam 的環境中引進資源樹系之前新增的。 若要確保不會同步處理任何來自舊的 Exchange 實作的屬性，就必須以所述的方式停用同步處理規則。
 
-<a id="change-an-out-of-box-rule" class="xliff"></a>
-
-### 變更現成可用的規則
+### <a name="change-an-out-of-box-rule"></a>變更現成可用的規則
 只有當您需要變更聯結規則時，才應該變更內建規則。 如果您需要變更屬性流程，則您應該建立其優先順序高於內建規則的同步處理規則。 您實際上唯一需要複製的規則是 **In from AD - User Join** 規則。 您可以使用具有較高優先順序的規則來覆寫所有其他規則。
 
 如果您需要對現成可用的規則進行變更，則您應該複製該現成可用的規則，然後停用原始的規則。 接著對複製的規則進行變更。 同步處理規則編輯器會協助您完成這些步驟。 當您開啟現成可用的規則時，即會顯示此對話方塊：  
@@ -78,11 +65,8 @@ Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行
 
 在這個複製的規則上，對範圍、聯結和轉換進行任何必要變更。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
 * [Azure AD Connect 同步處理：了解及自訂同步處理](active-directory-aadconnectsync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

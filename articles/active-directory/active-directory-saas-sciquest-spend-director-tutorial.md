@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: b2eb87a88721a3fd1ecdfa573c6a6d49ed02d344
 ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>教學課程：Azure Active Directory 與 SciQuest Spend Director 整合
 本教學課程旨在說明如何整合 SciQuest Spend Director 與 Azure Active Directory (Azure AD)。  
@@ -119,7 +119,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
    
      b. 在 [回覆 URL] 文字方塊中，輸入您在 [登入 URL] 文字方塊所輸入的相同值。 
    
-     c. 按 [下一步] 。
+     c. 按一下 [下一步] 。
 
 4. 在 [設定在 SciQuest Spend Director 單一登入] 頁面上，按一下 [下載中繼資料]，然後將中繼資料檔儲存在您的本機電腦上。
    
@@ -160,7 +160,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
    
     b. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
    
-    c. 按 [下一步] 。
+    c. 按一下 [下一步] 。
 
 6. 在 [使用者設定檔]  對話方塊頁面上，執行下列步驟： 
    
@@ -174,7 +174,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
    
     d. 在 [角色] 清單中選取 [使用者]。
    
-    e. 按 [下一步] 。
+    e. 按一下 [下一步] 。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
    
@@ -259,10 +259,4 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
 [203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
 [204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
 [205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
-
-
-
-
-<!--HONumber=Feb17_HO3-->
-
 

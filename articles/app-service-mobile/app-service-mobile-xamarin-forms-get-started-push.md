@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: f1fe97c6b3e2d28b7e17d035bc7e3ecced8a0d0f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 912367636f1b26b3b07fbd5fe3fe8ed053218fd5
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>將推播通知新增至 Xamarin.Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -99,7 +98,7 @@ ms.lasthandoff: 03/21/2017
         }
 
     這會公開目前的 **MainActivity** 執行個體，讓我們可以在主要 UI 執行緒上執行。
-6. 初始化 `instance`OnCreate**方法開頭的** 變數，如下所示。
+6. 初始化 `instance`OnCreate **方法開頭的**  變數，如下所示。
 
         // Set the current instance of MainActivity.
         instance = this;
@@ -435,4 +434,3 @@ ms.lasthandoff: 03/21/2017
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333
-

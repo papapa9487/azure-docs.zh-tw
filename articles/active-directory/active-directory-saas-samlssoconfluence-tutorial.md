@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Confluence by resolution GmbH 整合
 
@@ -133,7 +131,7 @@ SAML SSO for Confluence by resolution GmbH 與 Azure AD 整合提供下列優點
 
 6. 按一下 [儲存]  按鈕。
 
-    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **SAML SSO for Confluence by resolution GmbH 系統管理入口網站**。
 
@@ -159,7 +157,7 @@ SAML SSO for Confluence by resolution GmbH 與 Azure AD 整合提供下列優點
 
     ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    按一下 [管理] 。
+13. 按一下 [管理] 。
 
     ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ SAML SSO for Confluence by resolution GmbH 與 Azure AD 整合提供下列優點
 
     d. 按一下 [載入] 按鈕。
 
-    e. 它會讀取 IdP 中繼資料，並且填入螢幕擷取畫面中反白顯示的欄位。    
+    e. 它會讀取 IdP 中繼資料，並且填入螢幕擷取畫面中反白顯示的欄位。 
 18. 按一下 [儲存設定] 按鈕以儲存設定。
 
     ![設定單一登入](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ SAML SSO for Confluence by resolution GmbH 與 Azure AD 整合提供下列優點
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

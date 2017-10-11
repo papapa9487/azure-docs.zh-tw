@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 222c4414a9f736a3589b4cdd0ed934696f6c31ef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightscale"></a>教學課程：Azure Active Directory 與 Rightscale 整合
 
@@ -146,7 +144,7 @@ Rightscale 與 Azure AD 整合提供下列優點：
    
     ![設定單一登入](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_003.png)
  
-    d. 選取 [Allow RightScale-initiated SSO using a discovery hint] \(允許使用 Discovery Hint 的 RightScale 起始 SSO)，然後在下方文字方塊中輸入您的**網域名稱**。
+    d. 選取 [Allow RightScale-initiated SSO using a discovery hint] (允許使用 Discovery Hint 的 RightScale 起始 SSO)，然後在下方文字方塊中輸入您的**網域名稱**。
    
     ![設定單一登入](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_004.png)
 
@@ -259,5 +257,4 @@ Rightscale 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rightscale-tutorial/tutorial_general_203.png
-
 

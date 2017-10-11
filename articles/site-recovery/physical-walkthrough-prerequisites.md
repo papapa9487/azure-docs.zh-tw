@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 5f5cb4b9b6fcee6b56ccdcb6223afddd9de90fec
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-2-review-the-prerequisites-for-physical-server-to-azure-replication"></a>步驟 2：檢閱將實體伺服器複寫至 Azure 的必要條件
 
 檢閱下表中摘要列出的必要條件。
@@ -53,4 +51,3 @@ ms.lasthandoff: 06/29/2017
 
 - 如果您要進行完整部署，請移至[步驟 3：規劃容量](physical-walkthrough-capacity.md)
 - 如果您要進行簡單的測試部署，請移至[步驟 4：規劃網路](physical-walkthrough-network.md)。
-

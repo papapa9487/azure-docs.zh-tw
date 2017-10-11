@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/06/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
 ms.openlocfilehash: 813021d6239ae3cf79bb84b78f77e39c9e0783f6
-ms.lasthandoff: 03/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
 > [!div class="op_single_selector"]
@@ -228,5 +227,4 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 [應用程式升級](service-fabric-application-upgrade.md)
 
 [Reliable Services 的開發人員參考資料](https://msdn.microsoft.com/library/azure/dn706529.aspx)
-
 

@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 972cc48057c13271d725b0c973c3ccf651ad27c4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -55,7 +53,6 @@ ms.lasthandoff: 07/08/2017
 圖形 API 需要 `user.read` 範圍才能讀取使用者設定檔。 根據預設值，在我們註冊入口網站上註冊的每個應用程式中都會自動新增此範圍。 您後端伺服器的部分其他圖形 API 和自訂 API 也會需要其他範圍。 例如，對於圖形 API 而言，就需要 `Calendars.Read` 來列出使用者的行事曆。 為了在應用程式內容中存取使用者的行事曆，您需要新增 `Calendars.Read` 委派應用程式註冊的資訊，然後將 `Calendars.Read` 新增至 `AcquireTokenAsync` 呼叫。 系統可能會在您增加範圍數目時，提示使用者同意其他事項。
 
 <!--end-collapse-->
-
 
 
 

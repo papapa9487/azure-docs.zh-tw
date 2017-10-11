@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2016
 ms.author: v-sharos
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 596431b7279b753ca4da838eb028cdde2022ce02
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-dashboard"></a>使用 StorSimple Manager 服務儀表板
 ## <a name="overview"></a>概觀
@@ -68,10 +68,4 @@ StorSimple Manager 服務儀表板會顯示下列資訊：
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [進行 StorSimple 裝置的疑難排解](storsimple-troubleshoot-operational-device.md)。
 * 深入了解如何 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

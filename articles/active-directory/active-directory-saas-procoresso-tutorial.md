@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 042a41eaa6bb21670b4c12068f1b017222f64b99
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>教學課程：Azure Active Directory 與 Procore SSO 整合
 
@@ -199,7 +198,7 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 
 請遵循下列步驟以在 Procore 端建立 Procore 測試使用者。
 
-1. 以系統管理員身分登入您的 procore 公司網站。    
+1. 以系統管理員身分登入您的 procore 公司網站。  
 
 2. 從工具箱下拉式清單按一下 [目錄] 以開啟公司目錄頁面。
 
@@ -283,5 +282,4 @@ To ensure users can sign-in to Procore SSO after it has been configured to use A
 [201]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-procoresso-tutorial/tutorial_general_203.png
-
 

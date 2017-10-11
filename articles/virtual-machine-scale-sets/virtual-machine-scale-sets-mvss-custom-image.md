@@ -15,26 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
-# 新增自訂映像至 Azure 擴展集範本
-<a id="add-a-custom-image-to-an-azure-scale-set-template" class="xliff"></a>
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>新增自訂映像至 Azure 擴展集範本
 
 本文說明如何修改[最基本的可行擴展集範本](./virtual-machine-scale-sets-mvss-start.md)從自訂映像部署。
 
-## 變更範本定義
-<a id="change-the-template-definition" class="xliff"></a>
+## <a name="change-the-template-definition"></a>變更範本定義
 
 您可以在[這裡](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)看到最基本的可行擴展集範本，並在[這裡](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)看到用於從自訂映像部署擴展集的範本。 讓我們逐步檢查用來建立此範本 (`git diff minimum-viable-scale-set custom-image`) 的差異：
 
-### 建立受控磁碟映像
-<a id="creating-a-managed-disk-image" class="xliff"></a>
+### <a name="creating-a-managed-disk-image"></a>建立受控磁碟映像
 
 如果您已有自訂的受控磁碟映像 (類型為 `Microsoft.Compute/images` 的資源)，則可略過此節。
 
@@ -98,8 +93,7 @@ ms.lasthandoff: 05/11/2017
 
 ```
 
-### 變更擴展集屬性以使用受控磁碟映像
-<a id="changing-scale-set-properties-to-use-the-managed-disk-image" class="xliff"></a>
+### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>變更擴展集屬性以使用受控磁碟映像
 
 在擴展集 `storageProfile` 的 `imageReference` 中，我們不會指定發行者、提供項目、sku 及平台映像版本，而是指定 `Microsoft.Compute/images` 資源的 `id`：
 
@@ -120,8 +114,6 @@ ms.lasthandoff: 05/11/2017
 在此範例中，我們使用 `resourceId` 函式取得以相同範本所建立映像的資源識別碼。 如果您已事先建立受控磁碟映像，您應改為提供該映像的識別碼。 此識別碼的格式必須是：`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`。
 
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

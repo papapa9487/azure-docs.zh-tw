@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1c0233aa398b975cef5bb346d7c6822e4a47812e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 83ca3b2d89a335a5fd6dddeaca7c11f6d0492234
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>設定控管標記的商務詞彙
 ## <a name="introduction"></a>簡介
@@ -84,4 +83,3 @@ Azure 資料目錄啟用了資料來源探索功能，讓您能夠輕鬆地探�
 
 ## <a name="next-steps"></a>後續步驟
 * [商務詞彙作業的 REST API 文件](https://msdn.microsoft.com/library/mt708855.aspx)
-

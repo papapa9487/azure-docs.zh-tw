@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手動或自動調整執行個體計數
 在 [Azure 入口網站](https://portal.azure.com/)中，您可以手動設定服務的執行個體計數，或是藉由參數設定根據需求自行調整。 這通常稱為「相應放大」或「相應縮小」。
@@ -128,5 +127,4 @@ ms.lasthandoff: 07/18/2017
 * [監視應用程式效能](../application-insights/app-insights-azure-web-apps.md) 。
 * [檢視事件和活動記錄檔](insights-debugging-with-events.md)以了解在您服務內發生的所有內容。
 * [監視任何網頁的可用性和回應性](../application-insights/app-insights-monitor-web-app-availability.md) ，讓您可以找出您的頁面是否關閉。
-
 

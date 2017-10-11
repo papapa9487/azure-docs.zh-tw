@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>在邏輯應用程式中處理內容類型
 
@@ -112,5 +110,4 @@ CustomerName=Frank&Address=123+Avenue
 ```
 
 目前沒有任何適用於 form-data 的原生函式，所以您仍可藉由使用 `@string(body('formdataAction'))` 之類的函式手動存取資料，進而在工作流程中使用此資料。 如果您希望外送要求也具有 `application/x-www-url-formencoded` 內容類型標頭，您可以直接將要求新增到動作內文，而不需使用任何像是 `@body('formdataAction')` 的轉換。 不過，唯有當內文是 `body` 輸入中的唯一參數時，才適用這種方法。 如果您嘗試在 `application/json` 要求中使用 `@body('formdataAction')`，您會因為傳送已編碼的內文而發生執行階段錯誤。
-
 

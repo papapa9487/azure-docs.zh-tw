@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>步驟 8：針對將 Hyper-V 複寫至 Azure 設定來源與目標
 
 本文說明如何在 Azure 入口網站中使用 [Azure Site Recovery](site-recovery-overview.md) 服務，設定將內部部署 Hyper-V 虛擬機器 (不含 System Center VMM) 複寫至 Azure 時的來源和目標設定。
@@ -94,4 +92,3 @@ ms.lasthandoff: 06/23/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 9：設定複寫原則](hyper-v-site-walkthrough-replication.md)
-

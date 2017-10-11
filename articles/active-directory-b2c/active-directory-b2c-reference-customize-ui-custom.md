@@ -14,15 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/25/2017
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 68f40aa638a687398512278a0b77d1ba392859cf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -98,24 +95,24 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 9. 選取 [Blob] 來作為 [存取類型]。 按一下 [建立] 。
 10. 您建立的容器將會出現在 [Blob 服務] 刀鋒視窗的清單中。
 11. 關閉 [Blob]  刀鋒視窗。
-12.    在 [儲存體帳戶] 刀鋒視窗上，按一下 [金鑰] 圖示。 [存取金鑰] 刀鋒視窗隨即開啟。  
-13.    記下 **key1** 的值。 此值稍後會指稱為 key1。
+12. 在 [儲存體帳戶] 刀鋒視窗上，按一下 [金鑰] 圖示。 [存取金鑰] 刀鋒視窗隨即開啟。  
+13. 記下 **key1** 的值。 此值稍後會指稱為 key1。
 
 ## <a name="downloading-the-helper-tool"></a>下載協助程式工具
 
-1.    從 [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) 下載協助程式工具。
-2.    將 B2C-AzureBlobStorage-Client-master.zip 檔案儲存在本機電腦上。
-3.    在本機磁碟上解壓縮 B2C-AzureBlobStorage-Client-master.zip 檔案的內容，例如在 **UI-Customization-Pack** 資料夾下解壓縮。 這會在其底下建立 B2C-AzureBlobStorage-Client-master 資料夾。
-4.    開啟該資料夾，並在其中解壓縮 B2CAzureStorageClient.zip 封存檔的內容。
+1.  從 [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip) 下載協助程式工具。
+2.  將 B2C-AzureBlobStorage-Client-master.zip 檔案儲存在本機電腦上。
+3.  在本機磁碟上解壓縮 B2C-AzureBlobStorage-Client-master.zip 檔案的內容，例如在 **UI-Customization-Pack** 資料夾下解壓縮。 這會在其底下建立 B2C-AzureBlobStorage-Client-master 資料夾。
+4.  開啟該資料夾，並在其中解壓縮 B2CAzureStorageClient.zip 封存檔的內容。
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>上傳 UI-Customization-Pack 範例檔
 
-1.    使用 Windows 檔案總管，瀏覽至上一節所建立之 UI-Customization-Pack 資料夾底下的 B2C-AzureBlobStorage-Client-master 資料夾。
-2.    執行 B2CAzureStorageClient.exe 檔案。 這個程式只會將您指定目錄中的所有檔案上傳至您的儲存體帳戶，並允許 CORS 存取這些檔案。
-3.    請在提示出現時指定︰a.    您儲存體帳戶 storageAccountName 的名稱，例如 contoso369b2c。
-    b.這是另一個 C# 主控台應用程式。    您的 Azure Blob 儲存體 key1 的主要存取金鑰，例如 contoso369b2c。
-    c.    您的儲存體 Blob 儲存體容器 containerName 的名稱，例如 b2c。
-    d.    Starter-Pack 範例檔的路徑，例如 ..\B2CTemplates\wingtiptoys。
+1.  使用 Windows 檔案總管，瀏覽至上一節所建立之 UI-Customization-Pack 資料夾底下的 B2C-AzureBlobStorage-Client-master 資料夾。
+2.  執行 B2CAzureStorageClient.exe 檔案。 這個程式只會將您指定目錄中的所有檔案上傳至您的儲存體帳戶，並允許 CORS 存取這些檔案。
+3.  請在提示出現時指定︰a.  您儲存體帳戶 storageAccountName 的名稱，例如 contoso369b2c。
+    b.  您的 Azure Blob 儲存體 key1 的主要存取金鑰，例如 contoso369b2c。
+    c.  您的儲存體 Blob 儲存體容器 containerName 的名稱，例如 b2c。
+    d.  Starter-Pack 範例檔的路徑，例如 ..\B2CTemplates\wingtiptoys。
 
 如果您遵循上述步驟，虛構公司 **wingtiptoys** 之 UI-Customization-Pack 的 HTML5 和 CSS 檔案現在會指向您的儲存體帳戶。  您可以在 Azure 入口網站中開啟相關的容器刀鋒視窗，以確認該內容已正確上傳。 或者，您也可以從瀏覽器存取頁面來確認該內容已正確上傳。 如需詳細資訊，請參閱 [Azure Active Directory B2C︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)。
 
@@ -175,4 +172,3 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 ## <a name="next-steps"></a>後續步驟
 [參考︰了解自訂原則如何在 B2C 中使用身分識別體驗架構](active-directory-b2c-reference-custom-policies-understanding-contents.md)
-

@@ -15,22 +15,16 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-<a id="approach-and-process-for-adopting-azure-data-catalog" class="xliff"></a>
-
-# 採用 Azure 資料目錄的方法和程序
+# <a name="approach-and-process-for-adopting-azure-data-catalog"></a>採用 Azure 資料目錄的方法和程序
 本文會協助您在組織中開始採用 **Azure 資料目錄**。 為了能順利採用 **Azure 資料目錄**，您必須將重點放在三大要項：定義願景、找出組織內的重要商業使用案例，以及選擇試驗專案。
 
-<a id="introducing-the-azure-data-catalog" class="xliff"></a>
-
-## 簡介 Azure 資料目錄
+## <a name="introducing-the-azure-data-catalog"></a>簡介 Azure 資料目錄
 對於要如何在職場內找到有關資料資產的專家資訊，人們的期望已經改變。 今天，由於人們普遍會在職場內使用 Yammer 等社交媒體工具，因此他們無不期望能夠快速取得關於各種主題的協助與建議。 **Azure 資料目錄** 可幫助企業和團隊將企業資料資產的相關資訊彙總在中央存放庫內。 資料取用者可以探索這些資料資產，並取得由主題專家所提供的知識。
 
 本文將介紹使用 **Azure 資料目錄**來開始這一切的方法。 本文將以 Adventure Works 這家虛構公司來說明典型的資料目錄採用方案。
@@ -39,9 +33,7 @@ ms.lasthandoff: 06/21/2017
 
 **Azure 資料目錄** 是 Azure 中受到完整管理的服務，且為能夠以自助方式探索資料來源的全企業資訊 (中繼資料) 目錄。 使用資料目錄，您就能註冊、探索、註解以及連接到資料資產。 資料目錄設計用來管理不同的資訊資產，使其能夠輕易尋找、了解資料資產，以及加以連線。 它可減少從可用資料獲得深入解析的時間，並增加組織的價值。 若要深入了解，請參閱 [Microsoft Azure 資料目錄](https://azure.microsoft.com/services/data-catalog/)。
 
-<a id="azure-data-catalog-adoption-plan" class="xliff"></a>
-
-## Azure 資料目錄採用方案
+## <a name="azure-data-catalog-adoption-plan"></a>Azure 資料目錄採用方案
 **Azure 資料目錄**採用方案將說明如何將使用此服務的好處傳達給專案關係人和使用者，以及您會提供使用者什麼樣的訓練。 想要成功促成資料目錄採用，其中一個關鍵要素是能否有效地將這項服務的價值傳達給使用者和專案關係人知道。 採用方案一開始的主要對象是服務的使用者。 不論專案關係人有多麼同意這項方案，如果資料目錄服務的使用者或客戶沒有將方案融入他們的用法，採用方案就不會成功。 因此，本文假設您的專案關係人已同意此方案，並且會將重點放在為使用者建立資料目錄採用方案。
 有效的採用方案能成功地讓人們注意資料目錄的可行目標，並提供他們想要達成此目標所需要的資訊和指引。 使用者必須了解資料目錄能提供什麼價值來幫助他們成功完成作業。 當人們看到資料目錄如何幫助他們從資料中獲取更多成果時，採用資料目錄的價值便會清楚浮現。 要讓人們改變並不容易，因此有效的方案必須將改變所伴隨而來的挑戰納入考量。
 
@@ -54,9 +46,7 @@ ms.lasthandoff: 06/21/2017
 
 以下是用來定義 **Azure 資料目錄** 採用方案的一些秘訣。
 
-<a id="define-your-data-catalog-project-vision" class="xliff"></a>
-
-## 定義資料目錄的專案願景
+## <a name="define-your-data-catalog-project-vision"></a>定義資料目錄的專案願景
 定義 **Azure 資料目錄** 採用方案的第一個步驟是撰寫所嘗試完成之成就的說明。 最好是讓願景聲明既廣博又不失簡潔，使其足以定義特定的短期和長期目標。
 
 以下是可協助您定義願景的一些秘訣：
@@ -72,9 +62,7 @@ ms.lasthandoff: 06/21/2017
 
 擁有簡潔的願景聲明後，您應該找出適合資料目錄使用的試驗專案。 一般而言，資料目錄會有好幾個適用案例，因此下一節會提供一些用來找出相關使用案例的秘訣。
 
-<a id="identify-data-catalog-business-use-cases" class="xliff"></a>
-
-## 找出資料目錄的商務使用案例
+## <a name="identify-data-catalog-business-use-cases"></a>找出資料目錄的商務使用案例
 若要找出與資料目錄相關的使用案例，請與各業務單位的專家洽談，來找出相關的使用案例和要解決的商務問題。 檢閱人們在找出和了解資料資產時所遇到的現有挑戰。 比方說，在僅詢問組織內擁有相關資料來源的幾個人後，團隊是否已了解資料資產？
 
 您最好選擇容易實現的使用案例：也就是既重要，且使用資料目錄來解決時成功可能性很高的案例。
@@ -88,9 +76,7 @@ ms.lasthandoff: 06/21/2017
 
 以下是與資料目錄有關的一些使用案例範例：
 
-<a id="example-use-cases" class="xliff"></a>
-
-### 使用案例範例
+### <a name="example-use-cases"></a>使用案例範例
 * **註冊高價值的中央資料來源** - IT 部門負責管理組織內使用的資料來源。 透過註冊和註解一般的企業資料來源，IT 部門可以開始使用資料目錄。
 * **註冊以團隊為基礎的資料來源** -不同的團隊擁有實用的企業營運資料來源。 請透過識別和註冊許多不同團隊所使用的關鍵資料來源來開始使用 **Azure 資料目錄**，並在 **Azure 資料目錄**註解中擷取團隊的封閉知識。
 * **自助式商業智慧** - 團隊花了很多時間來結合多個來源的資料。 在集中位置註冊和註解資料來源便可免除手動探索資料來源的程序。
@@ -99,21 +85,15 @@ ms.lasthandoff: 06/21/2017
 
 一旦您找出資料目錄的幾個使用案例，常見案例應該就會浮現。 下一節將討論如何根據使用案例找出第一個試驗專案。
 
-<a id="choose-a-data-catalog-pilot-project" class="xliff"></a>
-
-## 選擇資料目錄的試驗專案
+## <a name="choose-a-data-catalog-pilot-project"></a>選擇資料目錄的試驗專案
 成功的關鍵因素是簡化，並且從小規模著手。 範圍受限且具有完善定義的試驗有助於讓專案不斷進展下去，而不會因專案太過複雜或有太多的參與者而導致進度停滯不前。 雖然如此，但也務必要納入各種使用者，不論是早期採用者或對專案有所懷疑的使用者。 欣然接受解決方案的使用者將能協助您改善未來的通訊和小道消息方案。 對專案有所懷疑的使用者則能協助您找出並解決造成阻礙的問題。 隨著對專案有所懷疑的使用者獲得成功，您可以使用他們的意見反應來找出促成成功的要素。
 
 試驗方案應該分階段導入想要使用資料目錄達成的業務目標。 從初始試驗學習到經驗後，您就可以擴大使用族群。 已經結束的初始試驗很適合用來建立能夠測量的成就，但我們的最終目標是要能夠自然而然地或爆炸性地成長。 資料目錄若是自然而然地成長，使用者就能控制他們自己的資料使用情形，並能影響和鼓勵其他人採用目錄和對目錄有所貢獻。
 
-<a id="target-the-right-team" class="xliff"></a>
-
-### 鎖定合適的團隊
+### <a name="target-the-right-team"></a>鎖定合適的團隊
 當您在選擇試驗專案時，請選取其案例最引人注目且能解決現有商務問題的團隊。 例如，商務分析師會從 SQL Server Database 建立報表。 問題在於她只是跟幾個同事交談後就以為已經知道資料來源。 最後，在浪費時間嘗試尋找要使用哪些資料來源後，她找到一個 Excel 活頁簿，其中含有每個資料來源的說明。 雖然 Excel 活頁簿已充分說明其所需的資料表，但如果這些資料來源已在 **Azure 資料目錄**中進行註冊並加上註解，她就能快速地找到這些資料來源。
 
-<a id="identify-data-heroes" class="xliff"></a>
-
-### 識別資料英雄
+### <a name="identify-data-heroes"></a>識別資料英雄
 第一個試驗專案中應該要有幾個人負責產生資料和取用資料，這樣才是最平衡的團隊代表。
 
 **資料產生者** 是具有資料來源方面的專業知識的個人。 例如，另一個團隊中的 David 就廣泛地使用關鍵的 Adventure Works 資料來源。 在採用 **Azure 資料目錄**之前，David 已經建立 Excel 活頁簿來擷取關於 Adventure Works 資料來源的資訊。
@@ -125,18 +105,14 @@ ms.lasthandoff: 06/21/2017
 * 若要深入了解如何註冊資料來源，請參閱 [註冊資料來源](data-catalog-get-started.md)。
 * 若要深入了解如何找到資料來源，請參閱 [搜尋資料來源](data-catalog-get-started.md)。
 
-<a id="start-small-and-focused" class="xliff"></a>
-
-### 從小規模著手並保持專注
+### <a name="start-small-and-focused"></a>從小規模著手並保持專注
 對於大多數的企業試驗專案來說，您應該在目錄中植入高價值的資料來源，讓商務使用者可以快速看到資料目錄的價值。 IT 部門很適合用來做為試驗團隊會感興趣之一般資料來源的尋找起點。 針對支援的資料來源 (例如 SQL Server)，我們建議您使用 **Azure 資料目錄** 資料來源註冊工具。 使用資料來源註冊工具，您就可以註冊各種資料來源，包括 SQL Server 和 Oracle 資料庫以及 SQL Server Reporting Services 報表。 如需目前的資料來源的完整清單，請參閱 [Azure 資料目錄支援的資料來源](data-catalog-dsr.md)。
 
 一旦您找到並註冊關鍵資料來源，就也可以匯入儲存在其他位置的資料來源說明。 資料目錄 API 可讓開發人員從另一個位置 (例如 David 建立和維護的 Excel 活頁簿) 載入說明和註解。
 
 下一節將說明來自 Adventure Works 公司的範例專案。
 
-<a id="an-example-project" class="xliff"></a>
-
-### 範例專案
+### <a name="an-example-project"></a>範例專案
 在此範例中，商務分析師 Nancy 使用 SQL Server Database 中的資料為其團隊建立報告。 問題在於她只是跟幾個同事交談後就以為已經知道資料來源。 如果她在 **Azure 資料目錄**之類的集中位置註冊這些資料來源並為其加上註解，她就能很快找到這些資料來源。
 
 為了說明 Nancy 和她的團隊可以多麼輕鬆地找到高價值的資料，您將要使用資料來源註冊工具來為目錄填入資料來源的相關資訊 (中繼資料)。 透過這種方式，資料庫的相關資訊就可提供給團隊和企業使用，而不只是少數個人。 一旦資料來源已在資料目錄中註冊，Nancy 和她的團隊便可以輕鬆地使用資料來源。 結果是更為全面且與她的團隊和企業相關的資料目錄。 當越來越多團隊採用資料目錄時，就會更容易找到和使用商務資料來源。因此，請打造更多以資料為中心的文化，以從資料中獲取更多好處。
@@ -152,9 +128,7 @@ ms.lasthandoff: 06/21/2017
 
 在備妥試驗專案後，就可以開始執行資料目錄採用方案。
 
-<a id="execute" class="xliff"></a>
-
-### 執行
+### <a name="execute"></a>執行
 至此，您已找出資料目錄的使用案例，並找出第一個專案。 此外，您已註冊關鍵的 Adventure Works 資料來源，並使用 IT 部門所建立的工具從現有 Excel 活頁簿新增資訊。 現在您可以和試驗團隊合作，來開始資料目錄採用程序。
 
 以下是可讓您快速入門的一些秘訣：
@@ -167,32 +141,24 @@ ms.lasthandoff: 06/21/2017
 
 在試驗團隊開始使用資料目錄之前，請安排啟動會議，以討論對於試驗專案的期望，並提供初始訓練。
 
-<a id="set-expectations" class="xliff"></a>
-
-### 設立期望
+### <a name="set-expectations"></a>設立期望
 設立期望和目標可幫助商務使用者專注於特定交付成果上。 若要讓專案如期推展，請指派 (例如：每天或每週，視試驗的範圍和期間而定) 準備作業。 資料目錄的其中一個最有價值的功能是將資料資產群眾外包，讓商務使用者可以受益於企業資料的知識。 對於每個試驗團隊成員來說，註冊至少一個他們使用的資料來源並為其加上註解，便是絕佳的家庭作業。 請參閱[註冊資料來源](data-catalog-get-started.md)和[如何註解資料來源](data-catalog-get-started.md)。
 
 定期和團隊碰面，以檢閱其中的某些註解。 好的資料來源註解是成功採用資料目錄的關鍵，因為它們可以在集中位置提供有意義的資料來源見解。 若沒有良好的註解，整個企業中關於資料來源的知識就會雜亂無章。 請參閱 [如何註解資料來源](data-catalog-get-started.md)。
 
 而且，專案的最終測試是使用者是否可以找到並了解他們需要使用的資料來源。 試驗使用者應該要定期測試目錄，以確保其日常工作使用的資料來源具有相關性。 當必要的資料來源遺失或未正確註解時，您可以將它當做註冊其他資料來源或提供其他註解的提醒。 這種做法不只能增加試驗工作的價值，也能養成有效的習慣以在試驗完成後帶到其他團隊。
 
-<a id="provide-training" class="xliff"></a>
-
-### 提供訓練
+### <a name="provide-training"></a>提供訓練
 訓練內容應該足以讓使用者開始使用，而且專門針對試驗團隊成員的特定目標和經驗水準。 若要開始訓練課程，您可以依照 [開始使用 Azure 資料目錄](data-catalog-get-started.md) 文章中的步驟來進行。 此外，您可以下載 [Azure 資料目錄試驗專案訓練簡報](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/blob/master/Azure%20Data%20Catalog%20Training.pptx?raw=true)。 這個 PowerPoint 簡報應該可以協助您開始將資料目錄介紹給試驗團隊成員認識。
 
-<a id="conclusion" class="xliff"></a>
-
-## 結論
+## <a name="conclusion"></a>結論
 當試驗團隊的運作已相當順暢，而且您已達到最初的目標時，請將資料目錄的採用範圍擴展到其他團隊。 套用和精簡您從試驗專案學到的經驗，以將資料目錄擴展到整個組織。
 
 參與試驗的早期採用者很適合作為資料目錄採用好處的宣傳者。 他們可以和其他團隊分享資料目錄是如何幫助他們的團隊解決商務問題、更輕鬆地找到資料來源，以及分享有關他們使用之資料來源的見解。 例如，Adventure Works 試驗團隊的早期採用者可以向其他人展示要找到以前難以尋找及了解之 Adventure Works 資料資產的相關資訊是有多麼的容易。
 
 本文內容涉及如何在組織中開始使用 **Azure 資料目錄** 。 我們希望您能夠啟動資料目錄的試驗專案，並將資料目錄擴展到整個組織。
 
-<a id="more-information-about-azure-data-catalog" class="xliff"></a>
-
-## Azure 資料目錄的詳細資訊
+## <a name="more-information-about-azure-data-catalog"></a>Azure 資料目錄的詳細資訊
 * [Azure 資料目錄產品頁面](https://azure.microsoft.com/services/data-catalog/)
 * [Azure 資料目錄文件](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Azure 資料目錄常見案例](data-catalog-common-scenarios.md)
@@ -200,4 +166,3 @@ ms.lasthandoff: 06/21/2017
 * [搜尋資料來源](data-catalog-get-started.md)
 * [註解資料來源](data-catalog-get-started.md)
 * [將中繼資料群眾外包](data-catalog-get-started.md)
-

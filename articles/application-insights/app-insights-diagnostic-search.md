@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: aeb27a02ed624106afec5dbd98faacf5f400f89e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
 「搜尋」是 [Application Insights](app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
@@ -184,4 +183,3 @@ ms.lasthandoff: 08/17/2017
 * [將記錄和自訂遙測傳送至 Application Insights](app-insights-asp-net-trace-logs.md)
 * [設定可用性和回應性測試](app-insights-monitor-web-app-availability.md)
 * [疑難排解](app-insights-troubleshoot-faq.md)
-

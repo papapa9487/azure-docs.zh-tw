@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: bruceper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: a691aad9e4aa21799640efc9c96ac90d38d7bf31
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
-
+ms.openlocfilehash: c2565a742ce4f6ab5f7639a54c4a475f00cbc260
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>使用 CLI 管理金鑰保存庫
 
@@ -158,7 +156,7 @@ ms.lasthandoff: 05/09/2017
 讓我們來檢視剛剛建立的金鑰或密碼：
 
 * 若要檢視您的金鑰，請輸入： `azure keyvault key list --vault-name 'ContosoKeyVault'`
-* 若要檢視您的密碼，請輸入： `azure keyvault secret list --vault-name 'ContosoKeyVault'`
+* 若要檢視您的祕密，請輸入： `azure keyvault secret list --vault-name 'ContosoKeyVault'`
 
 ## <a name="register-an-application-with-azure-active-directory"></a>向 Azure Active Directory 註冊應用程式
 
@@ -179,7 +177,7 @@ ms.lasthandoff: 05/09/2017
 2. 按一下左側的 [ **Active Directory**]，然後選取您將要註冊應用程式的目錄。 <br> <br> 
 
 >[!NOTE] 
-> 您必須選取您用來建立金鑰保存庫的 Azure 訂用帳戶所在的同一個目錄。 如果您不知道是哪個目錄，請按一下 [設定] ，找出建立金鑰保存庫所用的訂用帳戶，並記下最後一欄中顯示的目錄名稱。
+> 您必須選取您用來建立金鑰保存庫的 Azure 訂用帳戶所在的同一個目錄。 如果您不知道是哪個目錄，請按一下 [ **設定**]，找出建立金鑰保存庫所用的訂用帳戶，並記下最後一欄中顯示的目錄名稱。
 
 3. 按一下 [ **應用程式**]。 如果您的目錄中尚未新增任何應用程式，則此頁面將僅會顯示 [ **新增應用程式** ] 連結。 按一下此連結，或者您可以按一下命令列上的 [ **新增** ]。
 4. 在 [新增應用程式] 精靈的 [您想做什麼？] 頁面上，按一下 [新增我的組織正在開發的應用程式]。
@@ -265,5 +263,4 @@ ms.lasthandoff: 05/09/2017
 
 ## <a name="next-steps"></a>後續步驟
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。
-
 

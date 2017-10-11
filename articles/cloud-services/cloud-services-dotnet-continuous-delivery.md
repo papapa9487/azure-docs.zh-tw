@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Azure 中雲端服務的連續傳遞
 本文所述的程序顯示如何為 Azure 雲端應用程式設定連續傳遞。 此程序可讓您自動建立套件，並在每次程式碼簽入時將套件部署到 Azure。 本文所述的套件建置程序等同於 Visual Studio 中的 [封裝]命令，而發佈步驟等同於 Visual Studio 中的 [發佈] 命令。
@@ -530,4 +529,3 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
 [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
 [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
 [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
-

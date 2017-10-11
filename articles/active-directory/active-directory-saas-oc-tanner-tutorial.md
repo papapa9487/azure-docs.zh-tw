@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 9af12372b30d9ee1575e46be3b4144fc3b73ec69
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>教學課程：Azure Active Directory 與 O.C.  Tanner - AppreciateHub 的人員
 
@@ -100,7 +98,7 @@ ms.lasthandoff: 07/04/2017
 
 **若要設定 Azure AD 單一登入與 O.C.Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 
-1. 在 Azure 入口網站的 [O.C. Tanner - AppreciateHub] 應用程式整合頁面上，按一下 [單一登入]。
+1. 在 Azure 入口網站上**O.C.Tanner-AppreciateHub**應用程式整合頁面上，按一下 **單一登入**。
 
     ![設定單一登入][4]
 
@@ -108,16 +106,16 @@ ms.lasthandoff: 07/04/2017
  
     ![設定單一登入](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_samlbase.png)
 
-3. 在 [O.C. Tanner - AppreciateHub 網域與 URL] 區段中，執行下列步驟：
+3. 在**O.C.Tanner-AppreciateHub 網域和 Url**區段中，執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
     a. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyname>.appreciatehub.com/fed/sp/authnResponse20`
 
     > [!NOTE] 
-    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [O.C. Tanner - AppreciateHub 支援小組](mailto:sso@octanner.com)以取得此值。
+    > 這不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡[O.C.Tanner-AppreciateHub 支援小組](mailto:sso@octanner.com)取得此值。
 
-    b.這是另一個 C# 主控台應用程式。 使用下列連結開啟中繼資料檔案：[https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata)。
+    b. 使用下列連結開啟中繼資料檔案：[https://fed.appreciatehub.com/fed/sp/metadata](https://fed.appreciatehub.com/fed/sp/metadata)。
    
     c. 找出 [md:AssertionConsumerService] 節點。 
    
@@ -135,7 +133,7 @@ ms.lasthandoff: 07/04/2017
 
     ![設定單一登入](./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_400.png)
 
-6. 若要在 **O.C. Tanner - AppreciateHub** 端設定單一登入，您必須將已下載的「中繼資料 XML」傳送給 [O.C. Tanner - AppreciateHub 支援小組](mailto:sso@octanner.com)。
+6. 若要設定單一登入上**O.C.Tanner-AppreciateHub**端，您需要傳送下載**中繼資料 XML**至[O.C.Tanner-AppreciateHub 支援小組](mailto:sso@octanner.com)。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -178,7 +176,7 @@ ms.lasthandoff: 07/04/2017
 
 **若要在 O.C.Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 
-要求您的 [O.C. Tanner - AppreciateHub 支援小組](mailto:sso@octanner.com)建立一個 nameID 屬性與 Azure AD 中 Britta Simon 使用者名稱的值相同的使用者。
+請要求您[O.C.Tanner-AppreciateHub 支援小組](mailto:sso@octanner.com)建立使用者，其具有與 nameID 屬性許 Simon 的使用者名稱相同的值在 Azure AD 中。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -235,5 +233,4 @@ ms.lasthandoff: 07/04/2017
 [201]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-oc-tanner-tutorial/tutorial_general_203.png
-
 

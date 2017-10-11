@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 325d92e493f6e011367d2c85b52c92838327101e
 ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.lasthandoff: 02/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>教學課程：Azure Active Directory 與 Central Desktop 整合
 本教學課程的目的是要示範 Azure 與 Central Desktop 的整合。 本教學課程中說明的案例假設您已經具有下列項目：
@@ -69,7 +68,7 @@ ms.lasthandoff: 02/17/2017
 
 **若要設定單一登入，請執行下列步驟：**
 
-1. 在 Azure 傳統入口網站的 [Central Desktop] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
+1. 在 Azure 傳統入口網站上**Central Desktop**應用程式整合頁面上，按一下 **設定單一登入**開啟 * * 設定單一登入 * * 對話方塊。
    
    ![設定單一登入](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "設定單一登入")
 2. 在 [要如何讓使用者登入 Central Desktop] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
@@ -155,5 +154,4 @@ AAD 使用者必須先佈建到 Central Desktop 應用程式，才可以登入�
    ![是](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "是")
 
 如果要測試您的單一登入設定，請開啟存取面板。 如需 [存取面板] 的詳細資訊，請參閱 [存取面板簡介](active-directory-saas-access-panel-introduction.md)。
-
 

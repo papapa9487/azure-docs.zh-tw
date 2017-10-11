@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: fcde562484f4401e9f936614b9978f839f4aa290
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>教學課程：Azure Active Directory 與 RolePoint 整合
 
@@ -114,7 +112,7 @@ ms.lasthandoff: 06/16/2017
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://<subdomain>.rolepoint.com/login`
     
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://app.rolepoint.com/<instancename>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://app.rolepoint.com/<instancename>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值，請連絡 [RolePoint 支援小組](mailto:info@rolepoint.com)以取得值。 
@@ -225,5 +223,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-rolepoint-tutorial/tutorial_general_203.png
-
 

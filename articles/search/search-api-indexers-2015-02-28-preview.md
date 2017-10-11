@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>索引子作業 (Azure 搜尋服務 REST API：2015-02-28-Preview)
 > [!NOTE]
@@ -798,4 +796,3 @@ Azure 搜尋服務可以直接整合一些常用的資料來源，因此您不�
 <td>不支援；Azure 搜尋服務目前僅支援基本類型與字串集合</td>
 </tr>
 </table>
-

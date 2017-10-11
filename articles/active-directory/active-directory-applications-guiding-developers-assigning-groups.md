@@ -1,5 +1,5 @@
 ---
-title: "將群組指派給 Azure AD 應用程式 | Microsoft Docs&quot;"
+title: "將群組指派給 Azure AD 應用程式 | Microsoft Docs'"
 description: "如何為 Azure 應用程式實作群組指派。"
 services: active-directory
 documentationcenter: 
@@ -16,12 +16,11 @@ ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 robots: noindex
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 015cc28903bfd366c653a51b0f73512bf8b578ea
-ms.openlocfilehash: f58c051bc25544d2811738b8ade483c82f3901b2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: e0b0b87a454db96747f024e81882fe83d62fdbe2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="assign-azure-active-directory-groups-to-an-application"></a>將 Azure Active Directory 群組指派給應用程式
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。 若要了解如何要求使用者指派，請參閱 [Azure AD 和應用程式：要求使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md) 一文。
@@ -42,4 +41,3 @@ ms.lasthandoff: 02/28/2017
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [active-directory-applications-guiding-developers-for-lob-applications-toc.md](../../includes/active-directory-applications-guiding-developers-for-lob-applications-toc.md)]
-

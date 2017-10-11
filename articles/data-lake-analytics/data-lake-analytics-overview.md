@@ -14,22 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/23/2017
 ms.author: saveenr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 8817b511d779029421491194b50120d51ec9dbad
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# Microsoft Azure Data Lake Analytics 概觀
-<a id="overview-of-microsoft-azure-data-lake-analytics" class="xliff"></a>
-## 什麼是 Azure Data Lake Analytics？
-<a id="what-is-azure-data-lake-analytics" class="xliff"></a>
+# <a name="overview-of-microsoft-azure-data-lake-analytics"></a>Microsoft Azure Data Lake Analytics 概觀
+## <a name="what-is-azure-data-lake-analytics"></a>什麼是 Azure Data Lake Analytics？
 Azure Data Lake Analytics 是隨選分析作業服務，可簡化巨量資料分析。 您可以著重於撰寫、執行和管理作業，而非操作分散式基礎結構。 無需部署、設定及調整硬體，您只需寫入查詢便可轉換資料並擷取寶貴的深入見解。 透過針對所需的功能設定級別，此項分析服務便可立即處理任何規模的工作。 只有在作業進行時您才需要支付費用，十分符合成本效益。 分析服務支援 Azure Active Directory，讓您管理存取權及角色，且其與您的內部部署身分識別系統整合。 分析服務支援還包括 U-SQL，該語言可將 SQL 的優勢與使用者程式碼的運算能力結合在一起。 U-SQL 的可調整分散式執行階段可讓您有效地分析資料，範圍遍及存放區以及 Azure、Azure SQL Database 以及 Azure SQL 資料倉儲中的 SQL Server。
 
-## 主要功能
-<a id="key-capabilities" class="xliff"></a>
+## <a name="key-capabilities"></a>主要功能
 * **動態調整**
   
     Data Lake Analytics 專為雲端規模與效能所打造。  它會動態部署資源，讓您可以分析數 TB 乃至於數 EB 的資料。 當工作完成時，其會自動逐步釋放這些資源，因此您只需要支付所用處理功能的費用。 當您所儲存的資料量或所用的計算資源量有所增減時，也無需重新編寫程式碼。 如此您便可將心力全數投注在商業邏輯，而無需分神在處理與儲存大型資料集的方式上。
@@ -49,10 +44,8 @@ Azure Data Lake Analytics 是隨選分析作業服務，可簡化巨量資料分
   
     Data Lake Analytics 已特別最佳化以使用 Azure Data Lake - 提供最高層級的效能、輸送量和巨量資料工作負載的平行處理。  Data Lake Analytics 也可以使用 Azure Blob 儲存體和 Azure SQL Database。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
  
   * 透過 [Azure 入口網站](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli2.md)開始使用 Data Lake Analytics
   * 透過 [Azure 入口網站](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [Azure .NET SDK](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md) 來開始使用 Data Lake Analytics
   * [使用 Azure 入口網站監視和疑難排解 Azure Data Lake Analytics 作業](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md) 
-

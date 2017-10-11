@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 6ab73e5c79742ab548733f5712dee1e28461db9f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C：針對具有 Google+ 帳戶的取用者提供註冊和登入
 ## <a name="create-a-google-application"></a>建立 Google+ 應用程式
@@ -59,5 +58,4 @@ ms.lasthandoff: 08/08/2017
 5. 按一下 [識別提供者類型]、選取 [Google]，然後按一下 [確定]。
 6. 按一下 [設定此識別提供者]  ，然後輸入您先前建立的 Google+ 應用程式用戶端識別碼和用戶端密碼。
 7. 依序按一下 [確定] 和 [建立]，儲存您的 Google+ 設定。
-
 

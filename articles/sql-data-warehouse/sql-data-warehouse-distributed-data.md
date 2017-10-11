@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 07/12/2017
 ms.author: jrj;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 3c166acb17193caae32d7bad133ec510ff679353
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="distributed-data-and-distributed-tables-for-massively-parallel-processing-mpp"></a>大量平行處理 (MPP) 的分散式資料和分散式資料表
 了解如何在 Microsoft 的大量平行處理 (MPP) 系統 Azure SQL 資料倉儲和平行資料倉儲中分散使用者資料。 設計您的資料倉儲以有效使用分散式資料，可協助您達成 MPP 架構的查詢處理優勢。 一些資料庫設計選擇可能會嚴重影響改善查詢效能。  
@@ -73,5 +72,4 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="next-steps"></a>後續步驟
 若要有效使用分散式資料表，請參閱[在 SQL 資料倉儲中散發資料表](sql-data-warehouse-tables-distribute.md)  
-
 

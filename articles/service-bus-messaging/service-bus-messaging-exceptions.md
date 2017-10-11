@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: 93300ba995f2a556cb90fc657db5cf9ad56b9846
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="service-bus-messaging-exceptions"></a>服務匯流排傳訊例外狀況
 本文列出一些 Microsoft Azure 服務匯流排傳訊 API 產生的例外狀況。 此參考可能有所變更，請不定期查看更新。
@@ -91,12 +89,10 @@ ConnectionsQuotaExceeded for namespace xxx.
 #### <a name="common-causes"></a>常見的原因
 這個錯誤有兩個常見的原因︰無效信件佇列和訊息接收者未作用。
 
-1. **無效信件佇列**
-   ：讀取器無法完成訊息，當鎖定過期後，訊息會傳回佇列/主題。 如果讀取器遇到例外狀況，阻止它呼叫 [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，就會發生這個錯誤。 訊息讀取 10 次後，預設會移至無效信件佇列。 這種行為由 [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) 屬性控制，預設值是 10。 訊息堆積在無效信件佇列中會佔用空間。
+1. **無效信件佇列** ：讀取器無法完成訊息，當鎖定過期後，訊息會傳回佇列/主題。 如果讀取器遇到例外狀況，阻止它呼叫 [BrokeredMessage.Complete](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.brokeredmessage.complete.aspx)，就會發生這個錯誤。 訊息讀取 10 次後，預設會移至無效信件佇列。 這種行為由 [QueueDescription.MaxDeliveryCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.maxdeliverycount.aspx) 屬性控制，預設值是 10。 訊息堆積在無效信件佇列中會佔用空間。
    
     若要解決此問題，請閱讀和完成無效信件佇列中的訊息，就像您處理任何其他佇列一樣。 [QueueClient](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.aspx) 類別甚至包含 [FormatDeadLetterPath](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queueclient.formatdeadletterpath.aspx) 方法，可協助格式化無效信件佇列路徑。
-2. **收件者停止**
-   ：收件者停止接收佇列或訂用帳戶的訊息。 識別這個原因的方法是查看 [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) 屬性，它會顯示訊息的完整解析。 如果 [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) 屬性很高或不斷增加，表示訊息撰寫的速度超過讀取的速度。
+2. **收件者停止** ：收件者停止接收佇列或訂用帳戶的訊息。 識別這個原因的方法是查看 [QueueDescription.MessageCountDetails](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.queuedescription.messagecountdetails.aspx) 屬性，它會顯示訊息的完整解析。 如果 [ActiveMessageCount](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagecountdetails.activemessagecount.aspx) 屬性很高或不斷增加，表示訊息撰寫的速度超過讀取的速度。
 
 ### <a name="event-hubs"></a>事件中樞
 每一個事件中樞都有 20 個用戶群組的限制。 當您嘗試建立更多時，您會收到 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception)。 
@@ -115,10 +111,8 @@ ConnectionsQuotaExceeded for namespace xxx.
 ### <a name="common-causes"></a>常見的原因
 這個錯誤有兩個常見的原因︰設定不正確或暫時性服務錯誤。
 
-1. **設定不正確**
-   ：操作條件的作業逾時可能太小。 用戶端 SDK 的作業逾時預設值為 60 秒。 請檢查程式碼是否將值設定過小。 請注意，網路和 CPU 使用量的狀況會影響特定作業完成所花費的時間，所以作業逾時不應設定非常小的值。
-2. **暫時性服務錯誤**
-   ：有時服務匯流排服務在處理要求時會遇到延遲，例如，高流量的時段。 在這種情況下，您可以在延遲後重試作業，直到作業成功為止。 如果多次嘗試同一作業之後仍然失敗，請瀏覽 [Azure 服務狀態網站](https://azure.microsoft.com/status/) ，看看是否有任何已知的服務中斷。
+1. **設定不正確** ：操作條件的作業逾時可能太小。 用戶端 SDK 的作業逾時預設值為 60 秒。 請檢查程式碼是否將值設定過小。 請注意，網路和 CPU 使用量的狀況會影響特定作業完成所花費的時間，所以作業逾時不應設定非常小的值。
+2. **暫時性服務錯誤** ：有時服務匯流排服務在處理要求時會遇到延遲，例如，高流量的時段。 在這種情況下，您可以在延遲後重試作業，直到作業成功為止。 如果多次嘗試同一作業之後仍然失敗，請瀏覽 [Azure 服務狀態網站](https://azure.microsoft.com/status/) ，看看是否有任何已知的服務中斷。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -129,5 +123,4 @@ ConnectionsQuotaExceeded for namespace xxx.
 * [服務匯流排訊息概觀](service-bus-messaging-overview.md)
 * [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
 * [服務匯流排架構](service-bus-architecture.md)
-
 

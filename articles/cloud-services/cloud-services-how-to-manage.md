@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: e66a3390c08b66e0f2f38725425cd78a36004118
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 2ee76dfcb579e53975b1f61a6590f8d78dc0961b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理雲端服務
 > [!div class="op_single_selector"]
@@ -155,4 +153,3 @@ ms.lasthandoff: 05/18/2017
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy.md)。
 * 設定 [自訂網域名稱](cloud-services-custom-domain-name.md)。
 * 設定 [SSL 憑證](cloud-services-configure-ssl-certificate.md)。
-

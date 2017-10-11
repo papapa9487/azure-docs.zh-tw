@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
-ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 3cb49a4abb26c34a938c963c4cf326b5ccd490de
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Slack
 
 
@@ -116,4 +114,3 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 * [管理企業應用程式的使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](active-directory-appssoaccess-whatis.md)
-

@@ -15,20 +15,16 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 72a81fa0deb34ace77b8fb9b1a4e6b24ee164b35
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-# 適用於 Xamarin 應用程式的 iOS 推播通知和通知中樞
-<a id="ios-push-notifications-with-notification-hubs-for-xamarin-apps" class="xliff"></a>
+# <a name="ios-push-notifications-with-notification-hubs-for-xamarin-apps"></a>適用於 Xamarin 應用程式的 iOS 推播通知和通知中樞
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-## 概觀
-<a id="overview" class="xliff"></a>
+## <a name="overview"></a>概觀
 > [!IMPORTANT]
 > 若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fpartner-xamarin-notification-hubs-ios-get-started)。
 > 
@@ -39,8 +35,7 @@ ms.lasthandoff: 07/06/2017
 
 本教學課程示範使用通知中樞的簡單推播訊息廣播案例。
 
-## 先決條件
-<a id="prerequisites" class="xliff"></a>
+## <a name="prerequisites"></a>先決條件
 本教學課程需要下列各項：
 
 * [Xcode 6.0][Install Xcode]
@@ -57,8 +52,7 @@ ms.lasthandoff: 07/06/2017
 
 [!INCLUDE [Notification Hubs Enable Apple Push Notifications](../../includes/notification-hubs-enable-apple-push-notifications.md)]
 
-## 設定您的通知中樞
-<a id="configure-your-notification-hub" class="xliff"></a>
+## <a name="configure-your-notification-hub"></a>設定您的通知中樞
 本節將引導您利用所建立的 **.p12** 推播憑證，建立新的通知中樞，並設定搭配 APNS 進行驗證。 如果您想要使用已經建立的通知中樞，可以跳至步驟 5。
 
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
@@ -78,10 +72,8 @@ ms.lasthandoff: 07/06/2017
 
 現在已將您的通知中心設定成使用 APNS，而且您有可用來註冊應用程式和傳送推播通知的連接字串。
 
-## 將您的應用程式連接到通知中樞
-<a id="connect-your-app-to-the-notification-hub" class="xliff"></a>
-#### 建立新專案
-<a id="create-a-new-project" class="xliff"></a>
+## <a name="connect-your-app-to-the-notification-hub"></a>將您的應用程式連接到通知中樞
+#### <a name="create-a-new-project"></a>建立新專案
 1. 在 Xamarin Studio 中，建立新的 iOS 專案，並選取 [統一 API] > [單一檢視應用程式] 範本。
    
      ![Xamarin Studio - 選取應用程式類型][31]
@@ -183,8 +175,7 @@ ms.lasthandoff: 07/06/2017
    > 
 10. 在您的裝置上執行應用程式。
 
-## 傳送推播通知
-<a id="sending-push-notifications" class="xliff"></a>
+## <a name="sending-push-notifications"></a>傳送推播通知
 您可以在 [Azure 入口網站]中透過**疑難排解**工具集的**測試傳送**功能 (就在通知中樞裡，如下圖所示)，在您的應用程式中測試接收推播通知。
 
 ![](./media/notification-hubs-ios-get-started/notification-hubs-test-send.png)
@@ -201,8 +192,7 @@ ms.lasthandoff: 07/06/2017
 
 * **Java / PHP**︰如需使用 REST API 傳送推播通知的範例，請參閱＜如何從 Java/PHP 使用通知中樞＞([Java](notification-hubs-java-push-notification-tutorial.md) | [PHP](notification-hubs-php-push-notification-tutorial.md))。
 
-#### (選用) 從 .NET 主控台應用程式傳送推播通知
-<a id="optional-send-push-notifications-from-a-net-console-app" class="xliff"></a>
+#### <a name="optional-send-push-notifications-from-a-net-console-app"></a>(選用) 從 .NET 主控台應用程式傳送推播通知
 在本節中，您將使用簡單的 .NET 主控台應用程式來傳送推播通知。 就此範例而言，我們將切換到已安裝 Visual Studio 的 Windows 開發環境。
 
 1. 在 Visual Studio 中，建立新的 Visual C# 主控台應用程式：
@@ -237,8 +227,7 @@ ms.lasthandoff: 07/06/2017
 
 您可以在 Apple [本機和推播通知程式設計指南](英文) 中找到所有可能的裝載。
 
-#### (選用) 從行動服務傳送通知
-<a id="optional-send-notifications-from-a-mobile-service" class="xliff"></a>
+#### <a name="optional-send-notifications-from-a-mobile-service"></a>(選用) 從行動服務傳送通知
 在本節中，我們將使用行動服務透過節點指令碼傳送推播通知。
 
 若要使用行動服務傳送通知，請依照 [開始使用行動服務]中的步驟進行，然後執行下列動作：
@@ -271,8 +260,7 @@ ms.lasthandoff: 07/06/2017
         );
 6. 按一下底列上的 [執行一次]  。 您應該會在裝置上收到警示。
 
-## 後續步驟
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>後續步驟
 在此簡單範例中，您將推播通知廣播通知到您的所有 iOS 裝置。 為了鎖定特定使用者，請參閱教學課程 [使用通知中樞將通知推播給使用者]。 如果您想要按興趣群組分隔使用者，您可以參閱 [使用通知中心傳送即時新聞]。 若要深入了解如何使用通知中樞，請參閱[通知中樞指引]和 [iOS 的通知中樞作法]。
 
 <!-- Images. -->
@@ -312,4 +300,3 @@ ms.lasthandoff: 07/06/2017
 [Xamarin Studio]: http://xamarin.com/download
 [WindowsAzure.Messaging]: https://github.com/infosupport/WindowsAzure.Messaging.iOS
 [Azure 入口網站]: https://portal.azure.com
-

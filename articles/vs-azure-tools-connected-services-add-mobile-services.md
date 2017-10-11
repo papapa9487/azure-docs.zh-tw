@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: mobile
 ms.date: 12/16/2015
 ms.author: mlearned
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: dec722c49be99a0d186611e2ec8c324917609fdc
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: d185fdafebad56f8970e390b2a0672c3fb84df8f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>使用 Visual Studio 已連接服務加入行動服務
 透過 Visual Studio 2015，您可以使用 [ **加入已連接服務** ] 對話方塊連接到 Azure 行動服務。 您可以從任何 C# 用戶端應用程式、任何 JavaScript 應用程式或跨平台 Cordova 應用程式連接。 連接後，您可以建立和存取資料、建立自訂 API 和排程的工作，或加入推播通知的支援。  已連接服務作業會加入所有適當的參考和連接程式碼。 您也可以利用包含各種熱門身分識別配置 (例如 Azure AD、Facebook、Twitter 和 Microsoft 帳戶) 的內建驗證支援。
@@ -51,7 +50,7 @@ ms.lasthandoff: 11/17/2016
    
     若要建立新的行動服務帳戶︰
    
-   1. 選擇對話方塊底部的 [建立服務] 連結。
+   1. 選擇 * * 建立服務 * * 在對話方塊底部的連結。
        ![加入新的已連接行動服務](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
    2. 在 [建立行動服務] 對話方塊上，您可以選擇 JavaScript 後端行動服務，或選擇 [執行階段] 下拉式清單中的 .NET 後端行動服務。 
       
@@ -76,5 +75,4 @@ Visual Studio 修改您的專案的方式視專案類型而定。 若為 C# 用�
 * [Microsoft Azure 團隊部落格上的 Azure 行動服務](https://azure.microsoft.com/blog/topics/mobile/)
 * [azure.microsoft.com 上的 Azure 行動服務](https://azure.microsoft.com/services/mobile-services/)
 * [azure.microsoft.com 上的 Azure 行動服務文件](https://azure.microsoft.com/documentation/services/mobile-services/)
-
 

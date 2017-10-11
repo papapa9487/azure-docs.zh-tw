@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 4065727aef04d7969d438c6ef79127bb44568be1
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>設定專案
 
 本節提供逐步指示，說明如何建立新的專案來示範整合 Windows Desktop .NET 應用程式 (XAML) 與*使用 Microsoft 登入*，以便它可以查詢需要權杖的 Web API。
@@ -93,4 +91,3 @@ public partial class App : Application
     </StackPanel>
 </Grid>
 ```
-

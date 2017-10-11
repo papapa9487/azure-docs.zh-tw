@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
-ms.openlocfilehash: b429f5fc1be24e63b0e9e065f879f0b0e389403c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/11/2017
-
+ms.openlocfilehash: b3ae472d52208d3c76424d29192c1eb982639572
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>新增 Azure AD 資源庫應用程式時遇到問題
 
 本文協助您了解新增 Azure AD 資源庫應用程式時的常見問題及如何解決。
@@ -45,9 +43,9 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>如何查看入口網站通知的詳細資料
 
-您可以依照下列步驟查看任何入口網站通知的詳細資料︰
+您可以依照下列步驟來查看任何入口網站通知的詳細資料：
 
-1.  按一下 Azure 入口網站右上方的 [通知] 圖示 (鐘)
+1.  按一下 Azure 入口網站右上方的 [通知] 圖示 (鐘)。
 
 2.  選取**錯誤** 狀態的任何通知 (旁邊有紅色 (!))。
 
@@ -58,7 +56,7 @@ ms.lasthandoff: 04/11/2017
 
 3.  這會開啟 [通知詳細資料] 刀鋒視窗。
 
-4.  請自行利用這項資訊了解問題的詳細資料。
+4.  請自行利用這項資訊來了解更多問題的詳細資料。
 
 5.  如果您仍然需要協助，您也可以將這項資訊分享給支援工程師或產品群組，以取得協助來解決您的問題。
 
@@ -72,43 +70,43 @@ ms.lasthandoff: 04/11/2017
 
 以下詳細說明每個通知項目的意義，並提供個別的範例。
 
-### <a name="essential-notification-items"></a>重要通知項目
+### <a name="essential-notification-items"></a>必要通知項目
 
--   **標題** – 通知的描述性標題
+-   **標題** - 通知的描述性標題
 
   * 範例 - **應用程式 Proxy 設定**
 
--   **描述** – 作業所產生之結果的描述
+-   **描述** - 作業所產生之結果的描述
 
-    -   範例 – **輸入的內部 url 已被其他應用程式使用**
+    -   範例 - **輸入的內部 URL 正由另一個應用程式使用中**
 
--   **通知識別碼** – 通知的唯一識別碼
+-   **通知識別碼** - 通知的唯一識別碼
 
-    -   範例 – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+    -   範例 - **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
 
--   **用戶端要求識別碼** – 瀏覽器產生的特定要求識別碼
+-   **用戶端要求識別碼** - 瀏覽器所產生的特定要求識別碼
 
-    -   範例 – **302fd775-3329-4670-a9f3-bea37004f0bc**
+    -   範例 - **302fd775-3329-4670-a9f3-bea37004f0bc**
 
--   **時間戳記 UTC** – 發生通知的那段時間戳記期間 (UTC)
+-   **時間戳記 UTC** - 發生通知期間的時間戳記 (UTC)
 
-    -   範例 – **2017-03-23T19:50:43.7583681Z**
+    -   範例 - **2017-03-23T19:50:43.7583681Z**
 
--   **內部交易識別碼** – 可用來在系統中查閱錯誤的內部識別碼
+-   **內部交易識別碼** - 可用來在系統中查閱錯誤的內部識別碼
 
-    -   範例 – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+    -   範例 - **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
 -   **UPN** - 執行作業的使用者
 
-    -   範例 – **tperkins@f128.info**
+    -   範例 - **tperkins@f128.info**
 
--   **租用戶識別碼** – 作業執行使用者所屬之租用戶的唯一識別碼
+-   **租用戶識別碼** - 作業執行使用者所屬之租用戶的唯一識別碼
 
-    -   範例 – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+    -   範例 - **7918d4b5-0442-4a97-be2d-36f9f9962ece**
 
--   **使用者物件識別碼** – 執行作業之使用者的唯一識別碼
+-   **使用者物件識別碼** - 執行作業之使用者的唯一識別碼
 
-    -   範例 – **17f84be4-51f8-483a-b533-383791227a99**
+    -   範例 - **17f84be4-51f8-483a-b533-383791227a99**
 
 ### <a name="detailed-notification-items"></a>詳細通知項目
 
@@ -122,11 +120,11 @@ ms.lasthandoff: 04/11/2017
 
 -   **物件識別碼** – **(可以是空白)** 執行作業所針對的物件識別碼
 
-    -   範例 – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+    -   範例 - **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
 
--   **詳細資料** – 作業所產生之結果的描述
+-   **詳細資料** - 作業所產生之結果的詳細描述
 
-    -   範例 –**內部 url 'http://bing.com/' 無效，因為已在使用中**
+    -   範例 - **內部 url 'http://bing.com/' 無效，因為已在使用中**
 
 -   **複製錯誤** - 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，複製所有通知詳細資料來分享給支援工程師或產品群組工程師
 
@@ -134,4 +132,3 @@ ms.lasthandoff: 04/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
-

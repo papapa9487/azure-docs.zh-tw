@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: e45b09a62f33fd9811714febd63a74149784980d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>安全地安裝和操作您的 StorSimple 裝置
 ![警告圖示](./media/storsimple-safety/IC740879.png)
@@ -153,5 +151,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>後續步驟
 * 針對 8100 裝置，請至 [安裝您的 StorSimple 8100 裝置](storsimple-8100-hardware-installation.md)。
 * 針對 8600 裝置，請至 [安裝您的 StorSimple 8600 裝置](storsimple-8600-hardware-installation.md)。
-
 

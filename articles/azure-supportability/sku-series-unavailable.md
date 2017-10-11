@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2016
 ms.author: gangan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sku-series-unavailable"></a>無法使用的 SKU 系列
 在某些區域，在新的訂用帳戶上無法取得特定的 SKU。  這可能是因為當 [功能更強大的 SKU 引進某區域](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) ，而使得舊版 SKU 的熱門程度逐漸下降。
@@ -48,5 +46,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="learn-more"></a>詳細資訊
 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq)
-
 

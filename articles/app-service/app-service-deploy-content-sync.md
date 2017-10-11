@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ddda0e60dc9d5414142791175b77a5a65e3f40e3
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 010e7dc492abefaa3afe814c0322af9f6fe5acd2
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>將雲端資料夾的內容同步處理到 Azure App Service
 本教學課程將示範如何從受歡迎的雲端儲存體服務 (例如 Dropbox 與 OneDrive) 同步處理內容，以部署至 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 。 
 
-## <a name="a-nameoverviewaoverview-of-content-sync-deployment"></a><a name="overview"></a>內容同步處理部署概觀
+## <a name="overview"></a>內容同步處理部署概觀
 隨選內容同步處理部署是由與 App Service 整合之 [Kudu 部署引擎](https://github.com/projectkudu/kudu/wiki) 所提供。 在 [Azure 入口網站](https://portal.azure.com)中，您可以在雲端儲存空間中指定特殊資料夾、在該資料夾中處理您的應用程式程式碼和內容，並按一下按鈕以同步至 App Service。 內容同步處理會在組建和部署使用 Kudu 程序。 
 
-## <a name="a-namecontentsyncahow-to-enable-content-sync-deployment"></a><a name="contentsync"></a>如何啟用內容同步處理部署
+## <a name="contentsync"></a>如何啟用內容同步處理部署
 若要從 [Azure 入口網站](https://portal.azure.com)啟用內容同步處理，請遵循下列步驟：
 
 1. 在 Azure 入口網站上您的應用程式刀鋒視窗中，按一下 [設定] > [部署來源]。 按一下 [選擇來源]，然後選取 [OneDrive] 或 [Dropbox] 作為部署來源。 
@@ -48,5 +47,4 @@ ms.lasthandoff: 11/17/2016
     ![部署歷程記錄](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
 [從 Dropbox 部署](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx)下有 Dropbox 部署的詳細資訊。 
-
 

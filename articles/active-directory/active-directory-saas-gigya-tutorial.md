@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: b65a33989a045a3e0b57fda522a9bc3b0770c7f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>教學課程：Azure Active Directory 與 Gigya 整合
 
@@ -271,5 +269,4 @@ Gigya 需以手動的方式佈建。
 [201]: ./media/active-directory-saas-gigya-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-gigya-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-gigya-tutorial/tutorial_general_203.png
-
 

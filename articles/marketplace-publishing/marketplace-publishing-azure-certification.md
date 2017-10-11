@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>透過 Microsoft Azure 認證計劃取得預先核准
 本文提供如何取得 Microsoft Azure 認證的指示，以便您將解決方案發佈至 Azure Marketplace 並有資格享有行銷優勢。 如需 Microsoft Azure 認證計劃及其優點的詳細概觀，請造訪 [http://azure.com/certified](http://azure.com/certified)。
@@ -41,9 +41,3 @@ ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
 
 ## <a name="see-also"></a>另請參閱
 * [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

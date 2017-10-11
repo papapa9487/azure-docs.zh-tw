@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 37dc0772ccf74b19656b60f11e66e065815dc2a6
-ms.openlocfilehash: 655d2ea7193551caa4b32efcf75a1dbf204f4954
-
-
+ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>教學課程：Azure Active Directory 與 Halosys 整合
 
@@ -124,7 +124,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用以下模式輸入使用者登入您的 Halosys 應用程式時所使用的 URL：`https://<company-name>.Halosys.com/client-api/api`。
 
-    在 [識別碼 URL] 文字方塊中，以下列模式輸入 URL：`https://<company-name>.Halosys.com`。    
+    在 [識別碼 URL] 文字方塊中，以下列模式輸入 URL：`https://<company-name>.Halosys.com`。   
          
 4. 在 [設定在 Halosys 單一登入] 頁面上，按一下 [下載中繼資料]，然後將檔案儲存在您的電腦中。
 
@@ -168,13 +168,13 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟： ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. 在**告訴我們這位使用者**對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     a. 針對 [使用者類型]，選取 [您組織中的新使用者]。
 
     b. 在 [使用者名稱] 文字方塊中，輸入 **BrittaSimon**。
 
-    c. 按 [下一步] 。
+    c. 按一下 [下一步] 。
 
 6.  在 [使用者設定檔] 對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_06.png) 
 
@@ -186,7 +186,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     d. 在 [角色] 清單中選取 [使用者]。
 
-    e. 按 [下一步] 。
+    e. 按一下 [下一步] 。
 
 7. 在 [取得暫時密碼] 對話方塊頁面上，按一下 [建立]。
 
@@ -264,9 +264,3 @@ Halosys 與 Azure AD 整合提供下列優點：
 [203]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_203.png
 [204]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_204.png
 [205]: ./media/active-directory-saas-Halosys-tutorial/tutorial_general_205.png
-
-
-
-<!--HONumber=Dec16_HO1-->
-
-

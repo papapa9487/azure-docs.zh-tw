@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>教學課程：Azure Active Directory 與 Velpic SAML 整合
 
@@ -217,7 +216,7 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
     e. 其餘資訊是選擇性的，您可以視需要來填入。
     
-    f. 按一下 [儲存] 。    
+    f. 按一下 [儲存] 。  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -280,5 +279,4 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_203.png
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/11/2017
-
-
+ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>如何疑難排解常見的 Azure Marketplace 發行者問題
 本文說明如何解決或獲得一些常見 Marketplace 案例的支援。
@@ -77,7 +75,7 @@ ms.lasthandoff: 02/11/2017
 
 ![inprivate][4]
 
-**2.使用您公司的工作帳戶或學校帳戶登入** (亦即 AzureStore@yourcompany.com).)。
+**2.使用您公司的工作或學校帳戶登入**(也就是AzureStore@yourcompany.com)。
 
 ![signin][5]
 
@@ -123,4 +121,3 @@ ms.lasthandoff: 02/11/2017
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-

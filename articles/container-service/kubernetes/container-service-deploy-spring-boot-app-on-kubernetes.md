@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-on-a-kubernetes-cluster-in-the-azure-container-service"></a>將 Spring Boot 應用程式部署到 Azure Container Service 中的 Kubernetes 叢集
 
 **[Spring 架構]**是受歡迎的開放原始碼架構，可協助 Java 開發人員建立 Web、行動及 API 應用程式。 本教學課程使用以 [Spring Boot] 建立的範例應用程式，這是快速開始使用 Spring 的慣例方法。
@@ -227,9 +225,9 @@ ms.lasthandoff: 08/12/2017
 
    ![Kubernetes 設定網站][KB01]
 
-1. 當 [Deploy a containerized app] \(部署容器化應用程式) 頁面出現時，請指定下列選項：
+1. 當 [Deploy a containerized app] (部署容器化應用程式) 頁面出現時，請指定下列選項：
 
-   a. 選取 [Specify app details below] \(指定以下的應用程式詳細資料)。
+   a. 選取 [Specify app details below] (指定以下的應用程式詳細資料)。
 
    b.這是另一個 C# 主控台應用程式。 在 [應用程式名稱] 中輸入您的 Spring Boot 應用程式名稱，例如："*gs-spring-boot-docker*"。
 
@@ -365,4 +363,3 @@ Kubernetes 網站有幾篇文章討論在私用登錄中使用映像：
 [KB05]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB05.png
 [KB06]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB06.png
 [KB07]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB07.png
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: b6746afd508832afbd54153851b6f2ae404af147
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？
 Azure Active Directory (Azure AD) 是 Microsoft 的多租用戶雲端型目錄和身分識別管理服務。 Azure AD 結合核心目錄服務及進階身分識別管理和應用程式存取管理。 Azure AD 同時也提供豐富且標準型的平台，可讓開發人員根據集中式原則和規則，提供對其應用程式的存取控制。 
@@ -78,4 +77,3 @@ Azure AD 經悉心設計，不但支援多租用戶、地理分布周全，更�
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 Azure 身分識別和存取管理的基本概念](https://docs.microsoft.com/azure/active-directory/identity-fundamentals)
-

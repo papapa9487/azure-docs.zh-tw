@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 618fcfa3354ef5900d89546ffb7c222a852fe4f8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/22/2017
-
+ms.openlocfilehash: ef63e06c0621753e0a706d6efb709b943e38ee42
+ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/18/2017
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -84,7 +83,7 @@ ms.lasthandoff: 05/22/2017
 ## <a name="separate-telemetry-from-different-versions"></a>區分不同版本的遙測
 
 * 應用程式中的多個角色︰使用單一 Application Insights 資源，並依據 cloud_Rolename 進行篩選。 [深入了解](app-insights-monitor-multi-role-apps.md)
-* 區分開發、測試和發行版本︰使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。 [深入了解](app-insights-separate-resources.md)
+* 區分開發、測試和發行版本︰使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入了解](app-insights-separate-resources.md)
 * 報告組建版本︰使用遙測初始設定式新增屬性。 [深入了解](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>監視後端伺服器與桌面應用程式
@@ -104,7 +103,7 @@ ms.lasthandoff: 05/22/2017
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>篩選出匿名或已驗證的使用者
-如果您的使用者登入，您可以設定[驗證使用者識別碼](app-insights-api-custom-events-metrics.md#authenticated-users)。 (它不會自動重新整理)。
+如果您的使用者登入，您可以設定[驗證使用者識別碼](app-insights-api-custom-events-metrics.md#authenticated-users)。(它不會自動重新整理)。
 
 接著，您可以：
 
@@ -147,7 +146,7 @@ ms.lasthandoff: 05/22/2017
 
 
 
-若要 **停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](app-insights-api-custom-events-metrics.md)中的相關行。 例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+若要 **停用選取的標準收集器** (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](app-insights-api-custom-events-metrics.md)中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
 
 ## <a name="view-system-performance-counters"></a>檢視系統效能計數器
 您可以在計量總管中顯示的計量資訊是一組系統效能計數器。 有一個預先定義且標題為 **伺服器** 的刀鋒視窗會顯示它們其中幾個。
@@ -162,4 +161,3 @@ ms.lasthandoff: 05/22/2017
 ### <a name="to-display-more-performance-counters"></a>顯示更多效能計數器
 * 首先， [新增圖表](app-insights-metrics-explorer.md) ，並查看計數器是否位於我們提供的基本組合中。
 * 如果沒有，請[將計數器加入效能計數器模組所收集的組合中](app-insights-performance-counters.md)。
-

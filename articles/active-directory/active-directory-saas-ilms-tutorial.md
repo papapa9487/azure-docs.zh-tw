@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7f8b63c22a3f5a6916264acd22a80649ac7cd12f
 ms.openlocfilehash: 22c72020200138e78835ed7dd2661f18b824c785
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/01/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>教學課程：Azure Active Directory 與 iLMS 整合
 
@@ -114,7 +112,7 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     a. 在 [識別碼] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [識別碼] 值貼上。
 
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，並包含下列模式：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. 在 [回覆 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，並包含下列模式：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
     >[!Note]
     >這個 '123456' 是識別項的範例值。
@@ -123,13 +121,13 @@ iLMS 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-ilms-tutorial/tutorial_ilms_url1.png)
 
-    在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`        
+    在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`     
 
 5. 若要啟用 JIT 佈建，iLMS 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 以下螢幕擷取畫面顯示上述的範例。
     
     ![設定單一登入](./media/active-directory-saas-ilms-tutorial/4.png)
     
-    建立 **Department, Region** 和 **Division** 屬性，並在 iLMS 中新增這些屬性的名稱。 上述的所有屬性都是必要屬性。    
+    建立 **Department, Region** 和 **Division** 屬性，並在 iLMS 中新增這些屬性的名稱。 上述的所有屬性都是必要屬性。  
 
     > [!NOTE] 
     > 您必須啟用 iLMS 中的 [建立無法辨識的使用者帳戶] 來對應這些屬性。 請依照[這裡](http://support.inspiredelearning.com/customer/portal/articles/2204526)的指示，了解屬性的設定。
@@ -325,5 +323,4 @@ iLMS 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ilms-tutorial/tutorial_general_203.png
-
 

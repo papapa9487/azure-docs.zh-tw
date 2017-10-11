@@ -14,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
 ms.openlocfilehash: aadff1806a7cb22347283143563467366e857569
-ms.lasthandoff: 03/18/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="verify-traffic-manager-settings"></a>驗證流量管理員設定
 
 若要測試您的流量管理員設定，您需要有在不同位置的多個用戶端，讓您可以從中執行測試。 然後，在流量管理員設定檔中一次關閉一個端點。
@@ -75,4 +74,3 @@ ms.lasthandoff: 03/18/2017
 * [關於流量管理員流量路由方法](traffic-manager-routing-methods.md)
 * [流量管理員的效能考量](traffic-manager-performance-considerations.md)
 * [疑難排解流量管理員的已降級狀態](traffic-manager-troubleshooting-degraded.md)
-

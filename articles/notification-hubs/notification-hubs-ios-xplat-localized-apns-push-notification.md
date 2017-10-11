@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-notification-hubs-to-send-localized-breaking-news-to-ios-devices"></a>使用通知中心將當地語系化的即時新聞傳送至 iOS 裝置
 > [!div class="op_single_selector"]
@@ -247,29 +247,23 @@ ms.openlocfilehash: fd2b7d9dfd4f432bbcbaa3ed76f8bec0b9677e17
 
 
 <!-- URLs. -->
-[如何：服務匯流排通知中樞 (iOS 應用程式)]: http://msdn.microsoft.com/library/jj927168.aspx
+[How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
 [使用通知中心傳送即時新聞]: /manage/services/notification-hubs/breaking-news-ios
-[行動服務]: /develop/mobile/tutorials/get-started
+[Mobile Service]: /develop/mobile/tutorials/get-started
 [使用通知中樞來通知使用者：ASP.NET]: /manage/services/notification-hubs/notify-users-aspnet
 [使用通知中樞來通知使用者：行動服務]: /manage/services/notification-hubs/notify-users
-[提交應用程式頁面]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[我的應用程式]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[開始使用行動服務]: /develop/mobile/tutorials/get-started/#create-new-service
-[開始使用資料]: /develop/mobile/tutorials/get-started-with-data-ios
-[開始使用驗證]: /develop/mobile/tutorials/get-started-with-users-ios
-[開始使用推播通知]: /develop/mobile/tutorials/get-started-with-push-ios
-[將通知推播給應用程式使用者]: /develop/mobile/tutorials/push-notifications-to-users-ios
-[使用指令碼授權使用者]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[JavaScript 和 HTML]: ../get-started-with-push-js.md
+[Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /develop/mobile/tutorials/get-started-with-push-ios
+[Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
+[JavaScript and HTML]: ../get-started-with-push-js.md
 
-[行動服務的 Windows 開發人員預覽註冊步驟]: ../mobile-services-windows-developer-preview-registration.md
-[wns 物件]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
-[iOS 的通知中樞作法]: http://msdn.microsoft.com/library/jj927168.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-
+[Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
+[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx

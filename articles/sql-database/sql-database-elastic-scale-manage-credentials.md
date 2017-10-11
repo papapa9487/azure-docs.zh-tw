@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e5b5751facb68ae4a62e3071fe4dfefc02434a9f
-ms.openlocfilehash: 16e8c4ba332cbaba86a13d7b815d0561618cb28b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/23/2016
-
-
+ms.openlocfilehash: 46908be2846062a0520d21e06db3091a4d711b0b
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用來存取彈性資料庫用戶端程式庫的認證
 [彈性資料庫用戶端程式庫](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)使用三種不同的認證存取[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)。 視需要使用盡可能低的存取層級認證。
@@ -45,7 +43,7 @@ ms.lasthandoff: 12/23/2016
 
      "Server=<yourserver>.database.windows.net;Database=<yourdatabase>;User ID=<yourmgmtusername>;Password=<yourmgmtpassword>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30;” 
 
-請勿使用 "username@server"—instead 格式的值，只要使用 "username" 值。  這是因為認證必須同時適用於入分區對應管理員資料庫和個別分區 (可能位於不同的伺服器上)。
+請勿使用值的形式"username@server"— 改為使用"username"值。  這是因為認證必須同時適用於入分區對應管理員資料庫和個別分區 (可能位於不同的伺服器上)。
 
 ## <a name="access-credentials"></a>存取認證
 在不管理分區對應的應用程式中建立分區對應管理員時，請使用在全域分區對應上具有唯讀權限的認證。 在這些認證下，從全域分區對應所擷取的資訊用於 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md) ，以及填入用戶端的分區對應快取。 認證是透過 **GetSqlShardMapManager** 的相同呼叫模式來提供，如上所示： 
@@ -68,7 +66,7 @@ ms.lasthandoff: 12/23/2016
 
     "User ID=<yourusername>; Password=<youruserpassword>; Trusted_Connection=False; Encrypt=True; Connection Timeout=30;”  
 
-與系統管理員認證情況相同，請勿使用 "username@server" 格式的值。 請改為只使用 "username"。  另請注意，連接字串不包含伺服器名稱和資料庫名稱。 這是因為 **OpenConnectionForKey** 呼叫會根據索引鍵自動將連接導向至正確的分區。 因此，不會提供資料庫名稱和伺服器名稱。 
+如同管理認證，請勿不中的值形式的"username@server"。 請改為只使用 "username"。  另請注意，連接字串不包含伺服器名稱和資料庫名稱。 這是因為 **OpenConnectionForKey** 呼叫會根據索引鍵自動將連接導向至正確的分區。 因此，不會提供資料庫名稱和伺服器名稱。 
 
 ## <a name="see-also"></a>另請參閱
 [管理 Azure SQL Database 的資料庫和登入](sql-database-manage-logins.md)
@@ -78,5 +76,4 @@ ms.lasthandoff: 12/23/2016
 [開始使用彈性資料庫工作](sql-database-elastic-jobs-getting-started.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

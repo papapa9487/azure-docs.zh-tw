@@ -14,13 +14,11 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
 ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>關於 Azure Marketplace 中的虛擬機器優惠的後期製作指南
 本文說明如何更新 Azure Marketplace 中已上線的虛擬機器供應項目。 它會引導您進行將一或多個新 SKU 新增至現有供應項目的程序。 同時引導您進行從 Marketplace 移除上線虛擬機器供應項目或 SKU 的程序。
@@ -338,4 +336,3 @@ ms.lasthandoff: 05/17/2017
 * [以發佈者身分取得支援](marketplace-publishing-get-publisher-support.md)
 * [建立內部部署 VM 映像](marketplace-publishing-vm-image-creation-on-premise.md)
 * [在 Azure Preview 入口網站中建立執行 Windows 的虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

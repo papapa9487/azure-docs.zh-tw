@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 25f4520bae3089ce9f11efcf6acd176255043e70
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 814e6f93088cdd96b0a663d2a7494b5a11470d99
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="diagnose-logic-app-failures"></a>診斷邏輯應用程式失敗
 如果您遇到關於邏輯應用程式的問題或失敗，有數種方法可協助您深入了解失敗所在之處。  
@@ -87,4 +85,3 @@ Azure 入口網站提供許多工具，在每個步驟中診斷每個邏輯應�
 [2]: ./media/logic-apps-diagnosing-failures/runhistory.png
 [3]: ./media/logic-apps-diagnosing-failures/triggeroutputslink.png
 [4]: ./media/logic-apps-diagnosing-failures/actionoutputs.png
-

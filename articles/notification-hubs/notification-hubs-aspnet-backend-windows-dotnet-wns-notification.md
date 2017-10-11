@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Azure 通知中樞透過 .NET 後端通知使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -345,9 +345,3 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 [安全推播]: notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md
 [使用通知中樞傳送即時新聞]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [通知中心指引]: http://msdn.microsoft.com/library/jj927170.aspx
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

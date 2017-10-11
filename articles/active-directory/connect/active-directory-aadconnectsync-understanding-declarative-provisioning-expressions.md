@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb500d4705c3b67de6b9b31fa5311967beffffc2
-ms.openlocfilehash: 58908d65fdebd651e5cfab2b668574bdf7ab6085
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect 同步處理：了解宣告式佈建運算式
 Azure AD Connect 同步處理是以 Forefront Identity Manager 2010 中最先引進的宣告式佈建為基礎。 它可讓您實作完整的身分識別整合商務邏輯，而不需要撰寫已編譯的程式碼。
@@ -82,7 +81,7 @@ Active Directory 連接器對於輸入同步處理規則提供下列參數：
 
 例如，  
 `Trim([proxyAddresses])` 在 proxyAddress 屬性中執行每個值的 Trim。  
-`Word([proxyAddresses],1,"@") & "@contoso.com"` 針對每個含有 @-sign, 的值，以 @contoso.com 取代網域。  
+`Word([proxyAddresses],1,"@") & "@contoso.com"`針對每個值與@-sign，取代網域@contoso.com。  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` 尋找 SIP 位址並從各值中移除。
 
 ## <a name="next-steps"></a>後續步驟
@@ -98,5 +97,4 @@ Active Directory 連接器對於輸入同步處理規則提供下列參數：
 **參考主題**
 
 * [Azure AD Connect 同步處理：函式參考](active-directory-aadconnectsync-functions-reference.md)
-
 

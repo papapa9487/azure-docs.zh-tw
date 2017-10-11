@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 03/01/2017
 ms.author: kraigb
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 8ca3234e54d8736aa187195640a103ac6eb145e7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 086e5a9622cad681cd282345d97e0c28ee7de2fa
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>我的 WebApi 專案發生什麼狀況 (Visual Studio Azure Active Directory 已連接服務)
 > [!div class="op_single_selector"]
@@ -111,5 +110,4 @@ Azure Active Directory 應用程式已更新為包含「讀取目錄資料」權
 
 ## <a name="next-steps"></a>後續步驟
 - [深入了解 Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
-
 

@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/07/2016
 ms.author: nateko
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 739a0ad77c68ea74ec25bc80c7539ac8b3f18201
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="synonyms-in-azure-search-preview"></a>Azure 搜尋服務的同義字 (預覽)
 
@@ -166,4 +165,3 @@ Solr 格式支援對等且明確的對應同義字。 對應規則需遵守 Apac
 - 如果您在開發 (非生產) 環境中有現有的索引，可以使用小型的字典進行試驗，看看增加同義字能如何改變搜尋體驗，包含對於評分檔案、點閱數醒目提示以及搜尋建議的影響。
 
 - [啟用搜尋流量分析](search-traffic-analytics.md)，並使用預先定義的 Power BI 報告來了解哪些詞彙最常使用，與哪些詞彙沒有傳回文件。 有了這些深入解析加持後，您可以修改字典，為沒有產出結果，但應該在您的索引中得到文件的查詢包含同義字。
-

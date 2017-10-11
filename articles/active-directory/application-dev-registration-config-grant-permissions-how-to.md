@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 922774c2482737537b64787ae473231ec1fbb68e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: 336b945929f80e1a566f7cf71b40fd799a98c12d
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>如何為自訂開發的應用程式授與權限
 
 如果您希望在應用程式上事先獲得同意，或遇到您尚未同意應用程式的錯誤，請嘗試下列步驟。
@@ -46,4 +44,3 @@ ms.lasthandoff: 04/14/2017
 [適用於 AzureAD v2.0 交集應用程式的同意與權限](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [AzureAD StackOverflow (英文)](http://stackoverflow.com/questions/tagged/azure-active-directory)
-

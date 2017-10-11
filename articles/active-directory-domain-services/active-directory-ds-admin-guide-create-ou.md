@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0da01df8ac5fd3cdb6b4e42dfbc08fab7d9615
-ms.openlocfilehash: 5931d532a0790f1570d1d99687611231aafc7596
-ms.lasthandoff: 02/08/2017
-
-
+ms.openlocfilehash: 017a8cabe81743af4c0cbb694098df799a904468
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>在 Azure AD 網域服務的受管理網域上建立組織單位 (OU)
 Azure AD 網域服務的受管理網域包含兩個內建的容器，分別稱為「AADDC 電腦」和「AADDC 使用者」。 「AADDC 電腦」容器有已加入受管理的網域中全部電腦的電腦物件。 「AADDC 使用者」容器包含 Azure AD 租用戶中的使用者和群組。 有時候，可能需要在受管理的網域上建立服務帳戶，才能部署工作負載。 為此目的，您可以在受管理的網域上建立自訂的組織單位 (OU)，並在此 OU 內建立服務帳戶。 本文將示範如何在受管理的網域中建立 OU。
@@ -65,7 +64,7 @@ Azure AD 網域服務的受管理網域包含兩個內建的容器，分別稱�
     ![ADAC - OU 已建立](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## <a name="permissionssecurity-for-newly-created-ous"></a>新建 OU 的權限/安全性
-建立自訂 OU 的使用者 (「AAD DC 系統管理員」群組的成員) 預設會被授與 OU 的系統管理權限 (完全控制)。 這個使用者接著可以繼續將權限授與其他使用者，或視需要授與「AAD DC 系統管理員」群組。 如下面的螢幕擷取畫面所示，建立新 'MyCustomOU' 組織單位的使用者 'bob@domainservicespreview.onmicrosoft.com' 獲授與該組織單位的完整控制權。
+建立自訂 OU 的使用者 (「AAD DC 系統管理員」群組的成員) 預設會被授與 OU 的系統管理權限 (完全控制)。 這個使用者接著可以繼續將權限授與其他使用者，或視需要授與「AAD DC 系統管理員」群組。 下列螢幕擷取畫面，使用者所見 'bob@domainservicespreview.onmicrosoft.com' 新 'MyCustomOU' 組織單位的建立者授與完整控制權。
 
  ![ADAC - 新的 OU 安全性](./media/active-directory-domain-services-admin-guide/create-ou-permissions.png)
 
@@ -82,4 +81,3 @@ Azure AD 網域服務的受管理網域包含兩個內建的容器，分別稱�
 * [設定受管理網域的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
 * [Active Directory 管理中心：入門](https://technet.microsoft.com/library/dd560651.aspx)
 * [服務帳戶的逐步指南](https://technet.microsoft.com/library/dd548356.aspx)
-

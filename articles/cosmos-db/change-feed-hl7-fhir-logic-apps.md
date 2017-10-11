@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 6e6e12f3d6d95002b223ad0fcb11d72bd920cdaf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: d2b50c0b6864af41fb9cfa051721c432772b228d
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>使用 Logic Apps 與 Azure Cosmos DB 對 HL7 FHIR 病患的醫療保健記錄變更發出通知
 
 某家醫療保健組織最近與 Howard Edidin 這位 Azure MVP 連絡，因為他們想要在其病患入口網站中新增功能。 他們需要在病患的健康記錄有所更新時對病患發出通知，並讓他們能夠訂閱這些更新。 
@@ -233,6 +230,5 @@ API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Cosmos DB 的詳細資訊，請參閱 [Azure Cosmos DB 首頁](https://azure.microsoft.com/services/cosmos-db/)。 如需 Logic Apps 的詳細資訊，請參閱 [Logic Apps](https://azure.microsoft.com/services/logic-apps/)。
-
 
 

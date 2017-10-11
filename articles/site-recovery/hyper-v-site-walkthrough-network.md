@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 100b9d8a55c2c163e7a04680f0f7d7963315ee73
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="step-4-plan-networking-for-hyper-v-to-azure-replication"></a>步驟 4：為 Hyper-V 至 Azure 複寫規劃網路服務
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將內部部署 Hyper-V VM (不含 System Center VMM) 複寫至 Azure 時的網路規劃考量。
@@ -91,4 +89,3 @@ Woodgrove 若要既能將其 VM 複寫至 Azure，同時又保留 IP 位址，�
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 5：準備 Azure](hyper-v-site-walkthrough-prepare-azure.md)
-

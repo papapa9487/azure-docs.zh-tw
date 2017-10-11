@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 826cd984d26b923ba38562e05a2e75c399be9121
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
-
 # <a name="pool-resize-start-event"></a>集區調整大小開始事件
 
  集區調整大小開始時，就會發出此事件。 由於集區調整大小為非同步事件，因此您可以預期當調整大小作業完成時，就會發出集區調整大小完成事件。
@@ -44,4 +43,3 @@ ms.lasthandoff: 04/22/2017
 |targetDedicated|Int32|向集區要求的計算節點數目。|
 |enableAutoScale|Bool|指定集區大小是否隨著時間自動調整。|
 |isAutoPool|Bool|指定是否已透過作業的 AutoPool 機制建立集區。|
-

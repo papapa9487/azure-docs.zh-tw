@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/29/2017
 ---
-
 # <a name="platform-level-event-and-log-generation"></a>平台層級事件和記錄產生
 
 ## <a name="monitoring-the-cluster"></a>監視叢集
@@ -113,4 +111,3 @@ Service Fabric 有自己的健全狀況模型，詳述於下列文件：
 ## <a name="next-steps"></a>後續步驟
 
 需要先彙總記錄和事件，才能將它們傳送到任何分析平台。 請閱讀 [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) 和 [WAD](service-fabric-diagnostics-event-aggregation-wad.md) 以深入了解一些建議的選項。
-

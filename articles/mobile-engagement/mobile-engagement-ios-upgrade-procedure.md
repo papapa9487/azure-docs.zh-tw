@@ -14,11 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 12/13/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: c4b5b8bc05365ddc63b0d7a6a3c63eaee31af957
 ms.openlocfilehash: 37c7f133d079186f828d58cabce0d2a259efd085
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="upgrade-procedures"></a>升級程序
 如果您已經整合舊版 Engagement 到您的應用程式，在升級 SDK 時您必須考慮以下幾點。
@@ -214,10 +214,4 @@ SmartAd 追蹤已從 SDK 移除，因此您必須移除 `AETrackModule` 類別�
 * `CapptainTableViewController` 類別已重新命名為 `EngagementTableViewController`。
 * `CapptainUtils` 類別已重新命名為 `EngagementUtils`。
 * `CapptainViewController` 類別已重新命名為 `EngagementViewController`。
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

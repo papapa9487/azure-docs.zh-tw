@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 97d85183d0307c41a3b879d440d87a6fb0c53190
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>教學課程：Azure Active Directory 與 Recognize 整合
 
@@ -219,7 +218,7 @@ ms.lasthandoff: 07/12/2017
    
    a. 對於 [已啟用同步處理] 選取 **ON**。
    
-   b. 對於 [Choose sync provider] \(選擇同步處理提供者)，選取 [Microsoft / Office 365]。
+   b. 對於 [Choose sync provider] (選擇同步處理提供者)，選取 [Microsoft / Office 365]。
    
    c. 按一下 [Run User Sync] \(執行使用者同步處理)。
 
@@ -279,5 +278,4 @@ ms.lasthandoff: 07/12/2017
 [201]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-recognize-tutorial/tutorial_general_203.png
-
 

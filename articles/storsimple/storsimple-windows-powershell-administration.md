@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/18/2016
 ms.author: alkohli@microsoft.com
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f9e97bb2352231b46bdf66b1165bf22ec639fddf
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: af135518f66eb8c94c183f28191f016fcd601ae1
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>使用 Windows PowerShell for StorSimple 管理您的裝置
 ## <a name="overview"></a>概觀
@@ -164,7 +163,7 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 #### <a name="to-update-cmdlet-help"></a>更新 Cmdlet 說明
 1. 請使用 [ **以系統管理員身分執行** ] 選項啟動 Windows PowerShell。
-2. 在命令提示字元中，輸入： `Update-Help`
+2. 在命令提示字元中，輸入：`Update-Help`
 3. 將會安裝更新的說明檔。
 4. 在說明檔案安裝之後，輸入： `Get-Help Get-Command`。 將會顯示可用說明的 Cmdlet 清單。
 
@@ -175,5 +174,4 @@ Windows PowerShell for StorSimple 提供命令列介面，可讓您用來管理 
 
 ## <a name="next-steps"></a>後續步驟
 如果您在執行上述任何工作流程時遇到任何 StorSimple 裝置的問題，請參閱 [適用於疑難排解 StorSimple 部署的工具](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments)。
-
 

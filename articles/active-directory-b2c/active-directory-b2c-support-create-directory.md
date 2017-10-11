@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 81af4536fc223319369aff262d42149cfbf1a1e9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="troubleshoot-creating-an-azure-active-directory-or-azure-active-directory-b2c-tenant"></a>針對建立 Azure Active Directory 或 Azure Active Directory B2C 租用戶進行疑難排解 
 
@@ -36,5 +34,4 @@ ms.lasthandoff: 06/28/2017
     「無法完成建立 B2C 租用戶 'contosob2c'。 如需詳細指引，請造訪此[連結](http://go.microsoft.com/fwlink/?LinkID=624192&clcid=0x409)。」
 * 當您刪除現有的 Azure AD B2C 租用戶並使用相同的網域名稱加以重建時，會發生已知的問題。 當您建立新的 Azure AD B2C 租用戶時，您必須使用不同的網域名稱。
 * 若這些解決方法無效，請連絡 Azure 支援中心。 如需詳細資訊，請參閱[提出 Azure AD B2C 的支援要求](active-directory-b2c-support.md)。
-
 

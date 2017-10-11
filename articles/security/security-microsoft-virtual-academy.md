@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: terrylan
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: baf6476c6dfc0db29d51d5b0b1643b1ff099a808
-
-
+ms.openlocfilehash: c5ebc3cb13359d824f022859078e4feb2b6869a0
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy 中的 Azure 安全性課程
 Microsoft Virtual Academy 提供免費線上訓練，協助開發人員、IT 和資料專業人員以及學生學習最新技術、發展其技能，並讓其生涯更進一步。
@@ -64,9 +64,3 @@ Microsoft Virtual Academy 提供免費線上訓練，協助開發人員、IT 和
 [Azure Rights Management Services 核心技能](https://mva.microsoft.com/en-us/training-courses/azure-rights-management-services-core-skills-10500?l=QLoxMwuCB_1805094681)
 
 找出資訊保護為什麼是貴組織絕對必要的項目，以及版權管理如何保護貴組織的智慧財產 (只要通過裝置和雲端)。 向 Microsoft 專家取得實際操作經驗和技術實用知識。
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

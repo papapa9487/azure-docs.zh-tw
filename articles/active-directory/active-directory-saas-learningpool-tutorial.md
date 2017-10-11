@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: 932f5f12c75299e532d3fa2c31f1805a7df30158
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>教學課程：Azure Active Directory 與 Learningpool Act 整合
 
@@ -114,7 +112,7 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
-    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    b.這是另一個 C# 主控台應用程式。 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     | |
     |--|
     | `https://<subdomain>.Learningpool.com/shibboleth` |
@@ -261,5 +259,4 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-Learningpool-tutorial/tutorial_general_203.png
-
 
