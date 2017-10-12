@@ -64,7 +64,7 @@ ms.lasthandoff: 09/13/2017
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-### <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 * 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。 您所定義的原則可能需要所有資源都具有特定標籤的值。 如需詳細資訊，請參閱[設定原則和排程](devtest-lab-set-lab-policy.md)。
 * 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/Samples)。
 

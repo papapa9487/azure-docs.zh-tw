@@ -122,7 +122,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 1. 估計集區所需的 eDTU，如下所示：
 
    最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
-   <並行尖峰 DB 的數目** X 每個 DB 的尖峰 DTU 使用量**)
+   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。 如需以 eDTU 集區大小為基礎的集區儲存體限制，請參閱 [彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 3. 採用步驟 1 和步驟 2 中較大的 eDTU 估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/) 並尋找大於步驟 3 估計值的最小 eDTU 集區大小。

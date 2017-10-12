@@ -180,7 +180,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-查詢資料分割資料表時，建議在** 子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
+查詢資料分割資料表時，**建議在** 子句的 開頭 `where` 新增資料分割條件，這樣就能大幅提升搜尋效率。
 
     select
         field1, field2, ..., fieldN

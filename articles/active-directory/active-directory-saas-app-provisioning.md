@@ -54,13 +54,13 @@ Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://az
 **Azure AD 佈建服務**會藉由連接到每個應用程式廠商所提供的使用者管理 API 端點，將使用者佈建至 SaaS 應用程式和其他系統。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 針對所選應用程式，佈建服務也可以建立、更新和移除其他與身分識別相關的物件，例如群組和角色。 
 
 ![佈建](./media/active-directory-saas-app-provisioning/provisioning0.PNG)
-圖 1：Azure AD 佈建服務**
+*圖 1：Azure AD 佈建服務*
 
 ![輸出佈建](./media/active-directory-saas-app-provisioning/provisioning1.PNG)
-圖 2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程**
+*圖 2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
 
 ![輸入佈建](./media/active-directory-saas-app-provisioning/provisioning2.PNG)
-圖 3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程**
+*圖 3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>哪些應用程式和系統可以搭配使用 Azure AD 自動使用者佈建？

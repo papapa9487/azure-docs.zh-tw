@@ -202,7 +202,7 @@ Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔
 
 ![使用儲存體存取控制進行隔離](./media/azure-isolation/azure-isolation-fig9.png)
 
-** Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
+**Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
 
 SAS 意謂著我們可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限進行存取。 我們可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 

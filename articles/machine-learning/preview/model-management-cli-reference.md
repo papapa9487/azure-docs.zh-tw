@@ -193,7 +193,7 @@ ms.lasthandoff: 09/25/2017
 
 您可以選擇先建立映像的資訊清單，然後再建立映像。 
 
-`az ml image create -n [image name] -manifest-id [the manifest ID]`
+`az ml image create -n [image name] --manifest-id [the manifest ID]`
 
 或者，您也可以使用單一命令同時建立資訊清單和映像。 
 
