@@ -291,4 +291,3 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 
 [雲端服務的大小](cloud-services/cloud-services-sizes-specs.md)
 
-
