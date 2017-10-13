@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/24/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 456daea494ed1daed9bd809b68ae12fceb800299
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>使用伺服器總管瀏覽和管理儲存體資源
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -287,5 +286,4 @@ Azure 資料表儲存體可儲存大量的結構化資料。 此服務是一個 
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何使用 Azure 儲存體服務，請參閱[存取 Azure 儲存體服務](https://msdn.microsoft.com/library/azure/ee405490.aspx)。
-
 

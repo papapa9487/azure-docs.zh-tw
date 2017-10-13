@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 76606189e7bed1a5179c7486d7c10f3c253884b5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
 
@@ -358,4 +357,3 @@ Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPe
 * [Service Fabric 健康情況模型簡介](service-fabric-health-introduction.md)
 * [應用程式安全性及 RunAs](service-fabric-application-runas-security.md)
 * [開始使用 Service Fabric CLI](service-fabric-cli.md)
-

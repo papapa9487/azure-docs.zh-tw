@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: manayar
 ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Azure Site Recovery 中的多租用戶支援，適用於透過 CSP 將 VMware 虛擬機器複寫到 Azure
 
@@ -148,7 +148,7 @@ vCenter 帳戶存取程序如下：
 
     ![[新增客戶] 按鈕](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-new-customer.png)
 
-4. 在 [新客戶] 頁面上，填入租用戶的所有帳戶資訊詳細資料，然後按一下 [下一步: 訂閱]。
+4. 在 新客戶 頁面上，填入租用戶的所有帳戶資訊詳細資料，然後按一下下一步: 訂閱。
 
     ![[帳戶資訊] 頁面](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-add-filled.png)
 
@@ -156,7 +156,7 @@ vCenter 帳戶存取程序如下：
 
     ![[Microsoft Azure 訂用帳戶] 核取方塊](./media/site-recovery-multi-tenant-support-vmware-using-csp/azure-subscription-selection.png)
 
-6. 在 [檢閱] 頁面上，確認租用戶詳細資料，然後按一下 [提交]。
+6. 在 檢閱 頁面上，確認租用戶詳細資料，然後按一下提交。
 
     ![[檢閱] 頁面](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
@@ -214,7 +214,7 @@ vCenter 帳戶存取程序如下：
 
 2. 建立新的使用者之後，返回 Azure 入口網站，並在 [訂用帳戶] 刀鋒視窗選取相關訂用帳戶。
 
-3. 在開啟的刀鋒視窗上選取 [存取控制 (IAM)]，然後按一下 [新增] 以使用相關的存取層級新增使用者。      
+3. 在開啟的刀鋒視窗上選取 存取控制 (IAM)，然後按一下新增 以使用相關的存取層級新增使用者。      
     在按一下存取層級之後開啟的刀鋒視窗上，會自動顯示透過 CSP 入口網站建立的使用者。
 
     ![新增使用者](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)

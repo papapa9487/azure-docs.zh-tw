@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 5/9/2017
 ms.author: vturecek
 ms.openlocfilehash: 3e61ad19df34c6a57da43e26bd2ab9d7ecdbf98e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-and-communicate-with-services-in-service-fabric"></a>連接至 Service Fabric 中的服務並與其進行通訊
 在 Service Fabric 中，服務會在 Service Fabric 叢集中的某處執行，通常是分散到多個 VM。 它可以由服務擁有者或是 Service Fabric 自動從某個位置移到其他位置。 服務無法以靜態方式繫結至特定電腦或位址。
@@ -35,7 +35,7 @@ Service Fabric 可以幫助管理您的服務的生命週期，但是它不會�
 ![服務端點][1]
 
 ## <a name="service-discovery-and-resolution"></a>服務探索和解析
-在分散式系統中，服務可能會隨著時間從一部電腦移動到另一部電腦。 發生這種情形的原因有很多，包括資源平衡、升級、容錯移轉或向外延展。 這表示服務端點位址會在服務移至具有不同 IP 位址的節點時變更，而且如果服務使用動態選取的連接埠，可能會在不同的連接埠上開啟。
+在分散式系統中，服務可能會隨著時間從一部電腦移動到另一部電腦。 發生這種情形的原因有很多，包括資源平衡、升級、容錯移轉或向外延展。這表示服務端點位址會在服務移至具有不同 IP 位址的節點時變更，而且如果服務使用動態選取的連接埠，可能會在不同的連接埠上開啟。
 
 ![服務的分佈][7]
 

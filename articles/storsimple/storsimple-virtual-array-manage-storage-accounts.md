@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.openlocfilehash: a4ce2d329d0e1399cffaf886adf2b95e34b9cd7b
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的儲存體帳戶認證
 
@@ -141,11 +141,11 @@ ms.lasthandoff: 08/29/2017
 2. 在 [儲存體帳戶認證] 刀鋒視窗的儲存體帳戶認證清單中，選取您想要同步處理金鑰的儲存體帳戶認證。
 3. 在所選儲存體帳戶認證的 [屬性] 刀鋒視窗中，執行下列動作︰
    
-    1. 按一下 [更多]，然後按一下 [同步存取金鑰]。
+    1. 按一下 更多，然後按一下同步存取金鑰。
    
     2. 當系統提示您確認時，按一下 [同步金鑰] 完成同步處理。
     
-4. 在 StorSimple 裝置管理員服務中，您需要更新先前在 Microsoft Azure 儲存體服務中變更的金鑰。 在 [同步儲存體帳戶金鑰] 刀鋒視窗中，如果主要存取金鑰已變更 (重新產生)，請按一下 [主要]，然後按一下 [同步金鑰]。 如果次要金鑰已變更，請按一下 [次要]，然後按一下 [同步金鑰]。
+4. 在 StorSimple 裝置管理員服務中，您需要更新先前在 Microsoft Azure 儲存體服務中變更的金鑰。 在 同步儲存體帳戶金鑰 刀鋒視窗中，如果主要存取金鑰已變更 (重新產生)，請按一下 主要，然後按一下同步金鑰。 如果次要金鑰已變更，請按一下 次要，然後按一下同步金鑰。
    
     ![同步存取金鑰](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
 

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c772fa16b94d09e0fc0450ce86503553c26f8a24
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
 資料科學虛擬機器 (DSVM) 具有一系列適用於機器學習服務的豐富工具和程式庫，並以各種熱門的語言提供使用 (例如 Python、R、Julia)。 
 
@@ -59,7 +57,7 @@ ms.lasthandoff: 09/25/2017
 | 這是什麼？   |  Weka 是資料採礦工作的機器學習演算法集合。 該演算法可以直接套用於資料集，也可從您自己的 Java 程式碼呼叫。 Weka 包含資料前置處理、分類、迴歸、群集、關聯規則和視覺效果的工具。 |
 | 支援的 DSVM 版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 工具     |
-| 如何使用/執行它？      | 在 Windows 上，在 [開始] 功能表中搜尋 Weka。 在 Linux 上，以 X2Go 登入，然後瀏覽至 [應用程式] -> [開發] -> [Weka]。 |
+| 如何使用/執行它？      | 在 Windows 上，在 [開始] 功能表中搜尋 Weka。 在 Linux 上，登入 X2Go，然後巡覽至 [應用程式] -> [開發] -> [Weka]。 |
 | 範例的連結      | [Weka 範例](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) \(英文\) |
 | DSVM 上的相關工具      |LightGBM、Rattle、XGBooost   |
 
@@ -95,4 +93,3 @@ ms.lasthandoff: 09/25/2017
 | DSVM 上的相關工具      | Apache Spark、MXNet、XGBoost、Sparkling Water、Deep Water    |
 
 DSVM 上有數個其他 ML 程式庫 (例如熱門的 `scikit-learn` 套件) 是屬於安裝在 DSVM 上之 Anaconda Python 散發的一部分。 請務必執行相對應的套件管理員，來查看以 Python、R 及 Julia 提供的套件清單。 
-

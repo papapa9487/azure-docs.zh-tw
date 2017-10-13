@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c9b7e7a1fbc6b67821183ce31bdf2527de490c92
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>使用 Azure CLI 在 Azure Blob 儲存體之間傳送物件
 
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 此快速入門詳細說明使用 Azure CLI 在 Azure Blob 儲存體之間上傳和下載資料。
@@ -58,7 +56,7 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-如果 Blob 不存在，此作業會予以建立，若已存在，則予以覆寫。 您可以依需求上傳任意數量的檔案，然後再繼續。
+如果 Blob 不存在，此作業會予以建立，若已存在，則予以覆寫。 請上傳您所需的檔案數量，再繼續進行。
 
 ## <a name="list-the-blobs-in-a-container"></a>列出容器中的 Blob
 
@@ -83,7 +81,7 @@ az storage blob download \
 
 ## <a name="data-transfer-with-azcopy"></a>使用 AzCopy 進行資料傳輸
 
-[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 公用程式是適用於 Azure 儲存體的高效能可編寫指令碼資料傳輸的另一個選項。 您可以使用 AzCopy 在 Blob、檔案和表格儲存體之間傳送資料。
+[AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 公用程式是適用於 Azure 儲存體的高效能可編寫指令碼資料轉送的另一個選項。 您可以使用 AzCopy 在 Blob、檔案和表格儲存體之間傳送資料。
 
 這裡提供一個快速範例，利用 AzCopy 命令將名稱為 *myfile.txt* 的檔案上傳至 *mystoragecontainer* 容器。
 
@@ -97,7 +95,7 @@ azcopy \
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包括在此快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group#delete) 命令刪除資源群組。
+如果您不再需要資源群組中的任何資源 (包括在本快速入門中所建立的儲存體帳戶)，請使用 [az group delete](/cli/azure/group#delete) 命令刪除資源群組。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -109,4 +107,3 @@ az group delete --name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [作法：使用 Azure CLI 的 Blob 儲存體作業](storage-how-to-use-blobs-cli.md)
-

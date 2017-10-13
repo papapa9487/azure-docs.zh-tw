@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 85ba6ef3e51c339a77eb9b4198c4f87e2a64cf09
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
@@ -97,7 +96,7 @@ ms.lasthandoff: 08/01/2017
 2. 在入口網站的搜尋方塊中，輸入「虛擬網路」。 按一下搜尋結果中出現的「虛擬網路」。
 3. 在 [虛擬網路] 刀鋒視窗中，按一下要刪除其子網路的虛擬網路。
 4. 在 [虛擬網路] 刀鋒視窗中，按一下 [設定] 下方的 [子網路]。
-5. 在 [子網路] 刀鋒視窗所示的子網路清單中，以滑鼠右鍵按一下要刪除的子網路，按一下 [刪除]，然後按一下 [是]，即可刪除子網路。
+5. 在 子網路 刀鋒視窗所示的子網路清單中，以滑鼠右鍵按一下要刪除的子網路，按一下 刪除，然後按一下是，即可刪除子網路。
 
 **命令**
 
@@ -109,4 +108,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>接續步驟
 
 若要在子網路中建立虛擬機器，請參閱[在子網路中建立虛擬網路和部署 VM](virtual-network-get-started-vnet-subnet.md#create-vms)。
-

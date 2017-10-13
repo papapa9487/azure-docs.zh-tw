@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>指定虛擬網路組態檔中的 DNS 設定
 網路組態檔有兩種您可以用來指定網域名稱系統 (DNS) 設定的項目：**DnsServers** 和 **DnsServerRef**。 您可以藉由指定其 IP 位址並參考 **DnsServers** 項目的名稱，新增 DNS 伺服器的清單。 然後您可以使用 **DnsServerRef** 項目，來針對您虛擬網路內的不同網站，指定要使用 DnsServers 項目中哪些 DNS 伺服器項目。
@@ -67,10 +67,4 @@ ms.openlocfilehash: ec33268915a1888509834ce6a5b2bc782a12ce4a
 * 了解 [Azure 虛擬網路組態結構描述](http://go.microsoft.com/fwlink/?LinkId=248093)。
 * 了解 [Azure 服務組態結構描述](https://msdn.microsoft.com/library/windowsazure/ee758710)。
 * [使用網路組態檔設定虛擬網路](virtual-networks-using-network-configuration-file.md)
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

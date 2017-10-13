@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/30/2017
 ms.author: sdanie
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: aee24e5c478c4453655952cc626d7d6c857e7962
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-the-hostname-ports-and-keys-for-azure-redis-cache"></a>取得 Azure Redis Cache 的主機名稱、 連接埠和金鑰
 
 在此案例中，您會了解如何擷取主機名稱、連接埠和金鑰，以用於連接到 Azure Redis Cache 執行個體。
@@ -31,7 +29,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-azurecli[主要](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Redis 快取")]
+[!code-azurecli[main](../../../cli_scripts/redis-cache/cache-keys-ports/cache-keys-ports.sh "Azure Redis Cache")]
 
 
 ## <a name="script-explanation"></a>指令碼說明

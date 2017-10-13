@@ -15,8 +15,7 @@
 
 接下來，向 AAD 註冊應用程式。 如此會給予您服務主體帳戶，具有您的 VM 需要的金鑰保存庫的存取權。 在 Azure 金鑰保存庫文章中，您可以在[向 Azure Active Directory 註冊應用程式](../articles/key-vault/key-vault-get-started.md#register)一節中找到這些步驟，或者您可以在[此部落格文章](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx)的**取得應用程式的身分識別一節**查看具有螢幕擷取畫面的步驟。 在完成這些步驟之前，請注意您需要收集此註冊期間的下列資訊，稍後當您在 SQL VM 上啟用 Azure 金鑰保存庫整合時需要該資訊。
 
-* 新增應用程式之後，在 [設定] 索引標籤上尋找**用戶端識別碼**。 
-    ![Azure Active Directory 用戶端識別碼](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
+* 新增應用程式之後，在 [設定] 索引標籤上尋找**用戶端識別碼**。 ![Azure Active Directory 用戶端識別碼](./media/virtual-machines-sql-server-akv-prepare/aad-client-id.png)
   
     用戶端識別碼稍後會指派給 PowerShell 指令碼中的 **$spName** (服務主體名稱) 參數，以啟用 Azure 金鑰保存庫整合。 
 * 另外，當您建立您的金鑰時在這些步驟中，複製您的金鑰的密碼，如下列螢幕擷取畫面所示。 這個金鑰密碼稍後會指派給 PowerShell 指令碼中的 **$spSecret** (服務主體密碼) 參數。  

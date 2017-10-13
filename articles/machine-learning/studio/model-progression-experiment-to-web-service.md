@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 383f0a466f92a230e49c3d1e96d306a0b7d67da2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning 模型如何從實驗進展為實際運作的 Web 服務
 Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行、測試及反覆運算代表預測性分析模型的***實驗***。 有各種可用的模組可以︰
@@ -91,7 +90,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 
 **您想要變更輸入或輸出，或您想要修改 Web 服務操縱資料的方式**
 
-如果您不變更模型，但只是要變更 Web 服務處理資料的方式，您可以編輯預測實驗，然後按一下 [部署 Web 服務]，再次選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 將會停止 Web 服務、部署已更新的預測實驗，然後重新啟動 Web 服務。
+如果您不變更模型，但只是要變更 Web 服務處理資料的方式，您可以編輯預測實驗，然後按一下部署 Web 服務，再次選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 將會停止 Web 服務、部署已更新的預測實驗，然後重新啟動 Web 服務。
 
 以下是範例：假設預測性實驗會傳回輸入資料的整個資料列與預測結果。 您可能決定您想要 Web 服務只傳回結果。 因此，您可以在預測性實驗中加入 **專案資料行** 模組，緊接在輸出連接埠之前，以便排除資料行而非結果。 當您按一下 [部署 Web 服務]，然後再次選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]] 時，Web 服務就會更新。
 
@@ -119,5 +118,4 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 
 * [機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗](create-experiment.md)
 * [逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
-
 

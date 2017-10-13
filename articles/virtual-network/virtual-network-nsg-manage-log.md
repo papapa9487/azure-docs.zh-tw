@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/31/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 552f37dd704de25159bc0f0ad34fdae9ed8b73f5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-for-network-security-groups-nsgs"></a>網路安全性群組 (NSG) 的記錄檔分析
 
@@ -124,4 +123,3 @@ ms.lasthandoff: 08/08/2017
 ## <a name="view-and-analyze-logs"></a>檢視及分析記錄檔
 
 若要了解如何檢視活動記錄資料，閱讀 [Azure 活動記錄檔概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)文章。 若要了解如何檢視診斷記錄資料，閱讀 [Azure 診斷記錄檔概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)文章。 如果您將診斷資料傳送給 Log Analytics，您可以使用 [Azure 網路安全性群組分析](../log-analytics/log-analytics-azure-networking-analytics.md) (預覽) 管理解決方案來取得深入解析。 
-

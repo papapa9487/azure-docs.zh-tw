@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
+ms.openlocfilehash: 7f26f357268d6a3190557b7099ef07c7ef805119
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 54afcf1e37f696979bfe270a473c72aedf20dc43
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>將 Windows 虛擬機器從非受控磁碟轉換成受控磁碟
 
 如果現有的 Windows 虛擬機器 (VM) 使用非受控磁碟，您可以透過 [Azure 受控磁碟](managed-disks-overview.md)服務，將這些 VM 轉換成使用受控磁碟。 此程序會轉換 OS 磁碟和任何附加的資料磁碟。
@@ -44,7 +42,7 @@ ms.lasthandoff: 08/21/2017
 
 1. 使用 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) Cmdlet 將 VM 解除配置。 下列範例會解除配置 `myResourceGroup` 資源群組中名為 `myVM` 的 VM： 
 
-  ```powershell
+  ```azurepowershell-interactive
   $rgName = "myResourceGroup"
   $vmName = "myVM"
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -52,13 +50,13 @@ ms.lasthandoff: 08/21/2017
 
 2. 使用 [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) Cmdlet 將 VM 轉換成受控磁碟。 下列程序會轉換先前的 VM，包括 OS 磁碟和任何資料磁碟︰
 
-  ```powershell
+  ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
 3. 轉換成受控磁碟之後，使用 [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm) 來啟動 VM。 下列範例會重新啟動先前的 VM：
 
-  ```powershell
+  ```azurepowershell-interactive
   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
   ```
 
@@ -69,7 +67,7 @@ ms.lasthandoff: 08/21/2017
 
 1. 使用 [Update-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset) Cmdlet 來轉換可用性設定組。 下列範例會更新 `myResourceGroup` 資源群組中名為 `myAvailabilitySet` 的可用性設定組：
 
-  ```powershell
+  ```azurepowershell-interactive
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
@@ -79,14 +77,14 @@ ms.lasthandoff: 08/21/2017
 
   如果您的可用性設定組所在區域只有 2 個受控容錯網域，但非受控容錯網域的數目為 3，此命令就會顯示類似以下的錯誤：「指定的錯誤網域計數 3 必須介於 1 到 2 之間。」 若要解決此錯誤，請將容錯網域更新為 2，並將 `Sku` 更新為 `Aligned`，如下所示：
 
-  ```powershell
+  ```azurepowershell-interactive
   $avSet.PlatformFaultDomainCount = 2
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
 2. 解除配置並轉換可用性設定組中的 VM。 下列指令碼會使用 [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm) Cmdlet 將每個 VM 解除配置、使用 [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) 來轉換它，然後使用 [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm) 將它重新啟動：
 
-  ```powershell
+  ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)
@@ -109,5 +107,4 @@ ms.lasthandoff: 08/21/2017
 [將標準受控磁碟轉換成進階受控磁碟](convert-disk-storage.md)
 
 使用[快照](snapshot-copy-managed-disk.md)來取得 VM 的唯讀複本。
-
 

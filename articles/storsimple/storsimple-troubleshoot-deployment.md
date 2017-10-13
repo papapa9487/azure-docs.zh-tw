@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 08/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 230a652ceca8b4643d1984d81383c6628b8e1f5f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 裝置部署問題的疑難排解
 ## <a name="overview"></a>概觀
@@ -379,7 +379,7 @@ StorSimple 隨附數個工具，可用來疑難排解 StorSimple 解決方案。
 該裝置無法使用目前的 Web Proxy 設定來連接。 這可能是 Web Proxy 設定問題或網路連線問題。 在此情況下，您應該確定 Web Proxy 設定正確無誤，而且您的 Web Proxy 伺服器在線上且可連線。 
 
 ## <a name="troubleshoot-with-the-sync-hcstime-cmdlet"></a>使用 Sync-HcsTime Cmdlet 疑難排解
-此 Cmdlet 可顯示裝置的時間。 如果裝置時間與 NTP 伺服器之間有時間差，您可以使用此 Cmdlet 強制同步裝置與 NTP 伺服器的時間。 如果裝置和 NTP 伺服器之間的時間差超過 5 分鐘，系統則會顯示警告。 如果時間差超過 15 分鐘，裝置則會變成離線。 您還是可以使用此 Cmdlet 強制同步時間。 不過，如果時間差超過 15 個小時，您便無法強制同步時間，且會顯示錯誤訊息。
+此 Cmdlet 可顯示裝置的時間。 如果裝置時間與 NTP 伺服器之間有時間差，您可以使用此 Cmdlet 強制同步裝置與 NTP 伺服器的時間。 如果裝置和 NTP 伺服器之間的時間差超過 5 分鐘，系統則會顯示警告。 如果時間差超過 15 分鐘，裝置則會變成離線。 您還是可以使用此 Cmdlet 強制同步時間。不過，如果時間差超過 15 個小時，您便無法強制同步時間，且會顯示錯誤訊息。
 
 **範例輸出 – 已使用 Sync-HcsTime 執行的強制同步時間作業**
 

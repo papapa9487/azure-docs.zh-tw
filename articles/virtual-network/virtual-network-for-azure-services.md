@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 2c3ffb8432fae41b376cc71bb600a0b1c490f345
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服務的虛擬網路整合
 
 將 Azure 服務整合到 Azure 虛擬網路允許從虛擬網路中部署之服務的執行個體，進行私密存取。
@@ -76,7 +74,6 @@ ms.lasthandoff: 09/29/2017
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>跨多個 Azure 服務的虛擬網路整合
 
 您可以將 Azure 服務部署到虛擬網路中的子網路，並保護該子網路的重要服務資源。 舉例來說，您可以將 HDInsight 部署到您的虛擬網路，並保護 HDInsight 子網路的儲存體帳戶。
-
 
 
 

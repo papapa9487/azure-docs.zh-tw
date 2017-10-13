@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;raymondl
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1c182403409966923440f359cb2514af7b7df9f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consume-an-azure-machine-learning-web-service-with-a-web-app-template"></a>使用 Azure Machine Learning Web 服務與 Web 應用程式範本
 
@@ -68,7 +67,7 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
    
     ![Request URI][image4] -->
 
-1. 移至 [Azure 入口網站](https://portal.azure.com)的 [登入]，按一下 [新增]，搜尋並選取 [Azure ML 要求-回應服務 Web 應用程式]，然後按一下 [建立]。 
+1. 移至 [Azure 入口網站](https://portal.azure.com)的 [登入]，按一下 [新增]，搜尋並選取 [Azure ML 要求-回應服務 Web 應用程式]，然後按一下建立]。 
    
    * 為您的 Web 應用程式提供唯一名稱。 Web 應用程式的 URL 將是此名稱後面加上 `.azurewebsites.net.`。例如，`http://carprediction.azurewebsites.net.`
    * 選擇 Azure 訂用帳戶及您的 Web 服務在其下執行的服務。
@@ -91,7 +90,7 @@ Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web �
    > 
    > 
    
-    當您完成時，按一下 [儲存變更]，然後按一下 [到首頁]。
+    當您完成時，按一下 儲存變更，然後按一下到首頁。
 
 7. 您可以從首頁輸入值，以傳送至您的 Web 服務。 當您完成時按一下 [提交]，將傳回結果。
 
@@ -131,4 +130,3 @@ Web 應用程式將會顯示具有工作狀態的頁面。
 [image5]: media/consume-web-service-with-web-app-template/create-web-app.png
 [image6]: media/consume-web-service-with-web-app-template/web-service-info.png
 [image7]: media/consume-web-service-with-web-app-template/storage.png
-

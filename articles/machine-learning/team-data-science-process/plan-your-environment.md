@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
+ms.openlocfilehash: 42d1de8a27f8979db5662094e8bd74a6f5ccac55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: de46e5a6833809f8413d6a2de62a8cb9fe178130
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何識別案例和規劃進階分析資料處理
 在設定環境以對資料集執行進階分析處理時，您應該規劃包含哪些資源？ 本文提出一系列問題，有助於識別您的案例相關的工作和資源。 [何謂 Team Data Science Process (TDSP)？](overview.md)中概述預測性分析的高階步驟順序。 針對您的案例相關的工作，每個步驟會需要特定的資源。 用以識別案例的主要問題是關於資料邏輯、特性、資料集的品質，以及您想要進行分析的工具和語言。
@@ -105,5 +104,4 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>識別您的進階分析案例
 一旦回答上一區段中的問題之後，您便已準備好決定哪個案例最符合您的情況。 [Azure 機器學習服務中的進階分析案例](plan-sample-scenarios.md)中概述範例案例。
-
 

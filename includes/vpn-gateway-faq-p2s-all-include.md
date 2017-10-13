@@ -48,10 +48,6 @@ Azure 支援兩種點對站 VPN 選項：
 
 否。 在 Windows 上，您只能對 SSTP 使用原生 VPN 用戶端，而在 Mac 上，則只能對 IKEv2 使用原生 VPN 用戶端。 請參閱支援的用戶端作業系統清單。
 
-### <a name="can-i-access-the-internet-when-i-am-connected-over-p2s-vpn"></a>透過 P2S VPN 連線時，可以存取網際網路嗎？
-
-是，位在 P2S VPN 時，您可以存取網際網路。
-
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure 支援採用 Windows 的 IKEv2 VPN 嗎？
 
 使用者可以使用確實支援 IKEv2 的內建 Windows VPN 用戶端來連線到 Azure。 但是，來自 Windows 裝置的 IKEv2 連線不適用於下列案例：

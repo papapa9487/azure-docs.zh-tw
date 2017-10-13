@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: reference
 ms.date: 07/12/2017
 ms.author: kevin;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: a9327388f8789e548610a7d4f140c492afd88fef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="system-views"></a>系統檢視表
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL 資料倉儲目錄檢視
@@ -246,4 +245,3 @@ SQL 資料倉儲公開許多 SQL Server 動態管理檢視 (DMV)。 在 SQL 資�
 
 
 <!--Other Web references-->
-

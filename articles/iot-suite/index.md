@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 29fb247771d662d3abcbf35e95ff0f7a8cf95af1
-ms.openlocfilehash: 461542095d9ef357460e93d65bb9f4dd8fe17c86
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 9726304918cbbc85e32e2095d2f1d4701fb8a71e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-suite-documentation"></a>IoT 套件文件
 
 即刻開始使用 Microsoft Azure IoT 套件。 使用預先設定的解決方案，並大幅提升開發物聯網 (IoT) 解決方案的速度。 透過使用多個平台 (包括 Linux、Windows 以及即時作業系統) 的裝置 SDK，以新增裝置並連接現有的裝置。 輕易地從少數感應器擴充到數百萬個同步連接的裝置，並依賴於 Azure 整體可用性&mdash;無論專案的大小為何。
@@ -101,6 +99,5 @@ ms.lasthandoff: 02/09/2017
         </div>
     </li>
 </ul>
-
 
 

@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 9d6132e1a01be489b8e8e28a0219cf8a0b50b318
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-mobile-engagement-rest-apis---manual-setup"></a>使用 Mobile Engagement REST API 進行驗證 - 手動設定
 這是 [使用 Mobile Engagement REST API 進行驗證](mobile-engagement-api-authentication.md)的附錄說明文件。 請務必先閱讀它，以取得內容。 這會說明如何使用 Azure 入口網站設定 Mobile Engagement REST API 驗證的一次性設定的替代方式。 
@@ -91,7 +91,7 @@ ms.lasthandoff: 07/11/2017
 19. 按一下 [Mobile Engagement] 資源群組，並瀏覽至此處的 [設定] 刀鋒視窗。 
     
     ![][16]
-20. 在 [設定] 刀鋒視窗中按一下 [使用者]，然後按一下 [新增] 來新增使用者。 
+20. 在 設定 刀鋒視窗中按一下 使用者，然後按一下新增 來新增使用者。 
     
     ![][17]
 21. 按一下 [選取角色] 

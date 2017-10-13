@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: bc47589ac769d89b2aa7f7565d08555ace3119d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-security-response-center"></a>Microsoft 安全性回應中心
 Microsoft 安全性回應中心 (MSRC) 是由某些世界上最資深安全性專家帶領。 這些專家會每天日以繼夜地尋找、監視、回應和解決安全性事件與內部部署和雲端弱點。

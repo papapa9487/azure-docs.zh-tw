@@ -97,7 +97,7 @@
           href: sql-database-elastic-transactions-overview.md
         - name: 彈性工作
           href: sql-database-elastic-jobs-overview.md
-        - name: SQL 弱點評估
+        - name: SQL 弱點評量
           href: sql-vulnerability-assessment.md
         - name: SQL Server 常用功能
           href: sql-database-features.md
@@ -169,8 +169,6 @@
           href: sql-database-operate-query-store.md
         - name: 擴充事件
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: 相容性層級
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: 監視記憶體內部
           href: sql-database-in-memory-oltp-monitoring.md
     - name: 相應放大
@@ -266,6 +264,12 @@
         - name: PowerShell 的虛擬網路規則
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: 業務持續性
+      items:
+        - name: 設定保存庫 - 備份
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: 地理複寫 - 入口網站
+          href: sql-database-geo-replication-portal.md
+    - name: 載入與移動資料
       items:
         - name: 使用 BCP 載入資料
           href: sql-database-load-from-csv-with-bcp.md

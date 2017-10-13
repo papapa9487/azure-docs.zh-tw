@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 7/20/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 197441fc24c178695d4eada6db59f503b21672ad
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-active-directory-and-dns-with-azure-site-recovery"></a>以 Azure Site Recovery 保護 Active Directory 和 DNS
 企業應用程式 (例如 SharePoint、Dynamics AX 和 SAP) 須倚賴 Active Directory 和 DNS 基礎結構才能正確運作。 當您建立應用程式的災害復原解決方案時，請務必記住，您必須先保護及復原 Active Directory 和 DNS，再保護及復原其他應用程式元件，以確保災害發生時每樣東西能正常運作。
@@ -189,7 +188,7 @@ Site Recovery 是一項 Azure 服務，可藉由協調虛擬機器的複寫、�
 ### <a name="dns-and-domain-controller-on-different-machines"></a>不同電腦上的 DNS 和網域控制站
 如果 DNS 與網域控制站不在相同的虛擬機器上，您必須為測試容錯移轉建立 DNS VM。 如果它們在相同的 VM 上，您可以略過本節。
 
-您可以使用全新的 DNS 伺服器，並建立所有的必要區域。 例如，如果 Active Directory 網域是 contoso.com，您可以使用 contoso.com 的名稱來建立 DNS 區域。 DNS 中對應至 Active Directory 的項目必須更新，如下：
+您可以使用全新的 DNS 伺服器，並建立所有的必要區域。 例如，如果 Active Directory 網域是 contoso.com，您可以使用 contoso.com 的名稱來建立 DNS 區域。DNS 中對應至 Active Directory 的項目必須更新，如下：
 
 1. 確定復原方案中的任何其他虛擬機器出現之前，這些設定均已完成：
    
@@ -209,5 +208,4 @@ Site Recovery 是一項 Azure 服務，可藉由協調虛擬機器的複寫、�
 
 ## <a name="next-steps"></a>後續步驟
 閱讀[我可以保護哪些工作負載?](site-recovery-workload.md)，深入了解如何以 Azure Site Recovery 保護企業工作負載。
-
 

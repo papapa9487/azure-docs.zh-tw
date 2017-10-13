@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
 ms.author: hascipio; v-divte
-translationtype: Human Translation
-ms.sourcegitcommit: c6190a5a5aba325b15aef97610c804f5441ef7ad
 ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-prerequisites-for-creating-a-solution-template-for-the-azure-marketplace"></a>建立 Azure Marketplace 解決方案範本的技術必要條件
 開始之前，請先徹底閱讀程序，並且了解每個步驟執行的位置及原因。 在供應項目建立程序之前，您應該盡可能準備您的公司資訊和其他資料、下載必要的工具，和/或建立技術元件。  
@@ -36,9 +36,3 @@ ms.openlocfilehash: 40f0e2b1b1b6144b2f9aa5814a4408b4964ede97
 現在您已經檢閱必要條件並完成必要的工作，可以繼續建立您的解決方案範本提供項目，如 [建立解決方案範本指南](marketplace-publishing-solution-template-creation.md)中所述。 若要返回發行者工作的主頁面，請參閱 [快速入門：如何發佈供應項目到 Azure Marketplace](marketplace-publishing-getting-started.md)。
 
 [link-acct]:marketplace-publishing-accounts-creation-registration.md
-
-
-
-<!--HONumber=Feb17_HO2-->
-
-

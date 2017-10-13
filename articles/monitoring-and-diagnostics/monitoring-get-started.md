@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>開始使用 Azure 監視器
 Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存及針對來自 Azure 資源的度量和記錄檔採取行動。 您可以利用監視入口網站刀鋒視窗、[Monitor PowerShell Cmdlets](insights-powershell-samples.md)、[Cross-Platform CLI](insights-cli-samples.md) 或 [Azure 監視器 REST API](https://msdn.microsoft.com/library/dn931943.aspx) 來使用此資料。 在本文中，我們會逐步解說幾個 Azure 監視器的重要元件，並使用入口網站進行示範。
@@ -51,7 +50,7 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
 6. 返回儀表板。 您現在可以看到查詢 (和結果數目) 顯示在儀表板中。 如果您想要快速查看最近在訂用帳戶中發生的任何重要動作，這非常有用，例如指派新角色或建立 VM。
 
     ![活動記錄檔釘選到儀表板](./media/monitoring-get-started/monitor-act-log-db.png)
-7. 返回 [監視] 圖格，然後按一下 [度量] 區段。 您必須先使用刀鋒視窗頂端的下拉式選項，進行篩選及選取來選取資源。
+7. 返回 [監視] 圖格然後按一下 [度量] 區段。 您必須先使用刀鋒視窗頂端的下拉式選項，進行篩選及選取來選取資源。
 
     ![度量的篩選器資源](./media/monitoring-get-started/monitor-met-filter.png)
 
@@ -103,4 +102,3 @@ Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您
 
 ## <a name="next-steps"></a>後續步驟
 * 閱讀 [的概觀](monitoring-overview.md)
-

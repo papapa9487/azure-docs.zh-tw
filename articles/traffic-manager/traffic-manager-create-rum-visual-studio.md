@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/29/2017
 ms.author: kumud
 ms.custom: 
+ms.openlocfilehash: 756496e5291d932ee9ac89265291e6892c4304fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fcefa16112e29c897d72ade80bc612b7765c578d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>如何使用 Visual Studio Mobile Center 將實際使用者度量傳送給流量管理員
 
 >[!NOTE]
@@ -110,5 +108,4 @@ ms.lasthandoff: 09/25/2017
 - [註冊](https://mobile.azure.com) Mobile Center
 - 深入了解流量管理員支援的 [流量路由方法](traffic-manager-routing-methods.md)
 - 了解如何 [建立流量管理員設定檔](traffic-manager-create-profile.md)
-
 

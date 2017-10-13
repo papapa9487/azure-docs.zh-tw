@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 的事件彙總與集合
 
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) 可以將節點的事件路由傳送至一個或多個監視目的地。 由於是以 NuGet 套件形式加入服務專案中，EventFlow 程式碼和組態會隨著服務一起傳送，不會發生稍後提及有關 Azure 診斷的個別節點組態問題。 EventFlow 在您的服務處理序中執行，並直接連線到已設定的輸出。 因為是直接連線，所以 EventFlow 適用於 Azure、容器和內部部署的服務部署。 如果您在高密度情況下執行 EventFlow，例如在容器中，請務必小心，因為每個 EventFlow 管線來建立外部連線。 所以，如果您裝載許多處理序，就會產生大量輸出連線！ 這對 Service Fabric 應用程式來說不會有什麼問題，因為 `ServiceType` 的所有複本都在同一處理序中執行，這會限制輸出連線的數量。 EventFlow 也提供事件篩選，因此只會傳送符合指定篩選的事件。
@@ -87,7 +85,7 @@ internal sealed class ServiceEventSource : EventSource
 }
 ```
 
-請注意，`eventFlowConfig.json` 檔案是服務組態套件的一部分。 對此檔案所做的變更可以包含在完整或僅限組態的服務升級中，並受到 Service Fabric 升級健康情況檢查和自動復原 (如果發生升級失敗) 控管。 如需詳細資訊，請參閱 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)。
+請注意，`eventFlowConfig.json` 檔案是服務組態封裝的一部分。 對此檔案所做的變更可以包含在完整或僅限組態的服務升級中，並受到 Service Fabric 升級健康情況檢查和自動復原 (如果發生升級失敗) 控管。 如需詳細資訊，請參閱 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)。
 
 組態的「篩選」區段可讓您進一步自訂經過 EventFlow 管線到輸出的資訊，讓您卸除或包含特定資訊，或變更事件資料結構。 如需有關篩選的詳細資訊，請參閱 [EventFlow 篩選](https://github.com/Azure/diagnostics-eventflow#filters)。
 
@@ -157,4 +155,3 @@ servicefabric:/<section-name>/<setting-name>
 * [使用 Application Insights 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [使用 OMS 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 文件](https://github.com/Azure/diagnostics-eventflow)
-

@@ -10,14 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/10/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: f806a8c1f06a58d0c8440d54c91ecfa41988d8ef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure Database for PostgreSQL 伺服器
 
 Azure Database for PostgreSQL 是一種受管理的服務，您用來在雲端執行、管理及調整高可用性的 PostgreSQL 資料庫。 本快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立 Azure Database for PostgreSQL 伺服器。
@@ -239,4 +237,3 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [使用匯出和匯入來移轉資料庫](./howto-migrate-using-export-and-import.md)
-

@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/10/2017
 ms.author: jhubbard
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 68eadf7a7eef4ba5e6bcd9af1279227a01efdf70
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-excel-to-an-azure-sql-database-and-create-a-report"></a>將 Excel 連接到 Azure SQL Database 並建立報告
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 09/29/2017
 
 ## <a name="connect-excel-to-a-sql-database-and-create-an-odc-file"></a>將 Excel 連接到 SQL Database 並建立 odc 檔案
 1. 若要將 Excel 連接到 SQL Database，請開啟 Excel，然後建立新的活頁簿或開啟現有的 Excel 活頁簿。
-2. 在頁面頂端的功能表列中，依序按一下 [資料]、[從其他來源]，然後按一下 [從 SQL Server]。
+2. 在頁面頂端的功能表列中，依序按一下 資料、從其他來源，然後按一下從 SQL Server。
    
    ![選取資料來源：將 Excel 連接到 SQL Database。](./media/sql-database-connect-excel/excel_data_source.png)
    
@@ -52,7 +51,7 @@ ms.lasthandoff: 09/29/2017
     ![選取資料庫和資料表。](./media/sql-database-connect-excel/select-database-and-table.png)
    
     [儲存資料連接檔案並完成]  對話方塊隨即開啟，請在其中提供 Excel 使用的 Office 資料庫連接 (*.odc) 檔案的相關資訊。 您可以保留預設值，或自訂您的選取項目。
-6. 您可以保留預設值，但請特別注意 [檔案名稱]  。 [描述]、[易記名稱] 和 [搜尋關鍵字] 可幫助您和其他使用者記住您要連接的項目並尋找連接。 如果您希望連接資訊儲存在 odc 檔案中，以便在連接時進行更新，請按一下 [永遠嘗試使用此檔案來重新整理資料]，然後按一下 [完成]。
+6. 您可以保留預設值，但請特別注意 [檔案名稱]  。 [描述]、[易記名稱] 和 [搜尋關鍵字] 可幫助您和其他使用者記住您要連接的項目並尋找連接。 如果您希望連接資訊儲存在 odc 檔案中，以便在連接時進行更新，請按一下 永遠嘗試使用此檔案來重新整理資料，然後按一下完成。
    
     ![儲存 odc 檔案](./media/sql-database-connect-excel/save-odc-file.png)
    
@@ -61,7 +60,7 @@ ms.lasthandoff: 09/29/2017
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>將資料匯入 Excel 中並建立樞紐分析圖
 您現已建立連接並建立含有資料與連接資訊的檔案，您可準備開始匯入資料。
 
-1. 在 [匯入資料] 對話方塊中，按一下您要在工作表中呈現資料的選項，然後按一下 [確定]。 我們選擇 [樞紐分析圖]。 您也可以選擇建立**新工作表** 或**將此資料加入至資料模型**。 如需資料模型的詳細資訊，請參閱[在 Excel 中建立資料模型](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B)。 按一下 [屬性] 以瀏覽您在上一個步驟中建立的 odc 檔案的相關資訊，並選擇用於重新整理資料的選項。
+1. 在 匯入資料 對話方塊中，按一下您要在工作表中呈現資料的選項，然後按一下確定。 我們選擇 [樞紐分析圖]。 您也可以選擇建立**新工作表** 或**將此資料加入至資料模型**。 如需資料模型的詳細資訊，請參閱[在 Excel 中建立資料模型](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B)。 按一下 [屬性] 以瀏覽您在上一個步驟中建立的 odc 檔案的相關資訊，並選擇用於重新整理資料的選項。
    
     ![在 Excel 中選擇資料的格式](./media/sql-database-connect-excel/import-data.png)
    
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/29/2017
     ![設定資料庫報告。](./media/sql-database-connect-excel/power-pivot-results.png)
 
 > [!TIP]
-> 如果您要將其他 Excel 活頁簿和工作表連接到資料庫，請按一下 [資料]，按一下 [連接]，按一下 [新增]，從清單中選擇您所建立的連接，然後按一下 [開啟]。
+> 如果您要將其他 Excel 活頁簿和工作表連接到資料庫，請按一下 資料，按一下 連接，按一下 新增，從清單中選擇您所建立的連接，然後按一下開啟。
 > ![從另一個活頁簿開啟連接](./media/sql-database-connect-excel/open-from-another-workbook.png)
 > 
 > 
@@ -80,5 +79,4 @@ ms.lasthandoff: 09/29/2017
 * 了解如何 [使用 SQL Server Management Studio 連接到 SQL Database](sql-database-connect-query-ssms.md) ，以便進行進階查詢和分析。
 * 了解 [彈性集區](sql-database-elastic-pool.md)的優點。
 * 了解如何 [建立 Web 應用程式以連接到後端的 SQL Database](../app-service/app-service-web-tutorial-dotnet-sqldatabase.md)。
-
 

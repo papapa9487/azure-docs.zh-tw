@@ -16,10 +16,10 @@ ms.date: 08/07/2017
 ms.author: TomSh
 ms.custom: azlog
 ms.openlocfilehash: bfdc7154160bb6bb7dc9c46eb2352ce74310c4de
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-log-integration-faq"></a>Azure 記錄整合常見問題集
 本文提供 Azure 記錄整合的常見問題集 (FAQ) 解答。 

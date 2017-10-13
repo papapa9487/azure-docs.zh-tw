@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4db7552a1b76c89151405c55c8682abbb5326bb6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-queues"></a>佇列簡介
 
@@ -55,4 +54,3 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 
 * [建立儲存體帳戶](../storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [透過 .NET 開始使用佇列](storage-dotnet-how-to-use-queues.md)
-

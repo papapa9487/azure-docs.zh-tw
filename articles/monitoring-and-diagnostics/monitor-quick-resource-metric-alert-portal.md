@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 08d63d47a99bdf9480299a74634bc0e9a09e691e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
 Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表達這些資源的健康情況和效能。 在許多情況下，計量值可以指出資源發生問題。 您可以建立計量警示來監視異常行為，並於發生時收到通知。 此快速入門逐步引導您建立邏輯應用程式、建立工作，以及視覺化邏輯應用程式的計量。 接著會建立警示，並接收邏輯應用程式資源的計量通知。
@@ -106,9 +104,9 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 3. 在計量警示面板中，按一下 [刪除]。
 
-4. 從 Azure 入口網站的左側功能表中，搜尋**邏輯應用程式**，然後按一下 [邏輯應用程式]。
+4. 從 Azure 入口網站的左側功能表中，搜尋**邏輯應用程式**，然後按一下邏輯應用程式。
 
-5. 在面板上，在文字方塊中按一下您在本快速入門中建立的邏輯應用程式，然後按一下 [刪除]。
+5. 在面板上，在文字方塊中按一下您在本快速入門中建立的邏輯應用程式，然後按一下刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -116,4 +114,3 @@ Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表
 
 > [!div class="nextstepaction"]
 > [Azure 監視器訂用帳戶動作警示](./monitor-quick-audit-notify-action-in-subscription.md )
-

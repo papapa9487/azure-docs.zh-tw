@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 09/13/2016
 ms.author: xpillons
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b45fcfb981287035da02fda62eaf5f9436ec2379
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-star-ccm-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 STAR-CCM+
 本文將說明如何在 Azure 上部署 Microsoft HPC Pack 叢集，並在與 InfiniBand 相互連接的多個 Linux 計算節點上執行 [CD-adapco STAR-CCM+](http://www.cd-adapco.com/products/star-ccm%C2%AE) 作業。
@@ -90,9 +89,9 @@ Azure PowerShell 是必要條件。 如果未在本機電腦上設定 PowerShell
 
 您最終可能必須修正 DNS 轉寄站。 若要這樣做，請啟動 [DNS 管理員]。
 
-1. 在 [DNS 管理員] 中以滑鼠右鍵按一下伺服器名稱，並選取 [內容]，然後按一下 [轉寄站] 索引標籤。
-2. 按一下 [編輯] 按鈕來移除任何轉寄站，然後按一下 [確定]。
-3. 確定已選取 [如果沒有可用的轉寄站，則使用根目錄提示] 核取方塊，然後按一下 [確定]。
+1. 在 DNS 管理員 中以滑鼠右鍵按一下伺服器名稱，並選取 內容，然後按一下轉寄站 索引標籤。
+2. 按一下 編輯 按鈕來移除任何轉寄站，然後按一下確定。
+3. 確定已選取 如果沒有可用的轉寄站，則使用根目錄提示 核取方塊，然後按一下確定。
 
 ## <a name="set-up-linux-compute-nodes"></a>設定 Linux 計算節點
 部署 Linux 計算節點，方法是使用用來建立前端節點的相同部署範本。
@@ -334,4 +333,3 @@ HPC Pack 用於其工作排程器功能，以便執行 STAR-CCM+ 作業。 若�
 <!--Image references-->
 [hndeploy]:media/hpcpack-cluster-starccm/hndeploy.png
 [clustermanager]:media/hpcpack-cluster-starccm/ClusterManager.png
-

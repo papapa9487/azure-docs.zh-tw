@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 5ae19bb370064de96cf466ca09b13d02563d65a4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 06e2dd05bdf21074ed060057cbc61e93f304399a
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 網域名稱可以是許多目錄資源的重要識別碼，其屬於：
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) 中的資源可包含已驗證為目錄 (其�
 您可以為每個 Azure AD 目錄新增最多 900 個自訂網域名稱。 [新增其他自訂網域名稱](active-directory-add-domain.md) 的程序與新增第一個自訂網域名稱相同。
 
 ## <a name="add-subdomains-of-a-custom-domain"></a>新增自訂網域的子網域
-如果您想要將第三層網域名稱新增至您的目錄，例如 'europe.contoso.com'，則應先新增並驗證第二層網域，例如 contoso.com。 Azure AD 會自動驗證子網域。 若要查看您剛才加入的子網域是否已通過驗證，請重新整理列出您目錄網域的瀏覽器頁面。
+如果您想要將第三層網域名稱新增至您的目錄，例如 'europe.contoso.com'，則應先新增並驗證第二層網域，例如 contoso.com。Azure AD 會自動驗證子網域。 若要查看您剛才加入的子網域是否已通過驗證，請重新整理列出您目錄網域的瀏覽器頁面。
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>如果您變更您的自訂網域名稱的 DNS 註冊機構，該怎麼辦
 如果您變更自訂網域名稱的 DNS 註冊機構，仍可以繼續在 Azure AD 中使用自訂網域名稱而不會中斷，且不需要其他組態工作。 如果您的自訂網域名稱搭配使用 Office 365、Intune 或仰賴 Azure AD 自訂網域名稱的其他服務，則請參閱這些服務的文件。

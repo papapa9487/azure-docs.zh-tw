@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>設定 Azure 虛擬機器中的 Always On 可用性群組 (傳統)
 > [!div class="op_single_selector"]
@@ -153,9 +153,9 @@ ms.lasthandoff: 07/11/2017
 7. 在 [Active Directory 管理中心]  中，選取左窗格中的 [企業 (本機)] 。 在 [工作]  窗格中，按一下 [屬性] 。
    
     ![企業使用者內容](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784627.png)
-8. 選取 [延伸模組]，然後按一下 [安全性] 索引標籤上的 [進階] 按鈕 。
+8. 選取 延伸模組，然後按一下安全性 索引標籤上的 進階 按鈕 。
 9. 在 [企業的進階安全性設定]  對話方塊上，按一下 [新增] 。
-10. 按一下 [選取主體] 、搜尋 [CORP\Install] ，然後按一下 [確定] 。
+10. 按一下 選取主體 、搜尋 CORP\Install ，然後按一下確定 。
 11. 選取 [讀取所有內容] 和 [建立電腦物件] 權限。
     
      ![企業使用者權限](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784628.png)
@@ -192,7 +192,7 @@ ms.lasthandoff: 07/11/2017
    
     ![變更虛擬機器的慣用 DNS 伺服器](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784629.png)
 6. 在命令列中，按一下 [變更此連線的設定]。 (視您的視窗大小而定，可能需按一下雙向右箭頭才能看到此命令)。
-7. 選取 [網際網路通訊協定第 4 版 (TCP/IPv4)] ，然後按一下 [內容] 。
+7. 選取 網際網路通訊協定第 4 版 (TCP/IPv4) ，然後按一下內容 。
 8. 選取 [使用下列的 DNS 伺服器位址] ，然後指定 [慣用 DNS 伺服器]  中的 [10.10.2.4] 。
 9. **10.10.2.4** 位址是指派給 Azure 虛擬網路的 10.10.2.0/24 子網路中的虛擬機器的位址。 虛擬機器是 **ContosoDC**。 若要確認 **ContosoDC** 的 IP 位址，請如下列螢幕擷取畫面所示，在命令提示字元視窗中加入 **nslookup contosodc**。
    
@@ -200,7 +200,7 @@ ms.lasthandoff: 07/11/2017
 10. 依序按一下 [確定]  >  [關閉]  以認可變更。 您現在可以將虛擬機器加入 **corp.contoso.com**。
 11. 回到 [本機伺服器] 視窗中，按一下 [工作群組] 連結。
 12. 在 [電腦名稱] 區段中，按一下 [變更]。
-13. 選取 [網域]  核取方塊、在文字方塊中輸入 **corp.contoso.com**，然後按一下 [確定] 。
+13. 選取 網域  核取方塊、在文字方塊中輸入 **corp.contoso.com**，然後按一下確定 。
 14. 在 [Windows 安全性]  對話方塊中，指定預設網域的系統管理員帳戶 (**CORP\AzureAdmin**) 和密碼 (**Contoso!000**) 的認證。
 15. 出現「歡迎使用 corp.contoso.com 網域」的訊息時，請按一下 [確定] 。
 16. 依序按一下對話方塊中的 [關閉]  >  [立即重新啟動] 。
@@ -210,10 +210,10 @@ ms.lasthandoff: 07/11/2017
 2. 在**伺服器管理員**按一下**工具** > **電腦管理**。
    
     ![電腦管理](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784630.png)
-3. 在 [電腦管理 ] 對話方塊中，展開 [本機使用者和群組] ，然後按一下 [群組] 。
+3. 在 電腦管理  對話方塊中，展開 本機使用者和群組 ，然後按一下群組 。
 4. 按兩下 [系統管理員]  群組。
 5. 在 [系統管理員內容]  對話方塊中，按一下 [新增]  按鈕。
-6. 輸入 **CORP\Install** 使用者，然後按一下 [確定]。 當系統提示您輸入認證時，請輸入 **AzureAdmin** 帳戶和 **Contoso!000** 密碼。
+6. 輸入 **CORP\Install** 使用者，然後按一下確定。 當系統提示您輸入認證時，請輸入 **AzureAdmin** 帳戶和 **Contoso!000** 密碼。
 7. 按一下 [確定] ，以關閉 [系統管理員內容]  對話方塊。
 
 ### <a name="add-the-failover-clustering-feature-to-each-virtual-machine"></a>將容錯移轉叢集功能新增至每部虛擬機器
@@ -222,7 +222,7 @@ ms.lasthandoff: 07/11/2017
 3. 選取 [容錯移轉叢集] 。 出現提示時，請新增其他相依功能。
    
     ![將容錯移轉叢集功能新增至虛擬機器](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784631.png)
-4. 按 [下一步]，然後按一下 [確認] 頁面上的 [安裝]。
+4. 按 下一步，然後按一下確認 頁面上的 安裝。
 5. **容錯移轉叢集** 功能安裝完畢後，按一下 [關閉] 。
 6. 登出虛擬機器。
 7. 針對三個伺服器：**ContosoWSFCNode**、**ContosoSQL1**，和 **ContosoSQL2** 重複本節中的步驟。
@@ -267,12 +267,12 @@ SQL Server 虛擬機器現已佈建完成和執行，但每部虛擬機器都採
    > 如果您使用的是會將多個磁碟組成存放集區的 [儲存空間](https://technet.microsoft.com/library/hh831739)，您就必須在 [確認]  頁面上清除 [新增適合的儲存裝置到叢集]  核取方塊。 如果不清除此選項，在群集程序進行期間虛擬磁碟會中斷連結。 因此，虛擬磁碟不會顯示在 [磁碟管理員] 或 [Explorer] 中，直到您將儲存空間從叢集中移除，並使用 PowerShell 重新連接虛擬磁碟。
    > 
    > 
-5. 在左窗格中，展開 [容錯移轉叢集管理員] ，然後按一下 [Cluster1.corp.contoso.com] 。
+5. 在左窗格中，展開 容錯移轉叢集管理員 ，然後按一下Cluster1.corp.contoso.com 。
 6. 在中央窗格中向下捲動至 [叢集核心資源]  區段，並展開 [名稱：Clutser1]  的詳細資料。 在 [失敗] 狀態中，應該會同時出現 [名稱] 和 [IP 位址] 資源 。 由於指派給叢集的 IP 位址與虛擬機器的 IP 位址相同，是個重複的位址，因此無法讓該 IP 位址資源上線。
-7. 以滑鼠右鍵按一下失敗的 [IP 位址] 資源，然後按一下 [內容]。
+7. 以滑鼠右鍵按一下失敗的 IP 位址 資源，然後按一下內容。
    
     ![叢集屬性](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC784633.png)
-8. 選取 [靜態 IP 位址]，並在 [位址]  文字方塊中指定 [10.10.2.101] ，然後按一下 [確定] 。
+8. 選取 靜態 IP 位址，並在 位址  文字方塊中指定 10.10.2.101 ，然後按一下確定 。
 9. 在 [叢集核心資源] 區段中，以滑鼠右鍵按一下 [名稱：Cluster1]，再按一下 [上線]。 等待兩個資源上線。 叢集名稱資源上線後，會以新的 Active Directory 電腦帳戶更新 DC 伺服器。 此 Active Directory 帳戶稍後將用來執行可用性群組叢集服務。
 10. 將剩餘的節點新增至叢集。 如下列螢幕擷取畫面所示，在瀏覽器樹狀目錄中以滑鼠右鍵按一下 [Cluster1.corp.contoso.com]，再按一下 [新增節點]。
     
@@ -304,28 +304,28 @@ SQL Server 虛擬機器現已佈建完成和執行，但每部虛擬機器都採
 3. 將 **NT AUTHORITY\System** 和必要權限新增至 SQL Server 登入。 開啟 **SQL Server Management Studio**。
 4. 按一下 [連接]  ，連接至預設 SQL Server 執行個體。
 5. 在 [物件總管] 中，依序展開 [安全性]、[登入]。
-6. 以滑鼠右鍵按一下 [NT AUTHORITY\System]  登入，然後按一下 [內容]。
-7. 在 [安全性實體]  頁面中，對本機伺服器，針對下列權限選取 [授與] ，然後按一下 [確定] 。
+6. 以滑鼠右鍵按一下 NT AUTHORITY\System  登入，然後按一下內容。
+7. 在 安全性實體  頁面中，對本機伺服器，針對下列權限選取 授與 ，然後按一下確定 。
    
    * 更改所有可用性群組
    * 連接 SQL
    * 檢視伺服器狀態
 8. 將 **CORP\Install** 新增為預設 SQL Server 執行個體的 **系統管理員** 角色 在 [物件總管]  中，以滑鼠右鍵按一下 [登入] ，再按一下 [新增登入] 。
 9. 在 [登入名稱] 中輸入 **CORP\Install**。
-10. 在 [伺服器角色] 頁面上，按一下 [sysadmin]，然後按一下 [確定]。  建立登入之後，展開 [物件總管]  中的 [登入]  便可看到該登入。
+10. 在 伺服器角色 頁面上，按一下 sysadmin，然後按一下確定。  建立登入之後，展開 [物件總管]  中的 [登入]  便可看到該登入。
 11. 若要建立 SQL Server 的防火牆規則，請在 [開始]  畫面上，開啟 [具有進階安全性的 Windows 防火牆] 。
 12. 在左側窗格中，選取 [內送規則] 。 在右窗格中，按一下 [新增規則] 。
 13. 在 [規則類型]  頁面上，按一下 [程式]  >  [下一步] 。
-14. 在 [程式]  頁面上，選取[此程式路徑] 、在文字方塊中輸入 **%ProgramFiles%\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Binn\sqlservr.exe**，然後按一下 [下一步] 。 如果正依照這些指示進行，但使用 SQL Server 2012，則 SQL Server 目錄是**MSSQL11.MSSQLSERVER**。
+14. 在 程式  頁面上，選取此程式路徑 、在文字方塊中輸入 **%ProgramFiles%\Microsoft SQL Server\MSSQL12.MSSQLSERVER\MSSQL\Binn\sqlservr.exe**，然後按一下下一步 。 如果正依照這些指示進行，但使用 SQL Server 2012，則 SQL Server 目錄是**MSSQL11.MSSQLSERVER**。
 15. 在 [動作] 頁面中，保持選取 [允許連接]，然後按 [下一步]。
-16. 在 [設定檔]  頁面上，接受預設設定，然後按一下 [下一步] 。
+16. 在 設定檔  頁面上，接受預設設定，然後按一下下一步 。
 17. 在 [名稱]  頁面上，指定規則名稱，例如在 [名稱]  文字方塊中指定 [SQL Server (程式規則)] ，然後按一下 [完成] 。
 18. 若要啟用 **Always On 可用性群組** 功能，請在 [開始]  畫面上，開啟 [SQL Server 組態管理員] 。
 19. 在瀏覽器樹狀目錄中按一下 [SQL Server 服務] ，然後以滑鼠右鍵按一下 [SQL Server (MSSQLSERVER)]  服務，再按一下 [內容] 。
 20. 如下列螢幕擷取畫面所示，按一下 [AlwaysOn 高可用性]  索引標籤，然後選取 [啟用 AlwaysOn 可用性群組]，再按一下 [套用] 。 按一下對話方塊中的 [確定] ，先不要關閉 [內容]  對話方塊。 變更服務帳戶之後，將重新啟動 SQL Server 服務。
     
      ![啟用 Always On 可用性群組](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665520.gif)
-21. 若要變更 SQL Server 服務帳戶，按一下 [登入]  索引標籤，在 [帳戶名稱]  中輸入 **CORP\SQLSvc1** (若為 **ContosoSQL1**)，或 **CORP\SQLSvc2** (若為 **ContosoSQL2**)，填入密碼並加以確認，然後按一下 [確定]。
+21. 若要變更 SQL Server 服務帳戶，按一下 登入  索引標籤，在 帳戶名稱  中輸入 **CORP\SQLSvc1** (若為 **ContosoSQL1**)，或 **CORP\SQLSvc2** (若為 **ContosoSQL2**)，填入密碼並加以確認，然後按一下確定。
 22. 在對話方塊中按一下 [是]  ，重新啟動 SQL Server 服務。 SQL Server 服務重新啟動之後，您在 [內容]  對話方塊中所進行的變更便會生效。
 23. 登出虛擬機器。
 
@@ -341,33 +341,33 @@ SQL Server 虛擬機器現已佈建完成和執行，但每部虛擬機器都採
 1. 如果您有您尚未將 **ContosoSQL1** 和 **ContosoSQL2** 登出遠端桌面工作階段，請現在登出。
 2. 開啟 **ContosoSQL1** 的 RDP 檔案，並以 **CORP\Install** 的身分登入。
 3. 在 [檔案總管]  中，於 **\\C:** 磁碟中，建立名為 **備份** 的目錄。 此目錄將用來備份和還原您的資料庫。
-4. 如下方所示，以滑鼠右鍵按一下新目錄，指向 [共用對象]，然後按一下 [特定人員]。
+4. 如下方所示，以滑鼠右鍵按一下新目錄，指向 共用對象，然後按一下特定人員。
    
     ![建立備份資料夾](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665521.gif)
 5. 新增 **CORP\SQLSvc1**，然後指定 **讀取/寫入** 權限。 如下列螢幕擷取畫面所示，新增 **CORP\SQLSvc2**，然後指定 **讀取** 權限，再按一下 [共用] 。 檔案共用程序完成後，按一下 [完成] 。
    
     ![將權限授與備份資料夾](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665522.gif)
-6. 若要建立資料庫，請透過 [開始]  功能表，開啟 **SQL Server Management Studio**，然後按一下 [連接] ，連接至預設的 SQL Server 執行個體。
-7. 在 [物件總管] 中，以滑鼠右鍵按一下 [資料庫] ，然後按一下 [新增資料庫] 。
-8. 在 [資料庫名稱]  中，輸入 **MyDB1**，然後按一下 [確定] 。
+6. 若要建立資料庫，請透過 開始  功能表，開啟 **SQL Server Management Studio**，然後按一下連接 ，連接至預設的 SQL Server 執行個體。
+7. 在 物件總管 中，以滑鼠右鍵按一下 資料庫 ，然後按一下新增資料庫 。
+8. 在 資料庫名稱  中，輸入 **MyDB1**，然後按一下確定 。
 
 ### <a name="make-a-full-backup-of-mydb1-and-restore-it-on-contososql2"></a>建立 MyDB1 的完整備份，然後將其還原至 ContosoSQL2
-1. 若要建立完整的資料庫備份，請在 [物件總管]  中，展開 [資料庫] ，以滑鼠右鍵按一下 [MyDB1] ，指向 [工作] ，然後按一下 [備份] 。
+1. 若要建立完整的資料庫備份，請在 物件總管  中，展開 資料庫 ，以滑鼠右鍵按一下 MyDB1 ，指向 工作 ，然後按一下備份 。
 2. 在 [來源] 區段中，讓 [備份類型] 的設定保持為 [完整]。 在 [目的地] 區段中按一下 [移除]，移除備份檔案的預設檔案路徑。
 3. 在 [目的地] 區段中，按一下 [新增]。
 4. 在 [檔案名稱]  文字方塊中，輸入 **\\ContosoSQL1\backup\MyDB1.bak**，按一下 [確定] ，然後再按一下 [確定]  來備份資料庫。 備份作業完成後，再次按一下 [確定]  ，關閉對話方塊。
-5. 若要建立資料庫的交易記錄備份，請在 [物件總管]  中，展開 [資料庫] ，以滑鼠右鍵按一下 [MyDB1] ，指向 [工作] ，然後按一下 [備份] 。
-6. 在 [備份類型]  中，選取 [交易記錄] 。 讓 [目的地]  的檔案路徑設定保持為您稍早指定的路徑，然後按一下 [確定] 。 備份作業完成後，再次按一下 [確定] 。
+5. 若要建立資料庫的交易記錄備份，請在 物件總管  中，展開 資料庫 ，以滑鼠右鍵按一下 MyDB1 ，指向 工作 ，然後按一下備份 。
+6. 在 [備份類型]  中，選取 [交易記錄] 。 讓 目的地  的檔案路徑設定保持為您稍早指定的路徑，然後按一下確定 。 備份作業完成後，再次按一下 [確定] 。
 7. 若要還原 **ContosoSQL2** 的完整和交易記錄備份，請開啟 **ContosoSQL2** 的RDP 檔案，並以 **CORP\Install** 的身分登入。 讓 **ContosoSQL1** 的遠端桌面工作階段保持開啟。
-8. 透過 [開始]  功能表，啟動 **SQL Server Management Studio**，然後按一下 [連接] ，連接至預設的 SQL Server 執行個體。
+8. 透過 開始  功能表，啟動 **SQL Server Management Studio**，然後按一下連接 ，連接至預設的 SQL Server 執行個體。
 9. 在 [物件總管]  中，以滑鼠右鍵按一下 [資料庫] ，再按一下 [還原資料庫] 。
 10. 在 [來源]  區段中，選取 [裝置] ，然後按一下 […]  省略符號 按鈕。
 11. 在 [選取備份裝置] 中按一下 [新增]。
 12. 在 [備份檔案位置]  中，輸入 **\\ContosoSQL1\backup**，按一下 [重新整理] **Refresh**，選取 **MyDB1.bak**，按一下 [確定] ，然後再按一次 [確定] **OK**。 在 [要還原的備份組]  窗格中，現在應會顯示完整備份和記錄備份。
-13. 移至 [選項]  頁面中，在 [復原狀態]  中選取 [使用 NORECOVERY 還原]，然後按一下 [確定] ，以還原資料庫。 還原作業完成後，按一下 [確定] 。
+13. 移至 選項  頁面中，在 復原狀態  中選取 使用 NORECOVERY 還原，然後按一下確定 ，以還原資料庫。 還原作業完成後，按一下 [確定] 。
 
 ### <a name="create-the-availability-group"></a>建立可用性群組
-1. 回到 **ContosoSQL1**的遠端桌面工作階段。 如下列螢幕擷取畫面所示，在 SQL Server Management Studio 的 [物件總管]  中，以滑鼠右鍵按一下 [AlwaysOn 高可用性] ，然後按一下 [新增可用性群組精靈] 。
+1. 回到 **ContosoSQL1**的遠端桌面工作階段。 如下列螢幕擷取畫面所示，在 SQL Server Management Studio 的 物件總管  中，以滑鼠右鍵按一下 AlwaysOn 高可用性 ，然後按一下新增可用性群組精靈 。
    
     ![啟動新增可用性群組精靈](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665523.gif)
 2. 在 [簡介]  頁面上，按一下 [下一步] 。 在 [指定可用性群組名稱]  頁面上，於 [可用性群組名稱]  中輸入 [AG1] ，然後再次按 [下一步] 。
@@ -379,7 +379,7 @@ SQL Server 虛擬機器現已佈建完成和執行，但每部虛擬機器都採
 4. 在 [指定複本]  頁面上，按一下 [新增複本] 。
    
     ![新增可用性群組精靈：選取複本](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665526.gif)
-5. 在 [連接到伺服器]  對話方塊至中，在 [伺服器名稱]  中輸入 **ContosoSQL2**，然後按一下 [連接] 。
+5. 在 連接到伺服器  對話方塊至中，在 伺服器名稱  中輸入 **ContosoSQL2**，然後按一下連接 。
    
     ![新增可用性群組精靈：連接到伺服器](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665527.gif)
 6. 回到 [指定複本]  頁面，現在 [可用複本]  中應會列出 **ContosoSQL2**。 如下列螢幕擷取畫面所示，設定複本。 完成後，請按 [下一步] 。
@@ -391,7 +391,7 @@ SQL Server 虛擬機器現已佈建完成和執行，但每部虛擬機器都採
 8. 在 [驗證]  頁面中按 [下一步] 。 此頁面應該會看起來如下列螢幕擷取畫面所示： 由於您尚未設定可用性群組接聽程式，所以出現了關於接聽程式組態的警告。 您可以忽略此警告，因為本教學課程不會示範設定接聽程式的步驟。 完成此教學課程之後，若要設定接聽程式，請參閱 [設定 Azure 中 AlwaysOn 可用性群組的 ILB 接聽程式](../classic/ps-sql-int-listener.md)。
    
     ![新增可用性群組精靈：驗證](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665530.gif)
-9. 在 [摘要]  頁面中，按一下 [完成] ，然後等候精靈設定新的「可用性群組」。 在 [進度]  頁面中，按一下 [詳細資料]  可檢視詳細的進度。 精靈完成後，如下列螢幕擷取畫面所示，檢查 [結果]  頁面，確認是否已成功建立可用性群組，然後按一下 [關閉]  以結束精靈。
+9. 在 [摘要]  頁面中，按一下 [完成] ，然後等候精靈設定新的「可用性群組」。 在 [進度]  頁面中，按一下 [詳細資料]  可檢視詳細的進度。 精靈完成後，如下列螢幕擷取畫面所示，檢查 結果  頁面，確認是否已成功建立可用性群組，然後按一下關閉  以結束精靈。
    
     ![新增可用性群組精靈：結果](./media/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups/IC665531.gif)
 10. 在 [物件總管]  中，展開 [AlwaysOn 高可用性] ，再展開 [可用性群組] 。 新的可用性群組應會顯示在此容器中。 以滑鼠右鍵按一下 [AG1 (主要)] ，再按一下 [顯示儀表板] 。

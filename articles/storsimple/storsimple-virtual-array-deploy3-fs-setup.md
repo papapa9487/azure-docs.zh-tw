@@ -16,10 +16,10 @@ ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bf507fb21b314a6811db1c1e45a4356381caada1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>部署 StorSimple Virtual Array - 透過 Azure 入口網站設定為檔案伺服器
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -97,7 +97,7 @@ ms.lasthandoff: 07/11/2017
     在 [時間設定]  頁面中：
     
     1. 根據裝置部署的地理位置，從下拉式清單中選取 [時區]  。 裝置的預設時區是太平洋標準時間。 裝置將針對所有排程的操作使用這個時區。
-    2. 指定裝置的 [主要 NTP 伺服器]  ，或是接受預設值 time.windows.com。 請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
+    2. 指定裝置的 [主要 NTP 伺服器]  ，或是接受預設值 time.windows.com。請確定您的網路允許 NTP 流量從您的資料中心通過網際網路。
     3. (選擇性) 指定裝置的 [次要 NTP 伺服器]  。
     4. 按一下 [Apply (套用)] 。 這將會驗證並套用您設定的時間設定。
 11. 設定裝置的雲端設定。 在此步驟中，您將會完成本機裝置設定，然後向您的 StorSimple 裝置管理員服務註冊裝置。

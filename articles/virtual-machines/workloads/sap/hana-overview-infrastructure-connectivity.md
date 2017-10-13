@@ -14,14 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/01/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 177627d8f72dbd04fb918ac7ece18321246a9c62
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure 上 SAP HANA (大型執行個體) 的基礎結構和連接 
 
 閱讀本指南之前請先了解某些預先定義。 我們在 [Azure 上 SAP HANA (大型執行個體) 的概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)中引進了兩種不同類別的 HANA 大型執行個體單位：
@@ -299,6 +297,5 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 若要移除額外的 SAP HANA on Azure (大型執行個體) ExpressRoute 線路，請向 SAP HANA on Azure 服務管理開啟 Azure 支援要求，然後要求務必刪除該線路。 您可以視需要在 Azure 訂用帳戶內刪除或保留 VNet。 不過，您必須將「HANA 大型執行個體」ExpressRoute 線路與所連結 VNet 閘道之間的連線刪除。
 
 如果您也想要移除 VNet，請依照上面＜刪除 VNet＞一節中的指導方針操作。
-
 
 

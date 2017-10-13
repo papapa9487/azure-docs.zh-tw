@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: 41db3ea23bc1e9895893201078b1ada3297418cb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 3267373f6db336c34d13709cc0392631531313f4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="key-vault-documentation"></a>金鑰保存庫文件
 
 了解如何使用 Azure 金鑰保存庫來保護及管理雲端應用程式和服務所使用的密碼編譯金鑰和密碼。 教學課程、API 參考和其他文件會示範如何建立及維護金鑰，以便存取和加密您的資源和解決方案。
@@ -175,5 +173,4 @@ ms.lasthandoff: 05/10/2017
 </ul>
 
 ---
-
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: b9b3bd0f2184ac85261166d5fe2ab67e1bf319d4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>將虛擬網路 (傳統) 從同質群組移轉至區域
 
@@ -62,4 +61,3 @@ ms.lasthandoff: 07/12/2017
 
 ## <a name="what-to-do-if-you-have-a-vm-classic-in-an-affinity-group"></a>如果您在同質群組中擁有 VM (傳統) 時該怎麼辦
 目前在同質群組中的 VM (傳統) 不需要從同質群組中移除。 一旦部署 VM，其會部署至單一的縮放單位。 同質群組可針對新的 VM 部署限制可用的 VM 大小集合，但任何已部署的現有 VM 部署，已在 VM 所部署的位置限制縮放單位中可用的 VM 大小集合。 由於已經將 VM 部署至縮放單位，因此，從同質群組中移除 VM 在該 VM 上並無任何作用。
-

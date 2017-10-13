@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 506b625905abf52963230a787af66f956bc292b5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署機器的複寫
 
@@ -59,7 +58,7 @@ ms.lasthandoff: 09/25/2017
 5. 針對儲存體備援選取預設的 **RA-GRS**。
 6. 選取您要在其中建立新儲存體帳戶的訂用帳戶。
 7. 指定新的資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在這些教學課程中，我們使用名稱 **ContosoRG**。
-8. 選取儲存體帳戶的地理位置。 儲存體帳戶必須位於與復原服務保存庫相同的區域中。 在這些教學課程中，我們使用位置 [西歐]。
+8. 選取儲存體帳戶的地理位置。 儲存體帳戶與復原服務保存庫必須位於相同的區域。 在這些教學課程中，我們使用位置 [西歐]。
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -101,4 +100,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [準備內部部署 VMware 基礎結構以進行 Azure 的災害復原](tutorial-prepare-on-premises-vmware.md)
-

@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/23/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: b1b8b1ebc013a5dfb69528f9353369e18f84e61f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="plan-network-mapping-for-hyper-v-vm-replication-with-site-recovery"></a>使用 Site Recovery 規劃 Hyper-V VM 複寫的網路對應
 
 
@@ -139,4 +136,3 @@ VMNetwork1-Chicago 的網路對應已變更。 | VM-1 現在會連線到對應�
 ## <a name="next-steps"></a>後續步驟
 
 深入了解[規劃網路基礎結構](site-recovery-network-design.md)。
-

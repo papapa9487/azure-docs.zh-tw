@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
 ms.openlocfilehash: 13190189074b24b2d28cd3ce46cf8571f3e1e1d1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>使用流量管理員設定地理流量路由方法
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/03/2017
 ## <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
 1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。
-2. 在 [中樞] 功能表中，按一下 [新增] > [網路] > [查看全部]，然後按一下 [流量管理員設定檔] 開啟 [建立流量管理員設定檔] 刀鋒視窗。
+2. 在 中樞 功能表中，按一下 新增 > 網路 > 查看全部，然後按一下流量管理員設定檔 開啟 建立流量管理員設定檔 刀鋒視窗。
 3. 在 [建立流量管理員設定檔] 刀鋒視窗上：
     1. 提供設定檔的名稱。 此名稱在 trafficmanager.net 區域內必須是唯一的，將會產生 DNS 名稱 <profilename>, trafficmanager.net，用以存取您的流量管理員設定檔。
     2. 選取 [地理] 路由方法。

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>透過 Operations Management Suite (OMS) 和 Log Analytics 監視邏輯應用程式執行並取得深入解析
 
 如需監視和更豐富的偵錯資訊，您可以在建立邏輯應用程式時，同時開啟 Log Analytics。 Log Analytics 會透過 Operations Management Suite (OMS) 入口網站，為邏輯應用程式執行提供診斷記錄和監視功能。 當您將 Logic Apps 管理解決方案新增至 OMS 時，您會取得邏輯應用程式執行的彙總狀態，以及狀態、執行時間、重新提交狀態和相互關聯識別碼等特定詳細資料。
@@ -76,19 +74,19 @@ ms.lasthandoff: 09/20/2017
 
    ![選擇 [方案庫]](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
-5. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] \(Logic Apps 管理) 解決方案的磚。
+5. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] (Logic Apps 管理) 解決方案的磚。
 
-   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![選擇 [Logic Apps Management] (Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
 6. 若要在您的 OMS 工作區中安裝解決方案，請選擇 [新增]。
 
-   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![針對 [Logic Apps Management] (Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
 ## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>在 OMS 工作區中檢視邏輯應用程式執行
 
-1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] \(Logic Apps 管理) 磚中的詳細資料。
+1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] (Logic Apps 管理) 磚中的詳細資料。
 
    ![顯示邏輯應用程式執行計數和狀態的概觀磚](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
@@ -140,4 +138,3 @@ ms.lasthandoff: 09/20/2017
 ## <a name="next-steps"></a>後續步驟
 
 * [監視 B2B 訊息](../logic-apps/logic-apps-monitor-b2b-message.md)
-

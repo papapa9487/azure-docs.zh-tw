@@ -14,10 +14,10 @@ ms.workload: big-compute
 ms.date: 11/14/2016
 ms.author: danlep
 ms.openlocfilehash: c5a06a9c810349b1bcce01c7f73563941a5af0ed
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-hpc-pack-cluster-in-azure-using-azure-active-directory"></a>使用 Azure Active Directory 管理 Azure 中的 HPC Pack 叢集
 [Microsoft HPC Pack 2016](https://technet.microsoft.com/library/cc514029) 支援與 [Azure Active Directory](../../active-directory/index.md) (Azure AD) 整合，以便系統管理員在 Azure 中部署 HPC Pack 叢集。
@@ -62,7 +62,7 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下左側功能表中的 **Active Directory**，然後按一下您訂用帳戶想要的目錄。 您必須具備存取目錄中資源的權限。
 3. 按一下 [使用者]，並確定已經建立或設定使用者帳戶。
-4. 按一下 [應用程式] > [新增]，然後按一下 [新增我的組織正在開發的應用程式]。 在精靈中輸入下列資訊︰
+4. 按一下 應用程式 > 新增，然後按一下新增我的組織正在開發的應用程式。 在精靈中輸入下列資訊︰
     * **名稱** - HPCPackClusterServer
     * **類型** - 選取 [Web 應用程式和/或 Web API]
     * **單入 URL**- 範例的基礎 URL，預設為 `https://hpcserver`
@@ -100,7 +100,7 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
     ],
     ```
 7. 儲存檔案。 然後在入口網站中，按一下 [管理資訊清單]  >  [上傳資訊清單]。 然後，您可以上傳編輯後的資訊清單。
-8. 按一下 [使用者]、選取使用者，然後按一下 [指派]。 將其中一個可用的角色 (HpcUsers 或 HpcAdminMirror) 指派給使用者。 對目錄中的其他使用者重複此步驟。 如需叢集使用者的背景資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx)。
+8. 按一下 使用者、選取使用者，然後按一下指派。 將其中一個可用的角色 (HpcUsers 或 HpcAdminMirror) 指派給使用者。 對目錄中的其他使用者重複此步驟。 如需叢集使用者的背景資訊，請參閱[管理叢集使用者](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx)。
 
    > [!NOTE] 
    > 若要管理使用者，我們建議使用 [Azure 入口網站](https://portal.azure.com)中的 Azure Active Directory 預覽刀鋒視窗。
@@ -111,7 +111,7 @@ HPC Pack 叢集與 Azure AD 的整合可協助您達成下列目標︰
 
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下左側功能表中的 **Active Directory**，然後按一下您訂用帳戶想要的目錄。 您必須具備存取目錄中資源的權限。
-3. 按一下 [應用程式] > [新增]，然後按一下 [新增我的組織正在開發的應用程式]。 在精靈中輸入下列資訊︰
+3. 按一下 應用程式 > 新增，然後按一下新增我的組織正在開發的應用程式。 在精靈中輸入下列資訊︰
 
     * **名稱** - HPCPackClusterClient
     * **類型** - 選取 [原生用戶端應用程式]

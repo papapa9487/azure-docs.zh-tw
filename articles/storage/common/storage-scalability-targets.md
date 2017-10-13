@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
+ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 47a1d2b87269d40716b3dae02276207060b41c24
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
 ## <a name="overview"></a>Overview
@@ -83,5 +82,4 @@ ms.lasthandoff: 08/21/2017
 * [Azure 儲存體複寫](../storage-redundancy.md)
 * [Microsoft Azure 儲存體效能與延展性檢查清單](../storage-performance-checklist.md)
 * [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-
 

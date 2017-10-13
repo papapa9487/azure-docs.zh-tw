@@ -9,14 +9,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d4ba2ca6f7adc8b51030c02d9e9eeb2b9995bb4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning---concepts"></a>Azure Machine Learning - 概念
 
 本文會定義並說明您必須知道才能使用 Azure Machine Learning 的概念。 
@@ -58,4 +56,3 @@ ms.lasthandoff: 09/25/2017
 - **映像：**您可以使用資訊清單來產生 (和重新產生) Docker 映像。 容器化的 Docker 映像可彈性地在雲端、本機機器或 IoT 裝置上執行。 映像各自獨立，並且會包含在模型中對新資料評分所需的所有相依性。 
 
 - **服務：**模型管理可讓您將模型部署為 Web 服務。 系統會將 Web 服務的邏輯和相依性封裝到映像內。 每個 Web 服務都是一組容器，這些容器會以已可向給定 URL 提供要求的映像為基礎。 系統會將 Web 服務計算為單一部署。
-

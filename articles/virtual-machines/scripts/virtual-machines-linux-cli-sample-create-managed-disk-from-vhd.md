@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: ede9457f5843d0a8a04503779970a553c5ed4f96
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli"></a>使用 CLI 從相同訂用帳戶的儲存體帳戶的 VHD 檔案建立受管理的磁碟
 
 此指令碼會從相同訂用帳戶的儲存體帳戶的 VHD 檔案建立受管理的磁碟。 請使用此指令碼將特殊化 (未一般化/執行 sysprep) 的 VHD 匯入受控的作業系統磁碟，以建立虛擬機器。 或者，用它將資料 VHD 匯入到受控資料磁碟。 
@@ -53,4 +51,3 @@ ms.lasthandoff: 09/20/2017
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure Linux VM 文件](../../app-service/app-service-cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)中找到其他的虛擬機器和受控磁碟 CLI 指令碼範例。
-

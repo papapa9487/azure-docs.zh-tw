@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/13/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 0c0b9875b4153edcc0ec0096577d041d394a842f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>在 Azure 中的 Linux 運算節點以 Microsoft HPC Pack 執行 NAMD
 本文將說明在 Azure 虛擬機器上執行 Linux 高效能運算 (HPC) 工作負載的方法。 在這裡，您會在 Azure 上使用多個 Linux 計算節點設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) 叢集以及執行 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 模擬，以計算和視覺化大型生物分子系統的結構。  
@@ -230,7 +229,7 @@ host CENTOS66LN-03 ++cpus 2
 5. 在 [工作詳細資料] 頁面的 [工作資源] 底下，選取 [節點] 做為資源類型，並且將 [最小值] 設為 3。 ，我們在三個 Linux 節點上執行工作，且每個節點都有四個核心。
    
    ![工作資源][job_resources]
-6. 按一下左導覽窗格中的 [編輯工作]，然後按一下 [加入] 來將工作加入到作業中。    
+6. 按一下左導覽窗格中的 編輯工作，然後按一下加入 來將工作加入到作業中。    
 7. 在 [工作詳細資料和 I/O 重新導向] 頁面上，設定下列值：
    
    * **命令列** -
@@ -249,7 +248,7 @@ host CENTOS66LN-03 ++cpus 2
      > 您在這裡設定工作目錄，因為 **charmrun** 嘗試瀏覽至每個節點上相同的工作目錄。 如果未設定工作目錄，HPC Pack 會在其中一個 Linux 節點上建立的隨機命名資料夾中啟動命令。 這會在其他節點上導致下列錯誤：`/bin/bash: line 37: cd: /tmp/nodemanager_task_94_0.mFlQSN: No such file or directory.` 若要避免這個問題，指定所有節點可存取為工作目錄的資料夾路徑。
      > 
      > 
-8. 按一下 [確定]，然後按一下 [提交] 以執行此作業。
+8. 按一下 確定，然後按一下提交 以執行此作業。
    
    根據預設，HPC Pack 會以您目前登入的使用者帳戶提交工作。 對話方塊可能會在您按一下 [提交] 之後提示您輸入使用者名稱和密碼。
    
@@ -397,4 +396,3 @@ exit ${RTNSTS}
 [creds]:media/hpcpack-cluster-namd/creds.png
 [task_details]:media/hpcpack-cluster-namd/task_details.png
 [vmd_view]:media/hpcpack-cluster-namd/vmd_view.png
-

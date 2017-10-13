@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b753bfb4bd69bd9aacf4eebd8999397394c28bc4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>建立 Azure Marketplace 解決方案範本的指南
 完成步驟 1 [帳戶建立和註冊][link-acct-creation]之後，我們引導您依照[建立解決方案範本的技術性必要條件](marketplace-publishing-solution-template-creation-prerequisites.md)建立與 Azure 相容的解決方案範本。 現在，我們將逐步引導您在 Azure Marketplace 的[發佈入口網站][link-pubportal]上建立一個多 VM 的解決方案範本。
@@ -68,4 +67,3 @@ ms.lasthandoff: 08/21/2017
 [img-pubportal-sol-templ-new]:media/marketplace-publishing-solution-template-creation/pubportal-solution-template-new.png
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-pubportal]:https://publish.windowsazure.com
-

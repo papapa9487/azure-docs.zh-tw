@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: nisoneji
 ms.openlocfilehash: 134e17ebda3105be2b53d072fdef7aeda4a98bde
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-capacity-for-protecting-virtual-machines-and-physical-servers-in-azure-site-recovery"></a>針對 Azure Site Recovery 中的虛擬機器和實體伺服器保護規劃容量
 
@@ -86,7 +86,7 @@ Azure Site Recovery Capacity Planner 工具可協助您釐清使用 Azure Site R
    * 在 [連接的磁碟數] 中，指定來源伺服器的磁碟總數。
    * 在 [磁碟容量使用率] 中，指定平均使用率。
    * 在 [每日變更率 (%)] 中，指定來源伺服器的每日資料變更率。
-   * 在 [對應 Azure 大小] 中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動進行，請按一下 [計算 IaaS VM]。如果您輸入手動設定，然後按一下 [計算 IaaS VM]，手動設定可能會遭到覆寫，因為計算程序會自動識別最符合的 Azure VM 大小。
+   * 在 [對應 Azure 大小] 中，輸入您想要對應的 Azure VM 大小。 如果您不想要手動進行，請按一下 計算 IaaS VM。如果您輸入手動設定，然後按一下計算 IaaS VM，手動設定可能會遭到覆寫，因為計算程序會自動識別最符合的 Azure VM 大小。
 
    ![工作負載限定性條件](./media/site-recovery-capacity-planner/workload-qualification.png)
 4. 如果您按一下 [計算 IaaS VM]  ，它會執行動作如下：

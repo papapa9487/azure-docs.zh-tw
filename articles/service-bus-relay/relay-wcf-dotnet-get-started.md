@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/23/2017
 ms.author: sethm
 ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何使用 Azure 轉送 WCF 轉送搭配 .NET
 本文說明如何使用 Azure 轉送服務。 這些範例均以 C# 撰寫，並使用 Windows Communication Foundation (WCF) API 以及包含在服務匯流排組件中的擴充功能。 如需 Azure 轉送的詳細資訊，請參閱 [Azure 轉送概觀](relay-what-is-it.md)。

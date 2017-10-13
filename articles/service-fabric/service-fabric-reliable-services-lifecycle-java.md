@@ -13,14 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 80eb68346dd05c256c60725eb082aa0651fe7cbd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命週期概觀
 > [!div class="op_single_selector"]
 > * [Windows 上的 C# ](service-fabric-reliable-services-lifecycle.md)
@@ -80,4 +78,3 @@ ms.lasthandoff: 08/19/2017
 * [Reliable Services 簡介](service-fabric-reliable-services-introduction.md)
 * [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
 * [Reliable Services 的進階用法](service-fabric-reliable-services-advanced-usage.md)
-

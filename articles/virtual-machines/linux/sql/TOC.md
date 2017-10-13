@@ -1,6 +1,7 @@
 # 概觀
 ## [Linux SQL Server VM](sql-server-linux-virtual-machines-overview.md)
 ## [價格](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)
+## [常見問題集](sql-server-linux-faq.md)
 
 # 開始使用
 ## [在 Azure 入口網站中佈建 VM](provision-sql-server-linux-virtual-machine.md)

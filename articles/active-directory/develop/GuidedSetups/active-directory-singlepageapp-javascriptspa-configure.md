@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: adff529bfdc40006666cc643d49a302d7f1d09ad
-ms.contentlocale: zh-tw
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -69,4 +69,3 @@ var msalconfig = {
 用您剛剛註冊的應用程式識別碼取代 <code>Enter_the_Application_Id_here</code>
 </li>
 </ol>
-

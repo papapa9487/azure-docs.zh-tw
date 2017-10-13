@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 415ceba02eb3c8da3de5ab3aa6980fbe5bae2db9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-exports-for-this-preview"></a>適用於此預覽的支援資料匯出 
 您可匯出成幾個不同的格式。 可以先使用這些格式來保留資料準備的中繼結果，然後再整合至其餘 Machine Learning 工作流程。
 
@@ -57,6 +55,5 @@ Parquet 格式相對比較年輕，並且在不同程式庫之間存在一些不
 本機硬碟或對應的網路儲存位置
 
 ### <a name="azure-blob"></a>Azure BLOB 
-Azure 儲存體 (BLOB) 需要 Azure 訂用帳戶
-
+Azure 儲存體 (BLOB)，需要 Azure 訂用帳戶
 

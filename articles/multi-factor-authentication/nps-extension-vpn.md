@@ -16,14 +16,12 @@ ms.date: 08/15/2017
 ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: b47e9b321b2fd0d0db9762003531b0fe9f045f07
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-your-vpn-infrastructure-with-azure-multi-factor-authentication-mfa-using-the-network-policy-server-nps-extension-for-azure"></a>使用 Azure 的網路原則伺服器 (NPS) 擴充功能來整合您的 VPN 基礎結構與 Azure Multi-Factor Authentication (MFA)
 
 ## <a name="overview"></a>概觀
@@ -129,8 +127,8 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 若要讓 NPS 伺服器在本案例中正常運作，您必須在 Active Directory 中加以註冊。
 
 1. 開啟 [伺服器管理員]。
-2. 在 [伺服器管理員] 中按一下 [工具]，然後按一下 [網路原則伺服器]。 
-3. 在 [網路原則伺服器] 主控台中，以滑鼠右鍵按一下 [NPS (本機)]，然後按一下 [在 Active Directory 中註冊伺服器]。 按 [確定] 兩次。
+2. 在 伺服器管理員 中按一下 工具，然後按一下網路原則伺服器。 
+3. 在 網路原則伺服器 主控台中，以滑鼠右鍵按一下 NPS (本機)，然後按一下在 Active Directory 中註冊伺服器。 按 [確定] 兩次。
 
  ![網路原則伺服器](./media/nps-extension-vpn/image2.png)
 
@@ -140,7 +138,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 您可以使用標準 (精靈式) 或進階的設定選項來設定 RADIUS 伺服器。 本節假設您使用精靈式的標準設定選項。
 
 1. 在 [網路原則伺服器] 主控台中，按一下 [NPS (本機)]。
-2. 選取 [標準設定] 底下的 [撥號或 VPN 連線的 RADIUS 伺服器]，然後按一下 [設定 VPN 或撥號]。
+2. 選取 標準設定 底下的 撥號或 VPN 連線的 RADIUS 伺服器，然後按一下設定 VPN 或撥號。
 
  ![設定 VPN](./media/nps-extension-vpn/image3.png)
 
@@ -204,7 +202,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 ### <a name="configure-authentication-provider"></a>設定驗證提供者
 1. 在 VPN 伺服器上，開啟 [伺服器管理員]。
 2. 在 [伺服器管理員] 中按一下 [工具]，然後按一下 [路由及遠端存取]。
-3. 在 [路由及遠端存取] 主控台中，以滑鼠右鍵按一下 [\[伺服器名稱\] (本機)]，然後按一下 [屬性]。
+3. 在 [路由及遠端存取] 主控台中，以滑鼠右鍵按一下 [\[伺服器名稱\] (本機)]，然後按一下屬性。
 
  ![路由及遠端存取](./media/nps-extension-vpn/image14.png)
  
@@ -286,11 +284,11 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
 
  ![管理 MFA 設定](./media/nps-extension-vpn/image25.png)
  
-7. 在 [多重要素驗證] 頁面上檢閱預設的服務設定，然後按一下 [使用者]。 
+7. 在 多重要素驗證 頁面上檢閱預設的服務設定，然後按一下使用者。 
 
  ![MFA 使用者](./media/nps-extension-vpn/image26.png)
  
-8. 在 [使用者] 頁面上選取您想要啟用 MFA 的使用者，然後按一下 [啟用]。
+8. 在 使用者 頁面上選取您想要啟用 MFA 的使用者，然後按一下啟用。
 
  ![屬性](./media/nps-extension-vpn/image27.png)
  
@@ -329,7 +327,7 @@ NPS 擴充功能需要安裝了 NPS 角色服務的 Windows Server 2008 R2 SP1 �
  ![行動裝置應用程式驗證](./media/nps-extension-vpn/image31.png)
  
 6. 如果您尚未在裝置上安裝 Authenticator 行動裝置應用程式，請予以安裝。 
-7. 按照行動裝置應用程式中的指示來掃描顯示的條碼或手動輸入資訊，然後按一下 [完成]。
+7. 按照行動裝置應用程式中的指示來掃描顯示的條碼或手動輸入資訊，然後按一下完成。
 
  ![設定行動裝置應用程式](./media/nps-extension-vpn/image32.png)
 
@@ -476,5 +474,4 @@ NPS 擴充功能必須安裝於已安裝「網路原則與存取服務 (NPS)」�
 [使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server-rdg.md)
 
 [整合您的內部部署目錄與 Azure Active Directory](../active-directory/connect/active-directory-aadconnect.md)
-
 

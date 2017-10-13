@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 8cd3698d4281b933881c45dfa5e7868bd7b0bdaf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 192c4b5b89feca2a2e39c5e0670d05cc8868eb03
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-java"></a>使用 Java 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
@@ -88,7 +86,7 @@ Azure 檔案服務中的所有檔案和目錄都位於名為 [共用] 的容器�
 CloudFileClient fileClient = storageAccount.createCloudFileClient();
 ```
 
-使用 Azure 檔案服務用戶端，您可以取得共用的參考。
+使用 Azure 檔案服務用戶端時，您即可取得共用的參考。
 
 ```java
 // Get a reference to the file share
@@ -129,7 +127,7 @@ try
 ```
 
 ## <a name="create-a-directory"></a>建立目錄
-您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
+您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
 
 ```java
 //Get a reference to the root directory for the share.

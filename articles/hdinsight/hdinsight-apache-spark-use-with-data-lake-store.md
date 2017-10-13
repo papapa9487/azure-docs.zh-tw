@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: beafd2c65b0506844ff9ea152037ed6f2866e650
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>使用 HDInsight Spark 叢集來分析 Data Lake Store 中的資料
 
 在本教學課程中，您可使用 HDInsight Spark 叢集提供的 Jupyter Notebook 來執行可從 Data Lake Store 帳戶讀取資料的作業。
@@ -45,7 +43,7 @@ ms.lasthandoff: 08/29/2017
 
 1. 開啟命令提示字元，並瀏覽至安裝 AdlCopy 的目錄，通常是 `%HOMEPATH%\Documents\adlcopy`。
 
-2. 執行下列命令，將特定的 Blob 從來源容器複製到 Data Lake Store：
+2. 執行下列命令，將特定的 Blob 從來源容器複製到資料湖存放區：
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
@@ -79,7 +77,7 @@ ms.lasthandoff: 08/29/2017
    >
    >
 
-3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立新的 Notebook。 按一下 新增，然後按一下PySpark。
 
     ![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-use-with-data-lake-store/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
 
@@ -143,4 +141,3 @@ ms.lasthandoff: 08/29/2017
 * [建立獨立 Scala 應用程式以在 Apache Spark 叢集上執行](hdinsight-apache-spark-create-standalone-application.md)
 * [使用適用於 IntelliJ 的 Azure 工具組中的 HDInsight 工具建立 HDInsight Spark Linux 叢集的 Spark 應用程式](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [使用適用於 Eclipse 的 Azure 工具組中的 HDInsight 工具建立 HDInsight Spark Linux 叢集的 Spark 應用程式](hdinsight-apache-spark-eclipse-tool-plugin.md)
-

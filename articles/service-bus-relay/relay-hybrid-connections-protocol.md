@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6b76403ba5fc4d00a625057549c85db59a473898
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 9d015678dbd99b8d978c2c8200b36bf51cac8893
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # Azure 轉送混合式連線通訊協定
 Azure 轉送是 Azure 服務匯流排平台的重要功能支柱。 轉送的新「混合式連線」功能是以 HTTP 和 Websocket 為基礎的安全、開放式通訊協定演化。 它會取代其前身，也就是建置在專屬通訊協定基礎上、名為「BizTalk 服務」的功能。 整合到 Azure 應用程式服務的混合式連線會繼續如往常般運作。
@@ -268,5 +267,4 @@ wss://{namespace-address}/$hc/hyco/suffix?param=value&sb-hc-action=...[&sb-hc-id
 * [建立命名空間](relay-create-namespace-portal.md)
 * [開始使用 .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [開始使用 Node](relay-hybrid-connections-node-get-started.md)
-
 

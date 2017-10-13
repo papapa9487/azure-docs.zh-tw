@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: sdanie
 ms.openlocfilehash: 0274e58eb2e83202d4dbc58da0c67d0fdde22ede
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>如何設定 Azure Redis 快取
 本主題描述如何檢視並更新您的 Azure Redis 快取執行個體的組態，並涵蓋 Azure Redis 快取執行個體的預設 Redis 伺服器組態。
@@ -124,7 +124,7 @@ ms.lasthandoff: 08/29/2017
 * [Keyspace 通知 (進階設定)](#keyspace-notifications-advanced-settings)
 
 #### <a name="access-ports"></a>存取連接埠
-根據預設，新的快取會停用非 SSL 存取。 若要啟用非 SSL 連接埠，請針對 [進階設定] 刀鋒視窗上的 [只允許透過 SSL 存取]，按一下 [否]，然後按一下 [儲存]。
+根據預設，新的快取會停用非 SSL 存取。 若要啟用非 SSL 連接埠，請針對 進階設定 刀鋒視窗上的 只允許透過 SSL 存取，按一下 否，然後按一下儲存。
 
 ![Redis 快取存取連接埠](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -325,7 +325,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 ![重新啟動](./media/cache-configure/redis-cache-reboot-cluster.png)
 
-若要重新啟動快取的一或多個節點，選取所需的節點，然後按一下 [重新啟動] 。 如果您的進階快取已啟用叢集，選取要重新啟動的分區，然後按一下 [重新啟動] 。 稍候幾分鐘之後，選取的節點會重新啟動，並在幾分鐘之後重新上線。
+若要重新啟動快取的一或多個節點，選取所需的節點，然後按一下 [重新啟動] 。 如果您的進階快取已啟用叢集，選取要重新啟動的分區，然後按一下重新啟動 。 稍候幾分鐘之後，選取的節點會重新啟動，並在幾分鐘之後重新上線。
 
 > [!IMPORTANT]
 > 重新啟動現在適用於所有定價層。 如需詳細資訊和指示，請參閱 [Azure Redis Cache administration - Reboot (Azure Redis 快取管理 - 重新啟動)](cache-administration.md#reboot)。

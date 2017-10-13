@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c4f7c829e6fe3890342bd973185e679dd3ea2df5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在裝載於 Azure 上的網站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -66,7 +65,7 @@ ms.lasthandoff: 09/20/2017
 2. 從下拉式清單中選取語言，然後頁面會重新導向至對應的下載中心頁面。
 3. 按 [下載]  即可開始下載 ReportViewerLP.exe。
 4. 下載 ReportViewerLP.exe 之後，按一下 [執行] 以立即安裝，或按一下 [儲存]，將其儲存至電腦中。 如果您按一下 [儲存] ，請記住儲存檔案的目的地資料夾名稱。
-5. 尋找您儲存檔案的目的地資料夾。 在 ReportViewerLP.exe 上按一下滑鼠右鍵，按一下 [以系統管理員身分執行]，然後按一下 [是]。
+5. 尋找您儲存檔案的目的地資料夾。 在 ReportViewerLP.exe 上按一下滑鼠右鍵，按一下 以系統管理員身分執行，然後按一下是。
 6. 執行 ReportViewerLP.exe 之後，您會看到 c:\windows\assembly 中有資源檔案 **Microsoft.ReportViewer.Webforms.Resources** 和 **Microsoft.ReportViewer.Common.Resources**。
 
 ### <a name="to-configure-for-localized-reportviewer-control"></a>設定當地語系化的 ReportViewer 控制項
@@ -93,5 +92,4 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 [Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 
 [使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM](../classic/ps-sql-report.md)
-
 

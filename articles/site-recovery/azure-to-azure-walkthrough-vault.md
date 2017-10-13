@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>步驟 4：針對 Azure 到 Azure 的複寫設定保存庫
 
 [規劃網路](azure-to-azure-walkthrough-network.md)之後，使用本文章來設定保存庫，讓 Azure 虛擬機器 (VM) 使用 Azure 入口網站中的 [Azure Site Recovery](site-recovery-overview.md) 服務複寫到另一個 Azure 區域。
@@ -50,4 +48,3 @@ ms.lasthandoff: 08/02/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 5：啟用複寫](azure-to-azure-walkthrough-enable-replication.md)
-

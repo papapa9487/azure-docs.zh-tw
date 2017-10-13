@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
 ms.openlocfilehash: 63babd94fdab15217cfb0757e4cd6efe458a628d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集上執行 Excel 和 SOA 工作負載
 此文章說明如何在 Azure 虛擬機器上使用 Azure 快速入門範本或 Azure PowerShell 部署指令碼 (選擇性) 部署 Microsoft HPC Pack 2012 R2 叢集。 此叢集使用 Azure Marketplace VM 映像，其設計目的為使用 HPC Pack 執行 Microsoft Excel 或服務導向架構 (SOA) 工作負載。 您可以從內部部署用戶端電腦使用叢集來執行 Excel HPC 和 SOA 服務。 Excel HPC 服務包括 Excel 活頁簿卸載和 Excel 使用者定義函數或 UDF。
@@ -263,7 +263,7 @@ HPC Pack 部署指令碼會執行一段時間。 指令碼會匯出和下載叢�
 
 成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。 關於自訂的 Excel UDF，請參閱這些 [資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 以建置 XLL 並將其部署在 IaaS 叢集上。
 
-1. 開啟新的 Excel 活頁簿。 在 [開發] 功能區上，按一下 [增益集]。 然後在對話方塊中按一下 [瀏覽]、瀏覽至 %CCP_HOME%Bin\XLL32 資料夾並選取範例 ClusterUDF32.xll。 如果 ClusterUDF32 不存在於用戶端電腦上，您可以從前端節點上的 %CCP_HOME%Bin\XLL32 資料夾複製它。
+1. 開啟新的 Excel 活頁簿。 在 [開發] 功能區上，按一下 [增益集]。然後在對話方塊中按一下 [瀏覽]、瀏覽至 %CCP_HOME%Bin\XLL32 資料夾並選取範例 ClusterUDF32.xll。 如果 ClusterUDF32 不存在於用戶端電腦上，您可以從前端節點上的 %CCP_HOME%Bin\XLL32 資料夾複製它。
    
    ![選取 UDF][udf]
 2. 按一下 [檔案] > [選項] > [進階]。 在 [公式] 下，核取 [允許使用者定義的 XLL 函數執行計算叢集]。 然後按一下 [選項] 並在 [叢集前端節點名稱] 中輸入完整叢集名稱。 (如先前所述，這個輸入方塊限制為 34 個字元，因此較長的叢集名稱可能不適合。 您在這裡可以對完整叢集名稱使用電腦全域變數。)

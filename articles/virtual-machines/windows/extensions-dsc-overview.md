@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure 期望狀態組態擴充功能處理常式簡介
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -157,5 +156,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[版本號碼]
 若要尋找您可以使用 PowerShell DSC 來管理的其他功能，請 [瀏覽 PowerShell 資源庫](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0) 以取得更多 DSC 資源。
 
 如需有關將敏感性參數傳遞到組態中的詳細資訊，請參閱 [使用 DSC 擴充功能處理常式安全地管理認證](extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-
 

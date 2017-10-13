@@ -16,10 +16,10 @@ ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
 ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>SQL 資料倉儲備份
 SQL 資料倉儲備份提供本機和異地備份做為其資料倉儲備份功能的一部份。 這些包括 Azure 儲存體 Blob 快照集和異地備援儲存體。 使用資料倉儲備份來將您的資料倉儲還原至主要區域中的某一個還原點，或還原至不同的地理區域。 本文說明 SQL 資料倉儲中備份的詳細資訊。

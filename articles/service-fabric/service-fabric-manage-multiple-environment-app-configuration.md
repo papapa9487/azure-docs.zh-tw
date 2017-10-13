@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: mikkelhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: eaf1daf8d9f973fe82ba9e82c60a2a82f2681786
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 671cc9b0f7b7b37fcf5b052f7e34bc98e66b2838
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-application-parameters-for-multiple-environments"></a>管理多個環境的應用程式參數
 您可以使用任意數量的電腦 (從一至數千部) 來建立 Service Fabric 叢集。 雖然不需針對各種環境進行修改，即可執行應用程式二進位檔，但您通常會視您要部署的機器數目，以不同的方式設定應用程式。
@@ -227,4 +226,3 @@ Service Fabric 應用程式專案可以包含一或多個應用程式參數檔�
 
 [publishdialog]: ./media/service-fabric-manage-multiple-environment-app-configuration/publish-dialog-choose-app-config.png
 [app-parameters-solution-explorer]:./media/service-fabric-manage-multiple-environment-app-configuration/app-parameters-in-solution-explorer.png
-

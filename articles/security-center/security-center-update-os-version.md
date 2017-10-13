@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
 ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure 資訊安全中心的更新作業系統版本
 對於雲端服務中的虛擬機器 (VM)，如果有更新的版本可用，則 Azure 資訊安全中心會建議更新作業系統 (OS)。  只監視生產位置中執行的雲端服務 Web 角色和背景工作角色。

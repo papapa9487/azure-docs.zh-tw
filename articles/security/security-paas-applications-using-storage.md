@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: TomShinder
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>使用 Azure 儲存體來保護 PaaS Web 與行動應用程式
 在本文中，我們將說明用來保護 PaaS Web 與行動應用程式的 Azure 儲存體安全性最佳做法。 這些最佳做法衍生自我們的 Azure 經驗和客戶 (例如您自己) 的經驗。
@@ -111,4 +110,3 @@ Azure 磁碟加密是協助您加密 Windows 和 Linux IaaS 虛擬機器磁碟�
 - [保護 PaaS 部署](security-paas-deployments.md)
 - [使用 Azure App Service 來保護 PaaS Web 與行動應用程式](security-paas-applications-using-app-services.md)
 - [保護 Azure 中的 PaaS 資料庫](security-paas-applications-using-sql.md)
-

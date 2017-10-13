@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>為 Hyper-V VM 設定災害復原至次要內部部署網站
 
@@ -138,7 +137,7 @@ ms.lasthandoff: 09/25/2017
     - 如果您確實選取 [Kerberos]，Kerberos 票證將會用於主機伺服器的相互驗證。 Kerberos 只適用於在 Windows Server 2012 R2 或更新版本上執行的 Hyper-V 主機伺服器。
 1. 在 [複製頻率] 中，指定您要在初始複寫後複寫差異資料的頻率 (每隔 30 秒、5 或 15 分鐘)。
 2. 在 [復原點保留] 中，針對每個復原點指定保留期的長度 (以小時為單位)。 複寫的機器可以復原到週期內的任意點。
-3. 在 [應用程式一致快照頻率] 中，指定建立包含應用程式一致快照之復原點的頻率 (1-12 小時)。 Hyper-V 使用兩種類型的快照集：
+3. 在 [應用程式一致快照頻率] 中，指定建立包含應用程式一致快照之復原點的頻率 (1-12 小時)。 Hyper-V 使用兩種快照集：
     - **標準快照集**：提供整個虛擬機器的累加快照集。
     - **應用程式一致快照集**：建立 VM 內應用程式資料的時間點快照集。 磁碟區陰影複製服務(VSS) 可確保在建立快照集時，應用程式處於一致狀態。 啟用應用程式一致快照集，會影響來源 VM 上的應用程式效能。 設定一個值，此值小於您設定的其他復原點數目。
 4. 在 [資料傳輸壓縮] 中，指定是否應該壓縮已傳輸的複寫資料。
@@ -163,4 +162,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>後續步驟
 
 [執行災害復原演練](tutorial-dr-drill-secondary.md)
-

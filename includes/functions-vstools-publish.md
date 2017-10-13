@@ -1,4 +1,4 @@
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。 選擇 [新建]，然後按一下 [發佈]。 
+1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。 選擇 新建，然後按一下發佈。 
 
     ![發佈新建的函式應用程式](./media/functions-vstools-publish/functions-vstools-publish-new-function-app.png)
 

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 05/30/2017
 ms.author: sdanie
 ms.openlocfilehash: 0fbfb945c66926794721f2ce8cc183dac51ecb27
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-redis-cache"></a>從受管理的快取服務移轉至 Azure Redis 快取
 若想將使用 Azure 受管理的快取服務的應用程式移轉至 Azure Redis 快取，您幾乎不需要變更應用程式就可達成，詳細情形取決於快取應用程式所使用的受管理的快取服務功能。 API 雖非完全相同，但卻極為類似，而且您現有使用受管理的快取服務來存取快取的程式碼，大多只需要略做變更即可重複使用。 本主題說明如何對設定和應用程式進行必要的變更，以將受管理的快取服務應用程式移轉為使用 Azure Redis 快取，並說明如何使用 Azure Redis 快取的某些功能，來實作受管理的快取服務快取的功能。
@@ -79,7 +79,7 @@ Microsoft Azure Redis 快取有下列階層：
 ### <a name="remove-the-managed-cache-service-configuration"></a>移除受管理的快取服務設定
 要將用戶端應用程式設定為使用 Azure Redis 快取，必須先解除安裝受管理的快取服務 NuGet 封裝，以便移除現有受管理的快取服務的設定和組件參考。
 
-若要解除安裝受管理的快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 [Windows Azure 快取 (Windows Azure Cache)] \(或 [Windows Azure 快取 (Windows Azure Caching)]，視 NuGet 封裝的版本而定)，按一下 [解除安裝]，然後按一下 [關閉]。
+若要解除安裝受管理的快取服務 NuGet 封裝，請在 [方案總管] 中的用戶端專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 封裝]。 選取 [已安裝的封裝] 節點，然後在 [搜尋已安裝的封裝] 方塊中輸入 **WindowsAzure.Caching**。 選取 Windows Azure 快取 (Windows Azure Cache) \(或 Windows Azure 快取 (Windows Azure Caching)，視 NuGet 封裝的版本而定)，按一下 解除安裝，然後按一下關閉。
 
 ![解除安裝 Azure 受管理的快取服務 NuGet 套件](./media/cache-migrate-to-redis/IC757666.jpg)
 

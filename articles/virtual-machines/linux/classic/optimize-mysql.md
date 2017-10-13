@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
 ms.openlocfilehash: 8f2ec884fa98e989448ac11675e71f39aa21fa7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>在 Azure Linux 上最佳化 MySQL 效能
 有許多因素會影響 Azure 上的 MySQL 效能，均與虛擬硬體選取和軟體設定有關。 本文著重於透過儲存體、系統和資料庫設定最佳化效能。
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/11/2017
 
 <!--![Virtual machines][1]-->
 
-按一下 [磁碟]，然後按一下 [連結新項目]。
+按一下 磁碟，然後按一下連結新項目。
 
 ![虛擬機器新增磁碟](media/optimize-mysql/virtual-machines-linux-optimize-mysql-perf-Disks-option.png)
 

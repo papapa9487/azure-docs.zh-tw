@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>什麼是 Azure 診斷
 Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援的有 Azure 雲端服務 Web 和背景工作角色、執行 Microsoft Windows 的 Azure 虛擬機器，以及 Service Fabric。 其他 Azure 服務都有自己個別的診斷。
@@ -79,4 +78,3 @@ Azure 診斷擴充可以將這項資料傳送到 Azure 儲存體帳戶，或傳�
 * 了解如何[在 Azure 診斷中使用效能計數器](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md)。
 * 了解如何[將 Azure 診斷資訊路由到 Application Insights](azure-diagnostics-configure-application-insights.md)
 * 如果您在開始診斷，或是在 Azure 儲存體資料表中尋找資料時遇到問題，請參閱[針對 Azure 診斷進行疑難排解](azure-diagnostics-troubleshooting.md)
-

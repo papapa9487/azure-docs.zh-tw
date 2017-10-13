@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>設定具名的驗證認證
 若要將應用程式從 Visual Studio 發佈至 Azure，或若要監視現有的雲端服務，您必須提供 Visual Studio 可用來向 Azure 驗證要求的認證。 您可以從 Visual Studio 中的幾個位置登入並提供這些認證。 例如，從 [伺服器總管] 中，您可以開啟 [Azure] 節點的捷徑功能表，並選取 [連線至 Microsoft Azure 訂用帳戶]。 登入時，您可以在 Visual Studio 中取得與 Azure 帳戶相關聯的訂用帳戶資訊。 而且接下來您無需執行任何動作。

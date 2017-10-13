@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: ebf54f5a203adb7f0e5b0c47dcc07595e269e218
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="set-up-your-project"></a>設定專案
 
 本節說明使用 OpenID Connect 在 ASP.NET 專案中，透過 OWIN 中介軟體安裝及設定驗證管線的步驟。 
@@ -151,5 +149,4 @@ public class Startup
 
 > 您在 *OpenIDConnectAuthenticationOptions* 中提供的參數會作為供應用程式與 Azure AD 進行通訊的座標。 因為 OpenID Connect 中介軟體會在背景中使用 Cookie，所以您也必須設定在上述程式碼顯示時進行 Cookie 驗證。 *ValidateIssuer* 值會告知 OpenIdConnect 不要針對某一特定組織限制存取。
 <!--end-collapse-->
-
 

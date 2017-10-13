@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/26/2017
 ms.author: asgang
 ms.openlocfilehash: 6ebec2e06566b1e2d6834fdd81c0d8b2801b80b9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>針對內部部署 VMware/實體伺服器複寫問題進行疑難排解
 使用 Azure Site Recovery 保護您的 VMware 虛擬機器或實體伺服器時，您可能會收到特定的錯誤訊息。 本文將詳述一些較常發生的錯誤訊息，並提供解決它們的疑難排解步驟。
@@ -43,7 +43,7 @@ ms.lasthandoff: 07/11/2017
 
 * **檢查處理序伺服器是否主動將資料推送至 Azure** 
 
-在處理序伺服器機器上，按 Ctrl-Shift-Esc 開啟 [工作管理員]。 移至 [效能] 索引標籤，按一下 [開啟資源監視器] 連結。 在 Resource Manager 中，移至 [網路] 索引標籤。 檢查「網路活動的處理序」中的 cbengine.exe 是否主動傳送大量資料 (以 MB 為單位)。
+在處理序伺服器機器上，按 Ctrl-Shift-Esc 開啟 [工作管理員]。 移至 [效能] 索引標籤，按一下 [開啟資源監視器] 連結。 在 Resource Manager 中，移至 [網路] 索引標籤。檢查「網路活動的處理序」中的 cbengine.exe 是否主動傳送大量資料 (以 MB 為單位)。
 
 ![啟用複寫](./media/site-recovery-protection-common-errors/cbengine.png)
 

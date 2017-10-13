@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: 9c626ec1534c4899588150a58c0da57b9d963f6f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Azure 通知中心安全推播
 > [!div class="op_single_selector"]
@@ -82,8 +82,8 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
 ## <a name="create-the-push-background-component"></a>建立推播背景元件
 下一個步驟說明如何建立推播背景元件。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下解決方案的最上層節點 (在此案例中為 **Solution SecurePush**)，並按一下 [新增]，然後按一下 [新增專案]。
-2. 展開 [市集應用程式]，並按一下 [Windows Phone 應用程式]，然後按一下 [Windows 執行階段元件 (Windows Phone)]。 將專案命名為 **PushBackgroundComponent**，然後按一下 [確定] 以建立專案。
+1. 在 方案總管 中，以滑鼠右鍵按一下解決方案的最上層節點 (在此案例中為 **Solution SecurePush**)，並按一下 新增，然後按一下新增專案。
+2. 展開 [市集應用程式]，並按一下 [Windows Phone 應用程式]，然後按一下 [Windows 執行階段元件 (Windows Phone)]。 將專案命名為 **PushBackgroundComponent**，然後按一下確定 以建立專案。
    
     ![][12]
 3. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，並按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **PushBackgroundTask.cs**。 按一下 [新增] 以產生類別。
@@ -131,10 +131,10 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
                     ToastNotificationManager.CreateToastNotifier().Show(toast);
                 }
             }
-5. 在 [方案總管] 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下 [管理 NuGet 套件]。
+5. 在 方案總管 中，以滑鼠右鍵按一下 **PushBackgroundComponent (Windows Phone 8.1)** 專案，然後按一下管理 NuGet 套件。
 6. 在左側，按一下 [線上] 。
 7. 在 [搜尋] 方塊中，輸入 **Http Client**。
-8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]。 完成安裝。
+8. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下安裝。 完成安裝。
 9. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
 10. 在 **PushBackgroundTask.cs** 檔案開頭處新增下列 `using` 陳述式：
     
@@ -146,11 +146,11 @@ Microsoft Azure 中的推播通知支援可讓您存取易於使用、多重平�
         using Newtonsoft.Json;
         using Windows.UI.Notifications;
         using Windows.Data.Xml.Dom;
-11. 在 [方案總管] 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，以滑鼠右鍵按一下 [參考]，然後按一下 [新增參考...]。 在 [參考管理員] 對話方塊中，核取 **PushBackgroundComponent** 旁邊的方塊，然後按一下 [確定]。
+11. 在 方案總管 的 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中，以滑鼠右鍵按一下 參考，然後按一下新增參考...。在 參考管理員 對話方塊中，核取 **PushBackgroundComponent** 旁邊的方塊，然後按一下確定。
 12. 在 [方案總管] 中，連按兩下 **NotifyUserWindowsPhone (Windows Phone 8.1)** 專案中的 **Package.appxmanifest**。 在 [通知] 下，將 [支援快顯通知] 設定為 [是]。
     
     ![][3]
-13. 仍在 **Package.appxmanifest** 中，按一下頂端附近的 [宣告] 功能表。 在 [可用宣告] 下拉式清單中，按一下 [背景工作]，然後按一下 [新增]。
+13. 仍在 **Package.appxmanifest** 中，按一下頂端附近的 [宣告] 功能表。 在 可用宣告 下拉式清單中，按一下 背景工作，然後按一下新增。
 14. 在 **Package.appxmanifest** 中，核取 [屬性] 下的 [推播通知]。
 15. 在 **Package.appxmanifest** 中，於 [應用程式設定] 的 [輸入點] 欄位中輸入 **PushBackgroundComponent.PushBackgroundTask**。
     

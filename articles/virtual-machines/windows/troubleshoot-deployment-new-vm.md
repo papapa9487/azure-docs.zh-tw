@@ -16,12 +16,11 @@ ms.topic: troubleshooting
 ms.date: 06/26/2017
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 42cf9c3f0198b1fb8bcc84532c004c576b30d935
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 86795ba6eab3505a3d539e4fc4e032bdeecc2e78
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>針對在 Azure 中建立新 Windows VM 時的部署問題進行疑難排解
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -91,5 +90,4 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 如果您在啟動已停止的 Windows VM，或重新調整 Azure 中現有 Windows VM 的大小時遇到問題，請參閱 [Troubleshoot Resource Manager deployment issues with restarting or resizing an existing Windows Virtual Machine in Azure (針對在 Azure 中重新啟動或調整現有 Windows 虛擬機器的 Resource Manager 部署問題進行疑難排解)](restart-resize-error-troubleshooting.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
-
 

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: bd1736fdc04498779c7b749bf9cb1c79de075c96
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: a9e46aded0cf3792558a7fba6f00e5662166cc0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>使用 PowerShell 建立完整設定的虛擬機器
 
 此指令碼會建立執行 Windows Server 2016 的 Azure 虛擬機器。 執行指令碼之後，您可以透過 RDP 存取虛擬機器。
@@ -34,7 +32,7 @@ ms.lasthandoff: 04/27/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "使用詳細的 VM")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-windows-vm-detailed.ps1 "Create VM detailed")]
 
 ## <a name="clean-up-deployment"></a>清除部署 
 
@@ -67,4 +65,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 如需有關 Azure PowerShell 模組的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
 
 您可以在 [Azure Windows VM 文件](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他的虛擬機器 PowerShell 指令碼範例。
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 116eaa59eb60833036ad4d3c975c0b86e525f625
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-lead-tasks"></a>小組負責人工作
 
 本主題概述希望小組負責人為其資料科學小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是一種敏捷式反覆資料科學方法，可有效產出預測分析解決方案和智慧型應用程式。 它的設計目的是協助改進共同作業和小組學習。 程序是從 Microsoft 以及產業淬練出來的最佳作法和結構，是成功實作資料科學不可或缺的，以便協助公司完全實現其分析程式的優點。 如需人員角色的大綱，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
@@ -73,9 +71,9 @@ ms.lasthandoff: 09/25/2017
 - 您的**群組 VSTS 伺服器** (或其他某些程式碼裝載平台上的群組帳戶) 已由您的群組管理員設定。
 - 您的 **GroupProjectTemplate 存放庫** (R1) 已由您計劃使用之程式碼裝載平台上的群組管理員，在群組帳戶上設定。
 - 您已經被群組管理員**授權**，為您的小組建立存放庫。
-- Git 必須安裝在您的機器上。 如果您使用資料科學虛擬機器 (DSVM)，則 Git 已預先安裝，您可以繼續作業。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。  
-- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)。 在 README.md 檔案中，向下捲動至 [下載並安裝] 區段，然後按一下 [最新的安裝程式]。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
-- 如果您使用 **Linux DSVM**，在您的 DSVM 上建立 SSH 公開金鑰，並將它新增到群組 VSTS 伺服器。 如需 SSH 的詳細資訊，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)中的**建立 SSH 公開金鑰**一節。 
+- Git 必須安裝在您的機器上。 如果您使用資料科學虛擬機器 (DSVM)，則已預先安裝 Git，而您可以繼續作業。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。  
+- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) \(英文\)。 在 README.md 檔案中，向下捲動至 [下載並安裝] 區段，然後按一下 [最新的安裝程式]。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
+- 如果您使用 **Linux DSVM**，在您的 DSVM 上建立 SSH 公開金鑰，並將它新增到您的群組 VSTS 伺服器。 如需 SSH 的詳細資訊，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)中的**建立 SSH 公開金鑰**一節。 
     
 ## <a name="1-create-a-team-project-and-repositories"></a>1.建立 Team 專案和存放庫
 

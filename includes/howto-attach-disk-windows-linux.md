@@ -48,7 +48,7 @@
 
     ![提供 virtual-machines-windows 的容器](./media/howto-attach-disk-windows-linux/existdiskcontainers.png)
 
-6. [VHD] 面板會列出容器中保有的磁碟機。 對其中一個磁碟按一下，然後按一下 [選取]。
+6. [VHD] 面板會列出容器中保有的磁碟機。 對其中一個磁碟按一下，然後按一下選取。
 
     ![提供 virtual-machines-windows 的磁碟映像](./media/howto-attach-disk-windows-linux/existdiskvhds.png)
 

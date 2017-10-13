@@ -17,10 +17,10 @@ ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 23fc9f7f34732079682857d4ee685fe811751698
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resize-a-linux-virtual-machine-using-cli-20"></a>使用 CLI 2.0 來調整 Linux 虛擬機器大小
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 07/11/2017
    > 將 VM 解除配置也會釋出指派給該 VM 的任何動態 IP 位址。 不會影響作業系統和資料磁碟。
 
 ## <a name="next-steps"></a>後續步驟
-如需提高延展性，可執行多個 VM 執行個體並相應放大。 如需詳細資訊，請參閱[在虛擬機器擴展集中自動調整 Linux 機器][scale-set]。 
+如需提高延展性，可執行多個 VM 執行個體並相應放大。如需詳細資訊，請參閱[在虛擬機器擴展集中自動調整 Linux 機器][scale-set]。 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/en-us/blog/boot-diagnostics-for-virtual-machines-v2/

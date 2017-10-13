@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: huvalo;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 104999f3e667457892efb76a32123f8d64a8ffc7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
 Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本機 Python 環境安全存取您的 Azure Machine Learning 資料集，並且可在工作區中建立和管理資料集。
@@ -101,8 +100,7 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
     ![筆記本][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>存取機器學習服務實驗中的中繼資料
-在 Machine Learning Studio 中進行實驗後，您能夠從模組的輸出節點存取中繼資料集。 中繼資料集是指當模型工具執行時
-為中繼步驟建立和使用的資料。
+在 Machine Learning Studio 中進行實驗後，您能夠從模組的輸出節點存取中繼資料集。 中繼資料集是指當模型工具執行時為中繼步驟建立和使用的資料。
 
 只要其資料格式能與 Python 用戶端程式庫相容，就能夠存取中繼資料集。
 
@@ -336,5 +334,4 @@ Python 用戶端程式碼能夠將 Pandas DataFrame 序列化為下列格式 (�
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>使用 StorSimple Snapshot Manager 來建立和管理備份原則
 ## <a name="overview"></a>概觀
@@ -74,10 +74,10 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-edit-a-backup-policy"></a>若要編輯備份原則
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [備份原則] 節點。 所有備份原則都會出現在 [ **結果** ] 窗格中。
-3. 以滑鼠右鍵按一下您要編輯的原則，然後按一下 [ **編輯**]。
+3. 以滑鼠右鍵按一下您要編輯的原則，然後按一下 **編輯**。
 
     ![編輯備份原則](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. 當 [建立原則] 視窗出現時，輸入您的變更，然後按一下 [確定]。
+4. 當 建立原則 視窗出現時，輸入您的變更，然後按一下確定。
 
 ## <a name="delete-a-backup-policy"></a>刪除備份原則
 請使用下列程序來刪除備份原則。
@@ -85,7 +85,7 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-delete-a-backup-policy"></a>若要刪除備份原則
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [備份原則] 節點。 所有備份原則都會出現在 [ **結果** ] 窗格中。
-3. 以滑鼠右鍵按一下您要刪除的備份原則，然後按一下 [刪除] 。
+3. 以滑鼠右鍵按一下您要刪除的備份原則，然後按一下刪除 。
 4. 確認訊息出現時，按一下 [ **是**]。
 
     ![確認刪除備份原則](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)

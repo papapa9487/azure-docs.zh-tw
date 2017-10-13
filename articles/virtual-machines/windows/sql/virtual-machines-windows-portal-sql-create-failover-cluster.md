@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
 本文說明如何在 Resource Manager 模型內的 Azure 虛擬機器中，建立 SQL Server 容錯移轉叢集執行個體 (FCI)。 此解決方案會使用 [Windows Server 2016 Datacenter 版本儲存空間直接存取 \(S2D\) ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) 做為軟體型虛擬 SAN，以同步 Windows 叢集中各節點 (Azure VM) 間的儲存體 (資料磁碟)。 S2D 是 Windows Server 2016 中的新功能。
@@ -202,7 +200,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    - 在 伺服器管理員 中，按一下 管理，然後按一下新增角色及功能。
    - 在 [新增角色及功能精靈] 中，連續按 [下一步] 直到到達 [選取功能]。
    - 在 [選取功能] 中，按一下 [容錯移轉叢集]。 選取所有所需功能與管理工具。 按一下 [新增功能]。
-   - 按一下 [下一步]，然後按一下 [完成] 以安裝功能。
+   - 按一下 下一步，然後按一下完成 以安裝功能。
 
    若要透過 PowerShell 安裝容錯移轉叢集功能，請在其中一部虛擬機器上執行下列來自系統管理員 PowerShell 工作階段的指令碼。
 
@@ -492,4 +490,3 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 [儲存空間直接存取概觀](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [適用於 S2D 的 SQL Server 支援](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)
-

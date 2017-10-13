@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: a542332c921862241f1f000e6a8f0a0ae0e8a934
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-docker-vm-extension-from-the-azure-command-line-interface-azure-cli"></a>透過 Azure 命令列介面 (Azure CL) 使用 Docker VM 延伸模組
 > [!IMPORTANT] 
@@ -182,4 +181,3 @@ azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d
 [Docker 使用者指南]:https://docs.docker.com/userguide/
 
 [在 Azure 虛擬機器上開始使用 Docker 和 Compose 定義並執行多容器應用程式]:../docker-compose-quickstart.md。
-

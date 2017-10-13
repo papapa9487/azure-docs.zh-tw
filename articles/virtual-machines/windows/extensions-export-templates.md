@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>匯出包含 VM 擴充功能的資源群組
 
 Azure 資源群組可以匯出到之後會重新部署的新 Resource Manager 範本中。 匯出程序會解譯現有的資源，並且在部署導致類似的資源群組時，建立 Resource Manager 範本。 針對包含虛擬機器擴充功能的資源群組使用資源群組匯出選項時，必須考慮幾個項目，例如擴充功能相容性和受保護的設定。
@@ -165,4 +164,3 @@ Azure Resource Manager 自動化指令碼會產生 Resource Manager 範本、參
 ```
 
 此時，可以使用任何範本部署方法來部署範本。
-

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: dc8aa21d89ce575d29d3a9c08909eb5617d7b8a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="stream-analytics-documentation"></a>串流分析文件
 
 了解如何利用串流分析 (完全受管理的事件處理引擎)，在雲端執行物聯網 (IoT) 分析。 教學課程和其他文件會示範如何即時分析來自應用程式、感應器、裝置、社交媒體等的資料。 
@@ -177,6 +175,5 @@ ms.lasthandoff: 05/25/2017
         </div>
     </li>
 </ul>
-
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 3e8cd4dc8e960e38ba0e4a9a195b2f61d9ec1924
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Service Fabric 叢集資源管理員簡介
 以傳統方式管理 IT 系統或線上服務，意味著要讓特定實體或虛擬機器專屬於這些特定的服務或系統。 服務已建構為層次。 有「Web」層和「資料」或「儲存體」層。 應用程式會有訊息層，要求在其中流入或流出，以及專用於快取的一組機器。 每個層次或工作負載類型都有專屬的特定機器︰資料庫會取得一些專屬的機器，Web 伺服器也會取得一些。 如果特定類型的工作負載造成執行它的機器太忙碌，請以該層次的相同設定新增更多機器。 不過，並非所有工作負載都可以如此輕易地相應放大 - 特別是您通常會以較大型機器來取代機器的資料層。 簡單。 如果某台電腦失敗，則在還原該電腦之前，整體應用程式中的那一個部分會以較低容量來執行。 仍然相當簡單 (但不一定有趣)。
@@ -64,4 +63,3 @@ Orchestrator (不是人類) 是當機器失敗或工作負載基於某些意外�
 - 度量是 Service Fabric 叢集資源管理員管理叢集中的耗用量和容量的方式。 若要深入了解計量及其設定方式，請查看[這篇文章](service-fabric-cluster-resource-manager-metrics.md)
 - 叢集資源管理員會搭配 Service Fabric 的管理功能使用。 若要深入了解該整合，請閱讀 [這篇文章](service-fabric-cluster-resource-manager-management-integration.md)
 - 若要了解叢集資源管理員如何管理並平衡叢集中的負載，請查看關於 [平衡負載](service-fabric-cluster-resource-manager-balancing.md)
-

@@ -10,15 +10,12 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>什麼是 Azure Database for MySQL？ 服務簡介
 Azure Database for MySQL 是 Microsoft 雲端中以 [MySQL Community Edition](https://www.mysql.com/products/community/) 資料庫引擎為基礎的關聯式資料庫服務。  Azure Database for MySQL 提供：
 
@@ -59,4 +56,3 @@ Azure 資料庫服務一向重視資料安全性，Azure Database for MySQL 以�
 - 查看定價頁面的成本比較和計算機。 [價格](https://azure.microsoft.com/pricing/details/mysql/)
 - 從建立您的第一部伺服器開始。 [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](quickstart-create-mysql-server-database-using-azure-portal.md)
 - 使用 Python、PHP、Ruby、C\#、Java、Node.js 建立您的第一個應用程式：[用於連線至 Azure Database for MySQL 的連線庫](concepts-connection-libraries.md)
-

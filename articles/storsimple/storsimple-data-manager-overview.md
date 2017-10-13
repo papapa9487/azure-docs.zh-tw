@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 32fcca540c1db317c5f11e94b2ee3359cadcc806
 ms.openlocfilehash: aedb44610fe57055851538b9dbdb810e66e58d73
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-data-manager-overview-private-preview"></a>StorSimple Data Manager 概觀 (私人預覽)
 
 ## <a name="overview"></a>概觀
@@ -58,7 +58,7 @@ StorSimple Data Manager 處於私人預覽階段。 執行下列步驟來註冊�
 
     ![選取 StorSimple Data Manager 圖示](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
 
-4. 按一下 StorSimple Data Manager 圖示，然後按一下 [建立]。 挑選您要對此私人預覽啟用的訂用帳戶，然後按一下 [我要註冊!]
+4. 按一下 StorSimple Data Manager 圖示，然後按一下建立。 挑選您要對此私人預覽啟用的訂用帳戶，然後按一下我要註冊!
 
     ![我要註冊](./media/storsimple-data-manager-overview/sign-me-up.png)
 
@@ -72,8 +72,3 @@ StorSimple Data Manager 處於私人預覽階段。 執行下列步驟來註冊�
 ## <a name="next-steps"></a>後續步驟
 
 [使用 StorSimple Data Manager UI 來轉換資料](storsimple-data-manager-ui.md)。
-
-
-<!--HONumber=Nov16_HO4-->
-
-

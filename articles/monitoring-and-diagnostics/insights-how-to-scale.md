@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>手動或自動調整執行個體計數
 在 [Azure 入口網站](https://portal.azure.com/)中，您可以手動設定服務的執行個體計數，或是藉由參數設定根據需求自行調整。 這通常稱為「相應放大」或「相應縮小」。
@@ -28,7 +28,7 @@ ms.lasthandoff: 08/03/2017
 您可以在入口網站中進行調整，並且也可以使用 [REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx) 或 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) 來手動或自動調整級別。
 
 > [!NOTE]
-> 這篇文章說明如何在入口網站 ([http://portal.azure.com](http://portal.azure.com)) 中建立自動調整設定。 在此入口網站中建立的自動調整設定不能在傳統入口網站 ([http://manage.windowsazure.com](http://manage.windowsazure.com)) 中編輯。
+> 這篇文章說明如何在入口網站 ([http://portal.azure.com](http://portal.azure.com)) 中建立自動調整設定。在此入口網站中建立的自動調整設定不能在傳統入口網站 ([http://manage.windowsazure.com](http://manage.windowsazure.com)) 中編輯。
 > 
 > 
 

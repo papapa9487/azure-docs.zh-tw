@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: bf8038b7171053b75eeb9aed88bff4246e65a8a8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>使用 StorSimple 裝置管理員服務來檢視和管理作業 (Update 3 和更新版本)
 
@@ -54,7 +54,7 @@ ms.lasthandoff: 07/11/2017
 執行下列步驟來檢視任何工作的詳細資料。
 
 #### <a name="to-view-job-details"></a>若要檢視工作詳細資料
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [作業]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下作業。
 
 2. 在 [作業] 刀鋒視窗中，利用適當的篩選條件執行查詢，以顯示您感興趣的作業。 您可以搜尋完成、執行中或已取消工作。
 

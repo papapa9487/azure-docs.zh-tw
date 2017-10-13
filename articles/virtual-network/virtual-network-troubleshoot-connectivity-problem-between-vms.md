@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/25/2017
 ms.author: genli
+ms.openlocfilehash: 3011ef7eced5a24ba07d06e2db2f5e4d344b94de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 524f6303f71590de75f7eb8fd2a9082c35dfa651
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-connectivity-problems-between-azure-vms"></a>為 Azure VM 之間的連線問題疑難排解
 
 您可能會遇到 Azure 虛擬機器 (VM) 之間的連線問題。 本文提供可協助您解決此問題的疑難排解步驟。 

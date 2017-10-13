@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 636dc0fcae1bc2647cd59add5957884971015ce2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>稽核和接收 Azure 訂用帳戶中關於重要動作的通知
 
 **Azure 活動記錄**提供 Azure 中的訂用帳戶層級事件歷程記錄。 它提供的資訊是關於「何人」於「何時」建立、更新或刪除了「什麼」資源。 您可以建立**活動記錄警示**，當有活動符合您的警示條件時，就能收到電子郵件、簡訊或 Webhook 通知。 此快速入門會逐步引導您建立簡單的網路安全性群組、瀏覽活動記錄以了解發生的事件，然後撰寫活動記錄警示，以在之後建立任何網路安全性群組時收到通知。
@@ -76,7 +74,7 @@ ms.lasthandoff: 09/25/2017
 
 5. 在 [透過下列方式發出警示] 下方，選取 [新增] 動作群組，並提供動作群組的 [名稱] 和 [簡短名稱]。 動作群組定義啟用警示時 (準則符合新事件時) 所採取的一組動作。
 
-6. 在 [動作] 下方，藉由提供動作的 [名稱]、[動作類型] (例如，電子郵件或簡訊) 及該特定動作類型 (例如，Webhook URL、電子郵件地址或簡訊號碼) 的 [詳細資料]，以新增一或多個動作。
+6. 在 [動作] 下方，藉由提供動作的 [名稱]、[動作類型] \(例如，電子郵件或簡訊) 及該特定動作類型 (例如，Webhook URL、電子郵件地址或簡訊號碼) 的 [詳細資料]，以新增一或多個動作。
 
     ![在入口網站中建立網路安全性群組](./media/monitor-quick-audit-notify-action-in-subscription/activity-log-alert-actions.png)
 
@@ -101,4 +99,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [封存監視資料](./monitor-tutorial-archive-monitoring-data.md)
-

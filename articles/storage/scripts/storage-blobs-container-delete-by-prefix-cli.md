@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ff30037c7aba4e0e9c6b4a1829a0769093dce0ac
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="delete-containers-based-on-container-name-prefix"></a>根據容器名稱前置詞來刪除容器
 
 此指令碼會先在 Azure Blob 儲存體中建立數個範例容器，然後根據容器名稱中的前置詞來刪除部分容器。
@@ -60,4 +58,3 @@ az group delete --name myResourceGroup
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure/overview)。
 
 在[適用於 Azure 儲存體的 Azure CLI 範例](../blobs/storage-samples-blobs-cli.md)中，提供了其他儲存體 CLI 指令碼範例。
-

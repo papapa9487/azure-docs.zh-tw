@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: ad5700f1a85567a3e7f4ef80b778183929cb0d68
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>使用入口網站從不同的部署模型連接虛擬網路
 
@@ -120,7 +119,7 @@ VPN 類型 = 路由式 <br>
 2. 按一下 [子網路 - 設定必要設定] 以開啟 [新增子網路] 刀鋒視窗。 [名稱] 已使用必要值 **GatewaySubnet** 進行設定。
 3. [位址範圍] 指的是閘道子網路的範圍。 雖然您可以使用 /29 位址範圍 (3 個位址) 建立閘道子網路，但是我們建議您建立包含更多 IP 位址的閘道子網路。 這可以容納未來可能需要更多可用 IP 位址的組態。 可能的話，請使用 /27 或 /28。 如果您使用這些步驟作為練習，您可以參考[範例](#values)值。 按一下 [確定] 以建立閘道子網路。
 4. 在 [閘道設定] 刀鋒視窗中，[大小] 指的是閘道 SKU。 選取您 VPN 閘道的閘道 SKU。
-5. 確認 [路由類型] 是 [動態]，然後按一下 [確定] 以返回 [新增 VPN 連線] 刀鋒視窗。
+5. 確認 路由類型 是 動態，然後按一下確定 以返回 新增 VPN 連線 刀鋒視窗。
 6. 在 [新增 VPN 連線] 刀鋒視窗上，按一下 [確定] 以開始建立您的 VPN 閘道。 建立 VPN 閘道可能需要 45 分鐘的時間才能完成。
 
 ### <a name="ip"></a>3.複製虛擬網路閘道公用 IP 位址
@@ -271,4 +270,3 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 ## <a name="faq"></a>VNet 對 VNet 常見問題集
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
-

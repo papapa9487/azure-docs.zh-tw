@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: singhkay
 ms.openlocfilehash: fed612a354d45f34619f2a66bd40d78740c43ac7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 為 Azure Resource Manager 中的虛擬機器設定 Key Vault
 在 Azure Resource Manager 堆疊中，密碼/憑證會被塑造成「Key Vault 資源提供者」所提供的資源。 若要深入了解「Azure 金鑰保存庫」，請參閱 [什麼是 Azure 金鑰保存庫？](../../key-vault/key-vault-whatis.md) 為了讓「金鑰保存庫」能與 Azure Resource Manager 虛擬機器搭配使用，必須將「金鑰保存庫」上的 *EnabledForDeployment* 屬性設定為 true。 您可以在各種用戶端中執行這項操作。 本文說明如何設定要與 Azure 虛擬機器搭配使用的 Key Vault。

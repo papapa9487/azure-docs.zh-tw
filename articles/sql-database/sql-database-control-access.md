@@ -17,10 +17,10 @@ ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
 ms.openlocfilehash: 0ca1ccd273317d67537d31724d566625a4eb2c85
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-access-control"></a>Azure SQL Database 存取控制
 為了提供安全性，SQL Database 會透過以下機制來控制存取：依 IP 位址限制連線的防火牆規則、要求使用者證明其身分識別的驗證機制，以及將使用者限制在特定動作和資料的授權機制。 

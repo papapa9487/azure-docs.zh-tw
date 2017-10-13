@@ -12,15 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: rwike77
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 8208a1a41388a8cc36f3702bd0cad2bb82e16403
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 4523c63493bc9cb3f96713c4abbc1dd1da9130d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>您的 Service Fabric 應用程式和後續步驟
 您的 Azure Service Fabric 應用程式已經建立。 本文說明您專案的建立方式和一些潛在後續步驟。
@@ -85,4 +83,3 @@ Service Fabric 可讓您為應用程式中的獨立服務進行獨立的版本�
 [app-upgrade-tutorial]: service-fabric-application-upgrade-tutorial.md
 [aspnet-webapi]: https://docs.asp.net/en/latest/tutorials/first-web-api.html
 [aspnet-webapp]: https://docs.asp.net/en/latest/tutorials/first-mvc-app/index.html
-

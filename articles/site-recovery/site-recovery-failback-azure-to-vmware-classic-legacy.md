@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd@microsoft.com
 ms.openlocfilehash: 3053fc622c6343898e2007b8aaafbe1fa8e6934e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-from-azure-to-vmware-with-azure-site-recovery-legacy"></a>利用 Azure Site Recovery 將 VMware 虛擬機器和實體伺服器從 Azure 容錯回復到 VMware (舊版)
 > [!div class="op_single_selector"]
@@ -117,7 +117,7 @@ Windows 主要目標已經隨附於 vContinuum 安裝程式中。 當您安裝 v
 
 1. 關閉虛擬機器。
 2. 以滑鼠右鍵按一下左面板中的 VM 項目 > [編輯設定]。
-3. 按一下 [選項]  索引標籤。 選取 [進階]\> [一般項目]  >  [組態參數]。 [組態參數]  選項只有在機器關機時才可以使用。
+3. 按一下 [選項]  索引標籤。選取 [進階]\> [一般項目]  >  [組態參數]。 [組態參數]  選項只有在機器關機時才可以使用。
 
     ![](./media/site-recovery-failback-azure-to-vmware/image14.png)
 4. 查看含有 **disk.EnableUUID** 的資料列是否已經存在？ 如果存在且已設定為 **False**，請將它設定為 **True** (不區分大小寫)。 如果存在且已設為 True，可按一下 [取消]  ，然後在其開機之後，於客體作業系統內部測試 SCSI 命令。 如果不存在，請按一下 [加入資料列] 。
@@ -182,7 +182,7 @@ wget-1.12-5.el6\_6.1.x86\_64.rpm
 1. 將 RHEL 6-64 整合代理程式二進位檔複製到新建立的作業系統。
 2. 執行此命令來將二進位檔解壓縮：**tar -zxvf \<檔案名稱\>**
 3. 執行此命令來授與權限：\# **chmod 755 ./ApplyCustomChanges.sh**
-4. 執行指令碼：**\# ./ApplyCustomChanges.sh**。 只需在伺服器上執行指令碼一次。 指令碼執行後，請重新啟動伺服器。
+4. 執行指令碼：**\# ./ApplyCustomChanges.sh**。只需在伺服器上執行指令碼一次。 指令碼執行後，請重新啟動伺服器。
 
 ### <a name="install-the-linux-server"></a>安裝 Linux 伺服器
 1. [下載](http://go.microsoft.com/fwlink/?LinkID=529757) 安裝檔案。

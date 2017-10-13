@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: 62fa6a6d0cccc5545b94d4ae167f2fcc7e4cd0de
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="packet-inspection-with-azure-network-watcher"></a>使用 Azure 網路監看員進行封包檢查
 
 使用網路監看員的封包擷取功能，可以從入口網站、PowerShell、CLI、以及以程式設計方式透過 SDK 和 REST API 起始並管理您 Azure VM 上的擷取工作階段。 封包擷取可讓您藉由以立即可用的格式提供資訊，處理需要封包層級資料的案例。 運用免費的工具來檢查資料，您可以檢查您 VM 來回傳送的通訊，並深入了解您的網路流量。 使用封包擷取資料的一些範例包括︰調查網路或應用程式問題、偵測網路遭誤用及入侵嘗試，或維護法規合規性。 在本文中，我們說明如何使用受歡迎的開放原始碼工具來開啟網路監看員所提供的封包擷取檔案。 我們也會提供範例來示範如何計算連線延遲時間、找出異常的流量，並檢查網路統計資料。
@@ -136,7 +134,6 @@ tcp.port == 111
 [6]: ./media/network-watcher-deep-packet-inspection/figure6.png
 [7]: ./media/network-watcher-deep-packet-inspection/figure7.png
 [8]: ./media/network-watcher-deep-packet-inspection/figure8.png
-
 
 
 

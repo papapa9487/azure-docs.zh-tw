@@ -35,6 +35,7 @@
 ## 針對 Microsoft 對等互連設定路由篩選
 ### [Azure 入口網站](how-to-routefilter-portal.md)
 ### [Azure PowerShell](how-to-routefilter-powershell.md)
+### [Azure CLI](how-to-routefilter-cli.md)
 ## [將電路從傳統移到 Resource Manager](expressroute-howto-move-arm.md)
 ## [將關聯的虛擬網路從傳統移至 Resource Manager](expressroute-migration-classic-resource-manager.md)
 ## 設定 ExpressRoute 的路由器
@@ -45,7 +46,7 @@
 ### [網路安全性與雲端服務的最佳做法](../best-practices-network-security.md)
 ### [將路由最佳化](expressroute-optimize-routing.md)
 ### [非對稱式路由](expressroute-asymmetric-routing.md)
-### [適用於 ExpressRoute 的 NAT](expressroute-routing-nat.md)
+### [適用於 ExpressRoute 的 NAT](expressroute-nat.md)
 
 ## 疑難排解
 ### [驗證 ExpressRoute 連線能力](expressroute-troubleshooting-expressroute-overview.md)

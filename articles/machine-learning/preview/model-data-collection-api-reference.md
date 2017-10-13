@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a0fda8a44d13bcaba84b4124d9b693c05874154
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-data-collection-api-reference"></a>Azure Machine Learning 模型資料收集 API 參考
 
@@ -95,5 +94,4 @@ dc = ModelDataCollector(model_name, identifier='default', feature_names=None, mo
 |-------------|------------|-------------------------|
 | input_data | 多個類型 | 要收集的資料 (目前可接受類型清單、numpy.array、pandas.DataFrame、pyspark.sql.DataFrame)。 若為資料框架類型，如果有這些功能名稱的標頭存在，則此資訊會包含在資料目的地內 (而不必明確地在 ModelDataCollector 建構函式中傳遞功能名稱) |
 | user_correlation_id | 字串 | 選擇性的相互關聯識別碼，可由使用者提供以便與此預測相互關聯 |
-
 

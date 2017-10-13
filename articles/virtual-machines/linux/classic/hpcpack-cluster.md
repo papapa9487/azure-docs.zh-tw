@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 10/12/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 809d3944311badf265117d353b65642e044d900c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-linux-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集使用 Linux 運算節點
 在 Azure 中設定 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029.aspx) 叢集，其中包含一個執行 Windows Server 的前端節點，以及數個執行支援之 Linux 散發套件的計算節點。 探索叢集的 Linux 節點與 Windows 前端節點之間移動資料的一些選項。 了解如何將 Linux HPC 作業提交至叢集。
@@ -64,7 +63,7 @@ ms.lasthandoff: 08/21/2017
 
 ### <a name="deployment-option-1-use-a-resource-manager-template"></a>部署選項 1。 使用 Resource Manager 範本
 1. 前往 Azure Marketplace 的 [HPC Pack cluster for Linux workloads (處理 Linux 工作負載的 HPC Pack 叢集)](https://azure.microsoft.com/marketplace/partners/microsofthpc/newclusterlinuxcn/) 範本，按一下 [部署]。
-2. 檢閱 Azure 入口網站中的資訊，然後按一下 [建立] 。
+2. 檢閱 Azure 入口網站中的資訊，然後按一下建立 。
    
     ![建立入口網站][portal]
 3. 在 [基本]  刀鋒視窗中，輸入叢集的名稱，這也會指定前端節點 VM 的名稱。 您可以選擇現有的資源群組或建立新的資源群組，以便在您可用的位置進行部署。 位置會影響特定 VM 大小和其他 Azure 服務的可用性 (請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/))。
@@ -316,4 +315,3 @@ HPC Pack [clusrun](https://technet.microsoft.com/library/cc947685.aspx) 工具�
 [nfsshare]:media/hpcpack-cluster/nfsshare.png
 [nfsperm]:media/hpcpack-cluster/nfsperm.png
 [nfsmanage]:media/hpcpack-cluster/nfsmanage.png
-

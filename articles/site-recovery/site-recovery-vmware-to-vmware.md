@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: nisoneji
 ms.openlocfilehash: 01a6f35fe61290f8c7275c34273d66956a53d3f9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site-in-the-classic-azure-portal"></a>在傳統 Azure 入口網站中，將內部部署 VMware 虛擬機器或實體伺服器複寫到次要站台
 
@@ -34,7 +34,7 @@ Azure Site Recovery 中的 InMage Scout 可提供內部部署 VMware 網站之�
 3. 在 [名稱]  中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取其中一個。
 4. 在「資源群組」中，建立新的資源群組，或選取現有的資源群組。 指定 Azure 區域來完成所需的欄位。
 5. 在 [位置] 中，選取保存庫的地理區域。 若要查看支援的地區，請參閱 [Azure Site Recovery 定價](https://azure.microsoft.com/pricing/details/site-recovery/)。
-6. 如果您想要從「儀表板」快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
+6. 如果您想要從「儀表板」快速存取保存庫，請按一下 釘選到儀表板，然後按一下建立。
 7. 新的保存庫會出現在 [儀表板] > [所有資源] 上，以及主要 [復原服務保存庫] 刀鋒視窗上。
 
 ## <a name="step-2-configure-the-vault-and-download-inmage-scout-components"></a>步驟 2：設定保存庫並下載 InMage Scout 元件

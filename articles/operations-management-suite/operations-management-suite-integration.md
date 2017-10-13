@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
 ms.openlocfilehash: 7a24df6f2c3b2c091d1b66b8b9c0a61035ffde11
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>與 Operations Management Suite (OMS) 進行整合
 Operations Management Suite 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。  除了使用 OMS 的標準功能，您還可以將它與其他管理應用程式和服務進行整合，以提供混合式管理環境、提供您環境的唯一自訂管理案例，或為您的客戶提供自訂管理體驗。  本文提供與 OMS 服務進行整合的不同選項及提供詳細技術資訊文章連結的概觀。 

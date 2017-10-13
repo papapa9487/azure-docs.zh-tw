@@ -3,7 +3,7 @@
 請選擇下列其中一個符合您後端專案類型(&mdash;[.NET 後端](#dotnet)或 [Node.js 後端](#nodejs))的程序。
 
 ### <a name="dotnet"></a>.NET 後端專案
-1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 套件]。 搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下 [安裝]。 這會安裝通知中樞程式庫，以便從後端傳送通知。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下伺服器專案並按一下 [管理 NuGet 套件]。 搜尋 `Microsoft.Azure.NotificationHubs`，然後按一下安裝。 這會安裝通知中樞程式庫，以便從後端傳送通知。
 2. 在伺服器專案中，開啟 **Controllers** >   **TodoItemController.cs**，並新增下列 using 陳述式：
 
         using System.Collections.Generic;

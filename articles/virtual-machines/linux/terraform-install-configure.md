@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: 8727e15448a74b68277c5bdd82c573e817254f80
 ms.openlocfilehash: da567097be38ac649c6bf1de1508de24d21cb877
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安裝和設定 Terraform 以在 Azure 中佈建 VM 和的其他基礎結構 
 本文說明安裝和設定 Terraform 以在 Azure 中佈建資源 (例如虛擬機器) 的必要步驟。 您將了解如何建立及使用 Azure 認證來啟用 Terraform，進而以安全的方式佈建雲端資源。
 
@@ -130,4 +128,3 @@ export ARM_TENANT_ID=your_tenant_id
 
 ## <a name="next-steps"></a>後續步驟
 您現在已安裝 Terraform 並設定 Azure 認證，可以開始將基礎結構部署到您的 Azure 訂用帳戶中。 接下來，深入了解如何[使用 Terraform 建立基礎結構](terraform-create-complete-vm.md)。
-

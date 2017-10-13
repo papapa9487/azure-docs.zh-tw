@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 08/09/2017
 ms.author: mikhegn
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 5766ef2097b0da295d42e7c5909efc524049f418
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-application-to-a-party-cluster-in-azure"></a>將應用程式部署到 Azure 中的合作對象叢集
 本教學課程是系列中的第二部分，示範如何部署 Azure Service Fabric 應用程式到 Azure 中的合作對象叢集。
 

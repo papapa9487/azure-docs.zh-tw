@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權
 
 Azure 轉送應用程式在過去可選擇使用兩個不同的授權模型：由轉送服務直接提供的[共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 權杖模型，以及同盟模型，其中授權規則的管理是由 [Azure Active Directory](/azure/active-directory/) 存取控制服務 (ACS) 內部管理，而從 ACS 取得的權杖會傳遞至轉送，以授權存取所需的功能。
@@ -67,6 +65,5 @@ SAS 規則並非要作為帳戶使用，而是與權限相關的具名簽署金�
 
 * [Azure 轉送驗證和授權](relay-authentication-and-authorization.md)
 * [使用共用存取簽章的服務匯流排驗證](../service-bus-messaging/service-bus-sas.md)
-
 
 

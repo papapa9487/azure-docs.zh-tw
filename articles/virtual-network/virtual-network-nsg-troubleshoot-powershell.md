@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b067278389a364514067bcef7045542486e113c9
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5edaf7197576ac1c0bd1fc6bed21fd65ed135106
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-azure-powershell"></a>使用 Azure PowerShell 為網路安全性群組疑難排解
 > [!div class="op_single_selector"]
@@ -198,5 +197,4 @@ NSG 可讓您控制流入和流出虛擬機器 (VM) 的流量類型。 您可對
 * 如果您有對等互連的 VNet，VIRTUAL_NETWORK 標籤預設會自動展開以包含對等互連的 VNet 的首碼。 您可以在 **ExpandedAddressPrefix** 清單中檢視這些首碼，對任何與 VNet 對等互連連線相關的問題進行疑難排解。 
 * 只有在有 NSG 與 VM 的 NIC 和/或子網路關聯時，才會顯示有效安全性規則。 
 * 如果沒有 NSG 與 NIC 或子網路相關聯，且您已對 VM 指派公用 IP 位址，則會開啟所有連接埠供輸入和輸出存取。 如果 VM 有公用 IP 位址，強烈建議對 NIC 或子網路套用 NSG。  
-
 

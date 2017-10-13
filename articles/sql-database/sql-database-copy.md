@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.openlocfilehash: 8c1e3c80b9f24089dc99463d6ea8ae5d0ea7b19d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>複製 Azure SQL Database
 
@@ -41,7 +41,7 @@ Azure SQL Database 提供數種方式，可讓您在同個伺服器或不同的�
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>使用 Azure 入口網站來複製資料庫
 
-若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下 [複製]。 
+若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下複製。 
 
    ![資料庫複本](./media/sql-database-copy/database-copy.png)
 

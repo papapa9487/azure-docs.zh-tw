@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2bf63d41c9a06e724b971c2edb9e3127fe878b8e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-from-machine-learning-live-chat-support"></a>取得來自機器學習即時聊天支援的說明
 [Azure Machine Learning Studio](what-is-ml-studio.md) 提供用於建立機器學習模型的直覺式介面。 使用社群所貢獻的範例[資源庫](gallery-how-to-use-contribute-publish.md)可協助您開始。 且有[論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)讓您詢問問題協助您繼續下去。 
@@ -39,5 +38,4 @@ ms.lasthandoff: 09/25/2017
 您隨時都能將問題張貼於 [Machine Learning 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)上，讓 Machine Learning 小組的成員和其他具有豐富經驗的科學家和開發人員能夠看見它們。
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 01623fa76175091439d5a571fb8b8f96aee01c4c
-ms.openlocfilehash: dd9019a6feb86d90fc6219b06bf1e69da4c2b18f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 66f0a9b591b812a52dc6037dcfcb64a2c250f05c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debugging-an-azure-cloud-service-or-virtual-machine-in-visual-studio"></a>在 Visual Studio 中進行 Azure 雲端服務或虛擬機器的偵錯
 Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項。
@@ -27,7 +26,7 @@ Visual Studio 提供您偵錯 Azure 雲端服務和虛擬機器的不同選項�
 ## <a name="debug-your-cloud-service-on-your-local-computer"></a>在您的本機電腦上偵錯您的雲端服務
 使用 Azure 計算模擬器在本機電腦上偵錯您的雲端服務可以節省時間和金錢。 透過在部署服務之前於本機偵錯服務，您可以改善可靠性和效能，而不需支付運算時間。 不過，某些錯誤可能只有當您在 Azure 中執行雲端服務本身時才會發生。 如果在發佈您的服務時啟用遠端偵錯，接著將偵錯工具附加至角色執行個體，則可以偵錯這些錯誤。
 
-模擬器會模擬 Azure 運算服務，並在您的本機環境中執行，使得您可以在部署雲端服務之前對其測試和偵錯。 模擬器會處理您的角色執行個體的生命週期，並可讓您存取模擬的資源，例如本機儲存體。 當您從 Visual Studio 偵錯或執行您的服務時，它會自動啟動模擬器做為背景應用程式，然後將服務部署至模擬器。 當服務在本機環境中執行時，您可以使用模擬器來檢視服矛。 您可以執行完整版或精簡版的模擬器。 (從 Azure 2.3 起，精簡版的模擬器是預設值。)請參閱[使用 Emulator Express 在本機執行雲端服務並進行偵錯](https://msdn.microsoft.com/library/dn339018.aspx)。
+模擬器會模擬 Azure 運算服務，並在您的本機環境中執行，使得您可以在部署雲端服務之前對其測試和偵錯。 模擬器會處理您的角色執行個體的生命週期，並可讓您存取模擬的資源，例如本機儲存體。 當您從 Visual Studio 偵錯或執行您的服務時，它會自動啟動模擬器做為背景應用程式，然後將服務部署至模擬器。 當服務在本機環境中執行時，您可以使用模擬器來檢視服矛。 您可以執行完整版或精簡版的模擬器。 (從 Azure 2.3 起，精簡版的模擬器是預設值。)請參閱[使用 Emulator Express 在本機執行雲端服務並進行偵錯](vs-azure-tools-emulator-express-debug-run.md)。
 
 ### <a name="to-debug-your-cloud-service-on-your-local-computer"></a>在您的本機電腦上偵錯您的雲端服務
 1. 在功能表列上，選擇 [偵錯]、[開始偵錯] 來執行您的 Azure 雲端服務專案。 或者，您可以按 F5。 您會看到正在啟動計算模擬器的訊息。 當模擬器啟動時，系統匣圖示可加以確認。
@@ -166,4 +165,3 @@ Visual Studio ASP.NET 專案提供選項，讓您建立可用於測試應用程�
 ## <a name="next-steps"></a>後續步驟
 * 使用 **Intellitrace** 從發行伺服器收集呼叫和事件的記錄檔。 請參閱 [使用 IntelliTrace 和 Visual Studio 偵錯發佈的雲端服務](http://go.microsoft.com/fwlink/?LinkID=623016)。
 * 不論角色是在開發環境中或在 Azure 中執行，請使用 **Azure 診斷** 來記錄在角色內執行的程式碼的詳細資訊。 請參閱 [使用 Azure 診斷收集記錄資料](http://go.microsoft.com/fwlink/p/?LinkId=400450)。
-

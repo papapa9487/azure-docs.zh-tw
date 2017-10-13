@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 74765877e7836d6878284b350a25d8355dc83d7d
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-reset-a-linux-vm-password-or-ssh-key-fix-the-ssh-configuration-and-check-disk-consistency-using-the-vmaccess-extension"></a>如何使用 VMAccess 擴充功能重設 Linux VM 密碼或 SSH 金鑰、修正 SSH 組態，和檢查磁碟一致性
 如果您因為忘記密碼、安全殼層 (SSH) 金鑰不正確或 SSH 組態有問題而無法連線到 Linux 虛擬機器，請使用 VMAccessForLinux 擴充功能搭配 Azure CLI 來重設密碼或 SSH 金鑰、修正 SSH 組態和檢查磁碟一致性。 
@@ -194,5 +193,4 @@ ms.lasthandoff: 04/03/2017
 * 如果您想要使用 Azure PowerShell Cmdlet 或 Azure Resource Manager 範本來重設密碼或 SSH 金鑰、修正 SSH 組態及檢查磁碟一致性，請參閱 [GitHub 上的 VMAccess 擴充功能文件](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess)。 
 * 您也可以使用 [Azure 入口網站](https://portal.azure.com)來重設傳統部署模型中部署的 Linux VM 密碼或 SSH 金鑰。 目前您無法使用入口網站來針對部署在 Resource Manager 部署模型內的 Linux VM 執行上述操作。
 * 如需使用 Azure 虛擬機器 VM 擴充功能的詳細資訊，請參閱[有關虛擬機器擴充功能和功能](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-
 

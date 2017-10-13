@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: abb5bcf91a0155f1311bc28657b6208c00e945d1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 928c452869d27c7f40982d8b5d400c3a611008a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-apache-spark-machine-learning-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上建置 Apache Spark 機器學習服務應用程式
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 06/07/2017
 在此應用程式中，我們會使用 Spark ML 管線來執行文件分類。 在管線中，我們將文件分割成單字、將單字轉換成數值特性向量，最後再使用特性向量和標籤建立預測模型。 執行下列步驟以建立應用程式。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集磚 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集]，瀏覽至您的叢集。   
-2. 從 Spark 叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+2. 從 Spark 叢集刀鋒視窗按一下 叢集儀表板，然後按一下Jupyter Notebook。 出現提示時，輸入叢集的系統管理員認證。
    
    > [!NOTE]
    > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
@@ -56,7 +55,7 @@ ms.lasthandoff: 06/07/2017
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
    > 
-3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立新的 Notebook。 按一下 新增，然後按一下PySpark。
    
     ![建立 Spark 機器學習服務範例的 Jupyter Notebook](./media/hdinsight-apache-spark-ipython-notebook-machine-learning/spark-machine-learning-create-notebook.png "建立 Spark 機器學習服務範例的 Jupyter Notebook")
 4. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
@@ -233,4 +232,3 @@ HDInsight 上的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-

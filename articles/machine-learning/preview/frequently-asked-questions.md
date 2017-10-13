@@ -9,12 +9,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4b3720019ba396d90be5586fa8fff4fa7e7d6e46
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
@@ -230,4 +229,3 @@ Workbench 中的資料準備工具目前支援從下列格式內嵌：
 **如何取得 Azure Machine Learning 的支援？**
 
 若要取得技術支援，請移至「Azure 支援服務」，然後選取 [Machine Learning]。 Azure Machine Learning 在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) 上也有一個由小組監控、標籤為 "Azure-Machine-Learning" 的現役社群。  若要提交建議和功能要求，可以在 [Azure Machine Learning 意見反應](https://feedback.azure.com/forums/257792-machine-learning) \(英文\) 網站提交。 
-

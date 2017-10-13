@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: c7cb5353585373af8de0d30b06bcfa49a3278c17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 建立 Azure VM 的自訂映像
 
 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動程序設定，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 在本教學課程中，您將建立自己的 Azure 虛擬機器自訂映像。 您會了解如何：
@@ -35,7 +33,7 @@ ms.lasthandoff: 05/09/2017
 > * 列出訂用帳戶中的所有映像
 > * 删除映像
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 找出版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -55,7 +53,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 1. 連接至虛擬機器。
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 %windir%\system32\sysprep 目錄，然後執行 sysprep.exe。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
-4. 在 [關機選項] 中選取 [關機]，然後按一下 [確定]。
+4. 在 關機選項 中選取 關機，然後按一下確定。
 5. Sysprep 完成時，會關閉虛擬機器。 **不要重新啟動 VM**。
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除配置並將 VM 標示為一般化
@@ -211,7 +209,6 @@ Remove-AzureRmImage `
 
 > [!div class="nextstepaction"]
 > [建立高可用性 VM](tutorial-availability-sets.md)
-
 
 
 

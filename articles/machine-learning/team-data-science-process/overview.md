@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="team-data-science-process-overview"></a>Team Data Science Process 概觀
 
@@ -45,7 +44,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 此生命週期是針對在智慧型應用程式中隨附的資料科學專案所設計。 這些應用程式會部署機器學習服務或人工智慧模型來做預測性分析。 探勘資料科學專案或臨機操作分析專案也可以從使用此程序而獲益。 但是，在這種情況下，可能不需要所述的某些步驟。    
 
-生命週期會概述專案通常執行時經常反覆進行的主要階段：
+生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
 * **了解商務**
 * **資料取得與認知**
@@ -108,4 +107,3 @@ TDSP 提供管理共用分析和儲存體基礎結構的建議，例如：
 ## <a name="next-steps"></a>後續步驟
 
 [小組資料科學流程：角色和工作](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md)概述依據此流程進行標準化的資料科學團隊之中的重要人員角色及其相關工作。 
-

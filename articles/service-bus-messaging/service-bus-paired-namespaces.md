@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
 ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>配對命名空間實作詳細資料和成本影響
 使用 [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions] 執行個體的 [PairNamespaceAsync][PairNamespaceAsync] 方法會代表您執行可見的工作。 因為使用此功能時有一些成本考量，了解這些工作會有所幫助，以便預期發生時的行為。 API 會代表您下列從事下列自動行為：
@@ -120,4 +119,3 @@ Ping 訊息是空的 [BrokeredMessage][BrokeredMessage]，它的 [ContentType][C
 [0]: ./media/service-bus-paired-namespaces/IC673405.png
 [1]: ./media/service-bus-paired-namespaces/IC673406.png
 [2]: ./media/service-bus-paired-namespaces/IC673407.png
-

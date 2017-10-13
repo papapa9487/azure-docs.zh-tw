@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: ed0fe2fea20671063395b9ff089599853278989d
-ms.lasthandoff: 03/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-cli-10"></a>使用 Azure CLI 1.0 設定虛擬機器 (傳統) 的私人 IP 位址
 
@@ -120,5 +119,4 @@ ms.lasthandoff: 03/21/2017
 * 深入了解 [保留的公用 IP](virtual-networks-reserved-public-ip.md) 位址。
 * 深入了解 [執行個體層級公用 IP (ILPIP)](virtual-networks-instance-level-public-ip.md) 位址。
 * 請參閱 [保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
-
 

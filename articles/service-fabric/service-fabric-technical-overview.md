@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 204c415a6dc77af1be78f8b28a1a5cbcd2fa7883
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
 Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。 本主題詳細說明 Service Fabric 中所使用的術語，以利您了解文件中使用的詞彙。
@@ -103,5 +102,4 @@ Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管�
 * [Service Fabric 概觀](service-fabric-overview.md)
 * [為何要用微服務方式建置應用程式？](service-fabric-overview-microservices.md)
 * [應用程式案例](service-fabric-application-scenarios.md)
-
 

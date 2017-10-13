@@ -9,14 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="document-collection-analysis"></a>文件集合分析
 
 此案例示範如何摘要及分析大型文件集合，包括片語學習、主題模型化，以及使用 Azure ML Workbench 的主題模型分析等技術。 Azure Machine Learning Workbench 為非常大型的文件集合提供簡單的相應增加功能，並提供一些機制來訓練及調整各種計算內容中的模型，範圍從本機計算到資料科學虛擬機器以至 Spark 叢集。 透過 Azure Machine Learning Workbench 內的 Jupyter Notebook 提供簡易的開發。
@@ -239,11 +237,10 @@ Notebook `5_Topic_Model_Analysis.ipynb` 顯示如何分析文件集合的主題�
 
 * Azure Machine Learning Workbench 可以管理執行歷程記錄和已學習的模型。 它可讓資料科學家快速找出效能最佳的模型，並找出用來產生這些模型的指令碼和資料。
 
-## <a name="references"></a>參考資料
+## <a name="references"></a>參考
 
 * **Timothy J. Hazen, Fred Richardson**, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Spoken Language Technology Workshop (SLT), 2012 IEEE. IEEE, 2012.
 
 * **Timothy J. Hazen**, [_Latent Topic Modeling for Audio Corpus Summarization_](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf). 12th Annual Conference of the International Speech Communication Association. 2011.
 
 * **Michael Roder, Andreas Both, Alexander Hinneburg**, [_Exploring the Space of Topic Coherence Measures_](http://svn.aksw.org/papers/2015/WSDM_Topic_Evaluation/public.pdf). Proceedings of the eighth ACM international conference on Web search and data mining. ACM, 2015.
-

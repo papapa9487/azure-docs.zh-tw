@@ -15,12 +15,11 @@ ms.date: 06/17/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
-ms.openlocfilehash: 62242f356afd55a7f9e432faa6cdf3be74b7c18c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
+ms.openlocfilehash: 66c8e89a81285391a524ffb95ef48227cbdcd388
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
@@ -111,4 +110,3 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 * Microsoft 帳戶的[關於雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)
 * 針對您的工作或學校帳戶[使用雙步驟驗證遇到困難](multi-factor-authentication-end-user-troubleshoot.md)？
 * [使用 Microsoft 驗證器從您的電話登入](microsoft-authenticator-app-phone-signin-faq.md)
-

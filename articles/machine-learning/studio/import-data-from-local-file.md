@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: garye;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 67f66f9b8703f2cab93a2274a90c161a55848c34
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>將訓練資料從硬碟上的檔案匯入到 Machine Learning Studio
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
@@ -44,4 +43,3 @@ ms.lasthandoff: 09/25/2017
 資料上傳之後，會儲存在資料集模組中，並且可供工作區中的任何實驗使用。
 
 當您在編輯實驗時，您可以在模組調色盤的 [儲存的資料集] 清單底下的 [我的資料集] 清單內，找到您所建立的資料集。 當您想將資料集用於進一步的分析和機器學習時，可以在實驗畫布上拖放資料集。
-

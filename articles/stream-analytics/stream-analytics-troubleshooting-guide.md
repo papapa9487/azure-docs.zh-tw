@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: dcff312e4a282b15e76ea32aadb1981a496a2446
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure 串流分析的疑難排解指南
 
 第一眼看到 Azure 串流分析的疑難排解作業時，您可能會覺得這是複雜的工作。 在與許多使用者合作後，我們建立了本指南來協助您簡化程序，並移除輸入、輸出、查詢和函式的任何猜測工作。
@@ -99,4 +97,3 @@ ms.lasthandoff: 08/29/2017
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

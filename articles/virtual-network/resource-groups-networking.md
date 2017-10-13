@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.openlocfilehash: 2428c707ddeed281fddd1e57bc5574603f0b9b1c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-resource-provider"></a>網路資源提供者
 現今企業成功的基礎是可以使用靈活、具彈性、安全且可重複的方式來建置和管理大規模網路感知應用程式。 Azure Resource Manager 可讓您以資源群組中單一資源集合的形式，建立這類應用程式。 管理這類資源時，是透過 Resource Manager 底下的各種資源提供者進行管理。
@@ -249,9 +249,9 @@ Rest API 符合 HTTP 1.1 通訊協定規格。 API 的一般 URI 結構顯示如
 
 1. 從 GitHub 開啟 template3 檔案。 在此範例中，請開啟 [具有兩個子網路的虛擬網路](https://github.com/Azure/azure-quickstart-templates/tree/master/101-virtual-network)。
 2. 按一下 [部署至 Azure] ，然後使用您的認證登入 Azure 入口網站。
-3. 驗證範本，然後按一下 [儲存] 。
+3. 驗證範本，然後按一下儲存 。
 4. 按一下 [編輯參數] 並選取位置 (例如*美國西部 (West US)* 做為 vnet 和子網路。
-5. 如有必要，請變更 [ADDRESSPREFIX] 和 [SUBNETPREFIX] 參數，然後按一下 [確定]。
+5. 如有必要，請變更 ADDRESSPREFIX 和 SUBNETPREFIX 參數，然後按一下確定。
 6. 按一下 [選取資源群組]  ，然後按一下您想要對其新增 vnet 和子網路的資源群組。 或者，您可以按一下 [或建立新的] 來建立新的資源群組。
 7. 按一下 [建立] 。 請注意顯示 [佈建範本部署] 的磚。 完成部署之後，您將會看到類似下面所示的畫面。
 

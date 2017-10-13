@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 45f1c61189b338d38681c8e93be01953da65913f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>將複寫的 VMware VM 和實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -56,11 +55,11 @@ ms.lasthandoff: 09/25/2017
 
 驗證 VM 屬性，並確定 VM 符合 [Azure 需求](site-recovery-support-matrix-to-azure.md#failed-over-azure-vm-requirements)。
 
-1. 在 [受保護的項目] 中，按一下 [複寫的項目] > [VM]。
+1. 在 [受保護的項目] 中，按一下 [複寫的項目] > VM。
 
 2. 在 [複寫的項目] 窗格中，將會呈現 VM 資訊、健康情況狀態，以及最新可用復原點的摘要。 如需檢視詳細資訊，請按一下 [屬性]。
 
-3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)及[受控磁碟設定](#managed-disk-considerations)。
+3. 在 [計算與網路] 中，您可以修改 Azure 的名稱、資源群組、目標大小、[可用性設定組](../virtual-machines/windows/tutorial-availability-sets.md)及[受管理磁碟設定](#managed-disk-considerations)。
 
 4. 您可以檢視及修改網路設定，包括在容錯移轉後 Azure VM 所在的網路/子網路，以及要指派給它的 IP 位址。
 
@@ -70,13 +69,13 @@ ms.lasthandoff: 09/25/2017
 
 1. 在 [設定] > [複寫的項目] 中，按一下 VM > [容錯移轉]。
 
-2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
+2. 在 [容錯移轉] 中，選取容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
    - **最新** (預設值)：此選項會先處理所有傳送至 Site Recovery 的資料。 它會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 Azure VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
    - **最近處理**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
-   - **最近的應用程式一致**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最近應用程式一致復原點。
+   - **最新應用程式一致**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最近應用程式一致復原點。
    - **自訂**：指定任何復原點。
 
-3. 選取 [先將機器關機再開始容錯移轉]，以在觸發容錯移轉之前，嘗試將來源虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以在 [作業] 頁面上追蹤容錯移轉進度。
+3. 選取 [先將機器關機再開始容錯移轉]，以在觸發容錯移轉之前，嘗試將來源虛擬機器關機。 即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 
 4. 如果您已準備好連線到 Azure VM，請進行連線以在容錯移轉之後加以驗證。
 
@@ -154,4 +153,3 @@ VM 的硬碟必須位於可供主要目標伺服器執行所在主機存取的�
 2. 選取用於將複寫的資料傳送至 Azure 的處理序伺服器，然後按一下 [確定]。
 
 重新保護完成之後，VM 會複寫回到 Azure，而您可以視需要執行容錯移轉。
-

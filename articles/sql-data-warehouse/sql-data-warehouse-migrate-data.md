@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/29/2017
 ms.author: joeyong;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0d156bc2eecf8220bd5ff4eb811d91482f216837
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data"></a>移轉資料
 資料可以藉由各種工具，從不同的來源移到您的「SQL 資料倉儲」中。  ADF 複製、SSIS 和 bcp 都可用來達成此目標。 不過，隨著資料量增加，您應該考慮將資料移轉程序細分成步驟。 這樣讓您有機會來最佳化每個步驟的效能和彈性，以確保順暢移轉資料。
@@ -208,4 +207,3 @@ PolyBase 也支援一項稱為「遞迴資料夾周遊」的功能。 您可以�
 [preview version]: http://aka.ms/downloadazcopypr/
 [ADO.NET destination adapter]: https://msdn.microsoft.com/library/bb934041.aspx
 [SSIS documentation]: https://msdn.microsoft.com/library/ms141026.aspx
-

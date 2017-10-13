@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: jdial
 ms.custom: 
+ms.openlocfilehash: 2fcbed2f83d66a0b4336cd1c464bb02eff3ef229
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 0398e9f814614b3dccf849385903a8ed8717eafb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-public-ip-address-in-an-availability-zone-with-the-azure-portal"></a>使用 Azure 入口網站在可用性區域中建立公用 IP 位址
 
 您可以在 Azure 可用性區域 (預覽) 中部署公用 IP 位址。 可用性區域是 Azure 區域內實際分開的區域。 了解如何：

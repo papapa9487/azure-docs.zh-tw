@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
 [異常偵測 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 是一個搭配 Azure Machine Learning 建置的範例，此 API 使用固定時間間隔的數值，偵測時間序列資料中的異常狀況。
@@ -58,7 +56,7 @@ ms.lasthandoff: 09/25/2017
 Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用，包括 Web 或行動應用程式、R、Python、Excel 等等。您可以透過 REST API 呼叫將您的時間序列資料傳送到此服務，它會執行上述三個異常類型的組合。
 
 ## <a name="calling-the-api"></a>呼叫 API
-若要呼叫 API，您必須知道端點位置和 API 金鑰。  從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面可取得這兩者，以及用於呼叫 API 的範例程式碼。  瀏覽至所需的 API，然後按一下 [取用] 索引標籤以找出它們。  請注意，您可以呼叫 API 做為 Swagger API (即包含 URL 參數 `format=swagger`) 或做為非 Swagger API (即不含 `format` URL 參數)。  範例程式碼會使用 Swagger 格式。  以下是非 Swagger 格式的範例要求和回應。  這些範例適用於季節性端點。  非季節性端點很類似。
+若要呼叫 API，您必須知道端點位置和 API 金鑰。  從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面可取得這兩者，以及用於呼叫 API 的範例程式碼。  瀏覽至所需的 API，然後按一下取用 索引標籤以找出它們。  請注意，您可以呼叫 API 做為 Swagger API (即包含 URL 參數 `format=swagger`) 或做為非 Swagger API (即不含 `format` URL 參數)。  範例程式碼會使用 Swagger 格式。  以下是非 Swagger 格式的範例要求和回應。  這些範例適用於季節性端點。  非季節性端點很類似。
 
 ### <a name="sample-request-body"></a>範例要求本文
 要求包含兩個物件︰`Inputs` 和 `GlobalParameters`。  在下列範例要求中，某些參數會明確傳送，有些則不會 (向下捲動以取得每個端點的完整參數清單)。  不會在要求中明確傳送的參數會使用下面所列的預設值。
@@ -192,5 +190,4 @@ API 會對您的時間序列資料執行所有偵測器，然後傳回每個時�
 
 [1]: ./media/apps-anomaly-detection-api/anomaly-detection-score.png
 [2]: ./media/apps-anomaly-detection-api/anomaly-detection-seasonal.png
-
 

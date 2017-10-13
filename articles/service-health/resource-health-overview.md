@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 07/01/2017
 ms.author: BernardoAMunoz
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 040d58a81a9b41fe660e4276d698bf884f90bb6c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-health-overview"></a>Azure 資源健康狀態概觀
  
@@ -92,7 +90,6 @@ ms.lasthandoff: 07/11/2017
 若要深入了解資源健康狀態，請參閱下列資源：
 -  [Azure 資源健康狀態中的資源類型和健康情況檢查](resource-health-checks-resource-types.md)
 -  [關於 Azure 資源健康狀態的常見問題集](resource-health-faq.md)
-
 
 
 

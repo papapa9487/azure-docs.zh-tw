@@ -16,10 +16,10 @@ ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的軟體變更
 
@@ -39,8 +39,8 @@ ms.lasthandoff: 08/18/2017
 使用下列步驟，設定要在 Linux 電腦上追蹤的檔案。
 
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
-2. 在 [設定] 頁面上，按一下 [資料]，然後按一下 [Linux 檔案追蹤]。
-3. 在 [Linux 檔案變更追蹤] 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下 [新增] 符號。 例如："/etc/*.conf"
+2. 在 設定 頁面上，按一下 資料，然後按一下Linux 檔案追蹤。
+3. 在 Linux 檔案變更追蹤 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下新增 符號。 例如："/etc/*.conf"
 4. 按一下 [儲存] 。  
 
 > [!NOTE]
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/18/2017
 
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
 2. 在 **[設定]** 頁面上，按一下 **[資料]**，然後按一下 **[Windows 檔案追蹤]**。
-3. 在 [Windows 檔案變更追蹤] 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下 [新增] 符號。 例如：C:\Program Files (x86)\Internet Explorer\iexplore.exe 或 C:\Windows\System32\drivers\etc\hosts。
+3. 在 Windows 檔案變更追蹤 下，輸入整個路徑 (包含您要追蹤之檔案的檔案名稱)，然後按一下新增 符號。 例如：C:\Program Files (x86)\Internet Explorer\iexplore.exe 或 C:\Windows\System32\drivers\etc\hosts。
 4. 按一下 [儲存] 。  
    ![Windows 檔案變更追蹤](./media/log-analytics-change-tracking/windows-file-change-tracking.png)
 
@@ -59,8 +59,8 @@ ms.lasthandoff: 08/18/2017
 使用下列步驟，設定要在 Windows 電腦上追蹤的登錄機碼。
 
 1. 在 OMS 入口網站中，按一下 **[設定]** \(齒輪符號)。
-2. 在 [設定] 頁面上，按一下 [資料]，然後按一下 [Windows 登錄追蹤]。
-3. 在 [Windows 登錄變更追蹤] 下方，輸入您要追蹤的整個金鑰，然後按一下 [新增] 符號。
+2. 在 設定 頁面上，按一下 資料，然後按一下Windows 登錄追蹤。
+3. 在 Windows 登錄變更追蹤 下方，輸入您要追蹤的整個金鑰，然後按一下新增 符號。
 4. 按一下 [儲存] 。  
    ![Windows 登錄變更追蹤](./media/log-analytics-change-tracking/windows-registry-change-tracking.png)
 

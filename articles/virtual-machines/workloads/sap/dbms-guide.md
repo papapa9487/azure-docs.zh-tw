@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1046d32a0b4b6ede027ef1931314a188c64c94bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 4af0621c4ba0f0c283a6292824cc1ff819c1d232
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1505,5 +1504,4 @@ SAP 快取伺服器是一個額外的伺服器架構元件，可提供在本機�
 所有其他一般主題 (例如「Azure 可用性設定組」或 SAP 監視) 也適用於使用 IBM DB2 for LUW 來部署 VM 的情況，如本文件的前三章中所述。
 
 另請參閱[適用於 Azure 上 SAP 的一般 SQL Server 摘要][dbms-guide-5.8]。
-
 

@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: 6067a88cd42d29c3d2f4b74580095424de77561e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>使用 StorSimple Snapshot Manager 來建立和管理磁碟區群組
 ## <a name="overview"></a>概觀
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="to-create-a-volume-group"></a>若要建立磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，以滑鼠右鍵按一下 [磁碟區群組]，然後按一下 [建立磁碟區群組]。
+2. 在 範圍 窗格中，以滑鼠右鍵按一下 磁碟區群組，然後按一下建立磁碟區群組。
    
     ![建立磁碟區群組](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Create_volume_group.png)
    
@@ -91,21 +91,21 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="to-back-up-a-volume-group"></a>若要備份磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [取得備份]。
+2. 在 範圍 窗格中，展開 磁碟區群組 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下取得備份。
    
     ![立即備份磁碟區群組](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_Take_backup.png)
-3. 在 [取得備份] 對話方塊中，選取 [本機快照] 或 [雲端快照]，然後按一下 [建立]。
+3. 在 取得備份 對話方塊中，選取 本機快照 或 雲端快照，然後按一下建立。
    
     ![取得備份對話方塊](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_TakeBackup_dialog.png)
-4. 若要確認備份執行中，請展開 [作業] 節點，然後按一下 [執行中]。 應該會列出備份。
-5. 若要檢視已完成的快照集，請展開 [備份目錄] 節點，展開磁碟區群組名稱，然後按一下 [本機快照] 或 [雲端快照]。 如果順利完成，將會列出備份。
+4. 若要確認備份執行中，請展開 作業 節點，然後按一下執行中。 應該會列出備份。
+5. 若要檢視已完成的快照集，請展開 備份目錄 節點，展開磁碟區群組名稱，然後按一下本機快照 或 雲端快照。 如果順利完成，將會列出備份。
 
 ## <a name="edit-a-volume-group"></a>編輯磁碟區群組
 請使用下列程序來編輯磁碟區群組。
 
 #### <a name="to-edit-a-volume-group"></a>若要編輯磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [編輯]。
+2. 在 範圍 窗格中，展開 磁碟區群組 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下編輯。
 3. [建立磁碟區群組] 對話方塊隨即出現。 您可以變更 [名稱]、[應用程式] 和 [磁碟區] 項目。
 4. 按一下 [確定]  儲存變更。
 
@@ -119,8 +119,8 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="to-delete-a-volume-group"></a>若要刪除磁碟區群組
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下 [刪除]。
-3. [刪除磁碟區群組] 對話方塊隨即出現。 在文字方塊中輸入 **Confirm**，然後按一下 [確定]。
+2. 在 範圍 窗格中，展開 磁碟區群組 節點，以滑鼠右鍵按一下磁碟區群組名稱，然後按一下刪除。
+3. [刪除磁碟區群組] 對話方塊隨即出現。 在文字方塊中輸入 **Confirm**，然後按一下確定。
    
     刪除的磁碟區群組會從 [結果]  窗格中的清單消失，而且所有與該磁碟區群組相關聯的備份都會從備份目錄中刪除。
 

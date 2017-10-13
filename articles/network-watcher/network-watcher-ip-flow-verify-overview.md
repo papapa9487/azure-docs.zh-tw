@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2f03ba60d81e97c7da9a9fe61ecd419096248763
-ms.openlocfilehash: bf015f8f646ecce6821379affd4d041329967fc8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/04/2017
-
+ms.openlocfilehash: b2ad45e76320c59d18dce7b39166679801b4170a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-ip-flow-verify-in-azure-network-watcher"></a>Azure 網路監看員中的 IP 流量驗證簡介
 
 IP 流量驗證會根據 5 個 tuple 資訊檢查進出虛擬機器的封包是受到允許或拒絕。 這些資訊包括方向、通訊協定、本機 IP、遠端 IP、本機連接埠和遠端連接埠。 如果封包遭到安全性群組拒絕，則會傳回拒絕封包之規則的名稱。 雖然任何來源或目的地 IP 均可供選擇，但這項功能可協助系統管理員快速診斷網際網路和內部部署環境的往來連線問題。
@@ -37,7 +35,6 @@ IP 流量驗證是以虛擬機器的網路介面做為目標。 接著會根據�
 瀏覽下列文章，以透過入口網站了解特定虛擬機器的封包是受到允許或拒絕。 [使用入口網站以 IP 流量驗證檢查 VM 上的流量是否受到允許](network-watcher-check-ip-flow-verify-portal.md)
 
 [1]: ./media/network-watcher-ip-flow-verify-overview/figure1.png
-
 
 
 

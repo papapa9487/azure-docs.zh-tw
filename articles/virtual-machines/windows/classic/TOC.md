@@ -1,5 +1,5 @@
 # 概觀
-## [關於虛擬機器](../../virtual-machines-windows-about.md)
+## [關於虛擬機器](../../virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 ## [磁碟與 VHD](../about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ## [虛擬網路](../../../virtual-network/virtual-networks-overview.md)
 ## [常見問題集](faq.md)

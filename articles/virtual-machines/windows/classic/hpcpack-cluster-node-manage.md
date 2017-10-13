@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
 ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>在 Azure 的 HPC Pack 叢集中管理計算節點的數目和可用性
 如果您已在 Azure VM 中建立 HPC Pack 2012 R2 叢集，您可能會需要可輕易地在叢集中新增、移除、啟動 (佈建) 或停止 (解除佈建) 一些計算節點 VM 的方法。 若要執行這些工作，請執行安裝在前端節點 VM 上的 Azure PowerShell 指令碼。 這些指令碼可協助您控制 HPC Pack 叢集資源的數目和可用性，讓您得以控制成本。

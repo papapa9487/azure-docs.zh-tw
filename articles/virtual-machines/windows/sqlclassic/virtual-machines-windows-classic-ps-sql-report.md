@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: asaxton
 ms.openlocfilehash: 5e5c11251cd316e8161dbe362b300be76927ac01
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 
@@ -126,9 +126,9 @@ ms.lasthandoff: 07/11/2017
        ![登入包括 VM 名稱](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. 執行 mmc.exe。 如需詳細資訊，請參閱 [做法：使用 MMC 嵌入式管理單元檢視憑證](https://msdn.microsoft.com/library/ms788967.aspx)。
    3. 在主控台應用程式的 [檔案] 功能表中，新增 [憑證] 嵌入式管理單元，在系統提示時選取 [電腦帳戶]，然後按 [下一步]。
-   4. 選取要管理的 [本機電腦]，然後按一下 [完成]。
-   5. 按一下 [確認]，展開 [憑證 - 個人] 節點，然後按一下 [憑證]。 憑證是以 VM 的 DNS 名稱來命名，並以**cloudapp.net** 結尾。 以滑鼠右鍵按一下憑證名稱，並按一下 [複製]。
-   6. 展開 [信任的根憑證授權] 節點，接著以滑鼠右鍵按一下 [憑證]，然後按一下 [貼上]。
+   4. 選取要管理的 本機電腦，然後按一下完成。
+   5. 按一下 確認，展開 憑證 - 個人 節點，然後按一下憑證。 憑證是以 VM 的 DNS 名稱來命名，並以**cloudapp.net** 結尾。 以滑鼠右鍵按一下憑證名稱，並按一下 [複製]。
+   6. 展開 信任的根憑證授權 節點，接著以滑鼠右鍵按一下 憑證，然後按一下貼上。
    7. 若要驗證，請按兩下 [信任的根憑證授權]  下的憑證名稱，確認沒有任何錯誤，且您能看到您的憑證。 若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將 [指紋] 憑證的值作為指令碼的參數。 **若要取得憑證指紋值**，請完成下列步驟。 在[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-HTTPS)一節中，還有可擷取憑證指紋的 PowerShell 範例。
       
       1. 按兩下憑證名稱，例如 ssrsnativecloud.cloudapp.net。
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/11/2017
    
     ![登入包括 VM 名稱](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. 在 VM 上，以系統管理權限開啟 **Windows PowerShell ISE** 。 Windows Server 2012 預設會安裝 PowerShell ISE。 建議您使用 ISE 代替標準 Windows PowerShell 視窗，以便將指令碼貼到 ISE、修改指令碼，並接著執行指令碼。
-3. 在 Windows PowerShell ISE 中，按一下 [檢視] 功能表，然後按一下 [顯示指令碼窗格]。
+3. 在 Windows PowerShell ISE 中，按一下 檢視 功能表，然後按一下顯示指令碼窗格。
 4. 複製下列指令碼，然後將指令碼貼到 [Windows PowerShell ISE 指令碼] 窗格。
    
         ## This script configures a Native mode report server without HTTPS
@@ -302,7 +302,7 @@ ms.lasthandoff: 07/11/2017
     然後您就能夠執行下列命令以驗證原則：
    
         Get-ExecutionPolicy
-4. 在 [Windows PowerShell ISE] 中，按一下 [檢視]功能表，然後按一下 [顯示指令碼窗格]。
+4. 在 Windows PowerShell ISE 中，按一下 檢視功能表，然後按一下顯示指令碼窗格。
 5. 複製下列指令碼，並將指令碼貼到 [Windows PowerShell ISE 指令碼] 窗格。
    
         ## This script configures the report server, including HTTPS

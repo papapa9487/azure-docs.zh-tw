@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/01/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 09fed7e785708d4afe64905de973becc188181d7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>在 Azure 中設定 Always On 可用性群組的負載平衡器
 本文說明如何在使用 Azure Resource Manager 執行的 Azure 虛擬機器中建立 SQL Server AlwaysOn 可用性群組的負載平衡器。 當 SQL Server 執行個體位於 Azure 虛擬機器時，可用性群組需要負載平衡器。 負載平衡器會儲存可用性群組接聽程式的 IP 位址。 如果可用性群組跨越多個區域，則每個區域都需要負載平衡器。
@@ -95,7 +93,7 @@ Azure 會呼叫後端位址集區 *backend pool*。 在此情況下，後端集�
 
 6. 在 [選擇虛擬機器] 之下，按一下 [選擇可用性設定組]，然後指定 SQL Server 虛擬機器所屬的可用性設定組。
 
-7. 在您選擇可用性設定組之後，請按一下 [選擇虛擬機器]，選取可用性群組中主控 SQL Server 執行個體的兩部虛擬機器，然後按一下 [選取]。 
+7. 在您選擇可用性設定組之後，請按一下 選擇虛擬機器，選取可用性群組中主控 SQL Server 執行個體的兩部虛擬機器，然後按一下選取。 
 
 8. 按一下 [確定] 以關閉 [選擇虛擬機器] 和 [新增後端集區] 的刀鋒視窗。 
 
@@ -182,9 +180,9 @@ Azure 會建立探查，然後使用它來測試那一個 SQL Server 執行個�
 2. 移至 [AlwaysOn 高可用性] > [可用性群組] > [可用性群組接聽程式]。  
     您現在應該會看到在容錯移轉叢集管理員中建立的接聽程式名稱。 
 
-3. 以滑鼠右鍵按一下接聽程式名稱，然後按一下 [屬性]。
+3. 以滑鼠右鍵按一下接聽程式名稱，然後按一下屬性。
 
-4. 在 [連接埠] 方塊中，使用您稍早所用的 $EndpointPort (預設值是 1433) 來指定可用性群組接聽程式的連接埠號碼，然後按一下 [確定]。
+4. 在 連接埠 方塊中，使用您稍早所用的 $EndpointPort (預設值是 1433) 來指定可用性群組接聽程式的連接埠號碼，然後按一下確定。
 
 現在，您在以 Resource Manager 模式執行的 Azure 虛擬機器中，已有一個可用性群組。 
 
@@ -207,7 +205,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 
 1. 在 Azure 入口網站中，開啟包含負載平衡器的資源群組，然後按一下負載平衡器。 
 
-2. 在 [設定] 下按一下 [前端 IP 集區]，然後按一下 [新增]。 
+2. 在 設定 下按一下 前端 IP 集區，然後按一下新增。 
 
 3. 在 [新增前端 IP 位址] 下指派前端的名稱。 
 
@@ -232,7 +230,7 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 
 8. 按一下 [確定] 儲存探查。 
 
-9. 建立負載平衡規則。 按一下 [負載平衡規則]，然後按一下 [新增]。
+9. 建立負載平衡規則。 按一下 負載平衡規則，然後按一下新增。
 
 10. 使用下列設定來設定新的負載平衡規則：
 
@@ -275,4 +273,3 @@ SQLCMD 連線會自動連線到裝載主要複本的 SQL Server 執行個體。
 ## <a name="next-steps"></a>後續步驟
 
 - [在不同區域中的 Azure 虛擬機器上設定 SQL Server Always On 可用性群組](virtual-machines-windows-portal-sql-availability-group-dr.md)
-

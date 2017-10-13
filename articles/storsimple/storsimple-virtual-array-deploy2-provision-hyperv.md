@@ -16,10 +16,10 @@ ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bad431c8958f7d381bb9c0410caa3a57c6e75c19
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-hyper-v"></a>部署 StorSimple Virtual Array：在 Hyper-V 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
@@ -89,29 +89,29 @@ ms.lasthandoff: 07/11/2017
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image1.png)  
 
    如果您執行的是 Windows Server 2008 R2，請開啟「Hyper-V 管理員」。 在 [伺服器管理員] 中，按一下 [角色] > [Hyper-V] > [Hyper-V 管理員]。
-3. 在 [Hyper-V 管理員] 的範圍窗格中，於您的系統節點上按一下滑鼠右鍵以開啟操作功能表，然後按一下 [新增]  >  [虛擬機器]。
+3. 在 Hyper-V 管理員 的範圍窗格中，於您的系統節點上按一下滑鼠右鍵以開啟操作功能表，然後按一下新增  >  虛擬機器。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image2.png)
 4. 在「新增虛擬機器精靈」的 [開始之前] 頁面上，按一下 [下一步]。
 5. 在 [指定名稱和位置] 頁面上，提供虛擬陣列的 [名稱]。 按一下 [下一步] 。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image4.png)
-6. 在 [指定世代] 頁面上，選擇裝置映像類型，然後按一下 [下一步]。 如果您使用的是 Windows Server 2008 R2，則不會出現此頁面。
+6. 在 指定世代 頁面上，選擇裝置映像類型，然後按一下下一步。 如果您使用的是 Windows Server 2008 R2，則不會出現此頁面。
 
    * 如果您已下載適用於 Windows Server 2012 或更新版本的 .vhdx 映像，請選擇 [第 2 代]  。
    * 如果您已下載適用於 Windows Server 2008 R2 或更新版本的 .vhd 映像，請選擇 [第 1 代]  。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image5.png)
-7. 在 [指派記憶體] 頁面上，至少指定 **8192 MB** 的「啟動記憶體」，請勿啟用動態記憶體，然後按一下 [下一步]。
+7. 在 指派記憶體 頁面上，至少指定 **8192 MB** 的「啟動記憶體」，請勿啟用動態記憶體，然後按一下下一步。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image6.png)  
-8. 在 [設定網路功能] 頁面上，指定連線到網際網路的虛擬交換器，然後按一下 [下一步]。
+8. 在 設定網路功能 頁面上，指定連線到網際網路的虛擬交換器，然後按一下下一步。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image7.png)
-9. 在 [連接虛擬硬碟] 頁面上，選擇 [使用現有的虛擬硬碟]，指定虛擬陣列映像 (.vhdx 或.vhd) 的位置，然後按一下 [下一步]。
+9. 在 連接虛擬硬碟 頁面上，選擇 使用現有的虛擬硬碟，指定虛擬陣列映像 (.vhdx 或.vhd) 的位置，然後按一下下一步。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image8m.png)
-10. 檢閱「摘要」，然後按一下 [結束] 來建立虛擬機器。
+10. 檢閱「摘要」，然後按一下結束 來建立虛擬機器。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image9.png)
 11. 您需要 4 顆核心才能符合最低需求。 若要新增 4 顆虛擬處理器，請在 [Hyper-V 管理員] 視窗中選取您的主機系統。 在右窗格中的 [虛擬機器] 清單下，找出您剛才建立的虛擬機器。 選取虛擬機器的名稱並按一下滑鼠右鍵，然後選取 [設定] 。
@@ -126,7 +126,7 @@ ms.lasthandoff: 07/11/2017
     2. 在右窗格中，選取 [硬碟]，然後按一下 [新增]。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image12.png)
-14. 在 [硬碟] 頁面上，選取 [虛擬硬碟] 選項，然後按一下 [新增]。 [新增虛擬硬碟精靈] 會啟動。
+14. 在 硬碟 頁面上，選取 虛擬硬碟 選項，然後按一下新增。 [新增虛擬硬碟精靈] 會啟動。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image13.png)
 15. 在「新增虛擬硬碟精靈」的 [開始之前] 頁面上，按一下 [下一步]。

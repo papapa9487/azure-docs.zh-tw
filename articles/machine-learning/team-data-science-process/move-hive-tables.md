@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e879ab2874cb3298de4b0929b286482d824e8309
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 本主題會顯示泛型 Hive 查詢，這類查詢可建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。 同時也會提供一些關於資料分割 Hive 資料表，以及使用最佳化單欄式資料列 (ORC) 格式來提升查詢效能的指引。
@@ -36,7 +35,7 @@ ms.lasthandoff: 09/25/2017
 * 啟用叢集的遠端存取、登入，然後開啟 Hadoop 命令列主控台。 如需指示，請參閱 [存取 Hadoop 叢集的前端節點](customize-hadoop-cluster.md#headnode)。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
-如果您遵循[設定適用於進階分析的 Azure 虛擬機器](../data-science-virtual-machine/setup-virtual-machine.md)中所提供的指示建立了 Azure 虛擬機器，應該已將這個指令碼檔案下載至虛擬機器上的 C:\\Users\\\<使用者名稱\>\\Documents\\Data Science Scripts 目錄中。 這些 Hive 查詢只要求您插入自己的資料結構描述，以及已準備好進行提交之適當欄位中的 Azure Blob 儲存體設定。
+如果您遵循[設定適用於進階分析的 Azure 虛擬機器](../data-science-virtual-machine/setup-virtual-machine.md)中所提供的指示建立了 Azure 虛擬機器，應該已將這個指令碼檔案下載至虛擬機器上的 *C:\\Users\\\<使用者名稱\>\\Documents\\Data Science Scripts* 目錄中。 這些 Hive 查詢只要求您插入自己的資料結構描述，以及已準備好進行提交之適當欄位中的 Azure Blob 儲存體設定。
 
 我們假設 Hive 資料表的資料為 **未壓縮的** 表格格式，而且資料已上傳至 Hadoop 叢集所使用之儲存體帳戶的預設 (或其他) 容器。
 
@@ -99,7 +98,7 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 
     hive -e "<hive query>" > <local path in the head node>
 
-在下列範例中，Hive 查詢的輸出會寫入 `C:\apps\temp` 目錄中的 `hivequeryoutput.txt` 檔案。
+在下列範例中，Hive 查詢的輸出會寫入 `hivequeryoutput.txt` 目錄中的 `C:\apps\temp` 檔案。
 
 ![建立工作區](./media/move-hive-tables/output-hive-results-1.png)
 
@@ -180,7 +179,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-查詢資料分割資料表時，**建議在** 子句的 開頭 `where` 新增資料分割條件，這樣就能大幅提升搜尋效率。
+查詢資料分割資料表時，建議在 **子句的**開頭`where`新增資料分割條件，這樣就能大幅提升搜尋效率。
 
     select
         field1, field2, ..., fieldN
@@ -236,4 +235,3 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 
 依照此程序執行之後，您應該會有含 ORC 格式之資料的資料表可供使用。  
-

@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c863dbdcb242bdea208f7e72f6c1f61b5ba04844
 ms.openlocfilehash: 232c2cf1ba0a7de23da10357de9a6e6ad9a0d41d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>使用 Azure CLI 在可用性區域中建立 Linux 虛擬機器
 
 本文逐步引導您使用 Azure CLI 在可用性區域中建立 Linux VM。 [可用性區域](../../availability-zones/az-overview.md)是指 Azure 區域內實際上分隔的區域。 萬一整個資料中心失敗或遺失，使用可用性區域可保護您的應用程式和資料免於受害。
@@ -132,7 +130,7 @@ osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osD
 az disk show --resource-group myResourceGroupVM --name $osdiskname
 ```
 
-輸出會顯示與 VM 相同的可用性區域中的受管理磁碟：
+輸出會顯示與 VM 相同的可用性區域中的受控磁碟：
 
 ```azurecli-interactive
 {
@@ -173,7 +171,6 @@ az disk show --resource-group myResourceGroupVM --name $osdiskname
 ## <a name="next-steps"></a>後續步驟
 
 在本文中，您已學到如何在可用性區域中建立 VM。 深入了解 Azure VM 的[區域和可用性](regions-and-availability.md)。
-
 
 
 

@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 192680efe07368666c5a9d037549c7686189d0b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6c80c6814dacf90a0a50dab691899c3a8cc2bf82
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-files-with-linux"></a>搭配 Linux 使用 Azure 檔案
-[Azure 檔案](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可裝載於使用 [cifs-utils 封裝](https://wiki.samba.org/index.php/LinuxCIFS_utils) (來自 [Samba 專案](https://www.samba.org/)) 的 Linux 發行版本。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
+[Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可裝載於使用 [cifs-utils 封裝](https://wiki.samba.org/index.php/LinuxCIFS_utils) (來自 [Samba 專案](https://www.samba.org/)) 的 Linux 發行版本。 本文將說明掛接 Azure 檔案共用的兩種方式：使用 `mount` 命令的隨選掛接，以及建立項目 `/etc/fstab` 的開機掛接。
 
 > [!NOTE]  
 > 若要在 Azure 區域之外掛接 Azure 檔案共用，例如內部部署或是在不同的 Azure 區域，作業系統必須支援 SMB 3.0 的加密功能。 4.11 核心推出 Linux 的 SMB 3.0 適用的加密功能。 此功能讓您可從內部部署或不同 Azure 區域的 Azure 檔案共用進行掛接。 發佈時，這項功能已向前移植到 16.04 及以上版本的 Ubuntu。
@@ -111,10 +110,9 @@ Linux 使用者，歡迎您提供相關資訊！
 適用於 Linux 的 Azure 檔案使用者群組提供了一個論壇，讓您在 Linux 上評估並採用檔案儲存體之際，得以分享意見反應。 請寄電子郵件至 [Azure 檔案 Linux 使用者](mailto:azurefileslinuxusers@microsoft.com)，以加入使用者的群組。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱這些連結，以取得 Azure 檔案的相關詳細資訊。
+請參閱這些連結，以取得 Azure 檔案服務的詳細資訊。
 * [檔案服務 REST API 參考](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 * [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [使用 Azure CLI 搭配 Azure 儲存體](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [常見問題集](../storage-files-faq.md)
 * [疑難排解](storage-troubleshoot-linux-file-connection-problems.md)
-

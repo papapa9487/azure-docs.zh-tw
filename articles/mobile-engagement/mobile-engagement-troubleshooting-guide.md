@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-multiple
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 1947600f6167dff6ec4fa104b0f98200bcf2a2e1
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 93b5e3f4892f974bf9df28955956136528470e03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement---troubleshooting-guide"></a>Azure Mobile Engagement - 疑難排解指南
 ## <a name="introduction"></a>簡介
@@ -77,7 +76,7 @@ ms.lasthandoff: 11/17/2016
    
    * 確定憑證有效且未到期，仍可用於 iOS 推播通知。 
    * 確定您有在 Mobile Engagement 應用程式中正確設定 [生產]  憑證。 
-   * 請確定您要測試的是 *真正的實體裝置。*  iOS 模擬器無法處理推播訊息。
+   * 請確定您要測試的是 *真正的實體裝置。* iOS 模擬器無法處理推播訊息。
    * 確定已在行動應用程式中正確設定 [Bundle Identifier]。 請參閱 [這裡](https://developer.apple.com/library/prerelease/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)
    * 測試時，請使用行動佈建設定檔中的「臨機」發佈。 若您的應用程式使用「偵錯」進行編譯，您將無法收到通知
 2. **Android**
@@ -115,5 +114,4 @@ ms.lasthandoff: 11/17/2016
    * 裝置識別碼
    * Mobile Engagement SDK 版本 (例如 Android SDK v2.1.0)
    * 附有確切錯誤訊息與狀況的錯誤詳細資料
-
 

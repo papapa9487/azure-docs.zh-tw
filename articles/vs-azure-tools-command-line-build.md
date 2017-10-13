@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/05/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
-ms.openlocfilehash: 5add8703b7b16ba8d9dc49f42f5e71b195c46653
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/27/2017
-
+ms.openlocfilehash: 5fe910e2757dd5ec783538e23e7f52e2f5725b39
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="building-azure-projects-from-the-command-line"></a>從命令列建置 Azure 專案
 使用 Microsoft Build Engine (MSBuild) 時，您可以在未安裝 Visual Studio 的測試版環境中建置產品。 MSBuild 的專案檔案會採用可擴充且 Microsoft 完全支援的 XML 格式。 使用 MSBuild 檔案格式時，您可以說明針對一或多個平台和組態所必須建置的項目。
@@ -38,5 +37,4 @@ ms.lasthandoff: 03/27/2017
 
 ## <a name="next-steps"></a>後續步驟
 建立封裝之後，您可以將它部署至 Azure。 如需示範如何自動執行該程序的教學課程，請參閱 [Azure 中雲端服務的連續傳遞](./cloud-services/cloud-services-dotnet-continuous-delivery.md)。
-
 

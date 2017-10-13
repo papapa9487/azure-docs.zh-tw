@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: magoedte
+ms.openlocfilehash: 91af774560860b35913e57b49fb7a1dd59f5640f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9ae1629462d375c1061d9c7b25975c789ee661c9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
 Microsoft 致力於保護您的隱私權和保護資料安全，同時提供軟體和服務，幫助您管理組織的 IT 基礎結構。 我們了解當您將資料委託給他人管理時，將需要嚴格的安全性。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
@@ -47,7 +46,7 @@ Microsoft 會在 OMS 工作區關閉 30 天後刪除客戶資料。 Microsoft �
 
 下表列出 OMS 中可用的一些解決方案與它們所收集的資料類型範例。
 
-| **Solution** | **資料類型** |
+| <bpt id="p1">**</bpt>Solution<ept id="p1">**</ept> | **資料類型** |
 | --- | --- |
 | 組態評估 |組態資料、中繼資料及狀態資料 |
 | 容量規劃 |效能資料和中繼資料 |
@@ -165,4 +164,3 @@ Log Analytics 服務會確保內送資料是來自信任的來源，方法是驗
 
 ## <a name="next-steps"></a>後續步驟
 * [開始使用 Log Analytics](log-analytics-get-started.md) 以深入了解 Log Analytics，並幾分鐘內就啟動並執行。
-

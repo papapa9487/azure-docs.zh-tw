@@ -10,7 +10,7 @@
 3. 在 [GCM 設定] 區段中，按一下 [API 金鑰] 前面的 [編輯]圖示，如下所示：
    
     ![](./media/mobile-engagement-android-send-push/native-push-settings.png)
-4. 在快顯視窗中，貼上您先前取得的 GCM 伺服器金鑰，然後按一下 [確定] 。
+4. 在快顯視窗中，貼上您先前取得的 GCM 伺服器金鑰，然後按一下確定 。
    
     ![](./media/mobile-engagement-android-send-push/api-key.png)
 

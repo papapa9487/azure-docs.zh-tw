@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
 ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>從備份組還原 StorSimple 磁碟區
 
@@ -100,7 +100,7 @@ ms.lasthandoff: 07/11/2017
 
 
 ### <a name="to-restore-your-volume"></a>還原您的磁碟區
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [備份類別目錄]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下備份類別目錄。
 
 2. 選取備份組，如下所示：
    

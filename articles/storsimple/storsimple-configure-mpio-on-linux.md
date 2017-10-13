@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/01/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: aa0193e741b1a84c03230b2458eec96b5504f031
 ms.openlocfilehash: add539351066f9ff94febeebfd5334773b360e8f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。
@@ -277,7 +277,7 @@ multipath.conf 有五個區段：
 
     從上述輸出複製 StorSimple 裝置的 IQN ( `iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target`)。
 
-   b.這是另一個 C# 主控台應用程式。 使用目標 IQN 連接到此裝置。 StorSimple 裝置在此是 iSCSI 目標。 輸入：
+   b. 使用目標 IQN 連接到此裝置。 StorSimple 裝置在此是 iSCSI 目標。 輸入：
 
     ```
     iscsiadm -m node --login -T <IQN of iSCSI target>
@@ -446,10 +446,4 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 
 * [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Linux 訓練指南](http://linux-training.be/files/books/LinuxAdm.pdf)
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

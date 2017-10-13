@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
+ms.openlocfilehash: e1356439385cc7fe66985bd2b84e4121386ec23d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 68958dd42ef2382caaa740c52fc4f20c1cd3eff0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-machine-learning-workbench-execution-configuration-files"></a>Azure Machine Learning Workbench 執行組態檔
 
 當您提交 Azure Machine Learning (Azure ML) Workbench 的指令碼時，執行的行為是由 **aml_config** 資料夾中的檔案所控制。 此資料夾位於您專案資料夾的根目錄下。 請務必了解這些檔案的內容，以便以最佳方式達到執行所需的結果。
@@ -113,7 +111,7 @@ packages:
 ## <a name="run-configuration"></a>回合組態
 若要指定特定的回合組態，需要一組檔案。 它們通常是使用 CLI 命令所產生的。 但是，也可以複製現有的、加以重新命名並且編輯。
 
-```shell
+```azurecli
 # create a compute target pointing to a VM via SSH
 $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of VM> -u <username> -w <password> --type remotedocker
 
@@ -126,8 +124,8 @@ $ az ml computetarget attach -n <compute target name> -a <IP address or FQDN of 
 >[!NOTE]
 > 回合組態檔的_本機_或 _docker_ 是任意名稱。 當您為方便起見而建立空白專案時，Azure ML Workbench 會新增這兩個回合組態。 您可以將專案範本隨附的 "<run configuration name>.runconfig" 檔案重新命名，或使用任何您需要的名稱建立新的檔案。
 
-### <a name="compute-target-namecompute"></a><compute target name>.compute
-_<compute target name>.compute_ 檔案會指定用於計算目標的連線和組態資訊。 它是成對的名稱和數值清單。 以下是支援的設定。
+### <a name="compute-target-namecompute"></a>\<計算目標名稱>.compute
+_\<compute target name>.compute_ 檔案會指定用於計算目標的連線和組態資訊。 它是成對的名稱和數值清單。 以下是支援的設定。
 
 **類型**：計算環境的類型。 支援的值包括：
   - local
@@ -135,7 +133,7 @@ _<compute target name>.compute_ 檔案會指定用於計算目標的連線和組
   - remotedocker
   - 叢集
 
-**baseDockerImage**：用來執行 Python/PySpark 指令碼的 Docker 映像。 預設值是 _microsoft/mmlspark:plus-0.7.dev7_2.gcfbc920_。 我們也支援一個其他映像：_microsoft/mmlspark:plus-gpu-0.7.dev7_2.gcfbc920_，可讓您以 GPU 存取主機電腦 (如果 GPU 存在)。
+**baseDockerImage**：用來執行 Python/PySpark 指令碼的 Docker 映像。 預設值是 _microsoft/mmlspark:plus-0.7.91_。 我們也支援一個其他映像：_microsoft/mmlspark:plus-gpu-0.7.91_，其可讓您以 GPU 存取主機電腦 (如果 GPU 存在)。
 
 **位址**：虛擬機器的 IP 位址或 FQDN (完整的網域名稱) 或 HDInsight 叢集前端節點。
 
@@ -149,8 +147,8 @@ _<compute target name>.compute_ 檔案會指定用於計算目標的連線和組
 
 **nativeSharedDirectory**：此屬性會指定基礎目錄 (例如：_~/.azureml/share/_)，可供檔案儲存，以在相同計算目標的執行上進行共用。 如果在 Docker 容器上執行時使用這個設定，_sharedVolumes_ 必須設定為 true。 否則，執行就會失敗。
 
-### <a name="run-configuration-namerunconfig"></a><run configuration name>.runconfig
-_<run configuration name>.runconfig_ 會指定 Azure ML Workbench 執行行為。 它會指定諸如追蹤執行歷程記錄等回合組態行為，或是要與其他許多人共同使用的計算目標。 回合組態檔的名稱可用來填入 Azure ML Workbench 桌面應用程式中的執行內容下拉式清單。
+### <a name="run-configuration-namerunconfig"></a>\<回合組態名稱>.runconfig
+_\<run configuration name>.runconfig_ 會指定 Azure ML Workbench 執行行為。 您可以設定諸如追蹤執行歷程記錄等執行行為，或是要與其他許多人共同使用的計算目標。 回合組態檔的名稱可用來填入 Azure ML Workbench 桌面應用程式中的執行內容下拉式清單。
 
 **ArgumentVector**：這個區段會指定要包含在此執行及指令碼參數的一部分執行的指令碼。 例如，如果您的 "<run configuration name>.runconfig" 檔案中有下列程式碼片段 
 
@@ -212,4 +210,5 @@ DataSourceSubstitutions:
 ```
 df = datasource.load_datasource('mylocal.dsource')
 ```
-
+## <a name="next-steps"></a>後續步驟
+深入了解[執行環境組態](experiment-execution-configuration.md)

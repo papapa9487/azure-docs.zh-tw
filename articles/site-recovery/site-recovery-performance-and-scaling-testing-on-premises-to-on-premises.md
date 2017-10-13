@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
 ms.openlocfilehash: a9bec774b5482de87eefcd0c87844a2adbd98bbe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-results-for-on-premises-to-on-premises-hyper-v-replication-with-site-recovery"></a>使用 Site Recovery 進行內部部署對內部部署 Hyper-V 複寫的測試結果
 

@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 07/17/2017
 ms.author: rclaus
 ms.openlocfilehash: 8683b016c4db2c66fb1dd994405b70c3d137a7fc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>在 Azure VM 中建立 Oracle 資料庫
 
@@ -150,7 +150,7 @@ Marketplace 映像上已安裝 Oracle 軟體。 建立範例資料庫，如下�
 ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
 ORACLE_SID=cdb1; export ORACLE_SID
 ```
-您也可以將 ORACLE_HOME 和 ORACLE_SID 變數新增至 .bashrc 檔案。 這會儲存環境變數以供未來登入。 請確認已使用您選擇的編輯器，將下列陳述式新增至 `~/.bashrc` 檔案。
+您也可以將 ORACLE_HOME 和 ORACLE_SID 變數新增至 .bashrc 檔案。 這會儲存環境變數以供未來登入。請確認已使用您選擇的編輯器，將下列陳述式新增至 `~/.bashrc` 檔案。
 
 ```bash
 # Add ORACLE_HOME. 

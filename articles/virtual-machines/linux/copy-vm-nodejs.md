@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/22/2017
 ms.author: cynthn
 ms.openlocfilehash: 62ae54f3596c9383cbf3b401fcfdb42ecfdee63c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-copy-of-a-linux-virtual-machine-running-on-azure-with-the-azure-cli-10"></a>使用 Azure CLI 1.0 建立在 Azure 上執行的 Linux 虛擬機器複本
 本文示範如何使用 Resource Manager 部署模型來建立執行 Linux 的 Azure 虛擬機器 (VM) 複本。 首先，您需將作業系統和資料磁碟複製到新容器中，然後設定網路資源並建立新的虛擬機器。

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 768c2598beccba885dd5e43a59ec4684818ccca3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site"></a>將位於 VMM 雲端中的 Hyper-V 虛擬機器複寫至次要 VMM 站台
 > [!div class="op_single_selector"]
@@ -333,4 +332,3 @@ VMM 伺服器上的提供者會收到來自服務的事件通知，並在 Hyper-
 
 ## <a name="next-steps"></a>後續步驟
 在您執行測試容錯移轉以檢查您的環境是否如預期般運作之後，請 [深入了解](site-recovery-failover.md) 不同類型的容錯移轉。
-

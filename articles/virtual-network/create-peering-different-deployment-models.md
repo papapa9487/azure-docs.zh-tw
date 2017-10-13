@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1adf219dc4ca9ba91dc1ffc1ae98b764c9ef61b5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>建立虛擬網路對等互連 - 不同部署模型、相同訂用帳戶 
 
@@ -82,7 +81,7 @@ ms.lasthandoff: 09/25/2017
     - **資源群組**：選取 [新建] 並輸入 *myResourceGroup*
     - **位置**：*美國東部*
 4. 按一下 [+ 新增]。 在 [搜尋 Marketplace] 方塊中，輸入*虛擬網路*。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。 
-5. 在 [虛擬網路] 刀鋒視窗中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。
+5. 在 虛擬網路 刀鋒視窗中，於 選取部署模型 方塊中選取 傳統，然後按一下建立。
 6. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**： *myVnet2*
     - **位址空間**：*10.1.0.0/16*
@@ -252,7 +251,7 @@ ms.lasthandoff: 09/25/2017
 
 1. 在入口網站的搜尋方塊中，輸入 **myResourceGroup**。 在搜尋結果中按一下 [myResourceGroup]。
 2. 在 [myResourceGroup] 刀鋒視窗中，按一下 [刪除] 圖示。
-3. 若要確認刪除動作，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+3. 若要確認刪除動作，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroup**，然後按一下刪除。
 
 ### <a name="delete-cli"></a>Azure CLI
 
@@ -301,4 +300,3 @@ ms.lasthandoff: 09/25/2017
 - 請先徹底熟悉重要[虛擬網路對等互連的條件約束和行為](virtual-network-manage-peering.md#requirements-and-constraints)，再建立虛擬網路對等互連以供生產環境使用。
 - 了解所有[虛擬網路對等互連設定](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何透過虛擬網路對等互連來[建立中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
-

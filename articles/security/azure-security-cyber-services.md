@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Microsoft 網路安全性服務
 Microsoft 服務提供安全性、身分識別和網路安全性的完整方法。 Microsoft 服務提供跨策略、規劃、實作和持續性支援的一系列安全性和身分識別服務，協助企業用戶實作符合其策略性目標的整體安全性解決方案。

@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 672462fad715758e50680fa5bade4b1f9d50e6e5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal"></a>使用 Azure 入口網站設定虛擬機器的私人 IP 位址
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 07/11/2017
 若要在名為 TestVNet 之 VNet 的 FrontEnd 子網路中建立名為 DNS01 的 VM，請遵循下列步驟。
 
 1. 透過瀏覽器瀏覽至 http://portal.azure.com，並視需要使用您的 Azure 帳戶登入。
-2. 按一下 [新增]  >  [計算]  >  [Windows Server 2012 R2 Datacenter]，注意 [選取部署模型] 清單已經顯示 [Resource Manager]，然後按一下 [建立]，如下圖所示。
+2. 按一下 新增  >  計算  >  Windows Server 2012 R2 Datacenter，注意 選取部署模型 清單已經顯示 Resource Manager，然後按一下建立，如下圖所示。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-arm-pportal/figure01.png)
 3. 在 [基本概念]  刀鋒視窗中，輸入要建立之 VM 的名稱 (我們的案例中為*DNS01* )、本機系統管理員帳戶和密碼，如下圖所示。
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/11/2017
 5. 在 [大小選擇] 刀鋒視窗中，選取 [A1 標準]，再按一下 [選取]。
    
     ![選擇尺寸刀鋒視窗](./media/virtual-networks-static-ip-arm-pportal/figure04.png)    
-6. 在 [設定] 刀鋒視窗中，確定下列屬性都已設定為下列的值，然後按一下 [確定]。
+6. 在 設定 刀鋒視窗中，確定下列屬性都已設定為下列的值，然後按一下確定。
    
     -**儲存體帳戶**：vnetstorage
    
@@ -87,7 +87,7 @@ ms.lasthandoff: 07/11/2017
 若要將靜態私人 IP 位址新增至使用上述步驟建立之 VM，請遵循下列步驟：
 
 1. 從上方顯示的 [IP 位址] 刀鋒視窗中，按一下 [指派] 底下的[靜態]。
-2. [IP 位址] 輸入 192.168.1.101，然後按一下 [儲存]。
+2. IP 位址 輸入 192.168.1.101，然後按一下儲存。
    
     ![在 Azure 入口網站中建立 VM](./media/virtual-networks-static-ip-arm-pportal/figure09.png)
 
@@ -99,7 +99,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="how-to-remove-a-static-private-ip-address-from-a-vm"></a>如何移除 VM 的靜態私人 IP 位址
 若要移除上述所建立 VM 的靜態私人 IP 位址，請完成下列步驟：
 
-從上方顯示的 [IP 位址] 刀鋒視窗中，按一下 [指派] 底下的[動態]，然後按一下 [儲存]。
+從上方顯示的 IP 位址 刀鋒視窗中，按一下 指派 底下的動態，然後按一下儲存。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [保留的公用 IP](virtual-networks-reserved-public-ip.md) 位址。

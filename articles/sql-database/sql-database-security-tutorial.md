@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/28/2017
 ms.author: daredis
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 5dffbf03f07e5d0523ef92eb3b74619b6592782f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-azure-sql-database"></a>保護 Azure SQL Database
 
@@ -254,5 +253,4 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 
 > [!div class="nextstepaction"]
 >[實作異地分散式資料庫](sql-database-implement-geo-distributed-database.md)
-
 

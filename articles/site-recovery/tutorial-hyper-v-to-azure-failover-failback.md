@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/15/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e1cc21661450a983c25b24fe2a6228e26ceecec6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>將 Hyper-V VM 容錯移轉及容錯回復至 Azure
 
 [Azure Site Recovery](site-recovery-overview.md) 服務會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的複寫、容錯移轉和容錯回復。
@@ -130,5 +128,4 @@ ms.lasthandoff: 09/25/2017
 
 > [!NOTE]
 > 反轉複寫方向只會複寫自從 Azure VM 關閉以來發生的變更，而且只會傳送差異變更。
-
 

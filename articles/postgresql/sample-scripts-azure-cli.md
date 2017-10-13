@@ -11,12 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: sample, mvc
 ms.date: 05/25/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: cda2ae1776602b4daa85b5bec8204eec035d537f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: bad53b7d7ff931605fd3a2cdfc40fda6447f8ab9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>「適用於 PostgreSQL 的 Azure 資料庫」的 Azuer CLI 範例 
 下表包含「適用於 PostgreSQL 的 Azure 資料庫」之範例 Azure CLI 指令碼的連結。
@@ -28,4 +27,3 @@ ms.lasthandoff: 05/26/2017
 |**調整伺服器**||
 | [調整伺服器](scripts/sample-scale-server-up-or-down.md?toc=%2fcli%2fazure%2ftoc.json) | 此 Azure CLI 指令碼會隨著效能需求變化而相應增加或減少單一「適用於 PostgreSQL 的 Azure 資料庫」伺服器。 |
 |||
-

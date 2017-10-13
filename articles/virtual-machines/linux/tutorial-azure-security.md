@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/07/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 222cb9629e50e49ce08e0737d7f2570e9187317a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: dbba39f5b9f18aaca6449e08aa584224fc2126d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>使用 Azure 資訊安全中心來監視虛擬機器
 
@@ -149,5 +148,4 @@ Azure 資訊安全中心可協助您了解 Azure 資源的安全性作法。 資
 
 > [!div class="nextstepaction"]
 > [以 Jenkins、GitHub 及 Docker 建立 CI/CD 基礎結構](tutorial-jenkins-github-docker-cicd.md)
-
 

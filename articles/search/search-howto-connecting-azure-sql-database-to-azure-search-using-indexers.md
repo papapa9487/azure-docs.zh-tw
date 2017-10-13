@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
 
@@ -242,7 +242,7 @@ Azure 搜尋服務會使用**累加式編製索引**，以避免每次索引子�
     }
 
 > [!WARNING]
-> 如果來源資料表沒有上限標準資料行的索引，SQL 索引子所使用的查詢可能會逾時。 特別是，當資料表包含許多資料列時，`ORDER BY [High Water Mark Column]` 子句需要索引才能有效率地執行。
+> 如果來源資料表沒有上限標準資料行的索引，SQL 索引子所使用的查詢可能會逾時。特別是，當資料表包含許多資料列時，`ORDER BY [High Water Mark Column]` 子句需要索引才能有效率地執行。
 >
 >
 

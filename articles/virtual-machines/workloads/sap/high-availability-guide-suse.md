@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
 [dbms-guide]:dbms-guide.md
@@ -497,7 +495,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 1. 移至 <https://portal.azure.com>
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
-   移至 [屬性]，並記下目錄識別碼。 這是**租用戶識別碼**。
+   移至 [屬性]，並記下目錄識別碼。這是**租用戶識別碼**。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
 1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http://localhost )，然後按一下 [建立]
@@ -505,7 +503,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
+1. 記下應用程式識別碼。此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
 
 服務主體預設沒有存取您 Azure 資源的權限。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。
 
@@ -1230,7 +1228,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 
 1. 移至 <https://portal.azure.com>
 1. 開啟 [Azure Active Directory] 刀鋒視窗  
-   移至 [屬性]，並記下目錄識別碼。 這是**租用戶識別碼**。
+   移至 [屬性]，並記下目錄識別碼。這是**租用戶識別碼**。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
 1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http://localhost )，然後按一下 [建立]
@@ -1238,7 +1236,7 @@ STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
 1. 記下值。 此值會用來做為服務主體的**密碼**
-1. 記下應用程式識別碼。 此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
+1. 記下應用程式識別碼。此識別碼會用來做為服務主體的使用者名稱 (以下步驟中的 **login id**)
 
 服務主體預設沒有存取您 Azure 資源的權限。 您需要為服務主體提供權限來啟動和停止 (解除配置) 叢集的所有虛擬機器。
 

@@ -16,10 +16,10 @@ ms.custom: partners
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: 7c88e55b420d45f6d0cd4486377e3f2b1347bd9b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-business-intelligence-partners"></a>SQL 資料倉儲商業智慧合作夥伴
 若要建立端對端資料倉儲解決方案，請從各式各樣領先業界的工具中選擇。  本文將重點放在具有可支援「Azure SQL 資料倉儲」之商業智慧 (BI) 解決方案的 Microsoft 合作夥伴公司。

@@ -12,18 +12,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/29/2017
+ms.date: 10/2/2017
 ms.author: sumukhs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7edee399717ecb96fb920d0a938da551101c9e1
-ms.openlocfilehash: 9610c37111bf8fd36c1eaea4f48e46953661aacf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d3424aa7a8e0f6011bbef4aa61274c1f598f5c86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-<a id="configuring-reliable-actors--kvsactorstateprovider" class="xliff"></a>
-# 設定 Reliable Actors - KVSActorStateProvider
+# <a name="configuring-reliable-actors--kvsactorstateprovider"></a>設定 Reliable Actors - KVSActorStateProvider
 您可以在指定之動作項目的 Config 資料夾下，變更 Microsoft Visual Studio 封裝根中所產生的 settings.xml，來修改 KVSActorStateProvider 的預設組態。
 
 Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 settings.xml 檔案中尋找預先定義的區段名稱，並使用組態值。
@@ -33,26 +30,21 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 > 
 > 
 
-<a id="replicator-security-configuration" class="xliff"></a>
-## 複寫器安全性組態
+## <a name="replicator-security-configuration"></a>複寫器安全性組態
 複寫器安全性組態用來保護在複寫期間使用的通訊通道。 這表示服務將無法看到彼此的複寫流量，並且也會確保高度可用資料的安全。
 依預設，空白的安全性組態區段會妨礙複寫安全性。
 
-<a id="section-name" class="xliff"></a>
-### 區段名稱
+### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-<a id="replicator-configuration" class="xliff"></a>
-## 複寫器組態
+## <a name="replicator-configuration"></a>複寫器組態
 複寫器組態會設定負責讓動作項目狀態提供者狀態高度可靠的複寫器。
 預設組態由 Visual Studio 範本所產生，且應該已經足夠。 本節說明可用於微調複寫器的其他組態。
 
-<a id="section-name" class="xliff"></a>
-### 區段名稱
+### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-<a id="configuration-names" class="xliff"></a>
-### 組態名稱
+### <a name="configuration-names"></a>組態名稱
 | 名稱 | 單位 | 預設值 | 備註 |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |秒 |0.015 |次要複寫器收到作業後，將通知傳回給主要複寫器前所等待的時間間隔。 任何要在此間隔內傳送給作業處理的其他通知，會集中以一個回應傳送。 |
@@ -62,24 +54,20 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
 | MaxPrimaryReplicationQueueSize |作業數目 |1024 |主要佇列中作業數目上限。 主要複寫器收到所有次要複寫器的通知後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
 | MaxSecondaryReplicationQueueSize |作業數目 |2048 |次要佇列中作業數目上限。 透過持續性讓狀態成為高可用性後，系統便會釋放作業。 此值必須大於 64 且為 2 的乘冪。 |
 
-<a id="store-configuration" class="xliff"></a>
-## 存放區組態
+## <a name="store-configuration"></a>存放區組態
 存放區組態用於設定本機存放區以用來保存正在複寫的狀態。
 預設組態由 Visual Studio 範本所產生，且應該已經足夠。 本節將討論其他可用來微調本機存放區的組態。
 
-<a id="section-name" class="xliff"></a>
-### 區段名稱
+### <a name="section-name"></a>區段名稱
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-<a id="configuration-names" class="xliff"></a>
-### 組態名稱
+### <a name="configuration-names"></a>組態名稱
 | 名稱 | 單位 | 預設值 | 備註 |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |毫秒 |200 |設定長期本機存放區認可的批次間隔上限。 |
 | MaxVerPages |頁面數目 |16384 |本機存放區資料庫中版本頁面數上限。 其會判定未完成交易數上限。 |
 
-<a id="sample-configuration-file" class="xliff"></a>
-## 範例組態檔
+## <a name="sample-configuration-file"></a>範例組態檔
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -101,9 +89,7 @@ Azure Service Fabric 執行階段會在建立基礎執行階段元件時，在 s
    </Section>
 </Settings>
 ```
-<a id="remarks" class="xliff"></a>
-## 備註
+## <a name="remarks"></a>備註
 BatchAcknowledgementInterval 參數會控制複寫延遲性。 值為 '0' 時延遲可能性最低，但代價是降低輸送量 (隨著必須傳送與處理的通知訊息增加，每個訊息包含的通知會變少)。
 BatchAcknowledgementInterval 的值越大，整體複寫輸送量越高，代價是作業延遲變高。 這會直接轉換成交易認可的延遲。
-
 

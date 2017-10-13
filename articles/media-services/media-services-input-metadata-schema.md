@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 21cbbb10065df9ae9c63b775a6526ea9c4f92136
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 4787e4033e1afda6339b0b917263ecc165e400ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="input-metadata"></a>輸入中繼資料
 編碼作業會與您要在其上執行一些編碼工作的輸入資產相關聯。  完成工作時，就會產生輸出資產。  輸出資產包含視訊、音訊、縮圖、資訊清單等等。輸出資產也包含隨附關於輸入資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰&lt;asset_id&gt;_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml)，其中的 &lt;asset_id&gt; 是輸入資產的 AssetId 值。  
@@ -646,5 +645,4 @@ ms.lasthandoff: 07/06/2017
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

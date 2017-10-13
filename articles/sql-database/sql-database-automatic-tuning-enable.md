@@ -3,7 +3,7 @@ title: "啟用 Azure SQL Database 的自動調整 | Microsoft Docs"
 description: "您可以輕鬆在 Azure SQL Database 上啟用自動調整。"
 services: sql-database
 documentationcenter: 
-author: veljko-msft
+author: vvasic
 manager: drasumic
 editor: vvasic
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/19/2016
-ms.author: veljko-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
+ms.author: vvasic
 ms.openlocfilehash: 378e5a6a8cea80a551666c3692f8aa650620f66d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-automatic-tuning"></a>啟用自動微調
 

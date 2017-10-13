@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 03/19/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
-ms.openlocfilehash: b29a3299433e57709ea31de3c7849230ea09c09a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/21/2017
-
+ms.openlocfilehash: b2578c837732ab05d538e9b896ed3a3035075a70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-private-azure-clouds-with-visual-studio"></a>使用 Visual Studio 存取 Azure 私人雲端
 根據預設，Visual Studio 支援 Azure 公用雲端 REST 端點。 在本主題中，您將了解如何使用私人雲端的憑證，從 Visual Studio 存取私人雲端 (並進行互動)。
@@ -54,4 +53,3 @@ ms.lasthandoff: 03/21/2017
 ## <a name="next-steps"></a>後續步驟
 - [從 Visual Studio 發佈至 Azure 雲端服務](https://msdn.microsoft.com/library/azure/ee460772.aspx)
 - [如何：下載和匯入發佈設定和訂用帳戶資訊](https://msdn.microsoft.com/library/dn385850\(v=nav.70\).aspx)
-

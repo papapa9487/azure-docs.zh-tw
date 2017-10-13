@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="split-column-by-example-transformation"></a>分割資料行實例化轉換
 這項轉換可預測性地將資料列的內容分割為有意義的界限，而不需要使用者輸入。 分割演算法會在分析資料行的內容之後選取界限。 您可以透過下列定義這些界限：
 * 固定的分隔符號、
@@ -178,4 +176,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="technical-notes"></a>技術說明
 
 分割轉換功能是以**預測程式合成**技術為基礎。 在此技術中，會根據輸入資料自動學習資料轉換程式。 程式是利用網域特定語言合成。 DSL 是以特定規則運算式內容中出現的分隔符號和欄位為基礎。 有關此技術的詳細資訊可以在[本主題最新發佈](https://www.microsoft.com/en-us/research/publication/automated-data-extraction-using-predictive-program-synthesis/)中找到。 
-

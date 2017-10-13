@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: yuemlu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b432426cb5cc5401fa2e8f7aaa6bc0955aff0931
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -154,4 +153,3 @@ ms.lasthandoff: 09/25/2017
 * [使用 Resource Manager 和 PowerShell 建立 VM](/azure/virtual-machines/windows/quick-create-powershell.md)
 
 * [使用 Azure CLI 2.0 來建立 Linux VM](../../virtual-machines/windows/quick-create-cli.md)
-

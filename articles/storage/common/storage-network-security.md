@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>設定 Azure 儲存體防火牆和虛擬網路 (預覽)
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -129,7 +128,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 1. 巡覽至您要保護的儲存體帳戶。  
 2. 按一下名為 [防火牆與虛擬網路] 的設定功能表。
 3. 請確定您已提升權限可允許「所選網路」存取權。
-4. 若要將存取權授與具有新網路規則的虛擬網路，請按一下 [虛擬網路] 下的 [新增現有的]，選取現有的虛擬網路和子網路，然後按一下 [新增]。  若要建立新的虛擬網路並授與它存取權，請按一下 [新增]，提供建立新虛擬網路的必要資訊，然後按一下 [建立]。
+4. 若要將存取權授與具有新網路規則的虛擬網路，請按一下 [虛擬網路] 下的 [新增現有的]，選取現有的虛擬網路和子網路，然後按一下 [新增]。  若要建立新的虛擬網路並授與它存取權，請按一下 新增，提供建立新虛擬網路的必要資訊，然後按一下建立。
 
 > [!NOTE]
 > 如果 Azure 儲存體的服務端點未針對所選虛擬網路和子網路事先設定，可以設定為這項作業的一部分。
@@ -367,4 +366,3 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 深入了解[服務端點](/azure/virtual-network/virtual-network-service-endpoints-overview) 中的 Azure 網路服務端點。
 
 在 [Azure 儲存體安全性指南](storage-security-guide.md)中深入了解 Azure 儲存體安全性。
-

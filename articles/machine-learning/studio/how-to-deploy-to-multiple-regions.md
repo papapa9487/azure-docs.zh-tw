@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8e616bd6f13c4f97886a3eae225e188afadb2305
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-a-web-service-to-multiple-regions"></a>如何將 Web 服務部署到多個區域
 新式 Azure Web 服務可讓您輕鬆地將 Web 服務部署到多個區域，而不需要多個訂用帳戶或工作區。 
@@ -49,5 +48,4 @@ ms.lasthandoff: 09/25/2017
 9. 從 [儲存體帳戶]  下拉式清單中，選取要儲存 Web 服務的儲存體帳戶。
 10. 從 [價格方案]  下拉式清單中，在您在步驟 8 選取的區域中選取方案。
 11. 按一下 [複製] 。
-
 

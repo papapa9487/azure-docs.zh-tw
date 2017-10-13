@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 103fd6c3d536bc11f4e39444043a332a1d8f6c01
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-state"></a>服務狀態
 「服務狀態」係指服務正常運作所需的記憶體或磁碟資料。 例如，其包括可以讓服務讀取及寫入，以執行工作的資料結構及成員變數。 根據服務的架構方式而定，它可能還包括儲存在磁碟上的檔案或其他資源。 例如，資料庫要用於儲存資料和交易記錄的檔案。
@@ -42,4 +41,3 @@ ms.lasthandoff: 08/19/2017
 * [Service Fabric 服務的延展性](service-fabric-concepts-scalability.md)
 * [分割 Service Fabric 服務](service-fabric-concepts-partitioning.md)
 * [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)
-

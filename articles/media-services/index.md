@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ac58c5e8f43a1e6bab1023826818cc3641cad54a
-ms.openlocfilehash: f0da57cc74e190e6684036c8a793dface3c6dd74
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/09/2017
-
+ms.openlocfilehash: 809595570f1c82ff6ff99bc15bf813560510e7f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="media-services-documentation"></a>媒體服務文件
 
 了解如何利用媒體服務 (可延伸的雲端平台) 串流處理廣播品質的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。
@@ -212,5 +210,4 @@ ms.lasthandoff: 02/09/2017
         </div>
     </li>
 </ul>
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/23/2017
 ms.author: genli
+ms.openlocfilehash: 76ab1600903705aad7f18f48f41cb7119c3c09bf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: f6e068e60e8c7b3b095e10cb7e109eb68a483de4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
 
@@ -264,4 +263,3 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 ### <a name="solution"></a>方案
 
 若要解決此問題，請從 **C:\Users\TheUserName\AppData\Roaming\Microsoft\Network\Connections** 中刪除舊的 VPN 用戶端組態檔，然後重新執行 VPN 用戶端安裝程式。
-

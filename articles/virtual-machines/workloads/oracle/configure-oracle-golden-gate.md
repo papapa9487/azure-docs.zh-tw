@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
 ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>在 Azure Linux VM 上實作 Oracle Golden Gate 
 
@@ -410,7 +410,7 @@ SQL> EXIT;
   > 金鑰中必須包含字串 `ssh-rsa`。 此外，金鑰的內容必須是單行文字。
   >  
 
-6. 啟動 PuTTY。 在 [類別] 窗格中，選取 [連線] > [SSH] > [驗證]。 在 [用於驗證的私密金鑰檔] 方塊中，瀏覽至您稍早產生的金鑰。
+6. 啟動 PuTTY。 在 [類別] 窗格中，選取 [連線] > [SSH] > [驗證]。在 [用於驗證的私密金鑰檔] 方塊中，瀏覽至您稍早產生的金鑰。
 
   ![[設定私密金鑰] 頁面上的螢幕擷取畫面](./media/oracle-golden-gate/setprivatekey.png)
 

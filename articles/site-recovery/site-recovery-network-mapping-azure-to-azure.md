@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
 ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>兩個 Azure 區域間的網路對應
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/18/2017
 
 在下列範例中，我的虛擬機器在東亞地區執行，而且正在複寫至東南亞。
 
-選取來源和目標網路，然後按一下 [確定] 建立從東亞到東南亞的網路對應。
+選取來源和目標網路，然後按一下確定 建立從東亞到東南亞的網路對應。
 
 ![網路對應](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 

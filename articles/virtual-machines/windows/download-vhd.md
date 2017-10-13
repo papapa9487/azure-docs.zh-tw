@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: davidmu
 ms.openlocfilehash: d8bf89a4b7c2a158302f9ba09a182a3d8d062adc
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>從 Azure 下載 Windows VHD
 
@@ -38,7 +38,7 @@ Azure 中的虛擬機器 (VM) 會使用[磁碟](managed-disks-overview.md?toc=%2
 3.  在 VM 上，以系統管理員身分開啟 [命令提示字元] 視窗。
 4.  切換至 *%windir%\system32\sysprep* 目錄並執行 sysprep.exe。
 5.  在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已選取 [一般化]。
-6.  在 [關機選項] 中選取 [關機]，然後按一下 [確定]。 
+6.  在 關機選項 中選取 關機，然後按一下確定。 
 
 若要使用 VHD 作為現有 VM 或資料磁碟新執行個體的磁碟，請完成下列步驟：
 
@@ -53,7 +53,7 @@ Azure 中的虛擬機器 (VM) 會使用[磁碟](managed-disks-overview.md?toc=%2
 若要下載 VHD 檔案，您需要產生[共用存取簽章 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) URL。 產生 URL 時，會將到期時間指派給 URL。
 
 1.  在 VM 刀鋒視窗的功能表中，按一下 [磁碟]。
-2.  選取 VM 的作業系統磁碟，然後按一下 [匯出]。
+2.  選取 VM 的作業系統磁碟，然後按一下匯出。
 3.  將 URL 的到期時間設定為 *36000*。
 4.  按一下 [產生 URL]。
 

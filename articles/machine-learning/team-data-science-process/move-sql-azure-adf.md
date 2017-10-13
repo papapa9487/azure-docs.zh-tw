@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a5bbf899fd13de4c5a7d3379e2231828c102b372
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 本主題說明如何使用 Azure Data Factory (ADF)，透過 Azure Blob 儲存體，將資料從內部部署的 SQL Server 資料庫移動至 SQL Azure 資料庫。
@@ -326,4 +325,3 @@ SQL Azure 輸出的資料表定義如下 (此結構描述會對應來自 Blob �
 當管線執行時，您應該可以看到資料在選取用於 Blob 的容器中顯示 (每天一個檔案)。
 
 請注意，我們尚未運用 ADF 提供的功能，以遞增方式輸送資料。 如需如何執行此功能和 ADF 提供之其他功能的詳細資訊，請參閱 [ADF 文件](https://azure.microsoft.com/services/data-factory/)。
-

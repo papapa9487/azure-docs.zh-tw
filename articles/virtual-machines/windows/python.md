@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: davidmu
 ms.openlocfilehash: bb777d41570d7b1dc97402d532519488912948e3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 建立並管理 Windows VM
 
@@ -38,14 +38,14 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 如果您尚未安裝 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)，請進行安裝。 在 [工作負載] 頁面上選取 [Python 開發]，然後按一下 [安裝]。 在摘要中，您可以看到會自動為您選擇 **Python 3 64 位元 (3.6.0)**。 如果您已安裝 Visual Studio，您可以使用 Visual Studio Launcher 新增 Python 工作負載。
+1. 如果您尚未安裝 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)，請進行安裝。 在 工作負載 頁面上選取 Python 開發，然後按一下安裝。 在摘要中，您可以看到會自動為您選擇 **Python 3 64 位元 (3.6.0)**。 如果您已安裝 Visual Studio，您可以使用 Visual Studio Launcher 新增 Python 工作負載。
 2. 安裝並啟動 Visual Studio 後，按一下 [檔案] > [新增] > [專案]。
-3. 按一下 [範本] > [Python] > [Python 應用程式]，輸入 myPythonProject 作為專案的名稱，選取專案的位置，然後按一下 [確定]。
+3. 按一下 範本 > Python > Python 應用程式，輸入 myPythonProject 作為專案的名稱，選取專案的位置，然後按一下確定。
 
 ## <a name="install-packages"></a>安裝套件
 
 1. 在 [方案總管] 的 myPythonProject 下，以滑鼠右鍵按一下 [Python 環境]，然後選取 [新增虛擬環境]。
-2. 在 [新增虛擬環境] 畫面上，接受 env 的預設名稱、確定選取 Python 3.6 (64 位元) 作為基底解譯器，然後按一下 [建立]。
+2. 在 新增虛擬環境 畫面上，接受 env 的預設名稱、確定選取 Python 3.6 (64 位元) 作為基底解譯器，然後按一下建立。
 3. 以滑鼠右鍵按一下您所建立的 env 環境、按一下 [安裝 Python 套件]、在搜尋方塊中輸入 azure，然後按 Enter 鍵。
 
 您應該會在輸出視窗中看到已成功安裝的 azure 套件。 

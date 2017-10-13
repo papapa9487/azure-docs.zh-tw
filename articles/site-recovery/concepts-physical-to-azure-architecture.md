@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
+ms.openlocfilehash: 02dafa60f19df88123358446ac72d9be85577554
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c5ddaf7a90336ade573ac5a56e241004a7840780
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="physical-server-to-azure-replication-architecture"></a>實體伺服器至 Azure 複寫架構
 
 本文說明透過 [Azure Site Recovery](site-recovery-overview.md) 服務，在內部部署網站與 Azure 之間複寫、容錯移轉和復原 Windows 和 Linux 實體伺服器時所使用的架構和程序。
@@ -53,7 +51,7 @@ ms.lasthandoff: 09/25/2017
     - 組態伺服器會透過輸出連接埠 HTTPS 443 與 Azure 協調複寫管理。
     - 處理序伺服器會透過輸出連接埠 443，接收來源機器所傳來的資料、將其最佳化並加密，再將它傳送至 Azure 儲存體。
     - 如果您啟用多部 VM 一致性，則複寫群組中的機器會透過連接埠 20004 彼此通訊。 如果您將多部機器群組為幾個共用當機時保持一致復原點和應用程式一致復原點的複寫群組，當這些群組在進行容錯移轉時，便會使用多部 VM。 如果機器執行的是相同的工作負載，且需要保持一致，此功能就很實用。
-4. 流量透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute [公用對等](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
+4. 流量透過網際網路複寫到 Azure 儲存體的公用端點。 或者，您可以使用 Azure ExpressRoute [公用對等](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 不支援從內部部署網站透過站台對站台 VPN 將流量複寫至 Azure。
 
 
 **實體到 Azure 複寫程序**

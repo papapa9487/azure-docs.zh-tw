@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 50c463588356cc4725b038cbf89a49b6ce2bdc3b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: eab135d10c0d6df8ca72ac47d6804017a998a3d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-with-azure-roles"></a>搭配使用遠端桌面與 Azure 角色
 使用 Azure SDK 和遠端桌面服務，您可以存取 Azure 角色和由 Azure 裝載的虛擬機器。 在 Visual Studio 中，您可以從 Azure 雲端服務專案設定遠端桌面服務。 若要啟用遠端桌面服務，您必須建立包含一或多個角色的工作專案並發佈至 Azure。
@@ -77,5 +76,4 @@ ms.lasthandoff: 07/08/2017
    
     ![透過遠端桌面連接](./media/vs-azure-tools-remote-desktop-roles/IC799162.png)
 3. 輸入您先前建立的使用者名稱和密碼。 您現在已登入遠端工作階段。
-
 

@@ -16,10 +16,10 @@ ms.custom: queries
 ms.date: 01/30/2017
 ms.author: shigu;barbkess
 ms.openlocfilehash: cb08313726e8135feaa9b413937c2197ea397f4b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-table-as-select-ctas-in-sql-data-warehouse"></a>在 SQL 資料倉儲中的 Create Table As Select (CTAS)
 Create table as select 或 `CTAS` 是最重要的可用 T-SQL 功能之一。 該作業與根據 SELECT 陳述式的輸出來建立新資料表的作業完全平行。 `CTAS` 是建立資料表複本的最簡單且最快速方式。 本文件提供 `CTAS`的範例和最佳做法。

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: garye;krishnan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning 執行進階分析
 
@@ -127,7 +126,7 @@ ms.lasthandoff: 09/25/2017
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>步驟 2︰使用閘道器讀取來自內部部署資料來源的資料
 設定閘道之後，您可以將 **匯入資料** 模組新增到會輸入來自內部部署 SQL Server 資料庫之資料的實驗。
 
-1. 在 Machine Learning Studio 中，選取 [實驗] 索引標籤，並按一下左下角的 [+新增]，然後選取 [空白實驗] \(或從數個可用的範例實驗中選取其中一個)。
+1. 在 Machine Learning Studio 中，選取 [實驗] 索引標籤，並按一下左下角的 [+新增]，然後選取 [空白實驗] (或從數個可用的範例實驗中選取其中一個)。
 2. 找出 **匯入模型** 模組，並將它拖曳到實驗畫布。
 3. 按一下畫布下方的 [另存新檔]  。 輸入「Azure Machine Learning 內部部署 SQL Server 教學課程」做為實驗名稱，選取工作區，然後按一下 [確定]  核取記號。
 
@@ -149,4 +148,3 @@ ms.lasthandoff: 09/25/2017
 實驗完成執行之後，就可以將您從資料庫匯入的資料視覺化，方法是按一下 [匯入資料] 模組的輸出連接埠，然後選取 [視覺化]。
 
 當實驗完成開發之後，您就能部署和操作您的模型。 使用批次執行服務時，將會讀取來自 **匯入資料** 模組中所設定之內部部署 SQL Server 資料庫的資料並用於計分。 雖然您可以使用要求回應服務來對內部部署資料進行評分，但是 Microsoft 建議改用 [Excel 增益集](excel-add-in-for-web-services.md) 。 目前不論是在您的實驗或是已發行的 Web 服務中，都不支援透過 **匯出資料** 寫入內部部署 SQL Server 資料庫。
-

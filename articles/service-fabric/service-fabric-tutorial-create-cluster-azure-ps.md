@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 86c01a55304c5f5179e0e94d67f318e42075fd48
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-cluster-in-azure-using-powershell"></a>使用 PowerShell 在 Azure 中建立 Windows 叢集
 本教學課程會示範如何建立在 Azure 中執行的 Windows Service Fabric 叢集。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。
 
@@ -157,4 +155,3 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 接下來，前進到下列的教學課程，了解如何部署現有的應用程式。
 > [!div class="nextstepaction"]
 > [透過 Docker Compose 部署現有的 .NET 應用程式](service-fabric-host-app-in-a-container.md)
-

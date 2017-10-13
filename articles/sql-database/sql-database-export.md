@@ -10,16 +10,16 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: load & move data
 ms.devlang: NA
-ms.date: 06/15/2017
+ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: faa567ec615a07da8633629fc98e3454c84a8f5f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 4427b74f205dcd2eabf825bbfc345279dc303f96
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>將 Azure SQL 資料庫匯出到 BACPAC 檔案
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 08/03/2017
 
 > [!IMPORTANT] 
 > Azure SQL Database 自動匯出已在 2017 年 3 月 1 日淘汰。 您可以使用[長期的備份保留](sql-database-long-term-retention.md
-)或 [Azure 自動化](https://github.com/Microsoft/azure-docs-pr/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)，根據您選擇的排程使用 PowerShell 定期封存 SQL Database。 如需範例，請從 Github 下載[範例 PowerShell 指令碼](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)。
+)或 [Azure 自動化](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md)，根據您選擇的排程使用 PowerShell 定期封存 SQL Database。 如需範例，請從 Github 下載[範例 PowerShell 指令碼](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export)。
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>匯出 Azure SQL Database 時的考量
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/03/2017
 
 ![資料庫匯出](./media/sql-database-export/database-export.png)
 
-若要監視匯出作業的進度，請開啟包含匯出資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
+若要監視匯出作業的進度，請開啟包含匯出資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下匯入/匯出歷程記錄 。
 
 ![匯出記錄](./media/sql-database-export/export-history.png)
 ![匯出記錄狀態](./media/sql-database-export/export-history2.png)

@@ -9,7 +9,7 @@
 
     ![建立 StorSimple 裝置管理員](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    搜尋 [StorSimple 實體]。 選取並按一下 [StorSimple 實體裝置系列]，然後按一下 [建立]。 或者，在 Azure 入口網站中按一下 [+]，然後在 [儲存體]按一下 [StorSimple 實體裝置系列]。
+    搜尋 [StorSimple 實體]。 選取並按一下 StorSimple 實體裝置系列，然後按一下建立。 或者，在 Azure 入口網站中按一下 [+]，然後在 [儲存體]按一下 [StorSimple 實體裝置系列]。
 
     ![建立 StorSimple 裝置管理員](./media/storsimple-8000-create-new-service/createssdevman11.png)
 

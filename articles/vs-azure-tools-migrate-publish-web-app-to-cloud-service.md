@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d5de4f5a7357cf5adde7773867356d47ad447bab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>作法：從 Visual Studio 將 Web 應用程式移轉並發佈至 Azure 雲端服務
 若要利用 Azure 的主機服務和延展性，您可以將 Web 應用程式移轉並發佈至 Azure 雲端服務。 只要對現有應用程式做少許變更，即可在 Azure 中執行 Web 應用程式。
@@ -202,4 +201,3 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 如需有關發佈的詳細資訊，請參閱 [準備從 Visual Studio 發佈或部署 Azure 應用程式](vs-azure-tools-cloud-service-publish-set-up-required-services-in-visual-studio.md)。 另請參閱 [設定具名的驗證認證](vs-azure-tools-setting-up-named-authentication-credentials.md)。
-

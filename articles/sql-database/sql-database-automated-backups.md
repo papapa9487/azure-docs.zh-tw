@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 5fbad8beebfaef370ea766e07932f1927f1d42e7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -89,4 +88,3 @@ Azure SQL 資料庫啟用 TDE 時，也會加密備份。 所有新的 Azure SQL
 - 若要使用 PowerShell 還原至某個時間點，請參閱[使用 PowerShell 將資料庫還原至時間點](scripts/sql-database-restore-database-powershell.md)。
 - 若要使用 Azure 入口網站在「Azure 復原服務」保存庫中設定、管理自動備份的長期保留及從該保留還原，請參閱[使用 Azure 入口網站來管理長期備份保留 (英文)](sql-database-long-term-backup-retention-configure.md)。
 - 若要使用 PowerShell 在「Azure 復原服務」保存庫中設定、管理自動備份的長期保留及從該保留還原，請參閱[使用 PowerShell 來管理長期備份保留 (英文)](sql-database-long-term-backup-retention-configure.md)。
-

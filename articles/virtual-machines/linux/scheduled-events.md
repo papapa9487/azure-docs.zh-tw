@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 75e509a7e39f5b268ce550d0c4dea2261d4fe56f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Azure 中繼資料服務：Linux VM 的已排定事件 (預覽)
 
 > [!NOTE] 
@@ -190,4 +188,3 @@ if __name__ == '__main__':
 
 - 深入了解[執行個體中繼資料服務](instance-metadata-service.md)中提供的 API。
 - 了解 [Azure 中 Linux 虛擬機器預定進行的維修](planned-maintenance.md)。
-

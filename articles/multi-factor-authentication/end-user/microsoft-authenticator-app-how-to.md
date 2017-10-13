@@ -15,14 +15,12 @@ ms.date: 08/15/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
+ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>開始使用 Microsoft 驗證器應用程式
 Microsoft Authenticator 應用程式可以為您的工作或學校帳戶 (例如 bsimon@contoso.com) 或 Microsoft 帳戶 (例如 bsimon@outlook.com) 提供額外一層安全性。
 
@@ -109,4 +107,3 @@ Microsoft Authenticator 應用程式適用於 [Windows Phone](http://go.microsof
 當您的帳戶新增至應用程式後，可能會提示您執行測試驗證，以確保一切都已正確設定。 之後，就大功告成了！ 直到下次再登入之前，您不需要採取任何動作。
 
 如果您選擇在應用程式中使用驗證碼，您會開始在首頁上看到它們。 它們每 30 秒變更一次，所以當您需要時，一定可以獲得新的驗證碼。 但在您登入並接獲提示輸入驗證碼之前，不必理會它們。  
-

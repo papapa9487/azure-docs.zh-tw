@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: d607449a16e886337ab1bd96213fbb4231124353
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-service-fabric-reliable-state-manager-and-reliable-collection-internals"></a>Azure Service Fabric Reliable State Manager 與 Reliable Collection 內部
 本文件深入探討 Reliable State Manager 和 Reliable Collections，以了解核心元件在幕後的運作方式。
 
@@ -56,5 +53,4 @@ Reliable State Manager 會要求 Reliable Collections 對磁碟進行其記憶�
 
 ## <a name="next-steps"></a>後續步驟
 * [交易和鎖定](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
-
 

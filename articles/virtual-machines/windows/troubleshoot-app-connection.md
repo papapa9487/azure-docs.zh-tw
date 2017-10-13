@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/18/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f987d079b8658d591994ce678f4a09239270181
-ms.openlocfilehash: 5e9f54a666799147cee8d8b5af5fd8aa3bac1780
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/18/2017
-
+ms.openlocfilehash: 79b8d968022ab7ada6264c8fcbc34ce67025c95b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-access-to-an-application-running-on-a-windows-virtual-machine-in-azure"></a>疑難排解在 Azure 中 Windows 虛擬機器上執行的應用程式存取
 [!INCLUDE [virtual-machines-common-troubleshoot-app-connection](../../../includes/virtual-machines-common-troubleshoot-app-connection.md)]
-
 

@@ -25,8 +25,8 @@
 6. 將 *MobileServiceClient* 的定義從 [私用] 變更為 [公用靜態]，如下所示：
 
         public static MobileServiceClient mClient;
-7. 新增類別來處理通知。 在 [專案總管] 中，開啟 **src** > **main** > **java** 節點，然後以滑鼠右鍵按一下套件名稱節點。 按一下 [新增]，然後按一下 [Java 類別]。
-8. 在 [名稱] 中，輸入 `MyHandler`，然後按一下 [確定]。
+7. 新增類別來處理通知。 在 [專案總管] 中，開啟 **src** > **main** > **java** 節點，然後以滑鼠右鍵按一下套件名稱節點。 按一下 新增，然後按一下Java 類別。
+8. 在 名稱 中，輸入 `MyHandler`，然後按一下確定。
 
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 

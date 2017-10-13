@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2d0c36990ba897bef83601bd4295518618224733
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>移動資料至 Azure 機器學習的 Azure SQL Database
 本主題概述從一般檔案 (CSV 或 TSV 格式) 或儲存在內部部署 SQL Server 中的資料，將資料移動至 Azure SQL 資料庫的選項。 將資料移到雲端的這些工作是 Team Data Science Process 的一部分。
@@ -78,4 +77,3 @@ ms.lasthandoff: 09/25/2017
 [使用 Azure Data Factory 將資料從內部部署 SQL Server 移至 SQL Azure](move-sql-azure-adf.md) 主題會提供使用 Azure Data Factory (ADF) 將資料移至 Azure SQL 資料庫的程序。 本主題說明如何使用 ADF，透過 Azure Blob 儲存體將資料從內部部署的 SQL Server 資料庫移動至 Azure SQL 資料庫。
 
 若同時存取內部部署和雲端資源的混合式案例需要持續移轉資料，或是資料有交易、需要修改，或者在移轉時新增了商務邏輯，請考慮使用 ADF。 ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排程和監視的工作。 ADF 也有其他功能，例如支援複雜作業。
-

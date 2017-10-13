@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 9f7924f3f0975dc32fdf5b8e1b89a1fb8e9b7d57
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apply-system-updates-in-azure-security-center"></a>在 Azure 資訊安全中心套用系統更新
 Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電腦是否有遺漏的作業系統更新。 資訊安全中心會根據 Windows 電腦上設定的服務，從 Windows Update 或 Windows Server Update Services (WSUS) 擷取可用的安全性和重大更新清單。 資訊安全中心也會檢查 Linux 系統中的最新更新。 如果您的 VM 或電腦遺漏系統更新，資訊安全中心會建議您套用系統更新。
@@ -100,4 +99,3 @@ Azure 資訊安全中心每日監視 Windows 和 Linux 虛擬機器 (VM) 和電�
 [5]: ./media/security-center-apply-system-updates/search-details.png
 [6]: ./media/security-center-apply-system-updates/reboot-after-system-updates.png
 [7]: ./media/security-center-apply-system-updates/restart-pending.png
-

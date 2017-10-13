@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13e9e83dc277d8e88ab46d8d51b3f4a70ccd3b46
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶 
 
@@ -331,7 +330,7 @@ ms.lasthandoff: 09/25/2017
 1. 以 UserA 身分登入 Azure 入口網站。
 2. 在入口網站搜尋方塊中，輸入 **myResourceGroupA**。 在搜尋結果中，按一下 [myResourceGroupA]。
 3. 在 [myResourceGroupA] 刀鋒視窗中，按一下 [刪除] 圖示。
-4. 若要確認刪除，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroupA**，然後按一下 [刪除]。
+4. 若要確認刪除，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroupA**，然後按一下刪除。
 5. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
 6. 針對 myResourceGroupB，完成步驟 2 到 4。
 
@@ -369,4 +368,3 @@ ms.lasthandoff: 09/25/2017
 - 請先徹底熟悉重要[虛擬網路對等互連的條件約束和行為](virtual-network-manage-peering.md#requirements-and-constraints)，再建立虛擬網路對等互連以供生產環境使用。
 - 了解所有[虛擬網路對等互連設定](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何透過虛擬網路對等互連來[建立中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
-

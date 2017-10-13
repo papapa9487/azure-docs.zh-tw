@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
 ms.openlocfilehash: ed9f74a59f0ca512e2758c6db4c5c9075030f859
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>設定 Azure SQL Database 長期備份保留並從中還原
 
@@ -75,15 +75,15 @@ ms.lasthandoff: 07/11/2017
 
 10. 建立新的保存庫之後，執行必要的步驟以返回 [復原服務保存庫] 頁面。
 
-11. 在 [復原服務保存庫] 頁面上，按一下保存庫，然後按一下 [選取]。
+11. 在 復原服務保存庫 頁面上，按一下保存庫，然後按一下選取。
 
    ![選取現有的保存庫](./media/sql-database-get-started-backup-recovery/select-existing-vault.png)
 
-12. 在 [設定] 頁面上，提供新保留原則的有效名稱、適當修改預設保留原則，然後按一下 [確定]。
+12. 在 設定 頁面上，提供新保留原則的有效名稱、適當修改預設保留原則，然後按一下確定。
 
    ![定義保留原則](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
 
-13. 在伺服器的 [長期備份保留] 頁面上，按一下 [儲存]，然後按一下 [確定]，將長期備份保留原則套用到所有選取的資料庫。
+13. 在伺服器的 長期備份保留 頁面上，按一下 儲存，然後按一下確定，將長期備份保留原則套用到所有選取的資料庫。
 
    ![定義保留原則](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
 
@@ -121,7 +121,7 @@ ms.lasthandoff: 07/11/2017
 
 從 Azure 復原服務保存庫中的備份將資料庫還原到新的資料庫。
 
-1. 在 [Azure 保存庫備份] 頁面上，按一下要還原的備份，然後按一下 [選取]。
+1. 在 Azure 保存庫備份 頁面上，按一下要還原的備份，然後按一下選取。
 
    ![選取保存庫中的備份](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 

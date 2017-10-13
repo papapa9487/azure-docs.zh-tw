@@ -16,10 +16,10 @@ ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
 ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>將您的 SQL 程式碼移轉至 SQL 資料倉儲
 本文說明將您的程式碼從另一個資料庫移轉到 SQL 資料倉儲時，可能需要進行的程式碼變更。 某些 SQL 資料倉儲功能設計為以分散式方式運作，可以大幅改善效能。 不過，為了維持效能和延展性，某些功能也無法使用。
@@ -32,8 +32,7 @@ ms.lasthandoff: 07/11/2017
 * [merge 陳述式][merge statement]
 * 跨資料庫聯結
 * [資料指標][cursors]
-* <seg>
-  [INSERT..EXEC][INSERT..EXEC]</seg>
+* [INSERT..EXEC][INSERT..EXEC]
 * output 子句
 * 內嵌使用者定義函數
 * 多重陳述式函式

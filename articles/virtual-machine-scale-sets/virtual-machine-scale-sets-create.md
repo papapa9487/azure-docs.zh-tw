@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>建立和部署虛擬機器擴展集
 虛擬機器擴展集可讓您將完全相同的虛擬機器以集合的方式進行部署和管理。 調整集可為超大規模的應用程式提供高度擴充和可自訂的計算層，並且可支援 Windows 平台映像、Linux 平台映像、自訂映像和擴充。 如需調整集的詳細資訊，請參閱[虛擬機器擴展集](virtual-machine-scale-sets-overview.md)。
 
@@ -209,4 +207,3 @@ Azure 入口網站很方便快速建立擴展集。 如需詳細資訊，請參�
 深入了解[資料磁碟](virtual-machine-scale-sets-attached-disks.md)。
 
 深入了解如何[管理您的應用程式](virtual-machine-scale-sets-deploy-app.md)。
-

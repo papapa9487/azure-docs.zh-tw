@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 07/26/2017
 ms.author: alkohli
 ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>在 Azure 入口網站中，使用 StorSimple 裝置管理員服務來複製磁碟區
 
@@ -56,7 +56,7 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
 
 #### <a name="to-clone-a-volume"></a>若要複製磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [備份類別目錄]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下備份類別目錄。
 
 2. 選取備份組，如下所示：
    
@@ -100,7 +100,7 @@ StorSimple 裝置管理員服務 [備份類別目錄]  刀鋒視窗會顯示在�
 
     ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol5.png)
 
-7. 複製作業完成後，移至您的裝置，然後按一下 [磁碟區]。 在磁碟區清單中，您應該會看見剛剛在相同磁碟區容器中建立的複製具有來源磁碟區。
+7. 複製作業完成後，移至您的裝置，然後按一下磁碟區。 在磁碟區清單中，您應該會看見剛剛在相同磁碟區容器中建立的複製具有來源磁碟區。
 
     ![備份組清單](./media/storsimple-8000-clone-volume-u2/clonevol6.png)
 

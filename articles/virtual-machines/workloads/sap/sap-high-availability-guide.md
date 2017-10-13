@@ -18,10 +18,10 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d00db895ffcf9ba9a51e3df2dae5d33c0277dd6f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -522,7 +522,7 @@ ASCS/SCS 範本會部署兩部虛擬機器，可讓您用來建立裝載多個 A
   -  **系統可用性**。 選取 **HA**。
   -  **管理員使用者名稱和管理員密碼**。 建立可用來登入電腦的新使用者。
   -  **新的或現有的子網路**。 設定應該建立新的虛擬網路和子網路，還是應該使用現有子網路。 如果您已經有連接到內部部署網路的虛擬網路，請選取**現有**虛擬網路。
-  -  **子網路識別碼**。 設定虛擬機器應該連接的子網路識別碼。 選取將虛擬機器連接到內部部署網路之虛擬私人網路 (VPN) 或 ExpressRoute 虛擬網路的子網路。 識別碼通常看起來像這樣︰
+  -  **子網路識別碼**。設定虛擬機器應該連接的子網路識別碼。 選取將虛擬機器連接到內部部署網路之虛擬私人網路 (VPN) 或 ExpressRoute 虛擬網路的子網路。 識別碼通常看起來像這樣︰
 
    /subscriptions/<*訂用帳戶識別碼*>/resourceGroups/<*資源群組名稱*>/providers/Microsoft.Network/virtualNetworks/<*虛擬網路名稱*>/subnets/<*子網路名稱*>
 
@@ -552,7 +552,7 @@ ASCS/SCS 範本會部署兩部虛擬機器，可讓您用來建立裝載多個 A
 
 若要設定資料庫多 SID 範本，請在[資料庫多 SID 範本][sap-templates-3-tier-multisid-db-marketplace-image]或[使用受控磁碟的資料庫多 SID 範本][sap-templates-3-tier-multisid-db-marketplace-image-md]中輸入下列參數的值︰
 
-  -  **SAP 系統識別碼**。 輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 識別碼將用於已部署資源的前置詞。
+  -  **SAP 系統識別碼**。輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 識別碼將用於已部署資源的前置詞。
   -  **OS 類型**。 選取虛擬機器的作業系統。
   -  **Dbtype**。 選取您想要在叢集上安裝的資料庫類型。 如果您想要安裝 Microsoft SQL Server，選取 **SQL**。 如果您打算在虛擬機器上安裝 SAP HANA，選取 **HANA**。 請務必選取正確的作業系統類型︰針對 SQL 選取 **Windows**，針對 HANA 選取 Linux 散發套件。 連線到虛擬機器的 Azure Load Balancer 會設定為支援所選取的資料庫類型︰
     * **SQL**。 負載平衡器會負載平衡連接埠 1433。 請務必針對您的 SQL Server Always On 設定使用此連接埠。
@@ -561,7 +561,7 @@ ASCS/SCS 範本會部署兩部虛擬機器，可讓您用來建立裝載多個 A
   -  **SAP 系統大小**。 設定新系統將提供的 SAP 數量。 如果您不確定系統將需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
   -  **系統可用性**。 選取 **HA**。
   -  **管理員使用者名稱和管理員密碼**。 建立可用來登入電腦的新使用者。
-  -  **子網路識別碼**。 輸入您在部署 ASCS/SCS 範本期間使用的子網路識別碼，或做為 ASCS/SCS 範本部署的一部分建立之子網路識別碼。
+  -  **子網路識別碼**。輸入您在部署 ASCS/SCS 範本期間使用的子網路識別碼，或做為 ASCS/SCS 範本部署的一部分建立之子網路識別碼。
 
 #### <a name="application-servers-template"></a> 應用程式伺服器範本
 
@@ -569,12 +569,12 @@ ASCS/SCS 範本會部署兩部虛擬機器，可讓您用來建立裝載多個 A
 
 若要設定應用程式伺服器多 SID 範本，請在[應用程式伺服器多 SID 範本][sap-templates-3-tier-multisid-apps-marketplace-image]或[使用受控磁碟的應用程式伺服器多 SID 範本][sap-templates-3-tier-multisid-apps-marketplace-image-md]中輸入下列參數的值︰
 
-  -  **SAP 系統識別碼**。 輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 識別碼將用於已部署資源的前置詞。
+  -  **SAP 系統識別碼**。輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 識別碼將用於已部署資源的前置詞。
   -  **OS 類型**。 選取虛擬機器的作業系統。
   -  **SAP 系統大小**。 新系統將提供的 SAP 數量。 如果您不確定系統將需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
   -  **系統可用性**。 選取 **HA**。
   -  **管理員使用者名稱和管理員密碼**。 建立可用來登入電腦的新使用者。
-  -  **子網路識別碼**。 輸入您在部署 ASCS/SCS 範本期間使用的子網路識別碼，或做為 ASCS/SCS 範本部署的一部分建立之子網路識別碼。
+  -  **子網路識別碼**。輸入您在部署 ASCS/SCS 範本期間使用的子網路識別碼，或做為 ASCS/SCS 範本部署的一部分建立之子網路識別碼。
 
 
 ### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure 虛擬網路

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2016
 ms.author: drewm
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 742efd1496de9ce76b1e5636297ef30f546bd108
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resize-a-windows-vm"></a>調整 Windows VM 大小
 本文說明如何使用 Azure Powershell 調整以 Resource Manager 部署模型建立的 Windows VM 大小。
@@ -103,6 +102,5 @@ ms.lasthandoff: 03/31/2017
    ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如需提高延展性，可執行多個 VM 執行個體並相應放大。 如需詳細資訊，請參閱[在虛擬機器擴展集中自動調整機器](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)。
-
+* 如需提高延展性，可執行多個 VM 執行個體並相應放大。如需詳細資訊，請參閱[在虛擬機器擴展集中自動調整機器](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)。
 

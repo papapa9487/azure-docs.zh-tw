@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a4f2d69907d220a8bbec5087ba431dc243c46d6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用執行歷程記錄和模型計量
 
@@ -243,4 +242,3 @@ $ az ml history list -o table
 我們希望您能夠發現它們很有用，並且非常感謝您提供意見。
 這是只我們最初的實作，而我們規劃了大量的增強功能。
 我們期望能夠持續將它們傳送至 Azure Machine Learning Workbench 中。 
-

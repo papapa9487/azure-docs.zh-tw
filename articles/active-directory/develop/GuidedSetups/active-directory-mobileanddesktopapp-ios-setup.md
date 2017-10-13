@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.openlocfilehash: d25353a61b2a60bff28aa0679d38110e77d19e64
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="setting-up-your-ios-application"></a>設定您的 iOS 應用程式
 
@@ -66,7 +66,7 @@ carthage update
 2.  移至 [`Linked Frameworks and Libraries`] 區段，然後按一下 [`+`]
 3.  選取 `Add other…`
 4.  選取：`Carthage` > `Build` > `iOS` > `MSAL.framework`，然後按一下 [開啟]。 您應該會看到 `MSAL.framework` 新增至清單。
-5.  移至 [`Build Phases`] 索引標籤，然後按一下 [`+`] 圖示，選擇 [`New Run Script Phase`]
+5.  移至 `Build Phases` 索引標籤，然後按一下`+` 圖示，選擇 `New Run Script Phase`
 6.  將下列內容新增至 [指令碼區域]：
 
 ```text

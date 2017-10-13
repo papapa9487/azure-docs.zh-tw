@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: annahar
 ms.openlocfilehash: d264bd47d76db8015a64f09248c57c94572e2693
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>使用 Azure 入口網站將多個 IP 位址指派給虛擬機器
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/11/2017
 ### <a name="coreadd"></a>核心步驟
 
 1. 瀏覽至 Azure 入口網站 (https://portal.azure.com) 並視需要進行登入。
-2. 在 Azure 入口網站中，按一下 [更多服務]，接著在篩選方塊中輸入「虛擬機器」，然後按一下 [虛擬機器]。
+2. 在 Azure 入口網站中，按一下 更多服務，接著在篩選方塊中輸入「虛擬機器」，然後按一下虛擬機器。
 3. 在 [虛擬機器] 刀鋒視窗中，按一下您想要新增 IP 位址的 VM。 在顯示的 [虛擬機器] 刀鋒視窗中，按一下 [網路介面]，然後選取您想要新增 IP 位址的網路介面。 在下圖顯示的範例中，已選取名為 myVM 的 VM 中名為 myNIC 的 NIC︰
 
     ![網路介面](./media/virtual-network-multiple-ip-addresses-portal/figure1.png)

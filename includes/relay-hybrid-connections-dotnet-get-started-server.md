@@ -4,7 +4,7 @@
 
 ### <a name="add-the-relay-nuget-package"></a>新增轉送 NuGet 封裝
 
-1. 以滑鼠右鍵按一下新建立的專案，然後按一下 [管理 NuGet 套件]。
+1. 以滑鼠右鍵按一下新建立的專案，然後按一下管理 NuGet 套件。
 2. 按一下 [瀏覽] 索引標籤，然後搜尋 "Microsoft Azure 轉送"，並選取 [Microsoft Azure 轉送] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
 
 ### <a name="write-some-code-to-receive-messages"></a>撰寫一些程式碼來接收訊息

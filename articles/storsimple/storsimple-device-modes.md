@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/17/2016
 ms.author: alkohli
 ms.openlocfilehash: 33c65bf2eecff3914f3227c76f7d638a4507e1f6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>變更 StorSimple 裝置的裝置模式
 本文提供 StorSimple 裝置各種運作模式的簡短描述。 StorSimple 裝置有三種運作模式：標準、維護和復原。 

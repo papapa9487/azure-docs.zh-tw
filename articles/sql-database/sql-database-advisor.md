@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-recommendations"></a>效能建議
 
@@ -81,6 +80,5 @@ Azure SQL Database 會持續監視正在執行的查詢，並找出可改善效�
 * 如需了解如何使用效能問題的自動化診斷與根本原因分析來自動監視資料庫效能，請參閱 [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md)。
 * 如需如何在 Azure 入口網站中使用效能建議的步驟，請參閱 [Azure 入口網站中的效能建議](sql-database-advisor-portal.md)。
 * 請參閱[查詢效能深入解析](sql-database-query-performance.md)，以了解和檢視排名最前面查詢的效能影響。
-
 
 

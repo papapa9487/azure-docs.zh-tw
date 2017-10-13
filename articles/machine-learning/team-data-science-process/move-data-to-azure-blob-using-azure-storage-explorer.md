@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 12caf933b04258065039a51f45d531a30865f8d4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
 Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windows、MacOS 和 Linux 上使用 Azure 儲存體資料。 本主題說明如何使用它來於 Azure Blob 儲存體中上傳及下載資料。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。
@@ -55,5 +54,4 @@ Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windo
 7. 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳] 按鈕。![儲存體帳戶](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)
 8. 按一下 [檔案] 方塊右邊的 [...]，從檔案系統中選取一或多個要上傳的檔案，然後按一下 [上傳]，開始上傳檔案。![上傳檔案](./media/move-data-to-azure-blob-using-azure-storage-explorer/upload-files-to-blob.png)
 9. 若要下載資料，選取對應容器中要下載的 Blob，然後按一下 [下載] 。 ![下載檔案](./media/move-data-to-azure-blob-using-azure-storage-explorer/download-files-from-blob.png)
-
 

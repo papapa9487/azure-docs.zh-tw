@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: fb58a01828e13f9605e4788ee7e064162a7a31d9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
   > [!NOTE]
   > 這項功能處於公開預覽狀態。
@@ -53,11 +51,11 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
     ![[服務對應概觀] 窗格](media/oms-service-map/scom-configuration.png)
 
-2. 在 [連線設定] 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下 [下一步]。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
+2. 在 連線設定 視窗中，輸入租用戶名稱或識別碼、應用程式識別碼 (也稱為使用者名稱或用戶端識別碼) 以及服務主體的密碼，然後按一下下一步。 如需詳細資訊，請移至[建立服務主體](#creating-a-service-principal)。
 
     ![[連線設定] 視窗](media/oms-service-map/scom-config-spn.png)
 
-3. 在 [訂用帳戶選取] 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (即包含 Operations Management Suite 工作區的資源群組) 以及 Operations Management Suite 工作區，然後按一下 [下一步]。
+3. 在 訂用帳戶選取 視窗中，選取 Azure 訂用帳戶、Azure 資源群組 (即包含 Operations Management Suite 工作區的資源群組) 以及 Operations Management Suite 工作區，然後按一下下一步。
 
     ![Operations Manager 設定工作區](media/oms-service-map/scom-config-workspace.png)
 
@@ -75,7 +73,7 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
     ![Operations Manager 設定群組](media/oms-service-map/scom-config-group.png)
 
-6. 選擇性︰選取管理伺服器資源集區以和 Operations Management Suite 通訊，然後按一下 [新增工作區]。
+6. 選擇性︰選取管理伺服器資源集區以和 Operations Management Suite 通訊，然後按一下新增工作區。
 
     ![Operations Manager 設定資源集區](media/oms-service-map/scom-config-pool.png)
 
@@ -134,4 +132,3 @@ Operations Management Suite 服務對應可自動探索 Windows 和 Linux 系統
 
 ### <a name="feedback"></a>意見反應
 您對「服務對應」或這份文件有任何意見反應要提供給我們嗎？ 請瀏覽我們的 [User Voice 頁面 (英文)](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map)，您可以在此頁面提出功能建議或對現有的建議進行投票。
-

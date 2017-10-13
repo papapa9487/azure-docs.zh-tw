@@ -19,6 +19,7 @@
 # 作法
 
 ## 安全性原則
+### [概觀](security-center-policies-overview.md)
 ### [資料收集](security-center-enable-data-collection.md)
 ### 安全性原則[](security-center-policies.md)
 ### [電子郵件通知](security-center-provide-security-contact-details.md)
@@ -53,7 +54,6 @@
 #### [安裝端點保護](security-center-install-endpoint-protection.md)
 #### [在系統更新之後重新開機](security-center-apply-system-updates.md#reboot-after-system-updates)
 #### [修復 OS 弱點](security-center-remediate-os-vulnerabilities.md)
-#### [解決端點保護健全狀況警示](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [更新作業系統版本](security-center-update-os-version.md)
 #### [未安裝弱點評估](security-center-vulnerability-assessment-recommendations.md)
 ### [監視安全性健康狀態](security-center-monitoring.md)

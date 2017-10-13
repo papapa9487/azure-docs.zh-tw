@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
 ms.author: raymondl;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31497bcae5889590a2261b716574ec4eae21852d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-logging-for-machine-learning-web-services"></a>為 Machine Learning Web 服務啟用記錄
 本文件提供 Machine Learning Web 服務記錄功能的相關資訊。 記錄會提供其他資訊，而不只是錯誤碼和訊息而已，可協助您針對 Machine Learning API 的呼叫進行疑難排解。  
@@ -66,7 +65,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="the-effects-of-enabling-logging"></a>啟用記錄的效果
 記錄啟用時，診斷和錯誤都會從 Web 服務端點記錄到與使用者工作區連結的 Azure 儲存體帳戶之 **ml-診斷** blob 容器中。 這個容器針對所有與此儲存體帳戶相關聯的工作區，存放所有 Web 服務端點的診斷資訊。
 
-記錄可使用任何可用於探索 Azure 儲存體帳戶的多種工具來檢視。 最簡單的方法就是瀏覽至 Azure 入口網站中的儲存體帳戶，按一下 [容器]，然後按一下 [ml-診斷] 容器。  
+記錄可使用任何可用於探索 Azure 儲存體帳戶的多種工具來檢視。 最簡單的方法就是瀏覽至 Azure 入口網站中的儲存體帳戶，按一下 容器，然後按一下ml-診斷 容器。  
 
 ## <a name="log-blob-detail-information"></a>記錄檔 blob 詳細資訊
 在容器中的每個 blob，只會存放下列其中一項動作的診斷資訊：
@@ -86,5 +85,4 @@ ms.lasthandoff: 09/25/2017
 * 批次  
 * 分數/要求  
 * 分數/初始  
-
 

@@ -11,12 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 05/10/2017
+ms.openlocfilehash: cb4f907b102aa62eab14f7e164544c67a0293618
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 99915e40bc0c2cc94cf1fdd3115eba02ae57ab7f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>「適用於 MySQL 的 Azure 資料庫」的 Azuer CLI 範例 
 下表包含「適用於 MySQL 的 Azure 資料庫」之範例 Azure CLI 指令碼的連結。
@@ -30,4 +29,3 @@ ms.lasthandoff: 08/29/2017
 |**變更伺服器組態**||
 | [變更伺服器組態](./scripts/sample-change-server-configuration.md?toc=%2fcli%2fazure%2ftoc.json) | 此 Azure CLI 指令碼會變更單一 Azure Database for MySQL 伺服器的組態。 |
 |||
-

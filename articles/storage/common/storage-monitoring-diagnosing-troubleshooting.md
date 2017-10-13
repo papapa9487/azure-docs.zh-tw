@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1a9c9354b665294778886441cc6d7f02adb1163f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -731,7 +730,7 @@ sqllocaldb create v11.0
 Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS 流量。 以下提供您一些有用的命令，方便您控制 Fiddler：
 
 * 停止與開始擷取流量。 在主要功能表上，移至 [檔案] 並按一下 [擷取流量] 以開啟及關閉擷取作業。
-* 儲存擷取的流量資料。 在主功能表上，移至 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
+* 儲存擷取的流量資料。 在主功能表上，移至 檔案，按一下 儲存，然後按一下所有工作階段：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
 
 若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
 
@@ -889,4 +888,3 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [8]: ./media/storage-monitoring-diagnosing-troubleshooting/wireshark-screenshot-3.png
 [9]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-1.png
 [10]: ./media/storage-monitoring-diagnosing-troubleshooting/mma-screenshot-2.png
-

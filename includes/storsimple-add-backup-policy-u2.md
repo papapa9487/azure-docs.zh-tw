@@ -1,7 +1,7 @@
 <!--author=v-sharos last changed: 11/06/15-->
 
 #### <a name="to-add-a-storsimple-backup-policy"></a>若要新增 StorSimple 備份原則
-1. 在裝置的 [快速入門] 頁面上，按一下 [備份原則] 索引標籤。 這會將您帶到 [ **備份原則** ] 頁面。
+1. 在裝置的 [快速入門] 頁面上，按一下 [備份原則] 索引標籤。這會將您帶到 [ **備份原則** ] 頁面。
 2. 在頁面底部，按一下 [新增]  ，以啟動 [新增備份原則精靈]。
    
     ![新增備份原則 1](./media/storsimple-add-backup-policy-u2/AddBackupPolicy1.png)

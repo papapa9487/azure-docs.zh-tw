@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>設定 Azure VM 到次要 Azure 區域的災害復原 (預覽)
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 09/25/2017
 2. 按一下 [新增] > [監視和管理] > [備份和 Site Recovery]。
 3. 在 [名稱] 中，指定保存庫的易記識別名稱。 如果您有多個訂用帳戶，請選取適當的一個。
 4. 建立資源群組，或選取現有的資源群組。 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
-5. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
+5. 若要從儀表板快速存取保存庫，請按一下 釘選到儀表板，然後按一下建立。
 
    ![新增保存庫](./media/azure-to-azure-tutorial-enable-replication/new-vault-settings.png)
 
@@ -165,4 +164,3 @@ Site Recovery 會設定目標區域的預設設定和複寫原則。 您可以�
 
 > [!div class="nextstepaction"]
 > [執行災害復原演練](azure-to-azure-tutorial-dr-drill.md)
-

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: d30cc74778e0b36dd632c2f040ce80d1ca8af5a5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>使用彈性工作建立和管理相應放大的 Azure SQL Database (預覽)
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/11/2017
 3. 在 [建立工作]  刀鋒視窗中，輸入工作的名稱。
 4. 輸入使用者名稱與密碼來連線至目標資料庫，以取得足夠權限來成功執行指令碼。
 5. 貼上或輸入 T-SQL 指令碼。
-6. 按一下 [儲存]，然後按一下 [執行]。
+6. 按一下 儲存，然後按一下執行。
    
     ![建立工作並執行][5]
 

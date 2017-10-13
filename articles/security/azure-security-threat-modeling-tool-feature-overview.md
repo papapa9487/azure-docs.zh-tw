@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 5c60e13028c3ccdf3269d74ab4724bb34ca10c19
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="threat-modeling-tool-feature-overview"></a>威脅模型化工具功能概觀
 
 威脅模型化工具能滿足您的威脅模型化需求。 如需這項工具的基本介紹，請參閱[開始使用威脅模型化工具](./azure-security-threat-modeling-tool-getting-started.md)。
@@ -92,7 +90,7 @@ ms.lasthandoff: 09/08/2017
 | **處理程序** | 應用程式、瀏覽器外掛程式、執行緒、虛擬機器 |
 | **外部互動者** | 驗證提供者、瀏覽器、使用者、Web 應用程式 |
 | **資料存放區** | 快取、儲存體、設定檔、資料庫、登錄 |
-| **Data flow** | 二進位、ALPC、HTTP、HTTPS/TLS/SSL、IOCTL、IPSec、具名管道、DCOM、SMB、UDP |
+| <bpt id="p1">**</bpt>Data flow<ept id="p1">**</ept> | 二進位、ALPC、HTTP、HTTPS/TLS/SSL、IOCTL、IPSec、具名管道、DCOM、SMB、UDP |
 | **信任線路/邊界** | 公司網路、網際網路、機器、沙箱、使用者/核心模式 |
 
 ### <a name="notesmessages"></a>附註/訊息
@@ -210,4 +208,3 @@ ms.lasthandoff: 09/08/2017
 
 * 若要為社群貢獻範本，請移至我們的 [GitHub](https://github.com/Microsoft/threat-modeling-templates) 頁面。 
 * 若要開始使用工具，請移至[下載](https://aka.ms/tmtpreview)頁面。
-

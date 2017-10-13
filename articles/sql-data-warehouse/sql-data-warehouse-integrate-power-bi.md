@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>搭配使用 Power BI 與 SQL 資料倉儲
 在 Azure SQL Database 中，SQL Data Warehouse Direct Connect 可讓使用者充分利用功能強大的邏輯下推，以及 Power BI 的分析功能。  透過 Direct Connect，查詢會在您瀏覽資料時即時傳送回到您的 Azure SQL 資料倉儲。  這項與 SQL 資料倉儲結合的功能，可讓使用者在數分鐘內針對數 TB 的資料建立動態報表。  此外，引入 [在 Power BI 中開啟] 按鈕可讓使用者直接將 Power BI 連接到其 SQL 資料倉儲，而不需從其他 Azure 部分收集資訊。
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/11/2017
 
 1. 在導覽窗格的底部按一下 [取得資料]。
 2. 選取 [資料庫]。
-3. 一旦進入了 [資料庫] 頁面，請選取 [Azure SQL 資料倉儲]，然後按一下 [連線]。
+3. 一旦進入了 資料庫 頁面，請選取 Azure SQL 資料倉儲，然後按一下連線。
 4. 輸入必要的連線資訊。  在「Azure 入口網站」中可以找到您的伺服器名稱和資料庫名稱。
 5. 會將您導向回到 Power BI 的主頁面，在您的連接已建立後，[資料集] 底下新的項目會出現，並具有執行個體的名稱。  
 6. 您可以按一下新資料集，以瀏覽您資料庫中的所有資料表和檢視。 選取資料行會將查詢送回來源，並以動態方式建立視覺效果。 這些視覺效果可儲存在新的報表中，並釘選回您的儀表板。

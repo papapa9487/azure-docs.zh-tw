@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0a77b31e07f118155094fab4d3393ffdb37c9c6f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-data-sources-for-this-release"></a>此版本支援的資料來源 
 下列文件概述資料準備中目前支援的資料來源清單。
 
@@ -90,5 +88,4 @@ Parquet 格式在儲存體中可以有各種形式。 對於較小的資料集�
 
 ### <a name="azure-blob"></a>Azure BLOB
 Azure 儲存體 (BLOB)，需要 Azure 訂用帳戶
-
 

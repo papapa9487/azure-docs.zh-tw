@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
+ms.openlocfilehash: 58e7acc91fc048c8204608aa857134323abdab14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 99a790617baa65116bfba976cd9279627e8775f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>疑難排解：Azure 站對站 VPN 間歇性中斷
 
 您可能會遇到新的或現有的 Microsoft Azure 站對站 VPN 連線不穩定或間歇地中斷。 本文提供疑難排解步驟，可協助您找出原因並解決問題。 
@@ -75,5 +73,4 @@ ms.lasthandoff: 07/26/2017
 
 - [設定對虛擬網路的站對站連線](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [設定站對站 VPN 連線的 IPsec/IKE 原則](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-
 

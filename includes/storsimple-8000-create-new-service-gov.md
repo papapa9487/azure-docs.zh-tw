@@ -3,7 +3,7 @@
 
 #### <a name="to-create-a-new-service"></a>建立新服務
 1. 使用您的 Microsoft 帳戶認證以登入 [Microsoft Azure Government 入口網站](https://portal.azure.us/)。
-2. 在政府入口網站中，按一下 [+]，然後在 Marketplace 中按一下 [查看全部]。 搜尋 [StorSimple 實體]。 選取並按一下 [StorSimple 實體裝置系列]，然後按一下 [建立]。 或者，在政府入口網站中按一下 [+]，然後在 [儲存體] 下按一下 [StorSimple 實體裝置系列]。
+2. 在政府入口網站中，按一下 [+]，然後在 Marketplace 中按一下 [查看全部]。 搜尋 [StorSimple 實體]。 選取並按一下 StorSimple 實體裝置系列，然後按一下建立。 或者，在政府入口網站中按一下 [+]，然後在 [儲存體] 下按一下 [StorSimple 實體裝置系列]。
 3. 在 [StorSimple 裝置管理員] 刀鋒視窗中，執行下列步驟：
    
    1. 為服務提供唯一的**資源名稱** 。 這個名聲是可用來識別服務的易記名稱。 名稱長度可介於 2 到 50 個字元之間，且可以是字母、數字和連字號。 名稱必須以字母或數字為開頭或結尾。

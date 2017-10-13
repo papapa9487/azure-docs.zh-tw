@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 9258613161a61e36b1d0c5796d5763c916d66859
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>使用 Azure Site Recovery 在區域之間椱寫 Azure VM
 
 >本文概要說明將一個 Azure 區域中的 Azure 虛擬機器 (VM) 複寫至不同區域中的 Azure VM 所需的步驟。 
@@ -74,6 +72,5 @@ ms.lasthandoff: 08/02/2017
 在初始複寫完成且差異複寫執行之後，您可以執行測試容錯移轉，以確定一切如預期般運作。
 
 移至[步驟 6：執行測試容錯移轉](azure-to-azure-walkthrough-test-failover.md)
-
 
 

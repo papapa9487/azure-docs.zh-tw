@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bb5d255db9ab266d04169a3101e2b694236029
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>資料科學虛擬機器 (DSVM) 上的範本
 
 DSVM 包含 Jupyter Notebook 形式的完整解決的範本，以及並非以 Jupyter 為基礎的範本。 您可以按一下桌面或應用程式功能表上的 `Jupyter` 圖示存取 Jupyter。  
@@ -106,5 +103,4 @@ DSVM 包含 Jupyter Notebook 形式的完整解決的範本，以及並非以 Ju
 
 ## <a name="xgboost"></a>XGBoost 
 <br/>![XGBoost 範例](./media/xgboost-samples.png)<br/>
-
 

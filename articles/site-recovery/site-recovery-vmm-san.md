@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/14/2017
 ms.author: raynew
 ms.openlocfilehash: 3df38802fcdc86e4553253d38c49faff455f873e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-vms-in-vmm-clouds-to-a-secondary-site-with-azure-site-recovery-by-using-san"></a>使用 SAN 搭配 Azure Site Recovery 將 VMM 雲端中的 Hyper-V VM 複寫至次要網站
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 07/11/2017
 
 建立複寫群組，其中包含所有需要一起進行複寫的 LUN。
 
-1. 在 VMM 主控台中，開啟存放裝置陣列屬性的 [複寫群組] 索引標籤，然後按一下 [新增]。
+1. 在 VMM 主控台中，開啟存放裝置陣列屬性的 複寫群組 索引標籤，然後按一下新增。
 2. 建立複寫群組。
 
     ![SAN 複寫群組](./media/site-recovery-vmm-san/rep-group.png)
@@ -150,7 +150,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="step-2-create-a-vault"></a>步驟 2：建立保存庫
 
 1. 從您想要在保存庫中註冊的 VMM 伺服器登入 [Azure 入口網站](https://portal.azure.com)。
-2. 展開 [資料服務] > [復原服務]，然後按一下 [Site Recovery 保存庫]。
+2. 展開 資料服務 > 復原服務，然後按一下Site Recovery 保存庫。
 3. 按一下 [新建]  >  [快速建立]。
 4. 在 [ **名稱**] 中，輸入保存庫的易記識別名稱。
 5. 在 [區域] 中，選取保存庫的地理區域。 若要查看支援的地區，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
@@ -260,13 +260,13 @@ ms.lasthandoff: 07/11/2017
 6. Site Recovery 會確認雲端能夠存取 SAN 存放裝置，並確認存放裝置陣列已對應。
 7. 如果驗證成功，請在 [複寫類型] 中，選取 [SAN]。
 
-儲存設定之後會建立一個作業，供您在 [作業] 索引標籤上監視。 在 [設定] 索引標籤上可修改設定。 如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。
+儲存設定之後會建立一個作業，供您在 [作業] 索引標籤上監視。在 [設定] 索引標籤上可修改設定。如果您要修改目標位置或目標雲端，則必須移除雲端組態，然後重新設定雲端。
 
 ## <a name="step-5-enable-network-mapping"></a>步驟 5：啟用網路對應
 
 1. 在 [快速入門] 頁面上，按一下 [對應網路]。
 2. 選取來源 VMM 伺服器，然後選取網路將對應的目標 VMM 伺服器。 隨即會顯示來源網路的清單和與其相關聯的目標網路。 對於未對應的網路，將顯示空白值。 按一下來源和目標網路名稱旁邊的資訊圖示，以檢視每個網路的子網路。
-3. 在 [來源上的網路] 中選取網路，然後按一下 [對應]。 服務會偵測目標伺服器上的 VM 網路並加以顯示。
+3. 在 來源上的網路 中選取網路，然後按一下對應。 服務會偵測目標伺服器上的 VM 網路並加以顯示。
 
     ![SAN 架構](./media/site-recovery-vmm-san/network-map1.png)
 4. 從目標 VMM 伺服器選取其中一個 VM 網路。
@@ -303,7 +303,7 @@ VM 啟用複寫後，就會顯示在 Site Recovery 主控台。 您可以檢視 
 >
 >
 
-您可以在 [作業] 索引標籤追蹤進度，包括初始複寫。 執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。
+您可以在 [作業] 索引標籤追蹤進度，包括初始複寫。執行「完成保護」工作之後，虛擬機器即準備好進行容錯移轉。
 
 ![虛擬機器保護工作](./media/site-recovery-vmm-san/job-props.png)
 
@@ -319,7 +319,7 @@ VM 啟用複寫後，就會顯示在 Site Recovery 主控台。 您可以檢視 
 3. 在 [選取虛擬機器] 中，選取複寫群組。 與群組相關聯的所有 VM 都會加入復原方案。 這些 VM 將新增到復原方案的預設群組 (群組 1)。 您可以視需要新增更多群組。 複寫之後，VM 會根據復原計劃群組的順序來編號。
 
     ![選取虛擬機器](./media/site-recovery-vmm-san/r-plan-vm.png)
-4. 建立復原方案之後，它會出現在 [復原方案] 索引標籤上的清單中。 選取方案，然後選擇 [測試容錯移轉]。
+4. 建立復原方案之後，它會出現在 [復原方案] 索引標籤上的清單中。選取方案，然後選擇 [測試容錯移轉]。
 5. 在 [確認測試容錯移轉] 頁面上，選取 [無]。 啟用此選項時，容錯移轉的複本 VM 將不會連線到任何網路。 這會測試 VM 容錯移轉是否如預期般運作，但不會測試網路環境。 如需其他網路功能選項的相關資訊，請參閱 [Site Recovery 容錯移轉](site-recovery-failover.md)。
 
     ![選取測試網路](./media/site-recovery-vmm-san/test-fail1.png)

@@ -11,7 +11,7 @@
 1. 在 [Azure 入口網站](https://portal.azure.com/)的左列中，按一下 [Azure Cosmos DB]。
 2. 在 [Azure Cosmos DB] 刀鋒視窗中，選取要修改的資料庫帳戶。
 3. 在帳戶刀鋒視窗中，從功能表中按一下 [全域複寫資料]。
-4. 在 [全域複寫資料] 刀鋒視窗中，按一下地圖中的區域以選取要新增或移除的區域，然後按一下 [儲存]。 新增區域需要費用，如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)或[使用 Azure Cosmos DB 全球散發資料](../articles/cosmos-db/distribute-data-globally.md)一文。
+4. 在 全域複寫資料 刀鋒視窗中，按一下地圖中的區域以選取要新增或移除的區域，然後按一下儲存。 新增區域需要費用，如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)或[使用 Azure Cosmos DB 全球散發資料](../articles/cosmos-db/distribute-data-globally.md)一文。
    
     ![按一下地圖中的區域以新增或移除它們][1]
     

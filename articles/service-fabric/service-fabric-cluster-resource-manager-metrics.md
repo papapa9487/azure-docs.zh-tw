@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 5c291ef864518b2366c61c9e5c11fac9e8468a00
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>在 Service Fabric 中使用度量管理資源耗用量和負載
 *計量*是您的服務所關切的資源，且是由叢集中的節點提供。 計量就是任何您想要管理，以便改善或監視服務效能的項目。 例如，您可能會監看記憶體耗用量以得知您的服務是否為多載。 另一個用法是，了解服務是否能夠移至記憶體限制較小的其他位置，以取得更佳的效能。
@@ -33,7 +32,7 @@ ms.lasthandoff: 08/19/2017
   - ReplicaCount - 節點上具狀態複本的總數
   - Count - 節點上所有服務物件 (無狀態和具狀態) 的計數
 
-| 度量 | 無狀態執行個體負載 | 具狀態次要負載 | 具狀態主要負載 |
+| 計量 | 無狀態執行個體負載 | 具狀態次要負載 | 具狀態主要負載 |
 | --- | --- | --- | --- |
 | PrimaryCount |0 |0 |1 |
 | ReplicaCount |0 |1 |1 |
@@ -273,4 +272,3 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 [Image2]:./media/service-fabric-cluster-resource-manager-metrics/Service-Fabric-Resource-Manager-Dynamic-Load-Reports.png
 [Image3]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-metric-weights-impact.png
 [Image4]:./media/service-fabric-cluster-resource-manager-metrics/cluster-resource-manager-global-vs-local-balancing.png
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 對虛擬機器指派多個 IP 位址
 
@@ -267,7 +266,7 @@ ms.lasthandoff: 04/27/2017
         -AllocationMethod Static
         ```
 
-         若要建立具有靜態私人 IP 位址和相關 *myPublicIp3* 公用 IP 位址資源的新 IP 組態，請輸入下列命令︰
+        若要建立具有靜態私人 IP 位址和相關 *myPublicIp3* 公用 IP 位址資源的新 IP 組態，請輸入下列命令︰
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -288,7 +287,7 @@ ms.lasthandoff: 04/27/2017
 
         您會看到類似以下的輸出：
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
         
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
@@ -329,4 +328,3 @@ ms.lasthandoff: 04/27/2017
 8. 完成本文的[將 IP 位址新增至 VM 作業系統](#os-config)一節中適用於您的作業系統的步驟，將私人 IP 位址新增至 VM 作業系統。 請勿將公用 IP 位址新增至作業系統。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

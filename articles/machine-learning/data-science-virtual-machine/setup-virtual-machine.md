@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: xibingao;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b32aa2325a507f18ffc8b47cddde8637a0a8aabf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>將 Azure 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
 本主題示範如何針對可用來做為資料科學環境一部分的進階分析，佈建及設定 Azure 虛擬機器。 Windows 虛擬機器是使用支援工具 (例如 IPython Notebook、Azure 儲存體總管、AzCopy)，以及其他對於進階分析專案非常實用的公用程式來設定。 例如，Azure 儲存體總管和 AzCopy 會提供便利的方法，將資料從本機電腦上傳至 Azure Blob 儲存體，或者從 Blob 儲存體將資料下載到本機電腦。
@@ -135,4 +134,3 @@ Azure 虛擬機器的定價策略是「 **只針對您使用的項目進行付�
 [27]: ./media/setup-virtual-machine/create-virtual-machine-4.png
 [28]: ./media/setup-virtual-machine/create-virtual-machine-5.png
 [29]: ./media/setup-virtual-machine/create-virtual-machine-6.png
-

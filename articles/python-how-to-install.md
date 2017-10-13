@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: lmazuel
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e69fff29be5b12c3c0004b4101eba69c7da87d3d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-python-and-the-sdk"></a>安裝 Python 和 SDK
 在 Windows 上設定 Python 相當簡單，而在 Mac、Linux 及[適用於 Windows 的 Bash](https://msdn.microsoft.com/commandline/wsl/about) 中則是已預先安裝 Python。 本指南將逐步引導您完成安裝作業，並讓機器做好搭配 Azure 的準備。
@@ -151,4 +150,3 @@ PTVS 可以和您現有的 Visual Studio 2013、2015 或 2017 安裝一同運作
 [Microsoft Azure SDK for Python 2.7]: http://go.microsoft.com/fwlink/?LinkId=254281
 [Microsoft Azure SDK for Python 3.4]: http://go.microsoft.com/fwlink/?LinkID=516990
 [blob storage]:storage/blobs/storage-python-how-to-use-blob-storage.md
-

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>建立和部署容器作為 Service Fabric 應用程式
 
 本教學課程是一個系列中的第二部分。 本教學課程使用範本產生器工具 (Yeoman)，來產生 Service Fabric 應用程式定義。 此應用程式接著可用來將容器部署到 Service Fabric。 在本教學課程中，您了解如何： 
@@ -241,7 +239,7 @@ sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:190
 
 ![Service Fabric Explorer][sfx]
 
-為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://lin0823ryf2he.cloudapp.azure.com:80。 您應會在 Web UI 中看到投票應用程式。
+為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://lin0823ryf2he.cloudapp.azure.com:80 。 您應會在 Web UI 中看到投票應用程式。
 
 ![votingapp][votingapp]
 
@@ -375,6 +373,5 @@ sfctl cluster select --endpoint http://lin4hjim3l4.westus.cloudapp.azure.com:190
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

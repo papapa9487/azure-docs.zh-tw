@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: TomSh
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 659304937eebb1b2fe6faf019dfef63e1e29bcd4
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 網路安全性最佳作法
 Microsoft Azure 可讓您將虛擬機器和應用裝置放在 Azure 虛擬網路上，進而將它們連接到其他網路裝置。 Azure 虛擬網路是一種虛擬網路建構，可讓您將虛擬網路介面卡連接至虛擬網路，允許有網路功能的裝置之間進行以 TCP/IP 為基礎的通訊。 連接到 Azure 虛擬網路的 Azure 虛擬機器能夠連接到相同 Azure 虛擬網路、不同 Azure 虛擬網路、網際網路或甚至您自己的內部部署網路上的裝置。
@@ -236,4 +235,3 @@ Azure 資訊安全中心藉由下列方式來協助您最佳化和監視網路�
 Microsoft 已建立[資料中心延伸參考架構圖表](https://gallery.technet.microsoft.com/Datacenter-extension-687b1d84#content)和支援相關資料，協助您了解這類資料中心延伸模組的外觀。 其中的提供範例參考實作，可用來規劃和設計安全的企業資料中心延伸至雲端。 我們建議您檢閱這份文件，以了解安全解決方案的重要元件。
 
 若要深入了解如何安全地將資料中心擴充至 Azure，請觀賞 [Extending Your Datacenter to Microsoft Azure (將資料中心擴充至 Microsoft Azure)](https://www.youtube.com/watch?v=Th1oQQCb2KA) 視訊。
-

@@ -15,12 +15,11 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 08/08/2017
 ms.author: carlrab
+ms.openlocfilehash: 1cf95cf2c9413f99a4013ff961c8a18c31cc51f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3a43472ad2be4a0fd6f7126f72433acd8b5f25fd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-php-to-query-an-azure-sql-database"></a>使用 PHP 查詢 Azure SQL 資料庫
 
@@ -101,4 +100,3 @@ ms.lasthandoff: 08/09/2017
 - [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
 - [回報問題或發問](https://github.com/Microsoft/msphpsql/issues)
-

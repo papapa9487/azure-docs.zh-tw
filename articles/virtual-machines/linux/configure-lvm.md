@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
 ms.openlocfilehash: 7926627aaa3f0da935131f491d927ab5cb4b35c9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>設定 Azure 中 Linux VM 的 LVM
 本文將討論如何在 Azure 虛擬機器中設定邏輯磁碟區管理員 (LVM)。 雖然可以在任何連接到虛擬機器的磁碟上設定 LVM，但根據預設，大部分的雲端映像不會在作業系統磁碟上設定 LVM。 這是為了防止重複磁碟區群組相關的問題，因為作業系統磁碟可能曾經連接到相同散發套件及類型的 VM (例如在復原期間)。 因此建議只在資料磁碟上使用 LVM。

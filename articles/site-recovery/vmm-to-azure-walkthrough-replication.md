@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 592e1c3f647e5b1f1d9aa776657e8f89b60349e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-10-set-up-a-replication-policy-for-hyper-v-vm-replication-with-vmm-to-azure"></a>步驟 10：設定 Hyper-V VM (含 VMM) 複寫至 Azure 的複寫原則
 
@@ -56,4 +55,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 11：啟用複寫](vmm-to-azure-walkthrough-enable-replication.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/25/2017
 ms.author: pratshar
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-in-site-recovery"></a>Site Recovery 中的容錯移轉
 本文說明如何容錯移轉 Site Recovery 所保護的虛擬機器和實體伺服器。
@@ -131,4 +130,3 @@ ms.lasthandoff: 09/27/2017
 使用[**計劃性容錯移轉**](site-recovery-failback-from-azure-to-hyper-v.md)選項，將 Hyper-v 虛擬機器從 Azure **容錯回復**回到內部部署。
 
 如果您已將 Hyper-v 虛擬機器容錯回復至 VMM 伺服器所管理的另一個內部部署資料中心，而且主要資料中心可用，請使用 [反向複寫] 選項，開始複寫回到主要資料中心。
-

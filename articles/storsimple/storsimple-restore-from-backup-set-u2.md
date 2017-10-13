@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>從備份組還原 StorSimple 磁碟區 (Update 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -53,7 +52,7 @@ ms.lasthandoff: 04/21/2017
 熱度圖式追蹤只會針對階層式磁碟區啟用，而不支援固定在本機的磁碟區。 將磁碟區複製到另一個裝置時，也不支援熱度圖式還原。 如果有就地還原且裝置上目前有要還原之磁碟區的本機快照集，則我們不會解除凍結 (因為資料已經可在本機使用)。 根據預設，當您還原時，會起始解除凍結作業，以根據熱度圖主動解除凍結資料。 在 Update 4 中，Windows PowerShell Cmdlet 可用來查詢執行中的解除凍結作業、取消解除凍結作業，以及取得解除凍結作業的狀態。
 
 * `Get-HcsRehydrationJob` -此 Cmdlet 會取得解除凍結作業的狀態。 單一解除凍結作業會針對某一個磁碟區來觸發。
-* `Set-HcsRehydrationJob` - 此 Cmdlet 可讓您在解除凍結正在進行時暫停、停止、繼續執行解除凍結作業。    
+* `Set-HcsRehydrationJob` - 此 Cmdlet 可讓您在解除凍結正在進行時暫停、停止、繼續執行解除凍結作業。 
 
 如需解除凍結 Cmdlet 的詳細資訊，請移至[適用於 StorSimple 的 Windows PowerShell Cmdlet 參考](https://technet.microsoft.com/library/dn688168.aspx)。
 
@@ -120,5 +119,4 @@ ms.lasthandoff: 04/21/2017
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [管理 StorSimple 磁碟區](storsimple-manage-volumes-u2.md)。
 * 了解如何 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
 

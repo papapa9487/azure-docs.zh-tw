@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/04/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c9877f84873c825f96b62b492f49d1733e6c64e
-ms.openlocfilehash: 165e4394d21a0202a320a8697360b715517bc7a2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 1009d8b87cb3a131909f3ae9ee231f9ebb408c04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀
 此頁面提供調整媒體處理的方式及原因的概觀。 
@@ -72,5 +71,4 @@ ms.lasthandoff: 03/15/2017
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

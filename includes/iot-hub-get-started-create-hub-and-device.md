@@ -23,7 +23,7 @@
 
    ![查看 IoT 中樞的進度通知](../articles/iot-hub/media/iot-hub-create-hub-and-device/3_notification-azure-iot-hub-creation-progress-portal.png)
 
-4. 建立 IoT 中樞之後，請在儀表板上按一下它。 請記下**主機名稱**，然後按一下 [共用存取原則]。
+4. 建立 IoT 中樞之後，請在儀表板上按一下它。 請記下**主機名稱**，然後按一下共用存取原則。
 
    ![取得 IoT 中樞的主機名稱](../articles/iot-hub/media/iot-hub-create-hub-and-device/4_get-azure-iot-hub-hostname-portal.png)
 

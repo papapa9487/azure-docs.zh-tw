@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: c78eda33a64d630ba18aba6a174db372eb41dde9
 ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>從 StorSimple Virtual Array 的備份複製
 
@@ -31,7 +32,7 @@ ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
 
 #### <a name="to-clone-a-share"></a>複製共用
 
-1. 瀏覽至 [裝置] 刀鋒視窗。 選取並按一下您的裝置，然後按一下 [共用]。 選取您想要複製的共用，以滑鼠右鍵按一下共用以叫用操作功能表。 選取 [複製]。
+1. 瀏覽至 [裝置] 刀鋒視窗。 選取並按一下您的裝置，然後按一下共用。 選取您想要複製的共用，以滑鼠右鍵按一下共用以叫用操作功能表。 選取 [複製]。
    
    ![複製備份](./media/storsimple-virtual-array-clone/cloneshare1.png)
 2. 在 [複製] 刀鋒視窗中，按一下 [備份] > [選取]，然後執行下列動作︰ 
@@ -71,7 +72,7 @@ ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
 
 #### <a name="to-clone-a-volume"></a>若要複製磁碟區
 
-1. 瀏覽至 [裝置] 刀鋒視窗。 選取並按一下您的裝置，然後按一下 [磁碟區]。 選取您想要複製的磁碟區，以滑鼠右鍵按一下磁碟區以叫用操作功能表。 選取 [複製]。
+1. 瀏覽至 [裝置] 刀鋒視窗。 選取並按一下您的裝置，然後按一下磁碟區。 選取您想要複製的磁碟區，以滑鼠右鍵按一下磁碟區以叫用操作功能表。 選取 [複製]。
    
    ![複製磁碟區](./media/storsimple-virtual-array-clone/clonevolume1.png)
 2. 在 [複製] 刀鋒視窗中，按一下 [備份]，然後執行下列動作︰ 
@@ -105,7 +106,7 @@ ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
    ![複製備份](./media/storsimple-virtual-array-clone/clonevolume8.png)
 7. 當磁碟區出現在線上的磁碟區清單上後，該磁碟區即可供使用。 在 iSCSI 啟動器主機上，重新整理 iSCSI 啟動器屬性視窗中的目標清單。 複製的磁碟區名稱所在的新目標，應該會在狀態資料行下方顯示為 [非作用中]。
 8. 選取目標並按一下 [連接] 。 當啟動器連接到目標之後，狀態應會變更為 [已連接] 。
-9. 在 [磁碟管理] 視窗中，將會出現掛接的磁碟區，如下圖所示。 以滑鼠右鍵按一下探索到的磁碟區 (按一下磁碟名稱)，然後按一下 [線上] 。
+9. 在 [磁碟管理] 視窗中，將會出現掛接的磁碟區，如下圖所示。 以滑鼠右鍵按一下探索到的磁碟區 (按一下磁碟名稱)，然後按一下線上 。
 
 > [!IMPORTANT]
 > 嘗試從備份組複製磁碟區或共用時，如果複製作業失敗，仍可能在入口網站中建立目標磁碟區或共用。 請務必在入口網站中刪除這個目標磁碟區或共用，以將未來這個項目所造成的任何問題降至最低。
@@ -136,10 +137,4 @@ ms.openlocfilehash: 768c9a1c906999f4690c9c8f7d075743ab1678ff
 ## <a name="next-steps"></a>後續步驟
 
 深入了解如何 [使用本機 Web UI 管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

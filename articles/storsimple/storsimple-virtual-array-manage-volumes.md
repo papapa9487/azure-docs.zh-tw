@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
 ms.openlocfilehash: a507bf1866952cb79fa6334fed80c88cd207cd0a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-service-to-manage-volumes-on-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員服務管理 StorSimple Virtual Array 上的磁碟區
 
@@ -78,8 +78,8 @@ StorSimple 服務摘要刀鋒視窗的 [磁碟區] 功能表會顯示給定 Stor
    * 在 [磁碟區名稱] 欄位中，輸入磁碟區的唯一名稱。 該名稱必須為包含 3 至 127 個字元的字串。
    * 在 [類型] 下拉式清單中，指定要建立 [階層式] 還是 [固定在本機] 磁碟區。 對於需要本機保證、低延遲及更高效能的工作負載，請選取 [固定在本機的磁碟區]。 針對所有其他資料，請選取 [階層式] 磁碟區。
    * 在 [容量] 欄位中，指定磁碟區大小。 階層式磁碟區必須介於 500 GB 和 5 TB 之間，而固定在本機的磁碟區必須介於 50 GB 和 500 GB 之間。
-   * * 按一下 [連接的主機]，選取存取控制記錄 (ACR) (對應於您要連接至此磁碟區的 iSCSI 啟動器，然後按一下 [選取]。
-3. 若要新增連接的主機，請按一下 [新增]，輸入主機的名稱及其 iSCSI 合格名稱 (IQN)，然後按一下 [新增]。
+   * * 按一下 連接的主機，選取存取控制記錄 (ACR) (對應於您要連接至此磁碟區的 iSCSI 啟動器，然後按一下選取。
+3. 若要新增連接的主機，請按一下 新增，輸入主機的名稱及其 iSCSI 合格名稱 (IQN)，然後按一下新增。
    
     ![新增磁碟區](./media/storsimple-virtual-array-manage-volumes/volume-add-acr.png)
 4. 磁碟區設定完成之後，按一下 [建立]。 將會使用指定的設定來建立磁碟區，您會看到成功建立磁碟區的通知。 根據預設，磁碟區會啟用備份。

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: d45a43d1d4304fd0028d15b4797228a22cc6e76f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 範本中的虛擬機器
 
 本文描述套用至虛擬機器的 Azure Resource Manager 範本的各個部分。 本文不會說明建立虛擬機器的完整範本；您需要儲存體帳戶、網路介面、公用 IP 位址與虛擬網路的資源定義。 如需有關如何將這些資源一起定義的詳細資訊，請參閱 [Resource Manager 範本逐步解說](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
@@ -460,4 +458,3 @@ Start.ps1 指令碼可以完成許多組態工作。 例如，範例中新增至
 - 使用[編寫 Azure Resource Manager 範本](../../resource-group-authoring-templates.md)來建立專屬範本。
 - 部署您使用[利用 Resource Manager 範本搭配 Azure PowerShell 建立 Windows 虛擬機器](ps-template.md)建立的範本。
 - 檢閱[使用 Azure PowerShell 模組來建立和管理 Windows VM](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)，以了解如何管理您建立的 VM。
-

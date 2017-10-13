@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/21/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: d32980f05ad17a76793021d0a5355d597974a4e4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 23212bc947dc523561acdf9d1ca784d1bab2c84c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>使用 CLI 建立 Azure VM 的自訂映像
 
 自訂映像類似 Marketplace 映像，但您要自行建立它們。 自訂映像可用於啟動程序設定，例如，預先載入應用程式、應用程式設定和其他 OS 設定。 在本教學課程中，您將建立自己的 Azure 虛擬機器自訂映像。 您會了解如何：
@@ -145,5 +143,4 @@ az image delete \
 
 > [!div class="nextstepaction"]
 > [建立高可用性 VM](tutorial-availability-sets.md)。
-
 

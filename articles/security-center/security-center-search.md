@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 513c98237a322dabd6b2bf13443e8998ca843b1d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-search"></a>Azure 資訊安全中心搜尋
 Azure 資訊安全中心使用 [Log Analytics 搜尋](../log-analytics/log-analytics-log-searches.md)來擷取和分析您的安全性資料。 Log Analytics 包含可快速擷取及彙總資料的查詢語言。 您可以從安全性中心利用 Log Analytics 搜尋來建構查詢，並分析收集的資料。
@@ -67,4 +66,3 @@ Azure 資訊安全中心使用 [Log Analytics 搜尋](../log-analytics/log-analy
 [1]: ./media/security-center-search/search.png
 [2]: ./media/security-center-search/workspace-selector.png
 [3]: ./media/security-center-search/log-search.png
-

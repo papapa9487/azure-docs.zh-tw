@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 08a457029d3721f5c38dbcd2d2aab7d09a241d8f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>將管理事件的 Azure 警示移轉至活動記錄警示
 
@@ -122,4 +121,3 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * 檢閱[活動記錄警示 webhook 結構描述](monitoring-activity-log-alerts-webhook.md)
 * 深入了解[服務通知](monitoring-service-notifications.md)
 * 深入了解[動作群組](monitoring-action-groups.md)
-

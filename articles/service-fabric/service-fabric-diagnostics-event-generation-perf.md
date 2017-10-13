@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="performance-metrics"></a>效能度量
 
 您應該收集計量，以了解叢集及在叢集中執行之應用程式的效能。 針對 Service Fabric 叢集，建議您收集下列效能計數器。
@@ -32,10 +30,10 @@ ms.lasthandoff: 07/20/2017
 
 | 計數器類別 | 計數器名稱 |
 | --- | --- |
-| PhysicalDisk(per Disk) | Avg. 磁碟讀取佇列長度 |
-| PhysicalDisk(per Disk) | Avg. 磁碟寫入佇列長度 |
-| PhysicalDisk(per Disk) | Avg. Disk sec/Read |
-| PhysicalDisk(per Disk) | Avg. Disk sec/Write |
+| PhysicalDisk(per Disk) | Avg.磁碟讀取佇列長度 |
+| PhysicalDisk(per Disk) | Avg.磁碟寫入佇列長度 |
+| PhysicalDisk(per Disk) | Avg.Disk sec/Read |
+| PhysicalDisk(per Disk) | Avg.Disk sec/Write |
 | PhysicalDisk(per Disk) | Disk Reads/sec  |
 | PhysicalDisk(per Disk) | Disk Read Bytes/sec  |
 | PhysicalDisk(per Disk) | Disk Writes/sec |
@@ -81,4 +79,3 @@ Service Fabric 可產生大量的自訂效能計數器。 如果您已安裝 SDK
 
 * 深入了解 Service Fabric 中的[平台層級的事件產生](service-fabric-diagnostics-event-generation-infra.md)
 * 透過 [Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)收集效能計量
-

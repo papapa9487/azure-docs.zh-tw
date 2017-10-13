@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 8/01/2017
 ms.author: raynew
+ms.openlocfilehash: 8691ff9dbdb79ef445482b355b00859072d539e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: f426ba4341e61d3c7da820d7d5097b217e94ca0e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-5-enable-replication-for-azure-vms"></a>步驟 5：啟用 Azure VM 的複寫
 
 
@@ -108,4 +105,3 @@ Site Recovery 會佈建目標區域 (根據來源區域設定) 及複寫原則�
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 6：執行測試容錯移轉](azure-to-azure-walkthrough-test-failover.md)
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: robb
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afa863e2a900d4f823b77453d92f034db7d5a93f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示是什麼？
 本文說明 Microsoft Azure 中的各種警示來源、這些警示的目的和優點，以及如何開始使用這些警示。 此內容特別適用於 Azure 監視器，但也會提供其他警示服務的指示。 警示是在 Azure 中進行監視的一種方法，可讓您對資料設定條件，並在最近的監視資料符合條件時收到通知。
@@ -92,4 +91,3 @@ Azure 監視器中可用資料的警示類型有三種：計量警示、近乎�
 * 深入了解[近乎即時計量警示](monitoring-near-real-time-metric-alerts.md)
 * 深入了解[服務通知](monitoring-service-notifications.md)
 * 深入了解[動作群組](monitoring-action-groups.md)
-

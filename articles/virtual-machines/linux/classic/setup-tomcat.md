@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
 ms.openlocfilehash: fa30c78a5a5d458ba8845c3c10b87538427786c9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>使用 Azure 在 Linux 虛擬機器上設定 Tomcat7
 Apache Tomcat (或直接稱為 Tomcat，以往也稱為 Jakarta Tomcat) 是 Apache Software Foundation (ASF) 開發的開放原始碼 Web 伺服器和 Servlet 容器。 Tomcat 會實作 Sun Microsystems 提供的 Java Servlet 和 JavaServer Pages (JSP) 規格。 Tomcat 提供用來執行 Java 程式碼的純 Java HTTP 網頁伺服器環境。 在最簡單的組態中，Tomcat 會在單一作業系統處理序中執行。 此程序會執行 Java 虛擬機器 (JVM)。 從瀏覽器到 Tomcat 的每個 HTTP 要求都會以 Tomcat 程序中個別的執行緒形式予以處理。  
@@ -71,7 +71,7 @@ SSH 對系統管理員而言是很重要的工具。 不過，不建議根據人
 3. 對於 [SSH 驗證金鑰]，從 publicKey.pem 檔案複製金鑰值，其中包含 PuTTYgen 所產生的公開金鑰。  
 ![入口網站中的 [SSH 驗證金鑰] 方塊][4]
 
-4. 視需要設定其他設定，然後按一下 [建立]。  
+4. 視需要設定其他設定，然後按一下建立。  
 
 ## <a name="phase-2-prepare-your-virtual-machine-for-tomcat7"></a>第 2 階段：準備用於 Tomcat7 的虛擬機器
 在這個階段，您將設定 Tomcat 流量的端點，然後連線到新的虛擬機器。
@@ -101,7 +101,7 @@ TCP 連接埠 8080 是 Tomcat 用於接聽的預設連接埠號碼。 如果使�
 
 1. 從入口網站取得您虛擬機器的 DNS 名稱。
     1. 按一下 [瀏覽] > [虛擬機器]。
-    2. 選取虛擬機器的名稱，然後按一下 [屬性]。
+    2. 選取虛擬機器的名稱，然後按一下屬性。
     3. 在 [屬性] 圖格中，查看 [網域名稱] 方塊以取得 DNS 名稱。  
 
 2. 從 [SSH] 方塊取得 SSH 連線的連接埠號碼。  
@@ -112,7 +112,7 @@ TCP 連接埠 8080 是 Tomcat 用於接聽的預設連接埠號碼。 如果使�
 4. 下載之後，按一下可執行檔 Putty.exe。 在 PuTTY 組態中，使用從虛擬機器屬性取得的主機名稱和連接埠號碼設定基本選項。   
 ![顯示 PuTTY 組態主機名稱和連接埠選項的螢幕擷取畫面][9]
 
-5. 在左窗格中，按一下 [連線]  > [SSH]  > [驗證]，然後按一下 [瀏覽] 來指定 privateKey.ppk 檔案的位置。 PrivateKey.ppk 檔案包含 PuTTYgen 稍早在本文的＜第 1 階段：建立映像＞一節中產生的私密金鑰。  
+5. 在左窗格中，按一下 連線  > SSH  > 驗證，然後按一下瀏覽 來指定 privateKey.ppk 檔案的位置。 PrivateKey.ppk 檔案包含 PuTTYgen 稍早在本文的＜第 1 階段：建立映像＞一節中產生的私密金鑰。  
 ![顯示連線目錄階層和 [瀏覽] 按鈕的螢幕擷取畫面][10]
 
 6. 按一下 [開啟] 。 您可能會收到警告訊息方塊。 如果您已正確設定 DNS 名稱和連接埠號碼，按一下 [是] 。

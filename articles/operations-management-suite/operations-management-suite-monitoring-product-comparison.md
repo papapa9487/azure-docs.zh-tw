@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
 ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft 監視產品比較
 本文根據產品架構、監視資源的邏輯，以及執行所收集資料分析的方式，提供 System Center Operations Manager (SCOM) 與 Operations Management Suite (OMS) 中 Log Analytics 之間的比較。  這是為了讓您對其差異和相對優點有基本的了解。  

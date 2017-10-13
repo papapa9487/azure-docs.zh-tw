@@ -17,10 +17,10 @@ ms.date: 03/29/2016
 ms.author: singhkay
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1ffcecf1e61fc0cd9ee668514fbb913dafe39bd8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vertically-scale-azure-linux-virtual-machine-with-azure-automation"></a>使用 Azure 自動化來垂直調整 Azure Linux 虛擬機器
 垂直調整大小是指為回應工作負載而增加或減少電腦資源的程序。 在 Azure 中，可以透過變更虛擬機器的大小來完成。 在下列情況中這種方式很有幫助

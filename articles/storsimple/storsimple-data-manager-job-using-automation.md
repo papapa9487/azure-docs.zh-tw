@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/16/2017
 ms.author: vidarmsft
-translationtype: Human Translation
-ms.sourcegitcommit: 0d8472cb3b0d891d2b184621d62830d1ccd5e2e7
 ms.openlocfilehash: 9691408bcd80afb6eba534f26749b76dd3bfe315
-ms.lasthandoff: 03/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-automation-to-trigger-a-job-private-preview"></a>使用 Azure 自動化來觸發作業 (私人預覽)
 
 此文章說明如何使用 Azure 自動化來觸發 StorSimple 資料管理員作業。
@@ -29,12 +28,12 @@ ms.lasthandoff: 03/21/2017
 
 開始之前，請確定您有︰
 
-*    已安裝 Azure Powershell。 [下載 Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
-*    用於初始化資料轉換作業的組態設定 (這裡包含取得這些設定的指示)。
-*    已在資源群組內的混合式資料資源中正確設定的工作定義。
-*    從 GitHub 存放庫下載 `DataTransformationApp.zip` [zip](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 檔案。
-*    從 GitHub 存放庫下載 `Get-ConfigurationParams.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1)。
-*    從 GitHub 存放庫下載 `Trigger-DataTransformation-Job.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)。
+*   已安裝 Azure Powershell。 [下載 Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。
+*   用於初始化資料轉換作業的組態設定 (這裡包含取得這些設定的指示)。
+*   已在資源群組內的混合式資料資源中正確設定的工作定義。
+*   從 GitHub 存放庫下載 `DataTransformationApp.zip` [zip](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) 檔案。
+*   從 GitHub 存放庫下載 `Get-ConfigurationParams.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Get-ConfigurationParams.ps1)。
+*   從 GitHub 存放庫下載 `Trigger-DataTransformation-Job.ps1` [指令碼](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1)。
 
 ## <a name="step-by-step"></a>逐步說明
 
@@ -87,7 +86,7 @@ ms.lasthandoff: 03/21/2017
 
 4. 按一下 [Runbook 檔案] 並選取要匯入 `Trigger-DataTransformation-Job.ps1` 的檔案。
 5. 按一下 [建立] 以匯入 Runbook。 新的 Runbook 會出現在自動化帳戶的 Runbook 清單中。
-7. 按一下 [Trigger-DataTransformation-Job] Runbook，然後按一下 [編輯]。
+7. 按一下 Trigger-DataTransformation-Job Runbook，然後按一下編輯。
 8. 按一下 [發行]，並在系統提示您確認時按一下 [是]。
 
 

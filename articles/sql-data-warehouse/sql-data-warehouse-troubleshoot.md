@@ -16,10 +16,10 @@ ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
 ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>針對 Azure SQL 資料倉儲問題進行疑難排解
 本主題列出我們從客戶聽來的一些較常見的疑難排解問題。

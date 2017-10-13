@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
+ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 5a5fc9bac4f0ee54532f34fe957e3722123df178
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>安裝行動服務 (VMware 或實體至 Azure)
 Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它們轉送至處理伺服器。 將行動服務部署至您要複寫至 Azure 的每部電腦 (VMware VM 或實體伺服器)。 您可以使用下列方法，將行動服務部署至您要保護的伺服器：
 
@@ -91,7 +89,7 @@ Azure Site Recovery 行動服務會擷取電腦上的資料寫入，然後將它
 ## <a name="update-mobility-service"></a>更新行動服務
 
 > [!WARNING]
-> 在開始更新受保護伺服器上的行動服務之前，請確保設定伺服器、相應放大處理序伺服器，以及作為部署之一部分的所有主要目標伺服器皆已完成更新。 請進一步參閱[如何更新設定伺服器](site-recovery-vmware-to-azure-manage-configuration-server.md#updating-a-configuration-server)和[如何更新相應放大處理序伺服器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
+> 在開始更新受保護伺服器上的行動服務之前，請確保設定伺服器、相應放大處理序伺服器，以及作為部署之一部分的所有主要目標伺服器皆已完成更新。 請進一步參閱[如何更新設定伺服器](site-recovery-vmware-to-azure-manage-configuration-server.md#upgrading-a-configuration-server)和[如何更新相應放大處理序伺服器](site-recovery-vmware-to-azure-manage-scaleout-process-server.md#upgrading-a-scale-out-process-server)
 
 1. 在 Azure 入口網站上，請瀏覽至 <Your Vault> -> [複寫的項目] 檢視。
 2. 如果「設定伺服器」已經更新至最新版本，您應該會看到內容為「有新的 Site Recovery 複寫代理程式更新可用。按一下可安裝」的通知
@@ -125,4 +123,3 @@ MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\
 ```
 uninstall.sh -Y
 ```
-

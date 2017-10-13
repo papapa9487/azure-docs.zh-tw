@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: db8d7b0e117276dd63ee83a1c2337e69253184b8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 8772a9a21a0c99994ac9bcf10ea7b13c35bac6c2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -96,7 +95,7 @@ ms.lasthandoff: 03/15/2017
 
 * 您有一個以上的 Microsoft 帳戶 - 可能是工作和個人 Microsoft 帳戶？ 您上一次在預設瀏覽器上使用的登入，是與具有 [將 Application Insights 新增至專案](app-insights-asp-net.md)的存取權的帳戶不同的帳戶。 
   
-  * 修正：按一下瀏覽器視窗右上方的您的名稱並且登出。 然後以具有存取權的帳戶登入。 然後在左側的導覽列中，按一下 [Application Insights]，並選取您的應用程式。
+  * 修正：按一下瀏覽器視窗右上方的您的名稱並且登出。然後以具有存取權的帳戶登入。 然後在左側的導覽列中，按一下 [Application Insights]，並選取您的應用程式。
 * 其他人將 Application Insights 新增至專案，且他們忘記為您提供所建立的 [資源群組的存取權](app-insights-resources-roles-access-control.md) 。 
   
   * 修正：如果他們使用組織帳戶，他們可以將您加入小組；或者，他們可以授與您資源群組的個別存取權。
@@ -159,17 +158,15 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 ## <a name="no-performance-data"></a>沒有效能資料
 效能資料 (CPU、IO 速率等等) 適用於 [Java Web 服務](app-insights-java-collectd.md)、[Windows 傳統型應用程式](app-insights-windows-desktop.md)、[IIS Web 應用程式和服務 (若您安裝狀態監視器)](app-insights-monitor-performance-live-website-now.md) 和 [Azure 雲端服務](app-insights-azure.md)。 您將會在 [設定]、[伺服器] 之下看到該資料。
 
-它不適用於 Azure 網站。
-
 ## <a name="no-server-data-since-i-published-the-app-to-my-server"></a>我發佈應用程式到我的伺服器之後卻沒有 (伺服器) 資料
 * 請確認您實際上已複製所有 Microsoft. ApplicationInsights DLL 到伺服器，並且連帶 Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll ApplicationInsights Dll 一併複製。
-* 在防火牆中，您可能必須[開啟某些 TCP 連接埠](app-insights-ip-addresses.md#data-access-api)。
+* 在防火牆中，您可能必須[開啟某些 TCP 連接埠](app-insights-ip-addresses.md)。
 * 如果您必須使用 Proxy 在貴公司網路之外傳送內容，請設定 Web.config 中的 [defaultProxy](https://msdn.microsoft.com/library/aa903360.aspx)
 * Windows Server 2008：確定您已安裝以下更新：[KB2468871](https://support.microsoft.com/kb/2468871)、[KB2533523](https://support.microsoft.com/kb/2533523)、[KB2600217](https://support.microsoft.com/kb/2600217)。
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>我曾經看到資料，但是已停止
 * 檢查 [狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
-* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。 若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
+* 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>我並沒有看到預期的所有資料
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則 [調適性取樣](app-insights-sampling.md) 功能可能會運作，並只傳送一部分的遙測資料。 
@@ -184,5 +181,4 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 ## <a name="still-not-working"></a>仍然無法運作...
 * [Application Insights 論壇](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-
 

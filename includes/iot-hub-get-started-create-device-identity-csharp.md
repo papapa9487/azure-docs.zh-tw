@@ -4,7 +4,7 @@
 1. 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至新的解決方案。 確定 .NET Framework 為 4.5.1 或更新版本。 將專案命名為 **CreateDeviceIdentity**，將解決方案命名為 **IoTHubGetStarted**。
    
     ![新的 Visual C# Windows 傳統桌面專案][10]
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **CreateDeviceIdentity** 專案，然後按一下 [管理 Nuget 套件]。
+2. 在 方案總管 中，以滑鼠右鍵按一下 **CreateDeviceIdentity** 專案，然後按一下管理 Nuget 套件。
 3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 套件管理員視窗][11]

@@ -3,7 +3,7 @@ title: "使用 Azure Active Directory 驗證 Azure Batch 服務解決方案 | Mi
 description: "Batch 支援 Azure AD 從 Batch 服務進行驗證。"
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 tags: 
@@ -13,13 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
-ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
@@ -31,13 +31,6 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 - 使用**服務主體**來驗證自動執行的應用程式。 服務主體會定義應用程式的原則和權限，以便在執行階段存取資源時代表應用程式。
 
 若要深入了解 Azure AD，請參閱 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory/)。
-
-## <a name="authentication-and-pool-allocation-mode"></a>驗證和集區配置模式
-
-當您建立 Batch 帳戶時，可以指定應配置為該帳戶所建立之集區的位置。 您可以選擇在預設的 Batch 服務訂用帳戶或使用者訂用帳戶中配置集區。 您的選擇會影響如何在該帳戶中驗證對資源之存取的方式。
-
-- **Batch 服務訂用帳戶**。 根據預設，Batch 集區會在 Batch 服務訂用帳戶中配置。 如果您選擇此選項，就可以使用[共用金鑰](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service)或使用 Azure AD 來驗證該帳戶中對資源的存取。
-- **使用者訂用帳戶**。 您可以選擇在指定的使用者訂用帳戶中配置 Batch 集區。 如果您選擇此選項，必須向 Azure AD 進行驗證。
 
 ## <a name="endpoints-for-authentication"></a>用於驗證的端點
 

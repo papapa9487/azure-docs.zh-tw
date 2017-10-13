@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: garye;haining
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 47d005e584b6cb87d27a77f56ff619d342481aaa
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="powershell-module-for-microsoft-azure-machine-learning"></a>適用於 Microsoft Azure Machine Learning 的 PowerShell 模組
 適用於 Azure Machine Learning 的 PowerShell 模組是一款功能強大的工具，它能讓您使用 Windows PowerShell 來管理工作區、實驗、資料集、傳統的 Web 服務等。
@@ -63,4 +62,3 @@ Machine Learning PowerShell 模組是以 .NET 為基礎的 DLL 模組，它能�
 您可以在 [https://aka.ms/amlps](https://aka.ms/amlps) 找到完整的 PowerShell 模組文件。 
 
 如需如何在真實案例中使用此模組的延伸範例，請看深入使用案例[使用 PowerShell，從一個實驗中建立許多 Machine Learning 模型和 Web 服務端點](create-models-and-endpoints-with-powershell.md)。
-

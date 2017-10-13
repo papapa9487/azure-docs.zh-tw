@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>監視記憶體內部 OLTP 儲存體
 使用 [記憶體內部 OLTP](sql-database-in-memory.md)時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。 每個進階服務層都有最大的記憶體內部 OLTP 儲存體大小，如[單一資料庫資源限制](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels)與[彈性集區資源限制](sql-database-resource-limits.md#elastic-pool-change-storage-size)所說明。 一旦超過此限制，插入和更新作業可能會開始出錯 (錯誤碼 41823)。 屆時您將需要刪除資料以回收記憶體，或升級您的資料庫的效能層。
@@ -56,4 +55,3 @@ ms.lasthandoff: 08/30/2017
 
 ## <a name="next-steps"></a>後續步驟
 如需監視指引，請參閱[使用動態管理檢視監視 Azure SQL Database](sql-database-monitoring-with-dmvs.md)。
-

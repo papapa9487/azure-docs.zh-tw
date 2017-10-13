@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: b3ca2ed90dd14350d3962a558aaac41f2e007bbd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT 中樞高可用性和災害復原
 作為 Azure 服務，IoT 中心提供高可用性 (HA)，在 Azure 區域層級使用備援，且解決方案不需任何額外的工作。 Microsoft Azure 平台也包含各種功能，以協助您建置具有災害復原 (DR) 功能或跨區域可用性的解決方案。 若要提供全域、跨區域的高可用性給裝置或使用者，請設計及準備解決方案以善用這些 Azure DR 功能。 [Azure 業務持續性技術指引](../resiliency/resiliency-technical-guidance.md) 一文描述業務持續性和 DR 的 Azure 內建功能。 [Azure 應用程式的災害復原與高可用性][Disaster recovery and high availability for Azure applications]一文針對 Azure 應用程式的策略提供架構指引以達到 HA 和 DR。
@@ -60,4 +59,3 @@ IoT 解決方案中部署拓撲的完整處理方式不在本文討論範圍內�
 
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [What is Azure IoT Hub?]: iot-hub-what-is-iot-hub.md
-

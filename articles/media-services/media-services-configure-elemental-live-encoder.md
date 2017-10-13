@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
 ms.openlocfilehash: 668a3ab46a70c0ee25fa87031d27c0f4333ec89c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Elemental Live 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -94,7 +94,7 @@ ms.lasthandoff: 08/29/2017
 #### <a name="configuration-steps"></a>組態步驟
 1. 瀏覽至 **Elemental Live** Web 介面，並設定用於 **UDP/TS** 串流的編碼器。
 2. 建立新事件後，請向下捲動至輸出群組並新增 **UDP/TS** 輸出群組。
-3. 選取 [新增串流] 然後按一下 [加入輸出] 建立新的輸出。  
+3. 選取 新增串流 然後按一下加入輸出 建立新的輸出。  
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental13.png)
 

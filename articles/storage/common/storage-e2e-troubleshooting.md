@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
+ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1aa40c4de48c0117e9d3f9d434972adecccdb548
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 及 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -224,7 +223,7 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 ### <a name="import-your-log-files-into-message-analyzer"></a>將記錄檔匯入 Message Analyzer 中
 您可以將所有已儲存的記錄檔 (伺服器端、用戶端和網路) 匯入 Microsoft Message Analyzer 的單一工作階段中進行分析。
 
-1. 在 Microsoft Message Analyzer 的 [檔案] 功能表中，按一下 [新增工作階段]，然後按一下 [空白工作階段]。 在 [新增工作階段]  對話方塊中，輸入您的分析工作階段名稱。 在 [工作階段詳細資料] 面板中，按一下 [檔案] 按鈕。
+1. 在 Microsoft Message Analyzer 的 檔案 功能表中，按一下 新增工作階段，然後按一下空白工作階段。 在 [新增工作階段]  對話方塊中，輸入您的分析工作階段名稱。 在 [工作階段詳細資料] 面板中，按一下 [檔案] 按鈕。
 2. 若要載入 Message Analyzer 所產生的網路追蹤資料，請按一下 [新增檔案]，瀏覽至您從 Web 追蹤工作階段儲存的 .matp 檔案所在位置，選取 .matp 檔案，然後按一下 [開啟]。
 3. 若要載入伺服器端記錄檔資料，請按一下 [新增檔案]，瀏覽至您下載伺服器端記錄檔的位置，選取您要分析的時間範圍內的記錄檔，然後按一下 [開啟]。 然後，在 [工作階段詳細資料] 面板中，將每個伺服器端記錄檔的 [文字記錄檔設定] 下拉式清單設定為 [AzureStorageLog]，以確保 Microsoft Message Analyzer 可以正確剖析記錄檔。
 4. 若要載入用戶端記錄檔資料，請按一下 [新增檔案]，瀏覽至您儲存用戶端記錄檔的位置，選取您要分析的記錄檔，然後按一下 [開啟]。 然後，在 [工作階段詳細資料] 面板中，將每個用戶端記錄檔的 [文字記錄檔設定] 下拉式清單設定為 [AzureStorageClientDotNetV4]，以確保 Microsoft Message Analyzer 可以正確剖析記錄檔。
@@ -374,4 +373,3 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 * [在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 * [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)
-

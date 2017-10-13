@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: alkohli;
 ms.openlocfilehash: 4b5a14237ce79100f980b2186b2c3c887abaa296
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="contact-microsoft-support"></a>連絡 Microsoft 支援服務
 
@@ -36,7 +36,7 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
 
 #### <a name="to-create-a-support-request"></a>建立支援要求
 
-1. 移至您的 StorSimple 裝置管理員服務。 在服務摘要刀鋒視窗的設定中，移至 [支援 + 疑難排解] 區段，然後按一下 [新增支援要求]。
+1. 移至您的 StorSimple 裝置管理員服務。 在服務摘要刀鋒視窗的設定中，移至 支援 + 疑難排解 區段，然後按一下新增支援要求。
      
     ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport1.png)
    

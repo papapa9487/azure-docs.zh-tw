@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: b9f5bc85d6fca466be7abbe67b400856e1635459
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/08/2017
-
+ms.openlocfilehash: fea8cd403cbf21acee2194e8e3888e4001663cdd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sql-data-warehouse-documentation"></a>SQL 資料倉儲文件
 
 了解如何使用 SQL 資料倉儲，其結合了 SQL Server 關聯式資料庫與大量平行處理。 教學課程和其他文件示範如何將資料載入資料倉儲，然後加以分析、管理及匯出。
@@ -114,6 +112,5 @@ ms.lasthandoff: 04/08/2017
         </div>
     </li>
 </ul>
-
 
 

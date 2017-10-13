@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: tamram
+ms.openlocfilehash: 7d86d5e8547d977c07cfbb0597b74382172a8472
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: eef0ff164b2857172fc24d8a0af7beddb29b262c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>使用 Azure 儲存體模擬器進行開發和測試
 
@@ -266,4 +265,3 @@ https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-
 * 評估跨平台的社群維護開放原始碼儲存體模擬器 [Azurite](https://github.com/arafato/azurite)。 
 * [使用 .NET 的 Azure 儲存體範例](../storage-samples-dotnet.md)包含開發應用程式時您可以使用的數個程式碼範例的連結。
 * 您可以使用 [Microsoft Azure 儲存體總管](http://storageexplorer.com)，來使用雲端儲存體帳戶和儲存體模擬器中的資源。
-

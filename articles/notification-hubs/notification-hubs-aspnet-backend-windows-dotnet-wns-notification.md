@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: c0b963ef661612b1a176dd8e5f01d56e61eb5acb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-with-net-backend"></a>Azure 通知中樞透過 .NET 後端通知使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -51,10 +51,10 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
 在本節中，您會更新已針對 [開始使用通知中樞] 教學課程完成之專案中的程式碼。 這應該已經與市集相關聯，並已針對您的通知中樞進行設定。 在本節中，您將加入程式碼以呼叫新的 WebAPI 後端，並使用它來註冊和傳送通知。
 
 1. 在 Visual Studio 中，開啟您為 [開始使用通知中樞] 教學課程所建立的方案。
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 [(Windows 8.1)] 專案，然後按一下 [管理 NuGet 套件]。
+2. 在 方案總管 中，以滑鼠右鍵按一下 (Windows 8.1) 專案，然後按一下管理 NuGet 套件。
 3. 在左側，按一下 [線上] 。
 4. 在 [搜尋] 方塊中，輸入 **Http Client**。
-5. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下 [安裝]。 完成安裝。
+5. 按一下結果清單中的 **Microsoft HTTP Client Libraries**，然後按一下安裝。 完成安裝。
 6. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Json.NET** 套件，然後關閉 [NuGet Package Manager] 視窗。
 7. 針對 [(Windows 8.1)] 專案重複上述步驟，來安裝 Windows Phone 專案的 **JSON.NET** NuGet 套件。
 8. 在 [方案總管] 的 [(Windows 8.1)] 專案中，連按兩下 **MainPage.xaml**，在 Visual Studio 編輯器中開啟該檔案。
@@ -212,7 +212,7 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
             //InitNotificationsAsync();
 
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [共用] 專案，然後按一下 [新增]，再按一下 [類別]。 將類別命名為 **RegisterClient.cs**，然後按一下 [確定] 以產生類別。
+1. 在 方案總管 中，以滑鼠右鍵按一下 共用 專案，然後按一下新增，再按一下 類別。 將類別命名為 **RegisterClient.cs**，然後按一下 [確定] 以產生類別。
    
    為了註冊推播通知，此類別會包裝連絡應用程式後端所需的 REST 呼叫。 它也會在本機儲存通知中心所建立的 *registrationIds* ，如 [從您的應用程式後端註冊](http://msdn.microsoft.com/library/dn743807.aspx)中的詳細說明。 請注意，當您按一下 [Log in and register]  按鈕時，系統便會使用儲存在本機儲存體中的授權權杖。
 2. 在 RegisterClient.cs 檔案開頭加入下列 `using` 陳述式：

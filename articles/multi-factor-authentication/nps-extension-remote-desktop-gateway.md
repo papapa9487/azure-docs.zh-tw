@@ -17,10 +17,10 @@ ms.author: kgremban
 ms.reviewer: jsnow
 ms.custom: it-pro
 ms.openlocfilehash: 6ff9a341b31e5005949dcc0ecb2591060269846e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -176,7 +176,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 遠端桌面連線授權原則 (RD CAP) 會指定連線至遠端桌面閘道伺服器的需求。 RD CAP 可以儲存在本機 (預設值)，也可以儲存在執行 NPS 的中央 RD CAP 存放區中。 若要設定 Azure MFA 與 RDS 的整合，您必須指定使用中央存放區。
 
 1. 在 RD 閘道伺服器上，開啟 [伺服器管理員]。 
-2. 在功能表上，按一下 [工具]，指向 [遠端桌面服務]，然後按一下 [遠端桌面閘道管理員]。
+2. 在功能表上，按一下 工具，指向 遠端桌面服務，然後按一下遠端桌面閘道管理員。
 
   ![遠端桌面服務問題](./media/nps-extension-remote-desktop-gateway/image8.png)
 
@@ -191,7 +191,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
   ![輸入名稱或 IP 位址](./media/nps-extension-remote-desktop-gateway/image10.png)
   
 7. 按一下 [新增] 。
-8. 在 [共用祕密] 對話方塊中，輸入共用祕密，然後按一下 [確定]。 務必記錄此共用祕密並安全地儲存記錄。
+8. 在 共用祕密 對話方塊中，輸入共用祕密，然後按一下確定。 務必記錄此共用祕密並安全地儲存記錄。
 
  >[!NOTE]
  >共用祕密用於建立 RADIUS 伺服器與用戶端之間的信任。 建立長而複雜的密碼。
@@ -204,7 +204,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 ### <a name="configure-radius-timeout-value-on-remote-desktop-gateway-nps"></a>在遠端桌面閘道 NPS 上設定 RADIUS 逾時值
 若要確保有時間驗證使用者的認證，請執行雙步驟驗證、接收回應，然後回應 RADIUS 訊息，而且一定要調整 RADIUS 逾時值。
 
-1. 在 RD 閘道伺服器的 [伺服器管理員] 中，按一下 [工具]，然後按一下 [網路原則伺服器]。 
+1. 在 RD 閘道伺服器的 伺服器管理員 中，按一下 工具，然後按一下網路原則伺服器。 
 2. 在 [NPS (本機)] 主控台中，展開 [RADIUS 用戶端和伺服器]，然後選取 [遠端 RADIUS 伺服器]。
 
  ![遠端 RADIUS 伺服器](./media/nps-extension-remote-desktop-gateway/image12.png)
@@ -215,7 +215,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
  >設定 NPS 原則的中央伺服器時，已建立此 RADIUS 伺服器群組。 RD 閘道會將 RADIUS 訊息轉送到此伺服器或伺服器群組 (如果群組中超過一個伺服器)。
  >
 
-4. 在 [TS GATEWAY SERVER GROUP 屬性] 對話方塊中，選取您設定用來儲存 RD CAP 之 NPS 伺服器的 IP 位址或名稱，然後按一下 [編輯]。 
+4. 在 TS GATEWAY SERVER GROUP 屬性 對話方塊中，選取您設定用來儲存 RD CAP 之 NPS 伺服器的 IP 位址或名稱，然後按一下編輯。 
 
  ![TS Gateway Server Group](./media/nps-extension-remote-desktop-gateway/image13.png)
 
@@ -246,8 +246,8 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 若要讓 NPS 伺服器在本案例中正常運作，您必須在 Active Directory 中加以註冊。
 
 1. 開啟 [伺服器管理員] 。
-2. 在 [伺服器管理員] 中按一下 [工具]，然後按一下 [網路原則伺服器]。 
-3. 在 [網路原則伺服器] 主控台中，以滑鼠右鍵按一下 [NPS (本機)]，然後按一下 [在 Active Directory 中註冊伺服器]。 
+2. 在 伺服器管理員 中按一下 工具，然後按一下網路原則伺服器。 
+3. 在 網路原則伺服器 主控台中，以滑鼠右鍵按一下 NPS (本機)，然後按一下在 Active Directory 中註冊伺服器。 
 4. 按 [確定] 兩次。
 
  ![在 AD 中註冊伺服器](./media/nps-extension-remote-desktop-gateway/image16.png)

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: a37c92e1aa58184ed29185742ec727c120fe593f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 0d5091b682d1b25c47b224394bcc2c46366eeb2a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure 網路監看員中的資源疑難排解簡介
 
 虛擬網路閘道可提供 Azure 中內部部署資源與其他虛擬網路之間的連線。 監視這些閘道器及其連線，對於確保通訊不中斷至關重要。 網路監看員可提供針對虛擬網路閘道和連線進行疑難排解的功能。 此功能可透過入口網站、PowerShell、CLI 或 REST API 呼叫。 一經呼叫，網路監看員就會診斷虛擬網路閘道或連線的健全狀況，並傳回相關結果。 此要求是長時間執行的交易，一旦完成診斷就會傳回結果。
@@ -219,4 +217,3 @@ Elapsed Time            330 sec
 
 [1]: ./media/network-watcher-troubleshoot-overview/GatewayTenantWorkerLogs.png
 [2]: ./media/network-watcher-troubleshoot-overview/portal.png
-

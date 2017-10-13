@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 53e9bf18b26338212411ea7c4f260eb308486738
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 叢集：Azure 教學課程
 > [!IMPORTANT]
@@ -85,7 +84,7 @@ ms.lasthandoff: 03/27/2017
 
               yum install mdadm
 
-    b.這是另一個 C# 主控台應用程式。 使用 EXT4 檔案系統建立 RAID0/等量磁碟區組態。
+    b. 使用 EXT4 檔案系統建立 RAID0/等量磁碟區組態。
 
               mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
               mdadm --detail --scan >> /etc/mdadm.conf
@@ -112,7 +111,7 @@ ms.lasthandoff: 03/27/2017
 
                 vi /etc/yum.repos.d/MariaDB.repo
 
-    b.這是另一個 C# 主控台應用程式。 使用下列內容填入 repo 檔案：
+    b. 使用下列內容填入 repo 檔案：
 
               [mariadb]
               name = MariaDB
@@ -132,7 +131,7 @@ ms.lasthandoff: 03/27/2017
 
            cp -avr /var/lib/mysql /mnt/data  
            rm -rf /var/lib/mysql
-    b.這是另一個 C# 主控台應用程式。 據以設定新目錄的權限。
+    b. 據以設定新目錄的權限。
 
            chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
 
@@ -150,7 +149,7 @@ ms.lasthandoff: 03/27/2017
    a. 啟動 MySQL。
 
            service mysql start
-   b.這是另一個 C# 主控台應用程式。 保護 MySQL 安裝、設定根密碼、移除匿名使用者以停用遠端根登入，並移除測試資料庫。
+   b. 保護 MySQL 安裝、設定根密碼、移除匿名使用者以停用遠端根登入，並移除測試資料庫。
 
            mysql_secure_installation
    c. 對於叢集操作以及 (選擇性) 您的應用程式建立資料庫的使用者。
@@ -167,7 +166,7 @@ ms.lasthandoff: 03/27/2017
    a. 編輯 MySQL 設定，建立叢集設定的預留位置。 現在不要取代 **`<Variables>`** 或取消註解。 從此範本建立 VM 之後才會需要這個動作。
 
             vi /etc/my.cnf.d/server.cnf
-   b.這是另一個 C# 主控台應用程式。 編輯 **[galera]** 區段，並清除其中的內容。
+   b. 編輯 **[galera]** 區段，並清除其中的內容。
 
    c. 編輯 **[mariadb]** 區段。
 
@@ -196,7 +195,7 @@ ms.lasthandoff: 03/27/2017
    a. 再次編輯 MySQL 組態檔。
 
             vi /etc/my.cnf.d/server.cnf
-   b.這是另一個 C# 主控台應用程式。 編輯 **[mariadb]** 區段，並且附加下列內容：
+   b. 編輯 **[mariadb]** 區段，並且附加下列內容：
 
    > [!NOTE]
    > 我們建議 innodb\_buffer\_pool_size 是 VM 記憶體的 70%。 在此範例中，3.5 GB RAM 的中型 Azure VM 設定為 2.45 GB。
@@ -219,7 +218,7 @@ ms.lasthandoff: 03/27/2017
 
     a. 透過入口網站關閉電腦。
 
-    b.這是另一個 C# 主控台應用程式。 按一下 [擷取] 並將映像名稱指定為 **mariadb-galera-image**。 提供描述並核取「我已執行 waagent」。
+    b. 按一下 [擷取] 並將映像名稱指定為 **mariadb-galera-image**。 提供描述並核取「我已執行 waagent」。
       
       ![擷取虛擬機器](./media/mariadb-mysql-cluster/Capture2.PNG)
 
@@ -365,4 +364,3 @@ CLI 會將負載平衡器探查間隔設定為 15 秒，這可能有點太長。
 [MariaDBs]:https://mariadb.org/en/about/
 [建立驗證的 SSH 金鑰]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-

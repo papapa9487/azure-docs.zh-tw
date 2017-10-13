@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/18/2016
 ms.author: alkohli
 ms.openlocfilehash: 93df79c9d349c294b692148a19c9d881c4de4f7b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-monitor-hardware-components-and-status"></a>使用 StorSimple Manager 服務監視硬體元件和狀態
 ## <a name="overview"></a>Overview
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="monitor-the-hardware-status"></a>監視硬體狀態
 執行下列步驟來檢視裝置元件的硬體狀態：
 
-1. 瀏覽至 **裝置**，選取特定的 StorSimple 裝置。 按一下以進入裝置層級功能表，然後按一下 [維護] 。 
+1. 瀏覽至 **裝置**，選取特定的 StorSimple 裝置。 按一下以進入裝置層級功能表，然後按一下維護 。 
 2. 找出 [ **硬體狀態** ] 區段並選擇可用的元件 (如上所述)。 只要按一下元件標籤之前的箭號即可展開清單並檢視各種裝置元件的狀態。 請參閱[主要機箱的詳細元件清單](#component-list-for-primary-enclosure-of-storsimple-device)和 [EBOD 機箱的詳細元件清單](#component-list-for-ebod-enclosure-of-storsimple-device)。
 3. 您可以使用下列色彩編碼配置來解譯元件狀態：
    

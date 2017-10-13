@@ -17,10 +17,10 @@ ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
 ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式
 在本文中，您可以了解雲端環境中執行的多租用戶軟體即服務 (SaaS) 資料庫應用程式的需求和通用資料架構模式。 其中也說明您需要考量的因素，以及不同設計模式的利弊取捨。 Azure SQL Database 中的彈性集區和彈性工具可協助您符合特定需求，而不會影響其他目標。
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/11/2017
 * 直接面向客戶的應用程式
 * 面向員工的企業應用程式
 
-專為雲端設計的 SaaS 應用程式，以及以合作夥伴資料庫應用程式為根基的應用程式通常是多租用戶應用程式。 這些 SaaS 應用程式提供特殊的軟體應用程式即服務給其租用戶。 租用戶可以存取應用程式服務，而且對於隨應用程式一起儲存的相關資料具有完整的擁有權。 但若要利用 SaaS 的優點，租用戶必須放棄自己資料的一些控制權。 它們會信任 SaaS 服務提供者，以確保資料的安全並與其他租用戶的資料隔離。 這類多租用戶 SaaS 應用程式的範例包括 MYOB、SnelStart 和 Salesforce.com。 每個應用程式可以依照租用戶界限分割，並支援我們在本文中討論的應用程式設計模式。
+專為雲端設計的 SaaS 應用程式，以及以合作夥伴資料庫應用程式為根基的應用程式通常是多租用戶應用程式。 這些 SaaS 應用程式提供特殊的軟體應用程式即服務給其租用戶。 租用戶可以存取應用程式服務，而且對於隨應用程式一起儲存的相關資料具有完整的擁有權。 但若要利用 SaaS 的優點，租用戶必須放棄自己資料的一些控制權。 它們會信任 SaaS 服務提供者，以確保資料的安全並與其他租用戶的資料隔離。 這類多租用戶 SaaS 應用程式的範例包括 MYOB、SnelStart 和 Salesforce.com。每個應用程式可以依照租用戶界限分割，並支援我們在本文中討論的應用程式設計模式。
 
 為取用者或組織內員工 (通常稱為使用者，而不是租用戶) 提供直接服務的應用程式，屬於多租用戶應用程式範疇內的另一種類別。 客戶會訂閱服務，並不擁有服務提供者所收集和儲存的資料。 除了政府強制規定的隱私權法規，服務提供者不會嚴格要求隔離客戶彼此的資料。 這種客戶對應的多租用戶應用程式範例包括 Netflix、Spotify 和 Xbox LIVE 等媒體內容提供者。 還有其他可輕鬆分割的應用程式範例，包括面向客戶的網際網路等級應用程式或物聯網 (IoT) 應用程式，其中每個客戶或裝置都可能成為分割區。 分割區界限可以劃分不同的使用者和裝置。
 

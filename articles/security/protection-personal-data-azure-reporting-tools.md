@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>使用 Azure 報告工具記載個人資料的保護
 
@@ -276,4 +275,3 @@ Azure 診斷擴充功能可以將所收集的資料傳輸到 Azure 儲存體帳�
 [Microsoft Azure 中的監視概觀](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
 [Azure 活動記錄簡介 (影片)](https://azure.microsoft.com/resources/videos/intro-activity-log/)
-

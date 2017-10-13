@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: tamram
+ms.openlocfilehash: cbc8654bf1755826afa2cf83e5476e88903e0854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: e05f9428b0e0ef94bb499a3caa2e1f9f02d475d3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>針對 Blob 儲存體端點設定自訂網域名稱
 
@@ -164,4 +163,3 @@ ms.lasthandoff: 09/09/2017
 ## <a name="next-steps"></a>後續步驟
 * [將自訂網域對應至 Azure 內容傳遞網路 (CDN) 端點](../../cdn/cdn-map-content-to-custom-domain.md)
 * [使用 Azure CDN 透過 HTTP 以自訂網域存取 blob](storage-https-custom-domain-cdn.md)
-

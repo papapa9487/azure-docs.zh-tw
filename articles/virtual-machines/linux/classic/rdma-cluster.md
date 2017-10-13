@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 4b2ceb64b1737918458f6d5c692fc2bfbc0f12ed
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>設定 Linux RDMA 叢集以執行 MPI 應用程式
 了解如何使用[高效能運算 VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)在 Azure 中設定 Linux RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 本文提供準備 Linux HPC 映像以在叢集上執行 Intel MPI 的步驟。 準備之後，您會使用此映像和其中一個支援 RDMA 的 Azure VM 大小 (目前為 H16r、H16mr、A8 或 A9) 來部署 VM 的叢集。 請使用此叢集來執行透過低延遲、高輸送量網路有效率地進行通訊的 MPI 應用程式，此網路是以遠端直接記憶體存取 (RDMA) 技術為基礎。
@@ -380,4 +379,3 @@ mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAP
 * 在 Linux 叢集上部署並執行 Linux MPI 應用程式。
 * 如需 Intel MPI 的指引，請參閱 [Intel MPI Library 文件](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/)。
 * 請嘗試 [快速入門範本](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) 以使用 CentOS 型 HPC 映像建立 Intel Lustre 叢集。 如需詳細資訊，請參閱[在 Microsoft Azure 上部署 Lustre 的 Intel 雲端版本](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/)。
-

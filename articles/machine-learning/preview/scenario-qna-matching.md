@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
 ms.manager: tihazen
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的問與答比對
 開放式問題不容易回答，因此通常需要由主題專家 (SME) 親自回覆。 為了減少對於內部 SME 的需求，各家公司通常會建立常見問題集 (FAQ) 清單來協助使用者。 此範例會展示各種有效的機器學習方法，以供您比對開放式查詢與既存的常見問題集問/答組合。 此範例會示範簡單的開發程序，讓您了解如何使用 Azure Machine Learning Workbench 來建置這類解決方案。 
 
@@ -110,7 +108,7 @@ Posts data 中的 `PostTypeId` 欄位會指出貼文是 `Question` 還是 `Answe
 | `notebooks/Part_1_Data_Preparation.ipynb` | Jupyter Notebook | 存取資料範例、對文字進行前置處理，並準備訓練和測試用的資料集
 | `notebooks/Part_2_Phrase_Learning.ipynb` | Jupyter Notebook | 了解具有資訊價值的片語，並透過語彙基元將文字 (text) 轉化為以文字袋 (Bag-of-Words, BOW) 來表示
 | `notebooks/Part_3_Model_Training_and_Evaluation.ipynb` | Jupyter Notebook | 擷取特徵、訓練文字分類模型，並評估模型的效能
-| `modules/__init__.py` | Python 檔案 | Python 套件初始化檔案
+| `modules/__init__.py` | Python 檔案 | Python 套件 init 檔案
 | `modules/phrase_learning.py` | Python 檔案 | 用來轉換未經處理之資料並了解具有資訊價值之片語的 Python 模組
 | `modules/feature_extractor.py` | Python 檔案 | Python 模組會擷取特徵來訓練模型
 | `scripts/naive_bayes.py` | Python 檔案 | 用來在貝氏機率分類模型中微調超參數的 Python
@@ -162,4 +160,3 @@ Posts data 中的 `PostTypeId` 欄位會指出貼文是 `Question` 還是 `Answe
 Timothy J. Hazen, Fred Richardson, [_Modeling Multiword Phrases with Constrained Phrases Tree for Improved Topic Modeling of Conversational Speech_](http://people.csail.mit.edu/hazen/publications/Hazen-SLT-2012.pdf). Spoken Language Technology Workshop (SLT), 2012 IEEE. IEEE, 2012.
 
 Timothy J. Hazen, [_MCE Training Techniques for Topic Identification of Spoken Audio Documents_](http://ieeexplore.ieee.org/abstract/document/5742980/) in IEEE Transactions on Audio, Speech, and Language Processing, vol. 19, no. 8, pp. 2451-2460, Nov. 2011.
-

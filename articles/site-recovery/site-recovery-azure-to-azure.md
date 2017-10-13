@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
 ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>使用 Azure Site Recovery 在區域之間椱寫 Azure VM
 
@@ -97,7 +97,7 @@ Site Recovery 提供在區域之間複寫 Azure VM 的簡易方式：
 
 ### <a name="step-2-select-virtual-machines"></a>步驟 2. 選取虛擬機器
 
-* 選取要複寫的 VM，然後按一下 [確定]。
+* 選取要複寫的 VM，然後按一下確定。
 
     ![選取 VM](./media/site-recovery-azure-to-azure/vms.png)
 

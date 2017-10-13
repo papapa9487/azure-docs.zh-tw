@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b76253fad43be231591023c4d4466bf6e3f329a0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="server-workload-forecasting-on-terabytes-data"></a>大量資料的伺服器工作負載預測
 
 此範例說明資料科學家如何使用 Azure ML Workbench 來開發需要使用巨量資料的解決方案。 我們使用 Azure ML Workbench 向使用者說明如何遵循一個完美路徑，從大型資料集的範例開始、經歷資料準備、特徵設計和機器學習，最終將此程序延伸至整個大型資料集。 
@@ -433,4 +431,3 @@ run_logger.log("Test Accuracy", testAccuracy)
 
 使用者可以擴充程式碼以瀏覽交叉驗證和超參數調整。 若要深入了解交叉驗證和超參數調整，請瀏覽 https://github.com/Azure/MachineLearningSamples-DistributedHyperParameterTuning。  
 若要深入了解時間序列預測，請造訪 https://github.com/Azure/MachineLearningSamples-EnergyDemandTimeSeriesForecasting。
-

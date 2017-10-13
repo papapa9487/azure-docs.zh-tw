@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 2e887230a102f5c6289ca2eec0e4700a0e1fdfde
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: c852a1297261504015a3a985fe14a38957d1a64a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="create-a-virtual-machine-with-accelerated-networking"></a>使用加速網路來建立虛擬機器
 
@@ -53,7 +52,7 @@ ms.lasthandoff: 07/21/2017
 * **VM 大小︰**一般用途和具有八個以上核心的計算最佳化執行個體大小。 如需詳細資訊，請參閱 [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 和 [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM 大小的相關文章。 未來將增加支援的 VM 執行個體大小。
 * **僅限透過 Azure Resource Manager (ARM) 進行部署：**您無法透過 ASM/RDFE 部署加速網路。
 
-這些限制如有變更，將會透過 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/accelerated-networking-in-preview)頁面發佈。
+這些限制如有變更，將會透過 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/accelerated-networking-in-expanded-preview/)頁面發佈。
 
 ## <a name="create-a-windows-vm"></a>建立 Windows VM
 您可以使用 Azure 入口網站或 Azure [PowerShell](#windows-powershell) 來建立 VM。
@@ -450,4 +449,3 @@ ms.lasthandoff: 07/21/2017
     ```
 
 VM 的開頭應該設定為 bond0，並啟用加速網路路徑。  執行 `ifconfig` 進行確認。
-

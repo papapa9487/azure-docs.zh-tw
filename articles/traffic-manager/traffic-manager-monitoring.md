@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 5ce000814f2f5899a7338fdefb39c4873c006b1d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-endpoint-monitoring"></a>流量管理員端點監視
 
 Azure 流量管理員包含內建的端點監視和自動端點容錯移轉。 此功能可協助您提供能夠從端點故障中恢復的高可用性應用程 式，包括 Azure 區域失敗。
@@ -161,4 +159,3 @@ Azure 流量管理員包含內建的端點監視和自動端點容錯移轉。 �
 了解如何 [建立流量管理員設定檔](traffic-manager-manage-profiles.md)
 
 [疑難排解流量管理員端點上的已降級狀態](traffic-manager-troubleshooting-degraded.md)
-

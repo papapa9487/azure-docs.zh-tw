@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -146,7 +144,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 ### <a name="connect-to-the-virtual-machine-and-start-the-reporting-services-configuration-manager"></a>連接到虛擬機器並啟動 Reporting Services 組態管理員
 連接到 Azure 虛擬機器有兩個常見的工作流程：
 
-* 若要連接，請按一下虛擬機器的名稱，然後按一下 [連接] 。 遠端桌面連線會開啟，並自動填入電腦名稱。
+* 若要連接，請按一下虛擬機器的名稱，然後按一下連接 。 遠端桌面連線會開啟，並自動填入電腦名稱。
   
     ![連接至 Azure 虛擬機器](./media/virtual-machines-windows-classic-ps-sql-bi/IC650112.gif)
 * 透過 Windows 遠端桌面連線連接到虛擬機器。 在遠端桌面的使用者介面中：
@@ -168,7 +166,7 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 在 **Windows Server 2008 R2**中：
 
-1. 按一下 [開始]，然後按一下 [所有程式]。
+1. 按一下 開始，然後按一下所有程式。
 2. 按一下 [Microsoft SQL Server 2016] 。
 3. 按一下 [組態工具] 。
 4. 以滑鼠右鍵按一下 [Reporting Services 組態管理員]，然後按一下 [以系統管理員身分執行]。
@@ -255,8 +253,8 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 ## <a name="install-other-sql-server-services-and-features"></a>安裝其他 SQL Server 服務和功能
 若要在表格式模式中安裝其他 SQL Server 服務 (例如 Analysis Services)，請執行 SQL Server 安裝精靈。 安裝程式檔案是在虛擬機器的本機磁碟上。
 
-1. 按一下 [開始]，然後按一下 [所有程式]。
-2. 按一下 [Microsoft SQL Server 2016]、[Microsoft SQL Server 2014] 或 [Microsoft SQL Server 2012]，然後按一下 [組態工具]。
+1. 按一下 開始，然後按一下所有程式。
+2. 按一下 Microsoft SQL Server 2016、Microsoft SQL Server 2014 或 Microsoft SQL Server 2012，然後按一下組態工具。
 3. 按一下 [SQL Server 安裝中心] 。
 
 或執行 C:\SQLServer_13.0_full\setup.exe、C:\SQLServer_12.0_full\setup.exe 或 C:\SQLServer_11.0_full\setup.exe
@@ -276,9 +274,9 @@ SQL Server 的虛擬機器資源庫映像包含 Reporting Services 原生模式�
 
 **若要安裝 Analysis Services 表格式模式：**
 
-1. 在 SQL Server 安裝精靈中，按一下左窗格中的 [安裝]，然後按一下 [新的 SQL 伺服器安裝或將功能加入到現有安裝]。
+1. 在 SQL Server 安裝精靈中，按一下左窗格中的 安裝，然後按一下新的 SQL 伺服器安裝或將功能加入到現有安裝。
    
-   * 如果您看到 [瀏覽資料夾]，請瀏覽至 c:\SQLServer_13.0_full、c:\SQLServer_12.0_full 或 c:\SQLServer_11.0_full，然後按一下 [確定]。
+   * 如果您看到 瀏覽資料夾，請瀏覽至 c:\SQLServer_13.0_full、c:\SQLServer_12.0_full 或 c:\SQLServer_11.0_full，然後按一下確定。
 2. 在產品更新頁面上，按 [下一步]  。
 3. 在 [安裝類型] 頁面上，選取 [執行 SQL Server 的新安裝]，然後按 [下一步]。
 4. 在 [安裝程式角色] 頁面上，按一下 [SQL Server 功能安裝]。
@@ -353,5 +351,4 @@ Analysis Services 的**預設執行個體**會接聽 TCP 連接埠 **2383**。 �
 
 ### <a name="community-content"></a>社群內容
 * [使用 PowerShell 管理 Azure SQL Database](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
 

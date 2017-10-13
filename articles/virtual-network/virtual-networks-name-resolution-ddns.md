@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: garbrad
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: b4fffba6d95f4c9c30ab3a1ecd9dfeb7acd9119d
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 440a062e5fff73526b2d77d7d0a7c52ca72a66f1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>在您自己的 DNS 伺服器中使用動態 DNS 來登錄主機名稱
 [Azure 會為虛擬機器 (VM) 及角色執行個體提供名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md) 。 但是，當您的名稱解析需求超過 Azure 所提供的名稱解析時，您可以提供自己的 DNS 伺服器。 這讓您有能力量身打造自己的 DNS 方案，來符合您特定的需求。 例如，您可能需要透過 Active Directory 網域控制站存取內部部署資源。
@@ -68,5 +67,4 @@ Linux 用戶端通常不會在啟動時向 DNS 伺服器自行登錄，其假設
 如有需要，您可以將 DNS 搜尋尾碼加入您的 VM。 DNS 尾碼是在 */etc/resolv.conf* 檔案中指定。 大多數的 Linux 發行版會自動管理這個檔案的內容，因此通常您無法編輯該檔案。 不過，您可以使用 DHCP 用戶端的 *supersede* 命令以覆寫尾碼。 若要這樣做，請在 */etc/dhcp/dhclient.conf*中，加入：
 
         supersede domain-name <required-dns-suffix>;
-
 

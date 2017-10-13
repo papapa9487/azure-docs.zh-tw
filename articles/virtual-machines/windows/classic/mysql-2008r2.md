@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>在以傳統部署模型建立且執行 Windows Server 2016 的虛擬機器上安裝 MySQL
 [MySQL](https://www.mysql.com) 是一種很受歡迎的開放原始碼 SQL 資料庫。 本教學課程示範如何在執行 **Windows Server 2016** 的虛擬機器上安裝並執行 **MySQL 5.7.18 社群版本**作為 MySQL 伺服器。 對於非 MySQL 或 Windows Server 的版本，操作方式可能略有不同。
@@ -50,7 +49,7 @@ ms.lasthandoff: 08/11/2017
 >
 
 1. 使用遠端桌面連線到虛擬機器之後，按一下 [開始] 畫面中的 [Internet Explorer]  。
-2. 選取右上角的 [工具] 按鈕 (齒輪圖示)，然後按一下 [網際網路選項]。 依序按一下 [安全性] 索引標籤和 [信任的網站] 圖示，然後按一下 [網站] 按鈕。 將 http://*.mysql.com 新增至受信任的網站清單。 按一下 [關閉]，然後按一下 [確定]。
+2. 選取右上角的 工具 按鈕 (齒輪圖示)，然後按一下網際網路選項。 依序按一下 安全性 索引標籤和 信任的網站 圖示，然後按一下網站 按鈕。 將 http://*.mysql.com 新增至受信任的網站清單。 按一下 關閉，然後按一下確定。
 3. 在 Internet Explorer 的網址列中，輸入 https://dev.mysql.com/downloads/mysql/。
 4. 使用 MySQL 網站尋找並下載 Windows 版 MySQL 最新版安裝程式。 選擇 [MySQL 安裝程式] 時，請下載具有完整檔案集的版本 (例如檔案大小為 352.8 MB 的 mysql-installer-community-5.7.18.0.msi)，然後儲存該安裝程式。
 5. 安裝程式下載完成之後，請按一下 [執行]  來啟動安裝。
@@ -76,8 +75,8 @@ ms.lasthandoff: 08/11/2017
     ![](./media/mysql-2008r2/MySQL_AdvOptions.png)
 16. 在 [套用伺服器組態] 頁面上，按一下 [執行]。 完成組態步驟時，按一下 [完成] 。
 17. 在 [產品組態] 頁面上，按 [下一步]。
-18. 如果您想要以後再檢查，請在 [安裝完成] 頁面上，按一下 [將記錄複製到剪貼簿]，然後按一下 [完成]。
-19. 從 [開始] 畫面，輸入 **mysql**，然後按一下 [MySQL 5.7 命令列用戶端]。
+18. 如果您想要以後再檢查，請在 安裝完成 頁面上，按一下 將記錄複製到剪貼簿，然後按一下完成。
+19. 從 開始 畫面，輸入 **mysql**，然後按一下MySQL 5.7 命令列用戶端。
 20. 輸入您在步驟 12 中指定的根密碼，系統會提示您發出命令來設定 MySQL。 如需命令和語法的詳細資訊，請參閱 [MySQL 參考手冊](https://dev.mysql.com/doc/refman/5.7/en/server-configuration.html)。
 
     ![](./media/mysql-2008r2/MySQL_CommandPrompt.png)
@@ -98,7 +97,7 @@ ms.lasthandoff: 08/11/2017
 2. 在命令列中，按一下 [新增] 。
 3. 在 [新增端點] 頁面上，為 [名稱] 輸入唯一名稱。
 4. 選取 **TCP** 做為通訊協定。
-5. 在 [公用連接埠] 與 [私人連接埠] 中輸入連接埠號碼，例如 **3306**，然後按一下 [確定]。
+5. 在 公用連接埠 與 私人連接埠 中輸入連接埠號碼，例如 **3306**，然後按一下確定。
 
 ## <a name="add-a-windows-firewall-rule-to-allow-mysql-traffic"></a>新增允許 MySQL 流量的 Windows 防火牆規則
 若要新增允許來自網際網路之 MySQL 流量的「Windows 防火牆」規則，請在 MySQL 伺服器虛擬機器上，於_提升權限的 Windows PowerShell 命令提示字元_中執行下列命令。
@@ -122,4 +121,3 @@ ms.lasthandoff: 08/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何執行 MySQL，請參閱 [MySQL 文件](http://dev.mysql.com/doc/)。
-

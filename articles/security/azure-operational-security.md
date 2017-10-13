@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
 
@@ -341,5 +339,4 @@ Microsoft 在設計其服務與軟體時已將安全性納入考量，以協助�
 使用 Microsoft 安全性資料和分析，來執行更聰明且有效的威脅偵測。
 
 - [Azure 資訊安全中心規劃和操作](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)：一組步驟和工作，讓您能夠遵循以根據組織的安全性需求和雲端管理模型，將您的資訊安全中心使用最佳化。
-
 

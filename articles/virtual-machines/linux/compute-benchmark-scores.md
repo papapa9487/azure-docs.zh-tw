@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/11/2017
+ms.date: 09/25/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 0d0bd736ddbdf1c4b4344747130236df2af76138
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 3c7b34652ea4c9340b9fe7f6ada3f9992642aeac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM 的計算基準測試分數
 下列 CoreMark 基準測試分數顯示執行 Ubuntu 的 Azure 高效能 VM 產品陣容的計算效能。 也有 [Windows VM](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)的計算基準測試分數。
@@ -91,5 +89,4 @@ Linux 數字是藉由在 Ubuntu 上執行 [CoreMark](http://www.eembc.org/corema
 ## <a name="next-steps"></a>後續步驟
 * 如需了解儲存體容量、磁碟詳細資料及其他選擇 VM 大小的考量，請參閱 [虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 * 若要在 Linux VM 上執行 CoreMark 指令碼，請下載 [CoreMark 指令碼套件](http://download.microsoft.com/download/3/0/5/305A3707-4D3A-4599-9670-AAEB423B4663/AzureCoreMarkScriptPack.zip)。
-
 

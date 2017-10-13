@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
+ms.openlocfilehash: 44546b423cd7f3a49d3699aa39f2437a42de86a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>選擇雲端 SQL Server 選項：Azure SQL (PaaS) Database 或 Azure VM 上的 SQL Server (IaaS)
 Azure 有兩個選項可在 Microsoft Azure 主控 SQL Server 工作負載：
@@ -66,7 +65,6 @@ Azure 有兩個選項可在 Microsoft Azure 主控 SQL Server 工作負載：
 |  | 需要內建高可用性、災害復原及資料庫升級的團隊。 |可以設定和管理高可用性、災害復原及修補 SQL Server 的團隊。 某些所提供的自動化功能大幅簡化了這部分。 | |
 |  | 不想要管理基礎作業系統和組態設定的團隊。 |您需要包含完整系統管理權限的自訂環境。 | |
 |  | 高達 4 TB 的資料庫，或可使用向外延展模式 [水平或垂直分割](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) 的更大型資料庫。 |具有高達 64 TB 儲存空間的 SQL Server 執行個體。 執行個體可以支援所需數量的資料庫。 | |
-|  | [建置軟體即服務 (SaaS) 應用程式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。 |移轉和建置企業和混合式應用程式。 | |
 |  | | |
 | **資源：** |您不想要運用 IT 資源來設定和管理基礎結構，但想要專注於應用程式層級。 |您有一些設定和管理的 IT 資源。 某些所提供的自動化功能大幅簡化了這部分。 |
 | **擁有權的總成本：** |排除硬體成本，並降低管理成本。 |排除硬體成本。 |
@@ -146,5 +144,4 @@ Azure 有兩個選項可在 Microsoft Azure 主控 SQL Server 工作負載：
 * 若要開始使用 SQL Database，請參閱[您的第一個 Azure SQL Database](sql-database-get-started-portal.md)。
 * 請參閱 [SQL Database 價格](https://azure.microsoft.com/pricing/details/sql-database/)。
 * 請參閱 [在 Azure 中佈建 SQL Server 虛擬機器](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) 以開始使用 Azure VM 上的 SQL Server。
-
 

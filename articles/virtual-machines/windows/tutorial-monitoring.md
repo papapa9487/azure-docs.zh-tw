@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a37aed8b3321d3518ffd73e09f5bb21266a7e577
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-update-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 監視和更新 Windows 虛擬機器
 
 Azure 監視器使用代理程式從 Azure VM 收集開機和效能資料，將此資料儲存在 Azure 儲存體，並讓資料可透過入口網站、Azure PowerShell 模組和 Azure CLI 存取。 更新管理可讓您管理 Azure Windows VM 的更新和修補程式。
@@ -135,13 +133,13 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 
 ### <a name="view-update-assessment"></a>檢視更新評量
 
-啟用**更新管理**之後，[更新管理] 畫面隨即出現。 您可以在 [遺漏更新] 索引標籤上看到遺漏的更新清單。
+啟用 [更新管理] 之後，隨即會顯示 [更新管理] 畫面。 您可以在 [遺漏更新] 索引標籤上看到遺漏的更新清單。
 
  ![檢視更新狀態](./media/tutorial-monitoring/manageupdates-view-status-win.png)
 
 ### <a name="schedule-an-update-deployment"></a>排程更新部署
 
-若要安裝更新，請將部署排程在發行排程和服務時段之前。
+若要安裝更新，請將部署排定在發行排程和服務時段之後。
 您可以選擇要在部署中包含的更新類型。 例如，您可以包含重大更新或安全性更新，並排除更新彙總套件。
 
 按一下 [更新管理] 畫面頂端的 [排程更新部署]，以針對 VM 來排程新的更新部署。 在 [新增更新部署] 畫面上，指定下列資訊：
@@ -158,7 +156,7 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
   * 更新
 
 * **排程設定** - 您可以接受預設的日期和時間 (目前時間之後的 30 分鐘)，或指定不同的時間。
-  您也可以指定部署是否發生一次，或設定週期性排程。 按一下 [週期] 下的 [週期性] 選項，以設定週期性排程。
+  您也可以指定部署是否為發生一次，或設定週期性排程。 按一下 [週期] 下的 [週期性] 選項，即可設定週期性排程。
 
   ![更新排程設定畫面](./media/tutorial-monitoring/manageupdates-schedule-win.png)
 
@@ -172,8 +170,8 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 
 ### <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 
-已排程的部署開始之後，您可以在 [更新管理] 畫面的 [更新部署] 索引標籤上看到該部署的狀態。
-如果目前正在執行，狀態會顯示為 [進行中]。 完成時，如果成功，狀態會變更為 [成功]。
+已排定的部署開始之後，您就可以在 [更新管理] 畫面的 [更新部署] 索引標籤上看到該部署的狀態。
+如果該部署目前正在執行，其狀態會顯示為 [進行中]。 當它完成時，如果成功，狀態就會變更為 [成功]。
 如果部署中的一或多個更新失敗，則狀態為 [部分失敗]。
 按一下已完成的更新部署，以查看該更新部署的儀表板。
 
@@ -190,7 +188,7 @@ Log Analytics 工作區用來收集功能和服務 (例如更新管理) 所產�
 
 按一下 [輸出] 磚，以查看負責在目標 VM 上管理更新部署之 Runbook 的作業串流。
 
-按一下 [錯誤]，以查看部署傳回之任何錯誤的詳細資訊。
+按一下 [錯誤]，即可查看部署所傳回之任何錯誤的詳細資訊。
 
 ## <a name="advanced-monitoring"></a>進階監視 
 

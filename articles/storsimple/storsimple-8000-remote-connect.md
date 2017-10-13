@@ -16,10 +16,10 @@ ms.date: 04/07/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ff76884f020a0fb8a1b48bd371c419bd65e85fd3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>遠端連線至 StorSimple 8000 系列裝置
 
@@ -138,7 +138,7 @@ ms.lasthandoff: 07/11/2017
 2. 在 [安全性設定] 刀鋒視窗中，按一下 [遠端管理]。
 3. 將 [啟用遠端管理] 設為 [是]。
 4. 您現在可以選擇使用 HTTPS 來連線。 (預設是透過 HTTPS 來連線。)請確定已選取 HTTPS。
-5. 按一下 [...]，然後按一下 [下載遠端管理憑證]。 指定要儲存此檔案的位置。 您必須將此憑證安裝在將用來連線到裝置的用戶端或主機電腦上。
+5. 按一下 ...，然後按一下下載遠端管理憑證。 指定要儲存此檔案的位置。 您必須將此憑證安裝在將用來連線到裝置的用戶端或主機電腦上。
 6. 按一下 [儲存]，系統提示您進行確認時，按一下 [是]。
 
 ### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>使用序列主控台啟用透過 HTTPS 的遠端管理
@@ -189,8 +189,8 @@ ms.lasthandoff: 07/11/2017
 1. 以滑鼠右鍵按一下.cer 檔案，選取 [ **安裝憑證**]。 這會啟動 [憑證匯入精靈]。
    
     ![憑證匯入精靈 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
-2. [存放區位置] 請選取 [本機電腦]，然後按一下 [下一步]。
-3. 選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽]。 導覽至遠端主機的根存放區，然後按一下 [ **下一步**]。
+2. 存放區位置 請選取 本機電腦，然後按一下下一步。
+3. 選取 將所有憑證放入以下的存放區，然後按一下瀏覽。 導覽至遠端主機的根存放區，然後按一下 **下一步**。
    
     ![憑證匯入精靈  2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. 按一下 [完成] 。 會出現訊息告訴您匯入成功。

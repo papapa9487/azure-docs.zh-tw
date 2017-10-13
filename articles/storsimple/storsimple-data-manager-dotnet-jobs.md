@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
 ms.openlocfilehash: 44d243a034b20b99faf284c8615e470bc6f9d020
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation-private-preview"></a>使用 .Net SDK 起始資料轉換 (私人預覽)
 
@@ -59,7 +59,7 @@ ms.lasthandoff: 08/18/2017
 3. 使用 Visual Studio 2012、2013 或 2015 建立 C# .NET 主控台應用程式。
 
     1. 啟動 **Visual Studio 2012/2013/2015**。
-    1. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
+    1. 按一下 檔案，指向 新增，然後按一下專案。
     2. 展開 [範本]，然後選取 [Visual C#]。
     3. 從右邊的專案類型清單中選取 [主控台應用程式]  。
     4. 輸入 **DataTransformationApp** 做為 [名稱]。
@@ -70,7 +70,7 @@ ms.lasthandoff: 08/18/2017
 
     1. 在 Visual Studio 中，移至 [檢視] > [方案總管]。
     1. 按一下資料轉換應用程式專案左邊的箭號。 按一下 [參考]，然後按一下滑鼠右鍵以 [新增參考]。
-    2. 瀏覽至套件資料夾的位置，選取所有 DLL，按一下 [新增]，然後按一下 [確定]。
+    2. 瀏覽至套件資料夾的位置，選取所有 DLL，按一下 新增，然後按一下確定。
 
 5. 將下列 **using** 陳述式加入專案的原始程式檔 (Program.cs) 中。
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/17/2017
 ms.author: sethm
 ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 
@@ -38,13 +38,13 @@ WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [Op
 
 ### <a name="to-create-a-contract-with-an-interface"></a>使用介面建立合約
 
-1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後按一下 [以系統管理員身分執行]。
+1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 開始 功能表中的程式，然後按一下以系統管理員身分執行。
 2. 這會建立新的主控台應用程式專案。 按一下 [檔案] 功能表，再依序選取 [新增] 及 [專案]。 在 [新增專案] 對話方塊中，按一下 [Visual C#]，選取 [主控台應用程式] 範本，並將它命名為 **ImageListener**。 使用預設 [位置]。 按一下 [確定]  以建立專案。
 3. 若為 C# 專案，Visual Studio 會建立 `Program.cs` 檔案。 這個類別包含空的 `Main()` 方法，即正確建置主控台應用程式專案所需的方法。
-4. 安裝服務匯流排 NuGet 封裝，以將服務匯流排和 **System.ServiceModel.dll** 的參考新增至專案。 此封裝會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 在 [方案總管] 中，以滑鼠右鍵按一下 **ImageListener** 專案，然後按一下 [管理 NuGet 封裝]。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
+4. 安裝服務匯流排 NuGet 封裝，以將服務匯流排和 **System.ServiceModel.dll** 的參考新增至專案。 此封裝會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 在 方案總管 中，以滑鼠右鍵按一下 **ImageListener** 專案，然後按一下管理 NuGet 封裝。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
 5. 您必須明確地將 **System.ServiceModel.dll** 的參考新增至專案：
    
-    a. 在 [方案總管] 中，以滑鼠右鍵按一下專案資料夾下的**參考**資料夾，然後按一下 [加入參考]。
+    a. 在 方案總管 中，以滑鼠右鍵按一下專案資料夾下的**參考**資料夾，然後按一下加入參考。
    
     b. 在 [新增參考] 對話方塊中，按一下左側的 [架構] 索引標籤，然後在 [搜尋] 方塊中輸入 **System.ServiceModel.Web**。 選取 [System.ServiceModel.Web] 核取方塊，然後按一下 [確定]。
 6. 在 Program.cs 檔案開頭處新增下列 `using` 陳述式。
@@ -161,7 +161,7 @@ namespace Microsoft.ServiceBus.Samples
     如先前所述，此命名空間不是傳統的命名空間。 相反地，它是識別合約的 WCF 架構的一部分。 如需詳細資訊，請參閱 WCF 文件中的[資料合約名稱](https://msdn.microsoft.com/library/ms731045.aspx)主題。
 3. 將 .jpg 映像加入至您的專案。  
    
-    這是此服務在接收瀏覽器中顯示的圖片。 以滑鼠右鍵按一下您的專案，然後按一下 [加入]。 然後按一下 [現有項目]。 使用 [加入現有項目] 對話方塊瀏覽至適當的 .jpg，然後按一下 [加入]。
+    這是此服務在接收瀏覽器中顯示的圖片。 以滑鼠右鍵按一下您的專案，然後按一下 [加入]。 然後按一下 [現有項目]。 使用 加入現有項目 對話方塊瀏覽至適當的 .jpg，然後按一下加入。
    
     加入檔案時，確定在 [檔案名稱:] 欄位旁的下拉式清單中選取 [所有檔案]。 本教學課程的其餘部分假設映像的名稱為 "image.jpg"。 如果您有不同的檔案，您必須重新命名映像，或變更您的程式碼來彌補。
 4. 為確定執行中的服務能夠找到此影像檔，請在 [方案總管] 中以滑鼠右鍵按一下該影像檔，然後按一下 [屬性]。 在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [有更新時才複製]。

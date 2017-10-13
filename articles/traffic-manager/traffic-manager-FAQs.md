@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理員常見問題集 (FAQ)
 
 ## <a name="traffic-manager-basics"></a>流量管理員基本概念
@@ -126,7 +124,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 ## <a name="real-user-measurements"></a>實際使用者度量
 
 >[!NOTE]
->「流量管理員」中的「實際使用者度量」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)頁面。
+>「流量管理員」中的「實際使用者度量」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)分頁。
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>使用「實際使用者度量」有哪些優點？
 當您使用效能路由方法時，「流量管理員」會檢查來源 IP 和「EDNS 用戶端子網路」(如果已傳入)，並根據服務所維護的網路延遲智慧功能檢查這些資訊，為您的使用者挑選最佳的 Azure 區域來進行連線。 「實際使用者度量」可藉由除了確保延遲表格將使用者網路從使用者連線位置充分延伸到 Azure 之外，也將使用者體驗加到此延遲表格中，為您的使用者加強這項功能。 這可提升使用者路由的精確度。
@@ -189,7 +187,7 @@ DNS 查詢進入流量管理員時，它會在稱為存留時間 (TTL) 的回應
 ## <a name="traffic-view"></a>流量檢視
 
 >[!NOTE]
->「流量管理員」中的「流量檢視」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)頁面。
+>「流量管理員」中的「流量檢視」功能目前為「公開預覽版」，可能沒有與正式發行版本功能相同層級的可用性和可靠性。 不支援該功能、可能已經限制功能，以及可能無法在所有 Azure 位置提供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 流量管理員](https://azure.microsoft.com/updates/?product=traffic-manager)分頁。
 
 ### <a name="what-does-traffic-view-do"></a>「流量檢視」有哪些功能？
 「流量檢視」是「流量管理員」的一項功能，可協助您進一步了解使用者及他們的體驗情況。 它會使用「流量管理員」所收到的查詢和此服務所維護的網路延遲智慧表格，來提供您下列資訊：

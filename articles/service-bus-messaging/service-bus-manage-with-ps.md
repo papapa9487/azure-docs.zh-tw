@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>使用 PowerShell 來管理服務匯流排資源
 
@@ -33,7 +32,7 @@ Microsoft Azure PowerShell 是一種指令碼環境，可讓您用來控制及�
 
 * Azure 訂用帳戶。 如需取得訂用帳戶的詳細資訊，請參閱[購買選項][purchase options]、[成員優惠][member offers]或[免費帳戶][free account]。
 * 具備 Azure PowerShell 的電腦。 如需指示，請參閱[開始使用 Azure PowerShell Cmdlet](/powershell/azure/get-started-azureps)。
-* 大致了解 PowerShell 指令碼、NuGet 套件和 .NET Framework。
+* 大致了解 PowerShell 指令碼、NuGet 封裝和 .NET Framework。
 
 ## <a name="get-started"></a>開始使用
 
@@ -177,4 +176,3 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 [purchase options]: http://azure.microsoft.com/pricing/purchase-options/
 [member offers]: http://azure.microsoft.com/pricing/member-offers/
 [free account]: http://azure.microsoft.com/pricing/free-trial/
-

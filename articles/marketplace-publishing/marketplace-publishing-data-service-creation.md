@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: c0c9362f1c2e15c947aaaf7187f3383ad243140f
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-service-publishing-guide-for-the-azure-marketplace"></a>適用於 Azure Marketplace 的資料服務發佈指南
 > [!IMPORTANT]
@@ -159,9 +159,3 @@ Azure Marketplace 服務層必須負責監視每個查詢所取用的交易量 (
 * 如果您有興趣檢閱範例，請閱讀 [資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 一文，來查看範例程式碼，並了解程式碼語法與內容。
 
 [link-pubportal]:https://publish.windowsazure.com
-
-
-
-<!--HONumber=Dec16_HO2-->
-
-

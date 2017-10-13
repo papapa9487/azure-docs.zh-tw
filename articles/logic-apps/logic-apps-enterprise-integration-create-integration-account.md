@@ -14,22 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: LADocs; mandia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 2a7ecec310f4e321417364eee854409b2f85e2d3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 716e7b5bab8725dea0fd2b760d0e46e8e892c5b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-an-integration-account"></a>什麼是整合帳戶？
 
 整合帳戶讓企業整合應用程式能夠管理包括結構描述、對應、憑證、夥伴和協議在內的構件。 您所建立的任何整合應用程式會使用整合帳戶來存取這些結構描述、對應、憑證等。
 
 ## <a name="create-an-integration-account"></a>建立整合帳戶
 
-1.    登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 從左側功能表中選取 [更多服務]。
+1.  登入 [Azure 入口網站](http://portal.azure.com "Azure 入口網站")。 從左側功能表中選取 [更多服務]。
 
     ![選取 [更多服務]。](./media/logic-apps-enterprise-integration-accounts/account-1.png)
 
@@ -131,5 +128,4 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [深入了解合約](../logic-apps/logic-apps-enterprise-integration-agreements.md "了解企業整合合約")  
-
 

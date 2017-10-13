@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/28/2017
 ms.author: marsma
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b1fb2da4acf6e06219d790f2354cada4f1e34285
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 建立儲存體帳戶
 
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門詳細說明如何使用 Azure CLI 建立 Azure 儲存體帳戶。
@@ -35,7 +33,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
-使用 [az group create](/cli/azure/group#create) 命令建立 Azure 資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 此範例會在 *eastus* 區域中建立名為 *myResourceGroup* 的資源群組。
+使用 [az group create](/cli/azure/group#create) 命令來建立 Azure 資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 此範例會在 *eastus* 區域中建立名為 *myResourceGroup* 的資源群組。
 
 ```azurecli-interactive
 az group create \

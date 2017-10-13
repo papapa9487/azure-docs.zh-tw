@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 75c1bdb570967b6d1902697597f0b5bf3f4ffb7c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>管理 StorSimple 裝置控制器
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 07/11/2017
 本節說明如何從遠端電腦關閉執行中或失敗的 StorSimple 裝置。 裝置會在關閉兩個裝置控制器之後關閉。 當裝置正在實際移動，或被帶離服務時，則已經完成裝置關閉。
 
 > [!IMPORTANT]
-> 關閉裝置之前，請檢查裝置元件的健全狀態。 瀏覽至您的裝置，然後按一下 [設定] > [硬體健康狀態]。 在 [狀態與硬體健康狀態] 刀鋒視窗中，確認所有元件的 LED 狀態皆為綠色。 只有狀況良好的裝置才會有綠色的狀態。 如果您的裝置正在關閉以更換故障的元件，您會看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
+> 關閉裝置之前，請檢查裝置元件的健全狀態。 瀏覽至您的裝置，然後按一下設定 > 硬體健康狀態。 在 [狀態與硬體健康狀態] 刀鋒視窗中，確認所有元件的 LED 狀態皆為綠色。 只有狀況良好的裝置才會有綠色的狀態。 如果您的裝置正在關閉以更換故障的元件，您會看到個別元件的失敗 (紅色) 或降級 (黃色) 狀態。
 
 
 #### <a name="to-shut-down-a-storsimple-device"></a>關閉 StorSimple 裝置

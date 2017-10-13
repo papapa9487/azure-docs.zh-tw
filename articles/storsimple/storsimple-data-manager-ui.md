@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/22/2016
 ms.author: vidarmsft
 ms.openlocfilehash: 53a8599df2c647613122cd791b680e2e658586b0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-using-the-storsimple-data-manager-service-ui-private-preview"></a>使用 StorSimple Data Manager 服務 UI 來管理 (私人預覽)
 
@@ -35,7 +35,7 @@ StorSimple Data Manager 是可讓您具現化資料轉換的資源。 資料轉�
 
 1. 若要建立 StorSimple Data Manager 服務，請移至 [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager)
 
-2. 按一下 **+** 圖示，並搜尋 StorSimple Data Manager。 按一下您的 StorSimple Data Manager 服務，然後按一下 [建立]。
+2. 按一下 **+** 圖示，並搜尋 StorSimple Data Manager。 按一下您的 StorSimple Data Manager 服務，然後按一下建立。
 
 3. 如果您的訂用帳戶已啟用來建立此服務，您會看到下列刀鋒視窗。
 
@@ -57,7 +57,7 @@ StorSimple Data Manager 是可讓您具現化資料轉換的資源。 資料轉�
 
     ![建立作業定義](./media/storsimple-data-manager-ui//create-new-job-deifnition.png)
 
-3. 由於這是新的資料管理員服務，尚未設定任何資料儲存機制。 若要新增您的 StorSimple Manager 做為資料儲存機制，請在資料儲存機制下拉式清單中按一下 [新增]，然後按一下 [新增資料儲存機制]。
+3. 由於這是新的資料管理員服務，尚未設定任何資料儲存機制。 若要新增您的 StorSimple Manager 做為資料儲存機制，請在資料儲存機制下拉式清單中按一下 新增，然後按一下新增資料儲存機制。
 
 4. 選擇 [StorSimple 8000 系列 Manager] 做為儲存機制類型，然後輸入 **StorSimple Manager** 的屬性。 在 [資源識別碼] 欄位中，您必須輸入 StorSimple Manager 註冊金鑰中 **:** 前面的數字。
 
@@ -99,7 +99,7 @@ StorSimple Data Manager 是可讓您具現化資料轉換的資源。 資料轉�
 
     ![執行作業設定](./media/storsimple-data-manager-ui/run-settings.png)
 
-3. 按一下 [確定]，然後按一下 [執行] 來啟動您的作業。 若要監視此作業，請移至 StorSimple Data Manager 的 [作業] 頁面。
+3. 按一下 確定，然後按一下執行 來啟動您的作業。 若要監視此作業，請移至 StorSimple Data Manager 的 [作業] 頁面。
 
     ![作業清單及狀態](./media/storsimple-data-manager-ui/jobs-list-and-status.png)
 

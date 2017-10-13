@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c318f87243d0c98b6a42bebcdffb433f9cc456e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="execution-of-data-science-projects"></a>執行資料科學專案
 
 本文件說明資料科學家如何藉由使用 [Team 資料科學程序](overview.md) (TDSP)，在專案小組中以系統化、版本控制，以及共同作業的方式執行資料科學專案。 TDSP 是 Microsoft 開發的架構，提供結構化的一系列活動，以有效率地執行雲端式、預測性分析解決方案。 如需人員角色的大綱，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。 
@@ -160,7 +157,7 @@ VSTS 提供連結工作項目 (劇本或工作) 與 git 分支的便利方式。
 
 當您在一些認可和推送之後準備就緒時，若要將目前的分支合併至其基底分支，您可以在 VSTS 伺服器上提交**提取要求**。 
 
-請移至 Team 專案的主要分頁，然後按一下 [程式碼]。 選取要合併的分支和分支合併所在的 git 存放庫名稱。 然後按一下 [提取要求]、按一下 [新的提取要求]，在分支上的工作合併至其基底分支之前，建立提取要求檢閱。
+請移至 Team 專案的主要分頁，然後按一下 [程式碼]。 選取要合併的分支和分支合併所在的 git 存放庫名稱。 然後按一下提取要求、按一下 新的提取要求，在分支上的工作合併至其基底分支之前，建立提取要求檢閱。
 
 ![15](./media/project-execution/project-execution-15-spring-create-pull-request.png)
 
@@ -243,6 +240,6 @@ Yaml 檔案是用來指定：
  
 ## <a name="next-steps"></a>後續步驟
 
-此外也會提供完整的端對端逐步解說，說明 **特定案例** 之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)主題中會列出這些逐步解說以及連結的縮圖描述。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
+此外也會提供完整的端對端逐步解說，說明 **特定案例** 之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)主題中會列出這些逐步解說以及簡短說明的連結。 這些逐步解說說明如何將雲端、內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。 
 
-如需在使用 Azure Machine Learning Studio 之 Team 資料科學程序中執行步驟的範例，請參閱[使用 Azure ML](http://aka.ms/datascienceprocess)學習路徑。
+針對使用 Azure Machine Learning Studio 的 Team Data Science Process，如需其中執行步驟的範例，請參閱[使用 Azure ML](http://aka.ms/datascienceprocess) 學習路徑。

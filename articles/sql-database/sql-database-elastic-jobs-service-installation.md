@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
+ms.openlocfilehash: 71a5aa4da32e76ff02e4a4dae0d47cf03e323688
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 960e5e311571d1054a2ef5c15c33291de27b0878
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>安裝彈性資料庫工作概觀
 您可以透過 PowerShell 或透過「Azure 傳統入口網站」安裝[**彈性資料庫工作**](sql-database-elastic-jobs-overview.md)。只有在安裝 PowerShell 套件的情況下，您才能取得可使用 PowerShell API 來建立和管理工作的存取權。 此外，PowerShell API 目前比入口網站提供更多的功能。
@@ -183,4 +182,3 @@ ms.lasthandoff: 08/30/2017
 [2]: ./media/sql-database-elastic-jobs-service-installation/credentials.png
 [3]: ./media/sql-database-elastic-jobs-service-installation/start-board.png
 [4]: ./media/sql-database-elastic-jobs-service-installation/not-done.png
-

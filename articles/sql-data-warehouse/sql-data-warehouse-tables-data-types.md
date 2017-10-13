@@ -16,10 +16,10 @@ ms.custom: tables
 ms.date: 06/02/2017
 ms.author: shigu;barbkess
 ms.openlocfilehash: 5c24c71af16bd9851d9caf15fecfa4bb76f5f77e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guidance-for-defining-data-types-for-tables-in-sql-data-warehouse"></a>定義 SQL 資料倉儲中資料表資料類型的指引
 使用這些建議來定義與 SQL 資料倉儲相容的資料表資料類型。 除了相容性之外，將資料類型的大小最小化可改善查詢效能。

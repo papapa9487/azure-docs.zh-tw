@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 98230a8b61d1776a9ab23fd416af306efc700959
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Azure 串流分析中的即時 Twitter 情感分析
 
 本文將透過把即時的 Twitter 事件帶入 Azure 事件中樞，來讓您了解如何建立社交媒體分析的情感分析解決方案。 接著，您可以撰寫 Azure 串流分析查詢來分析資料，並儲存結果以供稍後使用，或使用儀表板和 [Power BI](https://powerbi.com/) 來即時提供深入解析。
@@ -80,7 +78,7 @@ ms.lasthandoff: 08/29/2017
 
 1.  在事件命名空間刀鋒視窗中，按一下 [事件中樞]，然後按一下新事件中樞的名稱。
 
-2.  在事件中樞刀鋒視窗中，按一下 [共用存取原則]，然後按一下 [+&nbsp;新增]。
+2.  在事件中樞刀鋒視窗中，按一下 共用存取原則，然後按一下+&nbsp;新增。
 
     >[!NOTE]
     >請確定您正在使用事件中樞，而不是事件中樞命名空間。
@@ -252,7 +250,7 @@ ms.lasthandoff: 08/29/2017
 
     這會開啟刀鋒視窗，讓您決定要花多少時間來讀取輸入資料流，以指定取得多少範例資料。
 
-4. 將 [分鐘] 設定為 3，然後按一下 [確定]。 
+4. 將 分鐘 設定為 3，然後按一下確定。 
     
     ![輸入資料流的取樣選項，已選取 [3 分鐘]。](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-input-create-sample-data.png)
 
@@ -333,7 +331,7 @@ ms.lasthandoff: 08/29/2017
 
     ![啟動串流分析工作](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-output.png)
 
-3. 在 [啟動作業] 刀鋒視窗的 [作業輸出開始時間] 中，選取 [現在]，然後按一下 [啟動]。 
+3. 在 啟動作業 刀鋒視窗的 作業輸出開始時間 中，選取 現在，然後按一下啟動。 
 
     ![串流分析作業的 [啟動作業] 刀鋒視窗](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-sa-job-start-job-blade.png)
 
@@ -385,4 +383,3 @@ ms.lasthandoff: 08/29/2017
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

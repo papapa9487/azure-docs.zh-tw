@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>擷取匯入/匯出作業的狀態資訊
 您可以呼叫 [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) 作業來擷取關於匯入和匯出作業的資訊。 傳回的資訊包括︰

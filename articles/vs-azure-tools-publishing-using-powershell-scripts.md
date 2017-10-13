@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ba36ad0f46ce681b61acc576448fd36441b43f72
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 指令碼來發行至開發和測試環境
 當您在 Visual Studio 中建立 Web 應用程式時，您可以產生 Windows PowerShell 指令碼，以供稍後用來將網站自動發佈至 Azure 做為 Azure App Service 或虛擬機器中的 Web 應用程式。 您可以在 Visual Studio 編輯器中編輯和擴充 Windows PowerShell 指令碼以符合需求，或將指令碼整合到現有組建、測試和發佈指令碼。
@@ -344,4 +343,3 @@ return $WebDeployPackage
 
 ## <a name="next-steps"></a>後續步驟
 請參閱[使用 Windows PowerShell 撰寫指令碼](https://technet.microsoft.com/library/bb978526.aspx)來深入了解 PowerShell 指令碼，並參閱[指令碼中心](https://azure.microsoft.com/documentation/scripts/)內的其他 Azure PowerShell 指令碼。
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/31/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 75dcc603327b50718b279f3ce055663ec0bc2596
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="accessing-azure-virtual-machines-from-server-explorer"></a>從伺服器總管存取 Azure 虛擬機器
 藉由使用 Visual Studio 中的 [伺服器總管]，您可以顯示 Azure 主控的虛擬機器相關資訊。
@@ -52,5 +51,4 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Visual Studio 中的 Azure 角色使用方式，請參閱 [搭配使用遠端桌面與 Azure 角色](vs-azure-tools-remote-desktop-roles.md)。
-
 

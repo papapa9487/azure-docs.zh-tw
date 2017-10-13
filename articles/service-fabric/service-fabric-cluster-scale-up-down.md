@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
+ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: f5ffcb5be1c52f27948414304f1fc2e82c76709b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>使用自動調整規模規則相應縮小或放大 Service Fabric 叢集
 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Service Fabric 叢集中定義的每個節點類型都會安裝為不同的虛擬機器擴展集。 然後每個節點類型可以獨立相應縮小或放大，可以開啟不同組的連接埠，並可以有不同的容量度量。 若要深入了解，請參閱 [Service Fabric 節點類型](service-fabric-cluster-nodetypes.md) 文件。 因為叢集中的 Service Fabric 節點類型是由後端的虛擬機器擴展集建立，所以您必須為每個節點類型/虛擬機器擴展集設定自動調整規模規則。
@@ -53,7 +52,7 @@ Get-AzureRmVmss -ResourceGroupName <RGname> -VMScaleSetName <Virtual Machine sca
 請遵循下列指示[設定每個虛擬機器擴展集的自動調整規模](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)。
 
 > [!NOTE]
-> 在相應減少的案例中，除非節點類型有 Gold 或 Silver 的持久性層級，否則必須以適當的節點名稱呼叫 [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) Cmdlet。
+> 在相應減少的案例中，除非節點類型有 Gold 或 Silver 的持久性層級，否則必須以適當的節點名稱呼叫 [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) Cmdlet。
 > 
 > 
 
@@ -120,4 +119,3 @@ Service Fabric Explorer 列出的節點會反映出 Service Fabric 系統服務 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-

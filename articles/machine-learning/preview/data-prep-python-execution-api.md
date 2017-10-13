@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ceecc718f8198e9a88cae4acbe97e7f26d95f984
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="executing-data-sources-and-data-preparation-packages-from-python"></a>執行來自 Python 的資料來源和資料準備封裝
 
@@ -51,4 +50,3 @@ ms.lasthandoff: 09/25/2017
 - `dataflow_idx` 是待執行封裝中資料流程之以零為基礎的索引。 如果指定的資料流程參考其他資料流程或資料來源，也會一併執行。
 - `secrets` 是密碼的選用 Dictionary 對應金鑰。
 - `spark` 是選用的布林，指定是否要傳回 Spark 資料框架或 Pandas 資料框架。 根據預設，Azure ML Workbench 會根據內容決定要在執行階段傳回的資料框架種類。
-

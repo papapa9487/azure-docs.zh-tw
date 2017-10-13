@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
 ms.openlocfilehash: 3c1e80305cb65f41a6981b99f69e8b87f89599ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="partition-service-fabric-reliable-services"></a>分割 Service Fabric 可靠服務
 這篇文章介紹分割 Azure Service Fabric 可靠服務的基本概念。 [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions)上也提供本文中使用的原始碼。
@@ -54,7 +54,7 @@ Service Fabric 提供一流的方法來分割狀態 (資料)，讓您輕鬆開�
 如此一來，因為來自用戶端要求會分散到各電腦而達成相應放大，應用程式的整體效能獲得改善，也減少競爭存取資料區塊的情況。
 
 ## <a name="plan-for-partitioning"></a>規劃分割
-實作服務之前，一定要考慮相應放大所需的分割策略。 方法不同，但全部都著重於應用程式必須達到的目的。 在這篇文章中，讓我們看一些更重要的層面。
+實作服務之前，一定要考慮相應放大所需的分割策略。方法不同，但全部都著重於應用程式必須達到的目的。 在這篇文章中，讓我們看一些更重要的層面。
 
 第一步先思考必須分割的狀態結構是個不錯的方法。
 

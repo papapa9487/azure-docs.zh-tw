@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: tamram
+ms.openlocfilehash: 7e891018ab110e7506601cd5b9b0460bf61711b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: b1d87cd66457b08bba594bfc7de1e9e4e2dff1e6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-blob-snapshot"></a>建立 Blob 快照集
 
@@ -102,7 +101,7 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 
 * 進階儲存體帳戶中每個分頁 Blob 的快照集數目上限為 100 個。 如果超出該限制，快照集 Blob 作業就會傳回錯誤碼 409 (`SnapshotCountExceeded`)。
 * 您可以每 10 分鐘擷取一次進階儲存體帳戶中分頁 Blob 的快照集。 如果超出該比率，快照集 Blob 作業就會傳回錯誤碼 409 (`SnapshotOperationRateExceeded`)。
-* 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。 複製作業的目的地 Blob 不可以包含任何現有的快照集。 如果目的地 Blob 具有快照集，則 Copy Blob 作業會傳回錯誤碼 409 (`SnapshotsPresent`)。
+* 若要讀取快照集，您可以使用複製 Blob 作業，將快照集複製到帳戶中的其他分頁 Blob。 複製作業的目的地 Blob 不可以包含任何現有的快照集。 如果目的地 Blob 具有快照集，則 Copy Blob 作業會傳回錯誤碼 409 (`SnapshotsPresent`).。
 
 ## <a name="return-the-absolute-uri-to-a-snapshot"></a>傳回快照集的絕對 URI
 這個 C# 程式碼範例會建立快照集，並寫出主要位置的絕對 URI。

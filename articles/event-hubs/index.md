@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
+ms.openlocfilehash: d24139de04b36044bbb88d0e9b9a1feb6d8edfa8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 56c24eb26faf1729c33b025d5c9fcf5d13abd376
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-documentation"></a>事件中樞文件
 
 了解如何使用事件中樞，從連接的 IoT 裝置和應用程式，每秒收集和管理數百萬個事件。 教學課程、API 參考和其他文件會示範如何針對一組廣泛平台上的事件設定可調整的擷取。
@@ -151,4 +149,3 @@ ms.lasthandoff: 07/24/2017
         </div>
     </li>
 </ul>
-

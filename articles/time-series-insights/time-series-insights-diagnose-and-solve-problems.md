@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/24/2017
 ms.author: venkatja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: 4b8d5fdab1744b2db658917f91d6dac05db30d2f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 4e10a009eb67706d927ece5692134d802094cdf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>在 Time Series Insights 環境中診斷與解決問題
 
@@ -80,4 +79,3 @@ Azure Time Series Insights 現在只支援 JSON 資料。 如需 JSON 範例，�
 請確定名稱和值符合下列規則︰
 * 時間戳記屬性名稱有_區分大小寫_。
 * 來自事件來源的時間戳記屬性值 (JSON 字串) 格式應是「yyyy-MM-ddTHH:mm:ss.FFFFFFFK」。 字串的範例如 “2008-04-12T12:53Z”。
-

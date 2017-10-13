@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
 ms.date: 05/23/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: d9ec4556d57ff1975a93d806237ad0c7416b9988
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-options-and-performance-understand-whats-available-in-each-pricing-tier"></a>適用於 MySQL 的 Azure 資料庫選項和效能：了解每個定價層中可用的項目
 當您建立適用於 MySQL 伺服器的 Azure 資料庫時，有三個主要選項可供您決定如何設定配置給該伺服器的資源。 這些選項會影響伺服器的效能和規模。
@@ -104,4 +103,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 - 如需計算單位的詳細資訊，請參閱[說明計算單位](concepts-compute-unit-and-storage.md)
 - 了解如何[使用 Azure CLI 監視和調整適用於 MySQL 伺服器的 Azure 資料庫](scripts/sample-scale-server.md)
-

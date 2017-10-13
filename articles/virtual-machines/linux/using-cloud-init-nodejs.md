@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/26/2016
 ms.author: v-livech
 ms.openlocfilehash: 0b6150bca333188666935b3c9aa02c4b33690db9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-cloud-init-to-customize-a-linux-vm-during-creation-with-the-azure-cli-10"></a>透過 Azure CLI 1.0 在建立期間使用 cloud-init 自訂 Linux VM
 本文中示範如何製作 cloud-init 指令碼來設定主機名稱、更新已安裝的封裝及管理使用者帳戶。  在 VM 建立期間，會從 Azure CLI 呼叫 cloud-init 指令碼。  本文需要：

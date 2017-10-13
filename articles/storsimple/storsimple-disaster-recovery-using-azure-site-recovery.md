@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/09/2017
 ms.author: vidarmsft
 ms.openlocfilehash: b4d575587eec1bcf43c33c7faeb8360ec67b5214
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>針對 StorSimple 上裝載的檔案共用使用 Azure Site Recovery 的自動化災害復原解決方案
 ## <a name="overview"></a>概觀
@@ -89,7 +89,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
       >
       >
 3. 按一下 [下一步] 。
-4. 接受 [合約條款] 然後按一下 [下一步]。
+4. 接受 合約條款 然後按一下下一步。
 5. 按一下 [完成]。
 6. 使用從 StorSimple 儲存體劃分出來的磁碟區建立檔案共用。 如需詳細資訊，請參閱 [使用 StorSimple Manager 服務管理磁碟區](storsimple-manage-volumes.md)。
 
@@ -101,7 +101,7 @@ Microsoft Azure StorSimple 是一個混合式雲端儲存體解決方案，可�
    6. 建立磁碟區容器，然後建立磁碟區。 (這些磁碟區是供檔案伺服器 VM 上的檔案共用使用)。 在您建立磁碟區時，請複製啟動器名稱並為「存取控制記錄」提供適當名稱。
    7. 選取 [組態]  索引標籤並記下裝置的 IP 位址。
    8. 在您的內部部署 VM 上，再度移到 [iSCSI 啟動器]  ，並在 [快速連線] 區段中輸入 IP。 按一下 [快速連線]  \(裝置現在應該就會連線)。
-   9. 開啟 Azure 入口網站，然後選取 [磁碟區和裝置]  索引標籤。 按一下 [自動設定] 。 您剛剛建立的磁碟區應該就會出現。
+   9. 開啟 Azure 入口網站，然後選取 [磁碟區和裝置]  索引標籤。按一下 [自動設定] 。 您剛剛建立的磁碟區應該就會出現。
    10. 在入口網站中，選取 [裝置] 索引標籤，然後選取 [建立新的虛擬裝置]。 (此虛擬裝置將會在發生容錯移轉時使用)。 這個新的虛擬裝置可以維持在離線狀態以避免產生額外成本。 若要讓虛擬機器離線，請移至入口網站的 [虛擬機器] 區段並將它關閉。
    11. 回到內部部署 VM並開啟磁碟管理 (按 Windows 鍵 + X 並選取 [磁碟管理] )。
    12. 您將會發現一些額外的磁碟 (視您已經建立的磁碟區數目而定)。 在第一個磁碟上按一下滑鼠右鍵，選取 [初始化磁碟]，然後選取 [確定]。 在 [未配置] 區段中按一下滑鼠右鍵，選取 [新增簡單磁碟區]，指派一個磁碟機代號給它，然後結束精靈。

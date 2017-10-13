@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Azure SQL Database 客戶實作技術研究
 
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/09/2017
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam)：為提供客戶完整的受管理軟體即服務 (SaaS) 供應項目，本簡短案例研究重點說明了最佳做法與課程，是取自 Dynamics 365 for Operations 產品小組移轉至 Azure SQL Database 的經驗。 透過 Azure SQL Database，Dynamics 365 for Operations 小組能夠明顯地以較少人員來管理及操作服務，並能以立即可用的管理功能 (例如，資料庫自動備份、資料庫備份保留、高可用性和災害復原等功能) 輕鬆擴充。 這搭配上透過簡單式自動化佈建資料庫的能力，促使 Azure SQL Database 成為能經得起大規模服務的絕佳平台。
 
 - [Microsoft OneDrive 和 SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states)：這個簡短的案例研究訴說 Microsoft OneDrive 和 SharePoint Online 移動到 Azure SQL Database 背後的故事，並說明這項移轉如何做到幾乎無限制的彈性容量管理，同時也大幅降低作業成本和基礎結構的負荷。
-

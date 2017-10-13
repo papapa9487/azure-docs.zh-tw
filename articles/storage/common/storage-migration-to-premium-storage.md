@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca893f87b155a92c457e3bf6d9d39aaf86bf5fb3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -140,7 +139,7 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
     %windir%\system32\sysprep\sysprep.exe
     ```
 
-3. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] \(如下方圖片所示)。 Sysprep 會將作業系統一般化並關閉系統。
+3. 在 系統準備工具 中依序選取 進入系統全新體驗 (OOBE)、一般化 核取方塊、關機，然後按一下確定 \(如下方圖片所示)。 Sysprep 會將作業系統一般化並關閉系統。
 
     ![][1]
 
@@ -774,4 +773,3 @@ Update-AzureVM  -VM $vm
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [3]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-3.png
 [4]: http://technet.microsoft.com/library/hh831739.aspx
-

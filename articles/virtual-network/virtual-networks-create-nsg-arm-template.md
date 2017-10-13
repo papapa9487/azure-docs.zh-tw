@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 87246de343f5c810bf765b467ba0d131934f8526
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 88f7e5b2144daee7bf1c8e7312ba98e6fa967899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-network-security-groups-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立網路安全性群組
 
@@ -190,5 +189,4 @@ ms.lasthandoff: 04/27/2017
    * **-l (或 --location)**。 將會建立將在其中建立資源群組的 Azure 區域。
    * **-f (或 --template-file)**。 ARM 範本檔案的路徑。
    * **-e (或 --parameters-file)**。 ARM 參數檔案的路徑。
-
 

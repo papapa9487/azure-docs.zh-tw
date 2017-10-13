@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
 ms.openlocfilehash: d8e740e969f68c85842f42c109328423da1b4414
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>作法：透過下載來傳遞資產
 此主題將討論已上傳至媒體服務的媒體資產有哪些傳遞選項。 您可以透過多種應用程式案例來傳遞媒體服務內容。 您可以下載媒體資產，或使用定位器加以存取。 您可以將媒體內容傳送至另一個應用程式，或是另一個內容提供者。 若要改善效能和延展性，您也可以使用內容傳遞網路 (CDN) 傳遞內容。

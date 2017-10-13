@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/29/2017
 ms.author: mikerou
 ms.openlocfilehash: 46b0b62f92abbac57bc27bbcdd5821eafedf5519
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>以程式設計方式調整 Service Fabric 叢集 
 
@@ -91,7 +91,7 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 
 ## <a name="scaling-in"></a>相應縮小
 
-相應縮小與相應放大類似。 實際的虛擬機器擴展集變更幾乎完全相同。 但就如先前所討論的，Service Fabric 只會自動清除持久性為金級或銀級的已移除節點。 因此，在銅級持久性的相應縮小案例中，就必須與 Service Fabric 叢集互動，以關閉要移除的節點，然後移除其狀態。
+相應縮小與相應放大類似。實際的虛擬機器擴展集變更幾乎完全相同。 但就如先前所討論的，Service Fabric 只會自動清除持久性為金級或銀級的已移除節點。 因此，在銅級持久性的相應縮小案例中，就必須與 Service Fabric 叢集互動，以關閉要移除的節點，然後移除其狀態。
 
 關閉節點的準備工作涉及尋找要移除的節點 (最近期新增的節點) 並加以停用。 對於非種子節點，可以藉由比較 `NodeInstanceId` 來找到較新的節點。 
 
@@ -140,7 +140,7 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 ## <a name="potential-drawbacks"></a>可能的缺點
 
-如前面的程式碼片段所示，建立自己的調整服務就能對應用程式的調整行為握有最高程度的控制力與自訂能力。 這很適合用於需要精確控制應用程式相應縮小或放大之時機或方式的案例。 不過，伴隨此控制能力而來的是程式碼會變得複雜。 使用這種方式就表示您必須擁有調整程式碼 (此程式碼很複雜)。
+如前面的程式碼片段所示，建立自己的調整服務就能對應用程式的調整行為握有最高程度的控制力與自訂能力。 這很適合用於需要精確控制應用程式相應縮小或放大之時機或方式的案例。不過，伴隨此控制能力而來的是程式碼會變得複雜。 使用這種方式就表示您必須擁有調整程式碼 (此程式碼很複雜)。
 
 處理 Service Fabric 調整的方式取決於您的案例。 如果是不常見的調整，以手動方式新增或移除節點的能力或許就綽綽有餘。 若是更複雜的案例，能以程式設計方式進行調整的自動調整規則和 SDK 則可提供更強大的替代方案。
 

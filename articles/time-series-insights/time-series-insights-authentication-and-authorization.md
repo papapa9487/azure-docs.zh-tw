@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/24/2017
 ms.author: dmden
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 3b7d0811b718d4702786572b953fb27a9521d390
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: abc3b5400e6961a798e1e6bf9e4986304046e845
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API 的驗證和授權
 
@@ -111,4 +110,3 @@ ms.lasthandoff: 06/10/2017
 
 * [查詢 API](/rest/api/time-series-insights/time-series-insights-reference-queryapi) 可取得完整的查詢 API 參考
 * [在 Azure 入口網站中建立服務主體](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-

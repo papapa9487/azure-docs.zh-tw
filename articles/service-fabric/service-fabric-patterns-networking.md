@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 535ea21a2c08be5f676ee24269b323a415b92607
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
 您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
@@ -599,4 +598,3 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>後續步驟
 [建立叢集](service-fabric-cluster-creation-via-arm.md)
-

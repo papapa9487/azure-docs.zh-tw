@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 088d127521ce89d3a82e30ad8797fe5746ae7e03
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
 
 本教學課程會示範如何使用 IoT 中樞裝置佈建服務來為雲端設定自動裝置佈建功能。 在本教學課程中，您將了解如何：
@@ -79,7 +77,7 @@ ms.lasthandoff: 09/06/2017
 配置原則是 IoT 中樞裝置佈建服務的一項設定，可決定要如何將裝置指派到 IoT 中樞。 支援的配置原則有三個： 
 
 1. **最低延遲**：將裝置佈建到裝置延遲最低的 IoT 中樞。
-2. **平均加權分佈** (預設值)：連結的 IoT 中樞有同樣的機率會讓系統在其中佈建裝置。 這是預設設定。 如果您要用來佈建裝置的 IoT 中樞只有一個，則可以保留此設定。 
+2. **平均加權分佈** (預設值)：連結的 IoT 中樞有同樣的機率會讓系統在其中佈建裝置。 這是預設設定。 如果您只要將裝置佈建到一個 IoT 中樞，可以保留此設定。 
 3. **透過註冊清單進行靜態設定**：您在註冊清單中指定使用的 IoT 中樞，其優先順序高於裝置佈建服務層級的配置原則。
 
 若要設定配置原則，請在 [裝置佈建服務] 頁面中按一下 [管理配置原則]。 請確實地將配置原則設為 [平均加權分佈] \(預設值)。 如果有進行任何變更，請於變更完成後按一下 [儲存]。
@@ -107,4 +105,3 @@ ms.lasthandoff: 09/06/2017
 
 > [!div class="nextstepaction"]
 > [設定裝置的佈建功能](tutorial-set-up-device.md)
-

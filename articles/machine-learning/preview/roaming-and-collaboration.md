@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 156dd1b7f928df22b3feb9e7a13396d3b53a91d7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>在 Azure Machine Learning Workbench 中漫遊及共同作業
 本文件將引導您 Azure Machine Learning Workbench 如何跨電腦協助專案漫遊，以及啟用與小組成員的共同作業。 
 
@@ -125,5 +123,4 @@ Azure Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Ma
 從 [所有資源] 檢視找出您要新增使用者的資源。 按一下頁面內的 [存取控制] (IAM) 連結。 新增使用者 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
-
 

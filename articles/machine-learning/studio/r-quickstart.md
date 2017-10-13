@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40cc3728d1361b9304896bf0cc4ceed439291d45
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure Machine Learning 之 R 程式設計語言的快速入門教學課程
 
@@ -643,7 +642,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
     [ModuleOutput] 
     [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
 
-*14.[執行 R 指令碼] 模組中資料框架的摘要。*
+ *14.[執行 R 指令碼] 模組中資料框架的摘要。*
 
 此資料的類型和格式皆如預期。 請注意，'Month' 資料行的類型是因素，並且具有預期的層級數目。
 
@@ -1284,4 +1283,3 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 
 <!-- Module References -->
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-

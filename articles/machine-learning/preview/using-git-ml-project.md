@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 59b07c9834904e01256b75344ba2e6892e56438c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-git-repository-with-an-azure-machine-learning-workbench-project"></a>使用 Git 存放庫搭配 Azure Machine Learning Workbench 專案
 本文件提供 Azure Machine Learning Workbench 如何使用 Git 以確保資料科學實驗重現性的相關資訊。 還提供如何將您的專案與雲端 Git 存放庫產生關聯的指示。
@@ -174,4 +173,3 @@ $ more ~/.ssh/id_rsa.pub
 
 ## <a name="next-steps"></a>後續步驟
 了解如何使用 Team Data Science Process 來組織專案結構，請參閱[使用 TDSP 建構專案](how-to-use-tdsp-in-azure-ml.md)
-

@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
 ms.openlocfilehash: 76a1e013e824910c7a489e345b6563ae3951378f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-service-fabric-continuous-integration-and-deployment-with-visual-studio-team-services"></a>使用 Visual Studio Team Services 設定 Service Fabric 連續整合和部署
 本文說明使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 應用程式之持續整合和部署的步驟。
@@ -122,7 +122,7 @@ Team Services 發行定義描述由一組循序執行的工作所組成的工作
 2. 確認 [部署 Service Fabric 應用程式] 工作的 [應用程式套件] 輸入欄位。 根據預設，此欄位會參考組建定義範本中使用的預設應用程式套件路徑。  如果您已經修改組建定義中的預設應用程式套件路徑，您也必須在此適當地更新路徑。
 
 ### <a name="try-it"></a>試試看
-從 [發行] 按鈕功能表上選取 [建立發行] 以手動建立發行。 在開啟的對話方塊中，選取做為發行基準的組建，然後按一下 [建立] 。 如果您啟用連續部署，當關聯的組建定義完成組建時，便會自動建立發行。
+從 [發行] 按鈕功能表上選取 [建立發行] 以手動建立發行。 在開啟的對話方塊中，選取做為發行基準的組建，然後按一下建立 。 如果您啟用連續部署，當關聯的組建定義完成組建時，便會自動建立發行。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解與 Service Fabric 應用程式的連續整合，請閱讀下列文章：

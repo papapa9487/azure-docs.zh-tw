@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1c493a3fa00d5185f8210fe25e3065bd7b32a41f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-linux-cluster-into-an-azure-virtual-network"></a>將 Service Fabric Linux 叢集部署到 Azure 虛擬網路
 本教學課程是一個系列的第一部分。 您將會了解如何使用 Azure CLI 將 Linux Service Fabric 叢集部署到現有的 Azure 虛擬網路 (VNET) 和子網路。 完成時，您會有在您可以部署應用程式的雲端中執行的叢集。 若要使用 PowerShell 建立 Windows 叢集，請參閱[在 Azure 上建立安全的 Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)。
 
@@ -47,7 +45,7 @@ ms.lasthandoff: 09/27/2017
 
 下列程序會建立五個節點的 Service Fabric 叢集。 若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
 
-## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 帳戶並選取您的訂用帳戶
+## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 並選取您的訂用帳戶
 本指南使用 Azure CLI。 開始新的工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，再執行 Azure 命令。
  
 執行下列指令碼，以登入您的 Azure 帳戶並選取您的訂用帳戶：
@@ -58,7 +56,7 @@ az account set --subscription <guid>
 ```
 
 ## <a name="create-a-resource-group"></a>建立資源群組
-針對您的部署建立新的資源群組，並提供名稱和位置。
+針對您的部署建立新的資源群組，並指定名稱和位置。
 
 ```azurecli
 ResourceGroupName="sflinuxclustergroup"
@@ -67,9 +65,9 @@ az group create --name $ResourceGroupName --location $Location
 ```
 
 ## <a name="deploy-the-network-topology"></a>部署網路拓撲
-接下來，設定將作為 API 管理與 Service Fabric 叢集部署位置的網路拓撲。 [Network.json][network-arm] Resource Manager 範本已設定來建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG) 以及適用於 API 管理的子網路和 NSG。 在[這裡](../virtual-network/virtual-networks-overview.md)深入了解 Vnet、子網路與 NSG。
+接下來，設定將作為 API 管理與 Service Fabric 叢集部署位置的網路拓撲。 [Network.json][network-arm] Resource Manager 範本已設定來建立虛擬網路 (VNET)，同時也會建立適用於 Service Fabric 的子網路與網路安全性群組 (NSG) 以及適用於 API 管理的子網路和 NSG。 在[這裡](../virtual-network/virtual-networks-overview.md)深入了解 VNET、子網路與 NSG。
 
-[Network.parameters.json][network-parameters-arm] 參數檔包含要作為 Service Fabric 與 API 管理部署位置之子網路和 NSG 的名稱。  API 管理會在[下一個教學課程](service-fabric-tutorial-deploy-api-management.md)進行部署。 就這份指南而言，參數值無須變更。 Service Fabric Resource Manager 範本會使用這些值。  如果在此處修改了值，您就必須在本教學課程和[部署 API 管理教學課程](service-fabric-tutorial-deploy-api-management.md)中使用的其他 Resource Manager 範本中修改它們。 
+[Network.parameters.json][network-parameters-arm] 參數檔包含要作為 Service Fabric 與 API 管理部署位置之子網路和 NSG 的名稱。  [下一個教學課程](service-fabric-tutorial-deploy-api-management.md)會部署 API 管理。 就這份指南而言，參數值無須變更。 Service Fabric Resource Manager 範本會使用這些值。  如果在此處修改這些值，您也必須在本教學課程和[部署 API 管理教學課程](service-fabric-tutorial-deploy-api-management.md)所使用的其他 Resource Manager 範本中修改這些值。 
 
 下載下列 Resource Manager 範本和參數檔：
 - [network.json][network-arm]
@@ -150,4 +148,3 @@ az group delete --name $ResourceGroupName
 
 [cluster-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.json
 [cluster-parameters-arm]:https://github.com/Azure-Samples/service-fabric-api-management/blob/master/linuxcluster.parameters.json
-

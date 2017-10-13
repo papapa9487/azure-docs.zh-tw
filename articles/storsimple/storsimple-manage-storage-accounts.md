@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/29/2016
 ms.author: v-sharos
 ms.openlocfilehash: 68b767c9c93f2daff476a21029b9813f347590b5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-your-storage-account"></a>使用 StorSimple Manager 服務管理儲存體帳戶
 ## <a name="overview"></a>概觀
@@ -76,7 +76,7 @@ ms.lasthandoff: 08/29/2017
 您可以編輯磁碟區容器所使用的儲存體帳戶。 如果您編輯的儲存體帳戶目前正在使用中，唯一可修改的欄位就是儲存體帳戶的存取金鑰。 您可以提供新的儲存體存取金鑰，並儲存更新的設定。
 
 #### <a name="to-edit-a-storage-account"></a>若要編輯儲存體帳戶
-1. 在服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下 [設定] 。
+1. 在服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下設定 。
 2. 按一下 [新增/編輯儲存體帳戶] 。
 3. 在 [新增/編輯儲存體帳戶]  對話方塊中：
    
@@ -94,7 +94,7 @@ ms.lasthandoff: 08/29/2017
 > 
 
 #### <a name="to-delete-a-storage-account"></a>若要刪除儲存體帳戶
-1. 在 StorSimple Manager 服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下 [設定] 。
+1. 在 StorSimple Manager 服務登陸頁面上，選取您的服務，連按兩下該服務名稱，然後按一下設定 。
 2. 在儲存體帳戶的表格式清單中，將滑鼠停留在您想要刪除的帳戶上方。
 3. 刪除圖示 (**x**) 會出現在該儲存體帳戶資料行的最右邊。 按一下 [x]  圖示，以刪除認證。
 4. 當系統提示您確認時，按一下 [是]  繼續進行刪除。 表格式清單會更新以反映所做的變更。

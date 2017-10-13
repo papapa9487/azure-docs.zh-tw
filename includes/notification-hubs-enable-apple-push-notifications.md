@@ -9,7 +9,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 2. 按一下 [金鑰鏈存取]，並展開 [憑證助理]，然後按一下 [從憑證授權單位要求憑證...]。
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-3. 選取您的 [使用者電子郵件地址] 和 [一般名稱]，確定已勾選 [Saved to disk]，然後按一下 [繼續]。 請將 [CA Email Address]  欄位留空，因為它不是必要資訊。
+3. 選取您的 使用者電子郵件地址 和 一般名稱，確定已勾選 Saved to disk，然後按一下繼續。 請將 [CA Email Address]  欄位留空，因為它不是必要資訊。
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-csr-info.png)
 4. 在 [另存新檔] 中輸入憑證簽署要求 (CSR) 檔案的名稱，並且在 [位置] 中選取位置，然後按一下 [儲存]。
@@ -27,7 +27,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
    
       ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
       
-2. 將新應用程式的下列三個欄位予以更新，然後按一下 [繼續] ：
+2. 將新應用程式的下列三個欄位予以更新，然後按一下繼續 ：
    
    * **名稱**：在 [應用程式識別碼描述] 區段的 [名稱] 欄位中輸入應用程式的描述名稱。
    * **套件組合識別碼**：在 [明確的應用程式識別碼] 區段之下，以[應用程式分發指南](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringYourApp/ConfiguringYourApp.html#//apple_ref/doc/uid/TP40012582-CH28-SW8) (英文) 中所提的 `<Organization Identifier>.<Product Name>` 形式輸入 [套件組合識別碼]。 您使用的 [組織識別碼] 和 [產品名稱] 必須符合當您建立 XCode 專案時使用的組織識別碼和產品名稱。 在下面的快照中，NotificationHubs 做為組織識別碼，GetStarted 做為產品名稱。 確定這符合您將在 XCode 專案中使用的值，讓您使用正確的發行設定檔搭配 XCode。 
@@ -85,7 +85,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
    > 憑證中的名稱可能會不同，不過字首會加上 **Apple Development iOS Push Services:**前置詞。
    > 
    > 
-6. 在 Keychain Access 中，以滑鼠右鍵按一下您在 [憑證]  類別中建立的新推播憑證。 按一下 [匯出]、為檔案命名、選取 [.p12] 格式，然後按一下 [儲存]。
+6. 在 Keychain Access 中，以滑鼠右鍵按一下您在 [憑證]  類別中建立的新推播憑證。 按一下 匯出、為檔案命名、選取 .p12 格式，然後按一下儲存。
    
     ![](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-export-cert-p12.png)
    

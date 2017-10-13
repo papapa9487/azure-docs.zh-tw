@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Microsoft Azure 上的 Oracle 解決方案及其部署
 本文涵蓋在 Microsoft Azure 上成功部署各種 Oracle 解決方案的必要資訊。 這些解決方案以 Oracle 在 Azure Marketplace 中發佈的虛擬機器映像為基礎。 若要取得目前可用的映像清單，請執行下列命令：

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: cynthn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: 4fd8b847b0f60648d1661ce5a8667c641e616ed4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-up-endpoints-on-a-linux-classic-virtual-machine-in-azure"></a>如何在 Azure 中的 Linux 傳統虛擬機器上設定端點
 在 Azure 中使用傳統部署模型建立的所有 Linux 虛擬機器，都可以自動透過私人網路通道與同一雲端服務或虛擬網路中的其他虛擬機器通訊。 不過，網際網路或其他虛擬網路上的電腦需要端點，才能將傳入網路流量導向至虛擬機器。 本文也適用於 [Windows 虛擬機器](../../windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
@@ -38,4 +36,3 @@ ms.lasthandoff: 06/13/2017
 ## <a name="next-steps"></a>後續步驟
 * 您也可以使用 [Azure 命令列介面](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)建立 VM 端點。 執行 **azure vm endpoint create** 命令。
 * 如果您已在 Resource Manager 部署模型中建立虛擬機器，您可以使用 Resource Manager 模式中的 Azure CLI 來 [建立網路安全性群組](../../../virtual-network/virtual-networks-create-nsg-arm-cli.md) 以控制 VM 的流量。
-

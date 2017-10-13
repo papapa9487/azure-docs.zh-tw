@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 11c7a10c6448248ffacee2b519f48b6ca7e4e188
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sfctl-is"></a>sfctl is
 查詢命令，並將其傳送至基礎結構服務。
 
@@ -29,7 +27,7 @@ ms.lasthandoff: 09/27/2017
 
 |命令|說明|
 | --- | --- |
-|    command| 叫用指定基礎結構服務執行個體上的系統管理命令。|
+|    命令| 叫用指定基礎結構服務執行個體上的系統管理命令。|
 |    query  | 叫用指定基礎結構服務執行個體上的唯讀查詢。|
 
 
@@ -50,7 +48,7 @@ ms.lasthandoff: 09/27/2017
 
 |引數|說明|
 | --- | --- |
-| --debug          | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug          | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -73,11 +71,11 @@ ms.lasthandoff: 09/27/2017
 
 |引數|說明|
 | --- | --- |
-| --debug          | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug          | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊，請參閱 http://jmespath.org/。|
-| --verbose        | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose        | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 8babb0d016729f318442af93596d206c38d91206
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-6-run-a-test-failover-for-azure-vm-replication"></a>步驟 6：執行 Azure VM 複寫的測試容錯移轉
 
 在啟用 Azure 虛擬機器 (VM) 的複寫之後，請遵循本文中的步驟，使用 Azure 入口網站中的 [Azure Site Recovery](site-recovery-overview.md) 服務，執行從一個 Azure 區域測試容錯移轉到另一個 Azure 區域。
@@ -66,5 +64,4 @@ ms.lasthandoff: 08/02/2017
 - 深入了解[使用復原計劃](site-recovery-create-recovery-plans.md)容錯移轉多個 VM。
 - 深入了解[使用復原計劃](site-recovery-create-recovery-plans.md)。
 - 深入了解容錯移轉之後[重新保護 Azure VM](site-recovery-how-to-reprotect.md)。
-
 

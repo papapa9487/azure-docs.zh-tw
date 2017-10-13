@@ -8,14 +8,12 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
+ms.openlocfilehash: 1a489f199bcc955fd14e82d16670d854305b00c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: a68d5c4ee8ad69cd888765a96566a7ca6c13cff3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure CLI 訂閱 Blob 儲存體事件，以及觸發事件來檢視結果。 
@@ -145,4 +143,3 @@ az group delete --name <resource_group_name>
 
 - [回應 Blob 儲存體事件](storage-blob-event-overview.md)
 - [關於 Event Grid](../../event-grid/overview.md)
-

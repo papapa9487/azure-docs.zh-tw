@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: hangzh;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 522e33b399f2648427464b439bc4405e9e8097cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-azure-hdinsight-hadoop-clusters-for-the-team-data-science-process"></a>自訂適用於 Team Data Science Process 的 Azure HDInsight Hadoop 叢集
 本文將說明若將 HDInsight Hadoop 叢集佈建為 HDInsight 服務，如何藉由在每個節點上安裝 64 位元的 Anaconda (Python 2.7) 來自訂該叢集。 它也會示範如何存取前端節點，以將自訂工作提交至叢集。 這項自訂讓許多熱門的 Python 模組 (隨附於 Anaconda) 非常方便地在使用者定義函式 (UDF) 中使用，這類函式是設計來處理叢集中的 Hive 記錄。 如需此案例中使用的程序的相關指示，請參閱 [如何提交 Hive 查詢](move-hive-tables.md#submit)。
@@ -89,5 +88,4 @@ ms.lasthandoff: 09/25/2017
 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/) 中說明了進階分析程序的後續步驟，其中可能包含將資料移至 HDInsight 並在其中處理資料與取樣，做為透過 Azure Machine Learning 從資料學習的準備。
 
 請參閱[如何提交 Hive 查詢](move-hive-tables.md#submit)中的相關指示，以了解如何在用來處理儲存於叢集的 Hive 記錄的使用者定義函式 (UDF) 中，從叢集的前端節點存取隨附於 Anaconda 的 Python 模組。
-
 

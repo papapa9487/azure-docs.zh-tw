@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: e818e3b3c707e1471d6f580f8379a277d3575b89
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何使用 PowerShell 對 Azure 中的 VM 開啟連接埠與端點
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -99,5 +98,4 @@ Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 * [Azure Resource Manager 概觀](../../azure-resource-manager/resource-group-overview.md)
 * [什麼是網路安全性群組 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
 * [負載平衡器的 Azure Resource Manager 概觀](../../load-balancer/load-balancer-arm.md)
-
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7d639ca03261f3a9cad537dd92103c5aa6cd0af9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="azure-hdinsight-documentation"></a>Azure HDInsight 文件
 
 了解如何在雲端使用 Hadoop on HDInsight 來分析串流或歷史資料。 教學課程和其他文件會示範如何建立叢集、處理和分析巨量資料，以及如何使用 Hadoop、Spark、HBase、R-Server、Storm 和 Hadoop 生態系統中的其他技術來開發解決方案。
@@ -198,6 +196,5 @@ ms.lasthandoff: 09/07/2017
         </div>
     </li>
 </ul>
-
 
 

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/03/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>開發具有媒體服務的 Azure Functions
 
@@ -60,7 +59,7 @@ ms.lasthandoff: 09/09/2017
 
 部署函式應用程式之後，您可以在**應用程式服務** Azure Functions 中找到它。
 
-1. 選取您的函式應用程式，然後按一下 [新增函式]。
+1. 選取您的函式應用程式，然後按一下新增函式。
 2. 選擇 [C#] 語言和 [資料處理] 案例。
 3. 選擇 [BlobTrigger] 範本。 每次將 blob 上傳到 **input** 容器時，將會觸發此函式。 **input** 名稱指定於下一個步驟的 **Path** 中。
 
@@ -350,5 +349,4 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

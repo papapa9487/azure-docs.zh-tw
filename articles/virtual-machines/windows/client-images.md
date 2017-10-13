@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 207a6562965b4913416bd4dbf3eb132b42938dc9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>在 Azure 中使用 Windows 用戶端進行開發/測試案例
 假設您有適當的 Visual Studio (先前稱為 MSDN) 訂用帳戶，您可以在 Azure 中使用 Windows 7、Windows 8 或 Windows 10 進行開發/測試案例。 本文概述在 Azure 中執行 Windows 用戶端和使用 Azure 資源庫映像的資格需求。
@@ -59,5 +57,4 @@ ms.lasthandoff: 07/10/2017
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以使用 [PowerShell](quick-create-powershell.md)、[Resource Manager templates](ps-template.md) 或 [Visual Studio](../../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) 來部署您的 VM。
-
 

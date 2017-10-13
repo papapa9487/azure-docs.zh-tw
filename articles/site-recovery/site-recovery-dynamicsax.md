@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/24/2017
 ms.author: asgang
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: c235102a60b6d11c8b77203121352bd1400f4325
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 Dynamics AX 應用程式
 
@@ -193,4 +192,3 @@ Dynamics AX 目前並未提供任何現成的災害復原功能。 Dynamics AX �
 
 ## <a name="next-steps"></a>後續步驟
 如需了解如何以 Azure Site Recovery 保護企業工作負載，請參閱[我可以保護哪些工作負載?](site-recovery-workload.md)。
-

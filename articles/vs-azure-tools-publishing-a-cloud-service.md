@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/14/2017
 ms.author: kraigb
+ms.openlocfilehash: e617d600dbc8287eea737fc4969833e873365288
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 23cea0486a769d4f446f5114016d5accbe8113cf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publishing-a-cloud-service-using-the-azure-tools"></a>使用 Azure Tools 發佈雲端服務
 您可以使用 Azure Tools for Microsoft Visual Studio，直接從 Visual Studio 發佈 Azure 應用程式。 Visual Studio 支援以整合方式發佈至雲端服務的預備或生產環境。
@@ -148,5 +147,4 @@ ms.lasthandoff: 08/16/2017
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解如何從 Visual Studio 發佈至 Azure，請參閱 [發佈 Azure 應用程式精靈](vs-azure-tools-publish-azure-application-wizard.md)。
-
 

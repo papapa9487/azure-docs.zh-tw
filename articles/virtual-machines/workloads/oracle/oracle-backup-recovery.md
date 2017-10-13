@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫
 
 您可以使用 Azure CLI 在命令提示字元或使用指令碼建立和管理 Azure 資源。 在本文中，我們會使用 Azure CLI 指令碼，從 Azure Marketplace 資源庫映像部署 Oracle Database 12c 資料庫。
@@ -293,7 +291,7 @@ ms.lasthandoff: 07/08/2017
 
     ![復原服務保存庫備份原則詳細資料頁面](./media/oracle-backup-recovery/recovery_service_06.png)
 
-7.  在 [選取虛擬機器] 刀鋒視窗上，選取 [myVM1] 核取方塊，然後按一下 [確定]。 按一下 [啟用備份] 按鈕。
+7.  在 選取虛擬機器 刀鋒視窗上，選取 myVM1 核取方塊，然後按一下確定。 按一下 [啟用備份] 按鈕。
 
     ![備份的復原服務保存庫項目詳細資料頁面](./media/oracle-backup-recovery/recovery_service_07.png)
 
@@ -304,7 +302,7 @@ ms.lasthandoff: 07/08/2017
 
     ![復原服務保存庫 myVault 詳細資料頁面](./media/oracle-backup-recovery/recovery_service_08.png)
 
-9.  在 [Backup Items (Azure Virtual Machine)] \(備份項目 (Azure 虛擬機器)) 刀鋒視窗上，按一下頁面右側的省略符號 (**...**) 按鈕，然後按一下 [立即備份]。
+9.  在 Backup Items (Azure Virtual Machine) (備份項目 (Azure 虛擬機器)) 刀鋒視窗上，按一下頁面右側的省略符號 (**...**) 按鈕，然後按一下立即備份。
 
     ![復原服務保存庫立即備份命令](./media/oracle-backup-recovery/recovery_service_09.png)
 
@@ -445,7 +443,7 @@ ms.lasthandoff: 07/08/2017
     
 10. 將磁碟取消掛接。
 
-    在 Azure 入口網站的 [檔案復原 (預覽)] 刀鋒視窗上，按一下 [Unmount Disks] \(取消掛接磁碟)。
+    在 Azure 入口網站的 [檔案復原 (預覽)] 刀鋒視窗上，按一下 [Unmount Disks] (取消掛接磁碟)。
 
     ![取消掛接磁碟命令](./media/oracle-backup-recovery/recovery_service_17.png)
 
@@ -473,23 +471,23 @@ ms.lasthandoff: 07/08/2017
 
     ![復原 VM 頁面](./media/oracle-backup-recovery/recover_vm_04.png)
 
-4.  在 [myvm1] 刀鋒視窗上，按一下省略符號 (**...**) 按鈕，然後按一下 [還原 VM]。
+4.  在 myvm1 刀鋒視窗上，按一下省略符號 (**...**) 按鈕，然後按一下還原 VM。
 
     ![還原 VM 命令](./media/oracle-backup-recovery/recover_vm_05.png)
 
-5.  在 [選取還原點] 刀鋒視窗上，選取您想要還原的項目，然後按一下 [確定]。
+5.  在 選取還原點 刀鋒視窗上，選取您想要還原的項目，然後按一下確定。
 
     ![選取還原點](./media/oracle-backup-recovery/recover_vm_06.png)
 
     如果您已啟用應用程式一致備份，則會顯示藍色垂直線。
 
-6.  在 [還原設定] 刀鋒視窗上，選取虛擬機器名稱，並選取資源群組，然後按一下 [確定]。
+6.  在 還原設定 刀鋒視窗上，選取虛擬機器名稱，並選取資源群組，然後按一下確定。
 
     ![還原設定值](./media/oracle-backup-recovery/recover_vm_07.png)
 
 7.  若要還原 VM，請按一下 [還原] 按鈕。
 
-8.  若要檢視還原程序的狀態，請按一下 [工作]，然後按一下 [備份工作]。
+8.  若要檢視還原程序的狀態，請按一下 工作，然後按一下備份工作。
 
     ![備份工作狀態命令](./media/oracle-backup-recovery/recover_vm_08.png)
 
@@ -512,7 +510,7 @@ ms.lasthandoff: 07/08/2017
 
     ![將 IP 位址產生關聯](./media/oracle-backup-recovery/create_ip_02.png)
 
-4.  在 [資源類型] 中，選取 [網路介面]。 選取 myVM 執行個體所使用的網路介面，然後按一下 [確定]。
+4.  在 [資源類型] 中，選取 [網路介面]。 選取 myVM 執行個體所使用的網路介面，然後按一下確定。
 
     ![選取資源類型和 NIC 值](./media/oracle-backup-recovery/create_ip_03.png)
 
@@ -568,7 +566,6 @@ az group delete --name myResourceGroup
 [教學課程︰建立高可用性 VM](../../linux/create-cli-complete.md)
 
 [瀏覽 VM 部署 Azure CLI 範例](../../linux/cli-samples.md)
-
 
 
 

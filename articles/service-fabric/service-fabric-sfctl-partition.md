@@ -14,15 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: a5d0ff59803212403281063f47e706433cee64b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-partition"></a>sfctl partition
-查詢和管理任何服務的分割區。
+查詢和管理任何服務的資料分割。
 
 ## <a name="commands"></a>命令
 
@@ -65,7 +64,7 @@ ms.lasthandoff: 09/27/2017
 
 |引數|說明|
 | --- | --- |
-| --debug                    | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                    | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                  | 顯示此說明訊息並結束。|
 | --output -o                | 輸出格式。  允許的值：json、jsonc、table、tsv。                預設值：json。|
 | --query                    | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。 |
@@ -87,7 +86,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --debug               | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug               | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -102,7 +101,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --service-id [必要]| 服務的識別。 這通常是服務沒有 'fabric:' URI 配置的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是"fabric://myapp/app1/svc1"，服務識別在 6.0+ 中會是 "myapp~app1~svc1"，在舊版中會是 "myapp/app1/svc1"。|
+| --service-id [必要]| 服務的身分識別。 這通常是沒有 'fabric:' URI 配置之服務的完整名稱。 從 6.0 版開始，階層的名稱會以 "~" 字元分隔。 例如，如果服務名稱是"fabric://myapp/app1/svc1"，服務識別在 6.0+ 中會是 "myapp~app1~svc1"，在舊版中會是 "myapp/app1/svc1"。|
 | --continuation-token| 接續權杖參數可用來取得下一組結果。         具有非空白值的接續權杖會在來自系統的結果無法放入單一回應中時，隨附在 API 的回應中。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。|
 | --timeout -t        | 伺服器逾時 (秒)。  預設值：60。|
 
@@ -110,7 +109,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --debug             | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug             | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h           | 顯示此說明訊息並結束。|
 | --output -o         | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query             | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -132,7 +131,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --debug               | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug               | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -154,7 +153,7 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --debug               | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug               | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h             | 顯示此說明訊息並結束。|
 | --output -o           | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query               | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -179,11 +178,11 @@ Partitions 端點會傳回指定分割區的相關資訊。 回應包括分割�
 
 |引數|說明|
 | --- | --- |
-| --debug                         | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                         | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                       | 顯示此說明訊息並結束。|
 | --output -o                     | 輸出格式。  允許的值：json、jsonc、table、tsv。                     預設值：json。|
 | --query                         | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose                       | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose                       | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

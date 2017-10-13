@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: ponatara
 ms.openlocfilehash: 2aee0fb8d1ba1ff1584bee91b4d1cc34b654d97f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-azure-vms-to-another-region-after-migration-to-azure-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 移轉至 Azure 後，將 Azure VM 複寫至另一個區域
 
@@ -63,7 +63,7 @@ Azure [VM 代理程式](../virtual-machines/windows/classic/agents-and-extension
 | **作業** | **Windows** | **Linux** |
 | --- | --- | --- |
 | 安裝 VM 代理程式 |下載並安裝 [代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。 |安裝最新的 [Linux 代理程式](../virtual-machines/linux/agent-user-guide.md)。 您需要有系統管理員權限，才能完成安裝。 我們建議您從散發儲存機制安裝代理程式。 我們「不建議」您直接從 Github 安裝 Linux VM 代理程式。  |
-| 驗證 VM 代理程式安裝 |1.瀏覽至 Azure VM 中的 C:\WindowsAzure\Packages 資料夾。 您應該會看見 WaAppAgent.exe 檔案。 <br>2.在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。 [產品版本] 欄位應為 2.6.1198.718 或更高版本。 |N/A |
+| 驗證 VM 代理程式安裝 |1.瀏覽至 Azure VM 中的 C:\WindowsAzure\Packages 資料夾。 您應該會看見 WaAppAgent.exe 檔案。 <br>2.在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本。 |N/A |
 
 
 ### <a name="step-3-remove-the-mobility-service-from-the-migrated-virtual-machine"></a>步驟 3：從移轉後的虛擬機器解除行動服務

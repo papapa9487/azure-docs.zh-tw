@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: DavidBosland
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 97cd45563dbd2341620658e05dbbd9ff0519b1aa
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
+ms.openlocfilehash: 5ac1f509ca90a09d8bd8e67a04df99516a6da072
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-and-change-your-cloud-solution-provider-reseller-incentive-in-the-azure-marketplace"></a>在 Azure Marketplace 中檢視及變更雲端方案提供者「轉售商獎勵」
 2016 年 3 月 15 日，我們將提供雲端方案提供者 (CSP)「轉售商獎勵」給 Marketplace 發行者。  這個獎勵值的預設設定為「是」 。  身為發行者的您可以決定退出獎勵計畫。  本文說明如何變更發行者設定檔中的設定來選擇退出。
@@ -46,4 +45,3 @@ ms.lasthandoff: 12/08/2016
 [2]: ./media/marketplace-publishing-csp-incentive/profile-boxes.png
 [3]: ./media/marketplace-publishing-csp-incentive/profile-publishers-boxes.png
 [4]: ./media/marketplace-publishing-csp-incentive/profile-publishers-change-boxes.png
-

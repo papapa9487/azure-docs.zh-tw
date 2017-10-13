@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/08/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 2c33e75a7d2cb28f8dc6b314e663a530b7b7fdb4
 ms.openlocfilehash: d4b189fb23dda1167c4f6b17b618c718d32dd98f
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本將多個 IP 位址指派給虛擬機器
 
@@ -84,7 +83,7 @@ ms.lasthandoff: 04/21/2017
     若要判斷 OSVersion、ImagePublisher 和 imageOffer 參數的有效值，請完成[瀏覽和選取 Windows VM 映像](../virtual-machines/windows/cli-ps-findimage.md)文章中的步驟。
 
     >[!TIP]
-    >如果您不確定 dnslabelprefix 是否可供使用，請輸入 `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` 命令以了解。 如果可以使用，命令會傳回 `True`。
+    >如果您不確定 dnslabelprefix 是否可供使用，請輸入 `Test-AzureRmDnsAvailability -DomainNameLabel <name-you-want-to-use> -Location <location>` 命令以了解。如果可以使用，命令會傳回 `True`。
 
 2. 部署 VM 之後，連接至 VM 並且將私人 IP 位址新增至您部署的作業系統，方法是完成本文的[將 IP 位址新增至 VM 作業系統](#os-config)一節中的步驟。 請勿將公用 IP 位址新增至作業系統。
 
@@ -101,4 +100,3 @@ ms.lasthandoff: 04/21/2017
 2. 部署 VM 之後，連接至 VM 並且將私人 IP 位址新增至您部署的作業系統，方法是完成本文的[將 IP 位址新增至 VM 作業系統](#os-config)一節中的步驟。 請勿將公用 IP 位址新增至作業系統。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

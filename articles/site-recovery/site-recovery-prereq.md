@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/23/2017
 ms.author: rajanaki
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>使用 Site Recovery 從內部部署複寫至 Azure 的必要條件
 
 > [!div class="op_single_selector"]
@@ -130,4 +128,3 @@ VMM 雲端之中對於 Hyper-V VM 向客戶擁有的網站進行的災害復原�
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | 不需要 | 不需要 | 不需要 | 允許 SQL 下載 |
 |``time.windows.com`` | 允許 | 允許 | 允許 | 允許|
 |``time.nist.gov`` | 允許 | 允許 | 允許 | 允許 |
-

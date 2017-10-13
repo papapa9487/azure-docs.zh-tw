@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: 141919ab4506b3de4c4a69670dcf54c60ee6409c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>排程器 PowerShell Cmdlet 參考
 下表說明並連結至 Azure 排程器中每個主要 Cmdlet 的參考頁面。

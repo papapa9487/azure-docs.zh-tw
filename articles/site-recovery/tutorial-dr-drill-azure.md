@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 15e4487217ec21bb33380422640cb19dfcbcee39
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
@@ -51,8 +50,8 @@ ms.lasthandoff: 09/25/2017
 當您執行測試容錯移轉時，會發生下列情況：
 
 1. 程式會進行必要條件檢查，以確保所有容錯移轉所需之條件都已準備就緒。
-2. 容錯移轉會處理資料，以便建立 Azure VM。 若選取最新的復原點，則復原點會從資料中建立。
-3. 使用先前步驟中處理的資料來建立 Azure VM。
+2. 容錯移轉會處理資料，以便建立 Azure VM。 若選取最新的復原點，則會根據資料建立復原點。
+3. 將會使用先前步驟中處理的資料來建立 Azure VM。
 
 執行測試容錯移轉，如下所示：
 
@@ -62,11 +61,11 @@ ms.lasthandoff: 09/25/2017
     - **最近處理**：將 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
     - **最近的應用程式一致**：此選項會將所有 VM 容錯移轉到最新的應用程式一致復原點。 隨即顯示時間戳記。
     - **自訂**：選取任何復原點。
-3. 在 [測試容錯移轉] 中，選取 Azure VM 在容錯移轉之後要連接的目標 Azure 網路。
-4. 按一下 [確定]  即可開始容錯移轉。 您可以按一下 VM 開啟其內容以追蹤進度。 或者，您也可以按一下保存庫名稱中的 **[測試容錯移轉]** 工作 > **[設定]** > **[工作]** >
+3. 在 [測試容錯移轉] 中，選取 Azure VM 在容錯移轉之後要連線的目標 Azure 網路。
+4. 按一下 [確定]  即可開始容錯移轉。 您可以按一下 VM 開啟其屬性以追蹤進度。 或者，您也可以按一下保存庫名稱中的 **[測試容錯移轉]** 工作 > **[設定]** > **[工作]** >
    **[Site Recovery 工作]**。
 5. 容錯移轉完成之後，複本 Azure VM 會出現在 Azure 入口網站> [虛擬機器] 中。 確認 VM 為適當的大小、其已連線到正確的網路，而且正在執行中。
-6. 您現在應該能夠連線到 Azure 中複寫的 VM 了
+6. 您現在應該能夠連線到 Azure 中複寫的 VM。
 7. 若要刪除測試容錯移轉期間建立的 Azure VM，請按一下復原計劃上的 [清除測試容錯移轉]。 在 [記事] 中，記錄並儲存關於測試容錯移轉的任何觀察。
 
 在某些情況下，容錯移轉需要額外的處理，這會耗費約 8 到 10 分鐘的時間來完成。 您可能注意到下列項目的測試容錯移轉時間較久：VMware Linux 機器、未啟用 DHCP 服務的 VMware VM，以及沒有下列開機驅動程式的 VMware VM：storvsc、vmbus、storflt、intelide、atapi。
@@ -75,4 +74,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [在內部部署 VMware VM 執行容錯移轉和容錯回復](tutorial-vmware-to-azure-failover-failback.md)。
-

@@ -1,4 +1,3 @@
-
 ---
 title: "變更 Azure Service Fabric 叢集設定 | Microsoft Docs"
 description: "本文說明您可以自訂的網狀架構設定和網狀架構升級原則。"
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: cedfba78d8d1186618cf4f61154c5d88a00eb12b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>自訂 Service Fabric 叢集設定和網狀架構升級原則
 本文件將告訴您如何為 Service Fabric 叢集自訂各種網狀架構設定和網狀架構升級原則。 您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來進行自訂。
@@ -615,5 +613,4 @@ ms.lasthandoff: 09/28/2017
 如需有關叢集管理的詳細資訊，請參閱下列文件︰
 
 [新增、變換、移除 Azure 叢集的憑證 ](service-fabric-cluster-security-update-certs-azure.md) 
-
 

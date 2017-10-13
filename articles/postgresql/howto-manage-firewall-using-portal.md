@@ -10,10 +10,10 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
 ms.openlocfilehash: 20ac1392949a6f604e68d984cb50273b61051037
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則
 伺服器等級防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 PostgreSQL 的 Azure 資料庫伺服器。 

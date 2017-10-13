@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
 ms.openlocfilehash: 18ed891a9bba2b4011d3492722a2366d96fb3c01
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 服務的版本資訊
 
@@ -67,7 +67,7 @@ Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
   
   * 重新啟動 Visual Studio，或
   * 重新啟動方案。 然後，在方案上只執行「建置」。  
-* 如果未安裝 [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) ，請開啟 [工作管理員]，按一下 [處理程序] 索引標籤，按一下 MSBuild.exe 處理程序，然後按一下 [結束處理程序] 按鈕。  
+* 如果未安裝 [Visual Studio 2012 Update 3](https://www.microsoft.com/download/details.aspx?id=39305) ，請開啟 [工作管理員]，按一下 [處理程序] 索引標籤，按一下 MSBuild.exe 處理程序，然後按一下結束處理程序] 按鈕。  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>如果不可列印字元升級為 HTTP 標頭，則不支援從橋接器和 BizTalk 服務入口網站路由傳送至 BasicHttpRelay 端點
 如果您在訊息的升級屬性中使用不可列印字元，這些訊息無法路由傳送至使用 BasicHttpRelay 繫結的轉送目的地。 此外，可供追蹤的升級屬性對 blob 而言是 URL 編碼，對目的地而言是未編碼。  
@@ -151,7 +151,7 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 **測試對應** 屬性未顯示在 Visual Studio 中。 如果 [屬性] 視窗和 [方案總管] 視窗未同時停駐，就可能發生這種情形。 若要解決此問題，請停駐 [屬性] 和 [方案總管] 視窗。  
 
 ### <a name="datetime-reformat-drop-down-is-grayed-out"></a>日期時間重新格式化下拉式清單變成灰色
-當日期時間重新格式化對應作業加入至設計介面並設定時，[格式] 下拉式清單可能會變成灰色。 如果電腦顯示器設定為 [中 – 125%] 或 [大 – 150%]，就可能發生這種情形。 若要解決此問題，請使用下列步驟將顯示器設定為 [小 – 100% (預設)]  ：  
+當日期時間重新格式化對應作業加入至設計介面並設定時，[格式] 下拉式清單可能會變成灰色。如果電腦顯示器設定為 [中 – 125%] 或 [大 – 150%]，就可能發生這種情形。 若要解決此問題，請使用下列步驟將顯示器設定為 [小 – 100% (預設)]  ：  
 
 1. 開啟 [控制台]，然後按一下 [外觀及個人化]。
 2. 按一下 [顯示] 。

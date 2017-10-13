@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 43e5cf1ab3bc3121d7e3915ea0785998e0ee2fc6
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>如何在使用傳統部署模型建立的 Windows VM 中重設遠端桌面服務或其登入密碼
 > [!IMPORTANT]
@@ -35,11 +34,11 @@ ms.lasthandoff: 03/31/2017
 - [使用 Azure PowerShell 重設](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal"></a>Azure 入口網站
-您可以使用 [Azure 入口網站](https://portal.azure.com)來重設遠端桌面服務。 若要展開入口網站功能表，請按一下左上角的三個橫條，然後按一下 [虛擬機器 (傳統)]：
+您可以使用 [Azure 入口網站](https://portal.azure.com)來重設遠端桌面服務。 若要展開入口網站功能表，請按一下左上角的三個橫條，然後按一下虛擬機器 (傳統)：
 
 ![瀏覽您的 Azure VM](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
-選取您的 Windows 虛擬機器，然後按一下 [重設遠端...]。 以下對話方塊隨即出現，可供您重設「遠端桌面」組態：
+選取您的 Windows 虛擬機器，然後按一下重設遠端...。以下對話方塊隨即出現，可供您重設「遠端桌面」組態：
 
 ![重設 RDP 組態頁面](./media/reset-rdp/Portal-RDP-Reset-Windows.png)
 
@@ -76,7 +75,7 @@ Set-AzureVMAccessExtension –vm $vm -UserName $cred.GetNetworkCredential().User
     -Password $cred.GetNetworkCredential().Password  | Update-AzureVM
 ```
 
-如果您輸入與目前帳戶不同的名稱，則 VMAccess 擴充功能會重新命名本機系統管理員帳戶、將密碼指派給該帳戶，以及發出遠端桌面登出。 如果本機系統管理員帳戶已停用，則 VMAccess 延伸項目會將它啟用。
+如果您輸入與目前帳戶不同的名稱，則 VMAccess 擴充功能會重新命名本機系統管理員帳戶、將密碼指派給該帳戶，以及發出遠端桌面登出。如果本機系統管理員帳戶已停用，則 VMAccess 延伸項目會將它啟用。
 
 這些命令也會重設遠端桌面服務組態。
 
@@ -109,5 +108,4 @@ Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' 
 [透過 RDP 或 SSH 連接至 Azure 虛擬機器](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [疑難排解以 Windows 為基礎之 Azure 虛擬機器的遠端桌面連線](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/09/2014
 ms.author: support@blitline.com
 ms.openlocfilehash: 1d90599e028b3407a513b04b878e3aefc39928a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blitline-with-azure-and-azure-storage"></a>如何使用搭配 Azure 和 Azure 儲存體的 Blitline
 本指南將說明如何存取 Blitline 服務，以及如何將工作提交至 Blitline。

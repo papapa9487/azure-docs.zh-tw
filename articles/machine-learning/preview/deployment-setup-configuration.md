@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -32,7 +31,7 @@ CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https:/
 ## <a name="using-the-cli"></a>使用 CLI
 若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -> [開啟命令提示字元]。 
 
-在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 -- 說明旗標。
+在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 
 在其他所有系統上，您必須安裝 CLI。
 
@@ -172,4 +171,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ## <a name="next-steps"></a>後續步驟
 嘗試資源庫中的其中一個範例。
-

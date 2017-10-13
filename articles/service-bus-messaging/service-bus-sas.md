@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排驗證
 
 *共用存取簽章* (SAS) 是服務匯流排傳訊的主要安全性機制。 本文討論 SAS、其運作方式以及如何以跨平台的方式使用它們。

@@ -15,12 +15,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c072cb3a7d376d1e3c2b9f741f5410106e701256
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>在 Azure 中建立 MySQL 資料庫並連接到此資料庫
 本教學課桯將示範如何在 [Azure 入口網站](https://portal.azure.com)中建立 MySQL 資料庫 (提供者是 [ClearDB](http://www.cleardb.com/))，以及如何從在 [Azure App Service](app-service/app-service-web-overview.md) 中執行的 PHP Web 應用程式連接到此資料庫。
@@ -44,7 +43,7 @@ ms.lasthandoff: 09/20/2017
    * **資料庫類型**︰針對低成本或免費層，請選取 [共用]，或選取 [專用] 以取得專用資源。
    * **資源群組**：將 MySQL 資料庫新增到現有的 [資源群組](azure-resource-manager/resource-group-overview.md) ，或將它放在新的資源群組中。 相同群組中的資源可以方便一起管理。
    * **位置**：選擇靠近您的位置。 當新增到現有的資源群組時，您會被鎖定到該資源群組的位置。
-   * **定價層**︰按一下 [定價層]，然後選取定價選項 ([水星] 層是免費的)，然後按一下 [選取]。
+   * **定價層**︰按一下 定價層，然後選取定價選項 (水星 層是免費的)，然後按一下選取。
    * **法律條款**︰按一下 [法律條款]、檢閱購買詳細資料，然後按一下 [購買]。
    * **釘選到儀表板**︰如果您想要直接從儀表板存取，請選取此選項。 如果您還不熟悉入口網站瀏覽方式，這會特別有用。
 
@@ -71,4 +70,3 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 如需詳細資訊，請參閱 [PHP 開發人員中心](/develop/php/)。
-

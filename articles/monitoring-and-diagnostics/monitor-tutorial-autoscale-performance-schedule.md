@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>根據效能資料或排程建立自動調整 Azure 資源規模設定
 
 自動調整規模設定可讓您根據預先設定的條件新增/移除服務的執行個體。 這些設定可透過入口網站來建立。 此方法提供瀏覽器型使用者介面，可用於建立及設定自動調整規模設定。 此教學課程說明逐步說明完成下列動作的步驟：
@@ -162,11 +160,11 @@ ms.lasthandoff: 09/25/2017
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後選取在此教學課程中建立的 Web 應用程式。
 
-2. 在您的資源頁面上，按一下 [刪除]在文字方塊中輸入**是**以確認刪除，然後按一下 [刪除]。
+2. 在您的資源頁面上，按一下 刪除在文字方塊中輸入**是**以確認刪除，然後按一下刪除。
 
 3. 接著，選取 App Service 方案資源並按一下 [刪除]
 
-4. 在文字方塊中輸入**是**以確認刪除，然後按一下 [刪除 ]。
+4. 在文字方塊中輸入**是**以確認刪除，然後按一下刪除 。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -174,4 +172,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [封存監視資料](./monitor-tutorial-archive-monitoring-data.md)
-

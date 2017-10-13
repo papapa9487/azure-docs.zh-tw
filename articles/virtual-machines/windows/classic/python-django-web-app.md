@@ -15,12 +15,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: huvalo
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 283a296fb39863c2801be1093cc4f56904786abd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="django-hello-world-web-app-on-a-windows-server-vm"></a>Windows Server VM 上的 Django Hello World Web 應用程式
 
@@ -48,7 +47,7 @@ ms.lasthandoff: 08/11/2017
 2. 設定 Azure 將連接埠 80 的流量從 Web 導向虛擬機器上的連接埠 80：
    
    1. 在 Azure 入口網站中，移至儀表板，然後選取您新建立的虛擬機器。
-   2. 選取 [端點]，然後按一下 [新增]。
+   2. 選取 端點，然後按一下新增。
 
      ![新增端點。](./media/python-django-web-app/django-helloworld-add-endpoint-new-portal.png)
 
@@ -176,4 +175,3 @@ ms.lasthandoff: 08/11/2017
 [Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [python.org]: https://www.python.org/downloads/
 [wfastcgi]: https://pypi.python.org/pypi/wfastcgi
-

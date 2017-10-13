@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 070e848f753452953b9e5dfe94799e7c0a314530
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pen-testing"></a>滲透測試
 使用 Microsoft Azure 進行應用程式測試和部署最大的好處之一是，您不需要將內部部署基礎結構放在一起，即可開發、測試及部署應用程式。 所有基礎結構都是由 Microsoft Azure 平台服務處理。 您無需購置、取得和組裝自己的內部部署硬體。
@@ -44,4 +43,3 @@ ms.lasthandoff: 08/25/2017
 您不能執行的一種測試是任何種類的 [拒絕服務 (DoS)](https://en.wikipedia.org/wiki/Denial-of-service_attack) 攻擊。 這包括起始 DoS 攻擊本身，或是執行可能會決定、示範或模擬任何類型的 DoS 攻擊的相關測試。
 
 您是否已準備好要開始對主控於 Microsoft Azure 的您的應用程式進行滲透測試？ 如果是，請前往 [滲透測試概觀](https://technet.microsoft.com/library/mt784683.aspx) 頁面，然後按一下頁面底部的 [建立測試要求] 按鈕。 您也可以在條款與條件中找到有關滲透測試的詳細資訊，以及如何報告與 Azure 或任何其他 Microsoft 服務的安全性問題的相關實用連結。
-

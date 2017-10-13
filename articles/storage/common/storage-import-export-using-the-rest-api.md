@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b780385ad0af34bcb15639683d1aa5d689b38b50
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>了解如何使用 Azure 匯入/匯出服務 REST API
 
@@ -58,4 +57,3 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 ## <a name="next-steps"></a>後續步驟
 
 * [儲存體匯入/匯出 REST](/rest/api/storageimportexport)
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c0fbd9b3e6f9f9f4f7a5d3e6bda18ce1312650e7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>使用 Team Data Science Process (TDSP) 專案進行所得分類
 
 ## <a name="introduction"></a>簡介
@@ -101,7 +99,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="project-structure-execution-and-reporting"></a>專案結構、執行和報告
 
-### <a name="structure"></a>結構
+### <a name="structure"></a>Structure
 我們在此專案中使用 TDSP 資料夾結構和文件範本 (下方)，其遵循 [TDSP 生命週期](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)。 
 
 我們會根據[這裡](https://aka.ms/how-to-use-tdsp-in-aml)提供的指示建立專案。 在填入專案的程式碼和構件之後，此結構如下所示 (請參閱下圖中以紅色框線框住的專案結構)。

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: dc2ed59d6adaca97b23dddcb7ec968d90171b483
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 選取、管理和操作 Service Fabric 叢集。
@@ -37,9 +36,9 @@ ms.lasthandoff: 09/26/2017
 |    provision     | 佈建 Service Fabric 叢集的程式碼或組態封裝。|
 |    recover-system  | 表示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失的系統服務。|
 |report-health   | 傳送 Service Fabric 叢集的健康情況報告。|
-|    select       | 連線到 Service Fabric 叢集端點。|
+|    選取       | 連線到 Service Fabric 叢集端點。|
 | unprovision     | 解除佈建 Service Fabric 叢集的程式碼或組態封裝。|
-|    upgrade         | 開始升級 Service Fabric 叢集的程式碼或組態版本。|
+|    升級         | 開始升級 Service Fabric 叢集的程式碼或組態版本。|
 |    upgrade-resume  | 將叢集升級移至下一個升級網域。|
 |    upgrade-rollback| 復原 Service Fabric 叢集的升級。|
 |    upgrade-status  | 取得目前叢集升級的進度。|
@@ -90,7 +89,7 @@ ms.lasthandoff: 09/26/2017
 
 |引數|說明|
 | --- | --- |
-| --debug                        | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                        | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                      | 顯示此說明訊息並結束。|
 | --output -o                    | 輸出格式。  允許的值：json、jsonc、table、tsv。                    預設值：json。|
 | --query                        | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -111,7 +110,7 @@ ms.lasthandoff: 09/26/2017
 
 |引數|說明|
 | --- | --- |
-| --debug  | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug  | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h| 顯示此說明訊息並結束。|
 | --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query  | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -134,7 +133,7 @@ ms.lasthandoff: 09/26/2017
 
 |引數|說明|
 | --- | --- |
-| --debug | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h  | 顯示此說明訊息並結束。|
 | --output -o| 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -161,7 +160,7 @@ ms.lasthandoff: 09/26/2017
 
 |引數|說明|
 | --- | --- |
-| --debug           | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug           | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h         | 顯示此說明訊息並結束。|
 | --output -o       | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query           | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -182,10 +181,10 @@ ms.lasthandoff: 09/26/2017
 ### <a name="global-arguments"></a>全域引數
 |引數|說明|
 | --- | --- |
-|--debug         | 增加記錄詳細程度為顯示所有偵錯記錄。|
+|--debug         | 增加記錄詳細程度以顯示所有偵錯記錄。|
  |   --help -h       | 顯示此說明訊息並結束。|
  |   --output -o     | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
- |   --query         | JMESPath 查詢字串。 請參閱 http://jmespath.org/ 了解詳細資訊和
+ |   --query         | JMESPath 查詢字串。 請參閱 http://jmespath.org/，了解詳細資訊和
                       範例。|
  |   --verbose       | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
 
@@ -214,7 +213,7 @@ ms.lasthandoff: 09/26/2017
 ### <a name="global-arguments"></a>全域引數
     |引數|說明|
 | --- | --- |
-|--debug                               | 增加記錄詳細程度為顯示所有偵錯記錄。|
+|--debug                               | 增加記錄詳細程度以顯示所有偵錯記錄。|
 |    --help -h                             | 顯示此說明訊息並結束。|
 |    --output -o                           | 輸出格式。  允許的值：json、jsonc、table、tsv。
                                             預設值：json。|

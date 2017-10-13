@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: lakasa
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 6d1e6752fb631114f5be06cb27a63e40547bf6ca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>在 Azure Key Vault 中使用客戶管理金鑰進行儲存體服務加密
 
@@ -127,4 +126,3 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 *   如需協助開發人員建置安全應用程式之全方位安全功能的詳細資訊，請參閱[儲存體安全性指南](https://docs.microsoft.com/en-us/azure/storage/storage-security-guide)。
 *   如需 Azure Key Vault 的概觀資訊，請參閱[什麼是 Azure Key Vault？](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis)
 *   若要開始使用 Azure Key Vault，請參閱[開始使用 Azure Key Vault](../../key-vault/key-vault-get-started.md)。
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/27/2016
 ms.author: rasquill
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 932744208d9d53c87e31dcdf9e34539750be4bdb
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-docker-vm-extension-with-the-azure-classic-portal"></a>搭配使用 Docker VM 擴充程式與 Azure 傳統入口網站
 > [!IMPORTANT] 
@@ -164,4 +163,3 @@ WARNING: No swap limit support
 
 [使用 https 執行 Docker]:http://docs.docker.com/articles/https/
 [Docker 使用者指南]:https://docs.docker.com/userguide/
-

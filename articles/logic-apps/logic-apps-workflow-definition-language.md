@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Azure Logic Apps 的工作流程定義語言結構描述
 
 工作流程定義會包含執行為部分邏輯應用程式的實際邏輯。 此定義包含一或多個會啟動邏輯應用程式的觸發程序，和一或多個邏輯應用程式要採取的動作。  
@@ -338,4 +336,3 @@ ms.lasthandoff: 08/10/2017
 ## <a name="next-steps"></a>後續步驟
 
 [工作流程動作與觸發程序](logic-apps-workflow-actions-triggers.md)
-

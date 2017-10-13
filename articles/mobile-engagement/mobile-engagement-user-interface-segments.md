@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 087f4a1fef420abe9669f8dfe2b84c7a847ce263
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-manage-segments-of-users-to-identify-usage-patterns"></a>如何建立和管理使用者的使用者分佈以分辨使用模式
 本文說明 **Mobile Engagement** 入口網站的 [區段]索引標籤。 使用 **Mobile Engagement** 入口網站可監視與管理您的行動應用程式。

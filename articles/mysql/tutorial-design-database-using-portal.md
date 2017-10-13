@@ -10,14 +10,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c7b76cacbdc4e483353f64cc4e50c974867bb5b7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-database-for-mysql-database"></a>設計您第一個適用於 MySQL 資料庫的 Azure 資料庫
 「適用於 MySQL 的 Azure 資料庫」是一個受管理的服務，可讓您在雲端執行、管理及調整高可用性 MySQL 資料庫。 使用 Azure 入口網站，您可以輕鬆管理伺服器和設計資料庫。
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 06/17/2017
 1. 瀏覽至 [資料庫] > [Azure Database for MySQL]。 如果您在 [資料庫] 類別底下找不到「MySQL 伺服器」，請按一下 [查看全部] 以顯示所有可用的資料庫服務。 您也可以在搜尋方塊中輸入 [Azure Database for MySQL] 以快速找到此服務。
 ![2-1 瀏覽至 MySQL](./media/tutorial-design-database-using-portal/2_1-Navigate-to-MySQL.png)
 
-2. 按一下 [Azure Database for MySQL] 圖格，然後按一下 [建立]。
+2. 按一下 Azure Database for MySQL 圖格，然後按一下建立。
 
 在我們的範例中，於「適用於 MySQL 的 Azure 資料庫」表單中填入下列資訊：
 
@@ -53,7 +51,7 @@ ms.lasthandoff: 06/17/2017
 | *伺服器管理員登入* | myadmin | 設定管理帳戶名稱。 |
 | *密碼* |  | 設定強式管理帳戶密碼。 |
 | *確認密碼* |  | 確認管理帳戶密碼。 |
-| *Location* |  | 選取可用的區域。 |
+| <bpt id="p1">*</bpt>Location<ept id="p1">*</ept> |  | 選取可用的區域。 |
 | *版本* | 5.7 | 選擇最新版本。 |
 | *設定效能* | 基本、50 個計算單位、50 GB  | 選擇 **[定價層]** 、 **[計算單位]** 、**[儲存體]** \(GB) ，然後按一下 **[確定]**。 |
 | 釘選到儀表板 | 勾選 | 建議您核取此方塊，讓您在稍後能輕鬆地找到伺服器 |
@@ -62,7 +60,7 @@ ms.lasthandoff: 06/17/2017
 ## <a name="configure-firewall"></a>設定防火牆
 「適用於 MySQL 的 Azure 資料庫」會受到防火牆保護。 依預設，伺服器與其內部資料庫的所有連線皆會遭拒。 第一次連線到 Azure Database for MySQL 之前，請設定防火牆來新增用戶端的公用網路 IP 位址 (或 IP 位址範圍)。
 
-1. 按一下您新建立的伺服器，然後按一下 [連線安全性]。
+1. 按一下您新建立的伺服器，然後按一下連線安全性。
    ![3-1 連線安全性](./media/tutorial-design-database-using-portal/3_1-Connection-security.png)
 2. 您可以在這裡 [新增我的 IP]，或設定防火牆規則。 請記得在建立規則後按一下 [儲存]。
 您現在可以使用 mysql 命令列工具或 MySQL Workbench GUI 工具來連線到伺服器。
@@ -168,4 +166,3 @@ SELECT * FROM inventory;
 
 > [!div class="nextstepaction"]
 > [如何將應用程式連線至 Azure Database for MySQL](./howto-connection-string.md)
-

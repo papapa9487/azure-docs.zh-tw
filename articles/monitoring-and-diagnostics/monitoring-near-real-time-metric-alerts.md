@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/16/2017
 ms.author: snmuvva
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="near-real-time-metric-alerts-preview"></a>近乎即時計量警示 (預覽)
 Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量警示 (預覽)。 此功能目前為公開預覽狀態。
 這些警示在數方面都與一般計量警示不同
@@ -62,7 +60,7 @@ Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量�
 ## <a name="create-a-near-real-time-metric-alert"></a>建立近乎即時計量警示
 目前，近乎即時計量警示只能透過 Azure 入口網站來建立。 即將支援透過 PowerShell、命令列介面 (CLI) 與 Azure 監視器 REST API 來設定近乎即時計量警示。
 
-1. 在[入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取它。 此資源應該是[上一節](#what-resources-can-i-create-near-real-time-metric-alerts-for)所列的其中一種資源類型。 您也可以從 [監視器] > [警示] 針對目前支援的所有資源類型執行相同的動作。
+1. 在 [入口網站](https://portal.azure.com/)中，找到您要監視的資源並選取。 此資源應該是[上一節](#what-resources-can-i-create-near-real-time-metric-alerts-for)所列的其中一種資源類型。 您也可以從 [監視器] > [警示] 針對目前支援的所有資源類型執行相同的動作。
 
 2. 選取 [監視] 區段底下的 [警示] 或 [警示規則]。 不同資源的文字和圖示會有些許不同。
    ![監視](./media/insights-alerts-portal/AlertRulesButton.png)
@@ -85,7 +83,7 @@ Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量�
 8. 若選擇建立**新的** 動作群組，請為該動作群組指定一個簡短名稱，指定動作 (簡訊、電子郵件、Webhook) 並填寫個別詳細資料。
 
 
-8. 完成後選取 [確定] 以建立警示。   
+8. 完成後選取 [確定]  建立警示。   
 
 在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
@@ -95,7 +93,6 @@ Azure 監視器現在支援一種新的計量警示，稱為近乎即時計量�
 * 檢視圖表，其中顯示計量臨界值與前一天的實際值。
 * 編輯或刪除警示。
 * 如果您想要暫時停止或恢復接收警示的通知，可以**停用**或**啟用**警示。
-
 
 
 

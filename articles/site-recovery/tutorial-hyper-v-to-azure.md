@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 
@@ -256,8 +255,8 @@ Hyper-V 主機上的復原服務代理程式需要透過網際網路存取 Azure
 
 4. 在 [復原點保留] 中，指定每個復原點的保留時間 (以小時為單位)。 受保護的機器可以復原到週期內的任意點。
 5. 在 [應用程式一致快照頻率] 中，指定建立包含應用程式一致快照之復原點的頻率 (1-12 小時)。 Hyper-V 使用兩種快照集：
-    - **標準快照集**：提供整個虛擬機器的增量快照集。
-    - **應用程式一致快照集**：製作 VM 內應用程式資料的時間點快照集。 磁碟區陰影複製服務 (VSS) 可確保在製作快照集時，應用程式處於一致狀態。 啟用應用程式一致快照集會影響來源 VM 上的應用程式效能。 設定的值應該小於您設定的其他復原點數目。
+    - **標準快照集**：提供整個虛擬機器的累加快照集。
+    - **應用程式一致快照集**：建立 VM 內應用程式資料的時間點快照集。 磁碟區陰影複製服務 (VSS) 可確保在製作快照集時，應用程式處於一致狀態。 啟用應用程式一致快照集會影響來源 VM 上的應用程式效能。 設定的值應該小於您設定的其他復原點數目。
 6. 在 [初始複寫開始時間] 中，指出開始初始複寫的時間。 複寫會消耗網際網路頻寬，建議排定在非尖峰時間進行。
 7. 在 [加密儲存在 Azure 上的資料] 中，指定是否加密 Azure 儲存體中的待用資料。 然後按一下 [確定] 。
 
@@ -279,4 +278,3 @@ Hyper-V 主機上的復原服務代理程式需要透過網際網路存取 Azure
 
 ## <a name="next-steps"></a>後續步驟
 [執行災害復原演練](tutorial-dr-drill-azure.md)
-

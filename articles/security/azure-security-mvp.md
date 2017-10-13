@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2017
 ms.author: yurid
 ms.openlocfilehash: 9a9f4341aaca5bb6049c6d85993c92ea6dd1c8dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-mvp-program"></a>Azure 安全性 MVP 計畫
 Microsoft Most Valuable Professionals (Microsoft 最有價值專家，MVP) 是社群領導者，他們是在協助其他人充分利用 Microsoft 技術之經驗的最佳典範。 他們和社群及 Microsoft 分享了他們超乎常人的熱情、實用的知識以及技術專長。

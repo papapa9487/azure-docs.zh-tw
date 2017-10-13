@@ -15,14 +15,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/11/2017
 ms.author: jgao
+ms.openlocfilehash: 822c5f2302fb32d0d5a05ba69132282c050b7b8b
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 17fac0327c3c454a8ea5c4d91b2d3e23de71f4ce
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>搭配 HDInsight 使用互動式查詢
 互動式查詢 (又稱為 Hive LLAP 或 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)) 是一種 Azure HDInsight [叢集類型](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 互動式查詢支援記憶體內快取，可讓 Hive 查詢速度更快且更具互動性。 
@@ -30,7 +29,6 @@ ms.lasthandoff: 09/27/2017
 互動式查詢叢集與 Hadoop 叢集不同。 它只包含 Hive 服務。 
 
 > [!NOTE]
-> 很快地，MapReduce、Pig、Sqoop、Oozie 和其他服務便會從這個叢集類型中移除。
 > 您只能透過 Ambari Hive 檢視、Beeline 和 Microsoft Hive 開放式資料庫連線驅動程式 (Hive ODBC)，存取互動式查詢叢集中的 Hive 服務。 您無法透過 Hive 主控台、Templeton、Azure 命令列工具 (Azure CLI) 或 Azure PowerShell 來存取它。 
 > 
 > 
@@ -86,5 +84,4 @@ ms.lasthandoff: 09/27/2017
 * 了解如何[在 HDInsight 中搭配 Hadoop 使用 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)
 * 了解如何[使用 Beeline 在 HDInsight 中執行 Hive 查詢](hdinsight-hadoop-use-hive-beeline.md)。
 * 了解如何[使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Hadoop](hdinsight-connect-excel-hive-odbc-driver.md)。
-
 

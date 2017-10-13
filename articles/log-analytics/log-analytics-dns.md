@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>收集搭配 DNS 分析預覽版解決方案使用 DNS 基礎結構的深入解析
 
@@ -64,7 +64,7 @@ DNS 分析可協助您︰
 
 在解決方案儀表板中，按一下 [組態] 以開啟 [DNS 分析組態] 頁面。 您可以進行兩種類型的組態變更︰
 
-- **列入白名單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的白名單。 若查閱查詢解析為符合此白名單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入白名單的網域名稱，有助於最佳化傳送至 Log Analytics 的資料。 預設白名單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。 您可以捲動來檢視完整的預設清單。
+- **列入白名單的網域名稱**。 該解決方案不會處理所有查閱查詢。 它會維護一份網域名稱尾碼的白名單。 若查閱查詢解析為符合此白名單中之網域名稱尾碼的網域名稱，此解決方案就不會處理它們。 不處理列入白名單的網域名稱，有助於最佳化傳送至 Log Analytics 的資料。 預設白名單包含熱門的公用網域名稱，例如 www.google.com 和 www.facebook.com。您可以捲動來檢視完整的預設清單。
 
  您可以修改清單，將您想要檢視查閱深入解析的任何網域名稱尾碼加以新增。 您也可以將您不想要檢視查閱深入解析的任何網域名稱尾碼加以移除。
 

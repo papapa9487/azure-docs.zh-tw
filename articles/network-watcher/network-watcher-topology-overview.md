@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fa79ab0ab80481c8969c6fa653e92b10985cab3b
-ms.openlocfilehash: 42443f614b76b8180ac163b9889163021adbf048
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: d5cb5ba431eeae1956a9dbf1d48561c66faef9a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-topology-in-azure-network-watcher"></a>Azure 網路監看員中的拓撲簡介
 
 拓撲會傳回虛擬網路中的網路資源之圖形。 此圖描述了資源之間的互相連線來代表端對端網路連線。
@@ -45,4 +43,3 @@ ms.lasthandoff: 03/31/2017
 <!--Image references-->
 
 [1]: ./media/network-watcher-topology-overview/topology.png
-

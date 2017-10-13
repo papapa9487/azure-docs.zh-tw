@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/20/2017
 ms.author: pratshar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 51ef04e1de3337bf3505124923b4774bfb6c07f0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 90ffd3dd1cf5068359afa1b60892cdee43ec0658
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-your-network-for-disaster-recovery"></a>設計用於災害復原的網路
 
@@ -78,7 +77,7 @@ Woodgrove 決定將來自 IP 位址範圍 (172.16.1.0/24, 172.16.2.0/24) 的 IP 
 為了協助 Woodgrove 滿足他們的業務需求，我們必須實作下列工作流程：
 
 * 建立額外的網路，我們叫它「復原網路」，容錯移轉的虛擬機器將在這裡建立。
-* 為了確保 VM 的 IP 會在容錯移轉之後保留，請移至於 VM 屬性下方的 [設定] 索引標籤，指定 VM 在內部部署使用的相同 IP，然後按一下 [儲存]。 當 VM 容錯移轉時，Azure Site Recovery 將指派前述 IP 給虛擬機器。
+* 為了確保 VM 的 IP 會在容錯移轉之後保留，請移至於 VM 屬性下方的 設定 索引標籤，指定 VM 在內部部署使用的相同 IP，然後按一下儲存。 當 VM 容錯移轉時，Azure Site Recovery 將指派前述 IP 給虛擬機器。
 
 ![網路屬性](./media/site-recovery-network-design/network-design8.png)
 
@@ -167,4 +166,3 @@ Woodgrove 決定將來自 IP 位址範圍 (172.16.1.0/24, 172.16.2.0/24) 的 IP 
 
 ## <a name="next-steps"></a>後續步驟
 [了解](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) 當 VMM 伺服器用來管理主要網站時，「網站復原」如何對應來源和目標網路。
-

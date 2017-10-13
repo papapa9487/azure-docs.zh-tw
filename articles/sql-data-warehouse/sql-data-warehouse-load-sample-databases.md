@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 10/31/2016
 ms.author: cakarst;barbkess
 ms.openlocfilehash: 1e0df958a2f18fe1e988168918e5cfd293f84e64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-sample-data-into-sql-data-warehouse"></a>將範例資料載入 SQL 資料倉儲
 請遵循下列簡單的步驟來載入和查詢 Adventure Works 範例資料庫。 這些指令碼會先使用 sqlcmd 來執行將建立資料表和檢視表的 SQL。 一旦建立資料表之後，指令碼將使用 bcp 來載入資料。  如果您還沒有安裝 sqlcmd 和 bcp，請依照下列連結來[安裝 bcp][install bcp] 和[安裝 sqlcmd][install sqlcmd]。

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: sdanie
 ms.openlocfilehash: dcabdb789489af1996276d8838afde410473738d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis 快取常見問題集
 了解 Azure Redis 快取常見問題、模式和最佳作法的答案。
@@ -388,7 +388,7 @@ CLR 執行緒集區有兩種類型的執行緒：「背景工作」和「I/O 完
 
 如何設定這項設定：
 
-* 在 ASP.NET 中，使用 web.config 中的 `<processModel>` 組態元素下的 ["minIoThreads" 組態設定]["minIoThreads" configuration setting]。 如果您在 Azure 網站內執行，此設定不會透過組態選項公開。 不過，您應該仍然能夠透過 global.asax.cs 的 Application_Start 方法，以程式設計方式進行此設定 (如下所示)。
+* 在 ASP.NET 中，使用 web.config 中的 `<processModel>` 組態元素下的 ["minIoThreads" 組態設定]["minIoThreads" configuration setting]。如果您在 Azure 網站內執行，此設定不會透過組態選項公開。 不過，您應該仍然能夠透過 global.asax.cs 的 Application_Start 方法，以程式設計方式進行此設定 (如下所示)。
 
   > [!NOTE] 
   > 這個組態元素中指定的值是「每一核心」設定。 例如，如果您有 4 核心的電腦，並且想要在執行階段將 minIOThreads 設為 200，您會使用 `<processModel minIoThreads="50"/>`。

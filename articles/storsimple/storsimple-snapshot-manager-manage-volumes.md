@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 04/18/2016
 ms.author: v-sharos
 ms.openlocfilehash: 2c0b211bced99d272a73a7b018a22f99d8d58aa9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>使用 StorSimple Snapshot Manager 來檢視和管理磁碟區
 ## <a name="overview"></a>概觀
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/11/2017
    
    1. 以滑鼠右鍵按一下已探索到的磁碟區。
    2. 在功能表上，選取 [初始化磁碟] 。
-   3. 在 [初始化磁碟] 對話方塊中，選取您要初始化的磁碟，然後按一下 [確定]。
+   3. 在 初始化磁碟 對話方塊中，選取您要初始化的磁碟，然後按一下確定。
 6. 格式化簡單磁碟區：
    
    1. 以滑鼠右鍵按一下您想要格式化的磁碟區。
@@ -110,7 +110,7 @@ ms.lasthandoff: 07/11/2017
 4. 在功能表上，按一下 [刪除] 。 
    
     ![刪除磁碟區](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
-5. [刪除磁碟區] 對話方塊隨即出現。 在文字方塊中輸入 **Confirm**，然後按一下 [確定]。
+5. [刪除磁碟區] 對話方塊隨即出現。 在文字方塊中輸入 **Confirm**，然後按一下確定。
 6. 根據預設，StorSimple Snapshot Manager 會先備份磁碟區，再將其刪除。 此預防措施可讓您在意外刪除時避免資料損失。 StorSimple Snapshot Manager 會在備份磁碟區時顯示 [自動快照]  進度訊息。 
    
     ![自動快照訊息](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
@@ -120,7 +120,7 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="to-rescan-the-volumes"></a>若要重新掃描磁碟區
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，以滑鼠右鍵按一下 [磁碟區]，然後按一下 [重新掃描磁碟區]。
+2. 在 範圍 窗格中，以滑鼠右鍵按一下 磁碟區，然後按一下重新掃描磁碟區。
    
     ![重新掃描磁碟區](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
    
@@ -143,13 +143,13 @@ ms.lasthandoff: 07/11/2017
 5. 在 [結果] 窗格中，以滑鼠右鍵按一下磁碟區，然後選取 [建立磁碟區群組]。 
    
     ![建立磁碟區群組](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
-6. 在 [建立磁碟區群組] 對話方塊中，輸入磁碟區群組的名稱，並為其指派磁碟區，然後按一下 [確定]。
+6. 在 建立磁碟區群組 對話方塊中，輸入磁碟區群組的名稱，並為其指派磁碟區，然後按一下確定。
 7. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點。 新的磁碟區群組應該會出現在 [磁碟區群組]  節點之下。 
 8. 以滑鼠右鍵按一下磁碟區群組名稱。
    
    * 若要以互動方式 (依需求) 啟動備份作業，請按一下 [進行備份] 。 
    * 若要排程自動備份，請按一下 [建立備份原則] 。 在 [一般]  頁面上，從清單中選取磁碟區群組。 在 [排程]  頁面上，輸入排程詳細資料。 完成時，請按一下 [確定] 。 
-9. 若要確認備份作業已啟動，請展開 [範圍] 窗格中的 [作業] 節點，然後按一下 [執行中] 節點。 目前執行中的工作清單會出現在 [結果]  窗格中。 
+9. 若要確認備份作業已啟動，請展開 範圍 窗格中的 作業 節點，然後按一下執行中 節點。 目前執行中的工作清單會出現在 [結果]  窗格中。 
 
 ## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>設定和備份動態鏡像磁碟區
 請完成下列步驟來設定動態鏡像磁碟區的備份：
@@ -178,10 +178,10 @@ ms.lasthandoff: 07/11/2017
    
     ![新鏡像磁碟區](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
 4. 在 [新增鏡像磁碟區] 精靈頁面上，按 [下一步]。
-5. 在 [選取磁碟] 頁面上，於 [已選取] 窗格中選取 [磁碟 2]，按一下 [新增]，然後按一下 [下一步]。 
-6. 在 [指派磁碟機代號或路徑] 頁面上，接受預設值，然後按一下 [下一步]。 
-7. 在 [格式化磁碟區] 頁面上，於 [配置單位大小] 方塊中，選取 [64K]。 選取 [執行快速格式化] 核取方塊，然後按一下 [下一步]。 
-8. 在 [完成新增鏡像磁碟區] 頁面上，檢閱您的設定，然後按一下 [完成]。 
+5. 在 選取磁碟 頁面上，於 已選取 窗格中選取 磁碟 2，按一下 新增，然後按一下下一步。 
+6. 在 指派磁碟機代號或路徑 頁面上，接受預設值，然後按一下下一步。 
+7. 在 [格式化磁碟區] 頁面上，於 [配置單位大小] 方塊中，選取 [64K]。 選取 執行快速格式化 核取方塊，然後按一下下一步。 
+8. 在 完成新增鏡像磁碟區 頁面上，檢閱您的設定，然後按一下完成。 
 9. 訊息會出現，以指出基本磁碟將會轉換成動態磁碟。 按一下 [是] 。
    
     ![動態磁碟轉換訊息](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
@@ -195,14 +195,14 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>若要設定動態鏡像磁碟區的備份
 1. 按一下桌面上的 StorSimple Snapshot Manager 圖示。 StorSimple Snapshot Manager 視窗隨即出現。 
 2. 在 [範圍] 窗格中，以滑鼠右鍵按一下 [磁碟區] 節點，然後選取 [重新掃描磁碟區]。 掃描完成時，磁碟區清單應該會出現在 [結果]  窗格中。 動態鏡像磁碟區會列為單一磁碟區。 
-3. 在 [結果] 窗格中，以滑鼠右鍵按一下動態鏡像磁碟區，然後按一下 [建立磁碟區群組]。 
-4. 在 [建立磁碟區群組] 對話方塊中，輸入磁碟區群組的名稱，將動態鏡像磁碟區指派給這個群組，然後按一下 [確定]。 
+3. 在 結果 窗格中，以滑鼠右鍵按一下動態鏡像磁碟區，然後按一下建立磁碟區群組。 
+4. 在 建立磁碟區群組 對話方塊中，輸入磁碟區群組的名稱，將動態鏡像磁碟區指派給這個群組，然後按一下確定。 
 5. 在 [範圍] 窗格中，展開 [磁碟區群組] 節點。 新的磁碟區群組應該會出現在 [磁碟區群組] 節點之下。 
 6. 以滑鼠右鍵按一下磁碟區群組名稱。 
    
    * 若要以互動方式 (依需求) 啟動備份作業，請按一下 [進行備份] 。 
    * 若要排程自動備份，請按一下 [建立備份原則] 。 在 [一般]  頁面上，從清單中選取該磁碟區群組。 在 [排程]  頁面上，輸入排程詳細資料。 完成時，請按一下 [確定] 。 
-7. 您可以在備份作業執行時加以監視。 在 [範圍] 窗格中，展開 [作業] 節點，然後按一下 [執行中]。作業詳細資料會出現在 [結果] 窗格中。 備份作業完成時，詳細資料會傳輸至 [過去 24 小時] 作業清單。 
+7. 您可以在備份作業執行時加以監視。 在 範圍 窗格中，展開 作業 節點，然後按一下執行中。作業詳細資料會出現在 結果 窗格中。 備份作業完成時，詳細資料會傳輸至 [過去 24 小時] 作業清單。 
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。

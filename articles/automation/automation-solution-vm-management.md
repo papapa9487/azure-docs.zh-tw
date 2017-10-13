@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: b4271d07858eacf2fa55e748f276c8252b0dedf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>自動化中的在離峰期間啟動/停止 VM [預覽] 方案
 
 在離峰期間啟動/停止 VM [預覽] 方案會依照使用者定義的排程啟動和停止 Azure Resource Manager 虛擬機器，並透過 OMS Log Analytics 提供成功啟動和停止虛擬機器的自動化作業深入解析。  
@@ -96,7 +94,7 @@ O365Credential | 指定有效的 Office 365 使用者帳戶以傳送電子郵件
 
 1. 從 Azure 入口網站的主畫面中選取 [Marketplace] 圖格。  如果圖格已不再釘選到您的主畫面，請從左導覽窗格中選取 [新增]。  
 2. 在 [Marketplace] 刀鋒視窗的搜尋方塊中輸入 [啟動 VM]，然後從搜尋結果中選取 [在離峰期間啟動/停止 VM [預覽]] 方案。  
-3. 在所選方案的 [在離峰期間啟動/停止 VM [預覽]] 刀鋒視窗中，檢閱摘要資訊，然後按一下 [建立]。  
+3. 在所選方案的在離峰期間啟動/停止 VM [預覽]] 刀鋒視窗中，檢閱摘要資訊，然後按一下建立]。  
 4. [新增方案] 刀鋒視窗隨即出現，系統會提示您先設定方案，才可以將它匯入自動化訂用帳戶。<br><br> ![VM 管理的新增方案刀鋒視窗](media/automation-solution-vm-management/vm-management-solution-add-solution-blade.png)<br><br>
 5.  在 [新增方案] 刀鋒視窗中，選取 [工作區] 並在此選取連結到自動化帳戶所在相同 Azure 訂用帳戶的 OMS 工作區，或建立新的 OMS 工作區。  如果您沒有 OMS 工作區，您可以選取 [建立新工作區]，然後在 [OMS 工作區] 刀鋒視窗上執行下列動作︰ 
    - 指定新 [OMS 工作區] 的名稱。
@@ -150,7 +148,7 @@ O365Credential | 指定有效的 Office 365 使用者帳戶以傳送電子郵件
 1. 從您的自動化帳戶，按一下視窗頂端的 [所有設定]。 
 2. 在 [設定] 刀鋒視窗的 [自動化資源] 區段之下，選取 [資產]。 
 3. 在 [資產] 刀鋒視窗上選取 [認證] 圖格，然後從 [認證] 刀鋒視窗選取 [O365Credential]。  
-4. 輸入有效的 Office 365 使用者名稱和密碼，然後按一下 [儲存] 以儲存變更。  
+4. 輸入有效的 Office 365 使用者名稱和密碼，然後按一下儲存 以儲存變更。  
 
 若要設定先前醒目提示的變數，請執行下列步驟︰
 
@@ -245,5 +243,4 @@ StreamType | 作業串流的類型。 可能的值包括：<br>-Progress (進度
 
 
    
-
 

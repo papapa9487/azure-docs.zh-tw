@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: a51c715a2b3c5e9a3d05cabc793c354922912ee5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>使用 PowerShell 建立 Linux 虛擬機器
 
 Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本指南詳細說明如何使用 Azure PowerShell 模組來部署執行 Ubuntu 伺服器的虛擬機器。 一旦部署伺服器，就會建立 SSH 連線，以及安裝 NGINX Web 伺服器。
@@ -33,6 +31,7 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 本快速入門需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
 最後，名稱為 id_rsa.pub 的公開 SSH 金鑰必須儲存在 Windows 使用者設定檔的 .ssh 目錄中。 如需建立適用於 Azure 之 SSH 金鑰的詳細資訊，請參閱[建立適用於 Azure 的 SSH 金鑰](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -172,4 +171,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure Linux 虛擬機器教學課程](./tutorial-manage-vm.md)
-

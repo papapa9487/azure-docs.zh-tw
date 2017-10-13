@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
+ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 1cadb543660b636ce7f0285973e6fb4141841b99
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-api-management-with-service-fabric"></a>使用 Service Fabric 部署 API 管理
 本教學課程是一個系列的第二部分。 本教學課程示範如何使用 Service Fabric 來設定 [Azure API 管理](../api-management/api-management-key-concepts.md)，以將流量路由傳送至 Service Fabric 中的後端服務。  當您完成時，就已將 API 管理部署至 VNET，已設定 API 作業來將流量傳送到後端無狀態服務。 若要深入了解搭配 Service Fabric 的「Azure API 管理」案例，請參閱[概觀](service-fabric-api-management-overview.md)一文。
 
@@ -247,7 +245,7 @@ print(response.text)
 2. 在 API 管理服務刀鋒視窗中，選取 [API]
 3. 依序按一下 [+API] 和 [空白 API] 方塊，然後在對話方塊中填入資訊，藉以新增 API：
 
-    - **Web 服務 URL**：就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 本教學課程使用："http://servicefabric"。
+    - **Web 服務 URL**：就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 本教學課程使用：" http://servicefabric "。
     - **顯示名稱**：為您的 API 提供任意名稱。 本教學課程使用 "Service Fabric App"。
     - **名稱**：輸入 "service-fabric-app"。
     - **URL 配置**：選取 [HTTP]、[HTTPS] 或 [both]。 本教學課程使用 [both]。

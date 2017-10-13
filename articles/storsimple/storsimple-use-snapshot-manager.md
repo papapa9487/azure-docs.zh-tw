@@ -15,13 +15,11 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.custom: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>使用 StorSimple Snapshot Manager 使用者介面來管理備份作業與備份類別目錄
 
@@ -179,7 +177,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 | 開新視窗 |按一下 [ **開新視窗** ]，可開啟新的主控台視窗 (除了現有的視窗外)。 |
 | 重疊顯示 |按一下 [ **重疊顯示** ]，以重疊顯示樣式顯示開啟的主控台視窗。 |
 | 水平並排顯示 |按一下 [ **水平並排顯示** ]，以並排顯示 (或格線) 格式顯示開啟的主控台視窗。 |
-| 排列圖示 |如果您有多個主控台視窗開啟並散落於整個桌面上，請將它們縮至最小，然後按一下 [ **排列圖示** ]，以水平列方式排列在畫面底部上。 |
+| 排列圖示 |如果您有多個主控台視窗開啟並散落於整個桌面上，請將它們縮至最小，然後按一下 **排列圖示** ，以水平列方式排列在畫面底部上。 |
 
 ### <a name="help-menu"></a>說明功能表
 使用 [ **說明** ] 功能表，可檢視 StorSimple Snapshot Manager 和 MMC 的可用線上說明。 您也可以檢視系統上目前安裝之 MMC 和 StorSimple Snapshot Manager 軟體版本的相關資訊。 
@@ -303,8 +301,8 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 * 若要展開節點，請按一下 [ **作業**] 旁的箭號圖示。
 * 若要查看可用動作的功能表，請以滑鼠右鍵按一下 [ **作業** ] 節點，或以滑鼠右鍵按一下展開之檢視中出現的任一個節點。
 * 若要查看已排程的工作清單，請展開 [作業] 節點，然後再按一下 [已排程]。 先前設定的作業清單和每個作業的相關資訊的清單會出現在 [ **結果** ] 窗格中。 
-* 若要查看最近完成的作業清單，請展開 [作業] 節點，然後按一下 [過去 24 小時]。 過去 24 小時內完成的作業清單會出現在 [ **結果** ] 窗格中。 [ **結果** ] 窗格也包含每個已完成作業的相關資訊。
-* 若要查看目前執行中的工作清單，請展開 [作業] 節點，然後按一下 [執行中]。 目前執行中的作業清單和每個作業的相關資訊的清單會出現在 [ **結果** ] 窗格中。
+* 若要查看最近完成的作業清單，請展開 作業 節點，然後按一下過去 24 小時。 過去 24 小時內完成的作業清單會出現在 [ **結果** ] 窗格中。 [ **結果** ] 窗格也包含每個已完成作業的相關資訊。
+* 若要查看目前執行中的工作清單，請展開 作業 節點，然後按一下執行中。 目前執行中的作業清單和每個作業的相關資訊的清單會出現在 [ **結果** ] 窗格中。
 
 ## <a name="results-pane"></a>結果窗格
 [ **結果** ] 窗格是 StorSimple Snapshot Manager UI 的中心窗格。 其包含您在 [ **範圍** ] 窗格中選取之節點的清單和詳細狀態資訊。
@@ -314,7 +312,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![結果窗格](./media/storsimple-use-snapshot-manager/HCS_SSM_Results_pane.png) 
 
-您可以設定 [結果] 窗格中顯示的詳細資料：以滑鼠右鍵按一下 [範圍] 窗格中的節點，按一下 [檢視]，然後按一下 [新增/移除資料行]。
+您可以設定 結果 窗格中顯示的詳細資料：以滑鼠右鍵按一下 範圍 窗格中的節點，按一下 檢視，然後按一下新增/移除資料行。
 
 ## <a name="actions-pane"></a>動作窗格
 [ **動作** ] 窗格是 StorSimple Snapshot Manager UI 中的右窗格。 其包含您可在 [範圍] 窗格或 [結果] 窗格中選取的節點、檢視或資料上執行之作業的功能表。 [動作] 窗格包含與 [動作] 功能表相同的命令，可供 [範圍] 窗格和 [結果] 窗格中的項目使用。 如需每個動作的說明，請參閱 [ **動作** ] 功能表一節中的資料表。
@@ -324,7 +322,7 @@ StorSimple Snapshot Manager 使用者介面支援 Windows 作業系統和 Micros
 
 ![動作窗格的已排程作業範例](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane.png) 
 
-若要查看其他選項，請在 [範圍] 窗格中，展開 [作業] 節點，按一下 [已排程]，然後按一下 [結果] 窗格中的已排程作業。 [ **動作** ] 窗格會顯示已排程作業的可用動作，如下列範例所示。
+若要查看其他選項，請在 範圍 窗格中，展開 作業 節點，按一下 已排程，然後按一下結果 窗格中的已排程作業。 [ **動作** ] 窗格會顯示已排程作業的可用動作，如下列範例所示。
 
 ![動作窗格的作業動作範例](./media/storsimple-use-snapshot-manager/HCS_SSM_ActionsPane_Results.png)
 
@@ -451,5 +449,4 @@ StorSimple Snapshot Manager 可啟用 Windows 作業系統和 Microsoft Manageme
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [使用 StorSimple Snapshot Manager 來管理您的 StorSimple 解決方案](storsimple-snapshot-manager-admin.md)。
 * 了解如何 [使用 StorSimple Snapshot Manager 來連接和管理裝置](storsimple-snapshot-manager-manage-devices.md)。
-
 

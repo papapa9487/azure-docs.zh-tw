@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: tamram
+ms.openlocfilehash: 192799cb44dc9a56c65a6414c1267c506252fe29
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4b21e75fde55f195362809ce486a2615954ff93c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-storage-connection-strings"></a>設定 Azure 儲存體連接字串
 
@@ -137,5 +136,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 * [使用 Azure 儲存體模擬器進行開發和測試](storage-use-emulator.md)
 * [Azure 儲存體總管](storage-explorers.md)
 * [使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-
 

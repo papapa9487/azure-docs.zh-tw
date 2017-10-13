@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: deb69101e855bcad56b9212736c52ace72631f0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 24b2530b23211c654072a6edc8a31e53989bf0a8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-your-azure-project-using-multiple-service-configurations"></a>使用多個服務組態設定 Azure 專案
 Azure 雲端服務專案包含兩個組態檔：ServiceDefinition.csdef 和 ServiceConfiguration.cscfg。 這些檔案會與您的 Azure 雲端服務應用程式一起封裝並部署至 Azure。
@@ -106,5 +105,4 @@ Web 角色預設會啟用診斷。 Azure 雲端服務專案和儲存體帳戶已
 | 建置事件 |在此頁面，您可以設定建置前和建置後事件。 |
 | 開發 |在此頁面，您可以指定組建組態指示以及執行任何建置後事件的條件。 |
 | Web |在此頁面，您可以設定 Web 伺服器的相關設定。 |
-
 

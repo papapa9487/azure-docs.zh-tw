@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
+ms.openlocfilehash: 41a26e8b13fdb2531924ba441017c4c01e664995
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 6ddb1915c8073a7b64ba03ff6b90e701ad337c3e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Azure 虛擬網路的常用 PowerShell 命令
 
@@ -76,5 +75,4 @@ ms.lasthandoff: 07/18/2017
 ## <a name="next-steps"></a>後續步驟
 * 使用您剛才[建立 VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 時所建立的網路介面。
 * 深入了解如何 [建立具有多個網路介面的 VM](../../virtual-network/virtual-networks-multiple-nics.md)。
-
 

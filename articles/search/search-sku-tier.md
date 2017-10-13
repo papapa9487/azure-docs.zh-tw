@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
 ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的 SKU 或定價層
 在 Azure 搜尋服務中，會在特定定價層或 SKU [佈建服務](search-create-service-portal.md)。 選項包括**免費**、**基本**或**標準**，其中**標準**在多個組態和容量都有提供。

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: 6e0ad6b5bec11c5197dd7bded64168a1b8cc2fdd
 ms.openlocfilehash: 9f085dfa1fe4db36d58cb976bb550a46bf241ac7
-ms.lasthandoff: 03/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-azure-cli-10"></a>使用 Azure CLI 1.0 將多個 IP 位址指派給虛擬機器
 
@@ -122,7 +121,7 @@ ms.lasthandoff: 03/28/2017
 8. 輸入下列命令，以檢視 NIC 和相關聯的 IP 設定︰
 
     ```azurecli
-    azure network nic show --resource-group $RgName    --name myNic1
+    azure network nic show --resource-group $RgName --name myNic1
     ```
 9. 完成本文的[將 IP 位址新增至 VM 作業系統](#os-config)一節中適用於您的作業系統的步驟，將私人 IP 位址新增至 VM 作業系統。
 
@@ -161,7 +160,7 @@ ms.lasthandoff: 03/28/2017
         --domain-name-label mypublicdns3
         ```
 
-         若要建立具有靜態私人 IP 位址和相關 *myPublicIP3* 公用 IP 位址資源的新 IP 組態，請輸入下列命令︰
+        若要建立具有靜態私人 IP 位址和相關 *myPublicIP3* 公用 IP 位址資源的新 IP 組態，請輸入下列命令︰
 
         ```azurecli
         azure network nic ip-config create --resource-group myResourceGroup --nic-name myNic --name IPConfig-4 \
@@ -178,7 +177,7 @@ ms.lasthandoff: 03/28/2017
 
         在傳回的輸出中，尋找類似下列一行中的 IPConfig-3：
 
-        ```            
+        ```         
         Name               Provisioning state  Primary  Private IP allocation Private IP version  Private IP address  Subnet    Public IP
         default-ip-config  Succeeded           true     Static                IPv4                10.0.0.4            mySubnet  myPublicIP
         IPConfig-2         Succeeded           false    Static                IPv4                10.0.0.5            mySubnet  myPublicIP2
@@ -215,4 +214,3 @@ ms.lasthandoff: 03/28/2017
 4. 依照本文的[將 IP 位址新增至 VM 作業系統](#os-config)一節中的指示，將您新增至 NIC 的私人 IP 位址新增至 VM 作業系統。 請勿將公用 IP 位址新增至作業系統。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

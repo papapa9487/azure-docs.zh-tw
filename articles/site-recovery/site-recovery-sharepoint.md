@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: sutalasi
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 55323df68715c80d5e8535199cd739921a3baad9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 複寫多層式 SharePoint 應用程式以便進行災害復原
 
@@ -214,4 +213,3 @@ Microsoft SharePoint 是功能強大的應用程式，可協助群組或部門�
 
 ## <a name="next-steps"></a>後續步驟
 您可以深入了解如何使用 Site Recovery [複寫其他應用程式](site-recovery-workload.md)。
-

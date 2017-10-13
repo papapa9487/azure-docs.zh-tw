@@ -16,14 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
+ms.openlocfilehash: 1ce90cf4bae66bfd6387a2698fd9b1ba7fc64595
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: ddc391127d43a954f555943d27258593eba02df2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在不同區域的 Azure 虛擬機器上設定 Always On 可用性群組
 
 本文說明如何在遠端 Azure 位置的「Azure 虛擬機器」上設定「SQL Server Always On 可用性群組」複本。 您可以使用此組態來支援災害復原。
@@ -158,7 +156,7 @@ ms.lasthandoff: 07/26/2017
 1. 按一下 [確定]。
 1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [顯示儀表板]。
 1. 在儀表板上，確認 DR 站台上的複本已同步。
-1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [容錯移轉]。 SQL Server Management Studio 會開啟精靈來容錯移轉 SQL Server。  
+1. 在 [物件總管] 中，於可用性群組上按一下滑鼠右鍵，然後按一下 [容錯移轉]。SQL Server Management Studio 會開啟精靈來容錯移轉 SQL Server。  
 1. 按 [下一步]，然後選取 DR 站台中的 SQL Server 執行個體。 再按一下 [下一步]  。
 1. 連接到 DR 站台中的 SQL Server 執行個體，然後按 [下一步]。
 1. 在 [摘要] 頁面上確認設定，然後按一下 [完成]。
@@ -185,4 +183,3 @@ ms.lasthandoff: 07/26/2017
 * [Azure 虛擬機器](http://docs.microsoft.com/azure/virtual-machines/windows/)
 * [Azure Load Balancer](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-internal-load-balancer)
 * [Azure 可用性設定組](../manage-availability.md)
-

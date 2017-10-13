@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
 ms.openlocfilehash: 046ce7af40301014746c6aef07d08d81ab4adcc2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>建立 Azure Marketplace 的虛擬機器映像的指南
 本文的 **步驟 2**會逐步引導您準備您將部署到 Azure Marketplace 的虛擬硬碟 (VHD)。 您的 VHD 是 SKU 的基礎。 這個程序會因為您是否提供以 Linux 或 Windows 為基礎的 SKU 而有所不同。 本文將探討這兩種狀況。 這個程序可與[帳戶建立和註冊][link-acct-creation]同步執行。
@@ -246,7 +246,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 認證工具可使用於 Windows 和 Linux VM。 它會透過 PowerShell 連接至 Windows 型 VM，並透過 SSH.Net 連接至 Linux VM：
 
 1. 首先，請在 [Microsoft 下載網站][link-msft-download]下載認證工具。
-2. 開啟認證工具，然後按一下 [啟動新測試]  按鈕。
+2. 開啟認證工具，然後按一下啟動新測試  按鈕。
 3. 從 [測試資訊]  畫面，輸入執行測試的名稱。
 4. 選擇您的 VM 位於 Linux 或 Windows。 根據您的選擇，選取後續選項。
 
@@ -334,7 +334,7 @@ Azure Marketplace 中的所有映像通常都必須能夠重複使用。 也就�
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_07.png)
 
-9.  在 [Blob 容器安全性] 對話方塊中，保留 [存取層級] 索引標籤上的預設值，然後按一下 [共用存取簽章] 索引標籤。
+9.  在 Blob 容器安全性 對話方塊中，保留 存取層級 索引標籤上的預設值，然後按一下共用存取簽章 索引標籤。
 
     ![繪圖](media/marketplace-publishing-vm-image-creation/img5.2_08.png)
 

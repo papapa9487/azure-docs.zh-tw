@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>在 Site Recovery 中容錯回復 Hyper-V 虛擬機器
 
 本文說明如何容錯回復 Site Recovery 所保護的虛擬機器。
@@ -98,4 +96,3 @@ Azure 是高可用性環境，虛擬機器永遠可用。 錯誤回復是計劃�
 當您完成容錯回復作業後，**認可**虛擬機器。 認可會刪除 Azure 虛擬機器和其磁碟，並準備要再次保護的 VM。
 
 **認可**之後，您可以起始「反向複寫」。 這樣會將虛擬機器從內部部署移回 Azure 來開始保護。 請注意，這只會複寫變更，因為 Azure 中已關閉 VM，因此只會傳送差異變更。
-

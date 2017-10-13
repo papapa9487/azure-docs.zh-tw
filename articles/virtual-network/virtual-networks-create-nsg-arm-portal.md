@@ -17,10 +17,10 @@ ms.date: 02/04/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ecb4fb4608628f5a1bd54fac6af19fecfa4508f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-network-security-groups-using-the-azure-portal"></a>使用 Azure 入口網站管理網路安全性群組
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/11/2017
 3. 在 [網路安全性群組] 刀鋒視窗中，按一下 [新增]。
    
     ![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure12.png)
-4. 在 [建立網路安全性群組] 刀鋒視窗的 *RG-NSG* 資源群組中建立名為 *NSG-FrontEnd* 的 NSG，然後按一下 [建立]。
+4. 在 建立網路安全性群組 刀鋒視窗的 *RG-NSG* 資源群組中建立名為 *NSG-FrontEnd* 的 NSG，然後按一下建立。
    
     ![Azure 入口網站 - NSG](./media/virtual-networks-create-nsg-arm-pportal/figure13.png)
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/11/2017
 3. 在 [輸入安全性規則] 清單中，按一下 [新增]。
    
     ![Azure 入口網站 - 新增規則](./media/virtual-networks-create-nsg-arm-pportal/figure3.png)
-4. 在 [新增輸入安全性規則] 刀鋒視窗中，建立一個名為 web-rule 的規則，優先順序設為 [200]，以允許從任何來源經由 [TCP] 與連接埠 [80] 存取任何 VM，然後按一下 [確定]。 請注意，這些設定大部分已是預設值。
+4. 在 新增輸入安全性規則 刀鋒視窗中，建立一個名為 web-rule 的規則，優先順序設為 200，以允許從任何來源經由 TCP 與連接埠 80 存取任何 VM，然後按一下確定。 請注意，這些設定大部分已是預設值。
    
     ![Azure 入口網站 - 規則設定](./media/virtual-networks-create-nsg-arm-pportal/figure4.png)
 5. 數秒後，您會看到 NSG 中的新規則。

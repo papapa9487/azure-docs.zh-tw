@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 3af597d7af13daaf80cd750b230675c8475033e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>管理 Azure SQL Database 中單一資料庫的資源
 
@@ -37,7 +36,7 @@ ms.lasthandoff: 09/26/2017
 ![設定服務層和效能等級](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> 選取 P11 或 P15 服務層時，檢閱 [P11 和 P15 資料庫目前的大小上限為 4 TB](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。
+> 選取 P11 或 P15 服務層時，檢閱 [P11 和 P15 資料庫目前的大小上限為 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>使用 PowerShell 管理單一資料庫資源
@@ -60,12 +59,12 @@ ms.lasthandoff: 09/26/2017
 
 | Cmdlet | 說明 |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |建立資料庫|
-|[az sql db list](/cli/azure/sql/db#list)|列出伺服器中的所有資料庫和資料倉儲，或彈性集區中的所有資料庫|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|列出可用的服務目標與儲存體限制|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|傳回資料庫使用方式|
-|[az sql db show](/cli/azure/sql/db#show)|取得資料庫或資料倉儲|
-|[az sql db update](/cli/azure/sql/db#update)|更新資料庫|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|建立伺服器防火牆規則|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|列出伺服器上的防火牆規則|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|顯示防火牆規則的詳細資料|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|更新防火牆規則|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|刪除防火牆規則|
+
 
 > [!TIP]
 > 如需會在查詢資料庫的大小資訊後將單一 Azure SQL Database 調整為不同效能等級的 Azure CLI 範例指令碼，請參閱[使用 CLI 來監視和調整單一 SQL 資料庫](scripts/sql-database-monitor-and-scale-database-cli.md)。
@@ -111,4 +110,3 @@ ALTER DATABASE <myDatabaseName>
 - 若要了解服務層、效能等級和儲存體數量，請參閱[服務層](sql-database-service-tiers.md)。
 - 若要深入了解彈性集區，請參閱[彈性集區](sql-database-elastic-pool.md)。
 - 了解 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
-

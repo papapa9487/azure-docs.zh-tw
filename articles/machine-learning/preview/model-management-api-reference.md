@@ -11,12 +11,11 @@ ms.workload: data-services
 ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4c4391cecaf10428b5d4cacf3b39e6a08d417053
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-model-management-account-api-reference"></a>Azure Machine Learning 模型管理帳戶 API 參考
 
@@ -931,5 +930,4 @@ Azure Machine Learning 模型的執行個體
 |---|---|---|
 |**properties**  <br>*必要*||< string, string > map|
 |**runtimeType**  <br>*必要*|指定執行階段|enum (SparkPython, Python)|
-
 

@@ -11,10 +11,10 @@ ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.openlocfilehash: 2aa9d10749b54537495ad3e09566c43718f67a9e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-the-azure-portal"></a>使用 Azure 入口網站來設計您第一個適用於 PostgreSQL 的 Azure 資料庫
 
@@ -78,11 +78,11 @@ ms.lasthandoff: 08/29/2017
  ![適用於 PostgreSQL 的 Azure 資料庫 - 搜尋伺服器 ](./media/tutorial-design-database-using-azure-portal/4-locate.png)
 
 2.  在伺服器刀鋒視窗中，選取 [連線安全性]。 
-3.  在 [規則名稱] 底下的文字方塊中按一下，然後新增新的防火牆規則，以將 IP 範圍加入白名單來獲得連線能力。 針對本教學課程，我們將輸入 **Rule Name = AllowAllIps**、**Start IP = 0.0.0.0** 及 **End IP = 255.255.255.255**，然後按一下 [儲存]，來允許所有 IP。 您可以設定一個防火牆規則，來涵蓋能夠從您網路連線的 IP 範圍。
+3.  在 [規則名稱] 底下的文字方塊中按一下，然後新增新的防火牆規則，以將 IP 範圍加入白名單來獲得連線能力。 針對本教學課程，我們將輸入 **Rule Name = AllowAllIps**、**Start IP = 0.0.0.0** 及 **End IP = 255.255.255.255**，然後按一下儲存，來允許所有 IP。 您可以設定一個防火牆規則，來涵蓋能夠從您網路連線的 IP 範圍。
  
  ![適用於 PostgreSQL 的 Azure 資料庫 - 建立防火牆規則](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
-4.  按一下 [儲存]，然後按一下 [X]，以關閉 [連線安全性] 頁面。
+4.  按一下 儲存，然後按一下X，以關閉 連線安全性 頁面。
 
   > [!NOTE]
   > Azure PostgreSQL 伺服器會透過連接埠 5432 進行通訊。 如果您嘗試從公司網路內進行連線，您網路的防火牆可能不允許透過連接埠 5432 的輸出流量。 若是如此，除非 IT 部門開啟連接埠 5432，否則您將無法連線到 Azure SQL Database 伺服器。

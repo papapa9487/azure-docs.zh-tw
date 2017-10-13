@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 7897a30bf1774609ca8e6037dabcd5fbf4151271
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-2-review-the-prerequisites-and-limitations-for-hyper-v-vm-replication-to-a-secondary-vmm-site"></a>步驟 2：檢閱將 Hyper-V VM 複寫至次要 VMM 站台的必要條件和限制
 
@@ -44,4 +43,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 3：規劃網路服務](vmm-to-vmm-walkthrough-network.md)。
-

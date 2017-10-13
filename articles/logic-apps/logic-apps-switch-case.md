@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: LADocs; deli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 196f6d03567cbad8e061d45be546bc86015ede2e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/04/2017
-
+ms.openlocfilehash: 338b6a5b549d7bf81186550295608438ac4aee32
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="perform-different-actions-in-logic-apps-with-a-switch-statement"></a>使用 Switch 陳述式在邏輯應用程式中執行不同動作
 
 當製作工作流程時，您通常需要根據物件或運算式的值採取不同的動作。 例如，您可能會根據 HTTP 要求的狀態碼或電子郵件中選取的選項，讓邏輯應用程式行為有所不同。

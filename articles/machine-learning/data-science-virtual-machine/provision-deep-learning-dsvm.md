@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: db1360fa54d82c50adc04194697d994925338296
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
 
@@ -72,7 +71,7 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
 > 
 
 #### <a name="installing-and-configuring-x2go-client"></a>安裝和設定 X2Go 用戶端
-Linux DLVM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連接到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
+Linux DLVM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
 1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
 2. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
@@ -87,4 +86,3 @@ Linux DLVM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 �
 當您透過 X2Go 用戶端使用 SSH 用戶端或 XFCE 圖形化桌面登入 VM 之後，便可開始使用已安裝並設定於 VM 上的工具。 在 XFCE 上，您可以看到許多工具的應用程式功能表捷徑和桌面圖示。
 
 一旦建立並佈建您的 VM，您已準備好開始使用在上面安裝及設定的工具。 我們為許多工具提供了開始功能表磚和桌面圖示。 
-

@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 945b09ccdb7537987da33d32d94a3ccacd829ffd
-ms.contentlocale: zh-tw
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="create-an-application-express"></a>建立應用程式 (快速)
 現在您需要在「Microsoft 應用程式註冊入口網站」註冊應用程式：
 1. 透過 [Microsoft 應用程式註冊入口網站 (英文)](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure) 註冊您的應用程式
@@ -71,4 +69,3 @@ final static String CLIENT_ID = "[Enter the application Id here]";
 在 `BrowserTabActivity` 中，以應用程式識別碼取代 `[Enter the application Id here]`。
 </li>
 </ol>
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: anavin;jdial
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ebe418f03c2edf176790f654f3f9f4d7eec09165
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-same-subscription"></a>建立虛擬網路對等互連 - Resource Manager，相同訂用帳戶
 
@@ -200,7 +199,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="powershell"></a>建立對等互連 - PowerShell
 
 1. 安裝最新版的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-2. 若要啟動 PowerShell 工作階段，請移至 [開始]，輸入 **powershell**，然後按一下 [PowerShell]。
+2. 若要啟動 PowerShell 工作階段，請移至 開始，輸入 **powershell**，然後按一下PowerShell。
 3. 在 PowerShell 中，輸入 `login-azurermaccount` 命令來登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需詳細資訊，請參閱本文的[權限](#permissions)一節。
 4. 建立一個資源群組和兩個虛擬網路。 若要執行指令碼，請複製下列指令碼、將它貼到 PowerShell，然後當螢幕上出現最後一行之後按 `Enter`：
 
@@ -282,7 +281,7 @@ ms.lasthandoff: 09/25/2017
 
 1. 在入口網站的搜尋方塊中，輸入 **myResourceGroup**。 在搜尋結果中按一下 [myResourceGroup]。
 2. 在 [myResourceGroup] 刀鋒視窗中，按一下 [刪除] 圖示。
-3. 若要確認刪除動作，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+3. 若要確認刪除動作，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroup**，然後按一下刪除。
 
 ### <a name="delete-cli"></a>Azure CLI
 
@@ -305,4 +304,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -force
 - 請先徹底熟悉重要[虛擬網路對等互連的條件約束和行為](virtual-network-manage-peering.md#requirements-and-constraints)，再建立虛擬網路對等互連以供生產環境使用。
 - 了解所有[虛擬網路對等互連設定](virtual-network-manage-peering.md#create-a-peering)。
 - 了解如何透過虛擬網路對等互連來[建立中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering)。
-

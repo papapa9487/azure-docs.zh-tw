@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: 6a91ea2251ea3b748faba5c97765bfded9c00234
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>使用彈性資料庫工具加入分區
 ## <a name="to-add-a-shard-for-a-new-range-or-key"></a>為新的範圍或索引鍵加入分區

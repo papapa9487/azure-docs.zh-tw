@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 991c72352eaa4c3b12fcdc1e4112063fb698e772
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="hyper-v-to-azure-replication-architecture"></a>Hyper-V 至 Azure 複寫架構
 
 
@@ -154,5 +151,4 @@ Hyper-V 主機可選擇性第在 System Center Virtual Machine Manager (VMM) 私
 
 請檢閱「遵循教學課程」支援對照表，以啟用 Hyper-V 複寫到 Azure。
 執行容錯移轉和容錯回復。
-
 

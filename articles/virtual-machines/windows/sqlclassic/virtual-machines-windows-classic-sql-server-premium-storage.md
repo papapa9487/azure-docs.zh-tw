@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
@@ -451,8 +450,7 @@ ms.lasthandoff: 08/21/2017
 
 ##### <a name="disadvantages"></a>缺點
 * 如果您想要同時執行這兩個 Always On 叢集，就需要變更接聽程式的 DNS 名稱。 因為用戶端應用程式字串必須反映新的接聽程式名稱，所以這會在移轉期間增加管理負荷。
-* 您必須在這兩個環境之間實作同步處理機
-制，使它們盡可能靠近彼此，以便在移轉之前將最後的同步處理需求降至最低。
+* 您必須在這兩個環境之間實作同步處理機制，使它們盡可能靠近彼此，以便在移轉之前將最後的同步處理需求降至最低。
 * 當您正在執行新環境時，這會在移轉期間增加成本。
 
 ### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>利用最少的停機時間移轉 Always On 部署
@@ -1128,4 +1126,3 @@ ms.lasthandoff: 08/21/2017
 [23]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_13.png
 [24]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_14.png
 [25]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/10_Appendix_15.png
-

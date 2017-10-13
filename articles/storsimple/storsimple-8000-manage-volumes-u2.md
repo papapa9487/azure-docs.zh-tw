@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/19/2017
 ms.author: alkohli
 ms.openlocfilehash: 09f4de79ab9b0cdfafd10c7c7c29b0f8e6304f14
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>使用 StorSimple 裝置管理員服務來管理磁碟區 (Update 3 或更新版本)
 
@@ -142,7 +142,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-modify-a-volume"></a>若要修改磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
     ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -224,7 +224,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-change-the-volume-type"></a>變更磁碟區類型
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
     ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -258,7 +258,7 @@ StorSimple 磁碟區可以是：
 2. 先使主機上的磁碟區離線。 這樣做可以排除任何會造成磁碟區上資料損毀的潛在風險。 如需特定步驟，請參閱主機作業系統的指示。
 3. 在主機離線之後，請執行下列步驟以使裝置上的磁碟區離線：
    
-    1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+    1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
         ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -286,7 +286,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-delete-a-volume"></a>若要刪除磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 
     ![移至 [磁碟區] 刀鋒視窗](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
 
@@ -320,7 +320,7 @@ StorSimple 磁碟區可以是：
 
 #### <a name="to-enable-or-disable-volume-monitoring"></a>若要啟用或停用監視磁碟區
 
-1. 移至 StorSimple 裝置管理員服務，然後按一下 [裝置]。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
+1. 移至 StorSimple 裝置管理員服務，然後按一下裝置。 從裝置的表格式清單中，選取您想要修改磁碟區的裝置。 按一下 [設定] > [磁碟區]。
 2. 從磁碟區的表格式清單中，選取磁碟區，然後按一下滑鼠右鍵以叫用操作功能表。 選取 [修改]。
 3. 在 [修改磁碟區] 刀鋒視窗中，將 [監視] 選取 [啟用] 或 [停用]，以啟用或停用監視。
 

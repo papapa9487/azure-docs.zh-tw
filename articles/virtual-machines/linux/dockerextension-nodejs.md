@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: a3cbcf63533f4042dcd695e141655c5814bd7068
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension-with-the-azure-cli-10"></a>在 Azure 中使用 Docker VM 延伸模組搭配 Azure CLI 1.0 建立 Docker 環境
 Docker 是常用的容器管理和映像處理平台，它能讓您在 Linux 上 (和 Windows 上) 快速地操作容器。 在 Azure 中，您可以根據您的需求使用幾個方式來部署 Docker。 本文著重於使用 Docker VM 延伸模組與 Azure Resource Manager 範本。 
@@ -201,5 +200,4 @@ b6ed109fb743        nginx               "nginx -g 'daemon off"   About a minute 
 * [使用 Docker 電腦搭配 Azure 驅動程式](docker-machine.md)  
 * [在 Azure 虛擬機器上開始使用 Docker 和 Compose 定義並執行多容器應用程式](docker-compose-quickstart.md)。
 * [部署 Azure 容器服務叢集](../../container-service/dcos-swarm/container-service-deployment.md)
-
 

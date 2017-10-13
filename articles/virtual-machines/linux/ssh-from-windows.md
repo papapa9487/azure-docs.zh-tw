@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 7f572adf499dd1fcd0db19500c9049af1e31cdea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>如何在 Azure 上搭配 Windows 使用 SSH 金鑰
 > [!div class="op_single_selector"]
@@ -173,7 +172,7 @@ PuTTY 是適用於 Windows 的常見 SSH 用戶端。 您可以免費使用任�
 2. 從 Azure 入口網站填入 VM 的主機名稱或 IP 位址：
 
     ![開啟新的 PuTTY 連線](./media/ssh-from-windows/putty-new-connection.png)
-3. 選取 [開啟] 之前，按一下 [連線] > [SSH] > [Auth] 索引標籤。 瀏覽至您的私密金鑰並加以選取︰
+3. 選取 [開啟] 之前，按一下 [連線] > [SSH] > [Auth] 索引標籤。瀏覽至您的私密金鑰並加以選取︰
 
     ![選取您的 PuTTY 私密金鑰進行驗證](./media/ssh-from-windows/putty-auth-dialog.png)
 4. 按一下 [開啟]  以連線到虛擬機器。
@@ -184,4 +183,3 @@ PuTTY 是適用於 Windows 的常見 SSH 用戶端。 您可以免費使用任�
 如需 Bash for Windows 的詳細資訊以及在 Windows 電腦上備妥 OSS 工具的優點，請參閱 [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about)。
 
 如果您無法使用 SSH 連接至 Linux VM，請參閱[針對 Azure Linux VM 的 SSH 連線進行疑難排解](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-

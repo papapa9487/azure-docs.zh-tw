@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: f82a95ec9543b2d53ef28bf7f15315e23cf4893a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-with-multiple-subnets"></a>建立有多個子網路的虛擬網路
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 09/07/2017
 
 1. 在網際網路瀏覽器中，移至 [Azure 入口網站](https://portal.azure.com)。 使用您的 [Azure 帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account)登入。 如果您沒有 Azure 帳戶，您可以註冊 [免費試用](https://azure.microsoft.com/offers/ms-azr-0044p)。
 2. 在入口網站中按一下 [+新增] > [網路] > [虛擬網路]。
-3. 在 [建立虛擬網路] 刀鋒視窗中輸入下列值，然後按一下 [建立]：
+3. 在 建立虛擬網路 刀鋒視窗中輸入下列值，然後按一下建立：
 
     |設定|值|
     |---|---|
@@ -161,7 +160,7 @@ ms.lasthandoff: 09/07/2017
     |Subnet2Prefix|10.0.1.0/24|
     |Subnet2Name|私人|
 
-5. 同意條款及條件，然後按一下 [購買] 以部署虛擬網路。
+5. 同意條款及條件，然後按一下購買 以部署虛擬網路。
 
 ### <a name="template-cli"></a>Azure CLI
 
@@ -212,7 +211,7 @@ ms.lasthandoff: 09/07/2017
 
 1. 在入口網站的搜尋方塊中，輸入 **myResourceGroup**。 在搜尋結果中按一下 [myResourceGroup]。
 2. 在 [myResourceGroup] 刀鋒視窗中，按一下 [刪除] 圖示。
-3. 若要確認刪除動作，請在 [輸入資源群組名稱] 方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
+3. 若要確認刪除動作，請在 輸入資源群組名稱 方塊中輸入 **myResourceGroup**，然後按一下刪除。
 
 ### <a name="delete-cli"></a>Azure CLI
 
@@ -238,4 +237,3 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 - 在現有虛擬網路中建立 [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。
 - 在虛擬網路之間建立[虛擬網路對等互連](virtual-network-peering-overview.md)以將兩個虛擬網路連線。
 - 使用 [VPN 閘道](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 線路將虛擬網路連線至內部部署網路。
-

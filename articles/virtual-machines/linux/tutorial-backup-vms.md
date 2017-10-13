@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
+ms.openlocfilehash: 0e659c1906c99415ab1b53785a606330ef9068c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: d0cbf7883a8737bcb10e9dd251c9792a12993f77
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-linux--virtual-machines-in-azure"></a>備份 Azure 中的 Linux 虛擬機器
 
@@ -174,5 +173,4 @@ Azure 備份服務開始備份時，會觸發備份擴充功能以建立時間�
 
 > [!div class="nextstepaction"]
 > [監視虛擬機器](tutorial-monitoring.md)
-
 

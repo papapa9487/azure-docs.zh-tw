@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/06/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 243ee799d2cddb1baf5b8046eee6eaf182463d2e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
 本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
 
@@ -69,7 +67,7 @@ ms.lasthandoff: 08/29/2017
 
     ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
 
-4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [+&nbsp;容器] 建立 Blob 儲存體。
+4. 在 Azure 入口網站中，選取儲存體帳戶。 在 儲存體帳戶 刀鋒視窗中，按一下 容器，然後按一下+&nbsp;容器 建立 Blob 儲存體。
 
     ![建立 Blob 容器](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
 
@@ -193,7 +191,7 @@ ms.lasthandoff: 08/29/2017
 
 2. 回到工作概觀刀鋒視窗。
 
-3. 在 [設定] 下，選取 [函數]，然後按一下 [+ 新增]。
+3. 在 設定 下，選取 函數，然後按一下+ 新增。
 
    ![將函數新增至串流分析工作](./media/stream-analytics-machine-learning-integration-tutorial/create-function1.png) 
 
@@ -277,7 +275,6 @@ ms.lasthandoff: 08/29/2017
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [整合 REST API 與 Machine Learning](stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 
 
 

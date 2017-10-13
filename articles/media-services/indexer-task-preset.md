@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: adsolank;juliako;
+ms.openlocfilehash: ae6c4da189cd6637b4e1fa9274473b62f6664e51
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
-ms.openlocfilehash: 520785880cb5c9dfa5191a097fdcc3ad776f403e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Azure 媒體索引器的工作預設
 
@@ -65,5 +64,4 @@ Azure 媒體索引器是您執行下列工作所使用的媒體處理器：使�
 ## <a name="next-steps"></a>後續步驟
 
 請參閱[使用 Azure 媒體索引器為媒體檔案編製索引](media-services-index-content.md)。
-
 

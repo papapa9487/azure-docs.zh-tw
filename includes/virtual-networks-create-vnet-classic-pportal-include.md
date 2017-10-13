@@ -22,7 +22,7 @@
 9. 您應該會看到 VNet 的 [ **組態** ]，如下所示。 
    
     ![在入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
-10. 依序按一下 [子網路]  >  [新增]，然後鍵入 [名稱]，並指定您子網路的 [位址範圍 (CIDR 區塊)]，然後按一下 [確定]。 下圖顯示我們目前案例的設定。
+10. 依序按一下 子網路  >  新增，然後鍵入 名稱，並指定您子網路的 位址範圍 (CIDR 區塊)，然後按一下確定。 下圖顯示我們目前案例的設定。
     
     ![在 Azure 入口網站中建立 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
 

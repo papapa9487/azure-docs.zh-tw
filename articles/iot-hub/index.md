@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: d42045b1c354b7bd5f9299181aefd6d98fda382b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 270d1aec5855ee3bb9cc121526d311ab78d989c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-documentation"></a>IoT 中樞文件 
 
 了解如何使用 IoT 中樞來連接、監視及控制數百萬個物聯網資產。 教學課程、API 參考、影片和其他文件可協助您在 IoT 裝置與解決方案後端之間部署可靠的雙向通訊。 
@@ -168,4 +166,3 @@ ms.lasthandoff: 06/07/2017
         </div>
     </li>
 </ul>
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>為 Hyper-V VM 及您的次要內部部署網站執行災害復原演練
 
@@ -55,8 +54,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-[執行實際容錯移轉](tutorial-vmm-to-vmm-failover-failback.md)
-
+[執行產生容錯移轉](tutorial-vmm-to-vmm-failover-failback.md)
 
 
 

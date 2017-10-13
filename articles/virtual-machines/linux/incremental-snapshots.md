@@ -1,4 +1,3 @@
-
 ---
 title: "使用增量快照集備份和復原非受控 Azure Linux VM 磁碟 | Microsoft Docs"
 description: "使用增量快照，建立備份和復原 Azure Linux 虛擬機器磁碟的自訂解決方案。"
@@ -15,11 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: aungoo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e73bd496f5909ddeaa5791628ac08a07ea8a7889
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

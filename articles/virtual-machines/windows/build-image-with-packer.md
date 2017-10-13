@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/18/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 11a4a4d65be09e6c518836c25bb455a6df738dcb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何在 Azure 中使用 Packer 來建立 Windows 虛擬機器映像
 Azure 中的每個虛擬機器 (VM) 都是透過映像所建立，而映像則會定義 Windows 散發套件和作業系統版本。 映像中可包含預先安裝的應用程式與組態。 Azure Marketplace 提供了許多第一方和第三方映像，這些映像適用於最常見的作業系統和應用程式環境，而您也可以建立自己自訂的映像，以符合您的需求。 本文詳述如何使用開放原始碼工具 [Packer](https://www.packer.io/)，在 Azure 中定義並建置自訂映像。
 
@@ -71,8 +69,8 @@ $sub.SubscriptionId
 | tenant_id                         | `$sub.TenantId` 命令所產生的輸出 |
 | subscription_id                   | `$sub.SubscriptionId` 命令所產生的輸出 |
 | object_id                         | 檢視具有 `$sp.Id` 的服務主體物件識別碼 |
-| *managed_image_resource_group_name* | 您在第一個步驟中建立的資源群組名稱 |
-| *managed_image_name*                | 所建立之受控磁碟映像的名稱 |
+| managed_image_resource_group_name | 您在第一個步驟中建立的資源群組名稱 |
+| managed_image_name                | 所建立之受控磁碟映像的名稱 |
 
 ```json
 {

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/23/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: ef87cd82b021e40f0da05142878daff245cd9c62
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-hyper-v-with-vmm-to-azure-replication"></a>步驟 4：針對將 Hyper-V 複寫至 Azure 的複寫作業 (含 VMM) 規劃網路服務
 
 執行[容量規劃](vmm-to-azure-walkthrough-capacity.md) (如果您進行完整部署) 後，閱讀本文以了解使用 [Azure Site Recovery](site-recovery-overview.md)服務將 System Center Virtual Machine Manager (VMM) 雲端中的內部部署 Hyper-V VM 複寫至 Azure 時，所需要的網路規劃考量。
@@ -114,4 +112,3 @@ Woodgrove 若要既能將其 VM 複寫至 Azure，同時又保留 IP 位址，�
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 5：準備 Azure](vmm-to-azure-walkthrough-prepare-azure.md)
-

@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure 搜尋服務索引子中的欄位對應
 使用 Azure 搜尋服務索引子時，您偶爾會發現置身於輸入資料不完全符合目標索引結構描述的情況中。 在這些情況下，您可以使用 **欄位對應** 將您的資料轉換成所需的形狀。
 
@@ -206,4 +204,3 @@ Azure SQL 資料庫沒有內建資料類型，不能自然對應至 Azure 搜尋
 
 ## <a name="help-us-make-azure-search-better"></a>協助我們改進 Azure 搜尋服務
 如果您有功能要求或改進的想法，請在我們的 [UserVoice 網站](https://feedback.azure.com/forums/263029-azure-search/)與我們連絡。
-

@@ -11,15 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a02f5e827345a1d28f01d691e1b6fbccfc03ae8a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="derive-column-by-example-transformation"></a>衍生資料行實例化轉換
 
 **衍生資料行實例化**轉換可讓使用者使用衍生結果的提供範例，建立一或多個現有資料行的衍生項目。 衍生項目可以是支援的字串、日期和數字轉換的任何組合。 
@@ -390,4 +387,3 @@ Workbench 會分析資料，並嘗試找出使用者應該檢閱的邊緣案例�
 
 ### <a name="reference"></a>參考
 關於字串轉換實例化技術的詳細資訊，可在[此發佈](https://www.microsoft.com/en-us/research/publication/automating-string-processing-spreadsheets-using-input-output-examples/)中找到。
-

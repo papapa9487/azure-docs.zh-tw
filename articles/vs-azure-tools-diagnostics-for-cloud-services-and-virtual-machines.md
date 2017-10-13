@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d3c85cde864d599871e195df2e81548180e647ba
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-diagnostics-for-azure-cloud-services-and-virtual-machines"></a>為 Azure 雲端服務和虛擬機器設定診斷功能
 當您需要疑難排解 Azure 雲端服務或 Azure 虛擬機器時，您可以使用 Visual Studio 更輕鬆地設定 Azure 診斷。 Azure 診斷會在執行雲端服務的虛擬機器和虛擬機器執行個體上擷取系統資料和記錄資料，並將該資料傳送到您所選擇的儲存體帳戶。 如需有關 Azure 中診斷記錄的詳細資訊，請參閱 [在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能](app-service/web-sites-enable-diagnostic-log.md)。
@@ -302,5 +301,4 @@ RoleEntryPoint 的方法是在 WAIISHost.exe 的內容中呼叫，而不是 IIS�
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 中的診斷記錄，請參閱[在 Azure 雲端服務](cloud-services/cloud-services-dotnet-diagnostics.md)和[虛擬機器中啟用診斷和在 Azure App Service 中啟用 web 應用程式的診斷記錄](app-service/web-sites-enable-diagnostic-log.md)。
-
 

@@ -16,10 +16,10 @@ ms.custom: loading
 ms.date: 03/30/2017
 ms.author: cakarst;douglasl;barbkess
 ms.openlocfilehash: 6c9cebdd715b6997d0633bc725a3945ba9e0c357
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-sql-server-into-azure-sql-data-warehouse-ssis"></a>將資料從 SQL Server 載入 Azure SQL 資料倉儲 (SSIS)
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ SQL Server Integration Services (SSIS) 是彈性的工具組合，提供連接�
 
 1. **SQL Server Integration Services (SSIS)**。 SSIS 是 SQL Server 的元件，需有試用版或授權版的 SQL Server。 若要取得 SQL Server 2016 Preview 的試用版，請參閱 [SQL Server 試用版][SQL Server Evaluations]。
 2. **Visual Studio**。 若要取得免費的 Visual Studio Community Edition，請參閱 [Visual Studio Community][Visual Studio Community]。
-3. **SQL Server Data Tools for Visual Studio (SSDT)**。 若要取得適用於 Visual Studio 的 SQL Server Data Tools，請參閱[下載 SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)]。
+3. **適用於 Visual Studio 的 SQL Server Data Tools (SSDT)**。 若要取得適用於 Visual Studio 的 SQL Server Data Tools，請參閱[下載 SQL Server Data Tools (SSDT)][Download SQL Server Data Tools (SSDT)]。
 4. **範例資料**。 本教學課程會使用 AdventureWorks 範例資料庫中儲存在 SQL Server 中的範例資料，做為要載入 SQL 資料倉儲的來源資料。 若要取得 AdventureWorks 範例資料庫，請參閱 [AdventureWorks 2014 範例資料庫][AdventureWorks 2014 Sample Databases]。
 5. **SQL 資料倉儲資料庫和權限**。 本教學課程會連接到 SQL 資料倉儲執行個體，並載入資料至執行個體。 您必須具有建立資料表以及載入資料的權限。
 6. **防火牆規則**。 您必須先在使用您本機電腦 IP 位址的 SQL 資料倉儲上建立防火牆規則，才您可以將資料上傳到此 SQL 資料倉儲。

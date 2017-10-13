@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
 ms.author: kraigb
+ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2fc396c93c3156054277d592eb2772fd29eed832
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>使用 Visual Studio 的已連接服務加入 Azure 儲存體
 使用 Visual Studio 時，您可以使用 [加入已連接服務] 對話方塊，將下列任何服務連接到「Azure 儲存體」：
@@ -75,4 +74,3 @@ ms.lasthandoff: 08/21/2017
 - [MSDN 論壇︰Azure 儲存體](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 - [Microsoft Azure 儲存體小組部落格 (英文)](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Azure 儲存體文件](https://docs.microsoft.com/azure/storage/)
-

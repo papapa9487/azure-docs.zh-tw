@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: c3476908447380ccd7e8b9c0f1c2a55ae763cc1e
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>在傳統部署模型中使用 PowerShell 來管理端點存取控制清單
 您可以使用 Azure PowerShell 或在管理入口網站中建立和管理端點的網路存取控制清單 (ACL)。 在本主題中，您會了解一些可使用 PowerShell 完成 ACL 一般工作的程序。 如需 Azure PowerShell Cmdlet 的清單，請參閱＜ [Azure 管理 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)＞。 如需有關 ACL 的詳細資訊，請參閱＜ [什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)＞。 若您要使用管理入口網站來管理 ACL，請參閱[如何設定虛擬機器的端點](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。
@@ -89,5 +88,4 @@ ms.lasthandoff: 03/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 [什麼是網路存取控制清單 (ACL)？](virtual-networks-acl.md)
-
 

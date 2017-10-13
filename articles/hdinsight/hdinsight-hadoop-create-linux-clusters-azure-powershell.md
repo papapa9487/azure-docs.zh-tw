@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: ca75974e6ec4f60739137d4cb5458bbfd735de3e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 079a3d1c7f91477d641dbc65fe0f04e86a0dcd30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
 
@@ -56,7 +55,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 下列指令碼示範如何建立新叢集：
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster.ps1?range=5-71)]
 
 您為叢集登入指定的值會用來建立叢集的 Hadoop 使用者帳戶。 請使用此帳戶來連線叢集上裝載的服務，像是 web UI 或 REST API。
 
@@ -75,7 +74,7 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 下列指令碼會建立可在 HDInsight 叢集類型上設定 R 伺服器的設定物件。 此設定可啟用邊緣節點、RStudio 和其他儲存體帳戶。
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/create-cluster/create-cluster-with-config.ps1?range=59-98)]
 
 > [!WARNING]
 > 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。 使用此範例時，請在與伺服器相同的位置建立其他儲存體帳戶。
@@ -121,5 +120,4 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 * [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Spark 串流：使用 HDInsight 中的 Spark 來建置即時串流應用程式](hdinsight-apache-spark-eventhub-streaming.md)
-
 

@@ -10,14 +10,12 @@ ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 0e6a92eeb9711b086359ab2cd1aea87a57f1fc36
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-database-for-mysql-database"></a>設計您第一個適用於 MySQL 資料庫的 Azure 資料庫
 
 「適用於 MySQL 的 Azure 資料庫」是 Microsoft 雲端中以 MySQL Community Edition 資料庫引擎為基礎的關聯式資料庫服務。 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
@@ -186,4 +184,3 @@ az mysql server restore --resource-group mycliresource --name mycliserver-restor
 
 > [!div class="nextstepaction"]
 > [適用於 MySQL 的 Azure 資料庫 - Azuer CLI 範例](./sample-scripts-azure-cli.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>BGP 與 Azure VPN 閘道概觀
 這篇文章提供 Azure VPN 閘道中的 BGP (邊界閘道協定) 支援概觀。
@@ -56,5 +55,4 @@ BGP 可讓多個閘道識別及傳播來自不同網路的首碼，無論這些�
 
 ## <a name="next-steps"></a>後續步驟
 請參閱 [開始使用 Azure VPN 閘道上的 BGP](vpn-gateway-bgp-resource-manager-ps.md) ，以了解設定跨單位與 VNet 對 VNet 連線 BGP 的步驟。
-
 

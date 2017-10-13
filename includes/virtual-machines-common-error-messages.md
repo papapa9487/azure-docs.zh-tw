@@ -180,7 +180,7 @@ Azure VM 使用下列 JSON 格式來產生錯誤回應：
 |  VMExtensionManagementInternalError  |  準備 VM 擴充時發生多個錯誤。 如需詳細資訊，請參閱 VM 擴充執行個體檢視。  |
 |  VMExtensionProvisioningError  |  VM 回報在處理擴充 '{0}' 時失敗。 錯誤訊息: "{1}"。  |
 |  VMExtensionProvisioningError  |  多個 VM 擴充無法佈建在 VM 上。 如需詳細資訊，請參閱 VM 擴充執行個體檢視。  |
-|  VMExtensionProvisioningTimeout  |  VM 擴充 '{0}' 的佈建已逾時。 擴充安裝可能花太長的時間，或無法取得擴充狀態。  |
+|  VMExtensionProvisioningTimeout  |  VM 擴充 '{0}' 的佈建已逾時。擴充安裝可能花太長的時間，或無法取得擴充狀態。  |
 |  VMMarketplaceInvalidInput  |  從非 Marketplace 映像建立虛擬機器不需要方案資訊，請移除要求中的方案資訊。 作業系統磁碟名稱是 {0}。  |
 |  VMMarketplaceInvalidInput  |  購買資訊不符。 無法從 Marketplace 映像部署。 作業系統磁碟名稱是 {0}。  |
 |  VMMarketplaceInvalidInput  |  要求中必須有方案資訊，才能從 Marketplace 映像建立虛擬機器。 作業系統磁碟名稱是 {0}。  |

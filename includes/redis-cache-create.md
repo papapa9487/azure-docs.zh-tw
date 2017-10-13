@@ -1,4 +1,4 @@
-若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [新增] > [資料庫] > [Redis 快取]。
+若要建立快取，請先登入 [Azure 入口網站](https://portal.azure.com)，然後按一下新增 > [資料庫] > [Redis 快取]。
 
 > [!NOTE]
 > 如果您沒有 Azure 帳戶，只需要幾分鐘的時間就可以 [免費申請 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero) 。

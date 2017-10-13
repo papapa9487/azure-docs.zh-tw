@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 91588910334859c1ea77186674d5bfb31b311b36
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 2124dadd1fc6b5d57250c09d31155a4b421fac26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-cli-10"></a>使用 Azure CLI 1.0，利用 Azure 網路監看員管理封包擷取
 
 > [!div class="op_single_selector"]
@@ -225,4 +223,3 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 造訪[檢查 IP 流量驗證](network-watcher-check-ip-flow-verify-portal.md)來得知 VM 是否允許特定流量流入或流出
 
 <!-- Image references -->
-

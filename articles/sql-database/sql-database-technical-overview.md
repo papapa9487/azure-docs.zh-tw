@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: carlrab
+ms.openlocfilehash: 07c4b4cb920dca7d95caa2fc5f98b0d33ea51dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d373ecaf585233f5daa4cf987e55adab9e099f8f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？ 
 
@@ -118,7 +117,7 @@ SQL Database 提供了各式各樣的[內建安全性與合規性功能](sql-dat
 
 ### <a name="data-encryption-at-rest"></a>待用資料加密
 
-SQL Database 的[透明資料加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database)可在不需變更應用程式的情況下，對靜止的資料庫、相關聯的備份和交易記錄執行即時加密和解密，協助防止惡意活動的威脅。 從 2017 年 5 月開始，會使用透明資料加密 (TDE) 自動保護所有新建的 Azure SQL 資料庫。 TDE 是 SQL 經實證的靜態加密技術，許多合規性標準都需要這項奇數才能防禦儲存媒體的竊取。 客戶可以使用 Azure Key Vault，以安全且符合規範的方式管理 TDE 加密金鑰和其他祕密。
+SQL Database 的[透明資料加密](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)可在不需變更應用程式的情況下，對靜止的資料庫、相關聯的備份和交易記錄執行即時加密和解密，協助防止惡意活動的威脅。 從 2017 年 5 月開始，會使用透明資料加密 (TDE) 自動保護所有新建的 Azure SQL 資料庫。 TDE 是 SQL 經實證的靜態加密技術，許多合規性標準都需要這項奇數才能防禦儲存媒體的竊取。 客戶可以使用 Azure Key Vault，以安全且符合規範的方式管理 TDE 加密金鑰和其他祕密。
 
 ### <a name="data-encryption-in-motion"></a>移動中資料加密
 
@@ -172,4 +171,3 @@ SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 - 如需一組 Azure CLI 和 PowerShell 範例，請參閱︰
   - [SQL Database 的 Azure CLI 範例](sql-database-cli-samples.md)
   - [SQL Database 的 Azure PowerShell 範例](sql-database-powershell-samples.md)
-

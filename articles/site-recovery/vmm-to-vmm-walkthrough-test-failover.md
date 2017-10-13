@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 23d235d326273e7ec59feee6588a39f685401e52
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-10-run-a-test-failover-for-hyper-v-replication-to-a-secondary-site"></a>步驟 10：針對將 Hyper-V 複寫至次要站台的複寫作業執行測試容錯移轉
 
@@ -56,4 +55,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>後續步驟
 
 測試部署之後，接著可深入了解其他類型的[容錯移轉](site-recovery-failover.md)。
-

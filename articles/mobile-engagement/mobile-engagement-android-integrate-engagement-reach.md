@@ -14,13 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/27/2016
 ms.author: piyushjo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 26ba47b19f3a503693d60d344ad39b9eba74fe99
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-integrate-engagement-reach-on-android"></a>如何在 Android 上整合 Engagement Reach
 > [!IMPORTANT]
@@ -631,4 +629,3 @@ Reach SDK 使用意圖系統來解析特定類別的正確活動，如果解析�
 [here]:http://developer.android.com/tools/extras/support-library.html#Downloading
 [Google Cloud Messaging]:http://developer.android.com/guide/google/gcm/index.html
 [Amazon Device Messaging]:https://developer.amazon.com/sdk/adm.html
-

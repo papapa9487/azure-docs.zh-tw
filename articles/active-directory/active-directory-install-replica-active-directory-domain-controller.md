@@ -16,12 +16,11 @@ ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: fb0bacac346445e6bde9df22f3355419e3162a3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5a663bc8290d056b89a929c17722e3c233cdbad7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-replica-active-directory-domain-controller-in-an-azure-virtual-network"></a>在 Azure 虛擬網路中安裝複本 Active Directory 網域控制台
 此主題說明如何在 Azure 虛擬網路中的 Azure 虛擬機器 (VM) 上為內部部署 Active Directory 網域安裝其他網域控制站 (亦稱為複本網域控制站) 。
@@ -86,7 +85,7 @@ ms.lasthandoff: 07/25/2017
 
 ## <a name="reconfigure-dns-server-for-the-virtual-network"></a>重新設定虛擬網路的 DNS 伺服器
 1. 在 [Azure 入口網站](https://portal.azure.com)的 [搜尋資源] 方塊中，輸入「虛擬網路」，然後在搜尋結果中按一下 [虛擬網路 (傳統)]。 按一下虛擬網路的名稱，然後按一下[重新設定虛擬網路的 DNS 伺服器 IP 位址](../virtual-network/virtual-network-manage-network.md#dns-servers)，以使用指派給複本 DC 的靜態 IP 位址，而不是內部部署 DNS 伺服器的 IP 位址。
-2. 若要確保虛擬網路上的所有複本 DC VM 都已設定為使用虛擬網路上的 DNS 伺服器，請按一下 [虛擬機器]，按一下每個 VM 的狀態欄，然後按一下 [重新啟動]。 請等到 VM 顯示 [執行中]  狀態，再嘗試登入。
+2. 若要確保虛擬網路上的所有複本 DC VM 都已設定為使用虛擬網路上的 DNS 伺服器，請按一下 虛擬機器，按一下每個 VM 的狀態欄，然後按一下重新啟動。 請等到 VM 顯示 [執行中]  狀態，再嘗試登入。
 
 ## <a name="create-vms-for-application-servers"></a>建立應用程式伺服器的 VM
 1. 重複執行下列步驟來建立做為應用程式伺服器執行的 VM。 除非建議或需要另一個值，否則請接受設定的預設值。
@@ -115,4 +114,3 @@ ms.lasthandoff: 07/25/2017
 
 <!--Image references-->
 [1]: ./media/active-directory-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
-

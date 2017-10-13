@@ -8,14 +8,12 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 643cea5cc134a2eb25a0dec4abefd9edca726332
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>使用 Azure Machine Learning Workbench 的分散式超參數微調
 
 這個案例示範如何使用 Azure Machine Learning Workbench，相應放大實作 scikit-learn API 之機器學習演算法的超參數微調。 我們示範如何設定及使用遠端 Docker 容器和 Spark 叢集作為微調超參數時的執行後端。
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/25/2017
 * 若要執行具有遠端 Docker 容器的案例，請依照[指示](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm)佈建 Ubuntu 資料科學虛擬機器 (DSVM)。 我們建議使用至少 8 個核心和 28 GB 記憶體的虛擬機器。 虛擬機器的 D4 執行個體有此容量。 
 * 若要使用 Spark 叢集執行此案例，請依照[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)佈建 HDInsight 叢集。 我們建議叢集有至少 6 個背景工作節點，且在標頭與背景工作節點中至少有 8 個核心與 28 Gb 的記憶體。 虛擬機器的 D4 執行個體有此容量。 若要將叢集的效能最大化，我們建議遵循[指示](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager)並在「自訂 Spark 預設值」一節中編輯定義，以變更 spark.executor.instances、spark.executor.cores 和 spark.executor.memory 參數。
 
-     **疑難排解**：您的 Azure 訂用帳戶有可用的核心數目配額。 Azure 入口網站不允許建立核心總數超過配額的叢集。 若要找出您的配額，請進入 Azure 入口網站的 [訂用帳戶] 區段，按一下用來部署叢集的訂用帳戶，然後按一下 [使用量 + 配額]。 通常會針對每個 Azure 區域定義配額，您可以選擇在有足夠可用核心的區域中部署 Spark 叢集。 
+     **疑難排解**：您的 Azure 訂用帳戶有可用的核心數目配額。 Azure 入口網站不允許建立核心總數超過配額的叢集。 若要找出您的配額，請進入 Azure 入口網站的 訂用帳戶 區段，按一下用來部署叢集的訂用帳戶，然後按一下使用量 + 配額。 通常會針對每個 Azure 區域定義配額，您可以選擇在有足夠可用核心的區域中部署 Spark 叢集。 
 
 * 建立用來儲存資料集的 Azure 儲存體帳戶。 請依照[指示](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account)建立儲存體帳戶。
 
@@ -133,7 +131,7 @@ ms.lasthandoff: 09/25/2017
 ### <a name="data-ingestion"></a>資料擷取
 此案例中的程式碼假設資料儲存在 Azure blob 儲存體中。 我們一開始示範如何從 Kaggle 網站將資料下載到您的電腦，並將它上傳至 blob 儲存體。 然後我們會示範如何從 blob 儲存體讀取資料。 
 
-若要從 Kaggle 下載資料，請移至[資料集頁面](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)並且按 [下載] 按鈕。 系統會要求您登入 Kaggle。 登入之後，系統會將您重新導回資料集頁面。 然後選取左欄中的前七個檔案並且按 [下載] 按鈕，下載這些檔案。 所下載檔案的大小總計為 289 Mb。 若要將這些檔案上傳至 blob 儲存體，請在您的儲存體帳戶中建立 blob 儲存體容器 'dataset'。 移至您儲存體帳戶的 Azure 頁面，按一下 Blob，然後按一下 [+容器]，即可進行該作業。 輸入 'dataset' 作為名稱，然後按一下 [確定]。 以下螢幕擷取畫面說明這些步驟：
+若要從 Kaggle 下載資料，請移至[資料集頁面](https://www.kaggle.com/c/talkingdata-mobile-user-demographics/data)並且按 [下載] 按鈕。 系統會要求您登入 Kaggle。 登入之後，系統會將您重新導回資料集頁面。 然後選取左欄中的前七個檔案並且按 [下載] 按鈕，下載這些檔案。 所下載檔案的大小總計為 289 Mb。 若要將這些檔案上傳至 blob 儲存體，請在您的儲存體帳戶中建立 blob 儲存體容器 'dataset'。 移至您儲存體帳戶的 Azure 頁面，按一下 Blob，然後按一下+容器，即可進行該作業。 輸入 'dataset' 作為名稱，然後按一下 [確定]。 以下螢幕擷取畫面說明這些步驟：
 
 ![開啟 blob](media/scenario-distributed-tuning-of-hyperparameters/open_blob.png)
 ![開啟容器](media/scenario-distributed-tuning-of-hyperparameters/open_container.png)
@@ -309,10 +307,9 @@ scikit-learn 套件沒有使用 Spark 叢集微調超參數的原生支援。 �
 
 在此案例中，我們示範了如何使用 Azure Machine Learning Workbench，在遠端虛擬機器和遠端 Spark 叢集中執行超參數微調。 我們發現 Azure Machine Learning Workbench 所提供的工具，可讓您輕鬆設定執行環境並在其間切換。 
 
-## <a name="references"></a>參考資料
+## <a name="references"></a>參考
 
 [1] T. Chen and C. Guestrin. [XGBoost: A Scalable Tree Boosting System](https://arxiv.org/abs/1603.02754). KDD 2016.
-
 
 
 

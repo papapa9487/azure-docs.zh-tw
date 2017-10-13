@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>串流分析時間範圍函式簡介
 在許多即時資串流案例中，只必須對暫時時間範圍中內含的資料執行作業。 時間範圍函式的原生支援是 Azure 串流分析的重要功能，可對撰寫複雜串流處理作業中的開發人員產能造成重大影響。 串流分析可讓開發人員使用[**輪轉**](https://msdn.microsoft.com/library/dn835055.aspx)、[**跳動**](https://msdn.microsoft.com/library/dn835041.aspx)和[**滑動**](https://msdn.microsoft.com/library/dn835051.aspx)時間範圍對串流資料執行暫時作業。 值得注意的是，所有 [時間範圍](https://msdn.microsoft.com/library/dn835019.aspx) 作業都會在時間範圍 **結束** 時輸出結果。 時間範圍的輸出會是以使用的彙總函式為基礎的單一事件。 此事件會有時間範圍結束的時間戳記，所有時間範圍函式都是以固定長度定義。 最後務必注意，所有時間範圍函式都應使用於 [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx) 子句中。
@@ -51,5 +50,4 @@ ms.lasthandoff: 08/29/2017
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

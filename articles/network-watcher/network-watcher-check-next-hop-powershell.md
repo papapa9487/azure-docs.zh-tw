@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
-ms.openlocfilehash: 00161e7c6fb4becdb7d8eab266fa27128e50f8ca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: ef559fbbd3e8448d64167552cacee04790418343
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-powershell"></a>使用 PowerShell，利用 Azure 網路監看員的下一個躍點功能找出下一個躍點類型
 
 > [!div class="op_single_selector"]
@@ -104,7 +102,6 @@ NextHopIpAddress NextHopType           RouteTableId
 ## <a name="next-steps"></a>後續步驟
 
 請造訪[使用網路監看員稽核 NSG](network-watcher-nsg-auditing-powershell.md)，以了解如何以程式設計方式檢閱網路安全性群組設定
-
 
 
 

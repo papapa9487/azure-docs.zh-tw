@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: edd8c526a681c9cd5226ede6110f21c3362aaef6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -186,7 +185,7 @@ Azure SQL Database 上有多種可用的閂鎖。 為了簡單起見，會使用
 > 若要將 Azure SQL Database 的效能持續最佳化，建議您啟用 [Azure SQL Database 自動調整](sql-database-automatic-tuning.md) - 這是 Azure SQL 內建智慧功能的一項獨特功能，可持續監視您的 Azure SQL Database，並自動為資料庫調整及建立索引。
 >
 
-## <a name="new-query"></a>新查詢
+## <a name="new-query"></a>新增查詢
 
 ### <a name="what-is-happening"></a>發生的情況
 
@@ -324,4 +323,3 @@ Intelligent Insights 通常需要 1 小時的時間來執行效能問題的根�
 - 使用 [Intelligent Insights Azure SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)
 - [使用 Azure SQL 分析來監視 Azure SQL Database](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
 - 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-

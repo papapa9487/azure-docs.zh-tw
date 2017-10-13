@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbec5773987b29eb62d10d17b88efcda29889612
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>將 ITSM 產品/服務與 IT 服務管理連接器進行連線 (預覽)
 本文章提供的資訊，是有關如何將 OMS 中的 ITSM 產品/服務連線至 IT 服務管理連接器，並將工作項目集中管理。 如需有關 IT 服務管理連接器的詳細資訊，請參閱[概觀](log-analytics-itsmc-overview.md)。
@@ -50,7 +49,7 @@ ms.lasthandoff: 09/25/2017
 您可以使用下列程序，將 System Center Service Manager 執行個體連線到 IT 服務管理連接器：
 
 1. 移至 [OMS] >[設定] > [連線的來源]。
-2. 選取**ITSM 連接器**，然後按一下 [新增新的連線]。
+2. 選取**ITSM 連接器**，然後按一下新增新的連線。
 
     ![Service Manager ](./media/log-analytics-itsmc/itsmc-service-manager-connection.png)
 3. 提供下表中所述的資訊，然後按一下 [儲存] 來建立連線︰
@@ -190,7 +189,7 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 請使用下列程序來建立 ServiceNow 連線：
 
 1. 移至 [OMS] > [設定] > [連線的來源]。
-2. 選取**ITSM 連接器**，然後按一下 [新增新的連線]。
+2. 選取**ITSM 連接器**，然後按一下新增新的連線。
 
     ![ServiceNow 連線](./media/log-analytics-itsmc/itsmc-servicenow-connection.png)
 
@@ -280,7 +279,7 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 請使用下列程序來建立 Provance 連線：
 
 1. 移至 [OMS] > [設定] > [連線的來源]。
-2. 選取**ITSM 連接器**，然後按一下 [新增新的連線]。  
+2. 選取**ITSM 連接器**，然後按一下新增新的連線。  
 
     ![Provance 連線](./media/log-analytics-itsmc/itsmc-provance-connection.png)
 3. 提供下表中所述的資訊，然後按一下 [儲存] 來建立連線。
@@ -324,7 +323,7 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
 請使用下列程序來建立 Cherwell 連線：
 
 1. 移至 [OMS] >  [設定] > [連線的來源]。
-2. 選取 [ITSM 連接器]，然後按一下 [新增新的連線]。  
+2. 選取 ITSM 連接器，然後按一下新增新的連線。  
 
     ![Cherwell 使用者識別碼](./media/log-analytics-itsmc/itsmc-cherwell-connection.png)
 
@@ -369,4 +368,3 @@ ServiceNow 管理員必須在 ServiceNow 執行個體中執行下列動作：
  - [從 OMS 記錄建立 ITSM 工作項目](log-analytics-itsmc-overview.md#create-itsm-work-items-from-oms-logs)
 
 - [檢視您連線的 Log Analytics](log-analytics-itsmc-overview.md#using-the-solution)
-

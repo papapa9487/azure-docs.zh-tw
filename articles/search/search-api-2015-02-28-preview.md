@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/01/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: e6ad5c964bfa8421be2706cb4015980e01a271b7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-service-rest-api-version-2015-02-28-preview"></a>Azure 搜尋服務 REST API：版本 2015-02-28-Preview
 本文是 `api-version=2015-02-28-Preview`的參考文件。 這個預覽版本可藉由提供下列實驗性功能，來擴充公開上市版本 [api-version=2015-02-28](https://msdn.microsoft.com/library/dn798935.aspx)：
@@ -1970,4 +1968,3 @@ Azure 搜尋服務可傳回接續語彙基元的原因視實作而定，而且�
       "top": 5,
       "suggesterName": "sg"
     }
-

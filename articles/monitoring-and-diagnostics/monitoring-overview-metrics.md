@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
+ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fbfb3d026540b45a28751d6c3ab0f8dce444e0cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure 中的度量概觀
 本文章說明何謂 Microsoft Azure 中的度量、其優點，以及如何開始使用它們。  
 
@@ -127,23 +125,6 @@ Azure 監視器的預覽版本也可讓使用者體驗新的計量圖表。 這�
  ![Azure 監視器中的度量和自動調整](./media/monitoring-overview-metrics/MetricsOverview5.png)
 
 ## <a name="learn-about-supported-services-and-metrics"></a>了解支援的服務和度量
-Azure 監視器是新的度量基礎結構。 它支援下列 Azure 入口網站中的 Azure 服務和新版本的 Azure 監視器 API︰
-
-* VM (Azure Resource Manager 架構)
-* 虛擬機器擴展集
-* Batch
-* 事件中樞命名空間
-* 服務匯流排命名空間 (僅限進階 SKU)
-* SQL Database (第 12 版)
-* SQL 彈性集區
-* 網站
-* Web 伺服器陣列
-* Logic Apps
-* IoT 中樞
-* Redis 快取
-* 網路：應用程式閘道
-* 搜尋
-
 您可以在 [Azure 監視器度量--每個資源類型支援的度量](monitoring-supported-metrics.md)檢視所有支援服務及其度量的詳細清單。
 
 ## <a name="next-steps"></a>後續步驟
@@ -152,4 +133,3 @@ Azure 監視器是新的度量基礎結構。 它支援下列 Azure 入口網站
 * [自動調整規模的常用計量](insights-autoscale-common-metrics.md)
 * [如何建立警示規則](insights-alerts-portal.md)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../log-analytics/log-analytics-azure-storage.md)
-

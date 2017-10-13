@@ -39,7 +39,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure/storage/blobs/storage-upload-process-images">在雲端上傳和擷取映像資料</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">觸發 Azure Functions 來處理 Blob</a>
+          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">觸發 Azure Functions 來處理 Blob</a>
           - html: <a href="/azure/storage/blobs/storage-secure-access-application">保護應用程式資料</a>
           - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">進行儲存體的監視和疑難排解</a>
   - title: 範例

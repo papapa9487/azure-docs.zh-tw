@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
 安全性是管理資料庫時的最重要考量，而且向來一直是 Azure SQL Database 的優先考量。 Azure SQL Database 支援使用防火牆規則和連線加密的連線安全性。 它支援使用者名稱和密碼驗證以及 Azure Active Directory 驗證，後者使用由 Azure Active Directory 管理的身分識別。 授權使用角色型存取控制。
@@ -219,4 +217,3 @@ Azure Marketplace 將 Microsoft Azure 合作夥伴生態系統結合成單一、
 - 深入了解 [Azure 資訊安全中心和 Azure SQL Database 服務](https://docs.microsoft.com/azure/security-center/security-center-sql-database)。
 - 若要深入了解威脅偵測，請參閱 [SQL Database 威脅偵測](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection)。
 - 如需詳細資訊，請參閱[改善 SQL Database 效能](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial)。 
-

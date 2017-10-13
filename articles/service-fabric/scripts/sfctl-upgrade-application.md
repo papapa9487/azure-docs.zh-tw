@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: adegeo
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f91ea8c2f8c6e9a6ce38cf72be2c61d9e5218b23
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>將應用程式憑證新增到 Service Fabric 叢集
 
 此範例指令碼會上傳現有應用程式的新版本，然後以新版本來升級部署的應用程式。
@@ -38,4 +36,3 @@ ms.lasthandoff: 09/25/2017
 如需詳細資訊，請參閱 [Service Fabric CLI 文件](../service-fabric-cli.md)。
 
 您可以在 [Service Fabric CLI 範例](../samples-cli.md)中找到適用於 Azure Service Fabric 的其他 Service Fabric CLI 範例。
-

@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>建立、變更或刪除虛擬網路
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/18/2017
 
 1. 請使用已指派訂用帳戶網路參與者角色權限 (至少) 的帳戶來登入[入口網站](https://portal.azure.com)。 若要深入了解如何將角色和權限指派給帳戶，請參閱 [Azure 角色型存取控制的內建角色](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)。
 2. 按一下 [新增]  >  [網路]  >  [虛擬網路]。
-3. 在 [虛擬網路] 刀鋒視窗的 [選取部署模型] 方塊中，讓 [Resource Manager] 保持選取狀態，然後按一下 [建立]。
+3. 在 虛擬網路 刀鋒視窗的 選取部署模型 方塊中，讓 Resource Manager 保持選取狀態，然後按一下建立。
 4. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**：您選取用來建立虛擬網路的[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)名稱必須是唯一的。 虛擬網路建立後，就不能再變更其名稱。 您可以隨著時間建立多個虛擬網路。 如需命名建議，請參閱[命名慣例](/azure/architecture/best-practices/naming-conventions.md?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-rules-and-restrictions)。 下列命名慣例有協助於輕鬆管理多個虛擬網路。
     - **位址空間**︰以 CIDR 表示法來指定位址空間。 您可以定義公用或私人的位址空間 (RFC 1918)。 不論您定義的是公用或私人的位址空間，您都只能從虛擬網路、互連的虛擬網路，以及任何已連線到虛擬網路的內部部署網路來連線到位址空間。 您無法新增下列位址空間︰
@@ -137,7 +137,7 @@ ms.lasthandoff: 08/18/2017
 4. 在 [虛擬網路] 刀鋒視窗中，按一下 [設定] 之下的 [位址空間]。
 5. 在位址空間的刀鋒視窗中，完成下列其中一個選項：
     - **新增位址空間**︰輸入新的位址空間。 此位址空間不能與虛擬網路已定義的現有位址空間重疊。
-    - **移除地址空間**︰以滑鼠右鍵按一下位址空間，然後按一下 [移除]。 如果位址空間有現存的子網路，您就無法移除該位址空間。 若要移除位址空間，您必須先刪除位址空間中存在的任何子網路 (以及連線至子網路的任何資源)。
+    - **移除地址空間**︰以滑鼠右鍵按一下位址空間，然後按一下移除。 如果位址空間有現存的子網路，您就無法移除該位址空間。 若要移除位址空間，您必須先刪除位址空間中存在的任何子網路 (以及連線至子網路的任何資源)。
 6. 按一下 [儲存] 。
 
 **命令**

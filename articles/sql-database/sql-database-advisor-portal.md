@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: sstein
 ms.openlocfilehash: 018afaa8b08bd001e55693390e80c8e2c4f33a30
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -65,7 +65,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 * 啟用自動調整功能，以自動套用建議。
 * 若要手動實作建議，請針對您的資料庫執行建議的 T-SQL 指令碼。
 
-選取任何建議來檢視其詳細資料，然後按一下 [檢視指令碼]  來檢閱將如何建立建議的確切詳細資料。
+選取任何建議來檢視其詳細資料，然後按一下檢視指令碼  來檢閱將如何建立建議的確切詳細資料。
 
 套用建議時，資料庫仍保持連線 -- 使用效能建議或自動調整功能不會使資料庫離線。
 
@@ -103,7 +103,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
     ![建議的索引](./media/sql-database-advisor-portal/automation.png)
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>手動執行建議的 T-SQL 指令碼
-選取任何建議，然後按一下 [檢視指令碼] 。 對資料庫執行這個指令碼，以手動套用建議。
+選取任何建議，然後按一下檢視指令碼 。 對資料庫執行這個指令碼，以手動套用建議。
 
  ，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。
 

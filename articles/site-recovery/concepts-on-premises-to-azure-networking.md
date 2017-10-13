@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/12/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 01c8e664465350b9dd382502c65cc3fda350797c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-for-vm-connectivity-after-failover"></a>容錯移轉之後的 VM 連線網路服務
 
@@ -91,7 +90,6 @@ Woodgrove 若要既能將其 VM 複寫至 Azure，同時又保留 IP 位址，�
 
 ## <a name="next-steps"></a>後續步驟
 [執行容錯移轉](site-recovery-failover.md)
-
 
 
 

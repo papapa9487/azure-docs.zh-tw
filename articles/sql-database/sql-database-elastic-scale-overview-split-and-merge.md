@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
 ms.openlocfilehash: b41b6d6be686168359a97eb7468351a105b748db
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 如果您是軟體服務開發人員，您的應用程式突然出現巨量需求，您需要因應這種成長。 所以，您加入了更多的資料庫 (分區)。 您該如何將資料重新發佈到新的資料庫，卻不打斷資料的完整性？ 使用 **分割合併工具** 將資料從受條件約束的資料庫移到新的資料庫。  

@@ -12,14 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
 本文適用於需要更深入了解 Lucene 全文檢索搜尋在 Azure 搜尋服務中運作方式的開發人員。 針對文字查詢，Azure 搜尋服務在大部分情況下會順暢地提供預期的結果，但您偶爾可能會收到看起來像以某種方式「關閉」的結果。 在這些情況下，Lucene 查詢執行之四個階段 (查詢剖析、語彙分析、文件相符、評分) 中的背景，可協助您識別查詢參數的特定變更或要提供所需結果的索引組態。 
@@ -410,4 +408,3 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 [2]: ./media/search-lucene-query-architecture/azSearch-queryparsing-should2.png
 [3]: ./media/search-lucene-query-architecture/azSearch-queryparsing-must2.png
 [4]: ./media/search-lucene-query-architecture/azSearch-queryparsing-spacious2.png
-

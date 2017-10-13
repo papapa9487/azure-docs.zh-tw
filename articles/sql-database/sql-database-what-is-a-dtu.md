@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)
 本文說明資料庫交易單位 (DTU) 和彈性資料庫交易單位 (eDTU)，以及當您達到 DTU 或 eDTU 上限時會發生什麼狀況。  
@@ -65,4 +64,3 @@ DTU 最適合用於了解處於不同效能等級與服務層之各 Azure SQL Da
 * 如需適用於單一資料庫與彈性集區之可用 DTU 和 eDTU 的相關資訊，以及 CPU、記憶體、資料 I/O 和交易記錄 I/O 以外之資源限制的相關資訊，請參閱[服務層](sql-database-service-tiers.md)。
 * 請參閱 [SQL Database 查詢效能深入解析](sql-database-query-performance.md) ，以了解您的 (DTU) 耗用量。
 * 請參閱 [SQL Database 基準測試概觀](sql-database-benchmark-overview.md) ，以了解 OLTP 基準測試工作負載用來判斷 DTU 混合的方法。
-

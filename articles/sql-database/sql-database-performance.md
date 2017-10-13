@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 07/19/2016
 ms.author: sstein
 ms.openlocfilehash: 522b932ab055978c52f085dbaa36095bb6b77962
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-improve-performance"></a>監視並改善效能
 Azure SQL Database 可找出資料庫中的潛在問題，並透過提供智慧型微調動作和建議來建議可以改善工作負載效能的動作。

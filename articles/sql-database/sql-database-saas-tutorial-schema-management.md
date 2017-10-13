@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2017
 ms.author: billgib; sstein
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 461da2528d515072bf04a82bb8ba64a853443f98
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-schema-for-multiple-tenants-in-a-multi-tenant-application-that-uses-azure-sql-database"></a>在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述
 
@@ -136,4 +135,3 @@ ms.lasthandoff: 09/13/2017
 * 其他[以 Wingtip SaaS 應用程式部署為基礎的教學課程](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
 * [管理相應放大的雲端資料庫](sql-database-elastic-jobs-overview.md)
 * [建立和管理相應放大的雲端資料庫](sql-database-elastic-jobs-create-and-manage.md)
-

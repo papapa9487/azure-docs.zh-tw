@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbe691174409202a8fd9602a69e764f0a8e2816b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="individual-contributor-tasks"></a>個別參與者工作
 
 本主題概述希望個別參與者為其資料科學小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 如需人員角色的大綱，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
@@ -60,9 +57,9 @@ ms.lasthandoff: 09/25/2017
 
 第二個存放庫，**TeamUtilities** 存放庫，必要條件是選擇性的，取決於您的小組是否有小組專用的公用程式存放庫。 如果未完成其他三個必要條件中的任何一個，請連絡小組負責人、專案負責人或其代理人，藉由遵循[資料科學小組的小組負責人工作](team-lead-tasks.md)或[資料科學小組的專案負責人工作](project-lead-tasks.md)的指示，來進行設定。
 
-- Git 必須安裝在您的機器上。 如果您使用資料科學虛擬機器 (DSVM)，則 Git 已預先安裝，您可以繼續作業。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。  
-- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)。 在 README.md 檔案中，向下捲動至 [下載並安裝] 區段，然後按一下 [最新的安裝程式]。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
-- 如果您使用 **Linux DSVM**，在您的 DSVM 上建立 SSH 公開金鑰，並將它新增到群組 VSTS 伺服器。 如需 SSH 的詳細資訊，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)中的**建立 SSH 公開金鑰**一節。 
+- Git 必須安裝在您的機器上。 如果您使用資料科學虛擬機器 (DSVM)，則已預先安裝 Git，而您可以繼續作業。 否則，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)。  
+- 如果您使用 **Windows DSVM**，您必須在機器上安裝 [Git 認證管理員 (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) \(英文\)。 在 README.md 檔案中，向下捲動至 [下載並安裝] 區段，然後按一下 [最新的安裝程式]。 這樣會帶您到最新的安裝程式分頁。 從這裡下載 .exe 安裝程式並執行它。 
+- 如果您使用 **Linux DSVM**，在您的 DSVM 上建立 SSH 公開金鑰，並將它新增到您的群組 VSTS 伺服器。 如需 SSH 的詳細資訊，請參閱[平台和工具附錄](platforms-and-tools.md#appendix)中的**建立 SSH 公開金鑰**一節。 
 - 如果您的小組和/或專案負責人已建立一些您需要掛接至 DSVM 的 Azure 檔案儲存體，您應該從其中取得 Azure 檔案儲存體資訊。 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>步驟 1-3：將群組、小組和專案存放庫複製到本機電腦
@@ -113,5 +110,4 @@ ms.lasthandoff: 09/25/2017
 - [資料科學小組的小組負責人工作](team-lead-tasks.md)
 - [資料科學小組的專案負責人工作](project-lead-tasks.md)
 - [資料科學小組的專案個別參與者](project-ic-tasks.md)
-
 

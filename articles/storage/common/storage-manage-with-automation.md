@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>使用 Azure 自動化管理 Azure 儲存體
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化 Azure 儲存體 Blob、資料表及佇列的管理。
@@ -44,5 +43,4 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 儲存體 Blob、資料表及佇列之後，請參考下列連結，以深入了解 Azure 自動化。
 
 請參閱 Azure 自動化教學課程： [在 Azure 自動化中建立或匯入 Runbook](../../automation/automation-creating-importing-runbook.md)。
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
@@ -631,5 +630,4 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 我們會看到對我們要求的兩個測試範例 (在 python 指令碼的 JSON 架構中)，我們會以 "Scored Labels, Scored Probabilities" 形式獲得解答。 請注意，在此情況下，我們選擇預先定義的程式碼提供的預設值 (所有數值資料行為 0，所有類別資料行為字串 "value")。
 
 這包含我們的端對端逐步解說，示範如何使用 Azure Machine Learning 處理大型資料集。 我們開始使用 1 TB 的資料、建構預測模型，並將其部署為雲端中的 Web 服務。
-
 

@@ -36,8 +36,8 @@
 
 若要完成硬體設定，您需要︰
 
-- 將 Raspberry Pi 連接到套件內含的電源供應器。
-- 使用套件內含的乙太網路連接線，將 Raspberry Pi 連接到您的網路。 或者，您可以為 Raspberry Pi 設定[無線連線能力][lnk-pi-wireless]。
+- 將 Raspberry Pi 連線至套件內含的電源供應器。
+- 使用套件內含的乙太網路連接線，將 Raspberry Pi 連線至您的網路。 或者，您可以為 Raspberry Pi 設定[無線連線能力][lnk-pi-wireless]。
 
 您現在已完成 Raspberry Pi 的硬體設定。
 

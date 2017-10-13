@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
 ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-appliance-scenario"></a>虛擬設備的案例
 在較大的 Azure 客戶中，常見的案例是需要對網際網路公開兩層式的應用程式，同時允許從內部部署資料中心存取後層。 本文件會逐步引導您完成案例，使用使用者定義路由 (UDR)、VPN 閘道和網路虛擬裝置來部署符合下列需求的兩層式環境︰

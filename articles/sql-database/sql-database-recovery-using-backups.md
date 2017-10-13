@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/25/2017
 ms.author: carlrab
+ms.openlocfilehash: 3b9be28143060537b1a35004c3b3486b8738e956
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: df6e4bba9290c6129c9cba1440bb0c903aacc3c8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.md)和[長期保留備份](sql-database-long-term-retention.md)進行資料庫復原，提供以下選項。 您可從資料庫備份還原至︰
@@ -122,7 +121,7 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要使用 Azure 入口網站異地還原處於其[保留期限](sql-database-service-tiers.md)的資料庫，請開啟 [SQL Database] 頁面，然後按一下 [新增]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。 
+若要使用 Azure 入口網站異地還原處於其[保留期限](sql-database-service-tiers.md)的資料庫，請開啟 [SQL Database] 頁面，然後按一下新增]。 在 [選取來源] 文字方塊中，選取 [備份]。 指定要在區域和您選擇的伺服器上，執行復原的來源備份。 
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自動備份以程式設計方式執行復原
 如先前所述，除了 Azure 入口網站之外，還可使用 Azure PowerShell 或 REST API，以程式設計方式執行資料庫復原。 下表描述可用的命令集。
@@ -152,4 +151,3 @@ SQL Database 針對使用[自動資料庫備份](sql-database-automated-backups.
 * 若要深入了解長期備份保留，請參閱[長期備份保留](sql-database-long-term-retention.md)
 * 若要使用 Azure 入口網站在「Azure 復原服務」保存庫中設定、管理自動備份的長期保留並從中還原，請參閱[設定與使用長期備份保留 (Configure and use long-term backup retention)](sql-database-long-term-backup-retention-configure.md)。 
 * 若要了解更快速的復原選項，請參閱[主動式異地複寫](sql-database-geo-replication-overview.md)  
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/21/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: e9ff7947e7801a9f352a7a947b09893b8f615d88
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
 本文說明如何建立具有**優先順序**路由類型的設定檔，用以將使用者路由傳送至兩個 Azure Web Apps 端點。 使用**優先順序**路由類型時，所有流量會路由傳送至第一個端點，而第二個端點會保留做為備份。 因此，如果第一個端點變成狀況不良，就可將使用者路由傳送至第二個端點。
@@ -30,7 +28,7 @@ ms.lasthandoff: 09/29/2017
 
 ### <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
-2. 在 [中樞] 功能表中，按一下 [新增] > [網路] > [查看全部]**，然後按一下 [流量管理員]****設定檔，以開啟 [建立流量管理員設定檔]** 刀鋒視窗。
+2. 在 中樞 功能表中，按一下 新增 > 網路 > 查看全部**，然後按一下流量管理員****設定檔，以開啟 建立流量管理員設定檔** 刀鋒視窗。
 3. 在 [建立流量管理員設定檔] 刀鋒視窗上，如下所示操作：
     1. 在 [名稱]中，提供設定檔的名稱。 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 <name>, trafficmanager.net，用以存取您的流量管理員設定檔。
     2. 在 [路由方法] 中，選取 [優先順序]路由方法。
@@ -73,7 +71,6 @@ ms.lasthandoff: 09/29/2017
 - 深入了解[路由類型](traffic-manager-routing-methods.md)。
 - 深入了解端點類型[端點類型](traffic-manager-endpoint-types.md)。
 - 深入了解[端點監視](traffic-manager-monitoring.md)。
-
 
 
 

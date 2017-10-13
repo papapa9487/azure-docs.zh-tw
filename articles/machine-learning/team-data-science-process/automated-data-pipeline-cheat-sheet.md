@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mithal;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a2b14dd39c0247c35ef006385eceebfa4fbe82d9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>適用於 Azure Machine Learning 預測之自動資料管線的小祕技
 「Microsoft Azure Machine Learning 自動資料管線小祕技」  可協助您瀏覽用於傳送資料至可由預測性分析模型評分之機器學習 Web 服務的技術。
@@ -43,5 +42,4 @@ ms.lasthandoff: 09/25/2017
 * 如需如何使用評分 Web 服務的討論，請參閱[如何使用 Azure Machine Learning Web 服務](../studio/consume-web-services.md)。
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

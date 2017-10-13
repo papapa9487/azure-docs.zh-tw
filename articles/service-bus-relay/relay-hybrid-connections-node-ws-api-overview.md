@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 28526c05c7f364f0fcaaa362fc97857f850040ee
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: f9b679f167952076db6df17711dc124931a0880c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="relay-hybrid-connections-node-api-overview"></a>轉送混合式連接節點 API 概觀
 
 ## <a name="overview"></a>概觀
@@ -213,4 +211,3 @@ WebSocket.relayedConnect(
 若要深入了解 Azure 轉送，請造訪下列連結：
 * [什麼是 Azure 轉送？](relay-what-is-it.md)
 * [可用的轉送 API](relay-api-overview.md)
-

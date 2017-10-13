@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
 ms.openlocfilehash: 117212a2e7e3da7c3e249798eec804a652e0ef58
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虛擬機器上設定 Oracle ASM  
 
 Azure 虛擬機器提供完全可設定且彈性的計算環境。 本教學課程涵蓋基本的 Azure 虛擬機器部署，並結合 Oracle 自動儲存體管理 (ASM) 的安裝和設定。  您會了解如何：
@@ -430,7 +428,7 @@ ssh <publicIpAddress>
    > 金鑰中必須包含字串 `ssh-rsa`。 此外，金鑰的內容必須是單行文字。
    >  
 
-6. 在用戶端系統上，啟動 PuTTY。 在 [類別] 窗格中，移至 [連線] > [SSH] > [驗證]。 在 [用於驗證的私密金鑰檔] 方塊中，瀏覽至您稍早產生的金鑰。
+6. 在用戶端系統上，啟動 PuTTY。 在 [類別] 窗格中，移至 [連線] > [SSH] > [驗證]。在 [用於驗證的私密金鑰檔] 方塊中，瀏覽至您稍早產生的金鑰。
 
    ![SSH 驗證選項的螢幕擷取畫面](./media/oracle-asm/setprivatekey.png)
 
@@ -589,4 +587,3 @@ az group delete --name myResourceGroup
 [教學課程：設定 Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 請檢閱[建置 Oracle DB](oracle-design.md)
-

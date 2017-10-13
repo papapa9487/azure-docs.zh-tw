@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: johnkem; magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: d59abde29fc7b73a799e5bf3659b02f824b693de
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -80,11 +79,11 @@ ms.lasthandoff: 08/24/2017
 
 2. 選擇性地依資源群組或資源類型篩選清單，然後按一下您要設定診斷設定的資源。
 
-3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下 [開啟診斷]。
+3. 如果您選取的資源上沒有任何設定，系統會提示您建立設定。 按一下「開啟診斷」。
 
    ![新增診斷設定 - 無現有的設定](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-none.png)
 
-   如果資源上已有設定，您將會看此資源上已設定的設定清單。 按一下 [新增診斷設定]。
+   如果資源上已有設定，您將會看此資源上已設定的設定清單。 按一下「新增診斷設定」。
 
    ![新增診斷設定 - 現有的設定](media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-multiple.png)
 
@@ -180,4 +179,3 @@ azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource 
 * [將資源診斷記錄串流至**事件中樞**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../log-analytics/log-analytics-azure-storage.md)
-

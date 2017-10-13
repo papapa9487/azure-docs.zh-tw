@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2016
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 6f1234381a6aad9632d88825aab1a5bf304a20fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 80955535c8d863cd3d8d1b77e2ab8bc016b6d9f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>針對 VM 擴展集使用 Resource Manager 範本的進階自動調整設定
 您可以根據效能標準臨界值、循環排程或特定日期，針對虛擬機器擴展集進行相應縮小和放大。 您也可以針對調整動作設定電子郵件和 webhook 通知。 本逐步解說會示範在 VM 擴展集上使用 Resource Manager 範本設定所有這些物件。
 
@@ -248,11 +246,10 @@ ms.lasthandoff: 05/10/2017
 
 [自動調整的常用計量](insights-autoscale-common-metrics.md)
 
-[Azure 自動調整的最佳做法](insights-autoscale-best-practices.md)
+[Azure 自動調整的最佳作法](insights-autoscale-best-practices.md)
 
 [使用 PowerShell 管理自動調整](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 
 [使用 CLI 管理自動調整](insights-cli-samples.md#autoscale)
 
 [針對自動調整設定 Webhook 與電子郵件通知](insights-autoscale-to-webhook-email.md)
-

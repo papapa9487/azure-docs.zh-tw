@@ -12,15 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/16/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: df7c127f4ab140cb26c82e723964f1d99f03131a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/09/2017
-
-
+ms.openlocfilehash: 8ac4a10b9030a4d56824d1a42ed2729ebb2d208e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Service Fabric 模式和案例
 如果您正在觀看如何使用 Azure Service Fabric 建置大規模微服務，請向負責設計及建置此平台即服務 (PaaS) 的專家學習。 從適當的架構開始，接著了解如何將您應用程式的資源最佳化。 [Service Fabric 模式和實務](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344)課程會回答真實客戶最常詢問的 Service Fabric 案例和應用程式領域相關問題。
@@ -101,4 +99,3 @@ ms.lasthandoff: 03/09/2017
 
 ## <a name="next-steps"></a>後續步驟
 既然您已了解 Service Fabric 模式和案例，請深入了解如何[建立和管理叢集](service-fabric-deploy-anywhere.md)、[將雲端服務應用程式移轉至 Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)、[設定連續傳遞](service-fabric-set-up-continuous-integration.md)以及[部署容器](service-fabric-containers-overview.md)。
-

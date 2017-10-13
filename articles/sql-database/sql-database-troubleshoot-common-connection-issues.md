@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: b8abf1285318e491d51aadf90f921103d84ce1a4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 2748768e88c046c39232492396872e1c7ed590a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>針對 Azure SQL Database 連線問題進行疑難排解
 連線到 Azure SQL Database 失敗時，您會收到 [錯誤訊息](sql-database-develop-error-messages.md)。 本文是集中式主題，可協助您針對 Azure SQL Database 連線問題進行疑難排解。 本文除了介紹連線問題的[常見原因](#cause)，還推薦可協助您識別問題的[疑難排解工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，以及提供疑難排解步驟來解決[暫時性錯誤](#troubleshoot-transient-errors)和[持續性或非暫時性錯誤](#troubleshoot-persistent-errors)。 
@@ -90,5 +89,4 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 * [SQL Database 開發概觀](sql-database-develop-overview.md)
 * [一般暫時性錯誤處理指引](../best-practices-retry-general.md)
 * [SQL Database 和 SQL Server 的連線庫](sql-database-libraries.md)
-
 

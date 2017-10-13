@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 7cac733717b4af048e58cf3d574c5743889100c1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>使用 Power BI 將網路安全性群組流程記錄視覺化
 
 網路安全性群組流程記錄可讓您檢視網路安全性群組上輸入和輸出 IP 流量的相關資訊。 這些流程記錄顯示每一個規則的輸出和輸入流程、套用流程的 NIC、有關流程的 5 組資訊 (來源/目的地 IP、來源/目的地連接埠、通訊協定)，以及允許或拒絕流量。
@@ -136,4 +134,3 @@ ms.lasthandoff: 03/22/2017
 [11]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure11.png
 [12]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure12.png
 [13]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure13.png
-

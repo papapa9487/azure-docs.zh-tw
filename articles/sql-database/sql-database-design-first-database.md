@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 3a58c50d1187b9cca9490ad725b14617b4a98efe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-sql-database"></a>設計您的第一個 Azure SQL Database
 
 Azure SQL Database 是 Microsoft 雲端 ("Azure") 中的關聯式資料庫即服務 (DBaaS)。 在本教學課程中，您會了解如何使用 Azure 入口網站和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)： 
@@ -115,7 +113,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 > SQL Database 會透過連接埠 1433 通訊。 如果您嘗試從公司網路進行連線，您網路的防火牆可能不允許透過連接埠 1433 的輸出流量。 若情況如此，除非 IT 部門開啟連接埠 1433，否則您無法連線至 Azure SQL Database 伺服器。
 >
 
-1. 部署完成之後，按一下左側功能表中的 [SQL Database]，然後按一下 [SQL Database] 頁面上的 [mySampleDatabase]。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。 
+1. 部署完成之後，按一下左側功能表中的 SQL Database，然後按一下SQL Database 頁面上的 mySampleDatabase。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver-20170824.database.windows.net**)，並提供進一步的組態選項。 
 
 2. 在後續的快速入門中，請複製此完整伺服器名稱，才能用來連線到伺服器及其資料庫。 
 
@@ -190,7 +188,7 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 ![資料表關聯性](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
-1. 在 [物件總管] 中，於 **mySampleDatabase** 上按一下滑鼠右鍵，然後按一下 [新增查詢]。 隨即開啟已連線到您資料庫的空白查詢視窗。
+1. 在 物件總管 中，於 **mySampleDatabase** 上按一下滑鼠右鍵，然後按一下新增查詢。 隨即開啟已連線到您資料庫的空白查詢視窗。
 
 2. 在查詢視窗中，執行下列查詢以在資料庫中建立四個資料表︰ 
 
@@ -341,4 +339,3 @@ SQL Database 服務會在伺服器層級建立防火牆，防止外部應用程�
 
 > [!div class="nextstepaction"]
 >[設計 Azure SQL Database 並連接 C# 和 ADO.NET](sql-database-design-first-database-csharp.md)
-

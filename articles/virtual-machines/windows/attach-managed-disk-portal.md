@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: cynthn
 ms.openlocfilehash: f0cf88a06c5470ef173b22e7213419a6c8760723
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>如何在 Azure 入口網站中將受管理的資料磁碟連結到 Windows VM
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/11/2017
 5. 逐一執行精靈的所有步驟，保留所有預設值，並在完成後選取 [完成]。
 6. 關閉磁碟管理。
 7. 您將會看到快顯視窗，說明您必須先將新的磁碟格式化之後才能使用。 按一下 [格式化磁碟]。
-8. 在 [格式化新磁碟] 對話方塊中，檢查設定，然後按一下 [開始]。
+8. 在 格式化新磁碟 對話方塊中，檢查設定，然後按一下開始。
 9. 系統會向您顯示警告，說明格式化磁碟將會清除所有資料，請按一下 [確定]。
 10. 格式化完成之後，按一下 [確定]。
 

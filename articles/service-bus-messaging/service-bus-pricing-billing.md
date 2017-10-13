@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>服務匯流排定價與計費
 服務匯流排提供標準和[進階](service-bus-premium-messaging.md)層。 您可以針對建立的每個服務匯流排服務命名空間選擇一個服務層，此選取層會套用至該命名空間內建立的所有實體。
@@ -99,4 +98,3 @@ ms.lasthandoff: 08/30/2017
 * 關於服務匯流排價格與計費的一些常見問題集，請參閱[服務匯流排常見問題集](service-bus-faq.md#pricing)。
 
 [Azure portal]: https://portal.azure.com
-

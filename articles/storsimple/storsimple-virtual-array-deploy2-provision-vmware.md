@@ -16,10 +16,10 @@ ms.date: 03/15/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 118521a127b2e4b765efabdbdde71605440d81c7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>部署 StorSimple Virtual Array：在 VMware 中佈建
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -178,7 +178,7 @@ ms.lasthandoff: 07/11/2017
 34. 返回 [虛擬機器屬性] 頁面。 您的虛擬機器已新增一個硬碟。 按一下 [完成] 。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image35.png)
-35. 在右窗格中選取您的虛擬機器，然後瀏覽至 [摘要]  索引標籤。 請檢閱您虛擬機器的設定。
+35. 在右窗格中選取您的虛擬機器，然後瀏覽至 [摘要]  索引標籤。請檢閱您虛擬機器的設定。
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image36.png)
 
@@ -191,7 +191,7 @@ ms.lasthandoff: 07/11/2017
 1. 啟動虛擬裝置。 在 vSphere 設定管理員中，選取左窗格中您的裝置，然後按一下滑鼠右鍵來開啟操作功能表。 選取 [電源]，然後選取 [開啟電源]。 此時您的虛擬機器應該會開機。 您可以在 vSphere 用戶端的 [最近的工作]  窗格底部檢視狀態。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. 安裝工作將需要幾分鐘的時間才能完成。 當裝置開始運作時，瀏覽至 [主控台]  索引標籤。 傳送 Ctrl+Alt+Delete 來登入裝置。 或者，您可以讓游標指向主控台視窗，然後按下 Ctrl+Alt+Insert。 預設使用者為 *StorSimpleAdmin*，預設密碼為 *Password1*。
+2. 安裝工作將需要幾分鐘的時間才能完成。 當裝置開始運作時，瀏覽至 [主控台]  索引標籤。傳送 Ctrl+Alt+Delete 來登入裝置。 或者，您可以讓游標指向主控台視窗，然後按下 Ctrl+Alt+Insert。 預設使用者為 *StorSimpleAdmin*，預設密碼為 *Password1*。
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. 基於安全性理由，裝置系統管理員密碼會在第一次登入時過期。 系統會提示您變更密碼。

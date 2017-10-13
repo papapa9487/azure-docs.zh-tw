@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f139070de99c4249207d048d445e86dd41e9060
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 
 [Azure Site Recovery](site-recovery-overview.md) 服務會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的複寫、容錯移轉和容錯回復。
@@ -54,18 +52,18 @@ ms.lasthandoff: 09/25/2017
 您可以對 Hyper-V VM 執行定期或計劃性容錯移轉。
 
 - 對非預期的中斷情形使用定期容錯移轉。 當您執行此容錯移轉時，Site Recovery 會在次要網站中建立 VM，然後將它啟動。 您可針對特定復原點執行容錯移轉。 視您使用的復原點而言，可能會發生資料遺失。
-- 計劃性容錯移轉可用於維護，或在預期的中斷期間使用。 此選項會提供資料零遺失。 觸發計劃性容錯移轉時，來源 VM 會關閉。 系統會同步處理未同步處理的資料，並觸發容錯移轉。 
+- 規劃的容錯移轉可用於維護，或在預期的中斷期間使用。 此選項會提供資料零遺失。 觸發規劃的容錯移轉時，來源 VM 會關閉。 系統會同步處理未同步處理的資料，並觸發容錯移轉。 
 - 
 此程序說明如何執行定期容錯移轉。
 
 
 1. 在 [設定] > [複寫的項目] 中，按一下 VM > [容錯移轉]。
-2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
+2. 在 [容錯移轉] 中，選取容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
     - **最新** (預設值)：此選項會先處理所有傳送至 Site Recovery 的資料。 它會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的複本 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
     - **最近處理**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
     - **最近的應用程式一致**：此選項會將 VM 容錯移轉到 Site Recovery 所處理的最近應用程式一致復原點。 
 3. 加密金鑰不適用於此案例。
-4. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]。 Site Recovery 也會在觸發容錯移轉之前，嘗試同步處理尚未傳送至次要網站的內部部署資料。 請注意，即使關機失敗，仍會繼續容錯移轉。 您可以在 [作業] 頁面上追蹤容錯移轉進度。
+4. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]。 Site Recovery 也會在觸發容錯移轉之前，嘗試同步處理尚未傳送至次要網站的內部部署資料。 請注意，即使關機失敗，仍會繼續容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 5. 您現在應該能夠在次要 VMM 雲端中看到此 VM。
 6. 驗證 VM 之後，請 [認可] 容錯移轉。 這會刪除所有可用的復原點。
 
@@ -102,5 +100,4 @@ ms.lasthandoff: 09/25/2017
 
 > [!NOTE]
 > 反向複寫只會複寫在複本 VM 關閉後發生的變更，而且只會傳送差異變更。
-
 

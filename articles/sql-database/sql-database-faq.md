@@ -16,10 +16,10 @@ ms.workload: data-management
 ms.date: 02/07/2017
 ms.author: sashan;carlrab
 ms.openlocfilehash: 6ed02ead07c50b9a49e8868756b6f957d7b49b99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-faq"></a>SQL Database 常見問題集
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 07/11/2017
 我們保證客戶在基本層、標準層或進階層中之單一或彈性 Microsoft Azure SQL Database 可與我們網際網路閘道正常連線的時間，至少須達 99.99%。 如需詳細資訊，請參閱 [SLA](http://azure.microsoft.com/support/legal/sla/)。
 
 ## <a name="how-do-i-reset-the-password-for-the-server-admin"></a>如何重設伺服器系統管理員的密碼？
-在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Server]、從清單中選取伺服器，然後按一下 [重設密碼]。
+在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Server]、從清單中選取伺服器，然後按一下重設密碼]。
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>如何管理資料庫與登入？
 請參閱[管理資料庫與登入](sql-database-manage-logins.md)。
@@ -119,7 +119,7 @@ Azure SQL Web 和 Business 資料庫現已淘汰。 基本、標準、進階、�
 我們會透過 DMV 將主要資料庫和地區次要資料庫之間的即時複寫延遲公開。 如需詳細資訊，請參閱 [sys.dm_geo_replication_link_status](https://msdn.microsoft.com/library/mt575504.aspx)。
 
 ## <a name="to-move-a-database-to-a-different-server-in-the-same-subscription"></a>將資料庫移到相同訂用帳戶中的不同伺服器
-* 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Database]、從清單中選取資料庫，然後按一下 [複製]。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md) 。
+* 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Database]、從清單中選取資料庫，然後按一下複製]。 如需詳細資訊，請參閱 [複製 Azure SQL Database](sql-database-copy.md) 。
 
 ## <a name="to-move-a-database-between-subscriptions"></a>在訂用帳戶之間移動資料庫
 * 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Server]，然後從清單中選取裝載您資料庫的伺服器。 按一下 [移動] ，然後挑選要移動的資源以及要移入的訂用帳戶。

@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
+ms.openlocfilehash: 7325d15cc4bec5f0df50be222e1f0988775ded2c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 049478baa108b94c042575a5e29bdc513e527542
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>建立 DSVM 及 HDI Spark 叢集作為計算目標
 
 您可以輕鬆地相應增加或相應放大機器學習實驗，方法是新增其他計算目標，例如以 Ubuntu 為基礎的 DSVM (資料科學虛擬機器) 和 Apache Spark for Azure HDInsight 叢集。 本文會引導您逐步在 Azure 中建立這些計算目標。 如需 Azure ML 計算目標的詳細資訊，請參閱 [Azure Machine Learning 實驗執行服務概觀](experiment-execution-configuration.md)。
@@ -187,4 +185,3 @@ $ az ml experiment prepare -c <compute target name>
 - [Azure Machine Learning Workbench 執行設定檔](experiment-execution-configuration-reference.md)
 - [Apache Spark for Azure HDInsight 叢集](https://azure.microsoft.com/services/hdinsight/apache-spark/)
 - [資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
-

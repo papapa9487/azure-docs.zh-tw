@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/29/2016
 ms.author: rasquill
 ms.openlocfilehash: 2d16b4c2c3bfa8db6dc1455915bd3f8a80222163
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-virtual-machine-extensions"></a>管理虛擬機器擴充功能
 描述如何尋找、加入、修改或移除 Azure 上之 Windows 或 Linux 虛擬機器的 VM 擴充功能。

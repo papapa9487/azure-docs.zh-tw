@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>在 Operations Management Suite 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -105,7 +105,7 @@ ms.lasthandoff: 07/11/2017
 ![機器群組的已篩選處理序](media/oms-service-map/machine-groups-filtered.png)
  
 ### <a name="adding-machines-to-a-group"></a>將機器加入群組
-若要將機器加入現有的群組，請核取您所需機器旁的方塊，然後按一下 [加入群組]。  然後，選擇您想在其中加入機器的群組。
+若要將機器加入現有的群組，請核取您所需機器旁的方塊，然後按一下加入群組。  然後，選擇您想在其中加入機器的群組。
  
 ### <a name="removing-machines-from-a-group"></a>從群組移除多部機器
 在 [群組] 清單中，展開群組名稱以列出機器群組中的機器。  然後，按一下您想移除之機器旁的省略符號功能表，然後選擇 [移除]。

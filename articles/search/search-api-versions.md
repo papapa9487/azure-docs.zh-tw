@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 01/11/2017
 ms.author: brjohnst
 ms.openlocfilehash: a14131455ad94cbc4b729077568b12043401c08e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 搜尋服務中的 API 版本
 「Azure 搜尋服務」會定期推出功能更新。 有時候 (但並不一定)，這些更新會需要我們發佈新版本的 API，以保留回溯相容性。 發行新版本可讓您控制在程式碼中整合搜尋服務更新的時機與方式。

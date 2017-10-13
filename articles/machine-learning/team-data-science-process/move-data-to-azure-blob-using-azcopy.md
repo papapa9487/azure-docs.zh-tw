@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f7a924b576690f5b76418a3de6221ef6c39c39f0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>使用 AzCopy 從 Azure Blob 儲存體來回移動資料
 AzCopy 是個命令列公用程式，專為上傳、下載，以及將資料複製到和複製出 Microsoft Azure Blob、檔案和表格儲存體所設計。
@@ -89,5 +88,4 @@ AzCopy 命令的基本語法是：
 > 3. 您無法使用 /Source  參數來指定要下載的 *特定 Blob 檔案* 。 若要下載特定檔案，請使用 /Pattern  參數指定要下載的 Blob 檔案名稱。 **/S** 參數可用來讓 AzCopy 以遞迴方式尋找檔案名稱模式。 若未提供模式參數，AzCopy 會下載該目錄中的所有檔案。
 > 
 > 
-
 

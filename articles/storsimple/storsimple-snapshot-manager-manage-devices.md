@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: v-sharos
 ms.openlocfilehash: f5e3186a4271e0be781f367fa75ada195c58c960
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>使用 StorSimple Snapshot Manager 來連接和管理 StorSimple 裝置
 ## <a name="overview"></a>概觀
@@ -78,14 +78,14 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="to-add-or-replace-a-device"></a>若要新增或更換裝置
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，以滑鼠右鍵按一下 [裝置] 節點，然後按一下 [設定裝置]。 [ **設定裝置** ] 對話方塊隨即出現。
+2. 在 範圍 窗格中，以滑鼠右鍵按一下 裝置 節點，然後按一下設定裝置。 [ **設定裝置** ] 對話方塊隨即出現。
    
     ![設定 StorSimple 裝置](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_config_device.png) 
 3. 在 [ **裝置** ] 下拉式清單方塊中，選取裝置或虛擬裝置的 IP 位址。 
 4. 在 [密碼]  文字方塊中，輸入您在 Azure 傳統入口網站中為裝置建立的 StorSimple Snapshot Manager 密碼。 按一下 [確定] 。 StorSimple Snapshot Manager 會搜尋您所識別的裝置。 
    
    * 如果裝置可用，StorSimple Snapshot Manager 會新增連接。
-   * 如果由於任何原因而無法使用裝置，StorSimple Snapshot Manager 會傳回錯誤訊息。 按一下 [確定] 以關閉錯誤訊息，然後按一下 [取消] 以關閉 [設定裝置] 對話方塊。
+   * 如果由於任何原因而無法使用裝置，StorSimple Snapshot Manager 會傳回錯誤訊息。 按一下 確定 以關閉錯誤訊息，然後按一下取消 以關閉 設定裝置 對話方塊。
 
 ## <a name="connect-a-device-and-verify-imports"></a>連接裝置並確認匯入
 請使用下列程序來連接 StorSimple 裝置，並確認任何已匯入的現有磁碟區群組具有相關聯的備份，。
@@ -97,7 +97,7 @@ ms.lasthandoff: 07/11/2017
    
    * 如果裝置可用，StorSimple Snapshot Manager 會新增連接。 當您選取裝置時，它會出現在 [結果] 窗格中，而且狀態欄位會指出該裝置 [可用]。 StorSimple Snapshot Manager 會匯入任何針對裝置設定的磁碟區群組，前提是磁碟區群組具有相關聯的備份。 不會匯入備份原則。 不會匯入沒有相關聯之備份的磁碟區群組。
 2. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-3. 以滑鼠右鍵按一下 [範圍] 窗格中的最上層節點，然後按一下 [切換匯入顯示]。
+3. 以滑鼠右鍵按一下 範圍 窗格中的最上層節點，然後按一下切換匯入顯示。
    
     ![選取 [切換匯入顯示]](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Toggle_Imports_Display.png) 
 4. [ **切換匯入顯示** ] 對話方塊隨即出現，顯示已匯入之磁碟區群組和備份的狀態。 按一下 [確定] 。
@@ -109,7 +109,7 @@ ms.lasthandoff: 07/11/2017
 
 #### <a name="to-refresh-connected-devices"></a>若要重新整理已連接的裝置
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
-2. 在 [範圍] 窗格中，以滑鼠右鍵按一下 [裝置]，然後按一下 [重新整理裝置]。 這會同步處理已連接的裝置與 StorSimple Snapshot Manager，讓您可以檢視磁碟區群組和備份，包括任何最近新增的項目。 
+2. 在 範圍 窗格中，以滑鼠右鍵按一下 裝置，然後按一下重新整理裝置。 這會同步處理已連接的裝置與 StorSimple Snapshot Manager，讓您可以檢視磁碟區群組和備份，包括任何最近新增的項目。 
    
     ![重新整理 StorSimple 裝置](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Refresh_devices.png)
 
@@ -121,8 +121,8 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-authenticate-a-device"></a>若要驗證裝置
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [裝置]。
-3. 在 [結果] 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下 [驗證]。
-4. [ **驗證** ] 對話方塊隨即出現。 輸入裝置密碼，然後按一下 [ **確定**]。
+3. 在 結果 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下驗證。
+4. [ **驗證** ] 對話方塊隨即出現。 輸入裝置密碼，然後按一下 **確定**。
    
     ![[驗證] 對話方塊](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_Authenticate.png) 
 
@@ -132,7 +132,7 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-view-and-resynchronize-device-details"></a>若要檢視和重新同步處理裝置詳細資料
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [裝置]。
-3. 在 [結果] 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下 [詳細資料]。
+3. 在 結果 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下詳細資料。
 
 4. [裝置詳細資料] 對話方塊隨即出現。 此方塊會顯示名稱、型號、版本、序號、狀態、目標 iSCSI 合格名稱 (IQN)，以及上次同步處理日期和時間。
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-refresh-a-device"></a>若要重新整理裝置
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。 
 2. 在 [範圍] 窗格中，按一下 [裝置]。 
-3. 在 [結果] 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下 [重新整理裝置]。 這會同步處理裝置與 StorSimple Snapshot Manager。
+3. 在 結果 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下重新整理裝置。 這會同步處理裝置與 StorSimple Snapshot Manager。
 
 ## <a name="delete-a-device-configuration"></a>刪除裝置組態
 請使用下列程序，從 StorSimple Snapshot Manager 刪除個別的 StorSimple 裝置組態。
@@ -155,7 +155,7 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-delete-a-device-configuration"></a>若要刪除裝置組態
 1. 按一下桌面圖示，以啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [裝置]。 
-3. 在 [結果] 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下 [刪除]。 
+3. 在 結果 窗格中，以滑鼠右鍵按一下裝置的名稱，然後按一下刪除。 
 4. 下列訊息隨即出現。 按一下 [是] 以刪除組態，或按一下 [否] 以取消刪除。
    
     ![刪除裝置組態](./media/storsimple-snapshot-manager-manage-devices/HCS_SSM_DeleteDevice.png)
@@ -173,7 +173,7 @@ ms.lasthandoff: 07/11/2017
 #### <a name="to-re-authenticate-the-device"></a>若要重新驗證裝置
 1. 啟動 StorSimple Snapshot Manager。
 2. 在 [範圍] 窗格中，按一下 [裝置]。 已設定的裝置清單會出現在 [ **結果** ] 窗格中。
-3. 選取裝置、按一下滑鼠右鍵，然後按一下 [ **驗證**]。
+3. 選取裝置、按一下滑鼠右鍵，然後按一下 **驗證**。
 4. 在 [ **驗證** ] 視窗中，輸入新密碼。
 5. 選取裝置、按一下滑鼠右鍵，然後選取 [ **重新整理裝置**]。 這會同步處理裝置與 StorSimple Snapshot Manager。
 
@@ -204,7 +204,7 @@ ms.lasthandoff: 07/11/2017
    3. 在右窗格的 [Microsoft StorSimple 管理服務] 之下，按一下 [重新啟動服務]。
 4. 啟動 StorSimple Snapshot Manager。
 5. 若要設定新的 StorSimple 裝置，請完成＜部署 StorSimple Snapshot Manager＞中的 [步驟 2：連接 StorSimple 裝置](storsimple-snapshot-manager-deployment.md)中的步驟。
-6. 以滑鼠右鍵按一下 [範圍] 窗格中的最上層節點 (範例中的 StorSimple Snapshot Manager)，然後按一下 [切換匯入顯示]。 
+6. 以滑鼠右鍵按一下 範圍 窗格中的最上層節點 (範例中的 StorSimple Snapshot Manager)，然後按一下切換匯入顯示。 
 7. 當可在 StorSimple Snapshot Manager 中看到匯入的磁碟區群組和備份時，即會出現一則訊息。 按一下 [確定] 。
 
 ## <a name="next-steps"></a>後續步驟

@@ -16,13 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>在 Azure 上部署 SAP S/4HANA 或 BW/4HANA
 本文說明如何使用 SAP Cloud Appliance Library (SAP CAL) 3.0 在 Azure 上部署 S/4HANA。 若要部署其他 SAP HANA 型解決方案 (例如 BW/4HANA)，請遵循相同的步驟。
@@ -162,7 +160,6 @@ ms.lasthandoff: 06/23/2017
 在幾個小時內，狀況良好的 SAP S/4 應用裝置便會部署在 Azure 中。
 
 如果您已購買 SAP CAL 訂用帳戶，SAP 便可完全支援透過 SAP CAL 在 Azure 上進行部署。 支援佇列是 BC-VCM-CAL。
-
 
 
 

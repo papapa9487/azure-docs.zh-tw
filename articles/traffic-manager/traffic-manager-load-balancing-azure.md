@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/27/2016
 ms.author: limichel
 ms.openlocfilehash: ae9bd30b76786f94f0d836a39137da696fdb94a2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-load-balancing-services-in-azure"></a>在 Azure 中使用負載平衡服務
 
@@ -104,7 +104,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
   ![應用程式閘道「新增後端集區」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. 在應用程式閘道的 [設定] 下選取 [規則]，然後按一下 [路徑型] 按鈕以新增規則。
+4. 在應用程式閘道的 設定 下選取 規則，然後按一下路徑型 按鈕以新增規則。
 
   ![應用程式閘道規則「路徑型」按鈕](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
@@ -134,7 +134,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 在此案例中，流量管理員會連結到位於不同區域中的應用程式閘道 (如前述步驟中所設定)。 現在已設定應用程式閘道，下一步是將它們連接至您的流量管理員設定檔。
 
 1. 開啟流量管理員設定檔。 若要這樣做，請從 [所有資源] 查看您的資源群組，或搜尋流量管理員設定檔的名稱。
-2. 在左窗格中，選取 [端點]，然後按一下 [新增] 以新增端點。
+2. 在左窗格中，選取 端點，然後按一下新增 以新增端點。
 
   ![流量管理員端點「新增」按鈕](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
@@ -167,7 +167,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 #### <a name="connect-a-back-end-database-tier-to-the-load-balancer"></a>將後端資料庫層連接到負載平衡器
 
 1. 從資源群組中，尋找先前步驟中所建立的負載平衡器。
-2. 在 [設定] 下，按一下 [後端集區]，然後按一下 [新增] 來新增後端集區。
+2. 在 設定 下，按一下 後端集區，然後按一下新增 來新增後端集區。
 
   ![負載平衡器「新增後端集區」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
@@ -176,7 +176,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 #### <a name="configure-a-probe"></a>設定探查
 
-1. 在您的負載平衡器中，於 [設定] 下選取 [探查]，然後按一下 [新增] 來新增探查。
+1. 在您的負載平衡器中，於 設定 下選取 探查，然後按一下新增 來新增探查。
 
  ![負載平衡器「新增探查」刀鋒視窗](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
@@ -189,7 +189,7 @@ Microsoft Azure 提供多個服務，可管理分配網路流量和負載平衡�
 
 #### <a name="configure-the-load-balancing-rules"></a>設定負載平衡規則
 
-1. 在負載平衡器的 [設定] 下，選取 [負載平衡規則]，然後按一下 [新增] 以建立規則。
+1. 在負載平衡器的 設定 下，選取 負載平衡規則，然後按一下新增 以建立規則。
 2. 在 [新增負載平衡規則] 刀鋒視窗中，輸入負載平衡規則的**名稱**。
 3. 依序選擇負載平衡器的 [前端 IP 位址]、[通訊協定] 和 [連接埠]。
 4. 在 [後端連接埠] 下，指定要在後端集區中使用的連接埠。

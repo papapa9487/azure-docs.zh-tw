@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 6efe6de6cc6d6d4c9788549048c5b50b03b3de42
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 141e3c571d744470fd07e99538b6e38d4144e8d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>使用 Azure PowerShell 對路由進行疑難排解
 > [!div class="op_single_selector"]
@@ -137,5 +135,4 @@ ms.lasthandoff: 04/27/2017
 * 要讓 VNet 對等互連流量正確運作，對等互連的 VNet 的首碼範圍必須有 **nextHopType** *VNetPeering* 的系統路由。 如果沒有此類路由，且 VNet 對等互連連結看起來正常︰
   * 如果是新建立的對等互連連結，請等候幾秒鐘並重試。 有時候需要花比較長的時間才能將路由傳播到子網路中的所有網路介面。
   * 網路安全性群組 (NSG) 規則可能會影響流量流程。 如需詳細資訊，請參閱 [為網路安全性群組疑難排解](virtual-network-nsg-troubleshoot-powershell.md) 文章。
-
 

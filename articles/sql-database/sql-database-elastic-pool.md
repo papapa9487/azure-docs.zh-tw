@@ -11,19 +11,17 @@ ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.devlang: NA
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 38c8c83909fe6a68e8850c9ac9d796784c38c70a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2af5be1c2250c3ec363b97c21bc3fa05c8ace984
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
 SQL Database 彈性集區是簡單、符合成本效益的解決方案，可用來管理及調整使用需求變化不定且無法預測的多個資料庫。 彈性集區中的資料庫位於單一 Azure SQL Database 伺服器上，並以固定價格共用固定數量的資源 ([彈性資料庫交易單位](sql-database-what-is-a-dtu.md) (eDTU))。 Azure SQL Database 中的彈性集區可讓 SaaS 開發人員將一組資料庫的價格效能最佳化在規定的預算內，同時為每個資料庫提供效能彈性。 
@@ -122,7 +120,7 @@ SQL Database 會自動評估現有 SQL Database 伺服器中資料庫過去的�
 1. 估計集區所需的 eDTU，如下所示：
 
    最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
-   <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
+   <並行尖峰 DB 的數目** X 每個 DB 的尖峰 DTU 使用量**)
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。 如需以 eDTU 集區大小為基礎的集區儲存體限制，請參閱 [彈性集區和彈性資料庫的 eDTU 和儲存體限制](sql-database-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)。
 3. 採用步驟 1 和步驟 2 中較大的 eDTU 估計值。
 4. 請參閱 [SQL Database 價格頁面](https://azure.microsoft.com/pricing/details/sql-database/) 並尋找大於步驟 3 估計值的最小 eDTU 集區大小。
@@ -329,12 +327,12 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 
 | Cmdlet | 說明 |
 | --- | --- |
-|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#create)|建立彈性集區。|
-|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#list)|傳回將伺服器中的彈性集區列出的清單。|
-|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#list-dbs)|傳回將彈性集區中的資料庫列出的清單。|
-|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#list-editions)|也包含可用的集區 DTU 設定、儲存體限制，以及個別資料庫設定。 為了減少繁複度，額外的儲存空間限制和個別資料庫設定預設為隱藏。|
-|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#update)|更新彈性集區。|
-|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#delete)|刪除彈性集區。|
+|[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_create)|建立彈性集區。|
+|[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list)|傳回將伺服器中的彈性集區列出的清單。|
+|[az sql elastic-pool list-dbs](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_dbs)|傳回將彈性集區中的資料庫列出的清單。|
+|[az sql elastic-pool list-editions](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_list_editions)|也包含可用的集區 DTU 設定、儲存體限制，以及個別資料庫設定。 為了減少繁複度，額外的儲存空間限制和個別資料庫設定預設為隱藏。|
+|[az sql elastic-pool update](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update)|更新彈性集區。|
+|[az sql elastic-pool delete](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_delete)|刪除彈性集區。|
 
 ## <a name="manage-databases-within-elastic-pools-using-transact-sql"></a>使用 Transact-SQL 來管理彈性集區內的資料庫
 
@@ -382,4 +380,3 @@ SQL Database 服務會評估使用量的歷史資料，並為您推薦一或多�
 * 若要觀賞影片，請參閱[有關 Azure SQL Database 彈性功能的 Microsoft Virtual Academy 視訊課程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * 若要深入了解使用彈性集區的 SaaS 應用程式的設計模式，請參閱 [採用 Azure SQL Database 的多租用戶 SaaS 應用程式的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 * 如需使用彈性集區的 SaaS 教學課程，請參閱 [Wingtip SaaS 應用程式簡介](sql-database-wtp-overview.md)。
-

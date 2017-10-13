@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 697fbcdb4c5d5a900deb980db7cca9cf2f9fa36d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-1-review-the-architecture-for-physical-server-replication-to-azure"></a>步驟 1：檢閱將實體伺服器複寫至 Azure 的架構
 
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將內部部署 Windows/Linux 實體伺服器複寫至 Azure 時，所使用的元件和程序。
@@ -88,4 +86,3 @@ ms.lasthandoff: 09/27/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 2：確認必要條件和限制](physical-walkthrough-prerequisites.md)
-

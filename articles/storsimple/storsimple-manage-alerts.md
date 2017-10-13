@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 03/08/2017
 ms.author: anbacker
 ms.openlocfilehash: 5772334aade138101730fa7345f4515664d6d22f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-view-and-manage-storsimple-alerts"></a>使用 StorSimple Manager 服務來檢視和管理 StorSimple 警示
 ## <a name="overview"></a>概觀
@@ -60,7 +60,7 @@ StorSimple 裝置會產生警示以回應各種不同的狀況。 以下是最�
    
    1. 在 [傳送電子郵件通知] 欄位中，選取 [是]。
    2. 如果您想要讓服務管理員和所有共同管理員收到警示通知，請在 [電子郵件服務管理員] 欄位中選取 [是]。
-   3. 在 [其他電子郵件收件者]  欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。 使用分號來分隔電子郵件地址。 您可以對每一裝置設定最多 20 個電子郵件地址。 
+   3. 在 [其他電子郵件收件者]  欄位中，輸入應該收到警示通知的其他所有收件者的電子郵件地址。 以 *someone@somewhere.com* 格式輸入名稱。使用分號來分隔電子郵件地址。 您可以對每一裝置設定最多 20 個電子郵件地址。 
       
        ![警示通知設定](./media/storsimple-manage-alerts/AlertNotify.png)
 3. 若要傳送測試電子郵件通知，請按一下 [傳送測試電子郵件] 旁的箭號圖示。 StorSimple Manager 服務轉寄測試通知時會顯示狀態訊息。 
@@ -78,7 +78,7 @@ StorSimple Manager 服務儀表板可讓您快速概覽裝置上的警示數目 
 
 ![警示儀表板](./media/storsimple-manage-alerts/admin_alerts_dashboard.png)
 
-按一下嚴重性層級會開啟 [ **警示** ] 索引標籤。 結果只包含符合該嚴重性層級的警示。
+按一下嚴重性層級會開啟 [ **警示** ] 索引標籤。結果只包含符合該嚴重性層級的警示。
 
 ![限定警示類型的警示報告](./media/storsimple-manage-alerts/admin_alerts_scoped.png)
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: tarcher
+ms.openlocfilehash: c268c1a10e4a313d0520f96e452ef978b6201115
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cdf62c2eca23384c4ec5c20547ba7653605f5434
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中將標記新增到實驗室
 
@@ -67,4 +66,3 @@ ms.lasthandoff: 09/13/2017
 ## <a name="next-steps"></a>後續步驟
 * 您可以使用自訂原則，在訂用帳戶內套用限制和慣例。 您所定義的原則可能需要所有資源都具有特定標籤的值。 如需詳細資訊，請參閱[設定原則和排程](devtest-lab-set-lab-policy.md)。
 * 瀏覽 [DevTest Labs Azure Resource Manager 快速入門範本資源庫 (英文)](https://github.com/Azure/azure-devtestlab/tree/master/Samples)。
-

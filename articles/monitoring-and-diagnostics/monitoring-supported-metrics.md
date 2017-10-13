@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。
@@ -33,9 +32,9 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 
 |計量|計量顯示名稱|單位|彙總類型|說明|維度|
 |---|---|---|---|---|---|
-|qpu_metric|QPU|計數|平均值|QPU。 範圍 0-100 (S1)、0-200 (S2) 和 0-400 (S4)|無維度|
+|qpu_metric|QPU|Count|平均值|QPU。 範圍 0-100 (S1)、0-200 (S2) 和 0-400 (S4)|無維度|
 |memory_metric|記憶體|位元組|平均值|記憶體。 範圍 0-25 GB (S1)、0-50 GB (S2) 和 0-100 GB (S4)|無維度|
-|TotalConnectionRequests|連線要求的總計|計數|平均值|連線要求的總計。 這些是達到的。|無維度|
+|TotalConnectionRequests|連線要求的總計|Count|平均值|連線要求的總計。 這些是達到的。|無維度|
 |SuccessfullConnectionsPerSec|每秒連線成功的次數|每秒計數|平均值|成功完成連線的速率。|無維度|
 |TotalConnectionFailures|連線失敗的總計|Count|平均值|連線嘗試失敗的總計。|無維度|
 |CurrentUserSessions|目前的使用者工作階段|Count|平均值|目前建立的使用者工作階段數目。|無維度|
@@ -87,7 +86,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |FailedRequests|失敗的閘道要求|Count|總計|閘道要求中的失敗數目|位置，主機名稱|
 |OtherRequests|其他閘道器要求|Count|總計|其他閘道器要求數目|位置，主機名稱|
 |Duration|閘道要求的整體持續期間|毫秒|平均值|閘道要求的整體持續期間，以毫秒為單位|位置，主機名稱|
-|Capacity|容量 (預覽)|百分比|最大值|ApiManagement 服務的使用率衡量標準|位置|
+|容量|容量 (預覽)|百分比|最大值|ApiManagement 服務的使用率衡量標準|位置|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -333,7 +332,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |Disk Write Bytes|Disk Write Bytes|位元組|總計|在監視期間寫入磁碟的位元組總計|無維度|
 |Disk Read Operations/Sec|Disk Read Operations/Sec|每秒計數|平均值|磁碟讀取 IOPS|無維度|
 |Disk Write Operations/Sec|Disk Write Operations/Sec|每秒計數|平均值|磁碟寫入 IOPS|無維度|
-|CPU Credits Remaining|剩餘 CPU 信用額度|Count|平均值|可用於高載的信用額度總數|無維度|
+|剩餘 CPU 信用額度|剩餘 CPU 信用額度|Count|平均值|可用於高載的信用額度總數|無維度|
 |CPU Credits Consumed|CPU Credits Consumed|Count|平均值|由虛擬機器取用的信用額度總數|無維度|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
@@ -814,11 +813,11 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |---|---|---|---|---|---|
 |UsedCapacity|已使用容量|位元組|平均值|帳戶使用的容量|無維度|
 |交易|交易|Count|總計|向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 使用 ResponseType 維度來取得不同類型回應的數目。|ResponseType，GeoType，ApiName|
-|Ingress|Ingress|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
-|Egress|Egress|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
+|Ingress|輸入|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
+|Egress|輸出|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
 |SuccessServerLatency|成功伺服器延遲|毫秒|平均值|Azure 儲存體用來處理成功要求的平均延遲 (毫秒)。 此值不包括在 AverageE2ELatency 中指定的網路延遲。|GeoType，ApiName|
 |SuccessE2ELatency|成功 E2E 延遲|毫秒|平均值|向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲 (毫秒)。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。|GeoType，ApiName|
-|Availability|可用性|百分比|平均值|儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將 TotalBillableRequests 值除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。|GeoType，ApiName|
+|Availability|Availability|百分比|平均值|儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將 TotalBillableRequests 值除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。|GeoType，ApiName|
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
@@ -828,8 +827,8 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |BlobCount|Blob 計數|Count|平均值|儲存體帳戶之 Blob 服務中的 Blob 數目。|BlobType|
 |ContainerCount|Blob 容器計數|Count|平均值|儲存體帳戶之 Blob 服務中的容器數目。|無維度|
 |交易|交易|Count|總計|向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 使用 ResponseType 維度來取得不同類型回應的數目。|ResponseType，GeoType，ApiName|
-|Ingress|Ingress|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
-|Egress|Egress|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
+|Ingress|輸入|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
+|Egress|輸出|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
 |SuccessServerLatency|成功伺服器延遲|毫秒|平均值|Azure 儲存體用來處理成功要求的平均延遲 (毫秒)。 此值不包括在 AverageE2ELatency 中指定的網路延遲。|GeoType，ApiName|
 |SuccessE2ELatency|成功 E2E 延遲|毫秒|平均值|向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲 (毫秒)。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。|GeoType，ApiName|
 |Availability|Availability|百分比|平均值|儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將 TotalBillableRequests 值除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。|GeoType，ApiName|
@@ -842,8 +841,8 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |TableCount|資料表計數|Count|平均值|儲存體帳戶之資料表服務中的資料表數目。|無維度|
 |TableEntityCount|資料表實體計數|Count|平均值|儲存體帳戶之資料表服務中的資料表實體數目。|無維度|
 |交易|交易|Count|總計|向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 使用 ResponseType 維度來取得不同類型回應的數目。|ResponseType，GeoType，ApiName|
-|Ingress|Ingress|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
-|Egress|Egress|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
+|Ingress|輸入|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
+|Egress|輸出|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
 |SuccessServerLatency|成功伺服器延遲|毫秒|平均值|Azure 儲存體用來處理成功要求的平均延遲 (毫秒)。 此值不包括在 AverageE2ELatency 中指定的網路延遲。|GeoType，ApiName|
 |SuccessE2ELatency|成功 E2E 延遲|毫秒|平均值|向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲 (毫秒)。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。|GeoType，ApiName|
 |Availability|Availability|百分比|平均值|儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將 TotalBillableRequests 值除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。|GeoType，ApiName|
@@ -856,8 +855,8 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |QueueCount|佇列計數|Count|平均值|儲存體帳戶之佇列服務中的佇列數目。|無維度|
 |QueueMessageCount|佇列訊息計數|Count|平均值|儲存體帳戶之佇列服務中的佇列訊息大約數目。|無維度|
 |交易|交易|Count|總計|向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 使用 ResponseType 維度來取得不同類型回應的數目。|ResponseType，GeoType，ApiName|
-|Ingress|Ingress|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
-|Egress|Egress|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
+|Ingress|輸入|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
+|Egress|輸出|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
 |SuccessServerLatency|成功伺服器延遲|毫秒|平均值|Azure 儲存體用來處理成功要求的平均延遲 (毫秒)。 此值不包括在 AverageE2ELatency 中指定的網路延遲。|GeoType，ApiName|
 |SuccessE2ELatency|成功 E2E 延遲|毫秒|平均值|向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲 (毫秒)。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。|GeoType，ApiName|
 |Availability|Availability|百分比|平均值|儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將 TotalBillableRequests 值除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。|GeoType，ApiName|
@@ -870,8 +869,8 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |FileCount|檔案計數|Count|平均值|儲存體帳戶之檔案服務中的檔案數目。|無維度|
 |FileShareCount|檔案共用計數|Count|平均值|儲存體帳戶之檔案服務中的檔案共用數目。|無維度|
 |交易|交易|Count|總計|向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 使用 ResponseType 維度來取得不同類型回應的數目。|ResponseType，GeoType，ApiName|
-|Ingress|Ingress|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
-|Egress|Egress|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
+|Ingress|輸入|位元組|總計|輸入資料量 (位元組)。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。|GeoType，ApiName|
+|Egress|輸出|位元組|總計|輸出資料量 (位元組)。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。|GeoType，ApiName|
 |SuccessServerLatency|成功伺服器延遲|毫秒|平均值|Azure 儲存體用來處理成功要求的平均延遲 (毫秒)。 此值不包括在 AverageE2ELatency 中指定的網路延遲。|GeoType，ApiName|
 |SuccessE2ELatency|成功 E2E 延遲|毫秒|平均值|向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲 (毫秒)。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。|GeoType，ApiName|
 |Availability|Availability|百分比|平均值|儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將 TotalBillableRequests 值除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。|GeoType，ApiName|
@@ -1000,4 +999,3 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 * [了解 Azure 監視器中的計量](monitoring-overview-metrics.md)
 * [建立計量警示](insights-receive-alert-notifications.md)
 * [將計量匯出至儲存體、事件中樞或 Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-

@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
 ms.author: ruturajd
 ms.openlocfilehash: 82d5eb7fd13b1e9700a3e9bc2d30775e9c129749
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-back-vmware-virtual-machines-and-physical-servers-to-the-on-premises-site-classic-portal"></a>將 VMWare 虛擬機器和實體伺服器容錯回復至內部部署網站 (傳統入口網站)
 > [!div class="op_single_selector"]
@@ -149,7 +149,7 @@ ms.lasthandoff: 08/03/2017
 
 1. 將 RHEL 6-64 整合代理程式二進位檔複製到 VM。 執行下列命令來解壓縮二進位檔：**tar –zxvf <file name>**
 2. 執行此命令來授與權限： **# chmod 755 ./ApplyCustomChanges.sh**
-3. 執行指令碼： **# ./ApplyCustomChanges.sh**。 指令碼只應執行一次。 在指令碼順利執行後，請重新啟動伺服器。
+3. 執行指令碼： **# ./ApplyCustomChanges.sh**。指令碼只應執行一次。 在指令碼順利執行後，請重新啟動伺服器。
 
 ## <a name="run-the-failback"></a>執行容錯回復
 ### <a name="reprotect-the-azure-vms"></a>重新保護 Azure VM

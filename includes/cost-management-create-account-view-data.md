@@ -20,7 +20,7 @@ Cloudyn 的 Azure 成本管理可讓您存取您的所有雲端資源資料。 �
 
 在此範例中，過去 30 天 Azure 資源的總成本是 3,839 美元。
 
-以滑鼠右鍵按一下 [提供者] (Azure) 長條，並向下鑽研至 [資源類型]。
+以滑鼠右鍵按一下 [提供者] \(Azure) 長條，並向下鑽研至 [資源類型]。
 
 ![向下鑽研](./media/cost-management-create-account-view-data/actual-cost-03.png)
 

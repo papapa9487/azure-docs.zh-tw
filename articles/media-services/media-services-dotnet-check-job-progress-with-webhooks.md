@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: a54ea21ea2d5ce62aabaeca7c5d25281a7d3f4be
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知
 執行作業時，您通常需要設法追蹤作業進度。 您可以使用 Azure Webhook 或 [Azure 佇列儲存體](media-services-dotnet-check-job-progress-with-queues.md)來監視媒體服務作業通知。 本主題說明如何使用 Webhook。
@@ -66,9 +65,9 @@ ms.lasthandoff: 08/31/2017
 
 部署函式應用程式之後，您可以在**應用程式服務** Azure Functions 中找到它。
 
-1. 選取您的函式應用程式，然後按一下 [新增函式]。
+1. 選取您的函式應用程式，然後按一下新增函式。
 2. 選取 [C#] 程式碼以及 [API 與 Webhook] 案例。 
-3. 選取 [Generic Webhook - C#] \(泛型 Webhook - C#)。
+3. 選取 [Generic Webhook - C#] (泛型 Webhook - C#)。
 4. 命名您的 Webhook，然後按 [建立]。
 
 ### <a name="files"></a>檔案
@@ -373,7 +372,7 @@ internal sealed class NotificationMessage
 
 本節會顯示將 Webhook 通知新增至工作的程式碼。 您也可以新增作業層級通知，這更適用於具有鏈結工作的作業。  
 
-1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。 依序輸入 [名稱]、[位置] 和 [方案名稱]，然後按一下 [確定]。
+1. 在 Visual Studio 中，建立新的 C# 主控台應用程式。 依序輸入 名稱、位置 和 方案名稱，然後按一下確定。
 2. 使用 [NuGet](https://www.nuget.org/packages/windowsazure.mediaservices) 來安裝 Azure 媒體服務。
 3. 使用適當的值來更新 App.config 檔案： 
     
@@ -513,4 +512,3 @@ internal sealed class NotificationMessage
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

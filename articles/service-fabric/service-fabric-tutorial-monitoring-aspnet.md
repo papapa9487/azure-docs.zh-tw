@@ -15,14 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 68788efffd27edf2813cf455490b651c2c7106a8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-diagnose-an-aspnet-core-application-on-service-fabric"></a>監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 本教學課程是一個系列的第四部分。 其中會逐步設定使用 Application Insights 來監視和診斷 Service Fabric 叢集上執行的 ASP.NET Core 應用程式。 我們將從教學課程第一部分[建置 .NET Service Fabric 應用程式](service-fabric-tutorial-create-dotnet-app.md)中所開發的應用程式收集遙測資料。 
 
@@ -138,7 +136,7 @@ Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來�
         .Build();
     ```
 
-此時，您已經準備好要部署應用程式。 按一下頂端的 [開始] (或 **F5**)，Visual Studio 會建置並封裝應用程式、設定本機叢集，然後將應用程式部署到此叢集。 
+此時，您已經準備好要部署應用程式。 按一下頂端的 [開始] \(或 **F5**)，Visual Studio 會建置並封裝應用程式、設定本機叢集，然後將應用程式部署到此叢集。 
 
 完成應用程式部署後，請移至 [localhost:8080](localhost:8080)，您應該可以看到「投票範例」單一頁面應用程式。 票選您喜歡的幾個不同項目，以建立一些樣本資料和遙測資料 - 我去吃甜點了！
 
@@ -238,4 +236,3 @@ public async Task<IActionResult> Delete(string name)
 - [在 Service Fabric 中探索監視和診斷](service-fabric-diagnostics-overview.md)
 - [使用 Application Insights 分析 Service Fabric 事件](service-fabric-diagnostics-event-analysis-appinsights.md)
 - 若要深入了解 Application Insights，請參閱 [Application Insights 文件](https://docs.microsoft.com/en-us/azure/application-insights/)
-

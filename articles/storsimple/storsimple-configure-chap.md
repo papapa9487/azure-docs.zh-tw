@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: TBD
 ms.date: 08/17/2016
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 83dc91972ad5fec85e562e45227747568b1fea75
 ms.openlocfilehash: 36b4e73d0336deb9560d44163fc5330d1c9d775c
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-chap-for-your-storsimple-device"></a>為 StorSimple 裝置設定 CHAP
 本教學課程說明如何為 StorSimple 裝置設定 CHAP。 這篇文章所述的程序適用於 StorSimple 8000 系列，以及 StorSimple 1200 裝置。
@@ -160,10 +160,4 @@ CHAP 代表 Challenge Handshake 驗證通訊協定。 它是伺服器用來驗�
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [StorSimple 安全性](storsimple-security.md)。
 * 深入了解 [使用 StorSimple Manager 服務管理 StorSimple 裝置](storsimple-manager-service-administration.md)。
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
 

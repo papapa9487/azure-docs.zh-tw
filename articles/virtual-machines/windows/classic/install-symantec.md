@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
-ms.openlocfilehash: fea8d8dff9c98f928ed7c5ed2b130c7f614f3f9e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/25/2017
-
-
+ms.openlocfilehash: 1603ebc7ee3c29277f30fbb802bdd8205b92d648
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>如何在 Windows VM 上安裝和設定 Symantec Endpoint Protection
 > [!IMPORTANT] 
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
@@ -64,7 +61,7 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 若要確認 Symantec 安全性延伸模組已安裝且是最新的：
 
 1. 登入虛擬機器。 如需指示，請參閱[如何登入執行 Windows Server 的虛擬機器][Logon]。
-2. 在 Windows Server 2008 R2 中，按一下 [開始] > [Symantec Endpoint Protection]。 在 Windows Server 2012 或 Windows Server 2012 R2 的 [開始] 畫面中，輸入 **Symantec**，然後按一下 [Symantec Endpoint Protection]。
+2. 在 Windows Server 2008 R2 中，按一下 [開始] > [Symantec Endpoint Protection]。 在 Windows Server 2012 或 Windows Server 2012 R2 的 開始 畫面中，輸入 **Symantec**，然後按一下Symantec Endpoint Protection。
 3. 在 [狀態 - Symantec Endpoint Protection] 視窗的 [狀態] 索引標籤中，套用更新或視需要重新啟動。
 
 ## <a name="additional-resources"></a>其他資源
@@ -84,4 +81,3 @@ Set-AzureVMExtension -Publisher Symantec –Version $Agent.Version -ExtensionNam
 [Logon]:connect-logon.md
 
 [Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
-

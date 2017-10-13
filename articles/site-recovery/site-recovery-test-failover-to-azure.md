@@ -15,10 +15,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: pratshar
 ms.openlocfilehash: 54f62af6abcdd38254fd5379b95baa05656dc90b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test--failover-to-azure-in-site-recovery"></a>在 Site Recovery 中測試容錯移轉到 Azure
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 07/11/2017
     1.  **自訂**︰如果您要執行虛擬機器的測試容錯移轉，您可以使用此選項以容錯移轉至特定復原點。
 1. 選取一個 **Azure 虛擬網路**︰提供一個 Azure 虛擬網路，測試虛擬機器會建立於該處。 Site Recovery 會嘗試在名稱相同的子網路中建立測試虛擬機器，並使用虛擬機器的 [計算與網路] 設定中提供的 IP。 如果針對測試容錯移轉提供的 Azure 虛擬網路中沒有名稱相同的子網路，則會在依字母順序的第一個子網路中建立測試虛擬機器。 如果子網路中沒有相同的 IP，虛擬機器會取得子網路中另一個可用的 IP 位址。 請參閱此節以[瞭解更多詳細資訊](#creating-a-network-for-test-failover)
 1. 如果您正在容錯移轉到 Azure 且已啟用資料加密，請在 [加密金鑰] 中，選取當您在提供者安裝期間啟用資料加密時所發出的憑證。 如果您尚未在虛擬機器上啟用加密，您可以忽略此步驟。
-1. 在 [工作]  索引標籤上追蹤容錯移轉進度。 您應該可以在 Azure 入口網站中看到測試複本機器。
+1. 在 [工作]  索引標籤上追蹤容錯移轉進度。您應該可以在 Azure 入口網站中看到測試複本機器。
 1. 若要在虛擬機器上初始化 RDP 連線，您必須在容錯移轉的虛擬機器的網路介面上[新增公用 IP](site-recovery-monitoring-and-troubleshooting.md#adding-a-public-ip-on-a-resource-manager-virtual-machine)。 如果您要容錯移轉到傳統虛擬機器，您必須在連接埠 3389 上[新增端點](../virtual-machines/windows/classic/setup-endpoints.md)
 1. 完成後，在復原方案上按一下 [清除測試容錯移轉]。 在 [記事]  中，記錄並儲存關於測試容錯移轉的任何觀察。 這會刪除在測試容錯移轉期間所建立的虛擬機器。
 

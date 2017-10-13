@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 820b73a5dbf9bb108e189313cf6ee2b924ab04c7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-and-troubleshoot-stream-analytics-jobs"></a>以視覺化方式呈現串流分析工作並進行疑難排解
 在「串流分析」中，與其他雲端型技術一樣，有時需要進行疑難排解來仔細研究為何某個工作沒有產生預期的輸出 (或就此而言，產生任何輸出)。 根據此概念，「串流分析」提供了以視覺化方式呈現串流工作的功能。 此功能可作為便利的模型工具，並且對於需要為其工作提供佐證文件的使用者而言，也有附帶的好處。
@@ -46,5 +45,4 @@ ms.lasthandoff: 08/29/2017
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/01/2017
 ms.author: sujayt
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7b37e853f6b97ba313111f9201f877846a28fae9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-3-plan-networking-for-azure-vm-replication"></a>步驟 3：規劃 Azure VM 複寫的網路服務
 
@@ -153,5 +152,4 @@ login.microsoftonline.com | 提供 Site Recovery 服務 URL 的授權和驗證�
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 4：建立保存庫](azure-to-azure-walkthrough-vault.md)
-
 

@@ -16,12 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4af968ec596540be428898cc4928b0d4c37bf6ac
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: e43ec0bf5b1e5d96eae413687e168a3230e2fe86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>取得雙步驟驗證的說明
 本文回答人們最常詢問有關雙步驟驗證的問題。
@@ -96,4 +95,3 @@ Microsoft 提供了雙步驟驗證，但您的組織選擇使用該功能。 如
 ## <a name="related-topics"></a>相關主題
 * [管理您的雙步驟驗證設定](multi-factor-authentication-end-user-manage-settings.md)  
 * [Microsoft Authenticator 應用程式常見問題集](microsoft-authenticator-app-faq.md)
-

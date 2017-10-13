@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
 ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>使用遠端桌面連接至 Microsoft Azure Linux VM
 > [!IMPORTANT] 
@@ -38,7 +38,7 @@ xrdp 工具是一個開放原始碼 RDP 伺服器，可讓您從 Windows 電腦�
 > 
 
 ## <a name="create-an-endpoint-for-remote-desktop"></a>建立遠端桌面的端點
-我們將對本文件中的遠端桌面使用預設端點 3389。 將 3389 端點設定為 Linux VM 的 `Remote Desktop`，如下所示：
+我們將對本文件中的遠端桌面使用預設端點 3389。將 3389 端點設定為 Linux VM 的 `Remote Desktop`，如下所示：
 
 ![image](./media/remote-desktop/endpoint-for-linux-server.png)
 

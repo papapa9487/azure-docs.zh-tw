@@ -14,12 +14,11 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 6acd343782a3ee07750e27ec3022ff81cedfadee
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ios-sdk-for-azure-mobile-engagement"></a>Azure Mobile Engagement iOS SDK
 從這裡開始取得有關如何在 iOS 應用程式中整合 Azure Mobile Engagement 的所有詳細資料。 如果您想要先試用一下，請務必先完成我們的 [15 分鐘教學課程](mobile-engagement-ios-get-started.md)。
@@ -184,4 +183,3 @@ SDK 會用 `UNUserNotificationCenter` 委派來監視在 iOS 10 或更新版本�
         [UNUserNotificationCenter currentNotificationCenter].delegate = self;
         return YES;
       }
-

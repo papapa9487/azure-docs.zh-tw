@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: e135e719d8f267f6a189d0f8a903a49980a5a035
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: c3fa22bd599026b0838b134e26062d9837df703e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>使用 Azure 網路監看員 PowerShell 來針對虛擬網路閘道和連線進行疑難排解
 
 > [!div class="op_single_selector"]
@@ -80,4 +78,3 @@ ms.lasthandoff: 06/20/2017
 
 
 [2]: ./media/network-watcher-troubleshoot-manage-portal/2.png
-

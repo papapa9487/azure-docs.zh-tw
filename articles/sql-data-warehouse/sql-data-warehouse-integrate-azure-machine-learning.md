@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: kevin;barbkess
 ms.openlocfilehash: c19860c6b5b1c15d1e29ddc67f9cf9ad4618725b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-machine-learning-with-sql-data-warehouse"></a>搭配使用 Azure 機器學習服務與 SQL 資料倉儲
 Azure 機器學習服務是一項完全受管理的預測性分析服務，您可用來在 SQL 資料倉儲中針對您的資料建立預測模型，並發佈為可供取用 Web 服務。 閱讀 [Azure 上的機器學習服務簡介][Introduction to Machine Learning on Azure]，即可了解預測性分析和機器學習的基本概念。  然後，您可以使用[建立實驗教學課程][Create experiment tutorial]，了解如何建立、定型、評分和測試機器學習模型。

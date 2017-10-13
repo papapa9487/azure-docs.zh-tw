@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/16/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bbee77e669f49bdebb57121df8672a9253945b3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 09/25/2017
 > * 部署內部部署管理伺服器
 > * 設定複寫原則並啟用複寫
 > * 執行災害復原演練，確定一切運作正常
-> * 執行 Azure 的一次性容錯移轉
+> * 執行一次性容錯移轉至 Azure
 
 ## <a name="overview"></a>概觀
 
@@ -117,4 +116,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [移轉至 Azure 後，將 Azure VM 複寫至另一個區域](site-recovery-azure-to-azure-after-migration.md)
-

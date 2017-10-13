@@ -28,7 +28,7 @@ articles/sql-data-warehouse-get-started-provision.md
     > 您可以在伺服器上的 SQL Database 防火牆，針對單一 IP 位址或整個位址區段作開放。 開放防火牆可讓 SQL 系統管理員和使用者登入伺服器上，任何他們具備有效認證的資料庫。
     >
 
-4. 按一下工具列上的 [儲存] 來儲存此項伺服器層級防火牆規則，然後按一下 [確定]。
+4. 按一下工具列上的 儲存 來儲存此項伺服器層級防火牆規則，然後按一下確定。
 
     ![新增用戶端 IP](../articles/sql-database/media/sql-database-get-started-portal/server-firewall-rule.png)
 

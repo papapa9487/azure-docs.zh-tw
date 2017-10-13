@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 7df2eb9ecebe3313dad9c15171552a084787f6b8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparing-azure-mobile-engagement-with-other-similar-azure-services"></a>比較 Azure Mobile Engagement 與其他類似的 Azure 服務
 Microsoft Azure 所提供之軟體的清單會不斷擴大，且您有時可能會想要知道 Azure Mobile Engagement 和您剛剛閱讀或聽過的其他服務有什麼不同。 此文章會嘗試釐清您的疑惑，並在 Azure Mobile Engagement 是最適合您使用的服務時，指示您選擇 Azure Mobile Engagement。 

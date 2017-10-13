@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: rajram
+ms.openlocfilehash: 84ce3af2bef1e3204ad91567d155d7cbf90e9c7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 68cb624b3ef4a77e7cfc949979e0b1949c2e5535
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>開始在 Azure 中自動調整規模
 本文說明如何在 Microsoft Azure 入口網站中為您的資源設定自動調整規模。
@@ -50,7 +49,7 @@ Azure 監視器自動調整規模僅適用於虛擬機器擴展集、雲端服�
 1. 開啟 Azure 監視器中的 [自動調整規模] 刀鋒視窗，然後選取您想要調整的資源。 (下列步驟會使用與某個 Web 應用程式相關聯的 App Service 方案。 您可以[在 5 分鐘內，將您的第一個 ASP.NET Web 應用程式建立在 Azure 中][4])
 2. 請注意，目前的角色執行個體計數是 1。 按一下 [啟用自動調整規模]。
   ![適用於新 Web 應用程式的調整規模設定][5]
-3. 提供調整規模設定的名稱，然後按一下 [新增規則]。 請注意，調整規模規則選項會在右邊開啟為內容窗格。 預設會將此設定為如果資源的 CPU 百分比超過百分之七十，就會將您的執行個體計數相應增加 1。 將其保留為預設值，然後按一下 [新增]。
+3. 提供調整規模設定的名稱，然後按一下新增規則。 請注意，調整規模規則選項會在右邊開啟為內容窗格。 預設會將此設定為如果資源的 CPU 百分比超過百分之七十，就會將您的執行個體計數相應增加 1。 將其保留為預設值，然後按一下 [新增]。
   ![建立 Web 應用程式的調整規模設定][6]
 4. 您現在已建立第一個調整規模規則。 請注意，UX 建議了最佳做法，並指出「建議規則中至少有一個調整規模」。 若要這樣做：
   
@@ -139,5 +138,4 @@ Azure 監視器自動調整規模僅適用於虛擬機器擴展集、雲端服�
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-
 

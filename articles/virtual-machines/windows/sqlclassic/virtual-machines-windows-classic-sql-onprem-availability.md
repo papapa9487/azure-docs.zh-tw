@@ -16,10 +16,10 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
 ms.openlocfilehash: 50326a093adaf3558c56dfd0b38544f0e60be460
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>將內部部署 Always On 可用性群組延伸至 Azure
 Always On 可用性群組可透過新增次要複本，為資料庫群組提供高可用性。 如果發生故障，這些複本便可容錯移轉資料庫。 此外，它們還可用來卸載讀取工作負載或備份工作。
