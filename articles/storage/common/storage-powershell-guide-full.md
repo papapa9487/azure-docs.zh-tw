@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: tamram
+ms.openlocfilehash: 019da8eb9e42894fa3592cd11cce1dc6754290f2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8306ae5d4a943b9246da1d941725150c60026ca5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-powershell-with-azure-storage"></a>搭配使用 Azure PowerShell 與 Azure 儲存體
 ## <a name="overview"></a>Overview
 Azure PowerShell 是個模組，其提供了各種 Cmdlet 來透過 Windows PowerShell 管理 Azure。 它是以工作為基礎的命令列殼層和指令碼語言，特別為系統管理所設計。 使用 PowerShell，您可以輕鬆控制和自動執行 Azure 服務和應用程式的管理。 例如，您可透過 [Azure 入口網站](https://portal.azure.com)執行的工作，大多也可使用 Cmdlet 來執行。
@@ -689,7 +687,7 @@ $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
 ## <a name="how-to-manage-azure-file-shares-and-files"></a>如何管理 Azure 檔案共用和檔案
-Azure 檔案為使用標準 SMB 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
+Azure 檔案服務為使用標準 SMB 通訊協定的應用程式提供共用儲存體。 Microsoft Azure 虛擬機器和雲端服務可以透過掛接的共用，在應用程式元件之間共用檔案資料，而內部部署應用程式可以透過檔案儲存體 API 或 Azure PowerShell，存取共用中的檔案資料。
 
 如需 Azure 檔案的詳細資訊，請參閱[在 Windows 上開始使用 Azure 檔案](../files/storage-files-introduction.md)和[File Service REST API](http://msdn.microsoft.com/library/azure/dn167006.aspx) (檔案服務 REST API)。
 
@@ -848,4 +846,3 @@ Azure 環境是 Microsoft Azure 的獨立部署，例如[適用於美國政府�
 [How to manage Shared Access Signature (SAS) and Stored Access Policy]: #sas
 [How to use Azure Storage for U.S. government and Azure China]: #gov
 [Next Steps]: #next
-

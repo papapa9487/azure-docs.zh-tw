@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
 ms.openlocfilehash: 087d5cda354f6e1780bddd3725859444177abd16
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>將資料磁碟連接至以傳統部署模型建立的 Windows 虛擬機器
 <!--
@@ -56,7 +56,7 @@ Refernce article:
 ## <a name="option-1-attach-and-initialize-a-new-disk"></a>選項 1：連接新磁碟並進行初始化
 
 1. 在 [磁碟] 刀鋒視窗上，按一下 [連接新項目]。
-2. 檢閱預設設定，視需要進行更新，然後按一下 [確定] 。
+2. 檢閱預設設定，視需要進行更新，然後按一下確定 。
 
    ![檢閱磁碟設定](./media/attach-disk/attach-new.png)
 

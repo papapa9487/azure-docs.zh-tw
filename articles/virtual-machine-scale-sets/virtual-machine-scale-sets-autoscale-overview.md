@@ -17,10 +17,10 @@ ms.date: 06/05/2017
 ms.author: adegeo
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>如何使用自動調整與虛擬機器擴展集
 擴展集內的虛擬機器自動調整是依需求建立或刪除集合中的機器以符合效能需求。 當工作量增長時，應用程式可能需要額外的資源，才能有效執行工作。

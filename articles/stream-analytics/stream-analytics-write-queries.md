@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 215b774c20d80a67b1cefa2634131bd44860c692
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-write-queries-in-stream-analytics"></a>如何在串流分析中撰寫查詢
 在 Azure 串流分析中編寫串流處理邏輯的查詢會實作為「常設查詢」，它在工作開始前就已經獲得定義，且會在到達工作時針對資料來執行。 資料轉換會以類似 SQL 的查詢語言來表示，大部分是 T-SQL 子集並加入某些語言擴充功能 (例如 [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) ) 來表示時間語意。
@@ -48,7 +47,7 @@ ms.lasthandoff: 08/29/2017
 > 
 > 
 
-1. 請確定查詢中沒有任何錯誤 (否則 [測試] 按鈕將會停用) 然後按一下 [測試] 按鈕。  
+1. 請確定查詢中沒有任何錯誤 (否則 測試 按鈕將會停用) 然後按一下測試 按鈕。  
    
    ![查詢資料測試](./media/stream-analytics-write-queries/3-stream-analytics-write-queries.png)  
 2. 系統會提示您將檔案指定給在查詢中被參考的每個輸入。 在此範例中，範本查詢將維持現狀，所以對話方塊提示會提示輸入名為 "yourinputalias" 的輸入。
@@ -70,5 +69,4 @@ ms.lasthandoff: 08/29/2017
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

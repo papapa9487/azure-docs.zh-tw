@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 05/01/2017
 ms.author: alkohli
 ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>在 Windows Server 主機上設定 StorSimple Virtual Array 的多重路徑 I/O
 ## <a name="overview"></a>概觀
@@ -80,7 +80,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 
 #### <a name="to-mount-volumes-on-the-host"></a>若要在主機上掛接磁碟區
 1. 在 Windows Server 主機上，開啟 [iSCSI 啟動器內容]  視窗。 移至 [伺服器管理員] > [儀表板] > [工具] > [iSCSI 啟動器]。
-2. 在 [iSCSI 啟動器 - 內容] 對話方塊中，按一下 [探索]，然後按一下 [搜尋目標入口]。
+2. 在 iSCSI 啟動器 - 內容 對話方塊中，按一下 探索，然後按一下搜尋目標入口。
 3. 在 [搜尋目標入口]  對話方塊中，執行下列動作：
    
     1. 輸入 StorSimple Virtual Array 上第一個啟用的網路介面的 IP 位址。 根據預設，這會是 **乙太網路**。 
@@ -125,9 +125,9 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
       
        ![mpio11](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio11.png)
     
-    5. 在新增所需的工作階段 (路徑) 之後，請在 [iSCSI 啟動器內容] 對話方塊中，選取目標，然後按一下 [內容]。 在 [內容]  對話方塊的 [工作階段] 索引標籤中，針對可能的路徑排列組合記下其對應的四個工作階段識別碼。 若要取消工作階段，請選取工作階段識別碼旁邊的核取方塊，然後按一下 [中斷連線] 。
+    5. 在新增所需的工作階段 (路徑) 之後，請在 [iSCSI 啟動器內容] 對話方塊中，選取目標，然後按一下 [內容]。 在 [內容]  對話方塊的 [工作階段] 索引標籤中，針對可能的路徑排列組合記下其對應的四個工作階段識別碼。 若要取消工作階段，請選取工作階段識別碼旁邊的核取方塊，然後按一下中斷連線 。
 
-    6. 若要檢視工作階段內顯示的裝置，請選取 [裝置]  索引標籤。 若要為選取的裝置設定 MPIO 原則，請按一下 [MPIO] 。
+    6. 若要檢視工作階段內顯示的裝置，請選取 [裝置]  索引標籤。若要為選取的裝置設定 MPIO 原則，請按一下 [MPIO] 。
 
     7. [詳細資料] 對話方塊隨即顯示。 在 [MPIO] 索引標籤上，您可以選取適當 [負載平衡原則] 設定。 您也可以檢視 [使用中] 或 [待命] 路徑類型。
 12. 重複步驟 8-11，將其他工作階段 (路徑) 新增到目標。 主機上有兩個介面且虛擬陣列上也有兩個，您總共可以為每個目標新增四個工作階段。 

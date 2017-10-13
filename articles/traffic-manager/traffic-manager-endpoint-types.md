@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="traffic-manager-endpoints"></a>流量管理員端點
 Microsoft Azure 流量管理員可讓您控制如何將網路流量分散到在不同資料中心執行的應用程式部署。 您可以在流量管理員中將每個應用程式部署設定為「端點」。 當流量管理員收到 DNS 要求時，它會選擇可用的端點在 DNS 回應中傳回。 流量管理員會根據目前的端點狀態和流量路由方法來選擇。 如需詳細資訊，請參閱 [流量管理員的運作方式](traffic-manager-how-traffic-manager-works.md)。
 
@@ -96,4 +94,3 @@ PublicIPAddress 資源是 Azure Resource Manager 資源。 它們不存在於傳
 * 了解 [流量管理員的運作方式](traffic-manager-how-traffic-manager-works.md)。
 * 了解「流量管理員」的 [端點監視和自動容錯移轉](traffic-manager-monitoring.md)。
 * 了解「流量管理員」的 [流量路由方法](traffic-manager-routing-methods.md)。
-

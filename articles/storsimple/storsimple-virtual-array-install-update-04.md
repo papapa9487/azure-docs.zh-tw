@@ -14,10 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: a0c56eb55f81a30924835290acb59b7e7d7e3480
 ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>在您的 StorSimple Virtual Array 上安裝 Update 0.4
 
@@ -50,13 +51,13 @@ ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
 
 2. 如果這是您第一次在此電腦上使用 Microsoft Update Catalog，請在系統提示您安裝 Microsoft Update Catalog 附加元件時，按一下 [安裝]  。
 
-3. 在 Microsoft Update Catalog 的搜尋方塊中，輸入您要下載的 Hotfix 知識庫 (KB) 編號。 針對 Update 0.4 輸入 **3216577**，然後按一下 [搜尋]。
+3. 在 Microsoft Update Catalog 的搜尋方塊中，輸入您要下載的 Hotfix 知識庫 (KB) 編號。 針對 Update 0.4 輸入 **3216577**，然後按一下搜尋。
    
     此時會顯示 Hotfix 清單，例如 **StorSimple Virtual Array Update 0.4**。
    
     ![搜尋目錄](./media/storsimple-virtual-array-install-update-04/download1.png)
 
-4. 按一下 [新增]。 更新便會新增到購物籃中。
+4. 按一下 [新增] 。 更新便會新增到購物籃中。
 
 5. 按一下 [ **檢視購物籃**]。
 
@@ -107,10 +108,4 @@ ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
 ## <a name="next-steps"></a>後續步驟
 
 深入了解 [administering your StorSimple Virtual Array (管理 StorSimple Virtual Array)](storsimple-ova-web-ui-admin.md)。
-
-
-
-
-<!--HONumber=Feb17_HO2-->
-
 

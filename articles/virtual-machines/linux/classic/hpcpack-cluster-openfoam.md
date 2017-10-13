@@ -16,10 +16,10 @@ ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
 ms.openlocfilehash: ef124a8983fa112d499252460bff9ed2fcccc02b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFoam
 本文說明一個在 Azure 虛擬機器中執行 OpenFoam 的方式。 在這裡，您將在 Azure 上部署一個具有 Linux 計算節點的 Microsoft HPC Pack 叢集，並使用 Intel MPI 來執行 [OpenFoam](http://openfoam.com/) 作業。 您可以使用支援 RDMA 的 Azure VM 作為計算節點，讓計算節點能夠透過 Azure RDMA 網路進行通訊。 其他在 Azure 中執行 OpenFoam 的選項還包括 Marketplace 中所提供已完整設定的市售映像 (例如 UberCloud 的 [OpenFoam 2.3 on CentOS 6](https://azure.microsoft.com/marketplace/partners/ubercloud/openfoam-v2dot3-centos-v6/))，以及藉由在 [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) 上執行。 
@@ -263,7 +263,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
    
    **Bash 指令碼包裝函式**
    
-   如果您有許多 Linux 節點，而您想要讓您的作業只在其中一些節點上執行，則不建議使用固定的主機檔案，因為您不知道系統會將哪些節點配置給您的作業。 在此情況下，請為 **mpirun** 撰寫 Bash 指令碼包裝函式，以自動建立主機檔案。 您可以在本文結尾找到名為 hpcimpirun.sh 的範例 Bash 指令碼包裝函式，並將其儲存為 /openfoam/hpcimpirun.sh。 此範例指令碼會執行下列動作：
+   如果您有許多 Linux 節點，而您想要讓您的作業只在其中一些節點上執行，則不建議使用固定的主機檔案，因為您不知道系統會將哪些節點配置給您的作業。 在此情況下，請為 **mpirun** 撰寫 Bash 指令碼包裝函式，以自動建立主機檔案。 您可以在本文結尾找到名為 hpcimpirun.sh 的範例 Bash 指令碼包裝函式，並將其儲存為 /openfoam/hpcimpirun.sh。此範例指令碼會執行下列動作：
    
    1. 設定 **mpirun**的環境變數，和透過 RDMA 網路執行 MPI 工作時所使用的某些附加命令參數。 在此範例中，它會設定下列變數：
       
@@ -306,7 +306,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 5. 在 [ **工作資源**] 中，選取 [節點] 做為資源類型，並將 [最小值] 設為 2。 在此範例中，此組態會在兩個分別具有 8 個核心的 Linux 節點上執行作業。
    
    ![工作資源][job_resources]
-6. 按一下左導覽窗格中的 [編輯工作]，然後按一下 [加入] 來將工作加入到作業中。 請使用下列命令列與設定，將四個工作新增到作業中。
+6. 按一下左導覽窗格中的 編輯工作，然後按一下加入 來將工作加入到作業中。 請使用下列命令列與設定，將四個工作新增到作業中。
    
    > [!NOTE]
    > 執行 `source /openfoam/settings.sh` 會設定 OpenFOAM 和 MPI 執行階段環境，因此下列每個作業會在 OpenFOAM 命令之前加以呼叫。

@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e54bedff5f744004288e132efbed8c3e7981f8a6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>使用 Azure 儲存體與 Hudson 連續整合解決方案
 ## <a name="overview"></a>Overview
@@ -94,7 +93,7 @@ Hudson 提供軟體專案的連續整合，方法是允許開發人員輕易整�
 為了方便說明，首先，我們需要建立一個會建立數個檔案的工作，然後新增一個會將這些檔案上傳至您儲存體帳戶的建置後動作。
 
 1. 在 Hudson 儀表板中，按一下 [新增工作] 。
-2. 將此工作命名為 **MyJob**，按一下 [Build a free-style software job]，然後按一下 [確定]。
+2. 將此工作命名為 **MyJob**，按一下 Build a free-style software job，然後按一下確定。
 3. 在工作組態的 [Build] 區段中，按一下 [Add build step] 並選擇 [Execute Windows batch command]。
 4. 在 [Command] 中，使用下列命令：
 

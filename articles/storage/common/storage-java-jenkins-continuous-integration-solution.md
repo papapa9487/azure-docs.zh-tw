@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.openlocfilehash: 174ac449e803ed5327468a38ea7264cb9923a877
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>使用 Azure 儲存體搭配 Jenkins 連續整合解決方案
 ## <a name="overview"></a>Overview
@@ -84,7 +84,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 為了方便說明，首先，我們需要建立一個會建立數個檔案的工作，然後新增一個會將這些檔案上傳至您儲存體帳戶的建置後動作。
 
 1. 在 Jenkins 儀表板中，按一下 [新增項目] 。
-2. 將工作命名為 **MyJob**，按一下 [建立任意樣式的軟體專案]，然後按一下 [確定]。
+2. 將工作命名為 **MyJob**，按一下 建立任意樣式的軟體專案，然後按一下確定。
 3. 在工作組態的 [Build] 區段中，按一下 [Add build step] 並選擇 [Execute Windows batch command]。
 4. 在 [Command] 中，使用下列命令：
 

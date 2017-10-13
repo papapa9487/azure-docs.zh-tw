@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
 ms.openlocfilehash: 8910471e09b9ecc797005818538ccfc6a91c68a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>安裝和設定 StorSimple Adapter for SharePoint
 ## <a name="overview"></a>Overview
@@ -195,7 +195,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 > * 先前透過 RBS 移到外部儲存體的任何檔案，必須等到重新安裝完成並重新啟用 RBS 功能之後才能使用。 為了限制使用者受影響的程度，請在規劃的維護期間執行任何升級或重新安裝。
 > * 根據 SharePoint 伺服器陣列中的 SharePoint 資料庫總數而定，升級/重新安裝所需的時間可能不同。
 > * 升級/重新安裝完成之後，您需要針對內容資料庫啟用 RBS。 如需詳細資訊，請參閱 [設定 RBS](#configure-rbs) 。
-> * 如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，則 [SharePoint 管理中心]  頁面可能會逾時。 如果發生這種情況，請重新整理頁面。 這不會影響設定程序。
+> * 如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，則 [SharePoint 管理中心]  頁面可能會逾時。如果發生這種情況，請重新整理頁面。 這不會影響設定程序。
 
 
 [!INCLUDE [storsimple-upgrade-sharepoint-adapter](../../includes/storsimple-upgrade-sharepoint-adapter.md)]
@@ -249,8 +249,8 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 6. 移除完成後，會出現完成頁面。 按一下 [完成] 以關閉安裝精靈。
 
 #### <a name="to-use-the-control-panel-to-uninstall-the-adapter"></a>使用控制台來解除安裝配接器
-1. 開啟 [控制台]，然後按一下 [程式和功能] 。
-2. 選取 **StorSimple Adapter for SharePoint**，然後按一下 [解除安裝]。
+1. 開啟 控制台，然後按一下程式和功能 。
+2. 選取 **StorSimple Adapter for SharePoint**，然後按一下解除安裝。
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 StorSimple](storsimple-overview.md)。

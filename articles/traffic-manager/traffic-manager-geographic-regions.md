@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
+ms.openlocfilehash: 93db099e9e25856e13c398c4a03a5728d178e5dd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: b273733f545d8d00d0ffaf4d783ba31ec91f1ec8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Azure 流量管理員用於地理流量路由方法的國家/地區階層
 
 本文列出 Azure 流量管理員中**地理**流量路由方法所使用的國家和區域。 您也可以用程式設計方式呼叫 [ Azure 流量管理員的 REST API](https://docs.microsoft.com/rest/api/trafficmanager/)，以取得這項資訊。 
@@ -703,4 +701,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解 [Azure 流量管理員中的地理流量路由方法](traffic-manager-routing-methods.md#geographic)。
-
