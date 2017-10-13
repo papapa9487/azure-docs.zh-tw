@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/27/2016
 ms.author: thmullan;torsteng
 ms.openlocfilehash: 73f1210b8d1f5ceca8fac9534d498bdc23d96d48
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>使用彈性資料庫工具和資料列層級安全性的多租用戶應用程式
 [彈性資料庫工具](sql-database-elastic-scale-get-started.md)和[資料列層級安全性 (RLS) ](https://msdn.microsoft.com/library/dn765131)提供一組強大的功能，能以具彈性且有效率的方式，透過 Azure SQL Database 調整多租用戶應用程式的資料層。 如需詳細資訊，請參閱 [多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md) 。 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: 21923adaa8f8118995799319c1fd496a6e449faa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 878149521edc969dc3e15e198ff3b2ead978cf86
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics-oms"></a>從「自動化」將工作狀態和工作資料流轉送到 Log Analytics (OMS)
 「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Microsoft Operations Management Suite (OMS) Log Analytics 工作區。  作業記錄和作業串流會顯示於 Azure 入口網站中，或是使用 PowerShell，針對個別作業，而這可讓您執行簡單的調查。 現在透過 Log Analytics，您可以：
@@ -182,7 +181,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 除了失敗的警示，您還可以尋找 Runbook 作業發生非終止錯誤的時間。 在這些情況下，PowerShell 會產生錯誤串流，但非終止錯誤不會造成您的作業暫止或失敗。    
 
 1. 在 Log Analytics 工作區中，按一下 [記錄搜尋]。
-2. 在查詢欄位中，輸入 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` ，然後按一下 [ **搜尋**]。
+2. 在查詢欄位中，輸入 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION" Category=JobStreams StreamType_s=Error | measure count() by JobId_g` ，然後按一下 **搜尋**。
 
 ### <a name="view-job-streams-for-a-job"></a>檢視工作的工作資料流
 當您在針對工作進行偵錯時，您可能也會想要查看工作資料流。  下列查詢會顯示單一作業具有 GUID 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0 的所有資料流：   
@@ -207,4 +206,3 @@ Log Analytics 可以為您的自動化作業提供更高的操作可見性，並
 * 若要了解如何建立及擷取 Runbook 的輸出與錯誤訊息，請參閱 [Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 工作，以及其他技術性詳細資料，請參閱 [追蹤 Runbook 工作](automation-runbook-execution.md)
 * 若要深入了解 OMS Log Analytics 和資料收集來源，請參閱 [在 Log Analytics 中收集 Azure 儲存體資料概觀](../log-analytics/log-analytics-azure-storage.md)
-

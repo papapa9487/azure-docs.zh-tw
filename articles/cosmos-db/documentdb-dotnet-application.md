@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 985962c4f2db21526291981ad5180fc0a16e2ab8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發
 > [!div class="op_single_selector"]
@@ -66,14 +65,14 @@ ms.lasthandoff: 09/13/2017
 
 ## <a name="_Toc395637762"></a>步驟 2：建立新的 ASP.NET MVC 應用程式
 
-1. 在 Visual Studio 的 [檔案] 功能表中，指向 [新增]，然後按一下 [專案]。 [新增專案]  對話方塊隨即出現。
+1. 在 Visual Studio 的 檔案 功能表中，指向 新增，然後按一下專案。 [新增專案]  對話方塊隨即出現。
 
 2. 在 [專案類型] 窗格中，依序展開 [範本]、[Visual C#]、[Web]，然後選取 [ASP.NET Web 應用程式]。
 
       ![[新增專案] 對話方塊的螢幕擷取畫面，內含反白顯示的 ASP.NET Web 應用程式專案類型](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
 3. 在 [名稱]  方塊中，輸入專案的名稱。 本教學課程使用 "todo" 名稱。 如果您選擇使用其他名稱，則每當本教學課程提及 todo 命名空間時，您必須調整提供的程式碼範例，以便使用您為應用程式所命名的名稱。 
-4. 按一下 [瀏覽] 以巡覽至您想要建立專案的資料夾，然後按一下 [確定]。
+4. 按一下 瀏覽 以巡覽至您想要建立專案的資料夾，然後按一下確定。
    
       [新增 ASP.NET Web 應用程式] 對話方塊隨即出現。
    
@@ -90,7 +89,7 @@ ms.lasthandoff: 09/13/2017
 ## <a name="_Toc395637767"></a>步驟 3：將 Azure Cosmos DB 新增至 MVC Web 應用程式專案
 既然我們已經完成了此解決方案的大部分 ASP.NET MVC 瑣事，現在可以開始本教學課程的真正目的，也就是將 Azure Cosmos DB 新增至 MVC Web 應用程式。
 
-1. Azure Cosmos DB .NET SDK 會進行封裝，並以 NuGet 封裝形式加以散發。 若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 [方案總管] 中的專案，然後按一下 [管理 NuGet 封裝]。
+1. Azure Cosmos DB .NET SDK 會進行封裝，並以 NuGet 封裝形式加以散發。 若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 方案總管 中的專案，然後按一下管理 NuGet 封裝。
    
     ![[方案總管] 中 Web 應用程式專案的滑鼠右鍵選項螢幕擷取畫面，內含反白顯示的 [管理 NuGet 套件]。](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
    
@@ -101,7 +100,7 @@ ms.lasthandoff: 09/13/2017
    
     ![[管理 NuGet 封裝] 視窗的螢幕擷取畫面，內含反白顯示的 Microsoft Azure DocumentDB 用戶端程式庫](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-install-nuget.png)
    
-      或者，您也可以使用 Package Manager Console 來安裝封裝。 若要這樣做，請在 [工具] 功能表上按一下 [NuGet 封裝管理員]，然後按一下 [Package Manager Console]。 在出現提示時輸入下列內容：
+      或者，您也可以使用 Package Manager Console 來安裝封裝。 若要這樣做，請在 工具 功能表上按一下 NuGet 封裝管理員，然後按一下Package Manager Console。 在出現提示時輸入下列內容：
    
         Install-Package Microsoft.Azure.DocumentDB
         
@@ -119,7 +118,7 @@ ms.lasthandoff: 09/13/2017
 ### <a name="_Toc395637764"></a>新增 JSON 資料模型
 首先，讓我們在 MVC 中建立 **M** (模型)。 
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Models** 資料夾，再按一下 [新增]，然後按一下 [類別]。
+1. 在 方案總管 中，以滑鼠右鍵按一下 **Models** 資料夾，再按一下 新增，然後按一下類別。
    
       [加入新項目]  對話方塊隨即出現。
 2. 將您的新類別命名為 **Item.cs**，然後按一下 [新增]。 
@@ -156,10 +155,10 @@ ms.lasthandoff: 09/13/2017
 ### <a name="_Toc395637765"></a>新增控制器
 我們已經建立了 **M**，現在讓我們建立 MVC 中的 **C** (控制器類別)。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 [新增]，然後按一下 [控制器]。
+1. 在 方案總管 中，以滑鼠右鍵按一下 **Controllers** 資料夾，按一下 新增，然後按一下控制器。
    
     [ **新增 Scaffold** ] 對話方塊隨即出現。
-2. 選取 [Web API 5 控制器 - 空]，然後按一下 [新增]。
+2. 選取 Web API 5 控制器 - 空，然後按一下新增。
    
     ![[新增 Scaffold] 對話方塊的螢幕擷取畫面，內含反白顯示的 [MVC 5 控制器 - 空的] 選項](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 3. 將新的控制器命名為 **ItemController**
@@ -180,7 +179,7 @@ ms.lasthandoff: 09/13/2017
 * [新增編輯項目檢視](#_Toc395888515)。
 
 #### <a name="AddItemIndexView"></a>新增項目索引檢視
-1. 在 [方案總管] 中，展開 **Views** 資料夾，以滑鼠右鍵按一下稍早您在建立 **ItemController** 時，Visual Studio 為您建立的空白 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
+1. 在 方案總管 中，展開 **Views** 資料夾，以滑鼠右鍵按一下稍早您在建立 **ItemController** 時，Visual Studio 為您建立的空白 **Item** 資料夾，按一下 新增，然後按一下檢視。
    
     ![顯示 Visual Studio 方案建立之 Item 資料夾的 [方案總管] 螢幕擷取畫面，內含反白顯示的 [新增檢視] 命令](./media/documentdb-dotnet-application/asp-net-mvc-tutorial-add-view.png)
 2. 在 [新增檢視]  對話方塊中，執行下列動作：
@@ -196,7 +195,7 @@ ms.lasthandoff: 09/13/2017
 #### <a name="AddNewIndexView"></a>新增項目檢視
 與建立 [項目索引] 檢視的方式類似，現在我們現在可以開始建立新的檢視，以供建立新的**項目**使用。
 
-1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
+1. 在 方案總管 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 新增，然後按一下檢視。
 2. 在 [新增檢視]  對話方塊中，執行下列動作：
    
    * 在 [檢視名稱] 方塊中，輸入***建立***。
@@ -208,7 +207,7 @@ ms.lasthandoff: 09/13/2017
 #### <a name="_Toc395888515"></a>新增編輯項目檢視
 最後，使用與之前相同的方式新增最後一個檢視，以供編輯 **項目** 使用；
 
-1. 在 [方案總管] 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
+1. 在 方案總管 中，再次以滑鼠右鍵按一下 **Item** 資料夾，按一下 新增，然後按一下檢視。
 2. 在 [新增檢視]  對話方塊中，執行下列動作：
    
    * 在 [檢視名稱] 方塊中，輸入***編輯***。
@@ -231,7 +230,7 @@ ms.lasthandoff: 09/13/2017
 ### <a name="_Toc395637770"></a>列出 MVC Web 應用程式中的未完成項目
 首先要執行的作業是新增類別，其中包含連線至及使用 Azure Cosmos DB 的所有邏輯。 在本教學課程中，我們會將所有邏輯封裝到名為 DocumentDBRepository 的儲存機制類別中。 
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下專案，按一下 [新增]，然後按一下 [類別]。 將新類別命名為 **DocumentDBRepository**，然後按一下 [新增]。
+1. 在 方案總管 中，以滑鼠右鍵按一下專案，按一下 新增，然後按一下類別。 將新類別命名為 **DocumentDBRepository**，然後按一下 [新增]。
 2. 在剛剛建立的 **DocumentDBRepository** 類別中，在「命名空間」宣告上方新增下列「using 陳述式」
    
         using Microsoft.Azure.Documents; 
@@ -553,4 +552,3 @@ ms.lasthandoff: 09/13/2017
 [Preventing Cross-Site Request Forgery]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Basic CRUD Operations in ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/documentdb-net-todo-app
-

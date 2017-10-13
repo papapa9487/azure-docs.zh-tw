@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>在 Azure Container Service 中部署 Kubernetes 叢集
 
 Kubernetes 會提供容器化應用程式的分散式平台。 透過 Azure Container Service，可簡單又快速地佈建生產環境就緒 Kubernetes 叢集。 在本教學課程的第 3 和第 7 部分中，已部署一個 Azure Container Service Kubernetes 叢集。 完成的步驟包括：
@@ -107,4 +105,3 @@ k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 
 > [!div class="nextstepaction"]
 > [在 Kubernetes 中部署應用程式](./container-service-tutorial-kubernetes-deploy-application.md)
-

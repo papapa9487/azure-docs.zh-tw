@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 1906425c6657fb6232a9dc306b05f9171c9c7bef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="logging-api-reference"></a>記錄 API 參考
 
 Azure ML 的記錄程式庫可讓程式發出歷程記錄服務可追蹤的計量和檔案，以便稍後進行分析。 目前支援基本的計量和檔案型別，且支援的型別集會隨後續的 Python 套件版本而增加。
@@ -88,4 +86,3 @@ $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to cr
 ## <a name="next-steps"></a>後續步驟
 - 逐步執行[分類 iris 教學課程，第 2 部分](tutorial-classifying-iris-part-2.md)以查看作用中的記錄 API。
 - 檢閱[如何在 Azure Machine Learning Workbench 中使用執行歷程記錄和模型計量](how-to-use-run-history-model-metrics.md)，深入瞭解如何在 [執行歷程記錄] 中記錄 API。
-

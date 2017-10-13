@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 82733e2a3025f932961122bad9d70c26896837b7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -59,7 +58,7 @@ Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的
 **使用 Azure 入口網站產生範本**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側功能表上的 [新增]、[智慧 + 分析]，然後按一下 [HDInsight]。
+2. 按一下左側功能表上的 新增、智慧 + 分析，然後按一下HDInsight。
 3. 遵循指示輸入屬性。 您可以使用 [快速建立] 或 [自訂] 選項。
 4. 在 [摘要] 索引標籤中，按一下 [下載範本和參數]：
 
@@ -71,7 +70,7 @@ Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的
 
     從這裡開始，您可以下載範本、將它儲存到您的範本庫或部署範本。
 
-    若要存取範本庫中的範本，按一下左側窗格中的 [更多服務]，然後按一下 [範本] \(位於 [其他] 類別下方)。
+    若要存取範本庫中的範本，按一下左側窗格中的 更多服務，然後按一下範本 \(位於 其他 類別下方)。
 
     > [!Note]
     > 範本和參數檔必須一起使用。 否則，您可能會得到非預期的結果。 例如，預設的 **clusterKind** 屬性值一定是 **hadoop** (不論在下載範本之前您所指定的內容為何)。
@@ -546,4 +545,3 @@ Resource Manager 範本可讓您輕鬆地在單一、協調的作業中為您的
             }
         ]
     }
-

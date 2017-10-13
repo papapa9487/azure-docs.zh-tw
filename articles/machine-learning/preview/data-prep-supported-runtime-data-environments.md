@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02e0ca96bff7781c242b4c5e965b229065e71725
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-matrix-for-this-release"></a>此版本支援的矩陣 
 當您使用資料來源載入程式碼，或使用資料準備取得 Pandas 或 Spark 資料框架時，支援以下實驗計算環境和資料位置的組合：
@@ -39,4 +38,3 @@ Azure Data Lake Store 目前不支援任何計算目標。
 **使用 Maven JDBC SQL Server 驅動程式 6.2.1。 您必須確定該計算環境的 spark_dependencies.yml 檔案包含此封裝 (或相容的封裝)。
 
 ***支援 Azure SQL Database、Azure SQL 資料倉儲或 Microsoft SQL Server，讓資料庫可從計算環境中連線。 
-

@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a80e43f84b518a7c9ce609fbebe34c531e1ab187
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-of-filter-expressions-python"></a>篩選條件運算式的範例 (Python) 
 閱讀本附錄之前，請先參閱 [Python 擴充性概觀](data-prep-python-extensibility-overview.md)
 
@@ -41,4 +39,3 @@ ms.lasthandoff: 09/25/2017
 ```python
     pd.isnull(row["Col1"])
 ```
-

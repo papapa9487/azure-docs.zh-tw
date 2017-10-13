@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 8122f1644da25a9a2ab05291dafc33c77a91147f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>在 Service Fabric 中設定並使用服務同質性
 同質性是一個控制項，主要提供來協助簡化將較大型的單體式應用程式轉換到雲端和微服務世界的程序。 同質性也可作為最佳化手段來提升服務的效能，不過，這麼做會帶來一些副作用。
@@ -79,7 +78,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 請注意，關於同質性要注意的最後一點是，分割父系的地方不支援同質關聯性。 我們最終可能會支援分割的父服務，但目前尚未允許這麼做。
 
 ## <a name="next-steps"></a>後續步驟
-- 如需設定服務的詳細資訊，請[了解如何設定服務](service-fabric-cluster-resource-manager-configure-services.md)
+- 如需服務設定的詳細資訊，請[深入了解設定服務](service-fabric-cluster-resource-manager-configure-services.md)
 - 若要限制只讓一小組機器使用服務或要彙總服務的負載，請使用[應用程式群組](service-fabric-cluster-resource-manager-application-groups.md)
 
 [Image1]:./media/service-fabric-cluster-resource-manager-advanced-placement-rules-affinity/cluster-resrouce-manager-affinity-modes.png

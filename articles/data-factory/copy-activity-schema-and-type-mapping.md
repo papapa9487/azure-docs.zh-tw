@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 459c792028d3eede059814324597811b24e65ac2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
 本文說明 Azure Data Factory 複製活動在執行資料複製時，如何將來源資料中的結構描述和資料類型對應到接收資料。
@@ -193,4 +192,3 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 - [複製活動概觀](copy-activity-overview.md)
 - [複製活動容錯](copy-activity-fault-tolerance.md)
 - [複製活動效能](copy-activity-performance.md)
-

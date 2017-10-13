@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bc14c051fb0f518b1cff2236a61d24cb052700f0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="supported-inspectors-for-this-preview"></a>此預覽支援的偵測器
 本文件概述此預覽中可用的偵測器集合。
 
@@ -113,4 +111,3 @@ X 軸上具有時間感知的折線圖
 ### <a name="actions"></a>動作
 這個偵測器支援透過地圖上的點選取範圍進行篩選。 按下 Ctrl 鍵，然後按一下並拖曳滑鼠，在點周圍形成方形。 然後套用篩選，如先前所述。
 就能快速調整地圖的大小，以顯示所有可能的點，並且不再需要按下地圖左側的 **E**。
-

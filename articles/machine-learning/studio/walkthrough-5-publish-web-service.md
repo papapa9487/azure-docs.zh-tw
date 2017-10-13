@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Web 服務
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -143,7 +142,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 若要測試 Web 服務，按一下 [測試] 索引標籤 (請參閱下面的**測試 Web 服務**)。 如需建立應用程式以存取 Web 服務的相關資訊，請按一下 [取用] 索引標籤 (本逐步解說的下一個步驟將提供更多詳細資料)。
 
 > [!TIP]
-> 您可以在部署 Web 服務之後進行更新。 例如，如果想要變更模型，則可以編輯訓練實驗、調整模型參數，然後按一下 [部署 Web 服務]，選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 重新部署實驗時，將會取代 Web 服務 (現在使用的是已更新的模型)。  
+> 您可以在部署 Web 服務之後進行更新。 例如，如果想要變更模型，則可以編輯訓練實驗、調整模型參數，然後按一下部署 Web 服務，選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 重新部署實驗時，將會取代 Web 服務 (現在使用的是已更新的模型)。  
 > 
 > 
 
@@ -171,7 +170,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 
 1. 在 Web 服務的 [儀表板] 頁面上，按一下 [預設端點] 下的 [測試] 按鈕。 對話方塊隨即顯示，要求您提供服務的輸入資料。 這些就是在原始的信用風險資料集中出現的資料行。  
 
-2. 輸入一組資料，然後按一下 [確定] 。 
+2. 輸入一組資料，然後按一下確定 。 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>在 Machine Learning Web 服務入口網站中測試
 
@@ -185,7 +184,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 
 1. 在 [Azure Machine Learning Web 服務](https://services.azureml.net/quickstart)入口網站中，按一下頁面頂端的 [測試]。 [測試] 頁面會開啟，您可以輸入服務的資料。 顯示的輸入欄位會對應到在原始的信用風險資料集中出現的資料行。 
 
-2. 輸入一組資料，然後按一下 [測試要求-回應] 。
+2. 輸入一組資料，然後按一下測試要求-回應 。
 
 測試的結果會顯示在頁面右邊的輸出資料行上。 
 
@@ -242,4 +241,3 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
 [project-columns]: https://msdn.microsoft.com/en-us/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-

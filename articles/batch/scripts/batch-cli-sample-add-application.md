@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-applications-to-azure-batch-with-azure-cli"></a>使用 Azure CLI 將應用程式加入 Azure Batch
 
 此指令碼示範如何設定應用程式，以搭配 Azure Batch 集區或作業使用。 設定應用程式，將可執行檔及任何相依性封裝到 .zip 檔案。 在此範例中，可執行的 zip 檔案稱為 'my-application-exe.zip'。
@@ -33,7 +31,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-azurecli[主要](../../../cli_scripts/batch/add-application/add-application.sh "加入應用程式")]
+[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
 ## <a name="clean-up-application"></a>清除應用程式
 
@@ -60,4 +58,3 @@ az batch application delete -g myresourcegroup -n mybatchaccount --application-i
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure Batch CLI 文件](../batch-cli-samples.md)中找到其他的 Batch CLI 指令碼範例。
-

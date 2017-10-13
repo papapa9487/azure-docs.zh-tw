@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c0fc8d11a872b99fee2efa3a32a9e1ccce67f3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-balancing-on-multiple-ip-configurations-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
 > [!div class="op_single_selector"]
@@ -67,21 +65,21 @@ ms.lasthandoff: 09/25/2017
 2. 在畫面左側按一下 [新增] > [網路] > [負載平衡器]。 接下來，按一下 [建立]。
 3. 在 [建立負載平衡器] 刀鋒視窗中，輸入負載平衡器的名稱。 在此我們將其稱為 mylb。
 4. 在 [公用 IP 位址] 底下建立稱為 **PublicIP1** 的新公用 IP。
-5. 在 [資源群組] 底下，選取 VM 的現有資源群組 (例如，contosofabrikam)。 接著選取適當位置，然後按一下 [確定]。 負載平衡器接著會開始部署，並且會需要幾分鐘的時間才能順利完成部署。
+5. 在 [資源群組] 底下，選取 VM 的現有資源群組 (例如，contosofabrikam)。 接著選取適當位置，然後按一下確定。 負載平衡器接著會開始部署，並且會需要幾分鐘的時間才能順利完成部署。
 6. 負載平衡器在部署後會顯示為資源群組中的資源。
 
 ### <a name="step-3-configure-the-frontend-ip-pool"></a>步驟 3︰設定前端 IP 集區
 
 為每個網站 (Contoso 和 Fabrikam) 設定前端 IP 集區，如下所示︰
 
-1. 在入口網站中，按一下 [更多服務]，在篩選方塊中輸入**公用 IP 位址**，然後按一下 [公用 IP 位址]。 按一下出現的刀鋒視窗中靠近上方的 [新增]。
+1. 在入口網站中，按一下 更多服務，在篩選方塊中輸入**公用 IP 位址**，然後按一下公用 IP 位址。 按一下出現的刀鋒視窗中靠近上方的 [新增]。
 2. 為這兩個網站 (contoso 和 fabrikam) 設定兩個公用 IP 位址 (PublicIP1 和 PublicIP2)，如下所示︰
     1. 輸入前端 IP 位址的名稱。
     2. 在 [資源群組] 中選取 VM 的現有資源群組 (例如，contosofabrikam)。
     3. 在 [位置] 中選取和 VM 相同的位置。
     4. 按一下 [確定] 。
     5. 兩個公用 IP 位址都建立好之後，便會同時顯示在 [公用 IP 位址] 刀鋒視窗中。
-3. 在入口網站中，按一下 [更多服務]，在篩選方塊中輸入**負載平衡器**，然後按一下 [負載平衡器]。  
+3. 在入口網站中，按一下 更多服務，在篩選方塊中輸入**負載平衡器**，然後按一下負載平衡器。  
 4. 選取要將前端 IP 集區新增到的負載平衡器 (mylb)。
 5. 在 [設定] 底下選取 [前端集區]。 然後按一下出現的刀鋒視窗中靠近上方的 [新增]。
 6. 輸入前端 IP 位址的名稱 (*farbikamfe* 或 *contosofe*)。
@@ -92,7 +90,7 @@ ms.lasthandoff: 09/25/2017
 ### <a name="step-4-configure-the-backend-pool"></a>步驟 4︰設定後端集區   
 為每個網站 (Contoso 和 Fabrikam) 設定負載平衡器上的後端位址集區，如下所示︰
         
-1. 在入口網站中，按一下 [更多服務]，在篩選方塊中輸入負載平衡器，然後按一下 [負載平衡器]。  
+1. 在入口網站中，按一下 更多服務，在篩選方塊中輸入負載平衡器，然後按一下負載平衡器。  
 2. 選取要將後端集區新增到的負載平衡器 (mylb)。
 3. 在 [設定] 底下選取 [後端集區]。 輸入後端集區的名稱 (例如，contosopool 或 fabrikampool)。 然後按一下出現的刀鋒視窗中靠近上方的 [新增] 按鈕。 
 4. 在 [關聯到] 中，選取 [可用性設定組]。
@@ -108,7 +106,7 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="step-5-configure-a-health-probe-for-your-load-balancer"></a>步驟 5︰設定負載平衡器的健康狀態探查
 設定負載平衡器的健康狀態探查，如下所示︰
-    1. 在入口網站中，按一下 [更多服務]，在篩選方塊中輸入負載平衡器，然後按一下 [負載平衡器]。  
+    1. 在入口網站中，按一下 更多服務，在篩選方塊中輸入負載平衡器，然後按一下負載平衡器。  
     2. 選取要將後端集區新增到的負載平衡器。
     3. 在 [設定] 下，選取 [健康狀態探查]。 然後按一下出現的刀鋒視窗中靠近上方的 [新增]。
     4. 輸入健康狀態探查的名稱 (例如，HTTP)，然後按一下 [確定]。
@@ -131,4 +129,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>後續步驟
 - 若要深入了解如何在 Azure 中合併負載平衡服務，請參閱[在 Azure 中使用負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md)。
 - 若要深入了解如何使用不同類型的記錄檔來管理負載平衡器和針對其問題進行疑難排解，請參閱 [Azure Load Balancer 的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
-

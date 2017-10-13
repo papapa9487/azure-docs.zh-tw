@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>適用於 Machine Learning 作業的 Azure Batch 服務
 
@@ -112,4 +111,3 @@ https://ussouthcentral.services.azureml.net/subscriptions/80c77c7674ba4c8c82294c
 | **使用批次集區處理的時機**    | **使用傳統批次處理的時機**  |
 |---|---|
 |您需要執行大量的作業<br>或<br/>您需要知道您的作業將立即執行<br/>或<br/>您需要保證的輸送量。 例如，您需要在指定的時間範圍內執行多項作業，而且想要相應放大計算資源以符合您的需求。    | 您正在執行一些作業<br/>和<br/> 您不需要立即執行作業 |
-

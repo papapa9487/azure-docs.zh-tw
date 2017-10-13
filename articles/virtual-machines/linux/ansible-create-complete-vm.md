@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: b2fcc288b40c12a9b3f966156ee2eedf4acca313
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: f5dfecd1f5aafc1b7117433ef1bdb1805be2c57b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>使用 Ansible 在 Azure 中建立完整的 Linux 虛擬機器環境
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器 (VM)，就像是任何其他資源一樣。 本文說明如何使用 Ansible 建立完整的 Linux 環境與支援的資源。 您也可以了解如何[使用 Ansible 建立基本 VM](ansible-create-vm.md)。
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
+ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 > [!div class="op_single_selector"]
@@ -82,7 +81,7 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 ## <a name="restore"></a>還原
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
-| 還原失敗並發生雲端內部錯誤 |<ol><li>您嘗試還原的雲端服務是使用 DNS 設定所設定。 您可以檢查 <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>如果設定了 Address，這表示已設定 DNS 設定。<br> <li>您嘗試還原到其中的雲端服務是使用 ReservedIP 所設定，而雲端服務中現有的 VM 目前處於停止狀態。<br>您可以使用下列 powershell Cmdlet，來檢查雲端服務是否具有保留的 IP：<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>您嘗試將具有下列特殊網路組態的虛擬機器還原至相同的雲端服務。 <br>- 負載平衡器組態下的虛擬機器 (內部與外部)<br>- 具有多個保留 IP 的虛擬機器<br>- 具有多個 NIC 的虛擬機器<br>請在 UI 中選取新的雲端服務，或請參閱適用於具有特殊網路組態之 VM 的[還原考量](backup-azure-arm-restore-vms.md#restoring-vms-with-special-network-configurations)。</ol> |
+| 還原失敗並發生雲端內部錯誤 |<ol><li>您嘗試還原的雲端服務是使用 DNS 設定所設定。 您可以檢查 <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>如果設定了 Address，這表示已設定 DNS 設定。<br> <li>您嘗試還原到其中的雲端服務是使用 ReservedIP 所設定，而雲端服務中現有的 VM 目前處於停止狀態。<br>您可以使用下列 powershell Cmdlet，來檢查雲端服務是否具有保留的 IP：<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>您嘗試將具有下列特殊網路組態的虛擬機器還原至相同的雲端服務。 <br>- 負載平衡器組態下的虛擬機器 (內部與外部)<br>- 具有多個保留 IP 的虛擬機器<br>- 具有多個 NIC 的虛擬機器<br>請在 UI 中選取新的雲端服務，或請參閱適用於具有特殊網路組態之 VM 的[還原考量](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。</ol> |
 | 所選取的 DNS 名稱已被使用：請指定不同的 DNS 名稱，然後再試一次。 |此處的 DNS 名稱是指雲端服務名稱 (結尾通常是 .cloudapp.net)。 這必須是唯一的。 如果您遇到這個錯誤，您需要在還原期間選擇不同的 VM 名稱。 <br><br> 只有 Azure 入口網站的使用者才會看到這個錯誤。 透過 PowerShell 執行還原作業將會成功，因為它只會還原磁碟，並不會建立 VM。 當您在磁碟還原作業之後明確建立 VM 時，將會遇到此錯誤。 |
 | 指定的虛擬網路組態不正確：請指定不同的虛擬網路組態，然後再試一次。 |None |
 | 指定的雲端服務使用保留的 IP，但不符合所要還原的虛擬機器組態：請指定另一個不使用保留 IP 的雲端服務，或選擇從另一個復原點還原。 |None |
@@ -92,7 +91,7 @@ Azure 備份目前不支援容量 [大於 1023 GB](https://docs.microsoft.com/az
 | 還原作業所指定的儲存體帳戶類型不在線上：請確定還原作業中指定的儲存體帳戶在線上 |這可能是因為 Azure 儲存體的暫時性錯誤或運作中斷。 請選擇另一個儲存體帳戶。 |
 | 已達到資源群組配額：請從 Azure 入口網站刪除一些資源群組，或連絡 Azure 支援以提高限制。 |None |
 | 選取的子網路不存在：請選取已存在的子網路 |None |
-| 備份服務無權存取您訂用帳戶中的資源。 |若要解決此問題，請先使用[選擇 VM 還原組態](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration)的＜還原備份的磁碟＞一節中所述的步驟來還原磁碟。 之後，使用[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 中所述的 PowerShell 步驟，從還原的磁碟建立完整的 VM。 |
+| 備份服務無權存取您訂用帳戶中的資源。 |若要解決此問題，請先使用[選擇 VM 還原組態](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)的＜還原備份的磁碟＞一節中所述的步驟來還原磁碟。 之後，使用[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 中所述的 PowerShell 步驟，從還原的磁碟建立完整的 VM。 |
 
 ## <a name="backup-or-restore-taking-time"></a>備份或還原很花時間
 如果您發現備份 (超過 12小時) 或還原 (超過 6小時) 很花時間：
@@ -173,4 +172,3 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體，�
 > 請參閱有關 [設定靜態內部私人 IP 位址](../virtual-network/virtual-networks-reserved-private-ip.md)的詳細資訊。
 >
 >
-

@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: a55f28fad4c70e49e417d2856568791b313ad1eb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>建立 Azure Blob 儲存體所觸發的函式
 
@@ -114,4 +113,3 @@ ms.lasthandoff: 06/20/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 如需 Blob 儲存體觸發程序的詳細資訊，請參閱 [Azure Functions Blob 儲存體繫結](functions-bindings-storage-blob.md)。
-

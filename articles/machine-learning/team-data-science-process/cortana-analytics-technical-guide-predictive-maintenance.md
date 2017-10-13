@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a6d9cd05eb370399fc95cc64bae892e8b5a73fe2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
 
@@ -45,7 +44,7 @@ ms.lasthandoff: 09/25/2017
 部署解決方案時，會啟動 Cortana Analytics 套件中的各種 Azure 服務 (也就是事件中樞、串流分析、HDInsight、Data Factory、機器學習服務等)。 架構圖顯示在高層從端對端為航太解決方案範本建構預測性維護的方式。 您將可以在 Azure 入口網站調查這些服務，方法是對部署解決方案時所建立的解決方案範本圖表上的服務按一下，但 HDInsight 除外，因為當需要相關的管線活動才能執行時才會隨選佈建此服務，並且會於隨後刪除。
 您可以下載 [完整大小版本的圖表](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png)。
 
-以下各節說明每個片段。
+下列章節說明每個片段。
 
 ## <a name="data-source-and-ingestion"></a>**資料來源及擷取**
 ### <a name="synthetic-data-source"></a>綜合資料來源
@@ -120,7 +119,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
 類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，必須根據您的資料格式來變更這些查詢。
 
-#### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
+#### <a name="aggregateflightinfopipeline"></a><bpt id="p1">*</bpt>AggregateFlightInfoPipeline<ept id="p1">*</ept>
 這個[管線](../../data-factory/v1/data-factory-create-pipelines.md)包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 活動，會在 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)作業期間，執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼來分割放在 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中的資料。
 
 此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 ***AggregateFlightInfo.hql***
@@ -169,7 +168,7 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
    
    在移至後續步驟之前，您將需要 **資料庫伺服器名稱、資料庫名稱、使用者名稱和密碼** 。 以下是引導您如何尋找的步驟。
    
-   * 一旦您的解決方案範本圖表上的 [Azure SQL Database] 變成綠色之後，請按一下它，然後按一下 [開啟]。
+   * 一旦您的解決方案範本圖表上的 Azure SQL Database 變成綠色之後，請按一下它，然後按一下開啟。
    * 您會看到新的瀏覽器索引標籤/視窗，其中顯示 Azure 入口網站頁面。 按一下左側面板上的 [資源群組]  。
    * 選取您用於部署解決方案的訂用帳戶，然後選取 [YourSolutionName\_ResourceGroup]。
    * 在新的快顯面板中，按一下 ![SQL 圖示](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png)圖示來存取您的資料庫。 您的資料庫名稱會在這個圖示旁邊 (例如，**'pmaintenancedb'**)，而**資料庫伺服器名稱**列在伺服器名稱屬性下方，看起來應該類似 **YourSoutionName.database.windows.net**。
@@ -236,5 +235,4 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 
 * [Microsoft Azure Cost Estimator Tool (線上版)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator Tool (桌面版)](http://www.microsoft.com/download/details.aspx?id=43376)
-
 

@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
 ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>使用 v2.0 端點，透過圖形 API 將登入新增至使用協力廠商程式庫的 iOS 應用程式
 Microsoft 身分識別平台會使用開放式標準，例如 OAuth2 和 OpenID Connect。 開發人員可以使用任何想要的程式庫，來與我們的服務整合。 為了協助開發人員使用我們的平台搭配其他程式庫，我們撰寫了數篇逐步解說，示範如何設定協力廠商程式庫以連接到 Microsoft 身分識別平台。 大部分實作 [RFC6749 OAuth2 規格](https://tools.ietf.org/html/rfc6749) 的程式庫都能連接到 Microsoft 身分識別平台。
@@ -61,7 +61,7 @@ git clone git@github.com:Azure-Samples/active-directory-ios-native-nxoauth2-v2.g
 * 複製入口網站的「重新導向 URI」  。 您必須使用 `urn:ietf:wg:oauth:2.0:oob`的預設值。
 
 ## <a name="download-the-third-party-nxoauth2-library-and-create-a-workspace"></a>下載 NXOAuth2 協力廠商程式庫並建立工作區
-在此逐步解說中，您將使用 GitHub 提供的 OAuth2Client，這是適用於 Mac OS X 與 iOS 的 OAuth2 程式庫 (Cocoa 與 Cocoa Touch)。 此程式庫是以 OAuth2 規格的第 10 版草稿為基礎。 它會實作原生應用程式設定檔，並支援使用者的授權端點。 您需要上述各項，才能與 Microsoft 身分識別平台整合。
+在此逐步解說中，您將使用 GitHub 提供的 OAuth2Client，這是適用於 Mac OS X 與 iOS 的 OAuth2 程式庫 (Cocoa 與 Cocoa Touch)。 此程式庫是以 OAuth2 規格的第 10 版草稿為基礎。它會實作原生應用程式設定檔，並支援使用者的授權端點。 您需要上述各項，才能與 Microsoft 身分識別平台整合。
 
 ### <a name="add-the-library-to-your-project-by-using-cocoapods"></a>使用 CocoaPods 將程式庫加入您的專案
 CocoaPods 是 Xcode 專案的相依性管理員。 它會自動管理上述安裝步驟。

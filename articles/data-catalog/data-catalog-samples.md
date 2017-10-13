@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/05/2017
 ms.author: spelluru
 ms.openlocfilehash: 6ba88885805f1a206f01015f7eec5236da517403
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-catalog-developer-samples"></a>資料目錄開發人員範例
 開始使用資料目錄 REST API 開發資料目錄應用程式。 資料目錄 REST API 是REST 架構 API，能夠以程式設計方式存取資料目錄資源，藉此註冊、加上註解，及以程式設計方式搜尋資料資產。

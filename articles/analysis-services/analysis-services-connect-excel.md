@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: ff96602642c56a3cd02aeada056c059573707731
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: d51b6980120f1cf9bc8d053d463a73ac600b915f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-with-excel"></a>使用 Excel 進行連接
 
@@ -39,7 +38,7 @@ ms.lasthandoff: 06/03/2017
 
     ![從 Excel 登入來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. 在 [選取資料庫和資料表] 中，選取資料庫和模型或檢視方塊，然後按一下 [完成]。
+3. 在 選取資料庫和資料表 中，選取資料庫和模型或檢視方塊，然後按一下完成。
    
     ![從 Excel 選取模型來進行連接](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 
@@ -47,6 +46,5 @@ ms.lasthandoff: 06/03/2017
 ## <a name="see-also"></a>另請參閱
 [用戶端程式庫](analysis-services-data-providers.md)   
 [管理您的伺服器](analysis-services-manage.md)     
-
 
 

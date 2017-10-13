@@ -13,14 +13,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: eac0e95a46731b9d396ea0590e629d61ca6a7d70
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>將 JSON 物件傳送至 Azure 自動化 Runbook
 
 這適用於在 JSON 檔案中儲存您要傳送至 Runbook 的資料。
@@ -118,6 +116,5 @@ Runbook 會使用 JSON 檔案中的值來啟動 VM。
 
 * 若要深入了解使用文字編輯器編輯 PowerShell 和 PowerShell 工作流程 Runbook，請參閱 [在 Azure 自動化中編輯文字式 Runbook](automation-edit-textual-runbook.md) 
 * 若要了解如何建立和匯入 Runbook，請參閱[在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)
-
 
 

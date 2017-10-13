@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>從 Azure Active Directory 存取控制服務移轉至共用存取簽章授權
 
 服務匯流排應用程式在過去可選擇使用兩個不同的授權模型：由服務匯流排直接提供的[共用存取簽章 (SAS)](service-bus-sas.md) 權杖模型，以及同盟模型，其中授權規則的管理是由 [Azure Active Directory](/azure/active-directory/) 存取控制服務 (ACS) 內部管理，而從 ACS 取得的權杖會傳遞至服務匯流排，以授權存取所需的功能。
@@ -68,5 +66,4 @@ SAS 規則並非要作為帳戶使用，而是與權限相關的具名簽署金�
 * [服務匯流排驗證和授權](service-bus-authentication-and-authorization.md)
 * [使用共用存取簽章的服務匯流排驗證](service-bus-sas.md)
 * [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
-
 

@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 11/16/2016
 ms.author: garye
 ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API 錯誤碼
  
@@ -67,7 +67,7 @@ Azure Machine Learning Web 服務上的作業可以傳回下列錯誤碼。
 | MissingWebServicePackage | 未提供 Web 服務套件。 提供有效的 Web 服務套件，然後再試一次。 |
 | MissingWorkspaceId | 未提供工作區識別碼。 提供有效的工作區識別碼，然後再試一次。 |
 | ModelConfigurationInvalid | 模型套件中的模型組態無效。 確定模型組態包含輸出端點定義、標準錯誤端點和標準輸出端點，然後再試一次。 |
-| ModelPackageIdInvalid | 模型套件識別碼無效。 確認模型套件識別碼正確無誤，然後再試一次。 |
+| ModelPackageIdInvalid | 模型套件識別碼無效。確認模型套件識別碼正確無誤，然後再試一次。 |
 | RequestBodyInvalid | 未提供要求本文，或在還原序列化要求本文時發生錯誤。 |
 | RequestIsEmpty | 未提供要求。 提供有效的要求，然後再試一次。 |
 | UnexpectedParameter | 提供的參數並非預期。 確認所有參數名稱的拼寫都正確無誤，只傳遞預期的參數，然後再試一次。 |

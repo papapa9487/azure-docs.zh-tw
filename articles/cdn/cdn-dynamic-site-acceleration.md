@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: be2719e0e02c8bc69800ef4a3e7da3c3164cb9dd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>透過 Azure CDN 進行動態網站加速
 
@@ -137,7 +136,6 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 例如：`mydynamic.azureedge.net/index.html` 是從 DSA 端點載入的動態網頁。  HTML 網頁會參考多個靜態資產 (例如 JavaScript 程式庫)，或參考從靜態 CDN 端點載入的映像 (例如 `mystatic.azureedge.net/banner.jpg` 和 `mystatic.azureedge.net/scripts.js`)。 
 
 您可以在[這裡](https://docs.microsoft.com/azure/cdn/cdn-cloud-service-with-cdn#controller)找到範例，以了解如何在 ASP.NET Web 應用程式中使用控制器，以透過特定 CDN URL 提供內容。
-
 
 
 

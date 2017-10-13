@@ -16,12 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/26/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 02d01d0f6e945ed54dbe766aec2a0fd7c17c510f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-notification-hub-output-binding"></a>Azure Functions 通知中樞輸出繫結
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
@@ -74,7 +73,7 @@ function.json 範例：
 
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)中的通知中樞，選擇 [存取原則]，然後選取 **DefaultFullSharedAccessSignature** 原則旁邊的 [複製] 按鈕。 這會將 DefaultFullSharedAccessSignature 原則的連接字串複製到通知中樞。 此連接字串提供您的函式存取權限來傳送通知訊息。 
     ![複製通知中樞連接字串](./media/functions-bindings-notification-hubs/get-notification-hub-connection.png)
-1. 瀏覽至 Azure 入口網站中的函式應用程式，選擇 [應用程式設定]，新增 `MyHubConnectionString` 之類的金鑰，貼上針對通知中樞所複製的 DefaultFullSharedAccessSignature 來作為值，然後按一下 [儲存]。
+1. 瀏覽至 Azure 入口網站中的函式應用程式，選擇 應用程式設定，新增 `MyHubConnectionString` 之類的金鑰，貼上針對通知中樞所複製的 DefaultFullSharedAccessSignature 來作為值，然後按一下儲存。
 
 您現在可以使用此具名應用程式設定，在輸出繫結中定義通知中樞連線。
 
@@ -293,5 +292,4 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
-
 

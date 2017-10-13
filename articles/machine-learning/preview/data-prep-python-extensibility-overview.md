@@ -12,14 +12,12 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4e1935a7830b8174796ac12792fbbc0ed110d081
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-prep-python-extensions"></a>資料準備 Python 擴充功能
 資料準備可用來作為填補內建功能之間功能落差的方法，其中包含多個層級的擴充性。 在本文件中，我們將透過 Python 指令碼概述擴充性。 
 
@@ -361,4 +359,3 @@ def newvalue(row):
     else: 
         return row["Score"] 
 ```  
-

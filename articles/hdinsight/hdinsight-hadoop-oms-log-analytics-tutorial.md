@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: nitinme
+ms.openlocfilehash: c1c74c797449c2fa6d76438f9ec33eaf0fe51af4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: af5b05a366c1abbe7c91d186358dba2b4a957f92
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>使用 Azure Log Analytics 以監視 HDInsight 叢集 (預覽)
 
@@ -43,7 +42,7 @@ Log Analytics 是 [Operations Management Suite (OMS)](../operations-management-s
     如需如何建立 HDInsight 叢集的指示，請參閱[開始使用 Azure HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)。
 
 
-* **Log Analytics 工作區**。 您可以將此工作區視為唯一的 Log Analytics 環境，有其自己的資料存放庫、資料來源和方案。 您必須擁有一個已建立的此類工作區，您可以讓該工作區與 Azure HDInsight 叢集產生關聯。 如需指示，請參閱[建立 Log Analytics 工作區](../log-analytics/log-analytics-get-started.md#2-create-a-workspace)。
+* **Log Analytics 工作區**。 您可以將此工作區視為唯一的 Log Analytics 環境，有其自己的資料存放庫、資料來源和方案。 您必須擁有一個已建立的此類工作區，您可以讓該工作區與 Azure HDInsight 叢集產生關聯。 如需指示，請參閱[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)。
 
 ## <a name="configure-hdinsight-cluster-to-use-azure-log-analytics"></a>設定 HDInsight 叢集以使用 Azure Log Analytics
 
@@ -67,4 +66,3 @@ Log Analytics 是 [Operations Management Suite (OMS)](../operations-management-s
 
 ## <a name="next-steps"></a>後續步驟
 * [將 HDInsight 叢集管理解決方案新增至 Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md)
-

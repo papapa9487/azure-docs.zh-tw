@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: 862594bcbd6df8a2c62a12340ceb8096fb6bd691
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-queries-for-azure-cosmos-db-documentdb-api"></a>適用於 Azure Cosmos DB DocumentDB API 的 SQL 查詢
 Microsoft Azure Cosmos DB 支援使用 SQL (結構化查詢語言) 作為 JSON 查詢語言來查詢文件。 Cosmos DB 確實無結構描述。 由於它是直接在資料庫引擎內使用 JSON 資料模型，因此它提供不需明確的結構描述或建立次要索引，即可自動編製 JSON 文件索引的功能。 

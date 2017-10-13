@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-container-to-azure-container-instances"></a>將容器部署至 Azure 容器執行個體
 
 這是三段式教學課程的最後一段。 在前面幾節中，我們[已建立容器映像](container-instances-tutorial-prepare-app.md)並[推送至 Azure Container Registry](container-instances-tutorial-prepare-acr.md)。 本節會將容器部署至 Azure 容器執行個體，以完成本教學課程。 完成的步驟包括：
@@ -106,4 +104,3 @@ listening on port 80
 
 <!-- IMAGES -->
 [aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
-

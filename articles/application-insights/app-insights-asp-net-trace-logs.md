@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: 21e4ae78653977efc7a47f984bc309afac870a59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 91ffe6fa182f0d5e4294031787b853c33ea460df
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET 追蹤記錄
 如果您使用 NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Azure Application Insights][start]，以在其中探索和搜尋這些記錄。 您的記錄檔會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。
@@ -196,7 +195,7 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 有時候可能需要一段時間，所有事件和要求才會通過管線。
 
 ### <a name="limits"></a>保留多少資料？
-有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制](app-insights-api-custom-events-metrics.md#limits) 區段。 
+有好幾個因素會影響保留的資料量。 如需更多資訊，請參閱客戶事件計量頁面的 [限制][](app-insights-api-custom-events-metrics.md#limits) 區段。 
 
 ### <a name="im-not-seeing-some-of-the-log-entries-that-i-expect"></a>我沒看到一些預期的記錄項目
 如果您的應用程式傳送大量資料，且您是使用 Application Insights SDK for ASP.NET 版本 2.0.0-beta3 或更新版本，則調適性取樣功能可能會運作，並只傳送一部分的遙測資料。 [深入了解取樣。](app-insights-sampling.md)
@@ -213,4 +212,3 @@ TrackTrace 的優點在於您可以將較長的資料放在訊息中。 例如�
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

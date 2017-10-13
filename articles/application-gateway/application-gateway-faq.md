@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 2ae53d5aceab21b08ccdae5bf5192529cd7f09da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 595d611aac4f57b7ab5b7ab4e46edf1eff796185
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
 ## <a name="general"></a>一般
@@ -329,4 +327,3 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解應用程式閘道，請瀏覽[應用程式閘道簡介](application-gateway-introduction.md)。
-

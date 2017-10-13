@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cc7bdd7860506c20187dc913b72111824d1737ca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -174,9 +173,9 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
     b. 若要測試 Web 部署發佈或存取進階主控台，建立 mytestapp.scm.ilbase.com 的記錄。
 
-7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com 。(或移至任何名稱含您的網域的 Web 應用程式。)
+7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com。(或移至任何名稱含您的網域的 Web 應用程式。)
 
-8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com 。如果您使用自我簽署憑證，就必須接受安全性不足。
+8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 
@@ -250,4 +249,3 @@ Azure App Service 提供許多安全性措施來保護您的系統。 它們也�
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
-

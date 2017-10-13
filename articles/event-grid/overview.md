@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: babanisa
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
 Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您可以選取您想要訂閱的 Azure 資源，並提供事件處理常式或 WebHook 端點以作為事件的傳送目的地。 對於來自 Azure 服務 (例如儲存體 Blob 和資源群組) 的事件，Event Grid 內建了支援功能。 對於應用程式和第三方的事件，Event Grid 也使用了自訂主題和自訂 Webhook 來提供自訂支援。 

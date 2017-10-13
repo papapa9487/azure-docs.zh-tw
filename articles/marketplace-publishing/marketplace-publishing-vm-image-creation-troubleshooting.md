@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/26/2016
 ms.author: hascipio; v-divte
 ms.openlocfilehash: c4e88a9fbb15dd90d619b159ae1065dfacc1907f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-issues-encountered-during-vhd-creation"></a>如何針對 VHD 建立常見問題進行疑難排解
 這篇文章可協助 Azure Marketplace 發行者和 (或) 共同管理員解決在發行或管理其虛擬機器解決方案時發生的問題或常見問題。

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2016
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2a9075f4c9f10d05df3b275a39b3629d4ffd095f
-ms.openlocfilehash: 23cc4321159a87b61c177b11381646af8bd9eb35
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/24/2017
-
+ms.openlocfilehash: e163f3c2e9a78b057dc2a7a42924c59d0aac3fab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="share-state-to-and-from-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中共用狀態以及從 Azure Resource Manager 範本共用狀態
 這個主題說明在範本中管理和共用狀態的最佳做法。 本主題所顯示的參數與變數為您可以定義的物件類型範例，方便您用來組織部署需求。 在這些範例中，您可以實作自己的物件與您環境適用的屬性值。
@@ -440,4 +439,3 @@ ms.lasthandoff: 01/24/2017
 ## <a name="next-steps"></a>後續步驟
 * 如要了解範本的各區段，請參閱 [編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)
 * 若要查看範本中可以使用的函數，請參閱 [Azure Resource Manager 範本函數](resource-group-template-functions.md)
-

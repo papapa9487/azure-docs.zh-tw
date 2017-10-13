@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/24/2017
 ms.author: tarcher
 ms.openlocfilehash: 449bffb040dafc8edd0b8b0afd80dbea35cd28ac
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中對實驗室新增 VM
 如果您已經[建立您的第一個 VM](devtest-lab-create-first-vm.md)，您很有可能是透過預先載入的 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)來完成的。 現在，如果您想要將後續的 VM 新增至您的實驗室，您也可以選擇一個「基底」，它可以是[自訂映像](devtest-lab-create-template.md)或[公式](devtest-lab-manage-formulas.md)。 本教學課程會逐步引導您使用 Azure 入口網站，在 DevTest Labs 中對實驗室新增 VM。

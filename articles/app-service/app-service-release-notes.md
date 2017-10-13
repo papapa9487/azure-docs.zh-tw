@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/10/2016
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 357e58665f5cdf6ea9a3fcaee4a390f2b0d2045f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 版本資訊
 本文包含 Azure SDK for .NET 2.5.1 版的版本資訊。 
@@ -63,5 +62,4 @@ ms.lasthandoff: 09/07/2017
 * API 應用程式專案無法與雲端服務專案搭配使用。
 * API 應用程式專案範本僅適用於 C# 中。
 * 只有在 C# 中，才能透過「新增 Azure API 應用程式用戶端」內容功能表來取用 API 應用程式。
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-operations-manager-to-log-analytics"></a>將 Operations Manager 連接到 Log Analytics
 若要維護 System Center Operations Manager 中的現有投資，並使用 Log Analytics 的延伸功能，您可以整合 Operations Manager 與 OMS 工作區。  這可讓您利用 OMS 的機會，同時繼續使用 Operations Manager：
 
@@ -93,7 +91,7 @@ ms.lasthandoff: 09/23/2017
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
 2. 展開 Operations Management Suite 節點，然後按一下 [連接] 。
 3. 按一下窗格右側之 [執行] 標題下方的 [加入電腦/群組]  連結。
-4. 在 [電腦搜尋] 對話方塊中，您可以搜尋 Operations Manager 監視的電腦或群組。 選取電腦或群組以登入 OMS，並按一下 [新增]，然後按一下 [確定]。
+4. 在 [電腦搜尋] 對話方塊中，您可以搜尋 Operations Manager 監視的電腦或群組。 選取電腦或群組以登入 OMS，並按一下 新增，然後按一下確定。
 
 在 Operations 主控台的 [管理]  工作區中，您可以檢視電腦和群組，這些電腦和群組設定成收集來自 Operations Management Suite 下方之 [受管理的電腦] 節點的資料。  您可以視需要在這裡新增或移除電腦和群組。
 
@@ -101,9 +99,9 @@ ms.lasthandoff: 09/23/2017
 如果內部 Proxy 伺服器位在管理群組與 OMS Web 服務之間，請執行下列步驟。  這些設定是從管理群組進行集中管理，並且散發至範圍中所含的代理程式所管理系統，來收集 OMS 的資料。  特定解決方案略過管理伺服器並將資料直接傳送給 OMS Web 服務時，這十分有幫助。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
-2. 展開 Operations Management Suite，然後按一下 [連接] 。
+2. 展開 Operations Management Suite，然後按一下連接 。
 3. 在 [OMS 連線] 檢視中，按一下 [設定 Proxy 伺服器] 。
-4. 在 [Operations Management Suite 精靈：Proxy 伺服器] 頁面上，選取 [使用 Proxy 伺服器來存取 Operations Management Suite]，然後輸入具有連接埠號碼的 URL (例如， http://corpproxy:80 )，然後按一下 [完成]。
+4. 在 Operations Management Suite 精靈：Proxy 伺服器 頁面上，選取 使用 Proxy 伺服器來存取 Operations Management Suite，然後輸入具有連接埠號碼的 URL (例如， http://corpproxy:80 )，然後按一下完成。
 
 如果 Proxy 伺服器需要驗證，請執行下列步驟來設定認證和設定，這些需要傳播到管理群組中向 OMS 回報的受管理電腦。
 
@@ -111,7 +109,7 @@ ms.lasthandoff: 09/23/2017
 2. 在 [RunAs 組態] 底下，選取 [設定檔]。
 3. 開啟 [ **System Center Advisor 執行身份設定檔 Proxy** ] 設定檔。
 4. 在 [執行身分設定檔精靈] 中，按一下 [加入] 使用執行身分帳戶。 您可以建立[執行身分帳戶](https://technet.microsoft.com/library/hh321655.aspx)，或使用現有的帳戶。 此帳戶必須有足夠的權限，才能通過 Proxy 伺服器。
-5. 若要設定帳戶來管理，請選擇 [選取的類別、群組或物件]，按一下 [選取…] 然後按一下 [群組…] 開啟 [群組搜尋] 方塊。
+5. 若要設定帳戶來管理，請選擇 [選取的類別、群組或物件]，按一下 [選取…] 然後按一下群組… 開啟 [群組搜尋] 方塊。
 6. 搜尋，然後選取 [Microsoft System Center Advisor 監控伺服器群組] 。  選取群組之後，按一下 [確定] 關閉 [群組搜尋] 方塊。
 7. 按一下 [確定] 以關閉 [新增執行身分帳戶] 方塊。
 8. 按一下 [儲存]  完成精靈並儲存變更。
@@ -299,6 +297,5 @@ ms.lasthandoff: 09/23/2017
 
 ## <a name="next-steps"></a>後續步驟
 若要新增功能和收集資料，請參閱[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)。
-
 
 

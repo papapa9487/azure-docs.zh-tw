@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 356de369ec5409e8e6e51a286a20af70a9420193
 ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>使用 Azure 備份伺服器將 Exchange Server 備份至 Azure 備份
 本文說明如何設定 Microsoft Azure 備份伺服器 (MABS)，以將 Microsoft Exchange Server 備份至 Azure。  
@@ -54,7 +52,7 @@ ms.lasthandoff: 03/27/2017
 
    * 我想要使用磁碟進行短期保護。
    * 我想要線上保護。
-6. 按 [下一步] 。
+6. 按一下 [下一步] 。
 7. 如果您想要檢查 Exchange Server 資料庫的完整性，請選取 [執行 Eseutil 以檢查資料完整性]  選項。
 
     選取此選項之後，將會在 MABS 上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
@@ -64,7 +62,7 @@ ms.lasthandoff: 03/27/2017
    > ![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 按 [下一步] 。
+8. 按一下 [下一步] 。
 9. 選取用於 [複製備份] 的資料庫，然後按 [下一步]。
 
    > [!NOTE]
@@ -92,7 +90,7 @@ ms.lasthandoff: 03/27/2017
     如果您有大型資料庫，則透過網路建立初始備份所需的時間很長。 若要避免這個問題，您可以建立離線備份。  
 
     ![指定線上保留期原則](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
-18. 確認設定，然後按一下 [建立群組] 。
+18. 確認設定，然後按一下建立群組 。
 19. 按一下 [關閉] 。
 
 ## <a name="recover-the-exchange-database"></a>復原 Exchange 資料庫
@@ -113,4 +111,3 @@ ms.lasthandoff: 03/27/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 備份常見問題集](backup-azure-backup-faq.md)
-

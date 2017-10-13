@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/15/2017
 ms.author: dkshir
 ms.openlocfilehash: 6073d594117e69676b753a1e3af25fffa3583a2b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-device-twins-netnet"></a>開始使用裝置對應項 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -51,7 +51,7 @@ ms.lasthandoff: 07/11/2017
 1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **AddTagsAndQuery**。
    
     ![新的 Visual C# Windows 傳統桌面專案][img-createapp]
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **AddTagsAndQuery** 專案，然後按一下 [管理 NuGet 套件...]。
+1. 在 方案總管 中，以滑鼠右鍵按一下 **AddTagsAndQuery** 專案，然後按一下管理 NuGet 套件...。
 1. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並加入對它的參考。
    
     ![NuGet 套件管理員視窗][img-servicenuget]
@@ -113,7 +113,7 @@ ms.lasthandoff: 07/11/2017
    
     ![新的 Visual C# Windows 傳統裝置應用程式][img-createdeviceapp]
     
-1. 在方案總管中，以滑鼠右鍵按一下 **ReportConnectivity** 專案，然後按一下 [管理 NuGet 套件...]。
+1. 在方案總管中，以滑鼠右鍵按一下 **ReportConnectivity** 專案，然後按一下管理 NuGet 套件...。
 1. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK][lnk-nuget-client-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式][img-clientnuget]

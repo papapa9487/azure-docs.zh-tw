@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 53bf33f6027f1f365bd92251490d5c851fb83f8b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: ac73006f3589bf6d8adb0d7935b694b444d1415c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-between-data-lake-store-and-azure-sql-database-using-sqoop"></a>使用 Sqoop 在 Data Lake Store 和 Azure SQL Database 之間複製資料
 了解如何使用 Apache Sqoop 在 Azure SQL Database 和 Data Lake Store 之間匯入及匯出資料。
@@ -144,4 +143,3 @@ HDInsight 叢集已有可用的 Sqoop 套件。 如果您已設定 HDInsight 叢
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
-

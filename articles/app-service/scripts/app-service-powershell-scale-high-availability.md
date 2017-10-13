@@ -17,10 +17,10 @@ ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 9acd1cf4d1a5705811c4dedc545505ec0ac55fc7
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-web-app-worldwide-with-a-high-availability-architecture"></a>透過高可用性架構將 Web 應用程式調整為全球可用
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/18/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-powershell[主要](../../../powershell_scripts/app-service/scale-geographic/scale-geographic.ps1 "透過高可用性架構將 Web 應用程式調整為全球可用")]
+[!code-powershell[main](../../../powershell_scripts/app-service/scale-geographic/scale-geographic.ps1 "Scale a web app worldwide with a high-availability architecture")]
 
 ## <a name="clean-up-deployment"></a>清除部署 
 

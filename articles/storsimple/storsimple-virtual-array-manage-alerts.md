@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3062c7c060c3730c5edef3ada16f3a5077cf5558
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的警示
 
@@ -99,7 +99,7 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗中，可讓您快速概覽
 
 ![警示清單和詳細資料](./media/storsimple-virtual-array-manage-alerts/alerts16.png)
 
-如果您需要將資訊傳送給 Microsoft 支援服務，您可以將警示詳細資料複製到文字檔案。 依照建議解決內部部署警示狀況之後，您應該從清單中清除警示。 從清單中選取警示，然後按一下 [清除]。 若要清除多個警示，請選取每個警示，按一下除了 [警示] 資料行以外的任何資料行，然後在選取要清除的所有警示之後按一下 [清除]。
+如果您需要將資訊傳送給 Microsoft 支援服務，您可以將警示詳細資料複製到文字檔案。 依照建議解決內部部署警示狀況之後，您應該從清單中清除警示。 從清單中選取警示，然後按一下清除。 若要清除多個警示，請選取每個警示，按一下除了 [警示] 資料行以外的任何資料行，然後在選取要清除的所有警示之後按一下 [清除]。
 
 當您按一下 [ **清除**] 時，您有機會提供警示的相關註解，以及您用來解決問題的步驟。 
 

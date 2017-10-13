@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/16/2016
 ms.author: terrylan
 ms.openlocfilehash: 00b715507a7c3a4d784b800e7bf0c700f6ea6ff1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protecting-your-network-in-azure-security-center"></a>保護 Azure 資訊安全中心內的網路
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。  這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM)、網路、SQL 和應用程式。

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>透過 Azure 內容傳遞網路的媒體串流處理最佳化 
  
@@ -98,5 +97,4 @@ Verizon 的 Azure 內容傳遞網路會直接使用一般 Web 傳遞最佳化類
 ### <a name="cache-fill-wait-time"></a>快取填滿等候時間
 
  快取填滿等候時間功能會強迫邊緣伺服器保存相同資源的所有後續要求，直到原始伺服器的 HTTP 回應標頭送達為止。 如果原始伺服器的 HTTP 回應標頭在計時器終止前送達，則會在成長中快取之外為所有暫停的要求提供服務。 同時，快取會填入原始伺服器的資料。 根據預設，快取填滿等候時間會設定為 3,000 毫秒。 
-
 

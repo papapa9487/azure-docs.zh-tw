@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 90e29a9ab522031db8feb934a218d4b671561417
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>在 Azure 資料目錄中註冊來自 Data Lake Store 的資料
 在本文中，您將了解如何使用 Azure 資料目錄整合 Azure Data Lake Store，讓您的資料可在組織中藉由與資料目錄整合進行搜尋。 如需編目資料的詳細資訊，請參閱 [Azure 資料目錄](../data-catalog/data-catalog-what-is-data-catalog.md)。 若要了解您可以使用資料目錄的案例，請參閱 [Azure 資料目錄常見案例](../data-catalog/data-catalog-common-scenarios.md)。
@@ -49,7 +48,7 @@ ms.lasthandoff: 08/29/2017
 5. 在 [選取資料來源] 頁面上，選取 [Azure Data Lake]，然後按 [下一步]。
 
     ![選取資料來源](./media/data-lake-store-with-data-catalog/select-source.png "選取資料來源")
-6. 在下一個頁面上，提供您想要在資料目錄中註冊的 Data Lake Store 帳戶名稱。 其他選項保留為預設值，然後按一下 [連線] 。
+6. 在下一個頁面上，提供您想要在資料目錄中註冊的 Data Lake Store 帳戶名稱。 其他選項保留為預設值，然後按一下連線 。
 
     ![連接到資料來源](./media/data-lake-store-with-data-catalog/connect-to-source.png "連接到資料來源")
 7. 下一個頁面可以分成下列區段。
@@ -83,4 +82,3 @@ ms.lasthandoff: 08/29/2017
 * [註釋資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
 * [記錄資料目錄中的資料來源](../data-catalog/data-catalog-how-to-documentation.md)
 * [整合 Data Lake Store 與其他 Azure 服務](data-lake-store-integrate-with-other-services.md)
-

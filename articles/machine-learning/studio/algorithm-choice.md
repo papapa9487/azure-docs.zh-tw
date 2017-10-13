@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/25/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 822bed8ffc43459dd053fda5b68f62f839b7d94b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>如何選擇 Microsoft Azure Machine Learning 的演算法
 「我該使用何種機器學習演算法？ 」的答案永遠都是「視情況。 」 這可視資料的大小、品質和本質而定。 也可取決於您想用這個答案來做些什麼。 或是取決於演算法的數學運算如何針對您正在使用的電腦轉譯成指令。 而這又需視您有多少時間。 即使經驗最豐富的資料科學家，在沒有嘗試之前，也無法確認哪一個演算法效果會最好。
@@ -247,4 +246,3 @@ VW 背離這裡的歸納，因為它可以學習分類和迴歸問題，甚至�
 [8]: ./media/algorithm-choice/image8.png
 [9]: ./media/algorithm-choice/image9.png
 [10]: ./media/algorithm-choice/image10.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 9a79e50902e8e99e94148f8ef534e6745e31809a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>針對實驗室中的構件失敗進行診斷 
 建立構件之後，您可以檢查以確認其成功或失敗。 Azure DevTest Labs 中的構件記錄會提供資訊供您用來診斷構件失敗。 有幾個選項可供您檢視 Windows VM 的構件記錄資訊：
@@ -59,5 +58,4 @@ ms.lasthandoff: 09/01/2017
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何[將 Git 存放庫新增至實驗室](devtest-lab-add-artifact-repo.md)。
-
 

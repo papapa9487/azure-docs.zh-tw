@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 217e9e63eb7cd198f70cee42b418867df9f1f993
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: bd5bae5678e2ec12fd1ddd2a81e63acca08da2c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI 元素
 控制項可讓使用者指定要上傳的一個或多個檔案。 您可以在[建立 Azure 受管理應用程式](managed-application-publishing.md)時使用此元素。
@@ -95,4 +94,3 @@ ms.lasthandoff: 05/12/2017
 * 如需受管理應用程式的簡介，請參閱 [Azure 受管理的應用程式概觀](managed-application-overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](managed-application-createuidefinition-overview.md)。
 * 如需 UI 元素中通用屬性的說明，請參閱 [CreateUiDefinition 元素](managed-application-createuidefinition-elements.md)。
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
+ms.openlocfilehash: afe22b84015526f901111238e36baaa94694ccbf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 64aff391b4fc358fac8622d4448bbb981e330e33
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-kubernetes-cluster-using-sysdig"></a>使用 Sysdig 監視 Azure Container Service Kubernetes 叢集
 
 ## <a name="prerequisites"></a>必要條件
@@ -91,4 +89,3 @@ $ kubectl create -f sysdig-daemonset.yaml
 完成安裝並在執行時，代理程式會將資料送回 Sysdig。  返回 [sysdig 儀表板](https://app.sysdigcloud.com)，您應該會看到您容器的相關資訊。
 
 您也可以透過[新的儀表板精靈](https://app.sysdigcloud.com/#/dashboards/new)來安裝 Kubernetes 專用儀表板。
-

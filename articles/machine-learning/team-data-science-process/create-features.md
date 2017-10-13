@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: zhangya;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c0933fec67bbcfc2a8c450c1e2472440cf38f338
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="feature-engineering-in-data-science"></a>資料科學特徵工程設計
 本主題說明在機器學習服務的資料增強程序中特徵工程設計的目的，並提供其角色的範例。 用來說明此程序的範例是取自 Azure Machine Learning Studio。 
@@ -90,5 +89,4 @@ Azure 機器學習中有一個 [特性雜湊](https://msdn.microsoft.com/library
 工程設計和選取的特性可提高下列定型程序的效率：嘗試擷取資料中內含的重要資訊。 此外，還可改善這些模型的功效，正確地分類輸入資料以及更精確地預測感興趣的結果。 特性工程設計和選取也可結合起來，讓學習更易於以運算方式處理。 其作法是提高而後減少校正或定型模型所需的特性數量。 從數學的角度來看，選取用來定型模型的特性是極小的一組獨立變數，可供解釋資料中的模式，然後成功地預測結果。
 
 請注意，不一定要執行特性工程設計和特性選取。 需要與否取決於我們所擁有或收集的資料、我們挑選的演算法，以及實驗的目標。
-
 

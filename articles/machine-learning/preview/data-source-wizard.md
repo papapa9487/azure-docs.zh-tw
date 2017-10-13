@@ -7,14 +7,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bed026e8f75618403efa3eed475371d1d2746bc5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-source-wizard"></a>資料來源精靈 #
 
 資料來源精靈是一種快速且簡單的方式，不需程式碼，就能將資料集帶入 Azure ML Workbench。 您也可以在其中選取資料集適用的取樣策略。 
@@ -74,4 +72,3 @@ ms.lasthandoff: 09/25/2017
 ![步驟 7](media/data-source-wizard/step6.png)
 
 按一下 [完成] 之後，即會將新的資料來源新增至專案。 您可以在資料檢視的 [資料來源] 群組中找到它，或作為 [檔案檢視] 中的 .dsource 檔案。
-

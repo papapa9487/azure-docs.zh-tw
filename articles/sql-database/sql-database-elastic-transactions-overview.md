@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: sql-database
 ms.date: 05/27/2016
 ms.author: torsteng
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 795857b0670628b105a59ce5a802620881d30425
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨雲端資料庫的分散式交易
 Azure SQL Database (SQL DB) 的彈性資料庫交易可讓您在 SQL DB 中跨多個資料庫執行交易。 SQL DB 的彈性資料庫交易適用於使用 ADO .NET 的 .NET 應用程式，而且與以往熟悉使用 [System.Transaction](https://msdn.microsoft.com/library/system.transactions.aspx) 類別的程式設計經驗整合。 如要取得程式庫，請參閱 [.NET Framework 4.6.1 (Web 安裝程式)](https://www.microsoft.com/download/details.aspx?id=49981)。
@@ -150,7 +149,6 @@ SQL DB 中的彈性資料庫交易目前有下列限制：
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png
-
 
 
 

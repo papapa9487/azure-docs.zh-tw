@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: adegeo
 ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 雲端服務角色上安裝 .NET
 本文說明如何安裝未隨附於 Azure 客體 OS 的 .NET Framework 版本。 若要設定雲端服務 web 和背景工作角色，您可以在客體 OS 上使用 .NET。

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: anta
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bd0ddfcffdb6f946f9a3786f3d0add1740be861b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="energy-demand-time-series-forecasting"></a>能源需求時間序列預測
 
 
@@ -195,4 +193,3 @@ python evaluate-all-models.py
 這個範例示範如何建置端對端時間序列預測解決方案，以便預測能源需求。 在此範例中探索的許多原則都可以延伸至其他預測案例和產業。
 
 此案例示範 Azure Machine Learning Workbench 如何協助資料科學家開發具有實用功能 (例如 Jupyter Notebook 環境和計量記錄功能) 的真實解決方案。 此範例也會引導讀者如何使用 Azure Machine Learning Operationalization CLI 來運算化和部署模型。 部署之後，Web 服務 API 可讓開發人員或資料工程師將預測模型整合到較寬的資料管線中。
-

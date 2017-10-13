@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
 ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 本文將逐步引導您完成要成為 Azure Marketplace 核准的 Microsoft 開發人員所必須執行的帳戶建立和註冊程序。
@@ -100,7 +100,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
    > **「銷售來源」國家/地區：** 如果要在 Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需詳細資訊，請參閱 [Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)。
    >
    >
-5. 在 [帳戶類型] 選取 [公司]，然後按一下 [下一步] 按鈕。
+5. 在 帳戶類型 選取 公司，然後按一下下一步 按鈕。
 
    > [!IMPORTANT]
    > 若要進一步了解帳戶類型，以及何者最適合您的選擇，請檢視頁面 [帳戶類型、位置和費用](https://msdn.microsoft.com/library/windows/apps/jj863494.aspx)

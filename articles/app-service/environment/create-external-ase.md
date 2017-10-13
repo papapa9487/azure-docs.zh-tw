@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 70c43b25aea364d7254137b46af31f851dcf8bc6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
@@ -152,4 +151,3 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: http://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-

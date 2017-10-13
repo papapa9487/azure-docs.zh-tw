@@ -14,12 +14,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 12/25/2016
 ms.author: aasthan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 324b5844362c2712d54fd766eb95e1d9102f757a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-documentdb-api"></a>Azure Cosmos DB：適用於 DocumentDB API 的 C++ 主控台應用程式教學課程
 > [!div class="op_single_selector"]
@@ -70,8 +69,8 @@ ms.lasthandoff: 09/15/2017
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupC++"></a>步驟 2︰設定您的 C++ 應用程式
-1. 開啟 Visual Studio，在 [檔案] 功能表上，按一下 [新增]，然後按一下 [專案]。 
-2. 在 [新增專案] 視窗中，於 [已安裝] 窗格中展開 [Visual C++]，按一下 [Win32]，然後按一下 [Win32 主控台應用程式]。 將專案命名為 hellodocumentdb，然後按一下 [確定]。 
+1. 開啟 Visual Studio，在 檔案 功能表上，按一下 新增，然後按一下專案。 
+2. 在 新增專案 視窗中，於 已安裝 窗格中展開 Visual C++，按一下 Win32，然後按一下Win32 主控台應用程式。 將專案命名為 hellodocumentdb，然後按一下確定。 
    
     ![新增專案精靈的螢幕擷取畫面](media/documentdb-cpp-get-started/hello.png)
 3. 當 Win32 應用程式精靈啟動時，按一下 [完成]。
@@ -293,6 +292,5 @@ Azure Cosmos DB 支援刪除 JSON 文件，只要在 replacedocument 函式之�
 * 如需深入了解程式設計模型，請參閱 [Azure Cosmos DB 文件頁面](https://azure.microsoft.com/documentation/services/documentdb/)中的＜開發＞一節。
 
 [create-account]: create-documentdb-dotnet.md#create-account
-
 
 

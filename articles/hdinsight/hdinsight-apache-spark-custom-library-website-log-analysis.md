@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 96d897d4e4eb50abae2b145abd4f794523da6a2b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>使用自訂 Python 程式庫搭配 HDInsight 上的 Spark 叢集來分析網站記錄
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 06/07/2017
 一旦將資料儲存成 Hive 資料表之後，下一節我們將使用 Power BI 和 Tableau 等 BI 工具連接 Hive 資料表。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將其釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
-2. 從 Spark 叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+2. 從 Spark 叢集刀鋒視窗按一下 叢集儀表板，然後按一下Jupyter Notebook。 出現提示時，輸入叢集的系統管理員認證。
 
    > [!NOTE]
    > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
@@ -54,7 +53,7 @@ ms.lasthandoff: 06/07/2017
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. 建立新的 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立新的 Notebook。 按一下 新增，然後按一下PySpark。
 
     ![建立新的 Jupyter Notebook](./media/hdinsight-apache-spark-custom-library-website-log-analysis/hdinsight-create-jupyter-notebook.png "建立新的 Jupyter Notebook")
 4. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
@@ -229,4 +228,3 @@ ms.lasthandoff: 06/07/2017
 ### <a name="manage-resources"></a>管理資源
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](hdinsight-apache-spark-job-debugging.md)
-

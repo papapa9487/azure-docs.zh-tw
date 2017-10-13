@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
 
 [Draft](https://aka.ms/draft) 是新的開放原始碼工具，可讓您輕鬆地開發以容器作為基礎的應用程式，並將其部署至 Kubernetes 叢集，而無需深入了解 Docker 和 Kubernetes，或甚至進行安裝。 使用諸如 Draft 等工具可讓您和小組專注於使用 Kubernetes 來建置應用程式，無須投入過多注意力在基礎結構。
@@ -290,7 +288,6 @@ Hello World, I'm Java!
 ## <a name="next-steps"></a>後續步驟
 
 您有了 ACS Kubernetes 叢集之後，可以使用 [Azure Container Registry](../../container-registry/container-registry-intro.md) 進行調查，建立更多這種案例與不同的部署。 例如，您可以建立 draft._basedomain.toplevel_ 網域 DNS 記錄集，可針對特定 ACS 部署，控制項目移出更深入的子網域。
-
 
 
 

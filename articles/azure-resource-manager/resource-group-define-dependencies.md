@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/03/2017
 ms.author: tomfitz
 ms.openlocfilehash: 3d6a46116ae9d7d940bc10dfa832540f42c0af7e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>定義 Azure Resource Manager 範本中部署資源的順序
 針對指定的資源，可能會有部署資源之前必須存在的其他資源。 例如，SQL Server 必須存在，才能嘗試部署 SQL 資料庫。 您可以將一個資源標示為相依於其他資源，來定義此關聯性。 您可以使用 **dependsOn** 元素或使用 **reference** 函式定義相依性。 

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
 ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>使用角色型存取控制來管理對 Azure 帳單資訊的存取
 
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/29/2017
 
 1. 從 Azure 入口網站中的 [[訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)選取您的訂用帳戶。
 
-1. 選取 [存取控制 (IAM)]，然後按一下 [新增]。
+1. 選取 存取控制 (IAM)，然後按一下新增。
 
     ![顯示 [訂用帳戶] 刀鋒視窗中 IAM 的螢幕擷取畫面](./media/billing-manage-access/select-iam.PNG)
 

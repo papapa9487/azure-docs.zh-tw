@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>將裝置設定為使用 Azure IoT 中樞裝置佈建服務進行佈建
 
 在上一個教學課程中，您已了解如何將 Azure IoT 中樞裝置佈建服務設定為自動將裝置佈建到 IoT 中樞。 本教學課程則會指引您如何在製造過程中為裝置進行設定，以便您可以根據裝置的[硬體安全模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) 為裝置設定裝置佈建服務，並讓裝置可以在首次開機時連線到裝置佈建服務。 本教學課程會討論下列作業的程序：
@@ -186,5 +184,4 @@ int main()
 
 > [!div class="nextstepaction"]
 > [將裝置佈建到 IoT 中樞](tutorial-provision-device-to-hub.md)
-
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 8/16/2017
 ms.author: saurse;trinadhk;markgal;
 ms.openlocfilehash: 231dd61f95267b3a504ed70e9b3a5abc470b69b2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>使用 Resource Manager 部署模型將檔案還原到 Windows Server 或 Windows 用戶端電腦
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ ms.lasthandoff: 08/18/2017
 
     ![選擇 [這台伺服器] 選項以將資料還原到同一台電腦](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. 在 [選取復原模式] 窗格上，選擇 [個別檔案與資料夾]，然後按一下 [下一步]。
+4. 在 選取復原模式 窗格上，選擇 個別檔案與資料夾，然後按一下下一步。
 
     ![瀏覽檔案](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
 

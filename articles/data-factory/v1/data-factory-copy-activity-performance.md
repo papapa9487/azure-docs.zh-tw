@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 155e29e467b9752d491f62973ffccc986041fcab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
 Azure Data Factory 複製活動會提供安全、可靠、高效能的頂級資料載入解決方案。 它可讓您複製每天在各式各樣雲端和內部部署資料存放區上數十 TB 的資料。 超快的資料載入效能是可確保您能夠專注於核心「巨量資料」問題的關鍵︰建置進階的分析解決方案，並從該所有資料獲得深入解析。
@@ -409,4 +408,3 @@ cloudDataMovementUnits 屬性的允許值是 1 (預設值)、2、4、8、16 和 
 * Azure Cosmos DB：[Azure Cosmos DB 中的效能等級](../../cosmos-db/performance-levels.md)
 * 內部部署 SQL Server： [效能的監視與微調](https://msdn.microsoft.com/library/ms189081.aspx)
 * 內部部署檔案伺服器： [檔案伺服器的效能微調](https://msdn.microsoft.com/library/dn567661.aspx)
-

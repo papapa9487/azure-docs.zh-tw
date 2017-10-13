@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 4d1f02951bf93d59f16173bd021ab9340a425071
-
-
+ms.openlocfilehash: a1a349150ef4c7837932706f0c4fcc8d022ec7ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="registration-management"></a>註冊管理
 ## <a name="overview"></a>概觀
@@ -28,7 +28,7 @@ ms.openlocfilehash: 4d1f02951bf93d59f16173bd021ab9340a425071
 向「通知中樞」註冊裝置是藉由使用 [註冊] 或 [安裝] 來完成。
 
 #### <a name="registrations"></a>註冊
-註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 GCM 註冊識別碼。 標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
+註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 GCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
 
 #### <a name="installations"></a>安裝
 安裝是增強型的註冊，包含一組推播相關的屬性。 它是註冊您的裝置最新最好的方法。 不過，目前用戶端 .NET SDK([適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) 不支援此種安裝。  這表示如果您要從用戶端裝置本身註冊，您必須使用 [通知中樞 REST API](https://msdn.microsoft.com/library/mt621153.aspx) 方法來支援安裝。 如果您使用後端服務，您應該能夠使用 [適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
@@ -317,10 +317,4 @@ SecondaryTiles 字典使用的 TileId 會與在「Windows 市集」應用程式�
 
 
 後端必須處理註冊更新之間的並行存取。 「服務匯流排」可提供開放式並行存取控制來管理註冊。 在 HTTP 層級，這是藉由在註冊管理作業上使用 ETag 來進行實作。 Microsoft SDK 會在背景使用這項功能，如果因並行存取而導致更新被拒，將會擲回例外狀況。 App 後端會負責處理這些例外狀況，並視需要重試更新。
-
-
-
-
-<!--HONumber=Nov16_HO3-->
-
 

@@ -15,10 +15,10 @@ ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: sdanie
 ms.openlocfilehash: 3352fec59d7dfbfab9b0416992a60f11d0ec2402
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>如何管理 Azure Redis 快取
 本主題說明如何執行管理工作，例如為 Azure Redis 快取執行個體進行[重新啟動](#reboot)並[排程更新](#schedule-updates)。
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/11/2017
 
 ![重新啟動](./media/cache-administration/redis-cache-reboot-cluster.png)
 
-若要重新啟動快取的一或多個節點，選取所需的節點，然後按一下 [重新啟動] 。 如果您的進階快取已啟用叢集，選取要重新啟動的分區，然後按一下 [重新啟動]。 稍候幾分鐘之後，選取的節點會重新啟動，並在幾分鐘之後重新上線。
+若要重新啟動快取的一或多個節點，選取所需的節點，然後按一下 [重新啟動] 。 如果您的進階快取已啟用叢集，選取要重新啟動的分區，然後按一下重新啟動。 稍候幾分鐘之後，選取的節點會重新啟動，並在幾分鐘之後重新上線。
 
 對於用戶端應用程式的影響，會根據您重新啟動的節點而有所不同。
 

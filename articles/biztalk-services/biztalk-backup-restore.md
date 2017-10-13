@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
 ms.openlocfilehash: c55d1ab124441c42101b4ad60924a9ea28231408
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk 服務：備份與還原
 
@@ -53,7 +53,7 @@ Azure BizTalk 服務包含備份與還原功能。 本主題說明如何使用 A
 [排定備份](#backupschedule)
 
 #### <a name="backupnow"></a>隨選備份
-1. 在 Azure 傳統入口網站上，選取 [BizTalk 服務] ，然後選取要備份的 BizTalk 服務。
+1. 在 Azure 傳統入口網站上，選取 BizTalk 服務 ，然後選取要備份的 BizTalk 服務。
 2. 在 [儀表板] 索引標籤中，選取頁面底部的 [備份]。
 3. 輸入備份名稱。 例如，輸入 *myBizTalkService*BU*Date*。
 4. 選擇 Blob 儲存體帳戶，然後選取勾選記號開始備份。
@@ -61,7 +61,7 @@ Azure BizTalk 服務包含備份與還原功能。 本主題說明如何使用 A
 備份完成時，儲存體帳戶內會以您輸入的備份名稱建立一個容器。 此容器包含 BizTalk 服務備份組態。
 
 #### <a name="backupschedule"></a>排定備份
-1. 在 Azure 傳統入口網站上，選取 [BizTalk 服務]，選取您要排定備份的 BizTalk 服務名稱，然後選取 [設定] 索引標籤。
+1. 在 Azure 傳統入口網站上，選取 BizTalk 服務，選取您要排定備份的 BizTalk 服務名稱，然後選取 設定 索引標籤。
 2. 將 [備份狀態] 設為 [自動]。 
 3. 選取要儲存備份的 [儲存體帳戶]，輸入建立備份的 [頻率] 以及備份的保留時間 ([保留天數])：
    
@@ -89,7 +89,7 @@ Azure BizTalk 服務包含備份與還原功能。 本主題說明如何使用 A
 * 將還原相同的 EDI Runtime 資料。 EDI Runtime 備份中儲存控制編號。 還原的控制編號從備份時間開始按順序編排。 如果在上次備份之後處理訊息，則還原此備份內容會產生重複的控制編號。
 
 #### <a name="restore-a-backup"></a>還原備份
-1. 在 Azure 傳統入口網站中，選取 [新增] > [應用程式服務] > [BizTalk 服務] > [還原]：
+1. 在 Azure 傳統入口網站中，選取 新增 > 應用程式服務 > BizTalk 服務 > 還原：
    
     ![還原備份][Restore]
 2. 在 [ **備份 URL**] 中，選取資料夾圖示並展開儲存 BizTalk 服務設定備份的 Azure 儲存體帳戶。 展開容器，然後在右窗格中，選取對應的 .txt 備份檔案。 

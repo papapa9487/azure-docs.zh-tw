@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fc4d793bcf402a3e742fae2b2c0052f2d60d1b47
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="consuming-web-services"></a>取用 Web 服務
 將模型部署為即時 Web 服務後，您就可以對它傳送資料，並從各種不同的平台和應用程式取得預測。 即時 Web 服務會公開用來取得預測的 REST API。 您可以透過單一資料列或多重資料列格式將資料傳送給 Web 服務，以便一次取得一或多個預測。
@@ -165,4 +164,3 @@ headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_ke
 resp = requests.post(url, data, headers=headers)
 resp.text
 ```
-

@@ -16,12 +16,11 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
+ms.openlocfilehash: bdfaf0cd7d4bb44b877a9f14891e540fd789b6c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: bc1658fa49677386c8e4697221f7269ceec3533d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-web-app-for-containers"></a>Azure Web App for Containers 簡介
 
@@ -99,4 +98,3 @@ Web App for Containers 僅支援[基本和標準](https://azure.microsoft.com/pr
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png
 [2]: ./media/app-service-linux-intro/logging.png
-

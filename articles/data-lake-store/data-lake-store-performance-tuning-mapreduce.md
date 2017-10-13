@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 9528148792f083cb0e48d356e61cf61762ee954f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-store"></a>HDInsight 和 Azure Data Lake Store 上的 MapReduce 效能微調方針
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 07/11/2017
 * **Mapreduce.reduce.memory.mb** – 要配置給每個歸納器的記憶體數量
 * **Mapreduce.job.reduces** – 每個作業的縮減工作數目
 
-**Mapreduce.map.memory / Mapreduce.reduce.memory** 這個數字應根據對應和/或縮減工作需要多少記憶體來進行調整。  mapreduce.map.memory 和 mapreduce.reduce.memory 的預設值可以在 Ambari 中透過 Yarn 組態來檢視。  在 Ambari 中，瀏覽至 YARN，然後檢視 [設定] 索引標籤。  YARN 記憶體將會顯示。  
+**Mapreduce.map.memory / Mapreduce.reduce.memory** 這個數字應根據對應和/或縮減工作需要多少記憶體來進行調整。  mapreduce.map.memory 和 mapreduce.reduce.memory 的預設值可以在 Ambari 中透過 Yarn 組態來檢視。  在 Ambari 中，瀏覽至 YARN，然後檢視 [設定] 索引標籤。YARN 記憶體將會顯示。  
 
 **Mapreduce.job.maps / Mapreduce.job.reduces** 這會決定要建立的對應器或歸納器數目上限。  分割數會決定要為 MapReduce 作業建立多少對應器。  因此，如果分割數比要求的對應器數目少，您所得到的對應器可能會比您要求的少。       
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 07/11/2017
 
 **步驟 2︰設定 mapreduce.map.memory/mapreduce.reduce.memory** – 對應和縮減工作的記憶體大小會取決於您的特定作業。  如果您想要增加並行能力，您可以減少記憶體大小。  並行執行工作的數目取決於容器數目。  藉由降低每個對應器或歸納器的記憶體數量，即可建立更多容器，而讓更多的對應器或歸納器並行執行。  減少太多的記憶體數量可能會導致某些處理程序耗盡記憶體。  如果您在執行作業時遇到堆積錯誤，您應該增加每個對應器或歸納器的記憶體。  您應該考慮到，新增更多容器會對每個額外的容器新增額外的負擔，而可能降低效能。  另一個方式是使用擁有較高數量記憶體的叢集，或增加叢集中的節點數目，以獲得更多的記憶體。  更多的記憶體就能使用更多的容器，亦即會有更多並行能力。  
 
-**步驟 3︰決定 YARN 記憶體總數** - 若要調整 mapreduce.job.maps/mapreduce.job.reduces，您應該考慮可供使用的 YARN 記憶體總數。  這項資訊可在 Ambari 中取得。  瀏覽至 YARN，然後檢視 [設定] 索引標籤。  YARN 記憶體會顯示在此視窗中。  您應該將 YARN 記憶體乘上叢集中的節點數目，以算出 YARN 記憶體總數。
+**步驟 3︰決定 YARN 記憶體總數** - 若要調整 mapreduce.job.maps/mapreduce.job.reduces，您應該考慮可供使用的 YARN 記憶體總數。  這項資訊可在 Ambari 中取得。  瀏覽至 YARN，然後檢視 [設定] 索引標籤。YARN 記憶體會顯示在此視窗中。  您應該將 YARN 記憶體乘上叢集中的節點數目，以算出 YARN 記憶體總數。
 
     Total YARN memory = nodes * YARN memory per node
 如果您使用空白叢集，則記憶體會是叢集的 YARN 記憶體總數。  如果有其他應用程式使用記憶體，則您可以選擇僅使用部分的叢集記憶體，方法是將對應器或歸納器的數量減少為您想要使用的容器數量。  

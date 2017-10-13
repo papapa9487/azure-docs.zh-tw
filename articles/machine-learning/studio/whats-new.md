@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e3dc7e1375488ae9473cdd26f4d00871a091fbd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Azure Machine Learning 新增功能
 
@@ -53,5 +52,4 @@ ms.lasthandoff: 09/25/2017
 * 提供新的批次執行服務測試頁面，有範例資料和作業提交歷程記錄可用。
 
 此外，Machine Learning Studio 已更新，可讓您部署到新式 Web 服務模型，或繼續部署到傳統 Web 服務模型。 
-
 

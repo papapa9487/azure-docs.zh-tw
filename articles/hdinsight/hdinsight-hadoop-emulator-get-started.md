@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: b701879464205860edd1c097651b532f87bae388
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 40706ca30795d72120ff3edd728087d025a8b6c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Hadoop 沙箱，它是虛擬機器上的模擬器
 
@@ -87,5 +86,4 @@ ms.lasthandoff: 07/01/2017
 * [了解如何搭配使用 Visual Studio 與 Hortonworks 沙箱](hdinsight-hadoop-emulator-visual-studio.md)
 * [了解 Hortonworks 沙箱的訣竅](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop 教學課程 - 開始使用 HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
-
 

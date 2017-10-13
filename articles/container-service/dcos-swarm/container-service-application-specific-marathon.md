@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: b265763fb5dad240edd710cd8d0fb1079e3a7b51
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 3134872eb59f2f6219499f3d5a92673f680af04d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-or-user-specific-marathon-service"></a>建立應用程式或使用者特定的 Marathon 服務
 Azure Container Service 提供了一組主要伺服器，供我們在上面預先設定 Apache Mesos 和 Marathon。 這些伺服器可用來協調叢集上的應用程式，但最好不要將主要伺服器用在此目的。 例如，若要調整 Marathon 組態，就必須登入主要伺服器本身並進行變更 -- 這會導致產生與標準組態只有些許不同的獨特主要伺服器，因而需要獨立處理和管理。 此外，某個團隊所需的組態可能不是另一個團隊最適合的組態。
@@ -58,5 +57,4 @@ dcos config set marathon.url http://<hostname>/service/marathon-alice/
 ```
 
 您可以使用 `dcos config show` 命令確認 CLI 正在針對哪一個 Marathon 執行個體運作。 您可以使用 `dcos config unset marathon.url`命令還原為使用主要的 Marathon 服務。
-
 

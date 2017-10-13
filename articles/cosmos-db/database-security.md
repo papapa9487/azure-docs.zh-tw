@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 73d5c33cec1ebec76ea738e03cd29e88d482b905
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 資料庫安全性
 
 本文討論 Azure Cosmos DB 提供的資料庫安全性最佳作法和重要功能，協助您防止、偵測及因應資料庫缺口。
@@ -98,4 +96,3 @@ ms.lasthandoff: 09/25/2017
 如需稽核記錄的詳細資訊，請參閱 [Azure Cosmos DB 診斷記錄](logging.md)。
 
 如需 Microsoft 認證的詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/)。
-

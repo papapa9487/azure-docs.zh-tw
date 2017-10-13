@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: anhoh
 ms.openlocfilehash: 54c9799bd646b827f602e2ea2f9a15a4fc853f00
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-mongochef-with-an-azure-cosmos-db-api-for-mongodb-account"></a>使用 MongoChef 搭配 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/11/2017
 1. 使用[這裡](connect-mongodb-account.md)的指示來擷取 Azure Cosmos DB：適用於 MongoDB 的 API 的連線資訊。
 
     ![[連接字串] 刀鋒視窗的螢幕擷取畫面](./media/mongodb-mongochef/ConnectionStringBlade.png)
-2. 按一下 [連接] 以開啟 [連接管理員]，然後按一下 [新增連線]
+2. 按一下 連接 以開啟 連接管理員，然後按一下新增連線
 
     ![[MongoChef 連接管理員] 的螢幕擷取畫面](./media/mongodb-mongochef/ConnectionManager.png)
 3. 在 [新增連線]視窗中，在 [伺服器] 索引標籤上輸入 Azure Cosmos DB：適用於 MongoDB 的 API 帳戶的主機 (FQDN) 和連接埠。
@@ -46,7 +46,7 @@ ms.lasthandoff: 07/11/2017
 5. 在 [新增連接] 視窗的 [SSL] 索引標籤上，勾選 [使用 SSL 通訊協定連接] 核取方塊和 [接受自我簽署的 SSL 憑證] 選項按鈕。
 
     ![[MongoChef 連接管理員 SSL] 索引標籤的螢幕擷取畫面](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
-6. 按一下 [測試連接] 按鈕以驗證連接資訊，按一下 [確定] 以返回 [新增連線] 視窗，然後按一下 [儲存]。
+6. 按一下 測試連接 按鈕以驗證連接資訊，按一下 確定 以返回 新增連線 視窗，然後按一下儲存。
 
     ![[MongoChef 測試連接] 視窗的螢幕擷取畫面](./media/mongodb-mongochef/TestConnectionResults.png)
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 07/11/2017
 4. 按一下 [集合] 功能表項目，然後按一下 [新增文件]。
 
     ![[MongoChef 新增文件] 功能表項目的螢幕擷取畫面](./media/mongodb-mongochef/AddDocument1.png)
-5. 在 [新增文件] 對話方塊中，貼上下列項目，然後按一下 [新增文件] 。
+5. 在 新增文件 對話方塊中，貼上下列項目，然後按一下新增文件 。
 
         {
         "_id": "AndersenFamily",

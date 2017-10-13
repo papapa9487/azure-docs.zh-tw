@@ -17,10 +17,10 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>啟用 Azure Container Service 應用程式的公用存取
 ACS [公用代理程式集區](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) 中的任何 DC/OS 容器都會自動公開到網際網路。 根據預設，連接埠 **80**、**443**、**8080** 已開啟，在這些連接埠上接聽的任何 (公用) 容器皆可供存取。 本文將說明如何在 Azure Container Service 中開啟更多的連接埠供應用程式使用。

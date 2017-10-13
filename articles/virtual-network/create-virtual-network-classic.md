@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: jdial
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 95c2f4fe40590a8d809f634fb5b2c92d07421bb0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>建立有多個子網路的虛擬網路 (傳統)
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 08/01/2017
 2. 按一下入口網站中的 [+ 新增]。
 3. 在出現的 [新增] 刀鋒視窗頂端的 [搜尋市集] 方塊中，輸入 [虛擬網路]。  當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
 4. 在出現的 [虛擬網路] 刀鋒視窗中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。 
-5. 在 [建立虛擬網路 (傳統)] 刀鋒視窗中輸入下列值，然後按一下 [建立]：
+5. 在 建立虛擬網路 (傳統) 刀鋒視窗中輸入下列值，然後按一下建立：
 
     |設定|值|
     |---|---|
@@ -51,7 +50,7 @@ ms.lasthandoff: 08/01/2017
     |位址空間|10.0.0.0/16|
     |子網路名稱|公開|
     |子網路位址範圍|10.0.0.0/24|
-    |資源群組|讓 [新建] 保持選取狀態，然後輸入 **MyResourceGroup**。|
+    |資源群組|讓 [新建] 保持選取狀態，然後輸入 **myResourceGroup**。|
     |訂用帳戶和位置|選取您的訂用帳戶和位置。
 
     如果您不熟悉 Azure，請深入了解[資源群組](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group)、[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)和[位置](https://azure.microsoft.com/regions) (也稱為「區域」)。
@@ -167,4 +166,3 @@ ms.lasthandoff: 08/01/2017
 - 建立 [Windows](../virtual-machines/windows/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/classic/createportal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器，然後將它連線至現有的虛擬網路。
 - 若要將同一個 Azure 位置中的兩個虛擬網路連線，請在兩個虛擬網路之間建立[虛擬網路對等互連](create-peering-different-deployment-models.md)。 您可以對等互連虛擬網路 (Resource Manager) 與虛擬網路 (傳統)，但無法對等互連兩個虛擬網路 (傳統)。
 - 使用 [VPN 閘道](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或 [Azure ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 線路將虛擬網路連線至內部部署網路。
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics 中的網路效能監視器解決方案
 
@@ -111,7 +111,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 #### <a name="to-create-a-new-network"></a>若要建立新網路
 1. 按一下 [新增網路]，然後輸入網路名稱和描述。
-2. 選取一或多個子網路，然後按一下 [新增]。
+2. 選取一或多個子網路，然後按一下新增。
 3. 按一下 [儲存] 儲存組態。  
    ![新增網路](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
@@ -200,7 +200,7 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 如果您在部署期間選擇使用 ICMP，您可以隨時編輯預設監視規則來切換為 TCP。
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>編輯預設監視規則
-1.  瀏覽至 [網路效能]  >  [監視]  >  [設定]  >  [監視]，然後按一下 [預設規則]。
+1.  瀏覽至 網路效能  >  監視  >  設定  >  監視，然後按一下預設規則。
 2.  捲動至 [通訊協定] 區段，然後選取您要使用的通訊協定。
 3.  按一下 [儲存] 來套用設定。
 
@@ -269,7 +269,7 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 ![趨勢圖](./media/log-analytics-network-performance-monitor/npm-trend.png)
 
 #### <a name="hop-by-hop-topology-map"></a>逐一躍點的拓撲圖
-網路效能監視器會在互動式拓撲圖上顯示兩個節點之間路由的逐一躍點拓撲。 選取節點連結，然後按一下 [檢視拓撲]，即可檢視拓撲圖。 此外，按一下儀表板上的 [路徑] 圖格，也可以檢視拓撲圖。 當您按一下儀表板上的 [路徑] 時，您必須從左側面板中選取來源和目的地節點，然後按一下 [繪圖] 以繪製兩個節點之間的路由。
+網路效能監視器會在互動式拓撲圖上顯示兩個節點之間路由的逐一躍點拓撲。 選取節點連結，然後按一下檢視拓撲，即可檢視拓撲圖。 此外，按一下儀表板上的 [路徑] 圖格，也可以檢視拓撲圖。 當您按一下儀表板上的 路徑 時，您必須從左側面板中選取來源和目的地節點，然後按一下繪圖 以繪製兩個節點之間的路由。
 
 拓撲圖會顯示兩個節點之間有多少個路由，以及資料封包所採用的路徑。 在拓撲圖上，網路效能瓶頸會標示為紅色。 您可以查看拓撲圖上的紅色項目，找出錯誤的網路連線或錯誤的網路裝置。
 

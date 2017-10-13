@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b502a586cdb7351d5b22c6b0db966723b8ebb7b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 角色和工作
 
 Team Data Science Process 是一種由 Microsof 開發的架構，可提供結構化方法來有效建立預測分析解決方案和智慧型應用程式。 本文概述重要人員角色，以及對此程序進行標準化之資料科學小組所處理的相關工作。 
@@ -134,9 +132,9 @@ Team Data Science Process 是一種由 Microsof 開發的架構，可提供結�
 
 ## <a name="next-steps"></a>後續步驟
 
-以下連結可提供 Team Data Science Process 所定義之角色和工作的更詳細描述：
+以下是 Team 資料科學程序定義之角色和工作更詳細描述的連結：
 
-- [資料科學小組的團隊管理員工作](group-manager-tasks.md)
+- [資料科學小組的群組管理員工作](group-manager-tasks.md)
 - [資料科學小組的小組負責人工作](team-lead-tasks.md)
 - [資料科學小組的專案負責人工作](project-lead-tasks.md)
 - [資料科學小組的專案個別參與者](project-ic-tasks.md)

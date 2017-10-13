@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: fd2f4682a04c557b69bbfce115f41c54a96d462c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-batch-account-with-the-azure-cli"></a>使用 Azure CLI 建立 Batch 帳戶
 
 此指令碼會建立 Azure Batch 帳戶，並顯示各種可以查詢和更新的帳戶屬性。
@@ -34,14 +32,14 @@ ms.lasthandoff: 09/09/2017
 
 當您建立 Batch 帳戶時，根據預設，其計算節點是由 Batch 服務在內部指派。 配置的計算節點將受個別的核心配額限制，帳戶可透過共用金鑰認證或 Azure Active Dirctory 權杖驗證。
 
-[!code-azurecli[主要](../../../cli_scripts/batch/create-account/create-account.sh "建立帳戶")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account.sh "Create Account")]
 
 ## <a name="batch-account-using-user-subscription-sample-script"></a>使用使用者訂閱範例指令碼的 Batch 帳戶
 
 您也可以選擇讓 Batch 在您自己的 Azure 訂用帳戶中建立其計算節點。
 將計算節點配置到您的訂用帳戶的帳戶必須透過 Azure Active Directory 權杖驗證，配置的計算節點將計入您的訂用帳戶配額。 若要在此模式建立帳戶，使用者必須在建立帳戶時指定 Key Vault 參考。
 
-[!code-azurecli[主要](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "使用使用者訂用帳戶建立帳戶")]
+[!code-azurecli[main](../../../cli_scripts/batch/create-account/create-account-user-subscription.sh  "Create Account using User Subscription")]
 
 ## <a name="clean-up-deployment"></a>清除部署
 
@@ -73,4 +71,3 @@ az group delete --name myResourceGroup
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure Batch CLI 文件](../batch-cli-samples.md)中找到其他的 Batch CLI 指令碼範例。
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 8ff76ea21ba684ae2a2afcb74d66b4912d7be053
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-nodes-schema-for-mapping-an-existing-web-service-to-odata-through-csdl"></a>了解透過 CSDL 將現有的 Web 服務對應至 OData 的節點結構描述
 > [!IMPORTANT]
@@ -274,4 +272,3 @@ XPath 運算式將是 /foo/bar，因為每一個列節點就是輸出中的重�
 * 如果您有興趣全面了解 OData 對應程序和用途，請閱讀 [資料服務 OData 對應](marketplace-publishing-data-service-creation-odata-mapping.md) 一文來檢閱定義、結構和指示。
 * 如果您有興趣檢閱範例，請閱讀 [資料服務 OData 對應範例](marketplace-publishing-data-service-creation-odata-mapping-examples.md) 一文，來查看範例程式碼，並了解程式碼語法與內容。
 * 若要返回用於將資料服務發佈至 Azure Marketplace 的指定路徑，請閱讀 [資料服務發佈指南](marketplace-publishing-data-service-creation.md)一文。
-

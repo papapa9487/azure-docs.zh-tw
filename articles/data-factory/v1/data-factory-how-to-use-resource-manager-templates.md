@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d0c047c17608635b0d5fb0fb1353c6f8515d7a71
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>使用範本來建立 Azure Data Factory 實體
 ## <a name="overview"></a>Overview
@@ -254,4 +253,3 @@ dataFactoryName 在 “variables” 中定義為：
 > 雖然目前尚未支援匯出現有資料處理站的範本，但是目前正在努力中。
 >
 >
-

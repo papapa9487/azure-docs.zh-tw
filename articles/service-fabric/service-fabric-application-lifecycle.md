@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/14/2017
+ms.date: 09/29/2017
 ms.author: ryanwi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a33d25f3806090307f6fb14dbb821264f2e4f28b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: d892c5979d0dec54767fe5a9ef84b05739683604
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-lifecycle"></a>Service Fabric 應用程式生命週期
 如同其他平台，Azure Service Fabric 上的應用程式通常會經歷下列階段：設計、開發、測試、部署、升級、維護和移除。 從開發到部署、到每日管理、維護，以及最終的解除委任，Service Fabric 為雲端應用程式的完整應用程式生命週期提供第一等的支援。 服務模型可以啟用數個不同的角色，在應用程式生命週期中獨立參與。 本文章提供 API 的概觀以及其使用方式，這些 API 是由不同的角色在 Service Fabric 應用程式生命週期的各個階段使用。
@@ -100,4 +99,3 @@ ms.lasthandoff: 04/27/2017
 * [部署應用程式](service-fabric-deploy-remove-applications.md)
 * [應用程式升級](service-fabric-application-upgrade.md)
 * [Testability 概觀](service-fabric-testability-overview.md)
-

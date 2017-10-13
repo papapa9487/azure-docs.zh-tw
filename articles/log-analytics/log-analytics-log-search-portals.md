@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: magoedte; bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Azure Log Analytics 中用於建立和編輯記錄查詢的入口網站
 
@@ -47,5 +46,4 @@ ms.lasthandoff: 09/27/2017
 
 - 使用[記錄搜尋](log-analytics-tutorial-viewdata.md)了解如何使用查詢語言建立查詢的逐步教學課程
 - 檢視[進階 Analytics 入口網站](https://go.microsoft.com/fwlink/?linkid=856587)以建立複雜的查詢，並使用開發環境作為您的記錄搜尋。
-
 

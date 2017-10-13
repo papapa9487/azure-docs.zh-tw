@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 05/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: f0e3613d4a3fd5478787c0365eb7a0bcde886c81
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-office365-video-connector"></a>開始使用 Office 365 影片連接器
 連接至 Office 365 影片，以取得 Office 365 影片的相關資訊、影片清單等。 有了 Office 365 影片，您可以：

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b62df3074779559ffab55c52a902e7473753868e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
 
@@ -153,4 +152,3 @@ Azure 範本庫包含[使用 Azure 自動化的範例](https://azure.microsoft.c
 * [對 IIS 使用 Blob 儲存體，對事件使用表格儲存體](log-analytics-azure-storage-iis-table.md)，以讀取 Azure 服務 (將診斷寫入表格儲存體) 的記錄，或讀取寫入 Blob 儲存體的 IIS 記錄。
 * [啟用解決方案](log-analytics-add-solutions.md) 以提供資料的深入見解。
 * [使用搜尋查詢](log-analytics-log-searches.md) 以分析資料。
-

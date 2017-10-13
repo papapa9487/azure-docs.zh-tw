@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: szark
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 63970d162c12984d6476bf0b9fc4ab70160eccdb
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>準備適用於 Azure 的 Debian VHD
 ## <a name="prerequisites"></a>必要條件
@@ -95,5 +94,4 @@ ms.lasthandoff: 04/03/2017
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以開始使用您的 Debian 虛擬硬碟在 Azure 建立新的虛擬機器。 若這是您第一次將該 .vhd 檔案上傳到 Azure，請參閱 [建立及上傳包含 Linux 作業系統的虛擬硬碟](classic/create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)中的步驟 2 和步驟 3。
-
 

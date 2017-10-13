@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: b95dc0a83d8e5618effb573353f419e1837d30c5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>使用資源管理員部署模型將 Windows Server 或用戶端備份至 Azure
 > [!div class="op_single_selector"]
@@ -205,7 +205,7 @@ ms.lasthandoff: 08/29/2017
 
   [選取項目] 對話方塊隨即開啟。
 
-5. 選取您要保護的檔案和資料夾，然後按一下 [確定]。
+5. 選取您要保護的檔案和資料夾，然後按一下確定。
 6. 在 [選取要備份的項目] 頁面上，按 [下一步]。
 7. 在 [指定備份排程] 頁面上，指定備份排程並按 [下一步]。
 
@@ -224,7 +224,7 @@ ms.lasthandoff: 08/29/2017
 9. 在 [選擇初始備份類型] 頁面上，選擇初始備份類型。 讓 [自動透過網路] 選項保持已選取狀態，然後按 [下一步]。
 
     您可以透過網路自動備份，也可以離線備份。 這篇文章的其餘部分說明自動備份的程序。 如果您想要執行離線備份，請檢閱 [在 Azure Backup 中離線備份工作流程](backup-azure-backup-import-export.md) 一文以了解其他資訊。
-10. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成] 。
+10. 在 確認 頁面上檢閱資訊，然後按一下完成 。
 11. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ### <a name="enable-network-throttling"></a>啟用網路節流

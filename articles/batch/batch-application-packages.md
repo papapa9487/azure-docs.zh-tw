@@ -16,10 +16,10 @@ ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 應用程式套件將應用程式部署至計算節點
 
@@ -97,7 +97,7 @@ Batch 中的應用程式包含一或多個應用程式封裝，並且會指定�
 
 ![Azure 入口網站中的「未設定儲存體帳戶」警告][9]
 
-Batch 服務會使用相關聯的儲存體帳戶來儲存應用程式套件。 在連結兩個帳戶之後，Batch 便能將儲存在連結之儲存體帳戶中的封裝自動部署到計算節點。 若要將現有的儲存體帳戶連結至 Batch 帳戶，請按一下 [警告] 刀鋒視窗中的 [儲存體帳戶設定]，然後按一下 [儲存體帳戶] 刀鋒視窗上的 [儲存體帳戶]。
+Batch 服務會使用相關聯的儲存體帳戶來儲存應用程式套件。 在連結兩個帳戶之後，Batch 便能將儲存在連結之儲存體帳戶中的封裝自動部署到計算節點。 若要將現有的儲存體帳戶連結至 Batch 帳戶，請按一下 警告 刀鋒視窗中的 儲存體帳戶設定，然後按一下儲存體帳戶 刀鋒視窗上的 儲存體帳戶。
 
 ![Azure 入口網站中的選擇儲存體帳戶刀鋒視窗][10]
 

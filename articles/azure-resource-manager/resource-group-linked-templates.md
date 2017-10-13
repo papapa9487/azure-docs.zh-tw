@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: tomfitz
 ms.openlocfilehash: 8b58a83ffd473500dd3f76c09e251f9208527d4f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-linked-templates-when-deploying-azure-resources"></a>部署 Azure 資源時使用連結的範本
 您可以從某個 Azure Resource Manager 範本連結到另一個範本，這樣可讓您將部署分解成一組具有目標與特定目的的範本。 就像將應用程式分解為數個程式碼類別，分解有利於測試、重複使用和可讀性。  

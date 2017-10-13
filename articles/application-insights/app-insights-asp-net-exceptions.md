@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: bwren
+ms.openlocfilehash: d7603f47d985e1abbab96e931e46e37a8ecb4bc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 6baffb1fb14a3b7ede5a754029b9efbaf543ea07
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 在 Web 應用程式中診斷例外狀況
 [Application Insights](app-insights-overview.md) 會回報您即時 Web 應用程式中的例外狀況。 您可以在用戶端和伺服器端讓失敗的要求與例外狀況及其他事件相互關聯，以便快速地診斷原因。
@@ -33,8 +32,8 @@ ms.lasthandoff: 09/21/2017
 * 在某些應用程式架構中或搭配某些設定時，您必須採取一些額外的步驟，才能攔截較多的例外狀況：
   * [Web Form](#web-forms)
   * [MVC](#mvc)
-  * [Web API 1.*](#web-api-1)
-  * [Web API 2.*](#web-api-2)
+  * [Web API 1.*](#web-api-1x)
+  * [Web API 2.*](#web-api-2x)
   * [WCF](#wcf)
 
 ## <a name="diagnosing-exceptions-using-visual-studio"></a>使用 Visual Studio 診斷例外狀況
@@ -445,4 +444,3 @@ VB
 * [監視 REST、SQL 及其他對相依性的呼叫](app-insights-asp-net-dependencies.md)
 * [監視頁面載入時間、瀏覽器例外狀況及 AJAX 呼叫](app-insights-javascript.md)
 * [監視效能計數器](app-insights-performance-counters.md)
-

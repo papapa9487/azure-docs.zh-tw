@@ -15,10 +15,10 @@ ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: cawa
 ms.openlocfilehash: e8e270ce865d4da3ee219958b308db2c1c89b11b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-test-your-application-by-using-visual-studio-team-services"></a>使用 Visual Studio Team Services 對您的應用程式執行負載測試
 本文章說明如何使用 Microsoft Visual Studio 負載測試功能對應用程式進行壓力測試。 它會使用 Azure Service Fabric 具狀態服務後端和無狀態服務 Web 前端。 以下使用的範例應用程式是飛機位置模擬器。 您提供飛機識別碼、起飛時間和目的地。 應用程式的後端會處理要求，而前端會顯示地圖上與準則相符的飛機。

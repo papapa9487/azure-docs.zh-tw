@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 9e75f83755424b1b89e7649af98c0347fc5e1c59
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
@@ -41,7 +40,7 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 
 2. 建立 ILB ASE 之後，會上傳與您的 ILB ASE 網域相符的 SSL 憑證。
 
-3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com )，此憑證將使用於此應用程式的 SSL 流量。
+3. 上傳的 SSL 憑證會指派給 ILB ASE 作為其「預設」SSL 憑證。  如果 ILB ASE 上的應用程式是使用指派給 ASE 的一般根網域 (例如 https://someapp.mycustomrootcomain.com)，此憑證將使用於此應用程式的 SSL 流量。
 
 
 ## <a name="create-the-ase"></a>建立 ASE
@@ -182,4 +181,3 @@ ASEv1 使用與 ASEv2 不同的定價模式。 在 ASEv1 中，要支付每個�
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ILBASEv1Template]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md
-

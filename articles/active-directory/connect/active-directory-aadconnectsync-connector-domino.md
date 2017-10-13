@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Lotus Domino 連接器技術參考
 本文說明 Lotus Domino 連接器。 本文適用於下列產品：
@@ -495,4 +494,3 @@ Domino 中有數種方式可延伸結構描述，使其顯示為連接器可使�
 
 ## <a name="troubleshooting"></a>疑難排解
 * 如需如何啟用記錄來疑難排解連接器的資訊，請參閱 [如何啟用連接器的 ETW 追蹤](http://go.microsoft.com/fwlink/?LinkId=335731)。
-

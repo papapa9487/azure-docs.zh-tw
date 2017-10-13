@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>在 Azure Batch 上使用 Azure CLI 執行工作
 
 此指令碼會建立 Batch 工作，並將一系列作業加入至工作。 它也示範如何監視工作和其作業。 最後，它會示範如何有效率地查詢 Batch 服務，以取得作業工作的相關資訊。
@@ -35,7 +33,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-azurecli[主要](../../../cli_scripts/batch/run-job/run-job.sh "執行工作")]
+[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
 ## <a name="clean-up-job"></a>清除工作
 
@@ -64,4 +62,3 @@ az batch job delete --job-id myjob
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure Batch CLI 文件](../batch-cli-samples.md)中找到其他的 Batch CLI 指令碼範例。
-

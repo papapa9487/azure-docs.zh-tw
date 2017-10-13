@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: b581f8d5a4e924e0aa88bf614839c917345eb570
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-a-web-app-to-cosmos-db"></a>將 Web 應用程式連線至 Cosmos DB
 
 在此案例中，您將了解如何建立 Azure Cosmos DB 帳戶和 Azure Web 應用程式。 然後，您會使用應用程式設定將 Cosmos DB 連結至 Web 應用程式。
@@ -38,7 +36,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-azurecli-interactive[主要](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "Azure Cosmos DB")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/connect-to-documentdb/connect-to-documentdb.sh "Azure Cosmos DB")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -60,4 +58,3 @@ ms.lasthandoff: 09/09/2017
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure App Service 文件](../app-service-cli-samples.md)中找到其他的 App Service CLI 指令碼範例。
-

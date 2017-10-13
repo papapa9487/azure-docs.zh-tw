@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 1c9d64f415a94c35bc6e41706ce78b0da34a0131
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 8c12fd74d131538e736d6357da586c5debb9929c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="expressroute-documentation"></a>ExpressRoute 文件
 
 了解如何使用 ExpressRoute 來設定從內部部署基礎結構或共置設備到 Microsoft 雲端服務的快速私人連線。 教學課程、REST API 和其他文件可協助您設定和管理 ExpressRoute 線路。
@@ -112,6 +110,5 @@ ms.lasthandoff: 06/02/2017
         </div>
     </li>
 </ul>
-
 
 

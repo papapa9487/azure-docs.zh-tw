@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
 此操作說明描述目前屬於公開預覽版的新一代 Azure 監視器計量圖表製作體驗。 新的體驗支援同時針對多維度計量與不含維度的基本計量呈現圖表。 您可以繪製會重疊顯示來自不同資源類型、多個資源群組與不同訂用帳戶之計量的圖表。 您可以套用維度篩選器與分組功能來自訂多維度計量圖表。 任何圖表 (包括自訂圖表) 都可以釘選到儀表板。
@@ -45,7 +43,7 @@ Azure 的許多資源現在都公開多維度計量。 這些計量會追蹤一�
 ### <a name="network-throughput"></a>網路輸送量
 (此計量沒有維度)
 
- |時間戳記        | 計量值 | 
+ |Timestamp        | 計量值 | 
    | ------------- |:-------------| 
    | 8/9/2017 8:14 | 1,331.8 Kbps | 
    | 8/9/2017 8:15 | 1,141.4 Kbps |
@@ -55,7 +53,7 @@ Azure 的許多資源現在都公開多維度計量。 這些計量會追蹤一�
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>網路輸送量 + 兩個維度 (「IP」與「方向」)
 
-| 時間戳記          | 維度「IP」 | 維度「方向」 | 計量值| 
+| Timestamp          | 維度「IP」 | 維度「方向」 | 計量值| 
    | ------------- |:-----------------|:------------------- |:-----------|  
    | 8/9/2017 8:14 | IP="192.168.5.2" | 方向="傳送"    | 646.5 Kbps |
    | 8/9/2017 8:14 | IP="192.168.5.2" | 方向="接收" | 420.1 Kbps |

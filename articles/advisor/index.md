@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: ce00af5e7382a3d6e80903711bac86ca88191cff
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 30d8d4f3565fcc5e4c5c514a74f94c3ce24819e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-advisor-documentation"></a>Azure 建議程式文件
 
@@ -96,4 +95,3 @@ Azure 建議程式是個人化的雲端顧問，可協助您依最佳做法來�
             </div>
         </div>
     </li>
-

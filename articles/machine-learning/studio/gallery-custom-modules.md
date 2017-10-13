@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: roopalik;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4bab94c04f09261eaa88b9e6a225c05f57992ab0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="discover-custom-machine-learning-modules-in-cortana-intelligence-gallery"></a>探索 Cortana Intelligence Gallery 中的自訂機器學習服務模組
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
@@ -95,5 +94,4 @@ Cortana Intelligence Gallery 提供兩種匯入模組複本的方式：
 **[移至資源庫](http://gallery.cortanaintelligence.com)**
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a13bbd5d32eaab96dfb97e60652dbe9bcbdfb1b1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>使用 Team Data Science Process (TDSP) 範本的生物醫學實體辨識
 
 此真實案例的目的在於強調如何使用 Azure Machine Learning Workbench 來解決複雜的自然語言處理 (NLP) 工作，例如從非結構化文字擷取實體：
@@ -260,7 +258,7 @@ Vanilla RNN 實際上會遇到[梯度消失問題](https://en.wikipedia.org/wiki
 
 我們已詳細說明如何在 Spark 上使用 Word2Vec 演算法來訓練字組內嵌模型，然後使用擷取的內嵌項目作為特徵來訓練深度類神經網路，以便進行實體擷取。 我們已在生物醫學領域上運用訓練管線。 不過，此管線的運用相當廣泛，可偵測任何其他領域的自訂實體類型。 您只需要足夠的資料，即可針對不同領域輕鬆地修改這裡所呈現的工作流程。
 
-## <a name="references"></a>參考資料
+## <a name="references"></a>參考
 
 * Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. 2013a. Efficient estimation of word representations in vector space. In Proceedings of ICLR.
 * Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg S Corrado, and Jeff Dean. 2013b. Distributed representations of words and phrases and their compositionality. In Proceedings of NIPS, pages 3111–3119.
@@ -269,5 +267,4 @@ Vanilla RNN 實際上會遇到[梯度消失問題](https://en.wikipedia.org/wiki
 * [遞迴式類神經網路模型](https://www.tensorflow.org/tutorials/recurrent)
 * [Problems encountered with Spark ml Word2Vec](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/problems-encountered-with-spark-ml-word2vec/)
 * [Spark Word2Vec: lessons learned](https://intothedepthsofdataengineering.wordpress.com/2017/06/26/spark-word2vec-lessons-learned/)
-
 

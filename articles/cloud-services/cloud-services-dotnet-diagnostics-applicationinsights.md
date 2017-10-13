@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/23/2017
 ms.author: saurabh
 ms.openlocfilehash: 4001ca908ff00b1a40829d687589080e9b07b18a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-services-using-application-insights"></a>使用 Application Insights 疑難排解雲端服務
 使用 [Azure SDK 2.8](https://azure.microsoft.com/downloads/) 和 Azure 診斷延伸模組 1.5，您可以將雲端服務的 Azure 診斷資料直接傳送至 Application Insights。 Azure 診斷所收集的記錄&mdash;包括應用程式記錄、Windows 事件記錄、ETW 記錄，以及效能計數器&mdash;可以傳送至 Application Insights。 然後，您可以在 Application Insights 入口網站 UI 中，將這項資訊視覺化。 接著，您可以使用 Application Insights SDK 深入了解來自您的應用程式和系統的計量和記錄，以及來自 Azure 診斷的基礎結構層級資料。

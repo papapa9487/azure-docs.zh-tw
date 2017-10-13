@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: 2acbc47970acf0eb2aa1aea8535d7157bc73cbb6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9de4b2a0bdda7ffbd269883877a708d67312092f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>使用 Azure 網路監看員 Azure CLI 1.0 來針對虛擬網路閘道和連線進行疑難排解
 
 > [!div class="op_single_selector"]
@@ -106,4 +104,3 @@ azure network watcher troubleshoot -g resourceGroupName -n networkWatcherName -t
 ## <a name="next-steps"></a>後續步驟
 
 如果設定已變更而停止了 VPN 連線，請參閱[管理網路安全性群組](../virtual-network/virtual-network-manage-nsg-arm-portal.md)以追蹤可能有問題的網路安全性群組和安全性規則。
-

@@ -11,15 +11,14 @@ ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: masaran;jimpark;delhan;trinadhk;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 2ee4bfa8c7dce45c6366ddc8aa6e723fe91431a7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9dc0105034e0d354a6cbbd7ba70634bdff83c1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>使用 System Center 2012 R2 DPM 將 Exchange Server 備份至 Azure 備份
 本文說明如何設定 System Center 2012 R2 Data Protection Manager (DPM) 伺服器，以將 Microsoft Exchange Server 備份至 Azure 備份。  
@@ -67,7 +66,7 @@ ms.lasthandoff: 11/17/2016
 
    * 我想要使用磁碟進行短期保護。
    * 我想要線上保護。
-6. 按 [下一步] 。
+6. 按一下 [下一步] 。
 7. 如果您想要檢查 Exchange Server 資料庫的完整性，請選取 [執行 Eseutil 以檢查資料完整性]  選項。
 
     選取此選項之後，將會在 DPM 伺服器上執行備份一致性檢查，以避免在 Exchange Server 上執行 **eseutil** 命令所產生的 I/O 流量。
@@ -77,7 +76,7 @@ ms.lasthandoff: 11/17/2016
    > ![eseutil 錯誤](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. 按 [下一步] 。
+8. 按一下 [下一步] 。
 9. 選取用於 [複製備份] 的資料庫，然後按 [下一步]。
 
    > [!NOTE]
@@ -105,7 +104,7 @@ ms.lasthandoff: 11/17/2016
     如果您有大型資料庫，則透過網路建立初始備份所需的時間很長。 若要避免這個問題，您可以建立離線備份。  
 
     ![指定線上保留期原則](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
-18. 確認設定，然後按一下 [建立群組] 。
+18. 確認設定，然後按一下建立群組 。
 19. 按一下 [關閉] 。
 
 ## <a name="recover-the-exchange-database"></a>復原 Exchange 資料庫
@@ -126,4 +125,3 @@ ms.lasthandoff: 11/17/2016
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure 備份常見問題集](backup-azure-backup-faq.md)
-

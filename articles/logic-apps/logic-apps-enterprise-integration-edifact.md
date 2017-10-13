@@ -16,10 +16,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
 ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>利用邏輯應用程式交換 EDIFACT 訊息以進行企業整合
 

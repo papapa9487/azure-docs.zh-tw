@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: roalexan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>了解如何使用 API 管理來管理 AzureML Web 服務
 ## <a name="overview"></a>Overview
@@ -40,7 +39,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 * 部署為 Web 服務之 AzureML 實驗的工作區、服務和 API 金鑰。 如需如何建立 AzureML 實驗的詳細資訊，請按一下 [這裡](create-experiment.md) 。 如需如何將 AzureML 實驗部署為 Web 服務的詳細資訊，請按一下 [這裡](publish-a-machine-learning-web-service.md) 。 此外，附錄 A 中的指示說明如何建立及測試簡單的 AzureML 實驗，並將其部署為 Web 服務。
 
 ## <a name="create-an-api-management-instance"></a>建立 API 管理執行個體
-以下是使用 API 管理來管理您的 AzureML Web 服務的步驟。 首先建立服務執行個體。 登入[傳統入口網站](https://manage.windowsazure.com/)，然後按一下 [新增] > [應用程式服務] > [API 管理] > [建立]。
+以下是使用 API 管理來管理您的 AzureML Web 服務的步驟。 首先建立服務執行個體。 登入[傳統入口網站](https://manage.windowsazure.com/)，然後按一下新增 > [應用程式服務] > [API 管理] > [建立]。
 
 ![建立執行個體](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
 
@@ -65,7 +64,7 @@ API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網�
 
 ![管理服務](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
 
-從左側 [API 管理] 功能表按一下 [API]，然後按一下 [新增 API]。
+從左側 API 管理 功能表按一下 API，然後按一下新增 API。
 
 ![API 管理功能表](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
 
@@ -109,7 +108,7 @@ API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網�
 
 ![開發人員入口網站](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-按一下上層功能表中的 [API]，然後按一下 [AzureML 示範 API] 以查看可用的作業。
+按一下上層功能表中的 API，然後按一下AzureML 示範 API 以查看可用的作業。
 
 ![demoazureml API](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
@@ -153,7 +152,7 @@ API 是透過您經由 Azure 傳統入口網站存取的 API 發行者入口網�
 
 ![選取資料行](./media/manage-web-service-endpoints-using-api-management/project-columns.png)
 
-按一下 [選取資料集中的資料行]，然後按一下 [啟動資料行選取器] 並選取 [Col2]。 按一下核取記號以套用這些變更。
+按一下 選取資料集中的資料行，然後按一下啟動資料行選取器 並選取 Col2。 按一下核取記號以套用這些變更。
 
 ![選取資料行](./media/manage-web-service-endpoints-using-api-management/select-columns.png)
 
@@ -365,4 +364,3 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
         time.sleep(1) # wait one second
     return
     invokeBatchExecutionService()
-

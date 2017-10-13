@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/13/2017
 ms.author: cjiang
+ms.openlocfilehash: e6300932d044ec9a4f88eb5bd5977220ed11d513
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b7b3e4539110f68e1e6ef4a75110924a27b40c49
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="link-an-office-365-tenant-to-an-azure-subscription"></a>連結 Office 365 租用戶與 Azure 訂用帳戶
 連結個別的 Azure 和 Office 365 訂用帳戶，這樣您就可以從 Azure 訂用帳戶存取 Office 365 租用戶。 若要連結您的訂用帳戶，請使用 Azure 服務系統管理員帳戶登入 Azure，新增一個目錄，然後將 Office 365 公司或學校帳戶新增到 Azure Active Directory 租用戶。
@@ -94,5 +93,4 @@ ms.lasthandoff: 09/14/2017
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
-
 

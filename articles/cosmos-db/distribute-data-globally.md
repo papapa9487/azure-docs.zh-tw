@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: a293ab42591fad2b913971465bc85743bcf05dad
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>如何使用 Azure Cosmos DB 全域散發資料
 Azure 無所不在 - 跨 30 多個地理區域，遍佈全球並持續擴充中。 遍及全球的 Azure 提供給開發人員的其中一項差異化功能，就是能夠輕鬆地建置、部署及管理分散在世界各地的應用程式。 
@@ -238,4 +237,3 @@ Azure Cosmos DB 會直接公開輸送量、延遲、一致性和可用性計量�
 7. Naor 和 Wool。 [仲裁系統的負載、容量及可用性 (英文)](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf)
 8. Herlihy 和 Wing。 [線性：並行物件的正確性條件 (英文)](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)
 9. [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)
-

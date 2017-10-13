@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: c851b88fc1067e65044266d07775717c028e75d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-import-the-definition-of-an-api-with-operations-in-azure-api-management"></a>如何在 Azure API 管理中連同操作一起匯入 API 的定義
 在 API 管理中，可手動建立新的 API 並新增作業，或在一個步驟中連同作業一起匯入 API。
@@ -35,7 +35,7 @@ API 是在發行者入口網站中建立和設定。 若要存取發行者入口
 
 ![發行者入口網站][api-management-management-console]
 
-從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [匯入 API]。
+從左邊的 API 管理 功能表中按一下 API，然後按一下匯入 API。
 
 ![Import API][api-management-import-apis]
 

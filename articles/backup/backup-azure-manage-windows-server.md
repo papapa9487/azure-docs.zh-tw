@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markgal
 ms.openlocfilehash: 5922e308f5c205a07bd329c28322ae82cea0e1fa
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>監視和管理 Windows 電腦的 Azure 復原服務保存庫和伺服器
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ ms.lasthandoff: 08/18/2017
 您可以使用 [選擇資料行]  按鈕，選擇您要顯示在警示中的資料行。
 
 > [!NOTE]
-> 在 [設定] 刀鋒視窗中，選取 [監視和報告] > [警示和事件] > [備份警示]，然後按一下 [篩選] 或 [設定通知]，以管理備份警示。
+> 在 設定 刀鋒視窗中，選取 監視和報告 > 警示和事件 > 備份警示，然後按一下篩選 或 設定通知，以管理備份警示。
 >
 >
 

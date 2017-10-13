@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
 ms.openlocfilehash: 8bd6c3b5a923ce2f3cd0f60af82e59c5cc27cbb4
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 Azure Analysis Services 伺服器支援連線到您組織中的雲端和內部部署資料來源。 其他支援的資料來源持續新增。 請經常回來查看。 
@@ -83,7 +83,7 @@ Azure Analysis Services 中的資料模型連線至某些資料來源時，可�
 
 **提供資料來源提供者**
 
-1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  [資料來源] 中，以滑鼠右鍵按一下資料來源連線，然後按一下 [編輯資料來源]。
+1. 在 SSDT > **Tabular Model Explorer** (表格式模型總管)  >  資料來源 中，以滑鼠右鍵按一下資料來源連線，然後按一下編輯資料來源。
 2. 在 [編輯連線] 中按一下 [進階]，以開啟 [進階屬性] 視窗。
 3. 在[設定進階屬性]  >  [提供者] 中，然後選取適當的提供者。
 

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: byvinyal
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e6595c9f49e3b6303ad96c37d4ee5ebea37ce829
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-density-hosting-on-azure-app-service"></a>Azure App Service 上的高密度託管
 在使用 App Service 時，應用程式會經由兩種概念與其所配置的容量分離：

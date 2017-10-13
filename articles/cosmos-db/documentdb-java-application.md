@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>使用 Azure Cosmos DB 和 DocumentDB API 來建置 Java Web 應用程式
 > [!div class="op_single_selector"]
@@ -71,12 +70,12 @@ ms.lasthandoff: 09/28/2017
 1. 首先，我們將從建立 Java 專案開始。 啟動 Eclipse，依序按一下 [檔案]、[新增] 和 [動態 Web 專案]。 如果您在可用專案中沒有看到 [動態 Web 專案]，請執行下列動作：依序按一下 [檔案]、[新增]、[專案]，展開 [Web]，按一下 [動態 Web 專案]，然後按 [下一步]。
    
     ![JSP Java 應用程式開發](./media/documentdb-java-application/image10.png)
-2. 在 [專案名稱] 方塊中輸入專案名稱，然後在 [目標執行階段] 下拉式選單中，選擇性地選取值 (例如 Apache Tomcat v7.0)，然後按一下 [完成]。 選取目標執行階段可讓您透過 Eclipse 在本機執行專案。
-3. 在 Eclipse 的 [專案總管] 檢視中，展開您的專案。 在 [WebContent] 上按一下滑鼠右鍵、按一下 [新增]，然後按一下 [JSP 檔案]。
+2. 在 專案名稱 方塊中輸入專案名稱，然後在 目標執行階段 下拉式選單中，選擇性地選取值 (例如 Apache Tomcat v7.0)，然後按一下完成。 選取目標執行階段可讓您透過 Eclipse 在本機執行專案。
+3. 在 Eclipse 的 [專案總管] 檢視中，展開您的專案。 在 WebContent 上按一下滑鼠右鍵、按一下 新增，然後按一下JSP 檔案。
 4. 在 [新增 JSP 檔案] 對話方塊中，將檔案命名為 **index.jsp**。 將上層資料夾保持為 **WebContent**，如下圖所示，然後按 [下一步]。
    
     ![建立新的 JSP 檔案 - Java Web 應用程式教學課程](./media/documentdb-java-application/image11.png)
-5. 在 [選取 JSP 範本] 對話方塊中，基於本教學課程的目的，選取 [新增 JSP 檔案 (html)]，然後按一下 [完成]。
+5. 在 選取 JSP 範本 對話方塊中，基於本教學課程的目的，選取 新增 JSP 檔案 (html)，然後按一下完成。
 6. 在 Eclipse 中開啟 index.jsp 檔案時，請加入文字以顯示 **Hello World!**。 (在現有 <body> 元素內)。 您已更新的 <body> 內容看起來應該與下列程式碼類似：
    
         <body>
@@ -719,7 +718,7 @@ ms.lasthandoff: 09/28/2017
 ## <a id="Deploy"></a>步驟 6：將 Java 應用程式部署至 Azure 網站
 Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用程式匯出成 WAR 檔案，然後透過原始檔控制 (例如 Git) 或 FTP 上傳它即可。
 
-1. 若要將應用程式匯出成 WAR 檔案，請以滑鼠右鍵按一下您在**專案總管**中的專案，按一下 [匯出]，然後按一下 [WAR 檔案]。
+1. 若要將應用程式匯出成 WAR 檔案，請以滑鼠右鍵按一下您在**專案總管**中的專案，按一下 匯出，然後按一下WAR 檔案。
 2. 在 [WAR 匯出]  視窗中，執行下列動作：
    
    * 在 [Web 專案] 方塊中，輸入 azure-documentdb-java-sample。
@@ -742,19 +741,18 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 7. 在 [分支選取] 畫面上，確定已選取 [主要]，然後按 [下一步]。
 8. 在 [本機目的地] 畫面上，按一下 [瀏覽] 以選取可以複製儲存機制的資料夾，然後按 [下一步]。
 9. 在 [選取要用於匯入專案的精靈] 畫面上，確定已選取 [匯入現有的專案]，然後按 [下一步]。
-10. 在 [匯入專案] 畫面上，取消選取 **DocumentDB** 專案，然後按一下 [完成]。 DocumentDB 專案包含 Azure Cosmos DB Java SDK，我們將會改成新增為相依性。
+10. 在 匯入專案 畫面上，取消選取 **DocumentDB** 專案，然後按一下完成。 DocumentDB 專案包含 Azure Cosmos DB Java SDK，我們將會改成新增為相依性。
 11. 在 [專案總管] 中，瀏覽至 azure-documentdb-java-sample\src\com.microsoft.azure.documentdb.sample.dao\DocumentClientFactory.java，並將 [主機] 和 [MASTER_KEY] 值取代為您 Azure Cosmos DB 帳戶的 [URI] 和 [主要金鑰]，然後儲存檔案。 如需詳細資訊，請參閱[步驟 1。建立 Azure Cosmos DB 資料庫帳戶](#CreateDB)。
-12. 在 [專案總管] 中，以滑鼠右鍵按一下 **azure-documentdb-java-sample**，按一下 [組建路徑]，然後按一下 [設定組建路徑]。
-13. 在 [Java 組建路徑] 畫面的右側窗格中，選取 [程式庫] 索引標籤，然後按一下 [新增外部 JAR]。 瀏覽至 lombok.jar 檔案的位置，按一下 [開啟]，然後按一下 [確定]。
+12. 在 專案總管 中，以滑鼠右鍵按一下 **azure-documentdb-java-sample**，按一下 組建路徑，然後按一下設定組建路徑。
+13. 在 Java 組建路徑 畫面的右側窗格中，選取 程式庫 索引標籤，然後按一下新增外部 JAR。 瀏覽至 lombok.jar 檔案的位置，按一下 開啟，然後按一下確定。
 14. 使用步驟 12 重新開啟 [屬性] 視窗，然後在左側窗格中按一下 [目標執行階段]。
-15. 在 [目標執行階段] 畫面上，按一下 [新增]，選取 [Apache Tomcat v7.0]，然後按一下 [確定]。
+15. 在 目標執行階段 畫面上，按一下 新增，選取 Apache Tomcat v7.0，然後按一下確定。
 16. 使用步驟 12 重新開啟 [屬性] 視窗，然後在左側窗格中按一下 [專案 Facet]。
-17. 在 [專案 Facet] 畫面上，選取 [動態 Web 模組] 和 [Java]，然後按一下 [確定]。
-18. 在螢幕底部的 [伺服器] 索引標籤上，以滑鼠右鍵按一下 [在 localhost 的 Tomcat v7.0 伺服器]，然後按一下 [新增和移除]。
-19. 在 [新增和移除] 視窗中，將 [azure-documentdb-java-sample] 移至 [已設定] 方塊，然後按一下 [完成]。
-20. 在 [伺服器] 索引標籤上，以滑鼠右鍵按一下 [Tomcat v7.0 Server at localhost] \(在 localhost 的 Tomcat v7.0 伺服器)，然後按一下 [重新啟動]。
+17. 在 專案 Facet 畫面上，選取 動態 Web 模組 和 Java，然後按一下確定。
+18. 在螢幕底部的 伺服器 索引標籤上，以滑鼠右鍵按一下 在 localhost 的 Tomcat v7.0 伺服器，然後按一下新增和移除。
+19. 在 新增和移除 視窗中，將 azure-documentdb-java-sample 移至 已設定 方塊，然後按一下完成。
+20. 在 伺服器 索引標籤上，以滑鼠右鍵按一下 Tomcat v7.0 Server at localhost \(在 localhost 的 Tomcat v7.0 伺服器)，然後按一下重新啟動。
 21. 在瀏覽器中，瀏覽至 http://localhost:8080/azure-documentdb-java-sample/，並開始新增至您的工作清單。 請注意，如果您之前變更預設的連接埠值，請將 8080 變更為您所選取的值。
 22. 若要將您的專案部署至 Azure 網站，請參閱[步驟 6：將應用程式部署至 Azure 網站](#Deploy)。
 
 [1]: media/documentdb-java-application/keys.png
-

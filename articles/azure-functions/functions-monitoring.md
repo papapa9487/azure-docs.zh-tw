@@ -15,14 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
+ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 90720774f956149dc159de1d5457e556a52ddc82
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
 ## <a name="overview"></a>概觀 
@@ -456,7 +454,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>相依項目
 
-相依性不會自動顯示，但您可以撰寫自訂程式碼來顯示相依性。 [C# 自訂遙測區段](#create-custom-telemetry-data-in-c-function-code)中的範例程式碼會顯示作法。 範例程式碼會在 Application Insights 中產生如下的*應用程式對應*：
+相依性不會自動顯示，但您可以撰寫自訂程式碼來顯示相依性。 [C# 自訂遙測區段](#custom-telemetry-in-c-functions)中的範例程式碼會顯示作法。 範例程式碼會在 Application Insights 中產生如下的*應用程式對應*：
 
 ![應用程式對應](media/functions-monitoring/app-map.png)
 
@@ -521,4 +519,3 @@ PS C:\> Get-AzureWebSiteLog -Name MyFunctionApp -Tail
 
 > [!div class="nextstepaction"]
 > [深入了解 Functions 使用的記錄架構](https://docs.microsoft.com/aspnet/core/fundamentals/logging?tabs=aspnetcore2x)
-

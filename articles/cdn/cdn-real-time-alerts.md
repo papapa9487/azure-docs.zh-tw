@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN 中的即時警示
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -111,5 +110,4 @@ ms.lasthandoff: 09/08/2017
 * 分析 [Azure CDN 中的即時統計資料](cdn-real-time-stats.md)
 * 進一步了解 [進階 HTTP 報告](cdn-advanced-http-reports.md)
 * 分析 [使用模式](cdn-analyze-usage-patterns.md)
-
 

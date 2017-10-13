@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b9582ccab1e0c580fe09de39e55ea0660c3866d0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -51,12 +50,12 @@ ms.lasthandoff: 09/25/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | type 屬性必須設定為：**AzureSqlDatabase** | 是 |
+| 類型 | type 屬性必須設為： **AzureSqlDatabase** | 是 |
 | connectionString |針對 connectionString 屬性指定連接到 Azure SQL Database 執行個體所需的資訊。 僅支援基本驗證。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
-> 請設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)和資料庫伺服器，以[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。 此外，如果您要將資料從 Azure 外部 (包括從具有資料處理站「自我裝載 Integration Runtime」的內部部署資料來源) 複製到 Azure SQL Database，請為傳送資料給 Azure SQL Database 的電腦設定適當的 IP 位址範圍。
+> 設定 [Azure SQL Database 防火牆](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)和資料庫伺服器，以[允許 Azure 服務存取伺服器](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)。 此外，如果您要將資料從 Azure 外部 (包括從具有資料處理站「自我裝載 Integration Runtime」的內部部署資料來源) 複製到 Azure SQL Database，請為傳送資料給 Azure SQL Database 的電腦設定適當的 IP 位址範圍。
 
 **範例：**
 

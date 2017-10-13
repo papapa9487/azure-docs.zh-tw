@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1a31bc95b249c3fa1caced138bbf3459eb6282c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>逐步解說步驟 6：存取 Azure Machine Learning Web 服務
 
@@ -49,5 +48,4 @@ ms.lasthandoff: 09/25/2017
 您也可以使用以 R、C# 和 Python 程式語言為您提供的起始程式碼來開發自訂應用程式以存取 Web 服務。
 
 您可以在[如何使用 Azure Machine Learning Web 服務](consume-web-services.md)中找到完整詳細資料。
-
 

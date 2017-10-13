@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
+ms.openlocfilehash: a5905cac12f52f94a5722cc01495d5c1168634f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a44f8ab0c3e96a5b96156a7a4326fe337ca2eaa5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>建立檔案共用並將它掛接到 DC/OS 叢集
 本教學課程詳細說明如何在 Azure 上建立檔案共用，並將它掛接到 DC/OS 叢集的每個代理程式和主機。 設定檔案共用能使在整個叢集上共用檔案 (例如設定、存取、記錄等等) 變得更容易。 在本教學課程中，會完成下列工作：
@@ -70,20 +69,20 @@ az storage share create -n $DCOS_PERS_SHARE_NAME
 儲存體帳戶名稱︰
 
 ```azurecli-interactive
-STORAGE_ACCT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCT=$(az storage account list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[?contains(name, '$DCOS_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCT
 ```
 
 儲存體帳戶存取金鑰︰
 
 ```azurecli-interactive
-az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCT --query "[0].value" -o tsv
+az storage account keys list --resource-group $DCOS_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCT --query "[0].value" -o tsv
 ```
 
 接下來，取得 DC/OS 主機的 FQDN，並將它儲存在變數中。
 
 ```azurecli-interactive
-FQDN=$(az acs list --resource-group myResourceGroup --query "[0].masterProfile.fqdn" --output tsv)
+FQDN=$(az acs list --resource-group $DCOS_PERS_RESOURCE_GROUP --query "[0].masterProfile.fqdn" --output tsv)
 ```
 
 將您的私密金鑰複製到主要節點。 必須擁有此金鑰，才能建立 ssh 與叢集中所有節點的連線。 如果建立叢集時已使用非預設值，請更新使用者名稱。 
@@ -106,6 +105,7 @@ ssh azureuser@$FQDN
 #!/bin/bash
 
 # Azure storage account name and access key
+SHARE_NAME=dcosshare
 STORAGE_ACCT_NAME=mystorageaccount
 ACCESS_KEY=mystorageaccountKey
 
@@ -113,10 +113,10 @@ ACCESS_KEY=mystorageaccountKey
 sudo apt-get update && sudo apt-get -y install cifs-utils
 
 # Create the local folder that will contain our share
-if [ ! -d "/mnt/share/dcosshare" ]; then sudo mkdir -p "/mnt/share/dcosshare" ; fi
+if [ ! -d "/mnt/share/$SHARE_NAME" ]; then sudo mkdir -p "/mnt/share/$SHARE_NAME" ; fi
 
 # Mount the share under the previous local folder created
-sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/dcosshare /mnt/share/dcosshare -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //$STORAGE_ACCT_NAME.file.core.windows.net/$SHARE_NAME /mnt/share/$SHARE_NAME -o vers=3.0,username=$STORAGE_ACCT_NAME,password=$ACCESS_KEY,dir_mode=0777,file_mode=0777
 ```
 建立名為 **getNodesRunScript.sh** 的第二個檔案，並將下列內容複製到檔案中。 
 

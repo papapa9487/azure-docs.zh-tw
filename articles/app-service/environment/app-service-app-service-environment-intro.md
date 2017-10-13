@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b13f726ada6deba67d5ed484eca769fed354e400
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service 環境 v1 簡介
 
@@ -103,6 +102,5 @@ App Service Environment 可以是具有公用 IP 位址的網際網路對向，�
 [AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
 
 <!-- IMAGES -->
-
 
 

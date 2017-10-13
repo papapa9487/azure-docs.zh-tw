@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 2109744fb7ffdfafb7a86bbea355e119718af099
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tuning-guidance-for-spark-on-hdinsight-and-azure-data-lake-store"></a>HDInsight 和 Azure Data Lake Store 上的 Spark 效能微調方針
 
@@ -65,7 +65,7 @@ ms.lasthandoff: 07/11/2017
     executor-cores = 4
 增加 executor-cores 的數字可讓您更符合平行處理原則，因此請試試不同的 executor-cores。  對於具有較複雜作業的工作，您應該減少每個執行程式的核心數目。  如果 executor-cores 設定為高於 4，則記憶體回收可能會變得沒有效率而降低效能。
 
-**步驟 4︰決定叢集中的 YARN 記憶體數量** – 這項資訊可在 Ambari 中取得。  瀏覽至 YARN，然後檢視 [設定] 索引標籤。  YARN 記憶體會顯示在此視窗中。  
+**步驟 4︰決定叢集中的 YARN 記憶體數量** – 這項資訊可在 Ambari 中取得。  瀏覽至 YARN，然後檢視 [設定] 索引標籤。YARN 記憶體會顯示在此視窗中。  
 注意︰當您位於此視窗時，您也可以查看預設的 YARN 容器大小。  YARN 容器大小和每個執行程式參數的記憶體相同。
 
     Total YARN memory = nodes * YARN memory per node

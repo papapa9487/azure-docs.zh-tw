@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: carolz
+ms.openlocfilehash: 9b4352dbbec053ccc4a681886d86582adddf132c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: d9145591f768f2d5a8e55f28b0764b31e2ee452b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-portal-documentation"></a>Azure 入口網站文件
 了解您可以在 Azure 入口網站中用來部署資源的各項功能。 教學課程、API 參考和其他文件會示範如何部署、管理和監視 Azure 資源。
-

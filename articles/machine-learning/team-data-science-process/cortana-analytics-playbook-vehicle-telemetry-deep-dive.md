@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4050fdc2056df395bbcc37e3783f61eebd90f80a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>車輛遙測分析方案腳本：深入探索方案
 此 **功能表** 連結至此腳本的章節： 
@@ -699,5 +698,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 
 ## <a name="summary"></a>摘要
 本文件包含車輛遙測資料分析方案的詳細探討。 這以預測和動作示範即時和批次分析的 Lambda 架構模式。 此模式適用於需要最忙碌路徑 (即時) 和不忙碌路徑 (批次) 分析的各種使用案例。 
-
 

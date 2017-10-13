@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 557eab702175b1741cdcde62045947f2c031fbcc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
 適用於 Linux 的資料科學虛擬機器是以 Ubuntu 為基礎的虛擬機器映像，可幫助您在 Azure 上輕鬆展開深入學習。 深入學習工具包含：
@@ -418,5 +416,4 @@ Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) 會使用 GUI
 * 試試本文中所述的工具，在資料科學 VM 上探索各種資料科學工具。 您也可以在虛擬機器內的殼層上執行 *dsvm-more-info* ，以獲得關於 VM 上所安裝工具的基本簡介和詳細資訊的指標。  
 * 了解如何使用 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)，以系統化方式建置端對端分析方案。
 * 請造訪 [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) ，以取得使用 Cortana Analytics Suite 的機器學習和資料分析範例。
-
 

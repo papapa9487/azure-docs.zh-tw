@@ -15,14 +15,12 @@ ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
+ms.openlocfilehash: 99c27c37218a35d2a3416d6edd5e0a871cd5c011
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b6687b4e5df73e61acc599133e53385987742937
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>使用 Visual Studio Team Services 的完整 CI/CD 管線，搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式
 
 為雲端開發現代化應用程式的其中一個最大挑戰是要能持續傳遞這些應用程式。 在本文中，您會了解如何實作完整的持續整合與部署 (CI/CD)，以及搭配 Docker Swarm、Azure Container Registry 及 Visual Studio Team Services 使用 Azure Container Service 來建置與發行管理。
@@ -167,7 +165,7 @@ Microsoft 提供 VSTS 擴充以在建置與發行程序中搭配 Docker 使用�
 
 4. 針對這五個映像個別設定好建置和推送步驟之後，請在建置工作流程中再新增兩個步驟。
 
-    a. 命令列工作會使用 bash 指令碼以目前的組建識別碼取代 docker-compose.yml 檔案中的 *BuildNumber*。 請參閱以下畫面了解詳細資料。
+    a. 命令列工作會使用 bash 指令碼以目前的組建識別碼取代 docker-compose.yml 檔案中的 *BuildNumber*。請參閱以下畫面了解詳細資料。
 
     ![Visual Studio Team Services - 更新 Compose 檔案](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
@@ -231,4 +229,3 @@ Visual Studio Team Services 可讓您[跨環境管理發行 (英文)](https://ww
 ## <a name="next-steps"></a>後續步驟
 
 * 如需 CI/CD 與 Visual Studio Team Services 的相關詳細資訊，請參閱 [VSTS 建置概觀](https://www.visualstudio.com/docs/build/overview)。
-

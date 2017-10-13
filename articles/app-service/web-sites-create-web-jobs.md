@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
 ## <a name="overview"></a>概觀
@@ -216,4 +214,3 @@ when making changes in one don't forget the other two.
 ## <a name="NextSteps"></a> 後續步驟
 
 Azure WebJobs SDK 可以搭配 WebJobs 使用，以簡化許多程式設計工作。 如需詳細資訊，請參閱 [什麼是 WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。
-

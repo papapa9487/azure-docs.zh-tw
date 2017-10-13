@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/21/2017
 ms.author: genli
+ms.openlocfilehash: 873d728971c9ebc5713d23a625ab0c5aeb802dc5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 9bed14975ea54c44876fd604f1fc04ca2c2a264f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="i-cant-sign-in-to-manage-my-azure-subscription"></a>我無法登入來管理我的 Azure 訂用帳戶
 本文將引導您完成一些可解決登入問題的最常見方法。
@@ -39,7 +38,7 @@ ms.lasthandoff: 08/31/2017
 
 若要解決此問題，請嘗試下列其中一個方法：
 
-* 清除快取並刪除網際網路 Cookie。 在 Internet Explorer 中，按一下 [工具] ![工具按鈕](./media/billing-cannot-login-subscription/Toolsbutton.png) > [網際網路選項] > [刪除]。 確定已選取暫存檔、Cookie、密碼及瀏覽歷程記錄的核取方塊，然後按一下 [刪除]。
+* 清除快取並刪除網際網路 Cookie。 在 Internet Explorer 中，按一下 [工具] ![工具按鈕](./media/billing-cannot-login-subscription/Toolsbutton.png) > [網際網路選項] > [刪除]。 確定已選取暫存檔、Cookie、密碼及瀏覽歷程記錄的核取方塊，然後按一下刪除。
 * 重設 Internet Explorer 設定來還原您所做的任何個人設定。 按一下 [工具]![工具按鈕](./media/billing-cannot-login-subscription/Toolsbutton.png)> [網際網路選項] > [進階] > 選取 [刪除個人設定] 方塊 > [重設]。
 * 使用您瀏覽器的私密瀏覽模式。 若為 Internet Explorer：A. 按一下 [工具] ![工具按鈕](./media/billing-cannot-login-subscription/Toolsbutton.png) > [安全性] > [InPrivate 瀏覽]。
   B. 瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後登入入口網站。
@@ -51,5 +50,4 @@ ms.lasthandoff: 08/31/2017
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 
 如果仍需要協助，請[連絡支援人員](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409)以快速解決您的問題。 
-
 

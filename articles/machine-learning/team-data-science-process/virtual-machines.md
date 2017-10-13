@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 88fe9673176cdade92faad4bbdcb2e1bd11f4a55
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-azure-data-science-virtual-machines-as-ipython-notebook-servers"></a>將 Azure 資料科學虛擬機器佈建為 IPython Notebook 伺服器
 這裡提供的指示會說明如何設定 Azure VM 和含有 SQL 服務的 Azure VM，以做為 IPython Notebook 伺服器。 Windows 虛擬機器是使用支援工具 (例如，IPython Notebook、Azure 儲存體總管及 AzCopy)，以及其他對於資料科學專案非常實用的公用程式來設定。 例如，Azure 儲存體總管和 AzCopy 會提供便利的方法，將資料從本機電腦上傳至 Azure 儲存體，或者從儲存體將資料下載到本機電腦。 
@@ -44,5 +43,4 @@ ms.lasthandoff: 09/25/2017
 > Azure 虛擬機器的定價策略是「 **只針對您使用的項目進行付費**」。 若要確保未使用虛擬機器時不會被計費，其在 **Azure 傳統入口網站** 中的狀態必須是 [已停止 (已取消配置)](http://manage.windowsazure.com/)。 如需逐步指示或如何取消配置虛擬機器的相關資訊，請參閱[關閉並取消配置未使用的虛擬機器](../data-science-virtual-machine/setup-virtual-machine.md#shutdown)
 > 
 > 
-
 

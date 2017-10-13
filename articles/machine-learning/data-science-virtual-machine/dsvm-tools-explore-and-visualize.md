@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d8f0616f17dbaa02082492cc1c68f1d989ea5aae
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上的資料探索和視覺效果工具
 
 資料科學的關鍵步驟是了解資料。 視覺效果和資料探索工具有助於加速資料了解。 以下是 DSVM 提供且有利於進行此關鍵步驟的一些工具。 
@@ -43,8 +41,8 @@ ms.lasthandoff: 09/25/2017
 | 這是什麼？   |  Weka 是資料採礦工作的機器學習演算法集合。 該演算法可以直接套用於資料集，也可從您自己的 Java 程式碼呼叫。 Weka 包含資料前置處理、分類、迴歸、群集、關聯規則和視覺效果的工具。 |
 | 支援的 DSVM 版本     | Windows、Linux     |
 | 典型的使用案例      | 一般 ML 工具     |
-| 如何使用/執行它？      | 在 Windows 中，搜尋 [開始] 功能表中的 [Weka]。 在 Linux 上，登入 X2Go，然後巡覽至 [應用程式] -> [開發] -> [Weka]。 |
-| 範例的連結      | [Weka 範例](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| 如何使用/執行它？      | 在 Windows 上，在 [開始] 功能表中搜尋 Weka。 在 Linux 上，登入 X2Go，然後巡覽至 [應用程式] -> [開發] -> [Weka]。 |
+| 範例的連結      | [Weka 範例](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) \(英文\) |
 | DSVM 上的相關工具      |LightGBM、Rattle、Xgboost   |
 
 ## <a name="rattle"></a>Rattle
@@ -52,9 +50,9 @@ ms.lasthandoff: 09/25/2017
 | ------------- | ------------- |
 | 這是什麼？   |   使用 R 進行資料採礦的圖形化使用者介面   |
 | 支援的 DSVM 版本     | Windows、Linux     |
-| 典型的使用案例      | R 的一般 UI 資料採礦工具    |
-| 如何使用/執行它？      | UI 工具。 在 Windows 上，啟動命令提示字元，並執行 R，然後在 R 內執行 `rattle()`。 在 Linux 上，與 X2Go 連線、啟動終端機、執行 R，然後在 R 內執行 `rattle()`。 |
-| 範例的連結      | [Rattle](https://togaware.com/onepager/) |
+| 典型的使用案例      | 適用於 R 的一般 UI 資料採礦工具    |
+| 如何使用/執行它？      | UI 工具。 在 Windows 上，啟動命令提示字元，執行 R，然後在 R 內執行 `rattle()`。 在 Linux 上，以 X2Go 進行連線，啟動終端機，執行 R，然後在 R 內執行 `rattle()`。 |
+| 範例的連結      | [Rattle](https://togaware.com/onepager/) \(英文\) |
 | DSVM 上的相關工具      |LightGBM、Weka、Xgboost   |
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
@@ -65,5 +63,4 @@ ms.lasthandoff: 09/25/2017
 | 典型的使用案例      |  資料視覺效果和建立儀表板   |
 | 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |
-
 

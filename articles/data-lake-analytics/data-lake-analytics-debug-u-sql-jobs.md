@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/02/2016
 ms.author: saveenr
 ms.openlocfilehash: 2a77c72d3062272305208934d6406d040266c753
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 

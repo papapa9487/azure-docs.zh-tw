@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: adegeo
 ms.openlocfilehash: 2ee76dfcb579e53975b1f61a6590f8d78dc0961b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>如何管理雲端服務
 > [!div class="op_single_selector"]
@@ -133,7 +133,7 @@ ms.lasthandoff: 07/11/2017
 使用下列程序，刪除部署或雲端服務。
 
 1. 在 [Azure 傳統入口網站](http://manage.windowsazure.com/)中，按一下 [ **雲端服務**]。
-2. 選取雲端服務，然後按一下 [刪除]。 (若要選取雲端服務而不開啟儀表板，請在雲端服務項目中按一下名稱以外的任何位置。)
+2. 選取雲端服務，然後按一下刪除。 (若要選取雲端服務而不開啟儀表板，請在雲端服務項目中按一下名稱以外的任何位置。)
 
     如果您有預備或生產的部署，則會在視窗底部看到與下面類似的選項功能表。 刪除雲端服務之前，您必須先刪除任何現有的部署。
 

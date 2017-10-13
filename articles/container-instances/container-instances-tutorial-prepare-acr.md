@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/11/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 7ac85bffb9593923808c77f2240e6f0e841e74cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-and-use-azure-container-registry"></a>部署和使用 Azure Container Registry
 
 這是三段式教學課程的第二段。 在[上一個步驟](./container-instances-tutorial-prepare-app.md)中，我們已針對使用 [Node.js](http://nodejs.org) 所編寫的簡單 Web 應用程式建立容器映像。 在本教學課程中，此映像會推送至 Azure Container Registry。 如果您尚未建立容器映像，請回到[教學課程 1 – 建立容器映像](./container-instances-tutorial-prepare-app.md)。 
@@ -166,4 +164,3 @@ v1
 
 > [!div class="nextstepaction"]
 > [將容器部署至 Azure 容器執行個體](./container-instances-tutorial-deploy-app.md)
-

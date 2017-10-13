@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
 ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票
 
@@ -86,14 +86,14 @@ ms.lasthandoff: 08/03/2017
 若要開始，請建立 Contoso 和 Northwind 的交易夥伴。  
 
 1. 在 BizTalk 服務入口網站的 [夥伴] 索引標籤上，按一下 [新增]。
-2. 在 [新增夥伴] 頁面上，輸入 **Contoso** 當做夥伴名稱，然後按一下 [儲存]。
+2. 在 新增夥伴 頁面上，輸入 **Contoso** 當做夥伴名稱，然後按一下儲存。
 3. 重複此步驟來建立第二個夥伴 ( **Northwind**)。  
 
 ### <a name="create-the-agreement"></a>建立協議
 交易夥伴的商務設定檔之間會建立交易夥伴協議。 此方案會使用我們建立夥伴時自動建立的預設夥伴設定檔。  
 
 1. 在 BizTalk 服務入口網站中，按一下 [協議] > [新增]。
-2. 在新協議的 [一般設定] 頁面上指定值 (如下圖所示)，然後按一下 [繼續]。
+2. 在新協議的 一般設定 頁面上指定值 (如下圖所示)，然後按一下繼續。
    
    ![][3]  
    
@@ -139,14 +139,14 @@ ms.lasthandoff: 08/03/2017
 
 ### <a name="create-the-biztalk-services-project"></a>建立 BizTalk 服務專案
 1. 在 Visual Studio 方案中，展開 InvoiceProcessingBridge 專案，然後開啟 **MessageFlowItinerary.bcs** 檔案。
-2. 在畫布上任何位置按一下，然後在屬性方塊中設定 [BizTalk 服務 URL]  ，以指定 BizTalk 服務訂用帳戶名稱。 例如， `https://contosowabs.biztalk.windows.net`。
+2. 在畫布上任何位置按一下，然後在屬性方塊中設定 BizTalk 服務 URL  ，以指定 BizTalk 服務訂用帳戶名稱。 例如， `https://contosowabs.biztalk.windows.net`。
    
    ![][7]  
 3. 從工具箱拖曳 **Xml 單向橋接器** 到畫布上。 將橋接器的 [實體名稱] 和 [相對位址] 屬性設定為 [ProcessInvoiceBridge]。 按兩下 [ProcessInvoiceBridge]  以開啟橋接器設定介面。
 4. 在 [訊息類型] 方塊中，按一下加號 (**+**) 按鈕，以指定傳入訊息的結構描述。 因為 EAI 橋接器的傳入訊息一律是內部發票，因此請將此項目設為 [INHOUSEINVOICE] 。
    
    ![][8]  
-5. 按一下 [Xml 轉換] 圖形，並在屬性方塊中，針對 [對應] 屬性按一下省略符號 (**...**) 按鈕。 在 [選取對應] 對話方塊中，選取 **INHOUSEINVOICE_to_D93AINVOIC** 轉換檔案，然後按一下 [確定]。
+5. 按一下 [Xml 轉換] 圖形，並在屬性方塊中，針對 [對應] 屬性按一下省略符號 (**...**) 按鈕。 在 選取對應 對話方塊中，選取 **INHOUSEINVOICE_to_D93AINVOIC** 轉換檔案，然後按一下確定。
    
    ![][9]  
 6. 返回 **MessageFlowItinerary.bcs**，然後將 [雙向外部服務端點] 從工具箱拖曳至 **ProcessInvoiceBridge** 右邊。 將其 [實體名稱] 屬性設為 [EDIBridge]。
@@ -214,9 +214,9 @@ ms.lasthandoff: 08/03/2017
 10. 儲存方案的變更。  
 
 ### <a name="deploy-the-project"></a>部署專案
-1. 在您建立 BizTalk 服務專案的電腦上，下載並安裝您 BizTalk 服務訂用帳戶的 SSL 憑證。 從 [BizTalk 服務] 底下按一下 [儀表板]，然後按一下 [下載 SSL 憑證]。 按兩下憑證，並依照提示來完成安裝。 確定您是在 [受信任的根憑證授權單位] 憑證存放區底下安裝憑證。
-2. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下 **InvoiceProcessingBridge** 專案，然後按一下 [部署]。
-3. 提供如下圖所示的值，然後按一下 [部署] 。 您可以從 BizTalk 服務儀表板按一下 [連接資訊]  ，以取得 BizTalk 服務的 ACS 認證。
+1. 在您建立 BizTalk 服務專案的電腦上，下載並安裝您 BizTalk 服務訂用帳戶的 SSL 憑證。 從 BizTalk 服務 底下按一下 儀表板，然後按一下下載 SSL 憑證。 按兩下憑證，並依照提示來完成安裝。 確定您是在 [受信任的根憑證授權單位] 憑證存放區底下安裝憑證。
+2. 在 Visual Studio 的 方案總管 中，以滑鼠右鍵按一下 **InvoiceProcessingBridge** 專案，然後按一下部署。
+3. 提供如下圖所示的值，然後按一下部署 。 您可以從 BizTalk 服務儀表板按一下 [連接資訊]  ，以取得 BizTalk 服務的 ACS 認證。
    
    ![][11]  
    
@@ -232,13 +232,13 @@ ms.lasthandoff: 08/03/2017
    您已在上一個步驟中複製 EAI 橋接器端點。 至於 EDI 接收橋接器端點，請在 BizTalk 服務入口網站中，移至 [協議] > [接收設定] > [傳輸] > [端點]。
    
    ![][12]  
-4. 在下一個視窗中，於 Contoso 底下按一下 [傳送內部發票]  按鈕。 在 [檔案開啟] 對話方塊中，開啟 INHOUSEINVOICE.txt 檔案。 檢查檔案的內容，然後按一下 [確定]  以傳送發票。
+4. 在下一個視窗中，於 Contoso 底下按一下 [傳送內部發票]  按鈕。 在 [檔案開啟] 對話方塊中，開啟 INHOUSEINVOICE.txt 檔案。 檢查檔案的內容，然後按一下確定  以傳送發票。
    
    ![][13]  
 5. 幾秒鐘內 Northwind 就會收到發票。 按一下 [檢視訊息]  連結以查看 Northwind 收到的發票。 請注意在 Contoso 所傳送的發票是內部結構描述的情況下，Northwind 所收到的發票是如何變成標準 EDIFACT 結構描述的。
    
    ![][14]  
-6. 選取發票，然後按一下 [傳送通知] 。 在彈出的對話方塊中，請注意所收到的發票和所傳送的通知中，有相同的交換 ID。 在 [傳送通知]  對話方塊中按一下 [確定]。
+6. 選取發票，然後按一下傳送通知 。 在彈出的對話方塊中，請注意所收到的發票和所傳送的通知中，有相同的交換 ID。 在 [傳送通知]  對話方塊中按一下 [確定]。
    
    ![][15]  
 7. 幾秒後，Contoso 就會成功收到通知。
@@ -258,7 +258,7 @@ BizTalk 服務 EDI 橋接器也支援批次處理傳出訊息。 對於想要接
 4. 指定批次釋放準則。 從下拉式方塊中，選取 [MessageCountBased]，然後在 [計數] 中指定 **3**。 這表示每批次會傳送三個訊息至 Northwind。 按一下 [下一步] 。
    
    ![][18]  
-5. 檢閱摘要，然後按一下 [儲存] 。 按一下 [部署]  來重新部署協議。
+5. 檢閱摘要，然後按一下儲存 。 按一下 [部署]  來重新部署協議。
 6. 返回 **Tutorial Client**，按一下 [傳送內部發票]，並遵循提示以傳送發票。 您會發現 Northwind 未收到任何發票，因為批次大小不符。 再重複此步驟兩次，以便將三則發票訊息傳送至 Northwind。 這就符合 3 則訊息的批次釋放準則，您現在應該會在 Northwind 看到發票。
 
 <!--Image references-->

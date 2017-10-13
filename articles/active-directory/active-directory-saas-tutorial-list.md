@@ -15,12 +15,11 @@ ms.date: 06/21/2017
 ms.author: joflore
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: cd3548e4e4ff71aeb3c3fd30eb6c162a70d90879
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>SaaS 應用程式與 Azure Active Directory 的整合
 
@@ -418,4 +417,3 @@ ms.lasthandoff: 09/23/2017
 
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [如何整合 SaaS 應用程式的教學課程清單](active-directory-saas-tutorial-list.md)
-

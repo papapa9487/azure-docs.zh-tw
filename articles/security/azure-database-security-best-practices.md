@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5bd6fe0dd369b3bbc7ca0d697c964badda557cb8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
 
 安全性是管理資料庫時的最重要考量，而且向來一直是 Azure SQL Database 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1 等等。 [Microsoft 信任中心網站](http://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
@@ -172,4 +170,3 @@ Azure 資料庫是強固的資料庫平台，具有完整的安全性功能，�
 - 若要深入了解防火牆規則，請參閱[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)。
 - 若要了解使用者和登入，請參閱[管理登入](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)。
 - 如需教學課程，請參閱[保護 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial)。
-

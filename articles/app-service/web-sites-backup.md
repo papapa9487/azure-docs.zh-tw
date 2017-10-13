@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](app-service-web-overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
@@ -172,5 +171,4 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 [LogsFolder]: ./media/web-sites-backup/12Logs.png
 [GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
 [kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
-
 

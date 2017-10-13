@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.openlocfilehash: d7bc694b05ed1eb3915ba913afdb3cc39e048ca7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 開發人員詞彙
 本文包含某些核心 Azure Active Directory (AD) 開發人員概念的定義，以協助您了解 Azure AD 的應用程式開發。

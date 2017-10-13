@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5003ede9a40848db6905ef182da68577bca342cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-monitor"></a>Azure 監視器的概觀
 本文提供 Microsoft Azure 中 Azure 監視器服務的概觀。 它會討論 Azure 監視器所執行的作業，並提供關於如何使用 Azure 監視器之其他資訊的指標。  如果您偏好影片介紹，請參閱本文最後的＜後續步驟＞連結。 
 
@@ -168,4 +166,3 @@ Azure 監視器具有登陸頁面，可協助使用者：
 - [Application Insights](https://azure.microsoft.com/documentation/services/application-insights/) ，如果您正在嘗試診斷 App Service Web 應用程式中的問題。
 - [疑難排解 Azure 儲存體](../storage/common/storage-e2e-troubleshooting.md) 
 - [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) 及 [Operations Management Suite](https://www.microsoft.com/oms/)
-

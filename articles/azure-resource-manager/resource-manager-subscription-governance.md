@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
 ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Azure 企業 Scaffold - 規定的訂用帳戶治理
 企業日漸採用公用雲端，以獲取其靈活度和彈性。 它們利用雲端的優勢來產生收益，或讓企業的資源達到最佳化。 Microsoft Azure 提供許多服務，企業可以像堆積木一樣組合這些服務，以處理各式各樣的工作負載和應用程式。 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 413f12d301a0e2c47048d23b2d4fb7de6423256d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>使用 Azure Machine Learning 和 Azure Data Factory 來建立預測管線
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,7 +136,7 @@ Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您�
 | 名稱              | 管線中的活動名稱     | 是      |
 | 說明       | 說明活動用途的文字。  | 否       |
 | 類型              | 對於 Data Lake Analytics U-SQL 活動，活動類型為 **AzureMLBatchExecution**。 | 是      |
-| linkedServiceName | 將服務連結至 Azure Machine Learning 連結服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName | 將服務連結至 Azure Machine Learning 連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | webServiceInputs  | 對應 Azure Machine Learning Web 服務輸入之名稱的索引鍵/值組。 索引鍵必須符合已發佈 Azure Machine Learning Web 服務中定義的輸入參數。 值是指定輸入 Blob 位置的 Azure 儲存體連結服務和 FilePath 屬性組。 | 否       |
 | webServiceOutputs | 對應 Azure Machine Learning Web 服務輸出之名稱的索引鍵/值組。 索引鍵必須符合已發佈 Azure Machine Learning Web 服務中定義的輸出參數。 值是指定輸出 Blob 位置的 Azure 儲存體連結服務和 FilePath 屬性組。 | 否       |
 | globalParameters  | 傳遞至 Azure ML 批次執行服務端點的索引鍵/值組。 索引鍵必須符合已發佈 Azure ML Web 服務中定義的 Web 服務參數名稱。 值會在 Azure ML 批次執行要求的 GlobalParameters 屬性中傳遞 | 否       |
@@ -239,4 +238,3 @@ Azure Machine Learning 支援傳統 Web 服務和新 Web 服務，以用於您�
 * [Spark 活動](transform-data-using-spark.md)
 * [.NET 自訂活動](transform-data-using-dotnet-custom-activity.md)
 * [預存程序活動](transform-data-using-stored-procedure.md)
-

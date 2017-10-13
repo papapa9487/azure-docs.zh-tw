@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
+ms.openlocfilehash: 7fdcff5ed93e56e4ac70dd9dcee0056a4cbef0bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fa07135d550bf9ea0f6d1e03089b988cf0d5dddc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
 
@@ -130,7 +129,7 @@ cp docker.tar.gz /mnt/share/dcosshare
 從 Ubuntu 映像建立容器。
 
 ```azurecli-interactive
-docker run ubunut --name base-image
+docker run ubuntu --name base-image
 ```
 
 現在將容器擷取至新映像。 映像名稱必須包含容器登錄的 `loginServer` 名稱，其格式為 `loginServer/imageName`。
@@ -208,4 +207,3 @@ dcos marathon app add acrDemo.json
 > * 在 DC/OS 叢集上設定 ACR 驗證
 > * 將映像上傳至 Azure Container Registry
 > * 從 Azure Container Registry 執行容器映像
-

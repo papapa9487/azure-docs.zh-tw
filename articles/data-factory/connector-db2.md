@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aef796aa4f2604e6cd06452f3d3c6f648850aa38
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 DB2 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/25/2017
 | authenticationType |用來連接到 DB2 資料庫的驗證類型。<br/>允許的值為**基本**。 |是 |
 | username |指定要連線到 DB2 資料庫的使用者名稱。 |是 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |是 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用「自我裝載整合執行階段」或「Azure 整合執行階段」(如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的「Azure 整合執行階段」。 |否 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
 
@@ -137,7 +136,7 @@ ms.lasthandoff: 09/25/2017
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的「tableName」) |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

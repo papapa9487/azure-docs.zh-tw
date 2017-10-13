@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/17/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: bb1c7d318939c42edb9a51e28dec31593f2485f9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-azure-machine-learning-experiment-execution-service"></a>Azure Machine Learning 實驗執行服務概觀
 Azure ML (Azure Machine Learning) 實驗執行服務可讓資料科學家使用 Azure ML 的執行和執行管理功能來執行其實驗。 它提供的架構可透過快速反覆項目進行敏捷式實驗。 Azure ML Workbench 可讓您開始在電腦上使用本機執行，以及相應增加和相應放大到其他環境 (例如具有 GPU 的遠端資料科學 VM 或執行 Spark 的 HDInsight 叢集) 的簡單路徑。
 
@@ -254,4 +252,3 @@ _**以 HDInsight 為基礎的 PySpark 指令碼執行概觀**_
 ## <a name="next-steps"></a>後續步驟
 * [建立與安裝 Azure Machine Learning](quickstart-installation.md)
 * [模型管理](model-management-overview.md)
-

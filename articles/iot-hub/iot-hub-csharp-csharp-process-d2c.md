@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
 ms.openlocfilehash: 1d2b52ea005ab520bf294efa603512c00a92ee63
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-iot-hub-device-to-cloud-messages-using-routes-net"></a>使用路由處理 Azure IoT 中樞的裝置到雲端訊息 (.NET)
 
@@ -138,7 +138,7 @@ private static async void SendDeviceToCloudMessagesAsync()
 
 1. 在 Visual Studio 中，使用 [主控台應用程式 (.NET Framework)] 專案範本，將 Visual C# Windows 傳統桌面專案新增至目前的方案。 將專案命名為 **ReadCriticalQueue**。
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadCriticalQueue** 專案，然後按一下 [管理 NuGet 套件]。 此操作會顯示 [NuGet 套件管理員]  視窗。
+2. 在 方案總管 中，以滑鼠右鍵按一下 **ReadCriticalQueue** 專案，然後按一下管理 NuGet 套件。 此操作會顯示 [NuGet 套件管理員]  視窗。
 
 3. 搜尋 **WindowsAzure.ServiceBus**，按一下 [安裝]，然後接受使用規定。 此操作會對 Azure 服務匯流排及其所有相依性進行下載、安裝和新增參考。
 

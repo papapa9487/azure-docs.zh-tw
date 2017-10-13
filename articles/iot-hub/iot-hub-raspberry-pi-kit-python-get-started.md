@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
 ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>將 Raspberry Pi 連線至 Azure IoT Hub (Python)
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 08/29/2017
 
    ![[Raspbian 偏好設定] 功能表](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. 在 [介面]索引標籤上，將 [I2C] 和 [SSH] 設定為 [啟用]，然後按一下 [確定]。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
+1. 在 介面索引標籤上，將 I2C 和 SSH 設定為 啟用，然後按一下確定。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
 
    ![在 Raspberry Pi 上啟用 I2C 和 SSH](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 

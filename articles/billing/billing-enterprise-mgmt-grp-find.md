@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: df4d85d0556a62311c112f24431b54d042333c7f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-an-azure-subscription-or-management-group"></a>尋找 Azure 訂用帳戶或管理群組
 
 如果您在 Azure 中找不到訂用帳戶或管理群組，可能是所查看的目錄錯誤。 當您的帳戶存在於多個 Azure Active Directory.中時，就可能發生這種情況。 每個 [Active Directory 都是獨立的](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-licensing-directory-independence)，並不會跨目錄繼承存取權。      
@@ -55,7 +53,6 @@ ms.lasthandoff: 09/25/2017
 
 
  
-
 
 
 

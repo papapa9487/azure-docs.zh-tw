@@ -16,10 +16,10 @@ ms.workload: data-services
 ms.date: 01/10/2017
 ms.author: carlrab
 ms.openlocfilehash: 84bebab7763bb21f73880a6c8b367a62b0c137d3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>將資料從 CSV 載入 Azure SQL Database (一般檔案)
 您可以使用 bcp 命令列公用程式，將資料從 CSV 檔案匯入 Azure SQL Database。

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>在 Resource Manager 部署中備份 Windows 系統狀態
 本文說明如何將 Windows Server 的系統狀態備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。
@@ -213,7 +212,7 @@ ms.lasthandoff: 08/21/2017
 
 4. 在 [選取要備份的項目] 頁面上，按一下 [新增項目] 。
 
-5. 選取 [系統狀態]，然後按一下 [確定]。
+5. 選取 系統狀態，然後按一下確定。
 
 6. 按一下 [下一步] 。
 
@@ -223,7 +222,7 @@ ms.lasthandoff: 08/21/2017
    > 系統會自動設定系統狀態的備份和保留原則。 如果除了備份 Windows Server 系統狀態外，您還要備份檔案和資料夾，請從精靈指定只適用於檔案備份的備份和保留原則。 
    >
 
-8. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成] 。
+8. 在 確認 頁面上檢閱資訊，然後按一下完成 。
 
 9. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
@@ -320,4 +319,3 @@ ms.lasthandoff: 08/21/2017
 * 詳細了解如何 [備份 Windows 電腦](backup-configure-vault.md)。
 * 現在您已備份好檔案和資料夾，接下來您可以 [管理您的保存庫和伺服器](backup-azure-manage-windows-server.md)。
 * 如果您需要還原備份，請使用本文來 [還原檔案到 Windows 電腦](backup-azure-restore-windows-server.md)。
-

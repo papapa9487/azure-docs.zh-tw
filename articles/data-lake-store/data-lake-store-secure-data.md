@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 70483cc7edf0aa9eaac03bbd0dc9b7e8b946a7ef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>保護儲存在 Azure 資料湖儲存區中的資料
 保護儲存在 Azure 資料湖儲存區中的資料，其方法有三步驟。
@@ -91,7 +90,7 @@ ms.lasthandoff: 08/29/2017
 1. 在您的 [資料湖儲存區帳戶] 刀鋒視窗中，按一下 [資料總管] 。
    
     ![在 Data Lake Store 帳戶中建立目錄](./media/data-lake-store-secure-data/adl.start.data.explorer.png "在 Data Lake Store 帳戶中建立目錄")
-2. 在 [資料總管] 刀鋒視窗中，按一下您要將設定 ACL 的檔案或資料夾，然後按一下 [存取]。 若要指派 ACL 至檔案，您必須從 [檔案預覽] 刀鋒視窗按一下 [存取]。
+2. 在 資料總管 刀鋒視窗中，按一下您要將設定 ACL 的檔案或資料夾，然後按一下存取。 若要指派 ACL 至檔案，您必須從 [檔案預覽] 刀鋒視窗按一下 [存取]。
    
     ![設定 Data Lake 檔案系統上的 ACL](./media/data-lake-store-secure-data/adl.acl.1.png "設定 Data Lake 檔案系統上的 ACL")
 3. [存取]  刀鋒視窗會列出已指派至根的標準存取和自訂存取。 按一下 [新增]  圖示以新增自訂層級的 ACL。
@@ -102,7 +101,7 @@ ms.lasthandoff: 08/29/2017
    * **自訂存取** 會對應至 POSIX ACL，讓您除了設定檔案擁有者或群組的權限外，還可以設定特定命名的使用者或群組的權限。 
      
      如需詳細資訊，請參閱 [HDFS ACLs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists)。 如需 ACL 如何在 Data Lake Store 中實作的詳細資訊，請參閱 [Data Lake Store 中的存取控制](data-lake-store-access-control.md)。
-4. 按一下 [新增] 圖示，以開啟 [新增自訂存取] 刀鋒視窗。 在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，搜尋您稍早在 Azure Active Directory 中建立的安全性群組。 若您需要搜尋大量的群組，請使用頂端的文字方塊來篩選群組名稱。 按一下您要新增的群組，然後按一下 [選取] 。
+4. 按一下 [新增] 圖示，以開啟 [新增自訂存取] 刀鋒視窗。 在此刀鋒視窗中，按一下 [選取使用者或群組]，然後在 [選取使用者或群組] 刀鋒視窗中，搜尋您稍早在 Azure Active Directory 中建立的安全性群組。 若您需要搜尋大量的群組，請使用頂端的文字方塊來篩選群組名稱。 按一下您要新增的群組，然後按一下選取 。
    
     ![加入群組](./media/data-lake-store-secure-data/adl.acl.3.png "加入群組")
 5. 按一下 [選取權限]，選取權限及權限的指派方式 (例如預設 ACL、存取 ACL 或兩者並用)。 按一下 [確定] 。
@@ -147,7 +146,7 @@ Azure Data Lake Store 可讓您進一步在網路層級鎖定資料存放區的�
 2. 在 [資料總管] 刀鋒視窗中，按一下您要將移除 ACL 的檔案或資料夾，然後在您的帳戶刀鋒視窗中按一下 [存取] 圖示。 若要移除檔案的 ACL，您必須從 [檔案預覽] 刀鋒視窗按一下 [存取]。
    
     ![設定 Data Lake 檔案系統上的 ACL](./media/data-lake-store-secure-data/adl.acl.1.png "設定 Data Lake 檔案系統上的 ACL")
-3. 從 [存取] 刀鋒視窗中的 [自訂存取] 區段，按一下您要移除的安全性群組。 在 [自訂存取] 刀鋒視窗中，按一下 [移除]，然後按一下 [確定]。
+3. 從 [存取] 刀鋒視窗中的 [自訂存取] 區段，按一下您要移除的安全性群組。 在 自訂存取 刀鋒視窗中，按一下 移除，然後按一下確定。
    
     ![將權限指派至群組](./media/data-lake-store-secure-data/adl.remove.acl.png "將權限指派至群組")
 
@@ -159,5 +158,4 @@ Azure Data Lake Store 可讓您進一步在網路層級鎖定資料存放區的�
 * [使用 PowerShell 開始使用資料湖存放區](data-lake-store-get-started-powershell.md)
 * [使用 .NET SDK 開始使用資料湖存放區](data-lake-store-get-started-net-sdk.md)
 * [存取 Data Lake Store 的診斷記錄](data-lake-store-diagnostic-logs.md)
-
 

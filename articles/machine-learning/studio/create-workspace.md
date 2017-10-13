@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye;bradsev;ahgyger
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>建立和共用 Azure Machine Learning 工作區
 此功能表會連結至說明如何設定 Cortana Analytics 程序 (CAP) 所用的各種資料科學環境主題。
@@ -100,7 +99,6 @@ ms.lasthandoff: 09/25/2017
 
 > [!NOTE]
 > 若要讓使用者能夠部署或管理此工作區中的 web 服務，它們必須為參與者或 Azure 訂用帳戶中的系統管理員。 
-
 
 
 

@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 8657415f61d9977ad90883278f8737609248fed6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: f7b8560d4ce7374e36d5f7e8a5d2056396e4f089
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #<a name="notification-hubs-documentation"></a>通知中樞文件
 
 了解如何使用通知中樞 (可調整的多平台推播通知引擎) 快速傳送數百萬則訊息。 教學課程、API 參考和其他文件會示範如何設定推播通知，並將這類通知從任何後端傳送至任何行動裝置。 
@@ -212,5 +210,4 @@ ms.lasthandoff: 05/10/2017
         </div>
     </li>
 </ul>
-
 

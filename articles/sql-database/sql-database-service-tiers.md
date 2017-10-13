@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 08/20/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 0183e9c60da7c216a6268dfec3874eb76270f71d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-azure-sql-database-service-tiers"></a>何謂 Azure SQL Database 服務層
 
@@ -80,5 +79,4 @@ ms.lasthandoff: 08/30/2017
 - 了解 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)
 * 了解 [DTU 與 eDTU](sql-database-what-is-a-dtu.md)。
 * 若要深入了解監視 DTU 使用量，請參閱[監視和效能調整](sql-database-troubleshoot-performance.md)。
-
 

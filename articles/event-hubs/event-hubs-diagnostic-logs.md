@@ -13,15 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 06/27/2017
-ms.author: sethm;babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 09bc62f4918635419d74ef3ae400a41d4ce58b5a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: bcc8427d57a001f73d321fbf35c5226a047b68d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="event-hubs-diagnostic-logs"></a>事件中樞診斷記錄檔
 
@@ -30,6 +28,7 @@ ms.lasthandoff: 07/08/2017
 * **[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**。 您可以設定診斷記錄，以更深入檢視與作業一起發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="turn-on-diagnostic-logs"></a>開啟診斷記錄
+
 診斷記錄預設為停用。 啟用診斷記錄：
 
 1.  在 [Azure 入口網站](https://portal.azure.com)的 [監視 + 管理] 下，按一下 [診斷記錄]。
@@ -137,5 +136,4 @@ Example:
 ## <a name="next-steps"></a>後續步驟
 * [事件中樞簡介](event-hubs-what-is-event-hubs.md)
 * [事件中樞 API 概觀](event-hubs-api-overview.md)
-* [開始使用事件中樞](event-hubs-csharp-ephcs-getstarted.md)
-
+* [開始使用事件中樞](event-hubs-dotnet-standard-getstarted-send.md)

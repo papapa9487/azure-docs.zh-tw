@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 11/02/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9964c3dff24ef8a3a6047fe18c0f36c12c1de33d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-domain-joined-hdinsight-clusters-preview"></a>設定已加入網域的 HDInsight 叢集 (預覽)
 
@@ -81,7 +81,7 @@ Azure 服務名稱必須是全域唯一的。 本教學課程中使用下列名�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 2. 按一下 [新增]  >  [網路]  >  [虛擬網路]。
-3. 在 [選取部署模型] 中，選取 [傳統]，然後按一下 [建立]。
+3. 在 選取部署模型 中，選取 傳統，然後按一下建立。
 4. 輸入或選取下列值：
    
    * **名稱**：contosoaadvnet
@@ -126,10 +126,10 @@ Azure 服務名稱必須是全域唯一的。 本教學課程中使用下列名�
 1. 在 [Azure 傳統入口網站](https://manage.windowsazure.com)中，按一下 [Active Directory]  ->  [contosoaaddirectory]。 
 2. 按一下頂端功能表中的 [使用者]。
 3. 按一下 [加入使用者] 。
-4. 輸入 [使用者名稱]，然後按一下 [下一步]。 
-5. 設定使用者設定檔；在 [角色] 選取 [全域管理員]，然後按一下 [下一步]。  需要「全域管理員角色」才能建立組織單位。
+4. 輸入 使用者名稱，然後按一下下一步。 
+5. 設定使用者設定檔；在 角色 選取 全域管理員，然後按一下下一步。  需要「全域管理員角色」才能建立組織單位。
 6. 按一下 [建立] 取得暫時密碼。
-7. 複製一份密碼，然後按一下 [完成]。 在本教學課程稍後，您會使用這個全域管理使用者來建立 HDInsight 叢集。
+7. 複製一份密碼，然後按一下完成。 在本教學課程稍後，您會使用這個全域管理使用者來建立 HDInsight 叢集。
 
 依照相同程序建立另外兩位使用者，**使用者**角色分別為 hiveuser1 和 hiveuser2。 下列使用者會用於[針對已加入網域的 HDInsight 叢集設定 Hive 原則](hdinsight-domain-joined-run-hive.md)。
 
@@ -145,7 +145,7 @@ Azure 服務名稱必須是全域唯一的。 本教學課程中使用下列名�
 5. 按一下頁面底部的 [新增] 。
 6. 按一下[AAD DC 系統管理員] 以開啟群組。
 7. 按一下[新增成員]。
-8. 選取您在前一個步驟建立的第一位使用者，然後按一下 [完成]。
+8. 選取您在前一個步驟建立的第一位使用者，然後按一下完成。
 9. 重複相同步驟來建立另一個名為 **HiveUsers** 的群組，並將兩個 Hive 使用者新增至群組。
 
 如需詳細資訊，請參閱[Azure AD 網域服務 (預覽) - 建立「AAD DC 系統管理員」的群組](../active-directory-domain-services/active-directory-ds-getting-started.md)。
@@ -194,7 +194,7 @@ Azure 服務名稱必須是全域唯一的。 本教學課程中使用下列名�
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 依序按一下 [新增]、[網路] 及 [虛擬網路]。 
-3. 在 [選取部署模型] 中，選取 [Resource Manager]，然後按一下 [建立]。
+3. 在 選取部署模型 中，選取 Resource Manager，然後按一下建立。
 4. 輸入或選取下列值：
    
    * **名稱**：contosohdivnet
@@ -269,7 +269,7 @@ Azure 服務名稱必須是全域唯一的。 本教學課程中使用下列名�
          * **網域名稱**：contoso.onmicrosoft.com
          * **網域使用者名稱**：輸入網域使用者名稱。 這個網域必須有下列權限︰將電腦加入網域，並將它們放在您於叢集建立期間指定的組織單位內；在您於叢集建立期間指定的組織單位內建立服務主體；建立反向 DNS 項目。 此網域使用者會成為這個已加入網域的 HDInsight 叢集的系統管理員。
          * **網域密碼**︰輸入網域使用者密碼。
-         * **組織單位**︰輸入您要搭配 HDInsight 叢集使用的 OU 辨別名稱。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com。 如果此 OU 不存在，HDInsight 叢集會嘗試建立這個 OU。 確定 OU 已經存在，或是網域帳戶具有建立新 OU 的權限。 如果您使用屬於 AADDC 系統管理員的網域帳戶，它就已經有建立 OU 的所需權限。
+         * **組織單位**︰輸入您要搭配 HDInsight 叢集使用的 OU 辨別名稱。 例如：OU=HDInsightOU,DC=contoso,DC=onmicrosoft,DC=com。如果此 OU 不存在，HDInsight 叢集會嘗試建立這個 OU。 確定 OU 已經存在，或是網域帳戶具有建立新 OU 的權限。 如果您使用屬於 AADDC 系統管理員的網域帳戶，它就已經有建立 OU 的所需權限。
          * **LDAPS URL**：ldaps://contoso.onmicrosoft.com:636
          * **存取使用者群組**︰指定您要將其使用者同步至叢集的安全性群組。 例如，HiveUsers。
            

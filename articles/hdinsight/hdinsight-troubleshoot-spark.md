@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/31/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 84b78fe4eb60162f3cad0ae4ae7f98864d5bbf2b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Spark 進行疑難排解
 
 了解在 Apache Ambari 中使用 Apache Spark 承載時最常發生的問題及其解決方法。
@@ -228,5 +226,4 @@ java.lang.OutOfMemoryError
 
 - [Spark 記憶體管理概觀](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Debug a Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Spark 應用程式)
-
 

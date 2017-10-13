@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: e52f38d5fb3c100e4275032f9a2a1234961c672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2858d916e935de618e1b0d5078218aa725275aeb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-nodejs"></a>如何使用 Node.js 的 Blob 儲存體
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -427,4 +426,3 @@ blobSAS = blobSvc.generateSharedAccessSignature('mycontainer', { Id: 'user2' });
 [建立 Node.js 應用程式並部署到 Azure 雲端服務](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)  
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/  
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html  
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1c767a3fc6605c3e2400bda637d91031393360a5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列
@@ -95,4 +94,3 @@ Microsoft 提供一個稱為 [Azure Machine Learning](https://azure.microsoft.co
 ## <a name="next-steps"></a>後續步驟
 * [嘗試使用 Azure Machine Learning 進行您的第一個資料科學實驗](create-experiment.md)
 * [在 Microsoft Azure 上取得 Machine Learning 簡介](what-is-machine-learning.md)
-

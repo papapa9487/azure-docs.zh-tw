@@ -16,12 +16,11 @@ ms.topic: sample
 ms.date: 06/19/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 6c10b7654c02fae631e34572f12482928b39ceb6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>建立可從 Visual Studio Team Services 連續部署的 Web 應用程式
 
@@ -39,7 +38,7 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="sample-script"></a>範例指令碼
 
-[!code-azurecli-interactive[主要](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "建立可從 Visual Studio Team Services 連續部署的 Web 應用程式")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
@@ -60,4 +59,3 @@ ms.lasthandoff: 09/09/2017
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure App Service 文件](../app-service-cli-samples.md)中找到其他的 App Service CLI 指令碼範例。
-

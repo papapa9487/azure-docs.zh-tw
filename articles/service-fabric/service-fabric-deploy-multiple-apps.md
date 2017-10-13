@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>部署多個來賓可執行檔
 本文說明如何封裝多個來賓可執行檔並部署至 Azure Service Fabric。 若要建置和部署單一 Service Fabric 套件，請閱讀如何[將來賓可執行檔部署至 Service Fabric](service-fabric-deploy-existing-app.md)。
@@ -74,7 +72,7 @@ ms.lasthandoff: 07/06/2017
 * **/target** 定義應在其中建立封裝的目錄。 這個目錄必須是與來源目錄不同的目錄。
 * **/appname** 定義現有應用程式的應用程式名稱。 請務必了解這會轉譯成資訊清單中的服務名稱，而不是轉譯成 Service Fabric 應用程式名稱。
 * **/exe** 定義 Service Fabric 應啟動的可執行檔，在此例中為 `node.exe`。
-* **/ma** 定義要用來啟動可執行檔的引數。 由於未安裝 Node.js，因此 Service Fabric 需要執行 `node.exe bin/www`來啟動 Node.js Web 伺服器。  `/ma:'bin/www'` 會告訴封裝工具使用 `bin/ma` 當做 node.exe 的引數。
+* **/ma** 定義要用來啟動可執行檔的引數。 由於未安裝 Node.js，因此 Service Fabric 需要執行 `node.exe bin/www`來啟動 Node.js Web 伺服器。  `/ma:'bin/www'` 會告訴封裝工具使用 `bin/www` 當做 node.exe 的引數。
 * **/AppType** 定義 Service Fabric 應用程式類型名稱。
 
 如果您瀏覽至 /target 參數中指定的目錄，您可以看到工具已建立可完整運作的 Service Fabric 封裝，如以下所示：
@@ -220,4 +218,3 @@ New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationType
 * 了解如何使用 [Service Fabric 部署容器和容器概觀](service-fabric-containers-overview.md)
 * [封裝和部署來賓可執行檔的範例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [兩個客體可執行檔 (C# 和 nodejs) 使用 REST 透過命名服務進行通訊的範例](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: xibingao;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ac39de97174e58964b48601d559abeba5e624c21
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-an-azure-sql-server-virtual-machine-as-an-ipython-notebook-server-for-advanced-analytics"></a>將 Azure SQL Server 虛擬機器設定為 IPython Notebook 伺服器供進階分析使用
 本主題示範如何佈建及設定 SQL Server 虛擬機器，以用來做為雲端架構資料科學環境的一部分。 Windows 虛擬機器是使用支援工具 (例如，IPython Notebook、Azure 儲存體總管及 AzCopy)，以及其他對於資料科學專案非常實用的公用程式來設定。 例如，Azure 儲存體總管和 AzCopy 會提供便利的方法，將資料從本機電腦上傳至 Azure Blob 儲存體，或者從 Blob 儲存體將資料下載到本機電腦。
@@ -155,14 +154,14 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。 若�
 
     若要使用 SQL Server management Studio 變更驗證模式：
 
-1. 在 **SQL Server Management Studio 物件總管**中，以滑鼠右鍵按一下 SQL Server 執行個體的名稱 (虛擬機器名稱)，然後按一下 [屬性]。
+1. 在 **SQL Server Management Studio 物件總管**中，以滑鼠右鍵按一下 SQL Server 執行個體的名稱 (虛擬機器名稱)，然後按一下屬性。
    
    ![伺服器屬性][7]
-2. 在 [安全性] 頁面的 [伺服器驗證] 下方，選取 [SQL Server 及 Windows 驗證模式]，然後按一下 [確定]。
+2. 在 安全性 頁面的 伺服器驗證 下方，選取 SQL Server 及 Windows 驗證模式，然後按一下確定。
    
    ![選取驗證模式][8]
 3. 在 [SQL Server Management Studio] 對話方塊中，按一下 [確定] 以確認重新啟動 SQL Server 的需求。
-4. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後按一下 [重新啟動]。 (如果 SQL Server Agent 處於執行狀態，您也必須將其重新啟動。)
+4. 在 物件總管 中，以滑鼠右鍵按一下伺服器，然後按一下重新啟動。 (如果 SQL Server Agent 處於執行狀態，您也必須將其重新啟動。)
    
    ![重新啟動][9]
 5. 在 [SQL Server Management Studio] 對話方塊中，按一下 [是] 以同意重新啟動 SQL Server。
@@ -274,5 +273,4 @@ Azure 虛擬機器的定價策略是「 **只針對您使用的項目進行付�
 [12]: ./media/setup-sql-server-virtual-machine/25sysadmin.png
 [13]: ./media/setup-sql-server-virtual-machine/amlreader.png
 [15]: ./media/setup-sql-server-virtual-machine/vmshutdown.png
-
 

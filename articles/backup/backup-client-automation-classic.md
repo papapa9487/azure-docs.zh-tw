@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: saurse;markgal;nkolli;trinadhk
 ms.openlocfilehash: a8e20356ae383ee4fa2158ea544d5d0905028124
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 > [!div class="op_single_selector"]
@@ -535,7 +535,7 @@ PS C:\> $item = Get-OBRecoverableItem -RecoveryPoint $rps[0] -Location "D:\MyDat
 ```
 
 ### <a name="triggering-the-restore-process"></a>觸發還原程序
-為了觸發還原程序，我們首先需要指定復原選項。 使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) Cmdlet 可以完成這項工作。 在此範例中，我們假設要將檔案還原至 *C:\temp*。 另外假設要略過已經存在於目的地資料夾 *C:\temp* 中的檔案。 為了建立此復原選項，使用下列命令：
+為了觸發還原程序，我們首先需要指定復原選項。 使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) Cmdlet 可以完成這項工作。 在此範例中，我們假設要將檔案還原至 *C:\temp*。另外假設要略過已經存在於目的地資料夾 *C:\temp* 中的檔案。為了建立此復原選項，使用下列命令：
 
 ```
 PS C:\> $recovery_option = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip

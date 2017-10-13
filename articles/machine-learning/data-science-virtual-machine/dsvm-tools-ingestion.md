@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>資料科學虛擬機器資料擷取工具
 
 資料科學或 AI 專案中的第一個技術步驟是識別將使用的資料集，並將該資料集匯入分析環境。 資料科學虛擬機器 (DSVM) 提供工具和程式庫，可將不同來源的資料匯入 DSVM 本機的分析資料儲存體，或匯入雲端或內部部署的資料平台。 
@@ -98,4 +96,3 @@ ms.lasthandoff: 09/25/2017
 |  如何使用/執行它？    |   從 [開始] 功能表中啟動「Microsoft 資料管理閘道器」。    |
 | 範例的連結      | [資料管理閘道](https://msdn.microsoft.com/library/dn879362.aspx)      |
 | DSVM 上的相關工具      | AzCopy、AdlCopy、bcp    |
-

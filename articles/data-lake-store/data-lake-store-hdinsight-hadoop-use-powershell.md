@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
-ms.openlocfilehash: 7a7069adab5742a9dae2833c13a1db57337a41a0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 0e2e0d02677013252b0806558535fe970b5c50b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-powershell-to-create-an-hdinsight-cluster-with-data-lake-store-as-additional-storage"></a>使用 Azure PowerShell 建立 HDInsight 叢集搭配 Data Lake Store (做為附加儲存體)
 > [!div class="op_single_selector"]
@@ -269,4 +268,3 @@ Data Lake Store 對於支援的叢集類型，是做為預設儲存體或額外�
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx
-

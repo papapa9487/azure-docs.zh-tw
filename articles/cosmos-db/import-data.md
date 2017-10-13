@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/06/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: a60c47814da2660f17456f5e662f420adbb9158e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-import-data-into-azure-cosmos-db-with-the-documentdb-api"></a>如何使用 DocumentDB API 將資料匯入到 Azure Cosmos DB？
 
@@ -164,7 +163,7 @@ SQL 來源匯入工具選項可讓您從個別的 SQL Server 資料庫匯入，�
 
 巢狀分隔符號屬性可用來在匯入期間建立階層式關聯性 (子文件)。 請考慮下列 SQL 查詢：
 
-*select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'*
+<bpt id="p1">*</bpt>select CAST(BusinessEntityID AS varchar) as Id, Name, AddressType as [Address.AddressType], AddressLine1 as [Address.AddressLine1], City as [Address.Location.City], StateProvinceName as [Address.Location.StateProvinceName], PostalCode as [Address.PostalCode], CountryRegionName as [Address.CountryRegionName] from Sales.vStoreWithAddresses WHERE AddressType='Main Office'<ept id="p1">*</ept>
 
 它會傳回下列 (部分) 結果：
 
@@ -557,4 +556,3 @@ Azure Cosmos DB JSON 匯出工具可讓您將任何可用的來源選項匯出�
 
 > [!div class="nextstepaction"]
 >[如何查詢資料？](../cosmos-db/tutorial-query-documentdb.md)
-

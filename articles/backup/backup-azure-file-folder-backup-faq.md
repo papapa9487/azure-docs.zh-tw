@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
 ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。

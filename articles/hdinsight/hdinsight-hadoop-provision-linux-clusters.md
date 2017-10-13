@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: jgao
+ms.openlocfilehash: 8118570071aa5af6ec74c971a711b2eab07fb1b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8517c09d4dc4bd7907fc6e5260de119fbdd8f5e9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集
 
@@ -254,4 +253,3 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 - [什麼是 HDInsight、Hadoop 生態系統以及 Hadoop 叢集？](hdinsight-hadoop-introduction.md)
 - [開始在 HDInsight 中使用 Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 - [從 Windows PC 在 HDInsight 上的 Hadoop 中作業](hdinsight-hadoop-windows-tools.md)
-

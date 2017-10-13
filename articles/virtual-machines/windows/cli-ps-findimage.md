@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/12/2017
 ms.author: danlep
+ms.openlocfilehash: c9b35ff5f3fbd33639805b5a4f105df32562a691
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 630f555b003b0efc45b372a7009dbf036aa8c737
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>如何使用 Azure PowerShell 在 Azure Marketplace 中尋找 Windows VM 映像
 
@@ -159,4 +158,3 @@ Skus
 
 ## <a name="next-steps"></a>後續步驟
 現在，您可以精確地選擇想要使用的映像。 若要使用映像資訊快速建立虛擬機器，請參閱[使用 PowerShell 建立 Windows 虛擬機器](quick-create-powershell.md)。
-

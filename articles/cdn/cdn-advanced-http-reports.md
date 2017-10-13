@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 2dfbc046674b2da692f30c945aee3ea25ae524eb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>使用 Azure CDN 進階 HTTP 報告分析使用量統計資料
 ## <a name="overview"></a>概觀

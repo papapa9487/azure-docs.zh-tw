@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 04f79442b72a58abb0eba9c2162e0b7b9d390e41
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: 0e182e6b43fd2d17524c1da36cf4c204bb1b865a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -251,7 +250,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 **使用 Visual Studio 檢查記錄檔**
 
 1. 開啟 Visual Studio。
-2. 按一下 [檢視]，然後按一下 [伺服器總管]。
+2. 按一下 檢視，然後按一下伺服器總管。
 3. 以滑鼠右鍵按一下 [Azure]、按一下 [連接到 Microsoft Azure 訂用帳戶] ，然後輸入您的認證。
 4. 依序展開**儲存體**、做為預設檔案系統的 Azure 儲存體帳戶及**資料表**，然後按兩下資料表名稱。
 
@@ -314,4 +313,3 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 <!--Reference links in article-->
 [1]: https://msdn.microsoft.com/library/96xafkes(v=vs.110).aspx
-

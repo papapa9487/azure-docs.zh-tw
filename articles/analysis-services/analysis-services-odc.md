@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/23/2017
 ms.author: owend
 ms.openlocfilehash: 530f3b5c9e90cb45ffb6e12d0d08a35f8d687471
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-office-data-connection-file"></a>建立 Office 資料連線檔案
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/29/2017
 
 4. 以 `.odc` 副檔名將檔案儲存到 C:\Users\\*username*\Documents\My Data Sources 資料夾。
 
-5. 在檔案上按一下滑鼠右鍵，然後按一下 [在 Excel 中開啟]。 或在 Excel 的 [資料] 功能區上，按一下 [現有連線]，選取您的檔案，然後按一下 [開啟]。
+5. 在檔案上按一下滑鼠右鍵，然後按一下在 Excel 中開啟。 或在 Excel 的 資料 功能區上，按一下 現有連線，選取您的檔案，然後按一下開啟。
 
 
 

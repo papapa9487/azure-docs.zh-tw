@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 990215d9e82b67256363ff195d2af9a91dc0706a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -190,4 +189,3 @@ Kestrel 1.0.2 版已經修正這個問題。 此版本隨附於 ASP.NET Core 1.0
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>如何使用 Visual Studio 遠端偵錯我的 App Service Web 應用程式？
 
 如需示範如何使用 Visual Studio 偵錯 Web 應用程式的詳細逐步解說，請參閱[遠端偵錯您的 App Service Web 應用程式](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/)。
-

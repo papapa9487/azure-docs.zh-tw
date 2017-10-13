@@ -16,10 +16,10 @@ ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
 ms.openlocfilehash: 5f0b470bd46cfeaf00b3092dbe9db507ed50f622
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-spring-boot-application-on-linux-in-the-azure-container-service"></a>將 Spring Boot 應用程式部署到 Azure Container Service 中的 Linux
 
@@ -111,11 +111,11 @@ ms.lasthandoff: 08/18/2017
 
    ![建立新的 Azure Container Registry][AR02]
 
-1. 當 [建立容器登錄] 頁面顯示時，輸入您的 [登錄名稱] 和 [資源群組]，針對 [管理使用者] 選擇 [啟用]，然後按一下 [建立]。
+1. 當 建立容器登錄 頁面顯示時，輸入您的 登錄名稱 和 資源群組，針對 管理使用者 選擇 啟用，然後按一下建立。
 
    ![設定 Azure Container Registry 設定][AR03]
 
-1. 一旦建立容器登錄之後，瀏覽至 Azure 入口網站中的容器登錄，然後按一下 [存取金鑰]。 將後續步驟的使用者名稱和密碼記下。
+1. 一旦建立容器登錄之後，瀏覽至 Azure 入口網站中的容器登錄，然後按一下存取金鑰。 將後續步驟的使用者名稱和密碼記下。
 
    ![Azure Container Registry 存取金鑰][AR04]
 

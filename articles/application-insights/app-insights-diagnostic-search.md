@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
 ms.openlocfilehash: e2d12f807756b778a64920b12a66fba184a99844
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-search-in-application-insights"></a>在 Application Insights 中使用搜尋
 「搜尋」是 [Application Insights](app-insights-overview.md) 的一項功能，可用來尋找及探索個別遙測項目，例如頁面檢視、例外狀況或 Web 要求。 而您可以檢視所編寫的記錄追蹤和事件。
@@ -57,7 +57,7 @@ ms.lasthandoff: 08/18/2017
 ## <a name="inspect-individual-items"></a>檢查個別項目
 選取任何遙測項目來查看重要欄位和相關項目。 如果您想要查看完整的欄位集合，請按一下 "..."。 
 
-![按一下 [新增工作項目]、編輯欄位，然後按一下 [確定]。](./media/app-insights-diagnostic-search/10-detail.png)
+![按一下 新增工作項目、編輯欄位，然後按一下確定。](./media/app-insights-diagnostic-search/10-detail.png)
 
 ## <a name="filter-event-types"></a>篩選事件類型
 開啟 [篩選器] 分頁並選擇要查看的事件類型。 (如果之後想要還原您所開啟分頁的篩選器，請按一下 [重設]。)
@@ -139,7 +139,7 @@ ms.lasthandoff: 08/18/2017
 ## <a name="create-work-item"></a>建立工作項目
 您可以利用來自任何遙測項目的詳細資料，在 GitHub 或 Visual Studio Team Services 中建立 Bug。 
 
-![按一下 [新增工作項目]、編輯欄位，然後按一下 [確定]。](./media/app-insights-diagnostic-search/42.png)
+![按一下 新增工作項目、編輯欄位，然後按一下確定。](./media/app-insights-diagnostic-search/42.png)
 
 當您第一次執行此動作時，系統會要求您設定與您 Team Services 帳戶和專案的連結。
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/02/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: 0298a93da0d8cd0b1f2e15146a708c8dd6ecb8e6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 轉送教學課程
 
@@ -49,13 +48,13 @@ ms.lasthandoff: 09/27/2017
 ### <a name="create-a-relay-contract-with-an-interface"></a>使用介面建立轉送合約
 
 1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後選取 [以系統管理員身分執行]。
-2. 這會建立新的主控台應用程式專案。 按一下 [檔案] 功能表，選取 [新增]，然後按一下 [專案]。 在 [新增專案] 對話方塊中，按一下 **Visual C#** (如果 **Visual C#** 未出現，請查看 [其他語言] 下方)。 按一下 [主控台應用程式 (.NET Framework)] 範本，並將它命名為 **EchoService**。 按一下 [確定]  以建立專案。
+2. 這會建立新的主控台應用程式專案。 按一下 檔案 功能表，選取 新增，然後按一下專案。 在 [新增專案] 對話方塊中，按一下 **Visual C#** (如果 **Visual C#** 未出現，請查看 [其他語言] 下方)。 按一下 [主控台應用程式 (.NET Framework)] 範本，並將它命名為 **EchoService**。 按一下 [確定]  以建立專案。
 
     ![][2]
 
 3. 安裝服務匯流排 NuGet 套件。 此套件會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。 服務匯流排會使用 WCF 的許多物件和屬性來定義服務合約。
 
-    在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 套件]。按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 確定已在 [版本] 方塊中選取此專案名稱。 按一下 [安裝] 並接受使用條款。
+    在 方案總管 中，以滑鼠右鍵按一下專案，然後按一下管理 NuGet 套件。按一下 瀏覽 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 確定已在 [版本] 方塊中選取此專案名稱。 按一下 [安裝] 並接受使用條款。
 
     ![][3]
 4. 在 [方案總管] 中，按兩下 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
@@ -412,13 +411,13 @@ namespace Microsoft.ServiceBus.Samples
 
 1. 若要在目前的 Visual Studio 方案中為用戶端建立新專案，請執行下列作業︰
 
-   1. 在方案總管中含有服務的相同方案中，以滑鼠右鍵按一下目前的方案 (而非專案)，然後按一下 [加入]。 然後按一下 [新增專案]。
+   1. 在方案總管中含有服務的相同方案中，以滑鼠右鍵按一下目前的方案 (而非專案)，然後按一下 [加入]。 然後按一下新增專案。
    2. 在 [新增專案] 對話方塊中，按一下 [Visual C#] \(如果 **Visual C#** 未出現，請在 [其他語言] 下尋找)，選取 [主控台應用程式 (.NET Framework)] 範本，並將它命名為 **EchoClient**。
    3. 按一下 [確定]。
       <br />
 2. 在 [方案總管] 中，按兩下 **EchoClient** 專案中的 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
 3. 將命名空間名稱從 `EchoClient` 的預設名稱變更為 `Microsoft.ServiceBus.Samples`。
-4. 安裝[服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)：在 [方案總管] 中，以滑鼠右鍵按一下 **EchoClient** 專案，然後按一下 [管理 NuGet 封裝]。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
+4. 安裝[服務匯流排 NuGet 封裝](https://www.nuget.org/packages/WindowsAzure.ServiceBus)：在 [方案總管] 中，以滑鼠右鍵按一下 **EchoClient** 專案，然後按一下管理 NuGet 封裝。 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 按一下 [安裝] 並接受使用條款。
 
     ![][3]
 5. 在 Program.cs 檔案中加入 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 命名空間的 `using` 陳述式。
@@ -727,4 +726,3 @@ namespace Microsoft.ServiceBus.Samples
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
 [5]: ./media/service-bus-relay-tutorial/set-projects.png
 [6]: ./media/service-bus-relay-tutorial/set-depend.png
-

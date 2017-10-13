@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/21/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
+ms.openlocfilehash: 6a73f7e83abc793eafcf762a592bd975d00eaf88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: e05d24655149dc03cfd435fbc07539d91f2e1502
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-linux-containers"></a>部署適用於 Linux 容器的 Kubernetes 叢集
 
 本快速入門中會使用 Azure CLI 來部署 Kubernetes 叢集。 接著，在叢集上部署和執行多容器應用程式，其中包含 Web 前端和 Redis 執行個體。 完成後，即可透過網際網路來存取應用程式。 
@@ -230,4 +228,3 @@ az group delete --name myResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [管理 ACS Kubernetes 叢集](./container-service-tutorial-kubernetes-prepare-app.md)
-

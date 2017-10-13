@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: anupams;v-bruham;garye
 ms.openlocfilehash: 9f867641b77c8148c1d6cbf2913da9c1f5ce5b71
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-appsource-publishing-guide"></a>Cortana Intelligence AppSource 發佈指南
 
@@ -78,7 +78,7 @@ AppSource 是業務決策者 (BDM) 能探索及順利嘗試由合作夥伴所建
 ## <a name="provide-info-for-microsoft-sellers"></a>提供資訊給 Microsoft 銷售者
 AppSource 對於合作夥伴的其中一個重要價值主張，是能夠與 Microsoft 銷售者共同合作，將合作夥伴應用程式呈現給潛在客戶。
 
-填寫[提供給 Microsoft 銷售者的合作夥伴解決方案資訊](https://aka.ms/aapartnerappinfo) \(英文\) 並傳送至 [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs)。 這是讓 Cortana Intelligence 應用程式獲得發佈核准的必要步驟。
+填寫[提供給 Microsoft 銷售者的合作夥伴解決方案資訊](https://aka.ms/aapartnerappinfo) \(英文\) 並傳送至 [appsourcecissupport@microsoft.com](mailto:appsourcecissupport@microsoft.com?subject=Request%20publisher%20account%20creation%20for%20%3cPartner%20Name%3e%20and%20whitelist%20owner/contributer%20AAD/MSA%20email%20IDs)。這是讓 Cortana Intelligence 應用程式獲得發佈核准的必要步驟。
 
 ## <a name="build-a-compelling-customer-walkthrough-on-appsource"></a>在 AppSource 上建置極具吸引力的客戶逐步解說
 首先，請先看看 AppSource 上的 [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/en-us/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) \(英文\)。 除了試用體驗的進入點之外，AppSource 中的每個應用程式項目都有標題、摘要 (最多 100 個字元)、描述 (最多 1300 個字元)、影像、影片 (選擇性)、PDF 文件。 合作夥伴應充分利用這些項目，來建置極具吸引力的客戶體驗。

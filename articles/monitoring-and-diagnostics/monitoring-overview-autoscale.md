@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/02/2016
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: ed9bfe928699d040aa4283da5a8690318932738c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 413828d79d79c181c662bc7cfb4114345de57f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
 本文說明何謂 Microsoft Azure 自動調整、其優點，以及如何開始使用它。  
@@ -125,4 +124,3 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 * [使用自動調整動作傳送電子郵件和 Webhook 警示通知](insights-autoscale-to-webhook-email.md)
 * [自動調整 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
 * [排解虛擬機器擴展集自動調整的問題](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
-

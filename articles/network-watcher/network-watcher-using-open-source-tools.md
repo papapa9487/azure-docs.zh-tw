@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 50d82847fb629880f298f79f9ab791a13836f01c
-ms.openlocfilehash: e27bb694d0cbcf1ff7c9d8ca4682a79c8b5c5cb1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 61abda6053fe743e294f309df3a6e1041052ec6e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用開放原始碼工具將往返於 VM 的網路流量模式視覺化
 
 封包擷取包含的網路資料可讓您執行網路鑑識和深入的封包檢查。 有許多開啟原始碼工具可用來分析封包擷取，以深入探索您的網路。 例如 CapAnalysis，一個開放原始碼封包擷取視覺效果工具。 將封包擷取資料視覺化有助於快速深入探索網路內的模式和異常。 視覺效果也可讓您輕鬆分享這種深入解析。
@@ -111,4 +109,3 @@ CapAnalysis 提供各種選項將封包擷取視覺化，各以不同的觀點�
 [9]: ./media/network-watcher-using-open-source-tools/figure9.png
 [10]: ./media/network-watcher-using-open-source-tools/figure10.png
 [11]: ./media/network-watcher-using-open-source-tools/figure11.png
-

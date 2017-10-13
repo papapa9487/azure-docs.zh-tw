@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/21/2017
 ms.author: xshi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: b9e842a93dfdb7699158a11978aa622c31382d28
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/26/2017
-
+ms.openlocfilehash: 1a3a92ab8d08c6ed6f047208217c46022027157e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-intel-nuc-as-an-iot-gateway"></a>將 Intel NUC 設定為 IoT 閘道器
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -174,5 +173,4 @@ vim log.txt
 
 ## <a name="next-steps"></a>後續步驟
 [使用 IoT 閘道將裝置連線到 Azure IoT 中樞](iot-hub-gateway-kit-c-iot-gateway-connect-device-to-cloud.md)
-
 

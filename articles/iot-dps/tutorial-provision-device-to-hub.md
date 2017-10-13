@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: bf50699d2dc67294d554ba15713254a8b88d8ade
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中樞裝置佈建服務將裝置佈建到 IoT 中樞
 
 在上一個教學課程中，您已了解如何將裝置設定為連線到裝置佈建服務。 在本教學課程中，您將了解如何使用這項服務，以透過**_註冊清單_**將裝置佈建到單一 IoT 中樞。 本教學課程說明如何：
@@ -106,4 +104,3 @@ ms.lasthandoff: 09/06/2017
 
 > [!div class="nextstepaction"]
 > [跨負載平衡 IoT 中樞來佈建裝置](./tutorial-provision-multiple-hubs.md)
-

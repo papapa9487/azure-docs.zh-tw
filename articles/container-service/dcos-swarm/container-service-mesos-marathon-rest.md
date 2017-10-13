@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 04/04/2017
 ms.author: danlep
 ms.custom: mvc
+ms.openlocfilehash: 65f8e0170fa7b89162e811a1d5dd58775fd20d7b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fea76427d45a72fe3f0a42082373162f24221094
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dcos-container-management-through-the-marathon-rest-api"></a>透過 Marathon REST API 的 DC/OS 容器管理
 DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體抽象化。 在 DC/OS 之上有架構會管理排程和執行計算工作負載。 雖然許多常見的工作負載都有可用的架構，但這份文件只能讓您使用 Marathon REST API 來開始建立及調整容器部署。 
@@ -198,5 +197,4 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 Mesos HTTP 端點](http://mesos.apache.org/documentation/latest/endpoints/)
 * [深入了解 Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
-
 

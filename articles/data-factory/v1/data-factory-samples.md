@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2e1024924b96cf2c86c9dec8d199a0b7ea2422c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory - 範例
 ## <a name="samples-on-github"></a>GitHub 上的範例
@@ -83,7 +82,7 @@ ms.lasthandoff: 09/25/2017
 * 下載適用於 Visual Studio 的最新 Azure Data Factory 外掛程式：[VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) 或 [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005)。 如果您使用的是 Visual Studio 2013，您也可以執行下列步驟來更新外掛程式：在功能表上，按一下 [工具] -> [擴充功能和更新] -> [線上] -> [Visual Studio 組件庫] -> [Microsoft Azure Data Factory Tools for Visual Studio] -> [更新]。
 
 ### <a name="use-data-factory-templates"></a>使用 Data Factory 範本
-1. 在功能表上按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
+1. 在功能表上按一下 檔案，指向 新增，然後按一下專案。
 2. 在 [新增專案] 對話方塊中，執行下列步驟：
 
    1. 在 [範本] 底下選取 [DataFactory]。
@@ -123,4 +122,3 @@ ms.lasthandoff: 09/25/2017
 16. 在 [部署狀態]  頁面上，您應該會看到部署程序的狀態。 部署完成後按一下 [完成]。
 
 如需有關使用 Visual Studio 來撰寫 Data Factory 實體並將其發行至 Azure 的詳細資料，請參閱 [建置您的第一個 Data Factory (Visual Studio)](data-factory-build-your-first-pipeline-using-vs.md) 。          
-

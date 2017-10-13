@@ -16,10 +16,10 @@ ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
 ms.openlocfilehash: e71ea1d23f68ed41c03bbce88b08863d2831c1bd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="drivers-for-azure-sql-data-warehouse"></a>適用於 Azure SQL 資料倉儲的驅動程式
 您可以使用數個不同的應用程式通訊協定 (例如 [ADO.NET][ADO.NET]、[ODBC][ODBC]、[PHP][PHP] 及 [JDBC][JDBC]) 連線到 SQL 資料倉儲。 以下是每個通訊協定連接字串的一些範例。  您也可以使用 Azure 入口網站來建立連接字串。  若要使用 Azure 入口網站建置連接字串，請瀏覽至您資料庫的刀鋒視窗，在 [程式集] 底下，按一下 [顯示資料庫連接字串]。

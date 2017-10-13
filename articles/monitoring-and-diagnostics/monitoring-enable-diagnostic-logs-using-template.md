@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/30/2017
 ms.author: johnkem
+ms.openlocfilehash: 2f764bc14e882f71957299b833d5bc1a6765622a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: dde2435e976bbd14ca35cccc714ea21dcc5817b7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
 在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
@@ -241,5 +240,4 @@ ms.lasthandoff: 08/08/2017
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 Azure 診斷記錄檔](monitoring-overview-of-diagnostic-logs.md)
 * [將 Azure 診斷記錄檔串流至事件中樞](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-
 

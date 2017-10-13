@@ -1,29 +1,27 @@
 ---
 title: "使用 Azure 備份還原 VM 磁碟 | Microsoft Docs"
 description: "了解如何還原磁碟，並在 Azure 中使用備份與復原服務建立 VM。"
-services: virtual-machines, azure-backup
+services: backup, virtual-machines
 documentationcenter: virtual-machines
 author: iainfoulds
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager, virtual-machine-backup
 ms.assetid: 
-ms.service: virtual-machines, azure-backup
+ms.service: backup, virtual-machines
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/19/2017
+ms.date: 09/28/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 01c266fcede8e4783cdea529bd1e7e9301bb23e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: a704d3f9e37951e38fb395612e001501f322d754
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restore-a-disk-and-create-a-recovered-vm-in-azure"></a>在 Azure 中還原磁碟並建立已復原的 VM
 Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當您從復原點還原時，可以還原整個 VM 或個別檔案。 本文說明如何還原完整的 VM。 在本教學課程中，您了解如何：
 
@@ -52,7 +50,7 @@ Azure 備份會建立復原點，並儲存在異地備援復原保存庫。 當�
 ## <a name="list-available-recovery-points"></a>列出可用的復原點
 若要還原磁碟，您可選取復原點作為復原資料的來源。 由於預設原則會每天建立復原點並保留 30 天，您可保留一組復原點，讓您選取特定的時間點進行復原。 
 
-若要查看可用的復原點清單，請使用 **az backup recoverypoint list**。 復原點**名稱**用來復原磁碟。 在本教學課程中，我們需要最近可用的復原點。 `--query [0].name` 參數可選取最近的復原點名稱，如下所示：
+若要查看可用的復原點清單，請使用 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list)。 復原點**名稱**用來復原磁碟。 在本教學課程中，我們需要最近可用的復原點。 `--query [0].name` 參數可選取最近的復原點名稱，如下所示：
 
 ```azurecli-interactive
 az backup recoverypoint list \
@@ -68,7 +66,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>還原 VM 磁碟
 若要從復原點還原您的磁碟，您可以先建立 Azure 儲存體帳戶。 此儲存體帳戶用來儲存已還原的磁碟。 在其他步驟中，已還原的磁碟用來建立 VM。
 
-1. 若要建立儲存體帳戶，請使用 [az storage account create](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create)。 儲存體帳戶名稱必須全部小寫，並且是全域唯一的。 以自己的唯一名稱取代 *mystorageaccount*：
+1. 若要建立儲存體帳戶，請使用 [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_create)。 儲存體帳戶名稱必須全部小寫，並且是全域唯一的。 以自己的唯一名稱取代 *mystorageaccount*：
 
     ```azurecli-interactive
     az storage account create \
@@ -77,7 +75,7 @@ az backup recoverypoint list \
         --sku Standard_LRS
     ```
 
-2. 使用 **az backup restore restore-disks** 從您的復原點還原磁碟。 以您在上一個命令中建立的儲存體帳戶名稱取代 *mystorageaccount*。 以您在先前 **az backup recoverypoint list** 命令的輸出中取得的復原點名稱取代 *myRecoveryPointName*：
+2. 使用 [az backup restore restore-disks](https://docs.microsoft.com/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks) 從您的復原點還原磁碟。 以您在上一個命令中建立的儲存體帳戶名稱取代 *mystorageaccount*。 以您在先前 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az_backup_recoverypoint_list) 命令的輸出中取得的復原點名稱取代 *myRecoveryPointName*：
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -91,7 +89,7 @@ az backup recoverypoint list \
 
 
 ## <a name="monitor-the-restore-job"></a>監視還原作業
-若要監視還原作業的狀態，請使用 **az backup job list**：
+若要監視還原作業的狀態，請使用 [az backup job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az_backup_job_list)：
 
 ```azurecli-interactive 
 az backup job list \
@@ -116,7 +114,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 ## <a name="convert-the-restored-disk-to-a-managed-disk"></a>將還原的磁碟轉換成受控磁碟
 還原作業會建立非受控磁碟。 若要從磁碟建立 VM，它必須先轉換成受控磁碟。
 
-1. 使用 [az storage account show-connection-string](/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string) 取得儲存體帳戶的連接字串。 以您的儲存體帳戶名稱取代 *mystorageaccount*，如下所示：
+1. 使用 [az storage account show-connection-string](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az_storage_account_show_connection_string) 取得儲存體帳戶的連接字串。 以您的儲存體帳戶名稱取代 *mystorageaccount*，如下所示：
     
     ```azurecli-interactive
     export AZURE_STORAGE_CONNECTION_STRING=$( az storage account show-connection-string \
@@ -133,7 +131,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
     uri=$(az storage blob url --container-name $container --name $blob -o tsv)
     ```
 
-3. 您現在可以使用 [az disk create](/cli/azure/disk?view=azure-cli-latest#az_disk_create)，從已復原的磁碟建立受控磁碟。 上一個步驟中的 *Uri* 變數會作為受控磁碟的來源。
+3. 您現在可以使用 [az disk create](https://docs.microsoft.com/cli/azure/disk?view=azure-cli-latest#az_disk_create)，從已復原的磁碟建立受控磁碟。 上一個步驟中的 *Uri* 變數會作為受控磁碟的來源。
 
     ```azurecli-interactive
     az disk create \
@@ -183,5 +181,4 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 > [!div class="nextstepaction"]
 > [在 Azure 中將檔案還原到虛擬機器](tutorial-restore-files.md)
-
 

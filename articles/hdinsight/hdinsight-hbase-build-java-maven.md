@@ -17,10 +17,10 @@ ms.date: 02/05/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
 ms.openlocfilehash: 59c9af5a91b107e68a676f02fe5a936f955b22fa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>使用 Maven 建置搭配使用 HBase 和以 Window 為基礎的 HDInsight (Hadoop) 的 Java 應用程式
 了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
@@ -596,7 +596,7 @@ ms.lasthandoff: 08/03/2017
 
     將 **hdinsightclustername** 換成您的 HDInsight 叢集名稱。
 
-    此命令會使用 **SearchByEmail** 類別來搜尋資料行系列 **contactinformation**、資料行 **email** 包含字串 **contoso.com** 的任何資料列。 您應該會得到下列結果：
+    此命令會使用 **SearchByEmail** 類別來搜尋資料行系列 **contactinformation**、資料行 **email** 包含字串 **contoso.com** 的任何資料列。您應該會得到下列結果：
 
           Franklin Holtz - ID: 2
           Franklin Holtz - franklin@contoso.com - ID: 2

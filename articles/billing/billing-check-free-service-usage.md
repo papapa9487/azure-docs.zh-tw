@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
+ms.openlocfilehash: 27ff6c92904a0b32cd4a37c8b1930adc121a7231
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e70a2378d1eda6aac01d5f5e5e449bb88f359dc6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>檢查 Azure 免費帳戶隨附的免費服務使用量 
 
@@ -72,4 +71,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
 如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
-

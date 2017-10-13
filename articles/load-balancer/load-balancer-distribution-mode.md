@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-distribution-mode-for-load-balancer"></a>設定負載平衡器的分配模式
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -168,4 +166,3 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
 [開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-

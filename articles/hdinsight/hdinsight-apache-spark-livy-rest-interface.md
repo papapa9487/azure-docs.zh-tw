@@ -18,10 +18,10 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
 ms.openlocfilehash: e1a28d69bbf40ea3134a7899a0d2fe70e5fc9e71
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -165,7 +165,7 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 
 1. 移至叢集的 Ambari 入口網站。 Ambari Web UI 位在您的 HDInsight 叢集的 https://**CLUSTERNAME**.azurehdidnsight.net，其中 CLUSTERNAME 是您的叢集的名稱。
 
-2. 在左側導覽中，按一下 [Livy]，然後按一下 [設定]。
+2. 在左側導覽中，按一下 Livy，然後按一下設定。
 
 3. 在 [livy-default] 底下新增屬性名稱 `livy.file.local-dir-whitelist`，如果您想要允許存取整個檔案系統，可將其值設為 **"/"**。 如果您只想要允許存取特定目錄，請將值設為該目錄的路徑。
 

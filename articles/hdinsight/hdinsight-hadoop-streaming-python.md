@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.openlocfilehash: b86605c49291a99f49c4b2841d46324cfd0db56d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>開發 HDInsight 的 Python 串流處理 MapReduce 程式
 
@@ -132,11 +132,11 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
 若要確保您的檔案有正確的行尾結束符號，請使用下列 PowerShell 指令碼︰
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
 使用下列 PowerShell 指令碼來上傳檔案、執行作業，以及檢視輸出︰
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
 ## <a name="run-from-an-ssh-session"></a>從 SSH 工作階段執行
 

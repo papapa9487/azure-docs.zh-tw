@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: d70186513b7313c8181092bc93a723f21154f7bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 038bb4cf0a9278416261c05ddaa0ee97d83b63c5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-a-github-webhook"></a>建立由 GitHub Webhook 所觸發的函式
 
@@ -88,7 +87,7 @@ ms.lasthandoff: 08/21/2017
 
 1. 在 GitHub 存放庫的新瀏覽器視窗中開啟 [問題] 索引標籤。
 
-1. 在新視窗中，按一下 [新增問題]，輸入標題，然後按一下 [提交新問題]。
+1. 在新視窗中，按一下 新增問題，輸入標題，然後按一下提交新問題。
 
 1. 在問題中輸入註解，然後按一下 [註解] 。
 
@@ -109,4 +108,3 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 如需 Webhook 觸發程序的詳細資訊，請參閱 [Azure Functions HTTP 和 Webhook 繫結](functions-bindings-http-webhook.md)。
-

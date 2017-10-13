@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/07/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 218e818f48adee0b4e7ecb0b184098a9e3273afd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲
 
@@ -245,4 +244,3 @@ REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢�
 了解如何[使用 Maven 開發 Java 型拓撲](hdinsight-storm-develop-java-topology.md)。
 
 若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](hdinsight-storm-example-topology.md)。
-

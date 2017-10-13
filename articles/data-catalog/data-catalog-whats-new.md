@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 09/06/2017
 ms.author: maroche
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 7259505b68202f3741e64e86555d2e3f968b8951
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 資料目錄的新功能
 **Azure 資料目錄** 的更新會定期發行。 並非所有發行版本都會包含新的使用者對應功能，某些版本會著重在後端服務功能。 本頁特別強調已加入 Azure 資料目錄服務的新使用者對應功能。
@@ -264,5 +263,4 @@ Azure 資料目錄於 2017 年 9 月新增了下列功能：
 * 我們已將新的「使用者」按鈕和功能表加入我們的上方導覽列中。 此功能表可讓使用者查看用來登入 Azure 資料目錄的帳戶，以及在必要時登出。 此功能表也會顯示目錄名稱，這可為使用 Azure 資料目錄 REST API 的開發人員提供實用資訊。
 * 僅限標準版：將擁有者新增至資料資產時，Azure 資料目錄現在可同時支援將使用者帳戶和安全性群組做為擁有者。 若要將安全性群組加入並使其成為所選資料資產的擁有者，您可以輸入群組的顯示名稱或群組的 UPN 電子郵件地址 (如果有的話)。
 * 支援 Azure Blob 儲存體的資料來源。 使用者現在可以註冊並探索 Azure 儲存體 Blob 和目錄。
-
 

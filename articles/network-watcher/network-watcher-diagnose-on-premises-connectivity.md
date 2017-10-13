@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 94658dfcf93e821e24cabb1f010f8dce0c014700
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
 
 Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網路與 Azure 虛擬網路之間的安全連線需求。 由於這項需求很獨特，所以選擇的內部部署 VPN 裝置也很獨特。 Azure 目前支援與裝置廠商合作來持續驗證的[數個 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 請先檢閱裝置特定的組態設定，再設定內部部署 VPN 裝置。 同樣地，Azure VPN 閘道也使用一組用於建立連線的[受支援 IPsec 參數](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)來進行設定。 目前您無法指定或選取來自 Azure VPN 閘道之 IPsec 參數的特定組合。 若要在內部部署環境與 Azure 之間成功建立連線，內部部署 VPN 裝置設定必須符合 Azure VPN 閘道所規定的 IPsec 參數。 如果設定不正確，連線會中斷，而且到目前為止，針對這些問題進行疑難排解並不容易，而且通常需要好幾個小時才能識別並修正問題。
@@ -115,4 +113,3 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 瀏覽[使用 Azure 網路監看員疑難排解來監視 VPN 閘道](network-watcher-monitor-with-azure-automation.md)，以了解如何利用 PowerShell 和 Azure 自動化來檢查 VPN 閘道連線
 
 [1]: ./media/network-watcher-diagnose-on-premises-connectivity/figure1.png
-

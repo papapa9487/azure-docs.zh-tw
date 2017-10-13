@@ -15,13 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Azure 搜尋服務：程式碼範例、示範、影片和教學課程
 透過下列影片、示範、教學課程和範例應用程式更快上手。
@@ -102,5 +100,4 @@ Azure 搜尋服務的多重工作階段示範和實驗室。
 | [如何將建議加入您的搜尋應用程式中](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |了解如何實作建議，其通常稱作自動完成。 這段示範影片逐步解說的數個主題，包括建立善用 Azure 搜尋服務建議的 MVC4 應用程式、使用 Twitter typeahead.js 程式庫在 JavaScript 中建置有效的自動建議元件，以及使用模糊建議以便您在使用者拼錯字時仍可回傳建議。 |
 | [TechNet 虛擬實驗室：建置 Microsoft Azure 搜尋應用程式](http://go.microsoft.com/?linkid=9874663) |提供開發環境、工具、文件和資料的虛擬實驗室。 您將需要 Azure 帳戶 (試用版訂用帳戶或您個人的 Azure 訂用帳戶皆可) 來完成實驗室。 |
 | [以 Azure 搜尋同步處理 SQL Server 資料](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |說明如何將資料從 SQL 伺服器關聯式資料庫載入至 Azure 搜尋索引的部落格文章。 |
-
 

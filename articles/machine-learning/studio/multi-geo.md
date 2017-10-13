@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/6/2017
 ms.author: tedway; neerajkh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4941ccf8c6d7a0c77527e9c1d722bc3a770114a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-geo-help-documentation"></a>Multi-Geo 說明文件
 本文將說明如何在不同的 Azure 區域中建立工作區及發佈 Web 服務。  [依區域的 Azure 產品頁面](https://azure.microsoft.com/en-us/regions/services/)會列出可以使用 Azure Machine Learning 的區域。
@@ -29,7 +28,7 @@ ms.lasthandoff: 09/25/2017
 1. 登入 Azure 傳統入口網站。
 2. 按一下 [+ 新增] > [資料服務] > [機器學習服務] > [快速建立]。  在 [位置] 選取另一個區域，例如 [東南亞]。
    ![Multi-Geo 說明影像 1][1]
-3. 選取工作區，然後按一下 [登入 ML Studio] 。
+3. 選取工作區，然後按一下登入 ML Studio 。
    ![Multi-Geo 說明影像 2][2]
 4. 您現在已於其他地區中建立工作區，您可如同任何其他工作區一樣使用。 若要切換工作區，請查看您螢幕的右上方。 按一下下拉式清單，選取 [區域]，然後選取 [工作區]。 其中每一項都位於該工作區區域。  例如，所有已從工作區建立的 Web 服務會與工作區位於相同區域。
    ![Multi-Geo 說明影像 3][3]
@@ -59,4 +58,3 @@ ms.lasthandoff: 09/25/2017
 [2]: ./media/multi-geo/multi-geo_2.png
 [3]: ./media/multi-geo/multi-geo_3.png
 [4a]: ./media/multi-geo/multi-geo_4a.png
-

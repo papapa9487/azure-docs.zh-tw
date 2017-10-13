@@ -15,16 +15,15 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f324f73b5b22e0a58736a2f9d431d5c79dd7e9ee
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---net-api-change-log"></a>Azure Data Factory - .NET API 變更記錄
 > [!NOTE]
-> 本文章適用於已正式推出 (GA) 的 Data Factory 第 1 版。 
+> 本文適用於正式推出 (GA) 的第 1 版 Data Factory。 
 
 本文章提供 Azure Data Factory SDK 在特定版本中有何變更的相關資訊。 您可以在 [這裡](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactories)
 
@@ -186,4 +185,3 @@ ms.lasthandoff: 09/25/2017
 ### <a name="feature-additions"></a>新增功能
 * [SqlDWSink](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsink.aspx) 類別支援兩個新屬性 ( **SliceIdentifierColumnName** 和 **SqlWriterCleanupScript**)，以支援將資料等冪複製到 Azure SQL 資料倉儲。 如需有關這些屬性的詳細資料，請參閱 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md)文章。
 * 我們現在支援對 Azure SQL Database 和 Azure SQL 資料倉儲的來源執行預存程序，做為複製活動的一部分。 [SqlSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqlsource.aspx) 和 [SqlDWSource](https://msdn.microsoft.com/library/azure/microsoft.azure.management.datafactories.models.sqldwsource.aspx) 類別具有下列屬性：**SqlReaderStoredProcedureName** 和 **StoredProcedureParameters**。 如需這些屬性的詳細資料，請參閱 Azure.com 上的 [Azure SQL Database](data-factory-azure-sql-connector.md#sqlsource) 和 [Azure SQL 資料倉儲](data-factory-azure-sql-data-warehouse-connector.md#sqldwsource)文章。  
-

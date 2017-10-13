@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 14d969ecaf1f24a0bb34da4abe78d83f08627796
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Apache Spark 串流：在 HDInsight 上使用 Spark 叢集處理來自 Azure 事件中樞的資料
 
@@ -74,11 +73,11 @@ ms.lasthandoff: 09/13/2017
 4. 在事件中樞命名空間清單中，按一下新建立的命名空間。      
 
 
-5. 在 [命名空間] 刀鋒視窗中，按一下 [事件中樞]，然後按一下 [+ 事件中樞] 來建立新的事件中樞。
+5. 在 命名空間 刀鋒視窗中，按一下 事件中樞，然後按一下+ 事件中樞 來建立新的事件中樞。
    
     ![建立 Spark 串流範例的事件中樞](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-open-event-hubs-blade-for-spark-streaming-example.png "建立 Spark 串流範例的事件中樞")
 
-6. 輸入事件中樞的名稱、將分割區計數設為 10，並將訊息保留期設為 1。 我們並未在此解決方案中保存訊息，因此您可以讓其餘項目保留為預設值，然後按一下 [建立]。
+6. 輸入事件中樞的名稱、將分割區計數設為 10，並將訊息保留期設為 1。 我們並未在此解決方案中保存訊息，因此您可以讓其餘項目保留為預設值，然後按一下建立。
    
     ![提供 Spark 串流範例的事件中樞詳細資料](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "提供 Spark 串流範例的事件中樞詳細資料")
 
@@ -86,7 +85,7 @@ ms.lasthandoff: 09/13/2017
     
      ![檢視 Spark 串流範例的事件中樞](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-view-event-hub-for-spark-streaming-example.png "檢視 Spark 串流範例的事件中樞")
 
-8. 回到命名空間刀鋒視窗 (而不是特定事件中樞刀鋒視窗)，按一下 [共用存取原則]，然後按一下 [RootManageSharedAccessKey]。
+8. 回到命名空間刀鋒視窗 (而不是特定事件中樞刀鋒視窗)，按一下 共用存取原則，然後按一下RootManageSharedAccessKey。
     
      ![設定 Spark 串流範例的事件中樞原則](./media/hdinsight-apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "設定 Spark 串流範例的事件中樞原則")
 
@@ -221,11 +220,11 @@ ssc.awaitTermination()
 
 以 Scala 撰寫的 Spark 串流範例應用程式 (它會接收事件並路由傳送至不同的目的地) 可在下列位置取得：[https://github.com/hdinsight/spark-streaming-data-persistence-examples](https://github.com/hdinsight/spark-streaming-data-persistence-examples)。 請遵循下列步驟來更新事件中樞設定的應用程式，並建立輸出 jar。
 
-1. 啟動 IntelliJ IDEA，並在啟動畫面中選取 [從版本控制簽出]，然後按一下 [Git]。
+1. 啟動 IntelliJ IDEA，並在啟動畫面中選取 從版本控制簽出，然後按一下Git。
    
     ![Apache Spark 串流範例 - 從 Git 取得來源](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-get-source-from-git.png "Apache Spark 串流範例 - 從 Git 取得來源")
 
-2. 在 [複製儲存機制] 對話方塊中，提供要從中複製之 Git 儲存機制的 URL、指定要複製到的目錄，然後按一下 [複製]。
+2. 在 複製儲存機制 對話方塊中，提供要從中複製之 Git 儲存機制的 URL、指定要複製到的目錄，然後按一下複製。
    
     ![Apache Spark 串流範例 - 從 Git 複製](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-clone-from-git.png "Apache Spark 串流範例 - 從 Git 複製")
 3. 依照提示操作，直到專案複製完成。 按 **Alt + 1** 以開啟 [專案檢視]。 其內容應如下所示。
@@ -251,22 +250,22 @@ ssc.awaitTermination()
 
 7. 建立輸出 jar 檔案。 請執行下列步驟：
 
-   1. 在 [專案結構] 對話方塊中，按一下 [構件]，然後按一下加號。 在快顯對話方塊中按一下 [JAR]，然後按一下 [從具有相依性的模組]。      
+   1. 在 [專案結構] 對話方塊中，按一下 [構件]，然後按一下加號。 在快顯對話方塊中按一下 JAR，然後按一下從具有相依性的模組。      
        
        ![Apache Spark 串流範例 - 建立 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Apache Spark 串流範例 - 建立 jar")
    2. 在 [從模組建立 JAR] 對話方塊中，對 [主要類別] 按一下省略符號 (![ellipsis](./media/hdinsight-apache-spark-eventhub-streaming/ellipsis.png))。
-   3. 在 [選取主要類別] 對話方塊中，選取任何可用的類別，然後按一下 [確定]。
+   3. 在 選取主要類別 對話方塊中，選取任何可用的類別，然後按一下確定。
       
        ![Apache Spark 串流範例 - 選取 jar 的類別](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-select-class-for-jar.png "Apache Spark 串流範例 - 選取 jar 的類別")
-   4. 在 [從模組建立 JAR] 對話方塊中，確定已選取 [擷取至目標 JAR]選項，然後按一下 [確定]。 這會建立具有所有相依性的單一 JAR。
+   4. 在 從模組建立 JAR 對話方塊中，確定已選取 擷取至目標 JAR選項，然後按一下確定。 這會建立具有所有相依性的單一 JAR。
       
        ![Apache Spark 串流範例 - 從模組建立 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-create-jar-from-modules.png "Apache Spark 串流範例 - 從模組建立 jar")
-   5. [輸出配置] 索引標籤會列出所有納入 Maven 專案中的 jar。 您可以選取並刪除 Scala 應用程式未直接依存的 jar。 對於我們在這裡建立的應用程式，您可以移除最後一個 jar (**spark-streaming-data-persistence-examples 編譯輸出**) 以外的所有 jar。 選取要刪除的 jar，然後按一下 [刪除] 圖示 (![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png))。
+   5. [輸出配置] 索引標籤會列出所有納入 Maven 專案中的 jar。 您可以選取並刪除 Scala 應用程式未直接依存的 jar。 對於我們在這裡建立的應用程式，您可以移除最後一個 jar (**spark-streaming-data-persistence-examples 編譯輸出**) 以外的所有 jar。 選取要刪除的 jar，然後按一下刪除 圖示 (![delete icon](./media/hdinsight-apache-spark-eventhub-streaming/delete-icon.png))。
       
        ![Apache Spark 串流範例 - 將擷取的 jar 刪除](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-delete-output-jars.png "Apache Spark 串流範例 - 將擷取的 jar 刪除")
       
        請確實選取 [在建置時建立]  方塊，以確保在每次建置或更新專案時都會建立 jar。 按一下 [Apply (套用)] 。
-   6. 在 [輸出配置] 索引標籤中的 [可用的項目] 方塊右下方，會有您先前新增至專案程式庫的 SQL JDBC jar。 您必須將此新增至 [輸出配置]  索引標籤。以滑鼠右鍵按一下 jar 檔案，然後按一下 [解壓縮到輸出根目錄中] 。
+   6. 在 [輸出配置] 索引標籤中的 [可用的項目] 方塊右下方，會有您先前新增至專案程式庫的 SQL JDBC jar。 您必須將此新增至 輸出配置  索引標籤。以滑鼠右鍵按一下 jar 檔案，然後按一下解壓縮到輸出根目錄中 。
       
        ![Apache Spark 串流範例 - 擷取相依性 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-extract-dependency-jar.png "Apache Spark 串流範例 - 擷取相依性 jar")  
       
@@ -274,8 +273,8 @@ ssc.awaitTermination()
       
        ![Apache Spark 串流範例 - 最終輸出索引標籤](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-final-output-tab.png "Apache Spark 串流範例 - 最終輸出索引標籤")        
       
-       在 [專案結構] 對話方塊中，按一下 [套用]，然後按一下 [確定]。    
-   7. 在功能表列中按一下 [建置]，然後按一下 [建立專案]。 您也可以按一下 [建置構件]，以建立 jar。 輸出 jar 會建立在 **\classes\artifacts** 下。
+       在 專案結構 對話方塊中，按一下 套用，然後按一下確定。    
+   7. 在功能表列中按一下 建置，然後按一下建立專案。 您也可以按一下 [建置構件]，以建立 jar。 輸出 jar 會建立在 **\classes\artifacts** 下。
       
        ![Apache Spark 串流範例 - 輸出 jar](./media/hdinsight-apache-spark-eventhub-streaming/spark-streaming-example-output-jar.png "Apache Spark 串流範例 - 輸出 jar")
 
@@ -451,4 +450,3 @@ Spark 串流應用程式會繼續執行，直到您終止為止。 若要這麼�
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]: ../storage-create-storage-account/
-

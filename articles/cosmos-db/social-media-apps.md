@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 在當今大幅互連的社會當中，我們的生活或多或少都成為 **社交網路**的一部分。 我們會使用社交網路與朋友、同事、家人保持聯絡，有時候還可以跟擁有共同興趣的人交流這份愛好。

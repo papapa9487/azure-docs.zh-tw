@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/03/2017
 ms.author: larryfr
+ms.openlocfilehash: 303a8de4f644b11bda68136fe42af6bc091bb892
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: e4c893ef4bfa573dd9fbc9c9b0ae296720769842
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Pig 工作
 
@@ -133,4 +132,3 @@ ms.lasthandoff: 07/13/2017
 
 * [搭配 HDInsight 上的 Hadoop 使用 Hive](hdinsight-use-hive.md)
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: ganesr;cherylmc
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 8bfae39d84aaac3b9527084df9dcfbd51f591dfe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -414,4 +413,3 @@ Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup"
 
 * [建立和修改 ExpressRoute 線路的路由](expressroute-howto-routing-arm.md)
 * [將虛擬網路連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
-

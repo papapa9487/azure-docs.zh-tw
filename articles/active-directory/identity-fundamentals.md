@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 52f05ee8a5c07fc008da40aef12d1ad8e8136429
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure 身分識別管理的基本概念
 隨著存放在公司網路外部 (雲端及裝置) 的公司數位資源日益增多，絕佳的雲端身分識別和存取管理解決方案更加不可或缺。 雲端型身分識別現在是持續控制與查看使用者以何種方式及在何時存取公司應用程式和資料的最佳方式。

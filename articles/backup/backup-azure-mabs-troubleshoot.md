@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
 您可以針對使用 Azure 備份伺服器搭配下表列出的資訊時所發生的錯誤進行疑難排解。
@@ -89,4 +87,3 @@ ms.lasthandoff: 09/28/2017
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
 | 嘗試使用 Office365 帳戶設定電子郵件通知。 | 取得錯誤 ID：2013| **原因：**<br/> 嘗試使用 Office 365 帳戶 <br/> **建議的動作：**<br/> 所要確保的第一件事就是已 Exchange 上設定 DPM 伺服器的「允許接收連接器上的匿名轉送」。 以下是如何進行此設定的連結：http://technet.microsoft.com/en-us/library/bb232021.aspx <br/> 如果您無法使用內部 SMTP 轉送，而需要使用 Office 365 伺服器進行設定，您可以將 IIS 設定為其轉送。 <br/> 您必須將 DPM 伺服器設定為能使用 IIS 將 SMTP 轉送至 O365 (https://technet.microsoft.com/en-us/library/aa995718(v=exchg.65).aspx)，才能設定 IIS 來轉送至 O365 <br/> 重要事項：在步驟 3->g->ii，務必使用 user@domain.com 格式，而非 domain\user 格式 <br/> 指示 DPM 使用本機伺服器名稱作為 SMTP 伺服器、連接埠 587，以及應送出電子郵件的使用者電子郵件。 <br/> DPM SMTP 設定頁面上的使用者名稱和密碼，應該是網域 DPM 所在的網域帳戶。 <br/> 注意：變更 SMTP 伺服器位址時，對新設定進行變更，關閉 [設定] 方塊，然後重新開啟來確定其反映新的值。  只有變更和測試不一定會採用新的設定，因此以這種方式測試是最佳做法。 <br/> 在此程序期間，您可藉由關閉 DPM 主控台並編輯下列登錄機碼，隨時清除這些設定︰<br/> HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> 刪除 SMTPPassword 和 SMTPUserName 索引鍵。 <br/> 再次啟動時，您可以在 UI 中將它們加回。
-

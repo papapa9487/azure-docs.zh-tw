@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 8314292cdb9b7a3f464c60119ed10f6b06ed4d10
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-table-storage-from-c"></a>如何使用 C++ 的資料表儲存體
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -457,4 +456,3 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 * [以 C++ 列出 Azure 儲存體資源](../storage/common/storage-c-plus-plus-enumeration.md)
 * [Storage Client Library for C++ 參考資料](http://azure.github.io/azure-storage-cpp)
 * [Azure 儲存體文件](https://azure.microsoft.com/documentation/services/storage/)
-

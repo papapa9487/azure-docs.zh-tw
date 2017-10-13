@@ -13,15 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f13f8aa0ca8686c0582bed77d047c9e6b39f7aa2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 SQL Server 預存程序活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式推出](v1/data-factory-stored-proc-activity.md)
@@ -78,7 +75,7 @@ ms.lasthandoff: 09/25/2017
 | 名稱                      | 活動的名稱                     | 是      |
 | 說明               | 說明活動用途的文字 | 否       |
 | 類型                      | 對於預存程序活動，活動類型為 SqlServerStoredProcedure | 是      |
-| linkedServiceName         | 參考 Azure SQL Database 或 Azure SQL 資料倉儲或 SQL Server，註冊為 Data Factory 中的連結服務。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName         | 參考 Azure SQL Database 或 Azure SQL 資料倉儲或 SQL Server，註冊為 Data Factory 中的連結服務。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | storedProcedureName       | 指定 Azure SQL Database、「Azure SQL 資料倉儲」或 SQL Server 資料庫中預存程序 (由輸出資料表所使用的已連結服務代表) 的名稱。 | 是      |
 | storedProcedureParameters | 指定預存程序參數的值。 使用 `"param1": { "value": "param1Value","type":"param1Type" }` 來傳遞參數值，及其資料來源支援的原生類型。 如果您需要為參數傳遞 Null，請使用 *"param1": { "value": null }* (全部小寫)。 | 否       |
 
@@ -94,4 +91,3 @@ ms.lasthandoff: 09/25/2017
 * [.NET 自訂活動](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning 批次執行活動](transform-data-using-machine-learning.md)
 * [預存程序活動](transform-data-using-stored-procedure.md)
-

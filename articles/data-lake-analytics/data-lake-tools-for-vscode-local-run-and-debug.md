@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Data Lake Tools：使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯 | Microsoft Docs"
 description: "了解如何使用 Azure Data Lake Tools for Visual Studio Code 來進行本機執行和本機偵錯。"
@@ -17,14 +16,12 @@ ms.tgt_pltfrm:
 ms.workload: big-data
 ms.date: 07/14/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 367e4ba792f83d6ee246208306e4c09b69cb49ef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="u-sql-local-run-and-local-debug-with-visual-studio-code"></a>使用 Visual Studio Code 來進行 U-SQL 本機執行和本機偵錯
 
 ## <a name="prerequisites"></a>必要條件
@@ -97,4 +94,3 @@ ms.lasthandoff: 08/24/2017
 - 如需 Data Lake Analytics 的入門資訊，請參閱[教學課程︰開始使用 Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md)。
 - 如需 Data Lake Tools for Visual Studio 的相關資訊，請參閱[教學課程：使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。
 - 如需有關開發組件的資訊，請參閱[針對 Azure Data Lake Analytics 作業開發 U-SQL 組件](data-lake-analytics-u-sql-develop-assemblies.md)。
-

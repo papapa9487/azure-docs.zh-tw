@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cc17196603a5bdcd7f880c3650512846fa0facef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的設定和管理常見問題集
 
@@ -321,4 +320,3 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>如何從內部部署環境移轉至 App Service？
 
 若要將網站從 Windows 和 Linux 網頁伺服器移轉至 App Service，您可以使用 Azure App Service 移轉小幫手。 移轉工具會視需要在 Azure 中建立 Web 應用程式和資料庫，然後發佈內容。 如需詳細資訊，請參閱 [Azure App Service 移轉小幫手](https://www.movemetothecloud.net/)。
-

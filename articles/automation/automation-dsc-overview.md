@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/15/2017
 ms.author: eslesar
 ms.openlocfilehash: 468321fa6863d78bc0d179fbe5c2ed6195040d50
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure 自動化 DSC 概觀
 
@@ -65,4 +65,4 @@ Azure Automation DSC 為 [PowerShell Desired State Configuration](https://msdn.m
 * 若要了解如何編譯 DSC 設定，以將它們指派給目標節點，請參閱[編譯 Azure Automation DSC 中的設定](automation-dsc-compile.md)。
 * 如需 Azure Automation DSC 的 PowerShell Cmdlet 參考，請參閱 [Azure Automation DSC Cmdlet](/powershell/module/azurerm.automation/#automation)。
 * 如需定價資訊，請參閱 [Azure Automation DSC 定價](https://azure.microsoft.com/pricing/details/automation/)。
-* 若要查看 Azure 自動化 DSC 使用連續部署管線中的範例，請參閱[IaaS Vm 使用 Azure 自動化 DSC 和 Chocolatey 連續部署](automation-dsc-cd-chocolatey.md)
+* 若要查看在持續部署管線中使用 Azure 自動化 DSC 的範例，請參閱[使用 Azure 自動化 DSC 和 Chocolatey 的 IaaS VM 持續部署](automation-dsc-cd-chocolatey.md)

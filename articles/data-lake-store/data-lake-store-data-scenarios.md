@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 5c3e4a4d98922533bcf901108d58329cb951b01c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-azure-data-lake-store-for-big-data-requirements"></a>使用 Azure Data Lake Store 處理巨量資料需求
 巨量資料處理有四個主要階段︰
@@ -133,4 +132,3 @@ ms.lasthandoff: 09/25/2017
 
 * 您可以從使用 [Azure Data Factory 將資料從 Data Lake Store 移到 Azure SQL 資料倉儲](../data-factory/copy-activity-overview.md)
 * 之後，您可以 [將 Power BI 與 Azure SQL 資料倉儲整合](../sql-data-warehouse/sql-data-warehouse-integrate-power-bi.md) ，以視覺化方式呈現資料。
-

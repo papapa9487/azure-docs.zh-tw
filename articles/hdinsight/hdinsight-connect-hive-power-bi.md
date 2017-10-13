@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 9a17c984f5ca801dfa017f1d6fc8fa5ccdeaf39b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化
 
@@ -72,4 +71,3 @@ ms.lasthandoff: 09/27/2017
 * [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](./hdinsight-hadoop-visual-studio-tools-get-started.md)。
 * [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](hdinsight-for-vscode.md)。
 * [將資料上傳至 HDInsight](./hdinsight-upload-data.md)。
-

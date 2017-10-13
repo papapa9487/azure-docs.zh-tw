@@ -11,14 +11,12 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: Barclayn
 ms.custom: AzLog
+ms.openlocfilehash: 3cd80817bf8b2ef2f66e9942eddc186a3eb5b5e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 02dde6366a8897a060df451c7f514f79e6733681
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Azure 記錄整合教學課程：使用事件中樞處理Azure Key Vault 事件
 
 您可以使用 Azure 記錄整合擷取記錄的事件，並將其提供給安全性資訊和事件管理 (SIEM) 系統。 本教學課程示範如何使用 Azure 記錄整合，來處理透過 Azure 事件中樞所取得的記錄。
@@ -75,7 +73,7 @@ ms.lasthandoff: 08/23/2017
 ## <a name="create-supporting-infrastructure-elements"></a>建立支援基礎結構元素
 
 1. 開啟提升權限的 PowerShell 視窗並移至 **C:\Program Files\Microsoft Azure Log Integration**。
-2. 透過執行指令碼 LoadAzLogModule.ps1，匯入 AzLog Cmdlet。 輸入 `.\LoadAzLogModule.ps1` 命令 (請注意該命令中的 “.\”)。您應該會看到如下的結果：</br>
+2. 透過執行指令碼 LoadAzLogModule.ps1，匯入 AzLog Cmdlet。 輸入 `.\LoadAzLogModule.ps1` 命令。 (請注意該命令中的 “.\”)。您應該會看到如下的結果：</br>
 
    ![載入的模組清單](./media/security-azure-log-integration-keyvault-eventhub/loaded-modules.png)
 
@@ -182,4 +180,3 @@ ms.lasthandoff: 08/23/2017
 - [Azure 記錄整合常見問題集](security-azure-log-integration-faq.md)
 - [開始使用 Azure 記錄整合](security-azure-log-integration-get-started.md)
 - [將記錄從 Azure 資源整合到 SIEM 系統](security-azure-log-integration-overview.md)
-

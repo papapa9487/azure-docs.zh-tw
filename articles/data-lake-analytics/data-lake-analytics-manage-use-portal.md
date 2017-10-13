@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.openlocfilehash: e49d1a0e0ccc6567d0a6841817667717ff5dba76
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -89,11 +89,11 @@ Data Lake Analytics 支援下列資料來源：
 
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
 2. 在左側 [快速入門] 之下，按一下 [新增使用者精靈]。
-3. 選取使用者，然後按一下 [選取]。
-4. 選取角色，然後按一下 [選取]。 若要設定新的開發人員以使用 Azure Data Lake，請選取 [Data Lake Analytics 開發人員] 角色。
+3. 選取使用者，然後按一下選取。
+4. 選取角色，然後按一下選取。 若要設定新的開發人員以使用 Azure Data Lake，請選取 [Data Lake Analytics 開發人員] 角色。
 5. 選取 U-SQL 資料庫的存取控制清單 (ACL)。 當您對您的選擇感到滿意時，請按一下 [選取]。
 6. 選取檔案的 ACL。 對於預設存放區，請不要變更根資料夾 "/" 和 /system 資料夾的 ACL。 按一下 [選取] 。
-7. 檢閱您選取的所有變更，然後按一下 [執行]。
+7. 檢閱您選取的所有變更，然後按一下執行。
 8. 當精靈完成時，按一下 [完成]。
 
 ## <a name="manage-role-based-access-control"></a>管理角色型存取控制

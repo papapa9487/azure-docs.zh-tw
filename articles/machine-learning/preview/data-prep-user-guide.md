@@ -12,12 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 22389ba85edb119acdd21b63f2deae2d71f31373
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-preparation-user-guide"></a>資料準備使用者指南 
 資料準備體驗提供許多豐富的功能，以下列出體驗中最深入的部分。
@@ -110,4 +109,3 @@ ms.lasthandoff: 09/25/2017
 [附錄 8 - Python 中的樣本資料來源](data-prep-appendix8-sample-source-connections-python.md)  
 [附錄 9 - Python 中的樣本目的地連線](data-prep-appendix9-sample-destination-connections-python.md)  
 [附錄 10 - Python 中的樣本資料行轉換](data-prep-appendix10-sample-custom-column-transforms-python.md)  
-

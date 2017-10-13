@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>修復 Azure 資訊安全中心的 OS 弱點
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當作業系統設定不符合建議的設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
@@ -111,4 +110,3 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 [4]: ./media/security-center-remediate-os-vulnerabilities/search.png
 [5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
 [6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
-

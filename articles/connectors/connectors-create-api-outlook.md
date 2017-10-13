@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/18/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: bde1629504c97cf6706b42219570ffa6243073dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-outlookcom-connector"></a>開始使用 Outlook.com 連接器
 Outlook.com 連接器可讓您管理您的郵件、行事曆和連絡人。 您可以執行各種動作，例如傳送郵件、排程會議、新增連絡人等等。

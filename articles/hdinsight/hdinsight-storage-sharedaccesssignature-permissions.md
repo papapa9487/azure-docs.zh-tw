@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/11/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2e4b1a307fae06c0639d93b9804c6f0f703d5900
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -210,7 +209,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
      將 **CONTAINERNAME** 取代為您用於 C# 或 SAS 應用程式的容器名稱。 將 **STORAGEACCOUNTNAME** 取代為您使用的儲存體帳戶名稱。
 
-5. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下 [儲存]。
+5. 按一下 [新增] 按鈕以儲存這個金鑰和值，然後按一下 [儲存] 按鈕以儲存組態變更。 出現提示時，加入變更的描述 (例如，「新增 SAS 儲存體存取權」)，然後按一下儲存。
 
     變更都完成時按一下 [確定]  。
 
@@ -310,4 +309,3 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 * [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2015
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: c369b22cf068a473343b006eb1b06fdd350d31db
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-cloud-services"></a>如何監視雲端服務
 [!INCLUDE [disclaimer](../../includes/disclaimer.md)]
@@ -104,7 +103,7 @@ Azure 傳統入口網站的監視顯示本身的可設定度相當高。 您可�
     選取的度量隨即新增到度量表，如下所示。
    
     ![監視度量](./media/cloud-services-how-to-monitor/CloudServices_Monitor_UpdatedMetrics.png)
-4. 若要從度量表刪除度量，請按一下度量加以選取，然後按一下 Delete Metric **Delete Metric**。 (只有在您選取度量時，才會看見 [刪除度量]。)
+4. 若要從度量表刪除度量，請按一下度量加以選取，然後按一下Delete Metric **Delete Metric**。 (只有在您選取度量時，才會看見 [刪除度量]。)
 
 ### <a name="to-add-custom-metrics-to-the-metrics-table"></a>若要將自訂量度新增至量度資料表
 **詳細資訊** 監視層級提供一份清單，其中包含您可在入口網站上監視的預設計量。 除此之外，您可以監視任何自訂計量，或透過入口網站監視應用程式定義的效能計數器。
@@ -177,4 +176,3 @@ WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRTable (hourly aggregations for the role)
 
 WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 ```
-

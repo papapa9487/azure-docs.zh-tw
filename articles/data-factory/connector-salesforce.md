@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c819b3e3e715427632e793ce77d31554914d248e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-salesforce-using-azure-data-factory"></a>使用 Azure Data Factory 從 Salesforce 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +59,7 @@ Salesforce 對於 API 要求總數和並行 API 要求均有限制。 請注意�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 |類型屬性必須設定為：**Salesforce**。 |是 |
+| 類型 |類型屬性必須設為： **Salesforce**。 |是 |
 | environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為 `"https://login.salesforce.com"`. <br> - 若要從沙箱複製資料，請指定 `"https://test.salesforce.com"`。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 `"https://[domain].my.salesforce.com"`。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |

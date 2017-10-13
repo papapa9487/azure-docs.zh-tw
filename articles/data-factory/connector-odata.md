@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7346b4a146a228efdc3824ba989f3de77a4df8ca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>使用 Azure Data Factory 從 OData 來源複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +49,7 @@ ms.lasthandoff: 09/25/2017
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| 類型 | 類型屬性必須設定為：**OData** |是 |
+| 類型 | 類型屬性必須設為： **OData** |是 |
 | url | OData 服務的根 URL。 |是 |
 | authenticationType | 用來連線到 OData 來源的驗證類型。<br/>允許的值為：**Anonymous** (匿名)、**Basic** (基本) 及 **Windows**。 請注意，不支援 OAuth。 | 是 |
 | userName | 如果您使用基本或 Windows 驗證，請指定使用者名稱。 | 否 |

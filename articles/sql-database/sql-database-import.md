@@ -15,12 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.openlocfilehash: 5ff4184a6147c367c64b5c90c090e1abe59edb90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: 79f7ccabb3900acfba7216823cecc7fc7bddd4b3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>將 BACPAC 檔案匯入到新的 Azure SQL Database
 
@@ -41,11 +40,11 @@ ms.lasthandoff: 09/08/2017
 
    ![資料庫匯入](./media/sql-database-import/import.png)
 
-若要監視匯入作業的進度，請開啟包含匯入資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
+若要監視匯入作業的進度，請開啟包含匯入資料庫的邏輯伺服器頁面。 向下捲動至**作業**，然後按一下匯入/匯出歷程記錄 。
 
 ### <a name="monitor-the-progress-of-an-import-operation"></a>監視匯入作業的進度
 
-若要監視匯入作業的進度，請將邏輯伺服器的頁面開啟為要匯入的資料庫。 向下捲動至**作業**，然後按一下 [匯入/匯出歷程記錄] 。
+若要監視匯入作業的進度，請將邏輯伺服器的頁面開啟為要匯入的資料庫。 向下捲動至**作業**，然後按一下匯入/匯出歷程記錄 。
    
    ![匯入](./media/sql-database-import/import-history.png)![匯入狀態](./media/sql-database-import/import-status.png)
 
@@ -114,7 +113,6 @@ $importStatus
 * 若要了解如何連接並查詢匯入的 SQL Database，請參閱[使用 SQL Server Management Studio 連接到 SQL Database 並執行範例 T-SQL 查詢](sql-database-connect-query-ssms.md)。
 * 如需 SQL Server 客戶諮詢小組部落格中有關使用 BACPAC 檔案進行移轉的主題，請參閱[使用 BACPAC 檔案從 SQL Server 移轉至 Azure SQL Database](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/)。
 * 如需有關整個 SQL Server 資料庫移轉程序的討論，包括效能建議，請參閱[將 SQL Server 資料庫移轉至 Azure SQL Database](sql-database-cloud-migrate.md)。
-
 
 
 

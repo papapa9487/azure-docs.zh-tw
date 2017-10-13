@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-manager-rest-apis"></a>資源管理員 REST API
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ Resource Manager 的驗證由 Azure Active Directory (AD) 處理。 若要連接
 請依照[建立 Azure AD 應用程式和服務主體](resource-group-create-service-principal-portal.md)的逐步指示。
 
 ### <a name="generating-an-access-token"></a>產生存取權杖
-向外呼叫位於 login.microsoftonline.com 的 Azure AD，集合完成對 Azure AD 驗證。 若要驗證，您必須具有下列資訊︰
+向外呼叫位於 login.microsoftonline.com 的 Azure AD，集合完成對 Azure AD 驗證。若要驗證，您必須具有下列資訊︰
 
 * Azure AD 租用戶識別碼 (您用來登入的 Azure AD 名稱，通常與您的公司名稱相同，但不一定如此)
 * 應用程式識別碼 (在 Azure AD 應用程式建立步驟期間取得)

@@ -10,17 +10,16 @@ tags: top-support-issue
 ms.assetid: 674b2faf-26d7-4f54-99ea-a9e02ef0eb2f
 ms.service: cloud-services
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 7/26/2017
 ms.author: v-six
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b49393ecfb6fe639825107c5f038906a36cde687
-ms.openlocfilehash: 3cddd9f9c4b978dfad7ec727be9f43f6ed7c7c8f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 44d912c8bee1a7c8db79d3626e00108fbcb39352
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>對無法啟動的雲端服務角色進行疑難排解
 以下是與無法啟動的 Azure 雲端服務角色相關的一些常見問題和解決方案。
@@ -127,4 +126,3 @@ ms.lasthandoff: 11/17/2016
 檢視更多雲端服務的 [疑難排解文章](https://azure.microsoft.com/documentation/articles/?tag=top-support-issue&product=cloud-services) 。
 
 若要了解如何利用 Azure PaaS 電腦診斷資料對雲端服務角色問題進行疑難排解，請參閱 [Kevin Williamson 的部落格系列](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)。
-

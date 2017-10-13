@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1170ee7232e1046e194f5223f7b7bf582ef18dfe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>使用 Azure Data Factory 從 Sybase 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -61,7 +60,7 @@ ms.lasthandoff: 09/25/2017
 | 伺服器 | Sybase 伺服器的名稱。 |是 |
 | 資料庫 | Sybase 資料庫的名稱。 |是 |
 | 結構描述 | 在資料庫中的結構描述名稱。 |否 |
-| authenticationType | 用來連線到 Sybase 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows**。 |是 |
+| authenticationType | 用來連接到 Sybase 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Windows**。 |是 |
 | username | 指定連線到 Sybase 資料庫時所要使用的使用者名稱。 |是 |
 | password | 指定您為使用者名稱所指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 如[必要條件](#prerequisites)所述，必須要有一個「自我裝載 Integration Runtime」。 |是 |

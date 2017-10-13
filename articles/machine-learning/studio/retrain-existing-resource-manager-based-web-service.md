@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>重新定型現有的預測 Web 服務
 本文件描述下列案例的重新定型程序︰
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/25/2017
 
 接下來您必須將訓練實驗部署為可產生訓練模型與模型評估結果的 Web 服務。  
 
-在實驗畫布底端，按一下 [設定 Web 服務]，然後選取 [部署 Web 服務 [新式]]。 Azure Machine Learning Web Services 入口網站會開啟 [部署 Web 服務] 頁面。 輸入您的 Web 服務名稱，選擇付款方案，然後按一下 [部署] 。 您只能使用批次執行方法來建立定型模型。
+在實驗畫布底端，按一下 [設定 Web 服務]，然後選取 [部署 Web 服務 [新式]]。 Azure Machine Learning Web Services 入口網站會開啟 [部署 Web 服務] 頁面。 輸入您的 Web 服務名稱，選擇付款方案，然後按一下部署 。 您只能使用批次執行方法來建立定型模型。
 
 ## <a name="retrain-the-model-with-new-data-by-using-bes"></a>使用 BES 以新資料重新定型模型
 在此範例中，我們使用 C# 建立重新訓練應用程式。 您也可以使用 Python 或 R 範例程式碼來完成這項工作。
@@ -194,4 +193,3 @@ BES 範例程式碼會將檔案從本機磁碟機 (例如，C:\temp\CensusIpnput
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-

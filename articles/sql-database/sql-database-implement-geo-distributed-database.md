@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/26/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 9f53f318e20dac9248906bdbe898ba4dacb286ac
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 6fdbf12830a402eeb004587202eee604037430c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="implement-a-geo-distributed-database"></a>實作異地分散資料庫
 
 在本教學課程中，您要設定 Azure SQL Database 和應用程式來容錯移轉到遠端區域，然後測試您的容錯移轉計畫。 您會了解如何： 
@@ -390,4 +388,3 @@ sudo apt-get install maven
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱[作用中異地複寫和容錯移轉群組](sql-database-geo-replication-overview.md)。
-

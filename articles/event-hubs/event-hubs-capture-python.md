@@ -12,19 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2017
-ms.author: darosa;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 6ef92be812bb0adcb2c817926eeeebbc8e55a5a7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 5fb691ec53fed20e5df4f581da10b964c07e09b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中樞擷取逐步解說︰Python
 
-「事件中樞擷取」是「事件中樞」的功能，可讓您將事件中樞內的串流資料自動傳遞給您選擇的 Azure Blob 儲存體帳戶。 此功能可讓您輕鬆地對即時串流資料執行批次處理。 本文說明如何搭配使用事件中樞擷取與 Python。 如需事件中樞擷取的詳細資訊，請參閱[概觀文章](event-hubs-archive-overview.md)。
+「事件中樞擷取」是「事件中樞」的功能，可讓您將事件中樞內的串流資料自動傳遞給您選擇的 Azure Blob 儲存體帳戶。 此功能可讓您輕鬆地對即時串流資料執行批次處理。 本文說明如何搭配使用事件中樞擷取與 Python。 如需事件中樞擷取的詳細資訊，請參閱[概觀文章](event-hubs-capture-overview.md)。
 
 此範例使用 [Azure Python SDK](https://azure.microsoft.com/develop/python/) 來示範「擷取」功能。 sender.py 程式會以 JSON 格式將模擬的環境遙測傳送至事件中樞。 事件中樞已設定為使用「擷取」功能將此資料批次寫入至 Blob 儲存體。 capturereader.py 應用程式接著會讀取這些 Blob 並為每個裝置建立附加檔案，然後將資料寫入至 .csv 檔案。
 
@@ -47,7 +45,7 @@ ms.lasthandoff: 07/01/2017
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 1. 登入 [Azure 入口網站][Azure portal]。
 2. 在入口網站的左方瀏覽窗格中，依序按一下 [新增]、[儲存體] 及 [儲存體帳戶]。
-3. 完成儲存體帳戶刀鋒視窗中的欄位，然後按一下 [建立]。
+3. 完成儲存體帳戶刀鋒視窗中的欄位，然後按一下建立。
    
    ![][1]
 4. 在看到**部署成功**訊息之後，按一下新儲存體帳戶的名稱，並在 [基本功能] 刀鋒視窗中按一下 [Blob]。 當 [Blob 服務] 刀鋒視窗開啟時，按一下頂端的 [+ 容器]。 將容器命名為**擷取**，然後關閉 [Blob 服務] 刀鋒視窗。
@@ -165,16 +163,12 @@ ms.lasthandoff: 07/01/2017
 您可以造訪下列連結以深入了解事件中樞︰
 
 * [事件中樞擷取概觀][Overview of Event Hubs Capture]
-* [使用事件中樞的完整範例應用程式][sample application that uses Event Hubs]。
-* [使用事件中樞相應放大事件處理][Scale out Event Processing with Event Hubs]範例。
+* [使用事件中樞的完整範例應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 * [事件中樞概觀][Event Hubs overview]
 
 [Azure portal]: https://portal.azure.com/
-[Overview of Event Hubs Capture]: event-hubs-archive-overview.md
+[Overview of Event Hubs Capture]: event-hubs-capture-overview.md
 [1]: ./media/event-hubs-archive-python/event-hubs-python1.png
 [About Azure storage accounts]:../storage/common/storage-create-storage-account.md
 [Visual Studio Code]: https://code.visualstudio.com/
-[Event Hubs overview]: event-hubs-overview.md
-[sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097
-[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
-
+[Event Hubs overview]: event-hubs-what-is-event-hubs.md

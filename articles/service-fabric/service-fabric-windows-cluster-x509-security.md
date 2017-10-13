@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
+ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
 本文說明如何保護獨立 Windows 叢集的各個節點之間的通訊，以及如何使用 X.509 憑證來驗證連線到此叢集的用戶端。 這可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。  憑證安全性應在叢集建立之時先在叢集上啟用。  
@@ -327,5 +326,4 @@ Connect-ServiceFabricCluster $ConnectArgs
 > 不正確的憑證設定可能會在接下來的部署期間阻止叢集。 若要自我診斷安全性問題，請查看事件檢視器群組 [應用程式及服務記錄檔]  >  [Microsoft Service Fabric]。
 > 
 > 
-
 

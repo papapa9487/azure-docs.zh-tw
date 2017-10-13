@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
+ms.openlocfilehash: b1878c181a77ac6d54654fc55228907743243c45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 4d5acd0be4a237f46d79800a44124b8c4269c5b9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>使用 StorSimple 做為 NetBackup 的備份目標
 
 ## <a name="overview"></a>概觀
@@ -545,4 +543,3 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 
 - 深入了解如何[從備份集還原](storsimple-restore-from-backup-set-u2.md)。
 - 深入了解如何執行[裝置容錯移轉和災害復原](storsimple-device-failover-disaster-recovery.md)。
-

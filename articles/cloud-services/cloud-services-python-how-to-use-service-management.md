@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
 ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>如何從 Python 使用服務管理
 本指南說明如何以程式設計方式，從 Python 執行一般服務管理工作。 [Azure SDK for Python](https://github.com/Azure/azure-sdk-for-python) 中的 **ServiceManagementService** 類別支援以程式設計方式存取 [Azure 傳統入口網站][management-portal]所提供的大部分服務管理相關功能 (例如**建立、更新及刪除雲端服務、部署、資料管理服務和虛擬機器**)。 建置需要透過程式設計方式存取服務管理的應用程式時，此功能十分實用。

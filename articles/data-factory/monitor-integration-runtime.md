@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: f2e1957a02d72d79a245ec3be705ba46dcc41e2c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>在 Azure Data Factory 中監視整合執行階段  
 **整合執行階段**是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的各種資料整合功能。 Data Factory 提供三種類型的整合執行階段：
 
@@ -196,10 +194,10 @@ Azure SSIS 整合執行階段是完全受管理的 Azure 虛擬機器 (或節點
 
 請參閱下列文章以深入了解 Azure SSIS 整合執行階段：
 
-- [Azure SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 這篇文章提供整合執行階段的一般概念性資訊，包括 Azure SSIS IR。 
-- [教學課程：將 SSIS 套件部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 這篇文章會逐步說明如何建立 Azure SSIS IR，並使用 Azure SQL 資料庫主控 SSIS 目錄。 
+- [Azure SSIS 整合執行階段](concepts-integration-runtime.md#azure-ssis-integration-runtime)。 本文提供整合執行階段的一般概念性資訊，包括 Azure-SSIS IR。 
+- [教學課程：將 SSIS 套件部署至 Azure](tutorial-deploy-ssis-packages-azure.md)。 本文逐步說明如何建立 Azure-SSIS IR，並使用 Azure SQL Database 裝載 SSIS 目錄。 
 - [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 這篇文章會展開教學課程，並提供使用 Azure SQL 的受管理執行個體 (私人預覽)，和將 IR 加入 VNet 的指示。 
-- [管理 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文將示範如何停止、啟動或移除 Azure SSIS IR。 它也會告訴您如何將更多節點新增至 IR，藉此相應放大 Azure SSIS IR。 
+- [管理 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會告訴您如何將更多節點新增至 IR，藉此相應放大 Azure SSIS IR。 
 - [將 VNet 加入至 Azure SSIS IR](join-azure-ssis-integration-runtime-virtual-network.md)。 這篇文章提供將 Azure SSIS IR 加入至 Azure 虛擬網路 (VNet) 的概念資訊。 它也提供使用 Azure 入口網站來設定 VNet，好讓 Azure SSIS IR 可加入 VNet 的步驟。 
 
 ## <a name="next-steps"></a>後續步驟

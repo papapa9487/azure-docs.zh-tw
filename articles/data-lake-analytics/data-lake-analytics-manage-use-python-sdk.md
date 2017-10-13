@@ -14,15 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/18/2017
 ms.author: saveenr
+ms.custom: devcenter
+ms.openlocfilehash: 22b56e9569ac1fd2afe2c91013fa5605f9f3ef99
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 0d69207c0b8bcbba6dee42a1dc856e9085629734
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="manage-azure-data-lake-analytics-using-python"></a>使用 Python 來管理 Azure Data Lake Analytics
 
 ## <a name="python-versions"></a>Python 版本
@@ -258,5 +256,4 @@ adlaAccountClient.computePolicies.createOrUpdate(rg, adla, "GaryMcDaniel", newPo
 - 若要使用其他工具檢視同一個教學課程，請按一下頁面最上方的索引標籤選取器。
 - 若要了解 U-SQL，請參閱 [開始使用 Azure Data Lake Analytics U-SQL 語言](data-lake-analytics-u-sql-get-started.md)。
 - 針對管理工作，請參閱 [使用 Azure 入口網站管理 Azure Data Lake Analytics](data-lake-analytics-manage-use-portal.md)。
-
 

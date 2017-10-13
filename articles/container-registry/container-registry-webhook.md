@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2017
 ms.author: nepeters
+ms.openlocfilehash: 35f2b940a36ca3176cf850afd97e62af0dd797ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: d0190f5725671c320d92b897f0dcef7a526a86e3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-azure-container-registry-webhooks---azure-portal"></a>使用 Azure Container Registry Webhook - Azure 入口網站
 
 Azure Container Registry 會儲存和管理私人 Docker 容器映像，其方式類似於 Docker 中樞儲存公用 Docker 映像。 在其中一個登錄存放庫發生特定動作時，您要使用 Webhook 來觸發事件。 Webhook 可以回應登錄層級的事件，或可將範圍縮小至特定的存放庫標記。 

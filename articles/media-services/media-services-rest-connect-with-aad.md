@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: willzhan;juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: a4531b69c44337c4863016810123f7f89bf7f98f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: 1c62857699fb29b3583363e1c6f2dc7874635f40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>使用 Azure AD 驗證搭配 REST 存取 Azure 媒體服務 API
 
 Azure 媒體服務團隊針對 Azure 媒體服務的存取發行了 Azure Active Directory (Azure AD) 驗證支援。 團隊也宣佈針對媒體服務的存取淘汰 Azure 存取控制服務驗證的計劃。 由於每個 Azure 訂用帳戶及每個媒體服務帳戶均附屬於一個 Azure AD 租用戶，因此，Azure AD 驗證支援有許多安全性優勢。 如需此變更和移轉 (如果您的應用程式使用媒體服務 .NET SDK) 的詳細資訊，請參閱下列部落格文章和文件：
@@ -147,4 +145,3 @@ Azure 媒體服務團隊針對 Azure 媒體服務的存取發行了 Azure Active
 ## <a name="next-steps"></a>後續步驟
 
 開始使用[上傳檔案至您的帳戶](media-services-dotnet-upload-files.md)。
-

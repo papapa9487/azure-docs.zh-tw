@@ -14,14 +14,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f97e41b9ee614da7ca852a15f101da1c91c86efb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>將來源資料集資料行對應至目的地資料集資料行
 資料行對應可用於指定將來源資料表「 結構 」中指定資料行對應至接收器資料表 「 結構 」 中指定資料行的方式。 複製活動的 **typeProperties** 區段中可使用 **columnMapping** 屬性。
 
@@ -183,4 +181,3 @@ ms.lasthandoff: 09/25/2017
 請參閱有關使用「複製活動」的教學課程文章： 
 
 - [將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-

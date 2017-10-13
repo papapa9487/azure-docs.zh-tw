@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/23/2017
 ms.author: shlo
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 95b088d2fdc331dc33e973172d32892693fcb648
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - 常見問題集
 本文適用於第 2 版的 Azure Data Factory 服務。 它提供一份常見問題集 (FAQ) 清單和其答案。  
@@ -81,7 +80,7 @@ Azure Data Factory 第 2 版是以原始 Azure Data Factory 資料移動和轉�
 ## <a name="what-is-integration-runtime"></a>什麼是整合執行階段？
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的下列資料整合功能：
 
-- **資料移動**：在公用網路中的資料存放區以及私人網路 (內部部署或虛擬私人網路) 中的資料存放區之間移動資料。 它支援內建的連接器、格式轉換、資料行對應，以及高效能和可調式資料轉送。
+- **資料移動**：在公用網路中的資料存放區與私人網路 (內部部署或虛擬私人網路) 中的資料存放區之間移動資料。 它支援內建的連接器、格式轉換、資料行對應，以及高效能和可調式資料轉送。
 - **分派活動**：分派和監視在 Azure HDInsight、Azure Machine Learning、Azure SQL Database、SQL Server 等各種計算服務上執行的轉換活動。
 - **執行 SSIS 套件**：在受管理 Azure 計算環境中原生執行 SQL Server Integration Services (SSIS) 套件。
 
@@ -194,5 +193,4 @@ Data Factory 中的連結服務，有兩個用途：
 
 - [快速入門：建立 Data Factory](quickstart-create-data-factory-dot-net.md)
 - [教學課程：複製雲端中的資料](tutorial-copy-data-dot-net.md)
-
 

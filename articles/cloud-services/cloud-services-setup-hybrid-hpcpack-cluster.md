@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: danlep
 ms.openlocfilehash: f6dc9657e64160be1e68a7356863b53131e9b3c3
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>使用 Microsoft HPC Pack 和隨選 Azure 計算節點設定混合式高效能計算 (HPC) 叢集
 使用 Microsoft HPC Pack 2012 R2 和 Azure 設定小型的混合式高效能運算 (HPC) 叢集。 本文中所示的叢集包含一個內部部署 HPC Pack 前端節點，以及一些您視需要部署在 Azure 雲端服務中的計算節點。 然後，您便可以在混合式叢集上執行計算作業。
@@ -69,7 +69,7 @@ ms.lasthandoff: 08/29/2017
    
     ![Install][install_hpc6]
 
-9. 安裝完成之後，請取消勾選 [啟動 HPC 叢集管理員]，然後按一下 [完成]。 (您將在稍後的步驟中啟動 HPC 叢集管理員)。
+9. 安裝完成之後，請取消勾選 啟動 HPC 叢集管理員，然後按一下完成。 (您將在稍後的步驟中啟動 HPC 叢集管理員)。
    
     ![完成][install_hpc7]
 
@@ -100,7 +100,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 1. 在入口網站中，按一下 [雲端服務 (傳統)] > [+新增]。
 
-2.  鍵入服務的 DNS 名稱，選擇資源群組和位置，然後按一下 [建立]。
+2.  鍵入服務的 DNS 名稱，選擇資源群組和位置，然後按一下建立。
 
 
 ### <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
@@ -141,7 +141,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 10. 在 [Create Node Template Wizard] 中，執行下列動作：
     
-    a. 在 [選擇節點範本類型] 頁面上，按一下 [Windows Azure 節點範本]，然後按一下 [下一步]。
+    a. 在 選擇節點範本類型 頁面上，按一下 Windows Azure 節點範本，然後按一下下一步。
     
     ![Node Template][config_hpc10]
     
@@ -190,7 +190,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
 1. 在 HPC 叢集管理員中，按一下 [節點管理] \(在最新版本的 HPC Pack 中稱為 [資源管理])，然後選取 Azure 節點。
 
-2. 按一下 [開始]，然後按一下 [確定]。
+2. 按一下 開始，然後按一下確定。
    
    ![Start Nodes][add_node4]
    
@@ -206,7 +206,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
 
    ![Running Instances][view_instances1]
 
-5. 若要讓 Azure 節點上線以執行叢集工作，請選取節點，按一下滑鼠右鍵，然後按一下 [上線] 。
+5. 若要讓 Azure 節點上線以執行叢集工作，請選取節點，按一下滑鼠右鍵，然後按一下上線 。
    
     ![Offline Nodes][add_node7]
    
@@ -232,7 +232,7 @@ HPC Pack 會在前端節點安裝一個自我簽署憑證 (稱為 Default Micros
    
     ![New Job][test_job1]
 
-2. 在 [新增參數式掃掠作業] 對話方塊中，於 [命令列] 中輸入 `set /a *+*` (覆寫出現的預設命令列)。 保留其餘設定的預設值，然後按一下 [提交]  提交工作。
+2. 在 [新增參數式掃掠作業] 對話方塊中，於 [命令列] 中輸入 `set /a *+*` (覆寫出現的預設命令列)。 保留其餘設定的預設值，然後按一下提交  提交工作。
    
     ![Parametric Sweep][param_sweep1]
 

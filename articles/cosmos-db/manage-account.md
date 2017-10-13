@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: kirillg
 ms.openlocfilehash: a0c6ec8d490e1adacc96758971ab91d8eaeab45c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>如何管理 Azure Cosmos DB 帳戶
 了解如何在 Azure 入口網站中設定全域一致性、使用金鑰，以及刪除 Azure Cosmos DB 帳戶。
@@ -92,7 +92,7 @@ ms.lasthandoff: 07/11/2017
 ![如何在 Azure 入口網站中刪除 Azure Cosmos DB 帳戶](./media/manage-account/deleteaccount.png)
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，存取要刪除的 Azure Cosmos DB 帳戶。
-2. 在 [Azure Cosmos DB 帳戶] 刀鋒視窗上，以滑鼠右鍵按一下帳戶，然後按一下 [刪除帳戶]。 
+2. 在 Azure Cosmos DB 帳戶 刀鋒視窗上，以滑鼠右鍵按一下帳戶，然後按一下刪除帳戶。 
 3. 在後續的確認刀鋒視窗中輸入 Azure Cosmos DB 帳戶名稱，以確認您想要刪除該帳戶。
 4. 按一下 [刪除]  按鈕。
 

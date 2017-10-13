@@ -15,15 +15,12 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 16c9926d44f972d2b38028cb6ab1420de6b60533
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>使用 OMS 監視 Service Fabric 上的 Windows 容器
 
 此為教學課程的第三部分，將逐步引導您設定 OMS 來監視 Service Fabric 上協調的 Windows 容器。

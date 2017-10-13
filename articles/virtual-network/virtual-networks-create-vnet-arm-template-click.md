@@ -16,12 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a179f184b7d6a425d0fed4b58551b08bb937ea87
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 81602766848a91331c8d811ea1c8ec3ffae44b96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-network-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬網路
 
@@ -217,7 +216,7 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
     ![Github 中的 READEME.md 檔案](./media/virtual-networks-create-vnet-arm-template-click-include/figure1.png)
 
 3. 按一下 [ **部署至 Azure**]。 如有必要，請輸入您的 Azure 登入認證。 
-4. 在 [參數] 刀鋒視窗中，輸入您要用以建立新 VNet 的值，然後按一下 [確定]。 下圖顯示此案例的值︰
+4. 在 參數 刀鋒視窗中，輸入您要用以建立新 VNet 的值，然後按一下確定。 下圖顯示此案例的值︰
    
     ![ARM 範本參數](./media/virtual-networks-create-vnet-arm-template-click-include/figure2.png)
 
@@ -243,4 +242,3 @@ Azure 有兩個部署模型：Azure Resource Manager 和傳統。 Microsoft 建�
 - 虛擬機器 (VM) 至虛擬網路；請閱讀[建立 Windows VM](../virtual-machines/virtual-machines-windows-hero-tutorial.md) 或[建立 Linux VM](../virtual-machines/linux/quick-create-portal.md)。 但不是如文章中的步驟建立 VNet 和子網路，而是選取現有的 VNet 和子網路來連接 VM。
 - 虛擬網路至其他虛擬網路；請閱讀[連接 VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 - 虛擬網路至內部部署網路；使用網站對網站虛擬私人網路 (VPN) 或 ExpressRoute 線路。 如需了解做法，請閱讀[使用網站對網站 VPN 將 VNet 連接到內部部署網路](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)以及[將 VNet 連結至 ExpressRoute 線路](../expressroute/expressroute-howto-linkvnet-arm.md)。
-
