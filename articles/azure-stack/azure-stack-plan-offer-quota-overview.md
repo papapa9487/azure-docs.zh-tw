@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/22/2017
 ms.author: erikje
+ms.openlocfilehash: 083ca2f0a06625810d2f90a682ba0b3110032e60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bfed4c557a420eda14cafe5b1cf8ad11476e2d79
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>方案、優惠、配頭和訂用帳戶概觀
 
-「適用於：Azure Stack 開發套件」
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-[Azure Stack](azure-stack-marketplace-azure-items.md) 可讓您提供各式各樣的服務，例如虛擬機器、SQL Server 資料庫、SharePoint、Exchange，甚至 [Azure Marketplace 項目](azure-stack-poc.md)。 身為雲端操作員，您可以使用方案、供應項目與配額，在 Azure Stack 中設定並提供這類服務。
+[Azure Stack](azure-stack-marketplace-azure-items.md) 可讓您提供各式各樣的服務，例如虛擬機器、SQL Server 資料庫、SharePoint、Exchange，甚至 [Azure Marketplace 項目](azure-stack-poc.md)。 身為 Azure Stack 操作員，您可以使用方案、供應項目與配額，在 Azure Stack 中設定並提供這類服務。
 
 供應項目包含一個或多個方案，而且每個方案包含一個或多個服務。 透過建立方案並將其組合成不同的供應項目，您可以控制
 - 使用者可以存取的服務和資源
@@ -44,7 +43,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="plans"></a>方案
 
-方案結合一或多項服務。 身為雲端操作員，您可以[建立方案](azure-stack-create-plan.md)以提供給使用者。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 建立方案時，請務必設定配額、定義基本方案，並考慮包含選擇性的附加方案。
+方案結合一或多項服務。 身為 Azure Stack 操作員，您可以[建立方案](azure-stack-create-plan.md)以提供給使用者。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 建立方案時，請務必設定配額、定義基本方案，並考慮包含選擇性的附加方案。
 
 ### <a name="quotas"></a>配額
 
@@ -69,7 +68,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="subscriptions"></a>訂用帳戶
 
-訂用帳戶是使用者存取供應項目的方式。 如果您是服務提供者的雲端操作員，使用者 (租用戶) 會透過訂閱供應項目的方式來購買您的服務。 如果您是組織的雲端操作員，使用者 (員工) 可以訂閱您提供的服務，而不必付錢。 使用者與供應項目的每個組合都是一個唯一的訂用帳戶。 因此，使用者可以擁有多個供應項目的訂用帳戶，但是每個訂用帳戶都僅適用於一個供應項目。 方案、供應項目與配額僅適用於每個唯一的訂用帳戶，而無法在訂用帳戶之間共用。 使用者建立的每個資源都與一個訂用帳戶相關聯。
+訂用帳戶是使用者存取供應項目的方式。 如果您是服務提供者的 Azure Stack 操作員，使用者 (租用戶) 會透過訂閱供應項目的方式來購買您的服務。 如果您是組織的 Azure Stack 操作員，使用者 (員工) 可以訂閱您提供的服務，而不必付錢。 使用者與供應項目的每個組合都是一個唯一的訂用帳戶。 因此，使用者可以擁有多個供應項目的訂用帳戶，但是每個訂用帳戶都僅適用於一個供應項目。 方案、供應項目與配額僅適用於每個唯一的訂用帳戶，而無法在訂用帳戶之間共用。 使用者建立的每個資源都與一個訂用帳戶相關聯。
 
 
 ### <a name="default-provider-subscription"></a>預設的提供者訂用帳戶
@@ -79,4 +78,3 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>後續步驟
 
 [建立方案](azure-stack-create-plan.md)
-

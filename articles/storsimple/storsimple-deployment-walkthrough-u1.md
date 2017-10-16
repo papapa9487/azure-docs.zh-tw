@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
 ms.openlocfilehash: 4d568fb2eca418ca939f7a76ac24197a0457fe47
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-1"></a>部署您的內部部署 StorSimple 裝置 (Update 1)
 > [!div class="op_single_selector"]
@@ -231,7 +231,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 請執行下列
 <!--If you have a gateway configured on a network interface other than Data 0, you will need to disable Data 2 and Data 3 network interfaces before installing the update. Go to **Devices > Configure** and disable Data 2 and Data 3 interfaces. You should re-enable these interfaces after the device is updated.-->
 
 #### <a name="to-update-your-device"></a>若要更新裝置
-1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
+1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 維護，然後按一下掃描更新。  
 2. 系統會建立掃描可用更新的工作。 如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。 按一下 [安裝更新] 。
 3. 更新工作將會建立。 巡覽至 [工作] 以監視更新的狀態。
    

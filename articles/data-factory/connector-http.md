@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b27e852b70651cec34b200bde362ff0efae30226
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>使用 Azure Data Factory 從 HTTP 端點複製資料 | Microsoft Docs
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/25/2017
 | url | Web 伺服器的基本 URL | 是 |
 | enableServerCertificateValidation | 指定是否在連線到 HTTP 端點時啟用伺服器 SSL 憑證驗證。 | 否，預設值是 True |
 | authenticationType | 指定驗證類型。 允許的值為︰**匿名**、**基本**、**摘要**、**Windows**、**ClientCertificate**。 <br><br> 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | 是 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用「Azure 整合執行階段」或「自我裝載整合執行階段」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的「Azure 整合執行階段」。 |否 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 ### <a name="using-basic-digest-or-windows-authentication"></a>使用基本、摘要或 Windows 驗證
 
@@ -66,7 +65,7 @@ ms.lasthandoff: 09/25/2017
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | userName | 存取 HTTP 端點的使用者名稱。 | 是 |
-| password | 使用者 (使用者名稱) 的密碼。 請將此欄位標示為 SecureString。 | 是 |
+| password | 使用者 (userName) 的密碼。 請將此欄位標示為 SecureString。 | 是 |
 
 **範例**
 

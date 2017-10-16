@@ -1,4 +1,4 @@
----   
+---
 title: "Azure 應用程式閘道的 SSL 原則概觀 | Microsoft Docs"
 description: "深入了解 Azure 應用程式閘道如何讓您設定 SSL 原則"
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>應用程式閘道 SSL 原則概觀
 
 您可以使用 Azure 應用程式閘道集中管理 SSL 憑證，並降低後端伺服器陣列的加密和解密額外負荷。 這個集中式 SSL 處理也可讓您指定適合您組織安全性需求的中央 SSL 原則。 這可協助您符合法規需求，以及安全性指導方針和建議的做法。
@@ -107,4 +104,3 @@ SSL 原則包含 SSL 通訊協定版本和加密套件以及 SSL 交握期間使
 ## <a name="next-steps"></a>後續步驟
 
 如果您想要了解如何設定 SSL 原則，請參閱[在應用程式閘道上設定 SSL 原則](application-gateway-configure-ssl-policy-powershell.md)。
-

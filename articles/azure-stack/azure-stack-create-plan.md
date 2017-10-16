@@ -14,25 +14,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: erikje
+ms.openlocfilehash: 30759dca746fd7fd02653556cb105f419f5bf854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ddd69acaed4d56211092866571350d855b14e8b3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-plan-in-azure-stack"></a>在 Azure Stack 中建立方案
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-[方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為租用戶製作方案。 租用戶接著即可訂閱各項優惠，使用其內含的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
+[方案](azure-stack-key-features.md)結合一或多項服務。 身為提供者的您可以為使用者製作方案。 使用者接著即可訂閱您的供應項目，以使用其中的方案與服務。 此範例說明如何建立一個包含計算、網路及儲存體資源提供者的方案。 此方案可讓訂閱者佈建虛擬機器。
 
 1. 登入 Azure Stack 系統管理員入口網站 (https://adminportal.local.azurestack.external)。 輸入您在[執行 PowerShell 指令碼](azure-stack-run-powershell-script.md)一節步驟 5 中所建立帳戶的認證。
 
-2. 若要建立租用戶可訂閱的方案和供應項目，請按一下 [新增] > [租用戶供應項目 + 方案] > [方案]。
+2. 若要建立使用者可訂閱的方案和供應項目，請按一下 [新增] > [租用戶供應項目 + 方案] > [方案]。
 
    ![](media/azure-stack-create-plan/image01.png)
-3. 在 [新的方案] 刀鋒視窗中，填寫 [顯示名稱] 與 [資源名稱]。 「顯示名稱」是租用戶所見的方案易記名稱。 只有系統管理員可以看到「資源名稱」。 它是系統管理員用來將方案當作 Azure Resource Manager 資源來使用時的名稱。
+3. 在 [新的方案] 刀鋒視窗中，填寫 [顯示名稱] 與 [資源名稱]。 [顯示名稱] 是使用者看到的方案易記名稱。 只有系統管理員可以看到「資源名稱」。 它是系統管理員用來將方案當作 Azure Resource Manager 資源來使用時的名稱。
 
    ![](media/azure-stack-create-plan/image02.png)
 4. 建立新的 [資源群組]或選取現有的資源群組，以作為方案的容器。
@@ -68,4 +67,3 @@ ms.lasthandoff: 09/25/2017
 
 ### <a name="next-steps"></a>後續步驟
 [建立優惠](azure-stack-create-offer.md)
-

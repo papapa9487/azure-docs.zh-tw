@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 415086809efe779c6bcae32719d8be1b48764905
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>設定 Azure Active Directory 已加入裝置
 
@@ -81,12 +80,12 @@ ms.lasthandoff: 09/20/2017
     ![連線](./media/device-management-azuread-joined-devices-setup/08.png)
 
 
-6. 在 [Let's get you signed in] \(讓我們協助您登入帳戶) 對話方塊中，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下 [下一步]。
+6. 在 Let's get you signed in \(讓我們協助您登入帳戶) 對話方塊中，輸入您的帳戶名稱 (例如 someone@example.com)，然後按一下下一步。
 
     ![讓我們協助您登入帳戶](./media/device-management-azuread-joined-devices-setup/10.png)
 
 
-6. 在 [輸入密碼] 對話方塊中，輸入您的密碼，然後按一下 [登入]。
+6. 在 輸入密碼 對話方塊中，輸入您的密碼，然後按一下登入。
 
     ![輸入密碼](./media/device-management-azuread-joined-devices-setup/05.png)
 
@@ -125,7 +124,6 @@ ms.lasthandoff: 09/20/2017
 - [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)
 - [使用 Azure 入口網站管理裝置](device-management-azure-portal.md)
 - 
-
 
 
 

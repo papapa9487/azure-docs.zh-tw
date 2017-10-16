@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="subscribe-to-an-offer"></a>訂閱優惠
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 既然您已經[建立供應項目](azure-stack-create-offer.md)，接著應該測試您的使用者是否可以建立訂用帳戶。
 
@@ -48,4 +47,3 @@ ms.lasthandoff: 09/27/2017
 
 ## <a name="next-steps"></a>後續步驟
 [佈建虛擬機器](azure-stack-provision-vm.md)
-

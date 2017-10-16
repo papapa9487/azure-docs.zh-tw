@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Cloud App Discovery 的安全性和隱私權考量
 本主題說明在 Azure Active Directory Cloud App Discovery 內如何收集、處理以及保護資料。 Microsoft 致力於保護您的隱私權和確保資料安全。 Microsoft 在運作服務時，會遵守安全軟體開發生命週期作法。 保全和保護資料在 Microsoft 是第一要務。
@@ -160,5 +159,4 @@ Cloud App Discovery 服務的分析管線會以邏輯方式分割分析管線的
 ## <a name="additional-resources"></a>其他資源
 * [如何探索組織內使用未經批准的雲端應用程式](active-directory-cloudappdiscovery-whatis.md)
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
-
 

@@ -14,15 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 07/07/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 1af23bfd46dd7d3781505473f7c1d86e65ea9bc7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-relay-hybrid-connections"></a>開始使用轉送混合式連線
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
@@ -78,5 +75,4 @@ ms.lasthandoff: 07/10/2017
 * [轉送常見問題集](relay-faq.md)
 * [建立命名空間](relay-create-namespace-portal.md)
 * [開始使用 Node](relay-hybrid-connections-node-get-started.md)
-
 

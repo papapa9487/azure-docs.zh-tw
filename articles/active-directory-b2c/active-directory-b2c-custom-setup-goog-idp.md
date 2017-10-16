@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: e0aaf710d230f7667fff32b50ddb64104509d740
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 890690f704f033895e42877e3c9355a5a3df07b7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 Google+ 作為 OAuth2 識別提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -54,7 +52,7 @@ ms.lasthandoff: 08/28/2017
 
     ![Google+ 帳戶 - 建立新的專案](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
 
-5.  輸入 [專案名稱]，然後按一下 [建立]。
+5.  輸入 專案名稱，然後按一下建立。
 
     ![Google+ 帳戶 - 新增專案](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
 
@@ -66,7 +64,7 @@ ms.lasthandoff: 08/28/2017
 
     ![Google+ 帳戶 - 選取新的專案](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
 
-8.  在左側導覽中，按一下 [API 管理員]，然後按一下 [認證]。
+8.  在左側導覽中，按一下 API 管理員，然後按一下認證。
 9.  按一下位於頂端的 [OAuth 同意畫面]  索引標籤。
 
     ![Google+ 帳戶 - 設定 OAuth 同意畫面](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
@@ -254,4 +252,3 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="download-the-complete-policy-files"></a>下載完整的原則檔案
 選擇性：建議您在使用自訂原則逐步解說完成使用者入門後，使用自己的自訂原則檔案來建置您的情節，而非使用這些範例檔案。  [參考的範例原則檔案](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)
-

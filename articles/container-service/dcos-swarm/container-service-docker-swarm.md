@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 09/13/2016
 ms.author: rogardle
 ms.custom: mvc
+ms.openlocfilehash: 6ca2d2e49c4b7f5eb0580e7091b09209f8b73a7c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 50f084b8e5fc7c113e54c3be094cbf06413eb035
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="container-management-with-docker-swarm"></a>使用 Docker Swarm 管理容器
 Docker Swarm 提供跨一組匯集的 Docker 主機來部署容器化工作負載的環境。 Docker Swarm 使用原生 Docker API。 用來管理 Docker Swarm 上容器的工作流程與在單一容器主機時的工作流程幾乎相同。 本文件提供在 Docker Swarm 的 Azure 容器服務執行個體中部署容器化工作負載的簡單範例。 如需有關 Docker Swarm 的更深入文件，請參閱 [Docker.com 上的 Docker Swarm](https://docs.docker.com/swarm/)。
@@ -118,5 +117,4 @@ caf185d221b7        adtd/web:0.1        "apache2-foreground"   2 minutes ago    
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 Docker Swarm](https://docs.docker.com/swarm/)
-
 

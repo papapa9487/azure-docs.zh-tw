@@ -16,10 +16,10 @@ ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: b778774fa23be8219db3f716d79bac324a7de9d3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management：如何要求 MFA
 建議您針對所有系統管理員都要求進行多重要素驗證 (MFA)。 這可降低密碼遭入侵所導致的攻擊風險。
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 您也可以要求使用者在啟用 Azure AD PIM 中的角色時，完成 MFA 挑戰。 如此一來，如果使用者沒有在登入時完成 MFA 挑戰，PIM 就會提示他們執行這項作業。
 
 ## <a name="requiring-mfa-in-azure-ad-privileged-identity-management"></a>在 Azure AD Privileged Identity Management 中強制啟用 MFA
-當您以特殊權限角色管理員的身分管理 PIM 中的身分識別時，您可能會看到建議特殊權限帳戶使用 MFA 的警示。 按一下 PIM 儀表板中的安全性警示，新的刀鋒視窗會隨即開啟，並顯示應啟用 MFA 的系統管理員帳戶清單。  您可以選取多個角色，然後按一下 [修正] 按鈕來要求使用 MFA；或者您也可以按一下個別角色旁邊的省略符號，然後按一下 [修正] 按鈕。
+當您以特殊權限角色管理員的身分管理 PIM 中的身分識別時，您可能會看到建議特殊權限帳戶使用 MFA 的警示。 按一下 PIM 儀表板中的安全性警示，新的刀鋒視窗會隨即開啟，並顯示應啟用 MFA 的系統管理員帳戶清單。  您可以選取多個角色，然後按一下修正 按鈕來要求使用 MFA；或者您也可以按一下個別角色旁邊的省略符號，然後按一下修正 按鈕。
 
 > [!IMPORTANT]
 > 目前 Azure MFA 只能與工作帳戶或學校帳戶搭配運作，而無法與 Microsoft 帳戶 (通常是用來登入 Skype、Xbox、Outlook.com 等 Microsoft 服務的個人帳戶) 搭配運作。 因此，任何使用者只要是使用 Microsoft 帳戶就無法成為合格的系統管理員，因為他們無法使用 MFA 來啟用其角色。 如果這些使用者需要繼續使用 Microsoft 帳戶來管理工作負載，請立即將他們提升為永久系統管理員。

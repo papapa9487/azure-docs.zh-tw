@@ -15,28 +15,27 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
+ms.openlocfilehash: 42e126ffefd75669d90ea3ff1d3939028f71159c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 97ada8795ff0200c487062c6ec3347c7421ba91d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-by-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 建立 Windows 虛擬機器
 
 適用於：Azure Stack 整合系統
 
 本指南詳細說明如何使用 PowerShell 在 Azure Stack 中建立 Windows Server 2016 虛擬機器。 您可以從 Azure Stack 開發套件，或從以 Windows 為基礎的外部用戶端 (如果您透過 VPN 連線) 來執行這篇文章中所述的步驟。 
 
-在開始之前，請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增到 Azure Stack 市集。  
+## <a name="prerequisites"></a>必要條件 
 
-Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell，請依照步驟來[安裝和設定 PowerShell](azure-stack-powershell-install.md)。    
+* 請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增到 Azure Stack 市集。  
 
+* Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell，請依照步驟來[安裝](azure-stack-powershell-install.md)和[設定](azure-stack-powershell-configure-user.md) PowerShell。    
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 請使用下列程式碼區塊來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。  
+資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行下列程式碼區塊來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。  
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -246,6 +245,5 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解 Azure Stack 中的儲存體，請參閱[儲存體概觀](azure-stack-storage-overview.md)主題。
-
+在這個快速入門中，您已部署簡單的 Windows 虛擬機器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。
 

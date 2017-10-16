@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>在 Azure AD 中，為可存取應用程式的群組成員或使用者完成存取權檢閱
 
 系統管理員可以[建立存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)，要求檢閱指派給應用程式的群組成員或使用者。 Azure AD 會自動將電子郵件傳給檢閱者，提示其檢閱存取權。 如果使用者未收到電子郵件，您可以在[如何檢閱存取權](active-directory-azure-ad-controls-perform-access-review.md)中傳送指示。  存取權檢閱期間結束後，或系統管理員已停止存取權檢閱之後，請依照本文的步驟來查看並套用結果。
@@ -59,4 +57,3 @@ ms.lasthandoff: 09/20/2017
 - [管理 Azure AD 存取權檢閱的程式和控制項](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [建立群組成員或應用程式存取的存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)
 - [在 Azure AD 管理角色中建立使用者的存取權檢閱](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

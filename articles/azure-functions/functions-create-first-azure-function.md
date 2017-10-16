@@ -15,13 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/07/2017
 ms.author: glenga
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 2b73b8b1c5773b471c49394b0cceb3916afb9a70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3ec1f278f21d89782137625aff200f07f15fd9fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 入口網站中建立您的第一個函式
 
@@ -57,7 +56,7 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 
 ## <a name="test-the-function"></a>測試函式
 
-1. 在新的函式中，按一下 [</> 取得函式 URL]，選取 [預設 (函式索引鍵)]，然後按一下 [複製]。 
+1. 在新的函式中，按一下 </> 取得函式 URL，選取 預設 (函式索引鍵)，然後按一下複製。 
 
     ![從 Azure 入口網站複製函式 URL](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -82,7 +81,6 @@ Azure Functions 可讓您在無伺服器環境中執行程式碼，而不需要�
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 如需詳細資訊，請參閱 [Azure Functions HTTP 和 webhook 繫結](functions-bindings-http-webhook.md)。
-
 
 
 

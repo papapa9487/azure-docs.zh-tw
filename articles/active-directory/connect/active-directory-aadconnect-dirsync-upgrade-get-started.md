@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: 7049af4567947d3d799a38c5a3940ba25a2c0f18
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect︰從 DirSync 升級
 Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可從 DirSync 升級的方式。 這些步驟不適用於從另一個版本的 Azure AD Connect 或從 Azure AD Sync 升級。
 
@@ -32,7 +30,7 @@ Azure AD Connect 是 DirSync 的後續產品。 您會在本主題中了解可�
 * 需要在 Proxy 伺服器中開啟的 URL。 基本的情況下，這些案例也支援這些 URL，需求都相同。 如果您想要使用 Azure AD Connect 隨附的任何新功能，必須開啟某些新的 URL。
 
 > [!NOTE]
-> 一旦您啟用新的 Azure AD Connect 伺服器開始將變更同步處理至 Azure AD，就不可再復原為使用 DirSync 或 Azure AD 同步。 不支援從 Azure AD Connect 降級至舊版用戶端，包括 DirSync 和 Azure AD 同步，因為可能會導致 Azure AD 中發生遺失資料等問題。
+> 一旦您啟用新的 Azure AD Connect 伺服器開始將變更同步處理至 Azure AD，就不可再復原為使用 DirSync 或 Azure AD 同步。不支援從 Azure AD Connect 降級至舊版用戶端，包括 DirSync 和 Azure AD 同步，因為可能會導致 Azure AD 中發生遺失資料等問題。
 
 如果您不是要從 DirSync 升級，請參閱 [相關文件](#related-documentation) 中的其他案例。
 
@@ -170,7 +168,7 @@ DirSync 用於服務帳戶的密碼無法擷取且不會移轉。 這些密碼�
 ### <a name="verify-that-azure-ad-connect-is-ready-to-begin-synchronization"></a>確認 Azure AD Connect 已準備好開始同步處理
 若要確認 Azure AD Connect 是否已準備好接收 DirSync，您必須從 [開始] 功能表的 [Azure AD Connect] 群組中開啟 [同步處理服務管理器]。
 
-在應用程式中，移至 [作業]  索引標籤。 在此索引標籤上，確認已完成下列作業：
+在應用程式中，移至 [作業]  索引標籤。在此索引標籤上，確認已完成下列作業：
 
 * 在 AD 連接器上匯入
 * 在 Azure AD 連接器上匯入
@@ -218,4 +216,3 @@ Azure AD Connect 現在是作用中的伺服器，您不可切換回使用現有
 深入了解這些常見主題︰[排程器和如何觸發同步處理](active-directory-aadconnectsync-feature-scheduler.md)。
 
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-

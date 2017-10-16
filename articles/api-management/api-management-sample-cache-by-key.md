@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: 24cbe51ef5a453d06e9f70e1e2146479935c5bf5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 4a41e4e0be44e855ead253ad76fe5a3af52070ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-caching-in-azure-api-management"></a>在 Azure API 管理中自訂快取
 Azure API 管理服務以資源 URL 做為索引鍵，內建對 [HTTP 回應的快取](api-management-howto-cache.md) 的支援。 可以在要求標頭中使用 `vary-by` 屬性修改索引鍵。 這很適合用於快取整個 HTTP 回應 (也稱為｢表示法｣)，但是有時候也很適合用於只快取部分表示法。 新的 [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) 和 [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) 原則提供了可儲存及擷取原則定義中任意資料的能力。 這個能力也讓先前推出的 [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 原則更有價值，因為您現在可以快取外部服務的回應。
@@ -281,5 +280,4 @@ variable-name="clientversion" />
 
 ## <a name="next-steps"></a>後續步驟
 如果這些原則為您達成其他案例，或是有案例您想要達成但認為目前無法執行，敬請不吝賜教在 Disqus 的本主題系列中提供意見。
-
 

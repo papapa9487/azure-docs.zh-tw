@@ -1,4 +1,3 @@
-
 ---
 title: "Azure Data Factory - 客戶案例研究 | Microsoft Docs"
 description: "深入了解我們某些客戶使用 Azure Data Factory 的情況。"
@@ -16,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1868e4b96f3d062de1efb7c56c86aae3b0de9097
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 客戶案例研究
 Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料。 許多產業的客戶會使用 Data Factory 和其他 Azure 服務來建置其分析管線以及解決其業務問題。  直接向我們的客戶學習他們使用 Data Factory 的方法和原因。
@@ -49,4 +47,3 @@ Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料�
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
 [透過每天分析數千億個遊戲事件，提供如史詩般的 Xbox 體驗](https://customers.microsoft.com/en-us/story/xboxunlimited)
-

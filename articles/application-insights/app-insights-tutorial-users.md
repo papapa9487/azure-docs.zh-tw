@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 7399de1df60d0583bc6efacd0074d3a00a086ff3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 079e561291e71502a5e9a2361c275a1edfacfda2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>藉由 Azure Application Insights，以了解客戶如何使用您的應用程式
 
 Azure Application Insights 會收集使用資訊，以協助您了解使用者如何與您的應用程式互動。  本教學課程將逐一介紹可用於分析此資訊的各種不同資源。  您將了解如何：
@@ -104,7 +102,7 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 ## <a name="compare-desired-activity-to-reality"></a>比較期望的和實際的活動
 先前的面板均著重在應用程式使用者的活動，而 [漏斗圖] 則著重在您想要使用者進行的活動。  漏斗圖代表應用程式中的一組步驟，以及在步驟之間移動的使用者百分比。  例如，您可以建立漏斗圖，來測量連線到應用程式搜尋產品的使用者百分比。  您就能看到將該產品放入購物車的使用者百分比，還有完成購物的使用者百分比。
 
-1. 選取功能表中的 [漏斗圖]，然後按一下 [新增]。 
+1. 選取功能表中的 漏斗圖，然後按一下新增。 
 
     ![](media\app-insights-tutorial-users\funnelsnew.png)
 
@@ -134,7 +132,7 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 [使用者流程] 會將使用者在您應用程式的頁面和功能之間瀏覽的方式視覺化。  這可協助您回答以下問題：例如，使用者通常從特定的頁面移往何處、他們通常如何結束您的應用程式，以及是否有任何動作會定期重複。
 
 1.  選取功能表中的 [使用者流程]。
-2.  按一下 [新增] 以建立新的使用者流程，然後按一下 [編輯] 以編輯其詳細資料。
+2.  按一下 新增 以建立新的使用者流程，然後按一下編輯 以編輯其詳細資料。
 3.  將 [時間範圍] 增加至 7 天，然後選取一個初始事件。  流程將會追蹤以該事件開始的使用者工作階段。
 
     ![](media\app-insights-tutorial-users\flowsedit.png)
@@ -143,7 +141,7 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 
     ![](media\app-insights-tutorial-users\flows.png)
 
-5.  若要將某事件從流程中移除，按一下該動作角落的 **x**，然後按一下 [建立圖表]。  重繪後的圖形會移除該事件所有的執行個體。  按一下 [編輯]，查看該事件現在是否已新增至 [排除的事件]。
+5.  若要將某事件從流程中移除，按一下該動作角落的 **x**，然後按一下建立圖表。  重繪後的圖形會移除該事件所有的執行個體。  按一下 [編輯]，查看該事件現在是否已新增至 [排除的事件]。
 
     ![](media\app-insights-tutorial-users\flowsexclude.png)
 
@@ -161,7 +159,7 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 
     ![](media\app-insights-tutorial-users\markdown.png)
 
-6.  按一下 [新增使用者]，以新增含有使用者資訊的圖形。  視需要編輯圖形的詳細資料，然後按一下 [完成編輯] 儲存它。
+6.  按一下 [新增使用者]，以新增含有使用者資訊的圖形。  視需要編輯圖形的詳細資料，然後按一下完成編輯 儲存它。
 
 
 ## <a name="next-steps"></a>後續步驟

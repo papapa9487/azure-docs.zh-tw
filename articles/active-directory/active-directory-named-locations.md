@@ -11,15 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/20/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
-ms.openlocfilehash: e11f19d518b22a7be4f8daf93304821b42e94a9b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Azure Active Directory 中的具名位置
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 05/25/2017
 
 6. 在 [新增] 刀鋒視窗上，執行下列動作：
 
-    ![[新增] 刀鋒視窗](./media/active-directory-named-locations/08.png)
+    ![[新增] 刀鋒視窗](./media/active-directory-named-locations/56.png)
 
     a. 在 [名稱] 方塊中，輸入具名位置的名稱。
 
@@ -75,5 +74,4 @@ ms.lasthandoff: 05/25/2017
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解風險事件，請參閱 [Azure Active Directory 風險事件](active-directory-reporting-risk-events.md)。
-
 

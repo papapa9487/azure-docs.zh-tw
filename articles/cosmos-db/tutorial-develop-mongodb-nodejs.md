@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: c6d31816b5919afb2cc67bc42321422183ab30df
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 
 
@@ -58,4 +57,3 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 它�
 
 > [!div class="nextstepaction"]
 > [使用 Angular CLI 建立 Node.js Express 應用程式](tutorial-develop-mongodb-nodejs-part2.md)
-

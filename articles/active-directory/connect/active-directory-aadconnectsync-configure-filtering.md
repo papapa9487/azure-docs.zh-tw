@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步處理：設定篩選
 使用篩選功能可讓您控制內部部署目錄中的哪些物件應該出現在 Azure Active Directory 中。 預設組態會擷取所設定樹系中所有網域內的所有物件。 一般會建議使用者使用這個組態。 完整的全域通訊清單對於使用 Exchange Online 和商務用 Skype 等 Office 365 工作負載的使用者來說十分方便，因為如此一來，他們就可以傳送電子郵件和呼叫每個人。 使用預設設定時，所獲得的體驗與使用 Exchange 或 Lync 的內部部署實作相同。
 
@@ -125,7 +123,7 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
     * 匯出
 3. 對於每個設定檔，調整**已新增**與**已移除**的網域。
     1. 針對上述五個設定檔，請為每個**新增的**網域執行下列步驟：
-        1. 選取執行設定檔，然後按一下 [新增步驟] 。
+        1. 選取執行設定檔，然後按一下新增步驟 。
         2. 在 [設定步驟] 頁面上的 [類型] 下拉式選單中，選取與所要設定之設定檔同名的步驟類型。 然後按 [下一步] 。  
         ![連接器執行設定檔 2](./media/active-directory-aadconnectsync-configure-filtering/runprofilesnewstep1.png)  
         3. 在 [連接器組態] 頁面上的 [分割] 下拉式選單中，選取您已新增至網域篩選的網域名稱。  
@@ -150,9 +148,9 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
 2. 從 [開始] 功能表啟動 [同步處理服務]。
 3. 選取 [連接器]，然後在 [連接器] 清單中，選取類型為 [Active Directory Domain Services] 的連接器。 在 [動作] 中選取 [屬性]。  
    ![連接器屬性](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
-4. 按一下 [設定目錄分割]、選取要設定的網域，然後按一下 [容器]。
+4. 按一下 設定目錄分割、選取要設定的網域，然後按一下容器。
 5. 出現提示時，請提供具有內部部署 Active Directory 讀取權限的任何認證。 您不一定要使用對話方塊中預先填入的使用者。
-6. 在 [選取容器] 對話方塊中，取消選取您不想與雲端目錄同步處理的 OU，然後按一下 [確定]。  
+6. 在 選取容器 對話方塊中，取消選取您不想與雲端目錄同步處理的 OU，然後按一下確定。  
    ![在 [選取容器] 對話方塊中的 OU](./media/active-directory-aadconnectsync-configure-filtering/ou.png)  
    * 應該選取 [電腦]  容器，這樣您的 Windows 10 電腦才能順利同步處理至 Azure AD。 如果加入網域的電腦位於其他組織單位，請確定已選取這些電腦。
    * 如果您有多個信任的樹系，則應該選取 [ForeignSecurityPrincipals]  容器。 這個容器允許解析跨樹系安全性群組成員資格。
@@ -208,7 +206,7 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 
 1. 使用隸屬於 **ADSyncAdmins** 安全性群組的帳戶，登入執行 Azure AD Connect 同步處理的伺服器。
 2. 從 [開始] 功能表啟動 [同步處理規則編輯器]。
-3. 確定已選取 [輸入]，然後按一下 [新增規則]。
+3. 確定已選取 輸入，然後按一下新增規則。
 4. 為規則提供一個描述性名稱，例如 "*In from AD – User DoNotSyncFilter*"。 選取正確的樹系，亦即選取 [使用者] 作為 [CS 物件類型]，以及選取 [人員] 作為 [MV 物件類型]。 在 [連結類型] 中，選取 [聯結]。 在 [優先順序] 中，輸入目前沒有被其他「同步化規則」使用的值 (例如 50)，然後按 [下一步]。  
    ![輸入 1 描述](./media/active-directory-aadconnectsync-configure-filtering/inbound1.png)  
 5. 在 [範圍設定篩選] 中，按一下 [新增群組]，然後按一下 [新增子句]。 在 [屬性] 中，選取 [ExtensionAttribute15]。 確定已將 [運算子] 設為 [EQUAL]，然後在 [值] 方塊中輸入值 **NoSync**。 按一下 [下一步] 。  
@@ -227,7 +225,7 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 
 1. 使用隸屬於 **ADSyncAdmins** 安全性群組的帳戶，登入執行 Azure AD Connect 同步處理的伺服器。
 2. 從 [開始] 功能表啟動 [同步處理規則編輯器]。
-3. 確定已選取 [輸入]，然後按一下 [新增規則]。
+3. 確定已選取 輸入，然後按一下新增規則。
 4. 為規則提供一個描述性名稱，例如 "*In from AD – User Sales sync*"。 選取正確的樹系，亦即選取 [使用者] 作為 [CS 物件類型]，以及選取 [人員] 作為 [MV 物件類型]。 在 [連結類型] 中，選取 [聯結]。 在 [優先順序] 中，輸入目前沒有被其他「同步化規則」使用的值 (例如 51)，然後按 [下一步]。  
    ![輸入 4 描述](./media/active-directory-aadconnectsync-configure-filtering/inbound4.png)  
 5. 在 [範圍設定篩選] 中，按一下 [新增群組]，然後按一下 [新增子句]。 在 [屬性] 中，選取 [部門]。 確定已將 [運算子] 設為 [EQUAL]，然後在 [值] 方塊中輸入值 **Sales**。 按一下 [下一步] 。  
@@ -257,7 +255,7 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 4. 根據您使用的 Connect 版本，請尋找名為 **Out to AAD – User Join** 或 **Out to AAD-User Join SOAInAD** 的規則，然後按一下 [編輯]。
 5. 在快顯視窗中，回答 [是]  來建立規則的複本。
 6. 在 [描述] 頁面上，將 [優先順序] 變更為一個未使用的值，例如 50。
-7. 按一下左邊導覽列上的 [範圍設定篩選]，然後按一下 [新增子句]。 在 [屬性] 中，選取 [郵件]。 在 [運算子] 中，選取 [ENDSWITH]。 在 [值] 中，輸入 **@contoso.com**，然後按一下 [新增子句]。 在 [屬性] 中，選取 [userPrincipalName]。 在 [運算子] 中，選取 [ENDSWITH]。 在 [值] 中，輸入 **@contoso.com**。
+7. 按一下左邊導覽列上的 範圍設定篩選，然後按一下新增子句。 在 [屬性] 中，選取 [郵件]。 在 [運算子] 中，選取 [ENDSWITH]。 在 值 中，輸入 **@contoso.com**，然後按一下新增子句。 在 [屬性] 中，選取 [userPrincipalName]。 在 [運算子] 中，選取 [ENDSWITH]。 在 [值] 中，輸入 **@contoso.com**。
 8. 按一下 [儲存] 。
 9. 若要完成組態，您必須執行「完整同步處理」。繼續閱讀[套用並驗證變更](#apply-and-verify-changes)一節。
 
@@ -303,4 +301,3 @@ Azure AD Connect 安裝精靈一律會建立此設定。
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md) 組態。
 - 深入了解[整合內部部署身分識別與 Azure AD](active-directory-aadconnect.md)。
-

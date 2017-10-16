@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 09c626e97832821009ce2da360ceea2b54273ffa
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
-「適用於：Azure Stack 開發套件」
+適用於：Azure Stack 開發套件
 
 若要管理資源，您必須連線到「Azure Stack 開發套件」。 此主題將詳細說明連線到開發套件所需的步驟。 您可以使用下列其中一個連線選項：
 
@@ -110,5 +109,4 @@ Add-AzsVpnConnection `
 ## <a name="next-steps"></a>後續步驟
 
 [將虛擬機器提供給您的 Azure Stack 使用者](azure-stack-tutorial-tenant-vm.md)
-
 

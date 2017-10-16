@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: bwren
+ms.openlocfilehash: cb247ee68da88265f7c51258644064463d44f8b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 1960fa0e17ea9aa0ca15bc3ecb8ce5b1f6630a60
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -77,7 +76,7 @@ ms.lasthandoff: 08/02/2017
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>在 Visual Studio 中查看遙測
 
-在 Visual Studio 中，開啟 Application Insights 視窗。 按一下 [Application Insights] 按鈕，或以滑鼠右鍵按一下 [方案總管] 中的專案﹐選取 [Application Insights]﹐然後按一下 [搜尋即時遙測]。
+在 Visual Studio 中，開啟 Application Insights 視窗。 按一下 Application Insights 按鈕，或以滑鼠右鍵按一下 方案總管 中的專案﹐選取 Application Insights﹐然後按一下搜尋即時遙測。
 
 在 Visual Studio 的 [Application Insights 搜尋] 視窗中，利用 [偵錯工作階段中的資料] 檢視，查看應用程式的伺服器端所產生的遙測。 試驗篩選器，然後按一下任何事件以查看更多詳細資料。
 
@@ -162,4 +161,3 @@ ms.lasthandoff: 08/02/2017
 ### <a name="automation"></a>自動化
 
 * [自動建立 Application Insights 資源](app-insights-powershell.md)
-

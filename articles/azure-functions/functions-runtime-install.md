@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
 ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-azure-functions-runtime-preview"></a>安裝 Azure Functions 執行階段預覽
 
@@ -75,19 +75,19 @@ Azure Functions 執行階段預覽安裝程式會引導您完成安裝 Azure Fun
     
     ![Azure Functions 執行階段預覽資料庫設定][7]
 
-1. 按一下 [認證] 索引標籤。  在此畫面上，您必須建立兩個新的認證，以使用 FileShare 來裝載您的所有 Azure Functions。  在 [檔案共用擁有者] 和 [檔案共用使用者] 中，指定**使用者名稱和密碼**組合，然後按一下 [套用]。
+1. 按一下 [認證] 索引標籤。在此畫面上，您必須建立兩個新的認證，以使用 FileShare 來裝載您的所有 Azure Functions。  在 [檔案共用擁有者] 和 [檔案共用使用者] 中，指定**使用者名稱和密碼**組合，然後按一下 [套用]。
 
     ![Azure Functions 執行階段預覽認證][8]
 
-1. 按一下 [檔案共用] 索引標籤。  在此畫面中，您必須指定 [檔案共用位置] 的詳細資料。  您可以建立此項目，也可以使用現有的檔案共用，然後按一下 [套用]。  如果您選取新的檔案共用位置，您必須指定供 Azure Functions 執行階段使用的目錄。
+1. 按一下 [檔案共用] 索引標籤。在此畫面中，您必須指定 [檔案共用位置] 的詳細資料。  您可以建立此項目，也可以使用現有的檔案共用，然後按一下 [套用]。  如果您選取新的檔案共用位置，您必須指定供 Azure Functions 執行階段使用的目錄。
     
     ![Azure Functions 執行階段預覽檔案共用][9]
 
-1. 按一下 [IIS] 索引標籤。  此索引標籤會顯示 IIS 中將建立 Azure Functions 執行階段安裝之網站的詳細資訊。  按一下 [套用] 完成。
+1. 按一下 [IIS] 索引標籤。此索引標籤會顯示 IIS 中將建立 Azure Functions 執行階段安裝之網站的詳細資訊。  按一下 [套用] 完成。
 
     ![Azure Functions 執行階段預覽 IIS][10]
 
-1. 按一下 [服務] 索引標籤。  此索引標籤會顯示 Azure Functions 執行階段安裝中的服務狀態。  初始設定之後，如果 **Azure Functions 主機啟用服務**未執行，請按一下 [啟動服務]
+1. 按一下 [服務] 索引標籤。此索引標籤會顯示 Azure Functions 執行階段安裝中的服務狀態。  初始設定之後，如果 **Azure Functions 主機啟用服務**未執行，請按一下 [啟動服務]
 
     ![Azure Functions 執行階段預覽設定完成][11]
 

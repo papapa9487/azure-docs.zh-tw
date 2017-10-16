@@ -16,10 +16,10 @@ ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
 ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>是否需要 My Apps 入口網站的協助？
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 08/03/2017
 
 1.  在 [應用程式] 分頁上，按一下 [新增應用程式]。
 
-2.  搜尋您要新增的應用程式，然後按一下 [新增]。
+2.  搜尋您要新增的應用程式，然後按一下新增。
 
 **備註：**
 

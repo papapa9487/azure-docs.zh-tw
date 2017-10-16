@@ -16,14 +16,12 @@ ms.workload: storage-backup-recovery
 ms.date: 09/07/2017
 ms.author: markgal
 ms.custom: mvc
+ms.openlocfilehash: 4376add4a2e51806bd5db228ad2fe2afcf2e4f57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 321a034340fb31efc1b539ba1a5ab5a34661cb63
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>使用 PowerShell 備份已加密的 Azure 虛擬機器
 
 此指令碼會針對已加密的 Azure 虛擬機器，建立具有異地備援儲存體 (GRS) 的復原服務保存庫。 預設保護原則會套用到保存庫。 此原則會產生虛擬機器的每日備份，並將每個備份保留 30 天。 此指令碼也會觸發虛擬機器的初始復原點，並將該復原點保留 365 天。 
@@ -65,5 +63,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ## <a name="next-steps"></a>後續步驟
 
 如需有關 Azure PowerShell 模組的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
-
 

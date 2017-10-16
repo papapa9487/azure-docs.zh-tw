@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/30/2017
 ms.author: genli
+ms.openlocfilehash: b9f785a8f24c013f01dd429539239a7396a94953
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 9742187d2739b2d2d3b2073646dd6d7002898009
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>提交按發票支付 Azure 訂用帳戶的要求
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 08/31/2017
     * 帳單地址
     * [帳戶管理員的電子郵件地址](billing-add-change-azure-subscription-administrator.md#check-the-account-administrator-of-the-subscription)
 
-1. 確認您的連絡資訊和慣用的連絡方法，然後按一下 [建立]。
+1. 確認您的連絡資訊和慣用的連絡方法，然後按一下建立。
 
 如果我們因您所需要的信用額度而必須進行信用查核，我們會將信用查核應用程式傳送給您。 提交應用程式之後，可能需要 5-7 天來處理信用應用程式。
 

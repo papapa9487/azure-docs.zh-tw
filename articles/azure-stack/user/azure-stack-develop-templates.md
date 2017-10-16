@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager 範本考量
 
@@ -80,5 +79,4 @@ Resource Manager 範本使用位置屬性在部署期間放置資源。 在 Azur
 * [使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)
 * [使用 Azure CLI 部署範本](azure-stack-deploy-template-command-line.md)
 * [使用 Visual Studio 部署範本](azure-stack-deploy-template-visual-studio.md)
-
 

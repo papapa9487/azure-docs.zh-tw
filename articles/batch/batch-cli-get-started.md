@@ -3,7 +3,7 @@ title: "開始使用 Azure CLI for Batch | Microsoft Docs"
 description: "取得 Azure CLI 中 Batch 命令的快速簡介，以便管理 Azure Batch 服務資源"
 services: batch
 documentationcenter: 
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,15 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 45c611e1c429e8c17c0fb1537577a4cbd037c23a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>使用 Azure CLI 管理 Batch 資源
 
@@ -32,7 +31,7 @@ Microsoft 建議使用最新版的 Azure CLI (即 2.0 版)。 如需 2.0 版的�
 
 ## <a name="set-up-the-azure-cli"></a>設定 Azure CLI
 
-若要安裝 Azure CLI，請遵循[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli.md)中概述的步驟。
+若要安裝 Azure CLI，請遵循[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)中概述的步驟。
 
 > [!TIP]
 > 建議您經常更新您的 Azure CLI 安裝以利用服務更新和增強功能。
@@ -97,9 +96,7 @@ az login
 
     Azure AD 的優點就是它會提供角色型存取控制 (RBAC)。 使用 RBAC，使用者的存取權取決於他們被指派的角色，而不是他們是否擁有帳戶金鑰。 您可以管理 RBAC 角色，並且讓 Azure AD 處理存取和驗證，而不用管理帳戶金鑰。  
 
-    如果您建立之 Azure Batch 帳戶的集區配置模式設定為「使用者訂用帳戶」，則需要向 Azure AD 驗證。 
-
-    若要使用 Azure AD 登入 Batch 帳戶，請呼叫 [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) 命令： 
+        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount
@@ -196,4 +193,3 @@ az batch task list --job-id job001
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
 [rest_add_pool]: https://msdn.microsoft.com/library/azure/dn820174.aspx
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: walterov
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b07a18055d149e20cd605a892063eccecf3df8a4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-windows-azure-pack-virtual-machines-from-azure-stack"></a>從 Azure Stack 管理 Windows Azure 套件虛擬機器
 
@@ -280,4 +279,3 @@ cd C:\temp\WAPConnector\Setup\Scripts
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Stack 中系統管理員和使用者的入口網站](azure-stack-manage-portals.md)
-

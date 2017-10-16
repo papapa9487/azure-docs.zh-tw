@@ -15,12 +15,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: ea667a889bc6eaed08619ee5e141d8e3e9add7bf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nosql-tutorial-build-a-documentdb-api-java-console-application"></a>NoSQL 教學課程：建置 DocumentDB API Java 主控台應用程式
 > [!div class="op_single_selector"]
@@ -85,7 +84,7 @@ ms.lasthandoff: 09/13/2017
 ## <a id="Connect"></a>步驟 3：連線至 Azure Cosmos DB 帳戶
 接下來，回到 [Azure 入口網站](https://portal.azure.com)擷取您的端點和主要金鑰。 必須提供 Azure Cosmos DB 端點 URL 和主要金鑰，您的應用程式才能了解所要連線的位置，而 Azure Cosmos DB 才會信任您的應用程式連線。
 
-在 Azure 入口網站中，瀏覽至 Azure Cosmos DB 帳戶，然後按一下 [金鑰]。 從入口網站複製 URI，並將它貼到 Program.java 檔案的 `https://FILLME.documents.azure.com` 中。 然後從入口網站複製主要金鑰，並將它貼到 `FILLME`中。
+在 Azure 入口網站中，瀏覽至 Azure Cosmos DB 帳戶，然後按一下金鑰。 從入口網站複製 URI，並將它貼到 Program.java 檔案的 `https://FILLME.documents.azure.com` 中。 然後從入口網站複製主要金鑰，並將它貼到 `FILLME`中。
 
     this.client = new DocumentClient(
         "https://FILLME.documents.azure.com",
@@ -196,4 +195,3 @@ Azure Cosmos DB 支援使用 [replaceDocument](/java/api/com.microsoft.azure.doc
 * 如需深入了解程式設計模型，請參閱 [Azure Cosmos DB 文件頁面](https://azure.microsoft.com/documentation/services/documentdb/)中的＜開發＞一節。
 
 [keys]: media/documentdb-get-started/nosql-tutorial-keys.png
-

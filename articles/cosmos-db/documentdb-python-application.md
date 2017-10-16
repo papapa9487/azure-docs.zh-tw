@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c62520846ebdc102204e42b50e52383167c6aa14
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
 > [!div class="op_single_selector"]
@@ -75,7 +74,7 @@ ms.lasthandoff: 09/13/2017
 我們現在將從頭開始逐步解說如何建立新的 Python Flask Web 應用程式。
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>步驟 2：建立新的 Python Flask Web 應用程式
-1. 在 Visual Studio 的 [檔案] 功能表中，指向 [新增]，然後按一下 [專案]。
+1. 在 Visual Studio 的 檔案 功能表中，指向 新增，然後按一下專案。
    
     [新增專案]  對話方塊隨即出現。
 2. 在左窗格中，依序展開 [範本]、[Python]，再按一下 [Web]。 
@@ -136,7 +135,7 @@ ms.lasthandoff: 09/13/2017
 ### <a name="create-database-collection-and-document-definitions"></a>建立資料庫、集合和文件定義
 現在請加入新檔案並更新其他檔案，以建立您的投票應用程式。
 
-1. 在「方案總管」中，以滑鼠右鍵按一下 [教學課程] 專案，然後按一下 [加入]，再按一下 [新增項目]。 選取 [空白 Python 檔案]，並將檔案命名為 **forms.py**。  
+1. 在「方案總管」中，以滑鼠右鍵按一下 教學課程 專案，然後按一下加入，再按一下 新增項目。 選取 [空白 Python 檔案]，並將檔案命名為 **forms.py**。  
 2. 將下列程式碼加入 forms.py 檔案，然後儲存該檔案。
 
 ```python
@@ -252,7 +251,7 @@ def vote():
 
 
 ### <a name="create-the-html-files"></a>建立 HTML 檔案
-1. 在「方案總管」中，以滑鼠右鍵按一下 [教學課程] 資料夾中的 [範本] 資料夾，然後按一下 [新增]，再按一下 [新增項目]。 
+1. 在「方案總管」中，以滑鼠右鍵按一下 教學課程 資料夾中的 範本 資料夾，然後按一下新增，再按一下 新增項目。 
 2. 選取 [HTML 頁面]，在名稱方塊中輸入 **create.html**。 
 3. 重複步驟 1 和 2 來建立其他兩個 HTML 檔案，分別是 results.html 和 vote.html。
 4. 將下列程式碼新增至 `<body>` 元素中的 **create.html**。 此程式碼可顯示訊息，指出我們已建立新的資料庫、集合和文件。
@@ -370,7 +369,7 @@ def vote():
 1. 以滑鼠右鍵按一下「方案總管」中的專案 (請確定您已沒有在本機上執行該案)，然後選取 [發佈] 。  
    
      ![[方案總管] 中選取之教學課程 (具有反白顯示的 [發佈] 選項) 的螢幕擷取畫面](./media/documentdb-python-application/image20.png)
-2. 在 [發佈] 對話方塊中，選取 [Microsoft Azure App Service]，選取 [新建]，然後按一下 [發佈]。
+2. 在 發佈 對話方塊中，選取 Microsoft Azure App Service，選取 新建，然後按一下發佈。
    
     ![醒目提示 Microsoft Azure App Service 之 [發佈 Web] 視窗的螢幕擷取畫面](./media/documentdb-python-application/cosmos-db-python-publish.png)
 3. 在 [建立 App Service] 對話方塊中，輸入您的 Web 應用程式名稱和 [訂用帳戶]、[資源群組]，以及 [App Service 方案]，然後按一下 [建立]。
@@ -403,4 +402,3 @@ def vote():
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.com
-

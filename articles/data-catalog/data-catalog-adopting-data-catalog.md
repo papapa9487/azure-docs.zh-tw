@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 06/15/2017
 ms.author: maroche
 ms.openlocfilehash: 5fc5c74c7671f64bd1312ad6939e629c0277110c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>採用 Azure 資料目錄的方法和程序
 本文會協助您在組織中開始採用 **Azure 資料目錄**。 為了能順利採用 **Azure 資料目錄**，您必須將重點放在三大要項：定義願景、找出組織內的重要商業使用案例，以及選擇試驗專案。

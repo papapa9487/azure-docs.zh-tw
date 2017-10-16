@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: 51aed908208b7a40ea2ab710dffe84370b573991
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>教學課程：Azure Active Directory 與 Deputy 整合
 
@@ -75,7 +73,7 @@ Deputy 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_search.png)
 
-5. 在結果窗格中，選取 [Deputy]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Deputy，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_addfromgallery.png)
 
@@ -112,7 +110,7 @@ Deputy 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-deputy-tutorial/tutorial_deputy_url1.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
     |  |
     | ----|
     | `https://<subdomain>.<region>.au.deputy.com` |
@@ -312,5 +310,4 @@ Deputy 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-deputy-tutorial/tutorial_general_203.png
-
 

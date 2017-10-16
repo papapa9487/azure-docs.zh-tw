@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tenant-resource-usage-api"></a>租用戶資源使用情況 API
 租用戶可以使用租用戶 API 來檢視租用戶的資源使用量資料。 此 API 與 Azure 使用情況 API (目前處於私人預覽狀態) 一致。
@@ -89,5 +88,4 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 [提供者資源使用狀況 API](azure-stack-provider-resource-api.md)
 
 [使用狀況相關常見問題集](azure-stack-usage-related-faq.md)
-
 

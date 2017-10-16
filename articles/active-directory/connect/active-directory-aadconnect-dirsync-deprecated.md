@@ -16,10 +16,10 @@ ms.date: 07/13/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3674670e10500d2992539ab60fbdb31b666fcf9a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>升級 Windows Azure Active Directory Sync 和 Azure Active Directory Sync
 Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最佳方式。 這是將 Azure AD Connect 從 Windows Azure Active Directory Sync (DirSync) 或 Azure AD Sync 升級的最佳時機，因為這些工具現在已淘汰，而且會在 2017 年 4 月 13 日結束支援。
@@ -29,7 +29,7 @@ Azure AD Connect 是連接內部部署目錄與 Azure AD 和 Office 365 的最�
 最新版的 DirSync 發行於 2014 年 7 月，而最新版的 Azure AD Sync 發行於 2015 年 5 月。
 
 ## <a name="what-is-azure-ad-connect"></a>何謂 Azure AD Connect
-Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。 它結合了兩者支援的所有案例。 您可以在 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)中進一步了解。
+Azure AD Connect 是 DirSync 和 Azure AD Sync 的後續產品。它結合了兩者支援的所有案例。 您可以在 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)中進一步了解。
 
 ## <a name="deprecation-schedule"></a>淘汰排程
 | Date | 註解 |

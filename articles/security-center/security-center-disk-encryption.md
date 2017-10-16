@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
 ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>加密 Azure 虛擬機器
 Azure 資訊安全中心會在您有未加密的虛擬機器時對您發出警示。 這些警示會顯示為高嚴重性，因此建議您加密這些虛擬機器。
@@ -149,7 +149,7 @@ Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMNa
 
 在輸入此命令後，按 **ENTER**鍵。
 
-第二個方法是在指令碼窗格 (PowerShell ISE 的上方窗格) 中按一下，然後向下捲動到指令碼底部。 反白顯示上面所列的命令並按一下滑鼠右鍵，然後按一下 [執行選取範圍] 或按鍵盤上的 **F8** 鍵。
+第二個方法是在指令碼窗格 (PowerShell ISE 的上方窗格) 中按一下，然後向下捲動到指令碼底部。 反白顯示上面所列的命令並按一下滑鼠右鍵，然後按一下執行選取範圍 或按鍵盤上的 **F8** 鍵。
 
 ![PowerShell ISE](./media/security-center-disk-encryption/security-center-disk-encryption-fig8.png)
 

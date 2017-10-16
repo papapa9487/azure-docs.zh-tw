@@ -11,14 +11,12 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 
 當 Azure 資源或第三方資源發生特定事件時，您可以啟動自動化[邏輯應用程式工作流程](../logic-apps/logic-apps-what-are-logic-apps.md)。 這些資源可以將這些事件發佈至 [Azure Event Grid](../event-grid/overview.md)。 接著，Event Grid 會將這些事件發送給以佇列、Webhook 或[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)作為端點的訂閱者。 身為訂閱者，邏輯應用程式可以先等待來自 Event Grid 的這些事件，再執行自動化工作流程來執行工作 - 您無須等待任何程式碼。

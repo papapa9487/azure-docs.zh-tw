@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
 ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>Operations Management Suite (OMS) 是什麼？
 本文提供 Operations Management Suite (OMS) 的簡介，包括簡短概述它所提供的商業價值、它所包含的服務和管理解決方案，以及將不同服務和解決方案封裝在一起的供應項目。  文中包含有關部署和使用每個服務和解決方案的詳細文件連結。

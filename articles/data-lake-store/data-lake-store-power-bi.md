@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 59f072c7a8272fc04e1d662c0ab17e7ee4500fa6
-ms.openlocfilehash: f965e3a5067dd8dd2ac6dc29446c7f5b50cdd450
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/07/2017
-
+ms.openlocfilehash: 32ae9949806e0cb762b87cb739f94ddf3704c2ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-in-data-lake-store-by-using-power-bi"></a>使用 Power BI 分析 Data Lake Store 中的資料
 在本文中，您將了解如何使用 Power BI Desktop 分析 Azure Data Lake Store 中所儲存的資料並加以視覺化。
@@ -33,7 +32,7 @@ ms.lasthandoff: 02/07/2017
 
 ## <a name="create-a-report-in-power-bi-desktop"></a>在 Power BI Desktop 中建立報表
 1. 在您的電腦上啟動 Power BI Desktop。
-2. 從 [首頁] 功能區中，按一下 [取得資料]，然後按一下 [其他]。 在 [取得資料] 對話方塊中，依序按一下 [Azure]、[Azure Data Lake Store] 和 [連線]。
+2. 從 首頁 功能區中，按一下 取得資料，然後按一下其他。 在 [取得資料] 對話方塊中，依序按一下 [Azure]、[Azure Data Lake Store] 和 [連線]。
    
     ![連線至 Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account.png "連線至 Data Lake Store")
 3. 如果您看到連接器處於開發階段的對話方塊，請選擇繼續。
@@ -46,7 +45,7 @@ ms.lasthandoff: 02/07/2017
 6. 順利登入之後，請按一下 [連線] 。
    
     ![連線至 Data Lake Store](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "連線至 Data Lake Store")
-7. 下一個對話方塊會顯示您已上傳至 Data Lake Store 帳戶的檔案。 驗證資訊，然後按一下 [載入] 。
+7. 下一個對話方塊會顯示您已上傳至 Data Lake Store 帳戶的檔案。 驗證資訊，然後按一下載入 。
    
     ![從 Data Lake Store 載入資料](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "從 Data Lake Store 載入資料")
 8. 順利將資料載入至 Power BI 之後，即會在 [欄位]  索引標籤中看到下列欄位。
@@ -70,7 +69,7 @@ ms.lasthandoff: 02/07/2017
 12. 您應該會看到如下的輸出。 您的資料現在為可用來建立視覺效果的格式。
     
     ![編輯查詢](./media/data-lake-store-power-bi/convert-query3.png "編輯查詢")
-13. 從 [首頁] 功能區中，按一下 [關閉並套用]，然後按一下 [關閉並套用]。
+13. 從 首頁 功能區中，按一下 關閉並套用，然後按一下關閉並套用。
     
     ![編輯查詢](./media/data-lake-store-power-bi/load-edited-query.png "編輯查詢")
 14. 更新查詢之後，[欄位]  索引標籤將會顯示可用於視覺效果的新欄位。
@@ -100,5 +99,4 @@ ms.lasthandoff: 02/07/2017
 
 ## <a name="see-also"></a>另請參閱
 * [使用 Data Lake Analytics 分析 Data Lake Store 中的資料](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-
 

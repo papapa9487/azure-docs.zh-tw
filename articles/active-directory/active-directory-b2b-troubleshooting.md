@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
 ms.openlocfilehash: 2009cfc956a2703e268c9364996aa2d0fbd8f279
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>針對 Azure Active Directory B2B 共同作業問題進行疑難排解
 
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="how-does--which-is-not-normally-a-valid-character-sync-with-azure-ad"></a>‘\#’ (通常是無效的字元) 如何與 Azure AD 同步？
 
-因為受邀帳戶 user@contoso.com 會成為 user_contoso.com#EXT@fabrikam.onmicrosoft.com，所以 “\#” 是 Azure AD B2B 共同作業或外部使用者之 UPN 中的保留字元。 因此，來自內部部署之 UPN 中的 \# 不可登入 Azure 入口網站。 
+因為受邀帳戶 user@contoso.com 會成為 user_contoso.com#EXT@fabrikam.onmicrosoft.com，所以 “\#” 是 Azure AD B2B 共同作業或外部使用者之 UPN 中的保留字元。因此，來自內部部署之 UPN 中的 \# 不可登入 Azure 入口網站。 
 
 ## <a name="i-receive-an-error-when-adding-external-users-to-a-synchronized-group"></a>我在將外部使用者新增到已同步的群組時遇到錯誤
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b9a010409dc7f49333ab188b89280f3ad54816c1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
@@ -117,4 +115,3 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 ## <a name="next-steps"></a>後續步驟
 * [安裝 Azure Stack 適用的 PowerShell](azure-stack-powershell-install.md)
 * [設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)  
-

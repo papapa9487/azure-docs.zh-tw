@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
 ms.openlocfilehash: 639e40ca7e406a1726033e9f5c5363c289087589
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>教學課程：Azure Active Directory 與 Salesforce 整合
 
@@ -73,7 +73,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_search.png)
 
-5. 在結果窗格中，選取 [Salesforce]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Salesforce，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-salesforce-tutorial/tutorial_salesforce_addfromgallery.png)
 
@@ -141,7 +141,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
       > [!NOTE]
       > 如果您的 Salesforce 帳戶無法啟用單一登入設定，您可能需要連絡 [Salesforce 用戶端支援小組](https://help.salesforce.com/support)。 
 
-10. 選取 [啟用 SAML]，然後按一下 [儲存]。
+10. 選取 啟用 SAML，然後按一下儲存。
 
       ![設定單一登入](./media/active-directory-saas-salesforce-tutorial/sf-enable-saml.png)
 11. 若要設定 SAML 單一登入設定，請按一下 [新增] 。
@@ -161,7 +161,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
       * 企業帳戶： `https://<subdomain>.my.salesforce.com`
       * 開發人員帳戶： `https://<subdomain>-dev-ed.my.salesforce.com`
       
-    d. 按一下 [瀏覽] 或 [選擇檔案] 開啟 [選擇要上傳的檔案] 對話方塊，選取您的 Salesforce 憑證，然後按一下 [開啟] 上傳憑證。
+    d. 按一下 瀏覽 或 選擇檔案 開啟 選擇要上傳的檔案 對話方塊，選取您的 Salesforce 憑證，然後按一下開啟 上傳憑證。
 
     e. 對於 [SAML 身分識別類型]，請選取 [判斷提示包含使用者的 salesforce.com 使用者名稱]。
 
@@ -173,7 +173,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
     
     i. 最後，按一下 [儲存]  套用您的 SAML 單一登入設定。
 
-13. 在 Salesforce 的左方導覽窗格中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域]。
+13. 在 Salesforce 的左方導覽窗格中，按一下 網域管理 展開相關的區段，然後按一下我的網域。
 
     ![設定單一登入](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
 
@@ -181,7 +181,7 @@ Salesforce 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-salesforce-tutorial/sf-edit-auth-config.png)
 
-15. 在 [驗證服務] 區段中，選取您 SAML SSO 組態的易記名稱，然後按一下 [儲存]。
+15. 在 驗證服務 區段中，選取您 SAML SSO 組態的易記名稱，然後按一下儲存。
 
     ![設定單一登入](./media/active-directory-saas-salesforce-tutorial/sf-auth-config.png)
 

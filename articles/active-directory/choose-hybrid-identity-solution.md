@@ -13,14 +13,12 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
 ms.openlocfilehash: 5838e3276765f4f074bca2e3cae81b17edfa7c69
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 混合式身分識別解決方案
 [Microsoft Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 混合式身分識別解決方案可讓您同步處理內部部署目錄物件與 Azure AD，仍同時在內部部署環境管理使用者。 在規劃同步處理內部部署 Windows Server Active Directory 與 Azure AD 時，首先要決定您要使用已同步處理的身分識別或同盟身分識別。 已同步處理的身分識別和密碼雜湊 (選擇性)，讓使用者能使用相同的密碼來存取內部部署和雲端式組織資源。 如需更進階的案例需求，例如單一登入 (SSO) 或內部部署 MFA，您必須將 Active Directory Federation Services (AD FS) 部署至同盟身分識別。 
 
@@ -99,5 +97,4 @@ ms.lasthandoff: 07/06/2017
 [安裝 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
 [監視混合式身分識別同步處理](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health)
-
 

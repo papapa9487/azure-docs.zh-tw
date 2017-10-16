@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 08/25/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1b79fb5b280b0cb4e087c2acde07796fd51e81fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 驗證程式庫
 Azure Active Directory 驗證程式庫 (ADAL) 可讓應用程式開發人員向雲端或內部部署 Active Directory (AD) 驗證使用者，並取得權杖來保護 API 呼叫。 ADAL 透過下列功能使開發人員更容易驗證：
@@ -92,4 +91,3 @@ Azure Active Directory 驗證程式庫 (ADAL) 可讓應用程式開發人員向�
 - [Azure Active Directory 開發人員指南](active-directory-developers-guide.md)
 - [Azure Active Directory 的驗證案例](active-directory-authentication-scenarios.md)
 - [Azure Active Directory 程式碼範例](active-directory-code-samples.md)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: annahar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 922c33f712e160835256ad9ad040e523dfbf76db
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-the-azure-portal"></a>使用 Azure 入口網站建立網際網路面向的負載平衡器
 
 > [!div class="op_single_selector"]
@@ -51,7 +49,7 @@ ms.lasthandoff: 09/25/2017
 * 後端位址集區 - 包含虛擬機器的網路介面 (NIC)，可從負載平衡器接收網路流量。
 * 負載平衡規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則。
 * 輸入 NAT 規則 - 包含將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器之連接埠的規則。
-* t探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
+* 探查 - 包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀態探查。
 
 您可以在 [Azure Resource Manager 的負載平衡器支援](load-balancer-arm.md)中取得關於負載平衡器元件與 Azure Resource Manager 的詳細資訊。
 
@@ -65,7 +63,7 @@ ms.lasthandoff: 09/25/2017
 3. 在 [建立負載平衡器] 刀鋒視窗中，輸入負載平衡器的名稱。 在此我們將其稱為 **myLoadBalancer**。
 4. 在 [類型] 底下選取 [公用]。
 5. 在 [公用 IP 位址] 底下建立稱為 **myPublicIP** 的新公用 IP。
-6. 在 [資源群組] 底下選取 [myRG] 。 選取適當 [位置]，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
+6. 在 [資源群組] 底下選取 [myRG] 。 選取適當 位置，然後按一下確定。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
 
     ![更新負載平衡器的資源群組](./media/load-balancer-get-started-internet-portal/1-load-balancer.png)
 
@@ -116,4 +114,3 @@ ms.lasthandoff: 09/25/2017
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-

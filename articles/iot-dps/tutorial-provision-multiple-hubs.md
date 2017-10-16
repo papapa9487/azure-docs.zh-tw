@@ -12,15 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>跨負載平衡 IoT 中樞來佈建裝置
 
 本教學課程示範如何使用裝置佈建服務 (DP) 針對多個負載平衡 IoT 中樞佈建裝置。 在本教學課程中，您將了解如何：
@@ -47,14 +44,14 @@ ms.lasthandoff: 09/06/2017
 
 1. 在 DPS 的頁面中，按一下 [管理註冊]。 [新增註冊清單項目] 頁面會隨即出現。 
 2. 按一下頁面頂端的 [新增]。
-2. 填寫欄位，然後按一下 [儲存]。
+2. 填寫欄位，然後按一下儲存。
 
 ## <a name="set-the-dps-allocation-policy"></a>設定 DPS 配置原則
 
 配置原則是 DPS 的一項設定，可決定要如何將裝置指派到 IoT 中樞。 支援的配置原則有三個： 
 
 1. **最低延遲**：將裝置佈建到裝置延遲最低的 IoT 中樞。
-2. **平均加權分佈** (預設值)：連結的 IoT 中樞有同樣的機率會讓系統在其中佈建裝置。 這是預設設定。 如果您要用來佈建裝置的 IoT 中樞只有一個，則可以保留此設定。 
+2. **平均加權分佈** (預設值)：連結的 IoT 中樞有同樣的機率會讓系統在其中佈建裝置。 這是預設設定。 如果您只要將裝置佈建到一個 IoT 中樞，可以保留此設定。 
 3. **透過註冊清單進行靜態設定**：您在註冊清單中指定使用的 IoT 中樞，其優先順序高於 DPS 層級的配置原則。
 
 請遵循下列步驟來設定配置原則：
@@ -88,4 +85,3 @@ ms.lasthandoff: 09/06/2017
 > [!div class="nextstepaction"]
 > [Bind an existing custom SSL certificate to Azure Web Apps](app-service-web-tutorial-custom-ssl.md)
 -->
-

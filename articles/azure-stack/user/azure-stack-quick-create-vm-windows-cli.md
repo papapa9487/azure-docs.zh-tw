@@ -15,26 +15,25 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
+ms.openlocfilehash: 196bf4351ebd2bf977102571de385edae6f9612b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 3a4d6f23bd8824636b3babe208add92db6aab537
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-on-azure-stack-using-azure-cli"></a>使用 Azure CLI 在 Azure Stack 上建立 Windows 虛擬機器
 
 Azure CLI 可用來從命令列建立和管理 Azure Stack 資源。 本指南詳細說明如何使用 Azure CLI 在 Azure Stack 中建立 Windows Server 2016 虛擬機器。 建立虛擬機器之後，您就會與遠端桌面連線、安裝 IIS，然後檢視預設的網站。 
 
-在開始之前，請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增至 Azure Stack 市集。  
+## <a name="prerequisites"></a>必要條件 
 
-Azure Stack 需要特定版本的 Azure CLI 才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 Azure CLI，請遵循步驟[安裝和設定 Azure CLI](azure-stack-connect-cli.md)。
+* 請確定您的 Azure Stack 操作員已將 “Windows Server 2016” 映像新增到 Azure Stack 市集。  
 
+* Azure Stack 需要特定版本的 Azure CLI，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 Azure CLI，請依照步驟來[安裝和設定 Azure CLI](azure-stack-connect-cli.md)。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 若要建立資源群組，請使用 [az group create](/cli/azure/group#create) 命令。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。 下列範例會在本機位置建立名為 myResourceGroup 的資源群組。
+資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行 [az group create](/cli/azure/group#create) 命令來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。 下列範例會在本機位置建立名為 myResourceGroup 的資源群組。
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -42,7 +41,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 
-使用 [az vm create](/cli/azure/vm#create) 命令來建立 VM。 下列範例會建立名為 myVM 的 VM。 此範例會以 Demouser 作為系統管理使用者名稱並以 Demouser@123 作為密碼。 將這些值更新為適合您環境的值。 與虛擬機器連線時需要使用這些值。
+使用 [az vm create](/cli/azure/vm#create) 命令來建立 VM。 下列範例會建立名為 myVM 的 VM。 此範例會使用 Demouser 作為系統管理使用者名稱，並使用 Demouser@123 作為密碼。 將這些值更新為適合您環境的值。 連線到虛擬機器連線時需要使用這些值。
 
 ```cli
 az vm create \
@@ -65,7 +64,7 @@ az vm create \
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
-## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
+## <a name="connect-to-the-virtual-machine"></a>連接至虛擬機器
 
 使用下列命令，建立與虛擬機器的遠端桌面工作階段。 以虛擬機器的公用 IP 位址取代 IP 位址。 出現提示時，請輸入您在建立虛擬機器時所使用的認證。
 
@@ -97,7 +96,4 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用存放在 Key Vault 中的密碼來建立虛擬機器](azure-stack-kv-deploy-vm-with-secret.md)
-
-[若要了解 Azure Stack 中的儲存體](azure-stack-storage-overview.md)
-
+在這個快速入門中，您已部署簡單的 Windows 虛擬機器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。

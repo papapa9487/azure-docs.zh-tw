@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
 ms.openlocfilehash: ad65d0fe93a0b67772521c9020c288d0698a8cf0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 Microsoft Azure Stack 支援下列 Azure Marketplace 項目：
 
@@ -146,5 +145,4 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 項目：
 
 ### <a name="next-steps"></a>後續步驟
 [下載 Marketplace 項目](azure-stack-download-azure-marketplace-item.md)
-
 

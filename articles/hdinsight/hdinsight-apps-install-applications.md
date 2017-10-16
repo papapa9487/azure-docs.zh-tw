@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 08/16/2017
 ms.author: jgao
 ms.openlocfilehash: 3b3ff8d33959978ddd648e59a6a301f00c247964
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Hadoop 應用程式
 
@@ -50,7 +50,7 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 **安裝 HDInsight 應用程式**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒看到該功能表，請按一下 [更多服務]，然後按一下 [HDInsight 叢集]。
+2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒看到該功能表，請按一下 更多服務，然後按一下HDInsight 叢集。
 3. 按一下 HDInsight 叢集。  如果您沒有叢集，則必須先建立一個。  請參閱 [建立叢集](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster)。
 4. 按一下 [設定] 類別下的 [應用程式]。 您可以會看到已安裝的應用程式清單。 如果您無法找到 [應用程式]，就表示沒有任何應用程式適用於這個版本的 HDInsight 叢集。
    
@@ -62,7 +62,7 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
     您可以看到現有 HDInsight 應用程式的清單。
    
     ![HDinsight 應用程式可用的應用程式](./media/hdinsight-apps-install-applications/hdinsight-apps-list.png)
-6. 按一下其中一個應用程式，接受法律條款，然後按一下 [選取] 。
+6. 按一下其中一個應用程式，接受法律條款，然後按一下選取 。
 
 您可以從入口網站通知看到安裝狀態 (按一下入口網站頂端的鈴鐺圖示)。 安裝應用程式之後，應用程式會出現在 [已安裝的應用程式] 刀鋒視窗上。
 
@@ -81,11 +81,11 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
    * **作業系統**：選取 [Linux]。
    * **版本**︰ 如果您不知道要選擇哪一個項目，請使用預設版本。 如需詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
    * **叢集層**：Azure HDInsight 提供兩種類型的巨量資料雲端提供項目：標準層和進階層。 如需詳細資訊，請參閱 [叢集層](hdinsight-hadoop-provision-linux-clusters.md#cluster-tiers)。
-6. 依序按一下 [應用程式]、其中一個已發佈的應用程式，然後按一下 [選取]。
+6. 依序按一下 應用程式、其中一個已發佈的應用程式，然後按一下選取。
 7. 按一下 [認證]  ，然後輸入 admin 使用者的密碼。 您也必須輸入 [SSH 使用者名稱] 以及 [密碼] 或 [公開金鑰]，這會用來驗證 SSH 使用者。 建議使用公開金鑰的方法。 按一下底部的 [選取]  以儲存認證組態。
 8. 按一下 [資料來源]，選取其中一個現有的儲存體帳戶，或建立新的儲存體帳戶，以作為叢集的預設儲存體帳戶。
 9. 按一下 [資源群組名稱] 以選取現有的資源群組，或按一下 [新增] 以建立一個新的資源群組
-10. 在 [新的 HDInsight 叢集] 刀鋒視窗中，確認已選取 [釘選到「開始面板」]，然後按一下 [建立]。 
+10. 在 新的 HDInsight 叢集 刀鋒視窗中，確認已選取 釘選到「開始面板」，然後按一下建立。 
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>列出已安裝的 HDInsight 應用程式和屬性
 入口網站會顯示叢集的已安裝 HDInsight 應用程式清單，以及每個已安裝應用程式的屬性。
@@ -93,7 +93,7 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 **列出 HDInsight 應用程式並顯示屬性**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒有看到該功能表，請按一下 [瀏覽]，然後按一下 [HDInsight 叢集]。
+2. 按一下左側功能表中的 [HDInsight 叢集]  。  如果沒有看到該功能表，請按一下 瀏覽，然後按一下HDInsight 叢集。
 3. 按一下 HDInsight 叢集。
 4. 在 [設定] 刀鋒視窗中，按一下 [一般] 類別之下的 [應用程式]。 [已安裝的應用程式] 刀鋒視窗會列出所有已安裝的應用程式。 
    

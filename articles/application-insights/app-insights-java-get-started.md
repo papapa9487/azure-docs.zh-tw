@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: f017b8ca42ff3560e17d8aac303a4f834d298540
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 25d9d914ab27edb548cf6e6139d0d0395208ed24
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -229,7 +228,7 @@ Application Insights SDK 會依此順序尋找此金鑰︰
 ## <a name="6-view-your-telemetry-in-application-insights"></a>6.在 Application Insights 中檢視遙測
 返回 [Microsoft Azure 入口網站](https://portal.azure.com)中的 Application Insights 資源。
 
-[概觀] 刀鋒視窗上會顯示 HTTP 要求資料。 (如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
+[概觀] 刀鋒視窗上會顯示 HTTP 要求資料。 (如果沒有出現，請稍等片刻，然後按一下重新整理。)
 
 ![範例資料](./media/app-insights-java-get-started/5-results.png)
 
@@ -399,4 +398,3 @@ Application Insights 可讓您定期測試網站，以檢查網站運作中且�
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
 [usage]: app-insights-javascript.md
-

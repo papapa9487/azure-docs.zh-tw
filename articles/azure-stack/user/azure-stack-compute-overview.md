@@ -7,16 +7,15 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 68da653052d0e3dfd66d6b65958046e42cefce73
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 虛擬機器簡介
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 ## <a name="overview"></a>概觀
 Azure Stack 虛擬機器 (VM) 是 Azure Stack 提供的一種依需求、可調整的計算資源。 一般而言，當您對於運算環境所需的控制權比其他選擇可提供的還要多時，則您會選擇 VM。 本文提供您在建立 VM 之前應該的事項、建立方式及管理方式的相關資訊。
@@ -131,5 +130,4 @@ VM 擴充可透過部署後設定及自動化工作，讓您的 VM 有更多功�
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)
-
 

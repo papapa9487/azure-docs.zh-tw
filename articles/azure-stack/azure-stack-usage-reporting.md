@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 695b93a818d3c0e615bb79e0a2861e134b2f5c89
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 回報 Azure Stack 使用情況資料 
 
 使用量資料 (也稱為取用資料) 代表所使用的資源量。 使用取用型計費模型的 Azure Stack 整合系統應該向 Azure 回報使用量資料。 此使用量資料是供計費用途使用。 Azure Stack 操作員需負責為其 Azure Stack 環境設定使用量資料報告功能。

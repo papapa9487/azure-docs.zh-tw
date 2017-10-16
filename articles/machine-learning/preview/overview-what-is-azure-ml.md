@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: get-started-article
 ms.date: 09/21/2017
+ms.openlocfilehash: 3bf9227a7ee432f036c57dd9d1c3807c7a867f3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4919fb679eeb4d25eb0066b9bf617b057d44354
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-machine-learning"></a>什麼是 Azure Machine Learning？
 
 Azure Machine Learning 是整合、端對端的資料科學和進階分析解決方案。 它可讓資料科學家用來以雲端規模準備資料、開發測試及部署模型。
@@ -179,7 +177,7 @@ Azure Machine Learning Workbench 是桌面應用程式加上命令列工具，�
 - 在 Hadoop 或 Spark 叢集上大規模散發 R 和 Python 定型
 
 ### <a name="data-science-virtual-machine"></a>資料科學虛擬機器
-[資料科學虛擬機器 (DSVM)](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。 我們提供 Windows Server 和 Linux 版。 我們提供了 Server 2016 和 Server 2012 的 Windows 版 DSVM。 我們透過 Ubuntu 16.04 LTS 以及 OpenLogic 7.2 CentOS 型 Linux 發行版本提供 Linux 版 DSVM。 
+[資料科學虛擬機器 (DSVM)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) 是 Microsoft Azure 雲端上的自訂 VM 映像，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。 我們提供 Windows Server 和 Linux 版。 我們提供了 Server 2016 和 Server 2012 的 Windows 版 DSVM。 我們透過 Ubuntu 16.04 LTS 以及 OpenLogic 7.2 CentOS 型 Linux 發行版本提供 Linux 版 DSVM。 
 
 當您需要在單一節點上執行或裝載您的作業時，請使用資料科學虛擬機器。 或者，如果您需要從遠端相應增加在單一機器上的處理。 支援將資料科學虛擬機器作為 Azure Machine Learning 測試和 Azure Machine Learning 模型管理的目標。 
 
@@ -219,4 +217,3 @@ Microsoft 辨識服務可以用來開發跨裝置及平台的應用程式。 API
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝與建立 Azure Machine Learning](quickstart-installation.md)
-

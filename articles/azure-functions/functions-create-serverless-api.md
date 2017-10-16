@@ -11,14 +11,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e4fe86b80d8a786da15cdea37619e54e55102e3f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-serverless-api-using-azure-functions"></a>使用 Azure Functions 建立無伺服器 API
 
 在本教學課程中，您將了解 Azure Functions 如何讓您建置可靈活調整的 API。 Azure Functions 隨附一組內建的 HTTP 觸發程序和繫結，可讓您以各種語言輕鬆撰寫端點，包括 Node.JS、C# 等。 在本教學課程中，您將自訂 HTTP 觸發程序來處理 API 設計中的特定動作。 您也會準備整合 API 與 Azure Functions Proxy，並設定模擬 API，以擴充您的 API。 這一切都在 Functions 無伺服器計算環境之上完成，因此，您不必擔心調整資源 - 只需要專注於您的 API 邏輯。
@@ -195,4 +193,3 @@ Proxy 可以指向任何 HTTP 資源，例如︰
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
 [使用 Azure Functions Proxy (預覽)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
-

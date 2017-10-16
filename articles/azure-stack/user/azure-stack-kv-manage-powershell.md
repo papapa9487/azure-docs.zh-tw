@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1ce9f81006809aa3c3c07744298a8194971e0b3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的金鑰保存庫
 
 本文可協助您使用 PowerShell，開始建立和管理 Azure Stack 中的金鑰保存庫。 本文中所述的金鑰保存庫 PowerShell Cmdlet 會隨附於 Azure PowerShell SDK 中。 下列章節說明建立保存庫、儲存和管理密碼編譯金鑰和祕密，以及授權用者或應用程式叫用保存庫中的作業，所需的 PowerShell Cmdlet。 
@@ -166,4 +164,3 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ## <a name="next-steps"></a>後續步驟
 * [使用存放在 Key Vault 中的密碼來部署 VM](azure-stack-kv-deploy-vm-with-secret.md)  
 * [使用存放在 Key Vault 中的憑證來部署 VM](azure-stack-kv-push-secret-into-vm.md) 
-

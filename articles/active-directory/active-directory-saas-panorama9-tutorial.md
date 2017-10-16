@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.openlocfilehash: 934c0743464fd32398071aa3d07f7af76fdf7e3b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>教學課程：Azure Active Directory 與 Panorama9 整合
 
@@ -73,7 +73,7 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_search.png)
 
-5. 在結果面板中，選取 [Panorama9]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Panorama9，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-panorama9-tutorial/tutorial_panorama9_addfromgallery.png)
 
@@ -132,7 +132,7 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
 5. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Panorama9 公司網站。
 
-6. 在最上面的工具列中，按一下 [管理]，然後按一下 [擴充功能]。
+6. 在最上面的工具列中，按一下 管理，然後按一下擴充功能。
    
    ![擴充功能](./media/active-directory-saas-panorama9-tutorial/ic790023.png "擴充功能")
 7. 在 [擴充功能] 對話方塊中，按一下 [單一登入]。
@@ -193,7 +193,7 @@ Panorama9 需以手動的方式佈建。
 
 1. 以系統管理員身分登入您的 **Panorama9** 公司網站。
 
-2. 在頂端的功能表中，按一下 [管理]，然後按一下 [使用者]。
+2. 在頂端的功能表中，按一下 管理，然後按一下使用者。
    
   ![使用者](./media/active-directory-saas-panorama9-tutorial/ic790027.png "使用者")
 

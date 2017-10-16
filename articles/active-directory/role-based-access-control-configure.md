@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/17/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 9df7f7851ef1fc6b4ed03b981aa5062d6b0913ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: aff943e797da93e95563c3de3f064dbbfc30a384
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-access-to-your-azure-subscription-resources"></a>使用角色型存取控制來管理 Azure 訂用帳戶資源的存取
 > [!div class="op_single_selector"]
@@ -80,5 +79,4 @@ Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權�
 * [建立存取權變更歷程記錄報告](role-based-access-control-access-change-history-report.md)
 * 請參閱 [RBAC 內建角色](role-based-access-built-in-roles.md)
 * 定義您自己的 [Azure RBAC 中的自訂角色](role-based-access-control-custom-roles.md)
-
 

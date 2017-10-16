@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
+ms.openlocfilehash: 4a20091b59f2643ea71cce99c159a5075706e35d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: db2e0bd43161aad02ffce61b4cd9325892844dde
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 叢集上具備 Vamp 的 Canary 版本微服務
 
 在本逐步解說中，我們會在具備 DC/OS 叢集的 Azure Container Service 上設定 Vamp。 我們在 Canary 版本中的 Vamp 示範服務為 "sava"，並套用智慧型流量篩選，解決了與 Firefox 服務不相容的問題。 
@@ -299,5 +296,4 @@ Vamp 會使用**條件**來篩選閘道路由之間的流量。 流量會以套�
 * 在 Node.js 中建置 Vamp 自動化指令碼，並以 [Vamp 工作流程](http://vamp.io/documentation/tutorials/create-a-workflow/)來執行這些指令碼。
 
 * 請參閱其他 [VAMP 教學課程](http://vamp.io/documentation/tutorials/overview/)。
-
 

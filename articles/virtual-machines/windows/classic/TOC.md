@@ -91,9 +91,9 @@
 ## [.NET](/dotnet/api/microsoft.azure.management.compute)
 ## [製作 Resource Manager 範本](../../../resource-group-authoring-templates.md)
 ## [社群範本](https://azure.microsoft.com/documentation/templates)
-## [計算 REST](/rest/api/compute)
-## [網路 REST](/rest/api)
-## [儲存體 REST](/rest/api/storageservices)
+## [計算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [網路 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [儲存體 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=compute)

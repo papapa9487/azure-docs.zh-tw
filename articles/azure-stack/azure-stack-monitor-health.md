@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>在 Azure Stack 中監視健康情況和警示
 
@@ -76,4 +75,3 @@ Azure Stack 包含基礎結構監視功能，可讓您檢視 Azure Stack 區域�
 [在 Azure Stack 中管理更新](azure-stack-updates.md)
 
 [Azure Stack 中的區域管理](azure-stack-region-management.md)
-

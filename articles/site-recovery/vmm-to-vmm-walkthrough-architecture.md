@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: b78cd0d5a5395873afaddc8856004775f447e8ea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-1-review-the-architecture-for-hyper-v-replication-to-a-secondary-site"></a>步驟 1：檢閱將 Hyper-V 複寫至次要網站的架構
 
@@ -33,7 +32,7 @@ ms.lasthandoff: 08/01/2017
 
 以下是要將 Hyper-V VM 複寫到次要 VMM 網站的所需項目。
 
-**元件** | **Location** | **詳細資料**
+**元件** | <bpt id="p1">**</bpt>Location<ept id="p1">**</ept> | **詳細資料**
 --- | --- | ---
 **Azure** | Azure 中的訂用帳戶。 | 您可以在 Azure 訂用帳戶中建立復原服務保存庫，來協調和管理 VMM 位置之間的複寫。
 **VMM 伺服器** | 您需要 VMM 主要和次要位置。 | 我們建議主要網站與次要網站中各要有一部 VMM 伺服器 
@@ -65,4 +64,3 @@ ms.lasthandoff: 08/01/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 2：檢閱必要條件和限制](vmm-to-vmm-walkthrough-prerequisites.md)。
-

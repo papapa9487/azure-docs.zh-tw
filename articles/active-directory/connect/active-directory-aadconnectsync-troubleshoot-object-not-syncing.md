@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 491a920ceeaac62dd37b1def3f02234056aebfb0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>針對未同步至 Azure AD 的物件進行疑難排解
 
@@ -101,7 +101,7 @@ Synchronization Service Manager 中的 [作業] 索引標籤是您應該開始�
 所有索引標籤的底部都有兩個按鈕︰[預覽] 和 [記錄]。
 
 ### <a name="preview"></a>預覽
-[預覽] 頁面可用來同步處理某一個單一物件。 如果您正在針對某些自訂的同步規則進行疑難排解，而想要查看變更對單一物件的影響，則此頁面會相當有用。 您可以在 [完整同步處理] 和 [差異同步處理] 之間做選擇。 您也可以在 [產生預覽] \(這只會在記憶體中保留變更) 和 [認可預覽] \(這會更新 Mataverse 並暫存對目標連接器空間所做的一切變更) 之間做選擇。  
+[預覽] 頁面可用來同步處理某一個單一物件。 如果您正在針對某些自訂的同步規則進行疑難排解，而想要查看變更對單一物件的影響，則此頁面會相當有用。 您可以在 [完整同步處理] 和 [差異同步處理] 之間做選擇。您也可以在 [產生預覽] \(這只會在記憶體中保留變更) 和 [認可預覽] \(這會更新 Mataverse 並暫存對目標連接器空間所做的一切變更) 之間做選擇。  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/preview.png)  
 您可以檢查物件，以及哪一個規則適用於特定的屬性流程。  
 ![Sync Service Manager](./media/active-directory-aadconnectsync-troubleshoot-object-not-syncing/previewresult.png)

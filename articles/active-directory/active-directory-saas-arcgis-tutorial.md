@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
 ms.openlocfilehash: df72270ca6443b456c079b22425f1660aa522389
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>教學課程：Azure Active Directory 與 ArcGIS Online 整合
 
@@ -81,7 +81,7 @@ To enable single sign-on with ArcGIS Online, it must be configured to use Azure 
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_search.png)
 
-5. 在結果面板中，選取 [ArcGIS Online]，然後按一下 [新增] 按鈕以新增該應用程式。
+5. 在結果面板中，選取 ArcGIS Online，然後按一下新增 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-arcgis-tutorial/tutorial_arcgisonline_addfromgallery.png)
 
@@ -216,7 +216,7 @@ To enable single sign-on with ArcGIS Online, it must be configured to use Azure 
      a. 輸入您想要佈建之有效 AAD 帳戶的 [電子郵件]、[名字] 和 [姓氏]。
   
      b.這是另一個 C# 主控台應用程式。 按一下 [新增並檢閱]。
-5. 檢閱您已輸入的資料，然後按一下 [新增成員]。
+5. 檢閱您已輸入的資料，然後按一下新增成員。
    
     ![新增成員](./media/active-directory-saas-arcgis-tutorial/ic784750.png "新增成員")
         

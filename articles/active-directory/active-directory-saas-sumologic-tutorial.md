@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
 ms.openlocfilehash: e739106472ccf930b2942eb810dd844f2b1ade7c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>教學課程：Azure Active Directory 與 SumoLogic 整合
 
@@ -73,7 +73,7 @@ SumoLogic 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_search.png)
 
-5. 在結果窗格中，選取 [SumoLogic]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 SumoLogic，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-sumologic-tutorial/tutorial_sumologic_addfromgallery.png)
 
@@ -146,7 +146,7 @@ SumoLogic 與 Azure AD 整合提供下列優點：
    
     ![全域安全性設定](./media/active-directory-saas-sumologic-tutorial/ic778557.png "全域安全性設定")
 
-10. 從 [選取組態或建立新的組態] 清單中選取 [Azure AD]，然後按一下 [設定]。
+10. 從 選取組態或建立新的組態 清單中選取 Azure AD，然後按一下設定。
    
     ![設定 SAML 2.0](./media/active-directory-saas-sumologic-tutorial/ic778558.png "設定 SAML 2.0")
 

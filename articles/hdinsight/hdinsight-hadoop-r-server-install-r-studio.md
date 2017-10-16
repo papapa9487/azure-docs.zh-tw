@@ -16,10 +16,10 @@ ms.workload: big-data
 ms.date: 06/19/2017
 ms.author: bradsev
 ms.openlocfilehash: 416420d855505508735ebd8526e93efdb230ad53
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="installing-rstudio-with-r-server-on-hdinsight"></a>在 HDInsight 上使用 R 伺服器安裝 RStudio
 
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
 
             ![建立 SSH 通道](./media/hdinsight-hadoop-r-server-install-r-studio/createsshtunnel.png "建立 SSH 通道")
 
-     4. 按一下 [新增] 以新增設定，然後按一下 [開啟] 以開啟 SSH 連線。
+     4. 按一下 新增 以新增設定，然後按一下開啟 以開啟 SSH 連線。
      5. 當系統顯示提示時，請登入伺服器以建立 SSH 工作階段並啟用該通道。
 
 9. 開啟網頁瀏覽器，並根據您針對通道輸入的連接埠輸入下列 URL：
@@ -123,7 +123,7 @@ ms.lasthandoff: 07/11/2017
 
             wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 
-12. 在 RStudio 中，會看到您所下載的測試指令碼。 按兩下以開啟該檔案，選取檔案的內容，然後按一下 [執行]。 您應該可以在 [主控台] 窗格中看到輸出：
+12. 在 RStudio 中，會看到您所下載的測試指令碼。 按兩下以開啟該檔案，選取檔案的內容，然後按一下執行。 您應該可以在 [主控台] 窗格中看到輸出：
 
    ![測試安裝](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "測試安裝")
 

@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 09/17/2017
 ms.author: barclayn
 ms.custom: pim
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: 0f9f09ca8fb30d494433ed8d26b808d1b5d4d0b1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-using-azure-ad-privileged-identity-management"></a>開始使用 Azure AD Privileged Identity Management
 
@@ -35,7 +34,7 @@ ms.lasthandoff: 09/19/2017
 1. 以目錄的全域系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/) 。
 2. 如果貴組織有多個目錄，請選取 Azure 入口網站右上角的使用者名稱。 選取您要在其中使用 PIM 的目錄。
 3. 選取 [更多服務] 並使用 [篩選器] 文字方塊來搜尋 [Azure AD Privileged Identity Management]。
-4. 選取 [釘選到儀表板]，然後按一下 [建立]。 Privileged Identity Management 應用程式隨即開啟。
+4. 選取 釘選到儀表板，然後按一下建立。 Privileged Identity Management 應用程式隨即開啟。
 
 如果您是目錄中使用 Azure AD Privileged Identity Management 的第一人，則會自動獲指派目錄中的「安全性系統管理員」和「特殊權限角色管理員」角色。 只有特殊權限角色管理員才能管理使用者的 Azure AD Directory 角色指派。 此外，您還可以選擇執行[安全性精靈](active-directory-privileged-identity-management-security-wizard.md) 引導您完成初始探索和指派體驗。
 
@@ -60,4 +59,3 @@ Azure AD Privileged Identity Management 設定完畢後，您會在每次開啟�
 <!--Image references-->
 
 [1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-

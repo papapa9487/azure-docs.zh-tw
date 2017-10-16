@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.openlocfilehash: db2f041a44b6771b0a4f734e58d899298ef0847b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxtra"></a>教學課程：Azure Active Directory 與 Moxtra 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 07/11/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_search.png)
 
-5. 在結果窗格中，選取 [Moxtra]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Moxtra，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_addfromgallery.png)
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 07/11/2017
 
 8. 在另一個瀏覽器視窗中，以系統管理員身分登入您的 Moxtra 公司網站。
 
-9. 在左邊工具列中，按一下 [管理主控台] > [SAML 單一登入]，然後按一下 [新增]。
+9. 在左邊工具列中，按一下 管理主控台 > SAML 單一登入，然後按一下新增。
    
     ![設定單一登入](./media/active-directory-saas-moxtra-tutorial/tutorial_moxtra_06.png) 
 

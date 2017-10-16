@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 2f3cb99c832b6e17ac932112c1d397fa0c8afeca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bbd8a838062795ee03ae02dc5e3fd45d841a6e17
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/28/2017
      其他參數都是選擇性的。  
      
      每個叢集都具備 Azure 儲存體帳戶相依性。 刪除叢集之後，資料會保留在儲存體帳戶中。 叢集預設儲存體帳戶名稱是附加 "store" 的叢集名稱。 它會硬式編碼在範本變數區段中。
-3. 選取 [我同意上方所述的條款及條件]，然後按一下 [購買]。 大約需要 20 分鐘的時間來建立叢集。
+3. 選取 我同意上方所述的條款及條件，然後按一下購買。 大約需要 20 分鐘的時間來建立叢集。
 
 > [!NOTE]
 > 刪除 HBase 叢集之後，您可以使用相同的預設 Blob 容器建立另一個 HBase 叢集。 這個新叢集會挑選您在原始叢集中建立的 HBase 資料表。 為了避免不一致，建議您在刪除叢集之前，先停用 HBase 資料表。
@@ -252,7 +251,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 
 1. 登入 Ambari Web UI (https://&lt;Clustername>.azurehdinsight.net)。
 2. 按一下左側功能表的 [HBase]。
-3. 按一下頁面頂端的 [快速連結]，指向使用中的 Zookeeper 節點連結，然後按一下 [HBase 主要 UI]。  UI 會在另一個瀏覽器索引標籤中開啟：
+3. 按一下頁面頂端的 快速連結，指向使用中的 Zookeeper 節點連結，然後按一下HBase 主要 UI。  UI 會在另一個瀏覽器索引標籤中開啟：
 
   ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -305,4 +304,3 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 [img-hbase-shell]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png
 [img-hbase-sample-data-bigtable]: ./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png
-

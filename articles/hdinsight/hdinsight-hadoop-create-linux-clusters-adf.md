@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c1061811d205494969047fa3f91cbf449a25d8ab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -497,7 +496,7 @@ FolderPath 會指定包含輸出資料的資料夾路徑︰
 3. 按一下您在 PowerShell 指令碼中建立的資源群組名稱。 如果列出太多的資源群組，請使用篩選器。 會在新的刀鋒視窗中開啟資源群組。
 4. 除非您與其他專案共用資源群組，否則 [資源]  圖格應列出預設儲存體帳戶和 Data Factory。
 5. 按一下刀鋒視窗頂端的 [刪除]。 這麼做會刪除儲存體帳戶和此儲存體帳戶中儲存的資料。
-6. 輸入資源群組名稱以確認刪除，然後按一下 [刪除]。
+6. 輸入資源群組名稱以確認刪除，然後按一下刪除。
 
 如果您不想在刪除資源群組時刪除儲存體帳戶，可以考慮以下區隔商務資料與預設儲存體帳戶的架構。 在此情況下，您會有一個資源群組用於包含商務資料的儲存體帳戶，而另一個資源群組則用於 HDInsight 連結服務的預設儲存體帳戶和 Data Factory。 當您刪除第二個資源群組時，並不會影響商務資料儲存體帳戶。 若要這樣做：
 
@@ -596,4 +595,3 @@ azure storage blob copy start "https://hditutorialdata.blob.core.windows.net/adf
 ```
 
 容器名稱為 *adfgetstarted*。 讓它保持原狀。 否則，您必須更新 Resource Manager 範本。 如需有關此 CLI 指定碼的說明，請參閱 [使用 Azure CLI 搭配 Azure 儲存體](../storage/common/storage-azure-cli.md)。
-

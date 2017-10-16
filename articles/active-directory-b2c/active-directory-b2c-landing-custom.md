@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 5/06/2017
 ms.author: parakhj
 ms.openlocfilehash: cb7a9f01e43d41eb7315cb37a41e69f044ce5566
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則在您的應用程式中註冊與登入取用者
 自訂原則是定義 Azure AD B2C 租用戶行為的組態檔。 身分識別開發人員可以完全編輯自訂原則，可完成的工作數量幾乎沒有限制。

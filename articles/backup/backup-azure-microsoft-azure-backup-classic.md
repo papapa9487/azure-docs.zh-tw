@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: masaran;trinadhk;pullabhk;markgal
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: ffef289e154986e4b08a072d3a95f77818fb9c35
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>準備使用 Azure 備份伺服器來備份工作負載
 > [!div class="op_single_selector"]
@@ -201,4 +200,3 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 * [SQL Server 備份](backup-azure-backup-sql.md)
 * [SharePoint 伺服器備份](backup-azure-backup-sharepoint.md)
 * [替代伺服器備份](backup-azure-alternate-dpm-server.md)
-

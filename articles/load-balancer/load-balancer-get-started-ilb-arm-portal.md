@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3be595b03f667cf9700d2f17eb2080aa74f41dd9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>在 Azure 入口網站中建立內部負載平衡器
 
 > [!div class="op_single_selector"]
@@ -73,7 +71,7 @@ ms.lasthandoff: 09/25/2017
 1. 在 Azure 入口網站中，按一下 [瀏覽] > [負載平衡器]，然後按一下您稍早建立的負載平衡器。
 2. 在 [設定] 刀鋒視窗中，按一下 [後端集區]。
 3. 在 [後端位址集區] 刀鋒視窗中，按一下 [加入]。
-4. 在 [加入後端集區] 刀鋒視窗中，輸入後端集區的**名稱**，然後按一下 [確定]。
+4. 在 加入後端集區 刀鋒視窗中，輸入後端集區的**名稱**，然後按一下確定。
 
 ### <a name="step-2-configure-a-probe"></a>步驟 2：設定探查
 
@@ -81,7 +79,7 @@ ms.lasthandoff: 09/25/2017
 2. 在 [設定] 刀鋒視窗中，按一下 [探查]。
 3. 在 [探查] 刀鋒視窗中，按一下 [加入]。
 4. 在 [加入探查] 刀鋒視窗中，輸入探查的**名稱**。
-5. 在 [通訊協定] 下，選取 [HTTP] (適用於網站) 或 [TCP] (適用於其他 TCP 型應用程式)。
+5. 在 [通訊協定] 下，選取 [HTTP] \(適用於網站) 或 [TCP] \(適用於其他 TCP 型應用程式)。
 6. 在 [連接埠] 下，指定用於存取探查的連接埠。
 7. 在 [路徑]  \(僅適用於 HTTP 探查) 下，指定要用來作為探查的路徑。
 8. 在 [間隔]  下，指定探查應用程式的頻率。
@@ -94,7 +92,7 @@ ms.lasthandoff: 09/25/2017
 2. 在 [設定] 刀鋒視窗中，按一下 [負載平衡規則]。
 3. 在 [負載平衡規則] 刀鋒視窗中，按一下 [加入]。
 4. 在 [加入負載平衡規則] 刀鋒視窗中，輸入規則的**名稱**。
-5. 在 [通訊協定] 下，選取 [HTTP] (適用於網站) 或 [TCP] (適用於其他 TCP 型應用程式)。
+5. 在 [通訊協定] 下，選取 [HTTP] \(適用於網站) 或 [TCP] \(適用於其他 TCP 型應用程式)。
 6. 在 [連接埠] 下，指定用戶端在負載平衡器中連接的連接埠。
 7. 在 [後端連接埠] 下，指定要用於後端集區的連接埠 (負載平衡器連接埠和後端連接埠通常會相同)。
 8. 在 [後端集區] 下，選取您稍早建立的後端集區。
@@ -108,5 +106,4 @@ ms.lasthandoff: 09/25/2017
 [設定負載平衡器分配模式](load-balancer-distribution-mode.md)
 
 [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
-
 

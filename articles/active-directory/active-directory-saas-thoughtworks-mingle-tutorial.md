@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.openlocfilehash: 268ae5affb88a718f68c08daa94fe7aba4a99c11
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>教學課程：Azure Active Directory 與 Thoughtworks Mingle 整合
 
@@ -181,7 +181,7 @@ ms.lasthandoff: 08/03/2017
    
     ![第一個專案](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785160.png "第一個專案")
 
-3. 按一下 [管理] 索引標籤，然後按一下 [使用者]。
+3. 按一下 管理 索引標籤，然後按一下使用者。
    
     ![使用者](./media/active-directory-saas-thoughtworks-mingle-tutorial/ic785161.png "使用者")
 

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aaf11636484fb6295c9522795b069839d2783ba9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="move-data-from-a-web-table-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 Web 資料表的資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -270,7 +269,7 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 ## <a name="get-index-of-a-table-in-an-html-page"></a>取得 HTML 網頁中資料表的索引
 1. 啟動 **Excel 2016**，然後切換到 [資料] 索引標籤。  
-2. 按一下工具列上的 [開新查詢]、指向 [從其他來源]，然後按一下 [從 Web]。
+2. 按一下工具列上的 開新查詢、指向 從其他來源，然後按一下從 Web。
 
     ![Power Query 功能表](./media/data-factory-web-table-connector/PowerQuery-Menu.png)
 3. 在 [從 Web] 對話方塊中，輸入您要在連結服務 JSON 中使用的 **URL** (例如：https://en.wikipedia.org/wiki)，以及您為資料集指定的路徑 (例如：AFI%27s_100_Years...100_Movies)，然後按一下 [確定]。
@@ -298,4 +297,3 @@ Data factory 目前只支援把 Web 資料表的資料移動到其他資料存�
 
 ## <a name="performance-and-tuning"></a>效能和微調
 請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)一文，以了解在 Azure Data Factory 中會影響資料移動 (複製活動) 效能的重要因素，以及各種最佳化的方法。
-

@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 303cb9950f46916fbdd58762acd1608c925c1328
-ms.openlocfilehash: 7533fe3758860111ae6c26630effedd673734b63
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/04/2017
-
-
+ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store 中的存取控制
 
@@ -342,4 +340,3 @@ ACL 中的項目會儲存為對應於 Azure AD 中使用者的 GUID。 API 會�
 ## <a name="see-also"></a>另請參閱
 
 * [Azure Data Lake Store 概觀](data-lake-store-overview.md)
-

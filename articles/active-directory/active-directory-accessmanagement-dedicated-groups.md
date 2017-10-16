@@ -16,12 +16,11 @@ ms.date: 09/12/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 992f4563064d7a292cf4fdd90a9a3c84cdec91c0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dedicated-groups-in-azure-active-directory"></a>Azure Active Directory 中的專用群組
 在 Azure Active Directory (Azure AD) 中，專用群組功能會針對 Azure AD 預先定義的群組自動建立並填入成員資格。 使用 Azure 傳統入口網站、Windows PowerShell Cmdlet 或以程式設計方式，均無法在專用群組中新增或移除成員。
@@ -61,4 +60,3 @@ ms.lasthandoff: 09/14/2017
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

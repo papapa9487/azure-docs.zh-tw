@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: cbee070c6bfe17135f37a82c545bf8ee7db2db43
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-redirection-on-application-gateway-with-powershell"></a>使用 PowerShell 在 Azure 應用程式閘道上設定重新導向
 
 應用程式閘道支援根據定義的組態將流量重新導向。 若要深入了解一般造訪中的重新導向，請參閱[應用程式閘道重新導向概觀](application-gateway-redirect-overview.md)。 本文提供下列重新導向的範例：HTTP 至 HTTPS 重新導向、以路徑為基礎的重新導向、多站台重新導向，以及重新導向至外部網站。

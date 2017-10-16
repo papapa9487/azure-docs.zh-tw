@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a3b25dd6d7b9ba7a3040dee3196ec25463fe85ef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-powershell-for-azure-stack"></a>安裝 Azure Stack 的 PowerShell  
 
 需要 Azure Stack 相容的 Azure PowerShell 模組來使用 Azure Stack。 在本指南中，我們引導您安裝 Azure Stack 的 PowerShell 所需要的步驟。 您可以從 Azure Stack 開發套件，或從以 Windows 為基礎的外部用戶端 (如果您透過 VPN 連線) 來使用這篇文章中所述的步驟。
@@ -133,4 +131,3 @@ Set-PSRepository `
 * [從 GitHub 下載 Azure Stack 工具](azure-stack-powershell-download.md)
 * [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)  
 * [在 Azure Stack 中管理 API 版本設定檔](azure-stack-version-profiles.md)  
-

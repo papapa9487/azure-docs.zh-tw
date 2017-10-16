@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
 ms.openlocfilehash: 985966d26f6ed0dcd4db47589abf94260ce62bf0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>教學課程：Azure Active Directory 與 Bambu by Sprout Social 整合
 
@@ -81,7 +81,7 @@ To enable single sign-on with Bambu by Sprout Social, it must be configured to u
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_search.png)
 
-5. 在結果窗格中，選取 [Bambu by Sprout Social]，然後按一下 [加入] 按鈕來新增該應用程式。
+5. 在結果窗格中，選取 Bambu by Sprout Social，然後按一下加入 按鈕來新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_addfromgallery.png)
 

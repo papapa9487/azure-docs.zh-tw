@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: efemmano
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack 中的區域管理
 
@@ -52,7 +51,6 @@ Azure Stack 具有一組可用於 [區域管理] 磚的區域管理功能。 Azu
 [在 Azure Stack 中監視健康情況和警示](azure-stack-monitor-health.md)
 
 [在 Azure Stack 中管理更新](azure-stack-updates.md)
-
 
 
 

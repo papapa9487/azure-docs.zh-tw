@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.openlocfilehash: d49349c5ae08e67d91e30967f3644623211823ce
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>教學課程：Azure Active Directory 與 Veracode 整合
 
@@ -148,7 +148,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 
 9. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Veracode 公司網站。
 
-10. 在頂端功能表中，按一下 [設定]，然後按一下 [管理員]。
+10. 在頂端功能表中，按一下 設定，然後按一下管理員。
    
     ![管理](./media/active-directory-saas-veracode-tutorial/ic802911.png "管理")
 
@@ -164,7 +164,7 @@ Veracode 與 Azure AD 整合提供下列優點：
    
     c. 選取 [啟用自動註冊] 。
 
-13. 在 [自動註冊設定] 區段上，執行下列步驟，然後按一下 [儲存]：
+13. 在 自動註冊設定 區段上，執行下列步驟，然後按一下儲存：
    
     ![管理](./media/active-directory-saas-veracode-tutorial/ic802913.png "管理")
    
@@ -200,7 +200,7 @@ Veracode 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-veracode-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-veracode-tutorial/create_aaduser_02.png)
 

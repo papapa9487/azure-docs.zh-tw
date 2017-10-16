@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2b83dfe2f3e2645713ff7e1acfb4d7f26fe0d0cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何針對 Azure Mobile Apps 使用受管理的用戶端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -68,7 +67,7 @@ public class TodoItem
 使用下列其中一種方法，從 [NuGet][9] 安裝適用於 Mobile Apps 的受管理用戶端 SDK 套件：
 
 * **Visual Studio** 以滑鼠右鍵按一下您的專案、按一下 [管理 NuGet 套件]，搜尋 `Microsoft.Azure.Mobile.Client` 套件，然後按一下 [安裝]。
-* **Xamarin Studio** 以滑鼠右鍵按一下您的專案、按一下 [新增] > [新增 NuGet 套件]，搜尋 `Microsoft.Azure.Mobile.Client ` 套件，然後按一下 [新增套件]。
+* **Xamarin Studio** 以滑鼠右鍵按一下您的專案、按一下 新增 > 新增 NuGet 套件，搜尋 `Microsoft.Azure.Mobile.Client ` 套件，然後按一下新增套件。
 
 在您的主要活動檔案中，記得加入下列 **using** 陳述式：
 
@@ -965,7 +964,7 @@ private async void InitNotificationsAsync()
 
 1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 Windows 市集應用程式專案，然後按一下 [市集]  >  [將應用程式與市集建立關聯...]。
 2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
-3. 成功建立應用程式註冊之後，選取應用程式名稱，按 [下一步]，然後按一下 [關聯]。
+3. 成功建立應用程式註冊之後，選取應用程式名稱，按 下一步，然後按一下關聯。
 4. 使用您的 Microsoft 帳戶登入 [Windows 開發人員中心] 。 在 [我的應用程式] 底下，按一下您建立的應用程式註冊。
 5. 按一下 [應用程式管理]  >  [應用程式身分識別]，然後向下捲動找到您的 [套件 SID]。
 
@@ -1143,4 +1142,3 @@ public class MyHandler : DelegatingHandler
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/
 [AuthStore.cs]: https://github.com/azure-appservice-samples/ContosoMoments
 [ContosoMoments photo sharing sample]: https://github.com/azure-appservice-samples/ContosoMoments
-

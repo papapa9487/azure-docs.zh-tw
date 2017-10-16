@@ -12,21 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/24/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 2cc2b63312b331a19c61cd7b59a4cac78edf32e6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: a29bc68e966a3706af557af0c626d369d04149aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-groups-in-azure-active-directory"></a>在 Azure Active Directory 中管理群組
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](active-directory-groups-create-azure-portal.md)
-> * [Azure 傳統入口網站](active-directory-accessmanagement-manage-groups.md)
 > * [PowerShell](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 >
 >
@@ -69,7 +68,7 @@ Azure Active Directory (Azure AD) 使用者管理的其中一項功能是能夠�
 1. [在 Azure 傳統入口網站](https://manage.windowsazure.com) 中選取 [Active Directory]，然後選取組織的目錄名稱。
 2. 選取 [群組]  索引標籤。
 3. 開啟要從中移除成員的群組。
-4. 選取 [成員] 索引標籤，選取您想要從這個群組移除之成員的名稱，然後按一下 [移除]。
+4. 選取 成員 索引標籤，選取您想要從這個群組移除之成員的名稱，然後按一下移除。
 5. 在提示中確認您想要從群組中移除這個成員。
 
 ## <a name="how-can-i-manage-the-membership-of-a-group-dynamically"></a>如何動態管理群組的成員資格？

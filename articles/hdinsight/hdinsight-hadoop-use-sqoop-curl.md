@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/22/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
 ms.openlocfilehash: 5aa47b4b12dc136a3f6ba66688804859f9eb5446
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中以 Hadoop 執行 Sqoop 作業
 [!INCLUDE [sqoop-selector](../../includes/hdinsight-selector-use-sqoop.md)]
@@ -129,7 +128,6 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 * [使用 REST 以 HDInsight 中的 Hadoop 執行 Hive 查詢](hdinsight-hadoop-use-hive-curl.md)
 * [使用 REST 搭配 HDInsight 上的 Hadoop 執行 MapReduce 作業](hdinsight-hadoop-use-mapreduce-curl.md)
 * [使用 Curl 搭配執行 Pig 工作與 HDInsight 上的 Hadoop](hdinsight-hadoop-use-pig-curl.md)
-
 
 
 

@@ -8,14 +8,12 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 網路服務的注意事項
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
@@ -50,4 +48,3 @@ Azure Stack 的網路功能提供了 Azure Stack 中的許多功能，但在開�
 ## <a name="next-steps"></a>後續步驟
 
 [Azure Stack 中的 DNS](azure-stack-dns.md)
-

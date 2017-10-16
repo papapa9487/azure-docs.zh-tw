@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
-ms.openlocfilehash: e31bcfce2c66d9428535fb51c4bbe11bc103a1ad
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/21/2017
-
+ms.openlocfilehash: 001d80ce42f0e87276e59d70dffb75eb561d96cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>如何使用 Azure 資料目錄中的巨量資料來源
 ## <a name="introduction"></a>簡介
@@ -68,4 +67,3 @@ ms.lasthandoff: 06/21/2017
 
 ## <a name="summary"></a>摘要
 向 **Azure 資料目錄** 註冊資料來源可讓您更輕鬆地探索和了解它們。 您可以註冊並加註代表邏輯資料集的巨量資料檔案和目錄，以協助使用者找到並使用所需的巨量資料來源。
-

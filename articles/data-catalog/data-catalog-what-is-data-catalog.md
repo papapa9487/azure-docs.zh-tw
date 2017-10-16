@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
 ms.openlocfilehash: a28a7679831201fcf3a9d1c15497ff706c2752a1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-data-catalog"></a>什麼是 Azure 資料目錄？
 Azure 資料目錄是完全受管理的雲端服務，能讓其使用者探索它們需要的資料來源，並了解他們所尋找的資料來源。 同時，資料目錄可協助組織從現有的投資中獲得更多價值。 

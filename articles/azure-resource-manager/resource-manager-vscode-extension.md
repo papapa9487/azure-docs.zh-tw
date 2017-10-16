@@ -13,14 +13,12 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fbc0fd12999c9085c3c364f0d7115eb1ab1ddd74
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>使用 Visual Studio Code 擴充功能來建立 Azure Resource Manager 範本
 本文說明在 Visual Studio Code 中安裝和使用 Azure Resource Manager Tools 擴充功能的優點。 不需使用擴充功能，即可在 VS Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 它會建議範本中可用的函式、參數和變數。
 
@@ -300,4 +298,3 @@ az group delete --name examplegroup
 * 若要深入了解範本的結構，請參閱 [編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 * 若要了解儲存體帳戶的屬性，請參閱[儲存體帳戶範本參考](/azure/templates/microsoft.storage/storageaccounts)。
 * 若要檢視許多不同類型解決方案的完整範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
-

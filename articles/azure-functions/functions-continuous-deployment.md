@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions 的持續部署
 Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函數應用程式。 Functions 可與 BitBucket、Dropbox、GitHub 及 Visual Studio Team Services (VSTS) 整合。 這可讓使用這其中一項整合式服務進行函數程式碼更新的工作流程觸發以 Azure 為目的地的部署。 如果您不熟悉 Azure Functions，請從 [Azure Functions 概觀](functions-overview.md)來開始。
@@ -131,7 +130,7 @@ Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函
  
     ![設定持續部署](./media/functions-continuous-deployment/setup-deployment-1.png)
    
-2. 在 [部署來源] 刀鋒視窗中，按一下 [本機 Git 存放庫]，然後按一下 [確定]。
+2. 在 部署來源 刀鋒視窗中，按一下 本機 Git 存放庫，然後按一下確定。
 
 3. 在 [平台功能] 中，按一下 [屬性]，然後記下 Git URL 的值。 
    
@@ -153,4 +152,3 @@ Azure Functions 可讓您使用 App Service 持續整合來輕鬆部署您的函
 
 > [!div class="nextstepaction"]
 > [Azure Functions 的最佳作法](functions-best-practices.md)
-

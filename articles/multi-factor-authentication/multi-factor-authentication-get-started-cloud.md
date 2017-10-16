@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/24/2017
 ms.author: kgremban
+ms.openlocfilehash: 19f3228b874fc4e37bf83388dae4341428226482
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 1cce449a87571fdabd0dbf76f764f442b2990ffe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-in-the-cloud"></a>開始在雲端中使用 Azure Multi-Factor Authentication
 本文將帶領您逐步了解如何在雲端中開始使用 Azure Multi-Factor Authentication。
@@ -46,5 +45,4 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 現在您已在雲端中設定 Azure Multi-Factor Authentication，接下來您可以設定及安裝您的部署。 如需詳細資訊，請參閱[設定 Azure Multi-Factor Authentication](multi-factor-authentication-whats-next.md)。
-
 

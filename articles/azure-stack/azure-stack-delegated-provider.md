@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 48b75233e1a485e8fb3fbce9776a6ef398c4e99c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="delegating-offers-in-azure-stack"></a>在 Azure Stack 中委派提供項目
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 身為 Azure Stack 操作員，您往往想要了解如何讓其他人負責建立供應項目和為您註冊使用者。 例如，如果您是服務提供者，並且想要轉銷商註冊客戶並代表您管理客戶。 如果您是中央 IT 群組的一部分，而且想要部門或子公司在不需要您介入的情況下註冊使用者，則在企業中也可能發生。
 
@@ -107,7 +106,7 @@ Azure Stack 操作員可以藉由使用委派功能，將供應項目和使用�
     ![](media/azure-stack-delegated-provider/image5.png)
 
 
-1. 將名稱指派給供應項目。 這裡我們選擇 ResellerOffer。 選取要以其為基礎的委派供應項目，然後按一下 [建立]。
+1. 將名稱指派給供應項目。 這裡我們選擇 ResellerOffer。 選取要以其為基礎的委派供應項目，然後按一下建立。
    
    ![](media/azure-stack-delegated-provider/image6.png)
 
@@ -144,5 +143,4 @@ Azure Stack 支援最多五個層級的委派。
 
 ## <a name="next-steps"></a>後續步驟
 [佈建 VM](azure-stack-provision-vm.md)
-
 

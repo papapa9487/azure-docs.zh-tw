@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d184bb9edbe2542d7321d8b9ccc5d23f2401f8d5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>為 Azure Stack 使用者啟用 Azure CLI
 
@@ -74,5 +73,4 @@ Azure Stack 操作員應該設定裝載虛擬機器別名檔案的可公開存�
 [使用 PowerShell 連線](azure-stack-connect-powershell.md)
 
 [管理使用者權限](azure-stack-manage-permissions.md)
-
 

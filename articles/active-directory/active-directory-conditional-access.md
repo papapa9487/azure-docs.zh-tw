@@ -17,12 +17,11 @@ ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.custom: oldportal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: b19fd8c0c41638ffec5fda32b6b1a855be2abc7b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: e93bfacfd74c0e8f34bc1bab372cc287193e992f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conditional-access-in-the-azure-classic-portal"></a>Azure 傳統入口網站中的條件式存取
 
@@ -97,5 +96,4 @@ Azure AD 條件式存取是 [Azure Active Directory Premium](http://www.microsof
 ### <a name="next-steps"></a>後續步驟
 * [條件式存取常見問題集](active-directory-conditional-faqs.md)
 * [技術參考](active-directory-conditional-access-technical-reference.md)
-
 

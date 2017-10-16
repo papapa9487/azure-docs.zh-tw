@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: parakhj
+ms.openlocfilehash: 92087e4553580a5fe14e647d014e493bc7e47b67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 7f98637264d1acb209d0379e4800e542fc91955b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C：權杖參考
 
@@ -127,7 +126,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 
 `fabrikamb2c.onmicrosoft.com` 是用來驗證使用者的 B2C 目錄，而 `b2c_1_sign_in` 是用來取得權杖的原則。 若要判斷哪個原則用來簽署權杖 (以及何處可擷取中繼資料)，您有兩個選項。 首先，原則名稱包含在權杖的 `acr` 宣告中。 您可以將 JWT 主體進行 base 64 解碼，並將產生的 JSON 字串還原序列化，以剖析 JWT 主體中的宣告。 `acr` 宣告會是用來簽發權杖的原則名稱。  另一個選項是當您發出要求時在 `state` 參數的值中將原則編碼，然後將它解碼以判斷使用了哪個原則。 任一種方法都有效。
 
-中繼資料文件是包含幾項實用資訊的 JSON 物件。 其中包括執行 OpenID Connect 驗證時所需端點的位置。 它們還包含 `jwks_uri`，指出用來簽署權杖的公開金鑰組的位置。 這裡提供該位置，但最好使用中繼資料文件並剖析 `jwks_uri`來動態擷取該位置：
+中繼資料文件是包含幾項實用資訊的 JSON 物件。 其中包括執行 OpenID Connect 驗證時所需端點的位置。 它們還包含 `jwks_uri`，指出用來簽署權杖的公用金鑰組的位置。 這裡提供該位置，但最好使用中繼資料文件並剖析 `jwks_uri`來動態擷取該位置：
 
 ```
 https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
@@ -155,5 +154,4 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/key
 | ID 權杖 |一小時 |ID 權杖的有效期通常為 1 小時。 Web 應用程式可以使用此存留期來維持它自己與使用者之間的工作階段 (建議選項)。 您也可以選擇不同的工作階段存留期。 如果您的應用程式需要取得新的 ID 權杖，它只需要對 Azure AD 提出新的登入要求。 如果使用者與 Azure AD 之間存在有效的瀏覽器工作階段，該使用者可能不需要再次輸入認證。 |
 | 重新整理權杖 |最多 14 天 |單一重新整理權杖的有效期最多 14 天。 不過，重新整理權杖可能會基於許多因素而隨時失效。 您的應用程式應繼續嘗試使用重新整理權杖，直到要求失敗，或您的應用程式更換新的重新整理權杖為止。 在使用者上次輸入認證之後經過 90 天，重新整理權杖也會失效。 |
 | 授權碼 |五分鐘 |授權碼是刻意設計成短期。 它們應在收到時立即兌換成存取權杖、ID 權杖或重新整理權杖。 |
-
 

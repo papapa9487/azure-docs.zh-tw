@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 689977491e6df37e48536f59234bf4ddba6a1575
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure 雲端服務的憑證概觀
 Azure 中的憑證用於雲端服務 ([服務憑證](#what-are-service-certificates)) 及用於向管理 API 進行驗證 (使用 Azure 傳統入口網站而不是非傳統 Azure 入口網站時[管理憑證](#what-are-management-certificates))。 本主題提供兩種憑證類型的一般概觀、如何[建立](#create)這些憑證類型，以及如何將其[部署](#deploy)到 Azure。
@@ -97,5 +96,4 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 [將服務憑證上傳至 Azure 傳統入口網站](cloud-services-configure-ssl-certificate.md) (或 [Azure 入口網站](cloud-services-configure-ssl-certificate-portal.md))。
 
 將 [管理 API 憑證](../azure-api-management-certs.md) 上傳至 Azure 傳統入口網站。 Azure 入口網站並不使用管理憑證來進行驗證。
-
 

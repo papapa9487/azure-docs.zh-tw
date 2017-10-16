@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.openlocfilehash: cd35b6e2dc3171e9cffdb820bbc5b0d45ff58e07
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-concur-for-user-provisioning"></a>教學課程：設定 Concur 的使用者佈建
 
@@ -82,7 +82,7 @@ Concur 顧問或用戶端系統管理員必須建立不同的 Web 服務系統�
    
     ![啟用合作夥伴應用程式](./media/active-directory-saas-concur-provisioning-tutorial/ic721730.png "啟用合作夥伴應用程式")
 
-4. 從 [啟用應用程式] 清單中選取 [Azure Active Directory]，然後按一下 [啟用]。
+4. 從 啟用應用程式 清單中選取 Azure Active Directory，然後按一下啟用。
    
     ![Microsoft Azure Active Directory](./media/active-directory-saas-concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: 4b0a57c3bab688487eb9a50461b406e1a6e477c6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>啟用 Windows 應用程式離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -48,7 +48,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
     ![新增 SQLite UWP 參考][1]
 4. 開啟 MainPage.xaml.cs 檔案，並取消註解 `#define OFFLINE_SYNC_ENABLED` 定義。
-5. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。 不過，本機資料庫現在會填入可在離線案例下使用的資料。
+5. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。不過，本機資料庫現在會填入可在離線案例下使用的資料。
 
 ## <a name="update-sync"></a>更新應用程式以使其與後端中斷連線
 在本節中，您將中斷與行動應用程式後端的連線，以模擬離線狀態。 當您新增資料項目時，您的例外狀況處理常式會指出應用程式處於離線模式。 處於此狀態時，新項目會新增到本機存放區，並且會在推送接下來於連線狀態執行時，同步處理至行動應用程式後端。
@@ -80,7 +80,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 為了支援行動服務的離線功能，我們使用 [IMobileServiceSyncTable] 介面，並初始化本機 SQLite 資料庫的 [MobileServiceClient.SyncContext][synccontext]。 離線時，Mobile Apps 的一般 CRUD 作業運作方式，就如同應用程式仍處於連線狀態，而作業會對本機存放區執行。 下列方法可用來同步處理本機存放區與伺服器︰
 
 * **[PushAsync]** 因為這個方法是 [IMobileServicesSyncContext] 的成員，因此所有資料表的變更都會推送至後端。 只有具有本機變更的記錄會傳送到伺服器。
-* **[PullAsync]** 從 [IMobileServiceSyncTable] 開始提取。 當資料表中有追蹤的變更時，便會執行隱含推送，以確定本機存放區中的所有資料表和關聯性都維持一致。 pushOtherTables  參數會控制是否在隱含推送中推送內容中的其他資料表。 *query* 參數會採用 [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] 或 OData 查詢字串來篩選傳回的資料。 queryId  參數可用來定義增量同步處理。 如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
+* **[PullAsync]** 從 [IMobileServiceSyncTable] 開始提取。 當資料表中有追蹤的變更時，便會執行隱含推送，以確定本機存放區中的所有資料表和關聯性都維持一致。 pushOtherTables  參數會控制是否在隱含推送中推送內容中的其他資料表。 *query* 參數會採用 [IMobileServiceTableQuery<T>][IMobileServiceTableQuery] 或 OData 查詢字串來篩選傳回的資料。 queryId  參數可用來定義增量同步處理。如需詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。
 * **[PurgeAsync]** 您的應用程式應定期呼叫這個方法，以清除本機存放區中的過時資料。 當您需要清除任何尚未同步處理的變更時，請使用 force  參數。
 
 如需這些概念的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理](app-service-mobile-offline-data-sync.md#how-sync-works)。

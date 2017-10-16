@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: xshi
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 6a450579c848fe6030a328ddf410f139baae2324
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather HUZZAH ESP8266 連線到位於雲端的 Azure IoT 中樞
 
@@ -159,7 +158,7 @@ ms.lasthandoff: 07/13/2017
 
 1. 在 Arduino IDE 中，按一下 [檔案] > [喜好設定]。
 1. 在 [喜好設定] 對話方塊中，按一下 [其他電路板管理員 URL] 方塊旁的圖示。
-1. 在快顯視窗中，輸入下列 URL，然後按一下 [確定]。
+1. 在快顯視窗中，輸入下列 URL，然後按一下確定。
 
    `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
@@ -211,7 +210,7 @@ ms.lasthandoff: 07/13/2017
 1. 在 [序列監視器] 視窗中，請注意右下角的兩個下拉式清單。
 1. 在左邊的下拉式清單中選取 [無行尾結束符號]。
 1. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
-1. 在位於 [序列監視器] 視窗頂端的輸入方塊中，輸入系統要求您提供的下列資訊，然後按一下 [傳送]。
+1. 在位於 序列監視器 視窗頂端的輸入方塊中，輸入系統要求您提供的下列資訊，然後按一下傳送。
    * Wi-Fi SSID
    * Wi-Fi 密碼
    * 裝置連接字串
@@ -230,5 +229,4 @@ ms.lasthandoff: 07/13/2017
 您已成功將 Feather HUZZAH ESP8266 連線到 IoT 中樞，並將擷取到的感應器資料傳送至 IoT 中樞。 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-
 

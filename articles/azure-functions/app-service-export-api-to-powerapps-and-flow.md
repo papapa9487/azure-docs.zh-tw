@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: mahender; mblythe
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: efa5a50564d94dbecd4bc7fcb4082b01d16f680d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -178,6 +177,5 @@ PowerApps 和 Microsoft Flow 支援一系列提供自訂連接器驗證的識別
 - **授權 URL**：OAuth 2.0 授權 URL
 - **權杖 URL**：OAuth 2.0 權杖 URL
 - **重新整理 URL**：OAuth 2.0 重新整理 URL
-
 
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>整合 System Center Configuration Manager 與 OMS 更新管理 [預覽]
 
 投資了 System Center Configuration Manager 以管理電腦、伺服器和行動裝置的客戶也需仰賴其管理軟體更新的強度和成熟度，作為軟體更新管理 (SUM) 週期的一部分。  
@@ -56,5 +54,4 @@ ms.lasthandoff: 09/25/2017
 若要為身為 Configuration Manager 用戶端的 Windows Server VM 管理更新，您必須設定用戶端原則，為此解決方案所管理的所有用戶端停用軟體更新管理功能。  根據預設，用戶端設定是以階層中的所有裝置為目標。  如需有關此原則設定和設定方式的詳細資訊，請檢閱[如何在 System Center Configuration Manager 中設定用戶端設定](https://docs.microsoft.com/sccm/core/clients/deploy/configure-client-settings)。  
 
 執行這項組態變更之後，請遵循[建立更新部署](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment)中所述的步驟來建立新的部署，並從下拉式清單選取以 OMS 電腦群組表示的適當 Configuration Manager 集合。 
-
 

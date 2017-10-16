@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>使用 MQ 連接器從 Logic Apps 連線到 IBM MQ Server 
 
 Microsoft Connector for MQ 會傳送並取出儲存在 MQ Server 內部部署或在 Azure 中的訊息。 此連接器包含透過 TCP/IP 網路與遠端 IBM MQ Server 通訊的 Microsoft MQ 用戶端。 本文件是使用 MQ 連接器的入門指南。 建議您從瀏覽佇列上的單一訊息開始，然後再嘗試其他動作。    
@@ -51,7 +49,7 @@ MQ 連接器包含下列動作。 但不包含觸發程序。
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式
 
 1. 在 **Azure 開始面板**中，依序選取 **+** (加號)、[Web + 行動] 和 [邏輯應用程式]。 
-2. 輸入 [名稱]，例如 MQTestApp、[訂用帳戶]、[資源群組]，和 [位置]\(使用已設定內部部署資料閘道連線的位置)。 選取 [釘選到儀表板]，然後選取 [建立]。  
+2. 輸入 [名稱]，例如 MQTestApp、[訂用帳戶]、[資源群組]，和 [位置](使用已設定內部部署資料閘道連線的位置)。 選取 [釘選到儀表板]，然後選取 [建立]。  
 ![建立邏輯應用程式](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>新增觸發程序
@@ -126,4 +124,3 @@ MQ 連接器包含下列動作。 但不包含觸發程序。
 
 ## <a name="next-steps"></a>後續步驟
 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 請到我們的 [API 清單](apis-list.md)探索 Logic Apps 中其他可用的連接器。
-

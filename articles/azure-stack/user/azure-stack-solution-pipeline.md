@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: helaw
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 83bb401d5d65cd2c34015a1a14673363aeee81d7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>將應用程式部署至 Azure 和 Azure Stack
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
@@ -212,6 +210,5 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [開發 Azure Stack](azure-stack-developer.md)
-
 
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>使用 Azure 入口網站建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard
 
 本文會逐步說明如何使用 Public IP Standard 位址來建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。
@@ -51,14 +49,13 @@ ms.lasthandoff: 09/25/2017
 4. 在 [類型] 底下選取 [公用]。
 5. 在 SKU 底下選取 [標準 (預覽)]。
 6. 按一下 [公用 IP 位址]，按一下 [建立新的]，在 [建立公用 IP 位址] 頁面上的 [名稱] 底下輸入 **myPublicIPStandard**，然後在 [可用性區域 (預覽)] 中選取 [區域備援]。
-7. 在 [位置] 底下選取 [美國東部 2]，然後按一下 [確定]。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
+7. 在 位置 底下選取 美國東部 2，然後按一下確定。 負載平衡器接著會開始部署，並且需要幾分鐘的時間才能順利完成部署。
 
     ![使用 Azure 入口網站建立區域備援 Load Balancer Standard](./media/load-balancer-get-started-internet-az-portal/create-zone-redundant-load-balancer-standard.png)
 
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[在可用性區域中建立公用 IP](../virtual-network/create-public-ip-availability-zone-portal.md)
-
 
 
 

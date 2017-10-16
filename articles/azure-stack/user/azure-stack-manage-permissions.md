@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control"></a>管理角色型存取控制
 
@@ -38,6 +37,5 @@ Azure Stack 中的使用者可以是訂用帳戶、資源群組或服務中每�
 4. 在 [角色] 刀鋒視窗中，按一下 [新增] 即可加入使用者的權限。
 
 ## <a name="next-steps"></a>後續步驟
-
 
 

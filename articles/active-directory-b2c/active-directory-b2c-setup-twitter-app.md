@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 4/06/2017
 ms.author: parakhj
 ms.openlocfilehash: 82a001dd53cdddcf3b360090f3250af593c96fbb
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts"></a>Azure Active Directory B2C：針對具有 Twitter 帳戶的取用者提供註冊和登入
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/18/2017
 若要在 Azure Active Directory (Azure AD) B2C 中使用 Twitter 作為識別提供者，您必須建立 Twitter 應用程式，並對其提供正確參數。 您需要 Twitter 開發人員帳戶才能執行這項操作。 如果您沒有該帳戶，您可以在 [https://dev.twitter.com/](https://dev.twitter.com/) 上申請。
 
 1. 移至 [Twitter 開發人員網站](https://dev.twitter.com/)，並以您的認證登入。
-2. 按一下 [工具和支援] 底下的 [我的應用程式]，然後按一下 [建立新的應用程式]。 
+2. 按一下 工具和支援 底下的 我的應用程式，然後按一下建立新的應用程式。 
 3. 在表單中，提供**名稱**、**描述**和**網站**值。
 4. 在 [回呼 URL] 中輸入 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`。 務必要使用您的租用戶名稱 (例如 contosob2c.onmicrosoft.com) 來取代 **{tenant}**。
 5. 勾選方塊以同意 [開發人員合約]，然後按一下 [建立 Twitter 應用程式]。

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/02/2016
 ms.author: bwren
 ms.openlocfilehash: 5f8814ee943424c1c278ab3732129d4459f83819
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 在許多情況下，建立資源可以由 IDE 自動完成。 但在某些情況下，您需要手動建立資源 - 例如，讓應用程式的開發和生產組建有各自可用的資源。
@@ -34,7 +34,7 @@ Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用�
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 在 [portal.azure.com](https://portal.azure.com)中新增 Application Insights 資源：
 
-![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-create-new-resource/01-new.png)
+![按一下 新增，然後按一下Application Insights](./media/app-insights-create-new-resource/01-new.png)
 
 * **應用程式類型**會影響您在 [概觀] 刀鋒視窗中看到的內容，以及[計量瀏覽器][metrics]中提供的屬性。 如果沒有看到您的應用程式類型，請選擇 [一般]。
 * **訂用帳戶** 是您在 Azure 中的付款帳戶。

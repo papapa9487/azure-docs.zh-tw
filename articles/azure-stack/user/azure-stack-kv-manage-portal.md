@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 41cbe1526368dd88fe98f92937c6ef2b65f24682
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>使用入口網站管理 Azure Stack 中的金鑰保存庫
 
 您可以使用 Azure Stack 入口網站管理 Azure Stack 中的金鑰保存庫。 此文章可協助您開始建立和管理 Azure Stack 中的金鑰保存庫。 
@@ -101,6 +99,5 @@ ms.lasthandoff: 09/25/2017
 ## <a name="next-steps"></a>後續步驟
 * [擷取存放在金鑰保存庫中的密碼來部署虛擬機器](azure-stack-kv-deploy-vm-with-secret.md)  
 * [使用存放在金鑰保存庫中的憑證來部署虛擬機器](azure-stack-kv-push-secret-into-vm.md)     
-
 
 

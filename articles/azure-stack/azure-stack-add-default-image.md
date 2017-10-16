@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: sngun
+ms.openlocfilehash: 43781cb025865df1d228376f57412f3d482d3ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 62f467f1dae5a2cb04e5230ed43b77ec3ec8c1a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-the-windows-server-2016-vm-image-to-the-azure-stack-marketplace"></a>將 Windows Server 2016 VM 映像新增到 Azure Stack 市集
 
@@ -141,7 +140,7 @@ Azure Stack 市集中預設沒有提供任何虛擬機器映像。 Azure Stack �
 |New-AzsServer2016VMImage 參數|必要？|說明|
 |-----|-----|------|
 |ISOPath|是|所下載 Windows Server 2016 ISO 的完整路徑。|
-|Net35|否|此參數可讓您在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 true。 映像必須包含 .NET 3.5 執行階段，才能安裝 SQL 和 MYSQL 資源提供者。 |
+|Net35|否|此參數可讓您在 Windows Server 2016 映像上安裝 .NET 3.5 執行階段。 此值預設會設定為 true。|
 |版本|否|此參數可讓您選擇是要新增 **Core** (核心)、**Full** (完整) Windows Server 2016 映像，還是 **Both** (兩者都新增)。 此值預設會設定為 "Full"。|
 |VHDSizeInMB|否|設定要新增到您 Azure Stack 環境之 VHD 映像的大小 (單位為 MB)。 此值預設會設定為 40960 MB。|
 |CreateGalleryItem|否|指定是否應該為 Windows Server 2016 映像建立 Marketplace 項目。 此值預設會設定為 true。|
@@ -153,4 +152,3 @@ Azure Stack 市集中預設沒有提供任何虛擬機器映像。 Azure Stack �
 ## <a name="next-steps"></a>後續步驟
 
 [佈建虛擬機器](azure-stack-provision-vm.md)
-

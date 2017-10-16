@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: parakhj
 ms.openlocfilehash: 44ff168599e9078506e1afdd0f1dc4657ef0964d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 07/11/2017
 
 Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增更多使用者體驗，例如註冊、登入和設定檔管理。 在本文中，我們會說明如何使用隱含流程與 Azure AD，在您的單一頁面應用程式中實作這些體驗。 為了協助您快速入門，請查看我們的 [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) \(英文\) 或 [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) \(英文\) 範例。
 
-在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。 此外，也會使用我們的範例應用程式和原則。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
+在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。此外，也會使用我們的範例應用程式和原則。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
 了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和原則](#use-your-own-b2c-tenant)。
 
 
@@ -168,7 +168,7 @@ Azure AD B2C 具有 OpenID Connect 中繼資料端點。 應用程式可以使�
 * 驗證 `aud` 宣告，以確保已針對您的應用程式簽發識別碼權杖。 這個值就是您應用程式的應用程式識別碼。
 * 驗證 `iat` 與 `exp` 宣告，以確保識別碼權杖沒有過期。
 
-另外還有幾個您應該執行的驗證，在 [OpenID Connect 核心規格](http://openid.net/specs/openid-connect-core-1_0.html) \(英文\) 中會有其詳細說明。 視您的案例而定，您可能也會想要驗證其他宣告。 一些常見的驗證包括：
+另外還有幾個您應該執行的驗證，在 [OpenID Connect 核心規格](http://openid.net/specs/openid-connect-core-1_0.html) \(英文\) 中會有其詳細說明。視您的案例而定，您可能也會想要驗證其他宣告。 一些常見的驗證包括：
 
 * 確保使用者或組織已為應用程式註冊。
 * 確保使用者有適當的授權與權限。
@@ -256,7 +256,7 @@ error=user_authentication_required
 識別碼權杖和存取權杖都會在短期內過期。 您的應用程式必須準備好定期重新整理這些權杖。  若要重新整理任一種類型的權杖，可使用 `prompt=none` 參數來控制 Azure AD 步驟，藉以執行我們在上述範例中所使用的相同隱藏 iframe 要求。  若要接收新的 `id_token` 值，請務必使用 `response_type=id_token` 和 `scope=openid`，以及 `nonce` 參數。
 
 ## <a name="send-a-sign-out-request"></a>傳送登出要求
-當您想要將使用者登出應用程式時，請將使用者重新導向到 Azure AD 進行登出。 如果沒有這麼做，使用者可能不必重新輸入認證，就能夠向您的應用程式重新驗證自己的身分。 這是因為使用者將擁有有效的 Azure AD 單一登入工作階段。
+當您想要將使用者登出應用程式時，請將使用者重新導向到 Azure AD 進行登出。如果沒有這麼做，使用者可能不必重新輸入認證，就能夠向您的應用程式重新驗證自己的身分。 這是因為使用者將擁有有效的 Azure AD 單一登入工作階段。
 
 您只要將使用者重新導向至 `end_session_endpoint` (列於[驗證識別碼權杖](#validate-the-id-token)中所述的相同 OpenID Connect 中繼資料文件中) 即可。 例如：
 
@@ -269,7 +269,7 @@ p=b2c_1_sign_in
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
 | p |必要 |用來將使用者登出應用程式的原則。 |
-| post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。 若未包含此項，Azure AD B2C 就會向使用者顯示一般訊息。 |
+| post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。若未包含此項，Azure AD B2C 就會向使用者顯示一般訊息。 |
 
 > [!NOTE]
 > 將使用者導向至 `end_session_endpoint`，會利用 Azure AD B2C 清除使用者的部分單一登入狀態。 不過，它不會將使用者登出使用者的社交身分識別提供者工作階段。 如果使用者之後在登入時選取相同的識別提供者，該使用者不必輸入自己的認證，就能讓系統重新驗證自己的身分。 舉例來說，如果使用者想要登出您的 Azure AD B2C 應用程式，不一定代表他們想要完全登出自己的 Facebook 帳戶。 不過，如果使用本機帳戶，使用者的工作階段將會正確地結束。

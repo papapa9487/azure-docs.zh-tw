@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/23/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 9099e90c402185b371495379db943d64fb82cdb8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-table-storage-overview"></a>Azure 資料表儲存體概觀
 
@@ -42,4 +41,3 @@ Azure 表格儲存體是可將結構化的 NoSQL 資料儲存在雲端中的服�
     * [Storage Client Library for .NET 參考資料](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
 
     * [REST API 參考資料](http://msdn.microsoft.com/library/azure/dd179355)
-

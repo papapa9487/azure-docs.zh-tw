@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: magoedte;bwren;sngun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 6c65427fcd18e41a90dfb872aa9525f758b17b87
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/18/2017
-
+ms.openlocfilehash: d384a1f6e0f6bf49cf94020265fe5675ffc0029d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 *Webhook* 可讓您在 Azure 自動化中透過單一 HTTP 要求啟動特定的 Runbook。 這可讓外部服務，例如 Visual Studio Team Services、GitHub、Microsoft Operations Management Suite Log Analytics 或自訂應用程式，不需使用 Azure 自動化 API 實作完整的解決方案，即可啟動 Runbook。  
@@ -267,4 +266,3 @@ Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。 我�
 * 如需以不同方式啟動 Runbook 的詳細資訊，請參閱[啟動 Runbook](automation-starting-a-runbook.md)。
 * 如需檢視 Runbook 作業狀態的相關資訊，請參閱 [Azure 自動化中的 Runbook 執行](automation-runbook-execution.md)。
 * 若要了解如何使用 Azure 自動化來對 Azure 警示採取動作，請參閱[使用自動化 Runbook 修復 Azure VM 警示](automation-azure-vm-alert-integration.md)。
-

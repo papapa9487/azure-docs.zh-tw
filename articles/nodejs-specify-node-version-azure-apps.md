@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: a20179c72b227deb14df442bea7b80cf31728aa7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="specifying-a-nodejs-version-in-an-azure-application"></a>在 Azure 應用程式中指定 Node.js 版本
 裝載 Node.js 應用程式時，您可能會想要確定應用程式是使用特定版本的 Node.js。 有數種方式可以為 Azure 上裝載的應用程式完成這項動作。
@@ -98,4 +97,3 @@ Azure 提供的 Node.js 版本會持續進行更新。 除非另有指定，否�
 [Azure 命令列工具]:cli-install-nodejs.md
 [使用模組]: nodejs-use-node-modules-azure-apps.md
 [build and deploy a Node.js Web Site]: app-service/app-service-web-get-started-nodejs.md
-

@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: larryfr
 ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
@@ -690,7 +690,7 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 2. 儲存變更，然後按一下 **F5** 或選取 [偵錯] > [開始偵錯] 來啟動專案。 應該會出現主控台視窗，並記錄測試進行的狀態。 出現 [測試已完成]  時，請按任意鍵關閉視窗。
 
-3. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如：**C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 [Bin]，然後按一下 [偵錯]。 您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
+3. 使用 [Windows 檔案總管] 找出包含您專案的目錄。 例如：**C:\Users\<your_user_name>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**。 在此目錄中，開啟 Bin，然後按一下偵錯。 您應該會看到執行測試時所產生的文字檔：sentences.txt、counter.txt 和 splitter.txt。 開啟每個文字檔，並檢查資料。
 
    > [!NOTE]
    > 字串資料會在這些檔案中保存為十進位值的陣列。 例如，**splitter.txt** 檔案中的 \[[97,103,111]] 是 *and* 這個單字。

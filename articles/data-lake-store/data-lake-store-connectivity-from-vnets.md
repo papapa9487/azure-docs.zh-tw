@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: 9bd7a76ef644df3db72ce95a3ef89a04bec1381f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 029939eabc7283d7591576fa1b14731a9e626a88
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-data-lake-store-from-vms-within-an-azure-vnet"></a>從 Azure VNET 內的 VM 存取 Azure Data Lake Store
 Azure Data Lake Store 使用公用網際網路 IP 位址執行的 PaaS 服務。 可以連線到公用網際網路的任何伺服器，通常也可以連接到 Azure Data Lake Store 端點。 根據預設，Azure VNET 中所有的 VM 可以存取網際網路，並因此可以存取 Azure Data Lake Store。 不過，也可以將 VNET 中的 VM 設定為無法存取網際網路。 對於這類 VM，也會限制對 Azure Data Lake Store 的存取。 封鎖 Azure VNET 中 VM 的公用網際網路存取，可以使用下列方法的任一個來完成。
@@ -55,5 +54,4 @@ Azure Data Lake Store 使用公用網際網路 IP 位址執行的 PaaS 服務。
 ## <a name="see-also"></a>另請參閱
 * [Azure 資料湖儲存區概觀](data-lake-store-overview.md)
 * [保護儲存在 Azure Data Lake Store 中的資料](data-lake-store-security-overview.md)
-
 

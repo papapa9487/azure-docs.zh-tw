@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jgao
 ms.openlocfilehash: e21dabcc6999b1f1047d334e782f723d0c03c2cb
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>在 HDInsight 中的 Hadoop 叢集上使用空白邊緣節點
 
@@ -89,7 +89,7 @@ ms.lasthandoff: 08/29/2017
    * **邊緣節點大小**︰選取其中一個 VM 大小。 VM 大小必須符合背景工作節點 VM 大小需求。 如需建議的背景工作節點 VM 大小，請參閱[在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。
    * **邊緣節點前置詞**︰預設值是 **new**。  若使用預設值，邊緣節點名稱是 **new-edgenode**。  您可以從入口網站自訂前置詞。 您也可以從範本自訂完整名稱。
 
-4. 核取 [我同意上方所述的條款及條件]，然後按一下 [購買] 以建立邊緣節點。
+4. 核取 我同意上方所述的條款及條件，然後按一下購買 以建立邊緣節點。
 
 >[!IMPORTANT]
 > 請務必選取用於現有 HDInsight 叢集的 Azure 資源群組。  否則，您會收到錯誤訊息：「無法對巢狀資源執行所要求的作業。 找不到父資源 '&lt;叢集名稱>'」。
@@ -116,7 +116,7 @@ ms.lasthandoff: 08/29/2017
    * **安裝指令碼動作**︰請保留預設值以便完成本教學課程。
      
      某些屬性已被硬式編碼在範本中︰叢集類型、叢集背景工作角色節點計數、邊緣節點大小與邊緣節點名稱。
-4. 核取 [我同意上方所述的條款及條件]，然後按一下 [購買] 以建立具有邊緣節點的叢集。
+4. 核取 我同意上方所述的條款及條件，然後按一下購買 以建立具有邊緣節點的叢集。
 
 ## <a name="access-an-edge-node"></a>存取邊緣節點
 邊緣節點 ssh 端點是 &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22。  例如，new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22。
@@ -149,7 +149,7 @@ ms.lasthandoff: 08/29/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 開啟具有邊緣節點的 HDInsight 叢集。
 3. 從叢集刀鋒視窗中，按一下 [應用程式]  。 您應該會看到邊緣節點清單。  
-4. 以滑鼠右鍵按一下您想要刪除的邊緣節點，然後按一下 [刪除] 。
+4. 以滑鼠右鍵按一下您想要刪除的邊緣節點，然後按一下刪除 。
 5. 按一下 [ **是** ] 以確認。
 
 ## <a name="next-steps"></a>後續步驟

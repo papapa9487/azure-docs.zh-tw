@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
 ms.openlocfilehash: f21fe0b363776974108ff460060e4c15a51a58a3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>教學課程：Azure Active Directory 與 TOPdesk - Public 整合
 
@@ -139,7 +139,7 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
    
     ![登入設定](./media/active-directory-saas-topdesk-public-tutorial/ic790599.png "登入設定")
 
-10. 展開 [登入設定] 功能表，然後按一下 [一般]。
+10. 展開 登入設定 功能表，然後按一下一般。
    
     ![一般](./media/active-directory-saas-topdesk-public-tutorial/ic790600.png "一般")
 
@@ -202,7 +202,7 @@ TOPdesk - Public 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-topdesk-public-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-topdesk-public-tutorial/create_aaduser_02.png)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.openlocfilehash: e86adaf4bd9b4752f2aece8207a8a423ec5590a6
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>教學課程：Azure Active Directory 與 PerformanceCentre 整合
 
@@ -73,7 +73,7 @@ PerformanceCentre 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_search.png)
 
-5. 在結果窗格中，選取 [PerformanceCentre]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 PerformanceCentre，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-performancecentre-tutorial/tutorial_performancecentre_addfromgallery.png)
 
@@ -135,7 +135,7 @@ PerformanceCentre 與 Azure AD 整合提供下列優點：
    
     ![Azure AD 單一登入][10]
 
-9. 在左側索引標籤中，按一下 [其他]，然後按一下 [單一登入]。
+9. 在左側索引標籤中，按一下 其他，然後按一下單一登入。
    
     ![Azure AD 單一登入][11]
 
@@ -143,7 +143,7 @@ PerformanceCentre 與 Azure AD 整合提供下列優點：
    
     ![Azure AD 單一登入][12]
 
-11. 在記事本中開啟下載的中繼資料檔案，複製其內容，然後貼到 [身分識別提供者中繼資料] 文字方塊，然後按一下 [儲存]。
+11. 在記事本中開啟下載的中繼資料檔案，複製其內容，然後貼到 身分識別提供者中繼資料 文字方塊，然後按一下儲存。
    
     ![Azure AD 單一登入][13]
 
@@ -194,7 +194,7 @@ PerformanceCentre 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 PerformanceCentre 公司網站。
 
-2. 在左側功能表中，按一下 [內部關聯]，然後按一下 [建立參與者]。
+2. 在左側功能表中，按一下 內部關聯，然後按一下建立參與者。
    
     ![建立使用者][400]
 

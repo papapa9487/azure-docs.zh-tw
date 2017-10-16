@@ -14,10 +14,10 @@ ms.topic: get-started-article
 ms.date: 05/15/2017
 ms.author: bwren
 ms.openlocfilehash: 4b9f8c618a69c4c157dafeb7f726aae24efad428
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>為 .NET 應用程式手動設定 Application Insights
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 08/18/2017
 
 登入 [Azure 入口網站](https://portal.azure.com/)，並建立新的 Application Insights 資源。 選擇 ASP.NET 做為應用程式類型。
 
-![按一下 [新增]，然後按一下 [Application Insights]](./media/app-insights-windows-services/01-new-asp.png)
+![按一下 新增，然後按一下Application Insights](./media/app-insights-windows-services/01-new-asp.png)
 
 所選的應用程式類型會設定資源刀鋒視窗的預設內容。
 

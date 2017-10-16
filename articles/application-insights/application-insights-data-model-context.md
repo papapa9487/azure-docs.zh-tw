@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: sergkanz
 ms.openlocfilehash: d6a0cad8bda6ca68aa691867e84f540c5ac9f6f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>遙測內容：Application Insights 資料模型
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 07/11/2017
 
 ##<a name="anonymous-user-id"></a>匿名使用者識別碼
 
-匿名使用者識別碼。 代表應用程式的終端使用者。 從服務傳送遙測時，使用者內容與服務中起始作業的使用者相關。
+匿名使用者識別碼。代表應用程式的終端使用者。 從服務傳送遙測時，使用者內容與服務中起始作業的使用者相關。
 
 [取樣](app-insights-sampling.md)是將收集的遙測量降到最低的其中一個方法。 取樣演算法會嘗試取樣輸入或輸出所有相互關聯的遙測。 匿名使用者識別碼可用於產生取樣分數。 因此匿名使用者識別碼應該為足夠隨機的值。 
 
@@ -92,7 +92,7 @@ ms.lasthandoff: 07/11/2017
 
 ##<a name="authenticated-user-id"></a>已驗證的使用者識別碼
 
-已驗證的使用者識別碼。 與匿名使用者識別碼相反，此欄位代表具有易記名稱的使用者。 由於其 PII 資訊，根據預設，大部分的 SDK 都不會收集該資訊。
+已驗證的使用者識別碼。與匿名使用者識別碼相反，此欄位代表具有易記名稱的使用者。 由於其 PII 資訊，根據預設，大部分的 SDK 都不會收集該資訊。
 
 最大長度：1024
 

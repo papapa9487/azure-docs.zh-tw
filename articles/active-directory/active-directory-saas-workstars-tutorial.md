@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: e17c85689fa3aebf00ebf559185032b90103b4a5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>教學課程：Azure Active Directory 與 Workstars 整合
 
@@ -173,7 +172,7 @@ Workstars 與 Azure AD 整合有下列好處：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-workstars-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-workstars-tutorial/create_aaduser_02.png)
 
@@ -254,5 +253,4 @@ Workstars 與 Azure AD 整合有下列好處：
 [201]: ./media/active-directory-saas-workstars-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-workstars-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-workstars-tutorial/tutorial_general_203.png
-
 

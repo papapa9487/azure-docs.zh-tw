@@ -3,7 +3,7 @@ title: "自動移除資源群組 | Microsoft Docs"
 description: "Azure 自動化案例的 PowerShell 工作流程版本，包括可移除訂用帳戶中所有資源群組的 Runbook。"
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: 
 ms.assetid: b848e345-fd5d-4b9d-bc57-3fe41d2ddb5c
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2016
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: 00b217a4cddac0a893564db27ffb4f460973c246
-ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
-
-
+ms.openlocfilehash: 8b23e55a597f293b17183e80eea6c2763aabe9ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-automation-scenario-automate-removal-of-resource-groups"></a>Azure 自動化案例 - 自動移除資源群組
+# <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Azure 自動化案例 - 自動移除資源群組
 許多客戶會建立一個以上的資源群組。 有些可能會用來管理生產應用程式，其他的可能會用來作為開發、測試和預備環境。 自動部署這些資源是一回事，但按一下按鈕就能夠將資源群組解除委任則是另一回事。 您可以使用 Azure 自動化來簡化這個一般管理工作。 如果您使用的 Azure 訂用帳戶因為成員優惠 (像是 MSDN 或 Microsoft Partner Network Cloud Essentials 方案) 而有消費限制，則這會很有幫助。
 
 此案例是以 PowerShell Runbook 為基礎，其設計目的是要移除一個或多個您在訂用帳戶中指定的資源群組。 Runbook 的預設設定是先測試後再繼續。 這可確保您在準備好完成此程序之前，不會不小心刪除資源群組。   
@@ -33,7 +33,7 @@ ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
 | Remove-ResourceGroup |從訂用帳戶移除一個或多個 Azure 資源群組和相關聯的資源。 |
 
 <br>
- 此 Runbook 定義了下列輸入參數︰
+此 Runbook 定義了下列輸入參數︰
 
 | 參數 | 說明 |
 | --- | --- |
@@ -67,9 +67,3 @@ ms.openlocfilehash: 6aa3897d44b146483204d43e026d3d158c3e13b6
 ## <a name="next-steps"></a>後續步驟
 * 若要開始建立您自己的 Runbook，請參閱 [在 Azure 自動化中建立或匯入 Runbook](automation-creating-importing-runbook.md)。
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱[我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)。
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 64203ce186665aada98fbe8daed971164a650399
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>建立及發行 Marketplace 項目
 
-「適用於：Azure Stack 整合系統和 Azure Stack 開發套件」
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 ## <a name="create-a-marketplace-item"></a>建立 Marketplace 項目
 1. [下載](http://www.aka.ms/azurestackmarketplaceitem) Azure Gallery Packager 工具和範例 Azure Stack Marketplace 項目。
@@ -160,5 +159,4 @@ h1、h2、h3、h4、h5、p、ol、ul、li、a[target|href]、br、strong、em、
 
 ### <a name="marketplace-item-details-blade"></a>Marketplace 項目詳細資料刀鋒視窗
 ![Marketplace 項目詳細資料刀鋒視窗](media/azure-stack-marketplace-item-ui-reference/image3.png)
-
 

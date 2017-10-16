@@ -15,18 +15,17 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
+ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54d16b57526241544ae50c9b8e10a8add667916b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Azure Stack 開發套件部署快速入門
 
 適用於：Azure Stack 開發套件
 
-[Azure Stack 開發套件](azure-stack-poc.md)是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要讓它啟動並執行，您將需要準備環境硬體並執行一些指令碼 (這將需要數小時的時間)。 之後，您可以登入系統管理員和租用戶入口網站，以管理 Azure Stack 和測試供應項目。 
+[Azure Stack 開發套件](azure-stack-poc.md)是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要讓它啟動並執行，您將需要準備環境硬體並執行一些指令碼 (這將需要數小時的時間)。 之後，您可以登入系統管理員和使用者入口網站，以管理 Azure Stack 和測試供應項目。 
 
 1. [**規劃您的硬體、軟體及網路**](azure-stack-deploy.md)。 裝載開發套件的電腦 (開發套件主機) 必須符合硬體、軟體及網路需求。 此外，您還必須在使用 Azure Active Directory 或「Active Directory 同盟服務」之間做選擇。 開始部署之前，請務必符合這些先決條件，如此安裝程序才能順暢執行。 
 
@@ -38,5 +37,4 @@ ms.lasthandoff: 09/25/2017
 
 5. 如果您的 Azure Stack 部署使用 Azure Active Directory，您就必須[向 Azure 註冊 Azure Stack](azure-stack-register.md)，如此您才能夠[將 Azure Marketplace 項目下載](azure-stack-download-azure-marketplace-item.md)到 Azure Stack。
 
-完成這些步驟之後，您將會擁有一個同時具有系統管理員和租用戶入口網站的開發套件環境。 接著，您可以[連線並登入](azure-stack-connect-azure-stack.md)入口網站。 然後，您可以開始部署資源提供者、建立[供應項目](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)，以及填入 Azure Stack [市集](azure-stack-marketplace.md)。
-
+完成這些步驟之後，您將會擁有一個同時具有系統管理員和使用者入口網站的開發套件環境。 接著，您可以[連線並登入](azure-stack-connect-azure-stack.md)入口網站。 然後，您可以開始部署資源提供者、建立[供應項目](azure-stack-key-features.md#regions-services-plans-offers-and-subscriptions)，以及填入 Azure Stack [市集](azure-stack-marketplace.md)。

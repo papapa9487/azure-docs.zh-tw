@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.openlocfilehash: 8e2b5c704230ee2ba1395dc76a1551aaa8e7af7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C：建置 Windows 桌面應用程式
 如果您利用 Azure Active Directory (Azure AD) B2C，只要幾個簡短的步驟，就在您的桌面應用程式中新增功能強大的自助式身分識別管理功能。 本文章說明如何建立 .NET Windows Presentation Foundation (WPF)「待辦事項清單」應用程式，其中包含使用者註冊、登入和設定檔管理的功能。 該應用程式將支援以使用者名稱或電子郵件來註冊及登入的功能。 它也會支援以社交帳戶 (例如 Facebook 和 Google) 來註冊及登入。
@@ -289,7 +289,7 @@ private async void GetTodoList()
 ```
 
 ## <a name="sign-the-user-out"></a>登出使用者
-最後，您可以在使用者選取 [登出] 時，使用 MSAL 來結束使用者的應用程式工作階段。  在使用 MSAL 時，您只要清除權杖快取中的所有權杖即可：
+最後，您可以在使用者選取 [登出] 時，使用 MSAL 來結束使用者的應用程式工作階段。在使用 MSAL 時，您只要清除權杖快取中的所有權杖即可：
 
 ```C#
 private void SignOut(object sender, RoutedEventArgs e)

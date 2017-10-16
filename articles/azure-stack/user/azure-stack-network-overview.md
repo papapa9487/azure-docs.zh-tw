@@ -7,12 +7,11 @@ ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02406ef396fdaa40cb4d46f32d0b2b00c4ec295e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack 網路服務簡介
 
@@ -31,5 +30,4 @@ Azure Stack 提供各種不同的網路服務功能，可以一起或分開使�
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Stack 網路服務的注意事項](azure-stack-network-differences.md)
-
 

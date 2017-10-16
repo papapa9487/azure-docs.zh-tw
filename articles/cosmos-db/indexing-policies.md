@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/17/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 30a21645831f0cfcb3b52c797dbddfa6b5283960
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -62,7 +61,7 @@ ms.lasthandoff: 08/30/2017
 
 ### <a name="customizing-the-indexing-policy-using-the-portal"></a>使用入口網站自訂編製索引原則
 
-您可以使用 Azure 入口網站變更集合的編製索引原則。 在 Azure 入口網站中開啟您的 Azure Cosmos DB 帳戶，選取您的集合，在左側瀏覽功能表中按一下 [設定]，然後按一下 [編製索引原則]。 在 [編製索引原則] 刀鋒視窗中，變更您的編製索引原則，然後按一下 [確定] 以儲存變更。 
+您可以使用 Azure 入口網站變更集合的編製索引原則。 在 Azure 入口網站中開啟您的 Azure Cosmos DB 帳戶，選取您的集合，在左側瀏覽功能表中按一下 設定，然後按一下編製索引原則。 在 編製索引原則 刀鋒視窗中，變更您的編製索引原則，然後按一下確定 以儲存變更。 
 
 ### <a id="indexing-modes"></a>資料庫編製索引模式
 Azure Cosmos DB 支援三個編製索引模式，這些模式可以透過 Azure Cosmos DB 集合的編製索引原則來設定：「一致」、「延遲」和「無」。
@@ -413,5 +412,4 @@ DocumentDB API 會提供效能度量 (像是已使用的索引儲存體)，以�
 1. [DocumentDB API .NET 索引管理程式碼範例](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/IndexManagement/Program.cs)
 2. [DocumentDB API REST 集合作業](https://msdn.microsoft.com/library/azure/dn782195.aspx)
 3. [使用 SQL 查詢](documentdb-sql-query.md)
-
 

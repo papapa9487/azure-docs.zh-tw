@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/12/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
-ms.openlocfilehash: 635e44a7ec6f9244f5fe75eb5ad947cdd8ae59a4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: 69c06c9607e13c2bcffa946d6bbff9bad310ccf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="createuidefinition-elements"></a>CreateUiDefinition 元素
 本文描述 CreateUiDefinition 所有支援元素的結構描述和屬性。 您可以在[建立 Azure 受管理應用程式](managed-application-publishing.md)時使用這些元素。 大部分元素的結構描述如下所示︰
@@ -67,4 +66,3 @@ ms.lasthandoff: 05/12/2017
 ## <a name="next-steps"></a>後續步驟
 * 如需受管理應用程式的簡介，請參閱 [Azure 受管理的應用程式概觀](managed-application-overview.md)。
 * 如需建立 UI 定義的簡介，請參閱[開始使用 CreateUiDefinition](managed-application-createuidefinition-overview.md)。
-

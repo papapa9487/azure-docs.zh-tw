@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: elkuzmen
+ms.openlocfilehash: 16d96494c2e97604ed2116c6b1a28e099b4e61bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 8e4b3466143dc8b19df399913baca864b0af9bc0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage"></a>使用 Linux VM 受管理的服務身分識別存取 Azure 儲存體
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -226,5 +223,4 @@ az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --
 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](../active-directory/msi-overview.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
-
 

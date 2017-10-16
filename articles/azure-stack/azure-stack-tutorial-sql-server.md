@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f774888ba3921d0688feddac669ed1dca4667441
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-sql-databases-available-to-your-azure-stack-users"></a>將 SQL 資料庫提供給您的 Azure Stack 使用者
 
@@ -87,5 +86,4 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [將 Web、行動裝置與 API 應用程式提供給您的使用者]( azure-stack-tutorial-app-service.md)
-
 

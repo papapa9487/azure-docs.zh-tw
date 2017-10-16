@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
 ms.openlocfilehash: 105fc51c2d1152a40a5757985da47330e0b7b8cf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-add-operations-to-an-api-in-azure-api-management"></a>如何將作業新增至 Azure API 管理中的 API
 您必須先加入作業，才能夠使用 API 管理中的 API。 本指南示範如何在 API 管理中對 API 加入和設定不同類型的作業。
@@ -84,7 +82,7 @@ ms.lasthandoff: 07/06/2017
 > 
 
 ## <a name="request-parameters"> </a>要求參數
-操作參數是在 [參數] 索引標籤上管理。 [簽章] 索引標籤的 [URL 範本] 中指定的參數是自動新增，只能透過編輯 URL 範本才變更。 可手動輸入其他參數。
+操作參數是在 [參數] 索引標籤上管理。[簽章] 索引標籤的 [URL 範本] 中指定的參數是自動新增，只能透過編輯 URL 範本才變更。 可手動輸入其他參數。
 
 若要加入新的查詢參數，請按一下 [加入查詢參數]  並輸入下列資訊：
 
@@ -171,4 +169,3 @@ ms.lasthandoff: 07/06/2017
 [How to add operations to an API]: api-management-howto-add-operations.md
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to cache operation results in Azure API Management]: api-management-howto-cache.md
-

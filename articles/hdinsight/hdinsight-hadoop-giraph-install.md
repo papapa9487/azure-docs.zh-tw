@@ -17,10 +17,10 @@ ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
 ms.openlocfilehash: f0eb5c1f457380600463a370043f03e6d655a02c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Giraph
 
@@ -79,7 +79,7 @@ ms.lasthandoff: 08/03/2017
 
     將 tiny_graph.txt 檔案上傳至 HDInsight 叢集的主要儲存體。 如需有關如何上傳資料的指示，請參閱 [在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)。
 
-    這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]][source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。 每一行代表 **source\_id** 物件和一或多個 **dest\_id** 物件之間的關聯性。 **edge\_value** (或權數) 可以視為 **source_id** 和 **dest\_id** 之間的連線強度或距離。
+    這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]][source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source\_id** 物件和一或多個 **dest\_id** 物件之間的關聯性。 **edge\_value** (或權數) 可以視為 **source_id** 和 **dest\_id** 之間的連線強度或距離。
 
     如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Azure CDN 的 POP 位置
 本主題會針對**來自 Verizon 的 Azure CDN** 和**來自 Akamai 的 Azure CDN** 列出目前的 POP 位置。
@@ -46,5 +45,4 @@ ms.lasthandoff: 09/08/2017
 
 ## <a name="see-also"></a>另請參閱
 * [Azure CDN 邊緣節點 API 取得允許清單的最新 IP 位址 (英文)](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
 

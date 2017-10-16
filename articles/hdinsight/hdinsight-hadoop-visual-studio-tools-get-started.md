@@ -18,10 +18,10 @@ ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
 ms.openlocfilehash: f7eff70ece5e8dc7e0c5983871d40bd1f6eafff2
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-hdinsight-and-run-hive-queries-using-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢
 
@@ -65,10 +65,10 @@ Data Lake Tools for Visual Studio 可讓您連線到您的 HDInsight 叢集、�
 3. 展開 [Azure]，然後展開 [HDInsight]。
    
    > [!NOTE]
-   > 請注意，[HDInsight 工作清單] 視窗此時應該會開啟。 如果您沒有看到該視窗，請按一下 [檢視] 功能表的 [其他視窗]，然後按一下 [HDInsight 工作清單視窗]。  
+   > 請注意，[HDInsight 工作清單] 視窗此時應該會開啟。 如果您沒有看到該視窗，請按一下 檢視 功能表的 其他視窗，然後按一下HDInsight 工作清單視窗。  
    > 
    > 
-4. 輸入您的 Azure 訂用帳戶認證，然後按一下 [登入] 。 只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
+4. 輸入您的 Azure 訂用帳戶認證，然後按一下登入 。 只有當您從未在此工作站上從 Visual Studio 連線到 Azure 訂用帳戶時，才需要這樣做。
 5. 在 [伺服器總管] 中，您會看到現有 HDInsight 叢集的清單。 如果您沒有任何叢集，可以使用 Azure 入口網站、Azure PowerShell 或 HDInsight SDK 來建立一個。 如需詳細資訊，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
    
    ![Data Lake Tools for Visual Studio Server Explorer 叢集清單](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.server.explorer.png "Data Lake Tools for Visual Studio Server Explorer")
@@ -78,11 +78,11 @@ Data Lake Tools for Visual Studio 可讓您連線到您的 HDInsight 叢集、�
 
 **從 Visual Studio 連線到 Azure 入口網站**
 
-* 從 [伺服器總管] 中，展開 [Azure] > [HDInsight]，在 HDInsight 叢集上按一下滑鼠右鍵，然後按一下 [在 Azure 入口網站中管理叢集]。
+* 從 伺服器總管 中，展開 Azure > HDInsight，在 HDInsight 叢集上按一下滑鼠右鍵，然後按一下在 Azure 入口網站中管理叢集。
 
 **從 Visual Studio 提出問題及提供意見反應**
 
-* 從 [工具] 功能表中，按一下 [HDInsight]，然後按一下 [MSDN 論壇] 來提出問題，或按一下 [提供意見反應]。
+* 從 工具 功能表中，按一下 HDInsight，然後按一下MSDN 論壇 來提出問題，或按一下 提供意見反應。
 
 ## <a name="navigate-the-linked-resources"></a>瀏覽連結的資源
 從 [伺服器總管] 中，您可以看到預設的儲存體帳戶，以及任何連結的儲存體帳戶。 如果您展開預設儲存體帳戶，您可以看到儲存體帳戶上的容器。 預設儲存體帳戶和預設容器皆已標示。 您也可以在任何容器上按一下滑鼠右鍵來檢視該容器。
@@ -106,7 +106,7 @@ Data Lake Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 **列出 Hive 資料表和檢視 Hive 資料表結構描述**
 
 1. 從 [伺服器總管] 中，展開 [Azure] > [HDInsight] > 選擇的叢集 > [Hive 資料庫] > [預設] > [hivesampletable] 來查看資料表結構描述。
-2. 在 [hivesampletable] 上按一下滑鼠右鍵，然後按一下 [檢視前 100 個資料列] 來列出資料列。 這相當於使用 Hive ODBC 驅動程式來執行下列 Hive 查詢：
+2. 在 hivesampletable 上按一下滑鼠右鍵，然後按一下檢視前 100 個資料列 來列出資料列。 這相當於使用 Hive ODBC 驅動程式來執行下列 Hive 查詢：
    
      SELECT * FROM hivesampletable LIMIT 100
    
@@ -134,7 +134,7 @@ Data Lake Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 **建立、驗證和執行特定查詢**
 
 1. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [HDInsight 叢集]。
-2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 [ **撰寫 Hive 查詢**]。
+2. 在您想要執行查詢的叢集上按一下滑鼠右鍵，然後按一下 **撰寫 Hive 查詢**。
 3. 輸入 Hive 查詢。 請注意，Hive 編輯器支援 Intellisense。 Data Lake Tools for Visual Studio 支援在編輯 Hive 指令碼時載入遠端中繼資料。 例如，當您輸入 "SELECT * FROM"，IntelliSense 會列出所有建議的資料表名稱。 在指定了資料表名稱時，IntelliSense 會列出資料行名稱。 此工具幾乎支援所有的 Hive DML 陳述式、子查詢以及內建 UDF。
    
     ![Data Lake Tools：HDInsight Visual Studio 工具 IntelliSense](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.intellisense.table.names.png "U-SQL IntelliSense")
@@ -161,7 +161,7 @@ Data Lake Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 **建立和執行 Hive 方案**
 
 1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-2. 從左窗格中選取 [HDInsight]，選取中間窗格中的 [Hive 應用程式]，輸入屬性，然後按一下 [確定]。
+2. 從左窗格中選取 HDInsight，選取中間窗格中的 Hive 應用程式，輸入屬性，然後按一下確定。
    
     ![Data Lake Tools：HDInsight Visual Studio 工具新 Hive 專案](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "從 Visual Studio 建立 Hive 應用程式")
 3. 從 [方案總管] 中，按兩下 **Script.hql** 來開啟它。
@@ -175,7 +175,7 @@ Data Lake Tools for Visual Studio 也可讓使用者透過收集和呈現特定 
 **檢視 Hive 工作**
 
 1. 從 [伺服器總管] 中，展開 [Azure]，然後展開 [HDInsight]。
-2. 在某個 HDInsight 叢集上按一下滑鼠右鍵，然後按一下 [檢視工作 ]。 您會看到在該叢集上執行之 Hive 工作的清單。
+2. 在某個 HDInsight 叢集上按一下滑鼠右鍵，然後按一下檢視工作 。 您會看到在該叢集上執行之 Hive 工作的清單。
 3. 按一下工作清單中的某個工作來選取它，然後使用 [Hive 工作摘要] 視窗來開啟 [工作查詢]、[工作輸出]、[工作記錄] 或 [Yarn 記錄]。
    
     ![Data Lake Tools：HDInsight Visual Studio 工具檢視 Hive 作業](./media/hdinsight-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.view.hive.jobs.png "檢視 Hive 作業")

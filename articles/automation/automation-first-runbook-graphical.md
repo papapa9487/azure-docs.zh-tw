@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/17/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: b8accf16c43b7a01233742161e68db6f831a2d30
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d06052099acbb5544581ef3e8e2007dd751a7544
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="my-first-graphical-runbook"></a>我的第一個圖形化 Runbook
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 09/13/2017
 ## <a name="prerequisites"></a>必要條件
 若要完成此教學課程，您需要下列項目：
 
-* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或[註冊免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [自動化帳戶](automation-offering-get-started.md) ，用來保存 Runbook 以及向 Azure 資源驗證。  此帳戶必須擁有啟動和停止虛擬機器的權限。
 * Azure 虛擬機器。 我們會停止並啟動這部電腦，因此它不該是生產 VM。
 
@@ -63,7 +62,7 @@ ms.lasthandoff: 09/13/2017
 6. 選取 **InputObject** 參數。  這是我們在其中指定要傳送至輸出資料流之文字的參數。
 7. 在 [資料來源] 下拉式清單中，選取 [PowerShell 運算式]。  [資料來源]  下拉式清單提供您用來填入參數值的不同來源。  
    您可以使用來自這類來源的輸出，例如另一個活動、自動化資產或 PowerShell 運算式。  在此情況下，我們只想要輸出文字「Hello World」 。 我們可以使用 PowerShell 運算式，並指定字串。
-8. 在 [運算式] 方塊中，輸入 "Hello World"，然後按一下 [確定] 兩次以返回畫布。<br> ![PowerShell Expression](media/automation-first-runbook-graphical/expression-hello-world.png)
+8. 在 運算式 方塊中，輸入 "Hello World"，然後按一下確定 兩次以返回畫布。<br> ![PowerShell Expression](media/automation-first-runbook-graphical/expression-hello-world.png)
 9. 按一下 [儲存] 來儲存 Runbook。<br> ![儲存 Runbook](media/automation-first-runbook-graphical/runbook-toolbar-save-revised20165.png)
 
 ## <a name="step-3---test-the-runbook"></a>步驟 3 - 測試 Runbook
@@ -116,9 +115,9 @@ ms.lasthandoff: 09/13/2017
 9. 按一下 [參數]  ，隨即會顯示 [活動參數組態] 刀鋒視窗。
 10. **Add-AzureRmAccount** 有多個參數集，因此我們必須先選取一個參數，我們才可以提供參數值。  按一下 [參數集]，然後選取 [ServicePrincipalCertificatewithSubscriptionId] 參數集。
 11. 一旦您選取參數集，參數會在 [活動參數組態] 刀鋒視窗中顯示。  按一下 [APPLICATIONID]。<br> ![加入 Azure RM 帳戶參數](media/automation-first-runbook-graphical/add-azurermaccount-params.png)
-12. 在 [參數值] 刀鋒視窗中，針對 [資料來源] 選取 [活動輸出] 並從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **ApplicationId**，然後按一下 [確定]。  我們會指定欄位路徑之屬性的名稱，因為活動會輸出具有多個屬性的物件。
-13. 按一下 [CERTIFICATETHUMBPRINT]，然後在 [參數值] 刀鋒視窗中，針對 [資料來源] 選取 [活動輸出]。  從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **CertificateThumbprint**，然後按一下 [確定]。
-14. 按一下 [SERVICEPRINCIPAL] 並在 [參數值] 刀鋒視窗中，針對 [資料來源] 選取 [ConstantValue]，按一下選項 [True]，然後按一下 [確定]。
+12. 在 參數值 刀鋒視窗中，針對 資料來源 選取 活動輸出 並從清單中選取 取得執行身分連線，在 欄位路徑 文字方塊中輸入 **ApplicationId**，然後按一下確定。  我們會指定欄位路徑之屬性的名稱，因為活動會輸出具有多個屬性的物件。
+13. 按一下 [CERTIFICATETHUMBPRINT]，然後在 [參數值] 刀鋒視窗中，針對 [資料來源] 選取 [活動輸出]。  從清單中選取 取得執行身分連線，在 欄位路徑 文字方塊中輸入 **CertificateThumbprint**，然後按一下確定。
+14. 按一下 SERVICEPRINCIPAL 並在 參數值 刀鋒視窗中，針對 資料來源 選取 ConstantValue，按一下選項 True，然後按一下確定。
 15. 按一下 [TENANTID]，然後在 [參數值] 刀鋒視窗中，針對 [資料來源] 選取 [活動輸出]。  從清單中選取 [取得執行身分連線]，在 [欄位路徑] 文字方塊中輸入 **TenantId**，然後按兩次 [確定]。  
 16. 在 [程式庫] 控制項中，於搜尋文字方塊中輸入 **Set-AzureRmContext** 。
 17. 將 [Set-AzureRmContext]  加入至畫布。
@@ -151,8 +150,8 @@ ms.lasthandoff: 09/13/2017
 1. 按一下 [MyFirstRunbook] 窗格上的 [編輯] 來開啟圖形化編輯器。
 2. 按一下 [輸入和輸出]，然後按一下 [新增輸入] 來開啟 [Runbook 輸入參數] 窗格。<br> ![Runbook 輸入和輸出](media/automation-first-runbook-graphical/runbook-toolbar-InputandOutput-revised20165.png)
 3. 對 [ *名稱* ] 指定 **VMName**。  將 [類型] 保留為 *string*，但將 [強制] 變更為 [是]。  按一下 [確定] 。
-4. 建立稱為 ResourceGroupName 的第二個必要輸入參數，然後按一下 [確定] 來關閉 [輸入和輸出] 窗格。<br> ![Runbook 輸入參數](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
-5. 選取 [Start-AzureRmVM] 活動，然後按一下 [參數]。
+4. 建立稱為 ResourceGroupName 的第二個必要輸入參數，然後按一下確定 來關閉 輸入和輸出 窗格。<br> ![Runbook 輸入參數](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
+5. 選取 Start-AzureRmVM 活動，然後按一下參數。
 6. 將 [名稱] 的 [資料來源] 變更為 [Runbook 輸入]，然後選取 [VMName]。<br>
 7. 將 [ResourceGroupName] 的 [資料來源] 變更為 [Runbook 輸入]，然後選取 [ResourceGroupName]。<br> ![Start-AzureVM 參數](media/automation-first-runbook-graphical/start-azurermvm-params-runbookinput.png)
 8. 儲存 Runbook 並開啟 [測試] 窗格。  請注意，您現在可以提供測試中使用的兩個輸入變數的值。
@@ -172,7 +171,7 @@ ms.lasthandoff: 09/13/2017
 5. 選取 [Get-AzureRmVM]，然後選取 [參數集] 以檢視 [Get-AzureRmVM] 的參數集。  選取 [GetVirtualMachineInResourceGroupNameParamSet]  參數集。  請注意，[ResourceGroupName] 和 [名稱] 旁邊具有驚嘆號。  這表示它們是必要的參數。  也請注意這兩者應該是字串值。
 6. 在 [名稱] 的 [資料來源] 底下，選取 [Runbook 輸入]，然後選取 [VMName]。  按一下 [確定] 。
 7. 在 [ResourceGroupName] 的 [資料來源] 底下，選取 [Runbook 輸入]，然後選取 [ResourceGroupName]。  按一下 [確定] 。
-8. 在 [狀態] 的 [資料來源] 底下，選取 [常數值]，然後按一下 [True]。  按一下 [確定] 。  
+8. 在 狀態 的 資料來源 底下，選取 常數值，然後按一下True。  按一下 [確定] 。  
 9. 建立從 [指定訂用帳戶識別碼] 至 [Get-AzureRmVM] 的連結。
 10. 在 [程式庫] 控制項中展開 [Runbook 控制項]，並將 [程式碼] 新增至畫布。  
 11. 建立從 [Get-AzureRmVM] 至 [程式碼] 的連結。  
@@ -211,5 +210,4 @@ ms.lasthandoff: 09/13/2017
 * 若要深入了解圖形化編寫，請參閱 [Azure 自動化中的圖形化編寫](automation-graphical-authoring-intro.md)
 * 若要開始使用 PowerShell Runbook，請參閱 [我的第一個 PowerShell Runbook](automation-first-runbook-textual-powershell.md)
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
-
 

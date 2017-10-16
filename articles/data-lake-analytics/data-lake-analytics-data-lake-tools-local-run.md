@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 11/15/2016
 ms.author: yanacai
 ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>使用本機執行和 Azure Data Lake U-SQL SDK 對 U-SQL 作業進行測試和偵錯
 
@@ -58,7 +58,7 @@ Data Lake Tools 安裝程式會建立 C:\LocalRunRoot 資料夾，做為預設�
 1. 開啟 Visual Studio。
 2. 開啟 [伺服器總管]。
 3. 展開 [Azure]  >  [Data Lake Analytics]。
-4. 按一下 [Data Lake] 功能表，然後按一下 [選項和設定]。
+4. 按一下 Data Lake 功能表，然後按一下選項和設定。
 5. 在左邊的樹狀目錄中，展開 [Azure Data Lake]，然後展開 [一般]。
 
     ![Data Lake Tools for Visual Studio 本機執行的組態設定](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-configure.png)
@@ -67,9 +67,9 @@ Data Lake Tools 安裝程式會建立 C:\LocalRunRoot 資料夾，做為預設�
 
 ### <a name="to-run-a-u-sql-script-locally"></a>在本機執行 U-SQL 指令碼
 1. 從 Visual Studio 開啟您的 U-SQL 專案。   
-2. 在 [方案總管] 中的 U-SQL 指令碼上按一下滑鼠右鍵，然後按一下 [提交指令碼]。
+2. 在 方案總管 中的 U-SQL 指令碼上按一下滑鼠右鍵，然後按一下提交指令碼。
 3. 選取 [(本機)] 做為要在本機執行指令碼的 Analytics 帳戶。
-您也可以按一下指令碼視窗頂端的 [(本機)] 帳戶，然後按一下 [提交] \(或使用 Ctrl + F5 鍵盤快速鍵)。
+您也可以按一下指令碼視窗頂端的 (本機) 帳戶，然後按一下提交 \(或使用 Ctrl + F5 鍵盤快速鍵)。
 
     ![Data Lake Tools for Visual Studio 本機執行的提交作業](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)
 

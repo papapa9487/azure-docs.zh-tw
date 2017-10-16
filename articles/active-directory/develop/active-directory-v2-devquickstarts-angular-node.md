@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 0e90171afd9c4c782fbb18375ab2d147497ef442
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---nodejs"></a>將登入新增至 AngularJS 單一頁面應用程式 - NodeJS
 在本文中，我們將使用 Azure Active Directory v2.0 端點，將 Microsoft 帳戶登入新增至 AngularJS 應用程式。 v2.0 端點可讓您在您的應用程式中執行單一的整合，以及以個人和工作/學校帳戶驗證使用者。
@@ -236,7 +236,7 @@ return $http.get('/api/tasks');
 node server.js
 ```
 
-在瀏覽器中，瀏覽至 `http://localhost:8080`。  使用個人 Microsoft 帳戶或工作/學校帳戶登入。  將工作新增至使用者待辦事項清單，然後登出。  嘗試使用其他類型的帳戶登入。 如果您需要 Azure AD 租用戶以建立工作/學校使用者， [在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
+在瀏覽器中，瀏覽至 `http://localhost:8080`。  使用個人 Microsoft 帳戶或工作/學校帳戶登入。  將工作新增至使用者待辦事項清單，然後登出。嘗試使用其他類型的帳戶登入。 如果您需要 Azure AD 租用戶以建立工作/學校使用者， [在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
 
 如果要繼續了解 v2.0 端點，請返回我們的《 [v2.0 開發人員指南](active-directory-appmodel-v2-overview.md)》。  如需其他資源，請參閱：
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-translationtype: Human Translation
-ms.sourcegitcommit: f9c1e41c423cc0d638d5c1d273d58b2fe713fa1c
-ms.openlocfilehash: 2aeb1f20255264ca97b8aff6bd506b5fa1832e28
-ms.lasthandoff: 12/29/2016
-
-
+ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具
 本文可搭配 Azure Active Directory (Azure AD) B2C 中的 [主要 UI 自訂文章](active-directory-b2c-reference-ui-customization.md) 一起閱讀。 以下步驟說明如何使用我們提供的範例 HTML 和 CSS 內容，來練習頁面 UI 自訂功能。
@@ -61,7 +60,7 @@ ms.lasthandoff: 12/29/2016
 2. 按一下 [+新增]  >  [資料 + 儲存體]  >  [儲存體帳戶]。 您需要有  Azure 訂用帳戶才能建立 Azure Blob 儲存體帳戶。 您可以在 [Azure 網站](https://azure.microsoft.com/pricing/free-trial/)上註冊免費試用版。
 3. 提供儲存體帳戶的 [名稱] \(例如 "contoso")，並針對 [定價層]、[資源群組] 和 [訂用帳戶] 挑選適當的選取項目。 確定您已核取 [釘選到「開始面板」]  選項。 按一下 [建立] 。
 4. 回到「開始面板」，然後按一下您剛建立的儲存體帳戶。
-5. 在 [摘要] 區段中，按一下 [容器]，然後按一下 [+新增]。
+5. 在 摘要 區段中，按一下 容器，然後按一下+新增。
 6. 提供容器的 [名稱] \(例如 "b2c")，並選取 [Blob] 作為 [存取類型]。 按一下 [確定] 。
 7. 您建立的容器將會出現在 [Blob]  刀鋒視窗的清單中。 記下容器的 URL；例如，其看起來應該類似 `https://contoso.blob.core.windows.net/b2c`。 關閉 [Blob]  刀鋒視窗。
 8. 在儲存體帳戶刀鋒視窗中，按一下 [金鑰]，並記下 [儲存體帳戶名稱] 和 [主要存取金鑰] 欄位的值。
@@ -87,5 +86,4 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 既然已經將範例內容上載至您自己的儲存體帳戶，您必須編輯註冊原則來參考它。 重複上述 [自訂您的原則](#customize-your-policy) 一節的步驟，但這次使用您自己的儲存體帳戶 URL。 比方說，`unified.html` 檔案的位置是 `<url-of-your-container>/wingtip/unified.html`。
 
 現在，您可以使用 [立即執行]  按鈕或您自己的應用程式，再次執行您的原則。 結果看起來應該幾乎完全相同 -- 您在這兩個案例中都使用相同的範例 HTML 和 CSS。 不過，您的原則現在會參考您自己的 Azure Blob 儲存體執行個體，而您可以再次自由編輯和上傳檔案。 如需自訂 HTML 和 CSS 的詳細資訊，請參閱 [主要 UI 自訂文章](active-directory-b2c-reference-ui-customization.md)。
-
 

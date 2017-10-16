@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/11/2017
 ms.author: ccompy
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b031807073313e9e093dbc7576ecfd3d2a970abe
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>在 App Service 環境 v1 中建立 Web 應用程式
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/20/2017
     ![][5]
    
     如果您想要使用已存在於 App Service 環境中的 App Service 方案，請選取該方案。 如果您想要建立新的 App Service 方案，請參閱本教學課程的下一節： [在 App Service 環境中建立 App Service 方案](#createplan)。
-5. 輸入 Web 應用程式的名稱，然後按一下 [建立] 。 
+5. 輸入 Web 應用程式的名稱，然後按一下建立 。 
    
     如果 ASE 使用外部 VIP，則 ASE 中應用程式的 URL 為：[*網站名稱*].[*App Service 環境的名稱*].p.azurewebsites.net，而非 [*網站名稱*].azurewebsites.net
    
@@ -113,4 +112,3 @@ ms.lasthandoff: 09/20/2017
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/resource-group-overview.md
 [AzurePowershell]: http://azure.microsoft.com/documentation/articles/powershell-install-configure/
-

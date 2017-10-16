@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 07/17/2017
+ms.date: 09/20/2017
 ms.author: owend
+ms.openlocfilehash: 9594582419c716a37a1010e2410e7b2b199df04c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 70dbf5786262f75199270aa8009e03b9b48b8559
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-13-deploy"></a>第 13 課：部署
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 08/21/2017
 #### <a name="to-configure-deployment-properties"></a>設定部署屬性  
 
   
-1.  在 [方案總管] 中，以滑鼠右鍵按一下 [AW 網際網路銷售] 專案，然後按一下 [屬性]。  
+1.  在 方案總管 中，以滑鼠右鍵按一下 AW 網際網路銷售 專案，然後按一下屬性。  
   
 2.  在 [AW 網際網路銷售屬性頁] 對話方塊中，請在 [部署伺服器] 下的 [伺服器] 屬性中，輸入完整伺服器名稱。  
 
@@ -54,7 +53,7 @@ ms.lasthandoff: 08/21/2017
   
 4.  在 [模型名稱] 屬性中，輸入 **Adventure Works 網際網路銷售模型**。  
   
-5.  驗證您的選取項目，然後按一下 [確定]。  
+5.  驗證您的選取項目，然後按一下確定。  
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>部署 Adventure Works 網際網路銷售
   
@@ -82,4 +81,3 @@ ms.lasthandoff: 08/21/2017
 [補充課程 - 動態安全性](../tutorials/aas-supplemental-lesson-dynamic-security.md)   
 [補充課程 - 詳細資料列](../tutorials/aas-supplemental-lesson-detail-rows.md)   
 [補充課程 - 不完全階層](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)   
-

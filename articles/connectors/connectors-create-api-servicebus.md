@@ -16,10 +16,10 @@ ms.workload: integration
 ms.date: 08/02/2016
 ms.author: mandia; ladocs
 ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>開始使用 Azure 服務匯流排連接器
 連線到 Azure 服務匯流排來傳送及接收訊息。 您可以執行動作，例如傳送至佇列、傳送至主題、從佇列接收和從訂用帳戶接收。

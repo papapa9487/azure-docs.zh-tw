@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 62b2700c368c4b0c66df140e8961408840beb626
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c8857076faa37f5b0d7c70f40b494465b3b99af2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>什麼是 HDInsight 中的 HBase：為 Hadoop 提供類似 BigTable 功能的 NoSQL 資料庫
 Apache HBase 是開放原始碼的 NoSQL 資料庫，其建置於 Hadoop 上並模仿 Google BigTable。 HBase 可針對依資料行系列組織的無結構描述資料庫中的大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
@@ -61,7 +60,6 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 * [開始在 HDInsight 中搭配使用 HBase 與 Hadoop][hbase-get-started]
 * [在 Azure 虛擬網路上建立 HDInsight 叢集][hbase-provision-vnet]
 * [在 HDInsight 中設定 HBase 複寫](hdinsight-hbase-replication.md)
-* [使用 HDInsight 中的 HBase 分析 Twitter 情緒][hbase-twitter-sentiment]
 * [使用 Maven 建置搭配使用 HBase 和 HDInsight (Hadoop) 的 Java 應用程式][hbase-build-java-maven]
 
 ## <a name="see-also"></a>另請參閱
@@ -69,8 +67,6 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 * [Bigtable：結構化資料的分散式儲存體系統](http://research.google.com/archive/bigtable.html)
 
 [hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hbase-build-java-maven]: hdinsight-hbase-build-java-maven.md
 
@@ -87,4 +83,3 @@ HDInsight 實作運用 HBase 的向外延展架構，提供資料表自動分區
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
 
 [apache-hadoop]: http://hadoop.apache.org/
-

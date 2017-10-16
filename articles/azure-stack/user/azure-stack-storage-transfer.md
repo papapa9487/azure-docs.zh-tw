@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9799498a11449a9ed496d0fdb40312603eda064e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tools-for-azure-stack-storage"></a>Azure Stack 儲存體適用的工具
 
@@ -234,5 +233,4 @@ Microsoft Azure 儲存體總管是 Windows 提供的獨立應用程式。 此工
 * [開始使用儲存體總管 (預覽)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [與 Azure 一致的儲存體：差異與注意事項](azure-stack-acs-differences.md)
 * [Microsoft Azure 儲存體簡介](../../storage/common/storage-introduction.md)
-
 

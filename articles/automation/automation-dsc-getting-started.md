@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/21/2016
 ms.author: magoedte;eslesar
 ms.openlocfilehash: 8a10d961ad7c107c68b57c64ee6c88544ff8832b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-automation-dsc"></a>開始使用 Azure 自動化 DSC
 本主題說明如何使用 Azure 自動化期望狀態設定 (DSC) 來執行常見的工作，例如建立、匯入和編譯組態、將要管理的機器上架，以及檢視報告。 如需何謂 Azure 自動化 DSC 的概觀，請參閱 [Azure 自動化 DSC 概觀](automation-dsc-overview.md)。 如需 DSC 文件，請參閱 [Windows PowerShell 預期狀態設定概觀](https://msdn.microsoft.com/PowerShell/dsc/overview)。
@@ -98,7 +98,7 @@ ms.lasthandoff: 07/11/2017
 2. 在 [中樞] 功能表上，依序按一下 [所有資源]  和您的自動化帳戶名稱。
 3. 在 [自動化帳戶] 刀鋒視窗上，按一下 [DSC 組態]
 4. 在 [DSC 組態] 刀鋒視窗上，按一下 [TestConfig] \(先前匯入的組態名稱)。
-5. 在 [TestConfig 組態] 刀鋒視窗上，按一下 [編譯]，然後按一下 [是]。 這會啟動編譯作業。
+5. 在 TestConfig 組態 刀鋒視窗上，按一下 編譯，然後按一下是。 這會啟動編譯作業。
    
     ![醒目提示編譯按鈕之 TestConfig 組態刀鋒視窗的螢幕擷取畫面](./media/automation-dsc-getting-started/CompileConfig.png)
 
@@ -147,7 +147,7 @@ ms.lasthandoff: 07/11/2017
    > 
 7. 在 [新增 Azure VM] 刀鋒視窗中，按一下 [設定註冊資料]。
 8. 在 [註冊] 刀鋒視窗的 [節點組態名稱] 方塊中，輸入您要套用至 VM 的節點組態名稱。 這必須完全符合自動化帳戶中的節點組態名稱。 在此時提供名稱是選擇性的。 您可以在節點上架後，變更指派的節點組態。
-   勾選 [必要時重新啟動節點]，然後按一下 [確定]。
+   勾選 必要時重新啟動節點，然後按一下確定。
    
     ![[註冊] 刀鋒視窗的螢幕擷取畫面](./media/automation-dsc-getting-started/RegisterVM.png)
    
@@ -197,7 +197,7 @@ Azure 會啟動 VM 上架的程序。 完成時，VM 將會顯示在自動化帳
 5. 在該節點的刀鋒視窗上，按一下 [指派節點] 。
    
     ![醒目提示 [指派節點] 按鈕之 [節點] 刀鋒視窗的螢幕擷取畫面](./media/automation-dsc-getting-started/AssignNode.png)
-6. 在 [指派節點設定] 刀鋒視窗上，選取您要指派節點的節點設定，然後按一下 [確定]。
+6. 在 指派節點設定 刀鋒視窗上，選取您要指派節點的節點設定，然後按一下確定。
    
     ![[指派節點組態] 刀鋒視窗的螢幕擷取畫面](./media/automation-dsc-getting-started/AssignNodeConfig.png)
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/6/2017
 ms.author: anirudha
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 6e14bd6312135b45984a82099e68a934ec2a4a70
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
 了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
@@ -80,7 +79,7 @@ ms.lasthandoff: 09/15/2017
 3. 請檢查帳戶的 [狀態]。 它應該指出 [已刪除]。
 4. 按一下可開啟 [帳戶詳細資料] 刀鋒視窗的帳戶。
 5. 在這個刀鋒視窗的頂端，找出 [復原] 按鈕，然後按一下它。
-6. 按一下 [是] 以確認。
+6. 按一下 [ **是** ] 以確認。
    
    ![](media/azure-stack-manage-storage-accounts/image8.png)
 7. 復原現在處於 [處理中...請等待] 的狀態，正在等待復原成功的訊息出現。
@@ -124,7 +123,7 @@ ms.lasthandoff: 09/15/2017
 **使用入口網站回收容量：**
 1. 瀏覽至儲存體帳戶刀鋒視窗。 請參閱[尋找儲存體帳戶](#find)。
 2. 按一下刀鋒視窗頂端的 [回收空間]。
-3. 讀取訊息，然後按一下 [確定]。
+3. 讀取訊息，然後按一下確定。
 
     ![](media/azure-stack-manage-storage-accounts/image11.png)
 4. 等候成功通知。請查看入口網站上的鈴鐺圖示。

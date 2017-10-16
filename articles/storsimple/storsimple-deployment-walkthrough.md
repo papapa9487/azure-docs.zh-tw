@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/17/2016
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2063acbafd6766d00dee9509ee7def73bdc5b982
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device"></a>部署內部部署 StorSimple 裝置
 > [!div class="op_single_selector"]
@@ -260,7 +259,7 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 針對第一次
 > 
 
 #### <a name="to-update-your-device"></a>若要更新裝置
-1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 [維護]，然後按一下 [掃描更新]。  
+1. 在裝置的 [快速入門] 頁面上，按一下 [裝置]。 選取實體裝置，按一下 維護，然後按一下掃描更新。  
 2. 系統會建立掃描可用更新的工作。 如果有可用的更新，[掃描更新] 會變更為 [安裝更新]。 按一下 [安裝更新] 。 系統可能會要求您在安裝更新前停用 Data 2 和 Data 3。 您必須停用這些網路介面，否則更新會失敗。
 3. 更新工作將會建立。 巡覽至 [工作] 以監視更新的狀態。
    
@@ -283,5 +282,4 @@ StorSimple Manager 服務可以管理多個 StorSimple 裝置。 針對第一次
 ## <a name="next-steps"></a>後續步驟
 * 設定 [虛擬裝置](storsimple-virtual-device-u2.md)。
 * 使用 [StorSimple Manager 服務](https://msdn.microsoft.com/library/azure/dn772396.aspx) 以管理 StorSimple 裝置。
-
 

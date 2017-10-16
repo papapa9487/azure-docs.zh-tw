@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>教學課程︰以內部部署 Active Directory 和 Azure Active Directory 設定自動化使用者佈建的 Workday
 本教學課程的目標是說明將人員從 Workday 匯入 Active Directory 和 Azure Active Directory，以及將某些屬性選擇性回寫至 Workday 需要執行的步驟。 
@@ -126,7 +125,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **建立整合系統使用者：**
 
-1. 使用系統管理員帳戶登入 Workday 租用戶。 在 [工作日工作台] 中的搜尋方塊輸入 create user，然後按一下 [建立整合系統使用者]。 
+1. 使用系統管理員帳戶登入 Workday 租用戶。 在 工作日工作台 中的搜尋方塊輸入 create user，然後按一下建立整合系統使用者。 
    
     ![建立使用者](./media/active-directory-saas-workday-inbound-tutorial/IC750979.png "建立使用者")
 2. 為新的「整合系統使用者」 提供使用者名稱和密碼來完成「建立整合系統使用者」  工作。  
@@ -140,7 +139,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **建立安全性群組：**
 
-1. 在搜尋方塊中輸入 create security group，然後按一下 [建立安全性群組] 連結。 
+1. 在搜尋方塊中輸入 create security group，然後按一下建立安全性群組 連結。 
    
     ![建立安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750981.png "建立安全性群組")
 2. 完成**建立安全性群組**工作。  
@@ -153,7 +152,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **指派整合系統使用者：**
 
-1. 在搜尋方塊中輸入 edit security group，然後按一下 [編輯全性群組] 連結。 
+1. 在搜尋方塊中輸入 edit security group，然後按一下編輯全性群組 連結。 
    
     ![編輯安全性群組](./media/active-directory-saas-workday-inbound-tutorial/IC750983.png "編輯安全性群組")
 2. 依名稱搜尋新的整合安全性群組，並選取該群組。 
@@ -174,7 +173,7 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **設定安全性群組選項：**
 
-1. 在搜尋方塊中輸入 domain security policies，然後按一下 [功能區域的網域安全性原則]。  
+1. 在搜尋方塊中輸入 domain security policies，然後按一下功能區域的網域安全性原則。  
    
     ![網域安全性原則](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "網域安全性原則")  
 2. 搜尋 system 並選取 [系統]  功能區域。  按一下 [確定] 。  
@@ -208,13 +207,13 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 
 **啟用安全性原則變更：**
 
-1. 在搜尋方塊中輸入 activate，然後按一下 [啟用擱置的安全性原則變更] 連結。 
+1. 在搜尋方塊中輸入 activate，然後按一下啟用擱置的安全性原則變更 連結。 
    
     ![啟用](./media/active-directory-saas-workday-inbound-tutorial/IC750992.png "啟用") 
 2. 輸入供稽核用的註解並按一下 [確定] 按鈕，以開始「啟用擱置的安全性原則變更」工作。 
    
     ![啟用擱置的安全性](./media/active-directory-saas-workday-inbound-tutorial/IC750993.png "啟用擱置的安全性")   
-3. 在下一個畫面核取 [確認] 核取方塊，然後按一下 [確定] 以完成工作。 
+3. 在下一個畫面核取 確認 核取方塊，然後按一下確定 以完成工作。 
    
     ![啟用擱置的安全性](./media/active-directory-saas-workday-inbound-tutorial/IC750994.png "啟用擱置的安全性")  
 
@@ -652,4 +651,3 @@ Azure Active Directory 支援適用於 Workday 和大量其他 SaaS 應用程式
 ## <a name="next-steps"></a>後續步驟
 
 * [瞭解如何針對佈建活動檢閱記錄和取得報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)
-

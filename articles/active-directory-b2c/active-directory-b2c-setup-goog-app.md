@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
 ms.openlocfilehash: 6ab73e5c79742ab548733f5712dee1e28461db9f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-google-accounts"></a>Azure Active Directory B2C：針對具有 Google+ 帳戶的取用者提供註冊和登入
 ## <a name="create-a-google-application"></a>建立 Google+ 應用程式
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/18/2017
     ![Google+ - 開始使用](./media/active-directory-b2c-setup-goog-app/google-get-started.png)
    
     ![Google+ - 新增專案](./media/active-directory-b2c-setup-goog-app/google-new-project.png)
-3. 在左側導覽中，按一下 [API 管理員]，然後按一下 [認證]。
+3. 在左側導覽中，按一下 API 管理員，然後按一下認證。
 4. 按一下位於頂端的 [OAuth 同意畫面]  索引標籤。
    
     ![Google+ - 認證](./media/active-directory-b2c-setup-goog-app/google-add-cred.png)

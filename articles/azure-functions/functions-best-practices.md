@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 06/13/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1e0d4a29f59e48cac675e567fd84384b1b60d35f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 645a5dd16e72619e7c2470ab8f03098f0fa6c7f8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>將 Azure Functions 效能和可靠性最佳化
 
 本文提供指引來改善函式應用程式的效能和可靠性。 
@@ -99,5 +97,4 @@ ms.lasthandoff: 08/24/2017
 
 因為 Azure Functions 使用 Azure App Service，所以您也應該充分了解 Azure App Service 指導方針。
 * [HTTP 效能最佳化的模式與做法](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
-
 

@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 07d702e34e1574161a64af9a4724a66879a0ba05
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -113,7 +112,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | additionalLinkedServiceNames | 指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 這些儲存體帳戶與 HDInsight 叢集必須在相同區域，而建立此叢集的區域與 linkedServiceName 所指定之儲存體帳戶的區域相同。 | 否       |
 | osType                       | 作業系統的類型。 允許的值為：Linux 和 Windows (僅適用於 HDInsight 3.3)。 預設值為 Linux | 否       |
 | hcatalogLinkedServiceName    | 指向 HCatalog 資料庫的 Azure SQL 連結服務名稱。 會使用 Azure SQL 資料庫作為中繼存放區，建立隨選 HDInsight 叢集。 | 否       |
-| connectVia                   | 將活動分派到此 HDInsight 連結服務所用的整合執行階段。 對於隨選 HDInsight 連結服務，它只會支援 Azure 整合執行階段。 如果未指定，就會使用預設的「Azure 整合執行階段」。 | 否       |
+| connectVia                   | 將活動分派到此 HDInsight 連結服務所用的整合執行階段。 對於隨選 HDInsight 連結服務，它只會支援 Azure 整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否       |
 
 > [!IMPORTANT]
 > HDInsight 支援多個可部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。 支援的 HDInsight 版本清單會持續更新，以提供最新的 Hadoop 生態系統元件和修正程式。 務必參閱[支援的 HDInsight 版本及 OS 類型](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)，確定您已使用支援的 HDInsight 版本。 
@@ -295,13 +294,13 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | username          | 指定要用來連接到現有 HDInsight 叢集的使用者名稱。 | 是      |
 | password          | 指定使用者帳戶的密碼。   | 是      |
 | linkedServiceName | 參照 HDInsight 叢集所使用 Azure Blob 儲存體的 Azure 儲存體連結服務名稱。 <p>目前，您無法針對此屬性指定 Azure Data Lake Store 連結服務。 如果 HDInsight 叢集可存取 Data Lake Store，您可以透過 Hive/Pig 指令碼存取 Azure Data Lake Store 中的資料。 </p> | 是      |
-| connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的「Azure 整合執行階段」。 | 否       |
+| connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否       |
 
 > [!IMPORTANT]
 > HDInsight 支援多個可部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 Hortonworks Data Platform (HDP) 散發，以及該散發內包含的一組元件。 支援的 HDInsight 版本清單會持續更新，以提供最新的 Hadoop 生態系統元件和修正程式。 務必參閱[支援的 HDInsight 版本及 OS 類型](../hdinsight/hdinsight-component-versioning.md#supported-hdinsight-versions)，確定您已使用支援的 HDInsight 版本。 
 >
 
-## <a name="azure-batch-linked-service"></a>Azure Batch 連結服務
+## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
 
 您可以建立 Azure Batch 連結服務，以向 Data Factory 註冊虛擬機器 (VM) 的 Batch 集區。 您可以使用 Azure Batch 執行自訂活動。
 
@@ -349,7 +348,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | batchUri          | 您 Azure Batch 帳戶的 URL，格式為 https://*batchaccountname.region*.batch.azure.com。 | 是      |
 | poolName          | 虛擬機器的集區名稱。    | 是      |
 | 預設容器 | 與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動所需的暫存檔案。 | 是      |
-| connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的「Azure 整合執行階段」。 | 否       |
+| connectVia        | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否       |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning 連結服務
 您可建立 Azure Machine Learning 連結服務，以向 Data Factory 註冊 Machine Learning 批次評分端點。
@@ -386,9 +385,9 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | servicePrincipalId     | 指定應用程式的用戶端識別碼。     | 如果指定 updateResourceEndpoint 則需要 |
 | servicePrincipalKey    | 指定應用程式的金鑰。           | 如果指定 updateResourceEndpoint 則需要 |
 | tenant                 | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 如果指定 updateResourceEndpoint 則需要 |
-| connectVia             | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的「Azure 整合執行階段」。 | 否                                       |
+| connectVia             | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                       |
 
-## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 連結服務
+## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics 已連結的服務
 您需建立 **Azure Data Lake Analytics** 連結服務，來將 Azure Data Lake Analytics 計算服務連結到 Azure Data Factory。 管線中的 Data Lake Analytics U-SQL 活動會參考此連結服務。 
 
 ### <a name="example"></a>範例
@@ -430,7 +429,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | servicePrincipalId   | 指定應用程式的用戶端識別碼。     | 是                                      |
 | servicePrincipalKey  | 指定應用程式的金鑰。           | 是                                      |
 | tenant               | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是                                      |
-| connectVia           | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的「Azure 整合執行階段」。 | 否                                       |
+| connectVia           | 將活動分派到此連結服務所用的整合執行階段。 您可以使用 Azure 整合執行階段或自我裝載整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否                                       |
 
 
 

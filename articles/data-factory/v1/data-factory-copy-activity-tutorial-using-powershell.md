@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 27b645ccf9d90285581c0ebf25cc77761c900b2c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>教學課程︰使用 Azure PowerShell 建立 Data Factory 管線來移動資料
 > [!div class="op_single_selector"]
@@ -569,5 +568,4 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 [!INCLUDE [data-factory-supported-data-stores](../../../includes/data-factory-supported-data-stores.md)]
 
 若要深入了解如何從資料存放區雙向複製資料，請按一下資料表中資料存放區的連結。 
-
 

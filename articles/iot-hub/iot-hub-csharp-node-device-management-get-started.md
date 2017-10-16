@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: juanpere
+ms.openlocfilehash: a3d235ca3f0183ee765c463e5e39759ccc624471
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: caab61a18fd5bb27ecc62cf1126823f79c3fdf4d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-device-management-netnode"></a>開始使用裝置管理 (.NET/Node)
 
@@ -54,7 +53,7 @@ ms.lasthandoff: 09/28/2017
 
     ![新的 Visual C# Windows 傳統桌面專案][img-createapp]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **TriggerReboot** 專案，然後按一下 [管理 NuGet 套件]。
+2. 在 方案總管 中，以滑鼠右鍵按一下 **TriggerReboot** 專案，然後按一下管理 NuGet 套件。
 3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
 
     ![NuGet 套件管理員視窗][img-servicenuget]

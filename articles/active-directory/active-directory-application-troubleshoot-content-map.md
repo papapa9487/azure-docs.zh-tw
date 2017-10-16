@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: ced7e23dca2ea7a9222648a79c2d0afc7c15001d
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-active-directory-application-management-and-development"></a>針對 Azure Active Directory 應用程式管理和開發進行疑難排解
 本文將協助您尋找實用的相關文件，讓您了解如何針對使用 **Application Registry** 來管理**企業應用程式**和開發新應用程式時的一些最常見相關問題進行疑難排解。

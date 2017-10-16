@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
 ms.author: antonba
-translationtype: Human Translation
-ms.sourcegitcommit: ecae1da20551d8372331124b07c4aca2e15f55bb
 ms.openlocfilehash: 708c803c36c182ed90e04731b12d4ade00ae7ffb
-ms.lasthandoff: 02/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>在 Azure API 管理中修改開發人員入口網站的頁面內容和配置
 在 Azure API 管理中自訂開發人員入口網站的基本方式有三種：
@@ -64,7 +63,7 @@ ms.lasthandoff: 02/23/2017
 
 ![Manage content][api-management-customization-manage-content]
 
-按一下 [歡迎使用]  頁面，編輯要在開發人員入口網站首頁上顯示的內容。 進行所需的變更、必要時請進行預覽，然後按一下 [立即發佈]  ，讓每個人都可看見這些變更。
+按一下 [歡迎使用]  頁面，編輯要在開發人員入口網站首頁上顯示的內容。 進行所需的變更、必要時請進行預覽，然後按一下立即發佈  ，讓每個人都可看見這些變更。
 
 > 首頁會使用特殊的版面配置，使其得以在上方顯示橫幅。 您無法透過 [內容]  區段編輯此橫幅。 若要編輯此橫幅，請從 [開發人員入口網站] 功能表按一下 [Widget]，然後從 [目前層級] 下拉式清單中選取 [首頁]，然後開啟 [精選] 區段下的 [橫幅] 項目。 如同其他任何頁面一般，此 Widget 的內容可供編輯。
 > 
@@ -87,4 +86,3 @@ ms.lasthandoff: 02/23/2017
 [api-management-management-console]: ./media/api-management-modify-content-layout/api-management-management-console.png
 [api-management-widgets-header]: ./media/api-management-modify-content-layout/api-management-widgets-header.png
 [api-management-customization-manage-content]: ./media/api-management-modify-content-layout/api-management-customization-manage-content.png
-

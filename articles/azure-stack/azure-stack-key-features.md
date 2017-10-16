@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4d5dc523886ea1b03fdb2d1cafce4dcf3fef2576
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 的主要功能與概念
 
@@ -146,5 +145,4 @@ Microsoft Azure Stack 會從所有資源提供者收集彙總的使用方式資�
 
 ## <a name="next-steps"></a>後續步驟
 [部署 Azure Stack 開發套件](azure-stack-deploy.md)
-
 

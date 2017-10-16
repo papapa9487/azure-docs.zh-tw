@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 74c34fccffcea6aae370d881791093f9b58a5f3d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-azure-stack-users-powershell-environment"></a>設定 Azure Stack 使用者的 PowerShell 環境
 
 作為 Azure Stack 使用者，您可以設定您 Azure Stack 開發套件的 PowerShell 環境。 設定之後，可以使用 PowerShell 管理 Azure Stack 資源，例如訂閱產品、建立虛擬機器、部署 Azure Resource Manager 範本等。本主題僅說明使用者環境的使用，若要為雲端操作員環境設定 PowerShell，請參閱[設定 Azure Stack 操作員的 PowerShell 環境](../azure-stack-powershell-configure-admin.md)主題。 
@@ -129,4 +127,3 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ## <a name="next-steps"></a>後續步驟
 * [開發適用於 Azure Stack 的範本](azure-stack-develop-templates.md)
 * [使用 PowerShell 部署範本](azure-stack-deploy-template-powershell.md)
-

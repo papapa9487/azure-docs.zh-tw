@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 7/10/2017
 ms.author: scottnap
 ms.openlocfilehash: fa2a940620e06521fa110fa13dcbc3050635a502
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>在不同 Azure Stack 開發套件環境中的兩個虛擬網路之間建立站對站 VPN 連線
 ## <a name="overview"></a>概觀
@@ -187,7 +187,7 @@ ms.lasthandoff: 08/03/2017
 4. 選取 [虛擬網路]。
 5. 使用先前網路組態表中顯示的資訊，來指定 POC2 [名稱]、[位址空間]、[子網路名稱] 及 [子網路位址範圍] 的值。
 6. 在 [訂用帳戶] 中，會顯示您先前建立的訂用帳戶。
-7. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] (如果您已經有資源群組)。
+7. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] \(如果您已經有資源群組)。
 8. 確認預設 [位置]。
 9. 選取 [釘選到儀表板]。
 10. 選取 [ **建立**]。

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: d2334a59d83c90bdd02c4fa29261d36aad292892
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-phone-silverlight-apps"></a>開始使用適用於 Windows Phone Silverlight 應用程式的 Azure Mobile Engagement
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -59,7 +59,7 @@ ms.lasthandoff: 08/18/2017
 即使下列步驟與舊版 Visual Studio 中的步驟類似，但這些步驟假設使用的是 Visual Studio 2015。 
 
 1. 啟動 Visual Studio，並在 [首頁] 畫面上選取 [新增專案]。
-2. 在快顯視窗中，依序選取 [Windows 8] -> [Windows Phone] ->  -> [空白應用程式 (Windows Phone Silverlight)]。 輸入應用程式的 [名稱] 和 [方案名稱]，然後按一下 [確定]。
+2. 在快顯視窗中，依序選取 [Windows 8] -> [Windows Phone] ->  -> [空白應用程式 (Windows Phone Silverlight)]。 輸入應用程式的 名稱 和 方案名稱，然後按一下確定。
    
     ![][1]
 3. 您可以選擇要將目標設為 **Windows Phone 8.0** 或 **Windows Phone 8.1**。

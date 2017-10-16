@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure 中的多租用戶應用程式
 多租用戶應用程式是一種共用資源，可讓個別使用者 (或「租用戶」) 將應用程式視為其本身的應用程式。 適用多租用戶應用程式的常見情況，是應用程式的所有使用者都想自訂個人的使用性，但另一方面又有相同的基本商業需求時。 舉例來說，Office 365、Outlook.com 和 visualstudio.com 都屬於大型多租用戶應用程式。

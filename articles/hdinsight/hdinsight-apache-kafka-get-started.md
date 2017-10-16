@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/20/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 1e51f546d6c256e1d8f1a1be50c6a2102fe26529
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="start-with-apache-kafka-preview-on-hdinsight"></a>開始在 HDInsight 上使用 Apache Kafka (預覽)
 
@@ -382,4 +381,3 @@ Kafka 不知道容錯網域。 為主題建立副本時，可能無法正確發�
 * [搭配 HDInsight 上的 Kafka 使用 Spark 結構化串流](hdinsight-apache-kafka-spark-structured-streaming.md)
 * [使用 Apache Storm 搭配 HDInsight 上的 Kafka](hdinsight-apache-storm-with-kafka.md)
 * [透過 Azure 虛擬網路連線到 Kafka](hdinsight-apache-kafka-connect-vpn-gateway.md)
-

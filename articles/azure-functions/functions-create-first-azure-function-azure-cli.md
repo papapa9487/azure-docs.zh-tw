@@ -12,14 +12,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: ab35963dc9d10134799270e6ab3e6593be0e601a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-function-using-the-azure-cli"></a>在 Azure CLI 建立您的第一個函式
 
 本快速入門教學課程會逐步解說如何使用 Azure Functions 來建立您的第一個函式。 您會使用 Azure CLI 來建立函式應用程式，此應用程式是主控函式的無伺服器基礎結構。 函式程式碼本身是從 GitHub 的範例存放庫部署而來的。    
@@ -170,4 +168,3 @@ az group delete --name myResourceGroup
 ## <a name="next-steps"></a>後續步驟
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-

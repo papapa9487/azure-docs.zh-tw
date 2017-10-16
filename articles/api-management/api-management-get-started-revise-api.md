@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 212b163c49fdd133b0ed2d99b33035fcc391aec6
 ms.openlocfilehash: 0d67166a16ae4d640080ad83e7625e594b0dc246
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="make-non-breaking-changes-safely-using-revisions"></a>使用修訂安全地進行不間斷的變更
 本教學課程說明如何安全地變更您的 API，並與您的開發人員溝通此變更。
 

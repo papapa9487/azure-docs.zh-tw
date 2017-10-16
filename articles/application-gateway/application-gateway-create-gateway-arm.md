@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+ms.openlocfilehash: c419e1032476818e430251246022ae14e4355024
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 5f1713365406764998de505ff62309bab9fa2567
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-start-or-delete-an-application-gateway-by-using-azure-resource-manager"></a>使用 Azure 資源管理員建立、啟動或刪除應用程式閘道
 
@@ -212,4 +211,3 @@ Remove-AzureRmResourceGroup -Name ContosoRG
 
 * [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

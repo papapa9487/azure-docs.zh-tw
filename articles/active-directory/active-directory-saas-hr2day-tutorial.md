@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/24/2017
 ms.author: jeedes
 ms.openlocfilehash: 77e2fcf9c306259286b15767f3a992510d6d79d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>教學課程：Azure Active Directory 與 HR2day by Merces 整合
 
@@ -170,7 +170,7 @@ HR2day by Merces 與 Azure AD 整合提供下列優點：
     >請向 Merces 小組表明這項整合需要以下列模式設定「實體識別碼」：**https://hr2day.force.com/INSTANCENAME**。
 
     > [!TIP]
-    >現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，選取 [單一登入] 索引標籤。 然後透過底部的 [設定] 區段來存取內嵌的文件。 您可以在 [Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)中閱讀更多有關內嵌文件功能的資訊。
+    >現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，選取 [單一登入] 索引標籤。然後透過底部的 [設定] 區段來存取內嵌的文件。 您可以在 [Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)中閱讀更多有關內嵌文件功能的資訊。
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者

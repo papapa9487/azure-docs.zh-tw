@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Azure Stack 部署先決條件
 
-「適用於：Azure Stack 開發套件」
+適用於：Azure Stack 開發套件
 
 部署 [Azure Stack 開發套件](azure-stack-poc.md)之前，請先確定您的電腦符合下列需求：
 
@@ -183,5 +182,4 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 [下載 Azure Stack 開發套件部署套件](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
 [部署 Azure Stack 開發套件](azure-stack-run-powershell-script.md)
-
 

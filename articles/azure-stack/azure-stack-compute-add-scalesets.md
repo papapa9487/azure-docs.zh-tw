@@ -8,14 +8,12 @@ ms.topic: article
 ms.date: 9/25/2017
 ms.author: anajod
 keywords: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 31aeb963bdf4fd32712bc6f29f64060ec1c77cb8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
@@ -84,5 +82,4 @@ Add-AzsVMSSGalleryItem -Location $Location
 
 ## <a name="next-steps"></a>後續步驟
 [Azure Stack 的常見問題集](azure-stack-faq.md)
-
 

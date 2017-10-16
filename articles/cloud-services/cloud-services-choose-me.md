@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>我該選擇雲端服務還是其他服務？
 Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同的裝載模型。 每個模型都提供不同的服務集，因此請根據您要執行的工作選擇服務集。
@@ -63,5 +62,4 @@ Azure 雲端服務適合您嗎？ Azure 對於執行的應用程式提供不同�
 [在 Node.js 中建立雲端服務應用程式](cloud-services-nodejs-develop-deploy-app.md)  
 [在 PHP 中建立雲端服務應用程式](../cloud-services-php-create-web-role.md)  
 [在 Python 中建立雲端服務應用程式](cloud-services-python-ptvs.md)
-
 

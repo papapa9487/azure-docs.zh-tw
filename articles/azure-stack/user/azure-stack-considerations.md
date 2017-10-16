@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 1e170f320292e3dbe920907a4ed81ab0d1eb388b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>關鍵考量：使用服務或為 Azure Stack 建置應用程式
 
@@ -50,7 +49,7 @@ Azure 技術內容會假設應用程式是為了 Azure 服務 (而不是 Azure S
 | 尋求支援的連絡對象？ | Microsoft | 如果是整合環境，請連絡您的 Azure Stack 操作員 (位於您的組織或服務提供者) 以取得支援。<br><br>如需 Azure Stack 開發套件的支援，請瀏覽 [Microsoft 論壇](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)。 因為開發套件屬於評估環境，因此 Microsoft 客戶支援服務 (CSS) 不會提供官方支援。
 | 可用服務 | 查看 [Azure 產品](https://azure.microsoft.com/services/?b=17.04b)的清單。 可用的服務因 Azure 區域而異。 | Azure Stack 支援 Azure 服務的子集。 實際服務會因您組織或服務提供者選擇提供的項目而異。
 | Azure Resource Manager 端點* | https://management.azure.com | 如果是 Azure Stack 整合系統，請使用您 Azure Stack 操作員所提供的端點。<br><br>如果是開發套件，請使用：https://management.local.azurestack.external
-| 入口網站 URL* | [https://portal.azure.com](https://portal.azure.com) | 如果是 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。<br><br>如果是開發套件，請使用：https://portal.local.azurestack.external
+| 入口網站 URL* | [https://portal.azure.com](https://portal.azure.com) | 針對 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。<br><br>如果是開發套件，請使用：https://portal.local.azurestack.external
 | 區域 | 您可以選取想要部署的目標區域。 | 如果是 Azure Stack 整合系統，請使用您系統上可用的區域。<br><br>若為開發套件，區域一律為**本機**。
 | 資源群組 | 資源群組可以跨區域。 | 就整合系統和開發套件兩者而言，只有一個區域。
 |支援的命名空間、資源類型和 API 版本 | 最新版本 (或未過時的較早版本)。 | Azure Stack 支援特定版本。 請參閱本文章的＜版本需求＞一節。
@@ -94,4 +93,3 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 * [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)
 * [Azure Stack 中儲存體的考量](azure-stack-acs-differences.md)
 * [Azure Stack 網路服務的注意事項](azure-stack-network-differences.md)
-

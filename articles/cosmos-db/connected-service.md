@@ -16,12 +16,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jejiang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de0c83e4c99894f98de18eb089ce11cdf5c70f2e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-visual-studio-connected-service-preview"></a>Azure Cosmos DB：Visual Studio 已連線的服務 (預覽)
 
@@ -46,7 +45,7 @@ Visual Studio 已連線的服務可讓開發人員輕鬆地連線其 Azure Cosmo
 ## <a id="SetupVS"></a>設定您的 Visual Studio 方案
 1. 在電腦上開啟 **Visual Studio**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
-3. 在 [新增專案] 對話方塊中，選取 [Visual C#] / [主控台應用程式 (.NET Framework)] 或 [Web 應用程式 (.NET Framework)]，為專案命名，然後按一下 [確定]。
+3. 在 新增專案 對話方塊中，選取 Visual C# / 主控台應用程式 (.NET Framework) 或 Web 應用程式 (.NET Framework)，為專案命名，然後按一下確定。
 
     ![[新增專案] 視窗的螢幕擷取畫面](./media/connected-service/connected-service-new-project.png)
     
@@ -124,5 +123,4 @@ Visual Studio 已連線的服務可讓開發人員輕鬆地連線其 Azure Cosmo
 * [Azure Cosmos DB：開始使用 DocumentDB API 教學課程](documentdb-get-started.md)。
 * 需要使用 Azure Cosmos DB 來執行規模和效能測試嗎？ 請參閱 [Azure Cosmos DB 的效能和級別測試](performance-testing.md)。
 * 了解如何[監視 Azure Cosmos DB 帳戶](monitor-accounts.md)。
-
 

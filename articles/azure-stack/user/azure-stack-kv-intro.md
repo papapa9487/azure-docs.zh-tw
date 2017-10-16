@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 簡介
 
 ## <a name="before-you-start"></a>開始之前
 本文假設下列項目：
 
-* 您必須訂閱包含「金鑰保存庫」服務的供應項目。  
+* 您必須訂閱包含 Key Vault 服務的供應項目。  
 * [PowerShell 設定為搭配 Azure Stack 使用](azure-stack-powershell-configure-user.md) 
  
 ## <a name="key-vault-basics"></a>Key Vault 的基本概念
@@ -67,4 +66,3 @@ Azure Stack 中的 Key Vault 可協助保護雲端應用程式和服務所使用
 
 * [使用入口網站管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-portal.md)  
 * [使用 PowerShell 管理 Azure Stack 中的 Key Vault](azure-stack-kv-manage-powershell.md)
-

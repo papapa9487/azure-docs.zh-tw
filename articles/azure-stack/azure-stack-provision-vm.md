@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: erikje
+ms.openlocfilehash: 233cf4df53af6a49e5fe4c5d51e112d8196a7530
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 98770945d5cccc27bfce971491e6ea30fee2460a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-test-virtual-machine-in-azure-stack"></a>在 Azure Stack 中建立測試虛擬機器
 
-「適用於：Azure Stack 開發套件」
+適用於：Azure Stack 開發套件
 
-身為雲端操作員，您可以建立測試虛擬機器來驗證 [Azure Stack](azure-stack-poc.md) 部署。
+身為 Azure Stack 操作員，您可以建立測試虛擬機器來驗證 [Azure Stack](azure-stack-poc.md) 開發人員套件部署。
 
 > [!NOTE]
 > 佈建虛擬機器之前，您必須[將 Windows Server 2016 評估版映像新增至 Azure Stack 市集](azure-stack-add-default-image.md)。
@@ -44,4 +43,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Stack 中系統管理員和使用者的入口網站](azure-stack-manage-portals.md)
-

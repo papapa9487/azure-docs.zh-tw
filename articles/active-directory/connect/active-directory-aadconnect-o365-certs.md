@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>Overview
@@ -109,7 +109,7 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-將其中的 `(your_FS_name) `取代為您的組織使用的同盟服務主機名稱，例如 fs.contoso.com。  如果您能夠成功確認上述兩個設定，您就不必執行任何動作。  
+將其中的 `(your_FS_name) `取代為您的組織使用的同盟服務主機名稱，例如 fs.contoso.com。如果您能夠成功確認上述兩個設定，您就不必執行任何動作。  
 
 範例：https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 
@@ -151,7 +151,7 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 1. 開啟適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組。
 2. 執行 $cred=Get-Credential。 當此 Cmdlet 提示您輸入認證時，請輸入您的雲端服務系統管理員帳戶認證。
-3. 執行 Connect-MsolService –Credential $cred。 此 Cmdlet 可讓您連線到雲端服務。 在您執行由工具安裝的任何其他 Cmdlet 之前，必須先建立讓您連線到雲端服務的環境。
+3. 執行 Connect-MsolService –Credential $cred。此 Cmdlet 可讓您連線到雲端服務。 在您執行由工具安裝的任何其他 Cmdlet 之前，必須先建立讓您連線到雲端服務的環境。
 4. 如果您不是在 AD FS 主要同盟伺服器的電腦上執行這些命令，請執行 Set-MSOLAdfscontext -Computer <AD FS primary server>，其中 <AD FS primary server> 是主要 AD FS 伺服器的內部 FQDN 名稱。 此 Cmdlet 會建立讓您連線到 AD FS 的環境。
 5. 執行 Update-MSOLFederatedDomain –DomainName <domain>。 此 Cmdlet 會將 AD FS 的設定更新成雲端服務，並設定兩者之間的信任關係。
 

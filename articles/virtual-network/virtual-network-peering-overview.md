@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -42,9 +41,9 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="requirements-constraints"></a>需求和限制
 
-* 在相同區域中的對等互連虛擬網路通常是可用的。 不同區域中的對等互連虛擬網路目前在美國中西部、加拿大中部，和美國西部 2 為預覽狀態。 您可以[註冊訂用帳戶以供預覽](virtual-network-create-peering.md)。
+* 在一般情況下，可以為相同地區中的虛擬網路建立對等互連。 美國中西部、加拿大中部，和美國西部 2 可以使用為不同地區中虛擬網路建立對等互連的預覽版功能。 [註冊訂用帳戶可以獲得預覽版。](virtual-network-create-peering.md)
     > [!WARNING]
-    > 在此情況下建立的虛擬網路對等互連，與在正式發行版情況下，可能不會有相同等級的可用性和可靠性。 虛擬網路對等互連可能功能受限，且可能並非在所有 Azure 區域中都可供使用。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
+    > 與公開上市版相比，預覽版建立之虛擬網路對等互連的可用性和可靠性較低。 虛擬網路對等互連的功能可能有限，而且可能只有部分 Azure 區域能進行對等互連。 如需此功能可用性和狀態的最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network) 頁面。
 
 * 對等互連的虛擬網路必須有非重疊的 IP 位址空間。
 * 一旦虛擬網路與另一個虛擬網路對等互連，便無法在虛擬網路中新增或刪除位址空間。
@@ -141,4 +140,3 @@ ms.lasthandoff: 09/25/2017
 
 * 了解如何建立[中樞和輪輻網路拓撲](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)。
 * 了解所有[虛擬網路對等互連設定，以及如何變更它們](virtual-network-manage-peering.md)
-

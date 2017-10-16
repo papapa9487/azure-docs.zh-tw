@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
 ms.openlocfilehash: c27aef24e859522b8001ecb747906abdca14d87a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>教學課程：Azure Active Directory 與 Sugar CRM 整合
 
@@ -73,7 +73,7 @@ Sugar CRM 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_search.png)
 
-5. 在結果窗格中，選取 [Sugar CRM]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Sugar CRM，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-sugarcrm-tutorial/tutorial_sugarcrm_addfromgallery.png)
 

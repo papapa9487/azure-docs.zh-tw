@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
 ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>最佳化您案例的 Azure 內容傳遞
 
@@ -95,7 +95,7 @@ Verizon 的 Azure 內容傳遞網路會使用一般 Web 傳遞最佳化類型來
 若要深入了解媒體串流處理最佳化，請參閱[媒體串流處理最佳化](cdn-media-streaming-optimization.md)。
 
 > [!NOTE]
-> 如果端點主要是提供點播視訊內容，請使用此最佳化類型。 此最佳化與一般媒體串流處理最佳化的主要差異是連線重試逾時。 逾時遠短於使用即時串流案例。
+> 如果端點主要是提供點播視訊內容，請使用此最佳化類型。 此最佳化與一般媒體串流處理最佳化的主要差異是連線重試逾時。逾時遠短於使用即時串流案例。
 
 ### <a name="large-file-download"></a>大型檔案下載
 

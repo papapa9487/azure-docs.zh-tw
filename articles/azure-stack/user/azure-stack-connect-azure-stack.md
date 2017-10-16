@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 914f2e5d10aa341cea5eba8c24c7c37610e6b626
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
@@ -107,7 +106,6 @@ Add-AzsVpnConnection `
 若要測試入口網站連線，請開啟網際網路瀏覽器，瀏覽至使用者入口網站 (https://portal.local.azurestack.external/)，然後登入並建立資源。  
 
 ## <a name="next-steps"></a>後續步驟
-
 
 
 

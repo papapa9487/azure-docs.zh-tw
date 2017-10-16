@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04dea8f055eb562455b568c43553a6fefe749467
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 
@@ -113,7 +112,7 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 
 如果使用 PowerShell，使用者可能需要先註冊資源提供者，才能使用服務。 (資源提供者負責管理服務。 例如，網路資源提供者負責管理如虛擬網路、網路介面和負載平衡器等資源。)他們必須[安裝](user/azure-stack-powershell-install.md) PowerShell、[下載](user/azure-stack-powershell-download.md) 其他模組，並[設定](user/azure-stack-powershell-configure-user.md) PowerShell (其中包含資源提供者註冊)。
 
-**訂閱供應項目**
+**訂閱提供項目**
 
 使用者必須先[訂閱供應項目](azure-stack-subscribe-plan-provision-vm.md) (您以操作員身分所建立)，才能存取服務。
 
@@ -136,6 +135,5 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure Stack 中的區域管理](azure-stack-region-management.md)
-
 
 

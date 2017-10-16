@@ -16,10 +16,10 @@ ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 4f6806cde52ce965a8f78a5cce8a24c3d1248594
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="branding-guidelines-for-applications"></a>應用程式的商標指導方針
 本主題討論使用 Azure Active Directory (Azure AD) 開發應用程式時，您應該使用的商標指導方針。 當客戶想要使用其工作或學校帳戶 (在 Azure AD 中管理) 或其個人帳戶來註冊和登入您的應用程式時，這些指導方針可協助引導客戶。

@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4ecf4f8594f7a274bec231fb74c4caa22c3cc354
-ms.openlocfilehash: b5f2ae124ca3276e15e0d1f75d655ec346bf8ee8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/06/2017
-
-
+ms.openlocfilehash: 92ddf9619a0db398f7866aab60e834f09add3e7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-data-from-azure-storage-blob-into-data-lake-store-using-azure-stream-analytics"></a>使用 Azure 串流分析將來自 Azure 儲存體 Blob 的資料串流處理至 Data Lake Store
 在這篇文章中，您將了解如何使用 Azure Data Lake Store 做為 Azure 串流分析作業的輸出。 這篇文章示範從 Azure 儲存體 Blob (輸入) 讀取資料以及將資料寫入至 Data Lake Store (輸出) 的簡單案例。
@@ -44,7 +42,7 @@ ms.lasthandoff: 01/06/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-2. 從左窗格中，按一下 [串流分析作業]，然後按一下 [新增]。
+2. 從左窗格中，按一下 串流分析作業，然後按一下新增。
 
     ![建立串流分析作業](./media/data-lake-store-stream-analytics/create.job.png "建立串流分析作業")
 
@@ -54,7 +52,7 @@ ms.lasthandoff: 01/06/2017
 
 ## <a name="create-a-blob-input-for-the-job"></a>建立作業的 Blob 輸入
 
-1. 開啟「串流分析作業」頁面，在左窗格中按一下 [輸入] 索引標籤，然後按一下 [新增]。
+1. 開啟「串流分析作業」頁面，在左窗格中按一下 輸入 索引標籤，然後按一下新增。
 
     ![將輸入新增至您的作業](./media/data-lake-store-stream-analytics/create.input.1.png "將輸入新增至您的作業")
 
@@ -77,7 +75,7 @@ ms.lasthandoff: 01/06/2017
 
 ## <a name="create-a-data-lake-store-output-for-the-job"></a>建立作業的 Data Lake Store 輸出
 
-1. 開啟「串流分析作業」頁面，按一下 [輸出] 索引標籤，然後按一下 [新增]。
+1. 開啟「串流分析作業」頁面，按一下 輸出 索引標籤，然後按一下新增。
 
     ![將輸出新增至您的作業](./media/data-lake-store-stream-analytics/create.output.1.png "將輸出新增至您的作業")
 
@@ -105,7 +103,7 @@ ms.lasthandoff: 01/06/2017
     
 ## <a name="run-the-stream-analytics-job"></a>執行串流分析作業
 
-1. 若要執行串流分析作業，您必須從 [查詢] 索引標籤來執行查詢。 本教學課程中，您可以藉由以作業輸入和輸出別名取代預留位置的方式執行範例查詢，如下方螢幕擷取畫面所示。
+1. 若要執行串流分析作業，您必須從 [查詢] 索引標籤來執行查詢。本教學課程中，您可以藉由以作業輸入和輸出別名取代預留位置的方式執行範例查詢，如下方螢幕擷取畫面所示。
 
     ![執行查詢](./media/data-lake-store-stream-analytics/run.query.png "執行查詢")
 
@@ -129,4 +127,3 @@ ms.lasthandoff: 01/06/2017
 
 ## <a name="see-also"></a>另請參閱
 * [建立 HDInsight 叢集以使用 Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
-

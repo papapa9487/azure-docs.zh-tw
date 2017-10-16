@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aa6973939c6cfe0688f5781fdcea5d39670249df
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-stack-to-azure-using-expressroute"></a>使用 ExpressRoute 將 Azure Stack 連線至 Azure
 
@@ -136,7 +135,7 @@ ms.lasthandoff: 09/25/2017
 區域網路閘道資源的目的是指出 VPN 連線另一端的遠端閘道。 在此範例中，遠端是 ExpressRoute 路由器的 LAN 子介面。 對於此範例中的租用戶 1，遠端位址是 10.60.3.255，如圖 2 所示。
 
 1. 登入 Azure Stack 實體機器。
-2. 以您的使用者帳戶登入使用者入口網站，然後按一下 [新增]。
+2. 以您的使用者帳戶登入使用者入口網站，然後按一下新增。
 3. 從 Marketplace 功能表中選取 [網路]。
 4. 從資源清單中選取 [區域網路閘道]。
 5. 在 [名稱] 欄位中輸入 **ER-Router-GW**。
@@ -171,8 +170,8 @@ ms.lasthandoff: 09/25/2017
 3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像，然後按一下 [建立]。
 4. 在 [基本] 區段的 [名稱] 欄位中，輸入 **VM01**。
 5. 輸入有效的使用者名稱和密碼。 建立 VM 之後﹐您將使用此帳戶來登入 VM。
-6. 提供 [訂用帳戶]、[資源群組] 和 [位置]﹐然後按一下 [確定]。
-7. 在 [大小] 區段上，按一下此執行個體的虛擬機器大小，然後按一下 [選取]。
+6. 提供 訂用帳戶、資源群組 和 位置﹐然後按一下確定。
+7. 在 大小 區段上，按一下此執行個體的虛擬機器大小，然後按一下選取。
 8. 在 [設定] 區段上，您可以接受預設值。 但請確定選取的虛擬網路是 **Tenant1VNet1**，而子網路設定為 **10.1.1.0/24**。 按一下 [確定] 。
 9. 檢閱 [摘要] 區段上的設定，然後按一下 [確定]。
 

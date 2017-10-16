@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 06/11/2017
 ms.author: parakhj
 ms.openlocfilehash: 269cbd80fb6e861fa8588025eec70b6c6e2890d7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C︰使用 Salesforce 帳戶透過 SAML 來登入
 
@@ -57,7 +57,7 @@ ms.lasthandoff: 08/03/2017
 > 在本文中，我們假設您使用 [Salesforce Lightning 經驗](https://developer.salesforce.com/page/Lightning_Experience_FAQ)。
 
 1. [登入 Salesforce](https://login.salesforce.com/)。 
-2. 在左側功能表的 [設定] 下，展開 [身分識別]，然後按一下 [識別提供者]。
+2. 在左側功能表的 設定 下，展開 身分識別，然後按一下識別提供者。
 3. 按一下 [啟用識別提供者]。
 4. 在 [選取憑證] 下，選取您想要讓 Salesforce 在與 Azure AD B2C 通訊時使用的憑證。 (您可以使用預設憑證。)按一下 [儲存] 。 
 
@@ -76,7 +76,7 @@ ms.lasthandoff: 08/03/2017
       https://login.microsoftonline.com/te/tenantName.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
 7. 將所有其他設定保留預設值。
-8. 捲動到清單底部，然後按一下 [儲存]。
+8. 捲動到清單底部，然後按一下儲存。
 
 ### <a name="get-the-metadata-url"></a>取得中繼資料 URL
 
@@ -250,7 +250,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 ## <a name="test-and-troubleshoot"></a>測試及疑難排解
 
-若要測試您剛才上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下 [立即執行]。 如果失敗，請參閱[針對自訂原則進行疑難排解](active-directory-b2c-troubleshoot-custom.md)。
+若要測試您剛才上傳的自訂原則，在 Azure 入口網站中，移至原則刀鋒視窗，然後按一下立即執行。 如果失敗，請參閱[針對自訂原則進行疑難排解](active-directory-b2c-troubleshoot-custom.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

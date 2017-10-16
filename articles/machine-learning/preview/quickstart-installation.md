@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 09/20/2017
+ms.openlocfilehash: bb3ac21d2e8b8efd7b4f6943fcc3256f18cbdd68
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 91d2f47a528050f644973044f96c0354b91dba25
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>建立 Azure Machine Learning 預覽帳戶，並安裝 Azure Machine Learning Workbench
 Azure Machine Learning 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
 
@@ -27,7 +25,13 @@ Azure Machine Learning 是一套整合的端對端資料科學以及進階分析
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
-目前 Azure Machine Learning Workbench 只能安裝在下列作業系統上：Windows 10、Windows Server 2016 和 macOS Sierra。
+Azure Machine Learning Workbench 桌面應用程式目前只能安裝在下列作業系統上： 
+- Windows 10
+- Windows Server 2016
+- macOS Sierra
+
+>[!NOTE]
+>目前不支援 macOS High Sierra。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 登入 [Azure 入口網站](https://portal.azure.com/)。
@@ -118,7 +122,7 @@ Azure Machine Learning 是一套整合的端對端資料科學以及進階分析
 
 5. Azure Machine Learning Workbench 現在已安裝在下列目錄： 
 
-   _/Applications/AmlWorkbench.app_
+   `/Applications/AmlWorkbench.app`
 
 ## <a name="run-azure-machine-learning-workbench-to-log-in-the-first-time"></a>執行 Azure Machine Learning Workbench 以第一次登入
 1. 一旦安裝程序完成，請按一下安裝程式的最後一個畫面上的 [啟動 Workbench] 按鈕。 如果您已關閉安裝程式，請在桌面和 [開始] 功能表上尋找名為 **Azure Machine Learning Workbench** 的 Machine Learning Workbench 捷徑，來啟動應用程式。
@@ -184,4 +188,3 @@ Azure Machine Learning 是一套整合的端對端資料科學以及進階分析
 
 > [!div class="nextstepaction"]
 > [分類鳶尾花教學課程](tutorial-classifying-iris-part-1.md)
-

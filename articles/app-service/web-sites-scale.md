@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 248b96cc97367ca2cb3fd82c9824d43dfee43c0a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
 
@@ -48,10 +47,10 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="scale-up-your-pricing-tier"></a>相應增加您的定價層
 1. 在瀏覽器中，開啟 [Azure 入口網站][portal]。
-2. 在 App Service 應用程式頁面中，按一下 [所有設定]，然後按一下 [Scale Up]\(相應增加\)。
+2. 在 App Service 應用程式頁面中，按一下 所有設定，然後按一下Scale Up\(相應增加\)。
    
-    ![巡覽以相應增加您的 Azure 應用程式規模。][ChooseWHP]
-3. 選擇您的定價層，然後按一下 [選取] 。
+    ![瀏覽以相應增加您的 Azure 應用程式規模。][ChooseWHP]
+3. 選擇您的定價層，然後按一下選取 。
    
     當操作完成時，[通知] 索引標籤會有綠色的「成功」字樣閃爍顯示。
 
@@ -121,4 +120,3 @@ ms.lasthandoff: 09/25/2017
 [ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
 [ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
 [GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
-

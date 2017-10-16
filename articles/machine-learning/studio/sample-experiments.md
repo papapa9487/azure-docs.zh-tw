@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/28/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>複製範例實驗來建立新的機器學習服務實驗
 了解如何從 [Cortana 智慧資源庫](https://gallery.cortanaintelligence.com/) 的範例實驗開始，而不是從頭建立機器學習服務實驗。 您可以使用範例來建立自己的機器學習服務解決方案。
@@ -60,7 +59,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="create-a-new-experiment-using-an-example-as-a-template"></a>使用範例作為範本來建立新實驗
 您也可以使用資源庫範例作為範本，在 Machine Learning Studio 中建立新實驗。
 
-1. 用您的 Microsoft 帳戶認證登入 [Studio](https://studio.azureml.net)，然後按一下 [新增] 以建立實驗。
+1. 用您的 Microsoft 帳戶認證登入 [Studio](https://studio.azureml.net)，然後按一下新增 以建立實驗。
 2. 瀏覽範例內容，然後按一下其中一個。
 
 隨即以範例實驗作為範本，在您的 Machine Learning Studio 工作區中建立新的實驗。
@@ -69,4 +68,3 @@ ms.lasthandoff: 09/25/2017
 * [從各種資源匯入資料](import-data.md)
 * [Machine Learning 中的 R 語言所適用的快速入門教學課程](r-quickstart.md)
 * [部署 Machine Learning Web 服務](publish-a-machine-learning-web-service.md)
-

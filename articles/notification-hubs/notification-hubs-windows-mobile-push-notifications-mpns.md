@@ -16,10 +16,10 @@ ms.topic: hero-article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: f0bfe81f849813d146d644b32490af657b1071b5
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-on-windows-phone"></a>在 Windows Phone 上使用 Azure 通知中樞傳送推播通知
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -51,7 +51,7 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 <ol start="6">
-<li><p>按一下 [通知服務]<b></b> 區段 (在 [設定]<i></i> 中)，按一下 [Windows Phone (MPNS)]<b></b>，然後按一下 [啟用未經驗證的推送]<b></b> 核取方塊。</p>
+<li><p>按一下 通知服務<b></b> 區段 (在 設定<i></i> 中)，按一下 Windows Phone (MPNS)<b></b>，然後按一下啟用未經驗證的推送<b></b> 核取方塊。</p>
 </li>
 </ol>
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 07/11/2017
     在 Visual Studio 2013 Update 2 或更新版本中，您必須改為建立 Windows Phone Silverlight 應用程式。
    
     ![Visual Studio - 新增專案 - 空白應用程式 - Windows Phone Silverlight][11]
-2. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下 [管理 NuGet 封裝] 。
+2. 在 Visual Studio 中，以滑鼠右鍵按一下方案，然後按一下管理 NuGet 封裝 。
    
     此時會顯示 [管理 NuGet 封裝]  對話方塊。
 3. 搜尋 `WindowsAzure.Messaging.Managed`，然後按一下 [安裝] 並接受使用條款。
@@ -139,7 +139,7 @@ ms.lasthandoff: 07/11/2017
 
 如需使用 [REST APIs](https://msdn.microsoft.com/library/azure/dn223264.aspx) 傳送推播通知的範例，請查看[如何從 Java 使用通知中樞](notification-hubs-java-push-notification-tutorial.md)和[如何從 PHP 使用通知中樞](notification-hubs-php-push-notification-tutorial.md)。
 
-1. 以滑鼠右鍵按一下方案，並選取 [新增] 和 [新增專案...]，然後按一下 [Visual C#] 底下的 [Windows] 和 [主控台應用程式]，再按一下 [確定]。
+1. 以滑鼠右鍵按一下方案，並選取 新增 和 新增專案...，然後按一下Visual C# 底下的 Windows 和 主控台應用程式，再按一下 確定。
    
        ![Visual Studio - New Project - Console Application][6]
    

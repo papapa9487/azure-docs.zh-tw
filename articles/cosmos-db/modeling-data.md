@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
 ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>將 NoSQL 資料庫的文件資料模型化
 雖然無結構描述的資料庫 (像是 Azure Cosmos DB)，讓您極容易運用資料模型變更，但是您仍然應該花一些時間來思考資料。 

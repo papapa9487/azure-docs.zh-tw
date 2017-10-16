@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +55,7 @@ ms.lasthandoff: 09/25/2017
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設定為：**Odbc** | 是 |
 | connectionString | 不包含認證部分的連接字串。 請參閱下一節中的範例。 | 是 |
-| authenticationType | 用來連線到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
+| authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
 | password | 指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | 否 |
 | 認證 | 以驅動程式特定「屬性-值」格式指定之連接字串的存取認證部分。 範例：`"RefreshToken=<secret refresh token>;"`. 請將此欄位標示為 SecureString。 | 否 |
@@ -324,7 +323,7 @@ ms.lasthandoff: 09/25/2017
 若要針對連線問題進行疑難排解，請使用 [整合執行階段組態管理員] 的 [診斷] 索引標籤。
 
 1. 啟動 [整合執行階段組態管理員]。
-2. 切換至 [診斷] 索引標籤。
+2. 切換至 [診斷]  索引標籤。
 3. 在 [測試連線] 區段底下，選取資料存放區的 [類型] (已連結的服務)。
 4. 指定用來連線到資料存放區的 [連接字串]，選擇 [驗證]，然後輸入 [使用者名稱]、[密碼] 和/或 [認證]。
 5. 按一下 [測試連線]  以測試資料存放區連線。

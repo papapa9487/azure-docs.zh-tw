@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 811adc81424b8e53a740ec34f77a7610fc2a72a8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
 本文討論如何設定應用程式來將使用者導向自訂首頁。 當您使用應用程式 Proxy 發佈應用程式時，您會設定內部 URL，但有時這不是您的使用者應該先看到的頁面。 設定自訂首頁，讓使用者在存取應用程式時能前往正確的頁面。 不論使用者從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式，都能看到您設定的自訂首頁。
@@ -144,4 +142,3 @@ ms.lasthandoff: 09/09/2017
 
 - [使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取](application-proxy-enable-remote-access-sharepoint.md)
 - [在 Azure 入口網站中啟用應用程式 Proxy](active-directory-application-proxy-enable.md)
-

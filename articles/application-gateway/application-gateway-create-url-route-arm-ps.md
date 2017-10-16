@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/03/2017
 ms.author: davidmu
+ms.openlocfilehash: f2797864d7f0bda35d4d84ee78b157879451f889
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b1ed7d5693ff7e6730255462411d462694b730e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing"></a>使用路徑型路由建立應用程式閘道
 
@@ -221,7 +220,7 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 設定後端集區的 URL 規則路徑。 這個步驟會設定應用程式閘道所使用的相對路徑，並定義 URL 路徑和已指派的後端集區之間的對應，以處理傳入流量。
 
 > [!IMPORTANT]
-> 每個路徑必須以 "/" 開始，結尾只允許使用星號。 有效範例包括 /xyz、/xyz* 或 /xyz/*。 傳送給路徑比對器的字串未在第一個 "?" 或 "#" 之後包含任何文字，而這些字元是不允許的。 
+> 每個路徑必須以 "/" 開始，結尾只允許使用星號。 有效範例包括 /xyz、/xyz *或 /xyz/*。 傳送給路徑比對器的字串未在第一個 "?" 或 "#" 之後包含任何文字，而這些字元是不允許的。 
 
 下列範例會建立兩個規則：一個適用於將流量路由傳送到後端 **pool1** 的 "/image/" 路徑，另一個則適用於將流量路由傳送到後端 **pool2** 的 "/video/" 路徑。 這些規則確保每一組 URL 的流量都路由傳送至後端。 例如，http://contoso.com/image/figure1.jpg 會傳送至 **pool1**，http://contoso.com/video/example.mp4 會傳送至 **pool2**。
 
@@ -296,5 +295,4 @@ DnsSettings              : {
 ## <a name="next-steps"></a>後續步驟
 
 如果您想要了解「安全通訊端層」(SSL) 卸載，請參閱[使用 Azure Resource Manager 設定適用於 SSL 卸載的應用程式閘道](application-gateway-ssl-arm.md)。
-
 

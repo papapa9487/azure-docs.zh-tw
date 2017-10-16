@@ -15,12 +15,11 @@ ms.date: 08/22/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 9b6a48220132bb8ea18ae5efca46ea2faf825806
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-add-new-users-to-azure-active-directory"></a>快速入門：將使用者新增至 Azure Active Directory
 本文說明如何在 Azure Active Directory (Azure AD) 中新增您組織中的使用者，您可以使用 Azure 入口網站一次新增一位，或藉由同步處理您內部部署 Windows Server AD 使用者帳戶資料來新增。 

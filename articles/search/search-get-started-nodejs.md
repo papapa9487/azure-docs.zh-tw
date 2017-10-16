@@ -15,10 +15,10 @@ ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: evboyle
 ms.openlocfilehash: 32865ed986f5eea961ef2c3813dcc6531498c90a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>開始在 Node.js 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]

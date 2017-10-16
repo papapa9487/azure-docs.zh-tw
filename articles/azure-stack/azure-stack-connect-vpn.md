@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c06eb0bb44bdfeab956e9b5051786b5bc631acf5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 將 Azure Stack 連線至 Azure
 
@@ -61,7 +60,7 @@ ms.lasthandoff: 09/25/2017
 3. 移至 [Marketplace]，然後選取 [網路]。
 4. 選取 [虛擬網路]。
 5. 使用網路設定表中的資訊，以識別 Azure [名稱]、[位址空間]、[子網路名稱] 及 [子網路位址範圍] 的值。
-6. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] (如果您已經有資源群組)。
+6. 針對 [資源群組]，建立資源群組，或選取 [使用現有的] \(如果您已經有資源群組)。
 7. 選取 VNet 的 [位置]。  如果您使用範例值，請選取 [美國東部]，或使用您偏好的另一個位置。
 8. 選取 [釘選到儀表板]。
 9. 選取 [ **建立**]。
@@ -138,7 +137,7 @@ ms.lasthandoff: 09/25/2017
 4. 選取 [虛擬網路]。
 5. 在 [名稱]、[位址空間]、[子網路名稱] 及 [子網路位址範圍] 中，使用網路設定表中的值。
 6. 在 [訂用帳戶] 中，會顯示您先前建立的訂用帳戶。
-7. 針對 [資源群組]，您可以建立資源群組，或選取 [使用現有的] (如果您已經有資源群組)。
+7. 針對 [資源群組]，您可以建立資源群組，或選取 [使用現有的] \(如果您已經有資源群組)。
 8. 驗證預設位置。
 9. 選取 [釘選到儀表板]。
 10. 選取 [ **建立**]。

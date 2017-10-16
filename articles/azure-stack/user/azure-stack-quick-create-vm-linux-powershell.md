@@ -15,30 +15,29 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: sngun
 ms.custom: mvc
+ms.openlocfilehash: 579246a2f5aefda0d48cea235d74f196cd814331
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 63dbb9a4aadfce92346c84cf6d0df8c860e68a3b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-by-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 PowerShell 建立 Linux 虛擬機器 
 
 適用於：Azure Stack 整合系統
 
 Azure PowerShell 可用來從命令列或在指令碼中建立和管理 Azure Stack 中的資源。  本指南詳細說明如何使用 PowerShell 來建立在 Azure Stack 中執行 Ubuntu 伺服器的虛擬機器。
 
-在開始之前，請確定您的 Azure Stack 操作員已將 “Ubuntu Server 16.04 LTS” 映像新增至 Azure Stack 市集。  
+## <a name="prerequisites"></a>必要條件 
 
-Azure Stack 需要特定版本的 Azure PowerShell 才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell，請遵循步驟[安裝和設定 PowerShell](azure-stack-powershell-install.md)。    
+* 請確定 Azure Stack 操作員已將 “Ubuntu Server 16.04 LTS” 映像新增至 Azure Stack 市集。  
 
-最後，名稱為 id_rsa.pub 的公開 SSH 金鑰必須建立在 Windows 使用者設定檔的 .ssh 目錄中。 如需建立 SSH 金鑰的詳細資訊，請參閱[在 Windows 上建立 SSH 金鑰](../../virtual-machines/linux/ssh-from-windows.md)。  
+* Azure Stack 需要特定版本的 Azure PowerShell，才能建立和管理資源。 如果您尚未針對 Azure Stack 設定 PowerShell ，請登入[開發套件](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop)，或登入以 Windows 為基礎的外部用戶端 (如果您[透過 VPN 連線](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn)) 並遵循步驟來[安裝](azure-stack-powershell-install.md)和[設定](azure-stack-powershell-configure-user.md) PowerShell。    
 
+* 名稱為 id_rsa.pub 的公開 SSH 金鑰應建立在 Windows 使用者設定檔的 .ssh 目錄中。 如需有關建立 SSH 金鑰的詳細資訊，請參閱[在 Windows 上建立 SSH 金鑰](../../virtual-machines/linux/ssh-from-windows.md)。  
 
-## <a name="create-resource-group"></a>建立資源群組
+## <a name="create-a-resource-group"></a>建立資源群組
 
-資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 請使用下列程式碼區塊來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。
+資源群組是在其中部署與管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行下列程式碼區塊來建立資源群組。 我們已為此文件中的所有變數指派值，您可以使用它們或指派不同的值。
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -139,7 +138,7 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id 
 ```
 
-## <a name="create-virtual-machine"></a>Create virtual machine
+## <a name="create-a-virtual-machine"></a>建立虛擬機器
 建立虛擬機器組態。 此組態包括部署虛擬機器時所使用的組態，例如虛擬機器映像、大小和驗證組態。
 
 ```powershell
@@ -197,7 +196,7 @@ New-AzureRmVM `
   -VM $VirtualMachine 
 ```
 
-## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
+## <a name="connect-to-the-virtual-machine"></a>連接至虛擬機器
 
 完成部署之後，建立與虛擬機器的 SSH 連線。 使用 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) 命令，以傳回虛擬機器的公用 IP 位址。
 
@@ -222,7 +221,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用存放在 Key Vault 中的密碼來建立虛擬機器](azure-stack-kv-deploy-vm-with-secret.md)
-
-[若要了解 Azure Stack 中的儲存體](azure-stack-storage-overview.md)
-
+在這個快速入門中，您已部署簡單的 Linux 虛擬機器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。

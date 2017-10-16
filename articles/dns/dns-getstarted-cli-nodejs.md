@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: f7943b71bbd16c36df09436973d92539eb62b210
-ms.lasthandoff: 04/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-dns-using-azure-cli-10"></a>利用 Azure CLI 1.0 開始使用 Azure DNS
 
 > [!div class="op_single_selector"]
@@ -120,5 +119,4 @@ azure group delete --name MyResourceGroup
 若要深入了解在 Azure DNS 中管理 DNS 區域，請參閱[使用 Azure CLI 1.0 在 Azure DNS 中管理 DNS 區域](dns-operations-dnszones-cli-nodejs.md)。
 
 若要深入了解在 Azure DNS 中管理 DNS 記錄，請參閱[使用 Azure CLI 1.0 在 Azure DNS 中管理 DNS 記錄和記錄集](dns-operations-recordsets-cli-nodejs.md)。
-
 

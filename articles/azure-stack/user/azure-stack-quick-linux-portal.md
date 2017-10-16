@@ -10,14 +10,12 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站來建立 Linux 虛擬機器
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
@@ -57,7 +55,7 @@ ms.lasthandoff: 09/25/2017
 登入 Azure Stack 入口網站。 Azure Stack 入口網站的位址取決於您所連線的 Azure Stack 產品：
 
 * 如果是「Azure Stack 開發套件」(ASDK)，請移至：https://portal.local.azurestack.external。
-* 如果是 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。
+* 針對 Azure Stack 整合系統，請移至您 Azure Stack 操作員所提供的 URL。
 
 ## <a name="create-the-virtual-machine"></a>建立虛擬機器
 
@@ -86,7 +84,7 @@ ms.lasthandoff: 09/25/2017
    ![連接虛擬機器](media/azure-stack-quick-linux-portal/linux-03.PNG)
 
 2. 開啟 PuTTY。
-3. 在 [PuTTY Configuration] \(PuTTY 組態\) 畫面的 [Category] \(類別\) 底下，展開 [SSH]，然後按一下 [Auth] \(驗證\)。按一下 [Browse] \(瀏覽\)，然後選取您先前儲存的私密金鑰檔案。
+3. 在 PuTTY Configuration \(PuTTY 組態\) 畫面的 Category \(類別\) 底下，展開 SSH，然後按一下Auth \(驗證\)。按一下 Browse \(瀏覽\)，然後選取您先前儲存的私密金鑰檔案。
 
    ![PuTTY 私密金鑰](media/azure-stack-quick-linux-portal/Putty03.PNG)
 4. 在 [Category] \(類別\) 底下向上捲動，然後按一下 [Session] \(工作階段\)。
@@ -142,5 +140,4 @@ sudo apt-get -y install nginx
 ## <a name="next-steps"></a>後續步驟
 
 在本快速入門中，您已部署簡單的 Linux 虛擬機器、網路安全性群組規則，並已安裝 Web 伺服器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。
-
 

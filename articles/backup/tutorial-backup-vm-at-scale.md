@@ -8,14 +8,12 @@ ms.author: markgal
 ms.date: 09/16/2017
 ms.topic: article
 ms.service: backup
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f144db921a8b2d01dbfe883a48574c4fabdae6f7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 
 當您使用 Azure 備份資料時，該資料會儲存在稱為復原服務保存庫的 Azure 資源中。 大部分 Azure 服務的 [設定] 功能表都提供復原服務保存庫資源。 將復原服務保存庫整合至大部分 Azure 服務 [設定] 功能表的好處是，備份資料變得很容易。 不過，個別處理您企業中的每個資料庫或虛擬機器實在很費時。 如果想要將所有虛擬機器的資料備份在一個部門或一個位置，該怎麼辦？ 只要建立備份原則，並將該原則套用至所要的虛擬機器，即可輕鬆備份多部虛擬機器。 本教學課程說明如何：
@@ -174,7 +172,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-您在本教學課程中使用 Azure 入口網站執行下列動作：
+在這篇教學中，您使用了 Azure 入口網站來：
 
 > [!div class="checklist"]
 > * 建立復原服務保存庫
@@ -187,4 +185,3 @@ ms.lasthandoff: 09/25/2017
 
 > [!div class="nextstepaction"]
 > [使用 CLI 還原 VM](./tutorial-restore-disk.md)
-

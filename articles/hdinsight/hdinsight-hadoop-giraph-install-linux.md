@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
 ms.openlocfilehash: 6e2f6983e00f874420f7f0907dbc68185f0af713
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 08/03/2017
 > [!WARNING]
 > 完全支援 HDInsight 叢集隨附的元件 - Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件 (例如 Giraph) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能有能力解決問題。 如果無法解決，則您必須諮詢開放原始碼社群，以尋求該項技術的深厚專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Giraph) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能有能力解決問題。 如果無法解決，則您必須諮詢開放原始碼社群，以尋求該項技術的深厚專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
 
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業

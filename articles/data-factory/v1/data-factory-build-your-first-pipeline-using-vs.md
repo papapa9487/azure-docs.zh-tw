@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b71d5c2303fa33637a95d0979e15236d7f8156bd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>教學課程：使用 Visual Studio 建立資料處理站
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -67,8 +66,8 @@ ms.lasthandoff: 09/25/2017
 現在，讓我們使用 Visual Studio 來建立 Azure Data Factory。
 
 ### <a name="create-visual-studio-project"></a>建立 Visual Studio 專案
-1. 啟動 **Visual Studio 2013** 或 **Visual Studio 2015**。 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。 您應該會看到 [新增專案]  對話方塊。  
-2. 在 [新增專案] 對話方塊中，選取 **DataFactory** 範本，然後按一下 [空白 Data Factory 專案]。   
+1. 啟動 **Visual Studio 2013** 或 **Visual Studio 2015**。 按一下 檔案，指向 新增，然後按一下專案。 您應該會看到 [新增專案]  對話方塊。  
+2. 在 新增專案 對話方塊中，選取 **DataFactory** 範本，然後按一下空白 Data Factory 專案。   
 
     ![[新增專案] 對話方塊](./media/data-factory-build-your-first-pipeline-using-vs/new-project-dialog.png)
 3. 輸入專案的**名稱**、**位置**和**方案**的名稱，然後按一下 [確定]。
@@ -86,15 +85,15 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 > 您可指定資料處理站名稱並在發佈 Data Factory 解決方案時進行設定，以建立資料處理站。
 
 #### <a name="create-azure-storage-linked-service"></a>建立 Azure 儲存體連結服務
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]，指向 [新增]，然後按一下 [新增項目]。      
-2. 在 [新增新項目] 對話方塊中，從清單選取 [Azure 儲存體連結服務]，然後按一下 [新增]。
+1. 以滑鼠右鍵按一下 方案總管 中的 連結服務，指向 新增，然後按一下新增項目。      
+2. 在 新增新項目 對話方塊中，從清單選取 Azure 儲存體連結服務，然後按一下新增。
     ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
 3. 使用 Azure 儲存體帳戶的名稱及其金鑰來取代 `<accountname>` 和 `<accountkey>`。 若要了解如何取得您的儲存體存取金鑰，請參閱[管理儲存體帳戶](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)中說明如何檢視、複製和重新產生儲存體存取金鑰的資訊。
     ![Azure 儲存體連結服務](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. 儲存 **AzureStorageLinkedService1.json** 檔案。
 
 #### <a name="create-azure-hdinsight-linked-service"></a>建立 Azure HDInsight 連結服務
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [連結服務]，指向 [新增]，然後按一下 [新增項目]。
+1. 以滑鼠右鍵按一下 方案總管 中的 連結服務，指向 新增，然後按一下新增項目。
 2. 選取 [HDInsight 隨選連結服務]，然後按一下 [新增]。
 3. 使用下列 JSON 來取代 **JSON**：
 
@@ -134,7 +133,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 在此步驟中，您會建立資料集來代表 Hive 處理的輸入和輸出資料。 這些資料集是您稍早在本教學課程中建立的 **AzureStorageLinkedService1** 。 連結的服務會指向 Azure 儲存體帳戶，而資料集則會指定保留輸入和輸出資料儲存體中的容器、資料夾和檔案名稱。   
 
 #### <a name="create-input-dataset"></a>建立輸入資料集
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [新增]，然後按一下 [新增項目]。
+1. 以滑鼠右鍵按一下 方案總管 中的 資料表，指向 新增，然後按一下新增項目。
 2. 從清單中選取 [Azure Blob]，將檔案名稱變更為 **InputDataSet.json**，再按一下 [新增]。
 3. 使用下列 JSON 程式碼片段取代編輯器中的 **JSON**：
 
@@ -179,7 +178,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 #### <a name="create-output-dataset"></a>建立輸出資料集
 現在，您會建立輸出資料集來代表 Azure Blob 儲存體中儲存的輸出資料。
 
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [資料表]，指向 [新增]，然後按一下 [新增項目]。
+1. 以滑鼠右鍵按一下 方案總管 中的 資料表，指向 新增，然後按一下新增項目。
 2. 從清單中選取 [Azure Blob]，將檔案名稱變更為 **OutputDataset.json**，再按一下 [新增]。
 3. 使用下列 JSON 取代編輯器中的 **JSON**：
     
@@ -213,7 +212,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 ### <a name="create-pipeline"></a>建立管線
 到目前為止，您已建立 Azure 儲存體連結服務，以及輸入和輸出資料集。 現在，建立具有 **HDInsightHive** 活動的管線。 Hive 活動的 **input** 會設為 **AzureBlobInput**，而 **output** 則設為 **AzureBlobOutput**。 每個月都可取得輸入資料集的配量 (頻率：每月，間隔：1)，而且也會每個月產生輸出配量。 
 
-1. 以滑鼠右鍵按一下 [方案總管] 中的 [管線]，指向 [新增]，然後按一下 [新增項目]。
+1. 以滑鼠右鍵按一下 方案總管 中的 管線，指向 新增，然後按一下新增項目。
 2. 從清單中選取 [Hive 轉換管線]，然後按一下 [新增]。
 3. 使用下列程式碼片段來取代 **JSON**：
 
@@ -451,7 +450,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 ### <a name="add-a-configuration-file"></a>新增組態檔
 藉由執行下列步驟來新增每個環境的組態檔：   
 
-1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 [新增]，然後按一下 [新增項目]。
+1. 在 Visual Studio 解決方案中以滑鼠右鍵按一下 Data Factory 專案，指向 新增，然後按一下新增項目。
 2. 從左側的已安裝範本清單中選取 [設定]、選取 [設定檔]、輸入設定檔的 [名稱]，然後按一下 [新增]。
 
     ![新增組態檔](./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png)
@@ -566,4 +565,3 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
 | [資料轉換活動](data-factory-data-transformation-activities.md) |本文提供 Azure Data Factory 所支援的資料轉換活動清單 (例如您在本教學課程中使用的 HDInsight Hive 轉換)。 |
 | [排程和執行](data-factory-scheduling-and-execution.md) |本文說明 Azure Data Factory 應用程式模型的排程和執行層面。 |
 | [使用監視應用程式來監視和管理管線](data-factory-monitor-manage-app.md) |本文說明如何使用監視及管理應用程式，來監視、管理管線及進行偵錯。 |
-

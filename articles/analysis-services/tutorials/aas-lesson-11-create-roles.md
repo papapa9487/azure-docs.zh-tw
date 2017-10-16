@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 085a36edd2a0e80123ac8754b438bceadfa6c0e9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 0dfcb9d9fc8cd32f95c5097ec653864364b27bcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-11-create-roles"></a>第 11 課：建立角色
 
@@ -60,7 +59,7 @@ ms.lasthandoff: 06/03/2017
 
     ![aas 第 11 課新的角色](../tutorials/media/aas-lesson11-new-role.png) 
   
-5.  選擇性：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
+5.  選擇性：按一下 成員 索引標籤，然後按一下新增。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
   
 #### <a name="to-create-a-sales-analyst-us-user-role"></a>建立「美國銷售分析師」使用者角色  
   
@@ -79,7 +78,7 @@ ms.lasthandoff: 06/03/2017
     「資料列篩選條件」公式必須解析成布林值 (TRUE/FALSE)。 在這個公式中，您指定只有 [國家區域碼] 值為 "US" 的資料列才能被使用者看到。  
     ![aas 第 11 課角色篩選](../tutorials/media/aas-lesson11-role-filter.png) 
   
-6.  選擇性：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
+6.  選擇性：按一下 成員 索引標籤，然後按一下新增。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。  
   
 #### <a name="to-create-an-administrator-user-role"></a>建立「系統管理員」使用者角色  
   
@@ -89,7 +88,7 @@ ms.lasthandoff: 06/03/2017
   
 3.  將 [系統管理員] 權限授與此角色。  
   
-4.  選擇性：按一下 [成員] 索引標籤，然後按一下 [新增]。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。 
+4.  選擇性：按一下 成員 索引標籤，然後按一下新增。 在 [選取使用者或群組] 對話方塊中，輸入您想從組織中加入此角色的 Windows 使用者或群組。 
   
   
 ## <a name="whats-next"></a>後續步驟
@@ -97,4 +96,3 @@ ms.lasthandoff: 06/03/2017
 
   
   
-

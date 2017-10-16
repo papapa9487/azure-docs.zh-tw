@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
 ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦 (PowerShell)
 
@@ -75,7 +75,7 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
 > [!NOTE]
 > 這個檔案會提示您輸入用來連接到 HDInsight 叢集並執行作業的資訊。 可能需要幾分鐘的時間來完成作業，並且下載 output.txt 檔案。
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
 > Mahout 工作不會移除處理工作時所建立的暫存資料。 範例工作中所指定的 `--tempDir` 參數會將暫存檔隔離到特定的目錄。
@@ -97,7 +97,7 @@ Mahout 工作不會將輸出傳回 STDOUT。 相反地，其會將該輸出儲�
 
 雖然產生的輸出可以在應用程式中使用，但使用者不容易判讀。 來自伺服器的 `moviedb.txt`可用來解決電影名稱的 `movieId`。 使用下列 PowerShell 指令碼來顯示建議的影片名稱︰
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
 使用下列命令，以易懂的格式來顯示建議： 
 

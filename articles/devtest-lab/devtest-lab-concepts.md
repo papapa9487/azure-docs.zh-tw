@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 7028cdacf7d597c238bf29bd26bbd44705d66224
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="devtest-labs-concepts"></a>研發/測試實驗室概念
 ## <a name="overview"></a>概觀
@@ -91,4 +90,3 @@ Azure 可宣告 VM 是可供任何具有權限的實驗室使用者使用的虛�
 
 ## <a name="next-steps"></a>後續步驟
 [在研測實驗室中建立實驗室](devtest-lab-create-lab.md)
-

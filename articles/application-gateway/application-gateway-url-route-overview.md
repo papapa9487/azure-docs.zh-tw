@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: davidmu
+ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="url-path-based-routing-overview"></a>URL 路徑型路由概觀
 
@@ -102,4 +101,3 @@ PathBasedRouting 規則的程式碼片段：
 ## <a name="next-steps"></a>後續步驟
 
 了解 URL 型內容路由之後，請移至 [使用 URL 型路由建立應用程式閘道](application-gateway-create-url-route-portal.md) ，利用 URL 路由規則來建立應用程式閘道。
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: 49a8cd3acfc6df15ef6a51171c8421162bc94efc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>教學課程：Azure Active Directory 與 Small Improvements 整合
 
@@ -74,7 +73,7 @@ Small Improvements 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_search.png)
 
-5. 在結果窗格中，選取 [Small Improvements]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Small Improvements，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-smallimprovements-tutorial/tutorial_smallimprovements_addfromgallery.png)
 
@@ -277,5 +276,4 @@ Small Improvements 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-smallimprovements-tutorial/tutorial_general_203.png
-
 

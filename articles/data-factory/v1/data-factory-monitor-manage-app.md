@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 6d00c776da3be0f799b82160c45f4c47a965b4bb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>使用監視及管理應用程式，以監視和管理 Azure Data Factory 管線
 > [!div class="op_single_selector"]
@@ -52,7 +51,7 @@ ms.lasthandoff: 09/25/2017
 
 在中間窗格的 [活動時段] 清單中，您會在每次執行活動時看到活動時段。 例如，如果您有活動排程在五個小時內每小時執行，您會看到與五個資料配量與相關聯的五個活動時段。 如果您沒有在底部的清單中看到活動時段，請執行下列作業：
  
-- 更新頂端的**開始時間**和**結束時間**篩選以符合管線的開始和結束時間，然後按一下 [套用] 按鈕。  
+- 更新頂端的**開始時間**和**結束時間**篩選以符合管線的開始和結束時間，然後按一下套用 按鈕。  
 - [活動時段] 清單不會自動重新整理。 按一下 [活動時段] 清單中工具列上的 [重新整理] 按鈕。  
 
 如果您還沒有用來測試這些步驟的 Data Factory 應用程式，請進行教學課程：[使用 Data Factory 將資料從 Blob 儲存體複製到 SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)。
@@ -334,4 +333,3 @@ Data Factory 的圖表檢視提供單一窗格，可用來監視和管理 Data F
 使用下列按鈕 (以紅色反白顯示) 來編輯、刪除或停用警示。
 
 ![警示按鈕](./media/data-factory-monitor-manage-app/AlertButtons.png)
-

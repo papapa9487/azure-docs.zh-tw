@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 8/15/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a016ed92c68ce624aeb09d766adbc6fc8ba2b42
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>初步了解：在 Resource Manager 部署中備份檔案和資料夾
 本文說明如何使用 Resource Manager 部署將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。 本文中的教學課程是要讓您逐步了解基本概念。 如果您想要開始使用 Azure 備份，請閱讀本文的內容。
@@ -190,8 +189,8 @@ ms.lasthandoff: 09/07/2017
     ![Windows Server 備份排程](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 3. 在排程備份精靈的 [開始使用] 頁面上，按 [下一步] 。
 4. 在 [選取要備份的項目] 頁面上，按一下 [新增項目] 。
-5. 選取您要備份的檔案和資料夾，然後按一下 [確定] 。
-6. 按一下 [下一步] 。
+5. 選取您要備份的檔案和資料夾，然後按一下確定 。
+6. 按 [下一步] 。
 7. 在 [指定備份排程] 頁面上，指定[備份排程]，然後按 [下一步]。
 
     您可以排程每日 (一天最多三次) 或每週備份。
@@ -208,7 +207,7 @@ ms.lasthandoff: 09/07/2017
 9. 在 [選擇初始備份類型] 頁面上，選擇初始備份類型。 讓 [自動透過網路] 選項保持已選取狀態，然後按 [下一步]。
 
     您可以透過網路自動備份，也可以離線備份。 這篇文章的其餘部分說明自動備份的程序。 如果您想要執行離線備份，請檢閱 [在 Azure Backup 中離線備份工作流程](backup-azure-backup-import-export.md) 一文以了解其他資訊。
-10. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成] 。
+10. 在 確認 頁面上檢閱資訊，然後按一下完成 。
 11. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>第一次備份檔案和資料夾
@@ -229,4 +228,3 @@ ms.lasthandoff: 09/07/2017
 * 詳細了解如何 [備份 Windows 電腦](backup-configure-vault.md)。
 * 現在您已備份好檔案和資料夾，接下來您可以 [管理您的保存庫和伺服器](backup-azure-manage-windows-server.md)。
 * 如果您需要還原備份，請使用本文來 [還原檔案到 Windows 電腦](backup-azure-restore-windows-server.md)。
-

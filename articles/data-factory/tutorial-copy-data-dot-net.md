@@ -3,7 +3,7 @@ title: "將資料從 Azure Blob 儲存體複製到 SQL Database | Microsoft Docs
 description: "本教學課程提供逐步指示，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。"
 services: data-factory
 documentationcenter: 
-author: sharonlo101
+author: linda33wj
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/13/2017
-ms.author: shlo
+ms.date: 09/26/2017
+ms.author: jingwang
+ms.openlocfilehash: 6f1a93c2906eaab82dcfb9bae1ee4a54dce300bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 80abdd1524160427c17e05bd0086d2c7f6a54910
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
@@ -90,7 +89,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 使用 Visual Studio 2015/2017 建立 C# .NET 主控台應用程式。
 
 1. 啟動 **Visual Studio**。
-2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
+2. 按一下 檔案，指向 新增，然後按一下專案。
 3. 從右邊的專案類型清單中，選取 [Visual C#] -> [主控台應用程式 (.NET Framework)]。 需要 .NET 4.5.2 版或更新版本。
 4. 在 [名稱] 中輸入 **ADFv2Tutorial**。
 5. 按一下 [確定]  以建立專案。
@@ -98,7 +97,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ## <a name="install-nuget-packages"></a>安裝 NuGet 套件
 
 1. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]。
-2. 在 **Package Manager Console** 中，執行下列命令以安裝套件：
+2. 在 **Package Manager Console** 中，執行下列命令以安裝封裝：
 
     ```
     Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
@@ -151,7 +150,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     string pipelineName = "Adfv2TutorialBlobToSqlCopy";
     ```
 
-3. 將下列程式碼新增至 **Main** 方法，以建立 **DataPipelineManagementClient** 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管道。 您也會使用此物件來監視管道執行的詳細資料。
+3. 將下列程式碼新增至 **Main** 方法，以建立 **DataPipelineManagementClient** 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管道。 您也可以使用此物件來監視管線執行的詳細資料。
 
     ```csharp
     // Authenticate and create a data factory management client
@@ -295,7 +294,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.Serializati
 
 ## <a name="create-a-pipeline"></a>建立管線
 
-將下列程式碼新增至 **Main** 方法，以建立**具有複製活動的管道**。 在本教學課程中，此管道包含一個活動：複製活動，可接受 Blob 資料集作為來源，也接受 SQL 資料集作為接收。 若要深入了解複製活動的詳細資料，請參閱[複製活動概觀](copy-activity-overview.md)。
+將下列程式碼新增至 **Main** 方法，以建立**具有複製活動的管線**。 在本教學課程中，此管道包含一個活動：複製活動，可接受 Blob 資料集作為來源，也接受 SQL 資料集作為接收。 若要深入了解複製活動的詳細資料，請參閱[複製活動概觀](copy-activity-overview.md)。
 
 ```csharp
 // Create a pipeline with copy activity
@@ -343,7 +342,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="monitor-a-pipeline-run"></a>監視管道執行
 
-1. 將下列程式碼新增至 **Main** 方法，以持續檢查管道執行的狀態，直到完成複製資料為止。
+1. 將下列程式碼新增至 **Main** 方法，以持續檢查管線執行的狀態，直到完成複製資料為止。
 
     ```csharp
     // Monitor the pipeline run
@@ -383,7 +382,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## <a name="run-the-code"></a>執行程式碼
 
-建置並啟動應用程式，然後確認管道執行。
+建置並啟動應用程式，然後確認管線執行。
 
 在建立資料處理站、連結服務、資料集、管道和管道執行時，主控台會印出進度。 然後會檢查管道執行狀態。 請等待出現複製活動執行詳細資料及讀取/寫入的資料大小。 然後，使用 SSMS (SQL Server Management Studio) 或 Visual Studio 之類的工具，連線至目的地 Azure SQL Database，檢查資料是否已複製到您指定的資料表。
 
@@ -510,7 +509,6 @@ Checking copy activity run details...
   "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US)",
   "usedCloudDataMovementUnits": 2,
   "billedDuration": 2
-
 }
 
 Press any key to exit...
@@ -518,7 +516,7 @@ Press any key to exit...
 
 
 ## <a name="next-steps"></a>後續步驟
-在此範例中的管道會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 您已了解如何︰ 
+在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 您已了解如何︰ 
 
 > [!div class="checklist"]
 > * 建立資料處理站。
@@ -526,11 +524,10 @@ Press any key to exit...
 > * 建立 Azure Blob 和 Azure SQL Database 資料集。
 > * 建立包含複製活動的管道。
 > * 啟動管道執行。
-> * 監視管道和活動執行。
+> * 監視管線和活動執行。
 
 
 進入下列教學課程，以了解如何將資料從內部部署複製到雲端： 
 
 > [!div class="nextstepaction"]
 >[將資料從內部部署複製到雲端](tutorial-hybrid-copy-powershell.md)
-

@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>使用 Application Insights 進行 Web 應用程式的使用量分析
 
 您 Web 應用程式的哪些功能最受歡迎？ 您的使用者是否利用您的應用程式達到其目標呢？ 他們會在特定點退出，並在稍後返回嗎？  [Azure Application Insights](app-insights-overview.md) 可協助您深入了解使用者如何使用 Web 應用程式。 每次您更新應用程式時，都可以評估它適用於使用者的程度。 您可以透過了解這些來制定下一個開發週期的相關資料導向決策。
@@ -176,4 +174,3 @@ ms.lasthandoff: 09/09/2017
    - [使用者流程](app-insights-usage-flows.md)
    - [活頁簿](app-insights-usage-workbooks.md)
    - [新增使用者內容](app-insights-usage-send-user-context.md)
-

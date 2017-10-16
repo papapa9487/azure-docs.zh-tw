@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 74571fc6e1a0b2d6a903cdd992a247f4d5dfa700
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 執行 Hive 查詢
 [!INCLUDE [hive-selector](../../includes/hdinsight-selector-use-hive.md)]
@@ -60,7 +59,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
 1. 使用編輯器，將下列程式碼儲存為 **hivejob.ps1**。
 
-    [!code-powershell[主要](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
+    [!code-powershell[main](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=5-42)]
 
 2. 開啟新的 **Azure PowerShell** 命令提示字元。 將目錄變更至 **hivejob.ps1** 檔案的位置，然後使用下列命令來執行指令碼：
 
@@ -77,7 +76,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
 4. 如前所述， **Invoke-Hive** 可以用來執行查詢，並等候回應。 使用下列指令碼，查看 Invoke-Hive 如何運作：
 
-    [!code-powershell[主要](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=50-71)]
+    [!code-powershell[main](../../powershell_scripts/hdinsight/use-hive/use-hive.ps1?range=50-71)]
 
     輸出看起來會像下列文字：
 
@@ -121,4 +120,3 @@ Get-AzureRmHDInsightJobOutput `
 
 * [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
 * [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
-

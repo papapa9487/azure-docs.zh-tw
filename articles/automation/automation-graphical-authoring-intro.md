@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure 自動化中的圖形化編寫
 ## <a name="introduction"></a>簡介
@@ -73,7 +72,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。  �
 ### <a name="testing-a-graphical-runbook"></a>測試圖形化 Runbook
 您可以在 Azure 入口網站中測試 Runbook 的草稿版本，同時讓 Runbook 的已發佈版本保持不變，或是在發佈全新的 Runbook 之前，先進行測試。 這可讓您驗證取代已發行的版本之前，Runbook 正常運作。 當您測試 Runbook 時，草稿 Runbook 會執行，而且它執行的任何動作都會完成。 不會建立工作歷程記錄，但是會在 [測試輸出] 窗格中顯示輸出。 
 
-開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 [ **測試窗格** ] 按鈕。
+開啟 Runbook 的測試控制項，方法是開啟 Runbook 進行編輯，然後按一下 **測試窗格**  按鈕。
 
 ![測試窗格按鈕](media/automation-graphical-authoring-intro/runbook-edit-test-pane.png)
 
@@ -84,7 +83,7 @@ Azure 自動化中的所有 Runbook 都是 Windows PowerShell 工作流程。  �
 ### <a name="publishing-a-graphical-runbook"></a>發行圖形化 Runbook
 Azure 自動化中的每個 Runbook 有草稿和已發行的版本。 只可執行已發行版本，而且只可編輯草稿版本。 已發行版本不會受到草稿版本的任何變更影響。 草稿版本就緒可供使用時，您會將它發行，以草稿版本覆寫已發行版本。
 
-您可以開啟 Runbook 進行編輯，然後按一下 [ **發行** ] 按鈕來發行圖形化 Runbook。
+您可以開啟 Runbook 進行編輯，然後按一下 **發行**  按鈕來發行圖形化 Runbook。
 
 ![發佈按鈕](media/automation-graphical-authoring-intro/runbook-edit-publish.png)
 
@@ -382,5 +381,4 @@ Runbook 可能需要來自使用者的輸入內容 (透過 Azure 入口網站啟
 * 若要開始使用圖形化 Runbook，請參閱 [我的第一個圖形化 Runbook](automation-first-runbook-graphical.md)
 * 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
 * 若要了解如何使用自動化執行身分帳戶進行驗證，請參閱 [設定 Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)
-
 

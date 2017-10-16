@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 07/06/2017
 ms.author: dekapur
 ms.openlocfilehash: 5c8f4c784eed7b64810a3dd1c36c043d22a66936
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>建立您的第一個 Service Fabric 獨立叢集
 您可以在內部部署環境或雲端上，在執行 Windows Server 2012 R2 或 Windows Server 2016 的虛擬機器或電腦上建立 Service Fabric 獨立叢集。 本快速入門可協助您在短短幾分鐘內建立開發獨立叢集。  當您完成時，您會具備有一個包含三個節點的叢集，其在您可部署應用程式的單一電腦上執行。

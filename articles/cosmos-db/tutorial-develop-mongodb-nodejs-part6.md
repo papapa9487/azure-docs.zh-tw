@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: 4dee49f99118cc99c21ce23e32db3686c58cf4a9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 6 部分：將 Post、Put 和 Delete 函式新增至應用程式
 
@@ -177,7 +176,7 @@ ms.lasthandoff: 09/06/2017
 
 4. 我們現已更新程式碼，請按一下 Visual Studio Code 中的 [重新啟動] 按鈕![Visual Studio Code 中的重新啟動按鈕](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png)。
 
-5. 重新整理網際網路瀏覽器中的頁面，然後按一下 [新增 Hero] 按鈕。 新增識別碼為 "9"、名稱為 "Starlord" 的 Hero，且招呼語為 "Hi"。 按一下 [儲存] 按鈕以儲存新 Hero。
+5. 重新整理網際網路瀏覽器中的頁面，然後按一下新增 Hero 按鈕。 新增識別碼為 "9"、名稱為 "Starlord" 的 Hero，且招呼語為 "Hi"。 按一下 [儲存] 按鈕以儲存新 Hero。
 
 6. 現在選取 **Starlord** Hero，並將招呼語從 "Hi" 變更為 "Bye"，然後按一下 [儲存] 按鈕。 
 
@@ -199,5 +198,4 @@ ms.lasthandoff: 09/06/2017
 > * 已將 Post、Put 和 Delete 函式新增至應用程式 
 
 稍後返回查看本教學課程系列中的其他影片。
-
 

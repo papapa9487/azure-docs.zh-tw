@@ -1,4 +1,4 @@
-﻿---
+---
 title: "概觀 - Azure AD B2C | Microsoft Docs"
 description: "使用 Azure Active Directory B2C 開發取用者導向應用程式"
 services: active-directory-b2c
@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C︰將焦點放在您的應用程式，讓 Azure AD 來擔心註冊和登入
+# <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C︰將焦點放在您的應用程式，我們會擔心註冊和登入
 
 Azure AD B2C 是適用於 Web 和行動應用程式的雲端身分識別管理解決方案。 這是高可用性的全域服務，可處理數億規模的身分識別。 Azure AD B2C 建置於企業級安全平台，可確保您的應用程式、企業和客戶受到安全防護。
 
@@ -80,5 +79,4 @@ Azure AD B2C 是適用於 Web 和行動應用程式的雲端身分識別管理�
 ## <a name="get-security-updates-for-our-products"></a>取得產品的安全性更新
 
 我們鼓勵您造訪 [此頁面](https://technet.microsoft.com/security/dd252948) 並訂閱資訊安全摘要報告警示，以在安全性事件發生時收到通知。
-
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b70f8a392fdddade31383fc5cc9496cb39d73fd4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-api-version-profiles-in-azure-stack"></a>管理 Azure Stack 中的 API 版本設定檔
 
 API 版本設定檔提供一個管理 Azure 與 Azure Stack 之間版本差異的方式。 API 版本設定檔是一組具有特定 API 版本的 AzureRM PowerShell 模組。 每個雲端平台都有一組支援的 API 版本設定檔。 例如，Azure Stack 支援特定日期的設定檔版本 (例如 **2017-03-09-profile**)，而 Azure 則支援**最新的** API 版本設定檔。 當您安裝設定檔時，會安裝與指定的設定檔對應的 AzureRM PowerShell 模組。
@@ -115,4 +113,3 @@ Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 ## <a name="next-steps"></a>後續步驟
 * [安裝 Azure Stack 適用的 PowerShell](azure-stack-powershell-install.md)
 * [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)  
-

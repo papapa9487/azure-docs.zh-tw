@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c9115bb5bc3d22c67ea0ac77b8972ae7f919926b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-review-access-with-azure-ad-access-reviews"></a>如何使用 Azure AD 存取權檢閱來檢閱存取權
 
 Azure Active Directory 使用稱為存取權檢閱的方式，簡化了企業在 Azure AD 和其他 Microsoft Online Services 中管理應用程式及群組成員的存取權。  您可能已收到 Microsoft 的電子郵件，要求您檢閱群組成員或能存取應用程式之使用者的存取權。 
@@ -43,7 +41,6 @@ Azure Active Directory 使用稱為存取權檢閱的方式，簡化了企業在
 ## <a name="next-steps"></a>後續步驟
 
 請注意，不會立即移除使用者的拒絕存取，可在完成檢閱或系統管理員停止檢閱時移除它。 因此，如果您想要變更您的答案及核准先前已拒絕的使用者，或拒絕先前已核准的使用者，請按一下資料列，重設回應並挑選新的回應。  您可以執行這項操作，直到存取權檢閱完成為止。
-
 
 
 

@@ -15,14 +15,12 @@ ms.date: 07/14/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: 96490c0d060fe5486a7235a5aa76380c8d9b5d4f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈應用程式
 
 > [!div class="op_single_selector"]
@@ -94,7 +92,7 @@ Azure AD 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部�
 
 若要檢視應用程式，並確定可以存取該應用程式，按兩下應用程式的名稱。 如果已停用應用程式 Proxy 服務，而且無法使用應用程式，則會在畫面頂端出現一個警告訊息。
 
-若要刪除某個應用程式，在清單中選取該應用程式，然後按一下 [刪除] 。
+若要刪除某個應用程式，在清單中選取該應用程式，然後按一下刪除 。
 
 ## <a name="next-steps"></a>後續步驟
 * [使用您自己的網域名稱發行應用程式](active-directory-application-proxy-custom-domains.md)
@@ -103,5 +101,4 @@ Azure AD 應用程式 Proxy 可藉由發佈要透過網際網路存取的內部�
 * [使用宣告感知應用程式](active-directory-application-proxy-claims-aware-apps.md)
 
 如需最新消息，請查閱 [應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
-
 

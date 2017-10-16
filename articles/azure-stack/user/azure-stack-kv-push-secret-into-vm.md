@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/03/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 29ccdc9eca9911b2f550f9e09da83d0b1d30f9db
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-virtual-machine-and-include-certificate-retrieved-from-a-key-vault"></a>建立虛擬機器，並加入從金鑰保存庫擷取的憑證
 
@@ -27,7 +26,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* 您必須訂閱包含「金鑰保存庫」服務的供應項目。 
+* 您必須訂閱包含 Key Vault 服務的供應項目。 
 * [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)  
 * [設定 Azure Stack 使用者的 PowerShell 環境](azure-stack-powershell-configure-user.md)
 
@@ -178,6 +177,5 @@ Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Vers
 
 * [使用金鑰保存庫密碼部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
 * [允許應用程式存取 Key Vault](azure-stack-kv-sample-app.md)
-
 
 

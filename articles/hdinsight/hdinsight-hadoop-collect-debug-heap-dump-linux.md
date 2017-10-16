@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: d61da54fc3172a730740e2b94a89fe787c4f121d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 59942e989d622c2486edf181d76e13344c71e6f9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印
 
@@ -132,5 +131,4 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
    > 其他服務的 [重新啟動] 按鈕項目可能會有所不同。
 
 8. 重新啟動服務後，請使用 [服務動作] 按鈕**關閉維護模式**。 這麼做可讓 Ambari 繼續監視服務是否有警示。
-
 

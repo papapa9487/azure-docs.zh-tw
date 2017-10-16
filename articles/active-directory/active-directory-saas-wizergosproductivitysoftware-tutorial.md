@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/20/2017
 ms.author: jeedes
 ms.openlocfilehash: 73b3bc05aeb337c12acb7e47c0dbebe6d0196530
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>教學課程：Azure Active Directory 與 Wizergos Productivity Software 整合
 本教學課程旨在說明如何整合 Wizergos Productivity Software 與 Azure Active Directory (Azure AD)。
@@ -75,7 +75,7 @@ Wizergos Productivity Software 與 Azure AD 整合提供下列優點：
 6. 在 [搜尋] 方塊中，輸入 **Wizergos Productivity Software**。
    
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_01.png)
-7. 在結果窗格中，選取 [Wizergos Productivity Software]，然後按一下 [完成] 來新增應用程式。
+7. 在結果窗格中，選取 Wizergos Productivity Software，然後按一下完成 來新增應用程式。
    
     ![選取資源庫中的應用程式](./media/active-directory-saas-wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_001.png)
 

@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-advisor"></a>開始使用 Azure 建議程式
 
 了解如何透過 Azure 入口網站存取 Advisor、取得建議、實作建議、搜尋建議，以及重新整理建議。
@@ -94,4 +93,3 @@ Advisor 中的 [建議] 刀鋒視窗會提供其他有關建議的資訊。
 * [建議程式安全性建議](advisor-security-recommendations.md)
 -  [建議程式效能建議](advisor-performance-recommendations.md)
 * [建議程式成本建議](advisor-performance-recommendations.md)
-

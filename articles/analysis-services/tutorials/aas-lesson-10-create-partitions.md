@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: df74d9cbdcf4916c24955e491767589e72389155
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: b6b5bcd1d766376bd0af71e1fa91f8f2f96b9605
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-10-create-partitions"></a>第 10 課：建立分割區
 
@@ -43,13 +42,13 @@ ms.lasthandoff: 06/03/2017
   
     因為您只希望分割區包含 2010 年某段期間的資料列，所以必須修改查詢運算式。
   
-4.  按一下 [設計] 以開啟查詢編輯器，然後按一下 [FactInternetSales2010] 查詢。
+4.  按一下 設計 以開啟查詢編輯器，然後按一下FactInternetSales2010 查詢。
 
-5.  在預覽中，按一下 **OrderDate**資料行標題的向下箭號，然後按一下 [日期/時間篩選] > [介於]。
+5.  在預覽中，按一下 **OrderDate**資料行標題的向下箭號，然後按一下日期/時間篩選 > 介於。
 
     ![aas 第 10 課查詢編輯器](../tutorials/media/aas-lesson10-query-editor.png)
 
-6.  在 [篩選資料列] 對話方塊中，保留 [顯示符合條件的列: OrderDate] 中的 [之後或等於]，然後在日期欄位中輸入 **2010/1/1**。 保持選取 [且] 運算子，並選取 [之前]，在日期欄位中輸入 **2011/1/1**，然後按一下 [確定]。
+6.  在 [篩選資料列] 對話方塊中，保留 [顯示符合條件的列: OrderDate] 中的 [之後或等於]，然後在日期欄位中輸入 **2010/1/1**。 保持選取 且 運算子，並選取 之前，在日期欄位中輸入 **2011/1/1**，然後按一下確定。
 
     ![aas-lesson10-filter-rows](../tutorials/media/aas-lesson10-filter-rows.png)
     
@@ -66,7 +65,7 @@ ms.lasthandoff: 06/03/2017
   
 #### <a name="to-create-a-partition-for-the-2011-year"></a>建立 2011 年的分割區  
   
-1.  在分割區清單中，按一下您建立的 [FactInternetSales2010]分割區，然後按一下 [複製]。  將分割區名稱變更為 **FactInternetSales2011**。 
+1.  在分割區清單中，按一下您建立的 FactInternetSales2010分割區，然後按一下複製。  將分割區名稱變更為 **FactInternetSales2011**。 
 
     您不需要使用查詢編輯器來建立新的 Filtered Rows 子句。 因為是從 2010 年的查詢建立複本，2011 年的查詢只需要稍微變更即可。
   
@@ -92,7 +91,7 @@ ms.lasthandoff: 06/03/2017
 現在每一年都有分割區，您可以刪除 FactInternetSales 分割區。處理分割區時，如果選擇 [處理全部]，請避免重疊。
 
 #### <a name="to-delete-the-factinternetsales-partition"></a>刪除 FactInternetSales 分割區
--  按一下 [FactInternetSales] 分割區，然後按一下 [刪除]。
+-  按一下 FactInternetSales 分割區，然後按一下刪除。
 
 
 
@@ -107,7 +106,7 @@ ms.lasthandoff: 06/03/2017
   
 3.  在 [處理分割區] 對話方塊中，確認 [模式] 設為 [處理預設]。  
   
-4.  對於您建立的五個分割區，將 [處理]資料行的核取方塊全部選取，然後按一下 [確定]。  
+4.  對於您建立的五個分割區，將 處理資料行的核取方塊全部選取，然後按一下確定。  
 
     ![aas 第 10 課處理分割區](../tutorials/media/aas-lesson10-process-partitions.png)
   
@@ -119,4 +118,3 @@ ms.lasthandoff: 06/03/2017
   
  ## <a name="whats-next"></a>後續步驟
 移至下一個課程︰[第 11 課︰建立角色](../tutorials/aas-lesson-11-create-roles.md)。 
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
 ms.openlocfilehash: ce63726d2406d2f1415d29786f0ef92ca95b9b90
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>教學課程：Azure Active Directory 與 OpsGenie 整合
 
@@ -73,7 +73,7 @@ OpsGenie 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_search.png)
 
-5. 在結果窗格中，選取 [OpsGenie]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 OpsGenie，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_addfromgallery.png)
 
@@ -126,7 +126,7 @@ OpsGenie 與 Azure AD 整合提供下列優點：
 
 7. 開啟另一個瀏覽器執行個體，然後以系統管理員身分登入 OpsGenie。
 
-8. 按一下 [設定]，然後按一下 [單一登入] 索引標籤。
+8. 按一下 設定，然後按一下單一登入 索引標籤。
    
     ![OpsGenie 設定單一登入](./media/active-directory-saas-opsgenie-tutorial/tutorial_opsgenie_06.png)
 

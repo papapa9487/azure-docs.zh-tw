@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: darosa
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 訊息傳遞與重試 
 
 本文章說明未確認傳遞時，Azure Event Grid 如何處理事件。

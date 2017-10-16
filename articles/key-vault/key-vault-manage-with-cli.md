@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/08/2017
 ms.author: bruceper
 ms.openlocfilehash: c2565a742ce4f6ab5f7639a54c4a475f00cbc260
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-key-vault-using-cli"></a>使用 CLI 管理金鑰保存庫
 
@@ -185,7 +185,7 @@ ms.lasthandoff: 07/11/2017
 6. 在 [應用程式屬性] 頁面上，為您的 Web 應用程式指定 [登入 URL] 和 [應用程式識別碼 URI]。 如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。 這些網站是否存在並沒有影響；重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。 目錄會使用此字串來識別您的應用程式。
 7. 按一下 [完成] 圖示以在精靈中儲存變更。
 8. 在 [快速入門] 頁面上，按一下 [ **設定**]。
-9. 捲動到 [金鑰] 區段，選取持續時間，然後按一下 [儲存]。 頁面會重新整理，並顯示金鑰值。 您必須使用此金鑰值和 [用戶端識別碼] 值來設定您的應用程式。 (有關此設定的指示僅適用於特定應用程式。)
+9. 捲動到 金鑰 區段，選取持續時間，然後按一下儲存。 頁面會重新整理，並顯示金鑰值。 您必須使用此金鑰值和 [用戶端識別碼] 值來設定您的應用程式。 (有關此設定的指示僅適用於特定應用程式。)
 10. 複製此頁面的用戶端識別碼，您將在後續步驟中使用此識別碼來設定保存庫上的權限。
 
 ## <a name="authorize-the-application-to-use-the-key-or-secret"></a>授權應用程式使用金鑰或密碼

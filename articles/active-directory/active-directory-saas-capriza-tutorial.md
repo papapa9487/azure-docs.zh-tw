@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.openlocfilehash: 668c094d5330be1c5f71d51d2e76170dc69d1bce
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>教學課程：Azure Active Directory 與 Capriza Platform 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 07/11/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_search.png)
 
-5. 在結果面板中，選取 [Capriza Platform]，然後按一下 [新增] 按鈕以新增該應用程式。
+5. 在結果面板中，選取 Capriza Platform，然後按一下新增 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-capriza-tutorial/tutorial_caprizaplatform_addfromgallery.png)
 

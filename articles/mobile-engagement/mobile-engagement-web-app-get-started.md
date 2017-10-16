@@ -14,12 +14,11 @@ ms.devlang: js
 ms.topic: hero-article
 ms.date: 06/01/2016
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: abcb04e4e0a3ae4fdba3a4ded20b3846ac3b21e6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-web-apps"></a>開始使用適用於 Web Apps 的 Azure Mobile Engagement
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -53,7 +52,7 @@ ms.lasthandoff: 08/08/2017
 即使下列步驟與舊版 Visual Studio 中的步驟類似，但這些步驟假設使用的是 Visual Studio 2015。 
 
 1. 啟動 Visual Studio，並在 [首頁] 畫面上選取 [新增專案]。
-2. 在快顯視窗中，選取 [Web] -> [ASP.Net Web 應用程式]。 填入應用程式的 [名稱]、[位置] 和 [方案名稱]，然後按一下 [確定]。
+2. 在快顯視窗中，選取 [Web] -> [ASP.Net Web 應用程式]。 填入應用程式的 名稱、位置 和 方案名稱，然後按一下確定。
 3. 在 [選取範本] 快顯視窗中，選取 [ASP.Net 4.5 範本] 底下的 [空白]，然後按一下 [確定]。 
 
 現在已建立新的空白 Web 應用程式專案，接著我們要將 Azure Mobile Engagement Web SDK 整合至其中。
@@ -118,5 +117,4 @@ ms.lasthandoff: 08/08/2017
 <!-- Images. -->
 [1]: ./media/mobile-engagement-web-app-get-started/visual-studio-solution-js.png
 [2]: ./media/mobile-engagement-web-app-get-started/session.png
-
 

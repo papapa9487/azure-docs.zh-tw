@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/03/2017
 ms.author: casoper
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: c92f1e20acf55b8bd791fad43f17e162a5cb3847
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-or-disable-https-on-an-azure-content-delivery-network-custom-domain"></a>啟用或停用 Azure 內容傳遞網路自訂網域上的 HTTPS
 
@@ -184,6 +183,5 @@ HTTPS 啟用後，您可以在日後將它停用。 若要停用 HTTPS，請依�
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[在 Azure CDN 端點上設定自訂網域](./cdn-map-content-to-custom-domain.md)
-
 
 

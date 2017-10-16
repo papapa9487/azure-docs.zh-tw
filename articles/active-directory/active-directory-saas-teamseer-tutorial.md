@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
 ms.openlocfilehash: 2a5e8f6d1443681c43db95da5cef0b7f2ef92291
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>教學課程：Azure Active Directory 與 TeamSeer 整合
 
@@ -73,7 +73,7 @@ TeamSeer 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_search.png)
 
-5. 在結果窗格中，選取 [TeamSeer]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 TeamSeer，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-teamseer-tutorial/tutorial_teamseer_addfromgallery.png)
 

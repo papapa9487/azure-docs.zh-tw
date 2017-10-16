@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 4d7c335a3c68cc9bb8cb0c823883716a3dd6620a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 當您決定要將哪些內容包含在 Azure Stack 市集中時，應該考慮可從 Azure Marketplace 取得的內容。 您可以從已預先測試而能在 Azure Stack 上執行的 Azure Marketplace 項目策劃清單下載。 新項目會不斷新增到此清單中，因此請務必回來查看是否有新內容。
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 09/27/2017
 
     ![](media/azure-stack-download-azure-marketplace-item/image03.png)
 
-5. 選取清單中您想要的項目，然後按一下 [下載]。 這會開始下載您所選項目的 VM 映像。 下載時間會有所不同。
+5. 選取清單中您想要的項目，然後按一下下載。 這會開始下載您所選項目的 VM 映像。 下載時間會有所不同。
 
     ![](media/azure-stack-download-azure-marketplace-item/image04.png)
 
@@ -53,4 +52,3 @@ ms.lasthandoff: 09/27/2017
 ## <a name="next-steps"></a>後續步驟
 
 [建立及發佈 Marketplace 項目](azure-stack-create-and-publish-marketplace-item.md)
-

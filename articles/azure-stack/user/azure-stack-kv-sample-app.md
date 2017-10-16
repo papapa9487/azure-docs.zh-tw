@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/26/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: 9b39c949e33dfbcc75ba8c09d6b38e4bdb243766
 ms.openlocfilehash: 7cfb78cc5219d4adab5ceddc9d7eb8d1fc71b678
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用金鑰保存庫中所儲存金鑰和密碼的範例應用程式
 
 在本文章中，我們將說明如何執行範例應用程式 (HelloKeyVault) 以取出 Azure Stack 中金鑰保存庫的金鑰和密碼。
@@ -147,7 +145,6 @@ Write-Host
 [使用金鑰保存庫密碼部署 VM](azure-stack-kv-deploy-vm-with-secret.md)
 
 [使用 Key Vault 憑證部署 VM](azure-stack-kv-push-secret-into-vm.md)
-
 
 
 

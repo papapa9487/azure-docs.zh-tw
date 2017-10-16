@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 3b0fe2a300038e13cc488bdb4f50f8be270ea8f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-properties-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用屬性
 API 管理原則是系統的強大功能，可讓發行者透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 原則陳述可以使用引述的文字、值、原則運算式及屬性來建構。 
@@ -32,7 +32,7 @@ API 管理原則是系統的強大功能，可讓發行者透過設定來變更 
 | Secret |布林值 |決定該值是否為密碼且是否應該加密。 |
 | 標記 |字串陣列 |若有提供選用的標記，則可用來篩選屬性清單。 |
 
-屬性是在發行者入口網站上的 [屬性]  索引標籤中設定。 在以下範例中，設定了三個屬性。
+屬性是在發行者入口網站上的 [屬性]  索引標籤中設定。在以下範例中，設定了三個屬性。
 
 ![屬性][api-management-properties]
 

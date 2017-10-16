@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 1d69c361b609a2f50ce11432bc422acd0d8cb178
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上管理 Apache Spark 叢集的資源 
 
@@ -52,12 +51,12 @@ ms.lasthandoff: 08/29/2017
 ## <a name="how-do-i-launch-the-yarn-ui"></a>如何啟動 Yarn UI？
 您可以使用 YARN UI 來監視目前在 Spark 叢集上執行的應用程式。
 
-1. 從叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [YARN]。
+1. 從叢集刀鋒視窗按一下 叢集儀表板，然後按一下YARN。
 
     ![啟動 YARN UI](./media/hdinsight-apache-spark-resource-manager/launch-yarn-ui.png)
 
    > [!TIP]
-   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。
+   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 叢集儀表板，然後按一下HDInsight 叢集儀表板。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。
    >
    >
 
@@ -126,7 +125,7 @@ Spark Thrift 伺服器驅動程式記憶體是設定為前端節點 RAM 大小�
 3. 您應該會看到 Spark Thrift 伺服器正在上面執行的兩個前端節點。 按一下其中一個前端節點。
 
     ![重新啟動 Thrift 伺服器](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-2.png)
-4. 下一個頁面列出在該前端節點上執行的所有服務。 從清單中，按一下 Spark Thrift 伺服器旁邊的下拉式按鈕，然後按一下 [停止] 。
+4. 下一個頁面列出在該前端節點上執行的所有服務。 從清單中，按一下 Spark Thrift 伺服器旁邊的下拉式按鈕，然後按一下停止 。
 
     ![重新啟動 Thrift 伺服器](./media/hdinsight-apache-spark-resource-manager/restart-thrift-server-3.png)
 5. 對其他前端節點重複這些步驟。
@@ -172,4 +171,3 @@ Spark Thrift 伺服器驅動程式記憶體是設定為前端節點 RAM 大小�
 * [HDInsight 的 Spark 叢集中 Jupyter Notebook 可用的核心](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [搭配 Jupyter Notebook 使用外部套件](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](hdinsight-apache-spark-jupyter-notebook-install-locally.md)
-

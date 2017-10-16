@@ -10,14 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
+ms.openlocfilehash: 411e10367f02846261f9fcc7717b5abb147b2c09
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 32311136a670261952d9bd0cf372e10a83cfe745
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
 Azure Application Insights 會從您的應用程式收集遙測，以協助分析其作業和效能。  使用此資訊可識別可能發生的問題，或識別對使用者影響最大的應用程式增強功能。  本教學課程會引導您完成以下程序：分析應用程式的伺服器元件效能，以及從用戶端角度分析效能。  您會了解如何：
@@ -127,4 +125,3 @@ Application Insights Analytics 提供豐富的查詢語言，可讓您分析 App
 
 > [!div class="nextstepaction"]
 > [針對應用程式健康情況發出警示](app-insights-tutorial-alert.md)
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>整合 Azure 儲存體帳戶與 Azure CDN
 可以啟用 CDN，以從您的 Azure 儲存體快取內容。 它透過將計算執行個體 Blob 與靜態內容快取到位於美國、歐洲、亞洲、澳洲與南美洲的實體節點中，為開發人員提供一套傳遞高頻寬內容的全球解決方案。
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/29/2017
 **為 Azure 訂用帳戶建立儲存體帳戶**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左下角，選取 [ **新增**]。 在 [新增] 對話方塊中，選取 [資料 + 儲存體]，然後按一下 [儲存體帳戶]。
+2. 在左下角，選取 [ **新增**]。 在 新增 對話方塊中，選取 資料 + 儲存體，然後按一下儲存體帳戶。
     
     此時會顯示 [建立儲存體帳戶]  刀鋒視窗。   
 

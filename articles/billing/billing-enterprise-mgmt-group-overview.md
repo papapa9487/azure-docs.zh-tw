@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 18541c68b02ae1b59ae4a6a85122dff614c9978c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源 
 
 如果您有多個訂用帳戶，您可以將它們組織到稱為「管理群組」的容器中，以協助您管理所有訂用帳戶的存取、原則、成本及合規性。 舉例來說，您可以將原則套用到管理群組，以限制可建立的資源類型。
@@ -93,6 +90,5 @@ Resource Manager 可讓您建立自訂的原則，以便管理您的資源。 �
 
 > [!Note]
 > 原則不會跨目錄強制執行。 
-
 
 

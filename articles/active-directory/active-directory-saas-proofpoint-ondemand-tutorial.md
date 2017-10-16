@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
 ms.openlocfilehash: b4c8d8c187fc865a905016f04a41843894249f5e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>教學課程：Azure Active Directory 與 Proofpoint on Demand 整合
 
@@ -73,7 +73,7 @@ Proofpoint on Demand 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_search.png)
 
-5. 在結果窗格中，選取 [Proofpoint on Demand]，然後按一下 [新增] 按鈕，以新增應用程式。
+5. 在結果窗格中，選取 Proofpoint on Demand，然後按一下新增 按鈕，以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-proofpoint-ondemand-tutorial/tutorial_proofpointondemand_addfromgallery.png)
 

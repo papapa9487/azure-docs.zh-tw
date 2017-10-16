@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
 ms.openlocfilehash: 001b80ccba43beab44f6a598f820df65a85a345f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-dns-records-and-record-sets-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 DNS 記錄和記錄集
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 07/11/2017
     ![刪除記錄集](./media/dns-operations-recordsets-portal/deleterecordset500.png)
 
 2. 隨即會出現訊息，詢問您是否要刪除記錄集。
-3. 確認該名稱符合您想要刪除的記錄集，然後按一下 [是] 。
+3. 確認該名稱符合您想要刪除的記錄集，然後按一下是 。
 4. 在 [DNS 區域]  刀鋒視窗中，確認不再看到該記錄集。
 
 ## <a name="work-with-ns-and-soa-records"></a>使用 NS 和 SOA 記錄

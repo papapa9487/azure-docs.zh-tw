@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 89bf87f27fdf276068cba261fc6ae1660307e0b7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-updates-for-multiple-azure-virtual-machines"></a>管理多部 Azure 虛擬機器的更新
 
 更新管理可讓您管理 Azure 虛擬機器的更新和修補程式。
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/25/2017
 3. 在畫面頂端，按一下 [新增 Azure VM]。
     ![讓 VM 上線](./media/manage-update-multi/update-onboard-vm.png)
 4. 選取要上線的虛擬機器。 [啟用更新管理] 畫面隨即顯示。
-5. 按一下 [啟用]。
+5. 按一下 [啟用] 。
 
    ![啟用更新管理](./media/manage-update-multi/update-enable.png)
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -447,7 +446,7 @@ Machine Learning 服務是多租用戶服務。 後端實際使用的計算資�
 ### <a name="new-web-services-overages"></a>新型 Web 服務：超額
 **如何檢查 Web 服務使用量是否超額？**
 
-您可以在 Azure Machine Learning Web 服務入口網站的 [方案] 頁面，檢視所有方案的使用量。 請登入該入口網站，然後按一下 [方案] 功能表選項。
+您可以在 Azure Machine Learning Web 服務入口網站的 [方案] 頁面，檢視所有方案的使用量。 請登入該入口網站，然後按一下方案 功能表選項。
 
 在資料表的 [交易] 和 [計算] 資料行，您可以看到方案的包含數量和已使用的百分比。
 
@@ -506,7 +505,7 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 **如何註冊 Azure Machine Learning 免費層？**
 
-您只需要 Microsoft 帳戶。 前往 [Azure Machine Learning 首頁](https://azure.microsoft.com/services/machine-learning/)，然後按一下 [立即開始]。 使用 Microsoft 帳戶登入，系統便會為您建立免費層工作區。 您可以立即開始探索，並建立機器學習服務實驗。
+您只需要 Microsoft 帳戶。 前往 [Azure Machine Learning 首頁](https://azure.microsoft.com/services/machine-learning/)，然後按一下立即開始。 使用 Microsoft 帳戶登入，系統便會為您建立免費層工作區。 您可以立即開始探索，並建立機器學習服務實驗。
 
 **如何註冊 Azure Machine Learning 標準層？**
 
@@ -532,8 +531,8 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 1. 登入 Azure Machine Learning Studio，確定您可以在上方導覽列的工作區選取器中看到免費工作區和標準工作區。
 2. 如果您目前位於標準工作區，請切換至免費工作區。
-3. 在實驗清單檢視中，選取想要複製的實驗，然後按一下 [複製] 命令按鈕。
-4. 在開啟的對話方塊中選取 [標準] 工作區，然後按一下 [複製] 按鈕。
+3. 在實驗清單檢視中，選取想要複製的實驗，然後按一下複製 命令按鈕。
+4. 在開啟的對話方塊中選取 標準 工作區，然後按一下複製 按鈕。
    所有相關聯的資料集、訓練好的模型等項目，會連同實驗複製到標準工作區中。
 5. 您必須在標準工作區中重新執行實驗並重新發行 Web 服務。
 
@@ -561,4 +560,3 @@ Machine Learning 服務是多租用戶服務。 後端實際使用的計算資�
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
 [python]: https://msdn.microsoft.com/library/azure/CDB56F95-7F4C-404D-BDE7-5BB972E6F232
 [counts]: https://msdn.microsoft.com/library/azure/dn913056.aspx
-

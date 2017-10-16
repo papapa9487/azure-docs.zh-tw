@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: f3d3d2b1ef0957417e09bb2c9b3913cd366aaa4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: ece2549a607ffa06602c26cf77db93f67112d029
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-ssl-policy-versions-and-cipher-suites-on-application-gateway"></a>在應用程式閘道上設定 SSL 原則版本和加密套件
 
 了解如何在應用程式閘道上設定 SSL 原則版本和加密套件。 您可以從[預先定義的原則清單](#predefined-ssl-policies)中選取，清單包含 SSL 原則版本和已啟用加密套件的不同設定。 您也可以根據您的需求定義[自訂 SSL 原則](#configure-a-custom-ssl-policy)。

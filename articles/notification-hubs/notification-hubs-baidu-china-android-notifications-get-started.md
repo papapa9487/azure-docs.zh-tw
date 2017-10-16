@@ -14,12 +14,11 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: df3bbda15e1245b6068c2b8290d0c96856051f1f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>透過百度開始使用通知中樞
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -70,7 +69,7 @@ ms.lasthandoff: 08/08/2017
 4. 在下一個頁面中，按一下右上角功能表中的 [注册开发者] \(**已註冊的開發人員**)。
    
       ![][8]
-5. 輸入您的名稱、描述和可收到驗證簡訊的行動電話號碼，然後按一下 [送验证码] \(**傳送驗證碼**)。 如果是國際電話號碼，您需要使用括號括住國碼。 例如，如果是美國的電話號碼，則為 **(1)1234567890**。
+5. 輸入您的名稱、描述和可收到驗證簡訊的行動電話號碼，然後按一下送验证码 \(**傳送驗證碼**)。 如果是國際電話號碼，您需要使用括號括住國碼。 例如，如果是美國的電話號碼，則為 **(1)1234567890**。
    
       ![][9]
 6. 您接著應該會收到包含驗證號碼的簡訊，如下列範例所示：
@@ -114,7 +113,7 @@ ms.lasthandoff: 08/08/2017
 10. 在下一個頁面中，按一下 [推送设置] \(**推播設定**) 按鈕。
     
     ![][32]  
-11. 在組態頁面中，在 [应用包名] \(**應用程式封裝**) 欄位新增要用於 Android 專案中的封裝名稱，然後按一下 [保存设置] \(**儲存**)。  
+11. 在組態頁面中，在 应用包名 \(**應用程式封裝**) 欄位新增要用於 Android 專案中的封裝名稱，然後按一下保存设置 \(**儲存**)。  
     
     ![][33]
 
@@ -122,8 +121,8 @@ ms.lasthandoff: 08/08/2017
 
 ## <a name="configure-your-notification-hub"></a>設定您的通知中樞
 1. 登入 [Azure 傳統入口網站]，並按一下畫面底部的 [+新增]。
-2. 依序按一下 [應用程式服務]、[服務匯流排]、[通知中樞]，然後按一下 [快速建立]。
-3. 提供 [通知中樞] 的名稱，選取 [區域] 和將建立此通知中樞的 [命名空間]，然後按一下 [建立新的通知中樞]。  
+2. 依序按一下 應用程式服務、服務匯流排、通知中樞，然後按一下快速建立。
+3. 提供 通知中樞 的名稱，選取 區域 和將建立此通知中樞的 命名空間，然後按一下建立新的通知中樞。  
    
       ![][17]
 4. 按一下您要在其中建立通知中樞的命名空間，然後按一下頂端的 [通知中樞]  。
@@ -135,7 +134,7 @@ ms.lasthandoff: 08/08/2017
 6. 向下捲動至 [百度通知設定]  區段，輸入先前從百度主控台為您的百度雲端推播專案取得的 API 金鑰和秘密金鑰。 按一下 [儲存] 。
    
       ![][20]
-7. 按一下通知中樞上方的 [儀表板] 索引標籤，然後按一下 [檢視連接字串]。
+7. 按一下通知中樞上方的 儀表板 索引標籤，然後按一下檢視連接字串。
    
       ![][21]
 8. 記下 [存取連接資訊] 視窗中的 **DefaultListenSharedAccessSignature** 和 **DefaultFullSharedAccessSignature**。
@@ -447,4 +446,3 @@ ms.lasthandoff: 08/08/2017
 [百度推播 Android SDK]: http://developer.baidu.com/wiki/index.php?title=docs/cplat/push/sdk/clientsdk
 [Azure 傳統入口網站]: https://manage.windowsazure.com/
 [百度入口網站]: http://www.baidu.com/
-

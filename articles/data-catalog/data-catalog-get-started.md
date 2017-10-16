@@ -16,10 +16,10 @@ ms.workload: data-catalog
 ms.date: 08/03/2017
 ms.author: spelluru
 ms.openlocfilehash: 5a3445aee7722579405b67830ca49ef8c0b29d0e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-catalog"></a>開始使用 Azure 資料目錄
 Azure 資料目錄是受到完整管理的雲端服務，可作為企業資料資產的註冊系統和探索系統。 如需詳細的概觀，請參閱 [什麼是 Azure 資料目錄](data-catalog-what-is-data-catalog.md)。
@@ -81,7 +81,7 @@ Azure AD 提供了簡單的方法，讓您的企業無論能輕鬆地管理雲�
 
 ### <a name="find-a-data-catalog-in-the-azure-portal"></a>在 Azure 入口網站中尋找資料目錄
 1. 在網頁瀏覽器的另一個索引標籤中或在不同的網頁瀏覽器視窗中，移至 [Azure 入口網站](https://portal.azure.com) ，然後使用您在上一個步驟中用來建立資料目錄的相同帳戶進行登入。
-2. 依序選取 [瀏覽]，然後按一下 [資料目錄]。
+2. 依序選取 瀏覽，然後按一下資料目錄。
    
     ![Azure 資料目錄--瀏覽 Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png) 您會看到您所建立的資料目錄。
    

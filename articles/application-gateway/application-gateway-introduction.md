@@ -15,12 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: davidmu
+ms.openlocfilehash: 33968b72d0da71577428937e5d293a40d62989f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: c8f54c81481ebced16ed259f07736b0a4bc80567
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-gateway"></a>應用程式閘道的概觀
 
@@ -107,4 +106,3 @@ Azure 應用程式閘道會透過基本或自訂健全狀態探測，自動監�
 若要了解如何使用 URL 型內容路由來建立應用程式閘道，請移至 [使用 URL 型路由建立應用程式閘道](application-gateway-create-url-route-arm-ps.md) 以取得詳細資訊。
 
 若要深入了解 Azure 的一些其他重要網路功能，請參閱 [Azure 網路功能](../networking/networking-overview.md)。
-

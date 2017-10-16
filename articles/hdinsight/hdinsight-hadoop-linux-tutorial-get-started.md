@@ -17,12 +17,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/23/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fd9e6dcea6524f55c1bd06da35f02be5670bf95f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Hadoop 教學課程：開始在 HDInsight 中使用 Hadoop
 
@@ -67,7 +66,7 @@ ms.lasthandoff: 08/24/2017
      
      如需這些屬性的詳細說明，請參閱[在 HDInsight 中建立Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-3. 選取 [我同意上方所述的條款及條件] 和 [釘選到儀表板]，然後按一下 [購買]。 您會在入口網站儀表板上看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 而入口網站會自動在新的刀鋒視窗中開啟資源群組。 您可以看到列出的叢集和預設儲存體。
+3. 選取 我同意上方所述的條款及條件 和 釘選到儀表板，然後按一下購買。 您會在入口網站儀表板上看到標題為 [進行範本部署] 的新圖格。 大約需要 20 分鐘的時間來建立叢集。 建立叢集後，此圖格的標題會變更為您指定的資源群組名稱。 而入口網站會自動在新的刀鋒視窗中開啟資源群組。 您可以看到列出的叢集和預設儲存體。
    
     ![HDInsight Linux 開始使用的資源群組](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 叢集資源群組")。
 
@@ -79,7 +78,7 @@ ms.lasthandoff: 08/24/2017
 ## <a name="run-hive-queries"></a>執行 Hive 查詢
 [Apache Hive](hdinsight-use-hive.md) 是 HDInsight 中使用的最受歡迎元件。 有許多方法可在 HDInsight 上執行 Hive 工作。 在本教學課程中，您將從入口網站使用 Ambari Hive 檢視。 如需提交 Hive 工作的其他方法，請參閱 [在 HDInsight 中使用 Hive](hdinsight-use-hive.md)。
 
-1. 從先前的螢幕擷取畫面中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。  您也可以瀏覽至 **https://&lt;ClusterName>.azurehdinsight.net** 以開啟 Ambari，其中 &lt;ClusterName> 是您在上一節建立的叢集。
+1. 從先前的螢幕擷取畫面中按一下 叢集儀表板，然後按一下HDInsight 叢集儀表板。  您也可以瀏覽至 **https://&lt;ClusterName>.azurehdinsight.net** 以開啟 Ambari，其中 &lt;ClusterName> 是您在上一節建立的叢集。
 2. 輸入您在上一節指定的 Hadoop 使用者名稱和密碼。 預設的使用者名稱為 **admin**。
 3. 開啟 [Hive 檢視]  ，如下列螢幕擷取畫面所示：
    
@@ -159,6 +158,5 @@ ms.lasthandoff: 08/24/2017
 [hdinsight-use-mapreduce]: hdinsight-use-mapreduce.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
 
 

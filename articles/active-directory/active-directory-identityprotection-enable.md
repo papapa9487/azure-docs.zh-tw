@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f231252c222c5520d0a66f9b40749bd203545f16
-ms.openlocfilehash: 44ee1e58b65b23eeb3fa3710fcb29a1646d5f3ad
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: e0683e837086ca08f4b4b3f49695bdd2b4063ea4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>啟用 Azure Active Directory Identity Protection
 Azure Active Directory Identity Protection 是一項新功能，可針對可疑的登入活動和潛在弱點提供整合檢視，並提供通知、補救建議及以風險為基礎的原則，來協助保護您的企業。 
@@ -46,5 +45,4 @@ Azure Active Directory Identity Protection 是一項新功能，可針對可疑�
 
 ## <a name="next-steps"></a>後續步驟
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

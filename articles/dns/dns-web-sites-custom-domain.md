@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: d4b0aa817c3fd7f3304b5122ac584166d8079d3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>在自訂網域中建立 Web 應用程式的 DNS 記錄
 
 您可以使用 Azure DNS 來裝載 Web 應用程式的自訂網域。 例如，您正在建立 Azure Web 應用程式，而且想要讓使用者使用 contoso.com 或 www.contoso.com 做為 FQDN 來存取它。
@@ -203,4 +201,3 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 ## <a name="next-steps"></a>後續步驟
 
 依照 [設定 App Service 的自訂網域名稱](../app-service/app-service-web-tutorial-custom-domain.md) 中的步驟設定 Web 應用程式使用自訂網域。
-

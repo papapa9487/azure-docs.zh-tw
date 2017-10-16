@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: bcf42ebb081517d247690ee57c2be274784ef29d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3d2023c3e129cfdea27f343a41b3cc373c0c3b8f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>部署您的內部部署 StorSimple 裝置 (Update 3 和更新版本)
 
@@ -198,5 +197,4 @@ StorSimple 裝置管理員服務可以管理多個 StorSimple 裝置。 執行�
 ## <a name="next-steps"></a>後續步驟
 * [設定 StorSimple 雲端設備](storsimple-8000-cloud-appliance-u2.md)。
 * [使用 StorSimple 裝置管理員服務來管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
-
 

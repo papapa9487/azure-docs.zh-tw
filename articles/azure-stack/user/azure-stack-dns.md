@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ac93b5eb4228cef373428b7b69932d5993d54fa0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-in-azure-stack"></a>Azure Stack 中的 DNS
 
@@ -102,4 +101,3 @@ Azure Stack DNS 使用 Etag 以安全地處理相同資源的並行變更。 Eta
 
 ## <a name="next-steps"></a>後續步驟
 [適用於 Azure Stack 的 iDNS 簡介](azure-stack-understanding-dns.md)
-

@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3b40a657ee8eb391d14a38cb95acc0729a8dda21
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑難排解
 
-*適用於：Azure Stack 開發封裝*
+適用於：Azure Stack 開發套件
 
 此文件提供 Azure Stack 的常見疑難排解資訊。 
 
@@ -97,7 +96,6 @@ ms.lasthandoff: 09/25/2017
     * 使用者只有在重設入口網站設定之後，才能看到儀表板 (在使用者入口網站中，按一下入口網站設定圖示 (右上角的齒輪圖示)。 在 [還原預設設定] 下，按一下 [套用])。
     * 儀表板標題可能不會出現。 若發生此問題，您必須手動將它們新增回來。
     * 首次將圖格新增到儀表板時，某些圖格可能無法正確顯示。 若要修正此問題，請重新整理瀏覽器。
-
 
 
 

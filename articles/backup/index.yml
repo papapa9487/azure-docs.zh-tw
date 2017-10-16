@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure 備份文件
 metadata:
   title: Azure 備份文件 - 教學課程和 API 參考 | Microsoft Docs
-  description: Azure Backup 可讓您備份內部部署伺服器、虛擬機器、虛擬化工作負載、SQL Server、SharePoint Server 等的資料。 了解如何利用我們的快速入門、教學課程和範例來備份及還原資料。
+  description: Azure Backup 可讓您備份內部部署伺服器、虛擬機器、虛擬化工作負載、SQL Server、SharePoint 伺服器等的資料。 了解如何利用我們的快速入門、教學課程和範例來備份及還原資料。
   services: backup
   author: czeumault
   manager: carolz

@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/19/2016
 ms.author: piyushjo
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-unity-ios-deployment"></a>開始使用適用於 Unity iOS 部署的 Azure Mobile Engagement
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -37,10 +37,10 @@ ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
 > 
 > 
 
-## <a name="a-idsetupazmeasetup-mobile-engagement-for-your-ios-app"></a><a id="setup-azme"></a>為您的 iOS 應用程式設定 Mobile Engagement
+## <a id="setup-azme"></a>為您的 iOS 應用程式設定 Mobile Engagement
 [!INCLUDE [Create Mobile Engagement App in Portal](../../includes/mobile-engagement-create-app-in-portal-new.md)]
 
-## <a name="a-idconnectingappaconnect-your-app-to-the-mobile-engagement-backend"></a><a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
+## <a id="connecting-app"></a>將您的應用程式連線至 Mobile Engagement 後端
 ### <a name="import-the-unity-package"></a>匯入 Unity 封裝
 1. 下載 [Mobile Engagement Unity 封裝](https://aka.ms/azmeunitysdk) 並將它儲存到本機電腦。 
 2. 移至 [資產] -> [匯入套件] -> [自訂套件]，然後選取您在上一個步驟中下載的套件。 
@@ -74,7 +74,7 @@ ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
 2. 開啟 [檔案] -> [組建設定] 
    
     ![][40]
-3. 選取 [iOS]，然後按一下 [切換平台]
+3. 選取 iOS，然後按一下切換平台
    
     ![][41]
    
@@ -94,10 +94,10 @@ ms.openlocfilehash: c8f50404771965ec636065346ac04e059d264c3d
     ![][75]
 9. 現在在 XCode 中執行應用程式，封裝就會部署到您連接的裝置，您應該會在電話上看到您的 Unity 遊戲！ 
 
-## <a name="a-idmonitoraconnect-app-with-realtime-monitoring"></a><a id="monitor"></a>將應用程式與即時監視連接
+## <a id="monitor"></a>將應用程式與即時監視連接
 [!INCLUDE [Connect app with real-time monitoring](../../includes/mobile-engagement-connect-app-with-monitor.md)]
 
-## <a name="a-idintegratepushaenable-push-notifications-and-inapp-messaging"></a><a id="integrate-push"></a>啟用推播通知與 App 內傳訊
+## <a id="integrate-push"></a>啟用推播通知與 App 內傳訊
 Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊」，於活動進行時與使用者互動和觸達 (REACH)。 此模組在 Mobile Engagement 入口網站中稱為 REACH。
 您不必在您的應用程式中做任何額外的設定來接收通知，它早已設定好了。
 
@@ -116,9 +116,3 @@ Mobile Engagement 可讓您透過「推播通知」和「應用程式內傳訊�
 [73]: ./media/mobile-engagement-unity-ios-get-started/73.png
 [74]: ./media/mobile-engagement-unity-ios-get-started/74.png
 [75]: ./media/mobile-engagement-unity-ios-get-started/75.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

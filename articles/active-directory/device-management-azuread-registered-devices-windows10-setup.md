@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 427bf9a0487c771e57ac53a9bb0b7d7e2f6bdca2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>設定註冊 Azure Active Directory 的 Windows 10 裝置
 
@@ -108,7 +107,6 @@ ms.lasthandoff: 09/20/2017
 - 如需詳細資訊，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)
 
 - 如需有關在 Azure AD 入口網站中管理裝置的詳細資訊，請參閱[使用 Azure 入口網站來管理裝置](device-management-azure-portal.md)。
-
 
 
 

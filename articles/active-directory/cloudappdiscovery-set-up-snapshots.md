@@ -16,14 +16,12 @@ ms.date: 09/22/2017
 ms.author: curtand
 ms.reviewer: nigu
 ms.custom: it-pro
+ms.openlocfilehash: dd4cf725689739ce4c8b86a4d8203ffc5aff016b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 38e3f71fb4817de7aa95b99e662856f586e72530
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>建立 Cloud App Discovery 快照集報告
 
 設定自動記錄收集器之前，請手動上傳記錄，讓 Cloud App Security 進行剖析。 如果您還沒有記錄，但想要查看記錄大致外觀的範例，請使用下面程序來下載範例記錄檔，以查看您的記錄檔應看起來的樣子。
@@ -38,7 +36,7 @@ ms.lasthandoff: 09/25/2017
     
   ![新的快照集報告](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-form.png)
 4. 選取您要上傳記錄檔的 [資料來源]。
-5. 根據您可下載的範例來驗證您的記錄格式，並確定它的格式正確。 按一下 [檢視並確認]，然後按一下 [下載範例記錄]。 然後比較您的記錄與所提供的範例，並確定它是相容的。
+5. 根據您可下載的範例來驗證您的記錄格式，並確定它的格式正確。 按一下 檢視並確認，然後按一下下載範例記錄。 然後比較您的記錄與所提供的範例，並確定它是相容的。
   
   ![驗證記錄格式](./media/cloudappdiscovery-set-up-snapshots/create-snapshot-verify.png)
   >  [!NOTE]
@@ -56,4 +54,3 @@ ms.lasthandoff: 09/25/2017
 * [開始使用 Azure AD 中的 Cloud App Discovery](cloudappdiscovery-get-started.md)
 * [設定自動記錄上傳以便進行連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-

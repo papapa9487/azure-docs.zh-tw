@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 20cac6eace89d86f8fa6d7640357e19c8d7359b3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="download-azure-stack-tools-from-github"></a>從 GitHub 下載 Azure Stack 工具
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
@@ -82,4 +80,3 @@ AzureStack-Tools 存放庫包含 PowerShell 模組，其支援下列 Azure Stack
 ## <a name="next-steps"></a>後續步驟
 * [設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)   
 * [透過 VPN 連線至 Azure Stack 開發套件](azure-stack-connect-azure-stack.md)  
-

@@ -11,14 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/26/2017
 ms.author: jingwang
+ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea7220310f63108f8ec2fa1b28ddcaf992a3a51
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -156,7 +155,7 @@ ms.lasthandoff: 09/25/2017
 | sqlDwPolyBase | 如果將資料複製到 SQL 資料倉儲時使用 PolyBase。 | Boolean |
 | redshiftUnload | 如果從 Redshift 複製資料時使用 UNLOAD。 | Boolean |
 | hdfsDistcp | 如果從 HDFS 複製資料時使用 DistCp。 | Boolean |
-| effectiveIntegrationRuntime | 以下列格式顯示使用哪一個整合執行階段讓活動執行：<IR name> (<region for Azure IR>)。 | 文字 (字串) |
+| effectiveIntegrationRuntime | 以下列格式顯示使用哪個 Integration Runtime 用於讓活動執行：`<IR name> (<region if it's Azure IR>)`。 | 文字 (字串) |
 | usedCloudDataMovementUnits | 複製期間的有效雲端資料移動單位。 | Int32 值 |
 | redirectRowPath | 您在 redirectIncompatibleRowSettings 下設定之 Blob 儲存體中略過之不相容資料列的記錄路徑。 請參閱下列範例。 | 文字 (字串) |
 | billedDuration | 移動資料需付費的持續時間。 | Int32 值 (以秒為單位) |
@@ -196,4 +195,3 @@ ms.lasthandoff: 09/25/2017
 - [在相同的 Azure Blob 儲存體中將資料從一個位置複製到另一個位置](quickstart-create-data-factory-dot-net.md)
 - [將資料從 Azure Blob 儲存體複製到 Azure SQL Database](tutorial-copy-data-dot-net.md)
 - [將資料從內部部署 SQL Server 複製到 Azure](tutorial-hybrid-copy-powershell.md)
-

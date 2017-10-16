@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/04/2016
 ms.author: piyushjo;matt-gibbs
-translationtype: Human Translation
-ms.sourcegitcommit: c0e2324a2b2e6294df6e502f2e7a0ae36ff94158
 ms.openlocfilehash: 42b50685b854cabe8906f42aac81ab82c63f8a94
-ms.lasthandoff: 01/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-mobile-engagement-overview"></a>Azure Mobile Engagement 概觀
 Azure Mobile Engagement 是軟體即服務 (SaaS) 的使用者參與平台，可針對應用程式使用量和即時使用者區隔提供資料導向的深入解析，以及啟用內容感知的推播通知及應用程式內的傳訊功能。
@@ -51,5 +50,4 @@ Microsoft 長期以來一直都非常重視隱私權的問題，這是我們的�
 [開始使用](/index.md)
 
 [下載示範應用程式和原始程式碼](https://aka.ms/azmedemoapps)
-
 

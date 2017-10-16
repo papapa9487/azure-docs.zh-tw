@@ -14,10 +14,10 @@ ms.workload: big-data
 ms.date: 11/30/2016
 ms.author: jejiang
 ms.openlocfilehash: c49f80f8dcd330d7f46726241e7178351b9cc28f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-u-sql-assemblies-for-azure-data-lake-analytics-jobs"></a>針對 Azure Data Lake Analytics 作業開發 U-SQL 組件
 了解如何將程式碼後置轉換成可用於和重複用於 Data Lake Analytics 作業中的組件。 
@@ -44,7 +44,7 @@ U-SQL 可讓您輕鬆地以 .Net 語言來新增您自己的程式碼，例如 C
 **建立和提交 U-SQL 工作**
 
 1. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
-2. 展開 [已安裝]、[範本]、[Azure Data Lake]、[U-SQL(ADLA)]，選取 [類別庫 (適用於 U-SQL 應用程式)] 範本，然後按一下 [確定]。
+2. 展開 已安裝、範本、Azure Data Lake、U-SQL(ADLA)，選取 類別庫 (適用於 U-SQL 應用程式) 範本，然後按一下確定。
 3. 在 Class1.cs 中撰寫程式碼。  以下是程式碼範例。
 
         using Microsoft.Analytics.Interfaces;
@@ -62,7 +62,7 @@ U-SQL 可讓您輕鬆地以 .Net 語言來新增您自己的程式碼，例如 C
                 }
             }
         }
-4. 按一下 [建置] 功能表，然後按一下 [建置方案] 來建立 dll。
+4. 按一下 建置 功能表，然後按一下建置方案 來建立 dll。
 
 ## <a name="register-assemblies"></a>註冊組件
 

@@ -15,10 +15,10 @@ ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>開發人員適用的 Azure Active Directory
 Azure Active Directory 是一項雲端識別服務，可讓開發人員使用 Microsoft 所支援的工作或學校帳戶安全地讓任何使用者登入。  此處的文件說明如何使用業界標準驗證通訊協定 (OAuth 和 OpenID Connect)，將 Azure AD 支援新增至您的應用程式。

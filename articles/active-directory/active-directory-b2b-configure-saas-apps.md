@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
 ms.openlocfilehash: 149a493f7b369415f0a2726dd6a576f0195c13d9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>為 B2B 共同作業設定 SaaS 應用程式
 
@@ -38,7 +38,7 @@ Azure Active Directory (Azure AD) B2B 共同作業可搭配與 Azure AD 整合�
 
 若要讓使用者使用其組織帳戶登入，您必須手動設定 Dropbox Business，才能使用 Azure AD 做為安全性聲明標記語言 (SAML) 識別提供者。 如果 Dropbox Business 已這樣設定，則無法顯示提示或允許使用者使用 Azure AD 進行登入。
 
-1. 若要將 Dropbox Business 應用程式新增至 Azure AD，請選取左的窗格中的 [企業應用程式]，然後按一下 [新增]。
+1. 若要將 Dropbox Business 應用程式新增至 Azure AD，請選取左的窗格中的 企業應用程式，然後按一下新增。
 
   ![企業應用程式頁面上的 [新增] 按鈕](media/active-directory-b2b-configure-saas-apps/add-dropbox.png)
 

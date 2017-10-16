@@ -17,10 +17,10 @@ ms.date: 06/05/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 42b18eab9cb419e6ada72ba72dc8be8d7f7b2eed
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>依據 Azure Active Directory 中的群組成員資格將授權指派給使用者
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 08/03/2017
 我們現在已指定「人力資源部門」群組的授權範本。 在 Azure AD 中的背景處理已開始處理該群組的所有現有成員。 此初始作業可能需要一些時間，依群組的目前大小而定。 在下一個步驟中，我們將說明如何確認處理程序已完成，並且決定是否需要進一步注意以解決問題。
 
 > [!NOTE]
-> 您可以從 Azure AD 中的其他位置︰**使用者和群組**啟動相同的指派。 移至 [Azure Active Directory] > [使用者和群組] > [所有群組]。 然後尋找群組並加以選取，而後移至 [授權] 索引標籤。 刀鋒視窗頂端的 [指派] 按鈕會開啟授權指派刀鋒視窗。
+> 您可以從 Azure AD 中的其他位置︰**使用者和群組**啟動相同的指派。 移至 [Azure Active Directory] > [使用者和群組] > [所有群組]。 然後尋找群組並加以選取，而後移至 [授權] 索引標籤。刀鋒視窗頂端的 [指派] 按鈕會開啟授權指派刀鋒視窗。
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>步驟 2︰確認已完成初始指派
 

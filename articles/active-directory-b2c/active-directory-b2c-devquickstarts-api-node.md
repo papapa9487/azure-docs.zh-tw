@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C：使用 Node.js 保護 Web API 安全
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ ms.lasthandoff: 02/14/2017
 若要執行此範例，您需要：
 
 1. 向 Azure AD 註冊應用程式。
-2. 設定您的應用程式來使用 Passport 的 `azure-ad-passport` 外掛程式。
+2. 設定您的應用程式來使用 Passport 的 `passport-azure-ad` 外掛程式。
 3. 設定用戶端應用程式呼叫「待辦事項清單」Web API。
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>取得 Azure AD B2C 目錄
@@ -762,4 +760,3 @@ Transfer-Encoding: chunked
 您現在可以進入更進階的主題，例如：
 
 [使用 iOS 搭配 B2C 連線至 Web API](active-directory-b2c-devquickstarts-ios.md)
-

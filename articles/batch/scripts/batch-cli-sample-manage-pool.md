@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>使用 Azure CLI 管理 Azure Batch 集區
 
 這些指令碼示範 Azure CLI 中一些可用的工具，用於建立和管理 Azure Batch 服務中的計算節點集區。
@@ -39,11 +37,11 @@ ms.lasthandoff: 09/09/2017
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>使用雲端服務組態範例指令碼的集區
 
-[!code-azurecli[主要](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "管理雲端服務集區")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
 ## <a name="pool-with-virtual-machine-configuration-sample-script"></a>使用虛擬機器組態範例指令碼的集區
 
-[!code-azurecli[主要](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "管理虛擬機器集區")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 
 ## <a name="clean-up-pools"></a>清除集區
 
@@ -79,5 +77,4 @@ az batch pool delete --pool-id mypool-linux
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure/overview)。
 
 您可以在 [Azure Batch CLI 文件](../batch-cli-samples.md)中找到其他的 Batch CLI 指令碼範例。
-
 

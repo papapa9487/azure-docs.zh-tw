@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: markvi
 ms.openlocfilehash: 62adf8a9fd4400a056e2c0f59c79431acbad5865
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticating-identities-without-passwords-through-windows-hello-for-business"></a>透過 Windows Hello 企業版不需要密碼就能驗證身分識別
 目前單獨驗證密碼的方法不足以保障使用者的安全。 使用者會重複使用和忘記密碼。 密碼是可破壞、可進行網路釣魚、易於破解且可猜測的。 密碼也很難記住，而且易於遭受攻擊，例如「[傳送雜湊](https://technet.microsoft.com/dn785092.aspx)」。

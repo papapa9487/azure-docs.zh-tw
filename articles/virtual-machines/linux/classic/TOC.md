@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [製作 Resource Manager 範本](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [社群範本](https://azure.microsoft.com/documentation/templates)
-## [計算 REST](/rest/api/compute)
-## [網路 REST](/rest/api)
-## [儲存體 REST](/rest/api/storageservices)
+## [計算 REST](https://msdn.microsoft.com/library/jj157206.aspx)
+## [網路 REST](https://msdn.microsoft.com/library/jj157182.aspx)
+## [儲存體 REST](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # 資源

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 8/7/2017
 ms.author: sromeroz
 ms.openlocfilehash: 8c2154fcf33537358b549395d15b4ba937371cd0
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-facebook-accounts"></a>Azure Active Directory B2C：針對具有 Facebook 帳戶的取用者提供註冊和登入
 ## <a name="create-a-facebook-application"></a>建立 Facebook 應用程式
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/18/2017
 
 1. 前往 [Facebook for developers (開發人員專用的 Facebook)](https://developers.facebook.com/) 網站，並以您的 Facebook 帳戶認證登入。
 2. 如果您尚未這麼做，您需要註冊為 Facebook 開發人員。 若要這樣做，請按一下 **[註冊]**  \(位於頁面右上角)、接受 Facebook 的原則，然後完成註冊步驟。
-3. 按一下 [我的應用程式]，然後按一下 [新增應用程式]。 
+3. 按一下 我的應用程式，然後按一下新增應用程式。 
 4. 在表單中，提供**顯示名稱**和有效的**連絡人電子郵件**。
 5. 按一下 [建立應用程式識別碼]。 這可能會要求您接受 Facebook 平台原則，並完成線上安全性檢查。
 6. 在左欄中，按一下 [設定]，然後選取 [基本] \(如果尚未選取)。
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/18/2017
     ![Facebook - 設定](./media/active-directory-b2c-setup-fb-app/fb-settings.png)
    
     ![Facebook - 設定 - 網站](./media/active-directory-b2c-setup-fb-app/fb-website.png)
-9. 在頁面底部的 [網站 URL] 欄位中輸入 `https://login.microsoftonline.com/`，然後按一下 [儲存變更]。
+9. 在頁面底部的 網站 URL 欄位中輸入 `https://login.microsoftonline.com/`，然後按一下儲存變更。
    
     ![Facebook - 網站 URL](./media/active-directory-b2c-setup-fb-app/fb-site-url.png)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.openlocfilehash: e64a966f24411818abc4cc4ab29a428b5577d012
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>教學課程：Azure Active Directory 與 LockPath Keylight 整合
 
@@ -73,7 +73,7 @@ LockPath Keylight 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_search.png)
 
-5. 在結果面板中，選取 [LockPath Keylight]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 LockPath Keylight，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-keylight-tutorial/tutorial_keylight_addfromgallery.png)
 
@@ -157,7 +157,7 @@ LockPath Keylight 與 Azure AD 整合提供下列優點：
 
     c. 將您從 Azure 入口網站複製的 [單一登出服務 URL] 值，貼到 [識別提供者登出 URL] 文字方塊中。
 
-    d. 按一下 [選擇檔案] 來選取下載的 LockPath Keylight 憑證，然後按一下 [開啟] 以上傳憑證。
+    d. 按一下 選擇檔案 來選取下載的 LockPath Keylight 憑證，然後按一下開啟 以上傳憑證。
 
     e. 將 [SAML 使用者識別碼位置] 設定為 [Subject 陳述式的 NameIdentifier 元素]。
     

@@ -14,14 +14,14 @@ ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: 5c642bb814a279756e8391f12fdc86b6ec0b4a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>如何使用 Azure Active Directory Power BI 內容套件
 
-身為 IT 管理員，了解您的使用者如何採用及使用 Azure Active Directory 功能相當重要。 這可讓您規劃 IT 基礎結構及通訊，以增加使用量和充分運用 AAD 功能。 Azure Active Directory 的 power BI 內容套件可讓您進一步分析資料，以了解如何使用此資料來收集更豐富的分析結果，讓您清楚知道 Azure Active Directory 中您重度依賴的各種功能狀況。  透過將 Azure Active Directory API 與 Power BI 整合，您可以輕鬆地下載預先建立的內容套件，並使用 Power BI 提供的豐富視覺效果經驗深入了解 Azure Active Directory 中所有活動。 您可以建立自己的儀表板，並輕鬆地與組織中所有人共用。 
+身為 IT 管理員，了解您的使用者如何採用及使用 Azure Active Directory 功能相當重要。這可讓您規劃 IT 基礎結構及通訊，以增加使用量和充分運用 AAD 功能。 Azure Active Directory 的 power BI 內容套件可讓您進一步分析資料，以了解如何使用此資料來收集更豐富的分析結果，讓您清楚知道 Azure Active Directory 中您重度依賴的各種功能狀況。  透過將 Azure Active Directory API 與 Power BI 整合，您可以輕鬆地下載預先建立的內容套件，並使用 Power BI 提供的豐富視覺效果經驗深入了解 Azure Active Directory 中所有活動。 您可以建立自己的儀表板，並輕鬆地與組織中所有人共用。 
 
 本主題會提供逐步指示，說明如何在您的環境中安裝及使用內容套件。
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 08/03/2017
 
 
 
-7.  輸入您的使用者名稱和密碼，然後按一下 [登入]。
+7.  輸入您的使用者名稱和密碼，然後按一下登入。
  
     ![Azure Active Directory Power BI 內容套件](./media/active-directory-reporting-power-bi-content-pack-how-to/06.png) 
 

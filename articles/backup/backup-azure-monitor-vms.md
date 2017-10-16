@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
 ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>監視 Azure 虛擬機器備份的警示
 警示是來自已達到或超過事件閾值之服務的回應。 了解何時出現問題，可能對於維持低商務成本很重要。 警示通常不會依照排程發生，因此在警示發生之後盡早得知將會有所幫助。 例如，當備份或還原作業失敗時，警示會在失敗後五分鐘內發生。 在保存庫儀表板中，[備份警示] 圖格會顯示嚴重和警告層級的事件。 在 [備份警示] 設定中，您可以檢視所有事件。 但是，如果在您處理不同問題時發生警示，您該怎麼辦？ 如果您不知道何時發生警示，可能會有點不便，或可能危及資料。 若要確定正確的人員會留意警示 (當它發生時)，請設定服務以透過電子郵件傳送警示通知。 如需設定電子郵件通知的詳細資訊，請參閱 [設定通知](backup-azure-monitor-vms.md#configure-notifications)。

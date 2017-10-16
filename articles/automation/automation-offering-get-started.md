@@ -1,4 +1,4 @@
---- 
+---
 title: "開始使用 Azure 自動化 | Microsoft Docs"
 description: "本文藉由回顧準備從 Auzre Marketplace 將供應項目上架的設計和實作詳細資料，提供 Azure 自動化服務的概觀。"
 services: automation
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>開始使用 Azure 自動化
 
 本入門指南會介紹 Azure 自動化的部署相關核心概念。 如果您不熟悉 Azure 中的自動化，或具備使用自動化工作流程軟體 (例如 System Center Orchestrator) 的經驗，本指南可協助您了解如何準備及登入自動化。  之後，您就準備好開始開發 Runbook，以支援您的程序自動化需求。 
@@ -191,6 +189,5 @@ Azure Resource Manager 提供了角色型存取控制來對 Azure AD 使用者�
 ## <a name="next-steps"></a>後續步驟
 * 您可藉由檢閱[測試 Azure 自動化執行身分帳戶驗證](automation-verify-runas-authentication.md)，確認新的自動化帳戶可以驗證 Azure 資源。
 * 若要開始使用建立 Runbook，請在開始撰寫之前，先檢閱[自動化 Runbook 類型](automation-runbook-types.md)支援和相關考量。
-
 
 

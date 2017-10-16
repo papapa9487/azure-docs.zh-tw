@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ea7510c239ee07a9a27f3e682e61a6b08eb5694d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack 中的使用量與計費
 
@@ -72,5 +71,4 @@ Azure 計費入口網站只會顯示可收費資源的使用量資料。 除了�
 [租用戶資源使用情況 API](azure-stack-tenant-resource-usage-api.md)
 
 [使用量相關常見問題集](azure-stack-usage-related-faq.md)
-
 

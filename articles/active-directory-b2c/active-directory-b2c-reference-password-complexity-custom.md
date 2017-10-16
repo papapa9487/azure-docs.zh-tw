@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: 5be521a08ab70be891ddd5fcb374adc52d5c0705
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-password-complexity-in-custom-policies"></a>在自訂原則中設定密碼複雜度
 
@@ -232,4 +231,3 @@ Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求�
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
-

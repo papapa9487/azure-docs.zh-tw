@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
 ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>開始使用適用於 Windows 通用 App 的 Azure Mobile Engagement
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -44,7 +44,7 @@ ms.lasthandoff: 08/18/2017
 即使下列步驟與舊版 Visual Studio 中的步驟類似，但這些步驟假設使用的是 Visual Studio 2015。
 
 1. 啟動 Visual Studio，並在 [首頁] 畫面上選取 [新增專案]。
-2. 在快顯視窗中，選取 [Windows] -> [通用] -> [空白應用程式 (通用 Windows)]。 輸入應用程式的 [名稱] 和 [方案名稱]，然後按一下 [確定]。
+2. 在快顯視窗中，選取 [Windows] -> [通用] -> [空白應用程式 (通用 Windows)]。 輸入應用程式的 名稱 和 方案名稱，然後按一下確定。
 
     ![][1]
 

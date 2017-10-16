@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 9a30bcca720ff135d0180d73f46e78403e9bca43
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scc-lifecycle"></a>教學課程：Azure Active Directory 與 SCC LifeCycle 整合
 本教學課程的目的是要示範 Azure 與 SCC LifeCycle 的整合。  
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/11/2017
 6. 在 [搜尋] 對話方塊中，輸入 **SCC LifeCycle**。
    
     ![應用程式資源庫](./media/active-directory-saas-scc-lifecycle-tutorial/IC794121.png "應用程式資源庫")
-7. 在結果窗格中，選取 [SCC LifeCycle]，然後按一下 [完成] 來新增應用程式。
+7. 在結果窗格中，選取 SCC LifeCycle，然後按一下完成 來新增應用程式。
    
     ![SCC LifeCycle](./media/active-directory-saas-scc-lifecycle-tutorial/IC795082.png "SCC LifeCycle")
    
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/11/2017
    > 
    > 
 
-6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
    
     ![設定單一登入](./media/active-directory-saas-scc-lifecycle-tutorial/IC794125.png "設定單一登入")
    
@@ -112,7 +112,7 @@ ms.lasthandoff: 07/11/2017
 2. 在 [SCC LifeCycle] 應用程式整合頁面上，按一下 [指派使用者]。
    
     ![指派使用者](./media/active-directory-saas-scc-lifecycle-tutorial/IC794126.png "指派使用者")
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
     ![是](./media/active-directory-saas-scc-lifecycle-tutorial/IC767830.png "是")
 

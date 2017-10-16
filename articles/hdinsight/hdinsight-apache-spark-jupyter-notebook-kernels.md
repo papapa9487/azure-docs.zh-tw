@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/07/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
 ms.openlocfilehash: dd1c18e32f3d0386e522dba82ce494394abbf8ed
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="kernels-for-jupyter-notebook-on-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Spark 叢集上的 Jupyter Notebook 核心 
 
@@ -55,7 +54,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 Spark 上的 Jupyter Not
    > 
    > 
 
-3. 按一下 [新增]，然後按一下 [Pyspark]、[PySpark3] 或 [Spark] 建立 Notebook。 使用適用於 Scala 應用程式的 Spark 核心、適用於 Python2 應用程式的 PySpark 核心，以及適用於 Python3 應用程式的 PySpark3 核心。
+3. 按一下 新增，然後按一下Pyspark、PySpark3 或 Spark 建立 Notebook。 使用適用於 Scala 應用程式的 Spark 核心、適用於 Python2 應用程式的 PySpark 核心，以及適用於 Python3 應用程式的 PySpark3 核心。
    
     ![Spark 上的 Jupyter Notebook 核心](./media/hdinsight-apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark 上的 Jupyter Notebook 核心") 
 
@@ -178,4 +177,3 @@ Google Chrome 上只支援 Spark HDInsight 叢集上的 Jupyter Notebook。
 ### <a name="manage-resources"></a>管理資源
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](hdinsight-apache-spark-job-debugging.md)
-
