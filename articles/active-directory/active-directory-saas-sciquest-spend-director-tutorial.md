@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/17/2017
 ms.author: jeedes
 ms.openlocfilehash: 84b707668dc45e92e6151f422f1c919f638533b1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>教學課程：Azure Active Directory 與 SciQuest Spend Director 整合
 本教學課程旨在說明如何整合 SciQuest Spend Director 與 Azure Active Directory (Azure AD)。  
@@ -80,7 +80,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
    
     ![應用程式][5]
 
-7. 在結果窗格中，選取 [SciQuest Spend Director]，然後按一下 [完成] 來新增應用程式。
+7. 在結果窗格中，選取 SciQuest Spend Director，然後按一下完成 來新增應用程式。
    
     ![應用程式][6]
 
@@ -127,7 +127,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
 
 5. 連絡 SciQuest 支援來啟用使用上述下載的中繼資料進行驗證的方法。
 
-6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。 
+6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。 
    
     ![何謂 Azure AD Connect][15]
 

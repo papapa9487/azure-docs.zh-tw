@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/06/2017
 ms.author: jeedes
 ms.openlocfilehash: 1c009aa1fdd3140a4466cf762b6c9687e74ce4c7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>教學課程：Azure Active Directory 與 Picturepark 整合
 
@@ -73,7 +73,7 @@ Picturepark 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-picturepark-tutorial/tutorial_picturepark_search.png)
 
-5. 在結果面板中，選取 [Picturepark]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Picturepark，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-picturepark-tutorial/tutorial_picturepark_addfromgallery.png)
 
@@ -138,11 +138,11 @@ Picturepark 與 Azure AD 整合提供下列優點：
 
 7. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Picturepark 公司網站。
 
-8. 在最上面的工具列中，按一下 [系統管理工具]，然後按一下 [管理主控台]。
+8. 在最上面的工具列中，按一下 系統管理工具，然後按一下管理主控台。
    
     ![管理主控台](./media/active-directory-saas-picturepark-tutorial/ic795062.png "管理主控台")
 
-9. 按一下 [驗證]，然後按一下 [識別提供者]。
+9. 按一下 驗證，然後按一下識別提供者。
    
     ![驗證](./media/active-directory-saas-picturepark-tutorial/ic795063.png "驗證")
 
@@ -209,7 +209,7 @@ Picturepark 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 **Picturepark** 租用戶。
 
-2. 在最上面的工具列中，按一下 [系統管理工具]，然後按一下 [使用者]。
+2. 在最上面的工具列中，按一下 系統管理工具，然後按一下使用者。
    
     ![使用者](./media/active-directory-saas-picturepark-tutorial/ic795067.png "使用者")
 

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: e10bf8f7cbae2b81d22823ff74fe652c6bcb2da3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>HDInsight 和 Azure Data Lake Store 上的 Hive 效能微調方針
 
@@ -60,7 +60,7 @@ ms.lasthandoff: 07/11/2017
 
 I/O 密集工作負載可以透過減少 Tez 容器大小，而從更符合平行處理原則受益。 這會讓使用者獲得更多容器，而增加並行能力。  不過，某些 Hive 查詢需要大量的記憶體 (例如 MapJoin)。  如果工作沒有足夠的記憶體，您會在執行階段期間遇到記憶體不足的例外狀況。  如果您遇到記憶體不足的例外狀況，則應增加記憶體。   
 
-並行執行的工作數或平行處理原則會受到 YARN 記憶體總數的限制。  YARN 容器數目會決定可以執行多少並行工作。  若要尋找每個節點的 YARN 記憶體，您可以前往 Ambari。  瀏覽至 YARN，然後檢視 [設定] 索引標籤。  YARN 記憶體會顯示在此視窗中。  
+並行執行的工作數或平行處理原則會受到 YARN 記憶體總數的限制。  YARN 容器數目會決定可以執行多少並行工作。  若要尋找每個節點的 YARN 記憶體，您可以前往 Ambari。  瀏覽至 YARN，然後檢視 [設定] 索引標籤。YARN 記憶體會顯示在此視窗中。  
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
@@ -81,7 +81,7 @@ I/O 密集工作負載可以透過減少 Tez 容器大小，而從更符合平�
 
 若要檢查您是否遭到節流，您必須在用戶端啟用偵錯記錄。 做法如下：
 
-1. 將下列屬性放在 Hive 組態中的 log4j 屬性內。 做法是從 Ambari 檢視︰log4j.logger.com.microsoft.azure.datalake.store=DEBUG 重新啟動所有節點/服務以便讓組態生效。
+1. 將下列屬性放在 Hive 組態中的 log4j 屬性內。做法是從 Ambari 檢視︰log4j.logger.com.microsoft.azure.datalake.store=DEBUG 重新啟動所有節點/服務以便讓組態生效。
 
 2. 如果您遭到節流，您會看到 Hive 記錄檔中有 HTTP 429 錯誤碼。 Hive 記錄檔位於 /tmp/&lt;user&gt;/hive.log
 

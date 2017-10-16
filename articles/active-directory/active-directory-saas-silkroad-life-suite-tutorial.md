@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 3/10/2017
 ms.author: jeedes
 ms.openlocfilehash: ecf4e31ecea00d003fc47ea4cebb781ca58957f7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>教學課程：Azure Active Directory 與 SilkRoad Life Suite 整合
 本教學課程旨在說明如何整合 SilkRoad Life Suite 與 Azure Active Directory (Azure AD)。 
@@ -80,7 +80,7 @@ SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
    
     ![應用程式][5]
 
-7. 在結果窗格中，選取 [SilkRoad Life Suite]，然後按一下 [完成] 以加入應用程式。
+7. 在結果窗格中，選取 SilkRoad Life Suite，然後按一下完成 以加入應用程式。
    
     ![應用程式][50]
 
@@ -110,7 +110,7 @@ SilkRoad Life Suite 與 Azure AD 整合提供下列優點：
   > 若要取得用於設定與 Microsoft Azure AD 的同盟存取的 SilkRoad Life Suite 驗證應用程式，請連絡 SilkRoad 支援人員或您的 SilkRoad 服務代表。
   > 
 
-2. 移至 [服務提供者]，然後按一下 [同盟詳細資料]。 
+2. 移至 服務提供者，然後按一下同盟詳細資料。 
    
     ![Azure AD 單一登入][10] 
 

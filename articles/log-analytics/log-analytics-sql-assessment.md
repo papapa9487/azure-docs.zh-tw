@@ -16,10 +16,10 @@ ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL 評估方案最佳化 SQL Server 環境
 
@@ -81,7 +81,7 @@ OMS 中的 Log Analytics 會使用 Operations Manager 代理程式及管理群�
 >
 >
 
-1. 在 Operations Manager 中開啟 Operations 主控台，然後按一下 [管理] 。
+1. 在 Operations Manager 中開啟 Operations 主控台，然後按一下管理 。
 2. 在 [執行身分組態] 下方，按一下 [設定檔]，並開啟 [OMS SQL 評估執行身分設定檔]。
 3. 在 [執行身分帳戶] 頁面上，按一下 [新增]。
 4. 選取包含 SQL Server 所需認證的 Windows 執行身分帳戶，或按一下 [新增]  建立一個。

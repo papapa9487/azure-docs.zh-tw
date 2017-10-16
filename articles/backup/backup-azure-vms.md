@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.author: markgal;trinadhk;
 ms.openlocfilehash: e1da8bce96078a43c656f84005cefc8bbe81c9e3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-azure-virtual-machines-classic-portal"></a>備份 Azure 虛擬機器 (傳統入口網站)
 > [!div class="op_single_selector"]
@@ -86,7 +86,7 @@ ms.lasthandoff: 08/03/2017
 ## <a name="step-2---register-azure-virtual-machines"></a>步驟 2 - 註冊 Azure 虛擬機器
 您必須註冊 Azure 虛擬機器，使其與 Azure 備份服務相關聯。 這通常是一次性活動。
 
-1. 在 Azure 入口網站中，瀏覽至 [復原服務] 下的備份保存庫，然後按一下 [註冊的項目]。
+1. 在 Azure 入口網站中，瀏覽至 復原服務 下的備份保存庫，然後按一下註冊的項目。
 2. 從下拉式選單中選取 [Azure 虛擬機器]  。
 
     ![選取工作負載](./media/backup-azure-vms/discovery-select-workload.png)
@@ -117,7 +117,7 @@ ms.lasthandoff: 08/03/2017
 
 2015 年 5 月之後建立的 Azure 備份保存庫，會隨附內建於保存庫的預設原則。 這項預設原則會隨附 30 天預設保留和每日一次的備份排程。
 
-1. 在 Azure 入口網站中，瀏覽至 [復原服務] 下的備份保存庫，然後按一下 [註冊的項目]。
+1. 在 Azure 入口網站中，瀏覽至 復原服務 下的備份保存庫，然後按一下註冊的項目。
 2. 從下拉式選單中選取 [Azure 虛擬機器]  。
 
     ![在入口網站中選取工作負載](./media/backup-azure-vms/select-workload.png)

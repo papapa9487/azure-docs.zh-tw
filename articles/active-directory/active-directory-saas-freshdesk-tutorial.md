@@ -15,10 +15,10 @@ ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: f4b47e345a40b64f69ad8a4618564662b4a6c879
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>教學課程：Azure Active Directory 與 FreshDesk 整合
 
@@ -74,7 +74,7 @@ FreshDesk 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_search.png)
 
-5. 在結果窗格中，選取 [FreshDesk]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 FreshDesk，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-freshdesk-tutorial/tutorial_freshdesk_addfromgallery.png)
 
@@ -217,7 +217,7 @@ FreshDesk 需以手動的方式佈建。
 
    c. 在 [職稱]  文字方塊中，輸入您要佈建的 Azure AD 帳戶的職稱。
 
-   d. 選取 [代理程式角色]，然後按一下 [指派]。
+   d. 選取 代理程式角色，然後按一下指派。
        
    e. 按一下 [儲存] 。     
    

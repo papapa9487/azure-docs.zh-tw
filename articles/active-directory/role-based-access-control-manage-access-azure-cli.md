@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 77315171754304c965f296670fbba3a4751a3656
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 73e3211416a1d110f1714872290a4156f3d194f7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>使用 Azure 命令列介面管理角色型存取控制
 > [!div class="op_single_selector"]
@@ -151,7 +150,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ## <a name="create-a-custom-role"></a>建立自訂角色
 若要建立自訂角色，請使用：
 
-    azure role create --inputfile <file path>
+    azure role definition create --role-definition <file path>
 
 下列範例會建立一個名為 *Virtual Machine Operator*的自訂角色。 這個自訂角色會授與對 *Microsoft.Compute*、*Microsoft.Storage* 和 *Microsoft.Network* 資源提供者之所有讀取作業的存取權，以及授與對啟動、重新啟動和監視虛擬機器的存取權。 這個自訂角色可用於兩個訂用帳戶中。 這個範例使用 JSON 檔案做為輸入。
 
@@ -160,9 +159,9 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![RBAC Azure 命令列 - azure 角色建立 - 螢幕擷取畫面](./media/role-based-access-control-manage-access-azure-cli/2-azure-role-create-2.png)
 
 ## <a name="modify-a-custom-role"></a>修改自訂角色
-若要修改自訂角色，請先使用 `azure role show` 命令來擷取角色定義。 接著，對角色定義檔案進行想要的變更。 最後，使用 `azure role set` 儲存已修改的角色定義。
+若要修改自訂角色，請先使用 `azure role definition list` 命令來擷取角色定義。 接著，對角色定義檔案進行想要的變更。 最後，使用 `azure role definition update` 儲存已修改的角色定義。
 
-    azure role set --inputfile <file path>
+    azure role definition update --role-definition <file path>
 
 下列範例會將 *Microsoft.Insights/diagnosticSettings/* 作業新增到 **Actions** 中，並將 Azure 訂用帳戶新增到 Virtual Machine Operator 自訂角色的 **AssignableScopes** 中。
 
@@ -171,7 +170,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 ![RBAC Azure 命令列 - azure 角色設定 - 螢幕擷取畫面](./media/role-based-access-control-manage-access-azure-cli/3-azure-role-set2.png)
 
 ## <a name="delete-a-custom-role"></a>刪除自訂角色
-若要刪除自訂角色，請先使用 `azure role show` 命令來判斷角色的 **ID** 。 接著，使用 `azure role delete` 命令，藉由指定 **ID**來刪除角色。
+若要刪除自訂角色，請先使用 `azure role definition list` 命令來判斷角色的 **ID** 。 接著，使用 `azure role definition delete` 命令，藉由指定 **ID**來刪除角色。
 
 下列範例會移除 *Virtual Machine Operator* 自訂角色
 
@@ -183,7 +182,7 @@ azure role assignment list --expandPrincipalGroups --signInName sameert@aaddemo.
 下列命令會列出所選取訂用帳戶中可供指派使用的所有角色。
 
 ```
-azure role list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
+azure role definition list --json | jq '.[] | {"name":.properties.roleName, type:.properties.type}'
 ```
 
 ![RBAC Azure 命令列 - azure 角色清單 - 螢幕擷取畫面](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list1.png)
@@ -191,12 +190,11 @@ azure role list --json | jq '.[] | {"name":.properties.roleName, type:.propertie
 在下列範例中，*Virtual Machine Operator* 自訂角色無法在 *Production4* 訂用帳戶中使用，因為該訂用帳戶並沒有在角色的 **AssignableScopes** 中。
 
 ```
-azure role list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
+azure role definition list --json | jq '.[] | if .properties.type == "CustomRole" then .properties.roleName else empty end'
 ```
 
 ![RBAC Azure 命令列 - 自訂角色的 azure 角色清單 - 螢幕擷取畫面](./media/role-based-access-control-manage-access-azure-cli/5-azure-role-list2.png)
 
 ## <a name="next-steps"></a>後續步驟
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

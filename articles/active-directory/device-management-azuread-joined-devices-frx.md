@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/27/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: b07386eeb0d3e05a0b4545be39030066fbdafd3d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>在初次執行期間向 Azure AD 加入新的 Windows 10 裝置
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 08/29/2017
 
     ![[誰是這部電腦的擁有者] 畫面](./media/device-management-azuread-joined-devices-frx/02.png)
 
-5. 輸入組織提供給您的認證，然後按一下 [登入]。
+5. 輸入組織提供給您的認證，然後按一下登入。
 
     ![登入畫面](./media/device-management-azuread-joined-devices-frx/03.png)
 
@@ -87,4 +86,3 @@ ms.lasthandoff: 08/29/2017
 - 如需詳細資料，請參閱 [Azure Active Directory 中的裝置管理簡介](device-management-introduction.md)。
 
 - 如需在 Azure AD 入口網站中管理裝置的詳細資料，請參閱[使用 Azure 入口網站管理裝置](device-management-azure-portal.md)。
-

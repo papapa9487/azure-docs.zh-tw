@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.openlocfilehash: bf5263ce4d8fbc231029c101f167f4b55a921e60
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>教學課程：Azure Active Directory 與 PagerDuty 整合
 
@@ -212,7 +212,7 @@ PagerDuty 需以手動方式佈建。
    
     b. 輸入使用者的**電子郵件**地址，如 **brittasimon@contoso.com**。
    
-    c. 按一下 [新增]，然後按一下 [傳送邀請]。
+    c. 按一下 新增，然後按一下傳送邀請。
    
     >[!NOTE]
     >所有加入的使用者將會收到建立 PagerDuty 帳戶的邀請。

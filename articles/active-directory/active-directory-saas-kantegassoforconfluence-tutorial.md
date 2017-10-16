@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: ec11decbff4cf2f6c39b40228e349312fd86da00
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>教學課程：Azure Active Directory 與 Kantega SSO for Confluence 整合
 
@@ -75,7 +73,7 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_search.png)
 
-5. 在結果面板中，選取 [Kantega SSO for Confluence]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Kantega SSO for Confluence，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_kantegassoforconfluence_addfromgallery.png)
 
@@ -272,7 +270,7 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
 
     ![新增員工](./media/active-directory-saas-kantegassoforconfluence-tutorial/user1.png) 
 
-3. 在 [使用者] 區段下，按一下 [新增使用者] 索引標籤。 在 [新增使用者] 對話頁面上，執行下列步驟：
+3. 在 [使用者] 區段下，按一下 [新增使用者] 索引標籤。在 [新增使用者] 對話頁面上，執行下列步驟：
 
     ![新增員工](./media/active-directory-saas-kantegassoforconfluence-tutorial/user2.png) 
 
@@ -345,5 +343,4 @@ Kantega SSO for Confluence 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforconfluence-tutorial/tutorial_general_203.png
-
 

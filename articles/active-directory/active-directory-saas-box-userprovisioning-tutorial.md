@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
 ms.openlocfilehash: 9f061f3f5a0a4825854b893150ceccc8951487de
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-box-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Box
 
@@ -86,7 +86,7 @@ Azure 入口網站的 [Box] > [使用者和群組] 索引標籤可讓您指定�
 
 5. 在 [管理員認證] 區段底下，按一下 [授權] 以在新的瀏覽器視窗中開啟 Box 登入對話方塊。
 
-6. 在 [登入以授與 Box 存取權] 頁面上，提供必要的認證，然後按一下 [授權]。 
+6. 在 登入以授與 Box 存取權 頁面上，提供必要的認證，然後按一下授權。 
    
     ![啟用自動使用者佈建](./media/active-directory-saas-box-userprovisioning-tutorial/IC769546.png "啟用自動使用者佈建")
 

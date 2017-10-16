@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: 3ccbaaf55d2bdfedffcdb5ca069798328e2d75fd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT 中樞裝置佈建服務的安全性概念 
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式佈建數百萬個裝置。 本文提供關於裝置佈建*安全性*概念的概觀。 本文與為裝置進行部署準備工作的所有角色相關。
@@ -67,4 +65,3 @@ TPM 可以參考安全地儲存驗證平台所用之金鑰的標準，以及與�
 ## <a name="leaf-certificate"></a>分葉憑證
 
 分葉憑證也稱為終端實體憑證，用來識別憑證持有者，而且其憑證鏈結中有根憑證。 分葉憑證無法用來簽署其他任何憑證。
-

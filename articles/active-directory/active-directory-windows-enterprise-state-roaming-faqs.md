@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/08/2017
 ms.author: markvi
 ms.openlocfilehash: 9968d9fa1ebbc92b5647a23c75e75fb819f5d5ab
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本主題將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -38,7 +38,7 @@ ms.lasthandoff: 07/11/2017
 **應用程式資料**：通用 Windows 應用程式可以將設定資料寫入漫遊資料夾中，而系統會對寫入這個資料夾中的任何資料自動進行同步處理。 由個別應用程式開發人員設計應用程式以充分利用這項功能。 如需有關如何開發使用漫遊功能之通用 Windows 應用程式的詳細資訊，請參閱 [AppData 儲存 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 和 [Windows 8 AppData 漫遊開發人員部落格](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)。
 
 ## <a name="what-account-is-used-for-settings-sync"></a>哪些帳戶用於設定同步處理？
-在 Windows 8 和 Windows 8.1 中，設定同步處理一律使用取用者 Microsoft 帳戶。 企業使用者有能力可以將 Microsoft 帳戶連接至 Active Directory 網域帳戶，以存取設定同步處理。 在 Windows 10 中，這項連接的 Microsoft 帳戶功能將由主要/次要帳戶架構取代。
+在 Windows 8 和 Windows 8.1 中，設定同步處理一律使用取用者 Microsoft 帳戶。 企業使用者有能力可以將 Microsoft 帳戶連接至 Active Directory 網域帳戶，以存取設定同步處理。在 Windows 10 中，這項連接的 Microsoft 帳戶功能將由主要/次要帳戶架構取代。
 
 主要帳戶的定義是用來登入 Windows 的帳戶。 這可以是 Microsoft 帳戶、Azure Active Directory (Azure AD) 帳戶、內部部署 Active Directory 帳戶或本機帳戶。 除了主要帳戶，Windows 10 使用者可以將一或多個次要雲端帳戶新增至他們的裝置。 次要帳戶通常是 Microsoft 帳戶、Azure AD 帳戶或一些像是 Gmail 或 Facebook 的其他帳戶。 這些次要帳戶提供其他服務 (例如單一登入和 Windows 市集) 的存取權，但是無法進行設定同步處理。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/11/2017
 裝置上不同使用者帳戶之間的資料永遠不會混合。 有兩個設定可用來同步處理設定：
 
 * Windows 設定一律會使用主要帳戶進行漫遊。
-* 應用程式資料將會利用用來取得應用程式的帳戶來標記。 只會同步處理以主要帳戶標記的應用程式。 透過 Windows 市集或行動裝置管理 (MDM) 側載應用程式時，會決定應用程式擁有權標記。
+* 應用程式資料將會利用用來取得應用程式的帳戶來標記。 只會同步處理以主要帳戶標記的應用程式。透過 Windows 市集或行動裝置管理 (MDM) 側載應用程式時，會決定應用程式擁有權標記。
 
 如果無法識別應用程式的擁有者，它會以主要帳戶漫遊。 如果裝置是從 Windows 8 或 Windows 8.1 升級到 Windows 10，則所有應用程式都會被標記成由 Microsoft 帳戶取得。 這是因為大多數使用者都是透過 Windows 市集取得應用程式，而在 Windows 10 之前，並沒有為 Azure AD 帳戶提供 Windows 市集支援。 如果應用程式是透過離線授權安裝，則會使用裝置上的主要帳戶標記應用程式。
 

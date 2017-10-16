@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: d6bc4a67a95f41db7f89fbafd35819d38a9844d1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: 4eb2c04c940dd6ad15a491a331aed76c237f0387
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定同盟單一登入時遇到的問題
 
 如果您在設定應用程式時遇到問題。 確認您已依照[設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)一文中的所有步驟執行。
@@ -71,4 +69,3 @@ Azure AD 不提供取得中繼資料的 URL。 只能將中繼資料擷取為 XM
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Azure Active Directory 管理應用程式](active-directory-enable-sso-scenario.md)
-

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: d52df1d1f9a29a6fc2a7a3a5e7a6d9fdeaa865e3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
 效能和規模測試是應用程式開發過程中的關鍵步驟。 對許多應用程式而言，資料庫層在整體效能和延展性上有很大的影響。 因此，它是效能測試的重要元素。 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 就是專門為彈性化規模和可預測效能而建置。 這些功能完全符合應用程式需要高效能資料庫層的要求。 
@@ -106,6 +105,5 @@ ms.lasthandoff: 09/08/2017
 * [Azure Cosmos DB 效能測試範例](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark)
 * [改善 Azure Cosmos DB 效能的用戶端設定選項](performance-tips.md)
 * [Azure Cosmos DB 中的伺服器端資料分割](partition-data.md)
-
 
 

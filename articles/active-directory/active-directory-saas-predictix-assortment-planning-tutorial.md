@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.openlocfilehash: cc7ad4aa5260276e26406b6b79c039372e5ee69f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>教學課程：Azure Active Directory 與 Predictix Assortment Planning 整合
 
@@ -155,7 +155,7 @@ Predictix Assortment Planning 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-predictix-assortment-planning-tutorial/create_aaduser_02.png)
 

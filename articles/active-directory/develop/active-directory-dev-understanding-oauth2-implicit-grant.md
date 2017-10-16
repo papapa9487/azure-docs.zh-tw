@@ -16,10 +16,10 @@ ms.date: 11/15/2016
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 241c744737515ee0c8d5d833a51121808877e559
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
 OAuth2 隱含授與是 OAuth2 規格中安全性疑慮最多的授與方式，因此聲名狼藉。 然而，這卻是 ADAL JS 所實作的方法，也是我們建議用來撰寫 SPA 應用程式的方法。 為何會這樣呢？ 這全是權衡利弊之後的結果︰而且事實也證明，對於透過 JavaScript 從瀏覽器使用 Web API 的應用程式來說，隱含授與是您所能找到的最好方法。
@@ -45,7 +45,7 @@ OAuth2 隱含授與的重要特性就是，這類流程絕對不會將重新整�
 * 工作階段或本機儲存體等 HTML5 功能可授與權杖快取和存留期管理的完全控制權，但是應用程式則無法處理 Cookie 管理
 * 存取權杖不容易遭受跨網站偽造要求 (CSRF) 攻擊
 
-隱含授與流程不會簽發重新整理權杖，其原因大多是安全性考量。 重新整理權杖的範圍不像存取權杖那麼窄，前者會授與更多權力，因此萬一洩露出去，將會造成更大的損害。 在隱含流程中，權杖會在 URL 中傳遞，因此遭到攔截的風險高於授權碼授與。
+隱含授與流程不會簽發重新整理權杖，其原因大多是安全性考量。 重新整理權杖的範圍不像存取權杖那麼窄，前者會授與更多權力，因此萬一洩露出去，將會造成更大的損害。在隱含流程中，權杖會在 URL 中傳遞，因此遭到攔截的風險高於授權碼授與。
 
 不過請注意，JavaScript 應用程式有另一種可任其處置的機制，可用來更新存取權杖，而不會重複提示使用者提供認證。 應用程式可以使用隱藏的 iframe 來針對 Azure AD 的授權端點執行新的權杖要求︰只要瀏覽器仍有針對 Azure AD 網域作用的工作階段 (read: 有工作階段 Cookie)，驗證要求就可以順利執行而不需要使用者互動。
 

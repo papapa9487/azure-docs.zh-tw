@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 63a7ae9d39e1a74294637172efd607ee41b2d69b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-how-to-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：如何變更預設組態
-本主題的目的在於逐步解說如何對 Azure AD Connect 同步處理中的預設組態進行變更。 其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行一些簡單的變更。
+本主題的目的在於逐步解說如何對 Azure AD Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行一些簡單的變更。
 
 ## <a name="synchronization-rules-editor"></a>同步處理規則編輯器
 同步處理規則編輯器用於查看和變更預設組態。 您可以在 [開始] 功能表的 [Azure AD Connect]  群組之下找到它。  

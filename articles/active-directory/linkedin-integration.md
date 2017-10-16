@@ -14,12 +14,11 @@ ms.date: 09/25/2017
 ms.author: jeffgilb
 ms.reviewer: jsnow
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 48b26bfcce67ce915c404a0ab2ac0f399c3b821d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-linkedin-integration-in-azure-active-directory"></a>在 Azure Active Directory 中啟用 LinkedIn 整合
 啟用 LinkedIn 整合可讓使用者存取公用的 LinkedIn 資料，而且如果他們願意的話，也可以存取其在 Microsoft 應用程式內的個人 LinkedIn 網路。 每個使用者都可以獨立地選擇將其工作帳戶連結到其 LinkedIn 帳戶。

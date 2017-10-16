@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a2a562c06c6302b9548e758b4c6754ec13b6001d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 270fe75e61bb26ad3bb9cae1105e83911bae677d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-using-sql"></a>Azure Cosmos DB：如何使用 SQL 來進行查詢？
 
 Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支援使用 SQL 來查詢文件。 本文提供一個範例文件及兩個範例 SQL 查詢和結果。
@@ -148,5 +146,4 @@ Azure Cosmos DB [DocumentDB API](documentdb-introduction.md) 支援使用 SQL �
 
 > [!div class="nextstepaction"]
 > [全域散發您的資料](tutorial-global-distribution-documentdb.md)
-
 

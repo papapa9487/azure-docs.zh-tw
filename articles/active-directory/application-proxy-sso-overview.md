@@ -15,14 +15,12 @@ ms.date: 08/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 1deb3d91049d45fe26791783e13bd23e0a7d9f95
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-does-azure-ad-application-proxy-provide-single-sign-on"></a>Azure AD 應用程式 Proxy 如何提供單一登入？
 
 單一登入是 Azure AD 應用程式 Proxy 的重要元素。  因為您的使用者只需要登入雲端中的 Azure Active Directory，所以它可提供最佳的使用者體驗。 使用者向 Azure Active Directory 驗證後，應用程式 Proxy 連接器就會處理向內部部署應用程式的驗證。 後端應用程式無法分辨透過應用程式 Proxy 的遠端使用者登入與已加入網域的裝置上一般用途之間的差異。 
@@ -81,4 +79,3 @@ ms.lasthandoff: 08/25/2017
 - [使用應用程式 Proxy 進行單一登入的密碼保存庫](application-proxy-sso-azure-portal.md)
 - [可供使用應用程式 Proxy 單一登入的 Kerberos 限制委派](active-directory-application-proxy-sso-using-kcd.md)
 - [使用應用程式 Proxy 單一登入的標頭型驗證](application-proxy-ping-access.md) 
-

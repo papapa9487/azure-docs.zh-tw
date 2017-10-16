@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: d99dbbd834cb8f067b88b765ccddcd7f4eb44a1f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 > [!WARNING]
 > 僅[「開發人員」與「進階」](https://azure.microsoft.com/en-us/pricing/details/api-management/)層提供 Azure Active Directory B2C 整合。
 
@@ -73,7 +71,7 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 
   ![應用程式識別碼 2][api-management-howto-aad-b2c-client-id]
 
-10. 切換回 Azure 入口網站，按一下 [金鑰] 按鈕，然後按一下 [產生金鑰]。 按一下 [儲存] 以儲存組態並顯示**應用程式金鑰**。 複製金鑰至剪貼簿。
+10. 切換回 Azure 入口網站，按一下 金鑰 按鈕，然後按一下產生金鑰。 按一下 [儲存] 以儲存組態並顯示**應用程式金鑰**。 複製金鑰至剪貼簿。
 
   ![應用程式金鑰 1][api-management-howto-aad-b2c-app-key]
 
@@ -205,4 +203,3 @@ Azure Active Directory B2C 是適用於取用者導向 Web 與行動應用程式
 [Next steps]: #next-steps
 
 [Log in to the Developer portal using an Azure Active Directory account]: #Log-in-to-the-Developer-portal-using-an-Azure-Active-Directory-account
-

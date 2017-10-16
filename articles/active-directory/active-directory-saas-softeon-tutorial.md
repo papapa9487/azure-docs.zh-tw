@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: jeedes
 ms.openlocfilehash: 87714bbcb317395563033d2f0ebc60aaa0ff0e10
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>教學課程：Azure Active Directory 與 Softeon WMS 整合
 
@@ -73,7 +73,7 @@ Softeon WMS 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_search.png)
 
-5. 在結果窗格中，選取 [Softeon WMS]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Softeon WMS，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-softeon-tutorial/tutorial_softeon_addfromgallery.png)
 

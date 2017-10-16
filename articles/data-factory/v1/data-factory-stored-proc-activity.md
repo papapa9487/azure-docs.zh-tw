@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c53725806845095c55add65fb65a247d8873dc74
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 預存程序活動
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -128,7 +127,7 @@ ms.lasthandoff: 09/25/2017
 ### <a name="create-an-output-dataset"></a>建立輸出資料表
 即使預存程序不會產生任何資料，您也必須為預存程序活動指定輸出資料集。 這是因為輸出資料集會驅動活動排程 (活動的執行頻率 - 每小時、每天等)。 輸出資料集必須使用參考了想在其中執行預存程序之 Azure SQL Database、Azure SQL 資料倉儲或 SQL Server Database 的 **連結服務** 。 輸出資料集可以用來傳遞預存程序結果，以供管線中的另一個活動 ([鏈結活動](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)) 進行後續處理。 不過，Data Factory 不會自動將預存程序的輸出寫入至此資料集。 它是會寫入至輸出資料集所指向之 SQL 資料表的預存程序。 在某些情況下，輸出資料集可以是「虛擬資料集」(此資料集指向並未真正存有預存程序輸出資料的資料表)。 此虛擬資料集僅用來指定用於執行預存程序活動的排程。 
 
-1. 按一下 **...更多** (工具列上)，按一下 新增資料集，然後按一下 Azure SQL。 命令列的 [新資料集]，然後選取 [Azure SQL]。
+1. 按一下 **...更多** (工具列上)，按一下 新增資料集，然後按一下Azure SQL。 命令列的 [新資料集]，然後選取 [Azure SQL]。
 
     ![含連結服務的樹狀檢視](media/data-factory-stored-proc-activity/new-dataset.png)
 2. 將下列 JSON 指令碼複製/貼到 JSON 編輯器。
@@ -162,7 +161,7 @@ ms.lasthandoff: 09/25/2017
 - 類型屬性中的 **storedProcedureName** 會設定為 **sp_sample** (預存程序的名稱)。
 - **storedProcedureParameters** 區段包含一個名為 **DataTime** 的參數。 JSON 中參數的名稱和大小寫必須符合預存程序定義中參數的名稱和大小寫。 如果您需要為參數傳遞 null，請使用此語法：`"param1": null` (全部小寫)。
  
-1. 按一下 **...命令列上的 [更多]**，然後按一下 [新增管線]。
+1. 按一下 **...命令列上的 更多**，然後按一下新增管線。
 2. 複製/貼上下列 JSON 程式碼片段：   
 
     ```JSON

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: beace24fa00c85a5038a3c39ae8f76af5fd12111
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="next-steps-and-how-to-manage-azure-ad-connect"></a>接下來的步驟，以及如何管理 Azure AD Connect
 使用本文中的操作程序來自訂 Azure Active Directory (Azure AD) Connect，以符合您組織的需要和需求。  
@@ -35,7 +35,7 @@ ms.lasthandoff: 08/03/2017
 2. 選取左邊的 [Active Directory] 。
 3. 在 [Active Directory] 頁面上，在有您想要設定之使用者的目錄上按兩下。
 4. 在目錄頁面頂端，選取 [授權] 。
-5. 在 [授權] 頁面上，選取 [Active Directory Premium] 或 [Enterprise Mobility Suite]，然後按一下 [指派]。
+5. 在 授權 頁面上，選取 Active Directory Premium 或 Enterprise Mobility Suite，然後按一下指派。
 6. 在對話方塊中，選取您要對其指派授權的使用者，然後按一下核取記號圖示，以儲存變更。
 
 ## <a name="verify-the-scheduled-synchronization-task"></a>確認已排定的同步處理工作

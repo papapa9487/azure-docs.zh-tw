@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 540d8974ee2c02f80bccf28764b4d0d243e98d85
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-for-virtual-private-network-connectivity-preview"></a>虛擬私人網路連線的 Azure Active Directory 條件式存取 (預覽)
 
@@ -138,7 +137,7 @@ VPN 憑證是向 Azure AD 驗證 VPN 連線能力時，Azure AD 簽發給 Window
 
     b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
 
-    c. 在 [選取] 頁面上，選取您的測試使用者，然後按一下 [選取]。
+    c. 在 選取 頁面上，選取您的測試使用者，然後按一下選取。
 
     d. 在 [使用者和群組] 頁面上，按一下 [完成]。
 
@@ -148,7 +147,7 @@ VPN 憑證是向 Azure AD 驗證 VPN 連線能力時，Azure AD 簽發給 Window
 
     a. 在 [指派] 區段中，按一下 [雲端應用程式]。
 
-    b. 在 [雲端應用程式] 頁面上，按一下 [選取應用程式]，然後按一下 [選取]。
+    b. 在 雲端應用程式 頁面上，按一下 選取應用程式，然後按一下選取。
 
     c. 在 [選取] 頁面的 [應用程式] 文字方塊中，輸入 **vpn**。
 
@@ -180,5 +179,4 @@ VPN 憑證是向 Azure AD 驗證 VPN 連線能力時，Azure AD 簽發給 Window
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Microsoft 如何實作這項功能，請參閱[使用自動 VPN 設定檔強化 Windows 10 中的遠端存取](https://www.microsoft.com/itshowcase/Article/Content/894/Enhancing-remote-access-in-Windows-10-with-an-automatic-VPN-profile)。    
-
 

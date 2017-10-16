@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 6ee3d1319e7727b1134472a1b62a3de7a3571997
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
+ms.openlocfilehash: 1a5e97e2a6aca440c9643569014ffce41a614324
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-i-forgot-my-azure-ad-password"></a>忘記 Azure AD 密碼的說明
 
@@ -65,7 +64,7 @@ ms.lasthandoff: 07/06/2017
    ![確認驗證資料][Verification]
 
 4. 您的 IT 人員可能需要更多的驗證，因此您可能必須使用不同的選項來重複執行步驟 3。
-5. 在 [選擇新密碼] 頁面上輸入新的密碼，確認您的密碼，然後按一下 [完成]。 我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
+5. 在 選擇新密碼 頁面上輸入新的密碼，確認您的密碼，然後按一下完成。 我們建議的密碼是 8-16 個字元，並具有大小寫字母、數字和特殊字元。
 6. 當您看到**您的密碼已經重設**時，可以使用您的新密碼登入。
 
     ![您的密碼已經重設][Complete]
@@ -85,7 +84,7 @@ ms.lasthandoff: 07/06/2017
 1. 使用現有的密碼登入 [Office 365 帳戶](https://www.office.com)
 2. 按一下您右上方的設定檔，然後按一下 [檢視帳戶]
 3. 按一下 [安全性與隱私權] > [密碼]
-4. 輸入舊密碼，設定並確認新密碼，然後按一下 [提交]
+4. 輸入舊密碼，設定並確認新密碼，然後按一下提交
 
 ### <a name="change-your-password-from-the-azure-access-panel"></a>從 Azure 存取面板變更您的密碼
 
@@ -94,7 +93,7 @@ ms.lasthandoff: 07/06/2017
 1. 使用您的現有密碼，登入 [Azure 存取入口網站](https://myapps.microsoft.com/)
 2. 按一下您右上方的設定檔，然後按一下 [設定檔]
 3. 按一下 [變更密碼]
-4. 輸入舊密碼，設定並確認新密碼，然後按一下 [提交]
+4. 輸入舊密碼，設定並確認新密碼，然後按一下提交
 
 ## <a name="common-problems-and-their-solutions"></a>常見問題及其解決方案
 
@@ -117,4 +116,3 @@ ms.lasthandoff: 07/06/2017
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "確認驗證資料"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "變更密碼"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "密碼已經重設"
-

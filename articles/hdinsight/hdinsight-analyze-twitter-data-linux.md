@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/07/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Hive 與 Hadoop 分析 Twitter 資料
 
@@ -50,9 +49,9 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
    | 說明 |MyHDInsightApp |
    | 網站 |http://www.myhdinsightapp.com |
 
-4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
+4. 核取 是，我同意 然後按一下建立 Twitter 應用程式。
 
-5. 按一下 [權限]  索引標籤。 預設權限為 [唯讀] 。
+5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。
 
 6. 按一下 **[金鑰和存取權杖** ] 索引標籤。
 
@@ -335,4 +334,3 @@ Twitter 可讓您透過 REST API 抓取 [每則推文資料](https://dev.twitter
 
 [twitter-streaming-api]: https://dev.twitter.com/docs/streaming-apis
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
-

@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
 robots: noindex
+ms.openlocfilehash: 3a0a097afa0ef5efe11cb5044bf9ea5d399e463f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4465694d02e56c774a5750a1455c2e66ecbda523
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 上執行 U-SQL 指令碼來轉換資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -208,17 +207,18 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 下表描述此活動特有的屬性之名稱和描述。 
 
-| 屬性 | 說明 | 必要 |
-|:--- |:--- |:--- |
-| 類型 |類型屬性必須設為 DataLakeAnalyticsU-SQL 。 |是 |
-| scriptPath |包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 |否 (如果您使用指令碼) |
-| scriptLinkedService |連結服務會連結包含 Data Factory 的指令碼的儲存體 |否 (如果您使用指令碼) |
-| script |指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如： `"script": "CREATE DATABASE test"`。 |否 (如果您使用 scriptPath 和 scriptLinkedService) |
-| degreeOfParallelism |同時用來執行作業的節點數目上限。 |否 |
-| 優先順序 |判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 |否 |
-| 參數 |U-SQL 指令碼的參數 |否 |
-| runtimeVersion | 所要使用之 U-SQL 引擎的執行階段版本 | 否 | 
-| compilationMode | <p>U-SQL 的編譯模式。 必須是下列其中一個值：</p> <ul><li>**Semantic：**僅執行語意檢查和必要的例行性檢查。</li><li>**Full：**執行完整編譯，包括語法檢查、最佳化、程式碼產生等。</li><li>**SingleBox：**在將 TargetType 設定為 SingleBox 的情況下，執行完整編譯。</li></ul><p>如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 </p>| 否 | 
+| 屬性            | 說明                              | 必要                                 |
+| :------------------ | :--------------------------------------- | :--------------------------------------- |
+| 類型                | 類型屬性必須設為 DataLakeAnalyticsU-SQL 。 | 是                                      |
+| linkedServiceName   | 參考 Azure Data Lake Analytics 註冊為 Data Factory 中的連結服務 | 是                                      |
+| scriptPath          | 包含 U-SQL 指令碼的資料夾的路徑。 檔案的名稱有區分大小寫。 | 否 (如果您使用指令碼)                   |
+| scriptLinkedService | 連結服務會連結包含 Data Factory 的指令碼的儲存體 | 否 (如果您使用指令碼)                   |
+| script              | 指定內嵌指令碼而不是指定 scriptPath 和 scriptLinkedService。 例如： `"script": "CREATE DATABASE test"`。 | 否 (如果您使用 scriptPath 和 scriptLinkedService) |
+| degreeOfParallelism | 同時用來執行作業的節點數目上限。 | 否                                       |
+| 優先順序            | 判斷應該選取排入佇列的哪些工作首先執行。 編號愈低，優先順序愈高。 | 否                                       |
+| 參數          | U-SQL 指令碼的參數          | 否                                       |
+| runtimeVersion      | 所要使用之 U-SQL 引擎的執行階段版本 | 否                                       |
+| compilationMode     | <p>U-SQL 的編譯模式。 必須是下列其中一個值：</p> <ul><li>**Semantic：**僅執行語意檢查和必要的例行性檢查。</li><li>**Full：**執行完整編譯，包括語法檢查、最佳化、程式碼產生等。</li><li>**SingleBox：**在將 TargetType 設定為 SingleBox 的情況下，執行完整編譯。</li></ul><p>如果您沒有為此屬性指定值，伺服器將會判斷最佳的編譯模式。 </p> | 否                                       |
 
 指令碼定義請參閱 [SearchLogProcessing.txt 指令碼定義](#sample-u-sql-script) 。 
 
@@ -342,6 +342,5 @@ ADF 會使用 ‘parameters’ 區段來動態傳遞 U-SQL 指令碼中 **@in** 
 ```
 
 在此例中，系統仍然會從 /datalake/input 資料夾挑選輸入檔，並在 /datalake/output 資料夾中產生輸出檔。 檔案名稱則是根據配量開始時間動態產生。  
-
 
 

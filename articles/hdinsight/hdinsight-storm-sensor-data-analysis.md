@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/09/2017
 ms.author: larryfr
+ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0d1cc959c87bd64ed728f8b56c9b9156fa492a8b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>在 HDInsight (Hadoop) 中使用 Apache Storm、事件中樞和 HBase 分析感應器資料
 
@@ -119,7 +118,7 @@ ms.lasthandoff: 08/10/2017
    3. 選取要使用的 Azure [訂用帳戶]  。
    4. 選取現有的資源群組，或建立一個新的群組。
    5. 選取事件中樞的 [位置]  。
-   6. 選取 [釘選到儀表板]，然後按一下 [建立]。
+   6. 選取 釘選到儀表板，然後按一下建立。
 
 3. 建立程序完成時，會顯示您命名空間的事件中樞資訊。 從這裡選取 [+ 新增事件中樞] 。 在 [建立事件中樞] 區段輸入 **sensordata** 的名稱，然後選取 [建立]。 讓其他欄位保持使用預設值。
 4. 在您命名空間的事件中樞檢視畫面上，選取 [事件中樞]。 選取 [sensordata]  項目。
@@ -524,4 +523,3 @@ dashboard.uri: http://localhost:3000
 如需關於以 .NET 建立拓撲的詳細資訊，請參閱 [使用 Visual Studio 為 Apache Storm on HDInsight 開發 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)。
 
 [azure-portal]: https://portal.azure.com
-

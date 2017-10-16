@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>重新訓練傳統 Web 服務
 您部署的預測性 Web 服務是預設評分端點。 預設端點會與原始定型和計分實驗同步，因此無法取代預設端點的定型模型。 若要重新訓練 Web 服務，必須在 Web 服務新增新端點。 
@@ -62,7 +61,7 @@ ms.lasthandoff: 09/25/2017
 ### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>使用 Azure 傳統入口網站新增端點
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下左側功能表中的 [Machine Learning] 。
-3. 在 [名稱] 下，按一下您的工作區，然後按一下 [Web 服務] 。
+3. 在 名稱 下，按一下您的工作區，然後按一下Web 服務 。
 4. 在 [名稱] 下，按一下 [普查模型 [predictive exp.]] 。
 5. 按一下頁面底部的 [新增端點] 。 如需有關新增端點的詳細資訊，請參閱 [建立端點](create-endpoint.md)。 
 
@@ -128,7 +127,7 @@ ms.lasthandoff: 09/25/2017
 
 1. 登入 [Azure 傳統入口網站](https://manage.windowsazure.com)。
 2. 按一下左側功能表中的 [Machine Learning] 。
-3. 在 [名稱] 下，按一下您的工作區，然後按一下 [Web 服務] 。
+3. 在 名稱 下，按一下您的工作區，然後按一下Web 服務 。
 4. 在 [名稱] 下，按一下 [普查模型 [predictive exp.]] 。
 5. 按一下您新增的端點。
 6. 在端點儀表板中，按一下 [更新資源] 。
@@ -146,5 +145,4 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 [Azure Machine Learning 傳統 Web 服務的重新訓練進行疑難排解](troubleshooting-retraining-models.md)
-
 

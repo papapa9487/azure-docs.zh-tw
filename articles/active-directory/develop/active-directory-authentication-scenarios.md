@@ -16,10 +16,10 @@ ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
 ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 的驗證案例
 Azure Active Directory (Azure AD) 提供身分識別做為服務來簡化開發人員的驗證工作，支援業界標準通訊協定，例如 OAuth 2.0 和 OpenID Connect，以及適用於不同平台的開放原始碼程式庫，協助您開始快速撰寫程式碼。 本文件將協助您了解 Azure AD 支援的各種案例，並示範如何開始著手。 分成下列各節：

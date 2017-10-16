@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
 這篇文章可協助您尋找有關 Azure AD 無縫單一登入常見問題的疑難排解資訊。
@@ -122,4 +120,3 @@ ms.lasthandoff: 09/28/2017
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>步驟 5。 啟用租用戶上的功能
 
 呼叫 `Enable-AzureADSSO` 並且在 `Enable: ` 提示字元鍵入 "true"，以在租用戶中開啟該功能。
-

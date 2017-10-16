@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 5c862dbf46a30dd6811faeea447d559dca493991
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>在 HDInsight 上將 Hadoop 工作的資料上傳
 
@@ -213,7 +212,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 3. 從工具列選取上傳圖示。
 
     ![工具列和反白顯示的上傳圖示](./media/hdinsight-upload-data/toolbar.png)
-4. 指定要上傳的檔案，然後按一下 [開啟] 。 出現提示時，請選取 [上傳]  將檔案上傳至儲存體容器的根目錄。 如果您想要將檔案上傳到特定路徑，請在 [目的地] 欄位中輸入路徑，然後選取 [上傳]。
+4. 指定要上傳的檔案，然後按一下開啟 。 出現提示時，請選取 [上傳]  將檔案上傳至儲存體容器的根目錄。 如果您想要將檔案上傳到特定路徑，請在 [目的地] 欄位中輸入路徑，然後選取 [上傳]。
 
     ![檔案上傳對話方塊](./media/hdinsight-upload-data/fileupload.png)
 
@@ -329,4 +328,3 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
-

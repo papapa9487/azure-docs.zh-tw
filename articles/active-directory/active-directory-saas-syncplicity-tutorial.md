@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 1321fa71bcd625d6ea754432bfb402d3919e38f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>教學課程：Azure Active Directory 與 Syncplicity 整合
 
@@ -73,7 +73,7 @@ Syncplicity 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-syncplicity-tutorial/tutorial_syncplicity_search.png)
 
-5. 在結果窗格中，選取 [Syncplicity]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Syncplicity，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-syncplicity-tutorial/tutorial_syncplicity_addfromgallery.png)
 
@@ -133,7 +133,7 @@ Syncplicity 與 Azure AD 整合提供下列優點：
 
 7. 登入您的 **Syncplicity** 租用戶。
 
-8. 在上方功能表中按一下 [管理]，選取 [設定]，然後按一下 [自訂網域和單一登入]。
+8. 在上方功能表中按一下 管理，選取 設定，然後按一下自訂網域和單一登入。
    
     ![Syncplicity](./media/active-directory-saas-syncplicity-tutorial/ic769545.png "Syncplicity")
 
@@ -203,7 +203,7 @@ AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 �
    
     ![管理使用者](./media/active-directory-saas-syncplicity-tutorial/ic769764.png "管理使用者")
 
-4. 輸入您想要佈建之 AAD 帳戶的 [電子郵件地址]，選取 [使用者] 作為 [角色]，然後按一下 [下一步]。
+4. 輸入您想要佈建之 AAD 帳戶的 電子郵件地址，選取 使用者 作為 角色，然後按一下下一步。
    
     ![帳戶資訊](./media/active-directory-saas-syncplicity-tutorial/ic769765.png "帳戶資訊")
    
@@ -211,7 +211,7 @@ AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 �
     >AAD 帳戶的持有者會收到電子郵件，其中包含可確認並啟動帳戶的連結。 
     > 
 
-5. 選取要讓新使用者成為成員的公司群組，然後按一下 [下一步]。
+5. 選取要讓新使用者成為成員的公司群組，然後按一下下一步。
    
     ![群組成員資格](./media/active-directory-saas-syncplicity-tutorial/ic769772.png "群組成員資格")
    
@@ -219,7 +219,7 @@ AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 �
     >如果未列出群組，請按一下 [下一步]。 
     > 
 
-6. 選取您想要在使用者電腦上受 Syncplicity 控制的資料夾，然後按一下 [下一步]。
+6. 選取您想要在使用者電腦上受 Syncplicity 控制的資料夾，然後按一下下一步。
    
     ![Syncplicity 資料夾](./media/active-directory-saas-syncplicity-tutorial/ic769773.png "Syncplicity 資料夾")
 

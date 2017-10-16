@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3690b5f62d8384d255d420946f6ac1cfd47b9317
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>從 Azure Data Factory 叫用 Spark 程式管線
 
@@ -98,7 +97,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
 #### <a name="create-hdinsight-linked-service"></a>建立 HDInsight 連結服務
 在此步驟中，您會建立 Azure HDInsight 連結服務，將 HDInsight Spark 叢集連結至 Data Factory。 HDInsight 叢集是用來執行此範例管線的 Spark 活動中指定的 Spark 程式。  
 
-1. 按一下**...其他** (工具列上)，按一下 [新增計算]，然後按一下 [HDInsight 叢集]。
+1. 按一下**...其他** (工具列上)，按一下 新增計算，然後按一下HDInsight 叢集。
 
     ![建立 HDInsight 連結服務](media/data-factory-spark/new-hdinsight-linked-service.png)
 2. 複製下列程式碼片段並貼到 [Draft-1]  視窗。 在 [JSON 編輯器] 中，執行下列步驟：
@@ -162,7 +161,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
 ### <a name="create-pipeline"></a>建立管線
 在此步驟中，您會建立具有 **HDInsightSpark** 活動的管線。 目前，輸出資料集會影響排程，因此即使活動並未產生任何輸出，您都必須建立輸出資料集。 如果活動沒有任何輸入，您可以略過建立輸入資料集。 因此，在此範例中不會指定任何輸入資料集。
 
-1. 在 **Data Factory 編輯器**中，按一下工具列的 [... 更多]，然後按一下 [新增資料閘道]。
+1. 在 **Data Factory 編輯器**中，按一下工具列的 ... 更多，然後按一下新增資料閘道。
 2. 使用下列指令碼取代 Draft-1 視窗中的指令碼：
 
     ```json
@@ -339,4 +338,3 @@ SparkJob2
         script2.py
     logs
 ```
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
 ms.openlocfilehash: 7d3c655a754f83284c386d2007c604a731367814
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-configuring-salesforce-sandbox-for-automatic-user-provisioning"></a>教學課程︰設定自動使用者佈建的 Salesforce 沙箱
 
@@ -74,10 +74,10 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
    
     b.這是另一個 C# 主控台應用程式。 在 [管理員密碼] 文字方塊中，輸入這個帳戶的密碼。
 
-6. 若要取得您的 Salesforce 沙箱安全性權杖，請開啟新索引標籤並登入相同的 Salesforce 沙箱管理帳戶。 在頁面右上角，按一下您的名稱，然後按一下 [我的設定]。
+6. 若要取得您的 Salesforce 沙箱安全性權杖，請開啟新索引標籤並登入相同的 Salesforce 沙箱管理帳戶。 在頁面右上角，按一下您的名稱，然後按一下我的設定。
 
      ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-my-settings.png "啟用自動使用者佈建")
-7. 在左方導覽窗格上，按一下 [個人] 展開相關的區段，然後按一下 [重設我的安全性權杖]。
+7. 在左方導覽窗格上，按一下 個人 展開相關的區段，然後按一下重設我的安全性權杖。
   
     ![啟用自動使用者佈建](./media/active-directory-saas-salesforce-sandbox-provisioning-tutorial/sf-personal-reset.png "啟用自動使用者佈建")
 8. 在 [重設我的安全性權杖] 頁面上，按一下 [重設安全性權杖] 按鈕。

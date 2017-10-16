@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
 本文可協助您使用資料管理閘道來設定高可用性和延展性解決方案。    
@@ -250,4 +249,3 @@ Azure 入口網站可為管線監視提供細微的節點層級詳細資料。 �
 請檢閱下列文章：
 - [資料管理閘道](data-factory-data-management-gateway.md) - 提供詳細的閘道概觀。
 - [在內部部署和雲端資料存放區之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) - 包含如何使用具有單一節點之閘道的逐步指示。 
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/03/2017
 ms.author: bwren
 ms.openlocfilehash: 127fd6e3012bdb0788ed23ae5e8921df651d863b
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="more-telemetry-from-application-insights"></a>更多來自 Application Insights 的遙測
 在您已經 [將 Application Insights 加入到您的 ASP.NET 程式碼](app-insights-asp-net.md)之後，您可以採取幾個動作來取得更多遙測。 

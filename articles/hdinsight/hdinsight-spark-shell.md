@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
 ms.author: maxluk
+ms.openlocfilehash: 48c6a24f6c820eaf09da6fa3a0a496ddbef1e7a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 108b2e25dee63a15ac703d2a9b617bfb155f95da
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-spark-from-the-spark-shell"></a>從 Spark Shell 執行 Spark
 
@@ -79,5 +78,4 @@ Spark Shell 命令 (`spark-shell`、`pyspark`或 `sparkR`) 支援許多命令列
 - 如需相關簡介，請參閱 [Spark on Azure HDInsight 簡介](hdinsight-apache-spark-overview.md)。
 - 請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)，搭配使用 Spark 叢集和 SparkSQL。
 - 請參閱[何謂 Spark 結構化串流？](hdinsight-spark-streaming-overview.md)，使用 Spark 撰寫可處理串流資料的應用程式。
-
 

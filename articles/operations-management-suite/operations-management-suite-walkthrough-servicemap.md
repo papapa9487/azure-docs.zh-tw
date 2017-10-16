@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: bwren
 ms.openlocfilehash: c3548d24c74f8ad865b22d6af3490d0b5cc77a84
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="operations-management-suite-oms-self-paced-demo---service-map"></a>Operations Management Suite (OMS) 自學示範 - 服務對應
 這是一個自學示範，會逐步解說如何使用 Operations Management Suite (OMS) 中的[服務對應解決方案](operations-management-suite-service-map.md)來找出及診斷 Web 應用程式中的模擬問題。  服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。  它也會合併其他 OMS 服務所收集的資料，協助您分析效能和找出問題。  您也會使用 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)，向下切入收集的資料以便找出根本問題。
@@ -80,7 +80,7 @@ ms.lasthandoff: 07/11/2017
 
 
 ### <a name="7-view-change-tracking"></a>7.檢視變更追蹤
-我們來看看是否可以找出可能造成此高使用率的原因。  按一下 [摘要] 索引標籤。  這會提供 OMS 從電腦收集到的資訊，例如失敗的連線、重大警示，以及軟體變更。  具有最新有趣資訊的區段應該已經展開，而您可以展開其他區段來檢查其中包含的資訊。
+我們來看看是否可以找出可能造成此高使用率的原因。  按一下 [摘要] 索引標籤。這會提供 OMS 從電腦收集到的資訊，例如失敗的連線、重大警示，以及軟體變更。  具有最新有趣資訊的區段應該已經展開，而您可以展開其他區段來檢查其中包含的資訊。
 
 
 如果 [變更追蹤] 尚未開啟，則將它展開。  這會顯示[變更追蹤解決方案](../log-analytics/log-analytics-change-tracking.md)所收集的資訊。  看起來，已在這段期間範圍內進行軟體變更。  按一下 [軟體] 以取得詳細資料。  備份程序已在上午 4:00 後新增至電腦，因此這似乎耗用過多資源的罪魁禍首。

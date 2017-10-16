@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/21/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 入口網站中建立模型
 
@@ -52,7 +51,7 @@ Azure 入口網站中的 Azure Analysis Services Web 設計工具 (預覽) 提�
 
      ![在 Azure 入口網站中的連線對話方塊](./media/analysis-services-create-model-portal/aas-create-portal-connect.png)
 
-5. 在 [資料表和檢視] 中，選取要包含在模型中的資料表，然後按一下 [建立]。 會使用金鑰組自動建立資料表之間的關聯性。
+5. 在 資料表和檢視 中，選取要包含在模型中的資料表，然後按一下建立。 會使用金鑰組自動建立資料表之間的關聯性。
 
      ![選取資料表和檢視](./media/analysis-services-create-model-portal/aas-create-portal-tables.png)
 
@@ -72,6 +71,5 @@ Azure 入口網站中的 Azure Analysis Services Web 設計工具 (預覽) 提�
 ## <a name="next-steps"></a>後續步驟 
 [管理資料庫角色和使用者](analysis-services-database-users.md)  
 [與 Excel 連線](analysis-services-connect-excel.md)  
-
 
 

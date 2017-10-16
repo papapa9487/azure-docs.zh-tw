@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: 95962833f853886476630d703c8959bad1852e50
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: 90439d792eac618671a9de9938302d8930c986d8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>使用範本部署配置有 IPv6 的網際網路面向負載平衡器解決方案
 
 > [!div class="op_single_selector"]
@@ -136,4 +134,3 @@ Azure Resource Manager 範本可包含多個變數和參數，讓您自訂自己
 | lbName |指定負載平衡器的名稱。 這個名稱會顯示在入口網站，或在以 CLI 或 PowerShell 命令參考它時用到。 |
 
 範本中的其餘變數是 Azure 建立資源時指派的衍生值。 請勿變更這些變數。
-

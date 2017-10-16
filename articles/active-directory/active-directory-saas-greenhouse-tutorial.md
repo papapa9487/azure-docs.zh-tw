@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
 ms.openlocfilehash: d3aba4aab8ded8749db2bf8197f57a6763008c60
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>教學課程：Azure Active Directory 與 Greenhouse 整合
 
@@ -143,7 +143,7 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-greenhouse-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-greenhouse-tutorial/create_aaduser_02.png)
 
@@ -174,7 +174,7 @@ Greenhouse 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 **Greenhouse** 公司網站。
 
-2. 在頂端的功能表中，按一下 [設定]，然後按一下 [使用者]。
+2. 在頂端的功能表中，按一下 設定，然後按一下使用者。
    
    ![使用者](./media/active-directory-saas-greenhouse-tutorial/ic790791.png "使用者")
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 623c438edfce5f98c2d32d8bb25a97d86aa77909
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-integrate-azure-active-directory-with-cezanne-hr-software"></a>教學課程：Azure Active Directory 與 Cezanne HR Software 整合
 
@@ -161,7 +160,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
     ![[儲存] 按鈕](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 
 > [!TIP]
-> 當您設定應用程式時，您可以在 [Azure 入口網站](https://portal.azure.com)中閱讀精簡版的先前說明。 從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，選取 [單一登入] 索引標籤。 然後從 [設定] 區段來存取內嵌的文件。 
+> 當您設定應用程式時，您可以在 [Azure 入口網站](https://portal.azure.com)中閱讀精簡版的先前說明。 從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，選取 [單一登入] 索引標籤。然後從 [設定] 區段來存取內嵌的文件。 
 
 若要深入了解內嵌文件功能，請參閱 [Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)。
 > 
@@ -241,7 +240,7 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
 
 6. 在 [識別提供者] 清單方塊中，選取您的識別提供者。 在 [使用者識別碼] 方塊中，輸入測試使用者 Britta Simon 帳戶的電子郵件地址。
 
-    ![[識別提供者] 和 [使用者識別碼] 方塊](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "使用者")
+    [識別提供者] 和 [使用者識別碼] 方塊![][使用者](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "")
     
 7. 選取 [ **儲存**]。
 
@@ -299,5 +298,4 @@ Cezanne HR Software 與 Azure AD 整合提供下列優點。 您可以：
 [201]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_203.png
-
 

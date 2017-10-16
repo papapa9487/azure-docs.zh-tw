@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/30/2017
-
+ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 web 應用程式防火牆 CRS 規則群組與規則的清單
 
 應用程式閘道 web 應用程式防火牆 (WAF) 會保護 web 應用程式免於一般安全性弱點和攻擊。 這是透過根據 OWASP 核心規則集 2.2.9 或 3.0 所定義的規則來完成。 可依規則基礎在規則上停用這些規則。 這篇文章包含目前的規則和提供的規則集。

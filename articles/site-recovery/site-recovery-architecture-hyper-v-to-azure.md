@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 06/23/2017
 ms.author: raynew
 ms.openlocfilehash: 28f775afaf72b11eec0c22f755e4dbd6a485c895
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-hyper-v-replication-to-azure-work-in-site-recovery"></a>在 Site Recovery 中將 Hyper-V 複寫至 Azure 如何運作？
 
@@ -64,8 +64,7 @@ Site Recovery 可以在 Hyper-V 叢集和獨立主機上，複寫不論是否使
 1. 您在 Azure 入口網站或內部部署針對 Hyper-V VM 啟用保護之後，**啟用保護**隨即啟動。
 2. 作業會檢查符合必要條件的機器，然後叫用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 方法，以使用您進行的設定來設定複寫。
 3. 作業會啟動初始複寫，方法是叫用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法，以初始化完整的 VM 複寫，並且將 VM 的虛擬磁碟傳送至 Azure。
-4. 您可以在 [作業] 索引標籤中監視作業。
-        ![作業清單](media/site-recovery-hyper-v-azure-architecture/image1.png) ![啟用保護向下鑽研](media/site-recovery-hyper-v-azure-architecture/image2.png)
+4. 您可以在 [作業] 索引標籤中監視作業。    ![作業清單](media/site-recovery-hyper-v-azure-architecture/image1.png) ![啟用保護向下鑽研](media/site-recovery-hyper-v-azure-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>複寫初始資料
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi;andkjell
 ms.openlocfilehash: 6cf8debc6443bb60fc5f601ea4aa392eb2f13a8f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect 同步處理：技術概念
 本文是 [了解架構](active-directory-aadconnectsync-technical-concepts.md)主題的摘要。
@@ -40,8 +40,7 @@ Azure AD Connect 同步建置在一個穩固的中繼目錄同步處理平台上
 ## <a name="connector"></a>連接器
 用來與連接的目錄通訊之程式碼模組，稱為連接器 (之前稱為管理代理程式 (MA))。
 
-這些模組是安裝在執行 Azure AD Connect 同步的電腦上。
-連接器使用遠端系統通訊協定，替代依賴特定代理程式的部署，提供無代理程式能力的通訊。 這表示降低了風險與部署時間，特別是在處理重要的應用程式與系統時。
+這些模組是安裝在執行 Azure AD Connect 同步的電腦上。連接器使用遠端系統通訊協定，替代依賴特定代理程式的部署，提供無代理程式能力的通訊。 這表示降低了風險與部署時間，特別是在處理重要的應用程式與系統時。
 
 在上圖中，連接器與連接器空間是同義詞，但包含了所有與外部系統的通訊。
 

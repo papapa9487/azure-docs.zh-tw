@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.openlocfilehash: 3f944ffbf704694b293b4b1e5bdb4f2c93ae35a1
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>教學課程：Azure Active Directory 與 TimeOffManager 整合
 
@@ -70,7 +70,7 @@ TimeOffManager 與 Azure AD 整合提供下列優點：
 
     ![應用程式][3]
 
-4. 在搜尋方塊中，輸入 **TimeOffManager**，從結果面板中選取 [TimeOffManager]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **TimeOffManager**，從結果面板中選取 TimeOffManager，然後按一下新增 按鈕以新增應用程式。
 
     ![從資源庫新增](./media/active-directory-saas-timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
 

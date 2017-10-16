@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: d856e26084ee79386a2e8e0e527804bda86b477b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 4e346306ecb8f4897a249454c537ce9a1a4c4011
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>將裝置到雲端訊息傳送至 IoT 中樞
 
@@ -92,4 +91,3 @@ IoT 中樞的裝置對雲端傳訊具有下列特性：
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-

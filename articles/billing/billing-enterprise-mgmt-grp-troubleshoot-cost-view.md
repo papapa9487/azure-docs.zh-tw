@@ -12,14 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: rithorn
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: eca1ac9ed51e6c2243be451a074792fbec2840d2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-enterprise-cost-views"></a>為企業成本檢視疑難排解 
 
 在企業註冊內，有多個設定可能導致註冊內的使用者無法檢視成本。  如果並未直接向 Microsoft 購買註冊，註冊系統管理員或夥伴會管理這些設定。  本文可協助您了解設定，以及這些設定如何影響註冊。 這些設定與 [Azure RBAC 角色](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure)無關。 
@@ -50,4 +48,3 @@ ms.lasthandoff: 09/25/2017
 請連絡訂用帳戶或管理群組的系統管理員，以取得存取權。  
 * 針對訂用帳戶，請參考 [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) 文件，以取得有關所需角色的說明。
 * 針對管理群組，目前無法使用 RBAC 存取，但即將推出。 請連絡您的企業版入口網站系統管理員，以請求指派存取權。   
-

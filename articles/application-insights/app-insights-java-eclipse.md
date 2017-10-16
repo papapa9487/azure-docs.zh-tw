@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/12/2016
 ms.author: bwren
 ms.openlocfilehash: f2f696a3bbe7893c1f521a3e5588f4f93805d6a2
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>在 Eclipse 中利用 Java 開始使用 Application Insights
 Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您可以分析使用量和效能。 Application Insights 適用的 Eclipse 外掛程式會自動在您的專案中安裝 SDK，使得您可以取得內建的遙測，加上可以用來編寫自訂遙測的 API。   
@@ -36,7 +36,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>在 Eclipse 上安裝 SDK (一次)
 您只需在每一部機器上執行一次此動作。 此步驟會安裝工具組，然後工具組會將 SDK 加入到每個動態網站專案。
 
-1. 在 Eclipse 中，按一下 [說明]，然後按一下 [安裝新軟體]。
+1. 在 Eclipse 中，按一下 說明，然後按一下安裝新軟體。
 
     ![[說明] -> [安裝新軟體]](./media/app-insights-java-eclipse/0-plugin.png)
 2. SDK 位於 http://dl.microsoft.com/eclipse 中 Azure 工具組底下。
@@ -71,7 +71,7 @@ Application Insights SDK 會透過 Java Web 應用程式傳送遙測，使得您
 
 返回 Microsoft Azure 中的 Application Insights 資源。
 
-[概觀] 分頁上會顯示 HTTP 要求資料。 (如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
+[概觀] 分頁上會顯示 HTTP 要求資料。 (如果沒有出現，請稍等片刻，然後按一下重新整理。)
 
 ![伺服器回應、要求計數和失敗 ](./media/app-insights-java-eclipse/5-results.png)
 

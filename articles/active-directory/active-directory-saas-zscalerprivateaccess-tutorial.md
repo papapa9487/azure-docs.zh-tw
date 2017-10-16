@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
 ms.openlocfilehash: 5c598bfa5b6725d21a89df54dbcb3314cc631d80
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>教學課程：Azure Active Directory 與 Zscaler Private Access (ZPA) 整合
 
@@ -77,7 +77,7 @@ Zscaler Private Access (ZPA) 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_001.png)
 
-5. 在結果窗格中，選取 [Zscaler Private Access (ZPA)]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Zscaler Private Access (ZPA)，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_0001.png)
 
@@ -144,7 +144,7 @@ Zscaler Private Access (ZPA) 與 Azure AD 整合提供下列優點：
 
 9. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入您的 Zscaler Private Access (ZPA) 公司網站。
 
-10. 瀏覽至 [系統管理員]，然後按一下 [Idp 組態]。
+10. 瀏覽至 系統管理員，然後按一下Idp 組態。
 
     ![在應用程式端設定單一登入](./media/active-directory-saas-zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
 

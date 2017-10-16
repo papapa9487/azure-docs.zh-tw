@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a0bd11491fbc49333937ab6e6f3e67abcee9f180
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>使用 Azure Data Factory 從 Cassandra 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +37,7 @@ ms.lasthandoff: 09/25/2017
 具體而言，此 Cassandra 連接器支援：
 
 - Cassandra **2.X 版**。
-- 使用**基本**或**匿名**驗證複製資料。
+- 使用 **Basic** (基本) 或 **Anonymous** (匿名) 驗證來複製資料。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -58,10 +57,10 @@ ms.lasthandoff: 09/25/2017
 | 類型 |類型屬性必須設定為：**Cassandra** |是 |
 | 主機 |一或多個 Cassandra 伺服器 IP 位址或主機名稱。<br/>指定以逗號分隔的 IP 位址或主機名稱清單，以同時連線到所有伺服器。 |是 |
 | 連接埠 |Cassandra 伺服器用來接聽用戶端連線的 TCP 連接埠。 |否 (預設值為 9042) |
-| authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值為：**基本**和**匿名**。 |是 |
+| authenticationType | 用來連接到 Cassandra 資料庫的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 |是 |
 | username |指定使用者帳戶的使用者名稱。 |是，如果 authenticationType 設定為 [基本]。 |
 | password |指定使用者帳戶的密碼。 請將此欄位標示為 SecureString。 |是，如果 authenticationType 設定為 [基本]。 |
-| connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用「自我裝載整合執行階段」或「Azure 整合執行階段」(如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的「Azure 整合執行階段」。 |否 |
+| connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
 

@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 07/12/2017
 ms.author: magoedte
 ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 和 Linux 效能資料來源
 Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Log Analytics 可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
@@ -122,9 +122,9 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 | 網路 | Total Rx Errors |
 | 網路 | Total Tx Errors |
 | 網路 | Total Collisions |
-| Physical Disk | Avg. Disk sec/Read |
-| Physical Disk | Avg. Disk sec/Transfer |
-| Physical Disk | Avg. Disk sec/Write |
+| Physical Disk | Avg.Disk sec/Read |
+| Physical Disk | Avg.Disk sec/Transfer |
+| Physical Disk | Avg.Disk sec/Write |
 | Physical Disk | Physical Disk Bytes/sec |
 | Process | Pct Privileged Time |
 | Process | Pct User Time |

@@ -16,10 +16,10 @@ ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
 ms.openlocfilehash: 458a2cab13b7e83f120e0926a95d454070181dfb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email"></a>B2B 共同作業邀請電子郵件的元素
 

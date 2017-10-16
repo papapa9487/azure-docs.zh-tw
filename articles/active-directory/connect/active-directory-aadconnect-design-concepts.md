@@ -16,10 +16,10 @@ ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: f23443d438c95a784f655fb9a5f20dfcf37be189
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect：設計概念
 本主題旨在說明在 Azure AD Connect 實作設計期間必須考量的領域。 這個主題是特定領域的深入探討，而在其他主題中也會簡短描述這些概念。
@@ -180,10 +180,10 @@ Azure AD Connect (1.1.524.0 版和更新版本) 現在可協助您使用 msDS-Co
 ### <a name="custom-domain-state-and-upn"></a>自訂網域狀態和 UPN
 請務必確保 UPN 尾碼有已驗證的網域。
 
-John 是 contoso.com 中的使用者。 在您將使用者同步至 Azure AD 目錄 contoso.onmicrosoft.com 之後，您希望 John 使用內部部署 UPN john@contoso.com 來登入 Azure。 若要這樣做，您必須將 contoso.com 新增為 Azure AD 中的自訂網域並加以驗證，才能開始同步處理使用者。 舉例來說，如果 John 的 UPN 尾碼是 contoso.com，不符合 Azure AD 中已驗證的網域，則 Azure AD 會以 contoso.onmicrosoft.com 取代 UPN 尾碼。
+John 是 contoso.com 中的使用者。在您將使用者同步至 Azure AD 目錄 contoso.onmicrosoft.com 之後，您希望 John 使用內部部署 UPN john@contoso.com 來登入 Azure。若要這樣做，您必須將 contoso.com 新增為 Azure AD 中的自訂網域並加以驗證，才能開始同步處理使用者。 舉例來說，如果 John 的 UPN 尾碼是 contoso.com，不符合 Azure AD 中已驗證的網域，則 Azure AD 會以 contoso.onmicrosoft.com 取代 UPN 尾碼。
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>無法路由傳送的內部部署網域與 Azure AD 的 UPN
-有些組織有無法路由傳送的網域，例如 contoso.local 或簡單單一標籤網域，例如 contoso。 您無法確認在 Azure AD 中無法路由傳送的網域。 Azure AD Connect 可以僅同步至 Azure AD 中已驗證的網域。 當您建立 Azure AD 目錄時，它會建立可路由傳送的網域，而該網域會成為 Azure AD 的預設網域，例如 contoso.onmicrosoft.com。 因此，如果您不想要同步至預設的 .onmicrosoft.com 網域，則必須在此類案例中驗證所有其他可路由傳送的網域。
+有些組織有無法路由傳送的網域，例如 contoso.local 或簡單單一標籤網域，例如 contoso。 您無法確認在 Azure AD 中無法路由傳送的網域。 Azure AD Connect 可以僅同步至 Azure AD 中已驗證的網域。 當您建立 Azure AD 目錄時，它會建立可路由傳送的網域，而該網域會成為 Azure AD 的預設網域，例如 contoso.onmicrosoft.com。因此，如果您不想要同步至預設的 .onmicrosoft.com 網域，則必須在此類案例中驗證所有其他可路由傳送的網域。
 
 如需有關如何新增和驗證網域的詳細資訊，請參閱 [將您的自訂網域名稱新增至 Azure Active Directory](../active-directory-add-domain.md) 。
 

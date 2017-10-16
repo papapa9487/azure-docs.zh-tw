@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 45106b499b9a541d5e6120538cfe1715608be118
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>教學課程：Azure Active Directory 與 New Relic 整合
 
@@ -71,7 +70,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕][3]
 
-4. 在搜尋方塊中，輸入 **New Relic**，從結果面板中選取 [New Relic]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **New Relic**，從結果面板中選取 New Relic，然後按一下新增 按鈕以新增應用程式。
 
     ![結果清單中的 New Relic](./media/active-directory-saas-new-relic-tutorial/tutorial_new-relic_addfromgallery.png)
 
@@ -166,7 +165,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-new-relic-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-new-relic-tutorial/create_aaduser_02.png)
 
@@ -198,7 +197,7 @@ New Relic 與 Azure AD 整合提供下列優點：
    
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/ic797040.png "帳戶設定")
 
-3. 在左邊的**帳戶**窗格中按一下 [摘要]，然後按一下 [新增使用者]。
+3. 在左邊的**帳戶**窗格中按一下 摘要，然後按一下新增使用者。
    
     ![帳戶設定](./media/active-directory-saas-new-relic-tutorial/ic797041.png "帳戶設定")
 
@@ -273,5 +272,4 @@ New Relic 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-new-relic-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-new-relic-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-new-relic-tutorial/tutorial_general_203.png
-
 

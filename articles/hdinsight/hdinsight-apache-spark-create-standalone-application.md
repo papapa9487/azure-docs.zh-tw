@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: nitinme
 ms.openlocfilehash: 95dba08744357f8800b05e3d4b892e3a363d5985
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-scala-maven-application-to-run-on-apache-spark-cluster-on-hdinsight"></a>建立在 HDInsight 中的 Apache Spark 叢集上執行的 Scala Maven 應用程式
 
@@ -47,10 +47,10 @@ ms.lasthandoff: 08/29/2017
 ## <a name="install-scala-plugin-for-intellij-idea"></a>安裝 IntelliJ IDEA 的 Scala 外掛程式
 如果 IntelliJ IDEA 安裝未提示您啟 Scala 外掛程式，請啟動 IntelliJ IDEA，然後完成下列步驟以安裝此外掛程式：
 
-1. 啟動 IntelliJ IDEA，並在 [歡迎使用] 畫面中按一下 [設定]，然後按一下 [外掛程式]。
+1. 啟動 IntelliJ IDEA，並在 歡迎使用 畫面中按一下 設定，然後按一下外掛程式。
    
     ![啟用 Scala 外掛程式](./media/hdinsight-apache-spark-create-standalone-application/enable-scala-plugin.png)
-2. 在下一個畫面中，按一下左下角的 [安裝 JetBrains 外掛程式]  。 在開啟的 [瀏覽 JetBrains 外掛程式] 對話方塊中搜尋 Scala，然後按一下 [安裝]。
+2. 在下一個畫面中，按一下左下角的 [安裝 JetBrains 外掛程式]  。 在開啟的 瀏覽 JetBrains 外掛程式 對話方塊中搜尋 Scala，然後按一下安裝。
    
     ![安裝 Scala 外掛程式](./media/hdinsight-apache-spark-create-standalone-application/install-scala-plugin.png)
 3. 此外掛程式安裝成功之後，請按一下 [重新啟動 IntelliJ IDEA]  按鈕，以重新啟動 IDE。
@@ -66,9 +66,9 @@ ms.lasthandoff: 08/29/2017
    * 從原型清單中，選取 **org.scala-tools.archetypes:scala-archetype-simple**。 這會建立正確的目錄結構，並下載撰寫 Scala 程式所需的預設相依性。
 2. 為 [GroupId]、[ArtifactId] 和 [版本] 提供相關值。 按一下 [下一步] 。
 3. 在下一個對話方塊中 (您可以在此處指定 Maven 主目錄及其他使用者設定) 接受預設值，然後按 [下一步] 。
-4. 在最後一個對話方塊中指定專案名稱和位置，然後按一下 [完成] 。
+4. 在最後一個對話方塊中指定專案名稱和位置，然後按一下完成 。
 5. 刪除位於 **src\test\scala\com\microsoft\spark\example** 的 **MySpec.Scala** 檔案。 應用程式並不需要此檔案。
-6. 如有必要，請重新命名預設來源和測試檔案。 在 IntelliJ IDEA 的左窗格中，導覽至 **src\main\scala\com.microsoft.spark.example**。 以滑鼠右鍵按一下 **App.scala**、按一下 [重構]、按一下 [重新命名檔案]，在對話方塊中提供應用程式的新名稱，然後按一下 [重構]。
+6. 如有必要，請重新命名預設來源和測試檔案。 在 IntelliJ IDEA 的左窗格中，導覽至 **src\main\scala\com.microsoft.spark.example**。 以滑鼠右鍵按一下 **App.scala**、按一下 重構、按一下 重新命名檔案，在對話方塊中提供應用程式的新名稱，然後按一下重構。
    
     ![重新命名檔案](./media/hdinsight-apache-spark-create-standalone-application/rename-scala-files.png)  
 7. 在後續步驟中，您將會更新 pom.xml，以定義 Spark Scala 應用程式的相依性。 若要自動下載並解析這些相依性，您必須據以設定 Maven。
@@ -78,7 +78,7 @@ ms.lasthandoff: 08/29/2017
    1. 從 [檔案] 功能表中，按一下 [設定]。
    2. 在 [設定] 對話方塊中，導覽至 [建置、執行、部署] > [建置工具] > [Maven] > [匯入]。
    3. 選取 [自動匯入 Maven 專案] 的選項。
-   4. 按一下 [套用]，然後按一下 [確定]。
+   4. 按一下 套用，然後按一下確定。
 8. 更新 Scala 原始程式檔，以納入您的應用程式程式碼。 開啟現有的範例程式碼，並將其取代為下列程式碼，然後儲存變更。 此程式碼會從 HVAC.csv (所有 HDInsight Spark 叢集上均有提供) 讀取資料、擷取在第六個資料行中只有個位數的資料列，並將輸出寫入到叢集預設儲存體容器下的 **/HVACOut** 。
    
         package com.microsoft.spark.example
@@ -121,22 +121,22 @@ ms.lasthandoff: 08/29/2017
 10. 建立 .jar 檔案。 IntelliJ IDEA 允許將 JAR 建立為專案的構件。 請執行下列步驟：
     
     1. 在 [檔案] 功能表中，按一下 [專案結構]。
-    2. 在 [專案結構] 對話方塊中，按一下 [構件]，然後按一下加號。 在快顯對話方塊中按一下 [JAR]，然後按一下 [從具有相依性的模組]。
+    2. 在 [專案結構] 對話方塊中，按一下 [構件]，然後按一下加號。 在快顯對話方塊中按一下 JAR，然後按一下從具有相依性的模組。
        
         ![建立 JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-1.png)
     3. 在 [從模組建立 JAR] 對話方塊中，對 [主要類別] 按一下省略符號 (![ellipsis](./media/hdinsight-apache-spark-create-standalone-application/ellipsis.png))。
-    4. 在 [選取主要類別] 對話方塊中，選取依預設出現的類別，然後按一下 [確定]。
+    4. 在 選取主要類別 對話方塊中，選取依預設出現的類別，然後按一下確定。
        
         ![建立 JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-2.png)
-    5. 在 [從模組建立 JAR] 對話方塊中，確定已選取 [擷取至目標 JAR]選項，然後按一下 [確定]。 這會建立具有所有相依性的單一 JAR。
+    5. 在 從模組建立 JAR 對話方塊中，確定已選取 擷取至目標 JAR選項，然後按一下確定。 這會建立具有所有相依性的單一 JAR。
        
         ![建立 JAR](./media/hdinsight-apache-spark-create-standalone-application/create-jar-3.png)
-    6. [輸出配置] 索引標籤會列出所有納入 Maven 專案中的 jar。 您可以選取並刪除 Scala 應用程式未直接依存的 jar。 對於我們在此處建立的應用程式，您可以移除最後一個 (**SparkSimpleApp 編譯輸出**) 以外的所有 jar。 選取要刪除的 jar，然後按一下 [刪除]  圖示。
+    6. [輸出配置] 索引標籤會列出所有納入 Maven 專案中的 jar。 您可以選取並刪除 Scala 應用程式未直接依存的 jar。 對於我們在此處建立的應用程式，您可以移除最後一個 (**SparkSimpleApp 編譯輸出**) 以外的所有 jar。 選取要刪除的 jar，然後按一下刪除  圖示。
        
         ![建立 JAR](./media/hdinsight-apache-spark-create-standalone-application/delete-output-jars.png)
        
         請確實選取 [在建置時建立]  方塊，以確保在每次建置或更新專案時都會建立 jar。 依序按一下 [套用] 及 [確定]。
-    7. 在功能表列中按一下 [建置]，然後按一下 [建立專案]。 您也可以按一下 [建置構件]，以建立 jar。 輸出 jar 會建立在 **\out\artifacts** 下。
+    7. 在功能表列中按一下 建置，然後按一下建立專案。 您也可以按一下 [建置構件]，以建立 jar。 輸出 jar 會建立在 **\out\artifacts** 下。
        
         ![建立 JAR](./media/hdinsight-apache-spark-create-standalone-application/output.png)
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/17/2017
 ms.author: tarcher
 ms.openlocfilehash: b3000ed769e8c60eccb21e26f53ce7ccb7e68d7f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="staging-an-application-in-azure"></a>在 Azure 中預備應用程式
 將封裝的應用程式移至生產環境供網際網路存取之前，可先將應用程式部署到 Azure 中的預備環境來進行測試。 預備環境與生產環境完全相同，差別在於您只能以 Azure 產生的隱藏 URL 來存取預備應用程式。 在確認應用程式可正常運作之後，就可以執行虛擬 IP (VIP) 交換將它部署至生產環境。
@@ -60,7 +60,7 @@ ms.lasthandoff: 08/18/2017
 2. 從 [儀表板] 中，選取 [預備]，然後按一下頁面底部的 [交換]。 這樣會開啟 [VIP 交換] 對話方塊。
    
    ![vip swap dialog][vip-swap-dialog]
-3. 檢閱資訊，然後按一下 [確定] 。 兩個部署開始更新，預備部署會切換至生產環境，而生產部署會切換至預備環境。
+3. 檢閱資訊，然後按一下確定 。 兩個部署開始更新，預備部署會切換至生產環境，而生產部署會切換至預備環境。
 
 您已與預備中的部署交換 IP，順利預備部署並升級生產部署。
 

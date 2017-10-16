@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 3719e037f1564411a8f94d1ca962ba1ef6b5d435
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>透過可預測方式在 Azure 中佈建和部署微服務
 本教學課程示範如何在 [Azure App Service](/services/app-service/) 中將包含[微服務](https://en.wikipedia.org/wiki/Microservices)的應用程式佈建和部署為單一單位，並且使用 JSON 資源群組範本和 PowerShell 指令碼的可預測方式。 
@@ -207,7 +206,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
 6. 按一下 [ **加入資源**]，將一些標準 Application Insight 資源加入 JSON 檔案，但此作業僅供示範之用。 如果您只想部署 JSON 檔案，請跳至部署步驟。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-3-newresource.png)
-7. 選取 [Web Apps 的 Application Insights]，並確定已選取現有 App Service 方案和 Web 應用程式，然後按一下 [新增]。
+7. 選取 Web Apps 的 Application Insights，並確定已選取現有 App Service 方案和 Web 應用程式，然後按一下新增。
    
    ![](./media/app-service-deploy-complex-application-predictably/deploy-4-newappinsight.png)
    
@@ -226,7 +225,7 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. 登入 Azure 帳戶 (如果您尚未這樣做)。
-14. 在您的訂用帳戶中選取現有的資源群組，或選取 **azuredeploy.json**，然後按一下 [編輯參數] 建立新的資源群組。
+14. 在您的訂用帳戶中選取現有的資源群組，或選取 **azuredeploy.json**，然後按一下編輯參數 建立新的資源群組。
     
     ![](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     
@@ -269,5 +268,4 @@ Web 應用程式與兩個不同的資源相依。 這表示只有在建立 App S
 * [使用 Azure 資源管理員範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
 * [搭配使用 Azure PowerShell 與 Azure 資源管理員](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure 中的資源群組部署疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)
-
 

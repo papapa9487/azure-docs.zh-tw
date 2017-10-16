@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
 ms.openlocfilehash: 7c355e2feb5ebe5971d8391b326422a1abec1497
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-multiple-versions-of-your-api-in-a-predictable-way"></a>利用可預測的方式發行多個版本的 API
 本教學課程說明如何設定您的 API 版本，然後選擇 API 開發人員呼叫的方式。
 
@@ -75,4 +73,3 @@ Azure API 管理可讓您選擇讓呼叫者指定他們想要之 API 版本的�
 3. 選取 [v1]。
 4. 請注意清單中第一項作業的 [要求 URL]。 它會顯示 API URL 路徑，包含 **v1**。
 ![開發人員入口網站上顯示的版本](media/api-management-getstarted-publish-versions/VersionDevPortal.PNG)
-

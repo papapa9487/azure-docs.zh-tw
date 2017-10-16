@@ -15,10 +15,10 @@ ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: 1996ec97e7c0d94c5606ca43bb5956548f1f3712
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>教學課程：Azure Active Directory 與 AirWatch 整合
 
@@ -74,7 +74,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_search.png)
 
-5. 在結果窗格中，選取 [AirWatch]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 AirWatch，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-airwatch-tutorial/tutorial_airwatch_addfromgallery.png)
 
@@ -132,15 +132,15 @@ AirWatch 與 Azure AD 整合提供下列優點：
 <CS>
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 AirWatch 公司網站。
 
-8. 在左側導覽窗格中按一下 [帳戶]，然後按一下 [系統管理員]。
+8. 在左側導覽窗格中按一下 帳戶，然後按一下系統管理員。
    
    ![系統管理員](./media/active-directory-saas-airwatch-tutorial/ic791920.png "系統管理員")
 
-9. 展開 [設定] 功能表，然後按一下 [目錄服務]。
+9. 展開 設定 功能表，然後按一下目錄服務。
    
    ![設定](./media/active-directory-saas-airwatch-tutorial/ic791921.png "設定")
 
-10. 按一下 [使用者] 索引標籤，在 [基準 DN] 文字方塊中輸入您的網域名稱，然後按一下 [儲存]。
+10. 按一下 使用者 索引標籤，在 基準 DN 文字方塊中輸入您的網域名稱，然後按一下儲存。
    
    ![使用者](./media/active-directory-saas-airwatch-tutorial/ic791922.png "使用者")
 
@@ -234,10 +234,10 @@ AirWatch 與 Azure AD 整合提供下列優點：
 **若要佈建使用者帳戶，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 **AirWatch** 公司網站。
-2. 在左側導覽窗格中按一下 [帳戶]，然後按一下 [使用者]。
+2. 在左側導覽窗格中按一下 帳戶，然後按一下使用者。
    
    ![使用者](./media/active-directory-saas-airwatch-tutorial/ic791929.png "使用者")
-3. 在 [使用者] 功能表中，按一下 [清單檢視]，然後按一下 [新增] \> [新增使用者]。
+3. 在 使用者 功能表中，按一下 清單檢視，然後按一下新增 \> 新增使用者。
    
    ![新增使用者](./media/active-directory-saas-airwatch-tutorial/ic791930.png "新增使用者")
 4. 在 [新增/編輯使用者]  對話方塊中，執行下列步驟：

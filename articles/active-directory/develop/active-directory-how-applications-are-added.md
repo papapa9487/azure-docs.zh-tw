@@ -16,10 +16,10 @@ ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
 ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>將應用程式加入至 Azure AD 的方式和原因
 在 Azure Active Directory 的執行個體中檢視應用程式清單時，最初令人感到困惑的其中一件事情是了解應用程式的來源以及其存在目的。  本文將提供應用程式如何在目錄中呈現的高階概觀，並提供內容來協助您了解應用程式如何出現在您的目錄中。

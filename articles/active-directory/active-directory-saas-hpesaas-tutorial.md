@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 5e6f0da531df85359aa47477248dd020a039e7e3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>教學課程：Azure Active Directory 與 HPE SaaS 整合
 
@@ -74,7 +73,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_search.png)
 
-5. 在結果窗格中，選取 [HPE SaaS]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 HPE SaaS，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-hpesaas-tutorial/tutorial_hpesaas_addfromgallery.png)
 
@@ -223,5 +222,4 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-hpesaas-tutorial/tutorial_general_203.png
-
 

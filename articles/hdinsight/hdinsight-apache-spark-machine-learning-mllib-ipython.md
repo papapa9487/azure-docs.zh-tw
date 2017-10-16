@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 47cbb4ba34bb075f51306cc9481afd308ff672b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: fef4a48c6356addad0dc12a2df5799e1acb4ddc3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Spark MLlib 建置機器學習應用程式及分析資料集
 
@@ -56,15 +55,15 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
 ## <a name="start-building-a-spark-mmlib-machine-learning-app"></a>開始建置 Spark MMLib 機器學習應用程式
 1. 在 [Azure 入口網站](https://portal.azure.com/)的開始面板中，按一下您的 Spark 叢集格圖格 (如果您已將它釘選到開始面板)。 您也可以按一下 [瀏覽全部] > [HDInsight 叢集] 來瀏覽至您的叢集。   
-1. 從 Spark 叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+1. 從 Spark 叢集刀鋒視窗按一下 叢集儀表板，然後按一下Jupyter Notebook。 出現提示時，輸入叢集的系統管理員認證。
 
    > [!NOTE]
-   > 您也可以在瀏覽器中開啟下列 URL，來連線到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
+   > 您也可以在瀏覽器中開啟下列 URL，來連接到您的叢集的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
    >
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-1. 建立 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+1. 建立 Notebook。 按一下 新增，然後按一下PySpark。
 
     ![建立 Jupyter Notebook](./media/hdinsight-apache-spark-machine-learning-mllib-ipython/spark-machine-learning-create-jupyter.png "建立新的 Jupyter Notebook")
 1. 系統隨即會建立新 Notebook，並以 Untitled.pynb 的名稱開啟。 在頂端按一下 Notebook 名稱，然後輸入好記的名稱。
@@ -362,4 +361,3 @@ MLlib 可提供簡單的方法來執行此作業。 首先，將每個違規情�
 ### <a name="manage-resources"></a>管理資源
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](hdinsight-apache-spark-job-debugging.md)
-

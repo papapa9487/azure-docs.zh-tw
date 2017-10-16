@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
 ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>在 Azure 應用程式中建立及使用效能計數器
 本文說明效能計數器的優點，以及如何將效能計數器放入 Azure 應用程式中。 您可以使用它們來收集資料、找出瓶頸，以及調整系統和應用程式效能。

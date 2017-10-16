@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: f1875582476c3817b9eb0082b6548cc15043cb98
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
@@ -57,7 +57,7 @@ Azure 傳統入口網站中的報告分為下列幾類：
 
 ![登入檢視](./media/active-directory-reporting-migration/483.png "登入檢視")
 
-[登入] 檢視包含所有使用者登入。 您可以利用這項資訊來取得應用程式使用量資訊。 您也可以在 [企業應用程式] 概觀的 [管理] 區段中檢視應用程式使用量資訊。
+[登入] 檢視包含所有使用者登入。您可以利用這項資訊來取得應用程式使用量資訊。 您也可以在 [企業應用程式] 概觀的 [管理] 區段中檢視應用程式使用量資訊。
 
 ![企業應用程式](./media/active-directory-reporting-migration/484.png "企業應用程式")
 
@@ -82,7 +82,7 @@ Azure 傳統入口網站中的報告分為下列幾類：
 
 ### <a name="application-usage"></a>應用程式使用情況
 
-若要檢視所有應用程式或單一應用程式的應用程式使用量詳細資料，請在 [活動] 之下選取 [登入]。 若要縮小結果範圍，您可以依據使用者名稱或應用程式名稱進行篩選。
+若要檢視所有應用程式或單一應用程式的應用程式使用量詳細資料，請在 [活動] 之下選取 [登入]。若要縮小結果範圍，您可以依據使用者名稱或應用程式名稱進行篩選。
 
 ![[篩選登入事件] 頁面](./media/active-directory-reporting-migration/07.png "[篩選登入事件] 頁面")
 

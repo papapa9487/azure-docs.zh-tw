@@ -16,10 +16,10 @@ ms.date: 07/18/2016
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 228bb9058537af1e4eb38207c376c2eb86aee68c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的簽署金鑰變換
 本主題討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。 請務必注意這些金鑰會定期變換，且在緊急狀況下可以立即變換。 所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。 請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
@@ -138,9 +138,9 @@ passport.use(new OIDCStrategy({
 下列步驟將協助您確認應用程式中的邏輯能正常運作。
 
 1. 在 Visual Studio 2013 中開啟方案，然後按一下右側視窗上的 [伺服器 Explorer]  索引標籤。
-2. 依序展開 [資料連線]、[DefaultConnection]、[資料表]。 找出 [IssuingAuthorityKeys] 資料表並以滑鼠右鍵按一下，然後按一下 [顯示資料表資料]。
+2. 依序展開 [資料連線]、[DefaultConnection]、[資料表]。 找出 IssuingAuthorityKeys 資料表並以滑鼠右鍵按一下，然後按一下顯示資料表資料。
 3. [IssuingAuthorityKeys]  資料表中會有至少一個對應至金鑰指紋值的資料列。 刪除資料表中的任何資料列。
-4. 在 [租用戶] 資料表上按一下滑鼠右鍵，然後按一下 [顯示資料表資料]。
+4. 在 租用戶 資料表上按一下滑鼠右鍵，然後按一下顯示資料表資料。
 5. [租用戶]  資料表中會有至少一個對應至唯一目錄租用戶識別碼的資料列。 刪除資料表中的任何資料列。 如果您未刪除 [租用戶] 資料表和 [IssuingAuthorityKeys] 資料表中的資料列，您就會在執行階段收到錯誤。
 6. 建置並執行應用程式。 在登入帳戶之後，即可停止應用程式。
 7. 返回 [伺服器總管]，然後查看 [IssuingAuthorityKeys] 和 [租用戶] 資料表中的值。 您將會發現，它們已自動重新填入同盟中繼資料文件中的適當資訊。

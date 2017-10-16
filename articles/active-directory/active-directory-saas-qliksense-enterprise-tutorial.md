@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
 ms.openlocfilehash: 4964634cd5aaf0dbb98c766f5e12700c4d118750
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>教學課程：Azure Active Directory 與 Qlik Sense Enterprise 整合
 
@@ -260,7 +260,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
    ![Azure Active Directory 按鈕](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
    ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-qliksense-enterprise-tutorial/create_aaduser_02.png)
 

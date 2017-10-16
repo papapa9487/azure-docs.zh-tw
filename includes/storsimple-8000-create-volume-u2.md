@@ -32,7 +32,7 @@
     7. 在 [已連線的主機] 刀鋒視窗中，選擇現有的 ACR，或執行下列步驟來新增 ACR︰
 
        1. 提供 ACR 的 [名稱]  。
-       2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN](#get-the-iqn-of-a-windows-server-host)。
+       2. 在 [iSCSI 啟動器名稱] 下方，提供 Windows 主機的 iSCSI 完整格式名稱 (IQN)。 如果沒有 IQN，請移至 [取得 Windows Server 主機的 IQN] [](#get-the-iqn-of-a-windows-server-host)。
 
     9. 按一下 [建立] 。 使用指定的設定來建立磁碟區。
 

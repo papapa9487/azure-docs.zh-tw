@@ -14,10 +14,10 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: markgal;
 ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>將 VMware 伺服器備份到 Azure
 
@@ -64,7 +64,7 @@ Azure 備份伺服器預設會透過 HTTPS 通道來與各個 vCenter Server 進
 
     ![download 檔案會在本機解壓縮 ](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
-5. 在 **certs** 資料夾中，以滑鼠右鍵按一下根憑證檔案，然後按一下 [重新命名]。
+5. 在 **certs** 資料夾中，以滑鼠右鍵按一下根憑證檔案，然後按一下重新命名。
 
     ![將根憑證重新命名 ](./media/backup-azure-backup-server-vmware/rename-cert.png)
 
@@ -80,7 +80,7 @@ Azure 備份伺服器預設會透過 HTTPS 通道來與各個 vCenter Server 進
 
     如果系統詢問您是否要允許對電腦進行變更，請對所有變更按一下 [是] 或 [確定]。
 
-8. 在 [憑證存放區] 頁面上，選取 [將所有憑證放入以下的存放區]，然後按一下 [瀏覽] 來選擇憑證存放區。
+8. 在 憑證存放區 頁面上，選取 將所有憑證放入以下的存放區，然後按一下瀏覽 來選擇憑證存放區。
 
     ![將憑證放在特定的儲存位置](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
@@ -88,7 +88,7 @@ Azure 備份伺服器預設會透過 HTTPS 通道來與各個 vCenter Server 進
 
     ![憑證存放區資料夾階層](./media/backup-azure-backup-server-vmware/cert-store.png)
 
-9. 選取 [受信任的根憑證授權單位] 作為憑證的目的地資料夾，然後按一下 [確定]。
+9. 選取 受信任的根憑證授權單位 作為憑證的目的地資料夾，然後按一下確定。
 
     ![憑證目的資料夾](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
@@ -96,7 +96,7 @@ Azure 備份伺服器預設會透過 HTTPS 通道來與各個 vCenter Server 進
 
     ![憑證存放區資料夾](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
-10. 在 [完成憑證匯入精靈] 頁面上，確認憑證是否位於所要的資料夾中，然後按一下 [完成] 以完成精靈。
+10. 在 完成憑證匯入精靈 頁面上，確認憑證是否位於所要的資料夾中，然後按一下完成 以完成精靈。
 
     ![確認憑證位於適當的資料夾](./media/backup-azure-backup-server-vmware/cert-wizard-final-screen.png)
 
@@ -147,7 +147,7 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
 3. 在 [建立角色] 對話方塊的 [角色名稱] 方塊中，輸入「BackupAdminRole」。 角色名稱可以是您喜歡的名稱，但它應該是可辨識該角色的用途。
 
-4. 選取適當 vCenter 版本的權限，然後按一下 [確定]。 下表指出 vCenter 6.0 和 vCenter 5.5 所需的權限。
+4. 選取適當 vCenter 版本的權限，然後按一下確定。 下表指出 vCenter 6.0 和 vCenter 5.5 所需的權限。
 
   選取權限時，請按一下父標籤旁的圖示，以展開父權限並檢視子權限。 若要選取 VirtualMachine 權限，您必須深入父子式階層中的好幾層。 您不需要選取父代權限內的所有子權限。
 
@@ -191,17 +191,17 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
     ![[vCenter 使用者和群組] 面板](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
-2. 在 [vCenter 使用者和群組] 面板中，選取 [使用者] 索引標籤，然後按一下 [新增使用者] 圖示 (+ 符號)。
+2. 在 vCenter 使用者和群組 面板中，選取 使用者 索引標籤，然後按一下新增使用者 圖示 (+ 符號)。
 
     [新增使用者] 對話方塊隨即出現。
 
-3. 在 [新增使用者] 對話方塊中新增使用者的資訊，然後按一下 [確定]。 在此程序中，使用者名稱是 BackupAdmin。
+3. 在 新增使用者 對話方塊中新增使用者的資訊，然後按一下確定。 在此程序中，使用者名稱是 BackupAdmin。
 
     ![[新增使用者] 對話方塊](./media/backup-azure-backup-server-vmware/vmware-new-user-account.png)
 
     新的使用者帳戶會出現在清單中。
 
-4. 若要讓使用者帳戶與角色產生關聯，請在 [導覽] 面板中按一下 [通用權限]。 在 [通用權限] 面板中，選取 [管理] 索引標籤，然後按一下 [新增] 圖示 (+ 符號)。
+4. 若要讓使用者帳戶與角色產生關聯，請在 [導覽] 面板中按一下 [通用權限]。 在 通用權限 面板中，選取 管理 索引標籤，然後按一下新增 圖示 (+ 符號)。
 
     ![[通用權限] 面板](./media/backup-azure-backup-server-vmware/vmware-add-new-perms.png)
 
@@ -213,7 +213,7 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
     [選取使用者/群組] 對話方塊隨即出現。
 
-6. 在 [選取使用者/群組] 對話方塊中，選擇 [BackupAdmin]，然後按一下 [新增]。
+6. 在 選取使用者/群組 對話方塊中，選擇 BackupAdmin，然後按一下新增。
 
     在 [使用者] 中，使用者帳戶會使用「網域\使用者名稱」格式。 如果您想要使用不同的網域，請從 [網域] 清單中選擇。
 
@@ -221,7 +221,7 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
     按一下 [確定] 將選取的使用者新增至 [新增權限] 對話方塊。
 
-7. 您現在已找出使用者，請將使用者指派給角色。 在 [指派的角色] 中，從下拉式清單中選取 [BackupAdminRole]，然後按一下 [確定]。
+7. 您現在已找出使用者，請將使用者指派給角色。 在 指派的角色 中，從下拉式清單中選取 BackupAdminRole，然後按一下確定。
 
     ![將使用者指派給角色](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
@@ -376,7 +376,7 @@ Azure 備份伺服器會使用使用者名稱和密碼來驗證 vCenter Server�
 
     您可以在 Azure 中保留資料的時間長度沒有限制。 當您在 Azure 中儲存復原點資料時，唯一的限制是每個受保護的執行個體不能有超過 9999 個復原點。 在此範例中，受保護的執行個體是 VMware 伺服器。
 
-12. 在 [摘要] 頁面上檢閱保護群組成員和設定的詳細資料，然後按一下 [建立群組]。
+12. 在 摘要 頁面上檢閱保護群組成員和設定的詳細資料，然後按一下建立群組。
 
     ![保護群組成員和設定的摘要](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 

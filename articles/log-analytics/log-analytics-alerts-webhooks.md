@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2017
 ms.author: bwren
 ms.openlocfilehash: 55b66132f7ec5c26c0a7cac1ec0a5c403dbd1082
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-alert-webhook-action-in-oms-log-analytics-to-send-message-to-slack"></a>在 OMS Log Analytics 中建立警示 webhook 動作以傳送訊息給 Slack
 您可以執行以回應 [Log Analytics 警示](log-analytics-alerts.md) 的動作之一是 *webhook*，它可讓您透過單一 HTTP 要求來叫用外部處理序。  您可以在 [Log Analytics 中的警示](log-analytics-alerts.md)
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/11/2017
    ![Slack channels](media/log-analytics-alerts-webhooks/oms-webhooks02.png)
 5. 按一下小組名稱旁邊的 [安裝]  。
 6. 按一下 [加入組態] 。
-7. 選取您要用於此範例的通道，然後按一下 [加入連入 Webhook 整合] 。  
+7. 選取您要用於此範例的通道，然後按一下加入連入 Webhook 整合 。  
 8. 複製 [Webhook URL] 。  您將會此資訊貼入 [警示組態] 中。 <br>
    
     ![Slack channels](media/log-analytics-alerts-webhooks/oms-webhooks05.png)

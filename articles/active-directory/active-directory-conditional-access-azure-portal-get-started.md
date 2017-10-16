@@ -16,10 +16,10 @@ ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: cd53e8be32d1e98aaf9f72177895871dba69df86
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-conditional-access-in-azure-active-directory"></a>開始使用 Azure Active Directory 中的條件式存取
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 08/03/2017
 
     b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
 
-    c. 在 [選取] 刀鋒視窗上，選取您的測試使用者，然後按一下 [選取]。
+    c. 在 選取 刀鋒視窗上，選取您的測試使用者，然後按一下選取。
 
     d. 在 [使用者和群組] 刀鋒視窗上，按一下 [完成]。
 
@@ -98,7 +98,7 @@ ms.lasthandoff: 08/03/2017
 
     b.這是另一個 C# 主控台應用程式。 按一下 [選取] 。
 
-    c. 在 [選取] 刀鋒視窗上，選取您的雲端應用程式，然後按一下 [選取]。
+    c. 在 選取 刀鋒視窗上，選取您的雲端應用程式，然後按一下選取。
 
     d. 在 [雲端應用程式] 刀鋒視窗上，按一下 [完成]。
 
@@ -118,7 +118,7 @@ ms.lasthandoff: 08/03/2017
 
     b.這是另一個 C# 主控台應用程式。 在 [包含] 之下，按一下 [所有位置]。
 
-    c. 按一下 [排除]，然後按一下 [所有信任的 IP]。
+    c. 按一下 排除，然後按一下所有信任的 IP。
 
     ![條件式存取](./media/active-directory-conditional-access-azure-portal-get-started/12.png)
 

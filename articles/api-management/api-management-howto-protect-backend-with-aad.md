@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
 ms.openlocfilehash: 0dfb4102904c2e972e6617fd3851fb1c50147357
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-protect-a-web-api-backend-with-azure-active-directory-and-api-management"></a>如何使用 Azure Active Directory 與 API 管理保護 Web API 後端
 下列視訊示範如何使用 OAuth 2.0 通訊協定搭配 Azure Active Directory 與 API 管理建置 Web API 後端並加以保護。  本文提供概觀以及視訊中步驟的其他資訊。 這段 24 分鐘的視訊示範如何：
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/03/2017
 
 ![Azure Active Directory][api-management-create-aad-menu]
 
-此範例會一同建立名為 **APIMDemo** 的目錄與名為 **DemoAPIM.onmicrosoft.com** 的預設網域。 在整段視訊中都會使用這個目錄。
+此範例會一同建立名為 **APIMDemo** 的目錄與名為 **DemoAPIM.onmicrosoft.com** 的預設網域。在整段視訊中都會使用這個目錄。
 
 ![Azure Active Directory][api-management-create-aad]
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 08/03/2017
 
 ![新增專案][api-management-new-project]
 
-按一下 [組織帳戶]，並指定您 AAD 租用戶的 [網域]。 此範例中的網域是 **DemoAPIM.onmicrosoft.com**。 您可以從目錄的 [網域] 索引標籤取得您目錄的網域。
+按一下 [組織帳戶]，並指定您 AAD 租用戶的 [網域]。 此範例中的網域是 **DemoAPIM.onmicrosoft.com**。您可以從目錄的 [網域] 索引標籤取得您目錄的網域。
 
 ![網域][api-management-aad-domains]
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 08/03/2017
 
 ![登入 Visual Studio][api-management-sign-in-vidual-studio]
 
-若要設定此專案為 Azure Web API，請核取 [在雲端中主控] 的方塊，然後按一下 [確定]。
+若要設定此專案為 Azure Web API，請核取 在雲端中主控 的方塊，然後按一下確定。
 
 ![新增專案][api-management-new-project-cloud]
 
@@ -337,7 +337,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 }
 ```
 
-若要匯入計算機 API，請從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [匯入 API]。
+若要匯入計算機 API，請從左邊的 API 管理 功能表中按一下 API，然後按一下匯入 API。
 
 ![匯入 API 按鈕][api-management-import-api]
 
@@ -454,7 +454,7 @@ API 經由 API 發佈者入口網站進行設定，您可以透過 Azure 入口�
 
 ![回覆 URL][api-management-aad-reply-url]
 
-下一步是設定開發人員入口網站 AAD 應用程式的權限。 按一下 [應用程式權限]，然後核取 [讀取目錄資料] 的方塊。 按一下 [儲存] 以儲存這項變更，然後按一下 [新增應用程式]。
+下一步是設定開發人員入口網站 AAD 應用程式的權限。 按一下 [應用程式權限]，然後核取 [讀取目錄資料] 的方塊。 按一下 儲存 以儲存這項變更，然後按一下新增應用程式。
 
 ![新增權限][api-management-add-devportal-permissions]
 

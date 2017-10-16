@@ -15,14 +15,12 @@ ms.date: 09/05/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: df2ffb8958a7d4b881f0a6904fb9ca13c3614040
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>透過 Microsoft Teams 存取內部部署應用程式
 
 Azure Active Directory Application Proxy 可讓您從任何地方單一登入內部部署應用程式。 Microsoft Teams 會在一個地方簡化您的共同作業工作。 將兩者整合在一起，表示使用者可以在任何情況下與其小組成員一起合作。 
@@ -58,4 +56,3 @@ Azure Active Directory Application Proxy 可讓您從任何地方單一登入內
 
 - 了解如何透過 Application Proxy [發佈內部部署 SharePoint 網站](application-proxy-enable-remote-access-sharepoint.md)。
 - 將您的應用程式設定為將[自訂網域](active-directory-application-proxy-custom-domains.md)用於其外部 URL。 
-

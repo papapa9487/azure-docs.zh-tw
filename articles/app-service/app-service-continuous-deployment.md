@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: ef5924607868bcb3dc35e279539b78d5a0e17c1a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持續部署至 Azure App Service
 本教學課程將示範如何為您的 [Azure Web Apps](app-service-web-overview.md) 應用程式設定連續部署工作流程。 App Service 與 BitBucket、GitHub 及 [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) 整合，可啟用持續部署工作流程，其中 Azure 會從您已發佈至這其中一個服務的專案中提取最新更新。 持續部署對於整合了多個經常參與的專案而言是一個絕佳選項。
@@ -96,4 +95,3 @@ ms.lasthandoff: 09/07/2017
 [建立儲存機制 (GitHub)]: https://help.github.com/articles/create-a-repo
 [建立儲存機制 (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [開始使用 VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
-

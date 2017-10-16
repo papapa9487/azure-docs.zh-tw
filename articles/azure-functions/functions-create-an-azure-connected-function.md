@@ -18,10 +18,10 @@ ms.date: 03/01/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 65964a322f0adab4f648fb350bedb77b46bf9054
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-create-a-function-that-connects-to-other-azure-services"></a>使用 Azure Functions 來建立連接至其他 Azure 服務的函式
 
@@ -39,7 +39,7 @@ ms.lasthandoff: 08/29/2017
 
 2. 按一下 [新增函式] > [TimerTrigger JavaScript]。 
 
-3. 將函式命名為 **FunctionsBindingsDemo1**，針對 [排程] 輸入 cron 運算式值 `0/10 * * * * *`，然後按一下 [建立]。
+3. 將函式命名為 **FunctionsBindingsDemo1**，針對 排程 輸入 cron 運算式值 `0/10 * * * * *`，然後按一下建立。
    
     ![新增計時器觸發函式](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 08/29/2017
 
     ![新增觸發計時器函式](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 
-2. 輸入 `myQueueItem` 做為 [訊息參數名稱] 以及輸入 `functions-bindings` 做為 [佇列名稱]，選取現有的 [儲存體帳戶連線]，或按一下 [新增] 以建立儲存體帳戶連線，然後按一下 [儲存]。  
+2. 輸入 `myQueueItem` 做為 訊息參數名稱 以及輸入 `functions-bindings` 做為 佇列名稱，選取現有的 儲存體帳戶連線，或按一下 新增 以建立儲存體帳戶連線，然後按一下儲存。  
 
     ![建立儲存體佇列的輸出繫結](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab2.png)
 
@@ -112,7 +112,7 @@ ms.lasthandoff: 08/29/2017
 
 1. 按一下 [新增函式] > [QueueTrigger-CSharp]。 
  
-2. 將函式命名為 `FunctionsBindingsDemo2`，在 [佇列名稱] 欄位中輸入 **functions-bindings**，選取現有的儲存體帳戶或加以建立，然後按一下 [建立]。
+2. 將函式命名為 `FunctionsBindingsDemo2`，在 佇列名稱 欄位中輸入 **functions-bindings**，選取現有的儲存體帳戶或加以建立，然後按一下建立。
 
     ![新增輸出佇列計時器函式](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
 
@@ -126,7 +126,7 @@ ms.lasthandoff: 08/29/2017
 
     ![將繫結新增至 Azure 儲存體資料表](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png) 
 
-2. 輸入 `functionbindings` 做為 [資料表名稱] 以及輸入 `myTable` 做為 [資料表參數名稱]，選擇 [儲存體帳戶連線] 或建立新的連線，然後按一下 [儲存]。
+2. 輸入 `functionbindings` 做為 資料表名稱 以及輸入 `myTable` 做為 資料表參數名稱，選擇 儲存體帳戶連線 或建立新的連線，然後按一下儲存。
 
     ![設定儲存體資料表繫結](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab2.png)
    

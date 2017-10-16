@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
 ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>將 Configuration Manager 連線至 Log Analytics
 您可以在 OMS 中將 System Center Configuration Manager 連線至 Log Analytics 來同步處理裝置集合資料。 這可讓 Configuration Manager 階層中的資料可在 OMS 中使用。
@@ -51,7 +51,7 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後按一下 [瀏覽] > [Log Analytics (OMS)] 以開啟 [Log Analytics (OMS)] 刀鋒視窗。  
 2. 在 [Log Analytics (OMS)] 刀鋒視窗上按一下 [新增]，開啟 [OMS 工作區] 刀鋒視窗。  
    ![OMS 刀鋒視窗](./media/log-analytics-sccm/sccm-azure01.png)
-3. 在 [OMS 工作區] 刀鋒視窗上提供下列資訊，然後按一下 [確定]。
+3. 在 OMS 工作區 刀鋒視窗上提供下列資訊，然後按一下確定。
 
    * **OMS 工作區**
    * **訂用帳戶**
@@ -89,7 +89,7 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
    ![OMS 連線精靈的 Azure Active Directory 頁面](./media/log-analytics-sccm/sccm-wizard-tenant-filled03.png)
 4. 如果您成功完成其他所有程序，則 [OMS 連線組態] 畫面上的資訊會自動出現在此頁面。 [Azure 訂用帳戶]、[Azure 資源群組] 和 [Operations Management Suite 工作區] 應該會出現連線設定資訊。  
    ![OMS 連線精靈的 OMS 連線頁面](./media/log-analytics-sccm/sccm-wizard-configure04.png)
-5. 精靈會使用您輸入的資訊連線至 OMS 服務。 選取想要與 OMS 同步處理的裝置集合，然後按一下 [新增]。  
+5. 精靈會使用您輸入的資訊連線至 OMS 服務。 選取想要與 OMS 同步處理的裝置集合，然後按一下新增。  
    ![選取集合](./media/log-analytics-sccm/sccm-wizard-add-collections05.png)
 6. 確認 [摘要] 畫面上的連線設定，然後選取 [下一步]。 [進度] 畫面會顯示連線狀態，然後應該 [完成]。
 
@@ -119,8 +119,8 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 啟用匯入之後，每 3 個小時就會擷取一次集合成員資格資訊，以便集合成員資格會隨時保持最新狀態。 您可以隨時選擇停用匯入。
 
 1. 在 OMS 入口網站中，按一下 [設定]。
-2. 按一下 [電腦群組] 索引標籤，然後按一下 [SCCM] 索引標籤。
-3. 選取 [匯入 Configuration Manager 集合成員資格]，然後按一下 [儲存]。  
+2. 按一下 電腦群組 索引標籤，然後按一下SCCM 索引標籤。
+3. 選取 匯入 Configuration Manager 集合成員資格，然後按一下儲存。  
    ![電腦群組 - SCCM 索引標籤](./media/log-analytics-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>從 Configuration Manager 檢視資料

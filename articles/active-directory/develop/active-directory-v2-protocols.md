@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 3750f975600575349e5ea9de249cf4521636fd2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # v2.0 通訊協定 - OAuth 2.0 與 OpenID Connect
 v2.0 端點可以使用 Azure AD，利用業界標準通訊協定 (OpenID Connect 與 OAuth 2.0) 提供身分識別即服務。  雖然這是符合標準的服務，但這些通訊協定在任兩個實作之間仍會有些微差異。  若您選擇藉由直接傳送和處理 HTTP 要求，或使用協力廠商的開放原始碼程式庫來撰寫程式碼，而非使用我們的其中一個開放原始碼程式庫，則可參考這裡提供的實用資訊。
@@ -37,7 +37,7 @@ v2.0 端點可以使用 Azure AD，利用業界標準通訊協定 (OpenID Connec
 
 * **授權伺服器** 是 v2.0 端點。  其負責確保使用者的身分識別、授與及撤銷資源存取權，以及核發權杖。  其也稱作為識別提供者：安全地處理與使用者資訊、使用者存取權，以及流程中合作對象彼此間信任關係有關的任何項目。
 * **資源擁有者** 通常是使用者。  其是擁有資料的一方，而且有權允許第三方存取該資料或資源。
-* **OAuth 用戶端** 是您的應用程式，透過其應用程式識別碼加以識別。  其通常是與使用者互動的對象，而且會向授權伺服器要求權杖。  用戶端必須獲得資源擁有者授權才能存取資源。
+* **OAuth 用戶端** 是您的應用程式，透過其應用程式識別碼加以識別。其通常是與使用者互動的對象，而且會向授權伺服器要求權杖。  用戶端必須獲得資源擁有者授權才能存取資源。
 * **資源伺服器** 是資源或資料所在位置。  其信任授權伺服器會安全地驗證及授權 OAuth 用戶端，並使用 Bearer access_token 來確保可以授與資源的存取權。
 
 ## App 註冊

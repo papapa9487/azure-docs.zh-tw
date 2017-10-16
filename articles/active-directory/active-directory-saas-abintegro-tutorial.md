@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.openlocfilehash: a2a3c1a7a338ee1cb35dd08176ad3bb5f3cdc319
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>教學課程：Azure Active Directory 與 Abintegro 整合
 
@@ -73,7 +73,7 @@ Abintegro 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_search.png)
 
-5. 在結果窗格中，選取 [Abintegro]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Abintegro，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-abintegro-tutorial/tutorial_abintegro_addfromgallery.png)
 

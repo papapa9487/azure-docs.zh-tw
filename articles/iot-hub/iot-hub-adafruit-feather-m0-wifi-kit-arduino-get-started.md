@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/16/2017
 ms.author: xshi
+ms.openlocfilehash: 9b278735ce3af9e6e61a85c5e95ea218622361c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 8eee4b2eea165176bddf0896685636bbac4db321
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather M0 WiFi 連線到位於雲端的 Azure IoT 中樞
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
@@ -158,10 +156,10 @@ ms.lasthandoff: 07/13/2017
    ![在 Arduino IDE 中開啟範例應用程式](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. 按一下 [檔案] > [喜好設定] \(Windows/Linux) 或 [Arduino] > [喜好設定] \(Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] \(其他面板管理員 URL) 選項。
+1. 按一下 [檔案] > [喜好設定] (Windows/Linux) 或 [Arduino] > [喜好設定] (Mac)，然後將下列連結複製貼入 Arduino IDE 喜好設定的 [Additional Boards Manager URLs] (其他面板管理員 URL) 選項。
    
    ```
-   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json, https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
+   https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
 1. 按一下 [工具] > [面板] > [面板管理員]，然後安裝 `Arduino SAMD Boards` 版本 `1.6.2` 或更新版本。 
@@ -218,7 +216,7 @@ ms.lasthandoff: 07/13/2017
 
 1. 在 Arduino IDE 中，按一下 [工具] > [序列監視器]。
 
-2. 在序列監視器視窗的右下角，在左邊的下拉式清單中選取 [No line ending] \(沒有行尾結束符號)。
+2. 在序列監視器視窗的右下角，在左邊的下拉式清單中選取 [No line ending] (沒有行尾結束符號)。
 3. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
 4. 如果系統要求您提供，請在上方的輸入方塊中輸入下列資訊，然後按一下 [傳送]：
 
@@ -240,5 +238,4 @@ ms.lasthandoff: 07/13/2017
 Feather M0 WiFi 已成功連線到 IoT 中樞，並將擷取到的感應器資料傳送至 IoT 中樞。 
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-
 

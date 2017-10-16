@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>在 Azure 中的 Linux 容器中建立 PHP Web 應用程式
 
@@ -166,4 +165,3 @@ git push azure master
 
 > [!div class="nextstepaction"]
 > [PHP with MySQL](tutorial-php-mysql-app.md)
-

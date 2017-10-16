@@ -15,14 +15,12 @@ ms.workload: web
 ms.date: 6/7/2017
 ms.author: mlearned
 ms.custom: Jenkins
+ms.openlocfilehash: b93e787050613b241ea116e7263f63835bd211fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: a1f5329e4e33ae20541e2fdaa09f4609296bddd5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>使用 Jenkins 和 Azure CLI 來部署到 Azure App Service
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](https://jenkins.io/doc/book/pipeline/)中使用 Azure CLI。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
 
@@ -93,7 +91,7 @@ az appservice plan create \
 
 ### <a name="create-an-azure-web-app"></a>建立 Azure Web 應用程式
 
- 使用 [az webapp create](/cli/azure/appservice/web#create) CLI 命令，在 `myAppServicePlan` App Service 方案中建立 Web 應用程式定義。 Web 應用程式定義會提供一個 URL 以存取您的應用程式，並設定數個選項將您的程式碼部署至 Azure。 
+ 使用 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) CLI 命令，在 `myAppServicePlan` App Service 方案中建立 Web 應用程式定義。 Web 應用程式定義會提供一個 URL 以存取您的應用程式，並設定數個選項將您的程式碼部署至 Azure。 
 
 ```azurecli-interactive
 az webapp create \
@@ -233,4 +231,3 @@ Linux 上的 Web 應用程式支援不同的方式來進行部署，也就是使
 > * 準備 GitHub 存放庫
 > * 建立 Jenkins 管線
 > * 執行管線並確認 Web 應用程式
-

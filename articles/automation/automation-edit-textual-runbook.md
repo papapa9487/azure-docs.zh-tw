@@ -3,7 +3,7 @@ title: "在 Azure 自動化中編輯文字式 Runbook"
 description: "本文提供使用文字式編輯器在 Azure 自動化中使用 PowerShell 和 PowerShell 工作流程 Runbook 的不同程序。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 ms.assetid: 6f5b48fb-6f30-4e99-9e14-9061b5554b08
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 154d2cd9b7f4ea51d3fd4c1995b67a25816b28a2
-ms.openlocfilehash: 6aa34a19b15ae0c5c031f20a9c6c8e5ed3290b10
-
-
+ms.openlocfilehash: ae36342ab0f42c364dedd4107a59f5b0ffc20a0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>在 Azure 自動化中編輯文字式 Runbook
 Azure 自動化中的文字式編輯器可以用來編輯 [PowerShell Runbook](automation-runbook-types.md#powershell-runbooks) 和 [PowerShell 工作流程 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)。 它具備與其他程式碼編輯器一樣的典型功能 (例如 Intellisense 和色彩編碼)，以及額外的特殊功能以協助您存取 Runbook 通用的資源。  本文提供執行與此編輯器不同的功能的詳細步驟。
@@ -34,7 +34,7 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 
 1. 在 Azure 入口網站中，選取您的自動化帳戶。
 2. 按一下 [Runbook]  磚以開啟 Runbook 的清單。
-3. 按一下您要編輯的 Runbook 的名稱，然後按一下 [編輯]  按鈕。
+3. 按一下您要編輯的 Runbook 的名稱，然後按一下編輯  按鈕。
 4. 執行必要的編輯。
 5. 當您完成編輯時，按一下 [儲存]  。
 6. 如果您要發佈 Runbook 的最新草稿版本，請按一下 [發佈]  。
@@ -131,9 +131,3 @@ Azure 自動化中的每個 Runbook 有兩個版本，「草稿」和「已發�
 * [認證](automation-credentials.md)
 * [排程](automation-schedules.md)
 * [變數](automation-variables.md)
-
-
-
-<!--HONumber=Nov16_HO3-->
-
-

@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: priyamo
 ms.custom: aaddev
 ms.openlocfilehash: 45e4705f53d80b5fe852c484b5e64d18a8e24f09
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # 單一登出 SAML 通訊協定
 Azure Active Directory (Azure AD) 支援 SAML 2.0 Web 瀏覽器單一登出設定檔。 若要讓單一登出正常運作，在應用程式註冊期間必須明確向 Azure AD 註冊應用程式的 **LogoutURL**。 使用者登出之後，Azure AD 使用此 LogoutURL 將他們重新導向。
@@ -72,4 +72,4 @@ Azure AD 會將此值設為 `https://login.microsoftonline.com/<TenantIdGUID>/`�
 若要評估 `Issuer` 元素的值，請使用應用程式註冊期間提供的 **應用程式識別碼 URI** 的值。
 
 ### 狀態
-Azure AD 使用 `Status` 元素中的 `StatusCode` 元素，來指出登出成功或失敗。 登出嘗試失敗時， `StatusCode` 元素也可包含自訂錯誤訊息。
+Azure AD 使用 `Status` 元素中的 `StatusCode` 元素，來指出登出成功或失敗。登出嘗試失敗時， `StatusCode` 元素也可包含自訂錯誤訊息。

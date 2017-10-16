@@ -14,16 +14,13 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1da3bc5454111bac5e958bf26d33cf61a5d4213c
-ms.openlocfilehash: ecff6e2e5be05499896ad23675682db184c634af
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/17/2017
-
+ms.openlocfilehash: d7af3a531bc1bcced1a3c48403a6f60afea0f82f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-<a id="topologies-for-azure-ad-connect" class="xliff"></a>
-
-# Azure AD Connect 的拓撲
+# <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
 
 以下是文章中圖片的圖例︰
@@ -39,23 +36,17 @@ ms.lasthandoff: 02/17/2017
 | Azure AD |![Azure Active Directory](./media/active-directory-aadconnect-topologies/LegendAAD.png) |
 | 不受支援的案例 |![不受支援的案例](./media/active-directory-aadconnect-topologies/LegendUnsupported.png) |
 
-<a id="single-forest-single-azure-ad-tenant" class="xliff"></a>
-
-## 單一樹系、單一 Azure AD 租用戶
+## <a name="single-forest-single-azure-ad-tenant"></a>單一樹系、單一 Azure AD 租用戶
 ![單一樹系和單一租用戶的拓撲](./media/active-directory-aadconnect-topologies/SingleForestSingleDirectory.png)
 
 最常見的拓撲是單一內部部署樹系 (內含一或多個網域) 和單一 Azure AD 租用戶。 對於 Azure AD 驗證，會使用密碼同步處理。 Azure AD Connect 的快速安裝僅支援此拓撲。
 
-<a id="single-forest-multiple-sync-servers-to-one-azure-ad-tenant" class="xliff"></a>
-
-### 單一樹系、多部同步處理伺服器連接到一個 Azure AD 租用戶
+### <a name="single-forest-multiple-sync-servers-to-one-azure-ad-tenant"></a>單一樹系、多部同步處理伺服器連接到一個 Azure AD 租用戶
 ![不受支援、已篩選的單一樹系拓撲](./media/active-directory-aadconnect-topologies/SingleForestFilteredUnsupported.png)
 
 不支援多部的 Azure AD Connect 同步處理伺服器連線到相同 Azure AD 租用戶 (除了 [預備伺服器](#staging-server)之外)。 即使這些伺服器設定為同步處理互斥的一組物件，也不支援。 如果您無法從單一伺服器觸達樹系中的所有網域，或者想要將負載分散到數個伺服器，您可能已經考慮過這個拓撲。
 
-<a id="multiple-forests-single-azure-ad-tenant" class="xliff"></a>
-
-## 多個樹系、單一 Azure AD 租用戶
+## <a name="multiple-forests-single-azure-ad-tenant"></a>多個樹系、單一 Azure AD 租用戶
 ![多個樹系和單一租用戶的拓撲](./media/active-directory-aadconnect-topologies/MultiForestSingleDirectory.png)
 
 許多組織都有包含多個內部部署 Active Directory 樹系的環境。 擁有多個內部部署 Active Directory 的原因有很多。 常見的範例如包含帳戶資源樹系，和合併或收購的結果。
@@ -80,30 +71,22 @@ Azure AD Connect 同步處理中的預設組態假設：
 
 您可以在[了解預設組態](active-directory-aadconnectsync-understanding-default-configuration.md)中找到更多詳細資料。
 
-<a id="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant" class="xliff"></a>
-
-### 多個樹系、多部同步處理伺服器連接到一個 Azure AD 租用戶
+### <a name="multiple-forests-multiple-sync-servers-to-one-azure-ad-tenant"></a>多個樹系、多部同步處理伺服器連接到一個 Azure AD 租用戶
 ![多個樹系和多個同步處理伺服器的不受支援拓撲](./media/active-directory-aadconnect-topologies/MultiForestMultiSyncUnsupported.png)
 
 不支援超過一部的 Azure AD Connect 同步處理伺服器連線到單一 Azure AD 租用戶。 例外狀況是使用 [預備伺服器](#staging-server)。
 
-<a id="multiple-forests-separate-topologies" class="xliff"></a>
-
-### 多個樹系，個別拓撲
+### <a name="multiple-forests-separate-topologies"></a>多個樹系，個別拓撲
 ![跨所有目錄僅顯示使用者一次的選項](./media/active-directory-aadconnect-topologies/MultiForestUsersOnce.png)
 
 ![多個樹系和個別拓撲的描述](./media/active-directory-aadconnect-topologies/MultiForestSeperateTopologies.png)
 
 在此環境中，所有內部部署樹系會被視為個別的實體。 使用者不會顯示在其他樹系中。 每個樹系具有自己的 Exchange 組織，且在樹系間沒有 GALSync。 這個拓撲可能是合併/收購之後，或是在一個每個業務單位各自獨立作業的組織中。 在 Azure AD 中，這些樹系將會在相同的組織中並與統一 GAL 一起出現。 在上圖中，每個樹系中的個別物件都會在 Metaverse 中顯示一次，並在目標 Azure AD 租用戶中彙總。
 
-<a id="multiple-forests-match-users" class="xliff"></a>
-
-### 多個樹系：比對使用者
+### <a name="multiple-forests-match-users"></a>多個樹系：比對使用者
 這些案例的常見狀況是通訊群組和安全性群組可以包含使用者、連絡人和外部安全性主體 (FSP) 的組合。 FSP 可在 Active Directory Domain Services (ADDS) 中用來代表安全性群組中來自其他樹系的成員。 在 Azure AD 中，所有 FSP 都會解析為實際物件。
 
-<a id="multiple-forests-full-mesh-with-optional-galsync" class="xliff"></a>
-
-### 多個樹系：內含選擇性 GALSync 的完整網狀
+### <a name="multiple-forests-full-mesh-with-optional-galsync"></a>多個樹系：內含選擇性 GALSync 的完整網狀
 ![當使用者身分識別跨多個目錄存在時，使用郵件屬性進行比對的選項](./media/active-directory-aadconnect-topologies/MultiForestUsersMail.png)
 
 ![多個樹系的完整網狀拓撲](./media/active-directory-aadconnect-topologies/MultiForestFullMesh.png)
@@ -114,9 +97,7 @@ Azure AD Connect 同步處理中的預設組態假設：
 
 在此案例中，身分識別物件是透過郵件屬性來聯結。 在一個樹系中擁有信箱的使用者會與其他樹系中的連絡人聯結。
 
-<a id="multiple-forests-account-resource-forest" class="xliff"></a>
-
-### 多個樹系：帳戶資源樹系
+### <a name="multiple-forests-account-resource-forest"></a>多個樹系：帳戶資源樹系
 ![當身分識別跨多個目錄存在時，用來使用 ObjectSID 和 msExchMasterAccountSID 屬性進行比對的選項](./media/active-directory-aadconnect-topologies/MultiForestUsersObjectSID.png)
 
 ![多個樹系的帳戶資源樹系拓撲](./media/active-directory-aadconnect-topologies/MultiForestAccountResource.png)
@@ -125,9 +106,7 @@ Azure AD Connect 同步處理中的預設組態假設：
 
 在此案例中，一個 (或多個) 資源樹系信任所有帳戶樹系。 此資源樹系通常具有擴充的 Active Directory 結構描述與 Exchange 和 Lync。 所有的 Exchange 和 Lync 服務以及其他共用的服務都位於此樹系。 使用者在此樹系中擁有停用的使用者帳戶，而信箱會連結至帳戶樹系。
 
-<a id="office-365-and-topology-considerations" class="xliff"></a>
-
-## Office 365 和拓撲考量
+## <a name="office-365-and-topology-considerations"></a>Office 365 和拓撲考量
 有些 Office 365 工作負載對受支援的拓撲有某些限制：
 
 | 工作負載 | 限制 |
@@ -136,9 +115,7 @@ Azure AD Connect 同步處理中的預設組態假設：
 | 商務用 Skype | 使用多個內部部署樹系時，只會支援帳戶資源樹系拓撲。 如需詳細資訊，請參閱[商務用 Skype Server 2015 的環境需求](https://technet.microsoft.com/library/dn933910.aspx)。 |
 
 
-<a id="staging-server" class="xliff"></a>
-
-## 預備伺服器
+## <a name="staging-server"></a>預備伺服器
 ![在拓撲中的預備伺服器](./media/active-directory-aadconnect-topologies/MultiForestStaging.png)
 
 Azure AD Connect 支援以「預備模式」安裝第二部伺服器。 此模式中的伺服器會讀取所有已連接目錄中的資料，但是不會將任何資料寫入已連接的目錄。 它使用一般的同步處理循環，因此也有身分識別資料的更新複本。
@@ -151,9 +128,7 @@ Azure AD Connect 支援以「預備模式」安裝第二部伺服器。 此模�
 
 如果您想要在不同的資料中心有多個備份，您也可以擁有一個以上的預備伺服器。
 
-<a id="multiple-azure-ad-tenants" class="xliff"></a>
-
-## 多個 Azure AD 租用戶
+## <a name="multiple-azure-ad-tenants"></a>多個 Azure AD 租用戶
 我們建議一個組織在 Azure AD 中有單一租用戶。
 在您計劃使用多個 Azure AD 租用戶之前，請參閱文章 [Azure AD 中的系統管理單位管理](../active-directory-administrative-units-management.md)。 它涵蓋了常見的案例，您可以使用單一租用戶。
 
@@ -161,14 +136,12 @@ Azure AD Connect 支援以「預備模式」安裝第二部伺服器。 此模�
 
 Azure AD Connect 同步處理伺服器和 Azure AD 租用戶之間有 1:1 的關聯性。 在每個 Azure AD 租用戶中，您將需要一個 Azure AD Connect 同步處理伺服器安裝。 Azure AD 租用戶執行個體是由設計隔離。 也就是在一個租用戶中的使用者無法看到其他租用戶中的使用者。 如果您想要這樣的分隔方式，這是支援的組態。 否則，您應該使用單一 Azure AD 租用戶模型。
 
-<a id="each-object-only-once-in-an-azure-ad-tenant" class="xliff"></a>
-
-### 每個物件只在 Azure AD 租用戶運作一次
+### <a name="each-object-only-once-in-an-azure-ad-tenant"></a>每個物件只在 Azure AD 租用戶運作一次
 ![已篩選的單一樹系拓撲](./media/active-directory-aadconnect-topologies/SingleForestFiltered.png)
 
 在此拓撲中，一個 Azure AD Connect 同步處理伺服器會連接到每個 Azure AD 租用戶。 Azure AD Connect 同步處理伺服器必須設定篩選，以各自有一組要操作的互斥物件。 例如，將每個伺服器的範圍限定於特定網域或組織單位。
 
-DNS 網域只能在單一 Azure AD 租用戶中註冊。 內部部署 Active Directory 執行個體中的使用者 UPN 也必須使用個別的命名空間。 例如，在上圖中，三個個別的 UPN 尾碼都登錄在內部部署 Active Directory 執行個體中：contoso.com、fabrikam.com 和 wingtiptoys.com。 每個內部部署 Active Directory 網域中的使用者會使用不同的命名空間。
+DNS 網域只能在單一 Azure AD 租用戶中註冊。 內部部署 Active Directory 執行個體中的使用者 UPN 也必須使用個別的命名空間。 例如，在上圖中，三個個別的 UPN 尾碼都登錄在內部部署 Active Directory 執行個體中：contoso.com、fabrikam.com 和 wingtiptoys.com。每個內部部署 Active Directory 網域中的使用者會使用不同的命名空間。
 
 Azure AD 租用戶執行個體之間沒有 GALSync。 Exchange Online 和商務用 Skype 中的通訊錄只會顯示相同租用戶中的使用者。
 
@@ -183,9 +156,7 @@ Azure AD 租用戶執行個體之間沒有 GALSync。 Exchange Online 和商務�
 * 使用預設組態的群組回寫。
 * 裝置回寫。
 
-<a id="each-object-multiple-times-in-an-azure-ad-tenant" class="xliff"></a>
-
-### 每個物件在 Azure AD 租用戶運作多次
+### <a name="each-object-multiple-times-in-an-azure-ad-tenant"></a>每個物件在 Azure AD 租用戶運作多次
 ![單一樹系與多個租用戶的不受支援拓撲](./media/active-directory-aadconnect-topologies/SingleForestMultiDirectoryUnsupported.png) ![單一樹系與多個連接器的不受支援拓撲](./media/active-directory-aadconnect-topologies/SingleForestMultiConnectorsUnsupported.png)
 
 下列工作不受支援：
@@ -194,9 +165,7 @@ Azure AD 租用戶執行個體之間沒有 GALSync。 Exchange Online 和商務�
 * 進行組態變更，讓一個 Azure AD 中的使用者顯示為另一個 Azure AD 租用戶中的連絡人。
 * 將 Azure AD Connect 同步處理修改為連線到多個 Azure AD 租用戶。
 
-<a id="galsync-by-using-writeback" class="xliff"></a>
-
-### 使用回寫 GALSync
+### <a name="galsync-by-using-writeback"></a>使用回寫 GALSync
 ![多個樹系和多個目錄的不受支援拓撲，具有將焦點放在 Azure AD 的 GALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync1Unsupported.png) ![多個樹系和多個目錄的不受支援拓撲，具有將焦點放在內部部署 Azure AD 的 GALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync2Unsupported.png)
 
 Azure AD 租用戶在設計上是隔離的。 下列工作不受支援：
@@ -204,19 +173,14 @@ Azure AD 租用戶在設計上是隔離的。 下列工作不受支援：
 * 將 Azure AD Connect 同步處理的組態變更為從另一個 Azure AD 租用戶讀取資料。
 * 使用 Azure AD Connect 同步處理將使用者匯出為另一個內部部署 Active Directory 執行個體的連絡人。
 
-<a id="galsync-with-on-premises-sync-server" class="xliff"></a>
-
-### 具備內部部署同步處理伺服器的 GALSync
+### <a name="galsync-with-on-premises-sync-server"></a>具備內部部署同步處理伺服器的 GALSync
 ![多個樹系和多個目錄拓撲中的 GALSync](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectoryGALSync.png)
 
 您可以使用 FIM 2010 或 MIM 2016 內部部署來同步處理兩個 Exchange 組織之間的使用者 (透過 GALSync)。 一個組織中的使用者將會顯示為其他組織中的外部使用者/連絡人。 這些不同的內部部署 Active Directory 執行個體可同步處理至它們自己的 Azure AD 租用戶。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 若要了解如何安裝這些案例的 Azure AD Connect，請參閱[自訂 Azure AD Connect 安裝](active-directory-aadconnect-get-started-custom.md)。
 
 深入了解 [Azure AD Connect 同步](active-directory-aadconnectsync-whatis.md) 組態。
 
 深入了解[整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-

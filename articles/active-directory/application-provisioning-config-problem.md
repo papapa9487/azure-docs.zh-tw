@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
 ms.openlocfilehash: 44e344095352f2bc6b27e389fc8be2cdf3e368d8
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>設定 Azure AD 資源庫應用程式的使用者佈建時遇到的問題
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/03/2017
 
 一旦設定服務之後，就能從下列兩個位置繪製出大多數對服務作業的深入見解：
 
--   **稽核記錄** - 佈建稽核記錄會記錄佈建服務所執行的所有作業，包括針對位於佈建範圍內的已指派使用者查詢 Azure AD。 查詢目標應用程式以確定那些使用者是否存在，比較系統之間的使用者物件。 接著，根據比較，在目標系統中新增、更新或停用使用者帳戶。 您可以在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[稽核記錄] 索引標籤中存取佈建稽核記錄。 基於 [帳戶佈建] 類別來篩選記錄，只顯示該應用程式的佈建事件。
+-   **稽核記錄** - 佈建稽核記錄會記錄佈建服務所執行的所有作業，包括針對位於佈建範圍內的已指派使用者查詢 Azure AD。 查詢目標應用程式以確定那些使用者是否存在，比較系統之間的使用者物件。 接著，根據比較，在目標系統中新增、更新或停用使用者帳戶。 您可以在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[稽核記錄] 索引標籤中存取佈建稽核記錄。基於 [帳戶佈建] 類別來篩選記錄，只顯示該應用程式的佈建事件。
 
 -   **佈建狀態 -** 您可以在 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[佈建] 區段中，於螢幕底部的服務設定下方，看見指定應用程式的最後一個佈建執行摘要。 本節將摘要說明目前會在這兩個系統之間同步處理多少個使用者 (和/或群組)，以及是否發生任何錯誤。 錯誤詳細資料位於稽核記錄中。 請注意，在 Azure AD 和應用程式之間完成一次完整的初始同步處理之前，不會填入佈建資料。
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 08/03/2017
 
 -   **必要屬性已遺失或未針對使用者填入。** 設定佈建時必須考量的重點是，檢視和設定屬性 (Attribute) 對應，以及定義哪些使用者 (或群組) 屬性 (Property) 會從 Azure AD 流向應用程式的工作流程。 這包括設定「比對屬性」，此屬性可用於唯一識別並比對兩個系統之間的使用者/群組。 如需這個重要程序的詳細資訊，請參閱 <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>。
 
-   * **群組的屬性對應：**除了成員，還有群組名稱和群組詳細資訊的佈建 (如果某些應用程式有支援)。 您可以對 [佈建] 索引標籤中顯示的群組物件啟用或停用 [對應]，以啟用或停用此功能。 如果已啟用佈建群組，請務必檢閱屬性對應，以確保「比對識別碼」使用適當的欄位。 這可以是顯示名稱或電子郵件別名，因為如果 Azure AD 中某個群組的比對屬性空白或未填入，則不會佈建群組和其成員。
+   * **群組的屬性對應：**除了成員，還有群組名稱和群組詳細資訊的佈建 (如果某些應用程式有支援)。 您可以對 [佈建] 索引標籤中顯示的群組物件啟用或停用 [對應]，以啟用或停用此功能。如果已啟用佈建群組，請務必檢閱屬性對應，以確保「比對識別碼」使用適當的欄位。 這可以是顯示名稱或電子郵件別名，因為如果 Azure AD 中某個群組的比對屬性空白或未填入，則不會佈建群組和其成員。
 
 #<a name="next-steps"></a>後續步驟
 [自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和解除佈建](active-directory-saas-app-provisioning.md)

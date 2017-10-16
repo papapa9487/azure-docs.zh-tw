@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>將您的 Azure Log Analytics 工作區升級為新的記錄搜尋
 
 > [!NOTE]
@@ -75,7 +73,7 @@ ms.lasthandoff: 08/28/2017
 
 如果您已熟悉舊版 Log Analytics 查詢語言，則您可以使用語言轉換器，這個工具新增至您的工作區作為升級的一部分。
 
-只要輸入舊版查詢，然後按一下 [轉換] 即可看到翻譯的版本。  接著，您可以按一下搜尋按鈕，執行搜尋或複製並貼上轉換的查詢，以在例如警示規則的其他地方使用。
+只要輸入舊版查詢，然後按一下轉換 即可看到翻譯的版本。  接著，您可以按一下搜尋按鈕，執行搜尋或複製並貼上轉換的查詢，以在例如警示規則的其他地方使用。
 
 ![語言轉換器](media/log-analytics-log-search-upgrade/language-converter.png)
 
@@ -84,4 +82,3 @@ ms.lasthandoff: 08/28/2017
 - 請參閱[新語言的教學課程](https://go.microsoft.com/fwlink/?linkid=856078)。
 - 逐步解說以新的查詢語言[使用記錄搜尋入口網站的教學課程](log-analytics-log-search-log-search-portal.md)。
 - 取得新的[進階分析入口網站](https://go.microsoft.com/fwlink/?linkid=856587)的簡介。
-

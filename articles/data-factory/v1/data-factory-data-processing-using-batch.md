@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 處理大型資料集
 本文說明範例解決方案的架構，此解決方案能以自動且排程的方式移動和處理大型資料集。 本文也提供如何使用 Azure Data Factory 和 Azure Batch 實作解決方案的端對端逐步解說。
@@ -157,13 +156,13 @@ public IDictionary<string, string> Execute(
 1. 在 Visual Studio 中建立 .NET 類別庫專案。
 
    1. 啟動 **Visual Studio 2012**/**2013/2015**。
-   2. 按一下 [檔案]，指向 [新增]，然後按一下 [專案]。
+   2. 按一下 檔案，指向 新增，然後按一下專案。
    3. 展開 [範本]，然後選取 [Visual C#]**\#**。 在此逐步解說中，您使用 C\# 中，但您可以使用任何 .NET 語言來開發自訂活動。
    4. 從右邊的專案類型清單中選取 [類別庫]。
    5. 針對 [名稱] 輸入 **MyDotNetActivity**。
    6. 在 [位置] 中選取 **C:\\ADF**。 建立資料夾 **ADF** (如果不存在)。
    7. 按一下 [確定]  以建立專案。
-2. 按一下 [**工具**]，指向 [**NuGet 封裝管理員**]，然後按一下 [**封裝管理員主控台**]。
+2. 按一下 **工具**，指向 **NuGet 封裝管理員**，然後按一下**封裝管理員主控台**。
 3. 在 [封裝管理員主控台] 中，執行下列命令匯入 **Microsoft.Azure.Management.DataFactories**。
 
     ```powershell
@@ -911,4 +910,3 @@ Data Factory 服務會在 Azure Batch 中建立作業，其名為：`adf-poolnam
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
-

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
 ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>設定 Azure Cosmos DB 容器的輸送量
 
@@ -49,11 +49,11 @@ ms.lasthandoff: 07/11/2017
 ## <a name="to-set-the-throughput-by-using-the-azure-portal"></a>使用 Azure 入口網站設定輸送量
 
 1. 在新的視窗中，開啟 [Azure 入口網站](https://portal.azure.com)。
-2. 按一下左側的 [Azure Cosmos DB]，或按一下底部的 [更多服務]，捲動至 [資料庫]，然後按一下 [Azure Cosmos DB]。
+2. 按一下左側的 Azure Cosmos DB，或按一下底部的 更多服務，捲動至 資料庫，然後按一下Azure Cosmos DB。
 3. 選取您的 Cosmos DB 帳戶。
 4. 在新視窗中，按一下導覽功能表中的 [資料總管 (預覽)]。
-5. 在新視窗中，展開您的資料庫和容器，然後按一下 [規模與設定]。
-6. 在新視窗中，在 [輸送量] 方塊中輸入新的輸送量，然後按一下 [儲存]。
+5. 在新視窗中，展開您的資料庫和容器，然後按一下規模與設定。
+6. 在新視窗中，在 輸送量 方塊中輸入新的輸送量，然後按一下儲存。
 
 <a id="set-throughput-sdk"></a>
 

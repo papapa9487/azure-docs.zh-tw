@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 00a6749d00c6e66a957b0a89c6658511a1bafe4d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>我應該使用 v2.0 端點嗎？
 當您建立與 Azure Active Directory 整合的應用程式時，您必須判斷 v2.0 端點和驗證通訊協定是否符合您的需求。 Azure Active Directory 的原始端點仍受到完整的支援，而且在某些方面擁有比 v2.0 更豐富的功能。 不過，v2.0 端點為開發人員[帶來極大的好處](active-directory-v2-compare.md)。
@@ -73,13 +73,13 @@ v2.0 端點目前不支援下列類型的應用程式。 如需所支援應用�
 
 `https://new.login.contoso.com`
 
-在此情況下，您參照的是 login.contoso.com 的 DNS 子網域。 如果您希望應用程式以 login-east.contoso.com 和 login-west.contoso.com 作為重新導向 URI，您必須依下列序新增這些重新導向 URI︰
+在此情況下，您參照的是 login.contoso.com 的 DNS 子網域。如果您希望應用程式以 login-east.contoso.com 和 login-west.contoso.com 作為重新導向 URI，您必須依下列序新增這些重新導向 URI︰
 
 `https://contoso.com`  
 `https://login-east.contoso.com`  
 `https://login-west.contoso.com`  
 
-您可以新增後面兩個，因為它們是第一個重新導向 URI (contoso.com) 的子網域。 即將推出的版本將會移除這項限制。
+您可以新增後面兩個，因為它們是第一個重新導向 URI (contoso.com) 的子網域。即將推出的版本將會移除這項限制。
 
 若要了解如何在「應用程式註冊入口網站」中註冊應用程式，請參閱[如何使用 v2.0 端點註冊 App](active-directory-v2-app-registration.md)。
 
@@ -87,7 +87,7 @@ v2.0 端點目前不支援下列類型的應用程式。 如需所支援應用�
 目前 v2.0 端點支援已在「應用程式註冊入口網站」中註冊及在[支援的驗證流程](active-directory-v2-flows.md)清單範圍內之所有應用程式的登入。 不過，這些應用程式只能取得非常有限的一組資源的 OAuth 2.0 存取權杖。 v2.0 端點只會針對下列項目簽發存取權杖：
 
 * 要求權杖的應用程式。 如果邏輯應用程式是由數個不同的元件或層級組成，應用程式就可以為自己取得存取權杖。 若要查看此案例的執行狀況，請參閱 [使用者入門](active-directory-appmodel-v2-overview.md#getting-started) 教學課程。
-* Outlook 郵件、行事曆和連絡人 REST API 全都位於 https://outlook.office.com。 若要了解如何撰寫存取這些 API 的應用程式，請參閱[開始使用 Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 教學課程。
+* Outlook 郵件、行事曆和連絡人 REST API 全都位於 https://outlook.office.com。若要了解如何撰寫存取這些 API 的應用程式，請參閱[開始使用 Office](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2) 教學課程。
 * Microsoft Graph API。 您可以深入了解 [Microsoft Graph](https://graph.microsoft.io)和可供您使用的資料。
 
 目前不支援其他服務。 除了支援您自己的自訂建置 Web API 和服務之外，未來還將增加更多 Microsoft Online Services。

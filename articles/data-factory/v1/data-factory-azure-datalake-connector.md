@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: jingwang
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 811a2538f0a138074feea1bd4608a7ba00660fd1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>了解如何使用 Data Factory 從 Data Lake Store 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -641,4 +640,3 @@ AzureDataLakeStoreSink 支援 [typeProperties] 區段中的下列屬性：
 
 ## <a name="performance-and-tuning"></a>效能和微調
 若要了解影響「複製活動」效能的因素，以及最佳化的方法，請參閱[複製活動的效能及微調指南](data-factory-copy-activity-performance.md)一文。
-

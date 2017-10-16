@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8a531f70f0d9e173d6ea9fb72b9c997f73c23244
-ms.openlocfilehash: 5e3221395082513f842863615d40f7d3ebf2562e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/10/2017
-
+ms.openlocfilehash: 7dbfef6d2bcac81d89ed0e3cf36d4c75a264cba7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>教學課程：將邏輯應用程式連接至 Azure IoT 套件遠端監視預先設定解決方案
 [Microsoft Azure IoT 套件][lnk-internetofthings]遠端監視預先設定解決方案以一套端對端功能集來示範 IoT 解決方案，是快速入門的好工具。 本教學課程逐步引導您將邏輯應用程式連接至 Microsoft Azure IoT 套件遠端監視預先設定解決方案。 這些步驟示範如何將 IoT 解決方案連接至商務程序，以進一步發展此 IoT 解決方案。
@@ -42,7 +41,7 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="set-up-the-logic-app"></a>設定邏輯應用程式
 1. 在 Azure 入口網站中，按一下資源群組刀鋒視窗頂端的 [新增]。
-2. 搜尋 [邏輯應用程式]，選取它，然後按一下 [建立]。
+2. 搜尋 邏輯應用程式，選取它，然後按一下建立。
 3. 填寫 [名稱]，並使用您佈建遠端監視解決方案時使用的相同 [訂用帳戶] 和 [資源群組]。 按一下 [建立] 。
    
     ![](media/iot-suite-logic-apps-tutorial/createlogicapp.png)
@@ -172,4 +171,3 @@ ms.lasthandoff: 03/10/2017
 [lnk-devsetup]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/dev-setup.md
 [lnk-localdeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/local-deployment.md
 [lnk-clouddeploy]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/cloud-deployment.md
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/19/2017
 ms.author: jeedes
 ms.openlocfilehash: 90e08b9cf2feb93de4877bec9734352949896dca
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 
@@ -73,7 +73,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_search.png)
 
-5. 在結果面板中，選取 [Salesforce Sandbox]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Salesforce Sandbox，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-salesforcesandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
 
@@ -139,7 +139,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 9. 在頂端的功能表中，按一下 [安裝] 。
 
     ![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781024.png)
-10. 在左側的導覽窗格中，按一下 [安全性控制項]，然後按一下 [單一登入設定]。
+10. 在左側的導覽窗格中，按一下 安全性控制項，然後按一下單一登入設定。
 
     ![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781025.png)
 11. 在 [單一登入設定] 區段中，執行下列步驟：![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781026.png)
@@ -177,7 +177,7 @@ Salesforce Sandbox 與 Azure AD 整合提供下列優點：
 
 **若要啟用您的網域，請執行下列步驟：**
 
-1. 在左邊的導覽窗格中按一下 [網域管理]，然後按一下 [我的網域]。
+1. 在左邊的導覽窗格中按一下 網域管理，然後按一下我的網域。
    
      ![設定單一登入](./media/active-directory-saas-salesforcesandbox-tutorial/IC781029.png)
    

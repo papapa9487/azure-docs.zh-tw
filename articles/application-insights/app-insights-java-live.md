@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 11/10/2016
 ms.author: bwren
 ms.openlocfilehash: a2731e3e44f8f3d104d8abc7dbe71fe3a4c3a690
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>適用於使用中 Java Web 應用程式的 Application Insights
 
@@ -117,7 +117,7 @@ ms.lasthandoff: 08/18/2017
 ## <a name="7-view-your-telemetry-in-application-insights"></a>7.在 Application Insights 中檢視遙測
 返回 [Microsoft Azure 入口網站](https://portal.azure.com)中的 Application Insights 資源。
 
-[概觀] 刀鋒視窗會顯示 HTTP 要求的相關遙測。 (如果沒有出現，請稍等片刻，然後按一下 [重新整理]。)
+[概觀] 刀鋒視窗會顯示 HTTP 要求的相關遙測。 (如果沒有出現，請稍等片刻，然後按一下重新整理。)
 
 ![範例資料](./media/app-insights-java-live/5-results.png)
 

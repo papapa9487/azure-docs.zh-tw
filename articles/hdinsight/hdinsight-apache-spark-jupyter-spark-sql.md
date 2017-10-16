@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
 ms.author: maxluk
+ms.openlocfilehash: e64720efa168a84193dc3f351def0e58979f7f86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>在 Azure HDInsight 中建立 Apache Spark 叢集
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 09/13/2017
 
    請記下這些值。  稍後在教學課程中需要這些資訊。
 
-3. 選取 [我同意上方所述的條款及條件]，選取 [釘選到儀表板]，然後按一下 [購買]。 您可以看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集。
+3. 選取 我同意上方所述的條款及條件，選取 釘選到儀表板，然後按一下購買。 您可以看到新的圖格，標題為「提交範本部署的部署」。 大約需要 20 分鐘的時間來建立叢集。
 
 如果您在建立 HDInsight 叢集時遇到問題，可能是您沒有這麼做的適當權限。 如需詳細資訊，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
 
@@ -81,7 +80,7 @@ Spark SQL 支援 SQL 和 HiveQL 查詢語言。 其功能包括 Python、Scala �
 
     如果您未將叢集釘選至儀表板，從左窗格中按一下 [HDInsight 叢集]，然後按一下您建立的叢集。
 
-3. 從 [快速連結]，按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+3. 從 快速連結，按一下 叢集儀表板，然後按一下Jupyter Notebook。 出現提示時，輸入叢集的系統管理員認證。
 
    ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -91,7 +90,7 @@ Spark SQL 支援 SQL 和 HiveQL 查詢語言。 其功能包括 Python、Scala �
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. 建立 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立 Notebook。 按一下 新增，然後按一下PySpark。
 
    ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/hdinsight-apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -131,7 +130,6 @@ Spark SQL 支援 SQL 和 HiveQL 查詢語言。 其功能包括 Python、Scala �
 
 > [!div class="nextstepaction"]
 >[在 HDInsight Spark 叢集上執行互動查詢](hdinsight-apache-spark-load-data-run-query.md)
-
 
 
 

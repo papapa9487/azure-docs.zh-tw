@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: xshi
 ms.openlocfilehash: 7a611912ae55eb22103539dbba9f1a06aaa543b7
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>搭配連接 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知
 
@@ -66,10 +66,10 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
 
 ### <a name="add-a-service-bus-queue"></a>新增服務匯流排佇列
 
-1. 開啟服務匯流排命名空間，然後按一下 [+ 佇列]。
-1. 輸入佇列的名稱，然後按一下 [建立]。
-1. 開啟服務匯流排佇列，然後按一下 [共用存取原則] > [+ 新增]。
-1. 輸入原則名稱，並勾選 [管理]，然後按一下 [建立]。
+1. 開啟服務匯流排命名空間，然後按一下+ 佇列。
+1. 輸入佇列的名稱，然後按一下建立。
+1. 開啟服務匯流排佇列，然後按一下共用存取原則 > + 新增。
+1. 輸入原則名稱，並勾選 管理，然後按一下建立。
 
    ![在 Azure 入口網站中新增服務匯流排佇列](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2_add-service-bus-queue-azure-portal.png)
 
@@ -147,11 +147,11 @@ Azure Logic Apps 可用來以一連串的步驟使程序自動進行。 邏輯�
 
 1. 建立 SMTP 服務連接。
    1. 按一下 [新增步驟] > [新增動作]。
-   1. 輸入 `SMTP`，並按一下搜尋結果中的 **SMTP** 服務，然後按一下 [SMTP - 傳送電子郵件]。
+   1. 輸入 `SMTP`，並按一下搜尋結果中的 **SMTP** 服務，然後按一下SMTP - 傳送電子郵件。
 
       ![在 Azure 入口網站的邏輯應用程式中建立 SMTP 連接](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9_create-smtp-connection-logic-app-azure-portal.png)
 
-   1. 輸入您信箱的 SMTP 資訊，然後按一下 [建立]。
+   1. 輸入您信箱的 SMTP 資訊，然後按一下建立。
 
       ![在 Azure 入口網站的邏輯應用程式中輸入 SMTP 連接資訊](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
 

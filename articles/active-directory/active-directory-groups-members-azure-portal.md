@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017;it-pro
 ms.reviewer: piotrci
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 044e88f95712e1cc5b5532f5492c78d711a8d858
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 27758f7e0a48d19f542055cae06d6c0a228215f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>管理 Azure Active Directory 租用戶中使用者的群組成員資格
 本文說明如何在 Azure Active Directory (Azure AD) 中管理群組的成員。
@@ -56,4 +55,3 @@ ms.lasthandoff: 05/08/2017
 * [管理群組的設定](active-directory-groups-settings-azure-portal.md)
 * [管理群組的成員資格](active-directory-groups-membership-azure-portal.md)
 * [管理群組中使用者的動態規則](active-directory-groups-dynamic-membership-azure-portal.md)
-

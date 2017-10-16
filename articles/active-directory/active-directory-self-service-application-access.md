@@ -16,12 +16,11 @@ ms.date: 09/06/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
 ms.openlocfilehash: 39c62461c9659b0cb4422de88686283ba462c53b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="self-service-application-access-and-delegated-management-with-azure-active-directory"></a>Azure Active Directory 的自助式應用程式存取和委派管理
 為使用者啟用自助式功能是常見的企業 IT 案例。 許多使用者、許多應用程式，以及最有把握做出存取權授與決策的人員可能都不是目錄管理員。 通常決定誰可以存取應用程式的最佳人選是小組負責人或其他委派的系統管理員。 但是，這就是使用應用程式的使用者，而使用者知道他們需要什麼才能進行其作業。
@@ -109,4 +108,3 @@ ms.lasthandoff: 09/06/2017
 [1]: ./media/active-directory-self-service-application-access/ssaa_admin.PNG
 [2]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app.PNG
 [3]: ./media/active-directory-self-service-application-access/ssaa_ap_manage_app_config.PNG
-

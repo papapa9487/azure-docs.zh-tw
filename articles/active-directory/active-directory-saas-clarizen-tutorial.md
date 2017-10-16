@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: 574c6877bddac8be7d6d541bfabbdc10f6be3101
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>教學課程：Azure Active Directory 與 Clarizen 整合
 
@@ -64,7 +64,7 @@ ms.lasthandoff: 07/11/2017
 
     ![在搜尋方塊中，輸入「Clarizen」](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_000.png)
 
-5. 在結果窗格中，選取 [Clarizen]，然後按一下 [新增] 以新增應用程式。
+5. 在結果窗格中，選取 Clarizen，然後按一下新增 以新增應用程式。
 
     ![在結果窗格中選取 Clarizen](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_0001.png)
 
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/11/2017
 
     ![選取並儲存到期日](./media/active-directory-saas-clarizen-tutorial/tutorial_general_300.png)
 
-6. 在 [SAML 簽署憑證] 區段上，選取 [啟用新憑證]，然後按一下 [儲存]。
+6. 在 SAML 簽署憑證 區段上，選取 啟用新憑證，然後按一下儲存。
 
     ![選取核取方塊以啟用新憑證](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_04.png)
 
@@ -131,11 +131,11 @@ ms.lasthandoff: 07/11/2017
 
 10. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Clarizen 公司網站。
 
-11. 按一下您的使用者名稱，然後按一下 [設定]。
+11. 按一下您的使用者名稱，然後按一下設定。
 
     ![按一下您的使用者名稱底下的 [設定]](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_001.png "設定")
 
-12. 按一下 [全域設定] 索引標籤。 然後，在 [同盟驗證] 旁邊，按一下 [編輯]。
+12. 按一下 [全域設定] 索引標籤。然後，在 [同盟驗證] 旁邊，按一下 [編輯]。
 
     ![[全域設定] 索引標籤](./media/active-directory-saas-clarizen-tutorial/tutorial_clarizen_002.png "全域設定")
 
@@ -164,7 +164,7 @@ ms.lasthandoff: 07/11/2017
 
     ![Azure Active Directory 圖示](./media/active-directory-saas-clarizen-tutorial/create_aaduser_01.png)
 
-2. 按一下 [使用者和群組]，然後按一下 [所有使用者] 以顯示使用者清單。
+2. 按一下 使用者和群組，然後按一下所有使用者 以顯示使用者清單。
 
     ![按一下 [使用者和群組] 與 [所有使用者]](./media/active-directory-saas-clarizen-tutorial/create_aaduser_02.png)
 
@@ -213,7 +213,7 @@ ms.lasthandoff: 07/11/2017
 
 ![已指派測試使用者][200]
 
-1. 在 Azure 入口網站中，開啟應用程式檢視，瀏覽至目錄檢視，按一下 [企業應用程式]，然後按一下 [所有應用程式]。
+1. 在 Azure 入口網站中，開啟應用程式檢視，瀏覽至目錄檢視，按一下 企業應用程式，然後按一下所有應用程式。
 
     ![按一下 [企業應用程式] 和 [所有應用程式]][201]
 

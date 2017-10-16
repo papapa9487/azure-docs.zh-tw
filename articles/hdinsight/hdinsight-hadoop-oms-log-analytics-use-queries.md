@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 8fe91bed69a1c06367346041d8caba4aaee4c82a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters-preview"></a>查詢 Azure Log Analytics 以監視 HDInsight 叢集 (預覽)
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 09/09/2017
 
     ![搜尋所有計量的輸出](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-metrics-output.png "都搜尋所有計量的輸出")
 
-5. 在左側窗格中的 [類型] 類別下，搜尋您想要深入探討的計量。 在本教學課程中，我們選擇 `metrics_resourcemanager_queue_root_default_CL`。 選取計量的對應核取方塊，然後按一下 [套用]。
+5. 在左側窗格中的 [類型] 類別下，搜尋您想要深入探討的計量。 在本教學課程中，我們選擇 `metrics_resourcemanager_queue_root_default_CL`。 選取計量的對應核取方塊，然後按一下套用。
 
     > [!NOTE]
     > 您可能需要按一下 [[+] 更多資訊] 按鈕來尋找您要的計量。 此外，[套用] 按鈕位於清單底部，您必須向下捲動才看的到。
@@ -98,7 +97,7 @@ ms.lasthandoff: 09/09/2017
 
     ![搜尋所有錯誤的輸出](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-all-errors-output.png "搜尋所有錯誤的輸出")
 
-5. 在左側窗格中的 [類型] 類別下，搜尋您想要深入探討的錯誤類型。 在本教學課程中，我們選擇 `log_sparkappsexecutors_CL`。 選取計量的對應核取方塊，然後按一下 [套用]。
+5. 在左側窗格中的 [類型] 類別下，搜尋您想要深入探討的錯誤類型。 在本教學課程中，我們選擇 `log_sparkappsexecutors_CL`。 選取計量的對應核取方塊，然後按一下套用。
 
     ![搜尋特定錯誤](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-search-specific-error.png "搜尋特定錯誤")
 
@@ -139,7 +138,7 @@ ms.lasthandoff: 09/09/2017
 
     ![輸入要建立警示的查詢](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert-query.png "輸入要建立警示的查詢")
 
-4. 在 [新增警示規則] 視窗中，輸入查詢和其他詳細資料以建立警示，然後按一下 [儲存]。
+4. 在 新增警示規則 視窗中，輸入查詢和其他詳細資料以建立警示，然後按一下儲存。
 
     ![輸入要建立警示的查詢](./media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-create-alert.png "輸入要建立警示的查詢")
 
@@ -155,4 +154,3 @@ ms.lasthandoff: 09/09/2017
 
 * [使用 OMS Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [在 Log Analytics 中建立警示規則](../log-analytics/log-analytics-alerts-creating.md)
-

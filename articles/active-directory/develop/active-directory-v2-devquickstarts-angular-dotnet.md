@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: c68180c0ecabf5c0732f0db77ef1f3cc93be965b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-an-angularjs-single-page-app---net"></a>將登入新增至 AngularJS 單一頁面應用程式 - .NET
 在本文中，我們將使用 Azure Active Directory v2.0 端點，將 Microsoft 帳戶的登入新增至 AngularJS 應用程式。  v2.0 端點可讓您在您的應用程式中執行單一整合，以及以個人和工作/學校帳戶驗證使用者。
@@ -224,7 +224,7 @@ return $http.get('/api/tasks');
 ...
 ```
 
-恭喜！  您的 Azure AD 整合式單一頁面應用程式現在已完成。  佩服吧！  它可以驗證使用者、使用 OpenID Connect 安全地呼叫其後端 REST API，以及取得使用者的基本資訊。  根據預設，它支援來自 Azure AD 具有個人 Microsoft 帳戶或工作/學校帳戶的任何使用者。  執行應用程式，並且在瀏覽器中瀏覽至 `https://localhost:44326/`。  使用個人 Microsoft 帳戶或工作/學校帳戶登入。  將工作新增至使用者待辦事項清單，然後登出。  嘗試使用其他類型的帳戶登入。 如果您需要 Azure AD 租用戶以建立工作/學校使用者， [在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
+恭喜！  您的 Azure AD 整合式單一頁面應用程式現在已完成。  佩服吧！  它可以驗證使用者、使用 OpenID Connect 安全地呼叫其後端 REST API，以及取得使用者的基本資訊。  根據預設，它支援來自 Azure AD 具有個人 Microsoft 帳戶或工作/學校帳戶的任何使用者。  執行應用程式，並且在瀏覽器中瀏覽至 `https://localhost:44326/`。  使用個人 Microsoft 帳戶或工作/學校帳戶登入。  將工作新增至使用者待辦事項清單，然後登出。嘗試使用其他類型的帳戶登入。 如果您需要 Azure AD 租用戶以建立工作/學校使用者， [在這裡了解如何取得](active-directory-howto-tenant.md) (免費)。
 
 如果要繼續了解 v2.0 端點，請返回我們的《 [v2.0 開發人員指南](active-directory-appmodel-v2-overview.md)》。  如需其他資源，請參閱：
 

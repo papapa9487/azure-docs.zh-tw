@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 25c8b49401486edfad0a1a60fe2258a586f6adc2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: a1b58125dafdf73f245b6a8cd0f4917513b22ea9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-server-administrators"></a>管理伺服器管理員
 對於伺服器所在的租用戶，伺服器管理員必須是 Azure Active Directory (Azure AD) 中有效的使用者或群組。 在 Azure 入口網站，或 SSMS 中的伺服器屬性中，您可以使用您伺服器之控制項刀鋒視窗中的 **Analysis Services 管理員**來管理伺服器管理員。 
@@ -43,5 +42,4 @@ ms.lasthandoff: 06/23/2017
 [驗證和使用者權限](analysis-services-manage-users.md)  
 [管理資料庫角色和使用者](analysis-services-database-users.md)  
 [角色型存取控制](../active-directory/role-based-access-control-what-is.md)  
-
 

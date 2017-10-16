@@ -15,10 +15,10 @@ ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 52fd9375c71c42feaf87f4a0f4220e1cb3889e63
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：從舊版升級到最新版本
 本主題說明各種可用於將 Azure Active Directory (Azure AD) Connect 安裝升級到最新版本的方法。 我們建議您讓自己的 Azure AD Connect 保持在最新版本。 當您進行大幅組態變更時，也會使用[變換移轉](#swing-migration)一節中的步驟。
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/03/2017
 如需權限資訊，請參閱[升級所需的權限](active-directory-aadconnect-accounts-permissions.md#upgrade)。
 
 > [!NOTE]
-> 讓新的 Azure AD Connect 伺服器開始將變更同步處理至 Azure AD 之後，就不可再復原為使用 DirSync 或 Azure AD 同步。 不支援從 Azure AD Connect 降級至舊版用戶端，包括 DirSync 和 Azure AD 同步，因為可能會導致 Azure AD 中發生遺失資料等問題。
+> 讓新的 Azure AD Connect 伺服器開始將變更同步處理至 Azure AD 之後，就不可再復原為使用 DirSync 或 Azure AD 同步。不支援從 Azure AD Connect 降級至舊版用戶端，包括 DirSync 和 Azure AD 同步，因為可能會導致 Azure AD 中發生遺失資料等問題。
 
 ## <a name="in-place-upgrade"></a>就地升級
 就地升級適用於從 Azure AD Sync 或 Azure AD Connect 移轉， 但不適用於從 DirSync 移轉，也不適用於任何利用 Forefront Identity Manager (FIM) + Azure AD 連接器的解決方案。

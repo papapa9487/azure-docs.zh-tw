@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>如何在 Azure API 管理中建立 API
 API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。 新的 API 是在發行者入口網站中建立，然後新增所需的作業。 加入操作之後，API 就可加入至產品，接著就可發佈。 API 發佈之後，就可供開發人員訂閱和使用。
@@ -34,7 +34,7 @@ API 是在發行者入口網站中建立和設定。 若要存取發行者入口
 > 
 > 
 
-從左側 [API 管理] 功能表按一下 [API]，然後按一下 [新增 API]。
+從左側 API 管理 功能表按一下 API，然後按一下新增 API。
 
 ![Create API][api-management-create-api]
 
@@ -59,7 +59,7 @@ API 是在發行者入口網站中建立和設定。 若要存取發行者入口
 
 ![API settings][api-management-api-settings]
 
-若要針對實作 API 的後端服務設定 [閘道驗證]，請選取 [安全性]  索引標籤。 [使用認證] 下拉式清單可用來設定 [HTTP 基本] 或 [用戶端憑證] 驗證。 若要使用 HTTP Basic 驗證，只需要輸入所需的認證。 如需使用用戶端憑證驗證的詳細資訊，請參閱 [如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務][How to secure back-end services using client certificate authentication in Azure API Management]。
+若要針對實作 API 的後端服務設定 [閘道驗證]，請選取 [安全性]  索引標籤。[使用認證] 下拉式清單可用來設定 [HTTP 基本] 或 [用戶端憑證] 驗證。 若要使用 HTTP Basic 驗證，只需要輸入所需的認證。 如需使用用戶端憑證驗證的詳細資訊，請參閱 [如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務][How to secure back-end services using client certificate authentication in Azure API Management]。
 
 [安全性] 索引標籤也可用來使用 OAuth 2.0 設定 [使用者授權]。 如需詳細資訊，請參閱 [如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶][How to authorize developer accounts using OAuth 2.0 in Azure API Management]。
 

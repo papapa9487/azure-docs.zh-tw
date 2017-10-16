@@ -15,12 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>設定虛擬網路服務端點
 
@@ -64,7 +63,7 @@ ms.lasthandoff: 09/25/2017
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)。
 使用 Azure 帳戶登入 Azure。 如果您沒有 Azure 帳戶，您可以註冊免費試用。 該帳戶必須擁有必要的[權限](#provisioning)，以便建立虛擬網路和服務端點。
 2. 按一下 [+新增] > [網路] > [虛擬網路] > [+新增]。
-3. 在 [建立虛擬網路] 中輸入下列值，然後按一下 [建立]：
+3. 在 建立虛擬網路 中輸入下列值，然後按一下建立：
 
 設定 | 值
 ------- | -----
@@ -126,7 +125,7 @@ __服務__ | 選取其中一個可用的服務或全部選取。 預覽期間所
 安裝的先決條件：
 
 - 安裝最新版的 PowerShell [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-- 若要啟動 PowerShell 工作階段，請移至 [開始]，輸入 **powershell**，然後按一下 [PowerShell]。
+- 若要啟動 PowerShell 工作階段，請移至 開始，輸入 **powershell**，然後按一下PowerShell。
 - 在 PowerShell 中，輸入 `login-azurermaccount` 命令來登入 Azure。 該帳戶必須擁有必要的[權限](#provisioning)，以便建立虛擬網路和服務端點。
 
 ### <a name="get-available-service-endpoints-for-azure-region"></a>取得 Azure 區域可用的服務端點
@@ -384,9 +383,9 @@ az network vnet subnet update -g myRG -n mySubnet --vnet-name myVNet --service-e
 
 擁有虛擬網路寫入權限的使用者可以任意地在虛擬網路上設定服務端點。
 
-若要將 Azure 服務資源固定在 VNet 上，使用者必須擁有所要新增之子網路的 "Microsoft.Network/JoinServicetoaSubnet" 權限。 此權限預設會隨附在內建的服務管理員角色中，藉由建立自訂角色即可加以修改。
+若要將 Azure 服務資源放到 VNet 保護，使用者必須擁有所要新增之子網路的 "Microsoft.Network/JoinServicetoaSubnet" 權限。 此權限預設會隨附在內建的服務管理員角色中，可藉由建立自訂角色加以修改。
 
-深入了解[內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)以及如何對[自訂角色](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles)指派特定權限。
+深入了解[內建角色](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles)以及如何將特定權限指派給[自訂角色](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles)。
 
 VNet 和 Azure 服務資源不一定要位於相同訂用帳戶中。 如果這兩者位於不同的訂用帳戶中，則在此預覽期間，資源應該位於相同的 Active Directory (AD) 租用戶底下。
 
@@ -397,4 +396,3 @@ VNet 和 Azure 服務資源不一定要位於相同訂用帳戶中。 如果這�
 [將 Azure 儲存體帳戶固定在虛擬網路上](https://docs.microsoft.com/azure/storage/common/storage-network-security)
 
 [將 Azure SQL 固定在虛擬網路上](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
-

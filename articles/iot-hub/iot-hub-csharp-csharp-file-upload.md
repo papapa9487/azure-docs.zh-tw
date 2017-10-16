@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>以使用 .NET 的 IoT 中樞將檔案從裝置上傳至雲端
 
@@ -58,9 +57,9 @@ ms.lasthandoff: 09/25/2017
 
 在本節中，您將修改在[使用 IoT 中樞傳送雲端到裝置訊息](iot-hub-csharp-csharp-c2d.md)中建立的裝置應用程式，以接收來自 IoT 中樞的雲端到裝置訊息。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，按一下 [新增]，然後按一下 [現有項目]。 瀏覽至影像檔並將它包含在您的專案中。 本教學課程假設影像名稱為 `image.jpg`。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，按一下 新增，然後按一下現有項目。 瀏覽至影像檔並將它包含在您的專案中。 本教學課程假設影像名稱為 `image.jpg`。
 
-1. 以滑鼠右鍵按一下影像，然後按一下 [內容] 。 確定 [複製到輸出目錄] 是設為 [一律複製]。
+1. 以滑鼠右鍵按一下影像，然後按一下內容 。 確定 [複製到輸出目錄] 是設為 [一律複製]。
 
     ![][1]
 
@@ -108,7 +107,7 @@ ms.lasthandoff: 09/25/2017
 
     ![Visual Studio 中的新專案][2]
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadFileUploadNotification** 專案，然後按一下 [管理 NuGet 套件...]。
+1. 在 方案總管 中，以滑鼠右鍵按一下 **ReadFileUploadNotification** 專案，然後按一下管理 NuGet 套件...。
 
 1. 在 [NuGet 套件管理員] 視窗中，搜尋 **Microsoft.Azure.Devices**，按一下 [安裝] 並接受使用規定。
 
@@ -204,4 +203,3 @@ ms.lasthandoff: 09/25/2017
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
-

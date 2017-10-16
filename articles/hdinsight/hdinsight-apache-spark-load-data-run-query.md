@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: nitinme
+ms.openlocfilehash: 7853988f91372f2ab563481e441c0d6db4a7fd96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: ada1c3d1482c68834dbbf5eabbd045a7e0c01f9f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>在 HDInsight Spark 叢集上執行互動式查詢
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 07/25/2017
 
     如果您未將叢集釘選至儀表板，從左窗格中按一下 [HDInsight 叢集]，然後按一下您建立的叢集。
 
-3. 從 [快速連結]，按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
+3. 從 快速連結，按一下 叢集儀表板，然後按一下Jupyter Notebook。 出現提示時，輸入叢集的系統管理員認證。
 
    ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/hdinsight-apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/25/2017
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    >
    >
-3. 建立 Notebook。 按一下 [新增]，然後按一下 [PySpark]。
+3. 建立 Notebook。 按一下 新增，然後按一下PySpark。
 
    ![建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/hdinsight-apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "建立 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -120,7 +119,6 @@ ms.lasthandoff: 07/25/2017
 
 > [!div class="nextstepaction"]
 >[使用資料視覺效果工具搭配 Azure HDInsight 的 Spark BI](hdinsight-apache-spark-use-bi-tools.md)
-
 
 
 

@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 03/01/2017
 ms.author: yanacai
 ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>使用 Azure Data Lake U-SQL SDK 調整 U-SQL 本機執行和測試
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="install-azure-data-lake-u-sql-sdk"></a>安裝 Azure Data Lake U-SQL SDK
 
-您可以在 Nuget.org 上的[這裡](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)取得 Azure Data Lake U-SQL SDK。 在使用它之前，您必須確定您具有下列相依性。
+您可以在 Nuget.org 上的[這裡](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)取得 Azure Data Lake U-SQL SDK。在使用它之前，您必須確定您具有下列相依性。
 
 ### <a name="dependencies"></a>相依項目
 

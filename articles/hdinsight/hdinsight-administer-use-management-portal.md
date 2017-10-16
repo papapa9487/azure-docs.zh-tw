@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集
 
@@ -83,7 +82,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
-   * 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下 [自訂] 。
+   * 若要自訂功能表，請在功能表上的任意處按一下滑鼠右鍵，然後按一下自訂 。
    * **設定**和**所有設定**：顯示該叢集的 [設定] 刀鋒視窗，可讓您存取該叢集的詳細組態資訊。
    * **儀表板**、**叢集儀表板**和 **URL：這些是存取叢集儀表板 (也就是適用於以 Linux 為基礎之叢集的 Ambari Web) 的所有方法。-**安全殼層︰顯示使用安全殼層 (SSH) 連線連接到叢集的指示。
    * **調整叢集**：可讓您變更此叢集的背景工作節點數目。
@@ -200,7 +199,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 1. 登入[入口網站][azure-portal]。
 2. 依序按一下左側功能表的 [瀏覽全部]、[HDInsight 叢集] 及您的叢集名稱。
-3. 在頂端功能表按一下 [設定]，然後按一下 [調整叢集]。
+3. 在頂端功能表按一下 設定，然後按一下調整叢集。
 4. 輸入 **背景工作節點的數目**。 叢集節點的數目限制會因 Azure 訂用帳戶而有所不同。 請連絡帳務支援提高限制。  成本資訊會反映您對節點數目所做的變更。
 
     ![HDInsight Hadoop HBase Storm Spark scale](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
@@ -225,9 +224,9 @@ HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳�
 
 1. 登入[入口網站][azure-portal]。
 2. 依序按一下左側功能表的 [瀏覽全部]、[HDInsight 叢集] 及您的叢集名稱。
-3. 在頂端功能表按一下 [設定]，然後按一下 [叢集登入]。
-4. 如果已啟用 [叢集登入]，您必須先按一下 [停用]，然後按一下 [啟用]，之後才能變更使用者名稱和密碼。
-5. 變更 [叢集登入名稱] 及/或 [叢集登入密碼]，然後按一下 [儲存]。
+3. 在頂端功能表按一下 設定，然後按一下叢集登入。
+4. 如果已啟用 叢集登入，您必須先按一下 停用，然後按一下啟用，之後才能變更使用者名稱和密碼。
+5. 變更 叢集登入名稱 及/或 叢集登入密碼，然後按一下儲存。
 
     ![HDInsight change cluster user username password http user](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
@@ -251,8 +250,8 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 1. 登入[入口網站][azure-portal]。
 2. 依序按一下左側功能表的 [瀏覽全部]、[HDInsight 叢集] 及您的叢集名稱。
-3. 在頂端功能表按一下 [設定]，然後按一下 [叢集登入]。
-4. 如果已啟用 [叢集登入]，您必須先按一下 [停用]，然後按一下 [啟用]，之後才能變更使用者名稱和密碼。
+3. 在頂端功能表按一下 設定，然後按一下叢集登入。
+4. 如果已啟用 叢集登入，您必須先按一下 停用，然後按一下啟用，之後才能變更使用者名稱和密碼。
 5. 針對 [叢集登入使用者名稱] 和 [叢集登入密碼]，分別輸入叢集的新使用者名稱和密碼。
 6. 按一下 [儲存] 。
 
@@ -326,8 +325,8 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 1. 登入[入口網站][azure-portal]。
 2. 依序按一下左側功能表的 [瀏覽全部]、[HDInsight 叢集] 及您的叢集名稱。
-3. 在頂端功能表按一下 [設定]，然後按一下 [遠端桌面]。
-4. 輸入 [到期日]、[遠端桌面使用者名稱] 和 [遠端桌面密碼]，然後按一下 [啟用]。
+3. 在頂端功能表按一下 設定，然後按一下遠端桌面。
+4. 輸入 到期日、遠端桌面使用者名稱 和 遠端桌面密碼，然後按一下啟用。
 
     ![HDInsight 啟用停用設定遠端桌面](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
@@ -342,7 +341,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 1. 登入[入口網站][azure-portal]。
 2. 依序按一下左側功能表的 [瀏覽全部]、[HDInsight 叢集] 及您的叢集名稱。
-3. 在頂端功能表按一下 [設定]，然後按一下 [遠端桌面]。
+3. 在頂端功能表按一下 設定，然後按一下遠端桌面。
 4. 按一下 [連接]  並遵循指示。 如果 [連接] 已停用，您必須先加以啟用。 請務必使用遠端桌面使用者的使用者名稱和密碼。  不可使用叢集使用者的認證。
 
 ## <a name="open-hadoop-command-line"></a>開啟 Hadoop 命令列
@@ -378,4 +377,3 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 命令列"
-

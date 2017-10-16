@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: c0ea91ae6e03429b197eeb3767b709fb03aa0dc8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 65d89309b9eea8544b85d16687baa90d49688d77
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Ambari 檢視來為 Tez 作業偵錯
 
@@ -59,7 +58,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
     ![選取 [Hive 檢視]](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 
-3. 當 Hive 檢視載入之後，在查詢編輯器中貼上下列查詢，然後按一下 [執行]。
+3. 當 Hive 檢視載入之後，在查詢編輯器中貼上下列查詢，然後按一下執行。
 
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
@@ -69,7 +68,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
 
-4. 選取 [記錄] 索引標籤。 您會看到類似下列文字的資訊：
+4. 選取 [記錄] 索引標籤。您會看到類似下列文字的資訊：
 
         INFO : Session is already open
         INFO :
@@ -112,4 +111,3 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Tez 頁面](http://hortonworks.com/hadoop/tez/)。
 
 如需如何搭配 HDInsight 來使用 Ambari 的詳細資訊，請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
-

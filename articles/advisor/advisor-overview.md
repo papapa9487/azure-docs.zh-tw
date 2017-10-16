@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 35678142550f9f887562f311a5e7d9516495cf53
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 96925f251cf4984a11516a962740e19a7b9589dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-azure-advisor"></a>Azure 建議程式簡介
 
 了解 Azure Advisor 和其主要功能，並獲得常見問題的解答。
@@ -89,4 +87,3 @@ Advisor 可提供虛擬機器、可用性設定組、應用程式閘道、應用
 * [建議程式安全性建議](advisor-security-recommendations.md)
 * [建議程式效能建議](advisor-performance-recommendations.md)
 * [建議程式成本建議](advisor-cost-recommendations.md)
-

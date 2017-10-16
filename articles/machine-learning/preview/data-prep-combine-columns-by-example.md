@@ -11,14 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3ca1710c969b9bc5a1f56dc53f52c706e1ed07cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="combine-columns-by-example-transformation"></a>合併資料行實例化轉換
 此轉換可讓使用者藉由合併多個資料行的值以新增資料行。 使用者可以指定分隔符號，或提供組合值的範例以執行這項轉換。 當使用者提供合併範例時，轉換由**衍生資料行實例化**轉換中使用的相同**實例化**引擎處理。
 
@@ -74,5 +72,4 @@ ms.lasthandoff: 09/25/2017
 |16|Jan|2017|22|34|56|16-Jan-2016 15:01:56 PDT|
 |23|Mar|2017|01|55|25|23-Mar-2016 15:01:25 PDT|
 |16|Apr|2017|11|34|36|16-Apr-2016 15:01:36 PDT|
-
 

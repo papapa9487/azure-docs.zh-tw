@@ -57,6 +57,8 @@
           href: concepts-servers.md
         - name: 支援的版本
           href: concepts-supported-versions.md
+        - name: 伺服器記錄
+          href: concepts-server-logs.md
     - name: 資源
       items:
         - name: 定價層
@@ -113,6 +115,10 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: 存取伺服器記錄
+      items:
+        - name: Azure CLI
+          href: howto-configure-server-logs-in-cli.md
 - name: 參考
   items:
     - name: Azure CLI

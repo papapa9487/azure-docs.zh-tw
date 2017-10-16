@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 06/26/2017
 ms.author: bwren
+ms.openlocfilehash: 05362ab6567d8dbc44f4015c77203eb1abfc2914
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: afcfc6bb27506dbcc44217680e779318107b33d9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps 適用的 Application Insights 概觀
 
@@ -236,4 +235,3 @@ Application Insights 也可以用來了解使用者在應用程式內執行的�
 * 裝載於 [IIS](app-insights-monitor-web-app-availability.md)、[J2EE](app-insights-java-live.md) 或 [Azure](app-insights-azure.md) 上的已部署應用程式。
 * [網頁](app-insights-javascript.md) - 單頁應用程式或一般網頁 - 單獨使用此選項或作為任何伺服器選項以外的附加選項。
 * 可從公用網際網路測試您應用程式的[可用性測試](app-insights-monitor-web-app-availability.md)。
-

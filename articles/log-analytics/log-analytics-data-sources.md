@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics 中的資料來源
 Log Analytics 會從 OMS 工作區的 [連接的來源] 收集資料，並將它儲存在 OMS 儲存機制中。  而您設定的資料來源可定義要從每個來源收集哪些資料。  OMS 儲存機制中的資料會以記錄組的形式儲存。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
@@ -68,4 +66,3 @@ Log Analytics 收集的所有資料都會以記錄形式儲存在 OMS 儲存機�
 * 了解可將功能加入 Log Analytics 並會將資料收集到 OMS 儲存機制的 [方案](log-analytics-add-solutions.md) 。
 * 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。  
 * 設定[警示](log-analytics-alerts.md)，以便從資料來源和方案收集到重要資料時主動通知您。
-

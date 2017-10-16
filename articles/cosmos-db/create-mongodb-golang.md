@@ -9,14 +9,12 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cb123107178f5e7c0207524c19331a6fa4658739
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
@@ -63,7 +61,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 按一下左側導覽功能表中的 [快速入門]，然後按一下 [其他] 以檢視 Go 應用程式所需的連接字串資訊。
+1. 按一下左側導覽功能表中的 快速入門，然後按一下其他 以檢視 Go 應用程式所需的連接字串資訊。
 
 2. 在 Goglang 中，開啟 GOROOT\CosmosDBSample 目錄中的 main.go 檔案，並從 Azure 入口網站使用連接字串資訊來更新下列程式碼行，如下列螢幕擷取畫面所示。 
 
@@ -208,7 +206,7 @@ if err != nil {
 
 1. 在 Goglang 中，確定您的 GOPATH (可在 [檔案]、[設定]、[Go]、[GOPATH] 之下取得) 包含 gopkg 的安裝位置，預設為 USERPROFILE\go。 
 2. 將可刪除文件的程式碼行 (行 91-96) 註解化，以便在執行應用程式後查看文件。
-3. 在 Goglang 中，按一下 [執行]，然後按一下 [執行 [建置 main.go 並執行]]。
+3. 在 Goglang 中，按一下 執行，然後按一下執行 建置 main.go 並執行。
 
     應用程式會完成並顯示在[建立文件](#create-document)中建立之文件的說明。
     
@@ -224,7 +222,7 @@ if err != nil {
 
 回到 Azure 入口網站，以在 [資料總管] 中查看您的文件。
 
-1. 按一下左側瀏覽功能表中的 [資料總管 (預覽)]，展開 [golang-coach]、[套件]，然後按一下 [文件]。 在 [文件] 索引標籤上，按一下 \_id 以在右窗格中顯示文件。 
+1. 按一下左側瀏覽功能表中的 資料總管 (預覽)，展開 golang-coach、套件，然後按一下文件。 在 [文件] 索引標籤上，按一下 \_id 以在右窗格中顯示文件。 
 
     ![顯示新建文件的資料總管](./media/create-mongodb-golang/golang-cosmos-db-data-explorer.png)
     
@@ -239,7 +237,7 @@ if err != nil {
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+2. 在資源群組頁面上，按一下 刪除，在文字方塊中輸入要刪除之資源的名稱，然後按一下刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -247,4 +245,3 @@ if err != nil {
 
 > [!div class="nextstepaction"]
 > [將資料匯入 MongoDB API 的 Azure Cosmos DB](mongodb-migrate.md)
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 2d824d8d5eb8a25db128397b908a126bd87213ea
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>教學課程：Azure Active Directory 與 UserEcho 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/03/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_search.png)
 
-5. 在結果窗格中，選取 [UserEcho]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 UserEcho，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_addfromgallery.png)
 
@@ -131,7 +131,7 @@ ms.lasthandoff: 08/03/2017
 
 7. 在另一個瀏覽器視窗中，以系統管理員身分登入您的 UserEcho 公司網站。
 
-8. 在頂端工具列中，按一下您的使用者名稱以展開功能表，然後按一下 [設定] 。
+8. 在頂端工具列中，按一下您的使用者名稱以展開功能表，然後按一下設定 。
    
     ![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png) 
 
@@ -139,7 +139,7 @@ ms.lasthandoff: 08/03/2017
    
     ![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_07.png) 
 
-10. 按一下 [網站]，然後按一下 [單一登入 (SAML2)]。
+10. 按一下 網站，然後按一下單一登入 (SAML2)。
    
     ![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_08.png) 
 
@@ -200,7 +200,7 @@ ms.lasthandoff: 08/03/2017
 
 1. 以系統管理員身分登入您的 UserEcho 公司網站。
 
-2. 在頂端工具列中，按一下您的使用者名稱以展開功能表，然後按一下 [設定] 。
+2. 在頂端工具列中，按一下您的使用者名稱以展開功能表，然後按一下設定 。
    
     ![設定單一登入](./media/active-directory-saas-userecho-tutorial/tutorial_userecho_06.png)
 

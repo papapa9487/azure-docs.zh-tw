@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
 ms.openlocfilehash: bf66757cc9439a969c9f28abc0b95055ff697c3b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 
@@ -34,12 +34,12 @@ ms.lasthandoff: 08/03/2017
 * 您應該開始執行 Notebook， **[機器學習服務︰使用 MLLib 對食物檢查資料進行預測分析](hdinsight-apache-spark-machine-learning-mllib-ipython.md)**。 如需有關如何執行此 Notebook 的指示，請依照下列連結。  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>追蹤 YARN UI 中的應用程式
-1. 啟動 YARN UI。 從叢集刀鋒視窗按一下 [叢集儀表板]，然後按一下 [YARN]。
+1. 啟動 YARN UI。 從叢集刀鋒視窗按一下 叢集儀表板，然後按一下YARN。
    
     ![啟動 YARN UI](./media/hdinsight-apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的資源管理員，以及 [ResourceManager UI]。    
+   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 叢集儀表板，然後按一下HDInsight 叢集儀表板。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的資源管理員，以及 [ResourceManager UI]。    
    > 
    > 
 2. 因為您使用 Jupyter Notebook 啟動 Spark 作業，應用程式具有名稱 **remotesparkmagics** (這是從 Notebook 啟動之所有應用程式的名稱)。 針對應用程式名稱按一下應用程式識別碼，取得作業的詳細資訊。 這會啟動應用程式檢視。
@@ -94,12 +94,12 @@ ms.lasthandoff: 08/03/2017
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>使用 Spark 歷程記錄伺服器尋找已完成作業的相關資訊
 完成作業後，作業的相關資訊會保存在 Spark 歷程記錄伺服器。
 
-1. 若要啟動 Spark 歷程記錄伺服器，請從叢集刀鋒視窗中按一下 [叢集儀表板]，然後按一下 [Spark 歷程記錄伺服器]。
+1. 若要啟動 Spark 歷程記錄伺服器，請從叢集刀鋒視窗中按一下 叢集儀表板，然後按一下Spark 歷程記錄伺服器。
    
     ![啟動 Spark 歷程記錄伺服器](./media/hdinsight-apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > 或者，您也可以從 Ambari UI 啟動 Spark 歷程記錄伺服器 UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。 從 Ambari UI 中，依序按一下 [Spark]、[快速連結]和 [Spark 歷程記錄伺服器 UI]。
+   > 或者，您也可以從 Ambari UI 啟動 Spark 歷程記錄伺服器 UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 叢集儀表板，然後按一下HDInsight 叢集儀表板。 從 Ambari UI 中，依序按一下 [Spark]、[快速連結]和 [Spark 歷程記錄伺服器 UI]。
    > 
    > 
 2. 您會看到列出所有已完成應用程式。 按一下應用程式識別碼，向下鑽研至應用程式以取得其他資訊。

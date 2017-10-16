@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: c2873510c280a2683c235cfdce3d2617c3b665cd
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Azure AD Connect 同步處理服務功能
 Azure AD connect 同步處理功能有兩個元件：
@@ -88,7 +88,7 @@ Set-MsolDirSyncFeature -Feature EnableSoftMatchOnUpn -Enable $true
 
 如需詳細資訊，請參閱 [Office 365、Azure 或 Intune 中的使用者名稱不符合內部部署的 UPN 或替代登入識別碼](https://support.microsoft.com/kb/2523192)。
 
-當內部部署中的 userPrincipalName 有所變更，且您使用密碼同步處理時，啟用此功能可讓同步處理引擎更新 userPrincipalName。 如果您使用同盟，則不支援這項功能。
+當內部部署中的 userPrincipalName 有所變更，且您使用密碼同步處理時，啟用此功能可讓同步處理引擎更新 userPrincipalName。如果您使用同盟，則不支援這項功能。
 
 在新建立的 Azure AD 目錄中，預設會開啟這項功能。 您可以執行下列項目，查看是否已啟用此功能︰  
 

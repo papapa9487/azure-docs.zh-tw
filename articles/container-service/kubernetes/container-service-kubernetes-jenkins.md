@@ -18,10 +18,10 @@ ms.date: 03/23/2017
 ms.author: briar
 ms.custom: mvc
 ms.openlocfilehash: 2078d0694fc4dd6e83ecd2792588b4254980cd78
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="jenkins-integration-with-azure-container-service-and-kubernetes"></a>Jenkins 與 Azure Container Service 和 Kubernetes 整合 
 在本教學課程中，我們逐步解說使用 Jenkins 平台將多容器應用程式的連續整合設定至 Azure Container Service Kubernetes 的程序。 工作流程會更新 Docker 中樞內的容器映像，並使用部署導入升級 Kubernetes Pod。 

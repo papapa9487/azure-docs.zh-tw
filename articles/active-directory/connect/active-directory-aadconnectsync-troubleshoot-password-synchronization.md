@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼同步處理進行疑難排解
 本主題提供如何針對密碼同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。 對於 1.1.524.0 版或更新版本的 Azure Active directory (Azure AD) Connect 部署，現在有一個診斷 Cmdlet 可讓您針對密碼同步化問題進行疑難排解：
@@ -185,7 +185,7 @@ ms.lasthandoff: 08/18/2017
  
 2. 移至 [連接器]，然後尋找您要進行疑難排解的內部部署 Active Directory 樹系。 
  
-3. 選取 [連接器]，然後按一下 [屬性]。 
+3. 選取 連接器，然後按一下屬性。 
  
 4. 前往 [連線至 Active Directory 樹系] 。  
     
@@ -202,7 +202,7 @@ ms.lasthandoff: 08/18/2017
     
 7. 返回 **Synchronization Service Manager**，並**設定目錄磁碟分割**。 
  
-8. 在 [選取目錄分割] 中選取您的網域，選取 [只使用慣用的網域控制站] 核取方塊，然後按一下 [設定]。 
+8. 在 選取目錄分割 中選取您的網域，選取 只使用慣用的網域控制站 核取方塊，然後按一下設定。 
 
 9. 在清單中，輸入 Connect 應該用來進行密碼同步的網域控制站。此相同清單也用於匯入和匯出。 針對您的所有網域執行這些步驟。
 
@@ -231,7 +231,7 @@ ms.lasthandoff: 08/18/2017
 
     ![在連接器空間中依 DN 搜尋使用者](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/searchcs.png)  
 
-    f. 找出您要搜尋的使用者，然後按一下 [屬性] 來查看所有屬性。 如果該使用者不在搜尋結果中，請確認您的[篩選規則](active-directory-aadconnectsync-configure-filtering.md)，且務必執行[套用並驗證變更](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes)，如此 Connect 中才會顯示該使用者。
+    f. 找出您要搜尋的使用者，然後按一下屬性 來查看所有屬性。 如果該使用者不在搜尋結果中，請確認您的[篩選規則](active-directory-aadconnectsync-configure-filtering.md)，且務必執行[套用並驗證變更](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes)，如此 Connect 中才會顯示該使用者。
 
     g. 若要查看物件在過去一週的密碼同步詳細資料，請按一下 [記錄]。  
 
@@ -253,7 +253,7 @@ ms.lasthandoff: 08/18/2017
 
     ![Metaverse 資訊](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvconnectors.png)  
 
-    k. 選取代表 Azure AD 的資料列，按一下 [屬性]，然後按一下 [歷程] 索引標籤。連接器空間物件應該有一個輸出規則的 [PasswordSync] 資料行設為 **True**。 在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。  
+    k. 選取代表 Azure AD 的資料列，按一下 屬性，然後按一下歷程 索引標籤。連接器空間物件應該有一個輸出規則的 PasswordSync 資料行設為 **True**。 在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。  
 
     ![連接器空間物件屬性對話方塊](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync2.png)  
 

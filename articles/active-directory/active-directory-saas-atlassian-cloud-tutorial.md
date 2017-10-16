@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 ms.openlocfilehash: 2891838b56dd15cb5f97dcae391770143a80c781
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>教學課程：Azure Active Directory 與 Atlassian Cloud 整合
 
@@ -73,7 +73,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_search.png)
 
-5. 在結果面板中，選取 [Atlassian Cloud]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Atlassian Cloud，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_addfromgallery.png)
 
@@ -137,7 +137,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
 
-    a. 在文字方塊中，輸入您的網域名稱，然後按一下 [新增網域]。
+    a. 在文字方塊中，輸入您的網域名稱，然後按一下新增網域。
         
     ![設定單一登入](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_07.png)
 
@@ -145,7 +145,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_08.png)
 
-    c. 下載網域驗證 html 檔案，將它上傳至您的網域網站的根資料夾，然後按一下 [驗證網域]。
+    c. 下載網域驗證 html 檔案，將它上傳至您的網域網站的根資料夾，然後按一下驗證網域。
     
     ![設定單一登入](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_09.png)
 

@@ -15,10 +15,10 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect 同步處理：排程器
 本主題說明 Azure AD Connect 同步處理 (又稱為 同步處理引擎) 中內建的排程器。
@@ -47,7 +47,7 @@ Azure AD Connect 同步處理會使用排程器來同步處理您內部部署目
 * **AllowedSyncCycleInterval**。 Azure AD 所允許的同步處理週期最短時間間隔。 同步處理頻率一旦超過此設定，即不受支援。
 * **CurrentlyEffectiveSyncCycleInterval**。 目前作用中的排程。 如果頻率未高於 AllowedSyncInterval，其值就會與 CustomizedSyncInterval (如果已設定) 相同。 如果您使用 1.1.281 之前的組件且變更 CustomizedSyncCycleInterval，將會在下一個同步處理循環後才生效。 從組建 1.1.281 起，變更立即生效。
 * **CustomizedSyncCycleInterval**。 如果您想要讓排程器以預設值 30 分鐘以外的任何其他頻率執行，那麼您要設定此設定。 在上圖中，已將排程器改為設定成每小時執行一次。 如果您將此設定設定成低於 AllowedSyncInterval 的值，則會使用後者。
-* **NextSyncCyclePolicyType**。 Delta (差異) 或 Initial (初始)。 定義下一次執行應該只處理差異變更，還是應該進行完整匯入並同步處理。 後者會一併重新處理任何新的或已變更的規則。
+* **NextSyncCyclePolicyType**。 Delta (差異) 或 Initial (初始)。 定義下一次執行應該只處理差異變更，還是應該進行完整匯入並同步處理。後者會一併重新處理任何新的或已變更的規則。
 * **NextSyncCycleStartTimeInUTC**。 排程器下一次啟動下一個同步處理循環的時間。
 * **PurgeRunHistoryInterval**。 應該保留作業記錄的時間。 您可以在同步處理服務管理員中檢閱這些記錄。 這些記錄預設會保留 7 天。
 * **SyncCycleEnabled**。 指出排程器是否要在其作業中一併執行匯入、同步處理及匯出程序。

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: elkuzmen
+ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 47ba7c7004ecf68f4a112ddf391eb645851ca1fb
-ms.openlocfilehash: 1785b4da8c54354dbc48c514dbb8f969a1f997ca
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>使用 Windows VM 的受管理服務身分識別 (MSI) 來存取 Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -60,7 +58,7 @@ ms.lasthandoff: 09/14/2017
 1.  選取您想要在其中啟用 MSI 的 [虛擬機器]。  
 2.  在左側的導覽列上，按一下 [設定] 。 
 3.  您會看到**受管理的服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。 
-4.  確認按一下 [儲存] 儲存設定。  
+4.  按一下 [儲存] 確認儲存設定。  
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -68,7 +66,7 @@ ms.lasthandoff: 09/14/2017
 
     ![替代映像文字](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>將您的 VM 存取權授與 Key Vault 中儲存的祕密 
+## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>授與 VM 存取權以取得 Key Vault 中的密碼 
  
 您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。  但是，並非所有 Azure 服務都支援 Azure AD 驗證。 若要使用 MSI 搭配不支援 Azure AD 驗證的服務，您可以在 Azure Key Vault 中儲存這些服務所需的認證，並使用 MSI 來驗證 Key Vault 以擷取認證。 
 
@@ -78,7 +76,7 @@ ms.lasthandoff: 09/14/2017
 2. 提供新 Key Vault 的**名稱**。 
 3. 在與 VM (稍早建立) 相同的訂用帳戶和資源群組中找到 Key Vault。 
 4. 選取 [存取原則]，然後按一下 [新增]。 
-5. 在 [從範本設定] 中，選取 [祕密管理]。 
+5. 在 [從範本設定] 中，選取 [密碼管理]。 
 6. 選擇 [選取主體]，並在 [搜尋] 欄位中輸入您稍早建立的 VM 名稱。  在結果清單中選取 VM，然後按一下 [選取]。 
 7. 按一下 [確定] 來完成新增存取原則，和 [確定] 來完成存取原則選取。 
 8. 按一下 [建立] 即可完成建立 Key Vault。 
@@ -86,14 +84,14 @@ ms.lasthandoff: 09/14/2017
     ![替代映像文字](media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 
-接下來，將祕密新增至 Key Vault，好讓您可以在稍後使用在 VM 中執行的程式碼來擷取祕密： 
+接下來，將密碼新增至 Key Vault，好讓您稍後可以使用在 VM 中執行的程式碼來擷取密碼： 
 
 1. 選取 [所有資源]，然後尋找並選取您剛才建立的 Key Vault。 
-2. 選取 [祕密]，然後按一下 [新增]。 
+2. 選取 [密碼]，然後按一下 [新增]。 
 3. 從 [上傳選項] 中選取 [手動]。 
-4. 輸入秘密的名稱和值。  值可以是任何您想要的項目。 
+4. 輸入密碼的名稱和值。  值可以是任何您想要的項目。 
 5. 將啟動日期和到期日期保留空白，並將 [啟用] 設定為 [是]。 
-6. 按一下 [建立]  來建立祕密。 
+6. 按一下 [建立] 來建立密碼。 
  
 ## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的祕密  
 
@@ -143,4 +141,3 @@ ms.lasthandoff: 09/14/2017
 - 如需 MSI 的概觀，請參閱[受管理的服務識別概觀](../active-directory/msi-overview.md)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
-

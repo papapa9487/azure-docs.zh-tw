@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -100,4 +99,3 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>如何使用 FTP 或 FTPS 將我的應用程式部署到 App Service？
 
 如需使用 FTP 或 FTPS 將 Web 應用程式部署到 App Service 的詳細資訊，請參閱[使用 FTP/S 將您的應用程式部署到 App Service](app-service-deploy-ftp.md)。
-

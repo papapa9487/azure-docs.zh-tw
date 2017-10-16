@@ -15,19 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: c6c929c568cf7246c2c2e414723a38429727df36
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
 Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](documentdb-sql-query.md)，而不需結構描述或次要索引。 本文可為開發人員提供下列資訊：
 
 * 關於 Azure Cosmos DB 之 SQL 查詢執行如何運作的高階詳細資料
 * 關於查詢要求和回應標頭以及用戶端 SDK 選項的詳細資訊
-* 適用於查詢效能的秘訣和最佳作法
+* 查詢效能的秘訣和最佳作法
 * 如何運用 SQL 執行統計資料來偵錯查詢效能的範例
 
 ## <a name="about-sql-query-execution"></a>關於 SQL 查詢執行
@@ -38,8 +37,8 @@ Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](documentdb-sql-qu
 
 當您向 Azure Cosmos DB 發出查詢時，SDK 會執行下列邏輯步驟：
 
-* 剖析 SQL 查詢以判斷查詢執行計畫。 
-* 如果查詢包含以分割區索引鍵為依據的篩選 (例如 `SELECT * FROM c WHERE c.city = "Seattle"`)，即會將它路由傳送至單一分割區。 如果查詢沒有與分割區索引鍵相關的篩選，則會在所有分割區中執行該查詢，且結果會合併用戶端。
+* 剖析 SQL 查詢以決定查詢執行計畫。 
+* 如果查詢所包含的篩選係以分割區索引鍵為依據 (例如 `SELECT * FROM c WHERE c.city = "Seattle"`)，即會將該查詢路由傳送至單一分割區。 如果查詢中沒有與分割區索引鍵相關的篩選，則會在所有分割區中執行該查詢，且結果會合併用戶端。
 * 根據用戶端設定而定，查詢會依序或平行地在每個分割區內執行。 在每個分割區內，根據查詢複雜度、設定的頁面大小，以及集合的佈建輸送量而定，查詢可能會進行一或多次來回行程。 每次執行都會傳回查詢執行所取用的[要求單位](request-units.md)數目，以及 (選擇性地) 查詢執行統計資料。 
 * SDK 會跨分割區執行查詢結果的摘要。 例如，如果查詢跨分割區包含 ORDER BY，則來自個別分割區的結果就會依序合併，以全域排序順序傳回結果。 如果查詢是 `COUNT` 之類的彙總，即會將來自個別分割區的計數加總以產生整體計數。
 
@@ -140,22 +139,22 @@ Date: Tue, 27 Jun 2017 21:59:49 GMT
 
 如需 REST API 要求標頭和選項的詳細資訊，請參閱[使用 DocumentDB REST API 查詢資源](https://docs.microsoft.com/rest/api/documentdb/querying-documentdb-resources-using-the-rest-api)。
 
-## <a name="best-practices-for-query-performance"></a>適用於查詢效能的最佳作法
+## <a name="best-practices-for-query-performance"></a>查詢效能的最佳作法
 以下是影響 Azure Cosmos DB 查詢效能的最常見因素。 我們將在本文中更深入探討下列每個主題。
 
 | 因素 | 秘訣 | 
 | ------ | -----| 
 | 佈建的輸送量 | 測量每個查詢的 RU，並確認您擁有查詢所需的佈建輸送量。 | 
-| 分割區和分割區索引鍵 | 在篩選子句中偏好使用具有分割區索引鍵的查詢，以取得低延遲。 |
+| 分割區和分割區索引鍵 | 在篩選子句中偏好使用具有分割區索引鍵的查詢以降低延遲。 |
 | SDK 與查詢選項 | 遵循 SDK 最佳作法 (例如直接連線)，並調整用戶端查詢執行選項。 |
-| 網路延遲 | 在進行測量時負責網路的額外負荷，並使用多路連接的 API 從最接近的區域進行讀取。 |
+| 網路延遲 | 在進行測量時需考量網路的額外負荷，並使用多路連接的 API 從最接近的區域進行讀取。 |
 | 索引原則 | 確定您具有查詢所需的編製索引路徑/原則。 |
 | 查詢執行計量 | 分析查詢執行計量，以識別可能發生重新寫入的查詢與資料圖形。  |
 
 ### <a name="provisioned-throughput"></a>佈建的輸送量
 在 Cosmos DB 中，您會建立資料的容器，每一個容器都具有以每秒要求單位 (RU) 表示的保留輸送量。 讀取 1 KB 文件就是 1 RU，而每個操作 (包括查詢) 都會根據它的複雜度正規化為固定數目的 RU。 例如，如果您已針對容器佈建了 1000 RU/秒，且具有類似 `SELECT * FROM c WHERE c.city = 'Seattle'` 的查詢 (其取用 5 RU)，則您每秒可執行 (1000 RU/秒) / (5 RU/查詢) = 200 個查詢/秒之類的查詢。 
 
-如果您每秒提交 200 個以上的查詢，則服務會在每秒超過 200 個時啟動速率限制的傳入要求。 SDK 會藉由執行輪詢/重試來自動處理這種情況，因此您可能會注意到這些查詢具有較高的延遲。 將佈建的輸送量提高為要求的值，即可改善您的查詢延遲和輸送量。 
+如果您每秒提交 200 個以上的查詢，則服務會在每秒的傳入要求超過 200 個時啟動速率限制。 SDK 會藉由執行輪詢/重試來自動處理這種情況，因此您可能會注意到這些查詢具有較高的延遲。 將佈建的輸送量提高為要求的值，即可改善您的查詢延遲和輸送量。 
 
 若要深入了解要求單位，請參閱[要求單位](request-units.md)。
 
@@ -280,6 +279,5 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 * 若要了解支援的 SQL 查詢運算子和關鍵字，請參閱 [SQL 查詢](documentdb-sql-query.md)。 
 * 若要了解要求單位，請參閱[要求單位](request-units.md)。
 * 若要了解編製索引原則，請參閱[編製索引原則](indexing-policies.md) 
-
 
 

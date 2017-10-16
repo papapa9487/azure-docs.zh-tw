@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
 ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>在 Azure Log Analytics 中使用記錄搜尋入口網站來建立記錄搜尋
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 08/29/2017
 
 1. 開啟 Azure 入口網站。
 2. 瀏覽至 Log Analytics 並選取您的工作區。
-3. 請選取 [記錄搜尋] 以停留在 Azure 入口網站，或選取 [OMS 入口網站] 來啟動 OMS 入口網站，然後按一下 [記錄搜尋] 按鈕。
+3. 請選取 記錄搜尋 以停留在 Azure 入口網站，或選取 OMS 入口網站 來啟動 OMS 入口網站，然後按一下記錄搜尋 按鈕。
 
 ![記錄檔搜尋按鈕](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 

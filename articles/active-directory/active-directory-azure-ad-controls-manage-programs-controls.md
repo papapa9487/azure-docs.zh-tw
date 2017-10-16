@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f6d7c2a1a3e3bf78b568f2f6b079476e403b9911
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-programs-and-their-controls"></a>管理程式及其控制項 
 
 Azure AD 包括群組成員和應用程式存取的存取權檢閱，也就是確保監督誰可以存取的控制項範例。 這些控制項可讓組織有效地處理其治理、風險管理和合規性需求。  
@@ -37,5 +35,4 @@ Azure AD 包括群組成員和應用程式存取的存取權檢閱，也就是�
 ## <a name="next-steps"></a>後續步驟
 
 - [建立群組成員或應用程式存取的存取權檢閱](active-directory-azure-ad-controls-create-access-review.md)
-
 

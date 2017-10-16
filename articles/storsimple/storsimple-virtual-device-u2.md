@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>部署和管理 Azure 中的 StorSimple 虛擬裝置
 ## <a name="overview"></a>Overview
@@ -236,4 +235,3 @@ StorSimple Snapshot Manager 軟體位於您的 Windows 主機上，而且可讓�
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [使用 StorSimple Manager 服務管理虛擬裝置](storsimple-manager-service-administration.md)。
 * 了解如何 [從備份組還原 StorSimple 磁碟區](storsimple-restore-from-backup-set.md)。
-

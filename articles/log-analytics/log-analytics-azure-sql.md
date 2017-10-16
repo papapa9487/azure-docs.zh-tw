@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>使用 Azure SQL Database (預覽) 監視 Log Analytics 中的 Azure SQL Database
 
 ![Azure SQL 分析符號](./media/log-analytics-azure-sql/azure-sql-symbol.png)
@@ -65,7 +62,7 @@ Azure SQL 分析解決方案不使用代理程式連線至 Log Analytics 服務�
     ![Azure SQL 分析解決方案](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
 5. 在 [Azure SQL 分析 (預覽)] 窗格中，按一下 [建立]。  
     ![建立](./media/log-analytics-azure-sql/portal-create.png)
-6. 在 [建立新方案] 窗格中，選取您想要新增解決方案的工作區，然後按一下 [建立]。  
+6. 在 建立新方案 窗格中，選取您想要新增解決方案的工作區，然後按一下建立。  
     ![新增到工作區](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -162,7 +159,7 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 4. 執行其中一個範例查詢。
 5. 在記錄搜尋中，按一下 [警示]。  
 ![在搜尋中建立警示](./media/log-analytics-azure-sql/create-alert01.png)
-6. 在 [新增警示規則] 頁面上，設定您要的適當屬性和特定臨界值，然後按一下 [儲存]。  
+6. 在 新增警示規則 頁面上，設定您要的適當屬性和特定臨界值，然後按一下儲存。  
 ![新增警示規則](./media/log-analytics-azure-sql/create-alert02.png)
 
 ## <a name="see-also"></a>另請參閱
@@ -170,4 +167,3 @@ AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "
 - 使用 Log Analytics 中的[記錄搜尋](log-analytics-log-searches.md)來檢視詳細的 Azure SQL 資料。
 - [建立您自己的儀表板](log-analytics-dashboards.md)來顯示 Azure SQL 資料。
 - 在特定的 Azure SQL 事件發生時[建立警示](log-analytics-alerts.md)。
-

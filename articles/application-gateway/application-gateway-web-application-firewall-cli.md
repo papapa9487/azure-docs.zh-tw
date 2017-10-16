@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
+ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>透過 Azure CLI，在新的或現有的應用程式閘道上設定 Web 應用程式防火牆
 
@@ -161,4 +160,3 @@ az network public-ip show \
 若要了解如何自訂 WAF 規則，請參閱[透過 Azure CLI 2.0 自訂 Web 應用程式防火牆規則](application-gateway-customize-waf-rules-cli.md)。
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
-

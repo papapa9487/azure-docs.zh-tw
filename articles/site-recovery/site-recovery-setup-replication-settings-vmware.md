@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/05/2017
 ms.author: sutalasi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 28e905a20d878eab1428a4b88113544aa742124a
-ms.openlocfilehash: 9c34ea792aa561b8155a915845ffb857dfef7a90
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/21/2017
-
-
+ms.openlocfilehash: 73a1f19177f23441f5f7165cf2bc92ba85e62aa5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-replication-policy-for-vmware-to-azure"></a>管理 VMware 至 Azure 的複寫原則
 
@@ -88,4 +86,3 @@ ms.lasthandoff: 02/21/2017
 
     > [!NOTE]
     > 如果複寫原則至少有一個相關聯的組態伺服器，您就無法刪除該複寫原則。 請確定沒有複寫項目使用該原則，然後先刪除所有相關聯的組態伺服器，再刪除原則。
-

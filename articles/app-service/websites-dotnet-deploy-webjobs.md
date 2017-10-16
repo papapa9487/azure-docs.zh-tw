@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 59a453aab82d2f78bcc04774e26c8a557b8dbb26
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
 ## <a name="overview"></a>概觀
@@ -74,15 +72,15 @@ ms.lasthandoff: 09/20/2017
 2. 在 [專案名稱]  下拉式清單中，選取要新增為 WebJob 的主控台應用程式專案。
    
     ![Selecting project in Add Azure WebJob dialog](./media/websites-dotnet-deploy-webjobs/aaw1.png)
-3. 完成 [[Add Azure WebJob]](#configure) 對話方塊，然後按一下 [確定]。 
+3. 完成 [[Add Azure WebJob]](#configure) 對話方塊，然後按一下確定。 
 
 ### <a id="convertnolink"></a> 不透過 Web 專案啟用 WebJobs 部署
-1. 以滑鼠右鍵按一下 [方案總管] 中的主控台應用程式專案，然後按一下 [發行為 Azure WebJob]。 
+1. 以滑鼠右鍵按一下 方案總管 中的主控台應用程式專案，然後按一下發行為 Azure WebJob。 
    
     ![發行為 Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
    
     [[加入 Azure WebJob]](#configure) 對話方塊隨即出現，而且 [專案名稱] 方塊中已選取此專案。
-2. 完成 [[加入 Azure WebJob]](#configure) 對話方塊，然後按一下 [確定]。
+2. 完成 [[加入 Azure WebJob]](#configure) 對話方塊，然後按一下確定。
    
    此時會出現 [發行 Web] 精靈。  如果您不打算立即發行，請關閉精靈。 您所輸入的設定會被儲存下來，以供[部署專案](#deploy)時使用。
 
@@ -113,7 +111,7 @@ ms.lasthandoff: 09/20/2017
     ![New Azure WebJob Project menu entry](./media/websites-dotnet-deploy-webjobs/nawj.png)
    
     [[Add Azure WebJob]](#configure) 對話方塊隨即出現。
-2. 完成 [[Add Azure WebJob]](#configure) 對話方塊，然後按一下 [確定]。
+2. 完成 [[Add Azure WebJob]](#configure) 對話方塊，然後按一下確定。
 
 ## <a id="configure"></a>[新增 Azure WebJob] 對話方塊
 [加入 Azure WebJob] 對話方塊可讓您輸入 WebJob 名稱和 WebJob 的執行模式設定。 
@@ -169,4 +167,3 @@ ms.lasthandoff: 09/20/2017
 ![發行為 Azure WebJob](./media/websites-dotnet-deploy-webjobs/paw.png)
 
 若是獨立的 WebJob，則 Web 專案所使用的相同 [發行 Web]  精靈隨即出現，但其中幾個設定可以變更。
-

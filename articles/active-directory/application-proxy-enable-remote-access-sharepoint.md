@@ -15,14 +15,12 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 2b4ad3e7bda1346e606b2c185c204154b8f19f87
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
 本文討論如何將內部部署 SharePoint 伺服器與 Azure Active Directory (Azure AD) 應用程式 Proxy 整合。
@@ -148,7 +146,7 @@ Klist
 
 1. 以網域系統管理員身分登入 DC，然後開啟 **Active Directory 使用者和電腦**。
 2. 尋找連接器執行所在的電腦。 在此範例中，它與 SharePoint 伺服器相同。
-3. 按兩下該電腦，然後按一下 [委派] 索引標籤。
+3. 按兩下該電腦，然後按一下委派 索引標籤。
 4. 確定委派設定已設為 [只針對指定服務的委派信任這台電腦]。 然後，選取 [使用任何驗證通訊協定]。
 
   ![委派設定](./media/application-proxy-remote-sharepoint/delegation-box.png)
@@ -208,5 +206,4 @@ Klist
 
 - [使用 Azure AD 應用程式 Proxy 中的自訂網域](active-directory-application-proxy-custom-domains.md)
 - [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)
-
 

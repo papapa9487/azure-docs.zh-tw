@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 6cce8fc839e60eb6498ab48bf68e9906c98889a2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>教學課程：Azure Active Directory 與 Atomic Learning 整合
 
@@ -75,7 +73,7 @@ ms.lasthandoff: 06/16/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_search.png)
 
-5. 在結果面板中，選取 [Atomic Learning]，然後按一下 [新增] 按鈕以新增該應用程式。
+5. 在結果面板中，選取 Atomic Learning，然後按一下新增 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-atomiclearning-tutorial/tutorial_atomiclearning_addfromgallery.png)
 
@@ -115,7 +113,7 @@ ms.lasthandoff: 06/16/2017
      在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://secure2.atomiclearning.com/sso/shibboleth/<companyname>`
     
     > [!NOTE] 
-    > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Atomic Learning 用戶端支援小組](mailto:cs@atomiclearning.com)以取得此值。 
+    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Atomic Learning 用戶端支援小組](mailto:cs@atomiclearning.com)以取得此值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -223,5 +221,4 @@ ms.lasthandoff: 06/16/2017
 [201]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atomiclearning-tutorial/tutorial_general_203.png
-
 

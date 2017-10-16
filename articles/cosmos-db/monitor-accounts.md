@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>監視 Azure Cosmos DB
 您可以在 [Azure 入口網站](https://portal.azure.com/)中監視 Azure Cosmos DB 帳戶。 對於每個 Azure Cosmos DB 帳戶，會提供一套完整的度量，供監視輸送量、儲存體、可用性、延遲和一致性。
@@ -87,5 +86,4 @@ ms.lasthandoff: 09/21/2017
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure Cosmos DB 容量規劃，請參閱 [Azure Cosmos DB 容量規劃工具計算機 (英文)](https://www.documentdb.com/capacityplanner)。
-
 

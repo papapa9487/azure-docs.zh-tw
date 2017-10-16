@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/04/2017
 ms.author: asteen
 ms.openlocfilehash: 30db71c0706de1dcc0d48fb72fa5d62475a14ba7
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>未將任何使用者佈建至 Azure AD 資源庫應用程式
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/11/2017
 
 若觀察到尚未佈建使用者，請參閱 Azure AD 中的稽核記錄，並搜尋特定使用者的記錄項目。
 
-您可以在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[稽核記錄] 索引標籤中存取佈建稽核記錄。 基於 [帳戶佈建] 類別來篩選記錄，只顯示該應用程式的佈建事件。 您可以根據「比對識別碼」來搜尋使用者，此識別碼是在屬性對應中針對使用者所設定。 例如，如果您設定了「使用者主體名稱」或「電子郵件地址」做為 Azure AD 端的比對屬性，而且未佈建的使用者具有 "audrey@contoso.com" 的值。 接著，搜尋 “audrey@contoso.com” 的稽核記錄，然後檢閱傳回的項目。
+您可以在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[稽核記錄] 索引標籤中存取佈建稽核記錄。基於 [帳戶佈建] 類別來篩選記錄，只顯示該應用程式的佈建事件。 您可以根據「比對識別碼」來搜尋使用者，此識別碼是在屬性對應中針對使用者所設定。 例如，如果您設定了「使用者主體名稱」或「電子郵件地址」做為 Azure AD 端的比對屬性，而且未佈建的使用者具有 "audrey@contoso.com" 的值。 接著，搜尋 “audrey@contoso.com” 的稽核記錄，然後檢閱傳回的項目。
 
 佈建稽核記錄會記錄佈建服務所執行的所有作業，包括針對位於佈建範圍內的已指派使用者查詢 Azure AD、查詢目標應用程式以確認那些使用者是否存在、比較系統之間的使用者物件。 接著，根據比較，在目標系統中新增、更新或停用使用者帳戶。
 
@@ -47,7 +47,7 @@ ms.lasthandoff: 07/11/2017
 如果您在 Azure 入口網站的 [Azure Active Directory]&gt;[企業應用程式]&gt;[\[應用程式名稱\]]&gt;[佈建] 區段中，將 [佈建狀態] 設為 [啟用]。 但是，在後續重新載入之後，該頁面上並未顯示任何其他狀態詳細資料，很可能是服務正在執行，但尚未完成初始同步處理。 請檢查上述的**稽核記錄**，以判斷服務正在執行哪些作業，以及是否發生任何錯誤。
 
 >[!NOTE]
->根據 Azure AD 目錄大小和佈建範圍中的使用者數目而定，初始同步處理可能會花費 20 分鐘到數小時。 初始同步處理之後的後續同步處理會更快，因為佈建服務會儲存浮水印，代表兩個系統在初始同步處理之後的狀態。 這會改善後續同步處理的效能。
+>根據 Azure AD 目錄大小和佈建範圍中的使用者數目而定，初始同步處理可能會花費 20 分鐘到數小時。 初始同步處理之後的後續同步處理會更快，因為佈建服務會儲存浮水印，代表兩個系統在初始同步處理之後的狀態。這會改善後續同步處理的效能。
 >
 >
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 07/11/2017
 
 -   **必要屬性已遺失或未針對使用者填入。** 設定佈建時必須考量的重點是，檢視和設定屬性 (Attribute) 對應，以及定義哪些使用者 (或群組) 屬性 (Property) 會從 Azure AD 流向應用程式的工作流程。 這包括設定「比對屬性」，此屬性可用於唯一識別並比對兩個系統之間的使用者/群組。 如需這個重要程序的詳細資訊，請參閱[在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)。
 
-  * **群組的屬性對應：**除了成員，還有群組名稱和群組詳細資訊的佈建 (如果某些應用程式有支援)。 您可以對 [佈建] 索引標籤中顯示的群組物件啟用或停用 [對應]，以啟用或停用此功能。 如果已啟用佈建群組，請務必檢閱屬性對應，以確保「比對識別碼」使用適當的欄位。 這可以是顯示名稱或電子郵件別名，因為如果 Azure AD 中某個群組的比對屬性空白或未填入，則不會佈建群組和其成員。
+  * **群組的屬性對應：**除了成員，還有群組名稱和群組詳細資訊的佈建 (如果某些應用程式有支援)。 您可以對 [佈建] 索引標籤中顯示的群組物件啟用或停用 [對應]，以啟用或停用此功能。如果已啟用佈建群組，請務必檢閱屬性對應，以確保「比對識別碼」使用適當的欄位。 這可以是顯示名稱或電子郵件別名，因為如果 Azure AD 中某個群組的比對屬性空白或未填入，則不會佈建群組和其成員。
 
 ## <a name="next-steps"></a>後續步驟
 [Azure AD Connect 同步處理：了解宣告式佈建](active-directory-aadconnectsync-understanding-declarative-provisioning.md)

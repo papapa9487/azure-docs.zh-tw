@@ -15,10 +15,10 @@ ms.workload: integration
 ms.date: 11/11/2016
 ms.author: mezha
 ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>使用權杖驗證保護 Azure CDN 資產
 
@@ -56,7 +56,7 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="setting-up-token-authentication"></a>設定權杖驗證
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，瀏覽至您的 CDN 設定檔，然後按一下 [管理] 按鈕來啟動補充入口網站。
+1. 從 [Azure 入口網站](https://portal.azure.com)，瀏覽至您的 CDN 設定檔，然後按一下管理 按鈕來啟動補充入口網站。
 
     ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-rules-engine/cdn-manage-btn.png)
 
@@ -95,7 +95,7 @@ ms.lasthandoff: 07/11/2017
 
         - ec-country-deny︰拒絕來自一或多個指定國家/地區的要求。 將允許來自其他所有國家/地區的要求。 使用國碼/地區碼設定參數，並以逗號分隔每個國碼/地區碼。 例如，如果您想要拒絕來自美國和法國的存取，請在資料行中輸入 US, FR。
     
-        - ec-ref-allow︰只允許來自指定訪客來源的要求。 訪客來源會識別連結到所要求之資源的網頁 URL。 訪客來源參數值不應該包含通訊協定。 您可以輸入主機名稱和 (或) 該主機名稱上的特定路徑。 您也可以在單一參數內加入多個訪客來源，以逗號區隔每個訪客來源。 如果您指定了訪客來源值，但由於某些瀏覽器設定導致要求中不會傳送訪客來源資訊，預設將會拒絕這些要求。 您可以在參數中指派 "Missing" 或空白值，以允許這些要求遺漏訪客來源資訊。 您也可以使用 "*.consoto.com" 來允許 consoto.com 的所有子網域。  例如，如果您想要允許存取來自 www.consoto.com、consoto2.com 下的所有子網域的要求，以及具有空白或遺漏訪客來源的要求，請輸入下列值：
+        - ec-ref-allow︰只允許來自指定訪客來源的要求。 訪客來源會識別連結到所要求之資源的網頁 URL。 訪客來源參數值不應該包含通訊協定。 您可以輸入主機名稱和 (或) 該主機名稱上的特定路徑。 您也可以在單一參數內加入多個訪客來源，以逗號區隔每個訪客來源。 如果您指定了訪客來源值，但由於某些瀏覽器設定導致要求中不會傳送訪客來源資訊，預設將會拒絕這些要求。 您可以在參數中指派 "Missing" 或空白值，以允許這些要求遺漏訪客來源資訊。 您也可以使用 "*.consoto.com" 來允許 consoto.com 的所有子網域。例如，如果您想要允許存取來自 www.consoto.com、consoto2.com 下的所有子網域的要求，以及具有空白或遺漏訪客來源的要求，請輸入下列值：
         
         ![[CDN 設定檔] 刀鋒視窗的 [管理] 按鈕](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
     

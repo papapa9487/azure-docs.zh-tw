@@ -16,10 +16,10 @@ ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: ce6b2805e7281dff7752a73ada86be11d7e01fc3
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - 如何解鎖使用者
 使用 Azure Active Directory Identity Protection 時，如果符合設定的條件，您就可以設定原則來封鎖使用者。 一般而言，遭封鎖的使用者會聯絡服務台以解除封鎖。 本主題說明解鎖遭封鎖使用者的執行步驟。

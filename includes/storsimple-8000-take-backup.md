@@ -2,7 +2,7 @@
 
 ### <a name="to-take-a-backup"></a>建立備份
 
-1. 移至您的 StorSimple 裝置管理員服務。 從表格式的裝置清單中，選取並按一下您的裝置，然後按一下 [所有設定]。 在 [設定] 刀鋒視窗中，移至 [設定] > [管理] > [備份原則]。
+1. 移至您的 StorSimple 裝置管理員服務。 從表格式的裝置清單中，選取並按一下您的裝置，然後按一下所有設定。 在 [設定] 刀鋒視窗中，移至 [設定] > [管理] > [備份原則]。
 
     ![Add-backup-policy](./media/storsimple-8000-take-backup/step8takebu1.png)
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
-ms.openlocfilehash: 1091abef19121ac4ce65fdaf7299b091bf41eb1c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 10f7b8f20cc41a5ebb1b1376e2bf17be02600ae4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-insights-from-azure-security-center-data-with-power-bi"></a>使用 Power BI 從 Azure 資訊安全中心的資料取得見解
 Azure 資訊安全中心的 [Power BI 儀表板](http://aka.ms/azure-security-center-power-bi) 可讓您從任何地方 (包括行動裝置) 視覺化、分析和篩選建議與安全性警示。 使用 Power BI 儀表板即可顯示趨勢和攻擊模式，依資源或來源 IP 位址檢視安全性警示以及依資源或存留期檢視尚未解決的安全性風險。
@@ -120,4 +119,3 @@ Azure 資訊安全中心的連結會將您重新導向至 Azure 入口網站。 
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
-

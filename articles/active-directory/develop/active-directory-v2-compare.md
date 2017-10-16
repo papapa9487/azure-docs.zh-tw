@@ -16,10 +16,10 @@ ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>V2.0 端點有哪些差異？
 如果您熟悉 Azure Active Directory 或過去已整合 app 與 Azure AD，v2.0 端點中可能會有一些您預期不到的差異。  本文件集結了這些差異，讓您得以瞭解。
@@ -36,7 +36,7 @@ v2.0 端點讓開發人員能夠撰寫可接受使用單一驗證端點同時從
 整合應用程式與 Microsoft 帳戶和 Azure AD 帳戶現在是一個簡單的程序。  您可以利用一組端點、單一資源庫和單一應用程式註冊來進入消費者和企業的世界。  若要深入了解 v2.0 端點，請參閱 [概觀](active-directory-appmodel-v2-overview.md)。
 
 ## <a name="new-app-registration-portal"></a>新的 App 註冊入口網站
-若要註冊可與 v2.0 端點搭配使用的應用程式，您必須使用新的應用程式註冊入口網站：[apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)。  您可以在這個入口網站取得應用程式識別碼、自訂應用程式登入頁面的外觀等等。  您存取入口網站時唯一需要的是 Microsoft 提供的帳戶 - 個人或工作/學校帳戶。
+若要註冊可與 v2.0 端點搭配使用的應用程式，您必須使用新的應用程式註冊入口網站：[apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)。您可以在這個入口網站取得應用程式識別碼、自訂應用程式登入頁面的外觀等等。  您存取入口網站時唯一需要的是 Microsoft 提供的帳戶 - 個人或工作/學校帳戶。
 
 ## <a name="one-app-id-for-all-platforms"></a>所有平台使用一個應用程式識別碼
 如果您已經使用 Azure Active Directory，您可能已針對單一專案註冊數個不同的應用程式。  例如，如果您同時建置了網站和 iOS app，就必須使用兩個不同的應用程式識別碼分別註冊它們。 Azure AD 應用程式註冊入口網站會在註冊過程中強制您做此區分：

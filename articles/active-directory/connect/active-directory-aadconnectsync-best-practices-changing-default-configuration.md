@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: b723ad800ccc0f3040eb480bb72960943b1fdb16
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態的最佳作法
 本主題的目的旨在說明支援及不支援的 Azure AD Connect 同步處理變更。
@@ -26,7 +26,7 @@ ms.lasthandoff: 08/03/2017
 Azure AD Connect 所建立的組態適用於大部分同步內部部署 Active Directory 與 Azure AD 的「現狀」環境。 不過，在某些情況下，組態必須套用某些變更以滿足特定需要或需求。
 
 ## <a name="changes-to-the-service-account"></a>服務帳戶的變更
-Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行。 這個服務帳戶會存放同步處理所使用的資料庫加密金鑰。 它是使用 127 個字元長的密碼所建立的，而且密碼已設定為永不到期。
+Azure AD Connect 同步處理會使用安裝精靈所建立的服務帳戶執行。 這個服務帳戶會存放同步處理所使用的資料庫加密金鑰。它是使用 127 個字元長的密碼所建立的，而且密碼已設定為永不到期。
 
 * 它 **不支援** 變更或重設服務帳戶的密碼。 這麼做會損毀加密金鑰，而服務無法存取資料庫且無法啟動。
 

@@ -3,7 +3,7 @@ title: "負載平衡器自訂探查和監視健全狀況狀態 | Microsoft Docs"
 description: "了解如何使用 Azure 負載平衡器的自訂探查，來監視負載平衡器後方的執行個體"
 services: load-balancer
 documentationcenter: na
-author: kumudd
+author: KumudD
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/24/2016
+ms.date: 09/25/2017
 ms.author: kumud
-translationtype: Human Translation
-ms.sourcegitcommit: ce2550ca8301fd12d61cca143b2851b84f1a0f50
-ms.openlocfilehash: 01afa3a08bbb56d4c6b8b18c5eb07f49706c6482
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 102c07ff0994b3b411f2a13d7a43c5398d5dfd42
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-load-balancer-probes"></a>了解負載平衡器探查
+
+[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Azure 負載平衡器提供了使用探查來監視伺服器執行個體健全狀況的功能。 當探查無法回應時，負載平衡器會停止傳送新的連線至狀況不良的執行個體。 現有的連線不會受到影響，而新的連線會傳送到狀況良好的執行個體。
 
@@ -95,4 +96,3 @@ TCP 和 HTTP 探查於下列狀況時會視為狀況良好，並將角色執行�
 ## <a name="use-log-analytics-for-load-balancer"></a>使用負載平衡器的記錄分析
 
 您可以使用 [負載平衡器的記錄分析](load-balancer-monitor-log.md) 來檢查探查健全狀況狀態和探查計數。 記錄可以與 Power BI 或 Azure Operation Insights 搭配使用，以提供負載平衡器健康狀態。
-

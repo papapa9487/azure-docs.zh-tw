@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/24/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: df4e227d02901153d3cfcfd4dfd4f11de180763a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="step-1-review-the-architecture"></a>步驟 1：檢閱架構
 
 
@@ -63,8 +60,7 @@ ms.lasthandoff: 07/26/2017
 1. 您在 Azure 入口網站或內部部署針對 Hyper-V VM 啟用保護之後，**啟用保護**隨即啟動。
 2. 作業會檢查符合必要條件的機器，然後叫用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 方法，以使用您進行的設定來設定複寫。
 3. 作業會啟動初始複寫，方法是叫用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法，以初始化完整的 VM 複寫，並且將 VM 的虛擬磁碟傳送至 Azure。
-4. 您可以在 [作業] 索引標籤中監視作業。
-        ![作業清單](media/vmm-to-azure-walkthrough-architecture/image1.png) ![啟用保護向下鑽研](media/vmm-to-azure-walkthrough-architecture/image2.png)
+4. 您可以在 [作業] 索引標籤中監視作業。    ![作業清單](media/vmm-to-azure-walkthrough-architecture/image1.png) ![啟用保護向下鑽研](media/vmm-to-azure-walkthrough-architecture/image2.png)
 
 ### <a name="replicate-the-initial-data"></a>複寫初始資料
 
@@ -121,4 +117,3 @@ ms.lasthandoff: 07/26/2017
 ## <a name="next-steps"></a>後續步驟
 
 移至[步驟 2：檢閱部署先決條件](vmm-to-azure-walkthrough-prerequisites.md)
-

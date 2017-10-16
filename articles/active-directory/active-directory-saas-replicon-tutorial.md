@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 2aeeceb61191962b62892b8409218684f76c6fa8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>教學課程：Azure Active Directory 與 Replicon 整合
 本教學課程的目的是要示範 Azure 與 Replicon 的整合。 本教學課程中說明的案例假設您已經具有下列項目：
@@ -57,7 +57,7 @@ ms.lasthandoff: 07/11/2017
 6. 在**搜尋方塊**中，輸入 **Replicon**。
    
     ![應用程式資源庫](./media/active-directory-saas-replicon-tutorial/IC777799.png "應用程式資源庫")
-7. 在結果窗格中，選取 [Replicon]，然後按一下 [完成] 來新增應用程式。
+7. 在結果窗格中，選取 Replicon，然後按一下完成 來新增應用程式。
    
     ![Replicon](./media/active-directory-saas-replicon-tutorial/IC777800.png "Replicon")
    
@@ -102,7 +102,7 @@ ms.lasthandoff: 07/11/2017
    3. 按一下 [+] 來展開 [metaDataConfiguration] 區段。
    4. 按一下 [選擇檔案]，選取您的識別提供者中繼資料 XML 檔案，然後按一下 [提交]。
 
-7. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+7. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
    
     ![設定單一登入](./media/active-directory-saas-replicon-tutorial/IC778418.png "設定單一登入")
    
@@ -147,7 +147,7 @@ ms.lasthandoff: 07/11/2017
    
     ![指派使用者](./media/active-directory-saas-replicon-tutorial/IC777809.png "指派使用者")
 
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
     ![是](./media/active-directory-saas-replicon-tutorial/IC767830.png "是")
 

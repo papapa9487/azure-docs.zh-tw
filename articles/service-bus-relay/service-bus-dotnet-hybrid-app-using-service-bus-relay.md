@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: d15c30dad9fb4bbe9082d6a3c72cd20ed42bbc3e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>使用 Azure WCF 轉送的 .NET 內部部署/雲端混合式應用程式
 ## <a name="introduction"></a>簡介
@@ -70,8 +69,8 @@ ms.lasthandoff: 09/20/2017
 
 ### <a name="create-the-project"></a>建立專案
 
-1. 使用系統管理員權限，啟動 Microsoft Visual Studio。 若要這樣做，請以滑鼠右鍵按一下 Visual Studio 程式圖示，然後按一下 [以系統管理員身分執行]。
-2. 在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
+1. 使用系統管理員權限，啟動 Microsoft Visual Studio。 若要這樣做，請以滑鼠右鍵按一下 Visual Studio 程式圖示，然後按一下以系統管理員身分執行。
+2. 在 Visual Studio 的 檔案 功能表，按一下 新增，然後按一下專案。
 3. 從 [已安裝的範本] 的 [Visual C#] 下，按一下 [主控台應用程式 (.NET Framework]。 在 [名稱] 方塊中，鍵入名稱 **ProductsServer**：
 
    ![][11]
@@ -84,7 +83,7 @@ ms.lasthandoff: 09/20/2017
    ![][13]
 
    請注意，現在會參考必要的用戶端組件。
-8. 新增產品連絡人的新類別。 在 [方案總管] 的 **ProductsServer** 專案上按一下滑鼠右鍵、按一下 [新增]，然後按一下 [類別]。
+8. 新增產品連絡人的新類別。 在 方案總管 的 **ProductsServer** 專案上按一下滑鼠右鍵、按一下 新增，然後按一下類別。
 9. 在 [名稱] 方塊中，鍵入名稱 **ProductsContract.cs**。 然後按一下 [ **新增**]。
 10. 在 **ProductsContract.cs** 中，將命名空間定義取代為下列程式碼，以定義服務的連絡人。
 
@@ -217,7 +216,7 @@ ms.lasthandoff: 09/20/2017
 ### <a name="create-the-project"></a>建立專案
 
 1. 確定 Visual Studio 是以系統管理員權限來執行。
-2. 在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
+2. 在 Visual Studio 的 檔案 功能表，按一下 新增，然後按一下專案。
 3. 從 [已安裝的範本] 的 [Visual C#] 下，按一下 [ASP.NET Web 應用程式 (.NET Framework)]。 將專案命名為 **ProductsPortal**。 然後按一下 [確定] 。
 
    ![][15]
@@ -226,7 +225,7 @@ ms.lasthandoff: 09/20/2017
 
    ![][16]
 
-6. 按一下 [變更驗證] 按鈕。 在 [變更驗證] 對話方塊中，確定已選取 [不需要驗證]，然後按一下 [確定]。 在本教學課程中，您會部署不需要使用者登入的應用程式。
+6. 按一下 [變更驗證] 按鈕。 在 變更驗證 對話方塊中，確定已選取 不需要驗證，然後按一下確定。 在本教學課程中，您會部署不需要使用者登入的應用程式。
 
     ![][18]
 
@@ -426,7 +425,7 @@ ms.lasthandoff: 09/20/2017
 
 在雲端執行此應用程式之前，您必須確定 **ProductsPortal** 是從 Visual Studio 內以 Web 應用程式的形式啟動。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **ProductsPortal** 專案，然後按一下 [屬性]。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **ProductsPortal** 專案，然後按一下屬性。
 2. 在左側欄中，按一下 [Web]。
 3. 在 [起始動作] 區段中，按一下 [起始 URL] 按鈕，然後在文字方塊中輸入您先前部署的 Web 應用程式的 URL，例如 `http://productsportal1234567890.azurewebsites.net/`。
 
@@ -482,4 +481,3 @@ ms.lasthandoff: 09/20/2017
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-

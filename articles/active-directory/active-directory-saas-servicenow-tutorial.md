@@ -16,10 +16,10 @@ ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: a91fab90a94b655b93c8ae9064ea4836b80d7678
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>教學課程：Azure Active Directory 與 ServiceNow 整合
 在本教學課程中，您會了解如何整合 ServiceNow and ServiceNow Express 與 Azure Active Directory (Azure AD)。
@@ -77,7 +77,7 @@ ServiceNow 和 ServiceNow Express 與 Azure AD 整合提供下列優點：
 6. 在搜尋方塊中，輸入 **ServiceNow**。
    
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_01.png)
-7. 在結果窗格中，選取 [ServiceNow]，然後按一下 [完成] 來新增應用程式。
+7. 在結果窗格中，選取 ServiceNow，然後按一下完成 來新增應用程式。
    
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_02.png)
 
@@ -130,7 +130,7 @@ ServiceNow 和 ServiceNow Express 與 Azure AD 整合提供下列優點：
 
 7. 遵循下一個步驟，啟動 [整合 - 多個提供者單一登入安裝程式] 外掛程式︰
    
-    a. 在左側導覽窗格中，移至 [系統定義] 區段，然後按一下 [外掛程式]。
+    a. 在左側導覽窗格中，移至 系統定義 區段，然後按一下外掛程式。
    
     ![設定應用程式 URL](./media/active-directory-saas-servicenow-tutorial/tutorial_servicenow_03.png "啟動外掛程式")
    
@@ -238,7 +238,7 @@ ServiceNow 和 ServiceNow Express 與 Azure AD 整合提供下列優點：
 
     p. 按一下 [提交] 。 
 
-1. 在 Azure AD 傳統入口網站上，選取單一登入設定確認，然後按一下 [下一步] 。 
+1. 在 Azure AD 傳統入口網站上，選取單一登入設定確認，然後按一下下一步 。 
    
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "設定單一登入")
 
@@ -369,7 +369,7 @@ ServiceNow 和 ServiceNow Express 與 Azure AD 整合提供下列優點：
    
     f. 按一下 [儲存] 。 
 
-3. 在 Azure AD 傳統入口網站上，選取單一登入設定確認，然後按一下 [下一步] 。 
+3. 在 Azure AD 傳統入口網站上，選取單一登入設定確認，然後按一下下一步 。 
    
     ![設定單一登入](./media/active-directory-saas-servicenow-tutorial/IC7694990.png "設定單一登入")
 

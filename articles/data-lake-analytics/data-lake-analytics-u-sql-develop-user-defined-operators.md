@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 12/05/2016
 ms.author: edmaca
 ms.openlocfilehash: fdee02fb60b633c26704fc1774dfc3a7825b5e0d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>開發 U-SQL 使用者定義的運算子 (UDO)
 了解如何開發使用者定義的運算子來處理 U-SQL 作業中的資料。
@@ -118,15 +118,15 @@ ms.lasthandoff: 07/11/2017
             TO "/Samples/Outputs/Drivers.csv"
             USING Outputters.Csv(Encoding.Unicode);
 7. 指定 Data Lake Analytics 帳戶、資料庫和結構描述。
-8. 從 [方案總管] 中，在 [Script.usql] 上按一下滑鼠右鍵，然後按一下 [建置指令碼]。
-9. 從 [方案總管] 中，在 [Script.usql] 上按一下滑鼠右鍵，然後按一下 [提交指令碼]。
+8. 從 方案總管 中，在 Script.usql 上按一下滑鼠右鍵，然後按一下建置指令碼。
+9. 從 方案總管 中，在 Script.usql 上按一下滑鼠右鍵，然後按一下提交指令碼。
 10. 如果您尚未連線至 Azure 訂用帳戶，系統會提示您輸入 Azure 帳戶認證。
 11. 按一下 [提交] 。 提交作業完成時，提交結果和工作連結都可以在 [結果] 視窗中取得。
 12. 按一下 [重新整理] 按鈕，以查看最新的作業狀態並重新整理畫面。
 
 **查看輸出**
 
-1. 從 [伺服器總管] 依序展開 [Azure]、[Data Lake Analytics]、您的 Data Lake Analytics 帳戶、[儲存體帳戶]，以滑鼠右鍵按一下 [預設儲存體]，然後按一下 [總管]。
+1. 從 伺服器總管 依序展開 Azure、Data Lake Analytics、您的 Data Lake Analytics 帳戶、儲存體帳戶，以滑鼠右鍵按一下 預設儲存體，然後按一下總管。
 2. 展開範例、展開輸出，然後按兩下 [Drivers.csv] 。
 
 ## <a name="see-also"></a>另請參閱

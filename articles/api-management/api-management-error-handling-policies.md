@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: 672b36fc80d8826247b3104ca8c5ffb13e45fa59
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: e8837b8d62bb8caeee9460661438368c2d11697a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="error-handling-in-api-management-policies"></a>API 管理原則中的錯誤處理
 Azure API 管理可讓發佈者回應在處理 Proxy 要求期間可能會發生的錯誤狀況，其方法是藉由提供 `ProxyError` 物件。 `ProxyError` 物件是透過 [context.LastError](api-management-policy-expressions.md#ContextVariables) 屬性來存取，並可供 `on-error` 原則區段中的原則使用。 本主題提供 Azure API 管理中錯誤處理功能的參考。  

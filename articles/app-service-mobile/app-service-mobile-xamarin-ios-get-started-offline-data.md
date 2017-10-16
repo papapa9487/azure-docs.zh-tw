@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: b5878d8a2e18cf08b6e9074ecf40cd732624f0c0
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>啟用 Xamarin iOS 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -35,7 +35,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
 1. 在您於[建立 Xamarin iOS 應用程式]教學課程所完成的專案中，開啟 NuGet 封裝管理員，然後搜尋並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
 2. 開啟 QSTodoService.cs 檔案，並取消註解 `#define OFFLINE_SYNC_ENABLED` 定義。
-3. 重建並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。 不過，本機資料庫現在會填入可在離線案例下使用的資料。
+3. 重建並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。不過，本機資料庫現在會填入可在離線案例下使用的資料。
 
 ## <a name="update-sync"></a>更新應用程式以使其與後端中斷連線
 在本節中，您將中斷與行動應用程式後端的連線，以模擬離線狀態。 當您新增資料項目時，您的例外狀況處理常式會指出應用程式處於離線模式。 處於此狀態時，新項目會新增到本機存放區，並且會在推送接下來於連線狀態執行時，同步處理至行動應用程式後端。

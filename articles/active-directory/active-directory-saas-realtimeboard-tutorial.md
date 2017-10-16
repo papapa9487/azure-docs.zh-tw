@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: d3ba8cb1f7e1d4332f7912848e8b6902d9acf909
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-realtimeboard"></a>教學課程：Azure Active Directory 與 RealtimeBoard 整合
 
@@ -143,7 +142,7 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-realtimeboard-tutorial/create_aaduser_02.png)
 
@@ -226,5 +225,4 @@ RealtimeBoard 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-realtimeboard-tutorial/tutorial_general_203.png
-
 

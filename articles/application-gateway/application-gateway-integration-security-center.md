@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 737cdff3140be68cf9d6d396b470dd09c65c52f2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: abed4095bcacac4ca3995acfaafae2f16d5f1532
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>應用程式閘道與 Azure 資訊安全中心整合概觀
 
 了解如何使用應用程式閘道和資訊安全中心如何保護您的 Web 應用程式資源。 應用程式閘道 Web 應用程式防火牆 (WAF) 與[資訊安全中心](../security-center/security-center-intro.md)整合可提供無落差的檢視，以防止、偵測及回應環境中針對未受保護 Web 應用程式的威脅。

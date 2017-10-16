@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Azure 資訊安全中心平台移轉
 
@@ -78,5 +77,4 @@ ms.lasthandoff: 07/24/2017
 - 採用標準定價層的客戶需要並自動啟用資料收集。
 - Azure 資訊安全中心將開始探索未透過 Azure 擴充功能部署的反惡意程式碼解決方案。 將會首先探索 Symantec Endpoint Protection 和 Defender for Windows 2016。
 - 防護原則和通知只能在「訂用帳戶」層級設定，但價格仍然可以在「資源群組」層級設定
-
 

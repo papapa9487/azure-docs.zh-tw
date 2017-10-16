@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Microsoft Azure 簡介
 Microsoft Azure 是 Microsoft 的公用雲端應用程式平台。  即使您對雲端運算一無所知，本文旨在提供了解 Azure 基本概念的通用基礎。
@@ -538,4 +537,3 @@ SendGrid 是 Azure Store 中可讓您傳送電子郵件的應用程式。 它提
 您現在已大致了解概況，接下來就要撰寫您的第一個 Azure 應用程式。 選擇語言、 [取得適當的 SDK](/downloads/)，然後全力以赴。 雲端運算是新的預設值--立刻開始使用。
 
 [Azure Media Services Poster]: http://azure.microsoft.com/documentation/infographics/media-services/
-

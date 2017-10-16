@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2016
 ms.author: bwren
 ms.openlocfilehash: 9e02094f155eaade9bc5fb49c4fbb798e546e989
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics 中的自訂欄位
 Log Analytics 的 **自訂欄位** 功能可讓您透過新增自己的可搜尋欄位來擴充 OMS 儲存機制中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。

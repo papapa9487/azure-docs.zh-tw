@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 164d5c644f120fa86e2b690649241892764b64b7
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -73,7 +73,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-workday-tutorial/tutorial_workday_search.png)
 
-5. 在結果窗格中，選取 [Workday]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Workday，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-workday-tutorial/tutorial_workday_addfromgallery.png)
 
@@ -181,7 +181,7 @@ Workday 與 Azure AD 整合提供下列優點：
    
     d. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [登出 URL] 值，然後將它貼至 [登出要求 URL] 文字方塊中。
 
-    e. 按一下 [識別提供者公開金鑰憑證]，然後按一下 [建立]。 
+    e. 按一下 識別提供者公開金鑰憑證，然後按一下建立。 
 
     ![建立](./media/active-directory-saas-workday-tutorial/IC782928.png "建立")
 

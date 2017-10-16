@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/01/2017
 ms.author: negat
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 338144eb103c68c7fff407cbeccce11734c1c34b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-vm-scale-sets-and-managed-disks"></a>Azure VM 擴展集與受控磁碟
 
@@ -52,6 +51,5 @@ az vmss create -g dsktest -n dskvmss --image ubuntults --instance-count 10 --dat
 若要深入了解如何搭配使用受控資料磁碟與擴展集，請參閱[這篇文章](./virtual-machine-scale-sets-attached-disks.md)。
 
 若要開始使用大型擴展集，請參閱[這篇文章](./virtual-machine-scale-sets-placement-groups.md)。
-
 
 

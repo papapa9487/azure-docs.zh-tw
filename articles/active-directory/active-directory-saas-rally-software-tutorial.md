@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: jeedes
 ms.openlocfilehash: 6481c9ef0ca71419ccfa6f7956f4702985743df3
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rally-software"></a>教學課程：Azure Active Directory 與 Rally Software 整合
 
@@ -137,7 +137,7 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
 9. 按一下 [動作] 按鈕。 選取工具列右上方的 [編輯訂用帳戶]。
 
-10. 在 [訂用帳戶] 對話方塊頁面上，執行下列步驟，然後按一下 [儲存並關閉]：
+10. 在 訂用帳戶 對話方塊頁面上，執行下列步驟，然後按一下儲存並關閉：
    
     ![驗證](./media/active-directory-saas-rally-software-tutorial/ic769542.png "驗證")
    
@@ -163,7 +163,7 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-rally-software-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-rally-software-tutorial/create_aaduser_02.png)
 
@@ -191,11 +191,11 @@ Rally Software 與 Azure AD 整合提供下列優點：
 
 1. 登入您的 Rally Software 租用戶。
 
-2. 按一下 [設定] \> [使用者]，然後按一下 [新增使用者]。
+2. 按一下 設定 \> 使用者，然後按一下新增使用者。
    
     ![使用者](./media/active-directory-saas-rally-software-tutorial/ic781039.png "使用者")
 
-3. 在 [新使用者] 文字方塊中輸入名稱，然後按一下 [新增詳細資料] 。
+3. 在 新使用者 文字方塊中輸入名稱，然後按一下新增詳細資料 。
 
 4. 在 [建立使用者]  區段中，執行下列步驟：
    

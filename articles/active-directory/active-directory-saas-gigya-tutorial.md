@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
 ms.openlocfilehash: b65a33989a045a3e0b57fda522a9bc3b0770c7f3
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>教學課程：Azure Active Directory 與 Gigya 整合
 
@@ -73,7 +73,7 @@ Gigya 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-gigya-tutorial/tutorial_gigya_search.png)
 
-5. 在結果窗格中，選取 [Gigya]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Gigya，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-gigya-tutorial/tutorial_gigya_addfromgallery.png)
 
@@ -131,7 +131,7 @@ Gigya 與 Azure AD 整合提供下列優點：
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Gigya 公司網站。
 
-8. 移至 [設定]\>[SAML 登入]，然後按一下 [新增] 按鈕。
+8. 移至 設定\>SAML 登入，然後按一下新增 按鈕。
    
     ![SAML 登入](./media/active-directory-saas-gigya-tutorial/ic789532.png "SAML 登入")
 
@@ -196,7 +196,7 @@ Gigya 需以手動的方式佈建。
 
 1. 以系統管理員身分登入您的 **Gigya** 公司網站。
 
-2. 移至 [系統管理員]\>[管理使用者]，然後按一下 [邀請使用者]。
+2. 移至 系統管理員\>管理使用者，然後按一下邀請使用者。
    
     ![管理使用者](./media/active-directory-saas-gigya-tutorial/ic789535.png "管理使用者")
 

@@ -17,10 +17,10 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 9b56ce6cc5bdd3b8d48d047751e978cad08598e1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-domain-joined-hdinsight-clusters-preview"></a>管理已加入網域的 HDInsight 叢集 (預覽)
 認識已加入網域的 HDInsight 叢集中的使用者和角色，了解如何管理已加入網域的 HDInsight 叢集。
@@ -67,7 +67,7 @@ ms.lasthandoff: 07/11/2017
 2. 在刀鋒視窗中開啟您的 HDInsight 叢集。 請參閱[列出和顯示叢集](hdinsight-administer-use-management-portal.md#list-and-show-clusters)。
 3. 按一下頂端功能表中的 [儀表板]  開啟 Ambari。
 4. 使用叢集系統管理員網域使用者的名稱和密碼登入 Ambari：
-5. 按一下右上角的 [管理] 下拉式功能表，然後按一下 [管理 Ambari]。
+5. 按一下右上角的 管理 下拉式功能表，然後按一下管理 Ambari。
 
     ![已加入網域的 HDInsight 管理 Ambari](./media/hdinsight-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 

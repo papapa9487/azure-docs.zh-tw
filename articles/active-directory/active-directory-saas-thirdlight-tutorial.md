@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
 ms.openlocfilehash: ee7710cfea3a13907c0cc940a98c875bf83607a9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thirdlight"></a>教學課程：Azure Active Directory 與 ThirdLight 整合
 
@@ -73,7 +73,7 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_search.png)
 
-5. 在結果窗格中，選取 [ThirdLight]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 ThirdLight，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-thirdlight-tutorial/tutorial_thirdlight_addfromgallery.png)
 
@@ -127,7 +127,7 @@ ThirdLight 與 Azure AD 整合提供下列優點：
 
 6. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 ThirdLight 公司網站。
 
-7. 移至 [組態] \> [系統管理]，然後按一下 [SAML2]。
+7. 移至 組態 \> 系統管理，然後按一下SAML2。
    
     ![系統管理](./media/active-directory-saas-thirdlight-tutorial/ic805843.png "系統管理")
 

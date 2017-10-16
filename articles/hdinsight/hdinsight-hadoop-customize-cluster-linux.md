@@ -17,10 +17,10 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
 ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -437,7 +437,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 下列指令碼示範使用 PowerShell 建立叢集時如何套用指令碼動作：
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
 
 建立叢集可能需要幾分鐘的時間。
 
@@ -488,7 +488,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 下列範例示範如何將指令碼動作套用至執行中的叢集：
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
 作業完成後，您會收到類似以下的訊息：
 
@@ -580,7 +580,7 @@ HDInsight .NET SDK 提供用戶端程式庫，讓您輕鬆地從 .NET 應用程�
 
 下列範例指令碼示範如何使用 Cmdlet 來升級而後降級指令碼。
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
 ### <a name="using-the-azure-cli"></a>使用 Azure CLI
 

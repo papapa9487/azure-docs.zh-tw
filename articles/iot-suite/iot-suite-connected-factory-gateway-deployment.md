@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
+ms.openlocfilehash: b0e6ae705911d7c18643c77b7fe08fdffffa5eb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道
 
 針對連線處理站的預先設定解決方案，部署閘道所需的軟體有兩個元件：
@@ -98,7 +96,7 @@ ms.lasthandoff: 07/24/2017
 
 1. 瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 依照上一節中相同的步驟在連線處理站入口網站和 OPC UA 伺服器之間建立信任。 此步驟會在連線處理站入口網站和 OPC UA 伺服器之間建立相互信任的憑證，並建立連線。
 
-1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。 如果您的設定不同，則可以在 **D:\\docker** 資料夾的 publishesnodes.json 檔案中手動新增節點。 第一個成功發佈的 OPC 節點上會自動產生 publishesnodes.json 檔案。
+1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。如果您的設定不同，則可以在 **D:\\docker** 資料夾的 publishesnodes.json 檔案中手動新增節點。 第一個成功發佈的 OPC 節點上會自動產生 publishesnodes.json 檔案。
 
 1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站位於 [New Factory (新處理站)] 之下的 [Factory Locations (處理站位置)] 中檢視遙測。
 
@@ -148,7 +146,7 @@ ms.lasthandoff: 07/24/2017
 
 1. 瀏覽至連線處理站解決方案入口網站中的 [Connect your own OPC UA Server (連線您自己的 OPC UA 伺服器)] 頁面。 依照上一節中相同的步驟在連線處理站入口網站和 OPC UA 伺服器之間建立信任。 此步驟會在連線處理站入口網站和 OPC UA 伺服器之間建立相互信任的憑證，並建立連線。
 
-1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。 如果您的設定不同，則可以在 **/shared** 資料夾的 publishesnodes.json 檔案中手動新增節點。 第一個成功發佈的 OPC 節點上會自動產生 publishesnodes.json。
+1. 瀏覽 OPC UA 伺服器的 OPC UA 節點樹狀結構、以滑鼠右鍵按一下 OPC 節點，然後選取 [publish (發行)]。 若要以此方式發行，OPC UA 伺服器和發行者必須在相同的網路上。 換句話說，如果發行者的完整網域名稱是 **publisher.mydomain.com**，則 OPC UA 伺服器的完整網域名稱就必須是 (例如) **myopcuaserver.mydomain.com**。如果您的設定不同，則可以在 **/shared** 資料夾的 publishesnodes.json 檔案中手動新增節點。 第一個成功發佈的 OPC 節點上會自動產生 publishesnodes.json。
 
 1. 現在會從閘道裝置傳送遙測。 您可以在連線處理站入口網站位於 [New Factory (新處理站)] 之下的 [Factory Locations (處理站位置)] 中檢視遙測。
 

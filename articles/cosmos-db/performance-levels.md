@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
 ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>淘汰 S1、S2 和 S3 效能層級
 
@@ -122,7 +121,7 @@ S1、S2 和 S3 效能層級不提供 DocumentDB API 集合所提供的彈性。 
  
     如果 [Azure Cosmos DB] 不在動態工具列中，按一下 >，捲動到 [資料庫]，選取 [Azure Cosmos DB]，然後選取 DocumentDB 帳戶。  
 
-2. 在 [資源] 功能表上，於 [容器] 下，按一下 [級別]，從下拉式清單選取要修改的集合，然後按一下 [定價層]。 使用預先定義的輸送量的帳戶具有 S1、S2 或 S3 定價層。  在 [選擇定價層] 刀鋒視窗中按一下 [標準] 來變更使用者定義的輸送量，然後按一下 [選取] 以儲存變更。
+2. 在 資源 功能表上，於 容器 下，按一下 級別，從下拉式清單選取要修改的集合，然後按一下定價層。 使用預先定義的輸送量的帳戶具有 S1、S2 或 S3 定價層。  在 選擇定價層 刀鋒視窗中按一下 標準 來變更使用者定義的輸送量，然後按一下選取 以儲存變更。
 
     ![[設定] 刀鋒視窗的螢幕擷取畫面，其中顯示可供變更輸送量值的位置](./media/performance-levels/change-performance-set-thoughput.png)
 
@@ -179,4 +178,3 @@ EA 客戶將會受保護的價格，直到其目前合約結束。
 1.  [在 Cosmos DB 中分割資料](documentdb-partition-data.md)。 了解單一資料分割容器和資料分割容器的差異，以及實作資料分割策略以順暢地調整的秘訣。
 2.  [Cosmos DB 定價](https://azure.microsoft.com/pricing/details/cosmos-db/)。 深入了解佈建輸送量和使用儲存體的成本。
 3.  [要求單位](request-units.md)。 了解不同作業類型，例如讀取、寫入、查詢的輸送量耗用量。
-

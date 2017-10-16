@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: db68bd3ebf7efde1d23820445f07c83c8c27dc20
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-your-mobile-engagement-strategy"></a>定義 Mobile Engagement 策略
 *您可以撰寫應用程式是有原因的：讓您的使用者使用它！*

@@ -16,10 +16,10 @@ ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: f44d75f45073a5d9aa9b1863ed227aba4efcf785
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-protect-a-web-api-by-using-bearer-tokens-from-azure-ad"></a>使用來自 Azure AD 的持有者權杖來保護 Web API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -139,7 +139,7 @@ Azure Active Directory (Azure AD) 只需幾行程式碼，即可使用 OAuth 2.0
 
 3. 完成註冊之後，Azure AD 會為應用程式指派一個唯一的應用程式識別碼。 您會在後續小節中用到這個值，所以請從應用程式頁面中複製此值。
 
-4. 從 [設定] 頁面中，選取 [必要權限]，然後選取 [新增]。 找出並選取 [待辦事項清單服務]，在 [委派的權限] 底下新增 [存取 TodoListService] 權限，然後按一下 [完成]。
+4. 從 [設定] 頁面中，選取 [必要權限]，然後選取 [新增]。 找出並選取 待辦事項清單服務，在 委派的權限 底下新增 存取 TodoListService 權限，然後按一下完成。
 
 5. 在 Visual Studio 中，開啟 TodoListClient 專案中的 `App.config`，然後在 `<appSettings>` 區段中輸入您的組態值。
 

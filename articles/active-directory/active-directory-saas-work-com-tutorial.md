@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
 ms.openlocfilehash: 7cfec8e9ac12d43095483696a15c0580776d3114
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>教學課程：Azure Active Directory 與 Work.com 整合
 
@@ -132,7 +132,7 @@ Work.com 與 Azure AD 整合提供下列優點：
    
     ![設定](./media/active-directory-saas-work-com-tutorial/ic794108.png "設定")
 
-9. 在 [系統管理員] 區段的左方導覽窗格中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。 
+9. 在 系統管理員 區段的左方導覽窗格中，按一下 網域管理 展開相關的區段，然後按一下我的網域 來開啟 我的網域 頁面。 
    
     ![我的網域](./media/active-directory-saas-work-com-tutorial/ic767825.png "我的網域")
 
@@ -185,7 +185,7 @@ Work.com 與 Azure AD 整合提供下列優點：
     
     j. 按一下 [儲存] 。
 
-16. 在 Work.com 傳統入口網站的左側導覽窗格中，按一下 [網域管理] 以展開相關區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。 
+16. 在 Work.com 傳統入口網站的左側導覽窗格中，按一下 網域管理 以展開相關區段，然後按一下我的網域 來開啟 我的網域 頁面。 
     
     ![我的網域](./media/active-directory-saas-work-com-tutorial/ic794115.png "我的網域")
 
@@ -193,7 +193,7 @@ Work.com 與 Azure AD 整合提供下列優點：
     
     ![登入頁面商標](./media/active-directory-saas-work-com-tutorial/ic767826.png "登入頁面商標")
 
-14. [登入頁面商標] 頁面的 [驗證服務] 區段中，會顯示您的 [SAML SSO 設定] 的名稱。 請選取該名稱，然後按一下 [儲存] 。
+14. [登入頁面商標] 頁面的 [驗證服務] 區段中，會顯示您的 [SAML SSO 設定] 的名稱。 請選取該名稱，然後按一下儲存 。
     
     ![登入頁面商標](./media/active-directory-saas-work-com-tutorial/ic784366.png "登入頁面商標")
 
@@ -233,7 +233,7 @@ Work.com 與 Azure AD 整合提供下列優點：
     d. 按一下 [建立] 。
  
 ### <a name="create-a-workcom-test-user"></a>建立 Work.com 測試使用者
-Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。 Work.com 需以手動方式佈建。
+Azure Active Directory 使用者必須先佈建到 Work.com，才可以登入。Work.com 需以手動方式佈建。
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>若要設定使用者佈建，請執行下列步驟：
 1. 以系統管理員身分登入您的 Work.com 公司網站。

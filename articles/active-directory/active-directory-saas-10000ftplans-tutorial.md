@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
 ms.openlocfilehash: c81a6adb3abad58af149bbef6f5dff736c142f51
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>教學課程：Azure Active Directory 與 10,000ft Plans 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/03/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_search.png)
 
-5. 在結果窗格中，選取 [10,000ft Plans]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 10,000ft Plans，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-10000ftplans-tutorial/tutorial_10,000ftplans_addfromgallery.png)
 

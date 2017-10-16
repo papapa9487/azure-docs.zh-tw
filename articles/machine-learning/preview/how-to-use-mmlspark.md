@@ -9,13 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/26/2017
+ms.openlocfilehash: 6714e8ad77693f0cdefe3e40c99153299e1c72d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 506d439dc51513138c92e05bc5855848fc60f6a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>如何使用適用於 Apache Spark 的 Microsoft Machine Learning 程式庫
 
@@ -69,7 +68,11 @@ packages:
 在 CLI 視窗中，執行下列命令：
 
 ```
-az ml computecontext attach --name <myhdi> --address <ssh-myhdi.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+az ml computetarget attach --name <myhdi> --address <myhdi-ssh.azurehdinsight.net> --username <sshusername> --password <sshpwd> --type cluster
+```
+
+```
+az ml experiment prepare -c <myhdi>
 ```
 
 現在叢集可用來做為專案的計算目標。
@@ -84,4 +87,3 @@ Azure Machine Learning Workbench 會將 Spark 作業提交至叢集。 您可以
 如需 MMLSpark 程式庫的相關資訊，請參閱 [MMLSpark GitHub 存放庫](https://github.com/Azure/mmlspark) \(英文\)
 
 Apache®、Apache Spark 和 Spark® 是 Apache Software Foundation 在美國及/或其他國家/地區的註冊商標或商標。
-

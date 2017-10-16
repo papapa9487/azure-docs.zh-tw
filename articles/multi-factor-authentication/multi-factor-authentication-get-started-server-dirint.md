@@ -16,10 +16,10 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 使用 Azure MFA Server 的 [目錄整合] 區段來與 Active Directory 或另一個 LDAP 目錄整合。 您可以設定相關屬性以比對目錄結構描述，並設定自動使用者同步處理。
@@ -95,7 +95,7 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 | 分機 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的分機電話號碼。  分機欄位的值只會做為主要電話號碼的分機。  預設值為空白。 <br><br>如果不指定分機屬性，則可以在電話屬性中包含分機。 在此情況下，在分機前面加上 'x'，便可得到正確剖析。  例如，555-123-4567 x890 會形成電話號碼 555-123-4567 和分機 890。 |
 | [還原預設值] 按鈕 |按一下 [還原預設值]，可將所有屬性還原為預設值。  在一般 Active Directory 或 ADAM 結構描述中，預設值應該可以正確運作。 |
 
-若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯] 按鈕。  這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。
+若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯] 按鈕。這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。
 
 ![編輯屬性](./media/multi-factor-authentication-get-started-server-dirint/dirint4.png)
 

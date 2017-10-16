@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte;bwren
+ms.openlocfilehash: 7537a50d3d9b773f48bc498f946ea5f63f6d530b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: 844831b63d5263987ed05370125fbe9f01913ab9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 下表將協助您判斷在 Azure 自動化中啟動 Runbook 的方法，最適合您的特定案例。 這篇文章包含有關使用 Azure 入口網站和 Windows PowerShell 啟動 Runbook 的詳細資料。 其他方法的詳細資訊在其他文件中提供，您可以從下列連結來存取。
@@ -41,7 +40,7 @@ ms.lasthandoff: 08/08/2017
 ## <a name="starting-a-runbook-with-the-azure-portal"></a>使用 Azure 入口網站啟動 Runbook
 1. 在 Azure 入口網站中，選取 [ **自動化** ]，然後按一下自動化帳戶的名稱。
 2. 在 [中樞] 功能表中，選取 [Runbook]。
-3. 在 [Runbook] 刀鋒視窗中，選取 Runbook，然後按一下 [啟動]。
+3. 在 Runbook 刀鋒視窗中，選取 Runbook，然後按一下啟動。
 4. 如果 Runbook 有參數，系統會提示您提供每個參數的文字方塊的值。 請參閱以下的 [Runbook 參數](#Runbook-parameters) ，以取得參數的進一步詳細資訊。
 5. 在 [作業] 刀鋒視窗中，您可以檢視 Runbook 作業的狀態。
 
@@ -184,5 +183,4 @@ jsmith
 ## <a name="next-steps"></a>後續步驟
 * 目前文件中的 Runbook 架構提供在 Azure 中管理資源的 Runbook 整體概觀，並利用 Hybrid Runbook Worker 進行內部部署。  若要了解如何在您的資料中心執行自動化 Runbook，請參閱 [混合式 Runbook 背景工作](automation-hybrid-runbook-worker.md)。
 * 若要深入了解如何建立模組化 Runbook，以供其他 Runbook 用於特定或一般函式，請參閱 [子 Runbook](automation-child-runbooks.md)。
-
 

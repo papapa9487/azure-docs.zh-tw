@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 8e2f9f979f8b94e0c043d4db6e93bd7a53c3dd27
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>教學課程：Azure Active Directory 與 Perception United States (非 UltiPro) 整合
 
@@ -186,7 +185,7 @@ Perception United States (非 UltiPro) 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-perceptionunitedstates-tutorial/create_aaduser_02.png)
 
@@ -267,5 +266,4 @@ Perception United States (非 UltiPro) 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-perceptionunitedstates-tutorial/tutorial_general_203.png
-
 

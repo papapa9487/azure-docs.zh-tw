@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 522fa6a45521ab917a540e8cc6bc619b05ab262e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 43b82e5fb6a309283979f23d8c87af600595bc55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-send-simulated-telemetry-using-c"></a>將 Raspberry Pi 3 連線到遠端監視解決方案，並且使用 C 來傳送模擬遙測
 
@@ -108,4 +107,3 @@ sudo ~/cmake/remote_monitoring/remote_monitoring
 [img-raspberry-output]: ./media/iot-suite-raspberry-pi-kit-c-get-started-simulator/appoutput.png
 
 [lnk-demo-config]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Docs/configure-preconfigured-demo.md
-

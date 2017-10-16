@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: dobett
 ms.openlocfilehash: d222bcbd64f288d4091acb0ecd2922b9ceee57e5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-windows"></a>將裝置連接至遠端監視預先設定方案 (Windows)
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
@@ -33,12 +33,12 @@ ms.lasthandoff: 08/29/2017
 2. 在 [Win32 應用程式精靈] 的 [應用程式設定] 頁面中，確定已選取 [主控台應用程式]，並取消核取 [預先編譯的標頭] 和 [安全性開發生命週期 (SDL) 檢查]。
 3. 在 [方案總管] 中刪除檔案 stdafx.h、targetver.h 和 stdafx.cpp。
 4. 在 [方案總管] 中將檔案 RMDevice.cpp 重新命名為 RMDevice.c。
-5. 在 [方案總管] 中，以滑鼠右鍵按一下 [RMDevice] 專案，然後按一下 [管理 NuGet 套件]。 按一下 [瀏覽]，然後搜尋並安裝下列 NuGet 套件︰
+5. 在 方案總管 中，以滑鼠右鍵按一下 RMDevice 專案，然後按一下管理 NuGet 套件。 按一下 [瀏覽]，然後搜尋並安裝下列 NuGet 套件︰
    
    * Microsoft.Azure.IoTHub.Serializer
    * Microsoft.Azure.IoTHub.IoTHubClient
    * Microsoft.Azure.IoTHub.MqttTransport
-6. 在 [方案總管] 中，以滑鼠右鍵按一下 [RMDevice] 專案，然後按一下 [屬性] 開啟專案的 [屬性頁] 對話方塊。 如需詳細資訊，請參閱[設定 Visual C++ 專案屬性 (英文)][lnk-c-project-properties]。 
+6. 在 方案總管 中，以滑鼠右鍵按一下 RMDevice 專案，然後按一下屬性 開啟專案的 屬性頁 對話方塊。 如需詳細資訊，請參閱[設定 Visual C++ 專案屬性 (英文)][lnk-c-project-properties]。 
 7. 按一下 [連結器]資料夾，然後按一下 [輸入] 屬性頁。
 8. 將 **crypt32.lib** 新增至 [其他相依性] 屬性。 按一下 [確定]，然後再按一下 [確定] 以儲存專案屬性值。
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 08/29/2017
 
 1. 將 Parson.h 和 parson.c 檔案從 Parson 儲存機制的本機複本複製到 **RMDevice** 專案資料夾。
 
-1. 在 Visual Studio 中，以滑鼠右鍵按一下 **RMDevice** 專案，按一下 [新增]，然後按一下 [現有項目]。
+1. 在 Visual Studio 中，以滑鼠右鍵按一下 **RMDevice** 專案，按一下 新增，然後按一下現有項目。
 
 1. 在 [新增現有項目] 對話方塊中，選取 **RMDevice** 專案資料夾中的 parson.h 和 parson.c 檔案。 然後按一下 [新增]，將這兩個檔案新增至您的專案。
 
@@ -90,7 +90,7 @@ ms.lasthandoff: 08/29/2017
 
 1. 依序按一下 [建置] 和 [建置方案] 以建置裝置應用程式。
 
-1. 在 [方案總管] 中，以滑鼠右鍵按一下 [RMDevice] 專案，並按一下 [偵錯]，然後按一下 [開始新執行個體] 來執行範例。 主控台會在應用程式將範例遙測傳送至預先設定的解決方案時顯示訊息，接收在解決方案儀表板中設定的所需屬性值，以及回應從解決方案儀表板叫用的方法。
+1. 在 方案總管 中，以滑鼠右鍵按一下 RMDevice 專案，並按一下 偵錯，然後按一下開始新執行個體 來執行範例。 主控台會在應用程式將範例遙測傳送至預先設定的解決方案時顯示訊息，接收在解決方案儀表板中設定的所需屬性值，以及回應從解決方案儀表板叫用的方法。
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]
 

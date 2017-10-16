@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
 ms.openlocfilehash: db9b1578a235be9018fc1985cc75a0a05ee47b3a
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-password-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步處理實作密碼同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/03/2017
 
 此外，如果您選擇使用[與 Active Directory Federation Services (AD FS) 同盟](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect)，則可以選擇性地設定密碼同步處理來作為 AD FS 基礎結構失敗時的備用方式。
 
-密碼同步處理是 Azure AD Connect 同步處理實作的目錄同步作業功能的延伸。 若要在環境中使用密碼同步處理，您需要︰
+密碼同步處理是 Azure AD Connect 同步處理實作的目錄同步作業功能的延伸。若要在環境中使用密碼同步處理，您需要︰
 
 * 安裝 Azure AD Connect。  
 * 設定內部部署 Active Directory 執行個體與 Azure Active Directory 執行個體之間的目錄同步作業。

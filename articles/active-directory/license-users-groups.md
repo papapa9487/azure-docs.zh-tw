@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: jeffgilb
 custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c4509cdb003687083d0456c1957b19cf35ee056a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中授權使用者
 以授權為基礎的 Azure AD 服務的運作方式，是在您的 Azure 租用戶中啟用 Azure Active Directory (Azure AD) 訂用帳戶。 在訂用帳戶啟用後，服務的功能便會由 Azure AD 系統管理員管理並供授權使用者使用。 當您購買 Enterprise Mobility + Security、Azure AD Premium 或 Azure AD Basic 時，您的租用戶會隨著訂用帳戶更新，包括其有效期間和預付授權。 您的訂用帳戶資訊，包括已指派或可使用的授權數目，可在 Azure 入口網站中 **Azure Active Directory** 底下藉由開啟 [授權] 圖格來取得。 [授權] 刀鋒視窗也是最適合用來管理授權指派的位置。

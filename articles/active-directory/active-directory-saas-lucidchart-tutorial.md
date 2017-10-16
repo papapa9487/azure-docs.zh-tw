@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
 ms.openlocfilehash: 2dea669f03c893632c08d30feeb3173efc2d8243
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>教學課程：Azure Active Directory 與 Lucidchart 整合
 
@@ -73,7 +73,7 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_search.png)
 
-5. 在結果面板中，選取 [Lucidchart]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Lucidchart，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lucidchart-tutorial/tutorial_lucidchart_addfromgallery.png)
 
@@ -132,11 +132,11 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
 9. 在 [SAML 驗證設定]  對話方塊頁面上執行下列步驟：
    
-    a. 選取 [啟用 SAML 驗證]，然後按一下 [選用]。
+    a. 選取 啟用 SAML 驗證，然後按一下選用。
 
     ![SAML 驗證設定](./media/active-directory-saas-lucidchart-tutorial/ic791192.png "SAML 驗證設定")
  
-    b.這是另一個 C# 主控台應用程式。 在 [網域] 文字方塊中，輸入您的網域，然後按一下 [變更憑證]。 
+    b.這是另一個 C# 主控台應用程式。 在 網域 文字方塊中，輸入您的網域，然後按一下變更憑證。 
 
     ![變更憑證](./media/active-directory-saas-lucidchart-tutorial/ic791193.png "變更憑證")
  
@@ -144,7 +144,7 @@ Lucidchart 與 Azure AD 整合有下列優點：
 
     ![上傳中繼資料](./media/active-directory-saas-lucidchart-tutorial/ic791194.png "上傳中繼資料")
  
-    d. 選取 [Automatically Add new users to the team]\(自動新增使用者至小組\)，然後按一下 [儲存變更]。
+    d. 選取 Automatically Add new users to the team\(自動新增使用者至小組\)，然後按一下儲存變更。
 
     ![儲存變更](./media/active-directory-saas-lucidchart-tutorial/ic791195.png "儲存變更")
 

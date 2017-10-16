@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
 ms.openlocfilehash: 29c99fdf39d366df90abc070f7b836320935035c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>教學課程：Azure Active Directory 與 DocuSign 整合
 
@@ -73,7 +73,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_search.png)
 
-5. 在結果窗格中，選取 [DocuSign]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 DocuSign，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -124,7 +124,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
    
     ![設定單一登入][52]
 
-8. 在 [宣告網域] 對話方塊，於 [網域名稱] 文字方塊內輸入您的公司網域，然後按一下 [宣告]。 確定您已驗證網域，而且狀態為作用中。
+8. 在 宣告網域 對話方塊，於 網域名稱 文字方塊內輸入您的公司網域，然後按一下宣告。 確定您已驗證網域，而且狀態為作用中。
    
     ![設定單一登入][53]
 
@@ -166,7 +166,7 @@ DocuSign 與 Azure AD 整合提供下列優點：
 
 14. 按一下 [儲存] 。
 
-15. 在 [識別提供者] 區段中，按一下 [動作]，然後按一下 [端點]。   
+15. 在 識別提供者 區段中，按一下 動作，然後按一下端點。   
    
     ![設定單一登入][59]
  

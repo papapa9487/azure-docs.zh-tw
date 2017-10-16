@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: jodehavi;stgriffi
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: f98ba1e2da6924476392948a4d18c807d68e39e3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>使用端對端金鑰輪替和稽核設定 Azure 金鑰保存庫
 ## <a name="introduction"></a>簡介
@@ -438,4 +437,3 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 針對動作選擇 [Office 365 - 傳送電子郵件] 。 填寫欄位，以建立定義的條件傳回 **false** 時要傳送的電子郵件。 如果您沒有 Office 365，您可以查看能夠達到相同結果的替代方案。
 
 此時，您已擁有端對端管線，它會每分鐘尋找是否有新的金鑰保存庫稽核記錄檔一次。 它會將找到的新記錄檔推送至服務匯流排佇列。 新訊息放入佇列時就會觸發邏輯應用程式。 如果事件中的 *appid* 不符合呼叫端應用程式的應用程式識別碼，則會傳送電子郵件。
-

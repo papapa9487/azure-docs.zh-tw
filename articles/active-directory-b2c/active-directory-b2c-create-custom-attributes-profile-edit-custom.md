@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C︰在自訂設定檔編輯原則中建立和使用自訂屬性
 
@@ -54,7 +53,7 @@ Azure AD B2C 可讓您擴充每個使用者帳戶所儲存的屬性組合。 您
 
 1. 開啟瀏覽工作階段並瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後使用您想要設定之 B2C 目錄的系統管理認證來登入。
 1. 在左方的導覽功能表中，按一下 [Azure Active Directory]。 您可能需要選取 [更多服務 >] 才能找到它。
-1. 選取 [應用程式註冊]，然後按一下 [新增應用程式註冊]
+1. 選取 應用程式註冊，然後按一下新增應用程式註冊
 1. 提供下列建議項目︰
   * 指定 Web 應用程式的名稱：**WebApp-GraphAPI-DirectoryExtensions**
   * 應用程式類型︰Web 應用程式/API
@@ -299,4 +298,3 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 
 >[!NOTE]
 >圖形 API 中的擴充屬性會使用 `extension_ApplicationObjectID_attributename` 慣例來命名。 自訂原則會將擴充屬性稱為 extension_attributename，因此會省略 XML 中的 ApplicationObjectId
-

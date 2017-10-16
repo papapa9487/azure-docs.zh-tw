@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: cefec9c703d3d1544eb7216c97b0a065a39ee2eb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Azure 中的 Web Apps 相關開放原始碼技術常見問題集
 
 針對 [Azure App Service 的 Web Apps 功能](https://azure.microsoft.com/services/app-service/web/)之中的開放原始碼技術相關問題，本文提供常見問題集的解答。
@@ -252,4 +249,3 @@ WordPress Buddy+ 是 Azure 網站擴充功能，可讓您直接在資料庫中�
 ## <a name="i-get-an-http-403-error-when-i-try-to-import-or-export-my-mysql-in-app-database-by-using-phpmyadmin-how-do-i-resolve-this"></a>我嘗試使用 PHPMyadmin 匯入或匯出應用程式內 MySQL 資料庫時，出現 HTTP 403 錯誤。 如何解決這個問題？
 
 如果您使用舊版 Chrome，您可能會遇到已知的錯誤。 若要解決此問題，請升級為新版 Chrome。 也請嘗試使用無此問題的不同瀏覽器，例如 Internet Explorer 或 Edge。
-

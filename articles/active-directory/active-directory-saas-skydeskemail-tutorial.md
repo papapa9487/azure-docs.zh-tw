@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.openlocfilehash: 0ffcca4161fc836192fc9c9871a905f36ea76b32
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>教學課程：Azure Active Directory 與 SkyDesk Email 整合
 
@@ -73,7 +73,7 @@ SkyDesk Email 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_search.png)
 
-5. 在結果窗格中，選取 [SkyDesk Email]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 SkyDesk Email，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-skydeskemail-tutorial/tutorial_skydeskemail_addfromgallery.png)
 
@@ -168,7 +168,7 @@ SkyDesk Email 與 Azure AD 整合提供下列優點：
 
     c. [變更密碼 URL] 是選擇性的，將它保留為空白。
 
-    d. 按一下 [從檔案取得金鑰] 以從 Azure 入口網站選取您下載的憑證，然後按一下 [開啟] 以上傳憑證。
+    d. 按一下 從檔案取得金鑰 以從 Azure 入口網站選取您下載的憑證，然後按一下開啟 以上傳憑證。
 
     e. 選取 [RSA] 做為 [演算法]。
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 253315f3012853f5261e057571c0ddfbd849dd85
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 5364a8fabe3ca5d0fdf9aabe296fef085587604e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>使用 Microsoft 辨識工具組深入了解模型與 Azure HDInsight Spark 叢集
 
@@ -80,7 +79,7 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 
 1. 複製 GitHub 存放庫 [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)。 如需複製的指示，請參閱[複製存放庫](https://help.github.com/articles/cloning-a-repository/)。
 
-2. 從 Azure 入口網站開啟您已佈建的 Spark 叢集刀鋒視窗，按一下 [叢集儀表板]，然後按一下 [Jupyter Notebook]。
+2. 從 Azure 入口網站開啟您已佈建的 Spark 叢集刀鋒視窗，按一下 叢集儀表板，然後按一下Jupyter Notebook。
 
     您也可以移至 URL `https://<clustername>.azurehdinsight.net/jupyter/` 啟動 Jupyter Notebook。 將 \<clustername> 取代為 HDInsight 叢集的名稱。
 
@@ -127,4 +126,3 @@ Jupyter Notebook 中涵蓋下列剩餘步驟。
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md
-

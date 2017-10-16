@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>如何針對自助式密碼重設進行疑難排解
 
@@ -191,7 +190,7 @@ ms.lasthandoff: 09/23/2017
 5. 在 [選用功能] 對話方塊上，取消核取 [密碼回寫] 核取方塊。
 6. 在其餘的對話方塊頁面上逐一點選 [下一步] 而不變更任何項目，直到到達 [準備好設定] 頁面為止。
 7. 確認設定頁面顯示**密碼回寫選項為停用**，然後按一下綠色的 [設定] 按鈕來認可變更。
-8. 在 [已完成] 對話方塊上，取消選取 [立即同步處理] 選項，然後按一下 [完成] 來關閉精靈。
+8. 在 已完成 對話方塊上，取消選取 立即同步處理 選項，然後按一下完成 來關閉精靈。
 9. 重新開啟 [Azure AD Connect 設定精靈]。
 10. **重複步驟 2-8**，但請確定您已在 [選用功能] 畫面上**勾選 [密碼回寫] 選項** 來重新啟用服務。
 
@@ -280,4 +279,3 @@ Azure AD Connect 需要 AD **重設密碼**權限才能執行密碼回寫。 若
 * [**報告**](active-directory-passwords-reporting.md) - 探索您的使用者是否、何時、何地存取 SSPR 功能
 * [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
 * [**常見問題集**](active-directory-passwords-faq.md) - 如何？ 原因為何？ 何事？ 何地？ 何人？ 何時？ - 您一直想要詢問之問題的答案
-

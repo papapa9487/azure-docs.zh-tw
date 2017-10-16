@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
+ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: f44e33ef722cd30787a9d2942ec55ceb73174978
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
 
@@ -81,7 +80,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
    > 如需範本的詳細資訊，請造訪︰[Resource Manager 範本參考](/templates/)
 
 1. 瀏覽回 [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
-1. 按一下 [azuredeploy-parameters.json]，然後按一下 [RAW]。
+1. 按一下 azuredeploy-parameters.json，然後按一下RAW。
 1. 將檔案儲存至您電腦上的本機資料夾。
 1. 開啟您儲存的檔案，以編輯參數的值。 使用下列值來部署本文案例所述的應用程式閘道。
 
@@ -244,5 +243,4 @@ az group delete --name appgatewayRG
 
 * [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
-
 

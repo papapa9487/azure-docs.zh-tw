@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5eef2116f238b477fa8de46ce7b25728c393739c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 51320d93689da3e37c0946d8877b27a11793d9c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-cost-recommendations"></a>建議程式成本建議
 
 建議程式可找出閒置和未充分利用的資源，協助您最佳化並減少 Azure 整體費用。 您可以從 Advisor 儀表板上的 [成本] 索引標籤取得成本建議。
@@ -51,7 +49,7 @@ Advisor 會顯示繼續執行虛擬機器的預估成本，以便您可以選擇
 
 4. 在 Advisor 儀表板上，按一下 [成本] 索引標籤。
 
-5. 選取您想要接收建議的訂用帳戶，然後按一下 [取得建議]。
+5. 選取您想要接收建議的訂用帳戶，然後按一下取得建議。
 
 > [!NOTE]
 > 若要存取 Advisor 建議，您必須先向 Advisor「註冊您的訂用帳戶」。 當「訂用帳戶擁有者」啟動 Advisor 儀表板，然後按一下 [取得建議] 按鈕時，便會註冊訂用帳戶。 此作業「只需要執行一次」。 註冊訂用帳戶之後，您能以訂用帳戶、資源群組或特定資源的 [擁有者]、[參與者] 或 [讀取者] 身分存取 Advisor 建議。
@@ -64,4 +62,3 @@ Advisor 會顯示繼續執行虛擬機器的預估成本，以便您可以選擇
 * [建議程式效能建議](advisor-cost-recommendations.md)
 * [建議程式高可用性建議](advisor-cost-recommendations.md)
 * [建議程式安全性建議](advisor-cost-recommendations.md)
-

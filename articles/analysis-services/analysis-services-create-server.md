@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
+ms.openlocfilehash: 95b367e7cd74405088190c1fe19cf92990759d90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>在 Azure 入口網站中建立 Azure Analysis Services 伺服器
 本文將逐步引導您在 Azure 訂用帳戶中建立 Analysis Services 伺服器資源。
@@ -60,5 +59,4 @@ ms.lasthandoff: 08/04/2017
 建立您的伺服器後，您可以使用 SSDT 或透過 SSMS，在其中[部署模型](analysis-services-deploy.md)。
 
 如果您部署到伺服器的模型會連接到內部部署資料來源，您就必須在您網路中的電腦上安裝[內部部署資料閘道](analysis-services-gateway.md)。
-
 

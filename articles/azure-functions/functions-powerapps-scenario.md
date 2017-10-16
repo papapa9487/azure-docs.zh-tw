@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-powerapps"></a>從 PowerApps 呼叫函式
 [PowerApps](https://powerapps.microsoft.com) 平台的設計是為了讓商務專家不需要傳統應用程式程式碼，就能建置應用程式。 專業開發人員可以使用 Azure Functions 來擴充 PowerApps 的功能，同時透過技術詳細資料來防護 PowerApps 應用程式建立器。
 

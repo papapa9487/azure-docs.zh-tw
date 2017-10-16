@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>使用 Azure Functions 連接到 Azure SQL Database
 本主題示範如何使用 Azure Functions 建立可清除 Azure SQL Database 資料表中資料列的排程作業。 新的 C# 函數是根據 Azure 入口網站中預先定義的計時器觸發程序範本所建立。 若要支援此案例，您也必須在函數應用程式中設定資料庫連接字串作為設定。 此案例會對資料庫使用大量作業。 若要讓您的函數程序在 Mobile Apps 資料表中進行個別的 CRUD 作業，您應該改用 [Mobile Apps 繫結](functions-bindings-mobile-apps.md)。
@@ -125,4 +124,3 @@ ms.lasthandoff: 05/25/2017
   可供程式設計人員撰寫函數程式碼及定義觸發程序和繫結時參考。
 * [測試 Azure Functions](functions-test-a-function.md)  
   說明可用於測試函式的各種工具和技巧。  
-

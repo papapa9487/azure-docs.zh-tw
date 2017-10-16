@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 578ccb162e91d3ec7befb53b09400fc49c5ba37a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-case---product-recommendations"></a>使用案例 - 產品建議
 Azure Data Factory 是許多服務之一，可用來實作解決方案加速器的 Cortana Intelligence 套件。  請參閱 [Cortana Intelligence 套件](http://www.microsoft.com/cortanaanalytics) 頁面以了解這個套件的詳細資料。 在本文中，我們描述 Azure 使用者已經使用 Azure Data Factory 和其他 Cortana Intelligence 元件服務解決與實作的常見使用案例。
@@ -60,5 +59,4 @@ Azure Data Factory 是許多服務之一，可用來實作解決方案加速器�
 藉由最佳化其產品建議策略並與業務目標對齊，解決方案可符合線上零售商的商務和行銷目標。 此外，他們能夠以有效率、可靠且符合成本效益的方式作業化和管理產品建議工作流程。 此方法讓他們能夠輕鬆地根據銷售點擊轉換成功的測量結果更新其模型並微調其有效性。 藉由使用 Azure Data Factory，他們可以放棄其耗時且昂貴的手動雲端資源管理，移至隨選雲端資源管理。 因此，他們能夠節省時間和金錢並減少解決方案部署的時間。 資料歷程檢視和作業服務健全狀況變得容易視覺化，且 Azure 入口網站也提供利用直覺式 Data Factory 監視和管理 UI 進行的疑難排解。 其解決方案可以立即排程與管理，如此可以可靠地產生完成的資料並將其傳送給使用者，並可自動管理資料和處理相依性而不需人力介入。
 
 藉由提供此個人化的購物體驗，線上零售商可建立更具競爭力、更吸引人的客戶體驗，並因此增加銷售量和整體的客戶滿意度。
-
 

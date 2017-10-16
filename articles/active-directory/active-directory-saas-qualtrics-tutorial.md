@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 03/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 2fcde595a40dafda7549f5bccb582b57585b314e
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>教學課程：Azure Active Directory 與 Qualtrics 整合
 本教學課程的目的是要示範 Azure 與 Qualtrics 的整合。  
@@ -59,7 +59,7 @@ ms.lasthandoff: 07/11/2017
 6. 在**搜尋方塊**中，輸入 **Qualtrics**。
    
    ![應用程式資源庫](./media/active-directory-saas-qualtrics-tutorial/IC789543.png "應用程式資源庫")
-7. 在結果窗格中，選取 [Qualtrics]，然後按一下 [完成] 來新增應用程式。
+7. 在結果窗格中，選取 Qualtrics，然後按一下完成 來新增應用程式。
    
    ![Qualtrics](./media/active-directory-saas-qualtrics-tutorial/IC789544.png "Qualtrics")
    
@@ -87,7 +87,7 @@ ms.lasthandoff: 07/11/2017
    >SSO 設定必須由 Qualtrics 支援小組執行。 設定完成後，您將會收到通知。
    > 
    > 
-6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+6. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
    
    ![設定單一登入](./media/active-directory-saas-qualtrics-tutorial/IC789549.png "設定單一登入")
    
@@ -106,7 +106,7 @@ ms.lasthandoff: 07/11/2017
 2. 在 [Qualtrics] 應用程式整合頁面上，按一下 [指派使用者]。
    
    ![指派使用者](./media/active-directory-saas-qualtrics-tutorial/IC789550.png "指派使用者")
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
    ![是](./media/active-directory-saas-qualtrics-tutorial/IC767830.png "是")
 

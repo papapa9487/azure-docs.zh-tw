@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/10/2017
 ms.author: jeedes
 ms.openlocfilehash: 0e0123a40d52dfd7a2e29c29cb2239e979089ca9
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>教學課程：Azure Active Directory 與 ClickTime 整合
 
@@ -131,7 +131,7 @@ ClickTime 與 Azure AD 整合提供下列優點：
 
 7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 ClickTime 公司網站。
 
-8. 在頂端工具列中，按一下 [喜好設定]，然後按一下 [安全性設定]。
+8. 在頂端工具列中，按一下 喜好設定，然後按一下安全性設定。
 
 9. 在 [單一登入喜好設定]  組態區段中，執行下列步驟：
    
@@ -159,7 +159,7 @@ ClickTime 與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-clicktime-tutorial/create_aaduser_01.png) 
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
     
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-clicktime-tutorial/create_aaduser_02.png) 
 
@@ -189,7 +189,7 @@ ClickTime 需以手動方式佈建。
 
 **若要佈建使用者帳戶，請執行下列步驟：**
 1. 登入您的 **ClickTime** 租用戶。
-2. 在頂端工具列中，按一下 [公司]，然後按一下 [人員]。
+2. 在頂端工具列中，按一下 公司，然後按一下人員。
    
     ![人員](./media/active-directory-saas-clicktime-tutorial/tic777282.png "人員")
 3. 按一下 [新增人員] 。

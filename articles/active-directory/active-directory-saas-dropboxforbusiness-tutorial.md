@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
 ms.openlocfilehash: a56a5af171eaca259db29f25fee4331a77313420
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
 
@@ -73,7 +73,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_search.png)
 
-5. 在結果窗格中選取 [Dropbox for Business]，然後按一下 [新增] 按鈕來新增應用程式。
+5. 在結果窗格中選取 Dropbox for Business，然後按一下新增 按鈕來新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
@@ -120,7 +120,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
    
     ![設定單一登入](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769511.png "設定單一登入")
    
-    d. 在 [單一登入] 區段中，選取 [啟用單一登入]，然後按一下 [更多資訊] 以展開此區段。  
+    d. 在 單一登入 區段中，選取 啟用單一登入，然後按一下更多資訊 以展開此區段。  
    
     ![設定單一登入](./media/active-directory-saas-dropboxforbusiness-tutorial/ic769512.png "設定單一登入")
    

@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: b44b1a5b3e988a51db3325ec8a181651fa84e768
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>教學課程：Azure Active Directory 與 Cisco Webex 整合
 本教學課程的目的是要示範 Azure 與 Cisco Webex 的整合。  
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/11/2017
 6. 在**搜尋方塊**中，輸入 **Cisco Webex**。
    
    ![應用程式資源庫](./media/active-directory-saas-cisco-webex-tutorial/IC777615.png "應用程式資源庫")
-7. 在結果窗格中，選取 [Cisco Webex]，然後按一下 [完成] 以加入應用程式。
+7. 在結果窗格中，選取 Cisco Webex，然後按一下完成 以加入應用程式。
    
    ![Cisco Webex](./media/active-directory-saas-cisco-webex-tutorial/IC777616.png "Cisco Webex")
    
@@ -107,7 +107,7 @@ ms.lasthandoff: 07/11/2017
    8. 在 [AuthnContextClassRef] 文字方塊中，輸入 **urn:oasis:names:tc:SAML:2.0:ac:classes:Password**。
    9. 在 Azure 傳統入口網站的 [在 Cisco Webex 設定單一登入] 對話頁面上，複製 [遠端登出 URL] 值，然後將它貼至 [客戶 SSO 服務登出 URL] 文字方塊中。
    10. 按一下 [更新] 。
-9. 在 Azure 傳統入口網站的 [在 Cisco Webex 設定單一登入] 對話頁面上，選取單一登入設定確認，然後按一下 [完成]。
+9. 在 Azure 傳統入口網站的 在 Cisco Webex 設定單一登入 對話頁面上，選取單一登入設定確認，然後按一下完成。
    
    ![設定單一登入](./media/active-directory-saas-cisco-webex-tutorial/IC777624.png "設定單一登入")
    
@@ -143,7 +143,7 @@ ms.lasthandoff: 07/11/2017
 2. 在 [Cisco Webex] 應用程式整合頁面上，按一下 [指派使用者]。
    
    ![指派使用者](./media/active-directory-saas-cisco-webex-tutorial/IC777627.png "指派使用者")
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
    ![是](./media/active-directory-saas-cisco-webex-tutorial/IC767830.png "是")
 

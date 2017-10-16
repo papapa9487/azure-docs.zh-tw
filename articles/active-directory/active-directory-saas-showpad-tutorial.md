@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: c8b39c9215675d8073f896f934339e7cd55334cc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>教學課程：Azure Active Directory 與 Showpad 整合
 
@@ -75,7 +74,7 @@ Showpad 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_search.png)
 
-5. 在結果窗格中，選取 [Showpad]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Showpad，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-showpad-tutorial/tutorial_showpad_addfromgallery.png)
 
@@ -254,5 +253,4 @@ Showpad 支援 Just-in-Time 佈建。 您已在 **[設定 Azure AD 單一登入]
 [201]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-showpad-tutorial/tutorial_general_203.png
-
 

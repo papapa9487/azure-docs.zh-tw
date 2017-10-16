@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/03/2017
 ms.author: jeedes
 ms.openlocfilehash: 27013ca9724cf2f57fc85f5f4ccb71921ca57a3b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>教學課程：Azure Active Directory 與 Promapp 整合
 
@@ -73,7 +73,7 @@ Promapp 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_search.png)
 
-5. 在結果面板中，選取 [Promapp]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Promapp，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_addfromgallery.png)
 
@@ -145,9 +145,9 @@ Promapp 與 Azure AD 整合提供下列優點：
     
     a. 將您從 Azure 入口網站複製的 [SAML 單一登入服務 URL]，貼到 [SSO 登入 URL] 文字方塊中。
     
-    b.這是另一個 C# 主控台應用程式。 針對 [SSO - 單一登入模式]，選取 [選擇性]，然後按一下 [儲存]。
+    b.這是另一個 C# 主控台應用程式。 針對 SSO - 單一登入模式，選取 選擇性，然後按一下儲存。
 
-    c. 在記事本中開啟下載的憑證，複製憑證的內容但不包含第一行 (-----BEGIN CERTIFICATE-----) 和最後一行 (-----END CERTIFICATE-----)，將它貼到 [SSO-x.509 憑證] 文字方塊中，然後按一下 [儲存]。
+    c. 在記事本中開啟下載的憑證，複製憑證的內容但不包含第一行 (-----BEGIN CERTIFICATE-----) 和最後一行 (-----END CERTIFICATE-----)，將它貼到 SSO-x.509 憑證 文字方塊中，然後按一下儲存。
         
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

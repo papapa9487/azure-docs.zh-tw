@@ -17,10 +17,10 @@ ms.author: kgremban
 ms.custom: H1Hack27Feb2017
 robots: noindex
 ms.openlocfilehash: e0b0b87a454db96747f024e81882fe83d62fdbe2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-azure-active-directory-groups-to-an-application"></a>將 Azure Active Directory 群組指派給應用程式
 在將使用者和群組指派給應用程式之前，您必須先要求使用者指派。 若要了解如何要求使用者指派，請參閱 [Azure AD 和應用程式：要求使用者指派](active-directory-applications-guiding-developers-requiring-user-assignment.md) 一文。

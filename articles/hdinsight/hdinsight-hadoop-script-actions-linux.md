@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 7f1a0bd8c7e60770d376f10eaea136a55c632c5e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -379,4 +378,3 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 * 深入了解 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)
 * 使用 [HDInsight.NET SDK 參考](https://msdn.microsoft.com/library/mt271028.aspx) ，深入了解如何建立 .NET 應用程式來管理 HDInsight
 * 使用 [HDInsight REST API](https://msdn.microsoft.com/library/azure/mt622197.aspx) ，以了解如何使用 REST 在 HDInsight 叢集上執行管理動作。
-

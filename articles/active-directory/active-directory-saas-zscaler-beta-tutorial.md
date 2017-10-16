@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 72b4efc6b3bb58e63a399ab26c42984f070d9307
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>教學課程：Azure Active Directory 與 Zscaler Beta 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 08/03/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-zscaler-beta-tutorial/tutorial_zscalerbeta_search.png)
 
-5. 在結果窗格中，選取 [Zscaler Beta]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Zscaler Beta，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-zscaler-beta-tutorial/tutorial_zscalerbeta_addfromgallery.png)
 
@@ -146,7 +146,7 @@ ms.lasthandoff: 08/03/2017
 
     b.這是另一個 C# 主控台應用程式。 按一下 [設定 SAML 單一登入參數] 。
 
-11. 在 [設定 SAML 單一登入參數] 對話方塊頁面上，執行下列步驟，然後按一下 [完成]
+11. 在 設定 SAML 單一登入參數 對話方塊頁面上，執行下列步驟，然後按一下完成
 
     ![單一登入](./media/active-directory-saas-zscaler-beta-tutorial/ic800209.png "單一登入")
     

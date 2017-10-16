@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-translationtype: Human Translation
-ms.sourcegitcommit: e664ce9426a2852a35dfdade5d41a9ce8b37a3b7
 ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 下列限制適用於 Azure Site Recovery：
 
@@ -29,5 +29,4 @@ ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
 | 每個 Azure 保存庫的復原計劃數目 |沒有限制 |
 | 每個保護群組的伺服器數目 |沒有限制 |
 | 每個復原計畫的伺服器數目 |50 |
-
 

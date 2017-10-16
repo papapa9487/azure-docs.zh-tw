@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 77fd7b5b339a8ede8a297bec96f91f0a243cc18d
-ms.openlocfilehash: cd6cfe3fde93624faec844f91ea9193527495df4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/12/2017
-
+ms.openlocfilehash: c56cefb3c62787f1bc2561aecec719cdbbc3b1c2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的使用者設定檔範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -110,7 +109,7 @@ ms.lasthandoff: 01/12/2017
 |addresserEmail|字串|目前使用者的電子郵件地址。|  
 |developersUsageStatisticsLinkk|字串|相對 URL，可前往檢視目前使用者的分析。|  
 |subscriptions|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
-|applications|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
+|應用程式所需|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
 |changePasswordUrl|字串|相對 URL，可前往變更目前使用者的密碼。|  
 |changeNameOrEmailUrl|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
 |canChangePassword|布林值|目前使用者是否可以變更其密碼。|  

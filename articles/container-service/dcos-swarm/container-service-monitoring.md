@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: 9dd451f994940d7cc3a59bd7fd08a8f067345e34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 42e1743b67a46c9eac6cce44852ea3a48fd38e5a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>使用 Datadog 監視 Azure Container Service DC/OS 叢集
 本文中，我們會將 Datadog 代理程式部署到 Azure 容器服務叢集中的所有代理程式節點。 您將需要 Datadog 帳戶以進行這項設定。 
@@ -50,5 +49,4 @@ Datadog 是一項監視服務，會從 Azure 容器服務叢集內的容器收�
 ![DC/OS Universe 中的 Datadog 設定](./media/container-service-monitoring/datadog3.png) 
 
 在上面的設定中，執行個體會設為 10000000，因此每當有新節點新增至叢集時，Datadog 就會自動將代理程式部署到該新節點。 這是過渡解決方案。 一旦您安裝了封裝，請瀏覽回到 Datadog 網站並尋找「[儀表板](https://app.datadoghq.com/dash/list)」。 從該處，您會看到自訂和整合儀表板。 [Docker 儀表板](https://app.datadoghq.com/screen/integration/docker)會擁有為了監視叢集所需的所有容器計量。 
-
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: curtand
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: e5ac068e37d921530272e5eb3dc76d976a86a742
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>了解 Azure 中的資源存取
 
@@ -61,4 +60,3 @@ Azure 傳統入口網站內的功能可讓使用 Microsoft 帳戶登入的 SA �
 [2]: ./media/active-directory-understanding-resource-access/IC707932.png
 [3]: ./media/active-directory-understanding-resource-access/IC707933.png
 [4]: ./media/active-directory-understanding-resource-access/IC707934.png
-

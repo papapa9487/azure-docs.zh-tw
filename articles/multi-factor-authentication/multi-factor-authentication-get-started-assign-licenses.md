@@ -16,12 +16,11 @@ ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4572913c2bc732c31f38021f9d3ccc34417de875
-ms.openlocfilehash: 536968a803e14019c42e7beed4c948ab760cf020
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/15/2017
-
+ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>將 Azure MFA、Azure AD Premium 或 Enterprise Mobility 授權指派給使用者
 如果您已購買 Azure MFA、Azure AD Premium 或 Enterprise Mobility Suite 授權，便不需要建立 Multi-Factor Auth Provider。 將授權指派給使用者後，您就可以開始為使用者啟用 MFA。
@@ -44,4 +43,3 @@ ms.lasthandoff: 02/15/2017
 ## <a name="next-steps"></a>後續步驟
 
 - 如需詳細資訊，請參閱[什麼是 Microsoft Azure Active Directory 授權？](../active-directory/active-directory-licensing-what-is.md)
-

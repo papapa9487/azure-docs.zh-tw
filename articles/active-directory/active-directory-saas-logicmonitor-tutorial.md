@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: e49960cac868f80af3e9165a9f75e49be87515f4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>教學課程：Azure Active Directory 與 LogicMonitor 整合
 
@@ -73,7 +73,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_search.png)
 
-5. 在結果面板中，選取 [LogicMonitor]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 LogicMonitor，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-logicmonitor-tutorial/tutorial_logicmonitor_addfromgallery.png)
 
@@ -192,7 +192,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 1. 以系統管理員身分登入您的 LogicMonitor 公司網站。
 
-2. 在頂端的功能表中，按一下 [設定]，然後按一下 [角色與使用者]。
+2. 在頂端的功能表中，按一下 設定，然後按一下角色與使用者。
    
    ![角色和使用者](./media/active-directory-saas-logicmonitor-tutorial/ic790056.png "角色和使用者")
 

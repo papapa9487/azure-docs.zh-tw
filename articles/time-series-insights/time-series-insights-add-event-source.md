@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 04/21/2017
 ms.author: omravi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: ffa2eaf3680e68ac14aabf49b6308caeb173fd43
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: c247a7abd3d1682f8ccd1940e506ef54f9409263
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-event-source-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>使用 Ibiza 入口網站建立 Time Series Insights 環境的事件來源
 
 Time Series Insights 事件來源衍生自事件代理程式，例如 Azure 事件中樞。 Time Series Insights 會直接連線到事件來源，並內嵌資料流，而不需要使用者撰寫一行程式碼。 目前，Time Series Insights 支援 Azure 事件中樞與 Azure IoT 中樞。 未來將會新增更多事件來源。
@@ -55,4 +53,3 @@ Time Series Insights 事件來源衍生自事件代理程式，例如 Azure 事�
 
 * [將事件傳送](time-series-insights-send-events.md)到事件來源
 * 在 [Time Series Insights 入口網站](https://insights.timeseries.azure.com)中檢視您的環境
-

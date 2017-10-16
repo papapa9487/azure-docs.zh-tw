@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: ab60bda1be7101d5bd0c51f5499a820db40375bf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>教學課程：Azure Active Directory 與 UltiPro 整合
 
@@ -75,7 +73,7 @@ UltiPro 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_search.png)
 
-5. 在結果窗格中，選取 [UltiPro]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 UltiPro，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-ultipro-tutorial/tutorial_ultipro_addfromgallery.png)
 
@@ -242,5 +240,4 @@ UltiPro 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ultipro-tutorial/tutorial_general_203.png
-
 

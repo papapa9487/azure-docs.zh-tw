@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
 ms.openlocfilehash: 7542360f9c75786bf400553090ba0a891d9c2fcc
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>教學課程：Azure Active Directory 與 Lifesize Cloud 整合
 
@@ -73,7 +73,7 @@ Lifesize Cloud 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_search.png)
 
-5. 在結果面板中，選取 [Lifesize Cloud]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Lifesize Cloud，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesize-cloud_addfromgallery.png)
 
@@ -138,7 +138,7 @@ Lifesize Cloud 與 Azure AD 整合提供下列優點：
 
 7. 若要取得為您的應用程式設定的 SSO，請使用系統管理員權限登入 Lifesize Cloud 應用程式。
 
-8. 在右上角按一下您的名稱，然後按一下 [進階設定]。
+8. 在右上角按一下您的名稱，然後按一下進階設定。
    
     ![設定單一登入](./media/active-directory-saas-lifesize-cloud-tutorial/tutorial_lifesizecloud_06.png)
 

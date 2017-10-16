@@ -15,12 +15,11 @@ ms.devlang: rest-api
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
+ms.openlocfilehash: 16bd85065f77612ac342ae4a8b500e0c7fa2a078
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 160fbc98e0f3dcc7d17cbe0c7f7425811596a896
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的變更摘要支援
 [Azure Cosmos DB](../cosmos-db/introduction.md) 是一項快速且有彈性的全域複製資料庫服務，可用來儲存大量的交易式和操作資料，且具有可預測的讀取和寫入個位數毫秒延遲。 這使得它適合用於 IoT、遊戲、零售，以及操作記錄應用程式。 這些應用程式中的一個常見設計模式是，追蹤對 Azure Cosmos DB 資料所做的變更，並根據這些變更來更新具體化檢視、執行即時分析、將資料封存到冷儲存體，以及在特定事件上觸發通知。 Azure Cosmos DB 中的**變更摘要支援**允許您針對每一個模式建置有效率且可調整的解決方案。
@@ -71,7 +70,7 @@ Azure Cosmos DB 提供以累加方式讀取對 Azure Cosmos DB 集合做出之�
 
 ![Azure Cosmos DB 變更摘要的分散式處理](./media/change-feed/changefeedvisual.png)
 
-關於如何在用戶端程式碼中實作變更摘要，我們提供了幾個選項供您選擇。 接下來的幾節會說明如何使用 Azure Cosmos DB REST API 和 DocumentDB SDK 來實作變更摘要。 不過，如果您使用 .NET 應用程式，則建議您使用新的[變更摘要處理器程式庫](#change-feed-processor)來處理變更摘要所傳來的事件，因為該程式庫可簡化分割區變更的讀取作業，並讓多個執行緒平行運作。 
+關於如何在用戶端程式碼中實作變更摘要，我們提供了幾個選項給您。 接下來的幾節會說明如何使用 Azure Cosmos DB REST API 和 DocumentDB SDK 來實作變更摘要。 不過，如果您使用 .NET 應用程式，則建議您使用新的[變更摘要處理器程式庫](#change-feed-processor)來處理變更摘要所傳來的事件，因為該程式庫可簡化分割區變更的讀取作業，並讓多個執行緒平行運作。 
 
 ## <a id="rest-apis"></a>使用 REST API 和 DocumentDB SDK
 Azure Cosmos DB 提供彈性的儲存體及輸送量容器，稱為**集合**。 集合內的資料會針對延展性和效能，使用[資料分割索引鍵](partition-data.md)以邏輯方式分組。 Azure Cosmos DB 提供各種用來存取此資料的 API，包括依識別碼查閱 (Read/Get)、查詢及讀取摘要 (掃描)。 變更摘要可以透過將兩個新的要求標頭填入至 DocumentDB 的 `ReadDocumentFeed` API 來取得，並且可以跨分割區索引鍵的範圍來平行處理。
@@ -532,4 +531,3 @@ using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destColl
 ## <a name="next-steps"></a>後續步驟
 * 嘗試 [GitHub 上的 Azure Cosmos DB 變更摘要程式碼範例 (英文)](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * 使用 [Azure Cosmos DB SDK](documentdb-sdk-dotnet.md) 或 [REST API](/rest/api/documentdb/) 開始撰寫程式碼。
-

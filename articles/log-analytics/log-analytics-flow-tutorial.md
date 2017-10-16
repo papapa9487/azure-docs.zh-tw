@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: bwren
+ms.openlocfilehash: 329f3c66bc131a9555f1778acfcae5dd9c761f56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 4955f90de06cd720d78c5bb60c0adcd7dc633245
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動化 Log Analytics 程序
 [Microsoft Flow](https://ms.flow.microsoft.com) 可讓您使用數百個動作建立各種不同服務的自動化工作流程。 從一個動作的輸出可用來作為另一個動作的輸入，讓您建立不同服務之間的整合。  適用於 Microsoft Flow 的 Azure Log Analytics 連接器可讓您建立工作流程，包含 Log Analytics 記錄搜尋所擷取的資料。
 
@@ -37,14 +35,14 @@ ms.lasthandoff: 08/10/2017
 2. 按一下 [+ 從空白建立]。
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
-1. 按一下 [Search hundreds of connectors and triggers] \(搜尋數以百計的連接器和觸發程序) 。
+1. 按一下 [Search hundreds of connectors and triggers] (搜尋數以百計的連接器和觸發程序)。
 2. 在搜尋方塊中鍵入**排程**。
 3. 依序選取 [排程] 和 [排程 - 重複]。
 4. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。<br><br>![Microsoft Flow 觸發程序對話方塊](media/log-analytics-flow-tutorial/flow01.png)
 
 
 ## <a name="step-3-add-a-log-analytics-action"></a>步驟 3：新增 Log Analytics 動作
-1. 按一下 [+ 新增步驟]，然後按一下 [新增動作]。
+1. 按一下 + 新增步驟，然後按一下新增動作。
 2. 搜尋 **Log Analytics**。
 3. 按一下 [Azure Log Analytics – Run query and visualize results] \(Azure Log Analytics – 執行查詢，並將結果視覺化) 。<br><br>![Log Analytics 執行查詢視窗](media/log-analytics-flow-tutorial/flow02.png)
 
@@ -64,7 +62,7 @@ ms.lasthandoff: 08/10/2017
 
 ## <a name="step-5-configure-the-flow-to-send-email"></a>步驟 5：設定傳送電子郵件的流程
 
-1. 按一下 [新增步驟]，然後按一下 [+ 新增動作]。
+1. 按一下 新增步驟，然後按一下+ 新增動作。
 2. 搜尋 **Office 365 Outlook**。
 3. 按一下 [Office 365 Outlook – 傳送電子郵件]。<br><br>![Office 365 Outlook 選取視窗](media/log-analytics-flow-tutorial/flow04.png)
 
@@ -75,7 +73,7 @@ ms.lasthandoff: 08/10/2017
 7. 在 [為 HTML] 方塊中選取 [是]。<br><br>![Office 365 電子郵件設定畫面](media/log-analytics-flow-tutorial/flow05.png)
 
 ## <a name="step-6-save-and-test-your-flow"></a>步驟 6：儲存並測試流程
-1. 在 [流程名稱] 方塊中，新增您的流程名稱，然後按一下 [建立流程]。<br><br>![儲存流程](media/log-analytics-flow-tutorial/flow06.png)
+1. 在 流程名稱 方塊中，新增您的流程名稱，然後按一下建立流程。<br><br>![儲存流程](media/log-analytics-flow-tutorial/flow06.png)
 2. 現在已建立流程，並且會在一天之後，也就是您指定的排程時執行。 
 3. 若要立即測試流程，請依序按一下 [立即執行]、[執行流程]。<br><br>![執行流程](media/log-analytics-flow-tutorial/flow07.png)
 3. 流程完成時，請檢查您指定的收件者郵件。  您應該會收到內文類似如下的郵件：<br><br>![範例電子郵件](media/log-analytics-flow-tutorial/flow08.png)
@@ -85,7 +83,6 @@ ms.lasthandoff: 08/10/2017
 
 - 深入了解 [Log Analytics 中的記錄搜尋](log-analytics-log-search-new.md)。
 - 深入了解 [Microsoft Flow](https://ms.flow.microsoft.com)。
-
 
 
 

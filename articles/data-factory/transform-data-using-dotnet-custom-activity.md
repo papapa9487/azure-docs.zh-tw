@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 24f15168fd716cf317087b8a2ad19b66574ce569
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [第 1 版 - 正式運作](v1/data-factory-use-custom-activities.md)
+> * [第 1 版 - 正式推出](v1/data-factory-use-custom-activities.md)
 > * [第 2 版 - 預覽](transform-data-using-dotnet-custom-activity.md)
 
 您可以在 Azure Data Factory 管線中使用兩種活動。
@@ -261,4 +260,3 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 * [Spark 活動](transform-data-using-spark.md)
 * [Machine Learning 批次執行活動](transform-data-using-machine-learning.md)
 * [預存程序活動](transform-data-using-stored-procedure.md)
-

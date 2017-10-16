@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 09/20/2017
 ms.author: mblythe
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-microsoft-flow"></a>從 Microsoft Flow 呼叫函式
 
 [Microsoft Flow](https://flow.microsoft.com/) 可讓您輕易將最愛的應用程式與服務之間的工作流程和商業程序自動化。 專業開發人員可以使用 Azure Functions 來擴充 Microsoft Flow 的功能，同時透過技術詳細資料來防護流程建立器。

@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: b81791f0bce7e6f57782dfe7bc5fb5fc21369e7d
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-your-key-vault"></a>保護您的金鑰保存庫
 Azure 金鑰保存庫是用來保護雲端應用程式加密金鑰和密碼 (例如憑證、連接字串、密碼) 的雲端服務。 由於這項資料相當敏感且攸關業務，您會想要保護金鑰保存庫的存取權，讓只有獲得授權的應用程式和使用者可以存取金鑰保存庫。 本文提供金鑰保存庫存取模型概觀、說明驗證和授權，並透過範例描述如何保護雲端應用程式金鑰保存庫的存取權。

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 66bec35a8f17482433dbf02827b90620d1cff378
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>教學課程：Azure Active Directory 與 Jobscience 整合
 
@@ -73,7 +73,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. 在結果面板中，選取 [Jobscience]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果面板中，選取 Jobscience，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -133,7 +133,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
    
    ![設定](./media/active-directory-saas-jobscience-tutorial/IC784358.png "設定")
 
-9. 在 [系統管理員] 區段的左方導覽窗格中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。 
+9. 在 系統管理員 區段的左方導覽窗格中，按一下 網域管理 展開相關的區段，然後按一下我的網域 來開啟 我的網域 頁面。 
    
    ![我的網域](./media/active-directory-saas-jobscience-tutorial/ic767825.png "我的網域")
 
@@ -141,7 +141,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     ![已部署到使用者的網域](./media/active-directory-saas-jobscience-tutorial/ic784377.png "已部署到使用者的網域")
 
-11. 在 Jobscience 公司網站上，按一下 [安全性控制項]，然後按一下 [單一登入設定]。
+11. 在 Jobscience 公司網站上，按一下 安全性控制項，然後按一下單一登入設定。
     
     ![安全性控制項](./media/active-directory-saas-jobscience-tutorial/ic784364.png "安全性控制項")
 
@@ -175,7 +175,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
 
     i. 按一下 [儲存] 。
 
-14. 在 [系統管理員] 區段的左方導覽窗格中，按一下 [網域管理] 展開相關的區段，然後按一下 [我的網域] 來開啟 [我的網域] 頁面。 
+14. 在 系統管理員 區段的左方導覽窗格中，按一下 網域管理 展開相關的區段，然後按一下我的網域 來開啟 我的網域 頁面。 
     
     ![我的網域](./media/active-directory-saas-jobscience-tutorial/ic767825.png "我的網域")
 
@@ -183,7 +183,7 @@ Jobscience 與 Azure AD 整合提供下列優點：
     
     ![登入頁面商標](./media/active-directory-saas-jobscience-tutorial/ic767826.png "登入頁面商標")
 
-16. [登入頁面商標] 頁面的 [驗證服務] 區段中，會顯示您的 [SAML SSO 設定] 的名稱。 請選取該名稱，然後按一下 [儲存] 。
+16. [登入頁面商標] 頁面的 [驗證服務] 區段中，會顯示您的 [SAML SSO 設定] 的名稱。 請選取該名稱，然後按一下儲存 。
     
     ![登入頁面商標](./media/active-directory-saas-jobscience-tutorial/ic784366.png "登入頁面商標")
 

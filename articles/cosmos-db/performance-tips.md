@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/23/2017
 ms.author: mimig
+ms.openlocfilehash: cf7ba26369b3978bb0c2ad5e903a7aee804017ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: cab019480a14de1a1481abee800553c6545add70
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-tips-for-azure-cosmos-db"></a>Azure Cosmos DB 的效能秘訣
 Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得延遲與輸送量保證的情況下順暢地調整。 使用 Cosmos DB 時，您不須進行主要的架構變更，或是撰寫複雜的程式碼來調整您的資料庫。 相應增加和減少就像進行單一 API 呼叫或 [SDK 方法呼叫](set-throughput.md#set-throughput-sdk)一樣簡單。 不過，由於 Cosmos DB 是透過網路呼叫存取，所以您可以進行用戶端最佳化以達到最高效能。
@@ -145,14 +144,8 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
     - 針對部署於 Azure 上的 ASP.NET Web 應用程式，可以在 Azure 入口網站上的 [應用程式設定] 中選擇 [以 64 位元做為平台] 來完成。
 
 ## <a name="indexing-policy"></a>索引原則
-1. **使用延遲索引加快尖峰時間擷取速率**
-
-    Cosmos DB 可讓您在集合層級指定索引編製原則，該原則可讓您選擇是否要對集合中的文件自動編製索引。  此外，您也可以選擇同步 (一致) 和非同步 (延遲) 索引更新。 每次在集合中插入、取代或刪除文件時，預設會同步更新索引。 同步模式可讓查詢遵守與文件讀取操作相同的 [一致性層級](consistency-levels.md) ，而不會有任何需要索引趕上的延遲。
-
-    當發生資料寫入暴增，而您想要拉長時間來分攤編製內容索引所需的工作時，可以考慮延遲索引編製。 延遲索引編製也可讓您有效地使用您佈建的輸送量，並在尖峰時間，以最少的延遲為寫入要求提供服務。 不過，請特別注意，啟用延遲索引編製功能後，不論為 Cosmos DB 帳戶設定的一致性層級為何，查詢結果最終仍是會保持一致。
-
-    因此，一致索引編製模式 (IndexingPolicy.IndexingMode 設定為 [一致]) 會產生每次寫入的最高要求單位費用，而延遲索引編製模式 (IndexingPolicy.IndexingMode 設定為 [延遲]) 和不編製索引 (IndexingPolicy.Automatic 設定為 False) 在寫入時的編製索引成本為零。
-2. **從索引編製中排除未使用的路徑以加快寫入速度**
+ 
+1. **從索引編製中排除未使用的路徑以加快寫入速度**
 
     Cosmos DB 的索引編製原則也可讓您利用檢索路徑 (IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths)，指定要在索引編製中包含或排除的文件路徑。 在事先知道查詢模式的案例中，使用檢索路徑可改善寫入效能並降低索引儲存空間，因為檢索成本與檢索的唯一路徑數目直接相互關聯。  例如，以下程式碼示範如何將文件的整個區段 (也稱為 樹狀子目錄) 自索引編製作業中排除 (透過使用 "*" 萬用字元)。
 
@@ -214,4 +207,3 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 如需用來評估 Cosmos DB 在少數用戶端電腦上達到高效能的範例應用程式，請參閱 [Cosmos DB 的效能和規模測試](performance-testing.md)。
 
 此外，若要深入了解如何針對規模和高效能設計您的應用程式，請參閱 [Azure Cosmos DB 的資料分割與調整規模](partition-data.md)。
-

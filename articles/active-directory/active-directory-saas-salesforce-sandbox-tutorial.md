@@ -15,10 +15,10 @@ ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>教學課程：Azure Active Directory 與 Salesforce 沙箱整合
 
@@ -61,13 +61,13 @@ ms.lasthandoff: 08/03/2017
 3. 若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]  。
    
    ![應用程式](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "應用程式")
-4. 若要開啟 [應用程式庫]，請按一下 [新增應用程式]，然後按一下 [新增應用程式讓我的組織使用]。
+4. 若要開啟 應用程式庫，請按一下 新增應用程式，然後按一下新增應用程式讓我的組織使用。
    
    ![您要怎麼做？](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "您要怎麼做？")
 5. 在 [搜尋方塊] 中，輸入 **Salesforce 沙箱**。
    
    ![應用程式資源庫](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "應用程式資源庫")
-6. 在結果窗格中，選取 [Salesforce 沙箱]，然後按一下 [完成] 來新增應用程式。
+6. 在結果窗格中，選取 Salesforce 沙箱，然後按一下完成 來新增應用程式。
    
    ![Salesforce 沙箱](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746474.png "Salesforce 沙箱")
    
@@ -95,7 +95,7 @@ ms.lasthandoff: 08/03/2017
 7. 在頂端的功能表中，按一下 [安裝] 。
    
    ![設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "設定")
-8. 在左側的導覽窗格中，按一下 [安全性控制項]，然後按一下 [單一登入設定]。
+8. 在左側的導覽窗格中，按一下 安全性控制項，然後按一下單一登入設定。
    
    ![單一登入設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "單一登入設定")
 9. 在 [單一登入設定] 區段中，執行下列步驟：
@@ -116,7 +116,7 @@ ms.lasthandoff: 08/03/2017
  8. SFDC 不支援 SAML 登出。  解決方法是在 [識別提供者登出 URL] 文字方塊中貼上 'https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0'。
  9. 在 [服務提供者起始的要求繫結]，選取 [HTTP POST]。 
  10. 按一下 [儲存] 。
-11. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+11. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
     
     ![設定單一登入](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "設定單一登入")
 
@@ -125,7 +125,7 @@ ms.lasthandoff: 08/03/2017
 
 **若要啟用您的網域，請執行下列步驟：**
 
-1. 在左邊的導覽窗格中按一下 [網域管理]，然後按一下 [我的網域]。
+1. 在左邊的導覽窗格中按一下 網域管理，然後按一下我的網域。
    
    ![我的網域](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781029.png "我的網域")
    
@@ -149,7 +149,7 @@ ms.lasthandoff: 08/03/2017
    
    ![我的設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698773.png "我的設定")
 2. 從使用者功能表中，選取 [我的設定] 來開啟 [我的設定] 頁面。
-3. 在左方導覽窗格中，按一下 [個人] 來展開 [個人] 區段，然後按一下 [重設我的安全性權杖]：
+3. 在左方導覽窗格中，按一下 個人 來展開 個人 區段，然後按一下重設我的安全性權杖：
    
    ![我的設定](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698774.png "我的設定")
 4. 在 [重設我的安全性權杖] 頁面上，按一下 [重設安全性權杖] 來要求包含 Salesforce.com 安全性權杖的電子郵件。
@@ -180,7 +180,7 @@ ms.lasthandoff: 08/03/2017
 2. 在 [Salesforce Sandbox] 應用程式整合頁面上，按一下 [指派使用者]。
    
    ![指派使用者](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "指派使用者")
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
    ![是](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "是")
 

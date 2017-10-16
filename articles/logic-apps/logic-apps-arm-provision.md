@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/27/2016
 ms.author: LADocs; mandia
 ms.openlocfilehash: 161adeacd6da2b15225c8a4ddae171e19e539967
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-logic-app-using-a-template"></a>使用範本建立邏輯應用程式
 範本提供快速的方式，在邏輯應用程式中使用不同連接器。 邏輯應用程式包含 Azure Resource Manager 範本，供您用來建立可用於定義商務工作流程的邏輯應用程式。 您可以定義要部署的資源，以及部署邏輯應用程式時定義參數的方式。 您可以直接在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。

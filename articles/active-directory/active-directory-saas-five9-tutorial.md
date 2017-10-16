@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
 ms.openlocfilehash: d75163ea5eb3fa811e07861f06e6c4d5c758b898
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>教學課程：Azure Active Directory 與 Five9 Plus Adapter 整合 (CTI，Contact Center Agents)
 
@@ -73,7 +73,7 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-five9-tutorial/tutorial_five9_search.png)
 
-5. 在結果窗格中，選取 [\Five9 Plus Adapter (CTI，Contact Center Agents)\]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 \Five9 Plus Adapter (CTI，Contact Center Agents)\，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-five9-tutorial/tutorial_five9_addfromgallery.png)
 

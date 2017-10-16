@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
 ms.openlocfilehash: a5164282264124835692bc72a4ab61891aa7af9d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理員設定檔
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/11/2017
 ### <a name="to-create-a-traffic-manager-profile"></a>若要建立流量管理員設定檔
 
 1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
-2. 在 [中樞] 功能表中，按一下 [新增] > [網路] > [查看全部]**，然後按一下 [流量管理員]****設定檔，以開啟 [建立流量管理員設定檔]** 刀鋒視窗。
+2. 在 中樞 功能表中，按一下 新增 > 網路 > 查看全部**，然後按一下流量管理員****設定檔，以開啟 建立流量管理員設定檔** 刀鋒視窗。
 3. 在 [建立流量管理員設定檔] 刀鋒視窗上，如下所示操作：
     1. 在 [名稱]中，提供設定檔的名稱。 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 <name>, trafficmanager.net，用以存取您的流量管理員設定檔。
     2. 在 [路由方法] 中，選取 [優先順序]路由方法。

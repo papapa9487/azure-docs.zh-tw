@@ -15,10 +15,10 @@ ms.date: 07/21/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: e85a38ccbe25263ac42bc76351416b023fb77c87
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>教學課程：Azure Active Directory 與 SuccessFactors 整合
 本教學課程旨在說明如何整合 SuccessFactors 與 Azure Active Directory (Azure AD)。
@@ -76,7 +76,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 6. 在 [搜尋方塊] 中，輸入 **SuccessFactors**。
    
     ![設定單一登入][5]
-7. 在結果窗格中，選取 [SuccessFactors]，然後按一下 [完成] 加入應用程式。
+7. 在結果窗格中，選取 SuccessFactors，然後按一下完成 加入應用程式。
    
     ![設定單一登入][6]
 
@@ -202,7 +202,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 如果您嘗試啟用此功能，系統會檢查它是否會建立重複的 SAML 登入名稱。 例如，如果客戶有 User1 和 user1 的使用者名稱。 取消區分大小寫功能將會讓這些名稱重複。 系統會提供您錯誤訊息，並將不會啟用此功能。 客戶需要變更其中一個使用者名稱，使其拼寫方式實際上不同。 
 
-1. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+1. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
    
     ![應用程式][14]
 2. 在 [單一登入確認] 頁面上，按一下 [完成]。

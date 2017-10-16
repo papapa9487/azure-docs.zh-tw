@@ -12,11 +12,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
-translationtype: Human Translation
-ms.sourcegitcommit: 455c4847893175c1091ae21fa22215fd1dd10c53
 ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index"></a>建立 Azure Search 索引
 > [!div class="op_single_selector"]
@@ -65,10 +65,4 @@ ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
 當設計索引時，請在規劃階段花時間仔細考量每個決策。 由於必須為每個欄位指派 [適當屬性](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，因此在設計索引時，請務必牢記搜尋服務使用者體驗和商務需求。 在索引部署後若要加以變更，將牽涉到重建和重新載入資料。
 
 如果資料儲存體需求在之後有所改變，您可以藉由新增或移除資料分割來增加或減少容量。 如需詳細資料，請參閱[在 Azure 中管理您的搜尋服務](search-manage.md)或[服務限制](search-limits-quotas-capacity.md)。
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

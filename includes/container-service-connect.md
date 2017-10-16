@@ -162,7 +162,7 @@ docker info
 
     ![PuTTY 組態 1](./media/container-service-connect/putty1.png)
 
-4. 選取 [SSH] > [Auth]。 新增私密金鑰檔 (.ppk 格式) 的路徑以供驗證。 您可以使用 [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 等工具，從用來建立叢集的 SSH 金鑰產生此檔案。
+4. 選取 [SSH] > [Auth]。新增私密金鑰檔 (.ppk 格式) 的路徑以供驗證。 您可以使用 [PuTTYgen](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) 等工具，從用來建立叢集的 SSH 金鑰產生此檔案。
 
     ![PuTTY 組態 2](./media/container-service-connect/putty2.png)
 

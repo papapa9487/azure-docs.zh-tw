@@ -15,10 +15,10 @@ ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja;parahk;gsacavdm
 ms.openlocfilehash: 4f14dbf4b66f10290cd4f98d56a005f97cc6a207
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C：開始使用自訂原則
 
@@ -100,8 +100,8 @@ Azure AD B2C 會要求您註冊兩個額外的應用程式，由引擎用來註�
 1. 選取 [必要權限]。
 1. 選取 [新增] 。
 1. 選取 [選取 API]。
-1. 搜尋名稱 IdentityExperienceFramework。 在結果中選取 [IdentityExperienceFramework]，然後按一下 [選取]。
-1. 選取 [存取 IdentityExperienceFramework] 旁的核取方塊，然後按一下 [選取]。
+1. 搜尋名稱 IdentityExperienceFramework。 在結果中選取 IdentityExperienceFramework，然後按一下選取。
+1. 選取 存取 IdentityExperienceFramework 旁的核取方塊，然後按一下選取。
 1. 選取 [完成] 。
 1. 選取 [授與權限]，然後選取 [是] 加以確認。
 

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: sethm
 ms.openlocfilehash: 3c1b455e6298367dc50f0943b58f6cf1e7f1c5fd
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>使用 Java 從 Azure 事件中樞接收事件
 
@@ -45,11 +45,11 @@ ms.lasthandoff: 08/29/2017
 若要使用 EventProcessorHost，您必須擁有 [Azure 儲存體帳戶][Azure Storage account]：
 
 1. 登入 [Azure 入口網站][Azure portal]，然後按一下畫面左上方的 [+ 新增]。
-2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]。 在 [建立儲存體帳戶] 刀鋒視窗中，輸入儲存體帳戶名稱。 完成其餘欄位，選取您想要的區域，然後按一下 [建立]。
+2. 按一下 [儲存體]，然後按一下 [儲存體帳戶]。 在 [建立儲存體帳戶] 刀鋒視窗中，輸入儲存體帳戶名稱。 完成其餘欄位，選取您想要的區域，然後按一下建立。
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. 按一下新建立的儲存體帳戶，然後按一下 [ **管理存取金鑰**]：
+3. 按一下新建立的儲存體帳戶，然後按一下 **管理存取金鑰**：
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 

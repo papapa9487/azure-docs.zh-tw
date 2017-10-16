@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: yuaxu
 ms.openlocfilehash: 912367636f1b26b3b07fbd5fe3fe8ed053218fd5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>將推播通知新增至 Xamarin.Forms 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -49,7 +49,7 @@ ms.lasthandoff: 08/03/2017
 ### <a name="add-push-notifications-to-the-android-project"></a>將推播通知新增至 Android 專案
 為後端設定了 FCM 後，您就可以在用戶端中新增元件和程式碼，以向 FCM 註冊。 您也可以透過 Mobile Apps 後端向 Azure 通知中樞註冊推播通知，並接收通知。
 
-1. 在 **Droid** 專案中，以滑鼠右鍵按一下 [元件] 資料夾，然後按一下 [取得更多元件...]。 然後搜尋 **Google 雲端通訊用戶端**元件，並將該元件新增至專案。 此元件支援 Xamarin Android 專案的推播通知。
+1. 在 **Droid** 專案中，以滑鼠右鍵按一下 [元件] 資料夾，然後按一下 [取得更多元件...]。然後搜尋 **Google 雲端通訊用戶端**元件，並將該元件新增至專案。 此元件支援 Xamarin Android 專案的推播通知。
 2. 開啟 MainActivity.cs 專案檔案，然後將下列陳述式加入至檔案頂端：
 
         using Gcm.Client;
@@ -355,7 +355,7 @@ ms.lasthandoff: 08/03/2017
    >
    >
 3. 在應用程式中輸入一項工作，然後按一下加號 (**+**) 圖示。
-4. 確認您已接收到通知，然後按一下 [確定] 以關閉通知。
+4. 確認您已接收到通知，然後按一下確定 以關閉通知。
 
 ## <a name="configure-and-run-windows-projects-optional"></a>設定和執行 Windows 專案 (選擇性)
 本節說明執行適用於 Windows 裝置的 Xamarin.Forms WinApp 和 WinPhone81 專案。 這些步驟也支援通用 Windows 平台 (UWP) 專案。 如果未使用 Windows 裝置，可以略過這一節。

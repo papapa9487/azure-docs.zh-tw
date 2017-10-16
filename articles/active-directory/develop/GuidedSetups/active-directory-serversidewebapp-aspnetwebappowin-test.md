@@ -16,10 +16,10 @@ ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
 ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -77,7 +77,7 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 > 根據預設值，下列帳戶可以登入您的應用程式：個人帳戶 (包括 outlook.com、live.com 和其他帳戶)，以及來自已經整合 Azure Active Directory 之公司或組織的公司與學校帳戶。 
 
-> 如果您想要讓應用程式只接受來自某一個 Azure Active Directory 組織的登入，請將 *web.config* 中的 `Tenant` 參數從 `Common` 取代為組織的租用戶名稱 (例如 *contoso.onmicrosoft.com*)。 完成之後，請將您 [OWIN 啟動類別] 中的 `ValidateIssuer` 引數變更為 `true`。
+> 如果您想要讓應用程式只接受來自某一個 Azure Active Directory 組織的登入，請將 *web.config* 中的 `Tenant` 參數從 `Common` 取代為組織的租用戶名稱 (例如 *contoso.onmicrosoft.com*)。完成之後，請將您 [OWIN 啟動類別] 中的 `ValidateIssuer` 引數變更為 `true`。
 
 > 若只要允許來自某一特定組織清單的使用者登入，請將 `ValidateIssuer` 設定為 true 並使用 `ValidIssuers` 參數指定組織清單。
 

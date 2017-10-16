@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: 6b4b0e3ab126e70e4b27b971b15127aae0486bed
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>教學課程：Azure Active Directory 與 SAP 雲端平台整合
 
@@ -255,7 +254,7 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 
     ![Azure Active Directory 按鈕](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/create_aaduser_01.png)
 
-2. 若要顯示使用者清單，請移至 [使用者和群組]，然後按一下 [所有使用者]。
+2. 若要顯示使用者清單，請移至 使用者和群組，然後按一下所有使用者。
 
     ![[使用者和群組] 與 [所有使用者] 連結](./media/active-directory-saas-sap-hana-cloud-platform-tutorial/create_aaduser_02.png)
 
@@ -354,5 +353,4 @@ SAP 雲端平台與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-hana-cloud-platform-tutorial/tutorial_general_203.png
-
 

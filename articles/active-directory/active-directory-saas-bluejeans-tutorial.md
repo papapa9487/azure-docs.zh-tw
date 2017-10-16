@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: jeedes
 ms.openlocfilehash: 03bf65852b8d3cf14aebf155891a028db86e78d0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>教學課程：Azure Active Directory 與 BlueJeans 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 07/11/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_search.png)
 
-5. 在結果面板中，選取 [BlueJeans]，然後按一下 [新增] 按鈕以新增該應用程式。
+5. 在結果面板中，選取 BlueJeans，然後按一下新增 按鈕以新增該應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-bluejeans-tutorial/tutorial_bluejeans_addfromgallery.png)
 

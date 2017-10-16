@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。 
@@ -48,7 +47,7 @@ ms.lasthandoff: 09/25/2017
 
 利用自我裝載 IR 進行複製步驟的概略資料流程如下：
 
-![概觀](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![高階概述](media\create-self-hosted-integration-runtime\high-level-overview.png)
 
 1. 資料開發人員使用 PowerShell Cmdlet 在 Azure 資料處理站內建立自我裝載整合執行階段。 目前，Azure 入口網站不支援此功能。
 2. 資料開發人員建立內部部署資料存放區的連結服務，方法是指定自我裝載整合執行階段執行個體 (此執行個體應該用來連線到資料存放區)。 在設定連結服務的過程中，資料開發人員會使用「認證管理員」應用程式 (目前還不支援) 來設定驗證類型和認證。 「認證管理員」應用程式對話方塊將會與資料存放區進行通訊，以測試連線與要儲存認證的自我裝載整合執行階段。
@@ -67,10 +66,10 @@ ms.lasthandoff: 09/25/2017
 - 即使您使用 **ExpressRoute**，也應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)。 請使用自我裝載整合執行階段來建立服務與資料來源之間的連線。
 - 即使資料儲存在雲端中的 **Azure IaaS 虛擬機器**上，您也必須使用自我裝載整合執行階段。
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 - 支援的 **作業系統** 版本包括 Windows 7、Windows 8/8.1、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 **不支援在網域控制站**上安裝自我裝載整合執行階段。
-- 必須有 **.NET Framework 4.6.1 或更新版本**。 如果您要在 Windows 7 電腦上安裝自我裝載整合執行階段，請安裝 .NET Framework 4.6.1 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](/dotnet/framework/get-started/system-requirements)。
+- 必須有 **.NET Framework 4.6.1 或更新版本**。 如果您要在 Windows 7 電腦上安裝自我裝載整合執行階段，請安裝 .NET Framework 4.6.1 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](/dotnet/framework/get-started/system-requirements) 。
 - 建議的自我裝載整合執行階段電腦「組態」為至少 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 - 如果主機電腦休眠，自我裝載整合執行階段不會回應資料要求。 因此，安裝自我裝載整合執行階段之前，請先在電腦上設定適當的電源計劃。 如果電腦已設定為休眠，安裝自我裝載整合執行階段時會提示訊息。
 - 您必須是電腦上的系統管理員，才能成功安裝和設定自我裝載整合執行階段。
@@ -85,7 +84,7 @@ ms.lasthandoff: 09/25/2017
 ## <a name="install-and-register-self-hosted-ir-from-download-center"></a>從下載中心安裝和註冊自我裝載 IR
 
 1. 瀏覽至 [Microsoft 整合執行階段下載頁面](https://www.microsoft.com/download/details.aspx?id=39717)。
-2. 按一下 [下載]，選取適當的版本 (**32 位元**與**64 位元**)，然後按一下 [下一步]。
+2. 按一下 [下載]，選取適當的版本 (**32 位元**與**64 位元**)，然後按 [下一步]。
 3. 直接執行 **MSI** 或將它儲存至您的硬碟並執行。
 4. 在 [歡迎] 頁面上，選取一個**語言**，然後按 [下一步]。
 5. **接受**使用者授權合約，然後按 [下一步]。
@@ -100,7 +99,7 @@ ms.lasthandoff: 09/25/2017
 11. 在您電腦上執行的 Microsoft 整合執行階段組態管理員 [註冊整合執行階段 (自我裝載)] 頁面上，執行下列步驟：
     1. 將**驗證金鑰**貼上到文字區域。
     2. (選擇性) 按一下 [顯示驗證金鑰] 以查看金鑰文字。
-    3. 按一下 [註冊]。
+    3. 按一下 [註冊] 。
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
@@ -125,7 +124,7 @@ ms.lasthandoff: 09/25/2017
 
 在**公司防火牆**層級，您需要設定下列網域和連出連接埠：
 
-網域名稱 | 連接埠 | 描述
+網域名稱 | 連接埠 | 說明
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443、80 | 用於與「資料移動服務」後端進行通訊
 *.core.windows.net | 443 | 用於使用 Azure Blob 的分段複製 (如果已設定)
@@ -143,7 +142,7 @@ ms.lasthandoff: 09/25/2017
 
 例如，若要**從內部部署資料存放區複製到 Azure SQL Database 接收器或 Azure SQL 資料倉儲接收器**，請執行下列步驟︰
 
-- 在 Windows 防火牆和公司防火牆的連接埠 **1433** 上都允許進行輸出 **TCP** 通訊。
+- 在 Windows 防火牆和公司防火牆的通訊埠 **1433** 上都允許進行輸出 **TCP** 通訊。
 - 設定 Azure SQL 伺服器的防火牆設定，將自我裝載整合執行階段電腦的 IP 位址新增到允許的 IP 位址清單。
 
 > [!NOTE]
@@ -170,7 +169,7 @@ ms.lasthandoff: 09/25/2017
 在成功註冊自我裝載整合執行階段之後，如果您想要檢視或更新 Proxy 設定，請使用「整合執行階段組態管理員」。
 
 1.  啟動 [Microsoft 整合執行階段組態管理員]。
-2.  切換到 [設定] 索引標籤。
+2.  切換到 [設定]  索引標籤。
 3.  按一下 [HTTP Proxy] 區段中的 [變更] 連結，以啟動 [設定 HTTP Proxy] 對話方塊。
 4.  按 [下一步] 按鈕之後，您會看到一個警告對話方塊，此對話方塊會向您請求權限來儲存 Proxy 設定及重新啟動「整合執行階段主機服務」。
 
@@ -179,7 +178,7 @@ ms.lasthandoff: 09/25/2017
 ![檢視 Proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
 
 > [!NOTE]
-> 如果您為 Proxy 伺服器設定了 NTLM 驗證，「整合執行階段主機服務」就會以網域帳戶執行。 如果您稍後變更網域帳戶的密碼，請記得更新服務的組態設定並相應地將它重新啟動。 基於此需求，建議您使用不需要經常更新密碼的專用網域帳戶來存取 Proxy 伺服器。
+> 如果您為 Proxy 伺服器設定了 NTLM 驗證，「整合執行階段主機服務」就會以網域帳戶執行。 如果您稍後變更網域帳戶的密碼，請記得更新服務的組態設定並相應地將它重新啟動。 基於這項需求，建議您使用不需要經常更新密碼的專用網域帳戶來存取 Proxy 伺服器。
 
 ### <a name="configure-proxy-server-settings"></a>設定 Proxy 伺服器設定
 
@@ -218,7 +217,7 @@ ms.lasthandoff: 09/25/2017
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>防火牆和 Proxy 伺服器相關問題的可能徵兆
 如果發生如下錯誤，有可能是因為防火牆或 Proxy 伺服器的設定不正確，使得自我裝載整合執行階段無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
-1.  當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點! 請確認驗證金鑰有效，且整合執行階段主機服務正在這部電腦上執行。 」
+1.  當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點! 請確認驗證金鑰有效，且整合執行階段主機服務正在這部電腦上執行。 "
 2.  當您開啟「整合執行階段組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄檔時，在 [事件檢視器] > [應用程式和服務記錄檔] > [Microsoft 整合執行階段] 下，您會看到如下錯誤訊息：
 
     ```
@@ -240,5 +239,4 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 
 ## <a name="next-steps"></a>後續步驟
 如需逐步指示，請參閱下列教學課程：[教學課程：將內部部署資料複製到雲端](tutorial-hybrid-copy-powershell.md)。
-
 

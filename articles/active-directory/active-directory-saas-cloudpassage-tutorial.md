@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 094740e20570665e975dec1a591989e411f90c16
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>教學課程：Azure Active Directory 與 CloudPassage 整合
 
@@ -73,7 +73,7 @@ CloudPassage 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_search.png)
 
-5. 在結果窗格中，選取 [CloudPassage]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 CloudPassage，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cloudpassage-tutorial/tutorial_cloudpassage_addfromgallery.png)
 
@@ -157,7 +157,7 @@ CloudPassage 與 Azure AD 整合提供下列優點：
 
 9. 在不同的瀏覽器視窗中，以系統管理員身分登入您的 CloudPassage 公司網站。
 
-10. 在頂端功能表中，按一下 [設定]，然後按一下 [網站管理]。 
+10. 在頂端功能表中，按一下 設定，然後按一下網站管理。 
    
     ![設定單一登入][12]
 
@@ -223,11 +223,11 @@ CloudPassage 與 Azure AD 整合提供下列優點：
 
 1. 以系統管理員身分登入您的 **CloudPassage** 公司網站。 
 
-2. 在頂端工具列中，按一下 [設定]，然後按一下 [網站管理]。 
+2. 在頂端工具列中，按一下 設定，然後按一下網站管理。 
    
    ![建立 CloudPassage 測試使用者][22] 
 
-3. 按一下 [使用者] 索引標籤，然後按一下 [新增使用者]。 
+3. 按一下 使用者 索引標籤，然後按一下新增使用者。 
    
    ![建立 CloudPassage 測試使用者][23]
 

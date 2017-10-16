@@ -4,7 +4,7 @@
 2. 按一下頁面底部的 [新增] **+**來單一登入應用程式。 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 在傳回的清單中找到 [虛擬網路]，並按一下以開啟 [虛擬網路] 頁面。
 
   ![找出虛擬網路資源頁面](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "找出虛擬網路資源頁面")
-3. 從接近 [虛擬網路]頁面底部的 [選取部署模型] 清單中，選取 [Resource Manager]，然後按一下 [建立]。
+3. 從接近 虛擬網路頁面底部的 選取部署模型 清單中，選取 Resource Manager，然後按一下建立。
 
   ![選取資源管理員](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "選取資源管理員")
 4. 在 [建立虛擬網路] 頁面上進行 VNet 設定。 當您填寫欄位時，若欄位中輸入的字元有效，紅色驚嘆號就會變成綠色核取記號。 有些值可能會自動填入。 若是如此，請將這些值取代為您自己的值。 [建立虛擬網路] 頁面看起來會類似下列範例：
@@ -16,7 +16,7 @@
 8. **訂用帳戶**：請確認列出的訂用帳戶是否正確。 您可以使用下拉式清單變更訂用帳戶。
 9. **資源群組**：選取現有資源群組，或輸入新資源群組的名稱以建立新的資源群組。 如果您要建立新的群組，請根據您計劃的組態值來命名資源群組。 如需資源群組的詳細資訊，請造訪 [Azure 資源管理員概觀](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)。
 10. **位置**：選取 VNet 的位置。 此位置會決定您部署到此 VNet 之資源所在的位置。
-11. 如果想要能夠在儀表板上輕鬆地尋找您的 VNet，請選取 [釘選到儀表板]，然後按一下 [建立]。
+11. 如果想要能夠在儀表板上輕鬆地尋找您的 VNet，請選取 釘選到儀表板，然後按一下建立。
 
  ![釘選到儀表板](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/pintodashboard150.png "釘選到儀表板")
 12. 按一下 [建立] 之後，您會看到儀表板上有一個圖格會反映 VNet 的進度。 建立 VNet 時，此圖格會變更。

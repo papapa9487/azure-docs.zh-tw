@@ -10,24 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>註冊 Azure Enterprise 合約並檢視成本資料
 
-使用您的 Azure Enterprise 合約註冊 Cloudyn 的 Azure 成本管理。 您的註冊提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用版訂用帳戶及登入 Cloudyn 入口網站的註冊程序。 它也說明如何立即開始檢視成本資料。
+使用您的 Azure Enterprise 合約註冊 Cloudyn 的 Azure 成本管理。 您的註冊提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
 - 登入 Azure 入口網站，網址是 http://portal.azure.com/。
 
-## <a name="create-a-trial-registration"></a>建立試用版註冊
+## <a name="create-a-trial-registration"></a>建立試用註冊
 
 1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
 2. 在 [概觀] 底下，按一下 [成本管理]  
@@ -48,8 +45,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您使用您的 Azure Enterprise 合約資訊來註冊「成本管理」。 您也登入了 Cloudyn 入口網站並開始檢視成本資料。 若要深入了解 Cloudyn 的 Azure 成本管理，請繼續進行成本管理的教學課程。
+在此快速入門中，您使用您的 Azure Enterprise 合約資訊來註冊「成本管理」。 您也登入了 Cloudyn 入口網站並開始檢視成本資料。 若要深入了解 Cloudyn 的 Azure 成本管理，請繼續進行「成本管理」的教學課程。
 
 > [!div class="nextstepaction"]
 > [檢視成本資料](./tutorial-review-usage.md)
-

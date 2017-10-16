@@ -15,12 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: mbaldwin
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06d8cb3ce2fe4419a79a63b76d67cc476d205e08
-ms.openlocfilehash: 4e8c8539fdcab348aa91644baafae217bd5e863a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/13/2017
-
+ms.openlocfilehash: 19d71e65dc2c78663d94c74228dcff038566391b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-code-samples"></a>Azure Active Directory 程式碼範例
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -132,4 +131,3 @@ ms.lasthandoff: 02/13/2017
 [Azure AD 圖形 API 的概念和參考](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 
 [Azure AD Graph API 協助程式程式庫](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)
-

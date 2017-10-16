@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
 這篇文章可協助您尋找有關 Azure AD 傳遞驗證常見問題的疑難排解資訊。
@@ -171,4 +169,3 @@ ms.lasthandoff: 09/28/2017
 
 >[!IMPORTANT]
 >傳遞驗證使用多個驗證代理程式，且_不_進行負載平衡，而提供了高可用性。 視您的設定而定，_並非_所有的驗證代理程式都會收到數目大約_相同_的要求。 特定的驗證代理程式可能完全不會收到流量。
-

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>教學課程：Azure Active Directory 與 ServiceChannel 整合
 
@@ -73,7 +73,7 @@ ServiceChannel 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_000.png)
 
-5. 在結果窗格中，選取 [ServiceChannel]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 ServiceChannel，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-servicechannel-tutorial/tutorial-servicechannel_2.png)
 

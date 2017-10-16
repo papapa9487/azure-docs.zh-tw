@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 32d4b4a7db134975158e53fc964c24b52b14a1e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="_Toc395783175"></a>使用 Azure Cosmos DB 來建置 Node.js Web 應用程式
 > [!div class="op_single_selector"]
@@ -508,11 +507,11 @@ ms.lasthandoff: 09/20/2017
     > [!TIP]
     > 如果您收到有關 layout.jade 檔案或 index.jade 檔案縮排的錯誤，請確定這兩個檔案的前兩行靠左對齊 (沒有空格)。 如果前兩行之前有空格，請將空格移除，儲存這兩個檔案，然後重新整理瀏覽器視窗。 
 
-2. 使用 [項目]、[項目名稱] 和 [類別] 欄位來輸入新工作，然後按一下 [新增項目]。 便會使用這些屬性在 Azure Cosmos DB 中建立文件。 
+2. 使用 項目、項目名稱 和 類別 欄位來輸入新工作，然後按一下新增項目。 便會使用這些屬性在 Azure Cosmos DB 中建立文件。 
 3. 系統應該會更新此頁面，以在 [待辦事項] 清單中顯示新建立的項目。
    
     ![[待辦事項] 清單中包含一個新項目的應用程式螢幕擷取畫面](./media/documentdb-nodejs-application/cosmos-db-node-js-added-task.png)
-4. 若要完成工作，您只需勾選 [已完成] 資料行中的核取方塊，然後按一下 [更新工作] 。 這會更新您已建立的文件。
+4. 若要完成工作，您只需勾選 已完成 資料行中的核取方塊，然後按一下更新工作 。 這會更新您已建立的文件。
 
 5. 若要停止應用程式，請在終端機視窗中按 CTRL+C，然後按一下 **Y** 以終止批次作業。
 
@@ -540,5 +539,4 @@ ms.lasthandoff: 09/20/2017
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
 [GitHub]: https://github.com/Azure-Samples/documentdb-node-todo-app
-
 

@@ -15,12 +15,11 @@ ms.date: 08/25/2017
 ms.author: kgremban
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 7fc6ad052e4e873be6a3e7009e9739e4a1c9ce03
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>設定 Azure Multi-Factor Authentication Server 以搭配 Windows Server 中的 AD FS 運作
 如果您使用 Active Directory 同盟服務 (AD FS)，而且想要保護雲端或內部部署資源，您可以設定 Azure Multi-factor Authentication Server 以搭配 AD FS 運作。 此組態會觸發高價值端點的雙步驟驗證。
@@ -59,7 +58,7 @@ ms.lasthandoff: 09/20/2017
 11. 現已安裝配接器，您必須向 AD FS 進行登錄。 開啟 Windows PowerShell 並執行下列命令：<br>
     `C:\Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1`
     <center>![雲端](./media/multi-factor-authentication-get-started-adfs-w2k12/pshell.png)</center>
-12. 若要使用最近登錄的配接器，請編輯 AD FS 中的通用驗證原則。 在 AD FS 管理主控台中，移至 [驗證原則]  節點。 在 [Multi-Factor Authentication] 區段中，按一下 [全域設定] 區段旁邊的 [編輯] 連結。 在 [編輯通用驗證原則] 視窗中，選取 [Multi-Factor Authentication] 作為其他驗證方法，然後按一下 [確定]。 此配接器會登錄為 WindowsAzureMultiFactorAuthentication。 重新啟動 AD FS 服務，以讓登錄生效。
+12. 若要使用最近登錄的配接器，請編輯 AD FS 中的通用驗證原則。 在 AD FS 管理主控台中，移至 [驗證原則]  節點。 在 [Multi-Factor Authentication] 區段中，按一下 [全域設定] 區段旁邊的 [編輯] 連結。 在 編輯通用驗證原則 視窗中，選取 Multi-Factor Authentication 作為其他驗證方法，然後按一下確定。 此配接器會登錄為 WindowsAzureMultiFactorAuthentication。 重新啟動 AD FS 服務，以讓登錄生效。
 
 <center>![雲端](./media/multi-factor-authentication-get-started-adfs-w2k12/global.png)</center>
 
@@ -101,7 +100,7 @@ ms.lasthandoff: 09/20/2017
 7. 移至 **system.webServer/security/authentication/iisClientCertificateMappingAuthentication** 區段。  
 8. 將 enabled 設定為 **true**。  
 9. 將 oneToOneCertificateMappingsEnabled 設定為 **true**。  
-10. 按一下 oneToOneMappings 旁邊的 [...] 按鈕，然後按一下 [新增] 連結。  
+10. 按一下 oneToOneMappings 旁邊的 ... 按鈕，然後按一下新增 連結。  
 11. 開啟稍早匯出的 Base64 .cer 檔案。 移除 *-----BEGIN CERTIFICATE-----*、*-----END CERTIFICATE-----*，以及任何分行符號。 複製產生的字串。  
 12. 將 certificate 設定為在上一個步驟中複製的字串。  
 13. 將 enabled 設定為 **true**。  
@@ -111,7 +110,7 @@ ms.lasthandoff: 09/20/2017
 17. 在 Web 服務 SDK 虛擬目錄中，按兩下 [驗證] 。  
 18. 確認 [ASP.NET 模擬] 和 [基本驗證] 已設為 [已啟用]，而所有其他項目則已設為 [已停用]。  
 19. 在 Web 服務 SDK 虛擬目錄中，按兩下 [SSL 設定] 。  
-20. 將 [用戶端憑證] 設定為 [接受]，然後按一下 [套用]。  
+20. 將 用戶端憑證 設定為 接受，然後按一下套用。  
 21. 將稍早匯出的 .pfx 檔案複製到執行 AD FS 配接器的伺服器。  
 22. 將 .pfx 檔案匯入至本機電腦個人憑證存放區。  
 23. 按一下滑鼠右鍵並選取 [管理私密金鑰] ，然後將讀取權授與用來登入 AD FS 服務的帳戶。  
@@ -145,4 +144,3 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="related-topics"></a>相關主題
 如需疑難排解說明，請參閱 [Azure Multi-Factor Authentication 常見問題集](multi-factor-authentication-faq.md)
-

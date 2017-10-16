@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
 ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>使用資料視覺效果工具搭配 Azure HDInsight 的 Apache Spark BI
 
@@ -133,7 +132,7 @@ ms.lasthandoff: 09/27/2017
 
     ![將資料送入 Apache Spark BI 的 Power BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "將資料送入 Apache Spark BI 的 Power BI")
 
-5. 在下一個畫面中，按一下 [Azure HDInsight 上的 Spark]，然後按一下 [連線]。 在畫面出現提示時，輸入叢集的 URL (`mysparkcluster.azurehdinsight.net`)，以及要連線到叢集所需的認證。
+5. 在下一個畫面中，按一下 Azure HDInsight 上的 Spark，然後按一下連線。 在畫面出現提示時，輸入叢集的 URL (`mysparkcluster.azurehdinsight.net`)，以及要連線到叢集所需的認證。
 
     ![連線到 Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/connect-to-apache-spark-bi.png "連線到 Apache Spark BI")
 
@@ -210,5 +209,4 @@ ms.lasthandoff: 09/27/2017
 
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](hdinsight-apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](hdinsight-apache-spark-job-debugging.md)
-
 

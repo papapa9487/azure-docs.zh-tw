@@ -16,10 +16,10 @@ ms.date: 02/08/2017
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: 1bb944997caa0c43354e82bf9b1a70e3e104a476
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # 使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 是以 OAuth 2.0 通訊協定為建置基礎的簡單身分識別層。 OAuth 2.0 定義的機制可以取得及使用 **存取權杖** 來存取受保護的資源，但它們不會定義提供身分識別資訊的標準方法。 OpenID Connect 實作驗證來做為 OAuth 2.0 的授權程序的擴充。 它以 `id_token` 形式提供使用者相關資訊，這是可確認使用者的身分識別並提供使用者的基本設定檔資訊。
@@ -154,7 +154,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 驗證 `id_token` 之後，即可利用該使用者開始工作階段，並使用 `id_token` 中的宣告來取得應用程式中的使用者相關資訊。 這項資訊可以用於顯示、記錄、授權等等。如需有關權杖類型及宣告的詳細資訊，請參閱[支援的權杖和宣告類型](active-directory-token-and-claims.md)。
 
 ## 傳送登出要求
-當您想要將使用者登出應用程式時，只是清除應用程式的 Cookie 或結束使用者的工作階段還是不夠。  您也必須將使用者重新導向至 `end_session_endpoint` 以完成登出。  如果不這樣做，使用者可能不需要再次輸入認證就能重新通過應用程式的驗證，因為他們與 Azure AD 端點之間仍然存在有效的單一登入工作階段。
+當您想要將使用者登出應用程式時，只是清除應用程式的 Cookie 或結束使用者的工作階段還是不夠。  您也必須將使用者重新導向至 `end_session_endpoint` 以完成登出。如果不這樣做，使用者可能不需要再次輸入認證就能重新通過應用程式的驗證，因為他們與 Azure AD 端點之間仍然存在有效的單一登入工作階段。
 
 您可以直接將使用者重新導向至 OpenID Connect 中繼資料文件中所列出的 `end_session_endpoint` ：
 

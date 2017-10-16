@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 08/16/2017
 ms.author: xshi
 ms.openlocfilehash: 557f0cdf375b345e0dbe0526f5a5bd3c050dec38
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-sparkfun-esp8266-thing-dev-to-azure-iot-hub-in-the-cloud"></a>將 Sparkfun ESP8266 Thing Dev 連接到雲端的 Azure IoT 中樞
 
@@ -148,7 +148,7 @@ ms.lasthandoff: 08/18/2017
 
 1. 在 Arduino IDE 中，按一下 [檔案] > [喜好設定]。
 1. 在 [喜好設定] 對話方塊中，按一下 [其他電路板管理員 URL] 文字方塊旁的圖示。
-1. 在快顯視窗中，輸入下列 URL，然後按一下 [確定]。
+1. 在快顯視窗中，輸入下列 URL，然後按一下確定。
 
    `http://arduino.esp8266.com/stable/package_esp8266com_index.json`
 
@@ -207,7 +207,7 @@ ms.lasthandoff: 08/18/2017
 1. 在 [序列監視器] 視窗中，請注意右下角的兩個下拉式清單。
 1. 在左邊的下拉式清單中選取 [無行尾結束符號]。
 1. 在右邊的下拉式清單中選取 [115200 傳輸速率]。
-1. 在位於 [序列監視器] 視窗頂端的輸入方塊中，輸入系統要求您提供的下列資訊，然後按一下 [傳送]。
+1. 在位於 序列監視器 視窗頂端的輸入方塊中，輸入系統要求您提供的下列資訊，然後按一下傳送。
    * Wi-Fi SSID
    * Wi-Fi 密碼
    * 裝置連接字串

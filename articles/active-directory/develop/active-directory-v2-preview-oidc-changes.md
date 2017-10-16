@@ -16,10 +16,10 @@ ms.date: 09/16/2016
 ms.author: dastrock
 ms.custom: aaddev
 ms.openlocfilehash: ae73833a68db14804dc40eaf07ff7d3effaa9052
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="important-updates-to-the-v20-authentication-protocols"></a>v2.0 驗證通訊協定的重要更新
 開發人員請注意！ 在接下來兩週，我們會對 v2.0 驗證通訊協定進行一些更新，這些更新對於您在我們的預覽期間撰寫的任何應用程式可能是重大變更。  

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>整合 Data Lake Store 與其他 Azure 服務
 Azure Data Lake Store 可以與其他 Azure 服務一起使用，以啟用更廣泛的案例。 下列文章列出 Data Lake Store 可以整合的服務。
@@ -71,5 +70,4 @@ Azure Data Lake Store 提供命令列工具 AdlCopy，可讓您將資料從 Azur
 * [Azure Data Lake Store 概觀](data-lake-store-overview.md)
 * [使用入口網站開始使用 Data Lake Store](data-lake-store-get-started-portal.md)
 * [使用 PowerShell 開始使用 Data Lake Store](data-lake-store-get-started-powershell.md)  
-
 

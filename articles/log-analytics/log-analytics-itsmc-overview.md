@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 411d6103852cbf534d3c420d5ea7b2146df5164e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>使用 IT 服務管理連接器 (預覽) 將 ITSM 工作項目集中管理
 
@@ -244,13 +243,13 @@ IT 服務管理連接器目前支援與服務對應解決方案整合。
   - **選取連線**：您要在其中建立此工作項目的 ITSM 連線。
   - **工作項目**︰工作項目的類型。
 
-3. 若要使用事件的現有工作項目範本，請在 [根據範本產生工作項目] 選項下按一下 [是]，然後按一下 [建立]。
+3. 若要使用事件的現有工作項目範本，請在 根據範本產生工作項目 選項下按一下 是，然後按一下建立。
 
     或者，
 
     如果您想要提供自訂的值，請按一下 [否]。
 
-4. 在 [連絡人類型]、[影響]、[急迫性]、[類別] 和 [子類別] 文字方塊中提供適當的值，然後按一下 [建立]。
+4. 在 連絡人類型、影響、急迫性、類別 和 子類別 文字方塊中提供適當的值，然後按一下建立。
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>從 Azure 警示建立 ITSM 工作項目
 ITSM 連接器現在可與動作群組整合。 [動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)提供以模組化和可重複使用的方式來針對 Azure 警示觸發動作。 動作群組中的 ITSM 動作會使用現有的 ITSM 連接器解決方案，在 ITSM 產品中建立工作項目。
@@ -307,4 +306,3 @@ ITSM 連接器現在可與動作群組整合。 [動作群組](../monitoring-and
 
 ## <a name="next-steps"></a>後續步驟
 [將 ITSM 產品/服務新增至 IT 服務管理連接器](log-analytics-itsmc-connections.md)。
-

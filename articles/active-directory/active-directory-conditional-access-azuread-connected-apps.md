@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/01/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 4720d168f5ecd3a5e39cdcad812efb52755fb59a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 1dd3088137b5bd4ff3407c5e5735d93de373ecd5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-active-directory-conditional-access"></a>開始使用 Azure Active Directory 條件式存取
 [SaaS](https://azure.microsoft.com/overview/what-is-saas/) 應用程式及 Azure AD 連線應用程式的「Azure Active Directory 條件式存取」可讓您根據群組、位置和應用程式敏感性來設定條件式存取。 
@@ -87,5 +86,4 @@ ms.lasthandoff: 12/29/2016
 ## <a name="related-articles"></a>相關文章
 * [保護對 Office 365 及其他連接至 Azure Active Directory 之應用程式的存取](active-directory-conditional-access.md)
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
-
 

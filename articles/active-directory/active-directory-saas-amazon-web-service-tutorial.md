@@ -15,10 +15,10 @@ ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
 ms.openlocfilehash: 0fb9c8f428368271b548e3f174726fa01ea910c5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 與 Amazon Web Services (AWS) 整合
 
@@ -82,7 +82,7 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_search.png)
 
-5. 在結果窗格中，選取 [Amazon Web Services (AWS)]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Amazon Web Services (AWS)，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_addfromgallery.png)
 
@@ -163,7 +163,7 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
    
     ![設定單一登入][12]
 
-11. 按一下 [識別提供者]，然後按一下 [建立提供者]。
+11. 按一下 識別提供者，然後按一下建立提供者。
    
     ![設定單一登入][13]
 
@@ -183,7 +183,7 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
     
     ![設定單一登入][15]
 
-14. 按一下 [角色]，然後按一下 [建立新角色]。 
+14. 按一下 角色，然後按一下建立新角色。 
     
     ![設定單一登入][16]
 
@@ -231,7 +231,7 @@ To enable single sign-on with Amazon Web Services (AWS), it must be configured t
 
     a. 在 AWS 主控台中使用您的根帳戶登入
 
-    b.這是另一個 C# 主控台應用程式。 在右上角按一下您的名稱，然後按一下 [我的安全性認證] 選項。 這會開啟一個畫面顯示警告訊息。 按一下 [安全性認證] 按鈕以通過此畫面。
+    b.這是另一個 C# 主控台應用程式。 在右上角按一下您的名稱，然後按一下我的安全性認證 選項。 這會開啟一個畫面顯示警告訊息。 按一下 [安全性認證] 按鈕以通過此畫面。
         
        ![設定單一登入][36]
 
@@ -324,7 +324,7 @@ To ensure users can sign-in to Amazon Web Services (AWS) after it has been confi
    
     ![設定單一登入][28]
 
-4. 在儀表板中，按一下 [使用者]，然後按一下 [建立新使用者]。 
+4. 在儀表板中，按一下 使用者，然後按一下建立新使用者。 
    
     ![設定單一登入][29]
 

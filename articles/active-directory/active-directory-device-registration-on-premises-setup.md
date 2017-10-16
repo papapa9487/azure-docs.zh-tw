@@ -16,10 +16,10 @@ ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: jairoc
 ms.openlocfilehash: 1a6f1c6566468188daa71939db8345280b7a529f
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -111,7 +111,7 @@ ms.lasthandoff: 08/03/2017
    
    1. 新增網域。
    2. 使用[自訂 Azure AD Connect 安裝](connect/active-directory-aadconnect-get-started-custom.md)中的指示來安裝並執行 Azure AD Connect。
-   3. 驗證及管理目錄同步作業。 此步驟中可取得單一登入的指示。
+   3. 驗證及管理目錄同步作業。此步驟中可取得單一登入的指示。
    
    此外，依照[自訂 Azure AD Connect 安裝](connect/active-directory-aadconnect-get-started-custom.md)所述，設定與 AD FS 的同盟。
 

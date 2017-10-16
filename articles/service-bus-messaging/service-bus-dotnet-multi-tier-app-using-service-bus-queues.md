@@ -15,10 +15,10 @@ ms.topic: get-started-article
 ms.date: 04/11/2017
 ms.author: sethm
 ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服務匯流排佇列的 .NET 多層應用程式
 ## <a name="introduction"></a>簡介
@@ -77,10 +77,10 @@ ms.lasthandoff: 07/11/2017
 之後，新增程式碼以提交項目給服務匯流排佇列，並顯示佇列的狀態資訊。
 
 ### <a name="create-the-project"></a>建立專案
-1. 使用系統管理員權限啟動 Visual Studio：在 **Visual Studio** 程式圖示上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。 這篇文章稍後討論的 Azure 計算模擬器需要 Visual Studio 以系統管理員權限啟動。
+1. 使用系統管理員權限啟動 Visual Studio：在 **Visual Studio** 程式圖示上按一下滑鼠右鍵，然後按一下以系統管理員身分執行。 這篇文章稍後討論的 Azure 計算模擬器需要 Visual Studio 以系統管理員權限啟動。
    
-   在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
-2. 從 [已安裝的範本] 的 [Visual C#] 下，按一下 [雲端]，然後按一下 [Azure 雲端服務]。 將專案命名為 **MultiTierApp**。 然後按一下 [確定] 。
+   在 Visual Studio 的 檔案 功能表，按一下 新增，然後按一下專案。
+2. 從 已安裝的範本 的 Visual C# 下，按一下 雲端，然後按一下Azure 雲端服務。 將專案命名為 **MultiTierApp**。 然後按一下 [確定] 。
    
    ![][9]
 3. 從 **.NET Framework 4.5** 角色中，按兩下 [ASP.NET Web 角色]。
@@ -92,7 +92,7 @@ ms.lasthandoff: 07/11/2017
 5. 在 [新增 ASP.NET 專案] 對話方塊的 [選取範本] 清單中，按一下 [MVC]。
    
    ![][12]
-6. 還是在 [新增 ASP.NET 專案] 對話方塊中，按一下 [變更驗證] 按鈕。 在 [變更驗證] 對話方塊中，按一下 [不需要驗證]，然後按一下 [確定]。 在本教學課程中，您會部署不需要使用者登入的應用程式。
+6. 還是在 [新增 ASP.NET 專案] 對話方塊中，按一下 [變更驗證] 按鈕。 在 變更驗證 對話方塊中，按一下 不需要驗證，然後按一下確定。 在本教學課程中，您會部署不需要使用者登入的應用程式。
    
     ![][16]
 7. 回到 [新增 ASP.NET 專案] 對話方塊中，按一下 [確定] 以建立專案。
@@ -203,7 +203,7 @@ ms.lasthandoff: 07/11/2017
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>撰寫增程式碼以提交項目給服務匯流排佇列
 現在，將新增程式碼以提交項目給佇列。 首先，您會建立一個類別，並使其包含服務匯流排佇列連接資訊。 接著，從 Global.aspx.cs 初始化您的連線。 最後，更新稍早在 HomeController.cs 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
 
-1. 在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。 按一下 [新增]，然後按一下 [類別]。
+1. 在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。 按一下 新增，然後按一下類別。
 2. 將類別命名為 **QueueConnector.cs**。 按一下 [新增] 以建立類別。
 3. 現在，新增可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。 以下列程式碼取代 QueueConnector.cs 的整個內容，並將值輸入 `your Service Bus namespace` (命名空間名稱) 和 `yourKey`，後者是先前取自 Azure 入口網站的**主要金鑰**。
    
@@ -318,7 +318,7 @@ ms.lasthandoff: 07/11/2017
 
 1. 請確定您已將 Visual Studio 連接到您的 Azure 帳戶。
 2. 在 Visual Studio 的 [方案總管] 中，於 [MultiTierApp] 專案下的 [角色] 資料夾上按一下滑鼠右鍵。
-3. 按一下 [新增]，然後按一下 [新的背景工作角色專案]。 [新增新的角色專案] 對話方塊隨即出現。
+3. 按一下 新增，然後按一下新的背景工作角色專案。 [新增新的角色專案] 對話方塊隨即出現。
    
    ![][26]
 4. 在 [新增新的角色專案] 對話方塊中，按一下 [具有服務匯流排佇列的背景工作角色]。

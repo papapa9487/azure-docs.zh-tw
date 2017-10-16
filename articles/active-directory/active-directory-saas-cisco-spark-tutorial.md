@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
 ms.openlocfilehash: a0a221622afe1c801a331e2319f3a7ace3111dad
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-spark"></a>教學課程：Azure Active Directory 與 Cisco Spark 整合
 
@@ -73,7 +73,7 @@ ms.lasthandoff: 07/11/2017
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_search.png)
 
-5. 在結果窗格中，選取 [Cisco Spark]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Cisco Spark，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-cisco-spark-tutorial/tutorial_ciscospark_addfromgallery.png)
 
@@ -161,7 +161,7 @@ ms.lasthandoff: 07/11/2017
 
 12. 選取 [測試 SSO 連接]，並在新的瀏覽器索引標籤開啟時，透過登入向 Azure AD 進行驗證。
 
-13. 返回 [Cisco Cloud Collaboration Management] 瀏覽器索引標籤。 如果測試成功，請選取 [這項測試成功。啟用單一登入] 選項，然後按 [下一步]。
+13. 返回 [Cisco Cloud Collaboration Management] 瀏覽器索引標籤。如果測試成功，請選取 [這項測試成功。啟用單一登入] 選項，然後按 [下一步]。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

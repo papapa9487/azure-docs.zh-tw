@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 7805e7c91c49fe1ef2d92b64c62bbfd15ab492b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 5ac679279bb977fb7d38b5046164d1b5f6a80e0a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>使用憑證驗證設定 VNet 的點對站連線 (傳統)：Azure 入口網站
 
@@ -82,7 +81,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 2. 按一下 [新增] 。 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」。 在傳回的清單中找到 [虛擬網路]，並按一下以開啟 [虛擬網路] 頁面。
 
   ![搜尋虛擬網路頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvnetportal700.png)
-3. 從接近 [虛擬網路] 頁面底部的 [選取部署模型] 清單中，選取 [傳統]，然後按一下 [建立]。
+3. 從接近 虛擬網路 頁面底部的 選取部署模型 清單中，選取 傳統，然後按一下建立。
 
   ![選取部署模型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/selectmodel.png)
 4. 在 [建立虛擬網路] 頁面上進行 VNet 設定。 在此頁面上，您會新增您的第一個位址空間和單一子網路位址範圍。 完成 VNet 建立之後，您可以返回並新增其他子網路和位址空間。
@@ -91,7 +90,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 5. 確認 [訂用帳戶]  正確無誤。 您可以使用下拉式清單變更訂用帳戶。
 6. 按一下 [資源群組]  並選取現有的資源群組，或輸入新的資源群組名稱以建立新的資源群組。 如果您要建立新的資源群組，請根據您計劃的組態值來命名資源群組。 如需資源群組的詳細資訊，請瀏覽 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md#resource-groups)。
 7. 接著，選取 VNet 的 [位置]  設定。 此位置會決定您部署到此 VNet 之資源所在的位置。
-8. 如果想要能夠在儀表板上輕鬆地尋找您的 VNet，請選取 [釘選到儀表板]，然後按一下 [建立]。
+8. 如果想要能夠在儀表板上輕鬆地尋找您的 VNet，請選取 釘選到儀表板，然後按一下建立。
 
   ![釘選到儀表板](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/pintodashboard150.png)
 9. 按一下 [建立] 之後，儀表板上會出現一個圖格會反映 VNet 的進度。 建立 VNet 時，此圖格會變更。
@@ -188,7 +187,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 ### <a name="connect-to-your-vnet"></a>連接到您的 VNet
 
 1. 若要連接至您的 VNet，在用戶端電腦上瀏覽到 VPN 連線，然後找出所建立的 VPN 連線。 其名稱會與虛擬網路相同。 按一下 [ **連接**]。 可能會出現與使用憑證有關的快顯訊息。 如果出現，按一下 [繼續]  以使用較高的權限。
-2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下 [確定] 。
+2. 在 [連線] 狀態頁面上，按一下 [連線] 以便開始連線。 如果出現 [選取憑證]  畫面，請確認顯示的用戶端憑證是要用來連接的憑證。 如果沒有，請使用下拉箭頭來選取正確的憑證，然後按一下確定 。
 
   ![VPN 用戶端連線](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientconnect.png)
 3. 已建立您的連線。
@@ -253,7 +252,7 @@ P2S 會使用安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎�
 
 1. 擷取用戶端憑證指紋。 如需詳細資訊，請參閱[做法：擷取憑證的指紋](https://msdn.microsoft.com/library/ms734695.aspx)。
 2. 將資訊複製到文字編輯器，並移除所有的空格，讓它是連續字串。
-3. 瀏覽至 [「傳統虛擬網路名稱」> 點對站 VPN 連線 > 憑證] 頁面，然後按一下 [撤銷清單] 以開啟 [撤銷清單] 頁面。 
+3. 瀏覽至 「傳統虛擬網路名稱」> 點對站 VPN 連線 > 憑證 頁面，然後按一下撤銷清單 以開啟 撤銷清單 頁面。 
 4. 在 [撤銷清單] 頁面上，按一下 [+新增憑證] 以開啟 [將憑證新增至撤銷清單] 頁面。
 5. 在 [將憑證新增至撤銷清單] 頁面上，貼上連續一行文字且不含空格的憑證指紋。 按一下頁面底部的 [確定]。
 6. 更新完成之後，憑證無法再用於連線。 嘗試使用此憑證進行連線的用戶端會收到訊息，指出憑證不再有效。

@@ -16,10 +16,10 @@ ms.date: 08/02/2017
 ms.author: trinadhk;markgal;
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: d876bb1759600fa29a26730bfa8b4ec19db1e442
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-common-azure-backup-jobs-and-trigger-alerts-in-the-classic-portal"></a>在傳統入口網站中管理一般的 Azure 備份作業和觸發警示
 > [!div class="op_single_selector"]
@@ -201,7 +201,7 @@ Azure 備份提供由客戶觸發之備份作業的「作業記錄檔」檢閱�
 
 檢視對應到備份保存庫的作業記錄檔：
 
-1. 瀏覽至 Azure 入口網站中的 [管理服務]，然後按一下 [作業記錄檔] 索引標籤。
+1. 瀏覽至 Azure 入口網站中的 管理服務，然後按一下作業記錄檔 索引標籤。
 
     ![作業記錄](./media/backup-azure-manage-vms/ops-logs.png)
 2. 在篩選器中，選取 [備份] 做為*類型*，指定*服務名稱*中的備份保存庫名稱，然後按一下 [提交]。

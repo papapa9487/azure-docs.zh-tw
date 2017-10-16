@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>將 Azure Log Analytics 管理解決方案新增至您的工作區
 
@@ -53,7 +52,7 @@ Azure Marketplace 包含 [Log Analytics 的管理解決方案](https://azuremark
 4. 在 [管理解決方案] 的右邊，按一下 [更多資訊]。
 5. 在 [管理解決方案] 刀鋒視窗中，選取要新增至工作區的管理解決方案。  
     ![監視 + 管理刀鋒視窗](./media/log-analytics-add-solutions/management-solutions.png)  
-6. 在 [管理解決方案] 刀鋒視窗中，檢閱管理解決方案的相關資訊，然後按一下 [建立]。
+6. 在 管理解決方案 刀鋒視窗中，檢閱管理解決方案的相關資訊，然後按一下建立。
 7. 在 [管理解決方案名稱] 刀鋒視窗中，選取要與管理解決方案相關聯的工作區。
 8. (選擇性) 變更 Azure 訂用帳戶、資源群組和位置的工作區設定。 您也可以選擇 [自動化選項]。 按一下 [建立] 。  
     ![解決方案工作區](./media/log-analytics-add-solutions/solution-workspace.png)  
@@ -281,4 +280,3 @@ Log Analytics Windows 代理程式和 System Center Operations Manager 代理程
 
 ## <a name="next-steps"></a>後續步驟
 * [搜尋記錄](log-analytics-log-searches.md) 以檢視管理解決方案所蒐集的詳細資訊。
-

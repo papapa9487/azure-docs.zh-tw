@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 98ed23b8031c56ba642427e817e48a4e7a5830fc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-portal"></a>使用 Azure 入口網站建立 Windows 虛擬機器
 
 您可以透過 Azure 入口網站建立 Azure 虛擬機器。 此方法可提供以瀏覽器為基礎的使用者介面，以便建立和設定虛擬機器，以及所有相關的資源。 本快速入門會逐步說明如何建立虛擬機器，以及在 VM 上安裝 Web 伺服器。
@@ -52,7 +50,7 @@ ms.lasthandoff: 09/01/2017
 
 6. 在 [摘要] 頁面上，按一下 [確定] 來啟動虛擬機器部署。
 
-7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署，VM 摘要就會自動開啟。
+7. 系統會將 VM 釘選到 Azure 入口網站儀表板。 一旦完成部署後，VM 摘要就會自動開啟。
 
 
 ## <a name="connect-to-virtual-machine"></a>連線至虛擬機器
@@ -108,4 +106,3 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 > [!div class="nextstepaction"]
 > [Azure Windows 虛擬機器教學課程](./tutorial-manage-vm.md)
-

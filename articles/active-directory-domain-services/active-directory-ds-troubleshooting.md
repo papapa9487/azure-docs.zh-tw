@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
 ms.openlocfilehash: d6695b0c40f56093e8701dfe6394143268114453
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -62,7 +62,7 @@ ms.lasthandoff: 07/11/2017
 3. 選取您要啟用 Azure AD 網域服務的 Azure AD 租用戶 (目錄)。
 4. 瀏覽至 [應用程式]  索引標籤。
 5. 選取下拉式清單中的 [我公司所擁有的應用程式]  選項。
-6. 檢查名為 [Azure AD 網域服務同步處理] 的應用程式。 如果應用程式存在，請繼續將它刪除。
+6. 檢查名為 [Azure AD 網域服務同步處理] 的應用程式。如果應用程式存在，請繼續將它刪除。
 7. 刪除此應用程式後，請嘗試再次啟用 Azure AD 網域服務。
 
 ### <a name="invalid-configuration"></a>無效的組態
