@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
 ms.openlocfilehash: 708f4ff606d79639de979918a9cacd4ed75db311
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="add-the-applications-registration-information-to-your-app"></a>將應用程式的註冊資訊新增到您的應用程式
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 08/29/2017
 
 > #### <a name="setting-redirect-url-for-python"></a>設定 Python 的重新導向 URL
 > 對於 Python，您可以透過命令列設定 Web 伺服器連接埠。 此指引設定會使用連接埠 8080 作為參考，但是可以隨意使用任何其他可用的通訊埠。 在任何情況下，請遵循下列指示以在應用程式註冊資訊中設定重新導向 URL：<br/>
-> 設定 `http://localhost:8080/` 作為此分頁頂端的 `Redirect URL`，或者如果您使用自訂 TCP 連接埠，則使用 `http://localhost:[port]/` (其中 [port] 是自訂 TCP 通訊埠號碼)，然後按一下 [更新]
+> 設定 `http://localhost:8080/` 作為此分頁頂端的 `Redirect URL`，或者如果您使用自訂 TCP 連接埠，則使用 `http://localhost:[port]/` (其中 [port] 是自訂 TCP 通訊埠號碼)，然後按一下更新]
 
 ### <a name="configure-your-javascript-spa-application"></a>設定您的 JavaScript SPA 應用程式
 

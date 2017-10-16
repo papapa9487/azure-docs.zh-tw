@@ -145,7 +145,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: 使用一般化映像
           href: create-vm-generalized-managed.md
-        - name: 使用特製化映像
+        - name: 使用特製化磁碟
           href: create-vm-specialized.md
         - name: 擷取 VM 映像
           href: capture-image-resource.md

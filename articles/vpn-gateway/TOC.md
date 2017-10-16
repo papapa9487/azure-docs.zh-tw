@@ -18,7 +18,6 @@
 ### [Azure PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [Azure CLI](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Azure 入口網站 (傳統)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [傳統入口網站 (傳統)](vpn-gateway-site-to-site-create.md)
 
 ## 設定點對站連線 - 原生 Azure 憑證驗證
 ### 設定 P2S VPN
@@ -57,6 +56,7 @@
 ### [Azure PowerShell](vpn-gateway-activeactive-rm-powershell.md)
 ## 設定適用於 VPN 閘道的 BGP
 ### [Azure PowerShell](vpn-gateway-bgp-resource-manager-ps.md)
+### [Azure CLI](bgp-how-to-cli.md)
 ## 設定強制通道
 ### [Azure PowerShell](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (傳統)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,8 @@
 ### [點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [無法連線至站對站連線](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [應用程式閘道工作階段同質集問題](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
+### [設定和驗證 VNet 或 VPN 連線](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # 參考
 ## [Azure PowerShell](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

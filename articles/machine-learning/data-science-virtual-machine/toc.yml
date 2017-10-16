@@ -1,6 +1,7 @@
 - name: 資料科學虛擬機器文件
   items: null
 - name: 概觀
+  expanded: true
   items:
     - name: 什麼是資料科學 VM？
       href: overview.md
@@ -25,7 +26,10 @@
     - name: 使用深度學習 VM
       href: use-deep-learning-dsvm.md
 - name: 參考
+  expanded: true
   items:
+    - name: 探索 DSVM
+      href: dsvm-tools-overview.md
     - name: 深度學習和 AI 架構
       href: dsvm-deep-learning-ai-frameworks.md
     - name: ML 和資料科學工具

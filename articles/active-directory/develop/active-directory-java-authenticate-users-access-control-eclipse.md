@@ -16,10 +16,10 @@ ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
 ms.openlocfilehash: 698403d181e1fee09bb4692290c92203ded97ba4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-authenticate-web-users-with-azure-access-control-service-using-eclipse"></a>如何使用 Eclipse 搭配 Azure 存取控制服務來驗證 Web 使用者
 本指南說明如何在 Azure Toolkit for Eclipse 內使用 Azure 存取控制服務 (ACS)。 如需 ACS 的詳細資訊，請參閱 [後續步驟](#next_steps) 一節。
@@ -90,7 +90,7 @@ Azure ACS 是以宣告式身分識別為原則來打造，後者是為內部部�
 
 1. 登入 [Azure 管理入口網站][Azure Management Portal]。
 2. 按一下 [Active Directory] 。 
-3. 若要建立新的「存取控制」命名空間，請依序按一下 [新增]、[應用程式服務]、[存取控制]，然後按一下 [快速建立]。 
+3. 若要建立新的「存取控制」命名空間，請依序按一下 新增、應用程式服務、存取控制，然後按一下快速建立。 
 4. 輸入命名空間的名稱。 Azure 會確認名稱是否具唯一性。
 5. 選取使用命名空間的地區。 為了獲得最佳效能，請使用您要在其中部署應用程式的地區。
 6. 如果您有多個訂用帳戶，請選取要對 ACS 命名空間使用的訂用帳戶。
@@ -101,7 +101,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
 ## <a name="add-identity-providers"></a>新增身分識別提供者
 在此工作中，您會新增 IP，以與您的 RP 應用程式搭配使用進行驗證。 基於示範目的，此工作會顯示如何新增 Windows Live 作為 IP，但是您可以使用 ACS 管理入口網站中列出的任一個 IP。
 
-1. 在 [Azure 管理入口網站][Azure Management Portal]中，按一下 [Active Directory]、選取存取控制命名空間，然後按一下 [管理]。 即會開啟 ACS 管理入口網站。
+1. 在 [Azure 管理入口網站][Azure Management Portal]中，按一下 [Active Directory]、選取存取控制命名空間，然後按一下管理]。 即會開啟 ACS 管理入口網站。
 2. 在 ACS 管理入口網站的左導覽窗格中，按一下 [身分識別提供者] 。
 3. 依預設會啟用 Windows Live ID，而且無法刪除。 基於本教學課程的目的，只會使用 Windows Live ID。 不過，本畫面就是您可以按一下 [新增]  按鈕來新增其他 IP 的畫面。
 
@@ -131,7 +131,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
 1. 在 ACS 管理入口網站主頁面上，按一下 [規則群組] 。
 2. 在 [規則群組] 頁面上，按一下 [Azure Web 應用程式的預設規則群組]。
 3. 在 [編輯規則群組] 頁面上，按一下 [產生]。
-4. 在 [產生規則：Azure Web 應用程式的預設規則群組] 頁面上，確定已核取 Windows Live ID，然後按一下 [產生]。    
+4. 在 產生規則：Azure Web 應用程式的預設規則群組 頁面上，確定已核取 Windows Live ID，然後按一下產生。    
 5. 在 [編輯規則群組] 頁面上，按一下 [儲存]。
 
 ## <a name="upload-a-certificate-to-your-acs-namespace"></a>將憑證上傳至您的 ACS 命名空間
@@ -159,18 +159,18 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
 在 [登入頁面整合：Azure Web 應用程式] 頁面中，[選項 1：連結至 ACS 主控的登入頁面] 中列出的 URL 將會用於 Java Web 應用程式中。 將 Azure 存取控制服務篩選器程式庫新增至 Java 應用程式時，您將需要此值。
 
 ## <a name="create-a-java-web-application"></a>建立 Java Web 應用程式
-1. 在 Eclipse 內，於功能表上按一下 [File] \(檔案)、按一下 [New] \(新增)，然後按一下 [Dynamic Web Project] \(動態 Web 專案)。 (如果在按一下 [File] \(檔案)、[New] \(新增) 後沒有看到 [Dynamic Web Project] \(動態 Web 專案) 列為可用的專案，則請執行下列動作：依序按一下 [File] \(檔案)、[New] \(新增)、[Project] \(專案)，展開 [Web]，按一下 [Dynamic Web Project] \(動態 Web 專案)，然後按 [Next] \(下一步))。基於本教學課程的目的，將專案命名為 **MyACSHelloWorld**。 (確定您使用此名稱，本教學課程中的後續步驟預期您的 WAR 檔案將命名為 MyACSHelloWorld)。 您的畫面將出現，如下所示：
+1. 在 Eclipse 內，於功能表上按一下 File \(檔案)、按一下 New \(新增)，然後按一下Dynamic Web Project \(動態 Web 專案)。 (如果在按一下 [File] \(檔案)、[New] \(新增) 後沒有看到 [Dynamic Web Project] \(動態 Web 專案) 列為可用的專案，則請執行下列動作：依序按一下 [File] \(檔案)、[New] \(新增)、[Project] \(專案)，展開 [Web]，按一下 [Dynamic Web Project] \(動態 Web 專案)，然後按 [Next] \(下一步))。基於本教學課程的目的，將專案命名為 **MyACSHelloWorld**。 (確定您使用此名稱，本教學課程中的後續步驟預期您的 WAR 檔案將命名為 MyACSHelloWorld)。 您的畫面將出現，如下所示：
    
     ![Create a Hello World project for ACS exampple][create_acs_hello_world]
    
     按一下 [完成] 。
-2. 在 Eclipse 的專案總管檢視內，展開 **MyACSHelloWorld**。 在 [WebContent] 上按一下滑鼠右鍵、按一下 [新增]，然後按一下 [JSP 檔案]。
+2. 在 Eclipse 的專案總管檢視內，展開 **MyACSHelloWorld**。 在 WebContent 上按一下滑鼠右鍵、按一下 新增，然後按一下JSP 檔案。
 3. 在 [New JSP File] \(新增 JSP 檔案) 對話方塊中，將檔案命名為 **index.jsp**。 將父資料夾保留為 MyACSHelloWorld/WebContent、如下所示：
    
     ![Add a JSP file for ACS example][add_jsp_file_acs]
    
     按一下 [下一步] 。
-4. 在 [Select JSP Template] \(選取 JSP 範本) 對話方塊中，選取 [New JSP File (html)] \(新增 JSP 檔案 (html))，然後按一下 [Finish] \(完成)。
+4. 在 Select JSP Template \(選取 JSP 範本) 對話方塊中，選取 New JSP File (html) \(新增 JSP 檔案 (html))，然後按一下Finish \(完成)。
 5. 在 Eclipse 中開啟 index.jsp 檔案時，請加入文字以顯示 **Hello ACS World!** (在現有的 `<body>` 元素內加入)。 您更新的 `<body>` 內容應該出現如下：
    
         <body>
@@ -180,7 +180,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
     儲存 index.jsp。
 
 ## <a name="add-the-acs-filter-library-to-your-application"></a>將 ACS 篩選器程式庫新增至您的應用程式
-1. 在 Eclipse 的 [Project Explorer] \(專案總管) 中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 [Build Path] \(組建路徑)，然後按一下 [Configure Build Path] \(設定組建路徑)。
+1. 在 Eclipse 的 Project Explorer \(專案總管) 中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 Build Path \(組建路徑)，然後按一下Configure Build Path \(設定組建路徑)。
 2. 在 [Java Build Path] \(Java 組建路徑) 對話方塊中，按一下 [Libraries] \(程式庫) 索引標籤。
 3. 按一下 [新增程式庫] 。
 4. 按一下 [Azure Access Control Services Filter (by MS Open Tech)] \(Azure 存取控制服務篩選器 (MS Open Tech 提供))，然後按 [Next] \(下一步)。 隨即會顯示 [Azure Access Control Services Filter] \(Azure 存取控制服務篩選器) 對話方塊。  (視您安裝 Eclipse 的位置而定，[Location] \(位置) 欄位可能會有不同的路徑，而視軟體更新而定，版本號碼也可能不同)。
@@ -199,7 +199,7 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
 13. 按一下 [OK] \(確定) 以關閉 [Java Build Path] \(Java 組建路徑) 對話方塊。
 
 ## <a name="deploy-to-the-compute-emulator"></a>部署至計算模擬器
-1. 在 Eclipse 的 [Project Explorer] \(專案總管) 中，於 [MyACSHelloWorld] 上按一下滑鼠右鍵、按一下 [Azure]，然後按一下 [Package for Azure] \(適用於 Azure 的套件)。
+1. 在 Eclipse 的 Project Explorer \(專案總管) 中，於 MyACSHelloWorld 上按一下滑鼠右鍵、按一下 Azure，然後按一下Package for Azure \(適用於 Azure 的套件)。
 2. 針對 [Project name] \(專案名稱) 輸入 **MyAzureACSProject**，然後按 [Next] \(下一步)。
 3. 選取 JDK 和應用程式伺服器。 ([在 Eclipse 中建立 Azure 的 Hello World 應用程式](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)教學課程中有這些步驟的詳細說明)。
 4. 按一下 [完成] 。
@@ -219,8 +219,8 @@ Azure 即會建立並啟動命名空間。 等到新命名空間的狀態變成 
     ![Relying party return URL for use in production][relying_party_return_url_production]
 3. 按一下 [儲存]  ，以儲存您更新的信賴憑證者領域及傳回 URL 變更。
 4. 將 [Login Page Integration]  頁面在瀏覽器中維持開啟狀態，您將需要立即從中複製。
-5. 在 Eclipse 的 [Project Explorer] \(專案總管) 中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 [Build Path] \(組建路徑)，然後按一下 [Configure Build Path] \(設定組建路徑)。
-6. 按一下 [Libraries] \(程式庫) 索引標籤、按一下 [Azure Access Control Services Filter] \(Azure 存取控制服務篩選器)，然後按一下 [Edit] \(編輯)。
+5. 在 Eclipse 的 Project Explorer \(專案總管) 中，於 **MyACSHelloWorld** 上按一下滑鼠右鍵、按一下 Build Path \(組建路徑)，然後按一下Configure Build Path \(設定組建路徑)。
+6. 按一下 Libraries \(程式庫) 索引標籤、按一下 Azure Access Control Services Filter \(Azure 存取控制服務篩選器)，然後按一下Edit \(編輯)。
 7. 使用已開啟至「管理入口網站」之 [登入頁面整合] 頁面的瀏覽器，複製 [選項 1：連結至 ACS 主控的登入頁面] 欄位中列出的 URL，然後將它貼到 Eclipse 對話方塊的 [ACS Authentication Endpoint] \(ACS 驗證端點) 欄位中。
 8. 使用已開啟至「管理入口網站」之 [編輯信賴憑證者應用程式] 頁面的瀏覽器，複製 [領域] 欄位中列出的 URL，然後將它貼到 Eclipse 對話方塊的 [Relying Party Realm] \(信賴憑證者領域) 欄位中。
 9. 在 Eclipse 對話方塊的 [Security] \(安全性) 區段中，如果您想要使用現有的憑證，請按一下 [Browse] \(瀏覽)、瀏覽至您想要使用的憑證、選取它，然後按一下 [Open] \(開啟)。 或者，如果您想要建立新的憑證，請按一下 [New] \(新增) 以顯示 [New Certificate] \(新增憑證) 對話方塊，然後為新憑證指定密碼、.cer 檔案的名稱，以及 .pfx 檔案的名稱。

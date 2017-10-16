@@ -23,6 +23,8 @@
       href: tutorial-forecast-spending.md
 - name: 資源
   items:
+    - name: 成本管理影片
+      href: ref-videos.md
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格

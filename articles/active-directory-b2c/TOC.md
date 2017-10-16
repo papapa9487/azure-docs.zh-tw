@@ -40,6 +40,9 @@
 ### [微博](active-directory-b2c-setup-weibo-app.md)
 ### [QQ](active-directory-b2c-setup-qq-app.md)
 ### [微信](active-directory-b2c-setup-wechat-app.md)
+## [設定自助密碼重設](active-directory-b2c-reference-sspr.md)
+## [自訂 UI](active-directory-b2c-reference-ui-customization.md)
+### [可供自訂的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [使用 Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)
 ## [取得存取權杖](active-directory-b2c-access-tokens.md)
 ## [停用電子郵件驗證](active-directory-b2c-reference-disable-ev.md)
@@ -47,30 +50,34 @@
 ## [啟用 MFA](active-directory-b2c-reference-mfa.md)
 ## [使用自訂屬性](active-directory-b2c-reference-custom-attr.md)
 ## [自訂密碼](active-directory-b2c-reference-password-complexity.md)
-## [自訂 UI](active-directory-b2c-reference-ui-customization.md)
-### [可供自訂的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)
 ## [自訂語言](active-directory-b2c-reference-language-customization.md)
 ## [使用報告 API](active-directory-b2c-reference-usage-reporting-api.md)
-## [設定自助密碼重設](active-directory-b2c-reference-sspr.md)
+## [移轉使用者](active-directory-b2c-user-migration.md)
 
 # 身分識別體驗架構
 ## [自訂原則](active-directory-b2c-overview-custom.md)
 ## 手冊
 ### [開始使用](active-directory-b2c-get-started-custom.md)
-### 設定 OIDC/OAUTH2 提供者
+### 設定 OIDC/OAUTH 提供者
 #### [Azure AD](active-directory-b2c-setup-aad-custom.md)
 #### [Microsoft 帳戶](active-directory-b2c-custom-setup-msa-idp.md)
 #### [Google+](active-directory-b2c-custom-setup-goog-idp.md)
+#### [LinkedIn](active-directory-b2c-custom-setup-li-idp.md)
+#### [Twitter](active-directory-b2c-custom-setup-twitter-idp.md)
 ### 設定 SAML 提供者
 #### [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md)
 #### [Salesforce](active-directory-b2c-setup-sf-app-custom.md)
 ### 整合 RESTful API
 #### [驗證使用者輸入](active-directory-b2c-rest-api-validation-custom.md)
 #### [取得額外宣告](active-directory-b2c-rest-api-step-custom.md)
+#### [新增您自己的 RESTful API](active-directory-b2c-custom-rest-api-netfw.md)
+#### [透過基本驗證保護 RESTful ApI](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+#### [透過憑證驗證保護 RESTful API](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 ### 使用者流程
 #### [設定使用者輸入](active-directory-b2c-configure-signup-self-asserted-custom.md)
 #### [自訂屬性](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 #### [自訂 UI](active-directory-b2c-ui-customization-custom.md)
+#### [以動態方式自訂 UI](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [自訂權杖](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)
 

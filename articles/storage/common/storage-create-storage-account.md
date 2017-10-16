@@ -12,16 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-f1_keywords:
-- sql13.swb.windowsazurestorage.connect.f1
+f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 01/23/2017
 ms.author: tamram
+ms.openlocfilehash: cdca35f8ae339d02b44490cd61e2684d81d88365
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 848f6b07e51b58b00b81dd42ca1d478fdba20d06
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-azure-storage-accounts"></a>關於 Azure 儲存體帳戶
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
@@ -110,7 +108,7 @@ Azure 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲�
 > 
 <a id="view-and-copy-storage-access-keys"/></a>
 #### <a name="view-and-copy-storage-access-keys"></a>檢視並複製儲存體存取金鑰
-在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，按一下 [所有設定]，然後按一下 [存取金鑰] 圖示來檢視、複製和重新產生帳戶存取金鑰。 [存取金鑰]  刀鋒視窗也包含使用您主要與次要金鑰的預先設定連接字串，讓您可以複製以在應用程式中使用。
+在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的儲存體帳戶，按一下 [所有設定]，然後按一下存取金鑰] 圖示來檢視、複製和重新產生帳戶存取金鑰。 [存取金鑰]  刀鋒視窗也包含使用您主要與次要金鑰的預先設定連接字串，讓您可以複製以在應用程式中使用。
 
 #### <a name="regenerate-storage-access-keys"></a>重新產生儲存體存取金鑰
 建議您定期變更儲存體帳戶的存取金鑰，保護儲存體連線的安全。 指派了兩個存取金鑰，因此您可以在重新產生一個存取金鑰的同時，使用另一個存取金鑰維持儲存體帳戶連線。
@@ -129,7 +127,7 @@ Azure 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲�
 以下是替換儲存體存取金鑰的程序：
 
 1. 更新應用程式程式碼中的連接字串，以參考儲存體帳戶的次要存取金鑰。
-2. 重新產生儲存體帳戶的主要存取金鑰。 按一下 [存取金鑰] 刀鋒視窗上的 [重新產生 Key1]，然後按一下 [是] 確認您要重新產生新的金鑰。
+2. 重新產生儲存體帳戶的主要存取金鑰。 按一下 存取金鑰 刀鋒視窗上的 重新產生 Key1，然後按一下是 確認您要重新產生新的金鑰。
 3. 更新程式碼中的連接字串，以參考新的主要存取金鑰。
 4. 以同樣的方式重新產生次要存取金鑰。
 
@@ -149,5 +147,4 @@ Azure 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲�
 * [設定 Azure 儲存體連接字串](../storage-configure-connection-string.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 * 造訪 [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)(英文)。
-
 

@@ -7,6 +7,7 @@
 ## [常見問題集](active-directory-faq.md)
 
 # 開始使用
+## [開始使用 Azure AD](get-started-azure-ad.md)
 ## [註冊 Azure AD Premium](active-directory-get-started-premium.md)
 ## [新增自訂網域名稱](add-custom-domain.md)
 ## [設定公司商標](customize-branding.md)

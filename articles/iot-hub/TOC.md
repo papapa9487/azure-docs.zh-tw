@@ -114,6 +114,7 @@
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-schedule-jobs.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-schedule-jobs.md)
 #### [Java](iot-hub-java-java-schedule-jobs.md)
+
 ## 管理
 ### 建立 IoT 中樞 
 #### [使用 Azure 入口網站](iot-hub-create-through-portal.md)
@@ -127,15 +128,24 @@
 #### [使用 Azure 入口網站](iot-hub-configure-file-upload.md)
 #### [使用 Azure PowerShell](iot-hub-configure-file-upload-powershell.md)
 #### [使用 Azure CLI](iot-hub-configure-file-upload-cli.md)
-### [大量管理 IoT 裝置](iot-hub-bulk-identity-mgmt.md)
+### [監視與診斷](iot-hub-monitor-resource-health.md)
+#### [移轉至診斷設定](iot-hub-migrate-to-diagnostics-settings.md)
+#### [作業監視](iot-hub-operations-monitoring.md)
 ### [用量度量](iot-hub-metrics.md)
-### [作業監視](iot-hub-operations-monitoring.md)
+### [大量管理 IoT 裝置](iot-hub-bulk-identity-mgmt.md)
 ### [設定 IP 篩選](iot-hub-ip-filtering.md)
+
 ## 安全
 ### [從頭建立安全性](iot-hub-security-ground-up.md)
 ### [安全性最佳做法](iot-hub-security-best-practices.md)
 ### [安全性架構](iot-hub-security-architecture.md)
 ### [保護您的 IoT 部署](iot-hub-security-deployment.md)
+### 使用 X.509 CA 憑證提供保護
+#### [X.509 CA 憑證安全性概觀](iot-hub-x509ca-overview.md)
+##### [X.509 CA 憑證安全性概念](iot-hub-x509ca-concept.md)
+#### [開始使用 X.509 CA 憑證安全性](iot-hub-security-x509-get-started.md)
+##### [建立憑證 - PowerShell](iot-hub-security-x509-create-certificates.md)
+
 ## Azure IoT Edge
 ### [概觀](iot-hub-iot-edge-overview.md)
 ### 開始使用

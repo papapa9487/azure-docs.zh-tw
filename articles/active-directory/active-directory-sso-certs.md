@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/09/2017
 ms.author: jeedes
 ms.openlocfilehash: 1283b570200f05003658824760ecbb6722f241d9
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>在 Azure Active Directory 中管理同盟單一登入的憑證
 本文涵蓋各種與 Azure Active Directory (Azure AD) 建立憑證，以對 SaaS 應用程式建立同盟單一登入 (SSO) 相關的常見問題和相關資訊。 從 Azure AD 應用程式資源庫，或使用非資源庫的應用程式範本新增應用程式。 使用同盟 SSO 選項以設定應用程式。
@@ -36,7 +36,7 @@ ms.lasthandoff: 08/03/2017
 根據預設，憑證會設定為三年之後到期。 您可以藉由完成下列步驟，為您的憑證選擇不同的到期日期。
 螢幕擷取畫面使用 Salesforce 作為範例，但是這些步驟可以套用在任何同盟的 SaaS 應用程式。
 
-1. 在 [Azure 入口網站](https://aad.portal.azure.com)中，按一下左窗格中的 [企業應用程式]，然後按一下 [概觀] 分頁上的 [新增應用程式]：
+1. 在 [Azure 入口網站](https://aad.portal.azure.com)中，按一下左窗格中的 [企業應用程式]，然後按一下概觀] 分頁上的 [新增應用程式]：
 
    ![開啟 SSO 組態精靈](./media/active-directory-sso-certs/enterprise_application_new_application.png)
 

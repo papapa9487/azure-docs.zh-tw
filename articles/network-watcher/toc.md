@@ -59,17 +59,20 @@
 # 作法
 ## [透過 Azure 自動化監控 VPN 閘道](network-watcher-monitor-with-azure-automation.md)
 ## [透過 VPN 閘道診斷內部部署連線能力](network-watcher-diagnose-on-premises-connectivity.md)
-## [分析封包擷取以尋找異常情況](network-watcher-deep-packet-inspection.md)
-## [使用封包擷取搭配 Azure Functions 進行主動式網路監視](network-watcher-alert-triggered-packet-capture.md)
-## [使用 Power BI 視覺化流量記錄](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-## [使用來源工具視覺化流量記錄](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
-## [使用 Graylog 將 Azure 中的流程記錄視覺化](network-watcher-analyze-nsg-flow-logs-graylog.md)
-## [使用開放原始碼視覺化流量模式](network-watcher-using-open-source-tools.md)
 ## [使用 PowerShell 在您的網路上執行合規性和稽核](network-watcher-nsg-auditing-powershell.md)
-## [讀取 NSG 流量記錄](network-watcher-read-nsg-flow-logs.md)
-## [使用開放原始碼執行侵入偵測](network-watcher-intrusion-detection-open-source-tools.md)
 ## [在 Azure Log Analytics 中分析應用程式閘道](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
-## [使用網路監看員和 Grafana 分析流程記錄](network-watcher-nsg-grafana.md)
+## 封包擷取
+### [尋找異常](network-watcher-deep-packet-inspection.md)
+### [使用 Azure Functions 進行主動式網路監視](network-watcher-alert-triggered-packet-capture.md)
+### [使用開放原始碼執行侵入偵測](network-watcher-intrusion-detection-open-source-tools.md)
+### [使用開放原始碼視覺化流量模式](network-watcher-using-open-source-tools.md)
+## 分析 NSG 流量記錄
+### [讀取 NSG 流量記錄](network-watcher-read-nsg-flow-logs.md)
+### [使用 Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
+### [使用彈性集區](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+### [使用 Grafana](network-watcher-nsg-grafana.md)
+### [使用 Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+
 # 參考
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [.NET](/dotnet/api)

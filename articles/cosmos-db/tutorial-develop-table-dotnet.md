@@ -15,12 +15,11 @@ ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: arramac
 ms.custom: mvc
+ms.openlocfilehash: 5322fa5cc8e841ecea97a69d15cf130a4426ad95
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 52cb5f2569b6c3a5301752b1e8bfb6cea13ff7f6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
 
@@ -102,7 +101,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [金鑰]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將連接字串複製到 app.config 檔案。
+1. 在 [Azure 入口網站](http://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [金鑰]，然後按一下讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將連接字串複製到 app.config 檔案。
 
 2. 在 Visual Studio 中，開啟 app.config 檔案。 
 
@@ -119,7 +118,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 >
 
 ## <a name="build-and-deploy-the-app"></a>建置並部署應用程式
-1. 在 Visual Studio 中，於 [方案總管] 中的專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。 
+1. 在 Visual Studio 中，於 方案總管 中的專案上按一下滑鼠右鍵，然後按一下管理 NuGet 套件。 
 
 2. 在 NuGet [瀏覽] 方塊中，輸入 ***WindowsAzure.Storage-PremiumTable***。 請選取 [包括發行前版本]。
 
@@ -341,7 +340,7 @@ table.DeleteIfExists();
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本教學課程所建立的所有資源。   
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。  
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。 
+2. 在資源群組頁面上，按一下 刪除，在文字方塊中輸入要刪除之資源的名稱，然後按一下刪除。 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -363,4 +362,3 @@ table.DeleteIfExists();
 
 > [!div class="nextstepaction"]
 > [使用資料表 API 進行查詢](tutorial-query-table.md)
-

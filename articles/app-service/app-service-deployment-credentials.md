@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 2f8691b0aadbd97e87996c2683849a6db3b74618
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>設定 Azure App Service 的部署認證
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 支援兩種認證類，用於[本機 Git 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 這些與您的 Azure Active Directory 認證不相同。
@@ -48,7 +47,7 @@ ms.lasthandoff: 09/07/2017
     > [!NOTE]
     > 在入口網站中，您必須至少有一個應用程式，才能存取 [部署認證] 刀鋒視窗。 不過，若使用 [Azure CLI](/cli/azure/webapp/deployment/user#set)，沒有現有應用程式也可以設定使用者層級認證。
 
-2. 設定使用者名稱和密碼，然後按一下 [儲存]。
+2. 設定使用者名稱和密碼，然後按一下儲存。
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
@@ -70,7 +69,7 @@ App Service 中每個應用程式的認證會儲存在 XML 發佈設定檔中。
 
 若要取得應用程式層級的認證：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >[&lt;any_app>  >  [概觀]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >&lt;any_app>  >  [概觀]。
 
 2. 按一下 [...更多]  >  [取得發行設定檔]，便會開始下載 .PublishSettings 檔案。
 
@@ -85,7 +84,7 @@ App Service 中每個應用程式的認證會儲存在 XML 發佈設定檔中。
 
 若要重設應用程式層級的認證：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >[&lt;any_app>  >  [概觀]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >&lt;any_app>  >  [概觀]。
 
 2. 按一下 [...更多]  >  [重設發行設定檔]。 按一下 [是] 確認重設。
 
@@ -94,4 +93,3 @@ App Service 中每個應用程式的認證會儲存在 XML 發佈設定檔中。
 ## <a name="next-steps"></a>後續步驟
 
 了解如何使用這些認證從[本機 Git](app-service-deploy-local-git.md)或使用[FTP/S](app-service-deploy-ftp.md) 部署應用程式。
-

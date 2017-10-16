@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
 ms.openlocfilehash: b03265b52886b30e4b9de0b0293e5dadd6d2413a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 診斷疑難排解
 本文說明有關使用 Azure 診斷的疑難排解資訊。 如需有關 Azure 診斷的詳細資訊，請參閱 [Azure 診斷概觀](azure-diagnostics.md)。
@@ -150,7 +149,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 - 最後，您可以查看監視代理程式所報告的失敗項目。 監視代理程式會將其記錄檔寫入位於[診斷資料的本機存放區](#log-artifacts-path)的 `maeventtable.tsf` 中。 依照[本機記錄檔擷取](#local-log-extraction)一節中的指示來開啟這個檔案。 然後嘗試判斷，是否有指示讀取本機檔案寫入儲存體失敗的 `errors`。
 
 ### <a name="capturing-and-archiving-logs"></a>擷取和封存記錄檔
-如果您想要連絡支援人員，支援人員首先可能會要求您收集電腦的記錄檔。 您可以先自行執行該作業以節省時間。 執行位在](#log-artifacts-path)記錄收集公用程式路徑[的 `CollectGuestLogs.exe`。 它會產生一個 .zip 檔案，其中所有相關 Azure 記錄檔都放在相同的資料夾中。
+如果您想要連絡支援人員，支援人員首先可能會要求您收集電腦的記錄檔。 您可以先自行執行該作業以節省時間。 執行位在[記錄收集公用程式路徑](#log-artifacts-path)的 `CollectGuestLogs.exe`。 它會產生一個 .zip 檔案，其中所有相關 Azure 記錄檔都放在相同的資料夾中。
 
 ## <a name="diagnostics-data-tables-not-found"></a>找不到診斷資料表格
 Azure 儲存體中保存 ETW 事件的表格使用以下程式碼來命名：
@@ -300,4 +299,3 @@ System.IO.FileLoadException: Could not load file or assembly 'System.Threading.T
 - 如果您在效能計數器名稱中使用萬用字元 (\*)，則入口網站將無法關聯設定和收集的計數器。
 
 **緩解方式**：針對系統帳戶，將電腦的語言變更為英文。 若要執行上述方式，請選取 [控制台] > [地區] > [系統管理] > [複製設定]。 接下來，取消選取 [歡迎畫面及系統帳戶]，如此一來自訂語言就不會套用到系統帳戶。 如果想要讓入口網站成為主要的使用體驗網站，也請確定未使用萬用字元。
-

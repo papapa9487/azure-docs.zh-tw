@@ -19,6 +19,8 @@
       href: azure-stack-tutorial-app-service.md
 - name: 概念
   items:
+    - name: 規劃考量
+      href: azure-stack-planning-considerations.md
     - name: 服務原則
       href: azure-stack-servicing-policy.md
     - name: 版本資訊
@@ -37,6 +39,8 @@
           href: azure-stack-deploy.md
         - name: 部署
           href: azure-stack-run-powershell-script.md
+        - name: 安裝 PowerShell
+          href: azure-stack-powershell-configure-quickstart.md
         - name: 註冊
           href: azure-stack-register.md
         - name: 連線至 Azure Stack
@@ -89,6 +93,8 @@
           href: azure-stack-manage-windows-azure-pack.md
         - name: 更換硬體
           items:
+            - name: 節點動作
+              href: azure-stack-node-actions.md
             - name: 更換磁碟
               href: azure-stack-replace-disk.md
     - name: 安全性、合規性和身分識別
@@ -133,10 +139,16 @@
               href: azure-stack-mysql-resource-provider-deploy.md
             - name: 部署 SQL 資源提供者
               href: azure-stack-sql-resource-provider-deploy.md
+            - name: 建立 SQL 資料庫
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: 新增主機伺服器
+              href: azure-stack-sql-resource-provider-hosting-servers.md
         - name: 提供 App Service 做為 PaaS
           items:
             - name: Azure Stack 概觀上的 App Service
               href: azure-stack-app-service-overview.md
+            - name: 容量規劃
+              href: azure-stack-app-service-capacity-planning.md
             - name: 開始之前
               href: azure-stack-app-service-before-you-get-started.md
             - name: 部署 App Service 資源提供者

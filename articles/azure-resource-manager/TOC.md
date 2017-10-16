@@ -58,6 +58,7 @@
 ### [REST API](resource-manager-rest-api.md)
 ### [使用標籤來整理資源](resource-group-using-tags.md)
 ### [將資源移至新群組或訂用帳戶](resource-group-move-resources.md)
+### [利用管理群組組織訂用帳戶](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [治理範例](resource-manager-subscription-examples.md)
 
 ## 控制存取權

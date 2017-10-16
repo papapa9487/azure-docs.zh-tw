@@ -16,10 +16,10 @@ ms.date: 01/07/2017
 ms.author: nacanuma
 ms.custom: aaddev
 ms.openlocfilehash: 4f58177f540c14172d7ece8b4bc8c8a2b9787f8f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-web-apis-for-nodejs"></a>開始使用適用於 Node.js 的 Web API
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -339,7 +339,7 @@ server.js 檔案會提供 Web API 伺服器的大部分功能。 我們會將大
 
 在此逐步解說中，我們使用 MongoDB 來儲存工作，如步驟 4 所述。
 
-在步驟 11 中建立的 `config.js` 檔案中，我們會呼叫資料庫 **，因為那是我們放在 `tasklist`mogoose_auth_local** 連線 URL 結尾處的內容。 您不需要在 MongoDB 中事先建立此資料庫。 相反地，MongoDB 會在第一次執行我們的伺服器應用程式時為我們建立此資料庫 (假設此資料庫尚未存在)。
+在步驟 11 中建立的 `config.js` 檔案中，我們會呼叫資料庫 `tasklist`，因為那是我們放在 **mogoose_auth_local** 連線 URL 結尾處的內容。 您不需要在 MongoDB 中事先建立此資料庫。 相反地，MongoDB 會在第一次執行我們的伺服器應用程式時為我們建立此資料庫 (假設此資料庫尚未存在)。
 
 既然我們已經告訴伺服器想要使用哪個 MongoDB 資料庫，我們必須撰寫一些額外程式碼，以建立伺服器工作的模型和結構描述。
 

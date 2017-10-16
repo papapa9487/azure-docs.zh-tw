@@ -11,11 +11,17 @@
 ## [Jenkins 和 Azure CLI](/azure/jenkins/execute-cli-jenkins-pipeline)
 # 使用說明指南
 ## [保護 Azure 上的 Jenkins](https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/)
+## [部署到 App Service](deploy-jenkins-app-service-plugin.md)
 ## [將成品發佈至 Azure 儲存體](/azure/storage/common/storage-java-jenkins-continuous-integration-solution)
 ## [使用 Jenkins 與 VSTS](https://www.visualstudio.com/en-us/docs/build/apps/jenkins/build-deploy-jenkins)
 # 資源
+## 外掛程式
+### [App Service 外掛程式](https://plugins.jenkins.io/azure-app-service)
+### [Azure 容器代理程式外掛程式](https://plugins.jenkins.io/azure-container-agents)
+### [Azure 認證外掛程式](https://plugins.jenkins.io/azure-credentials)
+### [Azure Function 外掛程式](https://plugins.jenkins.io/azure-function)
+### [Azure 儲存體外掛程式](https://plugins.jenkins.io/windows-azure-storage)
+### [Azure VM Agent 外掛程式](https://plugins.jenkins.io/azure-vm-agents)
+### [容器服務外掛程式](https://plugins.jenkins.io/azure-acs)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)
-## [App Service 外掛程式](https://plugins.jenkins.io/azure-app-service)
-## [Azure 儲存體外掛程式](https://plugins.jenkins.io/windows-azure-storage)
-## [Azure VM Agent 外掛程式](https://plugins.jenkins.io/azure-vm-agents)
 ## [Jenkins 首頁](https://jenkins.io/)

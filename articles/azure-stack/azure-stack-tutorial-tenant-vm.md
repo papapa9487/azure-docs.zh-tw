@@ -15,16 +15,15 @@ ms.topic: tutorial
 ms.date: 9/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>將虛擬機器提供給您的 Azure Stack 使用者
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發封裝*
+適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
 身為 Azure Stack 雲端系統管理員，您可以建立供應項目，以供您的使用者 (有時稱為租用戶) 訂閱。 利用其訂用帳戶，使用者可以接著取用 Azure Stack 服務。
 
@@ -52,7 +51,7 @@ ms.lasthandoff: 09/25/2017
 
    供應項目是一組提供者供使用者購買或訂閱的一或多個方案。
 
-   a. 以系統管理員身分[登入](azure-stack-connect-azure-stack.md)入口網站，然後按一下 [新增] > [租用戶供應項目 + 方案] > [供應項目]。
+   a. 以系統管理員身分[登入](azure-stack-connect-azure-stack.md)入口網站，然後按一下新增] > [租用戶供應項目 + 方案] > [供應項目]。
    ![新增供應項目](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. 在 [新增供應項目] 區段中，填寫 [顯示名稱] 與 [資源名稱]，然後選取新的或現有的 [資源群組]。 [顯示名稱] 是供應項目的易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是系統管理員用來處理其他供應項目 (以 Azure Resource Manager 資源方式) 的名稱。
@@ -73,7 +72,7 @@ ms.lasthandoff: 09/25/2017
 
    f. 按一下 [配額]，然後選取您要建立配額的第一個服務。 針對 IaaS 配額，請針對計算、網路與儲存體服務依照這些步驟執行。
 
-   在此範例中，我們先為計算服務建立配額。 在命名空間清單中，選取 [Microsoft.Compute] 命名空間，然後按一下 [建立新的配額]。
+   在此範例中，我們先為計算服務建立配額。 在命名空間清單中，選取 Microsoft.Compute 命名空間，然後按一下建立新的配額。
    
    ![建立新的配額](media/azure-stack-tutorial-tenant-vm/image06.png)
 
@@ -117,7 +116,7 @@ ms.lasthandoff: 09/25/2017
 
    a. 以使用者身分登入使用者入口網站，並按一下 [Get a Subscription]\(取得訂用帳戶\)。
    - 整合系統的 URL 會由於操作員的地區和外部網域名稱而有所不同，格式為 https://portal.&lt;地區&gt;.&lt;FQDN&gt;。
-   - 如果您使用 Azure Stack 開發封裝，入口網站位址是 https://portal.local.azurestack.external。
+   - 如果您使用的是「Azure Stack 開發套件」，則入口網站位址會是 https://portal.local.azurestack.external。
 
    ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
@@ -135,7 +134,7 @@ ms.lasthandoff: 09/25/2017
 
    a. 以使用者身分登入使用者入口網站，然後按一下新增 > **計算** > **Windows Server 2016 Datacenter 評估版**。
       - 整合系統的 URL 會由於操作員的地區和外部網域名稱而有所不同，格式為 https://portal.&lt;地區&gt;.&lt;FQDN&gt;。
-   - 如果您使用 Azure Stack 開發封裝，入口網站位址是 https://portal.local.azurestack.external。
+   - 如果您使用的是「Azure Stack 開發套件」，則入口網站位址會是 https://portal.local.azurestack.external。
 
    b. 在 [基本] 區段中，輸入 [名稱][使用者名稱]與 [密碼]。 針對 [VM 磁碟類型]，請選擇 [HDD]。 選擇 [訂用帳戶] 。 建立 資源群組，或選取現有的資源群組，然後按一下確定。  
 

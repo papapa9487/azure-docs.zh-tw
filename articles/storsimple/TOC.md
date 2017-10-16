@@ -118,6 +118,7 @@
 ##### [設定 Web Proxy](storsimple-8000-configure-web-proxy.md)
 ##### [修改 DATA 0 設定](storsimple-8000-modify-data-0.md)
 
+#### [使用 Azure PowerShell 範例指令碼](storsimple-8000-automation-azurerm-scripts.md)
 
 #### [使用 StorSimple Snapshot Manager](storsimple-snapshot-manager-admin.md)
 ##### [什麼是 StorSimple Snapshot Manager？](storsimple-what-is-snapshot-manager.md)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 34c46fb282ad154225f5ee8ef544bc8da1c50016
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
@@ -44,7 +43,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="turn-on-logging-in-the-azure-portal"></a>在 Azure 入口網站中開啟記錄
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，於您的 Azure Cosmos DB 帳戶左側瀏覽區中按一下 [診斷記錄]，然後按一下 [開啟診斷]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，於您的 Azure Cosmos DB 帳戶左側瀏覽區中按一下 [診斷記錄]，然後按一下開啟診斷]。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/logging/turn-on-portal-logging.png)
 
@@ -349,4 +348,3 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
    - [Azure 事件中樞是什麼](../event-hubs/event-hubs-what-is-event-hubs.md)？
    - [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - 請參閱[從 Azure 儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
-
