@@ -74,19 +74,19 @@ ms.lasthandoff: 10/11/2017
 
    ![選擇 [方案庫]](media/logic-apps-monitor-your-logic-apps-oms/solutions-gallery.png)
 
-5. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] (Logic Apps 管理) 解決方案的磚。
+5. 在 [所有解決方案] 下，找到並選擇 [Logic Apps Management] \(Logic Apps 管理) 解決方案的磚。
 
-   ![選擇 [Logic Apps Management] (Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![選擇 [Logic Apps Management] \(Logic Apps 管理)](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
 
 6. 若要在您的 OMS 工作區中安裝解決方案，請選擇 [新增]。
 
-   ![針對 [Logic Apps Management] (Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![針對 [Logic Apps Management] \(Logic Apps 管理) 選擇 [新增]](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 
 ## <a name="view-your-logic-app-runs-in-your-oms-workspace"></a>在 OMS 工作區中檢視邏輯應用程式執行
 
-1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] (Logic Apps 管理) 磚中的詳細資料。
+1. 若要檢視邏輯應用程式執行的計數和狀態，請移至 OMS 工作區的概觀頁面。 檢閱 [Logic Apps Management] \(Logic Apps 管理) 磚中的詳細資料。
 
    ![顯示邏輯應用程式執行計數和狀態的概觀磚](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 

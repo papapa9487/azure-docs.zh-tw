@@ -126,7 +126,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>步驟 2︰使用閘道器讀取來自內部部署資料來源的資料
 設定閘道之後，您可以將 **匯入資料** 模組新增到會輸入來自內部部署 SQL Server 資料庫之資料的實驗。
 
-1. 在 Machine Learning Studio 中，選取 [實驗] 索引標籤，並按一下左下角的 [+新增]，然後選取 [空白實驗] (或從數個可用的範例實驗中選取其中一個)。
+1. 在 Machine Learning Studio 中，選取 [實驗] 索引標籤，並按一下左下角的 [+新增]，然後選取 [空白實驗] \(或從數個可用的範例實驗中選取其中一個)。
 2. 找出 **匯入模型** 模組，並將它拖曳到實驗畫布。
 3. 按一下畫布下方的 [另存新檔]  。 輸入「Azure Machine Learning 內部部署 SQL Server 教學課程」做為實驗名稱，選取工作區，然後按一下 [確定]  核取記號。
 
