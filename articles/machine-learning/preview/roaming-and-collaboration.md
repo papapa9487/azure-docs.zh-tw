@@ -120,7 +120,7 @@ az role assignment create --assignee bob@contoso.com --role Owner --scope <proje
 
 Azure Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 資源。 您可以使用 [Azure 入口網站](https://portal.azure.com)中的 [存取控制] 連結來指派角色。 
 
-從 [所有資源] 檢視找出您要新增使用者的資源。 按一下頁面內的 [存取控制] (IAM) 連結。 新增使用者 
+從 [所有資源] 檢視找出您要新增使用者的資源。 按一下頁面內的 [存取控制] \(IAM) 連結。 新增使用者 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
