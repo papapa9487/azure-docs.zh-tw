@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -133,8 +132,9 @@ Azure AD Connect：
 
 `Initialize-ADSyncDomainJoinedComputerSync` Cmdlet：
 
-- 使用 Active Directory PowerShell 模組，此模組依賴網域控制站上執行的 Active Directory Web 服務。 執行 Windows Server 2008 R2 和更新版本的網域控制站可支援 Active Directory Web 服務。
+- 使用 Active Directory PowerShell 模組和 DS 工具，此模組依賴網域控制站上執行的 Active Directory Web 服務。 執行 Windows Server 2008 R2 和更新版本的網域控制站可支援 Active Directory Web 服務。
 - 只有 **MSOnline PowerShell 模組 1.1.166.0 版**才支援。 若要下載此模組，請使用這個[連結](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185)。   
+- 若未安裝 AD DS 工具，則 `Initialize-ADSyncDomainJoinedComputerSync` 會失敗。  您可透過 [功能] - [遠端伺服器管理工具] - [角色管理工具] 下的「伺服器管理員」安裝 AD DS 工具。
 
 對於執行 Windows Server 2008 或更早版本的網域控制站，請使用下列指令碼來建立服務連接點。
 
@@ -557,13 +557,13 @@ Azure AD Connect：
    > [!NOTE]
    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版的主控台，請移至 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`。 
 
-7. 選取 [已啟用]，然後按一下 [套用]。
+7. 選取 已啟用，然後按一下套用。
 8. 按一下 [確定] 。
 9. 將群組原則物件連結到您選擇的位置。 例如，您可以將它連結到特定組織單位。 也可以將它連結到會自動加入 Azure AD 的特定電腦安全性群組。 若要為貴組織中所有已加入網域的 Windows 10 和 Windows Server 2016 電腦設定此原則，請將「群組原則」物件連結至網域。
 
 ### <a name="windows-installer-packages-for-non-windows-10-computers"></a>非 Windows 10 電腦的 Windows Installer 套件
 
-若要在同盟環境中加入已加入網域的舊版 Windows 電腦，您可以從下載中心的 [適用於非 Windows 10 電腦的 Microsoft Workplace Join][](https://www.microsoft.com/en-us/download/details.aspx?id=53554) 頁面下載並安裝下列 Windows Installer 封裝 (.msi)。
+若要在同盟環境中加入已加入網域的舊版 Windows 電腦，您可以從下載中心的 [適用於非 Windows 10 電腦的 Microsoft Workplace Join](https://www.microsoft.com/en-us/download/details.aspx?id=53554) 頁面下載並安裝下列 Windows Installer 封裝 (.msi)。
 
 您可以使用軟體發佈系統 (例如 System Center Configuration Manager) 來部署此套件。 此套件使用 quiet 參數來支援標準的無訊息安裝選項。 System Center Configuration Manager Current Branch 提供額外的舊版好處，例如能夠追蹤已完成的註冊。 如需詳細資訊，請參閱 [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)。
 
@@ -583,4 +583,3 @@ Azure AD Connect：
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

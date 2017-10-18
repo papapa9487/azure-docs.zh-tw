@@ -13,15 +13,13 @@
 ## [規劃與作業](security-center-planning-and-operations-guide.md)
 ## [權限](security-center-permissions.md)
 ## [支援的平台](security-center-os-coverage.md)
-## [合作夥伴整合](security-center-partner-integration.md)
 ## [常見問題集](security-center-faq.md)
 
 # 作法
-
-## 安全性原則
-### [概觀](security-center-policies-overview.md)
+## 安全性原則[](security-center-policies-overview.md)
 ### [資料收集](security-center-enable-data-collection.md)
 ### 安全性原則[](security-center-policies.md)
+### [使用 Azure 原則的安全性原則](security-center-azure-policy.md)
 ### [電子郵件通知](security-center-provide-security-contact-details.md)
 ### [定價層](security-center-pricing.md)
 
@@ -30,6 +28,10 @@
 ## [搜尋](security-center-search.md)
 
 ## 防止
+### [安全性解決方案](security-center-partner-integration.md)
+#### [監視連線的解決方案](security-center-partner-solutions.md)
+#### [連線 Microsoft ATA](security-center-ata-integration.md)
+#### [連線 Azure AD Identity Protection](security-center-aadip-integration.md)
 ### [實作安全性建議](security-center-recommendations.md)
 ### [應用程式建議](security-center-application-recommendations.md)
 #### [新增 Web 應用程式防火牆](security-center-add-web-application-firewall.md)
@@ -57,7 +59,6 @@
 #### [更新作業系統版本](security-center-update-os-version.md)
 #### [未安裝弱點評估](security-center-vulnerability-assessment-recommendations.md)
 ### [監視安全性健康狀態](security-center-monitoring.md)
-### [監視合作夥伴解決方案](security-center-partner-solutions.md)
 ### [身分識別與存取](security-center-identity-access.md)
 
 ## 偵測及回應

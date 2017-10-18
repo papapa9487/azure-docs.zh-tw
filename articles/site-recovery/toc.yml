@@ -51,6 +51,8 @@
       href: concepts-physical-to-azure-architecture.md
     - name: Hyper-V 至次要網站架構
       href: concepts-hyper-v-to-secondary-architecture.md
+    - name: Azure 至 Azure 支援矩陣
+      href: site-recovery-support-matrix-azure-to-azure.md
     - name: 內部部署至 Azure 支援矩陣
       href: site-recovery-support-matrix-to-azure.md
     - name: 內部部署至次要網站支援矩陣

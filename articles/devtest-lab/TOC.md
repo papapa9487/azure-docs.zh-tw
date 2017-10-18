@@ -16,6 +16,7 @@
 ### [建立 VM](devtest-lab-add-vm.md)
 ### [建立可宣告 VM](devtest-lab-add-claimable-vm.md)
 ### [使用 Azure CLI 來建立和管理 VM](devtest-lab-vmcli.md)
+### [重新啟動 VM](devtest-lab-restart-vm.md)
 
 ## 在實驗室環境中
 ### [建立一個環境](devtest-lab-create-environment-from-arm.md)
@@ -57,8 +58,8 @@
 ## [調整您的實驗室](devtest-lab-scale-lab.md)
 
 # 參考
-## [Azure CLI](/cli/azure/lab)
-## [Azure PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [自動建立或修改實驗室](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [REST API](https://docs.microsoft.com/rest/api/dtl/)
 ## [Resource Manager 範本](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

@@ -9,6 +9,8 @@
   items:
     - name: 收集 - Azure VM
       href: log-analytics-quick-collect-azurevm.md
+    - name: 收集 - Linux 電腦
+      href: log-analytics-quick-collect-linux-computer.md
 - name: 教學課程
   items:
     - name: 1 - 分析資料
@@ -53,6 +55,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Azure 資源
               href: log-analytics-azure-storage.md
+            - name: Azure 儲存體的診斷或記錄資料
+              href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager
               href: log-analytics-om-agents.md
             - name: 組態管理員
@@ -92,6 +96,8 @@
           items:
             - name: 規則運算式
               href: log-analytics-log-searches-regex.md
+            - name: 跨工作區搜尋
+              href: log-analytics-cross-workspace-search.md
         - name: 從搜尋結果採取行動
           href: log-analytics-log-search-takeaction.md
         - name: 電腦群組
@@ -229,6 +235,10 @@
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
+    - name: 檢視設計工具圖格參考
+      href: log-analytics-view-designer-tiles.md
+    - name: 檢視設計工具視覺效果組件參考
+      href: log-analytics-view-designer-parts.md
 - name: 資源
   items:
     - name: Azure 藍圖

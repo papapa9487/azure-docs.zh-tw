@@ -22,6 +22,7 @@
 
 # 作法
 ## 規劃和設計
+### [異地災難復原和異地複寫](event-hubs-geo-dr.md)
 ### [專用的事事件中樞](event-hubs-dedicated-overview.md)
 ### [驗證和安全性模型概觀](event-hubs-authentication-and-security-model-overview.md)
 ### [可用性和一致性](event-hubs-availability-and-consistency.md)

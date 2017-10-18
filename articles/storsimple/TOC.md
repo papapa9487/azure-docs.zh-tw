@@ -101,6 +101,7 @@
 ##### [管理磁碟區容器](storsimple-8000-manage-volume-containers.md)
 ##### [管理磁碟區 - 目前](storsimple-8000-manage-volumes-u2.md)
 ###### [常見問題集︰固定在本機的磁碟區](storsimple-8000-local-volume-faq.md)
+##### [角色型存取控制](storsimple-8000-role-based-access-control.md)
 ##### [管理 ACR](storsimple-8000-manage-acrs.md)
 ##### [管理頻寬範本](storsimple-8000-manage-bandwidth-templates.md)
 ##### [檢視和管理工作](storsimple-8000-manage-jobs-u2.md)
@@ -188,7 +189,7 @@
 #### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## 參考
-### [Azure PowerShell](/powershell/azure/overview?view=azuresmps-3.7.0)
+### [REST API](https://docs.microsoft.com/rest/api/storsimple)
 ### [Windows PowerShell for StorSimple Cmdlet](https://technet.microsoft.com/library/dn688168.aspx)
 
 # StorSimple 8000 系列 (傳統入口網站)

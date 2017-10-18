@@ -21,6 +21,12 @@
       href: ../container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+- name: 概念
+  items:
+    - name: 容器登錄 SKU
+      href: container-registry-skus.md
+    - name: 異地複寫 (預覽)
+      href: container-registry-geo-replication.md
 - name: 使用說明指南
   items:
     - name: 發送和提取映像
@@ -43,8 +49,8 @@
       href: /powershell/module/azurerm.containerregistry
 - name: 資源
   items:
-    - name: Azure 藍圖
-      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 藍圖
+      href: 'https://aka.ms/acr/roadmap'
     - name: 價格
       href: 'https://azure.microsoft.com/pricing/details/container-registry/'
     - name: 區域可用性

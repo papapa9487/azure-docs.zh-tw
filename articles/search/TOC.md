@@ -68,7 +68,7 @@
 ### [建議](https://docs.microsoft.com/rest/api/searchservice/suggesters)
 ### [多面向導覽](search-faceted-navigation.md)
 ### [同義字預覽](search-synonyms.md)
-
+### [安全性篩選](search-security-trimming-for-azure-search.md)
 # 參考
 
 ## [.NET](/dotnet/api/?term=microsoft.azure.search)

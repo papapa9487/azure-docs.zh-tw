@@ -186,6 +186,8 @@
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: 使用 Azure 監視器
           href: monitor-using-azure-monitor.md
+        - name: 以視覺化方式監視
+          href: monitor-visually.md
         - name: 管理 Azure-SSIS 整合執行階段
           href: manage-azure-ssis-integration-runtime.md
         - name: 監視 Azure 整合執行階段

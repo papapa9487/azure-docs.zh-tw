@@ -44,6 +44,7 @@
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 Azure PowerShell 範例](active-directory-licensing-ps-examples.md)
+#### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
 ### [管理使用者設定檔](active-directory-users-profile-azure-portal.md)
 ### [重設密碼](active-directory-users-reset-password-azure-portal.md)
 ### [管理使用者工作資訊](active-directory-users-work-info-azure-portal.md)
@@ -65,6 +66,7 @@
 #### [將個別授權使用者移轉至群組型的授權](active-directory-licensing-group-migration-azure-portal.md)
 #### [群組型授權的其他案例](active-directory-licensing-group-advanced.md)
 #### [群組型授權的 Azure PowerShell 範例](active-directory-licensing-ps-examples.md)
+#### [Azure AD 中的產品與服務方案的參考](active-directory-licensing-product-and-service-plan-reference.md)
 ### [設定 Office 365 群組到期時間](active-directory-groups-lifecycle-azure-portal.md)
 ### [檢視全部群組](active-directory-groups-view-azure-portal.md)
 ### [啟用專用群組](active-directory-accessmanagement-dedicated-groups.md)
@@ -137,7 +139,7 @@
 ### 工作
 #### [設定 10 部已註冊 Azure AD 的 Windows 10 裝置](device-management-azuread-registered-devices-windows10-setup.md)
 #### [設定 Azure AD 已加入裝置](device-management-azuread-joined-devices-setup.md)
-#### [設定混合式 Azure AD 已加入裝置](device-management-hybrid-azuread-joined-devices-setup.md) 
+#### [設定混合式 Azure AD 已加入裝置](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [部署內部部署](active-directory-device-registration-on-premises-setup.md)
 #### [在第一次執行 Windows 10 時加入 Azure AD 的體驗](device-management-azuread-joined-devices-frx.md)
 ### 疑難排解
@@ -204,6 +206,7 @@
 #### [管理使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 #### [管理企業應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)
 #### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
+####[在 Azure Active Directory 中隱藏使用者體驗](active-directory-coreapps-hide-third-party-app.md)
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [自助服務存取](active-directory-self-service-application-access.md)

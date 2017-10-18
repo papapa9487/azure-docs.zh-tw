@@ -158,6 +158,10 @@
           href: model-management-cli-reference.md
         - name: 模型資料收集 API
           href: model-data-collection-api-reference.md
+    - name: 版本資訊
+      items:
+        - name: Sprint 0 - 2017 年 10 月
+          href: release-notes-sprint-0.md
 - name: 資源
   items:
     - name: 常見問題集

@@ -6,8 +6,12 @@
       href: overview.md
 - name: 快速入門
   items:
-    - name: 建立和路由自訂事件
+    - name: 建立自訂事件 - Azure CLI
       href: custom-event-quickstart.md
+    - name: 建立自訂事件 - Azure PowerShell
+      href: custom-event-quickstart-powershell.md
+    - name: 建立自訂事件 - Azure 入口網站
+      href: custom-event-quickstart-portal.md
 - name: 教學課程
   items:
     - name: 監視 VM 變更與邏輯應用程式

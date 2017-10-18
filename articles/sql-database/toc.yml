@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: 執行復原切入
           href: sql-database-disaster-recovery-drills.md
-    - name: 載入與移動資料
+    - name: 移轉至 SQL Database
       items:
         - name: 移轉 SQL Server DB
           href: sql-database-cloud-migrate.md
         - name: T-SQL 變更
           href: sql-database-transact-sql-information.md
+        - name: 移轉後管理資料庫
+          href: sql-database-manage-after-migration.md
+    - name: 載入與移動資料
+      items:
         - name: 複製 DB
           href: sql-database-copy.md
         - name: 匯出 DB

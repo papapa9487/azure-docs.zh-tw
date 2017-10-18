@@ -44,37 +44,45 @@
       href: msi-how-to-get-access-token-using-msi.md
     - name: 設定 Azure VM 的 MSI
       items:
-        - name: 透過 Azure 入口網站
+        - name: 使用 Azure 入口網站
           href: msi-qs-configure-portal-windows-vm.md
-        - name: 透過 PowerShell
+        - name: 使用 PowerShell
           href: msi-qs-configure-powershell-windows-vm.md
-        - name: 透過 Azure CLI
+        - name: 使用 Azure CLI
           href: msi-qs-configure-cli-windows-vm.md
-        - name: 透過 Azure Resource Manager 範本
+        - name: 使用 Azure Resource Manager 範本
           href: msi-qs-configure-template-windows-vm.md
-        - name: 包含 Azure SDK
+        - name: 使用 Azure SDK
           href: msi-qs-configure-sdk-windows-vm.md
-    - name: 指派 MSI 存取權給 Azure 資源
+    - name: 授與 VM MSI 存取資源管理員
       items:
-        - name: 透過 Azure 入口網站
+        - name: 使用 Azure 入口網站
           href: msi-howto-assign-access-portal.md
-        - name: 透過 PowerShell
+        - name: 使用 PowerShell
           href: msi-howto-assign-access-powershell.md
-        - name: 透過 Azure CLI
+        - name: 使用 Azure CLI
           href: msi-howto-assign-access-cli.md
-    - name: 使用 MSI 存取 Azure Resource Manager
+    - name: 使用 VM MSI 存取 Azure Resource Manager
       items:
         - name: 透過 Windows VM
           href: msi-tutorial-windows-vm-access-arm.md
         - name: 透過 Linux VM
           href: msi-tutorial-linux-vm-access-arm.md
-    - name: 使用 MSI 存取 Azure 儲存體
+    - name: 使用 VM MSI 存取 Azure SQL
       items:
         - name: 透過 Windows VM
+          href: msi-tutorial-windows-vm-access-sql.md
+    - name: 使用 VM MSI 存取 Azure 儲存體
+      items:
+        - name: 透過 Windows VM 使用存取金鑰
           href: msi-tutorial-windows-vm-access-storage.md
-        - name: 透過 Linux VM
+        - name: 透過 Windows VM 使用 SAS
+          href: msi-tutorial-windows-vm-access-storage-sas.md
+        - name: 透過 Linux VM 使用存取金鑰
           href: msi-tutorial-linux-vm-access-storage.md
-    - name: 使用 MSI 存取非 Azure AD 資源
+        - name: 透過 Linux VM 使用 SAS
+          href: msi-tutorial-linux-vm-access-storage-sas.md
+    - name: 使用 Linux MSI 存取 Azure Key Vault
       items:
         - name: 透過 Windows VM
           href: msi-tutorial-windows-vm-access-nonaad.md
