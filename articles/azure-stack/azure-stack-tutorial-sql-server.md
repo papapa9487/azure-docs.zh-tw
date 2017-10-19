@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 既然您已部署 SQL Server 資源提供者並建立供應項目，您能以使用者身分登入並訂閱該供應項目，然後建立資料庫。
 
 ### <a name="subscribe-to-the-offer"></a>訂閱該供應項目
-1. 以租用戶身分登入 Azure Stack 入口網站 (https://portal.local.azurestack.external)。
+1. 以租用戶身分登入 Azure Stack 入口網站 ( https://portal.local.azurestack.external )。
 2. 按一下 [取得訂用帳戶]，然後在 [顯示名稱] 下輸入 **TestSQLServerSubscription**。
 3. 按一下 [選取服務] > [TestSQLServerOffer] > [建立]。
 4. 按一下 [更多服務] > [訂用帳戶] > [TestSQLServerSubscription] > [資源提供者]。

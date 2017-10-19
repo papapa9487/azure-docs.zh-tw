@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 若要下載市集項目，您必須先[向 Azure 註冊 Azure Stack](azure-stack-register.md)。 
 
 ## <a name="download"></a>下載
-1. 登入 Azure Stack 系統管理員入口網站 (https://portal.local.azurestack.external)。
+1. 登入 Azure Stack 系統管理員入口網站 ( https://portal.local.azurestack.external )。
 2. 有些市集項目可能非常龐大。  按一下 [資源提供者] > [儲存體] 來檢查，以確定您的系統上有足夠的空間。
 
     ![](media/azure-stack-download-azure-marketplace-item/image01.png)

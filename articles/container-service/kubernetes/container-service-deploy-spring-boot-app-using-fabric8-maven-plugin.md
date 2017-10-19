@@ -529,7 +529,7 @@ ms.lasthandoff: 10/11/2017
 [Create a private Docker container registry using the Azure portal]: /azure/container-registry/container-registry-get-started-portal
 [針對 Linux 上的 Azure Web 應用程式使用自訂 Docker 映像]: /azure/app-service-web/app-service-linux-using-custom-docker-image
 [Docker]: https://www.docker.com/
-[Fabric8]: https://fabric8.io/ \(英文\)
+[Fabric8]: https://fabric8.io/
 [免費的 Azure 帳戶]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [Java 開發工具組 (JDK)]: http://www.oracle.com/technetwork/java/javase/downloads/

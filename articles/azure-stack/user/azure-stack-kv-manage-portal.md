@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
  
 ## <a name="create-a-key-vault"></a>建立金鑰保存庫 
 
-1. 登入使用者入口網站 (https://portal.local.azurestack.external)。  
+1. 登入使用者入口網站 ( https://portal.local.azurestack.external )。  
 
 2. 從儀表板按一下 [新增] > [安全性 + 身分識別] > [金鑰保存庫]。  
 
@@ -58,7 +58,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-key"></a>建立金鑰
 
-1. 請登入使用者入口網站 (https://portal.local.azurestack.external)。  
+1. 請登入使用者入口網站 ( https://portal.local.azurestack.external )。  
 
 2. 從儀表板中，按一下 [所有資源] > 選取您稍早建立的金鑰保存庫 > 按一下 [金鑰] 磚。  
 
@@ -78,7 +78,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="create-a-secret"></a>建立祕密 
 
-1. 請登入使用者入口網站 (https://portal.local.azurestack.external)。  
+1. 請登入使用者入口網站 ( https://portal.local.azurestack.external )。  
 2. 從儀表板中，按一下 [所有資源] > 選取您稍早建立的金鑰保存庫 > 按一下 [祕密] 磚。  
 
 3. 從 [祕密] 刀鋒視窗中，按一下 [新增]。  
