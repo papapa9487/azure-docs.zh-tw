@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 既然您已經[建立供應項目](azure-stack-create-offer.md)，接著應該測試您的使用者是否可以建立訂用帳戶。
 
-1. [登入](azure-stack-connect-azure-stack.md) Azure Stack 使用者入口網站 (https://portal.local.azurestack.external)，然後按一下 [取得訂用帳戶]。
+1. [登入](azure-stack-connect-azure-stack.md) Azure Stack 使用者入口網站 ( https://portal.local.azurestack.external )，然後按一下 [取得訂用帳戶]。
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 2. 在 顯示名稱 欄位中，輸入您的訂用帳戶名稱、按一下 供應項目、按一下 選擇供應項目 刀鋒視窗中的其中一個供應項目，然後按一下建立。

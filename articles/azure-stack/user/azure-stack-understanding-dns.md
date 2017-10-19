@@ -24,7 +24,7 @@ ms.lasthandoff: 10/11/2017
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-iDNS 是 Azure Stack 中的一個功能，可讓您解析外部 DNS 名稱 (例如 http://www.bing.com)。
+iDNS 是 Azure Stack 中的一個功能，可讓您解析外部 DNS 名稱 (例如 http://www.bing.com )。
 它也可以讓您登錄內部虛擬網路名稱。 如此一來，您就可以依名稱 (而非 IP 位址) 解析相同虛擬網路上的 VM，而不需要提供自訂的 DNS 伺服器項目。
 
 這是 Azure 中的內建功能，但是也可以在 Windows Server 2016 和 Azure Stack 中使用。
