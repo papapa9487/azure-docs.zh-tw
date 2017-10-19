@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
+ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 63a313d9035422207a1ce56f0da8b388e2747685
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -59,8 +58,8 @@ ms.lasthandoff: 09/27/2017
 
 **考量**
 
-- **主機節點的虛擬 IP：** 基本的基礎結構服務，例如 DHCP、DNS 和健康情況監控是透過虛擬化主機 IP 位址 168.63.129.16 和 169.254.169.254 所提供。 這些公用 IP 位址屬於 Microsoft，而且是針對此目的唯一用於所有地區的虛擬 IP。 此 IP 位址會對應至伺服器電腦的實體 IP 位址 (主機節點)，該伺服器用來主控 VM。 主機節點的作用如同 DHCP 轉送、DNS 遞迴解析程式，以及負載平衡器健康狀態探查和電腦健康狀態探查的探查來源。 這些 IP 位址的通訊並不是攻擊。 如果您封鎖這些 IP 位址的流量，虛擬機器可能無法正常運作。
-- **授權 (金鑰管理服務)**：在 VM 中執行的 Windows 映像必須獲得授權。 若要確保授權，授權要求會傳送至處理此類查詢的金鑰管理服務主機伺服器。 此要求是透過連接埠 1688 輸出。
+- **主機節點的虛擬 IP：** 基本的基礎結構服務，例如 DHCP、DNS 和健康情況監控是透過虛擬化主機 IP 位址 168.63.129.16 和 169.254.169.254 所提供。 這些公用 IP 位址屬於 Microsoft，而且是針對此目的唯一用於所有地區的虛擬 IP。 IP 位址對應至伺服器電腦的實體 IP 位址 (主機節點)，該伺服器用來主控虛擬機器。 主機節點的作用如同 DHCP 轉送、DNS 遞迴解析程式，以及負載平衡器健康狀態探查和電腦健康狀態探查的探查來源。 這些 IP 位址的通訊並不是攻擊。 如果您封鎖這些 IP 位址的流量，虛擬機器可能無法正常運作。
+- **授權 (金鑰管理服務)**：必須授權在虛擬機器中執行的 Windows 映像。 若要確保授權，授權要求會傳送至處理此類查詢的金鑰管理服務主機伺服器。 此要求是透過連接埠 1688 輸出。
 - **負載平衡集區中的虛擬機器**：套用的來源連接埠和位址範圍是來自原始電腦，而不是負載平衡器。 目的地連接埠和位址範圍屬於目的地電腦，而不是負載平衡器。
 - **Azure 服務執行個體**：虛擬網路子網路中會部署數個 Azure 服務的執行個體，例如 HDInsight、應用程式服務環境及虛擬機器擴展集。 將網路安全性群組套用至部署資源的子網路之前，請先確定您熟悉每個服務的連接埠需求。 如果您拒絕服務所需要的連接埠，服務就無法正常運作。 
 
@@ -126,7 +125,7 @@ ms.lasthandoff: 09/27/2017
 
 * **VirtualNetwork** (Resource Manager) (適用於傳統部署的 VIRTUAL_NETWORK*)：這個標籤包含虛擬網路位址空間 (針對虛擬網路定義的所有 CIDR 範圍)、所有已連線的內部部署位址空間，以及[對等互連](virtual-network-peering-overview.md)的虛擬網路或已連線至[虛擬網路閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的虛擬網路。
 * **AzureLoadBalancer** (Resource Manager) (適用於傳統部署的 **AZURE_LOADBALANCER**)：這個標籤代表 Azure 基礎結構的負載平衡器。 此標籤會轉譯成作為 Azure 健康情況探查來源的 [Azure 資料中心 IP 位址](https://www.microsoft.com/download/details.aspx?id=41653)。 如果您未使用 Azure 負載平衡器，則可以覆寫此規則。
-* **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表 Azure 公用 IP 位址空間。 這個標籤包含的位址會列在 [Azure 擁有的公用 IP 空間](https://www.microsoft.com/download/details.aspx?id=41653)文件中，該文件會定期更新。
+* **Internet** (Resource Manager) (適用於傳統部署的 **INTERNET**)：這個標籤代表虛擬網路以外且可以透過公用網際網路進行存取的 IP 位址空間。 此位址範圍也包括 [Azure 擁有的公用 IP 位址空間](https://www.microsoft.com/download/details.aspx?id=41653)。
 * **AzureTrafficManager** (僅限 Resource Manager)：這個標籤代表 Azure 流量管理員服務的 IP 位址空間。
 * **Storage** (僅限 Resource Manager)：這個標籤代表 Azure 儲存體服務的 IP 位址空間。 如果您指定 *Storage* 值，則會允許或拒絕儲存體的流量。 如果您只想要允許存取特定[地區](https://azure.microsoft.com/regions)中的儲存體，您可以指定地區。 例如，如果您只想要允許存取美國東部地區的 Azure 儲存體，您可以指定 *Storage.EastUS* 作為服務標籤。 其他可用的地區性服務標籤：Storage.AustraliaEast、Storage.AustraliaSoutheast、Storage.EastUS、Storage.UKSouth、Storage.WestCentralUS、Storage.WestUS 和 Storage.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure 儲存體服務，但不代表特定的 Azure 儲存體帳戶。
 * **Sql** (僅限 Resource Manager)：這個標籤代表 Azure SQL Database 和 Azure SQL 資料倉儲服務的位址前置詞。 您只可以為此服務標籤指定特定地區。 例如，如果您只想要允許存取美國東部地區的 Azure SQL Database，您可以指定 *Sql.EastUS* 作為服務標籤。 您無法針對所有 Azure 地區指定 Sql，您必須個別指定地區。 有其他區域服務標籤可用：Sql.AustraliaEast、Sql.AustraliaSoutheast、Sql.EastUS、Sql.UKSouth、Sql.WestCentralUS、Sql.WestUS 和 Sql.WestUS2。 標籤代表服務，但不代表服務的特定執行個體。 例如，標籤代表 Azure SQL Database 服務，但不代表特定的 Azure SQL Database。
@@ -152,7 +151,7 @@ ms.lasthandoff: 09/27/2017
  
 若要了解建立應用程式安全性群組以及在安全性規則中指定它們時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-應用程式安全性群組已在預覽版本中提供。 使用網路安全性群組之前，您必須完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md#powershell)中的步驟 1-5 才註冊要使用它們，並閱讀[預覽功能](#preview-features)中的重要資訊。 在預覽期間，應用程式安全性群組受限於虛擬網路的範圍。 與網路安全性群組中應用程式安全性群組之交叉參考對等互連的虛擬網路不適用。 
+應用程式安全性群組已在預覽版本中提供。 使用應用程式安全性群組之前，您必須完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md#powershell)中的步驟 1-5 才註冊使用它們，並閱讀[預覽功能](#preview-features)中的重要資訊。 在預覽期間，應用程式安全性群組受限於虛擬網路的範圍。 與網路安全性群組中應用程式安全性群組之交叉參考對等互連的虛擬網路不適用。 
 
 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 使用應用程式安全性群組之前，您必須先註冊要使用它們。 這些功能只在下列地區中提供：美國中西部。
 
@@ -160,4 +159,3 @@ ms.lasthandoff: 09/27/2017
 
 * 完成[建立網路安全性群組](virtual-networks-create-nsg-arm-pportal.md)教學課程
 * 完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md)教學課程
-

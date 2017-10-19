@@ -15,14 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
+ms.openlocfilehash: 0a0fe6f0e353e33cec80a9e06a61e772931cdea6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: e2359bc6002bd5c823467a33a4660ebccd116374
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="virtual-network-service-endpoints-preview"></a>虛擬網路服務端點 (預覽)
 
 虛擬網路 (VNet) 服務端點可透過直接連線，將您的虛擬網路私人位址空間和 VNet 的身分識別延伸至 Azure 服務。 端點可讓您將重要的 Azure 服務資源只放到您的虛擬網路保護。 從您的 VNet 到 Azure 服務的流量一定會保留在 Microsoft Azure 骨幹網路上。
@@ -57,8 +55,11 @@ ms.lasthandoff: 09/26/2017
 
 - 虛擬網路服務端點可將您虛擬網路的身分識別提供給 Azure 服務。 一旦在您的虛擬網路中啟用服務端點，即可將虛擬網路規則新增至資源，以將 Azure 服務資源放到虛擬網路保護。
 - 現在，來自虛擬網路的 Azure 服務流量會使用公用 IP 位址作為來源 IP 位址。 透過服務端點，服務流量會在從虛擬網路存取 Azure 服務時，切換為使用虛擬網路私人位址作為來源 IP 位址。 此切換讓您不需要 IP 防火牆中使用的保留公用 IP 位址，即可存取服務。
-- 保護從內部部署的 Azure 服務存取：根據預設，從內部部署網路無法觸達放到虛擬網路保護的 Azure 服務資源。 如果想允許來自內部部署環境的流量，您也必須允許您的內部部署或 ExpressRoute 線路中的 NAT IP 位址。 透過 Azure 服務資源的 IP 防火牆設定，可以新增 NAT IP 位址。
-- ExpressRoute：如果您使用來自內部部署環境的 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，則每個 Expressroute 線路都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 若要允許存取您的服務資源，您必須在資源 IP 防火牆設定中允許這兩個 IP 位址。 若要尋找您的 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+- __保護來自內部部署環境的 Azure 服務存取__：
+
+  根據預設，從內部部署網路無法觸達放到虛擬網路保護的 Azure 服務資源。 如果需要允許來自內部部署的流量，您也必須允許內部部署或 ExpressRoute 中的 NAT IP 位址。 透過 Azure 服務資源的 IP 防火牆設定，可以新增這些 IP 位址。
+
+  ExpressRoute：如果您使用來自內部部署環境的 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，則針對公用對等互連，每個 Expressroute 線路都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 若要允許存取您的服務資源，就必須在資源 IP 防火牆設定中允許這兩個公用 IP 位址。 若要尋找您的 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。深入了解 [ExpressRoute 公用對等互連的 NAT。](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![將 Azure 服務放到虛擬網路保護](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -76,9 +77,9 @@ ms.lasthandoff: 09/26/2017
 
   IP 位址切換只會影響來自您虛擬網路的服務流量。 不會影響任何從指派給虛擬機器的公用 IPV4 位址傳送或傳送至其中的其他流量。 對於 Azure 服務，如果您有使用 Azure 公用 IP 位址的現有防火牆規則，則這些規則會停止使用切換至虛擬網路私人位址。
 - 透過服務端點，Azure 服務的 DNS 項目會保留現狀，並繼續解析為指派給 Azure 服務的公用 IP 位址。
-- 具有服務端點的網路安全性群組：
-  - 仍然允許輸出到網際網路的網際網路流量，因此，也允許從虛擬網路到 Azure 服務公用 IP 位址的流量。
-  - 可讓您在網路安全性群組中使用[服務標籤](security-overview.md#service-tags)，以拒絕到公用 IP 位址的流量，但 Azure 服務的位址除外。 您可以將支援的 Azure 服務指定為網路安全性群組規則中的服務。 每個標籤下的 IP 位址維護都是由 Azure 所提供。
+- 具有服務端點的網路安全性群組 (NSG)：
+  - 根據預設，NSG 允許輸出網際網路流量，因此，也可允許從您的 VNet 至 Azure 服務的流量。 透過服務端點，這會繼續照常運作。 
+  - 如果您要拒絕所有輸出網際網路流量，只允許對特定 Azure 服務的流量，您可以使用 NSG 中的 __Azure 服務標籤__。 您可以將支援的 Azure 服務指定為 NSG 規則中的目的地，而作為每個標籤基礎之 IP 位址的維護則是由 Azure 提供。 如需詳細資訊，請參閱 [Azure 服務標籤](https://aka.ms/servicetags)。 
 
 ### <a name="scenarios"></a>案例
 
@@ -89,7 +90,7 @@ ms.lasthandoff: 09/26/2017
 ### <a name="logging-and-troubleshooting"></a>記錄和疑難排解
 
 將服務端點設定為特定服務後，請驗證服務端點路由是否有作用，方法如下： 
-
+ 
 - 驗證服務診斷中任何服務要求的來源 IP 位址。 所有透過服務端點的新要求都會將要求的來源 IP 位址顯示為虛擬網路私人 IP 位址 (已指派給從您的虛擬網路提出要求的用戶端)。 未透過端點，此位址是 Azure 公用 IP 位址。
 - 檢視子網路的任何網路介面上的有效路由。 服務的路由：
   - 顯示每個服務之位址前置詞範圍的更特定預設路由
@@ -121,5 +122,4 @@ ms.lasthandoff: 09/26/2017
 - 了解如何[將 Azure 儲存體帳戶放到虛擬網路保護](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解如何[將 Azure SQL Database 放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解[虛擬網路中的 Azure 服務整合](virtual-network-for-azure-services.md)
-
 

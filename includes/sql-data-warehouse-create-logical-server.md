@@ -9,8 +9,7 @@
   
 3. 按一下 [建立] 以開啟新的 SQL Server (邏輯伺服器) 刀鋒視窗。
 
-   <kbd> ![開啟邏輯伺服器刀鋒視窗](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
-    <kbd>![邏輯伺服器刀鋒視窗](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
+   <kbd> ![開啟邏輯伺服器刀鋒視窗](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd> <kbd>![邏輯伺服器刀鋒視窗](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. 在 [SQL Server (邏輯伺服器)] 刀鋒視窗的伺服器名稱文字方塊中，為新的邏輯伺服器提供有效名稱。 綠色核取記號指示您提供的名稱有效。
     

@@ -12,22 +12,21 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 19f71e0d5a8a4642b86ae60a3ab2a4042fa2990e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
 
+若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-policies.md) 中的 [定價層]。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+
 > [!NOTE]
-> 若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-policies.md) 中的 [定價層]。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
->
+> 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
 
 ## <a name="what-type-of-alerts-are-available"></a>可以使用何種類型的警示？
 Azure 資訊安全中心會使用不同的[偵測功能](security-center-detection-capabilities.md)，向客戶警示以其環境為目標的潛在攻擊。 這些警示包含觸發警示的項目、鎖定為目標的資源，以及攻擊來源等重要資訊。 警示中包含的資訊會以用來偵測威脅的分析類型作為基礎而有所不同。 事件可能還會包含其他內容相關的資訊，在調查威脅時很有用。  本文提供下列警示類型的相關資訊：
@@ -45,7 +44,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 >
 
 ### <a name="crash-analysis"></a>損毀分析
-損毀傾印記憶體分析是一種方法，可用來偵測能避開傳統安全性解決方案的複雜惡意程式碼。 各種形式的惡意程式碼會藉由決不寫入至磁碟或將寫入至磁碟的軟體元件加密，試圖減少被防毒產品偵測到的機會。 如此一來，使用傳統反惡意程式碼方法便難以偵測到惡意程式碼。 不過，可以使用記憶體分析來偵測這類惡意程式碼，因為惡意程式碼必須在記憶體中留下蹤跡才能運作。
+損毀傾印記憶體分析是一種方法，可用來偵測能避開傳統安全性解決方案的複雜惡意程式碼。 各種形式的惡意程式碼會藉由決不寫入至磁碟或將寫入至磁碟的軟體元件加密，試圖減少被防毒產品偵測到的機會。 這項技術會使用傳統反惡意程式碼方法，使得惡意程式碼難以偵測。 不過，可以使用記憶體分析來偵測這類惡意程式碼，因為惡意程式碼必須在記憶體中留下蹤跡才能運作。
 
 當軟體損毀時，損毀傾印會在損毀時擷取部分的記憶體。 惡意程式碼、一般應用程式或系統問題都可能造成損毀。 藉由分析損毀傾印中的記憶體，資訊安全中心可以偵測到用來惡意探索軟體弱點、存取機密資料，以及暗中存在於遭入侵電腦的技術。 這可在對主機造成最小效能影響的情況下完成，因為此分析是由資訊安全中心後端所執行。
 
@@ -122,7 +121,7 @@ Windows 使用動態連結程式庫 (DLL) 允許軟體使用通用 Windows 系�
 
 ![可疑的處理序警示](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
 
-### <a name="multiple-domain-accounts-queried"></a>已查詢多個網域帳戶
+### <a name="multiple-domains-accounts-queried"></a>已查詢多個網域帳戶
 資訊安全中心可以偵測多次嘗試查詢 Active Directory 網域帳戶的動作，這通常是由攻擊者在網路偵察期間所執行。 攻擊者可以利用這項技術來查詢網域，以識別使用者、識別網域管理帳戶、識別當作網域控制站的電腦，以及識別與其他網域的潛在網域信任關係。
 
 以下是本類型之警示的範例：
@@ -189,7 +188,7 @@ Windows 使用動態連結程式庫 (DLL) 允許軟體使用通用 Windows 系�
 
 ![可疑連出流量警示](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
 
-此警示會提供資訊，以便您識別用來起始此攻擊的資源。 此警示也會提供資訊，以識別遭入侵的電腦、偵測時間，以及所使用的通訊協定和連接埠。 此刀鋒視窗也可提供您可用來解決這個問題的補救步驟清單。
+此警示會提供資訊，以便您識別用來起始此攻擊的資源。 此警示也會提供資訊，以識別遭入侵的電腦、偵測時間，以及所使用的通訊協定和連接埠。 此刀鋒視窗也可提供用來解決這個問題的補救步驟清單。
 
 ### <a name="network-communication-with-a-malicious-machine"></a>與惡意電腦的網路通訊
 藉由利用 Microsoft 威脅情報摘要，Azure 資訊安全中心可以偵測與惡意 IP 位址通訊的遭入侵電腦。 在許多情況下，惡意位址會是命令和控制中心。 在此情況下，資訊安全中心偵測到通訊是使用 Pony Loader 惡意程式碼 (也稱為 [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)) 來進行。
@@ -254,4 +253,3 @@ SQL 插入式攻擊會將惡意程式碼插入字串，而此字串稍後會傳�
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)：尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與合規性的部落格文章。
-
