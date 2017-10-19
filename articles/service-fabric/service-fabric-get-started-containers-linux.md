@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2017
+ms.date: 10/04/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3c5a6ec70e1041d43b549c8e5a5416a9a65728bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 606e8d63c29b754261621e583652f8209efea0f5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>在 Linux 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
@@ -164,11 +162,11 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 
 若要建立 Service Fabric 容器應用程式，請開啟終端機視窗並執行 `yo azuresfcontainer`。  
 
-為應用程式命名 (例如 "mycontainer")。 
+將應用程式命名 (例如，"mycontainer")，並將應用程式服務命名 (例如，"myservice")。
 
-在容器登錄中提供容器映像的 URL (例如，"myregistry.azurecr.io/samples/helloworldapp")。 
+針對映像名稱，在容器登錄中提供容器映像的 URL (例如，"myregistry.azurecr.io/samples/helloworldapp")。 
 
-此映像已定義工作負載進入點，所以需要明確指定輸入命令 (命令會在容器內執行，這會讓容器在啟動後繼續執行)。 
+因為此映像已定義工作負載進入點，您不需要明確指定輸入命令 (命令會在容器內執行，這會讓容器在啟動後繼續執行)。 
 
 指定執行個體計數為 "1"。
 
@@ -391,4 +389,3 @@ docker rmi myregistry.azurecr.io/samples/helloworldapp
 
 [hello-world]: ./media/service-fabric-get-started-containers-linux/HelloWorld.png
 [sf-yeoman]: ./media/service-fabric-get-started-containers-linux/YoSF.png
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/29/2017
 ms.author: arramac
+ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 2073948d44ccc4b9b83e4eaf4f250dc272e46292
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 簡介：資料表 API
 
@@ -31,7 +30,7 @@ ms.lasthandoff: 09/08/2017
 * 保證高可用性。
 * [自動次要索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。
 
-這些應用程式可使用資料表 API (不變更程式碼) 來移轉至 Azure Cosmos DB，並且利用進階功能。
+這些應用程式可使用資料表 API (不變更程式碼) 來移轉至 Azure Cosmos DB，並且利用進階功能。 資料表 API 適用於 .NET 和 Python。
 
 建議觀看下列影片，Aravind Ramachandran 會在影片中說明如何開始使用 Azure Cosmos DB 的資料表 API：
 
@@ -44,8 +43,8 @@ ms.lasthandoff: 09/08/2017
 
 | | Azure 資料表儲存體 | Azure Cosmos DB：表格儲存體 (預覽) |
 | --- | --- | --- |
-| 延遲 | 快速，但延遲沒有上限。 | 一位數毫秒的讀取和寫入延遲，並在世界各地支援任何規模的 <10 毫秒延遲讀取和 <15 毫秒延遲寫入 (第 99 個百分位數)。 |
-| 輸送量 | 變數輸送量模型。 資料表每秒 20,000 個作業的延展性限制。 | 高延展性且[每個資料表都有專用的保留輸送量](request-units.md) (由 SLA 支援)。 帳戶沒有輸送量上限，而且支援每個資料表每秒 > 1 千萬個作業。 |
+| Latency | 快速，但延遲沒有上限。 | 一位數毫秒的讀取和寫入延遲，並在世界各地支援任何規模的 <10 毫秒延遲讀取和 <15 毫秒延遲寫入 (第 99 個百分位數)。 |
+| Throughput | 變數輸送量模型。 資料表每秒 20,000 個作業的延展性限制。 | 高延展性且[每個資料表都有專用的保留輸送量](request-units.md) (由 SLA 支援)。 帳戶沒有輸送量上限，而且支援每個資料表每秒 > 1 千萬個作業。 |
 | 全球發佈 | 具有一個選擇性高可用性可讀取次要讀取區域的單一區域。 您無法起始容錯移轉。 | [周全的全域發佈](distribute-data-globally.md)介於 1 到 30+ 個區域。 隨時隨地在世界各地支援[自動和手動容錯移轉](regional-failover.md)。 |
 | 編製索引 | PartitionKey 和 RowKey 只有主要索引。 沒有次要索引。 | 對所有屬性自動執行完整的編製索引，但沒有索引管理。 |
 | 查詢 | 查詢執行作業會使用主索引鍵的索引，要不然會進行掃描。 | 查詢可以利用自動編製屬性的索引，加快查詢速度。 Azure Cosmos DB 資料庫引擎能夠支援彙總、地理空間以及排序。 |
@@ -64,5 +63,6 @@ ms.lasthandoff: 09/08/2017
 * [在 .NET 中利用資料表 API 進行開發](tutorial-develop-table-dotnet.md)
 * [使用資料表 API 來查詢資料表資料](tutorial-query-table.md)
 * [了解如何使用資料表 API 來設定 Azure Cosmos DB 全域發佈](tutorial-global-distribution-table.md)
-* [適用於 .NET 的 Azure Cosmos DB 資料表 API SDK](table-sdk-dotnet.md)
+* [Azure Cosmos DB 資料表 .NET API](table-sdk-dotnet.md)
+* [適用於 Python 的 Azure Cosmos DB 資料表](table-sdk-python.md)
 

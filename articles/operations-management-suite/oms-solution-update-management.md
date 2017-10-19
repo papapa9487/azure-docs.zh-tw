@@ -3,7 +3,7 @@ title: "OMS 中的更新管理方案 | Microsoft Docs"
 description: "本文旨在協助您了解，如何使用這個方案管理 Windows 和 Linux 電腦的更新。"
 services: operations-management-suite
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: e33ce6f9-d9b0-4a03-b94e-8ddedcc595d2
@@ -13,19 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/27/2017
-ms.author: magoedte
+ms.author: eslesar
+ms.openlocfilehash: 839689ab991fdc251608cf79d65a5810db5eeeb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 6e76ac40e9da2754de1d1aa50af3cd4e04c067fe
-ms.openlocfilehash: e463102a4b21253e28b01d6d149aba55bab18674
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="update-management-solution-in-oms"></a>OMS 中的更新管理方案
 
 ![更新管理符號](./media/oms-solution-update-management/update-management-symbol.png)
 
 OMS 中的「更新管理」解決方案可讓您管理 Azure 中所部署 Windows 和 Linux 電腦的作業系統安全性更新、內部部署環境或其他雲端提供者。  您可以快速評估所有代理程式電腦上可用更新的狀態，並管理為伺服器安裝必要更新的程序。
+
+## <a name="update-management-in-azure-automation"></a>Azure 自動化中的更新管理
+
+您可以直接從您的 [Azure 自動化](../automation/automation-offering-get-started.md)帳戶啟用虛擬機器的更新管理。
+若要了解如何從您的自動化帳戶啟用虛擬機器的更新管理，請參閱[管理多部虛擬機器的更新](../automation/manage-update-multi.md)。
 
 
 ## <a name="solution-overview"></a>解決方案概觀
@@ -307,11 +311,17 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 | Type=Update  and OSType=Linux and UpdateState!="Not needed" and (Classification="Critical Updates" OR Classification="Security Updates") |有可以解決重大漏洞或安全性漏洞之可用更新的所有套件清單 | 
 | Type:UpdateRunProgress &#124; measure Count() by UpdateRunName |列出哪些更新部署已修改過電腦 | 
 | Type:UpdateRunProgress UpdateRunName="DeploymentName" &#124; measure Count() by Computer |在此更新回合中更新的電腦 (以您的更新部署名稱取代此值) | 
-| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |有任何可用更新的所有「Ubuntu」機器清單 | 
+| Type=Update and OSType=Linux and OSName = Ubuntu &#124; measure count() by Computer |有任何可用更新的所有「Ubuntu」機器清單 |
+
+## <a name="integrate-with-system-center-configuration-manager"></a>與 System Center Configuration Manager 進行整合
+
+投資了 System Center Configuration Manager 以管理電腦、伺服器和行動裝置的客戶也需仰賴其管理軟體更新的強度和成熟度，作為軟體更新管理 (SUM) 週期的一部分。
+
+若要了解如何將 OMS 更新管理解決方案與 Sytem Center Configuration Manager 整合，請參閱[將 System Center Configuration Manager 與 OMS 更新管理整合](../automation/oms-solution-updatemgmt-sccmintegration.md)。
 
 ## <a name="troubleshooting"></a>疑難排解
 
-本節提供的資訊有助於排解更新管理解決方案的疑難問題。  
+本節提供的資訊有助於排解更新管理解決方案的疑難問題。
 
 ### <a name="how-do-i-troubleshoot-onboarding-issues"></a>我該如何進行上架問題的疑難排解？
 如果您在嘗試將解決方案或虛擬機器上架時遇到問題，請檢查**應用程式和服務記錄\Operations Manager** 事件記錄中具有事件識別碼 4502 和事件訊息內含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。  下表特別說明特定錯誤訊息及各自的可能解決方式。  
@@ -333,4 +343,3 @@ OMS 管理的電腦會使用下列各項來執行評估和更新部署︰
 * 使用 [Log Analytics](../log-analytics/log-analytics-log-searches.md) 中的記錄搜尋，檢視詳細的更新資料。
 * [建立您自己的儀表板](../log-analytics/log-analytics-dashboards.md)，其中會顯示受管理電腦的更新相容性。
 * 在偵測到電腦遺漏重大更新或電腦已停用自動更新時[建立警示](../log-analytics/log-analytics-alerts.md)。  
-

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: kaanan
+ms.openlocfilehash: 951b8e1dfc86d8fc73cf8d6f596558b73169169c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: bc9803b9ab5c4c6329ffa5933cbc8ff758faa20b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -89,7 +88,7 @@ ms.lasthandoff: 08/29/2017
 | **紐約** |Coresite、Equinix、Megaport、Zayo Group |
 | **Newport(Wales)** |新一代資料 |
 | **大阪** |Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
-| **巴黎** |Colt、Interxion、Equinix、Orange |
+| **巴黎** |Colt、Intercloud、Interxion、Equinix、Orange |
 | **魁北克市** | Megaport |
 | **聖安東尼奧** |Megaport |
 | **聖保羅** |Ascenty Data Centers+、Equinix、Level 3 Communications、Neutrona Networks、Telefonica、UOLDIVEO |
@@ -150,7 +149,7 @@ ms.lasthandoff: 08/29/2017
 ## <a name="c1partners"></a>透過額外服務提供者連線
 | **位置** | **Exchange** | **連線提供者** |
 | --- | --- | --- |
-| **阿姆斯特丹** | Equinix、Telecity | Eurofiber、Fastweb S.p.A、Nianet |
+| **阿姆斯特丹** | Equinix、Telecity | Eurofiber、Fastweb S.p.A、Nianet、Telia |
 | **芝加哥** | Equinix | Lightower、Windstream |
 | **達拉斯** | Equinix、Megaport | C3ntro Telecom、Cox Business、Data Foundry、Transtelco |
 | **法蘭克福** | Telecity | Nianet、QSC AG |
@@ -185,4 +184,3 @@ ms.lasthandoff: 08/29/2017
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "位置圖"
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: e56f8bf1057a8bc2cfcde841f69022104bafff27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: fc521fa40428caacebb072cb1aacdebf0ce977ac
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-files-from-the-azure-portal"></a>如何從 Azure 入口網站使用 Azure 檔案服務
 [Azure 入口網站](https://portal.azure.com)提供可管理 Azure 檔案服務的使用者介面。 您可以從網路瀏覽器執行下列動作：
 
@@ -74,7 +72,7 @@ ms.lasthandoff: 09/25/2017
 要尋找掛接的儲存體帳戶存取金鑰，按一下連線頁面底部的 [檢視此儲存體帳戶的存取金鑰]。
 
 ## <a name="see-also"></a>另請參閱
-請參閱這些連結，以取得 Azure 檔案服務的相關詳細資訊。
+請參閱這些連結，以取得 Azure 檔案服務的詳細資訊。
 
 * [常見問題集](../storage-files-faq.md)
 * [在 Windows 上進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)      

@@ -13,15 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: 56905a457f972d1820e56dca00c42686bcad5453
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 83fc6db1ddb43eb87e7c58684505d7196c1e53d0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>使用 storm-starter 範例在 HDInsight 上開始使用 Apache Storm
 
@@ -44,7 +43,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 請使用下列步驟建立 Storm on HDInsight 叢集：
 
-1. 從 [Azure 入口網站](https://portal.azure.com)選取 [+ 新增]、[情報 + 分析] 及 [HDInsight]，然後選取 [HDInsight]。
+1. 從 [Azure 入口網站](https://portal.azure.com)選取 [+ 新增]、[資料 + 分析]，然後選取 [HDInsight]。
 
     ![建立 HDInsight 叢集](./media/hdinsight-apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
@@ -57,7 +56,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
     * **資源群組**：在其中建立叢集的資源群組。
     * **位置**：在其中建立叢集的 Azure 區域。
 
-    ![選取訂用帳戶](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
+   ![選取訂用帳戶](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
 3. 選取 [叢集類型]，並且在 [叢集組態] 刀鋒視窗中設定下列值︰
 
@@ -69,7 +68,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
     * **叢集層**：標準
 
-    最後，使用 [選取] 按鈕來儲存設定。
+   最後，使用 [選取] 按鈕來儲存設定。
 
     ![選取叢集類型](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
@@ -79,7 +78,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
     ![設定 HDInsight 的儲存體帳戶](./media/hdinsight-apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. 從 [摘要] 刀鋒視窗中，檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕來建立叢集。
+6. 從 [摘要] 刀鋒視窗中，檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕建立叢集。
 
     ![叢集組態摘要](./media/hdinsight-apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -92,7 +91,11 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
         ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
 
-    如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您需要使用 `-i` 參數來指定對應的私密金鑰。 例如， `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
+    > [!TIP]
+    > 您的 SSH 用戶端可能會說無法建立主機的真確性。 若是如此，輸入 `yes` 繼續作業。
+
+    > [!NOTE]
+    > 如果您已經使用密碼保護您 SSH 使用者帳戶的安全，系統會提示您輸入密碼。 如果您使用的是公開金鑰，您需要使用 `-i` 參數來指定對應的私密金鑰。 例如， `ssh -i ~/.ssh/id_rsa USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`。
 
     如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -118,7 +121,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 使用下列步驟以 Storm UI 監視拓撲。
 
-1. 若要顯示 Storm UI，請開啟網頁瀏覽器並前往 https://CLUSTERNAME.azurehdinsight.net/stormui。 將 **CLUSTERNAME** 取代為您叢集的名稱。
+1. 若要顯示 Storm UI，開啟網頁瀏覽器並前往 `https://CLUSTERNAME.azurehdinsight.net/stormui`。 將 **CLUSTERNAME** 取代為您叢集的名稱。
 
     > [!NOTE]
     > 如果要求您提供使用者名稱和密碼，請輸入叢集系統管理員 (admin) 和建立叢集時使用的密碼。
@@ -210,4 +213,3 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 [stormjavadocs]: https://storm.incubator.apache.org/apidocs/
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
 [preview-portal]: https://portal.azure.com/
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: yurid
-translationtype: Human Translation
-ms.sourcegitcommit: f0a512fb0684b1db25353bf4bbd35bdf2a07e1b2
-ms.openlocfilehash: f29b20ba11b030d98a7a5574f816ea132edc3f6d
-ms.lasthandoff: 12/06/2016
-
-
+ms.openlocfilehash: 6f4cfda6f367cb8a68d038fa0a3390442be034c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="baseline-assessment-in-operations-management-suite-security-and-audit-solution"></a>Operations Management Suite 安全性和稽核解決方案中的基準評估
 本文件協助您使用 [Operations Management Suite (OMS) 安全性和稽核解決方案](operations-management-suite-overview.md)的基準評估功能，存取受監視資源的安全狀態。
@@ -40,7 +39,7 @@ Microsoft 與全球產業和政府組織共同定義可代表高度安全伺服�
 > 
 
 ## <a name="security-baseline-assessment"></a>安全性基準評估
-您可以使用儀表板，針對 OMS 安全性和稽核監視的所有電腦，檢閱目前的安全性基準評估。  執行下列步驟以存取安全性基準評估儀表板︰
+您可以使用儀表板，針對 OMS 安全性和稽核監視的所有電腦，檢閱目前的安全性基準評估。 執行下列步驟以存取安全性基準評估儀表板︰
 
 1. 在 [Microsoft Operations Management Suite] 主儀表板中，按一下 [安全性和稽核] 圖格。
 2. 在 [安全性和稽核] 儀表板中，按一下 [安全性網域] 下的 [基準評估]。 [安全性基準評估]儀表板隨即出現，如下圖所示︰
@@ -85,5 +84,4 @@ OMS 支援 Windows Server 2008 R2 至 Windows Server 2012 R2 的網域成員和�
 * [Operations Management Suite (OMS) 概觀](operations-management-suite-overview.md)
 * [在 Operations Management Suite 安全性和稽核內監視及回應安全性警示](oms-security-responding-alerts.md)
 * [在 Operations Management Suite 安全性和稽核解決方案內監視資源](oms-security-monitoring-resources.md)
-
 

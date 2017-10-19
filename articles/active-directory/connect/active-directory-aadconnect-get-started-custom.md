@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/27/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: a3a4a90221821de690f72260b2adca07680d30a9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](active-directory-aadconnect-get-started-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
@@ -71,7 +70,7 @@ ms.lasthandoff: 09/28/2017
 
 如果您收到錯誤訊息，而且有連線問題，請參閱[針對連線問題進行疑難排解](active-directory-aadconnect-troubleshoot-connectivity.md)。
 
-## <a name="pages-under-the-section-sync"></a>[同步] 一節的頁面
+## <a name="pages-under-the-sync-section"></a>[同步] 一節下的頁面
 
 ### <a name="connect-your-directories"></a>連接您的目錄
 若要連線到您的 Active Directory 網域服務，Azure AD Connect 需要樹系名稱和具有足夠權限的帳戶認證。
@@ -232,9 +231,12 @@ ms.lasthandoff: 09/28/2017
 ## <a name="configuring-federation-with-ad-fs"></a>設定與 AD FS 同盟
 只要簡單按幾下，即可使用 Azure AD Connect 設定 AD FS。 進行設定之前必須先具備下列項目。
 
-* 做為同盟伺服器的 Windows Server 2012 R2 伺服器，且已啟用遠端管理
-* 做為 Web 應用程式 Proxy 伺服器的 Windows Server 2012 R2 伺服器，且已啟用遠端管理
+* 做為同盟伺服器的 Windows Server 2012 R2 或更新版本伺服器，且已啟用遠端管理
+* 做為 Web 應用程式 Proxy 伺服器的 Windows Server 2012 R2 或更新版本伺服器，且已啟用遠端管理
 * 您想要使用的 Federation Service 名稱 (例如 sts.contoso.com) 的 SSL 憑證
+
+>[!NOTE]
+>即使您未使用 Azure AD Connect 來管理您的同盟信任，您也可以使用 Azure AD Connect 更新 AD FS 伺服器陣列的 SSL 憑證。
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>AD FS 組態必要條件
 若要使用 Azure AD Connect 設定 AD FS 伺服器陣列，請確定已在遠端伺服器啟用 WinRM。 此外，請完成[表 3 - Azure AD Connect 和同盟伺服器/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap) 中列出的連接埠需求。
@@ -245,6 +247,9 @@ ms.lasthandoff: 09/28/2017
 ![AD FS 伺服器陣列](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 如果您選擇使用現有的 AD FS 伺服器陣列，將會前往設定 AD FS 與 Azure AD 之間信任關係的畫面。
+
+>[!NOTE]
+>Azure AD Connect 僅可用於管理一個 AD FS 伺服器陣列。 如果您與 Azure AD 的現有同盟信任是設定在選取的 AD FS 伺服器陣列上，則 Azure AD Connect 會從頭建立一次信任。
 
 ### <a name="specify-the-ad-fs-servers"></a>指定 AD FS 伺服器
 輸入想要在其中安裝 AD FS 的伺服器。 您可以根據容量規劃需求，加入一或多部伺服器。 請先將所有伺服器加入 Active Directory，再執行這項設定。 Microsoft 建議安裝一部專門用於測試和試驗部署的 AD FS 伺服器。 然後在完成初始設定之後透過再次執行 Azure AD Connect，新增及部署更多伺服器以符合您的調整需求。
@@ -350,4 +355,3 @@ AD FS 服務需要網域服務帳戶來驗證使用者，以及在 Active Direct
 深入了解這些常見主題︰[排程器和如何觸發同步處理](active-directory-aadconnectsync-feature-scheduler.md)。
 
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-

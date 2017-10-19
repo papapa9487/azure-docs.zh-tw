@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 03/17/2017
 ms.author: parakhj
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 48749bfa2ab54a0e766a4aad4f39073cc4e90818
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 78a165d831796bb6bb23e51f415383eb925115ee
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C：建置 .NET Web API
 
@@ -40,7 +39,7 @@ ms.lasthandoff: 05/03/2017
 * 在應用程式中加入 **Web 應用程式**或 **Web API**。
 * 使用 Web 應用程式的 [重新導向 URI] `https://localhost:44332/`。 這是適用於此程式碼範例的 Web 應用程式用戶端的預設位置。
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 稍後您將會用到此資訊。
-* 在 [應用程式識別碼 URI] 中輸入應用程式識別碼。
+* 在 [應用程式識別碼 URI] 中輸入應用程式識別碼。 複製完整的**應用程式識別碼 URI**。 稍後您將會用到此資訊。
 * 透過 [發佈的範圍] 功能表新增權限。
 
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
@@ -83,6 +82,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     * `ida:SignUpSignInPolicyId`：使用您的「註冊或登入」原則名稱
     * `ida:EditProfilePolicyId`：使用您的「編輯設定檔」原則名稱
     * `ida:ResetPasswordPolicyId`：使用您的「重設密碼」原則名稱
+    * `api:ApiIdentifier`：使用您的「應用程式識別碼 URI」
 
 
 ## <a name="secure-the-api"></a>保護 API
@@ -212,4 +212,3 @@ public IEnumerable<Models.Task> Get()
 ## <a name="edit-your-policies"></a>編輯您的原則
 
 在您使用 Azure AD B2C 來保護 API 之後，就可以試驗登入/註冊原則，並檢視對 API 產生的效果 (或沒有效果)。 您可以操作原則中的應用程式宣告，然後變更 Web API 中可用的使用者資訊。 如本文先前所述，您加入的任何宣告都可在 `ClaimsPrincipal` 物件中供您的 .NET MVC Web API 使用。
-

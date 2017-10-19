@@ -15,10 +15,10 @@ ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
 ms.openlocfilehash: d00c6e0acf437d2bfc3c27e948f4646a6685b08f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>在防火牆後存取 Azure 金鑰保存庫
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>問︰我的金鑰保存庫用戶端應用程式必須位於防火牆後。 我應該開啟哪些連接埠、主機或 IP 位址以啟用金鑰保存庫的存取權？
@@ -38,9 +38,9 @@ ms.lasthandoff: 07/11/2017
 
 | 主體類型 | 端點:連接埠 |
 | --- | --- |
-| 使用 Microsoft 帳戶的使用者<br> (例如， user@hotmail.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login-us.microsoftonline.com:443<br><br>**Azure 德國︰**<br> login.microsoftonline.de:443<br><br> 和 <br>login.live.com:443 |
-| 使用者或服務主體與 Azure AD 中使用工作或學校帳戶 (例如， user@contoso.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login-us.microsoftonline.com:443<br><br>**Azure 德國︰**<br> login.microsoftonline.de:443 |
-| 使用者或服務主體使用工作或學校帳戶，再加上 Active Directory Federation Services (AD FS) 或其他同盟的端點 (例如， user@contoso.com) |公司帳戶或學校帳戶的所有端點，加上 AD FS 或其他同盟端點 |
+| 使用 Microsoft 帳戶的使用者<br> (例如，user@hotmail.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login-us.microsoftonline.com:443<br><br>**Azure 德國︰**<br> login.microsoftonline.de:443<br><br> 和 <br>login.live.com:443 |
+| 搭配使用公司帳戶或學校帳戶與 Azure AD 的使用者或服務主體 (例如，user@contoso.com) |**全域：**<br> login.microsoftonline.com:443<br><br> **Azure 中國︰**<br> login.chinacloudapi.cn:443<br><br>**Azure 美國政府︰**<br> login-us.microsoftonline.com:443<br><br>**Azure 德國︰**<br> login.microsoftonline.de:443 |
+| 使用公司帳戶或學校帳戶加上 Active Directory 同盟服務 (AD FS) 或其他同盟端點的使用者或服務主體 (例如，user@contoso.com) |公司帳戶或學校帳戶的所有端點，加上 AD FS 或其他同盟端點 |
 
 還有其他可能的複雜案例。 如需其他資訊，請參閱 [Azure Active Directory 驗證流程](/documentation/articles/active-directory-authentication-scenarios/)、[整合應用程式與 Azure Active Directory](/documentation/articles/active-directory-integrating-applications/) 及 [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)。  
 

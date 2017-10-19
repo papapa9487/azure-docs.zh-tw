@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69296eb9ac2a74a97b632d27733a6a06500b4abd
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 8f16f23928977ef6bf53f41c79375290da70a2fa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-device-to-your-iot-hub-using-net"></a>使用 .NET 將您的裝置連線至 IoT 中樞
 
@@ -63,7 +63,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![新的 Visual C# Windows 傳統桌面專案][10a]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **ReadDeviceToCloudMessages** 專案，然後按一下 [管理 NuGet 套件]。
+2. 在 方案總管 中，以滑鼠右鍵按一下 **ReadDeviceToCloudMessages** 專案，然後按一下管理 NuGet 套件。
 
 3. 在 [NuGet 套件管理員] 視窗中，搜尋 **WindowsAzure.ServiceBus**，選取 [安裝] 並接受使用規定。 此程序會下載及安裝 [Azure 服務匯流排][lnk-servicebus-nuget]，並新增對它的參考與其所有相依項目。 此套件可讓應用程式連接到 IoT 中樞上的事件中樞相容端點。
 
@@ -135,7 +135,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
     ![新的 Visual C# Windows 傳統桌面專案][10b]
 
-2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，然後按一下 [管理 NuGet 套件]。
+2. 在 方案總管 中，以滑鼠右鍵按一下 **SimulatedDevice** 專案，然後按一下管理 NuGet 套件。
 
 3. 在 [NuGet 套件管理員] 視窗中選取 [瀏覽]、搜尋 **Microsoft.Azure.Devices.Client**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK NuGet 套件][lnk-device-nuget]與其相依項目，並新增對它的參考。
 
@@ -200,7 +200,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
     Console.ReadLine();
     ```
 
-    根據預設，**Create** 方法會在 .NET Framework 應用程式中建立一個使用 AMQP 通訊協定的 **DeviceClient** 執行個體來與 IoT 中樞通訊。 若要使用 MQTT 或 HTTP 通訊協定，請使用可讓您指定通訊協定的 **Create** 方法的覆寫。 UWP 和 PCL 用戶端預設使用 HTTP 通訊協定。 若您使用 HTTP 通訊協定，您也應該將 **Microsoft.AspNet.WebApi.Client** NuGet 套件新增至您的專案，以包含 **System.Net.Http.Formatting** 命名空間。
+    根據預設，**Create** 方法會在 .NET Framework 應用程式中建立一個使用 AMQP 通訊協定的 **DeviceClient** 執行個體來與 IoT 中樞通訊。 若要使用 MQTT 或 HTTPS 通訊協定，請使用可讓您指定通訊協定的 **Create** 方法的覆寫。 UWP 和 PCL 用戶端預設使用 HTTPS 通訊協定。 若您使用 HTTPS 通訊協定，也應該將 **Microsoft.AspNet.WebApi.Client** NuGet 套件新增至您的專案，以包含 **System.Net.Http.Formatting** 命名空間。
 
 本教學課程會逐步引導您完成建立 IoT 中樞裝置應用程式的步驟。 您也可以使用 [Azure IoT 中樞的已連結服務][lnk-connected-service] Visual Studio 擴充功能，將必要的程式碼新增至裝置應用程式。
 
@@ -211,7 +211,7 @@ git clone https://github.com/Azure-Samples/iot-hub-dotnet-simulated-device-clien
 
 您現在可以開始執行應用程式。
 
-1. 在 Visual Studio 的 [方案總管] 中以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案]。 選取 [多個啟始專案]，然後同時針對 **ReadDeviceToCloudMessages** 和 **SimulatedDevice** 專案選取 **Start** 作為動作。
+1. 在 Visual Studio 的 方案總管 中以滑鼠右鍵按一下您的方案，然後按一下設定啟始專案。 選取 [多個啟始專案]，然後同時針對 **ReadDeviceToCloudMessages** 和 **SimulatedDevice** 專案選取 **Start** 作為動作。
 
     ![啟動專案屬性 ][41]
 

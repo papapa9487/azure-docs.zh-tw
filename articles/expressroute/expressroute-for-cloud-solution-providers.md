@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 26c9420c9b8ba1aff6b016c01b8ed51853c91506
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>適用於雲端解決方案提供者 (CSP) 的 ExpressRoute
 Microsoft 為傳統的轉銷商和經銷商 (CSP) 提供超大規模的服務，以便為您的客戶快速佈建新的服務和解決方案，而不需要投資開發這些新服務。 若要讓雲端解決方案提供者 (CSP) 能夠直接管理這些新服務，Microsoft 提供了一些程式和 API，讓 CSP 可以代表您的客戶管理 Microsoft Azure 資源。 其中一個資源是 ExpressRoute。 ExpressRoute 可讓 CSP 將現有的客戶資源連接到 Azure 服務。 ExpressRoute 是 Azure 中服務的高速私用通訊連結。 
@@ -136,8 +134,6 @@ ExpressRoute 會透過 Azure 虛擬網路閘道連接到 Azure 網路。 網路�
 
 在下列連結中可以找到額外的資訊︰
 
-[Microsoft Cloud 解決方案提供者方案](https://partner.microsoft.com/en-US/Solutions/cloud-reseller-overview)。  
+[Azure 雲端解決方案提供者方案](https://docs.microsoft.com/azure/cloud-solution-provider)。  
 [做好準備以雲端解決方案提供者身分交易](https://partner.microsoft.com/en-us/solutions/cloud-reseller-pre-launch)。  
 [Microsoft Cloud 解決方案提供者資源](https://partner.microsoft.com/en-us/solutions/cloud-reseller-resources)。
-
-

@@ -1,6 +1,6 @@
 ---
-title: "Azure 的資料庫，如 PostgreSQL 概觀 |Microsoft 文件"
-description: "在 Azure 入口網站內 PostgreSQL 概觀的 Azure 資料庫的說明內容"
+title: "適用於 PostgreSQL 的 Azure 資料庫概觀 | Microsoft Docs"
+description: "Azure 入口網站內適用於 PostgreSQL 的 Azure 資料庫概觀之說明內容"
 services: app-service
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
 ms.openlocfilehash: 9c930d1171b77ddf0bb6621fbf012f98816fd763
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>適用於 PostgreSQL 的 Azure 資料庫文件
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 
 了解如何：
 
-- 設計資料庫時： [Azure 入口網站](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
+- 設計資料庫：[Azure 入口網站](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
 - [使用 Python 和 CLI 建置 Web App](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## <a name="samples"></a>範例 
@@ -40,5 +40,5 @@ ms.lasthandoff: 07/11/2017
 
 ## <a name="more"></a>更多資訊
 
-- [請瀏覽文件，以進一步了解](/azure/postgresql/index)
-- [深入了解所有 Azure 服務](https://aka.ms/j3wr7y)
+- [如需詳細資訊，請瀏覽文件](/azure/postgresql/index)
+- [了解所有 Azure 服務](https://aka.ms/j3wr7y)

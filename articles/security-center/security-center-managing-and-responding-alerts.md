@@ -12,14 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 09/20/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 094729399070a64abc1aa05a9f585a0782142cbf
-ms.openlocfilehash: bf3aa51b4b1224840ae6897ff7df86cf3d2b3477
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/18/2017
-
+ms.openlocfilehash: a1ea4007f7399dff6da9d66931e1f5366942be0c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
@@ -39,17 +38,17 @@ ms.lasthandoff: 04/18/2017
 >
 
 ## <a name="managing-security-alerts"></a>管理安全性警示
-您可以查看 [安全性警示]  圖格來檢視目前的警示。 開啟 Azure 入口網站並遵循下列步驟來查看有關每個警示的更多詳細資訊：
+您可以查看 [安全性警示]  圖格來檢視目前的警示。 遵循下列步驟來查看有關每個警示的更多詳細資訊：
 
-1. 您會在「資訊安全中心」的儀表板看到 [安全性警示]  圖格。
+1. 您會在 [資訊安全中心] 儀表板看到 [安全性警示] 圖格。
 
     ![資訊安全中心的 [安全性警示] 圖格](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig1-ga.png)
 
-2. 按一下圖格，開啟 [安全性警示]  刀鋒視窗，其中包括與警示相關的詳細資料，如下所示。
+2. 按一下圖格，即可開啟 [安全性警示] 來查看有關警示的更多詳細資料。
 
-   ![資訊安全中心的 [安全性警示] 刀鋒視窗](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
+   ![資訊安全中心內的安全性警示](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig2-ga.png)
 
-這個刀鋒視窗的底部會顯示每個警示的詳細資料。 如要為警示排序，請按一下您要做為排序依據的的資料行。 下列為每個資料行的定義：
+此頁面底部有每個警示的詳細資料。 如要為警示排序，請按一下您要做為排序依據的的資料行。 下列為每個資料行的定義：
 
 * **描述**：警示的簡短說明。
 * **計數**：在特定一天偵測到這個特定類型的所有警示清單。
@@ -62,27 +61,26 @@ ms.lasthandoff: 04/18/2017
 ### <a name="filtering-alerts"></a>篩選警示
 您可以根據日期、狀態及嚴重性來篩選警示。 如果您需要縮小顯示的安全性警示檢視範圍，篩選警示會相當有用。 例如，您可能想確認在過去 24 小時發生的安全性警示，因為您正在調查系統中可能的入侵行動。
 
-1. 按一下 [安全性警示] 刀鋒視窗上的 [篩選]。 即會開啟 [篩選]  刀鋒視窗，您可以選取想要查看的日期、狀態和嚴重性值。
+1. 按一下 [安全性警示] 上的 [篩選]。 即會開啟 [篩選] 供您選取想要查看的日期、狀態和嚴重性值。
 
     ![篩選資訊安全中心的警示](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig3-2017.png)
 
 ### <a name="respond-to-security-alerts"></a>回應安全性警示
-選取一個安全性警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 安全性警示會依類型及日期區分。 按一下安全性警示會開啟刀鋒視窗，其中包括已分組的警示清單。
+選取一個安全性警示以深入了解觸發警示的事件；如果發現項目，您需要進行一些步驟來阻止攻擊。 安全性警示會依類型及日期區分。 按一下安全性警示會開啟頁面，其中包括已分組的警示清單。
 
 ![對於 Azure 資訊安全中心的安全性警示的回應](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig5-ga.png)
 
-在此案例中，所觸發的警示是關於可疑的遠端桌面通訊協定 (RDP) 活動。 第一個資料行顯示哪些資源遭到攻擊；第二個資料行顯示資源遭受攻擊的次數；第三個資料行顯示攻擊的時間；第四個資料行顯示警示的狀態；而第五個資料行顯示攻擊的嚴重性。 在檢閱這項資訊後，按一下遭到攻擊的資源，隨即會開啟新的刀鋒視窗。
+在此案例中，所觸發的警示是關於可疑的遠端桌面通訊協定 (RDP) 活動。 第一個資料行顯示哪些資源遭到攻擊；第二個資料行顯示資源遭受攻擊的次數；第三個資料行顯示攻擊的時間；第四個資料行顯示警示的狀態；而第五個資料行顯示攻擊的嚴重性。 在檢閱這項資訊後，按一下遭到攻擊的資源。
 
 ![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-在此刀鋒視窗的 [說明]  欄位中，您會找到關於這個事件的其他詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄檔都包含 IP 位址。
+在 [說明] 欄位中，您會找到關於這個事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄檔都包含 IP 位址。
 
-資訊安全中心會根據安全性警示，建議您不同的補救方法。 在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。 例如，這個攻擊的補救方法是使用[網路 ACL](../virtual-network/virtual-networks-acl.md) 或[網路安全性群組](../virtual-network/virtual-networks-nsg.md)規則，將產生此攻擊的 IP 位址列入封鎖清單。
+資訊安全中心會根據安全性警示，建議您不同的補救方法。 在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。 例如，這個攻擊的補救方法是使用[網路 ACL](../virtual-network/virtual-networks-acl.md) 或[網路安全性群組](../virtual-network/virtual-networks-nsg.md)規則，將產生此攻擊的 IP 位址列入封鎖清單。 如需不同警示類型的詳細資訊，請閱讀 [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md)。
 
 > [!NOTE]
-> 如需不同警示類型的詳細資訊，請閱讀 [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md)。
->
->
+> 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
+
 
 ## <a name="see-also"></a>另請參閱
 在本文件中，您了解到如何在資訊安全中心設定安全性原則。 如要深入了解資訊安全中心，請參閱下列主題：
@@ -92,4 +90,3 @@ ms.lasthandoff: 04/18/2017
 * [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) – 尋找使用服務的常見問題。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
-

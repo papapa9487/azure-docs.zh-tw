@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d79af3915c718a79f60e5f589527eb4c2ae8b367
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 70812790348bbf525c7ed6299c656f7dd8e83dff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-4-create-relationships"></a>第 4 課：建立關聯性
 
@@ -34,7 +33,10 @@ ms.lasthandoff: 06/03/2017
 本主題是表格式模型教學課程的一部分，請依序完成。 在這堂課中執行工作之前，您必須已完成上一堂課︰[第 3 課：標記為日期資料表](../tutorials/aas-lesson-3-mark-as-date-table.md)。 
   
 ## <a name="review-existing-relationships-and-add-new-relationships"></a>檢閱現有的關聯性和新增關聯性  
-當您使用「取得資料」匯入資料時，您從 AdventureWorksDW2014 資料庫取得七個資料表。 一般而言，當您從關聯式來源匯入資料時，自動會隨著資料一起匯入現有的關聯性。 不過，在繼續製作模型之前，您應該確認資料表之間的關聯性已正確建立。 本教學課程中，您會新增三個新的關聯性。  
+當您使用「取得資料」匯入資料時，您從 AdventureWorksDW2014 資料庫取得七個資料表。 一般而言，當您從關聯式來源匯入資料時，自動會隨著資料一起匯入現有的關聯性。 為了讓「取得資料」自動在資料模型中建立關聯性，資料來源的資料表之間必須有關聯性。
+
+在繼續製作模型之前，您應該確認資料表之間的關聯性已正確建立。 本教學課程中，您也會新增三個新的關聯性。  
+
   
 #### <a name="to-review-existing-relationships"></a>檢閱現有的關聯性  
   
@@ -44,7 +46,10 @@ ms.lasthandoff: 06/03/2017
     
     ![aas-lesson4-diagram](../tutorials/media/aas-lesson4-diagram.png)
   
-    使用模型設計工具右下角的迷你地圖控制項，盡可能包含最多資料表。 您也可以按一下資料表並拖曳至不同的位置，讓資料表彼此更靠近，或依特定順序排列。 移動資料表不會影響資料表之間已存在的關聯性。 若要檢視特定資料表中的所有資料行，請按一下資料表邊緣並拖曳，以放大或縮小。  
+    > [!NOTE]
+    > 如果您在資料表之間沒有看到任何關聯性，也可能表示在資料來源中的這些資料表之間沒有任何關聯性。
+
+    使用模型設計工具右下角的迷你地圖控制項，盡可能包含最多資料表。 您也可以按一下資料表並拖曳至不同的位置，讓資料表彼此更靠近，或依特定順序排列。 移動資料表不會影響資料表之間存在的關聯性。 若要檢視特定資料表中的所有資料行，請按一下資料表邊緣並拖曳，以放大或縮小。  
   
 2.  按一下 **DimCustomer** 資料表和 **DimGeography** 資料表之間的實線。 這兩個資料表之間的實線表示此關聯性為作用中，也就是計算 DAX 公式時依預設會用到它。  
   
@@ -63,7 +68,7 @@ ms.lasthandoff: 06/03/2017
     |是|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
     |是|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
-    如果遺漏任何關聯性，請確認您的模型包含下列資料表︰DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory 和 FactInternetSales。 如果是在不同時間從相同的資料來源連線匯入資料表，則不會建立這些資料表之間的關聯性，必須手動建立。  
+    如果遺漏任何關聯性，請確認您的模型包含下列資料表：DimCustomer、DimDate、DimGeography、DimProduct、DimProductCategory、DimProductSubcategory 和 FactInternetSales。 如果是在不同時間從相同的資料來源連線匯入資料表，則不會建立這些資料表之間的關聯性，必須手動建立。 如果沒有出現任何關聯性，表示資料來源沒有任何關聯性。 您可以手動在資料模型中加以建立。
 
 ### <a name="take-a-closer-look"></a>進一步了解
 在 [圖表] 檢視中，請注意在顯示資料表之間關聯性的線條上有箭號、星號和數字。
@@ -102,4 +107,3 @@ ms.lasthandoff: 06/03/2017
   
   
   
-

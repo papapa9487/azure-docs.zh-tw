@@ -1,6 +1,6 @@
 ---
-title: "Azure 虛擬機器上的 SQL Server 概觀 | Microsoft Docs"
-description: "深入了解如何在 Azure 虛擬機器上執行完整的 SQL Server 版本。 取得所有 SQL Server VM 映像和相關內容的直接連結。"
+title: "Azure Windows 虛擬機器上的 SQL Server 概觀 | Microsoft Docs"
+description: "深入了解如何在 Azure Windows 虛擬機器上執行完整的 SQL Server 版本。 取得所有 SQL Server VM 映像和相關內容的直接連結。"
 services: virtual-machines-windows
 documentationcenter: 
 author: rothja
@@ -12,20 +12,24 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/12/2017
+ms.date: 10/02/2017
 ms.author: jroth
+ms.openlocfilehash: b10c995fdd8e241d354c62537a0600b393795c1b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: b9d42e393e696187d2299e033402db8ee565593a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-sql-server-on-azure-virtual-machines"></a>Azure 虛擬機器上的 SQL Server 概觀
-本主題說明在 Azure 虛擬機器 (VM) 上執行 SQL Server 的選項，以及提供[入口網站映像的連結](#option-1-create-a-sql-vm-with-per-minute-licensing)和[常見工作](#manage-your-sql-vm)的概觀。
+# <a name="overview-of-sql-server-on-azure-virtual-machines-windows"></a>Azure 虛擬機器上的 SQL Server 概觀 (Windows)
+
+> [!div class="op_single_selector"]
+> * [Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+> * [Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md)
+
+本主題說明在 Azure Windows 虛擬機器 (VM) 上執行 SQL Server 的選項，以及提供[入口網站映像的連結](#option-1-create-a-sql-vm-with-per-minute-licensing)和[常見工作](#manage-your-sql-vm)的概觀。
 
 > [!NOTE]
-> 如果您已熟悉 SQL Server，只想要了解如何部署 SQL Server VM，請參閱[ Azure 入口網站中佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。
+> 如果您已熟悉 SQL Server，並只需要了解如何部署 SQL Server Windows VM，請參閱[在 Azure 中佈建 Windows SQL Server VM](virtual-machines-windows-portal-sql-server-provision.md)。 或者如果您需要使用 SQL Server 建立 Linux VM，請參閱[在 Azure 中佈建 Linux SQL Server VM](../../linux/sql/provision-sql-server-linux-virtual-machine.md)
 
 如果您是資料庫管理員或開發人員，Azure VM 提供您將內部部署 SQL Server 工作負載和應用程式移動到雲端的方式。
 
@@ -50,11 +54,13 @@ ms.lasthandoff: 09/14/2017
 
 | 版本 | 作業系統 | 版本 |
 | --- | --- | --- |
+| **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016)、[Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016)、[Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016)、[Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016)、[Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP1** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1EnterpriseWindowsServer2016)、[Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1StandardWindowsServer2016)、[Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1WebWindowsServer2016)、[Express](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1ExpressWindowsServer2016)、[Developer](https://portal.azure.com/#create/Microsoft.SQLServer2016SP1DeveloperWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2EnterpriseWindowsServer2012R2)、[Standard](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2StandardWindowsServer2012R2)、[Web](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2WebWindowsServer2012R2)、[Express](https://portal.azure.com/#create/Microsoft.SQLServer2014SP2ExpressWindowsServer2012R2) |
 | **SQL Server 2012 SP3** |Windows Server 2012 R2 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3EnterpriseWindowsServer2012R2)、[Standard](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3StandardWindowsServer2012R2)、[Web](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3WebWindowsServer2012R2)、[Express](https://portal.azure.com/#create/Microsoft.SQLServer2012SP3ExpressWindowsServer2012R2) |
 
-除了這份清單，還有其他的 SQL Server 版本和作業系統組合可用。 在 Azure 入口網站中透過市集搜尋來尋找其他映像。 
+> [!NOTE]
+> 若要查看可用的 Linux SQL Server 虛擬機器映像，請參閱 [Azure 虛擬機器 (Linux) 上的 SQL Server 概觀](../../linux/sql/sql-server-linux-virtual-machines-overview.md)。
 
 ## <a id="BYOL"></a> 選項 2︰利用現有授權建立 SQL VM
 您也可以自備授權 (BYOL)。 在此案例中，您只需支付 VM 費用，而 SQL Server 授權不需任何額外的費用。 若要使用自己的授權，請使用 SQL Server 版本及下列作業系統的矩陣。 在入口網站中，這些映像名稱前面會加上 **{BYOL}**。
@@ -106,4 +112,3 @@ Azure VM 可以使用 [自動修補](virtual-machines-windows-sql-automated-patc
 若有定價方面的問題，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)和 [Azure 定價頁面](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)。 在 **OS/軟體**清單中選取 SQL Server 的目標版本。 然後檢視不同大小的虛擬機器價格。
 
 其他問題？ 請先參閱 [Azure 虛擬機器上的 SQL Server 常見問題集](virtual-machines-windows-sql-server-iaas-faq.md)。 也請將您的問題或意見加入任何 SQL VM 主題的底部來與 Microsoft 和社群互動。
-

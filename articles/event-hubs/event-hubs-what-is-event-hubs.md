@@ -12,25 +12,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 10/05/2017
 ms.author: sethm; babanisa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 1a6bf0a0352e6d9e3a22586ac825558d12e1307a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 236d49b7d8104b410e2a4c768820c3c9ebcdce96
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-<a id="what-is-event-hubs" class="xliff"></a>
+# <a name="what-is-event-hubs"></a>何謂事件中樞？
 
-# 何謂事件中樞？
+Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠接收和處理數百萬個事件的事件內嵌服務。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 藉由提供大規模的低延遲[發佈訂閱功能](/biztalk/core/publish-and-subscribe-architecture)，事件中樞能成為引進巨量資料的途徑。
 
-Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠接收和處理數百萬個事件的事件內嵌服務。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 藉由提供大規模的低延遲[發佈訂閱功能](https://msdn.microsoft.com/library/aa560414.aspx)，事件中樞能成為引進巨量資料的途徑。
-
-<a id="why-use-event-hubs" class="xliff"></a>
-
-## 為何使用事件中樞？
+## <a name="why-use-event-hubs"></a>為何使用事件中樞？
 
 事件中樞的事件和遙測處理功能特別適用於︰
 
@@ -40,9 +34,7 @@ Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠�
 
 例如，事件中樞能追蹤行動應用程式中的行為、接收 Web 伺服陣列的流量資訊、擷取遊戲機遊戲中的遊戲內部事件，或是從產業用機器、連接的車輛或其他裝置收集遙測。
 
-<a id="azure-event-hubs-overview" class="xliff"></a>
-
-## Azure 事件中樞概觀
+## <a name="azure-event-hubs-overview"></a>Azure 事件中樞概觀
 
 事件中樞在解決方案架構中經常扮演事件管線的「大門」角色 (通常稱為「事件擷取器」)。 事件擷取器是介於事件發佈者和事件取用者之間的元件或服務，它能將事件串流的生產與這些事件的取用彼此脫鉤。 下圖說明此架構︰
 
@@ -50,9 +42,7 @@ Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠�
 
 事件中樞提供訊息串流處理能力，但特性迴異於傳統企業傳訊。 事件中樞功能是以高輸送量和事件處理案例為重點。 因此，事件中樞不同於 [Azure 服務匯流排](https://azure.microsoft.com/services/service-bus/)傳訊，並不會實作一些可用於[服務匯流排傳訊](/azure/service-bus-messaging/)實體 (例如主題) 的功能。
 
-<a id="event-hubs-features" class="xliff"></a>
-
-## 事件中樞功能
+## <a name="event-hubs-features"></a>事件中樞功能
 
 事件中樞包含下列重要元素：
 
@@ -66,9 +56,7 @@ Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠�
 
 如需這些和其他事件中樞功能的技術詳細資訊，請參閱[事件中樞功能概觀](event-hubs-features.md)。 
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 如需詳細的事件中樞價格資訊，請參閱[事件中樞價格](https://azure.microsoft.com/pricing/details/event-hubs/)。
 
@@ -79,5 +67,4 @@ Azure 事件中樞是可高度調整的資料串流平台，以及每秒能夠�
 * [使用事件中樞的範例應用程式](https://github.com/Azure/azure-event-hubs/tree/master/samples)
  
  
-
 

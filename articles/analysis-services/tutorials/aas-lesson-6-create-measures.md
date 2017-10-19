@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: 90833fa9744eac298b0da82cd3d12f27cc237510
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-6-create-measures"></a>第 6 課：建立量值
 
@@ -28,7 +27,7 @@ ms.lasthandoff: 06/03/2017
 
 在這堂課中，您將會建立要加入模型中的量值。 類似於您所建立的計算結果欄，量值是利用 DAX 公式所建立的計算結果。 不過，與計算結果欄不同，量值評估是根據使用者選取的「篩選條件」。 例如，在樞紐分析表的 [資料列標籤] 欄位中新增的特定資料行或交叉分析篩選器。 然後會以套用的量值，計算篩選條件中每個資料格的值。 量值是功能強大又靈活的計算，在幾乎所有表格式模型中都會派上用場，可以對數值資料執行動態計算。 若要深入了解，請參閱[量值](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)。
   
-若要建立量值，您需要使用「量值方格」。 根據預設，每個資料表都有一個空白量值方格；不過，您通常不會為每個資料表建立量值。 在資料檢視中，量值方格中會出現在模型設計師中的資料表下方。 若要隱藏或顯示資料表的量值方格，請按一下 [資料表] 功能表，然後按一下 [顯示量值方格]。  
+若要建立量值，您需要使用「量值方格」。 根據預設，每個資料表都有一個空白量值方格；不過，您通常不會為每個資料表建立量值。 在資料檢視中，量值方格中會出現在模型設計師中的資料表下方。 若要隱藏或顯示資料表的量值方格，請按一下 資料表 功能表，然後按一下顯示量值方格。  
   
 若要建立量值，您可以按一下量值方格中的空資料格，然後在公式列中輸入 DAX 公式。 當您按 ENTER 完成公式時，量值就會出現在資料格中。 您也可以按一下資料行，然後按一下工具列上的 [自動加總] 按鈕 (**∑**)，利用標準彙總函式建立量值。 使用「自動加總」功能所建立的量值會出現在資料行正下方的量值方格資料格中，但是可以移動。  
   
@@ -53,7 +52,7 @@ ms.lasthandoff: 06/03/2017
     DaysCurrentQuarterToDate:=COUNTROWS( DATESQTD( 'DimDate'[Date])) 
     ```
   
-    請注意，左上方的資料格現在包含量值名稱 **DaysCurrentQuarterToDate**，後面接著結果 **92**。
+    請注意，左上方的資料格現在包含量值名稱 **DaysCurrentQuarterToDate**，後面接著結果 **92**。 此時的結果不相關，因為未套用使用者篩選。
     
       ![aas 第 6 課新增量值](../tutorials/media/aas-lesson6-newmeasure.png) 
     
@@ -102,7 +101,7 @@ ms.lasthandoff: 06/03/2017
     |TaxAmt|InternetTotalTaxAmt|總和|=SUM([TaxAmt])|  
     |Freight|InternetTotalFreight|總和|=SUM([Freight])|  
   
-2.  按一下量值方格中的空資料格並使用公式列，依序建立和命名下列量值︰  
+2.  按一下量值方格中的空資料格並使用公式列，依序建立下列自訂量值：  
   
       ```
       InternetPreviousQuarterMargin:=CALCULATE([InternetTotalMargin],PREVIOUSQUARTER('DimDate'[Date]))
@@ -134,4 +133,3 @@ ms.lasthandoff: 06/03/2017
 [第 7 課：建立關鍵效能指標](../tutorials/aas-lesson-7-create-key-performance-indicators.md)。  
 
   
-

@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/03/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: fd95d055bedbec89027e1a75bcd4c9addab18ed3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: df0feb51469333bac42c779d860192d46f24ac62
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Hadoop)
 
@@ -45,6 +44,11 @@ HDInsight 可以使用 Linux (Ubuntu) 作為 Hadoop 叢集節點的作業系統�
 > 如果您的叢集包含邊緣節點，我們建議您__一律使用 SSH 連線到邊緣節點__。 前端節點會裝載對於 Hadoop 健康狀態至關重要的服務。 邊緣節點則只會執行您放在上面的服務。
 >
 > 如需使用邊緣節點的詳細資訊，請參閱[在 HDInsight 中使用邊緣節點](hdinsight-apps-use-edge-node.md#access-an-edge-node)。
+
+> [!TIP]
+> 當您初次連線至 HDInsight，您的 SSH 用戶端可能會顯示警告，指出無法建立主機的真確性。 在系統提示時，選取 [是] 將主機新增至您的 SSH 用戶端信任的伺服器清單。
+>
+> 如果您之前曾連線至相同名稱的伺服器，您可能會收到警告，指出預存的主機金鑰與伺服器的主機金鑰不符。 發生這個情況時，SSH 用戶端可能會拒絕連線至叢集。 如需了解如何移除現有的伺服器名稱項目，請參閱您的 SSH 用戶端文件。
 
 ## <a name="ssh-clients"></a>SSH 用戶端
 

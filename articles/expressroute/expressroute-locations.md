@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: kaanan
+ms.openlocfilehash: b734181eafeec0ed38c0770baa996a398091f341
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 61adeecaf71b8b34b8c22eda0b1e90c54ec2740a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -82,14 +81,14 @@ ms.lasthandoff: 08/29/2017
 | **China Telecom Global** |支援 |不支援 |香港 |
 | **[Cologix](http://www.cologix.com/solutions/cloud-connect/public-clouds/microsoft-cloud/)** |支援 |支援 |達拉斯、蒙特婁、多倫多 |
 | **[Colt](http://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦、巴黎、東京 |
-| **Comcast** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |
+| **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |支援 |支援 |芝加哥、矽谷、華盛頓特區 |
 | **[主控台](https://www.consoleconnect.com/partners/cloudsaas/)**| 支援 | 支援 |矽谷、多倫多 |
 | **[CoreSite](http://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |支援 |支援 |芝加哥、丹佛、洛杉磯、紐約、矽谷、華盛頓特區 |
 | **[Equinix](http://www.equinix.com/partners/microsoft-azure/)** |支援 |支援 |阿姆斯特丹、亞特蘭大、芝加哥、達拉斯、香港、倫敦、洛杉磯、墨爾本、紐約、大阪、巴黎、聖保羅、西雅圖、矽谷、新加坡、雪梨、東京、多倫多、華盛頓特區 |
 | **euNetworks** |支援 |支援 |阿姆斯特丹 |
 | **GÉANT** |支援 |支援 |阿姆斯特丹 |
 | **[Global Cloud Xchange (GCX)] (http://globalcloudxchange.com/cloud-platform/cloud-x-fusion/cloud-x-fusion-for-azure/)** | 支援| 支援 | 辰內，孟買 |
-| **[InterCloud](https://www.intercloud.com/)** |支援 |支援 |阿姆斯特丹、倫敦、新加坡、華盛頓特區 |
+| **[InterCloud](https://www.intercloud.com/)** |支援 |支援 |阿姆斯特丹、倫敦、巴黎、新加坡、華盛頓特區 |
 | **[Internet Initiative Japan Inc. - IIJ](http://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |支援 |支援 |大阪、東京 |
 | **Internet Solutions - Cloud Connect** |支援 |支援 |阿姆斯特丹、倫敦 |
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |支援 |支援 |阿姆斯特丹、都柏林、倫敦、巴黎 |
@@ -108,7 +107,7 @@ ms.lasthandoff: 08/29/2017
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |支援 |支援 |阿姆斯特丹、香港、倫敦、巴黎、矽谷、新加坡、雪梨、華盛頓特區 |
 | **PCCW Global Limited** |支援 |支援 |香港 |
 | **Sejong Telecom** |支援 |支援 |首爾 |
-| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |支援 |支援 |辰內 |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |支援 |支援 |辰內，孟買 |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |支援 |支援 |新加坡 |
 | **[Softbank](http://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |支援 |支援 |大阪、東京 |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |支援 |支援 |阿姆斯特丹、辰內、香港、倫敦、孟買、矽谷、新加坡、華盛頓特區 |
@@ -202,6 +201,7 @@ ms.lasthandoff: 08/29/2017
 | **[QSC AG](https://www.qsc.de/de/produkte-loesungen/cloud-services-und-it-outsourcing/pure-enterprise-cloud/multi-cloud-management/azure-expressroute/)** |Interxion | 法蘭克福 |  
 | **Rogers** | Cologix、Equinix | 蒙特婁、多倫多 |
 | **[Tamares Telecom](http://www.tamarestelecom.com/our-services/#Connectivity)** | Telecity | 倫敦 | 
+| **[Telia](https://www.telia.se/foretag/losningar/produkter-tjanster/datanet)** | Equinix | 阿姆斯特丹 |
 | **[ThinkTel](http://www.thinktel.ca/services/agile-ix-data/expressroute/)** | Equinix | 多倫多 | 
 | **[Transtelco](http://www.transtelco.net/tcloud/microsoft)** |Equinix | 達拉斯、洛杉磯 |  
 | **[United Information Highway (UIH)](https://www.uih.co.th/en/internet-solution/cloud-direct/uih-cloud-direct-for-microsoft-azure-expressroute)**| Equinix | 新加坡 |
@@ -267,4 +267,3 @@ ms.lasthandoff: 08/29/2017
 
 <!--Image References-->
 [0]: ./media/expressroute-locations/expressroute-locations-map.png "位置圖"
-

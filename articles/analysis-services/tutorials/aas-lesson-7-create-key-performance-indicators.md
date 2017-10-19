@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d78808421dd5acd907aa9e9000bb3b770a42c061
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>第 7 課：建立關鍵效能指標
 
@@ -49,7 +48,7 @@ ms.lasthandoff: 06/03/2017
 
     此量值作為 KPI 的基準量值。  
   
-4.  以滑鼠右鍵按一下 [InternetCurrentQuarterSalesPerformance] > [建立 KPI]。   
+4.  在量值方格中，以滑鼠右鍵按一下 [InternetCurrentQuarterSalesPerformance] > [建立 KPI]。   
   
 5.  在 [關鍵效能指標 (KPI)] 對話方塊中，於 [目標] 中選取 [絕對值]，然後輸入 **1.1**。  
   
@@ -82,10 +81,9 @@ ms.lasthandoff: 06/03/2017
   
 5.  在左側 (低) 滑桿欄位中，滑動直到欄位顯示 **0.8** 為止，然後滑動右側 (高) 滑桿欄位，直到欄位顯示 **1.03** 為止。  
   
-6.  在 [選取圖示樣式] 中，選取菱形 (紅色)、三角形 (黃色)、圓形 (綠色) 圖示類型，然後按一下 [確定]。  
+6.  在 選取圖示樣式 中，選取菱形 (紅色)、三角形 (黃色)、圓形 (綠色) 圖示類型，然後按一下確定。  
   
 ## <a name="whats-next"></a>後續步驟
 [第 8 課：建立檢視方塊](../tutorials/aas-lesson-8-create-perspectives.md)。
   
   
-

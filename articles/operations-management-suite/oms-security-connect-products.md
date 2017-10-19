@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: yurid
 ms.openlocfilehash: 710a1fe0ce2b7a1841187cf75f4ffb090cc161e5
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-your-security-products-to-the-operations-management-suite-oms-security-and-audit-solution"></a>將安全性產品連接至 Operations Management Suite (OMS) 安全性和稽核解決方案 
 本文件可協助您將安全性產品連接至 OMS 安全性和稽核解決方案。 支援的來源如下：
@@ -63,7 +63,7 @@ OMS 安全性支援收集使用 CEF over Syslogs 的記錄檔和 [Cisco ASA](htt
     log { source(src); filter(f_local4_oms); destination(security_oms); };
     
 3. 下載 security_events.conf 檔案並放在 OMS Agent 電腦中的 */etc/opt/microsoft/omsagent/conf/omsagent.d/*。
-4. 輸入下列命令重新啟動 syslog 服務精靈：*的 syslog ng 執行：*
+4. 輸入下列命令來重新啟動 syslog 精靈︰*若為 syslog-ng 執行︰*
     
     ```
     sudo service rsyslog restart

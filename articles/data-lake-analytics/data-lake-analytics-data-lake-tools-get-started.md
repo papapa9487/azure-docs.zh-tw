@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/28/2017
 ms.author: saveenr, yanacai
+ms.openlocfilehash: a48ce209bf3d5b7e5060acf2850144df5418828d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 7bbbb08ff635477a88403a3ae6bd3486d31838ef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 指令碼
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -72,7 +71,7 @@ OUTPUT @a
 
 1. 選取 [檔案] > [新增] > [專案]。
 
-2. 選取 [U-SQL 專案] 類型，然後按一下 [確定]。 Visual Studio 會建立具有 **Script.usql** 檔案的解決方案。
+2. 選取 U-SQL 專案 類型，然後按一下確定。 Visual Studio 會建立具有 **Script.usql** 檔案的解決方案。
 
 3. 將先前的指令碼貼上 **Script.usql** 視窗。
 
@@ -111,6 +110,5 @@ OUTPUT @a
 ## <a name="next-steps"></a>後續步驟
 
 * [在您自己的工作站上執行 U-SQL 指令碼進行測試和偵錯](data-lake-analytics-data-lake-tools-local-run.md)
-* [在 U-SQL 作業中進行 C# 程式碼偵錯](data-lake-analytics-debug-u-sql-jobs.md)
+* [使用 Azure Data Lake Tools for Visual Studio Code 執行 U-SQL 作業的 C# 程式碼偵錯](data-lake-tools-for-vscode-local-run-and-debug.md)
 * [使用 Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
-

@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 06/29/2016
 ms.author: yuaxu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
 ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>開始使用適用於 Kindle 應用程式的通知中樞
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -40,7 +40,7 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
 2. 複製 [應用程式金鑰] 。
    
     ![][1]
-3. 在入口網站中，按一下您的 app 名稱，然後按一下 [Device Messaging]  索引標籤。
+3. 在入口網站中，按一下您的 app 名稱，然後按一下Device Messaging  索引標籤。
    
     ![][2]
 4. 按一下 [建立新的安全性設定檔]，然後建立新的安全性設定檔 (例如 **TestAdm 安全性設定檔**)。 然後按一下 [儲存] 。
@@ -60,7 +60,7 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
     ![][5]
 4. 輸入 **android** 做為 [金鑰存放區] 密碼。
 5. 複製 **MD5** 指模。
-6. 返回開發人員入口網站，在 [訊息] 索引標籤中按一下 [Android/Kindle]，然後輸入您應用程式的套件名稱 (例如 **com.sample.notificationhubtest**)、[MD5] 值，然後按一下 [產生 API 金鑰]。
+6. 返回開發人員入口網站，在 訊息 索引標籤中按一下 Android/Kindle，然後輸入您應用程式的套件名稱 (例如 **com.sample.notificationhubtest**)、MD5 值，然後按一下產生 API 金鑰。
 
 ## <a name="add-credentials-to-the-hub"></a>將認證新增至中樞
 在入口網站中，將用戶端密碼和用戶端 ID 新增至通知中樞的 [設定]  索引標籤。
@@ -74,7 +74,7 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
 將 ADM 程式庫新增至您的 Eclipse 專案：
 
 1. 若要取得 ADM 程式庫，請 [下載 SDK]。 將 SDK zip 檔案解壓縮。
-2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下 [屬性] 。 選取左側的 [Java 組建路徑]，然後選取頂端的 [程式庫] 索引標籤。 按一下 [新增外部 Jar]，然後從您解壓縮 Amazon SDK 的目錄中選取 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 檔案。
+2. 在 Eclipse 中，以滑鼠右鍵按一下您的專案，然後按一下屬性 。 選取左側的 [Java 組建路徑]，然後選取頂端的 [程式庫] 索引標籤。 按一下 [新增外部 Jar]，然後從您解壓縮 Amazon SDK 的目錄中選取 `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` 檔案。
 3. 下載 NotificationHubs Android SDK (連結)。
 4. 將封裝解壓縮，然後將 `notification-hubs-sdk.jar` 檔案拖曳到 Eclipse 的 `libs` 資料夾中。
 
@@ -231,7 +231,7 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
 
 ## <a name="run-the-app"></a>執行應用程式
 1. 啟動模擬器。
-2. 在模擬器中，從頂端撥動，然後按一下 [設定]，並按一下 [我的帳戶]，然後使用有效的 Amazon 帳戶進行註冊。
+2. 在模擬器中，從頂端撥動，然後按一下設定，並按一下 我的帳戶，然後使用有效的 Amazon 帳戶進行註冊。
 3. 在 Eclipse 中執行應用程式。
 
 > [!NOTE]
@@ -265,9 +265,3 @@ ms.openlocfilehash: 7206f152ed7270abc62536a9ee164f7227833bcc
 [5]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-cmd-window.png
 [6]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-new-java-class.png
 [7]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-notification.png
-
-
-
-<!--HONumber=Nov16_HO2-->
-
-

@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 98e5964f4a2dffd728dae1c452facfa6ea488167
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3ff076f1b5c708423ee40e723875c221847258b0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-net"></a>使用 .NET 開發 Azure 檔案服務 
 > [!NOTE]
 > 本文將說明如何使用 .NET 程式碼管理 Azure 檔案服務。 若要深入了解 Azure 檔案服務，請參閱 [Azure 檔案服務簡介](storage-files-introduction.md)。
@@ -101,7 +99,7 @@ using Microsoft.WindowsAzure.Storage.File; // Namespace for Azure Files
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="access-the-file-share-programmatically"></a>以程式設計方式存取檔案共用
-接著，在 `Main()` 方法 (上述程式碼後面) 新增下列程式碼，以擷取連接字串。 此程式碼會取得稍早所建立檔案的參考，並將其內容輸出到主控台視窗。
+接著，在 `Main()` 方法 (上述程式碼後面) 加入下列程式碼，以擷取連接字串。 此程式碼會取得稍早所建立檔案的參考，並將其內容輸出到主控台視窗。
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -228,7 +226,7 @@ if (share.Exists())
 ## <a name="copy-files"></a>複製檔案
 從 Azure 儲存體用戶端程式庫 5.x 版開始，您可以將檔案複製到另一個檔案、將檔案複製到 Blob 或將 Blob 複製到檔案。 在後續各節中，我們將示範如何以程式設計方式執行這些複製作業。
 
-您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向作業。 請參閱 [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+您也可以使用 AzCopy 將檔案複製到另一個檔案，或將 Blob 複製到檔案或反向操作。 請參閱 [使用 AzCopy 命令列公用程式傳輸資料](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
 
 > [!NOTE]
 > 如果要將 Blob 複製到檔案，或將檔案複製到 Blob，您必須使用共用存取簽章 (SAS) 驗證來源物件，即使是在相同的儲存體帳戶內進行複製也一樣。
@@ -327,6 +325,80 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 您可以用相同方式將 Blob 複製到檔案。 如果來源物件為 Blob，則請建立 SAS，以便在複製作業期間驗證該 Blob 存取權。
 
+## <a name="share-snapshots-preview"></a>共用快照集 (預覽)
+從 Azure 儲存體用戶端程式庫的 8.5 版開始，您可以建立共用快照集 (預覽)。 您也可以列出或瀏覽共用快照集，並將共用快照集刪除。 共用快照集是唯讀的，因此共用快照集上不允許任何寫入作業。
+
+**建立共用快照集**
+
+下列範例會建立檔案共用快照集。
+
+```csharp
+storageAccount = CloudStorageAccount.Parse(ConnectionString); 
+fClient = storageAccount.CreateCloudFileClient(); 
+string baseShareName = "myazurefileshare"; 
+CloudFileShare myShare = fClient.GetShareReference(baseShareName); 
+var snapshotShare = myShare.Snapshot();
+
+```
+**列出共用快照集**
+
+下列範例會列出共用上的共用快照集。
+
+```csharp
+var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
+```
+
+**瀏覽共用快照集內的檔案和目錄**
+
+下列範例會瀏覽共用快照集內的檔案和目錄。
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); 
+var rootDirectory = mySnapshot.GetRootDirectoryReference(); 
+var items = rootDirectory.ListFilesAndDirectories();
+```
+
+**列出共用和共用快照集，並從共用快照集還原檔案共用或檔案** 
+
+擷取檔案共用的快照集可讓您在未來將個別檔案或整個檔案共用復原。 
+
+您可以從檔案共用快照集還原檔案，方法是查詢檔案共用的共用快照集。 然後，您可以擷取屬於特定共用快照集的檔案，並使用該版本直接讀取並比較，或是加以還原。
+
+```csharp
+CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
+var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
+
+       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var fileInliveShare = dirInliveShare.GetFileReference(fileName);
+
+           
+CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
+var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
+
+       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
+
+string sasContainerToken = string.Empty;
+       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
+
+string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
+fileInliveShare.StartCopyAsync(new Uri(sourceUri));
+
+```
+
+
+**刪除共用快照集**
+
+下列範例會刪除檔案共用快照集。
+
+```csharp
+CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
+```
+
 ## <a name="troubleshooting-azure-files-using-metrics"></a>使用計量針對 Azure 檔案服務進行疑難排解
 Azure 儲存體分析現在支援 Azure 檔案服務的計量。 利用度量資料，您可以追蹤要求及診斷問題。
 
@@ -387,11 +459,11 @@ Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 此外，您可以參考 [Azure 檔案疑難排解文章](storage-troubleshoot-windows-file-connection-problems.md)以取得端對端疑難排解指引。
 
 ## <a name="next-steps"></a>後續步驟
-請參閱這些連結，以取得 Azure 檔案服務的相關詳細資訊。
+請參閱這些連結，以取得 Azure 檔案服務的詳細資訊。
 
 ### <a name="conceptual-articles-and-videos"></a>概念性文章和影片
-* [Azure 檔案服務：適用於 Windows 和 Linux 的無摩擦雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [如何搭配使用 Azure 檔案服務與 Linux](storage-how-to-use-files-linux.md)
+* [Azure 檔案服務：相容於 Windows 和 Linux 的雲端 SMB 檔案系統](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
+* [如何在 Linux 中使用 Azure 檔案服務](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>檔案儲存體的工具支援
 * [如何搭配使用 AzCopy 與 Microsoft Azure 儲存體](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)

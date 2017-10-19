@@ -16,10 +16,10 @@ ms.topic: get-started-article
 ms.date: 06/21/2017
 ms.author: mandia; ladocs
 ms.openlocfilehash: c14ac7592efabfec8668d7437463e2d8771ee072
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectors-list"></a>連接器清單
 > [!TIP]
@@ -45,7 +45,7 @@ ms.lasthandoff: 08/03/2017
 | [![API 圖示][AzureBlobStorageicon]<br/>**Azure Blob<br/>儲存體**][AzureBlobStoragedoc] | 如果您想要透過儲存體帳戶自動執行任何工作，您應該看看此連接器。 支援 CRUD (建立、讀取、更新、刪除) 作業。 | [![API 圖示][Azure-Functionsicon]<br/>**Azure Functions**][azure-functionsdoc] | 建立可執行 C# 或 node.js 之自訂程式碼片段的函式，然後在邏輯應用程式中使用這些函式。  |
 | [![API 圖示][Dynamics-365icon]<br/>**Dynamics 365<br/>CRM Online**][Dynamics-365doc] | 詢問度最高的連接器之一。 它具有觸發程序和動作，有助於自動執行潛在客戶的工作流程等等。 | [![API 圖示][Event-Hubs-icon]<br/>**事件中樞**][event-hubs-doc] | 在事件中樞上取用和發佈事件。 例如，您可以使用事件中樞從邏輯應用程式取得輸出，然後將輸出傳送給即時分析提供者。 |
 | [![API 圖示][FTPicon]<br/>**FTP**][FTPdoc] | 如果可從網際網路存取您的 FTP 伺服器，您可以自動執行工作流程，以便使用檔案和資料夾。 <br/><br/>SFTP 也適用於 SFTP 連接器。 | [![API 圖示][HTTPicon]<br/>**HTTP**][httpdoc] | 使用邏輯應用程式透過 HTTP 與任何端點通訊。 |
-| [![API 圖示][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | 許多觸發程序，以及更多的動作會使用 Office 365 電子郵件與您工作流程內的事件。 <br/><br/>此連接器包含*核准電子郵件*動作，可核准休假要求、費用報告等。 <br/><br/>Office 365 使用者也可使用 Office 365 使用者連接器。| [![API 圖示][HTTP-Requesticon]<br/>**要求 / 回應**][HTTP-Requestdoc] | 此連接器會提供 HTTPS URL。 當邏輯應用程式收到此 URL 的要求時，邏輯應用程式就會啟動。 |
+| [![API 圖示][Office-365-Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc] | 許多觸發程序，以及更多的動作會使用 Office 365 電子郵件與您工作流程內的事件。 <br/><br/>此連接器包含*核准電子郵件*動作，可核准休假要求、費用報告等。 <br/><br/>Office 365 使用者也可使用 Office 365 使用者連接器。| [![API 圖示][HTTP-Requesticon]<br/>**要求/回應**][HTTP-Requestdoc] | 此連接器會提供 HTTPS URL。 當邏輯應用程式收到此 URL 的要求時，邏輯應用程式就會啟動。 |
 | [![API 圖示][Salesforceicon]<br/>**Salesforce**][salesforcedoc] | 使用 Salesforce 帳戶輕鬆登入，以取得物件 (例如潛在客戶等等) 的存取權。 |  [![API 圖示][Service-Busicon]<br/>**服務匯流排**][Service-Busdoc] | 邏輯應用程式中最熱門的連接器，其包含的觸發程序和動作可進行非同步傳訊，以及發佈/訂閱佇列、訂用帳戶和主題。 |
 |  [![API 圖示][SharePointicon]<br/>**SharePoint<br/>Online**][SharePointdoc] | 如果您使用 SharePoint 執行任何動作，並且受惠於自動化作業，我們建議看看此連接器。 可以搭配內部部署 SharePoint 和 SharePoint Online 使用 | [![API 圖示][SQL-Servericon]<br/>**SQL Server**][SQL-Serverdoc] | 最常用的連接器之一，它可以連線到內部部署 SQL Server 和 Azure SQL Database。 | 
 | [![API 圖示][Twittericon]<br/>**Twitter**][Twitterdoc] | 使用 Twitter 帳戶輕鬆登入，然後在新推文發佈時啟動工作流程。 接著，將這些推文儲存至 SQL Database 或 SharePoint 清單。 | | | 
@@ -56,9 +56,9 @@ ms.lasthandoff: 08/03/2017
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| [![API 圖示][as2icon]<br/>**AS2</br> 解碼**][as2decode] | [![API 圖示][as2icon]<br/>**AS2</br> 編碼**][as2encode] | [![API 圖示][x12icon]<br/>**EDIFACT</br> 解碼**][EDIFACTdecode] | [![API 圖示][x12icon]<br/>**EDIFACT</br> 編碼**][EDIFACTencode] |
-[![API 圖示][flatfileicon]<br/>**一般檔案</br> 編碼**][flatfiledoc] | [![API 圖示][flatfiledecodeicon]<br/>**一般檔案</br> 解碼**][flatfiledecodedoc] | [![API 圖示][integrationaccounticon]<br/>**整合<br/>帳戶**][integrationaccountdoc] | [![API 圖示][xmltransformicon]<br/>**轉換<br/>XML**][xmltransformdoc] |
-| [![API 圖示][x12icon]<br/>**X12</br> 解碼**][x12decode] | [![API 圖示][x12icon]<br/>**X12</br> 編碼**][x12encode] | [![API 圖示][xmlvalidateicon]<br/>**XML <br/>驗證**][xmlvalidatedoc] | |
+| [![API 圖示][as2icon]<br/>**AS2</br>解碼**][as2decode] | [![API 圖示][as2icon]<br/>**AS2</br>編碼**][as2encode] | [![API 圖示][x12icon]<br/>**EDIFACT</br>解碼**][EDIFACTdecode] | [![API 圖示][x12icon]<br/>**EDIFACT</br>編碼**][EDIFACTencode] |
+[![API 圖示][flatfileicon]<br/>**一般檔案</br>編碼**][flatfiledoc] | [![API 圖示][flatfiledecodeicon]<br/>**一般檔案</br>解碼**][flatfiledecodedoc] | [![API 圖示][integrationaccounticon]<br/>**整合<br/>帳戶**][integrationaccountdoc] | [![API 圖示][xmltransformicon]<br/>**轉換<br/>XML**][xmltransformdoc] |
+| [![API 圖示][x12icon]<br/>**X12</br>解碼**][x12decode] | [![API 圖示][x12icon]<br/>**X12</br>編碼**][x12encode] | [![API 圖示][xmlvalidateicon]<br/>**XML<br/>驗證**][xmlvalidatedoc] | |
 
 ## <a name="enterprise-connectors"></a>企業連接器
 

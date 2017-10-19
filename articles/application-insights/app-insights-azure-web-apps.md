@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/05/2017
 ms.author: bwren
+ms.openlocfilehash: dd6c2a1acdcd3b933bed536fd2bb1d83e1e593c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 110a4d26e90f46e823a3e1c9ebece3360fbdf0c9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-web-app-performance"></a>監視 Azure Web 應用程式效能
 在 [Azure 入口網站](https://portal.azure.com)中，您可以為 [Azure Web 應用程式](../app-service/app-service-web-overview.md)設定應用程式效能監視。 [Azure Application Insights](app-insights-overview.md) 會檢測您的應用程式，將其活動的相關遙測傳送給 Application Insights 服務，以在其中儲存和分析遙測。 該處的度量圖表和搜尋工具可用於協助診斷問題、改善效能，以及評估使用方式。
@@ -120,5 +119,4 @@ Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至
 * 每當發生作業事件或計量超過臨界值時，[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
 * 使用 [JavaScript 應用程式和網頁適用的 Application Insights](app-insights-javascript.md) ，以從造訪網頁的瀏覽器取得用戶端遙測。
 * [設定可用性 Web 測試](app-insights-monitor-web-app-availability.md) ，以在您的網站關閉時發出警示。
-
 

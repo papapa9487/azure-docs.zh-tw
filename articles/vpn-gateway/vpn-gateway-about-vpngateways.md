@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: e012526af264edd8b4fdbe84ff8b8648fb6d675c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="about-vpn-gateway"></a>關於 VPN 閘道
 
@@ -86,15 +85,17 @@ VPN 閘道連線需仰賴多個具有特定設定的資源。 大部分的資源
 
 點對站 (P2S) VPN 閘道連線可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 P2S 連線的建立方式是從用戶端電腦開始。 此解決方案適合於想要從遠端位置 (例如從住家或會議) 連線到 Azure VNet 的遠距工作者。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的解決方案 (而不是 S2S VPN)。
 
-如同 S2S 連線，P2S 連線不需要內部部署公眾對應 IP 位址或 VPN 裝置。 P2S 連線可與 S2S 連線透過相同的 VPN 閘道一起使用，前提是這兩個連線的所有設定需求都相容。
+如同 S2S 連線，P2S 連線不需要內部部署公眾對應 IP 位址或 VPN 裝置。 P2S 連線可與 S2S 連線透過相同的 VPN 閘道一起使用，前提是這兩個連線的所有設定需求都相容。 如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
 >[!NOTE]
 >P2S RADIUS 驗證和 IKEv2 目前皆處於預覽狀態。
 >
 
-如需點對站連線的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
-
 ![Azure VPN 閘道點對站連接範例](./media/vpn-gateway-about-vpngateways/point-to-site.png)
+
+### <a name="deployment-models-and-methods-for-p2s"></a>P2S 的部署模型和方法
+
+[!INCLUDE [vpn-gateway-table-site-to-site](../../includes/vpn-gateway-table-point-to-site-include.md)]
 
 ## <a name="V2V"></a>VNet 對 VNet 連線 (IPsec/IKE VPN 通道)
 
@@ -136,7 +137,7 @@ ExpressRoute 是從 WAN (不透過公用網際網路) 到 Microsoft 服務 (包�
 
 ![ExpressRoute 和 VPN 閘道並存連接範例](./media/vpn-gateway-about-vpngateways/expressroute-vpngateway-coexisting-connections-diagram.png)
 
-### <a name="deployment-models-and-methods-for-s2s-and-expressroute"></a>S2S 和 ExpressRoute 的部署模型和方法
+### <a name="deployment-models-and-methods-for-s2s-and-expressroute-coexist"></a>S2S 和 ExpressRoute 的部署模型和方法並存
 
 [!INCLUDE [vpn-gateway-table-coexist](../../includes/vpn-gateway-table-coexist-include.md)]
 
@@ -156,4 +157,3 @@ ExpressRoute 是從 WAN (不透過公用網際網路) 到 Microsoft 服務 (包�
 - 如需詳細資訊，請參閱 [VPN 閘道常見問題集](vpn-gateway-vpn-faq.md)。
 - 檢視[訂用帳戶與服務限制](../azure-subscription-service-limits.md#networking-limits)。
 - 深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)。
-

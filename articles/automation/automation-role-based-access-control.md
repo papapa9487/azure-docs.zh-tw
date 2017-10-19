@@ -3,7 +3,7 @@ title: "Azure 自動化中的角色型存取控制 | Microsoft Docs"
 description: "角色型存取控制 (RBAC) 可以啟用對 Azure 資源的存取權管理。 本文說明如何在 Azure 自動化中設定 RBAC。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "自動化 rbac, 角色型存取控制, azure rbac"
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 09/30/2016
 ms.author: magoedte;sngun
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
-
-
+ms.openlocfilehash: 946d80d40ac0566db72c787f260f2d4faff01e6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 ## <a name="role-based-access-control"></a>角色型存取控制
@@ -127,8 +127,8 @@ ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 | 自動化 Webhook |![綠色狀態](media/automation-role-based-access-control/green-checkmark.png) | | | |
 
 ## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>使用 Azure 入口網站為您的自動化帳戶設定 RBAC
-1. 登入 [Azure 入口網站](https://portal.azure.com/) ，並從 [自動化帳戶] 刀鋒視窗開啟您的自動化帳戶。  
-2. 按一下右上角的 [存取]  控制項。 這會開啟 [使用者]  刀鋒視窗，您可以在其中加入新使用者、群組及應用程式來管理您的自動化帳戶，並檢視可以為自動化帳戶設定的現有角色。  
+1. 登入 [Azure 入口網站](https://portal.azure.com/)，並從 [自動化帳戶] 頁面開啟您的自動化帳戶。  
+2. 按一下右上角的 [存取]  控制項。 這會開啟 [使用者] 頁面，您可以在其中新增新使用者、群組及應用程式來管理您的自動化帳戶，並檢視可以為自動化帳戶設定的現有角色。  
    
    ![[存取] 按鈕](media/automation-role-based-access-control/automation-01-access-button.png)  
 
@@ -138,24 +138,24 @@ ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 > 
 
 ### <a name="add-a-new-user-and-assign-a-role"></a>加入新使用者並指派角色
-1. 從 [使用者] 刀鋒視窗中，按一下 [新增] 以開啟 [新增存取] 刀鋒視窗，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。  
+1. 從 [使用者] 頁面中，按一下 [新增] 以開啟 [新增存取] 頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。  
    
    ![新增使用者](media/automation-role-based-access-control/automation-02-add-user.png)  
 2. 從可用角色的清單中選取角色。 我們將選擇 **讀取者** 角色，但是您可以選擇自動化帳戶支援的任何可用的內建角色，或已定義的任何自訂角色。  
    
    ![選取角色](media/automation-role-based-access-control/automation-03-select-role.png)  
-3. 按一下 [新增使用者] 以開啟 [新增使用者] 刀鋒視窗。 如果您已新增任何使用者、群組或應用程式以管理您的訂用帳戶，則會列出這些使用者，您可以選取他們以新增存取權。 如果沒有列出任何使用者，或未列出您有興趣新增的使用者，請按一下 [邀請] 開啟 [邀請來賓] 刀鋒視窗；您可以在此邀請具有有效 Microsoft 帳戶電子郵件地址 (例如 Outlook.com、OneDrive 或 Xbox Live ID) 的使用者。 輸入了使用者的電子郵件地址之後，按一下 [選取] 以新增使用者，然後按一下 [確定]。 
+3. 按一下 [新增使用者] 以開啟 [新增使用者] 頁面。 如果您已新增任何使用者、群組或應用程式以管理您的訂用帳戶，則會列出這些使用者，您可以選取他們以新增存取權。 如果沒有列出任何使用者，或未列出您有興趣新增的使用者，請按一下 [邀請] 開啟 [邀請來賓] 頁面；您可以在此邀請具有有效 Microsoft 帳戶電子郵件地址 (例如 Outlook.com、OneDrive 或 Xbox Live ID) 的使用者。 輸入了使用者的電子郵件地址之後，按一下 選取 以新增使用者，然後按一下確定。 
    
    ![新增使用者](media/automation-role-based-access-control/automation-04-add-users.png)  
    
-   現在您應該會看到使用者新增至 [使用者] 刀鋒視窗，並且獲指派**讀取者**角色。  
+   現在您應該會看到使用者新增至 [使用者] 頁面，並且獲指派**讀取者**角色。  
    
    ![列出使用者](media/automation-role-based-access-control/automation-05-list-users.png)  
    
-   您也可以從 [角色]  刀鋒視窗指派角色給使用者。 
-4. 從 [使用者] 刀鋒視窗按一下 [角色] 以開啟 [角色] 刀鋒視窗。 從這個刀鋒視窗中，您可以檢視角色的名稱、指派給該角色的使用者和群組數目。
+   您也可以從 [角色] 頁面指派角色給使用者。 
+4. 從 [使用者] 頁面按一下 [角色] 以開啟 [角色] 頁面。 從這個頁面中，您可以檢視角色的名稱、指派給該角色的使用者和群組數目。
    
-    ![從 [使用者] 刀鋒視窗指派角色](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
+    ![從 [使用者] 頁面指派角色](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)  
    
    > [!NOTE]
    > 只能在自動化帳戶層級，而非低於自動化帳戶的任何資源中設定以角色為基礎的存取控制。
@@ -169,8 +169,8 @@ ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 ### <a name="remove-a-user"></a>移除使用者
 您可以移除未管理自動化帳戶的使用者，或不再為組織工作之使用者的存取權限。 以下是移除使用者的步驟： 
 
-1. 從 [使用者]  刀鋒視窗中，選取您想要移除的角色指派。
-2. 按一下指派詳細資料刀鋒視窗上的 [移除]  按鈕。
+1. 從 [使用者]  頁面中，選取您想要移除的角色指派。
+2. 按一下指派詳細資料窗格上的 [移除] 按鈕。
 3. 按一下 [是]  以確認移除。 
    
    ![移除使用者](media/automation-role-based-access-control/automation-08-remove-users.png)  
@@ -181,7 +181,7 @@ ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 ![預設目錄](media/automation-role-based-access-control/automation-09-default-directory-in-role-assigned-user.png)  
 
 ### <a name="user-experience-for-automation-operator-role"></a>自動化操作員角色的使用者經驗
-當指派為自動化操作員角色的使用者檢視指派給他的自動化帳戶時，只能檢視在自動化帳戶中建立的 Runbook、Runbook 作業和排程的清單，但無法檢視其定義。 他們可以啟動、停止、暫停、繼續或排程 Runbook 作業。 使用者將無法存取其他自動化資源，例如組態、混合式背景工作群組或 DSC 節點。  
+當指派為自動化操作員角色的使用者檢視指派給他的自動化帳戶時，只能檢視在自動化帳戶中建立的 Runbook、Runbook 作業和排程的清單，但無法檢視其定義。 他們可以啟動、停止、暫停、繼續或排程 Runbook 作業。 使用者無法存取其他自動化資源，例如組態、混合式背景工作群組或 DSC 節點。  
 
 ![沒有資源的存取權](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)  
 
@@ -189,7 +189,7 @@ ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 
 ![沒有編輯 Runbook 的存取權](media/automation-role-based-access-control/automation-11-no-access-to-edit-runbook.png)  
 
-使用者將可檢視及建立排程，但無法存取任何其他資產類型。  
+使用者有權檢視及建立排程，但無法存取任何其他資產類型。  
 
 ![沒有資產的存取權](media/automation-role-based-access-control/automation-12-no-access-to-assets.png)  
 
@@ -229,10 +229,4 @@ ms.openlocfilehash: 17c7e410a9c5b69ab450eb3affd192f1e3cb6e76
 * 如需針對 Azure 自動化設定 RBAC 的不同方式詳細資訊，請參閱 [使用 Azure PowerShell 管理 RBAC](../active-directory/role-based-access-control-manage-access-powershell.md)。
 * 如需以不同方式啟動 Runbook 的詳細資訊，請參閱 [啟動 Runbook](automation-starting-a-runbook.md)
 * 如需不同 Runbook 類型的詳細資訊，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: c7aca7b67f4773cf7d19f84253487ed060e0db73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 97f89cd6cf37d92ac50f149336e1d1143de991ec
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-your-on-premises-directories-with-azure-active-directory"></a>整合您的內部部署目錄與 Azure Active Directory
 Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 這可讓您為與 Azure AD 整合之 Office 365、Azure 和 SaaS 應用程式的使用者提供通用身分識別。 本主題將引導您完成規劃、部署和作業步驟。 其中集結了與此領域相關的主題連結。
@@ -37,7 +36,7 @@ Azure AD Connect 會整合您的內部部署目錄與 Azure Active Directory。 
 
 * 使用者可以使用單一身分識別來存取內部部署應用程式和雲端服務，例如 Office 365。
 * 單一工具即可提供輕鬆進行同步處理和登入的部署經驗。
-* 提供您案例的最新功能。 Azure AD Connect 會取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。 如需詳細資訊，請參閱 [混合式身分識別目錄整合工具比較](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)。
+* 提供您案例的最新功能。 Azure AD Connect 會取代舊版的身分識別整合工具，如 DirSync 和 Azure AD Sync。如需詳細資訊，請參閱 [混合式身分識別目錄整合工具比較](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)。
 
 ### <a name="how-azure-ad-connect-works"></a>Azure AD Connect 運作方式
 Azure Active Directory Connect 由三個主要元件組成︰同步處理服務、選用的 Active Directory Federation Services 元件和名為 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)的監視元件。
@@ -127,6 +126,15 @@ Azure AD Connect 同步處理隨附一個適用於大部分客戶和拓撲的預
 |變更預設組態 | [變更預設組態的最佳作法](active-directory-aadconnectsync-best-practices-changing-default-configuration.md)|
 
 ## <a name="configure-federation-features"></a>設定同盟功能
+
+Azure AD Connect 提供數種功能，可簡化使用 AD FS 與 Azure AD 的同盟，以及管理您的同盟信任。 Azure AD Connect 在 Windows Server 2012R2 或更新版本上支援 AD FS。
+
+即使您未使用 Azure AD Connect 來管理您的同盟信任，請[更新 AD FS 伺服器陣列的 SSL 憑證](active-directory-aadconnectfed-ssl-update.md)。
+
+[新增 AD FS 伺服器](active-directory-aadconnect-federation-management.md#addadfsserver)至伺服器陣列，以視需要擴大伺服器陣列。
+
+輕鬆按幾下即可使用 Azure AD [修復信任](active-directory-aadconnect-federation-management.md#repairthetrust)。
+
 ADFS 可以設定為支援 [多個網域](active-directory-aadconnect-multiple-domains.md)。 例如，您可以有多個必須用於同盟的最上層網域。
 
 如果您的 ADFS 伺服器尚未設定為自動從 Azure AD 更新憑證，或如果您使用非 ADFS 解決方案，則當您必須 [更新憑證](active-directory-aadconnect-o365-certs.md)時您將會收到通知。
@@ -157,5 +165,4 @@ ADFS 可以設定為支援 [多個網域](active-directory-aadconnect-multiple-d
 > [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3862/player]
 > 
 > 
-
 

@@ -1,6 +1,6 @@
 ---
-title: "Windows 虛擬機器概觀 |Microsoft 文件"
-description: "說明在 Azure 入口網站中的 Windows 虛擬機器概觀的內容"
+title: "Windows 虛擬機器概觀 | Microsoft Docs"
+description: "Azure 入口網站內 Windows 虛擬機器概觀的說明內容"
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: 03b204d9970a3831543a03dfa08e2a4d8b274034
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows 虛擬機器文件
 
@@ -28,7 +28,7 @@ Azure Windows 虛擬機器使用 Windows Server 提供隨選、高度可調整�
 
 ## <a name="step-by-step-tutorials"></a>逐步教學課程
 
-了解如何部署、 管理及監視 Windows Azure 上的 Vm。
+了解如何在 Azure 上部署、管理及監視 Windows VM。
 
 - [建立並管理 Windows VM](/azure/virtual-machines/windows/tutorial-manage-vm)
 - [建立和管理 VM 磁碟](/azure/virtual-machines/windows/tutorial-manage-data-disk)
@@ -58,5 +58,5 @@ Azure Windows 虛擬機器使用 Windows Server 提供隨選、高度可調整�
 
 ## <a name="more"></a>更多資訊
 
-- [請瀏覽文件，以進一步了解](/azure/virtual-machines/windows/index)
-- [深入了解所有 Azure 服務](https://aka.ms/j3wr7y)
+- [如需詳細資訊，請瀏覽文件](/azure/virtual-machines/windows/index)
+- [了解所有 Azure 服務](https://aka.ms/j3wr7y)

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 8576f2b6adce044d2060c3ba6d19ac330e3637c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 166cebeb20ecc79b447dac25f243f07163a6d127
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started"> </a>關於 Azure App Service 中的 Mobile Apps
 Azure App Service 是完全受管理的[平台即服務](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) 產品，適用於專業開發人員。 此服務為 Web、行動及整合案例提供一組豐富的功能。 
@@ -68,7 +67,7 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
 * **連續部署**：App Service 可與常見供應鏈管理 (SCM) 系統整合，您便可將新版的後端發送至 SCM 系統的分支進行自動部署。
 
-  深入探索 [部署選項]。
+  深入探索 [部署選項](../app-service/app-service-deploy-local-git.md)。
 
 * **虛擬網路**：App Service 可以使用虛擬網路、Azure ExpressRoute 或混合式連線，連線到內部部署資源。
 
@@ -87,7 +86,6 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [快速入門]: app-service-mobile-ios-get-started.md
 [Azure 資料表儲存體]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/documentdb-get-started.md
@@ -100,12 +98,10 @@ Azure App Service 的 Mobile Apps 功能為企業開發人員和系統整合人�
 [Xamarin.iOS 和 Xamarin.Android]: ./app-service-mobile-dotnet-how-to-use-client-library.md
 [Xamarin.Forms]: ./app-service-mobile-xamarin-forms-get-started.md
 [Apache Cordova]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[自動調整]: ../app-service-web/web-sites-scale.md
-[預備環境]: ../app-service-web/web-sites-staged-publishing.md
-[部署選項]: ../app-service-web/web-sites-deploy.md
+[自動調整]: ../app-service/web-sites-scale.md
+[預備環境]: ../app-service/web-sites-staged-publishing.md
 [混合式連線]: ../biztalk-services/integration-hybrid-connection-overview.md
-[虛擬網路]: ../app-service-web/web-sites-integrate-with-vnet.md
-[ExpressRoute]: ../app-service-web/app-service-app-service-environment-network-configuration-expressroute.md
-[App Service 環境]: ../app-service-web/app-service-app-service-environment-intro.md
+[虛擬網路]: ../app-service/web-sites-integrate-with-vnet.md
+[ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
+[App Service 環境]: ../app-service/environment/intro.md
 [學習地圖]: https://azure.microsoft.com/en-us/documentation/learning-paths/appservice-mobileapps/
-

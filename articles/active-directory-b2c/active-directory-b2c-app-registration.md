@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
+ms.openlocfilehash: b49a894365dd344afb2f3cab51e7cfd28d930b1a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: 0e91d249116d39675d6e4bdf429442b6bc8af391
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C：註冊您的應用程式
 
@@ -50,6 +49,8 @@ ms.lasthandoff: 09/01/2017
 ### <a name="register-a-web-app"></a>註冊 Web 應用程式
 
 [!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+
+### <a name="create-a-web-app-client-secret"></a>建立 Web 應用程式用戶端密碼
 
 如果您的 Web 應用程式呼叫 Azure AD B2C 所保護的 Web API，請執行下列步驟：
    1. 前往 [金鑰] 刀鋒視窗，然後按一下 [產生金鑰] 按鈕，以建立應用程式祕密。 請記下 [應用程式金鑰] 值。 您可以使用此值，作為應用程式程式碼中的應用程式祕密。

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: ryanwi
+ms.openlocfilehash: de7fa7e6445e6eaf08bdcc8ae812611f20a98c34
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecf9554554c8b7acbd8b8f5aa9122ce1678c6502
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-service-fabric-cluster-on-azure"></a>在 Azure 上建立您的第一個 Service Fabric 叢集
 [Service Fabric 叢集](service-fabric-deploy-anywhere.md)是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 此快速入門可協助您建立包含五個節點的叢集，在短短幾分鐘內透過 [Azure PowerShell](https://msdn.microsoft.com/library/dn135248) 或 [Azure 入口網站](http://portal.azure.com)在 Windows 或 Linux 上執行該叢集。  
 
@@ -251,6 +249,17 @@ az sf cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 az sf cluster health
 ```
 
+### <a name="connect-to-the-nodes-directly"></a>直接連線到節點 
+
+若要連線至 Linux 叢集中的節點，您可以使用 SSH 連線到節點，方法是從 3389 及之後版本指定連接埠號碼。 例如，針對稍早建立的五個節點叢集，命令如下所示：
+```bash
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3389
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3390
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3391
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3392
+ssh sfadminuser@aztestcluster.southcentralus.cloudapp.azure.com -p 3393
+```
+
 ## <a name="next-steps"></a>後續步驟
 您已設定好開發叢集，請嘗試下列作業︰
 * [使用 Service Fabric 總管視覺化叢集](service-fabric-visualizing-your-cluster.md)
@@ -266,4 +275,3 @@ az sf cluster health
 [cluster-delete]: ./media/service-fabric-get-started-azure-cluster/delete.png
 [ps-list]: ./media/service-fabric-get-started-azure-cluster/pslist.PNG
 [ps-out]: ./media/service-fabric-get-started-azure-cluster/psout.PNG
-

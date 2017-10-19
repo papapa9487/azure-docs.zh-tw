@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: get-started-article
 ms.date: 08/18/2016
 ms.author: deli
-translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scheduler-concepts-terminology--entity-hierarchy"></a>排程器概念、術語及實體階層
 ## <a name="scheduler-entity-hierarchy"></a>排程器實體階層
@@ -176,7 +176,7 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
 
 若要設定重試原則，可以指定另外兩項設定：重試間隔 (**retryInterval**) 和重試次數 (**retryCount**)。
 
-搭配 **retryInterval** 物件指定的重試間隔是重試的間隔。 其預設值為 30 秒、最小可設定值為 15 秒，而最大值為 18 個月。 免費作業集合中作業的最小可設定值為 1 小時。  它是以 ISO 8601 格式定義。 同樣地，搭配 **retryCount** 物件指定的重試次數值，它是重試的次數。 其預設值為 4 且其最大值為 20\. **retryInterval** 和 **retryCount** 都是選擇性的。 如果 **retryType** 設定為 **fixed**，而且未明確地指定任何值，則會給與它們預設值。
+搭配 **retryInterval** 物件指定的重試間隔是重試的間隔。 其預設值為 30 秒、最小可設定值為 15 秒，而最大值為 18 個月。 免費作業集合中作業的最小可設定值為 1 小時。  它是以 ISO 8601 格式定義。 同樣地，搭配 **retryCount** 物件指定的重試次數值，它是重試的次數。 其預設值為 4，而最大值為 20。 **retryInterval** 和 **retryCount** 都是選擇性的。 如果 **retryType** 設定為 **fixed**，而且未明確地指定任何值，則會給與它們預設值。
 
 ## <a name="see-also"></a>另請參閱
  [排程器是什麼？](scheduler-intro.md)
@@ -196,10 +196,4 @@ ms.openlocfilehash: 0f035b58ccd140a5481703df7e184206da2ed651
  [Azure 排程器限制、預設值和錯誤碼](scheduler-limits-defaults-errors.md)
 
  [Azure 排程器輸出驗證](scheduler-outbound-authentication.md)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

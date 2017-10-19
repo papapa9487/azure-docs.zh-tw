@@ -3,7 +3,7 @@ title: "管理 Azure 自動化帳戶 | Microsoft Docs"
 description: "本文說明如何管理自動化帳戶的組態，例如憑證更新、刪除和設定錯誤。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>管理 Azure 自動化帳戶
 有時您必須在自動化帳戶到期前更新憑證。 如果您認為執行身分帳戶遭到盜用，您可加以刪除並重新建立。 本節會討論如何執行這些作業。
 
@@ -28,18 +27,19 @@ ms.lasthandoff: 04/15/2017
 您為執行身分帳戶建立的自我簽署憑證，會在建立日起算一年後到期。 您可以在該憑證到期前隨時更新憑證。 當您更新憑證時，目前的有效憑證會予以保留，以確保已排入佇列或正在執行以及使用該執行身分帳戶進行驗證的任何 Runbook 不會受到負面影響。 憑證在到期日之前會保持有效。
 
 > [!NOTE]
-> 如果您已設定您的自動化執行身分帳戶以使用您的企業憑證授權單位所核發的憑證，而且您使用此選項，該企業憑證將會由自我簽署憑證所取代。
+> 如果您已設定您的自動化執行身分帳戶以使用您的企業憑證授權單位所核發的憑證，而且您使用此選項，該企業憑證會由自我簽署憑證所取代。
 
 若要更新憑證，請執行下列步驟︰
 
 1. 在 Azure 入口網站中，開啟自動化帳戶。
 
-2. 在 [自動化帳戶] 刀鋒視窗的 [帳戶屬性] 窗格中，於 [帳戶設定] 底下選取 [執行身分帳戶]。
+2. 在**自動化帳戶**上 
+3. ，於 [帳戶屬性] 窗格中，於 [帳戶設定] 底下選取 [執行身分帳戶]。
 
     ![自動化帳戶的屬性窗格](media/automation-manage-account/automation-account-properties-pane.png)
-3. 在 [執行身分帳戶] 的屬性刀鋒視窗中，選取您想要更新憑證的執行身分帳戶或傳統執行身分帳戶。
+3. 在 [執行身分帳戶] 屬性頁面中，選取您想要更新憑證的執行身分帳戶或傳統執行身分帳戶。
 
-4. 在所選帳戶的 [屬性] 刀鋒視窗上，按一下 [更新憑證]。
+4. 在所選帳戶的 [屬性] 窗格上，按一下 [更新憑證]。
 
     ![更新執行身分帳戶的憑證](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -50,15 +50,15 @@ ms.lasthandoff: 04/15/2017
 
 1. 在 Azure 入口網站中，開啟自動化帳戶。
 
-2. 在 [自動化帳戶] 刀鋒視窗的 [帳戶屬性] 窗格中，選取 [執行身分帳戶]。
+2. 在 [自動化帳戶] 頁面上，選取 [執行身分帳戶]。
 
-3. 在 [執行身分帳戶] 的屬性刀鋒視窗中，選取您想要刪除的執行身分帳戶或傳統執行身分帳戶。 然後，在所選帳戶的 [屬性] 刀鋒視窗上，按一下 [刪除]。
+3. 在 [執行身分帳戶] 屬性頁面中，選取您想要刪除的執行身分帳戶或傳統執行身分帳戶。 然後，在所選帳戶的 [屬性] 窗格上，按一下 [刪除]。
 
  ![刪除執行身分帳戶](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. 刪除帳戶時，您可以在功能表的 [通知] 底下追蹤進度。
 
-5. 帳戶刪除之後，您可以在 [執行身分帳戶] 的屬性刀鋒視窗中，選取建立選項 [Azure 執行身分帳戶]來重新建立它。
+5. 帳戶刪除之後，您可以在 [執行身分帳戶] 屬性頁面中，選取建立選項 [Azure 執行身分帳戶]來重新建立它。
 
  ![重新建立自動化執行身分帳戶](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -70,7 +70,7 @@ ms.lasthandoff: 04/15/2017
 * 已從參與者角色移除了執行身分帳戶
 * Azure AD 中的服務主體或應用程式
 
-在上述設定錯誤和其他這類情況中，自動化帳戶會偵測到變更，並在帳戶的 [執行身分帳戶] 屬性刀鋒視窗上顯示 [不完整] 狀態。
+在上述設定錯誤和其他這類情況中，自動化帳戶會偵測到變更，並在帳戶的 [執行身分帳戶] 屬性頁面上顯示 [不完整] 狀態。
 
 ![不完整的執行身分帳戶設定狀態](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 

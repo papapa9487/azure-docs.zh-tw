@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: bfdcc4aadab18091b2f57e8bc751b37d1bac4d26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理程式安裝
 本文件會逐步引導您安裝和設定 Azure AD Connect Health 代理程式。 您可以從 [這裡](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)下載代理程式。
@@ -37,7 +36,19 @@ ms.lasthandoff: 08/01/2017
 | 已篩選或停用輸出流量的 SSL 檢查 | 如果網路層的輸出流量有 SSL 檢查或終止，代理程式註冊步驟或資料上傳作業可能會失敗。 |
 | 在執行代理程式的伺服器上的防火牆連接埠。 |為了讓代理程式能與 Azure AD Health 服務端點進行通訊，代理程式要求開啟下列防火牆連接埠。</br></br><li>TCP 通訊埠 443</li><li>TCP 通訊埠 5671</li> |
 | 如果啟用 IE 增強式安全性，則允許下列網站 |如果啟用 IE 增強式安全性，則在即將安裝代理程式的伺服器上必須允許下列網站。</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>Azure Active Directory 所信任適用於您組織的同盟伺服器。 例如︰https://sts.contoso.com</li> |
+| 確定已安裝 PowerShell 4.0 版或更新版本 | <li>Windows Server 2008 R2 隨附了 PowerShell 2.0 版，它對代理程式來說並不足夠。  如以下的 [Windows Server 2008 R2 伺服器上的代理程式安裝](#agent-installation-on-windows-server-2008-r2-servers)中所述，更新 PowerShell。</li><li>Windows Server 2012 隨附了 PowerShell 3.0 版，它對代理程式來說並不足夠。  請[更新](http://www.microsoft.com/en-us/download/details.aspx?id=40855) Windows Management Framework。</li><li>Windows Server 2012 R2 和更新版本隨附了足夠的 PowerShell 最新版本。</li>|
 |停用 FIPS|Azure AD Connect Health 代理程式不支援 FIPS。|
+
+## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>下載和安裝 Azure AD Connect Health 代理程式
+* 確定您符合 Azure AD Connect Health 的[需求](active-directory-aadconnect-health-agent-install.md#requirements)。
+* 開始使用適用於 AD FS 的 Azure AD Connect Health
+    * [下載適用於 AD FS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [請參閱安裝指示](#installing-the-azure-ad-connect-health-agent-for-ad-fs)。
+* 開始使用適用於同步處理的 Azure AD Connect Health
+    * [下載並安裝最新版的 Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771)。 適用於同步處理的健康狀態代理程式將會隨著 Azure AD Connect 安裝 (1.0.9125.0 或更高版本) 一起安裝。
+* 開始使用適用於 AD DS 的 Azure AD Connect Health
+    * [下載適用於 AD DS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=820540)。
+    * [請參閱安裝指示](#installing-the-azure-ad-connect-health-agent-for-ad-ds)。
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>安裝適用於 AD FS 的 Azure AD Connect Health 代理程式
 若要啟動代理程式安裝，請按兩下您所下載的 .exe 檔案。 在第一個畫面上，按一下 [安裝]。
@@ -88,11 +99,11 @@ ms.lasthandoff: 08/01/2017
 若要讓使用情況分析功能收集並分析資料，Azure AD Connect Health 代理程式需要 AD FS 稽核記錄檔中的資訊。 預設不會啟用這些記錄檔。 使用下列程序啟用 AD FS 稽核，並在 AD FS 伺服器上找出 AD FS 稽核記錄檔。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>在 Windows Server 2008 R2 上啟用 AD FS 的稽核
-1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
-2. 瀏覽至 **Security Settings\Local Policies\User Rights Management** 資料夾，然後按兩下 [產生安全性稽核]。
-3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 2.0 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+1. 按一下 開始，依序指向 程式集 和 系統管理工具，然後按一下本機安全性原則。
+2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
+3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 2.0 服務帳戶。 如果不存在，按一下 新增使用者或群組，並將其新增至清單中，然後按一下確定。
 4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. 關閉 [本機安全性原則]，然後開啟 [管理嵌入式管理單元]。 若要開啟 [管理嵌入式管理單元]，按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [AD FS 2.0 管理]。
+5. 關閉 [本機安全性原則]，然後開啟 [AD FS 管理] 嵌入式管理單元。 若要開啟 AD FS 管理 嵌入式管理單元，按一下 開始，依序指向 程式集 和 系統管理工具，然後按一下AD FS 2.0 管理。
 6. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性]。
 7. 在 [同盟服務屬性] 對話方塊中，按一下 [事件] 索引標籤。
 8. 選取 [成功稽核] 和 [失敗稽核] 核取方塊。
@@ -101,22 +112,22 @@ ms.lasthandoff: 08/01/2017
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>在 Windows Server 2012 R2 上啟用 AD FS 的稽核
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
-3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
+3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 新增使用者或群組，並將其新增至清單中，然後按一下確定。
 4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：```auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable```。
 5. 關閉 [本機安全性原則]，然後開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中，按一下 [工具]，然後選取 [AD FS 管理])。
 6. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性] 。
 7. 在 [同盟服務屬性] 對話方塊中，按一下 [事件]  索引標籤。
-8. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。
+8. 選取 成功稽核 和 失敗稽核 核取方塊，然後按一下確定。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>在 Windows Server 2016 上啟用 AD FS 的稽核
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
-3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將 AD FS 服務帳戶新增至清單，然後按一下 [確定]。
+3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 新增使用者或群組，並將 AD FS 服務帳戶新增至清單，然後按一下確定。
 4. 若要啟用稽核，請使用提高的權限開啟命令提示字元，然後執行下列命令：<code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable.</code>
 5. 關閉 [本機安全性原則]，然後開啟 [AD FS 管理] 嵌入式管理單元 (在 [伺服器管理員] 中，按一下 [工具]，然後選取 [AD FS 管理])。
 6. 在 [動作] 窗格中，按一下 [編輯同盟服務屬性] 。
 7. 在 [同盟服務屬性] 對話方塊中，按一下 [事件]  索引標籤。
-8. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。 預設會啟用此功能。
+8. 選取 成功稽核 和 失敗稽核 核取方塊，然後按一下確定。 預設會啟用此功能。
 9. 開啟 PowerShell 視窗並執行下列命令：```Set-AdfsProperties -AuditLevel Verbose```。
 
 請注意，預設會啟用「基本」稽核層級。 深入了解 [Windows Server 2016 中的 AD FS 稽核增強功能](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-fs/operations/auditing-enhancements-to-ad-fs-in-windows-server-2016)
@@ -303,4 +314,3 @@ ms.lasthandoff: 08/01/2017
 * [在 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)
 * [Azure AD Connect Health 常見問題集](active-directory-aadconnect-health-faq.md)
 * [Azure AD Connect Health 版本歷程記錄](active-directory-aadconnect-health-version-history.md)
-

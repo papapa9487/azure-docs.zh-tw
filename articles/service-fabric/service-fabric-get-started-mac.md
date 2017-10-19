@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: c447a92e076bacc9b208b837493400b70cd067e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>在 Mac OS X 上設定開發環境
 > [!div class="op_single_selector"]
@@ -107,15 +106,13 @@ Service Fabric 不會在 OS X 上以原生方式執行。若要執行本機 Serv
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli"></a>設定 Service Fabric CLI
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>設定 Mac 上的 Service Fabric CLI (sfctl)
 
-[Service Fabric CLI](service-fabric-cli.md) 包含可供與 Service Fabric 實體 (包括叢集和應用程式) 進行互動的命令。 它是以 python, 為基礎，所以先確定您已安裝 python 和 pip，再繼續執行下列命令：
+請遵循 [Service Fabric CLI](service-fabric-cli.md#cli-mac) 的指示在您的 Mac 安裝 Service Fabric CLI (`sfctl`)。
+可供與 Service Fabric 實體 (包括叢集、應用程式和服務) 進行互動的 CLI 命令。
 
-```bash
-pip install sfctl
-```
+## <a name="create-application-on-you-mac-using-yeoman"></a>在 Mac 上使用 Yeoman 建立應用程式
 
-## <a name="create-application-on-mac-using-yeoman"></a>在 Mac 上使用 Yeoman 建立應用程式
 Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman 範本產生器建立 Service Fabric 應用程式。 請遵循下列步驟來確保您有 Service Fabric yeoman 範本產生器可在電腦上運作。
 
 1. 您必須在 Mac 上安裝 Node.js 和 NPM。 若未這麼做，您可以使用 Homebrew 安裝 Node.js 和 NPM。 若要檢查 Mac 上安裝的 Node.js 和 NPM 版本，您可以使用 ``-v`` 選項。
@@ -165,4 +162,3 @@ Service Fabric 為**適用於 Java IDE 的 Eclipse Neon** 提供了外掛程式�
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/20/2017
 ms.author: ryanwi
+ms.openlocfilehash: c7625a5670aca5d105601432fedfd0d7a78bb53c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: 68f9492231d367b1ede6ab032ec1c66c75150957
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上建立第一個 Java Service Fabric Reliable Actors 應用程式
 > [!div class="op_single_selector"]
@@ -34,7 +33,7 @@ ms.lasthandoff: 09/21/2017
 ## <a name="prerequisites"></a>必要條件
 開始之前，請在 [Linux 開發環境](service-fabric-get-started-linux.md)中安裝 Service Fabric SDK、Service Fabric CLI，以及設定開發叢集。 如果您使用 Mac OS X，您可以[使用 Vagrant 在虛擬機器中設定 Linux 開發環境](service-fabric-get-started-mac.md)。
 
-您也要安裝 [Service Fabric CLI](service-fabric-cli.md)。
+另請安裝 [Service Fabric CLI](service-fabric-cli.md)。
 
 ### <a name="install-and-set-up-the-generators-for-java"></a>安裝及設定 Java 的產生器
 Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman 範本產生器建立 Service Fabric Java 應用程式。 請遵循下列步驟來確保您有適用於 Java 的 Service Fabric yeoman 範本產生器，可在您的電腦上運作。
@@ -49,11 +48,28 @@ Service Fabric 提供的 Scaffolding 工具可協助您從終端機使用 Yeoman
   ```bash
   sudo npm install -g yo
   ```
-3. 從 NPM 安裝 Service Fabric Yeo Java 應用程式產生器
+3. 從 NPM 安裝 Service Fabric Yeoman Java 應用程式產生器
 
   ```bash
   sudo npm install -g generator-azuresfjava
   ```
+
+## <a name="basic-concepts"></a>基本概念
+若要開始使用 Reliable Actors，您只需要了解幾個基本概念：
+
+* **動作項目服務**。 Reliable Actors 封裝在可在 Service Fabric 基礎結構內部署的 Reliable Services 中。 動作項目執行個體會在指定的服務執行個體中啟動。
+* **動作項目註冊**。 和 Reliable Services 一樣，Reliable Actor 服務必須向 Service Fabric 執行階段註冊。 此外，動作項目類型必須向 Actor 執行階段註冊。
+* **動作項目介面**。 動作項目介面用於定義動作項目的強型別公用介面。 在 Reliable Actor 模型術語中，動作項目介面定義動作項目可以了解並處理的訊息類型。 其他的動作項目或用戶端應用程式會使用動作項目介面將訊息「傳送」(非同步) 給動作項目。 Reliable Actors 可實作多個介面。
+* **ActorProxy 類別**。 用戶端應用程式會使用 ActorProxy 類別來叫用透過動作項目介面公開的方法。 ActorProxy 類別提供兩個重要的功能：
+  
+  * 名稱解析︰它能夠在叢集中找到動作項目 (尋找裝載動作項目的叢集節點)。
+  * 處理失敗：它可以重試方法叫用並重新解析動作項目位置，例如在需要動作項目重新定位至叢集中另一個節點失敗後進行。
+
+值得一提的是下列與動作項目介面相關的規則︰
+
+* 動作項目介面方法無法多載。
+* 動作項目介面方法不能有 out、ref 或選擇性參數。
+* 不支援泛型介面。
 
 ## <a name="create-the-application"></a>建立應用程式
 Service Fabric 應用程式包含一或多個服務，而每個服務在提供應用程式的功能時都有特定角色。 您在上一節中安裝的產生器，可讓您輕鬆建立第一個服務且稍後新增更多服務。  您也可以使用適用於 Eclipse 的外掛程式，建立、建置及部署 Service Fabric Java 應用程式。 請參閱[使用 Eclipse 建立和部署第一個 Java 應用程式](service-fabric-get-started-eclipse.md)。 在此快速入門中，使用 Yeoman 建立具有單一服務的應用程式，該服務可儲存和取得計數器值。
@@ -62,6 +78,118 @@ Service Fabric 應用程式包含一或多個服務，而每個服務在提供�
 2. 為您的應用程式命名。
 3. 選擇第一個服務的類型並加以命名。 在本教學課程中，選擇 Reliable Actor 服務。 如需其他服務類型的詳細資訊，請參閱 [Service Fabric 程式設計模型概觀](service-fabric-choose-framework.md)。
    ![適用於 Java 的 Service Fabric Yeoman 產生器][sf-yeoman]
+
+如果您將應用程式命名為 "HelloWorldActorApplication"，並將動作項目命名為 "HelloWorldActor"，就會建立下列 Scaffolding：
+
+```bash
+HelloWorldActorApplication/
+├── build.gradle
+├── HelloWorldActor
+│   ├── build.gradle
+│   ├── settings.gradle
+│   └── src
+│       └── reliableactor
+│           ├── HelloWorldActorHost.java
+│           └── HelloWorldActorImpl.java
+├── HelloWorldActorApplication
+│   ├── ApplicationManifest.xml
+│   └── HelloWorldActorPkg
+│       ├── Code
+│       │   ├── entryPoint.sh
+│       │   └── _readme.txt
+│       ├── Config
+│       │   ├── _readme.txt
+│       │   └── Settings.xml
+│       ├── Data
+│       │   └── _readme.txt
+│       └── ServiceManifest.xml
+├── HelloWorldActorInterface
+│   ├── build.gradle
+│   └── src
+│       └── reliableactor
+│           └── HelloWorldActor.java
+├── HelloWorldActorTestClient
+│   ├── build.gradle
+│   ├── settings.gradle
+│   ├── src
+│   │   └── reliableactor
+│   │       └── test
+│   │           └── HelloWorldActorTestClient.java
+│   └── testclient.sh
+├── install.sh
+├── settings.gradle
+└── uninstall.sh
+```
+## <a name="reliable-actors-basic-building-blocks"></a>Reliable Actors 項目基本建置組塊
+稍早所述的基本概念轉化為 Reliable Actors 服務的基本建置組塊。
+
+### <a name="actor-interface"></a>動作項目介面
+包含動作項目的介面定義。 這個介面定義由動作項目實作與呼叫動作項目的用戶端所共用的動作項目合約，因此通常適合在不同於動作項目實作的地方定義該合約，並可由多個其他服務或用戶端應用程式共用。
+
+`HelloWorldActorInterface/src/reliableactor/HelloWorldActor.java`：
+
+```java
+public interface HelloWorldActor extends Actor {
+    @Readonly   
+    CompletableFuture<Integer> getCountAsync();
+
+    CompletableFuture<?> setCountAsync(int count);
+}
+```
+
+### <a name="actor-service"></a>動作項目服務
+這包含您的動作項目實作和動作項目註冊碼。 動作項目類別會實作動作項目介面。 這是您的動作項目工作之處。
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorImpl`：
+
+```java
+@ActorServiceAttribute(name = "HelloWorldActor.HelloWorldActorService")
+@StatePersistenceAttribute(statePersistence = StatePersistence.Persisted)
+public class HelloWorldActorImpl extends ReliableActor implements HelloWorldActor {
+    Logger logger = Logger.getLogger(this.getClass().getName());
+
+    protected CompletableFuture<?> onActivateAsync() {
+        logger.log(Level.INFO, "onActivateAsync");
+
+        return this.stateManager().tryAddStateAsync("count", 0);
+    }
+
+    @Override
+    public CompletableFuture<Integer> getCountAsync() {
+        logger.log(Level.INFO, "Getting current count value");
+        return this.stateManager().getStateAsync("count");
+    }
+
+    @Override
+    public CompletableFuture<?> setCountAsync(int count) {
+        logger.log(Level.INFO, "Setting current count value {0}", count);
+        return this.stateManager().addOrUpdateStateAsync("count", count, (key, value) -> count > value ? count : value);
+    }
+}
+```
+
+### <a name="actor-registration"></a>動作項目註冊
+必須在 Service Fabric 執行階段中以某個服務類型註冊動作項目服務。 為了讓動作項目服務執行您的動作項目執行個體，也必須向動作項目服務註冊動作項目類型。 `ActorRuntime` 註冊方法會替動作項目執行這項工作。
+
+`HelloWorldActor/src/reliableactor/HelloWorldActorHost`：
+
+```java
+public class HelloWorldActorHost {
+
+    public static void main(String[] args) throws Exception {
+
+        try {
+            ActorRuntime.registerActorAsync(HelloWorldActorImpl.class, (context, actorType) -> new ActorServiceImpl(context, actorType, ()-> new HelloWorldActorImpl()), Duration.ofSeconds(10));
+
+            Thread.sleep(Long.MAX_VALUE);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+}
+```
 
 ## <a name="build-the-application"></a>建置應用程式
 Service Fabric Yeoman 範本包含 [Gradle](https://gradle.org/) 的建置指令碼，可用來從終端機建置應用程式。
@@ -229,4 +357,3 @@ Service Fabric 的系統層級支援，其可與原生 Service Fabric 執行階�
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
-

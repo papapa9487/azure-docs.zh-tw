@@ -13,20 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 09/20/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: d628dc621335acf231342a6d9186079de16e85f4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: dbfaf3b791dd44a43a2cf862819e6292b94d958a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lesson-9-create-hierarchies"></a>第 9 課：建立階層
 
 [!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
-在這堂課中，您會建立階層。 階層是依層級排列的資料行群組；例如，地理階層可能有國家/地區、州、縣和市的子層級。 階層可以與報告用戶端應用程式欄位清單中的其他資料行分開顯示，讓用戶端使用者更易於在報告中導覽及包含階層。 若要深入了解，請參閱[階層](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
+在這堂課中，您會建立階層。 階層是以層級排列的資料行群組。 例如，地理階層可能有國家/地區、州、縣和市的子層級。 階層可以與報告用戶端應用程式欄位清單中的其他資料行分開顯示，讓用戶端使用者更易於在報告中導覽及包含階層。 若要深入了解，請參閱[階層](https://docs.microsoft.com/sql/analysis-services/tabular-models/hierarchies-ssas-tabular)
   
 若要建立階層，請使用 [圖表檢視] 中的模型設計工具。 不支援在 [資料檢視] 中建立及管理階層。  
   
@@ -85,4 +84,3 @@ ms.lasthandoff: 06/03/2017
 [第 10 課：建立資料分割](../tutorials/aas-lesson-10-create-partitions.md)。 
   
   
-

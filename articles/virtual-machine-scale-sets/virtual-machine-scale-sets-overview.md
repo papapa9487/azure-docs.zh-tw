@@ -16,12 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: bdd0fd0d1919f61fe586f495adadaf4eabde2dae
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
 虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
@@ -34,7 +33,12 @@ ms.lasthandoff: 09/02/2017
 * [Guy Bowerman 與虛擬機器擴展集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>建立和管理擴展集
-您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。
+您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。 
+
+擴展集可以部署到[可用性區域](../availability-zones/az-overview.md)。
+
+> [!NOTE]
+> 目前虛擬機器擴展集僅支援部署到單一可用性區域。 未來將支援多區域部署。
 
 您可以使用 JSON 範本和 [REST API](https://msdn.microsoft.com/library/mt589023.aspx) 來定義和部署擴展集，如同個別的 Azure Resource Manager VM 一樣。 因此，您可以使用任何標準 Azure Resource Manager 部署方法。 如需範本的詳細資訊，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
 
@@ -167,4 +171,3 @@ Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGr
 **答：** 是。 擴展集是隱含的可用性設定組，具有 5 個容錯網域和 5 個更新網域。 超過 100 個 VM 的擴展集橫跨多個「放置群組」，這相當於多個可用性設定組。 如需放置群組的詳細資訊，請參閱[使用大型的虛擬機器擴展集](virtual-machine-scale-sets-placement-groups.md)。 VM 的可用性設定組可以存在於與 VM 擴展集相同的虛擬網路中。 常見組態是在可用性設定組中放入控制節點 VM (其通常需要唯一組態)，以及在擴展集中放入資料節點。
 
 您可以在 [Azure 虛擬機器擴展集常見問題集](virtual-machine-scale-sets-faq.md)中找到更多擴展集相關問題的答案。
-

@@ -3,7 +3,7 @@ title: "設定使用 Amazon Web Services 進行驗證 | Microsoft Docs"
 description: "本文說明如何在管理 AWS 資源的 Azure 自動化中建立和驗證 Runbook 的 AWS 認證。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "aws 驗證, 設定 aws"
@@ -13,20 +13,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/14/2017
+ms.date: 09/29/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 81e5e5d56a7e6149409e11aca2e5fdf28d6a7134
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 0802bb0f2c4d5b761c5833d7231bd3d2d1002cfc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>使用 Amazon Web Services 驗證 Runbook
 使用 Amazon Web Services (AWS) 中的資源自動執行常見工作可透過 Azure 中的自動化 Runbook 來完成。  您可以和使用 Azure 中的資源一樣，在 AWS 中使用自動化 Runbook 自動執行許多工作。  所需具備的只有兩項條件︰
 
-* AWS 訂用帳戶和一組認證。  具體而言就是您的 AWS 存取金鑰和秘密金鑰。  如需詳細資訊，請檢閱 [使用 AWS 認證](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html)一文。
-* Azure 訂用帳戶和自動化帳戶。  如需設定 Azure 自動化帳戶的詳細資訊，請檢閱 [設定 Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)一文。  
+* AWS 訂用帳戶和一組認證。  具體而言就是您的 AWS 存取金鑰和秘密金鑰。  如需詳細資訊，請檢閱[使用 AWS 認證](http://docs.aws.amazon.com/powershell/latest/userguide/specifying-your-aws-credentials.html)一文。
+* Azure 訂用帳戶和自動化帳戶。  如需有關設定 Azure 自動化帳戶的詳細資訊，請檢閱[驗證規劃](automation-offering-get-started.md#authentication-planning)。  
 
 若要使用 AWS 進行驗證，您必須指定一組 AWS 認證來驗證您從 Azure 自動化中執行的 Runbook。 如果您已建立自動化帳戶，而且想要以該帳戶來使用 AWS 進行驗證，您可以依照下一節中的步驟來進行。  如果您想要針對以 AWS 資源為目標的 Runbook 建立專用帳戶，應該先建立新的[自動化帳戶](automation-offering-get-started.md) (略過建立服務主體的選項)，然後依照下列步驟來進行。
 
@@ -40,5 +39,4 @@ ms.lasthandoff: 04/15/2017
 
 ## <a name="next-steps"></a>後續步驟
 * 檢閱[在 Amazon Web Services 中自動部署 VM](automation-scenario-aws-deployment.md) 解決方案文章，了解如何建立 Runbook 以在 AWS 中自動執行工作。
-
 

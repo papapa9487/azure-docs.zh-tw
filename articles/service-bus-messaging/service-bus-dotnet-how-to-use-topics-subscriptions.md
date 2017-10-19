@@ -12,25 +12,17 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/30/2017
+ms.date: 10/10/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 9401ada519f600b0d2817f06a396e16607a24129
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/01/2017
-
-
+ms.openlocfilehash: 3646d14be662af0fdf80790cb53ddc581b33a146
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-<a id="get-started-with-service-bus-topics" class="xliff"></a>
-
-# 開始使用服務匯流排主題
+# <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
-
-<a id="what-will-be-accomplished" class="xliff"></a>
-
-## 將會完成的工作
 
 本教學課程涵蓋下列步驟：
 
@@ -40,26 +32,20 @@ ms.lasthandoff: 07/01/2017
 4. 撰寫主控台應用程式以傳送訊息至主題。
 5. 撰寫主控台應用程式以從訂用帳戶接收該訊息。
 
-<a id="prerequisites" class="xliff"></a>
-
-## 必要條件
+## <a name="prerequisites"></a>必要條件
 
 1. [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
 2. Azure 訂用帳戶。
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-<a id="1-create-a-namespace-using-the-azure-portal" class="xliff"></a>
-
-## 1.使用 Azure 入口網站建立命名空間
+## <a name="1-create-a-namespace-using-the-azure-portal"></a>1.使用 Azure 入口網站建立命名空間
 
 如果您已建立服務匯流排傳訊命名空間，請跳至[使用 Azure 入口網站建立主題](#2-create-a-topic-using-the-azure-portal)一節。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-<a id="2-create-a-topic-using-the-azure-portal" class="xliff"></a>
-
-## 2.使用 Azure 入口網站建立主題
+## <a name="2-create-a-topic-using-the-azure-portal"></a>2.使用 Azure 入口網站建立主題
 
 1. 登入 [Azure 入口網站][azure-portal]。
 2. 在入口網站的左方瀏覽窗格中，按一下 [服務匯流排] \(如果您未看見 [服務匯流排]，請按一下 [更多服務])。
@@ -74,9 +60,7 @@ ms.lasthandoff: 07/01/2017
     ![選取新增][createtopic3]
 6. 按一下刀鋒視窗底部的 [建立] 。
 
-<a id="3-create-a-subscription-to-the-topic" class="xliff"></a>
-
-## 3.針對主題建立訂用帳戶
+## <a name="3-create-a-subscription-to-the-topic"></a>3.針對主題建立訂用帳戶
 
 1. 在入口網站的資源窗格中，按一下在步驟 1 所建立的命名空間，接著按一下在步驟 2 所建立的主題名稱。
 2. 在概觀窗格頂端，按一下 [訂用帳戶] 旁的加號，將訂用帳戶新增至主題。
@@ -85,30 +69,22 @@ ms.lasthandoff: 07/01/2017
 
 3. 輸入訂用帳戶名稱。 保留其他選項的預設值。
 
-<a id="4-send-messages-to-the-topic" class="xliff"></a>
-
-## 4.將訊息傳送到主題
+## <a name="4-send-messages-to-the-topic"></a>4.將訊息傳送到主題
 
 為了將訊息傳送至主題，我們使用 Visual Studio 撰寫 C# 主控台應用程式。
 
-<a id="create-a-console-application" class="xliff"></a>
-
-### 建立主控台應用程式
+### <a name="create-a-console-application"></a>建立主控台應用程式
 
 啟動 Visual Studio，並建立新的**主控台應用程式 (.NET Framework)** 專案。
 
-<a id="add-the-service-bus-nuget-package" class="xliff"></a>
-
-### 新增服務匯流排 NuGet 封裝
+### <a name="add-the-service-bus-nuget-package"></a>新增服務匯流排 NuGet 封裝
 
 1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，搜尋 [Microsoft Azure 服務匯流排]，然後選取 [WindowsAzure.ServiceBus] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+2. 按一下 [瀏覽] 索引標籤，搜尋 [WindowsAzure.ServiceBus]，然後選取 [WindowsAzure.ServiceBus] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
    
     ![選取 NuGet 封裝][nuget-pkg]
 
-<a id="write-some-code-to-send-a-message-to-the-topic" class="xliff"></a>
-
-### 撰寫一些程式碼以將訊息傳送至主題
+### <a name="write-some-code-to-send-a-message-to-the-topic"></a>撰寫一些程式碼以將訊息傳送至主題
 
 1. 在 Program.cs 檔案開頭處新增以下 `using` 陳述式。
    
@@ -170,9 +146,7 @@ ms.lasthandoff: 07/01/2017
    
       ![訊息大小][topic-message]
 
-<a id="5-receive-messages-from-the-subscription" class="xliff"></a>
-
-## 5.自訂用帳戶接收訊息
+## <a name="5-receive-messages-from-the-subscription"></a>5.自訂用帳戶接收訊息
 
 1. 若要接收您剛傳送的訊息，請建立新的主控台應用程式，並和上面的傳送者應用程式類似，新增服務匯流排 NuGet 套件的參考。
 2. 在 Program.cs 檔案開頭處新增以下 `using` 陳述式。
@@ -180,7 +154,7 @@ ms.lasthandoff: 07/01/2017
     ```csharp
     using Microsoft.ServiceBus.Messaging;
     ```
-3. 將下列程式碼新增至 `Main` 方法。 將 `connectionString` 變數設定為建立命名空間時取得的連接字串，並將 `topicName` 設定為建立主題時使用的名稱。
+3. 將下列程式碼新增至 `Main` 方法。 將 `connectionString` 變數設定為建立命名空間時取得的連接字串，並將 `topicName` 設定為建立主題時使用的名稱。 另外，請務必以您在步驟 3 中建立的訂用帳戶名稱來取代 `<your subscription name>`。 
    
     ```csharp
     var connectionString = "<your connection string>";
@@ -233,9 +207,7 @@ ms.lasthandoff: 07/01/2017
 
 恭喜！ 您現在已建立主題和訂用帳戶，傳送一則訊息並接收該訊息。
 
-<a id="next-steps" class="xliff"></a>
-
-## 後續步驟
+## <a name="next-steps"></a>後續步驟
 
 查看 [GitHub 存放庫以及範例](https://github.com/Azure/azure-service-bus/tree/master/samples)，其中會展示一些更進階的服務匯流排傳訊功能。
 
@@ -250,4 +222,3 @@ ms.lasthandoff: 07/01/2017
 [createtopic4]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/create-topic4.png
 [github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
 [azure-portal]: https://portal.azure.com
-

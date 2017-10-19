@@ -12,36 +12,37 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/30/2017
+ms.date: 09/18/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 4b6da997f44860dccb2aa2571ce099ab2d0231f3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: c0cd24e03c24655adfe851bc85b721c0b617efcc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的認證雜湊與 Azure AD Domain Services 的同步。 設定認證同步處理後，使用者即可使用他們的公司認證來登入受管理的網域。
 
-僅限雲端使用者帳戶，與使用 Azure AD Connect 從內部部署目錄同步的使用者帳戶，其所含的步驟不同。  如果您的 Azure AD 租用戶同時具有僅限雲端使用者以及來自您內部部署 AD 的使用者，則需要執行兩個步驟。
+僅限雲端使用者帳戶，與使用 Azure AD Connect 從內部部署目錄同步的使用者帳戶，其所含的步驟不同。 
+
+<br>
+| **使用者帳戶類型** | **要執行的步驟** |
+| --- |---|
+| **已在 Azure AD 中建立雲端使用者帳戶** |**&#x2713;** [依照本文的指示](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
+| **已從內部部署目錄同步使用者帳戶** |**&#x2713;** [將從您內部部署 AD 同步之使用者帳戶的密碼同步到受管理的網域](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
-> [!div class="op_single_selector"]
-> * **僅限雲端使用者帳戶**：[將僅限雲端使用者帳戶的密碼同步到受管理的網域](active-directory-ds-getting-started-password-sync.md)
-> * **內部部署使用者帳戶**：[將從您內部部署 AD 同步之使用者帳戶的密碼同步到受管理的網域](active-directory-ds-getting-started-password-sync-synced-tenant.md)
+> [!TIP]
+> **您需要完成這兩組步驟。**
+> 如果您的 Azure AD 租用戶同時具有僅限雲端使用者以及來自您內部部署 AD 的使用者，則需要完成這兩組步驟。
 >
->
-
-<br>
 
 ## <a name="task-5-enable-password-synchronization-to-your-managed-domain-for-cloud-only-user-accounts"></a>工作 5：針對僅限雲端使用者帳戶啟用與受管理網域的密碼同步
 若要在受管理的網域上驗證使用者，Azure Active Directory Domain Services 需要適合於 NTLM 和 Kerberos 驗證之格式的認證雜湊。 除非您針對租用戶啟用 Azure Active Directory Domain Services，否則 Azure AD 不會以 NTLM 或 Kerberos 驗證所需的格式產生或儲存認證雜湊。 基於明顯的安全性考量，Azure AD 也不會儲存任何純文字形式的密碼認證。 因此，Azure AD 無法根據使用者的現有認證自動產生這些 NTLM 或 Kerberos 認證雜湊。
 
 > [!NOTE]
-> 如果您的組織有僅限雲端使用者帳戶，則需要使用 Azure Active Directory Domain Services 的使用者必須變更其密碼。 僅限雲端使用者帳戶是您使用 Azure 入口網站或 Azure AD PowerShell Cmdlet 在 Azure AD 目錄中建立的帳戶。 這類使用者帳戶不是從內部部署目錄進行同步。
+> **如果您的組織有僅限雲端使用者帳戶，則需要使用 Azure Active Directory Domain Services 的所有使用者必須變更其密碼。** 僅限雲端使用者帳戶是您使用 Azure 入口網站或 Azure AD PowerShell Cmdlet 在 Azure AD 目錄中建立的帳戶。 這類使用者帳戶不是從內部部署目錄進行同步。
 >
 >
 
@@ -62,7 +63,7 @@ ms.lasthandoff: 07/08/2017
 
     ![按一下 [變更密碼]](./media/active-directory-domain-services-getting-started/user-change-password.png)
 
-   > [!NOTE]
+   > [!TIP]
    > 如果在 [存取面板] 視窗中未顯示 [變更密碼] 選項，請確定您的組織已設定 [Azure AD 中的密碼管理](../active-directory/active-directory-passwords-getting-started.md)。
    >
    >
@@ -72,7 +73,7 @@ ms.lasthandoff: 07/08/2017
 
 5. 按一下 [提交] 。
 
-當您變更密碼幾分鐘之後，新的密碼就能在 Azure Active Directory Domain Services 中使用。 再幾分鐘 (通常大約 20 分鐘) 之後，您就能使用最近變更的密碼來登入已加入受管理網域的電腦。
+當您變更密碼幾分鐘之後，新的密碼就能在 Azure Active Directory Domain Services 中使用。 大約 20 分鐘之後，您就能使用最近變更的密碼來登入已加入受管理網域的電腦。
 
 ## <a name="related-content"></a>相關內容
 * [如何更新自己的密碼](../active-directory/active-directory-passwords-update-your-own-password.md)
@@ -81,4 +82,3 @@ ms.lasthandoff: 07/08/2017
 * [受 Azure Active Directory Domain Services 管理的網域](active-directory-ds-admin-guide-administer-domain.md)
 * [將 Windows 虛擬機器加入 Azure Active Directory Domain Services 受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [將 Red Hat Enterprise Linux 虛擬機器加入 Azure Active Directory Domain Services 受管理的網域](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
-

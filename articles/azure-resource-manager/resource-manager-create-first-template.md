@@ -10,17 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/03/2017
+ms.date: 10/02/2017
 ms.topic: get-started-article
 ms.author: tomfitz
+ms.openlocfilehash: 7d20469aaf2dfdd7a5f3650983b59152de837837
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: d07b2354906994ef7842a64d9f58bcbcc18f96e7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-your-first-azure-resource-manager-template"></a>建立及部署第一個 Azure Resource Manager 範本
 本主題會逐步引導您完成建立第一個 Azure Resource Manager 範本的步驟。 Resource Manager 範本是 JSON 檔案，該檔案定義您需要為您的解決方案部署的資源。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。 如果您有現成的資源且想要取得這些資源的範本，請參閱[從現有資源匯出 Azure Resource Manager 範本](resource-manager-export-template.md)。
 
@@ -97,58 +95,21 @@ ms.lasthandoff: 09/06/2017
 
 部署完成時，您的儲存體帳戶會儲存在資源群組中。
 
-## <a name="deploy-template-from-cloud-shell"></a>從 Cloud Shell 部署範本
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-您可以使用 [Cloud Shell](../cloud-shell/overview.md) 執行 Azure CLI 命令，以便部署範本。 不過，您必須先將範本載入 Cloud Shell 的檔案共用中。 如果您尚未使用 Cloud Shell，請參閱 [Azure Cloud Shell 概觀](../cloud-shell/overview.md)以取得如何設定的相關資訊。
+針對 Azure CLI，使用下列命令：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。   
+```azurecli-interactive
+az group create --name examplegroup --location "South Central US"
+az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
+```
 
-2. 選取您的 Cloud Shell 資源群組。 名稱模式為 `cloud-shell-storage-<region>`。
+目前，PowerShell 在 Cloud Shell 中以預覽形式提供使用。 針對 PowerShell，使用下列命令：
 
-   ![選取資源群組](./media/resource-manager-create-first-template/select-cs-resource-group.png)
-
-3. 選取 Cloud Shell 的儲存體帳戶。
-
-   ![選取儲存體帳戶](./media/resource-manager-create-first-template/select-storage.png)
-
-4. 選取 [檔案]。
-
-   ![選取檔案](./media/resource-manager-create-first-template/select-files.png)
-
-5. 選取 Cloud Shell 的檔案共用。 名稱模式為 `cs-<user>-<domain>-com-<uniqueGuid>`。
-
-   ![選取檔案共用](./media/resource-manager-create-first-template/select-file-share.png)
-
-6. 選取 [新增目錄]。
-
-   ![新增目錄](./media/resource-manager-create-first-template/select-add-directory.png)
-
-7. 將它命名為 **templates**，然後選取 [確定]。
-
-   ![命名目錄](./media/resource-manager-create-first-template/name-templates.png)
-
-8. 選取您的新目錄。
-
-   ![選取目錄](./media/resource-manager-create-first-template/select-templates.png)
-
-9. 選取 [上傳] 。
-
-   ![選取上傳](./media/resource-manager-create-first-template/select-upload.png)
-
-10. 尋找並上傳您的範本。
-
-   ![上傳檔案](./media/resource-manager-create-first-template/upload-files.png)
-
-11. 開啟提示字元。
-
-   ![開啟 Cloud Shell](./media/resource-manager-create-first-template/start-cloud-shell.png)
-
-12. 在 Cloud Shell 中輸入下列命令︰
-
-   ```azurecli
-   az group create --name examplegroup --location "South Central US"
-   az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json
-   ```
+```powershell
+New-AzureRmResourceGroup -Name examplegroup -Location "South Central US"
+New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile $home\CloudDrive\templates\azuredeploy.json
+```
 
 部署完成時，您的儲存體帳戶會儲存在資源群組中。
 
@@ -445,4 +406,3 @@ az group delete --name examplegroup
 * 若要深入了解範本的結構，請參閱 [編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
 * 若要了解儲存體帳戶的屬性，請參閱[儲存體帳戶範本參考](/azure/templates/microsoft.storage/storageaccounts)。
 * 若要檢視許多不同類型解決方案的完整範本，請參閱 [Azure 快速入門範本](https://azure.microsoft.com/documentation/templates/)。
-

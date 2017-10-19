@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
+ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 60641ddfef7846f0e8b5d850e716b2652bf62367
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-between-on-premises-and-cloud"></a>在內部部署和雲端之間複製資料
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
 
@@ -218,12 +216,12 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
         "name": "SqlServerLinkedService"
     }
    ```
-2. 若要加密從內部部署自我裝載整合執行階段的 JSON 承載所傳來的敏感性資料，我們可以執行 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential**並傳遞上述的 JSON 裝載。 此加密可確保使用資料保護應用程式開發介面 (DPAPI) 來加密認證，並儲存在本機的自我裝載整合執行階段節點。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中是 'encryptedLinkedService.json')。 
+2. 若要加密從內部部署自我裝載整合執行階段的 JSON 承載所傳來的敏感性資料，我們可以執行 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** 並傳遞上述的 JSON 承載。 此加密可確保使用資料保護應用程式開發介面 (DPAPI) 來加密認證，並儲存在本機的自我裝載整合執行階段節點。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中是 'encryptedLinkedService.json')。 
 
     執行命令之前，以您的整合執行階段名稱取代 **&lt;integration runtime name&gt;**。
 
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName <integration runtime name> -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 3. 使用上一個步驟中的 JSON 執行下列命令，以建立**SqlServerLinkedService**：

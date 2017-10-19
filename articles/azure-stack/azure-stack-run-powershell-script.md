@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
+ms.openlocfilehash: c3ffc819fcc442f87fb4985ecb08be8ec02ba957
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 530a9558df2323e1aa49d9f4b974c142ee5ecf37
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>部署 Azure Stack 開發套件
 
-「適用於：Azure Stack 開發套件」
+適用於：Azure Stack 開發套件
 
 若要部署 [Azure Stack 開發套件](azure-stack-poc.md)，您必須完成下列步驟：
 
@@ -36,7 +35,7 @@ ms.lasthandoff: 09/25/2017
 > 
 > 
 
-## <a name="download-and-extract-the-development-kit"></a>下載並解壓縮開發套件
+## <a name="download-and-extract-the-development-kit"></a>下載並將開發套件解壓縮
 1. 開始下載之前，請確定您的電腦符合下列必要條件：
 
    * 電腦必須至少有 60 GB 的可用磁碟空間。
@@ -47,9 +46,9 @@ ms.lasthandoff: 09/25/2017
 4. 執行下載的 AzureStackDownloader.exe 檔案。
 5. 在 [Azure Stack 開發套件下載程式] 視窗中，遵循步驟 1 至 5 進行。
 6. 下載完成之後，請按一下 [執行]，以啟動 MicrosoftAzureStackPOC.exe。
-7. 檢閱 [自我解壓縮程式精靈] 的 [授權合約] 畫面和資訊，然後按一下 [下一步]。
-8. 檢閱 [自我解壓縮程式精靈] 的 [隱私權聲明] 畫面和資訊，然後按一下 [下一步]。
-9. 選取要解壓縮檔案的目的地，然後按一下 [下一步]。
+7. 檢閱 自我解壓縮程式精靈 的 授權合約 畫面和資訊，然後按一下下一步。
+8. 檢閱 自我解壓縮程式精靈 的 隱私權聲明 畫面和資訊，然後按一下下一步。
+9. 選取要用來將檔案解壓縮的目的地，然後按一下 [下一步]。
    * 預設值是：<drive letter>:\<目前資料夾>\Microsoft Azure Stack
 10. 檢閱 自我解壓縮程式精靈 的 目的地位置 畫面和資訊，然後按一下解壓縮 來解壓縮 CloudBuilder.vhdx (~ 25 GB) 和 ThirdPartyLicenses.rtf 檔案。 這個程序需要一些時間才會完成。
 
@@ -75,7 +74,7 @@ ms.lasthandoff: 09/25/2017
     # Download file
     Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
     ```
-6. 開啟提升權限的 PowerShell 主控台 > 執行 C:\AzureStack_Installer\asdk-installer.ps1 指令碼 > 按一下 [準備 vhdx]。
+6. 開啟提升權限的 PowerShell 主控台 > 執行 C:\AzureStack_Installer\asdk-installer.ps1 指令碼 > 按一下 [準備環境]。
 7. 在安裝程式的 [選取 Cloudbuilder vhdx] 頁面上，瀏覽至您在先前步驟中下載的 cloudbuilder.vhdx 檔案並加以選取。
 8. 選擇性：選取 [新增驅動程式] 方塊，以指定包含主機上所要其他驅動程式的資料夾。
 9. 在 [選擇性設定] 頁面上，提供開發套件主機的本機系統管理員帳戶。 如果沒有提供這些認證，則在下方的安裝程序期間，您必須能夠以 KVM 來存取主機。
@@ -83,10 +82,10 @@ ms.lasthandoff: 09/25/2017
     - **電腦名稱**：此選項會設定開發套件主機的名稱。 名稱必須符合 FQDN 需求，且長度必須等於或少於 15 個字元。 預設值是由 Windows 產生的隨機電腦名稱。
     - **時區**：設定開發套件主機的時區。 預設值是 (UTC-8:00) 太平洋時間 (美國和加拿大)。
     - **靜態 IP 組態**：將您的部署設定為使用靜態 IP 位址。 否則，當安裝程式重新開機進入 cloudbuilder.vhx 時，會使用 DHCP 來設定網路介面。
-11. 按一下 [下一步] 。
+11. 按一下 [下一步]。
 12. 如果您在上一個步驟中選擇靜態 IP 組態，您現在必須：
-    - 選取網路介面卡。 請先確定您可以連接到介面卡，然後再按一下 [下一步]。
-    - 請確定 [IP 位址]、[閘道] 和 [DNS] 值正確無誤，然後按一下 [下一步]。
+    - 選取網路介面卡。 請先確定您可以連線到介面卡，然後再按一下 [下一步]。
+    - 請確定 IP 位址、閘道 和 DNS 值正確無誤，然後按一下下一步。
 13. 按一下 [下一步]，以開始準備程序。
 14. 當準備指出 [已完成] 時，按一下 [下一步]。
 15. 按一下 [立即重新開機]，以開機進入 cloudbuilder.vhdx 並繼續部署程序。
@@ -102,7 +101,7 @@ ms.lasthandoff: 09/25/2017
     - **Azure 雲端**：Azure Active Directory 為識別提供者。 使用此參數可指定 AAD 帳戶具有全域系統管理員權限的特定目錄。 AAD 目錄租用戶的完整名稱，格式為 .onmicrosoft.com。 
     - **ADFS**：預設戳記目錄服務為識別提供者、登入身分的預設帳戶是 azurestackadmin@azurestack.local，且要使用的密碼是您在安裝時所提供的密碼。
 4. 在 本機系統管理員密碼 底下的 密碼 方塊中，輸入本機系統管理員密碼 (必須符合目前設定的本機系統管理員密碼)，然後按一下下一步。
-5. 選取要用於開發套件的網路介面卡，然後按一下 [下一步]。
+5. 選取要用於開發套件的網路介面卡，然後按一下下一步。
 6. 為 BGPNAT01 虛擬機器選取 DHCP 或靜態網路組態。
     - **DHCP** (預設值)：虛擬機器會從 DHCP 伺服器取得 IP 網路組態。
     - **靜態**：只有當 DHCP 無法為 Azure Stack 指派有效的 IP 位址來存取網際網路時，才使用此選項。 指定靜態 IP 位址 時，必須一併指定子網路遮罩長度 (例如，10.0.0.5/24)。
@@ -110,7 +109,7 @@ ms.lasthandoff: 09/25/2017
     - **VLAN 識別碼**：設定 VLAN 識別碼。 只有當主機與 AzS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此選項。 
     - **DNS 轉寄站**：DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。
     - **時間伺服器**：設定特定的時間伺服器。 
-8. 按一下 [下一步] 。 
+8. 按一下 [下一步]。 
 9. 在 [驗證網路介面卡內容] 頁面上，您將會看到一個進度列。 
     - 如果顯示 [無法下載更新]，請遵循頁面上的指示執行。
     - 顯示 [已完成] 時，按一下 [下一步]。
@@ -142,15 +141,17 @@ cd c:\CloudDeployment\Setup
 為確定開發套件主機的密碼不會太快到期，請在部署之後遵循下列步驟進行：
 
 1. 在開發套件主機上，開啟 [群組原則管理]，並瀏覽至 [群組原則管理] – [樹系：azurestack.local] – [網域] – [azurestack.local]。
-2. 以滑鼠右鍵按一下 [MemberServer]，然後按一下 [編輯]。
+2. 以滑鼠右鍵按一下 [預設網域原則]，然後按一下 [編輯]。
 3. 在 [群組原則管理編輯器] 中，瀏覽至 [電腦設定] – [原則] – [Windows 設定] – [安全性設定] – [帳戶原則] – [密碼原則]。
 4. 在右窗格中，按兩下 [密碼最長使用期限]。
 5. 在 [密碼最長使用期限內容] 對話方塊中，將 [密碼到期日] 值變更為 180，然後按一下 [確定]。
 
 
 ## <a name="next-steps"></a>後續步驟
+
+[安裝 PowerShell](azure-stack-powershell-configure-quickstart.md)
+
 [使用您的 Azure 訂用帳戶註冊 Azure Stack](azure-stack-register.md)
 
 [連接至 Azure Stack](azure-stack-connect-azure-stack.md)
-
 

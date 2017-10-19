@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2017
+ms.date: 09/18/2017
 ms.topic: hero-article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: e8e97f0a0d18bafac581ce0fa31a69e385669bcf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: d8d8ff77f0099185707a0207c4ba6aed190a102e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-provision-a-simulated-device-using-iot-hub-device-provisioning-service-preview"></a>使用 IoT 中樞裝置佈建服務 (預覽) 來建立及佈建模擬裝置
 
 這些步驟顯示如何在執行 Windows 作業系統的開發電腦上建立模擬裝置、執行 Windows TPM 模擬器作為裝置的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)，並使用程式碼範例來連線模擬裝置與裝置佈建服務和 IoT 中樞。 
@@ -29,7 +27,7 @@ ms.lasthandoff: 09/13/2017
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
 
-1. 確定您已在電腦上安裝 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。 
+1. 確定您已在電腦上安裝 Visual Studio 2015 或 [Visual Studio 2017](https://www.visualstudio.com/vs/)。 為了 Visual Studio 安裝，您必須啟用「C ++ 桌面開發」工作負載。
 
 2. 下載並安裝 [CMake 建置系統](https://cmake.org/download/)。
 
@@ -122,4 +120,3 @@ ms.lasthandoff: 09/13/2017
 
 > [!div class="nextstepaction"]
 > [Azure IoT 中樞裝置佈建服務教學課程](./tutorial-set-up-cloud.md)
-

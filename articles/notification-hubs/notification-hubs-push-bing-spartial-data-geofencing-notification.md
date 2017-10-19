@@ -13,14 +13,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 09/13/2017
+ms.date: 09/15/2017
 ms.author: dendeli
+ms.openlocfilehash: a416edaded8aa04c3229a5788d648de0a6afe2b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 8db82ae9f37a89b6b7049208133949a7f49e9d92
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="geo-fenced-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>使用 Azure 通知中樞和 Bing 空間資料為推播通知加上地理柵欄
 > [!NOTE]
@@ -119,11 +118,11 @@ ms.lasthandoff: 09/15/2017
 
 ![](./media/notification-hubs-geofence/vs-package-location.png)
 
-因為已宣告位置功能，請在方案中建立名為 `Core` 的新資料夾，並在其中新增稱為 `LocationHelper.cs` 的新檔案：
+因為已宣告位置功能，請在方案中建立名為 `Core` 的新資料夾，並在其中新增名為 `LocationHelper.cs` 的新檔案：
 
 ![](./media/notification-hubs-geofence/vs-location-helper.png)
 
-`LocationHelper` 類別本身在這個階段的用途相當基本，就只是允許我們透過系統 API 取得使用者位置︰
+`LocationHelper` 類別本身在這個階段的用途相當基本，就只是讓我們透過系統 API 取得使用者位置︰
 
     using System;
     using System.Threading.Tasks;
@@ -179,7 +178,7 @@ ms.lasthandoff: 09/15/2017
         }
     }
 
-請注意，因為 `GetCurrentLocation` 不必是即時資訊，並因此需要以非同步方式執行，所以我們將處理常式宣告為非同步。 此外，因為在某些情況下我們可能會得到空值的位置 (例如位置服務已停用或應用程式用來存取位置的權限遭到拒絕)，因此我們需要確定它會透過空值檢查進行適當處理。
+請注意，因為 `GetCurrentLocation` 不必是即時資訊，並因此需要以非同步方式執行，所以我們將處理常式宣告為非同步。 此外，因為在某些情況下我們可能會得到空值的位置 (例如，位置服務已停用或應用程式用來存取位置的權限遭到拒絕)，因此我們需要確定它會透過空值檢查進行適當處理。
 
 執行應用程式。 請確定您允許其存取位置︰
 
@@ -381,7 +380,7 @@ ms.lasthandoff: 09/15/2017
 
 ![](./media/notification-hubs-geofence/notification-hubs-test-notification.png)
 
-## <a name="whats-next"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 除了上述步驟外，您可能還需要遵循幾個步驟以確定方案已可用於生產環境。
 
 首先，您可能需要確保地理柵欄是動態的。 這需要對 Bing API 進行一些額外處理，才能在現有資料來源內上傳新邊界。 如需這方面的詳細資訊，請參閱 [Bing 空間資料服務 API 說明文件](https://msdn.microsoft.com/library/ff701734.aspx) 。
@@ -391,5 +390,4 @@ ms.lasthandoff: 09/15/2017
 在上述方案所說明的案例中，您可能會有各種不同目標平台，因此我們並未限制只有系統特有功能才能使用地理柵欄。 也就是說，通用 Windows 平台內建提供了相關功能來 [偵測地理柵欄](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence)。
 
 如需有關通知中樞功能的詳細資訊，請查看我們的 [說明文件入口網站](https://azure.microsoft.com/documentation/services/notification-hubs/)。
-
 

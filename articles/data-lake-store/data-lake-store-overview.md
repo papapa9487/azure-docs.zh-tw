@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 10/03/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: a1d30c77dd29a134017be7deec6bb50991e6a698
-ms.contentlocale: zh-tw
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: 956c7a4fb91c1b1a45e24128e92d6a6b1213eeb2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-azure-data-lake-store"></a>Azure 資料湖存放區概觀
 Azure 資料湖存放區是容納巨量資料分析工作負載的企業級超大規模存放庫。 Azure 資料湖可讓您在單一位置擷取任何大小、類型和擷取速度的資料，以便進行運作和探究分析。
@@ -62,9 +60,9 @@ Azure 資料湖存放區會使用 Azure Active Directory 進行驗證，並使�
 
 | 功能 | 說明 |
 | --- | --- |
-| 驗證 |Azure 資料湖存放區整合了 Azure Active Directory (AAD)，可對 Azure 資料湖存放區中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Azure 資料湖受惠於所有的 AAD 功能，包括 Multi-Factor Authentication、條件式存取、角色型存取控制、應用程式使用情況監視、安全性監視和警示等。Azure 資料湖存放區支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 |
+| 驗證 |Azure 資料湖存放區整合了 Azure Active Directory (AAD)，可對 Azure 資料湖存放區中儲存的所有資料進行身分識別與存取管理。 由於整合的結果，Azure 資料湖受惠於所有的 AAD 功能，包括 Multi-Factor Authentication、條件式存取、角色型存取控制、應用程式使用情況監視、安全性監視和警示等。Azure 資料湖存放區支援 OAuth 2.0 通訊協定以便在 REST 介面中進行驗證。 請參閱 [Data Lake Store 驗證](data-lakes-store-authentication-using-azure-active-directory.md)|
 | 存取控制 |Azure 資料湖存放區藉由支援 WebHDFS 通訊協定所公開的 POSIX 樣式權限，以提供存取控制。 在 Data Lake Store 公開預覽 (目前版本) 中，可在根資料夾、子資料夾和個別檔案上啟用 ACL。 如需 ACL 如何在 Data Lake Store 的內容中運作的詳細資訊，請參閱 [Data Lake Store 中的存取控制](data-lake-store-access-control.md)。 |
-| 加密 |Data Lake Store 也會為帳戶中儲存的資料提供加密功能。 您會在建立 Data Lake Store 帳戶時指定加密設定。 您可以選擇將資料加密，或選擇不使用加密。 如需如何提供加密相關組態的詳細資訊，請參閱[使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)。 |
+| 加密 |Data Lake Store 也會為帳戶中儲存的資料提供加密功能。 您會在建立 Data Lake Store 帳戶時指定加密設定。 您可以選擇將資料加密，或選擇不使用加密。 如需詳細資訊，請參閱 [Data Lake Store 的加密](data-lake-store-encryption.md)。 如需如何提供加密相關設定的指示，請參閱[使用 Azure 入口網站開始使用 Azure Data Lake Store](data-lake-store-get-started-portal.md)。 |
 
 想要深入了解如何保護 Data Lake Store中的資料。 請依照下列連結執行。
 
@@ -103,5 +101,4 @@ Azure Data Lake Store 與 Hadoop 生態系統中的大多數開放原始碼元�
 * [使用 Apache Sqoop 在相關來源與 Azure Data Lake Store 之間移動資料](https://mix.office.com/watch/1butcdjxmu114)
 * [使用 Azure Data Factory 進行 Azure Data Lake Store 的資料協調](https://mix.office.com/watch/1oa7le7t2u4ka)
 * [保護 Azure Data Lake Store 中的資料](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
 

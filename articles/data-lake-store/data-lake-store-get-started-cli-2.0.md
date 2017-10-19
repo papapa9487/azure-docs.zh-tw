@@ -12,28 +12,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: c5971a137d9081be8c5978f481ec42a1f91e5a56
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: 431c974401c201a76b6d20de9837e44374716417
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>使用 Azure CLI 2.0 開始使用 Azure Data Lake Store
 > [!div class="op_single_selector"]
 > * [入口網站](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
-> * [Java SDK](data-lake-store-get-started-java-sdk.md)
-> * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Azure CLI 2.0](data-lake-store-get-started-cli-2.0.md)
-> * [Node.js](data-lake-store-manage-use-nodejs.md)
-> * [Python](data-lake-store-get-started-python.md)
 >
->
+> 
 
 了解如何使用 Azure CLI 2.0 建立 Azure Data Lake Store 帳戶並執行基本作業，例如建立資料夾、上傳和下載資料檔案、刪除您的帳戶等等。如需有關 Data Lake Store 的詳細資訊，請參閱 [Data Lake Store 概觀](data-lake-store-overview.md)。
 
@@ -240,11 +233,7 @@ az dls account delete --account mydatalakestore
 出現提示時，請輸入 **Y** 刪除帳戶。
 
 ## <a name="next-steps"></a>後續步驟
-
-* [Azure Data Lake Store CLI 2.0 參考](https://docs.microsoft.com/cli/azure/dls)
+* [使用 Azure Data Lake Store 處理巨量資料需求](data-lake-store-data-scenarios.md) 
 * [保護 Data Lake Store 中的資料](data-lake-store-secure-data.md)
 * [搭配 Data Lake Store 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [搭配 Data Lake Store 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
-
-[azure-command-line-tools]: ../xplat-cli-install.md
-
