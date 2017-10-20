@@ -87,7 +87,7 @@ az ml project update --repo http://<vsts_account_name>.visualstudio.com/_git/<pr
 
 ## <a name="step-5-restore-a-previous-project-snapshot"></a>步驟 5。 還原先前的專案快照集 
 若要從 AML Workbench 將整個專案資料夾，還原至先前的執行歷程記錄專案狀態快照集的狀態：
-1. 按一下活動列中的 [執行] (沙漏圖示)。
+1. 按一下活動列中的 [執行] \(沙漏圖示)。
 2. 從 [執行清單] 檢視中，按一下您想要還原的執行。
 3. 從 [執行詳細資料] 檢視中，按一下 [還原]。
 

@@ -100,7 +100,7 @@ ms.lasthandoff: 10/11/2017
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- 如果您看到 [恭喜！] 快顯視窗，請按一下 [新增程式碼] (紅色方塊中的按鈕)。 否則，請按一下 [程式碼] (黃色方塊中)。 這樣會將您導向 Team 專案的 Git 存放庫分頁。 
+- 如果您看到 [恭喜！] 快顯視窗，請按一下 [新增程式碼] \(紅色方塊中的按鈕)。 否則，請按一下 [程式碼] \(黃色方塊中)。 這樣會將您導向 Team 專案的 Git 存放庫分頁。 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 

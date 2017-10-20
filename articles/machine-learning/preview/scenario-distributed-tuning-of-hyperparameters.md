@@ -142,7 +142,7 @@ ms.lasthandoff: 10/11/2017
 
 視您的網際網路連線而定，上傳檔案需要數分鐘的時間。 
 
-在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://azure-storage.readthedocs.io/en/latest/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 帳戶名稱會顯示在您儲存體帳戶的 Azure 頁面左上角。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] (請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
+在我們的程式碼中，我們使用 [Azure 儲存體 SDK](https://azure-storage.readthedocs.io/en/latest/) 將資料集從 blob 儲存體下載到目前的執行環境。 下載會在 load_data.py 檔案的 load\_data() 函式中執行。 若要使用此程式碼，您必須以主控資料集之儲存體帳戶的名稱與主要金鑰取代 <ACCOUNT_NAME> and <ACCOUNT_KEY>。 帳戶名稱會顯示在您儲存體帳戶的 Azure 頁面左上角。 若要取得帳戶，請在儲存體帳戶的 Azure 頁面中選取 [存取金鑰] \(請參閱「資料擷取」一節中的第一個螢幕擷取畫面)，然後複製金鑰欄的第一列中的長字串：
  
 ![存取金鑰](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

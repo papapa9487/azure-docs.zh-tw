@@ -141,7 +141,7 @@ VSTS 群組伺服器適用的儲存庫設定包含兩個工作：
 
 ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
         
-- 在 [GroupCommon] 之 Git 存放庫頁面上，按一下左上角的 [GroupCommon] (下圖中使用紅色方塊反白顯示的選項)，然後選取 [管理存放庫] (下圖中使用綠色方塊反白顯示的選項)。 此程序會開啟 [控制台]。 
+- 在 [GroupCommon] 之 Git 存放庫頁面上，按一下左上角的 [GroupCommon] \(下圖中使用紅色方塊反白顯示的選項)，然後選取 [管理存放庫] \(下圖中使用綠色方塊反白顯示的選項)。 此程序會開啟 [控制台]。 
 - 選取 Team 專案的 [版本控制] 索引標籤。 
 
 ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
