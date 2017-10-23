@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/17/2017
 ms.author: erikje
-ms.openlocfilehash: c3ffc819fcc442f87fb4985ecb08be8ec02ba957
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8497f0331e9b7d19eed2e1c254849a1619f496a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>部署 Azure Stack 開發套件
 
@@ -108,8 +108,8 @@ ms.lasthandoff: 10/11/2017
 7. 或者，設定下列值：
     - **VLAN 識別碼**：設定 VLAN 識別碼。 只有當主機與 AzS-BGPNAT01 必須設定 VLAN 識別碼來存取實體網路 (以及網際網路) 時，才使用此選項。 
     - **DNS 轉寄站**：DNS 伺服器會在 Azure Stack 部署期間建立。 若要允許解決方案內的電腦解析戳記以外的名稱，請提供您現有架構 DNS 伺服器。 戳記內的 DNS 伺服器會將未知的名稱解析要求轉送至這部伺服器。
-    - **時間伺服器**：設定特定的時間伺服器。 
-8. 按一下 [下一步]。 
+    - **時間伺服器**：此必填欄位設定時間伺服器，且必須填上 IP 位址。 若要尋找時間伺服器 IP 位址，請造訪 [pool.ntp.org](http:\\pool.ntp.org) 或 ping time.windows.com。 
+8. 按一下 [下一步] 。 
 9. 在 [驗證網路介面卡內容] 頁面上，您將會看到一個進度列。 
     - 如果顯示 [無法下載更新]，請遵循頁面上的指示執行。
     - 顯示 [已完成] 時，按一下 [下一步]。
