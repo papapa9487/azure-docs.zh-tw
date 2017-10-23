@@ -59,6 +59,7 @@
 ## 疑難排解
 ### [對應用程式閘道中閘道的錯誤進行疑難排解](application-gateway-troubleshooting-502.md)
 ### [診斷記錄與計量](application-gateway-diagnostics.md)
+### [應用程式閘道工作階段同質集問題](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 # 參考
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/network/application-gateway)

@@ -81,7 +81,6 @@
 ### [點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [站對站連線會間歇性中斷](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [無法連線至站對站連線](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
-### [應用程式閘道工作階段同質集問題](https://support.microsoft.com/help/4033827/troubleshooting-azure-application-gateway-session-affinity-issues)
 ### [設定和驗證 VNet 或 VPN 連線](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # 參考

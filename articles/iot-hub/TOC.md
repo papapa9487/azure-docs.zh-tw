@@ -109,6 +109,7 @@
 ### 使用裝置作業更新裝置韌體
 #### [Node 後端/Node 裝置](iot-hub-node-node-firmware-update.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-firmware-update.md)
+#### [.NET 後端/.NET 裝置](iot-hub-csharp-csharp-firmware-update.md)
 #### [Java 後端/Java 裝置](iot-hub-java-java-firmware-update.md)
 ### 排程及廣播作業
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-schedule-jobs.md)

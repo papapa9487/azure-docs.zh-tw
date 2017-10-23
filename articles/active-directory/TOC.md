@@ -97,6 +97,7 @@
 #### [延遲](active-directory-reporting-latencies-azure-portal.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 #### [登入活動的錯誤代碼](active-directory-reporting-activity-sign-ins-errors.md)
+#### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 ### 疑難排解
 #### [缺少稽核資料](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [下載中缺少的資料](active-directory-reporting-troubleshoot-missing-data-download.md)
@@ -150,8 +151,7 @@
 ### [概觀](active-directory-enable-sso-scenario.md)
 ### [開始使用](active-directory-integrating-applications-getting-started.md)
 ### [SaaS 應用程式整合教學課程](active-directory-saas-tutorial-list.md)
-### [Cloud App Discovery](cloudappdiscovery-overview.md)
-#### [設定無代理程式探索](cloudappdiscovery-get-started.md)
+### [Cloud App Discovery](cloudappdiscovery-get-started.md)
 #### [建立快照集報告](cloudappdiscovery-set-up-snapshots.md)
 #### [設定連續報告](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [使用自訂記錄剖析器](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
