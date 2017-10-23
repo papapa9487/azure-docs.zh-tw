@@ -73,26 +73,19 @@
       href: site-recovery-role-based-linked-access-control.md
     - name: 常見問題集
       href: site-recovery-faq.md
-    - name: 目的地為 Azure 之 VMware 複寫的容量規劃
-      href: site-recovery-plan-capacity-vmware.md
-      items:
-        - name: 將 VMware 複寫至 Azure 的部署規劃工具
-          href: site-recovery-deployment-planner.md
-    - name: 適用於 Hyper-V 複寫的 Capacity Planner
-      href: site-recovery-capacity-planner.md
 - name: 使用說明指南
   items:
     - name: 災害復原
       items:
-        - name: 針對 Azure for VMware VM 支援多租用戶
+        - name: Azure 的 VMware VM 與多租用戶支援
           href: site-recovery-multi-tenant-support-vmware-using-csp.md
-        - name: 目的地為 Azure (針對 Hyper-V VM)
+        - name: Hyper-V VM 至 Azure
           href: tutorial-hyper-v-to-azure.md
-        - name: 目的地為 Azure (針對實體伺服器)
+        - name: 實體伺服器至 Azure
           href: tutorial-physical-to-azure.md
-        - name: 目的地為次要網站 (針對 Hyper-V VM)
+        - name: Hyper-V VM 至次要站台
           href: tutorial-vmm-to-vmm.md
-        - name: 目的地為次要網站 (針對 VMware VM 和實體伺服器)
+        - name: 次要站台的 VMware VM 和實體伺服器
           href: tutorial-vmware-to-vmware.md
         - name: 執行 Azure 的災害復原演練
           href: tutorial-dr-drill-azure.md
@@ -104,6 +97,20 @@
           href: tutorial-hyper-v-to-azure-failover-failback.md
         - name: 在內部部署網站之間執行容錯移轉和容錯回復
           href: tutorial-vmm-to-vmm-failover-failback.md
+    - name: 容量和調整
+      items:
+        - name: 目的地為 Azure 之 VMware 複寫的容量規劃
+          href: site-recovery-plan-capacity-vmware.md
+        - name: 將 VMware 複寫至 Azure 的部署規劃工具
+          href: site-recovery-deployment-planner.md
+        - name: 目的地為 Azure 之 Hyper-V 複寫的容量規劃
+          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+        - name: 目的地為 Azure 之 Hyper-V 複寫的容量規劃工具
+          href: site-recovery-capacity-planner.md
+        - name: 相應放大處理伺服器以供 VMware 進行複寫
+          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: 內部部署站台間 Hyper-V 複寫的效能調整測試
+          href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: 設定
       items:
         - name: 設定來源環境
@@ -120,6 +127,8 @@
               href: site-recovery-prepare-target-physical-to-azure.md
         - name: 設定複寫設定
           href: site-recovery-setup-replication-settings-vmware.md
+        - name: 從複寫排除磁碟
+          href: site-recovery-exclude-disk.md
         - name: 部署 VMware 複寫的行動服務
           href: site-recovery-vmware-to-azure-install-mob-svc.md
           items:
@@ -157,9 +166,11 @@
         - name: 從 Azure 容錯移轉
           items:
             - name: 從 Azure 容錯回復至 VMware
-              href: site-recovery-failback-azure-to-vmware.md
+              href: site-recovery-how-to-failback-azure-to-vmware.md
             - name: 從 Azure 容錯回復至 Hyper-V
               href: site-recovery-failback-from-azure-to-hyper-v.md
+        - name: 將 Linux VM 設定為容錯回復的主要目標伺服器
+          href: site-recovery-how-to-install-linux-master-target.md
     - name: 自動化
       items:
         - name: 使用 PowerShell 設定 Hyper-V 至 Azure 的複寫 (不使用 VMM)
@@ -202,8 +213,6 @@
           href: site-recovery-vmware-setup-azure-ps-resource-manager.md
         - name: 管理組態伺服器
           href: site-recovery-vmware-to-azure-manage-configuration-server.md
-        - name: 管理相應放大處理序伺服器
-          href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
         - name: 管理 vCenter 伺服器
           href: site-recovery-vmware-to-azure-manage-vCenter.md
         - name: 移除伺服器並停用保護

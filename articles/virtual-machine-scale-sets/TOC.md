@@ -21,19 +21,20 @@
 ### [使用 Visual Studio 建立](virtual-machine-scale-sets-vs-create.md)
 ### [使用 Azure PowerShell 或 Azure CLI 建立](virtual-machine-scale-sets-create.md)
 ### [搭配受控磁碟的擴展集](virtual-machine-scale-sets-managed-disks.md)
-### [具有自動調整的 Linux 擴展集](virtual-machine-scale-sets-linux-autoscale.md)
-### [具有自動調整的 Windows 擴展集](virtual-machine-scale-sets-windows-autoscale.md)
+### [自動調整擴展集](virtual-machine-scale-sets-autoscale-overview.md)
+#### [使用 Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
+#### [使用 Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+#### [使用 Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+#### [進階自動調整](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [應用程式擴展集](virtual-machine-scale-sets-deploy-app.md)
 ### [使用資料磁碟搭配擴展集](virtual-machine-scale-sets-attached-disks.md)
 ### [使用大型擴展集](virtual-machine-scale-sets-placement-groups.md)
 ### [將擴展集範本轉換為使用受控磁碟](virtual-machine-scale-sets-convert-template-to-md.md)
 
-
-
 ## 管理
-### [使用 Azure PowerShell 的 Windows 擴展集](virtual-machine-scale-sets-windows-manage.md)
-### [自動調整與擴展集](virtual-machine-scale-sets-autoscale-overview.md)
-### [進階自動調整](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
+### 一般管理工作
+#### [使用 Azure CLI 2.0](virtual-machine-scale-sets-manage-cli.md)
+#### [使用 Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md)
 ### [擴展集內的垂直縮放比例](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [擴展集的升級](virtual-machine-scale-sets-upgrade-scale-set.md)
 ### [DSC 與擴展集](virtual-machine-scale-sets-dsc.md)

@@ -59,6 +59,8 @@
           href: concepts-supported-versions.md
         - name: 伺服器記錄
           href: concepts-server-logs.md
+        - name: 高可用性
+          href: concepts-high-availability.md
     - name: 資源
       items:
         - name: 定價層
@@ -73,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: 設定 SSL
           href: concepts-ssl-connection-security.md
+    - name: 監視
+      href: concepts-monitoring.md
     - name: 開發
       items:
         - name: 連線程式庫
@@ -117,8 +121,14 @@
           href: howto-configure-server-parameters-using-cli.md
     - name: 存取伺服器記錄
       items:
+        - name: Azure 入口網站
+          href: howto-configure-server-logs-in-portal.md
         - name: Azure CLI
           href: howto-configure-server-logs-in-cli.md
+    - name: 監視
+      items:
+        - name: 建立計量警示
+          href: howto-alert-on-metric.md
 - name: 參考
   items:
     - name: Azure CLI

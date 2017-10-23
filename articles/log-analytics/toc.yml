@@ -11,6 +11,8 @@
       href: log-analytics-quick-collect-azurevm.md
     - name: 收集 - Linux 電腦
       href: log-analytics-quick-collect-linux-computer.md
+    - name: 收集 - Windows 電腦
+      href: log-analytics-quick-collect-windows-computer.md
 - name: 教學課程
   items:
     - name: 1 - 分析資料
@@ -25,6 +27,8 @@
       href: powershell-samples.md
 - name: 概念
   items:
+    - name: 工作區升級
+      href: log-analytics-log-search-upgrade.md
     - name: Log Analytics 常見問題集
       href: log-analytics-faq.md
     - name: 資料耗用量
@@ -35,10 +39,10 @@
       href: log-analytics-service-providers.md
     - name: 記錄搜尋
       items:
-        - name: 記錄搜尋常見問題
-          href: log-analytics-log-search-faq.md
         - name: 記錄檔搜尋概觀
           href: log-analytics-log-search-new.md
+        - name: 記錄搜尋常見問題
+          href: log-analytics-log-search-faq.md
         - name: 記錄搜尋入口網站
           href: log-analytics-log-search-portals.md
 - name: 作法
@@ -89,6 +93,20 @@
               href: log-analytics-custom-fields.md
     - name: 查詢資料
       items:
+        - name: 程式設計語言文件
+          href: 'https://docs.loganalytics.io'
+        - name: 從舊版程式設計語言轉換
+          href: log-analytics-log-search-transition.md
+        - name: 跨工作區搜尋
+          href: log-analytics-cross-workspace-search.md
+        - name: 從搜尋結果採取行動
+          href: log-analytics-log-search-takeaction.md
+        - name: 使用電腦群組
+          href: log-analytics-computer-groups.md
+        - name: 流程連接器
+          href: log-analytics-flow-tutorial.md
+    - name: 舊版的記錄搜尋
+      items:
         - name: 記錄檔搜尋概觀
           href: log-analytics-log-searches.md
         - name: 搜尋參考
@@ -96,26 +114,18 @@
           items:
             - name: 規則運算式
               href: log-analytics-log-searches-regex.md
-            - name: 跨工作區搜尋
-              href: log-analytics-cross-workspace-search.md
-        - name: 從搜尋結果採取行動
-          href: log-analytics-log-search-takeaction.md
-        - name: 電腦群組
-          href: log-analytics-computer-groups.md
-    - name: 記錄搜尋
-      items:
-        - name: 升級您的工作區
-          href: log-analytics-log-search-upgrade.md
-        - name: 從舊版語言轉換
-          href: log-analytics-log-search-transition.md
-        - name: 流程連接器
-          href: log-analytics-flow-tutorial.md
     - name: 分析資料
       items:
         - name: 儀表板
           href: log-analytics-dashboards.md
         - name: '[檢視設計工具]'
-          href: log-analytics-view-designer.md
+          items:
+            - name: 概觀
+              href: log-analytics-view-designer.md
+            - name: 圖格參考
+              href: log-analytics-view-designer-tiles.md
+            - name: 視覺效果組件參考
+              href: log-analytics-view-designer-parts.md
         - name: Power BI
           href: log-analytics-powerbi.md
     - name: 建立警示
@@ -231,14 +241,12 @@
           href: log-analytics-api-alerts.md
 - name: 參考
   items:
+    - name: 程式設計語言參考
+      href: 'https://docs.loganalytics.io/docs/Language-Reference'
     - name: Azure PowerShell
       href: /powershell/module/azurerm.operationalinsights
     - name: REST
       href: /rest/api/loganalytics
-    - name: 檢視設計工具圖格參考
-      href: log-analytics-view-designer-tiles.md
-    - name: 檢視設計工具視覺效果組件參考
-      href: log-analytics-view-designer-parts.md
 - name: 資源
   items:
     - name: Azure 藍圖

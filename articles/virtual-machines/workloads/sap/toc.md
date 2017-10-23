@@ -20,9 +20,25 @@
 ## [SAP IDES on Windows/SQL Server SAP CAL 部署指南](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM 上的 SAP NetWeaver](suse-quickstart.md)
 ## [在 Azure 上規劃並實作 SAP NetWeaver](planning-guide.md)
-## [在 Windows 上的高可用性](high-availability-guide.md)
-## [在 SUSE Linux 上的高可用性](high-availability-guide-suse.md)
-## [多 SID 組態](high-availability-multi-sid.md)
+## Windows 和 Linux 上的高可用性 (HA)
+### [概觀](sap-high-availability-guide-start.md)
+### 高可用性架構
+#### [HA 架構和案例](sap-high-availability-architecture-scenarios.md)
+#### [更高的可用性架構和案例](sap-higher-availability-architecture-scenarios.md)
+#### [HA on Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-guide-wsfc-shared-disk.md)
+#### [HA on Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-guide-wsfc-file-share.md)
+#### [適用於 (A)SCS 執行個體的 HA on SUSE Linux](high-availability-guide-suse.md)
+### Azure 基礎結構準備
+#### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-infrastructure-wsfc-shared-disk.md)
+#### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-infrastructure-wsfc-file-share.md)
+#### [SUSE Linux 和適用於 (A)SCS 執行個體](high-availability-guide-suse.md)
+### SAP 安裝
+#### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-high-availability-installation-wsfc-shared-disk.md)
+#### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-high-availability-installation-wsfc-file-share.md)
+#### [SUSE Linux 和適用於 (A)SCS 執行個體](high-availability-guide-suse.md)
+### SAP 多重安全性識別碼
+#### [Windows 和適用於 (A)SCS 執行個體的共用磁碟](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
+#### [Windows 和適用於 (A)SCS 執行個體的檔案共用](sap-ascs-ha-multi-sid-wsfc-file-share.md)
 ## [部署指南](deployment-guide.md)
 ## [DBMS 部署指南](dbms-guide.md)
 ## [適用於 SAP 災害復原的 Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)

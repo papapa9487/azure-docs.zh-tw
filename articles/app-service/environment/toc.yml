@@ -34,6 +34,8 @@
   items:
     - name: 使用 ASE
       href: using-an-ase.md
+    - name: 與應用程式閘道整合
+      href: integrate-with-application-gateway.md
     - name: 從範本建立 ASE
       href: create-from-template.md
 - name: 參考

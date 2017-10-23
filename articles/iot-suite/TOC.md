@@ -37,7 +37,7 @@
 ## [遠端監視解決方案中的裝置資訊](iot-suite-remote-monitoring-device-info.md)
 ## [為連線的處理站部署閘道](iot-suite-connected-factory-gateway-deployment.md)
 ## [自訂已連線處理站](iot-suite-connected-factory-customize.md)
-
+## [針對連線的處理站使用 OPC 發行者](iot-suite-connected-factory-publisher.md)
 # 參考
 ## [安全性架構](iot-security-architecture.md)
 ## [安全性最佳做法](iot-security-best-practices.md)

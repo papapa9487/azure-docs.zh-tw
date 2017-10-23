@@ -95,6 +95,7 @@
 ## [Azure 安全性 MVP 計畫](azure-security-mvp.md)
 ## [網路安全性諮詢](azure-security-cyber-services.md)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
+## [Azure Marketplace 映像的安全性建議](security-recommendations-azure-marketplace-images.md)
 ## 案例
 ### [在 Azure 中管理個人資料](manage-personal-data-azure.md)
 ### [在 Azure 中探索、識別並分類個人資料](how-to-discover-classify-personal-data-azure.md)

@@ -5,8 +5,8 @@
 
 # 開始使用
 ## [建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)
-## [邏輯應用程式範本](logic-apps-use-logic-app-templates.md)
-## [從範本建立邏輯應用程式](logic-apps-arm-provision.md)
+## [從範本建立邏輯應用程式](logic-apps-create-logic-apps-from-templates.md)
+## [從 Resource Manager 範本建立邏輯應用程式](logic-apps-create-deploy-azure-resource-manager-templates.md)
 ## [將 MABS 應用程式移至邏輯應用程式](logic-apps-move-from-mabs.md)
 
 # 作法

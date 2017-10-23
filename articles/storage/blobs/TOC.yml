@@ -1,3 +1,5 @@
+- name: Azure 儲存體文件
+  href: /azure/storage/
 - name: 概觀
   items:
     - name: 簡介
@@ -16,6 +18,8 @@
       href: storage-quickstart-blobs-cli.md
     - name: 使用 Blob - .NET
       href: storage-quickstart-blobs-dotnet.md
+    - name: 使用 Blob - Python
+      href: storage-quickstart-blobs-python.md
 - name: 教學課程
   items:
     - name: 上傳並處理映像
@@ -28,6 +32,12 @@
           href: storage-secure-access-application.md
         - name: 4 - 進行儲存體的監視和疑難排解
           href: storage-monitor-troubleshoot-storage-application.md
+    - name: 雲端儲存體中適用於高可用性的設計
+      items:
+        - name: 讓您的應用程式保持高可用性
+          href: storage-create-geo-redundant-storage.md
+        - name: 模擬 RA-GRS 儲存體失敗
+          href: storage-simulate-failure-ragrs-account-app.md
     - name: 搜尋雲端儲存體中的非結構化資料
       href: storage-unstructured-search.md
 - name: 範例

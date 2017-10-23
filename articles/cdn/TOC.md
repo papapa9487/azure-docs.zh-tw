@@ -10,7 +10,7 @@
 ### [雲端服務](cdn-cloud-service-with-cdn.md)
 ### [儲存體](cdn-create-a-storage-account-with-cdn.md)
 ### [跨原始資源共用](cdn-cors.md)
-### [將自訂網域對應至 CDN](cdn-map-content-to-custom-domain.md)
+### [將自訂網域新增至 CDN 端點](cdn-map-content-to-custom-domain.md)
 ### [啟用自訂網域的 HTTPS](cdn-custom-ssl.md)
 ## 最佳化內容
 ### [最佳化概觀](cdn-optimization-overview.md)
@@ -39,6 +39,7 @@
 ## 分析
 ### [分析 Azure CDN 使用模式](cdn-log-analysis.md)
 #### [來自 Verizon 的 Core 報告](cdn-analyze-usage-patterns.md)
+#### [來自 Verizon 的自訂報告](cdn-verizon-custom-reports.md)
 #### [Azure 診斷記錄](cdn-azure-diagnostic-logs.md)
 ### 來自 Verizon 的 Azure CDN 分析工具
 #### [產生進階 HTTP 報告](cdn-advanced-http-reports.md)

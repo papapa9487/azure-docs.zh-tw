@@ -20,6 +20,7 @@
 ### [並行節點工作](batch-parallel-node-tasks.md)
 ### [依狀態計算工作數量](batch-get-task-counts.md)
 ### [以自訂映像建立集區](batch-custom-images.md)
+### [在虛擬網路中建立集區](batch-virtual-network.md)
 ### [有效率的清單查詢](batch-efficient-list-queries.md)
 ### [作業的準備與完成工作](batch-job-prep-release.md)
 ### [Linux 計算節點](batch-linux-nodes.md)
@@ -62,6 +63,7 @@
 ## [Azure Batch 計算節點環境變數](batch-compute-node-environment-variables.md)
 
 # 相關參考
+## [Batch AI](../batch-ai/overview.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Batch Shipyard](https://github.com/Azure/batch-shipyard)
 ## [透過 Batch 和 Data Factory 處理的資料](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)
 ## [Azure 雲端中的 Batch 和 HPC 解決方案](batch-hpc-solutions.md)

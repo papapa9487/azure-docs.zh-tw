@@ -34,6 +34,7 @@
 #### [診斷記錄](event-hubs-diagnostic-logs.md)
 ### [AMQP 1.0 通訊協定指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
 ## 管理
+### [透過 Azure 監視器監視事件中樞](event-hubs-metrics-azure-monitor.md)
 ### [事件中樞管理程式庫](event-hubs-management-libraries.md)
 ### 擷取
 #### [事件中樞擷取](event-hubs-capture-overview.md)
