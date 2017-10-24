@@ -12,17 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
+ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 70a869ac428efa0af93adbb5ee78ebc83a13a785
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyzers-in-azure-search"></a>Azure 搜尋服務中的分析器
 
-「分析器」是一種[全文搜尋](search-lucene-query-architecture.md)元件，負責處理查詢字串中的文字和被索引文件的內容。 在編製索引期間，分析器會將文字轉換成權杖，再將權杖以字詞的形式寫入索引中。 在搜尋期間，分析器對查詢字詞執行相同轉換，這些字詞是用來從索引中擷取與字詞相符的文件。
+「分析器」是一種[全文檢索搜尋](search-lucene-query-architecture.md)元件，負責查詢字串和已編製索引文件中的文字處理。 在編製索引期間，分析器會將文字轉換成「語彙基元」，將其以「語彙基元化的字詞」形式寫入索引。 在搜尋期間，分析器會對「查詢字詞」執行相同轉換，提供在索引中比對字詞的基準。
 
 在分析期間，會有下列典型轉換：
 
@@ -31,7 +29,7 @@ ms.lasthandoff: 09/15/2017
 + 大寫字組會被改為小寫。
 + 字組會縮減為根表單，如此不論時態就可以找到相符項目。
 
-Azure 搜尋服務會提供預設分析器。 您可以逐欄用替代的分析器覆寫它。 本文的目的是說明選項的範圍，並提供自訂指定欄位語彙分析程序的最佳作法。 文中也會顯示重要案例的範例設定。
+Azure 搜尋服務會使用[標準 Lucene 分析器](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) \( 英文\) 作為預設值。 您可以逐欄覆寫預設值。 本文描述選項範圍，並提供自訂分析的最佳作法。 文中也會提供重要案例的範例設定。
 
 ## <a name="supported-analyzers"></a>支援的分析器
 
@@ -40,24 +38,24 @@ Azure 搜尋服務會提供預設分析器。 您可以逐欄用替代的分析�
 | 類別 | 說明 |
 |----------|-------------|
 | [標準 Lucene 分析器](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 預設值。 不需要任何規格或設定。 這個一般用途的分析器對於大部分的語言和情節都能順利執行。|
-| 預先定義的分析器 | 提供作為完成的產品旨在依現狀使用，並包含有限的自訂。 <br/>共有兩種類型：特製化和語言。 使它們成為「預先定義」的條件是依名稱參考，而無任何自訂。 <br/><br/>[特製化 (語言無從驗證) 分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable)適用於文字輸入，需要特殊處理或最少處理。 非語言預先定義的分析器包含 **Asciifolding**、**金鑰**、**模式**、**簡單**、**停止**、**空白**。<br/><br/>[語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)為個別語言提供豐富的語言支援。 Azure 搜尋服務支援 35 個 Lucene 語言分析器和 50 個 Microsoft 自然語言處理分析器。 |
+| 預先定義的分析器 | 提供作為完成的產品旨在依現狀使用，並包含有限的自訂。 <br/>共有兩種類型：特製化和語言。 使它們成為「預先定義」的條件是依名稱參考，而無任何自訂。 <br/><br/>[特製化 (語言無從驗證) 分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable)適用於文字輸入需要特殊處理或最少處理時。 非語言預先定義的分析器包含 **Asciifolding**、**金鑰**、**模式**、**簡單**、**停止**、**空白**。<br/><br/>[語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)適用於當您需要為個別語言提供豐富的語言支援時。 Azure 搜尋服務支援 35 個 Lucene 語言分析器和 50 個 Microsoft 自然語言處理分析器。 |
 |[自訂分析器](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | 結合現有元素的使用者定義組態，包括一個權杖化工具 (必要) 和選擇性篩選條件 (Char 或權杖)。|
 
 您可以自訂預先定義的分析器，例如**模式**或**停止**，從而使用記載於[預先定義分析器參考](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search#AnalyzerTable)的替代選項。 只有幾個預先定義的分析器具有可供您設定的選項。 如同任何自訂所敘述，為您的新組態提供名稱，例如 myPatternAnalyzer，以便與 Lucene 分析器有所區別。
 
 ## <a name="how-to-specify-analyzers"></a>如何指定分析器
 
-1. 僅針對自訂分析器，在索引定義中建立 `analyzer` 區段。 如需詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)以及[自訂分析器 > 建立](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer)。
+1. (僅適用於自訂分析器) 在索引定義中建立 **analyzer** 區段。 如需詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)以及[自訂分析器 > 建立](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search#create-a-custom-analyzer)。
 
-2. 在您需要使用分析器的每個可搜尋欄位上，於[索引中的欄位定義](https://docs.microsoft.com/rest/api/searchservice/create-index)中將 `analyzer` 屬性設定為目標分析器名稱。 有效值包括預先定義的分析器、語言分析器，或索引結構描述中預先定義的自訂分析器。
+2. 在索引的[欄位定義](https://docs.microsoft.com/rest/api/searchservice/create-index)上，將 **analyzer** 屬性設為目標分析器的名稱 (例如 `"analyzer" = "keyword"`)。 有效值包括預先定義的分析器名稱、語言分析器名稱，或者也會定義於索引結構描述中的自訂分析器名稱。
 
-  或者，您可以使用 `indexAnalyzer` 和 `searchAnalyzer` 欄位參數，而非一個 `analyzer` 屬性，來設定索引和查詢的不同分析器。 
+3. 您可以選擇性地使用 **indexAnalyzer** 和 **searchAnalyzer`** 欄位參數，而非一個 **analyzer** 屬性，設定不同的分析器來編製索引和查詢。 
 
-3. 編製索引期間就會進行分析。 如果您將 `analyzer` 新增至現有索引，請注意下列步驟：
+3. 將分析器新增至欄位定義會在索引上產生寫入作業。 如果您將**分析器**新增至現有索引，請注意下列步驟：
  
  | 案例 | 步驟 |
  |----------|-------|
- | 新增欄位 (尚未編製索引)。 | 當您新增或更新提供新欄位內容的文件時，就會進行分析。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和[mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 進行這項工作。|
+ | 新增欄位 | 如果欄位尚未存在於結構描述中，則不會進行任何欄位修訂。 當您新增或更新文件以提供新欄位的內容時，就會進行文字分析。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和[mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 進行這項工作。|
  | 將分析器新增至現有已編製索引的欄位。 | 該欄位的反向索引必須從頭重新編製，且必須重新編製這些欄位的文件內容的索引。 <br/> <br/>針對正在開發中的索引，[刪除](https://docs.microsoft.com/rest/api/searchservice/delete-index)和[建立](https://docs.microsoft.com/rest/api/searchservice/create-index)索引以挑選新的欄位定義。 <br/> <br/>針對生產環境中的索引，您應該建立新的欄位來提供修改過的定義，然後開始使用它。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 合併新欄位。 稍後，您可以清除索引以移除過時的欄位，當作規劃索引服務的一部分。 |
 
 ## <a name="best-practices"></a>最佳作法
@@ -267,4 +265,3 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png
-

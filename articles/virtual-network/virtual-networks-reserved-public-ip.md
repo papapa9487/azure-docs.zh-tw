@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 120ae95fe12daa8fc213d0062ca446d5c1b10134
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 5e9c83cebec96c6bc8afd53b0c637d7af899746f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reserved-ip-addresses-classic"></a>保留的 IP 位址 (傳統)
 
@@ -50,7 +49,7 @@ Azure 中的 IP 位址分為兩個類別：動態和保留。 依預設由 Azure
 2. 我可以有多少保留的 IP？ <br>
     如需詳細資訊，請參閱 [Azure 限制](../azure-subscription-service-limits.md#networking-limits)一文。
 3. 保留的 IP 是否會收取費用？ <br>
-    有時會。 如需定價詳細資料，請參閱[保留的 IP 位址定價詳細資料](http://go.microsoft.com/fwlink/?LinkID=398482)頁面。
+    有時是。 如需定價詳細資料，請參閱[保留的 IP 位址定價詳細資料](http://go.microsoft.com/fwlink/?LinkID=398482)頁面。
 4. 我該如何保留 IP 位址？ <br>
     您可以使用 PowerShell、[Azure 管理 REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx) 或 [Azure 入口網站](https://portal.azure.com)，在 Azure 區域中保留 IP 位址。 保留的 IP 位址會與您的訂用帳戶關聯。
 5. 我是否可以將保留的 IP 位址與同質群組型 VNet 搭配使用？ <br>
@@ -168,5 +167,4 @@ Set-AzureReservedIPAssociation -ReservedIPName MyReservedIP -ServiceName TestSer
 * 了解 [IP 位址](virtual-network-ip-addresses-overview-classic.md) 在傳統部署模型中的運作方式。
 * 深入了解 [保留的私人 IP 位址](virtual-networks-reserved-private-ip.md)。
 * 深入了解 [執行個體層級公用 IP (ILPIP) 位址](virtual-networks-instance-level-public-ip.md)。
-
 

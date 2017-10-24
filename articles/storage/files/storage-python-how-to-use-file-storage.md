@@ -3,7 +3,7 @@ title: "使用 Python 開發 Azure 檔案服務 | Microsoft Docs"
 description: "了解如何開發使用 Azure 檔案服務的 Python 應用程式和服務來儲存檔案資料。"
 services: storage
 documentationcenter: python
-author: tamram
+author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
@@ -13,15 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: tamram
+ms.author: robinsh
+ms.openlocfilehash: 48bfe97c42cad237ad7b395eeeac4e993201848a
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c9c7ee20e511d7aa6261119e7307e2b96682a6bb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="develop-for-azure-files-with-python"></a>使用 Python 開發 Azure 檔案服務
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
@@ -38,35 +36,55 @@ ms.lasthandoff: 09/25/2017
 > [!Note]  
 > 由於 Azure 檔案服務可透過 SMB 存取，因此便可使用標準 Python I/O 類別和函式撰寫簡單的應用程式以存取 Azure 檔案共用。 本文將說明如何撰寫使用 Azure 儲存體 Python SDK 的應用程式，它會使用 [Azure 檔案服務 REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/file-service-rest-api) 與 Azure 檔案服務通訊。
 
-### <a name="set-up-your-application-to-use-azure-files"></a>設定您的應用程式以使用 Azure 檔案服務
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>下載並安裝 Azure Storage SDK for Python
+
+Azure Storage SDK for Python 需要有 Python 2.7、3.3、3.4、3.5 或 3.6，而且提供 4 種不同的封裝：`azure-storage-blob`、`azure-storage-file`、`azure-storage-table` 和 `azure-storage-queue`。 在本教學課程中，我們將使用 `azure-storage-file` 封裝。
+ 
+## <a name="install-via-pypi"></a>透過 PyPi 安裝
+
+若要透過 Python Package Index (PyPI) 安裝，請輸入：
+
+```bash
+pip install azure-storage-file
+```
+
+
+> [!NOTE]
+> 如果您要從 Azure 儲存體 Azure Storage SDK for Python 0.36 版或更早版本升級，您將必須先使用 `pip uninstall azure-storage` 解除安裝，因為我們將不再以單一封裝的方式發行 Storage SDK for Python。
+> 
+> 
+
+如需替代安裝方法，請瀏覽 [Github 上的 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)。
+
+## <a name="set-up-your-application-to-use-azure-files"></a>設定您的應用程式以使用 Azure 檔案服務
 將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 來源檔案內的頂端附近。
 
 ```python
 from azure.storage.file import FileService
 ```
 
-### <a name="set-up-a-connection-to-azure-files"></a>設定 Azure 檔案服務的連線 
+## <a name="set-up-a-connection-to-azure-files"></a>設定 Azure 檔案服務的連線 
 `FileService` 物件可讓您使用共用、目錄和檔案。 下列程式碼會使用儲存體帳戶名稱和帳戶金鑰來建立 `FileService` 物件。 以您的帳戶名稱和金鑰取代 `<myaccount>` 和 `<mykey>`。
 
 ```python
 file_service = FileService(account_name='myaccount', account_key='mykey')
 ```
 
-### <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
+## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
 在下列的程式碼範例中，如果共用不存在，您可以使用 `FileService` 物件建立共用。
 
 ```python
 file_service.create_share('myshare')
 ```
 
-### <a name="create-a-directory"></a>建立目錄
-您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立您的帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
+## <a name="create-a-directory"></a>建立目錄
+您也可以組織儲存體，方法是將檔案放在子目錄中，而不是將所有檔案都放在根目錄中。 Azure 檔案服務可讓您建立帳戶允許數量的目錄。 下列程式碼會在根目錄底下建立名為 **sampledir** 的子目錄。
 
 ```python
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-### <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>列舉 Azure 檔案共用的檔案和目錄
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>列舉 Azure 檔案共用的檔案和目錄
 若要列出共用中的檔案和目錄，請使用 **list\_directories\_and\_files** 方法。 這個方法會傳回產生器。 下列程式碼會將共用中每個檔案和目錄的 **name** 輸出到主控台。
 
 ```python
@@ -75,7 +93,7 @@ for file_or_dir in generator:
     print(file_or_dir.name)
 ```
 
-### <a name="upload-a-file"></a>上傳檔案 
+## <a name="upload-a-file"></a>上傳檔案 
 Azure 檔案共用至少包含根目錄，檔案可以放置其中。 在本節中，您將學習如何從本機儲存體將檔案上傳至共用的根目錄。
 
 若要建立檔案並上傳資料，請使用 `create_file_from_path`、`create_file_from_stream`、`create_file_from_bytes` 或 `create_file_from_text` 方法。 這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
@@ -94,7 +112,7 @@ file_service.create_file_from_path(
     content_settings=ContentSettings(content_type='image/png'))
 ```
 
-### <a name="download-a-file"></a>下載檔案
+## <a name="download-a-file"></a>下載檔案
 若要從檔案下載資料，請使用 `get_file_to_path`、`get_file_to_stream`、`get_file_to_bytes` 或 `get_file_to_text`。 這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
 下列範例示範如何使用 `get_file_to_path` 下載 **myfile** 檔案的內容，並將其儲存至 **out-sunset.png** 檔案。
@@ -103,11 +121,62 @@ file_service.create_file_from_path(
 file_service.get_file_to_path('myshare', None, 'myfile', 'out-sunset.png')
 ```
 
-### <a name="delete-a-file"></a>刪除檔案
+## <a name="delete-a-file"></a>刪除檔案
 最後，若要刪除檔案，請呼叫 `delete_file`。
 
 ```python
 file_service.delete_file('myshare', None, 'myfile')
+```
+
+## <a name="create-share-snapshot-preview"></a>建立共用快照集 (預覽)
+您可以針對整個檔案共用，建立一個時間點複本。
+
+```python
+snapshot = file_service.snapshot_share(share_name)
+snapshot_id = snapshot.snapshot
+```
+
+**使用中繼資料建立共用快照集**
+
+```python
+metadata = {"foo": "bar"}
+snapshot = file_service.snapshot_share(share_name, metadata=metadata)
+```
+
+## <a name="list-shares-and-snapshots"></a>列出共用和快照集 
+您可以針對特定的共用，列出所有快照集。
+
+```python
+shares = list(file_service.list_shares(include_snapshots=True))
+```
+
+## <a name="browse-share-snapshot"></a>瀏覽共用快照集
+您可以瀏覽每個共用快照集的內容，以擷取該時間點的檔案和目錄。
+
+```python
+directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+```
+
+## <a name="get-file-from-share-snapshot"></a>從共用快照集取得檔案
+您可以針對還原案例，從共用快照集下載檔案。
+
+```python
+with open(FILE_PATH, 'wb') as stream:
+    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+```
+
+## <a name="delete-a-single-share-snapshot"></a>刪除單一共用快照集  
+您可以刪除單一共用快照集。
+
+```python
+file_service.delete_share(share_name, snapshot=snapshot_id)
+```
+
+## <a name="delete-share-when-share-snapshots-exist"></a>共用快照集存在時刪除共用
+除非先刪除所有快照集，否則無法刪除內含快照集的共用。
+
+```python
+file_service.delete_share(share_name, delete_snapshots=DeleteSnapshot.Include)
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
+ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 06fbf6019aa4a2ceab99a83efe072fc0b71bfbf4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -85,7 +84,7 @@ sudo /opt/microsoft/azureml/initial_setup.sh
 
 完成環境設定時：
 - 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟 https://aka.ms/devicelogin 頁面並輸入對於驗證所提供的程式碼。
-- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項：選取具有有效 Azure 訂用帳戶而且有充分的權限在帳戶中建立資源的的帳戶。登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要使用選取的帳戶繼續。
+- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項：選取具有有效 Azure 訂用帳戶而且有充分的權限在帳戶中建立資源的帳戶。登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要使用選取的帳戶繼續。
 
 ### <a name="environment-setup"></a>環境設定
 若要開始安裝程序，您必須輸入下列命令註冊環境提供者：
@@ -122,7 +121,7 @@ az ml env set -n [environment name] -g [resource group]
 若要將您的 web 服務部署到生產環境中，請先使用下列命令設定環境：
 
 ```azurecli
-az ml env setup -c --cluster-name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
+az ml env setup -c --name [your environment name] --location [Azure region e.g. eastus2] [-g [resource group]]
 ```
 
 叢集環境安裝命令會在您的訂用帳戶中建立下列資源：
@@ -143,6 +142,9 @@ az ml env set -n [environment name] -g [resource group]
 >[!NOTE] 
 > 建立環境之後，對於後續的部署，您只需要使用上述的 set 命令即可重複使用該環境。
 >
+
+>[!NOTE] 
+>若要建立 HTTPS 端點，請在建立叢集時，於 az ml env setup 中使用 --cert-name 和 --cert-pem 選項來指定 SSL 憑證。 這會設定讓叢集透過 https 為要求提供服務，使用所提供的憑證來保護安全。 設定完成之後，請建立一個指向叢集 FQDN 的 CNAME DNS 記錄。
 
 ### <a name="create-an-account"></a>建立帳戶
 需要有帳戶才能部署模型。 對於每個帳戶只需要進行一次，而且可以在多個部署中重複使用相同的帳戶。
@@ -167,4 +169,3 @@ az ml service create realtime --model-file [model file/folder path] -f [scoring 
 
 ### <a name="next-steps"></a>後續步驟
 嘗試資源庫中的其中一個範例。
-

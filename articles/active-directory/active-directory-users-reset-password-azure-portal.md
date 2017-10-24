@@ -12,36 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e7c38c7f0d40a310dd0b6bd0e866d2d55115550
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: b59f74546e219d45814a1a2e05e59beb0b080f21
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reset-the-password-for-a-user-in-azure-active-directory"></a>在 Azure Active Directory 中重設使用者的密碼
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](active-directory-users-reset-password-azure-portal.md)
-> * [Azure 傳統入口網站](active-directory-create-users-reset-password.md)
->
->
 
 ## <a name="how-to-reset-the-password-for-a-user"></a>如何重設使用者的密碼
-1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 選取 [更多服務]，在文字方塊中輸入「使用者和群組」，然後選取 **Enter**。
+1. 使用具備目錄全域管理員身分的帳戶登入 [Azure AD 管理中心](https://aad.portal.azure.com)。
+2. 選取 [使用者和群組]。
 
    ![開啟使用者管理](./media/active-directory-users-reset-password-azure-portal/create-users-user-management.png)
-3. 在 [使用者和群組] 刀鋒視窗上，選取 [使用者]。
+3. 選取 [所有使用者]。
 
-   ![開啟 [使用者] 刀鋒視窗](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
-4. 在 [使用者和群組 - 使用者]  刀鋒視窗上，從清單中選取一個使用者。
-5. 在所選使用者的刀鋒視窗上選取 [概觀]，然後在命令列中選取 [重設密碼]。
+   ![開啟所有使用者群組](./media/active-directory-users-reset-password-azure-portal/create-users-open-users-blade.png)
+1. 從清單中選取使用者。
+2. 針對選取的使用者，選取 [概觀]，然後在命令列中選取 [重設密碼]。
 
     ![選取 [重設密碼] 命令](./media/active-directory-users-reset-password-azure-portal/create-users-reset-password-command.png)
-6. 在 [重設密碼] 刀鋒視窗上，選取 [重設密碼]。
+6. 在 [重設密碼] 上，選取 [重設密碼]。
 
 ## <a name="next-steps"></a>後續步驟
 * [新增使用者](active-directory-users-create-azure-portal.md)

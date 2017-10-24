@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: df82afab2c38431e134146143524edc080ee38f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>在 Operations Management Suite 安全性和稽核解決方案內監視及回應安全性警示
 這份文件可協助您使用 OMS 安全性和稽核中可用的威脅情報選項來監視及回應安全性警示。
@@ -34,7 +32,7 @@ Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理
 
 使用 OMS 安全性和稽核中可用的 [威脅情報]  選項，IT 系統管理員可以識別對環境的安全性威脅 (例如，識別特定的電腦是否屬於 [殭屍網路](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection))。 如果攻擊者偷偷地安裝惡意程式碼，暗中將此電腦連接到命令和控制項，則電腦可能會成為殭屍網路中的節點。 它也可以識別來自地下通訊通道 (例如 [暗網](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents)) 的潛在威脅。 
 
-為了建置此威脅情報，OMS 安全性和稽核會使用來自 Microsoft 內多個來源的資料。 OMS 安全性和稽核將會利用這項資料來識別您環境的潛在威脅。
+為了建置此威脅情報，OMS 安全性和稽核解決方案會使用來自 Microsoft 內多個來源的資料。 OMS 安全性和稽核將會利用這項資料來識別您環境的潛在威脅。
 
 [威脅情報] 窗格是由三個主要選項所組成︰
 
@@ -43,7 +41,7 @@ Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理
 * 威脅情報對應
 
 > [!NOTE]
-> 如需所有這些選項的概觀，請參閱 [開始使用 Operations Management Suite 安全性和稽核解決方案](oms-security-getting-started.md)。
+> 如需所有這些選項的概觀，請參閱[開始使用 Operations Management Suite 安全性和稽核解決方案](oms-security-getting-started.md)。
 > 
 > 
 
@@ -56,7 +54,7 @@ Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理
 * 識別已遭入侵的系統
 * 識別已存取的檔案，並判斷這些檔案的敏感度
 
-您可以利用 OMS 安全性和稽核解決方案中的 [威脅情報]  資訊，協助進行這些工作。 請遵循下列步驟來存取這個 [威脅情報]  選項：
+您可以利用 OMS 安全性和稽核解決方案中的**威脅情報**資訊，協助進行這些工作。 請遵循下列步驟來存取這些**威脅情報**選項：
 
 1. 在 [Microsoft Operations Management Suite] 主儀表板內按一下 [安全性和稽核] 圖格。
    
@@ -88,7 +86,7 @@ Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理
 ### <a name="responding-to-distinct-malicious-ip-accessed"></a>回應存取的相異惡意 IP
 在某些情況下，您可能會發現已從一部受監視的電腦存取潛在惡意 IP：
 
-![威脅情報對應](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+![威脅情報對應](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.PNG)
 
 會透過 OMS 安全性產生此警示以及其他相同類別中的警示，方法是運用 [Microsoft 威脅情報](https://youtu.be/O4WtxgUrDc8)。 威脅情報資料是由 Microsoft 向主要威脅情報提供者所收集及購買。 這項資料會經常更新，且適用於快速移動威脅。 本質上，在[調查](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/)安全性警示時，應將它與其他安全性資訊的來源進行結合。 
 
@@ -104,5 +102,4 @@ Microsoft Operations Management Suite (OMS) 是 Microsoft 的雲端型 IT 管理
 * [Operations Management Suite (OMS) 概觀](operations-management-suite-overview.md)
 * [開始使用 Operations Management Suite 安全性和稽核解決方案](oms-security-getting-started.md)
 * [在 Operations Management Suite 安全性和稽核解決方案內監視資源](oms-security-monitoring-resources.md)
-
 

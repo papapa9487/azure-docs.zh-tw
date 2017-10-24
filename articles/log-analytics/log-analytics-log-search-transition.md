@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/23/2017
 ms.author: bwren
+ms.openlocfilehash: 50713d69f6dce6b7b154b6b4a6df3f679eb7b7c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 10b7f3ad23d9c5451bc7ff82b8927c260230f6da
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>轉換為 Azure Log Analytics 新的查詢語言
 
 > [!NOTE]
@@ -30,7 +28,7 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="language-converter"></a>語言轉換器
 
-如果您已熟悉舊版 Log Analytics 查詢語言，以新的語言建立相同查詢的最簡單方式是使用「語言轉換器」，它已在您的工作區轉換時安裝在記錄搜尋入口網站中。  使用轉換器很簡單，就如同在頂端文字方塊中輸入舊版查詢，然後按一下 [轉換] 一樣。  您可以按一下搜尋按鈕以執行查詢，或複製並貼上它以在其他地方使用。
+如果您已熟悉舊版 Log Analytics 查詢語言，以新的語言建立相同查詢的最簡單方式是使用「語言轉換器」，它已在您的工作區轉換時安裝在記錄搜尋入口網站中。  使用轉換器很簡單，就如同在頂端文字方塊中輸入舊版查詢，然後按一下轉換 一樣。  您可以按一下搜尋按鈕以執行查詢，或複製並貼上它以在其他地方使用。
 
 ![語言轉換器](media/log-analytics-log-search-upgrade/language-converter.png)
 
@@ -50,7 +48,7 @@ ms.lasthandoff: 08/28/2017
 |                        | Type=Event Computer=RegEx("@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
 | 日期比較        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &#124; where TimeGenerated between (datetime(2017-05-01) .. datetime(2017-05-31)) |
-| 布林值比較     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat | where IsGatewayInstalled == false |
+| 布林值比較     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |
 | 排序                   | Type=Event &#124; sort Computer asc, EventLog desc, EventLevelName asc | Event \| sort by Computer asc, EventLog desc, EventLevelName asc |
 | Distinct               | Type=Event &#124; dedup Computer \| 選取電腦 | Event &#124; summarize by Computer, EventLog |
 | 擴充資料行         | Type=Perf CounterName="% Processor Time" &#124; EXTEND if(map(CounterValue,0,50,0,1),"HIGH","LOW") as UTILIZATION | Perf &#124; where CounterName == "% Processor Time" \| extend Utilization = iff(CounterValue > 50, "HIGH", "LOW") |
@@ -65,4 +63,3 @@ ms.lasthandoff: 08/28/2017
 ## <a name="next-steps"></a>後續步驟
 - 請參閱使用新的查詢語言[撰寫查詢的教學課程](https://go.microsoft.com/fwlink/?linkid=856078)。
 - 請參閱[查詢語言參考](https://go.microsoft.com/fwlink/?linkid=856079)以取得新的查詢語言的所有命令、運算子和函式的詳細資訊。  
-

@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -49,7 +48,7 @@ npm install -g azure-functions-core-tools
 >[!IMPORTANT]   
 > 安裝 Azure Functions Core Tools 之前，請[安裝 .NET Core 2.0](https://www.microsoft.com/net/core)。  
 >
-> Azure Functions 執行階段 2.0 為預覽版本，而且目前不支援所有 Azure Functions 功能。 如需詳細資訊，請參閱 [Azure Functions 執行階段 2.0 已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。 
+> Azure Functions 執行階段 2.0 為預覽版本，而且目前並未支援所有 Azure Functions 功能。 如需詳細資訊，請參閱 [Azure Functions 執行階段 2.0 已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。 
 
  使用下列命令來安裝 2.0 版工具：
 
@@ -161,6 +160,7 @@ local.settings.json 檔案中的值，只會由於本機執行的 Functions 工�
     ```
     這兩個命令都需要先登入 Azure。
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>建立函式
 
 若要建立函式，請執行下列命令：
@@ -187,7 +187,7 @@ func new --language JavaScript --template HttpTrigger --name MyHttpTrigger
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>在本機執行函式
 
 若要執行 Functions 專案，請執行 Functions 主機。 主機可允許專案中所有函式的觸發程序：
@@ -237,7 +237,60 @@ func host start --debug vscode
 
 ### <a name="passing-test-data-to-a-function"></a>將測試資料傳遞至函式
 
-您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試] 索引標籤執行函式。 這個命令會啟動整個 Functions 主機。
+若要在本機測試您的函式，您要使用 HTTP 要求在本機伺服器上[啟動 Functions 主機](#start)並呼叫端點。 您呼叫的端點取決於函式的類型。 
+
+>[!NOTE]  
+> 本主題中的範例使用 cURL 工具，從終端機或命令提示字元傳送 HTTP 要求。 您可以使用您選擇的工具，將 HTTP 要求傳送至本機伺服器。 以 Linux 為基礎的系統預設可以使用 cURL 工具。 在 Windows 上，您必須先下載並安裝 [cURL 工具 (英文)](https://curl.haxx.se/)。
+
+如需測試函式的更多一般資訊，請參閱[在 Azure Functions 中測試程式碼的策略](functions-test-a-function.md)。
+
+#### <a name="http-and-webhook-triggered-functions"></a>HTTP 和 Webhook 觸發的函式
+
+您要呼叫下列端點，以在本機執行 HTTP 和 Webhook 觸發的函式：
+
+    http://localhost:{port}/api/{function_name}
+
+請務必使用 Functions 主機接聽的相同伺服器名稱和連接埠。 啟動 Function 主機時，您會在產生的輸出中看到下列內容。 您可以使用觸發程序支援的任何 HTTP 方法呼叫此 URL。 
+
+下列 cURL 命令從 GET 要求在查詢字串中傳遞 _name_ 參數，觸發 `MyHttpTrigger` 快速入門函式。 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+下列範例與從 POST 要求在要求本文中傳遞 _name_ 所呼叫的函式相同：
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+請注意，您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。  
+
+#### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
+對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上呼叫此端點會觸發函式。 您可以選擇性傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。  
+
+您可以使用 HTTP POST 要求，呼叫下列系統管理員端點來觸發非 HTTP 函式：
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+若要將測試資料傳遞至函式的管理員端點，您必須在 POST 要求訊息的本文中提供資料。 訊息本文必須具備下列 JSON 格式：
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+`<trigger_input>` 值包含函式預期格式的資料。 下列 cURL 範例是 POST 到 `QueueTriggerJS` 函式。 在此情況下，輸入是一個相當於在佇列中預期找到的訊息字串。      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>使用版本 1.x 中的 `func run` 命令
+
+>[!IMPORTANT]  
+> 工具的版本 2.x 不支援 `func run` 命令。 如需詳細資訊，請參閱[如何設定 Azure Functions 執行階段版本目標](functions-versions.md)主題。
+
+您也可以使用 `func run <FunctionName>` 直接叫用函式，並為函式提供輸入資料。 此命令類似於使用 Azure 入口網站中的 [測試] 索引標籤執行函式。 
 
 `func run` 支援下列選項：
 
@@ -270,7 +323,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。|
 | **`--overwrite-settings -y`** | 必須與 `-i` 搭配使用。 使用本機值在 Azure 中覆寫 AppSettings (如果不同)。 預設值為提示。|
 
-此命令會發行至 Azure 中的現有函式應用程式。 訂用帳戶中沒有 `<FunctionAppName>` 時，會發生錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或 [終端機] 視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。
+此命令會發行至 Azure 中的現有函式應用程式。 訂用帳戶中沒有 `<FunctionAppName>` 時，會發生錯誤。 若要了解如何使用 Azure CLI 從命令提示字元或終端機視窗建立函式應用程式，請參閱[建立無伺服器也可執行的函式應用程式](./scripts/functions-cli-create-serverless.md)。
 
 `publish` 命令會將 Functions 專案目錄的內容上傳。 如果您在本機將檔案刪除，`publish` 命令並不會從 Azure 刪除它們。 您可以使用 [Azure 入口網站] 中的 [Kudu 工具](functions-how-to-use-azure-function-app-settings.md#kudu)來刪除 Azure 中的檔案。  
 
@@ -292,4 +345,3 @@ Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://g
 
 [Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Azure 入口網站]: https://portal.azure.com 
-

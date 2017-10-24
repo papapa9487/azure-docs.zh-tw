@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: devtiw
+ms.openlocfilehash: 2ccadfdec0e653264671f5a9a38d4541b0fc4e69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: f66eabcbb386d5e7b31268a7b04063ff2cefbaf2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure 磁碟加密常見問題集
 
@@ -122,6 +121,12 @@ ms.lasthandoff: 09/02/2017
 
 如果此工作流程不可行，靠著平台儲存體帳戶層[的儲存體服務加密](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption) (SSE)，可能可以替代使用 dm crypt 的完整磁碟加密。
 
+**問：**什麼是磁碟 "Bek Volume" 或 "/mnt/azure_bek_disk"？
+
+**答：**Windows 的 "Bek volume" 或Linux 的 "/mnt/azure_bek_disk" 均為本機資料磁碟區，其會安全地儲存用於已加密 Azure IaaS VM 的加密金鑰。
+> [!NOTE]
+> 請勿刪除或編輯此磁碟中的任何內容。 由於 IaaS VM 上的任何加密作業都需要加密金鑰存在，因此請勿卸載該磁碟。
+
 **問：**我可以在哪裡提出問題或意見反應？
 
 **答：**您可以在 [Azure 磁碟加密論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureDiskEncryption)提出問題或意見反應。
@@ -132,4 +137,3 @@ ms.lasthandoff: 09/02/2017
 - [在 Azure 資訊安全中心套用磁碟加密](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
 - [加密 Azure 虛擬機器](https://docs.microsoft.com/azure/security-center/security-center-disk-encryption)
 - [待用 Azure 資料加密](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
-

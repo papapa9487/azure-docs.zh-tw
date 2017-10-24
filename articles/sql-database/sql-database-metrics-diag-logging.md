@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
+ms.openlocfilehash: a56d48eaf335d9e78eeba99162cea7c61d96b7cb
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ef73f9036a91d5bac50597d1d96fe134225eef51
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您可以將 Azure SQL Database 設定為將資源使用量、背景工作與工作階段及連線儲存到下列其中一項 Azure 資源：
@@ -61,7 +60,7 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-若要在 Azure 入口網站中啟用計量和診斷記錄收集功能，請瀏覽至您的 Azure SQL 資料庫或彈性集區頁面，然後按一下 [診斷設定]。
+若要在 Azure 入口網站中啟用計量和診斷記錄收集功能，請瀏覽至您的 Azure SQL 資料庫或彈性集區頁面，然後按一下診斷設定。
 
    ![在 Azure 入口網站中啟用](./media/sql-database-metrics-diag-logging/enable-portal.png)
 
@@ -106,6 +105,17 @@ Azure SQL Database 可以發出計量和診斷記錄，以便進行監視。 您
    ```
 
 您可以結合這些參數讓多個輸出選項。
+
+### <a name="to-configure-multiple-azure-subscriptions"></a>若要設定多個 Azure 訂用帳戶
+
+若要支援多個訂用帳戶，從[使用 PowerShell 啟用 Azure 資源計量記錄](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)使用 PowerShell 指令碼。 當執行指令碼以將診斷資料從一個 Azure 訂用帳戶中的資源傳送至另一個 Azure 訂用帳戶中的工作區時，提供工作區資源識別碼做為參數。
+
+- 若要設定多個 Azure 訂用帳戶，請使用下列命令：
+
+    ```powershell
+    PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
+    PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
+    ```
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -448,4 +458,3 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
    - [Azure 事件中樞是什麼](../event-hubs/event-hubs-what-is-event-hubs.md)？
    - [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 - 請參閱[從 Azure 儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
-

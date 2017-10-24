@@ -1,10 +1,10 @@
 ---
 title: "在 StorSimple 8000 系列裝置安裝 Update 5 | Microsoft Docs"
-description: "說明如何在 StorSimple 8000 系列裝置上安裝 StorSimple 8000 系列 Update 4。"
+description: "說明如何在 StorSimple 8000 系列裝置上安裝 StorSimple 8000 系列 Update 5。"
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,25 +12,25 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/22/2017
+ms.date: 10/06/2017
 ms.author: alkohli
+ms.openlocfilehash: e9b2f8b225c6b9ed0f0622e6a51a48cdfada28bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 84056daaada94875af3d969847ead41c003a1606
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 5
 
 ## <a name="overview"></a>概觀
 
-本教學課程說明如何透過 Azure 入口網站及使用 Hotfix 方法，在執行舊軟體版本的 StorSimple 裝置上安裝 Update 5。 當閘道器是設定於 StorSimple 裝置之 DATA 0 以外的網路介面上，且您正嘗試從 Update 1 以前的軟體版本更新時，就會使用 Hotfix 方法。
+本教學課程說明如何透過 Azure 入口網站及使用 Hotfix 方法，在執行舊軟體版本的 StorSimple 裝置上安裝 Update 5。 當您嘗試在執行 Update 3 之前版本的裝置上安裝 Update 5 時，會使用 Hotfix 方法。 當閘道器是在 StorSimple 裝置之 DATA 0 以外的網路介面上設定的，且您要嘗試從 Update 1 之前的軟體版本更新時，也會使用 Hotfix 方法。
 
 Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 更新，以及磁碟韌體更新。  裝置軟體、Spaceport、Storport、安全性和其他 OS 更新皆為非干擾性更新。 您可以透過 Azure 入口網站或透過 Hotfix 方法，套用非干擾性或定期更新。 磁碟韌體更新為干擾性更新，會在裝置進入維護模式時使用裝置的 Windows PowerShell 介面透過 Hotfix 方法來套用。
 
 > [!IMPORTANT]
 > * 安裝前會執行一組手動和自動預先檢查，以根據硬體狀態和網路連線來判斷裝置健全狀況。 這些預先檢查只會在您從 Azure 入口網站套用更新時執行。
+> * 強烈建議您在更新執行 Update 3 之前版本的裝置時，使用 Hotfix 方法安裝更新。 為協助支援人員引導您完成更新，請[記錄支援票證](storsimple-8000-contact-microsoft-support.md)。
 > * 建議您透過 Azure 入口網站安裝軟體和其他定期更新。 如果入口網站中的更新前閘道器檢查失敗，請移至裝置的 Windows PowerShell 介面安裝更新 (勿透過其他方式)。 視您從哪一個版本更新而定，可能需要 4 小時 (或以上) 來安裝更新。 維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。 由於維護模式更新是干擾性更新，它們會導致裝置的停機時間。
 > * 如果執行選擇性的 StorSimple Snapshot Manager，更新裝置之前，請先將您的 Snapshot Manager 版本升級至 Update 5。
 
@@ -47,12 +47,11 @@ Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 
 
 確認您的裝置是否正在執行 **StorSimple 8000 系列 Update 5 (6.3.9600.17845)**。 [上次更新日期] 應該已修改。
 
-* 您會看到有可用的維護模式更新 (此訊息可能會在您安裝更新之後繼續顯示長達 24 小時)。 維護模式更新為干擾性更新，會導致裝置產生停機時間，且只能透過您裝置的 Windows PowerShell 介面加以套用。
+您會看到有可用的維護模式更新 (此訊息可能會在您安裝更新之後繼續顯示長達 24 小時)。 下一節會詳細說明安裝維護模式更新的步驟。
 
-* 下載維護模式更新，方法是使用[下載 Hotfix](#to-download-hotfixes) 中列出的步驟來搜尋和下載 KB4011837，它會安裝磁碟韌體更新 (此時應該已經安裝其他更新)。 請遵循 [安裝及驗證維護模式 Hotfix](#to-install-and-verify-maintenance-mode-hotfixes) 中列出的步驟安裝維護模式更新。
+[!INCLUDE [storsimple-8000-install-maintenance-mode-updates](../../includes/storsimple-8000-install-maintenance-mode-updates.md)]
 
 ## <a name="install-update-5-as-a-hotfix"></a>以 Hotfix 方式安裝 Update 5
-
 
 可以使用 Hotfix 方法升級的軟體版本為：
 
@@ -63,7 +62,7 @@ Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 
 * Update 4
 
 > [!NOTE] 
-> 建議的方法是透過 Azure 入口網站安裝 Update 5。 請在嘗試透過 Azure 入口網站安裝更新，而無法通過閘道器檢查時執行此程序。 當您指派閘道器給非 DATA 0 網路介面且您的裝置正在執行早於 Update 1 的軟體版本時，檢查會失敗。
+> 嘗試從 Update 3 及更新版本更新時，安裝 Update 5 的建議方法是透過 Azure 入口網站進行。 更新執行 Update 3 之前版本的裝置時，請使用此程序。 您也可以在嘗試透過 Azure 入口網站安裝更新，而無法通過閘道器檢查時使用此程序。 當您指派閘道器給非 DATA 0 網路介面且您的裝置正在執行早於 Update 1 的軟體版本時，檢查會失敗。
 
 Hotfix 方法涉及下列三個步驟：
 
@@ -114,5 +113,4 @@ Hotfix 方法涉及下列三個步驟：
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [Update 5 版本](storsimple-update5-release-notes.md)。
-
 

@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2017
+ms.date: 09/18/2017
 ms.author: terrylan
+ms.openlocfilehash: 0616f5e501324bfd821c1455ce234602f1fcf1bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: cb4a7db5666242576bf83abbf10682cc6f53ba69
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>使用 Azure 資訊安全中心建議增強安全性
 您可以設定安全性原則，然後實作 Azure 資訊安全中心提供的建議，以降低發生重大安全性事件的機會。 本文說明如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。
@@ -75,15 +73,15 @@ Contoso 最近將一些內部部署資源移轉至 Azure。 Contoso 想要實作
 ## <a name="how-to-implement-this-solution"></a>如何實作此解決方案
 Jeff 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)，並開啟資訊安全中心主控台。 在每日的監視活動中，他會執行下列步驟來檢查是否有安全性建議︰
 
-1. Jeff 選取 [建議] 圖格，以開啟 [建議] 刀鋒視窗。
+1. Jeff 選取 [建議] 圖格以開啟 [建議]。
    ![選取建議圖格][3]
-2. Jeff 檢閱建議清單。 他看到資訊安全中心已依優先順序提供建議清單 (優先順序由高至低)。 他決定採用清單上的「高」優先順序建議。 在 [建議] 刀鋒視窗上，他選取 [安裝 Endpoint Protection]。
-3. [安裝端點保護]  刀鋒視窗隨即開啟，顯示未啟用反惡意程式碼的 VM 清單。 Jeff 檢閱 VM 清單，選取所有 VM，然後選取 [安裝在 3 個 VM 上]。
+2. Jeff 檢閱建議清單。 他看到資訊安全中心已依優先順序提供建議清單 (優先順序由高至低)。 他決定採用清單上的「高」優先順序建議。 他選取 [建議] 下方的 [安裝 Endpoint Protection]。
+3. [安裝 Endpoint Protection] 隨即開啟，顯示未啟用反惡意程式碼的 VM 清單。 Jeff 檢閱 VM 清單，選取所有 VM，然後選取 [安裝在 3 個 VM 上]。
    ![安裝端點保護][4]
-4. [選取 Endpoint Protection] 刀鋒視窗隨時開啟，提供兩個反惡意程式碼解決方案給 Jeff。 Jeff 選取 [Microsoft Antimalware] 解決方案。
+4. [選取 Endpoint Protection] 隨時開啟，提供兩個反惡意程式碼解決方案給 Jeff。 Jeff 選取 [Microsoft Antimalware] 解決方案。
 5. 將會顯示反惡意程式碼解決方案的其他相關資訊。 Jeff 選取 [建立]。
    ![Microsoft antimalware][5]
-6. Jeff 在 [安裝] 刀鋒視窗上輸入必要的組態設定，然後選取 [確定]。
+6. Jeff 在 [安裝] 下方輸入必要的組態設定，然後選取 [確定]。
 
 [Microsoft Antimalware](../security/azure-security-antimalware.md)現在已在選取的 VM 上使用。
 
@@ -91,10 +89,10 @@ Jeff 繼續瀏覽高優先權和中優先順序的建議，然後決定實作。
 
 Jeff 了解 [Microsoft Security Response Center (MSRC)](../security/azure-security-response-center.md) 會執行 Azure 網路和基礎結構的獨特安全性監視，並接收來自協力廠商的威脅情報和濫用客訴。 如果 Jeff 提供 Contoso Azure 訂用帳戶的安全性連絡人詳細資料，當 MSRC 發現有非法或未經授權的一方存取 Contoso 的客戶資料時，Microsoft 會連絡 Contoso。 讓我們追蹤 Jeff 如何套用**提供安全性連絡人詳細資料**建議 (上述建議清單中具有「中」嚴重性的建議)。
 
-1. Jeff 在 [建議] 刀鋒視窗上選取 [提供安全性連絡人詳細資料]，以開啟 [提供安全性連絡人詳細資料] 刀鋒視窗。
+1. Jeff 選取 [建議] 下方的 [提供安全性連絡人詳細資料]，以開啟 [提供安全性連絡人詳細資料]。
 2. Jeff 選取要提供連絡人資訊的 Azure 訂用帳戶。 第二個 [提供安全性連絡人詳細資料]  刀鋒視窗隨即開啟。
    ![安全性連絡人詳細資料][6]
-3. 在第二個 [提供安全性連絡人詳細資料]  刀鋒視窗上，Jeff 輸入：
+3. 在 [提供安全性連絡人詳細資料] 下方，Jeff 輸入：
 
   - 安全性連絡人電子郵件地址，以逗號分隔 (他可以輸入的電子郵件地址數目沒有限制)
   - 一個安全性連絡人電話號碼
@@ -108,6 +106,18 @@ Jeff 了解 [Microsoft Security Response Center (MSRC)](../security/azure-securi
 ## <a name="conclusion"></a>結論
 監控資訊安全中心的建議可能有助於在發生攻擊之前消除安全性弱點。 您可以使用資訊安全中心的安全性原則來實作和維護防護措施，以防止安全性事件。
 
+## <a name="next-steps"></a>後續步驟
+本案例示範如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。 請參閱[事件回應案例](security-center-incident-response.md)，以了解如何在攻擊發生前備妥事件回應計劃。
+
+若要深入了解資訊安全中心，請參閱：
+
+* [安全性健康情況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健康清況。
+* [管理與回應安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示。
+* [監視和處理安全性事件](security-center-events-dashboard.md)-了解如何監視和處理一段時間下來收集到的安全性事件。
+* [監視合作夥伴解決方案](security-center-partner-solutions.md) — 了解如何監視合作夥伴解決方案的健全狀態。
+* [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
+* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 取得最新的 Azure 安全性新聞和資訊。
+
 <!--Image references-->
 [1]: ./media/security-center-using-recommendations/security-center-policy-inheritance.png
 [2]: ./media/security-center-using-recommendations/scenario-roles.png
@@ -116,4 +126,3 @@ Jeff 了解 [Microsoft Security Response Center (MSRC)](../security/azure-securi
 [5]:./media/security-center-using-recommendations/microsoft-antimalware.png
 [6]: ./media/security-center-using-recommendations/provide-security-contact-details.png
 [7]: ./media/security-center-using-recommendations/dismiss-recommendation.png
-

@@ -10,6 +10,8 @@
 | 作業系統地區設定 | 英文 (en-us)|
 | VMware vSphere PowerCLI 版本 | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0")|
 | Windows Server 角色 | 請勿啟用下列角色： <br> - Active Directory Domain Services <br>- 網際網路資訊服務 <br> - Hyper-V |
+| 群組原則| 不應在伺服器上啟用下列群組原則 <br> - 防止存取命令提示字元 <br> - 防止存取登錄編輯工具 <br> - 檔案附件的信任邏輯 <br> - 開啟指令碼執行 <br> **注意：**您可以在[這裡](https://technet.microsoft.com/en-us/library/gg176671(v=ws.10).aspx) \(英文\) 找到這些群組原則的詳細資訊|
+| 網際網路資訊服務 (IIS) 設定 | - 沒有預先存在的預設網站 <br> - 啟用[匿名驗證](https://technet.microsoft.com/en-us/library/cc731244(v=ws.10).aspx) \(英文\) <br> - 啟用 [FastCGI](https://technet.microsoft.com/en-us/library/cc753077(v=ws.10).aspx) 設定  <br> - 不應有任何預先存在的網站/應用程式接聽連接埠 443<br>|
 | **網路** | |
 | 網路介面卡類型 | VMXNET3 |
 | IP 位址類型 | 靜態 |

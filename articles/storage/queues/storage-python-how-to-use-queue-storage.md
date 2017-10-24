@@ -3,7 +3,7 @@ title: "如何使用 Python 的佇列儲存體 | Microsoft Docs"
 description: "了解如何使用 Python 的 Azure 佇列服務來建立和刪除佇列，以及插入、取得和刪除訊息。"
 services: storage
 documentationcenter: python
-author: tamram
+author: robinsh
 manager: timlt
 editor: tysonn
 ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: tamram
+ms.author: robinsh
+ms.openlocfilehash: 8311d8e29845f2801c4b33f994512113044fcbf7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 963c11acb7939993568a774cd281145a8059b5a6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何使用 Python 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -32,6 +31,26 @@ ms.lasthandoff: 08/21/2017
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>下載並安裝 Azure Storage SDK for Python
+
+Azure Storage SDK for Python 需要有 Python 2.7、3.3、3.4、3.5 或 3.6，而且提供 4 種不同的封裝：`azure-storage-blob`、`azure-storage-file`、`azure-storage-table` 和 `azure-storage-queue`。 在本教學課程中，我們將使用 `azure-storage-queue` 封裝。
+ 
+### <a name="install-via-pypi"></a>透過 PyPi 安裝
+
+若要透過 Python Package Index (PyPI) 安裝，請輸入：
+
+```bash
+pip install azure-storage-queue
+```
+
+
+> [!NOTE]
+> 如果您要從 Azure 儲存體 Azure Storage SDK for Python 0.36 版或更早版本升級，您將必須先使用 `pip uninstall azure-storage` 解除安裝，因為我們將不再以單一封裝的方式發行 Storage SDK for Python。
+> 
+> 
+
+如需替代安裝方法，請瀏覽 [Github 上的 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)。
 
 ## <a name="how-to-create-a-queue"></a>作法：建立佇列
 **QueueService** 物件可讓您操作佇列。 下列程式碼將建立 **QueueService** 物件。 將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：

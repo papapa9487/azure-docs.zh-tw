@@ -16,15 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: bb58cd7a00bc8eb5eaf2ea5a7a8f7641b0502ed9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: 228ca9ca5fddc493d27bfd6a40df5ee7306d6aa9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
 本教學課程說明如何在「Azure 虛擬機器」上建立「SQL Server Always On 可用性群組」。 整個教學課程會建立一個在兩部 SQL Server 上都有一份資料庫複本的「可用性群組」。
@@ -57,8 +54,7 @@ ms.lasthandoff: 05/10/2017
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
-<a name="CreateCluster">
-</a>
+<a name="CreateCluster"></a>
 ## 建立叢集
 
 完成必要條件之後，第一個步驟是建立一個包含兩部 SQL Server 和一部見證伺服器的「Windows Server 容錯移轉叢集」。  
@@ -68,8 +64,8 @@ ms.lasthandoff: 05/10/2017
    >[!TIP]
    >如果您已依照[必要條件文件](virtual-machines-windows-portal-sql-availability-group-prereq.md)的說明操作，則您已建立名為 **CORP\Install** 的帳戶。 請使用此帳戶。
 
-2. 在 [伺服器管理員] 儀表板中，選取 [工具]，然後按一下 [容錯移轉叢集管理員]。
-3. 在左側窗格中，於 [容錯移轉叢集管理員] 上按一下滑鼠右鍵，然後按一下 [建立叢集]。
+2. 在 伺服器管理員 儀表板中，選取 工具，然後按一下容錯移轉叢集管理員。
+3. 在左側窗格中，於 容錯移轉叢集管理員 上按一下滑鼠右鍵，然後按一下建立叢集。
    ![建立叢集](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/40-createcluster.png)
 4. 在「建立叢集精靈」中，以下表中的設定逐步完成每個頁面來建立單節點叢集：
 
@@ -85,7 +81,7 @@ ms.lasthandoff: 05/10/2017
 
 1. 在 [容錯移轉叢集管理員] 中，向下捲動到 [叢集核心資源] 區段，然後展開叢集詳細資料。 在 [失敗] 狀態中，應該會同時出現 [名稱] 和 [IP 位址] 資源 。 由於指派給叢集的 IP 位址與虛擬機器本身的 IP 位址相同，因此位址重複，所以無法讓該 IP 位址資源上線。
 
-2. 以滑鼠右鍵按一下失敗的 [IP 位址] 資源，然後按一下 [內容]。
+2. 以滑鼠右鍵按一下失敗的 IP 位址 資源，然後按一下內容。
 
    ![叢集屬性](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
@@ -100,7 +96,7 @@ ms.lasthandoff: 05/10/2017
 
     ![將節點新增至叢集](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/44-addnode.png)
 
-1. 在 [新增節點精靈] 中，按 [下一步]。 在 [選取伺服器] 頁面中，新增第二部 SQL Server。 在 [輸入伺服器名稱] 中輸入伺服器名稱，然後按一下 [新增]。 完成之後，按 [下一步]。
+1. 在 [新增節點精靈] 中，按 [下一步]。 在 [選取伺服器] 頁面中，新增第二部 SQL Server。 在 輸入伺服器名稱 中輸入伺服器名稱，然後按一下新增。 完成之後，按 [下一步]。
 
 1. 在 [驗證警告] 頁面上，按一下 [否] \(實際操作時，請執行驗證測試)。 然後按 [下一步] 。
 
@@ -129,7 +125,7 @@ ms.lasthandoff: 05/10/2017
 
 1. 按一下 [共用資料夾]。
 
-1. 在 [共用] 上按一下滑鼠右鍵，然後按一下 [新增共用]。
+1. 在 共用 上按一下滑鼠右鍵，然後按一下新增共用。
 
    ![新增共用](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -159,7 +155,7 @@ ms.lasthandoff: 05/10/2017
 
 1. 使用遠端桌面來連接到第一個叢集節點。
 
-1. 在 [容錯移轉叢集管理員] 中，於叢集上按一下滑鼠右鍵、指向 [其他動作]，然後按一下 [設定叢集仲裁設定]。
+1. 在 容錯移轉叢集管理員 中，於叢集上按一下滑鼠右鍵、指向 其他動作，然後按一下設定叢集仲裁設定。
 
    ![新增共用](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/52-configurequorum.png)
 
@@ -222,7 +218,7 @@ Repeat these steps on the second SQL Server.
 
 1. 啟動 RDP 檔案，使用具備 sysadmin 固定伺服器角色成員身分的網域帳戶來連接到第一部 SQL Server。
 1. 開啟 SQL Server Management Studio，然後連接到第一部 SQL Server。
-7. 在 [物件總管] 中，於 [資料庫] 上按一下滑鼠右鍵，然後按一下 [新增資料庫]。
+7. 在 物件總管 中，於 資料庫 上按一下滑鼠右鍵，然後按一下新增資料庫。
 8. 在 [資料庫名稱] 中，輸入 **MyDB1**，然後按一下 [確定]。
 
 ### <a name="backupshare"></a> 建立備份共用
@@ -231,7 +227,7 @@ Repeat these steps on the second SQL Server.
 
 1. 按一下 [共用資料夾]。
 
-1. 在 [共用] 上按一下滑鼠右鍵，然後按一下 [新增共用]。
+1. 在 共用 上按一下滑鼠右鍵，然後按一下新增共用。
 
    ![新增共用](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/48-newshare.png)
 
@@ -257,7 +253,7 @@ Repeat these steps on the second SQL Server.
 
 您必須備份新資料庫以將記錄鏈結初始化。 如果您沒有備份新的資料庫，就無法將它納入「可用性群組」中。
 
-1. 在 [物件總管] 中，於資料庫上按一下滑鼠右鍵、指向 [工作]，然後按一下 [備份]。
+1. 在 物件總管 中，於資料庫上按一下滑鼠右鍵、指向 工作，然後按一下備份。
 
 1. 按一下 [確定] 以完整備份到預設備份位置。
 
@@ -271,7 +267,7 @@ Repeat these steps on the second SQL Server.
 
 ### <a name="create-the-availability-group"></a>建立可用性群組：
 
-1. 在連接到第一部 SQL Server 的遠端桌面工作階段上。 在 SSMS 的 [物件總管] 中，於 [AlwaysOn 高可用性] 上按一下滑鼠右鍵，然後按一下 [新增可用性群組精靈]。
+1. 在連接到第一部 SQL Server 的遠端桌面工作階段上。 在 SSMS 的 物件總管 中，於 AlwaysOn 高可用性 上按一下滑鼠右鍵，然後按一下新增可用性群組精靈。
 
     ![啟動新增可用性群組精靈](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/56-newagwiz.png)
 
@@ -504,4 +500,3 @@ SQLCMD 連線會自動連線到任何一個裝載主要複本的 SQL Server 執�
 ## <a name="next-steps"></a>後續步驟
 
 - [將第二個可用性群組的 IP 位址新增到負載平衡器](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md#Add-IP)。
-

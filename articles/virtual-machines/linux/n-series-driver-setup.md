@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: bdeb4d5ca1d9ff4d7dfd0961690412dd7530572a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在執行 Linux 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式
 
 若要利用 Azure N 系列 VM (執行 Linux) 的 GPU 功能，您必須安裝支援的 NVIDIA 圖形驅動程式。 本文提供您在部署 N 系列 VM 後的驅動程式安裝步驟。 驅動程式設定資訊也適用於 [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -97,6 +95,9 @@ ms.lasthandoff: 07/28/2017
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>以 CentOS 作為基礎的 7.3 或 Red Hat Enterprise Linux 7.3
 
+> [!IMPORTANT]
+> 請勿執行 `sudo yum update` 以更新 CentOS 7.3 或 Red Hat Enterprise Linux 7.3 上的核心版本。 目前，驅動程式的安裝及更新無法在核心已更新的情況下運作。
+>
 
 1. 更新核心和 DKMS。
  
@@ -121,15 +122,16 @@ ms.lasthandoff: 07/28/2017
 3. 重新啟動 VM、重新連線，然後安裝最新的 Linux Integration Services for Hyper-V：
  
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
- 
-  tar xvzf lis-rpms-4.2.2-2.tar.gz
- 
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+
+  tar xvzf lis-rpms-4.2.3.tar.gz
+
   cd LISISO
- 
+
   sudo ./install.sh
- 
+
   sudo reboot
+
   ```
  
 4. 重新連線至 VM 並執行 `lspci` 命令。 請確認 NVIDIA M60 卡可以顯示為 PCI 裝置。
@@ -227,11 +229,13 @@ lspci | grep -i NVIDIA
 
 1. 下載並安裝 CUDA 驅動程式。
   ```bash
-  CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.61-1_amd64.deb
+  CUDA_REPO_PKG=cuda-9-0_9.0.176-1_amd64.deb
 
   wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
 
   sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+  sudo apt-key adv --fetch-keys http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/7fa2af80.pub 
 
   rm -f /tmp/${CUDA_REPO_PKG}
 
@@ -251,25 +255,38 @@ lspci | grep -i NVIDIA
 
 3. 重新啟動 VM 並繼續確認安裝。
 
+#### <a name="cuda-driver-updates"></a>CUDA 驅動程式更新
+
+我們建議您在部署後定期更新 CUDA 驅動程式。
+
+```bash
+sudo apt-get update
+
+sudo apt-get upgrade -y
+
+sudo apt-get dist-upgrade -y
+
+sudo apt-get install cuda-drivers
+
+sudo reboot
+```
+
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>以 CentOS 作為基礎的 7.3 或 Red Hat Enterprise Linux 7.3
 
-1. 取得更新。 
+> [!IMPORTANT]
+> 請勿執行 `sudo yum update` 以更新 CentOS 7.3 或 Red Hat Enterprise Linux 7.3 上的核心版本。 目前，驅動程式的安裝及更新無法在核心已更新的情況下運作。
+>
 
-  ```bash
-  sudo yum update
-
-  sudo reboot
-  ```
-2. 重新連線到 VM，然後安裝最新的 Linux Integration Services for Hyper-V。
+1. 請安裝最新的 Linux Integration Services for Hyper-V。
 
   > [!IMPORTANT]
   > 如果您在 NC24r VM 上安裝了 CentOS 架構的 HPC 映像，請跳至步驟 3。 因為映像中預先安裝了 Azure RDMA 驅動程式和 Linux Integration Services，所以不應該升級 LIS，並且依預設會停用核心更新。
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.1.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
  
-  tar xvzf lis-rpms-4.2.1.tar.gz
+  tar xvzf lis-rpms-4.2.3.tar.gz
  
   cd LISISO
  
@@ -287,7 +304,7 @@ lspci | grep -i NVIDIA
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-8.0.61-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -319,33 +336,20 @@ lspci | grep -i NVIDIA
 ![NVIDIA 裝置狀態](./media/n-series-driver-setup/smi.png)
 
 
-### <a name="cuda-driver-updates"></a>CUDA 驅動程式更新
 
-我們建議您在部署後定期更新 CUDA 驅動程式。
+## <a name="rdma-network-for-nc24r-vms"></a>適用於 NC24r VM 的 RDMA 網路
 
-#### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
+可以在部署於相同可用性設定組中的 NC24r VM 上啟用 RDMA 網路連線能力。 RDMA 網路可針對搭配 Intel MPI 5.x 或更新版本執行的應用程式，支援訊息傳遞介面 (MPI) 流量。 其他需求如下：
 
-```bash
-sudo apt-get update
+### <a name="distributions"></a>散發
 
-sudo apt-get upgrade -y
+從 Azure Marketplace 中支援 RDMA 連線的下列其中一個映像，部署 NC24r VM：
+  
+* **Ubuntu**：Ubuntu Server 16.04 LTS。 設定 VM 上的 RDMA 驅動程式，並向 Intel 註冊以下載 Intel MPI：
 
-sudo apt-get dist-upgrade -y
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-sudo apt-get install cuda-drivers
-
-sudo reboot
-```
-
-
-#### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>以 CentOS 作為基礎的 7.3 或 Red Hat Enterprise Linux 7.3
-
-```bash
-sudo yum update
-
-sudo reboot
-```
-
+* **CentOS 型 HPC**：CentOS 型 7.3 HPC。 已在 VM 上安裝 RDMA 驅動程式和 Intel MPI 5.1。 
 
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -361,4 +365,3 @@ sudo reboot
     * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (適用於 Azure NV VM)
 
 * 若要擷取已安裝 NVIDIA 驅動程式的 Linux VM 映像，請參閱[如何一般化和擷取 Linux 虛擬機器](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-

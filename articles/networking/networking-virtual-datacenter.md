@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
+ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: fd656c68b5c3b6858b0aa04c51bdd28f3f0adc24
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-azure-virtual-data-center"></a>Microsoft Azure 虛擬資料中心
 **Microsoft Azure**：移動更為快速、節省成本、在內部部署環境整合應用程式和資料
 
@@ -382,9 +380,8 @@ vDC 裝載所在的 Azure 區域也需要符合您組織運作所在之任何法
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
 [OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
-[WebApps]: https://docs.microsoft.com/azure/app-service-web/
+[WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
-

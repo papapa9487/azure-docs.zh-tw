@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
+ms.openlocfilehash: 43e1a66c3aca882f8f572d2bf71976d6b65a9c68
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 23ee3572752030332c5bfdd84edc97df5fb8e58f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-application-upgrade"></a>Service Fabric 應用程式升級
 Azure Service Fabric 應用程式是服務集合。 在升級期間，Service Fabric 會比較新的 [應用程式資訊清單](service-fabric-application-model.md#describe-an-application) 與舊版本，並決定應用程式中哪些服務需要更新。 Service Fabric 會比較服務資訊清單中的版本號碼和上一版中的版本號碼。 如果服務未變更，則該服務不會升級。
@@ -32,6 +31,8 @@ Azure Service Fabric 應用程式是服務集合。 在升級期間，Service Fa
 當您設定叢集時，會在叢集資訊清單中指定更新網域。 更新網域不會以特定順序收到更新。 更新網域是應用程式的部署邏輯單元。 更新網域可以讓服務在升級期間維持高可用性。
 
 如果升級套用到叢集中的所有節點 (應用程式只有一個更新網域就是這種情形)，則不可能進行輪流升級。 不建議使用此方法，因為升級時服務會中斷且無法使用。 此外，當叢集僅以一個更新網域進行設定時，Azure 不提供任何保證。
+
+升級完成時，所有服務和複本 (執行個體) 都會保留在相同的版本中，也就是說，如果升級成功，就會更新到新版本中；如果升級失敗而且被回復，就會回復到舊版本。
 
 ## <a name="health-checks-during-upgrades"></a>升級期間的健康狀態檢查
 對於升級，需要設定健康狀態原則 (或可能會使用預設值)。 當所有更新網域在指定的逾時內升級，且所有更新網域都視為健康時，則稱為成功升級。  健康的更新網域意指更新網域會通過健康狀態原則中指定的所有健康狀態檢查。 例如，健康狀態原則可能會要求應用程式執行個體中的所有服務都必須 *健康狀態良好*，如 Service Fabric 定義的健康狀況。
@@ -76,4 +77,3 @@ Service Fabric 在升級期間進行的健康狀態原則以及檢查不限於�
 參考 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)中的步驟，以修正應用程式升級中常見的問題。
 
 [image]: media/service-fabric-application-upgrade/service-fabric-application-upgrade-flowchart.png
-

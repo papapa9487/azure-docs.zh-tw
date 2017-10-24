@@ -1,6 +1,6 @@
 ---
-title: "Intelligent Insights 監視資料庫使用情況 - Azure SQL Database | Microsoft Docs"
-description: "Intelligent Insights 可讓您了解資料庫效能發生什麼問題"
+title: "使用 Intelligent Insights 監視資料庫使用情況 - Azure SQL Database | Microsoft Docs"
+description: "Azure SQL Database Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視資料庫使用情況，並偵測導致效能不佳的干擾性事件。"
 services: sql-database
 documentationcenter: 
 author: danimir
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
+ms.openlocfilehash: 8e55fa02d5edda21fbf547397d63f9d1cf987a60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c3b11dd50fa8c94d3bf80e02a8a319030c375133
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intelligent-insights"></a>Intelligent Insights
 
 「Intelligent Insights 可讓您了解資料庫效能發生什麼問題。」
 
-Azure SQL Database 內建的智慧功能會透過人工智慧持續監視資料庫使用情況，並偵測導致效能不佳的干擾性事件。 一旦偵測到，就會執行詳細的分析來產生含有該問題智慧型評估的診斷記錄。 此評估包含資料庫效能問題的根本原因分析，並且會儘可能提供效能改進建議 - 亦即「智慧型深入解析」 
+Azure SQL Database Intelligent Insights 使用內建的智慧功能透過人工智慧持續監視資料庫使用情況，並偵測導致效能不佳的干擾性事件。 一旦偵測到，就會執行詳細的分析來產生含有該問題智慧型評估的診斷記錄。 此評估包含資料庫效能問題的根本原因分析，並且會儘可能提供效能改進建議 - 亦即「智慧型深入解析」 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>Intelligent Insights 可以為您做什麼？
 
@@ -161,6 +160,5 @@ Intelligent insights 記錄會輸出發生錯誤的要求計數、效能降低�
 * 使用 [Intelligent Insights Azure SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)
 * 了解如何[使用 Azure SQL 分析來監視 Azure SQL Database](../log-analytics/log-analytics-azure-sql.md)
 * 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-
 
 

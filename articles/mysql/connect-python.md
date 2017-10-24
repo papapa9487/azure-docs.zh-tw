@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/12/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 40108e0c60a60da412ab521d467a07b8f0540140
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c42ecff1830782ac6646c47c61b17379d122836a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Python 連線和查詢資料
-本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for MySQL。
+本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -27,7 +26,7 @@ ms.lasthandoff: 07/12/2017
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>安裝 Python 和 MySQL 連接器
-在自己的電腦上安裝 [Python](https://www.python.org/downloads/) 和 [Python 的 MySQL 連接器](https://dev.mysql.com/downloads/connector/python/)。 根據您的平台，請遵循下列步驟：
+在自己的電腦上安裝 [Python](https://www.python.org/downloads/) 和 [Python 的 MySQL 連接器](https://dev.mysql.com/downloads/connector/python/)。 根據您的平台，遵循適當小節中的步驟：
 
 ### <a name="windows"></a>Windows
 1. 從 [python.org](https://www.python.org/downloads/windows/) 下載並安裝 Python 2.7。 
@@ -70,8 +69,8 @@ ms.lasthandoff: 07/12/2017
    
 
 ## <a name="run-python-code"></a>執行 Python 程式碼
-- 將程式碼貼入文字檔，並將副檔名為 .py 的檔案儲存到專案資料夾，例如 C:\pythonmysql\createtable.py 或 /home/username/pythonmysql/createtable.py。
-- 若要執行程式碼，請啟動命令提示字元或 bash shell。 將目錄切換到專案資料夾 `cd pythonmysql`。 然後，鍵入後接檔案名稱 `python createtable.py` 的 python 命令以執行應用程式。 在 Windows 作業系統上，如果找不到 python.exe，您可能會提供可執行檔的完整路徑，或將 Python 路徑新增至 path 環境變數。 `C:\python27\python.exe createtable.py`
+- 將程式碼貼入文字檔，然後使用 .py 副檔名來將檔案儲存到專案資料夾 (例如 C:\pythonmysql\createtable.py 或 /home/username/pythonmysql/createtable.py)。
+- 若要執行程式碼，請啟動命令提示字元或 Bash 殼層。 將目錄切換到專案資料夾 `cd pythonmysql`。 然後，鍵入後接檔案名稱 `python createtable.py` 的 python 命令以執行應用程式。 在 Windows 作業系統上，如果找不到 python.exe，您可能需要提供可執行檔的完整路徑，或將 Python 路徑新增至 path 環境變數。 `C:\python27\python.exe createtable.py`
 
 ## <a name="connect-create-table-and-insert-data"></a>連線、建立資料表及插入資料
 使用下列程式碼搭配 **INSERT** SQL 陳述式來連線至伺服器、建立資料表，以及載入資料。 
@@ -269,4 +268,3 @@ else:
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [使用匯出和匯入來移轉資料庫](./concepts-migrate-import-export.md)
-

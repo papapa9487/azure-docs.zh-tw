@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: cec9660ee068b33a114748813f0c7ffa3821d973
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
 本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決整合問題並將商務程序自動化︰
@@ -48,7 +47,7 @@ Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如取�
 
 |  | Flow | Logic Apps |
 | --- | --- | --- |
-| 觀眾 |辦公室工作人員、商務使用者 |IT 專家、開發人員 |
+| 對象 |辦公室工作人員、商務使用者 |IT 專家、開發人員 |
 | 案例 |自助服務 |關鍵任務 |
 | 設計工具 |瀏覽器內及行動裝置應用程式，僅限 UI |有瀏覽器內和 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)、[程式碼檢視](../logic-apps/logic-apps-author-definitions.md)可用 |
 | DevOps |特定、在生產環境中開發 |在 [Azure 資源管理](../logic-apps/logic-apps-arm-provision.md) |
@@ -82,15 +81,17 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 | 價格 |按使用次數付費或屬於 App Service 方案的一部分 |屬於 App Service 方案的一部分 |
 | 執行類型 |觸發、排程 (依計時器觸發程序) |觸發、連續、排程 |
 | 觸發程序事件 |[計時器](functions-bindings-timer.md)、[Azure Cosmos DB](functions-bindings-documentdb.md)、[Azure 事件中樞](functions-bindings-event-hubs.md)、[HTTP/WebHook (GitHub、Slack)](functions-bindings-http-webhook.md)、[Azure App Service Mobile Apps](functions-bindings-mobile-apps.md)、[Azure 通知中樞](functions-bindings-notification-hubs.md)、[Azure 服務匯流排](functions-bindings-service-bus.md)、[Azure 儲存體](functions-bindings-storage-blob.md) |[Azure 儲存體](functions-bindings-storage-blob.md)、[Azure 服務匯流排](functions-bindings-service-bus.md) |
-| 瀏覽器中開發 |支援 | 不支援 |
-| Windows 指令碼 (.cmd、.bat) |實驗性 |支援 |
-| PowerShell |實驗性 |支援 |
+| 瀏覽器中開發 |支援 |不支援 |
 | C# |支援 |支援 |
 | F# |支援 |不支援 |
+| JavaScript |支援 |支援 |
+| Java |支援 | 不支援 |
 | Bash |實驗性 |支援 |
+| Windows 指令碼 (.cmd、.bat) |實驗性 |支援 |
+| PowerShell |實驗性 |支援 |
 | PHP |實驗性 |支援 |
 | Python |實驗性 |支援 |
-| JavaScript |支援 |支援 |
+| TypeScript |實驗性 |不支援 |
 
 要使用 Functions 還是 WebJobs 最終取決於您已使用 App Service 做了什麼。 如果您有要為其執行程式碼片段的 App Service 應用程式，而且想要在相同的 DevOps 環境中一起管理，請使用 WebJobs。 在下列案例中，請使用 Functions。
 
@@ -123,5 +124,4 @@ Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳�
 * [整合變得簡單，主講人：Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 即時網路廣播](http://aka.ms/logicappslive)
 * [Microsoft Flow 常見問題集](https://flow.microsoft.com/documentation/frequently-asked-questions/)
-
 

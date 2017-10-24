@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 96e74371fe51a8050a91c86215e3eefab07bbed8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-cryptography--mitigations"></a>安全性架構︰密碼編譯 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
@@ -241,4 +239,4 @@ var deviceClient = DeviceClient.Create( hubUri, AuthenticationMethodFactory. Cre
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | N/A  |
-| **步驟** | <p>確定 Identity Server 會使用密碼編譯增強式用戶端識別碼和用戶端祕密。 在產生用戶端識別碼和祕密時，應該使用下列指導方針︰</p><ul><li>產生隨機 GUID 作為用戶端識別碼</li><li>產生密碼編譯隨機 256 位元金鑰作為祕密</li></ul>|
+| **步驟** | <p>確定 Identity Server 會使用密碼編譯增強式用戶端識別碼和用戶端祕密。 在產生用戶端識別碼和祕密時，應該使用下列指導方針︰</p><ul><li>產生隨機 GUID 做為用戶端識別碼</li><li>產生密碼編譯隨機 256 位元金鑰作為祕密</li></ul>|

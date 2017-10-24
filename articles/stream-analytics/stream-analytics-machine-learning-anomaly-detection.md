@@ -3,7 +3,7 @@ title: "Azure 使用量異常偵測指南 (預覽) | Microsoft Docs"
 description: "使用串流分析和機器學習方法來偵測異常。"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: dubansal
 manager: jhubbard
 ms.service: stream-analytics
 ms.devlang: na
@@ -11,15 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
+ms.author: dubansal
+ms.openlocfilehash: 43a2a9784668fad2aa5b1441cfd37751c0c240b6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 7ab489f6ae7da2640ba199b20e7727da60497918
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-anomalydetection-operator"></a>使用 ANOMALYDETECTION 運算子
 
 > [!IMPORTANT]
@@ -100,8 +98,8 @@ ms.lasthandoff: 09/20/2017
 - 使用 **ANOMALYDETECTION** 函數的非資料分割查詢可能在平均計算延遲大約 25 毫秒的情況下產生結果。
 - 隨著計算次數的增加，資料分割查詢所經歷的延遲與分割數略有不同。 不過，延遲與所有分割中可比較事件總數的非資料分割情況大致相同。
 - 讀取非即時資料時，會快速內嵌大量資料。 目前處理此資料明顯比較慢。 這種情況下的延遲是隨著視窗中資料點數目 (而非視窗大小或事件間隔本身) 呈線性增加。 若要降低非即時情況的延遲，請考慮使用較小的視窗大小。 或者，請考慮從目前時間開始您的作業。 非資料分割查詢中延遲的一些範例： 
-    - 偵測視窗中的 60 個資料點可能會導致 3MBps 輸送量出現 10 秒的延遲時間。 
-    - 在 600 個資料點時，0.4MBps 的輸送量可能會達到大約 80 秒的延遲時間。
+    - 偵測視窗中的 60 個資料點可能會導致 3 MBps 輸送量出現 10 秒的延遲時間。 
+    - 在 600 個資料點時，0.4 MBps 的輸送量可能會達到大約 80 秒的延遲時間。
 
 ## <a name="example"></a>範例
 
@@ -186,5 +184,4 @@ ms.lasthandoff: 09/20/2017
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

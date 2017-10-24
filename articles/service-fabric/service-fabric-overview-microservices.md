@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
+ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
-ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>為何要用微服務方式建置應用程式？
 身為軟體開發人員，已熟悉思考如何將應用程式分解成元件部分。 它是物件導向、軟體抽象化和元件化的中心範型。 現在，這種分解經常以共用程式庫和技術層之間的類別與介面呈現。 通常是透過一種分層方法，有後端存放區、中間層商務邏輯和前端使用者介面 (UI)。 過去幾年來的變化  是身為開發人員的我們，開始為商業驅動和雲端建置分散式應用程式。
@@ -111,7 +110,7 @@ ms.lasthandoff: 09/15/2017
 版本控制是已部署的微服務版本所特有，以便部署和並行執行多個不同的版本。 當較新版的微服務在升級期間失敗，而需要回復至舊版時，版本控制可以解決這種情況。 版本控制的另一種情況是執行 A/B 樣式測試，其中不同的使用者會體驗到不同版本的服務。 比方說，在更廣泛推出新功能之前，通常會先針對一組特定的客戶升級微服務以測試新功能。 在微服務的生命週期管理之後，這現在會將我們帶往它們之間的通訊。
 
 ### <a name="interacts-with-other-microservices-over-well-defined-interfaces-and-protocols"></a>透過定義完善的介面和通訊協定，與其他微服務互動
-本主題無需太多著墨，因為過去 10 年來發佈的大量服務導向架構文獻都已說明通訊模式。 一般而言，服務通訊使用 REST 方法，並搭配 HTTP 和 TCP 通訊協定及 XML 或 JSON 做為序列化格式。 從介面觀點來看，這是有關採用 Web 設計方法。 但並不禁止您使用二進位通訊協定或您自己的資料格式。 您公開的微服務會較難使用，要有心理準備。
+本主題無需太多著墨，因為過去 10 年來發佈的大量服務導向架構文獻都已說明通訊模式。 一般而言，服務通訊使用 REST 方法，並搭配 HTTP 和 TCP 通訊協定及 XML 或 JSON 做為序列化格式。 從介面觀點來看，這是有關採用 Web 設計方法。 但並不禁止您使用二進位通訊協定或您自己的資料格式。 如果這些通訊協定和格式無法公開取得，您的微服務會較難使用，要有心理準備。
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>具有可用來解析位置的唯一名稱 (URL)
 別忘了，我們一直表示微服務如何像 Web 一樣？ 就像 Web 一樣，微服務不論在何處執行，都必須可定址。 如果您正在考慮機器及哪一部要執行特定的微服務，很快就會陷入困境。 
@@ -158,7 +157,7 @@ Service Fabric 的一個主要方法是重複使用現有的程式碼，而這�
 
 再重新強調一遍，您可以**在這當中任何階段開始和停止**。 不會被迫移至下一個階段。 現在，讓我們看看這每一個階段的範例。
 
-**原封不動轉移** - 許多公司將現有單體式應用程式原封不動轉移到容器中的原因有兩個：
+**隨即轉移** - 許多公司將現有單體式應用程式原封不動轉移到容器中的原因有兩個：
 
 - 降低成本 - 不論是為了合併和移除現有的硬體，還是為了以更高密度的方式執行應用程式。 
 - 開發與作業之間的一致性部署合約。
@@ -187,4 +186,3 @@ Service Fabric 的目標是將使用微服務方法建置應用程式時的複�
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
-

@@ -16,15 +16,14 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: it-pro
+ms.openlocfilehash: 49a1dad57a6c8cd4b25e0e55e367839c760236e4
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 8b4251c39a8883dfcb97ded8e4b533f073dce685
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>疑難排解群組的動態成員資格
-**我針對某個群組設定了一個規則，但是群組中的成員資格沒有任何更新**<br/>請確認 [設定] 索引標籤中的 [啟用委派的群組管理] 設定是設為 [是]。只有當您以 Azure Active Directory Premium 授權指派對象的使用者身分登入時，才看得到這項設定。 請針對規則確認使用者屬性的值：是否有符合規則的使用者？
+**我針對某個群組設定了一個規則，但是群組中的成員資格沒有任何更新**<br/>請針對規則確認使用者屬性的值：是否有符合規則的使用者？ 如果一切良好，請等候一段時間，以填入群組。 根據您的租用戶大小，群組可能最多需要 24 小時來完成初次填入或規則變更。
 
 **我已設定一個規則，但是目前現有的規則成員已被移除**<br/>這是預期行為。 因為在啟用或變更規則時，現有群組的成員會遭到移除。 從評估規則所傳回的使用者會當作成員，新增至群組。     
 
@@ -37,4 +36,3 @@ ms.lasthandoff: 08/29/2017
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [什麼是 Azure Active Directory？](active-directory-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

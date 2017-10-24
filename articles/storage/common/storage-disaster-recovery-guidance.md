@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
+ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1d9ccc1c81260379b5e645d338cbf1fa265e18d4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
 在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。
 
@@ -54,7 +52,7 @@ ms.lasthandoff: 08/21/2017
 關於儲存體異地複寫容錯移轉體驗有幾點事項：
 
 * 儲存體異地複寫容錯移轉只會由 Azure 儲存體團隊發動 – 客戶無須採取行動。
-* 您現有的 Blob、資料表、佇列及檔案之儲存體服務端點，在容錯移轉後都會維持原狀；需要更新 DNS 以從主要區域切換到次要地區。
+* 您現有的 Blob、資料表、佇列及檔案之儲存體服務端點，在容錯移轉後都會維持原狀；需要更新 Microsoft 提供的 DNS 項目，才能從主要區域切換到次要地區。  Microsoft 將會在異地容錯移轉的過程中，自動執行這項更新。
 * 由於災害的影響，在異地複寫容錯移轉之前與期間內，您將不會有您儲存體帳戶的寫入權限，但如果您的儲存體帳戶已設為 RA-GRS，您仍然可以從次要區域讀取資料。
 * 當異地複寫容錯移轉已完成且 DNS 變更已傳播時，您對儲存體帳戶的讀取和寫入權限將會恢復；這會指向先前用來做為您次要端點的項目。 
 * 請注意，如果您已為儲存體帳戶設定 GRS 或 RA-GRS，則您將會有寫入權限。 
@@ -71,5 +69,4 @@ ms.lasthandoff: 08/21/2017
 * 檔案 – 使用 [AzCopy](storage-use-azcopy.md) 或 [Azure PowerShell](storage-powershell-guide-full.md) 將您的檔案複製到位於其他區域的其他儲存體帳戶。
 
 如需建立應用程式以充分利用 RA-GRS 功能的相關資訊，請造訪[使用 RA-GRS 儲存體設計高可用性的應用程式 (英文)](../storage-designing-ha-apps-with-ragrs.md)
-
 

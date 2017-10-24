@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 10/03/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 04/26/2017
-
+ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>疑難排解應用程式升級
 本文涵蓋升級 Azure Service Fabric 應用程式的一些常見問題，以及解決方式。
@@ -86,6 +85,8 @@ UpgradeReplicaSetCheckTimeout  : 00:00:00
 PreUpgradeSafetyCheck 的 UpgradePhase 表示在執行升級之前準備升級網域有問題。 此案例中最常見的問題是關閉主要程式碼路徑或從其中降級的服務錯誤。
 
 目前的 UpgradeState 是 RollingBackCompleted，因此原始升級必須以回復 FailureAction 執行，這樣會自動在失敗時回復升級。 如果原始升級以手動 **FailureAction**執行，則升級會處於暫止狀態，以允許應用程式的即時偵錯。
+
+在罕見的情況下，如果整體升級逾時，就像系統完成目前升級網域的所有工作，**UpgradeDomainProgressAtFailure** 欄位可能是空的。 如果發生這種情況，請嘗試增加 **UpgradeTimeout** 和 **UpgradeDomainTimeout** 升級參數值，然後重試升級。
 
 ### <a name="investigate-health-check-failures"></a>調查健康狀態檢查失敗
 升級網域中的所有節點完成升級並通過所有安全檢查之後，各種問題都可能觸發健康狀態檢查失敗。 本段落下面的輸出是由於失敗的健康狀態檢查的典型升級失敗。 **UnhealthyEvaluations** 欄位會根據指定的 [健康狀態原則](service-fabric-health-introduction.md)，擷取升級時失敗的健康狀態檢查的快照集。
@@ -222,4 +223,3 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體 (例如複
 了解如何使用 [資料序列化](service-fabric-application-upgrade-data-serialization.md)，以讓您的應用程式升級相容。
 
 參考 [進階主題](service-fabric-application-upgrade-advanced.md)，以了解如何在升級您的應用程式時使用進階功能。
-

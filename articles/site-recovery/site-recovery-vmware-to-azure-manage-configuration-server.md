@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 06/29/2017
+ms.date: 10/06/2017
 ms.author: anoopkv
+ms.openlocfilehash: e4740c96383468713976e5a98881bec13b0c1921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: ba236ad1327a7f3419d7c8cf7effc889a90dde61
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-configuration-server"></a>管理組態伺服器
 
 組態伺服器做為 Site Recovery 服務和您的內部部署基礎結構之間的協調者。 本文說明如何安裝、設定及管理組態伺服器。
@@ -113,7 +111,7 @@ ProxyPassword="Password"
 
 ## <a name="modify-user-accounts-and-passwords"></a>修改使用者帳戶和密碼
 
-CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」的使用者帳戶，以及用來執行「受保護機器上之行動服務推送安裝」。 
+CSPSConfigTool.exe 是用於管理用來**自動探索 VMware 虛擬機器**的使用者帳戶，以及用來執行**受保護機器上之行動服務的推送安裝。 
 
 1. 登入您的設定伺服器。
 2. 按一下桌面上的捷徑來啟動 CSPSConfigtool.exe。
@@ -145,7 +143,7 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
 ## <a name="registering-a-configuration-server-with-a-different-recovery-services-vault"></a>向不同的復原服務保存庫註冊組態伺服器。
 
 > [!WARNING]
-> 下列步驟會解除設定伺服器和目前保存庫之間的關聯，且設定伺服器底下所有受保護虛擬機器的複寫都會停止。
+> 下列步驟會解除設定伺服器和目前保存庫之間的關聯，且設定伺服器底下所有受保護虛擬機器的複寫都會遭到停止。
 
 1. 登入您的組態伺服器。
 2. 從系統管理命令提示字元中，執行命令
@@ -169,7 +167,7 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
     net start obengine
     ```
 
-## <a name="updating-a-configuration-server"></a>更新組態伺服器
+## <a name="upgrading-a-configuration-server"></a>升級組態伺服器
 
 > [!WARNING]
 > 更新只支援到 N 系列第 4 代的版本。 例如，若市面上的最新版本是 9.11，則您可從 9.10、9.9、9.8 或 9.7 版更新到 9.11 版。 但若您使用的是任何小於或等於 9.6 的版本，則您必須先至少更新到 9.7 版，才能將最新的更新套用到組態伺服器。 您可以在 [Azure Site Recovery 服務更新](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) \(英文\) 底下找到舊版本的下載連結
@@ -180,11 +178,14 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
 4. 按一下 [確定] 按鈕加以確認，並繼續進行升級。
 
 
-## <a name="decommissioning-a-configuration-server"></a>解除委任組態伺服器
-在開始解除委任組態伺服器之前，請確認下列事項。
-1. 停用保護此組態伺服器下的所有虛擬機器。
-2. 解除所有複寫原則與組態伺服器的關聯。
-3. 刪除與組態伺服器相關聯的所有 VCenters 伺服器/vSphere 主機。
+## <a name="delete-or-unregister-a-configuration-server"></a>將組態伺服器刪除或取消註冊
+
+> [!WARNING]
+> 在開始解除委任組態伺服器之前，請確認下列事項。
+> 1. [停用保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)此組態伺服器下的所有虛擬機器。
+> 2. 將組態伺服器的所有複寫原則[解除關聯](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy)並[刪除](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy)。
+> 3. [刪除](site-recovery-vmware-to-azure-manage-vCenter.md#delete-a-vcenter-in-azure-site-recovery)與組態伺服器相關聯的所有 VCenters 伺服器/vSphere 主機。
+
 
 ### <a name="delete-the-configuration-server-from-azure-portal"></a>從 Azure 入口網站刪除組態伺服器
 1. 在 Azure 入口網站中，從 [保存庫] 功能表瀏覽至 [Site Recovery 基礎結構] > [組態伺服器]。
@@ -193,9 +194,6 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
 
   ![刪除組態伺服器](./media/site-recovery-vmware-to-azure-manage-configuration-server/delete-configuration-server.PNG)
 4. 按一下 [是] 以確認刪除伺服器。
-
-  >[!WARNING]
-  如果您有任何虛擬機器、複寫原則或 vCenter 伺服器/vSphere 主機與此組態伺服器相關聯，則無法刪除伺服器。 嘗試刪除保存庫之前，請先刪除這些實體。
 
 ### <a name="uninstall-the-configuration-server-software-and-its-dependencies"></a>解除安裝組態伺服器軟體和其相依性
   > [!TIP]
@@ -214,6 +212,31 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
   ```
   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
   ```
+
+## <a name="delete-or-unregister-a-configuration-server-powershell"></a>將組態伺服器刪除或取消註冊 (PowerShell)
+
+1. [安裝](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組
+2. 使用命令登入您的 Azure 帳戶
+    
+    `Login-AzureRmAccount`
+3. 選取保存庫所在的訂用帳戶
+
+     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+3.  現在設定保存庫內容
+    
+    ```
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
+    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    ```
+4. 選取組態伺服器
+
+    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+6. 刪除組態伺服器
+
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+
+> [!NOTE]
+> Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項可用來強制移除/刪除組態伺服器。
 
 ## <a name="renew-configuration-server-secure-socket-layerssl-certificates"></a>更新組態伺服器安全通訊端層 (SSL) 憑證
 組態伺服器有內建的 Web 伺服器，可協調連線至組態伺服器的行動服務、處理序伺服器和主要目標伺服器的活動。 組態伺服器的 Web 伺服器使用 SSL 憑證來驗證其用戶端。 此憑證三年期滿，可隨時使用下列方法更新︰
@@ -241,7 +264,7 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
   ![憑證詳細資料](./media/site-recovery-vmware-to-azure-manage-configuration-server/ssl-cert-expiry-details.png)
 
   >[!TIP]
-  如果您不是看到 [立即更新] 按鈕，而是 [立即升級] 按鈕， 這表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。
+  如果您不是看到 [立即更新] 按鈕，而是 [立即升級] 按鈕， [立即升級] 按鈕表示您的環境中有些元件尚未升級至 9.4.xxxx.x 或更新版本。
 
 ## <a name="revive-a-configuration-server-if-the-secure-socket-layer-ssl-certificate-expired"></a>在安全通訊端層 (SSL) 憑證過期的情況下恢復設定伺服器
 
@@ -268,4 +291,3 @@ CSPSConfigTool.exe 是用於管理用來「自動探索 VMware 虛擬機器」�
 
 ## <a name="common-issues"></a>常見問題
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-

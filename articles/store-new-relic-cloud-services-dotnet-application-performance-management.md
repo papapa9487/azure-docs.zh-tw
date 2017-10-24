@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/23/2016
 ms.author: nickfloyd@newrelic.com
 ms.openlocfilehash: f4f13c909a6ff640d403f5264004176c087925dd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="new-relic-application-performance-management-on-azure"></a>Azure 上的 New Relic 應用程式效能管理
 您可以將 New Relic 的世界級效能監視新增至 Azure 託管的應用程式。 除了獲得對 Azure 應用程式進行監視、疑難排解及微調的全面功能外，您還有資格使用 Azure 來享有 New Relic 產品的折扣價格。
@@ -29,7 +29,7 @@ ms.lasthandoff: 07/11/2017
 New Relic 會追蹤來自伺服器和使用者瀏覽器的 Web 交易載入時間和輸送量。 它會顯示您在資料庫中花費多少時間、分析較慢的查詢和 Web 要求、提供運作時間監視和警示、追蹤應用程式例外狀況，還有許多其他功能。 
 
 ## <a name="special-pricing"></a>優惠價格
-New Relic Standard 供 Azure 使用者免費使用。 New Relic Pro 是依據 Azure 雲端服務的執行個體大小提供。 如需定價資訊，請參閱[New Relic 頁面](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/)連絡人 New Relic 的 Azure Marketplace 中 (sales@newrelic.com) 如需定價的企業層級。
+New Relic Standard 供 Azure 使用者免費使用。 New Relic Pro 是依據 Azure 雲端服務的執行個體大小提供。 如需定價資訊，請參閱 Azure Marketplace 中的 [New Relic 頁面](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/) \(英文\) 或連絡 New Relic (sales@newrelic.com) 以了解企業層級的價格。
 
 Azure 客戶部署 New Relic 代理程式時享有 New Relic Pro 試用訂閱兩週。
 

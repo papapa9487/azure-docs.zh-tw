@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/25/2016
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: f1524fa83de6ce53f853ed6859de15076e20ea3b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: fa7c1e4435106d0fc25cb7f77f195eb48705772d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="grant-user-permissions-to-specific-lab-policies"></a>將特定實驗室原則的權限授與使用者
 ## <a name="overview"></a>Overview
@@ -30,7 +29,7 @@ ms.lasthandoff: 11/17/2016
 
 在研發/測試實驗室中，原則是一種可啟用 RBAC 動作 **Microsoft.DevTestLab/labs/policySets/policies/**的資源類型。 每個實驗室原則都是「原則」資源類型中的資源，並且可被指派成某個 RBAC 角色的範圍。
 
-例如，為了將**允許的 VM 大小**原則的讀取/寫入權限授與使用者，您會建立一個與 **Microsoft.DevTestLab/labs/policySets/policies/*** 動作搭配運作的自訂角色，然後在 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 範圍中將適當的使用者指派給這個自訂角色。
+例如，為了將**允許的 VM 大小**原則的讀取/寫入權限授與使用者，您會建立一個處理 **Microsoft.DevTestLab/labs/policySets/policies/** 動作的自訂角色，然後在 **Microsoft.DevTestLab/labs/policySets/policies/AllowedVmSizesInLab** 範圍中將適當的使用者指派給這個自訂角色。
 
 若要深入了解 RBAC 中的自訂角色，請參閱[自訂角色存取控制](../active-directory/role-based-access-control-custom-roles.md)。
 
@@ -92,6 +91,5 @@ ms.lasthandoff: 11/17/2016
 * [設定實驗室原則](devtest-lab-set-lab-policy.md)。
 * [建立實驗室範本](devtest-lab-create-template.md)。
 * [為您的 VM 建立自訂成品](devtest-lab-artifact-author.md)。
-* [將具有構件的 VM 加入實驗室](devtest-lab-add-vm-with-artifacts.md)。
-
+* [將具有構件的 VM 新增至實驗室](devtest-lab-add-vm-with-artifacts.md)。
 

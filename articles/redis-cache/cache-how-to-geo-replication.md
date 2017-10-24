@@ -12,15 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 09/15/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>如何設定 Azure Redis 快取的異地複寫
 
@@ -103,6 +101,9 @@ ms.lasthandoff: 07/08/2017
 - [可以將兩個不同大小的快取加以連結嗎？](#can-i-link-two-caches-with-different-sizes)
 - [啟用叢集時可以使用異地複寫嗎？](#can-i-use-geo-replication-with-clustering-enabled)
 - [可以使用異地複寫搭配 VNET 中的快取嗎？](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [哪個複寫排程適用於 Redis 異地複寫？](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [異地複寫需要花費多久的時間？](#how-long-does-geo-replication-replication-take)
+- [是否保證複寫復原點？](#is-the-replication-recovery-point-guaranteed)
 - [可以使用 PowerShell 或 Azure CLI 管理異地複寫嗎？](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [跨 Azure 區域複寫我的資料需要多少費用？](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [當我嘗試刪除連結快取時，作業失敗的原因？](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
@@ -141,6 +142,18 @@ ms.lasthandoff: 07/08/2017
 - 支援在相同 VNET 中多個快取之間的異地複寫。
 - 只要將兩個 VNET 設定為 VNET 中的資源能透過 TCP 連線觸達彼此的方式，就也可支援在不同 VNET 中多個快取之間的異地複寫。
 
+### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>哪個複寫排程適用於 Redis 異地複寫？
+
+複寫不會在特定排程發生，它是連續且非同步的，亦即， 已在主要複本上完成的所有寫入，都會在次要複本上立即以非同步方式加以複寫。
+
+### <a name="how-long-does-geo-replication-replication-take"></a>異地複寫需要花費多久的時間？
+
+複寫是累加式、非同步且連續的，而所花費的時間與跨區域的延遲通常不會有很大的差異。 在某些情況下，在特定時間，可能需要次要複本對來自主要複本的資料進行完整同步處理。 在此情況下，複寫時間會取決於許多因素，例如：主要快取上的負載、快取電腦上的可用頻寬、區域間的延遲等。例如，根據某些測試，我們發現在美國東部與美國西部中完整 53 GB 異地複寫對組的複寫時間會介於 5 到 10 分鐘。
+
+### <a name="is-the-replication-recovery-point-guaranteed"></a>是否保證複寫復原點？
+
+目前，已針對異地複寫模式中的快取，停用持續性和匯入/匯出功能。 因此，萬一客戶起始了容錯移轉，或是異地複寫對組之間的複寫連結已中斷，則次要複本將會保留記憶體中的資料，該資料是它到該時點為止已與主要複本進行同步處理的資料。 在這類情況下並未提供任何復原點保證。
+
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>可以使用 PowerShell 或 Azure CLI 管理異地複寫嗎？
 
 目前，您只能使用 Azure 入口網站管理異地複寫。
@@ -167,5 +180,4 @@ ms.lasthandoff: 07/08/2017
 ## <a name="next-steps"></a>後續步驟
 
 深入了解 [Azure Redis Cache 高階層](cache-premium-tier-intro.md)。
-
 

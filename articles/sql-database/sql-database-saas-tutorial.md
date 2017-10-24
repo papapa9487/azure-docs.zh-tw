@@ -1,5 +1,5 @@
 ---
-title: "部署及探索使用 Azure SQL Database 的多租用戶 SaaS 應用程式 | Microsoft Docs"
+title: "多租用戶 SaaS 教學課程 - Azure SQL Database | Microsoft Docs"
 description: "部署及探索 Wingtip SaaS 多租用戶應用程式，其使用 Azure SQL Database 示範 SaaS 模式。"
 keywords: SQL Database Azure
 services: sql-database
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: 2e6816ce2740b0325c6f59338f0365c6b40539f3
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>部署及探索使用 Azure SQL Database 的多租用戶應用程式 - Wingtip SaaS
 
@@ -203,4 +202,3 @@ ms.lasthandoff: 09/13/2017
 * 若要了解彈性集區，請參閱[什麼是 Azure SQL 彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * 若要了解彈性作業，請參閱[*管理相應放大的雲端資料庫*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * 若要了解多租用戶 SaaS 應用程式，請參閱[*多租用戶 SaaS 應用程式的設計模式*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
-

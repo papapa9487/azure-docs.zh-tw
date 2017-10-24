@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 0816c464b6b52747148cc42a55445048901e7595
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自訂映像來建立虛擬機器的集區
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-- **使用「使用者訂用帳戶」集區配置模式建立的 Batch 帳戶。** 若要使用自訂映像來佈建虛擬機器集區，請以「使用者訂用帳戶」[集區配置模式](batch-api-basics.md#pool-allocation-mode)來建立 Batch 帳戶。 使用此模式時，Batch 集區會配置到帳戶所在的訂用帳戶。 如需有關在建立 Batch 帳戶時設定集區配置模式的資訊，請參閱[使用 Batch 開發大規模平行計算解決方案](batch-api-basics.md)中的[帳戶](batch-api-basics.md#account)一節。
+- **使用「使用者訂用帳戶」集區配置模式建立的 Batch 帳戶。** 使用此模式時，Batch 集區會配置到帳戶所在的訂用帳戶。 如需詳細資訊，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md)中的[帳戶](batch-api-basics.md#account)一節。
 
 - **Azure 儲存體帳戶**。 若要使用自訂映像來建立虛擬機器的集區，您需要在相同訂用帳戶和區域中的標準、一般用途 Azure 儲存體帳戶。 如果您要從 Azure VM 中建立自訂映像，就要將映像複製到 VM 之 OS 磁碟所在的儲存體帳戶，且不需要建立個別的儲存體帳戶。 
     

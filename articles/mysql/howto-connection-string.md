@@ -8,28 +8,26 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2f40da41bcfda7e35f6fc63ead5d055246ab390c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>如何將應用程式連線至適用於 MySQL 的 Azure 資料庫
-本文件列出「適用於 MySQL 的 Azure 資料庫」支援的連接字串類型，以及範本和範例。 在連接字串中，您可以使用不同的參數和不同的設定。
+本主題列出適用於 MySQL 的 Azure 資料庫所支援的連接字串類型，以及範本和範例。 您可以在連接字串中使用不同的參數和設定。
 
 - 若要取得憑證，請參閱[如何設定 SSL](./howto-configure-ssl.md)。
 - {your_host} = <servername>.mysql.database.azure.com
-- {your_user}@{servername} = 正確驗證的 userID 格式。  只使用 userID 將會導致驗證失敗。
+- {your_user}@{servername} = 正確驗證的 userID 格式。  如果您只使用 userID，驗證將會失敗。
 
 ## <a name="adonet"></a>ADO.NET
 ```ado.net
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-在此範例中，伺服器名稱是 `myserver4demo`、資料庫名稱是 `wpdb`、使用者名稱是 `WPAdmin`、密碼是 `mypassword!2`。 所以，連接字串應該為：
+在此範例中，伺服器名稱是 `myserver4demo`、資料庫名稱是 `wpdb`、使用者名稱是 `WPAdmin`，而密碼是 `mypassword!2`。 因此，連接字串應該是：
 
 ```ado.net
 Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
@@ -66,10 +64,9 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>從 Azure 入口網站取得連接字串詳細資料
-在 [Azure 入口網站](https://portal.azure.com)中，移至適用於 MySQL 伺服器的 Azure 資料庫，然後按一下 [連接字串] 以取得您的執行個體的字串清單︰![Azure 入口網站中的 [連接字串] 窗格](./media/howto-connection-strings/connection-strings-on-portal.png)
+在 [Azure 入口網站](https://portal.azure.com)中，移至適用於 MySQL 的 Azure 資料庫伺服器，然後按一下連接字串 以取得您執行個體的字串清單︰![Azure 入口網站中的 [連接字串] 窗格](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-此字串會提供詳細資料，例如驅動程式、伺服器和其他資料庫連線參數。 使用您自己的參數 (例如資料庫名稱、密碼等) 修改這些範例。 接著，您可以使用這個字串從您的程式碼和應用程式連接到伺服器。
+此字串會提供詳細資料，例如驅動程式、伺服器和其他資料庫連線參數。 修改這些範例，以使用您自己的參數 (例如資料庫名稱、密碼等)。 接著，您可以使用這個字串從您的程式碼和應用程式連接到伺服器。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需有關連線程式庫的詳細資訊，請參閱[概念 - 連線程式庫](./concepts-connection-libraries.md)。
-

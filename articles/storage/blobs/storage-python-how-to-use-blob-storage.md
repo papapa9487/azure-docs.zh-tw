@@ -3,7 +3,7 @@ title: "如何使用 Python 中的 Azure Blob 儲存體 (物件儲存體) | Micr
 description: "使用 Azure Blob 儲存體 (物件儲存體) 在雲端中儲存非結構化資料。"
 services: storage
 documentationcenter: python
-author: tamram
+author: mmacy
 manager: timlt
 editor: tysonn
 ms.assetid: 0348e360-b24d-41fa-bb12-b8f18990d8bc
@@ -14,12 +14,11 @@ ms.devlang: python
 ms.topic: article
 ms.date: 2/24/2017
 ms.author: tamram
+ms.openlocfilehash: ae5ad68929a6779ed4944de82a609321a5c4b5ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1cab8407be6fc8932b68e50d0c301e8ea37ea3ac
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-blob-storage-from-python"></a>如何使用 Python 的 Azure Blob 儲存體
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -34,6 +33,26 @@ Azure Blob 儲存體是可將非結構化的資料儲存在雲端作為物件/bl
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
+
+## <a name="download-and-install-azure-storage-sdk-for-python"></a>下載並安裝 Azure Storage SDK for Python
+
+Azure Storage SDK for Python 需要有 Python 2.7、3.3、3.4、3.5 或 3.6，而且提供 4 種不同的封裝：`azure-storage-blob`、`azure-storage-file`、`azure-storage-table` 和 `azure-storage-queue`。 在本教學課程中，我們將使用 `azure-storage-blob` 封裝。
+ 
+### <a name="install-via-pypi"></a>透過 PyPi 安裝
+
+若要透過 Python Package Index (PyPI) 安裝，請輸入：
+
+```bash
+pip install azure-storage-blob
+```
+
+
+> [!NOTE]
+> 如果您要從 Azure 儲存體 Azure Storage SDK for Python 0.36 版或更早版本升級，您將必須先使用 `pip uninstall azure-storage` 解除安裝，因為我們將不再以單一封裝的方式發行 Storage SDK for Python。
+> 
+> 
+
+如需替代安裝方法，請瀏覽 [Github 上的 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)。
 
 ## <a name="create-a-container"></a>建立容器
 根據您想要使用的 Blob 類型，建立 **BlockBlobService**、**AppendBlobService** 或 **PageBlobService** 物件。 下列程式碼會使用 **BlockBlobService** 物件。 將下列內容新增至您想要在其中以程式設計方式存取 Azure 區塊 Blob 儲存體之任何 Python 檔案內的頂端附近。
@@ -76,7 +95,7 @@ block_blob_service.set_container_acl('mycontainer', public_access=PublicAccess.C
 
 **create\_blob\_from\_path** 會從指定的路徑上傳檔案的內容，**create\_blob\_from\_stream** 會從已開啟的檔案/串流上傳內容。 **create\_blob\_from\_bytes** 會上傳位元組陣列，**create\_blob\_from\_text** 會使用指定的編碼 (預設為 UTF-8) 上傳指定的文字值。
 
-下列範例會將 **sunset.png** 檔案的內容上傳至 **myblob** Blob 中。
+下列範例會將 **sunset.png** 檔案的內容上傳至 **myblockblob** Blob 中。
 
 ```python
 from azure.storage.blob import ContentSettings
@@ -100,7 +119,7 @@ for blob in generator:
 ## <a name="download-blobs"></a>下載 Blob
 若要從 blob 下載資料，請使用 **get\_blob\_to\_path****get\_blob\_to\_stream**、**get\_blob\_to\_bytes** 或 **get\_blob\_to\_text**。 這些是高階方法，可在資料大小超過 64 MB 時執行必要的區塊化動作。
 
-下列範例示範如何使用 **get\_blob\_to\_path** 下載 **myblob** Blob 的內容，並將其儲存至 **out-sunset.png** 檔案。
+下列範例示範如何使用 **get\_blob\_to\_path** 下載 **myblockblob** Blob 的內容，並將其儲存至 **out-sunset.png** 檔案。
 
 ```python
 block_blob_service.get_blob_to_path('mycontainer', 'myblockblob', 'out-sunset.png')
@@ -144,4 +163,3 @@ append_blob = append_blob_service.get_blob_to_text('mycontainer', 'myappendblob'
 
 [Azure 儲存體團隊部落格]: http://blogs.msdn.com/b/windowsazurestorage/
 [Microsoft Azure Storage SDK for Python (適用於 Python 的 Microsoft Azure 儲存體 SDK)]: https://github.com/Azure/azure-storage-python
-

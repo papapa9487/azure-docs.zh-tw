@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
+ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 設計高可用性應用程式
 
@@ -205,7 +204,7 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
 下表所示的範例是，當您更新員工的詳細資料，使她成為「系統管理員」角色的成員時，可能會發生什麼情況。 基於此範例，這會要求您更新**員工**實體，並利用系統管理員總數的計數來更新**系統管理員角色**實體。 請注意，如何在次要區域中不按順序套用更新。
 
-| **Time** | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
+| <bpt id="p1">**</bpt>Time<ept id="p1">**</ept> | **交易**                                            | **複寫**                       | **上次同步處理時間** | **結果** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | 交易 A： <br> 會在主要區域中 <br> 插入員工實體 |                                   |                    | 交易 A 已插入至主要區域，<br> 但尚未複寫。 |
 | T1       |                                                            | 交易 A <br> 已複寫到<br> 次要區域 | T1 | 交易 A 已複寫到次要區域。 <br>已更新上次同步處理時間。    |
@@ -244,4 +243,3 @@ static function OnBeforeResponse(oSession: Session) {
 * 如需讀取存取異地備援的詳細資訊 (包括另一個如何設定 LastSyncTime 的範例)，請參閱 [Microsoft Azure 儲存體備援選項與讀取權限異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 
 * 如需示範如何在主要和次要端點之間來回切換的完整範例，請參閱 [Azure 範例 - 搭配 RA-GRS 儲存體使用斷路器模式 (英文)](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs)。
-

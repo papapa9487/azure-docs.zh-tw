@@ -13,19 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 10/09/2017
 ms.author: owend
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 766b2fc3b68d223d80de1da9ef36aec269fe0de9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: e9667afff1bdc351e0ed5cd94bb5fcf946b46f3b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authentication-and-user-permissions"></a>驗證和使用者權限
 Azure Analysis Services 會使用 Azure Active Directory (Azure AD) 進行身分識別管理和使用者驗證。 任何建立、管理或連線到 Azure Analysis Services 伺服器的使用者在相同的訂用帳戶中必須 [Azure AD 租用戶](../active-directory/active-directory-administer.md)的有效使用者身分識別。
 
-Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)。 透過 B2B，組織外部的使用者可以受邀成為 Azure AD 目錄中的來賓使用者。 來賓可以來自另一個 Azure AD 租用戶目錄或任何有效的電子郵件地址。 使用者一旦受邀並接受 Azure 透過電子郵件傳送的邀請，使用者身分識別就會新增至租用戶目錄。 這些身分識別可以接著新增至安全性群組或成為伺服器管理員或資料庫角色的成員。
+Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md)。 透過 B2B，組織外部的使用者可以受邀成為 Azure AD 目錄中的來賓使用者。 來賓可以來自另一個 Azure AD 租用戶目錄或任何有效的電子郵件地址。 使用者一旦受邀並接受 Azure 透過電子郵件傳送的邀請，使用者身分識別就會新增至租用戶目錄。 這些身分識別可以新增至安全性群組，或成為伺服器管理員或資料庫角色的成員。
 
 ![Azure Analysis Services 驗證架構](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
@@ -36,8 +35,11 @@ Azure Analysis Services 支援 [Azure AD B2B 共同作業](../active-directory/a
 
 Excel 和 Power BI Desktop 等用戶端應用程式，以及 SSMS 和 SSDT 等工具會在更新至最新版本時，安裝最新版的程式庫。 Power BI Desktop、SSMS 和 SSDT 會每月更新。 Excel 會[與 Office 365 一起更新](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516)。 Office 365 更新較不頻繁，而且有些組織會使用延遲的通道，這表示更新會延遲多達三個月。
 
- 視您使用的用戶端應用程式或工具而定，驗證類型和登入方式可能會不同。 每個應用程式支援使用不同的功能來連線到 Azure Analysis Services 等雲端服務。
+視您使用的用戶端應用程式或工具而定，驗證類型和登入方式可能會不同。 每個應用程式支援使用不同的功能來連線到 Azure Analysis Services 等雲端服務。
 
+Power BI Desktop、SSDT 和 SSMS 支援 Active Directory 通用驗證，這是一種也支援 Azure Multi-Factor Authentication (MFA) 的互動式方法。 Azure MFA 有助於保護對資料與應用程式的存取，同時提供簡單的登入程序。 MFA 也提供具有數種驗證選項 (電話、簡訊、具有 PIN 的智慧卡或行動應用程式通知) 的強式驗證功能。 搭配 Azure AD 使用互動式 MFA 時，會出現快顯對話方塊以進行驗證。 **建議使用通用驗證**。
+
+如果使用 Windows 帳戶登入 Azure，但未選取或無法使用通用驗證 (Excel)，就需要 [Active Directory 同盟服務 (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md)。 透過同盟，Azure AD 和 Office 365 使用者就可以使用內部部署認證進行驗證，而且可以存取 Azure 資源。
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Azure Analysis Services 伺服器使用 Windows 驗證、Active Directory 密碼驗證和 Active Directory 通用驗證，支援來自 [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和更高版本的連線。 一般而言，建議您使用 Active Directory 通用驗證，因為：
@@ -49,10 +51,10 @@ Azure Analysis Services 伺服器使用 Windows 驗證、Active Directory 密碼
 *  支援 Multi-Factor Authentication (MFA)。 Azure MFA 以一系列驗證選項協助保護資料和應用程式的存取：電話、簡訊、含有 PIN 的智慧卡或行動應用程式通知。 搭配 Azure AD 使用互動式 MFA 時，會出現快顯對話方塊以進行驗證。
 
 ### <a name="sql-server-data-tools-ssdt"></a>SQL Server 資料工具 (SSDT)
-SSDT 會使用 Active Directory 通用驗證搭配 MFA 支援來連線到 Azure Analysis Services。 系統會提示使用者在首次部署時使用其組織識別碼 (電子郵件) 來登入 Azure。 使用者必須在其部署至的伺服器上，使用具有伺服器管理員權限的帳戶登入 Azure 。 第一次登入 Azure 時會指派權杖。 SSDT 會快取記憶體內部的權杖，以供未來重新連線。
+SSDT 會使用 Active Directory 通用驗證搭配 MFA 支援來連線到 Azure Analysis Services。 系統會提示使用者在首次部署時登入 Azure。 使用者必須在其部署至的伺服器上，使用具有伺服器管理員權限的帳戶登入 Azure 。 第一次登入 Azure 時會指派權杖。 SSDT 會快取記憶體內部的權杖，以供未來重新連線。
 
 ### <a name="power-bi-desktop"></a>Power BI Desktop
-Power BI Desktop 會使用 Active Directory 通用驗證搭配 MFA 支援來連線到 Azure Analysis Services。 系統會提示使用者在首次連線時使用其組織識別碼 (電子郵件) 來登入 Azure。 使用者必須使用伺服器管理員或資料庫角色隨附的帳戶來登入 Azure。
+Power BI Desktop 會使用 Active Directory 通用驗證搭配 MFA 支援來連線到 Azure Analysis Services。 系統會提示使用者在首次連線時登入 Azure。 使用者必須使用伺服器管理員或資料庫角色隨附的帳戶來登入 Azure。
 
 ### <a name="excel"></a>Excel
 Excel 使用者可以使用 Windows 帳戶、組織識別碼 (電子郵件地址) 或外部電子郵件地址，連線到伺服器。 外部電子郵件身分識別必須以來賓使用者的身分存在於 Azure AD 中。
@@ -60,7 +62,6 @@ Excel 使用者可以使用 Windows 帳戶、組織識別碼 (電子郵件地址
 ## <a name="user-permissions"></a>使用者權限
 
 **伺服器管理員**專屬於 Azure Analysis Services 伺服器執行個體。 他們會使用 Azure 入口網站、SSMS 和 SSDT 等工具進行連線，以執行新增資料庫新增和管理使用者角色等工作。 根據預設，系統會將建立伺服器的使用者自動新增成為 Analysis Services 伺服器管理員。 使用 Azure 入口網站或 SSMS，可以新增其他系統管理員。 伺服器管理員必須在相同的訂用帳戶中具有 Azure AD 租用戶的帳戶。 若要深入了解，請參閱[管理伺服器管理員](analysis-services-server-admins.md)。 
-
 
 **資料庫使用者**會使用 Excel 或 Power BI 等用戶端應用程式來連線到模型資料庫。 使用者必須新增到資料庫角色。 資料庫角色會定義資料庫的系統管理員、處理或讀取權限。 請務必了解具有系統管理員權限之角色的資料庫使用者與伺服器管理員不同。 不過，根據預設，伺服器管理員也是資料庫管理員。 若要深入了解，請參閱[管理資料庫角色和使用者](analysis-services-database-users.md)。
 

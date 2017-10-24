@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
+ms.openlocfilehash: 68bf128824a40afb25b3e088965f38a4cb4d1332
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: b85003a94df3b97f5c64eb3b7e62071f07674c5e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-communication-security--mitigations"></a>安全性架構︰通訊安全性 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
@@ -102,7 +100,7 @@ ms.lasthandoff: 08/23/2017
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | EnvironmentType - Azure |
-| **參考**              | [針對 Azure App Service 中的 App 啟用 HTTPS](https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/) |
+| **參考**              | [針對 Azure App Service 中的 App 啟用 HTTPS](../app-service/app-service-web-tutorial-custom-ssl.md) |
 | **步驟** | 根據預設，Azure 已使用 *.azurewebsites.net 網域的萬用字元憑證來啟用每一個應用程式的 HTTPS。 但是，就像所有萬用字元網域一樣，這並不如使用自訂網域搭配自己的憑證那麼安全。[參閱](https://casecurity.org/2014/02/26/pros-and-cons-of-single-domain-multi-domain-and-wildcard-certificates/)。 建議您針對要透過其存取已部署應用程式的自訂網域啟用 SSL|
 
 ## <a id="appservice-https"></a>強制所有前往 Azure App Service 的流量透過 HTTPS 連線來進行
@@ -113,7 +111,7 @@ ms.lasthandoff: 08/23/2017
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | EnvironmentType - Azure |
-| **參考**              | [對 Azure App Service 強制使用 HTTPS]https://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/#4-enforce-https-on-your-app) |
+| **參考**              | [在 Azure App Service 上強制使用 HTTPS](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
 | **步驟** | <p>雖然 Azure 已使用 *.azurewebsites.net 網域的萬用字元憑證來啟用 Azure App Service 的 HTTPS，但它不會強制使用 HTTPS。 訪客可能仍會使用 HTTP 存取應用程式，而危及應用程式的安全性，因此您必須明確地強制使用 HTTPS。 ASP.NET MVC 應用程式應使用 [RequireHttps 篩選](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) 來強迫不安全的 HTTP 要求透過 HTTPS 重新傳送。</p><p>或者，您也可以使用 Azure App Service 隨附的 URL Rewrite 模組來強制使用 HTTPS。 URL Rewrite 模組可讓開發人員定義連入要求在送達應用程式之前要套用的規則。 您可以在儲存於應用程式根目錄的 web.config 檔案中定義 URL Rewrite 規則</p>|
 
 ### <a name="example"></a>範例
@@ -407,4 +405,3 @@ public class ValuesController : ApiController
 | **屬性**              | N/A  |
 | **參考**              | [選擇您的通訊協定](https://azure.microsoft.com/documentation/articles/iot-hub-devguide/#messaging) |
 | **步驟** | 使用 SSL/TLS 的安全 HTTP/AMQP 或 MQTT 通訊協定。 |
-

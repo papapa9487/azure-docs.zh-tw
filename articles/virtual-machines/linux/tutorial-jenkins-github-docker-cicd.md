@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/25/2017
 ms.author: iainfou
 ms.custom: mvc
+ms.openlocfilehash: 52408184c8cff53f8bb7006fa940b0db4b900db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 84bddd0cb6e53786d3aafb3f7acde34b7e19f83b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>如何在 Azure 中的 Linux VM 上以 Jenkins、GitHub 及 Docker 建立開發基礎結構
 若要將應用程式開發的組建和測試階段自動化，可以使用持續整合和部署 (CI/CD) 管線。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
 
@@ -41,7 +39,7 @@ ms.lasthandoff: 09/27/2017
 如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 ## <a name="create-jenkins-instance"></a>建立 Jenkins 執行個體
-在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 本教學課程使用 cloud-init 檔案在 VM 上安裝 Jenkins 和 Docker。 
+在[如何在首次開機時自訂 Linux 虛擬機器](tutorial-automate-vm-deployment.md)的先前教學課程中，您已了解如何使用 cloud-init 自動進行 VM 自訂。 本教學課程使用 cloud-init 檔案在 VM 上安裝 Jenkins 和 Docker。 Jenkins 是熱門的開放原始碼 Automation 伺服程式，可順暢地與 Azure 整合，以進行持續整合 (CI) 及持續傳遞 (CD)。 如需如何使用 Jenkins 的更多教學課程，請參閱 [Azure 中樞中的 Jenkins](https://docs.microsoft.com/azure/jenkins/)。
 
 您目前的殼層中，建立名為 cloud-init.txt 的檔案，並貼上下列組態。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 輸入 `sensible-editor cloud-init-jenkins.txt` 可建立檔案，並查看可用的編輯器清單。 請確定已正確複製整個 cloud-init 檔案，特別是第一行：
 
@@ -149,7 +147,7 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 在 [一般] 區段中，選取 [GitHub] 專案，然後輸入您的分支存放庫 URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world*
 - 在 [原始碼管理] 區段中，選取 [Git]，輸入您的分支存放庫 .git URL，例如 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*
 - 在 [組建觸發程序] 下，選取 [GITScm 輪詢的 GitHub 勾點觸發程序]。
-- 在 [組建] 區段中，選擇 [新增建置步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
+- 在 [組建] 區段中，選擇 [新增組建步驟]。 選取 [執行殼層]，然後在命令視窗中輸入 `echo "Testing"`。
 - 選取作業視窗底部的 [儲存]。
 
 
@@ -193,11 +191,11 @@ COPY index.js /var/www/
 
 
 ## <a name="create-jenkins-build-rules"></a>建立 Jenkins 組建規則
-您已在上一個步驟中建立基本 Jenkins 組建規則，將訊息輸出至主控台。 現在要建立建置步驟來使用我們的 Dockerfile 並執行應用程式。
+您已在上一個步驟中建立基本 Jenkins 組建規則，將訊息輸出至主控台。 現在要建立組建步驟來使用我們的 Dockerfile 並執行應用程式。
 
 回到您的 Jenkins 執行個體，選取在上一個步驟建立的作業。 選取左側的 [設定]，然後向下捲動至 [建置] 區段︰
 
-- 移除現有的 `echo "Test"` 建置步驟。 選取現有建置步驟方塊右上角的紅色叉號。
+- 移除現有的 `echo "Test"` 組建步驟。 選取現有建置步驟方塊右上角的紅色叉號。
 - 選擇 [新增建置步驟]，然後選取 [執行殼層]
 - 在 [命令] 方塊中輸入下列 Docker 命令，然後選取 [儲存]：
 
@@ -207,7 +205,7 @@ COPY index.js /var/www/
   docker run --name helloworld -p 1337:1337 helloworld:$BUILD_NUMBER node /var/www/index.js &
   ```
 
-Docker 建置步驟會建立映像，並標記 Jenkins 組建編號，讓您可以維護映像的歷程記錄。 系統會停止任何執行應用程式的現有容器，並加以移除。 然後會使用映像啟動新的容器將，並根據 GitHub 中最新的認可執行您的 Node.js 應用程式。
+Docker 組建步驟會建立映像，並標記 Jenkins 組建編號，讓您可以維護映像的歷程記錄。 系統會停止任何執行應用程式的現有容器，並加以移除。 然後會使用映像啟動新的容器將，並根據 GitHub 中最新的認可執行您的 Node.js 應用程式。
 
 
 ## <a name="test-your-pipeline"></a>測試您的管線

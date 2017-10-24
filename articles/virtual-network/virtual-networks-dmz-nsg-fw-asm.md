@@ -15,17 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: cc0e8a3fa749eb2e6f65ef92c2d3cb404cfc8bc0
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>範例 2 – 建置 DMZ 以透過防火牆和 NSG 保護應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]
 
 此範例會建立 DMZ，其內含防火牆、四個 Windows 伺服器和網路安全性群組。 此範例也會逐步解說每個相關命令，以讓您更加深入地了解每個步驟。 另外您還會看到＜流量案例＞一節，本節提供深入的逐步說明，讓您知道流量是如何流經 DMZ 內的各個防禦層。 最後則有＜參考＞一節，本節提供完整的程式碼和指示，以供您建置此環境來測試和試驗各種案例。 
 
-![輸入 DMZ NVA 與 NSG][1]
+![具有 NVA 和 NSG 的輸入 DMZ][1]
 
 ## <a name="environment-description"></a>環境描述
 此範例中，有一個訂用帳戶包含下列項目：

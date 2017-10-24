@@ -1,0 +1,2 @@
+> [!IMPORTANT]
+> 有兩個 PowerShell 模組可用來與 Service Fabric 互動。 [Azure PowerShell](/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) 可用來管理 Azure 資源，例如 Azure 裝載的 Service Fabric 叢集。 [Azure Service Fabric SDK](../articles/service-fabric/service-fabric-get-started.md) 可用來直接連線到 Service Fabric 叢集 (不論裝載於何處) 及管理叢集、應用程式和服務。 

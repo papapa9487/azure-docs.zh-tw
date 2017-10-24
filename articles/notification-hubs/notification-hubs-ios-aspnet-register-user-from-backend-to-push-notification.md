@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: fd56bb2dd627b31f00363851a4e76484aa382988
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>使用 ASP.NET 來註冊目前使用者以取得推播通知
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/11/2017
    > 
 8. 在 PushToUserAppDelegate.m 檔案中，新增下列處理常式方法：
    
-   * (void) 的應用程式:(UIApplication *) 應用程式 didReceiveRemoteNotification:(NSDictionary *) 避 {NSLog (@"%@"，所以);  UIAlertView * 警示 = [[UIAlertView 配置] initWithTitle:@"Notification 」 訊息: [使用者資訊 objectForKey:@"inAppMessage]"委派： nil cancelButtonTitle: @"OK"otherButtonTitles:nil、 nil];  [警示顯示]。}
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:                         [userInfo objectForKey:@"inAppMessage"] delegate:nil cancelButtonTitle:                         @"OK" otherButtonTitles:nil, nil];   [alert show]; }
    
    此方法會在您執行中的應用程式接收到通知時，在 UI 中顯示警示。
 9. 開啟 PushToUserViewController.m 檔案，然後在下列實作中傳回鍵盤：

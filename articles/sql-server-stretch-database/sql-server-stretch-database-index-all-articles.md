@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/05/2016
 ms.author: DouglasL
 ms.openlocfilehash: 33f23d324a843165d7fe6016ee626e369acfc958
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="all-topics-for-azure-sql-server-stretch-database-service"></a>所有 Azure SQL Server Stretch Database 服務的主題
 本主題會列出每一個直接適用於 Azure 的 **SQL Server Stretch Database** 服務的主題。 您可以使用 **Ctrl+F**，利用關鍵字搜尋本網頁，以尋找目前感興趣的主題。
@@ -55,6 +55,6 @@ ms.lasthandoff: 07/11/2017
 ## <a name="backup-and-recovery"></a>備份與復原
 | &nbsp; | 課程名稱 | 說明 |
 | ---:|:--- |:--- |
-| 14 |[備份已啟用 Stretch 的資料庫](sql-server-stretch-database-backup.md) |了解如何備份 Stretch\-啟用資料庫。 |
-| 15 |[還原已啟用延展功能的資料庫](sql-server-stretch-database-restore.md) |了解如何還原 Stretch\-啟用資料庫。 |
+| 14 |[備份已啟用 Stretch 的資料庫](sql-server-stretch-database-backup.md) |了解如何備份已啟用 Stretch 的資料庫。 |
+| 15 |[還原已啟用延展功能的資料庫](sql-server-stretch-database-restore.md) |了解如何還原已啟用 Stretch 的資料庫。 |
 

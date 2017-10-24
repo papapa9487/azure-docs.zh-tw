@@ -10,16 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/17/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 2f18016614b229273aa4d661991149be949ce238
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 0c0bd4b707c114d2991e5f0473a4bfbe9e463e3c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Node.js 連線及查詢資料
-本快速入門示範如何從 Windows、Ubuntu Linux 和 Mac 平台使用 [Node.js](https://nodejs.org/) 來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Node.js 進行開發，但不熟悉 Azure Database for MySQLL。
+本快速入門示範如何從 Windows、Ubuntu Linux 和 Mac 平台使用 [Node.js](https://nodejs.org/) 來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Node.js 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -31,12 +30,12 @@ ms.lasthandoff: 07/18/2017
 - 安裝 [mysql2](https://www.npmjs.com/package/mysql2) 套件，以從 Node.js 應用程式連線至 MySQL。 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>安裝 Node.js 和 MySQL 連接器
-根據您的平台，遵循適當指示來安裝 Node.js。 使用 npm 將 mysql2 套件及其相依性安裝到您的專案資料夾中。
+根據您的平台，遵循適當小節中的指示來安裝 Node.js。 使用 npm 將 mysql2 套件及其相依性安裝到您的專案資料夾中。
 
 ### <a name="windows"></a>**Windows**
-1. 造訪 [Node.js 下載頁面](https://nodejs.org/en/download/)，並選取您需要的 Windows 安裝程式選項。
+1. 造訪 [Node.js 下載頁面](https://nodejs.org/en/download/) \(英文\)，然後選取您需要的 Windows 安裝程式選項。
 2. 建立本機專案資料夾，例如 `nodejsmysql`。 
-3. 啟動命令提示字元，將目錄變更為專案資料夾，例如 `cd c:\nodejsmysql\`
+3. 啟動命令提示字元，然後將目錄變更為專案資料夾，例如 `cd c:\nodejsmysql\`
 4. 執行 NPM 工具將 mysql2 程式庫安裝至專案資料夾中。
 
    ```cmd
@@ -54,7 +53,7 @@ ms.lasthandoff: 07/18/2017
    sudo apt-get install -y nodejs npm
    ```
 
-2. 執行下列命令，產生專案資料夾 `mysqlnodejs`並將 mysql2 套件安裝到該資料夾中。
+2. 執行下列命令來建立專案資料夾 `mysqlnodejs`，然後將 mysql2 封裝安裝到該資料夾。
 
    ```bash
    mkdir nodejsmysql
@@ -71,7 +70,7 @@ ms.lasthandoff: 07/18/2017
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. 執行下列命令，產生專案資料夾 `mysqlnodejs`並將 mysql2 套件安裝到該資料夾中。
+2. 執行下列命令來建立專案資料夾 `mysqlnodejs`，然後將 mysql2 封裝安裝到該資料夾。
 
    ```bash
    mkdir nodejsmysql
@@ -88,13 +87,13 @@ ms.lasthandoff: 07/18/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在左側窗格中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **myserver4demo**)。
 3. 按一下伺服器名稱 **myserver4demo**。
-4. 選取伺服器的 [屬性] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
+4. 選取伺服器的 [屬性] 頁面，然後記下**伺服器名稱**和**伺服器管理員登入名稱**。
  ![Azure Database for MySQL - 伺服器管理員登入](./media/connect-nodejs/1_server-properties-name-login.png)
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>在 Node.js 中執行 JavaScript 程式碼
-1. 將 JavaScript 程式碼貼入文字檔 (副檔名為 .js) 並儲存到專案資料夾中，例如 C:\nodejsmysql\createtable.js or /home/username/nodejsmysql/createtable.js
-2. 啟動命令提示字元或 bash shell。 將目錄切換到專案資料夾 `cd nodejsmysql`。
+1. 將 JavaScript 程式碼貼入文字檔，然後使用副檔名 .js 來將它儲存到專案資料夾 (例如 C:\nodejsmysql\createtable.js 或 /home/username/nodejsmysql/createtable.js)。
+2. 啟動命令提示字元或 Bash 殼層，然後將目錄變更為您的專案資料夾 `cd nodejsmysql`。
 3. 若要執行應用程式，請鍵入後接檔案名稱的節點命令，例如 `node createtable.js`。
 4. 在 Windows 上，如果節點應用程式不在您的環境變數路徑中，則可能需要使用完整路徑來啟動節點應用程式，例如 `"C:\Program Files\nodejs\node.exe" createtable.js`
 
@@ -316,4 +315,3 @@ function deleteData(){
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [使用匯出和匯入來移轉資料庫](./concepts-migrate-import-export.md)
-

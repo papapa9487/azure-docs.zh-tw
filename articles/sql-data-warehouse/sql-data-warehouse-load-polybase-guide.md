@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用 PolyBase 的指南
 本指南提供在 SQL 資料倉儲中使用 PolyBase 的實用資訊。
@@ -134,7 +133,7 @@ WHERE
 
 ## <a name="polybase-limitations"></a>PolyBase 的限制
 SQL DW 的PolyBase 有下列限制，在設計載入作業時必須納入考量：
-- 單一資料列不能比 1,000,000 個位元組更寬。 不論資料表定義的結構描述為何 (包括 (n)varchar(max) 資料行)，這一點都成立。 這表示外部資料表的 (n)varchar(max) 資料行可以是最大的 1,000,000 個位元組寬，不是資料類型定義的 2 GB 限制。
+- 單一資料列不能比 1,000,000 個位元組更寬。 不論資料表結構描的定義為何，此一限制皆成立。
 - 將資料從 SQL Server 或 Azure SQL 資料倉儲匯出成 ORC 檔案格式時，由於 java 的記憶體不足錯誤，可能會限制大量文字的資料行只能有 50 個資料行。 要解決這個問題，只能匯出部分資料行。
 
 
@@ -174,4 +173,3 @@ SQL DW 的PolyBase 有下列限制，在設計載入作業時必須納入考量�
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

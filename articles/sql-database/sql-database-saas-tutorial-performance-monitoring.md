@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
@@ -48,7 +47,7 @@ Wingtip SaaS 應用程式使用單一租用戶資料模型，其中每個場地 
 
 管理資料庫效能包含了編譯及分析效能資料，然後透過調整參數回應此資料，以維持您應用程式的可接受回應時間。 裝載多個租用戶時，彈性資料庫集區是一種符合成本效益的方式，可針對包含無法預測之工作負載的資料庫群組提供及管理資源。 使用特定工作負載模式，最少為兩個 S3 資料庫可以受惠於在集區中管理。
 
-![媒體](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![應用程式圖表](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 您仍然需要監視集區和集區中的資料庫，以確保它們的效能在可接受範圍內。 調整集區設定以符合所有資料庫之彙總工作負載的需求，確保集區 eDTU 適用於整體工作負載。 針對您的特定應用程式需求，將每個資料庫最小和最大 eDTU 值調整為適當的值。
 
@@ -115,11 +114,11 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
 
 集區的資源使用量是集區中所有資料庫的資料庫使用量彙總。 資料庫圖表會顯示最熱門的 5 個資料庫︰
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![資料庫圖表](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 因為集區中前 5 名資料庫以外還有其他資料庫，集區使用量會顯示未反映在前五個資料庫圖表中的活動。 如需其他詳細資料，請按一下 [資料庫資源使用量]：
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![資料庫資源使用率](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>設定集區上的效能警示
@@ -127,7 +126,7 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
 在集區上設定 \>75% 使用率時觸發的警示，如下所示：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中開啟 *Pool1* (在 *tenants1-\<使用者\>* 伺服器上)。
-1. 按一下 [警示規則]，然後按一下 [+ 加入警示]：
+1. 按一下 警示規則，然後按一下+ 加入警示：
 
    ![加入警示](media/sql-database-saas-tutorial-performance-monitoring/add-alert.png)
 
@@ -180,7 +179,7 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
     1. 按一下 [設定集區]，
     1. 將 [集區 eDTU] 設定為 [50 eDTU]。
     1. 按一下 [新增資料庫]，以查看伺服器上可以新增至 *Pool2* 的資料庫清單。
-    1. 任選 10 個資料庫以將這些資料庫移至新的集區，然後按一下 [選取]。 如果您已在執行負載產生器，該服務已經知道您的效能設定檔需要大於預設大小 50 eDTU 的較大集區，並建議從 100 eDTU 設定著手。
+    1. 任選 10 個資料庫以將這些資料庫移至新的集區，然後按一下選取。 如果您已在執行負載產生器，該服務已經知道您的效能設定檔需要大於預設大小 50 eDTU 的較大集區，並建議從 100 eDTU 設定著手。
 
     ![建議](media/sql-database-saas-tutorial-performance-monitoring/configure-pool.png)
 
@@ -249,4 +248,3 @@ Wingtip 是 SaaS 應用程式，而實際 SaaS 應用程式上的負載通常是
 * [SQL 彈性集區](sql-database-elastic-pool.md)
 * [Azure 自動化](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) - 設定及使用 Log Analytics 教學課程
-

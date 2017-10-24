@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 10/10/2017
 ms.author: donnam
+ms.openlocfilehash: ad71a32d82e9b5aa4efda6d7ea67a9326ffcc4ff
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>使用 .NET 類別庫搭配 Azure Functions
 
@@ -31,8 +30,8 @@ ms.lasthandoff: 09/29/2017
 
 本文有下列先決條件：
 
-- [Visual Studio 2017 15.3 預覽](https://www.visualstudio.com/vs/preview/)。 安裝 **ASP.NET 和 Web 開發**及 **Azure 開發**工作負載。
-- [Azure Function Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio 2017 版本 15.3](https://www.visualstudio.com/vs/) 或更新版本。
+- 安裝 **Azure 開發**工作負載。
 
 ## <a name="functions-class-library-project"></a>Functions 類別庫專案
 
@@ -50,14 +49,15 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 此轉換是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 來源可在 GitHub 存放庫 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) 提供使用。
 
-## <a name="triggers-and-bindings"></a>觸發和繫結
+## <a name="triggers-and-bindings"></a>觸發和繫結 
 
 下表列出的觸發程序和繫結可在 Azure Functions 類別庫專案中提供使用。 所有屬性都在 `Microsoft.Azure.WebJobs` 命名空間中。
 
 | 繫結 | 屬性 | Nuget 套件 |
 |------   | ------    | ------        |
 | [Blob 儲存體觸發程序, 輸入, 輸出](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [Blob 儲存體] |
-| [Cosmos DB 輸入和輸出繫結](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Cosmos DB 觸發程序](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Cosmos DB 輸入和輸出](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [事件中心觸發程序和輸出](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [外部檔案輸入和輸出](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [HTTP 和 Webhook 觸發程序](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -72,11 +72,11 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 <a name="blob-storage"></a>
 
-### <a name="blob-storage-trigger-input-and-output-bindings"></a>Blob 儲存體觸發程序、輸入和輸出繫結
+### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Blob 儲存體觸發程序、輸入繫結和輸出繫結
 
 Azure Functions 支援適用於 Azure Blob 儲存體的觸發程序、輸入和輸出繫結。 如需有關繫結運算式和中繼資料的詳細資訊，請參閱 [Azure Functions Blob 儲存體繫結](functions-bindings-storage-blob.md)。
 
-Blob 觸發程序是使用 `[BlobTrigger]` 屬性定義。 您可以使用 `[StorageAccount]` 屬性來定義整個函式或類別所使用的儲存體帳戶。
+Blob 觸發程序是使用 `[BlobTrigger]` 屬性定義。 您可以使用 `[StorageAccount]` 屬性來定義應用程式設定名稱，包含整個函式或類別所使用之儲存體帳戶的連接字串。
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -121,17 +121,30 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Cosmos DB 輸入和輸出繫結
+### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Cosmos DB 觸發程序、輸入繫結和輸出繫結
 
-Azure Functions 支援 Cosmos DB 的輸入和輸出繫結。 若要深入了解 Cosmos DB 繫結的功能，請參閱 [Azure Functions Cosmos DB 繫結](functions-bindings-documentdb.md)。
+Azure Functions 支援 Cosmos DB 的觸發程序、輸入繫結和輸出繫結。 若要深入了解 Cosmos DB 繫結的功能，請參閱 [Azure Functions Cosmos DB 繫結](functions-bindings-documentdb.md)。
 
-若要繫結至 Cosmos DB 文件，請使用 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] 中的 `[DocumentDB]` 屬性。 下列範例具有佇列觸發程序和 DocumentDB API 輸出繫結：
+若要從 Cosmos DB 文件觸發，請使用 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] 中的 `[CosmosDBTrigger]` 屬性。 下列範例從特定的 `database` 和 `collection` 觸發。 `myCosmosDB` 設定包含 Cosmos DB 執行個體的連線。 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
+
+若要繫結至 Cosmos DB 文件，請使用 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DocumentDB] 中的 `[DocumentDB]` 屬性。 下列範例有佇列觸發程序，和 DocumentDB API 輸出繫結。
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -232,7 +245,7 @@ Azure Functions 會支援通知中樞的輸出繫結。 若要深入了解，請
 
 Azure Functions 支援適用於 Azure 佇列的觸發程序和輸出繫結。 如需詳細資訊，請參閱 [Azure Functions 佇列儲存體繫結](functions-bindings-storage-queue.md)。
 
-下列範例示範如何使用 `[Queue]` 屬性，搭配佇列輸出繫結使用函式傳回型別。 若要定義佇列觸發程序，請使用 `[QueueTrigger]` 屬性。
+下列範例示範如何使用 `[Queue]` 屬性，搭配佇列輸出繫結使用函式傳回型別。 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -246,7 +259,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+若要定義佇列觸發程序，請使用 `[QueueTrigger]` 屬性。
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -258,13 +279,16 @@ public static class QueueFunctions
 
 ```
 
+
 <a name="sendgrid"></a>
 
 ### <a name="sendgrid-output"></a>SendGrid 輸出
 
 Azure Functions 支援用於以程式設計方式傳送電子郵件的 SendGrid 輸出繫結。 若要深入了解，請參閱 [Azure Functions SendGrid 繫結](functions-bindings-sendgrid.md)。
 
-`[SendGrid]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.SendGrid] 中。
+`[SendGrid]` 屬性定義於 NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.SendGrid] 中。 SendGrid 繫結需要一個稱為 `AzureWebJobsSendGridApiKey` 的應用程式設定，其中包含您的 SendGrid API 金鑰。 這是您的 SendGrid API 金鑰的預設設定名稱。 如果您需要一個以上的 SendGrid 金鑰或選擇不同的設定名稱，可以使用 `SendGrid` 繫結屬性的 `ApiKey` 屬性設定此名稱，如下列範例所示：
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 以下範例使用服務匯流排佇列觸發程序，以及使用 `SendGridMessage` 的 SendGrid 輸出繫結：
 
@@ -289,6 +313,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+請注意，此範例需要在稱為 `AzureWebJobsSendGridApiKey` 的應用程式設定中儲存 SendGrid API 金鑰。
 
 <a name="service-bus"></a>
 
@@ -365,7 +390,7 @@ Azure Functions 具有計時器觸發程序繫結，可讓您根據所定義的�
 
 在耗用量方案中，您可以使用 [CRON 運算式](http://en.wikipedia.org/wiki/Cron#CRON_expression)來定義排程。 如果您是使用 App Service 方案，也可以使用 TimeSpan 字串。 
 
-下列範例會定義每隔 5 分鐘執行的計時器觸發程序：
+下列範例定義每五分鐘執行一次的計時器觸發程序：
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -411,7 +436,7 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta1
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
 [Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
@@ -426,6 +451,7 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
@@ -441,4 +467,3 @@ public static SMSMessage Run([QueueTrigger("myqueue-items", Connection = "AzureW
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
-

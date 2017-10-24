@@ -17,21 +17,18 @@ ms.workload: na
 ms.date: 03/24/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 9d7d2ae0e9b1f7850332d151d78a4a5fdb013777
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 75c5f00255e1a55dd84ba0cf17dbef56b0253334
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>向私用 Docker 容器登錄進行驗證
 若要使用 Azure 容器登錄庫中的容器映像，請使用 `docker login` 命令登入。 您可以使用 **[Azure Active Directory 服務主體](../active-directory/active-directory-application-objects.md)**或登錄庫特定的**管理帳戶**登入。 本文提供關於這些身分識別的詳細資訊。
 
-
-
 ## <a name="service-principal"></a>服務主體
 
-您可以[指派服務主體](container-registry-get-started-azure-cli.md#assign-a-service-principal)到登錄庫，並使用於基本 Docker 驗證。 在大部分情況下，建議使用服務主體。 將服務主體的應用程式識別碼和密碼提供給 `docker login` 命令，如下列範例所示︰
+您可以指派服務主體到登錄，並使用它進行基本的 Docker 驗證。 在大部分情況下，建議使用服務主體。 將服務主體的應用程式識別碼和密碼提供給 `docker login` 命令，如下列範例所示︰
 
 ```
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -42,7 +39,6 @@ docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my
 > [!TIP]
 > 如果您想，您可以執行 `az ad sp reset-credentials` 命令以重新產生服務主體的密碼。
 >
-
 
 服務主體允許登錄庫的[角色型存取](../active-directory/role-based-access-control-configure.md)。 可用的角色如下：
   * 讀取者 (僅擁有提取存取權限)。
@@ -58,11 +54,8 @@ Azure Container Registry 無法進行匿名存取。 您可以使用[Docker 中�
   * 建立容器映像，並將其推送到登錄庫的連續整合和部署解決方案 (例如 Visual Studio Team Services 或 Jenkins)。
 
 
-
-
-
 ## <a name="admin-account"></a>管理帳戶
-您建立的每個登錄，都會自動建立一個管理帳戶。 此帳戶預設為停用，但您可以啟用它以管理認證，例如透過[入口網站](container-registry-get-started-portal.md#manage-registry-settings)或使用 [Azure CLI 2.0 命令](container-registry-get-started-azure-cli.md#manage-admin-credentials)。 每個管理帳戶會提供兩個可以重新產生的密碼。 這兩個密碼讓您在重新產生其他密碼時，可以使用其中一個密碼來維持對登錄的連線。 如果已啟用此帳戶，您可以傳送使用者名稱和密碼到 `docker login` 命令，向登錄庫進行基本驗證。 例如：
+您建立的每個登錄，都會自動建立一個管理帳戶。 此帳戶預設為停用，但您可以啟用它以管理認證，例如透過[入口網站](container-registry-get-started-portal.md#create-a-container-registry)或使用 [Azure CLI 2.0 命令](container-registry-get-started-azure-cli.md#create-a-container-registry)。 每個管理帳戶會提供兩個可以重新產生的密碼。 這兩個密碼讓您在重新產生其他密碼時，可以使用其中一個密碼來維持對登錄的連線。 如果已啟用此帳戶，您可以傳送使用者名稱和密碼到 `docker login` 命令，向登錄庫進行基本驗證。 例如：
 
 ```
 docker login myregistry.azurecr.io -u myAdminName -p myPassword1
@@ -72,8 +65,6 @@ docker login myregistry.azurecr.io -u myAdminName -p myPassword1
 > 管理帳戶是專為單一使用者存取登錄庫而設計，主要用於測試。 不建議和其他使用者共用管理帳戶認證。 對登錄庫而言，所有使用者都會顯示為單一使用者。 變更或停用此帳戶，會停用使用該認證之所有使用者的登錄庫存取權。
 >
 
-
 ### <a name="next-steps"></a>後續步驟
 * [使用 Docker CLI 推送您的第一個映像](container-registry-get-started-docker-cli.md)。
 * 如需容器登錄庫預覽中的驗證詳細資訊，請參閱[部落格文章](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/)。
-

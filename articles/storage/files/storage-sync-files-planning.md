@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3c003d498600a2cfd12ef2adfb7c16f9dfaddb37
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
-透過 Azure 檔案同步 (預覽)，您可以將共用複寫到內部部署或 Azure 中的 Windows Server。 您及您的使用者接著可透過 Windows Server 存取檔案共用，例如透過 SMB 或 NFS 共用。 這特別適用於離 Azure 資料中心很遠的位置 (例如分公司) 存取和修改資料的情況。 資料可以在多個 Windows Server 端點之間複寫，例如多個分公司之間。 
+Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
 
 本指南說明部署 Azure 檔案同步時的考量事項。建議您閱讀[規劃 Azure 檔案部署](storage-files-planning.md)測試指南。 
 
@@ -67,7 +65,7 @@ Azure 檔案同步目前支援的 Windows Server 版本包括：
 | Windows Server 2016 | Datacenter 和 Standard | 完整 (具有 UI 的 Server) |
 | Windows Server 2012 R2 | Datacenter 和 Standard | 完整 (具有 UI 的 Server) |
 
-Windows Server 的未來版本將會在發行時新增，舊版 Windows 可能會根據使用者意見反應而新增。
+Windows Server 的未來版本將會在發行時新增，且舊版 Windows 可能會根據使用者意見反應而新增。
 
 > [!Important]  
 > 建議您透過 Windows Update 的最新更新，確保搭配 Azure 檔案同步使用的所有 Windows Server 都是最新的。 
@@ -139,14 +137,9 @@ Azure 檔案同步處於預覽狀態，僅適用於下列區域：
 在預覽版中，僅支援與儲存體同步服務相同之區域中的 Azure 檔案共用同步。
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
-Azure 檔案同步代理程式的更新會定期發行，以新增功能並解決任何找到的問題。 建議啟用 Microsoft Update，以取得我們所發行的所有 Azure 檔案同步代理程式更新。 話雖如此，我們了解某些組織會想要嚴格控制更新。 若要使用舊版 Azure 檔案同步代理程式進行部署：
-
-- 在最初發行新的主要版本之後三個月，儲存體同步服務會允許使用舊的主要版本。 例如，在發行版本 2.\* 之後三個月，儲存體同步服務會支援版本 1.\*。
-- 過了三個月後，儲存體同步服務會透過與其同步群組同步，開始封鎖使用過期版本的已註冊伺服器。
-- 在使用舊的主要版本的三個月內，所有 Bug 修正只會套用至目前的主要版本。
+[!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>後續步驟
 * [規劃 Azure 檔案部署](storage-files-planning.md)
 * [部署 Azure 檔案](storage-files-deployment-guide.md)
 * [部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)
-

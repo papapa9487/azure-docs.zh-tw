@@ -12,16 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 09/27/2017
 ms.author: raynew
+ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>業務持續性和災害復原 (BCDR)：Azure 配對的區域
 
 ## <a name="what-are-paired-regions"></a>什麼是配對的區域？
@@ -51,9 +49,8 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 | 日本 |日本東部 |日本西部 |
 | 巴西 |巴西南部 (1) |美國中南部 |
 | 美國政府 |美國政府愛荷華州 |美國政府維吉尼亞州 |
-| 美國政府 |美國政府維吉尼亞州 |美國政府德克薩斯州 |
-| 美國政府 |美國政府德克薩斯州 |美國政府亞利桑那州 |
 | 美國政府 |美國政府亞利桑那州 |美國政府德克薩斯州 |
+| 美國國防部 |美國 DoD 東部 |美國國防部中央 |
 | 英國 |英國西部 |英國南部 |
 | 德國 |德國中部 |德國東北部 |
 
@@ -99,4 +96,3 @@ Azure 能在世界各地多個地理位置運作。 Azure 地理位置是包含�
 
 ![資料](./media/best-practices-availability-paired-regions/9Orange.png)
 **資料常駐地** - 區域會駐留在相同的地理位置之內形成配對 (巴西南部除外)，以符合資料常駐地之稅務和執法管轄區的要求。
-

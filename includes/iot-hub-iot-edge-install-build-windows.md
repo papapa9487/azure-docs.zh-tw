@@ -6,7 +6,7 @@
 
 1. 安裝 [CMake](https://cmake.org/download/)，並確定您可以從命令列執行 cmake.exe。 建議使用 CMake 3.7.2 版本或更新版本。 **.msi** 安裝程式是 Windows 上最簡單的選項。 當安裝程式提示時，請至少將 CMake 新增至目前使用者的路徑。
 
-1. 安裝 [Python 2.7](https://www.python.org/downloads/release/python-27)。 請確定您將 Python 新增到 **[控制台] -> [系統] -> [進階系統設定] -> [環境變數]** 中的 `PATH` 環境變數。
+1. 安裝 [Python 2.7](https://www.python.org/downloads/release/python-27)。 請務必將 Python 新增至 `PATH` 環境變數。 移至 [控制台] > [系統及安全性] > [系統] > [進階系統設定] > [環境變數]。 將 `C:\Python27` 新增至您的路徑。 
 
 1. 在命令提示字元中，執行下列命令，將 Azure IoT Edge GitHub 存放庫複製到本機電腦：
 
@@ -18,7 +18,7 @@
 
 您現在可以在本機電腦上建置 IoT Edge 執行階段和範例：
 
-1. 開啟「VS 2015 開發人員命令提示字元」或「VS 2017 開發人員命令提示字元」命令提示字元。
+1. 根據您的版本，開啟「VS 2015 開發人員命令提示字元」或「VS 2017 開發人員命令提示字元」。
 
 1. 瀏覽至 **iot-edge** 存放庫的本機複本中的根資料夾。
 

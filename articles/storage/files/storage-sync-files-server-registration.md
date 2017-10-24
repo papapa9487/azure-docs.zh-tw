@@ -12,20 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 0acf183fbaea99e4316b668a3da28d79b20b7bef
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>向 Azure 檔案同步 (預覽) 註冊/取消註冊伺服器
-透過 Azure 檔案同步 (預覽)，您可以在內部部署或 Azure 中複寫共用，並透過 Windows Server 上的 SMB 或 NFS 共用來存取。 Azure 檔案同步適用於離 Azure 資料中心很遠的位置 (例如分公司) 需要存取和修改資料的情況。 資料可以在多個 Windows Server 端點之間複寫，例如多個分公司之間。
+Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
 
-下列文章說明如何向儲存體同步服務註冊及取消註冊伺服器。 這適用於伺服器正在解除委任或同步群組中需要新伺服器端點的情況。 如需如何部署端對端 Azure 檔案同步的資訊，請參閱[如何部署 Azure 檔案同步 (預覽)](storage-sync-files-deployment-guide.md)。
+下列文章說明如何向儲存體同步服務註冊及取消註冊伺服器。 這適用於伺服器正在解除委任或同步群組中需要新伺服器端點的情況。 如需如何從頭到尾部署 Azure 檔案同步的資訊，請參閱[如何部署 Azure 檔案同步 (預覽)](storage-sync-files-deployment-guide.md)。
 
 ## <a name="prerequisites"></a>必要條件
 若要向儲存體同步服務註冊 Windows Server，您必須先準備好符合下列必要條件的 Windows Server：
@@ -80,7 +78,7 @@ ms.lasthandoff: 09/25/2017
 向儲存體同步服務取消註冊伺服器需要執行幾個步驟。 讓我們看看如何正確地取消註冊伺服器。
 
 ### <a name="optional-recall-all-tiered-data"></a>(選擇性) 重新叫用階層式資料
-針對伺服器端點啟用時，雲端階層處理會將檔案「分層」到 Azure 檔案共用。 如此可讓內部部署檔案共用作為快取，而不是資料集的完整複本，以便有效率地使用檔案伺服器上的空間。 不過，如果移除伺服器端點時，本機伺服器上仍有階層式檔案，這些檔案會變成無法存取。 因此，如果需要繼續存取檔案，則必須重新叫用所有階層式檔案，再繼續取消註冊。 
+針對伺服器端點啟用時，雲端階層處理會將檔案「分層」到 Azure 檔案共用。 這樣可讓內部部署檔案共用作為快取，而不是資料集的完整複本，以便有效率地使用檔案伺服器上的空間。 不過，如果移除伺服器端點時，本機伺服器上仍有已分層的檔案，那些檔案會變成無法存取。 因此，如果您想要繼續存取檔案，您必須從 Azure 檔案服務重新叫用已分層的檔案，然後再繼續取消註冊。 
 
 這可以透過 PowerShell Cmdlet 來完成，如下所示：
 

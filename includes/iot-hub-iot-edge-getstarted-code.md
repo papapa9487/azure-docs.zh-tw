@@ -4,28 +4,28 @@
 
 ```json
 [{
-    "time": "Mon Apr 11 13:48:07 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "content": "Log started"
 }, {
-    "time": "Mon Apr 11 13:48:48 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:48:55 2016",
+    "time": "Mon Apr 11 13:42:55 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:01 2016",
+    "time": "Mon Apr 11 13:43:00 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:04 2016",
+    "time": "Mon Apr 11 13:45:00 2016",
     "content": "Log stopped"
 }]
 ```
@@ -36,11 +36,11 @@
 
 ### <a name="iot-edge-gateway-creation"></a>建立 IoT Edge 閘道
 
-您必須實作閘道程序。 此程式會建立內部基礎結構 (訊息代理程式)、載入 IoT Edge 模組，以及設定閘道程序。 IoT Edge 提供的 **Gateway\_Create\_From\_JSON** 函式可讓您從 JSON 檔案啟動閘道。 若要使用 **Gateway\_Create\_From\_JSON** 函式，請將它傳遞到 JSON 檔案的路徑，以指定要載入的 IoT Edge 模組。
+若要建立閘道，請實作閘道程序。 此程式會建立內部基礎結構 (訊息代理程式)、載入 IoT Edge 模組，以及設定閘道程序。 IoT Edge 提供的 **Gateway\_Create\_From\_JSON** 函式可讓您從 JSON 檔案啟動閘道。 若要使用 **Gateway\_Create\_From\_JSON** 函式，請將它傳遞到 JSON 檔案的路徑，以指定要載入的 IoT Edge 模組。
 
 在 [main.c][lnk-main-c] 檔案中，您可以找到 Hello World 範例中閘道程序的程式碼。 下列程式碼片段顯示精簡版本的閘道程序程式碼，以利閱讀。 此範例會建立閘道，然後先等待使用者按下 **ENTER** 鍵，再終止閘道。
 
-```c
+```C
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -119,7 +119,7 @@ JSON 檔案也包含會傳遞給訊息代理程式之模組之間的連結。 �
 
 您可以在 ['hello_world.c'][lnk-helloworld-c] 檔案中找到 hello\_world 模組所使用的程式碼來發佈訊息。 下列程式碼片段所示範的修改過程式碼版本已新增註解並移除一些錯誤處理程式碼，以利閱讀︰
 
-```c
+```C
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -165,24 +165,22 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="helloworld-module-message-processing"></a>Hello\_world 模組訊息處理
-
 Hello\_world 模組永遠不會處理其他 IoT Edge 模組發佈至訊息代理程式的訊息。 因此，hello\_world 模組中的訊息回呼實作為無作業函式。
 
-```c
+```C
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
 }
 ```
 
-### <a name="logger-module-message-publishing-and-processing"></a>Logger 模組訊息發佈和處理
+### <a name="logger-module-message-processing"></a>記錄器模組訊息處理
 
 Logger 模組會接收來自訊息代理程式的訊息，並將它們寫入檔案。 此模組永遠不會發佈任何訊息。 因此，Logger 模組的程式碼永遠不會呼叫 **Broker_Publish** 函式。
 
 [logger.c][lnk-logger-c] 檔案中的 **Logger_Receive** 函式是訊息代理程式所叫用的回呼，以將訊息傳遞到 Logger 模組。 下列程式碼片段所示範的修改過版本已新增註解並移除一些錯誤處理程式碼，以利閱讀︰
 
-```c
+```C
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -223,7 +221,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您所執行的簡單 IoT Edge 閘道可將訊息寫入記錄檔中。 若要執行可將訊息傳送到 IoT 中樞的範例，請參閱 [IoT Edge – 使用 Linux 透過模擬的裝置傳送裝置對雲端訊息][lnk-gateway-simulated-linux]或 [IoT Edge – 使用 Windows 透過模擬的裝置傳送裝置對雲端訊息][lnk-gateway-simulated-windows]。
+在本文中，您所執行的簡單 IoT Edge 閘道可將訊息寫入記錄檔中。 若要執行會將訊息傳送到 IoT 中樞的範例，請參閱：
+
+- [IoT Edge：搭配使用模擬裝置與 Linux 來傳送裝置到雲端訊息][lnk-gateway-simulated-linux] 
+- [IoT Edge：搭配使用模擬裝置與 Windows 來傳送裝置到雲端訊息][lnk-gateway-simulated-windows]。
 
 
 <!-- Links -->

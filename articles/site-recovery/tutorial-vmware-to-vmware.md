@@ -4,7 +4,7 @@ description: "了解如何使用 Azure Site Recovery 設定 VMware VM 或 Window
 services: site-recovery
 documentationcenter: 
 author: nsoneji
-manager: jwhit
+manager: gauarvd
 editor: 
 ms.assetid: 68616d15-398c-4f40-8323-17b6ae1e65c0
 ms.service: site-recovery
@@ -12,14 +12,13 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2017
+ms.date: 10/11/2017
 ms.author: raynew
+ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: da1df5546b7f99549a693c4e2df4eefb7a423c7f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定內部部署 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 09/25/2017
 選取要複寫的內容及複寫目的地。
 
 1. 按一下 [Site Recovery] > [準備基礎結構] > [保護目標]。
-2. 選取 [到復原站台] > [Yes, with VMware vSphere Hypervisor] (是，使用 VMware vSphere Hypervisor)。 然後按一下 [確定] 。
+2. 選取 [到復原站台] > [Yes, with VMware vSphere Hypervisor] \(是，使用 VMware vSphere Hypervisor)。 然後按一下 [確定] 。
 3. 在 [Scout 設定] 中，下載 InMage Scout 8.0.1 GA 軟體和註冊金鑰。 所有元件的安裝程式檔案都包含在下載的 .zip 檔中。
 
 ## <a name="install-component-updates"></a>安裝元件更新
@@ -59,22 +58,27 @@ ms.lasthandoff: 09/25/2017
 
 安裝更新，如下所示：
 
-1. 下載 [update](https://aka.ms/asr-scout-update5) .zip 檔案。 此檔案包含下列檔案：
+> [!NOTE]
+>並非所有 Scout 元件的檔案更新版本在更新 .zip 檔案中都相同。 舊版表示自上次更新此更新以來，元件沒有任何變更。
 
-   * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
-   * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
-   * UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
-   * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-   * vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe
-   * 適用於 RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 位元：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
-2. 解壓縮 .zip 檔。
-    - **RX 伺服器**：將 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 複製到 RX 伺服器並將其解壓縮。 在解壓縮的資料夾中執行 **/Install**。
-    - **設定伺服器和處理伺服器**：將 **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** 複製到設定伺服器和處理伺服器。 連按兩下加以執行。<br>
-    - **Windows 主要目標伺服器**：若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到伺服器。 連按兩下加以執行。 整合代理程式也適用於來源伺服器。 如果來源尚未更新為 Update 4，您應該更新整合代理程式。
-    - **vContinuum 伺服器**：將 **vCon_Windows_8.0.5.0_GA_Update_5_11525767_20Apr17.exe** 複製到伺服器。  確定您已經關閉 vContinuum 精靈。 連按兩下檔案加以執行。
-    - **Linux 主要目標伺服器**：若要更新整合代理程式，請將 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 複製到主要目標伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
-    - **Windows 來源伺服器**：如果來源伺服器已在執行 Update 4，則不需要在其上安裝 Update 5 代理程式。 若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到來源伺服器。 連按兩下檔案加以執行。
-    - **Linux 來源伺服器**：若要更新整合代理程式，請將對應的整合代理程式版本複製到 Linux 伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。  範例：針對 RHEL 6.7 64 位元伺服器，請將 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 複製到伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
+下載 [update](https://aka.ms/asr-scout-update6) .zip 檔案。 此檔案包含下列元件： 
+  - RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
+  - CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe
+  - UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe
+  - UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+  - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
+  - 適用於 RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 位元：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
+1. 解壓縮 .zip 檔。
+2. **RX 伺服器**：將 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 複製到 RX 伺服器並將其解壓縮。 在解壓縮的資料夾中執行 **/Install**。
+3. **設定伺服器和處理伺服器**：將 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 複製到設定伺服器和處理伺服器。 連按兩下加以執行。<br>
+4. **Windows 主要目標伺服器**：若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到伺服器。 連按兩下加以執行。 相同的整合代理程式更新也適用於來源伺服器。 如果來源尚未更新為 Update 4，您應該更新整合代理程式。
+  更新不需要在使用 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** 備妥的主要目標上套用，因為這是包含所有最新變更的新 GA 安裝程式。
+5. **vContinuum 伺服器**：將 **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** 複製到伺服器。  確定您已經關閉 vContinuum 精靈。 連按兩下檔案加以執行。
+    更新不需要在使用 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** 備妥的主要目標上套用，因為這是包含所有最新變更的新 GA 安裝程式。
+6. **Linux 主要目標伺服器**：若要更新整合代理程式，請將 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 複製到主要目標伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
+7. **Windows 來源伺服器**：若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到來源伺服器。 連按兩下檔案加以執行。 
+    如果來源伺服器已經更新為 Update 4，或者來源代理程式已經與最新的基底安裝程式 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** 一起安裝，則您不需要在來源伺服器上安裝 Update 5 代理程式。
+8. **Linux 來源伺服器**：若要更新整合代理程式，請將對應的整合代理程式版本複製到 Linux 伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。  範例：針對 RHEL 6.7 64 位元伺服器，請將 **UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** 複製到伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
 
 ## <a name="enable-replication"></a>啟用複寫
 
@@ -89,10 +93,34 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="updates"></a>更新
 
+### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
+更新日期：2017 年 10 月 6 日
+
+Scout Update 6 是累積更新。 其中包含 Update 1 到 Update 5 的所有修正及以下描述的新修正和增強功能。 
+
+#### <a name="new-platform-support"></a>新平台支援
+* 新增對來源 Windows Server 2016 的支援
+* 新增對下列 Linux 作業系統的支援：
+    - Red Hat Enterprise Linux (RHEL) 6.9
+    - CentOS 6.9
+    - Oracle Linux 5.11
+    - Oracle Linux 6.8
+* 新增對VMware Center 6.5 的支援
+
+> [!NOTE]
+> * 已更新 Windows 適用的基底整合代理程式 (UA) 安裝程式，以支援 Windows Server 2016。 新的安裝程式 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** 會與基底 Scout GA 封裝 (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**) 一起封裝。 相同的安裝程式將用於所有支援的 Windows 版本。 
+> * 已更新基底 Windows vContinuum 和主要目標安裝程式，以支援 Windows Server 2016。 新的安裝程式 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** 會與基底 Scout GA 封裝 (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**) 一起封裝。 相同的安裝程式將用來部署 Windows 2016 主要目標與 Windows 2012R2 主要目標。
+> * 請遵循[建立保存庫](#create-a-vault)中所述，從入口網站下載 GA 套件。
+>
+
+#### <a name="bug-fixes-and-enhancements"></a>Bug 修正和增強功能
+- Linux VM 的容錯回復保護失敗，且要複寫之磁碟的清單在組態結尾是空的。
+
+
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正及以下描述的新修正。
 - 從 Site Recovery Scout Update 4 到 Update 5 的修正是針對主要目標和 vContinuum 元件。
-- 如果來源伺服器、主要目標、設定、處理和 RX 伺服器已在執行 Update 5，請只在主要目標伺服器上套用。 
+- 如果來源伺服器、主要目標、設定、處理和 RX 伺服器已在執行 Update 4，請只在主要目標伺服器上套用。 
 
 #### <a name="new-platform-support"></a>新平台支援
 * SUSE Linux Enterprise Server 11 Service Pack 4 (SP4)
@@ -223,5 +251,4 @@ Update 1 包含下列錯誤修正和新功能：
   * 在 vContinuum 精靈中，於 MSCS VM 的保護期間，按一下磁碟檢視中的 [詳細資料]，磁碟會自動取消選取。
   * 在實體到虛擬 (P2V) 案例中，必要的 HP 服務 (例如 CIMnotify 和 CqMgHost) 不會移至 VM 復原中的 [手動]。 此問題會導致額外的開機時間。
   * 主要目標伺服器上有超過 26 個磁碟時，Linux VM 的保護就會失敗。
-
 

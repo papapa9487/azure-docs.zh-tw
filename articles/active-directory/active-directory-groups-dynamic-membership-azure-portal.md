@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>在 Azure Active Directory 中針對動態群組成員資格建立以屬性為基礎的規則
 在 Azure Active Directory (Azure AD) 中，您可以建立進階規則，以對群組啟用更複雜的屬性型動態成員資格。 本文將詳細說明用以建立適用於使用者或裝置之動態成員資格規則的屬性和語法。
@@ -40,17 +39,19 @@ ms.lasthandoff: 09/28/2017
 ## <a name="to-create-an-advanced-rule"></a>建立進階規則
 1. 使用具備全域管理員或使用者帳戶管理員身分的帳戶來登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 2. 選取 [使用者和群組]。
-3. 選取 [所有群組]。
+3. 選取 [所有群組]，然後選取 [新增群組]。
 
-   ![開啟群組刀鋒視窗](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. 在 [所有群組] 中，選取 [新增群組]。
+   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Add new group](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. 在 [群組]  刀鋒視窗上，輸入新群組的名稱和描述。 依據您是要為使用者還是裝置建立規則，在 [成員資格類型] 選取 [動態使用者] 或 [動態裝置]，然後選取 [新增動態查詢]。 如需了解有哪些用於裝置規則的屬性，請參閱 [使用屬性來建立裝置物件的規則](#using-attributes-to-create-rules-for-device-objects)。
+4. 在 [群組]  刀鋒視窗上，輸入新群組的名稱和描述。 依據您是要為使用者還是裝置建立規則，在 [成員資格類型] 選取 [動態使用者] 或 [動態裝置]，然後選取 [新增動態查詢]。 您可以使用規則建立器來建立簡單的規則，或自行撰寫進階的規則。 這篇文章包含可用的使用者和裝置屬性的詳細資訊，以及進階規則的範例。
 
    ![新增動態成員資格規則](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. 在 [動態成員資格規則] 刀鋒視窗上，於 [新增動態成員資格進階規則] 方塊中輸入您的規則、按 Enter，然後選取刀鋒視窗底部的 [建立]。
-7. 選取 [更多服務]  on the  來建立群組。
+
+5. 建立規則之後，在刀鋒視窗的底部選取 [新增查詢]。
+6. 選取 [更多服務]  on the  來建立群組。
+
+> [!TIP]
+> 如果您輸入的進階規則不正確，建立群組可能會失敗。 入口網站右上角將會顯示通知，當中包含系統為什麼無法接受規則的解釋。 請仔細閱讀，了解您需要如何調整規則而讓規則有效。
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>建構進階規則的主體
 您可以為群組的動態成員資格建立的進階規則基本上是一個二進位運算式，其中包含三個部分，且會產生 true 或 false 的結果。 這三個部分包括：
@@ -276,7 +277,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 任何字串值 |(device.displayName -eq "Rob Iphone”)
- deviceOSType | 任何字串值 | (device.deviceOSType -eq "IOS")
+ deviceOSType | 任何字串值 | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
  deviceOSVersion | 任何字串值 | (device.OSVersion -eq "9.1")
  deviceCategory | 有效的裝置類別名稱 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 任何字串值 | (device.deviceManufacturer -eq "Samsung")
@@ -305,9 +306,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 **使用 PowerShell 變更群組上的成員資格管理**
 
 > [!NOTE]
-> 若要變更動態群組屬性，您必須使用 [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。
->
-> 目前只有最新預覽版本的程式庫包含所需的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝它。
+> 若要變更動態群組屬性，您必須使用 [Azure AD PowerShell 第 2 版](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)中的 Cmdlet。 您可以從[這裡](https://www.powershellgallery.com/packages/AzureADPreview)安裝它。
 
 以下是在現有群組上切換成員資格管理的函式範例。 請注意，請小心並正確地操作 GroupTypes 屬性，並保留可能存在該處，與動態成員資格不相關的任何值。
 
@@ -369,4 +368,3 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 * [管理群組的設定](active-directory-groups-settings-azure-portal.md)
 * [管理群組的成員資格](active-directory-groups-membership-azure-portal.md)
 * [管理群組中使用者的動態規則](active-directory-groups-dynamic-membership-azure-portal.md)
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 對虛擬機器指派多個 IP 位址
 
@@ -109,7 +108,7 @@ az network nic ip-config create \
 --private-ip-address 10.0.0.5 \
 --public-ip-name myPublicIP2
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and    # no public IP address.
+# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
 azure network nic ip-config create \
 --resource-group $RgName \
@@ -206,7 +205,7 @@ az vm create \
         --dns-name mypublicdns3
         ```
 
-         若要建立具有靜態私人 IP 位址和相關 *myPublicIP3* 公用 IP 位址資源的新 IP 組態，請輸入下列命令︰
+        若要建立具有靜態私人 IP 位址和相關 *myPublicIP3* 公用 IP 位址資源的新 IP 組態，請輸入下列命令︰
 
         ```bash
         az network nic ip-config create \
@@ -217,8 +216,7 @@ az vm create \
         --public-ip-address myPublicIP3
         ```
 
-    - **將資源與現有的 IP 組態產生關聯**
-       公用 IP 位址資源只能與尚未相關聯的 IP 組態產生關聯。 您可以輸入下列命令，判斷 IP組態是否有相關聯的公用 IP 位址︰
+    - **將資源與現有的 IP 組態產生關聯** 公用 IP 位址資源只能與尚未相關聯的 IP 組態產生關聯。 您可以輸入下列命令，判斷 IP組態是否有相關聯的公用 IP 位址︰
 
         ```bash
         az network nic ip-config list \
@@ -277,4 +275,3 @@ az vm create \
 4. 依照本文的[將 IP 位址新增至 VM 作業系統](#os-config)一節中的指示，將您新增至 NIC 的私人 IP 位址新增至 VM 作業系統。 請勿將公用 IP 位址新增至作業系統。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>為 StorSimple 裝置設定多重路徑 I/O
 Microsoft 為 Windows Server 中的多重路徑 I/O (MPIO) 功能建立支援，協助建立高可用性、容錯的 SAN 組態。 MPIO 使用備援實體路徑元件 — 配接器、纜線以及交換器 — 以在伺服器與存放裝置之間建立邏輯路徑。 如果元件故障而導致邏輯路徑失敗，多重路徑邏輯使用替代的 I/O 路徑，讓應用程式仍然可以存取其資料。 此外，依照您的設定，MPIO 也能藉由重新平衡所有路徑的負載來改善效能。 如需詳細資訊，請參閱 [MPIO 概觀](https://technet.microsoft.com/library/cc725907.aspx "MPIO 概觀 and features")。  
@@ -65,10 +65,10 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 #### <a name="to-configure-mpio-for-storsimple-volumes"></a>若要為 StorSimple 磁碟區設定 MPIO 
 1. 開啟 [MPIO 設定] 。 按一下 [伺服器管理員] > [儀表板] > [工具] > [MPIO]。
 2. 在 [MPIO 內容] 對話方塊中，選取 [探索多重路徑] 索引標籤。
-3. 選取 [新增 iSCSI 裝置支援]，然後按一下 [新增]。  
+3. 選取 新增 iSCSI 裝置支援，然後按一下新增。  
    ![MPIO 內容探索多重路徑](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. 當系統提示您將伺服器重新開機。
-5. 在 [MPIO 內容] 對話方塊中，按一下 [MPIO 裝置] 索引標籤。 按一下 [新增] 。
+5. 在 [MPIO 內容] 對話方塊中，按一下 [MPIO 裝置] 索引標籤。按一下 [新增]。
     </br>![MPIO 內容 MPIO 裝置](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. 在 [新增 MPIO 支援] 對話方塊中，於 [裝置硬體識別碼] 下輸入裝置序號。您可以藉由存取 StorSimple Manager 服務，然後瀏覽至 [裝置] > [儀表板]，來取得裝置序號。 裝置序號會顯示在裝置儀表板右邊的 [快速概覽] 窗格。
     </br>![新增 MPIO 支援](./media/storsimple-configure-mpio-windows-server/IC741005.png)
@@ -79,7 +79,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 
 #### <a name="to-mount-volumes-on-the-host"></a>若要在主機上掛接磁碟區
 1. 在 Windows Server 主機上，開啟 [iSCSI 啟動器內容]  視窗。 按一下 [伺服器管理員] > [儀表板] > [工具] > [iSCSI 啟動器]。
-2. 在 [iSCSI 啟動器內容] 對話方塊中，按一下 [探索] 索引標籤，然後按一下 [搜尋目標入口]。
+2. 在 iSCSI 啟動器內容 對話方塊中，按一下 探索 索引標籤，然後按一下搜尋目標入口。
 3. 在 [搜尋目標入口]  對話方塊中，執行下列動作：
    
    * 輸入 StorSimple 裝置的 DATA 連接埠 IP 位址 (例如，輸入 DATA 0)。
@@ -114,8 +114,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 13. 初始化磁碟，並建立新的磁碟區。 在格式化程序期間，選取 64 KB 的區塊大小。
     ![磁碟管理](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. 在 [磁碟管理] 下，於 [磁碟] 按一下滑鼠右鍵，然後選取 [內容]。
-15. 在 [StorSimple 模型 #### 多重路徑磁碟裝置內容] 對話方塊中，按一下 [MPIO] 索引標籤。
-    ![StorSimple 8100 多重路徑磁碟 DeviceProp。](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. 在 [StorSimple 模型 #### 多重路徑磁碟裝置內容] 對話方塊中，按一下 [MPIO] 索引標籤。![StorSimple 8100 多重路徑磁碟 DeviceProp。](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. 在 [DSM 名稱] 區段中，按一下 [詳細資料] 並確認參數已設定為預設參數。 預設參數如下：
     
     * 路徑確認期間 = 30
@@ -142,7 +141,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
 1. 若要探索目標：在 [iSCSI 啟動器內容] 對話方塊的 [探索] 索引標籤中，然後按一下 [探索入口]。
 2. 在 [連線到目標]  對話方塊中，輸入其中一個裝置網路介面的 IP 位址。
 3. 按一下 [確定] 以返回 [iSCSI 啟動器內容] 對話方塊。
-4. 在 [iSCSI 啟動器內容] 對話方塊中，選取 [目標] 索引標籤，反白探索到的目標，然後按一下 [連線]。 [連線到目標]  對話方塊隨即出現。
+4. 在 iSCSI 啟動器內容 對話方塊中，選取 目標 索引標籤，反白探索到的目標，然後按一下連線。 [連線到目標]  對話方塊隨即出現。
 5. 在 [連線到目標]  對話方塊中：
    
    * 保留 [將此連線新增到我的最愛目標清單]  預設選取的目標設定。 這樣一來，這部電腦每次重新啟動時，裝置都會自動嘗試重新連線。
@@ -155,7 +154,7 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
    * 在 [目標入口 IP]  下拉式清單中，為裝置上啟用的資料介面選取 IP 位址。
    * 按一下 [確定]  以返回 [iSCSI 啟動器內容] 對話方塊。
 7. 按一下 [內容] 並在 [內容] 對話方塊中，按一下 [新增工作階段]。
-8. 在 [連線到目標] 對話方塊中，選取 [啟用多重路徑] 核取方塊，然後按一下 [進階]。
+8. 在 連線到目標 對話方塊中，選取 啟用多重路徑 核取方塊，然後按一下進階。
 9. 在 [進階設定]  對話方塊中：
    
    1. 在 [本機介面卡] 下拉式清單中，選取 [Microsoft iSCSI 啟動器]。
@@ -163,8 +162,8 @@ MPIO 是 Windows 伺服器預設不會安裝的選擇性功能。 您應該透�
    3. 在 [目標入口 IP]  下拉式清單中，為裝置上啟用的第二個資料介面選取 IP 位址。
    4. 按一下 [確定] 以返回 [iSCSI 啟動器內容] 對話方塊。 您現已完成將第二個工作階段新增到目標。
 10. 重複步驟 8-10，將其他工作階段 (路徑) 新增到目標。 主機上有兩個介面且裝置上也有兩個，您總共可以新增四個工作階段。
-11. 在新增所需的工作階段 (路徑) 之後，請在 [iSCSI 啟動器內容] 對話方塊中，選取目標，然後按一下 [內容]。 在 [內容]  對話方塊的 [工作階段] 索引標籤中，針對可能的路徑排列組合記下其對應的四個工作階段識別碼。 若要取消工作階段，請選取工作階段識別碼旁邊的核取方塊，然後按一下 [中斷連線] 。
-12. 若要檢視工作階段內顯示的裝置，請選取 [裝置]  索引標籤。 若要為選取的裝置設定 MPIO 原則，請按一下 [MPIO] 。 [裝置詳細資料]  對話方塊隨即出現。 在 [MPIO] 索引標籤上，您可以選取適當 [負載平衡原則] 設定。 您也可以檢視 [使用中] 或 [待命] 路徑類型。
+11. 在新增所需的工作階段 (路徑) 之後，請在 [iSCSI 啟動器內容] 對話方塊中，選取目標，然後按一下 [內容]。 在 [內容]  對話方塊的 [工作階段] 索引標籤中，針對可能的路徑排列組合記下其對應的四個工作階段識別碼。 若要取消工作階段，請選取工作階段識別碼旁邊的核取方塊，然後按一下中斷連線 。
+12. 若要檢視工作階段內顯示的裝置，請選取 [裝置]  索引標籤。若要為選取的裝置設定 MPIO 原則，請按一下 [MPIO] 。 [裝置詳細資料]  對話方塊隨即出現。 在 [MPIO] 索引標籤上，您可以選取適當 [負載平衡原則] 設定。 您也可以檢視 [使用中] 或 [待命] 路徑類型。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [使用 StorSimple Manager 服務修改 StorSimple 裝置設定](storsimple-modify-device-config.md)。

@@ -12,26 +12,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/25/2017
+ms.date: 10/02/2017
 ms.author: alkohli
+ms.openlocfilehash: 916884e3ee95284497cded73b28b22e83751f624
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 51fdaae3359c4e341431477ec5079473c345c32d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>在 StorSimple 裝置上安裝 Update 5
 
 ## <a name="overview"></a>概觀
 
-本教學課程說明如何透過 Azure 傳統入口網站及使用 Hotfix 方法，在執行舊軟體版本的 StorSimple 裝置上安裝 Update 5。 當閘道器是設定於 StorSimple 裝置之 DATA 0 以外的網路介面上，且您正嘗試從 Update 1 以前的軟體版本更新時，就會使用 Hotfix 方法。
+本教學課程說明如何透過 Azure 傳統入口網站及使用 Hotfix 方法，在執行舊軟體版本的 StorSimple 裝置上安裝 Update 5。 當您嘗試在執行 Update 3 之前版本的裝置上安裝 Update 5 時，會使用 Hotfix 方法。 如果閘道器是在 StorSimple 裝置之 DATA 0 以外的網路介面上設定的，且您要嘗試從 Update 1 之前的軟體版本更新，也會使用 Hotfix 方法。
 
 Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 更新，以及磁碟韌體更新。  裝置軟體、Spaceport、Storport、安全性和其他 OS 更新皆為非干擾性更新。 您可以透過 Azure 傳統入口網站或 Hotfix 方法，套用非干擾性或定期更新。 磁碟韌體更新為干擾性更新，會在裝置進入維護模式時使用裝置的 Windows PowerShell 介面透過 Hotfix 方法來套用。
 
 > [!IMPORTANT]
 > * 安裝前會執行一組手動和自動預先檢查，以根據硬體狀態和網路連線來判斷裝置健全狀況。 這些預先檢查只會在您從 Azure 入口網站套用更新時執行。
-> * 建議您透過 Azure 傳統入口網站安裝軟體和其他定期更新。 如果入口網站中的更新前閘道器檢查失敗，請移至裝置的 Windows PowerShell 介面安裝更新 (勿透過其他方式)。 視您從哪一個版本更新而定，可能需要 4 小時 (或以上) 來安裝更新。 維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。 由於維護模式更新是干擾性更新，它們會導致裝置的停機時間。
+> * 如果您執行的版本比 Update 3 還舊，強烈建議您透過 Hotfix 方法安裝 Update 5。 為協助支援人員引導您完成更新，請[記錄支援票證](storsimple-8000-contact-microsoft-support.md)。
+> * 如果您執行的是 Update 3 和更新版本，建議您透過 Azure 傳統入口網站安裝軟體和其他定期更新。 視您從哪一個版本更新而定，可能需要 4 小時 (或以上) 來安裝更新。 維護模式更新必須透過裝置的 Windows PowerShell 介面安裝。 由於維護模式更新是干擾性更新，它們會導致裝置的停機時間。
 > * 如果執行選擇性的 StorSimple Snapshot Manager，更新裝置之前，請先將您的 Snapshot Manager 版本升級至 Update 5。
 
 
@@ -63,7 +63,7 @@ Update 5 包含裝置軟體、Storport 和 Spaceport、OS 安全性更新和 OS 
 * Update 4
 
 > [!NOTE]
-> 建議的方法是透過 Azure 傳統入口網站安裝 Update 5。 請在嘗試透過 Azure 傳統入口網站安裝更新，而無法通過閘道器檢查時執行此程序。 當您指派閘道器給非 DATA 0 網路介面且您的裝置正在執行早於 Update 1 的軟體版本時，檢查會失敗。
+> 建議的方法是透過 Azure 傳統入口網站安裝 Update 5。 不過，如果您執行的版本比 Update 3 還舊，強烈建議您使用此方法安裝 Update 5。 如果您在嘗試透過 Azure 傳統入口網站安裝更新時，沒有通過閘道器檢查，也應該使用此程序。 當您指派閘道器給非 DATA 0 網路介面且您的裝置正在執行早於 Update 1 的軟體版本時，檢查會失敗。
 
 Hotfix 方法涉及下列三個步驟：
 
@@ -114,5 +114,4 @@ Hotfix 方法涉及下列三個步驟：
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [Update 5 版本](storsimple-update5-release-notes.md)。
-
 

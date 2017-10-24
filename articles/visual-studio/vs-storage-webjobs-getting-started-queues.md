@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: kraigb
+ms.openlocfilehash: efd2f1e471f67396d35f11f2eb1044a8afa469af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ad43b5bb4f6f51f25acb9b2160661addab481762
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -243,7 +242,8 @@ SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會�
 **IBinder** 介面也可以搭配 **Table** 和 **Blob** 屬性使用。
 
 ## <a name="how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message"></a>如何在處理佇列訊息時讀取和寫入 Blob 和資料表
-**Blob** 和 **Table** 屬性可讓您讀取和寫入 Blob 和資料表。 本節中的範例適用於 Blob。 如需示範如何在建立或更新 Blob 時觸發程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)，若需讀取和撰寫資料表的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure 資料表儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md)。
+**Blob** 和 **Table** 屬性可讓您讀取和寫入 Blob 和資料表。 本節中的範例適用於 Blob。 如需在建立或更新 Blob 時如何觸發處理程序的程式碼範例，請參閱[如何透過 WebJobs SDK 使用 Azure Blob 儲存體](https://github.com/Azure/azure-webjobs-sdk/wiki) \(英文\)。
+<!-- , and for code samples that read and write tables, see [How to use Azure table storage with the WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-storage-tables-how-to.md). -->
 
 ### <a name="string-queue-messages-triggering-blob-operations"></a>觸發 Blob 作業的字串佇列訊息
 對於包含字串的佇列訊息，**queueTrigger** 預留位置可在 **Blob** 屬性的 **blobPath** 參數中使用，其中包含訊息的內容。
@@ -258,7 +258,7 @@ SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會�
             blobInput.CopyTo(blobOutput, 4096);
         }
 
-**Blob** 屬性建構函式採用 **blobPath** 參數來指定容器與 Blob 名稱。 如需此預留位置的詳細資訊，請參閱 [如何透過 WebJobs SDK 使用 Azure Blob 儲存體](../app-service-web/websites-dotnet-webjobs-sdk-storage-blobs-how-to.md)。
+**Blob** 屬性建構函式採用 **blobPath** 參數來指定容器與 Blob 名稱。 如需此預留位置的詳細資訊，請參閱 [如何透過 WebJobs SDK 使用 Azure Blob 儲存體](https://github.com/Azure/azure-webjobs-sdk/wiki)。
 
 當這個屬性裝飾 **Stream** 物件，另一個建構函式參數會將 **FileAccess** 模式指定為讀取、寫入或讀取/寫入。
 
@@ -469,7 +469,7 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 
 因為主控台屬於單一執行緒，無法同時執行許多工作函式，所以主控台輸出無法連結到特定的方法引動過程。 這就是 SDK 提供的每個函式引動過程都使用自己專屬的記錄寫入器物件的原因。
 
-若要寫入[應用程式追蹤記錄](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)，使用 **Console.Out** (建立標示為 INFO 的記錄檔) 和 **Console.Error** (建立標示為 ERROR 的記錄檔)。 替代方法是使用 [Trace 或 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。 視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄檔會出現在網頁應用程式記錄檔、Azure 資料表或 Azure Blob 中。 所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。
+若要寫入[應用程式追蹤記錄](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview)，使用 **Console.Out** (建立標示為 INFO 的記錄檔) 和 **Console.Error** (建立標示為 ERROR 的記錄檔)。 替代方法是使用 [Trace 或 TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。 視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄檔會出現在網頁應用程式記錄檔、Azure 資料表或 Azure Blob 中。 所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。
 
 只有當程式是以 Azure WebJob 執行時，主控台輸出才會顯示在儀表板，而不是在本機或在某些其他環境中執行時。
 
@@ -513,5 +513,4 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 
 ## <a name="next-steps"></a>後續步驟
 本文提供的程式碼範例示範如何處理使用 Azure 佇列的常見案例。 如需如何使用 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 文件資源](http://go.microsoft.com/fwlink/?linkid=390226)。
-
 

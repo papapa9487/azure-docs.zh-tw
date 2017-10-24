@@ -8,21 +8,19 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 05/10/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 511cc50c28b9b114b763f3c46cb1e26f15575349
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
+ms.date: 10/03/2017
+ms.openlocfilehash: 0e0f98d873e112aae222fab2657f60ea13611624
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>適用於 MySQL 的 Azure 資料庫伺服器防火牆規則
 防火牆會防止對您資料庫伺服器的所有存取，直到您指定哪些電腦擁有權限。 此防火牆會根據每一個要求的來源 IP 位址來授與伺服器存取權。
 
-若要設定您的防火牆，您可以建立防火牆規則，指定可接受的 IP 位址範圍。 您可以在伺服器層級建立防火牆規則。
+若要設定防火牆，請建立防火牆規則，指定可接受的 IP 位址範圍。 您可以在伺服器層級建立防火牆規則。
 
-**防火牆規則：**這些規則可讓用戶端完整存取適用於 MySQL 的 Azure 資料庫伺服器，也就是相同邏輯伺服器內的所有資料庫。 使用 Azure 入口網站或使用 Azure CLI 命令，即可設定伺服器層級的防火牆規則。 若要建立伺服器層級的防火牆規則，您必須是訂用帳戶擁有者或訂用帳戶參與者。
+**防火牆規則：**這些規則可讓用戶端完整存取適用於 MySQL 的 Azure 資料庫伺服器，也就是相同邏輯伺服器內的所有資料庫。 使用 Azure 入口網站或 Azure CLI 命令，即可設定伺服器層級的防火牆規則。 若要建立伺服器層級的防火牆規則，您必須是訂用帳戶擁有者或訂用帳戶參與者。
 
 ## <a name="firewall-overview"></a>防火牆概觀
 根據預設，防火牆會封鎖對適用於 MySQL 之 Azure 資料庫伺服器的所有資料庫存取。 若要從其他電腦開始使用您的伺服器，請指定一或多個伺服器層級的防火牆規則，以便啟用對伺服器的存取。 使用防火牆規則，來指定允許從網際網路存取的 IP 位址範圍。 存取 Azure 入口網站本身，並不會受到防火牆規則所影響。
@@ -34,21 +32,21 @@ ms.lasthandoff: 05/10/2017
 ## <a name="connecting-from-the-internet"></a>從網際網路連線
 伺服器層級的防火牆規則可套用至適用於 MySQL 之 Azure 資料庫伺服器上的所有資料庫。
 
-如果要求的 IP 位址在伺服器層級防火牆規則中指定的其中一個範圍內，就會允許連線。
+如果要求的 IP 位址在伺服器層級防火牆規則中指定的其中一個範圍內，則會授與連線。
 
-如果要求的 IP 位址不在任何資料庫層級或伺服器層級防火牆規則中指定的範圍內，連線要求會失敗。
+如果要求的 IP 位址不在任何資料庫層級或伺服器層級防火牆規則中指定的範圍內，則連線要求會失敗。
 
 ## <a name="programmatically-managing-firewall-rules"></a>以程式設計方式管理防火牆規則
 除了 Azure 入口網站之外，防火牆規則還可以程式設計方式使用 Azure CLI 來管理。 另請參閱[使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-cli.md)
 
 ## <a name="troubleshooting-the-database-firewall"></a>針對資料庫防火牆問題進行疑難排解
-對於適用於 MySQL 的 Microsoft Azure 資料庫伺服器服務的存取未如預期般運作時，請考慮下列幾點：
+若對於適用於 MySQL 的 Microsoft Azure 資料庫伺服器服務的存取未如預期般運作，請考慮下列幾點：
 
 * **對允許清單的變更尚未生效：**對適用於 MySQL 之 Azure 資料庫伺服器防火牆組態的變更最多可能會延遲 5 分鐘才能生效。
 
 * **登入未獲授權或使用不正確的密碼：**如果適用於 MySQL 的 Azure 資料庫伺服器上的登入沒有權限，或使用的密碼不正確，與適用於 MySQL 的 Azure 資料庫伺服器連接就會遭到拒絕。 建立防火牆設定只會讓用戶端有機會嘗試連線至您的伺服器；每個用戶端必須提供必要的安全性認證。
 
-* **動態 IP 位址：** 如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
+* **動態 IP 位址：**如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
 
 * 要求您的網際網路服務提供者 (ISP) 將可存取適用於 MySQL 的 Azure 資料庫伺服器之 IP 位址範圍指派給您的用戶端電腦，然後將 IP 位址範圍新增為防火牆規則。
 
@@ -58,4 +56,3 @@ ms.lasthandoff: 05/10/2017
 
 [使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-portal.md)
 [使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](./howto-manage-firewall-using-cli.md)
-

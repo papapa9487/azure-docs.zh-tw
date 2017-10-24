@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 10/04/2017
 ms.author: alkohli
+ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 22bb4a32f006d7e49356743c2a87eb622a61d18e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>為 StorSimple 8000 系列裝置部署 StorSimple 裝置管理員服務
 
@@ -60,17 +59,22 @@ StorSimple 裝置管理員服務在 Microsoft Azure 中執行，並連接至多�
 * **訂用帳戶** – 與您的服務相關聯的計費訂用帳戶。
 
 ## <a name="move-a-service-to-azure-portal"></a>將服務移至 Azure 入口網站
-Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁有用來管理 StorSimple 裝置的服務，建議將您的服務移至 Azure 入口網站。 2017 年 9 月 30 日之後，無法使用 StorSimple Manager 服務的 Azure 傳統入口網站。
+Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁有用來管理 StorSimple 裝置的服務，建議將您的服務移至 Azure 入口網站。 2017 年 9 月 30 日之後，不再支援 StorSimple Manager 服務的 Azure 傳統入口網站。 如果您想要移至新的 Azure 入口網站，請參閱[轉換考量](#considerations-for-transition)。 
 
-每個階段都會提供移轉至 Azure 入口網站的選項。 如果您並未看到移轉至 Azure 入口網站的選項，但想進行移轉，且已檢閱過[轉換注意事項](#considerations-for-transition)中所列的移轉影響，則可以[提交要求](https://aka.ms/ss8000-cx-signup)。
+> [!NOTE]
+> 從 2017 年 10 月 5 日開始，傳統的 StorSimple 裝置管理員將會自動移至新的 Azure 入口網站。 這是分階段導入，我們將會透過電子郵件和入口網站通知，為您更新移轉進度。 如果您有任何疑問，請參閱[常見問題集：移至 Azure 入口網站](storsimple-8000-move-azure-portal-faq.md)。
 
 ### <a name="considerations-for-transition"></a>轉換之前
 
 移轉服務之前，請先檢閱移轉至新 Azure 入口網站的影響。
 
+> [!NOTE]
+> 移至新的 Azure 入口網站之後，就不再支援現有的 Azure 服務管理 (ASM) PowerShell Cmdlet。 請更新指令碼，以透過 Azure Resource Manager SDK 管理您的裝置。 如需詳細資訊，請移至[使用 Azure Resource Manager SDK 型指令碼管理 StorSimple 裝置](storsimple-8000-automation-azurerm-scripts.md)。
+> 新的 Azure 入口網站支援執行 Update 3.0 或更新版本的裝置。 如果您的裝置不處於最新狀態，我們強烈建議您儘速套用 Update 5。
+
 #### <a name="before-you-transition"></a>轉換前的注意事項
 
-* 裝置需執行 Update 3.0 或更新版本。 如果您的裝置執行的是舊版本，請安裝最新的更新。 如需詳細資訊，請移至[安裝 Update 4](storsimple-8000-install-update-4.md)。 如果使用 StorSimple 雲端設備 (8010/8020)，請以 Update 4.0 建立新的雲端設備。 
+* 裝置需執行 Update 3.0 或更新版本。 如果您的裝置執行的是舊版本，請安裝最新的更新。 如需詳細資訊，請移至[安裝 Update 5](storsimple-8000-install-update-5.md)。 如果使用 StorSimple 雲端設備 (8010/8020)，則無法更新雲端設備。 使用最新版的軟體搭配 Update 5.0，建立新的雲端設備，然後容錯移轉至所建立的新雲端設備。
 
 * 一旦轉換至新的 Azure 入口網站，則無法使用 Azure 傳統入口網站來管理您的 StorSimple 裝置。
 
@@ -88,7 +92,7 @@ Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁�
 
 * 無法再從傳統入口網站管理您的裝置。
 
-* 不支援現有的 Azure 服務管理 (ASM) PowerShell Cmdlet。 請更新指令碼，以透過 Azure Resource Manager 管理您的裝置。
+* 不支援現有的 Azure 服務管理 (ASM) PowerShell Cmdlet。 請更新指令碼，以透過 Azure Resource Manager 管理您的裝置。 如需使用 Resource Manager SDK 的範例指令碼，請參閱 [storsimpledevicemgmttools github](https://github.com/anoobbacker/storsimpledevicemgmttools)。
 
 * 您的服務和裝置設定會予以保留。 所有磁碟區和備份也會轉換到 Azure 入口網站。
 
@@ -96,20 +100,20 @@ Azure 入口網站目前可管理 StorSimple 8000 系列。 如果您已經擁�
 
 執行下列步驟，將您的服務轉換至 Azure 入口網站。
 
-1. 移至傳統入口網站中現有的 StorSimple Manager 服務。
+1. 移至新 Azure 入口網站中現有的 StorSimple Manager 服務。
+    ![更多服務](./media/storsimple-8000-manage-service/service-browse01.png) ![選取裝置管理員](./media/storsimple-8000-manage-service/service-browse02.png)
 
-2. 您會看見通知，告知您 Azure 入口網站中現正提供 StorSimple 裝置管理員服務。 請注意，在 Azure 入口網站中，該服務是指 StorSimple 裝置管理員服務。
-
+2. 您會看見通知，告知您 Azure 入口網站中現正提供 StorSimple 裝置管理員服務。 在 Azure 入口網站中，該服務是指 StorSimple 裝置管理員服務。
     ![移轉通知](./media/storsimple-8000-manage-service/service-transition1.jpg)
-
+    
     1. 請確定您已檢閱完整的移轉影響。
     2. 檢閱將從傳統入口網站移動的 StorSimple 裝置管理員清單。
 
 3. 按一下 [移轉]。 轉換程序開始，需要幾分鐘才能完成。
 
-當轉換完成之後，您可以在 Azure 入口網站透過 StorSimple 裝置管理員服務來管理您的裝置。
+當轉換完成之後，您可以在 Azure 入口網站透過 StorSimple 裝置管理員服務來管理您的裝置。 如果您看不到移轉至 Azure 入口網站的選項，但您想要移動，可以[提交要求](https://aka.ms/ss8000-cx-signup)。
 
-Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝置。 對執行舊版本的裝置的支援有限。 下表簡列出從傳統入口網站移轉至 Azure 入口網站後，執行 Update 3.0 之前版本的裝置可支援哪些作業。
+Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝置。 對執行舊版本的裝置的支援有限。 移轉至 Azure 入口網站之後，請使用下表了解執行 Update 3.0 之前版本的裝置可支援哪些作業。
 
 | 作業                                                                                                                       | 支援      |
 |---------------------------------------------------------------------------------------------------------------------------------|----------------|
@@ -247,16 +251,18 @@ Azure 入口網站僅支援執行 Update 3.0 和更新版本的 StorSimple 裝�
 
 請執行下列步驟，在您的裝置上更新服務資料加密。
 
-#### <a name="to-update-the-service-data-encryption-key"></a>更新服務資料加密金鑰
+#### <a name="to-update-the-service-data-encryption-key-on-physical-devices"></a>若要在實體裝置上更新服務資料加密金鑰
 1. 使用 Windows PowerShell for StorSimple 連線到主控台。 選取選項 1 以使用完整存取權登入。
-2. 在命令提示字元中，輸入：
-   
-    `Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
+2. 在命令提示字元中，輸入：`Invoke-HcsmServiceDataEncryptionKeyChange – ServiceDataEncryptionKey`
 3. 提供您在 [步驟 2：使用 Windows PowerShell for StorSimple 起始服務資料加密金鑰變更](#to-initiate-the-service-data-encryption-key-change)中取得的服務資料加密金鑰。
 
+#### <a name="to-update-the-service-data-encryption-key-on-all-the-80108020-cloud-appliances"></a>若要更新所有 8010/8020 雲端設備上的服務資料加密金鑰
+1. 下載並安裝 [Update-CloudApplianceServiceEncryptionKey.ps1](https://github.com/anoobbacker/storsimpledevicemgmttools/blob/master/Update-CloudApplianceServiceEncryptionKey.ps1) PowerShell 指令碼。 
+2. 開啟 PowerShell，並在命令提示字元中，輸入：`Update-CloudApplianceServiceEncryptionKey.ps1 -SubscriptionId [subscription] -TenantId [tenantid] -ResourceGroupName [resource group] -ManagerName [device manager]`
+
+此指令碼將確保服務資料加密金鑰已在裝置管理員下的所有 8010/8020 雲端設備上設定。
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [StorSimple 部署程序](storsimple-8000-deployment-walkthrough-u2.md)。
 * 深入了解 [管理 StorSimple 儲存體帳戶](storsimple-8000-manage-storage-accounts.md)。
 * 深入了解如何[使用 StorSimple 裝置管理員服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
-

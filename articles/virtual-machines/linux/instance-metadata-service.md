@@ -1,9 +1,9 @@
 ---
-title: "適用於 Linux VM 的 Azure 執行個體中繼資料服務 | Microsoft Docs"
+title: "Azure 執行個體中繼資料服務 | Microsoft Docs"
 description: "RESTful 介面，用以取得 Linux VM 的計算、網路和近期維護事件的相關資訊。"
 services: virtual-machines-linux
 documentationcenter: 
-author: harijay
+author: harijayms
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -12,17 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: harijay
+ms.date: 10/10/2017
+ms.author: harijayms
+ms.openlocfilehash: 1ed64ece4d05dea93fd15e24aaf9921d8614277e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: a61acbe0532ece3a6a26ceb366c12c69db4c304c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
-
-# <a name="azure-instance-metadata-service-for-linux-vms"></a>適用於 Linux VM 的 Azure 執行個體中繼資料服務
+# <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
 
 Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬機器之虛擬機器執行個體的相關資訊。
@@ -31,31 +29,31 @@ Azure 執行個體中繼資料服務提供執行可用於管理和設定虛擬�
 Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/)建立之所有 IaaS VM 可存取的 REST 端點。 端點可以在已知的非可路由 IP 位址 (`169.254.169.254`) 取得，該位址只能從 VM 內存取。
 
 > [!IMPORTANT]
-> 這項服務已在全域 Azure 區域中**正式推出**。 目前有 Government、China 和 German Azure Cloud 的公開預覽版。 它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此頁面會反映最新的[資料類別](#instance-metadata-data-categories)。
+> 這項服務已在所有 Azure 區域中**正式推出**。  它會定期接收更新，以公開有關虛擬機器執行個體的新資訊。 此頁面會反映最新的[資料類別](#instance-metadata-data-categories)。
 
 ## <a name="service-availability"></a>服務可用性
-這項服務適用於所有正式推出的全域 Azure 區域。 這項服務在 Government、China 和 German 區域目前中為公開預覽版。
+這項服務可於所有正式推出的 Azure 區域中使用。 並非所有的 API 版本都能在所有 Azure 區域使用。
 
-區域                                        | 可用性？
------------------------------------------------|-----------------------------------------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出 
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 預覽狀態 
-[Azure China](https://www.azure.cn/)                                                           | 預覽狀態
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 預覽狀態
+區域                                        | 可用性？                                 | 支援的版本
+-----------------------------------------------|-----------------------------------------------|-----------------
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02
+[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02
 
-當服務可用於其他 Azure 雲端時，此表格就會會更新。
+當有服務更新和/或提供新支援的版本時，此表格便會更新
 
 若要試用執行個體中繼資料服務，請從 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 或 [Azure 入口網站](http://portal.azure.com)的上述區域中建立 VM，並遵循以下的範例。
 
 ## <a name="usage"></a>使用量
 
 ### <a name="versioning"></a>版本控制
-執行個體中繼資料服務已建立版本。 版本是必要項目，且目前版本為 `2017-04-02`。
+執行個體中繼資料服務已建立版本。 版本是必要項目，且全域 Azure 上目前的版本為 `2017-08-01`。 目前支援的版本為 (2017-04-02、2017-08-01)
 
 > [!NOTE] 
 > 先前排定事件的預覽版支援作為 API 版本的 {latest}。 此格式將不再受到支援且之後會遭到取代。
 
-當我們新增較新版本時，如果您的指令碼對於特定資料格式有相依性，則因為相容性，仍然可以存取較舊版本。 不過，請注意服務正式推出後，就無法使用目前的預覽版本 (2017-03-01)。
+當我們新增較新版本時，如果您的指令碼對於特定資料格式有相依性，則因為相容性，仍然可以存取較舊版本。 不過，請注意在服務正式推出後，可能就無法使用先前的預覽版本 (2017-03-01)。
 
 ### <a name="using-headers"></a>使用標頭
 查詢中繼資料執行個體服務時，您必須提供 `Metadata: true` 標頭以免不小心重新導向要求。
@@ -72,7 +70,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > 所有執行個體中繼資料查詢都會區分大小寫。
 
 ### <a name="data-output"></a>資料輸出
-根據預設，執行個體中繼資料服務會以 JSON 格式傳回資料 (`Content-Type: application/json`)。 不過，不同的 API 可以依照要求傳回不同格式的資料。
+根據預設，執行個體中繼資料服務會以 JSON 格式傳回資料 (`Content-Type: application/json`)。 不過，不同的 API 會依照要求傳回不同格式的資料。
 下表是 API 可能支援之其他資料格式的參考。
 
 API | 預設資料格式 | 其他格式
@@ -112,7 +110,7 @@ HTTP 狀態碼 | 原因
 **要求**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **回應**
@@ -159,7 +157,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **要求**
 
 ```
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-04-02"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01"
 ```
 
 **回應**
@@ -170,17 +168,21 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 ```
 {
   "compute": {
-    "location": "westcentralus",
-    "name": "IMDSSample",
+    "location": "westus",
+    "name": "avset2",
     "offer": "UbuntuServer",
     "osType": "Linux",
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
+    "placementGroupId": "",
+    "platformFaultDomain": "1",
+    "platformUpdateDomain": "1",
     "publisher": "Canonical",
-    "sku": "16.04.0-LTS",
-    "version": "16.04.201610200",
-    "vmId": "5d33a910-a7a0-4443-9f01-6a807801b29b",
-    "vmSize": "Standard_A1"
+    "resourceGroupName": "myrg",
+    "sku": "16.04-LTS",
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "",
+    "version": "16.04.201708030",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmSize": "Standard_D1"
   },
   "network": {
     "interface": [
@@ -188,13 +190,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv4": {
           "ipAddress": [
             {
-              "privateIpAddress": "10.1.0.4",
+              "privateIpAddress": "10.1.2.5",
               "publicIpAddress": "X.X.X.X"
             }
           ],
           "subnet": [
             {
-              "address": "10.1.0.0",
+              "address": "10.1.2.0",
               "prefix": "24"
             }
           ]
@@ -202,7 +204,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
         "ipv6": {
           "ipAddress": []
         },
-        "macAddress": "000D3AF806EC"
+        "macAddress": "000D3A36DDED"
       }
     ]
   }
@@ -277,26 +279,30 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>執行個體中繼資料資料類別
 可透過執行個體中繼資料服務取得下列資料類別：
 
-資料 | 說明
------|------------
-location | VM 執行所在的 Azure 區域
-名稱 | VM 的名稱 
-提供項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。
-publisher | VM 映像的發佈者
-sku | VM 映像的特定 SKU  
-版本 | VM 映像的版本 
-osType | Linux 或 Windows 
-platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md)
-platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md)
-vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-vmSize | [VM 大小](sizes.md)
-ipv4/privateIpAddress | VM 的本機 IPv4 位址 
-ipv4/publicIpAddress | VM 的公用 IPv4 位址
-subnet/address | VM 的子網路位址
-subnet/prefix | 子網路首碼，範例 24
-ipv6/ipAddress | VM 的本機 IPv6 位址
-macAddress | VM mac 位址 
-scheduledevents | 目前為公開預覽版，請參閱 [scheduledevents](scheduled-events.md)
+資料 | 說明 | 引進的版本 
+-----|-------------|-----------------------
+location | VM 執行所在的 Azure 區域 | 2017-04-02 
+名稱 | VM 的名稱 | 2017-04-02
+提供項目 | 提供 VM 映像的資訊。 此值只會針對從 Azure 映像庫部署的映像呈現。 | 2017-04-02
+publisher | VM 映像的發佈者 | 2017-04-02
+sku | VM 映像的特定 SKU | 2017-04-02
+版本 | VM 映像的版本 | 2017-04-02
+osType | Linux 或 Windows | 2017-04-02
+platformUpdateDomain |  VM 執行所在的[更新網域](manage-availability.md) | 2017-04-02
+platformFaultDomain | VM 執行所在的[容錯網域](manage-availability.md) | 2017-04-02
+vmId | VM 的[唯一識別碼](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
+vmSize | [VM 大小](sizes.md) | 2017-04-02
+subscriptionId | 虛擬機器的 Azure 訂用帳戶 | 2017-08-01
+tags | 虛擬機器的[標籤](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
+resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
+placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
+ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02
+ipv4/publicIpAddress | VM 的公用 IPv4 位址 | 2017-04-02
+subnet/address | VM 的子網路位址 | 2017-04-02 
+subnet/prefix | 子網路首碼，範例 24 | 2017-04-02 
+ipv6/ipAddress | VM 的本機 IPv6 位址 | 2017-04-02 
+macAddress | VM mac 位址 | 2017-04-02 
+scheduledevents | 目前為公開預覽版，請參閱 [scheduledevents](scheduled-events.md) | 2017-03-01
 
 ## <a name="example-scenarios-for-usage"></a>使用方式的範例案例  
 
@@ -371,12 +377,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 語言 | 範例 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go Lan   | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go Lang  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
-Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Powershell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
+JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
+PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
     
 
@@ -387,13 +393,15 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
    * 目前執行個體中繼資料服務僅支援使用 Azure Resource Manager 建立的執行個體。 未來，我們可能會新增雲端服務 VM 支援。
 3. 我在一陣子之後回過頭來透過 Azure Resource Manager 建立我的虛擬機器。 為什麼我看不到計算中繼資料資訊？
    * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
-4. 我為何收到錯誤 `500 Internal Server Error`？
+4. 我看不到針對 2017-08-01 這個新版本所填入的所有資料
+   * 針對在 2016 年 9 月之後建立的 VM，新增[標記](../../azure-resource-manager/resource-group-using-tags.md)才會開始看到計算中繼資料。 針對較舊的 VM (在 2016 年 9 月之前建立)，對 VM 新增/移除擴充功能或資料磁碟，以重新整理中繼資料。
+5. 我為何收到錯誤 `500 Internal Server Error`？
    * 請根據指數型輪詢系統重試您的要求。 若問題持續發生，請連絡 Azure 支援。
-5. 我要在哪裡共用其他問題/註解？
+6. 我要在哪裡共用其他問題/註解？
    * 請在 http://feedback.azure.com 上傳送您的註解。
 7. 這是否適用於虛擬機器擴展集執行個體？
    * 是，中繼資料服務適用於擴展集執行個體。 
-6. 如何取得服務支援？
+8. 如何取得服務支援？
    * 若要取得服務支援，請在 Azure 入口網站中針對您無法在長時間重試後取得中繼資料回應的 VM 建立支援問題。 
 
    ![執行個體中繼資料支援](./media/instance-metadata-service/InstanceMetadata-support.png)
@@ -401,4 +409,3 @@ Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解執行個體中繼資料服務所提供的[排程的事件](scheduled-events.md) API **公開預覽版**。
-

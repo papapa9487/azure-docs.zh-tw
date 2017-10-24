@@ -14,15 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/01/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 2160e2e65de5c65df8a13248bad4f626def86e49
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/28/2017
-
-
+ms.openlocfilehash: 2969834713fc7c2f1a2e281a6c988158d803dc45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="service-fabric-with-azure-api-management-quick-start"></a>Service Fabric 搭配 Azure API 管理快速入門
 
 本指南示範如何設定搭配 Service Fabric 的「Azure API 管理」，並設定您的第一個 API 作業以將流量傳送到 Service Fabric 中的後端服務。 若要深入了解搭配 Service Fabric 的「Azure API 管理」案例，請參閱[概觀](service-fabric-api-management-overview.md)一文。 
@@ -56,14 +53,14 @@ ms.lasthandoff: 06/28/2017
 登入您的 Azure 帳戶：
 
 ```powershell
-PS > Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 選取您的訂用帳戶：
 
 ```powershell
-PS > Get-AzureRmSubscription
-PS > Set-AzureRmContext -SubscriptionId <guid>
+Get-AzureRmSubscription
+Set-AzureRmContext -SubscriptionId <guid>
 ```
 
 ### <a name="create-a-resource-group"></a>建立資源群組
@@ -71,7 +68,7 @@ PS > Set-AzureRmContext -SubscriptionId <guid>
 為您的部署建立新的新資源群組。 為其命名並提供位置。
 
 ```powershell
-PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
+New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
 ```
 
 ### <a name="deploy-the-network-topology"></a>部署網路拓撲
@@ -88,7 +85,7 @@ PS > New-AzureRmResourceGroup -Name <my-resource-group> -Location westus
  2. 使用下列 PowerShell 命令來部署用於網路設定的 Resource Manager 範本和參數檔：
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\network.json -TemplateParameterFile .\network.parameters.json -Verbose
     ```
 
 ### <a name="deploy-the-service-fabric-cluster"></a>部署 Service Fabric 叢集
@@ -112,7 +109,7 @@ Service Fabric 叢集 Resource Manager 範本已設定為建立具有憑證安�
  3. 使用下列 PowerShell 命令來部署 Resource Manager 範本和參數檔，以建立 Service Fabric 叢集：
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\cluster.json -TemplateParameterFile .\cluster.parameters.json -Verbose
     ```
 
 ### <a name="deploy-api-management"></a>部署 API 管理
@@ -131,7 +128,7 @@ Service Fabric 叢集 Resource Manager 範本已設定為建立具有憑證安�
  3. 使用下列 PowerShell 命令來部署用於「API 管理」的 Resource Manager 範本和參數檔：
 
     ```powershell
-    PS > New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <my-resource-group> -TemplateFile .\apim.json -TemplateParameterFile .\apim.parameters.json -Verbose
     ```
 
 ## <a name="configure-api-management"></a>設定 API 管理
@@ -203,7 +200,7 @@ Content-Type: application/json
 }
 ```
 
-這裡的 **url** 參數是當後端原則中未指定任何服務名稱時，您叢集內作為所有要求路由傳送目的地之服務的完整服務名稱。 如果您不打算有後援服務，則可以使用假的服務名稱 (例如 "fabric:/fake/service")。
+這裡的 **url** 參數是當後端原則中未指定任何服務名稱時，您叢集內作為所有要求路由傳送目的地之服務的完整服務名稱。 如果您不打算有後援服務，則可以使用假的服務名稱 (例如 "fabric:/fake/service")。 請注意，即使是假的後援服務，**url** 也必須採用 "fabric:/app/service" 的格式。
 
 如需有關每個欄位的詳細其他詳細資料，請參閱「API 管理」[後端 API 參考文件](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend)。
 
@@ -370,4 +367,3 @@ Content-Type: application/json
 
 <!-- pics -->
 [sf-apim-topology-overview]: ./media/service-fabric-api-management-quickstart/sf-apim-topology-overview.png
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
+ms.openlocfilehash: d5977a79cfe4016d6bd943cecb22edadc0eaec6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6cfdeacb788db2e2f940ef1100eb03dc7e496ea6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 生命週期概觀
 > [!div class="op_single_selector"]
 > * [Windows 上的 C# ](service-fabric-reliable-services-lifecycle.md)
@@ -77,7 +75,7 @@ ms.lasthandoff: 09/25/2017
     - 叫用 `StatefulServiceBase.CreateServiceReplicaListeners()` 
       - 如果服務是「主要」，則傳回的所有接聽程式為「已開啟」。 在每個接聽程式上呼叫 `ICommunicationListener.OpenAsync()`。
       - 如果服務是「次要」，只有標示為 `ListenOnSecondary = true` 的接聽程式才會開啟。 在「次要」上開啟的接聽程式較不常見。
-    - 如果服務目前是「主要」，會呼叫此服務的 `StatefulServiceBase.RunAsync()` 方法
+    - 接著，如果目前是主要服務，則會呼叫此服務的 `StatefulServiceBase.RunAsync()` 方法
 4. 當所有複本接聽程式的 `OpenAsync()` 呼叫完成，而且呼叫 `RunAsync()` 後，會呼叫 `StatefulServiceBase.OnChangeRoleAsync()`。 這是服務中不常用的覆寫。
 
 類似於無狀態服務，在建立和開啟接聽程式及呼叫 RunAsync 時，不會協調先後順序。 如果您需要協調，解決方案大致相同。 但有一個額外情況︰假設抵達通訊接聽程式的呼叫需要[可靠的集合](service-fabric-reliable-services-reliable-collections.md)內保留的資訊。 因為在還無法讀取或寫入可靠的集合，且 RunAsync 也還無法啟動之前，通訊接聽程式可能先開啟，因此，一些額外的協調有必要。 最簡單且最常見的解決方法是由通訊接聽程式傳回某個錯誤碼，讓用戶端知道要重試要求。

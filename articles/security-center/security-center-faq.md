@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/26/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 506c23179d09e2e22065c8ba2bc85a341bb0ea09
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 35aa45ce09b756dd7413a1df3d3c7b0c428b7a97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -43,7 +41,7 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 
 「免費層」提供 Azure 資源安全性狀態的可見度、基本安全性原則、安全性建議以及與合作夥伴的安全性產品和服務的整合。
 
-「標準層」加上了進階威脅偵測功能，包括威脅情報、行為分析、異常偵測、安全性事件，以及威脅歸因報告。 標準層的前 60 天免費。 如果您在超過 60 天後選擇繼續使用服務，服務會自動開始計費。  若要升級，請選取[安全性原則](security-center-policies.md#set-security-policies)中的 [定價層]。 若要深入了解，請參閱[資訊安全中心價格](security-center-pricing.md)。
+「標準層」加上了進階威脅偵測功能，包括威脅情報、行為分析、異常偵測、安全性事件，以及威脅歸因報告。 標準層的前 60 天免費。 如果您在超過 60 天後選擇繼續使用服務，服務會自動開始計費。  若要升級，請選取安全性原則中的[定價層](https://docs.microsoft.com/azure/security-center/security-center-pricing)。
 
 ## <a name="permissions"></a>權限
 Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../active-directory/role-based-access-control-configure.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../active-directory/role-based-access-built-in-roles.md)。
@@ -115,8 +113,8 @@ Azure 資訊安全中心會監視下列 Azure 資源：
 * Azure 虛擬網路
 * Azure SQL 服務
 * Azure 儲存體帳戶
-* Azure Web Apps (在 [App Service 環境](../app-service/app-service-app-service-environments-readme.md)中)
-* 與您的 Azure 訂用帳戶整合的合作夥伴解決方案，例如 VM 和 [App Service 環境](../app-service/app-service-app-service-environments-readme.md)
+* Azure Web Apps (在 [App Service 環境](../app-service/environment/intro.md)中)
+* 與您的 Azure 訂用帳戶整合的合作夥伴解決方案，例如 VM 和 App Service 環境上的 Web 應用程式防火牆
 
 ## <a name="virtual-machines"></a>虛擬機器
 ### <a name="what-types-of-virtual-machines-are-supported"></a>支援哪些類型的虛擬機器？
@@ -132,4 +130,3 @@ Azure 資訊安全中心能辨識透過 Azure 擴充功能安裝的反惡意程�
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>為什麼我會收到「VM 代理程式已遺失」訊息？
 VM 代理程式必須安裝在 VM 上，才能啟用資料收集。 預設會為從 Azure Marketplace 部署的 VM 安裝「VM 代理程式」。 如需如何在其他 VM 上安裝 VM 代理程式的資訊，請參閱部落格文章 [VM Agent and Extensions (VM 代理程式和擴充功能)](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)。
-

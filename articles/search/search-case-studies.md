@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure 搜尋的人： 案例研究和客戶劇本 |Microsoft 文件"
+title: "誰在使用 Azure 搜尋服務︰個案研究和客戶案例 | Microsoft Docs"
 description: "關於 Azure 搜尋服務 (在 Microsoft Azure 上託管的雲端搜尋服務) 的案例研究和客戶案例。"
 services: search
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>誰在使用 Azure 搜尋︰個案研究和客戶案例
 了解下列組織如何藉由將豐富的 Azure 搜尋經驗整合到其線上應用程式中來幫助推動其業務。

@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
 ms.openlocfilehash: 017ba7197e11c2b222082833d5acabb9e542b762
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-attach-a-data-disk-to-a-linux-virtual-machine"></a>如何將資料磁碟連接至 Linux 虛擬機器
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 參閱如何[使用 Resource Manager 部署模型連接資料磁碟](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+> Azure 建立和處理資源的部署模型有兩種：[資源管理員和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 參閱如何[使用 Resource Manager 部署模型連接資料磁碟](../add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 您可以將空的磁碟和含有資料的磁碟連接到 Azure VM。 這兩種類型的磁碟都是位於 Azure 儲存體帳戶中的 .vhd 檔案。 就像將任何磁碟新增到 Linux 機器一樣，連接磁碟之後，您必須將磁碟初始化並格式化，它才可供使用。 本文將會詳細說明連接空的磁碟和連接含有資料的磁碟到 VM，以及初始化和格式化新磁碟的方法。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 07/11/2017
    
     或
    
-    b) 使用 `lsscsi` 命令來找出裝置識別碼。 您可透過 `yum install lsscsi` (Red Hat 式散發) 或 `apt-get install lsscsi`(Debian 式散發) 來安裝 `lsscsi`。 您可以透過磁碟的 *LUN* (亦稱為 **邏輯單元編號**) 找到您所需的磁碟。 例如，您可從 `azure vm disk list <virtual-machine>` 輕易看到所附加磁碟的 *lun*，如下所示：
+    b) 使用 `lsscsi` 命令來找出裝置識別碼。您可以透過 `yum install lsscsi` (在 Red Hat 式發行版本上) 或 `apt-get install lsscsi` (在 Debian 式發行版本上) 來安裝 `lsscsi`。 您可以透過磁碟的 *LUN* (亦稱為 **邏輯單元編號**) 找到您所需的磁碟。 例如，您可從 `azure vm disk list <virtual-machine>` 輕易看到所附加磁碟的 *lun*，如下所示：
 
     ```azurecli
     azure vm disk list myVM
@@ -89,7 +89,7 @@ ms.lasthandoff: 07/11/2017
     sudo fdisk /dev/sdc
     ```
 
-4. 出現提示時，輸入 **n** 建立磁碟分割。
+4. 出現提示時，請輸入 **n** 以建立磁碟分割。
 
     ![建立裝置](./media/attach-disk/fdisknewpartition.png)
 
@@ -174,7 +174,7 @@ ms.lasthandoff: 07/11/2017
     > [!NOTE]
     > `nofail` 選項可確保即使檔案系統已損毀或磁碟在開機時並不存在，仍然會啟動 VM。 若不使用此選項，您可能會遇到[因為 FSTAB 錯誤所以無法 SSH 到 Linux VM](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/) 中所述的行為。
 
-    您現在可以將檔案系統取消掛接後再重新掛接 (例如 使用在先前步驟中建立的範例掛接點 `/datadrive`)，來測試是否已正確掛接檔案系統：
+    您現在可以將檔案系統取消掛接後再重新掛接 (亦即使用在先前步驟中建立的範例掛接點 `/datadrive`)，來測試是否已正確掛接檔案系統：
 
     ```bash
     sudo umount /datadrive

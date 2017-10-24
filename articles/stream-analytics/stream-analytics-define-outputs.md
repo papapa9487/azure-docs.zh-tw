@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>串流分析輸出︰儲存體、分析的選項
 當您在編寫串流分析工作時，請考慮產生資料的取用方式。 您要如何檢視串流分析工作的結果，並將儲存於何處？
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/07/2017
 </tr>
 <tr>
 <td>路徑前置詞模式</td>
-<td>用來在指定的 Data Lake Store 帳戶中寫入檔案的檔案路徑。 <BR>{date}、{time}<BR>範例 1：folder1/logs/{date}/{time}<BR>範例 2：folder1/logs/{date}</td>
+<td>檔案命名將遵循下列慣例： <BR>{路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR>範例輸出檔案︰<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>此外，以下是建立新檔案的情況：<BR>1. 輸出結構描述變更 <BR>2. 從外部或內部重新啟動作業<BR><BR>此外，如果檔案路徑模式不包含尾端的 "/"，則會將檔案路徑中的最後一個模式視為檔案名稱前置詞。<BR><BR>範例：<BR>路徑模式為 folder1/logs/HH 時，產生的檔案可能看起來像這樣：folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>日期格式 [<I>選用</I>]</td>
@@ -81,7 +80,7 @@ ms.lasthandoff: 09/07/2017
 </tr>
 <tr>
 <td>格式</td>
-<td>僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。</td>
+<td>僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好使用分行的 JSON，因為它不需要任何特殊處理，同時仍會寫入輸出檔案。</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +136,7 @@ ms.lasthandoff: 09/07/2017
 </tr>
 <tr>
 <td>路徑前置詞模式 [選用]</td>
-<td>用來在指定容器中寫入 Blob 的檔案路徑。<BR>在該路徑內，您也可以選擇使用下列 2 個變數的一或多個執行個體來指定 blob 的寫入頻率：<BR>{date}、{time}<BR>範例 1：cluster1/logs/{date}/{time}<BR>範例 2：cluster1/logs/{date}</td>
+<td>用來在指定容器中寫入 Blob 的檔案路徑模式。 <BR> 在該路徑模式內，您也可以選擇使用下列 2 個變數的一或多個執行個體來指定 blob 的寫入頻率： <BR> {date}、{time} <BR> 範例 1：cluster1/logs/{date}/{time} <BR> 範例 2：cluster1/logs/{date} <BR> <BR> 檔案命名將遵循下列慣例： <BR> {路徑前置詞模式}/schemaHashcode_Guid_Number.extension <BR> <BR> 範例輸出檔案︰ <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> 此外，以下是建立新檔案的情況： <BR> 1. 目前的檔案超過允許的區塊數目上限 (目前為 50,000 個) <BR> 2. 輸出結構描述變更 <BR> 3. 從外部或內部重新啟動作業  </td>
 </tr>
 <tr>
 <td>日期格式 [選用]</td>
@@ -182,7 +181,7 @@ ms.lasthandoff: 09/07/2017
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
 | 編碼 |對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
-| 格式 |僅適用於 JSON 類型。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 |
+| 格式 |僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好使用分行的 JSON，因為它不需要任何特殊處理，同時仍會寫入輸出檔案。 |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。 這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
@@ -267,7 +266,7 @@ DateTime | String | String |  DateTime | String
 | 資料分割索引鍵 |包含資料分割索引鍵的輸出資料行名稱。 在構成實體主索引鍵第一個部分的指定資料表內，資料分割索引鍵是資料分割的唯一識別碼。 大小最高為 1 KB 的字串值。 |
 | 列索引鍵 |包含資料列索引鍵的輸出資料行名稱。 資料列索引鍵是指定資料分割內實體的唯一識別碼。 它可構成實體主索引鍵的第二個部分。 資料列索引鍵是大小可能高達 1 KB 的字串值。 |
 | 批次大小 |批次作業的記錄數目。 預設值通常足以應付大部分的工作，如需修改此設定的詳細資訊，請參閱 [資料表批次作業規格](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) 。 |
-
+ 
 ## <a name="service-bus-queues"></a>服務匯流排佇列
 [服務匯流排佇列](https://msdn.microsoft.com/library/azure/hh367516.aspx) 會採用「先進先出」(FIFO) 訊息傳遞機制。 通常會預期由接收者依訊息加入佇列的時間順序來接收和處理訊息，而且每則訊息只能由一個訊息取用者接收和處理。
 
@@ -298,7 +297,7 @@ DateTime | String | String |  DateTime | String
 | 主題原則名稱 |當您建立主題時，您也可以在 [主題設定] 索引標籤上建立共用的存取原則。每一個共用存取原則會有名稱、權限 (由您設定) 和存取金鑰 |
 | 主題原則金鑰 |用來驗證服務匯流排命名空間之存取權的共用存取金鑰 |
 | 事件序列化格式 |輸出資料的序列化格式。  支援 JSON、CSV 和 Avro。 |
-| 編碼 |若為 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
+ | 編碼 |若為 CSV 或 JSON 格式，必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -315,6 +314,23 @@ DateTime | String | String |  DateTime | String
   2\) MyCollection{partition} – 這些集合必須存在 – "MyCollection0”、“MyCollection1”、“MyCollection2” 等，依此類推。  
 * **資料分割索引鍵** - 選擇性。 只有當您在集合名稱模式中使用 {parition} 語彙基元時，才需要此索引鍵。 輸出事件中的欄位名稱會用來為跨集合的資料分割輸出指定索引鍵。 若為單一集合輸出，則可使用任何任意的輸出欄，例如 PartitionId。  
 * **文件識別碼** ：可省略。 輸出事件中的欄位名稱會用來指定主索引鍵，此為插入或更新作業的依據。  
+
+## <a name="azure-functions-in-preview"></a>Azure Functions (處於預覽階段)
+Azure Functions 是無伺服器計算服務，可讓您依需求執行程式碼，無需明確佈建或管理基礎結構。 它可讓您實作在 Azure 或協力廠商服務中發生之事件所觸發的程式碼。  Azure Functions 回應觸發程序的這個功能使其自然輸出 Azure 串流分析。 此輸出配接器可讓使用者將串流分析連接至 Azure Functions，然後執行指令碼或程式碼片段，以回應各種不同的事件。
+
+Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Azure Functions 輸出配接器可搭配下列可設定屬性使用：
+
+| 屬性名稱 | 說明 |
+| --- | --- |
+| 函式應用程式 |Azure Functions 應用程式的名稱 |
+| 函式 |Azure Functions 應用程式中函式的名稱 |
+| 批次大小上限 |此屬性可用來針對將會傳送到您 Azure Function 的每個輸出批次，設定大小上限。 根據預設，此值為 256 KB |
+| 批次計數上限  |正如其名稱所示，此屬性可讓您在傳送至 Azure Functions 的每個批次中，指定事件數目上限。 預設的最大批次計數值為 100 |
+| Key |如果您想要使用另一個訂用帳戶中的 Azure Function，可以藉由提供存取函式的金鑰來達到這個目的 |
+
+請注意，當 Azure 串流分析從 Azure 函式收到 413 (http 要求實體太大) 例外狀況時，它會縮減傳送至 Azure Functions 之批次的大小。 在 Azure 函式程式碼中，使用這個例外狀況可確保 Azure 串流分析不會傳送過大的批次。 此外，請確認函式中使用的最大批次計數和大小值都符合串流分析入口網站中輸入的值。 
+
+此外，如果在某個時間範圍內沒有登陸任何事件，則不會產生任何輸出。 如此一來，將不會呼叫 computeResult 函式。 此行為與內建的視窗型彙總函式一致。
 
 
 ## <a name="get-help"></a>取得說明
@@ -335,4 +351,3 @@ DateTime | String | String |  DateTime | String
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

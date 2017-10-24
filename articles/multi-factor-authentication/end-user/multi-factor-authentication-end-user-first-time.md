@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
@@ -30,7 +29,7 @@ ms.lasthandoff: 08/16/2017
 
 ## <a name="set-up-your-account"></a>設定帳戶
 
-當您的 IT 部門要求您開始使用雙步驟驗證時，您會看到一個畫面，指出 [系統管理員已要求您為這個帳戶設定額外的安全性驗證]：
+當 IT 部門要求您開始使用雙步驟驗證時，您會看到一個畫面，指出 [系統管理員已要求您為這個帳戶設定額外的安全性驗證]：
 
 ![設定](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -107,4 +106,3 @@ ms.lasthandoff: 08/16/2017
 * 變更您慣用的選項並[管理您雙步驟驗證的設定](multi-factor-authentication-end-user-manage-settings.md)
 * 針對不支援雙步驟驗證的原生裝置應用程式，設定[應用程式密碼](multi-factor-authentication-end-user-app-passwords.md)。
 * 查看 [Microsoft 驗證器應用程式](microsoft-authenticator-app-how-to.md)，即使在您沒有行動服務時也能進行快速、安全的驗證。
-

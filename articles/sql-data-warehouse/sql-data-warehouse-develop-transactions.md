@@ -16,10 +16,10 @@ ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
 ms.openlocfilehash: 29d53e18539f2c24dd64090b2ac6f9dd4c783961
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transactions-in-sql-data-warehouse"></a>SQL 資料倉儲中的交易
 如您所預期，SQL 資料倉儲支援交易做為資料倉儲工作負載的一部分。 不過，為了確保 SQL 資料倉儲的效能維持在一定的程度，某些功能會受到限制 (相較於 SQL Server)。 本文特別強調差異，並列出其他交易。 
@@ -35,7 +35,7 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離僅限於 `R
 * 已發生的資料平均散發 
 * 平均資料列長度是 250 個位元組
 
-| [DWU][DWU] | 每個散發的容量 (GiB) | 散發的數目 | 交易大小上限 (GiB) | # 每發佈的資料列 | 每個交易的資料列數上限 |
+| [DWU][DWU] | 每個散發的容量 (GiB) | 散發的數目 | 交易大小上限 (GiB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |

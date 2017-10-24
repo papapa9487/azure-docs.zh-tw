@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
+ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入
 串流分析作業的資料連線是來自資料來源的事件資料流，稱為作業的「輸入」。 串流分析與 Azure 資料流來源的整合性極佳，來源包括 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)和 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 這些輸入來源可以來自與分析作業相同的 Azure 訂用帳戶，或來自不同的訂用帳戶。
@@ -35,6 +34,12 @@ ms.lasthandoff: 08/29/2017
 串流分析也支援稱為「參考資料」的輸入。 這是靜態或緩慢變更的輔助資料。 通常用來執行相互關聯和查閱。 比方說，您可能會將資料流輸入中的資料聯結至參考資料中的資料，很像是執行 SQL 聯結來查詢靜態值。 在預覽版本中，Azure Blob 儲存體是目前唯一支援當成參考資料的輸入來源。 參考資料來源 Blob 的大小以 100 MB 為限。
 
 若要了解如何建立參考資料輸入，請參閱[使用參考資料](stream-analytics-use-reference-data.md)。  
+
+## <a name="compression"></a>壓縮
+
+Azure 串流分析將會很快地在所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 部署壓縮功能。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 支援的類型目前是 [無]、[GZip] 和 [Deflate] 壓縮。 
+
+與 Avro 序列化串聯時，不支援壓縮，而且不適用於參考資料。 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>從事件中樞建立資料流輸入
 
@@ -57,6 +62,7 @@ Azure 事件中樞提供高延展性的發佈-訂閱事件擷取器。 事件中
 | **事件中樞取用者群組** (選用) |用來從事件中樞內嵌資料的取用者群組。 如果未指定取用者群組，串流分析作業會使用預設取用者群組。 建議讓每一個串流分析作業使用不同的取用者群組。 |
 | **事件序列化格式** |傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
 | **編碼** | UTF-8 是目前唯一支援的編碼格式。 |
+| **壓縮** (選用) | 內送資料流的壓縮類型 (無、GZip 或 Deflate)。 |
 
 當您的資料來自事件中樞時，您可以在串流分析查詢中存取下列中繼資料欄位：
 
@@ -102,6 +108,7 @@ Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事�
 | **取用者群組** (選用) |用來從 IoT 中樞內嵌資料的取用者群組。 如果未指定取用者群組，串流分析作業會使用預設取用者群組。 建議讓每一個串流分析作業使用不同的取用者群組。 |
 | **事件序列化格式** |傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
 | **編碼** |UTF-8 是目前唯一支援的編碼格式。 |
+| **壓縮** (選用) | 內送資料流的壓縮類型 (無、GZip 或 Deflate)。 |
 
 當您的資料來自 IoT 中樞時，您可以在串流分析查詢中存取下列中繼資料欄位：
 
@@ -144,6 +151,7 @@ CSV 格式的輸入「需要」標題列來定義資料集的欄位。 此外，
 | **時間格式** (選用) |  在路徑中使用時間變數時，用來組織檔案的時間格式。 目前唯一支援的值為 `HH`。 |
 | **事件序列化格式** | 傳入資料流的序列化格式 (JSON、CSV 或 Avro)。 |
 | **編碼** | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
+| **壓縮** (選用) | 內送資料流的壓縮類型 (無、GZip 或 Deflate)。 |
 
 當您的資料來自 Blob 儲存體來源時，您可以在串流分析查詢中存取下列中繼資料欄位：
 
@@ -182,4 +190,3 @@ FROM Input
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

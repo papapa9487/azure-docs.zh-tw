@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: negat
+ms.openlocfilehash: 98635ea6695fdb1e55456b5b6a293a3b4ad9d839
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: ac0bbb4dbfccca3f3fc31526aeff11afe55d44be
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>在 Linux 擴展集範本中使用客體計量自動調整規模
 
-在 Azure 中蒐集自 VM 和擴展集的計量有兩種類型：部分來自主機 VM，其他則來自客體 VM。 主機計量不需要額外的安裝，因為它們會由主機 VM 所收集，而客體計量需要我們在客體 VM 中安裝 [Windows Azure 診斷擴充功能](../virtual-machines/windows/extensions-diagnostics-template.md)或 [Linux Azure 診斷擴充功能](../virtual-machines/linux/diagnostic-extension.md)。 使用客體計量而非主機計量的一個常見原因是，客體計量會提供比主機計量更大的計量選取範圍。 記憶體耗用量計量即為一例，這類計量只能透過客體計量使用。 [這裡](../monitoring-and-diagnostics/monitoring-supported-metrics.md)會列出支援的主機度量，而常用的客體計量則列於[這裡](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)。 本文將說明如何根據適用於 Linux 擴展集的客體計量來修改[最基本可行的擴展集範本](./virtual-machine-scale-sets-mvss-start.md)，以使用自動調整規模規則。
+在 Azure 中蒐集自 VM 和擴展集的計量有兩種類型：部分來自主機 VM，其他則來自客體 VM。 概括而言，如果您使用標準的 CPU、磁碟及網路計量，則可能適合採用主機計量。 不過，如果您需要更大的計量選取範圍，則可能較適合採用客體計量。 讓我們看看兩者之間的差異：
+
+主機計量比較簡單且更可靠。 它們不需要額外的安裝，因為它們會由主機 VM 所收集，而客體計量需要我們在客體 VM 中安裝 [Windows Azure 診斷擴充功能](../virtual-machines/windows/extensions-diagnostics-template.md)或 [Linux Azure 診斷擴充功能](../virtual-machines/linux/diagnostic-extension.md)。 使用客體計量而非主機計量的一個常見原因是，客體計量會提供比主機計量更大的計量選取範圍。 記憶體耗用量計量即為一例，這類計量只能透過客體計量使用。 [這裡](../monitoring-and-diagnostics/monitoring-supported-metrics.md)會列出支援的主機度量，而常用的客體計量則列於[這裡](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)。 本文將說明如何根據適用於 Linux 擴展集的客體計量來修改[最基本可行的擴展集範本](./virtual-machine-scale-sets-mvss-start.md)，以使用自動調整規模規則。
 
 ## <a name="change-the-template-definition"></a>變更範本定義
 
@@ -189,4 +189,3 @@ ms.lasthandoff: 08/21/2017
 ## <a name="next-steps"></a>後續步驟
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

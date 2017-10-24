@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
+ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2d2e49f92fdc64f3ebb2326d08f7d4304d8ffa43
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>使用 Azure 儲存體在雲端中上傳影像資料
 
 本教學課程是一個系列的第一部分。 本教學課程會示範如何部署 Web 應用程式，使用 Azure 儲存體用戶端程式庫將影像上傳至儲存體帳戶。 完成後，您就有可以儲存和顯示 Azure 儲存體影像資料的 Web 應用程式。
@@ -57,7 +55,7 @@ az group create --name myResourceGroup --location westcentralus
 此範例會將影像上傳至 Azure 儲存體帳戶的 Blob 容器。 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲存體資料物件。 在使用 [az storage account create](/cli/azure/storage/account#create) 命令所建立的資源群組中建立儲存體帳戶。 
 
 > [!IMPORTANT] 
-> 在本教學課程的第 2 部分中，您要使用 Blob 儲存體的事件訂閱。 目前只有美國中西部和美國西部的 Blob 儲存體帳戶支援事件訂閱。 因為這項限制，您必須建立範例應用程式使用的 Blob 儲存體帳戶，來儲存影像和縮圖。   
+> 在本教學課程的第 2 部分中，您要使用 Blob 儲存體的事件訂閱。 目前只有美國中西部和美國西部 2 的 Blob 儲存體帳戶支援事件訂閱。 因為這項限制，您必須建立範例應用程式使用的 Blob 儲存體帳戶，來儲存影像和縮圖。   
 
 在下列命令中，使用您自己的全域唯一名稱來替代見到 `<blob_storage_account>` 預留位置的 Blob 儲存體帳戶。  
 
@@ -226,4 +224,3 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 > [!div class="nextstepaction"]
 > [使用事件格線觸發 Azure 函式以調整上傳的影像大小](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-

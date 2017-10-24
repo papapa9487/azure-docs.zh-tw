@@ -12,16 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: a594f31c002556f9a5fddaa17fb19273065eed47
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 499d10943f606a67ca04bfdf5f7cad44f9e20d07
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-deploy-azure-files"></a>如何部署 Azure 檔案服務
 [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中受到完整管理的檔案共用；您可透過業界標準 SMB 通訊協定加以存取。 本文將說明如何在組織中實際部署 Azure 檔案服務。
 
@@ -37,7 +35,9 @@ ms.lasthandoff: 09/25/2017
 您可能想要將現有的檔案共用 (例如儲存在內部部署的檔案共用) 移轉至新的 Azure 檔案共用。 本節示範如何透過[規劃指南](storage-files-planning.md#data-transfer-method)詳述的幾個常用方法，將資料移至 Azure 檔案共用。
 
 ### <a name="azure-file-sync-preview"></a>Azure 檔案同步 (預覽)
-即使您不需要長期使用同步處理機制，也可以使用 Azure 檔案同步 (預覽) 將資料移轉至 Azure 檔案共用。 如需如何使用 Azure 檔案同步以將資料輸入 Azure 檔案共用的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
+Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
+
+即使您不需要長期使用同步處理機制，也可以使用 Azure 檔案同步，將資料移轉至 Azure 檔案共用。 如需如何使用 Azure 檔案同步將資料傳送至 Azure 檔案共用的詳細資訊，請參閱[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)和[如何部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)。
 
 ### <a name="azure-importexport"></a>Azure 匯入/匯出
 您可將硬碟寄送至 Azure 資料中心，透過 Azure 匯入/匯出服務，安全地將大量資料傳入 Azure 檔案共用。 請參閱[使用 Microsoft Azure 匯入/匯出服務將資料傳送至 Azure 儲存體](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)，以取得服務的詳細概觀。
@@ -58,7 +58,7 @@ ms.lasthandoff: 09/25/2017
 
         ![磁碟管理 MMC 中 [初始化磁碟] 功能表的螢幕擷取畫面](media/storage-files-deployment-guide/transferdata-importexport-1.PNG)
 
-    - 若要將磁碟機代號指派給磁碟，請在已上線並已初始化之磁碟的「未配置」空間中，按一下滑鼠右鍵，然後按一下 [新增簡單磁碟區]。 這可讓您指派磁碟機代號。 請注意，您不需要格式化磁碟區，因為這是稍後要進行的作業。
+    - 若要將磁碟機代號指派給磁碟，請在已上線並已初始化之磁碟的「未配置」空間中，按一下滑鼠右鍵，然後按一下新增簡單磁碟區。 這可讓您指派磁碟機代號。 請注意，您不需要格式化磁碟區，因為這是稍後要進行的作業。
 
         ![磁碟管理 MMC 中 [新增簡單磁碟區精靈] 的螢幕擷取畫面](media/storage-files-deployment-guide/transferdata-importexport-2.png)
 

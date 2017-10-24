@@ -2,11 +2,11 @@
 
 本教學課程中的步驟假設您正在執行 Ubuntu Linux。
 
-開啟殼層並執行下列命令，來安裝必要條件套件︰
+若要安裝必要條件套件，請開啟殼層並執行下列命令︰
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 在殼層中，執行下列命令，將 Azure IoT Edge GitHub 存放庫複製到本機電腦：

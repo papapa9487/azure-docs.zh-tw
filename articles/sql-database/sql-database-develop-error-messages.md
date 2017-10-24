@@ -14,14 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
+ms.openlocfilehash: 9f9dfd039b76e4bedfb7f59d042123fa54d6b615
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: bcf5f4027764b6be3880d597cdf85e83eb967169
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 用戶端應用程式的 SQL 錯誤碼：資料庫連線錯誤和其他問題
 
@@ -180,7 +179,7 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40607 |16 |Windows 登入在這個版本的 SQL Server 中不受支援。 |
 | 40611 |16 |伺服器最多可以定義 128 個防火牆規則。 |
 | 40614 |16 |防火牆規則的起始 IP 位址不能超過結束 IP 位址。 |
-| 40615 |16 |無法開啟登入所要求的伺服器 '{0}'。 不允許 IP 位址 '{1}' 的用戶端存取伺服器。  若要啟用存取，請使用 SQL Database 入口網站，或在 master 資料庫上執行 sp_set_firewall_rule，為此 IP 位址或位址範圍建立防火牆規則。  可能需要五分鐘的時間，這項變更才會生效。 |
+| 40615 |16 |無法開啟登入所要求的伺服器 '{0}'。 不允許 IP 位址 '{1}' 的用戶端存取伺服器。<br /><br />若要啟用存取，請使用 SQL Database 入口網站，或在 master 資料庫上執行 sp\_set\_firewall\_rule，為此 IP 位址或位址範圍建立防火牆規則。 可能需要五分鐘的時間，這項變更才會生效。 |
 | 40617 |16 |以 (規則名稱) 開頭的防火牆規則名稱太長。 最大長度為 128。 |
 | 40618 |16 |防火牆規則名稱不可為空白。 |
 | 40620 |16 |使用者 "%.&#x2a;ls" 登入失敗。 密碼變更失敗。 在登入期間變更密碼在這個版本的 SQL Server 中不受支援。 |
@@ -205,12 +204,12 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 | 40651 |16 |無法建立伺服器，因為訂用帳戶 (subscription-id) 已停用。 |
 | 40652 |16 |無法移動或建立伺服器。 訂用帳戶 (subscription-id) 會超出伺服器配額。 |
 | 40671 |17 |閘道器與管理服務之間的通訊失敗。 請稍後重試。 |
-| 40852 |16 |無法在登入所要求的伺服器 '%.*ls' 上開啟資料庫 '%.*ls'。 只允許使用已啟用安全性的連接字串存取資料庫。 若要存取此資料庫，請將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說  -  'server name'.database.windows.net 應修改為 'server name'.database`secure`.windows.net。 |
+| 40852 |16 |無法在登入所要求的伺服器 '%.\*ls' 上開啟資料庫 '%.\*ls'。 只允許使用已啟用安全性的連接字串存取資料庫。 若要存取此資料庫，請將連接字串修改成在伺服器 FQDN 中包含 'secure'。也就是說  -  'server name'.database.windows.net 應修改為 'server name'.database`secure`.windows.net。 |
+| 40914 | 16 | 無法開啟登入所要求的伺服器 '*[server-name]*'。 用戶端不得存取該伺服器。<br /><br />若要修正，請考慮新增[虛擬網路規則](sql-database-vnet-service-endpoint-rule-overview.md)。 |
 | 45168 |16 |SQL Azure 系統未達負載，並正在對單一伺服器的並行 DB CRUD 作業 (例如，建立資料庫) 放置上限。 錯誤訊息中指定的伺服器已超過最大並行連接數目。 請稍後再試。 |
 | 45169 |16 |SQL Azure 系統未達負載，並正在對單一訂用帳戶的並行伺服器 CRUD 作業 (例如，建立資料庫) 的數量放置上限。 錯誤訊息中指定的訂用帳戶已超出最大並行連接數目，因此要求已遭到拒絕。 請稍後再試。 |
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [Azure SQL Database 功能](sql-database-features.md)。
 * 深入了解[服務層](sql-database-service-tiers.md)。
-
 

@@ -12,17 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/06/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f7f5e2939ed09c0fbb4eb81f066075553376ff57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 6f272136d535dddd9c8213293841ace203c042a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中進行資料分割和調整
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是全域分散的多重模型資料庫服務，其設計可協助您達成快速且可預測的效能。 它會順暢地隨著應用程式的成長而調整規模。 本文概述 Azure Cosmos DB 中所有資料模型的資料分割運作方式的概觀， 並描述可如何設定 Azure Cosmos DB 容器以有效地調整應用程式規模。
@@ -63,6 +61,12 @@ Azure Cosmos DB 使用雜湊型資料分割。 當您寫入項目時，Azure Cos
 >
 
 可建立「固定」或「無限制」的 Azure Cosmos DB 容器。 固定大小的容器具有上限為 10 GB 和 10,000 RU/秒的輸送量。 某些 API 對於固定大小的容器可允許省略資料分割索引鍵。 若要建立無限制的容器，您必須指定最小輸送量 2,500 RU/秒。
+
+建議您檢查資料在分割區中分佈的方式。 若要在入口網站中進行此一檢查，請移至 Azure Cosmos DB 帳戶並按一下 [監視] 區段中的 [計量]，然後在右側窗格中按一下 [儲存體] 索引標籤，以查看資料在不同實體分割區中分割的方式。
+
+![資源的資料分割](./media/partition-data/partitionkey-example.png)
+
+左側影像顯示不良分割區索引鍵的結果，右側影像顯示良好分割區索引鍵的結果。 在左側影像中，您可以看到資料並未平均分佈於各個分割區中。 您應該盡量分散資料，讓圖表看起來類似於右側影像。
 
 ## <a name="partitioning-and-provisioned-throughput"></a>資料分割與佈建的輸送量
 Azure Cosmos DB 設計用來取得可預測的效能。 當您建立容器時，需以「每秒的[要求單位](request-units.md) (RU)」保留輸送量。 每項要求都會指派有與系統資源 (例如作業所使用的 CPU、記憶體和 IO) 數量成正比的 RU 費用。 讀取 1 KB 具有工作階段一致性的文件，會使用 1 RU。 不論儲存的項目數或同時執行的並行要求數，讀取一次都是 1 個 RU。 根據大小之不同，較大的項目需要較高的 RU。 如果您知道實體大小以及支援您應用程式所需的讀取次數，則可以佈建應用程式讀取需求確實需要的輸送量。 
@@ -208,7 +212,6 @@ Azure Cosmos DB 常見的其中一個使用案例是用在記錄與遙測。 您
 
 * 了解 [Azure Cosmos DB 中佈建的輸送量](request-units.md)。
 * 了解 [Azure Cosmos DB 中的全域分散](distribute-data-globally.md)。
-
 
 
 

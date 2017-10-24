@@ -1,98 +1,110 @@
 ---
-title: "Azure 容器登錄存放庫 | Microsoft Docs"
-description: "如何使用 Docker 映像的 Azure 容器登錄存放庫"
+title: "快速入門 - 使用 PowerShell 在 Azure 中建立私用的 Docker 登錄"
+description: "快速了解如何使用 PowerShell 建立私用的 Docker 容器登錄。"
 services: container-registry
 documentationcenter: 
-author: cristy
-manager: balans
-editor: dlepow
+author: neilpeterson
+manager: timlt
+editor: tysonn
 ms.service: container-registry
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2017
-ms.author: cristyg
+ms.date: 09/07/2017
+ms.author: nepeters
+ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1e5d5ea5b1ec121fe008abc48178b1d58f540ce1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="create-an-azure-container-registry-using-powershell"></a>使用 PowerShell 建立 Azure Container Registry
 
-# <a name="create-a-private-docker-container-registry-using-the-azure-powershell"></a>使用 Azure PowerShell 建立私人 Docker 容器登錄
-在 Windows 電腦上，使用 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 中的命令建立容器登錄並管理其設定。 您也可以使用 [Azure 入口網站](container-registry-get-started-portal.md)、[Azure CLI](container-registry-get-started-azure-cli.md)，或以程式設計方式用容器登錄 [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) 來建立並管理容器登錄。
+Azure Container Registry 是用於儲存私用 Docker 容器映像的受管理 Docker 容器登錄服務。 本指南詳述如何使用 PowerShell 建立 Azure Container Registry 執行個體。
 
+本快速入門需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
-* 如需相關背景和概念，請參閱[概觀](container-registry-intro.md)
-* 如需支援的 Cmdlet 完整清單，請參閱 [Azure 容器登錄管理 Cmdlet](https://docs.microsoft.com/en-us/powershell/module/azurerm.containerregistry/)。
+您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
 
+## <a name="log-in-to-azure"></a>登入 Azure
 
-## <a name="prerequisites"></a>必要條件
-* **Azure PowerShell**：若要安裝並開始使用 Azure PowerShell，請參閱[安裝指示](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps)。 執行 `Login-AzureRMAccount`登入您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azurep)。
-* **資源群組**：先建立[資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)再建立容器登錄，或使用現有的資源群組。 請確定資源群組是位於[可使用](https://azure.microsoft.com/regions/services/)容器登錄庫服務的位置。 如需使用 Azure PowerShell 來建立資源群組，請參閱 [PowerShell 參考](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps#create-a-resource-group)。
-* **儲存體帳戶** (選用)：建立標準 Azure [儲存體帳戶](../storage/common/storage-introduction.md)以支援相同位置中的容器登錄。 如果您以 `New-AzureRMContainerRegistry` 建立登錄庫時沒有指定儲存體帳戶，此命令會為您建立一個儲存體帳戶。 如需使用 PowerShell 來建立儲存體帳戶，請參閱 [PowerShell 參考](https://docs.microsoft.com/en-us/powershell/module/azure/new-azurestorageaccount)。 目前不支援進階儲存體。
-* **服務主體** (選用)：當您使用 PowerShell 建立登錄時，依預設不會針對存取進行設定。 您可以將現有的 Azure Active Directory 服務主體指派至登錄庫，或建立並指派一個新的，視您的需求而定。 或者，您也可以啟用登錄的管理使用者帳戶。 請參閱本文稍後的章節。 如需登錄庫存取權的詳細資訊，請參閱[驗證容器登錄庫](container-registry-authentication.md)。
+使用 `Login-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+
+```powershell
+Login-AzureRmAccount
+```
+
+## <a name="create-resource-group"></a>建立資源群組
+
+使用 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 建立 Azure 資源群組。 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
+
+```powershell
+New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+```
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
-執行 `New-AzureRMContainerRegistry` 命令建立容器登錄庫。
 
-> [!TIP]
-> 當您建立登錄庫時，請指定含有字母和數字的全域唯一最上層網域名稱。 範例中的登錄庫名稱是 `MyRegistry`，請換成您自己的唯一名稱。
->
->
+使用 [New-AzureRMContainerRegistry](/powershell/module/containerregistry/New-AzureRMContainerRegistry) 命令建立 ACR 執行個體。
 
-下列命令使用最少的參數在「美國中南部」位置的 `MyResourceGroup` 資源群組中建立容器登錄庫 `MyRegistry`︰
+登錄的名稱**必須是唯一的**。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
 
 ```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry"
+$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-* `-StorageAccountName` 為選擇性。 如果未指定，則會在指定的資源群組中使用由登錄名稱和時間戳記所組成的名稱建立儲存體帳戶。
+## <a name="log-in-to-acr"></a>登入 ACR
 
-## <a name="assign-a-service-principal"></a>指派服務主體
-使用 PowerShell 的命令，將 Azure Active Directory [服務主體](../azure-resource-manager/resource-group-authenticate-service-principal.md)指派到登錄庫。 這些範例中的服務主體是指派至擁有者角色，但如果您想要，可以指派至[其他角色](../active-directory/role-based-access-control-configure.md)。
+發送和提取容器映像之前，您必須登入 ACR 執行個體。 首先，使用 [Get AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) 命令，取得 ACR 執行個體的管理員認證。
 
-### <a name="create-a-service-principal"></a>建立服務主體
-在下列命令中，會建立新的服務主體。 以 `-Password` 參數指定強式密碼。
-
-```PowerShell
-$ServicePrincipal = New-AzureRMADServicePrincipal -DisplayName ApplicationDisplayName -Password "MyPassword"
+```powershell
+$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
 ```
 
-### <a name="assign-a-new-or-existing-service-principal"></a>指派新的或現有的服務主體
-您可以將新的或現有的服務主體指派到登錄庫。 若要將擁有者角色存取權指派到登錄庫，請執行類似下列範例的命令：
+接著，使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令登入 ACR 執行個體。
 
-```PowerShell
-New-AzureRMRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName $ServicePrincipal.ApplicationId -Scope $Registry.Id
+```bash
+docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
-##<a name="sign-in-to-the-registry-with-the-service-principal"></a>使用服務主體登入登錄庫
-將服務主體指派到登錄庫之後，您就可以使用下列命令來登入：
+此命令在完成之後會傳回「登入成功」訊息。
 
-```PowerShell
-docker login -u $ServicePrincipal.ApplicationId -p myPassword
+## <a name="push-image-to-acr"></a>推送映像到 ACR
+
+若要推送映像到 Azure Container Registry，您必須先有映像。 如有需要，請執行下列命令，以從 Docker Hub 提取預先建立的映像。
+
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
-## <a name="manage-admin-credentials"></a>管理管理員認證
-系統會自動建立每個容器登錄庫的管理員帳戶，並預設停用此帳戶。 下列範例示範用 PowerShell 命令來管理容器登錄庫的管理員認證。
+映像必須加上 ACR 登入伺服器名稱。 執行 [Get AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) 命令，以傳回 ACR 執行個體的登入伺服器名稱。
 
-### <a name="obtain-admin-user-credentials"></a>取得管理員使用者認證
-```PowerShell
-Get-AzureRMContainerRegistryCredential -ResourceGroupName "MyResourceGroup" -Name "MyRegistry"
+```powershell` Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>啟用現有登錄庫的管理員使用者
-```PowerShell
-Update-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry" -EnableAdminUser
+Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+
+```bash
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>停用現有登錄庫的管理員使用者
-```PowerShell
-Update-AzureRMContainerRegistry -ResourceGroupName "MyResourceGroup" -Name "MyRegistry" -DisableAdminUser
+最後，使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 推送映像到 ACR 執行個體。 將 *acrLoginServer* 取代為 ACR 執行個體的登入伺服器名稱。
+
+```bash
+docker push <acrLoginServer>/aci-helloworld:v1
+```
+
+## <a name="clean-up-resources"></a>清除資源
+
+若不再需要，您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令來移除資源群組、ACR 執行個體和所有容器映像。
+
+```powershell
+Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Docker CLI 推送您的第一個映像](container-registry-get-started-docker-cli.md)
 
+在本快速入門中，您使用 Azure CLI 建立了 Azure Container Registry。 如果您想要使用 Azure Container Registry 搭配 Azure 容器執行特體，請繼續進行 Azure 容器執行個體教學課程。
+
+> [!div class="nextstepaction"]
+> [Azure 容器執行個體教學課程](../container-instances/container-instances-tutorial-prepare-app.md)

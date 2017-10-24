@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/18/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 9af6c0fc3df2863c8e7b9a6a62acf5ba6b7d2d0a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 4c5c8aacd2d104b8d6074b90eeffc32b29fc50f3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-service-map-in-operations-management-suite"></a>設定 Operations Management Suite 中的服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -139,7 +138,56 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-## <a name="desired-state-configuration"></a>Desired State Configuration
+## <a name="azure-vm-extension"></a>Azure VM 擴充功能
+您可以使用 [Azure VM 擴充功能](https://docs.microsoft.com/azure/virtual-machines/windows/classic/agents-and-extensions)，將相依性代理程式輕鬆部署到您的 Azure VM。  利用 Azure VM 擴充功能，您可以透過 PowerShell 指令碼，或直接在 VM 的 Azure Resource Manager 範本中，將相依性代理程式部署到您的 VM。  有一個可供 Windows (DependencyAgentWindows) 和 Linux (DependencyAgentLinux) 使用的擴充功能。  如果您透過 Azure VM 擴充功能部署，您的代理程式就可自動更新為最新版本。
+
+若要透過 PowerShell 部署 Azure VM 擴充功能，您可以使用下列範例：
+```PowerShell
+#
+# Deploy the Dependency Agent to every VM in a Resource Group
+#
+
+$version = "9.1"
+$ExtPublisher = "Microsoft.Azure.Monitoring.DependencyAgent"
+$OsExtensionMap = @{ "Windows" = "DependencyAgentWindows"; "Linux" = "DependencyAgentLinux" }
+$rmgroup = "<Your Resource Group Here>"
+
+Get-AzureRmVM -ResourceGroupName $rmgroup |
+ForEach-Object {
+    ""
+    $name = $_.Name
+    $os = $_.StorageProfile.OsDisk.OsType
+    $location = $_.Location
+    $vmRmGroup = $_.ResourceGroupName
+    "${name}: ${os} (${location})"
+    Date -Format o
+    $ext = $OsExtensionMap.($os.ToString())
+    $result = Set-AzureRmVMExtension -ResourceGroupName $vmRmGroup -VMName $name -Location $location `
+    -Publisher $ExtPublisher -ExtensionType $ext -Name "DependencyAgent" -TypeHandlerVersion $version
+    $result.IsSuccessStatusCode
+}
+```
+
+確保相依性代理程式會在您的每個 VM 上的更簡單方法是，在您的 Azure Resource Manager 範本中納入該代理程式。  請注意，相依性代理程式仍取決於 OMS 代理程式，所以必須先部署 [OMS 代理程式 VM 擴充功能](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension)。  您可以將下列 JSON 程式碼片段新增到範本的「資源」區段。
+```JSON
+"type": "Microsoft.Compute/virtualMachines/extensions",
+"name": "[concat(parameters('vmName'), '/DependencyAgent')]",
+"apiVersion": "2017-03-30",
+"location": "[resourceGroup().location]",
+"dependsOn": [
+"[concat('Microsoft.Compute/virtualMachines/', parameters('vmName'))]"
+],
+"properties": {
+    "publisher": "Microsoft.Azure.Monitoring.DependencyAgent",
+    "type": "DependencyAgentWindows",
+    "typeHandlerVersion": "9.1",
+    "autoUpgradeMinorVersion": true
+}
+
+```
+
+
+## <a name="desired-state-configuration"></a>期望的狀態設定
 若要透過 Desired State Configuration 部署相依性代理程式，您可以使用 xPSDesiredStateConfiguration 模組和如下的程式碼：
 ```
 configuration ServiceMap {
@@ -334,4 +382,3 @@ Microsoft 相依性代理程式建置於 Microsoft Visual Studio 執行階段程
 
 ## <a name="next-steps"></a>後續步驟
 - 部署和設定後，了解如何[使用服務對應](operations-management-suite-service-map.md)。
-

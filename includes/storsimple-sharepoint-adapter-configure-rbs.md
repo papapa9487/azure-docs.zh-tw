@@ -34,7 +34,7 @@
       ![配接器組態訊息](./media/storsimple-sharepoint-adapter-configure-rbs/HCS_SSASP_ConfigRBS3-include.png)
       
       > [!NOTE]
-      > 如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，SharePoint 管理中心網頁可能會逾時。 如果發生這種情況，請重新整理頁面。 這不會影響設定程序。
+      > 如果要設定 RBS 的 SharePoint 伺服器陣列有非常大量的資料庫 (超過 200 個)，SharePoint 管理中心網頁可能會逾時。如果發生這種情況，請重新整理頁面。 這不會影響設定程序。
 
 4. 驗證組態：
    

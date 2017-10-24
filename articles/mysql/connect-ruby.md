@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/13/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 10f774262015cb19e158a687138b4618ce50063b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: e54f1dccbae060c52f48bfeb277c045b99a91715
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Ruby 來連線及查詢資料
-本快速入門示範如何從 Windows、Ubuntu Linux 和 Mac 平台使用 [Ruby](https://www.ruby-lang.org) 應用程式和 [mysql2](https://rubygems.org/gems/mysql2) Gem，連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Ruby 進行開發，但不熟悉 Azure Database for MySQL。
+本快速入門示範如何從 Windows、Ubuntu Linux 和 Mac 平台使用 [Ruby](https://www.ruby-lang.org) 應用程式和 [mysql2](https://rubygems.org/gems/mysql2) Gem，連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Ruby 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -57,20 +55,20 @@ ms.lasthandoff: 07/17/2017
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器，例如 **myserver4demo**。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **myserver4demo**)。
 3. 按一下伺服器名稱 **myserver4demo**。
-4. 選取伺服器的 [屬性] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
+4. 選取伺服器的 [屬性] 頁面，然後記下**伺服器名稱**和**伺服器管理員登入名稱**。
  ![Azure Database for MySQL - 伺服器管理員登入](./media/connect-ruby/1_server-properties-name-login.png)
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
 ## <a name="run-ruby-code"></a>執行 Ruby 程式碼 
-1. 將 Ruby 程式碼從下列區段貼到文字檔中，並將檔案儲存到專案資料夾中 (副檔名為 .rb)，例如 `C:\rubymysql\createtable.rb` 或 `/home/username/rubymysql/createtable.rb`。
-2. 若要執行程式碼，請啟動命令提示字元或 bash shell。 將目錄切換到專案資料夾 `cd rubymysql`
-3. 然後，輸入後接檔案名稱的 ruby 命令 (例如 `ruby createtable.rb`) 以執行應用程式。
-4. 在 Windows 作業系統上，如果 ruby 應用程式不在您的 path 環境變數中，則可能需要使用完整路徑來啟動節點應用程式，例如 `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
+1. 將 Ruby 程式碼從下列區段貼到文字檔中，然後使用副檔名 .rb 來將檔案儲存到專案資料夾 (例如 `C:\rubymysql\createtable.rb` 或 `/home/username/rubymysql/createtable.rb`)。
+2. 若要執行程式碼，請啟動命令提示字元或 Bash 殼層。 將目錄切換到專案資料夾 `cd rubymysql`
+3. 然後，輸入後面接著檔案名稱的 Ruby 命令 (例如 `ruby createtable.rb`) 以執行應用程式。
+4. 在 Windows 作業系統上，如果 Ruby 應用程式不在您的 path 環境變數中，則可能需要使用完整路徑來啟動節點應用程式，例如 `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>連線及建立資料表
-使用下列程式碼搭配 **CREATE TABLE** SQL 陳述式 (後面接著 **INSERT INTO** SQL 陳述式) 來連線和建立資料表，進而將資料列新增至資料表中。
+使用下列程式碼搭配 **CREATE TABLE** SQL 陳述式 (後面接著 **INSERT INTO** SQL 陳述式) 來連線和建立資料表，進而在資料表中新增資料列。
 
 程式碼會使用 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) 類別 .new() 來連線到 Azure Database for MySQL。 然後它會呼叫 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 方法數次來執行 DROP、CREATE TABLE 和 INSERT INTO 命令。 然後它會呼叫 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 方法，在終止前關閉連線。
 
@@ -117,7 +115,7 @@ end
 ## <a name="read-data"></a>讀取資料
 使用下列程式碼搭配 **SELECT** SQL 陳述式來連線和讀取資料。 
 
-程式碼會使用 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) 類別 .new() 來連線到 Azure Database for MySQL。 然後它會呼叫 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 方法來執行 SELECT 命令。 然後它會呼叫 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 方法，在終止前關閉連線。
+程式碼會使用 [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) 類別 .new() 來連線到適用於 MySQL 的 Azure 資料庫。 然後它會呼叫 [query()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) 方法來執行 SELECT 命令。 然後它會呼叫 [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) 方法，在終止前關閉連線。
 
 以您自己的值取代 `host`、`database`、`username` 和 `password` 字串。 
 
@@ -229,4 +227,3 @@ end
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [使用匯出和匯入來移轉資料庫](./concepts-migrate-import-export.md)
-

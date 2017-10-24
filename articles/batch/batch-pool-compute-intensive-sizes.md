@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 09/25/2017
 ms.author: danlep
-ms.openlocfilehash: c52a054e4fc8f61f871acd9f35b9a3e6247e48ef
-ms.sourcegitcommit: 422efcbac5b6b68295064bd545132fcc98349d01
-ms.translationtype: MT
+ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體
 
@@ -33,13 +33,9 @@ ms.lasthandoff: 07/29/2017
 
 ## <a name="subscription-and-account-limits"></a>訂用帳戶與帳戶限制
 
-* **配額** - 可以新增至 Batch 集區之節點的數量或類型可能會受到一或多個 Azure 配額所限制。 當您選擇具備 RDMA 功能、已啟用 GPU 功能或其他多核心 VM 大小時，更會受到限制。 根據您所建立的 Batch 帳戶類型，配額可能會套用於帳戶本身或套用於訂用帳戶。
+* **配額** - [每個 Batch 帳戶的專用核心配額](batch-quota-limit.md#resource-quotas)可能會限制您可以新增至 Batch 集區的節點數目或類型。 當您選擇具備 RDMA 功能、已啟用 GPU 功能或其他多核心 VM 大小時，更容易達到配額。 根據預設，這個配額為 20 個核心。 如果您使用[低優先順序 VM](batch-low-pri-vms.md)，這些 VM 有另外的適用配額。 
 
-    * 如果您在 **Batch 服務**組態中建立了您的 Batch 帳戶，您就會受到[每個 Batch 帳戶的專用核心配額](batch-quota-limit.md#resource-quotas)所限制。 根據預設，這個配額為 20 個核心。 如果您使用[低優先順序 VM](batch-low-pri-vms.md)，這些 VM 有另外的適用配額。 
-
-    * 如果您在**使用者訂用帳戶**組態中建立了帳戶，您的訂用帳戶會受到每個區域的 VM 核心數目所限制。 請參閱 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)。 您的訂用帳戶也會對某些 VM 大小 (包括 HPC 和 GPU 執行個體) 套用區域配額。 在使用者訂用帳戶組態中，Batch 帳戶沒有另外的適用配額。 
-
-  當您在 Batch 中使用特製 VM 大小時，您可能必須增加一或多個配額。 若要要求增加配額，可免費[開啟線上客戶支援要求](../azure-supportability/how-to-create-azure-support-request.md)。
+如果您需要要求增加配額，可免費開啟[線上客戶支援要求](../azure-supportability/how-to-create-azure-support-request.md)。
 
 * **區域可用性** - 在您用來建立 Batch 帳戶的區域中，可能不會提供需要大量計算的 VM。 若要確認是否有提供某個大小，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)。
 
@@ -97,13 +93,7 @@ ms.lasthandoff: 07/29/2017
 
 * [應用程式套件](batch-application-packages.md) - 將壓縮的安裝套件新增至您的 Batch 帳戶，並在集區中設定套件參考。 此設定會將套件上傳到集區中的所有節點，並將套件解壓縮。 如果該套件是安裝程式，請建立啟動工作命令列，以在所有集區節點上以無訊息方式安裝應用程式。 您也可以選擇在節點上有工作排定要執行時安裝套件。
 
-* [自訂集區映像](batch-api-basics.md#pool) - 建立自訂的 Windows 或 Linux VM 映像，並在其中包含 VM 大小所需的驅動程式、軟體或其他設定。 如果您在使用者訂用帳戶組態中建立了 Batch 帳戶，請為 Batch 集區指定自訂映像  (Batch 服務組態中的帳戶不支援自訂映像)。只有虛擬機器組態中的集區可以使用自訂映像。
-
-  > [!IMPORTANT]
-  > 在 Batch 集區中，您目前無法使用以受控磁碟或進階儲存體建立的自訂映像。
-  >
-
-
+* [自訂集區映像](batch-custom-images.md) - 建立自訂的 Windows 或 Linux VM 映像，並在其中包含 VM 大小所需的驅動程式、軟體或其他設定。 
 
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) 會自動將 GPU 和 RDMA 設定為對 Azure Batch 上的容器化工作負載透明地進行處理。 Batch Shipyard 完全是透過組態檔來驅動。 有許多可用的配方組態範例可啟用 GPU 和 RDMA 工作負載，例如 [CNTK GPU 配方](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI)，此配方會在 N 系列 VM 上預先設定 GPU 驅動程式，並以 Docker 映像的形式載入 Microsoft 辨識工具組。
 
@@ -133,17 +123,14 @@ ms.lasthandoff: 07/29/2017
 
 1. 部署執行 Ubuntu 16.04 LTS 的 Azure NC6 VM。 例如，在美國中南部區域建立 VM。 請確定您在建立 VM 時使用的是標準儲存體，而且「未使用」受控磁碟。
 2. 遵循步驟來連線至 VM 並[安裝 CUDA 驅動程式](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms)。
-3. 將 Linux 代理程式取消佈建，然後使用 Azure CLI 1.0 命令擷取 Linux VM 映像。 如需相關步驟，請參閱[擷取在 Azure 上執行的 Linux 虛擬機器](../virtual-machines/linux/capture-image-nodejs.md)。 記下映像的 URI。
-  > [!IMPORTANT]
-  > 請勿使用 Azure CLI 2.0 命令來擷取 Azure Batch 的映像。 CLI 2.0 命令目前只能擷取使用受控磁碟所建立的 VM。
-  >
-4. 在支援 NC VM 的區域中以使用者訂用帳戶組態建立 Batch 帳戶。
-5. 使用 Batch API 或 Azure 入口網站，以自訂映像建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
+3. 將 Linux 代理程式取消佈建，然後[擷取 Linux VM 映像](../virtual-machines/linux/capture-image.md)。
+4. 在支援 NC VM 的區域建立 Batch 帳戶。
+5. 使用 Batch API 或 Azure 入口網站，[使用自訂映像](batch-custom-images.md)建立具有所需節點數目和規模大小的集區。 下表顯示該映像的集區設定範例：
 
 | 設定 | 值 |
 | ---- | ---- |
 | **映像類型** | 自訂映像 |
-| **自訂映像** | 下列格式的映像 URI：`https://yourstorageaccountdisks.blob.core.windows.net/system/Microsoft.Compute/Images/vhds/MyVHDNamePrefix-osDisk.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd` |
+| **自訂映像** | 映像的名稱 |
 | **節點代理程式 SKU** | batch.node.ubuntu 16.04 |
 | **節點大小** | NC6 標準 |
 

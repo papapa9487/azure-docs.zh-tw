@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄
 
 [網路安全性群組流量記錄](network-watcher-nsg-flow-logging-overview.md)提供的資訊可讓您用來了解 Azure 網路介面的輸入和輸出 IP 流量。 流量記錄會顯示每一個網路安全性群組規則的輸出和輸入流量、套用流量的網路介面、有關流量的 5 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠、通訊協定)，以及流量是獲得允許還是遭到拒絕。
@@ -48,7 +46,7 @@ ms.lasthandoff: 09/25/2017
 - 請參閱 Graylog 所提供的[文件](http://docs.graylog.org/en/2.2/pages/installation/os/ubuntu.html)，以取得如何安裝到 Ubuntu 的逐步指示。
 - 請務必同時遵循該[文件](http://docs.graylog.org/en/2.2/pages/configuration/web_interface.html#configuring-webif)來設定 Graylog Web 介面。
 
-此範例會使用最小型的 Graylog 安裝 (亦即單一 Graylog 執行個體)，但您可以將 Graylog 建構為可依據系統和生產環境的需求來調整資源。 a single instance of a Graylog), but Graylog can be architected to scale across resources depending on your system and production needs. 如需架構考量或深度架構指南的詳細資訊，請參閱 Graylog 的[文件](http://docs.graylog.org/en/2.2/pages/architecture.html)和[架構指南](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)。
+此範例會使用最小型的 Graylog 安裝 (亦即 單一 Graylog 執行個體)，但您可以將 Graylog 建構為可依據您的系統和生產環境需求來調整資源。 如需架構考量或深度架構指南的詳細資訊，請參閱 Graylog 的[文件](http://docs.graylog.org/en/2.2/pages/architecture.html)和[架構指南](https://www.slideshare.net/Graylog/graylog-engineering-design-your-architecture)。
 
 根據平台和喜好設定，Graylog 可以進行多種方式的安裝。 如需完整的可行安裝方法清單，請參閱 Graylog 的官方[文件](http://docs.graylog.org/en/2.2/pages/installation.html)。 Graylog 伺服器應用程式會在 Linux 發行版本上執行，並具有下列必要條件：
 
@@ -207,7 +205,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ![訊息](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
-依預設，如果您沒有選取要搜尋特定的訊息欄位，則系統會在搜尋中包含所有訊息欄位。 如果您想要搜尋特定訊息 (也就是，來自特定來源 IP 的流量 Tuple)，則可以如[記載](http://docs.graylog.org/en/2.2/pages/queries.html)內容所述使用 Graylog 搜尋查詢語言 – flow tuples from a specific source IP) you can use the Graylog search query language as <bpt id="p1">[</bpt>documented<ept id="p1">](http://docs.graylog.org/en/2.2/pages/queries.html)</ept>
+依預設，如果您沒有選取要搜尋特定的訊息欄位，則系統會在搜尋中包含所有訊息欄位。 如果您想要搜尋特定訊息 (亦即 來自特定來源 IP 的流量 Tuple)，則可以如[記載](http://docs.graylog.org/en/2.2/pages/queries.html)內容所述使用 Graylog 搜尋查詢語言
 
 
 ## <a name="analyze-network-security-group-flow-logs-using-graylog"></a>使用 Graylog 分析網路安全性群組流量記錄
@@ -249,4 +247,3 @@ sudo ./logstash-plugin install logstash-input-azureblob
 ## <a name="next-steps"></a>後續步驟
 
 若要了解如何利用 Power BI 將網路安全性群組流量記錄視覺化，請瀏覽[利用 Power BI 將網路安全性群組流量記錄視覺化](network-watcher-visualize-nsg-flow-logs-power-bi.md)。
-

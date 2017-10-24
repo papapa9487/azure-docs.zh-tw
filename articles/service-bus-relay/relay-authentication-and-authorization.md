@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2017
+ms.date: 10/05/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: 95589ca169926362fa77f0e307afd449014c8402
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 4ef8cbf22f2fcd7017af16083240608e5ca0fb5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure 轉送驗證和授權
-應用程式可以使用共用存取簽章 (SAS) 驗證向 Azure 轉送進行驗證。 與[服務匯流排傳訊](../service-bus-messaging/service-bus-authentication-and-authorization.md)相同，SAS 驗證可讓應用程式使用在轉送命名空間設定的存取金鑰，向 Azure 轉送服務進行驗證。 您可以接著使用此金鑰來產生共用存取簽章權杖，以便用戶端用來向轉送服務進行驗證。
+
+應用程式可以使用共用存取簽章 (SAS) 驗證向 Azure 轉送進行驗證。 SAS 驗證可讓應用程式使用轉送命名空間中所設定的存取金鑰，向 Azure 轉送服務進行驗證。 您可以接著使用此金鑰來產生共用存取簽章權杖，以便用戶端用來向轉送服務進行驗證。
 
 ## <a name="shared-access-signature-authentication"></a>共用存取簽章驗證
 [SAS 驗證](../service-bus-messaging/service-bus-sas.md)可讓您授與使用者具有特定權限之 Azure 轉送資源的存取權。 SAS 驗證牽涉到在資源上設定具有相關權限的密碼編譯金鑰。 接著用戶端可以藉由提出 SAS 權杖 (其中包含正在存取的資源 URI 及利用設定金鑰簽署的到期日) 存取該資源。

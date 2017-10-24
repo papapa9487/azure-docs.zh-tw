@@ -11,7 +11,7 @@
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>NC 執行個體 - NVIDIA Tesla 驅動程式
 | 配送映像 | 驅動程式 |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS 型 7.3 | NVIDIA CUDA 8.0，驅動程式分支 R375 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3<br/><br/> CentOS 型 7.3 | NVIDIA CUDA 9.0，驅動程式分支 R384 |
 
 
 

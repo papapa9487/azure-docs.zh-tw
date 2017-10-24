@@ -12,22 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: 1ea7956e92dbc85f62383e4b041c4c830599f765
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cf3f3cf63cafc3b883d26144a53066ee421eb2a6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-file-sync-preview"></a>針對 Azure 檔案同步 (預覽) 進行移難排解
-透過 Azure 檔案同步 (預覽)，您可以將共用複寫到內部部署或 Azure 中的 Windows Server。 您及您的使用者接著可透過 Windows Server 存取檔案共用，例如透過 SMB 或 NFS 共用。 這特別適用於離 Azure 資料中心很遠的位置 (例如分公司) 存取和修改資料的情況。 資料可以在多個 Windows Server 端點之間複寫，例如多個分公司之間。
+Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
 
 本文旨在協助您針對使用 Azure 檔案同步部署時所發生的問題進行疑難排解，並解決這些問題。 如果無法做到，本指南還說明如何從系統收集重要的記錄檔，以協助更深入調查這些問題。 您可以使用下列選項來取得 Azure 檔案同步的支援：
 
-- Microsoft 支援服務：若要建立新的支援案例，請巡覽至 Azure 入口網站上的 [說明 + 支援] 索引標籤，然後按一下 [新增支援要求]。
+- Microsoft 支援服務：若要建立新的支援案例，請巡覽至 Azure 入口網站上的 說明 + 支援 索引標籤，然後按一下新增支援要求。
 - [Azure 儲存體論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuredata)
 
 ## <a name="how-to-troubleshoot-agent-installation-failures"></a>如何針對代理程式安裝失敗進行疑難排解
@@ -37,7 +35,22 @@ ms.lasthandoff: 09/25/2017
 StorageSyncAgent.msi /l*v Installer.log
 ```
 
-一旦安裝失敗，請檢閱 installer.log 以判斷原因。
+一旦安裝失敗，請檢閱 installer.log 以判斷原因。 
+
+> [!Note]  
+> 如果您選擇使用 Microsoft Update 且 Windows Update 服務未執行，則代理程式安裝將會失敗。
+
+## <a name="cloud-endpoint-creation-fails-with-the-following-error-the-specified-azure-fileshare-is-already-in-use-by-a-different-cloudendpoint"></a>雲端端點建立失敗，並出現下列錯誤：「指定的 Azure 檔案共用已由不同雲端端點使用中」
+如果 Azure 檔案共用已由另一個雲端端點使用中，則會發生這個錯誤。 
+
+如果您收到這個錯誤，而且 Azure 檔案共用目前未由雲端端點使用中，請執行下列步驟，清除 Azure 檔案共用上的 Azure 檔案同步中繼資料：
+
+> [!Warning]  
+> 刪除 Azure 檔案共用上目前正由雲端端點使用中的中繼資料時，將會導致 Azure 檔案同步作業失敗。 
+
+1. 在 Azure 入口網站中瀏覽至您的 Azure 檔案共用。  
+2. 以滑鼠右鍵按一下 Azure 檔案共用，然後選取 [編輯中繼資料]
+3. 以滑鼠右鍵按一下 SyncService，然後選取 [刪除]。
 
 ## <a name="server-is-not-listed-under-registered-servers-in-the-azure-portal"></a>伺服器未列在 Azure 入口網站的 [已註冊的伺服器] 下
 如果伺服器未列在儲存體同步服務的 [已註冊的伺服器] 下，請執行下列步驟：
@@ -49,6 +62,16 @@ StorageSyncAgent.msi /l*v Installer.log
 ![[伺服器註冊] 對話方塊的螢幕擷取畫面顯示 [此伺服器已註冊] 錯誤訊息](media/storage-sync-files-troubleshoot/server-registration-1.png)
 
 如果先前已向儲存體同步服務註冊該伺服器，則會顯示此訊息。 若要向目前的儲存體同步服務取消註冊伺服器，再向新的儲存體同步服務註冊，請遵循步驟以[向 Azure 檔案同步取消註冊伺服器](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)。
+
+如果伺服器未列在儲存體同步服務的 [已註冊的伺服器] 底下，請在您想要取消註冊的伺服器上，執行下列 PowerShell 命令：
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Reset-StorageSyncServer
+```
+
+> [!Note]  
+> 如果伺服器是叢集的一部分，則有一個也會移除叢集註冊的選用 `Reset-StorageSyncServer -CleanClusterRegistration` 參數。 當取消註冊叢集中的最後一個節點時，應該使用這個參數。
 
 ## <a name="how-to-troubleshoot-sync-not-working-on-a-server"></a>如何針對同步在伺服器上無法運作的問題進行疑難排解
 如果同步在伺服器上失敗，請執行下列作業：

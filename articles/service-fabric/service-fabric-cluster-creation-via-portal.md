@@ -1,4 +1,3 @@
-
 ---
 title: "在 Azure 入口網站中建立 Service Fabric 叢集 | Microsoft Docs"
 description: "本文說明如何使用 Azure 入口網站和 Azure 金鑰保存庫在 Azure 中建立安全的 Service Fabric 叢集。"
@@ -15,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
+ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3b471fb21cf046417c094552c23c548c9da14fe8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -227,7 +225,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
    > 雖然您可以決定使用現有的資源群組，但最好還是建立新的資源群組。 這可讓您輕鬆地刪除您不需要的叢集。
    > 
    > 
-5. 選取您要在其中建立叢集的 [區域]  。 您必須使用金鑰保存庫所在的相同區域。
+5. 選取您要在其中建立叢集的 [區域] 。 您必須使用金鑰保存庫所在的相同區域。
 
 #### <a name="2-cluster-configuration"></a>2.叢集組態
 ![建立節點類型][CreateNodeType]
@@ -274,7 +272,6 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 * 選取 [設定進階設定] 核取方塊來輸入**系統管理用戶端**和**唯讀用戶端**的用戶端憑證。 在這些欄位中，輸入系統管理用戶端憑證的指紋和唯讀使用者用戶端憑證的指紋 (如果適用)。 當系統管理員嘗試連線叢集時，只有在他們的憑證指紋和這裡輸入的指紋值相符時，才會被授與存取權。  
 
 #### <a name="4-summary"></a>4.摘要
-![顯示 [部署 Service Fabric 叢集] 的開始面板的螢幕擷取畫面。 ][Notifications]
 
 若要完成叢集建立程序，請按一下 [摘要]  來查看您提供的組態，或是下載用來部署叢集的 Azure Resource Manager 範本。 在您提供必要的設定之後，[確定]  按鈕會變成綠色，您只要按一下該按鈕就可以啟動叢集建立程序。
 
@@ -326,4 +323,3 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
-

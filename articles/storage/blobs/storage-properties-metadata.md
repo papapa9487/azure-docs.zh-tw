@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: tamram
+ms.openlocfilehash: a3eb598b2dabd4986c72b8814926eb0944707050
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 6fe7d46e39de204874c8bc91a0101b9e0541539b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>設定並擷取屬性和中繼資料
 
@@ -29,16 +28,16 @@ ms.lasthandoff: 09/29/2017
 
 * **使用者定義的中繼資料**：使用者定義的中繼資料是您針對給定的資源，以名稱/值組的形式指定的中繼資料。 您可以使用中繼資料來儲存儲存體資源的額外值。 這些額外的中繼資料值僅供您自己使用，並不會影響資源的運作方式。
 
-擷取儲存體資源的屬性和中繼資料值是一個兩步驟程序。 您必須先呼叫 **FetchAttributes** 方法明確地擷取這些值，才能開始讀取這些值。
+擷取儲存體資源的屬性和中繼資料值是一個兩步驟程序。 您必須先呼叫 **FetchAttributesAsync** 方法明確地擷取這些值，才能開始讀取這些值。
 
 > [!IMPORTANT]
-> 除非您呼叫其中一個 **FetchAttributes** 方法，否則無法填入儲存體資源的屬性和中繼資料值。
+> 除非您呼叫其中一個 **FetchAttributesAsync** 方法，否則無法填入儲存體資源的屬性和中繼資料值。
 >
 > 如果任何名稱/值組包含非 ASCII 字元，您會收到 `400 Bad Request`。 中繼資料名稱/值組是有效的 HTTP 標頭，所以必須遵守控管 HTTP 標頭的所有限制。 因此，如果名稱和值包含非 ASCII 字元，建議您使用 URL 編碼或 Base64 編碼。
 >
 
 ## <a name="setting-and-retrieving-properties"></a>設定與擷取屬性
-若要擷取屬性值，請呼叫 Blob 或容器上的 **FetchAttributes** 方法，以填入屬性，然後讀取這些值。
+若要擷取屬性值，請呼叫 Blob 或容器上的 **FetchAttributesAsync** 方法，以填入屬性，然後讀取這些值。
 
 若要設定物件的屬性，請指定屬性值，然後呼叫 **SetProperties** 方法。
 
@@ -59,7 +58,7 @@ CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 container.CreateIfNotExists();
 
 // Fetch container properties and write out their values.
-container.FetchAttributes();
+await container.FetchAttributesAsync();
 Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
 Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
 Console.WriteLine("ETag: {0}", container.Properties.ETag);
@@ -77,26 +76,26 @@ Console.WriteLine();
 下列程式碼範例會在容器上設定中繼資料。 其中一個值是使用集合的 **Add** 方法設定。 其他值是使用隱含的索引鍵/值語法來設定。 兩者都有效。
 
 ```csharp
-public static void AddContainerMetadata(CloudBlobContainer container)
+public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Add some metadata to the container.
+    // Add some metadata to the container.
     container.Metadata.Add("docType", "textDocuments");
     container.Metadata["category"] = "guidance";
 
-    //Set the container's metadata.
-    container.SetMetadata();
+    // Set the container's metadata.
+    await container.SetMetadataAsync();
 }
 ```
 
 若要擷取 Blob 或容器的中繼資料，請呼叫 **FetchAttributes** 方法以填入 **Metadata** 集合，然後讀取這些值，如以下範例所示。
 
 ```csharp
-public static void ListContainerMetadata(CloudBlobContainer container)
+public static async Task ListContainerMetadataAsync(CloudBlobContainer container)
 {
-    //Fetch container attributes in order to populate the container's properties and metadata.
-    container.FetchAttributes();
+    // Fetch container attributes in order to populate the container's properties and metadata.
+    await container.FetchAttributesAsync();
 
-    //Enumerate the container's metadata.
+    // Enumerate the container's metadata.
     Console.WriteLine("Container metadata:");
     foreach (var metadataItem in container.Metadata)
     {
@@ -109,4 +108,3 @@ public static void ListContainerMetadata(CloudBlobContainer container)
 ## <a name="next-steps"></a>後續步驟
 * [適用於 .NET 的 Azure 儲存體用戶端程式庫參考資料](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
 * [適用於 .NET NuGet 套件的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
-

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: curtand;jeffsta
+ms.date: 10/10/2017
+ms.author: curtand
+ms.reviewer: elkuzmen
+ms.openlocfilehash: 1e58af1f8d26b03c07b27d69f13868bccaaa33aa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 2f5a41907e9fa304444b369311e182d3f00ef619
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>管理 Azure Active Directory 中的自訂網域名稱
 網域名稱是許多目錄資源識別項的重要部分：它可能是使用者的使用者名稱或電子郵件地址的一部分、群組位址的一部分，也可能是應用程式的應用程式識別碼 URI 的一部分。 Azure Active Directory (Azure AD) 中的資源可包含已驗證為目錄 (其中含有資源) 所擁有的網域名稱。 只有全域管理員可以在 Azure AD 中執行網域管理工作。
@@ -28,12 +28,12 @@ ms.lasthandoff: 09/26/2017
 建立目錄時，初始網域名稱 (例如 ‘contoso.onmicrosoft.com’) 同時也是主要網域名稱。 當您建立新的使用者時，主要網域即為新使用者的預設網域名稱。 設定主要網域名稱可以簡化系統管理員在入口網站中建立新使用者的程序。 變更主要網域名稱：
 
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 選取 [更多服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter**。
+2. 選取 **Azure Active Directory**。
    
    ![開啟使用者管理](./media/active-directory-domains-add-azure-portal/user-management.png)
-3. 在 [directory-name] 刀鋒視窗上，選取 [網域名稱]。
-4. 在 [*directory-name* - 網域名稱] 刀鋒視窗上，選取您想要設為主要網域名稱的網域名稱。
-5. 在 [網域名稱] 刀鋒視窗 (也就是所開啟且標題中含有新網域名稱的刀鋒視窗) 上，選取 [設為主要] 命令。 出現提示時，請確認您的選擇。
+3. 選取 [網域名稱]。
+4. 選取您想要設為主要網域的網域名稱。
+5. 選取 [設為主要] 命令。 出現提示時，請確認您的選擇。
    
    ![將網域名稱設為主要網域名稱](./media/active-directory-domains-manage-azure-portal/make-primary.png)
 
@@ -67,5 +67,4 @@ ms.lasthandoff: 09/26/2017
 
 ## <a name="next-steps"></a>後續步驟
 * [新增自訂網域名稱](add-custom-domain.md)
-
 

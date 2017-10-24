@@ -9,21 +9,20 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 9a575148a05843bef7524eff61407b377292ca3b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
+ms.date: 10/05/2017
+ms.openlocfilehash: 96c5ab5caa4fea178a3108947fa858d395650e08
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>使用 Azure CLI 自訂伺服器設定參數
-您可以使用命令列介面 (Azure CLI) 列出、顯示和更新 Azure PostgreSQL 伺服器的設定參數。 不過，只有一部分引擎設定會在伺服器層級公開而可供修改。 
+您可以使用命令列介面 (Azure CLI)，來列出、顯示和更新 Azure PostgreSQL 伺服器的設定參數。 有一部分的引擎設定會在伺服器層級公開而且可供修改。 
 
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰
-- 伺服器和資料庫 [建立適用於 PostgreSQL 的 Azure 資料庫](quickstart-create-server-database-azure-cli.md)
-- 安裝 [Azure CLI 2.0](/cli/azure/install-azure-cli) 命令列公用程式，或在瀏覽器中使用 Azure Cloud Shell。
+- 遵循[建立適用於 PostgreSQL 的 Azure 資料庫](quickstart-create-server-database-azure-cli.md)，來建立適用於 PostgreSQL 的 Azure 資料庫伺服器和資料庫。
+- 在電腦上安裝 [Azure CLI 2.0](/cli/azure/install-azure-cli) 命令列介面，或透過您的瀏覽器在 Azure 入口網站中使用 [Azure Cloud Shell](../cloud-shell/overview.md)。
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-postgresql-server"></a>列出適用於 PostgreSQL 伺服器之 Azure 資料庫的伺服器組態參數
 若要列出伺服器中所有可修改的參數及其值，請執行 [az postgres server configuration list](/cli/azure/postgres/server/configuration#list) 命令。
@@ -40,18 +39,17 @@ az postgres server configuration list --resource-group myresourcegroup --server 
 az postgres server configuration show --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
 ## <a name="modify-server-configuration-parameter-value"></a>修改伺服器設定參數值
-您也可以修改特定伺服器組態參數的值，這樣會更新 PostgreSQL 伺服器引擎的基礎組態值。 若要更新組態值，請使用 [az postgres server configuration set](/cli/azure/postgres/server/configuration#set) 命令。 
+您也可以修改特定伺服器設定參數的值，以更新 PostgreSQL 伺服器引擎的基礎設定值。 若要更新設定，請使用 [az postgres server configuration set](/cli/azure/postgres/server/configuration#set) 命令。 
 
 若要針對資源群組 **myresourcegroup** 下的伺服器 **mypgserver-20170401.postgres.database.azure.com**，更新 **log\_min\_messages** 伺服器組態參數，請執行下列命令。
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401 --value INFO
 ```
-如果您想要重設組態參數的值，只需要選擇保留選擇性 `--value` 參數即可，服務將套用預設值。 在上述範例中，看起來應該像這樣：
+如果您想要重設設定參數的值，只需選擇保留選擇性的 `--value` 參數即可，而服務會套用預設值。 在上述範例中，看起來應該像這樣：
 ```azurecli-interactive
 az postgres server configuration set --name log_min_messages --resource-group myresourcegroup --server mypgserver-20170401
 ```
-這會將 **log\_min\_messages** 組態重設為預設值 **WARNING**。 如需伺服器設定和允許值的進一步詳細資訊，請參閱有關[伺服器設定](https://www.postgresql.org/docs/9.6/static/runtime-config.html)的 PostgreSQL 文件。
+這會將 **log\_min\_messages** 設定重設為預設值 **WARNING**。 如需伺服器設定和允許值的詳細資訊，請參閱有關[伺服器設定](https://www.postgresql.org/docs/9.6/static/runtime-config.html) \(英文\) 的 PostgreSQL 文件。
 
 ## <a name="next-steps"></a>後續步驟
 - 若要設定及存取伺服器記錄，請參閱[適用於 PostgreSQL 的 Azure 資料庫中的伺服器記錄](concepts-server-logs.md)
-

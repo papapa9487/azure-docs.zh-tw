@@ -31,7 +31,7 @@ Logger 模組只會取用來自訊息代理程式的訊息，永遠不會對訊�
 
 ![訊息代理程式如何在 Azure IoT Edge 的模組之間路由傳送訊息][5]
 
-上圖顯示 Hello World 範例的架構，以及實作[儲存機制][lnk-iot-edge]中範例不同部分之來源檔案的相對路徑。 自行探索程式碼，或使用下面的程式碼片段作為指南。
+上圖顯示 Hello World 範例的架構，以及實作[儲存機制][lnk-iot-edge]中範例不同部分之來源檔案的相對路徑。 自行探索程式碼，或使用本文中的程式碼片段作為指南。
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/14/2017
 ms.author: terrylan
+ms.openlocfilehash: 3ff38892f198ab5dfb9e08c1c01b942810a40260
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2ebb930e877c5027f4d7b0a316a7f5ebe84471b1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-partner-solutions-with-azure-security-center"></a>使用 Azure 資訊安全中心監視合作夥伴解決方案
 本文件逐步引導您在 Azure 資訊安全中心監視合作夥伴解決方案的健康狀態。
@@ -30,15 +29,13 @@ ms.lasthandoff: 08/21/2017
 >
 
 ## <a name="monitoring-partner-solutions"></a>監視合作夥伴解決方案
-[資訊安全中心] 刀鋒視窗上的 [合作夥伴解決方案] 磚可讓您監視與您的 Azure 訂用帳戶整合之合作夥伴解決方案的健康狀態，一目了然。
+[概觀] 下方的 [安全性解決方案] 圖格可讓您監視與您的 Azure 訂用帳戶整合之合作夥伴解決方案的健康狀態，一目了然。
 
 ![合作夥伴解決方案圖格][1]
 
-[合作夥伴解決方案] 圖格會顯示已與您訂用帳戶整合的合作夥伴解決方案數目。 如果沒有任何已整合的解決方案，此圖格就會顯示數字零。
-
 若要檢視合作夥伴解決方案的健康狀態：
 
-1. 選取 [合作夥伴解決方案]  圖格。 [合作夥伴解決方案] 刀鋒視窗隨即開啟，當中會顯示已連接到「資訊安全中心」的合作夥伴解決方案清單。
+1. 選取 [安全性解決方案] 圖格。 [安全性解決方案] 即會開啟，其中顯示已連線到資訊安全中心的合作夥伴解決方案清單。
 
    ![合作夥伴解決方案][3]
 
@@ -50,7 +47,7 @@ ms.lasthandoff: 08/21/2017
    * 未知保護狀態 (橘色) - 此時解決方案的健康狀態因為將新資源加入至現有解決方案的程序失敗，而呈現未知狀態
    * 未報告 (灰色) - 解決方案尚未報告任何狀態，如果解決方案最近連接且仍在部署中，則可能未報告解決方案的狀態。
 
-2. 選取合作夥伴解決方案。 在此範例中，我們將選取 [Qualys] 解決方案。  隨即開啟一個刀鋒視窗，其中顯示合作夥伴解決方案的狀態和解決方案相關聯的資源。 選取 [解決方案主控台]  以開啟此解決方案的合作夥伴管理體驗。
+2. 選取合作夥伴解決方案。 隨即開啟一個刀鋒視窗，其中顯示合作夥伴解決方案的狀態和解決方案相關聯的資源。 選取 [解決方案主控台]  以開啟此解決方案的合作夥伴管理體驗。
 
    ![合作夥伴解決方案詳細資料][4]
 3. 返回 [Qualys] 刀鋒視窗，然後選取 [連結 VM]。 [連結應用程式]  刀鋒視窗隨即開啟。 您可以在這裡將資源連接到合作夥伴解決方案。
@@ -58,7 +55,9 @@ ms.lasthandoff: 08/21/2017
    ![將資源連結至第三方解決方案][5]
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，已向您介紹「資訊安全中心」的 [合作夥伴解決方案]  圖格。 如要深入了解資訊安全中心，請參閱下列文章：
+在本文件中，已向您介紹資訊安全中心的 [安全性伴解決方案] 圖格。 若要深入了解與合作夥伴整合以加強整體安全性的資訊，請參閱[合作夥伴和解決方案整合](security-center-partner-integration.md)。
+
+如要深入了解資訊安全中心，請參閱下列文章：
 
 * [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) — 了解建議如何協助保護您的 Azure 資源。
@@ -72,4 +71,3 @@ ms.lasthandoff: 08/21/2017
 [3]: ./media/security-center-partner-solutions/partner-solutions.png
 [4]: ./media/security-center-partner-solutions/partner-solutions-detail.png
 [5]: ./media/security-center-partner-solutions/link-applications.png
-

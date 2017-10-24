@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 485320e500d71bd85b69cfcd9628e133ad1c417c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: 4c339c531dae5724a174c2b22cb379bdb3214a4f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 系列軟體、高可用性和網路需求
 
@@ -76,7 +75,7 @@ ms.lasthandoff: 07/21/2017
 
 <sup>2</sup> 如果多個連接埠都有閘道器設定，將會根據下列[連接埠路由](#routing-metric)所述的連接埠路由順序，決定輸出路由的流量順序。
 
-<sup>3</sup> StorSimple 裝置上的控制器固定 IP 必須可路由傳送，且能夠直接連線到網際網路或透過設定的 Web Proxy。 固定的 IP 位址用來為裝置更新提供服務。 如果裝置控制器無法透過固定 IP 連線到網際網路，您將無法更新您的 StorSimple 裝置。
+<sup>3</sup> StorSimple 裝置上的控制器固定 IP 必須可路由傳送，且能夠直接連線到網際網路或透過設定的 Web Proxy。 固定 IP 位址用來為裝置更新提供服務和記憶體回收。 如果裝置控制器無法透過固定 IP 連線到網際網路，您將無法更新 StorSimple 裝置，而且記憶體回收將不會正常運作。
 
 > [!IMPORTANT]
 > 請確定防火牆不會修改或解密 StorSimple 裝置和 Azure 之間的任何 SSL 流量。
@@ -249,4 +248,3 @@ StorSimple 裝置包含使用鏡像空間保護的固態硬碟 (SSD) 與硬碟 (
 
 <!--Reference links-->
 [1]: https://technet.microsoft.com/library/cc731844(v=WS.10).aspx
-

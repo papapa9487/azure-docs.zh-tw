@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>將站台對站台連線新增至使用現有 VPN 閘道連線的 VNet
 
@@ -57,24 +55,24 @@ ms.lasthandoff: 06/17/2017
 2. 按一下 [所有資源]，在資源清單中找到您的 [虛擬網路閘道]，並按一下它。
 3. 在 [虛擬網路閘道] 刀鋒視窗上，按一下 [連線]。
    
-    ![[連接] 刀鋒視窗](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
+    ![連接刀鋒視窗](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "連接刀鋒視窗e")<br>
 4. 在 [連線] 刀鋒視窗上，按一下 [+新增]。
    
-    ![[加入連接] 按鈕](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
+    ![新增連線按鈕](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "新增連線按鈕")<br>
 5. 在 [新增連線] 刀鋒視窗中，填寫下列欄位︰
    
    * **名稱︰**為您要建立連線的網站提供名稱。
    * **連線類型：**選取 [站對站 (IPSec)]。
      
-     ![[加入連接] 刀鋒視窗](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![新增連線刀鋒視窗](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "新增連線刀鋒視窗")<br>
 
 ## <a name="part2"></a>第 2 部分 - 新增區域網路閘道
 1. 按一下 [區域網路閘道] > [選擇區域網路閘道]。 這會開啟 [選擇區域網路閘道] 刀鋒視窗。
    
-    ![選擇區域網路閘道](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
+    ![選擇區域網路閘道](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "選擇區域網路閘道")<br>
 2. 按一下 [建立新的] 以開啟 [建立區域網路閘道] 刀鋒視窗。
    
-    ![[建立區域網路閘道] 刀鋒視窗](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![建立區域網路閘道刀鋒視窗](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "建立區域網路閘道")<br>
 3. 在 [建立區域網路閘道] 刀鋒視窗中，填寫下列欄位︰
    
    * **名稱：**您要給區域網路閘道資源的名稱。
@@ -85,7 +83,7 @@ ms.lasthandoff: 06/17/2017
 ## <a name="part3"></a>第 3 部 - 新增共用金鑰並建立連線
 1. 在 [新增連線] 刀鋒視窗中，新增您想要用來建立連線的共用金鑰。 您可以從您的 VPN 裝置取得共用金鑰，或將此處製作一個，然後設定您的 VPN 裝置使用同一共用金鑰。 重點是金鑰必須完全相同。
    
-    ![共用金鑰](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+    ![共用金鑰](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "共用金鑰")<br>
 2. 按一下刀鋒視窗底部的 [確定]  以建立連線。
 
 ## <a name="part4"></a>第 4 部份︰驗證 VPN 連線
@@ -96,4 +94,3 @@ ms.lasthandoff: 06/17/2017
 ## <a name="next-steps"></a>後續步驟
 
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱虛擬機器 [學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 。
-

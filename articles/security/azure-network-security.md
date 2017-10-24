@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 05/24/2017
 ms.author: TomSh
 ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-network-security"></a>Azure 網路安全性
 
@@ -75,7 +75,7 @@ Azure 有許多與網路安全性討論的網路元件。 我們會說明這些�
 
 ### <a name="basic-network-connectivity"></a>基本網路連線
 
-[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)服務可讓 Azure 資源與虛擬網路 (VNet) 安全地彼此連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 網路基礎結構邏輯隔離。 您可以也 Vnet 彼此連線並連線到您使用站對站 Vpn 的內部部署網路和專用[WAN 連結](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)。
+[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)服務可讓 Azure 資源與虛擬網路 (VNet) 安全地彼此連線。 VNet 是您的網路在雲端中的身分。 VNet 是專屬於您訂用帳戶的 Azure 網路基礎結構邏輯隔離。 您也可以使用站對站 VPN 和專用 [WAN 連結](https://docs.microsoft.com/azure/expressroute/expressroute-introduction)，讓 VNet 彼此連線和連線到內部部署網路。
 
 ![基本網路連線](media/azure-network-security/azure-network-security-fig-2.png)
 

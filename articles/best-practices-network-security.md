@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Microsoft 雲端服務和網路安全性
 Microsoft 雲端服務提供超大規模的服務和基礎結構、企業級的功能，以及許多混合式連線選項。 客戶可以選擇透過網際網路或透過 Azure ExpressRoute (提供私人網路連線能力) 存取這些服務。 Microsoft Azure 平台可讓客戶順暢地將基礎結構延伸至雲端並建置多層式架構。 另外，協力廠商可以提供安全性服務和虛擬設備，以啟用增強的功能。 當客戶使用透過 ExpressRoute 存取的 Microsoft 雲端服務，這份白皮書提供他們應該考慮的安全性和架構性問題的概觀。 也包括在 Azure 虛擬網路中建立更安全的服務。
@@ -522,23 +522,23 @@ IP 轉送是 UDR 的隨附功能。 IP 轉送是虛擬設備的一項設定，�
 * ExpressRoute 文件 (請務必閱讀＜使用者入門＞和＜作法＞兩節)：[https://docs.microsoft.com/azure/expressroute/](https://docs.microsoft.com/azure/expressroute/)
 
 <!--Image References-->
-[0]: ./media/best-practices-network-security/flowchart.png "安全性選項流程圖"
+[0]: ./media/best-practices-network-security/flowchart.png "Security Options Flowchart"
 [2]: ./media/best-practices-network-security/azuresecurityfeatures.png "Azure Security Features"
 [3]: ./media/best-practices-network-security/dmzcorporate.png "A DMZ in a Corporate network"
 [4]: ./media/best-practices-network-security/azuresecurityarchitecture.png "Azure Security Architecture"
 [5]: ./media/best-practices-network-security/dmzazure.png "A DMZ in an Azure Virtual Network"
 [6]: ./media/best-practices-network-security/dmzhybrid.png "Hybrid Network with Three Security Boundaries"
-[7]: ./media/best-practices-network-security/example1design.png "具有 NSG 的輸入 DMZ"
-[8]: ./media/best-practices-network-security/example2design.png "具有 NVA 和 NSG 的輸入 DMZ"
-[9]: ./media/best-practices-network-security/example3design.png "具有 NVA、NSG 和 UDR 的雙向 DMZ"
+[7]: ./media/best-practices-network-security/example1design.png "Inbound DMZ with NSG"
+[8]: ./media/best-practices-network-security/example2design.png "Inbound DMZ with NVA and NSG"
+[9]: ./media/best-practices-network-security/example3design.png "Bi-directional DMZ with NVA, NSG, and UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Logical View of the Firewall Rules"
-[11]: ./media/best-practices-network-security/example3designoptions.png "連接 NVA 的 DMZ 混合式網路"
-[12]: ./media/best-practices-network-security/example4designs2s.png "使用站對站 VPN 連接 NVA 的 DMZ"
+[11]: ./media/best-practices-network-security/example3designoptions.png "DMZ with NVA Connected Hybrid Network"
+[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ with NVA Connected Using a Site-to-Site VPN"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Logical Network from NVA Perspective"
-[14]: ./media/best-practices-network-security/example5designoptions.png "連接 Azure 閘道的 DMZ 站對站混合式網路"
-[15]: ./media/best-practices-network-security/example5designs2s.png "使用站對站 VPN 連接 Azure 閘道的 DMZ"
-[16]: ./media/best-practices-network-security/example6designoptions.png "連接 Azure 閘道的 DMZ ExpressRoute 混合式網路"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "使用 ExpressRoute 連線連接 Azure 閘道的 DMZ"
+[14]: ./media/best-practices-network-security/example5designoptions.png "DMZ with Azure Gateway Connected Site-to-Site Hybrid Network"
+[15]: ./media/best-practices-network-security/example5designs2s.png "DMZ with Azure Gateway Using Site-to-Site VPN"
+[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ with Azure Gateway Connected ExpressRoute Hybrid Network"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ with Azure Gateway Using an ExpressRoute Connection"
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/

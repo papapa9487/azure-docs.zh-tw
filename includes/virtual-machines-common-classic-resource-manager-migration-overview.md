@@ -73,13 +73,12 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 
 | 資源提供者 | 功能 | 建議 |
 | --- | --- | --- |
-| 計算 |未關聯的虛擬機器磁碟。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
-| 計算 |虛擬機器映像。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
-| 網路 |端點 ACL。 | 移除端點 ACL，然後重試移轉。 |
-| 網路 |具有 ExpressRoute 閘道和 VPN 閘道的虛擬網路  | 在開始移轉前移除 VPN 閘道，然後在移轉完成後重新建立 VPN 閘道。 深入了解 [ExpressRoute 移轉](../articles/expressroute/expressroute-migration-classic-resource-manager.md)。|
-| 網路 |具有授權連結的 ExpressRoute  | 開始移轉之前，移除虛擬網路連線的 ExpressRoute 線路，然後在完成移轉後重新建立連線。 深入了解 [ExpressRoute 移轉](../articles/expressroute/expressroute-migration-classic-resource-manager.md)。 |
-| 網路 |應用程式閘道 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
-| 網路 |使用 VNet 對等互連的虛擬網路。 | 將虛擬網路移轉至 Resource Manager，然後對等互連。 深入了解 [VNet 對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。 | 
+| 計算 | 未關聯的虛擬機器磁碟。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
+| 計算 | 虛擬機器映像。 | 移轉儲存體帳戶時，將會移轉這些磁碟背後的 VHD blob |
+| 網路 | 端點 ACL。 | 移除端點 ACL，然後重試移轉。 |
+| 網路 | 具有 ExpressRoute 閘道和 VPN 閘道的虛擬網路  | 在開始移轉前移除 VPN 閘道，然後在移轉完成後重新建立 VPN 閘道。 深入了解 [ExpressRoute 移轉](../articles/expressroute/expressroute-migration-classic-resource-manager.md)。|
+| 網路 | 應用程式閘道 | 在開始移轉前移除應用程式閘道，然後在移轉完成後重新建立應用程式閘道。 |
+| 網路 | 使用 VNet 對等互連的虛擬網路。 | 將虛擬網路移轉至 Resource Manager，然後對等互連。 深入了解 [VNet 對等互連](../articles/virtual-network/virtual-network-peering-overview.md)。 | 
 
 ### <a name="unsupported-configurations"></a>不支援的組態
 目前不支援下列組態。
@@ -92,13 +91,15 @@ Resource Manager 除了可讓您透過範本部署複雜的應用程式之外，
 | 計算 |具有警示、自動調整原則的虛擬機器 |移轉會進行到完成，但會捨棄這些設定。 強烈建議您在執行移轉前先評估您的環境。 或者，您也可以在移轉完成之後重新設定警示設定。 |
 | 計算 |XML VM 擴充功能 (BGInfo 1.*、Visual Studio Debugger、Web Deploy 及遠端偵錯) |不支援此做法。 建議您從虛擬機器中移除這些擴充功能以繼續進行移轉，否則系統會在移轉過程中自動卸除它們。 |
 | 計算 |使用進階儲存體進行開機診斷 |先停用 VM 的「開機診斷」功能，再繼續進行移轉。 您可以在移轉完成之後，於 Resource Manager 堆疊中重新啟用開機診斷。 此外，應該將用於快照和序列記錄檔的 Blob 刪除，這樣您就不再需要支付這些 Blob 的費用。 |
-| 計算 |包含 Web 角色/背景工作角色的雲端服務 |目前不支援。 |
-| 網路 |包含虛擬機器和 Web 角色/背景工作角色的虛擬網路 |目前不支援。 |
+| 計算 | 包含 Web 角色/背景工作角色的雲端服務 | 目前不支援。 |
+| 計算 | 包含一個以上可用性設定組或多個可用性設定組的雲端服務。 |目前不支援。 請先將虛擬機器移至相同可用性設定組，然後再移轉。 |
+| 計算 | 具 Azure 資訊安全中心擴充功能的 VM | 「Azure 資訊安全中心」會自動在「虛擬機器」上安裝擴充功能，以監視其安全性並引發警示。 如果已在訂用帳戶上啟用「Azure 資訊安全中心」原則，通常就會自動安裝這些擴充功能。 若要移轉虛擬機器，請停用訂用帳戶上的資訊安全中心原則，這將會從虛擬機器移除資訊安全中心監視擴充功能。 |
+| 計算 | 具備份或快照集擴充功能的 VM | 這些擴充功能都安裝在使用 Azure 備份功能設定的虛擬機器上。 若要移轉這些虛擬機器，請遵循[這裡](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)的指引。  |
+| 網路 |包含虛擬機器和 Web 角色/背景工作角色的虛擬網路 |目前不支援。 請先將 Web/背景工作角色移至他們自己的虛擬網路，然後再移轉。 在移轉傳統虛擬網路之後，移轉的 Azure Resource Manager 虛擬網路可以和傳統虛擬網路對等互連，達到類似之前的組態。|
+| 網路 | 傳統 ExpressRoute 線路 |目前不支援。 在開始 IaaS 移轉之前，需要將這些線路移轉至 Azure Resource Manager。 若要深入了解這部分，請參閱[將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型](../articles/expressroute/expressroute-move.md)。|
 | Azure App Service |包含 App Service 環境的虛擬網路 |目前不支援。 |
 | Azure HDInsight |包含 HDInsight 服務的虛擬網路 |目前不支援。 |
 | Microsoft Dynamics 週期服務 |包含「Dynamics 週期服務」所管理之虛擬機器的虛擬網路 |目前不支援。 |
 | Azure AD 網域服務 |包含 Azure AD 網域服務的虛擬網路 |目前不支援。 |
 | Azure RemoteApp |包含 Azure RemoteApp 部署的虛擬網路 |目前不支援。 |
 | Azure API 管理 |包含 Azure API 管理部署的虛擬網路 |目前不支援。 若要移轉 IaaS VNET，請變更屬於無停機作業的 API 管理部署的 VNET。 |
-| 計算 |與 VNET 搭配使用的「Azure 資訊安全中心」擴充功能，其中該 VNET 具有與內部部署 DNS 伺服器搭配使用的 VPN 閘道傳輸連線或 ExpressRoute 閘道 |「Azure 資訊安全中心」會自動在「虛擬機器」上安裝擴充功能，以監視其安全性並引發警示。 如果已在訂用帳戶上啟用「Azure 資訊安全中心」原則，通常就會自動安裝這些擴充功能。 目前不支援 ExpressRoute 閘道移轉，且具有傳輸連線的 VPN 閘道會失去內部部署存取。 刪除 ExpressRoute 閘道或移轉具有傳輸連線的 VPN 閘道會導致當繼續進行認可移轉時 VM 儲存體帳戶的網際網路存取遺失。 發生這種情況時，將不會繼續進行移轉，因為無法填入客體代理程式狀態 Blob。 建議您先將訂用帳戶上的「Azure 資訊安全中心」原則停用 3 小時，然後再繼續進行移轉。 |
-

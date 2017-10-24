@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: yurid
+ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 6af94c795ec5153013f4a9c5c937beed08f44e7a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 資料靜態加密
 在 Microsoft Azure 內有多個工具，可根據貴公司的安全性和法規遵循需求來保護資料。 這份文件著重於整個 Microsoft Azure 中的資料如何受到靜態保護，討論參與資料保護實作的各種元件，並檢閱不同金鑰管理保護方法的優缺點。 
@@ -273,12 +272,11 @@ SQL Azure 目前支援 Microsoft 受管理服務端和用戶端加密情節的�
 | Power BI                         |                | 是                 | -                            | -                            | -      |
 | **IoT 服務**                     |                |                     |                              |                              |        |
 | IoT 中樞                          |                | -                   | -                            | -                            | 是    |
-| 服務匯流排                      |                | -              | -                            | -                            | 是    |
-| 事件中樞                       |                | -             | -                            | -                            | -      |
+| 服務匯流排                      |                | 是 (進階層)              | -                            | -                            | 是    |
+| 事件中樞                       |                | 是             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>結論
 
 對於 Microsoft 而言，保護儲存在 Azure 服務內的客戶資料是至關重要的。 所有的 Azure 託管服務都致力於提供靜態加密選項。 諸如 Azure 儲存體、SQL Azure 與金鑰分析和智慧服務等基本的服務，都已經提供靜態加密選項。 這些服務有部分會支援客戶控制的金鑰和用戶端加密，以及服務管理的金鑰和加密。 Microsoft Azure 服務正廣泛提高靜態加密可用性，新的選項已規劃提供預覽，並即將於幾個月內公開上市。
-
 

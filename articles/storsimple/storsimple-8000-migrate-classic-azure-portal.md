@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/26/2017
 ms.author: alkohli
+ms.openlocfilehash: edac2635086106f83b30316ab190bead5245f195
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: a64cf0ba2a4646a03c864193fb93de4f54f38039
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>移轉與 StorSimple 裝置管理員服務相關聯的訂用帳戶和儲存體帳戶
 
@@ -33,11 +32,13 @@ ms.lasthandoff: 09/14/2017
 | StorSimple 服務從現有的帳戶到新的註冊嗎？    | 是       | 否       | **帳戶轉移**<br>使用︰<li>當您不想要完整註冊轉移時。</li><li>您只想要將特定帳戶移至新的註冊。</li>| **步驟 1：開啟 Azure 企業作業支援票證。**<li>移至 [http://aka.ms/AzureEnt](http://aka.ms/AzureEnt)。</li><li>選取 [註冊管理]，然後選取 [將 EA 帳戶轉移到新的註冊]。<br>**步驟 2：提供要求的資訊**<br>包含：<li>來源註冊號碼</li><li> 目的地註冊號碼</li><li>轉移生效日期|
 | StorSimple 服務從一個訂用帳戶到其他訂用帳戶嗎？      | 否        |    是         | 否，手動程序|<li>移轉 StorSimple 裝置的資料。</li><li>執行將裝置重設成出廠預設值，這會刪除裝置上的任何本機資料。</li><li>為裝置向 StorSimple 裝置管理員服務註冊新的訂用帳戶。</li><li>將資料移轉回裝置。|
 | StorSimple 裝置從一個 StorSimple 裝置管理員服務到不同區域中的另一個服務嗎？      | 否        | 是            | 否，手動程序 |同上。|
+| 新訂用帳戶或資源群組的儲存體帳戶？     | 是        | 否             |將儲存體帳戶移至不同的訂用帳戶或資源群組 |移動後，如果儲存體帳戶存取金鑰遭到更新，使用者必須透過 StorSimple Device Manager 服務，為移轉後的儲存體帳戶手動設定存取金鑰。|
+| 傳統儲存體帳戶或 Azure Resource Manager 儲存體帳戶      | 是        | 否             |從傳統移轉至 Azure Resource Manager |<li>如需如何將儲存體帳戶從傳統移轉至 Azure Resource Manager 的詳細指示，請移至[移轉傳統儲存體帳戶](../virtual-machines/windows/migration-classic-resource-manager-ps.md#step-62-migrate-a-storage-account)。</li><li> 如果儲存體帳戶存取金鑰在移動後遭到更新，使用者需要透過 StorSimple Device Manager 服務，為移轉後的儲存體帳戶同步處理存取金鑰。 這是為了確保 StorSimple 裝置繼續正常運作，而且能夠將主要/備份資料層疊至 Azure。 如需同步處理存取金鑰的詳細指示，請移至[替換工作流程](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)。</li><li> 若是 StorSimple 雲端設備，當移轉傳統儲存體帳戶，但基礎虛擬機器仍停留在傳統時，設備應該會正常運作。 如果移轉雲端設備的基礎虛擬機器，則停用及刪除功能將無法運作。</li><li> 您必須在 Azure 入口網站建立新的 StorSimple 雲端設備，然後從較舊的雲端設備容錯移轉。 您無法在新的 Azure 入口網站，使用傳統儲存體帳戶建立 StorSimple 雲端設備，它們必須有 Azure Resource Manager 儲存體帳戶。 如需詳細資訊，請移至[部署和管理 StorSimple 雲端設備](storsimple-8000-cloud-appliance-u2.md)。</li>|同上。|
 
 ## <a name="datacenter-changes"></a>資料中心變更
 
 | 您可以移動...| 支援|停機| Azure 支援流程| 方法|
-|-----|-----|-----|-----|-----|-----|
+|-----|-----|-----|-----|-----|
 | StorSimple 服務從一個 Azure 資料中心到另一個嗎？ | 否 | 是 |否，手動程序  |<li>移轉 StorSimple 裝置的資料。</li><li>執行將裝置重設成出廠預設值，這會刪除裝置上的任何本機資料。</li><li>為裝置向新的 StorSimple 裝置管理員服務註冊新的訂用帳戶。</li><li>將資料移轉回裝置。|
 | 儲存體帳戶從一個 Azure 資料中心到另一個嗎？ | 否 |是  |否，手動程序  | 同上。|
 
