@@ -5,13 +5,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 09/25/2017
+ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c873b153ef9c7d5f55672a5918c9dc4fb7256701
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 虛刪除概觀
 
@@ -22,7 +21,9 @@ Key Vault 的虛刪除功能可復原已刪除的保存庫和保存庫物件，�
 
 ## <a name="supporting-interfaces"></a>支援的介面
 
-虛刪除功能最初是透過 REST、.NET/C# 和 PowerShell 介面提供。 如需詳細資訊，請參閱這些介面的參考資料：[Key Vault 參考](https://docs.microsoft.com/azure/key-vault/)。
+虛刪除功能最初是透過 REST、.NET/C#、PowerShell 及 CLI 介面提供的。
+
+如需一般資訊，請參閱這些介面的參考資料來了解更多詳細資料：[Key Vault 參考](https://docs.microsoft.com/azure/key-vault/)。
 
 ## <a name="scenarios"></a>案例
 
@@ -36,7 +37,7 @@ Azure Key Vault 是由 Azure Resource Manager 管理的追蹤資源。 Azure Res
 
 使用此功能，針對 Key Vault 或 Key Vault 物件的刪除作業是虛刪除，實際上在指定的保留期限內會保留資源，然而看起來物件卻為已刪除。 此服務進一步提供復原已刪除物件的機制 (基本上是復原刪除作業)。 
 
-虛刪除是選擇性的 Key Vault 行為，在此版本中**預設未啟用**。 如需為 Key Vault 啟用虛刪除的詳細資訊，請參閱參考資料中適用於您所選介面的具體指引：[Key Vault 參考](https://docs.microsoft.com/azure/key-vault/)。
+虛刪除是選擇性的 Key Vault 行為，在此版本中**預設未啟用**。 
 
 ### <a name="key-vault-recovery"></a>Key Vault 復原
 
@@ -67,6 +68,10 @@ Azure Key Vault 是由 Azure Resource Manager 管理的追蹤資源。 Azure Res
 
 唯一的例外是當 Azure 訂用帳戶已標示為「無法刪除」時。 在此情況下，只有此服務可接著執行實際的刪除作業，而且會以排程的程序執行。 
 
+## <a name="next-steps"></a>後續步驟
 
+下列兩個指南提供使用虛刪除的主要使用方式案例。
 
+- [如何使用 Key Vault 虛刪除與 PowerShell](key-vault-soft-delete-powershell.md) 
+- [如何使用 Key Vault 虛刪除與 CLI](key-vault-soft-delete-cli.md)
 

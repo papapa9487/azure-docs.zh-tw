@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/19/2017
+ms.date: 10/11/2017
 ms.author: larryfr
+ms.openlocfilehash: d1f629ffb4ec3e6473e0a9a87c4e397d63310e9a
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 10dc8789e8f4a2b27fd3a4c6fec2ab28c674170a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>從 Apache Storm on HDInsight 寫入 HDFS
 
@@ -80,8 +79,12 @@ components:
     constructorArgs:
       - 1000
 
+  # Rotate files when they hit 5 MB
   - id: "rotationPolicy"
-    className: "org.apache.storm.hdfs.bolt.rotation.NoRotationPolicy"
+    className: "org.apache.storm.hdfs.bolt.rotation.FileSizeRotationPolicy"
+    constructorArgs:
+      - 5
+      - "MB"
 
   - id: "fileNameFormat"
     className: "org.apache.storm.hdfs.bolt.format.DefaultFileNameFormat"
@@ -137,7 +140,9 @@ bolts:
 
 根據預設，Storm on HDInsight 未包含 HdfsBolt 用來與 Storm Classpath 中出現的 Azure 儲存體或 Data Lake Store 進行通訊的元件。 請使用下列指令碼動作，將這些元件新增至叢集上 Storm 的 `extlib` 目錄：
 
-|指令碼 URI |要套用它的節點 |參數 | |`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh` |Nimbus、監督員 |無 |
+* 指令碼 URI：`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* 要套用的節點：Nimbus、Supervisor
+* 參數：無
 
 如需搭配叢集使用此指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](./hdinsight-hadoop-customize-cluster-linux.md)文件。
 
@@ -201,13 +206,11 @@ bolts:
 下列清單是前一個命令所傳回的資料範例：
 
     Found 30 items
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-13-1488568412603.txt
-    -rw-r-----+  1 sshuser sshuser       5120 2017-03-03 19:13 /stormdata/hdfs-bolt-3-14-1488568415055.txt
+    -rw-r-----+  1 sshuser sshuser       488000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-0-1488568403092.txt
+    -rw-r-----+  1 sshuser sshuser       444000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-1-1488568404567.txt
+    -rw-r-----+  1 sshuser sshuser       502000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-10-1488568408678.txt
+    -rw-r-----+  1 sshuser sshuser       582000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-11-1488568411636.txt
+    -rw-r-----+  1 sshuser sshuser       464000 2017-03-03 19:13 /stormdata/hdfs-bolt-3-12-1488568411884.txt
 
 ## <a name="stop-the-topology"></a>停止拓撲
 
@@ -222,5 +225,4 @@ Storm 拓撲會一直執行，直到其停止或叢集遭到刪除為止。 若�
 ## <a name="next-steps"></a>後續步驟
 
 現在，您已了解如何使用 Storm 來寫入至 Azure 儲存體和 Azure Data Lake Store，接下來請探索其他 [HDInsight 的 Storm 範例](hdinsight-storm-example-topology.md)。
-
 

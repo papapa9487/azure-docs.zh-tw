@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>建立及讀取 IoT 中樞訊息
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 08/18/2017
 
 在下列情況下，屬性名稱和值只能包含 ASCII 英數字元和 ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``：
 
-* 使用 HTTP 通訊協定傳送裝置到雲端訊息。
+* 使用 HTTPS 通訊協定來傳送裝置到雲端訊息。
 * 傳送雲端到裝置的訊息。
 
 如需如何將使用不同通訊協定傳送的訊息編碼和解碼的詳細資訊，請參閱 [Azure IoT SDK][lnk-sdks]。

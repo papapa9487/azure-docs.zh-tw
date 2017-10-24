@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: bwren
+ms.openlocfilehash: e03911d589aaab0d0e80da5d58f14d6df417f4be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>了解 Log Analytics 中的警示
 
@@ -144,6 +143,5 @@ Log Analytics 中的各個警示規則是兩種類型其中之一。  下列各�
 ## <a name="next-steps"></a>後續步驟
 * 安裝[警示管理解決方案](log-analytics-solution-alert-management.md)，以分析在 Log Analytics 中建立的警示以及從 System Center Operations Manager 收集的警示。
 * 深入了解可產生警示的 [記錄檔搜尋](log-analytics-log-searches.md) 。
-* 完成 [設定 Webook](log-analytics-alerts-webhooks.md) 和警示規則的逐步解說。  
+* 完成[設定 Webhook](log-analytics-alerts-webhooks.md) 搭配警示規則的逐步解說。  
 * 了解如何在 [Azure 自動化中撰寫 Runbook](https://azure.microsoft.com/documentation/services/automation) 以補救警示所識別的問題。
-

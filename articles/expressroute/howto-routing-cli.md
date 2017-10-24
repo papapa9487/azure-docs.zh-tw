@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
-ms.author: anzaman,cherylmc
+ms.date: 09/25/2017
+ms.author: cherylmc
+ms.openlocfilehash: c8ae5ce7094fac334f0daa0d14030015067b97a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: fbf0bd9a139c22bbd63755f6df445f6596aaccc5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>使用 CLI 來建立和修改 ExpressRoute 路線的路由
 
@@ -65,8 +64,8 @@ ms.lasthandoff: 08/01/2017
   ```
 2. 建立 ExpressRoute 線路。 請遵循指示建立 [ExpressRoute 線路](howto-circuit-cli.md) ，並由連線提供者佈建它。
 
-  如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後繼續使用後續步驟進行設定。
-3. 檢查 ExpressRoute 線路確定已佈建且已啟用。 請使用下列範例：
+  如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
+3. 檢查 ExpressRoute 線路，以確定已佈建且已啟用線路。 請使用下列範例：
 
   ```azurecli
   az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
@@ -109,7 +108,7 @@ ms.lasthandoff: 08/01/2017
   * 次要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。
   * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
   * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
-  * **選用 -** MD5 雜湊 (如果選擇使用)。
+  * **選用：**MD5 雜湊 (如果選擇使用)。
 
   使用下列範例來為線路設定 Azure 私用對等互連：
 
@@ -177,7 +176,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 您可以執行下列範例來移除對等互連設定：
 
 > [!WARNING]
-> 執行此範例之前，您必須確定所有虛擬網路都已經與 ExpressRoute 取消連結。 
+> 執行此範例之前，您必須確定所有虛擬網路都已經與 ExpressRoute 線路取消連結。 
 > 
 > 
 
@@ -204,8 +203,8 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
   ```
 2. 建立 ExpressRoute 線路。  請遵循指示建立 [ExpressRoute 線路](howto-circuit-cli.md) ，並由連線提供者佈建它。
 
-  如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後繼續使用後續步驟進行設定。
-3. 檢查 ExpressRoute 線路確定已佈建且已啟用。 請使用下列範例：
+  如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
+3. 檢查 ExpressRoute 線路，以確定已佈建且已啟用線路。 請使用下列範例：
 
   ```azurecli
   az network express-route list
@@ -321,7 +320,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Microsoft 對等互連設定。
 
 > [!IMPORTANT]
-> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等，會透過 Microsoft 對等公告所有服務前置詞，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連不會公告任何前置詞，直到路由篩選連結至線路為止。 如需詳細資訊，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-powershell.md)。
+> 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。 如需詳細資訊，請參閱[設定 Microsoft 對等互連的路由篩選](how-to-routefilter-powershell.md)。
 > 
 > 
 
@@ -340,9 +339,9 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
   ```
 2. 建立 ExpressRoute 線路。 請遵循指示建立 [ExpressRoute 線路](howto-circuit-cli.md) ，並由連線提供者佈建它。
 
-  如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後繼續使用後續步驟進行設定。
+  如果您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
 
-3. 檢查 ExpressRoute 線路確定已佈建且已啟用。 請使用下列範例：
+3. 檢查 ExpressRoute 線路，以確定已佈建且已啟用線路。 請使用下列範例：
 
   ```azurecli
   az network express-route list
@@ -385,8 +384,8 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
   * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
   * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
   * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-  * 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。 只接受公用 IP 位址首碼。 如果您計劃傳送一組前置詞，您可以傳送以逗號分隔的清單。 這些首碼必須在 RIR / IRR 中註冊給您。
-  * **選用 -** 客戶 ASN：如果您要公告的前置詞未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。
+  * 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。 只接受公用 IP 位址首碼。 如果計劃傳送一組首碼，可以傳送以逗號分隔的清單。 這些首碼必須在 RIR / IRR 中註冊給您。
+  * **選用：**客戶 ASN：如果您要公告的首碼未註冊給對等互連 AS 編號，則可以指定它們所註冊的 AS 編號。
   * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
   * **選用 -** MD5 雜湊 (如果選擇使用)。
 
@@ -444,6 +443,12 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 ```azurecli
 az network express-route peering update --circuit-name MyCircuit -g ExpressRouteResourceGroup --peering-type MicrosoftPeering --advertised-public-prefixes 124.1.0.0/24
+```
+
+### <a name="to-add-ipv6-microsoft-peering-settings-to-an-existing-ipv4-configuration"></a>在現有的 IPv4 組態中新增 IPv6 Microsoft 對等互連設定
+
+```azurecli
+az network express-route peering update -g ExpressRouteResourceGroup --circuit-name MyCircuit --peering-type MicrosoftPeering --ip-version ipv6 --primary-peer-subnet 2002:db00::/126 --secondary-peer-subnet 2003:db00::/126 --advertised-public-prefixes 2002:db00::/126
 ```
 
 ### <a name="to-delete-microsoft-peering"></a>刪除 Microsoft 對等

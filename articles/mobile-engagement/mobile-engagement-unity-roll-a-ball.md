@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 6392d1f780b1bc2348fee5947550b05e86ea4de2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a id="unity-roll-a-ball"></a>建立 Unity Roll a Ball 遊戲
 本教學課程逐步引導您完成稍微修改過的 [Unity Roll a Ball 教學課程](http://unity3d.com/learn/tutorials/projects/roll-ball-tutorial)的主要步驟。 此範例遊戲由 app 使用者控制的球面「玩家」物件所組成，遊戲的目標是使用這些可收集的物件碰撞玩家物件來「收集」可收集的物件。 這是假設使用者對 Unity 編輯器環境有基本的熟悉度。 如果您遇到任何問題，應該參閱完整的教學課程。 
@@ -26,7 +26,7 @@ ms.lasthandoff: 07/11/2017
 ### <a name="setting-up-the-game"></a>設定遊戲
 下列步驟來自 [Unity 教學課程](https://unity3d.com/learn/tutorials/projects/roll-a-ball/set-up?playlist=17141)
 
-1. 開啟 **Unity 編輯器**，然後按一下 [新增]。 
+1. 開啟 **Unity 編輯器**，然後按一下新增。 
    
     ![][51] 
 2. 提供 [專案名稱]  &  [位置]、選取 [3D]，然後按一下 [建立專案]。
@@ -262,7 +262,7 @@ ms.lasthandoff: 07/11/2017
 7. 按 Unity 編輯器中的 [播放]，您就能夠透過使用鍵盤按鍵當做方向輸入移動 Player 物件來玩這個 **Roll a Ball** 遊戲。 
 
 ### <a name="updating-the-game-for-mobile-play"></a>更新遊戲以便在行動裝置上玩遊戲
-以上幾節就是 Unity 的基本教學課程。 現在，我們將修改遊戲，使其成為行動裝置上的遊戲。 請注意，到目前為止我們使用鍵盤輸入來測試遊戲。 現在，我們將修改遊戲，讓我們可以使用手機的動作控制玩家，亦即， 使用加速計做為輸入。 
+以上幾節就是 Unity 的基本教學課程。 現在，我們將修改遊戲，使其成為行動裝置上的遊戲。 請注意，到目前為止我們使用鍵盤輸入來測試遊戲。 現在，我們將修改它，以便使用手機的動作來控制玩家，亦即使用加速計作為輸入。 
 
 開啟 **PlayerController** 指令碼進行編輯，並更新 **FixedUpdate** 方法，以使用加速計的動作移動 Player 物件。 
 

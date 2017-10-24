@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
+ms.openlocfilehash: fbd6ff573a1d4f7fe2754935dd8c199092076725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 9d1b629ad05f45efc8d01799616c82b4a11ecaab
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
 
@@ -57,7 +56,7 @@ ms.lasthandoff: 09/28/2017
 
 為了協助您設定環境，我們建立了一些 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)。 如果您偏好使用其他方法設定環境，請參閱：
 
-- [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)
+- [在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 - [在 Azure 虛擬網路上建立 HBase 叢集](hdinsight-hbase-provision-vnet.md)
 
 ### <a name="set-up-one-virtual-network"></a>設定一個虛擬網路
@@ -97,11 +96,54 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在兩個不同區域中設定兩個虛擬網路
 
-若要在兩個不同區域中建立兩個虛擬網路，請選取下列圖像。 範本會儲存於全域 Azure Blob 容器中。
+若要在兩個不同區域中建立兩個虛擬網路，以及在 VNet 之間建立 VPN 連線，請按一下下面的圖像。 範本儲存在 [Azure 快速入門範本 (英文)](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/)。
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-建立兩個虛擬網路之間的 VPN 閘道。 如需指示，請參閱[建立具有站對站連線的虛擬網路](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
+範本中的一些硬式編碼值：
+
+**VNet 1**
+
+| 屬性 | 值 |
+|----------|-------|
+| 位置 | 美國西部 |
+| VNet 名稱 | &lt;ClusterNamePrevix>-vnet1 |
+| 位址空間首碼 | 10.1.0.0/16 |
+| 子網路名稱 | subnet 1 |
+| 子網路首碼 | 10.1.0.0/24 |
+| 子網路 (閘道) 名稱 | GatewaySubnet (無法變更) |
+| 子網路 (閘道) 首碼 | 10.1.255.0/27 |
+| 閘道名稱 | vnet1gw |
+| 閘道類型 | Vpn |
+| 閘道 VPN 類型 | RouteBased |
+| 閘道 SKU | Basic |
+| 閘道 IP | vnet1gwip |
+| 叢集名稱 | &lt;ClusterNamePrefix>1 |
+| 叢集版本 | 3.6 |
+| 叢集種類 | hbase |
+| 叢集背景工作節點計數 | 2 |
+
+
+**VNet 2**
+
+| 屬性 | 值 |
+|----------|-------|
+| 位置 | 美國東部 |
+| VNet 名稱 | &lt;ClusterNamePrevix>-vnet2 |
+| 位址空間首碼 | 10.2.0.0/16 |
+| 子網路名稱 | subnet 1 |
+| 子網路首碼 | 10.2.0.0/24 |
+| 子網路 (閘道) 名稱 | GatewaySubnet (無法變更) |
+| 子網路 (閘道) 首碼 | 10.2.255.0/27 |
+| 閘道名稱 | vnet2gw |
+| 閘道類型 | Vpn |
+| 閘道 VPN 類型 | RouteBased |
+| 閘道 SKU | Basic |
+| 閘道 IP | vnet1gwip |
+| 叢集名稱 | &lt;ClusterNamePrefix>2 |
+| 叢集版本 | 3.6 |
+| 叢集種類 | hbase |
+| 叢集背景工作節點計數 | 2 |
 
 HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBase ZooKeeper 節點的靜態 IP 位址。 若要設定靜態 IP，請參閱本文的[在相同區域中設定兩個虛擬網路](#set-up-two-virtual-networks-in-the-same-region)一節。
 
@@ -111,11 +153,11 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 
 當您複寫叢集時，您必須指定要複寫的資料表。 在本節中，您會把部分資料載入到來源叢集中。 在下一節中，您將會啟用兩個叢集之間的複寫。
 
-若要建立一個**連絡人**資料表，並將部分資料插入資料表中，請依照 [HBase 教學課程：開始在 HDInsight 中搭配以 Linux 為基礎的 Hadoop 使用 Apache HBase](hdinsight-hbase-tutorial-get-started-linux.md) 中的指示。
+若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [HBase 教學課程：開始使用 HDInsight 中的 Apache HBase](hdinsight-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
 
 ## <a name="enable-replication"></a>啟用複寫
 
-下列步驟會說明如何從 Azure 入口網站呼叫指令碼動作指令碼。 如需了解如何使用 Azure PowerShell 和 Azure 命令列介面 (Azure CLI) 執行指令碼動作，請參閱[使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+下列步驟會說明如何從 Azure 入口網站呼叫指令碼動作指令碼。 如需了解如何使用 Azure PowerShell 和 Azure 命令列介面 (Azure CLI) 來執行指令碼動作，請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 **從 Azure 入口網站啟用 HBase 複寫**
 
@@ -241,7 +283,6 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 * [開始使用 HDInsight 中的 Apache HBase][hdinsight-hbase-get-started]
 * [HDInsight HBase 概觀][hdinsight-hbase-overview]
 * [在 Azure 虛擬網路上建立 HBase 叢集][hdinsight-hbase-provision-vnet]
-* [使用 HBase 分析即時 Twitter 情緒][hdinsight-hbase-twitter-sentiment]
 * [在 HDInsight (Hadoop) 中使用 Storm 和 HBase 分析感應器資料][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -254,8 +295,6 @@ HBase 複寫會使用 ZooKeeper VM 的 IP 位址。 您必須設定目的地 HBa
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
+ms.openlocfilehash: 2ee7ec91700c66d5bedd917d0203a726b5c5e300
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 55298a7ff96bd9662310fa6b5d1764370f500be5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>使用 Azure Machine Learning 進行客戶流失預測
 
 平均而言，維持現有客戶比招收新客戶的成本便宜五倍。 因此，行銷主管通常會發現自己需要評估客戶流失的可能性，並尋找必要的動作將流失率降到最低。
@@ -77,7 +75,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="data-description"></a>資料說明
 
-解決方案中使用的資料集是來自 SIDKDD 2009 競爭。 它稱為 `CATelcoCustomerChurnTrainingSample.csv`，且位於 [`Data`](https://github.com/mezmicrosoft/MachineLearningSamples-ChurnPrediction/tree/master/Data) 資料夾中。 資料集包含來自法國電信公司 Orange 的異質雜訊資料 (數值/類別變數)，並且是匿名的。
+解決方案中使用的資料集是來自 SIDKDD 2009 競爭。 它稱為 `CATelcoCustomerChurnTrainingSample.csv`，且位於 [`data`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/tree/master/data) 資料夾中。 資料集包含來自法國電信公司 Orange 的異質雜訊資料 (數值/類別變數)，並且是匿名的。
 
 變數會擷取客戶人口統計資訊、通話統計資料 (例如平均的通話持續時間、通話失敗率等)、合約資訊、相容統計資料。 流失變數是二進位檔案 (0 - 未流失，1 - 已流失)。
 
@@ -85,27 +83,24 @@ ms.lasthandoff: 09/25/2017
 
 資料夾結構的排列方式如下所示：
 
-__程式碼__：包含使用 Azure Machine Learning Workbench 與流失預測相關的所有程式碼
+__data__：包含解決方案中使用的資料集  
 
-__資料__：包含解決方案中使用的資料集  
-
-__實驗室__：包含所有實際操作實驗室
+__docs__：包含所有線上實習實驗室
 
 實現解決方案的實際操作實驗室順序如下所示：
-1. 資料準備：程式碼資料夾中與資料準備相關的檔案是 `CATelcoCustomerChurnTrainingSample.dprep`、`CATelcoCustomerChurnTrainingSample.dconn` 和 `CATelcoCustomerChurnTrainingSample.csv`
-2. 模型和評估：程式碼資料夾中與模型和評估相關的主要檔案是 `CATelcoCustomerChurnModeling.py`
-3. Docker 中的模型和評估：程式碼資料夾中這項工作的主要檔案是 `CATelcoCustomerChurnModelingDocker.py`
+1. 資料準備：[data] 資料夾中與「資料準備」相關的主要檔案是 `CATelcoCustomerChurnTrainingSample.csv`
+2. 模型化和評估：根資料夾中與模型化和評估相關的主要檔案是 `CATelcoCustomerChurnModeling.py`
+3. Docker 中的模型化和評估：根資料夾中此工作的主要檔案是 `CATelcoCustomerChurnModelingDocker.py`
 4. 作業：部署的主要檔案是模型 (`model.pkl`) 和 `churn_schema_gen.py`
 
 | 順序| 檔案名稱 | 相關的檔案 |
 |--|-----------|------|
-| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/DataPreparation.md) | 'Data/CATelcoCustomerChurnTrainingSample.csv' |
-| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluation.md) | 'Code/CATelcoCustomerChurnModeling.py' |
-| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/ModelingAndEvaluationDocker.md) | 'Code/CATelcoCustomerChurnModelingDocker.py' |
-| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/Docs/Operationalization.md) | 'Code/model.pkl'<br>'Code/churn_schema_gen.py' |
+| 1 | [`DataPreparation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/DataPreparation.md) | 'data/CATelcoCustomerChurnTrainingSample.csv' |
+| 2 | [`ModelingAndEvaluation.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluation.md) | 'CATelcoCustomerChurnModeling.py' |
+| 3 | [`ModelingAndEvaluationDocker.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/ModelingAndEvaluationDocker.md) | 'CATelcoCustomerChurnModelingDocker.py' |
+| 4 | [`Operationalization.md`](https://github.com/Azure/MachineLearningSamples-ChurnPrediction/blob/master/docs/Operationalization.md) | 'model.pkl'<br>'churn_schema_gen.py' |
 
 請依上述的循序方式遵循實驗室。
 
 ## <a name="conclusion"></a>結論
 此實際操作情節示範如何使用 Azure Machine Learning Workbench 執行流失預測。 我們會先執行資料清除來處理雜訊和異質資料，接著使用資料準備工具進行功能設計。 然後，我們會使用開放原始碼機器學習工具來建立和評估分類模型，然後使用本機 Docker 容器來部署讓它準備好實際執行的模型。
-

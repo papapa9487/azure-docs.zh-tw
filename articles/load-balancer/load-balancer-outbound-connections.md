@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
+ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 03cb14b5710b6dd17599a3c4eab21380c76c2b40
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understanding-outbound-connections-in-azure"></a>了解 Azure 中的輸出連線
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
@@ -42,7 +40,7 @@ Azure 提供三種不同的方法來達成輸出連線。 每個方法都有自�
 
 在此案例中，VM 不是 Azure Load Balancer 集區的一部分，而且沒有指派給它的執行個體層級公用 IP (ILPIP) 位址。 當 VM 建立輸出流程時，Azure 會將輸出流量的公用來源 IP 位址轉譯為私用來源 IP 位址。 此輸出流量所用的公用 IP 位址無法進行設定，而且不利於訂用帳戶的公用 IP 資源限制。 Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 公用 IP 位址的暫時連接埠用來區分源自 VM 的個別流程。 建立流程時，SNAT 會動態配置暫時連接埠。 在此情況下，用於 SNAT 的暫時連接埠稱為 SNAT 連接埠。
 
-SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方式。 每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址。 針對相同目的地 IP 位址的多個流程，每個流程取用單一 SNAT 連接埠。 這可確保自相同公用 IP 位址至相同目的地 IP 位址時，流程是唯一的。 每個前往不同目的地 IP 位址的多個流程，每個目的地會取用單一 SNAT 連接埠。 目的地 IP 位址會使流程唯一。
+SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方式。 每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址。 針對相同目的地 IP 位址的多個流程，每個流程取用單一 SNAT 連接埠。 這可確保自相同公用 IP 位址至相同目的地 IP 位址時，流程是唯一的。 多個各自前往不同目的地 IP 位址的流程會共用單一 SNAT 連接埠。 目的地 IP 位址會使流程唯一。
 
 您可以使用[負載平衡器的 Log Analytics](load-balancer-monitor-log.md) 和 [要監視之 SNAT 連接埠耗盡訊息的警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)。 當 SNAT 連接埠資源耗盡時，輸出流程失敗，直到現有流程釋放 SNAT 連接埠為止。 負載平衡器會使用 4 分鐘閒置逾時以收回 SNAT 連接埠。
 
@@ -52,7 +50,7 @@ SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方�
 
 當負載平衡的 VM 建立輸出流程時，Azure 會將輸出流量的私用來源 IP 位址轉譯為公用負載平衡器前端的公用 IP 位址。 Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 負載平衡器公用 IP 位址的暫時連接埠用來區分源自 VM 的個別流程。 建立輸出流程時，SNAT 會動態配置暫時連接埠。 在此情況下，用於 SNAT 的暫時連接埠稱為 SNAT 連接埠。
 
-SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方式。 每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址。 針對相同目的地 IP 位址的多個流程，每個流程取用單一 SNAT 連接埠。 這可確保自相同公用 IP 位址至相同目的地 IP 位址時，流程是唯一的。 每個前往不同目的地 IP 位址的多個流程，每個目的地會取用單一 SNAT 連接埠。 目的地 IP 位址會使流程唯一。
+SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方式。 每個流程會取用一個 SNAT 連接埠至單一目的地 IP 位址。 針對相同目的地 IP 位址的多個流程，每個流程取用單一 SNAT 連接埠。 這可確保自相同公用 IP 位址至相同目的地 IP 位址時，流程是唯一的。 多個各自前往不同目的地 IP 位址的流程會共用單一 SNAT 連接埠。 目的地 IP 位址會使流程唯一。
 
 您可以使用[負載平衡器的 Log Analytics](load-balancer-monitor-log.md) 和 [要監視之 SNAT 連接埠耗盡訊息的警示事件記錄檔](load-balancer-monitor-log.md#alert-event-log)。 當 SNAT 連接埠資源耗盡時，輸出流程失敗，直到現有流程釋放 SNAT 連接埠為止。 負載平衡器會使用 4 分鐘閒置逾時以收回 SNAT 連接埠。
 
@@ -79,4 +77,3 @@ SNAT 連接埠是可能會耗盡的有限資源。 請務必了解取用的方�
 Azure 會使用演算法，根據集區的大小決定可用的 SNAT 連接埠數目。  目前無法進行設定。
 
 請務必記住，可用的 SNAT 連接埠號碼不會直接轉譯為連線數目。 如需何時及如何配置 SNAT 連接埠以及如何管理這個可耗盡資源的詳細資料，請參閱上述內容。
-

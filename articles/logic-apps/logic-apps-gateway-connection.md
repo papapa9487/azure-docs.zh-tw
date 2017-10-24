@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: f385d832deed2eaf8ea21eb75d62944cbbf3d13d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 4744405b2c294be564dedee308b4cba95cfcc3c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="access-data-sources-on-premises-from-logic-apps-with-the-on-premises-data-gateway"></a>使用內部部署資料閘道從邏輯應用程式存取內部部署資料來源
+# <a name="connect-to-data-sources-on-premises-from-logic-apps-with-on-premises-data-gateway"></a>使用內部部署資料閘道從邏輯應用程式連線至內部部署資料來源
 
 若要從邏輯應用程式存取內部部署資料來源，請使用支援的連接器來設定可供邏輯應用程式使用的內部部署資料閘道。 此閘道可作為橋樑，讓內部部署資料來源與邏輯應用程式之間快速地傳輸和加密資料。 閘道會在加密通道上經過 Azure 服務匯流排轉送來自內部部署來源的資料。 源自閘道代理程式的所有流量都是安全輸出流量。 深入了解[資料閘道的運作方式](logic-apps-gateway-install.md#gateway-cloud-service)。 
 
@@ -59,6 +58,11 @@ ms.lasthandoff: 09/15/2017
 
 * 您的閘道安裝不能已由 Azure 閘道資源加以宣告。 您只能將閘道安裝關聯至一個 Azure 閘道資源。 當您建立閘道資源時便已完成宣告，因此該安裝無法再供其他資源使用。
 
+* 內部部署資料閘道會以 Windows 服務身分執行，並且設定成使用 `NT SERVICE\PBIEgwService` 作為 Windows 服務登入認證。 若要在 Azure 入口網站中建立和維護閘道資源，[Windows 服務帳戶](../logic-apps/logic-apps-gateway-install.md)必須至少具備**參與者**權限。 
+
+  > [!NOTE]
+  > Windows 服務帳戶與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校 Azure 帳戶不同。
+
 ## <a name="set-up-the-data-gateway-connection"></a>設定資料閘道連線
 
 ### <a name="1-install-the-on-premises-data-gateway"></a>1.安裝內部部署資料閘道
@@ -66,17 +70,18 @@ ms.lasthandoff: 09/15/2017
 如果您還沒有這麼做，請依照[步驟來安裝內部部署資料閘道](logic-apps-gateway-install.md)。 在繼續進行其他步驟前，請先確定您已在本機電腦上安裝資料閘道。
 
 <a name="create-gateway-resource"></a>
+
 ### <a name="2-create-an-azure-resource-for-the-on-premises-data-gateway"></a>2.建立內部部署資料閘道的 Azure 資源
 
 在本機電腦上安裝閘道之後，您必須將資料閘道建立為 Azure 資源。 此步驟也會讓閘道資源與 Azure 訂用帳戶產生關聯。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com "Azure 入口網站")。 請務必使用您在安裝閘道時所使用的同一個 Azure 公司或學校電子郵件地址。
 
-2. 在 Azure 的左側功能表中，選擇 [新增] > [企業整合] > [內部部署資料閘道]，如以下所示︰
+2. 在主要 Azure 功能表中，選擇 [新增] > [企業整合] > [內部部署資料閘道]，如以下所示︰
 
    ![尋找 [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
 
-3. 在 [建立連線閘道] 刀鋒視窗中，提供下列詳細資料以建立資料閘道資源︰
+3. 在 [建立連線閘道] 頁面上，提供下列詳細資料以建立資料閘道資源︰
 
     * **名稱**：輸入閘道資源的名稱。 
 
@@ -104,11 +109,12 @@ ms.lasthandoff: 09/15/2017
 
     ![提供詳細資料以建立內部部署資料閘道](./media/logic-apps-gateway-connection/createblade.png)
 
-    任何時候若想尋找或檢視資料閘道，請從主要的 Azure 左側功能表，移至 [更多服務]> [企業整合]> [內部部署資料閘道]。
+    在任何時候，若要尋找或檢視資料閘道，請從主要 Azure 功能表，移至 [更多服務] > [企業整合] > [內部部署資料閘道]。
 
     ![移至 [更多服務] > [企業整合] > [內部部署資料閘道]](./media/logic-apps-gateway-connection/find-on-premises-data-gateway-enterprise-integration.png)
 
 <a name="connect-logic-app-gateway"></a>
+
 ### <a name="3-connect-your-logic-app-to-the-on-premises-data-gateway"></a>3.將邏輯應用程式連線到內部部署資料閘道
 
 您已建立資料閘道資源並讓 Azure 訂用帳戶與該資源相關聯，接下來請建立邏輯應用程式與資料閘道之間的連線。
@@ -135,15 +141,15 @@ ms.lasthandoff: 09/15/2017
 
 1. 若要尋找閘道連線︰
 
-   * 在邏輯應用程式刀鋒視窗的 [開發工具] 下，選取 [API 連線]。 
+   * 在邏輯應用程式功能表上的 [開發工具] 底下，選取 [API 連線]。 
    
      [API 連線] 窗格會顯示與邏輯應用程式相關聯的所有 API 連線，包括閘道連線。
 
      ![移至邏輯應用程式，選取 [API 連線]](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
 
-   * 或者，從主要的 Azure 左側功能表中，移至 [更多服務]> [Web + 行動]> [API 連線]，來找到與 Azure 訂用帳戶相關聯的所有 API 連線，包括閘道連線。 
+   * 或者，從主要 Azure 功能表中，移至 [更多服務] > [Web + 行動] > [API 連線]，來尋找與您 Azure 訂用帳戶關聯的所有 API 連線，包括閘道連線。 
 
-   * 或者，在主要的 Azure 左側功能表中，移至 [所有資源]，來找到與 Azure 訂用帳戶相關聯的所有 API 連線，包括閘道連線。
+   * 或者，在主要 Azure 功能表上，移至 [所有資源]，來尋找與您 Azure 訂用帳戶關聯的所有 API 連線，包括閘道連線。
 
 2. 選取您要檢視或編輯的閘道連線，然後選擇 [編輯 API 連線]。
 
@@ -155,7 +161,7 @@ ms.lasthandoff: 09/15/2017
 
 若要建立不同的閘道資源、讓閘道與其他資源相關連，或是要移除閘道資源，您可以直接刪除閘道資源，這並不會影響閘道安裝。 
 
-1. 從主要的 Azure 左側功能表，移至 [所有資源]。 
+1. 從主要 Azure 功能表，移至 [所有資源]。 
 2. 尋找並選取資料閘道資源。
 3. 選擇 [內部部署資料閘道]，然後在 [資源] 工具列上選擇 [刪除]。
 
@@ -168,4 +174,3 @@ ms.lasthandoff: 09/15/2017
 
 * [保護邏輯應用程式](./logic-apps-securing-a-logic-app.md)
 * [Logic Apps 範例和常見案例](./logic-apps-examples-and-scenarios.md)
-

@@ -6,14 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: f7d2b1970cb7b1330b3d9bdff7987a90fa381392
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 5f35a3bdd97b72acfe06b6bec54d41814e560b1c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>將巨量資料串流處理至資料倉儲
 
@@ -75,7 +74,7 @@ Event Grid 會將事件資料散發給訂閱者。 以下範例展示用來建�
 
 ## <a name="deploy-the-infrastructure"></a>部署基礎結構
 
-若要簡化本文章的內容，您可以利用 Resource Manager 範本部署必要的基礎結構。 若要查看已部署的資源，請檢視[範本](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)。
+若要簡化本文章的內容，您可以利用 Resource Manager 範本部署必要的基礎結構。 若要查看已部署的資源，請檢視[範本](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json)。 針對預覽版，「事件格線」支援 **westus2** 和 **westcentralus** 區域。 請使用這其中一個區域作為資源群組位置。
 
 對於 Azure CLI，請使用：
 
@@ -93,7 +92,7 @@ az group deployment create \
 ```powershell
 New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName tf08202storage -functionAppName <app-name>
+New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
 ```
 
 出現提示時，請提供密碼值。

@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/01/2017
+ms.date: 09/26/2017
 ms.author: ganesr,cherylmc
+ms.openlocfilehash: ddcf33a919d6f619394d405d061296469b568770
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: d98b08a93d9d620971cfc8402a0cf12f10f488b1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 線路和路由網域
  您必須訂購 *ExpressRoute 線路* ，才能將內部部署基礎結構透過連線提供者連接到 Microsoft。 下圖提供您的 WAN 與 Microsoft 之間連線的邏輯表示法。
@@ -43,12 +42,18 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
-### <a name="private-peering"></a>私人對等互連
+### <a name="azure-private-peering"></a>Azure 私人對等互連
 部署於虛擬網路內的 Azure 計算服務 (也就是虛擬機器 (IaaS) 和雲端服務 (PaaS)) 可透過私用對等網域進行連線。 私人對等互連網域會被視為核心網路至 Microsoft Azure 的受信任延伸。 您可以在核心網路與 Azure 虛擬網路 (VNet) 之間設定雙向連線。 此對等可讓您直接連線到虛擬機器和雲端服務的私人 IP 位址。  
 
 您可以將多個虛擬網路連線到私人對等互連網域。 如需限制的相關資訊，請檢閱 [常見問題集頁面](expressroute-faqs.md) 。 如需最新的限制資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md) 。  如需路由組態的詳細資訊，請參閱 [路由](expressroute-routing.md) 頁面。
 
-### <a name="public-peering"></a>公用對等互連
+### <a name="azure-public-peering"></a>Azure 公用對等互連
+
+> [!IMPORTANT]
+> 透過 Microsoft 對等互連也可存取所有 Azure PaaS 服務。 建議您建立 Microsoft 對等互連，然後透過 Microsoft 對等互連來連線到 Azure PaaS 服務。  
+>   
+
+
 公用 IP 位址上提供如 Azure 儲存體、SQL Database 和網站等服務。 您可以透過公用對等互連路由網域，私人連線到在公用 IP 位址上託管的服務 (包括雲端服務的 VIP)。 您可以將公用對等網域連線到 DMZ，並從您的 WAN 連線到所有 Azure 服務的公用 IP 位址，而無需透過網際網路進行連線。 
 
 一律會從您的 WAN 啟動連線到 Microsoft Azure 服務。 Microsoft Azure 服務將無法透過這個路由網域啟動連線到您的網路。 一旦啟用公用對等互連，您便能夠連線到所有 Azure 服務。 我們不允許您選擇性地選取已通告路由的服務。
@@ -60,7 +65,7 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 ### <a name="microsoft-peering"></a>Microsoft 對等互連
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-與所有其他 Microsoft 線上服務 (例如 Office 365 服務) 的連線將會透過 Microsoft 對等互連進行。 我們會透過 Microsoft 對等路由網域啟用 WAN 與 Microsoft 雲端服務之間的雙向連線。 您只能透過您或連線提供者所擁有的公用 IP 位址連線到 Microsoft 雲端服務，且必須遵守所有已定義的規則。 如需詳細資訊，請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md) 。
+與所有其他 Microsoft 線上服務 (Office 365、Dynamics 365 及 Azure PaaS) 的連線將會透過 Microsoft 對等互連進行。 我們會透過 Microsoft 對等路由網域啟用 WAN 與 Microsoft 雲端服務之間的雙向連線。 您只能透過您或連線提供者所擁有的公用 IP 位址連線到 Microsoft 雲端服務，且必須遵守所有已定義的規則。 如需詳細資訊，請參閱 [ExpressRoute 必要條件](expressroute-prerequisites.md) 。
 
 如需支援的服務、費用和組態的詳細資訊，請參閱 [常見問題集頁面](expressroute-faqs.md) 。 如需有關提供 Microsoft 對等支援的連線提供者清單的詳細資訊，請參閱 [ExpressRoute 位置](expressroute-locations.md) 頁面。
 
@@ -70,8 +75,9 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 |  | **私人對等互連** | **公用對等互連** | **Microsoft 對等互連** |
 | --- | --- | --- | --- |
 | **每個對等支援的前置詞數目最大值** |預設為 4000，ExpressRoute Premium 中為 10000 |200 |200 |
-| **支援的 IP 位址範圍** |您的 WAN 內任何有效的 IPv4 位址。 |您或您的連線提供者所擁有的公用 IPv4 位址。 |您或您的連線提供者所擁有的公用 IPv4 位址。 |
+| **支援的 IP 位址範圍** |您的 WAN 內任何有效的 IP 位址。 |您或您的連線提供者所擁有的公用 IP 位址。 |您或您的連線提供者所擁有的公用 IP 位址。 |
 | **AS 編號需求** |私密和公用 AS 編號。 您必須擁有公用 AS 編號，才能選擇使用其中一個編號。 |私密和公用 AS 編號。 不過，您必須證明公用 IP 位址的擁有權。 |私密和公用 AS 編號。 不過，您必須證明公用 IP 位址的擁有權。 |
+| **支援的 IP 通訊協定**| IPv4 | IPv4 | IPv4、IPv6 |
 | **路由介面 IP 位址** |RFC1918 和公用 IP 位址 |在路由註冊中向您註冊的公用 IP 位址。 |在路由註冊中向您註冊的公用 IP 位址。 |
 | **MD5 雜湊支援** |是 |是 |是 |
 
@@ -85,5 +91,4 @@ ExpressRoute 線路有多個相關聯的路由網域：Azure 公用、Azure 私�
 * 設定 ExpressRoute 連線。
   * [建立和管理 ExpressRoute 線路](expressroute-howto-circuit-portal-resource-manager.md)
   * [設定 ExpressRoute 線路的路由 (對等戶連)](expressroute-howto-routing-portal-resource-manager.md)
-
 

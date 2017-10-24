@@ -5,21 +5,19 @@ services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 10/03/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
+ms.openlocfilehash: 96c63e5d0379150ea619dbbe912a21e373f808af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 1a37f0753ab576aba9154e148b026b70877176f2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT 中樞裝置佈建服務服務概念
 
 IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於設定在指定 IoT 中樞上的全自動佈建裝置作業。 這項裝置佈建服務可以讓您以安全且可調整的方式佈建數百萬個裝置。
@@ -53,14 +51,14 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 
 ### <a name="enrollment-group"></a>申請群組
 
-申請群組為一組共用特定證明機制的裝置。 申請群組中的所有裝置都有相同根 CA 簽署的 X.509 憑證。 申請群組只能使用 X.509 證明機制。
+申請群組為一組共用特定證明機制的裝置。 申請群組中的所有裝置都有相同根 CA 簽署的 X.509 憑證。 申請群組只能使用 X.509 證明機制。 註冊群組名稱和憑證名稱必須是英數字元、小寫字母且可包含連字號。
 
 > [!TIP]
 > 對於一大批共用所需初始設定的裝置，或是全都設定為相同租用戶的裝置，我們建議使用申請群組。
 
 ### <a name="individual-enrollment"></a>個別申請
 
-個別申請為表示可能已註冊之單一裝置的項目。 個別申請可使用 X.509 憑證或 SAS 權杖 (適用於實際或虛擬 TPM) 作為證明機制。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
+個別申請為表示可能已註冊之單一裝置的項目。 個別申請可使用 X.509 憑證或 SAS 權杖 (適用於實際或虛擬 TPM) 作為證明機制。 個別註冊中的註冊識別碼為英數字元、小寫字母且可包含連字號。 個別申請可能會指定所需的 IoT 中樞裝置識別碼。
 
 > [!TIP]
 > 對於需要唯一初始設定的裝置，或是只能透過 TPM 或虛擬 TPM 使用 SAS 權杖作為證明機制的裝置，我們建議您使用個別申請。
@@ -72,4 +70,3 @@ IoT 中樞裝置佈建服務是 IoT 中樞適用的協助程式服務，用於�
 ## <a name="operations"></a>作業
 
 作業是裝置佈建服務的計費單位。 一個作業代表成功完成該服務需進行的一個指示。 作業包括裝置註冊和重新註冊，也包括服務端的變更，例如新增和更新申請清單項目。
-

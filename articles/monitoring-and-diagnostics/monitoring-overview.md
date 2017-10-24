@@ -1,6 +1,6 @@
 ---
 title: "Microsoft Azure 中的監視 | Microsoft Docs"
-description: "您想要監視 Microsoft Azure 中的任何項目時的選項。 Azure 監視器, Application Insights Log Analytics"
+description: "您想要監視 Microsoft Azure 中的任何項目時的選項。 Azure 監視器、Application Insights 及 Log Analytics"
 author: rboucher
 manager: carmonm
 editor: 
@@ -12,42 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/12/2017
+ms.date: 10/04/2017
 ms.author: robb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5e92b1b234e4ceea5e0dd5d09ab3203c4a86f633
-ms.openlocfilehash: d4a94a92585420cf92018084437422fd0c66fa2d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/10/2017
-
-
+ms.openlocfilehash: e164cbd910ccc38610c7aef37d25ff1b4413038d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-monitoring-in-microsoft-azure"></a>Microsoft Azure 中的監視概觀
-本文提供可用來監視 Microsoft Azure 的工具概觀。 適用範圍： 
-- 監視在 Microsoft Azure 中執行的應用程式 
-- 在 Azure 外部執行且可監視 Azure 中物件的工具/服務。 
+本文提供一個概觀，說明全面監視 Microsoft Azure 時所涉及的工具和服務。 適用範圍：
+- 使用 Azure 服務來監視 Azure 基礎結構和應用程式
+- 使用 Azure 服務來監視混合式及非 Azure 基礎結構和應用程式
+- 使用非 Azure 服務來監視 Azure 基礎結構和應用程式
 
 其會討論各種可用的產品與服務，以及它們如何一起運作。 本文可協助您判斷哪些工具在哪些情況下最適合您。  
 
-## <a name="why-use-monitoring-and-diagnostics"></a>為何要使用監視和診斷？
+## <a name="why-use-azures-monitoring-services"></a>為什麼要使用 Azure 的監視服務？
 
-您雲端應用程式中的效能問題可能會對企業產生影響。 透過多個互連的元件和頻繁的發行，隨時都可能導致效能降低。 此外，如果您正在開發應用程式，您的使用者通常會探索到您在測試時未發現的問題。 您應該立即知道這些問題，並具備可用以診斷和修復問題的工具。 Microsoft Azure 提供多種工具來識別這些問題。
+您雲端應用程式中的效能問題可能會對企業產生影響。 透過多個互連的元件和頻繁的發行，隨時都可能導致效能降低。 此外，如果您正在開發應用程式，您的使用者通常會探索到您在測試時未發現的問題。 您應該立即知道這些問題，並具備可用以診斷和修復問題的工具。 此外，您應用程式中的問題通常是由這些應用程式執行所在的基礎結構所造成的，因此全面檢視您的應用程式和基礎結構是監視您 Azure 環境的關鍵。 Microsoft Azure 提供一系列的工具來識別和解決這類問題。
 
-## <a name="how-do-i-monitor-my-azure-cloud-apps"></a>如何監視我的 Azure 雲端應用程式？
+## <a name="how-do-i-monitor-my-azure-environment"></a>如何監視我的 Azure 環境？
 
-有多種工具可用來監視 Azure 應用程式和服務。 其中有些功能會重疊。 這其中有部分是基於歷程記錄因素，而有部分是因為應用程式開發與作業之間的界限模糊不清而導致的。 
+有一系列工具可監視您的 Azure 環境，從在 Azure 上執行的應用程式程式碼，到執行該程式碼的服務和基礎結構，一應俱全。 這些工具會一起運作來提供全面性的雲端監視功能，其中包括：
 
-以下是主要工具：
+-   **Azure 監視器** - 這是一項 Azure 服務，其運作方式是作為 Azure 服務之所有監視資料的合併管線。 它可讓您存取效能計量和事件，這些計量和事件可說明 Azure 基礎結構及您所使用之任何 Azure 服務的作業。 「Azure 監視器」是您 Azure 環境的監視資料管線，並且會將該資料直接提供給 Log Analytics 及協力廠商工具，您可以從中深入了解該資料，以及將其與來自內部部署或其他雲端資源的資料結合。
 
--    **Azure 監視器**是用以監視 Azure 上執行之服務的基本工具。 它會提供關於服務輸送量及周遭環境之基礎結構等級的資料。 如果您正在 Azure 中管理所有的應用程式，決定是否要相應增加或減少資源，Azure 監視器接著就能提供可讓您用來做為起點的項目。
+-   **Application Insights** - 這是一項 Azure 服務，可提供應用程式效能監視功能和使用者分析。 它會監視您已撰寫的程式碼，以及您已在 Azure 或內部環境/其他雲端上部署的應用程式。 藉由使用 Application Insights SDK 來檢測您的應用程式，您將可以存取一系列資料，包括相依項目的回應時間、例外狀況追蹤、偵錯快照，以及執行設定檔。 它提供功能強大的工具來分析此應用程式遙測，同時還能開發和操作您的應用程式。 它與 Visual Studio 深入整合，可讓您直接移至有問題的程式碼行來修正它，並且也為產品經理提供使用量分析，以分析客戶對您應用程式的使用量。
 
--    **Application Insights** 可用來開發，並作為監視生產環境的解決方案。 它的運作方式是將封裝安裝到您的應用程式，因此可讓您更深入檢視內部情形。 它的資料包括相依性的回應時間、例外狀況追蹤、偵錯快照集、執行設定檔。 它提供功能強大的智慧型工具來完整分析此遙測，以協助您偵錯應用程式，並協助您了解使用者正使用它來做什麼。 您可以判斷回應時間突然增加是否因為應用程式中的某些項目所引起，還是由一些外部資源問題所引起的。 如果您使用 Visual Studio 且應用程式發生問題，則可直接將您帶至發生問題的程式碼行，讓您能夠修正問題。  
-
--    **Log Analytics** 適用於需要微調效能並計劃維護在生產環境中執行之應用程式的使用者。 它是 Azure 中的基本工具。 它會從許多來源收集並彙總資料，但會有 10 到 15 分鐘的延遲。 它會針對 Azure、內部部署及協力廠商的雲端式基礎結構 (例如 Amazon Web 服務) 提供整體 IT 管理解決方案。 它提供更豐富的工具，可跨多個來源分析資料、允許跨所有記錄進行複雜的查詢，而且可以指定的條件主動提供警示。  您甚至可以將自訂資料收集到其中央存放庫，如此便能查詢並將其視覺化。 
-
--    **System Center Operations Manager (SCOM)** 可用來管理及監視大型雲端安裝。 您可能已經熟悉它做為適用於內部部署 Windows Sever 和 Hyper-V 型雲端的管理工具，但它也可以與 Azure 應用程式整合並加以管理。 在其他方面，它可以在現有的即時應用程式上安裝 Application Insights。  如果應用程式當機，它會在短時間內通知您。 請注意，Log Analytics 不會取代 SCOM。 它也可與其搭配使用。  
-
+-   **Log Analytics** - 以前稱為 OMS Log Analytics，是一項 Azure 服務，此服務會從 Azure 服務 (透過「Azure 監視器」)、Azure VM 及內部部署或其他雲端基礎結構內嵌記錄和計量資料，除了此資料之外，還提供彈性的記錄搜尋和現成分析。 它提供豐富的工具來跨來源分析資料、允許跨所有記錄進行複雜的查詢，而且可以依據指定的條件主動發出警示。  您甚至可以將自訂資料收集到其中央存放庫，如此便能查詢並將其視覺化。 您也可以利用 Log Analytic 的內建解決方案，來立即深入了解您基礎結構的安全性和功能。
 
 ## <a name="accessing-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中存取監視
 所有的 Azure 監視服務現在都可在單一 UI 窗格中取得。 如需如何存取此區域的詳細資訊，請參閱[開始使用 Azure 監視器](monitoring-get-started.md)。 
@@ -89,7 +82,7 @@ Azure 目前在雲端中提供 Visual Studio Debugger 的完整功能。 設定 
 > [!NOTE]
 > 分析虛擬機器、虛擬機器擴展集 (VMSS)、雲端服務及 Service Fabric 的功能目前為預覽狀態。   
 
-此外，智慧型偵測工具會透過電子郵件主動通知您特定錯誤類型的相關資訊，例如頁面載入時間變慢。  您不需要在此工具上進行任何設定。 如需詳細資訊，請參閱[智慧型偵測 - 效能異常](../application-insights/app-insights-proactive-performance-diagnostics.md)和[智慧型偵測 - 效能異常](https://azure.microsoft.com/blog/Enhancments-ApplicationInsights-SmartDetection/preview)。
+此外，智慧型偵測工具會透過電子郵件主動通知您特定錯誤類型的相關資訊，例如頁面載入時間變慢。  您不需要在此工具上進行任何設定。 如需詳細資訊，請參閱[智慧型偵測 - 效能異常](../application-insights/app-insights-proactive-performance-diagnostics.md)。
 
 
 

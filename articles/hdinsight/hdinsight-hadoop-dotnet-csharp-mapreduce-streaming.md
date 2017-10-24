@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/02/2017
-
+ms.openlocfilehash: 96f0be021a2b362c702f91ec4b532df8a334529f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Hadoop 上的 MapReduce 串流使用 C#
 
@@ -152,15 +151,15 @@ namespace reducer
 
 ## <a name="upload-to-storage"></a>上傳至儲存體
 
-1. 在 Visual Studio 中，開啟 [伺服器總管] 。
+1. 在 Visual Studio 中，開啟 [伺服器總管]。
 
 2. 展開 [Azure]，然後展開 [HDInsight]。
 
-3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下 [登入] 。
+3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下登入。
 
 4. 展開您要部署此應用程式的 HDInsight 叢集。 就會列出含有文字 __(預設儲存體帳戶)__ 的項目。
 
-    ![伺服器總管顯示此叢集的儲存體帳戶](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
+    ![顯示叢集之儲存體帳戶的 [伺服器總管]](./media/hdinsight-hadoop-hive-pig-udf-dotnet-csharp/storage.png)
 
     * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]。
 
@@ -225,9 +224,9 @@ namespace reducer
 
 使用下列 PowerShell 指令碼來執行 MapReduce 作業並下載結果。
 
-[!code-powershell[主要](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
+[!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-此指令碼會提示您輸入叢集登入帳戶名稱和密碼，以及 HDInsight 叢集名稱。 完成工作時，會將輸出下載到此指令碼執行所在目錄中的 `output.txt` 檔案。 以下文字是 `output.txt` 檔案中的資料範例：
+此指令碼會提示您輸入叢集登入帳戶名稱和密碼，以及 HDInsight 叢集名稱。 作業完成後，會將輸出下載到名為 `output.txt` 的檔案。 以下文字是 `output.txt` 檔案中的資料範例：
 
     you     1128
     young   38
@@ -243,6 +242,6 @@ namespace reducer
 
 如需搭配 HDInsight 使用 MapReduce 的詳細資訊，請參閱[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)。
 
-如需搭配 Hive 與 Pig 使用 C# 的詳細資訊，請參閱[搭配 Hive 與 Pig 使用 C# 使用者定義函式](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)。
+如需有關使用 C# 搭配 Hive 和 Pig 的詳細資訊，請參閱[使用 C# 使用者定義函式搭配 Hive 和 Pig](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)。
 
 如需搭配 HDInsight 上的 Storm 使用 C# 的詳細資訊，請參閱[開發適用於 Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)。

@@ -13,14 +13,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 07/13/2017
-ms.author: LADocs; dimazaid; estfan
+ms.date: 09/14/2017
+ms.author: LADocs; millopis; estfan
+ms.openlocfilehash: b3c1e2afadea91f010c3e4b43206b6d30a75ec38
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
-ms.openlocfilehash: 34e68ae7d35019848b35c785a2715ec458dc6e73
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>安裝 Azure Logic Apps 的內部部署資料閘道
 
@@ -52,6 +51,7 @@ ms.lasthandoff: 07/14/2017
 *   [Microsoft PowerApps 內部部署資料閘道](https://powerapps.microsoft.com/tutorials/gateway-management/)
 
 <a name="requirements"></a>
+
 ## <a name="requirements"></a>需求
 
 **最低**：
@@ -75,9 +75,12 @@ ms.lasthandoff: 07/14/2017
 
 * 請勿將閘道安裝在關閉、進入睡眠狀態，或未連線到網際網路的電腦上，因為閘道無法在這些情況下執行。 此外，透過無線網路的閘道效能可能會受到影響。
 
-* 在安裝期間，您必須登入[公司或學校帳戶](https://docs.microsoft.com/azure/active-directory/sign-up-organization)，該帳戶是由 Azure Active Directory (Azure AD) 所管理，而非 Microsoft 帳戶。 
+* 在安裝期間，您必須登入[公司或學校帳戶](https://docs.microsoft.com/azure/active-directory/sign-up-organization)，該帳戶是由 Azure Active Directory (Azure AD) 所管理，而非 Microsoft 帳戶。
 
-  稍後在建立並將閘道資源關聯至閘道安裝時，您必須在 Azure 入口網站中使用同一個公司或學校帳戶。 接著，在建立邏輯應用程式與內部部署資料來源間的連線時，選取該閘道資源。 [為何必須使用公司或學校的 Azure AD 帳戶？](#why-azure-work-school-account)
+  > [!TIP]
+  > 如果您想要將擁有 Visual Studio 的 Microsoft 帳戶與 MSDN 訂用帳戶搭配使用，請先使用您的 Microsoft 帳戶[在 Azure Active Directory 中建立一個目錄 (租用戶)](../active-directory/develop/active-directory-howto-tenant.md) 或使用預設目錄。 請將使用者和密碼新增至目錄，然後將您訂用帳戶的存取權授與該使用者。 接著，您就可以在安裝閘道時，使用此使用者名稱和密碼來進行登入。
+
+  稍後在 Azure 入口網站中，當您建立閘道資源並將其與閘道安裝建立關聯時，必須使用此相同的公司或學校帳戶。 接著，在建立邏輯應用程式與內部部署資料來源間的連線時，選取該閘道資源。 [為何必須使用公司或學校的 Azure AD 帳戶？](#why-azure-work-school-account)
 
   > [!TIP]
   > 如果您註冊 Office 365 供應項目，但是未提供實際的公司電子郵件，您的登入位址看起來可能會像 jeff@contoso.onmicrosoft.com。 
@@ -145,10 +148,20 @@ ms.lasthandoff: 07/14/2017
 
 4. 提供您想要移轉、還原或取代之閘道的名稱和復原金鑰。
 
+<a name="windows-service-account"></a>
+
+## <a name="windows-service-account"></a>Windows 服務帳戶
+
+內部部署資料閘道會以 Windows 服務身分執行，並且設定成使用 `NT SERVICE\PBIEgwService` 作為 Windows 服務登入認證。 根據預設，閘道會擁有其本身安裝所在電腦的「以服務方式登入」權限。 若要在 Azure 入口網站中建立和維護閘道，Windows 服務帳戶必須至少具備**參與者**權限。 
+
+> [!NOTE]
+> Windows 服務帳戶與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校 Azure 帳戶不同。
+
 <a name="restart-gateway"></a>
+
 ## <a name="restart-the-gateway"></a>重新啟動閘道
 
-閘道會以 Windows 服務的形式來執行。 和其他任何 Windows 服務一樣，您可以透過多種方式來啟動和停止服務。 例如，您可以在閘道執行所在的電腦上以提高的權限開啟命令提示字元，並執行下列其中一個命令︰
+和其他任何 Windows 服務一樣，您可以透過多種方式來啟動和停止服務。 例如，您可以在閘道執行所在的電腦上以提高的權限開啟命令提示字元，並執行下列其中一個命令︰
 
 * 若要停止服務，請執行此命令：
   
@@ -157,13 +170,6 @@ ms.lasthandoff: 07/14/2017
 * 若要啟動服務，請執行此命令：
   
     `net start PBIEgwService`
-
-### <a name="windows-service-account"></a>Windows 服務帳戶
-
-對於 Windows 服務登入認證，內部部署資料閘道會設定為使用 `NT SERVICE\PBIEgwService`。 根據預設，閘道會擁有其本身安裝所在電腦的「以服務方式登入」權限。
-
-> [!NOTE]
-> Windows 服務帳戶與用來連線至內部部署資料來源的帳戶不同，也與用來登入雲端服務的公司或學校 Azure 帳戶不同。
 
 ## <a name="configure-a-firewall-or-proxy"></a>設定防火牆或 Proxy
 
@@ -336,4 +342,3 @@ TcpTestSucceeded       : True
 * [從邏輯應用程式連線至內部部署資料](../logic-apps/logic-apps-gateway-connection.md)
 * [企業整合功能](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [適用於 Azure Logic Apps 的連接器](../connectors/apis-list.md)
-

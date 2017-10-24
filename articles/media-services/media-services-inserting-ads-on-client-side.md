@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
 ms.openlocfilehash: 52ba731f88c630830560e3cf8406ba2e9613c8a5
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
 本主題包含如何在用戶端上插入各種類型廣告的相關資訊。

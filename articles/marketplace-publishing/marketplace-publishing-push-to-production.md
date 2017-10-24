@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/02/2016
 ms.author: hascipio
 ms.openlocfilehash: 12dc81642905cd9449a1032c7ab57298e6b69ba8
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-your-offer-to-the-azure-marketplace"></a>將您的供應項目部署至 Azure Marketplace
 當您對供應項目感到滿意 (意即經過測試的客戶案例、行銷內容等) 並準備推出時，請在 [發佈] 索引標籤中要求 [推送至生產環境]。  
@@ -69,7 +69,7 @@ ms.lasthandoff: 07/11/2017
 
 * 主圖標誌為選用項。 發行者可以選擇不上傳主圖標誌。 **但主圖圖示一旦上傳，即無法從發佈入口網站中刪除。屆時合作夥伴必須遵循主圖圖示的 Azure Marketplace 指導方針，否則供應項目將無法核准進入生產環境。**
 * 發行者顯示名稱、SKU 標題和供應項目完整細摘要會以白色字型色彩顯示。 因此，您應避免在主圖圖示的背景使用淺色系。 主圖圖示不允許使用黑色、白色和透明背景。
-* 供應項目列出之後，會以程式設計方式將發行者顯示名稱、SKU 標題、供應項目完整摘要和 [建立] 按鈕內嵌在主圖標誌內。 因此您在設計主圖標誌時不應輸入任何文字。 您只需在右邊留下空白空間，因為我們會以程式設計方式於該處內嵌文字 (也就是 發行者顯示名稱、SKU 標題、供應項目完整摘要)。 文字右側的空白空間應為 415 x 100 (從左邊開始位移 370px)。
+* 供應項目列出之後，會以程式設計方式將發行者顯示名稱、SKU 標題、供應項目完整摘要和 [建立] 按鈕內嵌在主圖標誌內。 因此您在設計主圖標誌時不應輸入任何文字。 請將右邊直接留白，因為我們將會透過程式設計方式，在該處納入文字 (也就是發行者顯示名稱、SKU 標題、供應項目完整摘要)。 文字右側的空白空間應為 415 x 100 (從左邊開始位移 370px)。
 
 ## <a name="additional-production-checklist-for-already-listed-virtual-machine-offers"></a>適用於已列出的虛擬機器供應項目的其他生產環境檢查清單
 * 請檢查是否已經有任何供應項目包含您公司所提供的同一供應項目。 如果有，您應在現有的供應項目加入新版 SKU，而不是新建重複的供應項目。

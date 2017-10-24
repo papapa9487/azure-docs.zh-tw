@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/09/2017
 ms.author: bwren
+ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 0ced7a128003402f74b847cc71e1c3ed21982651
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 新記錄搜尋常見問題集與已知問題
 
 本文包含[將 Log Analytics 升級為新的查詢語言](log-analytics-log-search-upgrade.md)的相關常見問題集和已知問題。  您應該先閱讀整份文件，然後再決定是否升級您的工作區。
@@ -30,6 +28,10 @@ ms.lasthandoff: 09/26/2017
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>問題：我有大量的警示規則。 需要在升級之後以新的語言再次建立嗎？  
 否，警示規則會在升級期間自動轉換成新的搜尋語言。  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>問題：我有包含 Webhook 和 Runbook 動作的警示規則。 當我升級時，這些動作是否可繼續運作？
+
+否，Webhook 和 Runbook 動作中有一些變更，您可能需要針對處理承載的方式進行一些變更。 我們進行這些變更是為了將各種輸出格式標準化，以及縮減承載的大小。 如需有關這些格式的詳細資料，請參閱[將動作新增至 Log Analytics 中的警示規則](log-analytics-alerts-actions.md)。
 
 
 ## <a name="computer-groups"></a>電腦群組
@@ -48,7 +50,7 @@ ms.lasthandoff: 09/26/2017
 ## <a name="dashboards"></a>儀表板
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>問題：是否仍然可以在升級的工作區中使用儀表板？
-您可以繼續使用在升級工作區之前新增至 [我的儀表板] 的圖格，但您無法編輯這些圖格或建立新的圖格。  您可以使用[檢視設計工具](log-analytics-view-designer.md)繼續建立並編輯檢視，也可以在 Azure 入口網站中建立儀表板。
+隨著升級，我們將開始淘汰 [我的儀表板]的程序。  您可以繼續使用在升級工作區之前新增至儀表板的所有圖格，但無法編輯這些圖格或新增新的圖格。  您可以使用[檢視表設計工具](log-analytics-view-designer.md) (此工具提供更豐富的功能集) 來繼續建立和編輯檢視，也可以在 Azure 入口網站中建立儀表板。
 
 
 ## <a name="log-searches"></a>記錄檔搜尋
@@ -58,6 +60,9 @@ ms.lasthandoff: 09/26/2017
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>問題： 為什麼我的查詢結果未排序？
 根據預設，使用新的查詢語言不會排序結果。  使用 [sort 運算子](https://go.microsoft.com/fwlink/?linkid=856079)，依照一或多個屬性來排序結果。
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>問題：升級之後，計量檢視到哪裡去了？
+計量檢視會將來自記錄搜尋的效能資料以圖形方式顯示。  升級後，即不再提供此檢視。  您可以使用 [render 運算子](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator)，來設定時間圖中查詢的輸出格式。
 
 ### <a name="question-where-did-minify-go-after-i-upgraded"></a>問題：升級之後，「縮短」功能到哪裡去了？
 「縮短」是一種功能，可為您的搜尋結果提供摘要檢視。  升級之後，[縮短] 選項不會再出現在記錄搜尋入口網站中。  您可以使用 [reduce](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) 或 [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster)，搭配新的搜尋語言，取得類似的功能。 
@@ -173,4 +178,3 @@ ms.lasthandoff: 09/26/2017
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[將您的工作區升級為新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)。
-

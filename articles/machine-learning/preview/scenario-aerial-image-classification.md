@@ -8,14 +8,12 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 09/15/2017
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 43b124fc3eb72adc5d299b218c9e16ec83d1a240
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="aerial-image-classification"></a>空拍影像分類
 
 此範例示範如何使用 Azure Machine Learning Workbench 來協調影像分類模型的分散式訓練和運作。 我們會使用 [Microsoft Machine Learning for Apache Spark (MMLSpark)](https://github.com/Azure/mmlspark) 套件，透過預先訓練好的 CNTK 模型建立影像特徵，並使用衍生出來的特徵來訓練分類器。 然後，我們會以平行方式將訓練好的模型套用到雲端中的大型影像集合。 這些步驟會在 [Azure HDInsight Spark](https://azure.microsoft.com/en-us/services/hdinsight/apache-spark/) 叢集中執行，讓我們可以藉由新增或移除背景工作節點，調整訓練和運作的速度。
@@ -32,7 +30,7 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="use-case-description"></a>使用案例說明
 
-在此案例中，我們會訓練機器學習模型，讓模型為空拍影像中所顯示的土地 (224 公尺 x 224 公尺) 類型分類。 您可以使用土地用途分類模型，利用定期收集的空拍影像追蹤都市化、森林砍伐、濕地流失和其他重大環境趨勢。 我們已備妥訓練和驗證用的影像集合，此集合是由從美國農業部影像計劃 (U.S. National Agriculture Imagery Program) 所取得的影像，以及美國國土覆被資料庫 (U.S. National Land Cover Database) 所發佈的土地用途標籤所建構而成。 每個土地用途類別的範例影像如下所示：
+在此案例中，我們會訓練機器學習模型，讓模型為空拍影像中所顯示的土地 (224 公尺 x 224 公尺) 類型分類。 您可以使用土地用途分類模型，利用定期收集的空拍影像追蹤都市化、森林砍伐、濕地流失和其他重大環境趨勢。 我們已備妥訓練和驗證用的影像集合，此集合是由從美國農業部影像計劃 (U.S. National Agriculture Imagery Program) 所取得的影像，以及美國國土覆被資料庫 (U.S. National Land Cover Database) 所發佈的土地用途標籤，共同建構而成。 每個土地用途類別的範例影像如下所示：
 
 ![每個土地用途標籤的範例區域](media/scenario-aerial-image-classification/example-labels.PNG)
 
@@ -54,7 +52,7 @@ ms.lasthandoff: 09/25/2017
 下列指示會引導您完成為此範例設定執行環境的程序。
 
 ### <a name="prerequisites"></a>必要條件
-- [Azure 帳戶](https://azure.microsoft.com/en-us/free/) (有提供免費試用)
+- [Azure 帳戶](https://azure.microsoft.com/en-us/free/) (提供免費試用)
     - 此範例會建立具有 40 個背景工作節點 (總計 168 個核心) 的 HDInsight Spark 叢集。 請在 Azure 入口網站的訂用帳戶中檢閱 [使用量 + 配額] 索引標籤，以確定您的帳戶具有足夠的可用核心。
     - 如果您的可用核心較少，則可以修改 HDInsight 叢集範本，以減少佈建的背景工作數目。 這方面的指示會出現在 [建立 HDInsight Spark 叢集] 區段下。
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
@@ -270,4 +268,3 @@ To dive deeper into this example:
 - Examine the sample scripts for statements calling the `blob_service`. Check that you understand how trained models and predictions are stored and retrieved from the cloud.
 - Explore the contents of the containers created in your blob storage account. Ensure that you understand which script or command is responsible for creating each group of files.
 - Modify the training script to train a different MMLSpark model type or to change the model hyperparameters. Use the run history feature to determine whether your changes increased or decreased the model's accuracy.
-

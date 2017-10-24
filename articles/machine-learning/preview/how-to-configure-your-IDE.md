@@ -10,14 +10,12 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/05/2017
+ms.openlocfilehash: 4e18a413a0559b1ddebecf1b29722d21ef35c337
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 5fa9926e2230b285a2598e5d43048d6591bd1b03
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>如何設定 Azure Machine Learning Workbench 搭配 IDE 
 
 Azure Machine Learning Workbench 可設定為搭配熱門的 Python IDE (整合式開發環境)。 它能夠在資料準備、程式碼撰寫、執行追蹤及作業化之間，提供順暢的資料科學開發體驗。 目前支援的 IDE 如下：
@@ -43,8 +41,7 @@ Azure Machine Learning Workbench 可設定為搭配熱門的 Python IDE (整合�
 * macOS：選取 .app 路徑 (例如 “/Applications/PyCharm CE.app”)，而應用程式會為您附加路徑的其餘部分。 根據預設，可執行檔的完整路徑是 `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`。 您也能在 bin 資料夾 `/usr/local/bin/charm` 中找到 PyCharm
 
 ## <a name="open-project-in-ide"></a>在 IDE 中開啟專案 
-設定完成之後，您可以在 IDE 中開啟 Azure Machine Learning 專案，方法是開啟 [檔案] 功能表，然後選取 [開啟專案 (<IDE_Name>)]
-
+設定完成之後，您可以在 Azure Machine Learning Workbench 中開啟 [檔案] 功能表，然後按一下 [開啟專案 (<IDE_Name>)]，來開啟 Azure Machine Learning 專案。 此動作會在所設定的 IDE 中開啟目前作用中的專案。 _注意：如果您不在專案中，[開啟專案 (<IDE_Name>)]將會是停用狀態。_
 
 ## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>在 Visual Studio Code 中設定整合的終端機
 
@@ -56,5 +53,4 @@ Azure Machine Learning Workbench 可設定為搭配熱門的 Python IDE (整合�
 回答 `yes`，便能將殼層設為可與 Azure ML Workbench 命令列介面無縫運作。
 
 ### <a name="mac"></a>Mac
-若要在 Mac 上使用 Visual Studio Code 的整合終端機執行 `az` 命令，您必須手動將 `PATH` 設為與專案 `.vscode/settings.json` 檔案中 `PATH` 相同的值。
-
+若要在 Mac 上使用 Visual Studio Code 的整合終端機來執行 `az` 命令，您必須手動將 `PATH` 的值，設定為與專案之 `.vscode/settings.json` 檔案中 `terminal.integrated.env.osx` 機碼底下的 `PATH` 值相同。 若要這麼做，您可以在終端機中執行下列命令：`PATH=<PATH in .vscode/settings>`

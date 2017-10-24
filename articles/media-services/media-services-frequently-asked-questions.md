@@ -12,20 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 09/29/2017
 ms.author: juliako
+ms.openlocfilehash: e2a580b835496c677f048599ae83287dbb61621d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 1f0c5cf93b44433aab2163548de916626a7fa480
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
 本文解說「Azure 媒體服務」(AMS) 使用者社群所提出的常見問題集。
 
 ## <a name="general-ams-faqs"></a>一般 AMS 常見問題集
+
+問：如何串流至 Apple iOS 裝置
+
+答：將 "(format=m3u8-aapl)" 路徑新增至 URL 的 "/Manifest" 部分，來告訴串流原始伺服器傳回 HLS 內容以供在 Apple iOS 原生裝置上取用 (如需詳細資料，請參閱 (提供內容)[media-services-deliver-content-overview.md])。
+
 問：如何調整索引？
 
 答：編碼與編製索引工作的保留單位都相同。 請依照 [如何調整編碼保留單位](media-services-scale-media-processing-overview.md)的指示進行。 **請注意** ，Indexer 效能不受保留單元類型影響。
@@ -81,4 +85,3 @@ ms.lasthandoff: 08/01/2017
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-

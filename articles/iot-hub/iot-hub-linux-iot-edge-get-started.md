@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: andbuc
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: fb65e3c34d2b2a14370792d8506c13c8c5fb522e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: e2f26c1abe09feff77e1e2633d8bfcf4ca527aee
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-azure-iot-edge-architecture-on-linux"></a>在 Linux 上探索 Azure IoT Edge 架構
 
@@ -32,7 +31,7 @@ ms.lasthandoff: 09/23/2017
 
 **build.sh** 指令碼會在 **iot-edge** 存放庫本機複本的 **build** 資料夾中產生其輸出。 這輸出包含在此範例中使用的兩個 IoT Edge 模組。
 
-build 指令碼會將 **liblogger.so** 放在 **build/modules/logger/** 資料夾中，並將 **libhello\_world.so** 放在 **build/modules/hello_world/** 資料夾中。 使用這些路徑作為**模組路徑**值 (如下列範例 JSON 設定檔所示)。
+build 指令碼會將 **liblogger.so** 放在 **build/modules/logger/** 資料夾中，並將 **libhello\_world.so** 放在 **build/modules/hello_world/** 資料夾中。 請使用這些路徑作為**模組路徑**值 (如範例 JSON 設定檔所示)。
 
 hello\_world\_sample 程序會採用 JSON 組態檔的路徑作為命令列引數。 下列範例 JSON 檔案提供於 SDK 儲存裝置中 (位於 **samples/hello\_world/src/hello\_world\_lin.json**)。 除非您修改 build 指令碼以將 IoT Edge 模組或範例可執行檔放置在非預設位置，否則此組態檔將保有原始功能。
 
@@ -79,9 +78,8 @@ hello\_world\_sample 程序會採用 JSON 組態檔的路徑作為命令列引�
 1. 執行以下命令：
 
     ```sh
-    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json`
+    ./samples/hello_world/hello_world_sample ../samples/hello_world/src/hello_world_lin.json
     ```
 
 [!INCLUDE [iot-hub-iot-edge-getstarted-code](../../includes/iot-hub-iot-edge-getstarted-code.md)]
-
 

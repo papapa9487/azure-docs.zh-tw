@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-azure-activity-logs"></a>檢視 Azure 活動記錄
 
@@ -67,7 +67,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
 2. 設定活動記錄移至您的 Log Analytics 工作區。
-    1. 在 Azure 網站中，選取您的工作區，然後按一下 [Azure 活動記錄]。
+    1. 在 Azure 網站中，選取您的工作區，然後按一下Azure 活動記錄。
     2. 對於每個訂用帳戶，按一下訂用帳戶名稱。  
         ![新增訂用帳戶](./media/log-analytics-activity/add-subscription.png)
     3. 在 [SubscriptionName] 刀鋒視窗中，按一下 [連接]。  
@@ -90,10 +90,10 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 | 刀鋒視窗 | 說明 |
 | --- | --- |
-| Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下橫條圖，若要執行的記錄搜尋<code>Type=AzureActivity</code>。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
-| 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表，即可執行的記錄搜尋<code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |
-| 依資源列出的活動記錄 | 顯示活動記錄的資源總數，並對於各個資源列出記錄計數的前 10 個資源。 按一下要執行記錄檔中的搜尋的總區域<code>Type=AzureActivity &#124; measure count() by Resource</code>，其中顯示所有的 Azure 資源可用方案。 按一下資源來執行記錄搜尋，以傳回該資源的所有活動記錄。 |
-| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前 10 個。 按一下要執行記錄檔中的搜尋的總區域<code>Type=AzureActivity &#124; measure count() by ResourceProvider</code>，其中顯示所有的 Azure 資源提供者。 按一下資源提供者執行記錄搜尋，以傳回提供者的所有活動記錄。 |
+| Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下長條圖即可執行 <code>Type=AzureActivity</code> 的記錄搜尋。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
+| 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表即可執行 <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code> 的記錄搜尋。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |
+| 依資源列出的活動記錄 | 顯示活動記錄的資源總數，並對於各個資源列出記錄計數的前 10 個資源。 按一下總計區域即可執行 <code>Type=AzureActivity &#124; measure count() by Resource</code> 的記錄搜尋，這會顯示解決方案可用的所有 Azure 資源。 按一下資源來執行記錄搜尋，以傳回該資源的所有活動記錄。 |
+| 依資源提供者列出的活動記錄 | 顯示產生活動記錄的資源提供者總數，並列出前 10 個。 按一下總計區域即可執行 <code>Type=AzureActivity &#124; measure count() by ResourceProvider</code> 的記錄搜尋，這會顯示所有 Azure 資源提供者。 按一下資源提供者執行記錄搜尋，以傳回提供者的所有活動記錄。 |
 
 ![Azure 活動記錄儀表板](./media/log-analytics-activity/activity-log-dash.png)
 

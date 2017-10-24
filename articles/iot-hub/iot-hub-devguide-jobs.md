@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: juanpere
+ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 6e4ca8ad0c444930f5e45eed0a024412de82dbb1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>排程多個裝置上的作業
 ## <a name="overview"></a>概觀
@@ -33,7 +32,7 @@ ms.lasthandoff: 08/29/2017
 * 叫用直接方法
 
 ## <a name="job-lifecycle"></a>作業生命週期
-作業由解決方案後端起始，並由 IoT 中樞維護。  您可以透過面向服務的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 起始作業，並透過面向服務的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查詢執行中作業的進度。  作業起始後，只要查詢作業，就可讓後端應用程式重新整理執行中作業的狀態。
+作業由解決方案後端起始，並由 IoT 中樞維護。  您可以透過面向服務的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 起始作業，並透過面向服務的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查詢執行中作業的進度。 在作業起始後，若要重新整理執行中作業的狀態，請執行作業查詢。
 
 > [!NOTE]
 > 當您起始作業時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，下列集合中的任何字元除外︰``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``。
@@ -44,7 +43,7 @@ ms.lasthandoff: 08/29/2017
 下列參考主題會提供您關於使用作業的詳細資訊。
 
 ## <a name="jobs-to-execute-direct-methods"></a>用以執行直接方法的作業
-以下是使用作業在一組裝置上執行[直接方法][lnk-dev-methods]的 HTTP 1.1 要求詳細資料︰
+以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於使用作業在一組裝置上執行[直接方法][lnk-dev-methods]的情況︰
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -67,7 +66,7 @@ ms.lasthandoff: 08/29/2017
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-查詢條件也可以在單一裝置識別碼或裝置識別碼清單中，如下所示
+查詢條件也可以針對單一裝置識別碼或針對裝置識別碼清單，如以下範例所示：
 
 **範例**
 ```
@@ -78,7 +77,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [IoT 中樞查詢語言][lnk-query]涵蓋了IoT 中樞查詢語言的其他詳細資料。
 
 ## <a name="jobs-to-update-device-twin-properties"></a>用以更新裝置對應項屬性的作業
-以下是使用作業更新裝置對應項屬性的 HTTP 1.1 要求詳細資料︰
+以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於使用作業來更新裝置對應項屬性的情況：
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -98,7 +97,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>查詢作業的進度
-以下是用於[查詢作業][lnk-query]的 HTTP 1.1 要求詳細資料：
+以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於[查詢作業][lnk-query]的情況：
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -112,7 +111,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 ContinuationToken 會從回應來提供。  
 
 ## <a name="jobs-properties"></a>作業屬性
-以下是屬性和相對應說明的清單，可於查詢作業或作業結果時使用。
+以下清單顯示屬性和對應的描述，可在查詢作業或作業結果時使用。
 
 | 屬性 | 說明 |
 | --- | --- |
@@ -120,15 +119,15 @@ ContinuationToken 會從回應來提供。
 | **startTime** |應用程式所提供的作業開始時間 (ISO-8601)。 |
 | **endTime** |IoT 中樞所提供的作業完成日期 (ISO-8601)。 在作業到達「已完成」狀態後才有效。 |
 | **type** |作業類型： |
-| **scheduledUpdateTwin**︰用來更新一組所需屬性或標籤的作業。 | |
-| **scheduledDeviceMethod**︰用來在一組裝置對應項上叫用裝置方法的作業。 | |
-| **狀態** |作業的目前狀態。 狀態的可能值︰ |
-| **擱置中**︰已排定並等候作業服務揀選。 | |
-| **已排程**︰已排定未來時間。 | |
-| **執行中**︰目前作用中的作業。 | |
-| **取消**︰作業已遭到取消。 | |
-| **失敗**︰作業失敗。 | |
-| **完成**︰作業完成。 | |
+| | **scheduledUpdateTwin**︰用來更新一組所需屬性或標籤的作業。 |
+| | **scheduledDeviceMethod**︰用來在一組裝置對應項上叫用裝置方法的作業。 |
+| **status** |作業的目前狀態。 狀態的可能值︰ |
+| | **pending**︰已排定並等候作業服務執行。 |
+| | **scheduled**︰已排定未來時間。 |
+| | **running**︰目前作用中的作業。 |
+| | **canceled**：作業已被取消。 |
+| | **failed**：作業失敗。 |
+| | **completed**作業完成。 |
 | **deviceJobStatistics** |作業執行的相關統計資料。 |
 
 **deviceJobStatistics** 屬性。
@@ -167,4 +166,3 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-

@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 8/16/2017
 ms.author: johnkem
 ms.openlocfilehash: 46b6ec12655b64b8fce6e103d5d71a4e8021890e
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
 | --- | --- | --- |
 | [![合作夥伴標誌][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![合作夥伴標誌][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![合作夥伴標誌][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [![Partner Logo][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![合作夥伴標誌][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![合作夥伴標誌][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
-| [![合作夥伴標誌][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Partner Logo][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![合作夥伴標誌][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
+| [![合作夥伴標誌][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![合作夥伴標誌][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] | [![][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] |
+| [![合作夥伴標誌][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![合作夥伴標誌][datadog-logo]<br/>**Datadog**][datadog-anchor] | [![合作夥伴標誌][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] |
 | [![合作夥伴標誌][newrelic-logo]<br/>**NewRelic**][newrelic-anchor] | [![合作夥伴標誌][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![合作夥伴標誌][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
 | [![合作夥伴標誌][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![合作夥伴標誌][splunk-logo]<br/>**Splunk**][splunk-anchor] | [![合作夥伴標誌][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | |
 

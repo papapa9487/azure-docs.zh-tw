@@ -11,11 +11,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.openlocfilehash: ba466f47e157d805600c41fa3d84ed5a0363969c
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: e23c4aa7bb3eb4fab18d5a13cbad28e07c18d8f2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>使用 Node.js 建立 Azure IoT Edge 模組
 
@@ -121,7 +121,7 @@ JS 模組專案由下列元件組成：
 
 輸出類似於輸入，它可能會觸發硬體行為 (例如閃爍的 LED)、給其他模組的訊息，或任何其他作業 (例如列印至主控台)。
 
-模組會使用 `message` 物件彼此通訊。 `message` 的 [內容] 是一個位元組陣列，其可代表任一種您想要的資料。 [屬性] 也適用於 `message`，且只是字串與字串的對應。 您可以將 [屬性] 視為 HTTP 要求中的標頭或檔案的中繼資料。
+模組會使用 `message` 物件彼此通訊。 `message` 的 [內容] 是一個位元組陣列，其可代表任一種您想要的資料。 [屬性] 也適用於 `message`，且只是字串與字串的對應。 您可以將**屬性**想成是 HTTPS 要求中的標頭或檔案的中繼資料。
 
 若要使用 JS 開發 Azure IoT Edge 模組，您必須建立新的模組物件，以實作必要的方法 `receive()`。 此時，您也可以選擇實作選擇性 `create()``start()` 或 `destroy()` 方法。 下列程式碼片段顯示 JS 模組物件的 Scaffolding。
 

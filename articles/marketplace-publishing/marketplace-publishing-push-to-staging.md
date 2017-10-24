@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/17/2016
 ms.author: hascipio
 ms.openlocfilehash: 7db86716cdf8f9eb921c3c1813970acae7a3016b
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="complete-the-offer-creation-with-marketing-content"></a>使用行銷內容完成供應項目建立程序
 在發佈程序的這個步驟中，您需要在 Azure Marketplace 中提供特定的行銷內容，以及關於您的優惠和 (或) SKU 的詳細資料。 例如，您將提供產品的描述、公司標誌、價目表、方案的詳細資料，以及其他將您的優惠和 (或) SKU 推送至預備環境的必要資訊。 此資訊會做為 Azure 入口網站中的行銷內容。 您將在[發佈入口網站][link-pubportal]中開始進行此程序。
@@ -78,7 +78,7 @@ ms.lasthandoff: 07/11/2017
 
 * 主圖標誌為選用項。 發行者可以選擇不上傳主圖標誌。 **但主圖圖示一旦上傳，即無法從發佈入口網站中刪除。屆時合作夥伴必須遵循主圖圖示的 Azure Marketplace 指導方針，否則供應項目將無法核准進入生產環境。**
 * 發行者顯示名稱、方案標題和供應項目完整摘要會以白色字型色彩顯示。 因此，您應避免在主圖圖示的背景使用淺色系。 主圖圖示不允許使用黑色、白色和透明背景。
-* 供應項目列出之後，會以程式設計方式將發行者顯示名稱、方案標題、供應項目完整摘要和 [建立] 按鈕內嵌在主圖標誌內。 因此您在設計主圖標誌時不應輸入任何文字。 您只需在右邊留下空白空間，因為我們會以程式設計方式於該處內嵌文字 (也就是 發行者顯示名稱、方案標題、供應項目完整摘要)。 文字右側的空白空間應為 415 x 100 (從左邊開始位移 370px)。
+* 供應項目列出之後，會以程式設計方式將發行者顯示名稱、方案標題、供應項目完整摘要和 [建立] 按鈕內嵌在主圖標誌內。 因此您在設計主圖標誌時不應輸入任何文字。 請將右邊直接留白，因為我們將會透過程式設計方式，在該處納入文字 (也就是發行者顯示名稱、方案標題、供應項目完整摘要)。 文字右側的空白空間應為 415 x 100 (從左邊開始位移 370px)。
   
   ![繪圖](media/marketplace-publishing-push-to-staging/pubportal-herobanner.png)
 

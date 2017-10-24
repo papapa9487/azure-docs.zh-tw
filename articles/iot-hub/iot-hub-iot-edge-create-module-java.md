@@ -11,12 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 682feb4d889ecd881abe1a70d36e0a5a4df3d910
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: eddeb5cc13aac7ab33305adcd266465a5b143462
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>使用 Java 建立 Azure IoT Edge 模組
 
@@ -128,7 +127,7 @@ POM 繼承自 `com.microsoft.azure.gateway.gateway-module-base` 套件，其宣�
 
 輸出類似於輸入，它可能會觸發硬體行為 (例如閃爍的 LED)、給其他模組的訊息，或任何其他作業 (例如列印至主控台)。
 
-模組會使用 `com.microsoft.azure.gateway.messaging.Message` 類別彼此通訊。 `Message` 的 [內容] 是一個位元組陣列，其可代表任一種您想要的資料。 [屬性] 也適用於 `Message`，且只是字串與字串的對應。 您可以將 [屬性] 視為 HTTP 要求中的標頭或檔案的中繼資料。
+模組會使用 `com.microsoft.azure.gateway.messaging.Message` 類別彼此通訊。 `Message` 的 [內容] 是一個位元組陣列，其可代表任一種您想要的資料。 [屬性] 也適用於 `Message`，且只是字串與字串的對應。 您可以將**屬性**想成是 HTTPS 要求中的標頭或檔案的中繼資料。
 
 若要使用 Java 開發 Azure IoT Edge 模組，您必須建立新的模組類別 (繼承自`com.microsoft.azure.gateway.core.GatewayModule`) 並實作必要的抽象方法 `receive()` 和 `destroy()`。 此時，您也可以選擇實作選擇性 `start()` 或 `create()` 方法。 下列程式碼片段會示範如何開始撰寫 Azure IoT Edge 模組。
 
@@ -299,5 +298,4 @@ public void receive(Message message) {
 
 > [!IMPORTANT]
 > 不建議使用 Ctrl + C 來終止 IoT Edge 閘道應用程式， 因為這可能會造成程序異常終止。
-
 

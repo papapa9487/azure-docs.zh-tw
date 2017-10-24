@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/28/2017
 ms.author: LADocs; stepsic
 ms.openlocfilehash: e632c48ed31e82536db55a9c54438bece0c38fd4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-logic-apps-features"></a>使用 Logic Apps 功能
 
@@ -120,7 +120,7 @@ forEach 迴圈會指定要用來重複執行某動作的陣列。 如果它不�
 2. 移至 `When_a_feed-item_is_published` 動作、尋找 `queries` 區段，然後以 `"feedUrl": "#@{parameters('currentFeedUrl')}"` 取代查詢值 
 
     若要加入兩或多個字串，您也可以使用 `concat` 函式。 
-    例如，`"@concat('#',parameters('currentFeedUrl'))"`與上述相同的運作方式。
+    例如，`"@concat('#',parameters('currentFeedUrl'))"` 的運作方式與上述相同。
 
 3.  完成之後，請選擇 [儲存]。 
 

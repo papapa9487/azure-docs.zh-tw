@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
+ms.openlocfilehash: e8abae4d523ad537563f2c2964a3585b68fda7c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 253a2d34ea5b3f4f8253900be27c54fe5ca1dacf
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -94,13 +93,16 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 > [!NOTE] 
 > 圖中顯示的 IP 位址未必會符合 DevKit 畫面上所指派和顯示的實際 IP 位址。 這是正常現象，因為 Wi-Fi 會使用 DHCP 來動態指派 IP。
 
-設定好 Wi-Fi 後，即使將裝置的接線拔除，該裝置上仍會留有用於該連線的認證。 例如，如果您為 DevKit 設定了家中的 Wi-Fi，然後將 DevKit 帶到辦公室，您必須重新設定 AP 模式 (從＜進入 AP 模式＞一節的步驟開始) 以將 DevKit 連線至辦公室的 Wi-Fi。 
+設定好 Wi-Fi 後，即使將裝置的接線拔除，該裝置上仍會留有用於該連線的認證。 例如，如果您設定 DevKit 來使用家中的 Wi-Fi，然後將 DevKit 帶到辦公室，您將必須重新設定 AP 模式 (從＜進入 AP 模式＞一節的步驟開始)，才能將 DevKit 連線到辦公室 Wi-Fi。 
 
 ## <a name="start-using-the-devkit"></a>開始使用 DevKit
 
 在 DevKit 上執行的預設應用程式會檢查最新版本的韌體，並對您顯示某些感應器診斷資料。
 
 ### <a name="upgrade-to-the-latest-firmware"></a>升級至最新的韌體
+
+> [!NOTE] 
+> 自 v1.1 起，DevKit 在開機載入器中啟用了 ST-SAFE。 如果您執行的版本比 v1.1 舊，就必須升級韌體，才可能讓它運作。
 
 如果您需要升級韌體，畫面會顯示目前的和最新的韌體版本。 若要升級，請遵循[升級韌體](https://microsoft.github.io/azure-iot-developer-kit/docs/upgrading/)指南。
 
@@ -119,7 +121,6 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 現在可以設定開發環境：工具與封裝可讓您建立令人驚嘆的 IoT 應用程式。 您可以根據您的作業系統選擇 Windows 或 macOS 版本。
 
-
 ### <a name="windows"></a>Windows
 
 建議您使用安裝封裝以準備開發環境。 如果遇到任何問題，可以依照[手動步驟](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/)來完成準備。
@@ -129,8 +130,7 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 您下載的 .zip 檔案包含進行 DevKit 開發所需的所有必要工具和套件。
 
 > [!div class="button"]
-[下載](https://azureboard.azureedge.net/prod/installpackage/devkit_install_1.0.2.zip)
-
+[下載](https://aka.ms/devkit/prod/installpackage/latest)
 
 .zip 檔案包含下列工具和套件。 如果您已安裝某些元件，指令碼將會偵測到並跳過它們。
 
@@ -144,7 +144,7 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 #### <a name="run-the-installation-script"></a>執行安裝指令碼
 
-在 [Windows 檔案總管] 中，找出 .zip 檔案並將它解壓縮。 尋找 install.cmd，用滑鼠右鍵按一下，然後選取 [以系統管理員身分執行]。
+在 [Windows 檔案總管] 中，找出 .zip 檔案並將它解壓縮。 尋找 `install.cmd`，用滑鼠右鍵按一下它，然後選取 [以系統管理員身分執行]。
 
 ![檔案總管](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/run-admin.png)
 
@@ -161,8 +161,7 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 安裝所需時間約為 10 分鐘，視您的網際網路速度而定。 安裝完成之後，您應該會在桌面上看到 Visual Studio Code 和 Arduino IDE 的捷徑。
 
 > [!NOTE] 
-> 有時在您啟動 VS Code 時，系統會出現錯誤提示，指出找不到 Arduino IDE 或相關開發板套件。 請關閉 VS Code，然後重新啟動 Arduino IDE。 VS Code 接著應該就會正確找到 Arduino IDE 路徑。
-
+> 有時在您啟動 VS Code 時，系統會出現錯誤提示，指出找不到 Arduino IDE 或相關開發板套件。 若要解決此問題，請關閉 VS Code，然後重新啟動 Arduino IDE。 VS Code 接著應該就會正確找到 Arduino IDE 路徑。
 
 ### <a name="macos-preview"></a>macOS (預覽)
 
@@ -249,20 +248,20 @@ Visual Studio Code Arduino 擴充功能依賴 Arduino IDE。 下載並安裝[適
 ![[簡介] 頁面](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-vscode.png)
 
 > [!NOTE] 
-> 有時在您啟動 VS Code 時，系統會出現錯誤提示，指出找不到 Arduino IDE 或相關開發板套件。 請關閉 VS Code，然後重新啟動 Arduino IDE。 VS Code 接著應該就會正確找到 Arduino IDE 路徑。
+> 有時候在您啟動 VS Code 時，系統會出現錯誤提示，指明找不到 Arduino IDE 或相關面板封裝。 請關閉 VS Code，再次啟動 Arduino IDE，VS Code 應該會正確找出 Arduino IDE 路徑。
 
 
 ### <a name="open-the-arduino-examples-folder"></a>開啟 Arduino 範例資料夾
 
-在 [Arduino 範例] 索引標籤上，瀏覽至 [MXCHIP AZ3166 的範例] > [AzureIoT]，然後選取 [GetStarted]。
+展開左邊的 [ARDUINO EXAMPLES] \(ARDUINO 範例\) 區段，瀏覽至 [Examples for MXCHIP AZ3166] \(MXCHIP AZ3166 的範例\) > [AzureIoT]，然後選取 [GetStarted]。 這會開啟一個內含專案資料夾的新 VS Code 視窗。
 
 ![[Arduino 範例] 索引標籤](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution-examples.png)
 
-如果您不小心關閉該窗格，可予以重新開啟。 使用 Ctrl+Shift+P (macOS：Cmd+Shift+P) 開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples]。
+如果您不小心關閉該窗格，可予以重新開啟。 請使用 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Examples] \(Arduino: 範例\)。
 
 ## <a name="provision-azure-services"></a>佈建 Azure 服務
 
-在解決方案視窗中，請藉由輸入 `task cloud-provision` 以透過 Ctrl+P (macOS：Cmd+P) 執行您的工作。
+在方案視窗中，透過 `Ctrl+P` (macOS：`Cmd+P`) 執行您的工作，方法是輸入 `task cloud-provision`：
 
 VS Code 終端機中會有互動式命令列來引導您佈建所需的 Azure 服務：
 
@@ -272,13 +271,15 @@ VS Code 終端機中會有互動式命令列來引導您佈建所需的 Azure �
 
 ### <a name="install-the-required-library"></a>安裝必要的程式庫
 
-1. 選取 F1 或 Ctrl+Shift+P (macOS：Cmd+Shift+P) 開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Library Manager]。
+1. 按 `F1` 或 `Ctrl+Shift+P` (macOS：`Cmd+Shift+P`) 來開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Library Manager]。
 
-2. 搜尋 **ArduinoJson** 程式庫，然後選取 [安裝]。
+2. 搜尋 **ArduinoJson** 程式庫，然後選取 [Install] \(安裝\)**Install**：![安裝 Arduino 程式庫](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/arduino-json.png)
 
-### <a name="build-and-upload-the-device-code"></a>組建並上傳裝置程式碼
+### <a name="build-and-upload-the-device-code-windows"></a>組建並上傳裝置程式碼 (Windows)
+1. 使用 `Ctrl+P` 來執行 `task device-upload`。
+2. 終端機會提示您進入設定模式。 若要這樣做，請按住按鈕 A，然後按下並放開 [重設] 按鈕。 畫面會顯示 DevKit 識別碼和 [Configuraiton] \(設定\)。
 
-使用 Ctrl+P (macOS：Cmd+P) 來執行 `task device-upload`。 終端機會提示您進入設定模式。 若要這樣做，請按住按鈕 A，然後按下再放開 [Reset] 按鈕。 畫面會顯示 [設定]。 這可讓您設定擷取自 `task cloud-provision` 步驟的連接字串。
+這是用來設定從 `task cloud-provision` 步驟擷取的連接字串。
 
 然後終端機會開始驗證和上傳 Arduino 草圖：
 
@@ -286,14 +287,33 @@ VS Code 終端機中會有互動式命令列來引導您佈建所需的 Azure �
 
 DevKit 會重新開機，然後開始執行程式碼。
 
+### <a name="build-and-upload-the-device-code-mac"></a>組建並上傳裝置程式碼 (Mac)
+
+1. 讓 DevKit 進入設定模式：按住 A 按鈕，然後按下再放開 [重設] 按鈕。 畫面會顯示 [Configuraiton] \(設定\)。
+2. 使用 `Cmd+P` 來執行 `task device-upload`。
+
+這是用來設定從 `task cloud-provision` 步驟擷取的連接字串。
+
+接著，VS Code 就會開始驗證並上傳 Arduino 草稿碼：
+
+![device-upload](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/device-upload.png)
+
+DevKit 會重新開機，然後開始執行程式碼。
+
 ## <a name="test-the-project"></a>測試專案
 
-在 VS Code 中，選取狀態列上的電源插頭圖示，以開啟「序列監視器」。
+在 VS Code 中，依照下列步驟來開啟和設定「序列監視器」：
+
+1. 按一下狀態列上的 `COM[X]` 文字，以設定含有 `STMicroelectronics` 的正確 COM 連接埠：![com-port](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/com-port.png)
+
+2. 按一下狀態列上的電源插頭圖示，以開啟「序列監視器」：![serial-monitor](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/serial-monitor.png)
+
+3. 在狀態列上，按一下代表「傳輸速率」的數字，然後設定為 `115200`![baud-rate](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/baud-rate.png)
 
 當您看到以下結果時，表示範例應用程式已成功執行：
 
-* 序列監視器顯示與下列螢幕擷取畫面內容相同的資訊。
-* MXChip IoT DevKit 上的 LED 燈在閃爍。
+* 「序列監視器」會顯示與下列螢幕擷取畫面內容相同的資訊。
+* MXChip IoT DevKit 上的 LED 正在閃爍。
 
 ![VS Code 的最終輸出](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 
@@ -314,4 +334,3 @@ DevKit 會重新開機，然後開始執行程式碼。
 - [在 Azure Machine Learning 中使用 IoT 中樞的感應器資料進行天氣預測](https://docs.microsoft.com/azure/iot-hub/iot-hub-weather-forecast-machine-learning)
 - [透過 iothub-explorer進行裝置管理](https://docs.microsoft.com/azure/iot-hub/iot-hub-device-management-iothub-explorer)
 - [搭配 Logic Apps 進行遠端監視和通知](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps)
-

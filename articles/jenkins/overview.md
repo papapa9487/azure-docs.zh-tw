@@ -11,17 +11,15 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
+ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-and-jenkins"></a>Azure 與 Jenkins
 
-[Jenkins](https://jenkins.io/) 是熱門的開放原始碼自動化伺服器，用來設定軟體專案的持續整合與傳遞 (CI/CD)。 您可以使用 Azure 資源在 Azure 中裝載 Jenkins 部署或擴充現有的 Jenkins 組態。 Jenkins 外掛程式也可用來簡化您的應用程式對 Azure 的 CI/CD。
+[Jenkins](https://jenkins.io/) 是熱門的開放原始碼自動化伺服器，用來設定軟體專案的持續整合與傳遞 (CI/CD)。 您可以將 Jenkins 部署裝載在 Azure 中，或是使用 Azure 資源來延伸現有的 Jenkins 組態。 Jenkins 外掛程式也可用來簡化您的應用程式對 Azure 的 CI/CD。
 
 本文介紹如何使用 Azure 搭配 Jenkins，並詳述可供 Jenkins 使用者使用的核心 Azure 功能。 若要開始在 Azure 中使用您自己的 Jenkins 伺服器，請參閱我們的[快速入門](install-jenkins-solution-template.md)。
 
@@ -46,11 +44,10 @@ ms.lasthandoff: 09/20/2017
 
 ## <a name="deploy-your-code-into-azure-services"></a>將您的程式碼部署至 Azure 服務
 
-使用 Jenkins 外掛程式，將您的應用程式部署至 Azure，成為 Jenkins CI/CD 管線的一部分。 部署至 [Azure App Service](/azure/app-service-web/) 和 [Azure Container Service](/azure/container-service/kubernetes/)，可讓您預備、測試和發行您應用程式的更新，而不需管理基礎結構。
+使用 Jenkins 外掛程式，將您的應用程式部署至 Azure，成為 Jenkins CI/CD 管線的一部分。 部署至 [Azure App Service](/azure/app-service/) 和 [Azure Container Service](/azure/container-service/kubernetes/)，可讓您預備、測試和發行您應用程式的更新，而不需管理基礎結構。
 
  外掛程式可供部署到下列服務和環境：
 
-- [Linux 上的 Azure Web 應用程式](/azure/app-service-web/app-service-linux-intro)。 請參閱[教學課程](java-deploy-webapp-tutorial.md)以便開始使用。
+- [Linux 上的 Azure Web 應用程式](/azure/app-service/containers/app-service-linux-intro)。 請參閱[教學課程](java-deploy-webapp-tutorial.md)以便開始使用。
 - [Azure Web 應用程式](/azure/app-service/app-service-web-overview)。 請參閱[作法](deploy-Jenkins-app-service-plugin.md)以便開始使用。
-
 

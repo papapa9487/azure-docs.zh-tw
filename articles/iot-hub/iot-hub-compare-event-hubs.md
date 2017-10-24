@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: a37df79a38a35b61cca72918d4d893a4bfc83b7e
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 44dc7b18d46d1e75e8b55b6e32a346272a06bda9
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="comparison-of-azure-iot-hub-and-azure-event-hubs"></a>Azure IoT 中樞和 Azure 事件中樞的比較
 IoT 中樞的主要使用案例之一是從裝置收集遙測。 因此，經常會比較 IoT 中樞與 [Azure 事件中樞][Azure Event Hubs]。 類似於 IoT 中樞，事件中樞是事件處理服務，它能提供大規模進入雲端的事件和遙測入口，並具備低延遲和高可靠性等特性。
@@ -29,11 +29,11 @@ IoT 中樞的主要使用案例之一是從裝置收集遙測。 因此，經常
 | --- | --- | --- |
 | 通訊模式 | 能夠進行[裝置到雲端通訊][lnk-d2c-guidance] (傳訊、檔案上傳和報告屬性) 和[雲端到裝置通訊][lnk-c2d-guidance] (直接方法、所需屬性、傳訊)。 |僅提供事件輸入 (通常視為裝置到雲端案例)。 |
 | 裝置狀態資訊 | [裝置對應項][lnk-twins]可以儲存和查詢裝置狀態資訊。 | 無法儲存裝置狀態資訊。 |
-| 裝置通訊協定支援 |支援 MQTT、MQTT over WebSockets、AMQP、AMQP over WebSocket 及 HTTP。 此外，IoT 中樞還可搭配 [Azure IoT 通訊協定閘道][lnk-azure-protocol-gateway]來使用，後者是支援自訂通訊協定的可自訂通訊協定閘道實作。 |支援 AMQP、透過 WebSockets 的 AMQP 和 HTTP。 |
+| 裝置通訊協定支援 |支援 MQTT、「透過 WebSocket 的 MQTT」、AMQP、「透過 WebSocket 的 AMQP」及 HTTPS。 此外，IoT 中樞還可搭配 [Azure IoT 通訊協定閘道][lnk-azure-protocol-gateway]來使用，後者是支援自訂通訊協定的可自訂通訊協定閘道實作。 |支援 AMQP、「透過 WebSocket 的 AMQP」及 HTTPS。 |
 | 安全性 |提供每個裝置的身分識別與可撤銷的存取控制。 請參閱 [IoT 中樞開發人員指南的安全性章節]。 |提供全事件中樞的[共用存取原則][Event Hubs - security]，以及透過[發行者原則][Event Hubs publisher policies]的有限撤銷支援。 IoT 解決方案通常需要實作自訂解決方案來支援每個裝置的認證以及防詐騙措施。 |
 | 作業監視 |可讓 IoT 解決方案訂閱一組豐富的裝置身分識別管理和連線事件，例如個別裝置驗證錯誤、節流和格式錯誤的例外狀況。 這些事件可讓您快速識別個別裝置層級的連線問題。 |僅公開彙總的度量。 |
 | 調整 |已最佳化以支援數百萬同時連接的裝置。 |依據每個 [Azure 事件中樞配額][Azure Event Hubs quotas]計量連線數目。 另一方面，事件中樞可讓您指定每個傳送訊息的分割。 |
-| 裝置 SDK |除了直接 MQTT、AMQP 和 HTTP API 以外，提供[裝置 SDK][Azure IoT SDKs] 給各種平台和語言。 |除了 AMQP 和 HTTP 傳送介面以外，在 .NET、Java 和 C 上都提供支援。 |
+| 裝置 SDK |除了直接 MQTT、AMQP 及 HTTPS API 之外，還提供適用於各種平台和語言的[裝置 SDK][Azure IoT SDKs]。 |除了 AMQP 和 HTTPS 傳送介面之外，在 .NET、Java 及 C 上都提供支援。 |
 | 檔案上傳 |可讓 IoT 解決方案將檔案從裝置上傳到雲端。 包含一個用於整合工作流程的檔案通知端點，以及一個用於支援偵錯的作業監視類別。 | 不支援。 |
 | 將訊息路由至多個端點 | 最多支援 10 個自訂端點。 規則會決定訊息路由至自訂端點的方式。 如需詳細資訊，請參閱[使用 IoT 中樞傳送及接收訊息][lnk-devguide-messaging]。 | 需要撰寫及裝載額外的程式碼才能發送訊息。 |
 

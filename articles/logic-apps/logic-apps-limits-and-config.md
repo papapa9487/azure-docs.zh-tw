@@ -1,6 +1,6 @@
 ---
-title: "邏輯應用程式的限制和設定 | Microsoft Docs"
-description: "適用於 Logic Apps 之服務限制和設定值的概觀。"
+title: "限制和設定 - Azure Logic Apps | Microsoft Docs"
+description: "適用於 Azure Logic Apps 的服務限制和設定值"
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: jeffhollan
@@ -12,153 +12,173 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 09/25/2017
 ms.author: LADocs; jehollan
+ms.openlocfilehash: 4babb3033e75edc5c85ce89dac569b9f2beae9f7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 5d905d410e70c5b635a3f6221e7e0c0bda7ad140
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="logic-app-limits-and-configuration"></a>邏輯應用程式的限制和設定
+# <a name="logic-apps-limits-and-configuration"></a>Logic Apps 限制和設定
 
-以下是 Azure Logic Apps 目前的限制和設定詳細資料的相關資訊。
+本主題說明 Azure Logic Apps 目前的限制和設定詳細資料。
 
 ## <a name="limits"></a>限制
 
 ### <a name="http-request-limits"></a>HTTP 要求限制
 
-以下是單一 HTTP 要求和/或連接器呼叫的限制。
+這些限制適用於單一 HTTP 要求或連接器呼叫。
 
 #### <a name="timeout"></a>逾時
 
-|Name|限制|注意事項|
-|----|----|----|
-|要求逾時|120 秒|[非同步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 迴圈](logic-apps-loops-and-scopes.md)可以視需要抵銷|
+| Name | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 要求逾時 | 120 秒 | [非同步模式](../logic-apps/logic-apps-create-api-app.md)或 [Until 迴圈](logic-apps-loops-and-scopes.md)可以視需要抵銷 |
+|||| 
 
 #### <a name="message-size"></a>訊息大小
 
-|Name|限制|注意事項|
-|----|----|----|
-|訊息大小|100 MB|某些連接器和 API 可能不支援 100 MB |
-|運算式評估限制|131,072 個字元|`@concat()`、`@base64()` 和 `string` 的長度不能超過此限制|
+| Name | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 訊息大小 | 100 MB | 某些連接器和 API 可能不支援 100 MB。 | 
+| 運算式評估限制 | 131,072 個字元 | `@concat()`、`@base64()``string` 的長度不能超過此限制。 | 
+|||| 
 
 #### <a name="retry-policy"></a>重試原則
 
-|Name|限制|注意事項|
-|----|----|----|
-|重試次數|10| 預設值為 4。 可以使用[重試原則參數](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)進行設定|
-|重試延遲上限|1 小時|可以使用[重試原則參數](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)進行設定|
-|重試延遲下限|5 秒|可以使用[重試原則參數](https://msdn.microsoft.com/en-us/library/azure/mt643939.aspx)進行設定|
+| Name | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 重試次數 | 90 | 預設值為 4。 您可以使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)來設定。 | 
+| 重試延遲上限 | 1 天 | 您可以使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)來設定。 | 
+| 重試延遲下限 | 5 秒 | 您可以使用[重試原則參數](../logic-apps/logic-apps-workflow-actions-triggers.md)來設定。 |
+|||| 
 
 ### <a name="run-duration-and-retention"></a>執行持續時間和保留期
 
-以下是單一邏輯應用程式的執行限制。
+這些限制適用於單一邏輯應用程式執行。
 
-|名稱|限制|注意事項|
-|----|----|----|
-|執行持續時間|90 天||
-|儲存體保留期|90 天|從執行開始時間算起|
-|最小循環間隔|1 秒|| 搭配 App Service 方案的邏輯應用程式 15 秒
-|最大循環間隔|500 天||
+| 名稱 | 限制 | 
+| ---- | ----- | 
+| 執行持續時間 | 90 天 | 
+| 儲存體保留期 | 從執行開始時間算起 90 天 | 
+| 最小循環間隔 | 1 秒 </br>針對搭配 App Service 方案的邏輯應用程式：15 秒 | 
+| 最大循環間隔 | 500 天 | 
+||| 
 
-如果您預期在正常處理流程期間會超過執行持續時間或儲存體保留期限制，請[與我們連絡](mailto://logicappsemail@microsoft.com)，讓我們可以協助達成您的需求。
-
+若要在您的正常處理流程中超出執行持續時間或儲存體保留期的限制，請[與我們連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
 
 ### <a name="looping-and-debatching-limits"></a>迴圈和解除批次處理限制
 
-以下是單一邏輯應用程式的執行限制。
+這些限制適用於單一邏輯應用程式執行。
 
-|名稱|限制|注意事項|
-|----|----|----|
-|ForEach 項目|100,000|您可以視需要使用 [查詢動作](../connectors/connectors-native-query.md) 篩選較大的陣列|
-|反覆運算之前|5,000||
-|SplitOn 項目|100,000||
-|ForEach 平行處理原則|50| 預設值為 20。 您可以藉由使用 `runtimeConfiguration` 將 `"operationOptions": "Sequential"` 新增至 `foreach` 動作或平行處理的特定層級，來設定為循序的 foreach|
-
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| ForEach 項目 | 100,000 | 您可以視需要使用[查詢動作](../connectors/connectors-native-query.md)來篩選較大的陣列。 | 
+| 反覆運算之前 | 5,000 | | 
+| SplitOn 項目 | 100,000 | | 
+| ForEach 平行處理原則 | 50 | 預設值為 20。 <p>若要在 ForEach 迴圈中設定特定的平行處理原則層級，請在 `foreach` 動作中設定 `runtimeConfiguration` 屬性。 <p>若要循序執行 ForEach 迴圈，請將 `foreach` 動作中的 `operationOptions` 屬性設定為 "Sequential"。 | 
+|||| 
 
 ### <a name="throughput-limits"></a>輸送量限制
 
-以下是單一邏輯應用程式執行個體的限制。 
+這些限制適用於單一邏輯應用程式執行個體。
 
-|名稱|限制|注意事項|
-|----|----|----|
-|每 5 分鐘的動作執行 |100,000|可以視需要將工作負載分散在多個應用程式|
-|動作並行撥出電話 |~2,500|視需要減少並行要求的數目或降低持續時間|
-|執行階段端點並行撥入電話 |~1,000|視需要減少並行要求的數目或降低持續時間|
-|執行階段端點每 5 分鐘讀取呼叫 |60,000|可以視需要將工作負載分散在多個應用程式|
-|執行階段端點每 5 分鐘叫用呼叫 |45,000|可以視需要將工作負載分散在多個應用程式|
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 每 5 分鐘的動作執行 | 100,000 | 可以視需要將工作負載分散到多個應用程式。 | 
+| 動作並行撥出電話 | ~2,500 | 視需要減少並行要求數目或縮短持續時間。 | 
+| 執行階段端點：並行連入呼叫 | ~1,000 | 視需要減少並行要求數目或縮短持續時間。 | 
+| 執行階段端點：每隔 5 分鐘讀取一次呼叫 | 60,000 | 可以視需要將工作負載分散到多個應用程式。 | 
+| 執行階段端點：每隔 5 分鐘叫用一次呼叫 | 45,000 | 可以視需要將工作負載分散到多個應用程式。 | 
+|||| 
 
-如果您預期在正常處理時會超過此限制，或者想要執行可能超過此限制的負載測試一段時間，請[與我們連絡](mailto://logicappsemail@microsoft.com)，讓我們可以協助您的需求。
+若要在正常處理中超出這些限制，或執行可能超出這些限制的負載測試，請[與我們連絡](mailto://logicappsemail@microsoft.com)，以便協助滿足您的需求。
 
-### <a name="definition-limits"></a>定義限制
+### <a name="logic-app-definition-limits"></a>邏輯應用程式定義限制
 
-以下是單一邏輯應用程式定義的限制。
+這些限制適用於單一邏輯應用程式定義。
 
-|名稱|限制|注意事項|
-|----|----|----|
-|每個工作流程的動作數目|500|您可以視需要新增巢狀工作流程以擴充此限制|
-|允許的動作巢狀深度|8|您可以視需要新增巢狀工作流程以擴充此限制|
-|每個訂用帳戶每個區域的工作流程數目|1000||
-|每個工作流程的觸發程序數目|10||
-|參數範圍案例限制|25||
-|每個工作流程的變數數目|250||
-|每個運算式的字元數上限|8,192||
-|`trackedProperties` 大小上限 (以字元為單位)|16,000|
-|`action`/`trigger` 名稱限制|80||
-|`description` 長度限制|256||
-|`parameters` 限制|50||
-|`outputs` 限制|10||
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 每個工作流程的動作數目 | 500 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 |
+| 允許的動作巢狀深度 | 8 | 若要延伸此限制，您可以視需要新增巢狀工作流程。 | 
+| 每個訂用帳戶每個區域的工作流程數目 | 1000 | | 
+| 每個工作流程的觸發程序數目 | 10 | | 
+| 參數範圍案例限制 | 25 | | 
+| 每個工作流程的變數數目 | 250 | | 
+| 每個運算式的字元數上限 | 8,192 | | 
+| `trackedProperties` 大小上限 (以字元為單位) | 16,000 | 
+| `action`/`trigger` 名稱限制 | 80 | | 
+| `description` 長度限制 | 256 | | 
+| `parameters` 限制 | 50 | | 
+| `outputs` 限制 | 10 | | 
+|||| 
+
+<a name="custom-connector-limits"></a>
+
+### <a name="custom-connector-limits"></a>自訂連接器限制
+
+這些限制適用於您可以從 Web API 建立的自訂連接器。
+
+| 名稱 | 限制 | 
+| ---- | ----- | 
+| 您可以建立的自訂連接器數目 | 每個 Azure 訂用帳戶 1,000 個 | 
+| 自訂連接器所建立之每個連線的每分鐘要求數目 | 連接器所建立的每個連線可以有 500 個要求 |
+||| 
 
 ### <a name="integration-account-limits"></a>整合帳戶限制
 
-對於能加入到整合帳戶中的成品的限制如下。
+這些限制適用於您可以新增到整合帳戶中的成品。
 
-|名稱|限制|注意事項|
-|----|----|----|
-|結構描述|8 MB|您可以使用 [blob URI](logic-apps-enterprise-integration-schemas.md) 上傳超過 2 MB 的檔案 |
-|對應 (XSLT 檔案)|2 MB| |
-|執行階段端點每 5 分鐘讀取呼叫 |60,000|可以視需要將工作負載分散在多個帳戶|
-|執行階段端點每 5 分鐘叫用呼叫 |45,000|可以視需要將工作負載分散在多個帳戶|
-|執行階段端點每 5 分鐘追蹤呼叫 |45,000|可以視需要將工作負載分散在多個帳戶|
-|封鎖並行呼叫的執行階段端點 |~1,000|視需要減少並行要求的數目或降低持續時間|
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 結構描述 | 8 MB | 您可以使用 [Blob URI](../logic-apps/logic-apps-enterprise-integration-schemas.md) 來上傳大於 2 MB 的檔案。 | 
+| 對應 (XSLT 檔案) | 2 MB | | 
+| 執行階段端點：每隔 5 分鐘讀取一次呼叫 | 60,000 | 可以視需要將工作負載分散到多個帳戶。 | 
+| 執行階段端點：每隔 5 分鐘叫用一次呼叫 | 45,000 | 可以視需要將工作負載分散到多個帳戶。 | 
+| 執行階段端點：每隔 5 分鐘追蹤一次呼叫 | 45,000 | 可以視需要將工作負載分散到多個帳戶。 | 
+| 執行階段端點：封鎖並行呼叫 | ~1,000 | 視需要減少並行要求數目或縮短持續時間。 | 
+|||| 
 
-對於能加入到整合帳戶中的成品的數量限制如下。
+這些限制適用於您可以新增到整合帳戶中的成品數目。
 
-免費定價層
+#### <a name="free-pricing-tier"></a>免費定價層
 
-|名稱|限制|注意事項|
-|----|----|----|
-|合約|10||
-|其他成品類型|25|類型包含夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。|
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 合約 | 10 | | 
+| 其他成品類型 | 25 |成品類型包含合作夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。 | 
+|||| 
 
-標準定價層
+#### <a name="standard-pricing-tier"></a>標準定價層
 
-|名稱|限制|注意事項|
-|----|----|----|
-|任何成品類型|500|類型包含合約、夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。|
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| 任何成品類型 | 500 | 成品類型包含協議、合作夥伴、結構描述、憑證及對應。 各類型所擁有的成品數量可達到最大上限。 | 
+|||| 
 
 ### <a name="b2b-protocols-as2-x12-edifact-message-size"></a>B2B 通訊協定 (AS2、X12、EDIFACT) 訊息大小
 
-以下是針對 B2B 通訊協定的限制
+這些限制適用於 B2B 通訊協定。
 
-|名稱|限制|注意事項|
-|----|----|----|
-|AS2|50 MB|適用於解碼和編碼|
-|X12|50 MB|適用於解碼和編碼|
-|EDIFACT|50 MB|適用於解碼和編碼|
+| 名稱 | 限制 | 注意事項 | 
+| ---- | ----- | ----- | 
+| AS2 | 50 MB | 適用於解碼和編碼 | 
+| X12 | 50 MB | 適用於解碼和編碼 | 
+| EDIFACT | 50 MB | 適用於解碼和編碼 | 
+|||| 
 
-## <a name="configuration"></a>組態
+<a name="configuration"></a>
 
-### <a name="ip-address"></a>IP 位址
+## <a name="configuration-ip-addresses"></a>設定：IP 位址
 
-#### <a name="logic-app-service"></a>邏輯應用程式服務
+### <a name="logic-apps-service"></a>Logic Apps 服務
 
-直接從邏輯應用程式 (也就是透過 [HTTP](../connectors/connectors-native-http.md) 或 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)) 或其他 HTTP 要求所進行的呼叫，將會來自下列清單指定的 IP 位址：
+邏輯應用程式直接 (也就是透過 [HTTP](../connectors/connectors-native-http.md) 或 [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)或其他 HTTP 要求) 發出的呼叫會來自以下清單中的 IP 位址。
 
-|邏輯應用程式區域|輸出 IP|
-|-----|----|
+|Logic Apps 區域|輸出 IP|
+|-----------------|-----------|
 |澳洲東部|13.75.149.4, 104.210.91.55, 104.210.90.241|
 |澳大利亞東南部|13.73.114.207, 13.77.3.139, 13.70.159.205|
 |巴西南部|191.235.82.221, 191.235.91.7, 191.234.182.26|
@@ -183,13 +203,14 @@ ms.lasthandoff: 09/14/2017
 |美國西部 2|13.66.210.167, 52.183.30.169, 52.183.29.132|
 |英國南部|51.140.74.14, 51.140.73.85, 51.140.78.44|
 |英國西部|51.141.54.185, 51.141.45.238, 51.141.47.136|
+| | |
 
-#### <a name="connectors"></a>連接器
+### <a name="connectors"></a>連接器
 
-來自[連接器](../connectors/apis-list.md)的呼叫，將會來自下列清單指定的 IP 位址：
+[連接器](../connectors/apis-list.md)發出的呼叫會來自以下清單中的 IP 位址。
 
-|邏輯應用程式區域|輸出 IP|
-|-----|----|
+|Logic Apps 區域|輸出 IP|
+|-----------------|-----------|
 |澳洲東部|40.126.251.213|
 |澳大利亞東南部|40.127.80.34|
 |巴西南部|191.232.38.129|
@@ -212,12 +233,11 @@ ms.lasthandoff: 09/14/2017
 |美國西部|104.40.51.248|
 |英國南部|51.140.80.51|
 |英國西部|51.141.47.105|
-
+| | | 
 
 ## <a name="next-steps"></a>後續步驟  
 
-- 若要開始使用 Logic Apps，請遵循[建立 Logic Apps](../logic-apps/logic-apps-create-a-logic-app.md) 教學課程。  
-- [檢視常見的範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)
-- [您可以使用 Logic Apps 自動化商務程序](http://channel9.msdn.com/Events/Build/2016/T694) 
-- [了解如何整合您的系統與 Logic Apps](http://channel9.msdn.com/Events/Build/2016/P462)
-
+* [建立第一個邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)  
+* [常見的範例和案例](../logic-apps/logic-apps-examples-and-scenarios.md)
+* [影片：使用 Logic Apps 將商務程序自動化](http://channel9.msdn.com/Events/Build/2016/T694) \(英文\) 
+* [影片：將您的系統與 Azure Logic Apps 整合](http://channel9.msdn.com/Events/Build/2016/P462) \(英文\)

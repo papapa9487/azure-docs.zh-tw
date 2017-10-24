@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: obloch
-ms.openlocfilehash: 459b630f28fe48064f4ba280974f3fdbdb82f0a6
-ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
-ms.translationtype: MT
+ms.openlocfilehash: 9f0ea741355c6403cde6f02d8263dd8bff7e553b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>適用於 C 的 Azure IoT 裝置 SDK
 
@@ -90,7 +90,7 @@ Azure IoT 裝置 SDK (適用於 C) 是以 ANSI C (C99) 撰寫，以獲得最大�
 
 此索引標籤可讓您管理在 IoT 中樞註冊的裝置。
 
-按一下 [建立] 按鈕即可建立裝置。 將會顯示一個已預先填入一組金鑰 (主要和次要) 的對話方塊。 輸入 [裝置識別碼]，然後按一下 [建立]。
+按一下 [建立] 按鈕即可建立裝置。 將會顯示一個已預先填入一組金鑰 (主要和次要) 的對話方塊。 輸入 裝置識別碼，然後按一下建立。
 
   ![](media/iot-hub-device-sdk-c-intro/05-CreateDevice.PNG)
 
@@ -124,7 +124,7 @@ Windows 版本的 **iothub\_client\_sample\_mqtt** 應用程式包含下列 Visu
 * Microsoft.Azure.IoTHub.IoTHubClient
 * Microsoft.Azure.umqtt
 
-使用 SDK 時，您永遠需要 **Microsoft.Azure.C.SharedUtility** 封裝。 此範例使用 MQTT 通訊協定，因此您必須納入 **Microsoft.Azure.umqtt** 和 **Microsoft.Azure.IoTHub.MqttTransport** 套件 (AMQP 和 HTTP 有對等套件)。 由於此範例使用 **IoTHubClient** 程式庫，因此您也必須在方案中納入 **Microsoft.Azure.IoTHub.IoTHubClient** 套件。
+使用 SDK 時，您永遠需要 **Microsoft.Azure.C.SharedUtility** 封裝。 此範例使用 MQTT 通訊協定，因此您必須納入 **Microsoft.Azure.umqtt** 和 **Microsoft.Azure.IoTHub.MqttTransport** 套件 (有 AMQP 和 HTTPS 的對等套件)。 由於此範例使用 **IoTHubClient** 程式庫，因此您也必須在方案中納入 **Microsoft.Azure.IoTHub.IoTHubClient** 套件。
 
 您可以在 **iothub\_client\_sample\_mqtt.c** 原始程式檔中找到範例應用程式的實作。
 
@@ -147,7 +147,7 @@ else
     ...
 ```
 
-您要將從裝置總管工具取得的裝置連接字串複本傳遞給此函式。 您也可以指定要使用的通訊協定。 這個範例使用 MQTT，但 AMQP 與 HTTP 也是選項。
+您要將從裝置總管工具取得的裝置連接字串複本傳遞給此函式。 您也可以指定要使用的通訊協定。 此範例使用 MQTT，但 AMQP 與 HTTPS 也是選項。
 
 當您具有有效的 **IOTHUB\_CLIENT\_HANDLE** 時，您可以開始呼叫 API 以對 IoT 中樞傳送和接收訊息。
 
@@ -374,7 +374,7 @@ else
 ...
 ```
 
-對 **serializer\_init** 函式的呼叫是單次呼叫，此呼叫可將基礎程式庫初始化。 接著，您需呼叫 **IoTHubClient\_LL\_CreateFromConnectionString** 函式，這與 **IoTHubClient** 範例中的 API 相同。 此呼叫會設定您的裝置連接字串 (此呼叫也可用來選擇您要使用的通訊協定)。 此範例使用 MQTT 作為傳輸，但也可以使用 AMQP 或 HTTP。
+對 **serializer\_init** 函式的呼叫是單次呼叫，此呼叫可將基礎程式庫初始化。 接著，您需呼叫 **IoTHubClient\_LL\_CreateFromConnectionString** 函式，這與 **IoTHubClient** 範例中的 API 相同。 此呼叫會設定您的裝置連接字串 (此呼叫也可用來選擇您要使用的通訊協定)。 此範例使用 MQTT 作為傳輸，但也可以使用 AMQP 或 HTTPS。
 
 最後，呼叫 **CREATE\_MODEL\_INSTANCE** 函式。 **WeatherStation** 是模型的命名空間，而 **ContosoAnemometer** 是模型的名稱。 建立模型執行個體後，您便可以使用它來開始傳送和接收訊息。 不過，請務必了解模型是什麼。
 

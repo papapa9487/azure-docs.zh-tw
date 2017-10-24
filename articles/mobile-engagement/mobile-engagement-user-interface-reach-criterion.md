@@ -15,10 +15,10 @@ ms.workload: mobile
 ms.date: 08/19/2016
 ms.author: piyushjo
 ms.openlocfilehash: 803b44721d0ab1ac7b5a8074e18857fc57adb724
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-targeting-criteria-to-send-push-campaigns-to-a-select-subset-of-your-users"></a>如何使用目標準則傳送推播活動到選取的使用者子集。
 在 Azure Mobile Engagement 中使用 [新增準則] 按鈕透過特定準則來找出目標對象，是一個非常有力的概念，這樣可協助您傳送相關的推播通知給會回應的客戶，而不是濫發垃圾訊息給每個人。 您可以根據標準的準則限制對象，並且模擬推送來判斷有多少人會收到通知。
@@ -28,7 +28,7 @@ ms.lasthandoff: 07/11/2017
 * [UI 文件 - 觸達 - 新的推播活動][Link 27]
 
 ## <a name="audience-criteria-can-include"></a>對象準則可以包括：
-* * * Technicals: * * 您可鎖定目標根據您所見，分析及監視區段中的相同技術資訊。 **另請參閱：** [UI 文件 - 分析][Link 15]、[UI 文件 - 監視器][Link 16]
+* **技術：** 您可以根據在 [分析] 和 [監視] 區段中也可看見的相同技術資訊來選取目標。 **另請參閱：** [UI 文件 - 分析][Link 15]、[UI 文件 - 監視器][Link 16]
 * **位置：** 使用「即時位置報告」與地理柵欄的應用程式，可以使用地理位置當作準則來從 GPS 位置選取對象。 「延遲區域位置報告」呼叫也用來根據手機位置選擇目標對象 (「即時位置報告」和「延遲區域位置報告」必須從 SDK 啟動)。 **另請參閱：** [SDK 文件 - iOS - 整合][Link 5]、[SDK 文件 - Android - 整合][Link 5]
 * **觸達意見反應：** 您可以根據他們上一個透過觸達意見反應的通知、投票和資料推送的觸達意見反應來選擇目標對象。 這讓您能在經過二或三次的觸達活動之後，更精確地選擇目標對象。 藉由設定「不」傳送活動給之前已收到特定活動的使用者，它也可以篩選出已經接收類似內容通知的使用者。 您甚至可以排除包含特定有效活動的使用者收到新的推播。 **另請參閱：** [UI 文件 - 觸達 - 推播內容][Link 29]
 * **安裝追蹤：** 您可以追蹤根據使用者安裝您應用程式之位置所建立的資訊。 **另請參閱：** [UI 文件 - 設定][Link 20]

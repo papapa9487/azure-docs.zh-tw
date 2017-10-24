@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/18/2017
 ms.author: dobett
+ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 3f4f19eba5ed1a7b3176be4d3505998f97667200
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -41,7 +40,7 @@ SKU 也會決定 IoT 中樞在所有作業上強制執行的節流限制。
 | 裝置連線 | 100/秒或 12/秒/單位較高者 <br/> 例如，兩個 S1 單位是 2\*12 = 24/秒，但是您在所有單位上至少擁有 100/秒。 如果有九個 S1 單位，您的全部單位就會擁有 108/秒 (9\*12)。 | 120/秒/單位 | 6000/秒/單位 |
 | 裝置到雲端傳送 | 100/秒或 12/秒/單位較高者 <br/> 例如，兩個 S1 單位是 2\*12 = 24/秒，但是您在所有單位上至少擁有 100/秒。 如果有九個 S1 單位，您的全部單位就會擁有 108/秒 (9\*12)。 | 120/秒/單位 | 6000/秒/單位 |
 | 雲端到裝置的傳送 | 1.67/秒/單位 (100/分鐘/單位) | 1.67/秒/單位 (100/分鐘/單位) | 83.33/秒/單位 (5000/分鐘/單位) |
-| 雲端到裝置的接收 <br/> (僅限裝置使用 HTTP 時)| 16.67/秒/單位 (1000/分鐘/單位) | 16.67/秒/單位 (1000/分鐘/單位) | 833.33/秒/單位 (50000/分鐘/單位) |
+| 雲端到裝置的接收 <br/> (僅限裝置使用 HTTPS 時)| 16.67/秒/單位 (1000/分鐘/單位) | 16.67/秒/單位 (1000/分鐘/單位) | 833.33/秒/單位 (50000/分鐘/單位) |
 | 檔案上傳 | 1.67 檔案上傳通知/秒/單位 (100/分鐘/單位) | 1.67 檔案上傳通知/秒/單位 (100/分鐘/單位) | 83.33 檔案上傳通知/秒/單位 (5000/分鐘/單位) |
 | 直接方法 | 20/秒/單位 | 60/秒/單位 | 3000/秒/單位 | 
 | 裝置對應項讀取 | 10/秒 | 10/秒或 1/秒/單位較高者 | 50/秒/單位 |
@@ -104,4 +103,3 @@ IoT 中樞會努力地為所有作業提供低延遲的服務。 不過，由於
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

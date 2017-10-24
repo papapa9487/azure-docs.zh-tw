@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 10/09/2017
 ms.author: johnkem
+ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: a28f971ae898ffdd1168550a909f2a48e1b3b652
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受管理的服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
@@ -75,15 +74,23 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 
 | 作業 | 說明 |
 | --- | --- |
-| Microsoft.Insights/AlertRules/[讀取、寫入、刪除] |讀取/寫入/刪除警示規則。 |
+| Microsoft.Insights/ActionGroups/[Read, Write, Delete] |讀取/寫入/刪除動作群組。 |
+| Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |讀取/寫入/刪除活動記錄警示。 |
+| Microsoft.Insights/AlertRules/[讀取、寫入、刪除] |讀取/寫入/刪除警示規則 (計量警示)。 |
 | Microsoft.Insights/AlertRules/Incidents/Read |列出警示規則的事件 (觸發的警示規則歷程記錄)。 這僅適用於入口網站。 |
 | Microsoft.Insights/AutoscaleSettings/[讀取、寫入、刪除] |讀取/寫入/刪除自動調整設定。 |
 | Microsoft.Insights/DiagnosticSettings/[讀取、寫入、刪除] |讀取/寫入/刪除診斷設定。 |
+| Microsoft.Insights/EventCategories/Read |列舉「活動記錄」中所有可能的類別。 「Azure 入口網站」所使用。 |
 | Microsoft.Insights/eventtypes/digestevents/Read |此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 |
 | Microsoft.Insights/eventtypes/values/Read |列出訂用帳戶中的活動記錄檔事件 (管理事件)。 此權限適用於以程式設計方式存取和入口網站存取活動記錄檔。 |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 讀取/寫入/刪除網路流量記錄的診斷設定。 |
 | Microsoft.Insights/LogDefinitions/Read |此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 |
+| Microsoft.Insights/LogProfiles/[Read, Write, Delete] |讀取/寫入/刪除記錄設定檔 (將「活動記錄」串流至事件中樞或儲存體帳戶)。 |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |讀取/寫入/刪除近乎即時的計量警示 (公開預覽版)。 |
 | Microsoft.Insights/MetricDefinitions/Read |讀取度量定義 (可用資源的度量類型清單)。 |
 | Microsoft.Insights/Metrics/Read |讀取資源的度量。 |
+| Microsoft.Insights/Register/Action |註冊「Azure 監視器」資源提供者。 |
+
 
 > [!NOTE]
 > 存取警示、診斷設定和資源的度量需要使用者具有資源類型和該資源範圍的讀取權限。 建立 (「寫入」) 封存至儲存體帳戶或串流至事件中樞的診斷設定或記錄檔設定檔的使用者也需要在目標資源上擁有 ListKeys 權限。
@@ -170,5 +177,4 @@ New-AzureRmRoleDefinition -Role $role
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 RBAC 和 Resource Manager 中的權限](../active-directory/role-based-access-control-what-is.md)
 * [閱讀 Azure 中的監視概觀](monitoring-overview.md)
-
 

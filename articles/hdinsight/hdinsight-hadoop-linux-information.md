@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: 29f245fdeaadd6f95755f7fd7564dfa7f6b2981f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 8c6ff4a6b8617cda9b12be060c7c7bed62cb3f44
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -50,13 +49,13 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 就內部而言，叢集中的每個節點都具有在叢集組態期間指派的名稱。 若要尋找叢集名稱，請參閱 Ambari Web UI 上的 [主機] 頁面。 您也可以使用下列命令從 Ambari REST API 傳回主機清單︰
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-將 **PASSWORD** 取代為系統管理員帳戶的密碼，並且將 **CLUSTERNAME** 取代為叢集名稱。 此命令會傳回包含叢集中主機清單的 JSON 文件。 Jq 用來擷取每部主機的 `host_name` 元素值。
+將 **CLUSTERNAME** 取代為您叢集的名稱。 出現提示時，請輸入系統管理員帳戶的密碼。 此命令會傳回包含叢集中主機清單的 JSON 文件。 Jq 用來擷取每部主機的 `host_name` 元素值。
 
 如果您需要針對特定服務尋找節點的名稱，您可以查詢 Ambari 有無該元件。 例如，若要尋找主機有無 HDFS 名稱節點，請使用下列命令：
 
-    curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
+    curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
 此命令會傳回描述服務的 JSON 文件，然後 jq 只會針對主機提取 `host_name` 值。
 
@@ -146,26 +145,26 @@ Azure 儲存體帳戶可以保存多達 4.75 TB 的資料，但個別 Blob (或�
 
 您可以使用 Ambari 來擷取叢集的預設儲存體組態。 請使用下列命令和 CURL 來擷取 HDFS 組態資訊，並使用 [jq](https://stedolan.github.io/jq/)加以篩選：
 
-```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
+```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
 > [!NOTE]
-> 這個方法會傳回套用至伺服器的第一個組態 (`service_config_version=1`)，其包含這項資訊。 您可能需要列出所有組態版本來找出最新的版本。
+> 這個命令會傳回套用至伺服器的第一個組態 (`service_config_version=1`)，其中包含這項資訊。 您可能需要列出所有組態版本來找出最新的版本。
 
 此命令會傳回類似下列 URI 的值：
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net`，若使用 Azure 儲存體帳戶。
 
-    帳戶名稱是 Azure 儲存體帳戶的名稱，容器名稱則是叢集儲存體根目錄的 Blob 容器。
+    帳戶名稱是「Azure 儲存體」帳戶的名稱。 容器名稱是作為叢集儲存體根目錄的 Blob 容器。
 
 * `adl://home`，若使用 Azure Data Lake Store。 若要取得 Data Lake Store 名稱，請使用下列 REST 呼叫︰
 
-    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
+    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'```
 
     此命令會傳回下列主機名稱：`<data-lake-store-account-name>.azuredatalakestore.net`。
 
     若要取得 HDInsight 根目錄存放區內的目錄，請使用下列 REST 呼叫︰
 
-    ```curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
+    ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'```
 
     此命令會傳回類似下列路徑的路徑：`/clusters/<hdinsight-cluster-name>/`。
 
@@ -211,7 +210,7 @@ Azure 儲存體帳戶可以保存多達 4.75 TB 的資料，但個別 Blob (或�
 不同的叢集類型會受調整影響，如下所示：
 
 * **Hadoop**︰相應減少叢集中的節點數目時，會重新啟動叢集中的部分服務。 調整作業可能會導致執行中或擱置的工作在調整作業完成時失敗。 您可以在作業完成後重新提交這些工作。
-* **HBase**︰區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 若要手動平衡區域伺服器，請使用下列步驟：
+* **HBase**︰區域伺服器會在調整作業完成後的幾分鐘內自動取得平衡。 若要手動平衡區域伺服器，請使用下列步驟：
 
     1. 使用 SSH 連線到 HDInsight 叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -245,12 +244,11 @@ Azure 儲存體帳戶可以保存多達 4.75 TB 的資料，但個別 Blob (或�
 
 HDInsight 是受管理的服務。 如果 Azure 偵測到叢集問題，它可能會刪除失敗節點並建立要取代它的節點。 如果您以手動方式在叢集上安裝項目，此作業發生時，不會保存這些項目。 請改用 [HDInsight 指令碼動作](hdinsight-hadoop-customize-cluster.md)。 指令碼動作可用來進行下列變更︰
 
-* 安裝及設定服務或網站，例如 Spark 或 Hue。
-* 安裝及設定需要在叢集中的多個節點上進行組態變更的元件。 例如，必要的環境變數、建立記錄目錄或建立組態檔。
+* 安裝及設定服務或網站。
+* 安裝及設定需要在叢集中的多個節點上進行組態變更的元件。
 
-指令碼動作是 Bash 指令碼。 指令碼會在叢集佈建期間執行，而且可用來在叢集上安裝並設定其他元件。 範例指令碼可供安裝下列元件：
+指令碼動作是 Bash 指令碼。 指令碼會在叢集建立期間執行，而且可用來安裝及設定其他元件。 範例指令碼可供安裝下列元件：
 
-* [Hue](hdinsight-hadoop-hue-linux.md)
 * [Giraph](hdinsight-hadoop-giraph-install-linux.md)
 * [Solr](hdinsight-hadoop-solr-install-linux.md)
 
@@ -258,7 +256,7 @@ HDInsight 是受管理的服務。 如果 Azure 偵測到叢集問題，它可�
 
 ### <a name="jar-files"></a>JAR 檔案
 
-獨立的 jar 檔案中提供了一些 Hadoop 技術，其中包含可用來做為 MapReduce 工作一部分的函式，或者來自 Pig 或 Hive 內部的函式。 使用指令碼動作安裝這些項目時，它們通常不需要任何設定，並且可以在佈建之後上傳到叢集並直接使用。 如果您想要確定元件會在重新安裝叢集的映像後保存下來，則可將 jar 檔案儲存於叢集的預設儲存體 (WASB 或 ADL) 中。
+獨立的 jar 檔案中提供了一些 Hadoop 技術，其中包含可用來做為 MapReduce 工作一部分的函式，或者來自 Pig 或 Hive 內部的函式。 它們通常不需要任何設定，而且可在佈建後上傳到叢集並直接使用。 如果您想要確定元件會在重新安裝叢集的映像後保存下來，則可將 jar 檔案儲存於叢集的預設儲存體 (WASB 或 ADL) 中。
 
 例如，如果您想要使用最新版本的 [DataFu](http://datafu.incubator.apache.org/)，則可下載包含專案的 jar，並將它上傳至 HDInsight 叢集。 接著遵循 DataFu 文件中，如何從 Pig 或 Hive 中使用它的指示進行。
 
@@ -274,7 +272,7 @@ HDInsight 是受管理的服務。 如果 Azure 偵測到叢集問題，它可�
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可以使用，像是：[HDInsight 的 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。另外，Apache 專案在 [http://apache.org](http://apache.org) 上有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -282,4 +280,3 @@ HDInsight 是受管理的服務。 如果 Azure 偵測到叢集問題，它可�
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)
-

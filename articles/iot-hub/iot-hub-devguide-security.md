@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
+ms.openlocfilehash: 91b2e72b9cc5f7b52dde09fb837cbc994d52a26c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: e4fe5400ffcf4446392015aada031dd4dfbf238a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -73,7 +72,7 @@ Azure IoT 中樞可根據共用存取原則和身分識別登錄安全性認證�
 
 ### <a name="protocol-specifics"></a>通訊協定詳細規格
 
-每個支援的通訊協定 (例如 MQTT、AMQP 及 HTTP) 會以不同的方式傳輸權杖。
+每個支援的通訊協定 (例如 MQTT、AMQP 及 HTTPS) 會以不同的方式傳輸權杖。
 
 使用 MQTT 時，CONNECT 封包具有做為 ClientId 的 deviceId，在 [使用者名稱] 欄位中具有 {iothubhostname}/{deviceId}，並且在 [密碼] 欄位中具有 SAS 權杖。 {iothubhostname} 應該是 IoT 中樞的完整 CName (例如，contoso.azure-devices.net)。
 
@@ -88,7 +87,7 @@ Azure IoT 中樞可根據共用存取原則和身分識別登錄安全性認證�
 
 在這兩種情況下，密碼欄位都會包含 [IoT 中樞安全性權杖][lnk-sas-tokens]中所述的權杖。
 
-HTTP 是以在 **Authorization** 要求標頭中包含有效權杖的方式實作驗證。
+HTTPS 實作驗證的方式是在 **Authorization** 要求標頭中包含有效的權杖。
 
 #### <a name="example"></a>範例
 
@@ -116,7 +115,7 @@ HTTP 是以在 **Authorization** 要求標頭中包含有效權杖的方式實�
 
 IoT 中樞使用安全性權杖來驗證裝置和服務，以避免透過線路傳送金鑰。 此外，安全性權杖有時效性和範圍的限制。 [Azure IoT SDK][lnk-sdks] 能在不需要任何特殊組態的情況下自動產生權杖。 在某些案例中，您必須直接產生及使用安全性權杖。 這類案例包括：
 
-* MQTT、AMQP 或 HTTP 介面的直接使用。
+* MQTT、AMQP 或 HTTPS 介面的直接使用。
 * 權杖服務模式的實作，如[自訂裝置驗證][lnk-custom-auth]中所述。
 
 IoT 中樞也可允許裝置使用 [X.509 憑證][lnk-x509]向 IoT 中樞進行驗證。
@@ -462,4 +461,3 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
 [lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
-

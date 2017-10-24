@@ -16,14 +16,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: c92692db23ac59f67890e26cce6b2d3272e8901d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: dab336da4e010d0a78de9a2bdd62536d8fdd9bf1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-logic-apps"></a>在邏輯應用程式中透過 HTTP 端點呼叫、觸發或巢狀處理工作流程
 
 您可以在邏輯應用程式中利用原生方式公開同步的 HTTP 端點作為觸發程序，以透過 URL 來觸發或呼叫邏輯應用程式。 您也可以使用可呼叫端點的模式，以在邏輯應用程式中巢狀處理工作流程。
@@ -86,7 +84,7 @@ ms.lasthandoff: 06/01/2017
     產生此結構描述︰
 
     ```json
-    }
+    {
        "type": "object",
        "properties": {
           "address": {
@@ -147,8 +145,7 @@ ms.lasthandoff: 06/01/2017
 5. 在您回應的 [本文] 中，包括觸發程序相對路徑中所指定參數的權杖。
 
     例如，若要傳回 `Hello {customerID}`，請使用 `Hello {customerID token}` 來更新回應的 [本文]。 
-    動態內容清單應該會出現，並顯示 `customerID` 
-    權杖以供您選取。
+    動態內容清單應該會出現，並顯示 `customerID` 權杖以供您選取。
 
     ![將參數新增至回應本文](./media/logic-apps-http-endpoint/relativeurlresponse.png)
 
@@ -320,4 +317,3 @@ ms.lasthandoff: 06/01/2017
 [1]: ./media/logic-apps-http-endpoint/manualtrigger.png
 [2]: ./media/logic-apps-http-endpoint/manualtriggerurl.png
 [3]: ./media/logic-apps-http-endpoint/response.png
-

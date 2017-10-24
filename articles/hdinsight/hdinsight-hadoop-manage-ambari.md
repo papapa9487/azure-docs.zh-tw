@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: larryfr
-ms.openlocfilehash: dc0f9ff030f70985dad0f3b74ba0ee3dda1d9f4b
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: 470ec09d444f93abcd8f0f58fc197474bbb1376e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 叢集
 
@@ -51,6 +51,9 @@ Ambari Web UI 位在您的 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdidnsig
 雖然您可直接透過網際網路存取叢集適用的 Ambari，但 Ambari Web UI 中的一些連結 (例如 JobTracker 的連結) 並不會在網際網路上公開。 若要存取這些服務，您必須建立 SSH 通道。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ## <a name="ambari-web-ui"></a>Ambari Web UI
+
+> [!WARNING]
+> 並非所有 Ambari Web UI 功能在 HDInsight 上都受到支援。 如需詳細資訊，請參閱本文件的 [不支援的作業](#unsupported-operations)一節。
 
 連線到 Ambari Web UI 時，系統會提示您通過頁面驗證。 使用您在叢集建立期間使用的叢集管理使用者 (預設值是 Admin) 和密碼。
 
@@ -221,7 +224,7 @@ Ambari Web UI 位在您的 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdidnsig
 
 1. 從 [儀表板] 或 [服務] 頁面選取服務。
 
-2. 選取 [ **設定** ] 索引標籤。 隨即會顯示目前的組態。 同時也會顯示先前組態的清單。
+2. 選取 [ **設定** ] 索引標籤。隨即會顯示目前的組態。 同時也會顯示先前組態的清單。
 
     ![組態](./media/hdinsight-hadoop-manage-ambari/service-configs.png)
 
@@ -236,3 +239,13 @@ Ambari 檢視可讓開發人員使用 [Ambari 檢視架構](https://cwiki.apache
 * Hive 檢視：Hive 檢視可讓您直接從網頁瀏覽器執行 Hive 查詢。 您可以儲存查詢、檢視結果、將結果儲存至叢集存放區，或將結果下載到您本機系統。 如需有關使用 Hive 檢視的詳細資訊，請參閱 [在 HDInsight 上使用 Hive 檢視](hdinsight-hadoop-use-hive-ambari-view.md)。
 
 * Tez 檢視︰[Tez 檢視] 可讓您進一步了解和最佳化工作。 您可以檢視有關 Tez 工作執行方式及使用哪些資源的資訊。
+
+## <a name="unsupported-operations"></a>不支援的作業
+
+以下是 HDInsight 不支援的 Ambari 作業：
+
+* __移動 Metrics Collector (計量收集器) 服務__。 檢視 Metrics Collector (計量收集器) 服務上的資訊時，[Service Actions] \(服務動作\) 功能表提供的其中一個動作是 [Move Metrics collector] \(移動計量收集器\)。 HDInsight 並不支援此動作。
+
+## <a name="next-steps"></a>後續步驟
+
+了解如何將 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) 與 HDInsight 搭配使用。

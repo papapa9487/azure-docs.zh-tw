@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: obloch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 2f1689a2f59b779c83b6be746edda915fd67a3db
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 6e015d391067271cf71eb865af1b469135c8fcaa
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>適用於 C 的 Azure IoT 裝置 SDK - 深入了解 IoTHubClient
 本系列的[第一篇文章](iot-hub-device-sdk-c-intro.md)介紹了「適用於 C 的 Azure IoT 裝置 SDK」。該文章已說明 SDK 中有兩個架構層。 在基底的是 **IoTHubClient** 程式庫，可直接管理與 IoT 中樞的通訊。 還有 **序列化程式** 庫，此程式庫建置於其頂部以提供序列化服務。 在本文中，我們將提供 **IoTHubClient** 程式庫的其他詳細資料。
@@ -260,10 +259,10 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 有一些常用的選項：
 
-* **SetBatching** (bool) - 如果為 **true**，則傳送到「IoT 中樞」的資料會以批次傳送。 如果為 **false**，就表示訊息會個別傳送。 預設值為 **false**。 請注意，**SetBatching** 選項僅適用於 HTTP 通訊協定，不適用於 MQTT 或 AMQP 通訊協定。
-* **Timeout** (unsigned int) - 這個值會以毫秒為單位表示。 如果傳送 HTTP 要求或接收回應所花費的時間超過這個時間，即表示連接逾時。
+* **SetBatching** (bool) - 如果為 **true**，則傳送到「IoT 中樞」的資料會以批次傳送。 如果為 **false**，就表示訊息會個別傳送。 預設值為 **false**。 請注意，**SetBatching** 選項僅適用於 HTTPS 通訊協定，不適用於 MQTT 或 AMQP 通訊協定。
+* **Timeout** (unsigned int) - 這個值會以毫秒為單位表示。 如果傳送 HTTPS 要求或接收回應所花費的時間超過這個時間，連線就會逾時。
 
-此批次處理選項極為重要。 根據預設，程式庫會個別輸入事件 (單一事件是您傳遞給 **IoTHubClient\_LL\_SendEventAsync** 的任何內容)。 如果批次處理選項為 **true**，程式庫會盡可能從緩衝區收集事件 (上限為 IoT 中樞將接受的最大訊息大小)。  事件批次會在單一 HTTP 呼叫中傳送到 IoT 中樞 (個別事件已統合至 JSON 陣列中)。 啟用批次處理通常會導致效能大幅提升，因為網路來回行程正在減少。 它也會大幅減少頻寬，因為您正利用事件批次傳送一組 HTTP 標頭，而不是針對每個個別事件傳送一組標頭。 除非您有使用其他方式的特定理由，否則通常會想要啟用批次處理。
+此批次處理選項極為重要。 根據預設，程式庫會個別輸入事件 (單一事件是您傳遞給 **IoTHubClient\_LL\_SendEventAsync** 的任何內容)。 如果批次處理選項為 **true**，程式庫會盡可能從緩衝區收集事件 (上限為 IoT 中樞將接受的最大訊息大小)。  事件批次會在單一 HTTPS 呼叫中傳送到「IoT 中樞」(個別事件會統合至 JSON 陣列中)。 啟用批次處理通常會導致效能大幅提升，因為網路來回行程正在減少。 它也會大幅減少頻寬，因為您是利用事件批次傳送一組 HTTPS 標頭，而不是針對每個個別事件傳送一組標頭。 除非您有使用其他方式的特定理由，否則通常會想要啟用批次處理。
 
 ## <a name="next-steps"></a>後續步驟
 本文詳細說明「適用於 C 的 Azure IoT 裝置 SDK」中所發現 **IoTHubClient** 程式庫的行為。利用這項資訊，您應可充分了解 **IoTHubClient** 程式庫的功能。 [下一篇文章](iot-hub-device-sdk-c-serializer.md) 將提供 **序列化程式** 庫的類似詳細資料。
@@ -277,4 +276,3 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

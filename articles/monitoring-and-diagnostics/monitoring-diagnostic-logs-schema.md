@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: johnkem
+ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 23da12e518d88109fd7271fd363b6c1f099c5ab6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -30,22 +29,22 @@ ms.lasthandoff: 09/25/2017
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
-| API 管理 | 無法使用結構描述。 |
+| API 管理 | [API 管理診斷記錄](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |
 | Azure 自動化 |[Azure 自動化的記錄檔分析](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 診斷記錄](../batch/batch-diagnostics.md) |
 | Customer Insights | 無法使用結構描述。 |
 | 內容傳遞網路 | 無法使用結構描述。 |
-| CosmosDB | 無法使用結構描述。 |
-| 資料湖分析 |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
+| CosmosDB | [Azure Cosmos DB 記錄](../cosmos-db/logging.md) |
+| Data Lake Analytics |[存取 Azure Data Lake Analytics 的診斷記錄](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[存取 Azure Data Lake Store 的診斷記錄](../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | 事件中樞 |[Azure 事件中樞診斷記錄](../event-hubs/event-hubs-diagnostic-logs.md) |
-| IoT 中樞佈建服務 | 無法使用結構描述。 |
+| IoT 中樞 | [IoT 中樞作業](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | 金鑰保存庫 |[Azure 金鑰保存庫記錄](../key-vault/key-vault-logging.md) |
 | 負載平衡器 |[Azure 負載平衡器的 Log Analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 自訂追蹤結構描述](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 網路安全性群組 |[網路安全性群組 (NSG) 的記錄檔分析](../virtual-network/virtual-network-nsg-manage-log.md) |
-| 公用 IP 位址 DDOS 保護 | 無法使用結構描述。 |
+| DDOS 保護 | 無法使用結構描述。 |
 | [復原服務] | 無法使用結構描述。|
 | 搜尋 |[啟用和使用搜尋流量分析](../search/search-traffic-analytics.md) |
 | 伺服器管理 | 無法使用結構描述。 |
@@ -99,8 +98,8 @@ ms.lasthandoff: 09/25/2017
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|查詢存放區等候統計資料|
 |Microsoft.Sql/servers/databases|Errors|Errors|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|資料庫等候統計資料|
-|Microsoft.Sql/servers/databases|Timeouts|逾時|
-|Microsoft.Sql/servers/databases|Blocks|區塊|
+|Microsoft.Sql/servers/databases|逾時|逾時|
+|Microsoft.Sql/servers/databases|區塊|區塊|
 |Microsoft.Sql/servers/databases|SQLInsights|SQL Insights|
 |Microsoft.StreamAnalytics/streamingjobs|執行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
@@ -111,4 +110,3 @@ ms.lasthandoff: 09/25/2017
 * [將資源診斷記錄串流至**事件中樞**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../log-analytics/log-analytics-azure-storage.md)
-

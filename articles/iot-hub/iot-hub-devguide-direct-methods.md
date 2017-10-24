@@ -15,16 +15,15 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: fda1111877e5eb35fe246891fa7ff71ce6b5c20d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
 ## <a name="overview"></a>概觀
-IoT 中樞能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 這對於依據裝置是否可以回應的不同立即動作的案例相當有用，例如如果裝置離線時傳送 SMS 喚醒至裝置 (SMS 比方法呼叫還貴)。
+IoT 中樞能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 對於立即動作的進展取決於裝置是否能夠回應的案例來說，例如在裝置離線時傳送 SMS 喚醒給裝置 (SMS 的成本比方法呼叫高)，此方法會相當有用。
 
 每個裝置方法的目標是單一裝置。 [作業][lnk-devguide-jobs]提供方法來在多個裝置上叫用直接方法，並針對已中斷連接的裝置排定方法引動過程。
 
@@ -45,20 +44,20 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 
 直接方法是同步的，可能在逾時期間後成功或失敗 (預設︰30 秒，可設定為 3600 秒)。 直接方法在您想要裝置當作在線上並且接收命令 (例如透過手機開燈) 的互動案例中相當有用。 在這些案例中，您想要查看立即成功或失敗，讓雲端服務可以儘速處理結果。 裝置可能會傳回部分訊息本文作為方法的結果，但是不需要方法這麼做。 不保證方法呼叫的順序或任何並行語意。
 
-直接的方法從雲端側為僅限 HTTP，從裝置側則為 MQTT 或 AMQP。
+直接方法從雲端來說，僅限使用 HTTPS，從裝置端來說，則使用 MQTT 或 AMQP。
 
-方法要求和回應的承載是 JSON 文件 (最多 8 KB)。
+方法要求和回應的承載是一個 JSON 文件 (大小上限為 8 KB)。
 
 ## <a name="reference-topics"></a>參考主題：
 下列參考主題會提供您關於使用直接方法的詳細資訊。
 
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>從後端應用程式叫用直接方法
 ### <a name="method-invocation"></a>方法引動過程
-裝置上的直接方法引動過程是 HTTP 呼叫，包含︰
+裝置上的直接方法引動過程是 HTTPS 呼叫，由下列各項組成︰
 
 * 裝置特定的 *URI* (`{iot hub}/twins/{device id}/methods/`)
 * POST *方法*
-* *標頭*，其中包含授權、要求識別碼、內容類型及內容編碼
+* *標頭* - 包含授權、要求識別碼、內容類型及內容編碼
 * 透明 JSON *本文*格式如下︰
 
 ```
@@ -75,10 +74,10 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 逾時 (秒)。 如果未設定逾時，它會預設為 30 秒。
 
 ### <a name="response"></a>Response
-後端應用程式收到的回應包含︰
+後端應用程式會收到一個由下列各項組成的回應︰
 
-* *HTTP 狀態碼*，用於來自 IoT 中樞的錯誤，包括裝置目前未連接的 404 錯誤
-* *標頭*，其中包含 ETag、要求識別碼、內容類型及內容編碼
+* *HTTP 狀態碼* - 用於來自 IoT 中樞的錯誤，包括代表裝置目前未連接的 404 錯誤
+* *標頭* - 包含 ETag、要求識別碼、內容類型及內容編碼
 * JSON *本文*格式如下︰
 
 ```
@@ -123,7 +122,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 * [IoT 中樞 MQTT 支援][lnk-devguide-mqtt]針對 MQTT 通訊協定提供 IoT 中樞支援的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
-現在您已了解如何使用直接方法，接下來您可能對下列 IoT 中樞開發人員指南主題感興趣︰
+現在您已了解如何使用直接方法，接下來您可能對下列「IoT 中樞」開發人員指南文章感興趣︰
 
 * [排程多個裝置上的作業][lnk-devguide-jobs]
 
@@ -143,4 +142,3 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-messages]: iot-hub-devguide-messaging.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
-

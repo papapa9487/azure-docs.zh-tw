@@ -3,8 +3,8 @@ title: "設定 Azure ExpressRoute Microsoft 對等互連的路由篩選：PowerS
 description: "本文說明如何使用 PowerShell 針對 Microsoft 對等互連設定路由篩選"
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: de3550c20439fa809869d98b8a57ea3be9c03e7c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>針對 Microsoft 對等互連設定路由篩選
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>針對 Microsoft 對等互連設定路由篩選：PowerShell
+> [!div class="op_single_selector"]
+> * [Azure 入口網站](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 路由篩選是透過 Microsoft 對等互連使用支援服務子集的方式。 這篇文章中的步驟可協助您設定和管理 ExpressRoute 線路的路由篩選。
 
-Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype) 可以透過 Microsoft 對等互連進行存取。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
+透過 Microsoft 對等互連，既可以存取 Dynamics 365 服務和 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype)，也可以存取 Azure 服務 (例如儲存體和 SQL DB)。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
 
 如果您需要連線到所有服務，則會透過 BGP 公告大量前置詞。 這會大幅增加網路內路由器維護的路由資料表大小。 如果您計劃僅使用透過 Microsoft 對等互連提供的服務子集，您可以用兩種方式減少路由資料表大小。 您可以：
 
@@ -100,7 +104,7 @@ Get-AzureRmSubscription
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>步驟 1. 取得前置詞和 BGP 社群值的清單
+## <a name="prefixes"></a>步驟 1：取得前置詞和 BGP 社群值的清單
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1.取得 BGP 社群值的清單
 
@@ -113,7 +117,7 @@ Get-AzureRmBgpServiceCommunity
 
 製作您想要在路由篩選中使用的 BGP 社群值清單。 例如，Dynamics 365 服務的 BGP 社群值是 12076:5040。
 
-## <a name="filter"></a>步驟 2. 建立路由篩選和篩選規則
+## <a name="filter"></a>步驟 2：建立路由篩選和篩選規則
 
 路由篩選只能有一個規則，且規則的類型必須是 'Allow'。 此規則可以具有與其相關聯的 BGP 社群值清單。
 
@@ -143,7 +147,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>步驟 3. 將路由篩選連結至 ExpressRoute 線路
+## <a name="attach"></a>步驟 3：將路由篩選連結至 ExpressRoute 線路
 
 若您只有 Microsoft 對等互連，請執行下列命令，將路由器篩選附加在 ExpressRoute 線路上：
 
@@ -152,7 +156,9 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>若要取得路由篩選的屬性
+## <a name="tasks"></a>常見工作
+
+### <a name="getproperties"></a>若要取得路由篩選的屬性
 
 若要取得路由篩選的屬性，請使用下列步驟：
 
@@ -168,9 +174,9 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>若要更新路由篩選的屬性
+### <a name="updateproperties"></a>若要更新路由篩選的屬性
 
-如果路由篩選已經連結至線路，更新 BGP 社群清單會自動透過已建立的 BGP 工作階段傳播適當前置詞公告變更。 您可以使用下列命令來更新路由篩選的 BGP 社群清單：
+如果路由篩選已經連結至線路，更新 BGP 社群清單時，會自動透過已建立的 BGP 工作階段，傳播適當的前置詞公告變更。 您可以使用下列命令來更新路由篩選的 BGP 社群清單：
 
 ```powershell
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
@@ -178,7 +184,7 @@ $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
+### <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
 
 一旦從 ExpressRoute 線路取消連結路由篩選，就不會透過 BGP 工作階段公告任何前置詞。 您可以使用下列命令以從 ExpressRoute 線路取消連結路由篩選：
   
@@ -187,7 +193,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>若要刪除路由篩選
+### <a name="delete"></a>若要刪除路由篩選
 
 您只能在路由篩選尚未連結至任何線路時刪除路由篩選。 請在嘗試刪除之前，確認路由篩選尚未連結至任何線路。 您可以使用下列命令來刪除路由篩選：
 

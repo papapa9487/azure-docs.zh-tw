@@ -14,20 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
+ms.openlocfilehash: 0ed8d3432a988c468260589cfe12090529c403d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 2728e8b1e190b4ecd0635925b96e97775564a2ee
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-load-balancer-standard-overview-preview"></a>Azure Load Balancer Standard 概觀 (預覽)
 
 Azure Load Balancer Standard SKU 和 Public IP Standard SKU 搭配使用，可讓您建置極為靈活可靠的架構。  使用 Load Balancer Standard 的應用程式不但可以利用新功能，還具有低延遲、高輸送量，和為所有 TCP 和 UDP 應用程式的數百萬個流程調整規模的能力。
 
 >[!NOTE]
-> Load Balancer Standard SKU 目前為預覽狀態。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 為您的生產服務使用正式推出的 [Load Balancer Basic SKU](load-balancer-overview.md)。
+> Load Balancer Standard SKU 目前為預覽狀態。 在預覽階段，功能可能沒有與正式發行版本功能相同層級的可用性和可靠性。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 為您的生產服務使用正式推出的 [Load Balancer Basic SKU](load-balancer-overview.md)。  與這個預覽板關聯的功能、[可用性區域](https://aka.ms/availabilityzones)及 [HA 連接埠](https://aka.ms/haports)目前需要個別註冊。 除了 Load Balancer [Standard 預覽版](#preview-sign-up)之外，請依照個別指示進行註冊。
 
 ## <a name="why-use-load-balancer-standard"></a>為什麼要使用 Load Balancer Standard
 
@@ -151,6 +149,8 @@ Load Balancer Standard 提供公用和內部 Load Balancer 設定的新多維診
 #### <a name="zonal-deployments"></a>區域性部署
 
 或者，您也可以藉由定義區域性前端，將前端對齊到特定區域。  區域性前端僅由指定的單一可用性區域提供，而當與區域性 VM 執行個體合併時，您可以將資源對齊至指定的區域。
+
+在特定區域中建立的「公用 IP」位址一律只存在於該區域。  「公用 IP」位址的區域無法變更。  如果您想要有一個可以連結到多個區域中資源的「公用 IP」位址，您應該改為建立一個區域備援「公用 IP」。
 
 使用下列在可用性區域 1 中建立區域性 Public IP 位址 (將「zones」和「sku」新增到任何現有的 Resource Manager 範本)：
 
@@ -290,11 +290,11 @@ Public IP Standard SKU 是新的產品，且目前為預覽狀態。 2017-08-01 
 
 不同於 Public IP Basic 提供多個配置方法，Public IP Standard 一定是靜態配置。
 
-在也提供可用性區域的區域中使用時，Public IP Standard 會自動區域復原，除非它被宣告為區域性。
+在也提供可用性區域的區域中使用時，Public IP Standard 會自動區域復原，除非它被宣告為區域性。  區域「公用 IP」無法從一個區域變更到另一個區域。
 
 ## <a name="migration-between-skus"></a>在 SKU 之間移轉
 
-如果您想要從一個資源 SKU 移到另一個，請遵循下列步驟：
+SKU 是不可變動的。  如果您想要從一個資源 SKU 移到另一個，請遵循下列步驟：
 
 ### <a name="migrating-from-basic-to-standard-sku"></a>從 Basic 移轉到 Standard SKU
 
@@ -374,7 +374,7 @@ Azure [網路服務的服務限制](https://docs.microsoft.com/en-us/azure/azure
 >註冊 Load Balancer Standard 功能最多可能需要一小時的時間。
 
 >[!NOTE]
->如果您想要搭配 Load Balancer 和 Public IP 使用可用性區域，您也必須註冊可用性區域預覽的訂用帳戶。
+>如果您想要將 Load Balancer Standard 與[可用性區域](https://aka.ms/availabilityzones)及 [HA 連接埠](https://aka.ms/haports)搭配使用，就必須針對這些預覽版功能個別註冊。  請依照個別指示進行操作。
 
 ## <a name="pricing"></a>價格
 
@@ -401,5 +401,4 @@ Load Balancer Standard SKU 是根據設定的規則和處理的資料收費。  
 - 深入了解 [Basic Load Balancer](load-balancer-overview.md)
 - 深入了解[可用性區域](../availability-zones/az-overview.md)
 - 深入了解 Azure 的一些其他重要[網路功能](../networking/networking-overview.md)
-
 

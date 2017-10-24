@@ -12,26 +12,24 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/15/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: bcbf4b9633f58293edb19aeb33dec6602ac4ec8f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: e299de0953cefac925b0015a15983d25d456576f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-and-use-azure-iot-sdks"></a>了解和使用 Azure IoT SDK
 
-有三種類別的 SDK 可與 IoT 中樞搭配使用：
+有三種類別的軟體開發套件 (SDK) 可與「IoT 中樞」搭配使用：
 
 * **裝置 SDK** 可讓您建立在 IoT 裝置上執行的應用程式。 這些應用程式會將遙測傳送至您的IoT 中樞，並選擇性地接收來自 IoT 中樞的訊息。
 
 * **服務 SDK** 可讓您管理 IoT 中樞，並選擇性地將訊息傳送到 IoT 裝置。
 
-* **Azure IoT Edge** 可讓您建置閘道，以啟用不使用其中一個支援通訊協定的裝置，或者當您需要處理邊緣上的訊息時加以建置。
+* **Azure IoT Edge** 可讓您為不使用其中一種支援之通訊協定的裝置建立閘道。 閘道也可以處理邊緣上的訊息。
 
 提供 SDK 的目的是支援多種程式設計語言。
 
@@ -41,11 +39,11 @@ Microsoft Azure IoT 裝置 SDK 包含有助於建置裝置和應用程式的程�
 
 您可從 GitHub 下載下列 Azure IoT 裝置 SDK：
 
-* 為了可攜性和廣泛平台相容性，以 ANSI C (C99) 撰寫之 [Azure IoT 裝置 SDK for C][lnk-c-device-sdk]。 有兩個適用於 C 的裝置用戶端程式庫，即低階 **iothub_client** 和 **serializer**。
 * [Azure IoT 裝置 SDK for .NET][lnk-dotnet-device-sdk]
 * [Azure IoT 裝置 SDK for Java][lnk-java-device-sdk]
 * [Azure IoT 裝置 SDK for Node.js][lnk-node-device-sdk]
 * [適用於 Python 的 Azure IoT 裝置 SDK][lnk-python-device-sdk]
+* 為了可攜性和廣泛平台相容性，以 ANSI C (C99) 撰寫之 [Azure IoT 裝置 SDK for C][lnk-c-device-sdk]。 有兩個適用於 C 的裝置用戶端程式庫，即低階 **iothub_client** 和 **serializer**。
 
 > [!NOTE]
 > 請參閱 GitHub 儲存機制中的讀我檔案，以取得使用語言和平台特定套件管理員在開發電腦上安裝二進位檔和相依項目的相關資訊。
@@ -63,8 +61,8 @@ Microsoft Azure IoT 服務 SDK 包含可協助建置應用程式的程式碼，�
 您可從 GitHub 下載下列 Azure IoT 服務 SDK：
 
 * [Azure IoT 服務 SDK for .NET][lnk-dotnet-service-sdk]
-* [Azure IoT 服務 SDK for Node.js][lnk-node-service-sdk]
 * [Azure IoT 服務 SDK for Java][lnk-java-service-sdk]
+* [Azure IoT 服務 SDK for Node.js][lnk-node-service-sdk]
 * [適用於 Python 的 Azure IoT 服務 SDK][lnk-python-service-sdk]
 * [適用於 C 的 Azure IoT 服務 SDK][lnk-c-service-sdk]
 
@@ -82,12 +80,12 @@ Azure IoT Edge 包含用來建立 IoT 閘道解決方案的基礎結構和模組
 以下清單包含 Azure IoT 裝置、服務及閘道器程式庫的線上 API 參考文件連結：
 
 * [物聯網 (IoT) .NET (英文)][lnk-dotnet-ref]
-* [IoT 中樞 REST (英文)][lnk-rest-ref]
-* [Azure IoT 裝置 SDK for C][lnk-c-ref]
 * [Azure IoT 裝置 SDK for Java][lnk-java-ref]
 * [Azure IoT 服務 SDK for Java][lnk-java-service-ref]
 * [Azure IoT 裝置 SDK for Node.js][lnk-node-ref]
 * [Azure IoT 服務 SDK for Node.js][lnk-node-service-ref]
+* [Azure IoT 裝置 SDK for C][lnk-c-ref]
+* [IoT 中樞 REST (英文)][lnk-rest-ref]
 * [Azure IoT Edge][lnk-gateway-ref]
 
 ## <a name="next-steps"></a>後續步驟
@@ -127,4 +125,3 @@ Azure IoT Edge 包含用來建立 IoT 閘道解決方案的基礎結構和模組
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-
