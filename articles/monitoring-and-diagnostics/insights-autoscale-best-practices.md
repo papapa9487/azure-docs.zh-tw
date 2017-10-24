@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
+ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 54dad831287376db7fb2dc46e4591be1499dc072
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-autoscale"></a>自動調整規模的最佳做法
 本文會說明在 Azure 中自動調整的最佳做法。 Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[雲端服務](https://azure.microsoft.com/services/cloud-services/)和 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)。 其他 Azure 服務使用不同的調整方法。
@@ -156,4 +155,3 @@ ms.lasthandoff: 07/18/2017
 ## <a name="next-steps"></a>後續步驟
 - [建立活動記錄警示以監視訂用帳戶的所有自動調整引擎作業。](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [建立活動記錄警示以監視訂用帳戶中所有失敗的相應縮小/相應放大自動調整作業](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
-

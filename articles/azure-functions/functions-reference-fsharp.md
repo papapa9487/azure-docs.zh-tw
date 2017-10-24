@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/09/2016
 ms.author: syclebsc
+ms.openlocfilehash: 314f528a1fcef2c7afb0eedba012023f3bc9502b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: acb6052343acc34eb2365017ac2a49f9a4af51a2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 開發人員參考
-> [!div class="op_single_selector"]
-> * [C# 指令碼](functions-reference-csharp.md)
-> * [F# 指令碼](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure Functions 的 F# 是可在雲端輕鬆執行程式碼片段或「函式」的解決方案。 資料會透過函式引數流入您的 F# 函式。 引數名稱會指定於 `function.json`中，而且有預先定義的名稱可用來存取函式記錄器和取消權杖等項目。
 
@@ -276,10 +270,7 @@ let mylog(log: TraceWriter, text: string) =
 * [F# 指南](/dotnet/articles/fsharp/index)
 * [Azure Functions 的最佳作法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
-* [Azure Functions C# 開發人員參考](functions-reference-csharp.md)
-* [Azure Functions NodeJS 開發人員參考](functions-reference-node.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 * [Azure Functions 測試](functions-test-a-function.md)
 * [Azure Functions 調整](functions-scale.md)
-
 

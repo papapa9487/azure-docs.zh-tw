@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e81c5e943d8e9e9cc322d19900c48377f22a8968
-ms.openlocfilehash: 62e8cecf3177d08f2614bd76956b45da75af0947
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.openlocfilehash: 5bc6f90100e5c09eac2b6e5d0e114d4445daa7c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Azure Active Directory 條件式存取常見問題集
 
@@ -55,10 +54,10 @@ ms.lasthandoff: 07/17/2017
 目前，只會對 iOS 和 Android 裝置的使用者強制執行條件式存取原則。 根據預設，iOS 和 Android 裝置的條件式存取原則不會影響其他裝置平台上的應用程式。 租用戶管理員可選擇覆寫全域原則，以禁止不受支援平台上的使用者存取。
 
 
-## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>條件式存取原則對 Microsoft Teams 有何用途？  
+## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>條件式存取原則對 Microsoft Teams 有何用途？
 
 Microsoft Teams 在核心產能情節中非常依賴 Exchange Online 和 SharePoint Online，例如會議、行事曆和檔案共用。 當使用者登入時，對這些雲端應用程式設定的條件式存取原則會套用至 Microsoft Teams。
 
-在 Azure Active Directory 條件式存取原則中，也支援將 Microsoft Teams 當作個別的雲端應用程式。 當使用者登入時，對雲端應用程式設定的憑證授權單位原則會套用至 Microsoft Teams。
+在 Azure Active Directory 條件式存取原則中，也支援將 Microsoft Teams 當作個別的雲端應用程式。 當使用者登入時，對雲端應用程式設定的條件式存取原則會套用至 Microsoft Teams。
 
 適用於 Windows 和 Mac 的 Microsoft Teams 桌面用戶端支援新式驗證。 新式驗證以 Azure Active Directory 驗證程式庫 (ADAL) 為基礎，支援 Microsoft Office 用戶端應用程式跨平台登入。 

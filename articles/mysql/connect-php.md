@@ -9,17 +9,15 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 07/12/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 2af5871e8bf67070c83b5faebc1f9e44b0de609e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 92c34e7ac074ded1702e0df96298d33c60227ab3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 PHP 來連線及查詢資料
-本快速入門示範如何使用 [PHP](http://php.net/manual/intro-whatis.php) 應用程式來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 PHP 進行開發，但不熟悉 Azure Database for MySQL。
+本快速入門示範如何使用 [PHP](http://php.net/manual/intro-whatis.php) 應用程式來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 PHP 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -30,16 +28,16 @@ ms.lasthandoff: 09/20/2017
 在自己的伺服器上安裝 PHP，或建立 Azure [Web 應用程式](../app-service/app-service-web-overview.md) (包括 PHP)。
 
 ### <a name="macos"></a>MacOS
-- 下載 [PHP 7.1.4 版本](http://php.net/downloads.php)
-- 安裝 PHP 並參考 [PHP 手冊](http://php.net/manual/install.macosx.php)以便進一步設定
+- 下載 [PHP 7.1.4 版本](http://php.net/downloads.php)。
+- 安裝 PHP 並參考 [PHP 手冊](http://php.net/manual/install.macosx.php)以便進一步設定。
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](http://php.net/downloads.php)
-- 安裝 PHP 並參考 [PHP 手冊](http://php.net/manual/install.unix.php)以便進一步設定
+- 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](http://php.net/downloads.php)。
+- 安裝 PHP 並參考 [PHP 手冊](http://php.net/manual/install.unix.php)以便進一步設定。
 
 ### <a name="windows"></a>Windows
-- 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](http://windows.php.net/download#php-7.1)
-- 安裝 PHP 並參考 [PHP 手冊](http://php.net/manual/install.windows.php)以便進一步設定
+- 下載 [PHP 7.1.4 非執行緒安全 (x64) 版本](http://windows.php.net/download#php-7.1)。
+- 安裝 PHP 並參考 [PHP 手冊](http://php.net/manual/install.windows.php)以便進一步設定。
 
 ## <a name="get-connection-information"></a>取得連線資訊
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
@@ -47,7 +45,7 @@ ms.lasthandoff: 09/20/2017
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在左側窗格中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **myserver4demo**)。
 3. 按一下伺服器名稱。
-4. 選取伺服器的 [屬性] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
+4. 選取伺服器的 [屬性] 頁面，然後記下**伺服器名稱**和**伺服器管理員登入名稱**。
  ![Azure Database for MySQL 伺服器名稱](./media/connect-php/1_server-properties-name-login.png)
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
@@ -128,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>讀取資料
-使用下列程式碼搭配 **SELECT** SQL 陳述式來連線和讀取資料。  程式碼會使用 PHP 內含的 **MySQL 改良擴充功能** (mysqli) 類別。 程式碼會使用 [mysqli_query](http://php.net/manual/mysqli.query.php) 方法執行 sql 查詢，並使用 [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) 方法來擷取結果資料列。
+使用下列程式碼搭配 **SELECT** SQL 陳述式來連線和讀取資料。  程式碼會使用 PHP 內含的 **MySQL 改良擴充功能** (mysqli) 類別。 程式碼會使用 [mysqli_query](http://php.net/manual/mysqli.query.php) 方法執行 SQL 查詢，並使用 [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) 方法來擷取結果資料列。
 
 以自己的值取代主機、使用者名稱、密碼和 db_name 參數。 
 
@@ -234,4 +232,3 @@ mysqli_close($conn);
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [在 Azure 中建置 PHP 和 MySQL Web 應用程式](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
-

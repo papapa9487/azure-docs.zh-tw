@@ -12,14 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/10/2017
 ms.author: erikje
+ms.openlocfilehash: b5f112f2d5b96843e7863aa664eec4847c58e950
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 13ac0afb9ebfe568f1d8b1db2fedfd28cb05c3e7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>使用您的 Azure 訂用帳戶註冊 Azure Stack
 
@@ -37,9 +36,9 @@ ms.lasthandoff: 09/27/2017
 使用 Azure 註冊 Azure Stack 之前，您必須：
 
 - Azure 訂用帳戶的訂用帳戶 ID。 若要取得 ID，請登入 Azure 並按一下 [更多服務]  >  [訂用帳戶]，然後按一下您要使用的訂用帳戶，便可以在 [基本資訊] 下找到 [訂用帳戶 ID]。 目前不支援中國、德國，和美國政府雲端訂用帳戶。
-- 訂用帳戶擁有者的帳戶使用者名稱和密碼 (支援 MSA/2FA 帳戶)
+- 訂用帳戶擁有者的帳戶使用者名稱和密碼 (支援 MSA/2FA 帳戶)。
 - Azure 訂用帳戶的 Azure Active Directory。 您可以將游標暫留在 Azure 入口網站右上角的顯示圖片，即可在 Azure 中找到此目錄。 
-- 註冊 Azure Stack 資源提供者 (請參閱下方的**註冊 Azure Stack 資源提供者**區段以取得詳細資料)
+- [已註冊 Azure Stack 資源提供者](#register-azure-stack-resource-provider-in-azure)。
 
 如果您沒有符合這些需求的 Azure 訂用帳戶，則可以[在這裡建立免費的 Azure 帳戶](https://azure.microsoft.com/en-us/free/?b=17.06)。 註冊 Azure Stack 不會對您的 Azure 訂用帳戶收取任何費用。
 
@@ -67,28 +66,23 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
 >這些所有步驟必須在主機電腦上完成。
 >
 
-1. [安裝 Azure Stack 適用的 PowerShell](azure-stack-powershell-install.md)。 
-2. 將 [RegisterWithAzure.ps1 指令碼](https://go.microsoft.com/fwlink/?linkid=842959)複製至資料夾 (例如 C:\Temp)。
-3. 以系統管理員身分啟動 PowerShell ISE。    
-4. 執行 RegisterWithAzure.ps1 指令碼以取代下列預留位置：
-    - YourAccountName 是 Azure 訂用帳戶的擁有者
-    - YourID 是您要用來註冊 Azure Stack 的 Azure 訂用帳戶 ID
-    - YourDirectory 是您 Azure 訂用帳戶所屬 Azure Active Directory 租用戶的名稱。
+1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。 
+2. 將 [RegisterWithAzure.psm1 指令碼](https://go.microsoft.com/fwlink/?linkid=842959)複製至資料夾 (例如 C:\Temp)。
+3. 以系統管理員身分啟動 PowerShell ISE，並匯入 RegisterWithAzure 模組。    
+4. 從 RegisterWithAzure.psm1 指令碼，執行 Add-AzsRegistration 模組。 取代下列預留位置： 
+    - *YourCloudAdminCredential* 是 PowerShell 物件，其中包含 domain\cloudadmin 的本機網域認證 (針對開發套件，這是 azurestack\cloudadmin)。
+    - *YourAzureSubscriptionID* 是您要用來註冊 Azure Stack 的 Azure 訂用帳戶。
+    - *YourAzureDirectoryTenantName* 是您要建立您的註冊資源所在的 Azure 租用戶目錄的名稱。
+    - *YourPrivilegedEndpoint* 是「存取權適當電腦」的名稱，也稱為「緊急主控台 VM」。
 
     ```powershell
-    RegisterWithAzure.ps1 -azureSubscriptionId YourID -azureDirectoryTenantName YourDirectory -azureAccountId YourAccountName
+    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
-    
-    例如：
-    
-    ```powershell
-    C:\temp\RegisterWithAzure.ps1 -azureSubscriptionId "5e0ae55d-0b7a-47a3-afbc-8b372650abd3" `
-    -azureDirectoryTenantName "contoso.onmicrosoft.com" `
-    -azureAccountId serviceadmin@contoso.onmicrosoft.com
-    ```
-    
+ 
 5. 出現兩個提示時，按 Enter 鍵。
 6. 在彈出的登入視窗中，輸入您的 Azure 訂用帳戶認證。
+
+
 
 ## <a name="verify-the-registration"></a>確認註冊
 
@@ -99,5 +93,4 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
 ## <a name="next-steps"></a>後續步驟
 
 [連接至 Azure Stack](azure-stack-connect-azure-stack.md)
-
 

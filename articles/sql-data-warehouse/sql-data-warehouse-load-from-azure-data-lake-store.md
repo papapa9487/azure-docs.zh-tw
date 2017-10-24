@@ -13,14 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
-ms.date: 09/06/2017
+ms.date: 09/15/2017
 ms.author: cakarst;barbkess
+ms.openlocfilehash: bb478484fba5a76fa12d5d1976919224965b6e0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: c58aec1ea9bc79b335a115007500d77f8e752850
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="load-data-from-azure-data-lake-store-into-sql-data-warehouse"></a>將資料從 Azure Data Lake Store 載入到 SQL 資料倉儲
 本文件說明使用 PolyBase 將您自己的資料從 Azure Data Lake Store (ADLS) 載入到 SQL 資料倉儲時需要執行的所有步驟。
@@ -170,7 +169,7 @@ REJECT_TYPE 和 REJECT_VALUE 選項可讓您定義最終的資料表中必須出
 例如，如果檔案中的資料是字串，卻對資料行指定不正確的整數結構描述，則會無法載入每個資料列。
 
 [位置] 會指定您想要開始讀取資料的最上層目錄。
-在此案例中，如果 /DimProduct/ 下面有子目錄，PolyBase 將匯入子目錄內的所有資料。
+在此案例中，如果 /DimProduct/ 下面有子目錄，PolyBase 將匯入子目錄內的所有資料。 Azure Data Lake Store 使用角色型存取控制 (RBAC) 來控制資料存取。 這表示服務主體必須具有在位置參數中所定義之目錄，以及最終目錄和檔案之子系的讀取權限。 這可讓 PolyBase 驗證及載入讀取該資料。 
 
 ## <a name="load-the-data"></a>載入資料
 若要從 Azure Data Lake Store 載入資料，請使用 [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] 陳述式。 使用 CTAS 執行載入作業會使用您已建立的強型別外部資料表。
@@ -238,4 +237,3 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 <!--Other Web references-->
 [Microsoft Download Center]: http://www.microsoft.com/download/details.aspx?id=36433
 [Load the full Contoso Retail Data Warehouse]: https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md
-

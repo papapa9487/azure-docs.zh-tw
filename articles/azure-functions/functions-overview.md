@@ -14,25 +14,24 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 8a65635de3e5d95eb9e6ea8e9d4cbc6f6a36431e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 891640526b25c030f7e01d79e981aad517dfafb4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
-Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Python 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發無伺服器應用程式。
+Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Java、Python 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發無伺服器應用程式。
 
 本主題提供 Azure Functions 的高階概觀。 如果您想要直接進入正題並開始使用 Azure Functions，請從 [建立您的第一個Azure Functions](functions-create-first-azure-function.md)著手。 如果您要尋找更多有關 Functions 的技術資訊，請參閱 [開發人員參考](functions-reference.md)。
 
 ## <a name="features"></a>特性
 以下是 Azure Functions 的一些主要功能︰
 
-* **選擇的語言** - 使用 C#、F#、Node.js、Python、PHP、batch、bash 或任何可執行檔撰寫函式。
+* **選擇的語言** - 使用 C#、F#、Node.js、Java、Python、PHP、batch、bash 或任何可執行檔撰寫函式。
 * **使用即付費價格模式** - 只對執行您的程式碼所花的時間付費。 請參閱[價格區段](#pricing)中的使用情況主控方案選項。  
 * **自備相依性** - Functions 支援 NuGet 和 NPM，以便您使用您最愛的程式庫。  
 * **整合式安全性** - 利用 OAuth 提供者 (如 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶) 保護 HTTP 觸發的函數。  
@@ -49,6 +48,7 @@ Functions 提供範本，可讓您開始使用重要的案例，包括下列案�
 * **TimerTrigger** - 在預先定義的排程執行清除或其他批次工作。 如需範例，請參閱[建立由計時器觸發的函式](functions-create-scheduled-function.md)。
 * **GitHub webhook** - 回應您的 GitHub 儲存機制中發生的事件。 如需範例，請參閱[建立由 GitHub Webhook 所觸發的函式](functions-create-github-webhook-triggered-function.md)。
 * **泛型 webhook** - 處理來自支援 webhook 的任何服務的 webhook HTTP 要求。 如需範例，請參閱[建立由一般 Webhook 所觸發的函式](functions-create-generic-webhook-triggered-function.md)。
+* **CosmosDBTrigger** - 當 Azure Cosmos DB 文件在 NoSQL 資料庫的集合中新增或更新時進行處理。 如需範例，請參閱[建立由 Azure Cosmos DB 觸發的函式](functions-create-cosmos-db-triggered-function.md)。
 * **BlobTrigger** - 在新增至容器時，處理 Azure 儲存體 blob。 您可以使用此函式調整映像大小。 如需詳細資訊，請參閱 [Blob 儲存體繫結](functions-bindings-storage-blob.md)。
 * **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需範例，請參閱[建立連線至其他 Azure 服務的函式](functions-create-an-azure-connected-function.md)。
 * **EventHubTrigger** - 回應傳送到 Azure 事件中樞的事件。 特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。 如需詳細資訊，請參閱[事件中樞繫結](functions-bindings-event-hubs.md)。
@@ -89,5 +89,4 @@ Azure Functions 有兩種定價方案。 請選擇最符合您需求的方案：
   討論 Azure Functions 可用的服務方案，包括使用情況主控方案，以及如何選擇正確的方案。 
 * [深入了解 Azure App Service](../app-service/app-service-web-overview.md)  
   Azure Functions 會利用 Azure App Service 來執行核心功能，例如部署、環境變數和診斷。 
-
 

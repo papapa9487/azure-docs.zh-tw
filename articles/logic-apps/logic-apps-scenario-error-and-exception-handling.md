@@ -17,10 +17,10 @@ ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>案例︰適用於邏輯應用程式的例外狀況處理與記錄錯誤
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 07/11/2017
 * 用來檢視工作流程中所發生之任何錯誤的方法
 
 > [!TIP]
-> 如需關於此專案的高階影片，請參閱[整合使用者群組 (英文)](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group")。
+> 如需關於此專案的高階影片，請參閱[整合使用者群組](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "整合使用者群組")。
 
 ## <a name="how-we-solved-the-problem"></a>問題解決方式
 

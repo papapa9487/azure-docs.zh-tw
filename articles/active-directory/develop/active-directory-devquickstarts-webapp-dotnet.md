@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb1ca3189e6c39b46eaa5151bf0c74dbf4a35228
-ms.openlocfilehash: 43ba592b6294a9a75a20dacd81953a77c241b89f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/18/2017
-
-
+ms.openlocfilehash: 3c1e558c9d41e385f80939203a3457b74e30973b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="aspnet-web-app-sign-in-and-sign-out-with-azure-ad"></a>使用 Azure AD 來進行 ASP.NET Web 應用程式登入和登出
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -111,7 +109,7 @@ Azure Active Directory (Azure AD) 透過以幾行程式碼提供單一登入和�
 ## <a name="step-3-use-owin-to-issue-sign-in-and-sign-out-requests-to-azure-ad"></a>步驟 3：使用 OWIN 向 Azure AD 發出登入和登出要求
 應用程式現已設定妥當，可使用 OpenID Connect 驗證通訊協定來與 Azure AD 進行通訊。 OWIN 已處理有關製作驗證訊息、驗證來自 Azure AD 的權杖及維護使用者工作階段的一切細節。 剩餘的工作就是提供使用者一個登入和登出的方式。
 
-1. 您可以在控制器中使用授權標籤，以要求使用者在存取特定頁面時先登入。 若要這麼做，請開啟 Controllers\HomeController.cs，然後將 `[Authorize]` 標籤新增到 About 控制器中。
+1. 您可以在控制器中使用授權標籤，以要求使用者在存取特定頁面時先登入。 若要這麼做，請開啟 Controllers\HomeController.cs，然後將 `[Authorize]` 標籤新增至 About 動作。
 
      ```C#
      [Authorize]
@@ -195,4 +193,3 @@ Azure Active Directory (Azure AD) 透過以幾行程式碼提供單一登入和�
 您現在可以繼續前進到更進階的主題。 例如，嘗試[使用 Azure AD 來保護 Web API](active-directory-devquickstarts-webapi-dotnet.md)。
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

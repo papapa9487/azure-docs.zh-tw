@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 01e1e7447d6951d1b2c89f3b0ef726af9c03fd66
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>使用 StorSimple 裝置管理員服務來修改 StorSimple 裝置組態
 
@@ -138,14 +137,14 @@ Azure 入口網站之 [設定] 刀鋒視窗中的 [裝置設定] 區段包含所
 
 ### <a name="configure-data-0"></a>設定 DATA 0
 
-DATA 0 依預設已啟用雲端功能。 設定 DATA 0 時，您也需要設定兩個固定 IP 位址，每個控制器使用一個。 這些固定的 IP 位址可以用來直接存取裝置控制器，且當您在裝置上安裝更新或存取控制器以進行疑難排解時很有用。
+DATA 0 依預設已啟用雲端功能。 設定 DATA 0 時，您也需要設定兩個固定 IP 位址，每個控制器使用一個。 這些固定的 IP 位址可以用來直接存取裝置控制器，且當您在裝置上安裝更新，讓記憶體回收正常運作時，或當您存取控制器以進行疑難排解時很有用。
 
 您可以透過 DATA 0 設定刀鋒視窗，重新設定固定的 IP 控制器。
 
 ![設定網路介面 - DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> 控制器的固定 IP 位址用來為裝置更新提供服務。 因此，固定 IP 必須可路由傳送且能夠連線到網際網路。
+> 控制器的固定 IP 位址可用來提供更新給裝置，以及讓空間回收演算法 (記憶體回收) 得以正常運作。 因此，固定 IP 必須可路由傳送且能夠連線到網際網路。
 
 ### <a name="configure-data-1---data-5"></a>設定 DATA 1 - DATA 5
 
@@ -169,5 +168,4 @@ DATA 0 依預設已啟用雲端功能。 設定 DATA 0 時，您也需要設定�
 
 * 了解如何 [為 StorSimple 裝置設定 MPIO](storsimple-8000-configure-mpio-windows-server.md)。
 * 了解如何[使用 StorSimple 裝置管理員服務管理 StorSimple 裝置](storsimple-8000-manager-service-administration.md)。
-
 

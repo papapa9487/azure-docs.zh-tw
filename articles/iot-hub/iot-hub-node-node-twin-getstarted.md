@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/25/2017
 ms.author: elioda
+ms.openlocfilehash: df49f054b5eb26c3d68f088bc05f5209cf2ebccf
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
-ms.openlocfilehash: d7c257553d25694005bced745f793951cc9f8951
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-device-twins-node"></a>開始使用裝置對應項 (Node)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -27,7 +26,7 @@ ms.lasthandoff: 09/08/2017
 在本教學課程結尾端，您將會有兩個 Node.js 主控台應用程式：
 
 * **AddTagsAndQuery.js**，這是 Node.js 後端應用程式，可新增標籤和查詢裝置對應項。
-* **TwinSimulatedDevice.js**，這是會模擬裝置的 Node.js 應用程式，此裝置會以稍早建立的身分識別連接到您的 IoT 中樞，並報告其連線狀況。
+* **TwinSimulatedDevice.js**，這是會模擬裝置的 Node.js 應用程式，此裝置會以稍早建立的身分識別連線到您的 IoT 中樞，並報告其連線狀況。
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-hub-sdks] 一文提供可用來建置裝置和後端應用程式之 Azure IoT SDK 的相關資訊。
@@ -36,7 +35,7 @@ ms.lasthandoff: 09/08/2017
 
 若要完成此教學課程，您需要下列項目：
 
-* Node.js 0.10.x 版或更新版本。
+* Node.js 4.0.x 版或更新版本。
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -115,7 +114,7 @@ ms.lasthandoff: 09/08/2017
    
     先前的程式碼會執行兩個查詢︰第一個只選取位於 **Redmond43** 工廠的裝置的裝置對應項，第二個會修改查詢，只選取也透過行動電話網路來連接的裝置。
    
-    請注意，先前的程式碼在建立 **查詢** 物件時，指定傳回的最大文件數。 **query** 物件包含 **hasMoreResults** 布林值屬性，可用來多次叫用 **nextAsTwin** 方法以擷取所有結果。 有一個稱為 **next** 的方法適用於不是裝置對應項的結果，例如彙總查詢的結果。
+    先前的程式碼在建立**查詢**物件時，指定傳回的最大文件數。 **query** 物件包含 **hasMoreResults** 布林值屬性，可用來多次叫用 **nextAsTwin** 方法以擷取所有結果。 有一個稱為 **next** 的方法適用於非裝置對應項的結果，例如彙總查詢的結果。
 6. 使用下列命令執行應用程式：
    
         node AddTagsAndQuery.js
@@ -226,4 +225,3 @@ ms.lasthandoff: 09/08/2017
 
 [lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

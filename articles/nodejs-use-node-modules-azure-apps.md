@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
+ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 13feb95a24add7823feae9fe0abd89e59934255c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>使用 Node.js 模組與 Azure 應用程式搭配
 本文提供有關使用 Node.js 模組與 Azure 上代管之應用程式搭配的指引。 它提供有關確保應用程式使用模組特定版本，以及搭配原生模組與 Azure 使用的指引。
@@ -54,7 +53,8 @@ Azure App Service 不支援所有的原生模組，而且在編譯具有特定�
 * Azure App Service 可以設定為在部署期間執行自訂 Bash 或 Shell 指令碼，讓您有機會執行自訂命令以及精確地設定 **npm install** 的執行方式。 如需示範如何設定該環境的影片，請參閱[使用 Kudu 自訂網站部署指令碼]。
 
 ### <a name="using-a-packagejson-file"></a>使用 package.json 檔案
-**package.json** 檔案是一種方法，可用來指定應用程式要求的最上層相依性，以便主控平台可安裝相依性，而不是要求您包含 **node\_packages** 資料夾作為部署的一部分。 在部署應用程式之後，您可使用 **npm install** 命令，來剖析 **package.json** 檔案並安裝所有列出的相依性。
+
+**package.json** 檔案是一種方法，可用來指定應用程式要求的最上層相依性，以便主控平台可安裝相依性，而不是要求您包含 **node\_modules** 資料夾作為部署的一部分。 在部署應用程式之後，您可使用 **npm install** 命令，來剖析 **package.json** 檔案並安裝所有列出的相依性。
 
 開發期間，當安裝模組將模組項目自動新增至 **package.json** 檔案時，您可以使用 **--save**、**--save-dev** 或 **--save-optional** 參數。 如需詳細資訊，請參閱 [npm-install](https://docs.npmjs.com/cli/install)(英文)。
 
@@ -91,4 +91,3 @@ Azure App Service 不支援所有的原生模組，而且在編譯具有特定�
 [指定 Node.js 版本]: nodejs-specify-node-version-azure-apps.md
 [如何使用適用於 Mac 和 Linux 的 Azure 命令列介面]:cli-install-nodejs.md
 [使用 Kudu 自訂網站部署指令碼]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
-

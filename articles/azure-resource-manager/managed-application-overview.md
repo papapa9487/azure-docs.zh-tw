@@ -8,16 +8,14 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/09/2017
-ms.author: gauravbh; tomfitz
+ms.date: 09/19/2017
+ms.author: gauravbh
+ms.openlocfilehash: 96b07bb3b923a5120e3d43c3fa60b3b1308010b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7ace8e1ea8038e0748bfed00c0cc0a4fa340588b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-managed-applications-overview"></a>Azure 受管理的應用程式概觀
 
 使用 Azure 的廠商可為世界各地的客戶提供解決方案。 Azure Marketplace 是一個資源庫，包含第一方和第三方廠商的數百個複雜、多資源範本。 客戶可以在幾分鐘內部署及啟動平台即服務 (PaaS) 和軟體即服務 (SaaS) 應用程式。 
@@ -56,16 +54,14 @@ Azure 受管理的應用程式以兩種類型提供 - Service Catalog 和 Market
 ## <a name="key-concepts"></a>重要概念
 
 ### <a name="managed-resource-group"></a>受管理的資源群組
-受管理的資源群組是範本中佈建的所有 Azure 資源的建立位置。 例如，如果設備用來建立儲存體帳戶，此資源群組就會包含儲存體帳戶資源。 它不包含設備資源。
+受管理的資源群組是範本中佈建的所有 Azure 資源的建立位置。 例如，如果應用程式用來建立儲存體帳戶，此資源群組就會包含儲存體帳戶資源。 它不包含應用程式資源。
 
-### <a name="appliance-package"></a>設備套件
+### <a name="application-package"></a>應用程式套件
 發行者建立的套件中，會包含範本檔案和 createUIDefinition 檔案。 具體來說，它包含下列檔案：
 
-- **applianceMainTemplate.json**：此範本檔案定義由設備佈建的所有資源。 這個檔案是用來建立資源的一般範本檔案。
+- **mainTemplate.json**：此範本檔案定義由應用程式佈建的所有資源。 這個檔案是用來建立資源的一般範本檔案。
 
-- **MainTemplate.json**：此範本檔案定義設備資源 (Microsoft.Solutions/appliances)。 此資源中定義的其中一個重要屬性是 ManagedResourceGroupId。 這個屬性會指出哪一個資源群組用來裝載 applianceMainTemplate.json 中所定義的實際資源。
-
-- **applianceCreateUIDefinition.json**：這個檔案描述範本中定義之參數所需 UI 的呈現方式。
+- **createUIDefinition.json**：這個檔案會描述範本中定義的參數所需之 UI 的呈現方式。
 
 ### <a name="authorization"></a>Authorization
 發行者必須指定廠商所需的權限，才能代表客戶管理資源。 此權限會套用至受管理的資源群組。 設定下列值：
@@ -81,4 +77,3 @@ Azure 受管理的應用程式以兩種類型提供 - Service Catalog 和 Market
 * 如需發佈 Service Catalog 受管理應用程式的資訊，請參閱[建立和發佈 Service Catalog 受管理的應用程式](managed-application-publishing.md)。
 * 如需使用 Service Catalog 受管理應用程式的詳細資訊，請參閱[使用 Service Catalog 受管理的應用程式](managed-application-consumption.md)。
 * 若要建立 UI 定義檔，請參閱[開始使用 CreateUiDefinition](managed-application-createuidefinition-overview.md)。
-

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: b960d56188abf102cf4a8894582203205eaa9a03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 6f0a1e5263a034e825d4c12860fd6f97a4c556c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure 容器執行個體和容器 Orchestrator
 
 由於規模較小和應用程式方向的緣故，容器很適合用於敏捷式傳遞環境和微服務式架構。 自動執行和管理大量容器以及其互動方式的工作稱為「協調流程」。 熱門的容器 Orchestrator (包括 Kubernetes、DC/OS 和 Docker Swarm) 全都可在 [Azure Container Service](https://docs.microsoft.com/azure/container-service/) 中取得。
@@ -66,9 +64,9 @@ Azure 容器執行個體可提供分層式協調流程方法，提供執行單�
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>實作範例：Kubernetes 的 Azure 容器執行個體連接器
 
-為了示範容器協調流程平台如何與 Azure 容器執行個體整合，我們已開始建置 [Kubernetes 的連接器範例][aci-connector-k8s]。 
+為了示範容器協調流程平台如何與 Azure 容器執行個體整合，我們已開始建置 [Kubernetes 的連接器範例][aci-connector-k8s]。
 
-Kubernetes 的連接器會模擬 [kubelet][kubelet-doc]，方法是註冊為具有無限容量的節點，並將 [Pod][pod-doc] 的建立分派為 Azure 容器執行個體中的容器群組。 
+Kubernetes 的連接器會模擬 [kubelet][kubelet-doc]，方法是註冊為具有無限容量的節點，並將 [Pod][pod-doc] 的建立分派為 Azure 容器執行個體中的容器群組。
 
 <!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 
@@ -79,7 +77,7 @@ Kubernetes 的連接器會模擬 [kubelet][kubelet-doc]，方法是註冊為具�
 
 ## <a name="next-steps"></a>後續步驟
 
-使用[快速入門指南](container-instances-quickstart.md)對 Azure 容器執行個體建立您的第一個容器。
+使用[快速入門指南](container-instances-quickstart.md)對 Azure Container Instances 建立您的第一個容器。
 
 <!-- IMAGES -->
 [aci-connector-k8s-gif]: ./media/container-instances-orchestrator-relationship/aci-connector-k8s.gif

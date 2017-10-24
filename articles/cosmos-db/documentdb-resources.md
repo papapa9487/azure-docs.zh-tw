@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/24/2017
 ms.author: anhoh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 53059c09d454dedbd65ef188a0dd91d497b0e502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 7326dce288996f0690be3b66882b8b4c21a35348
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 階層式資源模型和核心概念
 Azure Cosmos DB 管理的資料庫實體稱為「資源」。 每個資源可透過邏輯 URI 唯一識別。 您可以使用標準 HTTP 動詞命令、要求/回應標頭和狀態碼來與資源互動。 
@@ -462,5 +461,4 @@ Azure Cosmos DB 使用者代表用於分組權限的邏輯命名空間。 Azure 
 [1]: media/documentdb-resources/resources1.png
 [2]: media/documentdb-resources/resources2.png
 [3]: media/documentdb-resources/resources3.png
-
 

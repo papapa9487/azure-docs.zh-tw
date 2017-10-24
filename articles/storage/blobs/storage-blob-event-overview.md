@@ -8,14 +8,12 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
+ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9b117bdeb62f5ebb2e4e3fbfe71572068927082
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reacting-to-blob-storage-events-preview"></a>回應 Blob 儲存體事件 (預覽)
 
 Azure Blob 儲存體事件使用時下的無伺服器架構，允許應用程式，允許應用程式對 Blob 的建立和刪除做出回應，不需要複雜的程式碼或昂貴且效率不彰的輪詢服務。  而是改為透過 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) 將事件推送給訂閱者，例如 [Azure Functions](https://azure.microsoft.com/services/functions/)、[Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)，甚至推送到您自己的自訂 http 接聽程式，且只需要支付有使用的項目的費用。
@@ -36,7 +34,7 @@ az feature register --name storageEventSubscriptions --namespace Microsoft.Event
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-一旦註冊狀態變更為「已註冊」，即允許您加入預覽方案，可以為*美國中西部*地區的帳戶訂閱 Blob 儲存體事件。  請看一下[將 Blob 儲存體事件路由至自訂的 Web 端點](storage-blob-event-quickstart.md)的快速範例。
+一旦註冊狀態變更為「已註冊」，即允許您加入預覽方案，可以為***美國中西部***或***美國西部 2*** 地區的帳戶訂閱 Blob 儲存體事件。  請看一下[將 Blob 儲存體事件路由至自訂的 Web 端點](storage-blob-event-quickstart.md)的快速範例。
 
 ## <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
 [Blob 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)中可使用 Blob 儲存體事件 (而在一般用途的儲存體帳戶中無法使用)。  Blob 儲存體帳戶是特殊的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。

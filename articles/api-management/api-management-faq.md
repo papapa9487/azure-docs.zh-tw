@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
+ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: a0bf8995913511b0e14304a1259f13de4aa9e04b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -138,10 +137,19 @@ API 管理會在部署到多個地理位置時，使用[效能流量路由方法
 是。 請參閱 [Azure API 管理服務](http://aka.ms/apimtemplate)快速入門範本。
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>是否可以對後端使用自我簽署的 SSL 憑證？
-是。 對後端使用自我簽署安全通訊端層 (SSL) 憑證的步驟如下：
+是。 這可以透過 PowerShell 或直接提交至 API 來完成。 這將會停用信任鏈結驗證，在從 API 管理對後端服務進行通訊時，還可讓您使用自我簽署或私人簽署的憑證。
 
-1. 使用 API 管理建立[後端](https://msdn.microsoft.com/library/azure/dn935030.aspx)實體。
-2. 將 **skipCertificateChainValidation** 屬性設定為 **true**。
+#### <a name="powershell-method"></a>Powershell 方法 ####
+使用 [`New-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (適用於新的後端) 或 [ `Set-AzureRmApiManagementBackend` ](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (適用於現有的後端) PowerShell Cmdlet，並將 `-SkipCertificateChainValidation` 參數設定為 `True`。 
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
+
+#### <a name="direct-api-update-method"></a>直接 API 更新方法 ####
+1. 使用 API 管理建立[後端](https://msdn.microsoft.com/library/azure/dn935030.aspx)實體。       
+2. 將 **skipCertificateChainValidation** 屬性設定為 **true**。     
 3. 如果您不想再允許自我簽署的憑證，請刪除後端實體或將 **skipCertificateChainValidation** 屬性設定為 **false**。
 
 ### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository"></a>為什麼我在嘗試複製 Git 儲存機制時會發生驗證失敗？
@@ -162,4 +170,3 @@ API 管理會在部署到多個地理位置時，使用[效能流量路由方法
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>匯入 API 有任何限制或已知的問題嗎？
 Open API(Swagger)、WSDL 及 WADL 格式的[已知問題和限制](api-management-api-import-restrictions.md)。
-

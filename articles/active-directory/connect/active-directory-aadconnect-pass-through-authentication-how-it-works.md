@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 09/29/2017
 ms.author: billmath
+ms.openlocfilehash: 9ded5e0199f5ca48e2a00d2afee0e4c13b3a3460
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 9507a718ba982eb8b3381a6ef70156f075729161
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：技術深入探討
-下列文章概述了 Azure AD 傳遞驗證的運作方式。  如需深層技術和安全性資訊，請參閱 [ **Azure AD 傳遞驗證安全性深入探討**](active-directory-aadconnect-pta-security-deep-dive.md)
+下列文章概述了 Azure AD 傳遞驗證的運作方式。  如需深層技術和安全性資訊，請參閱[**安全性深入探討**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)一文。
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Azure Active Directory 傳遞驗證運作方式
 
@@ -48,9 +46,9 @@ ms.lasthandoff: 09/28/2017
 ## <a name="next-steps"></a>後續步驟
 - [**目前的限制**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - 了解支援的情節和不支援的情節。
 - [**快速入門**](active-directory-aadconnect-pass-through-authentication-quick-start.md) - 開始使用 Azure AD 傳遞驗證。
+- [**智慧鎖定**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) - 在租用戶中設定智慧鎖定功能來保護使用者帳戶。
 - [**常見問題集**](active-directory-aadconnect-pass-through-authentication-faq.md) - 常見問題集的答案。
 - [**疑難排解**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) - 了解如何解決此功能的常見問題。
+- [**安全性深入探討**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 關於此功能的其他深入技術資訊。
 - [**Azure AD 無縫 SSO**](active-directory-aadconnect-sso.md) - 深入了解此互補功能。
-- [**安全性深入探討**](active-directory-aadconnect-pta-security-deep-dive.md) - Azure AD 傳遞驗證上的其他深入技術資訊。
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-translationtype: Human Translation
-ms.sourcegitcommit: b92f954680603891ced503a1134791312b5214f0
-ms.openlocfilehash: a992fa17a07d6167297c4cf5fe9fb3b58181d7df
-ms.lasthandoff: 01/20/2017
-
-
+ms.openlocfilehash: a11ba47d6ec69d31360e9142b7bce97803809c57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-query-action"></a>開始使用查詢動作
 您可以使用查詢動作來處理完成以下工作流程的批次和陣列︰
@@ -50,6 +49,8 @@ ms.lasthandoff: 01/20/2017
     此動作會輸出新的陣列，其中僅包含符合篩選條件需求的結果。
 6. 按一下工具列左上角以便儲存，然後邏輯應用程式便會儲存並發佈 (啟動)。
 
+\* 如果您要呼叫 HTTP 端點並接收 JSON 回應，請使用_剖析 JSON_ 動作來剖析 JSON 回應。 若不採取此步驟，_篩選陣列_就只會看到本文，但並不了解 JSON 裝載的結構。
+
 ## <a name="query-action"></a>查詢動作
 以下是此連接器所支援動作的詳細資料。 連接器有一個可能的動作。
 
@@ -58,7 +59,7 @@ ms.lasthandoff: 01/20/2017
 | 篩選陣列 |評估陣列中的每個項目是否符合條件並傳回結果 |
 
 ## <a name="action-details"></a>動作詳細資料
-查詢動作隨附&1; 個可能的動作。 下表說明動作的必要與選擇性輸入欄位，以及與使用動作相關聯的對應輸出詳細資料。
+查詢動作隨附 1 個可能的動作。 下表說明動作的必要與選擇性輸入欄位，以及與使用動作相關聯的對應輸出詳細資料。
 
 ### <a name="filter-array"></a>篩選陣列
 以下是動作的輸入欄位，可進行 HTTP 輸出要求。
@@ -80,5 +81,4 @@ ms.lasthandoff: 01/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 立即試用平台和 [建立邏輯應用程式](../logic-apps/logic-apps-create-a-logic-app.md)。 您可以查看我們的 [API 清單](apis-list.md)，以探索邏輯應用程式中其他可用的連接器。
-
 

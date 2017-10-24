@@ -12,15 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 05/24/2017
+ms.date: 09/27/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 43f957d8549adb8bbc94111ee9f9eb216f5d8210
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 70d2550f713ff0e9daed235eb8053589b8682633
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-python-sdk-release-notes-and-resources"></a>Azure Cosmos DB Python SDK︰版本資訊與資源
 > [!div class="op_single_selector"]
@@ -52,6 +51,11 @@ ms.lasthandoff: 08/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* 彙總字典的修正錯誤。
+* 資源連結中的修剪斜線修正錯誤。
+* 已新增 Unicode 編碼的測試。
+
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * 已新增對新一致性層級 ConsistentPrefix 的支援。
 
@@ -127,6 +131,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |2017 年 9 月 29 日 |--- |
 | [2.2.0](#2.2.0) |2017 年 5 月 10 日 |--- |
 | [2.1.0](#2.1.0) |2017 年 5 月 1 日 |--- |
 | [2.0.1](#2.0.1) |2016 年 10 月 30 日 |--- |
@@ -154,5 +159,4 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 ## <a name="see-also"></a>另請參閱
 若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
-
 

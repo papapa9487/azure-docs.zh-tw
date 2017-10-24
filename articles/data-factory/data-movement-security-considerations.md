@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2017
 ms.author: abnarain
+ms.openlocfilehash: 0514710606b74db7c13f04e961347d215d2d283d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 00673cac31eb25bb8dd8228d6a36617c3812f5db
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 資料移動的安全性考量
 本文說明 Azure Data Factory 中資料移動服務用來保護您資料的基本安全性基礎結構。 Azure Data Factory 管理資源建置在 Azure 安全性基礎結構上，並使用 Azure 提供的所有可能安全性措施。
 
@@ -97,9 +95,9 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 
 1. 您可以選擇**在本機儲存認證**。 如果您想要加密，並將認證儲存在自我裝載整合執行階段本機，請依照[在自我裝載整合執行階段上加密認證](encrypt-credentials-self-hosted-integration-runtime.md)的步驟。 所有連接器皆支援此選項。 自我裝載整合執行階段會使用 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) 加密機密資料/認證資訊。 
 
-   使用 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** Cmdlet 來加密連結服務認證/加密連結服務中的機密詳細資料。 然後，您可以使用傳回的 JSON (與 **connectionString** 中的 **EncryptedCredential** 元素)，搭配 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 來建立連結服務。  
+   使用 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet 來加密連結服務認證/加密連結服務中的機密詳細資料。 然後，您可以使用傳回的 JSON (與 **connectionString** 中的 **EncryptedCredential** 元素)，搭配 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 來建立連結服務。  
 
-2. 如果未使用以上步驟所述的 **New-AzureRmDataFactoryV2LinkedServiceEncryptCredential** Cmdlet，而是改為直接搭配使用 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 與 JSON 中的連接字串/認證，則連結服務將**加密並儲存在 Azure Data Factory 受管理儲存體**。 機密資訊仍由憑證加密，這些憑證由 Microsoft 管理。
+2. 如果未使用以上步驟所述的 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** Cmdlet，而是改為直接搭配使用 **Set-AzureRmDataFactoryV2LinkedSevrice** Cmdlet 與 JSON 中的連接字串/認證，則連結服務將**加密並儲存在 Azure Data Factory 受管理儲存體**。 機密資訊仍由憑證加密，這些憑證由 Microsoft 管理。
 
 
 
@@ -186,4 +184,3 @@ Salesforce 支援「Shield 平台加密」，可加密所有檔案、附件、�
 如需有關複製活動效能的資訊，請參閱[複製活動的效能及微調指南](copy-activity-performance.md)。
 
  
-

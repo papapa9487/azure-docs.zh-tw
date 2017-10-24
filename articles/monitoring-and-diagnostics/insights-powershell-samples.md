@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: ashwink
 ms.openlocfilehash: 48f064884c2a6d0a55cc58a44169ed03c62de46d
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。 Azure 監視器可讓您根據設定的遙測資料值、自動調整雲端服務、虛擬機器和 Web Apps，以及傳送警示通知，或呼叫 Web URL。
@@ -151,7 +151,7 @@ Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/
 | 此警示規則的位置 |美國東部 |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 所建立警示的 MetricName |\PhysicalDisk (_Total) \Disk writes/sec。請參閱`Get-MetricDefinitions`cmdlet 有關如何擷取精確的衡量標準名稱 |
+| 所建立警示的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。請參閱 `Get-MetricDefinitions` Cmdlet 以了解如何擷取確切的計量名稱 |
 | operator |GreaterThan |
 | 臨界值 (此計量的計數/秒） |1 |
 | WindowSize (hh:mm:ss 格式) |00:05:00 |

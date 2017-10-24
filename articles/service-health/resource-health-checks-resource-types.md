@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/19/2017
+ms.date: 10/09/2017
 ms.author: BernardoAMunoz
+ms.openlocfilehash: e8ce1f9b7129e272a7714b82ec1a91a928917d6c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: ed9c955096a5427e8184bb6c542ad85ff4c302be
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 資源健康狀態中的資源類型和健康情況檢查
 以下是依資源類型透過資源健康狀態執行之所有檢查的完整清單。
 
@@ -60,6 +58,12 @@ ms.lasthandoff: 07/11/2017
 |執行的檢查|
 |---|
 |<ul><li>使用者可以將資料上傳至區域中的 Data Lake Store 嗎？</li><li>使用者可以從區域中的 Data Lake Store 下載資料嗎？</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+
+|執行的檢查|
+|---|
+|<ul><li>IoT 中樞是否已啟動且正在執行中？</li></ul>|
 
 ## <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.documentdb/databaseAccounts
 |執行的檢查|
@@ -114,4 +118,4 @@ ms.lasthandoff: 07/11/2017
 # <a name="next-steps"></a>後續步驟
 -  請參閱 [Azure 服務健康狀態的簡介](service-health-overview.md)和 [Azure 資源健康狀態的簡介](resource-health-overview.md)來了解更多相關資訊。 
 -  [關於 Azure 資源健康狀態的常見問題集](resource-health-faq.md)
-- 設定警示，如此就能收到健康狀態問題的通知。 如需詳細資訊，請參閱[設定適用於服務健康狀態的警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 
+- 設定警示，如此就能收到健康狀態問題的通知。 如需詳細資訊，請參閱[設定適用於服務健康情況的警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
+ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure 詞彙︰Azure 平台上的雲端術語字典
 
@@ -37,7 +36,7 @@ Microsoft Azure 詞彙是 Azure 平台上簡短的雲端術語字典。 另請�
 [App Service 應用程式](#app-service-app)的另一個名稱。
 
 ## <a name="app-service-app"></a>App Service 應用程式
-[Azure App Service](app-service/app-service-value-prop-what-is.md) 提供的計算資源，可供裝載[網站或 Web 應用程式](app-service-web/app-service-web-overview.md)、[Web API](app-service-api/app-service-api-apps-why-best-platform.md)或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」、「Web 應用程式」、「API 應用程式」和「行動裝置應用程式」。
+[Azure App Service](app-service/app-service-web-overview.md) 提供的計算資源，可供裝載網站或 Web 應用程式、Web API或[行動裝置應用程式後端](app-service-mobile/app-service-mobile-value-prop.md)。 App Service 應用程式也稱為「應用程式服務」、「Web 應用程式」、「API 應用程式」和「行動裝置應用程式」。
 
 ## <a name="availability-set"></a>可用性設定組
 可一起管理的虛擬機器集合，以提供應用程式備援能力和可靠性。 可用性設定組的用法可確保在預定進行或未預定進行的維護事件期間，至少有一部虛擬機器可以使用。  
@@ -159,5 +158,4 @@ Azure 方案一部分的項目。 每個 Azure 服務可讓您部署不同類型
 * [雲端資源中心](https://azure.microsoft.com/resources/)  
 * [讓 Azure 助您擴展商務應用程式](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [Azure 之於您的資料中心](https://azure.microsoft.com/overview/business-apps-on-azure/)
-
 

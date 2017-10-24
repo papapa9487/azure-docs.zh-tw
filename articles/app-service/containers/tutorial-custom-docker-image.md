@@ -16,12 +16,11 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
+ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 10795d59b019d7c683abfeea611d5909b88891ec
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>針對 Azure Web App for Containers 使用自訂 Docker 映像
 
@@ -529,16 +528,16 @@ az acr credential show --name {azure-container-registry-name}
 }
 ```
 
-現在，您已具備所需的認證，可使用 `docker login` 命令登入 Azure Container Registry。 需要登錄的 URL 才能登入。 請使用此格式：`http://{azure-container-registry-name>.azurecr.io`。
+現在，您已具備所需的認證，可使用 `docker login` 命令登入 Azure Container Registry。 需要伺服器名稱才能登入。 請使用此格式：`{azure-container-registry-name>.azurecr.io`。
 
 ```bash
 docker login <azure-container-registry-name>.azurecr.io --username <azure-container-registry-name> --password <password> 
 ```
 
-確認登入成功。 使用 `docker push` 命令，並以登錄的完整 URL 後接您的映像名稱和標記將映像標記來推送映像。
+確認登入成功。 使用 `docker push` 命令，並以登錄名稱再接著映像名稱和標籤來標記映像，然後推送映像。
 
 ```bash
-docker push http://<azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
+docker push <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
 
 列出 ACR 存放庫以確認推送已成功將容器新增至登錄。 
@@ -623,4 +622,3 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 ## <a name="next-steps"></a>後續步驟
 
 [Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)
-

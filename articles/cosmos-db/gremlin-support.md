@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 06/10/2017
 ms.author: denlee
+ms.openlocfilehash: 9d83e392774b60b795b7027188ef22d0a8e1b71d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 3f2d2af1d6be41d98f9780b4cf9ca4cd79de0fd7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) \(英文\)，該圖形 API 是 [Apache Tinkerpop](http://tinkerpop.apache.org) \(英文\) 的圖形周遊語言，可用於建立圖表實體和執行圖表查詢作業。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
 
@@ -209,4 +207,3 @@ GraphSON 用於頂點的屬性如下︰
 ## <a name="next-steps"></a>後續步驟
 * [使用我們的 SDK](create-graph-dotnet.md) 開始建置圖表應用程式 
 * 深入了解 [Azure Cosmos DB 的圖表支援](graph-introduction.md)
-

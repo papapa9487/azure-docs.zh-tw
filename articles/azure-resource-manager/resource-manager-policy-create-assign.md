@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>指派和管理資源原則
 
@@ -31,6 +30,23 @@ ms.lasthandoff: 07/28/2017
 4. 不論存在與否，請將原則指派給範圍 (例如訂用帳戶或資源群組)。 現在會強制執行原則的規則。
 
 本文著重於建立原則定義，然後透過 REST API、PowerShell 或 Azure CLI 將該定義指派至範圍的步驟。 如果您想要使用入口網站來指派原則，請參閱[使用 Azure 入口網站來指派和管理資源原則](resource-manager-policy-portal.md)。 本文並不會著重於建立原則定義的語法。 如需原則語法的詳細資訊，請參閱[資源原則概觀](resource-manager-policy.md)。
+
+## <a name="exclusion-scopes"></a>排除範圍
+
+指派原則時，您可以排除範圍。 這項功能可以簡化原則指派，因為您可以在訂用帳戶層級指派原則，但是指定不套用原則的位置。 例如，在您的訂用帳戶中，您會有適用於網路基礎結構的資源群組。 應用程式小組會將其資源部署到其他資源群組。 您不想要讓這些小組建立可能會導致安全性問題的網路資源。 不過，在網路資源群組中，您想要允許網路資源。 您在訂用帳戶層級指派原則，但是排除網路資源群組。 您可以指定多個子範圍。
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+如果您在指派中指定排除範圍，請使用 **2017-06-01-preview** API 版本。
 
 ## <a name="rest-api"></a>REST API
 
@@ -168,8 +184,28 @@ PolicyDefinitionId : /providers/Microsoft.Authorization/policyDefinitions/e56962
 ### <a name="create-policy-definition"></a>建立原則定義
 您可以使用 `New-AzureRmPolicyDefinition` cmdlet 建立原則定義。
 
+若要從檔案建立原則定義，請將路徑傳遞至檔案。 針對外部檔案，使用：
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+針對本機檔案，使用：
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+若要建立具有內嵌規則的原則定義，請使用：
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 輸出會儲存在於原則指派期間使用的 `$definition` 物件中。 
-
-您不需要指定 JSON 做為參數，而可以提供路徑給包含原則規則的 .json 檔案。
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 下列範例建立了包含參數的原則定義：
 
@@ -319,8 +349,10 @@ az policy definition list
 
 您可以使用 Azure CLI 搭配原則定義命令來建立原則定義。
 
+若要建立具有內嵌規則的原則定義，請使用：
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>後續步驟
 * 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
-
 

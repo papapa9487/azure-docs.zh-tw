@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: e9cb2f03600d49123693fcc88742d6fc75d9de16
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: b4f8855fe6480bc58acfbbb53819f6eabe362bdb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式
 
@@ -33,8 +32,11 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 4. 選取 Smooth Streaming 曲目
 
 ## <a name="prerequisites"></a>必要條件
-* Windows 8 32 位元或 64 位元。 您可以從 MSDN 取得 [Windows 8 Enterprise 評估版](http://msdn.microsoft.com/evalcenter/jj554510.aspx) 。
-* Visual Studio 2012 或 Visual Studio Express 2012 (或更新版本)。 您可以從 [這裡](http://www.microsoft.com/visualstudio/11/downloads)取得試用版。
+> [!NOTE]
+> Windows 市集 8.1 版和更早版本的專案在 Visual Studio 2017 不受支援。  如需詳細資訊，請參閱 [Visual Studio 2017 平台目標及相容性](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs)。
+
+* Windows 8 32 位元或 64 位元。
+* Visual Studio 2012 到 2015 版。
 * [Microsoft Smooth Streaming Client SDK for Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)(英文)。
 
 您可以從 MSDN 開發人員程式碼範例 (Code Gallery) 下載每個課程的已完成解答： 
@@ -59,7 +61,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 **建立 Windows 市集專案**
 
-1. 執行 Visual Studio 2012 或更新版本。
+1. 執行 Visual Studio；支援 2012 到 2015 版。
 2. 從 [檔案] 功能表中，按一下 [新增]，再按 [專案]。
 3. 從 [新增專案] 對話方塊中，輸入或選取下列值：
 
@@ -76,7 +78,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 **新增 Smooth Streaming Client SDK 的參考**
 
-1. 從 [方案總管] 中，在 [SSPlayer] 上按一下滑鼠右鍵，然後按一下 [加入參考]。
+1. 從 方案總管 中，在 SSPlayer 上按一下滑鼠右鍵，然後按一下加入參考。
 2. 輸入或選取下列值：
 
 | 名稱 | 值 |
@@ -145,7 +147,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 **修改程式碼後置檔案**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在檔案的頂端，新增下列 using 陳述式：
    
         using Windows.Media;
@@ -237,7 +239,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 **註冊 Smooth Streaming 位元組資料流處理常式並傳遞屬性集**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在檔案的開頭，新增下列 using 陳述式：
 
         using Microsoft.Media.AdaptiveStreaming;
@@ -274,7 +276,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 **新增調適性來源管理員層級事件處理常式**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在 [MainPage]  類別內，新增下列資料成員：
    
      private AdaptiveSource adaptiveSource = null;
@@ -296,7 +298,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 **新增調適性來源層級事件處理常式**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在 [MainPage]  類別內，新增下列資料成員：
    
      private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   private Manifest manifestObject;
@@ -340,7 +342,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 **新增媒體元素事件處理常式**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在 **MainPage** 類別的結尾，新增下列事件處理常式：
 
          # region Media Element Event Handlers
@@ -372,7 +374,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 **新增滑動軸相關程式碼**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在檔案的開頭，新增下列 using 陳述式：
       
         using Windows.UI.Core;
@@ -508,7 +510,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
 
 **修改 XAML 檔案**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視設計工具]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視設計工具。
 2. 找到 &lt;Grid.RowDefinitions&gt;，並修改 RowDefinitions，讓它們看起來如下：
    
          <Grid.RowDefinitions>            
@@ -547,7 +549,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
 
 **修改程式碼後置檔案**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在 SSPlayer 命名空間內，新增類別：
    
         #region class Stream
@@ -776,7 +778,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 **修改 XAML 檔案**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視設計工具]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視設計工具。
 2. 找到名稱為 **gridStreamAndBitrateSelection** 的 &lt;Grid&gt; 標籤，並在標籤的結尾附加下列程式碼：
    
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
@@ -797,7 +799,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 **修改程式碼後置檔案**
 
-1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
+1. 從 方案總管 中，在 MainPage.xaml 上按一下滑鼠右鍵，然後按一下檢視程式碼。
 2. 在 SSPlayer 命名空間內，新增類別：
    
         #region class Track
@@ -977,5 +979,4 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-
 

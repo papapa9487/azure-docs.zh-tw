@@ -11,16 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/30/2017
 ms.author: jingwang
+ms.openlocfilehash: d8db545fc58f3cc2e18bbc9a732ed16ef8b563c4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ae4537ee37103392f78c4fa554984f1375634f17
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 搜尋服務索引
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -117,8 +115,8 @@ ms.lasthandoff: 09/25/2017
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 複製活動來源的類型屬性必須設定為：**AzureSearchIndexSink** | 是 |
-| WriteBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。<br/><br/>允許的值為：**Merge** (預設值) 和 **Upload**。 | 否 |
-| WriteBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。<br/><br/>允許的值為：整數 1 到 1,000；預設值為 1000。 | 否 |
+| writeBehavior | 指定若文件已經存在於索引中，是否要合併或取代。 請參閱 [WriteBehavior 屬性](#writebehavior-property)。<br/><br/>允許的值為：**Merge** (預設值) 和 **Upload**。 | 否 |
+| writeBatchSize | 當緩衝區大小達到 writeBatchSize 時，將資料上傳至 Azure 搜尋服務中。 如需詳細資訊，請參閱 [WriteBatchSize 屬性](#writebatchsize-property)。<br/><br/>允許的值為：整數 1 到 1,000；預設值為 1000。 | 否 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 屬性
 
@@ -160,7 +158,7 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
             },
             "sink": {
                 "type": "AzureSearchIndexSink",
-                "WriteBehavior": "Merge"
+                "writeBehavior": "Merge"
             }
         }
     }

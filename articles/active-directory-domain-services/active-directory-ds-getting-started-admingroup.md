@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services：開始使用 | Microsoft Docs"
-description: "使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services"
+description: "使用 Azure 入口網站啟用 Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
 
 ## <a name="task-3-configure-administrative-group"></a>工作 3：設定系統管理群組
@@ -57,11 +56,11 @@ ms.lasthandoff: 07/17/2017
 
     ![找出正在佈建的受管理的網域](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. 按一下受管理的網域名稱 (例如，'contoso100.com')，以查看網域的詳細資料。
+2. 按一下受管理網域的名稱 (例如，'contoso100.com')，以查看受管理網域的詳細資料。
 
     ![Domain Services - 佈建狀態](./media/getting-started/domain-services-provisioning-state.png)
 
-3. [概觀] 索引標籤會顯示目前佈建的網域。 完整佈建之前，您無法設定受管理的網域。 完整佈建受管理的網域可能需要一小時的時間。
+3. [概觀] 索引標籤會顯示目前佈建的受管理網域。 完整佈建之前，您無法設定受管理的網域。 完整佈建受管理的網域可能需要一小時的時間。
 
     ![Domain Services - 佈建狀態期間的概觀索引標籤 ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -74,6 +73,9 @@ ms.lasthandoff: 07/17/2017
     ![Domain Services - 完整佈建後的屬性索引標籤](./media/getting-started/domain-services-provisioned-properties.png)
 
 
+## <a name="need-help"></a>需要協助嗎？
+佈建您的受管理網域的兩個網域控制站可能需要一或兩小時的時間。 如果您的部署失敗，或停滯在「擱置中」狀態超過幾個小時，請隨意[連絡產品小組以取得協助](active-directory-ds-contact-us.md)。
+
+
 ## <a name="next-step"></a>後續步驟
 [工作 4：更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)
-

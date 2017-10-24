@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
 ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路擴充至 Microsoft 雲端，涉及三個不同的網路區域：
@@ -97,7 +96,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->您可以透過 Azure 入口網站取得您的資源群組名稱。 請參閱本文之前的文章段落，並記下範例螢幕擷取畫面中列出的資源群組名稱。
+>您可以透過 Azure 取得您的資源群組名稱。 請參閱本文之前的文章段落，並記下範例螢幕擷取畫面中列出的資源群組名稱。
 >
 >
 
@@ -172,14 +171,9 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 服務提供者已完成 ExpressRoute 路之線佈建後，可以透過 MSEE-PR (4) 和 MSEE (5) 之間的 ExpressRoute 路線建立路由組態。 每個 ExpressRoute 線路可以啟用一、二或三個路由內容︰Azure 私人對等互連 (送至 Azure 中私人虛擬網路的流量)、Azure 公用對等互連 (送至 Azure 中公用 IP 位址的流量) 及 Microsoft 對等互連 (送至 Office 365 和 Dynamics 365 的流量)。 如需有關如何建立及修改路由組態的詳細資訊，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]一文。
 
 ###<a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
->[!IMPORTANT]
->Azure 入口網站中有個已知的錯誤：如果 ExpressRoute 對等互連是由服務提供者設定，在入口網站中「不會」顯示 ExpressRoute 對等互連。 透過入口網站或 PowerShell 新增 ExpressRoute 對等互連，可覆寫服務提供者的設定。 這個動作會中斷 ExpressRoute 路線上的路由，且需要服務提供者支援將設定還原並重新建立一般路由。 只有當確定服務提供者僅提供第 2 層服務時，才修改 ExpressRoute 對等互連！
->
->
 
-<p/>
 >[!NOTE]
->如果第 3 層是由服務提供者提供，且入口網站中的對等互連是空白的，可以用 PowerShell 來查看服務提供者所做的設定。
+>如果第 3 層是由服務提供者所提供，且對等互連在入口網站中為空白，請使用入口網站上的 [重新整理] 按鈕將循環組態重新整理。 此作業將套用在您線路上的正確路由組態。 
 >
 >
 
@@ -398,7 +392,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 - [建立和修改 ExpressRoute 路線的路由][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "ExpressRoute 邏輯連線"
+[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "邏輯 Express 路由連線"
 [2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "所有資源圖示"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "概觀圖示"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "ExpressRoute 基本資料螢幕擷取畫面範例"
@@ -410,7 +404,6 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
 [ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
 
 
 

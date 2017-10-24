@@ -3,7 +3,7 @@ title: "Azure 自動化中的子 Runbook | Microsoft Docs"
 description: "說明在 Azure 自動化中從另一個 Runbook 啟動 Runbook，以及在它們之間共用資訊的不同方法。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 919887b9-43e2-4c16-883c-f81807fe37db
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2017
 ms.author: magoedte;bwren
-translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: cf3d1ae66483fed4aa9cd31f674729e4b875653c
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 617e18f5435c7eacb7751ccca6ac2f3814745f04
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自動化中的子 Runbook
 Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook，並包含可供其他 Runbook 使用的不同功能。 父 Runbook 通常會呼叫一或多個子 Runbook 來執行必要的功能。 有兩種方式可以呼叫子 Runbook，而且各有您應該了解的明顯差異，如此您才能判斷在不同的情況下哪一種最適用。
@@ -44,7 +43,7 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 
 * Runbook 的發行順序只對 PowerShell 工作流程和圖形化 PowerShell 工作流程 Runbook 有關係。
 
-叫用使用內嵌執行的圖形化或 PowerShell 工作流程子 Runbook 時，只要使用 Runbook 名稱即可。  當您呼叫 PowerShell 子 Runbook 時，您必須在其名稱之前加上 *.\\* ，以指明指令碼位於本機目錄。 
+叫用使用內嵌執行的圖形化或 PowerShell 工作流程子 Runbook 時，只要使用 Runbook 名稱即可。  當您呼叫 PowerShell 子系 Runbook 時，名稱前面必須加上 *.\\* 來指定指令碼位於本機目錄。 
 
 ### <a name="example"></a>範例
 下列範例會叫用一個測試子 Runbook，它會接受三個參數、一個複雜物件、一個整數和一個布林值。 子 Runbook 的輸出會指派給一個變數。  此案例的子 Runbook 是 PowerShell 工作流程 Runbook
@@ -61,7 +60,7 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>使用 Cmdlet 啟動子 Runbook
 您可以依照[使用 Windows PowerShell 啟動 Runbook](automation-starting-a-runbook.md#starting-a-runbook-with-windows-powershell) 中的說明，使用 [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) Cmdlet 啟動 Runbook。 使用這個 Cmdlet 的模式有兩種。  在第一個模式中，Cmdlet 會在子 Runbook 的子作業建立時立即傳回作業識別碼。  在第二個模式 (藉由指定 **-wait** 參數啟用) 中，Cmdlet 會等候子作業完成，並且會傳回子 Runbook 的輸出。
 
-使用 Cmdlet 啟動之子 Runbook 的工作，將會與父 Runbook 的工作分開執行。 這會使產生的作業比叫用指令碼內嵌更多，並使它們更難以困難。 父 Runbook 可以利用非同步方式啟動多個子 Runbook，不需要等候每個子 Runbook 完成。 對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用 [平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
+使用 Cmdlet 啟動之子 Runbook 的工作，將會與父 Runbook 的工作分開執行。 這會使產生的作業比叫用指令碼內嵌更多，並使它們更難以困難。父 Runbook 可以利用非同步方式啟動多個子 Runbook，不需要等候每個子 Runbook 完成。 對於呼叫子 Runbook 內嵌的同類型平行執行作業，父 Runbook 將需要使用 [平行關鍵字](automation-powershell-workflow.md#parallel-processing)。
 
 使用 Cmdlet 啟動之子 Runbook 的參數是以雜湊表方式提供，如 [Runbook 參數](automation-starting-a-runbook.md#runbook-parameters)中所述。 只能使用簡單資料類型。 若 Runbook 有複雜資料類型的參數，必須以內嵌方式呼叫。
 
@@ -87,5 +86,4 @@ Azure 自動化中的最佳作法是撰寫可重複使用、模組化的 Runbook
 ## <a name="next-steps"></a>後續步驟
 * [在 Azure 自動化中啟動 Runbook](automation-starting-a-runbook.md)
 * [Azure 自動化中的 Runbook 輸出與訊息](automation-runbook-output-and-messages.md)
-
 

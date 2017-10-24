@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
+ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: ddbba4b45c5c7cd8ee69390581cd78b820d19259
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 如果符合下列其中一種條件，您必須將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路 (VNet)： 
 
@@ -40,8 +38,9 @@ ms.lasthandoff: 09/28/2017
 - 如果有現有 Azure Resource Manager VNet 連線到您的內部部署網路，請先建立 Azure-SSIS 整合執行階段要加入的[傳統 VNet](../virtual-network/virtual-networks-create-vnet-classic-pportal.md)。 然後，設定[傳統對 Azure Resource Manager VNet](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) 連線。
 
 ## <a name="domain-name-services-server"></a>網域名稱服務伺服器 
-如果您需要在 Azure-SSIS 整合執行階段所加入的 VNet 中使用自己的網域名稱系統 (DNS) 伺服器，請遵循本指南，並確定 VNet 中 Azure-SSIS 整合執行階段的節點可以解析 Azure 端點。
+如果您需要在 Azure-SSIS 整合執行階段所加入的 VNet 中使用自己的網域名稱系統 (DNS) 伺服器，請遵循指南以[確定 VNet 中 Azure-SSIS 整合執行階段的節點可以解析 Azure 端點](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server)。
 
+## <a name="network-security-group"></a>網路安全性群組
 如果您需要在 Azure-SSIS 整合執行階段所加入的 VNet 中實作網路安全性群組 (NSG)，請允許透過下列連接埠的輸入/輸出流量：
 
 | 連接埠 | 方向 | 傳輸通訊協定 | 目的 | 輸入來源/輸出目的地 |
@@ -101,4 +100,3 @@ ms.lasthandoff: 09/28/2017
 - [如何：建立 Azure-SSIS 整合執行階段](create-azure-ssis-integration-runtime.md)。 本文展開教學課程，並提供使用 Azure SQL 受管理執行個體 (私人預覽) 以及將 IR 加入 VNet 的指示。 
 - [監視 Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). 本文示範如何在傳回的資訊中擷取 Azure-SSIS IR 的相關資訊和狀態描述。 
 - [管理 Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). 本文示範如何停止、啟動或移除 Azure-SSIS IR。 它也會示範如何將更多節點新增至 IR，藉此相應放大 Azure-SSIS IR。 
-

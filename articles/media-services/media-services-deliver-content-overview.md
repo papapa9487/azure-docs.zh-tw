@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 09/28/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 249b87ecc9e43fa26a74e27f91f807d60b275eeb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 01/13/2017
-
+ms.openlocfilehash: 815aae57af93b0e4870bd9f61da248e4be328db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deliver-content-to-customers"></a>將內容傳遞給客戶
 當您將串流或點播視訊內容傳遞給客戶時，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。
@@ -27,7 +26,10 @@ ms.lasthandoff: 01/13/2017
 若要達成此目標，您可以：
 
 * 將您的串流編碼成多位元速率 (調適性位元速率) 視訊串流。 這會負責處理品質和網路狀況。
-* 使用 Microsoft Azure 媒體服務 [動態封裝](media-services-dynamic-packaging-overview.md) 將串流動態地重新封裝至不同的通訊協定。 這會負責處理不同裝置上的串流處理。 媒體服務支援傳遞下列自適性串流技術：HTTP 即時串流 (HLS)、Smooth Streaming 和 MPEG-DASH。
+* 使用 Microsoft Azure 媒體服務 [動態封裝](media-services-dynamic-packaging-overview.md) 將串流動態地重新封裝至不同的通訊協定。 這會負責處理不同裝置上的串流處理。 媒體服務支援傳遞下列自適性串流技術： <br/>
+    * **HTTP 即時串流** (HLS) - 將 "(format=m3u8-aapl)" 路徑新增至 URL 的 "/Manifest" 部分，來告訴串流原始伺服器傳回 HLS 內容以供在 **Apple iOS** 原生裝置上取用 (如需詳細資料，請參閱[定位器](#locators)和 [URL](#URLs))，
+    * **MPEG DASH** - 將 "(format=mpd-time-csf)" 路徑新增至 URL 的 "/Manifest" 部分，來告訴串流原始伺服器傳回 MPEG-DASH (如需詳細資料，請參閱[定位器](#locators)和 [URLs](#URLs))，
+    * **Smooth Streaming**。
 
 >[!NOTE]
 >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
@@ -52,7 +54,7 @@ ms.lasthandoff: 01/13/2017
 
 如需詳細資訊，請參閱 [篩選器與動態資訊清單](media-services-dynamic-manifest-overview.md)。
 
-## <a name="locators"></a>定位器
+## <a name="a-idlocatorslocators"></a><a id="locators"/>定位器
 若要提供 URL 給使用者，讓使用者可以利用這個 URL 來串流或下載內容，您必須先建立定位器來發佈您的資產。 定位器提供一個登入點，讓使用者可以存取資產包含的檔案。 媒體服務支援兩種類型的定位器：
 
 * OnDemandOrigin 定位器。 這些定位器可用來串流媒體 (例如，MPEG-DASH、HLS 或 Smooth Streaming) 或漸進式下載檔案。
@@ -82,10 +84,10 @@ ms.lasthandoff: 01/13/2017
 > 您也可以透過 SSL 連線串流您的內容。 若要這樣做，請確定您的串流 URL 以 HTTPS 開頭。 請注意，目前 AMS 不支援使用 SSL 搭配自訂網域。  
 > 
 
-
 只有當您傳遞內容的來源串流端點是在 2014 年 9 月 10 日之後建立時，才能透過 SSL 串流。 如果您的串流 URL 是根據 2014 年 9 月 10 日之後建立的串流端點，則 URL 會包含 "streaming.mediaservices.windows.net"。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而且您希望能夠透過 SSL 串流，請建立新的串流端點。 使用根據新的串流端點的 URL，透過 SSL 串流內容。
 
-## <a name="streaming-url-formats"></a>Streaming URL 格式
+## <a name="a-idurlsstreaming-url-formats"></a><a id="URLs"/>Streaming URL 格式
+
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 格式
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=mpd-time-csf)
 
@@ -185,5 +187,4 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 ## <a name="related-topics"></a>相關主題
 [啟動儲存體金鑰之後更新媒體服務定位器](media-services-roll-storage-access-keys.md)
-
 

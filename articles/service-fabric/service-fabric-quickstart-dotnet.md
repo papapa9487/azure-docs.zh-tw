@@ -12,17 +12,15 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/09/2017
+ms.date: 10/02/2017
 ms.author: mikhegn
-ms.custom: mvc
+ms.custom: mvc, devcenter
+ms.openlocfilehash: 3be8836ae6b877bc4caa98f0467147b008c42aa2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d11b9af982112db8ba94b62110c18be843f1abb1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-net-service-fabric-application-in-azure"></a>在 Azure 中建立 .NET Service Fabric 應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
 
@@ -135,7 +133,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 2. 在 [連接端點] 欄位中鍵入叢集的連接端點，然後按一下 [發行]。 註冊合作對象叢集時，會在瀏覽器中提供連接端點， 例如 `winh1x87d1d.westus.cloudapp.azure.com:19000`。
 
-3. 開啟瀏覽器並鍵入叢集位址，例如 `http://winh1x87d1d.westus.cloudapp.azure.com`。 您現在應該會看到應用程式在 Azure 的叢集中執行。
+3. 開啟瀏覽器並輸入叢集位址，再加上 ': 8080' 以連接叢集中的應用程式 - 例如，`http://winh1x87d1d.westus.cloudapp.azure.com:8080`。 您現在應該會看到應用程式在 Azure 的叢集中執行。
 
 ![應用程式前端](./media/service-fabric-quickstart-dotnet/application-screenshot-new-azure.png)
 

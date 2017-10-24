@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
+ms.openlocfilehash: 8713fc7dd27023e1244ccb00673dd1652689baf5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: 6cd0d19e5fd90cb9fb6d3fc4c17119476d7b4f62
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C︰使用自訂原則新增 ADFS 作為 SAML 識別提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -155,8 +153,10 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="register-the-adfs-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>向註冊或登入使用者旅程圖註冊 ADFS 帳戶宣告提供者
 此時，就已設定識別提供者。  不過，無法在任何註冊/登入畫面中使用。 您現在必須將 ADFS 帳戶識別提供者新增至您的使用者 `SignUpOrSignIn` 使用者旅程圖。 若要使用，我們建立了重複的現有範本使用者旅程圖。  然後，我們要修改它，使其包含 ADFS 識別提供者：
-    >[!NOTE]
-    >If you previously copied the `<UserJourneys>` element from base file of your policy to the extension file (TrustFrameworkExtensions.xml) you can skip this section.
+
+>[!NOTE]
+>如果您先前從原則的基底檔案將 `<UserJourneys>` 元素複製到擴充檔案 (TrustFrameworkExtensions.xml)，就可以跳過本節。
+
 1.  開啟原則的基本檔案 (例如，TrustFrameworkBase.xml)。
 2.  尋找 `<UserJourneys>` 元素，並複製 `<UserJourneys>` 節點的完整內容。
 3.  開啟擴充檔案 (例如，TrustFrameworkExtensions.xml)，並尋找 `<UserJourneys>` 元素。 如果此元素不存在，請新增。
@@ -228,4 +228,3 @@ ms.lasthandoff: 08/28/2017
 
 ## <a name="download-the-complete-policy-files"></a>下載完整的原則檔案
 選擇性：建議您在使用自訂原則逐步解說完成使用者入門後，使用自己的自訂原則檔案來建置您的情節。 [原則範例檔案僅供參考](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-adfs2016-app)
-

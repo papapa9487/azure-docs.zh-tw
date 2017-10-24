@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: c75d95ed554a78a02e5469915c21491e65edd8c2
-ms.openlocfilehash: 14ec59087b0aede76a18034f5aa93cb6ecd67a7e
-
-
+ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>實作 Azure 企業 Scaffold 的範例
 本主題提供企業如何實作 [Azure 企業 Scaffold](resource-manager-subscription-governance.md)建議的範例。 它會使用名為 Contoso 的虛構公司來說明常見案例的最佳作法。
@@ -46,8 +46,8 @@ Dave 會建立一個訂用帳戶，以支援所有業務單位常見的開發人
 | 項目 | 名稱 | 說明 |
 | --- | --- | --- |
 | 訂閱 |Contoso ETS DeveloperTools Production |支援一般開發人員工具 |
-| 資源群組 |rgBitBucket |包含應用程式 Web 伺服器和資料庫伺服器 |
-| 資源群組 |rgCoreNetworks |包含虛擬網路和站對站閘道連線 |
+| 資源群組 |bitbucket-prod-rg |包含應用程式 Web 伺服器和資料庫伺服器 |
+| 資源群組 |corenetworks-prod-rg |包含虛擬網路和站對站閘道連線 |
 
 ### <a name="role-based-access-control"></a>角色型存取控制
 建立自己的訂用帳戶之後，Dave 想要確保適當的小組和應用程式擁有者可以存取其資源。 Dave 認為每個小組有不同的需求。 他利用已從 Contoso 的內部部署 Active Directory (AD) 同步處理至 Azure Active Directory 的群組，並提供適當層級的存取權限給各小組。
@@ -56,9 +56,9 @@ Dave 為訂用帳戶指派下列角色︰
 
 | 角色 | 指派對象 | 說明 |
 | --- | --- | --- |
-| [擁有者](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso AD 提供的受管理識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權。 |
-| [安全性管理員](../active-directory/role-based-access-built-in-roles.md#security-manager) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態。 |
-| [網路參與者](../active-directory/role-based-access-built-in-roles.md#network-contributor) |網路小組 |此角色可讓 Contoso 的網路小組管理站對站 VPN 和虛擬網路。 |
+| [擁有者](../active-directory/role-based-access-built-in-roles.md#owner) |Contoso AD 提供的受管理識別碼 |此識別碼會透過 Contoso 的身分識別管理工具進行即時 (JIT) 存取控制，可確保完整稽核訂用帳戶擁有者存取權 |
+| [安全性管理員](../active-directory/role-based-access-built-in-roles.md#security-manager) |安全性和風險管理部門 |此角色可讓使用者查看 Azure 資訊安全中心和資源的狀態 |
+| [網路參與者](../active-directory/role-based-access-built-in-roles.md#network-contributor) |網路小組 |此角色可讓 Contoso 的網路小組管理站對站 VPN 和虛擬網路 |
 | *自訂角色* |應用程式擁有者 |Dave 會建立一個角色，以授與修改資源群組內資源的能力。 如需詳細資訊，請參閱 [Azure RBAC 中的自訂角色](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### <a name="policies"></a>原則
@@ -85,8 +85,8 @@ Dave 了解他需要有帳單上的特定資訊，才能識別 BitBucket 實作�
 
 | 標籤名稱 | 標籤值 |
 | --- | --- |
-| ApplicationOwner |管理此應用程式的人員名稱。 |
-| CostCenter |負責支付 Azure 耗用量之群組的成本中心。 |
+| ApplicationOwner |管理此應用程式的人員名稱 |
+| CostCenter |負責支付 Azure 耗用量之群組的成本中心 |
 | BusinessUnit |**ETS** (與訂用帳戶相關聯的業務單位) |
 
 ### <a name="core-network"></a>核心網路
@@ -96,9 +96,9 @@ Contoso ETS 資訊安全性和風險管理小組會審查 Dave 提議將應用�
 
 | 資源類型 | 名稱 | 說明 |
 | --- | --- | --- |
-| 虛擬網路 |vnInternal |搭配 BitBucket 應用程式使用，而且透過 ExpressRoute 連接到 Contoso 的公司網路。  子網路 (sbBitBucket) 會提供特定 IP 位址空間給應用程式。 |
-| 虛擬網路 |vnExternal |適用於未來需要公開端點的應用程式。 |
-| 網路安全性群組 |nsgBitBucket |只允許在應用程式所在子網路 (sbBitBucket) 的連接埠 443 上進行連線，確保此工作負載的受攻擊面最小化。 |
+| 虛擬網路 |內部 vnet |搭配 BitBucket 應用程式使用，而且透過 ExpressRoute 連接到 Contoso 的公司網路。  子網路 (`bitbucket`) 會提供特定 IP 位址空間給應用程式 |
+| 虛擬網路 |外部 vnet |適用於未來需要公開端點的應用程式 |
+| 網路安全性群組 |bitbucket-nsg |只允許在應用程式所在子網路 (`bitbucket`) 的連接埠 443 上進行連線，確保此工作負載的受攻擊面最小化 |
 
 ### <a name="resource-locks"></a>資源鎖定
 Dave 認為從 Contoso 的公司網路至內部虛擬網路的連線必須受到保護，以免遭遇任何不受控的指令碼或意外刪除。
@@ -107,7 +107,7 @@ Dave 認為從 Contoso 的公司網路至內部虛擬網路的連線必須受到
 
 | 鎖定類型 | 資源 | 說明 |
 | --- | --- | --- |
-| **CanNotDelete** |vnInternal |防止使用者刪除虛擬網路或子網路，但不會防止新增子網路。 |
+| **CanNotDelete** |內部 vnet |防止使用者刪除虛擬網路或子網路，但不會防止新增子網路 |
 
 ### <a name="azure-automation"></a>Azure 自動化
 Dave 無法自動執行此應用程式。 雖然他建立了 Azure 自動化帳戶，但他一開始不會使用它。
@@ -125,8 +125,8 @@ Dave 登入 Azure 企業入口網站並看到供應鏈部門已經存在。  不
 
 | 訂用帳戶用途 | 名稱 |
 | --- | --- |
-| 開發 |SupplyChain ResearchDevelopment LoyaltyCard Development |
-| Production |SupplyChain Operations LoyaltyCard Production |
+| 開發 |Contoso SupplyChain ResearchDevelopment LoyaltyCard Development |
+| Production |Contoso SupplyChain Operations LoyaltyCard Production |
 
 ### <a name="policies"></a>原則
 Dave 和 Alice 一起討論應用程式並認定此應用程式只為北美地區的客戶提供服務。  Alice 和她的小組計劃使用 Azure 的應用程式服務環境和 Azure SQL 來建立應用程式。 它們可能需要在開發期間建立虛擬機器。  Alice 想要確保她的開發人員具有探索和檢查問題所需的資源，而不需透過 ETS 協助。
@@ -135,7 +135,7 @@ Dave 和 Alice 一起討論應用程式並認定此應用程式只為北美地�
 
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
-| location |稽核 |稽核在任何區域中的資源建立。 |
+| location |稽核 |稽核在任何區域中的資源建立 |
 
 他們不會限制使用者可以在開發環境中建立的 SKU 類型，而且不需要任何資源群組或資源的標籤。
 
@@ -143,10 +143,10 @@ Dave 和 Alice 一起討論應用程式並認定此應用程式只為北美地�
 
 | 欄位 | 效果 | 說明 |
 | --- | --- | --- |
-| location |deny |拒絕在美國資料中心以外建立任何資源。 |
-| 標籤 |deny |需要應用程式擁有者標籤 |
-| 標籤 |deny |需要部門標籤。 |
-| 標籤 |附加 |將標籤附加至每個表示生產環境的資源群組。 |
+| location |deny |拒絕在美國資料中心以外建立任何資源 |
+| tags |deny |需要應用程式擁有者標籤 |
+| 標籤 |deny |需要部門標籤 |
+| tags |附加 |將標籤附加至每個表示生產環境的資源群組 |
 
 他們不會限制使用者可以在生產環境中建立的 SKU 類型。
 
@@ -155,9 +155,9 @@ Dave 了解他需要有帳單上的特定資訊，才能針對收費和擁有權
 
 | 標籤名稱 | 標籤值 |
 | --- | --- |
-| ApplicationOwner |管理此應用程式的人員名稱。 |
-| Department |負責支付 Azure 耗用量之群組的成本中心。 |
-| EnvironmentType |**生產** (即使訂用帳戶的名稱包含 **Production**，但包含這個標籤有助於在查看入口網站中或帳單上的資源時輕鬆識別。) |
+| ApplicationOwner |管理此應用程式的人員名稱 |
+| department |負責支付 Azure 耗用量之群組的成本中心 |
+| EnvironmentType |**生產** (即使訂用帳戶的名稱包含 **Production**，但包含這個標籤有助於在查看入口網站中或帳單上的資源時輕鬆識別) |
 
 ### <a name="core-networks"></a>核心網路
 Contoso ETS 資訊安全性和風險管理小組會審查 Dave 提議將應用程式移至 Azure 的方案。 他們想要確保在 DMZ 網路中適度隔離和保護忠誠卡應用程式。  為了滿足此需求，Dave 和 Alice 建立外部虛擬網路和網路安全性群組，以便隔離忠誠卡應用程式與 Contoso 公司網路。  
@@ -166,14 +166,14 @@ Contoso ETS 資訊安全性和風險管理小組會審查 Dave 提議將應用�
 
 | 資源類型 | 名稱 | 說明 |
 | --- | --- | --- |
-| 虛擬網路 |vnInternal |為 Contoso 忠誠卡開發環境提供服務，而且透過 ExpressRoute 連接到 Contoso 的公司網路。 |
+| 虛擬網路 |內部 vnet |為 Contoso 忠誠卡開發環境提供服務，而且透過 ExpressRoute 連接到 Contoso 的公司網路 |
 
 對於**生產訂用帳戶**，他們可建立︰
 
 | 資源類型 | 名稱 | 說明 |
 | --- | --- | --- |
-| 虛擬網路 |vnExternal |裝載忠誠卡應用程式，但不會直接連接到 Contoso 的 ExpressRoute。 程式碼會透過其原始程式碼系統直接推送至 PaaS 服務。 |
-| 網路安全性群組 |nsgBitBucket |只允許 TCP 443 的輸入通訊，以確保此工作負載的受攻擊面最小化。  Contoso 也正在調查如何使用 Web 應用程式防火牆提供額外的保護。 |
+| 虛擬網路 |外部 vnet |裝載忠誠卡應用程式，但不會直接連接到 Contoso 的 ExpressRoute。 程式碼會透過其原始程式碼系統直接推送至 PaaS 服務 |
+| 網路安全性群組 |loyaltycard-nsg |只允許 TCP 443 的輸入通訊，以確保此工作負載的受攻擊面最小化。  Contoso 也正在調查如何使用 Web 應用程式防火牆提供額外的保護 |
 
 ### <a name="resource-locks"></a>資源鎖定
 Dave 和 Alice 協商並決定在環境中的一些重要資源上新增資源鎖定，以防止在錯誤程式碼推播期間遭到意外刪除。
@@ -182,7 +182,7 @@ Dave 和 Alice 協商並決定在環境中的一些重要資源上新增資源�
 
 | 鎖定類型 | 資源 | 說明 |
 | --- | --- | --- |
-| **CanNotDelete** |vnExternal |為了防止人們刪除虛擬網路或子網路。 此鎖定無法防止新增子網路。 |
+| **CanNotDelete** |外部 vnet |為了防止人們刪除虛擬網路或子網路。 此鎖定無法防止新增子網路 |
 
 ### <a name="azure-automation"></a>Azure 自動化
 Alice 和她的開發小組有大量 Runbook 可管理此應用程式的環境。 Runbook 允許新增/刪除應用程式的節點以及其他 DevOps 工作。
@@ -196,10 +196,3 @@ Contoso IT 服務管理部門需要快速識別及處理威脅。 他們也想�
 
 ## <a name="next-steps"></a>後續步驟
 * 若要了解如何建立 Resource Manager 範本，請參閱[建立 Azure Resource Manager 範本的最佳做法](resource-manager-template-best-practices.md)。
-
-
-
-
-<!--HONumber=Jan17_HO4-->
-
-

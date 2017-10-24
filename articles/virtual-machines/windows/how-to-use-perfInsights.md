@@ -14,16 +14,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/18/2017
 ms.author: genli
+ms.openlocfilehash: 8d66bbdf6f7153cf59af60051e54377f6eccdc3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 45953b4512cb2f602edbd837e62b9344c4211d03
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-perfinsights"></a>如何使用 PerfInsights 
 
-[PerfInsights](http://aka.ms/perfinsightsdownload) 是自動化的指令碼，它收集有用的診斷資訊、執行 I/O 壓力負載，並提供分析報表以協助針對 Microsoft Azure 中的 Windows VM 效能問題進行疑難排解。 
+[PerfInsights](http://aka.ms/perfinsightsdownload) 是自動化的指令碼，它收集有用的診斷資訊、執行 I/O 壓力負載，並提供分析報表以協助針對 Microsoft Azure 中的 Windows VM 效能問題進行疑難排解。 藉由安裝 [Azure 效能診斷 VM 延伸模組](performance-diagnostics-vm-extension.md)，您可以在虛擬機器上將它當作獨立指令碼執行，或直接從入口網站執行。
 
 我們建議您先執行此指令碼， 再開啟 Microsoft 支援票證處理 VM 效能問題。
 
@@ -189,7 +188,16 @@ Diskspd IO 工作負載測試 [OS 磁碟 (寫入) 和集區磁碟 (讀取/寫入
 
 ### <a name="how-do-i-run-perfinsights"></a>如何執行 PerfInsights？ 
 
-若要執行指令碼，請遵循下列步驟：
+藉由安裝 [Azure 效能診斷 VM 延伸模組](performance-diagnostics-vm-extension.md)，您可以在虛擬機器上執行 PerfInsights，或將它當作獨立的指令碼執行。 
+
+**從 Azure 入口網站安裝及執行 PerfInsights**
+
+您現在可以使用名為「Azure 效能診斷延伸模組」的 VM 延伸模組來執行 PerfInsights。 如需詳細資訊，請參閱[安裝 Azure 效能診斷延伸模組](performance-diagnostics-vm-extension.md#install-the-extension)。  
+
+**在獨立模式中執行 PerfInsights 指令碼**
+
+若要執行 PerfInsights 指令碼，請遵循下列步驟：
+
 
 1. 下載 [PerfInsights.zip](http://aka.ms/perfinsightsdownload)。
 
@@ -350,4 +358,3 @@ Xperf 是命令列工具，會從 Windows 效能工具套件擷取追蹤。
 為增加安全性，您需要在第一次使用時變更密碼。
 
 登入 DTM 之後，您會發現一個對話方塊，可上傳 PerfInsights 收集的 **CollectedData\_yyyy-MM-dd\_hh\_mm\_ss.zip** 檔案。
-

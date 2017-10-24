@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
+ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: fda9d6c12da382faed5312a677c533f24ffbd824
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>如何在 App Service 和 Azure Functions 中使用 Azure 受管理服務身分識別 (公開預覽)
 
 > [!NOTE] 
@@ -29,6 +27,10 @@ ms.lasthandoff: 09/28/2017
 ## <a name="creating-an-app-with-an-identity"></a>建立採用身分識別的應用程式
 
 若要建立採用身分識別的應用程式，您必須在應用程式上設定額外的屬性。
+
+> [!NOTE] 
+> 只有網站的主要位置才會收到身分識別。 尚不支援部署位置的受管理服務識別。
+
 
 ### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
 
@@ -203,4 +205,3 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
-

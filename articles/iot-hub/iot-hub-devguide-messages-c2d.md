@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2017
 ms.author: dobett
+ms.openlocfilehash: a3ebda292d16b2a420fb6d586f18201e34efffa7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 763bc597bdfc40395511cdd9d797e5c7aaad0fdf
-ms.openlocfilehash: 706c9650a8deef941f9b39956021456053369e5e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>從 IoT 中樞傳送雲端到裝置訊息
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 09/06/2017
 裝置也可以選擇：
 
 * *拒絕*訊息，這會導致 IoT 中樞將它設定為 **寄不出**狀態。 透過 MQTT 通訊協定連線的裝置無法拒絕雲端到裝置訊息。
-* *放棄*訊息，這會導致 IoT 中樞將訊息放回佇列，並將狀態設定為**已排入佇列**。
+* *放棄*訊息，這會導致 IoT 中樞將訊息放回佇列，並將狀態設定為**已排入佇列**。 透過 MQTT 通訊協定連線的裝置無法放棄雲端到裝置訊息。
 
 執行緒可能無法處理訊息，且不會通知 IoT 中樞。 在此情況下，訊息會在過了 [可見性 (或鎖定) 逾時] 之後，自動從**不可見**狀態轉換回**已加入佇列**狀態。 此逾時的預設值是一分鐘。
 
@@ -151,4 +150,3 @@ IoT 中樞上的**最大傳遞計數**屬性會決定訊息可以在**已加入�
 [lnk-c2d-configuration]: #cloud-to-device-configuration-options
 [lnk-lifecycle]: #message-lifecycle
 [lnk-c2d-tutorial]: iot-hub-csharp-csharp-c2d.md
-

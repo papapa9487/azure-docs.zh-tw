@@ -10,15 +10,14 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: support-article
 ms.date: 07/12/2017
 ms.author: genli
+ms.openlocfilehash: 3b11dc6afac716ef391976093839547e8fd37a91
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 182a27e444c2f5db66d518a1a0c608d3e319d553
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 資源原則產生的 RequestDisallowedByPolicy 錯誤
 
@@ -26,9 +25,9 @@ ms.lasthandoff: 07/13/2017
 
 ## <a name="symptom"></a>徵狀
 
-當您嘗試在部署期間採取動作時，可能會收到 **RequestDisallowedByPolicy** 錯誤來阻止執行該動作。 以下是一個錯誤範例：
+當您嘗試在部署期間採取動作時，可能會收到 **RequestDisallowedByPolicy** 錯誤，阻止完成該動作。 下列範例顯示錯誤：
 
-```
+```json
 {
   "statusCode": "Forbidden",
   "serviceRequestId": null,
@@ -43,7 +42,7 @@ ms.lasthandoff: 07/13/2017
 
 ### <a name="method-1"></a>方法 1
 
-在 PowerShell 中，提供該原則識別碼作為 **Id** 參數，以擷取有關封鎖了您部署之原則的詳細資料。
+在 PowerShell 中，提供該原則識別碼作為 `Id` 參數，以擷取有關封鎖了部署之原則的詳細資料。
 
 ```PowerShell
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -59,16 +58,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>方案
 
-基於安全性或合規性等因素，您的 IT 部門可能會強制執行資源原則，以禁止建立公用 IP 位址、網路安全性群組、使用者定義的路由或路由表。 在＜徵狀＞一節所述的錯誤訊息範例中，已將原則命名為 **regionPolicyDefinition**，但也可能不一樣。
+基於安全性或合規性等因素，您的 IT 部門可能會強制執行資源原則，以禁止建立公用 IP 位址、網路安全性群組、使用者定義的路由或路由表。 [徵兆] 區段中的錯誤訊息會顯示名為 **regionPolicyDefinition** 的原則。 您的原則可能有不同的名稱。
 若要解決這個問題，請與您的 IT 部門合作來檢閱資源原則，並決定如何依照這些原則來執行所要求的動作。
-
 
 如需詳細資訊，請參閱下列文章。
 
 - [資源原則概觀](resource-manager-policy.md)
-- [常見的部署錯誤：RequestDisallowedByPolicy](resource-manager-common-deployment-errors.md#requestdisallowedbypolicy)
-
- 
-
-
-
+- [透過入口網站檢視原則指派](resource-manager-policy-portal.md#view-policy-assignments)

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>透過 CSDL 將現有的 Web 服務對應至 OData 的範例
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>範例：使用 "POST" 傳回 "Raw" 資料的 FunctionImport
-使用 POST Raw 資料建立新的部屬並傳回其伺服器定義的 URL(location)，或更新伺服器所定義 URL 處的部分部屬。  其中的部屬是串流，即 非結構化，例如 文字檔。  請注意，POST 若沒有位置則不具等冪性。
+使用 POST Raw 資料建立新的部屬並傳回其伺服器定義的 URL(location)，或更新伺服器所定義 URL 處的部分部屬。  其中的部屬是串流，即非結構化，例如 文字檔。  請注意，POST 若沒有位置則不具等冪性。
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ ms.lasthandoff: 07/11/2017
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>範例：使用 "PUT" 傳回 "Raw" 資料的 FunctionImport
-使用 PUT Raw 資料建立新的部屬，或更新伺服器所定義 URL 處的整個部屬。  其中的部屬是串流，即 非結構化，例如 文字檔。  PUT 具有等冪性，因此即使出現多次也將產生相同的狀態，即 x=5。  Put 應與指定資源的完整內容搭配使用。
+使用 PUT Raw 資料建立新的部屬，或更新伺服器所定義 URL 處的整個部屬。  其中的部屬是串流，即非結構化，例如 文字檔。  PUT 具有等冪性，因此即使出現多次也將產生相同的狀態，即 x=5。  Put 應與指定資源的完整內容搭配使用。
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">

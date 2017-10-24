@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 04/04/2017
 ms.author: parakhj
+ms.openlocfilehash: 25dada7bc04449c6e527b94d97780d9aef1c33a9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 33f62a33ea7a3fadb6e7b045de10df25f5edbe83
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C：自訂原則
 
@@ -29,15 +28,13 @@ ms.lasthandoff: 07/28/2017
 
 自訂原則是定義 Azure AD B2C 租用戶行為的組態檔。 Azure AD B2C 入口網站已經為最常用的身分識別工作預先定義**內建原則**，而自訂原則完全可以由身分識別開發人員編輯，可完成的工作數量幾乎沒有限制。 請繼續閱讀，以判斷自訂原則否是適合您和您的身分識別案例。
 
-**編輯自訂原則並不適合每個人。** 學習曲線較辛苦、剛開始的摸索時間較長，未來對自訂原則的變更也需要類似的專業知識來維護。 使用自訂原則之前，應該謹慎考量優先在您的案例中使用內建原則。
-
 ## <a name="comparing-built-in-policies-and-custom-policies"></a>比較內建原則和自訂原則
 
 | | 內建原則 | 自訂原則 |
 |-|-------------------|-----------------|
 |目標使用者 | 所有具備或不具備身分識別專業知識的應用程式開發人員 | 身分識別專業人員︰系統整合人員、顧問和內部身分識別小組。 他們熟悉 OpenIDConnect 流程，也了解身分識別提供者和宣告型驗證 |
 |設定方法 | 有 UI 方便使用的 Azure 入口網站 | 直接編輯 XML 檔案，然後上傳至 Azure 入口網站 |
-|UI 自訂 | 完整的 UI 自訂，包括 HTML、CSS 和 jscript 支援 (需要自訂網域)<br><br>使用自訂字串支援多語言 | 相同 |
+|UI 自訂 | 完整的 UI 自訂，包括 HTML、CSS 和 javascript 支援 (需要自訂網域)<br><br>使用自訂字串支援多語言 | 相同 |
 | 屬性自訂 | 標準和自訂屬性 | 相同 |
 |權杖和工作階段管理 | 自訂權杖和多個工作階段選項 | 相同 |
 |識別提供者| **目前**︰預先定義的本機、社交提供者<br><br>**未來**︰標準式 OIDC、SAML、OAuth | **目前**：標準式 OIDC、OAUTH、SAML<br><br>**未來**：WsFed |
@@ -66,15 +63,15 @@ Azure 的客戶身分識別和存取管理 (CIAM) 服務。 服務包括︰
 2. 存取**識別體驗架構**，協調使用者與實體之間的信任，並在它們之間傳遞宣告，以完成身分識別/存取權管理工作 
 3. Security Token Service (STS)，發出識別碼權杖、重新整理權杖和存取權杖 (及對等的 SAML 判斷提示)，並驗證它們以保護資源。
 
-Azure AD B2C 依序與身分識別提供者、使用者、其他系統和本機使用者目錄互動，以達成身分識別工作 (例如登入使用者、註冊新的使用者、重設密碼)。 建立多方信任和執行這些步驟的基礎平台稱為識別體驗架構，而原則 (也稱為使用者旅程圖或信任架構原則) 會明確定義動作項目、動作、通訊協定及完成的步驟順序。
+Azure AD B2C 依序與識別提供者、使用者、其他系統和本機使用者目錄互動，以達成身分識別工作 (例如：登入使用者、註冊新的使用者、重設密碼)。 建立多方信任和執行這些步驟的基礎平台稱為識別體驗架構，而原則 (也稱為使用者旅程圖或信任架構原則) 會明確定義動作項目、動作、通訊協定及完成的步驟順序。
 
 ### <a name="identity-experience-framework"></a>身分識別體驗架構
 
-完全可設定、原則導向、雲端式的 Azure 平台，協調標準通訊協定格式 (例如 OpenIDConnect、OAuth、SAML、WSFed) 實體 (大致上是宣告提供者) 和少數非標準格式 (例如以 REST API 為基礎的系統對系統宣告交換) 實體之間的信任。 I2E 建立方便使用、白標籤的體驗，支援 HTML、CSS 和 jscript。  識別體驗架構目前僅適用於 Azure AD B2C 服務的情況，且優先用於 CIAM 相關的工作。
+完全可設定、原則導向、雲端式的 Azure 平台，協調標準通訊協定格式 (例如 OpenIDConnect、OAuth、SAML、WSFed) 實體 (大致上是宣告提供者) 和少數非標準格式 (例如：以 REST API 為基礎的系統對系統宣告交換) 實體之間的信任。 I2E 建立方便使用、白標籤的體驗，支援 HTML、CSS 和 javascript。  識別體驗架構目前僅適用於 Azure AD B2C 服務的情況，且優先用於 CIAM 相關的工作。
 
 ### <a name="built-in-policies"></a>內建原則
 
-預先定義的組態檔，指揮 Azure AD B2C 的行為來執行最常用的身分識別工作 (也就是 使用者註冊、登入、密碼重設)，並與也在 Azure AD B2C 中預先定義受信任關係的受信任方 (例如 Facebook 識別提供者、LinkedIn、Microsoft 帳戶、Google 帳戶) 互動。  未來，內建原則也可能支援自訂企業領域內常用的識別提供者，例如 Azure Active Directory Premium、Active Directory ADFS、Salesforce 識別碼提供者等。
+預先定義的設定檔會引導 Azure AD B2C 的行為，以執行最常見的身分識別工作 (也就是使用者註冊、登入，密碼重設)，並與也在 Azure AD B2C 中預先定義受信任關係的受信任方 (例如 Facebook 識別提供者、LinkedIn、Microsoft 帳戶、Google 帳戶) 互動。  未來，內建原則也可能支援自訂企業領域內常用的識別提供者，例如 Azure Active Directory Premium、Active Directory ADFS、Salesforce 識別碼提供者等。
 
 
 ### <a name="custom-policies"></a>自訂原則
@@ -85,7 +82,7 @@ Azure AD B2C 依序與身分識別提供者、使用者、其他系統和本機�
 
 ### <a name="policy-files"></a>原則檔
 
-自訂原則以一或多個 XML 格式的檔案表示，各檔案在階層鏈中彼此參考。 XML 元素定義︰宣告結構描述、宣告轉換、內容定義、宣告提供者/技術設定檔和 Userjourney 協調流程步驟等元素。  我們建議使用三種類型的原則檔︰
+自訂原則以一或多個 XML 格式的檔案表示，各檔案在階層鏈中彼此參考。 XML 元素定義：宣告結構描述、宣告轉換、內容定義、宣告提供者/技術設定檔和使用者旅程圖協調流程步驟等元素。  我們建議使用三種類型的原則檔︰
 
 - **基底檔案**，其中包含大部分的定義，Azure 有提供完整的範例。  建議您儘可能不要變更這個檔案，才有利於原則的疑難排解和長期維護
 - **擴充檔案**，其中保存租用戶的唯一組態變更
@@ -105,3 +102,7 @@ Azure AD B2C 依序與身分識別提供者、使用者、其他系統和本機�
 
 Azure AD B2C 中的**內建原則**依照上述的 3 檔案模式，但開發人員只能看到信賴憑證者 (RP) 檔案，而入口網站是在背景中變更擴充檔案。  整個 Azure AD B2C 共用一個基底原則檔，此檔案由 Azure B2C 小組控制，且經常更新。
 
+## <a name="next-steps"></a>後續步驟
+
+> [!div class="nextstepaction"]
+> [開始使用自訂原則](active-directory-b2c-get-started-custom.md)

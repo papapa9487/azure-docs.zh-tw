@@ -13,14 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: b45e4096cb68c4b88d2d782427d66a11d1b86b33
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: fdd90721b6823c20c1ff27383769bfff24e80eae
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 Azure AD Connect 安裝精靈提供兩個不同的路徑：
@@ -97,6 +96,10 @@ Azure AD Connect 1.1.524.0 版和更新版本有選項可讓 Azure AD Connect �
 
 ## <a name="upgrade"></a>升級
 當您從一個 Azure AD Connect 版本升級到新版本時，需要下列權限：
+
+>[!IMPORTANT]
+>從組建 1.1.484 開始，Azure AD Connect 出現一個迴歸錯誤 (bug)，導致需要有 sysadmin 權限才能升級 SQL 資料庫。  此錯誤 (bug) 仍存在於最新的組建 1.1.614 中。  如果想要升級至這個組建，您需要 sysadmin 權限。  Dbo 權限還不夠。  如果您嘗試升級 Azure AD Connect 但沒有 sysadmin 權限，升級會失敗，然後 Azure AD Connect 將無法再正常運作。  Microsoft 知道這個問題，正在設法解決。
+
 
 | 主體 | 所需的權限 | 用於 |
 | --- | --- | --- |
@@ -194,4 +197,3 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](../active-directory-aadconnect.md)。
-

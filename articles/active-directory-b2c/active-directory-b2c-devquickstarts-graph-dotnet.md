@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
+ms.openlocfilehash: 79cb886a076a08c9817efda40e9750c69ad00187
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 430063bbc9fab8195e12cd1d3e3966a29bafd404
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-graph-api"></a>Azure AD B2C：使用圖形 API
 Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示許多常見的租用戶管理工作需要以程式設計方式執行。 使用者管理是主要範例。 您可能需要將現有的使用者存放區移轉到 B2C 租用戶。 您希望在自己的頁面上裝載使用者註冊，並在幕後的 Azure AD B2C 目錄中建立使用者帳戶。 這類工作需要能夠建立、讀取、更新和刪除使用者帳戶。 這些工作都可以透過 Azure AD 圖形 API 達成
@@ -68,9 +67,13 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 ## <a name="configure-delete-permissions-for-your-application"></a>設定應用程式的刪除權限
 目前，「讀取和寫入目錄資料」權限**不**包含執行任何刪除作業的能力，例如刪除使用者。 如果希望應用程式有能力刪除使用者，您必須執行下列額外步驟 (需要使用 PowerShell)，否則可以跳到下一節。
 
-首先，下載並安裝 [Microsoft Online Services 登入小幫手](http://go.microsoft.com/fwlink/?LinkID=286152)。 接著下載並安裝 [適用於 Windows PowerShell 的 64 位元 Azure Active Directory 模組](http://go.microsoft.com/fwlink/p/?linkid=236297)。
+如果尚未安裝，請安裝 [Azure AD PowerShell v1 模組 (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)：
 
-安裝 Powershell 模組之後，請開啟 Powershell 並連線到 B2C 租用戶。 執行 `Get-Credential` 之後，系統將提示您輸入使用者名稱和密碼。請輸入 B2C 租用戶系統管理員帳戶的使用者名稱和密碼。
+```powershell
+Install-Module MSOnline
+```
+
+安裝 PowerShell 模組之後，請連線到 Azure AD B2C 租用戶。
 
 > [!IMPORTANT]
 > 您必須使用 B2C 租用戶**本機**的 B2C 租用戶系統管理員帳戶。 這些帳戶看起來像這樣︰myusername@myb2ctenant.onmicrosoft.com。
@@ -358,5 +361,4 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 * 當建立和更新取用者使用者，有幾個必要的屬性，如上所述。
 
 對於您想要使用圖形 API 在 B2C 租用戶上執行的動作，如有任何問題或要求，請在本文上留言，或在 GitHub 程式碼範例儲存機制中提出問題。
-
 

@@ -3,8 +3,8 @@ title: "設定 Azure ExpressRoute Microsoft 對等互連的路由篩選：入口
 description: "本文說明如何使用 Azure 入口網站針對 Microsoft 對等互連設定路由篩選"
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 0129a48e43e90001785a5977d4b0d1fd9fa9fd7d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: c813dbc0e703c20c869a8f6fc2bb70c2b0e7a807
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>針對 Microsoft 對等互連設定路由篩選
+# <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>針對 Microsoft 對等互連設定路由篩選：Azure 入口網站
+> [!div class="op_single_selector"]
+> * [Azure 入口網站](how-to-routefilter-portal.md)
+> * [Azure PowerShell](how-to-routefilter-powershell.md)
+> * [Azure CLI](how-to-routefilter-cli.md)
+> 
 
 路由篩選是透過 Microsoft 對等互連使用支援服務子集的方式。 這篇文章中的步驟可協助您設定和管理 ExpressRoute 線路的路由篩選。
 
-Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype) 可以透過 Microsoft 對等互連進行存取。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
+透過 Microsoft 對等互連，既可以存取 Dynamics 365 服務和 Office 365 服務 (例如 Exchange Online、SharePoint Online 和商務用 Skype)，也可以存取 Azure 服務 (例如儲存體和 SQL DB)。 當 Microsoft 對等互連在 ExpressRoute 線路中設定時，與這些服務相關的所有前置詞都會透過建立的 BGP 工作階段進行公告。 BGP 社群值附加至每個前置詞，來識別透過前置詞提供的服務。 如需 BGP 社群值和它們對應之服務的清單，請參閱 [BGP 社群](expressroute-routing.md#bgp)。
 
 如果您需要連線到所有服務，則會透過 BGP 公告大量前置詞。 這會大幅增加網路內路由器維護的路由資料表大小。 如果您計劃僅使用透過 Microsoft 對等互連提供的服務子集，您可以用兩種方式減少路由資料表大小。 您可以：
 
@@ -73,7 +77,7 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
  - 您必須擁有使用中 Microsoft 對等互連。 請遵循[建立和修改對等互連設定](expressroute-howto-routing-portal-resource-manager.md)的指示
 
 
-## <a name="prefixes"></a>步驟 1. 取得前置詞和 BGP 社群值的清單
+## <a name="prefixes"></a>步驟 1：取得前置詞和 BGP 社群值的清單
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1.取得 BGP 社群值的清單
 
@@ -83,7 +87,7 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 
 製作您想要在路由篩選中使用的 BGP 社群值清單。 例如，Dynamics 365 服務的 BGP 社群值是 12076:5040。
 
-## <a name="filter"></a>步驟 2. 建立路由篩選和篩選規則
+## <a name="filter"></a>步驟 2：建立路由篩選和篩選規則
 
 路由篩選只能有一個規則，且規則的類型必須是 'Allow'。 此規則可以具有與其相關聯的 BGP 社群值清單。
 
@@ -108,7 +112,7 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 ![建立路由篩選](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>步驟 3. 將路由篩選連結至 ExpressRoute 線路
+## <a name="attach"></a>步驟 3：將路由篩選連接到 ExpressRoute 線路
 
 可以選取 [新增線路] 按鈕，並從下拉式清單選取 [ExpressRoute] 線路，以將路由篩選附加至線路。
 
@@ -118,14 +122,16 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 
 ![建立路由篩選](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
 
-## <a name="getproperties"></a>若要取得路由篩選的屬性
+## <a name="tasks"></a>常見工作
+
+### <a name="getproperties"></a>若要取得路由篩選的屬性
 
 當您在入口網站中開啟資源時，可以檢視路由篩選的屬性。
 
 ![建立路由篩選](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
 
 
-## <a name="updateproperties"></a>若要更新路由篩選的屬性
+### <a name="updateproperties"></a>若要更新路由篩選的屬性
 
 可以藉由選取 [管理規則] 按鈕，更新附加至線路之 BGP 社群值的清單。
 
@@ -135,14 +141,14 @@ Dynamics 365 服務以及 Office 365 服務 (例如 Exchange Online、SharePoint
 ![建立路由篩選](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
 
 
-## <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
+### <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
 
 若要從路由篩選器將電路中斷連結，請以滑鼠右鍵按一下電路並按一下「取消關聯」。
 
 ![建立路由篩選](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
 
 
-## <a name="delete"></a>若要刪除路由篩選
+### <a name="delete"></a>若要刪除路由篩選
 
 可以選取 [刪除] 按鈕來刪除路由篩選。 
 

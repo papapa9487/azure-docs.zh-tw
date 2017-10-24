@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2017
 ms.author: arramac
+ms.openlocfilehash: 1e23fa988952f2515d82d4d043c390c263959ccc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: a0f6a845a345ebd4ef0a58abf4934ce400103109
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos DB 模擬器進行本機開發和測試
 
@@ -85,7 +84,7 @@ Azure Cosmos DB 模擬器的硬體和軟體需求如下︰
 
 Azure Cosmos DB 模擬器可以在 Docker for Windows 上執行。 模擬器無法在 Docker for Oracle Linux 上運作。
 
-安裝 [Docker for Windows](https://www.docker.com/docker-windows) 之後，您可以從最喜愛的殼層 (cmd.exe、PowerShell 等) 執行下列命令，以便從 Docker Hub 提取模擬器映像。
+安裝 [Docker for Windows](https://www.docker.com/docker-windows) 並切換至 Windows 容器之後，您可以從最喜愛的殼層 (cmd.exe、PowerShell 等) 執行下列命令，以便從 Docker Hub 提取模擬器映像。
 
 ```      
 docker pull microsoft/azure-cosmosdb-emulator 
@@ -94,7 +93,7 @@ docker pull microsoft/azure-cosmosdb-emulator
 
 ``` 
 md %LOCALAPPDATA%\CosmosDBEmulatorCert 2>nul
-docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i microsoft/azure-cosmosdb-emulator 
+docker run -v %LOCALAPPDATA%\CosmosDBEmulatorCert:c:\CosmosDBEmulator\CosmosDBEmulatorCert -P -t -i -m 2GB microsoft/azure-cosmosdb-emulator 
 ```
 
 回應如下所示：
@@ -352,9 +351,9 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 若要變更 Azure Cosmos DB 模擬器可用的集合數目，請執行下列動作：
 
-1. 刪除所有的本機 Azure Cosmos DB 模擬器資料，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [重設資料...]。
+1. 刪除所有的本機 Azure Cosmos DB 模擬器資料，方法是以滑鼠右鍵按一下系統匣上的 Azure Cosmos DB 模擬器 圖示，然後按一下重設資料...。
 2. 刪除以下資料夾中所有的模擬器資料：C:\Users\user_name\AppData\Local\CosmosDBEmulator。
-3. 結束所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
+3. 結束所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 Azure Cosmos DB 模擬器 圖示，然後按一下結束。 結束所有執行個體可能需要數分鐘的時間。
 4. 安裝最新版的 [Azure Cosmos DB Emulator 模擬器](https://aka.ms/cosmosdb-emulator)。
 5. 啟動具有 PartitionCount 旗標的模擬器，方法是設定值 <= 250。 例如， `C:\Program Files\Azure CosmosDB Emulator>CosmosDB.Emulator.exe /PartitionCount=100`。
 
@@ -362,7 +361,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 使用下列秘訣可協助您對使用 Azure Cosmos DB 模擬器時遇到的問題進行疑難排解︰
 
-- 如果您已安裝新版本的模擬器並發生錯誤，請確定重設您的資料。 您可以在系統匣上的 [Azure Cosmos DB 模擬器] 圖示上按一下滑鼠右鍵，然後按一下 [重設資料...]，以重設資料。 如果無法修正錯誤，您可以解除安裝，然後重新安裝應用程式。 如需相關指示，請參閱[解除安裝本機模擬器](#uninstall)。
+- 如果您已安裝新版本的模擬器並發生錯誤，請確定重設您的資料。 您可以在系統匣上的 Azure Cosmos DB 模擬器 圖示上按一下滑鼠右鍵，然後按一下重設資料...，以重設資料。 如果無法修正錯誤，您可以解除安裝，然後重新安裝應用程式。 如需相關指示，請參閱[解除安裝本機模擬器](#uninstall)。
 
 - 如果 Azure Cosmos DB 模擬器當機，請從 c:\Users\user_name\AppData\Local\CrashDumps 資料夾中收集傾印檔案，壓縮檔案後，再附加到電子郵件寄至 [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com)。
 
@@ -387,7 +386,7 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 ### <a id="uninstall"></a>解除安裝本機模擬器
 
-1. 結束本機模擬器之所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 [Azure Cosmos DB 模擬器] 圖示，然後按一下 [結束]。 結束所有執行個體可能需要數分鐘的時間。
+1. 結束本機模擬器之所有開啟的執行個體，方法是以滑鼠右鍵按一下系統匣上的 Azure Cosmos DB 模擬器 圖示，然後按一下結束。 結束所有執行個體可能需要數分鐘的時間。
 2. 在 Windows 搜尋方塊中，輸入 **App 與功能**，然後按一下 [App 與功能 (系統設定)] 結果。
 3. 在應用程式清單中，捲動至 [Azure Cosmos DB 模擬器] 並將其選取，按一下 [解除安裝]，然後確認並再按一下 [解除安裝]。
 4. 解除安裝應用程式時，瀏覽至 C:\Users\<user>\AppData\Local\CosmosDBEmulator，然後刪除資料夾。 
@@ -409,4 +408,3 @@ Azure Cosmos DB 模擬器預設會安裝到 `C:\Program Files\Azure Cosmos DB Em
 
 > [!div class="nextstepaction"]
 > [匯出 Azure Cosmos DB 模擬器憑證](local-emulator-export-ssl-certificates.md)
-

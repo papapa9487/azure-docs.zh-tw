@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/14/2017
+ms.date: 10/6/2017
 ms.author: raiye
+ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: dbbf529dc7a7c30daa78d92f210385d20e139d41
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -30,14 +29,24 @@ ms.lasthandoff: 09/15/2017
 >
 
 
-> [!NOTE]
-> RSS 摘要最近已過時。 請密切注意即將推出的全新摘要更新！
+> [!TIP]
+>  請訂閱[客體 OS 更新 RSS 摘要]，以接收有關所有客體 OS 變更的最及時性通知。
+>
+>
+
+> [!IMPORTANT]
+> 從 11 月首度發行開始，僅支援最新 2 版的客體 OS，並可在 Azure 入口網站取得。
 >
 >
 
 不確定客體 OS 為何或客體 OS 版次如何工作？ 請閱讀 [本節內容](#how-it-works) 。
 
 ## <a name="news-updates"></a>新聞更新
+
+
+###### <a name="october-6-2017"></a>**2017 年 10 月 6 日**
+9 月客體 OS 已發行。 在 Windows Server 2016 年 9 月版本中，預設會啟用 netfx3。 如果客戶的工作流程要求他們使用 4.x 執行階段來執行 .NET 2.x 應用程式，或如果他們執行了 .NET 2.x 應用程式、處理了錯誤，然後執行了.NET 4.x 應用程式，就應該在客戶的 OnStart 中新增 ‘dism /online /disable-feature /featurename:netfx3’。
+
 ###### <a name="september-14-2017"></a>**2017 年 9 月 14 日**
 9 月客體 OS 的首度發行期間從 9 月 14 日開始，預訂的正式發行日為 10 月 9 日。
 
@@ -71,7 +80,7 @@ ms.lasthandoff: 09/15/2017
 
 ## <a name="releases"></a>版次
 ## <a name="family-5-releases"></a>系列 5 版次
-**Windows Server, 2016**
+**Windows Server 2016**
 
 安裝的 .NET Framework：4.0、4.5、4.5.1、4.5.2、4.6、4.6.1、4.6.2
 
@@ -83,9 +92,10 @@ ms.lasthandoff: 09/15/2017
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.11_201709-01 |2017 年 10 月 6 日 |POST 5.13 |TBD |
 | WA-GUEST-OS-5.10_201708-01 |2017 年 8 月 24 日 |Post 5.12 |TBD |
 | WA-GUEST-OS-5.9_201707-01 |2017 年 8 月 3 日 |Post 5.11 |TBD |
-| WA-GUEST-OS-5.8_201706-01 |2017 年 7 月 7 日 |Post 5.10 |TBD |
+|~~WA-GUEST-OS-5.8_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
 |~~WA-GUEST-OS-5.7_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-5.6_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-5.5_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
@@ -105,9 +115,10 @@ ms.lasthandoff: 09/15/2017
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.46_201709-01 |2017 年 10 月 6 日 |POST 4.48 |TBD |
 | WA-GUEST-OS-4.45_201708-01 |2017 年 8 月 24 日 |Post 4.47 |TBD |
 | WA-GUEST-OS-4.44_201707-01 |2017 年 8 月 3 日 |Post 4.46 |TBD |
-| WA-GUEST-OS-4.43_201706-01 |2017 年 7 月 7 日 |Post 4.45 |TBD |
+|~~WA-GUEST-OS-4.43_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
 |~~WA-GUEST-OS-4.42_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-4.41_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-4.40_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
@@ -131,9 +142,10 @@ ms.lasthandoff: 09/15/2017
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.53_201709-01 |2017 年 10 月 6 日 |POST 3.55 |TBD |
 | WA-GUEST-OS-3.52_201708-01 |2017 年 8 月 24 日 |Post 3.54 |TBD |
 | WA-GUEST-OS-3.51_201707-01 |2017 年 8 月 3 日 |Post 3.53 |TBD |
-| WA-GUEST-OS-3.50_201706-01 |2017 年 7 月 7 日 |Post 3.52 |TBD |
+|~~WA-GUEST-OS-3.50_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
 |~~WA-GUEST-OS-3.49_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-3.48_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-3.47_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
@@ -157,9 +169,10 @@ ms.lasthandoff: 09/15/2017
 
 | 組態字串 | 發行日期 | 停用日期 | 到期日期 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.66_201709-01 |2017 年 10 月 6 日 |POST 2.68 |TBD |
 | WA-GUEST-OS-2.65_201708-01 |2017 年 8 月 24 日 |Post 2.67 |TBD |
 | WA-GUEST-OS-2.64_201707-01 |2017 年 8 月 3 日 |Post 2.66 |TBD |
-| WA-GUEST-OS-2.63_201706-01 |2017 年 7 月 7 日 |Post 2.65 |TBD |
+|~~WA-GUEST-OS-2.63_201706-01~~ |2017 年 7 月 7 日 |2017 年 10 月 6 日 |TBD |
 |~~WA-GUEST-OS-2.62_201705-01~~ |2017 年 6 月 5 日 |2017 年 8 月 24 日 |TBD |
 |~~WA-GUEST-OS-2.61_201704-01~~ |2017 年 5 月 9 日 |2017 年 8 月 3 日 |TBD |
 |~~WA-GUEST-OS-2.60_201703-01~~ |2017 年 4 月 10 日 |2017 年 7 月 7 日 |TBD |
@@ -228,6 +241,7 @@ Microsoft Azure 正持續發行更新。 客體作業系統只是這過程中的
 ## <a name="guest-os-supportability-and-retirement-policy"></a>客體作業系統可支援性和淘汰原則
 如需客體 OS 可支援性和淘汰原則的說明，請參閱[這裡][retirepolicy]。
 
+[客體 OS 更新 RSS 摘要]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/en-us/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure.md
 [ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
@@ -247,4 +261,3 @@ Microsoft Azure 正持續發行更新。 客體作業系統只是這過程中的
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [修正]: https://technet.microsoft.com/en-us/library/security/ms17-010.aspx
-

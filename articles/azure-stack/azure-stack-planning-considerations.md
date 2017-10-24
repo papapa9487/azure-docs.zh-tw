@@ -12,14 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/09/2017
 ms.author: twooley
+ms.openlocfilehash: 790b65720a8457b780dc727b0f67fcd12aed31bc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 54d9ba1ac1e46843740b7dcec2c9bef80b2325b4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合系統的規劃考量
 
@@ -110,7 +109,10 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 ## <a name="certificate-requirements"></a>憑證需求
 
-針對部署，您將需要為公開端點提供安全通訊端層 (SSL) 憑證。 憑證具有下列需求：
+針對部署，您將需要為公開端點提供安全通訊端層 (SSL) 憑證。 概括而言，憑證具有下列需求：
+
+> [!IMPORTANT]
+> 此文章中的憑證資訊僅提供做為一般指引。 取得 Azure Stack 的任何憑證之前，請與您的 OEM 硬體合作夥伴接洽。 它們將提供更詳細的憑證指引和需求。
 
 - 您可以使用單一萬用字元憑證或以使用一組專用的憑證，並只針對端點 (例如儲存體和金鑰保存庫) 使用萬用字元。
 - 憑證必須由大眾信任的憑證授權單位 (CA) 或企業 CA 發行。
@@ -126,7 +128,7 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 | 入口網站 (使用者) | portal. [region].[external_domain] |
 | 金鑰保存庫 (使用者) | &#42;.vault.[region].[external_domain] |
 | 金鑰保存庫 (系統管理員) | &#42;.adminvault.[region].[external_domain] |
-| 儲存體 | &#42;blob.[region].[external_domain]<br>&#42;table.[region].[external_domain]<br>&#42;queue.[region].[external_domain]  |
+| 儲存體 | &#42;.blob.[region].[external_domain]<br>&#42;.table.[region].[external_domain]<br>&#42;.queue.[region].[external_domain]  |
 | Graph** | graph.[region].[external_domain] |
 | AD FS** | adfs.[region].[external_domain] |
 | | |
@@ -182,7 +184,7 @@ Azure Stack 的網路基礎結構包含交換器上設定的數個邏輯網路�
 
 ### <a name="proxy-server"></a>Proxy 伺服器
 
-Azure Stack 僅支援透明 Proxy 伺服器。 透明 Proxy 會攔截網路層上的要求，而不需要任何特殊的用戶端組態。
+Azure Stack 僅支援 Transparent Proxy 伺服器。 透明 Proxy 會攔截網路層上的要求，而不需要任何特殊的用戶端組態。
 
 ### <a name="publish-azure-stack-services"></a>發佈 Azure Stack 服務
 
@@ -285,4 +287,3 @@ Azure Stack 不會備份租用戶應用程式和資料。 您必須針對 Azure 
 
 - 如需使用案例、購買、合作夥伴和 OEM 硬體廠商的詳細資訊，請參閱 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 產品頁面。
 - 如需 Azure Stack 整合系統的藍圖和地理可用性的詳細資訊，請參閱白皮書：[Azure Stack：Azure 的延伸模組](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
-

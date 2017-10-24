@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: afd0bc8c19456fd123f53de7d1704619405bed67
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: 8c6877b923c6000abe3aece37a24b275462ba378
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-hive-queries-with-hadoop-in-hdinsight-using-rest"></a>使用 REST 以 HDInsight 中的 Hadoop 執行 Hive 查詢
 
@@ -39,14 +38,14 @@ ms.lasthandoff: 06/10/2017
 > [!NOTE]
 > 在使用 cURL 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。
 >
-> 在本節的所有命令中，將 **USERNAME** 取代為用來驗證叢集的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。 將 **CLUSTERNAME** 取代為您叢集的名稱。
+> 針對本節中的命令，請將 **admin** 取代為要驗證叢集的使用者。 將 **CLUSTERNAME** 取代為您叢集的名稱。 出現提示時，請輸入使用者帳戶的密碼。
 >
 > 透過 [基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 為確保認證安全地傳送至伺服器，請一律使用安全 HTTP (HTTPS) 提出要求。
 
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
     您應該會收到類似以下文字的回應：
@@ -55,23 +54,23 @@ ms.lasthandoff: 06/10/2017
 
     此命令中使用的參數如下：
 
-   * **-u** - 用來驗證要求的使用者名稱和密碼。
-   * **-G** - 指出此要求是 GET 作業。
+    * **-u** - 用來驗證要求的使用者名稱和密碼。
+    * **-G** - 指出此要求是 GET 作業。
 
-     所有要求的 URL 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都相同。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。 您也可以使用下列命令要求 Hive 的版本：
+   所有要求的 URL 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都相同。 路徑 **/status** 指出要求是要傳回伺服器之 WebHCat (也稱為 Templeton) 的狀態。 您也可以使用下列命令要求 Hive 的版本：
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
     ```
 
-     此要求會傳回類似以下文字的回應：
+    此要求會傳回類似以下文字的回應：
 
-       {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
 
 2. 使用下列命令建立名為 **log4jLogs** 的資料表：
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
     下列參數可搭配此要求使用：
@@ -82,7 +81,8 @@ ms.lasthandoff: 06/10/2017
      * **execute** - 要執行的 HiveQL 陳述式。
      * **statusdir** - 要寫入此作業狀態的目錄。
 
-     這些陳述式會執行下列動作：
+   這些陳述式會執行下列動作：
+   
    * **DROP TABLE** - 如果資料表已存在，則會刪除它。
    * **CREATE EXTERNAL TABLE** - 在 Hive 中建立新的「外部」資料表。 外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
@@ -103,14 +103,14 @@ ms.lasthandoff: 06/10/2017
      > [!NOTE]
      > `%25` 是 % 的 URL 編碼格式，因此實際的條件是 `like '%.log'`。 % 必須為 URL 編碼，因為會將其視為在 URL 中的特殊字元。
 
-     此命令應該會傳回可用來檢查工作狀態的工作識別碼。
+   此命令會傳回可用來檢查作業狀態的作業識別碼。
 
        {"id":"job_1415651640909_0026"}
 
 3. 若要檢查作業的狀態，請使用下列命令：
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     將 **JOBID** 取代為上一個步驟中所傳回的值。 例如，如果傳回值為 `{"id":"job_1415651640909_0026"}`，則 **JOBID** 會是 `job_1415651640909_0026`。
@@ -127,12 +127,12 @@ ms.lasthandoff: 06/10/2017
 5. 使用下列陳述式來建立名為 **errorLogs**的新「內部」資料表：
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
+    curl -u admin -d user.name=admin -d execute="set+hive.execution.engine=tez;CREATE+TABLE+IF+NOT+EXISTS+errorLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+STORED+AS+ORC;INSERT+OVERWRITE+TABLE+errorLogs+SELECT+t1,t2,t3,t4,t5,t6,t7+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log';SELECT+*+from+errorLogs;" -d statusdir="/example/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/hive
     ```
 
     這些陳述式會執行下列動作：
 
-   * **CREATE TABLE IF NOT EXISTS** - 建立資料表 (如果不存在)。 這個陳述式會建立內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 來管理。
+   * **CREATE TABLE IF NOT EXISTS** - 建立資料表 (如果不存在)。 這個陳述式會建立內部資料表，而內部資料表儲存在 Hive 資料倉儲中。 此資料表是由 Hive 所管理。
 
      > [!NOTE]
      > 與外部資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
@@ -184,6 +184,5 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
-
 
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
 ms.openlocfilehash: 9bfcb44ed19f167872b3cd9119e2dbdd35c82604
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>教學課程：Azure Active Directory 與 xMatters OnDemand 整合
 
@@ -73,7 +73,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_search.png)
 
-5. 在結果窗格中，選取 [xMatters OnDemand]，然後按一下 [新增] 按鈕來新增應用程式。
+5. 在結果窗格中，選取 xMatters OnDemand，然後按一下新增 按鈕來新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/tutorial_xmattersondemand_addfromgallery.png)
 
@@ -209,7 +209,7 @@ xMatters OnDemand 與 Azure AD 整合提供下列優點：
 ### <a name="to-provision-a-user-accounts-perform-the-following-steps"></a>若要佈建使用者帳戶，請執行下列步驟：
 1. 登入 **xMatters OnDemand** 租用戶。
 
-2.  按一下 [使用者] 索引標籤。 然後按一下 [新增使用者]。
+2.  按一下 使用者 索引標籤，然後按一下新增使用者。
   
     ![使用者](./media/active-directory-saas-xmatters-ondemand-tutorial/IC781048.png "使用者")
 

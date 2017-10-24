@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: glenga
+ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 2c90272a9d33795dca7839292bba38fa16fec3da
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
 ## <a name="what-is-azure"></a>何謂 Azure？
@@ -55,15 +53,9 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 當您想要發佈 Web 專案的最快速路徑時，請考慮使用 Azure App Service。 App Service 可讓您更輕鬆地擴充 Web 應用程式來支援行動用戶端，以及發佈方便使用的 REST API。 此平台提供驗證的方式是使用社交提供者、流量自動調整，在生產環境中測試，以及持續的容器部署。
 
-當您在 App Service 中建立應用程式時，請選取下列其中一種類型：
+您可以建立 Web 應用程式、行動應用程式後端和 API 應用程式。
 
-- [Web 應用程式](../../app-service-web/app-service-web-overview.md)：可讓您裝載以 .NET、Java、PHP、Node.js 和 Python 撰寫的網站和 Web 應用程式。
-
-- [行動應用程式](../../app-service-mobile/app-service-mobile-value-prop.md)：擴充 Web 應用程式，以支援從行動裝置進行存取。 它啟用社交提供者和 Azure Active Directory (Azure AD) 的驗證、提供後端儲存體，以及與推播通知的 [Azure 通知中樞](../../notification-hubs/notification-hubs-push-notification-overview.md)整合。
-
-- [API 應用程式](../../app-service-api/app-service-api-apps-why-best-platform.md)：可讓您更安全地在具有 Swagger 中繼資料的雲端中公開 API，讓用戶端可以輕鬆使用它們。
-
-因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱 [App Service 的運作方式](../../app-service/app-service-how-works-readme.md)。
+因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱[什麼是 Azure Web Apps](../../app-service/app-service-web-overview.md)。
 
 請注意，已使用 DevOps 設計 App Service。 它支援用於發佈和持續整合部署的各種工具，包含 GitHub Webhook、Jenkins、Visual Studio Team Services、TeamCity 和其他工具。
 
@@ -71,7 +63,7 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 >**使用時機**：當您將現有 Web 應用程式移轉至 Azure 時，以及當您需要 Web 應用程式的完整受管理裝載平台時，請使用 App Service。 當您需要支援行動用戶端或是使用應用程式公開 REST API 時，也可以使用 App Service。
 
->**開始使用**：App Service 可讓您輕鬆地建立和部署第一個 [Web 應用程式](../../app-service-web/web-sites-dotnet-get-started.md)、[行動應用程式](../../app-service-mobile/app-service-mobile-ios-get-started.md)或 [API 應用程式](../../app-service-api/app-service-api-dotnet-get-started.md)。
+>**開始使用**：App Service 可讓您輕鬆地建立和部署第一個 [Web 應用程式](../../app-service/app-service-web-get-started-dotnet.md)、[行動應用程式](../../app-service-mobile/app-service-mobile-ios-get-started.md)或 [API 應用程式](../../app-service/app-service-web-tutorial-rest-api.md)。
 
 >**立即試用**：App Service 可讓您佈建短期應用程式來嘗試平台，而不需要註冊 Azure 帳戶。 請嘗試平台，並[建立 Azure App Service 應用程式](https://tryappservice.azure.com/)。
 
@@ -130,7 +122,7 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
     >**開始使用**：[建置 DocumentDB C# 主控台應用程式](../../documentdb/documentdb-get-started.md)。 如果您是 MongoDB 開發人員，請參閱 [MongoDB 的 DocumentDB 通訊協定支援](../../documentdb/documentdb-protocol-mongodb.md)。
 
-您可以使用 [Azure Data Factory](../../data-factory/data-factory-introduction.md)，將現有內部部署資料移至 Azure。 如果您尚未準備好將資料移至雲端，則 BizTalk 服務中的[混合式連線](../../biztalk-services/integration-hybrid-connection-overview.md)可讓您將 App Service 託管應用程式裝載連線至內部部署資源。 您也可以從內部部署應用程式連接至 Azure 資料和儲存體服務。
+您可以使用 [Azure Data Factory](../../data-factory/introduction.md)，將現有內部部署資料移至 Azure。 如果您尚未準備好將資料移至雲端，則 BizTalk 服務中的[混合式連線](../../biztalk-services/integration-hybrid-connection-overview.md)可讓您將 App Service 託管應用程式裝載連線至內部部署資源。 您也可以從內部部署應用程式連接至 Azure 資料和儲存體服務。
 
 #### <a name="docker-support"></a>Docker 支援
 
@@ -196,7 +188,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
 >**立即試用**：[試用數個 DevOps 整合](https://azure.microsoft.com/try/devops/)。
 
->**開始使用**：若要查看 App Service 應用程式的 DevOps 選項，請參閱[持續部署至 Azure App Service](../../app-service-web/app-service-continuous-deployment.md)。
+>**開始使用**：若要查看 App Service 應用程式的 DevOps 選項，請參閱[持續部署至 Azure App Service](../../app-service/app-service-continuous-deployment.md)。
 
 
 ## <a name="azure-regions"></a>Azure 區域
@@ -333,4 +325,3 @@ Azure 提供一組計費 REST API，可存取 Azure 訂用帳戶的資源使用�
 在 Azure 上部署應用程式或解決方案之後，即可建立警示，而警示可在您達到警示中所定義的消費限制時傳送給您電子郵件。
 
 >**開始使用**：若要深入了解，請參閱[為您的 Microsoft Azure 訂用帳戶設定計費通知](../../billing-set-up-alerts.md)。
-

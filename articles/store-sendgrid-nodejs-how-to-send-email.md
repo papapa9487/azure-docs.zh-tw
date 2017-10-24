@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
 ms.openlocfilehash: 327cea3a24cc47a9cc463b37cc2346ebc475ef7f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>如何使用 SendGrid 透過 Node.js 傳送電子郵件
 本指南示範如何在 Azure 上透過 SendGrid 電子郵件服務執行常見程式設計工作。 這些範例使用 Node.js API 撰寫。 涵蓋的案例包括**建構電子郵件**、**傳送電子郵件**、**新增附件**、**使用篩選器**及**更新屬性**。 如需有關 SendGrid 及傳送電子郵件的詳細資訊，請參閱 [後續步驟](#next-steps) 一節。
@@ -66,7 +66,7 @@ SendGrid 模組會匯出 **SendGrid** 和 **Email** 函數。
 
 同時設定 text 和 html 屬性可以為無法支援 HTML 訊息的用戶端提供正常的文字內容遞補。
 
-如需有關電子郵件函式所支援的所有屬性的詳細資訊，請參閱[sendgrid nodejs][sendgrid-nodejs]。
+如需有關 Email 函數所支援之所有屬性的詳細資訊，請參閱 [sendgrid-nodejs][sendgrid-nodejs]。
 
 ## <a name="how-to-send-an-email"></a>如何：傳送電子郵件
 使用 Email 函數建立電子郵件訊息之後，您可以使用 SendGrid 所提供的 Web API 進行傳送。 
@@ -161,7 +161,7 @@ SendGrid 提供了運用篩選器的其他電子郵件功能。 這些設定可�
     sendgrid.send(email);
 
 ## <a name="how-to-update-email-properties"></a>如何：更新電子郵件屬性
-某些電子郵件內容會被覆寫使用**設定*屬性** * 或附加**新增*屬性** *。 例如，您可以使用下列方式新增其他收件者：
+某些電子郵件屬性可使用 **set*Property**** 進行覆寫，或使用 *add*Property*** 進行附加。 例如，您可以使用下列方式新增其他收件者：
 
     email.addTo('jeff@contoso.com');
 
@@ -170,7 +170,7 @@ SendGrid 提供了運用篩選器的其他電子郵件功能。 這些設定可�
     email.addFilter('footer', 'enable', 1);
     email.addFilter('footer', 'text/html', '<strong>boo</strong>');
 
-如需詳細資訊，請參閱[sendgrid nodejs][sendgrid-nodejs]。
+如需詳細資訊，請參閱 [sendgrid-nodejs][sendgrid-nodejs]。
 
 ## <a name="how-to-use-additional-sendgrid-services"></a>如何：使用其他 SendGrid 服務
 SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGrid 功能。 如需完整詳細資料，請參閱 [SendGrid API 文件][SendGrid API documentation]。
@@ -178,7 +178,7 @@ SendGrid 提供的網頁式 API 可供從 Azure 應用程式運用其他 SendGri
 ## <a name="next-steps"></a>後續步驟
 了解 SendGrid 電子郵件服務的基本概念後，請參考下列連結以取得更多資訊。
 
-* SendGrid Node.js 模組存放庫： [sendgrid nodejs][sendgrid-nodejs]
+* SendGrid Node.js 模組存放機制：[sendgrid-nodejs][sendgrid-nodejs]
 * SendGrid API 文件︰<https://sendgrid.com/docs>
 * Azure 客戶的 SendGrid 特別優惠：[http://sendgrid.com/azure.html](https://sendgrid.com/windowsazure.html)
 

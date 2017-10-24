@@ -14,10 +14,10 @@ ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
 ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Azure SDK for .NET 2.6 版本資訊
 本文件包含 Azure SDK for .NET 2.6 版的版本資訊。 
@@ -34,7 +34,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="hdinsight-tools-for-visual-studio-updates"></a>HDInsight Tools for Visual Studio 更新
 * **IntelliSense 的增強功能**：遠端中繼資料建議
   
-    HDInsight Tools for Visual Studio 現在支援在編輯 Hive 指令碼時取得遠端中繼資料。 例如，您可以輸入**選取 * FROM**且將顯示所有資料表名稱。 此外，資料行名稱會在指定資料表之後顯示。
+    HDInsight Tools for Visual Studio 現在支援在編輯 Hive 指令碼時取得遠端中繼資料。 例如，您可以輸入 **SELECT * FROM**，即可顯示所有資料表名稱。 此外，資料行名稱會在指定資料表之後顯示。
 * **HDInsight 模擬器支援**
   
     HDInsight Tools for Visual Studio 現在支援連接到 HDInsight 模擬器，方便您在不產生任何費用的情況下本機開發 Hive 指令碼，然後對您的 HDInsight 叢集執行這些指令碼。 

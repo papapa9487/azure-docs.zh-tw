@@ -1,5 +1,4 @@
 ---
-
 title: "什麼是 Azure Active Directory 中的群組型授權？ | Microsoft Docs"
 description: "描述 Azure Active Directory 群組型授權、如何運作以及最佳做法"
 services: active-directory
@@ -18,15 +17,12 @@ ms.date: 06/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
-ms.openlocfilehash: 52dd48ce4e4acaf48f31edc51bbb657f8cd249cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
-
+ms.openlocfilehash: d6c76af713a73b965e87a2f470125f2e65565975
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory 中以群組為基礎的授權基本概念
 
 使用 Microsoft 付費雲端服務 (例如 Office 365、Enterprise Mobility + Security、Dynamics CRM 及其他類似的產品) 需要授權。 這些授權指派給每位需要存取這些服務的使用者。 若要管理授權，系統管理員需要使用其中一個管理入口網站 (Office 或 Azure) 和 PowerShell Cmdlet。 Azure Active Directory (Azure AD) 是支援所有 Microsoft 雲端服務身分識別管理的基礎結構。 Azure AD 會儲存使用者授權指派狀態的相關資訊。
@@ -55,6 +51,10 @@ ms.lasthandoff: 06/30/2017
 
 - 在公開預覽期間，租用戶中必須要有 Azure AD Basic 或 Premium 版本的付費或試用訂用帳戶，才能使用群組型授權管理。
 
+## <a name="your-feedback-is-welcome"></a>歡迎您提供寶貴的意見！
+
+如果您有意見或功能要求，請使用[此論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/317677-group-based-licensing)告訴我們。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解透過群組型授權來管理授權的其他案例，請參閱：
@@ -64,4 +64,3 @@ ms.lasthandoff: 06/30/2017
 * [識別及解決 Azure Active Directory 中群組的授權問題](active-directory-licensing-group-problem-resolution-azure-portal.md)
 * [如何將個別的已授權使用者移轉成 Azure Active Directory 中的群組型授權 (英文)](active-directory-licensing-group-migration-azure-portal.md)
 * [Azure Active Directory 群組型授權其他案例 (英文)](active-directory-licensing-group-advanced.md)
-

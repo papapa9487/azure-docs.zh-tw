@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 757429aa187e6536489b6636a0a11d122c7f9378
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/16/2017
-
-
+ms.openlocfilehash: 19948f1e2e77c78b7ce8aed66a7bdb74ba8640dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>教學課程：Azure Active Directory 與 Trakstar 整合
 
@@ -39,6 +37,7 @@ Trakstar 與 Azure AD 整合提供下列優點：
 
 - Azure AD 訂用帳戶
 - 啟用 Trakstar 單一登入的訂用帳戶
+    - SSO 是 Trakstar 的付費功能。 若要為您的組織啟用它，請連絡 [Trakstar 用戶端支援小組](mailto:support@trakstar.com)。
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -75,7 +74,7 @@ Trakstar 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_search.png)
 
-5. 在結果窗格中，選取 [Trakstar]，然後按一下 [新增] 按鈕以新增應用程式。
+5. 在結果窗格中，選取 Trakstar，然後按一下新增 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_addfromgallery.png)
 
@@ -112,12 +111,13 @@ Trakstar 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://app.trakstar.com/auth/saml/callback?namespace=<NAMESPACE>`
+    a. 在 [登入 URL] 文字方塊中，複製在 Trakstar 內的 [ACS (取用者) URL] 中找到的值 (設定 > 驗證及 SSO)，格式為：`https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.trakstar.com`
+    b. 在 [識別碼] 文字方塊中，保留預設值：`https://app.trakstar.com`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Trakstar 客戶支援小組](mailto:integrations@trakstar.com)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 以系統管理員身分登入 Trakstar 來取得這些值。
+    > 如果您在 [設定] 內沒有看到 [ 驗證及 SSO] 索引標籤，表示您可能沒有此功能
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -131,7 +131,7 @@ Trakstar 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-trakstar-tutorial/tutorial_trakstar_configure.png) 
 
-7. 若要在 **Trakstar** 端設定單一登入，您必須將下載的**憑證 (Base64)**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送至 [Trakstar 支援小組](mailto:integrations@trakstar.com)。 
+7. 若要在 **Trakstar** 端設定單一登入，您必須以系統管理員身分登入，然後輸入 [憑證 \(Base64\)]、[登出 URL]、[SAML 實體識別碼] 和 [SAML 單一登入服務 URL]。 
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ Trakstar 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-trakstar-test-user"></a>建立 Trakstar 測試使用者
 
-本節的目標是在 Trakstar 中建立名為 Britta Simon 的使用者。 請與 [Trakstar 支援小組](mailto:integrations@trakstar.com)合作，在 Trakstar 帳戶中新增使用者。 
+本節的目標是在 Trakstar 中建立名為 Britta Simon 的使用者。
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
@@ -228,5 +228,4 @@ Trakstar 與 Azure AD 整合提供下列優點：
 [201]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-trakstar-tutorial/tutorial_general_203.png
-
 

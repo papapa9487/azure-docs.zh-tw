@@ -12,30 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.openlocfilehash: 90a1ea99cbba82b49a0ff6712bcaaa5dc814810e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 3412864384961e8820d6700c1bf22a4cae64ba4b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>建立 HDInsight 叢集時新增自訂 Hive 程式庫
 
-如果您有與 HDInsight 上的 Hive 經常一起使用的程式庫，本文件包含在叢集建立期間使用指令碼動作來預先載入程式庫的詳細資訊。 使用本文件步驟新增的程式庫在 Hive 中為全域可用 - 不需要使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 載入它們。
+了解如何預先載入 HDInsight 上的 Hive 程式庫。 本文件包含如何在叢集建立期間使用「指令碼動作」預先載入程式庫的詳細資訊。 使用本文件步驟新增的程式庫在 Hive 中為全域可用 - 不需要使用 [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) 載入它們。
 
 ## <a name="how-it-works"></a>運作方式
 
-建立叢集時，您可以選擇性地指定指令碼動作，以便在建立叢集節點時在節點上執行指令碼。 本文件中的指令碼接受單一參數，也就是包含要預先載入程式庫 (儲存為 jar 檔案) 的 WASB 位置。
+在建立叢集時，您可以使用「指令碼動作」，在建立叢集節點後加以修改。 本文件中的指令碼會接受單一參數，也就是程式庫的位置。 這個位置必須在 Azure 儲存體帳戶中，且將程式庫必須儲存為 jar 檔案。
 
 叢集建立期間，指令碼會列舉檔案、將它們複製到前端和背景工作節點上的 `/usr/lib/customhivelibs/` 目錄，然後將它們加入至 `core-site.xml` 檔案中的 `hive.aux.jars.path` 屬性。 在以 Linux 為基礎的叢集上，它也會以檔案的位置來更新 `hive-env.sh` 檔案。
 
 > [!NOTE]
 > 使用本文中的指令碼動作可讓程式庫在下列案例中可供使用：
 >
-> * **以 Linux 為基礎的 HDInsight** - 使用 Hive 用戶端、**WebHCat** 和 **HiveServer2** 時。
+> * **以 Linux 作為基礎的 HDInsight** - 使用 Hive 用戶端、**WebHCat** 和 **HiveServer2** 時。
 > * **以 Windows 為基礎的 HDInsight** - 使用 Hive 用戶端和 **WebHCat** 時。
 
 ## <a name="the-script"></a>指令碼
@@ -73,7 +72,7 @@ ms.lasthandoff: 07/28/2017
 
 1. 使用[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的步驟開始佈建叢集，但是不完成佈建。
 
-2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供下列資訊：
+2. 在 [選用組態] 區段中，選取 [指令碼動作]，並提供下列資訊：
 
    * **名稱**：輸入指令碼動作的易記名稱。
 
@@ -89,9 +88,9 @@ ms.lasthandoff: 07/28/2017
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。
 
-4. 在 [選擇性組態] 刀鋒視窗中，選取 [連結的儲存體帳戶]，然後選取 [新增儲存體金鑰] 連結。 選取包含 jar 的儲存體帳戶，然後使用 [選取] 按鈕來儲存設定，並回到 [選擇性組態] 刀鋒視窗。
+4. 在 [選用組態] 區段中，選取 [連結的儲存體帳戶]，然後選取 [新增儲存體金鑰] 連結。 選取包含 jar 的儲存體帳戶。 然後使用 [選取] 按鈕以儲存設定，並返回 [選用組態]。
 
-5. 使用 [選擇性組態] 刀鋒視窗底部的 [選取] 按鈕，儲存選擇性組態資訊。
+5. 若要儲存選用組態，請使用 [選用組態] 區段底部的 [選取] 按鈕。
 
 6. 繼續如[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)中所述佈建叢集。
 
@@ -100,4 +99,3 @@ ms.lasthandoff: 07/28/2017
 ## <a name="next-steps"></a>後續步驟
 
 如需有關使用 Hive 的詳細資訊，請參閱 [搭配使用 Hive 與 HDInsight](hdinsight-use-hive.md)
-

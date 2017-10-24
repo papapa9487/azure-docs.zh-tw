@@ -12,34 +12,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 245ad4948cf4b8c2d44a0dafb61923b0b4267856
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: 3b19f078b0d6dc3e02d951014056406fd1b099a8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受管理網域設定安全的 LDAP (LDAPS)
 
 ## <a name="before-you-begin"></a>開始之前
 確定您已完成[工作 2 - 將安全的 LDAP 憑證匯出到 .PFX 檔案](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)。
 
-選擇要使用預覽 Azure 入口網站體驗或 Azure 傳統入口網站來完成這項工作。
-> [!div class="op_single_selector"]
-> * **Azure 入口網站 (預覽)**：[使用 Azure 入口網站啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
-> * **Azure 傳統入口網站**：[使用傳統 Azure 入口網站啟用安全 LDAP](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps-classic.md)
->
->
 
-
-## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview"></a>工作 3 - 使用 Azure 入口網站 (預覽) 為受管理的網域啟用安全 LDAP
+## <a name="task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal"></a>工作 3 - 使用 Azure 入口網站為受管理網域啟用安全 LDAP
 若要啟用安全的 LDAP，請執行下列設定步驟：
 
-1. 瀏覽至 **[Azure 入口網站](https://portal.azure.com)**。
+1. 瀏覽至 **Azure 入口網站[](https://portal.azure.com)**。
 
-2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 刀鋒視窗會列出受管理的網域。
+2. 在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 頁面會列出受管理網域。
 
     ![找出正在佈建的受管理的網域](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
@@ -49,12 +41,16 @@ ms.lasthandoff: 08/16/2017
 
 3. 按一下導覽窗格中的 [安全 LDAP]。
 
-    ![Domain Services - 安全 LDAP 刀鋒視窗](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
+    ![Domain Services - 安全 LDAP 頁面](./media/active-directory-domain-services-admin-guide/secure-ldap-blade.png)
 
 4. 根據預設，已停用受管理的網域的安全 LDAP 存取。 將 [安全 LDAP] 切換至 [啟用]。
 
     ![啟用安全 LDAP](./media/active-directory-domain-services-admin-guide/secure-ldap-blade-configure.png)
 5. 根據預設，已停用透過網際網路之受管理的網域的安全 LDAP 存取。 視需要將 [在網際網路上允許安全 LDAP 存取] 切換為 [啟用]。 
+
+    > [!TIP]
+    > 如果您為網際網路啟用安全 LDAP 存取，建議設定 NSG，以鎖定對必要的來源 IP 位址範圍的存取。 請參閱指示，以[鎖定透過網際網路對於受管理網域的安全 LDAP 存取](#task-5---lock-down-ldaps-access-to-your-managed-domain-over-the-internet)。
+    >
 
 6. 按一下 [.PFX 檔案]\(具備安全 LDAP 的憑證\) 後面的資料夾圖示。 指定具備憑證之 PFX 檔案的路徑，對受管理的網域進行安全 LDAP 存取。
 
@@ -81,7 +77,7 @@ ms.lasthandoff: 08/16/2017
 
 開始這項工作之前，請先確定您已完成 [工作 3](#task-3---enable-secure-ldap-for-the-managed-domain-using-the-azure-portal-preview)中所述的步驟。
 
-為受管理的網域啟用了透過網際網路的安全 LDAP 存取後，您需要更新 DNS 以便用戶端電腦可以找到此受管理網域。 在工作 3 的最後階段，[屬性] 索引標籤的 [LDAPS 存取的外部 IP 位址] 中會顯示外部 IP 位址。
+為受管理的網域啟用了透過網際網路的安全 LDAP 存取後，您需要更新 DNS 以便用戶端電腦可以找到此受管理網域。 在工作 3 的最後階段，[屬性] 索引標籤的 [可透過 LDAPS 存取的外部 IP 位址] 中會顯示外部 IP 位址。
 
 請設定外部 DNS 提供者，讓受管理網域的 DNS 名稱 (例如 'ldaps.contoso100.com') 指向這個外部 IP 位址。 在我們的範例中，我們需要建立下列 DNS 項目︰
 
@@ -119,4 +115,3 @@ ms.lasthandoff: 08/16/2017
 * [管理 Azure AD Domain Services 受管理網域上的群組原則](active-directory-ds-admin-guide-administer-group-policy.md)
 * [網路安全性群組](../virtual-network/virtual-networks-nsg.md)
 * [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-

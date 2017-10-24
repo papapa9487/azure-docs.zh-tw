@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: 0cab39bb3ce5c42fac543171baea498eb894c502
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 14f03542a6553c5bb697192828368ffe6b96441c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>使用 Azure AD Connect 管理和自訂 Active Directory Federation Services
 本文說明如何使用 Azure Active Directory (Azure AD) Connect 管理及自訂 Active Directory Federation Services (AD FS)。 它也包含您可能需要進行以完整設定 AD FS 伺服器陣列的其他常見 AD FS 工作。
@@ -42,7 +41,7 @@ ms.lasthandoff: 08/04/2017
 ## <a name="manage-ad-fs"></a>管理 AD FS
 您可以使用 Azure AD Connect 精靈，以最少使用者介入的形式執行各種 AD FS 相關工作。 執行精靈來完成安裝 Azure AD Connect 之後，您可以再次執行精靈，以執行其他工作。
 
-## 修復信任 <a name=repairthetrust></a>
+## <a name="repairthetrust"></a>修復信任 
 您可以使用 Azure AD Connect 檢查 AD FS 和 Azure AD trust 目前的健全狀況，並採取適當的動作來修復信任。 請遵循下列步驟來修復您的 Azure AD 和 AD FS 信任。
 
 1. 從其他工作的清單中選取 [修復 AAD 和 ADFS 信任]  。
@@ -68,7 +67,7 @@ ms.lasthandoff: 08/04/2017
 > [!NOTE]
 > Azure AD Connect 只可以對自我簽署的憑證進行修復或採取動作。 Azure AD Connect 無法修復第三方憑證。
 
-## 使用替代識別碼與 Azure AD 建立同盟關係<a name=alternateid></a>
+## <a name="alternateid"></a>使用 AlternateID 來與 Azure AD 建立同盟關係 
 建議您讓內部部署使用者主體名稱 (UPN) 和雲端使用者主體名稱保持相同。 如果內部部署 UPN 使用無法路由傳送的網域 (例如︰ Contoso.local)，或是由於本機應用程式相依性而無法變更，我們會建議您設定替代登入識別碼。 替代登入識別碼可讓您設定登入體驗，讓使用者可以透過其 UPN 以外的屬性 (例如 mail) 來進行登入。 Azure AD Connect 預設會選擇 Active Directory 中的 userPrincipalName 屬性來作為使用者主體名稱。 如果您選擇任何其他屬性來作為使用者主體名稱，而且您使用 AD FS 來建立同盟，則 Azure AD Connect 會就替代登入識別碼對 AD FS 進行設定。 選擇不同屬性來作為使用者主體名稱的範例如下所示︰
 
 ![替代識別碼屬性的選擇](media/active-directory-aadconnect-federation-management/attributeselection.png)
@@ -84,7 +83,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 > [!NOTE]
 > 如需替代識別碼以及手動設定步驟的詳細資訊，請閱讀[設定替代登入識別碼](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configuring-alternate-login-id)
 
-## 新增 AD FS 伺服器 <a name=addadfsserver></a>
+## <a name="addadfsserver"></a>新增 AD FS 伺服器 
 
 > [!NOTE]
 > 若要新增 AD FS 伺服器，Azure AD Connect 需要 PFX 憑證檔案。 因此，只有當您使用 Azure AD Connect 來設定 AD FS 伺服器陣列時，才可以執行這項作業。
@@ -117,7 +116,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
     ![安裝完成](media/active-directory-aadconnect-federation-management/AddNewADFSServer8.PNG)
 
-## 新增 AD FS WAP 伺服器 <a name=addwapserver></a>
+## <a name="addwapserver"></a>新增 AD FS WAP 伺服器 
 
 > [!NOTE]
 > 若要新增 WAP 伺服器，Azure AD Connect 需要 PFX 憑證檔案。 因此，只有當您使用 Azure AD Connect 來設定 AD FS 伺服器陣列時，才可以執行這項作業。
@@ -151,7 +150,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 
    ![安裝完成](media/active-directory-aadconnect-federation-management/WapServer8.PNG)
 
-## 新增同盟網域 <a name=addfeddomain></a>
+## <a name="addfeddomain"></a>新增同盟網域 
 
 您可以使用 Azure AD Connect 輕鬆地新增要與 Azure AD 同盟的網域。 Azure AD Connect 會新增同盟的網域並修改宣告規則，以在您有與 Azure AD 同盟的多個網域時正確反映發行者。
 
@@ -183,7 +182,7 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 ## <a name="ad-fs-customization"></a>AD FS 自訂
 下列各節提供在自訂 AD FS 登入頁面時，可能必須執行之某些常見工作的詳細資料。
 
-## 新增自訂公司標誌或圖例 <a name=customlogo></a>
+## <a name="customlogo"></a>新增自訂公司標誌或圖例 
 若要變更 [登入] 頁面上顯示的公司標誌，請使用下列 Windows PowerShell Cmdlet 和語法。
 
 > [!NOTE]
@@ -194,12 +193,12 @@ AD FS 替代登入識別碼的設定作業包含兩個主要步驟︰
 > [!NOTE]
 > *TargetName* 是必要參數。 隨著 AD FS 釋出的預設佈景主題為指定的預設值。
 
-## 新增登入說明 <a name=addsignindescription></a>
+## <a name="addsignindescription"></a>新增登入說明 
 若要在 [登入] 頁面中新增登入頁面描述，請使用下列 Windows PowerShell Cmdlet 和語法。
 
     Set-AdfsGlobalWebContent -SignInPageDescriptionText "<p>Sign-in to Contoso requires device registration. Click <A href='http://fs1.contoso.com/deviceregistration/'>here</A> for more information.</p>"
 
-## 修改 AD FS 宣告規則 <a name=modclaims></a>
+## <a name="modclaims"></a>修改 AD FS 宣告規則 
 AD FS 支援豐富的宣告語言，您可以用它來建立自訂宣告規則。 如需詳細資訊，請參閱 [宣告規則語言的角色](https://technet.microsoft.com/library/dd807118.aspx)。
 
 下列各節說明如何為關於 Azure AD 和 AD FS 同盟的一些案例撰寫自訂規則。
@@ -272,4 +271,3 @@ Azure AD Connect 可在將物件同步處理至 Azure AD 時，讓您指定要�
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [使用者登入選項](active-directory-aadconnect-user-signin.md)。
-

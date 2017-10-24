@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: tarcher
-translationtype: Human Translation
-ms.sourcegitcommit: 97acd09d223e59fbf4109bc8a20a25a2ed8ea366
-ms.openlocfilehash: 8c5ce9570541def245ca33f5841a8392e73569b4
-ms.lasthandoff: 03/10/2017
-
-
+ms.openlocfilehash: 19dbb1625f46f8864413dc538a96b2413bc6eea0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>設定 Azure DevTest Labs 中的虛擬網路
 如 [將具有構件的 VM 加入實驗室](devtest-lab-add-vm-with-artifacts.md)文章中所述，當您在實驗室中建立 VM 時，可以指定已設定的虛擬網路。 例如，如果您需要使用以 ExpressRoute 或站台對站台 VPN 設定的虛擬網路從您的 VM 存取公司資源時，就可以這麼做。 下列各節將說明如何將現有的虛擬網路加入至實驗室的虛擬網路設定，就能在建立 VM 時選擇它。
@@ -30,8 +29,8 @@ ms.lasthandoff: 03/10/2017
 1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 選取 [更多服務]，然後從清單中選取 [DevTest Labs]。
 3. 從實驗室清單中，選取所需的實驗室。 
-4. 在實驗室的刀鋒視窗上，選取 [組態] 。
-5. 在實驗室的 [組態] 刀鋒視窗上，選取 [虛擬網路]。
+4. 在實驗室的刀鋒視窗上，選取 [組態和原則]。
+5. 在實驗室的 [組態和原則] 刀鋒視窗上，選取 [虛擬網路]。
 6. 在 [虛擬網路]  刀鋒視窗中，您會看到您已針對目前的實驗室設定的虛擬網路清單，以及為實驗室所建立的預設虛擬網路。 
 7. 選取 [+ 新增] 。
    
@@ -62,5 +61,4 @@ ms.lasthandoff: 03/10/2017
 
 ## <a name="next-steps"></a>後續步驟
 一旦您在實驗室中加入所需的虛擬網路之後，下一個步驟就是 [將 VM 加入至實驗室](devtest-lab-add-vm-with-artifacts.md)。
-
 

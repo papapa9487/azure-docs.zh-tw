@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2017
+ms.date: 9/20/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 488a6e144b16c57c137e60b918ee68c78db1a54f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 客體作業系統可支援性和淘汰原則
 本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。 這些資訊不適用於虛擬機器 (IaaS)。
@@ -38,7 +36,7 @@ Microsoft 有時候會支援兩個以上的系列或版本。 正式的客體 OS
 ## <a name="when-a-guest-os-family-or-version-is-retired"></a>當客體作業系統系列或版本遭到淘汰時
 Microsoft 會在新的正式版本 Windows Server 作業系統發行後，擇日推出新的客體 OS **系列** 。 每當推出新客體作業系統時，Microsoft 都會淘汰最舊的客體作業系統系列。
 
-Microsoft 大約會每月推出新的客體 OS **版本** ，以納入最新的 MSRC 更新。 因每月定期更新之故，每個客體作業系統版本通常會在發行的 60 天後遭到停用。 此活動會保持每個系列至少有兩個客體 OS 版本可供使用。
+Microsoft 大約會每月推出新的客體 OS **版本** ，以納入最新的 MSRC 更新。 因每月定期更新之故，每個客體作業系統版本通常會在發行的大約 60 天後遭到停用。 此活動會保持每個系列至少有兩個客體 OS 版本可供使用。
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>客體作業系統系列淘汰期間的程序
 從 Microsoft 公佈淘汰資訊到正式移除服務中最舊的系列，客戶有 12 個月的「轉換」期。 Microsoft 會斟酌是否延長這段轉換時間。 更新資訊會張貼在「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
@@ -63,8 +61,8 @@ Microsoft 會在每個月發行客體作業系統。 由於定期發行頻繁之
 Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不便。 所有的更新資訊都會發佈於「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
 
 ### <a name="notifications-during-retirement"></a>淘汰期間的通知
-* **系列淘汰** <br>Microsoft 會透過部落格文章和入口網站通知公告。 對於仍在使用遭淘汰之客體作業系統系列的客戶，Microsoft 會透過直接通訊 (電子郵件、入口網站訊息、撥打電話) 通知其指派的服務管理員。 所有變更資訊都將張貼在這個頁面和頁面開頭所列的 RSS 摘要。
-* **版本淘汰** <br>所有的變更資訊及發生日期都將張貼在此頁面和頁面開頭所列的 RSS 摘要中，包括版本、停用日及到期日。 如果遭停用的客體作業系統版本或系列之上仍有運作中的部署，服務管理員將會收到電子郵件。 這些電子郵件的發送時間不盡相同。 雖然發送電子郵件的時間不屬於官方 SLA，不過 Microsoft 通常會在停用之前至少一個月發出。
+* **系列淘汰** <br>Microsoft 會透過部落格文章和入口網站通知公告。 對於仍在使用遭淘汰之客體作業系統系列的客戶，Microsoft 會透過直接通訊 (電子郵件、入口網站訊息、撥打電話) 通知其指派的服務管理員。 所有變更都會張貼至「[Azure 客體 OS 版本與 SDK 相容性矩陣](cloud-services-guestos-update-matrix.md)」。
+* **版本淘汰** <br>它們所發生的所有變更和日期都會張貼至 [Azure 客體 OS 版次與 SDK 相容性矩陣](cloud-services-guestos-update-matrix.md)，包括發行、已停用和到期日。 如果遭停用的客體作業系統版本或系列之上仍有運作中的部署，服務管理員將會收到電子郵件。 這些電子郵件的發送時間不盡相同。 雖然發送電子郵件的時間不屬於官方 SLA，不過 Microsoft 通常會在停用之前至少一個月發出。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 **如何降低移轉的影響？**
@@ -81,4 +79,3 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 
 ## <a name="next-steps"></a>後續步驟
 檢閱最新的 [客體作業系統版本](cloud-services-guestos-update-matrix.md)。
-

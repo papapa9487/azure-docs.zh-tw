@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 07/18/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 1f18a35a3c22ecdc379bdffa1ecacb931c62a59d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: 42a6b1c37de08971674c8b38f1e13bfd657f8b03
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Go 語言連線及查詢資料
-本快速入門示範如何從 Windows、Ubuntu Linux 和 Apple macOS 平台使用以 [Go](https://golang.org/) 語言撰寫的程式碼，連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Go 進行開發，但不熟悉 Azure Database for MySQL。
+本快速入門示範如何從 Windows、Ubuntu Linux 和 Apple macOS 平台使用以 [Go](https://golang.org/) 語言撰寫的程式碼，連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Go 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -28,7 +26,7 @@ ms.lasthandoff: 07/24/2017
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-go-and-mysql-connector"></a>安裝 Go 與 MySQL 連接器
-在自己的電腦上安裝 [Go](https://golang.org/doc/install) 和 [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)。 根據您的平台，請遵循下列步驟：
+在自己的電腦上安裝 [Go](https://golang.org/doc/install) 和 [go-sql-driver for MySQL](https://github.com/go-sql-driver/mysql#installation)。 根據您的平台，遵循適當小節中的步驟：
 
 ### <a name="windows"></a>Windows
 1. 根據[安裝指示](https://golang.org/doc/install)，[下載](https://golang.org/dl/)並安裝 Go for Microsoft Windows。
@@ -65,7 +63,7 @@ ms.lasthandoff: 07/24/2017
 
 ### <a name="apple-macos"></a>Apple macOS
 1. 根據符合您平台的[安裝指示](https://golang.org/doc/install)，下載並安裝 Go。 
-2. 啟動 Bash 殼層。 
+2. 啟動 Bash 殼層。
 3. 在主目錄中為您的專案產生資料夾，例如 `mkdir -p ~/go/src/mysqlgo/`。
 4. 將目錄切換到此資料夾，例如 `cd ~/go/src/mysqlgo/`。
 5. 將 GOPATH 環境變數設定為指向有效的來源目錄，例如目前主目錄的 go 資料夾。 在 Bash 殼層，執行 `export GOPATH=~/go` 以將 go 目錄新增為目前殼層工作階段的 GOPATH。
@@ -83,18 +81,18 @@ ms.lasthandoff: 07/24/2017
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器，例如 **myserver4demo**。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **myserver4demo**)。
 3. 按一下伺服器名稱 **myserver4demo**。
-4. 選取伺服器的 [屬性] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
+4. 選取伺服器的 [屬性] 頁面，然後記下**伺服器名稱**和**伺服器管理員登入名稱**。
  ![Azure Database for MySQL - 伺服器管理員登入](./media/connect-go/1_server-properties-name-login.png)
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
    
 
 ## <a name="build-and-run-go-code"></a>建置並執行 Go 程式碼 
-1. 若要撰寫 Golang 程式碼，您可以使用簡單的文字編輯器，例如 Microsoft Windows 的記事本、Ubuntu 的 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或 macOS 的 TextEdit。 如果想要使用更豐富的互動式開發環境 (IDE)，您可以選擇 Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio Code](https://code.visualstudio.com/)，或 [Atom](https://atom.io/)。
-2. 將 Go 程式碼從下列區段貼到文字檔中，並儲存到專案資料夾中 (副檔名為 \*.go)，例如 Windows 路徑 `%USERPROFILE%\go\src\mysqlgo\createtable.go` 或 Linux 路徑 `~/go/src/mysqlgo/createtable.go`。
-3. 在程式碼中找出 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 常數，然後將範例值換成您自己的值。 
-4. 啟動命令提示字元或 bash 殼層。 將目錄切換到專案資料夾。 例如，在 Windows 上為 `cd %USERPROFILE%\go\src\mysqlgo\`。 在 Linux 上為 `cd ~/go/src/mysqlgo/`。  提及的部分 IDE 編輯器提供偵錯和執行階段功能，並不需要殼層命令。
+1. 若要撰寫 Golang 程式碼，您可以使用簡單的文字編輯器，例如 Microsoft Windows 的記事本、Ubuntu 的 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或 macOS 的 TextEdit。 如果想要使用更豐富的互動式開發環境 (IDE)，可以選擇 Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio Code](https://code.visualstudio.com/)，或 [Atom](https://atom.io/)。
+2. 將 Go 程式碼從下列區段貼到文字檔中，然後將它們儲存到專案資料夾中 (副檔名為 \*.go)，(例如 Windows 路徑 `%USERPROFILE%\go\src\mysqlgo\createtable.go` 或 Linux 路徑 `~/go/src/mysqlgo/createtable.go`)。
+3. 在程式碼中找出 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 常數，然後將範例值取代成您自己的值。 
+4. 啟動命令提示字元或 Bash 殼層。 將目錄切換到專案資料夾。 例如，在 Windows 上為 `cd %USERPROFILE%\go\src\mysqlgo\`。 在 Linux 上為 `cd ~/go/src/mysqlgo/`。  提及的部分 IDE 編輯器提供偵錯和執行階段功能，並不需要殼層命令。
 5. 輸入命令 `go run createtable.go` 來編譯應用程式並加以執行，以執行程式碼。 
 6. 或者，若要將程式碼建置到原生應用程式 `go build createtable.go`，則啟動 `createtable.exe` 來執行應用程式。
 
@@ -356,4 +354,3 @@ func main() {
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [使用匯出和匯入來移轉資料庫](./concepts-migrate-import-export.md)
-

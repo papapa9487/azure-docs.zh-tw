@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
+ms.date: 09/15/2017
 ms.author: terrylan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f532f1aea9b8c4be6707862be4001099aa3c1d32
-ms.openlocfilehash: 1a6e5e915745dd3588fbc54b353daa947b1c4289
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 726b59c45e2eb18eebe28a180db23336ae141408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>在 Azure 資訊安全中心提供安全性連絡人詳細資料
 Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全性連絡人詳細資料 (如果您還沒有這麼做)。 如果 Microsoft 安全性回應中心 (MSRC) 發現您的客戶資料遭到非法或未經授權的對象存取，Microsoft 會使用此資訊連絡您。 MSRC 執行 Azure 網路和基礎結構的選取安全性監視，並接收來自協力廠商的威脅情報和濫用客訴。
@@ -33,17 +31,18 @@ Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全�
 >
 
 ## <a name="implement-the-recommendation"></a>實作建議
-1. 在 [建議] 刀鋒視窗中，選取 [提供安全性連絡人詳細資料]。
+1. 在 [建議] 下方，選取 [提供安全性連絡人詳細資料]。
    ![提供安全性連絡人][1]
-2. [提供安全性連絡人詳細資料] 刀鋒視窗隨即開啟。 選取要提供連絡人資訊的 Azure 訂用帳戶。
-   ![][2]
-3. 第二個 [提供安全性連絡人詳細資料]  刀鋒視窗隨即開啟。
+2. 選取要提供連絡人資訊的 Azure 訂用帳戶。
+3. [安全性原則 - 電子郵件通知] 隨即會開啟。
+
+   ![提供安全性連絡人詳細資料][2]
 
    * 輸入安全性連絡人的電子郵件地址，若有多個則以逗號分隔。 您可以輸入的電子郵件地址數沒有限制。
    * 輸入一個安全性連絡人國際電話號碼。
    * 若要接收有關高嚴重性警示的電子郵件，請開啟 [傳送給我有關警示的電子郵件] 選項。
    * 未來，您會有將電子郵件通知傳送給訂用帳戶擁有者的選項。 此選項目前無法使用。
-   * 選取 [確定]  將安全性連絡人資訊套用至您的訂用帳戶。
+   * 選取 [儲存]  將安全性連絡人資訊套用至您的訂用帳戶。
 
 ## <a name="see-also"></a>另請參閱
 如要深入了解資訊安全中心，請參閱下列主題：
@@ -59,4 +58,3 @@ Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全�
 <!--Image references-->
 [1]: ./media/security-center-provide-security-contacts/provide-contacts.png
 [2]:./media/security-center-provide-security-contacts/provide-contact-details.png
-

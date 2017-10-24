@@ -9,15 +9,13 @@ editor: seanli1988
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/23/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 024db86b8760c8edb8347679eec6c68ceab3cd35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 20a1f31ce42abb924504c4008f85420fc49aec89
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 MySQL Workbench 來連線及查詢資料
 本快速入門示範如何使用 MySQL Workbench 應用程式來連線到 Azure Database for MySQL。 
 
@@ -34,17 +32,17 @@ ms.lasthandoff: 08/25/2017
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器，例如 **myserver4demo**。
+2. 從 Azure 入口網站的左側功能表中，按一下 [所有資源]，然後搜尋您所建立的伺服器 (例如 **myserver4demo**)。
 
 3. 按一下伺服器名稱。
 
-4. 選取伺服器的 [屬性] 頁面。 記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。
+4. 選取伺服器的 [屬性] 頁面，然後記下**伺服器名稱**和**伺服器管理員登入名稱**。
 
  ![Azure Database for MySQL 伺服器名稱](./media/connect-workbench/1-server-properties-name-login.png)
  
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
-## <a name="connect-to-the-server-using-mysql-workbench"></a>使用 MySQL Workbench 來連線到伺服器 
+## <a name="connect-to-the-server-by-using-mysql-workbench"></a>使用 MySQL Workbench 來連線到伺服器 
 若要使用 GUI 工具 MySQL Workbench 連線到 Azure MySQL 伺服器：
 
 1.  在您的電腦上啟動 MySQL Workbench 應用程式。 
@@ -66,12 +64,12 @@ ms.lasthandoff: 08/25/2017
 
 4.   按一下 [確定] 可儲存連線。 
 
-5.   在 [MySQL 連線] 清單中，按一下對應至您伺服器的圖格，並等候建立連線。
+5.   在 [MySQL 連線] 清單中，按一下對應至您伺服器的圖格，然後等候建立連線。
 
-6.   新的 SQL 索引標籤隨即開啟並出現空白的編輯器，可供您輸入查詢。
-
-    > [!NOTE]
-    > 根據預設，需要 SSL 連線安全性，而且會在適用於 MySQL 伺服器的 Azure 資料庫上強制執行。 一般而言，您不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器。 如需 SSL 的詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。  如果您需要停用 SSL，請前往 Azure 入口網站，然後按一下 [連線安全性] 頁面，以停用 [強制執行 SSL 連線] 切換按鈕。
+        新的 SQL 索引標籤隨即開啟並出現空白的編輯器，可供您輸入查詢。
+    
+        > [!NOTE]
+        > 根據預設，需要 SSL 連線安全性，而且會在適用於 MySQL 伺服器的 Azure 資料庫上強制執行。 一般而言，您不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器。 如需 SSL 的詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。  如果您需要停用 SSL，請前往 Azure 入口網站，然後按一下 [連線安全性] 頁面，以停用 [強制執行 SSL 連線] 切換按鈕。
 
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>建立資料表、將資料插入、讀取資料、更新資料、刪除資料
 1. 將範例 SQL 程式碼複製並貼到空白的 SQL 索引標籤，來說明某些範例資料。
@@ -111,9 +109,8 @@ ms.lasthandoff: 08/25/2017
 3. 請注意頁面中間的 [結果方格] 區段中的三個索引標籤式結果。 
 4. 請注意頁面底部的 [輸出] 清單。 隨即顯示每個命令的狀態。 
 
-現在，您已使用 MySQL Workbench 連線到 Azure Database for MySQL，並使用 SQL 語言查詢資料。
+現在，您已使用 MySQL Workbench 連線到適用於 MySQL 的 Azure 資料庫，並使用 SQL 語言查詢資料。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
 > [使用匯出和匯入來移轉資料庫](./concepts-migrate-import-export.md)
-

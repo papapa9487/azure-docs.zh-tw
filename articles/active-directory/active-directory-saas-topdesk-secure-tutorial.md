@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 28f0542dbe87bb34c83a7852db7c3a9fef055ce9
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>教學課程：Azure Active Directory 與 TOPdesk - Secure 整合
 本教學課程的目的是要示範 Azure 與 TOPdesk - Secure 的整合。  
@@ -63,7 +63,7 @@ ms.lasthandoff: 07/11/2017
    
     ![應用程式資源庫](./media/active-directory-saas-topdesk-secure-tutorial/IC790597.png "應用程式資源庫")
 
-7. 在結果窗格中，選取 [TOPdesk - Secure]，然後按一下 [完成] 以新增應用程式。
+7. 在結果窗格中，選取 TOPdesk - Secure，然後按一下完成 以新增應用程式。
    
     ![TOPdesk - Secure](./media/active-directory-saas-topdesk-secure-tutorial/IC791933.png "TOPdesk - Secure")
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 07/11/2017
    
     ![登入設定](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "登入設定")
 
-4. 展開 [登入設定] 功能表，然後按一下 [一般]。
+4. 展開 登入設定 功能表，然後按一下一般。
    
     ![一般](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "一般")
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 07/11/2017
 
 6. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 **Azure 傳統入口網站** 。
 
-7. 在**TOPdesk-Secure**應用程式整合頁面上，按一下 **設定單一登入**開啟 * * 設定單一登入 * * 對話方塊。
+7. 在 [TOPdesk - Secure] 應用程式整合頁面上，按一下 [設定單一登入] 以開啟 [設定單一登入] 對話方塊。
    
     ![設定單一登入](./media/active-directory-saas-topdesk-secure-tutorial/IC790602.png "設定單一登入")
 
@@ -143,7 +143,7 @@ ms.lasthandoff: 07/11/2017
     
     ![登入設定](./media/active-directory-saas-topdesk-secure-tutorial/IC790599.png "登入設定")
 
-14. 展開 [登入設定] 功能表，然後按一下 [一般]。
+14. 展開 登入設定 功能表，然後按一下一般。
     
     ![一般](./media/active-directory-saas-topdesk-secure-tutorial/IC790600.png "一般")
 
@@ -167,7 +167,7 @@ ms.lasthandoff: 07/11/2017
 
     f. 按一下 [儲存] 。
 
-17. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+17. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
     
     ![設定單一登入](./media/active-directory-saas-topdesk-secure-tutorial/IC790609.png "設定單一登入")
 
@@ -205,11 +205,11 @@ TOPdesk - Secure 需以手動的方式佈建。
 
 ### <a name="to-assign-users-to-topdesk---secure-perform-the-following-steps"></a>若要指派使用者給 TOPdesk - Secure，請執行下列步驟：
 1. 在 Azure 傳統入口網站中建立測試帳戶。
-2. 在 * * TOPdesk-Secure * * 應用程式整合頁面上，按一下 **指派使用者**。
+2. 在 [TOPdesk - Secure] 應用程式整合頁面上，按一下 [指派使用者]。
    
     ![指派使用者](./media/active-directory-saas-topdesk-secure-tutorial/IC790612.png "指派使用者")
 
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
     ![是](./media/active-directory-saas-topdesk-secure-tutorial/IC767830.png "是")
 

@@ -14,14 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: df931d0f76498506cfc946501e4d385d0dfead80
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 6ad188fb752474ff5c7d8a3fb9d609eefe8c7a9a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight
 
@@ -55,7 +54,7 @@ ms.lasthandoff: 08/17/2017
     ![Portability Analyzer 結果對話方塊](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
 > [!IMPORTANT]
-> 分析器無法找出您方案的每個問題。 例如，檔案路徑 `c:\temp\file.txt` 會視為有效，因為 Mono 可在 Windows 上執行，因此該路徑在該內容中有效。 不過，此路徑在 Linux 平台上無效。
+> 分析器無法找出您方案的每個問題。 例如，如果 Mono 是在 Windows 上執行，`c:\temp\file.txt`的檔案路徑就會被視為 [確定]。 相同路徑在 Linux 平台上無效。
 
 ## <a name="manual-portability-analysis"></a>手動的可攜性分析
 
@@ -77,6 +76,6 @@ ms.lasthandoff: 08/17/2017
 
 * [在 HDInsight 上搭配 MapReduce 使用 C#](hdinsight-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [搭配 Hive 和 Pig 使用 C# 使用者定義函數](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [搭配 Hive 和 Pig 使用 C# 使用者定義函式](hdinsight-hadoop-hive-pig-udf-dotnet-csharp.md)
 
 * [開發適用於 Storm on HDInsight 的 C# 拓撲](hdinsight-storm-develop-csharp-visual-studio-topology.md)

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
+ms.openlocfilehash: eeb3e46d9b8a5822b1aea3cc62bb214f3c3fec43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: 9d007e2ce7cc4291eeebe26b887874085c6438b3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -35,6 +34,7 @@ ms.lasthandoff: 09/06/2017
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -851,6 +851,89 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```
+
+## <a name="guid"></a>GUID
+
+`guid (baseString, ...)`
+
+建立一個值，格式為根據提供作為參數之值的全域唯一識別碼。
+
+### <a name="parameters"></a>參數
+
+| 參數 | 必要 | 類型 | 說明 |
+|:--- |:--- |:--- |:--- |
+| baseString |是 |字串 |雜湊函式中用來建立 GUID 的值。 |
+| 視需要，也會使用其他參數 |否 |字串 |您可以視需要新增多個字串，來建立指定唯一性層級的值。 |
+
+### <a name="remarks"></a>備註
+
+當您需要建立格式為全域唯一識別碼的值時，此函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。
+
+傳回的值不是隨機字串，而是雜湊函式的結果。 傳回的值為 36 個字元長。 它不是全域唯一的。
+
+下列範例顯示如何使用 guid 來建立常用層級的唯一值。
+
+在訂用帳戶範圍內是唯一
+
+```json
+"[guid(subscription().subscriptionId)]"
+```
+
+在資源群組範圍內是唯一
+
+```json
+"[guid(resourceGroup().id)]"
+```
+
+在資源群組的部署範圍內是唯一
+
+```json
+"[guid(resourceGroup().id, deployment().name)]"
+```
+
+### <a name="return-value"></a>傳回值
+
+字串，包含 36 個字元，格式為全域唯一識別碼。
+
+### <a name="examples"></a>範例
+
+下列[範例範本](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)會從 guid 傳回結果：
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "guidPerSubscription": {
+            "value": "[guid(subscription().subscriptionId)]",
+            "type": "string"
+        },
+        "guidPerResourceGroup": {
+            "value": "[guid(resourceGroup().id)]",
+            "type": "string"
+        },
+        "guidPerDeployment": {
+            "value": "[guid(resourceGroup().id, deployment().name)]",
+            "type": "string"
+        }
+    }
+}
+```
+
+若要使用 Azure CLI 部署此範例範本，請使用：
+
+```azurecli-interactive
+az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+```
+
+若要使用 PowerShell 部署此範例範本，請使用：
+
+```powershell
+New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
@@ -2232,5 +2315,4 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 * 若要合併多個範本，請參閱[透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
 * 若要依指定的次數重複建立資源類型，請參閱 [在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 * 若要了解如何部署已建立的範本，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy.md)。
-
 

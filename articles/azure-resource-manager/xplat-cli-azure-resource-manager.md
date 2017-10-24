@@ -11,18 +11,17 @@ ms.workload: multiple
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/06/2017
 ms.author: tomfitz
+ms.openlocfilehash: c68f2a8b6e18dc2d51d8bbb5cd05bc037dc2fadb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2e3fdf06316bbf68abefe06024f63668bdf07b05
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-cli-to-manage-azure-resources-and-resource-groups"></a>使用 Azure CLI 管理 Azure 資源和資源群組
 
-在本文中，您會了解如何使用 Azure CLI 和 Azure Resource Manager 管理您的解決方案。 如果您不熟悉如何使用 Resource Manager，請參閱 [Resource Manager 概觀](resource-group-overview.md)。 本主題著重於管理工作。 您將：
+在本文中，您會了解如何使用 Azure CLI 和 Azure Resource Manager 管理您的解決方案。 如果您不熟悉如何使用 Resource Manager，請參閱 [Resource Manager 概觀](resource-group-overview.md)。 本文著重於管理工作。 您將：
 
 1. 建立資源群組
 2. 將資源加入資源群組
@@ -79,6 +78,7 @@ az account show
 ```
 
 ## <a name="create-a-resource-group"></a>建立資源群組
+
 將任何資源部署至訂用帳戶之前，您必須建立將包含該資源的資源群組。
 
 若要建立資源群組，請使用 **az group create** 命令。 此命令會使用 **name** 參數來指定資源群組的名稱，並使用 **location** 參數來指定其位置。
@@ -115,6 +115,7 @@ az group list
 ```
 
 ## <a name="add-resources-to-a-resource-group"></a>將資源加入資源群組
+
 若要將資源加入資源群組，您可以使用 **az resource create** 命令，或是您建立之資源類型的特定命令 (例如 **az storage account create**)。 您可能會發現使用資源類型的特定命令會比較容易，因為它包含新資源所需的屬性參數。 若要使用 **az resource create**，您必須知道要設定的所有屬性而不需經過提示。
 
 不過，透過指令碼新增資源可能會在日後造成混淆，因為新的資源不在 Resource Manager 範本中。 範本可讓您可靠且重複地部署您的解決方案。
@@ -133,7 +134,7 @@ az storage account show --name myuniquestorage --resource-group TestRG1
 
 ## <a name="add-a-tag"></a>新增標記
 
-標籤可讓您根據不同的屬性組織您的資源。 例如，您在不同的資源群組中可能有數個資源，屬於相同的部門。 您可以對這些資源套用部門標籤和值，將它們標示為屬於相同的類別目錄。 或者，您可以標記資源是在生產或測試環境中使用。 本主題中，您只會對一個資源套用標籤，但在您的環境中，很有可能會對所有資源套用標籤。
+標籤可讓您根據不同的屬性組織您的資源。 例如，您在不同的資源群組中可能有數個資源，屬於相同的部門。 您可以對這些資源套用部門標籤和值，將它們標示為屬於相同的類別目錄。 或者，您可以標記資源是在生產或測試環境中使用。 在本文中，您只會對一個資源套用標籤，但在您的環境中，很有可能會對所有資源套用標籤。
 
 下列命令對您的儲存體帳戶套用兩個標籤︰
 
@@ -176,6 +177,14 @@ az resource tag --tags $rt Project=Redesign -g TestRG1 -n myuniquestorage --reso
   ```azurecli-interactive
   az resource list --resource-type "Microsoft.Storage/storageAccounts"
   ```
+
+## <a name="get-resource-id"></a>取得資源識別碼
+
+許多命令會採用資源識別碼作為參數。 若要取得資源識別碼並且儲存在變數中，請使用：
+
+```azurecli-interactive
+webappID=$(az resource show -g exampleGroup -n exampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)
+```
 
 ## <a name="lock-a-resource"></a>鎖定資源
 

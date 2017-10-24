@@ -9,12 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 09/14/2017
+ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b7b8583e8923e65ff068a2bec060a27a14905485
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
 
@@ -139,10 +138,15 @@ Get-AzureRmADServicePrincipal -ServicePrincipalName cfa8b339-82a2-471a-a3c9-0fc0
 
 ### <a name="set-permissions"></a>設定權限
 
-請確定您已將您的儲存體權限設定為*全部*。
+請確定您已將您的儲存體權限設定為*全部*。 您可以取得 yourUserPrincipalId，並使用下列命令在保存庫上設定權限。
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+Get-AzureRmADUser -SearchString "your name"
+```
+現在請搜尋您的名稱並取得相關的 ObjectId，以在保存庫上用於設定權限。
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>允許存取
@@ -238,4 +242,3 @@ Key Vault 必須驗證身分識別具有「重新產生」權限，才能取得�
 
 - [關於金鑰、密碼與憑證](https://docs.microsoft.com/rest/api/keyvault/)
 - [Key Vault 小組部落格](https://blogs.technet.microsoft.com/kv/)
-

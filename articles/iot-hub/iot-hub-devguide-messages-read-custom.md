@@ -11,15 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
-
+ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>針對裝置對雲端訊息使用訊息路由和自訂端點
 
@@ -34,7 +32,10 @@ IoT 中樞可讓您根據訊息屬性，將[裝置對雲端訊息][lnk-device-to
 
 單一訊息可能符合多個路由規則的條件，在這種情況下 IoT 中樞會將訊息傳遞至與每個符合的規則相關聯的端點。 IoT 中樞也會自動刪除重複的訊息傳遞，如此若有訊息符合多個規則並且都有相同的目的地，則訊息僅會寫入到該目的地一次。
 
-IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶中的其他服務連結到中樞，來建立要路由傳送訊息的目標自訂端點。 IoT 中樞目前支援事件中樞、服務匯流排佇列，及服務匯流排主題做為自訂端點。
+IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶中的其他服務連結到中樞，來建立要路由傳送訊息的目標自訂端點。 IoT 中樞目前支援 Azure 儲存體容器、事件中樞、服務匯流排佇列，及服務匯流排主題作為自訂端點。
+
+> [!NOTE]
+> IoT 中樞僅支援將資料寫入 Azure 儲存體容器作為 blob。
 
 > [!WARNING]
 > 不支援將啟用 [工作階段] 或 [重複偵測] 的服務匯流排佇列和主題作為自訂端點。
@@ -43,6 +44,7 @@ IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶�
 
 如需從自訂端點讀取的詳細資訊，請參閱：
 
+* 從 [Azure 儲存體容器][lnk-getstarted-storage]讀取。
 * 從[事件中樞][lnk-getstarted-eh]讀取。
 * 從[服務匯流排佇列][lnk-getstarted-queue]讀取。
 * 從[服務匯流排主題][lnk-getstarted-topic]讀取。
@@ -63,4 +65,4 @@ IoT 中樞具有預設[內建端點][lnk-built-in]。 您可以將訂用帳戶�
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

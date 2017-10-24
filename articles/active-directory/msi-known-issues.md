@@ -12,16 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 10/07/2017
 ms.author: skwan
+ms.openlocfilehash: c091ea7cec35099d8ad2ab47361cd4c1278fdab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 3cfd1eb55a031696635270a56ed5028e3b249543
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/23/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>受管理的服務識別 (MSI) 常見問題和已知問題 (Azure Active Directory)
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -58,6 +56,16 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 ## <a name="known-issues"></a>已知問題
 
+### <a name="automation-script-fails-when-attempting-schema-export-for-msi-extension"></a>嘗試匯出 MSI 擴充的結構描述時，「自動化指令碼」失敗
+
+在虛擬機器上啟用受管理服務識別後，嘗試對虛擬機器或其資源群組使用「自動化指令碼」功能時，出現下列錯誤：
+
+![MSI 自動化指令碼匯出錯誤](media/msi-known-issues/automation-script-export-error.png)
+
+「受管理服務識別」虛擬機器擴充目前不支援將其結構描述匯出至資源群組範本。 因此，產生的範本不會顯示可在資源上啟用受管理服務識別的設定參數。 您可以依照[使用範本來設定虛擬機器受管理服務識別](msi-qs-configure-template-windows-vm.md)中的範例，手動新增這些區段。
+
+當結構描述匯出功能變成可用於 MSI 虛擬機器擴充時，就會列在[匯出包含虛擬機器擴充的資源群組](../virtual-machines/windows/extensions-export-templates.md#supported-virtual-machine-extensions)中。
+
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Azure 入口網站中沒出現組態刀鋒視窗
 
 如果 VM 組態刀鋒視窗沒有出現在您的 VM 上，則表示 MSI 尚未在您區域的入口網站中啟用。  請稍後再試。  您也可以使用 [PowerShell](msi-qs-configure-powershell-windows-vm.md) 或 [Azure CLI](msi-qs-configure-cli-windows-vm.md)來啟用 VM 的 MSI。
@@ -87,4 +95,3 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-

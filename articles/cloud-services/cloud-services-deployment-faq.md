@@ -13,15 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之部署問題：常見問題集 (FAQ)
 
@@ -65,5 +63,15 @@ ms.lasthandoff: 06/15/2017
 
 如需詳細資訊，請參閱[如何更新雲端服務](cloud-services-update-azure-service.md)。
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>為什麼我在使用 Azure Resource Manager 儲存體帳戶時，無法透過服務管理 API 或 PowerShell 部署雲端服務？ 
 
+由於雲端服務是傳統資源，無法直接與 Azure Resource Manager 模型相容，因此您無法將它與 Azure Resource Manager 儲存體帳戶建立關聯。 以下提供一些選項： 
+ 
+- 透過 REST API 部署。
+
+    當您透過服務管理 REST API 部署時可以避開限制，方法為將 SAS URL 指定為 blob 存放裝置，這樣可以使用傳統和 Azure Resource Manager 儲存體帳戶。 在[這裡](https://msdn.microsoft.com/library/azure/ee460813.aspx)深入了解 'PackageUrl' 屬性。
+  
+- 透過 [Azure 入口網站](https://portal.azure.com)部署。
+
+    這可從 [Azure 入口網站](https://portal.azure.com)運作，因為呼叫會通過 proxy/shim，從而允許 Azure Resource Manager 和傳統資源之間的通訊。 
+ 

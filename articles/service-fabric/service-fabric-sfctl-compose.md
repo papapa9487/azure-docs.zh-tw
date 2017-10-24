@@ -14,24 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3010c298cf227c761288365e3663ffe3fb67d863
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 469246d6cb64d6aaf995ef3b7c4070f8d24372b1
-ms.openlocfilehash: 64852471a848cb42fd8a2e67622d309d5e050cfd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-compose"></a>sfctl compose
-建立、刪除和管理 Docker Compose 應用程式。
+建立、刪除和管理 Docker Compose 部署。
 
 ## <a name="commands"></a>命令
 
 |命令|說明|
 | --- | --- |
-|    create| 從 Compose 檔案建立 Service Fabric 應用程式。|
-|    list  | 取得在 Service Fabric 叢集中建立的 Compose 應用程式清單。|
-|   remove| 從叢集刪除現有的 Service Fabric Compose 應用程式。|
-|   status| 取得 Service Fabric Compose 應用程式的相關資訊。|
+|    create| 從 Compose 檔案部署 Service Fabric 應用程式。|
+|    list  | 取得在 Service Fabric 叢集中建立的 Compose 部署清單。|
+|   remove| 從叢集刪除現有的 Service Fabric Compose 部署。|
+|   status| 取得 Service Fabric Compose 部署的相關資訊。|
 |升級       | 開始升級 Service Fabric 叢集中的 Compose 部署。|
 |    upgrade-status| 取得在此 Service Fabric Compose 部署上執行的最新升級詳細資料。|
 
@@ -44,17 +43,17 @@ ms.lasthandoff: 09/27/2017
 |引數|說明|
 | --- | --- |
 | --file-path [必要]| 目標 Docker Compose 檔案的路徑。|
- |   --name      [必要]| 部署的識別。|
-|    --encrypted-pass      | 不是提示容器登錄密碼，而是使用已加密的複雜密碼。|
-|    --has-pass            | 提示使用容器登錄的密碼。|
-|    --timeout -t          | 伺服器逾時 (秒)。  預設值：60。|
- |   --user                | 連線到容器登錄的使用者名稱。|
+ |   --deployment-name [必要]| 部署的名稱。|
+|    --encrypted-pass             | 不是提示容器登錄密碼，而是使用已加密的複雜密碼。|
+|    --has-pass                   | 提示使用容器登錄的密碼。|
+|    --timeout -t                 | 伺服器逾時 (秒)。  預設值：60。|
+ |   --user                       | 連線到容器登錄的使用者名稱。|
 
 ### <a name="global-arguments"></a>全域引數
 
 |引數|說明|
 | --- | --- |
-| --debug                 | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                 | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h               | 顯示此說明訊息並結束。|
 | --output -o             | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query                 | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -77,7 +76,7 @@ ms.lasthandoff: 09/27/2017
 
 |引數|說明|
 | --- | --- |
-| --debug          | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug          | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -99,7 +98,7 @@ ms.lasthandoff: 09/27/2017
 
 |引數|說明|
 | --- | --- |
-| --debug                 | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                 | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h               | 顯示此說明訊息並結束。|
 | --output -o             | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query                 | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -121,7 +120,7 @@ ms.lasthandoff: 09/27/2017
 
 |引數|說明|
 | --- | --- |
-| --debug                 | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                 | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h               | 顯示此說明訊息並結束。|
 | --output -o             | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query                 | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -136,7 +135,7 @@ ms.lasthandoff: 09/27/2017
 |引數|說明|
 | --- | --- |
 |    --file-path [必要]| 目標 Docker Compose 檔案的路徑。|
-|    --name [必要]| 部署的識別。|
+|    --deployment-name [必要]| 部署的名稱。|
 |    --default-svc-type-health-map| 描述用來評估服務健康情況之健康原則的 JSON 編碼字典。|
 |    --encrypted-pass             | 不是提示容器登錄密碼，而是使用已加密的複雜密碼。|
  |   --failure-action             | 可能值包括：'Invalid'、'Rollback'、'Manual'。|
@@ -159,12 +158,12 @@ ms.lasthandoff: 09/27/2017
 ### <a name="global-arguments"></a>全域引數
  |引數|說明|
 | --- | --- |
-|   --debug                      | 增加記錄詳細程度為顯示所有偵錯記錄。|
+|   --debug                      | 增加記錄詳細程度以顯示所有偵錯記錄。|
 |    --help -h                    | 顯示此說明訊息並結束。|
  |   --output -o                  | 輸出格式。  允許的值：json、jsonc、table、tsv。
                                    預設值：json。|
  |   --query                      | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
- |   --verbose                    | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+ |   --verbose                    | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

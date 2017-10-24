@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: a7e73f6ee763d1005ad85935cf2d8f6b24ecf116
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>教學課程：Azure Active Directory 與 SAP HANA 整合
 
@@ -222,7 +221,7 @@ SAP HANA 支援預設啟用的 Just-In-Time 佈建。
 
 3. 按一下 [新增] 來新增 SAML IDP，然後按一下 [確定] 來選取適當的 SAML IDP。
 
-4. 新增 [外部身分識別] \(例如這裡的 BrittaSimon)，或選擇 [任何]，然後按一下 [確定]。 BrittaSimon here) or choose **"Any"** and click **OK**.
+4. 新增 [外部識別] (例如 這裡的 BrittaSimon)，或選擇 [任何]並按一下 [確定]。
 
     >[!Note]
     >如果未核取 [任何] 核取方塊，則 HANA 中的使用者名稱必須完全符合 UPN 中網域尾碼前面的使用者名稱 (也就是 BrittaSimon@contoso.com 會在 HANA 中變成 BrittaSimon)。
@@ -293,5 +292,4 @@ SAP HANA 支援預設啟用的 Just-In-Time 佈建。
 [201]: ./media/active-directory-saas-saphana-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-saphana-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-saphana-tutorial/tutorial_general_203.png
-
 

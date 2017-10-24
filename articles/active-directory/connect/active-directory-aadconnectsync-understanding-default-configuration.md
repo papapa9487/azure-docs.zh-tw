@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
 ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步處理：了解預設組態
-本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。 其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
+本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
 
 若要了解組態模型的詳細資訊，請參閱 [了解宣告式佈建](active-directory-aadconnectsync-understanding-declarative-provisioning.md)。
 
@@ -75,9 +75,9 @@ ms.lasthandoff: 08/03/2017
 
 * 連絡人必須擁有郵件功能。 這會使用下列規則來驗證：
   * `IsPresent([proxyAddresses]) = True)`。 必須填入 proxyAddresses 屬性。
-  * 可在 proxyAddresses 屬性或郵件屬性中找到主要電子郵件地址。 與否 @ 用來驗證的內容是電子郵件地址。 下列其中一個規則必須評估為 True。
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否有與項目"SMTP:"，而且如果沒有，可以 @ 都找不到字串中？
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 Mail 屬性填入，而且如果是，可以是 @ 都找不到字串中？
+  * 可在 proxyAddresses 屬性或郵件屬性中找到主要電子郵件地址。 @ 是用來確認內容是電子郵件地址。 下列其中一個規則必須評估為 True。
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`。 是否有含有 "SMTP:" 的項目，如果有的話，是否可在字串中找到 @？
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`。 是否已填入 mail 屬性，如果是的話，是否可在字串中找到 @？
 
 下列連絡人物件 **不會** 同步處理至 Azure AD：
 
@@ -128,7 +128,7 @@ FSP 會聯結至 Metaverse 中的「任何」(\*) 物件。 實際上，此聯�
 
 ![同步處理規則編輯器圖示](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
 
-SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。 您必須是 ADSyncAdmins 群組的成員，才能夠加以啟動。 在它啟動時，您會看到如下的畫面：
+SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。您必須是 ADSyncAdmins 群組的成員，才能夠加以啟動。 在它啟動時，您會看到如下的畫面：
 
 ![同步處理規則 (輸入)](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
@@ -152,7 +152,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。 �
 
 您也可尋找一些資訊，例如哪個已連線系統與此規則有關、哪個已連線系統的物件類型適用於此規則，以及 Metaverse 物件的類型。 無法來源物件類型為使用者、iNetOrgPerson 或連絡人，Metaverse 物件類型一律為個人。 Metaverse 物件類型永遠不會改變，所以它必須以一般類型建立。 您可以將連結類型設為 Join、StickyJoin 或 Provision。 此設定會與 [聯結規則] 區段共同運作，稍後會討論其運作方式。
 
-您也可以看到此同步處理規則用於密碼同步。 如果使用者在此同步處理規則的範圍內，密碼會從內部部署同步處理至雲端 (假設您已啟用密碼同步功能)。
+您也可以看到此同步處理規則用於密碼同步。如果使用者在此同步處理規則的範圍內，密碼會從內部部署同步處理至雲端 (假設您已啟用密碼同步功能)。
 
 #### <a name="scoping-filter"></a>範圍篩選器
 範圍篩選器區段是用來設定同步處理規則套用的時機。 由於您目前看到的同步處理規則名稱表示只應針對已啟用使用者套用，因此您必須設定該範圍，切勿將 AD 屬性 **userAccountControl** 設為位元 2。 當同步處理引擎在 AD 中尋找使用者時，如果 **userAccountControl** 設為十進位值 512 (啟用的一般使用者)，則會套用此同步處理規則。 當使用者的 **userAccountControl** 設為 514 (停用的一般使用者) 時，則不會套用此規則。

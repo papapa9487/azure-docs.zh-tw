@@ -14,14 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/03/2017
 ms.author: larryfr
+ms.openlocfilehash: 28d23cf397db204a22fea785521ea6a164d84374
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 8238bb829df95dcb8c99c0b7fff53c627a56f47c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 搭配 HDInsight 上的 Hadoop 執行 MapReduce 作業
 
@@ -42,7 +41,7 @@ ms.lasthandoff: 08/21/2017
 > [!NOTE]
 > 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集管理員使用者名稱和密碼來驗證要求。 您必須使用叢集名稱，作為用來將要求傳送至伺服器之 URI 的一部分。
 >
-> 針對本節中的命令，將 **USERNAME** 取代為向叢集驗證的使用者，並將 **PASSWORD** 取代為使用者帳戶的密碼。 將 **CLUSTERNAME** 取代為您叢集的名稱。
+> 針對本節中的命令，請將 **admin** 取代為要驗證叢集的使用者。 將 **CLUSTERNAME** 取代為您叢集的名稱。 出現提示時，提供使用者帳戶的密碼。
 >
 > 使用 [基本存取驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用 HTTPS 提出要求，確保認證安全地傳送至伺服器。
 
@@ -50,10 +49,10 @@ ms.lasthandoff: 08/21/2017
 1. 從命令列中，使用下列命令來確認您可以連線到 HDInsight 叢集：
 
     ```bash
-    curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
+    curl -u admin -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
 
-    您應該會收到類似下列 JSON 的回應：
+    您應該會收到類似以下 JSON 的回應：
 
         {"status":"ok","version":"v1"}
 
@@ -62,12 +61,12 @@ ms.lasthandoff: 08/21/2017
    * **-u**：指出用來驗證要求的使用者名稱和密碼
    * **-G**：指出此作業是 GET 要求
 
-     所有要求的 URI 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都相同。
+   所有要求的 URI 開頭 **https://CLUSTERNAME.azurehdinsight.net/templeton/v1** 都相同。
 
 2. 若要提交 MapReduce 工作，請使用下列命令：
 
     ```bash
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
+    curl -u admin -d user.name=admin -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/CurlOut https://CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar
     ```
 
     URI 結尾 (/mapreduce/jar) 會告訴 WebHCat，此要求會從 jar 檔案中的類別啟動 MapReduce 作業。 此命令中使用的參數如下：
@@ -78,14 +77,14 @@ ms.lasthandoff: 08/21/2017
     * **class**：包含 MapReduce 邏輯的類別
     * **arg**︰要傳遞到 MapReduce 作業的引數。 在此案例中，是用於輸出的輸入文字檔和目錄
 
-     此命令應該會傳回可用來檢查工作狀態的工作識別碼：
+   此命令應該會傳回可用來檢查工作狀態的工作識別碼：
 
        {"id":"job_1415651640909_0026"}
 
 3. 若要檢查作業的狀態，請使用下列命令：
 
     ```bash
-    curl -G -u USERNAME:PASSWORD -d user.name=USERNAME https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
+    curl -G -u admin -d user.name=admin https://CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/JOBID | jq .status.state
     ```
 
     將 **JOBID** 取代為上一個步驟中所傳回的值。 例如，如果傳回值為 `{"id":"job_1415651640909_0026"}`，則 JOBID 會是 `job_1415651640909_0026`。

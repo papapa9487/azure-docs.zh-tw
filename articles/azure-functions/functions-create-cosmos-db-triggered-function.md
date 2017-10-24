@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>建立 Azure Cosmos DB 所觸發的函式
 
@@ -66,11 +65,11 @@ ms.lasthandoff: 09/25/2017
     | **集合名稱** | 項目 | 要監視的集合名稱。 |
     | **建立租用集合 (如果不存在)** | 已檢查 | 集合尚未存在，因此加以建立。 |
 
-4. 選取 [Azure Cosmos DB 帳戶連線] 標籤旁的 [新增]，然後選取 [+ 建立新的]。 
+4. 選取 [Azure Cosmos DB 帳戶連線] 標籤旁的 [新增]，然後選擇現有 Cosmos DB 帳戶或 [+ 建立新的]。 
  
     ![設定 Azure Cosmos DB 連線](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. 使用表格中所指定的 [新增帳戶] 設定。
+6. 建立新的 Cosmos DB 帳戶時，使用表格中所指定的 [新增帳戶] 設定。
 
     | 設定      | 建議的值  | 說明                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ ms.lasthandoff: 09/25/2017
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 如需佇列儲存體觸發程序的詳細資訊，請參閱 [Azure Functions 儲存體佇列繫結](functions-bindings-storage-queue.md)。
-

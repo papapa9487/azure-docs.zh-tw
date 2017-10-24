@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
 ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>管理 Azure 虛擬機器備份
 > [!div class="op_single_selector"]
@@ -170,7 +170,7 @@ ms.lasthandoff: 07/11/2017
 
     如果您不確定項目名稱，請以滑鼠暫留在驚嘆號來檢視名稱。 項目的名稱也會出現在刀鋒視窗頂端的 [停止備份]  下。
 4. 選擇性地提供 [原因] 或 [註解]。
-5. 若要停止目前的項目的備份作業，請按一下![停止備份 按鈕](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
+5. 若要停止目前項目的備份作業，請按一下![停止備份按鈕](./media/backup-azure-manage-vms/stop-backup-button-blue.png)
 
     通知訊息可讓您知道備份作業已停止。
 
@@ -219,7 +219,7 @@ ms.lasthandoff: 07/11/2017
 
     如果您不確定項目名稱，請以滑鼠暫留在驚嘆號來檢視名稱。 項目的名稱也出現刀鋒視窗頂端的 [刪除備份資料]  下。
 3. 選擇性地提供 [原因] 或 [註解]。
-4. 若要刪除的備份資料的目前項目，請按一下![停止備份 按鈕](./media/backup-azure-manage-vms/delete-button.png)
+4. 若要刪除目前項目的備份資料，請按一下![停止備份按鈕](./media/backup-azure-manage-vms/delete-button.png)
 
     通知訊息可讓您知道備份資料已刪除。
 

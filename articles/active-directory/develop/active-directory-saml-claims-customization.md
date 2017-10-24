@@ -1,6 +1,6 @@
 ---
-title: "在 Azure Active Directory 中為預先整合的應用程式自訂在 SAML 權杖中發出的宣告 | Microsoft Docs"
-description: "了解如何在 Azure Active Directory 中為預先整合的應用程式自訂在 SAML 權杖中發出的宣告"
+title: "針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告 | Microsoft Docs"
+description: "了解如何針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告"
 services: active-directory
 documentationcenter: 
 author: jeevansd
@@ -15,15 +15,14 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
 ms.custom: aaddev
+ms.openlocfilehash: 73f63300e65e1f6bc25edf7f28ec2769acbb7c9e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 6d232759630fcc567788a8326b566b659f89d17a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-pre-integrated-apps-in-azure-active-directory"></a>在 Azure Active Directory 中為預先整合的應用程式自訂在 SAML 權杖中發出的宣告
-目前 Azure Active Directory 支援 Azure AD 應用程式庫中數千個預先整合的應用程式，有 360 個以上的應用程式支援使用 SAML 2.0 通訊協定的單一登入。 當使用者使用 SAML 透過 Azure AD 驗證應用程式時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業應用程式自訂 SAML 權杖中發出的宣告
+現在，Azure Active Directory 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
 
 在身分識別交談中，「宣告」是身分識別提供者在為使用者發出的權杖中關於使用者說明的資訊。 在 [SAML 權杖](http://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
 
@@ -56,7 +55,7 @@ ms.lasthandoff: 07/14/2017
 
 ![編輯使用者屬性][5]
 
-我們現在還新增了 **join()** 函式，以聯結已驗證的網域與使用者識別碼值。 當您選取 [使用者識別碼] 中的 join() 函式時，先選取像是電子郵件地址或使用者主體名稱的使用者識別碼，然後在第二個下拉式清單中選取已驗證的網域。 如果您選取包含已驗證網域的電子郵件地址，則 Azure AD 會從 joe_smith@contoso.com 的第一個值 joe_smith 中擷取使用者名稱，並將它與 contoso.onmicrosoft.com 附加。 請參閱下列範例：
+我們現在還新增了 **join()** 函式，以聯結已驗證的網域與使用者識別碼值。 當您選取 [使用者識別碼] 中的 join() 函式時，先選取像是電子郵件地址或使用者主體名稱的使用者識別碼，然後在第二個下拉式清單中選取已驗證的網域。 如果您選取包含已驗證網域的電子郵件地址，則 Azure AD 會從 joe_smith@contoso.com 的第一個值 joe_smith 中擷取使用者名稱，並將它與 contoso.onmicrosoft.com 附加。請參閱下列範例：
 
 ![編輯使用者屬性][6]
 

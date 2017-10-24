@@ -14,30 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: bharatn
+ms.openlocfilehash: 3168a8129e2e73d7ab1de547679aabd10d8f7112
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 7897458e9e4a0bbe185bd3f7b4c133c1b26769f9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric 中的反向 Proxy
-Azure Service Fabric 內建的反向 Proxy 可解析 Service Fabric 叢集中公開 HTTP 端點的微服務。
+Azure Service Fabric 內建的反向 Proxy 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
 
 ## <a name="microservices-communication-model"></a>微服務通訊模型
-Service Fabric 中的微服務通常在叢集中的虛擬機器子集上執行，而且會因為各種原因在不同的虛擬機器之間移動。 因此，微服務的端點可以動態變更。 與微服務通訊的一般模式是如下的解析迴圈：
+Service Fabric 中的微服務在叢集中的節點子集上執行，而且可以因為各種原因在不同的節點之間轉移。 因此，微服務的端點可以動態變更。 若要探索以及與叢集中的其他服務通訊，微服務必須完成下列步驟：
 
-1. 起初透過命名服務解析服務位置。
+1. 透過命名服務解析服務位置。
 2. 連線至服務。
-3. 判斷連線失敗的原因，必要時再重新解析服務位置。
+3. 將上述步驟包裝在實作服務解析的迴圈中，然後重試原則以在連線失敗時套用
 
-此程序通常涉及將用戶端通訊程式庫包裝在重試迴圈，以實作服務解析再重試原則。
 如需詳細資訊，請參閱[連線至服務並與其進行通訊](service-fabric-connect-and-communicate-with-services.md)。
 
 ### <a name="communicating-by-using-the-reverse-proxy"></a>使用反向 Proxy 進行通訊
-Service Fabric 中的反向 Proxy 會在叢集的所有節點上執行。 它代表用戶端執行整個服務的解析程序，接著再轉送用戶端要求。 因此，在叢集上執行的用戶端可使用任一用戶端 HTTP 通訊程式庫，透過在同一節點本機上執行的反向 Proxy 與目標服務通訊。
+反向 Proxy 是一項服務，它會在每個節點上代表用戶端服務執行及處理端點解析、自動重試和其他連線失敗。 經過設定後，當反向 Proxy 處理來自用戶端服務的要求時，可以套用不同的原則。 透過反向 Proxy，用戶端服務可以使用任何用戶端 HTTP 通訊程式庫，而且服務中不需要特殊的解析和重試邏輯。 
+
+反向 Proxy 會公開本機節點上的一個或多個端點，供用戶端服務用來將要求傳送給其他服務。
 
 ![內部通訊][1]
+
+> **支援的平台**
+>
+> Service Fabric 中的反向 Proxy 目前支援下列平台
+> * *Windows 叢集*：Windows 8 和更新版本或 Windows Server 2012 和更新版本
+> * *Linux 叢集*：反向 Proxy 目前不適用於 Linux 叢集
 
 ## <a name="reaching-microservices-from-outside-the-cluster"></a>從叢集外部連線到微服務
 微服務的預設外部通訊模型是選擇加入模型，每項服務都無法從外部用戶端直接存取。 [Azure Load Balancer](../load-balancer/load-balancer-overview.md) 是微服務與外部用戶端之間的網路界限，負責執行網路位址轉譯，並將外部要求轉送給內部的 IP:port 端點。 若要讓微服務的端點能直接從外部用戶端來存取，您必須先將 Load Balancer 設為轉送流量到服務在叢集中使用的每個連接埠。 此外，大部分的微服務 (特別是可設定狀態的微服務) 不存在於叢集的所有節點上。 微服務可以在容錯移轉時於節點之間移動。 在這種情況下，Load Balancer 無法有效地判斷它應該將流量轉送到之複本的目標節點位置。
@@ -61,7 +67,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 ```
 
 * **http(s)：** 反向 Proxy 可設定為接受 HTTP 或 HTTPS 流量。 對於 HTTPS 轉送，在您設定反向 Proxy 於 HTTPS 接聽後，請參閱[使用反向 Proxy 連線安全的服務](service-fabric-reverseproxy-configure-secure-communication.md)。
-* **叢集完整網域名稱 (FQDN) | 內部 IP：**如果是外部用戶端，您可以設定反向 Proxy 讓其可透過叢集網域 (例如 mycluster.eastus.cloudapp.azure.com) 來聯繫到。 根據預設，反向 Proxy 會在每個節點上執行。 如果是內部流量，反向 Proxy 可在 localhost 或任何內部節點 IP (例如 10.0.0.1) 上聯繫到。
+* **叢集完整網域名稱 (FQDN) | 內部 IP：**如果是外部用戶端，您可以設定反向 Proxy 讓其可透過叢集網域 (例如 mycluster.eastus.cloudapp.azure.com) 來聯繫到。根據預設，反向 Proxy 會在每個節點上執行。 如果是內部流量，反向 Proxy 可在 localhost 或任何內部節點 IP (例如 10.0.0.1) 上聯繫到。
 * **連接埠︰**這是為反向 Proxy 指定的連接埠，例如 19081。
 * **ServiceInstanceName：**這是您嘗試不使用「fabric:/」配置來連線到之已部署服務執行個體的完整名稱。 例如，若要連線到 fabric:/myapp/myservice/ 服務，可以使用 myapp/myservice。
 
@@ -315,4 +321,3 @@ Azure 入口網站提供選項，以在建立新的 Service Fabric 叢集時啟�
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png
-

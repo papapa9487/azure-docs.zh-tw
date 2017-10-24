@@ -3,7 +3,7 @@ title: "了解 Azure AD 應用程式 Proxy 連接器 | Microsoft Docs"
 description: "涵蓋 Azure AD 應用程式 Proxy 連接器的基本概念。"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: billmath
 manager: femila
 ms.assetid: 
 ms.service: active-directory
@@ -11,18 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2017
-ms.author: kgremban
+ms.date: 10/03/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: c18d0a2bff654573e6e28a7cd7fad853b3a11346
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
 連接器是讓 Azure AD 應用程式 Proxy 運作的關鍵。 它們很簡單、容易部署及維護且超級強大。 本文討論什麼是連接器、其運作方式，以及如何最佳化部署的一些建議。 
@@ -70,6 +68,21 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 若要深入了解連接器群組，請參閱[使用連接器群組在個別的網路和位置上發佈應用程式](active-directory-application-proxy-connectors-azure-portal.md)。
 
+## <a name="capacity-planning"></a>容量規劃 
+
+雖然連接器群組內的連接器會自動平衡負載，但還是必須確定您在連接器之間已規劃足夠的容量，以處理預期的流量。 一般而言，使用者越多，您需要的機器就越大。 下表概述不同機器可處理的流量。 請注意，完全是根據預期的每秒交易數 (TPS)，而不是依據使用者，因為使用模式都不同，無法用來預測負載。  也請注意，根據回應大小和後端應用程式回應時間，將會有一些差異 - 較大的回應和較慢的回應時間會產生較低的「最大 TPS」。
+
+|核心|RAM|預期延遲 (MS)-P99|最大 TPS|
+| ----- | ----- | ----- | ----- |
+|2|8|325|586|
+|4|16|320|1150|
+|8|32|270|1190|
+|16|64|245|1200*|
+\*此機器的連接限制為 200。 對於所有其他機器，我們使用預設連接限制 200。
+ 
+>[!NOTE]
+>預設設定限制為 200 (適用於 2、4 和 8 核心)。  在測試 16 核心期間，連接限制變更為 800。 在 4、8 和 16 核心的機器之間，最大 TPS 沒有太大差異。 它們之間的主要差異在於預期延遲。  
+
 ## <a name="security-and-networking"></a>安全性和網路服務
 
 在允許連接器將要求傳送至應用程式 Proxy 服務的網路上，任何地方都可以安裝連接器。 重點是執行連接器的電腦也可存取您的應用程式。 您可以在貴公司網路內或在雲端中執行的虛擬機器上安裝連接器。 可以在非軍事區域 (DMZ) 內執行連接器，但並非必要，因為所有流量都是輸出的，因此您的網路都能保持安全。
@@ -89,6 +102,8 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 連接器效能受限於 CPU 和網路。 SSL 加密和解密需要 CPU 效能，而網路對於取得應用程式和 Azure 線上服務的快速連線能力很重要。
 
 相反地，連接器發行需要較少的記憶體。 線上服務可以處理大部分的處理程序，及所有未經驗證的流量。 所有可在雲端中完成的內容都是在雲端中完成。 
+
+給定連接器群組的連接器之間會進行負載平衡。 我們執行不一樣的循環配置，以決定由群組中的哪一個連接器來處理特定的要求。 選擇連接器之後，我們在工作階段期間維持該使用者與應用程式之間的工作階段親和性。 如果連接器或機器由於任何原因而變成無法使用，流量會開始流向群組中的其他連接器。 此備援能力也是我們建議使用多個連接器的理由。
 
 影響效能的另一個因素是連接器之間的網路品質，包括︰ 
 
@@ -151,5 +166,4 @@ Register-AppProxyConnector
 * [使用現有的內部部署 Proxy 伺服器](application-proxy-working-with-proxy-servers.md)
 * [針對應用程式 Proxy 和連接器錯誤進行疑難排解](active-directory-application-proxy-troubleshoot.md)
 * [如何以無訊息方式安裝 Azure AD 應用程式 Proxy 連接器](active-directory-application-proxy-silent-installation.md)
-
 

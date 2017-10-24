@@ -11,14 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2017
+ms.date: 10/04/2017
 ms.author: bwren
+ms.openlocfilehash: 5786ac45b3459e813b1716a3c408db47b393b6ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 50049b1c66bf93cbed52e30e66385c33a4d97c5b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="import-data-into-analytics"></a>將資料匯入分析
 
@@ -367,5 +366,4 @@ namespace IngestionClient
 ## <a name="next-steps"></a>後續步驟
 
 * [Log Analytics 查詢語言導覽](app-insights-analytics-tour.md)
-* [使用 Logstash 將資料傳送至 Application Insights](https://github.com/Microsoft/logstash-output-application-insights)
-
+* 如果您使用 Logstash，請使用 [Logstash 外掛程式將資料傳送至 Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

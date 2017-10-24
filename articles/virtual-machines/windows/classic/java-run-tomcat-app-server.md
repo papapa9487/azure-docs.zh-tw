@@ -15,12 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: robmcm
-translationtype: Human Translation
-ms.sourcegitcommit: 4f2230ea0cc5b3e258a1a26a39e99433b04ffe18
 ms.openlocfilehash: 6e02f42613808bcb13c0057e9f8fcc1c02273e77
-ms.lasthandoff: 03/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-run-a-java-application-server-on-a-virtual-machine-created-with-the-classic-deployment-model"></a>如何在以傳統部署模型建立的虛擬機器上執行 Java 應用程式伺服器
 > [!IMPORTANT]
@@ -44,7 +43,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 
 
 ## <a name="to-create-a-virtual-machine"></a>建立虛擬機器
 1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 依序按一下 [新增] 和 [計算]，然後按一下 [精選 App] 中的 [查看全部]。
+2. 依序按一下 新增 和 計算，然後按一下精選 App 中的 查看全部。
 3. 按一下 [JDK]，然後按一下 [JDK] 窗格中的 [JDK 8]。  
    如果您的舊版應用程式尚未準備好在 JDK 8 中運作，則可使用支援 **JDK 6** 和 **JDK 7** 的虛擬機器映像。
 4. 在 [JDK 8] 窗格中，選取 [傳統]，然後按一下 [建立]。
@@ -55,7 +54,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 
    4. 選取適當的**訂用帳戶**。
    5. 針對**資源群組**，按一下 [建立新項目]，然後輸入新資源群組的名稱。 或者，按一下 [使用現有的項目]，然後選取其中一個可用的資源群組。
    6. 選取虛擬機器所在的位置，例如**美國中南部**。
-6. 按 [下一步] 。
+6. 按一下 [下一步] 。
 7. 在 [虛擬機器映像大小] 刀鋒視窗中，選取 [A1 標準] 或另一個適當的映像。
 8. 按一下 [選取] 。
 
@@ -108,7 +107,7 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 
 2. 按一下 Windows [開始] 。
 3. 按一下 [控制台] 。
 4. 依序按一下 [系統及安全性]、[Windows 防火牆] 及 [進階設定]。
-5. 按一下 [輸入規則]，然後按一下 [新增規則]。  
+5. 按一下 輸入規則，然後按一下新增規則。  
    ![新增輸入規則][NewIBRule]
 6. 針對 [規則類型]，選取 [連接埠]，然後按 [下一步]。  
    ![新增輸入規則連接埠][NewRulePort]
@@ -118,10 +117,10 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 
    ![新增輸入規則動作][NewRuleAction]
 9. 在 [設定檔] 畫面上，確定已選取 [網域]、[私人] 和 [公用]，然後按 [下一步]。
    ![新增輸入規則設定檔][NewRuleProfile]
-10. 在 [名稱] 畫面上，指定規則的名稱，例如 **HttpIn** (不過規則名稱不一定要與端點名稱相符)，然後按一下 [完成]。  
+10. 在 名稱 畫面上，指定規則的名稱，例如 **HttpIn** (不過規則名稱不一定要與端點名稱相符)，然後按一下完成。  
     ![新增輸入規則名稱][NewRuleName]
 
-此時，應該能從外部瀏覽器檢視您的 Tomcat 網站。 在瀏覽器的位址視窗中，輸入 **http://*your\_DNS\_name*.cloudapp.net**格式的 URL，其中***your\_DNS\_name*** 是您在建立虛擬機器時指定的 DNS 名稱。
+此時，應該能從外部瀏覽器檢視您的 Tomcat 網站。 在瀏覽器的位址視窗中，輸入 **http://*your\_DNS\_name*.cloudapp.net** 格式的 URL，其中 ***your\_DNS\_name*** 是您在建立虛擬機器時指定的 DNS 名稱。
 
 ## <a name="application-lifecycle-considerations"></a>應用程式生命週期考量
 * 您可以自行建立 Web 應用程式封存檔 (WAR)，然後再將其新增至 **webapps** 資料夾。 例如，建立基本的 Java Service Page (JSP) 動態 Web 專案，並將它匯出為 WAR 檔案。 接下來，將 WAR 複製到虛擬機器上的 Apache Tomcat **webapps** 資料夾中，然後在瀏覽器中加以執行。
@@ -159,4 +158,3 @@ Azure 可讓您利用虛擬機器來提供伺服器功能。 例如，於 Azure 
 6. In the **Add endpoint** dialog box, ensure **Add standalone endpoint** is selected, and then click **Next**.
 7. In the **New endpoint details** dialog box:
 -->
-

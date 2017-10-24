@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
+ms.openlocfilehash: b6e1a305e19415ab1c4b4c208dac98ad1e2689c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 4f3ec837588c6e959e82108ca25ab4289e40d3f5
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-a-certificate-to-the-java-ca-certificates-store"></a>新增憑證至 Java CA 憑證存放區
 下列步驟顯示如何新增憑證授權單位 (CA) 憑證到 Java CA 憑證 (cacerts) 存放區。 使用的範例是針對 Twilio 服務所要求的 CA 憑證。 本主題稍後提供的資訊將說明如何安裝 Azure 服務匯流排的 CA 憑證。 
@@ -27,7 +26,7 @@ ms.lasthandoff: 08/21/2017
 您可以先使用 keytool 新增 CA 憑證，再將 JDK 壓縮並新增到 Azure 專案的 **approot** 資料夾，或者也可以執行使用了 keytool 來新增憑證的 Azure 啟動工作。 這個範例假設您會先新增 CA 憑證再將 JDK 壓縮。 另外，範例中將使用特定 CA 憑證，但是若要取得不同的 CA 憑證並將之儲存到 cacerts 存放區，步驟會很類似。
 
 ## <a name="to-add-a-certificate-to-the-cacerts-store"></a>新增憑證至 cacerts 存放區
-1. 在設定為 JDK **jdk\jre\lib\security** 資料夾的命令提示字元下，執行下列命令來查看已安裝哪些憑證：
+1. 在設定為 JDK **jdk\jre\lib\security** 資料夾的 Administrator 命令提示字元下，執行下列命令來查看已安裝哪些憑證：
    
     `keytool -list -keystore cacerts`
    
@@ -56,5 +55,4 @@ Baltimore 憑證可能已經安裝於您的 cacerts 存放區，因此請記得�
 如需 Azure 所用根憑證的詳細資訊，請參閱 [Azure 根憑證移轉](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx)。
 
 如需 Java 的詳細資訊，請參閱[適用於 Java 開發人員的 Azure](/java/azure)。
-
 

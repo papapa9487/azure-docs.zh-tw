@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services：開始使用 | Microsoft Docs"
-description: "使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services"
+description: "使用 Azure 入口網站啟用 Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,29 +12,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: d2d570bc2bab3bfd28282cd95b0a1be65e96743d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 本文說明如何使用 Azure 入口網站啟用 Azure Active Directory Domain Services (Azure AD DS)。
 
 若要啟動 [啟用 Azure AD Domain Services] 精靈，請完成下列步驟：
 
 1. 移至 [Azure 入口網站](https://portal.azure.com)。
 2. 在左窗格中，按一下 [新增]。
-3. 在 [新增] 刀鋒視窗中，將「網域服務」輸入到搜尋列。
+3. 在 [新增] 頁面中，將「網域服務」輸入到搜尋列。
 
     ![搜尋網域服務](./media/getting-started/search-domain-services.png)
 
-4. 按一下以從搜尋建議清單中選取 [Azure AD Domain Services]。 在 [Azure AD Domain Services] 刀鋒視窗中，按一下 [建立] 按鈕。
+4. 按一下以從搜尋建議清單中選取 [Azure AD Domain Services]。 在 [Azure AD Domain Services] 頁面中，按一下 [建立] 按鈕。
 
-    ![網域服務刀鋒視窗](./media/getting-started/domain-services-blade.png)
+    ![網域服務檢視](./media/getting-started/domain-services-blade.png)
 
 5. [啟用 Azure AD Domain Services] 精靈隨即啟動。
 
@@ -65,6 +64,10 @@ ms.lasthandoff: 08/29/2017
 
 3. 選擇 [虛擬網路的類型]。 根據預設，會選取 **Resource Manager** 虛擬網路類型。 建議所有新建立的受管理網域使用這種類型的虛擬網路。
 
+    > [!TIP]
+    > **傳統的虛擬網路支援已排定要淘汰。** 為所有新部署選取 Resource Manager 虛擬網路類型。 新部署將很快不再支援傳統虛擬網路。 將繼續支援在傳統虛擬網路中部署的現有受管理網域。
+    >
+
 4. 選取您要在其中建立受管理的網域的 Azure **訂用帳戶**。
 
 5. 選取受管理的網域應該隸屬的**資源群組**。 您可以選擇**新建**或**使用現有**選項，以選取資源群組。
@@ -76,4 +79,3 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-step"></a>後續步驟
 [工作 2：設定網路基本設定](active-directory-ds-getting-started-network.md)
-

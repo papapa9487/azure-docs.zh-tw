@@ -16,10 +16,10 @@ ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
 ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-authenticator-for-android"></a>適用於 Android 的 Azure Authenticator
 IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行登入以存取您的工作資源。 此應用程式提供下列兩個登入選項：
@@ -37,7 +37,7 @@ IT 系統管理員可能曾建議您使用 Microsoft Azure Authenticator 進行�
 
 1. 在應用程式的主畫面上，接受使用者授權合約 (EULA)。
 2. 在 [啟用帳戶] 畫面上，按一下右邊的內容功能表，然後選取 [工作帳戶] 。
-3. 在新增帳戶畫面上，選取 * * 工作帳戶 * *。
+3. 在 [新增帳戶] 畫面上，選取 [公司帳戶]。
 4. 在 [啟動裝置管理員] 畫面上，按一下 [啟動] 。
 5. 在 [隱私權原則] 畫面上，選取此核取方塊並按一下 [確認] 。
 6. 在 [加入工作場所] 畫面上，輸入您的組織所提供的 userID，然後按一下 [加入] 。

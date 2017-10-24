@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/23/2017
+ms.date: 09/29/2017
 ms.author: magoedte
+ms.openlocfilehash: c9902e1b8644c2b0a894f9cde98f2056564775c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 616505d7884189ddee2edadc4114deb8f08f7475
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-your-linux-computers-to-operations-management-suite-oms"></a>將 Linux 電腦連線至 Operations Management Suite (OMS) 
 
 透過 Microsoft Operations Management Suite (OMS)，您可以收集從下列位置產生的資料，並對資料採取動作：從 Linux 電腦；存放在內部部署資料中心做為實體伺服器或虛擬機器的容器解決方案，如 Docker；如 Amazon Web Services (AWS) 或 Microsoft Azure 等雲端託管服務中的虛擬機器。 您也可以使用 OMS 中可用的管理解決方案 (例如「變更追蹤」) 來識別組態變更，並使用「更新管理」管理軟體更新，以主動管理 Linux VM 的生命週期。 
@@ -75,7 +73,7 @@ PAM | 插入式驗證模組 |
 
 **Package** | **版本** | **說明**
 ----------- | ----------- | --------------
-omsagent | 1.4.0 | Operations Management Suite Agent for Linux
+omsagent | 1.4.1 | Operations Management Suite Agent for Linux
 omsconfig | 1.1.1 | OMS 代理程式的組態代理程式
 omi | 1.2.0 | 開放式管理基礎結構 (OMI) - 輕量型 CIM 伺服器
 scx | 1.6.3 | 作業系統效能計量的 OMI CIM 提供者
@@ -93,9 +91,9 @@ OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用�
 ### <a name="system-configuration-changes"></a>系統組態變更
 安裝 OMS Agent for Linux 封裝之後，會套用下列額外的全系統組態變更。 解除安裝 omsagent 封裝時，會移除這些構件。
 
-* 會建立名為 `omsagent` 的非特殊權限使用者。 這是 omsagent 精靈所執行的帳戶。
-* sudoers “include” 檔案建立在 /etc/sudoers.d/omsagent。 這會授權 omsagent 重新啟動 syslog 與 omsagent 精靈。 如果已安裝的 sudo 版本不支援 sudo “include” 指示詞，這些項目會寫入 /etc/sudoers。
-* syslog 組態修改成將事件子集轉送給代理程式。 如需詳細資訊，請參閱下面 **設定資料收集** 一節。
+* 會建立名為 `omsagent` 的非特殊權限使用者。 omsagent 精靈會以此帳戶的身分執行。
+* sudoers “include” 檔案建立在 /etc/sudoers.d/omsagent。 這個檔案會授權 omsagent 重新啟動 syslog 與 omsagent 精靈。 如果已安裝的 sudo 版本不支援 sudo “include” 指示詞，這些項目會寫入 /etc/sudoers。
+* syslog 組態修改成將事件子集轉送給代理程式。 如需詳細資訊，請參閱下面**設定資料收集**一節。
 
 ### <a name="upgrade-from-a-previous-release"></a>從舊版升級
 此版本支援從 1.0.0-47 之前的版本升級。 使用 `--upgrade` 命令執行安裝，會將代理程式的所有元件升級為最新版本。
@@ -106,7 +104,7 @@ OMS Agent for Linux 會與 System Center Operations Manager 代理程式共用�
 
 您首先需要您的 OMS 工作區識別碼和金鑰，這可以透過切換至 [OMS 傳統入口網站](https://mms.microsoft.com)找到。  在 [概觀] 頁面上，從頂端功能表選取 [設定]，然後巡覽至 [連接的來源]\[Linux 伺服器]。  您會看到 [工作區識別碼] 和 [主索引鍵] 右邊的值。  將兩者複製並貼到您最愛的編輯器。    
 
-1. 在 GitHub 下載最新的 [OMS Ageent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x64.sh) 或 [OMS Agent for Linux (x86)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.0-45/omsagent-1.4.0-45.universal.x86.sh)。  
+1. 在 GitHub 下載最新的 [OMS Ageent for Linux (x64)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x64.sh) 或 [OMS Agent for Linux (x86)](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/download/OMSAgent_GA_v1.4.1-45/omsagent-1.4.1-45.universal.x86.sh)。  
 2. 使用 scp/sftp 將適當的套件組合 (x86 或 x64) 傳輸到 Linux 電腦。
 3. 使用 `--install` 或 `--upgrade` 引數安裝該套件組合。 
 
@@ -237,7 +235,7 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 * OMS 服務端點未列入您資料中心的允許清單 
 
 #### <a name="resolutions"></a>解決方式
-1. 將下列命令搭配已啟用的 `-v` 選項使用，以透過 OMS Agent for Linux 重新上架至 OMS 服務。 這可讓透過 Proxy 連接到 OMS 服務的代理程式產生詳細資訊輸出。 
+1. 將下列命令搭配已啟用的 `-v` 選項使用，以透過 OMS Agent for Linux 重新上架至 OMS 服務。 這個 settubg 可讓透過 Proxy 連線到 OMS 服務的代理程式產生詳細資訊輸出。 
 `/opt/microsoft/omsagent/bin/omsadmin.sh -w <OMS Workspace ID> -s <OMS Workspace Key> -p <Proxy Conf> -v`
 
 2. 檢閱[設定代理程式以搭配 Proxy 伺服器或 OMS 閘道使用](#configuring the-agent-for-use-with-a-proxy-server-or-oms-gateway)一節，以確認您已適當地設定代理程式透過 Proxy 伺服器通訊。    
@@ -263,7 +261,7 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 3. 使用正確的工作區識別碼和工作區金鑰並遵循本主題中前面的安裝指示重新上架。
 
 ### <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>問題︰上架後您隨即在記錄檔中看到 500 與 404 錯誤
-這是已知第一次將 Linux 資料上傳至 OMS 工作區時會發生的問題。 這不會影響正在傳送的資料或服務體驗。
+這個錯誤是已知第一次將 Linux 資料上傳至 OMS 工作區時會發生的問題。 這個錯誤不會影響正在傳送的資料或服務體驗。
 
 ### <a name="issue-you-are-not-seeing-any-data-in-the-oms-portal"></a>問題︰您在 OMS 入口網站中看不到任何資料
 
@@ -281,5 +279,4 @@ omsagent 的記錄輪替組態位於：`/etc/logrotate.d/omsagent-<workspace id>
 
     >[!NOTE]
     >此問題已在代理程式 1.1.0-28 版和更新版本中修正。
-
 

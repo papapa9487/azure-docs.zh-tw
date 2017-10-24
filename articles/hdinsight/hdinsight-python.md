@@ -13,15 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 07/17/2017
+ms.date: 10/06/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
+ms.openlocfilehash: 766829e1a35a733888973689897ddc4fe66e00a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: ad96b5dcb3bce98abc7ab776880dfec4f4a91620
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>在 HDInsight 上使用 Python 使用者定義函數 (UDF) 與 Hive 和 Pig
 
@@ -208,6 +207,8 @@ def create_structure(input):
     ssh myuser@mycluster-ssh.azurehdinsight.net
     ```
 
+    如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
+
 3. 從 SSH 工作階段，將先前上傳的 python 檔案加入叢集的 WASB 儲存體。
 
     ```bash
@@ -219,9 +220,15 @@ def create_structure(input):
 
 #### <a name="use-the-hive-udf"></a>使用 Hive UDF
 
-1. 使用 `hive` 命令啟動 Hive Shell。 在 Shell 載入完成時，您應會看到 `hive>` 提示。
+1. 如需連線到 Hive，請使用下列命令：
 
-2. 在 `hive>` 提示上輸入下列查詢：
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
+
+    此命令會啟動 Beeline 用戶端。
+
+2. 在 `0: jdbc:hive2://headnodehost:10001/>` 提示上輸入下列查詢：
 
    ```hive
    add file wasb:///hiveudf.py;
@@ -240,9 +247,19 @@ def create_structure(input):
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
         100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
+4. 如需結束 Beeline，請使用下列命令：
+
+    ```hive
+    !q
+    ```
+
 #### <a name="use-the-pig-udf"></a>使用 Pig UDF
 
-1. 使用 `pig` 命令啟動 Shell。 在 Shell 載入完成時，您會看到 `grunt>` 提示。
+1. 如需連線到 pig，請使用下列命令：
+
+    ```bash
+    pig
+    ```
 
 2. 在出現 `grunt>` 提示時輸入下列陳述式：
 
@@ -274,7 +291,7 @@ def create_structure(input):
     #from pig_util import outputSchema
     ```
 
-    完成變更後，使用 Ctrl + X 結束編輯器。 選取 [Y]，然後按 Enter 儲存變更。
+    這樣會修改 Python 指令碼與 C Python 而非 Jython 搭配使用。 完成變更後，使用 **Ctrl+X** 結束編輯器。 選取 [Y]，然後按 **Enter** 儲存變更。
 
 6. 使用 `pig` 命令再次啟動 Shell。 進入 `grunt>` 提示字元後，使用下列命令以使用 C Python 解譯器執行 Python 指令碼。
 
@@ -295,46 +312,8 @@ def create_structure(input):
 > [!IMPORTANT] 
 > 本節中的步驟是使用 Azure PowerShell。 如需使用 Azure PowerShell 的詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=5-41)]
 
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-# Change the path to match the file location on your system
-$pathToStreamingFile = "C:\path\to\hiveudf.py"
-$pathToJythonFile = "C:\path\to\pigudf.py"
-
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-$resourceGroup = $clusterInfo.ResourceGroup
-$storageAccountName=$clusterInfo.DefaultStorageAccount.split('.')[0]
-$container=$clusterInfo.DefaultStorageContainer
-$storageAccountKey=(Get-AzureRmStorageAccountKey `
-    -Name $storageAccountName `
--ResourceGroupName $resourceGroup)[0].Value
-
-#Create a storage content and upload the file
-$context = New-AzureStorageContext `
-    -StorageAccountName $storageAccountName `
-    -StorageAccountKey $storageAccountKey
-
-Set-AzureStorageBlobContent `
-    -File $pathToStreamingFile `
-    -Blob "hiveudf.py" `
-    -Container $container `
-    -Context $context
-
-Set-AzureStorageBlobContent `
-    -File $pathToJythonFile `
-    -Blob "pigudf.py" `
-    -Container $container `
-    -Context $context
-```
 > [!IMPORTANT]
 > 將 `C:\path\to` 值變更為您開發環境上檔案的路徑。
 
@@ -350,52 +329,7 @@ PowerShell 也可用來從遠端執行 Hive 查詢。 使用下列 PowerShell �
 > [!IMPORTANT]
 > 執行前，指令碼會提示您輸入您 HDInsight 叢集的 HTTPs/系統管理帳戶資訊。
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
-
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster"
-
-# If using a Windows-based HDInsight cluster, change the USING statement to:
-# "USING 'D:\Python27\python.exe hiveudf.py' AS " +
-$HiveQuery = "add file wasb:///hiveudf.py;" +
-                "SELECT TRANSFORM (clientid, devicemake, devicemodel) " +
-                "USING 'python hiveudf.py' AS " +
-                "(clientid string, phoneLabel string, phoneHash string) " +
-                "FROM hivesampletable " +
-                "ORDER BY clientid LIMIT 50;"
-
-$jobDefinition = New-AzureRmHDInsightHiveJobDefinition `
-    -Query $HiveQuery
-
-$job = Start-AzureRmHDInsightJob `
-    -ClusterName $clusterName `
-    -JobDefinition $jobDefinition `
-    -HttpCredential $creds
-Write-Host "Wait for the Hive job to complete ..." -ForegroundColor Green
-Wait-AzureRmHDInsightJob `
-    -JobId $job.JobId `
-    -ClusterName $clusterName `
-    -HttpCredential $creds
-# Uncomment the following to see stderr output
-# Get-AzureRmHDInsightJobOutput `
-#   -Clustername $clusterName `
-#   -JobId $job.JobId `
-#   -HttpCredential $creds `
-#   -DisplayOutputType StandardError
-Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
-    -Clustername $clusterName `
-    -JobId $job.JobId `
-    -HttpCredential $creds
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=45-94)]
 
 **Hive** 作業的輸出應該如下範例所示：
 
@@ -412,49 +346,7 @@ PowerShell 也可用來執行 Pig Latin 作業。 若要執行使用 **pigudf.py
 > [!NOTE]
 > 使用 PowerShell 遠端提交作業時，無法使用 C Python 做為解譯器。
 
-```powershell
-# Login to your Azure subscription
-# Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
-if(-not($sub))
-{
-    Add-AzureRmAccount
-}
-
-# Get cluster info
-$clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-$creds=Get-Credential -Message "Enter the login for the cluster"
-
-$PigQuery = "Register wasb:///pigudf.py using jython as myfuncs;" +
-            "LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);" +
-            "LOG = FILTER LOGS by LINE is not null;" +
-            "DETAILS = foreach LOG generate myfuncs.create_structure(LINE);" +
-            "DUMP DETAILS;"
-
-$jobDefinition = New-AzureRmHDInsightPigJobDefinition -Query $PigQuery
-
-$job = Start-AzureRmHDInsightJob `
-    -ClusterName $clusterName `
-    -JobDefinition $jobDefinition `
-    -HttpCredential $creds
-
-Write-Host "Wait for the Pig job to complete ..." -ForegroundColor Green
-Wait-AzureRmHDInsightJob `
-    -Job $job.JobId `
-    -ClusterName $clusterName `
-    -HttpCredential $creds
-# Uncomment the following to see stderr output
-# Get-AzureRmHDInsightJobOutput `
-#    -Clustername $clusterName `
-#    -JobId $job.JobId `
-#    -HttpCredential $creds `
-#    -DisplayOutputType StandardError
-Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
-    -Clustername $clusterName `
-    -JobId $job.JobId `
-    -HttpCredential $creds
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=98-144)]
 
 **Pig** 作業的輸出應該如下列資料所示：
 
@@ -476,23 +368,13 @@ Get-AzureRmHDInsightJobOutput `
 
 若要在檔案上傳至 HDInsight 之前移除 CR 字元，您可以使用下列 PowerShell 陳述式︰
 
-```powershell
-$original_file ='c:\path\to\hiveudf.py'
-$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
-[IO.File]::WriteAllText($original_file, $text)
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
 ### <a name="powershell-scripts"></a>PowerShell 指令碼
 
 用來執行範例的兩個範例 PowerShell 指令碼都包含一行註解，此行會顯示作業的錯誤輸出。 如果您沒有看到預期的工作輸出，請將下列這一行取消註解，再查看錯誤資訊是否指出問題。
 
-```powershell
-# Get-AzureRmHDInsightJobOutput `
-        -Clustername $clusterName `
-        -JobId $job.JobId `
-        -HttpCredential $creds `
-        -DisplayOutputType StandardError
-```
+[!code-powershell[main](../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
 錯誤資訊 (STDERR) 和作業 (STDOUT) 的結果也會記錄至您的 HDInsight 儲存體中。
 
@@ -510,4 +392,3 @@ $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 * [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
-

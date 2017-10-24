@@ -14,17 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/04/2017
 ms.author: rajanaki
+ms.openlocfilehash: b4bb049577feb416f498a428bae80ecea418180e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 103643ace17961cd4e2e37313f75c775e3dcd8cd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-on-premises-to-azure"></a>用於從內部部署複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
 
 本文摘要說明在複寫和復原到 Azure 時 Azure Site Recovery 支援的組態和元件。 如需 Azure Site Recovery 需求的相關資訊，請參閱[必要條件](site-recovery-prereq.md)。
+
+> [!NOTE]
+> 請務必將站台復原提供者和代理程式更新為最新版本，以透過支援矩陣中的更新實現相容性。
 
 
 ## <a name="support-for-deployment-options"></a>支援部署選項
@@ -237,4 +239,3 @@ RA-GRS | 是 | 是
 
 ## <a name="next-steps"></a>後續步驟
 [檢查必要條件](site-recovery-prereq.md)
-

@@ -5,19 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2017
+ms.date: 09/29/2017
 ms.topic: overview
 ms.service: Cost Management
 manager: carmonm
 ms.custom: mvc
+ms.openlocfilehash: 9edcfa20b25d7048c2066fba86203a29ba1f84fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: d68e11757717ed23e2413c683d6e82c44c719010
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-cost-management"></a>什麼是 Azure 成本管理？
 
 針對您的 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，Cloudyn 的 Azure 成本管理可讓您追蹤雲端使用量和費用。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 「成本管理」可以識別未充分使用的資源，以便您管理及調整，藉此最佳化雲端消費。
@@ -39,11 +37,11 @@ ms.lasthandoff: 09/25/2017
 
 存取控制可確保使用者和小組只能存取所需的成本管理資料，以協助管理成本。 實體結構、使用者管理和排程的報告可搭配使用收件者清單以指派存取權。
 
-警示可以在出現異常消費或超支時自動通知您，以協助管理成本。 警示也可以在出現異常消費和超支風險時，自動通知利害關係人。 多種不同報告皆支援以預算和成本閾值為基礎的警示。
+警示可以在出現異常消費或超支時自動通知您，以協助管理成本。 警示也可以在出現異常消費和超支風險時，自動通知利害關係人。 多種不同報告皆支援以預算和成本閾值為基礎的警示。 不過，CSP 夥伴帳戶或訂用帳戶目前不支援警示。
 
 ## <a name="improve-efficiency"></a>改善效率
 
-您可以透過「成本管理」，以決定最佳的 VM 使用量與識別閒置的 VM 或移除閒置的 VM 並卸載磁碟。 您可以使用「大小調整最佳化」和「低效率」報告中的資訊，以建立縮減或移除閒置 VM 的計劃。
+您可以透過「成本管理」，以決定最佳的 VM 使用量與識別閒置的 VM 或移除閒置的 VM 並卸載磁碟。 您可以使用「大小調整最佳化」和「低效率」報告中的資訊，以建立縮減或移除閒置 VM 的計劃。 不過，CSP 夥伴帳戶或訂用帳戶目前不支援最佳化報告。
 
 ![大小調整建議](.\media\overview\sizing.png)
 
@@ -54,4 +52,3 @@ ms.lasthandoff: 09/25/2017
 您現在已經熟悉「成本管理」，下一步是註冊雲端環境並開始探索您的資料。
 
 - [註冊個人 Azure 訂用帳戶](quick-register-azure-sub.md)
-

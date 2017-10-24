@@ -12,20 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/25/2017
+ms.date: 10/05/2017
 ms.author: skwan
+ms.openlocfilehash: e42bbed0a9e37a6632b2a71d2b3546fcbc38cdc7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 17879d69b95186848a81e4ff4afdf8fc0d1a511e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-access-to-azure-resources-with-azure-active-directory"></a>使用 Azure Active Directory 管理對 Azure 資源的存取
 
-對於使用雲端的任何組織而言，針對雲端資源的身分識別和存取管理是非常重要的功能。  Azure Active Directory (Azure AD) 是 Microsoft Azure 的身分識別和存取系統。  
+對於使用雲端的任何組織而言，針對雲端資源的身分識別和存取管理是非常重要的功能。 Azure Active Directory (Azure AD) 是 Microsoft Azure 的身分識別和存取系統。  
 
+在探索 Azure AD 支援的功能範圍之前，請觀看下列影片：「使用 SSO、角色型存取控制和條件式存取來鎖定 Azure 雲端的存取。」 這部影片可讓您了解：
+
+- 搭配內部部署 Active Directory 來設定 Azure 入口網站單一登入的最佳作法。
+- 使用 Azure RBAC 對訂用帳戶中的資源採取更細緻的存取控制。
+- 使用 Azure AD 條件式存取來強制執行強式驗證規則。
+- 管理服務識別的概念，其中 Azure 資源可以自動向 Azure 服務驗證，而不需要開發人員處理 API 金鑰或密碼。
+
+> [!VIDEO https://www.youtube.com/embed/FKBoWWKRnvI]
+
+## <a name="feature-areas"></a>功能範圍
 Azure AD 提供下列功能來管理對 Azure 資源的存取：
 
 |||

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 1/23/2017
 ms.author: trinadhk;markgal;
 ms.openlocfilehash: 284a1b64fbb15d0aa800182c6671d447e191b76a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ ms.lasthandoff: 07/11/2017
 ## <a name="backup"></a>備份
 | 備份作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 備份 |無法與 VM 代理程式通訊來取得快照集狀態。 快照集 VM 子工作已逾時。 請參閱疑難排解指南中的解決之道。 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 深入了解如何 [偵錯 VM 快照集問題](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)。 <br> 如果 VM 代理程式並未造成任何問題，請重新啟動 VM。 有時，不正確的 VM 狀態可能會導致問題，重新啟動 VM 可清除此「錯誤狀態」 |
+| 備份 |無法與 VM 代理程式通訊來取得快照集狀態。 快照集 VM 子工作已逾時。請參閱疑難排解指南中的解決之道。 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 深入了解如何 [偵錯 VM 快照集問題](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)。 <br> 如果 VM 代理程式並未造成任何問題，請重新啟動 VM。 有時，不正確的 VM 狀態可能會導致問題，重新啟動 VM 可清除此「錯誤狀態」 |
 | 備份 |備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 |請檢查存取 VM 儲存體時是否有暫時性的問題。 請檢查 [Azure 狀態](https://azure.microsoft.com/en-us/status/)，以查看該區域中目前是否有任何與計算/儲存體/網路相關的問題。 當備份後續問題緩和後，請重試一次。 |
 | 備份 |無法執行作業，因為 VM 不存在。 |無法執行備份，因為已刪除針對備份設定的 VM。 請移至受保護的項目檢視以停止進一步的備份、選取受保護的項目，然後按一下 [停止保護]。 您可以選取 [保留備份資料] 選項來保留資料。 您可以在稍後從 [已註冊的項目] 檢視按一下 [設定保護]，以繼續保護此虛擬機器 |
 | 備份 |無法在選取的項目上安裝 Azure 復原服務延伸模組 - VM 代理程式是 Azure 復原服務延伸模組的必要條件。 請安裝 Azure VM 代理程式並重新啟動註冊作業 |<ol> <li>檢查是否已正確安裝 VM 代理程式。 <li>確定已正確設定 VM 組態中的旗標。</ol> [深入了解](#validating-vm-agent-installation) VM 代理程式安裝，以及如何驗證 VM 代理程式安裝。 |
@@ -113,4 +113,4 @@ ms.lasthandoff: 07/11/2017
 如何檢查 Windows VM 上的 VM 代理程式版本：
 
 1. 登入 Azure 虛擬機器，然後瀏覽至 *C:\WindowsAzure\Packages* 資料夾。 您應該會發現 WaAppAgent.exe 檔案已存在。
-2. 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。 [產品版本] 欄位應為 2.6.1198.718 或更高版本
+2. 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本

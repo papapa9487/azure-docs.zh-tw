@@ -17,17 +17,15 @@ ms.workload: na
 ms.date: 09/25/2017
 ms.author: marsma
 ms.custom: mvc
+ms.openlocfilehash: 0179107ece1e150246ab40836783d810425be3ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 16ae3d77c084651416cbc3bb1c5d28fee5e9124b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-your-first-container-in-azure-container-instances"></a>在 Azure Container Instances 中建立您的第一個容器
 
-Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 這項作業是使用 Azure 入口網站來完成。 只要按幾下，您就能在瀏覽器中看到下列結果：
+Azure Container Instances 可讓您輕鬆地在 Azure 中建立和管理容器。 在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。在本快速入門中，您會在 Azure 中建立容器，並使用公用 IP 位址向網際網路公開此容器。 這項作業是使用 Azure 入口網站來完成。 只要按幾下，您就能在瀏覽器中看到下列結果：
 
 ![在瀏覽器中檢視使用 Azure Container Instances 所部署的應用程式][aci-app-browser]
 

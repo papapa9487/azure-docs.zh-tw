@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
-ms.contentlocale: zh-tw
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 權杖參考
 Azure Active Directory (Azure AD) v2.0 端點會在每個[驗證流程](active-directory-v2-flows.md)中發出數種安全性權杖。 本參考文件說明每種權杖的格式、安全性特性及內容。
@@ -70,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | nonce |`nonce` |`12345` |Nonce 是緩和權杖重新執行攻擊的策略。 您的應用程式可以使用 `nonce` 查詢參數，在授權要求中指定 Nonce。 您在要求中提供的值會不經修改在識別碼權杖的 `nonce` 宣告中發出。 您的應用程式可根據它在要求上指定的值來驗證此值，使應用程式的工作階段與特定的識別碼權杖產生關聯。 您的應用程式應在 ID 權杖驗證程序中執行這項驗證。 |
 | 名稱 |`name` |`Babe Ruth` |名稱宣告會提供人類看得懂的值，用以識別權杖的主體。 此值不保證是唯一值，它是可變動的，並且在設計上僅用於顯示。 需要 `profile` 範圍才能接收此宣告。 |
 | 電子郵件 |`email` |`thegreatbambino@nyy.onmicrosoft.com` |與使用者帳戶相關聯的主要電子郵件地址 (如果有的話)。 其值是可變動的，並且可能隨著時間改變。 需要 `email` 範圍才能接收此宣告。 |
-| 慣用的使用者名稱 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |代表 v2.0 端點中使用者的主要使用者名稱。 它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。 其值是可變動的，並且可能隨著時間改變。 需要 `profile` 範圍才能接收此宣告。 |
+| 慣用的使用者名稱 |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |代表 v2.0 端點中使用者的主要使用者名稱。 它可以是電子郵件地址、電話號碼或未指定格式的一般使用者名稱。 其值是可變動的，並且可能隨著時間改變。 因為此值會變動，請勿用在授權決策。 需要 `profile` 範圍才能接收此宣告。 |
 | 主旨 |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | 權杖判斷提示其相關資訊的主體，例如應用程式的使用者。 這個值不可變，而且無法重新指派或重複使用。 它可用來安全地執行授權檢查 (例如當權杖用於存取資源時)，並可做為資料庫資料表中的索引鍵。 由於主體一律是存在於 Azure AD 所簽發的權杖中，因此建議您在一般用途的授權系統中使用此值。 不過，主體是成對識別碼，對於特定應用程式識別碼來說，主體是唯一的。  因此，如果單一使用者使用兩個不同的用戶端識別碼登入兩個不同的應用程式，這些應用程式會收到兩個不同的主體宣告值。  視您的架構和隱私權需求而定，這不一定是您想要的。 |
 | 物件識別碼 |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | 物件在 Microsoft 身分識別系統中的不可變識別碼，在此案例為使用者帳戶。  它也可用來安全地執行授權檢查，以及做為資料庫資料表中的索引鍵。 此識別碼可跨應用程式唯一識別使用者，同一位使用者登入兩個不同的應用程式會在 `oid` 宣告中收到相同的值。  這表示在對 Microsoft 線上服務 (例如 Microsoft Graph) 進行查詢時可使用此識別碼。  Microsoft Graph 會傳回這個識別碼做為指定使用者帳戶的 `id` 屬性。  因為 `oid` 可讓多個應用程式相互關聯使用者，因此需要 `profile` 範圍才能接收此宣告。 請注意，如果單一使用者存在於多個租用戶，使用者將會在每個租用戶中包含不同的物件識別碼，它們會被視為不同帳戶，即使使用者使用相同認證來登入各個帳戶也是如此。 |
 
@@ -155,4 +153,3 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 | 重新整理權杖 (個人帳戶) |最多 1 年 |單一重新整理權杖的有效期最多 1 年。 不過，重新整理權杖可能會因為各種原因而隨時失效，因此您的應用程式應該繼續嘗試使用重新整理權杖，直到其失敗為止。 |
 | 授權碼 (工作或學校帳戶) |10 分鐘 |授權碼的存留期是蓄意設定得較短，應該在收到權杖時立即兌換存取權杖和重新整理權杖。 |
 | 授權碼 (個人帳戶) |5 分鐘 |授權碼的存留期是蓄意設定得較短，應該在收到權杖時立即兌換存取權杖和重新整理權杖。 代表個人帳戶簽發的授權碼是供單次使用。 |
-

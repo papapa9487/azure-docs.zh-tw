@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -229,7 +228,7 @@ PublishSettings 檔案會下載至您的電腦。  此檔案通常名為 *sitena
 3. 按一下 [設定]，然後按一下 [排程]。
 4. 選取 [一次] 的週期性，然後按一下 [儲存]
 
-您的隨需作業會位於 `App_Data/config/scripts/scheduler post-migration`。  建議您將所有隨選作業轉換為 [WebJobs] 或 [Functions]。  撰寫新的排程器作業，做為 [WebJobs] 或 [Functions]。
+您的隨需作業會位於 `App_Data/config/scripts/scheduler post-migration`。  建議您將所有隨選作業轉換為 [WebJobs] 或 [Functions]。  將新的排程器作業撰寫成 [WebJobs] 或 [Functions]。
 
 ### <a name="notification-hubs"></a>通知中樞
 行動服務會使用通知中樞進行推播通知作業。  在移轉之後，會使用下列應用程式設定將通知中樞連結至您的行動服務：
@@ -375,29 +374,26 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 <!-- Links -->
 [App Service 價格]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[自動調整]: ../app-service-web/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-value-prop-what-is.md
-[Azure App Service 部署文件]: ../app-service-web/web-sites-deploy.md
+[自動調整]: ../app-service/web-sites-scale.md
+[Azure App Service]: ../app-service/app-service-web-overview.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 [Azure 入口網站]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Azure 排程器方案]: ../scheduler/scheduler-plans-billing.md
-[連續部署]: ../app-service-web/app-service-continuous-deployment.md
+[連續部署]: ../app-service/app-service-continuous-deployment.md
 [轉換混合式命名空間]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[自訂網域名稱]: ../app-service-web/web-sites-custom-domain-name.md
+[自訂網域名稱]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [Azure App Service 的公開上市版]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[記錄]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[記錄]: ../app-service/web-sites-enable-diagnostic-log.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [比較行動服務與App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [通知中樞]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[效能監視]: ../app-service-web/web-sites-monitor.md
+[效能監視]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[預備位置]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[WebJobs]: ../app-service-web/websites-webjobs-resources.md
+[預備位置]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT 轉換範例]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md
-

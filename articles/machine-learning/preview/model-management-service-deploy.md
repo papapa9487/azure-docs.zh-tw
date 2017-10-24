@@ -10,12 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
+ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: d95f8d32d9aeca5202623909fcf78014fa2e4458
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>將機器學習服務模型部署為 Web 服務
 
@@ -165,7 +164,7 @@ az ml service create realtime --image-id <image id> -n <service name>
 ```
 
 >[!NOTE] 
->您也可以使用單一命令來同時執行這兩個動作。 如需詳細資訊，請對 service create 命令使用 -h。
+>您也可以使用單一命令來執行上述的 4 個步驟。 如需詳細資訊，請對 service create 命令使用 -h。
 
 ### <a name="8-test-the-service"></a>8.測試服務
 使用下列命令來取得如何呼叫服務的資訊：
@@ -188,4 +187,3 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 
 ## <a name="next-steps"></a>後續步驟
 現在您已測試過 Web 服務可在本機執行，接下來您可以將服務部署到叢集以便大規模使用。 如需有關設定叢集以便部署 Web 服務的詳細資訊，請參閱[模型管理設定](model-management-configuration.md)。 
-

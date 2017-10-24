@@ -15,12 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: mimig
+ms.openlocfilehash: 335c271f3e46d3b6b23e1fcac53e39b89ece796c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cbcc72c06740fe9d0df579e85089b3e347ae638c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB︰移轉現有的 Node.js MongoDB Web 應用程式 
 
@@ -64,6 +63,7 @@ cd mean
 npm install
 npm start
 ```
+應用程式會嘗試連線到 MongoDB 來源且失敗，當輸出傳回 "[MongoError: connect ECONNREFUSED 127.0.0.1:27017]" 時，請繼續結束應用程式。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
@@ -236,7 +236,7 @@ git commit -m "configured MongoDB connection string"
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源：
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
+2. 在資源群組頁面上，按一下 刪除，在文字方塊中輸入要刪除之資源的名稱，然後按一下刪除。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -244,4 +244,3 @@ git commit -m "configured MongoDB connection string"
 
 > [!div class="nextstepaction"]
 > [將 MongoDB 資料匯入到 Azure Cosmos DB](mongodb-migrate.md)
-

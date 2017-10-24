@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
+ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
@@ -79,55 +78,11 @@ az group deployment create \
 
 上述範例針對範本需要可公開存取 URI，這適用於大部分的案例，因為您的範本不應該包含機密資料。 如果您需要指定機密資料 (例如系統管理員密碼)，請將該值以安全參數傳遞。 不過，如果不希望將範本公開存取，您可以將它儲存在私人儲存體容器中加以保護。 如需部署需要共用存取簽章 (SAS) 權杖之範本的相關資訊，請參閱[使用 SAS 權杖部署私人範本](resource-manager-cli-sas-token.md)。
 
-## <a name="deploy-template-from-cloud-shell"></a>從 Cloud Shell 部署範本
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-您可以使用 [Cloud Shell](../cloud-shell/overview.md) 執行 Azure CLI 命令，以便部署範本。 不過，您必須先將範本載入 Cloud Shell 的檔案共用中。 如果您尚未使用 Cloud Shell，請參閱 [Azure Cloud Shell 概觀](../cloud-shell/overview.md)以取得如何設定的相關資訊。
+在 Cloud Shell 中使用下列命令︰
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。   
-
-2. 選取您的 Cloud Shell 資源群組。 名稱模式為 `cloud-shell-storage-<region>`。
-
-   ![選取資源群組](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. 選取 Cloud Shell 的儲存體帳戶。
-
-   ![選取儲存體帳戶](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. 選取 [檔案]。
-
-   ![選取檔案](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. 選取 Cloud Shell 的檔案共用。 名稱模式為 `cs-<user>-<domain>-com-<uniqueGuid>`。
-
-   ![選取檔案共用](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. 選取 [新增目錄]。
-
-   ![新增目錄](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. 將它命名為 **templates**，然後選取 [確定]。
-
-   ![命名目錄](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. 選取您的新目錄。
-
-   ![選取目錄](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. 選取 [上傳] 。
-
-   ![選取上傳](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. 尋找並上傳您的範本。
-
-   ![上傳檔案](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. 開啟提示字元。
-
-   ![開啟 Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. 在 Cloud Shell 中輸入下列命令︰
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
@@ -282,4 +237,3 @@ az group deployment create \
 * 如需解決常見部署錯誤的秘訣，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 * 如需部署需要 SAS 權杖之範本的詳細資訊，請參閱[使用 SAS 權杖部署私人範本](resource-manager-cli-sas-token.md)。
 * 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
-

@@ -13,18 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2017
+ms.date: 10/9/2017
 ms.author: adpick
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6ae31b3ef2d9baf578b199233e61936aa3528e
-ms.openlocfilehash: 3e74bdd1faf268f33fdbbcc428b4b32212508c39
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/03/2017
-
+ms.openlocfilehash: 64bfd8581141001aa6c11ca17ec1af681054f490
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-azure-billing-for-external-service-charges"></a>了解外部服務費用的 Azure 計費方式
-外部服務先前稱為 Azure Marketplace。 一般而言，它們是由第三方發佈且適用於 Azure，但已完全整合於 Azure 內的服務。 例如，ClearDB 和 SendGrid 是可在 Azure 中購買的外部服務，然而它們並非由 Microsoft 所發行。
+外部服務是由 Azure Marketplace 中的協力廠商軟體廠商發佈。 例如，ClearDB 和 SendGrid 是可在 Azure 中購買的外部服務，然而它們並非由 Microsoft 所發行。
 
 當您佈建新的外部服務或資源時，系統會顯示警告︰
 
@@ -39,7 +38,6 @@ ms.lasthandoff: 03/03/2017
 - 外部服務會分開計費。 系統會將這類服務視為 Azure 訂用帳戶內的個別訂單。 當您購買服務時，會設定每項服務的計費期間。 這樣做可避免與購買服務之訂用帳戶的計費期間混淆。 您還會收到獨立的帳單，而信用卡收費也會分開進行。
 - 每項外部服務都有各自的計費模式。 有些服務採用隨用隨付的方式計費，有些則使用按月付款模式。 您需要使用信用卡來支付 Azure 外部服務的費用，不能以發票付款的方式來購買。
 - 外部服務不適用於每個月的免費信用額度。 如果您使用含有[免費信用額度](https://azure.microsoft.com/pricing/spending-limits/)的 Azure 訂用帳戶，該信用額度將無法套用至外部服務帳單。 請使用信用卡來購買外部服務。
-
 
 ## <a name="view-external-service-spending-and-history-in-the-azure-portal"></a>在 Azure 入口網站檢視外部服務消費和歷程記錄
 在 [Azure 入口網站](https://portal.azure.com/)內，您可以檢視每個訂用帳戶上的外部服務清單： 
@@ -89,5 +87,4 @@ EA 客戶可以在 EA 入口網站看到外部服務消費並下載報告。 請
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
 如果您仍有問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
-
 

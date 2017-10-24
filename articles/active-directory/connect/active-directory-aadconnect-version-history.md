@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/30/2017
+ms.date: 10/03/2017
 ms.author: billmath
+ms.openlocfilehash: 6e526e10ac5e3307aeefcdd22840a3e6a6ec843d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 895b538680230170cd29817997a7739b1ba89cfc
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
 
 本文旨在協助您追蹤已發行的版本，以及了解您是否需要更新為最新版本。
+
+>[!IMPORTANT]
+>從組建 1.1.484 開始，Azure AD Connect 出現一個迴歸錯誤 (bug)，導致需要有 sysadmin 權限才能升級 SQL 資料庫。  此錯誤 (bug) 仍存在於最新的組建 1.1.614 中。  如果想要升級至這個組建，您需要 sysadmin 權限。  Dbo 權限還不夠。  如果您嘗試升級 Azure AD Connect 但沒有 sysadmin 權限，升級會失敗，然後 Azure AD Connect 將無法再正常運作。  Microsoft 知道這個問題，正在設法解決。
 
 下列為相關主題的清單︰
 
@@ -779,4 +781,3 @@ Active Directory 帳戶必須獲得其他權限，才能讀取來自 Active Dire
 
 ## <a name="next-steps"></a>後續步驟
 深入了解 [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)。
-

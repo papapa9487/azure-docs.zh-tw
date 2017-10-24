@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
+ms.openlocfilehash: 1bb87cf3e37e486f9a03da43df652442c19fd218
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 5ec50ca23d9f7c92365492dfab42dc14a38699e2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 儲存體中要求使用安全傳輸
 
@@ -30,7 +29,7 @@ ms.lasthandoff: 09/28/2017
 根據預設，[需要安全傳輸] 選項是停用的。
 
 > [!NOTE]
-> 因為 Azure 儲存體針對自訂網域名稱並不支援 HTTPS，當您使用自訂網域名稱時，將不會套用此選項。
+> 因為 Azure 儲存體針對自訂網域名稱並不支援 HTTPS，當您使用自訂網域名稱時，將不會套用此選項。 不支援傳統儲存體帳戶。
 
 ## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>在 Azure 入口網站中啟用 [需要安全傳輸]
 
@@ -63,59 +62,65 @@ ms.lasthandoff: 09/28/2017
 * [Python SDK](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) \(英文\) (版本：1.1.0)
 * [Ruby SDK](https://rubygems.org/gems/azure_mgmt_storage) \(英文\) (版本：0.11.0)
 
-### <a name="enable-secure-transfer-required-setting-with-rest-api"></a>透過 REST API 啟用「需要安全傳輸」設定
+### <a name="enable-secure-transfer-required-setting-with-powershell"></a>透過 PowerShell 啟用「需要安全傳輸」設定
 
-若要透過 REST API 簡化測試，可以使用 [ArmClient](https://github.com/projectkudu/ARMClient) \(英文\) 從命令列呼叫。
+此範例需要 Azure PowerShell 模組 4.1 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
- 使用下列命令列透過 REST API 檢查設定：
+執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。
+
+ 使用下列命令列檢查設定：
+
+```powershell
+> Get-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : False
+...
 
 ```
-# Login Azure and proceed with your credentials
-> armclient login
 
-> armclient GET  /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01
+使用下列命令列啟用設定：
+
+```powershell
+> Set-AzureRmStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+StorageAccountName     : {StorageAccountName}
+Kind                   : Storage
+EnableHttpsTrafficOnly : True
+...
+
 ```
 
-在回應中找到 _supportsHttpsTrafficOnly_ 設定。 例如：
+### <a name="enable-secure-transfer-required-setting-with-cli"></a>透過 CLI 啟用「需要安全傳輸」設定
 
-```Json
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+ 使用下列命令列檢查設定：
+
+```azurecli-interactive
+> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
-  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}",
-  "kind": "Storage",
-  ...
-  "properties": {
-    ...
-    "supportsHttpsTrafficOnly": false
-  },
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": false,
   "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
-使用下列命令列透過 REST API 啟用設定：
+使用下列命令列啟用設定：
 
-```
-
-# Login Azure and proceed with your credentials
-> armclient login
-
-> armclient PUT /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}?api-version=2016-12-01 < Input.json
-
-```
-
-以下是 Input.json 範例：
-```Json
-
+```azurecli-interactive
+> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
-  "location": "westus",
-  "properties": {
-    "supportsHttpsTrafficOnly": true
-  }
+  "name": "{StorageAccountName}",
+  "enableHttpsTrafficOnly": true,
+  "type": "Microsoft.Storage/storageAccounts"
+  ...
 }
 
 ```
 
 ## <a name="next-steps"></a>後續步驟
 Azure 儲存體提供一組完整的安全性功能，這些功能讓開發人員能夠建置安全應用程式。 如需詳細資料，請移至[儲存體安全性指南](storage-security-guide.md)。
-

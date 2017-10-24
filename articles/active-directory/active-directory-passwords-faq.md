@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -178,7 +177,7 @@ ms.lasthandoff: 08/29/2017
   >
 * **問：電子郵件和 SMS 單次密碼的有效期限是多久？**
 
-  > **答：** 密碼重設的工作階段存留期為 105 分鐘。 從密碼重設作業開始，使用者有 105 分鐘可以重設其密碼。 這段時間之後，電子郵件和 SMS 單次密碼就會無效。
+  > **答：**密碼重設的工作階段存留期為 15 分鐘。 從密碼重設作業開始，使用者有 15 分鐘可以重設其密碼。 這段時間之後，電子郵件和 SMS 單次密碼就會無效。
   >
   >
 
@@ -280,4 +279,3 @@ ms.lasthandoff: 08/29/2017
 * [**密碼回寫**](active-directory-passwords-writeback.md) - 密碼回寫如何用在您的內部部署目錄
 * [**技術性深入探討**](active-directory-passwords-how-it-works.md) - 深入探索以了解其運作方式
 * [**疑難排解**](active-directory-passwords-troubleshoot.md) - 了解如何解決我們看到的 SSPR 常見問題
-

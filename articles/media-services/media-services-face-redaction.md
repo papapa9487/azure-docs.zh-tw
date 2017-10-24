@@ -12,14 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 09/27/2017
 ms.author: juliako;
+ms.openlocfilehash: b3584c5aa5405e7f5acdd9bc0a6573b4acbab855
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
-ms.openlocfilehash: 0d071129944fb9298e8f0a7b8f3bb1dd2fcc4bd4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/08/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="redact-faces-with-azure-media-analytics"></a>使用 Azure 媒體分析修訂臉部
 ## <a name="overview"></a>概觀
@@ -134,7 +133,7 @@ Example foo_IDList.txt
 
 ## <a name="blur-types"></a>模糊類型
 
-在 [結合] 或 [修訂] 模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]、[中]、[高]、[偵錯] 和 [黑色]。 預設會使用 [中]。
+在 [結合] 或 [修訂] 模式中，您可以透過 JSON 輸入設定從 5 種不同的模糊模式中進行選擇：[低]、[中]、[高]、[方塊] 和 [黑色]。 預設會使用 [中]。
 
 您可以在下面找到模糊類型的範例。
 
@@ -154,9 +153,9 @@ Example foo_IDList.txt
 
 ![高](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="debug"></a>偵錯
+#### <a name="box"></a>Box
 
-![偵錯](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>黑色
 
@@ -353,5 +352,4 @@ Example foo_IDList.txt
 [Azure 媒體服務分析概觀](media-services-analytics-overview.md)
 
 [Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

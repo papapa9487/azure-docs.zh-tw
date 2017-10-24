@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: robb
 ms.openlocfilehash: 333d2f26ce043a167fb84858c8327cb39e868ffa
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 雲端服務中啟用 Azure 診斷
 如需有關 Azure 診斷的背景資訊，請參閱 [Azure 診斷概觀](../azure-diagnostics.md) 。
@@ -139,7 +139,7 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. 新增 XML 檔案以您**WorkerRole1**專案，以滑鼠右鍵按一下**WorkerRole1**專案，然後選取**新增** -> **新項目...** -> [Visual C# 項目] -> [資料] -> [XML 檔案]。 將檔案命名為 "WadExample.xml"。
+2. 以滑鼠右鍵按一下 **WorkerRole1** 專案，然後選取 [新增]  ->  [新增項目]，將 XML 檔新增至您的 **WorkerRole1** 專案 -> [Visual C# 項目] -> [資料] -> [XML 檔案]。 將檔案命名為 "WadExample.xml"。
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
 3. 將 WadConfig.xsd 與組態檔產生關聯。 確定 WadExample.xml 編輯器視窗是使用中視窗。 按 **F4** 鍵開啟 [屬性] 視窗。 在 [屬性] 視窗中，按一下 [結構描述] 屬性。 按一下 [...] 在 [結構描述] 屬性中。 按一下 [新增...] 按鈕並瀏覽至您儲存 XSD 檔的位置，然後選取檔案 WadConfig.xsd。 按一下 [確定] 。

@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: glenga
+ms.openlocfilehash: 1aaeeed2740179555c024792562a950f4fd6b29d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: a20f6db8bbbc9b7936cf102e8cd2ff1b2a995fb2
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
-> [!div class="op_single_selector"]
-> * [C# 指令碼](functions-reference-csharp.md)
-> * [F# 指令碼](functions-reference-fsharp.md)
-> * [JavaScript](functions-reference-node.md)
-> 
-> 
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 Azure Functions 的 JavaScript 體驗能讓您輕鬆地匯出函式，系統會以 `context` 物件的形式傳遞函式，以便與執行階段通訊，以及透過繫結接收和傳送資料。
 
@@ -54,14 +48,14 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 
 `direction === "in"` 的繫結會和函式引數一起傳遞，這表示您可以使用 [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) 以動態方式處理新的輸入 (例如，藉由使用 `arguments.length` 來反覆查看您的所有輸入)。 當您只有單一觸發程序而沒有其他輸入時，這項功能十分便利，因為您可以如預期般存取觸發程序資料，而不需要參考 `context` 物件。
 
-引數一律會以它們在 *function.json* 中出現的順序傳遞至函式，即使您未在匯出陳述式中指定它們也一樣。 例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函式程式碼中藉由參考 `arguments[3]` 來取得 `b` 的值。
+引數一律會以它們在 *function.json* 中出現的順序傳遞至函式，即使您未在匯出陳述式中指定它們也一樣。 例如，如果您有 `function(context, a, b)` 並將它變更為 `function(context, a)`，您仍然可以在函式程式碼中藉由參考 `arguments[2]` 來取得 `b` 的值。
 
 所有繫結 (不論方向為何) 也都會在 `context` 物件上傳遞 (請參閱下列指令碼)。 
 
 ## <a name="context-object"></a>context 物件
 執行階段使用 `context` 物件來將資料傳遞至函式並從中傳出，而且可讓您與執行階段進行通訊。
 
-內容物件一律為函式的第一個參數而且一律必須包含，因為它具有像是 `context.done` 和 `context.log` 的方法，而您必須要有這些方法才能正確地使用執行階段。 您可以任意方式命名物件 (例如 `ctx` 或 `c`)。
+`context` 物件一律為函式的第一個參數而且一律必須包含，因為它具有像是 `context.done` 和 `context.log` 的方法，而您必須要有這些方法才能正確地使用執行階段。 您可以任意方式命名物件 (例如 `ctx` 或 `c`)。
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -335,8 +329,5 @@ function GetEnvironmentVariable(name)
 
 * [Azure Functions 的最佳做法](functions-best-practices.md)
 * [Azure Functions 開發人員參考](functions-reference.md)
-* [Azure Functions C# 開發人員參考](functions-reference-csharp.md)
-* [Azure Functions F# 開發人員參考](functions-reference-fsharp.md)
 * [Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
-
 

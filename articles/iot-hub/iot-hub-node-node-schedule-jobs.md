@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 10/06/2017
 ms.author: juanpere
+ms.openlocfilehash: 4f716d85a60650a77d393eb725493e2e4d11de7a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 20e6cdaa2ab92b6f832b9d23344a10aa2f4e0763
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>排定及廣播作業 (Node)
 
@@ -40,10 +39,10 @@ Azure IoT 中樞是一項完全受管理的服務，可讓後端應用程式建�
 
 本教學課程說明如何：
 
-* 建立具有直接方法的模擬裝置應用程式，此直接方法會啟用 **lockDoor** 供解決方案後端呼叫。
+* 建立具有直接方法的 Node.js 模擬裝置應用程式，此直接方法會啟用 **lockDoor** 供解決方案後端呼叫。
 * 建立 Node.js 主控台應用程式，此應用程式會使用作業在模擬裝置應用程式中呼叫 **lockDoor** 直接方法，並使用裝置作業來更新所需屬性。
 
-在本教學課程結尾處，您會有兩個 Node.js 主控台應用程式：
+在本教學課程結尾處，您會有兩個 Node.js 應用程式：
 
 **simDevice.js** 會使用裝置身分識別連接到您的 IoT 中樞，並接收 **lockDoor** 直接方法。
 
@@ -59,7 +58,7 @@ Azure IoT 中樞是一項完全受管理的服務，可讓後端應用程式建�
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>建立模擬裝置應用程式
-在本節中，您會建立 Node.js 主控台應用程式，它會回應雲端所呼叫的直接方法，這會讓模擬的裝置重新啟動，並使用報告屬性來啟用裝置對應項查詢，以識別裝置以及上次重新啟動的時機。
+在本節中，您建立 Node.js 主控台應用程式，回應雲端所呼叫的直接方法，可觸發模擬的 **lockDoor** 方法。
 
 1. 建立名為 **simDevice** 的新空白資料夾。  在命令提示字元中，使用下列命令在 **simDevice** 資料夾中建立 package.json 檔案。  接受所有預設值：
    
@@ -215,7 +214,6 @@ Azure IoT 中樞是一項完全受管理的服務，可讓後端應用程式建�
        }
     };
    
-   
     var twinJobId = uuid.v4();
    
     console.log('scheduling Twin Update job with id: ' + twinJobId);
@@ -273,4 +271,3 @@ Azure IoT 中樞是一項完全受管理的服務，可讓後端應用程式建�
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-

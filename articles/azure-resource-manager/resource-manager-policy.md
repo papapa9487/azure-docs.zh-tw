@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2017
+ms.date: 10/09/2017
 ms.author: tomfitz
+ms.openlocfilehash: cfdbf35b76b6a7f3cddb2deb35dfc475e0fc600f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 0ee2624f45a1de0c23cae4538a38ae3e302eedd3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-policy-overview"></a>資源原則概觀
 資源原則可讓您為組織中的資源建立慣例。 藉由定義慣例，您可以控制成本以及更輕鬆地管理您的資源。 例如，您可以指定僅允許特定類型的虛擬機器。 或者，您可以要求所有資源都有特定標籤。 原則會由所有子資源繼承。 所以，如果原則套用至資源群組，它會適用於該資源群組中的所有資源。
@@ -32,11 +31,6 @@ ms.lasthandoff: 08/04/2017
 本主題著重於原則定義。 如需原則指派的相關資訊，請參閱[使用 Azure 入口網站來指派和管理資源原則](resource-manager-policy-portal.md)或[透過指令碼來指派和管理原則](resource-manager-policy-create-assign.md)。
 
 建立和更新資源 (PUT 和 PATCH 作業) 時，會評估原則。
-
-> [!NOTE]
-> 目前，原則不會評估不支援標記、種類及位置的資源類型，例如 Microsoft.Resources/deployments 資源類型。 未來將加入此支援。 若要避免向下相容問題，撰寫原則時應該明確指定類型。 例如，會對所有類型套用未指定類型的標記原則。 在此情況下，如果有不支援標記的巢狀資源，且部署資源類型已新增原則評估中，範本部署可能會失敗。 
-> 
-> 
 
 ## <a name="how-is-it-different-from-rbac"></a>它和 RBAC 有什麼不同？
 原則和角色型存取控制 (RBAC) 之間有幾個主要差異。 RBAC 著重於不同範圍的**使用者**動作。 例如，若您被加入所需範圍內之資源群組的參與者角色中，您便能對該資源群組做出變更。 原則在部署期間著重於**資源**屬性。 例如，您能夠透過原則控制可以佈建的資源類型。 或者，您可以限制資源可以佈建的位置。 不同於 RBAC，原則是個預設允許和明確拒絕的系統。 
@@ -67,6 +61,7 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 ## <a name="policy-definition-structure"></a>原則定義結構
 使用 JSON 來建立原則定義。 原則定義中包含以下的項目︰
 
+* 模式
 * 參數
 * 顯示名稱
 * 說明
@@ -79,6 +74,7 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 ```json
 {
   "properties": {
+    "mode": "all",
     "parameters": {
       "allowedLocations": {
         "type": "array",
@@ -105,6 +101,12 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
   }
 }
 ```
+
+## <a name="mode"></a>模式
+
+建議您將 `mode` 設定為 `all`。 當您將它設定為 [所有] 時，會針對原則評估資源群組和所有資源類型。 入口網站會針對原則使用 [所有]。 如果您使用 PowerShell 或 Azure CLI，您需要指定 `mode` 參數，並將它設定為 [所有]。
+ 
+以前僅在支援標記和位置的資源類型上評估原則。 `indexed` 模式會繼續這個行為。 如果您使用 [所有] 模式，也會在不支援標記和位置的資源類型上評估原則。 [虛擬網路子網路](https://github.com/Azure/azure-policy-samples/tree/master/samples/Network/enforce-nsg-on-subnet)是新增類型的範例。 此外，當模式設定為 [所有] 時，會評估資源群組。 例如，您可以[在資源群組上強制執行標記](https://github.com/Azure/azure-policy-samples/tree/master/samples/ResourceGroup/enforce-resourceGroup-tags)。 
 
 ## <a name="parameters"></a>參數
 使用參數會減少原則定義的數量，有助於簡化原則管理。 定義資源屬性的原則 (例如，限制可以在其中部署資源的位置)，並在定義中包含參數。 然後，您藉由在指派原則時傳入不同的值 (例如，指定訂用帳戶的一組位置)，針對不同的案例重複使用該原則定義。
@@ -210,11 +212,13 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 * 屬性別名 - 如需清單，請參閱[別名](#aliases)。
 
 ### <a name="effect"></a>效果
-原則支援三種效果類型 - `deny`、`audit` 和 `append`。 
+原則支援三種效果類型 - `deny`、`audit`、`append`、`AuditIfNotExists` 和 `DeployIfNotExists`。 
 
 * **拒絕**會在稽核記錄中產生事件，並且使要求失敗
 * **稽核**會在稽核記錄中產生事件，但不會使要求失敗
 * **附加**會在要求中加入一組已定義的欄位 
+* **AuditIfNotExists** - 如果資源不存在則啟用稽核
+* **DeployIfNotExists** - 如果資源不存在則加以部署。 目前，僅支援透過內建原則達到這個效果。
 
 對於 **append**，您必須提供下列詳細資料：
 
@@ -229,6 +233,10 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 ```
 
 值可以是字串或 JSON 格式物件。 
+
+您可以使用 **AuditIfNotExists** 和 **DeployIfNotExists**，評估子系資源是否存在，並且在該資源不存在時套用規則。 例如，您可以要求網路監看員針對所有虛擬網路部署。
+
+如需未部署虛擬機器擴充功能時進行稽核的範例，請參閱[稽核 VM 擴充功能](https://github.com/Azure/azure-policy-samples/blob/master/samples/Compute/audit-vm-extension/azurepolicy.json)。
 
 ## <a name="aliases"></a>別名
 
@@ -347,20 +355,96 @@ Azure 提供一些內建原則定義，可能會降低您需要定義的原則�
 | Microsoft.Storage/storageAccounts/sku.name | 設定 SKU 名稱。 |
 | Microsoft.Storage/storageAccounts/supportsHttpsTrafficOnly | 設定對於儲存體服務僅允許 HTTPS 流量。 |
 
+## <a name="policy-sets"></a>原則集合
 
-## <a name="policy-examples"></a>原則範例
+原則集合可讓您將數個相關的原則定義群組在一起。 原則集合可簡化指派和管理，因為您使用群組作為單一項目。 例如，您可以將所有相關的標記原則群組在單一原則集合中。 並非個別指派每個原則，而是套用原則集合。
+ 
+下列範例說明如何建立原則集合來處理兩個標記 (costCenter 和 productName)。 它會使用兩個內建原則來套用預設標記值，並且強制執行標記值。 原則集合會宣告兩個參數 (costCenterValue 和 productNameValue) 的再使用性。 它會使用不同的參數參考兩個內建原則定義多次。 對於每個參數，您可以提供固定值，如同針對 tagName 所示，或是提供原則集合的參數，如同針對 tagValue 所示。
 
-下列主題包含原則範例︰
+```json
+{
+    "properties": {
+        "displayName": "Billing Tags Policy",
+        "policyType": "Custom",
+        "description": "Specify cost Center tag and product name tag",
+        "parameters": {
+            "costCenterValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for Cost Center tag"
+                }
+            },
+            "productNameValue": {
+                "type": "String",
+                "metadata": {
+                    "description": "required value for product Name tag"
+                }
+            }
+        },
+        "policyDefinitions": [
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "costCenter"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('costCenterValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            },
+            {
+                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
+                "parameters": {
+                    "tagName": {
+                        "value": "productName"
+                    },
+                    "tagValue": {
+                        "value": "[parameters('productNameValue')]"
+                    }
+                }
+            }
+        ]
+    },
+    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "name": "billingTagsPolicy"
+}
+```
 
-* 如需標籤原則的範例，請參閱[套用標籤的資源原則](resource-manager-policy-tags.md)。
-* 如需命名和文字模式的範例，請參閱[為名稱和文字套用資源原則](resource-manager-policy-naming-convention.md)。
-* 如需儲存體原則的範例，請參閱[將資源原則套用至儲存體帳戶](resource-manager-policy-storage.md)。
-* 如需虛擬機器原則的範例，請參閱[將資源原則套用至 Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json) 和[將資源原則套用至 Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+使用 **New-AzureRMPolicySetDefinition** PowerShell 命令新增原則集合。
 
+針對 REST 作業，使用 **2017-06-01-preview** API 版本，如下列範例所示：
+
+```
+PUT /subscriptions/<subId>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicySet?api-version=2017-06-01-preview
+```
 
 ## <a name="next-steps"></a>後續步驟
 * 在定義原則規則後，將它指派給範圍。 若要透過入口網站來指派原則，請參閱[使用 Azure 入口網站來指派和管理資源原則](resource-manager-policy-portal.md)。 若要透過 REST API、PowerShell 或 Azure CLI 來指派原則，請參閱[透過指令碼來指派和管理原則](resource-manager-policy-create-assign.md)。
-* 如需關於企業如何使用 Resource Manager 有效地管理訂閱的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
+* 如需範例原則，請參閱 [Azure 資源原則 GitHub 存放庫](https://github.com/Azure/azure-policy-samples)。
+* 如需關於企業如何使用 Resource Manager 有效地管理訂用帳戶的指引，請參閱 [Azure 企業 Scaffold - 規定的訂用帳戶治理](resource-manager-subscription-governance.md)。
 * 原則結構描述會發佈於 [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json)。 
-
 

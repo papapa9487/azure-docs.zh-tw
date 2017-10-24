@@ -17,10 +17,10 @@ ms.date: 06/23/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 079d16bbf75cd2b3b94269d684e1ae1a0e6aa967
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Azure Active Directory Identity Protection 通知
 Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助您管理使用者風險和風險事件：
@@ -53,11 +53,11 @@ Azure AD Identity Protection 會傳送兩種自動化通知電子郵件，協助
 
 1. 在 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。
    <br><br>
-   ![使用者的風險原則](./media/active-directory-identityprotection-notifications/401.png "使用者風險原則")
+   ![使用者風險原則](./media/active-directory-identityprotection-notifications/401.png "使用者風險原則")
    <br>
 2. 在 [一般] 區段中，按一下 [通知]。
    <br><br>
-   ![使用者的風險原則](./media/active-directory-identityprotection-notifications/405.png "使用者風險原則")
+   ![使用者風險原則](./media/active-directory-identityprotection-notifications/405.png "使用者風險原則")
    <br>
 
 ## <a name="see-also"></a>另請參閱

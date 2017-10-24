@@ -13,14 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/09/2017
 ms.author: owend
+ms.openlocfilehash: 71c4c8929a80a46ba2b9ba204f5666d40607f303
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
-ms.openlocfilehash: d614352a62dc7aca012e9b144473604ae9829af9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 如果相同區域中有一或多部 Analysis Services 伺服器連線到內部部署資料來源，則需要一個內部部署閘道。 若要深入了解閘道，請參閱[內部部署資料閘道](analysis-services-gateway.md)。
@@ -44,6 +43,7 @@ ms.lasthandoff: 09/21/2017
 * 一部電腦只能安裝一個閘道。
 * 請在電源維持開啟且不會進入睡眠狀態的電腦上安裝閘道。
 * 請勿將閘道安裝於採用無線網路的電腦上。 效能會因此降低。
+* 如果[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
 
 
 ## <a name="download"></a>下載
@@ -53,16 +53,16 @@ ms.lasthandoff: 09/21/2017
 
 1. 執行安裝程式。
 
-2. 選取位置，接受條款，然後按一下 [安裝]。
+2. 選取位置，接受條款，然後按一下安裝。
 
    ![安裝位置和授權條款](media/analysis-services-gateway-install/aas-gateway-installer-accept.png)
 
-3. 輸入用來登入 Azure 的帳戶。 此帳戶必須位於租用戶的 Azure Active Directory 中。 此帳戶用於閘道管理員。 
+3. 登入 Azure。 此帳戶必須位於租用戶的 Azure Active Directory 中。 此帳戶用於閘道管理員。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
 
-   ![輸入用來登入 Azure 的帳戶](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
+   ![登入 Azure](media/analysis-services-gateway-install/aas-gateway-installer-account.png)
 
    > [!NOTE]
-   > 如果您使用網域帳戶進行登入，該帳戶將會對應到 Azure AD 中您的組織帳戶。 您的組織帳戶將作為閘道管理員使用。
+   > 如果您使用網域帳戶來登入，該帳戶會對應至 Azure AD 中的組織帳戶。 您的組織帳戶會當作閘道管理員。
 
 ## <a name="register"></a>註冊
 若要在 Azure 中建立閘道資源，您必須向閘道雲端服務註冊您安裝的本機執行個體。 
@@ -88,7 +88,6 @@ ms.lasthandoff: 09/21/2017
     * **名稱**：輸入閘道資源的名稱。 
 
     * **訂用帳戶**︰選取要與閘道資源關聯的 Azure 訂用帳戶。 
-    此訂用帳戶應該是您的伺服器所在的相同訂用帳戶。
    
       預設的訂用帳戶會由您用來登入的 Azure 帳戶來決定。
 
@@ -106,7 +105,7 @@ ms.lasthandoff: 09/21/2017
 
    ![將伺服器連線至閘道](media/analysis-services-gateway-install/aas-gateway-connect-server.png)
 
-2. 在 [挑選要連線的內部部署資料閘道] 中，選取您的閘道資源，然後按一下 [連線選取的閘道]。
+2. 在 挑選要連線的內部部署資料閘道 中，選取您的閘道資源，然後按一下連線選取的閘道。
 
    ![將伺服器連線至閘道資源](media/analysis-services-gateway-install/aas-gateway-connect-resource.png)
 
@@ -118,4 +117,3 @@ ms.lasthandoff: 09/21/2017
 ## <a name="next-steps"></a>後續步驟
 * [ Analysis Services](analysis-services-manage.md)   
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)
-

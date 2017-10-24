@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
+ms.openlocfilehash: 99f81f33a1f8a981fc00161f463a28a8459fa7ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: fe769fb433d65374109fec60c6c6d032b1ad97fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>自訂事件和度量的 Application Insights API
 
@@ -46,6 +45,7 @@ API 是跨所有平台統一的，除了一些小變化形式。
 
   * [ASP.NET 專案](app-insights-asp-net.md)
   * [Java 專案](app-insights-java-get-started.md)
+  * [Node.js 專案](app-insights-nodejs.md)
   * [每個網頁中的 JavaScript](app-insights-javascript.md) 
 * 在裝置或 Web 伺服器程式碼中，加入：
 
@@ -54,9 +54,11 @@ API 是跨所有平台統一的，除了一些小變化形式。
     *Visual Basic：*`Imports Microsoft.ApplicationInsights`
 
     *Java：* `import com.microsoft.applicationinsights.TelemetryClient;`
+    
+    *Node.js：*`var applicationInsights = require("applicationinsights");`
 
-## <a name="constructing-a-telemetryclient-instance"></a>建構 TelemetryClient 執行個體
-建構 `TelemetryClient` 的執行個體 (除了網頁中的 JavaScript)：
+## <a name="get-a-telemetryclient-instance"></a>取得 TelemetryClient 執行個體
+取得 `TelemetryClient` 的執行個體 (除非是在網頁的 JavaScript 中)：
 
 *C#*
 
@@ -69,10 +71,17 @@ API 是跨所有平台統一的，除了一些小變化形式。
 *Java*
 
     private TelemetryClient telemetry = new TelemetryClient();
+    
+*Node.js*
+
+    var telemetry = applicationInsights.defaultClient;
+
 
 TelemetryClient 具備執行緒安全。
 
-我們建議針對您每個應用程式的模組使用 TelemetryClient 執行個體。 比方說，您可能在 Web 服務中有一個 TelemetryClient 執行個體用來報告傳入的 HTTP 要求，以及中介類別中的另一個執行個體用來告報商業邏輯事件。 您可以設定如 `TelemetryClient.Context.User.Id` 的屬性以追蹤使用者和工作階段，或 `TelemetryClient.Context.Device.Id` 來識別電腦。 這項資訊會附加至執行個體所傳送的所有事件。
+對於 ASP.NET 和 Java 專案，建議您為應用程式的每個模組都建立 TelemetryClient 執行個體。 比方說，您可能在 Web 服務中有一個 TelemetryClient 執行個體用來報告傳入的 HTTP 要求，以及中介類別中的另一個執行個體用來告報商業邏輯事件。 您可以設定如 `TelemetryClient.Context.User.Id` 的屬性以追蹤使用者和工作階段，或 `TelemetryClient.Context.Device.Id` 來識別電腦。 這項資訊會附加至執行個體所傳送的所有事件。
+
+在 Node.js 專案中，您可以使用 `new applicationInsights.TelemetryClient(instrumentationKey?)` 建立新的執行個體，但只有在需要從單次 `defaultClient` 隔離設定的情況下，才建議這樣做。
 
 ## <a name="trackevent"></a>TrackEvent
 在 Application Insights 中，「自訂事件」是您可以在[計量瀏覽器](app-insights-metrics-explorer.md)顯示為彙總計數，以及在[診斷搜尋](app-insights-diagnostic-search.md)中顯示為個別發生點的資料點。 (它與 MVC 或其他架構的「事件」不相關。)
@@ -96,6 +105,10 @@ TelemetryClient 具備執行緒安全。
 *Java*
 
     telemetry.trackEvent("WinGame");
+    
+*Node.js*
+
+    telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="view-your-events-in-the-microsoft-azure-portal"></a>在 Microsoft Azure 入口網站中檢視您的事件
 若要查看事件計數，請開啟 [[計量瀏覽器](app-insights-metrics-explorer.md)] 刀鋒視窗、新增圖表，然後再選取 [事件]。  
@@ -151,6 +164,12 @@ C#、Java
     sample.Value = 42.3;
     telemetryClient.TrackMetric(sample);
 ```
+
+*Node.js*
+
+ ```Javascript
+     telemetry.trackMetric({name: "queueLength", value: 42.0});
+ ```
 
 #### <a name="aggregating-metrics"></a>彙總計量
 
@@ -426,7 +445,7 @@ using (var operation = telemetry.StartOperation<RequestTelemetry>("operationName
 
 ![相關項目](./media/app-insights-api-custom-events-metrics/21.png)
 
-如需有關自訂作業追蹤的詳細資訊，請參閱 [application-insights-custom-operations-tracking.md]。
+如需有關自訂作業追蹤的詳細資訊，請參閱[使用 Application Insights .NET SDK 追蹤自訂作業](application-insights-custom-operations-tracking.md)。
 
 ### <a name="requests-in-analytics"></a>分析中的要求 
 
@@ -467,6 +486,17 @@ requests | summarize count = sum(itemCount), avgduration = avg(duration) by name
     catch (ex)
     {
        appInsights.trackException(ex);
+    }
+    
+*Node.js*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       telemetry.trackException({exception: ex});
     }
 
 SDK 將自動攔截許多例外狀況，所以您不一定需要明確呼叫 TrackException。
@@ -514,6 +544,10 @@ exceptions
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+    
+*Node.js*
+
+    telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
 
 您可以搜尋訊息內容，但是 (不同於屬性值) 您無法在其中進行篩選。
@@ -555,6 +589,20 @@ finally
 }
 ```
 
+```Javascript
+var success = false;
+var startTime = new Date().getTime();
+try
+{
+    success = dependency.Call();
+}
+finally
+{
+    var elapsed = new Date() - startTime;
+    telemetry.trackDependency({dependencyTypeName: "myDependency", name: "myCall", duration: elapsed, success:success});
+}
+```
+
 請記住，伺服器 SDK 包含[相依性模組](app-insights-asp-net-dependencies.md)，可用來自動探索和追蹤特定相依性呼叫 (例如資料庫和 REST API)。 您必須在伺服器上安裝代理程式才能讓模組正常運作。 如果您想要追蹤自動化追蹤不會攔截的呼叫，或不想安裝代理程式，您可以使用這個呼叫。
 
 若要關閉標準的相依性追蹤模組，請編輯 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 並刪除 `DependencyCollector.DependencyTrackingTelemetryModule` 的參考。
@@ -585,6 +633,10 @@ dependencies
 
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
+    
+*Node.js*
+
+    telemetry.flush();
 
 請注意，此函式對[伺服器遙測通道](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/)而言是非同步的。
 
@@ -671,6 +723,15 @@ function Authenticated(signInId) {
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
+
+*Node.js*
+
+    // Set up some properties and metrics:
+    var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
+    var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
+
+    // Send the event:
+    telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
 
 
 *Visual Basic*
@@ -818,6 +879,13 @@ requests
     context.getProperties().put("Game", currentGame.Name);
 
     gameTelemetry.TrackEvent("WinGame");
+    
+*Node.js*
+
+    var gameTelemetry = new applicationInsights.TelemetryClient();
+    gameTelemetry.commonProperties["Game"] = currentGame.Name;
+
+    gameTelemetry.TrackEvent({name: "WinGame"});
 
 
 
@@ -850,7 +918,29 @@ requests
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-若要*停用選取的標準收集器* (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中的相關行。 例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+若要*停用選取的標準收集器* (例如效能計數器、HTTP 要求或相依性)，請刪除或註解化 [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) 中的相關行。例如，如果您想要傳送自己的 TrackRequest 資料，可以這麼做。
+
+*Node.js*
+
+```Javascript
+
+    telemetry.config.disableAppInsights = true;
+```
+
+若要在初始化時「停用選取的標準收集器」(例如，效能計數器、HTTP 要求或相依性)，請將設定方法鏈結至您的 SDK 初始化程式碼：
+
+```Javascript
+
+    applicationInsights.setup()
+        .setAutoCollectRequests(false)
+        .setAutoCollectPerformance(false)
+        .setAutoCollectExceptions(false)
+        .setAutoCollectDependencies(false)
+        .setAutoCollectConsole(false)
+        .start();
+```
+
+若要在初始化之後停用這些收集器，請使用 Configuration 物件：`applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="debug"></a>開發人員模式
 偵錯期間，讓您的遙測透過管線加速很有用，如此您就可以立即看到結果。 您也會取得額外的訊息，協助您追蹤任何遙測的問題。 在生產環境中將它關閉，因為它可能會拖慢您的應用程式。
@@ -942,10 +1032,11 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * [iOS SDK](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## <a name="sdk-code"></a>SDK 程式碼
-* [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [ASP.NET 核心 SDK](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Windows Server 套件](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [Node.js SDK](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 * [所有平台](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
@@ -961,6 +1052,5 @@ TelemetryClient 具有內容屬性，其中包含與所有遙測資料一起傳�
 * [搜尋事件和記錄](app-insights-diagnostic-search.md)
 
 * [疑難排解](app-insights-troubleshoot-faq.md)
-
 
 

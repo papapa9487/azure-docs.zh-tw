@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
+ms.openlocfilehash: 168829494de33a21df68d3fc5e2a174f435c5ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>根據物件屬性以動態方式填入群組
 Azure 傳統入口網站可讓您對 Azure Active Directory (Azure AD) 群組啟用更複雜的屬性型動態成員資格。  
 
@@ -266,26 +264,26 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>使用屬性來建立裝置物件的規則
 您也可以建立規則以在群組中選取成員資格的裝置物件。 可以使用下列裝置屬性︰
 
-| 屬性              | 允許的值                  | 使用量                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | true false                      | (device.accountEnabled -eq true)                            |
-| displayName             | 任何字串值                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | 任何字串值                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | 任何字串值                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | 有效的裝置類別名稱    | (device.deviceCategory -eq "BYOD")                          |
-| deviceManufacturer      | 任何字串值                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | 任何字串值                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | 個人、公司               | (device.deviceOwnership -eq "Company")                      |
-| domainName              | 任何字串值                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | 任何字串值                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | true false                      | (device.deviceOSType -eq true)                              |
-| managementType          | 任何字串值                | (device.managementType -eq "")                              |
-| organizationalUnit      | 任何字串值                | (device.organizationalUnit -eq "")                          |
-| deviceId                | 有效的 deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| objectId                | 有效的 AAD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| 屬性              | 允許的值                     | 使用量                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| accountEnabled          | true false                         | (device.accountEnabled -eq true)                            |
+| displayName             | 任何字串值                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | 任何字串值                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | 任何字串值                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | 有效的裝置類別名稱       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | 任何字串值                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | 任何字串值                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | 個人、公司                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | 任何字串值                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Apple 裝置註冊設定檔名稱    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | true false                         | (device.isRooted -eq true)                              |
+| managementType          | “MDM” 代表行動裝置，“PC” 代表透過 Intune 電腦代理程式管理的電腦    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | 符合內部部署 Active Directory 所設定之 OU 名稱的任何字串值 | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | 有效的 Intune deviceId                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| objectId                | 有效的 Azure AD objectId            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> 無法在 Azure 傳統入口網站中使用 [簡單規則] 下拉式清單建立這些裝置規則。
+> 無法在 Azure 傳統入口網站中使用 [簡單規則] 下拉式清單建立裝置規則。
 >
 >
 
@@ -310,4 +308,3 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber
 * [設定群組設定的 Azure Active Directory Cmdlet](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Article Index for Application Management in Azure Active Directory (Azure Active Directory 中應用程式管理的文件索引)](active-directory-apps-index.md)
 * [整合內部部署身分識別與 Azure Active Directory](active-directory-aadconnect.md)
-

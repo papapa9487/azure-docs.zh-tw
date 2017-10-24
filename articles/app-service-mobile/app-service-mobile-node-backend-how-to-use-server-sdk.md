@@ -14,12 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: 8a6fd3711bf273d7035587d3731a334fd2268c32
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>如何使用 Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -131,7 +130,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 當您使用入口網站的 [快速入門]  刀鋒視窗建立 Node.js 行動應用程式後端時，系統會為您建立 Node.js 專案並將其部署至您的網站。 您可以在入口網站中新增資料表和 API，並編輯 Node.js 後端的程式碼檔案。 您也可以使用各種部署工具來下載後端專案，以便新增或修改資料表和 API，然後重新發佈專案。 如需詳細資訊，請參閱 [Azure App Service 部署指南]。 下列程序使用 Git 儲存機制來下載快速入門專案程式碼。
 
 1. 如果尚未安裝 Git，請先安裝。 安裝 Git 所需的步驟會因作業系統而有所不同。 如需作業系統特定的發佈和安裝指引，請參閱 [安裝 Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) 。
-2. 請依照[啟用 App Service 應用程式存放庫](../app-service-web/app-service-deploy-local-git.md#Step3)中的步驟，為您的後端網站啟用 Git 存放庫，並記下部署使用者名稱和密碼。
+2. 請依照[啟用 App Service 應用程式存放庫](../app-service/app-service-deploy-local-git.md#Step3)中的步驟，為您的後端網站啟用 Git 存放庫，並記下部署使用者名稱和密碼。
 3. 在您的行動應用程式後端的刀鋒視窗中，記下 [Git 複製 URL]  設定。
 4. 使用 Git 複製 URL 執行 `git clone` 命令，並在需要時輸入您的密碼，如下列範例所示：
 
@@ -348,7 +347,7 @@ Azure Mobile Apps 會從本機檔案系統讀取名為 *azureMobile.js* 的 Java
 無論是何種 Azure App Service 應用程式類型，以 SQL Database 作為資料存放區的程序都是相同的。 如果您尚未執行，請依照下列步驟建立行動應用程式後端。
 
 1. 登入 [Azure 入口網站]。
-2. 在視窗左上方，依序按一下 [+新增] 按鈕 > [Web + 行動]   >  [行動應用程式]，然後為您的「行動應用程式」後端命名。
+2. 在視窗左上方，依序按一下 [+新增] 按鈕 > [Web + 行動] > [行動應用程式]，然後為您的行動應用程式後端命名。
 3. 在 [資源群組]  方塊中，輸入與您應用程式相同的名稱。
 4. 系統將會選取預設 App Service 方案。  如果您想要變更 App Service 方案，請按一下 [App Service 方案] > [+ 建立新方案]。  為新的應用程式服務方案命名，並選取適當位置。  按一下 [定價層]，並選取適當的服務定價層。 選取 [檢視全部] 以檢視其他價格選項，例如 [免費] 和 [共用]。  選取定價層後，請按一下 [選取]  按鈕。  回到 [App Service 方案] 刀鋒視窗，然後按一下 [確定]。
 5. 按一下 [建立] 。 佈建行動應用程式後端可能需要幾分鐘。  行動應用程式後端佈建完畢後，入口網站會開啟行動應用程式後端的 [設定] 刀鋒視窗。
@@ -844,20 +843,19 @@ Azure 入口網站可讓您在 App Service 編輯器中編輯 Node.js 後端指�
 [Xamarin.Android 用戶端快速入門]: app-service-mobile-xamarin-android-get-started.md
 [Xamarin.Forms 用戶端快速入門]: app-service-mobile-xamarin-forms-get-started.md
 [Windows 市集用戶端快速入門]: app-service-mobile-windows-store-dotnet-get-started.md
-[HTML/Javascript Client QuickStart]: app-service-html-get-started.md
 [離線資料同步]: app-service-mobile-offline-data-sync.md
-[如何設定 Azure Active Directory 驗證]: app-service-mobile-how-to-configure-active-directory-authentication.md
-[如何設定 Facebook 驗證]: app-service-mobile-how-to-configure-facebook-authentication.md
-[如何設定 Google 驗證]: app-service-mobile-how-to-configure-google-authentication.md
-[如何設定 Microsoft 驗證]: app-service-mobile-how-to-configure-microsoft-authentication.md
-[如何設定 Twitter 驗證]: app-service-mobile-how-to-configure-twitter-authentication.md
-[Azure App Service 部署指南]: ../app-service-web/web-sites-deploy.md
-[監視 Azure App Service]: ../app-service-web/web-sites-monitor.md
-[在 Azure App Service 中啟用診斷記錄]: ../app-service-web/web-sites-enable-diagnostic-log.md
-[在 Visual Studio 中疑難排解 Azure App Service]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
+[如何設定 Azure Active Directory 驗證]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[如何設定 Facebook 驗證]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[如何設定 Google 驗證]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
+[如何設定 Microsoft 驗證]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
+[如何設定 Twitter 驗證]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[Azure App Service 部署指南]: ../app-service/app-service-deploy-local-git.md
+[監視 Azure App Service]: ../app-service/web-sites-monitor.md
+[在 Azure App Service 中啟用診斷記錄]: ../app-service/web-sites-enable-diagnostic-log.md
+[在 Visual Studio 中疑難排解 Azure App Service]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
 [指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
 [使用 Node 模組]: ../nodejs-use-node-modules-azure-apps.md
-[Create a new Azure App Service]: ../app-service-web/
+[Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
 [Express]: http://expressjs.com/
 [Swagger]: http://swagger.io/
@@ -875,4 +873,3 @@ Azure 入口網站可讓您在 App Service 編輯器中編輯 Node.js 後端指�
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
-

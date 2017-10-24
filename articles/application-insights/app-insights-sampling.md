@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/24/2017
 ms.author: bwren
 ms.openlocfilehash: ceaeced414c9c302fba335b4578bcdcbfaef0410
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -28,11 +28,11 @@ ms.lasthandoff: 08/18/2017
 取樣可減少流量與資料成本，而且可以協助您避免節流。
 
 ## <a name="in-brief"></a>簡單地說︰
-* 取樣會保留 1  *n* 記錄，並捨棄其餘部分。 比方說，它可能會保留 5 個事件的其中 1 個，取樣率為 20%。 
+* 取樣只保留 *n* 筆記錄中的 1 筆記錄，並捨棄其餘記錄。 比方說，它可能會保留 5 個事件的其中 1 個，取樣率為 20%。 
 * 如果您的應用程式傳送大量遙測，ASP.NET Web 伺服器應用程式便會自動進行取樣。
 * 您也可以手動設定取樣，不論是透過入口網站的定價頁面；或是在 ASP.NET SDK 的 .config 檔案中，以便同時降低網路流量。
 * 如果您有記錄自訂事件，而且想要確定某組事件已一起保留下來還是遭到捨棄，請確定它們有相同的 OperationId 值。
-* 取樣除數 *n* 屬性中的每一筆記錄來報告`itemCount`，搜尋在下方的好記的名稱 「 要求計數 」 或 「 事件計數 」。 當取樣不在作業中，則 `itemCount==1`。
+* 每一筆記錄的 `itemCount` 屬性中會報告取樣除數 *n*，此屬性在 [搜尋] 中會以「要求計數」或「事件計數」等易記名稱顯示。 當取樣不在作業中，則 `itemCount==1`。
 * 如果您要撰寫分析查詢，請 [考慮到取樣](app-insights-analytics-tour.md#counting-sampled-data)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
 
 ## <a name="types-of-sampling"></a>取樣類型

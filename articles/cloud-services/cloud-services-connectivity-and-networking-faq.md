@@ -13,15 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 09/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3fc0d34fdb617ebb1af9c9f33e018d5fe6ec9a7d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之連線能力和網路服務問題：常見問題集 (FAQ)
 
@@ -61,3 +59,50 @@ Azure 會實作多層的網路安全性，可保護其平台服務免於遭受�
 
 所用的分配演算法是 5 個 Tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠、通訊協定類型) 的雜湊，將流量對應至可用的伺服器。 它只在傳輸工作階段內提供綁定。 相同 TCP 或 UDP 工作階段中的封包會被導向至負載平衡端點後面的相同資料中心 IP (DIP) 執行個體。 當用戶端關閉並重新開啟連線或從相同的來源 IP 啟動新的工作階段時，來源連接埠便會變更，進而導致流量進入不同的 DIP 端點。
 
+## <a name="how-can-i-redirect-the-incoming-traffic-to-my-default-url-of-cloud-service-to-a-custom-url"></a>如何將我雲端服務預設 URL 的連入流量重新導向至自訂的 URL？ 
+
+IIS 的 URL Rewrite Module 可用來將流向雲端服務 (例如，\*.cloudapp.net) 預設 URL 的流量重新導向至某些自訂 DNS 名稱/URL。 因為 URL Rewrite Module 預設會在 Web 角色上啟用，且其規則是在應用程式的 web.config 中進行設定，因此一律可在 VM 上使用，與重新開機/重新安裝映像無關。 如需詳細資訊，請參閱：
+
+- [建立 URL Rewrite Module 的重寫規則](https://docs.microsoft.com/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)
+- [如何移除預設的連結](https://stackoverflow.com/questions/32286487/azure-website-how-to-remove-default-link?answertab=votes#tab-top)
+
+## <a name="how-can-i-blockdisable-the-incoming-traffic-to-the-default-url-of-my-cloud-service"></a>如何封鎖/停用我雲端服務的預設 URL 連入流量？ 
+
+您可以避免雲端服務的預設 URL/名稱的連入流量 (例如，\*.cloudapp.net)，方法是在雲端服務定義 (*.csdef) 檔中的站台繫結組態底下將主機標題設定為自訂 DNS 名稱 (例如，www.MyCloudService.com)，如下所示： 
+ 
+
+    <?xml version="1.0" encoding="utf-8"?> 
+    <ServiceDefinition name="AzureCloudServicesDemo" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6"> 
+      <WebRole name="MyWebRole" vmsize="Small"> 
+        <Sites> 
+          <Site name="Web"> 
+            <Bindings> 
+              <Binding name="Endpoint1" endpointName="Endpoint1" hostHeader="www.MyCloudService.com" /> 
+            </Bindings> 
+          </Site> 
+        </Sites> 
+        <Endpoints> 
+          <InputEndpoint name="Endpoint1" protocol="http" port="80" /> 
+        </Endpoints> 
+        <ConfigurationSettings> 
+          <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" /> 
+        </ConfigurationSettings> 
+      </WebRole> 
+    </ServiceDefinition> 
+ 
+因為此主機標頭繫結會透過 csdef 檔強制執行，服務只可透過自訂名稱 'www.MyCloudService.com' 存取，而所有對 '*.cloudapp.net' 網域的連入要求一律會失敗。 確切地說，如果您在服務中使用自訂的 SLB 探查或內部負載平衡器，封鎖預設的服務 URL/名稱就可能會干擾探查行為。 
+
+## <a name="how-to-make-sure-the-public-facing-ip-address-of-a-cloud-service-aka-vip-never-changes-so-that-it-could-be-customarily-whitelisted-by-few-specific-clients"></a>如何確定雲端服務的對外 IP 位址 (也稱為 VIP) 永遠不會變更，以便一些特定的用戶端可習慣上將它列入白名單中？
+
+若要將您雲端服務的 IP 位址清單列入白名單，建議您具有與其相關聯的保留 IP，否則如果您刪除部署，Azure 所提供的虛擬 IP 就會從您的訂用帳戶解除配置。 請注意，您需要生產和預備位置的個別保留 IP 才能成功進行 VIP 交換作業，若這些不存在，交換作業就會失敗。 請遵循這些文件來保留 IP 位址，並將它與您的雲端服務相關聯：  
+ 
+- [保留現有雲端服務的 IP 位址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+- [使用服務組態檔建立保留的 IP 至雲端服務的關聯](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
+
+只要您的角色有多個執行個體時，將 RIP 與您的雲端服務建立關聯就應該不會導致任何停機時間。 或者，您可以將您 Azure 資料中心的 IP 範圍列入白名單。 您可以在[這裡](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 範圍。 
+
+這個檔案包含 Microsoft Azure 資料中心使用的 IP 位址範圍 (包括計算、SQL 和儲存體範圍)。 每週會公佈已更新的檔案，以反映目前已部署的範圍及任何即將進行的 IP 範圍變更。 出現在檔案中的新範圍將至少有一週的時間不會在資料中心中使用。 請每週下載新的 xml 檔案，並在您的站台上執行必要的變更，以正確識別在 Azure 中執行的服務。 Express Route 使用者可能會注意到，在每個月的第一週會使用此檔案來更新 Azure 空間的 BGP 公告。 
+
+## <a name="how-can-i-use-azure-resource-manager-vnets-with-cloud-services"></a>如何使用 Azure Resource Manager VNet 搭配雲端服務？ 
+
+雲端服務不能放在 Azure Resource Manager VNet 中，但可以透過對等互連將 Azure Resource Manager VNet 和傳統 Vnet 連線。 如需詳細資訊，請參閱[虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)。

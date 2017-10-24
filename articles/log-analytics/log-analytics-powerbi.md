@@ -14,19 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: bwren
+ms.openlocfilehash: 271747e25f319c76195ec643025d24c6b7cdc9c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: 98befb16d27387e8f65a27771a2a32c264119d74
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-log-analytics-data-to-power-bi"></a>將 Log Analytics 資料匯出至 Power BI
 
 >[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則將 Log Analytics 資料匯出至 Power BI 的程序就無法再運作。  您在升級之前建立的任何現有排程將會變成停用。 
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則將 Log Analytics 資料匯出至 Power BI 的程序就無法再運作。  您在升級之前建立的任何現有排程將會變成停用。 您在「預覽功能」下的「設定」中也無法再看到開啟 Power BI 匯出功能，因為這項功能會在升級工作區中完全提供。 
 >
 > 升級之後，Azure Log Analytics 會使用與 Application Insights 相同的平台，您使用如同[將 Application Insights 查詢匯出至 Power BI 的程序](../application-insights/app-insights-export-power-bi.md#export-analytics-queries)的相同程序，將 Log Analytics 查詢匯出至 Power BI。  您可以如該文章所述使用分析主控台，或者您可以選取記錄搜尋入口網站中畫面頂端的 [Power BI] 按鈕，來匯出查詢。
+>
+> 使用者需要在 Azure 中的工作區資源存取權，才能在升級的工作區中使用 Power BI 匯出功能。 如果無法存取，使用者在將查詢匯入它們無法存取的 Power BI 桌面時，會看到一則錯誤訊息。
 
 
 
@@ -126,4 +127,3 @@ ms.lasthandoff: 07/28/2017
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [記錄檔搜尋](log-analytics-log-searches.md) ，建置可以匯出至 Power BI 的查詢。
 * 深入了解 [Power BI](http://powerbi.microsoft.com)，建置以 Log Analytics 匯出為基礎的視覺效果。
-

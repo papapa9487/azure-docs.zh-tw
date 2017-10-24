@@ -11,15 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/21/2017
+ms.date: 09/22/2017
 ms.author: jonatul
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: f365574a12047f6952209dc3883af32a2e9ecd1e
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
 ## <a name="about-azure-dns"></a>關於 Azure DNS
@@ -75,12 +74,9 @@ Azure DNS 僅支援裝載「靜態」DNS 網域，其中所指定 DNS 記錄的�
 這是我們的待處理項目上所追蹤的一項功能。 您可以使用我們的意見反應網站來[表達您對這項功能的支持](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar)。
 
 ### <a name="does-azure-dns-support-private-domains"></a>Azure DNS 是否支援「私人」網域？
+「私人」網域的支援是使用私人 DNS 區域進行實作。  這項功能目前可供作為預覽使用。  私人 DNS 區域是使用與網際網路面向 Azure DNS 區域相同的工具使用進行管理，但只能從您指定的虛擬網路內將它們進行解析。  如需詳細資訊，請參閱[概觀](private-dns-overview.md)。
 
-否。 Azure DNS 目前只支援網際網路對向網域。
-
-這是我們的待處理項目上所追蹤的一項功能。 您可以使用我們的意見反應網站來[表達您對這項功能的支持](https://feedback.azure.com/forums/217313-networking/suggestions/10737696-enable-split-dns-for-providing-both-public-and-int)。
-
-如需有關 Azure 中內部 DNS 選項的資訊，請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+如需有關 Azure 中其他內部 DNS 選項的資訊，請參閱 [VM 與角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS 是否支援 DNSSEC？
 
@@ -154,8 +150,9 @@ Azure DNS 的管理是透過 Azure Resource Manager，因此享有 Azure Resourc
 
 [深入了解 Azure DNS](dns-overview.md)
 <br>
+[深入了解使用私人網域的 Azure DNS](private-dns-overview.md)
+<br>
 [深入了解 DNS 區域和記錄](dns-zones-records.md)
 <br>
 [開始使用 Azure DNS](dns-getstarted-portal.md)
-
 

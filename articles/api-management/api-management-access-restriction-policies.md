@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 70cccd5ac7fbea36f02150e3da319a043c22c677
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -387,7 +386,7 @@ ms.lasthandoff: 08/31/2017
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -517,6 +516,7 @@ ms.lasthandoff: 08/31/2017
 |require-expiration-time|布林值。 指定權杖中是否需有逾期宣告。|否|true|
 |require-scheme|權杖結構描述的名稱，例如"Bearer"。 當已設定此屬性時，原則將會確定指定的結構描述存在於授權標頭值中。|否|N/A|
 |require-signed-tokens|布林值。 指定是否需要簽署權杖。|否|true|  
+|分隔符號|字串。 指定用於從多重值宣告中擷取一組值的分隔符號 (例如 ",")。|否|N/A| 
 |url|可從中取得 Open ID 設定中繼資料的 Open ID 設定端點 URL。 對於 Azure Active Directory，使用下列 URL：`https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` 代替您的目錄租用戶名稱，例如 `contoso.onmicrosoft.com`。|是|N/A|  
   
 ### <a name="usage"></a>使用量  
@@ -528,4 +528,3 @@ ms.lasthandoff: 08/31/2017
   
 ## <a name="next-steps"></a>後續步驟
 如需有關使用原則的詳細資訊，請參閱 [API 管理中的原則](api-management-howto-policies.md)。  
-

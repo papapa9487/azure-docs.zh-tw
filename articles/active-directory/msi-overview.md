@@ -12,16 +12,14 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 10/03/2017
 ms.author: skwan
+ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: c18fd5d5b528dfbafa456b3702996b80c3a60a02
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>受管理的服務識別 (MSI) (適用於 Azure 資源)
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -40,11 +38,26 @@ ms.lasthandoff: 09/19/2017
 2. Azure Resource Manager 在 Azure AD 中建立服務主體，代表 VM 的身分識別。 服務主體會建立在此訂用帳戶信任的 Azure AD 租用戶中。
 3. Azure Resource Manager 會在 VM 的 MSI VM 延伸模組中設定服務主體詳細資料。  此步驟包括設定延伸模組用來從 Azure AD 取得存取權杖的用戶端識別碼和認證。
 4. 現在我們已知道 VM 的服務主體身分識別，可以將 Azure 資源的存取權授與此身分識別。  例如，您的程式碼需要呼叫 Azure Resource Manager，您會使用 Azure AD 中的角色型存取控制 (RBAC)，指派適當角色給 VM 的服務主體。  如果您的程式碼需要呼叫 Key Vault，您會將存取權授與程式碼，以取得 Key Vault 中特定的密碼或金鑰。
-5. 執行於 VM 上的程式碼會從本機端點要求由 MSI VM 延伸模組：http://localhost:50342/oauth2/token 託管的權杖。  資源參數會指定權杖該傳送到哪個服務。 例如，如果您希望程式碼向 Azure Resource Manager 進行驗證，您會使用resource=https://management.azure.com/。
+5. 執行於 VM 上的程式碼會從本機端點要求由 MSI VM 延伸模組：http://localhost:50342/oauth2/token 託管的權杖。  resource 參數指定將權杖傳送至哪個服務。 例如，如果您希望程式碼向 Azure Resource Manager 進行驗證，您會使用resource=https://management.azure.com/。
 6. MSI VM 延伸模組會使用其設定的用戶端識別碼和認證，來向 Azure AD 要求存取權杖。  Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
 
-每個支援「受管理的服務識別身分」的 Azure 服務都自有一套方法，讓您的程式碼取得存取權杖。 請查看每個服務的教學課程，找出取得權杖的特定方法。
+每個支援受管理服務識別的 Azure 服務都自有一套方法，讓您的程式碼取得存取權杖。 請查看每個服務的教學課程，找出取得權杖的特定方法。
+
+## <a name="try-managed-service-identity"></a>試用受管理的服務身分識別
+
+試用「受管理的服務身分識別」教學課程，以了解用來存取不同的 Azure 資源的端對端案例：
+<br><br>
+| 從啟用 MSI 的資源 | 了解如何 |
+| ------- | -------- |
+| Azure VM (Windows) | [使用 Windows VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [使用 Windows VM 受管理的服務身分識別和 Azure Key Vault 存取非 Azure AD 資源](msi-tutorial-windows-vm-access-nonaad.md) |
+| Azure VM (Linux)   | [使用 Linux VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
+|                    | [使用 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [使用 Linux VM 受管理的服務身分識別存取非 Azure AD 資源](msi-tutorial-linux-vm-access-nonaad.md) |
+| Azure App Service  | [使用受管理的服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
+| Azure Function     | [使用受管理的服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>哪些 Azure 服務支援受管理的服務身分識別？
 
@@ -54,21 +67,21 @@ ms.lasthandoff: 09/19/2017
 
 下列 Azure 服務支援受管理的服務身分識別。
 
-| 服務 | 狀態 | 日期 |
-| --- | --- | --- |
-| Azure 虛擬機器 | 預覽 | 2017 年 9 月 |
-| Azure App Service | 預覽 | 2017 年 9 月 |
-| Azure Functions | 預覽 | 2017 年 9 月 |
+| 服務 | 狀態 | Date | 設定 | 取得權杖 |
+| ------- | ------ | ---- | --------- | ----------- |
+| Azure 虛擬機器 | 預覽 | 2017 年 9 月 | [Azure 入口網站](msi-qs-configure-portal-windows-vm.md)<br>[PowerShell](msi-qs-configure-powershell-windows-vm.md)<br>[Azure CLI](msi-qs-configure-cli-windows-vm.md)<br>[Azure 資源管理員範本](msi-qs-configure-template-windows-vm.md) | [.NET](msi-how-to-get-access-token-using-msi.md#net)<br>[PowerShell](msi-how-to-get-access-token-using-msi.md#azure-powershell-token)<br>[Bash/Curl](msi-how-to-get-access-token-using-msi.md#bashcurl)<br>[REST](msi-how-to-get-access-token-using-msi.md#rest) |
+| Azure App Service | 預覽 | 2017 年 9 月 | [Azure 入口網站](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 範本](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
+| Azure Functions | 預覽 | 2017 年 9 月 | [Azure 入口網站](/azure/app-service/app-service-managed-service-identity#using-the-azure-portal)<br>[Azure Resource Manager 範本](/azure/app-service/app-service-managed-service-identity#using-an-azure-resource-manager-template) | [.NET](/azure/app-service/app-service-managed-service-identity#asal)<br>[REST](/azure/app-service/app-service-managed-service-identity#using-the-rest-protocol) |
 
 ### <a name="azure-services-that-support-azure-ad-authentication"></a>支援 Azure AD 驗證的 Azure 服務
 
-下列服務支援 Azure AD 驗證，並已經過使用「受管理的服務身分識別」的用戶端服務測試。
+下列服務支援 Azure AD 驗證，也經過使用受管理服務識別的用戶端服務所測試。
 
-| 服務 | 資源識別碼 | 狀態 | 日期 |
-| --- | --- | --- | --- |
-| Azure Resource Manager | https://management.azure.com/ | 可用 | 2017 年 9 月 |
-| Azure 金鑰保存庫 | https://vault.azure.net/ | 可用 | 2017 年 9 月 |
-| Azure Data Lake | https://datalake.azure.net/ | 可用 | 2017 年 9 月 |
+| 服務 | 資源識別碼 | 狀態 | Date | 指派存取權 |
+| ------- | ----------- | ------ | ---- | ------------- |
+| Azure Resource Manager | https://management.azure.com/ | 可用 | 2017 年 9 月 | [Azure 入口網站](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
+| Azure 金鑰保存庫 | https://vault.azure.net/ | 可用 | 2017 年 9 月 | |
+| Azure Data Lake | https://datalake.azure.net/ | 可用 | 2017 年 9 月 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>「受管理的服務身分識別」的售價如何？
 
@@ -81,37 +94,6 @@ ms.lasthandoff: 09/19/2017
 * 請在有 [azure msi](http://stackoverflow.com/questions/tagged/azure-msi) 標記的 Stack Overflow 上詢問作法問題。
 * 請在[適用於開發人員的 Azure AD 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)中索取功能或給予意見反應。
 
-## <a name="try-managed-service-identity"></a>試用受管理的服務身分識別
-
-試用「受管理的服務身分識別」教學課程，以了解用來存取不同的 Azure 資源的端對端案例：
-
-| 從啟用 MSI 的資源 | 了解如何 |
-| ------- | -------- |
-| Azure VM (Windows) | [使用 Windows VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage.md) |
-|                    | [使用 Windows VM 受管理的服務身分識別和 Azure Key Vault 存取非 Azure AD 資源](msi-tutorial-windows-vm-access-nonaad.md) |
-| Azure VM (Linux)   | [使用 Linux VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [使用 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [使用 Linux VM 受管理的服務身分識別存取非 Azure AD 資源](msi-tutorial-linux-vm-access-nonaad.md) |
-| Azure App Service  | [使用受管理的服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-| Azure Function     | [使用受管理的服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
-
-如果您只想了解在 Azure 資源上啟用 MSI 的基本概念：
-
-| 針對 Azure 資源 | 使用此項目來啟用/移除 MSI |
-| ------------------ | ------------------------------------ |
-| Azure VM (Windows) | [Azure 入口網站](msi-qs-configure-portal-windows-vm.md) |
-|                    | [PowerShell](msi-qs-configure-powershell-windows-vm.md) |
-|                    | [Azure CLI](msi-qs-configure-cli-windows-vm.md)|
-|                    | [Azure 資源管理員範本](msi-qs-configure-template-windows-vm.md) |
-
-接著了解如何使用「角色型存取控制 (RBAC)」，提供 MSI 存取另一項 Azure 資源的權限：
-
-| 從啟用 MSI 的資源 | 使用下列項目指派存取權給另一個 Azure 資源 |
-| ------------------------ | ---------------------------------------------------------- |
-| Azure VM (Windows) | [Azure 入口網站](msi-howto-assign-access-portal.md) |
-|                    | [PowerShell](msi-howto-assign-access-powershell.md) |
-|                    | [Azure CLI](msi-howto-assign-access-CLI.md) |
 
 
 

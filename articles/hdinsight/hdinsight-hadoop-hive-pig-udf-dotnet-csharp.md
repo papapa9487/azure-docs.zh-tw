@@ -14,18 +14,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: b192b19c27045ab6a98baf382e467a0a74d30861
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 7643050c4ba8929abcf77476970a2f99e992579d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。
 
-了解如何搭配使用 C# 使用者定義函數 (UDF) 與 HDInsight 上的 Apache Hive 和 Pig。
+了解如何搭配使用 C# 使用者定義函式 (UDF) 與 HDInsight 上的 Apache Hive 和 Pig。
 
 > [!IMPORTANT]
 > 本文件中的步驟適用於以 Linux 為基礎和以 Windows 為基礎的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md)。
@@ -69,7 +68,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
     > [!IMPORTANT]
     > 如果您使用以 Linux 為基礎的 HDInsight 叢集，請選取 __.NET Framework 4.5__。 如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/) \(英文\)。
 
-2. 使用下列程式碼取代 **Program.cs** 的內容：
+2. 以下列程式碼取代 **Program.cs** 的內容：
 
     ```csharp
     using System;
@@ -157,7 +156,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
     }
     ```
 
-    此應用程式將剖析 Pig 送出的程式碼行，並將其重新格式化為以 `java.lang.Exception` 開頭的程式碼行。
+    此程式碼將剖析 Pig 送出的程式碼行，並將其重新格式化為以 `java.lang.Exception` 開頭的程式碼行。
 
 3. 儲存 **Program.cs**，然後建置專案。
 
@@ -167,7 +166,7 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 
 2. 展開 [Azure]，然後展開 [HDInsight]。
 
-3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下 [登入]。
+3. 如果出現提示，請輸入您的 Azure 訂用帳戶認證，然後按一下登入。
 
 4. 展開您要部署此應用程式的 HDInsight 叢集。 就會列出含有文字 __(預設儲存體帳戶)__ 的項目。
 
@@ -270,4 +269,3 @@ Hive 和 Pig 都可以將資料傳遞至外部應用程式進行處理。 這個
 * [搭配 HDInsight 使用 Hivet](hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
 * [〈搭配 HDInsight 使用 MapReduce〉](hdinsight-use-mapreduce.md)
-

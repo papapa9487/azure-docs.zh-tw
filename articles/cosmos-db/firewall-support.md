@@ -14,15 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2017
+ms.date: 10/06/2017
 ms.author: ankshah
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: e08c0ba9c1fc0bab72ae8c1158aafaad4f66920e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 8836cb516bf7669a2d17da7f87222960fc343042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 防火牆支援
 為了保護 Azure Cosmos DB 資料庫帳戶中所儲存的資料，Azure Cosmos DB 已支援利用強式雜湊式訊息驗證碼 (HMAC) 的密碼型[授權模型](https://msdn.microsoft.com/library/azure/dn783368.aspx)。 現在，除了密碼型授權模型之外，Azure Cosmos DB 還支援使用原則驅動的 IP 型存取控制來進行輸入防火牆支援。 這個模型與傳統資料庫系統的防火牆規則十分類似，並提供 Azure Cosmos DB 資料庫帳戶的額外安全性層級。 您現在可以使用這個模型，設定只能從一組核准的電腦和 (或) 雲端服務存取 Azure Cosmos DB 資料庫帳戶。 透過這些核准的電腦和服務組合來存取 Azure Cosmos DB 資源，仍然需要呼叫者呈現有效的授權權杖。
@@ -67,10 +65,10 @@ ms.lasthandoff: 06/20/2017
 > 當您啟用 IP 存取控制原則時，您必須加入您 Azure 入口網站的 IP 位址以維持存取權。 入口網站 IP 位址是：
 > |區域|IP 位址|
 > |------|----------|
-> |所有區域 (下面指定的區域除外)| 104.42.195.92|
+> |所有區域 (下面指定的區域除外)| 104.42.195.92, 40.76.54.131, 52.176.6.30, 52.169.50.45, 52.187.184.26|
 > |德國|51.4.229.218|
 > |中國|139.217.8.252|
-> |美國政府亞利桑那州|52.244.48.71|
+> |US Gov|52.244.48.71|
 >
 
 ![顯示如何在 Azure 入口網站中進行防火牆設定的螢幕擷取畫面](./media/firewall-support/azure-portal-firewall-configure.png)
@@ -86,5 +84,4 @@ ms.lasthandoff: 06/20/2017
 
 ## <a name="next-steps"></a>後續步驟
 如需網路相關效能秘訣的相關資訊，請參閱[效能秘訣](performance-tips.md)。
-
 

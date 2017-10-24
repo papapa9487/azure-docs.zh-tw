@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 4eef4f00bb407f97a68d09a39f3e99d1bc325d0e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 遠端存取應用程式的安全性考量
 
 本文說明能在使用 Azure Active Directory 應用程式 Proxy 時保護使用者和應用程式安全的元件。
@@ -87,7 +85,7 @@ Azure AD 應用程式 Proxy 是反向 Proxy，因此所有至後端應用程式�
 
 應用程式 Proxy 服務會監視嘗試連接應用程式和網路的流量。 如果要求從遠端存取應用程式的裝置數目升高，Microsoft 會調節網路的存取。 
 
-Microsoft 會監看個別應用程式和整個訂用帳戶的傳輸模式。 如果某個應用程式收到高於一般的要求，存取該應用程式的要求會在一段不久時間內遭到拒絕。 如果整個訂用帳戶收到高於一般的要求，存取任何應用程式的要求都會遭到拒絕。 這個預防措施可防止應用程式伺服器因遠端存取要求而超出負載，讓內部部署使用者能持續存取他們的應用程式。 
+Microsoft 會監看個別應用程式和整個訂用帳戶的傳輸模式。 如果某個應用程式收到高於一般的要求，存取該應用程式的要求會在一段不久時間內遭到拒絕。 如果收到的要求超過整個訂用帳戶的一般要求數目，則要求會遭拒而無法存取您的任何應用程式。 這個預防措施可防止應用程式伺服器因遠端存取要求而超出負載，讓內部部署使用者能持續存取他們的應用程式。 
 
 ## <a name="under-the-hood"></a>幕後
 
@@ -187,4 +185,3 @@ Azure AD 應用程式 Proxy 是由兩個部分組成︰
 [使用 Azure AD 應用程式 Proxy 時的網路拓撲考量](application-proxy-network-topology-considerations.md)
 
 [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-understand-connectors.md)
-

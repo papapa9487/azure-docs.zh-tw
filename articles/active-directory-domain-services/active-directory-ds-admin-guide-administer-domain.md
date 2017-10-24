@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/06/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: d215fd31ca4652437783ad630aee532a17cda611
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 8edf01d994e54a8f1af98861cb445a5909b6a1df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>管理 Azure Active Directory 網域服務受管理網域
 本文說明如何管理 Azure Active Directory (AD) 網域服務受管理的網域。
@@ -65,11 +64,11 @@ ms.lasthandoff: 11/17/2016
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>工作 2 - 在虛擬機器上安裝 Active Directory 系統管理工具
 請執行下列步驟，以在已加入網域的虛擬機器上安裝 Active Directory 系統管理工具。 如需有關[安裝和使用遠端伺服器管理工具的詳細資訊](https://technet.microsoft.com/library/hh831501.aspx)，請參閱 TechNet。
 
-1. 在 Azure 傳統入口網站中瀏覽至 [虛擬機器]  節點。 選取您在工作 1 建立的虛擬機器，然後按一下視窗底部命令列上的 [連線]  。
+1. 瀏覽至 Azure 入口網站。 在左側面板上按一下 [所有資源]。 找出並按一下您在工作 1 中建立的虛擬機器。
+2. 在 [概觀] 索引標籤上按一下 [連線] 按鈕。隨即建立並下載遠端桌面通訊協定 (.rdp) 檔案。
 
     ![連線至 Windows 虛擬機器](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-2. 傳統入口網站會提示您開啟或儲存副檔名為 '.rdp' 的檔案，其可供用來連線到虛擬機器。 在檔案下載完成時按一下加以開啟。
-3. 在登入提示中，使用屬於「AAD DC 系統管理員」群組之使用者的認證。 例如，在我們的案例中，我們會使用 'bob@domainservicespreview.onmicrosoft.com'。
+3. 若要連線至您的 VM，請開啟下載的 RDP 檔案。 出現提示時，按一下 [連線]。 在登入提示中，使用屬於「AAD DC 系統管理員」群組之使用者的認證。 例如，在我們的案例中，我們會使用 'bob@domainservicespreview.onmicrosoft.com'。 您可能會在登入過程中收到憑證警告。 按一下 [是] 或 [繼續] 以繼續進行連線。
 4. 在 [開始] 畫面中開啟 [伺服器管理員] 。 按一下 [伺服器管理員] 視窗中央窗格內的 [新增角色及功能]  。
 
     ![啟動虛擬機器上的伺服器管理員](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -120,4 +119,3 @@ ms.lasthandoff: 11/17/2016
 * [Azure AD Domain Services - 入門指南](active-directory-ds-getting-started.md)
 * [將 Windows Server 虛擬機器加入 Azure AD 網域服務受管理的網域](active-directory-ds-admin-guide-join-windows-vm.md)
 * [部署遠端伺服器管理工具](https://technet.microsoft.com/library/hh831501.aspx)
-

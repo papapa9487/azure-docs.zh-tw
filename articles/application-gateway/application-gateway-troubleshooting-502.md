@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: cbf9c552c4818b3925f449081539f1db6d61918e
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/07/2017
-
-
+ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>疑難排解應用程式閘道中閘道不正確的錯誤
 
 了解使用應用程式閘道時如何針對收到的閘道不正確 (502) 錯誤進行疑難排解。
@@ -32,63 +29,48 @@ ms.lasthandoff: 06/07/2017
 
 設定應用程式閘道之後，使用者可能遇到的其中一個錯誤是「伺服器錯誤︰502 - 網頁伺服器作為閘道器或 Proxy 伺服器時收到無效的回應」。 此錯誤可能是由於下列主要原因所導致：
 
-* Azure 應用程式閘道的[後端集區未設定或空白](#empty-backendaddresspool)。
-* VM 擴展集中[沒有狀況良好的 VM 或執行個體](#unhealthy-instances-in-backendaddresspool)。
-* VM 擴展集的後端 VM 或執行個體都[沒有回應預設的健康情況探查](#problems-with-default-health-probe.md)。
+* NSG、UDR 或自訂 DNS 封鎖對後端集區成員的存取。
+* 虛擬機器擴展集的後端虛擬機器或執行個體[未回應預設健康情況探查](#problems-with-default-health-probe.md)。
 * 無效或不適當的[自訂健康情況探查設定](#problems-with-custom-health-probe.md)。
-* 使用者要求的[要求逾期或連線問題](#request-time-out)。
+* Azure 應用程式閘道的[後端集區未設定或空白](#empty-backendaddresspool)。
+* [虛擬機器擴展集的虛擬機器或執行個體都不是良好健康情況](#unhealthy-instances-in-backendaddresspool)。
+* 使用者要求發生[要求逾期或連線能力問題](#request-time-out)。
 
-## <a name="empty-backendaddresspool"></a>空白的 BackendAddressPool
+## <a name="network-security-group-user-defined-route-or-custom-dns-issue"></a>網路安全性群組、使用者定義的路由或自訂 DNS 問題
 
 ### <a name="cause"></a>原因
 
-如果應用程式閘道未在後端位址集區中設定 VM 或 VM 擴展集，就無法路由傳送任何客戶要求，並會擲回閘道不正確的錯誤。
+如果因為有 NSG、UDR 或自訂 DNS 而封鎖對後端的存取，應用程式閘道執行個體將無法觸達後端集區，還會導致探查失敗而造成 502 錯誤。 請注意，NSG/UDR 可能出現在應用程式閘道子網路，或部署應用程式虛擬機器的子網路中。 同樣地，如果 FQDN 用於後端集區成員，而且使用者為 VNET 設定的 DNS 伺服器未正確解析 FQDN，則 VNET 中出現自訂 DNS 可能也會造成問題。
 
 ### <a name="solution"></a>方案
 
-確定後端位址集區不是空白的。 這可透過 PowerShell、CLI 或入口網站來完成。
+透過下列步驟來驗證 NSG、UDR 和 DNS 設定：
+* 檢查與應用程式閘道子網路相關聯的 NSG。 確定未封鎖對後端的通訊。
+* 檢查與應用程式閘道子網路相關聯的 UDR。 確定 UDR 沒有讓流量離開後端子網路 - 例如，檢查到達網路虛擬設備的路由，或透過 ExpressRoute/VPN 公告至應用程式閘道的預設路由。
 
 ```powershell
-Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+$vnet = Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName
+Get-AzureRmVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
 ```
 
-前述 Cmdlet 的輸出應包含非空白的後端位址集區。 下列範例會傳回兩個針對後端 VM 使用 FQDN 或 IP 位址設定的集區。 BackendAddressPool 的佈建狀態必須是 'Succeeded'。
+* 檢查有效的 NSG 和後端虛擬機器的路由
 
-BackendAddressPoolsText：
+```powershell
+Get-AzureRmEffectiveNetworkSecurityGroup -NetworkInterfaceName nic1 -ResourceGroupName testrg
+Get-AzureRmEffectiveRouteTable -NetworkInterfaceName nic1 -ResourceGroupName testrg
+```
+
+* 檢查 VNet 中存在自訂 DNS。 您可以在輸出中查看 VNet 屬性的詳細資料來檢查 DNS。
 
 ```json
-[{
-    "BackendAddresses": [{
-        "ipAddress": "10.0.0.10",
-        "ipAddress": "10.0.0.11"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool01",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
-}, {
-    "BackendAddresses": [{
-        "Fqdn": "xyx.cloudapp.net",
-        "Fqdn": "abc.cloudapp.net"
-    }],
-    "BackendIpConfigurations": [],
-    "ProvisioningState": "Succeeded",
-    "Name": "Pool02",
-    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
-    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
-}]
+Get-AzureRmVirtualNetwork -Name vnetName -ResourceGroupName rgName 
+DhcpOptions            : {
+                           "DnsServers": [
+                             "x.x.x.x"
+                           ]
+                         }
 ```
-
-## <a name="unhealthy-instances-in-backendaddresspool"></a>BackendAddressPool 中狀況不良的執行個體
-
-### <a name="cause"></a>原因
-
-如果 BackendAddressPool 的所有執行個體都狀況不良，則應用程式閘道不會包含任何要將使用者要求路由傳送到其中的後端。 當後端執行個體的狀況良好，但尚未部署必要的應用程式時，也可能發生此情況。
-
-### <a name="solution"></a>方案
-
-確定執行個體的狀況良好且已正確設定應用程式。 檢查後端執行個體是否能夠從同一個 VNet 中的其他 VM 回應 Ping。 如果是使用公用端點所設定，請確定對 Web 應用程式的瀏覽器要求能夠提供服務。
+如果 DNS 伺服器存在，請確定 DNS 伺服器能夠正確解析後端集區成員的 FQDN。
 
 ## <a name="problems-with-default-health-probe"></a>預設健全狀況探查的問題
 
@@ -153,8 +135,59 @@ BackendAddressPoolsText：
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
 ```
 
+## <a name="empty-backendaddresspool"></a>空白的 BackendAddressPool
+
+### <a name="cause"></a>原因
+
+如果應用程式閘道在後端位址集區中未設定虛擬機器或虛擬機器擴展集，則無法路由傳送任何客戶要求，還會擲回閘道不正確的錯誤。
+
+### <a name="solution"></a>方案
+
+確定後端位址集區不是空白的。 這可透過 PowerShell、CLI 或入口網站來完成。
+
+```powershell
+Get-AzureRmApplicationGateway -Name "SampleGateway" -ResourceGroupName "ExampleResourceGroup"
+```
+
+前述 Cmdlet 的輸出應包含非空白的後端位址集區。 下列範例會傳回兩個針對後端 VM 使用 FQDN 或 IP 位址設定的集區。 BackendAddressPool 的佈建狀態必須是 'Succeeded'。
+
+BackendAddressPoolsText：
+
+```json
+[{
+    "BackendAddresses": [{
+        "ipAddress": "10.0.0.10",
+        "ipAddress": "10.0.0.11"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool01",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool01"
+}, {
+    "BackendAddresses": [{
+        "Fqdn": "xyx.cloudapp.net",
+        "Fqdn": "abc.cloudapp.net"
+    }],
+    "BackendIpConfigurations": [],
+    "ProvisioningState": "Succeeded",
+    "Name": "Pool02",
+    "Etag": "W/\"00000000-0000-0000-0000-000000000000\"",
+    "Id": "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/applicationGateways/<application gateway name>/backendAddressPools/pool02"
+}]
+```
+
+## <a name="unhealthy-instances-in-backendaddresspool"></a>BackendAddressPool 中狀況不良的執行個體
+
+### <a name="cause"></a>原因
+
+如果 BackendAddressPool 的所有執行個體都狀況不良，則應用程式閘道不會包含任何要將使用者要求路由傳送到其中的後端。 當後端執行個體的狀況良好，但尚未部署必要的應用程式時，也可能發生此情況。
+
+### <a name="solution"></a>方案
+
+確定執行個體的狀況良好且已正確設定應用程式。 檢查後端執行個體是否能夠從同一個 VNet 中的其他 VM 回應 Ping。 如果是使用公用端點所設定，請確定對 Web 應用程式的瀏覽器要求能夠提供服務。
+
 ## <a name="next-steps"></a>後續步驟
 
 如果上述步驟無法解決問題，請開啟 [支援票證](https://azure.microsoft.com/support/options/)。
-
 

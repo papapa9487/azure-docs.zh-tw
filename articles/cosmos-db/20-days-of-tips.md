@@ -10,17 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
+ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: fccf0e3d8cb5d0f0adfb53a06b95aa1090451915
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="20-days-of-azure-cosmos-db-tips"></a>Azure Cosmos DB 的 20 天秘訣
 
 ![每一天了解新的 Azure Cosmos DB 提示](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
@@ -159,9 +157,32 @@ ms.lasthandoff: 09/28/2017
 
 [![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
 
+## <a name="tip-18-request-units"></a>提示 18：要求單位
+
+提示 18：了解為何要求單位 (RU)，以及如何在 Azure #CosmosDB 中設定它們。 更多文件位於 [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+
+文章：[Azure Cosmos DB 中的要求單位](https://aka.ms/Kt2nbn)
+
+[![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## <a name="tip-19-partition-partition-partition"></a>提示 19：分割區！ 分割區！ 分割區！ 
+
+提示 19：分割區！ 分割區！ 分割區！ Azure #CosmosDB 中的原因與做法。 文件位於 [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## <a name="tip-20-cheatsheet"></a>提示 20：速查表
+
+提示 20：人人都愛良好的舊速查表。 Azure #CosmosDB 也有。 可在 [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl) 中查看
+
+速查表：[Azure Cosmos DB：DocumentDB API SQL 查詢速查表 PDF](https://aka.ms/Nt01nl)
+
+[![在 Twitter 上回推](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![在 LinkedIn 上分享](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
+
 ## <a name="next-steps"></a>後續步驟
 
 深入了解 Azure Cosmos DB，方法是閱讀[歡迎使用 Azure Cosmos DB](introduction.md) 和 [Azure Cosmos DB 技術概觀](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/)。
-
 
 

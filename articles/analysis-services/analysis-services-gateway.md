@@ -13,31 +13,26 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 10/06/2017
 ms.author: owend
+ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: 514b5404e8cbfa0baa657eb41736e20cad502638
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同區域中的多項服務與單一閘道建立關聯。 
 
- Azure Analysis Services 需要相同區域中的閘道資源。 例如，如果您在美國東部 2 區域中有 Azure Analysis Services 伺服器，您就需要美國東部 2 區域中的閘道資源。 美國東部 2 中的多部伺服器可以使用相同的閘道。
-
 第一次設定閘道的程序有四部分：
 
-- **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。
+- **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。 您也會使用[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD 中的帳戶來登入 Azure。 不支援 Azure B2B (來賓) 帳戶。
 
-- **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。
+- **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。 閘道資源和 Analysis Services 伺服器**必須註冊在相同區域中**。 
 
 - **在 Azure 中建立閘道資源** - 在此步驟中，您會在您的 Azure 訂用帳戶中建立閘道資源。
 
-- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。
-
-為您的訂用帳戶設定閘道資源後，您就可以將多部伺服器和其他服務連線到它。 如果您在不同的區域中有伺服器或其他服務，您只需要安裝不同的閘道，並建立其他閘道資源。
+- **將您的伺服器連線到閘道資源** - 您的訂用帳戶中一旦有閘道資源，您就可以開始將您的伺服器連線到它。 您可以將此區域中的多部伺服器和其他資源連接到它。
 
 若要立即開始，請參閱[安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。
 
@@ -100,21 +95,21 @@ ms.lasthandoff: 08/25/2017
 ### <a name="general"></a>一般
 
 **問**︰我在雲端中的資料來源 (例如 Azure SQL Database) 是否需要閘道？ <br/>
-**答**：否。 閘道只連接至內部部署資料來源。
+**答**：否。 只有在連線至內部部署資料來源時才需要閘道。
 
 **問**︰閘道必須安裝在與資料來源相同的電腦上嗎？ <br/>
-**答**：否。 閘道會使用所提供的連線資訊連線至資料來源。 在此請將閘道視為用戶端應用程式。 閘道只需要能夠連線到所提供的伺服器名稱，通常是在相同網路上。
+**答**：否。 閘道只要能夠連接至伺服器即可，通常在相同網路上。
 
 <a name="why-azure-work-school-account"></a>
 
 **問︰**︰為何必須使用公司或學校帳戶進行登入？ <br/>
-**答**︰安裝內部部署資料閘道時，您只能使用公司或學校的 Azure 帳戶。 登入帳戶會儲存在由 Azure Active Directory (Azure AD) 所管理的租用戶中。 Azure AD 帳戶的使用者主體名稱 (UPN) 通常會與電子郵件地址相符。
+**答**︰安裝內部部署資料閘道時，您只能使用組織的公司或學校帳戶。 而且，該帳戶與您設定閘道資源的訂用帳戶必須在相同的租用戶中。 登入帳戶會儲存在由 Azure Active Directory (Azure AD) 所管理的租用戶中。 Azure AD 帳戶的使用者主體名稱 (UPN) 通常會與電子郵件地址相符。
 
 **問**︰我的認證儲存在哪裡？ <br/>
 **答**：您針對資料來源輸入的認證會以加密方式儲存在閘道雲端服務中。 認證會在內部部署資料閘道進行解密。
 
 **問**︰網路頻寬是否有任何需求？ <br/>
-**答**︰建議您的網路連線要有良好的輸送量。 每個環境都是不同的，而且所傳送的資料量會影響結果。 使用 ExpressRoute 可以協助您確保在內部部署與 Azure 資料中心之間有一定的輸送量等級。
+**答**︰網路連線最好要有足夠的輸送量。 每個環境都是不同的，而且所傳送的資料量會影響結果。 使用 ExpressRoute 可以協助您確保在內部部署與 Azure 資料中心之間有一定的輸送量等級。
 您可以使用第三方工具 Azure 速度測試應用程式，協助您量測輸送量。
 
 **問**︰從閘道向資料來源執行查詢時的延遲為何？ 最佳的架構為何？ <br/>
@@ -151,7 +146,7 @@ ms.lasthandoff: 08/25/2017
 您也可以查看資料來源具備的工具是否有追蹤查詢。 例如，您可以使用 SQL Server 和 Analysis Services 的擴充事件或 SQL Profiler。
 
 **問**︰閘道記錄在哪裡？ <br/>
-**答**：請參閱本主題稍後的「記錄」。
+**答**：請參閱本文稍後的「記錄」。
 
 ### <a name="update"></a>更新為最新版本
 
@@ -201,6 +196,6 @@ ms.lasthandoff: 08/25/2017
 
 
 ## <a name="next-steps"></a>後續步驟
+* [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。   
 * [ Analysis Services](analysis-services-manage.md)
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)
-

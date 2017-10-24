@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
 ms.openlocfilehash: 8e3f496c2868cc3430e0efd47805aec2205168aa
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>與 Azure AD 同盟的多網域支援
 以下文件提供與 Office 365 或 Azure AD 網域同盟時，如何使用多個最上層網域和子網域的指引。
@@ -37,7 +37,7 @@ ms.lasthandoff: 08/03/2017
 
 ![Get-MsolDomainFederationSettings](./media/active-directory-multiple-domains/MsolDomainFederationSettings.png)
 
-當我們想要加入多個最上層網域時，問題便油然而生。  例如，假設您已設定 Azure AD 和內部部署環境之間的同盟。  在本文中我使用 bmcontoso.com。  現在我已加入第二個最上層網域 bmfabrikam.com。
+當我們想要加入多個最上層網域時，問題便油然而生。  例如，假設您已設定 Azure AD 和內部部署環境之間的同盟。  在本文中我使用 bmcontoso.com。現在我已加入第二個最上層網域 bmfabrikam.com。
 
 ![網域](./media/active-directory-multiple-domains/domains.png)
 
@@ -66,7 +66,7 @@ ms.lasthandoff: 08/03/2017
 
 因此在 Azure AD 或 Office 365 驗證期間，系統會以使用者權杖的 IssuerUri 項目來尋找 Azure AD 中的網域。  如果找不到相符項目，驗證將會失敗。 
 
-例如，如果使用者的 UPN 是bsimon@bmcontoso.com，IssuerUri 中的項目語彙基元 AD FS 問題將會設定為 http://bmcontoso.com/adfs/services/trust。 這會比對 Azure AD 組態，且驗證將會成功。
+例如，如果使用者的 UPN 是 bsimon@bmcontoso.com，AD FS 簽發之權杖中的 IssuerUri 元素將會設定為 http://bmcontoso.com/adfs/services/trust。 這會比對 Azure AD 組態，且驗證將會成功。
 
 以下是實作此邏輯的自訂宣告規則：
 
@@ -134,7 +134,7 @@ ms.lasthandoff: 08/03/2017
 ## <a name="support-for-sub-domains"></a>子網域的支援
 在加入子網域時，因為 Azure AD 處理網域的方式，導致子網域會繼承父項的設定。  這表示 IssuerUri 需要與父項相符。
 
-因此，假設我有 bmcontoso.com，後來再加入 corp.bmcontoso.com。  這表示來自 corp.bmcontoso.com 使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust**。  不過，以上針對 Azure AD 實作的標準規則，會以為簽發者 **http://corp.bmcontoso.com/adfs/services/trust** 產生權杖。 的權杖，這與網域所需的值不符，因此驗證將會失敗。
+因此，假設我有 bmcontoso.com，後來再加入 corp.bmcontoso.com。這表示來自 corp.bmcontoso.com 使用者的 IssuerUri 必須是 **http://bmcontoso.com/adfs/services/trust**。  不過，以上針對 Azure AD 實作的標準規則，會以為簽發者 **http://corp.bmcontoso.com/adfs/services/trust** 產生權杖。 的權杖，這與網域所需的值不符，因此驗證將會失敗。
 
 ### <a name="how-to-enable-support-for-sub-domains"></a>如何啟用子網域的支援
 若要解決這個問題，您需要更新 Microsoft Online 的 AD FS 信賴憑證者信任。  若要這樣做，您必須設定自訂宣告規則，以使其在建構自訂簽發者值時能夠從使用者的 UPN 尾碼移除任何子網域。 

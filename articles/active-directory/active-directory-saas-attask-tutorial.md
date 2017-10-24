@@ -1,5 +1,5 @@
 ---
-title: "教學課程： Azure Active Directory 整合與@Task|Microsoft 文件"
+title: "教學課程：Azure Active Directory 與 @Task 整合 | Microsoft Docs"
 description: "了解如何設定 Azure Active Directory 與 @Task 之間的單一登入。"
 services: active-directory
 documentationcenter: 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: ebb19ca6cbaf04106fbce937d95651e709854cfd
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-task"></a>教學課程：Azure Active Directory 與 @Task 整合
 本教學課程旨在說明如何整合 @Task 與 Azure Active Directory (Azure AD)。  
@@ -31,7 +31,7 @@ ms.lasthandoff: 07/11/2017
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](active-directory-appssoaccess-whatis.md)。
 
 ## <a name="prerequisites"></a>必要條件
-若要設定與 Azure AD 整合@Task，您需要下列項目：
+若要設定 Azure AD 與 @Task 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶
 * 啟用 @Task 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ ms.lasthandoff: 07/11/2017
 6. 在搜尋方塊中，輸入 **@Task**。
    
     ![應用程式][5] 
-7. 在結果窗格中，選取 [@Task]，然後按一下 [完成] 以新增應用程式。
+7. 在結果窗格中，選取 @Task，然後按一下完成 以新增應用程式。
    
     ![應用程式][30] 
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 07/11/2017
 若要讓單一登入運作，Azure AD 必須知道與 @Task 中互相對應的使用者。 換句話說，必須建立 Azure AD 使用者和 @Task 中相關使用者之間的連結關聯性。   
 建立此連結關聯性的方法是將 Azure AD 中**使用者名稱**的值指定為 @Task 中 **Username** 的值。
 
-設定和測試 Azure AD 單一登入與@Task，您必須完成下列的建置組塊：
+若要設定及測試與 @Task 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
@@ -95,7 +95,7 @@ ms.lasthandoff: 07/11/2017
 ### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 本節的目標是要在 Azure 傳統入口網站中啟用 Azure AD 單一登入，並在您的 @Task 應用程式中設定單一登入。
 
-**若要設定 Azure AD 單一登入與@Task，執行下列步驟：**
+**若要設定與 @Task 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 傳統入口網站的 **@Task** 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
    
@@ -191,7 +191,7 @@ ms.lasthandoff: 07/11/2017
 ### <a name="creating-an-task-test-user"></a>建立 @Task 測試使用者
 本節目標是在 @Task 中建立名為 Britta Simon 的使用者。
 
-**若要建立使用者，在呼叫許 Simon @Task，執行下列步驟：**
+**若要在 @Task 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 @Task 公司網站。
 2. 在頂端的功能表中，按一下 [人員] 。
@@ -213,7 +213,7 @@ ms.lasthandoff: 07/11/2017
 
 ![指派使用者][200] 
 
-**若要指派至許 Simon @Task，執行下列步驟：**
+**若要將 Britta Simon 指派給 @Task，請執行下列步驟：**
 
 1. 在 Azure 傳統入口網站中，若要開啟應用程式檢視，請在目錄檢視中，按一下頂端功能表中的 [應用程式]  。
    

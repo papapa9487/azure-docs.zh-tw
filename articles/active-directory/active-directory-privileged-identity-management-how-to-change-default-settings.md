@@ -16,10 +16,10 @@ ms.date: 06/06/2017
 ms.author: billmath
 ms.custom: pim
 ms.openlocfilehash: 23605e89cd1846d2e06e48cb5d3e0191cb9e9b4a
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-role-activation-settings-in-azure-ad-privileged-identity-management"></a>如何管理 Azure AD Privileged Identity Management 的角色啟用設定
 特殊權限角色管理員可以自訂其組織中的 Azure AD Privileged Identity Management (PIM)，包括變更啟用合格角色指派之使用者的體驗。
@@ -39,7 +39,7 @@ ms.lasthandoff: 07/11/2017
 
 **Multi-Factor Authentication**：您可以選擇是否要要求使用者在啟用其角色之前，先以 MFA 驗證其身分識別。 他們只需在每一工作階段進行一次驗證，而不需在每次啟用角色時都進行驗證。 啟用 MFA 時，需要記住兩個秘訣：
 
-* 具有 Microsoft 帳戶的電子郵件地址的使用者 (通常@outlook.com，但並非一定) 無法為 Azure MFA 進行註冊。 如果您想要將角色指派給使用 Microsoft 帳戶的使用者，您應該將他們設為永久系統管理員，或是停用該角色的 MFA。
+* 使用 Microsoft 帳戶作為電子郵件地址 (通常是 @outlook.com，但不一定) 的使用者無法註冊 Azure MFA。 如果您想要將角色指派給使用 Microsoft 帳戶的使用者，您應該將他們設為永久系統管理員，或是停用該角色的 MFA。
 * 您無法將 Azure AD 和 Office365 中高特殊權限角色的 MFA 停用。 這是一項安全功能，因為這些角色應該嚴密地受到保護：  
   
   * 應用程式管理員

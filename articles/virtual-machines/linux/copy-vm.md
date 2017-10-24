@@ -1,4 +1,4 @@
---- 
+---
 title: "使用 Azure CLI 2.0 來複製 Linux VM | Microsoft Docs"
 description: "了解如何使用 Azure CLI 2.0 和受控磁碟來建立 Azure Linux VM 的複本。"
 services: virtual-machines-linux
@@ -12,16 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/10/2017
+ms.date: 09/25/2017
 ms.author: cynthn
+ms.openlocfilehash: 98b27f5f86cdb17893a5c98950a2299f8aa30105
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 7983061a933370803669480296d7625106e1360c
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
----                    
-               
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
+---
 # <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>使用 Azure CLI 2.0 和受控磁碟來建立 Azure Linux VM 的複本
 
 
@@ -45,7 +43,9 @@ ms.lasthandoff: 08/21/2017
 下列範例會解除配置 **myResourceGroup** 資源群組中名為 **myVM** 的 VM：
 
 ```azurecli
-az vm deallocate --resource-group myResourceGroup --name myVM
+az vm deallocate \
+    --resource-group myResourceGroup \
+    --name myVM
 ```
 
 ## <a name="step-2-copy-the-source-vm"></a>步驟 2︰複製來源 VM
@@ -58,7 +58,9 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 1.  使用 [az vm list](/cli/azure/vm#list) 列出每部 VM 及其 OS 磁碟的名稱。 下列範例會列出名為 **myResourceGroup** 的資源群組中的所有 VM：
     
     ```azurecli
-    az vm list -g myTestRG --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' --output table
+    az vm list -g myResourceGroup \
+         --query '[].{Name:name,DiskName:storageProfile.osDisk.name}' \
+         --output table
     ```
 
     輸出類似於下列範例：
@@ -72,7 +74,8 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 1.  使用 [az disk create](/cli/azure/disk#create) 建立新的受控磁碟，進而複製磁碟。 下列範例會從名為 **myDisk** 的受控磁碟建立名為 **myCopiedDisk** 的磁碟：
 
     ```azurecli
-    az disk create --resource-group myResourceGroup --name myCopiedDisk --source myDisk
+    az disk create --resource-group myResourceGroup \
+         --name myCopiedDisk --source myDisk
     ``` 
 
 1.  使用 [az disk list](/cli/azure/disk#list) 來確認此受控磁碟現在位於您的資源群組中。 下列範例會列出名為 **myResourceGroup** 的資源群組中的受控磁碟：
@@ -80,8 +83,6 @@ az vm deallocate --resource-group myResourceGroup --name myVM
     ```azurecli
     az disk list --resource-group myResourceGroup --output table
     ```
-
-1.  跳至[步驟 3︰設定虛擬網路](#step-3-set-up-a-virtual-network)。
 
 
 ## <a name="step-3-set-up-a-virtual-network"></a>步驟 3︰設定虛擬網路
@@ -96,23 +97,29 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 1.  使用 [az network vnet create](/cli/azure/network/vnet#create) 建立虛擬網路。 下列範例會建立名為 **myVnet** 的虛擬網路和名為 **mySubnet** 的子網路：
 
     ```azurecli
-    az network vnet create --resource-group myResourceGroup --location westus --name myVnet \
-        --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+    az network vnet create --resource-group myResourceGroup \
+        --location eastus --name myVnet \
+        --address-prefix 192.168.0.0/16 \
+        --subnet-name mySubnet \
+        --subnet-prefix 192.168.1.0/24
     ```
 
 1.  使用 [az network public-ip create](/cli/azure/network/public-ip#create) 建立公用 IP。 下列範例會建立名為 **myPublicIP** 的公用 IP，其 DNS 名稱為 **mypublicdns**。 (DNS 名稱必須是唯一的，因此請提供唯一的名稱。)
 
     ```azurecli
-    az network public-ip create --resource-group myResourceGroup --location westus \
-        --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
+    az network public-ip create --resource-group myResourceGroup \
+        --location eastus --name myPublicIP --dns-name mypublicdns \
+        --allocation-method static --idle-timeout 4
     ```
 
 1.  使用 [az network nic create](/cli/azure/network/nic#create) 來建立 NIC。
     下列範例會建立連結至 **mySubnet** 子網路且名為 **myNic** 的 NIC：
 
     ```azurecli
-    az network nic create --resource-group myResourceGroup --location westus --name myNic \
-        --vnet-name myVnet --subnet mySubnet --public-ip-address myPublicIP
+    az network nic create --resource-group myResourceGroup \
+        --location eastus --name myNic \
+        --vnet-name myVnet --subnet mySubnet \
+        --public-ip-address myPublicIP
     ```
 
 ## <a name="step-4-create-a-vm"></a>步驟 4：建立 VM
@@ -122,13 +129,12 @@ az vm deallocate --resource-group myResourceGroup --name myVM
 指定要做為 OS 磁碟的所複製受控磁碟 (--attach-os-disk)，如下所示︰
 
 ```azurecli
-az vm create --resource-group myResourceGroup --name myCopiedVM \
-    --admin-username azureuser --ssh-key-value ~/.ssh/id_rsa.pub \
-    --nics myNic --size Standard_DS1_v2 --os-type Linux \
+az vm create --resource-group myResourceGroup \
+    --name myCopiedVM --nics myNic \
+    --size Standard_DS1_v2 --os-type Linux \
     --attach-os-disk myCopiedDisk
 ```
 
 ## <a name="next-steps"></a>後續步驟
 
 若要了解如何使用 Azure CLI 來管理新的 VM，請參閱 [Azure Resource Manager 的 Azure CLI 命令](../azure-cli-arm-commands.md)。
-

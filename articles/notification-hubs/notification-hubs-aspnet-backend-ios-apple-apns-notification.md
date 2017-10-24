@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/03/2016
 ms.author: yuaxu
 ms.openlocfilehash: 0fa7a886e1ecb0a90b6aebc1dbf9ef0c6ce1acf1
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-notification-hubs-notify-users-for-ios-with-net-backend"></a>Azure 通知中樞透過 .NET 後端通知 iOS 使用者
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
@@ -314,23 +314,23 @@ Azure 中的推播通知支援可讓您存取易於使用、多重平台的大�
     請留意設定裝置權杖如何啟用登入按鈕。 這是因為檢視控制器會向應用程式後端註冊推播通知 (作為登入動作的一部分)。 因此，在裝置權杖已正確設定之前，我們不希望有人能夠存取登入動作。 只要登入在推播註冊之前發生，您可能就會想要將前者與後者分開。
 2. 在 ViewController.m 中，使用以下程式碼片段為您的 [ **登入** ] 按鈕實作動作方法，以及實作一個方法來使用 ASP.NET 後端傳送通知訊息。
    
-       - (IBAction)LogInAction: (id) 寄件者 {/ / 建立驗證標頭，並將其設定中註冊用戶端 NSString * 使用者名稱 = 本身。UsernameField.text;  NSString * 密碼 = 本身。PasswordField.text;
+       - (IBAction)LogInAction:(id)sender {   // create authentication header and set it in register client   NSString* username = self.UsernameField.text;   NSString* password = self.PasswordField.text;
    
            [self createAndSetAuthenticationHeaderWithUsername:username AndPassword:password];
    
-           __weak ViewController * selfie = 本身;  [self.registerClient registerWithDeviceToken:self.deviceToken 標記： nil andCompletion:^(NSError* error){如果 (！ 錯誤) {dispatch_async(dispatch_get_main_queue()，^ {selfie。SendNotificationButton.enabled = YES;              [self MessageBox:@"Success"message:@"Registered 成功 ！"];});}}]。}
+           __weak ViewController* selfie = self;   [self.registerClient registerWithDeviceToken:self.deviceToken tags:nil       andCompletion:^(NSError* error) {       if (!error) {           dispatch_async(dispatch_get_main_queue(),           ^{               selfie.SendNotificationButton.enabled = YES;               [self MessageBox:@"Success" message:@"Registered successfully!"];           });       }   }]; }
 
         - (void)SendNotificationASPNETBackend:(NSString*)pns UsernameTag:(NSString*)usernameTag            Message:(NSString*)message {    NSURLSession* session = [NSURLSession        sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:nil        delegateQueue:nil];
 
-            將 pns 和使用者名稱標記為 REST url 參數傳遞給 ASP.NET 後端 NSURL * requestURL = [NSURL URLWithString: [NSString stringWithFormat:@"%@/api/notifications？ pns = %@ （& s) to_tag = %@"，BACKEND_ENDPOINT pns、 usernameTag]]。
+            // Pass the pns and username tag as parameters with the REST URL to the ASP.NET backend    NSURL* requestURL = [NSURL URLWithString:[NSString        stringWithFormat:@"%@/api/notifications?pns=%@&to_tag=%@", BACKEND_ENDPOINT, pns,        usernameTag]];
 
-            NSMutableURLRequest * 要求 = [NSMutableURLRequest requestWithURL:requestURL];   [要求 setHTTPMethod:@"POST"]。
+            NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:requestURL];    [request setHTTPMethod:@"POST"];
 
-            註冊用戶端從 NSString * authorizationHeaderValue 取得模擬或 authenticationheader = [NSString stringWithFormat:@"Basic %@"，self.registerClient.authenticationHeader];   [要求 setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"]。
+            // Get the mock authenticationheader from the register client    NSString* authorizationHeaderValue = [NSString stringWithFormat:@"Basic %@",        self.registerClient.authenticationHeader];    [request setValue:authorizationHeaderValue forHTTPHeaderField:@"Authorization"];
 
-            將通知訊息主體 [要求 setValue:@"application/json;charset=utf-8"forHTTPHeaderField:@"Content-Type"]。   [要求 setHTTPBody: [訊息 dataUsingEncoding:NSUTF8StringEncoding]]。
+            //Add the notification message body    [request setValue:@"application/json;charset=utf-8" forHTTPHeaderField:@"Content-Type"];    [request setHTTPBody:[message dataUsingEncoding:NSUTF8StringEncoding]];
 
-            傳送通知 REST API 執行 ASP.NET 後端 NSURLSessionDataTask * dataTask = [工作階段 dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) 回應。       如果 (錯誤 | | httpResponse.statusCode ！ = 200) {NSString*狀態 = [%NSString stringWithFormat:@"Error 狀態 @: %d\nerror: %@\n"，pns，httpResponse.statusCode、 錯誤]。           dispatch_async(dispatch_get_main_queue()，^ {/ / 附加文字，因為所有 3 PNS 呼叫可能也有到 [self.sendResults setText:[self.sendResults.text stringByAppendingString:status] 檢視的資訊]。           });           NSLog(status);       }
+            // Execute the send notification REST API on the ASP.NET Backend    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)    {        NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*) response;        if (error || httpResponse.statusCode != 200)        {            NSString* status = [NSString stringWithFormat:@"Error Status for %@: %d\nError: %@\n",                                pns, httpResponse.statusCode, error];            dispatch_async(dispatch_get_main_queue(),            ^{                // Append text because all 3 PNS calls may also have information to view                [self.sendResults setText:[self.sendResults.text stringByAppendingString:status]];            });            NSLog(status);        }
 
                 if (data != NULL)
                 {

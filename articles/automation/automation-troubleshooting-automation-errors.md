@@ -3,7 +3,7 @@ title: "針對常見的 Azure 自動化問題進行疑難排解 | Microsoft Docs
 description: "本文提供相關資訊，以便針對常見 Azure 自動化錯誤進行疑難排解和修正。"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/26/2017
-
-
+ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>針對 Azure 自動化中的常見問題進行疑難排解 
 本文提供針對您在 Azure 自動化中可能遇到的一些常見錯誤進行疑難排解的協助，並且建議可能的解決方法。
@@ -104,7 +102,7 @@ ms.lasthandoff: 06/26/2017
 1. 登入您的 Azure 訂用帳戶：  
 2. 選取您想要升級的自動化帳戶  
 3. 按一下 [設定] > [定價層和使用方式] > [定價層]  
-4. 在 [選擇定價層] 刀鋒視窗中，選取 [基本]    
+4. 在 [選擇定價層] 分頁中，選取 [基本]    
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>案例：執行 Runbook 時，無法辨識 Cmdlet
 **錯誤：``<cmdlet name>``您的 Runbook 作業失敗，且出現「**：無法辨識 ``<cmdlet name>`` 詞彙是否為 Cmdlet、函式、指令檔或可執行程式的名稱」錯誤。
@@ -119,9 +117,9 @@ ms.lasthandoff: 06/26/2017
 * 如果您是以混合式背景工作角色群組身分在內部部署環境中執行 Runbook，則請確定 module/cmdlet 是安裝在裝載混合式背景工作角色的電腦上。
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>案例：長時間執行的 Runbook 不斷失敗，且伴隨例外狀況：「工作無法繼續執行，因為它不斷在相同的檢查點遭到撤銷」。
-**錯誤的原因：**這是故意設計的行為，原因是針對 Azure 自動化中程序的「公平共用」監視，也就是如果 Runbook 的執行時間超過 3 小時，就會自動暫停。 不過，傳回的錯誤訊息不會提供「接下來該怎麼辦」的選項。 有許多原因能造成 Runbook 暫停， 而大多數是因為發生錯誤。 舉例來說，Runbook 中未攔截到的例外狀況、網路失敗，或是執行 Runbook 的 Runbook Worker 當機，都會造成 Runbook 暫停，並讓 Runbook 要繼續執行時從上一個檢查點開始。
+**錯誤的原因：**這是故意設計的行為，原因是針對 Azure 自動化中程序的「公平共用」監視，也就是如果 Runbook 的執行時間超過三小時，就會自動暫停。 不過，傳回的錯誤訊息不會提供「接下來該怎麼辦」的選項。 有許多原因能造成 Runbook 暫停， 而大多數是因為發生錯誤。 舉例來說，Runbook 中未攔截到的例外狀況、網路失敗，或是執行 Runbook 的 Runbook Worker 當機，都會造成 Runbook 暫停，並讓 Runbook 要繼續執行時從上一個檢查點開始。
 
-**疑難排解秘訣：** 能避免此問題的已記載解決方案，就是在工作流程中使用檢查點。  如要深入了解，請參閱 [了解 PowerShell 工作流程](automation-powershell-workflow.md#checkpoints)。  如需對於「公平共用」及檢查點更詳細的說明，請參閱這篇部落格文章：[在 Runbook 中使用檢查點](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)。
+**疑難排解秘訣：** 能避免此問題的已記載解決方案，就是在工作流程中使用檢查點。  若要深入了解，請參閱[了解 PowerShell 工作流程](automation-powershell-workflow.md#checkpoints)。  如需對於「公平共用」及檢查點更詳細的說明，請參閱這篇部落格文章：[在 Runbook 中使用檢查點](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/)。
 
 ## <a name="common-errors-when-importing-modules"></a>匯入模組時的常見錯誤
 ### <a name="scenario-module-fails-to-import-or-cmdlets-cant-be-executed-after-importing"></a>案例：無法匯入模組，或無法在匯入之後執行 Cmdlet
@@ -153,7 +151,7 @@ ms.lasthandoff: 06/26/2017
 * 請確定您會使用「節點組態名稱」而不是「組態名稱」來指派節點。  
 * 您可以使用 Azure 入口網站或使用 PowerShell Cmdlet，將節點組態指派至節點。
 
-  * 如要使用 Azure 入口網站來將節點組態指派給節點，請開啟 [DSC 節點] 刀鋒視窗、選取某個節點，然後按一下 [指派節點組態] 按鈕。  
+  * 如要使用 Azure 入口網站來將節點組態指派給節點，請開啟 [DSC 節點] 分頁、選取某個節點，然後按一下 [指派節點組態] 按鈕。  
   * 如要使用 PowerShell Cmdlet 來將節點組態指派給節點，請使用 **Set-AzureRmAutomationDscNode** Cmdlet
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>案例：編譯組態時沒有產生任何節點組態 (MOF 檔案)
@@ -190,4 +188,3 @@ ms.lasthandoff: 06/26/2017
 * 提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後在 [技術及帳務支援] 下方按一下 [取得支援]。
 * 如果您在尋找 Azure 自動化 Runbook 解決方案或整合模組，請在 [指令碼中心](https://azure.microsoft.com/documentation/scripts/) 提出指令碼要求。
 * 請在 [User Voice](https://feedback.azure.com/forums/34192--general-feedback)上張貼 Azure 自動化的意見反應或功能要求。
-

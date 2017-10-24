@@ -9,14 +9,12 @@ ms.topic: azure-stack
 ms.date: 09/15/2017
 ms.author: erikje
 ms.custom: mvc
+ms.openlocfilehash: abca538f28bbc0a8f3f00311ca1a69d196f10272
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2c9aba69d8f1999f7086bd2bcd44d1c1472abec7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-stack-portal"></a>使用 Azure Stack 入口網站建立 Windows 虛擬機器
 
 您可以使用 Azure Stack 入口網站建立 Windows 虛擬機器。 入口網站是以瀏覽器作為基礎的使用者介面，您可以在其中建立、設定和管理資源。
@@ -35,7 +33,7 @@ ms.lasthandoff: 09/25/2017
 2. 在 [基本] 中，輸入 [名稱]、[使用者名稱] 與 [密碼]。 選擇 [訂用帳戶] 。 建立 資源群組 或選取現有的資源群組，選取 位置，然後按一下確定。
 
     ![](media/azure-stack-quick-windows-portal/image02.png)
-3. 在 [選擇大小] 下，按一下 [A1 標準] > [選取]。
+3. 在 [選擇大小] 下，按一下 [D1 標準] > [選取]。
     ![](media/azure-stack-quick-windows-portal/image03.png)
 4. 在 [設定] 下，接受預設值並按一下 [確定]。
     ![](media/azure-stack-quick-windows-portal/image04.png)
@@ -50,4 +48,3 @@ ms.lasthandoff: 09/25/2017
 
 ## <a name="next-steps"></a>後續步驟
 在這個快速入門中，您已部署簡單的 Windows 虛擬機器。 若要深入了解 Azure Stack 虛擬機器，請繼續移至 [Azure Stack 中虛擬機器的考量](azure-stack-vm-considerations.md)。
-

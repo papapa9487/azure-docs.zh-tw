@@ -3,7 +3,7 @@ title: "自動化 Amazon Web Services 中 VM 的部署 | Microsoft Docs"
 description: "本文示範如何使用 Azure 自動化來自動化 Amazon Web 服務 VM 的建立"
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 1d85c01a-d795-4523-8194-84fc15b53838
@@ -12,27 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/14/2017
+ms.date: 09/29/2017
 ms.author: tiandert; bwren
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: e0b784006b4933fe986890c09afa965934511784
-ms.lasthandoff: 04/15/2017
-
-
+ms.openlocfilehash: 828f9e2cc9a39e54933cd0e0db7273efa460d0c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure 自動化案例 - 佈建 AWS 虛擬機器
 在本文中，我們會示範如何利用 Azure 自動化在 Amazon Web Service (AWS) 訂用帳戶中佈建虛擬機器，並且提供該 VM 的特定名稱 (AWS 稱為「標記」VM)。
 
 ## <a name="prerequisites"></a>必要條件
-基於本文的目的，您需要擁有 Azure 自動化帳戶和 AWS 訂用帳戶。 如需設定 Azure 自動化帳戶以及使用 AWS 訂用帳戶認證進行設定的詳細資訊，請檢閱[使用 Amazon Web Services 設定驗證](automation-configure-aws-account.md)。  繼續之前，應該使用您的 AWS 訂用帳戶認證來建立或更新此帳戶，因為我們將在下列步驟中參考此帳戶。
+基於本文的目的，您需要擁有 Azure 自動化帳戶和 AWS 訂用帳戶。 如需設定 Azure 自動化帳戶以及使用 AWS 訂用帳戶認證進行設定的詳細資訊，請檢閱[使用 Amazon Web Services 設定驗證](automation-config-aws-account.md)。  繼續之前，應該使用您的 AWS 訂用帳戶認證來建立或更新此帳戶，因為我們將在下列步驟中參考此帳戶。
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>部署 Amazon Web Services PowerShell 模組
 我們的 VM 佈建 Runbook 將會利用 AWS PowerShell 模組來執行其工作。 執行下列步驟，將模組新增至使用 AWS 訂用帳戶認證所設定的自動化帳戶。  
 
 1. 開啟網頁瀏覽器，並瀏覽至 [PowerShell 資源庫](http://www.powershellgallery.com/packages/AWSPowerShell/)，然後按一下 [部署至 Azure 自動化] 按鈕。<br><br> ![AWS PS 模組匯入](./media/automation-scenario-aws-deployment/powershell-gallery-download-awsmodule.png)
-2. 系統會帶您前往 Azure 登入頁面，而在驗證之後，則會帶您到 Azure 入口網站，並出現下列刀鋒視窗。<br><br> ![匯入模組刀鋒視窗](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
-3. 從 [資源群組]  下拉式清單中選取資源群組，並在 [參數] 刀鋒視窗上提供下列資訊：
+2. 系統會帶您前往 Azure 登入頁面，而在驗證之後，則會帶您到 Azure 入口網站，並出現下列頁面。<br><br> ![匯入模組頁面](./media/automation-scenario-aws-deployment/deploy-aws-powershell-module-parameters.png)
+3. 從 [資源群組] 下拉式清單中選取資源群組，並在 [參數] 窗格上提供下列資訊：
    
    * 從 [新增或現有自動化帳戶 (字串)] 下拉式清單中，選取 [現有]。  
    * 在 [自動化帳戶名稱 (字串)] 方塊中，輸入包括 AWS 訂用帳戶認證的確切自動化帳戶名稱。  例如，如果您已建立名為 **AWSAutomation** 的專用帳戶，則這是您在此方塊中輸入的名稱。
@@ -45,8 +44,8 @@ ms.lasthandoff: 04/15/2017
    > 
    > 
 5. 在 Azure 入口網站中，開啟步驟 3 中所參考的自動化帳戶。
-6. 按一下 [資產] 圖格，然後在 [資產] 刀鋒視窗上選取 [模組] 圖格。
-7. 在 [模組] 刀鋒視窗上，您將會在清單中看到 **AWSPowerShell** 模組。
+6. 按一下 [資產] 磚，然後在 [資產] 窗格上選取 [模組] 磚。
+7. 在 [模組] 頁面上，您會在清單中看到 **AWSPowerShell** 模組。
 
 ## <a name="create-aws-deploy-vm-runbook"></a>建立 AWS 部署 VM Runbook
 部署 AWS PowerShell 模組之後，我們現在可以製作 Runbook，以使用 PowerShell 指令碼自動在 AWS 中佈建虛擬機器。 下面的步驟將示範如何在 Azure 自動化中利用原生 PowerShell 指令碼。  
@@ -60,11 +59,11 @@ ms.lasthandoff: 04/15/2017
    Save-Script -Name New-AwsVM -Path <path>
    ```
    <br>
-2. 從 Azure 入口網站中，開啟您的自動化帳戶，然後按一下 [Runbook] 圖格。  
-3. 從 [Runbook] 刀鋒視窗中，選取 [新增 Runbook]。
-4. 在 [新增 Runbook] 刀鋒視窗上，選取 [快速建立] \(建立新的 Runbook)。
-5. 在 [Runbook] 屬性刀鋒視窗上，於 Runbook 的 [名稱] 方塊中輸入名稱，並從 [Runbook 類型] 下拉式清單中選取 [PowerShell]，然後按一下 [建立]。<br><br> ![匯入模組刀鋒視窗](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
-6. [編輯 PowerShell Runbook] 刀鋒視窗出現時，將 PowerShell 指令碼複製並貼入 Runbook 撰寫畫布。<br><br> ![Runbook PowerShell 指令碼](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
+2. 從 Azure 入口網站中，開啟您的自動化帳戶，然後在左側的 [流程自動化] 區段底下選取 [Runbook]。  
+3. 從 [Runbook] 頁面中，選取 [新增 Runbook]。
+4. 在 [新增 Runbook] 窗格上，選取 [快速建立] \(建立新的 Runbook\)。
+5. 在 Runbook 屬性窗格上，於 Runbook 的 名稱 方塊中輸入名稱，並從 Runbook 類型 下拉式清單中選取 PowerShell，然後按一下建立。<br><br> ![建立 Runbook 窗格](./media/automation-scenario-aws-deployment/runbook-quickcreate-properties.png)
+6. [編輯 PowerShell Runbook] 頁面出現時，將 PowerShell 指令碼複製並貼入 Runbook 撰寫畫布。<br><br> ![Runbook PowerShell 指令碼](./media/automation-scenario-aws-deployment/runbook-powershell-script.png)<br>
    
     > [!NOTE]
     > 使用範例 PowerShell 指令碼時，請注意下列事項：
@@ -103,10 +102,10 @@ ms.lasthandoff: 04/15/2017
 * 已建立新的 Runbook，已驗證參數值並且視需要更新  
 * Runbook 設定 [記錄和追蹤] 下的 [記錄詳細資訊記錄] 和選擇性的 [記錄進度記錄] 已設為 [開啟]。<br><br> ![Runbook 記錄和追蹤](./media/automation-scenario-aws-deployment/runbook-settings-logging-and-tracing.png)  
 
-1. 我們想要啟動 Runbook，因此按一下 [啟動]，然後在 [啟動 Runbook] 刀鋒視窗開啟時按一下 [確定]。
-2. 在 [啟動 Runbook] 刀鋒視窗上，提供 **VMname**。  接受您稍早已在指令碼中為其他參數預先設定的預設值。  按一下 [確定] 啟動 Runbook 工作。<br><br> ![啟動 New-AwsVM Runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
+1. 我們想要啟動 Runbook，因此按一下 [啟動]，然後在 [啟動 Runbook] 窗格開啟時按一下 [確定]。
+2. 在 [啟動 Runbook] 窗格上，提供 **VMname**。  接受您稍早已在指令碼中為其他參數預先設定的預設值。  按一下 [確定] 啟動 Runbook 工作。<br><br> ![啟動 New-AwsVM Runbook](./media/automation-scenario-aws-deployment/runbook-start-job-parameters.png)
 3. 工作窗格會開啟我們剛剛建立的 Runbook 工作。 關閉此窗格。
-4. 從 Runbook 工作刀鋒視窗中選取 [所有記錄檔] 圖格，即可檢視工作進度以及檢視輸出**串流**。<br><br> ![串流輸出](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
+4. 從 Runbook 作業頁面中選取 [所有記錄] 磚，即可檢視作業進度及檢視輸出**資料流**。<br><br> ![串流輸出](./media/automation-scenario-aws-deployment/runbook-job-streams-output.png)
 5. 請登入 AWS 管理主控台 (如果目前尚未登入)，以確認正在佈建 VM。<br><br> ![AWS 主控台部署 VM](./media/automation-scenario-aws-deployment/aws-instances-status.png)
 
 ## <a name="next-steps"></a>後續步驟
@@ -114,5 +113,4 @@ ms.lasthandoff: 04/15/2017
 * 若要開始使用 PowerShell 工作流程 Runbook，請參閱 [我的第一個 PowerShell 工作流程 Runbook](automation-first-runbook-textual.md)
 * 若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
 * 如需 PowerShell 指令碼支援功能的詳細資訊，請參閱 [Azure 自動化中的原生 PowerShell 指令碼支援](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
-
 

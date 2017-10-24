@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.openlocfilehash: ed2266004e60843749233f92c8f4b069e4c17ba5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -41,7 +40,7 @@ ms.lasthandoff: 08/17/2017
 資料同步使用中樞和輪輻拓撲來同步資料。 您可以將群組中的其中一個資料庫定義為「中樞資料庫」。 其餘的資料庫則是成員資料庫。 只有中樞和個別成員之間才會進行同步。
 -   **中樞資料庫**必須是 Azure SQL Database。
 -   **成員資料庫**可以是 SQL 資料庫、內部部署 SQL Server 資料庫，或是在 Azure 虛擬機器上的 SQL Server 執行個體。
--   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。 「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
+-   **同步處理資料庫**包含「資料同步」的中繼資料和記錄。「同步處理資料庫」必須是與「中樞資料庫」位於相同區域的 Azure SQL Database。 「同步處理資料庫」是由客戶建立，並由客戶擁有。
 
 > [!NOTE]
 > 如果您使用內部部署資料庫，必須[設定本機代理程式](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-get-started-sql-data-sync)。
@@ -98,11 +97,13 @@ ms.lasthandoff: 08/17/2017
 
 ### <a name="requirements"></a>需求
 
--   每個資料表都必須有主索引鍵。
+-   每個資料表都必須有主索引鍵。 請勿變更任何資料列的主索引鍵值。 如果您需要執行這個動作，請刪除資料列，再利用新的主索引鍵值重新建立。 
 
 -   資料表不能有非主索引鍵的識別欄位。
 
 -   物件 (資料庫、資料表和資料行) 的名稱不能包含可列印的字元句點 (.)、左括弧 (\[\)，或右括弧 (\]\)。
+
+-   必須啟用快照集隔離。 如需詳細資訊，請參閱 [SQL Server 中的快照集隔離](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)。
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>服務和資料庫維度的限制
 
@@ -140,6 +141,11 @@ ms.lasthandoff: 08/17/2017
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>資料同步如何處理循環參考？ 也就是，相同的資料已在多個同步群組中同步，且因此持續變更？
 資料同步不會處理循環參考。 請務必避免。 
 
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>如何使用資料同步匯出和匯入資料庫？
+將資料庫匯出為 .bacpac 檔案，並將它匯入以建立新資料庫之後，您必須執行下列兩個動作，才能在新的資料庫中使用資料同步：
+1.  使用[這個指令碼](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql)清除**新資料庫**上的資料同步物件和側邊資料表。 這個指令碼會刪除資料庫中所有必要的資料同步物件。
+2.  利用新資料庫重新建立同步群組。 如果您不再需要舊有的同步群組，請將它刪除。
+
 ## <a name="next-steps"></a>後續步驟
 
 如需 SQL 資料同步的詳細資訊，請參閱：
@@ -159,4 +165,3 @@ ms.lasthandoff: 08/17/2017
 -   [SQL Database 概觀](sql-database-technical-overview.md)
 
 -   [資料庫生命週期管理](https://msdn.microsoft.com/library/jj907294.aspx)
-

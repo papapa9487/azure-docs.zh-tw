@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
 ms.openlocfilehash: dc47250db6fb3a2853dae24e02bda236154d93fb
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>使用通知中心傳送即時新聞
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -149,16 +149,16 @@ ms.lasthandoff: 07/11/2017
 
     請注意， **didRegisterForRemoteNotificationsWithDeviceToken** 方法中此時不應有其他程式碼。
 
-1. 下列方法應該已經存在於 d 無法完成[開始使用通知中樞][ get-started]教學課程。  否則，請予以新增。
+1. 完成[開始使用通知中樞][get-started]教學課程時，下列方法應該已出現在 AppDelegate.m 中。  否則，請予以新增。
    
-    -(void) MessageBox:(NSString *) 標題訊息:(NSString *) messageText {
+    -(void)MessageBox:(NSString *)title message:(NSString *)messageText  {
    
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:messageText delegate:self
             cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [alert show];
     }
    
-   * (void) 的應用程式:(UIApplication *) 應用程式 didReceiveRemoteNotification: (NSDictionary *) 使用者資訊 {NSLog (@"%@"，所以);  [自我 MessageBox:@"Notification 」 的訊息: [[使用者資訊 objectForKey:@"aps]"valueForKey:@"alert"]]。}
+   * (void)application:(UIApplication *)application didReceiveRemoteNotification:   (NSDictionary *)userInfo {   NSLog(@"%@", userInfo);   [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]]; }
    
    此方法會顯示簡易 **UIAlert**，以處理應用程式執行時接收到的通知。
 2. 在 ViewController.m 中，新增 AppDelegate.h 的匯入陳述式，並將下列程式碼複製到 XCode 產生的 **訂閱** 方法中。 此程式碼將更新通知註冊，以使用使用者在使用者介面中選擇的新類別標記。
@@ -212,7 +212,7 @@ ms.lasthandoff: 07/11/2017
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="optional-send-notifications-from-the-device"></a>(選擇性) 從裝置傳送通知
-通知通常會由後端服務傳送，但您可直接從應用程式傳送即時新聞通知。 若要這樣做會更新，`SendNotificationRESTAPI`我們中定義的方法[開始使用通知中樞][ get-started]教學課程。
+通知通常會由後端服務傳送，但您可直接從應用程式傳送即時新聞通知。 若要這樣做，我們將更新[開始使用通知中樞][get-started]教學課程中所定義的 `SendNotificationRESTAPI` 方法。
 
 1. 在 ViewController.m 中，如下更新 `SendNotificationRESTAPI` 方法，使其接受類別標記的參數，並傳送正確的 [範本](notification-hubs-templates-cross-platform-push-messages.md) 通知。
    

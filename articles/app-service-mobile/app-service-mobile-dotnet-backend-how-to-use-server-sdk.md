@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
+ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ebaeee9b68810d0e5d47da20373e7951c57147d4
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -58,7 +57,7 @@ ms.lasthandoff: 07/20/2017
 6. 按一下 [確定] 。
 
 ## <a name="install-sdk"></a>如何：下載並初始化 SDK
-SDK 可於 [NuGet.org]取得。 此封裝包含開始使用 SDK 所需的基本功能。 若要初始化 SDK，您需要在 **HttpConfiguration** 物件上執行動作。
+SDK 可於 [NuGet.org]取得。此封裝包含開始使用 SDK 所需的基本功能。 若要初始化 SDK，您需要在 **HttpConfiguration** 物件上執行動作。
 
 ### <a name="install-the-sdk"></a>安裝 SDK
 若要安裝 SDK，請以滑鼠右鍵按一下 Visual Studio 中的伺服器專案，選取 [管理 NuGet 套件]，搜尋 [Microsoft.Azure.Mobile.Server] 套件，然後按一下 [安裝]。
@@ -126,7 +125,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 * [Microsoft.Azure.Mobile.Server.Login] 會提供 AppServiceLoginHandler.CreateToken() 方法，這是在自訂驗證案例期間使用的靜態方法。
 
 ## <a name="publish-server-project"></a>做法：發佈伺服器專案
-本節說明如何從 Visual Studio 發佈 .NET 後端專案。 您也可以使用 Git 或 [Azure App Service 部署文件](../app-service-web/web-sites-deploy.md)中涵蓋的任何其他方法，來部署您的後端專案。
+本節說明如何從 Visual Studio 發佈 .NET 後端專案。 您也可以使用 [Git](../app-service/app-service-deploy-local-git.md) 或那裡提供的任何其他方法來部署後端專案。
 
 1. 在 Visual Studio 中，重新建置專案以還原 NuGet 封裝。
 2. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後按一下 [發佈] 。 第一次發佈時，您必須定義發行設定檔。 在定義設定檔後，您可以選取該設定檔，然後按一下 [發佈]。
@@ -413,16 +412,16 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 ## <a name="how-to-debug-and-troubleshoot-the-net-server-sdk"></a>做法：針對 .NET 伺服器 SDK 進行偵錯和疑難排解
 Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑難排解技術：
 
-* [監視 Azure App Service](../app-service-web/web-sites-monitor.md)
-* [在 Azure App Service 中啟用診斷記錄](../app-service-web/web-sites-enable-diagnostic-log.md)
-* [在 Visual Studio 中疑難排解 Azure App Service](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [監視 Azure App Service](../app-service/web-sites-monitor.md)
+* [在 Azure App Service 中啟用診斷記錄](../app-service/web-sites-enable-diagnostic-log.md)
+* [在 Visual Studio 中疑難排解 Azure App Service](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
 
 ### <a name="logging"></a>記錄
 您可以使用標準的 ASP.NET 追蹤寫入來寫入 App Service 診斷記錄： 您必須在行動應用程式後端中啟用診斷，才能寫入至記錄檔。
 
 若要啟用診斷並寫入至記錄檔：
 
-1. 依照 [如何啟用診斷](../app-service-web/web-sites-enable-diagnostic-log.md#enablediag)中的步驟執行。
+1. 依照 [如何啟用診斷](../app-service/web-sites-enable-diagnostic-log.md#enablediag)中的步驟執行。
 2. 在您的程式碼檔案中新增下列 using 陳述式：
 
         using System.Web.Http.Tracing;
@@ -431,7 +430,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. 重新發佈您的伺服器專案，並存取行動應用程式後端，以執行記錄的程式碼路徑。
-5. 下載記錄並進行評估，如 [作法：下載記錄](../app-service-web/web-sites-enable-diagnostic-log.md#download)中所述。
+5. 下載記錄並進行評估，如 [作法：下載記錄](../app-service/web-sites-enable-diagnostic-log.md#download)中所述。
 
 ### <a name="local-debug"></a>使用驗證進行本機偵錯
 您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。 對於大部分的 Azure Mobile Apps 後端，請在Visual Studio 中時按 F5  。 不過，使用驗證時有一些其他考量。
@@ -456,7 +455,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 3. 在 Kudu 管理網站中，按一下 [環境] 。
 4. 尋找 *WEBSITE\_AUTH\_SIGNING\_KEY* 的值。
 
-在本機應用程式組態中使用 authSigningKey  參數的簽署金鑰。  您的行動後端現已裝備，可在本機執行時驗證用戶端從雲端式端點取得的權杖。
+在本機應用程式組態中使用 authSigningKey  參數的簽署金鑰。您的行動後端現已裝備，可在本機執行時驗證用戶端從雲端式端點取得的權杖。
 
 [1]: https://msdn.microsoft.com/library/azure/dn961176.aspx
 [2]: https://github.com/Azure/azure-mobile-apps-net-server
@@ -472,4 +471,3 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 [Microsoft.Azure.Mobile.Server.Login]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Login/
 [Microsoft.Azure.Mobile.Server.Notifications]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Notifications/
 [MapHttpAttributeRoutes]: https://msdn.microsoft.com/library/dn479134(v=vs.118).aspx
-

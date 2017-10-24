@@ -8,15 +8,13 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 8606067a8e82c6314ab931eb4816d45755a8e04f
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: ce6edbdffe9704383676e990865cd4e2958f30fe
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>使用傾印和還原來將 MySQL 資料庫移轉至適用於 MySQL 的 Azure 資料庫
 本文將說明兩個常見方法，讓您可在適用於 MySQL 的 Azure 資料庫中用來備份和還原資料庫
 - 從命令列傾印和還原 (使用 mysqldump) 
@@ -46,8 +44,8 @@ ms.lasthandoff: 06/17/2017
 ## <a name="performance-considerations"></a>效能考量
 若要最佳化效能，請在傾印大型資料庫時注意這些考量：
 -   傾印資料庫時在 mysqldump 中使用 `exclude-triggers` 選項。 從傾印檔案排除觸發程序以避免在資料還原期間引發觸發程序命令。 
--   避免在傾印非常大型的資料庫時於 mysqldump 中使用 `single-transaction` 選項。 在單一交易中傾印許多資料表會導致在還原期間耗用額外儲存體和記憶體資源，並且可能導致效能延遲或資源限制式。
--   以 SQL 載入時使用多重值插入，以將傾印資料庫時的陳述式執行額外負荷降到最低。 使用 mysqldump 公用程式所產生的傾印檔案時，預設會啟用多重值插入。 
+-   使用 `single-transaction` 選項將交易隔離模式設為 REPEATABLE READ，然後在傾印資料之前，將 START TRANSACTION 的 SQL 陳述式傳送到伺服器。 在單一交易中傾印許多資料表會導致在還原期間耗用某些額外的儲存體。 `single-transaction` 選項和 `lock-tables` 選項是互斥的，因為 LOCK TABLES 會導致隱含認可任何暫止交易。若要傾印大型資料表，請結合 `single-transaction` 選項與 `quick` 選項。 
+-   使用包含數個 VALUE 清單的 `extended-insert` 多個資料列語法。 這會產生較小的傾印檔案，並在重新載入檔案時加速插入。
 -  傾印資料庫時在 mysqldump 中使用 `order-by-primary` 選項，以便將資料以主索引鍵的順序編寫指令碼。
 -   傾印資料時在 mysqldump 中使用 `disable-keys` 選項，以在載入之前停用外部索引鍵限制式。 停用外部索引鍵檢查會提供效能提升。 啟用限制式並且確認載入之後的資料，以確保參考完整性。
 -   適當時使用資料分割資料表。
@@ -113,7 +111,7 @@ $ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p te
 - 按一下 [匯出] 連結。 新的分頁隨即出現，以供檢視資料庫的傾印。
 - 在 [匯出] 區域中，按一下 [全選] 連結來選擇資料庫中的資料表。 
 - 在 [SQL 選項] 區域中，按一下適當的選項。 
-- 依序按一下 [另存新檔] 和對應的壓縮選項，然後按一下 [執行] 按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
+- 依序按一下 另存新檔 和對應的壓縮選項，然後按一下執行 按鈕。 接著應該會出現一個對話方塊，提示您在本機儲存檔案。
 
 ## <a name="import-using-phpmyadmin"></a>使用 PHPMyAdmin 匯入
 匯入資料庫的程序與匯出類似。 請執行下列動作：
@@ -126,4 +124,3 @@ $ mysql -h myserver4demo.mysql.database.azure.com -u myadmin@myserver4demo -p te
 
 ## <a name="next-steps"></a>後續步驟
 [將應用程式連線至適用於 MySQL 的 Azure 資料庫](./howto-connection-string.md)
-

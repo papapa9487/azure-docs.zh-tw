@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
+ms.openlocfilehash: 0456cde7e30e9b25f8baebdcd15e0e029f89d7ff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 39b79dce555ba1b57f48ca2b431c13b1c1e4d90b
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -85,6 +84,14 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
   * Dynamics 365 for Customer Service
   * Dynamics 365 for Field Service
   * Dynamics 365 for Project Service
+* 使用[路由篩選器](#route-filters-for-microsoft-peering)，您就可以存取與 Microsoft 對等互連相同的公用服務：
+  * Power BI
+  * Dynamics 365 for Finance and Operations
+  * 除了下列少數例外狀況的大部分 Azure 服務：
+    * CDN
+    * Visual Studio Team Services 負載測試 
+    * 多因素驗證
+    * 流量管理員
 
 ## <a name="data-and-connections"></a>資料與連線
 
@@ -115,6 +122,10 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>如果我的其中一個 ExpressRoute 連結失敗，連線是否就會中斷？
 
 如果其中一個交叉連線失敗，您的連線就會中斷。 您可以使用備援連線來支援網路的負載。 為取得失敗恢復，您可以在其他對等互連位置額外建立多個電路。
+
+## <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何確保在連線到 ExpressRoute 之虛擬網路上的高可用性？
+
+您可以將不同對等互連位置中的多個 ExpressRoute 線路連線到虛擬網路，以達到高可用性。 例如，如果一個 ExpressRoute 站台當機時，連線會容錯移轉到另一個 ExpressRoute 站台。 根據預設，離開您虛擬網路的流量會以等價多路徑路由 (ECMP) 作為基礎進行路由。 您可以使用連線加權來偏好與另一個連線的連線。 如需「連線加權」的其他詳細資料，請參閱[最佳化 ExpressRoute 路由](expressroute-optimize-routing.md)。
 
 ### <a name="onep2plink"></a>如果我不要在雲端交換中共置，而我的服務提供者提供點對點連線，我需要在內部部署網路與 Microsoft 之間訂購兩個實體連線嗎？
 
@@ -162,6 +173,12 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 如需詳細資訊，請參閱[在多個訂用帳戶中共用 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)。
 
+### <a name="i-have-multiple-azure-subscriptions-associated-to-different-azure-active-directory-tenants-or-enterprise-agreement-enrollments-can-i-connect-virtual-networks-that-are-in-separate-tenants-and-enrollments-to-a-single-expressroute-circuit-not-in-the-same-tenant-or-enrollment"></a>我有多個與不同 Azure Active Directory 租用戶或 Enterprise 合約註冊相關聯的 Azure 訂用帳戶。 可以將個別租用戶和註冊中的虛擬網路連線到不在相同租用戶或註冊中的單一 ExpressRoute 線路嗎？
+
+是。 ExpressRoute 授權可以跨訂用帳戶、租用戶和註冊的界限，無需任何額外的設定。 
+
+如需詳細資訊，請參閱[在多個訂用帳戶中共用 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)。
+
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>連線到相同電路的虛擬網路會相互隔離嗎？
 
 編號 從路由的觀點來看，所有連結至相同 ExpressRoute 線路的虛擬網路都屬於相同的路由網域，因此不會相互隔離。 如果需要路由隔離，您必須建立個別的 ExpressRoute 線路。
@@ -178,7 +195,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 是。 針對部署於虛擬網路內的虛擬機器，您可以公告預設路由 (0.0.0.0/0)，以封鎖所有的網際網路連線，並將所有流量透過 ExpressRoute 線路路由傳送出去。
 
-如果您公告預設路由，針對透過公用對等互連 (例如 Azure 儲存體和 SQL DB) 所提供的服務，我們會強制讓流量回到您的內部。 您將必須設定路由器，透過公用對等互連路徑或透過網際網路以將流量傳回 Azure。
+如果您公告預設路由，針對透過公用對等互連 (例如 Azure 儲存體和 SQL DB) 所提供的服務，我們會強制讓流量回到您的內部。 您將必須設定路由器，透過公用對等互連路徑或透過網際網路以將流量傳回 Azure。 如果您已啟用服務的服務端點 (預覽)，就不會將服務的流量強制到您的內部部署。 流量會保持在 Azure 中樞網路內。 如需深入了解服務端點，請參閱[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>連結至相同 ExpressRoute 電路的虛擬網路是否可以互通訊息？
 
@@ -344,13 +361,12 @@ ExpressRoute Premium 是下列功能的集合：
 
 否，您不需要 Dynamics 365 的授權。 您不需授權就可建立規則和選取 Dynamics 365 社群。
 
-### <a name="i-already-have-microsoft-peering-how-can-i-take-advantage-of-route-filters"></a>我已經有 Microsoft 對等互連，該如何利用路由篩選？
+### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>我在 2017 年 8 月 1 日之前啟用了 Microsoft 對等互連，該如何利用路由篩選？
 
-您可以建立路由篩選、選取要使用的服務，並將篩選連結至您的 Microsoft 對等互連。 如需指示，請參閱[針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-powershell.md)。
+您現有的線路會繼續公告 Office 365 和 Dynamics 365 的前置詞。 如果您需要透過相同的 Microsoft 對等互連新增 Azure 公用首碼公告，可以建立路由篩選器、選取您需要公告的服務 (包括您需要的 Office 365 服務和 Dynamics 365)，並將篩選連接到您的 Microsoft 對等互連。 如需指示，請參閱[針對 Microsoft 對等互連設定路由篩選](how-to-routefilter-powershell.md)。
 
 ### <a name="i-have-microsoft-peering-at-one-location-now-i-am-trying-to-enable-it-at-another-location-and-i-am-not-seeing-any-prefixes"></a>我在某個位置有 Microsoft 對等互連，現在正嘗試於另一個位置啟用它，但沒有看見任何首碼。
 
 * 在 2017 年 8 月 1 日以前設定之 ExpressRoute 線路的 Microsoft 對等互連，會透過 Microsoft 對等互連公告所有服務首碼，即使未定義路由篩選也一樣。
 
 * 在 2017 年 8 月 1 日當日或以後設定之 ExpressRoute 線路的 Microsoft 對等互連，不會公告任何首碼，直到路由篩選連結至線路為止。 根據預設，您不會看見任何首碼。
-

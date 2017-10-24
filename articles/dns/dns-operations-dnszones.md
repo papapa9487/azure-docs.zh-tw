@@ -11,14 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2016
+ms.date: 09/22/2016
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: e2b3efe7f247c4ffee11ab437860ecbc95036cd7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/01/2017
-
+ms.openlocfilehash: 3f28e70bb6ef46f53375d256a520db40fcb71ad0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>如何管理使用 PowerShell 的 DNS 區域
 
@@ -50,6 +49,8 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
 ```
+
+Azure DNS 現在也支援私人 DNS 區域 (目前是預覽功能)。  如需如何建立私人 DNS 區域的範例，請參閱[利用 PowerShell 開始使用 Azure DNS 私人區域](./private-dns-getstarted-powershell.md)。
 
 ## <a name="get-a-dns-zone"></a>取得 DNS 區域
 
@@ -171,5 +172,4 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 了解如何[將您的網域委派給 Azure DNS](dns-domain-delegation.md)。
 <br>
 檢閱 [Azure DNS PowerShell 參考文件](/powershell/module/azurerm.dns)。
-
 

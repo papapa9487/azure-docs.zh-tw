@@ -12,45 +12,42 @@ ms.devlang: cpp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 09/19/2017
 ms.author: andbuc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: e7eb2931993daf3f0aecbd4a43d27ebd5adc10b0
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: 0aa1836ee1445894022b95fefc2338ef53698240
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-iot-edge-to-send-device-to-cloud-messages-with-a-simulated-device-windows"></a>使用 Azure IoT Edge 搭配模擬裝置來傳送裝置到雲端訊息 (Windows)
 
 [!INCLUDE [iot-hub-iot-edge-simulated-selector](../../includes/iot-hub-iot-edge-simulated-selector.md)]
 
 [!INCLUDE [iot-hub-iot-edge-install-build-windows](../../includes/iot-hub-iot-edge-install-build-windows.md)]
 
-## <a name="how-to-run-the-sample"></a>如何執行範例
+## <a name="run-the-sample"></a>執行範例
 
 **build.cmd** 指令碼會在 **iot-edge** 存放庫本機複本的 **build** 資料夾中產生其輸出。 此輸出包含本範例中使用的四個 IoT Edge 模組。
 
-組建指令碼會放置：
+組建指令碼會建立下列檔案：
 
 * **build\\modules\\logger\\Debug** 資料夾中的 **logger.dll**。
 * **build\\modules\\iothub\\Debug** 資料夾中的 **iothub.dll**。
 * **build\\modules\\identitymap\\Debug** 資料夾中的 **identity\_map.dll**。
 * **build\\modules\\simulated\_device\\Debug** 資料夾中的 **simulated\_device.dll**。
 
-使用這些路徑作為**模組路徑**值，如下列 JSON 設定檔所示：
+使用這些路徑作為**模組路徑**值，如 simulated\_device\_cloud\_upload\_win JSON 設定檔所示。
 
-simulated\_device\_cloud\_upload\_sample 程序會採用 JSON 組態檔的路徑作為命令列引數。 下列範例 JSON 檔會提供於 SDK 存放庫中，位置為：**samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_sample\_win.json**。 除非您修改 build 指令碼以將 IoT Edge 模組或範例可執行檔放置在非預設位置，否則此組態檔將保有原始功能。
+simulated\_device\_cloud\_upload sample 程序會採用 JSON 組態檔的路徑作為命令列引數。 下列範例 JSON 檔會提供於 SDK 存放庫中，位置為：**samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json**。 除非您修改 build 指令碼以將 IoT Edge 模組或範例可執行檔放置在非預設位置，否則此組態檔將保有原始功能。
 
 > [!NOTE]
 > 模組路徑是相對於 simulated\_device\_cloud\_upload\_sample.exe 所在的目錄。 範例 JSON 組態檔的預設值為在目前的工作目錄中寫入 'deviceCloudUploadGatewaylog.log'。
 
-在文字編輯器中，開啟 **iot-edge** 存放庫之本機複本中的 **samples\\simulated\_device\_cloud\_upload\_sample\\src\\simulated\_device\_cloud\_upload\_win.json** 檔案。 這個檔案會設定閘道範例中的 IoT Edge 模組︰
+在文字編輯器中，開啟 **iot-edge** 存放庫之本機複本中的 **samples\\simulated\_device\_cloud\_upload\\src\\simulated\_device\_cloud\_upload\_win.json** 檔案。 這個檔案會設定閘道範例中的 IoT Edge 模組︰
 
 * **IoTHub** 模組會連接至您的 IoT 中樞。 您必須設定它，以將資料傳送至您的 IoT 中樞。 特別是將 **IoTHubName** 值設定為 IoT 中樞的名稱，並將 **IoTHubSuffix** 值設定為 **azure-devices.net**。 將 **Transport** 值設定為 **HTTP**、**AMQP** 或 **MQTT** 其中一個。 目前只有 **HTTP** 會為所有裝置訊息共用一個 TCP 連線。 如果您將值設定為 **AMQP** 或 **MQTT**，閘道會為每個裝置維持一個連至 IoT 中樞的個別 TCP 連線。
-* **mapping** 模組會將您模擬裝置的 MAC 位址對應到您 IoT 中樞裝置識別碼。 請確定 **deviceId** 值符合您新增至 IoT 中樞之兩個裝置的識別碼，而且 **deviceKey** 值包含這兩個裝置的金鑰。
+* **mapping** 模組會將您模擬裝置的 MAC 位址對應到您 IoT 中樞裝置識別碼。 將 **deviceId** 值設定為您新增至 IoT 中樞的兩個裝置之識別碼。 將 **deviceKey** 的值設定為兩個裝置的金鑰。
 * **BLE1** 和 **BLE2** 模組是模擬裝置。 請注意模組 MAC 位址如何符合 **mapping** 模組中的 MAC 位址。
 * **Logger** 模組會將閘道活動記錄到檔案。
 * 下列範例中顯示的**模組路徑**值是相對於 simulated\_device\_cloud\_upload\_sample.exe 所在的目錄。
@@ -104,7 +101,8 @@ simulated\_device\_cloud\_upload\_sample 程序會採用 JSON 組態檔的路徑
           }
           },
           "args": {
-            "macAddress": "01:01:01:01:01:01"
+            "macAddress": "01:01:01:01:01:01",
+            "messagePeriod" : 2000
           }
         },
       {
@@ -116,7 +114,8 @@ simulated\_device\_cloud\_upload\_sample 程序會採用 JSON 組態檔的路徑
           }
           },
           "args": {
-            "macAddress": "02:02:02:02:02:02"
+            "macAddress": "02:02:02:02:02:02",
+            "messagePeriod" : 2000
           }
         },
       {

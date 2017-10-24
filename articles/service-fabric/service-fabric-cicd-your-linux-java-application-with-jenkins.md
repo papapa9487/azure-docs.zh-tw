@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 32d39e2c19348bc4a1ba218cfc411a70f9f212e3
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>使用 Jenkins 建置和部署您的 Linux Java 應用程式
 Jenkins 是連續整合和部署應用程式的熱門工具。 以下是使用 Jenkins 建置和部署 Azure Service Fabric 應用程式的方式。
@@ -51,6 +50,10 @@ cd service-fabric-java-getting-started/Services/JenkinsDocker/
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
+> [!NOTE]
+> 若要掛接 cifs 共用，您需要在叢集節點中安裝 cifs Utils 套件。 
+>
+
 4. 將 ```setupentrypoint.sh``` 指令碼中的預留位置值更新成對應的 Azure 儲存體詳細資料。
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
@@ -69,7 +72,7 @@ bash Scripts/install.sh
 1. 從瀏覽器中，前往 ``http://PublicIPorFQDN:8081``。 它會提供登入所需之初始管理密碼的路徑。 您可以繼續使用 Jenkins 做為管理員使用者。 或者您可以在使用初始管理帳戶登入之後建立及變更使用者。
 
    > [!NOTE]
-   > 建立叢集時，請確定 8081 連接埠指定為應用程式端點連接埠。
+   > 建立應用程式時，請確定 8081 連接埠已指定為應用程式端點連接埠 (而且叢集中的連接埠已開啟)。
    >
 
 2. 使用 ``docker ps -a`` 取得容器執行個體識別碼。
@@ -171,4 +174,3 @@ bash Scripts/install.sh
   <!-- Images -->
   [build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/build-step.png
   [post-build-step]: ./media/service-fabric-cicd-your-linux-java-application-with-jenkins/post-build-step.png
-

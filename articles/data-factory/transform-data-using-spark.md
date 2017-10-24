@@ -11,22 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/29/2017
 ms.author: shengc
+ms.openlocfilehash: f1548c6ad397a7154482fa73e992aef9201c5752
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecef890d26aa097d9a5db63555ae59e16e80c9e1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版 - 正式推出](v1/data-factory-spark.md)
 > * [第 2 版 - 預覽](transform-data-using-spark.md)
 
-
-Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](transform-data.md)。 此活動會在 Azure HDInsight 中 Apache Spark 叢集上執行指定的 Spark 程式。    
+Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在[您自己的](compute-linked-services.md#azure-hdinsight-linked-service) HDInsight 叢集上或[隨選](compute-linked-services.md#azure-hdinsight-on-demand-linked-service)執行 Spark 程式。 本文是根據 [資料轉換活動](transform-data.md) 一文，它呈現資料轉換和支援的轉換活動的一般概觀。 當您使用隨選 Spark 連結的服務時，Data Factory 會自動為您建立 Spark 叢集 Just-In-Time 以處理資料，一旦處理完成之後就會刪除叢集。 
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用第 1 版的 Data Factory 服務，也就是正式推出 (GA) 的版本，請參閱[第 1 版的 Spark 活動](v1/data-factory-spark.md)。
@@ -72,7 +70,7 @@ Spark 活動是 Azure Data Factory 所支援的其中一個[資料轉換活動](
 | 名稱                  | 管線中的活動名稱。    | 是      |
 | 說明           | 說明活動用途的文字。  | 否       |
 | 類型                  | 對於 Spark 活動，活動類型為 HDInsightSpark。 | 是      |
-| linkedServiceName     | Spark 程式執行所在的 HDInsight Spark 連結服務名稱。 若要深入了解此連結服務，請參閱[計算連結服務](compute-linked-services.md)一文。 | 是      |
+| linkedServiceName     | Spark 程式執行所在的 HDInsight Spark 連結服務名稱。 若要深入了解此已連結的服務，請參閱[計算已連結的服務](compute-linked-services.md)一文。 | 是      |
 | SparkJobLinkedService | 存放 Spark 作業檔案、相依性和記錄的 Azure 儲存體連結服務。  如果您未指定此屬性的值，則會使用與 HDInsight 叢集相關聯的儲存體。 | 否       |
 | rootPath              | Spark 檔案所在的 Azure Blob 容器和資料夾。 檔案名稱有區分大小寫。 如需了解此資料夾結構的詳細資料，請參閱資料夾結構一節 (下一節)。 | 是      |
 | entryFilePath         | Spark 程式碼/套件之根資料夾的相對路徑。 | 是      |
@@ -129,4 +127,3 @@ SparkJob2
 * [.NET 自訂活動](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning 批次執行活動](transform-data-using-machine-learning.md)
 * [預存程序活動](transform-data-using-stored-procedure.md)
-

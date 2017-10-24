@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
+ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 32e5c2c7c058267c7a2c43d5264922c8a4cab83a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
 成本管理資料的存取權是由使用者或實體管理所提供。 Cloudyn 使用者帳戶可決定「實體」和系統管理功能的存取權。 存取權的類型有兩種：系統管理員和使用者。 除非依照使用者進行修改，否則系統管理員存取權允許使用者無限制使用 Cloudyn 入口網站中的所有功能，包括：使用者管理、收件者清單管理，以及所有實體資料的根實體存取權。 使用者存取權主要可供使用者檢視報告，以及使用其擁有的實體資料存取權來建立報告。
@@ -80,8 +77,7 @@ ms.lasthandoff: 09/25/2017
 > * 建立具有使用者存取權的使用者
 > * 管理實體
 
-前往 Cloudyn 文件，深入了解如何開始使用 Cloudyn 及使用其功能。
+前進到下一個教學課程，以了解如何使用歷程記錄資料預測花費。
 
 > [!div class="nextstepaction"]
-> [Cloudyn 文件](https://support.cloudyn.com/hc/)
-
+> [測未來花費](tutorial-forecast-spending.md)

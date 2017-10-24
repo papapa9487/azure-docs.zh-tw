@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>設定應用程式的安全性原則
 藉由使用 Azure Service Fabric，您便可以保護在叢集中以不同使用者帳戶執行的應用程式。 在以該使用者帳戶部署時，Service Fabric 也會協助保護應用程式所使用的資源，例如檔案、目錄和憑證。 如此一來，即使在共用主控環境中，執行中的應用程式就不會彼此干擾。
@@ -140,6 +138,8 @@ C:\SfDevCluster\Data\_App\Node.2\MyApplicationType_App\work\out.txt
    </Principals>
 </ApplicationManifest>
 ```
+
+對於 Linux 叢集，若要以 **root** 身分執行服務或安裝程式進入點，您可以將 **AccountType** 指定為 **LocalSystem**。
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>從安裝程式進入點啟動 PowerShell 命令
 若要從 **SetupEntryPoint** 點執行 PowerShell，您可以在指向 PowerShell 檔案的批次檔中執行 **PowerShell.exe**。 首先，將 PowerShell 檔案新增至服務專案，例如 **MySetup.ps1**。 請記得設定 [有更新時才複製]  屬性，讓這個檔案也會包含於服務封裝內。 下列範例顯示的範例批次檔可啟動名為 MySetup.ps1 的 PowerShell 檔案，以設定名為 **TestVariable** 的系統環境變數。
@@ -423,4 +423,3 @@ Test-AdServiceAccount svc-Test$
 * [部署應用程式](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-

@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-translationtype: Human Translation
-ms.sourcegitcommit: 94e13ac6fec09081484a2f7f5d7bc1871822743f
-ms.openlocfilehash: 2ebe71c96fd9076a48f689041634dbd23d3d8414
-
+ms.openlocfilehash: 464e5e2b2d9678bef002497588eac60db074f9bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>如何在 Azure API 管理中使用用戶端憑證驗證來保護後端服務
 API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 本指南將示範如何在 API 發行者入口網站內管理憑證，以及如何設定 API 以使用憑證來存取其後端服務。
@@ -60,7 +61,7 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 �
 
 ![Certificate uploaded][api-management-certificate-uploaded]
 
-待憑證上傳完畢後，它會顯示在 [用戶端憑證]  索引標籤中。 如果您擁有多個憑證，請記下主體或指紋的最後四個字元，因為在設定 API 以使用憑證時，您可以利用它們來選取憑證，如下文中的＜[設定 API 以使用用戶端憑證來驗證閘道][Configure an API to use a client certificate for gateway authentication]＞一節所述。
+待憑證上傳完畢後，它會顯示在 [用戶端憑證]  索引標籤中。如果您擁有多個憑證，請記下主體或指紋的最後四個字元，因為在設定 API 以使用憑證時，您可以利用它們來選取憑證，如下文中的＜[設定 API 以使用用戶端憑證來驗證閘道][Configure an API to use a client certificate for gateway authentication]＞一節所述。
 
 > 若要在使用自我簽署的憑證時關閉憑證鏈結驗證，請遵循此常見問題集[項目](api-management-faq.md#can-i-use-a-self-signed-ssl-certificate-for-a-back-end)中所述的步驟。
 > 
@@ -106,6 +107,15 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 �
 
 ![Certificate policy][api-management-certificate-policy]
 
+## <a name="self-signed-certificates"></a>自我簽署憑證
+
+如果您使用自我簽署憑證，則需要停用信任鏈結驗證，API 管理才能與後端系統通訊，否則會傳回 500 錯誤碼。 若要這樣設定，請使用 [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (適用於新的後端) 或 [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (適用於現有的後端) PowerShell Cmdlet，並將 `-SkipCertificateChainValidation` 參數設定為 `True`。
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
+
 ## <a name="next-steps"></a>後續步驟
 如需其他用來保護您後端服務方式的詳細資訊，例如 HTTP Basic 或共用密碼驗證，請參閱下列影片。
 
@@ -141,7 +151,7 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 �
 
 [Azure API Management REST API Certificate entity]: http://msdn.microsoft.com/library/azure/dn783483.aspx
 [WebApp-GraphAPI-DotNet]: https://github.com/AzureADSamples/WebApp-GraphAPI-DotNet
-[to configure certificate authentication in Azure WebSites refer to this article]: https://azure.microsoft.com/en-us/documentation/articles/app-service-web-configure-tls-mutual-auth/
+[to configure certificate authentication in Azure WebSites refer to this article]: ../app-service/app-service-web-configure-tls-mutual-auth.md
 
 [Prerequisites]: #prerequisites
 [Upload a client certificate]: #step1
@@ -150,11 +160,5 @@ API 管理提供以用戶端憑證保護 API 後端服務之存取的功能。 �
 [Test the configuration by calling an operation in the Developer Portal]: #step3
 [Next steps]: #next-steps
 
-
-
-
-
-
-<!--HONumber=Jan17_HO5-->
 
 

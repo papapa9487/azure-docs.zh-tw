@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: cynthn
+ms.openlocfilehash: 9ae27e6abc239fe76288e64a996ec39ba7782822
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9d16d16f0e57fab9f1827c37f181e579c627b3d9
-ms.openlocfilehash: e259a9cf42719fb0426dce09b5526fa43585bb26
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="attach-a-data-disk-to-a-windows-vm-using-powershell"></a>使用 PowerShell 將資料磁碟附加至 Windows VM
 
 本文說明如何使用 PowerShell 將新的及現有的磁碟附加至 Windows 虛擬機器。 如果您的 VM 使用受控磁碟，您可以附加其他受控資料磁碟。 您也可以將非受控資料磁碟附加到使用儲存體帳戶中非受控磁碟的 VM。
@@ -31,13 +29,9 @@ ms.lasthandoff: 09/25/2017
 * 虛擬機器的大小會控制您可以連接的資料磁碟數目。 如需詳細資訊，請參閱 [虛擬機器的大小](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 * 若要使用進階儲存體，您需要啟用進階儲存體的 VM 大小，像是 DS 系列或 GS 系列的虛擬機器。 您可以使用進階或標準儲存體帳戶的磁碟搭配這些虛擬機器。 僅特定地區可用進階儲存體。 如需詳細資訊，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../storage/common/storage-premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-## <a name="before-you-begin"></a>開始之前
-如果您使用 PowerShell，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組。 執行下列命令來安裝它。
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-```powershell
-Install-Module AzureRM.Compute -RequiredVersion 2.6.0
-```
-如需詳細資訊，請參閱 [Azure PowerShell 版本控制](/powershell/azure/overview)。
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組版本 3.6 或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>將空的資料磁碟新增至虛擬機器
@@ -46,7 +40,7 @@ Install-Module AzureRM.Compute -RequiredVersion 2.6.0
 
 ### <a name="using-managed-disks"></a>使用受控磁碟
 
-```powershell
+```azurepowershell-interactive
 $rgName = 'myResourceGroup'
 $vmName = 'myVM'
 $location = 'West Central US' 
@@ -86,7 +80,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-unmanaged-disks-in-a-storage-account"></a>使用儲存體帳戶中的非受控磁碟
 
-```powershell
+```azurepowershell-interactive
     $vm = Get-AzureRmVM -ResourceGroupName $rgName -Name $vmName
     Add-AzureRmVMDataDisk -VM $vm -Name "disk-name" -VhdUri "https://mystore1.blob.core.windows.net/vhds/datadisk1.vhd" -LUN 0 -Caching ReadWrite -DiskSizeinGB 1 -CreateOption Empty
     Update-AzureRmVM -ResourceGroupName $rgName -VM $vm
@@ -97,7 +91,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 新增空的磁碟之後，您需要將它初始化。 若要初始化磁碟，您可以登入 VM 並使用磁碟管理。 如果您在建立時於 VM 上啟用 WinRM 和憑證，您可以使用遠端 PowerShell 來初始化磁碟。 您也可以使用自訂指令碼擴充： 
 
-```powershell
+```azurepowershell-interactive
     $location = "location-name"
     $scriptName = "script-name"
     $fileName = "script-file-name"
@@ -106,7 +100,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
         
 指令碼檔案可以包含如下的程式碼來初始化磁碟︰
 
-```powershell
+```azurepowershell-interactive
     $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
     $letters = 70..89 | ForEach-Object { [char]$_ }
@@ -130,7 +124,7 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks"></a>使用受控磁碟
 
-```powershell
+```azurepowershell-interactive
 $rgName = 'myRG'
 $vmName = 'ContosoMdPir3'
 $location = 'West Central US' 
@@ -152,4 +146,3 @@ Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
 ## <a name="next-steps"></a>後續步驟
 
 建立[快照集](snapshot-copy-managed-disk.md)。
-

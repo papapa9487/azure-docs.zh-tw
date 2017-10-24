@@ -16,14 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: donnam
+ms.openlocfilehash: ab438f804c28d5528901c405311424e0344e00fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 54c75a4c22f094ca50ab2cbf5449c5fa115b32a7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 觸發程序和繫結概念
 Azure Functions 可讓您撰寫程式碼，以透過「觸發程序」和「繫結」回應 Azure 和其他服務中的事件。 此文章是適用於所有支援之程式設計語言的觸發程序和繫結的概念性概觀。 這裡描述所有繫結的通用功能。
 
@@ -43,21 +41,21 @@ Azure Functions 可讓您撰寫程式碼，以透過「觸發程序」和「繫�
 
 ### <a name="example-queue-trigger-and-table-output-binding"></a>範例︰佇列觸發程序和資料表輸出繫結
 
-假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列觸發程序和資料表輸出繫結來實作。 
+假設您想要每當新訊息出現在 Azure 佇列儲存體時，就在 Azure 表格儲存體寫入新的資料列。 此案例可以使用 Azure 佇列觸發程序和 Azure 資料表儲存體輸出繫結來實作。 
 
-佇列觸發程序需要 [整合] 索引標籤中的下列資訊：
+Azure 佇列儲存體觸發程序需要 [整合] 索引標籤中的下列資訊：
 
-* 包含佇列的儲存體帳戶連接字串之應用程式設定的名稱
+* 包含 Azure 佇列儲存體的 Azure 儲存體帳戶連接字串之應用程式設定的名稱
 * 佇列名稱
 * 程式碼中讀取佇列訊息內容所需的識別項，例如 `order`。
 
 若要寫入 Azure 表格儲存體，可以使用包含下列詳細資料的輸出繫結：
 
-* 包含資料表的儲存體帳戶連接字串之應用程式設定的名稱
+* 包含 Azure 資料表儲存體的 Azure 儲存體帳戶連接字串之應用程式設定的名稱
 * 資料表名稱
 * 程式碼中建立輸出項目的識別項，或來自函數的傳回值。
 
-繫結將應用程式設定用於連接字串，以強制遵循 *function.json* 不包含服務祕密的最佳做法。
+繫結會使用儲存在應用程式設定的連接字串值，來強制執行最佳做法，也就是 function.json 不包含服務密碼，而是只包含應用程式設定的名稱。
 
 然後，在程式碼中使用提供的識別項來與 Azure 儲存體整合。
 
@@ -168,7 +166,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 {
     string json = string.Format("{{ \"id\": \"{0}\" }}", input.Id);
     log.Info($"C# script processed queue message. Item={json}");
-    return json;
+    return Task.FromResult(json);
 }
 ```
 
@@ -191,7 +189,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 ## <a name="binding-datatype-property"></a>繫結 dataType 屬性
 
-在.NET 中會使用類型定義輸入資料的資料類型。 例如，使用 `string` 繫結至要以二進位格式讀取之佇列觸發程序和位元組陣列的文字。
+在.NET 中會使用類型定義輸入資料的資料類型。 例如，使用 `string` 繫結至要以二進位格式和自訂類型讀取以還原序列化為 POCO 物件之佇列觸發程序和位元組陣列的文字。
 
 對於 JavaScript 等具有動態類型的語言，則會在繫結定義中使用 `dataType` 屬性。 例如，若要以二進位格式讀取 HTTP 要求的內容，請使用類別 `binary`：
 
@@ -213,7 +211,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 只要某個值是以百分比符號括住 (例如 `%MyAppSetting%`)，就會解析應用程式設定。 請注意，觸發程序和繫結的 `connection` 屬性是特殊案例，且會自動將值解析為應用程式設定。 
 
-下列範例是使用應用程式設定 `%input-queue-name%` 來定義要觸發之佇列的佇列觸發程序。
+下列範例是使用應用程式設定 `%input-queue-name%` 來定義要觸發之佇列的 Azure 佇列儲存體觸發程序。
 
 ```json
 {
@@ -233,7 +231,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 除了觸發程序提供的資料承載 (例如觸發函數的佇列訊息) 之外，許多觸發程序都提供額外的中繼資料值。 這些值可以在 C# 和 F# 中作為輸入參數使用，或在 JavaScript 中做為 `context.bindings` 物件上的屬性使用。 
 
-例如，佇列觸發程序支援下列屬性：
+例如，Azure 儲存體佇列觸發程序支援下列屬性：
 
 * QueueTrigger - 如果是有效字串，便觸發訊息內容
 * DequeueCount
@@ -245,7 +243,7 @@ let Run(input: WorkItem, log: TraceWriter) =
 
 在對應的參考主題中，會描述每個觸發程序之中繼資料屬性的詳細資料。 您也可以在入口網站的 [整合] 索引標籤中，繫結設定區域之下的 [文件] 區段取得文件。  
 
-例如，因為 Blob 觸發程序會有一些延遲，所以您可以使用佇列觸發程序來執行您的函數 (請參閱 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#storage-blob-trigger)。 佇列訊息會包含要在其上觸發的 Blob 檔案名稱。 使用 `queueTrigger` 中繼資料屬性，您只要在設定中就能指定此行為，而不需在程式碼中指定。
+例如，因為 Blob 觸發程序會有一些延遲，所以您可以使用佇列觸發程序來執行您的函數 (請參閱 [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#storage-blob-trigger))。 佇列訊息會包含要在其上觸發的 Blob 檔案名稱。 使用 `queueTrigger` 中繼資料屬性，您只要在設定中就能指定此行為，而不需在程式碼中指定。
 
 ```json
   "bindings": [
@@ -428,4 +426,3 @@ module.exports = function (context, info) {
 - [通知中樞](functions-bindings-notification-hubs.md)
 - [行動應用程式](functions-bindings-mobile-apps.md)
 - [外部檔案](functions-bindings-external-file.md)
-

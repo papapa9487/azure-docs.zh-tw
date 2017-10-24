@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: fe32c1d68040ceb9d9de2ad6c4a6dc9ea93f5aef
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>教學課程：Azure Active Directory 與 Central Desktop 整合
 本教學課程的目的是要示範 Azure 與 Central Desktop 的整合。 本教學課程中說明的案例假設您已經具有下列項目：
@@ -55,7 +55,7 @@ ms.lasthandoff: 07/11/2017
 6. 在**搜尋方塊**中，輸入 **Central Desktop**。
    
    ![應用程式資源庫](./media/active-directory-saas-central-desktop-tutorial/IC769559.png "應用程式資源庫")
-7. 在結果窗格中，選取 [Central Desktop]，然後按一下 [完成] 以加入應用程式。
+7. 在結果窗格中，選取 Central Desktop，然後按一下完成 以加入應用程式。
    
    ![Central Desktop](./media/active-directory-saas-central-desktop-tutorial/IC769560.png "Central Desktop")
    
@@ -68,7 +68,7 @@ ms.lasthandoff: 07/11/2017
 
 **若要設定單一登入，請執行下列步驟：**
 
-1. 在 Azure 傳統入口網站上**Central Desktop**應用程式整合頁面上，按一下 **設定單一登入**開啟 * * 設定單一登入 * * 對話方塊。
+1. 在 Azure 傳統入口網站的 [Central Desktop] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
    
    ![設定單一登入](./media/active-directory-saas-central-desktop-tutorial/IC749323.png "設定單一登入")
 2. 在 [要如何讓使用者登入 Central Desktop] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按 [下一步]。
@@ -88,7 +88,7 @@ ms.lasthandoff: 07/11/2017
    
   ![設定單一登入](./media/active-directory-saas-central-desktop-tutorial/IC769562.png "設定單一登入")
 5. 登入您的 **Central Desktop** 租用戶。
-6. 移至 [設定]，按一下 [進階]，然後按一下 [單一登入]。
+6. 移至 設定，按一下 進階，然後按一下單一登入。
    
   ![設定 - 進階](./media/active-directory-saas-central-desktop-tutorial/IC769563.png "設定 - 進階")
 7. 在 [單一登入設定]  頁面上，執行下列步驟：
@@ -111,7 +111,7 @@ ms.lasthandoff: 07/11/2017
       >  
    4. 選取 [顯示 SAMLv2 登入頁面的連結] 。
 9. 按一下 [更新] 。
-10. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+10. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
     
     ![設定單一登入](./media/active-directory-saas-central-desktop-tutorial/IC769566.png "設定單一登入")
     
@@ -149,7 +149,7 @@ AAD 使用者必須先佈建到 Central Desktop 應用程式，才可以登入�
 2. 在 [Central Desktop] 應用程式整合頁面上，按一下 [指派使用者]。
    
    ![指派使用者](./media/active-directory-saas-central-desktop-tutorial/IC769567.png "指派使用者")
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
    ![是](./media/active-directory-saas-central-desktop-tutorial/IC767830.png "是")
 

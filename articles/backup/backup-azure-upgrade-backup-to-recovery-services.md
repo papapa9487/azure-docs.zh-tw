@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>將備份保存庫升級至復原服務保存庫
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > 資源群組名稱具有條件約束。 請務必遵循指導方針；若無法這樣做，可能導致保存庫升級失敗。
 >
 >執行指令碼期間，**Azure 美國政府**客戶需要將環境設為「AzureUSGovernment」。
+>執行指令碼期間，**Azure 中國**客戶需要將環境設為「AzureChinaCloud」。
 
 下列程式碼片段是您 PowerShell 命令的範例︰
 
@@ -159,4 +159,3 @@ PowerShell 指令碼會提示您輸入認證。 輸入您的認證兩次︰一�
 [備份 IaaS VM](backup-azure-arm-vms-prepare.md)</br>
 [備份 Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)</br>
 [備份 Windows Server](backup-configure-vault.md)。
-

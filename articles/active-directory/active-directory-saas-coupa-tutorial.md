@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/10/2017
 ms.author: jeedes
 ms.openlocfilehash: c952975919cfd948f1b9ea93ff2ac2641a53f923
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>教學課程：Azure Active Directory 與 Coupa 整合
 本教學課程的目的是要示範 Azure 與 Coupa 的整合。  
@@ -58,7 +58,7 @@ ms.lasthandoff: 07/11/2017
 6. 在**搜尋方塊**中，輸入 **Coupa**。
    
    ![應用程式資源庫](./media/active-directory-saas-coupa-tutorial/IC791898.png "應用程式資源庫")
-7. 在結果窗格中，選取 [Coupa]，然後按一下 [完成] 來加入應用程式。
+7. 在結果窗格中，選取 Coupa，然後按一下完成 來加入應用程式。
    
    ![Coupa](./media/active-directory-saas-coupa-tutorial/IC791899.png "Coupa")
    
@@ -81,7 +81,7 @@ ms.lasthandoff: 07/11/2017
 5. 在 [Coupa] 應用程式整合頁面上，按一下 [設定單一登入] 來開啟 [設定單一登入] 對話方塊。
    
    ![設定單一登入](./media/active-directory-saas-coupa-tutorial/IC791902.png "設定單一登入")
-6. 在 [要如何讓使用者登入 Coupa] 頁面上，選取 [Microsoft Azure AD 單一登入]，然後按一下 [下一步]。
+6. 在 要如何讓使用者登入 Coupa 頁面上，選取 Microsoft Azure AD 單一登入，然後按一下下一步。
    
    ![設定單一登入](./media/active-directory-saas-coupa-tutorial/IC791903.png "設定單一登入")
 7. 在 [設定應用程式 URL]  頁面上，執行下列步驟：
@@ -103,7 +103,7 @@ ms.lasthandoff: 07/11/2017
    1. 選取 [使用 SAML 登入] 。
    2. 按一下 [瀏覽]  來上傳您下載的 Azure Active Directory 中繼資料檔。
    3. 按一下 [儲存] 。
-11. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下 [完成] 來關閉 [設定單一登入] 對話方塊。
+11. 在 Azure 傳統入口網站上，選取單一登入設定確認，然後按一下完成 來關閉 設定單一登入 對話方塊。
     
    ![設定單一登入](./media/active-directory-saas-coupa-tutorial/IC791907.png "設定單一登入")
     
@@ -116,7 +116,7 @@ ms.lasthandoff: 07/11/2017
 **若要設定使用者佈建，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 **Coupa** 公司網站。
-2. 在頂端的功能表中，按一下 [設定]，然後按一下 [使用者]。
+2. 在頂端的功能表中，按一下 設定，然後按一下使用者。
    
    ![使用者](./media/active-directory-saas-coupa-tutorial/IC791908.png "使用者")
 3. 按一下 [建立] 。
@@ -142,10 +142,10 @@ ms.lasthandoff: 07/11/2017
 **若要指派使用者給 Coupa，請執行下列步驟：**
 
 1. 在 Azure 傳統入口網站中建立測試帳戶。
-2. 在 * * Coupa * * 應用程式整合頁面上，按一下 **指派使用者**。
+2. 在 [Coupa] 應用程式整合頁面上，按一下 [指派使用者]。
    
    ![指派使用者](./media/active-directory-saas-coupa-tutorial/IC791911.png "指派使用者")
-3. 選取測試使用者，按一下 [指派]，然後按一下 [是] 以確認指派。
+3. 選取測試使用者，按一下 指派，然後按一下是 以確認指派。
    
    ![是](./media/active-directory-saas-coupa-tutorial/IC767830.png "是")
 

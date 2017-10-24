@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
+ms.openlocfilehash: e678d5d332b7fbbfeeebbea86efd7931bda15bb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 711d364c36c3aba699326f4a76d42891ba3219fb
-ms.contentlocale: zh-tw
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。
 在本教學課程中，您將使用 Twitter 串流 API 取得推文，然後使用 Apache Hive on Azure HDInsight 取得傳送了最多內含特定文字之推文的 Twitter 使用者清單。
@@ -88,21 +86,21 @@ Twitter 會使用 OAuth 提供對其 API 的授權存取。 OAuth 是一項驗�
    |  名稱 |MyHDInsightApp |
    |  說明 |MyHDInsightApp |
    |  網站 |http://www.myhdinsightapp.com |
-4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
-5. 按一下 [權限]  索引標籤。 預設權限為 [唯讀] 。 本教學課程使用預設值即可。
+4. 核取 是，我同意 然後按一下建立 Twitter 應用程式。
+5. 按一下 [權限]  索引標籤。預設權限為 [唯讀] 。 本教學課程使用預設值即可。
 6. 按一下 **[金鑰和存取權杖** ] 索引標籤。
 7. 按一下 [Create my access token] 。
 8. 按一下位於頁面右上角的 [測試 OAuth]  。
 9. 記下**消費者金鑰**、**消費者祕密**、**存取權杖**和**存取權杖祕密**。 稍後在教學課程中會用到這些值。
 
-在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。 如需 .NET C# 範例，請參閱[使用 HDInsight 中的 HBase 分析即時的 Twitter 情感][hdinsight-hbase-twitter-sentiment]。 另一項常用來發出 Web 服務呼叫的工具是 [*Curl*][curl]。 您可以從[這裡][curl-download]下載 Curl。
+在本教學課程中，您將使用 Windows PowerShell 發出 Web 服務呼叫。 另一項常用來發出 Web 服務呼叫的工具是 [*Curl*][curl]。 您可以從[這裡][curl-download]下載 Curl。
 
 > [!NOTE]
 > 在 Windows 上使用 curl 命令時，對選項值請使用雙引號，而不要使用單引號。
 
 **取得推文**
 
-1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 [開始] 畫面上輸入 **PowerShell_ISE**，然後按一下 [Windows PowerShell ISE]。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start]。)
+1. 開啟 Windows PowerShell 整合式指令碼環境 (ISE)。 (在 Windows 8 的 開始 畫面上輸入 **PowerShell_ISE**，然後按一下Windows PowerShell ISE。 請參閱[在 Windows 8 和 Windows 上啟動 Windows PowerShell][powershell-start]。)
 2. 將下列指令碼複製到指令碼窗格中：
 
     ```powershell
@@ -545,7 +543,6 @@ Write-Host "==================================" -ForegroundColor Green
 本教學課程中，我們看到如何將非結構化 JSON 資料集轉換成結構化 Hive 資料表，然後在 Azure 上使用 HDInsight 來查詢、探索和分析來自 Twitter 的資料。 若要深入了解，請參閱：
 
 * [開始使用 HDInsight][hdinsight-get-started]
-* [使用 HDInsight 中的 HBase 分析即時的 Twitter 情感][hdinsight-hbase-twitter-sentiment]
 * [使用 HDInsight 分析航班延誤資料][hdinsight-analyze-flight-delay-data]
 * [使用 Power Query 將 Excel 連接到 HDInsight][hdinsight-power-query]
 * [使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 HDInsight][hdinsight-hive-odbc]
@@ -571,5 +568,3 @@ Write-Host "==================================" -ForegroundColor Green
 [hdinsight-use-sqoop]: hdinsight-use-sqoop.md
 [hdinsight-power-query]: hdinsight-connect-excel-power-query.md
 [hdinsight-hive-odbc]: hdinsight-connect-excel-hive-odbc-driver.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
-

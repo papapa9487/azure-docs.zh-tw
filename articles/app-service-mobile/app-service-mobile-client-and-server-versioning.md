@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfe4957191ad5716f1086a1a332faf6a52406770
-ms.openlocfilehash: d74137dc3c994cb05e02c4f866043eabf134fcdd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 03/09/2017
-
+ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 和行動服務中的用戶端和伺服器版本控制
 Azure 行動服務的最新版本是 Azure App Service 的 **Mobile Apps** 功能。
@@ -80,7 +79,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="mobile-services-server-sdks"></a>行動「服務」  伺服器 SDK
 | 伺服器平台 | 版本 | 接受的版本標頭 |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* 版本 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**無版本標頭 ** |
+| .NET |[WindowsAzure.MobileServices.Backend.* 版本 1.0.x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**無版本標頭** |
 | Node.js |(敬請期待) |**無版本標頭** |
 
 <!-- TODO: add Node npm version -->
@@ -130,4 +129,3 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 [Mobile App Server SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
 [將行動服務移轉至 Azure App Service]: app-service-mobile-migrating-from-mobile-services.md
-

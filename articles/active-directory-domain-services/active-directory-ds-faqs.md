@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2017
+ms.date: 09/15/2017
 ms.author: maheshu
+ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
-ms.openlocfilehash: e8c2a8a7c3b5d61b2524eecceeaa4638fada78b8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -28,14 +27,17 @@ ms.lasthandoff: 09/06/2017
 如需設定或管理「Azure AD 網域服務」時會發生之常見問題的解決方式，請參閱 [疑難排解指南](active-directory-ds-troubleshooting.md) 。
 
 ### <a name="configuration"></a>組態
-#### <a name="can-i-create-multiple-domains-for-a-single-azure-ad-directory"></a>我可以針對單一 Azure AD 目錄建立多個網域嗎？
-否。 您只能針對單一 Azure AD 目錄，建立由 Azure AD 網域服務所服務的單一網域服務 。  
+#### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>我可以針對單一 Azure AD 目錄建立多個受管理網域嗎？
+否。 您只能針對單一 Azure AD 目錄，建立由 Azure AD Domain Services 所服務的單一受管理網域服務。  
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>是否可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD 網域服務？
 是。 可以啟用 Azure Resource Manager 虛擬網路中的 Azure AD Domain Services。 這項功能目前為預覽版本。
 
-#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>是否可以將我現有的受管理網域從傳統虛擬網路移轉到資源管理員虛擬網路？
-目前不支援。 我們在未來會提供一個機制，將現有的受管理網域從傳統虛擬網路移轉到資源管理員虛擬網路。 請密切注意最新消息。
+#### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>是否可以將我現有的受管理網域從傳統虛擬網路移轉到 Resource Manager 虛擬網路？
+目前不支援。 我們在未來會提供一個機制，將現有的受管理網域從傳統虛擬網路移轉到 Resource Manager 虛擬網路。
+
+#### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>是否可以在 Azure CSP (雲端方案提供者) 訂用帳戶中啟用 Azure AD Domain Services？
+否。 我們正努力新增 CSP 訂用帳戶的支援。
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>我可以在同盟 Azure AD 目錄中啟用 Azure AD Domain Services 嗎？ 我使用 ADFS 來驗證使用者存取 Office 365，且不會將密碼雜湊同步至 Azure AD。 我可以針對此目錄啟用 Azure AD Domain Services 嗎？
 不可以。 Azure AD Domain Services 需要存取使用者帳戶的密碼雜湊，以透過 NTLM 或 Kerberos 驗證使用者。 在同盟目錄中，密碼雜湊不是儲存在 Azure AD 目錄中。 因此，Azure AD Domain Services 不適用於此類 Azure AD 目錄。
@@ -48,6 +50,9 @@ ms.lasthandoff: 09/06/2017
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>「Azure AD 網域服務」是否可以在新的 Azure 入口網站中使用？
 是。 只能使用 [Azure 入口網站](https://portal.azure.com)來設定 Azure AD Domain Services。 我們未來預期要停止[傳統 Azure 入口網站](https://manage.windowsazure.com)的支援。
+
+#### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>是否可以使用 Resource Manager 範本啟用 Azure AD Domain Services？
+否。 啟用 Azure AD Domain Services 時需要執行某些工作。 這些工作無法透過 Resource Manager 範本進行。 請使用新的 Azure 入口網站來為您的目錄啟用 Azure AD Domain Services。
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>可以將網域控制站新增至 Azure AD 網域服務管理的網域嗎？
 否。 Azure AD 網域服務所提供的網域是受管理的網域。 您不需要佈建、設定或管理此網域的網域控制站 - Microsoft 會以服務形式提供這些管理活動。 因此，您無法為受管理的網域新增其他網域控制站 (讀寫或唯讀)。
@@ -82,11 +87,10 @@ ms.lasthandoff: 09/06/2017
 此服務隨附於 Azure 的免費試用版。 您可以註冊以 [免費試用 Azure 一個月](https://azure.microsoft.com/pricing/free-trial/)。
 
 #### <a name="can-i-pause-an-azure-ad-domain-services-managed-domain"></a>我能否暫停 Azure AD Domain Services 受管理的網域？ 
-否。 啟用 Azure AD Domain Services 受管理的網域後，您選取的虛擬網路中即有該服務可供使用，直到您停用/刪除受管理的網域為止。 無法暫停服務。 除非您刪除受管理的網域，否則將以每小時計費。
+否。 啟用 Azure AD Domain Services 受管理的網域後，您選取的虛擬網路中即有該服務可供使用，直到您停用/刪除受管理的網域為止。 無法暫停服務。 除非您刪除受管理網域，否則會以每小時計費。
 
 #### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>我可以從 Enterprise Mobility Suite (EMS) 中取得 Azure AD 網域服務嗎？ 我是否需要 Azure AD Premium 才能使用 Azure AD 網域服務？
 否。 Azure AD 網域服務是隨用隨付的 Azure 服務，並不是 EMS 的一部分。 Azure AD Domain Services 可以與所有 Azure AD 版本 (免費、基本及進階) 搭配使用。 計費方式是每小時依據使用量計費。
 
 #### <a name="what-azure-regions-is-the-service-available-in"></a>哪些 Azure 區域提供此服務？
 請參閱[依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/)頁面，以查看可使用 Azure AD 網域服務的 Azure 區域清單。
-

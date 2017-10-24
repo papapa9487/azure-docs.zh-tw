@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: f4d8efe9814bd28bb902567a23b541bc9b5414a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 0ba30ca4687248a27d9fe72acdc65a95114a437f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-documentdb-api"></a>如何使用 DocumentDB API 來設定 Azure Cosmos DB 全域散發
 
@@ -46,7 +45,7 @@ SDK 會自動將所有寫入傳送至目前的寫入區域。
 
 所有讀取都將傳送至 PreferredLocations 清單中的第一個可用區域。 如果要求失敗，用戶端將無法往下到清單中的下一個區域，依此類推。
 
-SDK 只會嘗試從 PreferredLocations 中指定的區域讀取。 因此，比方說，如果資料庫帳戶可供三個區域使用，但用戶端只針對 PreferredLocations 指定其中兩個非寫入區域，則將不會在該寫入區域以外的地方提供讀取服務，即使發生容錯移轉也一樣。
+SDK 只會嘗試從 PreferredLocations 中指定的區域讀取。 因此，比方說，如果資料庫帳戶可供四個區域使用，但用戶端只針對 PreferredLocations 指定其中兩個讀取 (非寫入) 區域，則將不會在 PreferredLocations 中未指定的讀取區域以外地方提供讀取服務。 如果 PreferredLocations 中指定的讀取區域無法使用，就會在寫入區域以外地方提供讀取服務。
 
 應用程式可以藉由檢查兩個屬性 (WriteEndpoint 和 ReadEndpoint，適用於 SDK 1.8 版和以上版本) 來確認 SDK 目前所選擇的寫入端點和讀取端點。
 
@@ -177,5 +176,4 @@ var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPoli
 > [使用模擬器在本機進行開發](local-emulator.md)
 
 [regions]: https://azure.microsoft.com/regions/
-
 

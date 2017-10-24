@@ -16,10 +16,10 @@ ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
 ms.openlocfilehash: 2ecd07faed785fa6aa179ac1cca35a70d965e1dc
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection 腳本
 這個腳本可協助您︰
@@ -96,7 +96,7 @@ Azure Active Directory Identity Protection：
 2. 瀏覽至 [Identity Protection] 。 
 3. 在主要的 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。 
 4. 在 [入口網站設定] 刀鋒視窗的 [安全性規則] 之下，按一下 [使用者入侵風險]。 
-5. 在 [登入風險] 刀鋒視窗上，關閉 [啟用規則]，然後按一下 [儲存] 設定。
+5. 在 登入風險 刀鋒視窗上，關閉 啟用規則，然後按一下儲存 設定。
 6. 對於指定的使用者帳戶，模擬不熟悉位置或匿名 IP 風險事件。 這會將該使用者的使用者風險層級提升至 [中] 。
 7. 等候幾分鐘，然後確認使用者的使用者層級為 [中] 。
 8. 移至 [入口網站設定]  刀鋒視窗。
@@ -119,7 +119,7 @@ Azure Active Directory Identity Protection：
 2. 瀏覽至 [Identity Protection] 。
 3. 在主要的 [Azure AD Identity Protection] 刀鋒視窗上，按一下 [設定]。 
 4. 在 [入口網站設定] 刀鋒視窗的 [安全性規則] 之下，按一下 [登入風險]。
-5. 在 * * 登入風險 * * 刀鋒視窗中，選取**上**下**規則啟用**。 
+5. 在 [登入風險] 刀鋒視窗中，選取 [啟用規則] 之下的 [開啟]。 
 6. 選取下列其中一個選項：
    
    a. 若要封鎖，請選取 [封鎖登入] 之下的 [中]

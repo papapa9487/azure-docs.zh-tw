@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services：開始使用 | Microsoft Docs"
-description: "使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services"
+description: "使用 Azure 入口網站啟用 Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 26fa86d166c54f48621ccbab13d1d17f465b7568
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: dd4a45c4eae6832026bce82670e914f5a02bbff7
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>使用 Azure 入口網站 (預覽) 啟用 Azure Active Directory Domain Services
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
 
 ## <a name="before-you-begin"></a>開始之前
@@ -34,6 +33,11 @@ ms.lasthandoff: 08/29/2017
 1. 按一下 [虛擬網路] 以選取虛擬網路。
 2. 在 [選擇虛擬網路] 刀鋒視窗中，您會看到所有現有的虛擬網路。 您只會看到隸屬於您在 [基本] 精靈分頁上選取之資源群組和 Azure 位置的虛擬網路。
 3. 選擇應該在其中啟用 Azure AD Domain Services 的虛擬網路。 您可以選取現有的虛擬網路或建立新的虛擬網路。
+
+  > [!TIP]
+  > **啟用 Azure AD Domain Services 後，無法將受管理網域移至不同的虛擬網路。** 挑選要啟用受管理網域的適當虛擬網路。 建立受管理網域之後，您無法在未刪除受管理網域的情況下，將其移動至不同的虛擬網路。 在繼續之前，建議您檢閱 [Azure Active Directory Domain Services 的網路考量](active-directory-ds-networking.md)。  
+  >
+
 4. **建立虛擬網路：**若要建立新的虛擬網路，請按一下 [新建]。 強烈建議針對 Azure AD Domain Services 使用專用子網路。 例如，建立具有名稱 'DomainServices' 的子網路，讓其他系統管理員容易了解子網路內部署的內容。 完成後，按一下 [確定]。
 
     ![挑選虛擬網路](./media/getting-started/domain-services-blade-network-pick-vnet.png)
@@ -54,4 +58,3 @@ ms.lasthandoff: 08/29/2017
 
 ## <a name="next-step"></a>後續步驟
 [工作 3：設定系統管理群組並啟用 Azure AD Domain Services](active-directory-ds-getting-started-admingroup.md)
-

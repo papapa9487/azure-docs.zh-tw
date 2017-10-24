@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
+ms.openlocfilehash: 1c62d2390709577bfde6225b783642fb55396a6b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
-ms.openlocfilehash: 3bc631606afbc93d5bca94f4955fd2ef816fa9fd
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/09/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>在反向 proxy 監視和診斷要求處理
 
@@ -158,7 +157,7 @@ ms.lasthandoff: 08/09/2017
     
     如果只針對重大/錯誤事件啟用收集功能，您會看到一個包含逾時相關詳細資料和解析嘗試次數的事件。 
     
-    如果服務有意將 404 狀態碼傳回給使用者，應隨附 "X-ServiceFabric" 標頭。 修正此問題後，您會看到反向 proxy 會將狀態碼轉送回用戶端。  
+    想要回傳 404 狀態碼給使用者的服務，應在回應中新增 X-ServiceFabric 標頭。 將標頭新增到回應後，反向 proxy 就會將狀態碼轉送回用戶端。  
 
 4. 用戶端已中斷要求連線的情況。
 
@@ -180,6 +179,18 @@ ms.lasthandoff: 08/09/2017
       }
     }
     ```
+5. 反向 Proxy 傳回 404 FABRIC_E_SERVICE_DOES_NOT_EXIST
+
+    如果您未在服務資訊清單中指定服務端點的 URI 配置，就會傳回 FABRIC_E_SERVICE_DOES_NOT_EXIST 錯誤。
+
+    ```
+    <Endpoint Name="ServiceEndpointHttp" Port="80" Protocol="http" Type="Input"/>
+    ```
+
+    若要解決此問題，請在資訊清單中指定 URI 配置。
+    ```
+    <Endpoint Name="ServiceEndpointHttp" UriScheme="http" Port="80" Protocol="http" Type="Input"/>
+    ```
 
 > [!NOTE]
 > 目前不記錄 Websocket 要求處理的相關事件。 這將在下一版中新增。
@@ -189,4 +200,3 @@ ms.lasthandoff: 08/09/2017
 * 若要在 Visual Studio 中檢視 Service Fabric 事件，請參閱[在本機上監視及診斷](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。
 * 如需 Azure Resource Manager 範本範例，以便使用不同的服務憑證驗證選項來設定安全反向 Proxy，請參閱[設定反向 Proxy 以連接安全的服務](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)。
 * 如需詳細資訊，請讀取 [Service Fabric 反向 proxy](service-fabric-reverseproxy.md)。
-

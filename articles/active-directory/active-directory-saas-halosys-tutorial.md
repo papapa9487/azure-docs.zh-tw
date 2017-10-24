@@ -14,10 +14,10 @@ ms.workload: identity
 ms.date: 02/22/2017
 ms.author: jeedes
 ms.openlocfilehash: 18c5cd8eb4ca211f8ae2b8dd994c0e8c48625a2f
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>教學課程：Azure Active Directory 與 Halosys 整合
 
@@ -84,7 +84,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_01.png)
     
-7. 在結果窗格中，選取 [Halosys]，然後按一下 [完成] 以新增應用程式。
+7. 在結果窗格中，選取 Halosys，然後按一下完成 以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
 
@@ -168,7 +168,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_04.png) 
 
-5. 在**告訴我們這位使用者**對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
+5. 在 [告訴我們這位使用者] 對話方塊頁面上，執行下列步驟：![建立 Azure AD 測試使用者](./media/active-directory-saas-Halosys-tutorial/create_aaduser_05.png) 
 
     a. 針對 [使用者類型]，選取 [您組織中的新使用者]。
 

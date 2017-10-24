@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 09/21/2017
 ms.author: maheshu
+ms.openlocfilehash: b73bfc7703d79681f0de345f4ec994da540aa2a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 72514dabf3af0b282d1bb49c542c13f7095e03d8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>部署案例和使用案例
 在本節中，我們會看一些受益於 Azure Active Directory (AD) 網域服務的部署案例和使用案例。
@@ -82,3 +81,8 @@ Contoso 有自訂內建的軟體保存庫應用程式，其中包含 Web 前端�
 
 如需此部署案例的詳細資訊，請參閱如何[整合 Azure AD Domain Services 與 RDS 部署](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-azure-adds)。
 
+
+## <a name="domain-joined-hdinsight-clusters-preview"></a>已加入網域的 HDInsight 叢集 (預覽)
+您可以設定 Azure HDInsight 叢集，該叢集已加入 Azure AD Domain Services 受管理網域並啟用 Apache Ranger。 透過 Apache Ranger 建立和套用 Hive 原則，並允許使用者 (如資料科學家) 使用 ODBC 型工具 (如 Excel、Tableau 等) 連線到 Hive。Microsoft 正努力將其他工作負載 (例如 HBase、Spark、Storm) 盡快新增至已加入網域的 HDInsight。
+
+如需此部署案例的詳細資訊，請參閱如何[設定已加入網域的 HDInsight 叢集](../hdinsight/hdinsight-domain-joined-configure.md)

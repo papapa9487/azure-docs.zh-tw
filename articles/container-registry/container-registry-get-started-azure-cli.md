@@ -1,11 +1,11 @@
 ---
-title: "建立私人 Docker 容器登錄 - Azure CLI | Microsoft Docs"
-description: "使用 Azure CLI 2.0 開始建立及管理私人 Docker 容器登錄"
+title: "快速入門 - 使用 Azure CLI 在 Azure 中建立私用的 Docker 登錄"
+description: "快速了解如何使用 Azure CLI 建立私用的 Docker 容器登錄。"
 services: container-registry
 documentationcenter: 
-author: stevelas
-manager: balans
-editor: cristyg
+author: neilpeterson
+manager: timlt
+editor: tysonn
 tags: 
 keywords: 
 ms.assetid: 29e20d75-bf39-4f7d-815f-a2e47209be7d
@@ -14,137 +14,147 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2017
-ms.author: stevelas
+ms.date: 09/20/2017
+ms.author: nepeters
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2875f4089231ed12a0312b2c2e077938440365c6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="create-a-private-docker-container-registry-using-the-azure-cli-20"></a>使用 Azure CLI 2.0 建立私人 Docker 容器登錄
-在 Linux、Mac 或 Windows 電腦上，使用 [Azure CLI 2.0](https://github.com/Azure/azure-cli) 中的命令建立容器登錄及管理其設定。 您也可以使用 [Azure 入口網站](container-registry-get-started-portal.md)或以程式設計方式用容器登錄 [REST API](https://go.microsoft.com/fwlink/p/?linkid=834376) 來建立及管理容器登錄。
+# <a name="create-a-container-registry-using-the-azure-cli"></a>使用 Azure CLI 建立容器登錄庫
 
+Azure Container Registry 是用於儲存私用 Docker 容器映像的受管理 Docker 容器登錄服務。 本指南詳述如何使用 Azure CLI 建立 Azure Container Registry 執行個體。
 
-* 如需相關背景和概念，請參閱[概觀](container-registry-intro.md)
-* 如需容器登錄庫 CLI 命令 (`az acr` 命令) 的說明，請傳遞 `-h` 參數至任何命令。
+本快速入門需要您執行 Azure CLI 2.0.12 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0](/cli/azure/install-azure-cli)。
 
+您也必須在本機上安裝 Docker。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
 
-## <a name="prerequisites"></a>必要條件
-* **Azure CLI 2.0**若要安裝並開始使用 CLI 2.0，請參閱[安裝指示](/cli/azure/install-azure-cli)。 執行 `az login`登入您的 Azure 訂用帳戶。 如需詳細資訊，請參閱[開始使用 CLI 2.0](/cli/azure/get-started-with-azure-cli)。
-* **資源群組**：先建立[資源群組](../azure-resource-manager/resource-group-overview.md#resource-groups)再建立容器登錄，或使用現有的資源群組。 請確定資源群組是位於[可使用](https://azure.microsoft.com/regions/services/)容器登錄庫服務的位置。 若要使用 CLI 2.0 建立資源群組，請參閱 [CLI 2.0 參考](/cli/azure/group)。
-* **儲存體帳戶** (選用)：建立標準 Azure [儲存體帳戶](../storage/common/storage-introduction.md)以支援相同位置中的容器登錄。 如果您以 `az acr create` 建立登錄庫時沒有指定儲存體帳戶，此命令會為您建立一個儲存體帳戶。 若要使用 CLI 2.0 建立儲存體帳戶，請參閱 [CLI 2.0 參考](/cli/azure/storage/account)。 目前不支援進階儲存體。
-* **服務主體** (選用)：當您使用 CLI 建立登錄，依預設不會做存取設定。 您可以將現有的 Azure Active Directory 服務主體指派至登錄庫 (或建立並指派新的)，或是啟用登錄庫的管理員使用者帳戶，根據您的需求而定。 請參閱本文稍後的章節。 如需登錄庫存取權的詳細資訊，請參閱[驗證容器登錄庫](container-registry-authentication.md)。
+## <a name="create-a-resource-group"></a>建立資源群組
 
-## <a name="create-a-container-registry"></a>建立容器登錄庫
-執行 `az acr create` 命令建立容器登錄庫。
+使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
-> [!TIP]
-> 當您建立登錄庫時，請指定含有字母和數字的全域唯一最上層網域名稱。 範例中的登錄庫名稱是 `myRegistry1`，請換成您自己的唯一名稱。
->
->
+下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
-下列命令使用最少的參數的 `myResourceGroup` 資源群組中建立容器登錄 `myRegistry1`，並使用基本 sku：
-
-```azurecli
-az acr create --name myRegistry1 --resource-group myResourceGroup --sku Basic
+```azurecli-interactive
+az group create --name myResourceGroup --location eastus
 ```
 
-* `--storage-account-name` 為選擇性。 如果未指定，則會在指定的資源群組中使用由登錄名稱和時間戳記所組成的名稱建立儲存體帳戶。
+## <a name="create-a-container-registry"></a>建立容器登錄庫
+
+Azure Container Registry 在數個 SKU 中提供服務：`Basic`、`Managed_Basic`、`Managed_Standard` 和 `Managed_Premium`。 雖然 `Managed_*` SKU 提供諸如受管理存放裝置及 Webhook 等進階功能，它們目前為預覽狀態，且在某些 Azure 區域中無法使用。 我們在本快速入門中選取 `Basic` SKU 是因為其在所有區域的可用性。
+
+使用 [az acr create](/cli/azure/acr#create) 命令，以建立 ACR 執行個體。
+
+登錄的名稱**必須是唯一的**。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
+
+```azurecli
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+```
 
 建立登錄時，輸出大致如下：
 
 ```azurecli
 {
-  "adminUserEnabled": false,
-  "creationDate": "2017-06-06T18:36:29.124842+00:00",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ContainerRegistry
-/registries/myRegistry1",
-  "location": "southcentralus",
-  "loginServer": "myregistry1.azurecr.io",
-  "name": "myRegistry1",
+  "adminUserEnabled": true,
+  "creationDate": "2017-09-08T22:32:13.175925+00:00",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
+  "location": "eastus",
+  "loginServer": "myContainerRegistry007.azurecr.io",
+  "name": "myContainerRegistry007",
   "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
   "sku": {
     "name": "Basic",
     "tier": "Basic"
   },
   "storageAccount": {
-    "name": "myregistry123456789"
+    "name": "mycontainerregistr223140"
   },
   "tags": {},
   "type": "Microsoft.ContainerRegistry/registries"
 }
-
 ```
 
+在本快入入門的其餘部分，我們使用 `<acrname>` 作為容器登錄名稱的預留位置。
 
-請特別注意︰
+## <a name="log-in-to-acr"></a>登入 ACR
 
-* `id` - 登錄庫在訂用帳戶中的識別碼，如果您要指派服務主體，則需要此識別碼。
-* `loginServer` - 您指定用來[登入登錄庫](container-registry-authentication.md)的完整名稱。 在此範例中，此名稱為 `myregistry1.exp.azurecr.io` (全部小寫)。
+發送和提取容器映像之前，您必須登入 ACR 執行個體。 若要這樣做，請使用 [az acr login](/cli/azure/acr#login) 命令。
 
-## <a name="assign-a-service-principal"></a>指派服務主體
-使用 CLI 2.0 的命令將 Azure Active Directory 服務主體指派到登錄。 這些範例中的服務主體是指派至擁有者角色，但如果您想要，可以指派至[其他角色](../active-directory/role-based-access-control-configure.md)。
-
-### <a name="create-a-service-principal-and-assign-access-to-the-registry"></a>建立服務主體並指派對登錄庫的存取權
-在下列命令中，將「對登錄庫的擁有者角色存取權」指派給新服務主體；此處登錄庫的識別碼是以 `--scopes` 參數傳遞。 以 `--password` 參數指定強式密碼。
-
-```azurecli
-az ad sp create-for-rbac --scopes /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --password myPassword
+```azurecli-interactive
+az acr login --name <acrname>
 ```
 
+此命令在完成之後會傳回「登入成功」訊息。
 
+## <a name="push-image-to-acr"></a>推送映像到 ACR
 
-### <a name="assign-an-existing-service-principal"></a>指派現有的服務主體
-如果您已經有服務主體，想將對登錄庫的擁有者角色存取權指派給它，請執行類似下列範例的命令。 您使用 `--assignee` 參數傳遞服務主體應用程式識別碼：
+若要推送映像到 Azure Container Registry，您必須先有映像。 如有需要，請執行下列命令，以從 Docker Hub 提取預先建立的映像。
 
-```azurecli
-az role assignment create --scope /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry1 --role Owner --assignee myAppId
+```bash
+docker pull microsoft/aci-helloworld
 ```
 
+映像必須加上 ACR 登入伺服器名稱。 執行下列命令，以傳回 ACR 執行個體的登入伺服器名稱。
 
-
-## <a name="manage-admin-credentials"></a>管理管理員認證
-系統會自動建立每個容器登錄庫的管理員帳戶，並預設停用此帳戶。 下列範例示範用 `az acr` CLI 命令來管理容器登錄庫的管理員認證。
-
-### <a name="obtain-admin-user-credentials"></a>取得管理員使用者認證
-```azurecli
-az acr credential show -n myRegistry1
+```bash
+az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-### <a name="enable-admin-user-for-an-existing-registry"></a>啟用現有登錄庫的管理員使用者
-```azurecli
-az acr update -n myRegistry1 --admin-enabled true
+使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 命令來標記映像。 將 <acrLoginServer> 取代為 ACR 執行個體的登入伺服器名稱。
+
+```
+docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
-### <a name="disable-admin-user-for-an-existing-registry"></a>停用現有登錄庫的管理員使用者
-```azurecli
-az acr update -n myRegistry1 --admin-enabled false
+最後，使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 將映像推送到 ACR 執行個體。 將 <acrLoginServer> 取代為 ACR 執行個體的登入伺服器名稱。
+
+```
+docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
-## <a name="list-images-and-tags"></a>列出映像和標籤
-使用 `az acr` CLI 命令來查詢儲存機制中的映像和標籤。
+## <a name="list-container-images"></a>列出容器映像
 
-> [!NOTE]
-> 目前，容器登錄庫不支援用 `docker search` 命令查詢映像和標籤。
-
-
-### <a name="list-repositories"></a>列出儲存機制
-下列範例會以 JSON (JavaScript 物件標記法) 格式列出登錄庫中的儲存機制︰
+下列範例會列出登錄中的存放庫：
 
 ```azurecli
-az acr repository list -n myRegistry1 -o json
+az acr repository list -n <acrname> -o table
 ```
 
-### <a name="list-tags"></a>列出標籤
-下列範例會以 JSON 格式列出 **samples/nginx** 儲存機制上的標籤：
+輸出：
+
+```json
+Result
+----------------
+aci-helloworld
+```
+
+下列範例會列出在 **aci-helloworld** 的標籤上。
 
 ```azurecli
-az acr repository show-tags -n myRegistry1 --repository samples/nginx -o json
+az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
+```
+
+輸出：
+
+```Result
+--------
+v1
+```
+
+## <a name="clean-up-resources"></a>清除資源
+
+若不再需要，您可以使用 [az group delete](/cli/azure/group#delete) 命令來移除資源群組、ACR 執行個體和所有容器映像。
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Docker CLI 推送您的第一個映像](container-registry-get-started-docker-cli.md)
 
+在本快速入門中，您使用 Azure CLI 建立了 Azure Container Registry。 如果您想要使用 Azure Container Registry 搭配 Azure 容器執行特體，請繼續進行 Azure 容器執行個體教學課程。
+
+> [!div class="nextstepaction"]
+> [Azure 容器執行個體教學課程](../container-instances/container-instances-tutorial-prepare-app.md)

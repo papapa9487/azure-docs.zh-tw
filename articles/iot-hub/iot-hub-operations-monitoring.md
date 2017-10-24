@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: nberdy
+ms.openlocfilehash: 3eafa32907c8f68cfc44cb2771d625349ff42003
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT 中樞作業監視
 
 IoT 中樞的作業監視可讓您即時監視其 IoT 中樞上的作業狀態。 IoT 中樞可追蹤橫跨數個作業類別的事件。 您可以選擇將一或多個類別的事件傳送至 IoT 中樞的端點進行處理。 您可以監視資料中是否有錯誤，或根據資料模式設定更複雜的處理行為。
+
+>[!NOTE]
+>IoT 中樞作業監視已淘汰，並且未來會從 IoT 中樞移除。 如需監視 IoT 中樞的作業及健康情況，請參閱[監視 Azure IoT 中樞的健康情況並快速診斷問題][lnk-monitor]。 如需淘汰時間表的詳細資訊，請參閱[使用 Azure 監視器和 Azure 資源健康狀態來監視您的 Azure IoT 解決方案][lnk-blog-announcement]。
 
 IoT 中樞會監視六個類別的事件：
 
@@ -34,6 +36,9 @@ IoT 中樞會監視六個類別的事件：
 * 檔案上傳
 * 訊息路由
 
+> [!IMPORTANT]
+> IoT 中樞作業監視並不保證事件傳遞的可靠性或順序。 根據 IoT 中樞基礎結構，某些事件可能會遺失或不依順序傳遞。 以錯誤訊號 (例如連線嘗試失敗) 或針對特定裝置的高頻率中斷連線作為基礎，使用作業監視來產生警示。 您不應依賴作業監視事件來建立一致的裝置狀態存放區，例如追蹤裝置連線或中斷連線狀態的存放區。 
+
 ## <a name="how-to-enable-operations-monitoring"></a>如何啟用作業監視
 
 1. 建立 IoT 中樞。 您可以在[開始使用][lnk-get-started]指南中找到如何建立 IoT 中樞的指示。
@@ -42,7 +47,7 @@ IoT 中樞會監視六個類別的事件：
 
     ![在入口網站中存取作業監視組態][1]
 
-1. 選取您要監視的監視類別，然後按一下 [儲存]。 您可以從 [監視設定] 中所列出的事件中樞相容端點讀取事件。 IoT 中樞端點稱為 `messages/operationsmonitoringevents`。
+1. 選取您要監視的監視類別，然後按一下儲存。 您可以從 [監視設定] 中所列出的事件中樞相容端點讀取事件。 IoT 中樞端點稱為 `messages/operationsmonitoringevents`。
 
     ![在 IoT 中樞上設定作業監視][2]
 
@@ -294,6 +299,8 @@ class Program
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md

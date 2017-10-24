@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
+ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>傳送、接收，並在邏輯應用程式中批次處理訊息
 
 若要以群組一起處理訊息，您可以傳送資料項目或訊息到「批次」中，然後以批次處理這些項目。 當您想要確保資料項目會以特定方式分組，並一起處理時，這個方法會很有用。 
@@ -62,11 +60,20 @@ ms.lasthandoff: 08/10/2017
 3. 提供批次的名稱，並指定釋放批次的準則，例如：
 
    * **批次名稱**：用來識別批次，在本例中為 "TestBatch"。
+   * **發行準則**：批次發行準則，此準則可以訊息計數、排程作為基礎或同時以這兩者作為基礎。
+   
+     ![提供批次觸發程序詳細資料](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **訊息計數**：在釋放進行處理之前要保留為一個批次的訊息數目，在本例中為 "5"。
 
-   ![提供批次觸發程序詳細資料](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![提供批次觸發程序詳細資料](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
 
-4. 新增另一個動作，在批次觸發程序引發時傳送電子郵件。 每次批次有五個項目時，邏輯應用程式便會傳送電子郵件。
+   * **排程**：用於進行處理的批次發行排程，在此範例中為「每隔 5 分鐘」。
+
+     ![提供批次觸發程序詳細資料](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
+
+4. 新增另一個動作，在批次觸發程序引發時傳送電子郵件。 每次批次有五個項目或過去 5 分鐘時，邏輯應用程式便會傳送電子郵件。
 
    1. 在批次觸發程序下方，選擇 [+ 新增步驟] > [新增動作]。
 
@@ -194,4 +201,3 @@ BatchSender 邏輯應用程式會每分鐘執行、產生介於 1 到 5 的隨�
 * [使用 JSON 建置於邏輯應用程式定義上](../logic-apps/logic-apps-author-definitions.md)
 * [在 Visual Studio 中使用 Azure Logic Apps 和 Functions 建置邏輯應用程式](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [適用於邏輯應用程式的例外狀況處理與記錄錯誤](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-

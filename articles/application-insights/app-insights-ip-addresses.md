@@ -1,5 +1,5 @@
 ---
-title: "Application Insights 使用的 IP 位址 | Microsoft Docs"
+title: "Application Insights 和 Log Analytics 使用的 IP 位址 | Microsoft Docs"
 description: "Application Insights 所需的伺服器防火牆例外狀況"
 services: application-insights
 documentationcenter: .net
@@ -11,16 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/04/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
-ms.openlocfilehash: eec83ceb6edbc1aaa68d51a85d2a913063677530
-ms.contentlocale: zh-tw
-ms.lasthandoff: 06/29/2017
-
+ms.openlocfilehash: a599321a3650b72f7ad52d7c4a74db157dee861b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="ip-addresses-used-by-application-insights"></a>Application Insights 使用的 IP 位址
+# <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
 
 > [!NOTE]
@@ -119,11 +118,19 @@ RU : Moscow
 94.245.82.33
 94.245.82.37
 94.245.82.38
+51.140.79.229
+51.140.84.172
+51.140.87.211
+51.140.105.74
 SE : Stockholm
 94.245.78.40
 94.245.78.41
 94.245.78.42
 94.245.78.45
+51.141.25.219
+51.141.32.101
+51.141.35.167
+51.141.54.177
 SG : Singapore
 52.187.29.7
 52.187.179.17
@@ -151,6 +158,14 @@ US : FL-Miami
 65.54.78.58
 65.54.78.59
 65.54.78.60
+52.165.130.58
+52.173.142.229
+52.173.147.190
+52.173.17.41
+52.173.204.247
+52.173.244.190
+52.173.36.222
+52.176.1.226
 US : IL-Chicago
 23.96.247.139
 23.96.249.113
@@ -189,12 +204,18 @@ US : VA-Ashburn
 
 ```  
 
-## <a name="data-access-api"></a>資料存取 API
+## <a name="application-insights-api"></a>Application Insights API
 | 目的 | URI | IP | 連接埠 |
 | --- | --- | --- | --- |
 | API |api.applicationinsights.io<br/>api1.applicationinsights.io<br/>api2.applicationinsights.io<br/>api3.applicationinsights.io<br/>api4.applicationinsights.io<br/>api5.applicationinsights.io |13.82.26.252<br/>40.76.213.73 |80,443 |
 | API 文件 |dev.applicationinsights.io<br/>dev.applicationinsights.microsoft.com<br/>dev.aisvc.visualstudio.com<br/>www.applicationinsights.io<br/>www.applicationinsights.microsoft.com<br/>www.aisvc.visualstudio.com |13.82.24.149<br/>40.114.82.10 |80,443 |
 | 內部 API |aigs.aisvc.visualstudio.com<br/>aigs1.aisvc.visualstudio.com<br/>aigs2.aisvc.visualstudio.com<br/>aigs3.aisvc.visualstudio.com<br/>aigs4.aisvc.visualstudio.com<br/>aigs5.aisvc.visualstudio.com<br/>aigs6.aisvc.visualstudio.com |動態|443 |
+
+## <a name="log-analytics-api"></a>Log Analytics API
+| 目的 | URI | IP | 連接埠 |
+| --- | --- | --- | --- |
+| API |api.loganalytics.io<br/>*.api.loganalytics.io |動態 |80,443 |
+| API 文件 |dev.loganalytics.io<br/>docs.loganalytics.io<br/>www.loganalytics.io |動態 |80,443 |
 
 ## <a name="application-insights-analytics"></a>Application Insights 分析
 
@@ -205,6 +226,15 @@ US : VA-Ashburn
 | 媒體 CDN | applicationanalyticsmedia.azureedge.net | 動態 | 80,443 |
 
 注意：*.applicationinsights.io 網域由 Application Insights 團隊所擁有。
+
+## <a name="log-analytics-portal"></a>Log Analytics 入口網站
+
+| 目的 | URI | IP | 連接埠 |
+| --- | --- | --- | --- |
+| 入口網站 | portal.loganalytics.io | 動態 | 80,443 |
+| CDN | applicationanalytics.azureedge.net | 動態 | 80,443 |
+
+注意: *.loganalytics.io 網域由 Log Analytics 小組所擁有。
 
 ## <a name="application-insights-azure-portal-extension"></a>Application Insights Azure 入口網站擴充功能
 
@@ -235,4 +265,3 @@ US : VA-Ashburn
 | 代理程式 | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 動態 | 443
 | 入口網站 | ppe.gateway.azureserviceprofiler.net | 動態 | 443
 | 儲存體 | *.core.windows.net | 動態 | 443
-

@@ -5,17 +5,15 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
+ms.openlocfilehash: 0a5a783751e4f0fa9f5fb43b22fa221dd9bf3444
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bf41e2458ade0bc770eb0f9cd327f752e08358a9
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 資料中心整合 - DNS
 
 適用於：Azure Stack 整合系統
@@ -68,9 +66,14 @@ Azure Stack 同時包含權威和遞迴 DNS 伺服器。 遞迴伺服器可用�
 
 若要解析 Azure Stack 外部端點的 DNS 名稱 (例如 www.bing.com)，您必須提供 Azure Stack 可用來轉送 Azure Stack 對其而言不具權威性之 DNS 要求的 DNS 伺服器。 為了進行部署，「部署工作表」中必須要有作為 Azure Stack 轉送要求目的地的 DNS 伺服器 (在 [DNS 轉寄站] 欄位中)。 請至少在此欄位中提供兩個伺服器以供容錯使用。 如果沒有這些值，Azure Stack 部署將會失敗。
 
-### <a name="adding-dns-forwarding-servers-after-deployment"></a>在部署後新增 DNS 轉寄伺服器
+### <a name="configure-conditional-dns-forwarding"></a>設定條件式 DNS 轉送
 
-如果您或 ISP 更新了 DNS 基礎結構，您可能會想要註冊其他 DNS 伺服器。 若要新增 DNS 伺服器來轉送遞迴要求，您必須使用具特殊權限的端點。
+> [!IMPORTANT]
+> 這僅適用 AD FS 部署。
+
+若要使用現有的 DNS 基礎結構啟用名稱解析，請設定條件式轉送。
+
+若要新增條件式轉寄站，您必須使用特殊權限端點。
 
 針對此程序，請使用您資料中心網路內能夠與 Azure Stack 中具特殊權限端點通訊的電腦。
 
@@ -84,10 +87,8 @@ Azure Stack 同時包含權威和遞迴 DNS 伺服器。 遞迴伺服器可用�
 2. 連線到具特殊權限的端點之後，執行下列 PowerShell 命令。 使用您想要使用之 DNS 伺服器的網域名稱和 IP 位址取代所提供的範例值。
 
    ```
-   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
+   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
-
-執行此命令之後，使用 Azure Stack DNS 的 Azure Stack 服務和使用者虛擬機器便能夠解析 Azure Stack 端點 (例如入口網站和 API 端點) 的名稱，以及任何具有 DNS 名稱標籤的公用 IP 位址。
 
 ## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>從 Azure Stack 外部解析 Azure Stack DNS 名稱
 權威伺服器是保存外部 DNS 區域資訊及任何使用者建立之區域的伺服器。 請與這些伺服器整合來啟用區域委派或條件性轉送功能，以從 Azure Stack 外部解析 Azure Stack DNS 名稱。
@@ -140,4 +141,3 @@ Azure Stack DNS 伺服器的 FQDN 具有下列格式：
 ## <a name="next-steps"></a>後續步驟
 
 [Azure Stack 資料中心整合 - 發佈端點](azure-stack-integrate-endpoints.md)
-

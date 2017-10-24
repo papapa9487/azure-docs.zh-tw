@@ -8,10 +8,10 @@ ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
 ms.openlocfilehash: 20ebd324cbf379980b43d255d468673de2b6d950
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>使用 Azure 角色型存取控制 (RBAC) 控制建立及管理支援要求的存取權
 
@@ -90,7 +90,7 @@ Joe 是此訂用帳戶內某資源群組的擁有者，和你是對等關係，�
 
     ![新增支援要求](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. 按一下 「 所有支援的要求 」 Joe 可以檢視針對此訂用帳戶建立支援要求清單![案例詳細資料檢視](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. 按一下 [所有支援要求]，Joe 可以看到為此訂用帳戶建立的所有支援要求![案例詳細資料檢視](./media/create-manage-support-requests-using-access-control/case-details-view.png)
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>在 Azure 入口網站中移除支援要求存取權
 

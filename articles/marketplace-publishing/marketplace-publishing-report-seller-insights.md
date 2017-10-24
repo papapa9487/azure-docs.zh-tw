@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>了解賣方 Insights 報告
 **什麼是賣方 Insights？**
@@ -84,8 +84,7 @@ ms.lasthandoff: 07/11/2017
 瀏覽至 https://publish.windowsazure.com/，並使用您的 Microsoft 帳戶認證登入。
 ![passwordreminder][7]
 
-選取 [發行者]  索引標籤。
-![selectpublisherstab][8]
+選取 [發行者] 索引標籤。![selectpublisherstab][8]
 
 在 URL 中尋找發行者識別碼︰
 

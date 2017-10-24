@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 0fa44799a0bd49d3d96a1916f32e6452405abce8
-ms.contentlocale: zh-tw
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: 22b62be1773c5042ecf6ee078e68a4ffdf791d53
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="elevate-access-as-a-tenant-admin-with-role-based-access-control"></a>使用角色型存取控制以租用戶系統管理員提高存取權限
 
@@ -27,7 +26,18 @@ ms.lasthandoff: 05/17/2017
 
 這項功能很重要，因為它可讓租用戶管理員查看組織中的所有訂用帳戶。 它也可讓自動化應用程式 (如發票開立與稽核) 存取所有的訂用帳戶，並針對帳單或資產管理提供組織狀態的精確檢視。  
 
-## <a name="how-to-use-elevateaccess-to-give-tenant-access"></a>如何使用 elevateAccess 提供租用戶存取
+## <a name="how-to-use-elevateaccess-for-tenant-access-with-azure-ad-admin-center"></a>如何在 Azure AD 系統管理中心使用 elevateAccess 設定租用戶存取
+
+在 [Azure Active Directory 系統管理中心](https://aad.portal.azure.com)，您可以從 [屬性] 叫用此功能。
+此功能稱為**全域管理員可以管理 Azure 訂用帳戶**。 在印象中，這是 Azure Active Directory 的全域屬性，但卻是依個別使用者而定，只對目前登入的使用者才有作用。 當您在 Azure Active Directory 中具有全域管理員權限時，對於您目前用來登入 Azure Active Directory 系統管理中心的使用者，您可以叫用 elevateAccess 功能。
+
+選取 [是]，然後選取 [儲存]：這樣會在根 "/" (根範圍) 將**使用者存取系統管理員**角色，**指派**給您目前用來登入入口網站的使用者。
+
+選取 [否]，然後選取 [儲存]：這樣會針對您目前用來登入入口網站的使用者，在根 "/" (根範圍) **移除****使用者存取系統管理員**角色。
+
+![Azure AD 系統管理中心 - 屬性 - Globaladmin 可以管理 Azure 訂用帳戶 - 螢幕擷取畫面](./media/role-based-access-control-tenant-admin-access/aad-azure-portal-global-admin-can-manage-azure-subscriptions.png)
+
+## <a name="how-to-use-elevateaccess-to-give-tenant-access-with-the-rest-api"></a>如何透過 REST API 使用 elevateAccess 提供租用戶存取
 
 基本程序適用於下列步驟︰
 
@@ -56,7 +66,7 @@ ms.lasthandoff: 05/17/2017
 4. 撤銷您的使用者存取系統管理員權限，直到再次需要這些權限。
 
 
-## <a name="how-to-undo-the-elevateaccess-action"></a>如何復原 elevateAccess 動作
+## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>如何使用 REST API 復原 elevateAccess 動作
 
 當您呼叫 elevateAccess 時，您建立自己的角色指派，因此您需要刪除作業才能撤銷這些權限。
 
@@ -107,4 +117,3 @@ ms.lasthandoff: 05/17/2017
 - 深入了解[使用 REST 管理角色型存取控制](role-based-access-control-manage-access-rest.md)
 
 - 在 Azure 入口網站中[管理存取權指派](role-based-access-control-manage-assignments.md)
-

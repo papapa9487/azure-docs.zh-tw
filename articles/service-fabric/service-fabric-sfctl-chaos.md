@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 7118ec3f5aeae40fa7ecc592309a28b585c651a1
-ms.contentlocale: zh-tw
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
@@ -43,17 +42,15 @@ ms.lasthandoff: 09/26/2017
 |引數|說明|
 | --- | --- |
 | --continuation-token| 接續權杖參數可用來取得下一組結果。 具有非空白值的接續權杖會在來自系統的結果無法放入單一回應中時，隨附在 API 的回應中。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。|
-| --end-time-utc   | 表示要產生 Chaos 報告之時間範圍的結束時間刻度數目。
-                          Chaos report is to be generated. Please consult [DateTime.Ticks
-                          Property](https://msdn.microsoft.com/en-
-                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
-| --start-time-utc | 表示要產生 Chaos 報告之時間範圍的開始時間刻度數目。 如需有關刻度的詳細資訊，請參閱 [DateTime.Ticks 屬性](https://msdn.microsoft.com/en- us/library/system.datetime.ticks%28v=vs.110%29)。| | --timeout -t     | 伺服器逾時 (秒)。  預設值：60。|
+| --end-time-utc   | 表示要產生 Chaos 報告之時間範圍的結束時間刻度數目。 如需刻度的詳細資料，請參閱 [DateTime.Ticks 屬性](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29)。|
+| --start-time-utc | 表示要產生 Chaos 報告之時間範圍的開始時間刻度數目。 如需刻度的詳細資料，請參閱 [DateTime.Ticks 屬性](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29)。|
+| --timeout -t     | 伺服器逾時 (秒)。  預設值：60。|
 
 ### <a name="global-arguments"></a>全域引數
 
 |引數|說明|
 | --- | --- |
-| --debug          | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug          | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h        | 顯示此說明訊息並結束。|
 | --output -o      | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query          | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -82,7 +79,7 @@ ms.lasthandoff: 09/26/2017
 
 |引數|說明|
 | --- | --- |
-| --debug                    | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug                    | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h                  | 顯示此說明訊息並結束。|
 | --output -o                | 輸出格式。  允許的值：json、jsonc、table、tsv。           預設值：json。|
 | --query                    | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
@@ -103,11 +100,11 @@ ms.lasthandoff: 09/26/2017
 
 |引數|說明|
 | --- | --- |
-| --debug  | 增加記錄詳細程度為顯示所有偵錯記錄。|
+| --debug  | 增加記錄詳細程度以顯示所有偵錯記錄。|
 | --help -h| 顯示此說明訊息並結束。|
 | --output -o | 輸出格式。  允許的值：json、jsonc、table、tsv。  預設值：json。|
 | --query  | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http://jmespath.org/。|
-| --verbose| 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。|
+| --verbose| 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。|
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

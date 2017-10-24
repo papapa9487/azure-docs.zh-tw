@@ -12,22 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/18/2017
 ms.author: maheshu
+ms.openlocfilehash: e274e0806e99cce484f6ff03803c03bf0034dcd6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 08ea5f557498f64825da8fe03d146cace0c53526
-ms.contentlocale: zh-tw
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: zh-TW
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
 下列指導方針可協助您選取要與 Azure AD 網域服務搭配使用的虛擬網路。
 
 ### <a name="type-of-azure-virtual-network"></a>Azure 虛擬網路類型
-* 您可以啟用傳統 Azure 虛擬網路中的 Azure AD 網域服務。 不過，很快將會取代傳統虛擬網路的支援。 建議所有新建立的受管理網域使用資源管理員虛擬網路。
-* 使用 Azure Resource Manager 建立的虛擬網路可以啟用 Azure AD Domain Services。
+* **Resource Manager 虛擬網路**：使用 Azure Resource Manager 建立的虛擬網路可以啟用 Azure AD Domain Services。
+* 您可以啟用傳統 Azure 虛擬網路中的 Azure AD 網域服務。 不過，很快將會取代傳統虛擬網路的支援。 建議所有新建立的受管理網域使用 Resource Manager 虛擬網路。
 * 您可以將其他虛擬網路連線到啟用 Azure AD Domain Services 的虛擬網路。 如需詳細資訊，請參閱[網路連線](active-directory-ds-networking.md#network-connectivity)。
 * **區域虛擬網路**：如果您計劃使用現有的虛擬網路，請確定它是區域虛擬網路。
 
@@ -75,8 +74,13 @@ ms.lasthandoff: 08/29/2017
 | 5986 |管理您的網域 |
 | 636 |保護受管理網域的 LDAP (LDAPS) 存取 |
 
+連接埠 5986 用來在受管理網域上使用 PowerShell 遠端執行管理工作。 受管理網域的網域控制站不通常會接聽此連接埠。 只有在需要對受管理網域執行管理或維護作業時，服務才會於受管理網域控制站上開啟此連接埠。 只要作業完成，服務就會在受管理網域控制站上關閉此連接埠。
+
+連接埠 3389 用於對受管理網域的遠端桌面連線。 此連接埠在您的受管理網域上也會維持為大致關閉。 只有當我們需要連接到您的受管理網域以進行疑難排解時，服務才會啟用此連接埠，通常是在回應您所起始的服務要求時起始。 因為使用 PowerShell 遠端執行管理和監視工作，因此不會持續使用此機制。 只有在罕見的情況下，我們需要從遠端連線到您的受管理網域進行進階疑難排解，才會使用此連接埠。 一旦疑難排解作業完成，隨即會關閉連接埠。
+
+
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>具有 Azure AD Domain Services 之虛擬網路的範例 NSG
-下表說明您可以針對具有 Azure AD Domain Services 受管理網域之虛擬網路設定的範例 NSG。 這個規則允許從上述指定的連接埠輸入流量，以確保您受管理的網域保持修補、更新，並且可由 Microsoft 監視。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。
+下表說明您可以針對具有 Azure AD Domain Services 受管理網域之虛擬網路設定的範例 NSG。 這個規則允許透過需要的連接埠輸入流量，以確保您受管理網域保持修補、更新，並且可由 Microsoft 監視。 預設 'DenyAll' 規則適用於來自網際網路的所有其他輸入流量。
 
 此外，NSG 也會說明如何透過網際網路來鎖定安全 LDAP 存取。 如果您尚未透過網際網路啟用安全 LDAP 存取至受管理的網域，請跳過此規則。 NSG 包含一組規則，允許僅從一組指定 IP 位址透過 TCP 連接埠 636 的輸入 LDAPS 存取。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
 
@@ -121,4 +125,3 @@ Azure AD Domain Services 受管理網域只可在 Azure 的單一虛擬網路中
 * [設定傳統部署模型的 VNet 對 VNet 連接](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure 網路安全性群組](../virtual-network/virtual-networks-nsg.md)
 * [建立網路安全性群組](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
-
