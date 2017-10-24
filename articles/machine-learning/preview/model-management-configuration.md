@@ -1,5 +1,5 @@
 ---
-title: "Azure Machine Learning 模型管理安裝和組態 |Microsoft Docs"
+title: "Azure Machine Learning 模型管理安裝和組態 | Microsoft Docs"
 description: "本文件說明在 Azure Machine Learning 中安裝和設定模型管理有關的步驟和概念。"
 services: machine-learning
 author: raymondlaghaeian
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
-若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -] [開啟命令列介面]。 
+若要從 Workbench 使用命令列介面 (CLI)，請按一下 檔案 -] 開啟命令列介面。 
 
 在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 
