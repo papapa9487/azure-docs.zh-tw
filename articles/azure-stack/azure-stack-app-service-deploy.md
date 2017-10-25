@@ -14,21 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: db1b5c00f946b5945e15303683630d95339228e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d8de03b92fd4cc41d7a2d077053da3b8769da50
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
 身為 Azure Stack 雲端操作員，您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要這樣做，您必須如本文所述，先將 [App Service 資源提供者](azure-stack-app-service-overview.md)新增至您的 Azure Stack 部署。 安裝 App Service 資源提供者之後，您可以將它併入至您的供應項目和方案中。 然後使用者可以訂閱以取得服務，並開始建立應用程式。
 
-若要將 App Service 資源提供者新增至您的 Azure Stack 部署，您必須完成三個最上層工作：
+> [!IMPORTANT]
+> 在執行安裝程式之前，請確定您已依照[開始之前](azure-stack-app-service-before-you-get-started.md)中的指導方針進行。
+> 
+>
 
-1.  [下載並解壓縮安裝與協助程式檔案](azure-stack-app-service-before-you-get-started.md)。
-2.  [建立需要的憑證](azure-stack-app-service-before-you-get-started.md#certificates-required-for-the-azure-stack-development-kit)。
-3.  執行 App Service 資源提供者安裝程式。
+
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>執行 App Service 資源提供者安裝程式
 
@@ -98,6 +99,11 @@ ms.lasthandoff: 10/11/2017
 
 11. 檢閱角色執行個體和 SKU 選項。 預設值會使用適用於每個角色的最低建議執行個體 SKU 來填入。 系統會提供核心和記憶體需求的摘要來協助規劃您的部署。 進行選擇之後，按一下 [下一步]。
 
+    > [!NOTE]
+    > 對於生產環境部署，請按照 [Azure Stack 中的 Azure App Service 伺服器角色的容量規劃](azure-stack-app-service-capacity-planning.md)中的指導方針進行。
+    > 
+    >
+
     | 角色 | 建議的最低執行個體 | 建議的最低 SKU | 注意事項 |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 個核心，1792 MB) | 管理及維護 App Service 雲端的健全狀況。 |
@@ -107,9 +113,6 @@ ms.lasthandoff: 10/11/2017
     | 共用背景工作 | 1 | Standard_A1 - (1 個核心，1792 MB) | 裝載 Web 或 API 應用程式和 Azure Functions 應用程式。 您要可能會想要新增更多執行個體。 身為操作員，您可以定義您的供應項目，並選擇任何 SKU 層。 各層必須具有至少一個核心。 |
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image08.png)    
-
-    > [!NOTE]
-    > 在技術預覽中，App Service 資源提供者安裝程式也會部署要作為簡單檔案伺服器運作的標準 A1 執行個體，以支援 Azure Resource Manager。 此執行個體會針對單一節點開發套件加以保留。 對於生產工作負載，在公開推出時，App Service 安裝程式會讓高可用性檔案伺服器可供使用。
 
 12. 在 [選取平台映像] 方塊中，從可以在適用於 App Service 雲端的運算資源提供者的可用映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按一下 [下一步] 。
 
@@ -136,20 +139,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>確認 Azure Stack 上的 App Service 安裝
 
-1. 在 Azure Stack 管理入口網站中，瀏覽到安裝程式所建立的資源群組。 根據預設值，此群組是 **APPSERVICE-LOCAL**。
+1. 在 Azure Stack 管理入口網站中，前往 [管理 - App Service]。
 
-2. 找出 **CN0-VM**。 若要連線到 VM，請按一下 [虛擬機器] 刀鋒視窗上的 [連線]。
+2. 在狀態下的概觀，查看 [狀態]是否顯示為 [所有角色都已準備完成]。
 
-3. 在此 VM 的桌面上，按兩下 [Web 雲端管理主控台]。
-
-4. 移至 [受管理伺服器]。
-
-5. 當所有電腦都針對一或多個背景工作顯示 [就緒] 時，請繼續進行步驟 6。
-
-6. 關閉遠端桌面電腦，並返回您執行 App Service 安裝程式的電腦。
-
-    ![App Service 安裝程式](media/azure-stack-app-service-deploy/managed-servers.png)    
-
+    ![App Service 安裝程式](media/azure-stack-app-service-deploy/image12.png)    
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>測試 Azure Stack 上的 App Service
 

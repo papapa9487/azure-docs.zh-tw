@@ -14,17 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 430101c398eff85b330d15242ed1e396a277a93a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 8ebac8ca3bed6825ff9170a305a44ad58ec0da31
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
 Azure App Service on Azure Stack 有一些必須在部署之前完成的先決條件步驟：
 
 - 下載 Azure App Service on Azure Stack 協助程式指令碼
+- 高可用性
 - Azure App Service on Azure Stack 所需的憑證
 - 準備檔案伺服器
 - 準備 SQL Server
@@ -42,6 +43,13 @@ Azure App Service on Azure Stack 有一些必須在部署之前完成的先決�
     - AzureStack.Identity.psm1
     - GraphAPI.psm1
     
+## <a name="high-availability"></a>高可用性
+
+Azure App Service on Azure Stack 目前無法提供高可用性，因為 Azure Stack 僅會將工負載部署至一個單一個容錯網域中。
+
+若要讓 AAzure App Service on Azure Stack 準備好提供高可用性，請務必在 [高可用性] 配置中部署必要的檔案伺服器和 SQL Server。 若 Azure Stack 支援多個容錯網域，我們會提供如何在高可用性配置中啟用 Azure App Service on Azure Stack 的方法。
+
+
 ## <a name="certificates-required-for-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack 所需的憑證
 
 ### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Azure Stack 開發套件所需的憑證
@@ -193,7 +201,9 @@ net localgroup Administrators %DOMAIN%\FileShareOwners /add
 
 在檔案伺服器上提高權限的命令提示字元中，執行下列命令。
 
+```powershell
 net localgroup Administrators FileShareOwners /add
+```
 
 ### <a name="configure-access-control-to-the-shares"></a>設定共用的存取控制
 
@@ -224,12 +234,14 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server"></a>準備 SQL Server
 
-針對 Azure App Service on Azure Stack 裝載和計量資料庫，您必須準備 SQL Server，用於存放 Windows Azure 套件網站執行階段資料庫。
+針對 Azure App Service on Azure Stack 託管和計量資料庫，您必須準備 SQL Server，以用來存放 Azure App Service 資料庫。
 
-若要搭配使用 Azure Stack 開發套件，您可以使用 SQL Express 2012 SP1 或更新版本。 如需下載資訊，請參閱[下載 SQL Server 2012 Express 包含 SP1](https://msdn.microsoft.com/evalcenter/hh230763.aspx)。
-對於生產環境與高可用性用途，您應該使用完整版的 SQL 2012 SP1 或更新版本。 如需安裝 SQL Server 的詳細資訊，請參閱[安裝 SQL Server 2012 ](http://go.microsoft.com/fwlink/?LinkId=322141)。
-啟用混合模式驗證。
-Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service 角色存取。
+若要搭配使用 Azure Stack 開發套件，您可以使用 SQL Express 2014 SP2 或更新版本。
+
+若要用於生產環境及高可用性，您應該使用完整版本的 SQL 2014 SP2 或更新版本，啟用混合模式驗證，並在[高可用性配置](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)中部署。
+
+Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service 角色存取。 您可以在 Azure Stack 中的預設提供者訂用帳戶中部署 SQL Server。 或者，您可以使用組織中現有的基礎結構 (請確認可以連線到 Azure Stack)。
+
 針對任何 SQL Server 角色，您可以使用預設執行個體或具名執行個體。 不過，如果您使用具名執行個體，請務必手動啟動 SQL Browser 服務並開啟連接埠 1434。
 
 ## <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
@@ -249,7 +261,7 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 1. 以 azurestack\azurestackadmin 身分開啟 PowerShell 執行個體。
 2. 移至在[先決條件步驟](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components)中下載並解壓縮的指令碼位置。
 3. [安裝](azure-stack-powershell-install.md)及[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
-4. 在同一個 PowerShell 工作階段中，執行 **CreateIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure AD 租用戶識別碼時，請輸入您針對 Azure Stack 部署使用的 Azure AD 租用戶識別碼，例如 myazurestack.onmicrosoft.com。
+4. 在相同的 PowerShell 工作階段中，執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure AD 租用戶識別碼時，請輸入您針對 Azure Stack 部署使用的 Azure AD 租用戶識別碼，例如 myazurestack.onmicrosoft.com。
 5. 在 [認證] 視窗中，輸入您的 Azure AD 服務管理帳戶和密碼。 按一下 [確定] 。
 6. 輸入[稍早建立的憑證](azure-stack-app-service-deploy.md)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
 7. 指令碼會在租用戶 Azure AD 中建立新的應用程式，並產生名為 **UpdateConfigOnController.ps1** 的新 PowerShell 指令碼。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 您在步驟 11 中需要使用此資訊進行搜尋。
@@ -267,8 +279,6 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 | AzureStackCredential | 必要 | Null | Azure AD 系統管理員 |
 | CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的路徑。 |
 | CertificatePassword | 必要 | Null | 用來保護憑證私密金鑰的密碼。 |
-| DomainName | 必要 | local.azurestack.external | Azure Stack 區域和網域尾碼。 |
-| AdfsMachineName | 選用 | AD FS 電腦名稱，例如 AzS-ADFS01.azurestack.local | 在 AD FS 部署中為必要。 在 Azure AD 部署中會忽略。 |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>建立 Active Directory 同盟服務應用程式
 
@@ -286,19 +296,17 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 1. 以 azurestack\azurestackadmin 身分開啟 PowerShell 執行個體。
 2. 移至在[先決條件步驟](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components)中下載並解壓縮的指令碼位置。
 3. [安裝](azure-stack-powershell-install.md)及[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
-4.  在同一個 PowerShell 工作階段中，執行 **CreateIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure AD 租用戶識別碼時，請輸入 ADFS。
-5.  在 [認證] 視窗中，輸入您的 AD FS 服務管理帳戶和密碼。 按一下 [確定] 。
+4.  在相同的 PowerShell 工作階段中，執行 **Create-ADFSIdentityApp.ps1** 指令碼。
+5.  在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 按一下 [確定] 。
 6.  提供[稍早建立之憑證](azure-stack-app-service-deploy.md)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
 
 | CreateIdentityApp.ps1 參數 | 必要/選用 | 預設值 | 說明 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | 必要 | Null | 對 AD FS 環境使用 ADFS。 |
-| TenantAzure Resource ManagerEndpoint | 必要 | management.local.azurestack.external | 租用戶 Azure Resource Manager 端點。 |
-| AzureStackCredential | 必要 | Null | Azure AD 系統管理員 |
-| CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的路徑。 |
+| AdminARMEndpoint | 必要 | Null | 管理員 Azure Resource Manager 端點。 例如，adminmanagement.local.azurestack.external。 |
+| PrivilegedEndpoint | 必要 | Null | 具有緊急主控台特殊權限的端點。 例如，AzD-ERCS01。 |
+| CloudAdminCredential | 必要 | Null | Azure Stack cloudadmin 網域帳戶認證。 例如，Azurestack\CloudAdmin。 |
+| CertificateFilePath | 必要 | Null | 識別應用程式憑證 PFX 檔案的路徑。 |
 | CertificatePassword | 必要 | Null | 用來保護憑證私密金鑰的密碼。 |
-| DomainName | 必要 | local.azurestack.external | Azure Stack 區域和網域尾碼。 |
-| AdfsMachineName | 選用 | AD FS 電腦名稱，例如 AzS-ADFS01.azurestack.local | 在 AD FS 部署中為必要。 在 Azure AD 部署中會忽略。 |
 
 
 ## <a name="next-steps"></a>後續步驟
