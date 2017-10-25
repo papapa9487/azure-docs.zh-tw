@@ -80,7 +80,7 @@ sections:
           - title: 語言
             html: '<p><a href="https://docs.loganalytics.io/">分析</a></p><p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p><p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p><p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p><p><a href="https://dev.applicationinsights.io/">資料存取 API</a></p>'
           - title: 資料模型
-            html: <p><a href="application-insights-data-model-request-telemetry">要求</a></p><p><a href="application-insights-data-model-dependency-telemetry">相依性</a></p><p><a href="application-insights-data-model-exception-telemetry">例外狀況</a></p><p><a href="application-insights-data-model-trace-telemetry">追蹤</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">度量</a></p><p><a href="application-insights-data-model-context">連絡</a></p>
+            html: <p><a href="application-insights-data-model-request-telemetry">要求</a></p><p><a href="application-insights-data-model-dependency-telemetry">相依性</a></p><p><a href="application-insights-data-model-exception-telemetry">例外狀況</a></p><p><a href="application-insights-data-model-trace-telemetry">追蹤</a></p><p><a href="application-insights-data-model-event-telemetry">Event</a></p><p><a href="application-insights-data-model-metric-telemetry">度量</a></p><p><a href="application-insights-data-model-context">內容</a></p>
           - title: 遙測相互關聯
             html: <p><a href="application-insights-correlation">遙測相互關聯</a></p>
           - title: 程式碼範例
