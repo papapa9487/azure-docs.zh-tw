@@ -2,8 +2,6 @@
 
 ## [什麼是 SQL 資料倉儲？](sql-data-warehouse-overview-what-is.md)
 ## [資料倉儲工作負載](sql-data-warehouse-overview-workload.md)
-## [分散式資料](sql-data-warehouse-distributed-data.md)
-## [常見問題集](sql-data-warehouse-overview-faq.md)
 
 # 開始使用
 
@@ -12,9 +10,13 @@
 ## [最佳作法](sql-data-warehouse-best-practices.md)
 ## [管理](sql-data-warehouse-overview-manage.md)
 
-
-
 # 作法
+
+## 服務功能
+### [MPP 架構](massively-parallel-processing-mpp-architecture.md)
+### [效能層級](performance-tiers.md)
+### [資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [常見問題集](sql-data-warehouse-overview-faq.md)
 
 ## 備份與還原
 
@@ -118,13 +120,15 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [REST API](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### 資源類別
+#### [指導方針](resource-classes-for-workload-management.md)
+#### [分析工作負載](analyze-your-workload.md)
 
 ## 效能
 
 ### [概觀](sql-data-warehouse-overview-manage-user-queries.md)
 ### [資料行存放區壓縮](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [監視](sql-data-warehouse-manage-monitor.md)
-### [工作負載](sql-data-warehouse-develop-concurrency.md)
 
 ## 安全性
 

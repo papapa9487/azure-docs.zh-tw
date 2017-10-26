@@ -6,6 +6,8 @@
       href: overview.md
 - name: 快速入門
   items:
+    - name: 路由 Blob 儲存體事件 - Azure CLI
+      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: 建立自訂事件 - Azure CLI
       href: custom-event-quickstart.md
     - name: 建立自訂事件 - Azure PowerShell
@@ -28,8 +30,6 @@
       href: delivery-and-retry.md
 - name: 使用說明指南
   items:
-    - name: 路由 Blob 儲存體事件
-      href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: 將資料從事件中樞串流至資料倉儲
       href: event-grid-event-hubs-integration.md
 - name: 參考

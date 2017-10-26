@@ -63,6 +63,7 @@
 #### [交易處理](service-bus-transactions.md)
 #### [配對的命名空間實作](service-bus-paired-namespaces.md)
 ## 管理
+### [透過 Azure 監視器監視服務匯流排](service-bus-metrics-azure-monitor.md)
 ### [服務匯流排管理程式庫](service-bus-management-libraries.md)
 ### [診斷記錄](service-bus-diagnostic-logs.md)
 ### [暫停及重新啟用訊息實體](entity-suspend.md)

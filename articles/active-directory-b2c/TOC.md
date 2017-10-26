@@ -80,16 +80,15 @@
 #### [以動態方式自訂 UI](active-directory-b2c-ui-customization-custom-dynamic.md)
 #### [自訂權杖](active-directory-b2c-reference-manage-sso-and-token-configuration.md)
 #### [密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md)
-
 #### [密碼變更](active-directory-b2c-reference-password-change-custom.md)
-
 #### [啟用讓我保持登入](active-directory-b2c-reference-kmsi-custom.md)
-
 ### 疑難排解
 #### [使用 Application Insights 收集記錄](active-directory-b2c-troubleshoot-custom.md)
 ## 參考
 ### [版本資訊](active-directory-b2c-developer-notes-custom.md)
+### [SSO 工作階段提供者](active-directory-b2c-reference-sso-custom.md)
 ### [信任 Framework 定義](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
+
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory-b2c)
 ## 詞彙

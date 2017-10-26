@@ -15,7 +15,7 @@ metadata:
   ms.date: 01-23-2017
   ms.author: carolz
 abstract:
-  description: Azure Functions 是無伺服器計算服務，可讓您依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Functions。
+  description: 'Azure Functions 是<a href="https://azure.microsoft.com/overview/serverless-computing/">無伺服器</a>計算服務，可讓您依需求執行程式碼，無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。 了解如何透過我們的快速入門、教學課程和範例使用Azure Functions。'
   aside:
     image:
       alt: null

@@ -5,6 +5,8 @@
 ## [選擇混合式身分識別解決方案](choose-hybrid-identity-solution.md)
 ## [關聯 Azure 訂用帳戶](active-directory-how-subscriptions-associated-directory.md)
 ## [常見問題集](active-directory-faq.md)
+## [新功能](whats-new.md)
+
 
 # 開始使用
 ## [開始使用 Azure AD](get-started-azure-ad.md)
@@ -302,6 +304,7 @@
 #### [最佳作法](active-directory-conditional-access-best-practices.md)
 #### [了解 Office 365 服務的裝置原則](active-directory-conditional-access-device-policies.md)
 #### 工作
+##### [移轉傳統原則](active-directory-conditional-access-migration.md)
 ##### [設定裝置型條件式存取](active-directory-conditional-access-policy-connected-applications.md)
 ##### [設定應用程式型條件式存取](active-directory-conditional-access-mam.md)
 ##### [為使用者和應用程式提供使用規定](active-directory-tou.md)

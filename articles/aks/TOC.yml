@@ -1,0 +1,61 @@
+- name: Azure Container Service (AKS)
+  href: ./index.yml
+- name: 概觀
+  items:
+    - name: 關於 AKS
+      href: intro-kubernetes.md
+- name: 快速入門
+  expanded: true
+  items:
+    - name: 建立 AKS 叢集
+      href: kubernetes-walkthrough.md
+- name: 教學課程
+  items:
+    - name: 1 - 準備應用程式供 AKS 使用
+      href: tutorial-kubernetes-prepare-app.md
+    - name: 2 - 建立容器登錄
+      href: tutorial-kubernetes-prepare-acr.md
+    - name: 3 - 建立 Kubernetes 叢集
+      href: tutorial-kubernetes-deploy-cluster.md
+    - name: 4 - 執行應用程式
+      href: tutorial-kubernetes-deploy-application.md
+    - name: 5 - 調整應用程式
+      href: tutorial-kubernetes-scale.md
+    - name: 6 - 更新應用程式
+      href: tutorial-kubernetes-app-update.md
+    - name: 7 - 透過 Log Analytics 監視
+      href: tutorial-kubernetes-monitor.md
+    - name: 8 - 升級叢集
+      href: tutorial-kubernetes-upgrade-cluster.md
+- name: 使用說明指南
+  items:
+    - name: 調整 AKS 叢集
+      href: scale-cluster.md
+    - name: 升級 AKS 叢集
+      href: upgrade-cluster.md
+    - name: 以 Helm 執行應用程式
+      href: kubernetes-helm.md
+    - name: 以 Draft 開發應用程式
+      href: kubernetes-draft.md
+    - name: 使用 Kubernetes 儀表板
+      href: kubernetes-dashboard.md
+    - name: 建立服務主體
+      href: kubernetes-service-principal.md
+- name: 參考
+  items:
+    - name: Azure CLI
+      href: /cli/azure/aks
+    - name: REST
+      href: /rest/api/container-service
+- name: 資源
+  items:
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: 區域可用性
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: 堆疊溢位
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: 影片
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

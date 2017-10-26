@@ -21,6 +21,8 @@
 ### [可用的 API](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## 管理
+### [透過 Azure 監視器監視 Azure Relay](relay-metrics-azure-monitor.md)
 
 # 參考
 ## .NET
