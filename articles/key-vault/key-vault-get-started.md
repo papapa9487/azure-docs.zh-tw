@@ -3,7 +3,7 @@ title: "開始使用 Azure 金鑰保存庫 | Microsoft Docs"
 description: "使用本教學課程可協助您開始使用 Azure 金鑰保存庫，進而在 Azure 中建立強化的容器，以儲存及管理 Azure 中的密碼編譯金鑰和密碼。"
 services: key-vault
 documentationcenter: 
-author: cabailey
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 36721e1d-38b8-4a15-ba6f-14ed5be4de79
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/19/2017
-ms.author: cabailey
-ms.openlocfilehash: 0299d931c5bf21775b68069afaa106279270226a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/16/2017
+ms.author: barclayn
+ms.openlocfilehash: d689fc0724b613abf2b319037dbd5555372622a8
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-azure-key-vault"></a>開始使用 Azure 金鑰保存庫
 大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
@@ -166,7 +166,7 @@ ms.lasthandoff: 10/11/2017
 6. 在 [應用程式屬性] 頁面上，為您的 Web 應用程式指定 [登入 URL] 和 [應用程式識別碼 URI]。 如果您的應用程式沒有這些值，您可以在此步驟中虛構這些值 (例如，您可以在這兩個方塊中指定 http://test1.contoso.com)。 這些網站是否存在並不重要。 重要的是目錄中每個應用程式的應用程式識別碼 URI 都會有所不同。 目錄會使用此字串來識別您的應用程式。
 7. 按一下 [完成]  圖示在精靈中儲存變更。
 8. 在 [快速入門] 頁面上，按一下 [設定]。
-9. 捲動到 金鑰 區段，選取持續時間，然後按一下儲存。 頁面會重新整理，並顯示金鑰值。 您必須使用此金鑰值和 [用戶端識別碼] 值來設定您的應用程式。 (有關此設定的指示僅適用於特定應用程式。)
+9. 捲動到 [金鑰] 區段，選取持續時間，然後按一下 [儲存]。 頁面會重新整理，並顯示金鑰值。 您必須使用此金鑰值和 [用戶端識別碼] 值來設定您的應用程式。 (有關此設定的指示僅適用於特定應用程式。)
 10. 複製此頁面的用戶端識別碼，您將在後續步驟中使用此識別碼來設定保存庫上的權限。
 
 ## <a id="authorize"></a>授權應用程式使用金鑰或密碼

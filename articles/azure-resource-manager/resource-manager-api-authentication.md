@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/27/2016
 ms.author: dugill;tomfitz
-ms.openlocfilehash: 7830dc4774652f4d108e98660dce3bcea7b32d05
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a4f60ce392c5f6c1a42f13187a0cc0fbd9f6d3e
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 驗證 API 來存取訂用帳戶
 ## <a name="introduction"></a>簡介
@@ -87,7 +87,7 @@ Web 應用程式：
 ### <a name="optional-configuration---certificate-credential"></a>選擇性組態 - 憑證認證
 Azure AD 也支援應用程式的憑證認證︰您建立自我簽署憑證、保留私密金鑰，然後將公開金鑰新增至 Azure AD 應用程式註冊。 若為驗證，您的應用程式會使用您的私密金鑰將小裝載傳送至簽署的 Azure AD，且 Azure AD 會使用您註冊的公開金鑰來驗證簽章。
 
-如需使用憑證建立 AD 應用程式的相關資訊，請參閱[使用 Azure PowerShell 建立用來存取資源的服務主體](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority)或[使用 Azure CLI 建立用來存取資源的服務主體](resource-group-authenticate-service-principal-cli.md#create-service-principal-with-certificate)。
+如需使用憑證建立 AD 應用程式的相關資訊，請參閱[使用 Azure PowerShell 建立用來存取資源的服務主體](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority)或[使用 Azure CLI 建立用來存取資源的服務主體](resource-group-authenticate-service-principal-cli.md)。
 
 ## <a name="get-tenant-id-from-subscription-id"></a>從訂用帳戶識別碼取得租用戶識別碼
 若要要求可用來呼叫 Resource Manager 的權杖，應用程式必須知道裝載 Azure 訂用帳戶之 Azure AD 租用戶的租用戶識別碼。 使用者很可能知道其訂用帳戶識別碼，但他們可能不知道其用於 Azure Active Directory 的租用戶識別碼。 若要取得使用者的租用戶識別碼，請要求使用者提供訂用帳戶識別碼。在傳送有關訂用帳戶的要求時，請提供該訂用帳戶識別碼：

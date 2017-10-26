@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2017
-ms.author: kgremban
+ms.date: 10/11/2017
+ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1dde300780c8d1f7ea9eee4c92de06bcf70a1f12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c15808a97d4efa5f9453f33d9ac70ebde5288201
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -69,8 +69,6 @@ ms.lasthandoff: 10/11/2017
 憑證簽章方法沒有任何限制。 橢圓曲線密碼編譯 (ECC)、主體別名 (SAN) 和其他常見的憑證類型均可支援。 
 
 只要萬用字元符合所需的外部 URL，便可使用萬用字元憑證。 
-
-您也可以使用自我簽署的憑證。 如果您使用私人憑證授權單位，則憑證的 CDP (憑證撤銷點發佈點) 應是公開的。
 
 ### <a name="changing-the-domain"></a>變更網域
 所有已驗證的網域會出現在您應用程式的外部 URL 下拉式清單中。 若要變更的網域，只要更新應用程式的該欄位。 如果您想要的網域不在清單中，請[將它新增為已驗證的網域](active-directory-domains-add-azure-portal.md)。 如果您選取的網域還沒有相關聯的憑證，請遵循步驟 5-7 來新增憑證。 接著，務必更新 DNS 記錄以從新的外部 URL 重新導向。 

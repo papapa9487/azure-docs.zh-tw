@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 97df68d446755414cbd427d59f399d6430580f42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5d3f7fce863f6b868a03eff481ae0dda5a7a812
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如輸入密碼)。
@@ -112,7 +112,7 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 ### <a name="application-not-in-the-gallery"></a>不在資源庫中的應用程式呢？
 如果 Azure AD 應用程式庫中找不到您的應用程式，您可以選擇：
 
-* **新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。 您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。 如需詳細資訊，請參閱 [加入自己的應用程式](active-directory-saas-custom-apps.md)一文。
+* **新增您正在使用但未列出的應用程式** - 使用 Azure 管理入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。 您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。 如需詳細資訊，請參閱 [加入自己的應用程式](application-config-sso-how-to-configure-federated-sso-non-gallery.md)一文。
 * **新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 的佈建。 如需詳細資訊，請參閱這些資源：
   
   * [Azure AD 的驗證案例](active-directory-authentication-scenarios.md)

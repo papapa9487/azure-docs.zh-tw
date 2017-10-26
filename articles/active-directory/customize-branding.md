@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 6bfce3d4ec243779229cc4f39e1c22149229a66a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41f4ceea4842303760c5b156e90bd9e0746a7825
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>快速入門：在 Azure AD 中將公司商標新增至登入頁面
 為了避免混淆，許多公司都想對其管理的所有網站和服務套用一致的外觀與風格。 Azure Active Directory (Azure AD) 是透過讓您利用公司標誌和自訂色彩配置來自訂登入頁面外觀的方式，提供這項功能。 登入頁面是當您登入 Office 365 或其他使用 Azure AD 作為識別提供者的 Web 型應用程式時，所顯示的頁面。 您可以與此頁面互動來輸入您的認證。
@@ -82,11 +82,11 @@ Azure AD 登入可讓使用者選擇在關閉並重新開啟其瀏覽器時保�
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [更多服務]，在文字方塊中輸入「使用者和群組」，然後選取 **Enter**。
 
-   ![開啟使用者管理](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![開啟使用者管理](./media/customize-branding/user-management.png)
 3. 在 [使用者和群組] 刀鋒視窗上，選取 [公司商標]。
 4. 在 [使用者和群組 - 公司商標] 刀鋒視窗上，選取 [編輯] 命令。
 
-    ![編輯自訂商標](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![編輯自訂商標](./media/customize-branding/edit-branding.png)
 5. 修改您想要自訂的元素。 所有元素都是選用的。
 6. 按一下 [儲存] 。
 
@@ -97,11 +97,11 @@ Azure AD 登入可讓使用者選擇在關閉並重新開啟其瀏覽器時保�
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure AD 管理中心](https://aad.portal.azure.com)。
 2. 在文字方塊中選取 [使用者和群組]，然後選取 [Enter]。
 
-   ![開啟使用者管理](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![開啟使用者管理](./media/customize-branding/user-management.png)
 3. 在 [使用者和群組] 刀鋒視窗上，選取 [公司商標]。
 4. 在 [使用者和群組 - 公司商標] 刀鋒視窗上，選取 [新增語言] 命令。
 
-    ![新增語言特定商標元素](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![新增語言特定商標元素](./media/customize-branding/add-language.png)
 5. 修改您想要自訂的元素。 所有元素都是選用的。
 6. 按一下 [儲存] 。
 

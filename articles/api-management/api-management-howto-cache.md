@@ -3,7 +3,7 @@ title: "新增快取以改善 Azure API 管理的效能 | Microsoft Docs"
 description: "了解如何改善 API 管理服務呼叫的延遲、頻寬耗用量和 Web 服務負載。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 740f6a27-8323-474d-ade2-828ae0c75e7a
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 59c595f0d5ce849f44c46fdb6cab0b44d35fffa0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>新增快取以改善 Azure API 管理的效能
 可以設定 API 管理中的作業進行回應快取。 對於不常變更的資料，回應快取可大幅降低 API 延遲、頻寬耗用量和 Web 服務負載。
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 ![發行者入口網站][api-management-management-console]
 
-從左側 API 管理 功能表按一下 API，然後按一下Echo API。
+從左側 [API 管理] 功能表按一下 [API]，然後按一下 [Echo API]。
 
 ![Echo API][api-management-echo-api]
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-選取 取得資源 (快取) 作業，然後按一下開啟主控台。
+選取 [取得資源 (快取)] 作業，然後按一下 [開啟主控台]。
 
 ![Open console][api-management-open-console]
 
@@ -131,11 +131,11 @@ ms.lasthandoff: 10/11/2017
 
 按一下 [HTTP Get]  ，並記下回應標頭。
 
-在 要求標頭 文字方塊中輸入 **sampleheader:value2**，然後按一下HTTP Get。
+在 [要求標頭] 文字方塊中輸入 **sampleheader:value2**，然後按一下 [HTTP Get]。
 
 請注意，在回應中，**sampleheader** 的值仍然是 **value1**。 請試驗一些不同的值，可發現傳回第一次呼叫的快取回應。
 
-在 param2 欄位中輸入 **25**，然後按一下HTTP Get。
+在 [param2] 欄位中輸入 **25**，然後按一下 [HTTP Get]。
 
 請注意，回應中的 **sampleheader** 值現在是 **value2**。 因為操作結果是依查詢字串來識別，所以不會傳回前一個快取回應。
 

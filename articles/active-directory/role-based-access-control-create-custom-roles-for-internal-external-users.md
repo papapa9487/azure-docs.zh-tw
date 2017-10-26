@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: cccd0af0c991efe330567c2459717798d116e68f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 ## <a name="intro-on-role-based-access-control"></a>角色型存取控制簡介
 
@@ -33,7 +33,7 @@ RBAC 可提供更好的安全性管理，對象包括大型組織，以及與需
 * 具有 Azure 訂用帳戶的擁有者角色
 * 具有 [Azure 入口網站](https://portal.azure.com)的存取權
 * 請確定使用者訂用帳戶已登錄下列資源提供者︰**Microsoft.Authorization**。 如需有關如何登錄資源提供者的詳細資訊，請參閱 [Resource Manager 提供者、區域、API 版本及結構描述](/azure-resource-manager/resource-manager-supported-services.md)。
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
 
 > [!NOTE]
 > 從 O365 入口網站佈建的 Office 365 訂用帳戶或 Azure Active Directory 授權 (例如︰存取 Azure Active Directory) 沒有資格使用 RBAC。
@@ -77,7 +77,7 @@ RBAC 在 Azure 中可套用於三個不同範圍。 從最低到最高的範圍�
 ![在 Azure 入口網站的存取控制 IAM 功能中新增使用者](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
 下一個步驟是選取要指派的角色，以及要指派 RBAC 角色的使用者。 在 [角色] 下拉式功能表中，管理使用者只會看到 Azure 中提供的內建 RBAC 角色。 如需每個角色及其可指派範圍的詳細說明，請參閱 [Azure 角色型存取控制的內建角色](/active-directory/role-based-access-built-in-roles.md)。
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found--->
+<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
 
 然後，管理使用者必須新增外部使用者的電子郵件地址。 預期的行為是要使外部使用者不顯示在現有的租用戶中。 外部使用者受邀請之後，他會與目前已指派訂用帳戶範圍內之 RBAC 角色的所有目前使用者一起顯示在 [訂用帳戶] > [存取控制 (IAM)] 下。
 

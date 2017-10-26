@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 10/16/2017
 ms.author: owend
-ms.openlocfilehash: d34b2123153406640cf03bc9f57efa557af4cfaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74058b34dc38172f8e0daabfac0e847df71ed553
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>補充課程 - 不完全階層
 
@@ -44,7 +44,7 @@ ms.lasthandoff: 10/11/2017
   
 1.  在 [表格式模型總管] 中，依序展開 [資料來源]，然後以滑鼠右鍵按一下您的連線 > [匯入新資料表]。
   
-2.  在 導覽器 中，選取 DimEmployee 和 FactResellerSales，然後按一下確定。
+2.  在 [導覽器] 中，選取 [DimEmployee] 和 [FactResellerSales]，然後按一下 [確定]。
 
 3.  在 [查詢編輯器] 中，按一下 [匯入]
 
@@ -77,22 +77,22 @@ ms.lasthandoff: 10/11/2017
 
     **Level2** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,2)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],2,1)) 
     ```
 
     **Level3** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,3)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],3,1)) 
     ```
 
     **Level4** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,4)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],4,1)) 
     ```
 
     **Level5** 
     ```
-    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],1,5)) 
+    =LOOKUPVALUE(DimEmployee[FullName],DimEmployee[EmployeeKey],PATHITEM([Path],5,1)) 
     ```
 
 6.  在 [DimEmployee] 資料表中，建立名為 **Organization** 的[階層](../tutorials/aas-lesson-9-create-hierarchies.md)。 依序新增下列資料行︰**Level1**、**Level2**、**Level3**、**Level4**、**Level5**。

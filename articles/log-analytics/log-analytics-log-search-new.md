@@ -11,20 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: db271f5157fee29a5cc0c4534768bdb3c769ba74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f040d1480433ccf4c0b2b22c0cf1e25a7151d74
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-log-searches-in-log-analytics"></a>了解 Log Analytics 中的記錄搜尋
-
-> [!NOTE]
-> 本文說明使用新的查詢語言之 Azure Log Analytics 中的記錄搜尋。  您可以在[將 Azure Log Analytics 工作區升級為新的記錄搜尋](log-analytics-log-search-upgrade.md)中，深入了解新的語言，並且取得升級工作區的程序。  
->
-> 如果您的工作區尚未升級為新的查詢語言，您應該參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](log-analytics-log-searches.md)。
 
 您需要記錄搜尋以便從 Log Analytics 擷取任何資料。  無論您是分析入口網站中的資料、設定在特定條件下進行通知的警示規則，或是使用 Log Analytics API 擷取資料，您會使用記錄搜尋來指定您想要的資料。  本文說明記錄搜尋在 Log Analytics 中的使用方式，並且提供在建立之前應該了解的概念。 請參閱[後續步驟](#next-steps)一節，以取得建立和編輯記錄搜尋的詳細資料，以及取得查詢語言的參考。
 

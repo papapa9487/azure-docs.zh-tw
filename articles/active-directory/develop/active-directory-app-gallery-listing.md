@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cf25772bd9d92b59401aa5da76e6bbd5fa5ee3e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1d315cf63bcbf37b6b03b5a965ac615282526682
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="listing-your-application-in-the-azure-active-directory-application-gallery"></a>在 Azure Active Directory 應用程式庫中列出您的應用程式
 若要在 [Azure AD 資源庫](https://azure.microsoft.com/marketplace/active-directory/all/)中列出某個支援單一登入搭配 Azure Active Directory 的應用程式 ，該應用程式首先必須實作下列其中一項整合模式：
@@ -64,10 +64,10 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="saml-integration"></a>SAML 整合
-使用 [這些指示來新增自訂應用程式](../active-directory-saas-custom-apps.md)，支援 SAML 2.0 的任何應用程式都可直接與 Azure AD 租用戶整合。 一旦您測試過應用程式可與 Azure AD 整合後，請將下列資訊傳送至 <mailto:waadpartners@microsoft.com>。
+使用 [這些指示來新增自訂應用程式](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)，支援 SAML 2.0 的任何應用程式都可直接與 Azure AD 租用戶整合。 一旦您測試過應用程式可與 Azure AD 整合後，請將下列資訊傳送至 <mailto:waadpartners@microsoft.com>。
 
 * 提供可由 Azure AD 小組搭配您的應用程式來測試整合的測試租用戶或帳戶的認證。  
-* 提供您的應用程式的 SAML 登入 URL、簽發者 URL (實體 ID) 和回覆 URL (判斷提示取用者服務) 的值，如 [此處](../active-directory-saas-custom-apps.md)所述。 如果您通常會提供這些值做為一個 SAML 中繼資料檔的一部分，也請一併傳送該檔案。
+* 提供您的應用程式的 SAML 登入 URL、簽發者 URL (實體 ID) 和回覆 URL (判斷提示取用者服務) 的值，如 [此處](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)所述。 如果您通常會提供這些值做為一個 SAML 中繼資料檔的一部分，也請一併傳送該檔案。
 * 提供如何在使用 SAML 2.0 的應用程式中設定 Azure AD 做為身分識別提供者的簡短描述。 如果您的應用程式支援透過自助系統管理入口網站來設定 Azure AD 做為身分識別提供者，請確認以上提供的認證包含執行這項設定所需的能力。
 * 提供下列資訊：
 
