@@ -10,7 +10,7 @@
 | 每一訂用帳戶的保留 IP |20 |100 |
 | 每一訂用帳戶託管服務的憑證 |400 |400 |
 | [同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md)  |256 |256 |
-| 每一訂用帳戶的警示規則 |250 |250 |
+
 
 <sup>1</sup>雖然只使用部分核心，在計算核心限制時，仍會將超小型執行個體視為一個核心。
 

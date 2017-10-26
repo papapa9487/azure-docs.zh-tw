@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD 中的自助式密碼重設深入探討
 
@@ -77,7 +77,7 @@ SSPR 的運作方式 該選項在介面中的意義為何？ 繼續閱讀以深�
 
 使用者只有在系統管理員已啟用且要求的驗證方法中有資料存在時，才能夠重設其密碼。
 
-如果使用者不想要在目錄中顯示行動電話號碼，但仍想要將它使用於密碼重設，系統管理員不得在目錄中填入該行動電話號碼，而使用者應透過[密碼重設註冊入口網站](http://aka.ms/ssprsetup)填入其 [驗證電話] 屬性。 系統管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。 如果 Azure 系統管理員帳戶註冊其驗證電話號碼，該號碼會填入行動電話欄位中並顯示出來。
+如果使用者不想要在目錄中顯示行動電話號碼，但仍想要將它使用於密碼重設，系統管理員不得在目錄中填入該行動電話號碼，而使用者應透過[密碼重設註冊入口網站](http://aka.ms/ssprsetup)填入其 [驗證電話] 屬性。 系統管理員可以在使用者的設定檔中看到此資訊，但該資訊不會發佈在其他地方。
 
 ### <a name="number-of-authentication-methods-required"></a>必要驗證方法數目
 

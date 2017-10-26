@@ -1,5 +1,5 @@
 
-使用 [az webapp create](/cli/azure/appservice/web#create) 命令，在 `myAppServicePlan` App Service 方案中建立應用程式。 
+使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立應用程式。 
 
 Web 應用程式會為您的 API 提供裝載空間，以及提供 URL 來檢視已部署的應用程式。
 

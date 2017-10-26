@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>密碼管理常見問題集
 
@@ -56,10 +56,6 @@ ms.lasthandoff: 10/11/2017
 * **問：我的使用者是否可以用讓其他使用者看不到資料的方式來註冊該資料？**
 
   > **答：**是，當使用者使用「密碼重設註冊入口網站」來註冊資料時，該資料會儲存到私密的驗證欄位中，只有「全域管理員」和使用者能夠看見。
-    >
-    > [!NOTE]
-    > 如果 **Azure 系統管理員帳戶**註冊其驗證電話號碼，該號碼也會填入行動電話欄位中並顯示出來。
-    >
   >
   >
 * **問：我的使用者是否必須先註冊才能使用密碼重設？**

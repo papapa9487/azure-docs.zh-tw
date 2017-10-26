@@ -3,7 +3,7 @@ title: "使用 Azure API 管理保護 API| Microsoft Docs"
 description: "了解如何使用配額和節流 (頻率限制) 原則保護您的 API。"
 services: api-management
 documentationcenter: 
-author: vladvino
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 450dc368-d005-401d-ae64-3e1a2229b12f
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 300b1d762a61c810dbffde5aaacd8a85f12c9fca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c13d08c2f5ea6cfb5bed19b94c09f3d7dd37c21f
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="protect-your-api-with-rate-limits-using-azure-api-management"></a>使用 Azure API 管理以頻率限制保護 API
 本指南說明藉由使用 Azure API 管理設定頻率限制和配額原則，來為後端 API 增加保護是多麼簡單容易的工作。
@@ -73,7 +73,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 
 ![Add developers group][api-management-add-developers-group]
 
-選取 開發人員 核取方塊，然後按一下儲存。
+選取 [開發人員] 核取方塊，然後按一下 [儲存]。
 
 ## <a name="add-api"> </a>將 API 加入至產品
 在教學課程的這個步驟中，我們會將 Echo API 加入至新的「免費試用」產品。
@@ -82,7 +82,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 > 
 > 
 
-從左側的 API 管理 功能表按一下 產品，然後按一下免費試用 來設定產品。
+從左側的 [API 管理] 功能表按一下 [產品]，然後按一下 [免費試用] 來設定產品。
 
 ![Configure product][api-management-configure-product]
 
@@ -90,7 +90,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 
 ![Add API to product][api-management-add-api]
 
-請選取 Echo API，然後按一下儲存。
+請選取 [Echo API]，然後按一下 [儲存]。
 
 ![Add Echo API][api-management-add-echo-api]
 
@@ -197,7 +197,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 ![Save policy][api-management-policy-save]
 
 ## <a name="publish-product"> </a> 發佈產品
-現在已加入 API，也已設定原則，產品必須發佈才能供開發人員使用。 從左側的 API 管理 功能表按一下 產品，然後按一下免費試用 來設定產品。
+現在已加入 API，也已設定原則，產品必須發佈才能供開發人員使用。 從左側的 [API 管理] 功能表按一下 [產品]，然後按一下 [免費試用] 來設定產品。
 
 ![Configure product][api-management-configure-product]
 
@@ -220,7 +220,7 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 
 ![加入訂閱][api-management-add-subscription-menu]
 
-選取 免費試用，然後按一下訂閱。
+選取 [免費試用]，然後按一下 [訂閱]。
 
 ![加入訂閱][api-management-add-subscription]
 
@@ -241,11 +241,11 @@ API 管理中的產品可以是受保護或開放的。 受保護的產品必須
 
 ![開發人員入口網站][api-management-developer-portal-menu]
 
-在上方功能表中按一下 API，然後按一下Echo API。
+在上方功能表中按一下 [API]，然後按一下 [Echo API]。
 
 ![開發人員入口網站][api-management-developer-portal-api-menu]
 
-按一下 GET 資源，然後按一下嘗試。
+按一下 [GET 資源]，然後按一下 [嘗試]。
 
 ![Open console][api-management-open-console]
 

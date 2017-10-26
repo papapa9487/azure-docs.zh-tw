@@ -3,7 +3,7 @@ title: "在 Azure API 管理中使用群組管理開發人員帳戶 | Microsoft 
 description: "了解如何在 Azure API 管理中使用群組來管理管理開發人員帳戶。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 33660b45-442f-44be-9a4a-1899d7f699b0
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: b4d71cdfbab535b02542fbb26c7555265e5f9c37
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00322340d67fd064a0dc9149790e031b94390709
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
 在 API 管理中，群組的作用是管理產品對於開發人員的可見度。 產品是先設為可讓群組看見，然後群組中的開發人員就能檢視和訂閱與群組相關聯的產品。 
@@ -47,7 +47,7 @@ API 管理具有下列不可變的系統群組。
 > 
 > 
 
-從左邊的 API 管理 功能表中按一下 群組，然後按一下新增群組。
+從左邊的 [API 管理] 功能表中按一下 [群組]，然後按一下 [新增群組]。
 
 ![Add new group][api-management-add-group]
 

@@ -3,7 +3,7 @@ title: "如何在 Azure API 管理中建立 API"
 description: "了解如何在 Azure API 管理中建立和設定 API。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 14c20da4-f29f-4b28-bec7-3d4c50b734da
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: ab08256fbc3caca05bf23a12016ad2acf4fc7412
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79630fb8998d47aab8eed38daf7d5fcef3d870d7
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-create-apis-in-azure-api-management"></a>如何在 Azure API 管理中建立 API
 API 管理中的 API 代表可供用戶端應用程式叫用的一組作業。 新的 API 是在發行者入口網站中建立，然後新增所需的作業。 加入操作之後，API 就可加入至產品，接著就可發佈。 API 發佈之後，就可供開發人員訂閱和使用。
@@ -34,7 +34,7 @@ API 是在發行者入口網站中建立和設定。 若要存取發行者入口
 > 
 > 
 
-從左側 API 管理 功能表按一下 API，然後按一下新增 API。
+從左側 [API 管理] 功能表按一下 [API]，然後按一下 [新增 API]。
 
 ![Create API][api-management-create-api]
 

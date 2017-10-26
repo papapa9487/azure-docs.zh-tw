@@ -9,16 +9,17 @@ ms.reviewer: jsnow
 ms.date: 10/04/2017
 ms.topic: article
 ms.prod: 
-ms.service: azure
+ms.service: active-directory
+ms.workload: identity
 ms.technology: 
 ms.assetid: 
-service: active-directory
+services: active-directory
 custom: it-pro
-ms.openlocfilehash: 2e9d9955810c01eb916df2580f623373aebb9d1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 714f90155dbf53c5728e27995cee95f132fa452b
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-azure-ad"></a>開始使用 Azure AD
 現代的身分識別管理需要可調整、一致的可靠性，以確保只有經過驗證的使用者才可使用應用程式和服務。 為了充分支援使用者的身分識別管理需求，IT 需要設法允許存取已核准、公開的軟體即服務 (SaaS) 應用程式、設法裝載內部的企業營運應用程式，甚至設法加強內部部署應用程式開發和使用方式。 這些需求全都指出需要有一套雲端式身分識別管理解決方案。      

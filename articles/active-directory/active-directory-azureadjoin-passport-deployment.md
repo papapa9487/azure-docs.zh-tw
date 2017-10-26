@@ -13,13 +13,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 10/17/2017
 ms.author: markvi
-ms.openlocfilehash: 58943e1e29755c983e55c675dd4fe7b75ac47b34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8fd9f3a51651fc163abd79aaf21ec3dd92502bb5
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="enable-microsoft-windows-hello-for-business-in-your-organization"></a>在組織中啟用 Microsoft Windows Hello 企業版
 [連接已加入網域的 Windows 10 裝置與 Azure Active Directory](active-directory-azureadjoin-devices-group-policy.md) 後，請依下列方式在組織中啟用 Microsoft Windows Hello 企業版。
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 4. 以滑鼠右鍵按一下新的群組原則物件，然後選取 [編輯] 。
 5. 瀏覽至 [電腦設定]  >  [原則]  >  [系統管理範本]  >  [Windows 元件]  >  [Windows Hello 企業版]。
 6. 以滑鼠右鍵按一下 [啟用 Windows Hello 企業版]，然後選取 [編輯]。
-7. 選取 已啟用 選項按鈕，然後按一下套用。 按一下 [確定] 。
+7. 選取 [已啟用] 選項按鈕，然後按一下 [套用]。 按一下 [確定] 。
 8. 您現在可以將群組原則物件連結到您所選擇的位置。 若要對組織中所有加入網域的 Windows 10 裝置啟用此原則，請將群組原則連結到網域。 例如：
    * Active Directory 中將放置已加入網域的 Windows 10 電腦的特定組織單位 (OU)
    * 已加入網域且會向 Azure AD 自動註冊的 Windows 10 電腦所屬的特定安全性群組
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>後續步驟
 * [適合企業使用的 Windows 10：使用裝置工作的方式](active-directory-azureadjoin-windows10-devices-overview.md)
 * [透過 Azure Active Directory Join 擴充 Windows 10 裝置的雲端功能](active-directory-azureadjoin-user-upgrade.md)
-* [透過 Microsoft Passport 不需要密碼就能驗證身分識別](active-directory-azureadjoin-passport.md)
+* [無需密碼驗證](active-directory-azureadjoin-passport.md)
 * [了解適用於 Azure AD Join 的使用案例](active-directory-azureadjoin-deployment-aadjoindirect.md)
 * [將已加入網域裝置連接到 Azure AD 以體驗 Windows 10](active-directory-azureadjoin-devices-group-policy.md)
 * [設定 Azure AD Join](active-directory-azureadjoin-setup.md)

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/01/2017
+ms.date: 10/23/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 27ace4e9bc4a1626059fba657dce0c629d52f32d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f9574bc3d811d413b68d97ebe710858af8eb919
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Azure Active Directory 條件式存取的技術參考
 
@@ -47,6 +47,7 @@ ms.lasthandoff: 10/11/2017
 
 您可以將條件式存取原則指派給下列 Microsoft 的雲端應用程式：
 
+- [Azure 資訊保護](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Azure RemoteApp
 
 - Microsoft Dynamics 365

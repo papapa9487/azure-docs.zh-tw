@@ -3,7 +3,7 @@ title: "如何在 Azure API 管理中管理使用者帳戶 | Microsoft Docs"
 description: "了解如何在 Azure API 管理中建立或邀請使用者"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 078abfa5-1e4f-4c9d-b9c7-a172bd19c1a2
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: d3a50f6d22cbf1797f580078bc0d2cc9cefe5064
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34343194cb9896916cb02cb8acf61af24f0784c9
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理使用者帳戶
 在 API 管理中，開發人員是指您使用 API 管理所公開之 API 的使用者。 本指南示範如何建立並邀請開發人員使用您以 API 管理執行個體提供給他們的 API 和產品。 如需以程式設計方式管理使用者帳戶的相關資訊，請參閱 [API 管理 REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) 參考中的[使用者實體](https://msdn.microsoft.com/library/azure/dn776330.aspx)文件。
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 ![發行者入口網站][api-management-management-console]
 
-從左邊的 API 管理 功能表中按一下 使用者，然後按一下使用者。
+從左邊的 [API 管理] 功能表中按一下 [使用者]，然後按一下 [使用者]。
 
 ![Create developer][api-management-create-developer]
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 處於「作用中」  狀態的開發人員帳戶可用來存取擁有訂用帳戶的所有 API。 若要將新建立的開發人員與其他群組建立關聯，請參閱 [如何將群組與開發人員建立關聯][How to associate groups with developers]。
 
 ## <a name="invite-developer"> </a>邀請開發人員
-若要邀請開發人員，請從左邊的 API 管理 功能表中按一下 使用者，然後按一下邀請使用者。
+若要邀請開發人員，請從左邊的 [API 管理] 功能表中按一下 [使用者]，然後按一下 [邀請使用者]。
 
 ![Invite developer][api-management-invite-developer]
 
