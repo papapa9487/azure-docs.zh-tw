@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/09/2017
 ms.author: glenga
-ms.openlocfilehash: 5517581f929ffce9e9184848049ce9832013277e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1594a27d50df9abdac27b342ad18363b974c8972
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure App Service 中使用 WebJob 執行背景工作
 
@@ -43,7 +43,7 @@ Azure Functions 提供另一種方式來執行程式和指令碼。 如需 WebJo
 | 支援遠端偵錯。 | 不支援遠端偵錯。|
 
 > [!NOTE]
-> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對 scm (部署) 網站或入口網站中 Web 應用程式之分頁的要求，才會重設計時器。 對實際網站的要求不會重設計數器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 這項功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/)。
+> Web 應用程式會在 20 分鐘沒有活動之後逾時。 只有對 scm (部署) 網站或入口網站中 Web 應用程式之分頁的要求，才會重設計時器。 對實際網站的要求不會重設計數器。 如果您的應用程式執行連續或已排程的 WebJob，請啟用 [永遠開啟]，確保 Webjob 會可靠地執行。 這項功能僅適用於基本、標準和進階[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 ## <a name="acceptablefiles"></a>指令碼或程式支援的檔案類型
 
@@ -83,7 +83,7 @@ when making changes in one don't forget the other two.
    | **名稱** | myContinuousWebJob | App Service 應用程式中唯一的名稱。 開頭必須是字母或數字，而且不能含有 "-" 和 "_" 之外的特殊字元。 |
    | **檔案上傳** | ConsoleApp.zip | .zip 檔案包含您的可執行檔或指令碼檔案，以及執行程式或指令碼所需的任何支援檔案。 支援的可執行檔或指令碼檔案類型會列在[支援的檔案類型](#acceptablefiles)一節。 |
    | **類型** | 連續 | [WebJob 類型](#webjob-types)在本文稍早已有提及。 |
-   | **調整** | 多重執行個體 | 僅適用於連續 WebJob。 決定程式或指令碼是在所有執行個體上執行，或是只在一個執行個體上執行。 在多個執行個體上執行的選項不適用於免費或共用[定價層](https://azure.microsoft.com/pricing/details/app-service/)。 |
+   | **調整** | 多重執行個體 | 僅適用於連續 WebJob。 決定程式或指令碼是在所有執行個體上執行，或是只在一個執行個體上執行。 在多個執行個體上執行的選項不適用於免費或共用[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 | 
 
 4. 按一下 [確定] 。
 

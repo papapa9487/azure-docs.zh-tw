@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f5d3f7fce863f6b868a03eff481ae0dda5a7a812
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如輸入密碼)。
@@ -75,12 +75,10 @@ Azure AD 可以對具有 HTML 登入頁面的任何雲端應用程式支援密�
 密碼 SSO 依賴瀏覽器延伸從 Azure AD 安全擷取應用程式和使用者特定資訊，並將它套用至服務。 Azure AD 支援的大多數協力廠商 SaaS 應用程式都支援這項功能。
 
 若是密碼 SSO，則使用者的瀏覽器可以是：
-
-* Internet Explorer 8、9、10、11 -- Windows 7 或更新版本 (另請參閱 [IE 擴充功能部署指南](active-directory-saas-ie-group-policy.md))
+* Internet Explorer 8、9、10、11 -- 在 Windows 7 或更新版本上
+* Windows 10 Anniversary Edition 或更新版本上的 Edge 
 * Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
 * Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
-
-**注意：** 當瀏覽器擴充功能可以支援 Edge 時，密碼 SSO 擴充功能將可提供 Windows 10 中的 Edge 使用。
 
 ### <a name="existing-single-sign-on"></a>現有單一登入
 設定應用程式的單一登入時，Azure 管理入口網站提供「現有單一登入」的第三個選項。 這個選項只允許系統管理員建立應用程式的連結，並將連結放在選定使用者的存取面板上。

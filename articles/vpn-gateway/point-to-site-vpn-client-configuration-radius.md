@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: cherylmc
-ms.openlocfilehash: c56a9b06a11d25cf046a0faeb29af1d78d9a4a89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7d2dbff4bcd0d76b56c6f142afae4ce8359bb37
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication-preview"></a>建立和安裝 P2S RADIUS 驗證的 VPN 用戶端組態檔 (預覽)
 
@@ -49,7 +49,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供必要�
 使用下列命令來建立 VPN 用戶端組態：
 
 ```powershell 
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapMSChapv2"
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapMSChapv2"
 ```
  
 執行命令後，它會傳回一個連結。 將該連結複製並貼到網頁瀏覽器，以下載 'VpnClientConfiguration.zip' 壓縮檔。 將該檔案解壓縮，以查看下列資料夾： 
@@ -63,7 +63,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 若要擷取先前產生的用戶端組態檔，請使用下列命令：
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="adwincli"></a>設定 Windows VPN 用戶端
@@ -122,7 +122,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 使用下列命令來建立 VPN 用戶端組態：
  
 ```powershell
-New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
+New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls" -RadiusRootCert <full path name of .cer file containing the RADIUS root> -ClientRootCert <full path name of .cer file containing the client root>
 ```
 
 此 Cmdlet 結果會傳回一個連結。 將該連結複製並貼到網頁瀏覽器，以下載 'VpnClientConfiguration.zip' 壓縮檔。 將該檔案解壓縮，以查看下列資料夾：
@@ -135,7 +135,7 @@ New-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGat
 若要擷取先前產生的用戶端組態檔，請使用下列命令：
 
 ```powershell
-Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -VirtualNetworkGatewayName "VNet1GW"
+Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ```
  
 ### <a name="certwincli"></a>設定 Windows VPN 用戶端

@@ -1,6 +1,6 @@
 ---
 title: "永遠加密：SQL Database - Azure Key Vault | Microsoft Docs"
-description: "本文說明如何使用 SQL Server Management Studio 中的 [永遠加密精靈]，藉由資料加密來保護 SQL Database 中的機密資料。 它也包含示範如何將每個加密金鑰儲存在「Azure 金鑰保存庫」中的指示。"
+description: "本文說明如何使用 SQL Server Management Studio 中的 [永遠加密精靈]，藉由資料加密來保護 SQL Database 中的機密資料。"
 keywords: "資料加密, 加密金鑰, 雲端加密"
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: sstein
-ms.openlocfilehash: 61bfd420425b4740f6d4ebc01a403a88ff351382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f22438c8a9d31f2b10d9ba9e1dd645842cf71712
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>一律加密：保護 SQL Database 中的機密資料，並將加密金鑰儲存在「Azure 金鑰保存庫」中
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 開啟 [Azure 傳統入口網站](http://manage.windowsazure.com)。
 2. 選取 [Active Directory]  ，然後按一下您應用程式將會使用的 [Active Directory]。
-3. 按一下 應用程式，然後按一下新增。
+3. 按一下 [應用程式]，然後按一下 [新增]。
 4. 輸入您應用程式的名稱 (例如：*myClientApp*)，選取 [WEB 應用程式]，然後按一下箭號以繼續。
 5. 針對 [登入 URL] 和 [應用程式識別碼 URI]，您可以輸入一個有效的 URL (例如： *http://myClientApp* )，然後繼續。
 6. 按一下 [設定] 。
@@ -118,7 +118,7 @@ ms.lasthandoff: 10/11/2017
 在本節中，您將建立資料表來保存病患的資料。 它一開始並未加密 -- 您將在下一節中設定加密。
 
 1. 展開 [資料庫] 。
-2. 在 Clinic 資料庫上按一下滑鼠右鍵，然後按一下新增查詢。
+2. 在 [Clinic] 資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]。
 3. 將下列 Transact-SQL (T-SQL) 貼到新的查詢視窗中並「執行」  它。
 
         CREATE TABLE [dbo].[Patients](

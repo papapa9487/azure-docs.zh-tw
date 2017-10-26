@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1fd0353bf805340a9c4d3151a9b85c329f7d2e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>了解 IoT 中樞的直接方法並從中樞叫用直接方法
-## <a name="overview"></a>概觀
 IoT 中樞能讓您從雲端在裝置上叫用直接方法。 直接方法代表與裝置的要求-回覆互動，類似於 HTTP 呼叫，因為會立即成功或失敗 (在使用者指定的逾時之後)。 對於立即動作的進展取決於裝置是否能夠回應的案例來說，例如在裝置離線時傳送 SMS 喚醒給裝置 (SMS 的成本比方法呼叫高)，此方法會相當有用。
 
 每個裝置方法的目標是單一裝置。 [作業][lnk-devguide-jobs]提供方法來在多個裝置上叫用直接方法，並針對已中斷連接的裝置排定方法引動過程。
 
 IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的方法。
 
-### <a name="when-to-use"></a>使用時機
 直接方法會遵循要求-回應模式，主要用於需要立即確認其結果的通訊，通常為裝置的互動式控制，例如開啟風扇。
 
 如果不確定要使用所需屬性、直接方法或雲端對裝置訊息，請參閱[雲端對裝置通訊指引][lnk-c2d-guidance]。
@@ -48,9 +46,6 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 
 方法要求和回應的承載是一個 JSON 文件 (大小上限為 8 KB)。
 
-## <a name="reference-topics"></a>參考主題：
-下列參考主題會提供您關於使用直接方法的詳細資訊。
-
 ## <a name="invoke-a-direct-method-from-a-back-end-app"></a>從後端應用程式叫用直接方法
 ### <a name="method-invocation"></a>方法引動過程
 裝置上的直接方法引動過程是 HTTPS 呼叫，由下列各項組成︰
@@ -60,32 +55,32 @@ IoT 中樞上具有**服務連線**權限的任何人都可以叫用裝置上的
 * *標頭* - 包含授權、要求識別碼、內容類型及內容編碼
 * 透明 JSON *本文*格式如下︰
 
-```
-{
-    "methodName": "reboot",
-    "responseTimeoutInSeconds": 200,
-    "payload": {
-        "input1": "someInput",
-        "input2": "anotherInput"
-    }
-}
-```
+   ```
+   {
+       "methodName": "reboot",
+       "responseTimeoutInSeconds": 200,
+       "payload": {
+           "input1": "someInput",
+           "input2": "anotherInput"
+       }
+   }
+   ```
 
 逾時 (秒)。 如果未設定逾時，它會預設為 30 秒。
 
-### <a name="response"></a>Response
+### <a name="response"></a>回應
 後端應用程式會收到一個由下列各項組成的回應︰
 
-* *HTTP 狀態碼* - 用於來自 IoT 中樞的錯誤，包括代表裝置目前未連接的 404 錯誤
+* *HTTP 狀態碼*，用於來自 IoT 中樞的錯誤，包括裝置目前未連接的 404 錯誤
 * *標頭* - 包含 ETag、要求識別碼、內容類型及內容編碼
 * JSON *本文*格式如下︰
 
-```
-{
-    "status" : 201,
-    "payload" : {...}
-}
-```
+   ```
+   {
+       "status" : 201,
+       "payload" : {...}
+   }
+   ```
 
    `status` 和 `body` 都是由裝置提供，用來回應裝置本身的狀態碼和/或描述。
 

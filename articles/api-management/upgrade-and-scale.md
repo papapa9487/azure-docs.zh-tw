@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: cf5cd03bd9147ac81b07dc453a919a3c74de44fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>升級和調整 API 管理執行個體的規模 
 
@@ -23,10 +23,10 @@ ms.lasthandoff: 10/11/2017
 
 每個單位的容量和價格取決於該單位所在的**階層**。 有三層供您選擇：**開發人員**、**標準**、**進階**。 如果您需要為階層內的服務增加容量，請新增單位。 如果 APIM 執行個體中目前選取的階層不允許新增更多單位，則必須升級至更高的階層。 
 
-每個單位的價格、是否能夠新增或移除單位，以及您是否有特定的功能 (例如多區域部署)，取決於您為 APIM 執行個體所選擇的階層。 [定價詳細資料](https://azure.microsoft.com/pricing/details/api-management/)一文說明每一層的每單位價格和功能。 
+每個單位的價格、是否能夠新增或移除單位，以及您是否有特定的功能 (例如多區域部署)，取決於您為 APIM 執行個體所選擇的階層。 [定價詳細資料](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)一文說明每一層的每單位價格和功能。 
 
 >[!NOTE]
->[定價詳細資料](https://azure.microsoft.com/pricing/details/api-management/)一文顯示每一層單位容量的大約數字。 若要取得更精確的數字，則需要查看 API 的實際情節。 請參閱接下來的「如何規劃容量」一節。
+>[定價詳細資料](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)一文顯示每一層單位容量的大約數字。 若要取得更精確的數字，則需要查看 API 的實際情節。 請參閱接下來的「如何規劃容量」一節。
 
 ## <a name="prerequisites"></a>必要條件
 

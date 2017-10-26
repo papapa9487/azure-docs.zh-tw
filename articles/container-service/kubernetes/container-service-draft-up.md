@@ -16,13 +16,15 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: b320581011c27a2efc49fa784f184a37bdb7f6fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cef40f4360c6b9c9ab734171a4cca2a21a4c711
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 [Draft](https://aka.ms/draft) 是新的開放原始碼工具，可讓您輕鬆地開發以容器作為基礎的應用程式，並將其部署至 Kubernetes 叢集，而無需深入了解 Docker 和 Kubernetes，或甚至進行安裝。 使用諸如 Draft 等工具可讓您和小組專注於使用 Kubernetes 來建置應用程式，無須投入過多注意力在基礎結構。
 
@@ -195,7 +197,7 @@ $ helm install stable/traefik --name ingress
 現在，請在 `ingress` 控制站上設定監看，以在部署外部 IP 值時加以擷取。 此 IP 位址會是下一節中[對應到您部署網域](#wire-up-deployment-domain)的 IP 位址。
 
 ```bash
-kubectl get svc -w
+$ kubectl get svc -w
 NAME                          CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
 ingress-traefik               10.0.248.104   13.64.108.240   80:31046/TCP,443:32556/TCP   1h
 kubernetes                    10.0.0.1       <none>          443/TCP                      7h

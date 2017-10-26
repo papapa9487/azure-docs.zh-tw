@@ -9,18 +9,18 @@ editor: spelluru
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: 
-ms.devlang: dotnet
+ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 20a481443d8f456cb1109c046dbdfd42ead7c43c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea82b680213b72582667b2be15c0c2719ad7ff78
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>使用 Python 建立資料處理站和管線
-Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
+Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。
 
 本快速入門說明如何使用 Python 來建立 Azure 資料處理站。 在此範例中的資料處理站會將資料從 Azure Blob 儲存體中的一個資料夾複製到其他資料夾。
 
@@ -28,22 +28,22 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="prerequisites"></a>必要條件
 
-* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文以取得建立步驟。 
-* 請遵循[此指示](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。 
+* **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account)一文以取得建立步驟。
+* 請遵循[此指示](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 遵循相同文件中的指示，將應用程式指派給「**參與者**」角色。
 
 ### <a name="create-and-upload-an-input-file"></a>建立及上傳輸入檔案
 
 1. 啟動 [記事本]。 複製下列文字，並在磁碟上儲存為 **input.txt** 檔案。
-    
+
     ```
     John|Doe
     Jane|Doe
     ```
-2.  使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後在容器中建立 **input**。 然後，將 **input.txt** 檔案上傳至 **input** 資料夾。 
+2.  使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後在容器中建立 **input**。 然後，將 **input.txt** 檔案上傳至 **input** 資料夾。
 
 ## <a name="install-the-python-package"></a>安裝 Python 封裝
-1. 以系統管理員權限開啟終端機或命令提示字元。  
-2. 首先，針對 Azure 管理資源安裝 Python 套件： 
+1. 以系統管理員權限開啟終端機或命令提示字元。 
+2. 首先，針對 Azure 管理資源安裝 Python 套件：
 
     ```
     pip install azure-mgmt-resource
@@ -59,7 +59,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ## <a name="create-a-data-factory-client"></a>建立資料處理站用戶端
 
 1. 建立名為 **datafactory.py** 的檔案。 新增下列陳述式以將參考新增至命名空間。
-    
+
     ```python
     from azure.common.credentials import ServicePrincipalCredentials
     from azure.mgmt.resource import ResourceManagementClient
@@ -68,7 +68,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     from datetime import datetime, timedelta
     import time
     ```
-2. 新增會列印資訊的下列函式。 
+2. 新增會列印資訊的下列函式。
 
     ```python
     def print_item(group):
@@ -81,14 +81,14 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
             print("\tTags: {}".format(group.tags))
         if hasattr(group, 'properties'):
             print_properties(group.properties)
-    
+
     def print_properties(props):
         """Print a ResourceGroup properties instance."""
         if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
             print("\tProperties:")
             print("\t\tProvisioning State: {}".format(props.provisioning_state))
         print("\n\n")
-    
+
     def print_activity_run_details(activity_run):
         """Print activity run details."""
         print("\n\tActivity run details\n")
@@ -98,8 +98,8 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
             print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))           
             print("\tCopy duration: {}".format(activity_run.output['copyDuration']))           
         else:
-            print("\tErrors: {}".format(activity_run.error['message'])) 
-  
+            print("\tErrors: {}".format(activity_run.error['message']))
+
     ```
 3. 將下列程式碼新增至 **Main** 方法，以建立 DataFactoryManagementClient 類別的執行個體。 您會使用此物件來建立資料處理站、連結服務、資料集和管線。 您也可以使用此物件來監視管線執行的詳細資料。 將 **subscription_id** 變數設定為 Azure 訂用帳戶的識別碼。
 
@@ -108,25 +108,25 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
         # Azure subscription ID
         subscription_id = '<Specify your Azure Subscription ID>'
-        
+
         # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
         rg_name = 'ADFTutorialResourceGroup'
-    
-        # The data factory name. It must be globally unique. 
+
+        # The data factory name. It must be globally unique.
         df_name = '<Specify a name for the data factory. It must be globally unique>'
-    
+
         # Specify your Active Directory client ID, client secret, and tenant ID
         credentials = ServicePrincipalCredentials(client_id='<Active Directory application/client ID>', secret='<client secret>', tenant='<Active Directory tenant ID>')
         resource_client = ResourceManagementClient(credentials, subscription_id)
         adf_client = DataFactoryManagementClient(credentials, subscription_id)
-    
+
         rg_params = {'location':'eastus'}
         df_params = {'location':'eastus'}    
     ```
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-將下列程式碼新增至 **Main** 方法，以建立**資料處理站**。 如果您的資源群組已經存在，請將第一個 `create_or_update` 陳述式變成註解。 
+將下列程式碼新增至 **Main** 方法，以建立**資料處理站**。 如果您的資源群組已經存在，請將第一個 `create_or_update` 陳述式變成註解。
 
 ```python
     # create the resource group
@@ -146,13 +146,13 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 將下列程式碼新增至 **Main** 方法，以建立 **Azure 儲存體連結服務**。
 
-您在資料處理站中建立的連結服務會將您的資料存放區和計算服務連結到資料處理站。 在此快速入門中，您只需要建立一個 Azure 儲存體連結服務作為複製來源與接收存放區，在此範例中名為 "AzureStorageLinkedService"。 使用 Azure 儲存體帳戶的名稱和金鑰來取代 `<storageaccountname>` 和 `<storageaccountkey>`。 
+您在資料處理站中建立的連結服務會將您的資料存放區和計算服務連結到資料處理站。 在此快速入門中，您只需要建立一個 Azure 儲存體連結服務作為複製來源與接收存放區，在此範例中名為 "AzureStorageLinkedService"。 使用 Azure 儲存體帳戶的名稱和金鑰來取代 `<storageaccountname>` 和 `<storageaccountkey>`。
 
 ```python
     # Create an Azure Storage linked service
     ls_name = 'storageLinkedService'
 
-    # IMPORTANT: specify the name and key of your Azure Storage account. 
+    # IMPORTANT: specify the name and key of your Azure Storage account.
     storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<storageaccountkey>')
 
     ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
@@ -163,7 +163,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 在本節中，您會建立兩個資料集：一個作為來源，另一個作為接收。
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>建立來源 Azure Blob 的資料集
-將下列程式碼新增至 Main 方法，以建立 Azure Blob 資料集。 如需 Azure Blob 資料集屬性的相關資訊，請參閱 [Azure Blob 連接器](connector-azure-blob-storage.md#dataset-properties)文章。 
+將下列程式碼新增至 Main 方法，以建立 Azure Blob 資料集。 如需 Azure Blob 資料集屬性的相關資訊，請參閱 [Azure Blob 連接器](connector-azure-blob-storage.md#dataset-properties)文章。
 
 您可以定義資料集來代表 Azure Blob 中的來源資料。 此 Blob 資料集會參考您在前一個步驟中建立的 Azure 儲存體連結服務。
 
@@ -179,7 +179,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 ```
 
 ### <a name="create-a-dataset-for-sink-azure-blob"></a>建立接收 Azure Blob 的資料集
-將下列程式碼新增至 Main 方法，以建立 Azure Blob 資料集。 如需 Azure Blob 資料集屬性的相關資訊，請參閱 [Azure Blob 連接器](connector-azure-blob-storage.md#dataset-properties)文章。 
+將下列程式碼新增至 Main 方法，以建立 Azure Blob 資料集。 如需 Azure Blob 資料集屬性的相關資訊，請參閱 [Azure Blob 連接器](connector-azure-blob-storage.md#dataset-properties)文章。
 
 您可以定義資料集來代表 Azure Blob 中的來源資料。 此 Blob 資料集會參考您在前一個步驟中建立的 Azure 儲存體連結服務。
 
@@ -197,14 +197,14 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 將下列程式碼新增至 **Main** 方法，以建立**具有複製活動的管線**。
 
 ```python
-    # Create a copy activity 
+    # Create a copy activity
     act_name =  'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
     copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
-    
+
     #Create a pipeline with the copy activity
     p_name =  'copyPipeline'
     params_for_pipeline = {}
@@ -238,7 +238,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     print_activity_run_details(activity_runs_paged[0])
 ```
 
-現在，新增下列陳述式以在執行程式時叫用 **main** 方法： 
+現在，新增下列陳述式以在執行程式時叫用 **main** 方法：
 
 ```python
 # Start the main method
@@ -246,7 +246,7 @@ main()
 ```
 
 ## <a name="full-script"></a>完整指令碼
-以下是完整的 Python 程式碼： 
+以下是完整的 Python 程式碼：
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -294,7 +294,7 @@ def main():
     # This program creates this resource group. If it's an existing resource group, comment out the code that creates the resource group
     rg_name = '<Azure resource group name>'
 
-    # The data factory name. It must be globally unique. 
+    # The data factory name. It must be globally unique.
     df_name = '<Your data factory name>'        
 
     # Specify your Active Directory client ID, client secret, and tenant ID
@@ -380,7 +380,7 @@ main()
 
 主控台會印出建立資料處理站、連結服務、資料集、管線和管線執行的進度。 請等待出現複製活動執行詳細資料及讀取/寫入的資料大小。 然後，使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具，檢查 Blob 已從 "inputBlobPath" 複製到 "outputBlobPath" (您在變數中指定)。
 
-以下是範例輸出： 
+以下是範例輸出：
 
 ```json
 Name: <data factory name>
@@ -391,34 +391,34 @@ Tags: {}
 Name: storageLinkedService
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/linkedservices/storageLinkedService
 
-Name: ds_in 
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in  
+Name: ds_in
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_in
 
-Name: ds_out    
-Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out 
+Name: ds_out
+Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/datasets/ds_out
 
-Name: copyPipeline  
+Name: copyPipeline
 Id: /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.DataFactory/factories/<data factory name>/pipelines/copyPipeline
 
 Pipeline run status: Succeeded
 Datetime with no tzinfo will be considered UTC.
-Datetime with no tzinfo will be considered UTC. 
+Datetime with no tzinfo will be considered UTC.
 
-Activity run details    
+Activity run details
 
-Activity run status: Succeeded  
-Number of bytes read: 18    
-Number of bytes written: 18 
+Activity run status: Succeeded
+Number of bytes read: 18
+Number of bytes written: 18
 Copy duration: 4
 ```
 
 
 ## <a name="clean-up-resources"></a>清除資源
-若要刪除資料處理站，請將下列程式碼新增至程式： 
+若要刪除資料處理站，請將下列程式碼新增至程式：
 
-```csharp
+```python
 adf_client.data_factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>後續步驟
-在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 瀏覽[教學課程](tutorial-copy-data-dot-net.md)以了解使用 Data Factory 的更多案例。 
+在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 瀏覽[教學課程](tutorial-copy-data-dot-net.md)以了解使用 Data Factory 的更多案例。

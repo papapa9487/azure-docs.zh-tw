@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ea281e9c83bb37f78c248c6c4011a7da60b45c01
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>從 Azure 入口網站在 Azure Linux VM 上建立 Jenkins 伺服器
 
@@ -41,7 +41,7 @@ ms.lasthandoff: 10/11/2017
 * 輸入 [使用者名稱]。 使用者名稱必須符合[特定需求](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm)。
 * 選取 [密碼] 作為 [驗證類型] 並輸入密碼。 密碼必須包含大寫字元、數字和一個特殊字元。
 * 使用 **myJenkinsResourceGroup** 作為 [資源群組]。
-* 從 [位置] 下拉式清單選擇 [美國東部] [Azure 地區](https://azure.microsoft.com/regions/)。
+* 從 [位置] 下拉式清單選擇 [美國東部] [Azure 地區](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 選取 [確定] 繼續前往 [設定其他選項] 索引標籤。輸入唯一的網域名稱，以識別 Jenkins 伺服器並選取 [確定]。
 

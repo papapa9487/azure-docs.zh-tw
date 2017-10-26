@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.openlocfilehash: 9d347f37ed6e0ddcde9d2f9a7a8d1d8ff65ab4f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>Azure Cosmos DB：使用資料表 API 來建置 .NET 應用程式
 
@@ -45,7 +45,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 您現在可以使用資料總管 (預覽) 將資料新增至您的新資料表。
 
-1. 在資料總管中，展開 **sample-table**，按一下 實體，然後按一下新增實體。
+1. 在資料總管中，展開 **sample-table**，按一下 [實體]，然後按一下 [新增實體]。
 
    ![在 Azure 入口網站的 [資料總管] 中建立新實體](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
 2. 現在，將資料新增至 PartitionKey 值方塊和 RowKey 值方塊，然後按一下 [新增實體]。
@@ -98,7 +98,6 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
    table.Execute(retrieveOperation);
    ```
    
-   
    ```csharp
    TableOperation deleteOperation = TableOperation.Delete(items[i]);
    table.Execute(deleteOperation);
@@ -126,7 +125,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="run-the-console-app"></a>執行主控台應用程式
 
-1. 在 Visual Studio 中，於 方案總管 中的 PremiumTableGetStarted 專案上按一下滑鼠右鍵，然後按一下管理 NuGet 套件。 
+1. 在 Visual Studio 中，於 [方案總管] 中的 [PremiumTableGetStarted] 專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。 
 
 2. 在 NuGet [瀏覽] 方塊中，輸入 *WindowsAzure.Storage-PremiumTable*。
 
@@ -155,7 +154,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 如果您將不繼續使用此應用程式，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源： 
 
 1. 從 Azure 入口網站的左側功能表中，按一下 [資源群組]，然後按一下您所建立資源的名稱。 
-2. 在資源群組頁面上，按一下 刪除，在文字方塊中輸入要刪除之資源的名稱，然後按一下刪除。
+2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入要刪除之資源的名稱，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/24/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f333354311b16c00a0d43a691f139f5f80383d1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 07927f1660681af35428747b51a8c14ba6153a7a
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="analyze-flight-delay-data-by-using-hive-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上使用 Hive 分析航班延誤資料
 
@@ -165,9 +165,6 @@ ms.lasthandoff: 10/11/2017
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f flightdelays.hql
     ```
-
-   > [!NOTE]
-   > 此範例會使用 `localhost`，因為您是連線到 HDInsight 叢集的前端節點，也就是 HiveServer2 執行所在位置。
 
 4. 在 __flightdelays.hql__ 指令碼執行完畢之後，請使用下列命令來開啟互動式 Beeline 工作階段：
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 8/25/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: c6cfca299dabba253757d959411c0cac8f90fa2e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb30809ab68079666ecfa81a896c1d5101fb6fb
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>使用 Azure VM 代理程式調整 Jenkins 部署以滿足需求
 
@@ -108,7 +108,7 @@ ms.lasthandoff: 10/11/2017
 1. 選取 [新增 Azure 虛擬機器範本] 旁的 [新增]。
 2. 於 [名稱] 輸入 `defaulttemplate`
 3. 於 [標籤] 輸入 `ubuntu`
-4. 從下拉式方塊中選取所需的 [Azure 區域](https://azure.microsoft.com/regions/)。
+4. 從下拉式方塊中選取所需的 [Azure 區域](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 5. 從 **[虛擬機器大小]** 下方的下拉式清單中選取 [虛擬機器大小](/azure/virtual-machines/linux/sizes)。 一般用途的 `Standard_DS1_v2` 大小適用於教學課程。   
 6. 將 [保留時間] 保留為 `60`。 此設定會定義 Jenkins 解除配置閒置的代理程式前等待的分鐘數。 如果您不想要自動移除閒置的代理程式，請指定 0。
 

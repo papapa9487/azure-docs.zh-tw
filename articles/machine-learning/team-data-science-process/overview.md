@@ -1,5 +1,5 @@
 ---
-title: "Azure Team Data Science Process 概觀 | Microsoft Docs"
+title: "什麼是 Team Data Science Process？ | Microsoft Docs"
 description: "提供資料科學方法，用以產出預測分析解決方案和智慧型應用程式。"
 services: machine-learning
 documentationcenter: 
@@ -12,15 +12,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2017
+ms.date: 10/20/2017
 ms.author: bradsev;
-ms.openlocfilehash: d92c8df7ad8cf522079bdea86e7b33d8441452ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75e170f29f9a6abeeb3393e43e6a4c355749044d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
-# <a name="team-data-science-process-overview"></a>Team Data Science Process 概觀
+# <a name="what-is-the-team-data-science-process"></a>什麼是 Team Data Science Process？
 
 Team Data Science Process (TDSP) 是一種敏捷式反覆資料科學方法，可有效產出預測分析解決方案和智慧型應用程式。 TDSP 有助於改善團隊共同作業和學習。 其中包含 Microsoft 及業界其他公司的最佳做法和結構，有助於順利實作資料科學計劃。 目標是協助公司完全了解其分析程式的優點。
 

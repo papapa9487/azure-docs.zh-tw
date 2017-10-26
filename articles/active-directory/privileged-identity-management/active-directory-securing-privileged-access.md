@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/17/2017
 ms.author: kgremban
 ms.custom: pim
-ms.openlocfilehash: 849637fb391576954307bc84bb02e1d8579bf1cf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 278aa67013eb2cabcf5efa7e0de21e9cff0519ba
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="securing-privileged-access-in-azure-ad"></a>保護 Azure AD 中的特殊權限存取
 保護特殊權限存取，是有助保護現代組織企業資產很重要的第一個步驟。 特殊權限帳戶是可管理 IT 系統的帳戶。 網路攻擊者會以這些帳戶為目標，來取得組織資料和系統的存取權。 為了保護特殊權限存取，您應該讓帳戶和系統遠離遭遇惡意使用者的風險。
@@ -60,9 +60,7 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 ![Azure AD Identity Protection][3]
 
 ## <a name="conditional-access"></a>條件式存取
-搭配條件式存取控制時，Azure Active Directory 會在驗證使用者時先檢查您選擇的特定條件，然後才允許存取應用程式。 一旦符合這些條件，使用者就會通過驗證並獲允許存取應用程式。
-
-![使用 MFA 設定條件式存取規則][4]
+搭配條件式存取控制時，Azure Active Directory 會在驗證使用者時先檢查您選擇的特定條件，然後才允許存取應用程式。 一旦符合這些條件，就會驗證使用者並允許存取應用程式。
 
 ## <a name="related-articles"></a>相關文章
 * 啟用 [Azure Multi-Factor Authentication](../../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md)
@@ -76,4 +74,3 @@ Azure Multi-Factor Authentication (MFA) 是 Microsoft 的雙步驟驗證解決�
 [1]: ../media/active-directory-privileged-identity-management-configure/Search_PIM.png
 [2]: ../media/active-directory-privileged-identity-management-configure/PIM_Dash.png
 [3]: ../media/active-directory-identityprotection/29.png
-[4]: ../media/active-directory-conditional-access/conditionalaccess-saas-apps.png

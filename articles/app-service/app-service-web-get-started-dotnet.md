@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 57b56f417db63f24f09a497fa780c7edda048e56
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79ca3692fd779a26320100921d482df0d1f85855
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-an-aspnet-web-app-in-azure"></a>在 Azure 中建立 ASP.NET Web 應用程式
 
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 |-|-|-|
 |App Service 方案| myAppServicePlan | App Service 方案的名稱。 |
 | 位置 | 西歐 | 裝載 Web 應用程式的資料中心。 |
-| 大小 | 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/)可決定裝載功能。 |
+| 大小 | 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)可決定裝載功能。 |
 
 選取 [確定] 。
 

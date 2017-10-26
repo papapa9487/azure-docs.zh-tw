@@ -12,11 +12,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/06/2017
 ms.author: jlembicz
-ms.openlocfilehash: a016438070d13c22f309c5f32b940256069f2ee0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b2e66cd40c1b49832b865e5bf59edcf78996eb8
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
@@ -183,11 +183,14 @@ Spacious,||air-condition*+"Ocean view"
 }
 ~~~~
 
+<a name="exceptions"></a>
+
 ### <a name="exceptions-to-lexical-analysis"></a>語彙分析的例外狀況 
 
 語彙分析只適用於需要完整詞彙 (詞彙查詢或片語查詢) 的查詢類型。 它不會套用至詞彙不完整的查詢類型 – 前置詞查詢、萬用字元查詢、Regex 查詢 – 或不會套用至模糊查詢。 這些查詢類型 (包括範例中具有 air-condition*\** 詞彙的前置詞查詢) 會直接新增至查詢樹狀結構，並略過分析階段。 針對這些類型之查詢詞彙所執行的唯一轉換就是小寫。
 
 <a name="stage3"></a>
+
 ## <a name="stage-3-document-retrieval"></a>第 3 階段：擷取文件 
 
 擷取文件是指在索引中尋找包含相符詞彙的文件。 了解這個階段的最佳方式就是範例。 讓我們從具有下列簡單結構描述的旅館索引開始︰ 

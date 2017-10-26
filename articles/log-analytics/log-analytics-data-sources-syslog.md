@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 7513f405d5c7c05a8e6e2b7b0e6313f23a319c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 061c32fe39530f8b67899b1b9e1104e7fe006380
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Log Analytics 中的 Syslog 資料來源
 Syslog 是通用於 Linux 的事件記錄通訊協定。  應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。  安裝 OMS Agent for Linux 時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。  接著，代理程式會將訊息傳送到 Log Analytics，其中對應的記錄會建立於 OMS 儲存機制中。  
@@ -198,16 +198,6 @@ Syslog 記錄具有 **Syslog** 類型，以及下表中的屬性。
 下表提供擷取 Syslog 記錄的不同記錄查詢範例。
 
 | 查詢 | 說明 |
-|:--- |:--- |
-| Type=Syslog |所有的 Syslog。 |
-| Type=Syslog SeverityLevel=error |嚴重性為錯誤的所有 Syslog 記錄。 |
-| Type=Syslog &#124; measure count() by Computer |依電腦的 Syslog 記錄計數。 |
-| Type=Syslog &#124; measure count() by Facility |依設備的 Syslog 記錄計數。 |
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
-
-> | 查詢 | 說明 |
 |:--- |:--- |
 | syslog |所有的 Syslog。 |
 | Syslog &#124; where SeverityLevel == "error" |嚴重性為錯誤的所有 Syslog 記錄。 |

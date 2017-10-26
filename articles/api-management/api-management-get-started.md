@@ -3,7 +3,7 @@ title: "在 Azure API 管理中管理您的第一個 API | Microsoft Docs"
 description: "了解如何建立 API、加入作業，以及開始使用 API 管理。"
 services: api-management
 documentationcenter: 
-author: steved0x
+author: juliako
 manager: erikre
 editor: 
 ms.assetid: 51b7df8b-1c43-43c6-90c9-0aa24f48206b
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 6e76d1ee08f804637999ef2ebf5d25becf6a0408
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0866b94003111267951a0d7917d616a370961880
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="manage-your-first-api-in-azure-api-management"></a>在 Azure API 管理中管理您的第一個 API
 ## <a name="overview"> </a>概觀
@@ -63,7 +63,7 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-使用 API 管理的第一個步驟是建立服務執行個體。 登入 [Azure 入口網站][Azure Portal]，然後按一下新增、[Web + 行動]、[API 管理]。
+使用 API 管理的第一個步驟是建立服務執行個體。 登入 [Azure 入口網站][Azure Portal]，然後按一下 [新增]、[Web + 行動]、[API 管理]。
 
 ![API Management new instance][api-management-create-instance-menu]
 
@@ -107,7 +107,7 @@ API 是從發佈者入口網站進行設定。 若要觸達它，請從服務工
 
 ![發行者入口網站][api-management-management-console]
 
-若要匯入計算機 API，請從左邊的 API 管理 功能表中按一下 API，然後按一下匯入 API。
+若要匯入計算機 API，請從左邊的 [API 管理] 功能表中按一下 [API]，然後按一下 [匯入 API]。
 
 ![匯入 API 按鈕][api-management-import-api]
 
@@ -145,7 +145,7 @@ API 區段有一些索引標籤。 [摘要]  索引標籤會顯示 API 的基本
 
 ![開發人員入口網站][api-management-developer-portal-menu]
 
-按一下頂端功能表中的 API，然後按一下Basic Calculator 來查看可用作業。
+按一下頂端功能表中的 [API]，然後按一下 [Basic Calculator] 來查看可用作業。
 
 ![開發人員入口網站][api-management-developer-portal-calc-api]
 
@@ -155,7 +155,7 @@ API 區段有一些索引標籤。 [摘要]  索引標籤會顯示 API 的基本
 
 ![試試看][api-management-developer-portal-calc-api-console]
 
-您可以輸入部分參數值或保留預設值，然後按一下傳送 。
+您可以輸入部分參數值或保留預設值，然後按一下 [傳送] 。
 
 ![HTTP Get][api-management-invoke-get]
 

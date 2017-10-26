@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 23f2640bc71bc4eba0f3fc76014cce4a298bfcfa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2854822907e818297c8d2f74cab48b0afa0d646c
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>準備匯入工作的硬碟
 
@@ -85,7 +85,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | --- | --- |
 | 基本路徑 | **[必要]**<br/>此參數的值代表要匯入資料所在的來源。 此工具將以遞迴方式複製位於此路徑下的所有資料。<br><br/>**允許值**︰這必須是本機電腦上的有效路徑或有效的共用路徑，而且應可供使用者存取。 目錄路徑必須是絕對路徑 (而非相對路徑)。 如果路徑的結尾為 "\\"，即代表目錄，而結尾不是 "\\" 的路徑則代表檔案。<br/>此欄位中不允許 Regex。 如果路徑包含空格，請使用 "" 括住。<br><br/>**範例**："c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[必要]**<br/> Microsoft Azure 儲存體帳戶中的目的地虛擬目錄路徑。 虛擬目錄可能已存在或可能不存在。 如果不存在，匯入/匯出服務將會建立一個。<br/><br/>指定目的地虛擬目錄或 blob 時，請確定使用有效的容器名稱。 請記住容器名稱必須是小寫。 關於容器命名規則，請參閱[命名和參考容器、Blob 及中繼資料](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。 如果只指定根，即會在目的地 Blob 容器中複寫來源的目錄結構。 如果所需的目錄結構不在來源中，CSV 中的多個對應資料列<br/><br/>您可以指定容器或 blob 首碼，如 music/70s/。 目的地目錄必須以容器名稱開頭，後面接著正斜線 "/"，並可選擇性地包含結尾是 "/" 的虛擬 Blob 目錄。<br/><br/>目的地容器為根容器時，您必須明確指定根容器 (包括正斜線)，例如 $root /。 由於根容器下的 Blob 名稱中不能包含 "/"，當目的地目錄是根容器時，將不會複製來源目錄中的任何子目錄。<br/><br/>**範例**<br/>如果目的地 Blob 路徑是 https://mystorageaccount.blob.core.windows.net/video，這個欄位的值可以是 video/  |
-| BlobType | **[選用]** block &#124; page<br/>目前匯入/匯出服務支援兩種 Blob。 分頁 blob 和區塊 Blob，所有檔案預設會匯入為區塊 Blob。 \*.vhd 和 \*.vhdx 會匯入為分頁 Blob。區塊 Blob 和分頁 Blob 允許的大小有限。 如需詳細資訊，請參閱[儲存體延展性目標](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) (英文)。  |
+| BlobType | **[選用]** block &#124; page<br/>目前匯入/匯出服務支援兩種 Blob。 分頁 blob 和區塊 Blob，所有檔案預設會匯入為區塊 Blob。 \*.vhd 和 \*.vhdx 會匯入為分頁 Blob。區塊 Blob 和分頁 Blob 允許的大小有限。 如需詳細資訊，請參閱[儲存體延展性目標](storage-scalability-targets.md) (英文)。  |
 | Disposition | **[選用]** rename &#124; no-overwrite &#124; overwrite <br/> 此欄位會指定匯入期間的複製行為，也就是說 正在從磁碟將資料上傳至儲存體帳戶時。 可用的選項為：rename&#124;overwite&#124;no-overwrite。若未指定任何項目，預設值為 "rename"。 <br/><br/>**Rename**︰如果已經有同名的物件，則在目的地建立複本。<br/>覆寫︰以較新的檔案覆寫檔案。 上次修改 wins 的檔案。<br/>**不要覆寫**︰如已存在則略過覆寫檔案。|
 | MetadataFile | **[選用]** <br/>此欄位的值為中繼資料檔案，如果需要保留物件的中繼資料或提供自訂中繼資料，則可提供這個欄位的值。 目的地 Blob 的中繼資料檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。 |
 | PropertiesFile | **[選用]** <br/>目的地 Blob 的屬性檔案路徑。 如需詳細資訊，請參閱[匯入/匯出服務中繼資料和屬性檔案格式](../storage-import-export-file-format-metadata-and-properties.md)。 |

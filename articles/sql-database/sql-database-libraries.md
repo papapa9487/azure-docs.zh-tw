@@ -1,6 +1,6 @@
 ---
 title: "SQL Database 的連接庫 | Microsoft Docs"
-description: "提供模組下載連結，這些模組可讓開發人員從各種用戶端程式設計語言連線到 SQL Server 與 SQL Database。 這些模組是由社群或 Microsoft 釋出。"
+description: "提供模組下載連結，這些模組可讓開發人員從各種用戶端程式設計語言連線到 SQL Server 與 SQL Database。"
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: genemi
-ms.openlocfilehash: 082abf57b139b9f7d44774dce3a80e20b97f0e3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6232877abc1e98b565abee8bf87505fe8edc7791
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>適用於 Microsoft SQL Server 的連線程式庫和架構
 

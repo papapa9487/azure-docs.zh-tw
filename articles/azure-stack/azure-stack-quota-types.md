@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 8/23/2017
 ms.author: erikje
-ms.openlocfilehash: 33906514955b76a3d6587b19899a0c76a09018a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9bb048ece32bf5b34e05d7459488aa0f24d0d44
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
 
@@ -29,10 +29,10 @@ ms.lasthandoff: 10/11/2017
 ## <a name="compute-quota-types"></a>計算配額類型
 | **類型** | **預設值** | **說明** |
 | --- | --- | --- |
-| 虛擬機器的數目上限 |50 | 訂用帳戶可以在這個位置建立的虛擬機器數目上限。 |
-| 虛擬機器核心的數目上限 |100 | 訂用帳戶可以在這個位置建立的核心數目上限 (例如，A3 VM 有四個核心)。 |
-| 可用性設定組的數目上限 |10 | 可以在這個位置建立的可用性設定組數目上限。 |
-| 虛擬機器擴展集的數目上限 |100 | 可以在這個位置建立的虛擬機器擴展集數目上限。 |
+| 虛擬機器的數目上限 | 20 | 訂用帳戶可以在這個位置建立的虛擬機器數目上限。 |
+| 虛擬機器核心的數目上限 | 50 | 訂用帳戶可以在這個位置建立的核心數目上限 (例如，A3 VM 有四個核心)。 |
+| 可用性設定組的數目上限 | 10 | 可以在這個位置建立的可用性設定組數目上限。 |
+| 虛擬機器擴展集的數目上限 | 20 | 可以在這個位置建立的虛擬機器擴展集數目上限。 |
 
 > [!NOTE]
 > 此 Technical Preview 中未限制計算配額。

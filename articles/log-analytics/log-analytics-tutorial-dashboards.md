@@ -2,7 +2,7 @@
 title: "建立和共用 Azure Log Analytics 資料的儀表板 | Microsoft Docs"
 description: "本教學課程可幫助您了解 Log Analytics 儀表板如何以視覺化方式呈現所有儲存的記錄搜尋，讓您以單一方式檢視您的環境。"
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: MGoedtel
 manager: carmonm
 editor: 
@@ -11,14 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
-ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>建立和共用 Log Analytics 資料的儀表板
 
@@ -63,7 +64,7 @@ Log Analytics 儀表板可以視覺化方式呈現所有儲存的記錄搜尋，
 Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1m), Computer | render timechart
 ```
 
-從右上角選取 [儲存查詢]按鈕來儲存查詢。<br> ![從進階 Analytics 入口網站儲存查詢](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-02.png)<br><br> 在 儲存查詢 控制台中，提供像是「Azure VM - 處理器使用率」的名稱，然後按一下儲存。  如此一來，您可以建立要用以搜尋的常用查詢程式庫，或予以修改，而不用全部重寫。  最後，從頁面中間靠右的角落選取 [將圖表釘選到 Azure 儀表板]，將此釘選在稍早建立的共用儀表板。  
+從右上角選取 [儲存查詢]按鈕來儲存查詢。<br> ![從進階 Analytics 入口網站儲存查詢](media/log-analytics-tutorial-dashboards/log-analytics-advancedportal-02.png)<br><br> 在 [儲存查詢] 控制台中，提供像是「Azure VM - 處理器使用率」的名稱，然後按一下 [儲存]。  如此一來，您可以建立要用以搜尋的常用查詢程式庫，或予以修改，而不用全部重寫。  最後，從頁面中間靠右的角落選取 [將圖表釘選到 Azure 儀表板]，將此釘選在稍早建立的共用儀表板。  
 
 現在我們已將查詢釘選在儀表板，您會注意到其下方會有一般標題與註解。<br> ![Azure 儀表板範例](media/log-analytics-tutorial-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  我們應將它重新命名為有意義的名稱，讓檢視者容易了解。  以滑鼠右鍵按一下圖格，並選取 [編輯圖格]。  當您完成自訂圖格的標題和副標題，請按一下 [更新]。  橫幅隨即出現，要求您發行變更或捨棄。  按一下 [發行變更]，然後關閉 [編輯圖格] 控制窗格。  
 

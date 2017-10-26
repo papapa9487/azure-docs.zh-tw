@@ -16,14 +16,15 @@ ms.workload: na
 ms.date: 09/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 14975454cbc0afcfbdbd3aa6b52983be4d4b1785
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c0d9274ac78a5e1c4c12ea8e373b69b6f9e165c
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 在 Azure Container Service 中，Kubernetes 叢集需要 [Azure Active Directory 服務主體](../../active-directory/develop/active-directory-application-objects.md)，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由](../../virtual-network/virtual-networks-udr-overview.md)及[第 4 層 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)。
 

@@ -2,7 +2,7 @@
 title: "檢視或分析所收集的 Azure Log Analytics 資料 | Microsoft Docs"
 description: "本文包含一篇教學課程，說明如何使用記錄搜尋入口網站來建立記錄搜尋，以及分析儲存在 Log Analytics 資源的資料。  教學課程包含執行一些簡單查詢以傳回不同類型的資料並分析結果。"
 services: log-analytics
-documentationcenter: 
+documentationcenter: log-analytics
 author: mgoedtel
 manager: carmonm
 editor: 
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/26/2017
 ms.author: magoedte
-ms.openlocfilehash: c9c57beeb9c62e69f3bae5675717fff0ef43f22c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: dfcbb925a16ca1e53d10b7bf70d03e62bc9dae69
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>檢視或分析以 Log Analytics 記錄搜尋所收集的資料
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 10/11/2017
 
 Log Analytics 最近引進新的查詢語言可讓您更輕鬆地建構查詢，和各種來源的資料相互關聯，以及分析來快速找出趨勢或問題。
 
-升級很簡單。  按一下指出 [深入了解及升級] 的橫幅來開始程序。  閱讀升級資訊分頁上有關升級的其他資訊，然後按一下立即升級。
+升級很簡單。  按一下指出 [深入了解及升級] 的橫幅來開始程序。  閱讀升級資訊分頁上有關升級的其他資訊，然後按一下 [立即升級]。
 
 此程序需要幾分鐘才能完成，在這段期間內，您可以在功能表的 [通知] 底下追蹤其進度。 您可以深入了解[新查詢語言的優點](log-analytics-log-search-upgrade.md#why-the-new-language)。
 

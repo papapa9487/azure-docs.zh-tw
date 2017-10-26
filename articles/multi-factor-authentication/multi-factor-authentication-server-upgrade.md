@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>升級為最新的 Azure Multi-Factor Authentication Server
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>安裝最新版的 Azure MFA Server
 
-1. 使用[下載 zure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) 中的指示，來取得最新版的 Azure MFA Server。
+1. 使用[下載 zure Multi-Factor Authentication Server](multi-factor-authentication-get-started-server.md#download-the-mfa-server) 中的指示，來取得最新版的 Azure MFA Server。
 2. 在您的主要 MFA Server 上，針對位於 C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (假設此為預設安裝位置) 的 MFA Server 資料檔案製作備份。
 3. 如果您執行多部伺服器以取得高可用性，請變更用戶端系統來向 MFA Server 驗證，如此便能讓它們停止將流量傳送到正在升級的伺服器。 如果您使用負載平衡器，請從負載平衡器移除 MFA Server、進行升級，然後將伺服器加回到伺服器陣列。
 4. 在每部 MFA Server 上執行新的安裝程式。 先升級次級伺服器，因為它們可以讀取由主要伺服器所複寫的舊資料檔。 

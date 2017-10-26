@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics 中的 IIS 記錄檔
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Log Analytics 進行收集。  
@@ -69,17 +69,6 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 下表提供擷取 IIS 記錄檔記錄的不同記錄查詢範例。
 
 | 查詢 | 說明 |
-|:--- |:--- |
-| Type=W3CIISLog |所有 IIS 記錄檔記錄。 |
-| Type=W3CIISLog scStatus=500 |具有傳回狀態 500 的所有 IIS 記錄。 |
-| Type=W3CIISLog &#124; Measure count() by cIP |依據用戶端 IP 位址的 IIS 記錄項目計數。 |
-| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |依據主機 www.contoso.com 之 URL 的 IIS 記錄項目計數。 |
-| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |每部 IIS 電腦所接收的位元組總數。 |
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
-
-> | 查詢 | 說明 |
 |:--- |:--- |
 | W3CIISLog |所有 IIS 記錄檔記錄。 |
 | W3CIISLog &#124; where scStatus==500 |具有傳回狀態 500 的所有 IIS 記錄。 |

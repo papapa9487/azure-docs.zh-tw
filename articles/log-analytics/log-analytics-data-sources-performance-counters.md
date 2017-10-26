@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: magoedte
-ms.openlocfilehash: 953bb453b0a9635627fbbb6c3913d0cd757101c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 和 Linux 效能資料來源
 Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業系統及應用程式的效能。  Log Analytics 可收集效能計數器，以頻繁間隔進行接近即時 (NRT) 的分析，並彙總較長期分析和報告所需的效能資料。
@@ -207,23 +207,6 @@ Windows 和 Linux 的效能計數器可讓您深入了解硬體元件、作業�
 下表提供擷取效能記錄的不同記錄搜尋範例。
 
 | 查詢 | 說明 |
-|:--- |:--- |
-| Type=Perf |所有效能資料 |
-| Type=Perf Computer="MyComputer" |來自特定電腦的所有效能資料 |
-| Type=Perf CounterName="Current Disk Queue Length" |來自特定計數器的所有效能資料 |
-| Type=Perf (ObjectName=Processor) CounterName="% Processor Time" InstanceName=_Total &#124; measure Avg(Average) as AVGCPU  by Computer |所有電腦的平均 CPU 使用率 |
-| Type=Perf (CounterName="% Processor Time") &#124;  measure max(Max) by Computer |所有電腦的最大 CPU 使用率 |
-| Type=Perf ObjectName=LogicalDisk CounterName="Current Disk Queue Length" Computer="MyComputerName" &#124; measure Avg(Average) by InstanceName |指定電腦之所有執行個體的平均目前磁碟佇列長度 |
-| Type=Perf CounterName="DiskTransfers/sec" &#124; measure percentile95(Average) by Computer |所有電腦之第 95 個百分位數的 Disk Transfers/Sec |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  &#124; measure avg(CounterValue) by Computer Interval 1HOUR |所有電腦每小時平均 CPU 使用率 |
-| Type=Perf Computer="MyComputer" CounterName=%* InstanceName=_Total &#124; measure percentile70(CounterValue) by CounterName Interval 1HOUR |特定電腦每小時每個 % 百分比計數器的 70 個百分位數 |
-| Type=Perf CounterName="% Processor Time" InstanceName="_Total"  (Computer="MyComputer") &#124; measure min(CounterValue), avg(CounterValue), percentile75(CounterValue), max(CounterValue) by Computer Interval 1HOUR |特定電腦每小時平均、最小、最大和 75 個百分位數的 CPU 使用量 |
-| Type=Perf ObjectName="MSSQL$INST2:Databases" InstanceName=master | 資料庫效能物件中的所有效能資料適用於來自具名 SQL Server 執行個體 INST2 的 master 資料庫。  
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
-
-> | 查詢 | 說明 |
 |:--- |:--- |
 | Perf |所有效能資料 |
 | Perf &#124; where Computer == "MyComputer" |來自特定電腦的所有效能資料 |

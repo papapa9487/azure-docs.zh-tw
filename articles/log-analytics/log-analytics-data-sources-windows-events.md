@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 1be8500ec2cb78ef0edf57f4d8561336cf00ebcb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ddead0903c7c5f29bc996e305699ced596d0a4f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Log Analytics 中的 Windows 事件記錄檔資料來源
 Windows 事件記錄檔是使用 Windows 代理程式收集資料的常見[資料來源](log-analytics-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄檔。  除了指定您要監視之應用程式所建立的任何自訂記錄檔之外，您也可以透過標準記錄檔 (例如系統和應用程式) 來收集事件。
@@ -65,17 +65,6 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 下表提供擷取 Windows 事件記錄的不同記錄搜尋範例。
 
 | 查詢 | 說明 |
-|:--- |:--- |
-| Type=Event |所有的 Windows 事件。 |
-| Type=Event EventLevelName=error |所有 Windows 事件與錯誤的嚴重性。 |
-| Type=Event &#124; Measure count() by Source |依據來源的 Windows 事件計數。 |
-| Type=Event EventLevelName=error &#124; Measure count() by Source |依據來源的 Windows 錯誤事件計數。 |
-
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
->
->| 查詢 | 說明 |
 |:---|:---|
 | Event |所有的 Windows 事件。 |
 | Event &#124; where EventLevelName == "error" |所有 Windows 事件與錯誤的嚴重性。 |

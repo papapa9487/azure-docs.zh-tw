@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 74e2a57aa933c7025db952fa09de236f5dabb8c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aac9c9bcc609a91415438279419d4cc8e237fcb
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="copy-data-between-on-premises-and-cloud"></a>在內部部署和雲端之間複製資料
-Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
+Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。
 
-在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您會建立和使用 Azure Data Factory 的自我裝載整合執行階段 (IR)，這可以整合內部部署資料存放區和雲端資料存放區。  若要了解如何使用其他工具/SDK 來建立資料處理站，請參閱[快速入門](quickstart-create-data-factory-dot-net.md)。 
+在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您會建立和使用 Azure Data Factory 的自我裝載整合執行階段 (IR)，這可以整合內部部署資料存放區和雲端資料存放區。  若要了解如何使用其他工具/SDK 來建立資料處理站，請參閱[快速入門](quickstart-create-data-factory-dot-net.md)。
 
 您會在本教學課程中執行下列步驟：
 
@@ -40,7 +40,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="prerequisites"></a>必要條件
 
-* **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。 
+* **SQL Server**。 在本教學課程中，您會使用內部部署 SQL 資料庫作為**來源**資料存放區。
 * **Azure 儲存體帳戶**。 在本教學課程中，您會使用 Azure Blob 儲存體作為**目的地/接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱 [建立儲存體帳戶](../storage/common/storage-create-storage-account.md#create-a-storage-account) 一文以取得建立步驟。
 * **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-azurerm-ps) 中的指示。
 
@@ -115,13 +115,13 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
    ```json
    Nodes                     : {}
    CreateTime                : 9/14/2017 10:01:21 AM
-   InternalChannelEncryption : 
-   Version                   : 
+   InternalChannelEncryption :
+   Version                   :
    Capabilities              : {}
-   ScheduledUpdateDate       : 
-   UpdateDelayOffset         : 
-   LocalTimeZoneOffset       : 
-   AutoUpdate                : 
+   ScheduledUpdateDate       :
+   UpdateDelayOffset         :
+   LocalTimeZoneOffset       :
+   AutoUpdate                :
    ServiceUrls               : {eu.frontend.clouddatahub.net, *.servicebus.windows.net}
    ResourceGroupName         : <ResourceGroup name>
    DataFactoryName           : <DataFactory name>
@@ -135,7 +135,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   以下是範例輸出： 
+   以下是範例輸出：
 
    ```json
    {
@@ -144,19 +144,19 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
    }
    ```
 
-4. 將自我裝載整合執行階段[下載](https://www.microsoft.com/download/details.aspx?id=39717)到本機 Windows 電腦，然後使用上一個步驟中取得的驗證金鑰，手動註冊自我裝載整合執行階段。 
+4. 將自我裝載整合執行階段[下載](https://www.microsoft.com/download/details.aspx?id=39717)到本機 Windows 電腦，然後使用上一個步驟中取得的驗證金鑰，手動註冊自我裝載整合執行階段。
 
    ![監視整合執行階段](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-   自我裝載整合執行階段註冊成功時，您會看到下列訊息： 
+   自我裝載整合執行階段註冊成功時，您會看到下列訊息：
 
    ![已成功註冊](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-   當節點已連線至雲端服務時，您會看到下列頁面： 
-    
+   當節點已連線至雲端服務時，您會看到下列頁面：
+
    ![節點已連線](media/tutorial-hybrid-copy-powershell/node-is-connected.png)
 
-## <a name="create-linked-services"></a>建立連結的服務 
+## <a name="create-linked-services"></a>建立連結的服務
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>建立 Azure 儲存體連結服務 (目的地/接收)
 
@@ -167,7 +167,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
         "properties": {
             "type": "AzureStorage",
             "typeProperties": {
-                "connectionString": { 
+                "connectionString": {
                     "type": "SecureString",
                     "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
                 }
@@ -196,7 +196,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>建立及加密 SQL Server 連結服務 (來源)
 
-1. 在 **C:\ADFv2Tutorial** 資料夾中，使用下列內容建立名為 **SqlServerLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 SQL Server 值取代 **&lt;servername>**、**&lt;databasename>**、**&lt;username>****&lt;servername>** 和 **&lt;password>**。 以您的整合執行階段名稱取代 **&lt;integration****runtime** **name>**。 
+1. 在 **C:\ADFv2Tutorial** 資料夾中，使用下列內容建立名為 **SqlServerLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 SQL Server 值取代 **&lt;servername>**、**&lt;databasename>**、**&lt;username>****&lt;servername>** 和 **&lt;password>**。 以您的整合執行階段名稱取代 **&lt;integration****runtime** **name>**。
 
     ```json
     {
@@ -216,7 +216,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
         "name": "SqlServerLinkedService"
     }
    ```
-2. 若要加密從內部部署自我裝載整合執行階段的 JSON 承載所傳來的敏感性資料，我們可以執行 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** 並傳遞上述的 JSON 承載。 此加密可確保使用資料保護應用程式開發介面 (DPAPI) 來加密認證，並儲存在本機的自我裝載整合執行階段節點。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中是 'encryptedLinkedService.json')。 
+2. 若要加密從內部部署自我裝載整合執行階段的 JSON 承載所傳來的敏感性資料，我們可以執行 **New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential** 並傳遞上述的 JSON 承載。 此加密可確保使用資料保護應用程式開發介面 (DPAPI) 來加密認證，並儲存在本機的自我裝載整合執行階段節點。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此案例中是 'encryptedLinkedService.json')。
 
     執行命令之前，以您的整合執行階段名稱取代 **&lt;integration runtime name&gt;**。
 
@@ -227,7 +227,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 3. 使用上一個步驟中的 JSON 執行下列命令，以建立**SqlServerLinkedService**：
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json" 
+   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -315,7 +315,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ### <a name="create-a-dataset-for-sink-azure-blob-storage"></a>建立接收 Azure Blob 儲存體的資料集
 
-1. 在 **C:\ADFv2Tutorial** 資料夾中，使用下列內容建立名為 **AzureBlobDataset.json** 的 JSON 檔案： 
+1. 在 **C:\ADFv2Tutorial** 資料夾中，使用下列內容建立名為 **AzureBlobDataset.json** 的 JSON 檔案：
 
     > [!IMPORTANT]
     > 此範例程式碼假設您在 Azure Blob 儲存體中有一個名為 **adftutorial** 的容器。
@@ -436,7 +436,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
             $result
             break
         }
-    } 
+    }
     ```
 
     執行範例的輸出如下：
@@ -449,7 +449,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     PipelineName      : SQLServerToBlobPipeline
     Input             :  
     Output            :  
-    LinkedServiceName : 
+    LinkedServiceName :
     ActivityRunStart  : 9/13/2017 1:35:22 PM
     ActivityRunEnd    : 9/13/2017 1:35:42 PM
     DurationInMs      : 20824
@@ -479,7 +479,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 4. 連線至接收 Azure Blob 儲存體，並確認已從 Azure SQL Database 正確複製資料。
 
 ## <a name="next-steps"></a>後續步驟
-在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 您已了解如何︰ 
+在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 您已了解如何︰
 
 > [!div class="checklist"]
 > * 建立資料處理站。

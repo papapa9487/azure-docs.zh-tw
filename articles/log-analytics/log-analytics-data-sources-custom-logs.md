@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2017
 ms.author: bwren
-ms.openlocfilehash: b7f28868e3ffdf95dbe39872f382e7c97eae692c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics 中的自訂記錄檔
 Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。  在收集之後，您就可以使用 Log Analytics 的[自訂欄位](log-analytics-custom-fields.md)功能將記錄中的每一筆記錄剖析成個別欄位。
@@ -136,14 +136,6 @@ Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每
 下表提供從自訂記錄檔擷取記錄之記錄檔搜尋的不同範例。
 
 | 查詢 | 說明 |
-|:--- |:--- |
-| Type=MyApp_CL |所有事件來自名為 MyApp_CL 的自訂記錄檔。 |
-| Type=MyApp_CL Severity_CF=error |來自 MyApp_CL 自訂記錄檔且在 *Severity_CF* 自訂欄位中的值為 *error* 的所有事件。 |
-
->[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
-
-> | 查詢 | 說明 |
 |:--- |:--- |
 | MyApp_CL |所有事件來自名為 MyApp_CL 的自訂記錄檔。 |
 | MyApp_CL &#124; where Severity_CF=="error" |來自 MyApp_CL 自訂記錄檔且在 *Severity_CF* 自訂欄位中的值為 *error* 的所有事件。 |

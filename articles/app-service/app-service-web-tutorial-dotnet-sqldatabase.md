@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/09/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a5814691da8430f986d052e9d81e480bda226a46
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: cd2b646f3715368d9caba216883afdf07b9d778e
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="build-an-aspnet-app-in-azure-with-sql-database"></a>在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
@@ -121,8 +121,8 @@ ms.lasthandoff: 10/20/2017
 | 設定  | 建議的值 | 如需 Blob 的詳細資訊， |
 | ----------------- | ------------ | ----|
 |**App Service 方案**| myAppServicePlan | [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**位置**| 西歐 | [Azure 區域](https://azure.microsoft.com/regions/) |
-|**大小**| 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/)|
+|**位置**| 西歐 | [Azure 區域](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**大小**| 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>建立 SQL Server 執行個體
 

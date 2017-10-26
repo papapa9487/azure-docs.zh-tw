@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: ladocs; jonfan; mandia
-ms.openlocfilehash: e58c6950d1d9420f32fc98ca917216dc5fae4fc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df26e4669158e5aa9e3b9a7af888d0dbbba273dd
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="move-from-biztalk-services-to-logic-apps"></a>從 BizTalk 服務移至 Logic Apps
 
@@ -127,5 +127,5 @@ Logic Apps 在[Azure 入口網站](../logic-apps/logic-apps-monitor-your-logic-a
 
 ## <a name="next"></a>下一頁
 * [什麼是 Logic Apps](logic-apps-what-are-logic-apps.md)
-* [建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)，或使用[預先建置的範本](logic-apps-use-logic-app-templates.md)來快速上手  
+* [建立第一個邏輯應用程式](logic-apps-create-a-logic-app.md)，或使用[預先建置的範本](logic-apps-create-logic-apps-from-templates.md)來快速上手  
 * [檢視可在邏輯應用程式中使用的所有可用連接器](../connectors/apis-list.md)

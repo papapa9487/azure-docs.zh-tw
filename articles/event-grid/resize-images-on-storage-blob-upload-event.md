@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
 
@@ -25,8 +25,6 @@ ms.lasthandoff: 10/11/2017
 本教學課程是一系列儲存體教學課程的第二部分。 它延伸了[上一個儲存體教學課程][previous-tutorial]，以使用 Azure Event Grid 與 Azure Functions 新增無伺服器自動縮圖產生。 Event Grid 可讓 [Azure Functions](..\azure-functions\functions-overview.md) 回應 [Azure Blob 儲存體](..\storage\blobs\storage-blobs-introduction.md)事件，並產生上傳映像的縮圖。 針對 Blob 儲存體建立事件建立事件訂閱。 當 blob 加入特定的 Blob 儲存體容器時，會呼叫函式端點。 從 Event Grid 傳遞至函式繫結的資料用於存取 Blob 並產生縮圖映像。 
 
 您可以使用 Azure CLI 與 Azure 入口網站，將調整大小功能加入現有的映像上傳應用程式。
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Edge 瀏覽器中已發佈的 Web 應用程式](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ ms.lasthandoff: 10/11/2017
 若要完成本教學課程：
 
 + 您必須先完成上一個 Blob 儲存體教學課程：[使用 Azure 儲存體上傳雲端中的映像資料][previous-tutorial]。 
-+ 您必須申請並已授與 Blob 儲存體事件功能的存取權。 先[要求存取 Blob 儲存體事件](#request-storage-access)，才能繼續進行主題中的其他步驟。  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ ms.lasthandoff: 10/11/2017
 如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0.14 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
 
 如果您未使用 Cloud Shell，您必須先使用 `az login` 登入。
-
-## <a name="enable-blob-storage-events"></a>啟用 Blob 儲存體事件
-
-此時，您必須要求存取 Blob 儲存體事件功能。  
-
-### <a name="request-storage-access"></a>要求存取 Blob 儲存體事件
-
-您使用 `az feature register` 命令要求存取。
-
-> [!IMPORTANT]  
-> 我們以參與者要求加入的順序接受 Blob 儲存體事件預覽參與者。 您可能會遇到授與存取這項功能延遲 1-2 個工作天的情況。 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>請檢查您的核准狀態
-
-您會收到一封來自 Microsoft 的電子郵件，通知您已授與存取 Blob 儲存體事件。 您可以使用 `az feature show` 命令隨時確認存取要求的狀態。
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-授與存取 Blob 儲存體事件功能之後，此命令會傳回 `"Registered"` 值。 
- 
-註冊之後，您可以繼續進行此教學課程。
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 

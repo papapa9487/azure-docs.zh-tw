@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/08/2017
 ms.author: nepeters
-ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b58b10e644e934cc38a6e0512ba7642ab8bf27c4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>使用 PowerShell 建立 Azure Container Registry
 
@@ -49,8 +49,8 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 登錄的名稱**必須是唯一的**。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
 
-```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+```powershell
+$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 ## <a name="log-in-to-acr"></a>登入 ACR
@@ -58,13 +58,13 @@ $Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 發送和提取容器映像之前，您必須登入 ACR 執行個體。 首先，使用 [Get AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) 命令，取得 ACR 執行個體的管理員認證。
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
+$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
 接著，使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令登入 ACR 執行個體。
 
 ```bash
-docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
+docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
 此命令在完成之後會傳回「登入成功」訊息。
@@ -79,10 +79,11 @@ docker pull microsoft/aci-helloworld
 
 映像必須加上 ACR 登入伺服器名稱。 執行 [Get AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) 命令，以傳回 ACR 執行個體的登入伺服器名稱。
 
-```powershell` Get-AzureRmContainerRegistry | Select Loginserver
+```powershell
+Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 命令來標記映像。 將 *acrLoginServer* 取代為 ACR 執行個體的登入伺服器名稱。
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1

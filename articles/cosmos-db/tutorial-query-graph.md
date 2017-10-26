@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.openlocfilehash: 81713c72da037f127e81239d214d7a877247dca1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee420983104f199edf57966bf22aa4d8451b4782
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB：如何使用圖形 API (預覽) 來進行查詢？
 
-Azure Cosmos DB [圖形 API](graph-introduction.md) (預覽) 支援 [Gremlin](https://docs.mongodb.com/manual/tutorial/query-documents/) 查詢。 本文提供範例文件和查詢來協助您開始操作。 如需詳細的 Gremlin 參考資料，請參閱 [Gremlin 支援](gremlin-support.md)一文。
+Azure Cosmos DB [圖形 API](graph-introduction.md) (預覽) 支援 [Gremlin](https://github.com/tinkerpop/gremlin/wiki) 查詢。 本文提供範例文件和查詢來協助您開始操作。 如需詳細的 Gremlin 參考資料，請參閱 [Gremlin 支援](gremlin-support.md)一文。
 
 本文涵蓋下列工作： 
 

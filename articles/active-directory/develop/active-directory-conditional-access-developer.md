@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: ed42af90a9c467042ff2537a38646f59147fb5ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 321c87f242f2c24eb2b28be2dc69cde278117b97
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Azure Active Directory 條件式存取的開發人員指引
 
@@ -48,7 +48,7 @@ Azure Active Directory (AD) 提供數種方式來保護您的應用程式並保�
 * 使用 ADAL.js 的單一頁面應用程式
 * 呼叫資源的 Web Apps
 
-條件式存取原則可以套用至應用程式，也可套用至您應用程式存取的 web API。 若要深入了解如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 條件式存取](../active-directory-conditional-access-azuread-connected-apps.md#configure-per-application-access-rules)。
+條件式存取原則可以套用至應用程式，也可套用至您應用程式存取的 web API。 若要深入了解如何設定條件式存取原則，請參閱[開始使用 Azure Active Directory 條件式存取](../active-directory-conditional-access-azuread-connected-apps.md)。
 
 企業客戶可以根據這種情節，隨時套用及移除條件式存取原則。  若要在套用新原則時讓您的應用程式繼續運作，您必須實作「挑戰」處理。 下列範例說明挑戰處理。 
 

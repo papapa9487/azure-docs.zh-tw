@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: a61357b6ba75566e0ad4d3300cc602333ece0563
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e251cbfe7c4d8dfbd492817a8fa7af48e6b379df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 事件結構描述
 
@@ -162,10 +162,6 @@ Azure 訂用帳戶現在可從 Azure Resource Manager 發出管理事件，像�
 
 
 ## <a name="azure-blob-storage"></a>Azure Blob 儲存體
-
->[!IMPORTANT]
->您必須註冊，Blob 儲存體事件預覽才能使用 Blob 儲存體事件。 如需預覽計畫的詳細資訊，請參閱[Azure Blob 儲存體事件](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview#join-the-preview)。  
-
 
 ### <a name="available-event-types"></a>可用的事件類型
 

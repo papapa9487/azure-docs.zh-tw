@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: arramac
-ms.openlocfilehash: f39d732325d171b30de3b86e0c96be0ce77c66a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: devcenter
+ms.openlocfilehash: 2bf77f1df1dfaea8978f0f1b046baf58f4c9f8d5
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-documentdb-api-and-net-core"></a>Azure Cosmos DB︰開始使用 DocumentDB API 與 .NET Core
 > [!div class="op_single_selector"]
@@ -74,7 +75,7 @@ ms.lasthandoff: 10/11/2017
 ## <a id="SetupVS"></a>步驟 2：設定您的 Visual Studio 方案
 1. 在電腦上開啟 **Visual Studio 2017**。
 2. 從 [檔案] 功能表中，選取 [新增]，然後選擇 [專案]。
-3. 在 新增專案 對話方塊中，依序選取 範本 / Visual C# / .NET Core/主控台應用程式 (.NET Core)、將專案命名為 **DocumentDBGettingStarted**，然後按一下確定。
+3. 在 [新增專案] 對話方塊中，依序選取 [範本] / [Visual C#] / [.NET Core]/[主控台應用程式 (.NET Core)]、將專案命名為 **DocumentDBGettingStarted**，然後按一下 [確定]。
 
    ![[新增專案] 視窗的螢幕擷取畫面](./media/documentdb-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. 在 [方案總管] 中，以滑鼠右鍵按一下 [DocumentDBGettingStarted]。
@@ -119,7 +120,7 @@ class Program
 
 接下來，前往 [Azure 入口網站](https://portal.azure.com) 擷取您的 URI 和主索引鍵。 您必須提供 Azure Cosmos DB URI 和主要金鑰，您的應用程式才能了解要連接的位置，而 Azure Cosmos DB 才會信任您的應用程式連接。
 
-在 Azure 入口網站中，瀏覽至 Azure Cosmos DB 帳戶，然後按一下金鑰。
+在 Azure 入口網站中，瀏覽至 Azure Cosmos DB 帳戶，然後按一下 [金鑰]。
 
 從入口網站複製 URI，並將它貼到 program.cs 檔案的 `<your endpoint URI>` 中。 然後從入口網站複製主要金鑰，並將它貼到 `<your key>`中。 如果您是使用 Azure Cosmos DB 模擬器，請將 `https://localhost:8081` 作為端點，並使用[如何使用 Azure Cosmos DB 模擬器開發](local-emulator.md)中的定義完善授權金鑰。 請務必移除 < 和 > 但保留端點和金鑰的雙引號。
 
@@ -586,7 +587,7 @@ End of demo, press any key to exit.
 * [Azure Cosmos DB 帳戶][create-documentdb-dotnet.md#create-account]。
 * 您可以在 GitHub 上找到 [GetStarted](https://github.com/Azure-Samples/documentdb-dotnet-core-getting-started) 方案。
 
-若要在 Visual Studio 中還原適用於 Azure Cosmos DB .NET Core SDK 之 DocumentDB API 的參考，請在 方案總管 的 **GetStarted** 方案上按一下滑鼠右鍵，然後按一下啟用 NuGet 套件還原。 接下來，在 Program.cs 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連線至 Azure Cosmos DB 帳戶](#Connect)中所述。
+若要在 Visual Studio 中還原適用於 Azure Cosmos DB .NET Core SDK 之 DocumentDB API 的參考，請在 [方案總管] 的 **GetStarted** 方案上按一下滑鼠右鍵，然後按一下 [啟用 NuGet 套件還原]。 接下來，在 Program.cs 檔案中更新 EndpointUrl 和 AuthorizationKey 值，如[連線至 Azure Cosmos DB 帳戶](#Connect)中所述。
 
 ## <a name="next-steps"></a>後續步驟
 * 需要更複雜的 ASP.NET MVC 教學課程嗎？ 請參閱 [ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發](documentdb-dotnet-application.md)。

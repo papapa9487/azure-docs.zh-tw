@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
-ms.author: rajanaki
-ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/19/2017
+ms.author: raynew
+ms.openlocfilehash: d070fffd398a9a0ed6549b134ecbd1415baf2273
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>使用 Site Recovery 從內部部署複寫至 Azure 的必要條件
 
@@ -110,7 +110,7 @@ VMM 雲端之中對於 Hyper-V VM 向客戶擁有的網站進行的災害復原�
 
 | **元件** | **詳細資料** |
 | --- | --- |
-| **Virtual Machine Manager** |  建議您在主要站台與次要站台各部署一部 VMM 伺服器。<br/><br/> 您可以[在單一 VMM 伺服器上的雲端之間進行複寫](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment)。 若要在單一 VMM 伺服器上於兩個雲端之間複寫，您需要在 VMM 伺服器上設定至少兩個雲端。<br/><br/> VMM 伺服器至少必須執行含有最新更新的 System Center 2012 SP1。<br/><br/> 每個 VMM 伺服器必須有一個或多個雲端。 所有的雲端都必須設定 Hyper-V 容量設定檔。 <br/><br/>雲端必須有一個或多個 VMM 主機群組。 如需設定 VMM 雲端的詳細資訊，請參閱 [Azure Site Recovery 部署的準備](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)。 |
+| **Virtual Machine Manager** |  建議您在主要站台與次要站台各部署一部 VMM 伺服器。<br/><br/> 若要在單一 VMM 伺服器上於兩個雲端之間複寫，您需要在 VMM 伺服器上設定至少兩個雲端。<br/><br/> VMM 伺服器至少必須執行含有最新更新的 System Center 2012 SP1。<br/><br/> 每個 VMM 伺服器必須有一個或多個雲端。 所有的雲端都必須設定 Hyper-V 容量設定檔。 <br/><br/>雲端必須有一個或多個 VMM 主機群組。 如需設定 VMM 雲端的詳細資訊，請參閱 [Azure Site Recovery 部署的準備](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)。 |
 | **Hyper-V** | Hyper-V 伺服器必須至少執行已啟用 Hyper-V 角色並已安裝最新更新的 Windows Server 2012。<br/><br/> Hyper-V 伺服器必須有一部或多部虛擬機器。<br/><br/>  Hyper-V 主機伺服器必須位於主要和次要 VMM 雲端的主機群組中。<br/><br/> 如果您在 Windows Server 2012 R2 上的叢集中執行 Hyper-V，建議您安裝知識庫文章 [2961977](https://support.microsoft.com/kb/2961977) 中所述的更新。<br/><br/> 如果您是在 Windows Server 2012 上的叢集中執行 Hyper-V，且您的叢集是靜態 IP 位址型叢集，則不會自動建立叢集訊息代理程式。 您必須手動設定叢集訊息代理程式。 如需叢集訊息代理程式的詳細資訊，請參閱[設定叢集對叢集複寫的複本訊息代理程式角色](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)。 |
 | **提供者** | 在 Site Recovery 部署期間，您會在 VMM 伺服器上安裝 Azure Site Recovery Provider。 Provider 會透過 HTTPS (連接埠 443) 與 Site Recovery 通訊來協調複寫。 資料複寫是透過 LAN 或透過 VPN 連線在主要和次要 Hyper-V 伺服器之間進行。<br/><br/> VMM 伺服器上執行的 Provider 需要存取下列 URL：<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>Site Recovery Provider 必須允許從 VMM 伺服器至 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)的防火牆通訊，並允許 HTTPS (連接埠 443) 通訊協定。 |
 
