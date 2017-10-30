@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 09/26/2017
 ms.author: jingwang
-ms.openlocfilehash: 1e9109581a1943a77e91e7fa034873dc2a15a5e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efcdcac0edcdc3e3bd87dae89609e04985a3579e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-powershell"></a>使用 PowerShell 建立資料處理站和管線
 Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資料驅動工作流程，以便協調及自動進行資料移動和資料轉換。 使用 Azure Data Factory，您可以建立和排程資料驅動工作流程 (稱為管線)，這類工作流程可以從不同資料存放區內嵌資料，使用計算服務 (例如 Azure HDInsight Hadoop、Spark、Azure Data Lake Analytics 和 Azure Machine Learning) 來處理/轉換資料，以及將輸出資料發佈至資料存放區 (例如 Azure SQL 資料倉儲)，以供商業智慧 (BI) 應用程式使用。 
@@ -78,7 +78,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
         ```
 
     * 若要建立 Data Factory 執行個體，您必須是 Azure 訂用帳戶的參與者或系統管理員。
-    * 目前，Data Factory V2 只允許您在美國東部區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
+    * 目前，Data Factory V2 只允許您在**美國東部**或**美國東部 2** 區域中建立資料處理站。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 
 ## <a name="create-a-linked-service"></a>建立連結的服務
 
@@ -165,7 +165,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     ```
 
 ## <a name="create-a-pipeline"></a>建立管線
-
+  
 在此範例中，此管線包含一個活動，並使用兩個參數，輸入的 Blob 路徑和輸出 Blob 路徑。 這些參數的值是在觸發/執行管線時設定。 複製活動指的是在前一個步驟中建立作為輸入和輸出的同一 Blob 資料集。 將該資料集用作輸入資料集時，即會指定輸入路徑。 並且，將該資料集用作輸出資料集時，即會指定輸出路徑。 
 
 1. 在 **C:\ADFv2QuickStartPSH** 資料夾中，使用下列內容建立名為 **Adfv2QuickStartPipeline.json** 的 JSON 檔案：
@@ -184,7 +184,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
                             "parameters": {
                                 "path": "@pipeline().parameters.inputPath"
                             },
-                        "type": "DatasetReference"
+                            "type": "DatasetReference"
                         }
                     ],
                     "outputs": [

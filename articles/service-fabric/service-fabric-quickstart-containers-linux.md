@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>在 Azure 上部署 Azure Service Fabric Linux 容器應用程式
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。 
@@ -29,7 +29,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 
 在此快速入門中，您可了解如何：
 > [!div class="checklist"]
-> * 將 Linux 容器部署至 Service Fabric
+> * 將容器部署到 Azure Linux Service Fabric 叢集
 > * 在 Service Fabric 中縮放和容錯移轉容器
 
 ## <a name="prerequisite"></a>必要條件
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>將容器部署到 Azure 中的 Service Fabric 叢集
 若要將應用程式部署到 Azure 中的叢集，請使用您自己的叢集，或使用合作對象叢集。
+
+> [!Note]
+> 應用程式必須部署到 Azure 中的叢集，而不是本機部署機器上的 Service Fabric 叢集。 
+>
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集。 這類叢集是由任何人皆可部署應用程式並了解平台的 Service Fabric 小組所維護。 若要存取合作對象叢集，請[遵循指示](http://aka.ms/tryservicefabric)。 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/13/2017
 ms.author: adegeo
-ms.openlocfilehash: 3601b73872bbea4b4e5324382eb97b7384ca6e13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上裝載 Node.js 應用程式
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 將應用程式命名為 **MyGuestApp**，然後按 [確定]。
 
 >[!IMPORTANT]
->Node.js 可以輕易打破 Windows 具有之路徑的 260 字元限制。 對專案本身使用短路徑，例如 **c:\code\svc1**。
+>Node.js 可以輕易打破 Windows 具有之路徑的 260 字元限制。 對專案本身使用短路徑，例如 **c:\code\svc1**。 選擇性地，您可以依照[這些指示](https://stackoverflow.com/a/41687101/1664231)在 Windows 10 中啟用完整檔案路徑。
    
 ![Visual Studio 中的新增專案對話方塊][new-project]
 

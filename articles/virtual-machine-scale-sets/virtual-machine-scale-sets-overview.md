@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fa08049fd0b13945de307e9d28224ea0d5a1307
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 303ead6e1d98d464aeba2687c2a72a38bc1ce209
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>什麼是 Azure 中的虛擬機器擴展集？
 虛擬機器擴展集是一個您可以用來部署和管理一組相同 VM 的 Azure 計算資源。 所有的 VM 設定相同，擴展集是設計來支援 true 的自動調整，而不需要預先佈建 VM。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 * [Guy Bowerman 與虛擬機器擴展集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
 ## <a name="creating-and-managing-scale-sets"></a>建立和管理擴展集
-您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。 
+您可以在 [Azure 入口網站](https://portal.azure.com)中選取 [新增]，並在搜尋列中輸入 **scale** 來建立擴展集。 **虛擬機器擴展集**會列在結果中。 您可以在這裡填寫必要的欄位，以自訂和部署您的擴展集。 您在入口網站中也有可根據 CPU 使用量設定基本自動調整規則的選項。 若要管理您的擴展集，您可以使用 Azure 入口網站、[Azure PowerShell Cmdlet](virtual-machine-scale-sets-windows-manage.md) 或 Azure CLI 2.0。
 
 擴展集可以部署到[可用性區域](../availability-zones/az-overview.md)。
 
@@ -46,8 +46,23 @@ ms.lasthandoff: 10/11/2017
 
 以快速入門範本為例，在每個範本的讀我檔案上，[部署至 Azure] 按鈕可連結至入口網站部署功能。 若要部署擴展集，請按一下該按鈕，然後在入口網站中填入所需的任何參數。 
 
-## <a name="scaling-a-scale-set-out-and-in"></a>相應放大和相應縮小擴展集
-您可以在 Azure 入口網站中按一下 [設定] 底下的 [調整] 區段，來變更擴展集的容量。 
+
+## <a name="autoscale"></a>Autoscale
+若要維持一致的應用程式效能，您可以自動增加或減少擴展集之中的 VM 執行個體數目。 這個自動調整功能會降低隨著客戶一段時間的需求，監視及調整擴展集的額外管理負荷。 您可以根據效能計量、應用程式回應或固定排程，以及必要的擴展集自動調整，來定義規則。
+
+對於自動調整規則，您可以使用主機型效能計量，例如 CPU 使用量或磁碟 I/O。 這些主機型計量立即可用，不需要安裝及設定其他代理程式或擴充功能。 可以使用下列其中一個工具來建立使用主機型計量的自動調整規則：
+
+- [Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
+
+若要使用更精細的效能計量，您可以在擴展集中的 VM 執行個體上安裝及設定 Azure 診斷擴充功能。 Azure 診斷擴充功能可讓您從每個 VM 執行個體內收集其他效能計量，例如記憶體耗用量。 這些效能計量會串流到 Azure 儲存體帳戶，且您會建立使用此資料的自動調整規則。 如需詳細資訊，請參閱如何在 [Linux VM](../virtual-machines/linux/diagnostic-extension.md) 或 [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) 上啟用 Azure 診斷擴充功能的文章。
+
+若要自行監視應用程式效能，您可以在 App Insights 的應用程式中安裝及設定小型檢測套件。 然後，應用程式回應時間或工作階段數目的詳細效能計量可以從您的應用程式串流回去。 接著您可以為應用程式層級效能本身，建立具有已定義臨界值的自動調整規則。 如需 App Insights 的詳細資訊，請參閱[什麼是 Application Insights](../application-insights/app-insights-overview.md)。
+
+
+## <a name="manually-scaling-a-scale-set-out-and-in"></a>手動相應放大和相應縮小擴展集
+您可以手動在 Azure 入口網站中按一下 [設定] 底下的 [調整] 區段，來變更擴展集的容量。 
 
 若要在命令列上變更擴展集容量，請在 [Azure CLI](https://github.com/Azure/azure-cli) 中使用 **scale** 命令。 例如，使用此命令將擴展集設定為 10 部 VM 的容量：
 
@@ -67,26 +82,6 @@ Update-AzureRmVmss -ResourceGroupName resourcegroupname -Name scalesetname -Virt
 
 如果您想要重新部署 Azure Resource Manager 範本以變更容量，可以定義較小的範本，使其僅包含 **SKU** 屬性套件和更新的容量。 [以下是範例](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing)。
 
-## <a name="autoscale"></a>Autoscale
-
-擴展集若建立於 Azure 入口網站中，則可選擇性地設定自動調整設定。 以便根據平均 CPU 使用量來增加或減少 VM 數目。 
-
-[Azure 快速入門範本](https://github.com/Azure/azure-quickstart-templates)中有許多擴展集範本都定義了自動調整設定。 您也可以在現有擴展集新增自動調整設定。 例如，此 Azure PowerShell 指令碼可在擴展集內新增以 CPU 為基礎的自動調整︰
-
-```PowerShell
-
-$subid = "yoursubscriptionid"
-$rgname = "yourresourcegroup"
-$vmssname = "yourscalesetname"
-$location = "yourlocation" # e.g. southcentralus
-
-$rule1 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator GreaterThan -MetricStatistic Average -Threshold 60 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Increase -ScaleActionValue 1
-$rule2 = New-AzureRmAutoscaleRule -MetricName "Percentage CPU" -MetricResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -Operator LessThan -MetricStatistic Average -Threshold 30 -TimeGrain 00:01:00 -TimeWindow 00:05:00 -ScaleActionCooldown 00:05:00 -ScaleActionDirection Decrease -ScaleActionValue 1
-$profile1 = New-AzureRmAutoscaleProfile -DefaultCapacity 2 -MaximumCapacity 10 -MinimumCapacity 2 -Rules $rule1,$rule2 -Name "autoprofile1"
-Add-AzureRmAutoscaleSetting -Location $location -Name "autosetting1" -ResourceGroup $rgname -TargetResourceId /subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/virtualMachineScaleSets/$vmssname -AutoscaleProfiles $profile1
-```
-
-您可以在下列位置找到可調整的有效度量清單︰"Microsoft.Compute/virtualMachineScaleSets" 標題下的[支援 Azure 監視器的度量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。 另外還有更多可用的進階自動調整選項，包括以排程為基礎的自動調整，以及使用 Webhook 來與警示系統整合。
 
 ## <a name="monitoring-your-scale-set"></a>監視擴展集
 [Azure 入口網站](https://portal.azure.com)會列出擴展集並顯示其屬性。 入口網站也支援管理作業。 您可以同時針對擴展集和擴展集內的個別 VM 執行管理作業。 入口網站也提供可自訂的資源使用量圖表。 

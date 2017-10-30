@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/30/2017
+ms.date: 10/19/2017
 ms.author: cherylmc,yushwang
-ms.openlocfilehash: b12eab7a430e620d0b6e872551c0252ccb5d4c14
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
 
@@ -70,6 +70,15 @@ VPN 閘道是一種虛擬網路閘道。 VPN 閘道可透過公用連線在您�
 
 路由式閘道實作路由式 VPN。 路由式 VPN 會使用 IP 轉送或路由表中的「路由」，直接封包至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 路由式 VPN 的原則或流量選取器會設定為任意對任意 (或萬用字元)。
 
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>可以將我的原則型 VPN 閘道更新為路由型嗎？
+否。 Azure Vnet 閘道類型無法從原則型變更為路由型或其他方式。 閘道必須刪除並重新建立，程序大約要 60 分鐘的時間。 閘道的 IP 位址不會保留，預先共用金鑰 (PSK) 也不會保留。
+1. 刪除與要刪除之閘道相關聯的任何連線。
+2. 刪除閘道：
+* [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+* [Azure Powershell - 傳統](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+3. [建立所需類型的新閘道，並且完成 VPN 設定](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+
 ### <a name="do-i-need-a-gatewaysubnet"></a>是否需要 'GatewaySubnet'？
 
 是。 閘道子網路包含虛擬網路閘道服務使用的 IP 位址。 若要設定虛擬網路閘道，您必須為 VNet 建立閘道子網路。 所有閘道子網路都必須命名為 'GatewaySubnet' 才能正常運作。 請勿將閘道子網路命名為其他名稱。 請勿對閘道子網路部署 VM 或任何其他項目。
@@ -110,7 +119,6 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。 當建立 VPN 通道時，�
 #### <a name="classic-deployment-model"></a>傳統部署模型
 
 * Azure 入口網站︰瀏覽至傳統虛擬網路 > VPN 連線 > 站對站 VPN 連線 > 本機網站名稱 > 本機網站 > 用戶端位址空間。 
-* 傳統入口網站：在 [網路] 頁面的 [區域網路] 下，新增每一個您想要虛擬網路透過閘道傳送的範圍。 
 
 ### <a name="can-i-configure-force-tunneling"></a>是否可以設定強制通道？
 
@@ -160,9 +168,13 @@ VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶�
 
 ## <a name="P2S"></a>點對站 - 原生 Azure 憑證驗證
 
+本節適用於資源管理員部署模型。
+
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
 ## <a name="P2SRADIUS"></a>點對站 - RADIUS 驗證
+
+本節適用於資源管理員部署模型。
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 

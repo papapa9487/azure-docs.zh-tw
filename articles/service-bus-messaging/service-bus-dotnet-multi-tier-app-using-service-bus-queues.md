@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>使用 Azure 服務匯流排佇列的 .NET 多層應用程式
-## <a name="introduction"></a>簡介
+
 使用 Visual Studio 和免費 Azure SDK for .NET 開發 Microsoft Azure 很容易。 本教學課程將逐步引導您完成相關步驟，以建立在本機環境中執行、使用多個 Azure 資源的應用程式。
 
 您將了解下列內容：
@@ -68,7 +68,7 @@ ms.lasthandoff: 10/11/2017
 5. 完成安裝後，您將具有開始進行開發所需的一切。 SDK 包含可讓您在 Visual Studio 輕易開發 Azure 應用程式的工具。
 
 ## <a name="create-a-namespace"></a>建立命名空間
-下一步是建立服務命名空間，並取得共用存取簽章 (SAS) 金鑰。 命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。 建立命名空間時，系統會產生 SAS 金鑰。 命名空間與 SAS 金鑰的結合提供一個認證，供服務匯流排驗證對應用程式的存取權。
+下一步是建立*命名空間*，並取得該命名空間的[共用存取簽章 (SAS) 金鑰](service-bus-sas.md)。 命名空間會為每個透過服務匯流排公開的應用程式提供應用程式界限。 建立命名空間時，系統會產生 SAS 金鑰。 命名空間名稱與 SAS 金鑰的結合提供一個認證，供服務匯流排驗證對應用程式的存取權。
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -77,13 +77,13 @@ ms.lasthandoff: 10/11/2017
 之後，新增程式碼以提交項目給服務匯流排佇列，並顯示佇列的狀態資訊。
 
 ### <a name="create-the-project"></a>建立專案
-1. 使用系統管理員權限啟動 Visual Studio：在 **Visual Studio** 程式圖示上按一下滑鼠右鍵，然後按一下以系統管理員身分執行。 這篇文章稍後討論的 Azure 計算模擬器需要 Visual Studio 以系統管理員權限啟動。
+1. 使用系統管理員權限啟動 Visual Studio：在 **Visual Studio** 程式圖示上按一下滑鼠右鍵，然後按一下 [以系統管理員身分執行]。 這篇文章稍後討論的 Azure 計算模擬器需要 Visual Studio 以系統管理員權限啟動。
    
-   在 Visual Studio 的 檔案 功能表，按一下 新增，然後按一下專案。
-2. 從 已安裝的範本 的 Visual C# 下，按一下 雲端，然後按一下Azure 雲端服務。 將專案命名為 **MultiTierApp**。 然後按一下 [確定] 。
+   在 Visual Studio 的 [檔案] 功能表，按一下 [新增]，然後按一下 [專案]。
+2. 從 [已安裝的範本] 的 [Visual C#] 下，按一下 [雲端]，然後按一下 [Azure 雲端服務]。 將專案命名為 **MultiTierApp**。 然後按一下 [確定] 。
    
    ![][9]
-3. 從 **.NET Framework 4.5** 角色中，按兩下 [ASP.NET Web 角色]。
+3. 從 [角色] 窗格，按兩下 [ASP.NET Web 角色]。
    
    ![][10]
 4. 將滑鼠移至 [Azure 雲端服務解決方案] 下的 [WebRole1]，按一下鉛筆圖示，將 Web 角色重新命名為 **FrontendWebRole**。 然後按一下 [確定] 。 (請確定您輸入 "Frontend"，其中 e 為小寫，而不是 "FrontEnd"。)
@@ -92,12 +92,12 @@ ms.lasthandoff: 10/11/2017
 5. 在 [新增 ASP.NET 專案] 對話方塊的 [選取範本] 清單中，按一下 [MVC]。
    
    ![][12]
-6. 還是在 [新增 ASP.NET 專案] 對話方塊中，按一下 [變更驗證] 按鈕。 在 變更驗證 對話方塊中，按一下 不需要驗證，然後按一下確定。 在本教學課程中，您會部署不需要使用者登入的應用程式。
+6. 還是在 [新增 ASP.NET 專案] 對話方塊中，按一下 [變更驗證] 按鈕。 在 [變更驗證] 對話方塊中，確定已選取 [不需要驗證]，然後按一下 [確定]。 在本教學課程中，您會部署不需要使用者登入的應用程式。
    
     ![][16]
 7. 回到 [新增 ASP.NET 專案] 對話方塊中，按一下 [確定] 以建立專案。
 8. 在 [方案總管] 的 [FrontendWebRole] 專案中，以滑鼠右鍵按一下 [參考]，然後按一下 [管理 NuGet 套件]。
-9. 按一下 [瀏覽] 索引標籤，然後搜尋 `Microsoft Azure Service Bus`。 選取 **WindowsAzure.ServiceBus** 套件，按一下 [安裝]，然後接受使用規定。
+9. 按一下 [瀏覽] 索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 選取 **WindowsAzure.ServiceBus** 套件，按一下 [安裝]，然後接受使用規定。
    
    ![][13]
    
@@ -182,12 +182,12 @@ ms.lasthandoff: 10/11/2017
 5. 現在，為先前建立的 `Submit()` 方法建立檢視。 在 `Submit()` 方法 (未採用任何參數的 `Submit()` 的多載) 內按一下滑鼠右鍵，然後選擇 [新增檢視]。
    
    ![][14]
-6. 隨即出現對話方塊，供您建立檢視。 在 [範本] 清單中，選擇 [建立]。 在 [模型類別] 清單中，按一下 [OnlineOrder] 類別。
+6. 隨即出現對話方塊，供您建立檢視。 在 [範本] 清單中，選擇 [建立]。 在 [模型類別] 清單中，選取 [OnlineOrder] 類別。
    
    ![][15]
 7. 按一下 [新增] 。
 8. 現在，變更應用程式的顯示名稱。 在 [方案總管] 中，按兩下 **Views\Shared\\_Layout.cshtml** 檔案以在 Visual Studio 編輯器中開啟。
-9. 將所有出現的 **My ASP.NET Application** 取代為 **LITWARE'S Products**。
+9. 將所有出現的 [我的 ASP.NET 應用程式] 取代為 [Northwind Traders 產品]。
 10. 移除 [首頁]、[關於] 和 [連絡人] 連結。 刪除反白顯示的程式碼：
     
     ![][28]
@@ -203,7 +203,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="write-the-code-for-submitting-items-to-a-service-bus-queue"></a>撰寫增程式碼以提交項目給服務匯流排佇列
 現在，將新增程式碼以提交項目給佇列。 首先，您會建立一個類別，並使其包含服務匯流排佇列連接資訊。 接著，從 Global.aspx.cs 初始化您的連線。 最後，更新稍早在 HomeController.cs 建立的提交程式碼，以將項目實際提交給服務匯流排佇列。
 
-1. 在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。 按一下 新增，然後按一下類別。
+1. 在 [方案總管] 中，於 [FrontendWebRole] 上按一下滑鼠右鍵 (在專案而非角色上按一下滑鼠右鍵)。 按一下 [新增]，然後按一下 [類別]。
 2. 將類別命名為 **QueueConnector.cs**。 按一下 [新增] 以建立類別。
 3. 現在，新增可封裝連線資訊、並初始化與服務匯流排佇列連線的程式碼。 以下列程式碼取代 QueueConnector.cs 的整個內容，並將值輸入 `your Service Bus namespace` (命名空間名稱) 和 `yourKey`，後者是先前取自 Azure 入口網站的**主要金鑰**。
    
@@ -318,7 +318,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 請確定您已將 Visual Studio 連接到您的 Azure 帳戶。
 2. 在 Visual Studio 的 [方案總管] 中，於 [MultiTierApp] 專案下的 [角色] 資料夾上按一下滑鼠右鍵。
-3. 按一下 新增，然後按一下新的背景工作角色專案。 [新增新的角色專案] 對話方塊隨即出現。
+3. 按一下 [新增]，然後按一下 [新的背景工作角色專案]。 [新增新的角色專案] 對話方塊隨即出現。
    
    ![][26]
 4. 在 [新增新的角色專案] 對話方塊中，按一下 [具有服務匯流排佇列的背景工作角色]。
@@ -361,9 +361,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>後續步驟
 若要深入了解服務匯流排，請參閱下列資源：  
 
-* [Azure 服務匯流排文件][sbdocs]  
+* [服務匯流排基本概念](service-bus-fundamentals-hybrid-solutions.md)
+* [開始使用服務匯流排佇列][sbacomqhowto]
 * [服務匯流排服務頁面][sbacom]  
-* [如何使用服務匯流排佇列][sbacomqhowto]  
 
 若要深入了解多層式案例，請參閱︰  
 
@@ -390,7 +390,6 @@ ms.lasthandoff: 10/11/2017
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

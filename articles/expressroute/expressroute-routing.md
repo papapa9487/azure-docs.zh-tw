@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: osamam
-ms.openlocfilehash: ecb71e8cfc1d723521024ecb79665f4a3117bd4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a7d1e177e08d37913afa3cb203f0e4085c171f70
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受管理的服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -39,7 +39,7 @@ ms.lasthandoff: 10/11/2017
 * 您必須為路由介面保留一個 /29 子網路或兩個 /30 子網路。
 * 用於路由的子網路可以是私人 IP 位址或公用 IP 位址。
 * 子網路不得與客戶保留以便用於 Microsoft Cloud 的範圍衝突。
-* 如果使用 /29 子網路，它就會分割成兩個 /30 子網路。 
+* 如果使用 /29 子網路，它會分割成兩個 /30 子網路。 
   * 第一個 /30 子網路用於主要連結，而第二個 /30 子網路用於次要連結。
   * 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。 Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
   * 您必須設定兩個 BGP 工作階段，我們的 [可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 才會有效。  
@@ -47,21 +47,33 @@ ms.lasthandoff: 10/11/2017
 #### <a name="example-for-private-peering"></a>私人對等互連範例
 如果您選擇使用 a.b.c.d/29 來設定對等互連，它會分割成兩個 /30 子網路。 在下列範例中，我們會探討如何使用 a.b.c.d/29 子網路。 
 
-a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下傳遞至 Microsoft。 您將使用 a.b.c.d+1 作為主要 PE 的 VRF IP，而 Microsoft 將使用 a.b.c.d+2 作為主要 MSEE 的 VRF IP。 您將使用 a.b.c.d+5 作為次要 PE 的 VRF IP，而 Microsoft 將使用 a.b.c.d+6 作為次要 MSEE 的 VRF IP。
+a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下傳遞至 Microsoft。 您可使用 a.b.c.d+1 作為主要 PE 的 VRF IP，而 Microsoft 將使用 a.b.c.d+2 作為主要 MSEE 的 VRF IP。 您可使用 a.b.c.d+5 作為次要 PE 的 VRF IP，而 Microsoft 將使用 a.b.c.d+6 作為次要 MSEE 的 VRF IP。
 
 請考慮您選取 192.168.100.128/29 來設定私人互連的情況。 192.168.100.128/29 包含從 192.168.100.128 至 192.168.100.135 的位址，其中︰
 
 * 192.168.100.128/30 將會指派給 link1 (提供者使用 192.168.100.129，而 Microsoft 使用 192.168.100.130)。
 * 192.168.100.132/30 將會指派給 link2 (提供者使用 192.168.100.133，而 Microsoft 使用 192.168.100.134)。
 
-### <a name="ip-addresses-used-for-azure-public-and-microsoft-peering"></a>用於 Azure 公用與 Microsoft 對等互連的 IP 位址
+### <a name="ip-addresses-used-for-azure-public-peering"></a>用於 Azure 公用對等互連的 IP 位址
 您必須使用自己的公用 IP 位址來設定 BGP 工作階段。 Microsoft 必須能夠透過路由網際網路登錄和網際網路路由登錄來驗證 IP 位址的擁有權。 
 
 * 您必須使用唯一的 /29 子網路或兩個 /30 子網路來為每個 ExpressRoute 循環 (如果您有多個) 的每個對等互連設定 BGP 對等互連。 
-* 如果使用 /29 子網路，它就會分割成兩個 /30 子網路。 
-  * 第一個 /30 子網路將用於主要連結，而第二個 /30 子網路用於次要連結。
+* 如果使用 /29 子網路，它會分割成兩個 /30 子網路。 
+  * 第一個 /30 子網路用於主要連結，而第二個 /30 子網路用於次要連結。
   * 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。 Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
   * 您必須設定兩個 BGP 工作階段，我們的 [可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 才會有效。
+
+### <a name="ip-addresses-used-for-microsoft-peering"></a>用於 Microsoft 對等互連的 IP 位址
+您必須使用自己的公用 IP 位址來設定 BGP 工作階段。 Microsoft 必須能夠透過路由網際網路登錄和網際網路路由登錄來驗證 IP 位址的擁有權。
+
+* 您必須使用唯一的 /29 (IPv4) 或 /125 (IPv6) 子網路或兩個 /30 (IPv4) 或 /126 (IPv6) 子網路來為每個 ExpressRoute 循環 (如果您有多個) 的每個對等互連設定 BGP 對等互連。
+* 如果使用 /29 子網路，它會分割成兩個 /30 子網路。
+* 第一個 /30 子網路用於主要連結，而第二個 /30 子網路用於次要連結。
+* 針對每個 /30 子網路，您必須在您的路由器上使用 /30 子網路的第一個 IP 位址。 Microsoft 會使用 /30 子網路的第二個 IP 位址來設定 BGP 工作階段。
+* 如果使用 /125 子網路，它會分割成兩個 /126 子網路。
+* 第一個 /126 子網路用於主要連結，而第二個 /126 子網路用於次要連結。
+* 針對每個 /126 子網路，您必須在您的路由器上使用 /126 子網路的第一個 IP 位址。 Microsoft 會使用 /126 子網路的第二個 IP 位址來設定 BGP 工作階段。
+* 您必須設定兩個 BGP 工作階段，我們的 [可用性 SLA](https://azure.microsoft.com/support/legal/sla/) 才會有效。
 
 ## <a name="public-ip-address-requirement"></a>公用 IP 位址需求
 
@@ -73,14 +85,14 @@ a.b.c.d/29 會分割成 a.b.c.d/30 和 a.b.c.d+4/30 並透過佈建 API 向下�
 Azure 公用對等路徑可讓您連接到裝載於 Azure 中的所有服務的公用 IP 位址。 其中包括 [ExpessRoute 常見問題集](expressroute-faqs.md) 列出的服務，以及由 ISV 裝載於 Microsoft Azure 上的任何服務。 連線到公用對等的 Microsoft Azure 服務時，一律是從您的網路出發到 Microsoft 網路。 您必須將公用 IP 位址使用於目的地為 Microsoft 網路的流量。
 
 > [!IMPORTANT]
-> 也可透過 Microsoft 對等互連存取所有的 Azure PaaS 服務。 我們建議您建立 Microsoft 對等互連，並透過 Microsoft 對等互連連線到 Azure PaaS 服務。  
+> 透過 Microsoft 對等互連也可存取所有 Azure PaaS 服務。 我們建議您建立 Microsoft 對等互連，並透過 Microsoft 對等互連連線到 Azure PaaS 服務。  
 >   
 
 
 公用對等互連允許私人 AS 號碼。
 
 ### <a name="microsoft-peering"></a>Microsoft 對等互連
-Microsoft 對等路徑可讓您連線到公用 IP 位址上所有託管的 Microsoft 雲端服務。 服務包括 Office 365、Dynamics 365 和 Microsoft Azure PaaS 服務。 Microsoft 支援在 Microsoft 對等上的雙向連線能力。 以 Microsoft 雲端服務為目的地的流量，必須使用有效的公用 IPv4 / IPv6 位址，才能進入 Microsoft 網路。
+Microsoft 對等路徑可讓您連接到不支援透過 Azure 公用對等路徑存取的 Microsoft 雲端服務。 服務清單包括 Office 365 服務，例如 Exchange Online、SharePoint Online、商務用 Skype 和 Dynamics 365。 Microsoft 支援在 Microsoft 對等上的雙向連線能力。 以 Microsoft 雲端服務為目的地的流量，必須使用有效的公用 IPv4 位址，才能進入 Microsoft 網路。
 
 確定已在下列其中一個登錄中註冊您的 IP 位址和 AS 號碼：
 
@@ -93,7 +105,7 @@ Microsoft 對等路徑可讓您連線到公用 IP 位址上所有託管的 Micro
 * [RADB](http://www.radb.net/)
 * [ALTDB](http://altdb.net/)
 
-如果在上述的登錄中沒有指派前置詞和 AS 號碼給您，您必須開啟支援案例，手動驗證您的前置詞和 ASN。 支援需要文件，例如可證明允許您使用資源的授權書。
+如果在前述的登錄中沒有指派前置詞和 AS 號碼給您，您必須開啟支援案例，手動驗證您的前置詞和 ASN。 支援需要文件，例如可證明允許您使用資源的授權書。
 
 Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗證。
 
@@ -106,7 +118,7 @@ Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗
 路由交換將會透過 eBGP 通訊協定。 MSEEs 與您的路由器之間會建立 EBGP 工作階段。 不一定需要驗證 BGP 工作階段。 如有必要，也可以設定 MD5 雜湊。 如需設定 BGP 工作階段的資訊，請參閱[設定路由](expressroute-howto-routing-classic.md)和[線路佈建工作流程和線路狀態](expressroute-workflows.md)。
 
 ## <a name="autonomous-system-numbers"></a>自發系統號碼
-Microsoft 將使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。 我們已保留 65515 至 65520 的 ASN，以供內部使用。 同時支援 16 和 32 位元號碼。
+Microsoft 會使用 AS 12076 進行 Azure 公用、Azure 私人和 Microsoft 對等互連。 我們已保留 65515 至 65520 的 ASN，以供內部使用。 同時支援 16 和 32 位元號碼。
 
 資料傳輸對稱沒有任何相關需求。 轉送與返回路徑可能會周遊不同的路由器配對。 相同的路由必須從橫跨多個屬於您的循環配對的任一端公告。 路由計量不需要完全相同。
 
@@ -227,7 +239,6 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 ## <a name="next-steps"></a>後續步驟
 * 設定 ExpressRoute 連線。
   
-  * [建立傳統部署模型的 ExpressRoute 線路](expressroute-howto-circuit-classic.md)或[使用 Azure Resource Manager 建立和修改 ExpressRoute 線路](expressroute-howto-circuit-arm.md)
-  * [設定傳統部署模型的路由](expressroute-howto-routing-classic.md)或[設定 Resource Manager 部署模型的路由](expressroute-howto-routing-arm.md)
-  * [將傳統 VNet 連結至 ExpressRoute 線路](expressroute-howto-linkvnet-classic.md)或[將 Resource Manager VNet 連結至 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)
-
+  * [建立及修改電路](expressroute-howto-circuit-arm.md)
+  * [建立和修改對等互連組態](expressroute-howto-routing-arm.md)
+  * [將 VNet 連結到 ExpressRoute 線路](expressroute-howto-linkvnet-arm.md)

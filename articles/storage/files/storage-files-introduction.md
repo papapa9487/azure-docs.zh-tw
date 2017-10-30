@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 81de67334f66a61582bb2c5d5a2303cf3a1a086c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="introduction-to-azure-files"></a>Azure 檔案服務簡介
 Azure 檔案服務提供雲端中受到完整管理的檔案共用，可透過業界標準[伺服器訊息區塊 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (也稱為 Common Internet File System 或 CIFS) 存取。 Windows、Linux 和 macOS 的雲端部署或內部部署可同時掛接 Azure 檔案共用。 此外，透過 Azure 檔案同步 (預覽) 可以在 Windows Server 上快取 Azure 檔案共用，以便在資料的使用位置附近快速存取。
@@ -48,7 +48,7 @@ Azure 檔案共用可以用來：
     * **開發/測試/偵錯**：  
         當開發人員或系統管理員在雲端的 VM 上執行作業時，他們通常需要一組工具或公用程式。 將這類公用程式和工具複製到每個 VM，可能是費時的練習。 開發人員和系統管理員可藉由在 VM 本機掛接 Azure 檔案共用，快速存取其工具和公用程式 (不需要複製)。
 
-## <a name="key-benefits"></a>主要優點
+## <a name="key-benefits"></a>主要權益
 * **共用存取**。 Azure 檔案共用支援業界標準 SMB 通訊協定，這表示您可以使用 Azure 檔案共用順暢地取代您的內部檔案共用，而不需擔心應用程式相容性。 能夠跨多部電腦和應用程式/執行個體共用檔案系統，是 Azure 檔案服務的重大優勢，尤其是針對需要共用能力的應用程式。 
 * **受到完整管理**。 不需要管理硬體或作業系統就可以建立 Azure 檔案共用。 這表示您不必透過重大安全性升級或替換故障硬碟來處理修補伺服器作業系統。
 * **指令碼和工具**。 PowerShell Cmdlet 和 Azure CLI 可用來建立、掛接和管理 Azure 檔案共用，作為 Azure 應用程式系統管理的一部分。您可以使用 Azure 入口網站和 Azure 儲存體總管來建立及管理 Azure 檔案共用。 

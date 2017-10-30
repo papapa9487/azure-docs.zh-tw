@@ -44,7 +44,7 @@
     - name: 設定計算環境
       items:
         - name: 設定實驗
-          href: experiment-execution-configuration.md
+          href: experimentation-service-configuration.md
         - name: 建立 DSVM 及 HDI Spark 叢集
           href: how-to-create-dsvm-hdi.md
         - name: 透過 GPU 訓練
@@ -147,7 +147,7 @@
     - name: 測試
       items:
         - name: 實驗服務組態
-          href: experiment-execution-configuration-reference.md
+          href: experimentation-service-configuration-reference.md
         - name: 記錄 API
           href: reference-logging-api.md
     - name: 模型管理
@@ -175,7 +175,7 @@
     - name: Azure 藍圖
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 價格
-      href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
     - name: MSDN 論壇
       href: 'https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning'
     - name: 堆疊溢位

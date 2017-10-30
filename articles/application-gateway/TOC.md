@@ -14,16 +14,10 @@
 ## [服務限制](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)
 # 開始使用
 ## 建立應用程式閘道
-### 公眾對應
-#### [Azure 入口網站](application-gateway-create-gateway-portal.md)
-#### [Azure PowerShell](application-gateway-create-gateway-arm.md)
-#### [Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
-#### [Azure CLI 1.0](application-gateway-create-gateway-cli-nodejs.md)
-#### [Azure CLI](application-gateway-create-gateway-cli.md)
-#### [Azure PowerShell (傳統)](application-gateway-create-gateway.md)
-### 內部對向
-#### [Azure PowerShell](application-gateway-ilb-arm.md)
-#### [Azure PowerShell (傳統)](application-gateway-ilb.md)
+### [Azure 入口網站](application-gateway-create-gateway-portal.md)
+### [Azure PowerShell](application-gateway-create-gateway-arm.md)
+### [Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
+### [Azure CLI](application-gateway-create-gateway-cli.md)
 # 作法
 ## 設定 Web 應用程式防火牆
 ### [Azure 入口網站](application-gateway-web-application-firewall-portal.md)
@@ -35,9 +29,7 @@
 ## 設定 SSL
 ### [Azure 入口網站](application-gateway-ssl-portal.md)
 ### [Azure PowerShell](application-gateway-ssl-arm.md)
-### [Azure PowerShell (傳統)](application-gateway-ssl.md)
-### [Azure CLI](application-gateway-ssl.md)
-### [端對端](application-gateway-end-to-end-ssl-powershell.md)
+### [Azure CLI](application-gateway-ssl-cli.md)
 ### [SSL 原則](application-gateway-configure-ssl-policy-powershell.md)
 ## 設定 URL 路徑型路由
 ### [Azure 入口網站](application-gateway-create-url-route-portal.md)
@@ -53,7 +45,6 @@
 ## 設定健全狀態探查
 ### [Azure 入口網站](application-gateway-create-probe-portal.md)
 ### [Azure PowerShell](application-gateway-create-probe-ps.md)
-### [Azure PowerShell (傳統)](application-gateway-create-probe-classic-ps.md)
 ## [Azure 資訊安全中心整合](application-gateway-integration-security-center.md)
 ## [合併負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## 疑難排解
@@ -69,7 +60,6 @@
 ## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
 ## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://docs.microsoft.com/rest/api/applicationgateway)
-## [REST (傳統)](https://msdn.microsoft.com/library/azure/mt299393)
 # 相關參考
 ## [ExpressRoute](/azure/expressroute/)
 ## [虛擬網路](/azure/virtual-network/)

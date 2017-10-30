@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2017
+ms.date: 10/12/2017
 ms.author: sethm
-ms.openlocfilehash: af8b10f0a460e695a39879718174e81f78934ef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b71814756a52f56ac6d0bb72a2f4bb1b1c2ea0b2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-service-bus"></a>Azure 服務匯流排
 
@@ -58,15 +58,15 @@ ms.lasthandoff: 10/11/2017
 
 每一個訊息分成兩個部分：一組屬性 (各為機碼/值組) 和訊息承載。 裝載可以是二進位、文字，或甚至是 XML。 他們的使用方式會取決於應用程式的目的。 例如，假設應用程式會傳送最近一筆交易的相關訊息，則可能包含屬性 Seller="Ava" 和 Amount=10000。 訊息本文可能包含該交易簽訂之合約的掃描影像，如果沒有的話，則維持空白。
 
-接收者以兩種不同的方法從服務匯流排佇列讀取訊息。 第一個選項 (稱為 [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)) 會從佇列中移除訊息，並立即刪除訊息。 這個選項很簡單，但如果接收者在完成訊息處理之前當掉，則會遺失訊息。 因為訊息已從佇列中移除，其他接收者無法再取得該訊息。 
+接收者以兩種不同的方法從服務匯流排佇列讀取訊息。 第一個選項 (稱為 [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode)) 會收到來自佇列的訊息，並立即刪除訊息。 這個選項很簡單，但如果接收者在完成訊息處理之前當掉，則會遺失訊息。 因為訊息已從佇列中移除，其他接收者無法再取得該訊息。 
 
-第二個選項 [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) 就是為了解決此問題。 就像 **ReceiveAndDelete**一樣，**PeekLock** 讀取也會從佇列中移除訊息。 但並不會刪除訊息。 相反地，此選項會鎖定訊息，不讓其他接收者看到訊息，然後等待三種事件發生：
+第二個選項 [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 就是為了解決此問題。 就像 **ReceiveAndDelete**一樣，**PeekLock** 讀取也會從佇列中移除訊息。 但並不會刪除訊息。 相反地，此選項會鎖定訊息，不讓其他接收者看到訊息，然後等待三種事件發生：
 
-* 如果接收者成功處理訊息，則會呼叫 [Complete()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Complete)，然後佇列會刪除訊息。 
-* 如果接收者判斷無法成功處理訊息，則會呼叫 [Abandon()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Abandon)。 然後，佇列會解除訊息的鎖定，讓其他接收者可以存取訊息。
+* 如果接收者成功處理訊息，則會呼叫 [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync)，然後佇列會刪除訊息。 
+* 如果接收者判斷無法成功處理訊息，則會呼叫 [Abandon()](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync)。 然後，佇列會解除訊息的鎖定，讓其他接收者可以存取訊息。
 * 如果接收者在一段可設定的時間內 (預設為 60 秒) 未呼叫這些方法，佇列會假定接收者已失效。 在此情況下，就視為接收者已呼叫 **Abandon**，讓其他接收者可以存取訊息。
 
-請注意這裡發生的情形：相同的訊息可能傳遞兩次，或許是傳給兩個不同的接收者。 使用服務匯流排佇列的應用程式對此事件必須有因應之道。 為了輕鬆偵測重複訊息，每個訊息都有唯一的 [MessageID](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) 屬性，不論同一個訊息從佇列中讀取多少次，依預設此屬性維持不變。 
+請注意這裡發生的情形：相同的訊息可能傳遞兩次，或許是傳給兩個不同的接收者。 使用服務匯流排佇列的應用程式對此事件必須有因應之道。 為了輕鬆偵測重複訊息，每個訊息都有唯一的 [MessageID](/dotnet/api/microsoft.azure.servicebus.message.messageid#Microsoft_Azure_ServiceBus_Message_MessageId) 屬性，不論同一個訊息從佇列中讀取多少次，依預設此屬性維持不變。 
 
 佇列在許多情況下都很有用。 即使兩個應用程式未同時執行，佇列仍可讓應用程式通訊，這尤其適用於批次和行動應用程式。 如果佇列有多個接收者，由於傳送的訊息會襲捲這些接收者，此佇列也提供自動的負載平衡。
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 * 訂閱者 2 可接收包含 Seller="Ruby" 屬性及/或包含 Amount 屬性 (其值大於 100,000) 的訊息。 Ruby 可能是銷售經理，因此想查看自己的銷售和所有人的銷售佳績。
 * 訂閱者 3 將篩選設為 *True*，這表示接收所有訊息。 例如，此應用程式可能負責維護稽核記錄，因此需要查看所有的訊息。
 
-如同佇列一樣，主題的訂閱者也可以使用 [ReceiveAndDelete 或 PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode) 來讀取訊息。 但與佇列不同，傳送至主題的單一訊息可以由多個訂用帳戶接收。 每當多個應用程式可能都需要存取相同的訊息時，此方法很有用，這個方法通常稱為「發佈和訂閱」 (或 pub/sub)。 每個訂閱者只要定義正確的篩選，即可只存取所需的訊息資料流部分。
+如同佇列一樣，主題的訂閱者也可以使用 [ReceiveAndDelete 或 PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) 來讀取訊息。 但與佇列不同，傳送至主題的單一訊息可以由多個訂用帳戶接收。 每當多個應用程式可能都需要存取相同的訊息時，此方法很有用，這個方法通常稱為「發佈和訂閱」 (或 pub/sub)。 每個訂閱者只要定義正確的篩選，即可只存取所需的訊息資料流部分。
 
 ## <a name="relays"></a>轉送
 

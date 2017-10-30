@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>查詢 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 `top` 
 
 + 在 Azure 入口網站中使用[資料總管](search-explorer.md)。 藉由部署[範例索引](search-get-started-portal.md)，您可以使用入口網站中的工具在幾分鐘內查詢索引。
 
-+ 使用 [Fiddler](search-fiddler.md) 或 Chrome Postman，將查詢提交至您已上傳到搜尋服務中的索引。 這兩個工具都支援 REST 呼叫 HTTP 端點。 
++ 使用 Telerik Fiddler 或 Chrome Postman，將查詢提交至您已上傳到搜尋服務中的索引。 這兩個工具都支援 REST 呼叫 HTTP 端點。 

@@ -12,13 +12,13 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 06/26/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 99a377db6341d90d263b98e14227db61dd9beabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c381489c3cb5b42505d0cdf01618edb370793304
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="add-the-service-bus-nuget-package"></a>新增服務匯流排 NuGet 封裝
 1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
-2. 按一下 [瀏覽] 索引標籤，搜尋 [Microsoft Azure 服務匯流排]，然後選取 [WindowsAzure.ServiceBus] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
+2. 按一下 [瀏覽] 索引標籤，搜尋 [WindowsAzure.ServiceBus]，然後選取 [WindowsAzure.ServiceBus] 項目。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
    
     ![選取 NuGet 封裝][nuget-pkg]
 
@@ -115,7 +115,7 @@ ms.lasthandoff: 10/11/2017
         }
     }
     ```
-3. 執行程式，並檢查 Azure 入口網站：按一下命名空間 [概觀] 刀鋒視窗中的佇列名稱。 佇列 [Essentials] 刀鋒視窗即會顯示。 請注意，**使用中訊息計數**值現在應該是 1。 每次執行傳送者應用程式而未擷取訊息時，這個值就會增加 1。 也請注意，每當應用程式在佇列中新增訊息時，佇列目前的大小就會增加。
+3. 執行程式，並檢查 Azure 入口網站：按一下命名空間 [概觀] 視窗中的佇列名稱。 佇列 [Essentials] 視窗即會顯示。 請注意，**使用中訊息計數**值現在應該是 1。 每次執行傳送者應用程式而未擷取訊息時，這個值就會增加 1。 也請注意，每當應用程式在佇列中新增訊息時，佇列目前的大小就會增加。
    
       ![訊息大小][queue-message]
 
@@ -178,7 +178,7 @@ ms.lasthandoff: 10/11/2017
    
     ![佇列長度][queue-message-receive]
 
-恭喜！ 您現已建立佇列、傳送訊息和接收訊息。
+恭喜！ 您現已建立佇列、將訊息傳送至該佇列，以及從相同佇列接收訊息。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -189,4 +189,4 @@ ms.lasthandoff: 10/11/2017
 [nuget-pkg]: ./media/service-bus-dotnet-get-started-with-queues/nuget-package.png
 [queue-message]: ./media/service-bus-dotnet-get-started-with-queues/queue-message.png
 [queue-message-receive]: ./media/service-bus-dotnet-get-started-with-queues/queue-message-receive.png
-[github-samples]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples
+

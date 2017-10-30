@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf8fdca51a6a4ad1b7cd4fe6980543199f6b36e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf2b506c6d12e6337161aba889b23ad5eca83d96
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>開始使用適用於.NET 的 Batch 用戶端程式庫來建置解決方案
 
@@ -55,8 +55,8 @@ ms.lasthandoff: 10/11/2017
 
 `\azure-batch-samples\CSharp\ArticleProjects\DotNetTutorial`
 
-### <a name="azure-batch-explorer-optional"></a>Azure Batch 總管 (選用)
-[Azure Batch Explorer][github_batchexplorer] 是 GitHub 上 [azure-batch-samples][github_samples] 儲存機制隨附的免費公用程式。 雖然不一定要完成此教學課程，但是在您開發和偵錯 Batch 解決方案時卻很實用。
+### <a name="batchlabs-optional"></a>BatchLabs (選擇性)
+[BatchLabs][github_batchlabs] 是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 雖然不一定要完成此教學課程，但是在您開發和偵錯 Batch 解決方案時卻很實用。
 
 ## <a name="dotnettutorial-sample-project-overview"></a>DotNetTutorial 範例專案概觀
 DotNetTutorial 程式碼範例是由兩個專案所組成的 Visual Studio 方案：**DotNetTutorial** 和 **TaskApplication**。
@@ -750,7 +750,7 @@ Sample complete, hit ENTER to exit...
 [azure_free_account]: https://azure.microsoft.com/free/
 [azure_portal]: https://portal.azure.com
 [batch_learning_path]: https://azure.microsoft.com/documentation/learning-paths/batch/
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[github_batchlabs]: https://azure.github.io/BatchLabs/
 [github_dotnettutorial]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/DotNetTutorial
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_samples_common]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/Common

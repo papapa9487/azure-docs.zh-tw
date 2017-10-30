@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>網路安全性
 
@@ -151,7 +151,10 @@ ms.lasthandoff: 10/11/2017
  
 若要了解建立應用程式安全性群組以及在安全性規則中指定它們時的相關限制，請參閱 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 
-應用程式安全性群組已在預覽版本中提供。 使用應用程式安全性群組之前，您必須完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md#powershell)中的步驟 1-5 才註冊使用它們，並閱讀[預覽功能](#preview-features)中的重要資訊。 在預覽期間，應用程式安全性群組受限於虛擬網路的範圍。 與網路安全性群組中應用程式安全性群組之交叉參考對等互連的虛擬網路不適用。 
+應用程式安全性群組已在預覽版本中提供。 使用應用程式安全性群組之前，您必須完成[建立具有應用程式安全性群組的網路安全性群組](create-network-security-group-preview.md#powershell)中的步驟 1-5 才註冊使用它們，並閱讀[預覽功能](#preview-features)中的重要資訊。 應用程式安全性群組具有下列條件約束：
+
+-   應用程式安全性群組內的所有網路介面都必須存在於相同的虛擬網路。 您無法將不同虛擬網路的網路介面新增至相同的應用程式安全性群組。 第一個網路介面指派至應用程式安全性群組的虛擬網路，是用來定義後續的所有虛擬網路 - 指派的網路介面必須存在其中。
+- 如果您指定安全性群組作為安全性規則中的來源和目的地，兩個應用程式安全性群組中的網路介面都必須在相同的虛擬網路中。 例如，如果 ASG1 包含來自 VNet1 的網路介面，而 ASG2 包含來自 VNet2 的網路介面，您無法在規則中將 ASG1 指派為來源，將 ASG2 指派為目的地，所有網路介面都必須存在於 VNet1 中。 
 
 預覽狀態的功能並沒有與一般版本中的功能相同層級的可用性和可靠性。 使用應用程式安全性群組之前，您必須先註冊要使用它們。 這些功能只在下列地區中提供：美國中西部。
 

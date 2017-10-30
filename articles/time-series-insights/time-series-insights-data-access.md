@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>使用 Azure 入口網站授與 Time Series Insights 環境的資料存取權
 
@@ -42,12 +42,13 @@ Time Series Insights 環境有兩種獨立的存取原則︰
 下列步驟示範如何授與使用者主體的資料存取權︰
 
 1.  登入 [Azure 入口網站](https://portal.azure.com)。
-2.  按一下 Azure 入口網站左側功能表中的 [所有資源]。
-3.  選取 Time Series Insights 環境。
+2.  在搜尋視窗中輸入「Time Series」。
+3.  按一下 [Time Series Environment]
+4.  從清單中選取 Time Series Insights 環境。
 
   ![管理 Time Series Insights 來源 - 環境](media/data-access/getstarted-grant-data-access1.png)
 
-4.  選取 [資料層存取]，按一下 [新增]
+4.  選取 [資料存取原則]，然後按一下 [新增]
 
   ![管理 Time Series Insights 來源 - 新增](media/data-access/getstarted-grant-data-access2.png)
 

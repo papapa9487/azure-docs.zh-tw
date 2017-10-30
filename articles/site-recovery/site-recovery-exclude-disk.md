@@ -12,16 +12,21 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: nisoneji
-ms.openlocfilehash: fccbe88e3c0c2b2f3e9958f5f2f27adc017e4d03
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e636065131d0719601a3e834cfc571e94e1abfb7
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="exclude-disks-from-replication"></a>從複寫排除磁碟
 本文說明如何從複寫排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。 VMware 到 Azure 和 Hyper-V 到 Azure 案例支援此功能。
+
+## <a name="supported-scenarios"></a>支援的案例
+**功能** | **VMware 至 Azure** | **Hyper-V 至 Azure** | **Azure 至 Azure**| **Hyper-V 至 Hyper-V** 
+--|--|--|--|--
+排除磁碟 | 是 | 是 | 否 | 否
 
 ## <a name="prerequisites"></a>必要條件
 

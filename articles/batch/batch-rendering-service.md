@@ -1,5 +1,5 @@
 ---
-title: "使用 Azure Batch 轉譯服務在雲端中轉譯 |Microsoft Docs"
+title: "Azure Batch 轉譯服務 - 雲端規模轉譯 | Microsoft Docs"
 description: "Azure 虛擬機器上的轉譯作業直接由 Maya 提供且按使用次數付費。"
 services: batch
 author: v-dotren
@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 47ccbd89d5abf04034196ab735c6740d57099023
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>開始使用 Batch 轉譯服務
 
@@ -39,6 +39,7 @@ Batch 轉譯服務目前支援下列應用程式：
 - [Azure 帳戶](https://azure.microsoft.com/free/)。
 - **Azure Batch 帳戶**。 如需在 Azure 入口網站中建立 Batch 帳戶的指引，請參閱[使用 Azure 入口網站建立 Batch 帳戶](batch-account-create-portal.md)。
 - **Azure 儲存體帳戶**。 轉譯作業所用的資產會儲存在 Azure 儲存體中。 當您設定 Batch 帳戶時，可以自動建立儲存體帳戶。 您也可以使用現有的儲存體帳戶。 若要深入了解儲存體帳戶，請參閱[如何在 Azure 入口網站中建立、管理或刪除儲存體帳戶](https://docs.microsoft.com/azure/storage/storage-create-storage-account)。
+- **BatchLabs** (選擇性)。 [BatchLabs](https://azure.github.io/BatchLabs) 是免費、功能豐富、獨立用戶端的工具，可以協助建立、偵錯及監視 Azure Batch 應用程式。 雖然使用轉譯服務時不需要，但是在開發和偵錯您的 Batch 解決方案時是很有用的選項。
 
 若要使用適用於 Maya 的 Batch 外掛程式，您需要：
 
@@ -59,7 +60,7 @@ Batch 是一項平台服務，用於在**計算節點**的**集區**上執行計
 
 Batch **作業** 是在集區中計算節點上執行的工作集合。 當您提交轉譯作業時，Batch 會將作業分成數個工作，並將這些工作散發到集區內的計算節點進行執行。
 
-藉由下載應用程式記錄並使用 RDP 或 SSH 從遠端連線至個別的虛擬機器，即可使用 [Azure 入口網站](https://ms.portal.azure.com/)來監視作業及診斷失敗的工作。 您也可以使用 [Batch Labs 用戶端](https://github.com/Azure/BatchLabs)管理、監視以及偵錯。
+藉由下載應用程式記錄並使用 RDP 或 SSH 從遠端連線至個別的虛擬機器，即可使用 [Azure 入口網站](https://ms.portal.azure.com/)來監視作業及診斷失敗的工作。 您也可以使用 [Batch Labs 工具](https://azure.github.io/BatchLabs)管理、監視以及偵錯。
 
 如需 Batch 作業的詳細資訊，請參閱[使用 Batch 開發大規模的平行計算解決方案](batch-api-basics.md#job)中的[作業](batch-api-basics.md)一節。
 
@@ -69,9 +70,9 @@ Batch **作業** 是在集區中計算節點上執行的工作集合。 當您�
 
 ### <a name="pre-configured-vm-images"></a>預先設定的虛擬機器映像
 
-Azure 針對 Windows 和 Linux 映像各預先安裝一個版本的 Maya、3ds Max、Arnold 和 V-Ray 且可供使用。 建立集區時，您可以在 [Azure 入口網站](https://portal.azure.com)、Maya 外掛程式或[ Batch Labs](https://github.com/Azure/BatchLabs) 中選取這些映像。
+Azure 針對 Windows 和 Linux 映像各預先安裝一個版本的 Maya、3ds Max、Arnold 和 V-Ray 且可供使用。 建立集區時，您可以在 [Azure 入口網站](https://portal.azure.com)、Maya 外掛程式或 [BatchLabs](https://azure.github.io/BatchLabs) 中選取這些映像。
 
-在 Azure 入口網站和 Batch Labs 中，您可以使用預先安裝的應用程式來安裝其中一個虛擬機器映像，如下所示：在 Batch 帳戶的 [集區] 區段中，選取 [新增]，然後在 [新增集區] 中，從 [映像類型] 下拉式清單選取 [圖形和轉譯 (Linux/Windows)]：
+在 Azure 入口網站和 BatchLabs 中，您可以使用預先安裝的應用程式來安裝其中一個虛擬機器映像，如下所示：在 Batch 帳戶的 [集區] 區段中，選取 [新增]，然後在 [新增集區] 中，從 [映像類型] 下拉式清單選取 [圖形和轉譯 (Linux/Windows)]：
 
 ![選取 Batch 帳戶的映像類型](./media/batch-rendering-service/add-pool.png)
 
@@ -101,17 +102,17 @@ Azure Batch 可讓您提供您自己的自訂映像。 使用此選項，可以�
 有了 Maya，您可以使用：
 
 - [Maya 適用的 Batch 外掛程式](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
-- [Batch Labs](https://github.com/Azure/BatchLabs) 桌面應用程式
+- [BatchLabs](https://azure.github.io/BatchLabs) 桌面應用程式
 - [Batch 範本 CLI](batch-cli-templates.md)
 
 ### <a name="3ds-max"></a>3ds Max
 
 有了 3ds Max，您可以使用：
 
-- [Batch Labs](https://github.com/Azure/BatchLabs) 桌面應用程式 (如需使用 3ds Max Batch Labs 範本的指引，請參閱[ Batch Labs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax))
+- [BatchLabs](https://azure.github.io/BatchLabs) 桌面應用程式 (如需使用 3ds Max Batch Labs 範本的指引，請參閱[ Batch Labs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax))
 - [Batch 範本 CLI](batch-cli-templates.md)
 
-3ds Max Batch Labs 範本可讓您使用 Azure Batch 轉譯服務來轉譯 VRay 和 Arnold 場景。 VRay 和 Arnold 的範本有兩種變化，一個用於標準場景，一個用於需要資產和紋理的 3ds Max 路徑檔案 (.mxp 檔案) 的更複雜場景。 如需有關 3ds Max Batch Labs 範本的詳細資訊，請參閱 GitHub 上的 [Batch Labs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax)儲存機制。
+3ds Max Batch Labs 範本可讓您使用 Azure Batch 轉譯服務來轉譯 VRay 和 Arnold 場景。 VRay 和 Arnold 的範本有兩種變化，一個用於標準場景，一個用於需要資產和紋理的 3ds Max 路徑檔案 (.mxp 檔案) 的更複雜場景。 如需有關 3ds Max Batch Labs 範本的詳細資訊，請參閱 GitHub 上的 [BatchLabs 資料](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax)存放庫。
 
 此外，您可以使用 [Batch Python SDK](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) 來將轉譯服務與您現有的管線整合。
 

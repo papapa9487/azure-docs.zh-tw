@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>將儲存體總管連線到 Azure Stack 訂用帳戶
 
@@ -42,7 +42,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
 1. 在 Azure Stack 主機電腦或可使用 VPN 連線到 Azure Stack 的本機電腦上開啟 `mmc.exe`。 
 
-2. 在 [檔案] 中，選取 [新增/移除嵌入式管理單元]，然後新增 [憑證] 以管理 [本機電腦] 的 [電腦帳戶]。
+2. 在 [檔案] 中，選取 [新增/移除嵌入式管理單元]，然後新增 [憑證] 以管理 [我的使用者帳戶]。
 
 
 
@@ -55,7 +55,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
     下一個步驟中會使用所匯出的憑證。
 5. 啟動儲存體總管 (預覽)，如果您看到 [連線至 Azure 儲存體] 對話方塊，請將它取消。
 
-6. 在 編輯 功能表上，指向 SSL 憑證，然後按一下匯入憑證。 使用檔案選擇器對話方塊來尋找和開啟您在上一個步驟中瀏覽的憑證。
+6. 在 [編輯] 功能表上，指向 [SSL 憑證]，然後按一下 [匯入憑證]。 使用檔案選擇器對話方塊來尋找和開啟您在上一個步驟中瀏覽的憑證。
 
     匯入之後，系統會提示您重新啟動儲存體總管。
 
@@ -77,7 +77,7 @@ Azure 儲存體總管 (預覽) 是一個獨立應用程式，可讓您在 Window
 
     ![新增 Azure Stack 帳戶][29]
 
-9. 在 連線至 Azure 儲存體 對話方塊的 Azure 環境 底下，選取 使用 Azure Stack 環境，然後按一下下一步。
+9. 在 [連線至 Azure 儲存體] 對話方塊的 [Azure 環境] 底下，選取 [使用 Azure Stack 環境]，然後按一下 [下一步]。
 
 10. 若要使用至少與一個作用中 Azure Stack 訂用帳戶相關聯的 Azure Stack 帳戶登入，請填寫 [登入 Azure Stack 環境] 對話方塊。  
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.openlocfilehash: 381950321ac3a5ea8a43b76f3fba868da4be4682
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d6fb44fd6fd2261059ca45093d8b49345adfa74
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與考量
 
@@ -40,6 +40,7 @@ ms.lasthandoff: 10/11/2017
 |受控磁碟|支援進階和標準|尚不支援
 |Blob 名稱|1,024 個字元 (2,048 個位元組)|880 個字元 (1,760 個位元組)
 |區塊 Blob 大小上限|4.75 TB (100 MB X 50,000 個區塊)|50,000 x 4 MB (約為 195 GB)
+|分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 未受管理 VM 進行備份|尚不支援
 |分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援
 |分頁 Blob 大小上限|8 TB|1 TB
 |分頁 Blob 分頁大小|512 個位元組|4 KB

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/29/2017
 ms.author: venkatja
-ms.openlocfilehash: 574f3c5b3a889733f47d729c795ec39009f2ef4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b94ca172dba71b407ee5e9a40c283a97602efd17
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-ibiza-portal"></a>使用 Ibiza 入口網站建立 Time Series Insights 環境的參考資料集
 
@@ -27,8 +27,8 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="steps-to-add-a-reference-data-set-to-your-environment"></a>將參考資料集新增至環境的步驟
 
-1. 登入 [Ibiza 入口網站](https://portal.azure.com)。
-2. 按一下 Ibiza 入口網站左側功能表中的 [所有資源]。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下 Azure 入口網站左側功能表中的 [所有資源]。
 3. 選取 Time Series Insights 環境。
 
     ![建立 Time Series Insights 參考資料集](media/add-reference-data-set/getstarted-create-reference-data-set-1.png)
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
     ![建立 Time Series Insights 參考資料集 - 詳細資料](media/add-reference-data-set/getstarted-create-reference-data-set-2.png)
 
 5. 指定參考資料集的名稱。
-6. 指定索引鍵名稱和類型。 此名稱和類型會用來從事件來源的事件中選取正確屬性。 例如，如果提供的索引鍵名稱為 “DeviceId”，而類型為 “String”，則 Time Series Insights 輸入引擎會在輸入的事件中尋找名稱為 “DeviceId” 和類型為 “String” 的屬性。 您可以提供一個以上的索引鍵與事件聯結。 屬性名稱的對應會區分大小寫。
+6. 指定索引鍵名稱和類型。 此名稱和類型會用來從事件來源的事件中選取正確屬性。 例如，如果提供的索引鍵名稱為 “DeviceId”，而類型為 “String”，則 Time Series Insights 輸入引擎會在輸入的事件中尋找名稱為 “DeviceId” 和類型為 “String” 的屬性。 您可以提供一個以上的索引鍵與事件聯結。 索引鍵名稱的對應會區分大小寫。
 
      ![建立 Time Series Insights 參考資料集 - 詳細資料](media/add-reference-data-set/getstarted-create-reference-data-set-3.png)
 

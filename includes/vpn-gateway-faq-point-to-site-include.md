@@ -1,3 +1,5 @@
+這個常見問題集適用於使用傳統部署模型的 P2S 連線。
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>可以使用哪些用戶端作業系統來搭配點對站台？
 
 以下為支援的用戶端作業系統：

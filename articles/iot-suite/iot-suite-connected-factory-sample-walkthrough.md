@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: 517e908a744734139ed0aeee314a4f3b9eda86cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f43196b88cf22aab66c913d0bd659b3d654cef0
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>連線處理站預先設定的解決方案逐步解說
 
@@ -34,7 +34,7 @@ IoT 套件連線處理站[預先設定的解決方案][lnk-preconfigured-solutio
 
 您可以將此解決方案做為自己實作的起點，並加以[自訂][lnk-customize]以符合自己特有的商務需求。
 
-本文將逐步介紹連線處理站解決方案的一些重要元素，讓您了解它的運作方式。 這項知識能協助您︰
+本文將逐步介紹連線處理站解決方案的一些重要元素，讓您了解它的運作方式。 本文也描述資料如何流經此解決方案。 這項知識能協助您︰
 
 * 在解決方案中進行疑難排解。
 * 規劃如何自訂解決方案以滿足您的特定需求。
@@ -124,12 +124,116 @@ TSI 會使用 SearchSpan (Time.From、Time.To) 針對節點資料進行查詢，
 ## <a name="web-app"></a>Web 應用程式
 部署作為預先設定解決方案一部分的 Web 應用程式中，包含整合式的 OPC UA 用戶端、警示處理和遙測視覺效果。
 
+## <a name="telemetry-data-flow"></a>遙測資料流程
+
+![遙測資料流程](media/iot-suite-connected-factory-walkthrough/telemetry_dataflow.png)
+
+### <a name="flow-steps"></a>流程步驟
+
+1. OPC 發行者讀取來自本機憑證存放區的必要 OPC UA X 509 憑證和 IoT 中樞安全性認證。
+    - 如有必要，OPC 發行者會建立憑證存放區，並將任何遺失的憑證或認證儲存在其中。
+
+2. OPC 發行者向 IoT 中樞註冊其本身。
+    - 使用設定的通訊協定。 可以使用任何 IoT 中樞用戶端 SDK 支援的通訊協定。 預設為 MQTT。
+    - 通訊協定通訊受到 TLS 保護。
+
+3. OPC 發行者會讀取組態檔。
+
+4. OPC 發行者會以每個設定的 OPC UA 伺服器建立 OPC 工作階段。
+    - 使用 TCP 連線。
+    - OPC 發行者和 OPC UA 伺服器使用 X509 憑證相互驗證。
+    - 所有進一步的 OPC UA 流量是由已設定的 OPC UA 加密機制加密。
+    - OPC 發行者會在每個設定的發佈間隔之 OPC 工作階段中，建立 OPC 訂用帳戶。
+    - 建立 OPC 節點的 OPC 監視項目，以在 OPC 訂用帳戶中發佈。
+
+5. 如果受監視的 OPC 節點值變更，OPC UA 伺服器會將更新傳送給 OPC 發行者。
+
+6. OPC 發行者會轉碼新值。
+    - 如果已啟用批次處理，則會批次處理多項變更。
+    - 建立 IoT 中樞訊息。
+
+7. OPC 發行者會將訊息傳送到 IoT 中樞。
+    - 使用設定的通訊協定。
+    - 通訊受到 TLS 保護。
+
+8. Time Series Insights (TSI) 會讀取 IoT 中樞的訊息。
+    - 使用 AMQP over TCP/TLS。
+    - 這個步驟是在資料中心內部。
+
+9. TSI 中的待用資料。
+
+10. Azure AppService 中連線的處理站 WebApp 會查詢 TSI 的必要資料。
+    - 使用 TCP/TLS 安全通訊。
+    - 這個步驟是在資料中心內部。
+
+11. 網頁瀏覽器連線至連線的處理站 WebApp。
+    - 轉譯連線的處理站儀表板。
+    - 透過 HTTPS 連線。
+    - 存取連線的處理站應用程式必須透過 Azure Active Directory 驗證使用者。
+    - 對於連線的處理站應用程式的任何 WebApi 呼叫都受到反偽造 Token 保護。
+
+12. 在資料更新時，連線的處理站 WebApp 會將更新資料傳送至網頁瀏覽器。
+    - 使用 SignalR 通訊協定。
+    - 受到 TCP/TLS 保護。
+
+## <a name="browsing-data-flow"></a>瀏覽資料流程
+
+![瀏覽資料流程](media/iot-suite-connected-factory-walkthrough/browsing_dataflow.png)
+
+### <a name="flow-steps"></a>流程步驟
+
+1. OPC Proxy (伺服器元件) 會啟動。
+    - 從本機存放區讀取共用存取金鑰。
+    - 如有必要，將遺失的存取金鑰儲存在存放區。
+
+2. OPC Proxy (伺服器元件) 會向 IoT 中樞註冊其本身。
+    - 從 IoT 中樞讀取所有已知裝置。
+    - 使用 MQTT over TLS over Socket 或 Secure Websocket。
+
+3. 網頁瀏覽器會連線到連線的處理站 WebApp，並且轉譯連線的處理站儀表板。
+    - 使用 HTTPS。
+    - 使用者會選取要連線的 OPC UA 伺服器。
+
+4. 連線的處理站 WebApp 會對選取的 OPC UA 伺服器建立 OPC UA 工作階段。
+    - 使用 OPC UA 堆疊。
+
+5. OPC Proxy 傳輸會收到來自 OPC UA 堆疊的要求，以建立與 OPC UA 伺服器的 TCP 通訊端連線。
+    - 它只會擷取 TCP 裝載，並且保持原狀使用它。
+    - 這個步驟是在連線的處理站 WebApp 內部。
+
+6. OPC Proxy (用戶端元件) 會查閱 IoT 中樞裝置登錄中的 OPC Proxy (伺服器元件) 裝置。 然後呼叫 IoT 中樞中 OPC Proxy (伺服器元件) 裝置的裝置方法。
+    - 使用 HTTPS over TCP/TLS 來查閱 OPC Proxy。
+    - 使用 HTTPS over TCP/TLS，建立與 OPC UA 伺服器的 TCP 通訊端連線。
+    - 這個步驟是在資料中心內部。
+
+7. IoT 中樞會呼叫 OPC Proxy (伺服器元件) 裝置的裝置方法。
+    - 使用已建立的 MQTT over TLS over Socket 或 Secure Websocket 連線，以建立與 OPC UA 伺服器的 TCP 通訊端連線。
+
+8. OPC Proxy (伺服器元件) 會將 TCP 裝載傳送至工廠網路。
+
+9. OPC UA 伺服器會處理裝載，並且傳回回應。
+
+10. OPC Proxy (伺服器元件) 的通訊端會收到回應。
+    - OPC Proxy 會以裝置方法的傳回值將資料傳送到 IoT 中樞與 OPC Proxy (用戶端元件)。
+    - 這項資料會傳遞到連線的處理站應用程式中的 OPC UA 堆疊。
+
+11. 連線的處理站 WebApp 會將具有來自 OPC UA 伺服器之 OPC UA 特定資訊的豐富 OPC 瀏覽器 UX，傳回至網頁瀏覽器以轉譯它。
+    - 在瀏覽 OPC 位址空間以及將函式套用至 OPC 位址空間中的節點時，OPC 瀏覽器 UX 用戶端組件會透過以反偽造 Token 保護的 HTTPS 使用 AJAX 呼叫，從連線的處理站 WebApp 取得資料。
+    - 必要時，用戶端會使用步驟 4 到 10 所述的通訊，與 OPC UA 伺服器交換資訊。
+
+> [!NOTE]
+> OPC Proxy (伺服器元件) 和 OPC Proxy (用戶端) 元件會針對與 OPC UA 通訊有關的所有 TCP 流量，完成步驟 #4 到 #10。
+
+> [!NOTE]
+> 針對連線的處理站 WebApp 內的 OPC UA 伺服器和 OPC UA 堆疊，OPC Proxy 通訊是透明的，且會套用所有適用於驗證和加密的 OPC UA 安全性功能。
+
 ## <a name="next-steps"></a>後續步驟
 
 您可以繼續閱讀下列文章，了解如何開始使用 IoT 套件︰
 
 * [azureiotsuite.com 網站的權限][lnk-permissions]
 * [在 Windows 或 Linux 上部署連線處理站預先設定解決方案的閘道](iot-suite-connected-factory-gateway-deployment.md)
+* [OPC 發行者參考實作](iot-suite-connected-factory-publisher.md)。
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png
 

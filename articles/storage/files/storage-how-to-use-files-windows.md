@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
-ms.openlocfilehash: 111b925de9ca2155e2d3631979272170ed614816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5134fab447f1d1842369aeda4ebc1948a5d78262
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>掛接 Azure 檔案共用並在 Windows 中存取共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中掛接。 本文將說明在 Windows 中掛接 Azure 檔案共用的三種不同方式：使用檔案總管 UI、透過 PowerShell，以及透過命令提示字元。 
@@ -29,7 +29,8 @@ ms.lasthandoff: 10/11/2017
 
 | Windows 版本        | SMB 版本 | 可在 Azure VM 中掛接 | 可在內部部署環境掛接 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows 10<sup>1</sup>  | SMB 3.0 | 是 | 是 |
+| Windows Server 半年度通道<sup>1</sup> | SMB 3.0 | 是 | 是 |
+| Windows 10<sup>2</sup>  | SMB 3.0 | 是 | 是 |
 | Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
 | Windows 8.1            | SMB 3.0     | 是                   | 是                  |
 | Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
@@ -37,7 +38,8 @@ ms.lasthandoff: 10/11/2017
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows 10 版本 1507、1511、1607、1703 和 1709。
+<sup>1</sup>Windows Server 版本 1709。  
+<sup>2</sup>Windows 10 版本 1507、1607、1703 和 1709。
 
 > [!Note]  
 > 我們一律建議針對您的 Windows 版本採取最新的 KB。

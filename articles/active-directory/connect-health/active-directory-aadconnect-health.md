@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 881ce13b6e4b10064294e590431434b29da3fb33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>在雲端中監視內部部署身分識別基礎結構和同步處理服務。
 Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內部部署身分識別基礎結構和同步處理服務。 它提供重要身分識別元件 (例如 Active Directory Federation Services (AD FS) 伺服器、Azure AD Connect 伺服器 (也稱為同步處理引擎)、Active Directory 網域控制站等) 的監視功能，讓您維護可靠的 Office 365 或 Microsoft Online Services 連線。它也使這些元件的相關重要資料點變得容易存取，讓您取得使用情況和其他重要情資，以做出明智的決策。
@@ -27,8 +27,8 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 
 ![Azure AD Connect Health 是什麼](./media/active-directory-aadconnect-health/aadconnecthealth2.png)
 
-隨著 Azure AD Connect Health 的功能越來越多，入口網站透過身分識別的功能濾鏡，提供單一儀表板。 您會有更為穩固健全的整合式環境，讓使用者的辦事能力更強。
 
+隨著 Azure AD Connect Health 的功能越來越多，入口網站透過身分識別的功能濾鏡，提供單一儀表板。 您會有更為穩固健全的整合式環境，讓使用者的辦事能力更強。
 ## <a name="why-use-azure-ad-connect-health"></a>為何使用 Azure AD Connect Health？
 將內部部署目錄與 Azure AD 整合時，使用者會更具生產力，因為只要一個通用身分識別，即可存取雲端和內部部署資源。 然而，此整合也會帶來挑戰，必須確保此環境良好健全，才能讓使用者從任何裝置可靠地存取內部部署和雲端中的資源。 Azure AD Connect Health 協助您監視及深入了解用來存取 Office 365 或其他 Azure AD 應用程式的內部部署身分識別基本結構。 使用方式相當簡單，您只需將代理程式安裝在各個內部部署身分識別伺服器中即可。
 
@@ -40,11 +40,14 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 * 效能資料的趨勢，適合用於 AD FS 的容量規劃
 * 透過樞紐 (應用程式、使用者、網路位置等) 提供 AD FS 登入的使用情況分析，有助於了解 AD FS 的使用情況
 * AD FS 報告，例如嘗試使用錯誤使用者名稱/密碼的前 50 名使用者及其最後一個 IP 位址
+  
+如需深入了解，請參閱[搭配 AD FS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adfs.md)
 
 下列影片提供適用於 AD FS 的 Azure AD Connect Health 概觀。
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Azure-AD-Connect-Health--Monitor-you-identity-bridge/player]
 >
+
 >
 
 ## <a name="azure-ad-connect-health-for-syncactive-directory-aadconnect-health-syncmd"></a>[適用於同步處理的 Azure AD Connect Health](active-directory-aadconnect-health-sync.md)
@@ -55,6 +58,8 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 * 同步處理操作情資，包括同步處理作業的延遲圖表以及不同作業 (如新增、更新、刪除) 的趨勢
 * 有關同步處理屬性和上次成功匯出至 Azure AD 的快速概覽資訊
 * 物件層級同步處理錯誤的相關報告\(不需要 Azure AD Premium\)
+
+如需深入了解，請參閱[使用 Azure AD Connect Health 進行同步處理](active-directory-aadconnect-health-sync.md)
 
 下列影片提供適用於同步處理的 Azure AD Connect Health 概觀。
 
@@ -69,6 +74,8 @@ Azure Active Directory (Azure AD) Connect Health 可協助您監視和了解內�
 * 網域控制站儀表板可讓您快速檢視網域控制站的健全狀況和操作狀態
 * 複寫狀態儀表板擁有最新的複寫資訊，以及偵測到錯誤時可用的疑難排解指南連結
 * 可在任一處快速存取常用效能計數器的效能資料圖形，其為疑難排解和監視用途所必需
+
+如需深入了解，請參閱[搭配 AD DS 使用 Azure AD Connect Health](active-directory-aadconnect-health-adds.md)
 
 下列影片提供適用於 AD DS 的 Azure AD Connect Health 概觀。
 

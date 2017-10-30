@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 9c3a9a7255bbbdab8f4c356eb07022d7f1d242d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure 資訊安全中心的自適性應用程式控制 (預覽)
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
@@ -37,14 +37,14 @@ ms.lasthandoff: 10/11/2017
 > 自適性應用程式控制是以有限的公開預覽形式提供給 Azure 資訊安全中心標準客戶使用。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_appcontrol@microsoft.com)，以加入預覽。
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>如何啟用自適性應用程式控制？
-自適性應用程式控制可協助您定義一組可以在設定之資源群組上執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 請遵循下列步驟在資訊安全中心設定應用程式白名單：
+自適性應用程式控制可協助您定義一組可以在設定之資源群組上執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 可以使用下列步驟在資訊安全中心設定應用程式白名單：
 
 1.  開啟 [資訊安全中心] 儀表板，然後按一下 [概觀]。
 2.  在 [進階雲端防禦] 之下，[自適性應用程式控制] 圖格會顯示目前有多少 VM 已採用此控制 (相較於所有的 VM)。 它也會顯示在上一週找到的問題數目： 
 
     ![自適性應用程式控制](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
 
-3. 按一下 [自適性應用程式控制] 圖格，以查看更多選項。
+3. 按一下 [自適性應用程式控制] 圖格，以取得更多選項。
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 
@@ -52,8 +52,6 @@ ms.lasthandoff: 10/11/2017
     * **建議**：建議採用應用程式控制的資源群組清單。 資訊安全中心會使用機器學習服務，根據 VM 是否以一致的方式執行相同的應用程式來識別適合採用應用程式控制的 VM。
     * **已設定**：內含已設定應用程式控制之 VM 的資源群組清單。 
     * **無建議**：內含無任何應用程式控制建議之 VM 的資源群組清單。 例如，其上的應用程式一直改變且尚未達到穩定狀態的 VM。
-
-下列各節將更詳細地說明每個選項，以及其使用方式。
 
 ### <a name="configure-a-new-application-control-policy"></a>設定新的應用程式控制原則
 針對具有應用程式控制建議的資源群組清單，按一下 [建議] 索引標籤：
@@ -75,9 +73,11 @@ ms.lasthandoff: 10/11/2017
 - **名稱**：完整應用程式路徑
 - **程序**：每個路徑內有多少個應用程式
 - **通用**：true 表示這些程序已在此資源群組中的大部分 VM 上執行。
-- **易受利用**：警告圖示將會指出攻擊者是否可能使用應用程式來略過應用程式白名單。 強烈建議先檢閱這些應用程式，再進行其核准。 
+- **易受利用**：警告圖示將會指出攻擊者是否可能使用應用程式來略過應用程式白名單。 建議您在核准之前檢閱這些應用程式。 
 
 一旦完成您的選擇，請按一下 [建立] 按鈕。 根據預設，資訊安全中心一律在「稽核」模式啟用應用程式控制。 驗證白名單對您的工作負載沒有任何不良影響之後，即可變更為「強制」模式。
+
+資訊安全中心會依賴至少兩週的資料，以建立基準，並且在每個 VM 群組填入唯一建議。 資訊安全中心標準層的新客戶預期會有標準行為，也就是他們的 VM 群組一開始會出現在 [不推薦] 索引標籤底下。
 
 > [!NOTE]
 > 最佳的安全性作法就是，資訊安全中心一律嘗試為應列入白名單的應用程式建立發行者規則，且只有在應用程式沒有發行者資訊 (也就是未簽署) 時，才會針對特定 EXE 的完整路徑建立路徑規則。
@@ -147,7 +147,7 @@ ms.lasthandoff: 10/11/2017
 - **名稱**：訂用帳戶和資源群組的名稱。
 - **VM**：資源群組中的虛擬機器數目。
 
-## <a name="see-also"></a>另請參閱
+## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何使用 Azure 資訊安全中心的自適性應用程式控制，將在 Azure VM 中執行的應用程式列入白名單。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

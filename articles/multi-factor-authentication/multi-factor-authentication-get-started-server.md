@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/30/2017
+ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
 ms.custom: it-pro
-ms.openlocfilehash: df847c370817c0702163b5e22c35c7e4f1d3cfee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a0eec19eea1a75b67f314f204fb769e6eff162
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
@@ -89,26 +89,42 @@ ms.lasthandoff: 10/11/2017
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-azure-multi-factor-authentication-server"></a>下載 Azure Multi-Factor Authentication Server
+## <a name="download-the-mfa-server---public-preview"></a>下載 MFA Server - 公開預覽
+
+請遵循下列步驟，以從 Azure 入口網站下載 Azure Multi-Factor Authentication Server：
+
+1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+2. 選取 [Active Directory] > [Multi-Factor Authentication]。
+3. 選取 [伺服器設定]。
+4. 選取 [下載] 並遵循下載頁面上的指示，以儲存安裝程式。 
+
+   ![下載 MFA Server](./media/multi-factor-authentication-get-started-server/downloadportal.png)
+
+5. 讓此頁面保持開啟，我們會在執行安裝程式之後參照該頁面。
+
+
+## <a name="download-the-mfa-server"></a>下載 MFA Server
+
+請遵循下列步驟，以從 pfweb 入口網站下載 Azure Multi-Factor Authentication Server：
 
 1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取左邊的 [Active Directory]
-3. 按一下 [使用者和群組]
-4. 按一下 [所有使用者]
-5. 按一下 [Multi-Factor Authentication]
+3. 選取 [使用者和群組]
+4. 選取 [所有使用者]
+5. 選取 [Multi-Factor Authentication]
 6. 在 [多重要素驗證] 區域之下，選取 [服務設定]
 
    ![服務設定頁面](./media/multi-factor-authentication-get-started-server/servicesettings.png)
 
 6. 在 [服務設定] 頁面上，於畫面底部按一下 [ **移至入口網站**]。 新的頁面隨即開啟。
-7. 按一下 [下載]。
+7. 選取 [下載]。
 8. 按一下 [下載] 連結並儲存安裝程式。
 
    ![下載 MFA Server](./media/multi-factor-authentication-get-started-server/download4.png)
 
 9. 讓此頁面保持開啟，我們會在執行安裝程式之後參照該頁面。
 
-## <a name="install-and-configure-the-azure-multi-factor-authentication-server"></a>安裝及設定 Azure Multi-Factor Authentication Server
+## <a name="install-and-configure-the-mfa-server"></a>安裝和設定 MFA Server
 
 既然您已下載伺服器，現在可以進行安裝和設定。 請確定要安裝的伺服器符合規劃區段中所列的需求。
 
@@ -119,7 +135,7 @@ ms.lasthandoff: 10/11/2017
 
    ![雲端](./media/multi-factor-authentication-get-started-server/skip2.png)
 
-5. 回到下載伺服器的頁面，按一下 [ **產生啟用認證** ] 按鈕。 將此資訊複製到 Azure MFA Server 提供的方塊中，然後按一下 [ **啟用**]。
+5. 回到您下載伺服器的頁面，按一下 [產生啟用認證] 按鈕。 將此資訊複製到 Azure MFA Server 提供的方塊中，然後按一下 [ **啟用**]。
 
 ## <a name="send-users-an-email"></a>傳送電子郵件給使用者
 

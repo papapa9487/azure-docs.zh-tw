@@ -139,6 +139,7 @@
     - name: 開發
       items:
         - name: DocumentDB API
+          href: documentdb-index.md
           items:
             - name: 資源
               href: documentdb-resources.md
@@ -213,6 +214,7 @@
                 - name: 淘汰 S1、S2、S3
                   href: performance-levels.md
         - name: MongoDB API
+          href: mongodb-index.md
           items:
             - name: 連線至您的 MongoDB 帳戶
               href: connect-mongodb-account.md

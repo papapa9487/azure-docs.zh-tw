@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>分類鳶尾花第 3 部分：部署模型
 Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學以及進階分析解決方案，可供專業資料科學家用來以雲端規模準備資料、開發測試以及部署模型。
@@ -193,6 +193,9 @@ Azure Machine Learning 服務 (預覽) 是一套整合的端對端資料科學�
    ```
 
 現在您已準備好建立即時 Web 服務。
+
+>[!NOTE]
+>您可以針對後續 Web 服務部署重複使用您的模型管理帳戶和環境。 您不需要為每個 Web 服務建立它們。 帳戶或環境可以有多個與其相關聯的 Web 服務。
 
 ## <a name="create-a-real-time-web-service-in-one-command"></a>在一個命令中建立即時 Web 服務
 1. 使用下列命令建立即時 Web 服務：
