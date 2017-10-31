@@ -45,8 +45,10 @@
           href: log-analytics-log-search-faq.md
         - name: 記錄搜尋入口網站
           href: log-analytics-log-search-portals.md
-- name: 作法
+- name: 使用說明指南
   items:
+    - name: 建立 Log Analytics 工作區
+      href: log-analytics-quick-create-workspace.md
     - name: 收集資料
       items:
         - name: 連接的來源
@@ -154,7 +156,7 @@
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: 活動 Log Analytics
           href: log-analytics-activity.md
-        - name: AD 評估
+        - name: 健康情況檢查
           href: log-analytics-ad-assessment.md
         - name: AD 複寫狀態
           href: log-analytics-ad-replication-status.md
@@ -197,7 +199,7 @@
           href: log-analytics-network-performance-monitor.md
         - name: Office 365
           href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SCOM 評估
+        - name: SCOM 健康情況檢查
           href: log-analytics-scom-assessment.md
         - name: 安全性稽核
           href: ../operations-management-suite/oms-security-getting-started.md?toc=%2fazure%2flog-analytics%2ftoc.json
@@ -208,7 +210,7 @@
               href: log-analytics-service-fabric-azure-resource-manager.md
         - name: 服務對應
           href: ../operations-management-suite/operations-management-suite-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SQL 評估
+        - name: SQL 健康情況檢查
           href: log-analytics-sql-assessment.md
         - name: Surface Hub
           href: log-analytics-surface-hubs.md

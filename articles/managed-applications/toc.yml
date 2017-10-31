@@ -1,0 +1,88 @@
+- name: Azure 受管理的應用程式
+  href: index.yml
+- name: 概觀
+  items:
+    - name: Azure 受管理的應用程式
+      href: overview.md
+- name: 快速入門
+  items:
+    - name: 使用 Azure CLI 建立受管理的應用程式
+      href: managed-apps-quickstart-cli.md
+- name: 教學課程
+  items:
+    - name: 建立服務目錄應用程式
+      href: publish-service-catalog-app.md
+    - name: 建立 Marketplace 應用程式
+      href: publish-marketplace-app.md
+- name: 範例
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+    - name: 受管理的應用程式解決方案
+      href: sample-projects.md
+- name: 使用說明指南
+  items:
+    - name: 定義使用者介面
+      href: create-uidefinition-overview.md
+    - name: 更新受管理的資源
+      href: update-managed-resources.md
+    - name: 發佈服務目錄應用程式 - 入口網站
+      href: publish-portal.md
+- name: 參考
+  items:
+    - name: Azure CLI
+      href: /cli/azure/managedapp
+    - name: PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: REST
+      href: /rest/api/resources/
+    - name: 使用者介面功能
+      href: create-uidefinition-functions.md
+    - name: 使用者介面元素
+      href: create-uidefinition-elements.md
+      items:
+        - name: 一般
+          items:
+            - name: DropDown
+              href: microsoft-common-dropdown.md
+            - name: FileUpload
+              href: microsoft-common-fileupload.md
+            - name: OptionsGroup
+              href: microsoft-common-optionsgroup.md
+            - name: PasswordBox
+              href: microsoft-common-passwordbox.md
+            - name: 區段
+              href: microsoft-common-section.md
+            - name: TextBox
+              href: microsoft-common-textbox.md
+        - name: 計算
+          items:
+            - name: CredentialsCombo
+              href: microsoft-compute-credentialscombo.md
+            - name: SizeSelector
+              href: microsoft-compute-sizeselector.md
+            - name: UserNameTextBox
+              href: microsoft-compute-usernametextbox.md
+        - name: 網路
+          items:
+            - name: PublicIPAddressCombo
+              href: microsoft-network-publicipaddresscombo.md
+            - name: VirtualNetworkCombo
+              href: microsoft-network-virtualnetworkcombo.md
+        - name: 儲存體
+          items:
+            - name: MultiStorageAccountCombo
+              href: microsoft-storage-multistorageaccountcombo.md
+            - name: StorageAccountSelector
+              href: microsoft-storage-storageaccountselector.md
+- name: 資源
+  items:
+    - name: Azure 藍圖
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 價格
+      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
+    - name: 定價計算機
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 堆疊溢位
+      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'

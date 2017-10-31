@@ -11,16 +11,16 @@ ms.custom: mvc
 ms.devlang: azure-cli
 ms.topic: tutorial
 ms.date: 06/13/2017
-ms.openlocfilehash: cf536fce8925f9173b541b845af25a8d8c38eabd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d753772adeb9064f391f1e3846de654bdb60facf
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="design-your-first-azure-database-for-postgresql-using-azure-cli"></a>使用 Azure CLI 來設計您第一個適用於 PostgreSQL 的 Azure 資料庫 
 在本教學課程中，您將使用 Azure CLI (命令列介面) 及其他公用程式來學習如何：
 > [!div class="checklist"]
-> * 建立適用於 PostgreSQL 的 Azure 資料庫
+> * 建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 > * 設定伺服器防火牆
 > * 使用 [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) 公用程式來建立資料庫
 > * 載入範例資料
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > * 更新資料
 > * 還原資料
 
-您可以在瀏覽器中使用 Azure Cloud Shell 或在自己的電腦上[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli) 以執行本教學課程中的程式碼區塊。
+您可以在瀏覽器中使用 Azure Cloud Shell 或在自己的電腦上[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)，以執行本教學課程中的命令。
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -48,7 +48,7 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-postgresql-server"></a>建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 使用 [az postgres server create](/cli/azure/postgres/server#create) 命令來建立[適用於 PostgreSQL 的 Azure 資料庫伺服器](overview.md)。 一個伺服器會包含一組以群組方式管理的資料庫。 
 
-下列範例會使用伺服器管理員登入 `mylogin` 在資源群組 `myresourcegroup` 中建立名為 `mypgserver-20170401` 的伺服器。 伺服器的名稱會與 DNS 名稱對應，因此在 Azure 中必須是全域唯一的。 將 `<server_admin_password>` 替換成您自己的值。
+下列範例會使用伺服器管理員登入 `mylogin` 在資源群組 `myresourcegroup` 中建立名為 `mypgserver-20170401` 的伺服器。 伺服器的名稱會對應至 DNS 名稱，因此必須是 Azure 中全域唯一的。 將 `<server_admin_password>` 替換成您自己的值。
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mypgserver-20170401 --location westus --admin-user mylogin --admin-password <server_admin_password> --performance-tier Basic --compute-units 50 --version 9.6
 ```
@@ -63,7 +63,10 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 
 使用 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) 命令來建立 Azure PostgreSQL 伺服器層級防火牆規則。 伺服器層級防火牆規則可允許外部應用程式 (例如 [psql](https://www.postgresql.org/docs/9.2/static/app-psql.html) 或 [PgAdmin](https://www.pgadmin.org/)) 穿過 Azure PostgreSQL 服務防火牆連線到您的伺服器。 
 
-您可以設定一個防火牆規則，來涵蓋能夠從您網路連線的 IP 範圍。 下列範例使用 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) 來建立某個 IP 位址範圍的防火牆規則 `AllowAllIps`。 若要開啟所有 IP 位址，請使用 0.0.0.0 作為起始 IP 位址，並使用 255.255.255.255 作為結束位址。
+您可以設定一個防火牆規則，來涵蓋能夠從您網路連線的 IP 範圍。 下列範例使用 [az postgres server firewall-rule create](/cli/azure/postgres/server/firewall-rule#create) 來建立允許來自任何 IP 位址之連線的防火牆規則 `AllowAllIps`。 若要開啟所有 IP 位址，請使用 0.0.0.0 作為起始 IP 位址，並使用 255.255.255.255 作為結束位址。
+
+若要限制只有您的網路才能存取 Azure PostgreSQL 伺服器，您可以將防火牆規則設定成只涵蓋公司的網路 IP 位址範圍。
+
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server mypgserver-20170401 --name AllowAllIps --start-ip-address 0.0.0.0 --end-ip-address 255.255.255.255
 ```
@@ -107,7 +110,7 @@ az postgres server show --resource-group myresourcegroup --name mypgserver-20170
 ## <a name="connect-to-azure-database-for-postgresql-database-using-psql"></a>使用 psql 來連線到適用於 PostgreSQL 資料庫的 Azure 資料庫
 如果您的用戶端電腦已安裝 PostgreSQL，您可以使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 的本機執行個體，或 Azure 雲端主控台來連線到 Azure PostgreSQL 伺服器。 現在我們將使用 psql 命令列公用程式來連線到「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 
-1. 執行下列 psql 命令以連線到「適用於 PostgreSQL 的 Azure 資料庫」伺服器
+1. 執行下列 psql 命令以連線到「適用於 PostgreSQL 的 Azure 資料庫」資料庫：
 ```azurecli-interactive
 psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
 ```
@@ -118,7 +121,7 @@ psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<db
 psql --host=mypgserver-20170401.postgres.database.azure.com --port=5432 --username=mylogin@mypgserver-20170401 ---dbname=postgres
 ```
 
-2.  連線到伺服器後，請在提示字元建立空白資料庫。
+2.  連線到伺服器之後，在提示字元中建立空白資料庫：
 ```sql
 CREATE DATABASE mypgsqldb;
 ```
@@ -131,7 +134,7 @@ CREATE DATABASE mypgsqldb;
 ## <a name="create-tables-in-the-database"></a>在資料庫中建立資料表
 既然您已知道如何連線到「適用於 PostgreSQL 的 Azure 資料庫」，我們可以了解一下如何完成一些基本工作。
 
-首先，我們可以建立資料表並在其中載入一些資料。 我們將建立一個追蹤清查資訊的資料表。
+首先，我們可以建立資料表並在其中載入一些資料。 我們將建立一個追蹤清查資訊的資料表：
 ```sql
 CREATE TABLE inventory (
     id serial PRIMARY KEY, 
@@ -145,34 +148,35 @@ CREATE TABLE inventory (
 \dt
 ```
 
-## <a name="load-data-into-the-tables"></a>將資料載入到資料表
-既然我們已有資料表，我們可以在其中插入一些資料。 在開啟的命令提示字元視窗，執行下列查詢以插入幾列資料
+## <a name="load-data-into-the-table"></a>將資料載入到資料表
+既然我們已有資料表，我們可以在其中插入一些資料。 在開啟的命令提示字元視窗中，執行下列查詢以插入幾列資料：
 ```sql
 INSERT INTO inventory (id, name, quantity) VALUES (1, 'banana', 150); 
 INSERT INTO inventory (id, name, quantity) VALUES (2, 'orange', 154);
 ```
 
-您現在已將兩列範例資料插入到先前建立的資料表。
+您現在已將兩列範例資料新增到先前建立的資料表中。
 
 ## <a name="query-and-update-the-data-in-the-tables"></a>查詢並更新資料表中的資料
-執行下列查詢，以從資料庫資料表中擷取資訊。 
+執行下列查詢，以從清查資料表中擷取資訊： 
 ```sql
 SELECT * FROM inventory;
 ```
 
-您也可以更新資料表中的資料
+您也可以更新清查資料表中的資料：
 ```sql
 UPDATE inventory SET quantity = 200 WHERE name = 'banana';
 ```
 
-當您擷取資料時，資料列會相應地更新。
+當您擷取資料時，可以看到更新的值：
 ```sql
 SELECT * FROM inventory;
 ```
 
 ## <a name="restore-a-database-to-a-previous-point-in-time"></a>將資料庫還原至先前的時間點
-假設您不小心刪除了資料表。 這是您無法輕易復原的情況。 「適用於 PostgreSQL 的 Azure 資料庫」可讓您返回到任何時間點 (最長可達過去 7 天 (基本) 和 35 天 (標準))，並將此時間點還原到新資料庫。 您可以使用這個新的伺服器來復原已刪除的資料。 下列步驟會將範例伺服器還原到新增資料表之前的時間點。
+假設您不小心刪除了資料表。 這是您無法輕易復原的情況。 「適用於 PostgreSQL 的 Azure 資料庫」可讓您返回到任何時間點 (最長可達 7 天 (基本) 和 35 天 (標準))，並將此時間點還原到新資料庫。 您可以使用這個新的伺服器來復原已刪除的資料。 
 
+下列命令會將範例伺服器還原到新增資料表之前的時間點：
 ```azurecli-interactive
 az postgres server restore --resource-group myResourceGroup --name mypgserver-restored --restore-point-in-time 2017-04-13T13:59:00Z --source-server mypgserver-20170401
 ```
@@ -185,7 +189,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 | restore-point-in-time | 2017-04-13T13:59:00Z | 選取所要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可能會使用您自己的本地時區，例如 `2017-04-13T05:59:00-08:00`，或使用 UTC Zulu 格式 `2017-04-13T13:59:00Z`。 |
 | --source-server | mypgserver-20170401 | 要進行還原的來源伺服器之名稱或識別碼。 |
 
-將伺服器還原至時間點可建立新的伺服器，自指定的時間點起複製作為原始伺服器。 還原伺服器的位置與定價層值與來源伺服器相同。
+將伺服器還原至時間點會建立新的伺服器，也就是您所指定時間點的原始伺服器複本。 還原伺服器的位置與定價層值與來源伺服器相同。
 
 命令是同步的，將會在伺服器還原之後傳回。 一旦還原完成時，找出所建立的新伺服器。 請確認資料已如預期般還原。
 
@@ -193,7 +197,7 @@ az postgres server restore --resource-group myResourceGroup --name mypgserver-re
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何使用 Azure CLI (命令列介面) 及其他公用程式來：
 > [!div class="checklist"]
-> * 建立適用於 PostgreSQL 的 Azure 資料庫
+> * 建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 > * 設定伺服器防火牆
 > * 使用 [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) 公用程式來建立資料庫
 > * 載入範例資料

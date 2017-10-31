@@ -10,13 +10,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/25/2017
 ms.author: johnkem
-ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91129da9ef7791a506292d9e13e386a25ee341a8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。
@@ -407,6 +407,93 @@ Properties.communicationId | 與此事件相關聯的通訊。
 | properties.LastScaleActionTime | 自動調整動作發生時的時間戳記。 |
 | status |字串，描述作業的狀態。 常見的值包括︰Started、In Progress、Succeeded、Failed、Active、Resolved。 |
 | 子狀態 | 針對自動調整通常為 null。 |
+| eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
+| submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
+| subscriptionId |Azure 訂用帳戶識別碼。 |
+
+## <a name="security"></a>安全性
+此類別包含「Azure 資訊安全中心」所產生之任何警示的記錄。 其中一個您會在此類別中看到的事件類型範例為「執行疑似雙重附檔名的檔案」。
+
+### <a name="sample-event"></a>範例事件
+```json
+{
+    "channels": "Operation",
+    "correlationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "description": "Suspicious double extension file executed. Machine logs indicate an execution of a process with a suspicious double extension.\r\nThis extension may trick users into thinking files are safe to be opened and might indicate the presence of malware on the system.",
+    "eventDataId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "eventName": {
+        "value": "Suspicious double extension file executed",
+        "localizedValue": "Suspicious double extension file executed"
+    },
+    "category": {
+        "value": "Security",
+        "localizedValue": "Security"
+    },
+    "eventTimestamp": "2017-10-18T06:02:18.6179339Z",
+    "id": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/events/965d6c6a-a790-4a7e-8e9a-41771b3fbc38/ticks/636439033386179339",
+    "level": "Informational",
+    "operationId": "965d6c6a-a790-4a7e-8e9a-41771b3fbc38",
+    "operationName": {
+        "value": "Microsoft.Security/locations/alerts/activate/action",
+        "localizedValue": "Microsoft.Security/locations/alerts/activate/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Security",
+        "localizedValue": "Microsoft.Security"
+    },
+    "resourceType": {
+        "value": "Microsoft.Security/locations/alerts",
+        "localizedValue": "Microsoft.Security/locations/alerts"
+    },
+    "resourceId": "/subscriptions/d4742bb8-c279-4903-9653-9858b17d0c2e/providers/Microsoft.Security/locations/centralus/alerts/2518939942613820660_a48f8653-3fc6-4166-9f19-914f030a13d3",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": null
+    },
+    "submissionTimestamp": "2017-10-18T06:02:52.2176969Z",
+    "subscriptionId": "d4742bb8-c279-4903-9653-9858b17d0c2e",
+    "properties": {
+        "accountLogonId": "0x2r4",
+        "commandLine": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "domainName": "hpc",
+        "parentProcess": "unknown",
+        "parentProcess id": "0",
+        "processId": "6988",
+        "processName": "c:\\mydirectory\\doubleetension.pdf.exe",
+        "userName": "myUser",
+        "UserSID": "S-3-2-12",
+        "ActionTaken": "Detected",
+        "Severity": "High"
+    },
+    "relatedEvents": []
+}
+
+```
+
+### <a name="property-descriptions"></a>屬性描述
+| 元素名稱 | 說明 |
+| --- | --- |
+| 通道 | 一律為 “Operation” |
+| correlationId | 字串格式的 GUID。 |
+| 說明 |安全性事件的靜態文字描述。 |
+| eventDataId |安全性事件的唯一識別碼。 |
+| eventName |安全性事件的易記名稱。 |
+| id |安全性事件的唯一資源識別碼。 |
+| 層級 |事件的層級。 下列其中一個值：“Critical”、“Error”、“Warning”、“Informational” 或 “Verbose” |
+| resourceGroupName |資源的資源群組名稱。 |
+| resourceProviderName |「Azure 資訊安全中心」的資源提供者名稱。 一律為 "Microsoft.Security"。 |
+| resourceType |產生安全性事件的資源類型，例如˙ "Microsoft.Security/locations/alerts" |
+| resourceId |安全性警示的資源識別碼。 |
+| operationId |對應至單一作業的事件共用的 GUID。 |
+| operationName |作業名稱。 |
+| properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 這些屬性會依安全性警示類型的不同而有所不同。 如需來自「資訊安全中心」之警示類型的描述，請參閱[這個頁面](../security-center/security-center-alerts-type.md)。 |
+| properties.Severity |嚴重性層級。 可能的值為："High"、"Medium" 或 "Low"。 |
+| status |字串，描述作業的狀態。 常見的值包括︰Started、In Progress、Succeeded、Failed、Active、Resolved。 |
+| 子狀態 | 針對安全性事件通常為 null。 |
 | eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
 | subscriptionId |Azure 訂用帳戶識別碼。 |

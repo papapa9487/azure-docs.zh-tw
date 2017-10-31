@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: 6557046f43c33c0184f8345d9a63d8f7970ba650
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 99fb80d5cafc8fd20f5048de305fef99bf49c286
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>在您的 Azure IoT 中樞中設定 X.509 安全性
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 您可以選擇下列其中一個方式來取得您的憑證：
 - 從根憑證授權單位 (CA) 購買 X.509 憑證。 建議用於生產環境。
 或者，
-- 使用第三方工具建立您自己的 X.509 憑證，例如 [OpenSSL](https://www.openssl.org/)。 這適合進行測試和開發。 標題為[建立 X.509 憑證](iot-hub-security-x509-create-certificates.md#createcerts)和[建立 X.509 憑證鏈結](iot-hub-security-x509-create-certificates.md#createcertchain)的章節會逐步引導您完成範例 PowerShell 指令碼，以使用 OpenSSL 建立憑證。 本教學課程的其餘部分將使用此做法指南中的 OpenSSL 環境設定逐步解說 Azure IoT 中樞的端對端 X.509 安全性。
+- 使用第三方工具建立您自己的 X.509 憑證，例如 [OpenSSL](https://www.openssl.org/)。 這適合進行測試和開發。 [如何使用 PowerShell 來建立 X.509 憑證](iot-hub-security-x509-create-certificates.md)一文中標題為＜建立 X.509 憑證＞和＜建立 X.509 憑證鏈結＞的小節會逐步引導您完成範例 PowerShell 指令碼，以使用 OpenSSL 和 PowerShell 來建立憑證。 如果您偏好使用 **Bash** 殼層而不使用 PowerShell，請參閱相關的[管理 CA 憑證範例](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) \(英文\) 小節。 本教學課程的其餘部分將使用此「做法」指南中的 OpenSSL 環境設定，來逐步解說「Azure IoT 中樞」中的端對端 X.509 安全性。
 
 
 <a id="registercerts"></a>
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 1. 在 Visual Studio 中，使用 [主控台應用程式] 專案範本，建立新的 Visual C# Windows 傳統桌面專案。 將專案命名為 **SimulateX509Device**。
    ![在 Visual Studio 中建立 X.509 裝置專案](./media/iot-hub-security-x509-get-started/create-device-project.png)
 
-2. 在 方案總管 中，以滑鼠右鍵按一下 **SimulateX509Device** 專案，然後按一下管理 NuGet 套件。在 NuGet 套件管理員 視窗中，選取 瀏覽，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 Azure IoT 裝置 SDK NuGet 套件與其相依項目，並新增對它的參考。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **SimulateX509Device** 專案，然後按一下 [管理 NuGet 套件]。在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 Azure IoT 裝置 SDK NuGet 套件與其相依項目，並新增對它的參考。
    ![在 Visual Studio 中新增裝置 SDK NuGet 套件](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
 3. 在 Program.cs 檔案開頭處新增下列程式碼：

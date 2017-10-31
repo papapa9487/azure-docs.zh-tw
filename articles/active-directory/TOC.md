@@ -208,7 +208,7 @@
 #### [管理使用者帳戶佈建](active-directory-enterprise-apps-manage-provisioning.md)
 #### [管理企業應用程式的單一登入](active-directory-enterprise-apps-manage-sso.md)
 #### [適用於 SAML 應用程式的進階憑證](active-directory-enterprise-apps-advance-certificate-options.md)
-####[在 Azure Active Directory 中隱藏使用者體驗](active-directory-coreapps-hide-third-party-app.md)
+#### [隱藏使用者的第三方應用程式經驗](active-directory-coreapps-hide-third-party-app.md)
 
 ### [管理應用程式的存取權](active-directory-managing-access-to-apps.md)
 #### [自助服務存取](active-directory-self-service-application-access.md)

@@ -3,7 +3,6 @@
 ## [資源提供者和類型](resource-manager-supported-services.md)
 ## [Resource Manager 與傳統部署](resource-manager-deployment-model.md)
 ## [訂用帳戶治理](resource-manager-subscription-governance.md)
-## [受管理的應用程式](managed-application-overview.md)
 
 # 開始使用
 ## [建立和部署範本](resource-manager-create-first-template.md)
@@ -60,12 +59,12 @@
 ### [將資源移至新群組或訂用帳戶](resource-group-move-resources.md)
 ### [利用管理群組組織訂用帳戶](../billing/billing-enterprise-mgmt-group-overview.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [治理範例](resource-manager-subscription-examples.md)
+### [受管理的應用程式](../managed-applications/overview.md)
 
 ## 控制存取權
 ### 建立服務主體
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure CLI 1.0](resource-group-authenticate-service-principal-cli.md)
 #### [Azure 入口網站](resource-group-create-service-principal-portal.md)
 ### [驗證 API 以存取訂閱帳戶](resource-manager-api-authentication.md)
 ### [鎖定資源](resource-group-lock-resources.md)
@@ -81,13 +80,6 @@
 #### [儲存體](resource-manager-policy-storage.md)
 #### [Linux VM](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 #### [Windows VM](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-
-## 使用受管理的應用程式
-### [發佈服務目錄應用程式](managed-application-publishing.md)
-### [發佈服務目錄應用程式](managed-application-consumption.md)
-### [發佈 Marketplace 應用程式](managed-application-author-marketplace.md)
-### [用 Marketplace 應用程式](managed-application-consume-marketplace.md)
-### [建立 UI 定義](managed-application-createuidefinition-overview.md)
 
 ## 稽核
 ### [檢視活動記錄](resource-group-audit.md)
@@ -125,21 +117,6 @@
 ### [數值函式](resource-group-template-functions-numeric.md)
 ### [資源函式](resource-group-template-functions-resource.md)
 ### [字串函式](resource-group-template-functions-string.md)
-## [UI 定義函式](managed-application-createuidefinition-functions.md)
-## [UI 定義元素](managed-application-createuidefinition-elements.md)
-### [Microsoft.Common.DropDown](managed-application-microsoft-common-dropdown.md)
-### [Microsoft.Common.FileUpload](managed-application-microsoft-common-fileupload.md)
-### [Microsoft.Common.OptionsGroup](managed-application-microsoft-common-optionsgroup.md)
-### [Microsoft.Common.PasswordBox](managed-application-microsoft-common-passwordbox.md)
-### [Microsoft.Common.Section](managed-application-microsoft-common-section.md)
-### [Microsoft.Common.TextBox](managed-application-microsoft-common-textbox.md)
-### [Microsoft.Compute.CredentialsCombo](managed-application-microsoft-compute-credentialscombo.md)
-### [Microsoft.Compute.SizeSelector](managed-application-microsoft-compute-sizeselector.md)
-### [Microsoft.Compute.UserNameTextBox](managed-application-microsoft-compute-usernametextbox.md)
-### [Microsoft.Network.PublicIpAddressCombo](managed-application-microsoft-network-publicipaddresscombo.md)
-### [Microsoft.Network.VirtualNetworkCombo](managed-application-microsoft-network-virtualnetworkcombo.md)
-### [Microsoft.Storage.MultiStorageAccountCombo](managed-application-microsoft-storage-multistorageaccountcombo.md)
-### [Microsoft.Storage.StorageAccountSelector](managed-application-microsoft-storage-storageaccountselector.md)
 ## [PowerShell](/powershell/module/azurerm.resources)
 ## [Azure CLI](/cli/azure/resource)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)

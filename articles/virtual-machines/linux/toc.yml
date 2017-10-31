@@ -205,6 +205,17 @@
               href: terraform-install-configure.md
             - name: 建立完整 VM
               href: terraform-create-complete-vm.md
+        - name: Jenkins
+          href: ../../jenkins/overview.md
+          items:
+            - name: 建立 Jenkins 伺服器
+              href: ../../jenkins/install-jenkins-solution-template.md
+            - name: 以 VM 代理程式進行調整
+              href: ../../jenkins/jenkins-azure-vm-agents.md
+            - name: 將成品發佈至儲存體
+              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+            - name: 保護 Jenkins
+              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: 執行容器
       items:
         - name: 建立 Docker 主機

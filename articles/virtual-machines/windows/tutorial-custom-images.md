@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c7cb5353585373af8de0d30b06bcfa49a3278c17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cee283268057a407003a38f8db5af8cac151439f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>使用 PowerShell 建立 Azure VM 的自訂映像
 
@@ -53,7 +53,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 1. 連接至虛擬機器。
 2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 %windir%\system32\sysprep 目錄，然後執行 sysprep.exe。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已勾選 [一般化] 核取方塊。
-4. 在 關機選項 中選取 關機，然後按一下確定。
+4. 在 [關機選項] 中選取 [關機]，然後按一下 [確定]。
 5. Sysprep 完成時，會關閉虛擬機器。 **不要重新啟動 VM**。
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除配置並將 VM 標示為一般化
@@ -98,7 +98,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>從映像建立 VM
 
-現在您已有映像，您可以從映像建立一個或多個新的 VM。 從自訂映像建立 VM 非常類似於使用 Marketplace 映像建立 VM。 使用 Marketplace 映像時，您必須有關於映像、映像提供者、提供項目、SKU 和版本的資訊。 使用自訂映像，您只需要提供自訂影像資源的識別碼。 
+現在您已有映像，您可以從映像建立一個或多個新的 VM。 從自訂映像建立 VM 非常類似於使用 Marketplace 映像建立 VM。 使用 Marketplace 映像時，您必須提供關於映像、映像提供者、提供項目、SKU 和版本的資訊。 使用自訂映像，您只需要提供自訂影像資源的識別碼。 
 
 在下列指令碼中，我們建立變數 $image 以使用 [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage) 來儲存關於自訂映像的資訊，然後我們會使用 [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage)，以及使用剛建立的 $image 變數來指定識別碼。 
 
