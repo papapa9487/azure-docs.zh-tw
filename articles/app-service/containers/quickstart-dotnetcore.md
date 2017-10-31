@@ -1,10 +1,10 @@
 ---
-title: "在 Azure 中的 Linux 容器中建立 .NET Core Web 應用程式"
-description: "將您的第一個 .NET Core Hello World 應用程式部署到適用於容器的 Web 應用程式，只要幾分鐘。"
+title: "建立 NET Core Web 應用程式並部署至 Linux 上的 App Service | Microsoft Docs"
+description: "將您的第一個 .NET Core Hello World 應用程式部署到 Linux 上的 App Service，只要幾分鐘。"
 keywords: "azure app service, Web 應用程式, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
-authors: cephalin
+author: cephalin
 manager: syntaxc4
 editor: 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -16,19 +16,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47e7db5462ecf3a2211538b1f46ed0571980b15b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95383554d3fd8a1770a37a5396224c39b4f34c81
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-net-core-web-app-in-a-linux-container-in-azure"></a>在 Azure 中的 Linux 容器中建立 .NET Core Web 應用程式
+# <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立.NET Core Web 應用程式
 
-[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何在適用於容器的 Web 應用程式上建立 [.NET Core](https://docs.microsoft.com/aspnet/core/) 應用程式。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，而且使用 Git 將 .NET Core 程式碼部署至 Web 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何在 Linux 上的 App Service上建立 [.NET Core](https://docs.microsoft.com/aspnet/core/) 應用程式。 您可使用 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)建立 Web 應用程式，而且使用 Git 將 .NET Core 程式碼部署至 Web 應用程式。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。 
+您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,20 +39,20 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-the-app-locally"></a>在本機建立應用程式 ##
+## <a name="create-the-app-locally"></a>在本機建立應用程式
 
-在您電腦上的終端機視窗中，建立名為 `hellodotnetcore` 的目錄，並將目前的目錄變更為該目錄。 
+在您電腦上的終端機視窗中，建立名為 `hellodotnetcore` 的目錄，並將目前的目錄變更為該目錄。
 
 ```bash
 md hellodotnetcore
 cd hellodotnetcore
-``` 
+```
 
 建立新的.NET Core Web 應用程式。
 
 ```bash
 dotnet new web
-``` 
+```
 
 ## <a name="run-the-app-locally"></a>在本機執行應用程式
 
@@ -79,13 +79,13 @@ git commit -m "first commit"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>建立 Web 應用程式
+## <a name="create-a-web-app-with-built-in-image"></a>建立具有內建映像的 Web 應用程式
 
 使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
 
@@ -95,11 +95,11 @@ git commit -m "first commit"
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
 
 ![空的 Web 應用程式頁面](media/quickstart-dotnetcore/dotnet-browse-created.png)
 
-您已在 Linux 容器中建立空的新 Web 應用程式，並已啟用 Git 部署。
+您已.建立空的新 Web 應用程式，其中具有內建映像並已啟用 Git 部署。
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -140,11 +140,11 @@ To https://cephalin-dotnetcore.scm.azurewebsites.net/cephalin-dotnetcore.git
 http://<app_name>.azurewebsites.net
 ```
 
-Node.js 範例程式碼正在 Azure App Service Web 應用程式中執行。
+Node.js 範例程式碼正在具有內建映像的 Web 應用程式中執行。
 
 ![在 Azure 中執行的範例應用程式](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**恭喜！** 您已將第一個 Node.js 應用程式部署至 App Service。
+**恭喜！** 您已將第一個 Node.js 應用程式部署至 Linux 上的 App Service。
 
 ## <a name="update-and-redeploy-the-code"></a>更新和重新部署程式碼
 
@@ -184,4 +184,4 @@ git push azure master
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在適用於容器的 Azure Web 應用程式中建置 .NET Core 和 SQL Database Web 應用程式](tutorial-dotnetcore-sqldb-app.md)
+> [在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式](tutorial-dotnetcore-sqldb-app.md)

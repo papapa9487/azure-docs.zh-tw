@@ -1,6 +1,6 @@
 ---
-title: "使用 Linux 上的 Azure Web Apps 建立 Ruby 應用程式 | Microsoft Docs"
-description: "了解如何使用 Linux 上的 Azure Web 應用程式來建立 Ruby 應用程式。"
+title: "建立 Ruby 應用程式並部署至 Linux 上的 App Service | Microsoft Docs"
+description: "了解如何使用 Linux 上的 App Service 來建立 Ruby 應用程式。"
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
@@ -13,18 +13,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 7080a655040918c6cc059023ad3d62389dd6ab71
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55ff4dc168ca6f8b2bdbb7c5743515691e8ac92d
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
-# <a name="create-a-ruby-app-with-web-apps-on-linux"></a>使用 Linux 上的 Web Apps 建立 Ruby 應用程式
+# <a name="create-a-ruby-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 Ruby 應用程式
 
-[Azure Web Apps](../app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何建立基本的 Ruby on Rails 應用程式，然後將它當作 Linux 上的 Web 應用程式部署至 Azure。
+[Linux 上的 App Service](app-service-linux-intro.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何建立基本的 Ruby on Rails 應用程式，然後將它當作 Linux 上的 Web 應用程式部署至 Azure。
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 * [Ruby 2.4.1 或更高版本](https://www.ruby-lang.org/en/documentation/installation/#rubyinstaller)。
 * [Git](https://git-scm.com/downloads)。
-* [有效的 Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+* [有效的 Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ rails server
 ## <a name="modify-app-to-display-welcome-message"></a>修改應用程式以顯示歡迎使用訊息
 
 修改應用程式，使其顯示歡迎使用訊息。 首先，您必須設定路由，請修改 *~/workspace/ruby-docs-hello-world/config/routes.rb* 檔案，加入名稱為 `hello` 的路由。
-    
+
   ```ruby
   Rails.application.routes.draw do
       #For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -170,4 +170,4 @@ http://<app name>.azurewebsites.net
 
 ## <a name="next-steps"></a>後續步驟
 
-[Linux 上的 Azure App Service Web 應用程式常見問題集](app-service-linux-faq.md)
+[Linux 上的 Azure App Service 常見問題集](https://docs.microsoft.com/azure/app-service-web/app-service-linux-faq.md)
