@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 2328fe6e6b35ce523f8bf90cbe6159c7ba23d697
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87b1b6b03f5aaab5da6491c86132d4193693055a
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>管理您的雙步驟驗證設定
 本文章回答有關如何更新雙步驟驗證或 Multi-Factor Authentication 的設定。 如果您登入帳戶時遇到問題，請參閱[雙步驟驗證遇到困難](multi-factor-authentication-end-user-troubleshoot.md)以取得疑難排解說明。
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="where-to-find-the-settings-page"></a>哪裡可以找到設定頁面
 視您的公司使用 Azure Multi-Factor Authentication 的方式而定，有一些地方可讓您變更如電話號碼等設定。
 
-如果您的 IT 管理員送出特定的 URL 或步驟來管理雙步驟驗證，請遵循這些指示。 否則，下面的指示應可適用於其他所有人。 如果您遵循下列步驟，但沒有看到相同的選項，表示您的工作或學校自訂了自己的網站。 請要求系統管理員提供您的 Azure Multi-factor Authentication 入口網站連結。
+如果您的公司支援送出特定的 URL 或步驟來管理雙步驟驗證，請遵循這些指示。 否則，下面的指示應可適用於其他所有人。 如果您遵循下列步驟，但沒有看到相同的選項，表示您的工作或學校自訂了自己的網站。 請要求系統管理員提供您的 Azure Multi-factor Authentication 入口網站連結。
 
 1. 登入 [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. 在右上方選取您的帳戶名稱，然後選取 [設定檔]。  

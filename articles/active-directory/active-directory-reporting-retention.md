@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a89d1f715464f79068a0c04ef908e86d0dc8ff46
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 933d251903f4ca74902e984e7a1581a75345ee7f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
 
@@ -60,6 +60,7 @@ ms.lasthandoff: 10/18/2017
 | :--                    | :--           | :--                 | :--                 |
 | 目錄稽核        | 7 天        | 30 天             | 30 天             |
 | 登入活動       | N/A           | 30 天             | 30 天             |
+| Azure MFA 使用        | 90 天       | 90 天             | 90 天             |
 
 **安全性訊號**
 

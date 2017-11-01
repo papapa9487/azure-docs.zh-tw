@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: manage
-ms.date: 03/22/2017
+ms.date: 3/23/2017
 ms.author: elbutter
-ms.openlocfilehash: abe22f542a79714f6e894870872ee6b76ffe7633
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d0d3b94fb50155ce0579d32e8ff78a47b9e3589
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-overview"></a>管理 Azure SQL 資料倉儲中的計算能力 (概觀)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 
 SQL 資料倉儲的架構分隔儲存體和計算功能，可單獨進行調整。 如此一來，可以調整計算以符合與資料量無關的效能需求。 這個架構的自然結果為計算[計費][billed]和儲存體無關。 
 
-本概觀說明擴充如何與 SQL 資料倉儲搭配使用，以及如何運用暫停、繼續和調整 SQL 資料倉儲的功能。 請參閱[資料倉儲單位 (DWU)][data warehouse units (DWUs)] 頁面以了解 DWU 和效能有何相關。 
+本概觀說明擴充如何與 SQL 資料倉儲搭配使用，以及如何運用暫停、繼續和調整 SQL 資料倉儲的功能。 
 
 ## <a name="how-compute-management-operations-work-in-sql-data-warehouse"></a>計算管理作業如何在 SQL 資料倉儲中運作
 SQL 資料倉儲架構是由控制節點、計算節點及分散到 60 個散發套件的儲存層所組成。 
@@ -86,10 +86,10 @@ SQL 資料倉儲架構是由控制節點、計算節點及分散到 60 個散發
 
 ## <a name="scale-compute"></a>調整計算
 
-SQL 資料倉儲中的效能測量單位為[資料倉儲單位 (DWU)][data warehouse units (DWUs)]，這是計算資源的抽象量值，例如 CPU、記憶體和 I/O 頻寬。 想要調整其系統效能的使用者可透過各種方式來完成，例如透過入口網站、T-SQL 和 REST API。 
+SQL 資料倉儲中的效能測量單位為[資料倉儲單位 (DWU)][資料倉儲單位 (DWU)]，這是計算資源的抽象量值，例如 CPU、記憶體和 I/O 頻寬。 想要調整其系統效能的使用者可透過各種方式來完成，例如透過入口網站、T-SQL 和 REST API。 
 
 ### <a name="how-do-i-scale-compute"></a>如何調整計算？
-計算電源會藉由變更 DWU 設定來管理您的 SQL 資料倉儲。 隨著您針對特定作業新增更多的 DWU，效能會[以線性方式][linearly]提升。  當您將系統相應增加或減少時，我們提供的 DWU 供應項目可確保您的效能會明顯變更。 
+計算電源會藉由變更 DWU 設定來管理您的 SQL 資料倉儲。 隨著您針對特定作業新增更多的 DWU，效能會以線性方式提升。  當您將系統相應增加或減少時，我們提供的 DWU 供應項目可確保您的效能會明顯變更。 
 
 若要調整 DWU，您可以使用任何一種個別的方法。
 
@@ -181,9 +181,7 @@ DWU 調整時機的建議︰
 <!--Image reference-->
 
 <!--Article references-->
-[data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
-[billed]: https://azure.microsoft.com/en-us/pricing/details/sql-data-warehouse/
-[linearly]: ./sql-data-warehouse-overview-what-is.md#predictable-and-scalable-performance-with-data-warehouse-units
+[billed]: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
 [Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk

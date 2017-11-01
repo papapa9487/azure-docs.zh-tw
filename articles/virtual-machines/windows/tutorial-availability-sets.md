@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3657f222e1f52d341cd05532e29ed4924b308e6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 503657d6e6e22560b94d4a1cbbc2a74651d1ee7a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="how-to-use-availability-sets"></a>如何使用可用性設定組
 
@@ -32,6 +32,7 @@ ms.lasthandoff: 10/11/2017
 > * 建立可用性設定組
 > * 在可用性設定組中建立 VM
 > * 檢查可用的 VM 大小
+> * 檢查 Azure Advisor
 
 本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
 
@@ -88,9 +89,36 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
     -Location EastUS `
-    -Name MYvNET `
+    -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
+    
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
+
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -Location eastus `
+    -Name myNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAvailability `
+    -SecurityRules $nsgRuleRDP
+    
+# Apply the network security group to a subnet
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name mySubnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 for ($i=1; $i -le 2; $i++)
 {
@@ -100,23 +128,6 @@ for ($i=1; $i -le 2; $i++)
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
-
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-        -Name myNetworkSecurityGroupRuleRDP$i `
-        -Protocol Tcp `
-        -Direction Inbound `
-        -Priority 1000 `
-        -SourceAddressPrefix * `
-        -SourcePortRange * `
-        -DestinationAddressPrefix * `
-        -DestinationPortRange 3389 `
-        -Access Allow
-
-   $nsg = New-AzureRmNetworkSecurityGroup `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name myNetworkSecurityGroup$i `
-        -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
@@ -176,6 +187,13 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
+## <a name="check-azure-advisor"></a>檢查 Azure Advisor 
+
+您也可以使用 Azure Advisor，以取得改善 VM 可用性方式的詳細資訊。 Azure Advisor 可協助您遵循最佳做法來最佳化 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
+
+登入 [Azure 入口網站](https://portal.azure.com)，並選取 [更多服務]，然後鍵入 **Advisor**。 Advisor 儀表板會顯示所選取訂用帳戶的個人化建議。 如需詳細資訊，請參閱[開始使用 Azure Advisor](../../advisor/advisor-get-started.md)。
+
+
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
@@ -184,6 +202,7 @@ Get-AzureRmVMSize `
 > * 建立可用性設定組
 > * 在可用性設定組中建立 VM
 > * 檢查可用的 VM 大小
+> * 檢查 Azure Advisor
 
 請前進到下一個教學課程，以了解虛擬機器擴展集。
 

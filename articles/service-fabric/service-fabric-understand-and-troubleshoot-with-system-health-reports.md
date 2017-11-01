@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 21f04c1b01033adcef7b7d73c710dd2b4590f76f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系統健康狀態報告進行疑難排解
 Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系統健康情況報告。 [健康狀態資料存放區](service-fabric-health-introduction.md#health-store) 會根據系統報告來建立和刪除實體。 它也會將這些實體組織為階層以擷取實體的互動。
@@ -101,6 +101,13 @@ HealthEvents          :
 * **SourceId**：System.PLB
 * **Property**：開頭為 **Capacity**。
 * **後續步驟**：檢查提供的計量，並檢視節點上的目前容量。
+
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>節點容量與資源控管計量不符
+如果叢集資訊清單中定義的節點容量大於資源控管計量 (記憶體和 CPU 核心) 的實際節點容量，則 System.Hosting 會回報警告。 當第一個使用[資源控管](service-fabric-resource-governance.md)的服務套件在指定的節點上註冊時，即會顯示健康情況報告。
+
+* **SourceId**：System.Hosting
+* **Property**：ResourceGovernance
+* **後續步驟**：這可能會發生問題，因為控管的服務套件將不會如預期般強制執行，而[資源控管](service-fabric-resource-governance.md)將無法正常運作。 使用這些計量的正確節點容量來更新叢集資訊清單，或者完全不要指定它們，讓 Service Fabric 自動偵測可用的資源。
 
 ## <a name="application-system-health-reports"></a>應用程式系統健康狀態報告
 **System.CM**(代表叢集管理員服務) 是管理應用程式相關資訊的授權單位。
@@ -815,6 +822,13 @@ HealthEvents               :
 * **SourceId**：System.Hosting
 * **Property**：使用前置詞 **FabricUpgradeValidation**，並包含升級版本。
 * **Description**：指出發生的錯誤。
+
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>未針對資源控管計量定義的節點容量
+如果叢集資訊清單中未定義節點容量且已關閉自動偵測的設定，則 System.Hosting 會回報警告。 每當使用[資源控管](service-fabric-resource-governance.md)的服務套件在指定的節點上註冊時，Service Fabric 將會引發健康情況警告。
+
+* **SourceId**：System.Hosting
+* **Property**：ResourceGovernance
+* **後續步驟**：克服此問題的較佳方式是變更叢集資訊清單，以啟用可用資源的自動偵測。 另一種方式是使用為這些計量正確指定的節點容量來更新叢集資訊清單。
 
 ## <a name="next-steps"></a>後續步驟
 [檢視 Service Fabric 健康狀態報告](service-fabric-view-entities-aggregated-health.md)

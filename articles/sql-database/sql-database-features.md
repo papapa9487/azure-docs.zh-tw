@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/22/2017
+ms.date: 10/23/2017
 ms.author: carlrab
-ms.openlocfilehash: 5824347cbfd80ce2d21e256f4ce6e6fe2201792f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5853b7f4af02e096a0678de14abd5c0b3d7ab0c
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database 功能
 
@@ -38,7 +38,7 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | **SQL Server 功能** | **在 Azure SQL Database 中支援** | 
 | --- | --- |  
 | [一律加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 是 - 請參閱[憑證存放區](sql-database-always-encrypted.md)和[金鑰保存庫](sql-database-always-encrypted-azure-key-vault.md)|
-| [AlwaysOn 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 否 - 請參閱[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md) |
+| [AlwaysOn 可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | 每個資料庫皆包含高可用性。 [Azure SQL Database 的業務連續性概觀](sql-database-geo-replication-overview.md)會討論災害復原 |
 | [連結資料庫](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | 否 |
 | [應用程式角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) | 是 |
 | [BACPAC 檔案 (匯出)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 是 - 請參閱 [SQL Database 匯出](sql-database-export.md) |
@@ -63,15 +63,15 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [資料庫快照集](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | 否 |
 | [資料類型](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql) | 是 |  
 | [DBCC 陳述式](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-transact-sql) | 大部分 - 請參閱個別陳述式 |
-| [DDL 陳述式](https://docs.microsoft.com/sql/t-sql/statements/statements) | 大部分 - 請參閱個別陳述式
+| [DDL 陳述式](https://docs.microsoft.com/sql/t-sql/statements/statements) | 是 |
 | [DDL 觸發程序](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | 僅限資料庫 |
 | [分散式交易 - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | 否 - 請參閱[彈性交易](sql-database-elastic-transactions-overview.md) |
-| [DML 陳述式](https://docs.microsoft.com/sql/t-sql/queries/queries) | 大部分 - 請參閱個別陳述式 |
-| [DML 觸發程序](https://docs.microsoft.com/sql/relational-databases/triggers/dml-triggers) |
+| [DML 陳述式](https://docs.microsoft.com/sql/t-sql/queries/queries) | 是 |
+| [DML 觸發程序](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | 大部分 - 請參閱個別陳述式 | 
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | 部分 - 請參閱個別 DMV |
 | [事件通知](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | 否 - 請參閱[警示](sql-database-insights-alerts-portal.md) |
 | [運算式](https://docs.microsoft.com/sql/t-sql/language-elements/expressions-transact-sql) |是 |
-| [擴充事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分 - 請參閱個別事件 |
+| [擴充事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | 部分請參閱 [SQL Database 中的擴充事件](sql-database-xevent-db-diff-from-svr.md) |
 | [擴充預存程序](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | 否 |
 | [檔案和檔案群組](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | 僅限主要檔案群組 |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | 否 |
@@ -82,16 +82,16 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [JSON 資料支援](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server) | 是 |
 | [語言元素](https://docs.microsoft.com/sql/t-sql/language-elements/language-elements-transact-sql) | 大部分 - 請參閱個別元素 |  
 | [連結的伺服器](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | 否 - 請參閱[彈性查詢](sql-database-elastic-query-horizontal-partitioning.md) |
-| [記錄傳送](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 否 - 請參閱[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md) |
+| [記錄傳送](https://docs.microsoft.com/sql/database-engine/log-shipping/about-log-shipping-sql-server) | 每個資料庫皆包含高可用性。 [Azure SQL Database 的業務連續性概觀](sql-database-geo-replication-overview.md)會討論災害復原 |
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | 否 |
 | [最低記錄大量匯入](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | 否 |
 | [修改系統資料](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | 否 |
-| [線上索引作業](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 支援 - 服務層的交易大小限制 |
+| [線上索引作業](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | 是 |
 | [運算子](https://docs.microsoft.com/sql/t-sql/language-elements/operators-transact-sql) | 大部分 - 請參閱個別運算子 |
 | [資料庫還原時間點](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是 - 請參閱 [SQL Database 復原](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | [Polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) | 否 |
 | [原則式管理](https://docs.microsoft.com/sql/relational-databases/policy-based-management/administer-servers-by-using-policy-based-management) | 否 |
-| [述詞](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 大部分 - 請參閱個別述詞 |
+| [述詞](https://docs.microsoft.com/sql/t-sql/queries/predicates) | 是 |
 | [R 服務](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | 預覽版；請參閱[機器學習服務的新功能](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  |
 | [資源管理員](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | 否 |
 | [RESTORE 陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | 否 | 
@@ -104,9 +104,9 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [SET 陳述式](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | 大部分 - 請參閱個別陳述式 
 | [空間](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server) | 是 |
 | [SQL Server 代理程式](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | 否 - 請參閱[彈性工作](sql-database-elastic-jobs-getting-started.md) |
-| [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 否 - 請參閱 [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
+| [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 請參閱 [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) |
 | [SQL Server 稽核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | 否 - 請參閱 [SQL Database 稽核](sql-database-auditing.md) |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 否 - 請參閱 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 請參閱 [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | 是 |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | 否 - 請參閱[擴充事件](sql-database-xevent-db-diff-from-svr.md) |
 | [SQL Server 複寫](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [僅限交易和快照複寫訂閱者](sql-database-cloud-migrate.md) |
@@ -121,7 +121,7 @@ Azure SQL Database 與 SQL Server 共用通用基底程式碼，並在資料庫�
 | [暫存資料表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables) | 是 |
 | [變數](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 是 | 
 | [透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 是 |
-| [Windows Server 容錯移轉叢集](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 否 - 請參閱[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md) |
+| [Windows Server 容錯移轉叢集](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | 每個資料庫皆包含高可用性。 [Azure SQL Database 的業務連續性概觀](sql-database-geo-replication-overview.md)會討論災害復原 |
 | [XML 索引](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | 是 |
 
 ## <a name="next-steps"></a>後續步驟

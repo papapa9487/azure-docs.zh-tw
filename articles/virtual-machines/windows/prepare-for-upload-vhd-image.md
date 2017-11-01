@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2017
 ms.author: genli
-ms.openlocfilehash: 8f3d6fc56b64d81d5f9b73772ddf2a4ab9adf64b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60da4d7f418e2aac6ed6d41092486d2ccdaf940c
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 將 Windows 虛擬機器 (VM) 從內部部署上傳至 Microsoft Azure 之前，您必須先準備虛擬硬碟 (VHD 或 VHDX)。 Azure 只支援採用 VHD 檔案格式且具有固定大小磁碟的第 1 代 VM。 允許的 VHD 大小上限為 1023 GB。 您可以將第 1 代 VM 從 VHDX 檔案系統轉換為 VHD，以及從動態擴充磁碟轉換為固定大小的磁碟。 但您無法變更 VM 的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的 VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) \(英文\)。
@@ -427,4 +427,5 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 
 ## <a name="next-steps"></a>後續步驟
 * [將 Windows VM 映像上傳至 Azure 供 Resource Manager 部署使用](upload-generalized-managed.md)
+* [針對 Azure Windows 虛擬機器啟用問題進行疑難排解](troubleshoot-activation-problems.md)
 

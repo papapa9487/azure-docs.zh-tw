@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>向 Azure 檔案同步 (預覽) 註冊/取消註冊伺服器
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -58,7 +58,11 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 > 如果伺服器是容錯移轉叢集的成員，則必須在叢集中的每個節點上安裝 Azure 檔案同步代理程式。
 
 ### <a name="register-the-server-using-the-server-registration-ui"></a>使用伺服器註冊 UI 註冊伺服器
-1. 如果完成 Azure 檔案同步代理程式的安裝之後未立即啟動 [伺服器註冊] UI，您可以執行 `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe` 手動將它啟動。
+
+> [!Important]  
+> 雲端解決方案提供者訂用帳戶無法使用伺服器註冊 UI。 請改用 PowerShell (本節下方)。
+
+1. 如果完成 Azure 檔案同步代理程式的安裝之後未立即啟動伺服器註冊 UI，您可以執行 `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe` 手動將它啟動。
 2. 按一下 [登入] 以存取您的 Azure 訂用帳戶。 
 
     ![開啟 [伺服器註冊] UI 的對話方塊](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -73,6 +77,15 @@ Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azur
 
 > [!Important]  
 > 如果伺服器是容錯移轉叢集的成員，每部伺服器都必須執行伺服器註冊。 當您在 Azure 入口網站中檢視已註冊的伺服器時，Azure 檔案同步會自動將每個節點識別為相同容錯移轉叢集的成員，並將它們適當地分組在一起。
+
+### <a name="register-the-server-with-powershell"></a>使用 PowerShell 註冊伺服器
+您也可以透過 PowerShell 執行伺服器註冊。 這是雲端解決方案提供者訂用帳戶唯一支援的伺服器註冊方法：
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## <a name="unregister-the-server-with-storage-sync-service"></a>向儲存體同步服務取消註冊伺服器
 向儲存體同步服務取消註冊伺服器需要執行幾個步驟。 讓我們看看如何正確地取消註冊伺服器。

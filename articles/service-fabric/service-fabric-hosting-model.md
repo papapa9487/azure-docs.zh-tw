@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc9038cf895ddaeb06dd0e4e9852d5ef4a4513a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="service-fabric-hosting-model"></a>Service Fabric 主控模型
 本文提供 Service Fabric 所提供之應用程式主控模型的概觀，並說明「共用處理程序」與「專屬處理序」模型之間的差異。 本文說明已部署之應用程式在 Service Fabric 節點上看起來的樣子，以及服務的複本 (或執行個體) 與服務主機處理序之間的關聯性。
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > 在本文中，為了簡單起見，除非明確指出，否則：
 >
-> - 所有用到「複本」一字的地方都是指具狀態服務的複本或靜態服務執行個體的複本。
+> - 所有用到「複本」一詞的地方都是指具狀態服務的複本或無狀態服務執行個體的複本。
 > - *CodePackage* 會被視為等同於註冊 *ServiceType* 並裝載該 *ServiceType* 之服務複本的 *ServiceHost* 處理序。
 >
 
@@ -53,7 +53,7 @@ Service Fabric 啟用了 'MyServicePackage'，而 'MyServicePackage' 則啟動�
 這次 Service Fabric 啟用了一份新的 'MyServicePackage'，這個 'MyServicePackage' 會啟動一份新的 'MyCodePackage'，而來自服務 **fabric:/App2/ServiceA** 之兩個分割區 (即 **P4** & **P5**) 的複本則會放在這份新的 'MyCodePackage' 中。
 
 ## <a name="shared-process-model"></a>共用處理序模型
-上面所見即為 Service Fabric 提供的預設主控模型，並且稱為「共用處理序」模型。 在此模型中，針對指定的「應用程式」，在一個「節點」上只會啟用一份指定的 *ServicePackage* (這會啟動其包含的所有 *CodePackage*)，而指定的 *ServiceType* 之所有服務的所有複本則會放在註冊該 *ServiceType* 的 *CodePackage* 中。 換句話說，指定的 *ServiceType* 之所有服務的所有複本會共用相同的處理序。
+上面所見即為 Service Fabric 提供的預設主控模型，並且稱為「共用處理序」模型。 在此模型中，針對指定的「應用程式」，在一個「節點」上只會啟用一份指定的 *ServicePackage* (這會啟動其包含的所有 *CodePackage*)，而指定的 *ServiceType* 之所有服務的所有複本則會放在註冊該 *ServiceType* 的 *CodePackage* 中。 換句話說，指定的 *ServiceType* 之節點上所有服務的所有複本都會共用相同的處理序。
 
 ## <a name="exclusive-process-model"></a>專屬處理序模型
 Service Fabric 所提供的另一個主控模型是「專屬處理序」模型。 在此模型中，在指定的「節點」上，為了放置每個複本，Service Fabric 會啟用一份新的 *ServicePackage* (這會啟動其包含的所有 *CodePackage*)，而複本則會放在註冊複本所屬服務之 *ServiceType* 的 *CodePackage* 中。 換句話說，每個複本都存在於自己的專屬處理序中。 
@@ -96,16 +96,16 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 ![已部署之應用程式的節點檢視][node-view-four]
 </center>
 
-如您所見，Service Fabric 啟用了兩份新的 'MyServicePackage' (針對來自分割區 **P6** & **P7** 的每個複本各啟用一份)，並將每個複本放在其專用的一份 *CodePackage* 中。 這裡有另一個需要注意的事項，就是使用「專屬處理序」模型時，就指定的「應用程式」而言，一個「節點」 上可以有多份作用中的指定 *ServicePackage*。 在上述範例中，我們看到 **fabric:/App1** 有三份作用中的 'MyServicePackage'。 這每一份作用中的 'MyServicePackage' 都有相關的 **ServicePackageAtivationId**，用來作為它們在「應用程式」**fabric:/App1** 中的身分識別。
+如您所見，Service Fabric 啟用了兩份新的 'MyServicePackage' (針對來自分割區 **P6** & **P7** 的每個複本各啟用一份)，並將每個複本放在其專用的一份 *CodePackage* 中。 這裡有另一個需要注意的事項，就是使用「專屬處理序」模型時，就指定的「應用程式」而言，一個「節點」 上可以有多份作用中的指定 *ServicePackage*。 在上述範例中，我們看到 **fabric:/App1** 有三份作用中的 'MyServicePackage'。 這每一份作用中的 'MyServicePackage' 都有關聯的 **ServicePackageActivationId**，可識別它們在「應用程式」**fabric:/App1** 中的複本。
 
-如果針對「應用程式」(例如上述範例中的 **fabric:/App2**) 只使用「共用處理序」模型，則一個「節點」上只會有一份作用中 *ServicePackage*，而這個 *ServicePackage* 啟用項的 **ServicePackageAtivationId** 則會是「空字串」。
+如果只針對「應用程式」(例如上述範例中的 **fabric:/App2**) 使用**共用處理序**模型，則一個「節點」上只會有一份作用中 *ServicePackage*，而這個 *ServicePackage* 啟用項的 **ServicePackageActivationId** 是「空字串」。
 
 > [!NOTE]
->- 「共用處理序」主控模型會與等於 **SharedProcess** 的 **ServicePackageAtivationMode** 對應。 這是預設的主控模型，在建立服務時不須指定 **ServicePackageAtivationMode**。
+>- **共用處理序**主控模型會與等於 **SharedProcess** 的 **ServicePackageActivationMode** 對應。 這是預設的主控模型，在建立服務時不須指定 **ServicePackageActivationMode**。
 >
->- 「專屬處理序」主控模型會與等於 **ExclusiveProcess** 的 **ServicePackageAtivationMode** 對應，在建立服務時必須明確指定。 
+>- **專屬處理序**主控模型會與等於 **ExclusiveProcess** 的 **ServicePackageActivationMode** 對應，在建立服務時必須明確指定。 
 >
->- 您可以透過查詢[服務描述][p2]並查看 **ServicePackageAtivationMode** 的值，來得知服務的主控模型。
+>- 您可以透過查詢[服務描述][p2]並查看 **ServicePackageActivationMode** 的值，來得知服務的主控模型。
 >
 >
 
@@ -121,7 +121,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 >
 > - 如果省略 **ServicePackageActivationId**，它會預設為「空字串」。 如果有在「共用處理序」模型下啟用的已部署服務套件存在，系統就會在該套件上執行作業，否則作業將會失敗。
 >
-> - 不建議執行一次查詢並快取 **ServicePackageActivationId**，因為這是動態產生的，可能因各種原因而有所變更。 在執行需要 **ServicePackageActivationId** 的作業之前，您應該先查詢節點上[已部署的服務套件][p3]清單，然後再使用來自查詢結果的 *ServicePackageActivationId** 來執行原先的作業。
+> - 不建議執行一次查詢並快取 **ServicePackageActivationId**，因為這是動態產生的，可能因各種原因而有所變更。 在執行需要 **ServicePackageActivationId** 的作業之前，您應該先查詢節點上[已部署的服務套件][p3]清單，然後使用來自查詢結果的 **ServicePackageActivationId** 來執行原先的作業。
 >
 >
 
@@ -141,7 +141,7 @@ Service Fabric 會將[客體可執行檔][a2]和[容器][a3]應用程式視為�
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>專屬處理序眉型和應用程式模型考量
 在 Service Fabric 中，建議的應用程式模型建立方式是維持每一 *ServicePackage* 一個 *ServiceType*，這個模型適用於大多數應用程式。 
 
-不過，若要啟用每一 *ServicePackage* 一個 *ServiceType* 可能不符合需求的特殊案例，就功能而言，Service Fabric 允許每一 *ServicePackage* 有多個 *ServiceType* (而且一個 *CodePackage* 可以註冊多個 *ServiceType*)。 以下是這些組態可能有用的一些案例：
+針對特定的使用案例，Service Fabric 也允許每個 *ServicePackage* 具有多個 *ServiceType* (而且一個 *CodePackage* 可以註冊多個 *ServiceType*)。 以下是一些適用這些設定的案例：
 
 - 您想要藉由減少產生處理序並提高每一處理序的複本密度，將 OS 資源使用率最佳化。
 - 來自不同 ServiceType 的複本需要共用一些具有高初始化或記憶體成本的通用資料。

@@ -1,6 +1,6 @@
 ---
 title: "OMS 解決方案中儲存的搜尋和警示 | Microsoft Docs"
-description: "OMS 中的解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。  它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在 ARM 範本中定義 Log Analytics 儲存的搜尋與警示，讓它們能夠包含於管理解決方案中。"
+description: "OMS 中的解決方案通常會包含 Log Analytics 中儲存的搜尋，來分析解決方案所收集的資料。  它們可能也會定義警示來通知使用者，或自動採取動作以回應重大的問題。  本文說明如何在 Resource Manager 範本中定義 Log Analytics 儲存的搜尋和警示，讓它們能夠包含於管理解決方案中。"
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>將 Log Analytics 儲存的搜尋和警告新增到 OMS 管理解決方案 (預覽)
 
@@ -32,19 +32,34 @@ ms.lasthandoff: 10/11/2017
 > 本文中的範例使用管理解決方案所必要或通用的參數和變數，如[在 Operations Management Suite (OMS) 中建立管理解決方案](operations-management-suite-solutions-creating.md)所述。  
 
 ## <a name="prerequisites"></a>必要條件
-本文假設您已經熟悉如何[建立管理解決方案](operations-management-suite-solutions-creating.md)，以及 [ARM 範本](../resource-group-authoring-templates.md)和方案檔的結構。
+本文假設您已經熟悉如何[建立管理解決方案](operations-management-suite-solutions-creating.md)，以及 [Resource Manager 範本](../resource-group-authoring-templates.md)和解決方案檔案的結構。
 
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作區
-Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [OMS 工作區和自動化帳戶](operations-management-suite-solutions.md#oms-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案會安裝失敗。
+Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-analytics-manage-access.md)中。  如 [OMS 工作區和自動化帳戶](operations-management-suite-solutions.md#oms-workspace-and-automation-account)所述，工作區不會包含於管理解決方案中，但在安裝解決方案前就必須存在。  如果無法使用，則解決方案安裝會失敗。
 
 工作區的名稱位於每個 Log Analytics 資源的名稱中。  這可在解決方案中使用**工作區**參數來完成，如下列 savedsearch 資源範例所示。
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
+## <a name="log-analytics-api-version"></a>Log Analytics API 版本
+Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **apiVersion** 屬性，以定義資源應該使用的 API 版本。  針對使用[舊版和已升級查詢語言](../log-analytics/log-analytics-log-search-upgrade.md)的資源，這個版本會不同。  
+
+ 下表指定舊版和已升級工作區的 Log Analytics API 版本，以及指定各不同語法的範例查詢。 
+
+| 工作區版本 | API 版本 | 範例查詢 |
+|:---|:---|:---|
+| v1 (舊版)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (已升級) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+請注意不同版本所支援工作區的下列事項。
+
+- 使用舊版查詢語言的範本可以安裝於舊版或已升級工作區中。  如果安裝於已升級工作區中，則在使用者執行查詢時，會將查詢即時轉換為新的語言。
+- 使用已升級查詢語言的範本只能安裝於已升級工作區中。
+
 
 ## <a name="saved-searches"></a>儲存的搜尋
-在解決方案中包含[儲存的搜尋](../log-analytics/log-analytics-log-searches.md)，可讓使用者查詢您解決方案所收集的資料。  儲存的搜尋將出現在 OMS 入口網站中的 [我的最愛] 下方，以及 Azure 入口網站中 [儲存的搜尋] 下方。  每個警示也會需要儲存的搜尋。   
+在解決方案中包含[儲存的搜尋](../log-analytics/log-analytics-log-searches.md)，可讓使用者查詢您解決方案所收集的資料。  儲存的搜尋會出現在 OMS 入口網站的 [我的最愛] 下方，以及 Azure 入口網站的 [儲存的搜尋] 下方。  每個警示也會需要儲存的搜尋。   
 
 [Log Analytics 儲存的搜尋](../log-analytics/log-analytics-log-searches.md)資源都具有 `Microsoft.OperationalInsights/workspaces/savedSearches` 類型，並具備下列結構。  這包括一般變數和參數，因此您可以將此程式碼片段複製並貼到您的解決方案檔，然後變更參數名稱。 
 
@@ -81,10 +96,10 @@ Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-ana
 
 管理解決方案中的警示規則是由下列三個不同資源所組成。
 
-- **儲存的搜尋。**  定義將執行的記錄搜尋。  多個警示規則可以共用單一儲存的搜尋。
-- **排程。**  定義記錄搜尋的執行頻率。  每個警示規則必須且只能有一個排程。
+- **儲存的搜尋。**  定義所執行的記錄搜尋。  多個警示規則可以共用單一儲存的搜尋。
+- **排程。**  定義記錄搜尋的執行頻率。  每個警示規則都只能有一個排程。
 - **警示動作。**  每個警示規則都會有一個具有一種**警示**類型的動作資源，該類型會定義警示的詳細資料，像是建立警示記錄的時機及警示的嚴重性等準則。  動作資源將會選擇性地定義郵件和 runbook 回應。
-- **Webhook 動作 (選擇性)。**  如果警示規則將會呼叫 webhook，則它需要執行類型為 **Webhook** 的其他動作資源。    
+- **Webhook 動作 (選擇性)。**  如果警示規則呼叫 Webhook，則需要執行類型為 **Webhook** 的其他動作資源。    
 
 儲存的搜尋資源如上所述。  其他資源將在後續內容中加以說明。
 
@@ -174,7 +189,7 @@ Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-ana
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 類型 | 是 | 動作的類型。  這會是適用於警示動作的 **Alert**。 |
+| 類型 | 是 | 動作的類型。  這是適用於警示動作的**警示**。 |
 | 名稱 | 是 | 警示的顯示名稱。  這是顯示於主控台中的警示規則名稱。 |
 | 說明 | 否 | 警示的選擇性描述。 |
 | 嚴重性 | 是 | 警示記錄的嚴重性有下列值：<br><br> **Critical**<br>**警告**<br>**Informational** |
@@ -213,7 +228,7 @@ Log Analytics 中的所有資源都包含於[工作區](../log-analytics/log-ana
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 收件者 | 是 | 以逗號分隔的電子郵件地址清單，以便在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
+| 收件者 | 是 | 以逗號分隔的電子郵件地址清單，以在建立警示時傳送通知，如下列範例所示。<br><br>**[ "recipient1@contoso.com", "recipient2@contoso.com" ]** |
 | 主旨 | 是 | 郵件的主旨列。 |
 | 附件 | 否 | 目前不支援附件。  如果包含此元素，就應該是 **None**。 |
 
@@ -253,10 +268,10 @@ Webhook 動作會呼叫 URL 並選擇性地提供要傳送的承載，以啟動�
 
 | 元素名稱 | 必要 | 說明 |
 |:--|:--|:--|
-| 類型 | 是 | 動作的類型。  這會是適用於 Webhook 動作的 **Webhook**。 |
+| 類型 | 是 | 動作的類型。  這適用於 Webhook 動作的 **Webhook**。 |
 | 名稱 | 是 | 動作的顯示名稱。  這不會顯示在主控台中。 |
 | wehookUri | 是 | Webhook 的 Uri。 |
-| customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 webhook 需要的內容。 |
+| customPayload | 否 | 要傳送至 webhook 的自訂內容。 格式取決於 Webhook 需要的內容。 |
 
 
 

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/17/2017
 ms.author: bwren
-ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Log Analytics 新記錄搜尋常見問題集與已知問題
 
@@ -94,6 +94,18 @@ ms.lasthandoff: 10/11/2017
 您可以在 [Azure Log Analytics 中用於建立和編輯記錄查詢的入口網站](log-analytics-log-search-portals.md)看到兩個入口網站的比較。  兩者各有不同的優點，因此您可以針對需求選擇最適合的入口網站。  通常會在進階 Analytics 入口網站中寫入查詢，並將它們貼到其他地方，例如檢視設計工具。  這麼做時，您應該閱讀[需考量的問題](log-analytics-log-search-portals.md#advanced-analytics-portal)。
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>問題：升級之後，我在嘗試執行查詢時收到錯誤，並在我的檢視中看到錯誤。
+
+您的瀏覽器需要存取下列位址，才能在升級之後執行 Log Analytics 查詢。  如果您的瀏覽器要透過防火牆存取 Azure 入口網站，則必須啟用這些位址的存取。
+
+| Uri | IP | 連接埠 |
+|:---|:---|:---|
+| portal.loganalytics.io | 動態 | 80,443 |
+| api.loganalytics.io    | 動態 | 80,443 |
+| docs.loganalytics.io   | 動態 | 80,443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>問題：PowerBI 整合有任何變更嗎？
@@ -103,10 +115,12 @@ ms.lasthandoff: 10/11/2017
 目前匯出 Log Analytics 查詢至 Power BI 的大小限制為 8 MB。  此限制即將放寬。
 
 
-##<a name="powershell-cmdlets"></a>PowerShell Cmdlet
+## <a name="powershell-cmdlets"></a>PowerShell Cmdlet
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>問題：升級後，記錄搜尋 PowerShell Cmdlet 是否也會更新？
-[Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) 尚未升級至新的搜尋語言。  即使在升級工作區之後，請繼續搭配使用舊版查詢語言與此 Cmdlet。  更新後，Cmdlet 之說明文件也將更新。
+完成所有工作區的升級時，將會取代 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults)。  使用 [Invoke-LogAnalyticsQuery Cmdlet](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets)，在已升級工作區中執行記錄搜尋。
+
+
 
 
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
@@ -159,11 +173,9 @@ ms.lasthandoff: 10/11/2017
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>問題：如果不升級我的工作區會發生什麼事？  
 接下來幾個月內舊版記錄搜尋會被取代。 屆時未升級的工作區將會自動升級。
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>問題：我並未選擇要升級，但是我的工作區仍然升級了！ 發生什麼情形？  
-此工作區的其他管理員可能已升級工作區。 請注意，當新的語言正式運作時，所有工作區便會自動升級。  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>問題：我可以在升級之後還原嗎？
+公開上市之前，您可以在升級之後還原工作區。  新的語言現在已可公開上市，在我們開始淘汰舊版平台時已移除這項功能。
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>問題：我不小心升級了，現在需要取消並且將所有項目還原回來。 我該怎麼辦？！  
-沒問題。  我們會在升級時之前建立工作區的快照集，以便您可以將它還原。 請注意，在您升級之後儲存的搜尋、警示或檢視會遺失。  若要還原您的工作區環境，請依照[我是否可以在升級之後還原？](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)中的程序執行
 
 
 ## <a name="views"></a>Views

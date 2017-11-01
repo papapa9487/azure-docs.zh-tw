@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b695a6e07007d4a4cad2d58795e279c5d30fcd4d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>使用 Azure Active Directory 裝置註冊來設定內部部署條件式存取
 當您要求使用者在工作場所將其個人裝置加入至 Azure Active Directory (Azure AD) 裝置註冊服務時，他們的裝置便可標示為組織已知的裝置。 以下是一個逐步指南，說明如何在 Windows Server 2012 R2 中使用 Active Directory Federation Services (AD FS)，來啟用對內部部署應用程式的條件式存取。
@@ -220,8 +220,5 @@ Azure Active Directory 裝置註冊針對 iOS 裝置會使用「空中下載設�
 而 **yourdomain.com** 則是您已使用 Azure Active Directory 來設定的網域名稱 (例如 contoso.com)。
 請務必從您傳遞給 **Set-AdfsRelyingPartyWebContent** Cmdlet 的 HTML 內容中移除任何分行符號 (如果有的話)。
 
-現在，當使用者從沒有向 Azure Active Directory 裝置註冊服務註冊的裝置存取您的應用程式時，將會看到與下面螢幕擷取畫面類似的頁面。
-
-![使用者尚未向 Azure AD 註冊其裝置時的錯誤螢幕擷取畫面](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+現在，當使用者從沒有向 Azure Active Directory 裝置註冊服務註冊的裝置存取您的應用程式時，會看到錯誤。
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: sethm
-ms.openlocfilehash: 470246469297d5fa95eba2b147d5304e74c0003f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="duplicate-detection"></a>重複偵測
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 
 從程式設計方面來說，您可以利用 [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) 屬性在完整架構的 .NET API 上設定旗標。 透過 Azure Resource Manager API，您可以利用 [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 屬性設定值。
 
-佇列和主題的重複偵測時間記錄預設為 30 秒，最大值為 40 分鐘。 您可以在 Azure 入口網站的佇列和主題屬性視窗中變更這項設定。
+佇列和主題的重複偵測時間記錄預設為 30 秒，最大值為 7 天。 您可以在 Azure 入口網站的佇列和主題屬性視窗中變更這項設定。
 
 ![][2]
 

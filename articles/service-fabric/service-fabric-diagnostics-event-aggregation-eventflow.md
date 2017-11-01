@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f57c915dd566e9da9b751bb776a1170842d87297
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9a6e629582b6966d270a2378e585572efe133f3e
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 的事件彙總與集合
 
 [Microsoft Diagnostics EventFlow](https://github.com/Azure/diagnostics-eventflow) 可以將節點的事件路由傳送至一個或多個監視目的地。 由於是以 NuGet 套件形式加入服務專案中，EventFlow 程式碼和組態會隨著服務一起傳送，不會發生稍後提及有關 Azure 診斷的個別節點組態問題。 EventFlow 在您的服務處理序中執行，並直接連線到已設定的輸出。 因為是直接連線，所以 EventFlow 適用於 Azure、容器和內部部署的服務部署。 如果您在高密度情況下執行 EventFlow，例如在容器中，請務必小心，因為每個 EventFlow 管線來建立外部連線。 所以，如果您裝載許多處理序，就會產生大量輸出連線！ 這對 Service Fabric 應用程式來說不會有什麼問題，因為 `ServiceType` 的所有複本都在同一處理序中執行，這會限制輸出連線的數量。 EventFlow 也提供事件篩選，因此只會傳送符合指定篩選的事件。
 
-## <a name="setting-up-eventflow"></a>設定 EventFlow
+## <a name="set-up-eventflow"></a>設定 EventFlow
 
 EventFlow 二進位檔是以一組 NuGet 套件的形式提供。 若要將 EventFlow 新增到 Service Fabric 服務專案，請在 [方案總管] 中該專案上按一下滑鼠右鍵，然後選擇 [管理 NuGet 套件]。 切換到 [瀏覽] 索引標籤，然後搜尋 "`Diagnostics.EventFlow`"：
 
@@ -41,7 +41,7 @@ EventFlow 二進位檔是以一組 NuGet 套件的形式提供。 若要將 Even
 
 安裝好所有套件之後，下一個步驟就是設定及啟用服務中的 EventFlow。
 
-## <a name="configuring-and-enabling-log-collection"></a>設定及啟用記錄檔收集
+## <a name="configure-and-enable-log-collection"></a>設定和啟用記錄集合
 EventFlow 管線 (負責傳送記錄檔) 是從儲存在組態檔中的規格建立的。 `Microsoft.Diagnostics.EventFlow.ServiceFabric` 套件會在 `PackageRoot\Config` 方案資料夾底下安裝一個起始的 EventFlow 組態檔，名為 `eventFlowConfig.json`。 此組態檔必須經過修改，才能從預設服務 `EventSource` 類別和任何其他您想設定的輸入擷取資料，然後將資料傳送到適當的位置。
 
 以下是以前述 NuGet 套件為基礎的範例 *eventFlowConfig.json*：
@@ -136,13 +136,13 @@ namespace Stateless1
 
 當作 `ServiceFabricDiagnosticsPipelineFactory` 之 `CreatePipeline` 方法的參數來傳遞的名稱是「健康情況實體」的名稱，此實體代表 EventFlow 記錄檔收集管線。 當 EventFlow 發生錯誤並透過 Service Fabric 健康情況子系統回報錯誤時，就會使用此名稱。
 
-### <a name="using-service-fabric-settings-and-application-parameters-to-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 設定和應用程式參數
+### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 設定和應用程式參數
 
 EventFlow 支援使用 Service Fabric 設定和應用程式參數來設定 EventFlow 設定。 您可以參考使用這個特殊的語法值的 Service Fabric 設定參數：
 
 ```json
 servicefabric:/<section-name>/<setting-name>
-``` 
+```
 
 `<section-name>` 是Service Fabric 組態區段的名稱，`<setting-name>` 是提供設定 EventFlow 設定所用值的組態設定。 若要深入了解如何作業，請移至 [Service Fabric 設定和應用程式參數的支援](https://github.com/Azure/diagnostics-eventflow#support-for-service-fabric-settings-and-application-parameters)。
 

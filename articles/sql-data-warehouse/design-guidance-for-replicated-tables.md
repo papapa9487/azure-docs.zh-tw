@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/14/2017
+ms.date: 10/23/2017
 ms.author: rortloff;barbkess
-ms.openlocfilehash: 9599752c649acb191344fc32d1606adf888b44f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 39ac9aa678464c497d9f7963bab802141ce9e854
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="prerequisites"></a>必要條件
-本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[分散式資料](sql-data-warehouse-distributed-data.md)。 
+本文假設您已熟悉「SQL 資料倉儲」中的資料散發和資料移動概念。  如需詳細資訊，請參閱[架構](massively-parallel-processing-mpp-architecture.md)文章。 
 
 在資料表設計過程中，請儘可能了解您的資料及查詢資料的方式。  例如，請思考一下下列問題：
 

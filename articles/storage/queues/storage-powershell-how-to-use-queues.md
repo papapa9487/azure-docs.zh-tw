@@ -1,6 +1,6 @@
 ---
 title: "在使用 PowerShell 的 Azure 佇列儲存體上執行作業 | Microsoft Docs"
-description: "教學課程 - 在使用 PowerShell 的 Azure 佇列儲存體上執行作業"
+description: "如何在使用 PowerShell 的 Azure 佇列儲存體上執行作業"
 services: storage
 documentationcenter: storage
 author: robinsh
@@ -11,18 +11,18 @@ ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 357d8db329a6a3c782753804d681029fdb07b5f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85678452e84a65bd81472396f8ebbb91091a2095
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>使用 Azure PowerShell 執行 Azure 佇列儲存體作業
 
-Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 如需詳細資訊，請參閱 [Azure 佇列簡介](storage-queues-introduction.md)。 本教學課程涵蓋一般的佇列儲存體作業。 您會了解如何：
+Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方都可利用 HTTP 或 HTTPS 並透過驗證的呼叫來存取這些訊息。 如需詳細資訊，請參閱 [Azure 佇列簡介](storage-queues-introduction.md)。 本做法文章涵蓋一般的佇列儲存體作業。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立佇列
@@ -32,7 +32,9 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 > * 刪除訊息 
 > * 刪除佇列
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+本做法需要 Azure PowerShell 模組 3.6 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。
+
+沒有任何適用於佇列資料層的 PowerShell Cmdlet。 若要執行資料層作業 (例如新增訊息、讀取訊息，以及刪除訊息)，您必須使用 PowerShell 中公開的 .NET 儲存體用戶端程式庫。 您可以建立訊息物件，然後使用 AddMessage 這類命令對該訊息執行作業。 本文示範如何執行這項作業。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -44,7 +46,7 @@ Login-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>擷取位置清單
 
-如果您不知道要使用哪一個位置，您可以列出可用的位置。 當清單顯示之後，尋找您想要使用的位置。 本教學課程會使用 **eastus**。 將其儲存於變數 **location** 中供未來使用。
+如果您不知道要使用哪一個位置，您可以列出可用的位置。 當清單顯示之後，尋找您想要使用的位置。 這個練習將使用 **eastus**。 將其儲存於變數 **location** 中供未來使用。
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -71,8 +73,7 @@ $storageAccountName = "howtoqueuestorage"
 $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccountName `
   -Location $location `
-  -SkuName Standard_LRS `
-  -Kind Storage
+  -SkuName Standard_LRS
 
 $ctx = $storageAccount.Context
 ```
@@ -104,7 +105,7 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>將訊息新增至佇列
 
-若要將訊息新增至佇列，請先建立 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 類別的新執行個體。 接著，呼叫 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法。 您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 CloudQueueMessage。
+影響佇列中實際訊息的作業會使用 PowerShell 中公開的 .NET 儲存體用戶端程式庫。 若要將訊息新增至佇列，請建立 [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) 類別，這個訊息物件的新執行個體。 接著，呼叫 [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) 方法。 您可以從字串 (採用 UTF-8 格式) 或位元組陣列建立 CloudQueueMessage。
 
 下列範例示範如何將訊息新增至佇列。
 
@@ -124,17 +125,17 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-如果您使用 [Azure 儲存體總管](http://storageexplorer.com)，您可以連線到您的 Azure 帳戶和檢視儲存體帳戶中的佇列，並向下鑽研至其中一個以檢視佇列上的訊息。 
+如果您使用 [Azure 儲存體總管](http://storageexplorer.com)，則可以連線到您的 Azure 帳戶，以及檢視儲存體帳戶中的佇列，並向下鑽研至某個佇列以檢視佇列上的訊息。 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>讀取佇列的訊息，然後刪除它
 
 會嘗試以最佳的先進先出順序讀取訊息。 不保證會採用此作法。 當您從佇列讀取訊息時，查看佇列的其他處理序會看不到它。 這可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。  
 
-此**不可見時間**定義在重新開放處理前，訊息維持不可見的時間。 預設值為 30 秒。 
+此**不可見逾時**定義在重新開放處理前，訊息維持不可見的時間。 預設值為 30 秒。 
 
 您的程式碼可使用兩個步驟，從佇列讀取訊息。 當您呼叫 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) 方法，會取得佇列中的下一個訊息。 從 **GetMessage** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 若要完成從佇列移除訊息的動作，可呼叫 [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) 方法。 
 
-在下列範例中，您可以閱讀三個佇列訊息，然後等待 10 秒 (不可見時間)。 接著重新讀取三個訊息，然後呼叫 **DeleteMessage** 來刪除讀取後的訊息。 如果嘗試在刪除訊息後讀取佇列，會將 $queueMessage 傳回成 NULL。
+在下列範例中，您可以閱讀三個佇列訊息，然後等待 10 秒 (不可見逾時)。 接著重新讀取三個訊息，然後呼叫 **DeleteMessage** 來刪除讀取後的訊息。 如果嘗試在刪除訊息後讀取佇列，會將 $queueMessage 傳回成 NULL。
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -178,7 +179,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您學會使用 PowerShell 進行基本佇列儲存體管理，包括如何：
+在本做法文章中，您學會使用 PowerShell 進行基本佇列儲存體管理，包括如何：
 
 > [!div class="checklist"]
 > * 建立佇列

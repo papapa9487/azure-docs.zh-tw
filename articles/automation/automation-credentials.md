@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: bwren
-ms.openlocfilehash: 5adb76a779be7e82c864d67db7a2d3701805d874
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f6272d936b097a9458dfa18279a70727da9d6b
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure 自動化中的認證資產
 自動化認證資產會保存 [PSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential) 物件，其中包含安全性認證，例如使用者名稱和密碼。 Runbook 和 DSC 設定可以使用可接受 PSCredential 物件進行驗證的 Cmdlet，否則可能會擷取 PSCredential 物件的使用者名稱和密碼，以對需要驗證的一些應用程式或服務提供。 認證的屬性會安全地儲存在 Azure 自動化中，並且可在 Runbook 或 DSC 設定中透過 [Get-AutomationPSCredential](http://msdn.microsoft.com/library/system.management.automation.pscredential.aspx) 活動存取。
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > [!NOTE]
 > Azure 自動化中的安全資產包括認證、憑證、連接和加密的變數。 這些資產都會經過加密，並使用為每個自動化帳戶產生的唯一索引鍵儲存在 Azure 自動化中。 這個索引鍵是由主要憑證加密，並且儲存在 Azure 自動化中。 儲存安全資產之前，會使用主要憑證解密自動化帳戶的金鑰，然後用來加密資產。  
 
-## <a name="windows-powershell-cmdlets"></a>Windows PowerShell Cmdlet
+## <a name="azure-classic-powershell-cmdlets"></a>Azure 傳統 PowerShell Cmdlet
 下表中的 Cmdlet 是用來透過 Windows PowerShell 建立和管理自動化認證資產。  它們是隨著 [Azure PowerShell 模組](/powershell/azure/overview) 的一部分推出，可供在自動化 Runbook 和 DSC 設定中使用。
 
 | Cmdlet | 說明 |
@@ -35,6 +35,16 @@ ms.lasthandoff: 10/11/2017
 | [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |建立新的自動化認證。 |
 | [Remove-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |移除自動化認證。 |
 | [Set-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |設定現有自動化認證的屬性。 |
+
+## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell Cmdlet
+針對 AzureRM，下表中的 Cmdlet 可透過 Windows PowerShell 來建立和管理自動化認證資產。  它們附屬於 [AzureRM.Automation 模組](/powershell/azure/overview)，而此模組可供在自動化 Runbook 和 DSC 設定中使用。
+
+| Cmdlet | 說明 |
+|:--- |:--- |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential?view=azurermps-4.4.0) |擷取認證資產的相關資訊。  |
+| [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential?view=azurermps-4.4.0) |建立新的自動化認證。 |
+| [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential?view=azurermps-4.4.0) |移除自動化認證。 |
+| [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential?view=azurermps-4.4.0) |設定現有自動化認證的屬性。 |
 
 ## <a name="runbook-activities"></a>Runbook 活動
 下表中的活動用來存取中 Runbook 和 DSC 設定的認證。

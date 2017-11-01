@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: vturecek
-ms.openlocfilehash: ca36f42897cd44d6da1a3cb6db53f656cf6256ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e75e11b54aea677b8ca1b6f303a48190c6fce8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Service Fabric 程式設計模型概觀
 Service Fabric 提供多種撰寫和管理服務的方式。 服務可選擇使用 Service Fabric API 以善加運用平台的功能和應用程式架構。 服務也可以是以任何語言撰寫的任何已編譯可執行程式，或是在 Service Fabric 叢集所裝載之容器中執行的程式碼。
@@ -59,7 +59,7 @@ Service Fabric 與 [ASP.NET Core](service-fabric-reliable-services-communication
 
 [Reliable Services 概觀](service-fabric-reliable-services-introduction.md)
 
-[Reliable Services 概觀](service-fabric-reliable-actors-introduction.md)
+[Reliable Actors 概觀](service-fabric-reliable-actors-introduction.md)
 
 [Service Fabric 和 ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 4abfdcc0a50c229555088dff0ac2c00c15f49218
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8129678b5ee2b0b1f2a59049fc6632b6cbf3383
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -77,14 +77,14 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 2. 對套件按兩下來加以安裝。 如果您看到 SmartScreen 快顯視窗，請按一下 [更多資訊]，然後按一下 [仍要執行]。
 3. 在用戶端電腦上，瀏覽至 [網路設定]，然後按一下 [VPN]。 VPN 連線會顯示其連線的虛擬網路名稱。 
 
-## <a name="installmac"></a>安裝 Mac (OSX) VPN 用戶端組態
+## <a name="installmac"></a>Mac 上的 VPN 用戶端組態 (OSX)
 
-您必須為每個連線到 Azure VNet 的 Mac 裝置建立各自的 VPN 用戶端組態。 請勿將相同組態檔重複用於多個 Mac 裝置。 這是因為您必須在 VPN 用戶端組態檔中為這些裝置指定使用者憑證。 **Generic** 資料夾含有建立 VPN 用戶端組態所需的所有資訊。 如果未出現下載的 Generic 資料夾，則可能是未將 IKEv2 選為通道型別。 一旦選取 IKEv2 後，重新產生 zip 檔案以擷取 Generic 資料夾。 Generic 資料夾包含下列檔案：
+Azure 不提供用於原生 Azure 憑證驗證的 mobileconfig 檔案。 您必須在將會連線到 Azure 的每部 Mac 上，手動設定原生 IKEv2 VPN 用戶端。 **Generic** 資料夾含有設定所需的所有資訊。 如果未出現下載的 Generic 資料夾，則可能是未將 IKEv2 選為通道型別。 一旦選取 IKEv2 後，重新產生 zip 檔案以擷取 Generic 資料夾。 Generic 資料夾包含下列檔案：
 
 * **VpnSettings.xml**，此檔案包含重要的設定，例如伺服器位址和通道類型。 
 * **VpnServerRoot.cer**，此檔案包含所需的根憑證，以供您在 P2S 連線設定期間驗證 Azure VPN 閘道。
 
-請使用下列步驟來設定 Mac 上原生 VPN 用戶端的憑證驗證：
+使用下列步驟，在 Mac 上設定用於憑證驗證的原生 VPN 用戶端。 您必須在將會連線到 Azure 的每部 Mac 上，完成下列步驟：
 
 1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。  
 按一下 [新增] 來進行匯入。
@@ -101,7 +101,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 4. 按一下 [驗證設定]，然後選取 [憑證]。 
 
   ![驗證設定](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-5. 按一下 [選取...] 以選擇您要用來驗證的憑證。
+5. 按一下 [選取...] 以選擇您要用於驗證的用戶端憑證。 電腦上應該已經安裝一個用戶端憑證 (請參閱上一節 **P2S 工作流程**中的步驟 2)。
 
   ![憑證](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 6. [選擇身分識別] 會顯示一份憑證清單供您選擇。 選取適當憑證，然後按一下 [繼續]。
