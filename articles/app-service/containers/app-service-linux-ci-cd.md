@@ -1,11 +1,11 @@
 ---
-title: "使用 Azure Web App for Containers 進行持續部署 | Microsoft Docs"
-description: "如何在 Azure Web App for Containers 中設定持續部署。"
-keywords: azure app service, linux, oss
+title: "使用用於容器的 Web 應用程式從 Docker 容器登錄進行持續部署 - Azure | Microsoft Docs"
+description: "如何在用於容器的 Web 應用程式中設定從 Docker 容器登錄進行持續部署。"
+keywords: azure app service, linux, docker, acr,oss
 services: app-service
 documentationcenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -15,27 +15,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: 27a2c95c09197b3439d3fac7c74d253df2b32b1c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cccbd4952c66d3d8140e2a03e3b76afaa5ba3fbf
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="continuous-deployment-with-azure-web-app-for-containers"></a>使用 Azure Web App for Containers 進行持續部署
+# <a name="continuous-deployment-with-web-app-for-containers"></a>使用用於容器的 Web 應用程式進行持續部署
 
-在本教學課程中，您可以從受控的 [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/) 存放庫或 [Docker 中樞](https://hub.docker.com)設定自訂容器映像的連續部署。
+在本教學課程中，您可以從受控的 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) 存放庫或 [Docker 中樞](https://hub.docker.com)設定自訂容器映像的連續部署。
 
-## <a name="step-1---sign-in-to-azure"></a>步驟 1 - 登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 Azure 入口網站 (網址是 http://portal.azure.com)
+登入 [Azure 入口網站](https://portal.azure.com)
 
-## <a name="step-2---enable-container-continuous-deployment-feature"></a>步驟 2 - 啟用容器連續部署功能
+## <a name="enable-container-continuous-deployment-feature"></a>啟用容器連續部署功能
 
-您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 並執行下列命令來啟用持續部署功能
+您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 並執行下列命令來啟用持續部署功能
 
 ```azurecli-interactive
 az webapp deployment container config -n sname -g rgname -e true
-``` 
+```
 
 在 **[Azure 入口網站](https://portal.azure.com/)**中，按一下頁面左側的 [App Service] 選項。
 
@@ -45,13 +45,13 @@ az webapp deployment container config -n sname -g rgname -e true
 
 ![將應用程式設定的影像插入](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 
-## <a name="step-3---prepare-webhook-url"></a>步驟 3 - 準備 Webhook URL
+## <a name="prepare-webhook-url"></a>準備 Webhook URL
 
-您可以使用 [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) 並執行下列命令來取得 Webhook URL
+您可以使用 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 並執行下列命令來取得 Webhook URL
 
 ```azurecli-interactive
 az webapp deployment container show-cd-url -n sname1 -g rgname
-``` 
+```
 
 針對 Webhook URL，您必須擁有下列端點︰`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`。
 
@@ -59,7 +59,7 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 ![將新增 webhook 2 的映像插入](./media/app-service-webapp-service-linux-ci-cd/step3-3.png)
 
-## <a name="step-4---add-a-web-hook"></a>步驟 4：新增 Web Hook
+## <a name="add-a-web-hook"></a>新增 Web Hook
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
@@ -85,10 +85,10 @@ az webapp deployment container show-cd-url -n sname1 -g rgname
 
 ## <a name="next-steps"></a>後續步驟
 
-* [什麼是 Azure Web App for Containers？](./app-service-linux-intro.md)
-* [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry/)
-* [在 Azure Web App for Containers 中使用 .NET Core](quickstart-dotnetcore.md)
-* [在 Azure Web App for Containers 中使用 Ruby](quickstart-ruby.md)
-* [如何針對 Azure Web App for Containers 使用自訂 Docker 映像](quickstart-custom-docker-image.md)
-* [Azure App Service Web App for Containers 常見問題集](./app-service-linux-faq.md) 
+* [何謂 Linux 上的 Azure App Service？](./app-service-linux-intro.md)
+* [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [在 Linux 上的 Azure App Service 中使用 .NET Core](quickstart-dotnetcore.md)
+* [在 Linux 上的 Azure App Service 中使用 Ruby](quickstart-ruby.md)
+* [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-custom-docker-image.md)
+* [Azure App Service Web App for Containers 常見問題集](./app-service-linux-faq.md)
 * [使用 Azure CLI 2.0 管理 Web App for Containers](./app-service-linux-cli.md)

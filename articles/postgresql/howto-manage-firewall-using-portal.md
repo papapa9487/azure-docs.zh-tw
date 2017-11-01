@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
-ms.openlocfilehash: 20ac1392949a6f604e68d984cb50273b61051037
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d62a138313ae3568470cbf5a8eb191321cd6cc7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則
 伺服器等級防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 PostgreSQL 的 Azure 資料庫伺服器。 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
   ![Azure 入口網站 - 按一下 [連線安全性]](./media/howto-manage-firewall-using-portal/1-connection-security.png)
 
-2. 按一下工具列上的 [新增我的 IP]。 這會使用 Azure 系統發現的電腦 IP 位址自動建立規則。
+2. 按一下工具列上的 [新增我的 IP]。 這會使用 Azure 系統發現的電腦公用 IP 位址自動建立防火牆規則。
 
   ![Azure 入口網站 - 按一下 [新增我的 IP]](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 
   ![使用 Bing 搜尋「我的 IP 是什麼」](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. 新增其他位址範圍。 在「適用於 PostgreSQL 的 Azure 資料庫」防火牆的規則中，您可以指定單一 IP 位址，或位址範圍。 如果您想要將規則限制到單一 IP 位址，請在 [起始 IP] 和 [結束 IP] 欄位中輸入相同位址。 開放防火牆可讓系統管理員和使用者登入他們在 PostgreSQL 伺服器上具備有效認證的任何資料庫。
+4. 新增其他位址範圍。 在適用於 PostgreSQL 的 Azure 資料庫防火牆規則中，您可以指定單一 IP 位址，或位址範圍。 如果您想要將規則限制到單一 IP 位址，請在 [起始 IP] 和 [結束 IP] 欄位中輸入相同位址。 開放防火牆可讓系統管理員、使用者和應用程式登入他們在 PostgreSQL 伺服器上具備有效認證的任何資料庫。
 
   ![Azure 入口網站 - 防火牆規則 ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -53,5 +53,5 @@ ms.lasthandoff: 10/11/2017
 * 若要刪除現有的規則，請按一下省略符號 [...]，然後按一下 [刪除] 移除規則。 按一下 [儲存]  儲存變更。
 
 ## <a name="next-steps"></a>後續步驟
-- 同樣地，您可以透過指令碼[使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-cli.md)
-- 如需連線至「適用於 PostgreSQL 的 Azure 資料庫」伺服器的說明，請參閱[「適用於 PostgreSQL 的 Azure 資料庫」的連線庫](concepts-connection-libraries.md)
+- 同樣地，您可以透過指令碼[使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-cli.md)。
+- 如需連線至「適用於 PostgreSQL 的 Azure 資料庫」伺服器的說明，請參閱[適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。

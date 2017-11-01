@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 
@@ -225,29 +225,26 @@ ms.lasthandoff: 10/11/2017
 
 恭喜，您已建立並執行邏輯應用程式，該邏輯應用程式可透過 Event Grid 監視資源事件，以及在這些事件發生時監視電子郵件。 您也了解如何輕鬆地建立工作流程，以自動執行程序並整合系統與雲端服務。
 
-## <a name="clean-up-resources"></a>清除資源
-
-本教學課程使用會資源並執行會產生 Azure 訂用帳戶費用的動作。 當您完成本教學課程和測試時，請務必停用或刪除您不想產生費用的任何資源。
-
-您可以停止執行邏輯應用程式，然後傳送電子郵件，而無須刪除應用程式。 在邏輯應用程式功能表上，選擇 [概觀]。 在工具列上，選擇 [刪除]。
-
-![關閉應用程式邏輯](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
-
-## <a name="faq"></a>常見問題集
-
-**問：**：我可以使用 Event Grid 和邏輯應用程式執行其他哪些虛擬機器監視工作？ </br>
-**答**：您可以監視其他組態變更，例如：
+您可以使用事件格線和邏輯應用程式來監視其他組態變更，例如：
 
 * 虛擬機器取得角色型存取控制 (RBAC) 權限。
 * 對網路介面 (NIC) 上的網路安全性群組 (NSG) 進行變更。
 * 已新增或移除虛擬機器的磁碟。
 * 已將公用 IP 位址指派給虛擬機器 NIC。
 
+## <a name="clean-up-resources"></a>清除資源
+
+本教學課程使用會資源並執行會產生 Azure 訂用帳戶費用的動作。 當您完成本教學課程和測試時，請務必停用或刪除您不想產生費用的任何資源。
+
+* 若要停止執行邏輯應用程式但是不刪除您的工作，請停用您的應用程式。 在邏輯應用程式功能表上，選擇 [概觀]。 在工具列上，選擇 [刪除]。
+
+  ![關閉應用程式邏輯](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+
+  > [!TIP]
+  > 如果您沒有看到邏輯應用程式功能表，請嘗試返回 Azure 儀表板，然後重新開啟邏輯應用程式。
+
+* 若要永久刪除邏輯應用程式，請在邏輯應用程式的功能表上，選擇 [概觀]。 在工具列上，選擇 [刪除]。 確認您想要刪除邏輯應用程式，然後選擇 [刪除]。
+
 ## <a name="next-steps"></a>後續步驟
 
-* [Event Grid 概觀](../event-grid/overview.md)
-* [Event Grid 概念](../event-grid/concepts.md)
-* [快速入門：使用 Event Grid 建立和路由傳送自訂事件](../event-grid/custom-event-quickstart.md)
-* [Event Grid 事件結構描述](../event-grid/event-schema.md)
-* [Azure Logic Apps](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [使用預先定義的範本來建立邏輯應用程式工作流程](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [使用 Event Grid 建立和路由傳送自訂事件](../event-grid/custom-event-quickstart.md)

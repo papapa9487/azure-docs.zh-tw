@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/06/2017
+ms.date: 10/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6d65480c53f905b393409dfdd9952618ab6cb64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d936cf467ee7043b171cfc845f247f891f52f599
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="add-actions-to-alert-rules-in-log-analytics"></a>將動作新增至 Log Analytics 中的警示規則
 [在 Log Analytics 中建立警示](log-analytics-alerts.md)後，您可以選擇[設定警示規則](log-analytics-alerts.md)以執行一或多個動作。  本文說明各種可用的動作以及設定每種動作的詳細資訊。
@@ -112,10 +112,10 @@ Runbook 動作需要下表中的屬性。
 
 Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動 Runbook。  當您建立警示規則時，系統會自動為 Runbook 建立新的 Webhook，其名稱為 **OMS 警示補救** 後面接著 GUID。  
 
-您無法直接填入 Runbook 的任何參數，但 [$WebhookData 參數](../automation/automation-webhooks.md) 會包含警示的詳細資料，包括記錄檔搜尋 (建立此警示) 的結果。  Runbook 必須定義 **$WebhookData** 做為參數，才能存取警示的屬性。  在 **$WebhookData** 的 **RequestBody** 屬性中，警示資料以 JSON 格式儲存在一個稱為 **SearchResults** 的屬性中。  此資料具有下表中的屬性。
+您無法直接填入 Runbook 的任何參數，但 [$WebhookData 參數](../automation/automation-webhooks.md) 會包含警示的詳細資料，包括記錄檔搜尋 (建立此警示) 的結果。  Runbook 必須定義 **$WebhookData** 做為參數，才能存取警示的屬性。  在 **$WebhookData** 的 **RequestBody** 屬性中名為 **SearchResult** (適用於具有標準承載的 Runbook 和 Webhook 動作) 或 **SearchResults** (具有自訂承載的 Webhook 動作，包括 **IncludeSearchResults": true**) 的單一屬性中，可以 json 格式提供警示資料。  此資料具有下表中的屬性。
 
 >[!NOTE]
-> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則 Runbook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。  若要查看範例，請參閱下面的[範例](#sample-payload)。
+> 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則 Runbook 承載已變更。  如需格式的詳細資訊，請參閱 [Azure Log Analytics REST API](https://aka.ms/loganalyticsapiresponse) \(英文\)。  若要查看範例，請參閱下面的[範例](#sample-payload)。  
 
 | 節點 | 說明 |
 |:--- |:--- |
@@ -125,12 +125,17 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
 
 例如，下列 Runbook 會擷取記錄搜尋所傳回的記錄，並根據每一筆記錄的類型來指派不同屬性。  請注意，Runbook 會開始從 JSON 轉換 **RequestBody**，讓它可以在 PowerShell 中當作物件來使用。
 
+>[!NOTE]
+> 這兩個 Runbook 會使用 **SearchResult** 屬性，該屬性包含具有標準承載之 Runbook 動作和 Webhook 動作的結果。  如果從使用自訂承載的 Webhook 回應呼叫 Runbook，您必須將此屬性變更為 **SearchResults**。
+
+下列 Runbook 將使用[舊版 Log Analytics 工作區](log-analytics-log-search-upgrade.md)中的承載。
+
     param ( 
         [object]$WebhookData
     )
 
     $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
-    $Records     = $RequestBody.SearchResults.value
+    $Records     = $RequestBody.SearchResult.value
 
     foreach ($Record in $Records)
     {
@@ -152,11 +157,61 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
         }
     }
 
+下列 Runbook 將使用來自[已升級的 Log Analytics 工作區](log-analytics-log-search-upgrade.md)的承載。
+
+    param ( 
+        [object]$WebhookData
+    )
+
+    $RequestBody = ConvertFrom-JSON -InputObject $WebhookData.RequestBody
+
+    # Get all metadata properties    
+    $AlertRuleName = $RequestBody.AlertRuleName
+    $AlertThresholdOperator = $RequestBody.AlertThresholdOperator
+    $AlertThresholdValue = $RequestBody.AlertThresholdValue
+    $AlertDescription = $RequestBody.Description
+    $LinktoSearchResults =$RequestBody.LinkToSearchResults
+    $ResultCount =$RequestBody.ResultCount
+    $Severity = $RequestBody.Severity
+    $SearchQuery = $RequestBody.SearchQuery
+    $WorkspaceID = $RequestBody.WorkspaceId
+    $SearchWindowStartTime = $RequestBody.SearchIntervalStartTimeUtc
+    $SearchWindowEndTime = $RequestBody.SearchIntervalEndtimeUtc
+    $SearchWindowInterval = $RequestBody.SearchIntervalInSeconds
+
+    # Get detailed search results
+    if($RequestBody.SearchResult -ne $null)
+    {
+        $SearchResultRows    = $RequestBody.SearchResult.tables[0].rows 
+        $SearchResultColumns = $RequestBody.SearchResult.tables[0].columns;
+
+        foreach ($SearchResultRow in $SearchResultRows)
+        {   
+            $Column = 0
+            $Record = New-Object –TypeName PSObject 
+        
+            foreach ($SearchResultColumn in $SearchResultColumns)
+            {
+                $Name = $SearchResultColumn.name
+                $ColumnValue = $SearchResultRow[$Column]
+                $Record | Add-Member –MemberType NoteProperty –Name $name –Value $ColumnValue -Force
+                        
+                $Column++
+            }
+
+            # Include code to work with the record. 
+            # For example $Record.Computer to get the computer property from the record.
+            
+        }
+    }
+
+
 
 ## <a name="sample-payload"></a>範例承載
 本節將說明舊版及[已升級的 Log Analytics 工作區](log-analytics-log-search-upgrade.md)中 Webhook 和 Runbook 動作的範例承載。
 
 ### <a name="webhook-actions"></a>Webhook 動作
+這兩個範例會使用 **SearchResult** 屬性，該屬性包含具有標準承載之 Webhook 動作的結果。  如果 Webhook 使用的自訂承載包含搜尋結果，則此屬性會是 **SearchResults**。
 
 #### <a name="legacy-workspace"></a>舊版工作區。
 以下是舊版工作區中 Webhook 動作的範例承載。
@@ -376,7 +431,7 @@ Runbook 動作會使用 [Webhook](../automation/automation-webhooks.md)來啟動
 以下是舊版工作區中 Runbook 動作的範例承載。
 
     {
-        "SearchResults": {
+        "SearchResult": {
             "id": "subscriptions/subscriptionID/resourceGroups/ResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspace-workspaceID/search/searchGUID|10.1.0.7|TimeStamp",
             "__metadata": {
                 "resultType": "raw",

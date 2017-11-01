@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/23/2017
-ms.openlocfilehash: 730a3f464b4437c260d09abc026a186a0e26293c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca51cc33561817e36ebaba9a9146bebf9d5d5d96
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-java-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Java 連線及查詢資料
-本快速入門示範如何使用 Java 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Java 進行開發，但不熟悉 Azure Database for PostgreSQL。
+本快速入門示範如何使用 Java 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Java 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 5. 如果您忘記伺服器登入資訊，請瀏覽至 [概觀] 頁面來檢視伺服器管理員登入名稱，並視需要重設密碼。
 
 ## <a name="connect-create-table-and-insert-data"></a>連線、建立資料表及插入資料
-使用函式搭配 **INSERT** SQL 陳述式，利用下列程式碼來連線和載入資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 方法用來連線、置放及建立資料表。 [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) 物件用來建置 insert 命令，並以 setString() 和 setInt() 繫結參數值。 [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 方法會針對每組參數執行此命令。 
+使用函式搭配 **INSERT** SQL 陳述式，利用下列程式碼來連線和載入資料至資料庫。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 方法用來連線至資料庫、置放及建立資料表。 [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) 物件用來建置 insert 命令，並以 setString() 和 setInt() 繫結參數值。 [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 方法會針對每組參數執行此命令。 
 
 以建立自己的伺服器和資料庫時所指定的值，取代主機、資料庫、使用者和密碼參數。
 
@@ -140,7 +140,7 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>讀取資料
-使用下列程式碼搭配 **SELECT** SQL 陳述式來讀取資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 方法用來連線、建立和執行 select 陳述式。 結果會使用 [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) 物件進行處理。 
+使用下列程式碼搭配 **SELECT** SQL 陳述式來讀取資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[createStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) 方法用來連線至資料庫、建立和執行 select 陳述式。 結果會使用 [ResultSet](https://www.postgresql.org/docs/7.4/static/jdbc-query.html) 物件進行處理。 
 
 以建立自己的伺服器和資料庫時所指定的值，取代主機、資料庫、使用者和密碼參數。
 
@@ -227,7 +227,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>更新資料
-使用下列程式碼搭配 **UPDATE** SQL 陳述式來變更資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 方法用來連線、準備及執行 update 陳述式。 
+使用下列程式碼搭配 **UPDATE** SQL 陳述式來變更資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 方法用來連線至資料庫、準備及執行 update 陳述式。 
 
 以建立自己的伺服器和資料庫時所指定的值，取代主機、資料庫、使用者和密碼參數。
 
@@ -307,7 +307,7 @@ public class UpdateTable {
 }
 ```
 ## <a name="delete-data"></a>刪除資料
-使用下列程式碼搭配 **DELETE** SQL 陳述式來移除資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 方法用來連線、準備及執行 delete 陳述式。 
+使用下列程式碼搭配 **DELETE** SQL 陳述式來移除資料。 [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html)、[prepareStatement()](https://jdbc.postgresql.org/documentation/head/query.html) 和 [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) 方法用來連線至資料庫、準備及執行 delete 陳述式。 
 
 以建立自己的伺服器和資料庫時所指定的值，取代主機、資料庫、使用者和密碼參數。
 

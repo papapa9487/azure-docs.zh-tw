@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 簡介
 
@@ -25,8 +25,6 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 您�
 本文提供 Azure Event Grid 的概觀。 若要開始使用 Event Grid，請參閱[使用 Azure Event Grid 建立和路由傳送自訂事件](custom-event-quickstart.md)。
 
 ![Event Grid 運作模型](./media/overview/event-grid-functional-model.png)
-
-目前，Blob 儲存體未公開作為發行者。 您必須註冊預覽版本，才能回應儲存體 Blob 事件。 如需詳細資訊，請參閱 [將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>概念
 
@@ -64,6 +62,7 @@ Azure 使用多項服務 (包括發行者和處理常式) 來提供內建的事�
 * 資源群組 (管理作業)
 * Azure 訂用帳戶 (管理作業)
 * 事件中樞
+* 儲存體 Blob
 * 自訂主題
 
 今年將會新增其他 Azure 服務。
@@ -118,6 +117,8 @@ Event Grid 每百萬個作業的費用是 0.60 美元 (預覽期間為 0.30 美�
 
 ## <a name="next-steps"></a>後續步驟
 
+* [路由儲存體 Blob 事件](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  使用 Event Grid 回應儲存體 blob 事件。
 * [建立並訂閱自訂事件](custom-event-quickstart.md)  
   直接進入正題並開始使用 Azure Event Grid 快速入門來將您自己的自訂事件傳送至任何端點。
 * [使用 Logic Apps 來作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md)  

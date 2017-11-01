@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Log Analytics 中的網路效能監視器解決方案
 
@@ -92,28 +92,24 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
     >[!NOTE]
     >Windows 伺服器作業系統的代理程式支援 TCP 和 ICMP 做為綜合交易的通訊協定。 不過，Windows 用戶端作業系統的代理程式僅支援 ICMP 做為綜合交易的通訊協定。
 
-2. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將網路效能監視器方案新增至您的工作區。  
-   ![網路效能監視器符號](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. 在 OMS 入口網站中，您會看到標題為 [網路效能監視器] 的新圖格以及「方案需要額外設定」訊息。 您必須將方案設定為根據代理程式探索到的子網路和節點新增網路。 按一下 [網路效能監視器] 開始設定預設網路。  
-   ![方案需要額外設定](./media/log-analytics-network-performance-monitor/npm-config.png)
+2. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將網路效能監視器方案新增至您的工作區。<br><br> ![網路效能監視器符號](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
+3. 在 OMS 入口網站中，您會看到標題為 [網路效能監視器] 的新圖格以及「方案需要額外設定」訊息。 按一下圖格來瀏覽至 [部署] 索引標籤，並選取要用於進行綜合交易以監視您的網路的通訊協定。  檢閱[選擇正確的通訊協定：ICMP 或 TCP](#choose-the-right-protocol-icmp-or-tcp) 來協助您選擇適合您的網路的正確通訊協定。<br><br> ![解決方案需要選取通訊協定](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-### <a name="configure-the-solution-with-a-default-network"></a>使用預設網路設定方案
-在設定頁面上，您會看到名為 [預設] 的單一網路。 如果尚未定義任何網路，則所有自動探索的子網路都會放在預設網路中。
-
-每當您建立網路時，您會新增其子網路，而該子網路會從預設網路中移除。 如果您刪除網路，其所有子網路都會自動回到預設網路。
-
-換句話說，預設網路是所有未包含於使用者定義網路之子網路的容器。 您無法編輯或刪除預設網路。 它一定會保留在系統中。 不果，您可以視需要建立任意數量的網路。
-
-在大部分情況下，組織中的子網路會安排在多個網路中，您應該建立一或多個網路，才能以邏輯方式將子網路分組。
+4. 選擇通訊協定之後，會將您重新導向至 [OMS 概觀] 頁面。 雖然解決方案會從您的網路彙總資料，網路效能監視器概觀圖格將顯示訊息，指出*資料彙總進行中*。<br><br> ![解決方案正在彙總資料](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. 一旦收集資料並編製索引，概觀圖格將變更，並指出您需要執行其他設定。<br><br> ![解決方案圖格需要額外設定](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. 按一下圖格，並遵循下列步驟開始設定解決方案。
 
 ### <a name="create-new-networks"></a>建立新網路
-網路效能監視器中的網路是子網路的容器。 您可以使用您所要的任何名稱來建立網路，並將子網路新增到該網路。 例如，您可以建立名為 Building1 的網路，然後新增子網路，也可以建立名為 DMZ 的網路，然後將所有屬於非軍事區的子網路新增至此網路。
+網路效能監視器中的網路是子網路的邏輯容器。 您可以使用好記的名稱來建立網路，並根據您的商務邏輯新增子網路。 例如，您可以建立名為 *London* 的網路，並將 London 資料中心中的所有子網路新增，或名為 *ContosoFrontEnd* 的網路，並將名為 Contoso、為您的應用程式前端提供服務的所有子網路新增至此網路。
+在設定頁面上，您會在 [網路] 索引標籤中看到名為**預設**的單一網路。如果尚未建立任何網路，則所有自動探索的子網路都會放在預設網路中。
+每當您建立網路時，您會新增其子網路，而該子網路會從預設網路中移除。 如果您刪除網路，其所有子網路都會自動回到預設網路。
+因此，「預設」網路可作為所有未包含於使用者定義網路之子網路的容器。 您無法編輯或刪除預設網路。 它一定會保留在系統中。 不果，您可以視需要建立任意數量的自訂網路。
+在大部分情況下，組織中的子網路會安排在多個網路中，您應該建立一或多個網路，才能根據您的商務邏輯將子網路分組
 
 #### <a name="to-create-a-new-network"></a>若要建立新網路
 1. 按一下 [新增網路]，然後輸入網路名稱和描述。
-2. 選取一或多個子網路，然後按一下新增。
-3. 按一下 [儲存] 儲存組態。  
-   ![新增網路](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+2. 選取一或多個子網路，然後按一下 [新增]。
+3. 按一下 [儲存] 儲存組態。<br><br> ![新增網路](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
 ### <a name="wait-for-data-aggregation"></a>等候資料彙總
 第一次儲存組態之後，解決方案就會開始收集代理程式安裝所在節點之間的網路封包遺失和延遲資訊。 此程序可能需要一些時間，有時候超過 30 分鐘。 在此狀態下，概觀頁面中的 [網路效能監視器] 圖格會顯示一則訊息，表示「資料彙總進行中」。
@@ -135,8 +131,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 1. 選取或清除 [子網路識別碼] 旁邊的方塊，然後確定已視情況選取或清除 [用於監視]。 您可以選取或清除多個子網路。 停用後，子網路就不受監視，因為代理程式將會更新為停止 ping 其他代理程式。
 2. 從清單中選取特定子網路，並且在包含未受監視和受監視節點的清單之間移動所需的節點，即可選擇您想要監視之子網路的節點。
    您可以視需要新增子網路的自訂**描述**。
-3. 按一下 [儲存] 儲存組態。  
-   ![編輯子網路](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+3. 按一下 [儲存] 儲存組態。<br><br> ![編輯子網路](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>選擇要監視的節點
 所有已安裝代理程式的節點會都列在 [節點] 索引標籤中。
@@ -144,25 +139,28 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 #### <a name="to-enable-or-disable-monitoring-for-nodes"></a>若要啟用或停用節點的監視
 1. 選取或清除您要監視或停止監視的節點。
 2. 視需要按一下 [用於監視]，或加以清除。
-3. 按一下 [儲存] 。  
-   ![啟用節點監視](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. 按一下 [儲存] 。<br><br> ![啟用節點監視](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>設定監視規則
-網路效能監視器會在違反臨界值時，產生有關一對節點、子網路或網路連結之間連線的健康狀態事件。 系統可以自動學習這些臨界值，您也可以將其設定為自訂警示規則。
+在違反 2 個子網路之間或 2 個網路之間網路連線的效能閾值時，網路效能監視器會產生健全狀況事件。 系統可以自動學習這些閾值，您也可以提供自訂閾值。
+系統會自動建立「預設」規則，它會在任何一對網路/子網路連結之間的遺失或延遲違反系統所學習的閾值時產生健康狀態事件。 在您未明確建立任何監視規則之前，這可協助解決方案監視您的網路基礎結構。 如果「預設」規則已啟用，所有節點會傳送綜合交易至您已啟用監視的所有其他節點。 預設規則對於小型網路，例如，有少量執行微服務的伺服器，而且想要確定所有伺服器都已彼此連線的情節中很實用。
 
-系統會建立「預設規則」，並且在任何一對網路或子網路連結之間的遺失或延遲違反系統所了解的臨界值時建立健康狀態事件。 您可以選擇停用預設規則並建立自訂監視規則
+>[!NOTE]
+>強烈建議您停用預設規則，並建立自訂監控規則，特別是在您使用大量節點進行監視的大型網路的情況下。 這樣會減少解決方案產生的流量，並協助您組織網路的監視。
+
+根據您的商務邏輯建立自訂監控規則。 例如，如果您想要監視 2 個辦公室站台至總部的網路連線效能，那麼，請將辦公室站台 1 的所有子網路群組在網路 O1，辦公室站台 2 的所有子網路群組在網路 O2，以及將總部的所有子網群組在 H。建立 2 個監視規則，一個在 O1 與 H 之間，另一個在 O2 與 H 之間。
+
 
 #### <a name="to-create-custom-monitoring-rules"></a>若要建立自訂監視規則
 1. 按一下 [監視] 索引標籤中的 [新增規則]，然後輸入規則名稱和描述。
 2. 從清單中選取一對要監視的網路或子網路連結。
 3. 先從網路下拉式清單中選取包含第一個感興趣子網路的網路，然後再從對應的子網路下拉式清單中選取子網路。
    如果您要監視網路連結中的所有子網路，請選取 [所有子網路]。 同樣地，選取其他感興趣的子網路。 而且，您可以按一下 [新增例外狀況]，從您所做的選取範圍中排除特定子網路連結的監視。
-4. 在 ICMP 和 TCP 通訊協定之間選擇，供您用來執行綜合交易。
+4. [在 ICMP 和 TCP 通訊協定之間選擇](#choose-the-right-protocol-icmp-or-tcp)，供您用來執行綜合交易。
 5. 如果您不想建立所選項目的健康狀態事件，則清除 [在此規則所涵蓋的連結上啟用健康狀態監視]。
 6. 選擇監視條件。
    您可以輸入臨界值，以設定健康狀態事件產生的自訂臨界值。 只要條件的值高於針對所選網路/子網路配對選取的臨界值時，就會產生健康狀態事件。
-7. 按一下 [儲存] 儲存組態。  
-   ![建立自訂監視規則](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+7. 按一下 [儲存] 儲存組態。<br><br> ![建立自訂監視規則](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 儲存監視規則之後，您可以按一下**建立警示**，使用警示管理整合該規則。 警示規則會使用搜尋查詢自動建立，且其他必要參數會自動填滿。 使用警示規則，除了 NPM 內現有的警示，您還可以接收電子郵件型警示。 警示也會使用 runbook 觸發修復動作，或可以使用 webhook 與現有的服務管理解決方案整合。 您可以按一下**管理警示**以編輯警示設定。
 
@@ -192,7 +190,9 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 相反地，ICMP 運作不使用連接埠。 在大部分的企業案例中，會允許 ICMP 流量通過防火牆，讓您可以使用如 Ping 公用程式的網路診斷工具。 因此，如果您可以從另一部電腦 Ping 某部電腦，則您可以使用 ICMP 通訊協定，而不需要手動設定防火牆。
 
 > [!NOTE]
-> 如果您不確定要使用哪個通訊協定，可以選擇從 ICMP 開始。 如果您不滿意結果，在稍後隨時可以切換為 TCP。
+> 某些防火牆可能封鎖 ICMP，可能會導致重新傳輸，進而在安全性資訊和事件管理系統中產生大量的事件。 請確定您選擇的通訊協定沒有遭到網路防火牆/NSG 封鎖，否則 NPM 將無法監視網路區段。  因此，我們建議您使用 TCP 進行監視。 在您無法使用 TCP 的情節中，您應該使用 ICMP，例如當：
+> * 您使用以 Windows 用戶端為基礎的節點，因為 Windows 用戶端中不允許 TCP 原始通訊端
+> * 您的網路防火牆/NSG 會封鎖 TCP
 
 
 #### <a name="how-to-switch-the-protocol"></a>如何切換通訊協定
@@ -200,13 +200,11 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 如果您在部署期間選擇使用 ICMP，您可以隨時編輯預設監視規則來切換為 TCP。
 
 ##### <a name="to-edit-the-default-monitoring-rule"></a>編輯預設監視規則
-1.  瀏覽至 網路效能  >  監視  >  設定  >  監視，然後按一下預設規則。
+1.  瀏覽至 [網路效能]  >  [監視]  >  [設定]  >  [監視]，然後按一下 [預設規則]。
 2.  捲動至 [通訊協定] 區段，然後選取您要使用的通訊協定。
 3.  按一下 [儲存] 來套用設定。
 
 即使預設規則正在使用特定的通訊協定，您也能以其他通訊協定建立新規則。 您甚至可以建立混合規則，其中某些規則使用 ICMP，而其他使用 TCP。
-
-
 
 
 ## <a name="data-collection-details"></a>資料收集詳細資料
@@ -269,7 +267,7 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 ![趨勢圖](./media/log-analytics-network-performance-monitor/npm-trend.png)
 
 #### <a name="hop-by-hop-topology-map"></a>逐一躍點的拓撲圖
-網路效能監視器會在互動式拓撲圖上顯示兩個節點之間路由的逐一躍點拓撲。 選取節點連結，然後按一下檢視拓撲，即可檢視拓撲圖。 此外，按一下儀表板上的 [路徑] 圖格，也可以檢視拓撲圖。 當您按一下儀表板上的 路徑 時，您必須從左側面板中選取來源和目的地節點，然後按一下繪圖 以繪製兩個節點之間的路由。
+網路效能監視器會在互動式拓撲圖上顯示兩個節點之間路由的逐一躍點拓撲。 選取節點連結，然後按一下 [檢視拓撲]，即可檢視拓撲圖。 此外，按一下儀表板上的 [路徑] 圖格，也可以檢視拓撲圖。 當您按一下儀表板上的 [路徑] 時，您必須從左側面板中選取來源和目的地節點，然後按一下 [繪圖] 以繪製兩個節點之間的路由。
 
 拓撲圖會顯示兩個節點之間有多少個路由，以及資料封包所採用的路徑。 在拓撲圖上，網路效能瓶頸會標示為紅色。 您可以查看拓撲圖上的紅色項目，找出錯誤的網路連線或錯誤的網路裝置。
 
@@ -292,20 +290,14 @@ TCP 通訊協定會要求 TCP 封包傳送至目的地連接埠。 NPM 代理程
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>調查健康狀態警示的根本原因
 既然您已深入了解網路效能監視器，讓我們看看簡單的健康狀態事件根本原因調查。
 
-1. 在 [概觀] 頁面上，觀察 [網路效能監視器] 圖格，您可以快速概略了解您的網路健康狀態。 請注意，在 6 個受監視的子網路連結中，有 2 個狀況不良。 這值得調查一下。 按一下此圖格以檢視方案儀表板。  
-   ![網路效能監視器圖格](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. 在下列範例映像中，您會發現有網路連結狀況不佳的健全狀況事件。 您決定要調查此問題，按一下 **DMZ2-DMZ1** 網路連結，以找出問題的根源。  
-   ![狀況不良的網路連結範例](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. 向下鑽研頁面會顯示 **DMZ2-DMZ1** 網路連結中的所有子網路連結。 您會發現，這兩個子網路連結的延遲已超過臨界值，以致網路連結狀況不良。 您也可以查看這兩個子網路連結的延遲趨勢。 您可以使用圖形中的時間選取控制項，將焦點放在所需的時間範圍。 您可以看到一天當中達到延遲尖峰的時間。 您稍後可以在記錄檔中搜尋此時間，以調查問題。 按一下 [檢視節點連結] 進一步深入鑽研。  
-   ![狀況不良的子網路連結範例](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. 類似於前一頁，特定子網路連結的向下鑽研頁面會列出其構成的節點連結。 您可以在此執行類似上一個步驟中的動作。 按一下 [檢視拓撲] 可檢視 2 個節點之間的拓撲。  
-   ![狀況不良的節點連結範例](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. 2 個選定節點之間的所有路徑都會繪製於拓撲圖。 您可以在拓撲圖上呈現這兩個節點之間路由的逐一躍點拓撲。 拓撲圖會清楚顯示兩個節點之間有多少個路由，以及資料封包所採用的路徑。 網路效能瓶頸會標示為紅色。 您可以查看拓撲圖上的紅色項目，找出錯誤的網路連線或錯誤的網路裝置。  
-   ![狀況不良的拓撲檢視範例](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
+1. 在 [概觀] 頁面上，觀察 [網路效能監視器] 圖格，您可以快速概略了解您的網路健康狀態。 請注意，在 6 個受監視的子網路連結中，有 2 個狀況不良。 這值得調查一下。 按一下此圖格以檢視方案儀表板。<br><br> ![網路效能監視器圖格](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. 在下列範例映像中，您會發現有網路連結狀況不佳的健全狀況事件。 您決定要調查此問題，按一下 **DMZ2-DMZ1** 網路連結，以找出問題的根源。<br><br> ![狀況不良的網路連結範例](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. 向下鑽研頁面會顯示 **DMZ2-DMZ1** 網路連結中的所有子網路連結。 您會發現，這兩個子網路連結的延遲已超過臨界值，以致網路連結狀況不良。 您也可以查看這兩個子網路連結的延遲趨勢。 您可以使用圖形中的時間選取控制項，將焦點放在所需的時間範圍。 您可以看到一天當中達到延遲尖峰的時間。 您稍後可以在記錄檔中搜尋此時間，以調查問題。 按一下 [檢視節點連結] 進一步深入鑽研。<br><br> ![狀況不良的子網路連結範例](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+4. 類似於前一頁，特定子網路連結的向下鑽研頁面會列出其構成的節點連結。 您可以在此執行類似上一個步驟中的動作。 按一下 [檢視拓撲] 可檢視 2 個節點之間的拓撲。<br><br> ![狀況不良的節點連結範例](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+5. 2 個選定節點之間的所有路徑都會繪製於拓撲圖。 您可以在拓撲圖上呈現這兩個節點之間路由的逐一躍點拓撲。 拓撲圖會清楚顯示兩個節點之間有多少個路由，以及資料封包所採用的路徑。 網路效能瓶頸會標示為紅色。 您可以查看拓撲圖上的紅色項目，找出錯誤的網路連線或錯誤的網路裝置。<br><br> ![狀況不良的拓撲檢視範例](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
 6. 在 [動作] 窗格中可以檢閱每個路徑中的遺失、延遲和躍點數目。 使用捲軸來檢視這些狀況不良路徑的詳細資料。  使用篩選器選取具有狀況不良躍點的路徑，以便僅繪製選取路徑的拓撲。 您可以使用滑鼠滾輪來放大或縮小拓撲圖。
 
-   在下面的圖像中，藉由查看紅色的路徑和躍點，即可清楚看到特定網路區段中問題區域的根本原因。 按一下拓撲圖中的節點，即可顯示該節點的屬性，包括 FQDN 和 IP 位址。 按一下躍點可顯示該躍點的 IP 位址。  
-   ![狀況不良的拓撲 - 路徑詳細資料範例](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   在下面的圖像中，藉由查看紅色的路徑和躍點，即可清楚看到特定網路區段中問題區域的根本原因。 按一下拓撲圖中的節點，即可顯示該節點的屬性，包括 FQDN 和 IP 位址。 按一下躍點可顯示該躍點的 IP 位址。<br><br> ![狀況不良的拓撲 - 路徑詳細資料範例](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="provide-feedback"></a>提供意見反應
 

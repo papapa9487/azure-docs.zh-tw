@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Azure Active Directory 傳遞驗證：智慧鎖定
 
@@ -42,6 +42,9 @@ Azure AD 可防範暴力密碼破解攻擊，並防止正版使用者遭到其 O
 
 1.  Azure AD 的鎖定閾值「小於」AD 的帳戶鎖定閾值。 我們對於這些值的設定建議是，您可以將 AD 的帳戶鎖定閾值設定為 Azure AD 鎖定閾值的至少兩到三倍。
 2.  Azure AD 的鎖定期間 (以秒來表示) 比 AD 的下列時間過後重設帳戶鎖定計數器 (以分鐘來表示)「還久」。
+
+>[!IMPORTANT]
+>目前，如果使用者的雲端帳戶已被智慧鎖定功能鎖定，則系統管理員無法將其解除鎖定。 它們將必須等待鎖定期間過期。
 
 ## <a name="verify-your-ad-account-lockout-policies"></a>驗證 AD 帳戶鎖定原則
 

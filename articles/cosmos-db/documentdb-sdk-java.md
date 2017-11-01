@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/11/2017
 ms.author: khdang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15e3f7ef3bfd6b1f61fe6081a378bdb29e0a1aa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7de7c5e366d1f7da73eabfa889a3b43fb0403438
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-cosmos-db-documentdb-java-sdk-release-notes-and-resources"></a>Azure Cosmos DB：DocumentDB Java SDK 版本資訊與資源
 > [!div class="op_single_selector"]
@@ -47,10 +47,15 @@ ms.lasthandoff: 10/11/2017
 
 <tr><td>**Web 應用程式教學課程**</td><td>[使用 Azure Cosmos DB 進行 Web 應用程式開發](documentdb-java-application.md)</td></tr>
 
-<tr><td>**目前支援的執行階段**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**最低支援執行階段**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name11301130"></a><a name="1.13.0"/>1.13.0
+* 修正讀取單一分割區金鑰範圍的問題。
+* 修正會影響到名稱簡短的資料庫的 ResourceID 剖析問題。
+* 修正分割區金鑰編碼產生的問題。
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
 * 重大錯誤修正，要求在分割區分割期間處理。
@@ -169,6 +174,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [1.13.0](#1.13.0) |2017 年 8 月 25 日 |--- |
 | [1.12.0](#1.12.0) |2017 年 7 月 11 日 |--- |
 | [1.11.0](#1.11.0) |2017 年 5 月 10 日 |--- |
 | [1.10.0](#1.10.0) |2017 年 3 月 11 日 |--- |

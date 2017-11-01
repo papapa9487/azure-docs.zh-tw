@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 8d6faff118b46d8014078d0f1dcc00d125994e49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 329970d8717053ab7126fb8fb6a4a119ccbff6b7
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>在 Microsoft Azure Stack 上使用 SQL 資料庫
 
@@ -44,10 +44,12 @@ ms.lasthandoff: 10/11/2017
 1. 如果您尚未這樣做，請註冊您的開發套件並透過 Marketplace 管理下載下載 Windows Server 2016 Datacenter Core 映像。 您必須使用 Windows Server 2016 Core 映像。 您也可以使用指令碼來建立 [Windows Server 2016 映像](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image) - 務必選取核心選項。 不再需要 .NET 3.5 執行階段。
 
 2. 登入可存取特殊權限端點 VM 的主機。
+
     a. 在 Azure Stack 開發套件 (ASDK) 安裝上，登入實體主機。
+
     b. 在多節點系統上，主機必須是可存取特殊權限端點的系統。
 
-3. [下載 SQL 資源提供者二進位檔案](https://aka.ms/azurestacksqlrp)，並將它解壓縮至暫存目錄。
+3. [下載 SQL 資源提供者二進位檔案](https://aka.ms/azurestacksqlrp)，並執行自我解壓縮程式將內容解壓縮至暫存目錄。
 
 4. Azure Stack 根憑證是從特殊權限端點擷取。 對於 ASDK，系統會在此程序的執行過程中建立自我簽署憑證。 對於多節點，您必須提供適當的憑證。
 
@@ -78,29 +80,26 @@ ms.lasthandoff: 10/11/2017
 以下是可從 PowerShell 提示字元執行的範例 (視需要變更帳戶資訊和密碼)：
 
 ```
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = "AzureStack"
-# Extract the downloaded file by executing it and pointing to a temp directory
-$tempDir = "C:\TEMP\SQLRP"
-# The service admin (can be AAD or ADFS)
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-
-# Install the AzureRM.Bootstrapper module
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
 Install-Module -Name AzureRm.BootStrapper -Force
-
-# Install and imports the API Version Profile required by Azure Stack into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Create the credentials needed for the deployment - local VM
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+$domain = "AzureStack"
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
 
-# and the Service Admin credential
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# and the cloud admin credential required for Privileged Endpoint access
+# Set the credentials for the Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
 $CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
@@ -109,7 +108,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>DeploySqlProvider.ps1 參數
@@ -137,7 +136,7 @@ $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmL
 
 1. 以服務管理員身分登入管理入口網站。
 
-2. 確認部署成功。 瀏覽**資源群組** &gt;，按一下 **system.<location>.sqladapter** 資源群組，並確認所有五個部署均成功。
+2. 確認部署成功。 瀏覽 [**資源群組**]&gt;，按一下 **system.\<location\>.sqladapter** 資源群組，並確認四個部署均成功。
 
       ![確認 SQL RP 的部署是否成功](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 

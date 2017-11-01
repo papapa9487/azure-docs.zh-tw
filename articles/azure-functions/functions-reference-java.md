@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: routlaw
-ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 > [!div class="op_single_selector"]
@@ -218,16 +218,17 @@ public class MyClass {
 
 傳回值是最簡單形式的輸出，您只要傳回任何類型的值，Azure Functions 執行階段就會嘗試將它封送處理回實際類型 (例如 HTTP 回應)。 在 `functions.json` 中，您使用 `$return` 作為輸出繫結的名稱。
 
-若要產生多個輸出值，請使用 `azure-functions-java-core` 套件中定義的 `OutputParameter<T>` 類型。 如果您需要進行 HTTP 回應，同時將訊息推送至佇列，您可以撰寫如下的程式碼：
+若要產生多個輸出值，請使用 `azure-functions-java-core` 套件中定義的 `OutputBinding<T>` 類型。 如果您需要進行 HTTP 回應，同時將訊息推送至佇列，您可以撰寫如下的程式碼：
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -235,7 +236,7 @@ public class MyClass {
 }
 ```
 
-並且在 `function.json` 中定義輸出繫結：
+此程式碼應該會在 `function.json` 中定義輸出繫結：
 
 ```json
 {
@@ -251,10 +252,10 @@ public class MyClass {
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",

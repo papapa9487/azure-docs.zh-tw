@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 01/23/2017
 ms.author: adhurwit
-ms.openlocfilehash: a2a3a4773d33fe6b8589ad8d9d219acda4d1015e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fc4286b39ade5558a9dabd5832be05a7a0d6f0c7
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
 ## <a name="introduction"></a>簡介
@@ -86,7 +86,7 @@ Install-Package Microsoft.Azure.KeyVault.Extensions
 </appSettings>
 ```
 
-新增下列 `using` 陳述式，並確定將 System.Configuration 的參考加入至專案。
+新增下列 `using` 指示詞，並確定將 System.Configuration 的參考加入至專案。
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;

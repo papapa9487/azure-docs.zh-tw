@@ -1,87 +1,119 @@
 ---
-title: "診斷失敗 - Azure Logic Apps | Microsoft Docs"
-description: "用以了解邏輯應用程式失敗所在的常見方法"
+title: "疑難排解和診斷失敗 - Azure Logic Apps | Microsoft Docs"
+description: "了解如何及為何邏輯應用程式失敗"
 services: logic-apps
-documentationcenter: .net,nodejs,java
+documentationcenter: 
 author: jeffhollan
 manager: anneta
 editor: 
 ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: multiple
+ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 10/18/2016
+ms.workload: logic-apps
+ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 814e6f93088cdd96b0a663d2a7494b5a11470d99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de706f711e9c57b2e575d130a2a0cfd0bdc907a1
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
-# <a name="diagnose-logic-app-failures"></a>診斷邏輯應用程式失敗
-如果您遇到關於邏輯應用程式的問題或失敗，有數種方法可協助您深入了解失敗所在之處。  
+# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>疑難排解和診斷邏輯應用程式失敗
 
-## <a name="azure-portal-tools"></a>Azure 入口網站工具
-Azure 入口網站提供許多工具，在每個步驟中診斷每個邏輯應用程式。
+您的邏輯應用程式會產生可協助您診斷和偵錯應用程式邏輯中問題的資訊。 您可以藉由在 Azure 入口網站檢閱工作流程中的每個步驟來診斷邏輯應用程式。 或者您可以新增一些步驟至工作流程，以進行執行階段偵錯。
 
-### <a name="trigger-history"></a>觸發程序記錄
+## <a name="review-trigger-history"></a>檢閱觸發程序歷程記錄
 
-每個邏輯應用程式至少會有一個觸發程序。 如果您發現無法引發應用程式，首先查看觸發程序歷程記錄以獲得更多資訊。 您可以在邏輯應用程式的主要刀鋒視窗上存取觸發程序歷程記錄。
+每個邏輯應用程式會從觸發程序開始。 如果沒有引發觸發程序，請先檢查觸發程序歷程記錄。 這個歷程記錄會列出您的邏輯應用程式進行的所有觸發程序嘗試，以及有關每個觸發程序嘗試的輸入和輸出詳細資料。
 
-![找出觸發程序歷程記錄][1]
+1. 若要檢查是否引發觸發程序，請在邏輯應用程式功能表上選擇 [概觀]。 在 [觸發程序歷程記錄] 下，檢閱觸發程序的狀態。
 
-觸發程序歷程記錄會列出您的邏輯應用程式進行的所有觸發程序嘗試。 您可以按一下每個觸發程序嘗試，進一步探索詳細資料 (特別是觸發程序嘗試所產生的任何輸入或輸出)。 如果您發現失敗的觸發程序，請選取觸發程序嘗試並選擇 [輸出] 連結，以檢閱任何產生的錯誤訊息 (例如︰針對無效的 FTP 認證)。
+   > [!TIP]
+   > 如果您沒有看到邏輯應用程式功能表，請嘗試返回 Azure 儀表板，然後重新開啟邏輯應用程式。
 
-您可能會看到不同的狀態：
+   ![檢閱觸發程序歷程記錄](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
 
-* **已略過**。 此端點經過輪詢以檢查資料，並收到沒有可用資料的回應。
-* **已成功**。 觸發程序收到資料可用的回應。 此狀態的原因可能是手動觸發程序、循環觸發程序或輪詢觸發程序。 此狀態通常伴隨著 [已引發] 狀態，但如果程式碼檢視中有一個條件或 SplitOn 命令不符合，則可能不會出現。
-* **失敗**。 已產生錯誤。
+   > [!TIP]
+   > * 如果找不到您預期的資料，請嘗試在工具列上選取 [重新整理]。
+   > * 如果此清單顯示許多觸發程序嘗試，而找不到您要的項目，請嘗試篩選清單。
 
-#### <a name="start-a-trigger-manually"></a>手動啟動觸發程序
+   以下是觸發程序嘗試的可能狀態：
 
-如果您希望邏輯應用程式立即檢查可用的觸發程序 (而不需等待下一個循環)，請按一下主要刀鋒視窗上的 [選取觸發程序]  來強制進行檢查。 例如，按一下這個包含 Dropbox 觸發程序的連結，會導致工作流程立即輪詢 Dropbox 中是否有新檔案。
+   | 狀態 | 說明 | 
+   | ------ | ----------- | 
+   | **已成功** | 觸發程序檢查了端點，並找到可用的資料。 通常，「已引發」狀態也會隨著這個狀態一起出現。 如果沒有，則觸發程序定義可能有條件或 `SplitOn` 命令不符合要求。 <p>此狀態可以套用至手動觸發程序、循環觸發程序或輪詢觸發程序。 觸發程序可以順利執行，但執行本身在動作產生未處理的錯誤時可能會失敗。 | 
+   | **已略過** | 觸發程序檢查了端點，但不找到任何資料。 | 
+   | **已失敗** | 發生錯誤。 若要檢閱失敗的觸發程序所產生的任何錯誤訊息，請選取該觸發程序嘗試並選擇 [輸出]。 例如，您可能會發現無效的輸入。 | 
+   ||| 
 
-### <a name="run-history"></a>執行記錄
+   可能有多個觸發程序項目具有相同的日期和時間，當應用程式邏輯找到多個項目時會發生此情況。 
+   每次引發觸發程序時，Logic Apps 引擎會建立邏輯應用程式執行個體，以執行您的工作流程。 根據預設，每個執行個體會並行執行，使得任何工作流程不需等待即可開始執行。
 
-每個引發的觸發程序都會導致一次執行。 您可以從主要刀鋒視窗存取執行資訊，其中包含許多有助於了解工作流程期間發生什麼情況的詳細資訊。
+   > [!TIP]
+   > 您可以重新檢查觸發程序，而不需等待下一個週期。 在概觀工具列上，選擇 [執行觸發程序]，然後選取觸發程序，這會強制進行檢查。 或者，在 Logic Apps 設計工具工具列上選取 [執行]。
 
-![找出執行記錄][2]
+3. 若要檢查詳細資料的觸發程序嘗試，請在 [觸發程序歷程記錄] 下選取該觸發程序嘗試。 
 
-一次執行會顯示下列其中一個狀態：
+   ![選取觸發程序嘗試](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-* **已成功**。 所有動作都已成功。 如果發生失敗，已透過工作流程中後續發生的動作來處理。 也就是，設定為要在失敗動作後執行的動作已處理此失敗。
-* **失敗**。 至少有一個動作發生了工作流程中後續的動作無法處理的失敗。
-* **已取消**。 工作流程正執行中，但收到了取消要求。
-* **執行中**。 工作流程目前正在執行中。 節流處理的流程可能會出現此狀態，或者因為目前的定價方案所致。 如需詳細資訊，請參閱[定價頁面上的動作限制](https://azure.microsoft.com/pricing/details/app-service/plans/)。 設定診斷功能 (執行歷程記錄下方顯示的圖表) 也可以提供所發生的任何節流事件的相關資訊。
+4. 檢閱觸發程序產生的任何輸入和輸出。 觸發程序輸出會顯示來自觸發程序的資料。 這些輸出可協助您判斷所有屬性是否如預期般傳回。
 
-當您查看執行歷程記錄時，您可以向內切入來查看詳細資訊。  
+   > [!NOTE]
+   > 如果您看見任何不了解的內容，請了解 Azure Logic Apps 如何[處理不同的內容類型](../logic-apps/logic-apps-content-type.md)。
 
-#### <a name="trigger-outputs"></a>觸發程序輸出
+   ![觸發程序輸出](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
 
-觸發程序輸出會顯示來自觸發程序的資料。 這些輸出可協助您判斷所有屬性是否如預期般傳回。
+## <a name="review-run-history"></a>檢閱執行歷程記錄
 
-> [!NOTE]
-> 如果您看見任何不了解的內容，請了解 Azure Logic Apps 如何[處理不同的內容類型](../logic-apps/logic-apps-content-type.md)。
-> 
+每個引發的觸發程序會開始一個工作流程執行。 您可以檢閱該執行期間發生什麼，包括工作流程中的每個步驟的狀態，加上每個步驟的輸入和輸出。
 
-![觸發程序輸出範例][3]
+1. 在邏輯應用程式功能表上，選擇 [概觀]。 在 [執行歷程記錄] 下，檢閱所引發的觸發程序執行。
 
-#### <a name="action-inputs-and-outputs"></a>動作輸入和輸出
+   > [!TIP]
+   > 如果您沒有看到邏輯應用程式功能表，請嘗試返回 Azure 儀表板，然後重新開啟邏輯應用程式。
 
-您可以深入探索動作所接收的輸入和輸出。 此資料有助於了解輸出的大小和圖形，而且有助於尋找任何可能產生的錯誤訊息。
+   ![檢閱執行歷程記錄](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
 
-![動作輸入和輸出][4]
+   > [!TIP]
+   > * 如果找不到您預期的資料，請嘗試在工具列上選取 [重新整理]。
+   > * 如果此清單顯示許多執行，而找不到您要的項目，請嘗試篩選清單。
 
-## <a name="debug-workflow-runtime"></a>偵錯工作流程執行階段
+   以下是執行的可能狀態：
 
-除了監視執行的輸入、輸出和觸發程序以外，您可以在工作流程中加入一些有助於偵錯的步驟。 
-[RequestBin](http://requestb.in) 是一個強大的工具，您可以在工作流程中將其加入為一個步驟。 使用 RequestBin，您就能設定 HTTP 要求檢查器，來判斷 HTTP 要求的確切大小、圖形和格式。 您可以建立 RequestBin 並在邏輯應用程式 HTTP POST 動作中貼上 URL，以及您想要測試的任何內文內容 (例如，運算式或另一個步驟輸出)。 執行邏輯應用程式之後，您可以重新整理 RequestBin，以查看要求從 Logic Apps 引擎產生時是如何形成的。
+   | 狀態 | 說明 | 
+   | ------ | ----------- | 
+   | **已成功** | 所有動作都已成功。 <p>如果特定動作發生任何失敗，工作流程中的後續動作已處理該失敗。 | 
+   | **已失敗** | 至少一個動作失敗，並且工作流程中沒有設定後續動作來處理失敗。 | 
+   | **已取消** | 工作流程正執行中，但收到了取消要求。 | 
+   | **執行中** | 工作流程目前正在執行中。 <p>節流處理的流程可能會出現此狀態，或者因為目前的定價方案所致。 如需詳細資訊，請參閱[定價頁面上的動作限制](https://azure.microsoft.com/pricing/details/logic-apps/)。 如果您設定[診斷記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md)，則也可以取得所發生任何節流事件的相關資訊。 | 
+   ||| 
 
-<!-- image references -->
-[1]: ./media/logic-apps-diagnosing-failures/triggerhistory.png
-[2]: ./media/logic-apps-diagnosing-failures/runhistory.png
-[3]: ./media/logic-apps-diagnosing-failures/triggeroutputslink.png
-[4]: ./media/logic-apps-diagnosing-failures/actionoutputs.png
+2. 檢閱特定執行中每個步驟的詳細資料。 在 [執行歷程記錄] 下，選取您想要檢查的執行。
+
+   ![檢閱執行歷程記錄](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
+
+   執行本身成功或失敗，[執行詳細資料] 檢視會顯示每個步驟以及它們是成功或失敗。
+
+   ![檢視邏輯應用程式執行的詳細資料](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
+
+3. 若要檢查特定步驟的輸入、輸出和任何錯誤訊息，請選擇該步驟，以便圖形展開並顯示詳細資料。 例如：
+
+   ![檢視步驟詳細資料](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
+
+## <a name="perform-runtime-debugging"></a>執行執行階段偵錯
+
+若要協助偵錯，您可以新增診斷步驟至工作流程，以及檢閱觸發程序和執行歷程記錄。 例如，您可以新增使用 [RequestBin](http://requestb.in) 服務的步驟，使得您可以檢查 HTTP 要求，並判斷其確切的大小、圖形與格式。
+
+1. 建立 RequestBin，您可以將讓它成為私人並且只能在您的瀏覽器中檢視。
+
+2. 在您的邏輯應用程式中，以您想要測試的任何內文內容新增 HTTP POST 動作 (例如，運算式或另一個步驟輸出)。
+
+3. 將 RequestBin 的 URL 貼上至 HTTP POST 動作。
+
+4. 從 Logic Apps 引擎產生時，若要檢閱要求如何形成，請執行邏輯應用程式，並重新整理您的 RequestBin。
+
+## <a name="next-steps"></a>後續步驟
+
+[監視邏輯應用程式](../logic-apps/logic-apps-monitor-your-logic-apps.md)

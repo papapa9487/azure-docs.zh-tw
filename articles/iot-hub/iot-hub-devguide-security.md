@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: 91b2e72b9cc5f7b52dde09fb837cbc994d52a26c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>控制 IoT 中樞的存取權
 
@@ -31,8 +31,6 @@ ms.lasthandoff: 10/11/2017
 * 如何設定認證範圍，以限制存取特定資源。
 * IoT 中樞支援 X.509 憑證。
 * 使用現有的裝置身分識別登錄或驗證結構描述的自訂裝置驗證機制。
-
-### <a name="when-to-use"></a>使用時機
 
 您必須具有適當權限才能存取任何 IoT 中樞端點。 例如，裝置必須包含權杖，其中包含安全性認證，以及傳送到 IoT 中樞的每個訊息。
 
@@ -193,6 +191,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+C# 中用來產生安全性權杖的功能是：
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > 由於權杖的時效性會在 IoT 中樞機器上驗證，因此產生權杖之機器上的時鐘飄移必須降低最低。
 
@@ -210,7 +241,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 | 端點 | 功能 |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |傳送裝置到雲端的訊息。 |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |接收雲端到裝置的訊息。 |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |接收雲端到裝置的訊息。 |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>使用身分識別登錄中的對稱金鑰
 
@@ -383,7 +414,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ### <a name="comparison-with-a-custom-gateway"></a>和自訂閘道器的比較
 
-權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。 建議此模式是因為 IoT 中樞會繼續處理大部分的解決方案流量。 不過，如果自訂驗證配置與通訊協定密不可分，您可能需要「自訂閘道」來處理所有流量。 使用[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)][lnk-tls-psk] 是這類案例的範例之一。 如需詳細資訊，請參閱[通訊協定閘道][lnk-protocols]主題。
+權杖服務模式為使用 IoT 中樞實作自訂身分識別登錄/驗證配置的建議方式。 建議此模式是因為 IoT 中樞會繼續處理大部分的解決方案流量。 不過，如果自訂驗證配置與通訊協定密不可分，您可能需要「自訂閘道」來處理所有流量。 使用[傳輸層安全性 (TLS) 和預先共用金鑰 (PSK)][lnk-tls-psk] 是這類案例的範例之一。 如需詳細資訊，請參閱[通訊協定閘道][lnk-protocols]一文。
 
 ## <a name="reference-topics"></a>參考主題：
 
@@ -418,7 +449,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 * [在裝置上叫用直接方法][lnk-devguide-directmethods]
 * [排程多個裝置上的作業][lnk-devguide-jobs]
 
-如果您想要嘗試本文章所述的概念，您可能會對下列 IoT 中樞教學課程感興趣：
+如果您想要嘗試本文章所述的概念，請參閱下列 IoT 中樞教學課程：
 
 * [開始使用 Azure IoT 中樞][lnk-getstarted-tutorial]
 * [如何使用 IoT 中樞傳送雲端到裝置訊息][lnk-c2d-tutorial]

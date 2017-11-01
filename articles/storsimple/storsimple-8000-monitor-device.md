@@ -4,7 +4,7 @@ description: "說明如何使用 StorSimple 裝置管理員服務來監視使用
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2017
+ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>使用 StorSimple 裝置管理員服務監視 StorSimple 裝置
+
 ## <a name="overview"></a>概觀
 您可以使用 StorSimple 裝置管理員服務來監視您 StorSimple 解決方案中的特定裝置。 您可以根據 I/O 效能、容量使用率、網路輸送量，以及裝置效能計量建立自訂圖表，並且將這些圖表釘選到儀表板。 如需詳細資訊，請移至[自訂入口網站儀表板](../azure-portal/azure-portal-dashboards.md)。
 
@@ -44,6 +45,19 @@ ms.lasthandoff: 10/11/2017
 * 過去 90 天
 * 去年
 
+使用圖表會報告兩個關鍵計量 - 成長和範圍。 範圍是指在所選持續期間 (例如過去 7 天) 報告的使用量的最大值和最小值。
+
+成長則指在所選持續期間從第一天到最後一天使用量的增加。 
+
+成長和範圍也可以透過下列方程式表示：
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 使用的主要、雲端及本機儲存體的說明如下：
 

@@ -8,18 +8,15 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 1a489f199bcc955fd14e82d16670d854305b00c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>將 Blob 儲存體事件路由至自訂的 Web 端點 (預覽)
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可使用 Azure CLI 訂閱 Blob 儲存體事件，以及觸發事件來檢視結果。 
-
-> [!IMPORTANT]
-> 您必須註冊，Blob 儲存體事件預覽才能完成本教學課程。  在[這裡](storage-blob-event-overview.md#join-the-preview)深入了解預覽方案。
 
 一般而言，您可將事件傳送至可回應事件的端點，例如 Webhook 或 Azure Function。 為了簡化本文中所示的範例，我們將事件傳送至只會收集訊息的 URL。 使用名為 [RequestBin](https://requestb.in/) 的開放原始碼、第三方工具來建立此 URL。
 
@@ -55,7 +52,7 @@ az group create --name <resource_group_name> --location westcentralus
 Blob 儲存體帳戶是特殊的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於現有的一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。
 
 > [!NOTE]
-> 對於預覽版本，Blob 儲存體事件僅適用於 **westcentralus** 位置的儲存體帳戶。
+> Event Grid 目前在預覽中，並只有 **westcentralus** 和 **westus2** 區域中的儲存體帳戶可使用。
 
 以儲存體帳戶的唯一名稱取代 `<storage_account_name>`，並以您稍早建立的資源群組取代 `<resource_group_name>`。
 

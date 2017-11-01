@@ -1,10 +1,10 @@
 ---
-title: "將 OpenShift Origin 部署至 Azure | Microsoft Docs"
-description: "了解如何將 OpenShift Origin 部署至 Azure 虛擬機器。"
+title: "Azure 上的 OpenShift 概觀 | Microsoft Docs"
+description: "Azure 上的 OpenShift 概觀。"
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: jbinder
-manager: timlt
+author: haroldw
+manager: najoshi
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,151 +14,56 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
-ms.author: jbinder
-ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: haroldw
+ms.openlocfilehash: f9641b52db91a4356f6d5789a8cd78a6bb3da02b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>將 OpenShift Origin 部署至 Azure 虛擬機器 
+# <a name="openshift-overview"></a>OpenShift 概觀
 
-[OpenShift Origin](https://www.openshift.org/) 是建置在 [Kubernetes](https://kubernetes.io/) 上的開放原始碼容器平台。 它可簡化部署、調整及操作多租用戶應用程式的程序。 
+OpenShift 為企業帶來 docker 和 Kubernetes 開放且可延伸的容器應用程式平台。  
 
-本指南說明如何使用 Azure CLI 和 Azure Resource Manager 範本在 Azure 虛擬機器上部署 OpenShift Origin。 在本教學課程中，您了解如何：
+OpenShift 包含容器協調流程與管理的 Kubernetes。 它會加入開發人員和作業中心的工具，可讓：
 
-> [!div class="checklist"]
-> * 建立 KeyVault 來管理 OpenShift 叢集的 SSH 金鑰。
-> * 部署 Azure VM 上的 OpenShift 叢集。 
-> * 安裝和設定 [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) 來管理叢集。
-> * 自訂 OpenShift 部署。
+- 快速開發應用程式
+- 容易部署及調整
+- 長期小組和應用程式的生命週期維護
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+有多個 OpenShift 供應項目，其中兩個可在 Azure 中執行。
 
-本快速入門需要 Azure CLI 2.0.8 版或更新版本。 若要尋找版本，請執行 `az --version`。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+- OpenShift Origin
+- Red Hat OpenShift 容器平台
+- OpenShift 線上
+- OpenShift 專用
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+涵蓋四個供應項目，兩個可供客戶自行部署至 Azure - OpenShift Origin 和 OpenShift 容器平台。
 
-## <a name="log-in-to-azure"></a>登入 Azure 
-使用 [az login](/cli/azure/#login) 命令來登入 Azure 訂用帳戶並遵循畫面上的指示進行，或按一下 [試用] 來使用 Cloud Shell。
+## <a name="openshift-origin"></a>OpenShift Origin
 
-```azurecli 
-az login
-```
-## <a name="create-a-resource-group"></a>建立資源群組
+社群支援之 OpenShift 的[開放原始碼](https://www.openshift.org/)上游專案。 CentOS 或 RHEL 上可安裝的原點。
 
-使用 [az group create](/cli/azure/group#create) 命令來建立資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 
+## <a name="openshift-container-platform"></a>Red Hat OpenShift 容器平台
 
-下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+Red Hat 支援的 Red Hat 企業備妥 ([商業供應項目](https://www.openshift.com))。 客戶購買 OpenShift 容器平台的必要權利，並負責安裝與管理整個基礎結構。
 
-```azurecli 
-az group create --name myResourceGroup --location eastus
-```
+由於客戶「擁有」整個平台，因此它們可以安裝在其內部部署資料中心、公用雲端 (Azure、AWS、Google 等等) 和其他內容。
 
-## <a name="create-a-key-vault"></a>建立金鑰保存庫
-使用 [az keyvault create](/cli/azure/keyvault#create) 命令來建立要儲存叢集之 SSH 金鑰的 KeyVault。  
+## <a name="openshift-online"></a>OpenShift 線上
 
-```azurecli 
-az keyvault create --resource-group myResourceGroup --name myKeyVault \
-       --enabled-for-template-deployment true \
-       --location eastus
-```
+受管理的 Red Hat **多租用戶** OpenShift (使用容器平台)。 Red Hat 會管理所有的基礎結構 (VM、OpenShift 叢集、網路、儲存體等)。 
 
-## <a name="create-an-ssh-key"></a>建立 SSH 金鑰 
-需要 SSH 金鑰才能安全存取 OpenShift Origin 叢集。 使用 `ssh-keygen` 命令建立 SSH 金鑰組。 
- 
- ```bash
-ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
-```
+客戶部署容器，但是無法控制執行容器的主機。 因為這是多租用戶，容器可能會共置於相同的 VM 主機，做為其他客戶的容器。 成本按每個容器計算。
 
-> [!NOTE]
-> 您所建立的 SSH 金鑰組不能使用複雜密碼。
+## <a name="openshift-dedicated"></a>OpenShift 專用
 
-如需有關 Windows 上的 SSH 金鑰詳細資訊，請參閱[如何在 Windows 上建立 SSH 金鑰](/azure/virtual-machines/linux/ssh-from-windows)。
-
-## <a name="store-ssh-private-key-in-key-vault"></a>將 SSH 私密金鑰儲存在 Key Vault 中
-OpenShift 部署會使用您建立的 SSH 金鑰來安全存取 OpenShift 主機。 若要啟用部署以安全地擷取 SSH 金鑰，請使用下列命令將金鑰儲存在 Key Vault。
-
-# <a name="enabled-for-template-deployment"></a>已針對範本部署啟用
-```azurecli
-az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.ssh/openshift.rsa
-```
-
-## <a name="create-a-service-principal"></a>建立服務主體 
-OpenShift 會使用使用者名稱與密碼或服務主體與 Azure 進行通訊。 Azure 服務主體是安全性識別，可供您與應用程式、服務及諸如 OpenShift 等自動化工具搭配使用。 您可以控制和定義對於服務主體可以在 Azure 中執行哪些作業的權限。 為了提高只提供使用者名稱和密碼的安全性，此範例會建立基本的服務主體。
-
-使用 [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) 建立服務主體，並將 OpenShift 所需的認證輸出：
-
-```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {strong password} \
-          --scopes $(az group show --name myResourceGroup --query id)
-```
-記下命令傳回的 appId 屬性。
-```json
-{
-  "appId": "a487e0c1-82af-47d9-9a0b-af184eb87646d",
-  "displayName": "openshiftsp",
-  "name": "http://openshiftsp",
-  "password": {strong password},
-  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-}
-```
- > [!WARNING] 
- > 請勿建立不安全的密碼。  請依照 [Azure AD 密碼規則和限制](/azure/active-directory/active-directory-passwords-policy)指引。
-
-如需有關服務主體的詳細資訊，請參閱[使用 Azure CLI 2.0 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)
-
-## <a name="deploy-the-openshift-origin-template"></a>部署 OpenShift Origin 範本
-接下來，使用 Azure Resource Manager 範本來部署 Web 應用程式。 
-
-> [!NOTE] 
-> 下列命令需要 az CLI 2.0.8 或更新版本。 您可以使用 `az --version` 命令來確認 az CLI 版本。 若要更新 CLI 版本，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
-
-使用您稍早針對 `aadClientId` 參數所建立之服務主體中的 `appId` 值。
-
-```azurecli 
-az group deployment create --name myOpenShiftCluster \
-      --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
-      --params \ 
-        openshiftMasterPublicIpDnsLabel=myopenshiftmaster \
-        infraLbPublicIpDnsLabel=myopenshiftlb \
-        openshiftPassword=Pass@word!
-        sshPublicKey=~/.ssh/openshift_rsa.pub \
-        keyVaultResourceGroup=myResourceGroup \
-        keyVaultName=myKeyVault \
-        keyVaultSecret=OpenShiftKey \
-        aadClientId={appId} \
-        aadClientSecret={strong password} 
-```
-完成部署最多可能需要大約 20 分鐘或更久的時間。 當部署完成時，OpenShift 主控台的 URL 和 OpenShift 主機的 DNS 名稱會列印到終端機。
-
-```json
-{
-  "OpenShift Console Uri": "http://openshiftlb.cloudapp.azure.com:8443/console",
-  "OpenShift Master SSH": "ocpadmin@myopenshiftmaster.cloudapp.azure.com"
-}
-```
-## <a name="connect-to-the-openshift-cluster"></a>連線到 OpenShift 叢集
-部署完成時，使用 `OpenShift Console Uri` 可透過瀏覽器連線至 OpenShift 主控台。 或者，您也可以使用下列命令連線至 OpenShift 主機。
-
-```bash
-$ ssh ocpadmin@myopenshiftmaster.cloudapp.azure.com
-```
-
-## <a name="clean-up-resources"></a>清除資源
-若不再需要，您可以使用 [az group delete](/cli/azure/group#delete) 命令將資源群組、OpenShift 叢集和所有相關資源移除。
-
-```azurecli 
-az group delete --name myResourceGroup
-```
+受管理的 Red Hat **單租用戶** OpenShift (使用容器平台)。 Red Hat 會管理所有的基礎結構 (VM、OpenShift 叢集、網路、儲存體等)。 叢集是一位客戶所特有，並會在公用雲端 (AWS、Google、Azure - 2018 年早期推出) 中執行。 啟動叢集包含四個每年 48000 美元的應用程式節點 (整年前方付款)。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-> [!div class="checklist"]
-> * 建立 KeyVault 來管理 OpenShift 叢集的 SSH 金鑰。
-> * 部署 Azure VM 上的 OpenShift 叢集。 
-> * 安裝和設定 [OpenShift CLI](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) 來管理叢集。
-
-現在您已部署 OpenShift Origin 叢集。 您可以遵循 OpenShift 教學課程，了解如何部署第一個應用程式，以及如何使用 OpenShift 工具。 若要開始使用，請參閱[開始使用 OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)。 
+- [在 Azure 中設定 OpenShift 的一般必要條件](./openshift-prerequisites.md)
+- [部署 OpenShift Origin](./openshift-origin.md)
+- [部署 Red Hat OpenShift 容器平台](./openshift-container-platform.md)
+- [後續部署工作](./openshift-post-deployment.md)
+- [OpenShift 部署疑難排解](./openshift-troubleshooting.md)

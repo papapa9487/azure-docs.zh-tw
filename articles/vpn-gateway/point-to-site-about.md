@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 010/19/2017
 ms.author: cherylmc
-ms.openlocfilehash: f19b58ad8f12169acefd74bfe86a28ad950dad34
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e31d58de113f737a48b6d3091650226f04ec69a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="about-point-to-site-vpn"></a>關於點對站 VPN
 
-點對站 (P2S) VPN 閘道連線可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 P2S 連線的建立方式是從用戶端電腦開始。 此解決方案適合於想要從遠端位置 (例如從住家或會議) 連線到 Azure VNet 的遠距工作者。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的解決方案 (而不是 S2S VPN)。
+點對站 (P2S) VPN 閘道連線可讓您建立從個別用戶端電腦到您的虛擬網路的安全連線。 P2S 連線的建立方式是從用戶端電腦開始。 此解決方案適合於想要從遠端位置 (例如從住家或會議) 連線到 Azure VNet 的遠距工作者。 當您只有少數用戶端必須連線至 VNet 時，P2S VPN 也是很實用的解決方案 (而不是 S2S VPN)。 本文適用於資源管理員部署模型。
 
 ## <a name="protocol"></a>P2S 使用哪種通訊協定？
 
@@ -36,7 +36,7 @@ ms.lasthandoff: 10/11/2017
 如果您有包含 Windows 和 Mac 裝置的混合用戶端環境，請設定 SSTP 和 IKEv2。
 
 >[!NOTE]
->適用於 P2S 的 IKEv2 目前為預覽版。
+>適用於 P2S 的 IKEv2 目前為預覽狀態，可供資源管理員部署模型使用。
 >
 
 ## <a name="authentication"></a>P2S VPN 用戶端的驗證方式

@@ -3,8 +3,8 @@ title: "如何使用適用於 Mobile Apps 的 Node.js 後端伺服器 SDK | Micr
 description: "了解如何使用適用於 Azure App Service Mobile Apps 的 Node.js 後端伺服器 SDK。"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: elamalani
+manager: elamalani
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>如何使用 Azure Mobile Apps Node.js SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -793,9 +793,13 @@ Azure App Service 提供數個適用於 Node.js 應用程式的偵錯和疑難�
 Node.js 應用程式可存取多種不同的診斷記錄工具。  在內部，Azure Mobile Apps Node.js SDK 會使用 [Winston] 進行診斷記錄。  啟用偵錯模式，或是在 [Azure 入口網站]中將 **MS_DebugMode** 應用程式設定設為 true，即會自動啟用記錄功能。 產生的記錄檔會顯示在 [Azure 入口網站]上的診斷記錄中。
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>作法：在 Azure 入口網站中使用簡單資料表
-入口網站中的簡單資料表，可讓您直接在入口網站中建立及使用資料表。 您甚至可以使用 App Service 編輯器編輯資料表作業。
+入口網站中的簡單資料表，可讓您直接在入口網站中建立及使用資料表。 您可以將資料集以 CSV 格式上傳至簡單資料表。 請注意，您無法使用與 Azure Mobile Apps 後端的系統屬性名稱衝突的屬性名稱 (在您的 CSV 資料集內)。 系統屬性名稱有：
+* 建立時間
+* 更新時間
+* 已刪除
+* 版本
 
-當您按一下後端網站設定中的 [簡單資料表]  時，可以新增、修改或刪除資料表。 您也可以查看資料表中的資料。
+您甚至可以使用 App Service 編輯器編輯資料表作業。 當您按一下後端網站設定中的 [簡單資料表]  時，可以新增、修改或刪除資料表。 您也可以查看資料表中的資料。
 
 ![使用簡單資料表](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 

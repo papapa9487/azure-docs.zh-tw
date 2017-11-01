@@ -4,7 +4,7 @@ description: "了解如何使用 PowerShell 建立具有多個 NIC 的 VM (傳�
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 923d4817d96399fc423b0a89cbf88f8d397f1af0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>使用 PowerShell 建立具有多個 NIC 的 VM (傳統)
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 您可以在 Azure 中建立虛擬機器 (VM) 並將多個網路介面 (NIC) 連接至每個 VM。 有多個 NIC 時，可透過各個 NIC 分隔不同的流量類型。 例如，一個 NIC 可能與網際網路進行通訊，而另一個 NIC 則只與未連線到網際網路的內部資源進行通訊。 透過多個 NIC 分隔網路流量是許多網路虛擬設備 (例如應用程式交付和 WAN 最佳化解決方案) 所需的功能。
 
 > [!IMPORTANT]
-> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 了解如何使用 [Resource Manager 部署模型](virtual-network-deploy-multinic-arm-ps.md)執行這些步驟。
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。 了解如何使用 [Resource Manager 部署模型](../virtual-machines/windows/multiple-nics.md)執行這些步驟。
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
@@ -153,7 +153,7 @@ ms.lasthandoff: 10/11/2017
     -StaticVNetIPAddress ($ipAddressPrefix+(53+$suffixNumber)) `
     -VM $vmConfig
     ```
-
+    
 6. 為每部 VM 建立資料磁碟。
 
     ```powershell
@@ -191,7 +191,11 @@ ms.lasthandoff: 10/11/2017
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. 填寫認證提示中所需的資訊，並按一下 [確定] 。 會傳回以下的輸出。
+2. 填寫認證提示中所需的資訊，並按一下 [確定] 。 會傳回下列輸出。
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
+
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>步驟 5 - 設定 VM 的作業系統內的路由
+
+Azure DHCP 會將預設閘道指派給連接至虛擬機器的第一個 (主要) 網路介面。 Azure 不會將預設閘道指派給連接至虛擬機器的其他 (次要) 網路介面。 因此，依預設，您無法與次要網路介面中子網路之外的資源進行通訊。 不過，次要網路介面可與它們的子網路之外的資源通訊。 若要設定次要網路介面的路由，請參閱[在具有多個網路介面的虛擬機器作業系統內路由](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces)。

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/20/2017
 ms.author: nitinme
-ms.openlocfilehash: 79b3183171e3c28276c8e4e6d4fe3998e0109643
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a100bbb950d5b3cf1fcbc0f24a76fe750b12a5cf
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>使用適用於 Eclipse 的 Azure 工具組建立適用於 HDInsight 叢集的 Spark 應用程式
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱 [在 Azure HDInsight 中建立 Apache Spark 叢集](hdinsight-apache-spark-jupyter-spark-sql.md)。
 * Oracle Java Development Kit 第 8 版，可用於 Eclipse IDE 執行階段。 您可以從 [Oracle 網站](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)下載。
 * Eclipse IDE。 本文使用的是 Eclipse Neon。 您可以從 [Eclipse 網站](https://www.eclipse.org/downloads/)下載。
-* Spark SDK。 您可以從 [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409) 下載。
+
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>安裝適用於 Eclipse 和 Scala 外掛程式之 Azure 工具組中的 HDInsight 工具
@@ -83,12 +83,14 @@ ms.lasthandoff: 10/11/2017
 4. 在 [新增 HDInsight Scala 專案] 對話方塊中，提供下列值，然後選取 [下一步]：
    * 輸入專案的名稱。
    * 在 [JRE] 區域中，請確定已將 [使用執行環境 JRE] 設為 [JavaSE-1.7] 或更新版本。
-   * 請確定已將 Spark SDK 設為您下載 SDK 的位置。 下載位置的連結已包含於本文稍早的[必要條件](#prerequisites)中。 您也可以從此對話方塊中的連結下載 SDK。
+   * 在 [Spark 程式庫] 區域中，您可以選擇 [使用 Maven 設定 Spark SDK ] 選項。  我們的工具為 Spark SDK 和 Scala SDK 整合正確的版本。 您也可以選擇 [手動新增 Spark SDK] 選項，手動下載並新增 Spark SDK。
 
    ![[新增 HDInsight Scala 專案] 對話方塊](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. 在下一個對話方塊中，選取 [文件庫] 索引標籤並保留預設值，然後選取 [完成]。 
+5. 由於已知的問題，按 [下一步] 之後需要再次確認 Scala 版本。 請確定 Scala 版本接近步驟 4 的選擇。
+
+   ![確認 Scala 程式庫](./media/hdinsight-apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
+6. 在下一個對話方塊中，選取 完成。 
    
-   ![[程式庫] 索引標籤](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>建立 HDInsight Spark 叢集的 Scala 應用程式
 
@@ -140,7 +142,7 @@ ms.lasthandoff: 10/11/2017
 
    ![作業檢視節點](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. 選取 [作業] 節點。 HDInsight 工具會自動偵測您是否已安裝 E(fx)clipse 外掛程式。 選取 [確定] 以繼續，然後遵循指示安裝 Eclipse Marketplace 並重新啟動 Eclipse。
+2. 選取 [作業] 節點。 如果 Java 版本低於 **1.8**，HDInsight 工具會自動提醒您安裝 **E(fx)clipse** 外掛程式。 選取 [確定] 繼續作業，然後遵循精靈安裝 Eclipse Marketplace 並重新啟動 Eclipse。 
 
    ![安裝 E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
@@ -176,7 +178,7 @@ ms.lasthandoff: 10/11/2017
 2. 出現提示時，輸入叢集的系統管理員認證。 在佈建叢集時，您已指定這些項目。
 
 ### <a name="manage-azure-subscriptions"></a>管理 Azure 訂用帳戶
-根據預設，適用於 Eclipse 的 Azure 工具組中之 HDInsight 工具會列出您所有 Azure 訂用帳戶中的 Spark 叢集。 如有必要，您可以指定要存取其叢集的訂用帳戶。 
+根據預設，Azure 工具組中適用於 Eclipse 的 HDInsight 工具會列出您所有 Azure 訂用帳戶中的 Spark 叢集。 如有必要，您可以指定要存取其叢集的訂用帳戶。 
 
 1. 在 [Azure Explorer] 中，以滑鼠右鍵按一下 [Azure] 根節點，然後選取 [管理訂用帳戶]。 
 2. 在對話方塊中，清除您不需要存取的訂用帳戶核取方塊，然後選取 [關閉]。 如果您想要登出 Azure 訂用帳戶，也可以選取 [登出]。
@@ -187,7 +189,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="prerequisite"></a>必要條件
 在 Windows 電腦上執行本機 Spark Scala 應用程式時，可能會發生如 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356) 中所述的例外狀況。 發生這個例外狀況是因為 Windows 中遺失 **WinUtils.exe**。 
 
-若要解決這個錯誤，您必須[下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)，並將其放在 **C:\WinUtils\bin** 之類的位置。 然後，您必須新增環境變數 **HADOOP_HOME**，並將變數的值設為 **C\WinUtils**。
+若要解決這個錯誤，必須[下載可執行檔](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)到例如 **C:\WinUtils\bin** 的位置，然後新增 **HADOOP_HOME** 環境變數，並將變數的值設為 **C\WinUtils**。
 
 ### <a name="run-a-local-spark-scala-application"></a>執行本機 Spark Scala 應用程式
 1. 啟動 Eclipse，然後建立專案。 在 [新增專案] 對話方塊中選取下列選項，然後選取 [下一步]。
@@ -210,7 +212,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="known-problems"></a>已知的問題
 若要將應用程式提交至 Azure Data Lake Store，請在 Azure 登入程序期間，選取 [互動] 模式。 如果您選取 [自動] 模式，可能會發生錯誤。
 
-![互動式登入](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+   ![互動式登入](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
 
 您可以選擇要使用任何登入方法提交您應用程式的 Azure Data Lake 叢集。
 

@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: b182c00ac9a6956d07dece621d03c84788442085
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/12/2017
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/12/2017
 ## <a name="updates"></a>更新
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Update 6 
-更新日期：2017 年 10 月 6 日
+更新日期：2017 年 10 月 12 日
 
 Scout Update 6 是累積更新。 其中包含 Update 1 到 Update 5 的所有修正及以下描述的新修正和增強功能。 
 
@@ -115,7 +115,6 @@ Scout Update 6 是累積更新。 其中包含 Update 1 到 Update 5 的所有�
 
 #### <a name="bug-fixes-and-enhancements"></a>Bug 修正和增強功能
 - Linux VM 的容錯回復保護失敗，且要複寫之磁碟的清單在組態結尾是空的。
-
 
 ### <a name="site-recovery-scout-801-update-5"></a>Site Recovery Scout 8.0.1 Update 5
 Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正及以下描述的新修正。
@@ -139,10 +138,10 @@ Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正�
     
 * 已修正 - 在容錯回復保護期間，如果選取的主要目標伺服器不是在和受保護來源機器相同的 ESXi 伺服器上 (在正向保護期間)，vContinuum 會在容錯回復復原期間挑出錯誤的主要目標伺服器，而且復原作業會失敗。
 
-#### <a name="issues"></a>問題
-* P2V 叢集修正僅適用於剛以 Site Recovery Scout Update 5 加以保護的實體 MSCS 叢集。 若要在以舊版更新保護的 P2V MSCS 叢集上安裝叢集修正，請遵循 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中所述的升級步驟。
-* 重新保護時，只有當在每個叢集節點上使用中的幾個磁碟與最初受保護時相同，重新保護實體 MSCS 叢集才可以重複使用現有的目標磁碟。 如果沒有，則使用 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中的手動步驟，將目標端磁碟移至正確的資料存放區路徑，以便在重新保護時重複使用。 如果未遵循升級步驟重新保護 P2V 模式中的 MSCS 叢集，則會在目標 ESXi 伺服器上建立新的磁碟。 您必須手動刪除資料存放區中的舊磁碟。
-* 當來源 SLES11 或 SLES11 (含任何 Service Pack) 伺服器正常重新開機時，請手動標記**根**磁碟複寫配對以利重新同步處理。 CX 介面中不會有任何通知。 如果您未標記要重新同步處理的根磁碟，可能會注意到資料完整性問題。
+> [!NOTE]
+> * P2V 叢集修正僅適用於剛以 Site Recovery Scout Update 5 加以保護的實體 MSCS 叢集。 若要在以舊版更新保護的 P2V MSCS 叢集上安裝叢集修正，請遵循 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中所述的升級步驟。
+> * 重新保護時，只有當在每個叢集節點上使用中的幾個磁碟與最初受保護時相同，重新保護實體 MSCS 叢集才可以重複使用現有的目標磁碟。 如果沒有，則使用 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中的手動步驟，將目標端磁碟移至正確的資料存放區路徑，以便在重新保護時重複使用。 如果未遵循升級步驟重新保護 P2V 模式中的 MSCS 叢集，則會在目標 ESXi 伺服器上建立新的磁碟。 您必須手動刪除資料存放區中的舊磁碟。
+> * 當來源 SLES11 或 SLES11 (含任何 Service Pack) 伺服器正常重新開機時，請手動標記**根**磁碟複寫配對以利重新同步處理。 CX 介面中不會有任何通知。 如果您未標記要重新同步處理的根磁碟，可能會注意到資料完整性問題。
 
 
 ### <a name="azure-site-recovery-scout-801-update-4"></a>Azure Site Recovery Scout 8.0.1 Update 4
@@ -180,14 +179,13 @@ Scout Update 4 是累積更新。 包含 Update 1 到 Update 3 的所有修正�
   * 顯示所有受保護裝置的容量和可用空間詳細資料。
   * 提供來源伺服器上的 Scout 驅動程式狀態。
 
-#### <a name="issues"></a>問題
-
-* **InMage_Scout_Standard_8.0.1_GA.zip** 基底套件具有：
+> [!NOTE]
+> * **InMage_Scout_Standard_8.0.1_GA.zip** 基底套件具有：
     * 更新的設定伺服器基底安裝程式 (**InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**)
     * Windows 主要目標基底安裝程式 (**InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**)。
     * 針對所有新的安裝，請使用新的設定伺服器和 Windows 主要目標 GA 位元。
-* Update 4 可以直接套用於 8.0.1 GA。
-* 設定伺服器和 RX 更新在套用後便無法復原。
+> * Update 4 可以直接套用於 8.0.1 GA。
+> * 設定伺服器和 RX 更新在套用後便無法復原。
 
 
 ### <a name="azure-site-recovery-scout-801-update-3"></a>Azure Site Recovery Scout 8.0.1 Update 3

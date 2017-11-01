@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/18/2017
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 02d73a3d843ee7cd3cdfbf6b137908e03d7306a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 
@@ -38,15 +38,15 @@ Azure Stack 會為其基礎結構角色設定各種端點 (VIP - 虛擬 IP 位�
 |端點 (VIP)|DNS 主機 A 記錄|通訊協定|連接埠|
 |---------|---------|---------|---------|
 |AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|入口網站 (系統管理員)|`Adminportal.[Region].[External FQDN]`|HTTPS|443|
+|入口網站 (系統管理員)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
 |Azure Resource Manager (系統管理員)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
 |入口網站 (使用者)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (使用者)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
 |圖形|`Graph.[Region].[External FQDN]`|HTTPS|443|
 |憑證撤銷清單|`Crl.[Region].[External FQDN]`|HTTP|80|
 |DNS|`*.[Region].[External FQDN]`|TCP 和 UDP|53|
-|Key Vault (使用者)|`*.vault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12490|
-|Key Vault (系統管理員)|`*.adminvault.[Region].[External FQDN]`|TCP<br>TCP|443<br>12492|
+|Key Vault (使用者)|`*.vault.[Region].[External FQDN]`|TCP|443|
+|Key Vault (系統管理員)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
 |儲存體佇列|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |儲存體資料表|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
 |儲存體 Blob|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
@@ -109,4 +109,4 @@ Azure Resource Manager (系統管理員)、系統管理員入口網站及 Key Va
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure Stack 資料中心整合 - DNS](azure-stack-integrate-dns.md)
+[Azure Stack 資料中心整合 - 安全性](azure-stack-integrate-security.md)

@@ -12,13 +12,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 158b0b65ba53630050275c910f2a7acfc39b8759
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 23faadc38fde75d4c83361465fdacc76d42d7523
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell 中 Bash 的功能和工具
 
@@ -52,8 +52,8 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 
 |類別   |名稱   |
 |---|---|
-|Linux 殼層直譯器|Bash<br> sh               |
-|Azure 工具            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) \(英文\) 和 [1.0](https://github.com/Azure/azure-xplat-cli) \(英文\)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br>    |
+|Linux 工具            |Bash<br> sh<br> tmux<br> dig<br>               |
+|Azure 工具            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) \(英文\) 和 [1.0](https://github.com/Azure/azure-xplat-cli) \(英文\)<br> [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard) <br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) <br>    |
 |文字編輯器           |vim<br> nano<br> emacs       |
 |原始檔控制         |git                    |
 |建置工具            |make<br> maven<br> npm<br> pip         |
@@ -65,11 +65,11 @@ Cloud Shell 中的 Bash 會安全地自動驗證 Azure CLI 2.0 的帳戶存取�
 
 |語言   |版本   |
 |---|---|
-|.NET       |1.01       |
+|.NET       |2.0.0       |
 |Go         |1.7        |
 |Java       |1.8        |
 |Node.js    |6.9.4      |
-|PowerShell  |[6.0 (搶鮮版 (Beta))](https://github.com/PowerShell/powershell/releases)       |
+|PowerShell |[6.0 (搶鮮版 (Beta))](https://github.com/PowerShell/powershell/releases)       |
 |Python     |2.7 和 3.5 (預設)|
 
 ## <a name="next-steps"></a>後續步驟

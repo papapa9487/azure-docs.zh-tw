@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 安全性概觀 | Microsoft Docs"
-description: "了解 Azure SQL Database 和 SQL Server 安全性，包括雲端和 SQL Server 內部部署之間在驗證、授權、連線安全性、加密和法規遵循等各方面的差異。"
+description: "了解 Azure SQL Database 和 SQL Server 的 安全性，包含雲端和 SQL Server 內部部署之間的差異。"
 services: sql-database
 documentationcenter: 
 author: tmullaney
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/05/2017
 ms.author: thmullan;jackr
-ms.openlocfilehash: de2b70a6a6bc557902fbe1fe1391696ec9998d70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c69b98e1abf0b6bc953c9c80b9e031319becff9f
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="securing-your-sql-database"></a>保護您的 SQL Database
 

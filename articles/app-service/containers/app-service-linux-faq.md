@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service Web App for Containers 常見問題集 | Microsoft Docs"
-description: "Azure App Service Web App for Containers 常見問題集。"
+title: "Linux 上的 Azure App Service 常見問題集 | Microsoft Docs"
+description: "Linux 上的 Azure App Service 常見問題集。"
 keywords: "azure app service, web 應用程式, 常見問題集, linux, oss"
 services: app-service
 documentationCenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-app-service-web-app-for-containers-faq"></a>Azure App Service Web App for Containers 常見問題集
+# <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
-隨著 Web App for Containers 的推出，我們正著手在我們的平台上新增功能和進行改善。 本文章提供我們的客戶最近向我們詢問之問題的回答。
+隨著 Linux 上的 App Service 推出，我們正著手在我們的平台上新增功能和進行改善。 本文章提供我們的客戶最近向我們詢問之問題的回答。
 
 如果您有問題，請對文章發表評論，我們會盡速回答。
 
@@ -55,7 +55,7 @@ ms.lasthandoff: 10/11/2017
 
 **我的 Web 應用程式在我已更新 Docker Hub 上的映像之後，仍然使用舊的 Docker 容器映像。您是否支援自訂容器的連續整合和部署？**
 
-**問：**如需設定 Azure Container Registry 或 DockerHub 映像的持續整合/部署，請查看下列文章：[使用 Azure Web App for Containers 進行持續部署](./app-service-linux-ci-cd.md)。 針對私人登錄，您可以將 Web 應用程式先停止再啟動，來重新整理容器。 您也可以變更或新增虛擬應用程式設定，來強制重新整理您的容器。
+如需設定 Azure Container Registry 或 DockerHub 映像的持續整合/部署，請查看下列文章：[使用用於容器的 Web 應用程式進行持續部署](./app-service-linux-ci-cd.md)。 針對私人登錄，您可以將 Web 應用程式先停止再啟動，來重新整理容器。 您也可以變更或新增虛擬應用程式設定，來強制重新整理您的容器。
 
 **是否支援預備環境？**
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
 **私人登錄選項中的映像名稱格式為何？**
 
-新增包括私人登錄 URL 的完整映像名稱 (例如 myacr.azurecr.io/dotnet:latest)。 使用自訂連接埠的映像名稱[無法透過入口網站輸入](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)。 若要設定 `docker-custom-image-name`，請使用 [`az` 命令列工具](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)。
+新增包括私人登錄 URL 的完整映像名稱 (例如 myacr.azurecr.io/dotnet:latest)。 使用自訂連接埠的映像名稱[無法透過入口網站輸入](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650)。 若要設定 `docker-custom-image-name`，請使用 [`az` 命令列工具](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set)。
 
 **我可以在我的自訂容器映像上公開多個連接埠嗎？**
 
@@ -134,6 +134,6 @@ SCM 網站是在個別的容器中執行。 您無法檢查應用程式容器的
 
 ## <a name="next-steps"></a>後續步驟
 
-* [什麼是 Azure Web App for Containers？](app-service-linux-intro.md)
+* [何謂 Linux 上的 Azure App Service？](app-service-linux-intro.md)
 * [在 Azure App Service 中設定預備環境](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [使用 Azure Web App for Containers 進行持續部署](./app-service-linux-ci-cd.md)
+* [使用用於容器的 Web 應用程式進行持 續部署](./app-service-linux-ci-cd.md)

@@ -1,6 +1,6 @@
 ---
-title: "Linux 部署上的 Azure Web App - 自訂映像或內建平台映像？  | Microsoft Docs"
-description: "如何在自訂 Docker 容器部署與內建應用程式架構之間做出選擇"
+title: "Linux 部署上的 Azure App Service - 自訂映像或內建平台映像？  | Microsoft Docs"
+description: "如何在自訂 Docker 容器部署與 Linux 上的 App Service 內建應用程式架構之間做出選擇"
 keywords: "azure app service, web 應用程式, linux, oss"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: nickwalk
-ms.openlocfilehash: 322533a9dce54222943f8b2a3d653780a674c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a04bba2375b5a107bc3cb8cdc1a75d037c50af6
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>自訂映像或內建平台映像？
 
-[Linux 上的 Web App](app-service-linux-intro.md) 提供兩種不同的路徑將應用程式發佈到網路上：
+[Linux 上的 App Service](app-service-linux-intro.md) 提供兩種不同的路徑將應用程式發佈到網路上：
 
 - **自訂映像部署**：將您的應用程式 Docker 化成為 Docker 映像，您所有的檔案和相依性都包含在執行就緒的封裝之中。
 - **使用內建平台映像的應用程式部署**：我們的內建平台映像包含常用的 Web 應用程式執行階段和相依性，例如節點和 PHP。 使用任何一種 [Azure App Service 部署方法](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，將您的應用程式部署至 Web 應用程式的存放區，然後使用內建的平台映像執行應用程式。

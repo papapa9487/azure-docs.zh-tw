@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8975a82c5573cc0c284e1fc76cd0ef2c19fbbd72
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -32,10 +32,13 @@ ms.lasthandoff: 10/11/2017
 
 請確保已具備下列必要條件︰
 
-1. 設定 Azure AD Connect 伺服器：如果您使用[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)作為登入方法，不需要採取任何動作。 如果您使用[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)作為登入方法，而且 Azure AD Connect 與 Azure AD 之間有防火牆，請確定︰
-- 您使用的是 1.1.484.0 版或更新版本的 Azure AD Connect。
-- Azure AD Connect 可以與 `*.msappproxy.net` URL 通訊，而且是透過連接埠 443。 只有當您啟用此功能，而不是針對實際使用者登入時，此必要條件才適用。
-- Azure AD Connect 可以對 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)直接建立 IP 連線。 同樣地，只有啟用此功能時，此必要條件才適用。
+1. 設定 Azure AD Connect 伺服器：如果您使用[傳遞驗證](active-directory-aadconnect-pass-through-authentication.md)作為登入方法，不需要進行額外的必要條件檢查。 如果您使用[密碼雜湊同步處理](active-directory-aadconnectsync-implement-password-synchronization.md)作為登入方法，而且 Azure AD Connect 與 Azure AD 之間有防火牆，請確定︰
+- 您使用的是 1.1.644.0 版或更新版本的 Azure AD Connect。 
+- 如果您的防火牆或 Proxy 允許建立 DNS 白名單，便可將 **.msappproxy.net\*** URL 透過連接埠 443 進行的連線加入白名單。 如果不允許建立，請允許存取每週更新的 [Azure DataCenter IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 只有當您啟用此功能，而不是針對實際使用者登入時，此必要條件才適用。
+
+    >[!NOTE]
+    >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與密碼雜湊同步處理相關的問題。 如果您_不_想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。
+
 2. 對於您同步處理至 Azure AD (使用 Azure AD Connect) 的每個 AD 樹系，以及您想要為其使用者啟用無縫 SSO 者，您需要有網域系統管理員認證。
 
 ## <a name="step-2-enable-the-feature"></a>步驟 2︰啟用功能
@@ -73,6 +76,8 @@ ms.lasthandoff: 10/11/2017
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
+此外，您也需要啟用內部網路區域原則設定 (使用群組原則)，稱為「允許透過指令碼更新狀態列」。
+
 >[!NOTE]
 > 下列指示僅適用於 Windows 上的 Internet Explorer 和 Google Chrome (如果它與 Internet Explorer 共用一組受信任的網站 URL)。 如需在 Mac 上設定 Mozilla Firefox 和 Google Chrome 的指示，請閱讀下節。
 
@@ -85,7 +90,7 @@ ms.lasthandoff: 10/11/2017
 1. 開啟群組原則管理工具。
 2. 編輯套用至某些或所有使用者的群組原則。 在此範例中，我們使用**預設網域原則**。
 3. 瀏覽至 **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security 頁面**，並選取 [指派網站到區域清單]。
-![單一登入](./media/active-directory-aadconnect-sso/sso6.png)  
+![單一登入](./media/active-directory-aadconnect-sso/sso6.png)
 4. 啟用原則，並在對話方塊中輸入下列值 (轉送 Kerberos 票證的 Azure AD URL) 和資料 (*1* 指出內部網路區域)。
 
         Value: https://autologon.microsoftazuread-sso.com
@@ -96,8 +101,11 @@ ms.lasthandoff: 10/11/2017
 > 如果您想要禁止部分使用者使用無縫 SSO (例如，如果這些使用者正在登入共用 Kiosk)，請將先前的值設定為 *4*。 此動作會將 Azure AD URL 新增至限制區域，而且隨時讓無縫 SSO 失敗。
 
 5. 按一下 [確定]，然後再按一下 [確定]。
-
 ![單一登入](./media/active-directory-aadconnect-sso/sso7.png)
+6. 瀏覽至 **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page\Intranet Zone**，然後選取 [允許透過指令碼更新狀態列]。
+![單一登入](./media/active-directory-aadconnect-sso/sso11.png)
+7. 啟用原則設定，然後按一下 [確定]。
+![單一登入](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### <a name="browser-considerations"></a>瀏覽器考量
 
@@ -151,7 +159,7 @@ Mozilla Firefox 不會自動執行 Kerberos 驗證。 每個使用者都必須�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [**技術性深入探討**](active-directory-aadconnect-sso-how-it-works.md) - 了解這項功能的運作方式。
-- [**常見問題集**](active-directory-aadconnect-sso-faq.md) - 常見問題集的答案。
-- [**疑難排解**](active-directory-aadconnect-troubleshoot-sso.md) - 了解如何解決此功能的常見問題。
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。
+- [技術性深入探討](active-directory-aadconnect-sso-how-it-works.md) - 了解這項功能的運作方式。
+- [常見問題集](active-directory-aadconnect-sso-faq.md) - 常見問題集的答案。
+- [疑難排解](active-directory-aadconnect-troubleshoot-sso.md) - 了解如何解決此功能的常見問題。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - 用於提出新的功能要求。

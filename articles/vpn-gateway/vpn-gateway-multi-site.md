@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
-ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>將站對站連線新增至具有現有 VPN 閘道連線的 VNet (傳統)
 
@@ -70,11 +70,11 @@ ms.lasthandoff: 10/11/2017
 如已有動態路由閘道的站對站 VPN，太棒了！ 您可以繼續 [匯出虛擬網路組態設定](#export)。 如果沒有，請執行下列動作：
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>如果您已經有站對站虛擬網路，但其有靜態 (原則式) 路由閘道：
-1. 將您的閘道類型變更為動態路由。 多網站 VPN 需要動態 (亦稱作路由式) 路由閘道。 若要變更閘道類型，您必須先刪除現有的閘道，然後建立新的閘道。 如需指示，請參閱 [如何變更閘道的 VPN 路由類型](vpn-gateway-configure-vpn-gateway-mp.md)。  
-2. 設定新的閘道，並建立 VPN 通道。 如需相關指示，請參閱 [在 Azure 傳統入口網站中設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)。 首先，將您的閘道類型變更為動態路由。
+1. 將您的閘道類型變更為動態路由。 多網站 VPN 需要動態 (亦稱作路由式) 路由閘道。 若要變更閘道類型，您必須先刪除現有的閘道，然後建立新的閘道。
+2. 設定新的閘道，並建立 VPN 通道。 如需指示，請參閱[指定 SKU 和 VPN 類型](vpn-gateway-howto-site-to-site-classic-portal.md#sku)。 請務必將路由類型指定為「動態」。
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>如果您沒有站對站虛擬網路：
-1. 使用下列指示建立站台對站台虛擬網路： [在 Azure 傳統入口網站中建立具有站對站 VPN 連線的虛擬網路](vpn-gateway-site-to-site-create.md)。  
+1. 使用下列指示建立站對站虛擬網路：[建立具有站對站 VPN 連線的虛擬網路](vpn-gateway-site-to-site-create.md)。  
 2. 使用下列指示設定動態路由閘道： [設定 VPN 閘道](vpn-gateway-configure-vpn-gateway-mp.md)。 閘道類型務必選取 [動態路由]  。
 
 ## <a name="export"></a>2.匯出網路組態檔
@@ -157,7 +157,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ```
 
 ## <a name="5-import-the-network-configuration-file"></a>5.匯入網路組態檔
-匯入網路組態檔。 當您匯入含有變更的這個檔案時，就會加入新的通道。 這些通道會使用您稍早建立的動態閘道。 您可以使用傳統入口網站或 PowerShell 來匯入檔案。
+匯入網路組態檔。 當您匯入含有變更的這個檔案時，就會加入新的通道。 這些通道會使用您稍早建立的動態閘道。 您可以使用 PowerShell 匯入檔案。
 
 ## <a name="6-download-keys"></a>6.下載金鑰
 新增您的新通道之後，請使用 PowerShell Cmdlet 'Get-AzureVNetGatewayKey'，以取得每個通道的 IPsec/IKE 預先共用金鑰。

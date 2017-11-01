@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2017
+ms.date: 10/12/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0f35030b90cbd854512fb6b9a8ef564584fc101b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 46a72a15ba35119ecb5640cb0b22cd2a0fc56a27
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 您可以將資料從內部部署的 PostgreSQL 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 Data Factory 目前支援將資料從 PostgreSQL 資料庫移到其他資料存放區，而不支援將資料從其他資料存放區移到 PostgreSQL 資料庫。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 Data Factory 服務支援使用資料管理閘道器連接至內部部署 PostgreSQL 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。
 
@@ -44,7 +44,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 > 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。
 
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
-若要讓資料管理閘道連線至 PostgreSQL 資料庫，在與資料管理閘道相同的系統上，安裝 [PostgreSQL 的 Ngpsql 資料提供者](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 或以上版本。 支援 PostgreSQL 版本 7.4 和以上版本。
+若要讓資料管理閘道連線至 PostgreSQL 資料庫，請在與資料管理閘道相同的系統上，安裝 [PostgreSQL 的 Ngpsql 資料提供者](http://go.microsoft.com/fwlink/?linkid=282716) 2.0.12 和 3.1.9 之間的版本。 支援 PostgreSQL 版本 7.4 和以上版本。
 
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 PostgreSQL 資料存放區移動資料。 
@@ -102,7 +102,7 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如："query": "select * from \"MySchema\".\"MyTable\""。 |否 (如果已指定 **dataset** 的 **tableName**) |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如： `"query": "select * from \"MySchema\".\"MyTable\""`。 |否 (如果已指定 **dataset** 的 **tableName**) |
 
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢中以 `""` (雙引號) 括住它們。  
@@ -310,13 +310,13 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | abstime | |Datetime | &nbsp;
 | bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| 位元 [ (n) ] | |Byte[]、String | &nbsp;
+| bit [(n)] | |Byte[]、String | &nbsp;
 | 位元不同 [ (n) ] |varbit |Byte[]、String |
 | 布林值 |布林 |布林值 |
 | 方塊 | |Byte[]、String |&nbsp;
 | bytea | |Byte[]、String |&nbsp;
-| 字元 [ (n) ] |char [ (n) ] |String |
-| 字元不同 [ (n) ] |varchar [ (n) ] |String |
+| character [(n)] |char [(n)] |String |
+| character varying [(n)] |varchar [(n)] |String |
 | cid | |String |&nbsp;
 | cidr | |String |&nbsp;
 | 圓形 | |Byte[]、String |&nbsp;
@@ -328,14 +328,14 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 Postgr
 | int4range | |String |&nbsp;
 | int8range | |String |&nbsp;
 | integer |int, int4 |Int32 |
-| 間隔 [ 欄位 ] [ (p) ] | |Timespan |&nbsp;
+| interval [fields] [(p)] | |Timespan |&nbsp;
 | json | |String |&nbsp;
 | jsonb | |Byte[] |&nbsp;
 | 線條 | |Byte[]、String |&nbsp;
 | lseg | |Byte[]、String |&nbsp;
 | macaddr | |Byte[]、String |&nbsp;
 | money | |十進位 |&nbsp;
-| 數值 [ (p, s) ] |十進位 [ (p, s) ] |十進位 |
+| numeric [(p, s)] |decimal [(p, s)] |十進位 |
 | numrange | |String |&nbsp;
 | oid | |Int32 |&nbsp;
 | 路徑 | |Byte[]、String |&nbsp;

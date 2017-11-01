@@ -3,7 +3,7 @@ title: "在 Azure Functions 中使用 Proxy | Microsoft Docs"
 description: "如何使用 Azure Functions Proxy 的概觀"
 services: functions
 documentationcenter: 
-author: mattchenderson
+author: alexkarcher-msft
 manager: cfowler
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: mahender
-ms.openlocfilehash: 63119978c59186a71e7e30438e8e37c0b2e1b454
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alkarche
+ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>使用 Azure Functions Proxy (預覽)
 
@@ -28,18 +28,6 @@ ms.lasthandoff: 10/11/2017
 這篇文章說明如何設定與使用 Azure Functions Proxy。 這項功能可讓您在函式應用程式上指定由其他資源所實作的端點。 您可以使用這些 Proxy 將大型 API 細分為多個函式應用程式 (如同在微服務架構中)，同時仍為用戶端呈現單一的 API 介面。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
-
-## <a name="enable"></a>啟用 Azure Functions Proxy
-
-預設不會啟用 Proxy。 功能停用時您可以建立 Proxy，但是它們不會執行。 若要啟用 Proxy，請執行下列步驟︰
-
-1. 開啟 [Azure 入口網站]，然後移至您的函式應用程式。
-2. 選取 [函式應用程式設定]。
-3. 將 [啟用 Azure Functions Proxy (預覽)] 切換為 [開啟]。
-
-您也可以在新功能可供使用時，返回這裡以更新 Proxy 執行階段。
-
 
 ## <a name="create"></a>建立 Proxy
 
@@ -206,6 +194,16 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 ```
 > [!NOTE] 
 > 此範例會直接設定本文，因此不需要 `backendUri` 屬性。 此範例示範如何使用 Azure Functions Proxy 來模擬 API。
+
+## <a name="enable"></a>啟用 Azure Functions Proxy
+
+現在預設會啟用 Proxy！ 如果您使用較舊的 Proxy 預覽版本並已停用 Proxy，您必須手動啟用 Proxy 一次，這些 Proxy 才會執行。
+
+1. 開啟 [Azure 入口網站]，然後移至您的函式應用程式。
+2. 選取 [函式應用程式設定]。
+3. 將 [啟用 Azure Functions Proxy (預覽)] 切換為 [開啟]。
+
+您也可以在新功能可供使用時，返回這裡以更新 Proxy 執行階段。
 
 [Azure 入口網站]: https://portal.azure.com
 [HTTP 觸發程序]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

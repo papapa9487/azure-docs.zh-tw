@@ -1,6 +1,6 @@
 ---
-title: "針對 Azure Web App for Containers 執行自訂 Docker Hub 映像 | Microsoft Docs"
-description: "如何針對 Azure Web App for Containers 使用自訂 Docker 映像。"
+title: "在用於容器的 Web 應用程式中執行自訂 Docker Hub 映像 | Microsoft Docs"
+description: "如何針對用於容器的 Web 應用程式使用自訂 Docker 映像。"
 keywords: "azure app service, web 應用程式, linux, docker, 容器"
 services: app-service
 documentationcenter: 
@@ -16,25 +16,25 @@ ms.topic: quickstart
 ms.date: 09/05/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 28b0b50c68fa7c16a354fd16b7dfd930436c6b4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eadc0f7eb20b9e8d1cacc79b2907559e2b2535a2
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="run-a-custom-docker-hub-image-in-azure-web-app-for-containers"></a>針對 Azure Web App for Containers 執行自訂 Docker Hub 映像 #
+# <a name="run-a-custom-docker-hub-image-in-web-app-for-containers"></a>在用於容器的 Web 應用程式中執行自訂 Docker Hub 映像
 
-App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特定的版本，例如 PHP 7.0 和 Node.js 4.5。 您也可以使用自訂 Docker 映像，將您的 Web 應用程式部署到尚未定義在 Azure 中的應用程式堆疊。 本快速入門示範如何建立 Web 應用程式，並將 Python 的映像部署到其中。 [使用 Azure CLI 建立 Web 應用程式](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
+App Service 在 Linux 上提供預先定義的應用程式堆疊，且支援特定的版本，例如 PHP 7.0 和 Node.js 4.5。 您也可以使用自訂 Docker 映像，將您的 Web 應用程式部署到尚未定義在 Azure 中的應用程式堆疊。 本快速入門示範如何建立 Web 應用程式，並將以 Python 為基礎的 Docker 映像部署到其中。 [使用 Azure CLI 建立 Web 應用程式](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)] 
+[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group.md)]
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>建立 Web 應用程式
+## <a name="create-a-web-app-for-container"></a>建立用於容器的 Web 應用程式
 
 使用 [az webapp create](/cli/azure/webapp#create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../app-service-web-overview.md)。 別忘了以唯一的應用程式名稱取代 `<app name>`。
 

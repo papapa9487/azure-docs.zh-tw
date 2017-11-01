@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 4f4fa884694dc8dad6349e3835e7c7ba2c4d2bdf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbedb87722d1c230f3b8003cadd069947881f25d
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -43,7 +43,11 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 ### <a name="in-your-on-premises-environment"></a>在內部部署環境中
 
 1. 識別一部執行 Windows Server 2012 R2 或更新版本的伺服器來執行 Azure AD Connect。 在需要驗證密碼的使用者所在的同一個 AD 樹系中，新增此伺服器。
-2. 在上一個步驟中識別的伺服器上安裝[最新版本的 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)。 如果您已執行 Azure AD Connect，請確定版本是 1.1.557.0 或更新版本。
+2. 在上一個步驟中識別的伺服器上安裝[最新版本的 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)。 如果您已執行 Azure AD Connect，請確定版本是 1.1.644.0 或更新版本。
+
+    >[!NOTE]
+    >Azure AD Connect 版本 1.1.557.0、1.1.558.0、1.1.561.0 和 1.1.614.0 具有與**密碼雜湊同步處理**相關的問題。 如果您_不_想要使用密碼雜湊同步處理搭配傳遞驗證，請閱讀 [Azure AD Connect 版本資訊](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)，以深入了解。
+
 3. 識別額外一部執行 Windows Server 2012 R2 或更新版本的伺服器來執行獨立驗證代理程式。 驗證代理程式版本必須是 1.5.193.0 或更新版本。 這是確保有高可用性可滿足登入要求的伺服器。 在需要驗證密碼的使用者所在的同一個 AD 樹系中，新增此伺服器。
 4. 如果您的伺服器和 Azure AD 之間有防火牆，則您需要設定下列項目：
    - 確定驗證代理程式會透過以下連接埠對 Azure AD 提出**輸出**要求：
@@ -87,7 +91,7 @@ Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
 
 ![Azure AD Connect - 使用者登入](./media/active-directory-aadconnect-sso/sso3.png)
 
-如果您已安裝 Azure AD Connect (使用[快速安裝](active-directory-aadconnect-get-started-express.md)或[自訂安裝](active-directory-aadconnect-get-started-custom.md)路徑)，請在 Azure AD Connect 上選取 [變更使用者登入] 頁面，並按 [下一步]。 然後選取 [傳遞驗證] 作為登入方法。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上，且您的租用戶上會啟用此功能。
+如果您已安裝 Azure AD Connect (使用[快速安裝](active-directory-aadconnect-get-started-express.md)或[自訂安裝](active-directory-aadconnect-get-started-custom.md)路徑)，請在 Azure AD Connect 上選取 [變更使用者登入] 工作，並按 [下一步]。 然後選取 [傳遞驗證] 作為登入方法。 成功完成時，傳遞驗證代理程式會安裝在 Azure AD Connect 所在的同一部伺服器上，且您的租用戶上會啟用此功能。
 
 ![Azure AD Connect - 變更使用者登入](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

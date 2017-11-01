@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bc801ed3dac213dacac5ee14e1b4e73b87ecc7bd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ab0aa377f9803d74d8a7a94bdb4c7b780e3ae41d
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>在 Flow、Logic Apps、Functions 和 WebJobs 之間做選擇
 本文會比較和對照 Microsoft Cloud 中的下列服務，這些服務全都可以解決整合問題並將商務程序自動化︰
@@ -50,7 +50,7 @@ Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如取�
 | 對象 |辦公室工作人員、商務使用者 |IT 專家、開發人員 |
 | 案例 |自助服務 |關鍵任務 |
 | 設計工具 |瀏覽器內及行動裝置應用程式，僅限 UI |有瀏覽器內和 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md)、[程式碼檢視](../logic-apps/logic-apps-author-definitions.md)可用 |
-| DevOps |特定、在生產環境中開發 |在 [Azure 資源管理](../logic-apps/logic-apps-arm-provision.md) |
+| DevOps |特定、在生產環境中開發 |在 [Azure 資源管理](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
 | 管理員體驗 |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
 | 安全性 |標準做法︰[資料主權](https://wikipedia.org/wiki/Technological_Sovereignty)、敏感資料的[待用加密](https://wikipedia.org/wiki/Data_at_rest#Encryption)等。 |Azure 的安全性保證︰[Azure 安全性](https://www.microsoft.com/trustcenter/Security/AzureSecurity)、[資訊安全中心](https://azure.microsoft.com/services/security-center/)、[稽核記錄檔](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/)等。 |
 
@@ -66,6 +66,7 @@ Flow 可讓任何辦公室工作人員有能力執行簡單的整合 (例如取�
 
 Functions 是 WebJobs 的自然進化，因為它採用有關 WebJobs 的最佳功能並加以改善。 其改善項目包括︰ 
 
+* [無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式模型。
 * 簡化程式碼的開發、測試和執行，在瀏覽器中就可直接進行。
 * 與其他 Azure 服務和第三方服務 (例如 [GitHub Webhook](https://developer.github.com/webhooks/creating/)) 內建整合。
 * 按使用次數付費，不需要支付 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。

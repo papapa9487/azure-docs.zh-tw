@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>透過 Operations Management Suite (OMS) 和 Log Analytics 監視邏輯應用程式執行並取得深入解析
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 2. 若要檢視含有邏輯應用程式執行之更多詳細資料的摘要，請選擇 [Logic Apps Management] \(Logic Apps 管理) 磚。
 
-   在這裡，您的邏輯應用程式執行會依名稱或執行狀態分組。
+   在這裡，您的邏輯應用程式執行會依名稱或執行狀態分組。 您也可以查看邏輯應用程式執行動作或觸發程序失敗的相關詳細資料。
 
    ![邏輯應用程式執行的狀態摘要](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
@@ -107,8 +107,16 @@ ms.lasthandoff: 10/11/2017
 
    ![檢視邏輯應用程式或狀態的執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   > [!NOTE]
-   > [重新提交] 資料行顯示為 [是]，表示執行是重新提交執行的結果。
+   此頁面上有兩個進階選項：
+   * **追蹤屬性：**此欄顯示邏輯應用程式的追蹤屬性 (依動作分組)。 若要檢視追蹤屬性，請選擇 [檢視]。 您可以使用資料行篩選來搜尋追蹤屬性。
+   
+     ![檢視邏輯應用程式的追蹤屬性](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+
+     初次顯示任何新增的追蹤屬性可能需費時 10-15 分鐘。 深入了解[如何將追蹤屬性新增至應用程式邏輯](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details)。
+
+   * **重新提交：**您可以重新提交一個或多個已失敗、已成功或仍在執行的邏輯應用程式執行。 針對您要重新提交的執行選取核取方塊，然後選擇 [重新提交]。 
+
+     ![重新提交邏輯應用程式執行](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 4. 若要篩選這些結果，您可以執行用戶端和伺服器端篩選。
 
@@ -122,14 +130,23 @@ ms.lasthandoff: 10/11/2017
    
      ![變更時間範圍](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. 若要檢視特定執行的所有動作及其詳細資料，請選取資料列，這會開啟 [記錄搜尋] 頁面。 
+5. 若要檢視特定執行的所有動作及其詳細資料，請選取邏輯應用程式執行的資料列。
 
-   * 若要以資料表檢視這項資訊，請選擇 [資料表]。
+   以下範例顯示特定邏輯應用程式執行的所有動作：
+
+   ![檢視邏輯應用程式執行的動作](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+   
+6. 若要在任何結果頁面上檢視結果背後的查詢，或查看所有結果，請選擇 [檢視全部] 來開啟 [記錄搜尋] 頁面。
+   
+   ![在結果頁面上檢視全部](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   
+   在 [記錄搜尋] 頁面上，
+   * 若要在表格中檢視查詢結果，請選擇 [表格]。
    * 若要變更查詢，您可以編輯搜尋列中的查詢字串。 
    若要獲得更佳的體驗，請選擇 [進階分析]。
 
      ![檢視邏輯應用程式執行的動作和詳細資料](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
+     
      在這裡的 [Azure Log Analytics] 頁面上，您可以更新查詢並檢視資料表的結果。 
      此查詢使用 [Kusto 查詢語言](https://docs.loganalytics.io/docs/Language-Reference)，如果您想要檢視不同的結果，可予以編輯。 
 
@@ -138,3 +155,4 @@ ms.lasthandoff: 10/11/2017
 ## <a name="next-steps"></a>後續步驟
 
 * [監視 B2B 訊息](../logic-apps/logic-apps-monitor-b2b-message.md)
+

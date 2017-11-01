@@ -17,21 +17,21 @@ ms.workload: na
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 8a65635de3e5d95eb9e6ea8e9d4cbc6f6a36431e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41f26a4b03a6431aaad21bda6336b8840d2d923f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
-Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Java、Python 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發無伺服器應用程式。
+Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Java 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/overview/serverless-computing/)應用程式。
 
-本主題提供 Azure Functions 的高階概觀。 如果您想要直接進入正題並開始使用 Azure Functions，請從 [建立您的第一個Azure Functions](functions-create-first-azure-function.md)著手。 如果您要尋找更多有關 Functions 的技術資訊，請參閱 [開發人員參考](functions-reference.md)。
+本主題提供 Azure Functions 的高階概觀。 如果您想要直接進入正題並開始使用 Functions，請從 [建立您的第一個 Azure Functions](functions-create-first-azure-function.md) 著手。 如果您要尋找更多有關 Functions 的技術資訊，請參閱 [開發人員參考](functions-reference.md)。
 
 ## <a name="features"></a>特性
-以下是 Azure Functions 的一些主要功能︰
+以下是 Functions 的一些主要功能︰
 
-* **選擇的語言** - 使用 C#、F#、Node.js、Java、Python、PHP、batch、bash 或任何可執行檔撰寫函式。
+* **選擇的語言** - 使用 C#、F#、Node.js、Java、PHP、batch、bash 或任何可執行檔撰寫函式。
 * **使用即付費價格模式** - 只對執行您的程式碼所花的時間付費。 請參閱[價格區段](#pricing)中的使用情況主控方案選項。  
 * **自備相依性** - Functions 支援 NuGet 和 NPM，以便您使用您最愛的程式庫。  
 * **整合式安全性** - 利用 OAuth 提供者 (如 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶) 保護 HTTP 觸發的函數。  
@@ -40,7 +40,7 @@ Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解�
 * **開放原始碼** - Functions 執行階段是開放原始碼的平台並 [可在 GitHub 上取得](https://github.com/azure/azure-webjobs-sdk-script)。  
 
 ## <a name="what-can-i-do-with-functions"></a>我可以用 Functions 來做什麼？
-Azure Functions 是處理資料、整合系統、使用物聯網 (IoT)，以及建置簡單 API 和微服務的絕佳解決方案。 考慮將 Functions 用於如下的工作：映像或訂單處理、檔案維護，或者您要排程執行的任何工作。 
+Functions 是處理資料、整合系統、使用物聯網 (IoT)，以及建置簡單 API 和微服務的絕佳解決方案。 考慮將 Functions 用於如下的工作：映像或訂單處理、檔案維護，或者您要排程執行的任何工作。 
 
 Functions 提供範本，可讓您開始使用重要的案例，包括下列案例︰
 
@@ -50,7 +50,7 @@ Functions 提供範本，可讓您開始使用重要的案例，包括下列案�
 * **泛型 webhook** - 處理來自支援 webhook 的任何服務的 webhook HTTP 要求。 如需範例，請參閱[建立由一般 Webhook 所觸發的函式](functions-create-generic-webhook-triggered-function.md)。
 * **CosmosDBTrigger** - 當 Azure Cosmos DB 文件在 NoSQL 資料庫的集合中新增或更新時進行處理。 如需範例，請參閱[建立由 Azure Cosmos DB 觸發的函式](functions-create-cosmos-db-triggered-function.md)。
 * **BlobTrigger** - 在新增至容器時，處理 Azure 儲存體 blob。 您可以使用此函式調整映像大小。 如需詳細資訊，請參閱 [Blob 儲存體繫結](functions-bindings-storage-blob.md)。
-* **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需範例，請參閱[建立連線至其他 Azure 服務的函式](functions-create-an-azure-connected-function.md)。
+* **QueueTrigger** - 在訊息送達 Azure 儲存體佇列中時回應。 如需範例，請參閱[建立由 Azure 佇列儲存體觸發的函式](functions-create-storage-queue-triggered-function.md)。
 * **EventHubTrigger** - 回應傳送到 Azure 事件中樞的事件。 特別適合用於應用程式檢測、使用者經驗或工作流程處理及物聯網 (IoT) 案例。 如需詳細資訊，請參閱[事件中樞繫結](functions-bindings-event-hubs.md)。
 * **ServiceBusQueueTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是接聽訊息佇列。 如需詳細資訊，請參閱[服務匯流排繫結](functions-bindings-service-bus.md)。
 * **ServiceBusTopicTrigger** - 將程式碼連接至其他 Azure 服務或內部部署服務，方法是訂閱主題。 如需詳細資訊，請參閱[服務匯流排繫結](functions-bindings-service-bus.md)。
@@ -58,10 +58,11 @@ Functions 提供範本，可讓您開始使用重要的案例，包括下列案�
 Azure Functions 支援「觸發」，這是開始執行您的程式碼的方式，以及「繫結」，這是針對輸入和輸出資料簡化編碼的方式。 如需 Azure Functions 提供的觸發和繫結的詳細說明，請參閱 [Azure Functions 觸發和繫結開發人員參考](functions-triggers-bindings.md)。
 
 ## <a name="integrations"></a>整合
-Azure Functions 可以與各種 Azure 和協力廠商服務整合。 這些服務可以觸發您的函式並開始執行，或做為您程式碼的輸入和輸出。 Azure Functions 支援下列服務整合。 
+Azure Functions 可以與各種 Azure 和協力廠商服務整合。 這些服務可以觸發您的函式並開始執行，或做為您程式碼的輸入和輸出。 Azure Functions 支援下列服務整合：
 
 * Azure Cosmos DB
 * Azure 事件中心 
+* Azure Event Grid
 * Azure Mobile Apps (資料表)
 * Azure 通知中心
 * Azure 服務匯流排 (佇列和主題)

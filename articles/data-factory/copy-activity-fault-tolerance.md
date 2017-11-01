@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2017
 ms.author: jingwang
-ms.openlocfilehash: d96c89ed3650c09ac6465e30754ef1155b06d601
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b2658cecba80ef871cc38b930b0e52bc3952530
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory 中複製活動的容錯
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -86,13 +86,13 @@ linkedServiceName | Azure 儲存體的連結服務，儲存包含跳過資料列
 ```
 如果您設定記錄不相容的資料列，您可以在此路徑中找到記錄檔：`https://[your-blob-account].blob.core.windows.net/[path-if-configured]/[copy-activity-run-id]/[auto-generated-GUID].csv`。 
 
-在記錄檔中，您可以看到略過的資料列，以及不相容的根本原因。
+記錄檔只能是 csv 檔案。 若有需要，系統會使用逗號做為資料行分隔符號，將目前跳過的原始資料記錄下來。 記錄檔中除了原始的來源資料之外，還額外新增了「ErrorCode」與「ErrorMessage」兩個資料行，可在其中查看不相容問題的根本原因。 系統會以雙引號標註 ErrorCode 與 ErrorMessage。 
 
-原始資料和對應的錯誤都會記錄在檔案中。 記錄檔內容範例如下所示：
+記錄檔內容範例如下所示：
 
 ```
-data1, data2, data3, UserErrorInvalidDataValue,Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'.,
-data4, data5, data6, Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4).
+data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an invalid value 'data3'. Cannot convert 'data3' to type 'DateTime'."
+data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f80f9f0e6d3fde438d27949a3fea001f37d59ee4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -105,11 +105,10 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
 大部分應用程式都必須儲存資料，因此無論您決定如何在 Azure 中裝載應用程式，請考慮下列一或多個儲存體和資料服務。
 
--   **Azure SQL Database**：Azure 版本的 Microsoft SQL Server 引擎，可將關聯式表格資料儲存在雲端中。 SQL Database 提供可預測的效能、無停機時間的延展性、商務持續性和資料保護功能。
+-   **Azure Cosmos DB**：全域分散式的多模型資料庫服務，可讓您透過完整的 SLA，彈性地調整任何地區數量的輸送量及儲存體。 
+    >**使用時機：**當您的應用程式需要文件、資料表或圖表資料庫時，請併入具有多個定義完善、一致模型的 MongoDB 資料庫。 
 
-    >**使用時機：**當您的應用程式需要具有參考完整性、交易支援和 TSQL 查詢支援的資料儲存體時。
-
-    >**開始使用**[：使用 Azure 入口網站在幾分鐘內建立 SQL Database](../../sql-database/sql-database-get-started.md)。
+    >**入門**：[建置 Azure Cosmos DB Web 應用程式](../../cosmos-db/create-documentdb-dotnet.md)。 如果您是 MongoDB 開發人員，請參閱[使用 Azure Cosmos DB 建置 MongoDB Web 應用程式](../../cosmos-db/create-mongodb-dotnet.md)。
 
 -   **Azure 儲存體**：提供 Blob、佇列、檔案和其他類型之非關聯式資料的持久性高可用性儲存體。 儲存體提供 VM 的儲存體基礎。
 
@@ -117,10 +116,12 @@ Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
     >**開始使用**：選擇下列其中一種類型的儲存體：[Blob](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)、[資料表](../../cosmos-db/table-storage-how-to-use-dotnet.md)、[佇列](../../storage/queues/storage-dotnet-how-to-use-queues.md)或[檔案](../../storage/files/storage-dotnet-how-to-use-files.md)。
 
--   **Azure DocumentDB**：完整受管理和可擴充的 NoSQL 資料庫服務，其具備物件資料的 SQL 查詢。 您可以使用現有 MongoDB 驅動程式存取 DocumentDB。
-    >**使用時機**：當您的應用程式需要可以對 JSON 文件執行 SQL 查詢時，或者使用 MongoDB 時。
+-   **Azure SQL Database**：Azure 版本的 Microsoft SQL Server 引擎，可將關聯式表格資料儲存在雲端中。 SQL Database 提供可預測的效能、無停機時間的延展性、商務持續性和資料保護功能。
 
-    >**開始使用**：[建置 DocumentDB C# 主控台應用程式](../../documentdb/documentdb-get-started.md)。 如果您是 MongoDB 開發人員，請參閱 [MongoDB 的 DocumentDB 通訊協定支援](../../documentdb/documentdb-protocol-mongodb.md)。
+    >**使用時機：**當您的應用程式需要具有參考完整性、交易支援和 TSQL 查詢支援的資料儲存體時。
+
+    >**開始使用**[：使用 Azure 入口網站在幾分鐘內建立 SQL Database](../../sql-database/sql-database-get-started.md)。
+
 
 您可以使用 [Azure Data Factory](../../data-factory/introduction.md)，將現有內部部署資料移至 Azure。 如果您尚未準備好將資料移至雲端，則 BizTalk 服務中的[混合式連線](../../biztalk-services/integration-hybrid-connection-overview.md)可讓您將 App Service 託管應用程式裝載連線至內部部署資源。 您也可以從內部部署應用程式連接至 Azure 資料和儲存體服務。
 

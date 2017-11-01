@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 6643dad5ea3ba703e26f5708cdd2e925f702847f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="work-with-azure-file-share-snapshots-preview"></a>使用 Azure 檔案共用快照集 (預覽)
 Azure 檔案共用快照集 (預覽) 是在某個時間點拍攝的 Azure 檔案共用唯讀版本。 一旦建立共用快照集之後，即可加以讀取、複製或刪除，但不能修改。 共用快照集提供在某個時間點備份共用的方法。 在本文中，我們將了解如何建立、管理和刪除 Azure 檔案共用快照集。 若要深入了解共用快照集，請參閱[共用快照集概觀](storage-snapshots-files.md)或[快照集常見問題集](storage-files-faq.md)
@@ -72,9 +72,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## <a name="list-share-snapshots-browse-share-snapshot-contents-and-restore-from-snapshots"></a>列出共用快照集、瀏覽共用快照集內容，然後從快照集還原
 
-您可以使用 Windows 中的「舊版」整合，透過 REST、用戶端程式庫、PowerShell 和入口網站，列舉與您檔案共用相關聯的共用快照集。 一旦掛接 Azure 檔案共用之後，您可以使用 SMB「舊版」整合，檢視所有舊版的檔案。 一旦掛接 Azure 檔案共用之後，您可以使用 SMB「舊版」整合，檢視所有舊版的目錄。 在下列幾節中，您將了解如何使用 Azure 入口網站、Windows 和 Azure CLI 2.0 列出、瀏覽，以及還原共用快照集。
+## <a name="common-share-snapshot-operations"></a>常見的共用快照集作業
+
+您可以使用 Windows 中的 [舊版] 索引標籤，透過 REST、用戶端程式庫、PowerShell 和入口網站，列舉與您檔案共用相關聯的共用快照集。 一旦掛接 Azure 檔案共用之後，您可以使用 Windows 中的 [舊版] 索引標籤來檢視所有舊版的檔案。 在下列小節中，您將了解如何使用 Azure 入口網站、Windows 和 Azure CLI 2.0 列出、瀏覽，以及還原共用快照集。
 
 ### <a name="share-snapshot-operations-in-portal"></a>在入口網站中共用快照集作業
 

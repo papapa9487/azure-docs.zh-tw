@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
 ## <a name="overview"></a>Overview
@@ -36,8 +36,27 @@ ms.lasthandoff: 10/11/2017
 
 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，您可以建置可使用多個儲存體帳戶的應用程式，並將資料物件分割到那些儲存體帳戶中。 如需批量價格的詳細資訊，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/) 。
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Blob、佇列、資料表和檔案的延展性目標
+## <a name="scalability-targets-for-a-storage-account"></a>儲存體帳戶的延展性目標
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+## <a name="azure-blob-storage-scale-targets"></a>Azure Blob 儲存體擴展目標
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+## <a name="azure-files-scale-targets"></a>Azure 檔案擴展目標
+如需 Azure 檔案和 Azure 檔案同步的擴展目標與效能目標的詳細資訊，請參閱 [Azure 檔案延展性和效能目標](../files/storage-files-scale-targets.md)。
+
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### <a name="azure-file-sync-scale-targets"></a>Azure 檔案同步擴展目標
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+## <a name="azure-queue-storage-scale-targets"></a>Azure 佇列儲存體擴展目標
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+## <a name="azure-table-storage-scale-targets"></a>Azure 資料表儲存體擴展目標
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>虛擬機器磁碟的延展性目標
@@ -53,27 +72,6 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
-
-## <a name="scalability-targets-for-azure-resource-manager"></a>Azure Resource Manager 的延展性目標
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-## <a name="partitions-in-azure-storage"></a>Azure 儲存體中的分割
-每個在 Azure 儲存體中保存資料的物件 (Blob、訊息、實體和檔案) 都屬於分割，也都由分割索引鍵所識別。 分割會判斷 Azure 儲存體要如何在伺服器間取得 Blob、訊息、實體和檔案的負載平衡，以滿足這些物件的流量需求。 分割索引鍵是唯一的，用於尋找 Blob、訊息或實體。
-
-上方位於 [標準儲存體帳戶的延展性目標](#standard-storage-accounts) 中的表格，列出每個服務的單一分割效能目標。
-
-分割會影響每個儲存體服務的負載平衡和延展性，方式如下：
-
-* **Blob**：Blob 的分割索引鍵為帳戶名稱 + 容器名稱 + Blob 名稱。 這表示每個 Blob 都可以有其專屬分割區 (Blob 上的負載需要它時)。 Blob 可以分散到多部伺服器，以相應放大對它們的存取，但是單一伺服器只能服務單一 Blob。 雖然 Blog 可以在 Blog 容器中邏輯分組，但這種分組方式的意涵卻非分割。
-* **檔案**：檔案的分割索引鍵是帳戶名稱 + 檔案共用名稱。 這表示檔案共用中的所有檔案也都位於單一分割區中。
-* **訊息**：訊息的分割索引鍵為帳戶名稱 + 佇列名稱，所以所有佇列中的訊息都能分組到單一分割，並由單一伺服器所服務。 不同佇列可能由不同伺服器所處理以平衡負載，無論儲存體帳戶可能有多少佇列。
-* **實體**：實體的分割索引鍵為帳戶名稱 + 資料表名稱 + 分割索引鍵，其中分割索引鍵是該實體由使用者定義的 **PartitionKey** 屬性所需的值。 所有具有相同分割區索引鍵的實體都分組成一個相同的分割，並由相同的分割伺服器服務。 在設計您的應用程式時，這是要了解的重點。 藉由將實體分組到單一分割的資料存取優勢，您的應用程式應該會在多個分割中分配實體時取得延展性優勢的平衡。  
-
-將資料表中的一組實體分組成一個單一分割的主要優點在於，這能讓它在相同分割中的實體之間執行不可部分完成的批次作業，因為單一伺服器上存有一個分割。 因此，如果您想要對一組實體執行批次作業，請考慮使用相同的分割索引鍵將它們分組在一起。 
-
-另一方面，位於相同資料表但具有不同分割索引鍵的實體，可在不同伺服器之間達到負載平衡，這可以具有較大的延展性。
-
-[這裡](https://msdn.microsoft.com/library/azure/hh508997.aspx)可以找到設計資料表分割策略的詳細建議。
 
 ## <a name="see-also"></a>另請參閱
 * [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)

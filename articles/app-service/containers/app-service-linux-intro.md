@@ -1,11 +1,11 @@
 ---
-title: "Azure Web App for Containers 簡介 | Microsoft Docs"
-description: "了解 Azure Web App for Containers。"
+title: "Linux 上的 App Service 簡介 | Microsoft Docs"
+description: "了解 Linux 上的 Azure App Service。"
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: 
 author: naziml
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -16,23 +16,26 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: bdfaf0cd7d4bb44b877a9f14891e540fd789b6c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="introduction-to-azure-web-app-for-containers"></a>Azure Web App for Containers 簡介
+# <a name="introduction-to-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 簡介
 
-[Web 應用程式](../app-service-web-overview.md)是受到完整管理的計算平台，非常適合用來裝載網站和 Web 應用程式。 針對支援的應用程式堆疊，客戶可以使用 Web App for Containers，以原生方式將 Web 應用程式裝載於 Linux 上。 以下章節列出目前支援的應用程式堆疊。
+[Web 應用程式](../app-service-web-overview.md)是受到完整管理的計算平台，非常適合用來裝載網站和 Web 應用程式。 針對支援的應用程式堆疊，客戶可以使用 Linux 上的 App Service，以原生方式將 Web 應用程式裝載於 Linux。 以下章節列出目前支援的應用程式堆疊。
 
 ## <a name="languages"></a>語言
 
-|Node.js|PHP|.NET Core|Ruby|
-|:------------------:|:---:|:---------:|:----:|
-|4.4, 4.5|5.6|1.0-1.1|2.3|
-|6.2, 6.6, 6.9-6.11|7.0|||
-|8.0-8.1||||
+Linux 上的 App Service 可支援一些內建映像，以增加開發人員的生產力。 如果您的應用程式需要的執行階段在內建映像中不受支援，則有指示可讓您知道如何[建置自有 Docker 映像](tutorial-custom-docker-image.md)以部署至用於容器的 Web 應用程式。
+
+| 語言 | 支援的版本 |
+|---|---|
+| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9-6.11, 8.0, 8.1 |
+| PHP | 5.6, 7.0 |
+| .NET Core | 1.0, 1.1 |
+| Ruby | 2.3 |
 
 ## <a name="deployments"></a>部署
 
@@ -67,7 +70,7 @@ Azure 入口網站只會顯示 Web App for Containers 目前可用的功能。 �
 
 某些功能尚無法使用，例如虛擬網路整合、Azure Active Directory/第三方驗證或 Kudu 網站擴充功能。 一旦這些功能提供使用後，我們將會在文件和部落格中更新關於變更的消息。
 
-Web App for Containers 僅支援[基本和標準](https://azure.microsoft.com/pricing/details/app-service/plans/)應用程式服務方案，而且沒有[免費或共用](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 以下也是 Web App for Containers 的重要限制：
+Linux 上的 App Service 僅支援[基本和標準](https://azure.microsoft.com/pricing/details/app-service/plans/)應用程式服務方案，而且沒有[免費或共用](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 以下也是 Linux 上的 App Service 重要限制：
 
 * 在已裝載非 Linux Web Apps 的 App Service 方案中，您無法建立 Web App for Containers。
 * 在包含非 Linux Web Apps 的資源群組中建立 Web App for Containers 時，您必須在與現有 App Service 方案不同的區域中建立 App Service 方案。
@@ -87,13 +90,13 @@ Web App for Containers 僅支援[基本和標準](https://azure.microsoft.com/pr
 
 請參閱下列連結以開始使用 Linux 上的 App Service。 您可以在[我們的論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview)張貼問題和疑難。
 
-* [如何針對 Azure Web App for Containers 使用自訂 Docker 映像](quickstart-custom-docker-image.md)
-* [在 Azure App Service Web App for Containers 中使用 .NET Core](quickstart-dotnetcore.md)
-* [在 Azure App Service Web App for Containers 中使用 Ruby](quickstart-ruby.md)
+* [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-custom-docker-image.md)
+* [在 Linux 上的 Azure App Service 中使用 .NET Core](quickstart-dotnetcore.md)
+* [在 Linux 上的 Azure App Service 中使用 Ruby](quickstart-ruby.md)
 * [Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)
-* [Azure Web App for Containers 的 SSH 支援](app-service-linux-ssh-support.md)
+* [Linux 上的 Azure App Service 支援 SSH](app-service-linux-ssh-support.md)
 * [在 Azure App Service 中設定預備環境](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [使用 Azure Web App for Containers 進行 Docker Hub 持續部署](./app-service-linux-ci-cd.md)
+* [使用 Web App for Containers 進行 Docker Hub 持續部署](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

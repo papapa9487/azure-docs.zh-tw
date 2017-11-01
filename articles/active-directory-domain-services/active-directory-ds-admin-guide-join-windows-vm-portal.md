@@ -12,23 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ce50c678247226b629490a2bd8ba2935ed229f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>將 Windows Server 虛擬機器加入受管理的網域
-> [!div class="op_single_selector"]
-> * [Azure 入口網站 - Windows](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
->
->
-
-<br>
-
 本文將說明如何使用 Azure 入口網站來部署 Windows Server 虛擬機器。 然後會說明如何將虛擬機器加入 Azure AD Domain Services 受管理網域。
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>步驟 1︰建立 Windows Server 虛擬機器
@@ -57,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 
     > [!TIP]
     > **挑選適當的虛擬網路和子網路。**
-    > 選取您的受管理網域部署所在的虛擬網路，或使用虛擬網路對等互連與其連線的虛擬網路兩者之一。 如果您選取不同的虛擬網路，則無法將虛擬網路加入至受管理網域。
+    > 選取您的受管理網域部署所在的虛擬網路，或使用虛擬網路對等互連與其連線的虛擬網路兩者之一。 如果您選取未連線的虛擬網路，則無法將虛擬機器加入受管理的網域中。
     > 建議您將受管理網域部署至專用的子網路。 因此，請勿挑選已啟用受管理網域所在的子網路。
 
 7. 在 [購買] 頁面上，檢閱設定然後按一下 [確定] 來部署虛擬機器。
@@ -128,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 如果您的認證有問題因而無法加入網域，請參閱下列步驟。
 
 * 嘗試使用 UPN 格式來指定認證。 如果您的租用戶中有多個使用者具有相同的 UPN 前置詞，或您的 UPN 前置詞太長，可能就會自動為您的帳戶產生 SAMAccountName。 因此，您帳戶的 SAMAccountName 格式可能會與您在內部部署網域中預期或使用的格式不同。
-* 嘗試使用屬於「AAD DC 系統管理員」群組之使用者帳戶的認證，來將電腦加入受管理的網域。
+* 嘗試使用屬於「AAD DC 系統管理員」群組的使用者帳戶認證。
 * 確定您已根據《入門指南》中所述的步驟來 [啟用密碼同步處理](active-directory-ds-getting-started-password-sync.md) 。
 * 確定您使用 Azure AD 中所設定的使用者 UPN (例如 'bob@domainservicespreview.onmicrosoft.com') 來登入。
 * 確定您已如《入門指南》中所指定的等候夠久的時間以讓密碼同步處理完成。

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>如何建立和設定自我裝載整合執行階段
-整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。 
+整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
 
 > [!NOTE]
 > 本文適用於第 2 版的 Data Fatory (目前為預覽版)。 如果您使用 Data Factory 服務的 1 版 (正式推出版本 (GA))，請參閱 [Data Factory 第 1 版文件](v1/data-factory-introduction.md)。
@@ -30,20 +30,20 @@ ms.lasthandoff: 10/11/2017
 本文件會介紹如何建立和設定自我裝載 IR。
 
 ## <a name="high-level-steps-to-install-self-hosted-ir"></a>安裝自我裝載 IR 的概略步驟
-1.  建立自我裝載整合執行階段。 以下是 PowerShell 範例︰ 
+1.  建立自我裝載整合執行階段。 以下是 PowerShell 範例︰
 
     ```powershell
-    New-AzureRmDataFactoryV2IntegrationRuntime  -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2.  下載並安裝自我裝載整合執行階段 (在本機電腦上)。
-3.  擷取驗證金鑰，並使用該金鑰註冊自我裝載整合執行階段。 以下是 PowerShell 範例︰ 
+3.  擷取驗證金鑰，並使用該金鑰註冊自我裝載整合執行階段。 以下是 PowerShell 範例︰
 
     ```powershell
     Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
-    
+
 ## <a name="command-flow-and-data-flow"></a>命令流程和資料流程
-當您在內部部署和雲端之間移動資料時，活動會使用自我裝載整合執行階段將資料從內部部署資料來源傳輸到雲端，反之亦然。 
+當您在內部部署和雲端之間移動資料時，活動會使用自我裝載整合執行階段將資料從內部部署資料來源傳輸到雲端，反之亦然。
 
 利用自我裝載 IR 進行複製步驟的概略資料流程如下：
 
@@ -66,9 +66,9 @@ ms.lasthandoff: 10/11/2017
 - 即使您使用 **ExpressRoute**，也應該將資料來源視為內部部署資料來源 (亦即在防火牆後面)。 請使用自我裝載整合執行階段來建立服務與資料來源之間的連線。
 - 即使資料儲存在雲端中的 **Azure IaaS 虛擬機器**上，您也必須使用自我裝載整合執行階段。
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>必要條件
 
-- 支援的 **作業系統** 版本包括 Windows 7、Windows 8/8.1、Windows 10、Windows Server 2008 R2、Windows Server 2012、Windows Server 2012 R2。 **不支援在網域控制站**上安裝自我裝載整合執行階段。
+- 支援的**作業系統**版本包括 Windows 7 Service Pack 1、Windows 8.1、Windows 10、Windows Server 2008 R2 SP1、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016。 **不支援在網域控制站**上安裝自我裝載整合執行階段。
 - 必須有 **.NET Framework 4.6.1 或更新版本**。 如果您要在 Windows 7 電腦上安裝自我裝載整合執行階段，請安裝 .NET Framework 4.6.1 或更新版本。 如需詳細資訊，請參閱 [.NET Framework 系統需求](/dotnet/framework/get-started/system-requirements) 。
 - 建議的自我裝載整合執行階段電腦「組態」為至少 2 GHz、4 核心、8 GB RAM 和 80 GB 磁碟。
 - 如果主機電腦休眠，自我裝載整合執行階段不會回應資料要求。 因此，安裝自我裝載整合執行階段之前，請先在電腦上設定適當的電源計劃。 如果電腦已設定為休眠，安裝自我裝載整合執行階段時會提示訊息。
@@ -77,7 +77,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="installation-best-practices"></a>安裝最佳做法
 您可以從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=39717)下載 MSI 安裝套件來安裝自我裝載整合執行階段。 如需逐步指示，請參閱[在內部部署與雲端之間移動資料一文](tutorial-hybrid-copy-powershell.md)。
-  
+
 - 為自我裝載整合執行階段設定主機電腦上的電源計劃，使電腦不休眠。 如果主機電腦休眠，自我裝載整合執行階段就會離線。
 - 請定期備份與自我裝載整合執行階段相關聯的認證。
 
@@ -103,14 +103,14 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
-自我裝載整合執行階段可以與多部內部部署電腦相關聯。 這些電腦稱為節點。 您最多可以將四個節點關聯到一個自我裝載整合執行階段。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的好處如下： 
+自我裝載整合執行階段可以與多部內部部署電腦相關聯。 這些電腦稱為節點。 您最多可以將四個節點關聯到一個自我裝載整合執行階段。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的好處如下：
 1. 自我裝載整合執行階段的高可用性能夠確保最多 4 個節點的持續性，如此一來它就不再是您的巨量資料解決方案或 Azure Data Factory 雲端資料整合的單一失敗點。
 2. 提升在內部部署和雲端資料存放區之間移動資料時的效能和輸送量。 如需詳細資訊，請參閱[效能比較](copy-activity-performance.md)。
 
-您可以關聯多個節點，方法是直接從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)安裝自我裝載整合執行階段軟體，並使用從 New-AzureRmDataFactoryV2IntegrationRuntimeKey Cmdlet 取得的驗證金鑰來註冊它，如[教學課程](tutorial-hybrid-copy-powershell.md)中所述 
+您可以關聯多個節點，方法是直接從[下載中心](https://www.microsoft.com/download/details.aspx?id=39717)安裝自我裝載整合執行階段軟體，並使用從 New-AzureRmDataFactoryV2IntegrationRuntimeKey Cmdlet 取得的驗證金鑰來註冊它，如[教學課程](tutorial-hybrid-copy-powershell.md)中所述
 
 > [!NOTE]
-> 您不需要建立新的自我裝載整合執行階段來關聯每個節點。 
+> 您不需要建立新的自我裝載整合執行階段來關聯每個節點。
 
 ## <a name="system-tray-icons-notifications"></a>系統匣圖示/通知
 如果您將游標放在系統匣圖示/通知訊息上，您會看到自我裝載整合執行階段狀態的詳細資料。
@@ -137,7 +137,7 @@ ms.lasthandoff: 10/11/2017
 >
 > 對於某些雲端資料庫 (例如：Azure SQL Database、Azure Data Lake 等)，您可能需要將自我裝載整合執行階段電腦的 IP 位址加到其防火牆設定的白名單中。
 
-### <a name="copy-data-from-a-source-to-a-sink"></a>將資料從來源複製到接收器 
+### <a name="copy-data-from-a-source-to-a-sink"></a>將資料從來源複製到接收器
 請確定在公司防火牆、自我裝載整合執行階段電腦上的 Windows 防火牆，及資料存放區本身都已正確啟用防火牆規則。 啟用這些規則可讓自我裝載整合執行階段成功連線到來源和接收器。 請為複製作業所涉及的每個資料存放區啟用規則。
 
 例如，若要**從內部部署資料存放區複製到 Azure SQL Database 接收器或 Azure SQL 資料倉儲接收器**，請執行下列步驟︰
@@ -200,8 +200,8 @@ ms.lasthandoff: 10/11/2017
               <proxy bypassonlocal="true" proxyaddress="http://proxy.domain.org:8888/" />
         </defaultProxy>
     </system.net>
-    ``` 
-    
+    ```
+
     在 Proxy 標記內可以有其他屬性，用以指定必要的設定，例如 scriptLocation。 請參閱 [Proxy 項目 (網路設定)](https://msdn.microsoft.com/library/sa91de1e.aspx) 以了解語法。
 
     ```xml
@@ -221,7 +221,7 @@ ms.lasthandoff: 10/11/2017
 2.  當您開啟「整合執行階段組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄檔時，在 [事件檢視器] > [應用程式和服務記錄檔] > [Microsoft 整合執行階段] 下，您會看到如下錯誤訊息：
 
     ```
-    Unable to connect to the remote server 
+    Unable to connect to the remote server
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
@@ -239,4 +239,3 @@ msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 
 ## <a name="next-steps"></a>後續步驟
 如需逐步指示，請參閱下列教學課程：[教學課程：將內部部署資料複製到雲端](tutorial-hybrid-copy-powershell.md)。
-

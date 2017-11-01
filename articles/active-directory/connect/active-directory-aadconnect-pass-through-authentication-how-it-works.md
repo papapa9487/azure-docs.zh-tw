@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9ded5e0199f5ca48e2a00d2afee0e4c13b3a3460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7863e38671349b6424ee08330da8aaa49cb2a70
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory 傳遞驗證：技術深入探討
 下列文章概述了 Azure AD 傳遞驗證的運作方式。  如需深層技術和安全性資訊，請參閱[**安全性深入探討**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)一文。
@@ -31,11 +31,11 @@ ms.lasthandoff: 10/11/2017
 2. 如果使用者尚未登入，則會將使用者重新導向至 Azure AD 登入頁面。
 3. 使用者將其使用者名稱和密碼輸入 Azure AD 登入頁面，然後按一下 [登入] 按鈕。
 4. 接收登入要求時的 Azure AD 會將使用者名稱和密碼 (使用公開金鑰加密) 置於佇列。
-5. 內部部署傳遞驗證代理程式會對佇列進行輸出呼叫，並擷取使用者名稱和加密密碼。
+5. 內部部署驗證代理程式會從佇列中擷取使用者名稱和加密的密碼。
 6. 代理程式會使用其私密金鑰將密碼解密。
 7. 代理程式接著會使用標準 Windows API (和 Active Directory 同盟服務所使用的類似機制)，向 Active Directory 驗證使用者名稱和密碼。 使用者名稱可以是內部部署的預設使用者名稱 (通常是 `userPrincipalName`)，或可在 Azure AD Connect 中設定的另一個屬性 (又稱為 `Alternate ID`)。
 8. 內部部署 Active Directory 網域控制站 (DC) 接著會評估要求，並將適當的回應 (成功、失敗、密碼過期或鎖定使用者) 傳回給代理程式。
-9. 代理程式再將此回應傳回給 Azure AD。
+9. 驗證代理程式再將此回應傳回給 Azure AD。
 10. Azure AD 會評估回應，並適當地回應使用者；例如，它會立即將使用者登入，或要求 Multi-Factor Authentication (MFA)。
 11. 如果使用者登入成功，則使用者可以存取應用程式。
 

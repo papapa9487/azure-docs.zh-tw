@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a454199137f8ccc99ddbef66758fd1cabd8fd486
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
@@ -29,10 +29,9 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 - [認證外洩的使用者](#leaked-credentials) 
 - [從匿名 IP 位址登入](#sign-ins-from-anonymous-ip-addresses) 
 - [不可能進入非慣用位置](#impossible-travel-to-atypical-locations) 
-- [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations)
 - [從受感染的裝置登入](#sign-ins-from-infected-devices) 
 - [從具有可疑活動的 IP 位址登入](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-
+- [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) (專用於 **Azure Active Directory Premium P2** 版本)
 
 ![風險事件](./media/active-directory-reporting-risk-events/91.png)
 

@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: erikje
-ms.openlocfilehash: b5f112f2d5b96843e7863aa664eec4847c58e950
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3282b9d4cdf67035d966cf934a7d8574eae6ae34
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="register-azure-stack-with-your-azure-subscription"></a>使用您的 Azure 訂用帳戶註冊 Azure Stack
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-針對 Azure Active Directory 部署，您可以向 Azure 註冊 [Azure Stack](azure-stack-poc.md)，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 
+您可以向 Azure 註冊 [Azure Stack](azure-stack-poc.md)，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 
 
 > [!NOTE]
 >我們建議您註冊，因為它可讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 Azure Stack 開發套件使用者將不需針對回報的任何使用方式支付費用。
@@ -56,7 +56,7 @@ ms.lasthandoff: 10/11/2017
 範例： 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
@@ -73,22 +73,21 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
     - *YourCloudAdminCredential* 是 PowerShell 物件，其中包含 domain\cloudadmin 的本機網域認證 (針對開發套件，這是 azurestack\cloudadmin)。
     - *YourAzureSubscriptionID* 是您要用來註冊 Azure Stack 的 Azure 訂用帳戶。
     - *YourAzureDirectoryTenantName* 是您要建立您的註冊資源所在的 Azure 租用戶目錄的名稱。
-    - *YourPrivilegedEndpoint* 是「存取權適當電腦」的名稱，也稱為「緊急主控台 VM」。
+    - *YourPrivilegedEndpoint* 是[特殊權限端點](azure-stack-privileged-endpoint.md)的名稱。
 
     ```powershell
     Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
- 
-5. 出現兩個提示時，按 Enter 鍵。
-6. 在彈出的登入視窗中，輸入您的 Azure 訂用帳戶認證。
-
-
+5. 在彈出的登入視窗中，輸入您的 Azure 訂用帳戶認證。
 
 ## <a name="verify-the-registration"></a>確認註冊
 
 1. 登入系統管理員入口網站 (https://adminportal.local.azurestack.external)。
 2. 按一下 [更多服務]  >  [市集管理]  >  [從 Azure 新增]。
 3. 如果您看到 Azure 提供的項目清單 (例如 WordPress)，則表示啟用已成功。
+
+> [!NOTE]
+> 註冊完成後，就不會再出現未註冊的作用中警告。
 
 ## <a name="next-steps"></a>後續步驟
 

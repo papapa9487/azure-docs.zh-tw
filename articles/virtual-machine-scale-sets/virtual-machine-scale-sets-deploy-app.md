@@ -1,10 +1,10 @@
 ---
-title: "在虛擬機器擴展集上部署應用程式"
-description: "使用延伸模組在 Azure 虛擬機器擴展集上部署應用程式。"
+title: "將應用程式部署到 Azure 虛擬機器擴展集 | Microsoft Docs"
+description: "了解如何將應用程式部署到擴展集中的 Linux 和 Windows 虛擬機器執行個體"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
@@ -13,217 +13,214 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2017
-ms.author: adegeo
-ms.openlocfilehash: 371295efea1eab66361b9aba21a55bbd2826c69b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/13/2017
+ms.author: iainfou
+ms.openlocfilehash: 0ff8a178d883e3b51294485e556e65da52dbf327
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虛擬機器擴展集上部署您的應用程式
+若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 本文介紹如何在擴展集中建置執行個體的自訂 VM 映像，或在現有的 VM 執行個體上自動執行安裝指令碼。 您也將了解如何跨擴展集管理應用程式或作業系統更新。
 
-本文說明在佈建擴展集時安裝軟體的各種不同方式。
 
-您可能需要檢閱[擴展集設計概觀](virtual-machine-scale-sets-design-overview.md)一文，其描述虛擬機器擴展集合所加諸的一些限制。
+## <a name="build-a-custom-vm-image"></a>組建自訂的 VM 映像
+使用其中一個 Azure 平台映像在擴展集中建立執行個體時，不會安裝或設定其他軟體。 您可以自動安裝這些元件，但將 VM 執行個體佈建到擴展集會花費較長的時間。 若您將多項組態變更套用至 VM 執行個體，則會增管理這些設定指令碼和工作的負擔。
 
-## <a name="capture-and-reuse-an-image"></a>擷取並重複使用映像
+若要減少組態管理和佈建 VM 的時間，您可以建立自訂的 VM 映像，以便在擴展集中佈建執行個體後立即準備好執行應用程式。 以下是針對擴展集執行個體建立自訂 VM 映像的整個程序：
 
-您可以使用 Azure 中現有的虛擬機器來準備擴展集的基礎映像。 此程序會在您的儲存體帳戶中建立受控磁碟，您可以參考作為擴展集的基礎映像。 
+1. 若要建置擴展集執行個體的自訂 VM 映像，您需要建立及登入 VM，然後安裝並設定應用程式。 您可使用 Packer 來定義和組建 [Linux](../virtual-machines/linux/build-image-with-packer.md) 或 [Windows](../virtual-machines/windows/build-image-with-packer.md) VM 映像。 或者，您可手動建立和設定 VM：
 
-請執行下列步驟：
+    - 使用 [Azure CLI 2.0](../virtual-machines/linux/quick-create-cli.md)、[Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md) 或[入口網站](../virtual-machines/linux/quick-create-portal.md)建立 Linux VM。
+    - 使用 [Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md)、[Azure CLI 2.0](../virtual-machines/windows/quick-create-cli.md), 或[入口網站](../virtual-machines/windows/quick-create-portal.md)建立 Windows VM。
+    - 登入 [Linux](../virtual-machines/linux/mac-create-ssh-keys.md#use-the-ssh-key-pair) 或 [Windows](../virtual-machines/windows/connect-logon.md) VM。
+    - 安裝和設定需要的應用程式和工具。 如果您需要特定版本的程式庫或執行階段，自訂的 VM 映像可讓您定義版本和 
 
-1. 建立 Azure 虛擬機器
-   * [Linux][linux-vm-create]
-   * [Windows][windows-vm-create]
+2. 使用 [Azure CLI 2.0](../virtual-machines/linux/capture-image.md) 或 [Azure PowerShell](../virtual-machines/windows/capture-image.md) 擷取您的 VM。 這個步驟會建立自訂 VM 映像，該映像接著可用來部署擴展集中的執行個體。
 
-2. 遠端登入虛擬機器，並視喜好自訂系統。
+3. [建立擴展集](virtual-machine-scale-sets-create.md)並指定前述步驟中建立的自訂 VM 映像。
 
-   如果想要，您可以立即安裝應用程式。 不過，請了解若立即安裝應用程式，您可能會使升級應用程式更複雜，因為您可能必須先將它移除。 您可以改用此步驟來安裝應用程式可能需要的任何必要條件，例如特定執行階段或作業系統功能。
 
-3. 遵循 [Linux][linux-vm-capture] 或 [Windows][windows-vm-capture] 的「擷取機器」教學課程。
+## <a name="already-provisioned"></a>安裝包含自訂指令碼延伸模組的應用程式
+自訂指令碼擴充功能會在 Azure VM 上下載並執行指令碼。 此擴充功能適用於部署後組態、軟體安裝或其他任何組態/管理工作。 您可以從 Azure 儲存體或 GitHub 下載指令碼，或是在擴充功能執行階段將指令碼提供給 Azure 入口網站。
 
-4. 使用您在上一個步驟中擷取的映像 URI 建立[虛擬機器擴展集][vmss-create]。
+「自訂指令碼擴充功能」會與 Azure Resource Manager 範本整合，您也可以使用 Azure CLI、PowerShell、Azure 入口網站或「Azure 虛擬機器 REST API」來執行它。 
 
-如需磁碟的詳細資訊，請參閱[受控磁碟概觀](../virtual-machines/windows/managed-disks-overview.md)和[使用連結的資料磁碟](virtual-machine-scale-sets-attached-disks.md)。
+如需詳細資訊，請參閱[自訂指令碼延伸模組概觀](../virtual-machines/windows/extensions-customscript.md)。
 
-## <a name="already-provisioned"></a>佈建擴展集時安裝
 
-虛擬機器延伸模組可以套用至虛擬機器擴展集。 透過虛擬機器擴充功能，您可以將擴展集中的虛擬機器當做整個群組來自訂。 如需擴充功能的詳細資訊，請參閱[虛擬機器擴充功能](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+### <a name="use-azure-powershell"></a>使用 Azure PowerShell
+PowerShell 會使用雜湊表來儲存要下載的檔案和要執行的命令。 下列範例：
 
-視您的作業系統為 Linux 或 Windows 而定，有三個主要延伸模組可供您使用。
+- 指示 VM 執行個體從 GitHub 下載指令碼 - *https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1*
+- 設定延伸模組來執行安裝指令碼 - `powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1`
+- 使用 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) 取得擴展集的相關資訊
+- 使用 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) 將延伸模組套用到 VM 執行個體
 
-### <a name="windows"></a>Windows
-
-若是 Windows 作業系統，請使用**自訂指令碼 v1.8** 延伸模組或 **PowerShell DSC** 延伸模組。
-
-#### <a name="custom-script"></a>Custom Script
-
-自訂指令碼延伸模組會在擴展集的每部虛擬機器上執行指令碼。 設定檔或變數會指出下載到虛擬機器的檔案，再指出執行的命令。 例如，您可以使用此延伸模組來執行安裝程式、指令碼、批次檔和任何可執行檔。
-
-PowerShell 針對設定使用雜湊表。 下列範例會設定自訂指令碼延伸模組，以執行安裝 IIS 的 PowerShell 指令碼。
+會將自訂指令碼延伸模組套用至名為 *myResourceGroup* 的資源群組中的 *myScaleSet* VM 執行個體。 輸入您自己的名稱，如下所示：
 
 ```powershell
-# Setup extension configuration hashtable variable
+# Define the script for your Custom Script Extension to run
 $customConfig = @{
-  "fileUris" = @("https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1");
-  "commandToExecute" = "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> `"%TEMP%\StartupLog.txt`" 2>&1";
-};
+    "fileUris" = (,"https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate-iis.ps1");
+    "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File automate-iis.ps1"
+}
 
-# Add the extension to the config
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Compute -Type CustomScriptExtension -TypeHandlerVersion 1.8 -Name "customscript1" -Setting $customConfig
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
 
-# Send the new config to Azure
-Update-AzureRmVmss -ResourceGroupName $rg -Name "MyVmssTest143"  -VirtualMachineScaleSet $vmssConfig
+# Add the Custom Script Extension to install IIS and configure basic website
+$vmss = Add-AzureRmVmssExtension `
+    -VirtualMachineScaleSet $vmss `
+    -Name "customScript" `
+    -Publisher "Microsoft.Compute" `
+    -Type "CustomScriptExtension" `
+    -TypeHandlerVersion 1.8 `
+    -Setting $customConfig
+
+# Update the scale set and apply the Custom Script Extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet" `
+    -VirtualMachineScaleSet $vmss
 ```
 
->[!IMPORTANT]
->針對可能包含敏感性資訊的任何設定，請使用 `-ProtectedSetting` 參數。
-
----------
+如果擴展集上的升級原則是*手動*，則使用 [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance) 更新您的 VM 執行個體。 此 Cmdlet 會將更新的擴展集設定套用至 VM 執行個體，並安裝您的應用程式。
 
 
-Azure CLI 針對設定使用 json 檔案。 下列範例會設定自訂指令碼延伸模組，以執行安裝 IIS 的 PowerShell 指令碼。 請將下列 json 檔案儲存為 _settings.json_。
+### <a name="use-azure-cli-20"></a>使用 Azure CLI 2.0
+若要搭配使用自訂指令碼延伸模組與 Azure CLI，您可以建立 JSON 檔案來定義可取得的檔案及可執行的命令。 可跨擴展集部署重複使用這些 JSON 定義，以套用一致的應用程式安裝。
+
+在您目前的殼層中，建立名為 *customConfig.json* 的檔案並貼上下列設定。 例如，在 Cloud Shell 中建立不在本機電腦上的檔案。 您可以使用任何您想要的編輯器。 輸入 `sensible-editor cloudConfig.json` 可建立檔案，並查看可用的編輯器清單。
 
 ```json
 {
-  "fileUris": [
-    "https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/temp/install-iis.ps1"
-  ],
-  "commandToExecute": "PowerShell -ExecutionPolicy Unrestricted .\install-iis.ps1 >> \"%TEMP%\StartupLog.txt\" 2>&1"
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "commandToExecute": "./automate_nginx.sh"
 }
 ```
 
-然後，執行下列 Azure CLI 命令。
+使用 [az vmss extension set](/cli/azure/vmss/extension#set)，將自訂指令碼延伸組態套用到擴展集中的 VM 執行個體。 下列範例會將 *customConfig.json* 設定套用到 *myResourceGroup* 資源群組中的 *myScaleSet* VM 執行個體。 輸入您自己的名稱，如下所示：
 
 ```azurecli
-az vmss extension set --publisher Microsoft.Compute --version 1.8 --name CustomScriptExtension --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
+az vmss extension set \
+    --publisher Microsoft.Azure.Extensions \
+    --version 2.0 \
+    --name CustomScript \
+    --resource-group myResourceGroup \
+    --vmss-name myScaleSet \
+    --settings @customConfig.json
 ```
 
->[!IMPORTANT]
->針對可能包含敏感性資訊的任何設定，請使用 `--protected-settings` 參數。
+如果擴展集上的升級原則是*手動*，則使用 [az vmss update-instances](/cli/azure/vmss#update-instances) 更新您的 VM 執行個體。 此 Cmdlet 會將更新的擴展集設定套用至 VM 執行個體，並安裝您的應用程式。
 
-### <a name="powershell-dsc"></a>PowerShell DSC
 
-您可以使用 PowerShell DSC 來自訂擴展集的 VM 執行個體。 **Microsoft.Powershell** 所發行的 **DSC** 延伸模組會在每個虛擬機器執行個體上部署及執行所提供的 DSC 設定。 設定檔或變數會告訴延伸模組 *.zip* 封裝的位置，以及要執行的_指令碼函式_組合。
+## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>使用 PowerShell DSC 將應用程式安裝到 Windows VM
+[PowerShell 預期狀態設定 (DSC)](https://msdn.microsoft.com/en-us/powershell/dsc/overview) 是一個管理平台，可定義目標電腦的設定。 DSC 設定會定義要在電腦上安裝的項目，以及設定主機的方式。 本機設定管理員 (LCM) 引擎會在每個目標節點上執行，這些節點會以推送組態作為基礎來處理要求的動作。
 
-PowerShell 針對設定使用雜湊表。 下列範例會部署 DSC 封裝以安裝 IIS。
+PowerShell DSC 延伸模組可讓您在擴展集中使用 PowerShell 來自訂 VM 執行個體。 下列範例：
+
+- 指示 VM 執行個體從 GitHub 下載 DSC 套件 - *https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip*
+- 設定延伸模組來執行安裝指令碼 - `configure-http.ps1`
+- 使用 [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) 取得擴展集的相關資訊
+- 使用 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) 將延伸模組套用到 VM 執行個體
+
+會將 DSC 延伸模組套用至名為 *myResourceGroup* 的資源群組中的 *myScaleSet* VM 執行個體。 輸入您自己的名稱，如下所示：
 
 ```powershell
-# Setup extension configuration hashtable variable
+# Define the script for your Desired Configuration to download and run
 $dscConfig = @{
   "wmfVersion" = "latest";
   "configuration" = @{
-    "url" = "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip";
+    "url" = "https://github.com/iainfoulds/azure-samples/raw/master/dsc.zip";
     "script" = "configure-http.ps1";
     "function" = "WebsiteTest";
   };
 }
 
-# Add the extension to the config
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmssConfig -Publisher Microsoft.Powershell -Type DSC -TypeHandlerVersion 2.24 -Name "dsc1" -Setting $dscConfig
+# Get information about the scale set
+$vmss = Get-AzureRmVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
 
-# Send the new config to Azure
-Update-AzureRmVmss -ResourceGroupName $rg -Name "myscaleset1"  -VirtualMachineScaleSet $vmssConfig
+# Add the Desired State Configuration extension to install IIS and configure basic website
+$vmss = Add-AzureRmVmssExtension `
+    -VirtualMachineScaleSet $vmss `
+    -Publisher Microsoft.Powershell `
+    -Type DSC `
+    -TypeHandlerVersion 2.24 `
+    -Name "DSC" `
+    -Setting $dscConfig
+
+# Update the scale set and apply the Desired State Configuration extension to the VM instances
+Update-AzureRmVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet"  `
+    -VirtualMachineScaleSet $vmss
 ```
 
->[!IMPORTANT]
->針對可能包含敏感性資訊的任何設定，請使用 `-ProtectedSetting` 參數。
+如果擴展集上的升級原則是*手動*，則使用 [Update-AzureRmVmssInstance](/powershell/module/azurerm.compute/update-azurermvmssinstance) 更新您的 VM 執行個體。 此 Cmdlet 會將更新的擴展集設定套用至 VM 執行個體，並安裝您的應用程式。
 
------------
 
-Azure CLI 針對設定使用 json。 下列範例會部署 DSC 封裝以安裝 IIS。 請將下列 json 檔案儲存為 _settings.json_。
+## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>使用 cloud-init 將應用程式安裝到 Linux VM
+[Cloud-init (英文)](https://cloudinit.readthedocs.io/latest/) 是在 Linux VM 初次開機時，廣泛用來自訂它們的方法。 您可以使用 cloud-init 來安裝封裝和寫入檔案，或者設定使用者和安全性。 當 cloud-init 在初次開機程序期間執行時，不需要使用任何額外的步驟或必要的代理程式來套用您的組態。
 
-```json
-{
-  "wmfVersion": "latest",
-  "configuration": {
-    "url": "https://github.com/MicrosoftDocs/azure-cloud-services-files/raw/temp/dsc.zip",
-    "script": "configure-http.ps1",
-    "function": "WebsiteTest"
-  }
-}
-```
+Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install** 或 **yum install** 來安裝套件。 您可以改為定義要安裝的套件清單。 Cloud-init 會針對您選取的散發套件自動使用原生的套件管理工具。
 
-然後，執行下列 Azure CLI 命令。
+如需詳細資訊，包括 *cloud-init.txt* 範例檔，請參閱[使用 cloud-init 自訂 Azure VM](../virtual-machines/linux/using-cloud-init.md)。
 
-```azurecli
-az vmss extension set --publisher Microsoft.Powershell --version 2.24 --name DSC --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
-```
-
->[!IMPORTANT]
->針對可能包含敏感性資訊的任何設定，請使用 `--protected-settings` 參數。
-
-### <a name="linux"></a>Linux
-
-Linux 可以使用**自訂指令碼 v2.0** 延伸模組，或在建立期間使用 **cloud-init**。
-
-自訂指令碼是簡單的延伸模組，可將檔案下載到虛擬機器執行個體，以及執行命令。
-
-#### <a name="custom-script"></a>Custom Script
-
-請將下列 json 檔案儲存為 _settings.json_。
-
-```json
-{
-  "fileUris": [
-    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/installserver.sh",
-    "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-bottle-autoscale/workserver.py"
-  ],
-  "commandToExecute": "bash installserver.sh"
-}
-```
-
-使用 Azure CLI 將此延伸模組新增至現有的虛擬機器擴展集。 擴展集中的每部虛擬機器都會自動執行此延伸模組。
-
-```azurecli
-az vmss extension set --publisher Microsoft.Azure.Extensions --version 2.0 --name CustomScript --resource-group myResourceGroup --vmss-name myScaleSet --settings @settings.json
-```
-
->[!IMPORTANT]
->針對可能包含敏感性資訊的任何設定，請使用 `--protected-settings` 參數。
-
-#### <a name="cloud-init"></a>Cloud-Init
-
-您可以在建立擴展集時使用 Cloud-Init。 首先，建立名為 _cloud-init.txt_ 的本機檔案並加入您的設定。 例如，請參閱[此 gist](https://gist.github.com/Thraka/27bd66b1fb79e11904fb62b7de08a8a6#file-cloud-init-txt)
-
-使用 Azure CLI 建立擴展集。 `--custom-data` 欄位接受 cloud-init 指令碼的檔案名稱。
+若要建立擴展集並使用 cloud-init 檔案，請將 `--custom-data` 參數新增至 [az vmss create](/cli/azure/vmss#create) 命令，並指定 cloud-init 檔案的名稱。 下列範例會在 *myResourceGroup* 中建立名為 *myScaleSet* 的擴展集，並使用名為 *cloud-init.txt* 的檔案設定 VM 執行個體。 輸入您自己的名稱，如下所示：
 
 ```azurecli
 az vmss create \
-  --resource-group myResourceGroupScaleSet \
+  --resource-group myResourceGroup \
   --name myScaleSet \
-  --image Canonical:UbuntuServer:14.04.4-LTS:latest \
+  --image UbuntuLTS \
   --upgrade-policy-mode automatic \
   --custom-data cloud-init.txt \
   --admin-username azureuser \
-  --generate-ssh-keys      
+  --generate-ssh-keys
 ```
 
-## <a name="how-do-i-manage-application-updates"></a>如何管理應用程式更新？
 
-如果您透過延伸模組部署應用程式，請對延伸模組定義進行某些變更。 此變更會將延伸模組重新部署到所有虛擬機器執行個體。 您**必須**對延伸模組進行某些變更 (例如重新命名所參考的檔案)，否則 Azure 不會看到延伸模組已變更。
+## <a name="install-applications-as-a-set-scales-out"></a>將應用程式安裝為一組擴展集
+擴展集可讓您增加執行應用程式的 VM 執行個體數目。 此相應放大程序可以手動啟動，或自動根據計量 (例如 CPU 或記憶體使用量) 啟動。
 
-如果您將應用程式內建到自己的作業系統映像中，請使用自動化部署管線進行應用程式更新。 請設計您的架構以協助將分段擴展集快速切換到生產環境。 此方法的其中一個好例子就是 [Azure Spinnaker 驅動程式工作](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure) - [http://www.spinnaker.io/](http://www.spinnaker.io/)。
+若將自訂指令碼延伸模組套用到擴展集，應用程式會安裝到每個新的 VM 執行個體。 如果擴展集是根據內含已預先安裝應用程式的自訂映像，則會在可用狀態中部署每個新的 VM 執行個體。 
 
-[Packer](https://www.packer.io/) 和 [Terraform](https://www.terraform.io/) 支援 Azure Resource Manager，因此您也可以「以程式碼方式」定義您的映像並在 Azure 中建置它們，然後在您的擴展集內使用 VHD。 不過，這麼做對 Marketplace 映像會造成問題，其中延伸模組/自訂指令碼會變得更加重要，因為您不是直接從 Marketplace 操縱位元。
-
-## <a name="what-happens-when-a-scale-set-scales-out"></a>當擴展集相應放大時，會發生什麼情況？
-當您將一或多部虛擬機器新增至擴展集時，會自動安裝應用程式。 例如，如果擴展集已定義延伸模組，則每次建立新的虛擬機器時，這些延伸模組都會在新的虛擬機器上執行。 如果擴展集是以自訂映像為基礎，則所有新的虛擬機器都是來源自訂映像的複本。 如果擴展集的虛擬機器是容器主機，則您可以讓啟動程式碼載入自訂指令碼延伸模組中的容器。 或者，延伸模組可以安裝會向叢集 Orchestrator (例如 Azure Container Service) 註冊的代理程式。
+如果擴展集 VM 執行個體是容器主機，您可以使用自訂指令碼延伸模組來提取和執行需要的容器映像。 自訂指令碼延伸模組也可能使用 orchestrator (例如 Azure Container Service) 來註冊新的 VM 執行個體。
 
 
-## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>如何在各個更新網域推出 OS 更新？
-假設您想要在更新 OS 映像的同時，又讓虛擬機器擴展集持續執行。 PowerShell 和 Azure CLI 可以更新虛擬機器映像，一次一部虛擬機器。 [升級虛擬機器擴展集](./virtual-machine-scale-sets-upgrade-scale-set.md)一文也提供進一步的資訊，說明虛擬機器擴展集內執行作業系統升級的可用選項。
+## <a name="deploy-application-updates"></a>部署應用程式更新
+如果更新應用程式的程式碼、程式庫或套件，您可以將最新的應用程式狀態推送到擴展集中的 VM 執行個體。 如果使用自訂指令碼延伸模組，您的應用程式更新不會自動部署。 例如，將自訂指令碼設定變更為指向具有更新之版本名稱的安裝指令碼。 在上述範例中，自訂指令碼延伸模組會使用名為 *automate_nginx.sh* 的指令碼，如下所示：
+
+```json
+{
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx.sh"],
+  "commandToExecute": "./automate_nginx.sh"
+}
+```
+
+除非安裝指令碼變更，否則不會將您的應用程式更新公開至自訂指令碼延伸模組。 其中一個方法是包含版本號碼，會隨著您的應用程式版本增加。 自訂指令碼延伸模組現在可參考 *automate_nginx_v2.sh* ，如下所示：
+
+```json
+{
+  "fileUris": ["https://raw.githubusercontent.com/iainfoulds/azure-samples/master/automate_nginx_v2.sh"],
+  "commandToExecute": "./automate_nginx_v2.sh"
+}
+```
+
+現在會針對 VM 執行個體執行自訂指令碼延伸模組，以套用最新的應用程式更新。
+
+
+### <a name="install-applications-with-os-updates"></a>安裝應用程式與作業系統更新
+當新的作業系統版本可用時，您可以使用或建立新的自訂映像，並[將作業系統升級部署到](virtual-machine-scale-sets-upgrade-scale-set.md)擴展集。 每個 VM 執行個體會升級為您指定的最新映像。 您可以使用預先安裝應用程式的自訂映像、自訂指令碼延伸模組，或 PowerShell，以便在執行升級時自動開放使用應用程式。 執行此程序時可能需要規劃應用程式維護，確認不存在任何版本相容性問題。
+
+如果您使用預先安裝應用程式的自訂 VM 映像，您可以整合應用程式更新與部署管線來建立新映像，並跨擴展集部署作業系統升級。 這個方法可讓管線挑選最新的應用程式組建、建立及驗證 VM 映像，然後在擴展集中升級 VM 執行個體。 若要執行部署管線，跨自訂 VM 映像來建立和部署應用程式更新，您可以使用 [Visual Studio Team Services](https://www.visualstudio.com/team-services/)、[Spinnaker](https://www.spinnaker.io/) 或 [Jenkins](https://jenkins.io/)。
+
 
 ## <a name="next-steps"></a>後續步驟
-
-* [使用 PowerShell 管理您的擴展集。](virtual-machine-scale-sets-windows-manage.md)
-* [建立擴展集範本。](virtual-machine-scale-sets-mvss-start.md)
-
-
-[linux-vm-create]: ../virtual-machines/linux/tutorial-manage-vm.md
-[windows-vm-create]: ../virtual-machines/windows/tutorial-manage-vm.md
-[linux-vm-capture]: ../virtual-machines/linux/capture-image.md
-[windows-vm-capture]: ../virtual-machines/windows/capture-image.md 
-[vmss-create]: virtual-machine-scale-sets-create.md
-
+當您建置應用程式並將其部署到擴展集時，您可以檢閱[擴展集設計概觀](virtual-machine-scale-sets-design-overview.md)。 如需如何管理擴展集的詳細資訊，請參閱[使用 PowerShell 管理您的擴展集](virtual-machine-scale-sets-windows-manage.md)。

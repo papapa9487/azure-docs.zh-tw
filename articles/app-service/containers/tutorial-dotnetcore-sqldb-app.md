@@ -1,6 +1,6 @@
 ---
-title: "在適用於容器的 Azure Web 應用程式中建置 .NET Core 和 SQL Database Web 應用程式 | Microsoft Docs"
-description: "了解如何取得在適用於容器的 Azure Web 應用程式中運作的 .NET Core 應用程式，並連線至 SQL Database。"
+title: "在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式 | Microsoft Docs"
+description: "了解如何讓 .NET Core 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 SQL Database。"
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -12,20 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 08/31/2017
+ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 365747f9f9c765e8db1ab86946ba578c321ec732
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 424d46f31717e28bb341f6a96201a32efc1eb5a9
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="build-a-net-core-and-sql-database-web-app-in-azure-web-app-for-containers"></a>在適用於容器的 Azure Web 應用程式中建置 .NET Core 和 SQL Database Web 應用程式
+# <a name="build-a-net-core-and-sql-database-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
 
-[適用於容器的 Web 應用程式](app-service-linux-intro.md)使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 .NET Core Web 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在適用於容器的 Web 應用程式中執行的 .NET Core MVC 應用程式。 
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 .NET Core Web 應用程式，並將它連線到 SQL Database。 當您完成時，您就會有在 Linux 上的 App Service中執行的 .NET Core MVC 應用程式。
 
-![在適用於容器的 Web 應用程式中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![在 Linux 上的 App Service 中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
 您會了解如何：
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="clone-the-sample-application"></a>複製範例應用程式
 
-在終端機視窗中，使用 `cd` 移至工作目錄。  
+在終端機視窗中，使用 `cd` 移至工作目錄。
 
 執行下列命令來複製範例存放庫，然後變更至其根目錄。
 
@@ -61,7 +61,7 @@ git clone https://github.com/azure-samples/dotnetcore-sqldb-tutorial
 cd dotnetcore-sqldb-tutorial
 ```
 
-範例專案包含一個基本 CRUD (建立-讀取-更新-刪除) 應用程式，使用 [Entity Framework Core](https://docs.microsoft.com/en-us/ef/core/)。
+範例專案包含一個基本 CRUD (建立-讀取-更新-刪除) 應用程式，使用 [Entity Framework Core](https://docs.microsoft.com/ef/core/)。
 
 ### <a name="run-the-application"></a>執行應用程式
 
@@ -77,7 +77,7 @@ dotnet run
 
 ![成功連線至 SQL Database](./media/tutorial-dotnetcore-sqldb-app/local-app-in-browser.png)
 
-如需隨時停止 .NET Core，請在終端機上按下 `Ctrl+C`。 
+如需隨時停止 .NET Core，請在終端機上按下 `Ctrl+C`。
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -85,11 +85,11 @@ dotnet run
 
 在此步驟中，您要在 Azure 中建立 SQL Database。 當您的應用程式部署至 Azure 時，它會使用此雲端資料庫。
 
-對於 SQL Database，本教學課程使用 [Azure SQL Database](/azure/sql-database/)。 
+對於 SQL Database，本教學課程使用 [Azure SQL Database](/azure/sql-database/)。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)] 
+[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-no-h.md)]
 
 ### <a name="create-a-sql-database-logical-server"></a>連線至 SQL Database 邏輯伺服器
 
@@ -132,7 +132,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 
 ### <a name="create-a-database"></a>建立資料庫
 
-使用 [az sql db create](/cli/azure/sql/db#create) 命令在伺服器中建立具有 [S0 效能等級](../../sql-database/sql-database-service-tiers.md)的資料庫。 
+使用 [az sql db create](/cli/azure/sql/db#create) 命令在伺服器中建立具有 [S0 效能等級](../../sql-database/sql-database-service-tiers.md)的資料庫。
 
 ```azurecli-interactive
 az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
@@ -150,19 +150,19 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 
 ## <a name="deploy-app-to-azure"></a>將應用程式部署到 Azure
 
-在此步驟中，您要將與 SQL Database 連線的 .NET Core 應用程式部署至適用於容器的 Web 應用程式。
+在此步驟中，您要將與 SQL Database 連線的 .NET Core 應用程式部署至 Linux 上的 App Service。
 
-### <a name="configure-local-git-deployment"></a>設定本機 git 部署 
+### <a name="configure-local-git-deployment"></a>設定本機 git 部署
 
 [!INCLUDE [Configure a deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)] 
+[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
 ### <a name="create-a-web-app"></a>建立 Web 應用程式
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-dotnetcore-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-dotnetcore-no-h.md)]
 
 ### <a name="configure-an-environment-variable"></a>設定環境變數
 
@@ -172,7 +172,7 @@ Server=tcp:<server_name>.database.windows.net,1433;Initial Catalog=coreDB;Persis
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLLite，針對 Azure 環境使用 SQL Database。 
+接下來，將 `ASPNETCORE_ENVIRONMENT` 應用程式設定設為_生產_。 此設定可讓您知道您是否正在 Azure 中執行，因為您針對本機開發環境使用 SQLLite，針對 Azure 環境使用 SQL Database。
 
 下列範例會在 Azure Web 應用程式中設定 `ASPNETCORE_ENVIRONMENT` 應用程式設定。 取代 \<app_name> 預留位置。
 
@@ -204,9 +204,9 @@ else
 services.BuildServiceProvider().GetService<DotNetCoreSqlDbContext>().Database.Migrate();
 ```
 
-如果此程式碼偵測到正在生產環境 (表示 Azure 環境) 中執行，則它會使用您設定的連接字串，連線到 SQL Database。 
+如果此程式碼偵測到正在生產環境 (表示 Azure 環境) 中執行，則它會使用您設定的連接字串，連線到 SQL Database。
 
-`Database.Migration()` 呼叫可在於 Azure 中執行時協助您，因為它會根據其移轉設定，自動建立您的 .NET Core 應用程式需要的資料庫。 
+`Database.Migrate()` 呼叫可在於 Azure 中執行時協助您，因為它會根據其移轉設定，自動建立您的 .NET Core 應用程式需要的資料庫。 
 
 儲存您的變更。
 
@@ -238,21 +238,21 @@ remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
-``` 
+```
 
-### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式 
+### <a name="browse-to-the-azure-web-app"></a>瀏覽至 Azure Web 應用程式
 
-使用 Web 瀏覽器，瀏覽至已部署的 Web 應用程式。 
+使用 Web 瀏覽器，瀏覽至已部署的 Web 應用程式。
 
-```bash 
-http://<app_name>.azurewebsites.net 
-``` 
+```bash
+http://<app_name>.azurewebsites.net
+```
 
 新增幾個待辦事項項目。
 
-![在適用於容器的 Web 應用程式中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
+![在 Linux 上的 App Service 中執行的應用程式](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-**恭喜！** 您正在適用於容器的 Web 應用程式中執行資料驅動的 .NET Core 應用程式。
+**恭喜！** 您正在 Linux 上的 App Service 中執行資料驅動的 .NET Core 應用程式。
 
 ## <a name="update-locally-and-redeploy"></a>在本機更新和重新部署
 
@@ -268,7 +268,7 @@ public bool Done { get; set; }
 
 ### <a name="run-code-first-migrations-locally"></a>在本機執行 Code First 移轉
 
-執行數個命令以進行本機資料庫的更新。 
+執行數個命令以進行本機資料庫的更新。
 
 ```bash
 dotnet ef migrations add AddProperty
@@ -324,13 +324,13 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 </td>
 ```
 
-您只需查看 `Index` 和 `Create` 檢視中的變更。 
+您只需查看 `Index` 和 `Create` 檢視中的變更。
 
 ### <a name="test-your-changes-locally"></a>本機測試您的變更
 
 在本機執行應用程式。
 
-```
+```bash
 dotnet run
 ```
 
@@ -379,5 +379,5 @@ git push azure master
 
 前往下一個教學課程，了解如何將自訂的 DNS 名稱對應至 Web 應用程式。
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [將現有的自訂 DNS 名稱對應至 Azure Web Apps](../app-service-web-tutorial-custom-domain.md)

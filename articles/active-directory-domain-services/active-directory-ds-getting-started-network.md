@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 26fa86d166c54f48621ccbab13d1d17f465b7568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a476e5228fc7fb83c1fe0b7ae0989a7752be09e1
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
@@ -31,7 +31,11 @@ ms.lasthandoff: 10/11/2017
 下一個設定工作是建立 Azure 虛擬網路與其中的專用子網路。 您可在虛擬網路內的這個子網路中啟用 Azure Active Directory Domain Services。 您也可以挑選現有的虛擬網路，並且建立其中的專用子網路。
 
 1. 按一下 [虛擬網路] 以選取虛擬網路。
-2. 在 [選擇虛擬網路] 刀鋒視窗中，您會看到所有現有的虛擬網路。 您只會看到隸屬於您在 [基本] 精靈分頁上選取之資源群組和 Azure 位置的虛擬網路。
+    > [!NOTE]
+    > **新部署不支援傳統虛擬網路。** 新部署不支援傳統虛擬網路。 繼續支援在傳統虛擬網路中部署的現有受管理網域。 我們將在不久的未來可讓您將現有的受管理網域從傳統虛擬網路移轉到資源管理員虛擬網路。
+    >
+
+2. 在 [選擇虛擬網路] 頁面上，您會看到所有現有的虛擬網路。 您只會看到隸屬於您在 [基本] 精靈分頁上選取之資源群組和 Azure 位置的虛擬網路。
 3. 選擇應該在其中啟用 Azure AD Domain Services 的虛擬網路。 您可以選取現有的虛擬網路或建立新的虛擬網路。
 
   > [!TIP]

@@ -1,35 +1,35 @@
 ---
-title: "在 Azure Active Directory 中設定 Cloud App Discovery | Microsoft Docs"
-description: "提供有關使用 Cloud App Discovery 尋找和管理應用程式、它的優勢和運作方式的資訊。"
+title: "在 Azure Active Directory 中設定 Cloud App Discovery 服務 | Microsoft Docs"
+description: "使用 Cloud App Discovery 來尋找並管理應用程式，以便提供雲端使用和影子 IT 的可操作資訊。"
 services: active-directory
 keywords: "雲端應用程式探索, 管理應用程式"
 documentationcenter: 
 author: curtand
 manager: femila
+tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>在 Azure AD 中設定 Cloud App Discovery
 
-Azure AD 中的 Cloud App Discovery 增強功能現在可透過 Azure Active Directory Premium P1 授權提供。 這些增強功能以與 Microsoft Cloud App Security 的整合為基礎。 Cloud App Discovery 會比較您的流量記錄與超過 15,000 個雲端應用程式的 Cloud App Security 目錄，持續為您提供雲端使用和陰影 IT 的資訊。 
+Azure AD 中的 Cloud App Discovery 現在會以 Microsoft Cloud App Security 中可用資料的整合為基礎。 為持續提供雲端使用和陰影 IT 的資訊，Cloud App Discovery 會比較您的流量記錄與超過 15,000 個雲端應用程式的 Cloud App Security 目錄。 本文會描述安裝程序，並包含每個步驟的詳細資訊連結。 也會說明防火牆和 Proxy 資訊，以及記錄檔支援。
 
 ## <a name="prerequisites"></a>必要條件
 
-您的組織必須有 Azure AD Premium P1 授權才能使用本產品。 如需詳細資訊，請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
-
-若要設定 Cloud App Discovery，您必須是 Azure Active Directory 中的全域管理員或安全性讀取者。 獲指派管理員角色的使用者對於貴公司訂閱的所有雲端應用程式，具有相同的權限。
+* 您的組織必須有 Azure AD Premium P1 授權才能使用本產品。 如需詳細資訊，請參閱 [Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
+* 若要設定 Cloud App Discovery，您必須是 Azure Active Directory 中的全域管理員或安全性讀取者。
 
 ## <a name="setup-steps"></a>設定步驟
 

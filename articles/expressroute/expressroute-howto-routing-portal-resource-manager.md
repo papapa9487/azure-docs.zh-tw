@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.date: 10/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 55ccadfea55b8098ee58dcaef942f6ba54093665
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be25e9ffab4fee79b8d9cc6c88c6ffb3e852af0d
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路的對等互連
 
@@ -39,97 +39,9 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-您可以為 ExpressRoute 線路設定一個、兩個或全部三個對等 (Azure 私用、Azure 公用和 Microsoft)。 您可以依自己選擇的任何順序設定對等。 不過，您必須確定一次只完成一個對等的設定。
+您可以為 ExpressRoute 線路設定一個、兩個或全部三個對等 (Azure 私用、Azure 公用和 Microsoft)。 您可以依自己選擇的任何順序設定對等。 不過，您必須確定一次只完成一個對等的設定。 如需路由網域和對等互連的詳細資訊，請參閱 [ExpressRoute 路由網域](expressroute-circuit-peerings.md)。
 
-## <a name="azure-private-peering"></a>Azure 私用對等
-
-本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 私用對等互連設定。
-
-### <a name="to-create-azure-private-peering"></a>建立 Azure 私用對等
-
-1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。
-
-  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. 設定線路的 Azure 私用對等。 繼續執行接下來的步驟之前，請確定您有下列項目：
-
-  * 主要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。
-  * 次要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。
-  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
-  * **選用：**MD5 雜湊 (如果選擇使用)。
-3. 如下列範例所示，選取 Azure 私用對等互連列：
-
-  ![私用](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. 設定私用對等。 下圖顯示設定範例：
-
-  ![設定私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. 指定所有參數後，請儲存組態。 成功接受設定後，會出現類似下列範例的畫面：
-
-  ![儲存私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
-
-### <a name="to-view-azure-private-peering-details"></a>檢視 Azure 私用對等詳細資訊
-
-選取 Azure 私用對等，即可檢視該對等的屬性。
-
-![檢視私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
-
-### <a name="to-update-azure-private-peering-configuration"></a>更新 Azure 私用對等組態
-
-您可以選取對等的資料列並修改對等屬性。
-
-![更新私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-
-### <a name="to-delete-azure-private-peering"></a>刪除 Azure 私用對等
-
-如下圖所示，您可以選取刪除圖示來移除對等互連設定：
-
-![刪除私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
-
-## <a name="azure-public-peering"></a>Azure 公用對等
-
-本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 公用對等互連設定。
-
-### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
-
-1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。
-
-  ![列出公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
-2. 設定線路的 Azure 公用對等。 繼續執行接下來的步驟之前，請確定您有下列項目：
-
-  * 主要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
-  * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
-  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
-  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-  * **選用：**MD5 雜湊 (如果選擇使用)。
-3. 如下圖所示，選取 Azure 公用對等互連列：
-
-  ![選取公用對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
-4. 設定公用對等。 下圖顯示設定範例：
-
-  ![設定公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-5. 指定所有參數後，請儲存組態。 成功接受設定後，會出現類似下列範例的畫面：
-
-  ![儲存公用對等互連設定](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
-### <a name="to-view-azure-public-peering-details"></a>檢視 Azure 公用對等詳細資訊
-
-選取 Azure 公用對等，即可檢視該對等的屬性。
-
-![檢視公用對等互連屬性](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
-
-### <a name="to-update-azure-public-peering-configuration"></a>更新 Azure 公用對等組態
-
-您可以選取對等的資料列並修改對等屬性。
-
-![選取公用對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
-
-### <a name="to-delete-azure-public-peering"></a>刪除 Azure 公用對等
-
-如下列範例所示，您可以選取刪除圖示來移除對等互連設定：
-
-![刪除公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
-
-## <a name="microsoft-peering"></a>Microsoft 對等互連
+## <a name="msft"></a>Microsoft 對等互連
 
 本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Microsoft 對等互連設定。
 
@@ -140,7 +52,9 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="to-create-microsoft-peering"></a>建立 Microsoft 對等
 
-1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。
+[!INCLUDE [Premium](../../includes/expressroute-mspeering-premium-include.md)]
+
+1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Microsoft 對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
 
   ![列出 Microsoft 對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. 設定線路的 Microsoft 對等。 繼續之前，請確定您擁有下列資訊。
@@ -174,23 +88,111 @@ ms.lasthandoff: 10/11/2017
 
   ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-view-microsoft-peering-details"></a>檢視 Microsoft 對等詳細資訊
+### <a name="getmsft"></a>檢視 Microsoft 對等詳細資訊
 
 選取 Azure 公用對等，即可檢視該對等的屬性。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft3.png)
 
-### <a name="to-update-microsoft-peering-configuration"></a>更新 Microsoft 對等組態
+### <a name="updatemsft"></a>更新 Microsoft 對等組態
 
 您可以選取對等的資料列並修改對等屬性。
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft7.png)
 
-### <a name="to-delete-microsoft-peering"></a>刪除 Microsoft 對等
+### <a name="deletemsft"></a>刪除 Microsoft 對等
 
 如下圖所示，您可以選取刪除圖示來移除對等互連設定：
 
 ![](./media/expressroute-howto-routing-portal-resource-manager/rmicrosoft4.png)
+
+## <a name="private"></a>Azure 私人對等互連
+
+本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 私用對等互連設定。
+
+### <a name="to-create-azure-private-peering"></a>建立 Azure 私用對等
+
+1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者是提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 私人對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
+
+  ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+2. 設定線路的 Azure 私用對等。 繼續執行接下來的步驟之前，請確定您有下列項目：
+
+  * 主要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。
+  * 次要連結的 /30 子網路。 子網路不能在保留給虛擬網路的任何位址空間中。
+  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
+  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。 您可以將私用 AS 編號用於此對等。 請確定您不是使用 65515。
+  * **選用：**MD5 雜湊 (如果選擇使用)。
+3. 如下列範例所示，選取 Azure 私用對等互連列：
+
+  ![私用](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
+4. 設定私用對等。 下圖顯示設定範例：
+
+  ![設定私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+5. 指定所有參數後，請儲存組態。 成功接受設定後，會出現類似下列範例的畫面：
+
+  ![儲存私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+
+### <a name="getprivate"></a>檢視 Azure 私用對等詳細資訊
+
+選取 Azure 私用對等，即可檢視該對等的屬性。
+
+![檢視私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+
+### <a name="updateprivate"></a>更新 Azure 私用對等組態
+
+您可以選取對等的資料列並修改對等屬性。
+
+![更新私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+
+### <a name="deleteprivate"></a>刪除 Azure 私用對等
+
+如下圖所示，您可以選取刪除圖示來移除對等互連設定：
+
+![刪除私用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+
+## <a name="public"></a>Azure 公用對等互連
+
+本節將協助您為 ExpressRoute 線路建立、取得、更新和刪除 Azure 公用對等互連設定。
+
+### <a name="to-create-azure-public-peering"></a>建立 Azure 公用對等
+
+1. 設定 ExpressRoute 電路。 先確定連線提供者已完整佈建電路，再繼續作業。 若您的連線提供者提供受管理的第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等互連。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不管理路由，請在建立線路之後繼續使用後續步驟進行設定。
+
+  ![列出公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+2. 設定線路的 Azure 公用對等。 繼續執行接下來的步驟之前，請確定您有下列項目：
+
+  * 主要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
+  * 次要連結的 /30 子網路。 這必須是有效的公用 IPv4 首碼。
+  * 供建立此對等的有效 VLAN ID。 請確定線路有沒有其他對等使用相同的 VLAN ID。
+  * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
+  * **選用：**MD5 雜湊 (如果選擇使用)。
+3. 如下圖所示，選取 Azure 公用對等互連列：
+
+  ![選取公用對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rpublic1.png)
+4. 設定公用對等。 下圖顯示設定範例：
+
+  ![設定公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+5. 指定所有參數後，請儲存組態。 成功接受設定後，會出現類似下列範例的畫面：
+
+  ![儲存公用對等互連設定](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+
+### <a name="getpublic"></a>檢視 Azure 公用對等詳細資訊
+
+選取 Azure 公用對等，即可檢視該對等的屬性。
+
+![檢視公用對等互連屬性](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+
+### <a name="updatepublic"></a>更新 Azure 公用對等組態
+
+您可以選取對等的資料列並修改對等屬性。
+
+![選取公用對等互連列](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+
+### <a name="deletepublic"></a>刪除 Azure 公用對等
+
+如下列範例所示，您可以選取刪除圖示來移除對等互連設定：
+
+![刪除公用對等互連](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
 
 ## <a name="next-steps"></a>後續步驟
 

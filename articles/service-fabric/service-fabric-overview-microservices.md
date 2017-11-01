@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>為何要用微服務方式建置應用程式？
 身為軟體開發人員，已熟悉思考如何將應用程式分解成元件部分。 它是物件導向、軟體抽象化和元件化的中心範型。 現在，這種分解經常以共用程式庫和技術層之間的類別與介面呈現。 通常是透過一種分層方法，有後端存放區、中間層商務邏輯和前端使用者介面 (UI)。 過去幾年來的變化  是身為開發人員的我們，開始為商業驅動和雲端建置分散式應用程式。
@@ -147,10 +147,10 @@ Service Fabric 提供三個廣泛的領域，可協助您建置使用微服務�
 ### <a name="migrating-existing-applications-to-service-fabric"></a>將現有的應用程式移轉到 Service Fabric
 Service Fabric 的一個主要方法是重複使用現有的程式碼，而這些程式碼可接著藉由新的微服務來現代化。 應用程式的現代化階段有五個，而您可以在任何階段開始和停止。 這些階段包括：
 
-1) 選擇一個傳統單體式應用程式
-2) 原封不動轉移 - 使用容器或客體可執行檔來裝載 Service Fabric 中現有的程式碼。
-3) 現代化 - 在現有的容器化程式碼之外，再加上新的微服務。 
-4) 創新 - 將單體完全根據需求拆解成微服務。
+1) 選擇一個傳統單體式應用程式  
+2) 原封不動轉移 - 使用容器或客體可執行檔來裝載 Service Fabric 中現有的程式碼。  
+3) 現代化 - 在現有的容器化程式碼之外，再加上新的微服務。  
+4) 創新 - 將單體完全根據需求拆解成微服務。  
 5) 轉換成微服務 - 轉換現有的單體式應用程式，或建置新的原創應用程式。
 
 ![移轉成微服務][Image3]

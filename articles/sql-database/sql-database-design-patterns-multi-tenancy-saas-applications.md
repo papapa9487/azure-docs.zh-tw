@@ -1,6 +1,6 @@
 ---
 title: "多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式 | Microsoft Docs"
-description: "本文討論雲端環境中執行的多租用戶資料庫應用程式需要考慮的需求和通用資料架構模式，以及這些模式相關的各種利弊取捨。 其中也說明 Azure SQL Database 搭配其彈性集區和彈性工具，如何在無需妥協的情況下滿足這些需求。"
+description: "了解雲端環境中執行的多租用戶軟體即服務 (SaaS) 資料庫應用程式的需求和通用資料架構模式。"
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>多租用戶 SaaS 應用程式與 Azure SQL Database 的設計模式
 在本文中，您可以了解雲端環境中執行的多租用戶軟體即服務 (SaaS) 資料庫應用程式的需求和通用資料架構模式。 其中也說明您需要考量的因素，以及不同設計模式的利弊取捨。 Azure SQL Database 中的彈性集區和彈性工具可協助您符合特定需求，而不會影響其他目標。

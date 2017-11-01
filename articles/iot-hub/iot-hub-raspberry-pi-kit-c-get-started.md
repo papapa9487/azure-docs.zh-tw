@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b8fda17a8d1d1796d5299e3aba4b0fd5e719a4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d643647d4103acd511ed270132c844da12f2ac9b
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>將 Raspberry Pi 連接至 Azure IoT Hub (C)
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
    ![[Raspbian 偏好設定] 功能表](media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. 在 介面索引標籤上，將 SPI 和 SSH 設定為 啟用，然後按一下確定。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
+1. 在 [介面]索引標籤上，將 [SPI] 和 [SSH] 設定為 [啟用]，然後按一下 [確定]。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
 
    ![在 Raspberry Pi 上啟用 SPI 和 SSH](media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
@@ -140,7 +140,7 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
 
 ## <a name="run-a-sample-application-on-pi"></a>在 Pi 上執行範例應用程式
 
-### <a name="install-the-prerequisite-packages"></a>安裝必要條件套件
+### <a name="login-to-your-raspberry-pi"></a>登入您的 Raspberry Pi
 
 1. 使用下列其中一個 SSH 用戶端，從主機電腦連接到 Raspberry Pi。
    
@@ -156,41 +156,26 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
    > [!NOTE] 
    預設使用者名稱為 `pi`，密碼為 `raspberry`。
 
-1. 執行下列命令，安裝 Microsoft Azure IoT Device SDK for C and Cmake 的必要條件套件︰
-
-   ```bash
-   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-   sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-   git clone git://git.drogon.net/wiringPi
-   cd ./wiringPi
-   ./build
-   ```
-
 
 ### <a name="configure-the-sample-application"></a>設定範例應用程式
 
 1. 執行下列命令，複製範例應用程式：
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   sudo apt-get install git-core
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
-1. 執行下列命令以開啟組態檔：
+
+2. 執行安裝程式指令碼：
 
    ```bash
-   cd iot-hub-c-raspberrypi-client-app
-   nano config.h
+   cd ./iot-hub-c-raspberrypi-client-app
+   sudo chmod u+x setup.sh
+   sudo ./setup.sh
    ```
 
-   ![組態檔](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
-
-   此檔案中有兩個巨集可供您設定。 第一個是 `INTERVAL`，這可定義傳送至雲端的兩個訊息之間相隔的時間間隔 (以毫秒為單位)。 第二個是 `SIMULATED_DATA`，這是是否使用模擬感應器資料的布林值。
-
-   如果**沒有感應器**，請將 `SIMULATED_DATA` 值設定為 `1`，使範例應用程式建立和使用模擬感應器資料。
-
-1. 按下 [Control-O] > 輸入 > [Control-X] 儲存並結束。
+   > [!NOTE] 
+   > 如果您**沒有實體 BME280**，則可以使用 '--simulated-data' 做為命令列參數，以模擬溫度和溼度資料。 `sudo ./setup.sh --simulated-data`
 
 ### <a name="build-and-run-the-sample-application"></a>建置並執行範例應用程式
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>了解 IoT 中樞的身分識別登錄
 
@@ -28,8 +28,6 @@ ms.lasthandoff: 10/11/2017
 儲存在身分識別登錄的裝置識別碼會區分大小寫。
 
 總括來說，身分識別登錄是支援 REST 的裝置身分識別資源集合。 當您在身分識別登錄中新增項目時，IoT 中樞會建立一組每一裝置資源，例如，包含傳遞中雲端到裝置訊息的佇列。
-
-### <a name="when-to-use"></a>使用時機
 
 當您需要執行下列作業時，請使用身分識別登錄：
 
@@ -80,8 +78,7 @@ IoT 方案通常具有不同的方案專屬存放區，其中包含應用程式�
 
 您可以使用 [IoT 中樞資源提供者端點][lnk-endpoints]上的非同步作業，將裝置身分識別大量匯入 IoT 中樞的身分識別登錄。 匯入是長時間執行的作業，其使用客戶提供的 Blob 容器中的資料，將裝置身分識別資料寫入至身分識別登錄。
 
-* 如須匯入和匯出 API 的詳細資訊，請參閱 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis]。
-* 若要深入了解如何執行匯入和匯出作業，請參閱[大量管理 IoT 中樞的裝置身分識別][lnk-bulk-identity]。
+如須匯入和匯出 API 的詳細資訊，請參閱 [IoT 中樞資源提供者 REST API][lnk-resource-provider-apis]。 若要深入了解如何執行匯入和匯出作業，請參閱[大量管理 IoT 中樞的裝置身分識別][lnk-bulk-identity]。
 
 ## <a name="device-provisioning"></a>裝置佈建
 
@@ -143,17 +140,13 @@ iothub-message-schema | deviceLifecycleNotification |
 }
 ```
 
-## <a name="reference-topics"></a>參考主題：
-
-下列參考主題會提供您關於身分識別登錄的詳細資訊。
-
 ## <a name="device-identity-properties"></a>裝置身分識別屬性
 
 裝置身分識別會以具有下列屬性的 JSON 文件表示：
 
 | 屬性 | 選項 | 說明 |
 | --- | --- | --- |
-| deviceId |必要，只能讀取更新 |區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和 `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`。 |
+| deviceId |必要，只能讀取更新 |區分大小寫的字串，最長為 128 個字元，可使用 ASCII 7 位元英數字元和某些特殊字元：`- : . + % _ # * ? ! ( ) , = @ ; $ '`。 |
 | generationId |必要，唯讀 |IoT 中樞產生的區分大小寫字串，最長為 128 個字元。 此值可用來在刪除並重建裝置時，區分具有相同 **deviceId** 的裝置。 |
 | etag |必要，唯讀 |依據 [RFC7232][lnk-rfc7232]，此字串代表裝置身分識別的弱式 ETag。 |
 | auth |選用 |包含驗證資訊和安全性資料的複合物件。 |
@@ -180,7 +173,7 @@ IoT 中樞開發人員指南中的其他參考主題包括︰
 
 ## <a name="next-steps"></a>後續步驟
 
-現在您已了解如何使用 IoT 中樞身分識別登錄，接下來您可能對下列 IoT 中樞開發人員指南主題感興趣︰
+現在您已了解如何使用 IoT 中樞身分識別登錄，接下來您可能對下列 IoT 中樞開發人員指南主題感興趣：
 
 * [控制 IoT 中樞的存取權][lnk-devguide-security]
 * [使用裝置對應項同步處理狀態和組態][lnk-devguide-device-twins]

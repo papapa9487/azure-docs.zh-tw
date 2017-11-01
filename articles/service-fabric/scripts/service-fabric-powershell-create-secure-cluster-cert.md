@@ -15,15 +15,15 @@ ms.topic: sample
 ms.date: 09/29/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a6d44d810fa9f9a4660afbaa4cbb0af37c5e0d13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc0412b7595e9a84049223561c7695a86480fe4a
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="create-a-service-fabric-cluster"></a>建立 Service Fabric 叢集
 
-這個範例指令碼會建立 Service Fabric 叢集，這是使用 X.509 憑證保護的五節點叢集。  此命令會建立自我簽署的憑證，並將它上傳到新的金鑰保存庫。 憑證也會複製到本機目錄。  設定 *-OS* 參數選擇在叢集節點執行的 Windows 或 Linux 版本。  視需要自訂參數。
+此範例指令碼會建立一個使用 X.509 憑證保護的五節點 Service Fabric 叢集。  此命令會建立自我簽署的憑證，並將它上傳到新的金鑰保存庫。 憑證也會複製到本機目錄。  設定 *-OS* 參數選擇在叢集節點執行的 Windows 或 Linux 版本。  視需要自訂參數。
 
 您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/overview) 中的指示來安裝 Azure PowerShell，然後執行 `Login-AzureRmAccount` 來建立與 Azure 的連線。 
 

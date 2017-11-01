@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>資料管理閘道 - 高可用性和延展性 (預覽)
-本文可協助您使用資料管理閘道來設定高可用性和延展性解決方案。    
+本文可協助您使用資料管理閘道/整合來設定高可用性和延展性解決方案。    
 
 > [!NOTE]
-> 本文假設您已熟悉資料管理閘道的基本概念。 如果您並不熟悉，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
+> 本文假設您已熟悉 Integration Runtime (即先前的「資料管理閘道」) 的基本概念。 如果您並不熟悉，請參閱[資料管理閘道](data-factory-data-management-gateway.md)。
 
 >**資料管理閘道版本 2.12.xxxx.x 和更新版本正式支援此預覽功能**。 請確定您使用版本 2.12.xxxx.x 或更新版本。 在[此處](https://www.microsoft.com/download/details.aspx?id=39717)下載最新版本的資料管理閘道。
 
@@ -155,14 +155,21 @@ ms.lasthandoff: 10/11/2017
 - 至少新增兩個節點，以確保高可用性。  
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 憑證需求
-以下是用來保護閘道節點間通訊之 TLS/SSL 憑證的需求：
+以下是用來保護整合執行階段節點間通訊之 TLS/SSL 憑證的需求：
 
-- 憑證必須是受信任的 X509 v3 公開憑證。
-- 所有閘道節點都必須信任此憑證。 
-- 建議您使用公開 (第三方) 憑證授權單位 (CA) 所發出的憑證。
+- 憑證必須是受信任的 X509 v3 公開憑證。 建議您使用公開 (第三方) 憑證授權單位 (CA) 所發出的憑證。
+- 每個整合執行階段節點皆必須信任此憑證，以及執行認證管理員應用程式的用戶端電腦。 
+> [!NOTE]
+> 從複製精靈/Azure 入口網站安全地設定認證時，會使用認證管理員應用程式。 此外亦可以從與內部部署/私人資料存放區位於相同網路的所有電腦上，啟動此應用程式。
+- 支援萬用字元憑證。 若您的 FQDN 名稱為 **node1.domain.contoso.com**，則您可使用 ***.domain.contoso.com** 做為憑證的主體名稱。
+- 由於系統僅會使用主體別名的最後一個項目，其他所有項目則會因目前的限制而遭到忽略，因此不建議使用 SAN 憑證。 例如 若您具有 SAN 憑證，且其 SAN 為 **node1.domain.contoso.com** 和 **node2.domain.contoso.com**，則您僅可在 FQDN 為 **node2.domain.contoso.com** 的電腦上使用此憑證。
 - 支援 Windows Server 2012 R2 所支援的任何 SSL 憑證金鑰大小。
-- 不支援使用 CNG 金鑰的憑證。
-- 支援萬用字元憑證。 
+- 不支援使用 CNG 金鑰的憑證。 不支援使用 CNG 金鑰的憑證。
+
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>常見問題集：何時不會啟用此加密？
+啟用加密會為您的基礎結構增加特定成本 (擁有公用憑證)，因此在以下情況可能會跳過啟用加密：
+- 在信任的網路或是採用 IP/SEC 等透明加密的網路上，執行整合執行階段時。 由於這種頻道通訊僅限在信任的網路內部運作，因此可能不需要額外使用加密。
+- 整合執行階段未在生產環境中執行時。 這可協助降低 TLS/SSL 憑證的成本。
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>監視多節點閘道

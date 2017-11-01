@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7a886cdb0c36008bdb66592a8d3428889739627e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5feadd851b166d0a9a77bd1d124cdd599d5d701
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -91,6 +91,8 @@ ms.lasthandoff: 10/11/2017
 4. Azure AD 會在註冊要求中驗證存取權杖，並確認要求來自全域管理員。
 5. 接著，Azure AD 會簽署數位身分識別憑證，然後將其發回驗證代理程式。
     - 此憑證是使用 **Azure AD 的根憑證授權單位 (CA)** 簽署的。 請注意，此 CA 不在 Windows **受信任的根憑證授權單位**存放區中。
+    - 此 CA 僅供傳遞驗證功能使用。 只在驗證代理程式註冊期間才會用於簽署 CSR。
+    - 此 CA 不會供 Azure AD 中的任何其他服務使用。
     - 此憑證的主體 (**辨別名稱或 DN**) 設定為您的**租用戶識別碼**。 這是可唯一識別租用戶的 GUID。 如此可將憑證的範圍限制為僅能搭配您的租用戶使用。
 6. Azure AD 會將驗證代理程式的公開金鑰儲存在只有 Azure AD 可存取的 Azure SQL Database 中。
 7. (在步驟 5 核發的) 憑證會儲存在內部部署伺服器的 **Windows 憑證存放區**中 (具體而言是在 **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)** 位置)，而且可同時用於驗證代理程式和更新程式應用程式。
@@ -133,6 +135,7 @@ ms.lasthandoff: 10/11/2017
 9. 驗證代理程式會找出其公開金鑰專屬的加密密碼值 (使用識別碼)，並使用其私密金鑰加以解密。
 10. 驗證代理程式會嘗試使用 **[Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** (其 **dwLogonType** 參數設定為 **LOGON32_LOGON_NETWORK**)，針對內部部署 Active Directory 驗證使用者名稱和密碼。 
     - 這是 Active Directory 同盟服務 (AD FS) 在同盟登入案例中登入使用者所使用的相同 API。
+    - 這會依賴 Windows Server 中的標準解析程序來尋找網域控制站。
 11. 驗證代理程式會從 Active Directory 接收結果 (成功、使用者名稱或密碼不正確、密碼過期、使用者遭到鎖定等等)。
 12. 驗證代理程式會透過連接埠 443 上，輸出相互驗證的 HTTPS 通道，將結果轉送回 Azure AD STS。 相互驗證會使用先前在註冊期間發給驗證代理程式的相同憑證。
 13. Azure AD STS 會驗證此結果是否與您租用戶上的特定登入要求相互關聯。

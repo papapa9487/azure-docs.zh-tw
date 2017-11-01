@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 4acc29dc74a37d16a9e90101aa9b7706c55af58e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e65735ed6d19c8b94496fc3d3445e3a9dca2b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區複製資料及將資料複製到處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -54,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | 類型 | 類型屬性必須設定為：**Odbc** | 是 |
-| connectionString | 不包含認證部分的連接字串。 請參閱下一節中的範例。 | 是 |
+| connectionString | 不包含認證部分的連接字串。 您可以用 `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` 模式指定連接字串，或使用您在 Integration Runtime 電腦上以 `"DSN=<name of the DSN on IR machine>;"` 設定的系統 DSN (資料來源名稱) (仍需要據此指定連結的服務中的認證部分)。| 是 |
 | authenticationType | 用來連接到 ODBC 資料存放區的驗證類型。<br/>允許的值為：**Basic** (基本) 和 **Anonymous** (匿名)。 | 是 |
 | userName | 如果您要使用 Basic 驗證，請指定使用者名稱。 | 否 |
 | password | 指定您為 userName 指定之使用者帳戶的密碼。 請將此欄位標示為 SecureString。 | 否 |
@@ -71,11 +71,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -100,11 +100,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Anonymous",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<connection string>"
             },
+            "authenticationType": "Anonymous",
             "credential": {
                 "type": "SecureString",
                 "value": "RefreshToken=<secret refresh token>;"
@@ -240,9 +240,93 @@ ms.lasthandoff: 10/11/2017
 ]
 ```
 
+## <a name="ibm-informix-source"></a>IBM Informix 來源
+
+您可以使用一般的 ODBC 連接器從 IBM Informix 資料庫複製資料。
+
+請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用適用於 Informix 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 例如，您可以使用 IBM INFORMIX ODBC 驅動程式 (64 位元)。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
+
+在 Data Factory 解決方案中使用 Informix 來源之前，請先依照[針對連線問題進行疑難排解](#troubleshoot-connectivity-issues)一節中的指示，確認 Integration Runtime 是否能夠連線到資料存放區。
+
+建立 ODBC 已連結的服務來將 IBM Informix 資料存放區連線至 Azure Data Factory，如以下範例所示︰
+
+```json
+{
+    "name": "InformixLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "<Informix connection string or DSN>"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
+
+## <a name="microsoft-access-source"></a>Microsoft Access 來源
+
+您可以使用一般的 ODBC 連接器從 Microsoft Access 資料庫複製資料。
+
+請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用 Microsoft Access 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
+
+在 Data Factory 解決方案中使用 Microsoft Access 來源之前，請先依照[針對連線問題進行疑難排解](#troubleshoot-connectivity-issues)一節中的指示，確認 Integration Runtime 是否能夠連線到資料存放區。
+
+建立 ODBC 已連結的服務來將 Microsoft Access 資料存放區連線至 Azure Data Factory，如以下範例所示︰
+
+```json
+{
+    "name": "MicrosoftAccessLinkedService",
+    "properties":
+    {
+        "type": "Odbc",
+        "typeProperties":
+        {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Driver={Microsoft Access Driver (*.mdb, *.accdb)};Dbq=<path to your DB file e.g. C:\\mydatabase.accdb>;"
+            },
+            "authenticationType": "Basic",
+            "userName": "<username>",
+            "password": {
+                "type": "SecureString",
+                "value": "<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
+
 ## <a name="ge-historian-source"></a>GE Historian 來源
 
-您建立 ODBC 連結服務，將 [GE Proficy Historian (現為 GE Historian)](http://www.geautomation.com/products/proficy-historian) 資料存放區連結至 Azure Data Factory，如下例所示︰
+您可以使用一般的 ODBC 連接器從 IBM Informix 資料庫複製資料。
+
+請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用 GE Historian 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
+
+在 Data Factory 解決方案中使用 Informix 來源之前，請先依照[針對連線問題進行疑難排解](#troubleshoot-connectivity-issues)一節中的指示，確認 Integration Runtime 是否能夠連線到資料存放區。
+
+建立 ODBC 已連結的服務來將 Microsoft Access 資料存放區連線至 Azure Data Factory，如以下範例所示︰
 
 ```json
 {
@@ -252,11 +336,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "<GE Historian store connection string or DSN>"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -270,10 +354,6 @@ ms.lasthandoff: 10/11/2017
     }
 }
 ```
-
-請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用 GE Historian 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
-
-在您使用 Data Factory 方案中的 GE Historian 存放區之前，請先依照下一節中的指示來確認 Integration Runtime 是否能夠連線到資料存放區。
 
 如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
 
@@ -283,7 +363,13 @@ ms.lasthandoff: 10/11/2017
 >若要從 SAP HANA 資料存放區複製資料，請參考原生 [SAP HANA 連接器](connector-sap-hana.md)。 若要將資料複製到 SAP HANA，請依照此指示來使用 ODBC 連接器。 請注意，SAP HANA 連接器和 ODBC 連接器的已連接服務具有不同的類型，因此無法重複使用。
 >
 
-您需建立 ODBC 已連結的服務來將 SAP HANA 資料存放區連結至 Azure Data Factory，如以下範例所示︰
+您可以使用一般的 ODBC 連接器從 IBM Informix 資料庫複製資料。
+
+請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用 SAP HANA 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
+
+在 Data Factory 解決方案中使用 SAP HANA 接收之前，請先依照[針對連線問題進行疑難排解](#troubleshoot-connectivity-issues)一節中的指示，確認 Integration Runtime 是否能夠連線到資料存放區。
+
+建立 ODBC 已連結的服務來將 SAP HANA 資料存放區連線至 Azure Data Factory，如以下範例所示︰
 
 ```json
 {
@@ -293,11 +379,11 @@ ms.lasthandoff: 10/11/2017
         "type": "Odbc",
         "typeProperties":
         {
-            "authenticationType": "Basic",
             "connectionString": {
                 "type": "SecureString",
                 "value": "Driver={HDBODBC};servernode=<HANA server>.clouddatahub-int.net:30015"
             },
+            "authenticationType": "Basic",
             "userName": "<username>",
             "password": {
                 "type": "SecureString",
@@ -312,10 +398,6 @@ ms.lasthandoff: 10/11/2017
 }
 ```
 
-請在電腦上設定一個能夠存取您資料存放區的「自我裝載 Integration Runtime」。 此 Integration Runtime 會使用 SAP HANA 的 ODBC 驅動程式來連線到資料存放區。 因此，如果尚未在該相同電腦上安裝該驅動程式，請安裝該驅動程式。 如需詳細資料，請參閱[必要條件](#prerequisites)一節。
-
-在您使用 Data Factory 方案中的 SAP HANA 接收器之前，請先依照下一節中的指示來確認 Integration Runtime 是否能夠連線到資料存放區。
-
 如需在複製作業中使用 ODBC 資料存放區作為來源/接收資料存放區的詳細概觀，請從頭閱讀本文。
 
 ## <a name="troubleshoot-connectivity-issues"></a>疑難排解連線問題
@@ -324,7 +406,7 @@ ms.lasthandoff: 10/11/2017
 
 1. 啟動 [整合執行階段組態管理員]。
 2. 切換至 [診斷]  索引標籤。
-3. 在 [測試連線] 區段底下，選取資料存放區的 [類型] \(已連結的服務)。
+3. 在 [測試連線] 區段底下，選取資料存放區的 [類型] (已連結的服務)。
 4. 指定用來連線到資料存放區的 [連接字串]，選擇 [驗證]，然後輸入 [使用者名稱]、[密碼] 和/或 [認證]。
 5. 按一下 [測試連線]  以測試資料存放區連線。
 

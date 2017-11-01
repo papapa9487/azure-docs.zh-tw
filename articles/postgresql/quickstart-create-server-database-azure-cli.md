@@ -1,6 +1,6 @@
 ---
 title: "使用 Azure CLI 建立 Azure Database for PostgreSQL | Microsoft Docs"
-description: "本快速入門指南說明如何使用 Azure CLI (命令列介面) 建立及管理 Azure Database for PostgreSQL 伺服器。"
+description: "本快速入門指南說明如何使用 Azure CLI (命令列介面) 建立及管理適用於 PostgreSQL 伺服器的 Azure 資料庫。"
 services: postgresql
 author: sanagama
 ms.author: sanagama
@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 06/13/2017
-ms.openlocfilehash: d78243abc140c7b3f0b99bdf56821b7920568550
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f51964687e2fbbcca4f5623b56997dc8acfa78a6
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>使用 Azure CLI 建立 Azure Database for PostgreSQL
 Azure Database for PostgreSQL 是一個受管理的服務，可讓您在雲端執行、管理及調整高可用性 PostgreSQL 資料庫。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門說明如何使用 Azure CLI 在 [Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)中建立 Azure Database for PostgreSQL 伺服器。
@@ -24,6 +24,11 @@ Azure Database for PostgreSQL 是一個受管理的服務，可讓您在雲端�
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+
+若您在本機上執行 CLI，則需要使用 [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in) 命令登入您的帳戶。
+```azurecli-interactive
+az login
+```
 
 如果您有多個訂用帳戶，請選擇資源計費的適當訂用帳戶。 使用 [az account set](/cli/azure/account#set) 命令在您的帳戶之下選取特定訂用帳戶識別碼。
 ```azurecli-interactive
@@ -150,13 +155,13 @@ CREATE DATABASE mypgsqldb;
 刪除 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)以清除您在快速入門中建立的所有資源。
 
 > [!TIP]
-> 此集合中的其他快速入門會以本快速入門為基礎。 如果您打算繼續進行後續的快速入門，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure CLI 中刪除本快速入門所建立的所有資源。
+> 此集合中的其他快速入門會以本快速入門為基礎。 若您打算繼續進行後續的快速入門，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure CLI 中刪除本快速入門所建立的所有資源。
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-如果您只想要刪除一個新建立的伺服器，您可以執行 [az postgres server delete](/cli/azure/postgres/server#delete) 命令。
+若您只想要刪除一個新建立的伺服器，則可執行 [az postgres server delete](/cli/azure/postgres/server#delete) 命令。
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```

@@ -11,29 +11,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/15/2017
+ms.date: 10/15/2017
 ms.author: markgal;arunak
-ms.openlocfilehash: 19e2aafe3de106be32f3d90c63c0ea03c626f272
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d50d0066f1d0fe38bd7c5474386f54df81bec5
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="recovery-services-vaults-overview"></a>復原服務保存庫概觀
 
-本文說明復原服務保存庫的功能。 復原服務保存庫是 Azure 中裝載資料的儲存體實體。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊。 復原服務保存庫是 Resource Manager 版本的備份保存庫。 Microsoft 鼓勵您使用復原服務保存庫，並將任何備份保存庫轉換成復原服務保存庫。
+本文說明復原服務保存庫的功能。 復原服務保存庫是 Azure 中裝載資料的儲存體實體。 資料通常是資料的副本，或是虛擬機器 (VM)、工作負載、伺服器或工作站的設定資訊。 您可以使用復原服務保存庫來保存各種 Azure 服務 (例如 IaaS VM (Linux 或 Windows) 和 Azure SQL Database) 的備份資料。 復原服務保存庫支援 System Center DPM、Windows Server、Azure 備份伺服器等等。 復原服務保存庫可輕鬆地組織您的備份資料，同時可減輕管理負擔。 
 
-## <a name="what-is-a-recovery-services-vault"></a>什麼是復原服務保存庫？
-
-復原服務保存庫是 Azure 中的線上儲存實體，用來保存備份副本、復原點及備份原則等資料。 您可以使用復原服務保存庫來保存各種 Azure 服務 (例如 IaaS VM (Linux 或 Windows) 和 Azure SQL Database) 的備份資料。 復原服務保存庫支援 System Center DPM、Windows Server、Azure 備份伺服器等等。 復原服務保存庫可輕鬆地組織您的備份資料，同時可減輕管理負擔。
-
-您可以在訂用帳戶內建立所需數量的復原服務保存庫。
+您可以在 Azure 訂用帳戶內建立最多 25 個復原服務保存庫。
 
 ## <a name="comparing-recovery-services-vaults-and-backup-vaults"></a>比較復原服務保存庫與備份保存庫
 
+如果您仍有「備份」保存庫，它們會自動被升級為「復原服務」保存庫。 到了 2017 年11 月，所有備份保存庫都會自動被升級為復原服務保存庫。 
+
 復原服務保存庫是以 Azure 的 Azure Resource Manager 模型作為基礎，而備份保存庫則是以 Azure Service Manager 模型為作為基礎。 當您將備份保存庫升級至復原服務保存庫時，備份資料在升級程序期間及升級程序之後都會維持不變。 復原服務保存庫可提供備份保存庫無法使用的功能，例如︰
 
-- **可協助保護備份資料安全的增強功能**︰透過復原服務保存庫，Azure 備份能提供安全性功能來保護雲端備份。 這些安全性功能可確保您能保護您的備份，並安全地從雲端備份將資料復原，即使生產和備份伺服器遭到入侵也一樣。 [深入了解](backup-azure-security-feature.md)
+- **可協助保護備份資料安全的增強功能**︰透過復原服務保存庫，Azure 備份能提供安全性功能來保護雲端備份。 這些安全性功能可確保您能保護您的備份，並安全地將資料復原，即使生產和備份伺服器遭到入侵也一樣。 [深入了解](backup-azure-security-feature.md)
 
 - **將您的混合式 IT 環境集中監視**︰透過復原服務保存庫，您不只可以監視 [Azure IaaS VM](backup-azure-manage-vms.md)，還可以從中央入口網站監視[內部部署資產](backup-azure-manage-windows-server.md#manage-backup-items)。 [深入了解](http://azure.microsoft.com/blog/alerting-and-monitoring-for-azure-backup)
 
@@ -44,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 - **IaaS VM 的立即還原**︰您可以使用復原服務保存庫，從 IaaS VM 還原檔案和資料夾，而非還原整個 VM，這樣可加速還原時間。 IaaS VM 的立即還原適用於 Windows 和 Linux VM。 [深入了解](http://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>在入口網站中管理復原服務保存庫
-建立和管理 Azure 入口網站中的復原服務保存庫很輕鬆，因為備份服務已整合至 [Azure 設定] 刀鋒視窗。 這項整合代表您可以在目標服務的內容中，建立或管理復原服務保存庫。 例如，若要檢視 VM 的復原點，請加以選取，然後按一下 [設定] 刀鋒視窗中的 [備份]。 隨即出現該 VM 特定的備份資訊。 在下列範例中，**ContosoVM** 是虛擬機器的名稱。 **ContosoVM demovault** 是復原服務保存庫的名稱。 您不需要記住儲存復原點的復原服務保存庫名稱，您可以從虛擬機器存取這項資訊。  
+建立和管理 Azure 入口網站中的復原服務保存庫很輕鬆，因為備份服務已整合至 [Azure 設定] 功能表。 這項整合代表您可以在目標服務的內容中，建立或管理復原服務保存庫。 例如，若要檢視 VM 的復原點，請加以選取，然後按一下 [設定] 功能表中的 [備份]。 隨即出現該 VM 特定的備份資訊。 在下列範例中，**ContosoVM** 是虛擬機器的名稱。 **ContosoVM demovault** 是復原服務保存庫的名稱。 您不需要記住儲存復原點的復原服務保存庫名稱，您可以從虛擬機器存取這項資訊。  
 
 ![復原服務保存庫詳細資料 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context.png)
 
@@ -72,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="next-steps"></a>後續步驟
-使用下列文章︰</br>
+使用下列文章進行：</br>
 [備份 IaaS VM](backup-azure-arm-vms-prepare.md)</br>
 [備份 Azure 備份伺服器](backup-azure-microsoft-azure-backup.md)</br>
 [備份 Windows Server](backup-configure-vault.md)

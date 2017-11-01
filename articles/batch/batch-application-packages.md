@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afcc04c80ec15872a22de5d5969a7ef6a583562f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1f9951c9cc1b9380e166834afaeb18a4687e2d8
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>使用 Batch 應用程式套件將應用程式部署至計算節點
 
@@ -97,7 +97,7 @@ Batch 中的應用程式包含一或多個應用程式封裝，並且會指定�
 
 ![Azure 入口網站中的「未設定儲存體帳戶」警告][9]
 
-Batch 服務會使用相關聯的儲存體帳戶來儲存應用程式套件。 在連結兩個帳戶之後，Batch 便能將儲存在連結之儲存體帳戶中的封裝自動部署到計算節點。 若要將現有的儲存體帳戶連結至 Batch 帳戶，請按一下 警告 刀鋒視窗中的 儲存體帳戶設定，然後按一下儲存體帳戶 刀鋒視窗上的 儲存體帳戶。
+Batch 服務會使用相關聯的儲存體帳戶來儲存應用程式套件。 在連結兩個帳戶之後，Batch 便能將儲存在連結之儲存體帳戶中的封裝自動部署到計算節點。 若要將現有的儲存體帳戶連結至 Batch 帳戶，請按一下 [警告] 刀鋒視窗中的 [儲存體帳戶設定]，然後按一下 [儲存體帳戶] 刀鋒視窗上的 [儲存體帳戶]。
 
 ![Azure 入口網站中的選擇儲存體帳戶刀鋒視窗][10]
 
@@ -262,11 +262,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-在 Linux 節點上，格式稍有不同。 句號 (.)、連字號 (-) 和數字記號 (#) 已壓平合併為環境變數中的底線。 例如：
+在 Linux 節點上，格式稍有不同。 句號 (.)、連字號 (-) 和數字記號 (#) 已壓平合併為環境變數中的底線。 另外請注意，會保留應用程式識別碼的大小寫。 例如：
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_APPLICATIONID_version
+AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
 `APPLICATIONID` 和 `version` 是對應於為部署所指定的應用程式和套件版本的值。 例如，如果您指定應該在 Windows 節點上安裝 2.7 版的「Blender」應用程式，您的工作命令列就會使用此環境變數來存取其檔案︰
@@ -276,11 +276,11 @@ Windows:
 AZ_BATCH_APP_PACKAGE_BLENDER#2.7
 ```
 
-在 Linux 節點上，將環境變數指定為此格式：
+在 Linux 節點上，以此格式指定環境變數。 將句號 (.)、連字號 (-) 和數字符號 (#) 扁平化為底線，並保留應用程式識別碼的大小寫：
 
 ```
 Linux:
-AZ_BATCH_APP_PACKAGE_BLENDER_2_7
+AZ_BATCH_APP_PACKAGE_blender_2_7
 ``` 
 
 當您上傳應用程式套件時，您可以指定要部署至運算節點的預設版本。 如果您已經指定應用程式的預設版本，當您參考應用程式時就可以省略版本尾碼。 您可以在 Azure 入口網站中的 [應用程式] 刀鋒視窗上指定預設應用程式版本，如[上傳及管理應用程式](#upload-and-manage-applications)中所示。

@@ -11,13 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: f17f3084138d667b2584142ed90ecc8fc1586189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f864ca586e8e607168ae7b46a1eaa297eca1cfb8
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>從內建端點讀取裝置對雲端訊息
 
@@ -40,16 +40,18 @@ IoT 中樞會公開您後端服務的 **messages/events** 內建端點，以讀�
 
 使用[適用於 .NET 的 Azure 服務匯流排 SDK][lnk-servicebus-sdk] 或[事件中樞 - 事件處理器主機][lnk-eventprocessorhost]時，您可以使用任何 IoT 中樞連接字串搭配正確的權限。 然後使用 **messages/events** 做為事件中樞名稱
 
-當您使用未能察覺 IoT 中樞的 SDK (或產品整合) 時，必須從 [Azure 入口網站][lnk-management-portal]的 IoT 中樞設定中，擷取事件中樞相容端點和事件中樞相容名稱︰
+當您使用未能察覺 IoT 中樞的 SDK (或產品整合) 時，必須從 IoT 中樞設定中，擷取事件中樞相容端點和事件中樞相容名稱︰
 
-1. 在 IoT 中樞刀鋒視窗中，按一下 [端點]。
-1. 在 [內建端點] 區段中，按一下 [事件]。 刀鋒視窗包含下列值：[事件中樞相容端點]、[事件中樞相容名稱]、[資料分割]、[保留時間] 和 [取用者群組]。
+1. 登入 [Azure 入口網站][lnk-management-portal]，然後瀏覽至 IoT 中樞。
+1. 按一下 [端點] 。
+1. 在 [內建端點] 區段中，按一下 [事件]。 
+1. 隨即開啟屬性頁面，包含下列值：[事件中樞相容端點]、[事件中樞相容名稱]、[資料分割]、[保留時間] 和 [取用者群組]。
 
     ![裝置到雲端設定][img-eventhubcompatible]
 
-IoT 中樞 SDK 需要 IoT 中樞端點名稱，也就是 [端點] 刀鋒視窗中顯示的 **messages/events**。
+IoT 中樞 SDK 需要 IoT 中樞端點名稱，也就是 [端點] 下顯示的 **messages/events**。
 
-如果您正在使用的 SDK 需要**主機名稱**或**命名空間**值，請從 [事件中樞相容端點] 中移除配置。 例如，如果您的事件中樞相容端點為 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**，**主機名稱**會是 **iothub-ns-myiothub-1234.servicebus.windows.net**，而**命名空間**會是 **iothub-ns-myiothub-1234**。
+如果您正在使用的 SDK 需要**主機名稱**或**命名空間**值，請從 [事件中樞相容端點] 中移除配置。 例如，如果您的事件中樞相容端點為 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**，**主機名稱**會是 **iothub-ns-myiothub-1234.servicebus.windows.net**。 **命名空間**將是 **iothub-ns-myiothub-1234**。
 
 然後，您可以使用具有 **ServiceConnect** 權限的任何共用存取原則，連接至指定的事件中樞。
 

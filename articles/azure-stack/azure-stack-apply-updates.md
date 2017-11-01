@@ -9,16 +9,16 @@ editor:
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
-pms.tgt_pltfrm: na
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/20/2017
 ms.author: twooley
-ms.openlocfilehash: 8fbed3c15b385e385e64093331df37363a558185
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00bd606faaffaad30ff6cea3bcf47dc85282f69
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="apply-updates-in-azure-stack"></a>在 Azure Stack 中套用更新
 
@@ -38,6 +38,9 @@ ms.lasthandoff: 10/11/2017
 
 下列程序說明如何在系統管理員入口網站中匯入及安裝更新套件。
 
+> [!IMPORTANT]
+> 強烈建議您向使用者通知任何維護工作，並且盡可能將一般的維護期間安排在非上班時間。 維護作業會影響使用者工作負載和入口網站作業。
+
 1. 在系統管理員入口網站中，選取 [更多服務]。 然後，在 [資料 + 儲存體] 類別底下，選取 [儲存體帳戶]。 (或者，在篩選方塊中，開始輸入**儲存體帳戶**，然後選取它)。
 
     ![顯示要在入口網站中的哪裡尋找儲存體帳戶](media/azure-stack-apply-updates/ApplyUpdates1.png)
@@ -54,7 +57,7 @@ ms.lasthandoff: 10/11/2017
  
      ![顯示如何在儲存體帳戶中新增容器](media/azure-stack-apply-updates/ApplyUpdates4.png)
 
-5. 建立容器之後，按一下容器名稱，然後按一下上傳 以將套件檔案上傳到容器中。
+5. 建立容器之後，按一下容器名稱，然後按一下 [上傳] 以將套件檔案上傳到容器中。
  
     ![顯示如何上傳套件檔案](media/azure-stack-apply-updates/ApplyUpdates5.png)
 
@@ -73,4 +76,5 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
+- [在 Azure Stack 中管理更新概觀](azure-stack-updates.md)
 - [Azure Stack 服務原則](azure-stack-servicing-policy.md)

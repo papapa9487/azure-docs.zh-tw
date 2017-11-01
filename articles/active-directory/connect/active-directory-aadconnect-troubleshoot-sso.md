@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -28,8 +28,9 @@ ms.lasthandoff: 10/11/2017
 
 - 在某些情況下，啟用無縫 SSO 最久可能需要 30 分鐘。
 - 不支援 Edge 瀏覽器。
-- 在 Office 用戶端啟用授權 (尤其是在共用的電腦案例中) 會導致使用者收到額外的登入輸入。
-- 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。 和 
+- 啟動 Office 用戶端 (尤其是在共用的電腦情節中) 會導致使用者收到額外的登入輸入。 使用者將必須經常輸入其使用者名稱，但不是密碼。
+- 如果無縫 SSO 成功，使用者沒有機會選擇 [讓我保持登入]。 由於這個行為，SharePoint 和 OneDrive 對應情節無法運作。
+- 在 Firefox 的私用瀏覽模式中，無法使用無縫 SSO。
 - Internet Explorer 在開啟「增強保護」模式時也無法使用無縫 SSO。
 - iOS 和 Android 上的行動瀏覽器無法使用無縫 SSO。
 - 如果您正在同步處理 30 個或更多的 AD 樹系，您無法使用 Azure AD Connect 啟用無縫 SSO。 您可以在租用戶上[手動啟用](#manual-reset-of-azure-ad-seamless-sso)此功能，以解決這個問題。

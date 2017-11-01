@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services：常見問題集 (FAQ)
 此頁面會回答有關 Azure Active Directory Domain Services 的常見問題。 請隨時回來查看最新消息。
@@ -49,7 +49,7 @@ ms.lasthandoff: 10/11/2017
 目前不提供「Azure AD 網域服務」的 PowerShell/自動化部署。
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>「Azure AD 網域服務」是否可以在新的 Azure 入口網站中使用？
-是。 只能使用 [Azure 入口網站](https://portal.azure.com)來設定 Azure AD Domain Services。 我們未來預期要停止[傳統 Azure 入口網站](https://manage.windowsazure.com)的支援。
+是。 只能使用 [Azure 入口網站](https://portal.azure.com)來設定 Azure AD Domain Services。 已不再支援[傳統 Azure 入口網站](https://manage.windowsazure.com)。
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>是否可以使用 Resource Manager 範本啟用 Azure AD Domain Services？
 否。 啟用 Azure AD Domain Services 時需要執行某些工作。 這些工作無法透過 Resource Manager 範本進行。 請使用新的 Azure 入口網站來為您的目錄啟用 Azure AD Domain Services。

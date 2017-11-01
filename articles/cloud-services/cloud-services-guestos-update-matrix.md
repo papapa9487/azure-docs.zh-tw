@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
-ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -106,7 +106,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="family-4-releases"></a>系列 4 版次
 **Windows Server 2012 R2**
 
-支援 .NET 4.0、4.5、4.5.1、4.5.2
+安裝的 .NET Framework：4.0、4.5、4.5.1、4.5.2
 
 > [!NOTE]
 > 具有 * 的日期可能會變更
@@ -133,7 +133,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="family-3-releases"></a>系列 3 版次
 **Windows Server 2012**
 
-支援 .NET 4.0、4.5、4.5.1、4.5.2
+安裝的 .NET Framework：4.0、4.5、4.5.1、4.5.2
 
 > [!NOTE]
 > 具有 * 的日期可能會變更
@@ -160,7 +160,7 @@ ms.lasthandoff: 10/11/2017
 ## <a name="family-2-releases"></a>系列 2 版次
 **Windows Server 2008 R2 SP1**
 
-支援 .NET 3.5、4.0、4.5、4.5.1、4.5.2
+安裝的 .NET Framework：3.5、4.0、4.5、4.5.1、4.5.2
 
 > [!NOTE]
 > 具有 * 的日期可能會變更

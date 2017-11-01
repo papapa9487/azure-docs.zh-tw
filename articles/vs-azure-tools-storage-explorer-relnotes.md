@@ -14,25 +14,85 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6010c0ef002730fd4a0020e0e2d61a6176a11cba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Microsoft Azure 儲存體總管 (預覽) 版本資訊
 
-本文包含 Microsoft Azure 儲存體總管 0.8.16 (預覽) 及先前版本的版本資訊。
+本文包含 Microsoft Azure 儲存體總管 0.9.0 (預覽) 及先前版本的版本資訊。
 
 [Microsoft Azure 儲存體總管 (預覽)](./vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個獨立 App，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure 儲存體資料。
+
+## <a name="version-091--090-preview"></a>0.9.1/0.9.0 版 (預覽)
+10/20/2017
+
+### <a name="download-azure-storage-explorer-091-preview"></a>下載 Microsoft Azure 儲存體總管 0.9.1 (預覽)
+- [適用於 Windows 的 Microsoft Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [適用於 Mac 的 Microsoft Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [適用於 Linux 的 Microsoft Azure 儲存體總管 0.9.1 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>新增
+* Azure Cosmos DB 預覽支援：
+    * [線上文件](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * 建立資料庫和集合
+    * 操作資料
+    * 查詢、建立或刪除文件
+    * 更新預存程序、使用者定義函式或觸發程序
+    * 使用連接字串來連接和管理您的資料庫
+* 改善上傳/下載許多小 Blob 的效能。
+* 新增 Blob 上傳群組或 Blob 下載群組發生失敗時的「全部重試」動作。
+* 如果儲存體總管偵測到您的網路連線已遺失，現在將在 Blob 上傳/下載期間暫停反覆項目。 然後在網路連線重新建立後，您可以繼續反覆項目。
+* 新增透過捷徑功能表「全部關閉」、「關閉其他」和「關閉」索引標籤的能力。
+* 儲存體總管現在會使用原生對話方塊和原生捷徑功能表。
+* 儲存體總管現在更容易存取。 改善項目包括：
+    * 改善的螢幕讀取器支援，Windows 上的 NVDA，以及 Mac 上的 VoiceOver
+    * 改良的高對比佈景主題
+    * 修正鍵盤定位停駐點和鍵盤焦點
+
+### <a name="fixes"></a>修正
+* 如果您嘗試使用無效的 Windows 檔案名稱開啟或下載 Blob，作業會失敗。 儲存體總管現在會偵測 Blob 名稱是否無效，並詢問您是否要加以編碼或略過該 Blob。 儲存體總管也會偵測檔案名稱是否已經過編碼，並詢問您是否要在上傳之前將它解碼。
+* Blob 上傳期間，目標 Blob 容器的編輯器會有時不正確地重新整理。 已修正此問題。
+* 數種形式的連接字串和 SAS URI 支援已回歸。 我們已經處理所有已知的問題，但如果您遇到其他問題，請傳送意見反應。
+* 0.9.0 中有些使用者的更新通知已中斷。 已修正此問題，以及對於受此錯誤影響的使用者，可以在[這裡](https://azure.microsoft.com/en-us/features/storage-explorer/)手動下載最新版的儲存體總管
+
+### <a name="known-issues"></a>已知問題
+* 儲存體總管不支援 ADFS 帳戶。
+* 用於「檢視總管」及「檢視帳戶管理」的快速鍵應該分別是 Ctrl/Cmd+Shift+E 和 Ctrl/Cmd+Shift+A。
+* 當目標為 Azure Stack，以附加 Blob 方式上傳特定檔案會失敗。
+* 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 這是因為我們使用此處所述的取消篩選器因應措施。
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定。
+* 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* 儲存體總管使用的 Electron 殼層具有一些 GPU (圖形處理單元) 硬體加速的問題。 如果儲存體總管顯示空白 (空的) 主視窗，您可以嘗試從命令列啟動儲存體總管並透過新增 `--disable-gpu` 切換停用 GPU 加速：
+```
+./StorageExplorer.exe --disable-gpu
+```
+* 使用 Ubuntu 14.04 的使用者必須確定 GCC 編譯器集合是最新版本，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* 使用 Ubuntu 17.04 的使用者必須安裝 GConf，這可以透過執行下列命令並重新啟動電腦來完成：
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0816-preview"></a>0.8.16 版 (預覽)
 8/21/2017
 
 ### <a name="download-azure-storage-explorer-0816-preview"></a>下載 Microsoft Azure 儲存體總管 0.8.16 (預覽)
-- [適用於 Windows 的 Microsoft Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [適用於 Mac 的 Microsoft Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [適用於 Linux 的 Microsoft Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [下載適用於 Windows 的 Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [下載適用於 Mac 的 Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [下載適用於 Linux 的 Azure 儲存體總管 0.8.16 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>新增
 * 您開啟 blob 時，如果偵測到變更，儲存體總管將提示您上傳已下載的檔案
@@ -41,13 +101,13 @@ ms.lasthandoff: 10/11/2017
 
 
 ### <a name="fixes"></a>修正
-* 對於某些 blob 類型，在上傳衝突時選擇取代有時會導致重新啟動上傳。 
+* 對於某些 blob 類型，在上傳衝突時選擇取代有時會導致重新啟動上傳。
 * 在 0.8.15 版中，上傳有時會延滯在 99%。
 * 將檔案上傳到檔案共用時，如果您選擇上傳到尚未存在的目錄，上傳會失敗。
 * 儲存體總管未正確產生共用存取簽章和資料表查詢的時間戳記。
 
 
-已知問題
+### <a name="known-issues"></a>已知問題
 * 目前無法使用名稱和金鑰連接字串。 這將在下一版中予以修正。 在此之前，您可以使用名稱和金鑰附加。
 * 如果您嘗試開啟無效 Windows 檔案名稱的檔案，下載會導致找不到檔案的錯誤。
 * 按一下工作上的 [取消] 之後，該工作可能需要經過一段時間才會取消。 此為 Microsoft Azure 儲存體節點程式庫的限制。
@@ -71,43 +131,9 @@ ms.lasthandoff: 10/11/2017
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0814-preview"></a>0.8.14 版 (預覽)
-06/22/2017
-
-### <a name="download-azure-storage-explorer-0814-preview"></a>下載 Azure 儲存體總管 0.8.14 (預覽)
-* [下載適用於 Windows 的 Azure 儲存體總管 0.8.14 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [下載適用於 Mac 的 Azure 儲存體總管 0.8.14 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [下載適用於 Linux 的 Azure 儲存體總管 0.8.14 (預覽)](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-### <a name="new"></a>新增
-
-* 將 Electron 版本更新至 1.7.2 以利用數個重要安全性更新
-* 現已可從 [說明] 功能表快速存取線上疑難排解指南
-* 儲存體總管疑難排解[指南][2]
-* 連線至 Azure Stack 訂用帳戶的[指示][3]
-
-### <a name="known-issues"></a>已知問題
-
-* 在 Linux 上，刪除資料夾確認對話方塊上的按鈕不會註冊滑鼠點選。 因應措施為使用 Enter 鍵
-* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定
-* 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤
-* 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶
-* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
-* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。 
-* Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
-
-    ```
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get dist-upgrade
-    ```
-
-
-
-
 ## <a name="previous-releases"></a>舊版
 
+* [版本 0.8.14](#version-0814)
 * [0.8.13 版](#version-0813)
 * [0.8.12 / 0.8.11 / 0.8.10 版](#version-0812--0811--0810)
 * [0.8.9 / 0.8.8 版](#version-089--088)
@@ -124,6 +150,33 @@ ms.lasthandoff: 10/11/2017
 * [0.7.20160105.0 版](#version-07201601050)
 * [0.7.20151116.0 版](#version-07201511160)
 
+
+### <a name="version-0814"></a>版本 0.8.14
+06/22/2017
+
+### <a name="new"></a>新增
+
+* 將 Electron 版本更新至 1.7.2 以利用數個重要安全性更新
+* 現已可從 [說明] 功能表快速存取線上疑難排解指南
+* 儲存體總管疑難排解[指南][2]
+* 連線至 Azure Stack 訂用帳戶的[指示][3]
+
+### <a name="known-issues"></a>已知問題
+
+* 在 Linux 上，刪除資料夾確認對話方塊上的按鈕不會註冊滑鼠點選。 因應措施為使用 Enter 鍵
+* 如果您選擇錯誤的 PIN/智慧卡憑證，則必須重新啟動，才能使儲存體總管忘記該決定
+* 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤
+* 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶
+* 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
+* Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 ### <a name="version-0813"></a>0.8.13 版
 05/12/2017
@@ -149,7 +202,7 @@ ms.lasthandoff: 10/11/2017
 * 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
-* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。 
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
 
     ```
@@ -171,7 +224,7 @@ ms.lasthandoff: 10/11/2017
 * 現已能摺疊左側面板
 * 探索現在會和下載同時執行
 * 使用 Blob 容器、檔案共用及資料表編輯器中的 [統計資料] 來查看您資源或選取項目的大小
-* 現已能登入以 Azure Active Directory (AAD) 為基礎的 Azure Stack 帳戶。 
+* 現已能登入以 Azure Active Directory (AAD) 為基礎的 Azure Stack 帳戶。
 * 現已能將大小超過 32MB 的封存檔案上傳至進階儲存體帳戶
 * 改善協助工具支援
 * 現已能移至 [編輯] -&gt; [SSL 憑證] -&gt; [匯入憑證] 來新增受信任的 Base-64 編碼 X.509 SSL 憑證
@@ -182,8 +235,8 @@ ms.lasthandoff: 10/11/2017
 * 已修正：先前針對模擬器佇列和資料表產生 SAS 會導致無效的 URL
 * 已修正：進階儲存體帳戶現在可以在啟用 Proxy 時展開
 * 已修正：先前在選取 1 或 0 個帳戶的情況下，帳戶管理頁面的 [套用] 按鈕會無法運作
-* 已修正：上傳需要衝突解決的 Blob 可能會失敗 - 已在 0.8.11 中修正 
-* 已修正：傳送意見反應的功能在 0.8.11 中無法運作 - 已在 0.8.12 中修正 
+* 已修正：上傳需要衝突解決的 Blob 可能會失敗 - 已在 0.8.11 中修正
+* 已修正：傳送意見反應的功能在 0.8.11 中無法運作 - 已在 0.8.12 中修正
 
 #### <a name="known-issues"></a>已知問題
 
@@ -192,7 +245,7 @@ ms.lasthandoff: 10/11/2017
 * 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤。
 * 帳戶設定面板可能會提示您需要重新輸入認證以篩選訂用帳戶。
 * 重新命名 Blob (個別執行或在重新命名的 Blob 容器內) 不會保留快照集。 Blob、檔案和實體的所有其他屬性和中繼資料都會在重新命名期間保留。
-* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。 
+* 雖然 Azure Stack 目前並不支援檔案共用，檔案共用節點仍然會出現在附加的 Azure Stack 儲存體帳戶之下。
 * Ubuntu 14.04 安裝需要更新或升級 gcc 版本，升級步驟如下：
 
     ```
@@ -274,7 +327,7 @@ ms.lasthandoff: 10/11/2017
 * 現已可在多個索引標籤開啟多個編輯器。 按一下以開啟暫時索引標籤；按兩下以開啟永久索引標籤。您也可以按一下暫時索引標籤來將它設為永久索引標籤
 * 我們已大幅改善上傳及下載的效能和穩定性，尤其是在高效能機器上處理大型檔案的情況
 * 現可在 Blob 容器內建立空白的「虛擬」資料夾
-* 我們已重新推出範圍搜尋，並搭配全新增強的子字串搜尋，因此您現在將會有兩種搜尋的選項： 
+* 我們已重新推出範圍搜尋，並搭配全新增強的子字串搜尋，因此您現在將會有兩種搜尋的選項：
     * 全域搜尋：請直接在搜尋文字方塊中輸入搜尋字詞
     * 範圍搜尋：按一下位於節點旁邊的放大鏡圖示，然後將搜尋字詞新增至路徑末端，或是以滑鼠右鍵按一下並選取 [從這裡搜尋]
 * 已新增多種佈景主題：淺色 (預設)、深色、黑色高對比和白色高對比。 移至 [編輯] -&gt; [佈景主題] 來變更佈景主題喜好設定
@@ -292,12 +345,12 @@ ms.lasthandoff: 10/11/2017
 * 已修正：先前並無法在空白資料表上開啟 [查詢] 面板
 * 已修正：數個搜尋功能中的錯誤
 * 已修正：按一下 [載入更多] 時所載入資源的數目已從 50 提升至 100
-* 已修正：首次執行時，如果已登入某個帳戶，現在預設會選取該帳戶的所有定用帳戶 
+* 已修正：首次執行時，如果已登入某個帳戶，現在預設會選取該帳戶的所有定用帳戶
 
 #### <a name="known-issues"></a>已知問題
 
 * 此版本的儲存體總管並無法在 Ubuntu 14.04 上執行
-* 若要針對相同資源開啟多個索引標籤，請不要持續點選相同的資源。 請先按一下其他資源，然後再返回按一下原始資源，以在另一個索引標籤上再次開啟它 
+* 若要針對相同資源開啟多個索引標籤，請不要持續點選相同的資源。 請先按一下其他資源，然後再返回按一下原始資源，以在另一個索引標籤上再次開啟它
 * 快速存取僅適用於以訂用帳戶為基礎的項目。 此版本不支援透過金鑰或 SAS 權杖附加的本機資源或資源
 * 視您擁有的資源數量而定，快速存取可能需要幾秒鐘才能瀏覽至目標資源
 * 同時上傳超過 3 個 Blob 或檔案群組可能會造成錯誤
@@ -462,7 +515,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="known-issues-amp-mitigations"></a>已知問題 &amp; 緩解方式
 
-* 下載大型 Blob 檔案並無法正確運作。在我們解決此問題的期間，建議您使用 AzCopy 
+* 下載大型 Blob 檔案並無法正確運作。在我們解決此問題的期間，建議您使用 AzCopy
 * 如果找不到主資料夾，或是無法寫入該資料夾，則不會擷取或快取帳戶認證
 * 在新增、編輯或匯入具有不明確數值 (例如 "1" 或 "1.0") 的實體，且使用者嘗試將它傳送為 `Edm.String` 時，該值將會透過用戶端 API 以 Edm.Double 的形式傳回
 * 匯入具有多行記錄的 CSV 檔案時，資料可能會變得破碎或變成亂碼
@@ -490,7 +543,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="fixes"></a>修正
 
-* 已修正：上傳或下載大量的 Blob (超過 500 個) 時，有時候可能會導致應用程式出現白色畫面 
+* 已修正：上傳或下載大量的 Blob (超過 500 個) 時，有時候可能會導致應用程式出現白色畫面
 * 已修正：設定 Blob 容器公用存取層級時，在您重新將焦點設定在容器上之前，新的值將不會更新。 此外，對話方塊預設一律會顯示「無公用存取」，而非目前實際的值。
 * 更佳的整體鍵盤/協助工具及 UI 支援
 * 階層連結記錄在因大量空白字元而變得過長時便會自動換行
@@ -500,7 +553,7 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="known-issues"></a>已知問題
 
-* Linux 安裝需要更新或升級 gcc 版本，升級步驟如下： 
+* Linux 安裝需要更新或升級 gcc 版本，升級步驟如下：
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
     * `sudo apt-get update`
     * `sudo apt-get upgrade`

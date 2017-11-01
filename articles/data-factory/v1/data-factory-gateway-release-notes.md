@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>資料管理閘道的版本資訊
 現代資料整合的挑戰之一就是在內部部署和雲端之間來回移動資料。 Data Factory 會透過「資料管理閘道」進行此整合；「資料管理閘道」是一個您可以在內部部署環境安裝來啟用混合式資料移動功能的代理程式。
@@ -29,16 +29,19 @@ ms.lasthandoff: 10/11/2017
 *  [在內部部署和雲端之間使用 Azure Data Factory 移動資料](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-21063477"></a>目前版本 (2.10.6347.7)
+## <a name="current-version"></a>目前版本 
+我們不會再於此處維護版本資訊。 請至[此處](https://go.microsoft.com/fwlink/?linkid=853077)取得最新的版本資訊
 
+
+
+
+## <a name="earlier-versions"></a>較早的版本
+## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>增強功能
 - 您可以新增 DNS 項目來將「服務匯流排」加入白名單，而不是將所有 Azure IP 位址都加入防火牆的白名單 (如有需要)。 您可以在 Azure 入口網站上找到各自的 DNS 項目 (Data Factory-> [製作和部署] -> [閘道] -> [serviceUrls] \(在 JSON 中)
 - HDFS 連接器現在支援自我簽署的公開憑證，方法是讓您略過 SSL 驗證。
 - 已修正︰更新期間的閘道離線問題 (因為時鐘誤差)
 
-
-
-## <a name="earlier-versions"></a>較早的版本
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>增強功能

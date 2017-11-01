@@ -14,14 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼同步處理進行疑難排解
-本主題提供如何針對密碼同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。 對於 1.1.524.0 版或更新版本的 Azure Active directory (Azure AD) Connect 部署，現在有一個診斷 Cmdlet 可讓您針對密碼同步化問題進行疑難排解：
+本主題提供如何針對密碼同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。
+
+對於 1.1.614.0 版或更新版本的 Azure Active directory (Azure AD) Connect 部署，請在精靈中使用疑難排解工作，針對密碼同步化問題進行疑難排解：
+
+* 如果是未同步任何密碼的問題，請參閱[未同步任何密碼：使用疑難排解工作進行疑難排解](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task)一節。
+
+* 如果是個別物件的問題，請參閱[一個物件未同步密碼：使用疑難排解工作進行疑難排解](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task)一節。
+
+對於 1.1.524.0 版或更新版本的部署，有一個診斷 Cmdlet 可讓您針對密碼同步化問題進行疑難排解：
 
 * 如果是未同步任何密碼的問題，請參閱[未同步任何密碼：使用診斷 Cmdlet 進行疑難排解](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet)一節。
 
@@ -33,25 +41,33 @@ ms.lasthandoff: 10/11/2017
 
 * 如果是個別物件的問題，請參閱[一個物件未同步密碼：手動疑難排解步驟](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps)一節。
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>未同步任何密碼：使用診斷 Cmdlet 進行疑難排解
-您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來查明未同步任何密碼的原因。
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>未同步任何密碼：使用疑難排解工作進行疑難排解
+您可以使用疑難排解工作來查明未同步任何密碼的原因。
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` Cmdlet 僅適用於 Azure AD Connect 1.1.524.0 版或更新版本。
+> 疑難排解工作僅適用於 Azure AD Connect 1.1.614.0 版或更新版本。
 
-### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
+### <a name="run-the-troubleshooting-task"></a>執行疑難排解工作
 針對未同步任何密碼的問題進行疑難排解：
 
 1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
 
 2. 執行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
 
-3. 執行 `Import-Module ADSyncDiagnostics`。
+3. 啟動 Azure AD Connect 精靈。
 
-4. 執行 `Invoke-ADSyncDiagnostics -PasswordSync`。
+4. 瀏覽至 [其他工作] 頁面，選取 [疑難排解]，然後按 [下一步]。
 
-### <a name="understand-the-results-of-the-cmdlet"></a>了解 Cmdlet 的結果
-診斷 Cmdlet 會執行下列檢查：
+5. 在 [疑難排解] 頁面上，按一下 [啟動]，以在 PowerShell 中啟動疑難排解功能表。
+
+6. 在主功能表中，選取 [針對密碼同步化進行疑難排解]。
+
+7. 在子功能表中，選取 [密碼同步化完全不運作]。
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解疑難排解工作的結果
+疑難排解工作會執行下列檢查：
 
 * 確認您的 Azure AD 租用戶已啟用密碼同步化功能。
 
@@ -73,7 +89,7 @@ ms.lasthandoff: 10/11/2017
 
 ![密碼同步化的診斷輸出](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-本節的其餘部分說明 Cmdlet 所傳回的特定結果和對應的問題。
+本節的其餘部分說明工作所傳回的特定結果和對應的問題。
 
 #### <a name="password-synchronization-feature-isnt-enabled"></a>密碼同步化功能未啟用
 如果您尚未使用 Azure AD Connect 精靈來啟用密碼同步化，則會傳回下列錯誤：
@@ -100,32 +116,34 @@ ms.lasthandoff: 10/11/2017
 
 ![不正確的認證](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>一個物件未同步密碼：使用診斷 Cmdlet 進行疑難排解
-您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來判斷一個物件未同步密碼的原因。
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>一個物件未同步密碼：使用疑難排解工作進行疑難排解
+
+您可以使用疑難排解工作來判斷一個物件未同步密碼的原因。
 
 > [!NOTE]
-> `Invoke-ADSyncDiagnostics` Cmdlet 僅適用於 Azure AD Connect 1.1.524.0 版或更新版本。
+> 疑難排解工作僅適用於 Azure AD Connect 1.1.614.0 版或更新版本。
 
 ### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
-針對未同步任何密碼的問題進行疑難排解：
+若要針對特定使用者物件的問題進行疑難排解：
 
 1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
 
 2. 執行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
 
-3. 執行 `Import-Module ADSyncDiagnostics`。
+3. 啟動 Azure AD Connect 精靈。
 
-4. 執行下列 Cmdlet：
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
-   ```
-   例如：
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
-   ```
+4. 瀏覽至 [其他工作] 頁面，選取 [疑難排解]，然後按 [下一步]。
 
-### <a name="understand-the-results-of-the-cmdlet"></a>了解 Cmdlet 的結果
-診斷 Cmdlet 會執行下列檢查：
+5. 在 [疑難排解] 頁面上，按一下 [啟動]，以在 PowerShell 中啟動疑難排解功能表。
+
+6. 在主功能表中，選取 [針對密碼同步化進行疑難排解]。
+
+7. 在子功能表中，選取 [未同步特定使用者帳戶的密碼]。
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解疑難排解工作的結果
+疑難排解工作會執行下列檢查：
 
 * 在 Active Directory 連接器空間、Metaverse 和 Azure AD 連接器空間中，檢查 Active Directory 物件的狀態。
 
@@ -153,6 +171,52 @@ ms.lasthandoff: 10/11/2017
 根據預設，Azure AD Connect 會密碼同步化嘗試的結果保存七天。 如果選取的 Active Directory 物件沒有可用的結果，則會傳回下列警告：
 
 ![單一物件的診斷輸出 - 沒有密碼同步記錄](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>未同步任何密碼：使用診斷 Cmdlet 進行疑難排解
+您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來查明未同步任何密碼的原因。
+
+> [!NOTE]
+> `Invoke-ADSyncDiagnostics` Cmdlet 僅適用於 Azure AD Connect 1.1.524.0 版或更新版本。
+
+### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
+針對未同步任何密碼的問題進行疑難排解：
+
+1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
+
+2. 執行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
+
+3. 執行 `Import-Module ADSyncDiagnostics`。
+
+4. 執行 `Invoke-ADSyncDiagnostics -PasswordSync`。
+
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>一個物件未同步密碼：使用診斷 Cmdlet 進行疑難排解
+您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來判斷一個物件未同步密碼的原因。
+
+> [!NOTE]
+> `Invoke-ADSyncDiagnostics` Cmdlet 僅適用於 Azure AD Connect 1.1.524.0 版或更新版本。
+
+### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
+針對未同步任何使用者密碼的問題進行疑難排解：
+
+1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
+
+2. 執行 `Set-ExecutionPolicy RemoteSigned` 或 `Set-ExecutionPolicy Unrestricted`。
+
+3. 執行 `Import-Module ADSyncDiagnostics`。
+
+4. 執行下列 Cmdlet：
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   例如：
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
+
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>未同步任何密碼：手動疑難排解步驟
@@ -185,7 +249,7 @@ ms.lasthandoff: 10/11/2017
  
 2. 移至 [連接器]，然後尋找您要進行疑難排解的內部部署 Active Directory 樹系。 
  
-3. 選取 連接器，然後按一下屬性。 
+3. 選取 [連接器]，然後按一下 [屬性]。 
  
 4. 前往 [連線至 Active Directory 樹系] 。  
     
@@ -202,7 +266,7 @@ ms.lasthandoff: 10/11/2017
     
 7. 返回 **Synchronization Service Manager**，並**設定目錄磁碟分割**。 
  
-8. 在 選取目錄分割 中選取您的網域，選取 只使用慣用的網域控制站 核取方塊，然後按一下設定。 
+8. 在 [選取目錄分割] 中選取您的網域，選取 [只使用慣用的網域控制站] 核取方塊，然後按一下 [設定]。 
 
 9. 在清單中，輸入 Connect 應該用來進行密碼同步的網域控制站。此相同清單也用於匯入和匯出。 針對您的所有網域執行這些步驟。
 
@@ -231,7 +295,7 @@ ms.lasthandoff: 10/11/2017
 
     ![在連接器空間中依 DN 搜尋使用者](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/searchcs.png)  
 
-    f. 找出您要搜尋的使用者，然後按一下屬性 來查看所有屬性。 如果該使用者不在搜尋結果中，請確認您的[篩選規則](active-directory-aadconnectsync-configure-filtering.md)，且務必執行[套用並驗證變更](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes)，如此 Connect 中才會顯示該使用者。
+    f. 找出您要搜尋的使用者，然後按一下 [屬性] 來查看所有屬性。 如果該使用者不在搜尋結果中，請確認您的[篩選規則](active-directory-aadconnectsync-configure-filtering.md)，且務必執行[套用並驗證變更](active-directory-aadconnectsync-configure-filtering.md#apply-and-verify-changes)，如此 Connect 中才會顯示該使用者。
 
     g. 若要查看物件在過去一週的密碼同步詳細資料，請按一下 [記錄]。  
 
@@ -253,7 +317,7 @@ ms.lasthandoff: 10/11/2017
 
     ![Metaverse 資訊](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/mvconnectors.png)  
 
-    k. 選取代表 Azure AD 的資料列，按一下 屬性，然後按一下歷程 索引標籤。連接器空間物件應該有一個輸出規則的 PasswordSync 資料行設為 **True**。 在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。  
+    k. 選取代表 Azure AD 的資料列，按一下 [屬性]，然後按一下 [歷程] 索引標籤。連接器空間物件應該有一個輸出規則的 [PasswordSync] 資料行設為 **True**。 在預設組態中，同步規則的名稱是 **Out to AAD - User Join**。  
 
     ![連接器空間物件屬性對話方塊](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/cspasswordsync2.png)  
 

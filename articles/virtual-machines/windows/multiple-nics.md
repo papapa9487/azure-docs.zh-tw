@@ -14,16 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: iainfou
-ms.openlocfilehash: 9e84e18c5d6c205d320c6c9c565ce6723d8fa6e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 941791ba398a3abbaa5137c36391fd23789cd3b1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>建立及管理具有多個 NIC 的 Windows 虛擬機器
 Azure 中的虛擬機器 (VM) 可以連結多個虛擬網路介面卡 (NIC)。 常見案例是有不同的子網路可用於前端和後端連線，或者專門用來監視或備份解決方案的網路。 本文詳述如何建立已連結多個 NIC 的 VM。 您也了解如何新增或移除現有 VM 中的 NIC。 不同的 [VM 大小](sizes.md) 支援不同數量的 NIC，因此可據以調整您的 VM。
-
-如需詳細資訊 (包括如何在自己的 PowerShell 指令碼內建立多個 NIC)，請參閱[部署多個 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md)。
 
 ## <a name="prerequisites"></a>必要條件
 確定您已[安裝和設定最新的 Azure PowerShell 版本](/powershell/azure/overview)。
@@ -78,7 +76,7 @@ $myNic2 = New-AzureRmNetworkInterface -ResourceGroupName "myResourceGroup" `
     -SubnetId $backEnd.Id
 ```
 
-通常您也可以建立[網路安全性群組](../../virtual-network/virtual-networks-nsg.md)或[負載平衡器](../../load-balancer/load-balancer-overview.md)來協助管理，以及將流量分散到您的 VM。 [多個 NIC 的 VM](../../virtual-network/virtual-network-deploy-multinic-arm-ps.md)一文可逐步引導您建立網路安全性群組並指派 NIC。
+通常您也會建立[網路安全性群組](../../virtual-network/virtual-networks-nsg.md)來篩選至 VM 的網路流量，和建立[負載平衡器](../../load-balancer/load-balancer-overview.md)以跨多個 VM 分散流量。
 
 ### <a name="create-the-virtual-machine"></a>建立虛擬機器
 現在開始建置您的 VM 組態。 在每個 VM 大小中，您可以新增至 VM 的 NIC 總數是有限制的。 如需詳細資訊，請參閱 [Windows VM 大小](sizes.md)。

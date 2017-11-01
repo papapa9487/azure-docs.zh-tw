@@ -12,22 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="analyzers-in-azure-search"></a>Azure 搜尋服務中的分析器
 
-「分析器」是一種[全文檢索搜尋](search-lucene-query-architecture.md)元件，負責查詢字串和已編製索引文件中的文字處理。 在編製索引期間，分析器會將文字轉換成「語彙基元」，將其以「語彙基元化的字詞」形式寫入索引。 在搜尋期間，分析器會對「查詢字詞」執行相同轉換，提供在索引中比對字詞的基準。
-
-在分析期間，會有下列典型轉換：
+*分析器*是一種[全文搜尋](search-lucene-query-architecture.md)元件，負責查詢字串和已編製索引文件中的文字處理。 在分析期間，會有下列典型轉換：
 
 + 會移除非必要字組 (停用字詞) 和標點符號。
 + 片語和有連字號的字組會被細分為組件。
 + 大寫字組會被改為小寫。
 + 字組會縮減為根表單，如此不論時態就可以找到相符項目。
+
+語言分析器會將文字輸入轉換為基本表單或根表單，如此可以有效率地儲存和檢索資訊。 在編製索引期間、索引建立之時、以及讀取索引進行搜尋的時候，皆會進行轉換。 若兩方作業均使用相同的文字分析器，更有可能獲得想要的搜尋結果。
 
 Azure 搜尋服務會使用[標準 Lucene 分析器](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) \( 英文\) 作為預設值。 您可以逐欄覆寫預設值。 本文描述選項範圍，並提供自訂分析的最佳作法。 文中也會提供重要案例的範例設定。
 
@@ -53,12 +53,12 @@ Azure 搜尋服務會使用[標準 Lucene 分析器](https://lucene.apache.org/c
 
 3. 將分析器新增至欄位定義會在索引上產生寫入作業。 如果您將**分析器**新增至現有索引，請注意下列步驟：
  
- | 案例 | 步驟 |
- |----------|-------|
- | 新增欄位 | 如果欄位尚未存在於結構描述中，則不會進行任何欄位修訂。 當您新增或更新文件以提供新欄位的內容時，就會進行文字分析。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和[mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 進行這項工作。|
- | 將分析器新增至現有已編製索引的欄位。 | 該欄位的反向索引必須從頭重新編製，且必須重新編製這些欄位的文件內容的索引。 <br/> <br/>針對正在開發中的索引，[刪除](https://docs.microsoft.com/rest/api/searchservice/delete-index)和[建立](https://docs.microsoft.com/rest/api/searchservice/create-index)索引以挑選新的欄位定義。 <br/> <br/>針對生產環境中的索引，您應該建立新的欄位來提供修改過的定義，然後開始使用它。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 合併新欄位。 稍後，您可以清除索引以移除過時的欄位，當作規劃索引服務的一部分。 |
+ | 案例 | 影響 | 步驟 |
+ |----------|--------|-------|
+ | 新增欄位 | 最低限度 | 若在結構描述中尚未具有欄位，則由於在索引中尚未實際存有欄位，因此不會執行欄位修訂。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和[mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 進行這項工作。|
+ | 將分析器新增至現有已編製索引的欄位。 | 重建 | 該欄位的反向索引必須從頭重新編製，且必須重新編製這些欄位的內容索引。 <br/> <br/>針對正在開發中的索引，[刪除](https://docs.microsoft.com/rest/api/searchservice/delete-index)和[建立](https://docs.microsoft.com/rest/api/searchservice/create-index)索引以挑選新的欄位定義。 <br/> <br/>針對生產環境中的索引，您應該建立新的欄位來提供修改過的定義，然後開始使用它。 使用[更新索引](https://docs.microsoft.com/rest/api/searchservice/update-index)和 [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) 合併新欄位。 稍後，您可以清除索引以移除過時的欄位，當作規劃索引服務的一部分。 |
 
-## <a name="best-practices"></a>最佳作法
+## <a name="tips-and-best-practices"></a>秘訣和最佳作法
 
 本節提供如何使用分析器的建議。
 
@@ -72,12 +72,13 @@ Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過�
 
 覆寫標準分析器需要重建索引。 可能的話，請先決定要在開發期間使用的作用中分析器，然後才將索引實際執行。
 
-### <a name="compare-analyzers-side-by-side"></a>比較分析器並排
+### <a name="inspect-tokenized-terms"></a>檢查權杖化字詞
 
-建議您使用[分析 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)。 回應由權杖組成，如特定分析器針對您提供之文字所產生的權杖。 
+若搜尋作業無法傳回預期中的結果，則查詢的字詞輸入以及索引中的權杖化字詞之間，極有可能發生權杖不相符的狀況。 若權杖不相同，則比對作業無法實行。 若要檢查權杖化工具輸出，建議使用[分析 API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) 做為調查工具。 回應由權杖組成，一如特定分析器所產生的權杖。
 
-> [!Tip]
-> [搜尋分析器示範](http://alice.unearth.ai/)會顯示標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器之間的並排比較。 針對您所提供的每個搜尋輸入，每個分析器的結果都會顯示在相鄰的窗格中。
+### <a name="compare-english-analyzers"></a>比較英文分析器
+
+[搜尋分析器示範](http://alice.unearth.ai/)是一種協力廠商示範應用程式，其會顯示標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器之間的並排比較。 索引已固定；內含熱門故事中的文字。 您提供的每項搜尋輸入，會在相鄰窗格中顯示來自每個分析器的結果，協助您瞭解每個分析器處理相同字串的方式。 
 
 ## <a name="examples"></a>範例
 

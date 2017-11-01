@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Azure Cosmos DB 中商務持續性的自動區域性容錯移轉
 Azure Cosmos DB 會簡化資料的全域散發作業，方法是提供多個可完全管理的[多重地區資料庫帳戶](distribute-data-globally.md)，在一致性、可用性和效能之間進行明確取捨，這一切全都倚靠相對應的保證來完成。 Cosmos DB 帳戶具備下列優點：高可用性、個位數的毫秒延遲、[定義完善的一致性層級](consistency-levels.md)、利用多路連接 API 透明進行的區域性容錯移轉，以及全球輸送量及儲存體的靈活調整能力。 
@@ -85,19 +85,40 @@ Cosmos DB 帳戶的讀取區域若在其中一個受影響區域中，會自動�
 
 **如果寫入區域中斷會發生什麼事？**
 
-如果受影響的區域是 Cosmos DB 帳戶的目前寫入區域，則該區域會自動標示為離線。 然後，每個受影響 Cosmos DB 帳戶的替代區域會升級為寫入區域。 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)，完全控制 Cosmos DB 帳戶的區域選擇順序。 
+如果受影響的區域是目前的寫入區域，且已為 Azure Cosmos DB 帳戶啟用自動容錯移轉，則該區域會自動標示為離線。 然後，受影響 Azure Cosmos DB 帳戶的替代區域會升級為寫入區域。 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange)，啟用自動容錯移轉並完全控制 Azure Cosmos DB 帳戶的區域選擇順序。 
 
 ![Azure Cosmos DB 的容錯移轉優先順序](./media/regional-failover/failover-priorities.png)
 
-在自動容錯移轉期間，Cosmos DB 會根據 Azure Cosmos DB 帳戶指定的優先順序，自動選擇下一個寫入區域。 
+在自動容錯移轉期間，Azure Cosmos DB 會根據 Azure Cosmos DB 帳戶指定的優先順序，自動選擇下一個寫入區域。 應用程式可以使用 DocumentClient 類別的 WriteEndpoint 屬性來偵測寫入區域的變更。
 
 ![Azure Cosmos DB 中的寫入區域失敗](./media/regional-failover/write-region-failures.png)
 
 一旦受影響區域從中斷復原，服務會自動回復該區域中所有受影響的 Cosmos DB 帳戶。 
 
-* 原先寫入區域在受影響區域中的 Cosmos DB 帳戶，即使在區域復原後，仍會保持具可讀取性的離線模式。 
-* 在中斷期間，您可以與目前寫入區域中的可用資料比較，藉此查詢此區域來計算任何未複寫的寫入。 根據您的應用程式需求，您可以執行合併和/或衝突解決，並將最後一組變更寫回目前的寫入區域。 
-* 完成合併變更後，您可以在 Cosmos DB 帳戶中移除再重新新增區域，將受影響的區域帶回線上。 一旦將區域新增回來，您就可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)執行手動容錯移轉，將它設回寫入區域。
+* 在中斷期間未複寫到讀取區域之先前寫入區域中的資料，會發行為衝突摘要。 應用程式可以讀取衝突摘要，根據應用程式的特定邏輯解決衝突，再視情況將更新後的資料寫回 Azure Cosmos DB 帳戶。 
+* 先前的寫入區域會重新建立為讀取區域，並自動重新上線。 
+* 您可以透過 Azure 入口網站或[以程式設計方式](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate)執行手動容錯移轉，將自動重新上線的讀取區域重新設定為寫入區域。
+
+下列程式碼片段會說明受影響的區域在從中斷復原後，會如何處理衝突。
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>手動容錯移轉
 

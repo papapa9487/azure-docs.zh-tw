@@ -1,10 +1,10 @@
 ---
-title: "自動調整與虛擬機器擴展集 | Microsoft Docs"
-description: "深入了解使用診斷和自動調整資源，以自動調整擴展集中的虛擬機器。"
+title: "使用 Azure 虛擬機器擴展集自動調整的概觀 | Microsoft Docs"
+description: "深入了解您可以根據效能或依固定的排程自動調整 Azure 虛擬機器擴展集的不同方式"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
@@ -13,240 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
-ms.author: adegeo
+ms.date: 10/19/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>如何使用自動調整與虛擬機器擴展集
-擴展集內的虛擬機器自動調整是依需求建立或刪除集合中的機器以符合效能需求。 當工作量增長時，應用程式可能需要額外的資源，才能有效執行工作。
+# <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>使用 Azure 虛擬機器擴展集自動調整的概觀
+Azure 虛擬機器擴展集可以自動增加或減少執行您的應用程式的 VM 執行個體數目。 這個自動化和彈性的行為會降低監視和最佳化應用程式效能的管理額外負荷。 您可以建立規則，規則定義最低限度的可接受效能，以獲得正向客戶體驗。 符合那些定義的閾值時，自動調整規則就會採取動作來調整擴展集的容量。 您也可以排定事件，以在固定時間自動增加或減少擴展集的容量。 本文提供可用效能計量以及可執行的自動調整動作的概觀。
 
-自動調整是自動化程序，可協助減輕管理額外負荷。 透過減少額外負荷，您便不需要持續監視系統效能或決定資源的管理方式。 調整是一項彈性的程序。 當負載增加時，可以新增更多資源。 此外，可隨著需求的降低來移除資源，以將成本降至最低並維持效能層級。
 
-使用 Azure Resource Manager 範本、Azure PowerShell、Azure CLI 或 Azure 入口網站，在擴展集上設定自動調整。
+## <a name="benefits-of-autoscale"></a>自動調整的優點
+如果您的應用程式需求增加，您擴展集內 VM 執行個體上的負載也會跟著增加。 如果這樣的負載增加會持續而非只是短暫的需求，您就可以設定自動調整規則來增加擴展集中的 VM 執行個體數目。
 
-## <a name="set-up-scaling-by-using-resource-manager-templates"></a>使用 Resource Manager 範本，設定調整
-您不是分開部署與管理應用程式的每個資源，而是使用範本，藉此經由協調的單一作業來部署所有資源。 在範本中，會定義應用程式資源，且會針對不同的環境指定部署參數。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。 若要深入了解，請參閱 [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)。
+建立這些 VM 執行個體並部署應用程式後，擴展集就會開始透過負載平衡器將流量分散給它們。 您可以控制要監視哪些計量 (例如 CPU 或記憶體)、應用程式負載必須符合給定的閾值多久，以及要將多少個 VM 執行個體新增至擴展集。
 
-在範本中，您可以指定容量元素︰
+在夜晚或週末，您的應用程式需求可能會減少。 若這樣的負載減少會持續一段時間，您就可以設定自動調整規則來減少擴展集中的 VM 執行個體數目。 這個相應縮小的動作可減少執行擴展集的成本，因為只會執行符合目前需求所需的執行個體數目。
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 3
-},
-```
 
-容量會識別集合中的虛擬機器數目。 您可以使用不同值部署範本，手動變更容量。 如果您部署範本只是要變更容量，您可以僅包含具有更新容量的 SKU 元素。
+## <a name="use-host-based-metrics"></a>使用主機型計量
+您可以建立內建於主機計量、可從您的 VM 執行個體取得的自動調整規則。 主機計量可讓您掌握擴展集中 VM 執行個體的效能，而不需要安裝或設定其他代理程式和資料收集。 使用這些計量的自動調整規模規則可以相應放大或相應縮小 VM 執行個體的數目，以回應 CPU 使用量、記憶體需求或磁碟存取。
 
-透過使用 **autoscaleSettings** 資源和診斷擴充功能，可自動調整擴展集的容量。
+可以使用下列其中一個工具來建立使用主機型計量的自動調整規則：
 
-### <a name="configure-the-azure-diagnostics-extension"></a>設定 Azure 診斷擴充
-自動調整只能夠在擴展集中的每個虛擬機器上的度量集合成功時完成。 Azure 診斷擴充提供監視和診斷功能，符合自動調整資源的度量集合需求。 您可以安裝擴充做為 Resource Manager 範本的一部分。
+- [Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
-此範例會顯示在範本中用來設定診斷擴充的變數︰
+若要建立使用更詳細效能計量的自動調整規則，您可以在 VM 執行個體上[安裝及設定 Azure 診斷擴充功能](#in-guest-vm-metrics-with-the-azure-diagnostics-extension)，或[設定您的應用程式使用 App Insights](#application-level-metrics-with-app-insights)。
 
-```json
-"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
-"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
-"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
-"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
-"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-"wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
-```
+使用主機型計量的自動調整規模規則、具有 Azure 診斷擴充功能的客體 VM 內計量和 App Insights 可以使用下列組態設定。
 
-參數將會於範本部署時提供。 在這個範例中，會提供儲存體帳戶名稱 (在其中儲存資料) 及擴展集名稱 (在其中收集資料)。 此外，在這個 Windows Server 範例中，將只會收集執行緒計數效能計數器。 Windows 或 Linux 中所有可用的效能計數器都可以用來收集診斷資訊，並且可以包含在擴充組態中。
+### <a name="metric-sources"></a>計量來源
+自動調整規模規則可以使用來自下列來源之一的計量：
 
-此範例會顯示範本中擴充的定義︰
+| 計量來源        | 使用案例                                                                                                                     |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------|
+| 目前的擴展集    | 針對不需要安裝或設定其他代理程式的主機型計量。                                  |
+| 儲存體帳戶      | Azure 診斷擴充功能會將效能計量寫入 Azure 儲存體，然後用以觸發自動調整規則。 |
+| 服務匯流排佇列    | 您的應用程式或其他元件可以在 Azure 服務匯流排佇列上傳輸訊息以觸發規則。                   |
+| Application Insights | 安裝在您的應用程式中的檢測套件，會直接從應用程式串流處理計量。                         |
 
-```json
-"extensionProfile": {
-  "extensions": [
-    {
-      "name": "Microsoft.Insights.VMDiagnosticsSettings",
-      "properties": {
-        "publisher": "Microsoft.Azure.Diagnostics",
-        "type": "IaaSDiagnostics",
-        "typeHandlerVersion": "1.5",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-          "storageAccount": "[variables('diagnosticsStorageAccountName')]"
-        },
-        "protectedSettings": {
-          "storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-          "storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
-          "storageAccountEndPoint": "https://core.windows.net"
-        }
-      }
-    }
-  ]
-}
-```
 
-當診斷擴充功能執行時，會在您指定的儲存體帳戶中，於資料表中儲存和收集資料。 在 **WADPerformanceCounters** 資料表中，您可以找到收集的資料：
+### <a name="autoscale-rule-criteria"></a>自動調整規則條件
+建立自動調整規則時，以下主機型計量可供使用。 如果您使用 Azure 診斷擴充功能或 App Insights，您可以定義要使用自動調整規則監視和使用的計量。
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
+| 度量名稱               |
+|---------------------------|
+| Percentage CPU            |
+| Network In                |
+| Network Out               |
+| Disk Read Bytes           |
+| Disk Write Bytes          |
+| Disk Read Operations/Sec  |
+| Disk Write Operations/Sec |
+| CPU Credits Remaining     |
+| CPU Credits Consumed      |
 
-### <a name="configure-the-autoscalesettings-resource"></a>設定 autoScaleSettings 資源
-autoscaleSettings 資源會使用來自診斷擴充的資訊，以決定是否要在擴展集中增加或減少虛擬機器數目。
+建立自動調整規則來監視指定的計量時，規則會查看下列其中一個計量彙總動作：
 
-此範例會顯示範本中資源的組態︰
+| 彙總類型 |
+|------------------|
+| 平均值          |
+| 最小值          |
+| 最大值          |
+| 總計            |
+| 最後一頁             |
+| Count            |
 
-```json
-{
-  "type": "Microsoft.Insights/autoscaleSettings",
-  "apiVersion": "2015-04-01",
-  "name": "[concat(parameters('resourcePrefix'),'as1')]",
-  "location": "[resourceGroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-  ],
-  "properties": {
-    "enabled": true,
-    "name": "[concat(parameters('resourcePrefix'),'as1')]",
-    "profiles": [
-      {
-        "name": "Profile1",
-        "capacity": {
-          "minimum": "1",
-          "maximum": "10",
-          "default": "1"
-        },
-        "rules": [
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "GreaterThan",
-              "threshold": 650
-            },
-            "scaleAction": {
-              "direction": "Increase",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          },
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "LessThan",
-              "threshold": 550
-            },
-            "scaleAction": {
-              "direction": "Decrease",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          }
-        ]
-      }
-    ],
-    "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-  }
-}
-```
+使用下列其中一個運算子將計量與您定義的閾值相比較時，則會觸發自動調整規則：
 
-在上述範例中，兩個規則用於定義自動調整動作。 第一個規則定義相應放大動作，第二個規則定義相應縮小動作。 在規則中提供這些值︰
+| 運算子                 |
+|--------------------------|
+| 大於             |
+| 大於或等於 |
+| 小於                |
+| 小於或等於    |
+| 等於                 |
+| 不等於             |
 
-| 規則 | 說明 |
-| ---- | ----------- |
-| metricName        | 此值與您在診斷擴充功能的 wadperfcounter 變數中定義的效能計數器相同。 在上述範例中，會使用「執行緒計數」計數器。    |
-| metricResourceUri | 此值是虛擬機器擴展集的資源識別碼。 這個識別碼包含資源群組的名稱、資源提供者的名稱和要調整的擴展集的名稱。 |
-| timeGrain         | 此值是所收集之計量的精細度。 在先前的範例中，資料是以一分鐘的間隔進行收集。 此值是搭配 timeWindow 使用。 |
-| statistic         | 此值會決定如何結合計量以因應自動調整動作的需要。 可能的值為：Average、Min、Max。 |
-| timeWindow        | 此值是收集執行個體資料的時間範圍。 其值必須介於 5 分鐘到 12 小時之間。 |
-| timeAggregation   | 此值會決定收集的資料應如何隨著時間結合。 預設值為 Average。 可能的值為：Average、Minimum、Maximum、Last、Total、Count。 |
-| operator          | 此值是用來比較計量資料和臨界值的運算子。 可能的值為：Equals、NotEquals、GreaterThan、GreaterThanOrEqual、LessThan、LessThanOrEqual。 |
-| threshold         | 此值是觸發調整動作的值。 請確定會在**相應放大**及**相應縮小**動作的臨界值之間提供足夠的差異。 如果您為這兩個動作設定相同值，系統會預期持續性變更，這會防止系統實作調整動作。 例如，在先前的範例中將兩者設定為 600 個執行緒將無法運作。 |
-| direction         | 此值會決定達到臨界值時所採取的動作。 可能的值為 Increase 或 Decrease。 |
-| 類型              | 此值是所應採取的動作類型，必須設為 ChangeCount。 |
-| value             | 此值是從擴展集內新增或移除的虛擬機器數目。 此值必須是 1 或更大。 |
-| cooldown          | 此值是在上一個調整動作之後、下一個動作執行之前的等待時間量。 此值必須介於一分鐘到一週之間。 |
 
-根據您使用的效能計數器而定，會以不同的方式使用範本設定中的某些元素。 在先前的範例中，效能計數器是「執行緒計數」、針對相應放大動作的臨界值為 650，而針對相應縮小動作的臨界值則為 550。 如果您使用如 %Processor Time 的計數器，臨界值會設定為能判斷調整動作的 CPU 使用量百分比。
+### <a name="actions-when-rules-trigger"></a>規則觸發時的動作
+觸發自動調整規則時，可以利用下列其中一個方式自動調整您的擴展集：
 
-觸發調整動作 (例如高負載) 時，集合的容量會根據範本中的值而增加。 例如，在容量設為 3 且調整動作值設為 1 的擴展集中：
+| 調整規模作業     | 使用案例                                                                                                                               |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| 將計數增加   | 要建立的固定 VM 執行個體數目。 在具有較少數量 VM 的擴展集中很有用。                                           |
+| 將百分比增加 | VM 執行個體以百分比為基礎的增加。 適用於固定增加可能無法大幅改善效能的較大擴展集。 |
+| 將計數增加至   | 需要建立多個 VM 執行個體，才能達到所需的最大數量。                                                            |
+| 將計數減少至   | 要移除的固定 VM 執行個體數目。 在具有較少數量 VM 的擴展集中很有用。                                           |
+| 將百分比減少 | VM 執行個體以百分比為基礎的減少。 適用於固定增加可能無法大幅減少資源耗用量和費用的較大擴展集。 |
+| 將計數減少至   | 需要移除多個 VM 執行個體，才能達到所需的最小數量。                                                            |
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
-當目前的負載導致平均執行緒計數超過 650 的臨界值時：
+## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>具有 Azure 診斷擴充功能的客體 VM 內計量
+Azure 診斷擴充功能是在 VM 執行個體內部執行的代理程式。 代理程式會監視並將效能計量儲存至 Azure 儲存體。 這些效能計量資訊包含 VM 狀態更詳細的資訊，例如磁碟的 *AverageReadTime* 或 CPU 的 *PercentIdleTime*。 您可以根據對 VM 效能更詳細的認知來建立自動調整規則，而不只是根據 CPU 使用量或記憶體耗用量的百分比。
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
+若要使用 Azure 診斷擴充功能，您必須為您的 VM 執行個體建立 Azure 儲存體帳戶、安裝 Azure 診斷代理程式，然後設定 VM 將特定效能計數器串流至儲存體帳戶。
 
-會觸發**相應放大**動作，讓集合的容量增加 1：
+如需詳細資訊，請參閱如何在 [Linux VM](../virtual-machines/linux/diagnostic-extension.md) 或 [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md) 上啟用 Azure 診斷擴充功能的文章。
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 4
-},
-```
 
-結果會將虛擬機器新增至擴展集：
+## <a name="application-level-metrics-with-app-insights"></a>使用 App Insights 的應用程式層級計量
+若要取得應用程式效能的更多可見性，您可以使用 Application Insights。 您可以在應用程式中安裝可監視應用程式並將遙測傳送至 Azure 的小型檢測套件。 您可以監視計量，例如應用程式的回應時間、頁面載入效能和工作階段計數。 這些應用程式計量可以用來以細微和內嵌層級建立自動調整規則，因為您會以可能影響客戶體驗的可採取動作深入資訊來觸發規則。
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
+如需 App Insights 的詳細資訊，請參閱[什麼是 Application Insights](../application-insights/app-insights-overview.md)。
 
-經過五分鐘的冷卻期間之後，如果機器上的執行緒平均數目仍然超過 600，則會將另一部機器新增至集合。 如果平均執行緒計數保持在 550 以下，則擴展集的容量會減少 1，且機器會從集合中移除。
 
-## <a name="set-up-scaling-using-azure-powershell"></a>使用 Azure PowerShell 設定調整
+## <a name="scheduled-autoscale"></a>排定的自動調整
+您也可以以排程為基礎建立自動調整規則。 這些以排程為基礎的規則可讓您在固定時間自動調整 VM 執行個體的數量。 利用以效能為基礎的規則，在觸發自動調整規則並且佈建新的 VM 執行個體之前，對應用程式可能有效能影響。 如果您可以預期這類需求，即會佈建其他 VM 執行個體，並且可供其他客戶用途與應用程式需求使用。
 
-若要查看使用 PowerShell 設定自動調整的範例，請參閱 [Azure 監視器 PowerShell 快速入門範例](../monitoring-and-diagnostics/insights-powershell-samples.md)。
+下列範例是可能因使用以排程為基礎的自動調整規則獲益的情節：
 
-## <a name="set-up-scaling-using-azure-cli"></a>使用 Azure CLI 設定調整
+- 在客戶需求增加時的工作日開始時自動相應放大 VM 執行個體數目。 在工作日結束時，自動調整 VM 中的執行個體數目，在應用程式使用較低的夜間降低資源成本。
+- 如果部門在月份或會計週期的某些時候會使用大量應用程式，則自動調整 VM 執行個體數目以配合部門的額外需求。
+- 有行銷事件、促銷或節日銷售時，您可以在預期的客戶需求來臨前自動調整 VM 執行個體數目。 
 
-若要查看使用 Azure CLI 設定自動調整的範例，請參閱 [Azure 監視器跨平台 CLI 快速入門範例](../monitoring-and-diagnostics/insights-cli-samples.md)。
-
-## <a name="set-up-scaling-using-the-azure-portal"></a>使用 Azure 入口網站設定調整
-
-若要查看使用 Azure 入口網站來設定自動調整的範例，請參閱[使用 Azure 入口網站建立虛擬機器擴展集](virtual-machine-scale-sets-portal-create.md)。
-
-## <a name="investigate-scaling-actions"></a>調查調整動作
-
-* **Azure 入口網站**  
-您目前可以使用入口網站來取得有限的資訊。
-
-* **Azure 資源總管**  
-此工具是瀏覽擴展集目前狀態的最佳選項。 按照此路徑，您應該會看到您所建立之調整集的執行個體檢視：  
-**訂用帳戶 > {您的訂用帳戶} > resourceGroups > {您的資源群組} > 提供者 > Microsoft.Compute > virtualMachineScaleSets > {您的擴展集} > virtualMachines**
-
-* **Azure PowerShell**  
-使用下列命令可取得某些資訊：
-
-  ```powershell
-  Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-  Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
-  ```
-
-* 比照任何其他機器連接到 Jumpbox 虛擬機器，您即可從遠端存取調整集內的虛擬機器，以監視個別程序。
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱 [在虛擬機器擴展集中自動調整機器](virtual-machine-scale-sets-windows-autoscale.md) ，以查看如何建立已設定自動調整的擴展集。
+您可以使用下列其中一個工具來建立使用主機型計量的自動調整規則：
 
-* 在 [Azure 監視器 PowerShell 快速入門範例](../monitoring-and-diagnostics/insights-powershell-samples.md)中找到 Azure 監視器監視功能的範例
+- [Azure 入口網站](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [Azure CLI 2.0](virtual-machine-scale-sets-autoscale-cli.md)
 
-* 若要深入了解通知功能，請參閱[使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)。
+本概觀詳細說明如何使用自動調整規則進行水平縮放，以及增加或減少擴展集中 VM 執行個體的*數目*。 您也可以進行垂直調整以增加或減少 VM 執行個體的*大小*。 如需詳細資訊，請參閱[使用虛擬機器擴展集垂直自動調整](virtual-machine-scale-sets-vertical-scale-reprovision.md)。
 
-* 深入了解如何[使用稽核記錄，在 Azure 監視器中傳送電子郵件和 Webhook 警示通知](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+如需有關如何管理 VM 執行個體的資訊，請參閱[使用 Azure PowerShell 管理虛擬機器擴展集](virtual-machine-scale-sets-windows-manage.md)。
 
-* 深入了解 [進階自動調整案例](virtual-machine-scale-sets-advanced-autoscale.md)。
+若要了解如何在自動調整規則觸發時產生警示，請參閱[使用自動調整動作在 Azure 監視器中傳送電子郵件和 Webhook 警示通知](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)。 您也可以[使用稽核記錄，在 Azure 監視器中傳送電子郵件和 Webhook 警示通知](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)。

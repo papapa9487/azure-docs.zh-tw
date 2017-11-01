@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
 ms.author: apurvajo
-ms.openlocfilehash: 191dd7240ad15b4936a72bc27a2d0162350f3afb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 214f05f45f59b0403e6902988f9184d6b62618bd
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>購買並設定您的 Azure App Service 的 SSL 憑證
 
-在本教學課程中，您會購買 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** 的 SSL 憑證，安全地將它儲存在 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) 中，並將它與自訂網域產生關聯，藉此保護 Web 應用程式。
+本教學課程會說明如何購買 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** 的 SSL 憑證，安全地將它儲存在 [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) 中，並將它與自訂網域產生關聯，藉此保護 Web 應用程式。
 
 ## <a name="step-1---log-in-to-azure"></a>步驟 1 - 登入 Azure
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
 輸入易記的 [名稱] 作為 SSL 憑證，並輸入 [網域名稱]
 
 > [!NOTE]
-> 這是購買程序中其中一個最重要的部分。 請務必輸入您想要使用此憑證保護的正確主機名稱 (自訂網域)。 **請勿** 在主機名稱上附加 WWW。 
+> 這是購買程序的其中一個最重要的步驟。 請務必輸入您想要使用此憑證保護的正確主機名稱 (自訂網域)。 **請勿** 在主機名稱上附加 WWW。 
 >
 
 選取 [訂用帳戶]、[資源群組] 和 [憑證 SKU]。
@@ -53,15 +53,15 @@ ms.lasthandoff: 10/11/2017
 > [Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-whatis) 是一項 Azure 服務，可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。
 >
 
-完成 SSL 憑證購買程序之後，您必須開啟 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)的 [資源] 刀鋒視窗。
+完成 SSL 憑證購買程序之後，您必須開啟 [App Service 憑證](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders)頁面。
 
 ![插入準備在 KV 中儲存的影像](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-您會注意到憑證狀態是「暫止發行」，因為您必須先完成一些其他的步驟，才能開始使用此憑證。
+憑證狀態是**暫止發行**，因為您必須先完成一些其他的步驟，才能開始使用此憑證。
 
-按一下 [憑證屬性] 刀鋒視窗內的 [憑證設定]，然後按一下 [步驟 1：儲存]，將此憑證儲存至 Azure Key Vault。
+按一下 [憑證屬性] 頁面內的 [憑證設定]，然後按一下 [步驟 1：儲存]，將此憑證儲存至 Azure Key Vault。
 
-從 [Key Vault 狀態] 刀鋒視窗中按一下 [Key Vault 存放庫]，選擇要儲存此憑證的現有 Key Vault，或者選擇 [建立新的 Key Vault]，在相同訂用帳戶和資源群組內建立新的 Key Vault。
+從 [Key Vault 狀態] 頁面中按一下 [Key Vault 存放庫]，選擇要儲存此憑證的現有 Key Vault，或者選擇 [建立新的 Key Vault]，在相同訂用帳戶和資源群組內建立新的 Key Vault。
 
 > [!NOTE]
 > Azure Key Vault 儲存此憑證會產生少許費用。
@@ -75,9 +75,9 @@ ms.lasthandoff: 10/11/2017
 ## <a name="step-4---verify-the-domain-ownership"></a>步驟 4︰確認網域擁有權
 
 > [!NOTE]
-> App Service 憑證支援 3 種類型的網域驗證：網域、郵件和手動驗證。 [進階](#advanced)一節中會有詳細的說明。
+> App Service 憑證支援 3 種類型的網域驗證：網域、郵件和手動驗證。 [進階](#advanced)一節會詳細說明這些驗證類型。
 
-從您在步驟 3 使用的相同 [憑證設定] 刀鋒視窗，按一下 [步驟 2：驗證] 步驟。
+從您在步驟 3 使用的相同 [憑證設定] 頁面，按一下 [步驟 2：驗證] 步驟。
 
 **網域驗證**：**只有**在您**已經從 Azure App Service 購買自訂網域[時，這才是最方便的程序。](custom-dns-web-site-buydomains-web-app.md)**
 按一下 [驗證] 按鈕來完成這個步驟。
@@ -150,7 +150,7 @@ App Service 憑證另外支援 2 種類型的網域驗證：郵件和手動驗�
 
 1. 建立名為 **"starfield.html"** 的 HTML 檔案
 
-1. 此檔案的內容應該與網域驗證權杖的名稱完全相同。 (您可以從 [網域驗證狀態] 刀鋒視窗中複製權杖)
+1. 此檔案的內容應該與網域驗證權杖的名稱完全相同。 (您可以從 [網域驗證狀態] 頁面中複製權杖)
 
 1. 在主控您網域 `/.well-known/pki-validation/starfield.html` 的 Web 伺服器的根目錄上傳此檔案。
 
@@ -175,19 +175,27 @@ App Service 憑證另外支援 2 種類型的網域驗證：郵件和手動驗�
 
 ![插入 IP SSL 的影像](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-請注意，此 IP 位址與先前用來設定網域 A 記錄的虛擬 IP 位址不同。 如果您設定成使用以 SNI 為基礎的 SSL，或未設定成使用 SSL，則不會列出此項目的位址。
+此 IP 位址與先前用來設定網域 A 記錄的虛擬 IP 位址不同。 如果您設定成使用以 SNI 為基礎的 SSL，或未設定成使用 SSL，則不會列出此項目的位址。
 
 使用網域名稱註冊機構所提供的工具，修改自訂網域名稱的 A 記錄，使其指向上一個步驟的 IP 位址。
 
 ## <a name="rekey-and-sync-the-certificate"></a>重設金鑰和同步處理憑證
 
-如果您需要重設憑證金鑰，請選取 [憑證屬性] 刀鋒視窗中的 [重設金鑰和同步處理] 選項。
+如果您需要重設憑證金鑰，請選取 [憑證屬性] 頁面中的 [重設金鑰和同步處理] 選項。
 
 按一下 [重設金鑰] 按鈕來啟動處理程序。 此程序需要 1 - 10 分鐘才能完成。
 
 ![插入重設 SSL 金鑰的影像](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
 重設憑證的金鑰，會以憑證授權單位發行的新憑證變更憑證。
+
+<a name="notrenewed"></a>
+## <a name="why-is-my-ssl-certificate-not-auto-renewed"></a>我的 SSL 憑證為何未自動更新？
+
+如果您的 SSL 憑證已設定為要自動更新，但並未自動更新，您可能尚未完成網域驗證。 請注意： 
+
+- GoDaddy (會產生 App Service 憑證) 每三年需要驗證網域一次。 網域系統管理員每三年就會收到一次用來驗證網域的電子郵件。 若未檢查電子郵件或驗證網域，App Service 憑證就不會自動更新。 
+- 2017 年 3 月 31 日之前發出的所有 App Service 憑證，都需要在下一次更新時重新驗證網域 (即使憑證已啟用自動更新)。 這是由於 GoDaddy 原則有所變更。 請檢查您的電子郵件，並完成這項一次性的網域驗證，以繼續自動更新 App Service 憑證。 
 
 ## <a name="next-steps"></a>後續步驟
 

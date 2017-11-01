@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>Overview
@@ -158,9 +158,18 @@ https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 > [!NOTE]
 > 如果您需要支援多個頂層網域，例如 contoso.com 和 fabrikam.com，則您使用任何 Cmdlet 時必須搭配使用 **SupportMultipleDomain** 參數。 如需詳細資訊，請參閱 [支援多個頂層網域](active-directory-aadconnect-multiple-domains.md)。
 >
->
+
 
 ## 使用 Azure AD Connect 修復 Azure AD 信任 <a name="connectrenew"></a>
 如果您已使用 Azure AD Connect 設定 AD FS 伺服器陣列和 Azure AD 信任，則可以使用 Azure AD Connect 來偵測是否需要對權杖簽署憑證採取任何動作。 如果您需要更新憑證，可以使用 Azure AD Connect 這樣做。
 
 如需詳細資訊，請參閱 [修復信任](active-directory-aadconnect-federation-management.md)。
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>AD FS 與 Azure AD 憑證更新步驟
+權杖簽署憑證是標準 X509 憑證，用來安全地簽署同盟伺服器簽發的所有權杖。 權杖解密憑證是標準 X509 憑證，用來解密任何傳入權杖。 
+
+依預設，會將 AD FS 設定為在初始設定時和當憑證接近其到期日時自動產生權杖簽署和權杖解密憑證。
+
+Azure AD 會嘗試在目前憑證到期前 30 天內，從同盟服務中繼資料中取得新的憑證。 如果當時沒有新的憑證可用，則 Azure AD 將繼續定期每天監視中繼資料。 中繼資料一有新的憑證可用，系統就會使用新的憑證資訊更新網域的同盟設定。 您可以使用 `Get-MsolDomainFederationSettings`，驗證您是否在 NextSigningCertificate / SigningCertificate 中看到新的憑證。
+
+如需 AD FS 中權杖簽署憑證的詳細資訊，請參閱[取得和設定 AD FS 的權杖簽署和權杖解密憑證](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

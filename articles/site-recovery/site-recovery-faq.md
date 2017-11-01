@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/22/2017
+ms.date: 10/19/2017
 ms.author: raynew
-ms.openlocfilehash: 95e31d0ca5983e0946ad6fb993e7a89a6a63d2c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b2a36c293e899ebed9d1220dff043a85321cacf
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
@@ -33,8 +33,7 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 * **實體伺服器**：Site Recovery 可以保護執行 Windows 或 Linux 的實體伺服器。
 * **VMware 虛擬機器**：Site Recovery 可以保護 VMware VM 上執行的任何工作負載。
 
-### <a name="does-site-recovery-support-the-azure-resource-manager-model"></a>Site Recovery 是否支援 Azure Resource Manager？
-Azure 入口網站提供的 Site Recovery 可支援 Resource Manager。 Site Recovery 支援 Azure 傳統入口網站的舊版部署。 您無法在傳統入口網站中建立新的保存庫，其亦不支援新功能。
+
 
 ### <a name="can-i-replicate-azure-vms"></a>我可以複寫 Azure VM 嗎？
 是，您可以在 Azure 區域之間複寫支援的 Azure VM。 [深入了解](site-recovery-azure-to-azure.md)。
@@ -55,7 +54,7 @@ Azure 入口網站提供的 Site Recovery 可支援 Resource Manager。 Site Rec
 您可以使用 Site Recovery 來保護在支援的 VM 或實體伺服器上執行的大多數工作負載。 Site Recovery 支援應用程式感知複寫，可讓應用程式復原為智慧型狀態。 除了與 Microsoft 應用程式 (例如 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory) 整合之外，它還與產業龍頭 (包括 Oracle、SAP、IBM 及 Red Hat) 密切合作。 [深入了解](site-recovery-workload.md) 工作負載保護。
 
 ### <a name="do-hyper-v-hosts-need-to-be-in-vmm-clouds"></a>Hyper-V 主機是否必須在 VMM 雲端中？
-如果您想要複寫至次要資料中心，Hyper-V VM 就必須在位於 VMM 雲端中的 Hyper-V 主機伺服器上。 如果您想要複寫至 Azure，則不論 Hyper-V 主機伺服器是否使用 VMM 雲端，您都可以複寫這些主機伺服器上的 VM。 [閱讀更多資訊](site-recovery-hyper-v-site-to-azure.md)。
+如果您想要複寫至次要資料中心，Hyper-V VM 就必須在位於 VMM 雲端中的 Hyper-V 主機伺服器上。 若您想要複寫至 Azure，則不論是否使用 VMM 雲端，皆可複寫 VM。 [閱讀更多](tutorial-hyper-v-to-azure.md) Hyper-V 複寫至 Azure 的相關資訊。
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>如果我只有一部 VMM 伺服器，可以部署 Site Recovery 搭配 VMM 嗎？
 
@@ -132,8 +131,7 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 * [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](site-recovery-deploy-with-powershell-resource-manager.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-do-i-need"></a>如果要複寫至 Azure，我需要哪一種儲存體帳戶？
-* **Azure 傳統入口網站**︰如果您要在 Azure 傳統入口網站中部署 Site Recovery，您將需要一個[標準的異地備援儲存體帳戶](../storage/common/storage-redundancy.md#geo-redundant-storage)。 目前不支援進階儲存體。 此帳戶必須位於與 Site Recovery 保存庫相同的區域中。
-* **Azure 入口網站**︰如果您要在 Azure 入口網站中部署 Site Recovery，您將需要一個 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 此帳戶必須位於與復原服務保存庫相同的區域中。 當您在 Azure 入口網站部署 Site Recovery 時，進階儲存體現在支援 VMware VM、Hyper-V VM 和實體伺服器複寫。
+您需要 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 此帳戶必須位於與復原服務保存庫相同的區域中。 當您在 Azure 入口網站部署 Site Recovery 時，進階儲存體支援 VMware VM、Hyper-V VM 和實體伺服器複寫。
 
 ### <a name="how-often-can-i-replicate-data"></a>我可以多久複寫一次資料？
 * **Hyper-V：**可以每隔 30 秒、5 分鐘或 15 分鐘複寫一次 Hyper-V VM (進階儲存體除外)。 如果您已設定 SAN 複寫，則複寫會是同步的。
@@ -160,8 +158,7 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 是。 您可以從部署文章深入了解如何將頻寬節流︰
 
 * [適用於複寫 VMware VM 和實體伺服器的容量規劃](site-recovery-plan-capacity-vmware.md)
-* [適用於複寫 VMM 雲端中 Hyper-V VM 的容量規劃](site-recovery-vmm-to-azure.md#capacity-planning)
-* [適用於複寫不使用 VMM 之 Hyper-V VM 的容量規劃](site-recovery-hyper-v-site-to-azure.md)
+* [適用於將 Hyper-V VM 複寫至 Azure 的容量規劃](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>容錯移轉
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>如果容錯移轉到 Azure，在容錯移轉之後，我要如何存取存取 Azure 虛擬機器？

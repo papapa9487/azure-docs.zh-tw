@@ -11,11 +11,11 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/15/2017
-ms.openlocfilehash: 342e7dfd35ce890cda4a1d98613592353a63d7e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Azure Database for PostgreSQL︰使用 Python 連線及查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for PostgreSQL。 它也會示範如何使用 SQL 陳述式查詢、插入、更新和刪除 macOS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本文中的步驟假設您已熟悉使用 Python 進行開發，但不熟悉 Azure Database for PostgreSQL。
@@ -61,8 +61,8 @@ ms.lasthandoff: 10/11/2017
 
 - 使用您慣用的文字編輯器，建立新的檔案。
 - 將下列各節中的其中一個程式碼範例複製並貼在文字檔案中。 以您建立伺服器和資料庫時所指定的值，取代 **host**、**dbname**、**user** 和 **password** 參數。
-- 將具有 .Py 副檔名的檔案 (例如 postgres.py) 儲存到您的專案資料夾中。 如果您是執行 Windows OS，請務必在儲存檔案時選取 UTF-8 編碼。 
-- 啟動命令提示字元或 Bash 殼層，然後將目錄變更為您的專案資料夾，例如 `cd postgres`。
+- 將具有 .Py 副檔名的檔案 (例如 postgres.py) 儲存到您的專案資料夾中。 如果您是執行 Windows，請務必在儲存檔案時選取 UTF-8 編碼。 
+- 啟動命令提示字元、終端機或 Bash 殼層，然後將目錄變更為您的專案資料夾，例如 `cd postgres`。
 -  若要執行程式碼，請鍵入後面接著檔案名稱的 python 命令，例如 `Python postgres.py`。
 
 > [!NOTE]

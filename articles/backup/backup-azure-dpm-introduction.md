@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: adigan;giridham;jimpark;markgal;trinadhk
-ms.openlocfilehash: 3422c8d57bdd786ce5d1a41fbb4c12cc4efffddd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41eed9c44a226817da9ee5f324e62902bc23754c
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="preparing-to-back-up-workloads-to-azure-with-dpm"></a>準備使用 DPM 將工作負載備份到 Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-System Center DPM 會備份檔案和應用程式資料。 備份到 DPM 的資料可以儲存在磁帶、磁碟上，或使用 Microsoft Azure 備份來備份到 Azure。 DPM 與 Azure 備份的互動方式如下：
+[System Center DPM](https://docs.microsoft.com/en-us/system-center/dpm/dpm-overview) 會備份檔案和應用程式資料。 您可以在[這裡](https://docs.microsoft.com/en-us/system-center/dpm/dpm-protection-matrix)找到所支援工作負載的詳細資訊。備份到 DPM 的資料可以儲存在磁帶、磁碟上，或使用 Microsoft Azure 備份來備份到 Azure。 DPM 與 Azure 備份的互動方式如下：
 
 * **DPM 部署為實體伺服器或內部部署虛擬機器** — 如果 DPM 部署為實體伺服器或內部部署 Hyper-V 虛擬機器，除了備份到磁碟和磁帶上，您還可以將資料備份到復原服務保存庫。
 * **DPM 部署為 Azure 虛擬機器** — 從 System Center 2012 R2 Update 3 開始，DPM 可以部署為 Azure 虛擬機器。 如果 DPM 部署為 Azure 虛擬機器，您可以將資料備份到連接至 DPM Azure 虛擬機器的 Azure 磁碟，或者您也可以將資料備份到復原服務保存庫以卸載資料儲存體。
@@ -60,6 +60,15 @@ System Center DPM 會備份檔案和應用程式資料。 備份到 DPM 的資�
 2. **下載保存庫認證** — 下載用來向復原服務保存庫註冊 DPM 伺服器的認證。
 3. **安裝 Azure 備份代理程式** — 從 Azure 備份，在每一部 DPM 伺服器上安裝代理程式。
 4. **註冊伺服器** — 向 [復原服務保存庫] 註冊 DPM 伺服器。
+
+## <a name="key-definitions"></a>關鍵定義
+以下是適用於 DPM 之 Azure 備份的某些關鍵定義：
+
+1. **保存庫認證** — 需要有保存庫認證才能對機器進行驗證，以便將備份資料傳送至 Azure 備份服務中的已識別保存庫。 認證可從保存庫下載下來，有效時間為 48 小時。
+2. **複雜密碼** — 複雜密碼可用來加密雲端備份。 請將檔案儲存在安全的位置，在復原作業期間需要該檔案。
+3. **安全性 PIN 碼** — 如果您已啟用保存庫的[安全性設定](https://docs.microsoft.com/en-us/azure/backup/backup-azure-security-feature)，則需要安全性 PIN 碼才能執行重要的備份作業。 這個多重要素驗證可多一道安全性。 
+4. **復原資料夾** — 它是雲端復原期間要將備份從雲端暫時下載到之位置的慣用語。 其大小約等於您想要平行復原之備份項目的大小。
+
 
 ### <a name="1-create-a-recovery-services-vault"></a>1.建立復原服務保存庫。
 若要建立復原服務保存庫：

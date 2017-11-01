@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d9c2c08a3b23530ab772e5f0532ac2f9dcc9a3
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>教學課程：Azure Active Directory 與 Skillport 整合
 
@@ -73,7 +73,7 @@ Skillport 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_search.png)
 
-5. 在結果窗格中，選取 Skillport，然後按一下新增 按鈕以新增應用程式。
+5. 在結果窗格中，選取 [Skillport]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_addfromgallery.png)
 
@@ -110,20 +110,23 @@ Skillport 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+    a. 在 [登入 URL] 文字方塊中，輸入 URL：
       
-      EU 資料中心：`https://<subdomain>.skillport.eu`
+      EU 資料中心：`https://adfs.skillport.eu`
    
-      US 資料中心：`https://<subdomain>.skillport.com`
-   
-    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，使用下列模式輸入 URL：
-    
-      EU 資料中心：`https://<subdomain>.skillport.eu/adfs/ls/`
-    
-      US 資料中心：`https://<subdomain>.skillport.com/sp/ACS.saml2`
+      US 資料中心：`https://sso.skillport.com`
 
-    > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [Skillport 用戶端支援小組](https://www.skillsoft.com/contact.asp)以取得這些值。
+    b. 在 [識別碼] 文字方塊中，輸入 URL：
+      
+      EU 資料中心：`http://adfs.skillport.eu/adfs/services/trust`
+   
+      US 資料中心：`https://sso.skillport.com`
+   
+    c. 在 [回覆 URL] 文字方塊中，輸入 URL：
+    
+      EU 資料中心：` https://adfs.skillport.eu/adfs/ls/`
+    
+      US 資料中心：`https://sso.skillport.com/sp/ACS.saml2`
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
 

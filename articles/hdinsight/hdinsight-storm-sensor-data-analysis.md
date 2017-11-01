@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/09/2017
+ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f08835d73cba6b8047381846c341e4517414d4a0
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>在 HDInsight (Hadoop) 中使用 Apache Storm、事件中樞和 HBase 分析感應器資料
 
@@ -31,24 +31,6 @@ ms.lasthandoff: 10/11/2017
 > 本文件中的資訊與範例都需要 HDInsight 3.6 版。
 >
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
-## <a name="prerequisites"></a>必要條件
-
-* Azure 訂用帳戶。
-* [Node.js](http://nodejs.org/)︰用來在您的開發環境中於本機預覽 Web 儀表板。
-* [Java 和 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)︰用來開發 Storm 拓撲。
-* [Maven](http://maven.apache.org/what-is-maven.html)︰用來建置和編譯專案。
-* [Git](http://git-scm.com/)︰用來從 GitHub 下載專案。
-* **SSH 用戶端** ︰用來連接至以 Linux 為基礎的 HDInsight 叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-
-> [!IMPORTANT]
-> 您不需刪除現有的 HDInsight 叢集。 本文件中的步驟會建立下列資源：
-> 
-> * Azure 虛擬網路
-> * Storm on HDInsight 叢集 (以 Linux 為基礎，兩個背景工作節點)
-> * HBase on HDInsight 叢集 (以 Linux 為基礎，兩個背景工作節點)
-> * 裝載 Web 儀表板的 Azure Web 應用程式
 
 ## <a name="architecture"></a>架構
 
@@ -77,7 +59,7 @@ ms.lasthandoff: 10/11/2017
 > [!IMPORTANT]
 > 因為沒有任何支援方法可建立一個同時適用於 Storm 和 HBase 的 HDInsight 叢集，因此必須建立兩個叢集。
 
-拓撲會使用 [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) 類別從事件中樞讀取資料，並使用 [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html) 類別將資料寫入至 HBase。 與網站之間的通訊必須透過 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java)來達成。
+拓撲會使用 `org.apache.storm.eventhubs.spout.EventHubSpout` 類別從事件中心讀取資料，並使用 `org.apache.storm.hbase.bolt.HBaseBolt` 類別將資料寫入至 HBase。 與網站之間的通訊必須透過 [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java)來達成。
 
 下列圖表說明拓撲的配置：
 
@@ -104,32 +86,27 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
-使用此範例之前，您必須建立 Azure 事件中樞以供 Storm 拓撲讀取。
+使用此範例之前，您必須準備開發環境。 您也必須建立此範例會使用的 Azure 事件中樞。
 
-### <a name="configure-event-hub"></a>設定事件中樞
+您必須在您的開發環境上安裝下列項目：
 
-事件中樞是此範例的資料來源。 請使用下列步驟來建立事件中樞。
+* [Node.js](http://nodejs.org/)︰用來在您的開發環境中於本機預覽 Web 儀表板。
+* [Java 和 JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html)︰用來開發 Storm 拓撲。
+* [Maven](http://maven.apache.org/what-is-maven.html)︰用來建置和編譯專案。
+* [Git](http://git-scm.com/)︰用來從 GitHub 下載專案。
+* **SSH 用戶端** ︰用來連接至以 Linux 為基礎的 HDInsight 叢集。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [+新增] -> [物聯網] -> [事件中樞]。
-2. 在 [建立命名空間] 區段執行下列工作：
-   
-   1. 輸入命名空間的 **名稱** 。
-   2. 選取定價層。  就已足夠。
-   3. 選取要使用的 Azure [訂用帳戶]  。
-   4. 選取現有的資源群組，或建立一個新的群組。
-   5. 選取事件中樞的 [位置]  。
-   6. 選取 釘選到儀表板，然後按一下建立。
+若要建立事件中樞，請使用[建立事件中樞](../event-hubs/event-hubs-create.md)文件中的步驟。
 
-3. 建立程序完成時，會顯示您命名空間的事件中樞資訊。 從這裡選取 [+ 新增事件中樞] 。 在 [建立事件中樞] 區段輸入 **sensordata** 的名稱，然後選取 [建立]。 讓其他欄位保持使用預設值。
-4. 在您命名空間的事件中樞檢視畫面上，選取 [事件中樞]。 選取 [sensordata]  項目。
-5. 在 sensordata 事件中樞選取 [共用存取原則]。 使用 [+ 新增]  連結新增下列原則︰
+> [!IMPORTANT]
+> 儲存事件中樞名稱、命名空間，及 RootManageSharedAccessKey 的金鑰。 這項資訊是用來設定 Storm 拓撲。
 
-    | 原則名稱 | Claims |
-    | ----- | ----- |
-    | devices | 傳送 |
-    | storm | 接聽 |
-
-1. 選取這兩個原則，並記下 [主索引鍵]  值。 在後續步驟中，您會需要這兩個原則的值。
+您不需要 HDInsight 叢集。 這份文件中的步驟提供的 Azure Resource Manager 範本，可建立此範例所需的資源。 此範本會建立下列資源：
+ 
+* Azure 虛擬網路
+* Storm on HDInsight 叢集 (以 Linux 為基礎，兩個背景工作節點)
+* HBase on HDInsight 叢集 (以 Linux 為基礎，兩個背景工作節點)
+* 裝載 Web 儀表板的 Azure Web 應用程式
 
 ## <a name="download-and-configure-the-project"></a>下載並設定專案。
 
@@ -157,8 +134,7 @@ ms.lasthandoff: 10/11/2017
 若要將專案設定為讀取事件中心，請開啟 `hdinsight-eventhub-example/TemperatureMonitor/dev.properties` 檔案並在下列幾行加入您的事件中樞的資訊：
 
 ```bash
-eventhub.read.policy.name: your_read_policy_name
-eventhub.read.policy.key: your_key_here
+eventhub.policy.key: the_key_for_RootManageSharedAccessKey
 eventhub.namespace: your_namespace_here
 eventhub.name: your_event_hub_name
 eventhub.partitions: 2
@@ -168,9 +144,6 @@ eventhub.partitions: 2
 
 > [!IMPORTANT]
 > 若要在本機使用拓撲，需要可運作的 Storm 開發環境。 如需詳細資訊，請至 Apache.org 參閱[設定 Storm 開發環境](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html)。
-
-> [!WARNING]
-> 如果您使用的是 Windows 開發環境，本機執行拓撲時可能會收到 `java.io.IOException`。 若有收到，請直接在 HDInsight 執行該拓撲。
 
 測試前，您必須先開啟儀表板，檢視拓撲輸出的資料並產生要存放在事件中樞的資料。
 
@@ -216,16 +189,16 @@ eventhub.partitions: 2
    
     ```javascript
     // ServiceBus Namespace
-    var namespace = 'YourNamespace';
+    var namespace = 'Your-eventhub-namespace';
     // Event Hub Name
-    var hubname ='sensordata';
+    var hubname ='Your-eventhub-name';
     // Shared access Policy name and key (from Event Hub configuration)
-    var my_key_name = 'devices';
-    var my_key = 'YourKey';
+    var my_key_name = 'RootManageSharedAccessKey';
+    var my_key = 'Your-Key';
     ```
    
    > [!NOTE]
-   > 此範例預設您使用 `sensordata` 為事件中樞的名稱。 且使用 `devices` 作為含有 `Send` 宣告之原則的名稱。
+   > 這個範例假設您使用 `RootManageSharedAccessKey` 存取事件中樞。
 
 3. 使用以下命令在事件中樞插入新項目：
    

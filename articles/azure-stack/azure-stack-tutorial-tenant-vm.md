@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 9/25/2017
+ms.date: 10/23/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: afeec92c40262903e6cfd3c6d75a595fead616e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6fce4a3230c98295afb19e633bf2801c115831f
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="make-virtual-machines-available-to-your-azure-stack-users"></a>將虛擬機器提供給您的 Azure Stack 使用者
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
    供應項目是一組提供者供使用者購買或訂閱的一或多個方案。
 
-   a. 以系統管理員身分[登入](azure-stack-connect-azure-stack.md)入口網站，然後按一下新增] > [租用戶供應項目 + 方案] > [供應項目]。
+   a. 以雲端系統管理員身分[登入](azure-stack-connect-azure-stack.md)入口網站，然後按一下 [新增] > [供應項目 + 方案] > [供應項目]。
    ![新增供應項目](media/azure-stack-tutorial-tenant-vm/image01.png)
 
    b. 在 [新增供應項目] 區段中，填寫 [顯示名稱] 與 [資源名稱]，然後選取新的或現有的 [資源群組]。 [顯示名稱] 是供應項目的易記名稱。 只有雲端操作員可以看到 [資源名稱]。 它是系統管理員用來處理其他供應項目 (以 Azure Resource Manager 資源方式) 的名稱。
@@ -66,13 +66,13 @@ ms.lasthandoff: 10/11/2017
 
    ![方案顯示名稱](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-   e. 按一下 服務，選取 Microsoft.Compute、Microsoft.Network 及 Microsoft.Storage，然後按一下選取。
+   e. 按一下 [服務]，選取 [Microsoft.Compute]、[Microsoft.Network] 及 [Microsoft.Storage]，然後按一下 [選取]。
 
    ![方案服務](media/azure-stack-tutorial-tenant-vm/image05.png)
 
    f. 按一下 [配額]，然後選取您要建立配額的第一個服務。 針對 IaaS 配額，請針對計算、網路與儲存體服務依照這些步驟執行。
 
-   在此範例中，我們先為計算服務建立配額。 在命名空間清單中，選取 Microsoft.Compute 命名空間，然後按一下建立新的配額。
+   在此範例中，我們先為計算服務建立配額。 在命名空間清單中，選取 [Microsoft.Compute] 命名空間，然後按一下 [建立新的配額]。
    
    ![建立新的配額](media/azure-stack-tutorial-tenant-vm/image06.png)
 
@@ -84,7 +84,7 @@ ms.lasthandoff: 10/11/2017
 
    ![選取配額](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-   針對網路與儲存體服務重複這些步驟，然後按一下配額 區段中的 確定。
+   針對網路與儲存體服務重複這些步驟，然後按一下 [配額] 區段中的 [確定]。
 
    i. 按一下 [新的方案] 區段中的 [確定]。
 
@@ -94,7 +94,7 @@ ms.lasthandoff: 10/11/2017
 
    l. 在儀表板功能表上，按一下 [供應項目]，然後按一下您建立的供應項目。
 
-   m. 按一下 變更狀態，然後按一下公開。
+   m. 按一下 [變更狀態]，然後按一下 [公開]。
 
    ![公開映像](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -120,7 +120,7 @@ ms.lasthandoff: 10/11/2017
 
    ![取得訂用帳戶](media/azure-stack-subscribe-plan-provision-vm/image01.png)
 
-   b. 在 顯示名稱 欄位中，輸入您的訂閱名稱，按一下 供應項目，按一下 選擇供應項目 區段中的其中一個供應項目，然後按一下建立。
+   b. 在 [顯示名稱] 欄位中，輸入您的訂閱名稱，按一下 [供應項目]，按一下 [選擇供應項目] 區段中的其中一個供應項目，然後按一下 [建立]。
 
    ![建立優惠](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
@@ -132,21 +132,23 @@ ms.lasthandoff: 10/11/2017
 
    現在您能以使用者身分登入入口網站，以使用訂用帳戶佈建虛擬機器。 
 
-   a. 以使用者身分登入使用者入口網站，然後按一下新增 > **計算** > **Windows Server 2016 Datacenter 評估版**。
-      - 整合系統的 URL 會由於操作員的地區和外部網域名稱而有所不同，格式為 https://portal.&lt;地區&gt;.&lt;FQDN&gt;。
+   a. 以使用者身分登入使用者入口網站。
+      - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，格式將會是 https://portal.&lt;*區域*&gt;.&lt;*FQDN*&gt;。
    - 如果您使用的是「Azure Stack 開發套件」，則入口網站位址會是 https://portal.local.azurestack.external。
 
-   b. 在 [基本] 區段中，輸入 [名稱][使用者名稱]與 [密碼]。 針對 [VM 磁碟類型]，請選擇 [HDD]。 選擇 [訂用帳戶] 。 建立 資源群組，或選取現有的資源群組，然後按一下確定。  
+   b.  在儀表板上，按一下 [新增] > **[計算]** > **[Windows Server 2016 Datacenter 評估版]**，然後按一下 [建立]。
 
-   c. 在 選擇大小 區段中，按一下 A1 基本，然後按一下選取。  
+   c. 在 [基本概念] 區段中，輸入 [名稱]、[使用者名稱] 和 [密碼]，選擇 [訂用帳戶]，建立 [資源群組] (或選取現有的)，然後按一下 [確定]。
 
-   d. 在 [設定] 區段中，按一下 [虛擬網路]。 在 [選擇虛擬網路] 區段中，按一下 [建立新項目]。 在 [建立虛擬網路] 區段中，接受所有預設值，然後按一下 [確定]。 在 [設定] 區段中，按一下 [確定]。
+   d. 在 [選擇大小] 區段中，按一下 [A1 標準]，再按一下 [選取]。  
+
+   e. 在 [設定] 區段中，按一下 [虛擬網路]。 在 [選擇虛擬網路] 區段中，按一下 [建立新項目]。 在 [建立虛擬網路] 區段中，接受所有預設值，然後按一下 [確定]。 在 [設定] 區段中，按一下 [確定]。
 
    ![建立虛擬網路](media/azure-stack-provision-vm/image04.png)
 
-   e. 在 [摘要] 區段中，按一下 [確定] 以建立虛擬機器。  
+   f. 在 [摘要] 區段中，按一下 [確定] 以建立虛擬機器。  
 
-   f. 若要查看您的新虛擬機器，請按一下 [所有資源]，然後搜尋虛擬機器並按一下其名稱。
+   g. 若要查看新的虛擬機器，請按一下 [所有資源]，然後搜尋虛擬機器並按一下其名稱。
 
     ![所有資源](media/azure-stack-provision-vm/image06.png)
 

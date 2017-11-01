@@ -12,54 +12,31 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/19/2017
 ms.author: sutalasi
-ms.openlocfilehash: 5a6e00877b0a2b139d5322f610c1901ad76a710f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c978c2e31e775f56824d765491f6d7b73648b8ae
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-a-secondary-vmm-site-using-powershell-resource-manager"></a>使用 PowerShell 將位於 VMM 雲端中的 Hyper-V 虛擬機器複寫至次要 VMM 站台 (Resource Manager)
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](site-recovery-vmm-to-vmm.md)
-> * [傳統入口網站](site-recovery-vmm-to-vmm-classic.md)
-> * [PowerShell - 資源管理員](site-recovery-vmm-to-vmm-powershell-resource-manager.md)
->
->
 
-歡迎使用 Azure Site Recovery！ 如果您想要將 System Center Virtual Machine Manager (VMM) 雲端中管理的內部部署 Hyper-V 虛擬機器複寫至次要站台，請使用本文。
+本文說明在設定 Azure Site Recovery 將 System Center VMM 雲端中的 Hyper-V 虛擬機器複寫到次要站台的 System Center VMM 雲端時，該如何使用 PowerShell 將經常需要執行的工作自動化。
 
-本文說明如何使用 PowerShell 自動化您在設定 Azure Site Recovery 將 System Center VMM 雲端中的 Hyper-V 虛擬機器，複寫到次要站台中的 System Center VMM 時常需要執行的工作。
 
-本文包含案例的必要條件，並對您示範
-
-* 如何設定復原服務保存庫
-* 在來源 VMM 伺服器與目標 VMM 伺服器上安裝 Azure Site Recovery 提供者
-* 在保存庫中註冊 VMM 伺服器
-* 設定 VMM 雲端的複寫原則。 原則中的複寫設定將套用到所有受保護的虛擬機器
-* 為虛擬機器啟用保護。
-* 個別或在復原計劃中測試 VM 的容錯移轉，確定一切如預期般運作。
-* 個別或在復原計劃中執行 VM 計劃性或非計劃性的容錯移轉，確定一切如預期般運作。
-
-您在設定此案例如有任何問題，可將問題張貼到 [Azure 復原服務論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)。
-
-> [!NOTE]
-> Azure 建立和處理資源的 [部署模型](../azure-resource-manager/resource-manager-deployment-model.md) 有二種：Azure Resource Manager 和傳統。 Azure 也有兩個入口網站 – 支援傳統部署模型的 Azure 傳統入口網站，以及支援兩種部署模型的 Azure 入口網站。 本文涵蓋之內容包括資源管理員部署模型。
->
->
 
 ## <a name="on-premises-prerequisites"></a>內部部署必要條件
 以下是您需要在主要和次要內部部署站台中部署此案例的情況：
 
 | **必要條件** | **詳細資料** |
 | --- | --- |
-| **VMM** |建議您在主要站台與次要站台各部署一部 VMM 伺服器。<br/><br/> 您也可以[在單一 VMM 伺服器上的雲端之間進行複寫](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment)。 若要這樣做，您至少需要在 VMM 伺服器上設定兩個雲端。<br/><br/> VMM 伺服器至少應執行含有最新更新的 System Center 2012 SP1。<br/><br/> 每部 VMM 伺服器都必須設定一或多個雲端，而所有雲端都必須設定 Hyper-V 容量設定檔。 <br/><br/>雲端必須包含一或多個 VMM 主機群組。<br/><br/>若要深入了解如何設定 VMM 雲端，請參閱[設定 VMM 雲端網狀架構](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric)和[Walkthrough: Creating private clouds with System Center 2012 SP1 VMM (逐步解說：使用 System Center 2012 SP1 VMM 建立私人雲端)](http://blogs.technet.com/b/keithmayer/archive/2013/04/18/walkthrough-creating-private-clouds-with-system-center-2012-sp1-virtual-machine-manager-build-your-private-cloud-in-a-month.aspx)。<br/><br/> VMM 伺服器必須能夠存取網際網路。 |
+| **VMM** |建議您在主要站台與次要站台各部署一部 VMM 伺服器。<br/><br/> 您也可以在單一 VMM 伺服器上的雲端之間進行複寫。 若要這樣做，您至少需要在 VMM 伺服器上設定兩個雲端。<br/><br/> VMM 伺服器至少應執行含有最新更新的 System Center 2012 SP1。<br/><br/> 每部 VMM 伺服器都必須設定一或多個雲端，而所有雲端都必須設定 Hyper-V 容量設定檔。 <br/><br/>雲端必須包含一或多個 VMM 主機群組。 VMM 伺服器必須能夠存取網際網路。 |
 | **Hyper-V** |Hyper-V 伺服器必須至少執行具備 Hyper-V 角色並已安裝最新更新的 Windows Server 2012。<br/><br/> Hyper-V 伺服器應該包含一或多部 VM。<br/><br/>  Hyper-V 主機伺服器應該位於主要和次要 VMM 雲端的主機群組中。<br/><br/> 如果您是在 Windows Server 2012 R2 上的叢集中執行 Hyper-V，則應該安裝[更新 2961977](https://support.microsoft.com/kb/2961977)。<br/><br/> 如果您是在 Windows Server 2012 上的叢集中執行 Hyper-V，請注意，當您的叢集是靜態 IP 位址型叢集時，並不會自動建立叢集代理。 您必須手動設定叢集代理。 [閱讀更多資訊](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx)。 |
 | **提供者** |在 Site Recovery 部署期間，您會在 VMM 伺服器上安裝 Azure Site Recovery Provider。 Provider 會透過 HTTPS 443 與 Site Recovery 通訊來協調複寫。 資料複寫是透過 LAN 或 VPN 連線在主要和次要 Hyper-V 伺服器之間進行。<br/><br/> 在 VMM 伺服器上執行的提供者需要能夠存取下列 URL：*.hypervrecoverymanager.windowsazure.com、*.accesscontrol.windows.net、*.backup.windowsazure.com、*.blob.core.windows.net、*.store.core.windows.net。<br/><br/> 此外，還要允許從 VMM 伺服器到 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/confirmation.aspx?id=41653)的防火牆通訊，並允許 HTTPS (443) 通訊協定。 |
 
 ### <a name="network-mapping-prerequisites"></a>網路對應的必要條件
-網路對應會在主要和次要 VMM伺服器上的 VMM VM 網路之間進行對應：
+網路對應會在主要和次要 VMM 伺服器上的 VMM VM 網路之間進行對應，以執行下列工作：
 
 * 容錯移轉之後，選擇性地在次要 Hyper-V 主機上放置複本 VM。
 * 將複本 VM 連接到適當的 VM 網路。
@@ -74,7 +51,6 @@ ms.lasthandoff: 10/11/2017
 * [如何在 VMM 中設定邏輯網路](http://go.microsoft.com/fwlink/p/?LinkId=386307)
 * [如何在 VMM 中設定 VM 網路和閘道](http://go.microsoft.com/fwlink/p/?LinkId=386308)
 
-[深入了解](site-recovery-vmm-to-vmm.md#prepare-for-network-mapping) 網路對應的運作方式。
 
 ### <a name="powershell-prerequisites"></a>PowerShell 必要條件
 確定 Azure PowerShell 已經準備就緒。 如果您已經使用 PowerShell，您必須升級至 0.8.10 版或更新版本。 如需設定 PowerShell 的資訊，請參閱 [安裝和設定 Azure PowerShell 指南](/powershell/azureps-cmdlets-docs)。 一旦已安裝並設定 PowerShell，您可以檢視 [這裡](/powershell/azure/overview)之服務的所有可用的 Cmdlet。
@@ -100,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 1. 如果您還沒有 Azure Resource Manager 資源群組，請建立一個
 
         New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
-2. 建立新的復原服務保存庫，並儲存在變數 (稍後使用) 中建立的 ASR 保存庫物件。 您也可以使用 Get-AzureRMRecoveryServicesVault Cmdlet 擷取建立後的 ASR 保存庫物件：-
+2. 建立新的復原服務保存庫，並儲存在變數 (稍後使用) 中建立的 Microsoft Azure 復原服務保存庫物件。 您也可以使用 Get-AzureRMRecoveryServicesVault Cmdlet，取出建立後的保存庫物件：
 
         $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResouceGroupName #ResourceGroupName -Location #location
 
@@ -193,7 +169,7 @@ ms.lasthandoff: 10/11/2017
 1. 第一個命令會取得目前的 Azure Site Recovery 保存庫的伺服器。 命令會將 Microsoft Azure Site Recovery 伺服器儲存在 $Servers 陣列變數。
 
         $Servers = Get-AzureRmSiteRecoveryServer
-2. 下列命令取得來源 VMM 伺服器和目標 VMM 伺服器的站台復原網路。
+2. 下列命令取得來源 VMM 伺服器和目標 VMM 伺服器的 Site Recovery 網路。
 
         $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
 
@@ -211,7 +187,7 @@ ms.lasthandoff: 10/11/2017
 1. 下列命令將能把儲存體分類清單置入 $storageclassifications 變數中。
 
         $storageclassifications = Get-AzureRmSiteRecoveryStorageClassification
-2. 下列命令將能把來源分類置入 $SourceClassificaion 變數中，並把目標分類置入 $TargetClassification 變數中。
+2. 下列命令會將來源分類置入 $SourceClassificaion 變數中，並將目標分類置入 $TargetClassification 變數中。
 
         $SourceClassificaion = $storageclassifications[0]
 

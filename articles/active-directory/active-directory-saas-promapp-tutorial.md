@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 27013ca9724cf2f57fc85f5f4ccb71921ca57a3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9cd70b048d454009d8741f394fed0b6b93fcab7
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>教學課程：Azure Active Directory 與 Promapp 整合
 
@@ -73,7 +73,7 @@ Promapp 與 Azure AD 整合提供下列優點：
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_search.png)
 
-5. 在結果面板中，選取 Promapp，然後按一下新增 按鈕以新增應用程式。
+5. 在結果面板中，選取 [Promapp]，然後按一下 [新增] 按鈕以新增應用程式。
 
     ![建立 Azure AD 測試使用者](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_addfromgallery.png)
 
@@ -106,48 +106,68 @@ Promapp 與 Azure AD 整合提供下列優點：
  
     ![設定單一登入](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_samlbase.png)
 
-3. 在 [Promapp 網域及 URL] 區段中，執行下列步驟：
+3. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [Promapp 網域和 URL] 區段上執行下列步驟：
 
     ![設定單一登入](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    | |
+    |--|
+    | `https://demo.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME`|
+    | `https://demoau.promapp.com/TENANTNAME`|
+    | `https://au.promapp.com/TENANTNAME`|
+    | `https://demous.promapp.com/TENANTNAME`|
+    | `https://us.promapp.com/TENANTNAME`|
+    | `https://dev.promapp.com/TENANTNAME`|
+    | `https://test.promapp.com/TENANTNAME`|
+    | `https://staging.promapp.com/TENANTNAME`|
+    
+    b.這是另一個 C# 主控台應用程式。 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://DOMAINNAME.promapp.com/TENANTNAME`
+4. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+
+    ![設定單一登入](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
+
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰`https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Promapp 客戶支援小組](https://www.promapp.com/about-us/contact-us/)以取得這些值。
+    > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Promapp 客戶支援小組](https://www.promapp.com/about-us/contact-us/)以取得這些值。
 
-4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
+5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
     ![設定單一登入](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_certificate.png) 
 
-5. 按一下 [儲存]  按鈕。
+6. 按一下 [儲存]  按鈕。
 
     ![設定單一登入](./media/active-directory-saas-promapp-tutorial/tutorial_general_400.png)
 
-6. 在 [Promapp 組態] 區段上，按一下 [設定 Promapp] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
+7. 在 [Promapp 組態] 區段上，按一下 [設定 Promapp] 以開啟 [設定登入] 視窗。 從 [快速參考] 區段中複製 [SAML 單一登入服務 URL]。
 
     ![設定單一登入](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_configure.png) 
 
-7. 以系統管理員身分登入您的 Promapp 公司網站。 
+8. 以系統管理員身分登入您的 Promapp 公司網站。 
 
-8. 在頂端的功能表中，按一下 [系統管理員] 。 
+9. 在頂端的功能表中，按一下 [系統管理員] 。 
    
     ![Azure AD 單一登入][12]
 
-9. 按一下 [設定] 。 
+10. 按一下 [設定] 。 
    
     ![Azure AD 單一登入][13]
 
-10. 在 [安全性]  對話方塊上，執行下列步驟：
+11. 在 [安全性]  對話方塊上，執行下列步驟：
    
     ![Azure AD 單一登入][14]
     
     a. 將您從 Azure 入口網站複製的 [SAML 單一登入服務 URL]，貼到 [SSO 登入 URL] 文字方塊中。
     
-    b.這是另一個 C# 主控台應用程式。 針對 SSO - 單一登入模式，選取 選擇性，然後按一下儲存。
+    b.這是另一個 C# 主控台應用程式。 針對 [SSO - 單一登入模式]，選取 [選擇性]，然後按一下 [儲存]。
 
-    c. 在記事本中開啟下載的憑證，複製憑證的內容但不包含第一行 (-----BEGIN CERTIFICATE-----) 和最後一行 (-----END CERTIFICATE-----)，將它貼到 SSO-x.509 憑證 文字方塊中，然後按一下儲存。
+    > [!NOTE]
+    > [選擇性] 模式僅供測試而已。 一旦滿意設定，請選取 [必要] 模式，強制所有使用者使用 Azure AD 進行驗證。
+
+    c. 在記事本中開啟下載的憑證，複製憑證的內容但不包含第一行 (-----**BEGIN CERTIFICATE**-----) 和最後一行 (-----**END CERTIFICATE**-----)，將它貼到 [SSO-x.509 憑證] 文字方塊中，然後按一下 [儲存]。
         
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -222,7 +242,9 @@ Promapp 應用程式支援 Just-in-Time 佈建。 這表示，在使用存取面
 
 本節的目標是要使用「存取面板」來測試您的 Azure AD SSO 組態。
 
-當您在存取面板中按一下 Promapp 磚時，應該會自動登入您的 Promapp 應用程式。
+若要以 **IDP** 起始模式測試您的應用程式，當您在存取面板中按一下 Promapp 磚時，應該會自動登入您的 Promapp 應用程式。
+
+若要以 **SP** 起始模式測試您的應用程式，您將需要起始來自 Promapp 網站的驗證。 此作法為儘管 [選擇性] 模式已啟用，在登入時仍會將密碼欄位保留空白。
 
 ## <a name="additional-resources"></a>其他資源
 

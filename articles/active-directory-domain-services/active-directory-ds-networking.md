@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: e274e0806e99cce484f6ff03803c03bf0034dcd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="type-of-azure-virtual-network"></a>Azure 虛擬網路類型
 * **Resource Manager 虛擬網路**：使用 Azure Resource Manager 建立的虛擬網路可以啟用 Azure AD Domain Services。
-* 您可以啟用傳統 Azure 虛擬網路中的 Azure AD 網域服務。 不過，很快將會取代傳統虛擬網路的支援。 建議所有新建立的受管理網域使用 Resource Manager 虛擬網路。
+* 您無法啟用傳統 Azure 虛擬網路中的 Azure AD Domain Services。
 * 您可以將其他虛擬網路連線到啟用 Azure AD Domain Services 的虛擬網路。 如需詳細資訊，請參閱[網路連線](active-directory-ds-networking.md#network-connectivity)。
 * **區域虛擬網路**：如果您計劃使用現有的虛擬網路，請確定它是區域虛擬網路。
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
 
 ![建議的子網路設計](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="best-practices-for-choosing-a-subnet"></a>選擇子網路的最佳作法
+### <a name="guidelines-for-choosing-a-subnet"></a>選擇子網路的指導方針
 * 將 Azure AD 網域服務部署到 Azure 虛擬網路中**不同的專用子網路**。
 * 請勿將 NSG 套用至受管理網域的專用子網路。 如果您必須將 NSG 套用至專用子網路，請確保**不會封鎖服務及管理您的網域所需的連接埠**。
 * 請勿過度限制受管理網域的專用子網路內可用的 IP 位址數目。 此限制會使服務無法將兩個網域控制站提供給受管理的網域使用。
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/11/2017
 
 連接埠 5986 用來在受管理網域上使用 PowerShell 遠端執行管理工作。 受管理網域的網域控制站不通常會接聽此連接埠。 只有在需要對受管理網域執行管理或維護作業時，服務才會於受管理網域控制站上開啟此連接埠。 只要作業完成，服務就會在受管理網域控制站上關閉此連接埠。
 
-連接埠 3389 用於對受管理網域的遠端桌面連線。 此連接埠在您的受管理網域上也會維持為大致關閉。 只有當我們需要連接到您的受管理網域以進行疑難排解時，服務才會啟用此連接埠，通常是在回應您所起始的服務要求時起始。 因為使用 PowerShell 遠端執行管理和監視工作，因此不會持續使用此機制。 只有在罕見的情況下，我們需要從遠端連線到您的受管理網域進行進階疑難排解，才會使用此連接埠。 一旦疑難排解作業完成，隨即會關閉連接埠。
+連接埠 3389 用於對受管理網域的遠端桌面連線。 此連接埠在您的受管理網域上也會維持為大致關閉。 只有當我們需要連線到您的受管理網域以進行疑難排解時，服務才會啟用此連接埠，這是在回應您所起始的服務要求時起始。 因為使用 PowerShell 遠端執行管理和監視工作，因此不會持續使用此機制。 只有在罕見的情況下，我們需要從遠端連線到您的受管理網域進行進階疑難排解，才會使用此連接埠。 一旦疑難排解作業完成，隨即會關閉連接埠。
 
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>具有 Azure AD Domain Services 之虛擬網路的範例 NSG

@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: 0c36679fd9128613cb4a7e54786ab09eb3a1fc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Microsoft Azure 儲存體的用戶端加密和 Azure Key Vault 金鑰保存庫
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -146,10 +146,11 @@ Azure 金鑰保存庫可協助保護雲端應用程式和服務所使用的密�
   * 叫用金鑰解析程式 (如果指定) 以取得金鑰。 如果已指定解析程式，但沒有金鑰識別碼的對應，則會擲回錯誤。
   * 如果未指定解析程式但指定了金鑰，則如果其識別項符合所需的金鑰識別項，就會使用該金鑰。 如果識別項不符合，則會擲回錯誤。
 
-[加密範例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) 會針對 Blob、佇列和資料表以及金鑰保存庫的整合，示範更詳細的端對端案例。
+本文中的程式碼範例會示範設定加密原則以及使用加密的資料，但不會示範使用 Azure Key Vault。 GitHub 上的[加密範例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples)會針對 Blob、佇列和資料表以及金鑰保存庫的整合，示範更詳細的端對端情節。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 使用者可以針對所有上傳和下載都必須加密的作業模式，從中選擇啟用。 在此模式中，在用戶端上嘗試上傳沒有加密原則的資料或下載未在服務上加密的資料將會失敗。 要求選項物件的 **RequireEncryption** 屬性會控制此行為。 如果您的應用程式會將所有儲存在 Azure 儲存體中的物件加密，則您可以在服務用戶端服務的預設要求選項上，設定 **RequireEncryption** 屬性。 例如，將 **CloudBlobClient.DefaultRequestOptions.RequireEncryption** 設為 **true**，要求加密透過該用戶端物件所執行的所有 Blob 作業。
+
 
 ### <a name="blob-service-encryption"></a>Blob 服務加密
 建立 **BlobEncryptionPolicy** 物件，並在要求選項中加以設定 (透過 API 或在用戶端層級使用 **DefaultRequestOptions**)。 其他一切由用戶端程式庫在內部處理。

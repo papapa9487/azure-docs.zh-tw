@@ -1,6 +1,6 @@
 ---
 title: "設定 Multi-Factor Authentication - Azure SQL | Microsoft Docs"
-description: "針對 SQL Database 和 SQL 資料倉儲，搭配使用 Multi-Factor Authentication 與 SSMS。"
+description: "了解如何針對 SQL Database 和 SQL 資料倉儲，搭配使用多重要素驗證與 SSMS。"
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: f244fc5dada77d6601710b374aa6edeb607b11d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9a319f26ada65837ff9010ef6feefdda3d70b6
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>設定適用於 SQL Server Management Studio 和 Azure AD 的多重要素驗證
 

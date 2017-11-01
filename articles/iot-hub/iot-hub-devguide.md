@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: 07497231e2cfab86082c5a0d1f4a4ec8ab31f6a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Azure IoT 中樞開發人員指南
 
@@ -48,9 +48,9 @@ Azure IoT 中樞可提供您︰
 * [叫用裝置上的直接方法][devguide-directmethods]說明直接方法的生命週期，以及如何從後端應用程式叫用裝置上方法及處理裝置上直接方法的相關資訊。
 * [排程多個裝置上的作業][devguide-jobs]說明如何排程多個裝置上的作業。 本文說明如何將執行工作的作業提交為執行直接方法，使用裝置對應項更新裝置。 它也說明如何查詢作業的狀態。
 * [參考 - 選擇通訊協定][devguide-protocol]說明 IoT 中樞進行裝置通訊所支援的通訊協定，並列出應開啟的連接埠。
-* [參考 - IoT 中樞端點][devguide-endpoints]說明每個 IoT 中樞針對執行階段和管理作業所公開的各種端點。 本文也說明如何在 IoT 中樞中建立額外端點，以及如何使用現場閘道器啟用裝置在非標準案例中對 IoT 中樞端點的連線能力。
+* [參考 - IoT 中樞端點][devguide-endpoints]說明每個 IoT 中樞針對執行階段和管理作業所公開的各種端點。 本文也說明如何在 IoT 中樞中建立額外端點，以及如何使用現場閘道器啟用非標準案例中對 IoT 中樞端點的連線能力。
 * [參考 - 裝置對應項、作業和訊息路由的 IoT 中樞查詢語言][devguide-query]說明的 IoT 中樞查詢語言可讓您從中樞擷取有關裝置對應項和作業的資訊。
-* [參考 - 配額和節流][devguide-quotas]摘要說明 IoT 中樞服務中設定的配額，以及超過配額時的預期節流行為。
+* [參考 - 配額和節流][devguide-quotas]摘要說明 IoT 中樞服務中設定的配額，以及超過配額時會發生的節流。
 * [參考 - 定價][devguide-pricing]會提供關於 IoT 中樞之不同 SKU 和定價的一般資訊，以及 IoT 中樞如何以訊息的形式來針對各種 IoT 中樞功能進行計量的詳細資料。
 * [參考 - 裝置和服務 SDK][devguide-sdks] 列出的 Azure IoT SDK 可用來開發與 IoT 中樞互動的裝置和服務應用程式。 本文包含線上 API 文件的連結。
 * [參考 - IoT 中樞 MQTT 支援][devguide-mqtt]提供 IoT 中樞如何支援 MQTT 通訊協定的詳細資訊。 本文說明 Azure IoT SDK 內建之 MQTT 通訊協定的支援，並提供直接使用 MQTT 通訊協定的相關資訊。

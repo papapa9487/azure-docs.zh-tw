@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>回應 Blob 儲存體事件 (預覽)
 
@@ -20,21 +20,9 @@ Azure Blob 儲存體事件使用時下的無伺服器架構，允許應用程式
 
 常見的 Blob 儲存體事件案例包括映像或影片處理、搜尋索引，或任何檔案導向的工作流程。  非同步檔案上傳非常適合事件。  在變更不常見但情況需要立即回應的情況下，以事件為基礎的架構可能特別有效。
 
+Event Grid 目前在預覽中，並且可供***美國中西部***或***美國西部 2*** 位置中的帳戶使用。  請看一下[將 Blob 儲存體事件路由至自訂的 Web 端點](storage-blob-event-quickstart.md)的快速範例。
+
 ![Event Grid 模型](./media/storage-blob-event-overview/event-grid-functional-model.png)
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## <a name="join-the-preview"></a>加入預覽
-Blob 儲存體事件可供預覽。  使用者可能會對其訂用帳戶發出下列命令，要求加入預覽：
-```azurecli-interactive
-az provider register --namespace  Microsoft.EventGrid
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-有可用容量時，訂用帳戶會加入預覽方案。  可藉由發出下列命令以監視要求狀態：
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-一旦註冊狀態變更為「已註冊」，即允許您加入預覽方案，可以為***美國中西部***或***美國西部 2*** 地區的帳戶訂閱 Blob 儲存體事件。  請看一下[將 Blob 儲存體事件路由至自訂的 Web 端點](storage-blob-event-quickstart.md)的快速範例。
 
 ## <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
 [Blob 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts)中可使用 Blob 儲存體事件 (而在一般用途的儲存體帳戶中無法使用)。  Blob 儲存體帳戶是特殊的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。
