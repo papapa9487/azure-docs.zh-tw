@@ -1,6 +1,6 @@
 ---
 title: "設定 Azure Service Fabric 獨立叢集 | Microsoft Docs"
-description: "了解如何設定獨立或私人的 Service Fabric 叢集。"
+description: "了解如何設定獨立或內部部署 Service Fabric 叢集。"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/02/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 660e7b59ae0e92692121620341562e412a6e8eae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aeb4be94ea12c01f4ecd5652fa3b3243351e4853
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="configuration-settings-for-standalone-windows-cluster"></a>獨立 Windows 叢集的組態設定
 本文說明如何使用 ClusterConfig.JSON 檔案來設定獨立 Service Fabric 叢集。 您可以使用此檔案針對獨立叢集指定如下的資訊：Service Fabric 節點及其 IP 位址、叢集上不同類型的節點、安全性組態，以及關於容錯/升級網域的網路拓撲。
@@ -26,11 +26,11 @@ ms.lasthandoff: 10/11/2017
 當您[下載獨立 Service Fabric 套件](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)時，即會將 ClusterConfig.JSON 檔案的一些範例下載至您的工作電腦。 名稱中有「DevCluster」的範例將可協助您在同一部電腦上建立三個節點皆具的叢集，例如邏輯節點。 在這三個節點中，至少必須將一個節點標示為主要節點。 此叢集可用於開發或測試環境，但不支援做為生產叢集。 名稱中有「MultiMachine」的範例將可協助您建立生產品質叢集，其中的每個節點會建立在不同電腦上。 這些叢集的主要節點數目將以[可靠性層級](#reliability)為基礎。 在 API 05-2017 版的 5.7 版次中，我們移除了可靠性層級屬性。 但是，我們的程式碼將計算叢集的最佳化可靠性層級。 請不要在 5.7 和更新的程式碼版本中使用這個屬性。
 
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* 和 *ClusterConfig.Unsecure.MultiMachine.JSON* 示範如何分別建立不安全的測試或生產叢集。 
-2. *ClusterConfig.Windows.DevCluster.JSON* 和 *ClusterConfig.Windows.MultiMachine.JSON* 示範如何使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)建立受保護的測試或生產叢集。
-3. *ClusterConfig.X509.DevCluster.JSON* 和 *ClusterConfig.X509.MultiMachine.JSON* 示範如何使用 [X509 憑證型安全性](service-fabric-windows-cluster-x509-security.md)建立受保護的測試或生產叢集。 
+1. 「ClusterConfig.Unsecure.DevCluster.JSON」和「ClusterConfig.Unsecure.MultiMachine.JSON」示範如何分別建立不安全的測試或生產叢集。
+2. 「ClusterConfig.Windows.DevCluster.JSON」和「ClusterConfig.Windows.MultiMachine.JSON」示範如何使用 [Windows 安全性](service-fabric-windows-cluster-windows-security.md)建立受保護的測試或生產叢集。
+3. 「ClusterConfig.X509.DevCluster.JSON」和「ClusterConfig.X509.MultiMachine.JSON」示範如何使用 [X509 憑證型安全性](service-fabric-windows-cluster-x509-security.md)建立受保護的測試或生產叢集。
 
-現在，我們將檢視 ***ClusterConfig.JSON*** 檔案的不同區段，如下所示。
+現在，我們將檢視 ClusterConfig.JSON 檔案的不同區段，如下所示。
 
 ## <a name="general-cluster-configurations"></a>一般叢集組態
 這涵蓋廣泛的叢集特定組態，如以下 JSON 片段所示。

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 28c589b6821526fa6b91dc558a08ef2fb68f97df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d8a5f3c915b1e3b6e11cec9c5540fa192f5f85dd
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
 
@@ -115,7 +115,7 @@ public static async Task<List<string>> Run(
 
   非決定性作業必須在活動函式中完成。 這包括與其他輸入或輸出繫結的任何互動。 這可確保任何非決定性值會在第一次執行時產生，並且儲存到執行歷程記錄。 然後，後續執行會自動使用儲存的值。
 
-* 協調器程式碼應該是**非封鎖**。 例如，無 `Thread.Sleep` 或對等 API。
+* 協調器程式碼應該是**非封鎖**。 例如，這表示沒有 `Thread.Sleep` 或對等 API 的 I/O 和呼叫。
 
   如果協調器需要延遲，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API。
 

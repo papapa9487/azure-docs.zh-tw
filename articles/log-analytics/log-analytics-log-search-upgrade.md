@@ -11,22 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
-# <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>將您的 Azure Log Analytics 工作區升級為新的記錄搜尋
+# <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Azure Log Analytics 升級為新的記錄搜尋
 
-> [!NOTE]
-> 升級為新的 Log Analytics 查詢語言目前是選擇性的，讓您有時間[掌握新語言](https://go.microsoft.com/fwlink/?linkid=856078)。  
-
-新的 Log Analytics 查詢語言在此，您必須升級工作區以利用它。  本文說明新語言的優點以及如何轉換您的工作區。  如果您沒有選擇立即升級，則您的工作區將會如同往常一般繼續運作，但是將會在日後自動轉換。  設定該日期時，您會有足夠的時間和通知。
-
-這篇文章提供新的語言和升級程序的詳細資料。
+新的 Log Analytics 查詢語言在此，您必須升級工作區以利用它。  您可以自行升級工作區，或等到 10 月底開始的推行期間 (持續到年底) 再進行自動升級。  本文說明新語言的優點以及如何轉換您的工作區。  
 
 ## <a name="why-the-new-language"></a>為什麼要使用新的語言？
 我們了解任何轉換都會有陣痛期，而且我們變更查詢語言不是為了好玩。  這項變更將會為 Log Analytics 客戶帶來顯著的價值有幾個原因。
@@ -44,36 +39,58 @@ ms.lasthandoff: 10/11/2017
 
 
 ## <a name="when-can-i-upgrade"></a>何時可以升級？
-升級將在所有 Azure 區域推出，因此某些區域可能會比其他區域更快取得。  當您看到工作區頂端的紫色橫幅邀請您升級時，您就會知道何時可以升級工作區。
+升級將在所有 Azure 區域推出，因此某些區域可能會比其他區域更快取得。  當您看到工作區頂端的橫幅邀請您升級時，您就會知道何時可以升級工作區。
 
 ![升級 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
 
-## <a name="what-happens-when-i-upgrade"></a>升級時會發生什麼事？
-當您轉換工作區時，您使用檢視設計工具建立的任何已儲存搜尋、警示規則及檢視，都會自動轉換成新的語言。  包含在解決方案中的搜尋不會自動轉換，而是會在您開啟它們時即時轉換。  這是完全透明的。
+如果您的工作區自動升級，那麼您會看到橫幅指出已升級，且包含識別是否有發生任何問題的摘要。
 
-## <a name="can-i-go-back-after-i-upgrade"></a>升級之後可以回復嗎？
-當您升級時，會進行工作區的完整備份，包含所有已儲存搜尋、警示規則和檢視的快照集。  這可讓您在稍後想要時，還原舊的工作區。
+ ![自動升級](media/log-analytics-log-search-upgrade/auto-upgrade.png)
 
-若要還原舊版工作區，請移至工作區中的 [設定]，然後移至 [升級摘要]。  然後，您可以選取 [還原舊版工作區] 的選項。  
 
-![還原舊版](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
+## <a name="what-happens-after-the-upgrade"></a>升級後會發生什麼情況？
+轉換時，您的工作區會進行下列變更：
 
-## <a name="how-do-i-perform-the-upgrade"></a>如何執行升級？
-當您在入口網站頂端看到紫色橫幅時，就可以升級您的工作區。  
+- 您使用檢視設計工具建立的任何已儲存搜尋、警示規則及檢視，都會自動轉換成新的語言。  包含在解決方案中的搜尋不會自動轉換，而是會在您開啟它們時即時轉換。  
+- [我的儀表板](log-analytics-dashboards.md)將被取代為[檢視表設計工具](log-analytics-view-designer.md)和 [Azure 儀表板](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md)。  已新增至「我的儀表板」的圖格仍然可用，但僅限讀取。
+- [Power BI 整合](log-analytics-powerbi.md)會取代為新的程序。  您所建立的任何現有 Power BI 排程將會停用，而且需要以新程序來取而代之。
+- 來自[警示動作](log-analytics-alerts-actions.md)的回應 (使用 Webhook 和 Runbook) 有新的格式，而您可能要因此更新警示規則。
+- 查看[記錄搜尋常見問題集](log-analytics-log-search-faq.md)，以了解關於升級的常見問題。
 
-1.  藉由按一下指出**深入了解及升級**的紫色橫幅，開始升級程序。<br>![升級 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
-2.  閱讀升級資訊分頁上有關升級的其他資訊。<br>![升級 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
-3.  按一下 [立即升級] 以開始升級。<br>![升級 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>右上角的通知方塊會顯示狀態。<br>![升級 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
-4.  這樣就大功告成了！  前往 [記錄搜尋] 分頁以查看升級的工作區。<br>![升級 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
+## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>如何知道升級中是否有任何問題？
+升級完成之後，工作區的設定中會有**升級摘要**區段。  檢查此區段，可取得升級的相關資訊以及進行檢視
+
+ ![升級摘要](media/log-analytics-log-search-upgrade/upgrade-summary.png)
+
+## <a name="how-do-i-manually-perform-the-upgrade"></a>如何手動執行升級？
+當您在入口網站頂端看到橫幅時，就可以升級您的工作區。  
+
+1.  藉由按一下指出**深入了解及升級**的橫幅，開始升級程序。
+
+    ![升級 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
+
+2.  閱讀升級資訊分頁上有關升級的其他資訊。
+
+    ![升級 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
+
+3.  按一下 [立即升級] 以開始升級。
+
+    ![升級 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>右上角的通知方塊會顯示狀態。
+    
+    ![升級 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
+
+4.  這樣就大功告成了！  前往 [記錄搜尋] 分頁以查看升級的工作區。
+
+    ![升級 6](media/log-analytics-log-search-upgrade/upgrade-06.png)
 
 如果您遇到造成升級失敗的問題，您可以移至[討論論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)並張貼您的問題，或者從 Azure 入口網站[建立支援要求](../azure-supportability/how-to-create-azure-support-request.md)。
 
 ## <a name="how-do-i-learn-the-new-language"></a>如何了解新的語言？
 因為新的語言會由多個服務使用，所以我們為新的語言建立了[用來裝載文件的外部網站](https://docs.loganalytics.io/)。  這包括教學課程、範例和完整參考，可協助您加速前進。 您可以在[開始使用查詢](https://go.microsoft.com/fwlink/?linkid=856078)逐步進行新語言的教學課程，並且在 [Log Analytics 查詢語言](https://go.microsoft.com/fwlink/?linkid=856079)存取語言參考。  
 
-如果您已熟悉舊版 Log Analytics 查詢語言，則您可以使用語言轉換器，這個工具新增至您的工作區作為升級的一部分。
+如果您想要在包括許多範例資料的測試環境中試用新語言，請查看[測試環境](https://portal.loganalytics.io/demo#/discover/home)。
 
-只要輸入舊版查詢，然後按一下轉換 即可看到翻譯的版本。  接著，您可以按一下搜尋按鈕，執行搜尋或複製並貼上轉換的查詢，以在例如警示規則的其他地方使用。
+如果您已熟悉舊版 Log Analytics 查詢語言，則您可以使用語言轉換器，這個工具新增至您的工作區作為升級的一部分。  只要輸入舊版查詢，然後按一下 [轉換] 即可看到翻譯的版本。  接著，您可以按一下搜尋按鈕，執行搜尋或複製並貼上轉換的查詢，以在例如警示規則的其他地方使用。  您也可以看看我們的[功能提要](log-analytics-log-search-transition.md)，直接比較舊版語言的常用查詢。
 
 ![語言轉換器](media/log-analytics-log-search-upgrade/language-converter.png)
 

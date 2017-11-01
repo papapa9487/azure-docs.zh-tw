@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Azure Multi-Factor Authentication 對我有何意義？
 您從某個 IT 人員或老闆取得一封電子郵件，他們表示已對您的帳戶新增其他安全性驗證。  因此這代表什麼？
@@ -33,7 +33,7 @@ ms.lasthandoff: 10/11/2017
 * **具有通知或驗證碼的行動應用程式** - 如果您使用行動應用程式，請選擇收到您要回應的通知或驗證碼。
 
 > [!NOTE]
-> 您的 IT 部門可能會停用上述一或多個選項。  若是如此，這些選項在註冊流程期間將無法使用。  
+> 您的公司支援人員可能會停用上述一或多個選項。  若是如此，這些選項在註冊流程期間將無法使用。  
 
 既然您已決定驗證方法，現在就可以開始註冊。 使用[設定體驗](multi-factor-authentication-end-user-first-time.md)連結，開始逐步完成註冊流程。
 
@@ -46,4 +46,4 @@ ms.lasthandoff: 10/11/2017
 | [登入體驗](multi-factor-authentication-end-user-signin.md) |顯示使用各種方法 (例如電話或應用程式) 登入時所能預期的情況。 |
 | [變更您的設定](multi-factor-authentication-end-user-manage-settings.md) |示範如何變更您的設定，例如電話號碼或慣用的註冊方法。 |
 | [協助使用應用程式密碼](multi-factor-authentication-end-user-app-passwords.md) |尋找有關建立和使用應用程式密碼的資訊。 |
-| [使用行動應用程式](microsoft-authenticator-app-how-to.md) |Microsoft 驗證器應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |
+| [使用行動應用程式](microsoft-authenticator-app-how-to.md) |Microsoft Authenticator 應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。 |

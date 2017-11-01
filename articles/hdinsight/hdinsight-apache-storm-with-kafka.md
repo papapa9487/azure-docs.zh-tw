@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/21/2017
+ms.date: 10/12/2017
 ms.author: larryfr
-ms.openlocfilehash: e8895ef3c11aea48513e4060a20f5f49b11fc961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41afdbb019f8533a49db3ebd37ff144186f956
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-apache-kafka-preview-with-storm-on-hdinsight"></a>使用 Apache Kafka (預覽) 搭配 Storm on HDInsight
 
@@ -79,7 +79,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
   > [!WARNING]
   > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
 
-2. 使用下列指引來填入 [自訂部署] 刀鋒視窗上的項目︰
+2. 使用下列指引來填入 [自訂部署] 區段上的項目︰
    
     ![HDInsight 自訂部署](./media/hdinsight-apache-storm-with-kafka/parameters.png)
 
@@ -101,9 +101,9 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-一旦建立資源，即會顯示 [資源群組] 刀鋒視窗。
+一旦建立資源，即會顯示 [資源群組] 區段。
 
-![Vnet 和叢集的資源群組刀鋒視窗](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
+![VNet 及叢集的資源群組區段](./media/hdinsight-apache-storm-with-kafka/groupblade.png)
 
 > [!IMPORTANT]
 > 請注意，HDInsight 叢集的名稱是 **storm-BASENAME** 和 **kafka-BASENAME**，其中 BASENAME 是您提供給範本的名稱。 連接到叢集時，您會在稍後步驟中使用這些名稱。
@@ -294,7 +294,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
   ```
 
-2. 拓撲啟動後，請開啟 Storm UI。 此 Web UI 位於 https://storm-BASENAME.azurehdinsight.net/stormui。 將 __BASENAME__ 替換為建立叢集時使用的基底名稱。 
+2. 拓撲啟動後，請開啟 Storm UI。 此 Web UI 位於 `https://storm-BASENAME.azurehdinsight.net/stormui`。 將 __BASENAME__ 替換為建立叢集時使用的基底名稱。 
 
     出現提示時，使用建立叢集時所用的系統管理員登入名稱 (預設為 `admin`) 和密碼。 您會看到類似下圖的網頁︰
 

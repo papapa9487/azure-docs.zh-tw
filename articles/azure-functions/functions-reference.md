@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 10/12/2017
 ms.author: chrande
-ms.openlocfilehash: 1cb2ec7aa927eceafdf91c35c1184fceecddc49a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf965170e0c645e77a9b8829a10a18b29889a061
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions 開發人員指南
 在 Azure Functions 中，不論您使用何種語言或繫結，特定函式都會共用一些核心技術概念和元件。 閱讀指定語言或繫結特有的詳細資料之前，請務必詳閱這份適用於所有語言或繫結的概觀。
@@ -95,7 +95,7 @@ Azure 入口網站內建的函式編輯器可讓您更新「function.json」  �
 3. 瀏覽至 `D:\home\site\wwwroot\` 以更新 *host.json*，或瀏覽至 `D:\home\site\wwwroot\<function_name>` 以更新函式的檔案。
 4. 將您要上傳的檔案拖放至檔案方格中適當資料夾。 在檔案方格上您有兩個區域可以拖放檔案。 對於「.zip」  檔案，方塊顯示且具有標籤「拖曳到這裡以上傳和解壓縮」。 對於其他檔案類型，在檔案方格上但是在「解壓縮」方塊外拖放。
 
-<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --DonnaM -->
+<!--NOTE: I've removed documentation on FTP, because it does not sync triggers on the consumption plan --glenga -->
 
 #### <a name="to-use-continuous-deployment"></a>使用持續部署
 請依照 [Azure Functions 的持續部署](functions-continuous-deployment.md)主題中的指示進行。
@@ -105,7 +105,7 @@ Azure 入口網站內建的函式編輯器可讓您更新「function.json」  �
 
 ## <a name="functions-runtime-versioning"></a>Functions 執行階段版本設定
 
-您可以使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定來設定 Functions 執行階段的版本。 例如，值 "~1" 表示您的函數應用程式會使用 1 做為主要版本。 函數應用程式會在發行時升級為每個新的次要版本。 您可以在 Azure 入口網站的 [設定] 索引標籤中檢視函數應用程式的正確版本。
+您可以使用 `FUNCTIONS_EXTENSION_VERSION` 應用程式設定來設定 Functions 執行階段的版本。 例如，值 "~1" 表示您的函數應用程式會使用 1 做為主要版本。 函數應用程式會在發行時升級為每個新的次要版本。 如需詳細資訊 (包括如何檢視函式應用程式的完全版本)，請參閱[如何設定 Azure Functions 的執行階段目標版本](functions-versions.md)。
 
 ## <a name="repositories"></a>儲存機制
 Azure Functions 的程式碼是開放原始碼，儲存於 GitHub 儲存機制中︰

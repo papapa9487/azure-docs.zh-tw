@@ -7,13 +7,13 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: fec4769c0bd571edea84dd2f766bb907d8819be5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -28,7 +28,7 @@ Key Vault 可讓您從應用程式內安全地存取機密資訊︰
 
 ## <a name="public-previews"></a>公開預覽
 
-我們會定期發行新 Key Vault 功能的公開預覽。 請試試看，然後透過我們的意見反應電子郵件地址 azurekeyvault@microsoft.com，讓我們知道您的想法。
+我們會定期發行新 Key Vault 功能的公開預覽。 試用看看，然後透過我們的意見反應電子郵件地址 azurekeyvault@microsoft.com，讓我們知道您的想法。
 
 ### <a name="storage-account-keys---july-10-2017"></a>儲存體帳戶金鑰 - 2017 年 7 月 10 日
 
@@ -52,40 +52,61 @@ Key Vault 可讓您從應用程式內安全地存取機密資訊︰
 
 ## <a name="creating-and-managing-key-vaults"></a>建立及管理金鑰保存庫
 
-在程式碼中使用 Azure 金鑰保存庫之前，您可以透過 REST、資源管理員範本、PowerShell 或 CLI 來建立及管理保存庫，如以下文章所述︰
+Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的程式碼必須向 Key Vault 進行驗證，才可取得這些項目。 受管理的服務身分識別 (MSI) 可以輕易地解決此問題，因為 MSI 可在 Azure Active Directory (Azure AD) 中提供自動受管理的身分識別給 Azure 服務。 您可以使用此身分識別來完成任何支援 Azure AD 驗證的服務驗證 (包括 Key Vault)，不需要任何您程式碼中的認證。 
 
-- [使用 REST 建立和管理金鑰保存庫](https://docs.microsoft.com/rest/api/keyvault/)
-- [使用 PowerShell 建立和管理金鑰保存庫](key-vault-get-started.md)
+如需 MSI 的相關資訊，請參閱[適用於 Azure 資源的受管理服務識別 (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview)。
+
+如需有關使用 AAD 的詳細資訊，請參閱 [整合應用程式與 Azure Active Directory](/active-directory/develop/active-directory-integrating-applications)。
+
+在您的金鑰保存庫中使用金鑰、密碼或憑證之前，要先透過 CLI、PowerShell、Resource Manager 範本或 REST 建立及管理金鑰保存庫，如以下文章所述︰
+
 - [使用 CLI 建立和管理金鑰保存庫](key-vault-manage-with-cli2.md)
+- [使用 PowerShell 建立和管理金鑰保存庫](key-vault-get-started.md)
 - [透過 Azure Resource Manager 範本建立金鑰保存庫和新增祕密](../azure-resource-manager/resource-manager-template-keyvault.md)
+- [使用 REST 建立和管理金鑰保存庫](https://docs.microsoft.com/rest/api/keyvault/)
 
-> [!NOTE]
-> 涉及金鑰保存庫的作業乃透過 AAD 進行驗證，以及透過金鑰保存庫自己的存取原則 (每個保存庫有各自的定義) 進行授權。
 
 ## <a name="coding-with-key-vault"></a>撰寫金鑰保存庫的程式碼
 
-程式設計人員的 Key Vault 管理系統由幾個介面組成，並以 REST 作為基礎。 透過 REST 介面，可存取所有 Key Vault 資源；包括金鑰、密碼和憑證。 [Key Vault REST API 參考](https://docs.microsoft.com/rest/api/keyvault/)。 
+程式設計人員的 Key Vault 管理系統由幾個介面組成。 本節包含所有語言以及一些程式碼範例的連結。 
 
-### <a name="supported-programming-languages"></a>支援的程式設計語言
+### <a name="supported-programming-and-scripting-languages"></a>支援的程式設計和指令碼語言
+
+#### <a name="rest"></a>REST
+
+透過 REST 介面，可存取所有 Key Vault 資源，包括保存庫、金鑰、密碼等。 
+
+[Key Vault REST API 參考](https://docs.microsoft.com/rest/api/keyvault/)。 
 
 #### <a name="net"></a>.NET
 
-- [Key Vault 的 .NET API 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
+[Key Vault 的 .NET API 參考](https://docs.microsoft.com/dotnet/api/microsoft.azure.keyvault) 
 
 如需 .NET SDK 2.x 版的詳細資訊，請參閱[版本資訊](key-vault-dotnet2api-release-notes.md)。
 
 #### <a name="java"></a>Java
 
-- [Key Vault 的 Java SDK](https://docs.microsoft.com/java/api/com.microsoft.azure.keyvault)
+[Key Vault 的 Java SDK](https://docs.microsoft.com/java/api/overview/azure/keyvault)
 
 #### <a name="nodejs"></a>Node.js
 
-在 Node.js 中，保存庫管理 API 和保存庫物件 API 會分開。 Key Vault 管理可建立及更新您的 Key Vault。 Key Vault 作業 API 適用於金鑰、密碼和憑證等保存庫物件。 
+在 Node.js 中，Key Vault 管理 API 和 Key Vault 物件 API 是分開的。 以下概觀文件說明如何使用它們。 
 
-- [Key Vault 管理的 Node.js API 參考](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-- [Key Vault 作業的 Node.js API 參考](http://azure.github.io/azure-sdk-for-node/azure-keyvault/latest/) 
+[適用於 Node.js 的 Azure Key Vault 模組](https://docs.microsoft.com/nodejs/api/overview/azure/key-vault)
 
-### <a name="quick-start"></a>快速入門
+#### <a name="python"></a>Python
+
+[適用於 Python 的 Azure Key Vault 程式庫](https://docs.microsoft.com/python/api/overview/azure/key-vault)
+
+#### <a name="azure-cli-2"></a>Azure CLI 2
+
+[Key Vault 的 Azure CLI](https://docs.microsoft.com/cli/azure/keyvault)
+
+#### <a name="azure-powershell"></a>Azure PowerShell 
+
+[Key Vault 的 Azure PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+
+### <a name="quick-start-guides"></a>快速入門指南
 
 - [建立金鑰保存庫](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [開始在 Node.js 中使用 Key Vault](https://azure.microsoft.com/en-us/resources/samples/key-vault-node-getting-started/)

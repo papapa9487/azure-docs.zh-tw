@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 902e5bdfbbf04ab70989be8c41e16eb69e475908
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0c32ac27187a88dd13bb747f541968d2e81c5064
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -57,6 +57,10 @@ ms.lasthandoff: 10/11/2017
 | 3 | 51 | 1 個 Active Directory Federation Services (AD FS) 伺服器、1 個 AD FS Proxy、1 個網域控制站 |
 | 4 | 76 | 1 個 AD FS 伺服器、1 個 AD FS Proxy、2 個網域控制站 |
 | 5 | 101 | 1 個 Azure AD Connect 伺服器、1 個 AD FS 伺服器、1 個 AD FS Proxy、2 個網域控制站 |
+
+**問：Azure AD Connect Health 是否支援 Azure 德國雲端？**
+
+Azure AD Connect Health 具有適用於 Azure 德國的[安裝](active-directory-aadconnect-health-agent-install.md)。 德國雲端客戶的所有資料都會保存在 Azure 德國雲端。
 
 
 ## <a name="installation-questions"></a>安裝問題

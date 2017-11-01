@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2016
 ms.author: richrund
-ms.openlocfilehash: 8a67d9a9d345682e9e6c8f5c7779204a038f5f6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a8bc500c837d60b4106f37f1803415a12b62a88
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="log-analytics-features-for-service-providers"></a>服務提供者的 Log Analytics 功能
 Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。 
@@ -26,7 +26,7 @@ Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體
 大型企業與服務提供者有許多相似之處，特別是當有集中式的 IT 團隊負責管理許多不同業務單位的 IT 時。 為了簡單起見，本文件會使用「服務提供者」這個詞彙，但是相同的功能也適用於企業或其他客戶。
 
 ## <a name="cloud-solution-provider"></a>雲端解決方案提供者
-對於身為[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 方案一部分的合作夥伴和服務提供者，Log Analytics 是 CSP 訂用帳戶上的其中一個可用 Azure 服務。 
+對於身為[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 計畫成員的合作夥伴和服務提供者來說，Log Analytics 是 [Azure CSP 訂用帳戶](https://docs.microsoft.com/en-us/azure/cloud-solution-provider/overview/azure-csp-overview)中提供的其中一項 Azure 服務。 
 
 對於 Log Analytics，下列功能在「雲端解決方案提供者」訂用帳戶中啟用。
 

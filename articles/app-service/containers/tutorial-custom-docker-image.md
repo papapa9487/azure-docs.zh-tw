@@ -1,6 +1,6 @@
 ---
-title: "針對 Azure Web App for Containers 使用自訂 Docker 映像 | Microsoft Docs"
-description: "如何針對 Azure Web App for Containers 使用自訂 Docker 映像。"
+title: "針對 Web App for Containers 使用自訂 Docker 映像 - Azure | Microsoft Docs"
+description: "如何針對用於容器的 Web 應用程式使用自訂 Docker 映像。"
 keywords: "azure app service, web 應用程式, linux, docker, 容器"
 services: app-service
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>針對 Azure Web App for Containers 使用自訂 Docker 映像
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
 [Web App for Containers](app-service-linux-intro.md) 在 Linux 上提供內建的 Docker 映像，且支援特定的版本，例如 PHP 7.0 和 Node.js 4.5。 Web App for Containers 會利用 Docker 容器技術，來裝載內建映像和自訂映像作為平台即服務。 在此教學課程中，您將學習如何建置用於 Web App for Containers 的自訂 Docker 映像，如果您的語言沒有內建的映像，或您的應用程式需要的特定設定未提供於內建影像，這就是常見的模式。
 
@@ -210,7 +210,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## <a name="create-web-app-for-containers"></a>建立 Web App for Containers
 
-您可以使用 Azure Web 應用程式在雲端中裝載原生 Linux 應用程式。 若要建立 Web App for Containers，您必須執行 Azure CLI 命令，可建立群組、然後是服務方案，以及最後是 web 應用程式本身。 首先，執行 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令，並傳入位置和唯一名稱。
+您可以使用 Linux 上的 Azure App Service 在雲端中裝載原生 Linux 應用程式。 若要建立 Web App for Containers，您必須執行 Azure CLI 命令，可建立群組、然後是服務方案，以及最後是 web 應用程式本身。 首先，執行 [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) 命令，並傳入位置和唯一名稱。
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -220,7 +220,7 @@ az group create --location "West Europe" --name myResourceGroup
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
   "location": "westeurope",
   "managedBy": null,
   "name": "myResourceGroup",
@@ -245,8 +245,7 @@ az appservice plan create --name myServicePlan --resource-group myResourceGroup 
   "appServicePlanName": "myServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
   "location": "West Europe", 
   "resourceGroup": "myResourceGroup",
@@ -292,7 +291,7 @@ az webapp create -g myResourceGroup -p myServicePlan -n <web-app-name> --runtime
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
 Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
@@ -462,7 +461,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-恭喜！ 您已針對 Azure Web App for Containers 設定自訂 Docker 映像。
+恭喜！ 您已針對 Web App for Containers 設定自訂 Docker 映像。
 
 ## <a name="push-a-docker-image-to-private-registry-optional"></a>將 Docker 映像推送至私人登錄 (選擇性)
 
@@ -486,7 +485,7 @@ Use an existing service principal and assign access:
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name>",
   "location": "westeurope",
   "loginServer": "<azure-container-registry-name>.azurecr.io",
   "name": "<azure-container-registry-name>",
@@ -621,4 +620,4 @@ az webapp config container set --name <web-app-name> --resource-group myResource
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)
+[Linux 上的 Azure App Service 常見問題集](app-service-linux-faq.md)

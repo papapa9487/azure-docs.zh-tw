@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 033ef0cdd607ced5de6c975e071e0ce37e677201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>使用 Azure 入口網站建立容器登錄庫
 
-Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 在本快速入門中，您使用 Azure 入口網站建立了容器登錄。
+Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其中儲存並管理私人 Docker 容器映像。 在本快速入門中，您會使用 Azure 入口網站建立容器登錄。
 
 若要完成此快速入門，您必須在本機上有 Docker 帳戶。 Docker 提供可輕鬆在 [Mac](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 或 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 系統上設定 Docker 的套件。
 
@@ -39,11 +39,13 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-01]
 
-輸入 [登錄名稱] 和 [資源群組] 的值。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 建立名為 `myResourceGroup` 的新資源群組，針對 **SKU**選取 [傳統]。 選取 [建立] 以部署 ACR 執行個體。
+輸入 [登錄名稱] 和 [資源群組] 的值。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 建立名為 `myResourceGroup` 的新資源群組，[SKU] 請選取 [基本]。 選取 [建立] 以部署 ACR 執行個體。
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-03]
 
-Azure Container Registry 在數個 SKU 中提供服務：`Classic`、`Basic`、`Standard` 和 `Premium`。 雖然 `Basic`、`Standard` 和 `Premium` 提供諸如受管理存放裝置及 Webhook 等進階功能，它們目前為預覽狀態，且在某些 Azure 區域中無法使用。 我們在本快速入門中選取 `Classic` SKU 是因為其在所有區域的可用性。
+在本快速入門中，我們會建立「基本」登錄。 有數個不同的 SKU 提供 Azure Container Registry，簡略說明於下表。 如需個別項目更詳細的資訊，請參閱[容器登錄 SKU](container-registry-skus.md)。
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 當 [部署成功] 訊息出現時，請在入口網站中選取容器登錄，然後選取 [存取金鑰]。
 

@@ -9,19 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
-ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>使用 Azure Batch CLI 範本和檔案傳輸 (預覽)
 
 使用 Azure CLI 就可直接執行 Batch 作業而不需要撰寫程式碼。
 
-可建立範本檔案並與 Azure CLI 搭配使用，從而建立 Batch 集區、作業和工作。 可以輕鬆地將作業輸入檔案上傳至與 Batch 帳戶和已下載之作業輸出檔案相關聯的儲存體帳戶。
+建立及使用 Azure CLI 的範本檔案來建立 Batch 集區、作業和工作。 可以輕鬆地將作業輸入檔案上傳至與 Batch 帳戶和已下載之作業輸出檔案相關聯的儲存體帳戶。
 
 ## <a name="overview"></a>概觀
 
@@ -50,10 +50,10 @@ Batch 範本會建置在 [Azure CLI 中的現有 Batch 支援](https://docs.micr
 
 如需有關如何安裝 Azure CLI 的指示，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
-一旦安裝 Azure CLI 之後，可以使用下列 CLI 命令來安裝 Batch 擴充功能：
+一旦安裝 Azure CLI 之後，可以使用下列 CLI 命令來安裝最新版本的 Batch 擴充功能：
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 如需 Batch 擴充功能的詳細資訊，請參閱[適用於 Windows、Mac 和 Linux 的 Microsoft Azure Batch CLI 擴充功能](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux)。
@@ -106,7 +106,7 @@ Azure Batch 範本在功能和語法方面類似於 Azure Resource Manager 範�
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 3aaec8f9b6a3bbcf814f771405c3b589de6f7ae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 159bb0500dd98a428d60d6aeb78767a3460b40dc
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 語法
 
-*SqlFilter* 為 [SqlFilter Class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 的執行個體，代表對 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 進行評估之以 SQL 語言為基礎的篩選條件運算式。 SqlFilter 支援 SQL-92 標準的子集。  
+*SqlFilter* 物件為 [SqlFilter Class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 的執行個體，代表對 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 進行評估之以 SQL 語言為基礎的篩選條件運算式。 SqlFilter 支援 SQL-92 標準的子集。  
   
  本主題列出 SqlFilter 文法的詳細資料。  
   
@@ -280,5 +280,6 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>後續步驟
 
-- [SQLFilter 類別](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 類別 (.NET Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLFilter 類別 (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.filters.sqlfilter)
 - [SQLRuleAction 類別](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)

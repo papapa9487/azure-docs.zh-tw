@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>傳送、接收，並在邏輯應用程式中批次處理訊息
 
@@ -115,6 +115,10 @@ ms.lasthandoff: 10/11/2017
 7.  既然您建立了批次接收者邏輯應用程式，請儲存您的邏輯應用程式。
 
     ![儲存您的邏輯應用程式](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > 資料分割有 5,000 則訊息或 80 MB 的限制。 如果符合其中一個條件，即可能釋出批次 (即使不符合使用者定義的條件)。
+
 
 <a name="batch-sender"></a>
 

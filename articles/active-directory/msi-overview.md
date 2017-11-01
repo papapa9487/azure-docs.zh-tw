@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/03/2017
+ms.date: 10/17/2017
 ms.author: skwan
-ms.openlocfilehash: 3974c3b0e22e95b8dd4a07a923fbbfc2fe7f8961
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>受管理的服務識別 (MSI) (適用於 Azure 資源)
 
@@ -51,11 +51,14 @@ ms.lasthandoff: 10/11/2017
 | 從啟用 MSI 的資源 | 了解如何 |
 | ------- | -------- |
 | Azure VM (Windows) | [使用 Windows VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-windows-vm-access-arm.md) |
-|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [透過存取金鑰與 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage.md) |
+|                    | [透過 SAS 與 Windows VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-windows-vm-access-storage-sas.md) |
+|                    | [使用 Windows VM 受管理的服務身分識別存取 Azure SQL](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [使用 Windows VM 受管理的服務身分識別和 Azure Key Vault 存取非 Azure AD 資源](msi-tutorial-windows-vm-access-nonaad.md) |
 | Azure VM (Linux)   | [使用 Linux VM 受管理的服務身分識別存取 Azure Resource Manager](msi-tutorial-linux-vm-access-arm.md) |
-|                    | [使用 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage.md) |
-|                    | [使用 Linux VM 受管理的服務身分識別存取非 Azure AD 資源](msi-tutorial-linux-vm-access-nonaad.md) |
+|                    | [透過存取金鑰與 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage.md) |
+|                    | [透過 SAS 與 Linux VM 受管理的服務身分識別存取 Azure 儲存體](msi-tutorial-linux-vm-access-storage-sas.md) |
+|                    | [使用 Linux VM 受管理的服務身分識別和 Azure Key Vault 存取非 Azure AD 資源](msi-tutorial-linux-vm-access-nonaad.md) |
 | Azure App Service  | [使用受管理的服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 | Azure Function     | [使用受管理的服務身分識別與 Azure App Service 或 Azure Functions](/azure/app-service/app-service-managed-service-identity) |
 
@@ -82,6 +85,7 @@ ms.lasthandoff: 10/11/2017
 | Azure Resource Manager | https://management.azure.com/ | 可用 | 2017 年 9 月 | [Azure 入口網站](msi-howto-assign-access-portal.md) <br>[PowerShell](msi-howto-assign-access-powershell.md) <br>[Azure CLI](msi-howto-assign-access-CLI.md) |
 | Azure 金鑰保存庫 | https://vault.azure.net/ | 可用 | 2017 年 9 月 | |
 | Azure Data Lake | https://datalake.azure.net/ | 可用 | 2017 年 9 月 | |
+| Azure SQL | https://database.windows.net/ | 可用 | 2017 年 10 月 | |
 
 ## <a name="how-much-does-managed-service-identity-cost"></a>「受管理的服務身分識別」的售價如何？
 

@@ -1,6 +1,6 @@
 ---
 title: "使用憑證保護 Windows 上的 Azure Service Fabric 叢集 | Microsoft Docs"
-description: "本文說明如何保護獨立或私人叢集內以及用戶端與叢集之間的通訊。"
+description: "保護獨立或內部部署叢集 Azure Service Fabric 內的通訊，以及用戶端和叢集之間的通訊。"
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3715b9dfaa98b83bbb8efffbe5db0090ea5fabe0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>使用 X.509 憑證保護 Windows 上的獨立叢集
 本文說明如何保護獨立 Windows 叢集的各個節點之間的通訊，以及如何使用 X.509 憑證來驗證連線到此叢集的用戶端。 這可確保只有已獲授權的使用者可以存取叢集和已部署的應用程式，以及執行管理工作。  憑證安全性應在叢集建立之時先在叢集上啟用。  

@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06967315dfa43e791e662a689ceb993c4af1c1e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91f0aa093e0a1f7ed4d54a0cdf5ef53bc41cb6be
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-cli"></a>使用 Azure CLI 建立容器登錄庫
 
@@ -43,21 +43,26 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-Azure Container Registry 在數個 SKU 中提供服務：`Basic`、`Managed_Basic`、`Managed_Standard` 和 `Managed_Premium`。 雖然 `Managed_*` SKU 提供諸如受管理存放裝置及 Webhook 等進階功能，它們目前為預覽狀態，且在某些 Azure 區域中無法使用。 我們在本快速入門中選取 `Basic` SKU 是因為其在所有區域的可用性。
+在本快速入門中，我們會建立「基本」登錄。 有數個不同的 SKU 提供 Azure Container Registry，簡略說明於下表。 如需個別項目更詳細的資訊，請參閱[容器登錄 SKU](container-registry-skus.md)。
+
+Azure Container Registry 在數個 SKU 中提供服務：`Basic`、`Managed_Basic`、`Managed_Standard` 和 `Managed_Premium`。 雖然 `Managed_*` SKU 提供諸如受管理存放裝置及 Webhook 等進階功能，但目前在某些 Azure 區域無法透過 Azure CLI 使用它們。 我們在本快速入門中選取 `Basic` SKU 是因為其在所有區域的可用性。
+
+>[!NOTE]
+> 受管理登錄目前在部分區域無法使用。 不過，在所有區域中目前版本的 Azure CLI 皆不支援建立受管理的登錄。 下一版的 Azure CLI 將支援。 在這之前的版本，請使用 [Azure 入口網站](container-registry-get-started-portal.md)建立受管理的登錄。
 
 使用 [az acr create](/cli/azure/acr#create) 命令，以建立 ACR 執行個體。
 
 登錄的名稱**必須是唯一的**。 下列範例中使用 *myContainerRegistry007*。 請將此更新為唯一的值。
 
 ```azurecli
-az acr create --name myContainerRegistry007 --resource-group myResourceGroup --admin-enabled --sku Basic
+az acr create --name myContainerRegistry007 --resource-group myResourceGroup --sku Basic
 ```
 
 建立登錄時，輸出大致如下：
 
-```azurecli
+```json
 {
-  "adminUserEnabled": true,
+  "adminUserEnabled": false,
   "creationDate": "2017-09-08T22:32:13.175925+00:00",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry007",
   "location": "eastus",
@@ -83,7 +88,7 @@ az acr create --name myContainerRegistry007 --resource-group myResourceGroup --a
 
 發送和提取容器映像之前，您必須登入 ACR 執行個體。 若要這樣做，請使用 [az acr login](/cli/azure/acr#login) 命令。
 
-```azurecli-interactive
+```azurecli
 az acr login --name <acrname>
 ```
 
@@ -99,19 +104,19 @@ docker pull microsoft/aci-helloworld
 
 映像必須加上 ACR 登入伺服器名稱。 執行下列命令，以傳回 ACR 執行個體的登入伺服器名稱。
 
-```bash
+```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
 使用 [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) 命令來標記映像。 將 <acrLoginServer> 取代為 ACR 執行個體的登入伺服器名稱。
 
-```
+```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1
 ```
 
 最後，使用 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 將映像推送到 ACR 執行個體。 將 <acrLoginServer> 取代為 ACR 執行個體的登入伺服器名稱。
 
-```
+```bash
 docker push <acrLoginServer>/aci-helloworld:v1
 ```
 
@@ -125,7 +130,7 @@ az acr repository list -n <acrname> -o table
 
 輸出：
 
-```json
+```bash
 Result
 ----------------
 aci-helloworld
@@ -139,7 +144,8 @@ az acr repository show-tags -n <acrname> --repository aci-helloworld -o table
 
 輸出：
 
-```Result
+```bash
+Result
 --------
 v1
 ```

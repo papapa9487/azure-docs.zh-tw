@@ -31,3 +31,5 @@ Cloudyn 的 Azure 成本管理可讓您存取您的所有雲端資源資料。 �
 以滑鼠右鍵按一下 [資源類型]，然後選取 [成本實體] 來檢視取用資源的成本實體和服務。 在此範例中，DevOps 中的 VM 和背景工作服務分別取用了 486.60 美元和 435.71 美元。 兩者的總計是 922 美元。
 
 ![成本實體和服務](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+若要觀看有關雲端計費資料的教學指導影片，請參閱[使用 Cloudyn 的 Azure 成本管理分析您的雲端計費資料](https://youtu.be/G0pvI3iLH-Y)。

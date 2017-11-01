@@ -1,6 +1,6 @@
 ---
 title: "複製 Azure SQL Database | Microsoft Docs"
-description: "建立 Azure SQL Database 的複本"
+description: "在同個伺服器或不同伺服器上，建立現有 Azure SQL Database 的交易一致性複本。"
 services: sql-database
 documentationcenter: 
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.author: carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.openlocfilehash: 8c1e3c80b9f24089dc99463d6ea8ae5d0ea7b19d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c28da7e8b94587b1602c51470dce947ec19ef4e
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="copy-an-azure-sql-database"></a>複製 Azure SQL Database
 
@@ -41,7 +41,7 @@ Azure SQL Database 提供數種方式，可讓您在同個伺服器或不同的�
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>使用 Azure 入口網站來複製資料庫
 
-若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下複製。 
+若要使用 Azure 入口網站來複製資料庫，請開啟資料庫頁面，然後按一下 [複製]。 
 
    ![資料庫複本](./media/sql-database-copy/database-copy.png)
 

@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ebac8ca3bed6825ff9170a305a44ad58ec0da31
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -32,15 +32,18 @@ Azure App Service on Azure Stack 有一些必須在部署之前完成的先決�
 - 建立 Azure Active Directory 應用程式
 - 建立 Active Directory 同盟服務應用程式
 
-## <a name="download-the-azure-app-service-on-azure-stack-helper-scripts"></a>下載 Azure App Service on Azure Stack 協助程式指令碼
+## <a name="download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts"></a>下載 Azure App Service on Azure Stack 安裝程式和協助程式指令碼
 
-1. 下載 [Azure Stack 上的 App Service 部署協助程式指令碼](http://aka.ms/appsvconmasrc1helper)。
-2. 從協助程式指令碼 zip 檔案解壓縮檔案。 隨即出現下列檔案與資料夾結構：
-  - Create-AppServiceCerts.ps1
+1. 下載 [Azure Stack 上的 App Service 部署協助程式指令碼](https://aka.ms/appsvconmashelpers)。
+2. 下載 [Azure App Service on Azure Stack 安裝程式](https://aka.ms/appsvconmasinstaller)。
+3. 從協助程式指令碼 zip 檔案解壓縮檔案。 隨即出現下列檔案與資料夾結構：
+  - Common.ps1
   - Create-AADIdentityApp.ps1
   - Create-ADFSIdentityApp.ps1
+  - Create-AppServiceCerts.ps1
+  - Get-AzureStackRootCert.ps1
+  - Remove-AppService.ps1
   - 模組
-    - AzureStack.Identity.psm1
     - GraphAPI.psm1
     
 ## <a name="high-availability"></a>高可用性
@@ -63,10 +66,10 @@ Azure App Service on Azure Stack 目前無法提供高可用性，因為 Azure S
 | ftp.appservice.local.azurestack.external.pfx | App Service 發行者 SSL 憑證 |
 | Sso.appservice.local.azurestack.external.pfx | App Service 身分識別應用程式憑證 |
 
-在 Azure Stack 開發套件主機上執行指令碼，並確定您是以 azurestack\AzureStackAdmin 身分執行 PowerShell。
+在 Azure Stack 開發套件主機上執行指令碼，並確定您是以 azurestack\CloudAdmin 身分執行 PowerShell。
 
-1. 在以 azurestack\AzureStackAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Create-AppServiceCerts.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
-2. 輸入密碼來保護 .pfx 檔案，並記下密碼。 您將需要在 Azure App Service on Azure Stack 安裝程式中輸入此密碼。
+1. 在以 azurestack\CloudAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Create-AppServiceCerts.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
+2. 輸入密碼來保護 .pfx 檔案，並記下密碼。 您必須在 App Service on Azure Stack 安裝程式中輸入此密碼。
 
 #### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 參數
 
@@ -74,7 +77,6 @@ Azure App Service on Azure Stack 目前無法提供高可用性，因為 Azure S
 | --- | --- | --- | --- |
 | pfxPassword | 必要 | Null | 用來保護憑證私密金鑰的密碼 |
 | DomainName | 必要 | local.azurestack.external | Azure Stack 區域和網域尾碼 |
-| CertificateAuthority | 必要 | AzS-CA01.azurestack.local | 憑證授權單位端點 |
 
 ### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack 的實際執行部署所需的憑證
 
@@ -97,7 +99,7 @@ API 憑證會放置在管理角色上，並且由資源提供者用來保護 API
 
 | 格式 | 範例 |
 | --- | --- |
-| Api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
+| api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
 #### <a name="publishing-certificate"></a>發行憑證
 
@@ -120,21 +122,24 @@ API 憑證會放置在管理角色上，並且由資源提供者用來保護 API
 
 #### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>擷取 Azure Stack Azure Resource Manager 根憑證
 
-在以 azurestack\AzureStackAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Get-AzureStackRootCert.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
+在以 azurestack\CloudAdmin 身分執行的 PowerShell 工作階段中，從您解壓縮協助程式指令碼所在的資料夾執行 Get-AzureStackRootCert.ps1 指令碼。 此指令碼會在與 App Service 所需之建立憑證指令碼相同的資料夾中建立四個憑證。
 
 | Get-AzureStackRootCert.ps1 參數 | 必要/選用 | 預設值 | 說明 |
 | --- | --- | --- | --- |
-| EmergencyConsole | 必要 | AzS-ERCS01 | 緊急主控台具有特殊權限的端點。 |
-| CloudAdminCredential | 必要 | AzureStack\AzureStackAdmin | Azure Stack cloudadmin 網域帳戶認證 |
+| PrivelegedEndpoint | 必要 | AzS-ERCS01 | 特殊權限的端點。 |
+| CloudAdminCredential | 必要 | AzureStack\CloudAdmin | Azure Stack 雲端管理網域帳戶的認證 |
 
 
 ## <a name="prepare-the-file-server"></a>準備檔案伺服器
 
-Azure App Service 需要使用檔案伺服器。 對於實際執行部署，必須將此設定為高度可用，並且能夠處理失敗。
+Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，必須將檔案伺服器設定為高度可用，且能夠處理失敗。
 
-僅針對與 Azure Stack 開發套件部署搭配使用，您可以使用此範例 ARM 部署範本來部署單一節點檔案伺服器：https://aka.ms/appsvconmasdkfstemplate。
+僅針對與 Azure Stack 開發套件部署搭配使用，您可以使用此範例 Azure Resource Manager 部署範本來部署設定的單一節點檔案伺服器：https://aka.ms/appsvconmasdkfstemplate。
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中佈建群組和帳戶
+
+>[!NOTE]
+> 在系統管理員命令提示字元工作階段中設定檔案伺服器時，請執行下列所有的命令。  **請勿使用 PowerShell。**
 
 1. 建立下列 Active Directory 全域安全性群組：
     - FileShareOwners
@@ -157,16 +162,22 @@ Azure App Service 需要使用檔案伺服器。 對於實際執行部署，必�
 在工作群組上，執行 net 和 WMIC 命令來佈建群組和帳戶。
 
 1. 執行下列命令來建立 FileShareOwner 與 FileShareUser 帳戶。 以您自己的值取代 <password>。
-    - net user FileShareOwner <password> /add /expires:never /passwordchg:no
-    - net user FileShareUser <password> /add /expires:never /passwordchg:no
+``` DOS
+net user FileShareOwner <password> /add /expires:never /passwordchg:no
+net user FileShareUser <password> /add /expires:never /passwordchg:no
+```
 2. 執行以下 WMIC 命令，將帳戶的密碼設定為永不過期：
-    - WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-    - WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+``` DOS
+WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+```
 3. 建立本機群組 FileShareUsers 和 FileShareOwners，並在第一個步驟中為其新增帳戶。
-    - net localgroup FileShareUsers /add
-    - net localgroup FileShareUsers FileShareUser /add
-    - net localgroup FileShareOwners /add
-    - net localgroup FileShareOwners FileShareOwner /add
+``` DOS
+net localgroup FileShareUsers /add
+net localgroup FileShareUsers FileShareUser /add
+net localgroup FileShareOwners /add
+net localgroup FileShareOwners FileShareOwner /add
+```
 
 ### <a name="provision-the-content-share"></a>佈建內容共用
 
@@ -176,7 +187,7 @@ Azure App Service 需要使用檔案伺服器。 對於實際執行部署，必�
 
 在單一檔案伺服器上，請在提升權限的命令提示字元中執行下列命令。 以您的環境中的對應路徑，取代 <C:\WebSites> 的值。
 
-```powershell
+```DOS
 set WEBSITES_SHARE=WebSites
 set WEBSITES_FOLDER=<C:\WebSites>
 md %WEBSITES_FOLDER%
@@ -192,7 +203,7 @@ net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 
 在檔案伺服器上或每個檔案伺服器容錯移轉叢集節點上提高權限的命令提示字元中，執行下列命令。 您要使用的網域名稱取代 <DOMAIN> 的值。
 
-```powershell
+```DOS
 set DOMAIN=<DOMAIN>
 net localgroup Administrators %DOMAIN%\FileShareOwners /add
 ```
@@ -201,7 +212,7 @@ net localgroup Administrators %DOMAIN%\FileShareOwners /add
 
 在檔案伺服器上提高權限的命令提示字元中，執行下列命令。
 
-```powershell
+```DOS
 net localgroup Administrators FileShareOwners /add
 ```
 
@@ -210,7 +221,7 @@ net localgroup Administrators FileShareOwners /add
 在檔案伺服器上或檔案伺服器容錯移轉叢集節點 (目前的叢集資源擁有者) 上提高權限的命令提示字元中，執行下列命令。 以環境特有的值取代斜體的值。
 
 #### <a name="active-directory"></a>Active Directory
-```powershell
+```DOS
 set DOMAIN=<DOMAIN>
 set WEBSITES_FOLDER=<C:\WebSites>
 icacls %WEBSITES_FOLDER% /reset
@@ -222,7 +233,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 ```
 
 #### <a name="workgroup"></a>工作群組
-```powershell
+```DOS
 set WEBSITES_FOLDER=<C:\WebSites>
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
@@ -258,13 +269,13 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 
 請遵循下列步驟：
 
-1. 以 azurestack\azurestackadmin 身分開啟 PowerShell 執行個體。
-2. 移至在[先決條件步驟](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components)中下載並解壓縮的指令碼位置。
-3. [安裝](azure-stack-powershell-install.md)及[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
-4. 在相同的 PowerShell 工作階段中，執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure AD 租用戶識別碼時，請輸入您針對 Azure Stack 部署使用的 Azure AD 租用戶識別碼，例如 myazurestack.onmicrosoft.com。
+1. 以 azurestack\cloudadmin 身分開啟 PowerShell 執行個體。
+2. 移至在[先決條件步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下載並解壓縮的指令碼位置。
+3. [安裝 Azure Stack PowerShell](azure-stack-powershell-install.md)。
+4. 執行 **Create-AADIdentityApp.ps1** 指令碼。 當系統提示您提供 Azure AD 租用戶識別碼時，請輸入您針對 Azure Stack 部署使用的 Azure AD 租用戶識別碼，例如 myazurestack.onmicrosoft.com。
 5. 在 [認證] 視窗中，輸入您的 Azure AD 服務管理帳戶和密碼。 按一下 [確定] 。
-6. 輸入[稍早建立的憑證](azure-stack-app-service-deploy.md)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
-7. 指令碼會在租用戶 Azure AD 中建立新的應用程式，並產生名為 **UpdateConfigOnController.ps1** 的新 PowerShell 指令碼。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 您在步驟 11 中需要使用此資訊進行搜尋。
+6. 輸入[稍早建立的憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
+7. 此指令碼會在租用戶 Azure AD 中建立新的應用程式。 請記下 PowerShell 輸出中傳回的應用程式識別碼。 安裝期間會需要這項資訊。
 8. 開啟新的瀏覽器視窗，並以 **Azure Active Directory 服務管理員**身分登入 Azure 入口網站 (portal.azure.com)。
 9. 開啟 Azure AD 資源提供者。
 10. 按一下 [應用程式註冊]。
@@ -272,11 +283,12 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 12. 按一下清單中的 [應用程式]
 13. 按一下 [必要權限] > [授與權限] > [是]。
 
-| CreateIdentityApp.ps1 參數 | 必要/選用 | 預設值 | 說明 |
+| Create-AADIdentityApp.ps1 的參數 | 必要/選用 | 預設值 | 說明 |
 | --- | --- | --- | --- |
 | DirectoryTenantName | 必要 | Null | Azure AD 租用戶識別碼。 提供 GUID 或字串，例如 myazureaaddirectory.onmicrosoft.com |
-| TenantAzure Resource ManagerEndpoint | 必要 | management.local.azurestack.external | 租用戶 Azure Resource Manager 端點。 |
-| AzureStackCredential | 必要 | Null | Azure AD 系統管理員 |
+| AdminArmEndpoint | 必要 | Null | 管理員的 Azure Resource Manager 端點，例如 adminmanagement.local.azurestack.external |
+| TenantARMEndpoint | 必要 | Null | 租用戶的 Azure Resource Manager 端點，例如 management.local.azurestack.external |
+| AzureStackAdminCredential | 必要 | Null | Azure AD Service 管理員的認證 |
 | CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的路徑。 |
 | CertificatePassword | 必要 | Null | 用來保護憑證私密金鑰的密碼。 |
 
@@ -294,16 +306,16 @@ Azure App Service on Azure Stack SQL Server 必須能夠從所有 App Service �
 請遵循下列步驟：
 
 1. 以 azurestack\azurestackadmin 身分開啟 PowerShell 執行個體。
-2. 移至在[先決條件步驟](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-deploy#download-required-components)中下載並解壓縮的指令碼位置。
-3. [安裝](azure-stack-powershell-install.md)及[設定 Azure Stack PowerShell 環境](azure-stack-powershell-configure-admin.md)。
-4.  在相同的 PowerShell 工作階段中，執行 **Create-ADFSIdentityApp.ps1** 指令碼。
+2. 移至在[先決條件步驟](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)中下載並解壓縮的指令碼位置。
+3. [安裝 Azure Stack PowerShell](azure-stack-powershell-install.md)。
+4.  執行 **Create-ADFSIdentityApp.ps1** 指令碼。
 5.  在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 按一下 [確定] 。
-6.  提供[稍早建立之憑證](azure-stack-app-service-deploy.md)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
+6.  提供[稍早建立之憑證](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 sso.appservice.local.azurestack.external.pfx。
 
-| CreateIdentityApp.ps1 參數 | 必要/選用 | 預設值 | 說明 |
+| Create-ADFSIdentityApp.ps1 的參數 | 必要/選用 | 預設值 | 說明 |
 | --- | --- | --- | --- |
-| AdminARMEndpoint | 必要 | Null | 管理員 Azure Resource Manager 端點。 例如，adminmanagement.local.azurestack.external。 |
-| PrivilegedEndpoint | 必要 | Null | 具有緊急主控台特殊權限的端點。 例如，AzD-ERCS01。 |
+| AdminArmEndpoint | 必要 | Null | 管理員 Azure Resource Manager 端點。 例如，adminmanagement.local.azurestack.external。 |
+| PrivilegedEndpoint | 必要 | Null | 特殊權限的端點。 例如 AzS-ERCS01。 |
 | CloudAdminCredential | 必要 | Null | Azure Stack cloudadmin 網域帳戶認證。 例如，Azurestack\CloudAdmin。 |
 | CertificateFilePath | 必要 | Null | 識別應用程式憑證 PFX 檔案的路徑。 |
 | CertificatePassword | 必要 | Null | 用來保護憑證私密金鑰的密碼。 |

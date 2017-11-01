@@ -12,13 +12,13 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: d2214b914899b24dfb36873e0083632a7deaba52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>完成 Azure Stack 上的 App Service 離線安裝
 
-1. 在中斷連線的 Azure Stack 主機電腦上，以 azurestack\administrator 的身分執行 appservice.exe。
+1. 在中斷連線的 Azure Stack 主機電腦上，以 azurestack\clouadmin 的身分執行 appservice.exe。
 
 2. 按一下 [進階] > [完成離線安裝]。
 
@@ -72,7 +72,7 @@ ms.lasthandoff: 10/11/2017
 7. 在下一個頁面上：
     1. 按一下 [Azure Stack 訂用帳戶] 方塊旁邊的 [連線] 按鈕。
         - 如果您使用 Azure Active Directory (Azure AD)，請輸入部署 Azure Stack 時所提供的 Azure AD 管理員帳戶和密碼。 按一下 [登入] 。
-        - 如果您使用 Active Directory 同盟服務 (AD FS)，請提供您的管理帳戶。 例如： azurestackadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
+        - 如果您使用 Active Directory 同盟服務 (AD FS)，請提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
     2. 在 [Azure Stack 訂用帳戶] 方塊中，選取您的訂用帳戶。
     3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
     4. 針對您的 App Service 部署輸入**資源群組名稱**。 根據預設值，它是設定為 **APPSERVICE\<MOBILE\>**。
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image03.png)
 
-8. 輸入檔案共用的資訊，然後按 [下一步]。
+8. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱 (例如 \\\appservicefileserver.local.cloudapp.azurestack.external\websites) 或 IP 位址 (例如 \\\10.0.0.1\websites)。
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image04.png)
 
@@ -110,9 +110,14 @@ ms.lasthandoff: 10/11/2017
 
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image07.png)    
 
-12. 檢閱角色執行個體和 SKU 選項。 預設值會使用適用於每個角色的最低建議執行個體 SKU 來填入。 系統會提供核心和記憶體需求的摘要來協助規劃您的部署。 進行選擇之後，按一下 [下一步]。
+12. 檢閱角色執行個體和 SKU 選項。 填入的預設值為 ASDK 部署中每個角色的最少執行個體數目和最低 SKU。 系統會提供核心和記憶體需求的摘要來協助規劃您的部署。 進行選擇之後，按一下 [下一步]。
 
-    | 角色 | 建議的最低執行個體 | 建議的最低 SKU | 注意事項 |
+     > [!NOTE]
+     > 對於生產環境部署，請按照 [Azure Stack 中的 Azure App Service 伺服器角色的容量規劃](azure-stack-app-service-capacity-planning.md)中的指導方針進行。
+     > 
+     >
+
+    | 角色 | 最少執行個體 | 最低 SKU | 注意事項 |
     | --- | --- | --- | --- |
     | Controller | 1 | Standard_A1 - (1 個核心，1792 MB) | 管理及維護 App Service 雲端的健全狀況。 |
     | 管理 | 1 | Standard_A2 - (2 核心，3584 MB) | 管理 App Service Azure Resource Manager 和 API 端點、入口網站擴充功能 (管理員、租用戶、Functions 入口網站)，以及資料服務。 為了支援容錯移轉，已將建議的執行個體增加為 2 個。 |
@@ -123,7 +128,7 @@ ms.lasthandoff: 10/11/2017
     ![App Service 安裝程式](media/azure-stack-app-service-deploy/image08.png)    
 
     > [!NOTE]
-    > 在技術預覽中，App Service 資源提供者安裝程式也會部署要作為簡單檔案伺服器運作的標準 A1 執行個體，以支援 Azure Resource Manager。 此執行個體會針對單一節點開發套件加以保留。 對於生產工作負載，在公開推出時，App Service 安裝程式會讓高可用性檔案伺服器可供使用。
+    > **Windows Server 2016 Core 不是支援的平台映像，無法搭配 Azure Stack 上的 Azure App Service 使用**。
 
 13. 在 [選取平台映像] 方塊中，從可以在適用於 App Service 雲端的運算資源提供者的可用映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按一下 [下一步] 。
 
@@ -150,19 +155,11 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>確認 Azure Stack 上的 App Service 安裝
 
-1. 在 Azure Stack 管理入口網站中，瀏覽到安裝程式所建立的資源群組。 根據預設值，此群組是 **APPSERVICE-LOCAL**。
+1. 在 Azure Stack 管理入口網站中，前往 [管理 - App Service]。
 
-2. 找出 **CN0-VM**。 若要連線到 VM，請按一下 [虛擬機器] 刀鋒視窗上的 [連線]。
+2. 在狀態下的概觀，查看 [狀態]是否顯示為 [所有角色都已準備完成]。
 
-3. 在此 VM 的桌面上，按兩下 [Web 雲端管理主控台]。
-
-4. 移至 [受管理伺服器]。
-
-5. 當所有電腦都針對一或多個背景工作顯示 [就緒] 時，請繼續進行步驟 6。
-
-6. 關閉遠端桌面電腦，並返回您執行 App Service 安裝程式的電腦。
-
-    ![App Service 安裝程式](media/azure-stack-app-service-deploy/managed-servers.png)    
+    ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)    
 
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>測試 Azure Stack 上的 App Service

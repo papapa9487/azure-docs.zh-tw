@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 10/16/2017
 ms.author: richrund
-ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics
 您可以使用 [Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
@@ -36,6 +36,17 @@ ms.lasthandoff: 10/11/2017
 * 設定 Log Analytics 將 Azure 診斷所收集的資料編製索引
 
 本文提供範例範本，示範您可以從範本執行的一些設定。
+
+## <a name="api-versions"></a>API 版本
+這篇文章中的範例適用於[已升級的 Log Analytics 工作區](log-analytics-log-search-upgrade.md)。  若要使用舊版的工作區，您必須將查詢的語法變更為舊版語言，並變更每個資源的 API 版本。  下表列出此範例中使用的資源 API 版本。
+
+| 資源 | 資源類型 | 舊版 API 版本 | 升級的 API 版本 |
+|:---|:---|:---|:---|
+| 工作區   | workspaces    | 2015-11-01-preview | 2017-03-15-preview |
+| 搜尋      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| 資料來源 | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| 方案    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>建立及設定 Log Analytics 工作區
 下列範例範本說明如何：
@@ -122,7 +133,7 @@ ms.lasthandoff: 10/11/2017
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -134,7 +145,7 @@ ms.lasthandoff: 10/11/2017
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -144,7 +155,7 @@ ms.lasthandoff: 10/11/2017
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },

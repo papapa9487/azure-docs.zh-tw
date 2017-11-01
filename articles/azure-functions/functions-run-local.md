@@ -3,7 +3,7 @@ title: "開發 Azure 函數並在本機執行 | Microsoft Docs"
 description: "在於 Azure Functions 上執行 Azure 函式之前，先了解如何撰寫 Azure 函式並在本機電腦上進行測試。"
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 35fd47025ca0dba1edbe1d7dd3ee0172fc45d6f5
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>撰寫 Azure Functions 並在本機進行測試
 
@@ -48,7 +48,7 @@ npm install -g azure-functions-core-tools
 >[!IMPORTANT]   
 > 安裝 Azure Functions Core Tools 之前，請[安裝 .NET Core 2.0](https://www.microsoft.com/net/core)。  
 >
-> Azure Functions 執行階段 2.0 為預覽版本，而且目前並未支援所有 Azure Functions 功能。 如需詳細資訊，請參閱 [Azure Functions 執行階段 2.0 已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。 
+> Azure Functions 執行階段 2.0 為預覽版本，目前尚未完全支援 Azure Functions 的所有功能。 如需詳細資訊，請參閱 [Azure Functions 執行階段 2.0 已知問題](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Azure-Functions-runtime-2.0-known-issues)。 
 
  使用下列命令來安裝 2.0 版工具：
 
@@ -142,7 +142,7 @@ local.settings.json 檔案中的值，只會由於本機執行的 Functions 工�
 
 沒有針對 **AzureWebJobsStorage** 設定有效的儲存體連接字串時，系統會顯示下列錯誤訊息：  
 
->在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionary fetch-app-settings <functionAppName>' 或在 local.settings.json 中指定連接字串。
+>在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings <functionAppName>'，或指定 local.settings.json 中的連接字串。
   
 [!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
@@ -266,9 +266,9 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azu
 請注意，您可以從瀏覽器在查詢字串中傳遞資料來進行 GET 要求。 對於所有其他 HTTP 方法，您必須使用 cURL、Fiddler、Postman 或類似的 HTTP 測試工具。  
 
 #### <a name="non-http-triggered-functions"></a>非 HTTP 觸發函式
-對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上呼叫此端點會觸發函式。 您可以選擇性傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。  
+對於 HTTP 觸發程序和 Webhook 以外的所有函式類型，您可以呼叫管理端點在本機測試函式。 在本機伺服器上使用 HTTP POST 要求來呼叫此端點會觸發函式。 您可以在 POST 要求本文中選擇性地傳遞測試資料到執行程序。 這項功能類似於 Azure 入口網站中的 [測試] 索引標籤。  
 
-您可以使用 HTTP POST 要求，呼叫下列系統管理員端點來觸發非 HTTP 函式：
+您可以呼叫下列系統管理員端點來觸發非 HTTP 函式：
 
     http://localhost:{port}/admin/functions/{function_name}
 

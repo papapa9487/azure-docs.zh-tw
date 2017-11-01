@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: pullabhk;markgal;
-ms.openlocfilehash: 71da98bf6d53ab50df4f6e40cf0b548752d10f93
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ef808e933d1c3ff88e18766cd3a29138959297a
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="troubleshoot-azure-backup-server"></a>針對 Azure 備份伺服器進行疑難排解
 
@@ -65,13 +65,14 @@ ms.lasthandoff: 10/11/2017
 ## <a name="backup"></a>備份
 | 作業 | 錯誤詳細資料 | 因應措施 |
 | --- | --- | --- |
-| 備份 | 複本不一致 | 您可以在[這裡](https://technet.microsoft.com/library/cc161593.aspx)找到更多關於複本不一致原因和相關建議的詳細資料 <br> <ol><li> 如果是系統狀態/BMR 備份，請檢查受保護伺服器上是否已安裝 Windows Server Backup </li><li> 檢查 DPM/MABS 伺服器上 DPM 儲存體集區的空間相關問題，並視需要配置儲存體 </li><li> 檢查受保護伺服器上的磁碟區陰影複製服務狀態。 如果它是停用狀態，請將它設定為手動啟動，並在伺服器上啟動服務。 然後返回 DPM/MABS 主控台，並開始一致性檢查作業的同步處理。</li></ol>|
+| 備份 | 複本不一致 | 請確定已開啟「保護群組」精靈中的自動一致性檢查選項。 在[這裡](https://technet.microsoft.com/library/cc161593.aspx)找到更多關於複本不一致原因和相關建議的詳細資料 <br> <ol><li> 如果是系統狀態/BMR 備份，請檢查受保護伺服器上是否已安裝 Windows Server Backup </li><li> 檢查 DPM/MABS 伺服器上 DPM 儲存體集區的空間相關問題，並視需要配置儲存體 </li><li> 檢查受保護伺服器上的磁碟區陰影複製服務狀態。 如果它是停用狀態，請將它設定為手動啟動，並在伺服器上啟動服務。 然後返回 DPM/MABS 主控台，並開始一致性檢查作業的同步處理。</li></ol>|
 | 備份 | 執行作業時發生非預期的錯誤，裝置未就緒 | **如果產品所示的建議動作沒有用**， <br> <ol><li>針對保護群組中的項目，將陰影複製儲存空間設定為無限，並執行一致性檢查 <br></li> (或) <li>嘗試刪除現有保護群組，並建立多個新的保護群組，每個保護群組中各有一個個別項目</li></ol> |
 | 備份 | 如果您只要備份系統狀態，請確認受保護的電腦上是否有足夠的可用空間可儲存系統狀態備份 | <ol><li>確認受保護的電腦上已安裝 WSB</li><li>確認受保護的電腦上有足夠空間可存放系統狀態︰最簡單的執行方法是移到受保護的電腦上、開啟 WSB、逐一點選選取項目，然後選取 BMR。 然後，UI 會告訴您這需要多少空間。 開啟 WSB -> 本機備份 -> 備份排程 -> 選取備份設定 -> 完整伺服器 (大小會顯示出來)。 使用此大小進行驗證。</li></ol>
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息指出「Windows Azure Backup Agent 無法建立所選磁碟區的快照集」，請嘗試增加複本和復原點磁碟區中的空間。
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息顯示「Windows Azure 備份代理程式無法連線到 OBEngine 服務」，請確認 OBEngine 存在於電腦上的執行中服務清單。 如果 OBEngine 服務不在執行中，請使用 "net start OBEngine" 命令來啟動 OBEngine 服務。
 | 備份 | 線上復原點建立失敗 | 如果錯誤訊息指出「未設定此伺服器的加密複雜密碼。 請設定加密複雜密碼」，請嘗試設定加密複雜密碼。 如果作業失敗， <br> <ol><li>請檢查暫存位置是否存在。 名稱為 “ScratchLocation” 之登錄 HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config 中所提到的位置應該要存在。</li><li> 如果暫存位置存在，請嘗試使用舊的複雜密碼重新註冊。 **每當您設定加密複雜密碼時，請將它儲存在安全的位置**</li><ol>
 | 備份 | BMR 的備份失敗 | 如果 BMR 大小很大，請將一些應用程式檔案移到作業系統磁碟機後再重試 |
+| 備份 | 重新保護新的 MABS 伺服器上的 VMWare VM，不會顯示為可供新增。 | VMWare 屬性會指向舊的已停用的 MABS 伺服器。 若要解決這個問題：在 VCenter (SC VMM 的對等項目) 中，移至 [摘要] 索引標籤，然後按一下 [自訂屬性]。  從 'DPMServer' 值中刪除舊的 MABS 伺服器名稱。  返回新 MABS 伺服器，並修改 PG。  使用 [重新整理] 按鈕後，會顯示 VM 和可供新增到保護的核取方塊。 |
 | 備份 | 存取檔案/共用資料夾時發生錯誤 | 請嘗試依[這裡](https://technet.microsoft.com/library/hh757911.aspx)的建議修改防毒設定|
 | 備份 | VMware VM 的線上復原點建立作業失敗。 DPM 在嘗試取得變更追蹤資訊時，VMware 發生錯誤。 ErrorCode - FileFaultFault (ID 33621 ) |  1.針對受影響的 VM，在 VMWare 上重設 ctk <br/> 檢查獨立磁碟不在 VMWare 上 <br/> 停止保護受影響的 VM，然後使用 [重新整理] 按鈕重新保護 <br/> 對受影響的 VM 執行 CC|
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>資料連線：了解資料從事件到串流分析的資料流輸入
 串流分析作業的資料連線是來自資料來源的事件資料流，稱為作業的「輸入」。 串流分析與 Azure 資料流來源的整合性極佳，來源包括 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[Azure IoT 中樞](https://azure.microsoft.com/services/iot-hub/)和 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)。 這些輸入來源可以來自與分析作業相同的 Azure 訂用帳戶，或來自不同的訂用帳戶。
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="compression"></a>壓縮
 
-Azure 串流分析將會很快地在所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 部署壓縮功能。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 支援的類型目前是 [無]、[GZip] 和 [Deflate] 壓縮。 
+Azure 串流分析支援跨所有資料流輸入來源 (事件中樞、IoT 中樞與 Blob 儲存體) 壓縮。 此功能可在 Azure 入口網站中，將新的下拉式清單選項加入至 [新的輸入] 刀鋒視窗中，讓您選擇性地決定是否要壓縮資料流。 支援的類型目前是 [無]、[GZip] 和 [Deflate] 壓縮。 
 
 與 Avro 序列化串聯時，不支援壓縮，而且不適用於參考資料。 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> 將事件中樞作為 IoT 中樞路由的端點時，您可以使用 [GetMetadataPropertyValue 函式](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx)存取 IoT 中樞中繼資料。
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>從 IoT 中樞建立資料流輸入
 Azure IoT 中樞是已針對 IoT 案例最佳化的高延展性發佈/訂閱事件擷取器。

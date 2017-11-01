@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2017
 ms.author: xshi
-ms.openlocfilehash: e8abae4d523ad537563f2c2964a3585b68fda7c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0b8ae318fab2eaa186dca050ce2710b1ff232783
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞
 
@@ -152,6 +152,9 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 ![安裝進度](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install.png)
 
+> [!NOTE] 
+> 視您的環境而定，有時您會在安裝 Arduino IDE 時發生失敗。 在此情況下，您可以嘗試[個別安裝 Arduino IDE](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) \(英文\)，然後重新執行 install.cmd。 否則，請依照[手動步驟](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/#windows) \(英文\) 來安裝所有必要的工具和套件。
+
 #### <a name="install-drivers"></a>安裝驅動程式
 
 適用於 Arduino 的 VS Code 擴充功能依賴 Arduino IDE。 如果這是您第一次安裝 Arduino IDE，系統會提示您安裝相關的驅動程式：
@@ -163,83 +166,51 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 > [!NOTE] 
 > 有時在您啟動 VS Code 時，系統會出現錯誤提示，指出找不到 Arduino IDE 或相關開發板套件。 若要解決此問題，請關閉 VS Code，然後重新啟動 Arduino IDE。 VS Code 接著應該就會正確找到 Arduino IDE 路徑。
 
-### <a name="macos-preview"></a>macOS (預覽)
+### <a name="macos"></a>macOS
 
-請遵循下列步驟以在 macOS 上準備開發環境。
+建議您使用單鍵安裝體驗來準備開發環境。 如果遇到任何問題，可以依照[手動步驟](https://microsoft.github.io/azure-iot-developer-kit/docs/installation/)來完成準備。
 
-#### <a name="install-azure-cli-20"></a>安裝 Azure CLI 2.0
+#### <a name="install-homebrew"></a>安裝 Homebrew
 
-1. 使用一個 `curl` 命令來安裝 Azure CLI 2.0：
+> [!NOTE] 
+> 如果您已安裝 Homebrew，則可以略過此步驟。
 
-   ```bash
-   curl -L https://aka.ms/InstallAzureCli | bash
-   ```
+請依照 [Homebrew 安裝指示](https://docs.brew.sh/Installation.html) \(英文\) 來進行安裝。
 
-2. 重新啟動命令殼層以讓變更生效：
+#### <a name="download-the-latest-package"></a>下載最新套件
+您下載的 .zip 檔案包含進行 DevKit 開發所需的所有必要工具和套件。
 
-   ```bash
-   exec -l $SHELL
-   ```
+> [!div class="button"]
+[下載](https://aka.ms/devkit/prod/installpackage/mac/latest)
 
-如需安裝 Azure CLI 2.0 的詳細資訊，請參閱[官方指南](https://docs.microsoft.com//cli/azure/install-azure-cli)。
+.zip 檔案包含下列工具和套件。 如果您已安裝某些元件，指令碼將會偵測到並跳過它們。
 
-#### <a name="install-the-arduino-ide"></a>安裝 Arduino IDE
+* Node.js 和 Yarn：安裝指令碼和自動化工作的執行階段。
+* [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest#a-namemacosinstall-on-macos)：用來管理 Azure 資源的跨平台命令列體驗。
+* [Visual Studio Code](https://code.visualstudio.com/) (VS Code)：用來開發 DevKit 的輕量型程式碼編輯器。
+* [適用於 Arduino 的 Visual Studio Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino)：此擴充功能可讓您在 Visual Studio Code 中開發 Arduino。
+* [Arduino IDE](https://www.arduino.cc/en/Main/Software)：適用於 Arduino 的擴充功能需依賴此工具。
+* DevKit 開發板套件：DevKit 的工具鏈、程式庫和專案。
+* ST-Link 公用程式：基本工具和驅動程式。
 
-Visual Studio Code Arduino 擴充功能依賴 Arduino IDE。 下載並安裝[適用於 macOS 的 Arduino IDE](https://www.arduino.cc/en/Main/Software)。
+#### <a name="run-the-installation-script"></a>執行安裝指令碼
 
-#### <a name="install-visual-studio-code"></a>安裝 Visual Studio Code
+在搜尋工具中，找出 .zip 檔並將其解壓縮：
 
-下載並安裝[適用於 macOS 的 Visual Studio Code](https://code.visualstudio.com/)。 這是用來建置 DevKit IoT 應用程式的主要開發工具。
+啟動終端機應用程式，找出 .zip 檔案的解壓縮資料夾，然後執行：
 
-####  <a name="download-the-latest-package"></a>下載最新套件
+```bash
+./install.sh
+```
 
-1. 安裝 Node.js。 您可以使用熱門的 macOS 套件管理員 [Homebrew](https://brew.sh/) 或[預先建置的安裝程式](https://nodejs.org/en/download/)來進行安裝。
-
-2. 下載 .zip 檔案 (內含要在 VS Code 上開發 DevKit 所需的工作指令碼)。
-
-   > [!div class="button"]
-   [下載](https://azureboard.azureedge.net/installpackage/devkit_tasks_1.0.2.zip)
-
-3. 找到 .zip 檔並將其解壓縮。 然後啟動**終端機**應用程式並執行下列命令：
-
-   a. 將解壓縮的資料夾移動至您的 macOS 使用者資料夾：
-      ```bash
-      mv [.zip extracted folder]/azure-board-cli ~/. ; cd ~/azure-board-cli
-      ```
-  
-   b. 安裝 npm 套件：
-      ```
-      npm install
-      ```
-
-#### <a name="install-the-vs-code-extension-for-arduino"></a>安裝適用於 Arduino 的 VS Code 擴充功能
-
-您可以直接在 Visual Studio Code 中安裝 Azure Marketplace 擴充功能。 在左窗格中選取擴充功能圖示，搜尋 **Arduino**，然後選取 [安裝]：
-
-![尋找 Arduino 擴充功能](media/iot-hub-arduino-devkit-az3166-get-started/installation-extensions-mac.png)
-
-#### <a name="install-the-devkit-board-package"></a>安裝 DevKit 開發板套件
-
-使用 Visual Studio Code 中的 Board Manager 來新增 DevKit 開發板。
-
-1. 使用 Cmd+Shift+P 開啟命令選擇區，輸入 **Arduino**，然後尋找並選取 [Arduino: Board Manager]。
-
-2. 選取右下方的 [其他 URL]。
-   ![其他 URL 連結](media/iot-hub-arduino-devkit-az3166-get-started/installation-additional-urls-mac.png)
-
-3. 在 settings.json 檔案中，於 [使用者設定] 窗格底部新增一行，然後儲存。
-   ```json
-   "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
-   ```
-   ![新增至 [使用者設定] 窗格的程式碼](media/iot-hub-arduino-devkit-az3166-get-started/installation-settings-json-mac.png)
-
-4. 在 Board Manager 中搜尋 **az3166** 並安裝最新版本。
-   ![安裝 az3166](media/iot-hub-arduino-devkit-az3166-get-started/installation-az3166-mac.png)
+> [!NOTE] 
+> 如果您遇到 Homebrew 權限錯誤，請執行 `brew doctor` 來修正它。 如需更多詳細資料，請參閱[常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#homebrew-permission-error-on-macos)。
 
 您現在已具備安裝 macOS 的所有必要工具與封裝。
 
-
 ## <a name="open-the-project-folder"></a>開啟專案資料夾
+
+您將開始建立「Azure IoT 中樞」、將 DevKit 連線到該中樞、從感應器收集溫度和溼度資料，然後將資料傳送到 IoT 中樞。
 
 ### <a name="start-vs-code"></a>啟動 VS Code
 

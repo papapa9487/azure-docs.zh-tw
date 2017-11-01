@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/04/2017
+ms.date: 10/17/2017
 ms.author: bryanla
-ms.openlocfilehash: 2f6cf4709c77ca1bb051b7d5c9e7d1d5d125c343
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 905e7b0d8a0c45c98a86882a8c8f387be0950f9f
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in-and-token-acquisition"></a>如何使用 Azure VM 受管理服務識別 (MSI) 來登入和取得權杖 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] 在 Azure VM 上啟用 MSI 之後，您可以使用 MSI 來登入和要求存取權杖。 本文說明各種方法，讓您使用 MSI [服務主體](develop/active-directory-dev-glossary.md#service-principal-object)來登入，以及取得[僅限應用程式存取權杖](develop/active-directory-dev-glossary.md#access-token)來存取其他資源，包括：
@@ -183,14 +183,14 @@ Content-Type: application/json
 | `resource` | 要求存取權杖所針對的資源，符合要求的 `resource` 查詢字串參數。 |
 | `token_type` | 權杖的類型，即「持有人」存取權杖，表示此權杖的持有人可以存取資源。 |
 
-## <a name="how-to-sign-in-with-azure-sdk-libraries-using-msi"></a>如何利用 Azure SDK 程式庫來使用 MSI 登入
+## <a name="how-to-use-msi-with-azure-sdk-libraries"></a>如何搭配使用 Azure SDK 程式庫和 MSI
 
 Azure 透過一系列的 [Azure SDK](https://azure.microsoft.com/downloads) 來支援多個程式設計平台。 其中許多都已更新來支援使用 MSI 登入，還提供對應的範例來示範用法。 這份清單會隨著新增額外的支援而更新：
 
 | SDK | 範例 |
 | --- | ------ | 
-| .NET   | [從已啟用 MSI 的虛擬機器管理資源](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [從已啟用 MSI 的虛擬機器管理儲存體](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| .NET | [使用受管理的服務識別從 Windows VM 部署 ARM 範本](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
+| .NET Core | [使用受管理的服務識別從 Linux VM 呼叫 Azure 服務](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js| [使用受管理服務識別 (MSI) 來管理資源](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
 | Python | [使用 MSI 直接從虛擬機器內部驗證](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
 | Ruby   | [從已啟用 MSI 的虛擬機器管理資源](https://azure.microsoft.com/resources/samples/resources-ruby-manage-resources-with-msi/) | 

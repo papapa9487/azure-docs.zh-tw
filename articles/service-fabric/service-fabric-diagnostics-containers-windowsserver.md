@@ -12,19 +12,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/10/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 874c1a5c4b399ff2254072b7282f05d83a005cc3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 319ee2c0f7492389bc1767aa2669dd273f8cfa1b
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="monitoring-windows-server-containers-with-oms"></a>使用 OMS 監視 Windows Server 容器
 
 ## <a name="oms-containers-solution"></a>OMS 容器解決方案
 
-Operations Management Suite (OMS) 小組發行了容器解決方案，用於診斷與監視容器。 此解決方案加上其 Service Fabric 解決方案是很棒的工具，可監視在 Service Fabric 上協調的容器部署。 以下是解決方案中儀表板外觀的簡單範例︰
+Operations Management Suite (OMS) Log Analytics 具有可以用於監視容器的容器解決方案。 此解決方案加上其 Service Fabric 解決方案是很棒的工具，可監視在 Service Fabric 上協調的容器部署。 以下是解決方案中儀表板外觀的簡單範例︰
 
 ![基本 OMS 儀表板](./media/service-fabric-diagnostics-containers-windowsserver/oms-containers-dashboard.png)
 
@@ -40,7 +40,7 @@ Operations Management Suite (OMS) 小組發行了容器解決方案，用於診�
 
 ## <a name="1-set-up-a-service-fabric-cluster"></a>1.設定 Service Fabric 叢集
 
-使用[此處](https://github.com/dkkapur/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Sample)的 Azure Resource Manager 範本建立叢集。 務必新增唯一的 OMS 工作區名稱。 此範本也預設為將叢集部署在 Service Fabric (v255.255) 的預覽組建中，這表示它無法用於生產中，且無法升級為不同的 Service Fabric 版本。 如果您決定要長期使用此範本或用於生產，請將版本變更為穩定的版本號碼。
+使用[此處](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows)的 Azure Resource Manager 範本建立叢集。 務必新增唯一的 OMS 工作區名稱。 此範本也預設為將叢集部署在 Service Fabric (v255.255) 的預覽組建中，這表示它無法用於生產中，且無法升級為不同的 Service Fabric 版本。 如果您決定要長期使用此範本或用於生產，請將版本變更為穩定的版本號碼。
 
 叢集設定完畢後，確認您已安裝適當的憑證，並確定您可以連線到叢集。
 

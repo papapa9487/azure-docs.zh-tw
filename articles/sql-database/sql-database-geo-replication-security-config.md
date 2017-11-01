@@ -1,6 +1,6 @@
 ---
 title: "設定 Azure SQL Database 安全性以供災害復原使用 | Microsoft Docs"
-description: "本主題說明如果發生資料中心服務中斷或其他災害，在資料庫還原或容錯移轉至次要伺服器之後，設定和管理安全性時的安全性考量"
+description: "了解在資料庫還原或容錯移轉至次要伺服器之後，設定和管理安全性時的安全性考量。"
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,20 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-ms.openlocfilehash: 48b35f761273c68b03af1fc5e977bb99455a01e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5522bb8770212cc226cb794dacaccee07cb4e91b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>建立和管理 Azure SQL Database 安全性以供異地還原或容錯移轉使用 
+
+本主題描述設定和控制[主動式異地複寫](sql-database-geo-replication-overview.md)的驗證需求，以及設定次要資料庫之使用者存取所需的步驟。 它也會描述如何在使用[異地還原](sql-database-recovery-using-backups.md#geo-restore)之後啟用復原資料庫的存取權。 如需復原選項的詳細資訊，請參閱 [商務持續性概觀](sql-database-business-continuity.md)。
 
 > [!NOTE]
 > [作用中異地複寫](sql-database-geo-replication-overview.md)現在可供所有服務層中的所有資料庫使用。
 >  
-
-## <a name="overview-of-authentication-requirements-for-disaster-recovery"></a>災害復原的驗證需求概觀
-本主題描述設定和控制[主動式異地複寫](sql-database-geo-replication-overview.md)的驗證需求，以及設定次要資料庫之使用者存取所需的步驟。 它也會描述如何在使用[異地還原](sql-database-recovery-using-backups.md#geo-restore)之後啟用復原資料庫的存取權。 如需復原選項的詳細資訊，請參閱 [商務持續性概觀](sql-database-business-continuity.md)。
 
 ## <a name="disaster-recovery-with-contained-users"></a>災害復原與自主使用者
 不同於傳統的使用者必須對應到 master 資料庫中的登入，自主使用者完全由資料庫本身管理。 這樣有兩個優點。 在災害復原案例中，使用者可以繼續連線到新的主要資料庫或使用異地還原復原的資料庫，而不需任何額外的組態，因為資料庫可管理使用者。 從登入的觀點來看，這個組態也有潛在的延展性和效能優勢。 如需詳細資訊，請參閱 [自主資料庫使用者 - 讓資料庫具有可攜性](https://msdn.microsoft.com/library/ff929188.aspx)。 

@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/16/2017
 ms.author: twooley
-ms.openlocfilehash: 790b65720a8457b780dc727b0f67fcd12aed31bc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合系統的規劃考量
 
@@ -115,8 +115,7 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 > 此文章中的憑證資訊僅提供做為一般指引。 取得 Azure Stack 的任何憑證之前，請與您的 OEM 硬體合作夥伴接洽。 它們將提供更詳細的憑證指引和需求。
 
 - 您可以使用單一萬用字元憑證或以使用一組專用的憑證，並只針對端點 (例如儲存體和金鑰保存庫) 使用萬用字元。
-- 憑證必須由大眾信任的憑證授權單位 (CA) 或企業 CA 發行。
-- 中繼 CA 無法發行憑證。
+- 憑證必須由大眾信任的憑證授權單位 (CA) 或由客戶管理的 CA 發行。
  
 下表顯示需要服務，和需要初始 Azure Stack 部署所需憑證的公開端點數目。 
 

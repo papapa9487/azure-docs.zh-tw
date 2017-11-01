@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
@@ -38,6 +38,9 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 ### <a name="configuring-ai-with-wad"></a>設定具備 WAD 的 AI
 
+>[!NOTE]
+>目前這僅適用於 Windows 叢集。
+
 有兩種主要方式可將資料從 WAD 的傳送至 Azure AI，只要將 AI 接收新增到 WAD 設定中即可，詳細資訊請參閱[本文](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)。
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>在 Azure 入口網站中建立叢集時新增 AI 檢測金鑰
@@ -50,7 +53,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
 在 Resource Manager 範本的 "WadCfg" 中，納入下列兩項變更以新增「接收」：
 
-1. 新增接收設定：
+1. 直接在宣告 `DiagnosticMonitorConfiguration` 完成之後，新增接收設定：
 
     ```json
     "SinksConfig": {
@@ -64,7 +67,7 @@ Azure Application Insights 是監視和診斷應用程式的擴充式平台。 �
 
     ```
 
-2. 在 "WadCfg" 的 "DiagnosticMonitorConfiguration" 新增下行程式碼，可在 DiagnosticMonitorConfiguration 中包含接收：
+2. 在 `DiagnosticMonitorConfiguration` 中包含接收，方法是在 `WadCfg` 的 `DiagnosticMonitorConfiguration` 中新增下列行 (在 `EtwProviders` 宣告之前)：
 
     ```json
     "sinks": "applicationInsights"

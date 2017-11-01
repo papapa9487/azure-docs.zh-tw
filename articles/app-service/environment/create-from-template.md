@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 9e75f83755424b1b89e7649af98c0347fc5e1c59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdaf09d5558e0453b826b9a3e52500379ced5422
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本立 ASE
 
@@ -48,7 +48,7 @@ ASE 可以使用 Azure 入口網站或 Azure Resource Manager 範本來建立。
 
 如果您想要建立 ILB ASE，請使用這些 Resource Manager 範本[範例][quickstartilbasecreate]。 它們符合該使用案例。 azuredeploy.parameters.json 檔案中的大部分參數是建立 ILB ASE 和外部 ASE 的通用參數。 建立 ILB ASE 時，以下清單會呼叫特殊附註的參數或唯一參數︰
 
-* interalLoadBalancingMode：在大多數情況下，此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上的 FTP 服務所接聽的控制項/資料通道連接埠將會繫結至 ILB 配置的虛擬網路內部位址。 如果此屬性設定為 2，只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址， HTTP/HTTPS 流量將保留在公用 VIP 上。
+* *internalLoadBalancingMode*︰在大多數情況下，此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上的 FTP 服務所接聽的控制項/資料通道連接埠將會繫結至 ILB 配置的虛擬網路內部位址。 如果此屬性設定為 2，只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址， HTTP/HTTPS 流量將保留在公用 VIP 上。
 * dnsSuffix︰這個參數定義要指派給 ASE 的預設根網域。 在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net 。 由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。 相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。 例如，Contoso Corporation 可能會將 internal-contoso.com 的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
 * ipSslAddressCount︰在 azuredeploy.json 檔案中，這個參數的值會自動預設為 0，因為 ILB ASE 只有單一 ILB 位址。 ILB ASE 沒有明確的 IP-SSL 位址。 因此，ILB ASE 的 IP-SSL 位址集區必須設定為零。 否則，就會發生佈建錯誤。 
 

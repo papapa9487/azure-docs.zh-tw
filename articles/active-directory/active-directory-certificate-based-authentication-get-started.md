@@ -10,28 +10,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/02/2017
+ms.date: 10/13/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e423ee6818c50775aa604891951c7ded2a84eb3
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>開始在 Azure Active Directory 中使用憑證式驗證
 
-在將您的 Exchange Online 帳戶連線到下列各項時，憑證式驗證可讓您由 Azure Active Directory 透過用戶端憑證在 Windows、Android 或 iOS 裝置上驗證您的身分︰ 
+在將您的 Exchange Online 帳戶連線到下列各項時，憑證式驗證可讓您由 Azure Active Directory 透過用戶端憑證在 Windows、Android 或 iOS 裝置上驗證您的身分︰
 
-- Office 行動應用程式，例如 Microsoft Outlook 與 Microsoft Word   
+- Microsoft 行動應用程式，例如 Microsoft Outlook 與 Microsoft Word   
 
-- Exchange ActiveSync (EAS) 用戶端 
+- Exchange ActiveSync (EAS) 用戶端
 
-設定這項功能之後，就不需要在行動裝置上的特定郵件和 Microsoft Office 應用程式中，輸入使用者名稱和密碼的組合。 
+設定這項功能之後，就不需要在行動裝置上的特定郵件和 Microsoft Office 應用程式中，輸入使用者名稱和密碼的組合。
 
 本主題內容：
 
-- 提供為 Office 365 企業版、商務版、教育版、美國政府方案的租用戶使用者，設定和使用憑證式驗證的步驟。 在 Office 365 China、US Government Defense 及 US Government Federal 方案中，這項功能處於預覽版。 
+- 提供為 Office 365 企業版、商務版、教育版、美國政府方案的租用戶使用者，設定和使用憑證式驗證的步驟。 在 Office 365 China、US Government Defense 及 US Government Federal 方案中，這項功能處於預覽版。
 
 - 假設您已經設定[公開金鑰基礎結構 (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) 和 [AD FS](connect/active-directory-aadconnectfed-whatis.md)。    
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 
 若要設定憑證式驗證，必須符合以下要件：  
 
-- 只有瀏覽器應用程式或使用新式驗證 (ADAL) 之原生用戶端的同盟環境才支援憑證式驗證 (CBA)。 唯一的例外狀況是適用於 EXO 的 Exchange Active Sync (EAS)，可以用於同盟和受管理兩種帳戶。 
+- 只有瀏覽器應用程式或使用新式驗證 (ADAL) 之原生用戶端的同盟環境才支援憑證式驗證 (CBA)。 唯一的例外狀況是適用於 EXO 的 Exchange Active Sync (EAS)，可以用於同盟和受管理兩種帳戶。
 
 - 務必要在 Azure Active Directory 中設定根憑證授權單位和任何中繼憑證授權單位。  
 
@@ -61,7 +61,7 @@ ms.lasthandoff: 10/11/2017
 
 第一個步驟中，針對您要處理的裝置平台，您需要檢閱下列項目︰
 
-- Office 行動應用程式支援 
+- Office 行動應用程式支援
 - 特定的實作需求  
 
 下列裝置平台有相關的資訊︰
@@ -70,87 +70,87 @@ ms.lasthandoff: 10/11/2017
 - [iOS](active-directory-certificate-based-authentication-ios.md)
 
 
-## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2︰設定憑證授權單位 
+## <a name="step-2-configure-the-certificate-authorities"></a>步驟 2︰設定憑證授權單位
 
-若要在 Azure Active Directory 中設定您的憑證授權單位，為每個憑證授權單位下載下列項目： 
+若要在 Azure Active Directory 中設定您的憑證授權單位，為每個憑證授權單位下載下列項目：
 
-* 憑證的公開部分 (「.cer」  格式) 
+* 憑證的公開部分 (「.cer」  格式)
 * 憑證撤銷清單 (CRl) 所在的網際網路對應 URL
 
-憑證授權單位的結構描述看起來像這樣︰ 
+憑證授權單位的結構描述看起來像這樣︰
 
-    class TrustedCAsForPasswordlessAuth 
-    { 
+    class TrustedCAsForPasswordlessAuth
+    {
        CertificateAuthorityInformation[] certificateAuthorities;    
-    } 
+    }
 
-    class CertificateAuthorityInformation 
+    class CertificateAuthorityInformation
 
-    { 
-        CertAuthorityType authorityType; 
-        X509Certificate trustedCertificate; 
-        string crlDistributionPoint; 
-        string deltaCrlDistributionPoint; 
-        string trustedIssuer; 
-        string trustedIssuerSKI; 
+    {
+        CertAuthorityType authorityType;
+        X509Certificate trustedCertificate;
+        string crlDistributionPoint;
+        string deltaCrlDistributionPoint;
+        string trustedIssuer;
+        string trustedIssuerSKI;
     }                
 
-    enum CertAuthorityType 
-    { 
-        RootAuthority = 0, 
-        IntermediateAuthority = 1 
-    } 
+    enum CertAuthorityType
+    {
+        RootAuthority = 0,
+        IntermediateAuthority = 1
+    }
 
 設定時，您可以使用 [Azure Active Directory PowerShell 第 2 版](/powershell/azure/install-adv2?view=azureadps-2.0)：  
 
-1. 以系統管理員權限啟動 Windows PowerShell。 
+1. 以系統管理員權限啟動 Windows PowerShell。
 2. 安裝 Azure AD 模組。 您必須安裝 [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) 版或更新版本。  
-   
-        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 
-設定的第一個步驟，您需要與您的租用戶建立連線。 一旦您與租用戶的連線存在，您可以檢閱、新增、刪除、修改在您的目錄中定義的受信任的憑證授權單位。 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+
+設定的第一個步驟，您需要與您的租用戶建立連線。 一旦您與租用戶的連線存在，您可以檢閱、新增、刪除、修改在您的目錄中定義的受信任的憑證授權單位。
 
 ### <a name="connect"></a>連線
 
 若要與您的租用戶建立連線，使用 [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0) Cmdlet︰
 
-    Connect-AzureAD 
+    Connect-AzureAD
 
 
-### <a name="retrieve"></a>擷取 
+### <a name="retrieve"></a>擷取
 
-若要擷取您的目錄中所定義的受信任的憑證授權單位，使用 [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet。 
+若要擷取您的目錄中所定義的受信任的憑證授權單位，使用 [Get-AzureADTrustedCertificateAuthority](/powershell/module/azuread/get-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet。
 
-    Get-AzureADTrustedCertificateAuthority 
- 
+    Get-AzureADTrustedCertificateAuthority
+
 
 ### <a name="add"></a>加
 
-若要建立受信任的憑證授權單位，使用 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet 並將 **crlDistributionPoint** 屬性設為正確值： 
-   
-    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]" 
-    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation 
-    $new_ca.AuthorityType=0 
-    $new_ca.TrustedCertificate=$cert 
+若要建立受信任的憑證授權單位，使用 [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet 並將 **crlDistributionPoint** 屬性設為正確值：
+
+    $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"
+    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
+    $new_ca.AuthorityType=0
+    $new_ca.TrustedCertificate=$cert
     $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
-    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca 
+    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 
 ### <a name="remove"></a>移除
 
 若要移除受信任的憑證授權單位，使用 [Remove-AzureADTrustedCertificateAuthority](/powershell/module/azuread/remove-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet。
-   
-    $c=Get-AzureADTrustedCertificateAuthority 
-    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2] 
+
+    $c=Get-AzureADTrustedCertificateAuthority
+    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
 
 
 ### <a name="modfiy"></a>修改
 
 若要修改受信任的憑證授權單位，使用 [Set-AzureADTrustedCertificateAuthority](/powershell/module/azuread/set-azureadtrustedcertificateauthority?view=azureadps-2.0) Cmdlet。
 
-    $c=Get-AzureADTrustedCertificateAuthority 
-    $c[0].AuthorityType=1 
-    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+    $c=Get-AzureADTrustedCertificateAuthority
+    $c[0].AuthorityType=1
+    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]
 
 
 ## <a name="step-3-configure-revocation"></a>步驟 3︰設定撤銷
@@ -161,25 +161,25 @@ ms.lasthandoff: 10/11/2017
 
 為了確保撤銷持續有效，您必須將 CRL 的 [生效日期] 設定為 **StsRefreshTokenValidFrom** 所設值之後的日期，並確保有問題的憑證位於 CRL 中。
 
-下列步驟概述藉由設定 **StsRefreshTokenValidFrom** 欄位，來更新授權權杖並讓它失效的程序。 
+下列步驟概述藉由設定 **StsRefreshTokenValidFrom** 欄位，來更新授權權杖並讓它失效的程序。
 
-**設定撤銷：** 
+**設定撤銷：**
 
-1. 使用管理員認證連線到 MSOL 服務： 
-   
-        $msolcred = get-credential 
-        connect-msolservice -credential $msolcred 
+1. 使用管理員認證連線到 MSOL 服務：
 
-2. 擷取使用者目前的 StsRefreshTokensValidFrom 值︰ 
-   
-        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com` 
-        $user.StsRefreshTokensValidFrom 
+        $msolcred = get-credential
+        connect-msolservice -credential $msolcred
 
-3. 將目前的時間戳記設定為使用者新的 StsRefreshTokensValidFrom 值︰ 
-   
+2. 擷取使用者目前的 StsRefreshTokensValidFrom 值︰
+
+        $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`
+        $user.StsRefreshTokensValidFrom
+
+3. 將目前的時間戳記設定為使用者新的 StsRefreshTokensValidFrom 值︰
+
         Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
 
-您設定的日期必須是未來的日期。 如果不是未來的日期，則不會設定 **StsRefreshTokensValidFrom** 屬性。 如果是未來的日期，才會將 **StsRefreshTokensValidFrom** 設定為目前的時間 (而非 Set-MsolUser 命令指示的日期)。 
+您設定的日期必須是未來的日期。 如果不是未來的日期，則不會設定 **StsRefreshTokensValidFrom** 屬性。 如果是未來的日期，才會將 **StsRefreshTokensValidFrom** 設定為目前的時間 (而非 Set-MsolUser 命令指示的日期)。
 
 
 ## <a name="step-4-test-your-configuration"></a>步驟 4︰測試組態
@@ -196,21 +196,21 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="testing-office-mobile-applications"></a>測試 Office 行動應用程式
 
-**在您的行動 Office 應用程式上測試憑證式驗證︰** 
+**在您的行動 Office 應用程式上測試憑證式驗證︰**
 
 1. 在您的測試裝置上，安裝 Office 行動應用程式 (例如 OneDrive)。
-3. 啟動應用程式。 
-4. 輸入您的使用者名稱，然後選取想要使用的使用者憑證。 
+3. 啟動應用程式。
+4. 輸入您的使用者名稱，然後選取想要使用的使用者憑證。
 
-您應該可以順利登入。 
+您應該可以順利登入。
 
 ### <a name="testing-exchange-activesync-client-applications"></a>測試 Exchange ActiveSync 用戶端應用程式
 
-若要透過憑證式驗證來存取 Exchange ActiveSync (EAS)，必須要有包含用戶端憑證的 EAS 設定檔供應用程式使用。 
+若要透過憑證式驗證來存取 Exchange ActiveSync (EAS)，必須要有包含用戶端憑證的 EAS 設定檔供應用程式使用。
 
 EAS 設定檔必須包含下列資訊：
 
-- 要用於驗證的使用者憑證 
+- 要用於驗證的使用者憑證
 
 - EAS 端點 (例如，outlook.office365.com)
 
@@ -221,5 +221,4 @@ EAS 設定檔必須包含下列資訊：
 **測試憑證驗證：**  
 
 1. 設定應用程式中符合上述需求的 EAS 設定檔。  
-2. 開啟應用程式，然後確認正在同步處理郵件。 
-
+2. 開啟應用程式，然後確認正在同步處理郵件。

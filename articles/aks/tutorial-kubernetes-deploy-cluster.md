@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9e48d490b998fb57c604f2f5b2717e65d28dce1a
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7f9991d2254011080185a555f5351dce85f73704
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>部署 Azure Container Service (AKS) 叢集
 
@@ -38,6 +38,15 @@ Kubernetes 會提供容器化應用程式的分散式平台。 透過 AKS，可�
 
 在先前的教學課程中，已建立容器映像並上傳到 Azure Container Registry 執行個體。 如果您尚未完成這些步驟，而想要跟著做，請回到[教學課程 1 – 建立容器映像](./tutorial-kubernetes-prepare-app.md)。
 
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>啟用您 Azure 訂用帳戶的 AKS 預覽
+雖然 AKS 處於預覽狀態，但是建立新叢集需要訂用帳戶的功能旗標。 您可以為您想要使用之任意數量的訂用帳戶要求這項功能。 使用 `az provider register` 命令來註冊 AKS 提供者：
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
+
+在註冊之後，您現在已準備就緒可以使用 AKS 建立 Kubernetes 叢集。
+
 ## <a name="create-kubernetes-cluster"></a>建立 Kubernetes 叢集
 
 下列範例會在名為 `myResourceGroup` 的資源群組中，建立名為 `myK8sCluster` 的叢集。 我們已在[先前的教學課程](./tutorial-kubernetes-prepare-acr.md)中建立此資源群組。
@@ -50,12 +59,12 @@ az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count
 
 ## <a name="install-the-kubectl-cli"></a>安裝 kubectl CLI
 
-若要從用戶端電腦連線到 Kubernetes 叢集，請使用 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) (Kubernetes 命令列用戶端)。 
+若要從用戶端電腦連線到 Kubernetes 叢集，請使用 [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) (Kubernetes 命令列用戶端)。
 
 如果您是使用 Azure CloudShell，則已安裝 kubectl。 如果您想要在本機進行安裝，請執行下列命令：
 
 ```azurecli
-az aks install-cli 
+az aks install-cli
 ```
 
 ## <a name="connect-with-kubectl"></a>使用 kubectl 連線

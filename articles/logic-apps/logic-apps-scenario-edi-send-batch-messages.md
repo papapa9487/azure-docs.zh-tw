@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 8c794b8c919fe286c3917927a44d64aa84771f28
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>批次傳送 X12 訊息給交易夥伴
 
@@ -67,7 +67,7 @@ ms.lasthandoff: 10/11/2017
 
    * **批次名稱**：用來識別批次，在本例中為 "TestBatch"。
 
-   * **發行準則**：批次發行準則，此準則可以依據訊息計數、排程或同時依據這兩者。
+   * **發行準則**：批次發行準則，此準則可以訊息計數、排程作為基礎或同時以這兩者作為基礎。
    
      ![提供批次觸發程序詳細資料](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
 
@@ -113,6 +113,9 @@ ms.lasthandoff: 10/11/2017
 7.  既然您已建立接收者邏輯應用程式，現在便可儲存您的邏輯應用程式。
 
     ![儲存您的邏輯應用程式](./media/logic-apps-scenario-EDI-send-batch-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > 資料分割有 5,000 則訊息或 80 MB 的限制。 如果符合其中一個條件，即可能釋出批次 (即使不符合使用者定義的條件)。
 
 <a name="sender"></a>
 

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/11/2017
 ms.author: owend
-ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>透過 Azure 內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道的角色如同橋接器，在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同區域中的多項服務與單一閘道建立關聯。 
@@ -139,6 +139,9 @@ ms.lasthandoff: 10/11/2017
 **答**：修復金鑰可在災害發生後讓您有辦法移轉或復原閘道設定。
 
 ## <a name="troubleshooting"></a>疑難排解
+
+**問**：我嘗試在 Azure 中建立閘道資源，為什麼在閘道器執行個體清單中看不到我的閘道？ <br/>
+**答**：有兩個可能的原因。 第一個原因是在目前或其他訂用帳戶中已建立閘道資源。 若要排除這個可能性，從入口網站列舉**內部部署資料閘道**類型的資源。 在列舉所有資源時，確定已選取所有訂用帳戶。 請注意，資源一旦建立，閘道便不會出現在 [建立閘道資源] 入口網站體驗的閘道執行個體清單中。 第二種可能性是安裝此閘道之使用者的 Azure AD 身分識別，不同於登入 Azure 入口網站的使用者。 若要解決此問題，使用閘道安裝者的帳戶登入入口網站。
 
 **問**︰如何查看有哪些查詢正要傳送至內部部署資料來源？ <br/>
 **答**：您可以啟用查詢追蹤，其中包含要傳送的查詢。 完成疑難排解時，請務必將查詢追蹤變更回原始值。 讓查詢追蹤保持開啟會產生較大的記錄。

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b5233b7b667998f6fd3ff8a5db1946b120211c1
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="set-up-your-account"></a>設定帳戶
 
-當 IT 部門要求您開始使用雙步驟驗證時，您會看到一個畫面，指出 [系統管理員已要求您為這個帳戶設定額外的安全性驗證]：
+當貴公司支援人員要求您開始使用雙步驟驗證時，您會看到一個畫面，指出 [系統管理員已要求您為這個帳戶設定額外的安全性驗證]：
 
 ![設定](./media/multi-factor-authentication-end-user-first-time/first.png)
 

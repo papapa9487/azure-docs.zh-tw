@@ -1,6 +1,6 @@
 ---
-title: "設定負載平衡器分配模式 | Microsoft Docs"
-description: "如何設定 Azure 負載平衡器分配模式以支援來源 IP 同質性"
+title: "設定 Azure Load Balancer 分配模式 | Microsoft Docs"
+description: "如何設定 Azure Load Balancer 分配模式來支援來源 IP 同質性。"
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,57 +13,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: a6b3c346358e0aed4c60c4903932236edc237379
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d04a469c04553b7d6a14df7054ad5ef795baa500
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="configure-the-distribution-mode-for-load-balancer"></a>設定負載平衡器的分配模式
+# <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>設定 Azure Load Balancer 的分配模式
 
 [!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 ## <a name="hash-based-distribution-mode"></a>雜湊型分配模式
 
-預設的分配演算法是 5-tuple (來源 IP、來源連接埠、目的地 IP、目的地連接埠、通訊協定類型) 的雜湊，將流量對應至可用的伺服器。 它只在傳輸工作階段內提供綁定。 相同工作階段中的封包會被導向至負載平衡端點後面的相同資料中心 IP (DIP) 執行個體。 當用戶端從相同的來源 IP 啟動新的工作階段時，來源連接埠便會變更，進而導致流量進入不同的 DIP 端點。
+Azure Load Balancer 的預設分配模式是一個 5 Tuple 的雜湊。 此 Tuple 是由來源 IP、來源連接埠、目的地 IP、目的地連接埠及通訊協定類型所組成。 此雜湊可用來將流量對應至可用的伺服器，而演算法則只在傳輸工作階段內提供綁定。 系統會將相同工作階段中的封包，導向至負載平衡端點後的相同資料中心 IP (DIP) 執行個體。 當用戶端從相同的來源 IP 啟動新的工作階段時，來源連接埠便會變更，進而導致流量進入不同的 DIP 端點。
 
-![雜湊型負載平衡器](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
-
-圖 1 - 5-tuple 分配
+![5 Tuple 雜湊型分配模式](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>來源 IP 同質性模式
 
-我們有另一個名為「來源 IP 同質性」(也稱為工作階段同質性或用戶端 IP 同質性) 的分配模式。 您可以設定 Azure Load Balancer 使用 2-tuple (來源 IP、目的地 IP) 或 3 個 Tuple (來源 IP、目的地 IP 通訊協定)，來將流量對應至可用伺服器。 使用來源 IP 同質性之後，從相同用戶端電腦啟動的連線會進入相同的 DIP 端點。
+您也可以使用來源 IP 同質性分配模式來設定 Load Balancer。 這個分配模式也稱為工作階段同質性或用戶端 IP 同質性。 此模式會使用 2 Tuple (來源 IP 和目的地 IP) 或 3 Tuple (來源 IP、目的地 IP 及通訊協定類型) 雜湊將流量對應至可用的伺服器。 藉由使用來源 IP 同質性，從相同用戶端電腦起始的連線就會前往相同的 DIP 端點。
 
-下圖說明 2-tuple 的設定。 注意到 2-tuple 會透過負載平衡器執行到虛擬機器 1 (VM1)，並由 VM2 和 VM3 備份。
+下圖說明一個 2 Tuple 組態。 請注意此 2 Tuple 如何經由負載平衡器前往虛擬機器 1 (VM1)。 然後，VM2 和 VM3 會備份 VM1。
 
-![工作階段同質](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![2 Tuple 工作階段同質性分配模式](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
-圖 2 - 2-tuple 分配
+來源 IP 同質性模式可解決 Azure Load Balancer 與「遠端桌面閘道」(RD 閘道) 之間的不相容性。 藉由使用此模式，您將可以在單一雲端服務中建置「RD 閘道」伺服器陣列。
 
-來源 IP 同質性可解決 Azure Load Balancer 和遠端桌面 (RD) 閘道器之間的不相容性。 現在，您可以在單一雲端服務中建立 RD 閘道伺服器陣列。
+另一個使用案例是媒體上傳。 這會透過 UDP 來上傳資料，但會透過 TCP 來存取控制層：
 
-另一個使用案例是媒體上傳，媒體上傳會透過 UDP 進行資料上傳，但可透過 TCP 進入控制台：
-
-* 用戶端首先會對負載平衡的公用位址啟動 TCP 工作階段，接著被導向至特定 DIP，此通道便會保持作用中狀態以監視連接健康狀態
-* 來自相同用戶端電腦的新 UDP 工作階段會在相同的負載平衡公用端點中啟動，我們希望此連接會像先前的 TCP 連接一樣被導向至相同的 DIP 端點，以便在高輸送量時執行媒體上傳，並同時透過 TCP 維持控制通道。
+* 用戶端對負載平衡公用位址起始一個 TCP 工作階段，然後被導向到特定的 DIP。 通道會保持作用中來監視連線健康情況。
+* 相同的用戶端電腦對相同的負載平衡公用端點起始一個新的 UDP 工作階段。 該連線會被導向到與先前 TCP 連線相同的 DIP 端點。 媒體上傳既能以高輸送量的方式執行，同時又可透過 TCP.維護控制通道。
 
 > [!NOTE]
-> 當負載平衡集變更時 (移除或新增虛擬機器)，則會重新計算用戶端要求的分配。 您無法確定現有用戶端的新連接最後都會抵達相同的伺服器。 此外，使用來源 IP 同質性分配模式可能會導致流量的不相等分配。 在 Proxy 後方執行的用戶端可能會被視為唯一用戶端應用程式。
+> 當藉由移除或新增虛擬機器來變更負載平衡集時，系統會重新計算用戶端要求的分配。 您無法確定來自現有用戶端的新連線最後都會抵達相同的伺服器。 此外，使用來源 IP 同質性分配模式可能會導致流量的分配不相等。 在 Proxy 後方執行的用戶端可能會被視為一個獨特的用戶端應用程式。
 
-## <a name="configuring-source-ip-affinity-settings-for-load-balancer"></a>進行負載平衡器的來源 IP 同質性設定
+## <a name="configure-source-ip-affinity-settings"></a>設定來源 IP 同質性設定
 
-針對虛擬機器，您可以使用 PowerShell 來變更逾時設定：
-
-將 Azure 端點新增到虛擬機器，並設定負載平衡器分配模式
+針對虛擬機器，請使用 Azure PowerShell 來變更逾時設定。 將 Azure 端點新增到虛擬機器，然後設定負載平衡器分配模式：
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-LoadBalancerDistribution 可設定為 sourceIP 以使用 2-tuple (來源 IP、目的地 IP) 負載平衡、設定為 sourceIPProtocol 以使用 3-tuple (來源 IP、目的地 IP、通訊協定) 負載平衡，或設定為 none 以使用預設的 5-tuple 負載平衡行為。
+請設定 `LoadBalancerDistribution` 元素的值來達到所需的負載平衡量。 如果是 2 Tuple (來源 IP 和目的地 IP) 負載平衡，請指定 sourceIP。 如果是 3 Tuple (來源 IP、目的地 IP 及通訊協定類型) 負載平衡，請指定 sourceIPProtocol。 如果是預設的 5 Tuple 負載平衡行為，請指定 none。
 
-使用下列命令以擷取端點負載平衡器分配模式組態：
+使用下列設定來擷取端點負載平衡器分配模式組態：
 
     PS C:\> Get-AzureVM –ServiceName MyService –Name MyVM | Get-AzureEndpoint
 
@@ -85,19 +79,20 @@ LoadBalancerDistribution 可設定為 sourceIP 以使用 2-tuple (來源 IP、�
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-如果 LoadBalancerDistribution 項目不存在，則 Azure 負載平衡器會使用預設的 5-tuple 演算法。
+當 `LoadBalancerDistribution` 元素不存在時，Azure Load Balancer 會使用預設的 5 Tuple 演算法。
 
-### <a name="set-the-distribution-mode-on-a-load-balanced-endpoint-set"></a>在負載平衡端點集上設定分配模式
+### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>在負載平衡端點集上設定分配模式
 
-如果端點是負載平衡端點集的一部分，就必須在負載平衡端點集上設定分配模式：
+當端點是負載平衡端點集的一部分時，必須在負載平衡端點集上設定分配模式：
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol TCP -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 –LoadBalancerDistribution sourceIP
 ```
 
-### <a name="cloud-service-configuration-to-change-distribution-mode"></a>可變更分配模式的雲端服務組態
+### <a name="configure-distribution-mode-for-cloud-services-endpoints"></a>設定雲端服務端點的分配模式
 
-您可以利用 Azure SDK for .NET 2.5 來更新雲端服務。 雲端服務的端點設定是設定於 .csdef 中。 若要更新雲端服務部署的負載平衡器分配模式，部署升級是必要的。
+使用「適用於 .NET 2.5 的 Azure SDK」來更新您的雲端服務。 「雲端服務」的端點設定是在 .csdef 檔案中進行的。 若要更新「雲端服務」部署的負載平衡器分配模式，必須進行部署升級。
+
 適用於端點設定的 .csdef 變更範例如下：
 
 ```xml
@@ -120,11 +115,13 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
 
 ## <a name="api-example"></a>API 範例
 
-您可以使用服務管理 API 來設定負載平衡器分配。 請務必新增已設定為 `2014-09-01` 版或更高版本的 `x-ms-version` 標頭。
+下列範例說明如何針對某個部署中的指定負載平衡集，重新設定負載平衡器分配模式。 
 
-### <a name="update-the-configuration-of-the-specified-load-balanced-set-in-a-deployment"></a>在部署中更新指定負載平衡集的設定
+### <a name="change-distribution-mode-for-deployed-load-balanced-set"></a>變更已部署之負載平衡集的分配模式
 
-#### <a name="request-example"></a>要求範例
+使用 Azure 傳統部署模型來變更現有的部署組態。 新增 `x-ms-version` 標頭，然後將值設定成 2014-09-01 版或更新版本。
+
+#### <a name="request"></a>要求
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>?comp=UpdateLbSet   x-ms-version: 2014-09-01
     Content-Type: application/xml
@@ -147,9 +144,9 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)、sourceIPProtocol (適用於 3-tuple 同質性) 或 none (適用於沒有同質性。 也就是 5-tuple)
+如先前所述，針對 2 Tuple 同質性，請將 `LoadBalancerDistribution` 元素設定成 sourceIP，針對 3 Tuple 同質性，請設定成 sourceIPProtocol，或針對無同質性 (5 Tuple 同質性)，則設定成 none。
 
-#### <a name="response"></a>Response
+#### <a name="response"></a>回應
 
     HTTP/1.1 202 Accepted
     Cache-Control: no-cache
@@ -161,8 +158,6 @@ LoadBalancerDistribution 的值可以是 sourceIP (適用於 2-tuple 同質性)�
 
 ## <a name="next-steps"></a>後續步驟
 
-[內部負載平衡器概觀](load-balancer-internal-overview.md)
-
-[開始設定網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)
-
-[設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)
+* [Azure 內部負載平衡器概觀](load-balancer-internal-overview.md)
+* [開始設定網際網路對應負載平衡器](load-balancer-get-started-internet-arm-ps.md)
+* [設定負載平衡器的閒置 TCP 逾時設定](load-balancer-tcp-idle-timeout.md)

@@ -11,15 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>使用規則運算式在 Log Analytics 中篩選記錄搜尋
+
+>[!NOTE]
+> 本文說明在 Log Analytics 中使用舊版查詢語言的規則運算式。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[語言中的規則運算式文件](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax)。
+
 
 [記錄搜尋](log-analytics-log-searches.md)可讓您從 Log Analytics 儲存機制中擷取資訊。  [篩選條件運算式](log-analytics-search-reference.md#filter-expressions)可讓您根據特定準則篩選搜尋的結果。  **RegEx** 關鍵字可讓您指定此篩選器的規則運算式。  
 

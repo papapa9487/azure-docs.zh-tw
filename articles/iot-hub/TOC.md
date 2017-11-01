@@ -86,6 +86,7 @@
 ### 從裝置上傳檔案
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### 開始使用攣生裝置
 #### [Node.js 後端/Node.js 裝置](iot-hub-node-node-twin-getstarted.md)
 #### [.NET 後端/Node.js 裝置](iot-hub-csharp-node-twin-getstarted.md)

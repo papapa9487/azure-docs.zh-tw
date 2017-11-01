@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f85f7077e5227818d062d114370e7344601a998e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95ef2099cb16bcfd550ce2799428f1a16031f535
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="security-policies-overview"></a>安全性原則概觀
 本文件提供資訊安全中心的安全性原則概觀。
@@ -29,7 +29,7 @@ ms.lasthandoff: 10/11/2017
 資訊安全中心原則包含下列元件：
 
 - 資料收集：代理程式佈建和[資料收集](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)設定。
-- 安全性原則：[Azure 原則](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)，用於決定哪些控制項由資訊安全中心監視及建議 (在資訊安全中心編輯，或使用 Azure 原則以建立新的定義、定義額外的原則，以及在整個管理群組指派原則)。
+- 安全性原則：決定哪些控制項由資訊安全中心監視及建議 (在資訊安全中心編輯[安全性原則](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies)，或使用 [Azure 原則](security-center-azure-policy.md)在有限的預覽中建立新的定義、定義額外的原則，以及在整個管理群組指派原則)。
 - 電子郵件通知：安全性連絡人和[電子郵件通知](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)設定。
 - 定價層：免費或標準[定價選項](https://docs.microsoft.com/azure/security-center/security-center-pricing)，用來決定哪個資訊安全中心功能可用於範圍中的資源 (可以針對訂用帳戶、資源群組和工作區指定)。 
 

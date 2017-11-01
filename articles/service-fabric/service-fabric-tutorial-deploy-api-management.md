@@ -9,16 +9,16 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>使用 Service Fabric 部署 API 管理
 本教學課程是一個系列的第二部分。 本教學課程示範如何使用 Service Fabric 來設定 [Azure API 管理](../api-management/api-management-key-concepts.md)，以將流量路由傳送至 Service Fabric 中的後端服務。  當您完成時，就已將 API 管理部署至 VNET，已設定 API 作業來將流量傳送到後端無狀態服務。 若要深入了解搭配 Service Fabric 的「Azure API 管理」案例，請參閱[概觀](service-fabric-api-management-overview.md)一文。
@@ -42,11 +42,11 @@ ms.lasthandoff: 10/11/2017
 - 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)或 [Azure CLI 2.0](/cli/azure/install-azure-cli)。
 - 在 Azure 上，建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)或 [Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+- 如果您部署 Windows 叢集，請設定 Windows 開發環境。 安裝 [Visual Studio 2017](http://www.visualstudio.com) 和 **Azure 開發**、**ASP.NET 和 Web 開發**以及 **.NET Core 跨平台開發**工作負載。  然後設定 [.NET 開發環境](service-fabric-get-started.md)。
+- 如果您部署 Linux 叢集，請在 [Linux](service-fabric-get-started-linux.md) 或 [MacOS](service-fabric-get-started-mac.md) 上設定 Java 開發環境。  安裝 [Service Fabric CLI](service-fabric-cli.md)。 
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>登入 Azure 帳戶並選取您的訂用帳戶
-本教學課程使用 [Azure PowerShell][azure-powershell]。 開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
- 
-登入您的 Azure 帳戶並選取您的訂用帳戶：
+請先登入您的 Azure 帳戶並選取您的訂用帳戶，再執行 Azure 命令。
 
 ```powershell
 Login-AzureRmAccount
@@ -99,7 +99,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
  2. 選取 [啟用 API 管理 REST API] 核取方塊。
  3. 記下**管理 API URL**，我們稍後將用它來設定 Service Fabric 後端。
  4. 選取到期日和金鑰，然後按一下靠近頁面底部的 [產生] 按鈕來產生**存取權杖**。
- 5. 複製**存取權杖**並將其儲存。  我們將在後續步驟中使用此存取權杖。 請注意，這與主要金鑰和次要金鑰不同。
+ 5. 複製**存取權杖**並將其儲存。  我們會在後續步驟中使用此存取權杖。 請注意，這與主要金鑰和次要金鑰不同。
 
 #### <a name="upload-a-service-fabric-client-certificate"></a>上傳 Service Fabric 用戶端憑證
 
@@ -193,19 +193,17 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>部署 Service Fabric 後端服務
 
-既然您已將 Service Fabric 設定為「API 管理」的後端，現在便可為 API 撰寫將流量傳送到 Service Fabric 服務的後端原則。 但是您必須先有一個在 Service Fabric 中執行的服務來接受要求。
+既然您已將 Service Fabric 設定為「API 管理」的後端，現在便可為 API 撰寫將流量傳送到 Service Fabric 服務的後端原則。 但是您必須先有一個在 Service Fabric 中執行的服務來接受要求。  如果您先前已建立 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)，請部署 .NET Service Fabric 服務。  如果您先前已建立 [Linux 叢集](service-fabric-tutorial-create-vnet-and-linux-cluster.md)，請部署 Java Service Fabric 服務。
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>建立具有 HTTP 端點的 Service Fabric 服務
+### <a name="deploy-a-net-service-fabric-service"></a>部署 .NET Service Fabric 服務
 
-針對本教學課程，我們將使用預設的 Web API 專案範本來建立一個基本的無狀態「ASP.NET Core 可靠服務」。 這會為您的服務建立一個 HTTP 端點，而您將會透過「Azure API 管理」來公開此服務：
+針對本教學課程，我們會使用預設的 Web API 專案範本來建立一個基本的無狀態「ASP.NET Core 可靠服務」。 這會為您的服務建立一個 HTTP 端點，而您會透過「Azure API 管理」來公開此服務：
 
 ```
 /api/values
 ```
 
-請從[為您的 ASP.NET Core 開發設定開發環境](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core)開始著手。
-
-設定完開發環境之後，請以「系統管理員」身分啟動 Visual Studio，然後建立 ASP.NET Core 服務：
+請以「系統管理員」身分啟動 Visual Studio，然後建立 ASP.NET Core 服務：
 
  1. 在 Visual Studio 中，選取 [檔案] -> [新增專案]。
  2. 選取 [雲端] 底下的 [Service Fabric 應用程式] 範本，然後將它命名為 **"ApiApplication"**。
@@ -231,11 +229,47 @@ print(response.text)
     ["value1", "value2"]`
     ```
 
-    這是您將透過 Azure 中的「API 管理」公開的端點。
+    這是您會透過 Azure 中的「API 管理」公開的端點。
 
- 7. 最後，將應用程式部署至您在 Azure 中的叢集。 [使用 Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box)，在 [應用程式] 專案上按一下滑鼠右鍵，然後選取 [發行]。 提供您的叢集端點 (例如 `mycluster.westus.cloudapp.azure.com:19000`) 以將應用程式部署至您在 Azure 中的 Service Fabric 叢集。
+ 7. 最後，將應用程式部署至您在 Azure 中的叢集。 [使用 Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box)，在 [應用程式] 專案上按一下滑鼠右鍵，然後選取 [發行]。 提供您的叢集端點 (例如 `mycluster.southcentralus.cloudapp.azure.com:19000`) 以將應用程式部署至您在 Azure 中的 Service Fabric 叢集。
 
 一個名為 `fabric:/ApiApplication/WebApiService` 的 ASP.NET Core 無狀態服務現在應該正在 Azure 中的 Service Fabric 叢集內執行。
+
+### <a name="create-a-java-service-fabric-service"></a>建立 Java Service Fabric 服務
+針對此教學課程，我們會部署將回應訊息回應給使用者的基本 Web 伺服器。 回應伺服器範例應用程式會為您的服務包含 HTTP 端點，而您會透過「Azure API 管理」來公開此服務。
+
+1. 複製 Java 開始使用範例。
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. 編輯 Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml。 更新端點，讓服務在連接埠 8081 接聽。
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. 儲存 ServiceManifest.xml，然後建置 EchoServer1.0 應用程式。
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. 將應用程式部署到叢集。
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   一個名為 `fabric:/EchoServerApplication/EchoServerService` 的 Java 無狀態服務現在應該正在 Azure 中的 Service Fabric 叢集內執行。
+
+5. 開啟瀏覽器然後輸入 http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage，您應該會看到 "[version 1.0]Hello World !!!" 顯示。
+
 
 ## <a name="create-an-api-operation"></a>建立 API 作業
 
@@ -253,7 +287,7 @@ print(response.text)
  
 4. 從 API 清單中選取 [Service Fabric 應用程式]，然後按一下 [+ 新增作業] 以新增前端 API 作業。 填寫值：
     
-    - **URL**：選取 [GET] 並提供 API 的 URL 路徑。 本教學課程使用 "/api/values"。  根據預設，這裡指定的 URL 路徑是傳送到後端 Service Fabric 服務的 URL 路徑。 如果您在這裡使用與您服務所用相同的 URL 路徑 (在此例中為 "/api/values")，則無須進一步修改，作業即可運作。 您也可以在這裡指定與您後端 Service Fabric 服務所用不同的 URL 路徑，在此情況下，您稍後也將需要在作業原則中指定路徑重寫。
+    - **URL**：選取 [GET] 並提供 API 的 URL 路徑。 本教學課程使用 "/api/values"。  根據預設，這裡指定的 URL 路徑是傳送到後端 Service Fabric 服務的 URL 路徑。 如果您在這裡使用與您服務所用相同的 URL 路徑 (在此例中為 "/api/values")，則無須進一步修改，作業即可運作。 您也可以在這裡指定與您後端 Service Fabric 服務所用不同的 URL 路徑，在此情況下，您稍後也需要在作業原則中指定路徑重寫。
     - **顯示名稱**：為 API 提供任何名稱。 本教學課程使用 "Values"。
 
 5. 按一下 [儲存] 。

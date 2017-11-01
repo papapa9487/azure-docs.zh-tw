@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 67fbc1f18dd168e2fad8011bc30b895894d98942
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01016294c3ef6fd904a7582e4f9c16ef19330a20
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -196,7 +196,7 @@ public static string SayHello([ActivityTrigger] string name)
 * `connectionName` - 包含儲存體連接字串的應用程式設定名稱。 這個連接字串代表的儲存體帳戶，必須是目標協調器函式使用的相同帳戶。 如果未指定，則會使用函式應用程式的預設連接字串。
 
 > [!NOTE]
-> 在大部分情況下，建議省略這些屬性，並依賴預設行為。
+> 在大部分情況下，建議您省略這些屬性，並依賴預設行為。
 
 ### <a name="client-usage"></a>用戶端使用方式
 

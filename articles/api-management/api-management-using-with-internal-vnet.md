@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: badfee15fba5822b383b09a6cc29d9944e64e007
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a496059d1959a6c9e762e70dfbeff9bf961c4d4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在內部虛擬網路中使用 Azure API 管理服務
 在 Azure 虛擬網路中，Azure API 管理可以管理無法在網際網路上存取的 API。 有許多 VPN 技術可讓您建立連線。 API 管理在虛擬網路內有兩種主要的部署模式：
@@ -45,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 + **Azure API 管理執行個體**。 如需詳細資訊，請參閱[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 
 ## <a name="enable-vpn"> </a>在內部虛擬網路中建立 API 管理
-內部虛擬網路中的 API 管理服務裝載於內部負載平衡器 (ILB) 後面。 ILB 的 IP 位址落在 [RFC1918](http://www.faqs.org/rfcs/rfc1918.html) 範圍內。  
+內部虛擬網路中的 API 管理服務裝載於內部負載平衡器 (ILB) 後面。
 
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>使用 Azure 入口網站啟用虛擬網路連線
 
@@ -69,7 +69,7 @@ ms.lasthandoff: 10/11/2017
 * 將現有的 API 管理服務部署在虛擬網路內：使用 Cmdlet [Update-AzureRmApiManagementDeployment](/powershell/module/azurerm.apimanagement/update-azurermapimanagementdeployment) 將現有的 API 管理服務移至虛擬網路內，並設定為使用內部虛擬網路類型。
 
 ## <a name="apim-dns-configuration"></a> DNS 設定
-當 API 管理處於外部虛擬網路模式時，DNS 是由 Azure 管理。 若是內部虛擬網路模式，您必須管理自己的 DNS。
+當 API 管理處於外部虛擬網路模式時，DNS 是由 Azure 管理。 若是內部虛擬網路模式，您必須管理自己的路由。
 
 > [!NOTE]
 > API 管理服務不會接聽 IP 位址傳來的要求。 只有當要求指明其服務端點上所設定的主機名稱時，才會有所回應。 這些端點包括閘道、開發人員入口網站、發行者入口網站，直接管理端點和 Git。
@@ -105,6 +105,11 @@ ms.lasthandoff: 10/11/2017
 
    2. 然後，您可以在 DNS 伺服器中建立記錄，以存取只能從虛擬網路存取的端點。
 
+## <a name="routing"> </a> 路由
++ 子網路範圍中負載平衡的私人虛擬 IP 位址將會保留，而且會用來存取來自 VNET 內的 API 管理服務端點。
++ 負載平衡的公用 IP 位址 (VIP) 也會加以保留，用來存取僅通過連接埠 3443 的管理服務端點。
++ 子網路 IP 範圍的 IP (DIP) 位址會用來存取 VNET 中的資源，而公用 IP 位址 (VIP) 會用來存取 VNET 之外的資源。
++ 您可以在 Azure 入口網站的 [概觀/基本資訊] 刀鋒視窗上找到負載平衡的公用和私人 IP 位址。
 
 ## <a name="related-content"> </a>相關內容
 若要深入了解，請參閱下列文章：

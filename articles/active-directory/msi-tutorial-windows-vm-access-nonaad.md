@@ -3,7 +3,7 @@ title: "使用 Windows VM MSI 存取 Azure Key Vault"
 description: "此教學課程引導您使用 Windows VM 受管理的服務身分識別 (MSI) 來存取 Azure Key Vault 的程序。"
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>使用 Windows VM 的受管理服務身分識別 (MSI) 來存取 Azure Key Vault 
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Windows VM 受管理的服務身分識別 (MSI) 來存取 Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Windows 虛擬機器啟用受管理的服務身分識別 (MSI)，並使用身分識別存取 Azure Key Vault。 受管理的服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您將了解如何：
+本教學課程會示範如何為 Windows 虛擬機器啟用受管理的服務識別 (MSI)，然後使用該識別來存取 Azure Key Vault。 作為啟動程序，金鑰保存庫可讓您的用戶端應用程式，接著使用密碼存取未受 Azure Active Directory (AD) 保護的資源。 受管理的服務識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 
+
+您會了解如何：
 
 
 > [!div class="checklist"]
@@ -68,7 +70,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>授與 VM 存取權以取得 Key Vault 中的密碼 
  
-您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。  但是，並非所有 Azure 服務都支援 Azure AD 驗證。 若要使用 MSI 搭配不支援 Azure AD 驗證的服務，您可以在 Azure Key Vault 中儲存這些服務所需的認證，並使用 MSI 來驗證 Key Vault 以擷取認證。 
+您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure AD 驗證的資源進行驗證。  但是，並非所有 Azure 服務都支援 Azure AD 驗證。 若要使用 MSI 搭配那些服務，請將服務認證儲存在 Azure Key Vault 中，並使用 MSI 存取 Key Vault 來擷取認證。 
 
 首先，我們需要建立 Key Vault 並將 VM 的身分識別存取權授與 Key Vault。   
 
@@ -86,20 +88,20 @@ ms.lasthandoff: 10/11/2017
 
 接下來，將密碼新增至 Key Vault，好讓您稍後可以使用在 VM 中執行的程式碼來擷取密碼： 
 
-1. 選取 [所有資源]，然後尋找並選取您剛才建立的 Key Vault。 
+1. 選取 [所有資源]，然後尋找並選取您所建立的 Key Vault。 
 2. 選取 [密碼]，然後按一下 [新增]。 
 3. 從 [上傳選項] 中選取 [手動]。 
 4. 輸入密碼的名稱和值。  值可以是任何您想要的項目。 
 5. 將啟動日期和到期日期保留空白，並將 [啟用] 設定為 [是]。 
 6. 按一下 [建立] 來建立密碼。 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的祕密  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的密碼  
 
-現在，您已建立密碼、將其儲存在 Key Vault 中，並將您的 VM MSI 存取權授與 Key Vault，您便可以撰寫程式碼以在執行階段擷取祕密。  為了保持此範例的簡單性，我們會使用 PowerShell 來使用簡單的 REST 呼叫。  如果您尚未安裝 PowerShell，請在[這裡](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1)下載。
+如果您未安裝 PowerShell 4.3.1 或更新版本，則必須[下載並安裝最新版](https://docs.microsoft.com/powershell/azure/overview)。
 
 首先，我們會使用 VM 的 MSI 來取得存取權杖來驗證 Key Vault：
  
-1. 在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀]中按一下 [連線]。
+1. 在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。
 2. 輸入您建立 **Windows VM** 時新增的**使用者名稱**和**密碼**。  
 3. 現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 PowerShell。  
 4. 在 PowerShell 中，叫用租用戶上的 Web 要求，以在 VM 的特定連接埠中取得本機主機的權杖。  

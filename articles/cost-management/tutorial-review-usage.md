@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ebffb41211e443cc1619df46f50247945cc57c
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="review-usage-and-costs"></a>檢閱使用量和成本
 
@@ -43,11 +43,13 @@ Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨�
 
 ![經過篩選的服務](./media/tutorial-review-usage/actual-cost02.png)
 
-在上述範例中，自 2017年 8 月 31 日起，金額支出會比之前低。 該成本趨勢會在各種服務中持續約 9 天。 接著會如往常一般繼續有更多的消費。 不過，資料行太多可能模糊明顯的趨勢。 您可以將報表檢視變更為折線圖或區域圖，來查看以其他檢視顯示的資料。 下圖會更清楚地顯示趨勢。
+在上述範例中，自 2017年 8 月 31 日起，金額支出會比之前低。 該成本趨勢會在各種服務中持續約 9 天。 接著會如往常一般繼續有更多的消費。 不過，資料行太多可能模糊明顯的趨勢。 您可以將報表檢視變更為折線圖或區域圖，來查看以其他檢視顯示的資料。 下圖可更加清楚地顯示趨勢。
 
 ![報表中的趨勢](./media/tutorial-review-usage/actual-cost03.png)
 
 在此範例中，您清楚看到 Azure 儲存體成本自 2017年 8 月 31 日起會降低，而其他 Azure 服務的消費則持平。 造成消費降低的原因為何？ 在此範例中，有些員工休假而未使用儲存體服務。
+
+若要觀看有關追蹤使用量和成本趨勢的教學指導影片，請參閱[使用 Cloudyn 的 Azure 成本管理分析您的雲端計費資料與時間](https://youtu.be/7LsVPHglM0g)。
 
 ## <a name="detect-usage-inefficiencies"></a>偵測使用效率不足的情況
 
@@ -55,7 +57,7 @@ Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨�
 
 組織首次將資源移入雲端時，一個影響組織的常見問題就是其虛擬化策略。 它們通常使用類似於為內部部署虛擬環境建立虛擬機器所使用的方法。 此外也假設藉由將其內部部署 VM 依現況移至雲端可降低成本。 不過，該方法不太可能會降低成本。
 
-問題在於已支付其現有基礎結構的費用。 如果想要，使用者可建立並執行非常大量的 VM (這些 VM 可以閒置或不閒置且影響很小)。 將非常大量或閒置的 VM 移至雲端可能會*增加*成本。 當您與雲端服務提供者簽訂合約時，資源的成本配置很重要。 您必須針對是否完整使用資源的認可來支付費用。
+問題在於已支付其現有基礎結構的費用。 如果想要，使用者可建立並執行大量的 VM (這些 VM 可以閒置或不閒置且影響不大)。 將大量或閒置的 VM 移至雲端可能會「增加」成本。 當您與雲端服務提供者簽訂合約時，資源的成本配置很重要。 您必須針對是否完整使用資源的認可來支付費用。
 
 符合成本效益的大小調整建議報表藉由比對 VM 執行個體類型容量與其 CPU 和記憶體使用量歷程記錄資料，來識別每年可能省下的費用。  
 
@@ -70,6 +72,8 @@ Cloudyn 的 Azure 成本管理顯示使用量和成本，讓您可以追蹤趨�
 按一下 [List of Candidates] \(候選項目清單) 旁的加號，以檢視 VM 執行個體識別碼。
 
 ![候選項目清單](./media/tutorial-review-usage/sizing03.png)
+
+若要觀看有關偵測使用效益不彰情形的教學指導影片，請參閱[在 Cloudyn 的 Azure 成本管理中最佳化 VM 大小](https://youtu.be/1xaZBNmV704)。
 
 ## <a name="create-alerts-for-unusual-spending"></a>針對不尋常的消費建立警示
 

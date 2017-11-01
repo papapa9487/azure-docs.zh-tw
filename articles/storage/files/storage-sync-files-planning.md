@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d626f71aa21cea562ef6c9554c05e6de027e7f4d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>規劃 Azure 檔案同步 (預覽) 部署
 Azure 檔案同步 (預覽) 可讓您將貴組織的檔案共用集中在「Azure 檔案」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -45,11 +45,14 @@ Azure 檔案同步代理程式是可下載的套件，可同步處理 Windows Se
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
+### <a name="server-endpoint"></a>伺服器端點
+伺服器端點代表已註冊伺服器上的特定位置，例如伺服器磁碟區上的資料夾或磁碟區的根目錄。 相同磁碟區中可以有多個伺服器端點，但前提是其命名空間未重疊 (例如 F:\sync1 和 F:\sync2)。 您可以為每個伺服器端點個別設定雲端階層處理原則。 如果您將內含一組現有檔案的伺服器位置當作伺服器端點新增至同步群組，那些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
+
 ### <a name="cloud-endpoint"></a>雲端端點
 雲端端點是 Azure 檔案共用，屬於同步群組的一部分。 整個 Azure 檔案共用會同步，而且 Azure 檔案共用只能是一個雲端端點的成員，因此會是一個同步群組。 如果您將內含一組現有檔案的 Azure 檔案共用當作雲端端點新增至同步群組，這些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
 
-### <a name="server-endpoint"></a>伺服器端點
-伺服器端點代表已註冊伺服器上的特定位置，例如伺服器磁碟區上的資料夾或磁碟區的根目錄。 相同磁碟區中可以有多個伺服器端點，但前提是其命名空間未重疊 (例如 F:\sync1 和 F:\sync2)。 您可以為每個伺服器端點個別設定雲端階層處理原則。 如果您將內含一組現有檔案的伺服器位置當作伺服器端點新增至同步群組，這些檔案會與同步群組中其他端點上已存在的任何其他檔案合併。
+> [!Important]  
+> Azure 檔案同步支援直接對 Azure 檔案共用進行變更，但請注意，在 Azure 檔案共用上進行的任何變更必須先經過雲端端點每 24 小時僅起始一次的 Azure 檔案同步變更偵測工作探索。 如需詳細資訊，請參閱 [Azure 檔案服務常見問題集](storage-files-faq.md#afs-change-detection)。
 
 ### <a name="cloud-tiering"></a>雲端階層處理 
 雲端階層處理是 Azure 檔案同步的選擇性功能，可讓不常使用或存取的檔案分層到 Azure 檔案服務。 將檔案分層時，Azure 檔案同步檔案系統篩選器 (StorageSync.sys) 會將本機檔案取代為資料指標，或代表 Azure 檔案服務中檔案 URL 的重新分析點。 階層式檔案在 NTFS 中具有「離線」屬性集，因此協力廠商應用程式可以識別階層式檔案。 當使用者開啟階層式檔案時，Azure 檔案同步會順暢地從 Azure 檔案服務重新叫用檔案資料，使用者不需要知道檔案未儲存在本機系統上。 這項功能也稱為階層式存放裝置管理 (HSM)。

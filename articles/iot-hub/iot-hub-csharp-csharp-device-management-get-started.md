@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: v-jamebr
-ms.openlocfilehash: 8cb61028d60c238927e46aa75d4d6ca4b4eb64e3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08ff972349c7763d71acdd11ce5a1359403e1fa0
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="get-started-with-device-management-netnet"></a>開始使用裝置管理 (.NET/.NET)
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/11/2017
 
     ![新的 Visual C# Windows 傳統桌面專案][img-createserviceapp]
 
-2. 在 方案總管 中，以滑鼠右鍵按一下 **TriggerReboot** 專案，然後按一下管理 NuGet 套件。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 **TriggerReboot** 專案，然後按一下 [管理 NuGet 套件]。
 3. 在 [Nuget 套件管理員] 視窗中選取 [瀏覽]、搜尋 **microsoft.azure.devices**、選取 [安裝] 以安裝 **Microsoft.Azure.Devices** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 服務 SDK][lnk-nuget-service-sdk] NuGet 套件與其相依項目，並新增對它的參考。
 
     ![NuGet 套件管理員視窗][img-servicenuget]
@@ -61,12 +61,12 @@ ms.lasthandoff: 10/11/2017
         using Microsoft.Azure.Devices;
         using Microsoft.Azure.Devices.Shared;
         
-5. 將下列欄位新增到 **Program** 類別。 將預留位置的值替換為您在上一節中為中樞建立的 IoT 中樞連接字串和目標裝置。
+5. 將下列欄位新增到 **Program** 類別。 將預留位置的值替換為您在＜建立 IoT 中樞＞一節中為中樞建立的 IoT 中樞連接字串。 
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
-        static string targetDevice = "{deviceIdForTargetDevice}";
+        static string targetDevice = "myDeviceId";
         
 6. 將下列方法新增至 **Program** 類別。  此程式碼會取得用於重新啟動裝置的裝置對應項，並輸出報告屬性。
    
@@ -113,7 +113,7 @@ ms.lasthandoff: 10/11/2017
    
     ![新的 Visual C# Windows 傳統裝置應用程式][img-createdeviceapp]
     
-2. 在 方案總管 中，於 SimulateManagedDevice 專案上按一下滑鼠右鍵，然後按一下管理 NuGet 套件。
+2. 在 [方案總管] 中，於 [SimulateManagedDevice] 專案上按一下滑鼠右鍵，然後按一下 [管理 NuGet 套件]。
 3. 在 [NuGet 套件管理員] 視窗中，選取 [瀏覽]，並搜尋 **microsoft.azure.devices.client**。 選取 [安裝] 來安裝 **Microsoft.Azure.Devices.Client** 套件，並接受使用規定。 此程序會下載及安裝 [Azure IoT 裝置 SDK][lnk-nuget-client-sdk] NuGet 套件與其相依項目，並新增對它的參考。
    
     ![NuGet 套件管理員視窗用戶端應用程式][img-clientnuget]
@@ -181,7 +181,7 @@ ms.lasthandoff: 10/11/2017
             Console.WriteLine("Error in sample: {0}", ex.Message);
         }
         
-8. 在 Visual Studio 的 方案總管 中，以滑鼠右鍵按一下您的方案，然後按一下設定啟始專案...。選取 單一啟始專案，然後選取下拉式功能表中的 SimulateManagedDevice 專案。 建置方案。       
+8. 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下您的方案，然後按一下 [設定啟始專案...]。選取 [單一啟始專案]，然後選取下拉式功能表中的 [SimulateManagedDevice] 專案。 建置方案。       
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在實際程式碼中，您應該如 MSDN 文章[暫時性錯誤處理][lnk-transient-faults]所建議，實作重試原則 (例如指數型輪詢)。

@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fca6023fedcfc64ecfe66c0f4ed60a495953cfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 ## <a name="overview"></a>概觀
@@ -40,7 +40,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 | 向上調整至更大的機器而不重新部署 |X | | |X | |
 | Web 伺服器執行個體會共用內容和組態，這表示您在調整規模時不需要重新部署或重新設定。 |X | | |X | |
 | 多個部署環境 (生產環境和預備環境) |X |X | |X |Service Fabric 可讓您擁有各種應用程式適用的環境，或並列部署您應用程式的不同版本。 |
-| 自動管理 OS 更新 |X |X | | |已針對未來的 Service Fabric 版本規劃自動 OS 更新。 |
+| 自動管理 OS 更新 |X |X | | |部分透過修補程式協調流程應用程式 (POA)，未來則是完全。 |
 | 順暢切換平台 (輕鬆地切換到 32 位元或 64 位元) |X |X | | | |
 | 利用 GIT、FTP 來部署程式碼 |X | |X | | |
 | 利用 Web Deploy 來部署程式碼 |X | |X | |雲端服務支援使用 Web Deploy 將更新部署到個別角色的執行個體。 不過，您無法將它用於角色的初始部署，如果使用 Web Deploy 來部署更新，則必須分別地部署到角色的每一個執行個體。 需要有多個執行個體，才能符合生產環境的雲端服務 SLA。 |

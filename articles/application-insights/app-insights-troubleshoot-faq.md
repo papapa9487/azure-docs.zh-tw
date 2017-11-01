@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: bwren
-ms.openlocfilehash: 0b6f9e8192a4c6808beb61acb0f93ef5ec73e956
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff3a0b5f64adff535123cf0ea8ca766ed2b8d5be
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -104,7 +104,7 @@ ms.lasthandoff: 10/11/2017
 * HTTP 要求
 * [相依項目](app-insights-asp-net-dependencies.md)。 對下列各項的呼叫：SQL Database、對外部服務的 HTTP 呼叫、Azure Cosmos DB、資料表、Blob 儲存體及佇列。 
 * [例外狀況](app-insights-asp-net-exceptions.md)和堆疊追蹤。
-* [效能計數器](app-insights-performance-counters.md) - 如果您使用[狀態監視器](app-insights-monitor-performance-live-website-now.md)、Azure 監視(app-insights-azure-web-apps.md) 或 [Application Insights collectd 寫入器](app-insights-java-collectd.md)。
+* [效能計數器](app-insights-performance-counters.md) - 如果您使用[狀態監視器](app-insights-monitor-performance-live-website-now.md)、[Azure 監視](app-insights-azure-web-apps.md)或 [Application Insights collectd 寫入器](app-insights-java-collectd.md)。
 * 您以程式碼撰寫的[自訂事件和計量](app-insights-api-custom-events-metrics.md)。
 * [追蹤記錄檔](app-insights-asp-net-trace-logs.md) - 如果您設定適當的收集器。
 
@@ -186,7 +186,7 @@ ms.lasthandoff: 10/11/2017
 * JavaScript SDK 會在 Web 用戶端上設定使用者 Cookie 來識別傳回使用者，以及設定一個工作階段 Cookie 來將活動分組。
 * 如果沒有任何用戶端指令碼，則您可以[在伺服器設定 Cookie](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)。
 * 如果有一個真實的使用者以不同的瀏覽器使用您的站台，或是使用 InPrivate/Incognito 瀏覽，或透過不同的電腦，則系統會將其計算多次。
-* 若要跨電腦和瀏覽器識別登入的使用者，請新增對 [setAuthenticatedUserContect()](app-insights-api-custom-events-metrics.md#authenticated-users) 的呼叫。
+* 若要跨電腦和瀏覽器識別登入的使用者，請新增對 [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users) 的呼叫。
 
 ## <a name="q17"></a> 我是否已啟用 Application Insights 中的所有項目？
 | 您應該會看到 | 如何取得 | 取得原因 |

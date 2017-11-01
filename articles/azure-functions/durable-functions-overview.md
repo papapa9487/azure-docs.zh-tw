@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1ba4d68ba93073ebe3516c4fe886c7845080c534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>Durable Functions 概觀 (Azure Functions)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 狀態是由 Durable Functions 執行階段所管理，因此您不必實作自己的狀態追蹤機制。
 
-即使 Durable Functions 擴充功能有內建 Webhook 可管理長時間執行的協調流程，您仍可使用您自己的函式觸發程序 (例如 HTTP、佇列或事件中樞) 和 `orchestrationClient` 繫結來自行實作此模式。
+即使 Durable Functions 擴充功能有內建 Webhook 可管理長時間執行的協調流程，您仍可使用您自己的函式觸發程序 (例如 HTTP、佇列或事件中樞) 和 `orchestrationClient` 繫結來自行實作此模式。 例如，您可以使用佇列訊息來觸發終止。  或者，您可以使用由 Azure Active Directory 驗證原則保護的 HTTP 觸發程序，而不是使用內建的 Webhook (使用產生的金鑰進行驗證)。 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,7 +161,7 @@ public static async Task<HttpResponseMessage> Run(
 
 ![具狀態 Singleton 圖表](media/durable-functions-overview/stateful-singleton.png)
 
-Durable Functions 雖非動作項目模型的實作，但協調器函式的確具有許多相同的執行階段特性。 例如，它們會長時間執行 (可能永無止盡)、具狀態、可靠、具單一執行緒、位置透明，且可全域定址。 這會讓協調器函式適用於「動作項目」之類的案例，而不需要獨立的架構。
+Durable Functions 雖非動作項目模型的實作，但協調器函式的確具有許多相同的執行階段特性。 例如，它們會長時間執行 (可能永無止盡)、具狀態、可靠、具單一執行緒、位置透明，且可全域定址。 這會讓協調器函式適用於「動作項目」之類的案例。
 
 一般函式並無狀態，因此不適合用來實作具狀態 Singleton 模式。 不過，Durable Functions 擴充功能可讓具狀態 Singleton 模式的實作變得相對簡單。 下列程式碼是簡單的協調器函式，可實作計數器。
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: d62bc24a0439aa8c11ced9d5f42917f9b6de1f24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec7d51d3f30eb3417a48fbf8d31a9b8359e39ab9
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="stateful-singletons-in-durable-functions---counter-sample"></a>Durable Functions 中的具狀態單次個體 - 計數器範例
 
@@ -67,12 +67,12 @@ Durable Functions 就能輕鬆實作這種情節，因為協調流程執行個�
 > [!NOTE]
 > 除了永久性協調流程，`ContinueAsNew` 方法還有其他使用案例。 如需詳細資訊，請參閱[永久性協調流程](durable-functions-eternal-orchestrations.md)。
 
-## <a name="running-the-sample"></a>執行範例
+## <a name="run-the-sample"></a>執行範例
 
-在範例所包含的 HTTP 觸發函式中，您可以使用下列 HTTP POST 要求來啟動協調流程。 為了讓 `counterState` 從零開始 (`int` 的預設值)，這個要求中沒有內容。
+您可以藉由傳送下列 HTTP POST 要求來啟動協調流程。 為了讓 `counterState` 從零開始 (`int` 的預設值)，這個要求中沒有內容。
 
 ```
-POST http://{host}/orchestrators/E3_Counter HTTP/1.1
+POST http://{host}/orchestrators/E3_Counter
 Content-Length: 0
 ```
 
@@ -82,13 +82,17 @@ Content-Length: 719
 Content-Type: application/json; charset=utf-8
 Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 
-{"id":"bcf6fb5067b046fbb021b52ba7deae5a","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
+{
+  "id":"bcf6fb5067b046fbb021b52ba7deae5a",
+  "statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}",
+  "terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
 **E3_Counter** 執行個體啟動後，就開始等待使用 `RaiseEventAsync` 或使用 202 回應中所參考的 **sendEventUrl** HTTP POST Webhook 送來的事件。 有效的 `eventName` 值包括 *incr*、*decr* 和 *end*。
 
 ```
-POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey} HTTP/1.1
+POST http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 Content-Type: application/json
 Content-Length: 6
 
@@ -128,14 +132,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/bcf6fb50
 > [!WARNING]
 > 在編寫本文時，已知在處理訊息 (例如外部事件或終止要求) 時呼叫 `ContinueAsNew` 會發生競爭情形。 如需這些競爭情形的最新資訊，請參閱此 [GitHub 問題](https://github.com/Azure/azure-functions-durable-extension/issues/67)。
 
-## <a name="wrapping-up"></a>總結
-
-現在，您已充分了解 Durable Functions 的一些進階功能，特別是 `WaitForExternalEvent` 和 `ContinueAsNew`。 這些工具可讓您撰寫各種形式的「具狀態單次個體」，例如計數器和彙總工具。
-
 ## <a name="next-steps"></a>後續步驟
+
+此範例已示範如何處理[外部事件](durable-functions-external-events.md)並在[具狀態 Singleton](durable-functions-singletons.md) 中實作[永久性協調流程](durable-functions-eternal-orchestrations.md)。 下一個範例會說明如何使用外部事件和[長期計時器](durable-functions-timers.md)來處理人為互動。
 
 > [!div class="nextstepaction"]
 > [執行人為互動範例](durable-functions-phone-verification.md)
-
-
-

@@ -1,6 +1,6 @@
 ---
 title: "SQL Database 1433 以外的連接埠 | Microsoft Docs"
-description: "從 ADO.NET 至 Azure SQL Database 的用戶端連線有時會略過 Proxy 並直接與資料庫互動。 1433 以外的連接埠變得重要。"
+description: "從 ADO.NET 至 Azure SQL Database 的用戶端連線可以略過 Proxy，並且使用 1433 以外的連接埠直接與資料庫互動。"
 services: sql-database
 documentationcenter: 
 author: MightyPen
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7900a81c61ceeb9009f5671cef717a6d95cbe20
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 超過 1433 以外的連接埠
 本主題針對使用 ADO.NET 4.5 或更新版本的用戶端，說明 Azure SQL Database 的連接行為。 

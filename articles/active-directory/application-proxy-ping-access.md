@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -108,6 +108,9 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
   ![選取權限](./media/application-proxy-ping-access/select-permissions.png)
 
+17. 請先授與權限，再關閉授權畫面。 
+![授與權限](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>收集 PingAccess 步驟的資訊
 
 1. 在應用程式設定刀鋒視窗中，選取 [屬性]。 
@@ -132,7 +135,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>選擇性 - 更新 GraphAPI 以傳送自訂欄位
 
-如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 GraphAPI 以將應用程式欄位 [acceptMappedClaims] 設為 [True]。 若要進行此設定，您可以使用 Azure AD Graph Explorer 或 MS Graph。 
+如需 Azure AD 傳送以進行驗證的安全性權杖清單，請參閱 [Azure AD 權杖參考](./develop/active-directory-token-and-claims.md)。 如果您需要會傳送其他權杖的自訂宣告，請使用 GraphAPI 以將應用程式欄位 [acceptMappedClaims] 設為 [True]。 您只可使用 Azure AD Graph Explorer 來進行此設定。 
 
 此範例使用 Graph Explorer：
 
@@ -143,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>若要使用自訂宣告，您必須已定義自訂原則且已指派給應用程式。  此原則應包含所有必要的自訂屬性。
+>
+>您可以透過 PowerShell、Azure AD Graph Explorer 或 MS Graph 來完成原則定義和指派。  如果您是在 PowerShell 中執行這些項目，您可能需要先使用 `New-AzureADPolicy `，然後使用 `Set-AzureADServicePrincipalPolicy` 將它指派給應用程式。  如需詳細資訊，請參閱 [Azure AD 原則文件](active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
+
+### <a name="optional---use-a-custom-claim"></a>(選用) 使用自訂宣告
+若要讓應用程式使用自訂宣告，並且包含其他欄位，請確定您已[建立自訂宣告對應原則，並將它指派給應用程式](active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>下載 PingAccess 及設定您的應用程式
 

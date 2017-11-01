@@ -1,6 +1,6 @@
 ---
 title: "SQL Database 災害復原演練 | Microsoft Docs"
-description: "了解使用 Azure SQL Database 來執行災害復原演練的指引和最佳作法，以協助確保您的關鍵性商務應用程式在失敗和中斷時可迅速復原。"
+description: "使用 Azure SQL Database 來執行災害復原鑽研的學習指引和最佳做法。"
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbe2b0096424cc120968aad8d60dc0395adc9cb4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>執行災害復原演練
 建議您定期驗證應用程式的復原工作流程整備。 最佳設計作法是，驗證容錯移轉所涉及之資料遺失和 (或) 中斷的應用程式行為和影響。 這也是大多數業界標準在商務持續性認證中的規定。

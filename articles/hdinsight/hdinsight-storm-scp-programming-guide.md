@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: 3d76aebd2a1fd729c8e0639e6afcbde4c3fb752b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0d92cdd32cb3eeedcb1c4e1bb2a975764a860b5
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
 SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](http://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](http://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 
@@ -37,7 +37,7 @@ SCP 中的資料模擬成連續的 Tuple 串流。 通常，Tuple 會先流進�
 
 SCP 支援竭盡所能、至少一次和剛好一次這三種資料處理方法。 在分散式串流處理應用程式中，資料處理期間可能發生各種錯誤，例如網路中斷、機器故障或使用者程式碼錯誤等。至少一次的處理方法會在錯誤發生時自動重播相同資料，以確保所有資料至少處理一次。 至少一次的處理方法簡單又可靠，在許多應用程式中都很適合。 不過，當應用程式需要準確計數時 (只是舉例)，至少一次的處理方法就無法勝任，因為同樣的資料可能在應用程式拓撲中播放。 在此情況下，剛好一次的處理方法可確保即使資料可能重播和處理多次，結果也一定正確。
 
-SCP 可讓 .NET 開發人員以 Java 虛擬機器 (JVM) 型 Storm 為基礎，開發即時資料處理應用程式。 .NET 與 JVM 是透過 TCP 本機通訊端來進行通訊。 基本上，每個 Spout/Bolt 就是一對 .Net/Java 程序，而使用者邏輯在 .Net 程序中以外掛程式的方式運作。
+SCP 可讓 .NET 開發人員以 Java 虛擬機器 (JVM) 涵蓋 Storm，開發即時資料處理應用程式。 .NET 與 JVM 是透過 TCP 本機通訊端來進行通訊。 基本上，每個 Spout/Bolt 就是一對 .Net/Java 程序，而使用者邏輯在 .Net 程序中以外掛程式的方式運作。
 
 若要根據 SCP 來建置資料處理應用程式，需要幾個步驟：
 
@@ -355,7 +355,7 @@ SCP 拓撲規格是特定領域的語言，用來描述和設定 SCP 拓撲。 �
 
 拓撲規格可透過 ***runspec*** 命令直接提交給 storm 叢集來執行。
 
-SCP.NET 已增加下列函數來定義交易式拓撲：
+SCP.NET 已增加下列函式來定義交易拓撲：
 
 | **新函數** | **參數** | **說明** |
 | --- | --- | --- |
@@ -367,7 +367,7 @@ SCP.NET 已增加下列函數來定義交易式拓撲：
 | **scp-spout** |exec-name<br />args<br />fields<br />參數 |定義非交易式 spout。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 spout 的輸出欄位<br /><br />***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。 |
 | **scp-bolt** |exec-name<br />args<br />fields<br />參數 |定義非交易式 Bolt。 它會使用 ***args*** 搭配 ***exec-name*** 來執行應用程式。<br /><br />***fields*** 是 bolt 的輸出欄位<br /><br />***parameters*** 為選用，使用它來指定一些參數，例如 "nontransactional.ack.enabled"。 |
 
-SCP.NET 定義下列關鍵字：
+SCP.NET 已定義下列關鍵字：
 
 | **關鍵字** | **說明** |
 | --- | --- |
@@ -420,7 +420,7 @@ runspec 命令會隨著程式碼一起部署，用法如下：
 
     public void DeclareComponentSchema(ComponentStreamSchema schema)
 
-使用者程式碼必須確定發出的 Tuple 遵守該串流所定義的結構描述，否則系統會擲回執行階段例外狀況。
+開發者必須確定發出的 Tuple 遵守該串流所定義的結構描述，否則系統會擲回執行階段例外狀況。
 
 ### <a name="multi-stream-support"></a>多重串流支援
 SCP 支援使用者程式碼同時發出或接收多個不同串流。 此支援反映在 Context 物件中，因為 Emit 方法接受一個選擇性串流 ID 參數。
@@ -452,10 +452,10 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
 
 1. “scp-field-group” 表示「SCP 實作的自訂欄位分組」。
 2. “:tx” 或 “:non-tx” 表示是否為交易式拓撲。 我們需要此資訊，因為 tx 和非 tx 拓撲中的起始索引不同。
-3. [0,1] 表示欄位 Id 的雜湊集，從 0 開始。
+3. [0,1] 表示欄位識別碼的雜湊集，從 0 開始。
 
 ### <a name="hybrid-topology"></a>混合式拓撲
-原生 Storm 是以 Java 撰寫。 且 SCP.Net 已經加以增強，讓我們的客戶可以撰寫 C\# 程式碼來處理其商業邏輯。 但我們也支援混合式拓撲，不僅包含 C\# spout/bolt，也包含 Java Spout/Bolt。
+原生 Storm 是以 Java 撰寫。 且 SCP.Net 已經增強，讓 C\# 開發者可以撰寫 C\# 程式碼來處理其商業邏輯。 但它也支援混合式拓撲，不僅包含 C\# spout/bolt，也包含 Java Spout/Bolt。
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>在規格檔中指定 Java Spout/Bolt
 在規格檔中，"scp-spout" 和 "scp-bolt" 也可用來指定 Java Spout 和 Bolt，如下列範例所示：
@@ -473,8 +473,8 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
 
 在這裡，**examples\\HybridTopology\\java\\target\\** 是包含 Java Spout/Bolt Jar 檔案的資料夾。
 
-### <a name="serialization-and-deserialization-between-java-and-c"></a>Java 與 C\ 之間的序列化和還原序列化
-我們的 SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，必須在 Java 和 C\# 端之間進行序列化/還原序列化，如下圖所示。
+### <a name="serialization-and-deserialization-between-java-and-c"></a>Java 與 C\# 之間的序列化和還原序列化
+SCP 元件包含 Java 和 C\# 端。 為了與原生 Java Spout/Bolt 互動，必須在 Java 和 C\# 端之間進行序列化/還原序列化，如下圖所示。
 
 ![Java 元件傳送至 SCP 元件再傳送至 Java 元件的圖](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
@@ -623,7 +623,7 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
         }
     }
 
-呼叫 `FinishBatch()` 時，將會更新 `lastCommittedTxId` (如果不是重播的交易)。
+如果不是重播的交易，呼叫 `FinishBatch()` 時，將會更新 `lastCommittedTxId`。
 
     public void FinishBatch(Dictionary<string, Object> parms)
     {
@@ -632,7 +632,7 @@ SCP.NET 增加一個自訂的分組方法，它會使用 byte[] 的內容來執�
 
         if (!replay)
         {
-            /* If it is not replayed, update the toalCount and lastCommittedTxId vaule */
+            /* If it is not replayed, update the totalCount and lastCommittedTxId value */
             totalCount = totalCount + this.count;
             lastCommittedTxId = this.txAttempt.TxId;
         }

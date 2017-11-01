@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2017
+ms.date: 10/17/2017
 ms.author: helaw
-ms.openlocfilehash: 5787b25fb1dd7331e561798152678ed187e24d54
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96d5cdfc28759fd516eab5fd97c6cf444af08cf6
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -42,7 +42,7 @@ ms.lasthandoff: 10/11/2017
 如果您使用 Azure AD 做為身分識別存放區部署了 Azure Stack，則可以如同對 Azure 般建立服務主體。  本節說明如何透過入口網站執行這些步驟。  開始之前，請確認您有[必要的 Azure AD 權限](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions)。
 
 ### <a name="create-service-principal"></a>建立服務主體
-在本節中，您會在 Azure AD 中建立將代表您的應用程式的應用程式 (服務主體)。
+在本節中，您會在 Azure AD 中建立一個應用程式 (服務主體) 來代表您的應用程式。
 
 1. 透過 [Azure 入口網站](https://portal.azure.com)登入 Azure 帳戶。
 2. 選取 [Azure Active Directory] > [應用程式註冊] > [新增]   
@@ -72,32 +72,55 @@ ms.lasthandoff: 10/11/2017
 ## <a name="create-service-principal-for-ad-fs"></a>為 AD FS 建立服務主體
 如果您是使用 Azure Stack 部署 AD FS，則可以使用 PowerShell 來建立服務主體、指派用於存取的角色，以及從 PowerShell 使用該身分識別登入。
 
-### <a name="before-you-begin"></a>開始之前
+指令碼是從 ERCS 虛擬機器上的特殊權限端點執行。
 
-[下載與 Azure Stack 搭配運作所需的工具到您的本機電腦。](azure-stack-powershell-download.md)
 
-### <a name="import-the-identity-powershell-module"></a>匯入身分識別 PowerShell 模組
-下載工具之後，瀏覽至 [下載] 資料夾，並使用下列命令來匯入身分識別 PowerShell 模組：
+需求：
+- 需要認證。
 
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
+**參數**
 
-匯入模組時，您可能會收到錯誤指出「AzureStack.Connect.psm1 未經過數位簽署。 這個指令碼將不會在系統上執行」。 若要解決此問題，您可以在提升權限的 PowerShell 工作階段中使用下列命令來設定執行原則，以允許執行指令碼：
+需要下列資訊，作為自動化參數的輸入：
 
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
 
-### <a name="create-the-service-principal"></a>建立服務主體
-您可以藉由執行下列命令來建立服務主體，請務必更新 *DisplayName* 參數：
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-```
+|參數|說明|範例|
+|---------|---------|---------|
+|名稱|SPN 的帳戶名稱|MyAPP|
+|ClientCertificates|憑證物件的陣列|X509 憑證|
+|ClientRedirectUris<br>(選用)|應用程式重新導向 URI|         |
+
+**範例**
+
+1. 開啟提升權限的 Windows PowerShell 工作階段，並執行下列命令：
+
+   > [!NOTE]
+   > 此範例會建立自我簽署憑證。 當您在生產環境部署中執行這些命令時，使用 Get-Certificate 擷取您想要使用之憑證的憑證物件。
+
+   ```
+   $creds = Get-Credential
+
+   $session = New-PSSession -ComputerName <IP Address of ECRS> -ConfigurationName PrivilegedEndpoint -Credential $creds
+
+   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=testspn2" -KeySpec KeyExchange
+
+   Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name 'MyApp' -ClientCertificates $using:cert}
+
+   $session|remove-pssession
+
+   ```
+
+2. 自動化完成之後，它會顯示使用 SPN 的必要詳細資料。 
+
+   例如：
+
+   ```
+   ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+   ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
+   Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
+   ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   PSComputerName        : azs-ercs01
+   RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
+   ```
 ### <a name="assign-a-role"></a>指派角色
 一旦建立服務主體，您必須[將它指派至角色](azure-stack-create-service-principals.md#assign-role-to-service-principal)
 

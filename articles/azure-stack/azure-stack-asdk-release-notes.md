@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/13/2017
 ms.author: helaw
-ms.openlocfilehash: b3f8768b612f476485cb45cfc47b8b7ab0f00e96
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 5ee2f8164d13e61f9a43abcbda729298f2168518
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Azure Stack 開發套件版本資訊
 
 適用於：Azure Stack 開發套件
 
-這些版本資訊提供 Azure Stack 開發套件中的新功能和已知問題的相關資訊。  如果您不確定所執行的版本，您可以使用[入口網站來進行檢查](azure-stack-updates.md#determine-the-current-version)。
+這些版本資訊提供 Azure Stack 開發套件中的新功能和已知問題的相關資訊。 如果您不確定所執行的版本，您可以使用[入口網站來進行檢查](azure-stack-updates.md#determine-the-current-version)。
 
 ## <a name="release-build-201709283"></a>版本組建 20170928.3
 
@@ -32,16 +32,12 @@ ms.lasthandoff: 10/11/2017
 
 #### <a name="powershell"></a>PowerShell
 
-Azure PowerShell 1.2.11 尚未推出，但本週稍後將追蹤某個版本。 在這之前，請考慮下列問題：
-* App Service、SQL 配接器以及 MYSQL 配接器資源提供者均依存於 PowerShell 1.2.11。 因此，會將它們延遲，直到新版 Azure PowerShell 推出為止。
-* 即使 Azure PowerShell 1.2.11 尚未推出，文件中仍會提及它。
-* AzureStack-Tools 仍會參考 Azure PowerShell 1.2.10，而且保持如此，直到 1.2.11 推出為止。
-* Azure PS 1.2.10 仍可用於搭配開發套件進行許多作業。 當 Azure PS 1.2.11 推出時，需要將它取代。
-
+- AzureRM 1.2.11 PowerShell 模組的發行版本隨附重大變更清單。 如需從 1.2.10 版升級的詳細資訊，請參閱移轉指南 (網址為 [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration))。
 
 
 #### <a name="deployment"></a>部署
 * 在部署期間，您必須使用 IP 位址指定時間伺服器。  
+
 
 #### <a name="portal"></a>入口網站
 * 您可能會在入口網站中看到空白的儀表板。  您可以選取位於入口網站右上角的齒輪，然後選取 [還原預設設定]，以還原儀表板。

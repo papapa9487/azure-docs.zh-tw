@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a07ff578c6afeedc6f3806d52bfe5aef6945c04
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-traffic-view"></a>流量管理員流量檢視
 
@@ -31,8 +31,8 @@ ms.lasthandoff: 10/11/2017
 
 藉由使用流量檢視，您可以：
 - 了解您的使用者群體所在的位置 (取決於本機 DNS 解析程式層級資料粒度)。
-- 來自這些區域的流量數量。
-- 這些使用者體驗的代表延遲是什麼。
+- 檢視源自於這些區域的流量 (當作 Azure Traffic Manager 所處理的 DNS 觀察)。
+-  洞悉這些使用者體驗的代表延遲是什麼。
 - 深入探討從使用者群體之每個個體到您具有端點之 Azure 區域的特定流量模式。 
 
 例如，您可以使用流量檢視來了解哪些區域有大量流量，但是受更高的延遲所苦。 接下來您可以使用這項資訊來規劃到新的 Azure 區域的使用量擴充，讓這些使用者可以擁有較低的延遲體驗。

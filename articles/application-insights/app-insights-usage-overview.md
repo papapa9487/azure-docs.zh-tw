@@ -1,6 +1,6 @@
 ---
-title: "使用 Azure Application Insights 進行 Web 應用程式的使用量分析 | Microsoft Docs"
-description: "了解您的使用者，以及他們如何運用您的 web 應用程式。"
+title: "使用 Azure Application Insights 進行使用量分析 | Microsoft Docs"
+description: "了解您的使用者，以及他們如何運用您的應用程式。"
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -10,17 +10,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 10/10/2017
 ms.author: bwren
-ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6985467658ae8a52d3c963dd1965c0711cac4ca7
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="usage-analysis-for-web-applications-with-application-insights"></a>使用 Application Insights 進行 Web 應用程式的使用量分析
+# <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
-您 Web 應用程式的哪些功能最受歡迎？ 您的使用者是否利用您的應用程式達到其目標呢？ 他們會在特定點退出，並在稍後返回嗎？  [Azure Application Insights](app-insights-overview.md) 可協助您深入了解使用者如何使用 Web 應用程式。 每次您更新應用程式時，都可以評估它適用於使用者的程度。 您可以透過了解這些來制定下一個開發週期的相關資料導向決策。
+Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利用您的應用程式達到其目標呢？ 他們會在特定點退出，並在稍後返回嗎？  [Azure Application Insights](app-insights-overview.md) 可協助您深入了解使用者如何使用應用程式。 每次您更新應用程式時，都可以評估它適用於使用者的程度。 您可以透過了解這些來制定下一個開發週期的相關資料導向決策。
 
 ## <a name="send-telemetry-from-your-app"></a>傳送來自您應用程式的遙測
 
@@ -34,8 +34,9 @@ ms.lasthandoff: 10/11/2017
 
     ![將指令碼複製到您主版頁面的標頭。](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **行動應用程式程式碼：**使用 Mobile Center SDK 從應用程式收集事件，然後將這些事件的複本傳送至 Application Insights，[按照此指南](app-insights-mobile-center-quickstart.md)的指示進行分析。
 
-3. **取得遙測資料：**以偵錯模式執行您的專案幾分鐘，然後在 Application Insights 的 [概觀] 刀鋒視窗中尋找結果。
+4. **取得遙測資料：**以偵錯模式執行您的專案幾分鐘，然後在 Application Insights 的 [概觀] 刀鋒視窗中尋找結果。
 
     發佈您的應用程式以監視應用程式的效能，並了解使用者如何利用您的應用程式。
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 10/11/2017
 
 右方情資指出資料集內的有趣模式。  
 
-* **使用者**報告會在您所選擇的時間週期內，計算存取您網頁的唯一使用者數目。 (會使用 Cookie 來計算使用者。 如果有人使用不同的瀏覽器或用戶端電腦來存取您的網站，或清除其 Cookie，系統就會將他們計算為多次。)
+* **使用者**報告會在您所選擇的時間週期內，計算存取您網頁的唯一使用者數目。 對於 Web 應用程式，會使用 Cookie 來計算使用者。 如果有人使用不同的瀏覽器或用戶端電腦來存取您的網站，或清除其 Cookie，系統就會將他們計算為多次。
 * **工作階段**報告會計算存取您網站之使用者工作階段的數目。 工作階段是使用者活動的一段時間，在閒置時間超過半小時後就會加以終止。
 
 [進一步了解「使用者」、「工作階段」和「事件」工具](app-insights-usage-segmentation.md)  
@@ -94,20 +95,20 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="custom-business-events"></a>自訂商務事件
 
-若要清楚了解使用者會使用您的 Web 應用程式來做什麼，插入程式碼行來記錄自訂事件會很有用。 這些事件可以追蹤任何項目，從詳細的使用者動作 (例如按一下特定按鈕)，到更重要的商務事件 (例如購物或遊戲獲勝)。 
+若要清楚了解使用者會使用您的應用程式來做什麼，插入程式碼行來記錄自訂事件會很有用。 這些事件可以追蹤任何項目，從詳細的使用者動作 (例如按一下特定按鈕)，到更重要的商務事件 (例如購物或遊戲獲勝)。 
 
 雖然在某些情況下，頁面檢視可以代表有用的事件，但一般而言它並不正確。 使用者可以開啟產品網頁而無需購買產品。 
 
 您可以使用特定商務事件，透過網站將使用者的進度製作成圖表。 您可以找出他們對不同選項的偏好，以及它們退出或遇到困難之處。 您可以透過了解這些對開發待處理項目的優先順序做出明智決策。
 
-可以在網頁中記錄事件︰
+事件可透過應用程式的用戶端來記錄下來：
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-或在 Web 應用程式的伺服器端︰
+或者，也可以透過伺服器端：
 
 ```C#
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();

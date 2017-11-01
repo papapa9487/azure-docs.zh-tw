@@ -11,35 +11,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 報告常見問題集
 
-本文會回答有關 Azure Active Directory 報告的常見問題 (FAQ)。  
-如需更多詳細資料，請參閱 [Azure Active Directory 報告](active-directory-reporting-azure-portal.md)。 
+本文會回答有關 Azure Active Directory (Azure AD) 報告的常見問題。 如需詳細資訊，請參閱 [Azure Active Directory 報告](active-directory-reporting-azure-portal.md)。 
+
+**問：我目前使用 https://graph.windows.net/&lt;租用戶名稱&gt;/reports/ 端點 API，並以程式設計方式將 Azure AD 稽核和整合的應用程式使用方式報告提取到我們的報告系統中。我該切換至什麼項目？**
+
+**答：**請查閱我們的 [API 參考文件](https://developer.microsoft.com/graph/)，查看您可以如何使用新的 API 來存取[活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)。 此端點有兩個報告 (稽核和登入)，提供您在舊有 API 端點中取得的所有資料。 這個新端點也有 Azure AD Premium 授權的登入報告，您可以用它來取得應用程式使用方式、裝置使用方式，以及使用者登入資訊。
+
+
+--- 
+
+**問：我目前使用 https://graph.windows.net/&lt;租用戶名稱&gt;/reports/ 端點 API，並以程式設計方式將 Azure AD 安全性報告 (如認證洩漏或從匿名 IP 位址登入等特定類型的偵測) 提取至我們的報告系統中。我該切換至什麼項目？**
+
+**答：**您可以使用[Identity Protection 風險事件 API](active-directory-identityprotection-graph-getting-started.md) 來透過 Microsoft Graph 存取安全性偵測。 這個新的格式包含進階篩選和欄位選取等功能，讓您可以更靈活地查詢資料，並且將風險事件標準化為一種類型，以便更輕易地整合至 SIEM 和其他資料收集工具。 由於資料的格式不同，您無法以新查詢替換舊查詢。 不過，[新 API 會使用 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)，這是 O365 或 Azure AD 這類 API 的 Microsoft 標準格式。 因此該要求工作可以擴充您目前的 MS Graph 投資，或協助您開始轉換至新的標準平台。
+
+--- 
 
 **問：Azure 入口網站中活動記錄 (稽核和登入) 的資料保留期是多長？** 
 
-**答：**針對免費客戶，我們提供 7 天的資料，而只要切換到 Azure AD Premium 1 或 Premium 2 授權，您便可以存取最長達 30 天的資料。 如需有關保留期的更多詳細資料，請參閱 [Azure Active Directory 報告保留原則](active-directory-reporting-retention.md)
+**答：**針對免費客戶，我們提供 7 天的資料，或是您可以購買 Azure AD Premium 1 或 Premium 2 授權，便可以存取最長達 30 天的資料。 如需報告保留的詳細資訊，請參閱 [Azure Active Directory 報告保留原則](active-directory-reporting-retention.md)。
 
 --- 
 
 **問：在我完成工作之後，要多久的時間才能看見活動資料？**
 
-**答：**稽核活動記錄的延遲時間為 15 分鐘到 1 小時。 登入活動記錄中大多數記錄的延遲時間為 15 分鐘，而少數記錄的延遲時間則最長可達 2 小時。
+**答：**稽核活動記錄的延遲時間為 15 分鐘到 1 小時。 針對某些記錄，登入活動記錄可能需要 15 分鐘到 2 小時。
 
 ---
 
-**問：我是否必須是全域系統管理員，才能在 Azure 入口網站中看到活動記錄，或是透過 API 取得資料？**
+**問：我是否必須是全域系統管理員，才能看到登入 Azure 入口網站的活動，或是透過 API 取得資料？**
 
-**答：**否。 您只要是「安全性讀取者」、「安全性系統管理員」或「全域系統管理員」，便能在 Azure 入口網站中看見報告資料，或是透過 API 存取該資料。
+**答：**否。 您必須是「安全性讀取者」、「安全性系統管理員」或「全域系統管理員」，便能從 Azure 入口網站或透過 API 存取報告資料。
 
 ---
 

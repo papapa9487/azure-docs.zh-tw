@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d679ca7a01a96bd398b26e6a545e33674ae33390
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>在 Log Analytics 中使用記錄搜尋以尋找資料
 
 >[!NOTE]
-> 本文說明在 Azure Log Analytics 中使用目前查詢語言的記錄搜尋。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[了解 Log Analytics 中的記錄搜尋 (新)](log-analytics-log-search-new.md)。
+> 本文說明在 Azure Log Analytics 中使用舊版查詢語言的記錄搜尋。  如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則您應該參閱[了解 Log Analytics 中的記錄搜尋 (新)](log-analytics-log-search-new.md)。
 
 
 Log Analytics 的核心是記錄檔搜尋功能，可讓您結合和相互關聯您環境內多個來源的任何電腦資料。 解決方案也是由記錄搜尋發動，可讓您針對特定問題領域進行度量。
@@ -46,7 +46,7 @@ Log Analytics 的核心是記錄檔搜尋功能，可讓您結合和相互關聯
 ### <a name="to-conduct-a-simple-search"></a>進行簡單搜尋
 1. 在 OMS 入口網站中，按一下 [記錄檔搜尋] 。  
     ![搜尋圖格](./media/log-analytics-log-searches/oms-overview-log-search.png)
-2. 在查詢欄位中，輸入 `error`，然後按一下搜尋。  
+2. 在查詢欄位中，輸入 `error`，然後按一下 [搜尋]。  
     ![搜尋錯誤](./media/log-analytics-log-searches/oms-search-error.png)  
     例如，在下圖中，查詢 `error` 會傳回 100,000 個 **Event** 記錄 (由記錄檔管理所收集)、18 個 **ConfigurationAlert** 記錄 (由組態評估所產生)，以及 12 個 **ConfigurationChange** 記錄 (由變更追蹤所擷取)。   
     ![搜尋結果](./media/log-analytics-log-searches/oms-search-results01.png)  
@@ -263,7 +263,7 @@ Type=Event EventID=600 | Top 1
 SELECT 命令的行為類似 PowerShell 中的 Select-Object。 它會傳回不包含所有原始屬性的篩選結果。 相反地，它只會選取您所指定的屬性。
 
 #### <a name="to-run-a-search-using-the-select-command"></a>使用 select 命令執行搜尋
-1. 在 搜尋 中，輸入 `Type=Event`，然後按一下搜尋。
+1. 在 [搜尋] 中，輸入 `Type=Event`，然後按一下 [搜尋]。
 2. 按一下其中一種結果中的 [+ 顯示更多]  ，以檢視結果具有的屬性。
 3. 明確地選取部分，查詢會變更為 `Type=Event | Select Computer,EventID,RenderedDescription`。  
     ![搜尋 select](./media/log-analytics-log-searches/oms-search-select.png)

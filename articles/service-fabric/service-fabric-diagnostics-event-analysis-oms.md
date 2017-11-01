@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: f52988f2a67f2cafe93a7e0a358c599658d068b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cefab15a115719ea9c378546a7e6004bd06187
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>使用 OMS 進行事件分析和視覺效果
 
@@ -32,9 +32,8 @@ Log Analytics 會從 Managed 資源 (包括 Azure 儲存體資料表或代理程
 
 Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理解決方案*，這些預先封裝的解決方案可監視傳入資料。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 還有幾個其他解決方案也值得您探索，此外 OMS 也可讓您建立自訂解決方案，您可以在[這裡](../operations-management-suite/operations-management-suite-solutions.md)深入了解。 您選擇用於叢集的每個解決方案都會在並存 Log Analytics 的相同 OMS 工作區中設定。 工作區可讓您自訂儀表板和資料視覺效果，並修改您要收集、處理及分析的資料。
 
-## <a name="setting-up-an-oms-workspace-with-the-service-fabric-solution"></a>使用 Service Fabric 解決方案設定 OMS 工作區
-
-建議您在 OMS 工作區中包含 Service Fabric 解決方案，因為它提供實用的儀表板，會顯示從平台和應用程式層級傳入的各種記錄通道，而且能夠查詢 Service Fabric 的特定記錄。 以下顯示一個相當簡單的 Service Fabric 解決方案，該解決方案在叢集上部署了單一應用程式：
+## <a name="setting-up-an-oms-workspace-with-the-service-fabric-analytics-solution"></a>使用 Service Fabric 分析解決方案設定 OMS 工作區
+建議您在 OMS 工作區中包含 Service Fabric 解決方案 - 它包含儀表板，會顯示從平台和應用程式層級傳入的各種記錄通道，而且提供查詢 Service Fabric 特定記錄的功能。 以下顯示一個相當簡單的 Service Fabric 解決方案，該解決方案在叢集上部署了單一應用程式：
 
 ![OMS SF 解決方案](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
@@ -42,7 +41,7 @@ Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理�
 
 ### <a name="deploying-oms-using-a-resource-management-template"></a>使用資源管理範本部署 OMS
 
-這會發生於叢集建立階段。使用 Resource Manager 範本部署叢集時，該範本也可以建立新的 OMS 工作區、在其中新增 Service Fabric 解決方案，並將它設定為讀取適當儲存體資料表中的資料。
+使用 Resource Manager 範本部署叢集時，該範本也可以建立新的 OMS 工作區、在其中新增 Service Fabric 解決方案，並將它設定為讀取適當儲存體資料表中的資料。
 
 >[!NOTE]
 >若要正常運作，必須啟用診斷功能，OMS / Log Analytics 才會有可從中讀取資訊的 Azure 儲存體資料表。
@@ -51,11 +50,33 @@ Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理�
 
 ### <a name="deploying-oms-using-through-azure-marketplace"></a>使用 Azure Marketplace 部署 OMS
 
-如果您想要在部署叢集之後新增 OMS 工作區，請前往 Azure Marketplace 並尋找「Service Fabric 分析」。 在 [監視 + 管理] 類別中應該只會顯示一個資源，如下所示：
+如果您想要在部署叢集之後新增 OMS 工作區，請前往 Azure Marketplace 並尋找「Service Fabric 分析」。
 
 ![Marketplace 中的 OMS SF 分析](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
-按一下 [建立] 會要求您提供 OMS 工作區。 按一下 [選取工作區]，然後按一下 [建立新的工作區]。 填寫必要項目；這裡唯一的需求是 Service Fabric 的訂用帳戶必須與 OMS 工作區相同。 一旦驗證所有項目，您的 OMS 工作區將會在幾分鐘內部署。 完成部署時，建立 Service Fabric 解決方案的刀鋒視窗仍會維持開啟狀態。 請確認 [OMS 工作區] 下顯示相同的工作區，然後按一下底部的 [建立]，將 Service Fabric 解決方案新增至工作區。
+* 按一下 [建立]
+* 在 Service Fabric 分析建立視窗中，針對 [OMS 工作區] 欄位按一下 [選取工作區]，然後按一下 [建立新的工作區]。 填寫必要項目；這裡唯一的需求是 Service Fabric 的訂用帳戶必須與 OMS 工作區相同。 一旦驗證所有項目，您的 OMS 工作區就會開始部署。 此程序應該只需要幾分鐘的時間。
+* 完成時，再次按一下 Service Fabric 分析建立視窗底部的 [建立]。 請確認新的工作區顯示在 [OMS 工作區] 底下。 這會將解決方案新增至您剛才建立的工作區。
+
+
+雖然這會將解決方案新增至工作區，工作區仍然需要連線到來自叢集的診斷資料。 瀏覽至您建立 Service Fabric 分析解決方案所在的資源群組。 您應該會看到 *ServiceFabric(\<nameOfOMSWorkspace\>)*。
+
+* 按一下解決方案以瀏覽至其概觀分頁，您可以在其中變更解決方案設定、工作區設定以及瀏覽至 OMS 入口網站。
+* 在左側導覽功能表中，按一下 [工作區資料來源] 底下的 [儲存體帳戶記錄]。
+
+    ![入口網站中的 Service Fabric 分析解決方案](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-portal.png)
+
+* 在 [儲存體帳戶記錄] 分頁上，按一下頂端的 [新增] 以將您的叢集記錄新增至工作區。
+* 按一下 [儲存體帳戶] 以新增叢集中建立的適當帳戶。 如果您使用預設名稱，儲存體帳戶名稱為 sfdg\<resourceGroupName\>。 您也可以藉由檢查用來部署叢集的 Azure Resource Manager 範本、檢查針對 `applicationDiagnosticsStorageAccountName` 所使用的值，加以確認。 如果帳戶名稱未顯示，您也可能必須向下捲動並按一下 [載入更多]。 當正確的儲存體帳戶名稱顯示時，按一下它加以選取。
+* 接下來，您必須指定 [資料類型]，它應該是 **Service Fabric 事件**。
+* 來源應該自動設定為 *WADServiceFabric\*EventTable*。
+* 按一下 [確定] 以將您的工作區連線至您的叢集記錄。
+
+    ![將儲存體帳戶記錄新增至 OMS](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+
+* 帳戶現在應該會在工作區資料來源中顯示成為「儲存體帳戶記錄」的一部分。
+
+使用它，您現在就可以在 OMS Log Analytics 工作區中新增 Service Fabric 分析解決方案，該工作區現在正確連線至叢集平台和應用程式記錄資料表。 您可以相同方式將其他來源新增至工作區。
 
 ## <a name="using-the-oms-agent"></a>使用 OMS 代理程式
 
@@ -66,11 +87,11 @@ Log Analytics 收到資料之後，OMS 會針對數個案例自訂數個*管理�
 這樣做有下列好處：
 
 * 效能計數器和計量端的資料更豐富
-* 輕鬆就能設定從叢集收集資料並對其進行變更，而不需要重新部署您的應用程式或叢集，因為代理程式設定的變更可以從 OMS 工作區來進行，而且只會自動重設代理程式。 若要設定 OMS 代理程式以挑選特定的效能計數器，請移至工作區 [首頁] > [設定] > [資料] > [Windows 效能計數器]，然後挑選您要收集的資料
+* 容易設定從叢集收集的計量，而且不需要更新叢集的設定。 變更代理程式的設定可以從 OMS 入口網站完成，而且代理程式會自動重新啟動以符合所需的設定。 若要設定 OMS 代理程式以挑選特定的效能計數器，請移至工作區 [首頁] > [設定] > [資料] > [Windows 效能計數器]，然後挑選您要收集的資料
 * 比起必須儲存再由 OMS / Log Analytics 挑選，資料的顯示速度更快
-* 更容易監視容器，因為它可以挑選 docker 記錄檔 (stdout、stderror) 和統計資料 (容器和節點層級的效能計量)
+* 更容易監視容器，因為它可以挑選 docker 記錄 (stdout、stderr) 和統計資料 (容器和節點層級的效能計量)
 
-這裡的主要考量是由於它是代理程式，它將會與您所有的應用程式一起部署在您的叢集上，因此對叢集上的應用程式效能只會有一些輕微影響。
+這裡的主要考量是由於它是代理程式，它將會與您所有的應用程式一起部署在您的叢集上，因此對叢集上的應用程式效能只會有一些影響。
 
 ## <a name="monitoring-containers"></a>監視容器
 

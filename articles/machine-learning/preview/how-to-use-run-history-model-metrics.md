@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: 1a4f2d69907d220a8bbec5087ba431dc243c46d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 920155b2e70409fe1c7c3569326cc5a1fa01b222
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>如何在 Azure Machine Learning Workbench 中使用執行歷程記錄和模型計量
 
@@ -30,7 +30,7 @@ Azure Machine Learning Workbench 透過其**執行歷程記錄**和**模型計�
 
 
 ## <a name="azure-ml-logging-api-overview"></a>Azure ML 記錄 API 概觀
-Azure ML 記錄 API 可透過 Python (透過 Azure ML Workbench 安裝) 中的 **azureml.logging** 模組來取得。匯入此模組之後，您可以使用 **get_azureml_logger** 方法，來將 **logger** 物件具現化。
+[Azure ML 記錄 API](reference-logging-api.md) 會透過 Python (隨 Azure ML Workbench 一起安裝) 中的 **azureml.logging** 模組來提供使用。匯入此模組之後，您可以使用 **get_azureml_logger** 方法，來將 **logger** 物件具現化。
 接著，您可以使用記錄器的 **log** 方法，儲存 Python 指令碼所產生的索引鍵/值組。
 目前支援記錄純量、字典、清單、資料框架類型的模型計量，如下所示。
 
@@ -42,16 +42,9 @@ logger = get_azureml_logger()
 # log scalar (any integer or floating point type is fine)
 logger.log("simple value", 7)
 
-# log dictionary
-logger.log("range", {"min":5, "max":7})
 
 # log list
 logger.log("all values", [5, 6, 7])
-
-# log dataframe
-import pandas
-df = pandas.DataFrame.from_records([(1,2),(3,4)],columns=["a","b"])
-logger.log("dataframe", df)
 ```
 您可以輕鬆地在 Azure ML Workbench 專案內使用記錄器，本文將說明如何執行這項操作。
 

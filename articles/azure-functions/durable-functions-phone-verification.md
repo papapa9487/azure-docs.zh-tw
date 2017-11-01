@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1dacbc59704d16451a5268c0aa4df2ab4e5b3112
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cfb6758703ebf3ce0458a4e1ad74324a4ccc2ece
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="prerequisites"></a>必要條件
 
-* 請依照[安裝長期函式](durable-functions-install.md)中的指示，來設定範例。
+* 請依照[安裝 Durable Functions](durable-functions-install.md) 中的指示來設定範例。
 * 本文假設您已經完成 [Hello Sequence](durable-functions-sequence.md) 範例逐步解說。
 
 ## <a name="scenario-overview"></a>案例概觀
@@ -85,7 +85,7 @@ ms.lasthandoff: 10/11/2017
 > [!WARNING]
 > 如果您不再需要計時器，如同上述範例中已接受挑戰回應，請務必[使用 CancellationTokenSource 取消計時器](durable-functions-timers.md)。
 
-## <a name="sending-the-sms-message"></a>傳送 SMS 訊息
+## <a name="send-the-sms-message"></a>傳送 SMS 訊息
 
 **E4_SendSmsChallenge** 函式會使用 Twilio 繫結，將具有 4 位數代碼的 SMS 訊息傳送給使用者。 function.json 定義如下：
 
@@ -97,7 +97,7 @@ ms.lasthandoff: 10/11/2017
 
 這個 **E4_SendSmsChallenge** 函式只會呼叫一次，即使處理程序損毀或重新執行也是如此。 這樣是好的，因為您不會想要讓使用者收到多則 SMS 訊息。 `challengeCode` 傳回值會自動保存，讓協調器函式一定知道正確的代碼是什麼。
 
-## <a name="running-the-sample"></a>執行範例
+## <a name="run-the-sample"></a>執行範例
 
 使用範例中所包含的 HTTP 觸發函式，您可以透過傳送下列 HTTP POST 要求來啟動協調流程。
 
@@ -152,18 +152,15 @@ Content-Length: 145
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
 
-## <a name="wrapping-up"></a>總結
-
-此時，您對長期函式的一些進階功能有更進一步的了解，特別是 `WaitForExternalEvent` 和 `CreateTimer`。 您已經看到這些功能如何與 `Task.WaitAny` 結合，以實作可靠的逾時系統，對於與真人的互動通常相當有用。
-
 ## <a name="visual-studio-sample-code"></a>Visual Studio 範例程式碼
 
-以下是 Visual Studio 專案中單一 C# 檔案的協調流程：
+以下是 Visual Studio 專案中的單一 C# 檔案所示範的協調流程：
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [深入了解長期函式繫結](durable-functions-bindings.md)
+此範例已示範一些長期函式的進階功能，尤其是 `WaitForExternalEvent` 和 `CreateTimer`。 您已經看到這些功能如何與 `Task.WaitAny` 結合，以實作可靠的逾時系統，對於與真人的互動通常相當有用。 藉由閱讀一系列深入探討特定主題的文章，您可以深入了解如何使用長期函式。
 
+> [!div class="nextstepaction"]
+> [系列中第一篇文章](durable-functions-bindings.md)

@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 34c46fb282ad154225f5ee8ef544bc8da1c50016
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
 
-一旦您開始使用一或多個 Azure Cosmos DB 資料庫，您可能想要監視資料庫的存取方式和時間。 Azure Cosmos DB 中的診斷記錄，可讓您執行這項監視。 藉由啟用診斷記錄，您可以透過 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將它們串流處理至 [Azure 事件中樞](https://azure.microsoft.com/en-us/services/event-hubs/)，及 (或) 將它們匯出到 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) 工作區。
+一旦您開始使用一或多個 Azure Cosmos DB 資料庫，您可能想要監視資料庫的存取方式和時間。 Azure Cosmos DB 中的診斷記錄，可讓您執行這項監視。 藉由啟用診斷記錄，您可以將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將它們串流處理至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，及/或將它們匯出到 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是 [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite) 的一部份)。
 
 ![透過 Log Analytics 將診斷記錄送至儲存體、事件中樞或 Operations Management Suite](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -40,10 +40,10 @@ ms.lasthandoff: 10/11/2017
 
 * 現有的 Azure Cosmos DB 帳戶、資料庫和容器。 如需建立這些資源的指示，請參閱[使用 Azure 入口網站建立資料庫帳戶](create-documentdb-dotnet.md#create-a-database-account)、[CLI 範例](cli-samples.md)或 [PowerShell 範例](powershell-samples.md)。
 
-
+<a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>在 Azure 入口網站中開啟記錄
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，於您的 Azure Cosmos DB 帳戶左側瀏覽區中按一下 [診斷記錄]，然後按一下開啟診斷]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，於您的 Azure Cosmos DB 帳戶左側瀏覽區中按一下 [診斷記錄]，然後按一下 [開啟診斷]。
 
     ![在 Azure 入口網站中開啟 Azure Cosmos DB 的診斷記錄](./media/logging/turn-on-portal-logging.png)
 
@@ -53,12 +53,16 @@ ms.lasthandoff: 10/11/2017
 
     * **封存至儲存體帳戶**。 若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)，依指示建立一個 Resource Manager (一般用途帳戶)。 然後返回入口網站的此頁面選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現在下拉式功能表中。
     * **串流處理至事件中樞**。 若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後返回入口網站的此頁面選取事件中樞命名空間和原則名稱。
-    * **傳送至 Log Analytics**。 若要使用此選項，請使用其中一個現有的工作區，或依照入口網站的提示來建立新的 Operations Management Suite 工作區。
-    * **記錄 DataPlaneRequests**。 如果您要封存至儲存體帳戶，可以選取 **DataPlaneRequests** 並選擇保留記錄的天數，為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。 
+    * **傳送至 Log Analytics**。     若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需有關如何檢視 Log Analytics 記錄的詳細資訊，請參閱[檢視 Log Analytics 中的記錄](#view-in-loganalytics)。
+    * **記錄 DataPlaneRequests**。 選取此選項可記錄 DocumentDB、Graph、資料表 API 帳戶的診斷。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **記錄 MongoRequests**。 選取此選項可記錄 MongoDB API 帳戶的診斷。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **計量要求**。 選取此選項可儲存 [Azure 計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb)中的詳細資料。 如果您要封存至儲存體帳戶，可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
 3. 按一下 [儲存] 。
 
-    您隨時可以返回此頁面以修改您帳戶的診斷記錄設定。
+    如果您收到錯誤，指出「無法更新 \<工作區名稱> 的診斷。 訂用帳戶 \<訂用帳戶識別碼> 未註冊為使用 microsoft.insights」， 請遵循[針對 Azure 診斷進行疑難排解](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage)的指示註冊帳戶，然後重試此程序。
+
+    未來如果您想變更診斷記錄的儲存方式，隨時可以返回此頁面修改帳戶的診斷記錄設定。
 
 ## <a name="turn-on-logging-using-cli"></a>使用 CLI 開啟記錄
 
@@ -279,59 +283,35 @@ $blobs | Get-AzureStorageBlobContent `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
-您現在已做好準備，可以開始查看記錄中有何內容。 但在開始之前，您可能還需要了解 `Get-AzureRmDiagnosticSetting` 的兩個參數：
+此外：
 
 * 查詢資料庫資源的診斷設定狀態：`Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 * 停用您資料庫帳戶資源的 **DataPlaneRequests** 類別目錄記錄：`Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`
 
-## <a id="interpret"></a>解譯 Azure Cosmos DB 記錄
-各個 blob 皆會儲存為文字，並格式化為 JSON blob。 此 JSON 是記錄項目範例：
 
-    {
-        "records":
-        [
-            {
-               "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
-               "resourceId": "contosocosmosdb",
-               "category": "DataPlaneRequests",
-               "operationName": "Query",
-               "resourceType": "Database",
-               "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
-               "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
-               "resourceType": "Database","statusCode": "200","documentResourceId": "",`
-               "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
-               "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
-            }
-        ]
-    }
+在這些查詢中傳回的 blob 會儲存為文字，格式化為 JSON blob，如下列程式碼所示。 
 
+```json
+{
+    "records":
+    [
+        {
+           "time": "Fri, 23 Jun 2017 19:29:50.266 GMT",
+           "resourceId": "contosocosmosdb",
+           "category": "DataPlaneRequests",
+           "operationName": "Query",
+           "resourceType": "Database",
+           "properties": {"activityId": "05fcf607-6f64-48fe-81a5-f13ac13dd1eb",`
+           "userAgent": "documentdb-dotnet-sdk/1.12.0 Host/64-bit MicrosoftWindowsNT/6.2.9200.0 AzureSearchIndexer/1.0.0",`
+           "resourceType": "Database","statusCode": "200","documentResourceId": "",`
+           "clientIpAddress": "13.92.241.0","requestCharge": "2.260","collectionRid": "",`
+           "duration": "9250","requestLength": "72","responseLength": "209", "resourceTokenUserRid": ""}
+        }
+    ]
+}
+```
 
-下表列出各個欄位的名稱和其描述。
-
-| 欄位名稱 | 說明 |
-| --- | --- |
-| 分析 |作業發生的日期和時間 (UTC)。 |
-| resourceId |啟用記錄的 Azure Cosmos DB 帳戶。|
-| category |針對 Azure Cosmos DB 記錄，DataPlaneRequests 是唯一可用的值。 |
-| operationName |作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
-| 屬性 |此欄位的內容描述於下表中。 |
-
-下表列出 properties 欄位內記錄的欄位。
-
-| 屬性欄位名稱 | 說明 |
-| --- | --- |
-| activityId | 所記錄作業的唯一 GUID。 |
-| userAgent |此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
-| resourceType | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Collection、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
-| StatusCode |作業的回應狀態。 |
-| requestResourceId | 關於要求的 resourceId，根據執行的要求，可能表示 databaseRid、collectionRid 或 documentRid。|
-| clientIpAddress |用戶端的 IP 位址。 |
-| requestCharge | 作業使用的 RU 數 |
-| collectionRid | 集合的唯一識別碼。|
-| duration | 以刻度為單位的作業持續時間。 |
-| requestLength |以位元組為單位的要求長度。 |
-| responseLength | 以位元組為單位的回應長度。|
-| resourceTokenUserRid | 使用[資源權杖](https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data#resource-tokens)進行驗證時，此欄位是非空白值，表示使用者的資源識別碼。 |
+若要深入了解每個 JSON blob 中的資料，請參閱[解讀 Azure Cosmos DB 記錄](#interpret)。
 
 ## <a name="managing-your-logs"></a>管理記錄
 
@@ -341,10 +321,116 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 * 刪除不想繼續保留在儲存體帳戶中的記錄。
 * 封存到儲存體帳戶的資料層要求保留週期，是選取 [記錄 DataPlaneRequests] 時在入口網站中設定的。 若要變更該設定，請參閱[在 Azure 入口網站中開啟記錄](#turn-on-logging-in-the-azure-portal)。
 
+
+<a id="#view-in-loganalytics"></a>
+## <a name="view-logs-in-log-analytics"></a>檢視 Log Analytics 中的記錄
+
+如果您開啟記錄時選取 [傳送至 Log Analytics] 選項，集合中的診斷資料會在兩個小時內轉送到 Log Analytics。 這表示如果您開啟記錄功能後立即查看 Log Analytics，將不會看到任何資料。 只需等待兩個小時，然後再試一次。 
+
+檢視記錄前，您應檢查確認您的 Log Analytics 工作區是否已升級為使用新的 Log Analytics 查詢語言。 若要檢查此升級，開啟 [Azure 入口網站](https://portal.azure.com)，按一下最左邊的 [Log Analytics]，然後選取工作區名稱，如下圖所示。 即會顯示如下圖中的 [OMS 工作區] 頁面。
+
+![Azure 入口網站中的 Log Analytics](./media/logging/azure-portal.png)
+
+如果您在 [OMS 工作區] 頁面上看到下列訊息，則您的工作區尚未升級為使用新語言。 如需升級至新查詢語言的詳細資訊，請參閱[將 Azure Log Analytics 工作區升級至新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md)。 
+
+![Log Analytics 升級注意事項](./media/logging/upgrade-notification.png)
+
+若要檢視 Log Analytics 中的診斷資料，從左側功能表或此頁面的 [管理] 區域開啟 [記錄搜尋] 頁面，如下圖所示。
+
+![Azure 入口網站中的記錄搜尋選項](./media/logging/log-analytics-open-log-search.png)
+
+現在您已經啟用資料收集，請使用新的查詢語言執行下列記錄搜尋範例，查看最新的十個記錄 `AzureDiagnostics | take 10`。
+
+![take 10 記錄搜尋範例](./media/logging/log-analytics-query.png)
+
+<a id="#queries"></a>
+### <a name="queries"></a>查詢
+
+以下是一些您可以輸入 [記錄搜尋] 方塊中的額外查詢，可協助您監視 Azure Cosmos DB 容器。 這些查詢使用[新語言](../log-analytics/log-analytics-log-search-upgrade.md)。 
+
+若要深入了解每個記錄搜尋傳回資料的意義，請參閱[解讀 Azure Cosmos DB 記錄](#interpret)。
+
+* 所有 Azure Cosmos DB 的診斷記錄皆在指定的時段內。
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    ```
+
+* 十個最新記錄的事件。
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    ```
+
+* 所有作業，依作業類型群組。
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    ```
+
+* 所有作業，依資源群組。
+
+    ```
+    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* 所有使用者活動，依資源群組。 請注意，這是活動記錄，不診斷記錄。
+
+    ```
+    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    ```
+
+* 哪些作業費時超過 3 毫秒。
+
+    ```
+    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    ```
+
+* 哪些代理程式正在執行此作業。
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    ```
+
+* 長時間執行的作業何時執行。
+
+    ```
+    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , toint(duration_s)/1000 | render timechart
+    ```
+
+如需有關使用新的記錄搜尋語言的詳細資訊，請參閱[了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)。 
+
+## <a id="interpret"></a>解讀記錄
+
+診斷資料儲存在 Azure 儲存體中，Log Analytics 使用非常類似的結構描述。 
+
+下表說明每個記錄項目的內容。
+
+| Azure 儲存體欄位或屬性 | Log Analytics 屬性 | 說明 |
+| --- | --- | --- |
+| 分析 | TimeGenerated | 作業發生的日期和時間 (UTC)。 |
+| resourceId | 資源 | 啟用記錄的 Azure Cosmos DB 帳戶。|
+| category | 類別 | 針對 Azure Cosmos DB 記錄，DataPlaneRequests 是唯一可用的值。 |
+| operationName | OperationName | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
+| 屬性 | n/a | 此欄位的內容描述於下列資料列中。 |
+| activityId | activityId_g | 所記錄作業的唯一 GUID。 |
+| userAgent | userAgent_s | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
+| resourceType | ResourceType | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Collection、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
+| StatusCode |statusCode_s | 作業的回應狀態。 |
+| requestResourceId | ResourceId | 關於要求的 resourceId，根據執行的要求，可能表示 databaseRid、collectionRid 或 documentRid。|
+| clientIpAddress | clientIpAddress_s | 用戶端的 IP 位址。 |
+| requestCharge | requestCharge_s | 作業使用的 RU 數 |
+| collectionRid | collectionId_s | 集合的唯一識別碼。|
+| duration | duration_s | 以刻度為單位的作業持續時間。 |
+| requestLength | requestLength_s | 以位元組為單位的要求長度。 |
+| responseLength | requestLength_s | 以位元組為單位的回應長度。|
+| resourceTokenUserRid | resourceTokenUserRid_s | 使用[資源權杖](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)進行驗證時，此欄位是非空白值，表示使用者的資源識別碼。 |
+
 ## <a name="next-steps"></a>後續步驟
 
 - 若要了解如何啟用記錄和各種 Azure 服務支援的計量和記錄類別目錄，請閱讀 [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)和 [Azure 診斷記錄概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)文章。
 - 閱讀下列文章來了解事件中樞：
-   - [Azure 事件中樞是什麼](../event-hubs/event-hubs-what-is-event-hubs.md)？
+   - [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
    - [開始使用事件中樞](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-- 請參閱[從 Azure 儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- 閱讀[從 Azure 儲存體下載計量和診斷記錄](../storage/blobs/storage-dotnet-how-to-use-blobs.md#download-blobs)
+- 閱讀[了解 Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-search-new.md)

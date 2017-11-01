@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的展開傳送/收合傳送情節 - 雲端備份範例
 
@@ -97,12 +97,12 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 > [!NOTE]
 > 這是將 I/O 作業移入 `activityTrigger` 函式中的最佳範例。 不僅可將工作分散至許多不同的虛擬機器，還可讓您享受到檢查點檢查進度的好處。 如果主機處理序由於任何原因而終止，您會知道哪些上傳已完成。
 
-## <a name="running-the-sample"></a>執行範例
+## <a name="run-the-sample"></a>執行範例
 
-在範例所包含的 HTTP 觸發函式中，您可以使用下列 HTTP POST 要求來啟動協調流程。
+您可以藉由傳送下列 HTTP POST 要求來啟動協調流程。
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > 您叫用的 `HttpStart`函式僅適用於 JSON 格式的內容。 因此，需要 `Content-Type: application/json` 標頭，而且目錄路徑會編碼為 JSON 字串。
 
-這將會觸發 `E2_BackupSiteContent` 協調器並傳遞字串 `D:\home\LogFiles` 當作參數。 回應提供的連結可取得此備份作業的狀態：
+此 HTTP 要求將會觸發 `E2_BackupSiteContent` 協調器並傳遞字串 `D:\home\LogFiles` 當作參數。 回應提供的連結可取得備份作業的狀態：
 
 ```
 HTTP/1.1 202 Accepted
@@ -158,9 +158,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>後續步驟
 
-現在，您應該已更了解 Durable Functions 的核心協調流程功能。 後續的範例將探討更進階的功能和情節。
+此範例已說明如何實作展開傳送/收合傳送模式。 下一個範例會示範如何在[永久協調流程](durable-functions-eternal-orchestrations.md)中實作[具狀態單次個體](durable-functions-singletons.md)模式。
 
 > [!div class="nextstepaction"]
 > [執行具狀態單次個體範例](durable-functions-counter.md)
-
-

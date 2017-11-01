@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c43d6bcd62690fe41599888b06ee9828c8e40fc0
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>如何設定混合式 Azure Active Directory 已加入的裝置
 
@@ -294,8 +294,7 @@ Azure AD Connect：
 
 在上述宣告中，
 
-- `$<domain>` 是 AD FS 服務 URL
-- `<verified-domain-name>` 是您要使用您在 Azure AD 中的其中一個已驗證網域名稱來取代的預留位置
+- `<verified-domain-name>` 是要使用您 Azure AD 中其中一個已驗證網域名稱來取代的預留位置。 例如，值 = "http://contoso.com/adfs/services/trust/"
 
 
 
@@ -557,7 +556,7 @@ Azure AD Connect：
    > [!NOTE]
    > 此「群組原則」範本已從舊版 [群組原則管理] 主控台重新命名。 如果您使用舊版的主控台，請移至 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`。 
 
-7. 選取 已啟用，然後按一下套用。
+7. 選取 [已啟用]，然後按一下 [套用]。
 8. 按一下 [確定] 。
 9. 將群組原則物件連結到您選擇的位置。 例如，您可以將它連結到特定組織單位。 也可以將它連結到會自動加入 Azure AD 的特定電腦安全性群組。 若要為貴組織中所有已加入網域的 Windows 10 和 Windows Server 2016 電腦設定此原則，請將「群組原則」物件連結至網域。
 

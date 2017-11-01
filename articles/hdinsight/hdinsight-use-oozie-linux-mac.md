@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 10/25/2017
 ms.author: larryfr
-ms.openlocfilehash: 7f6985b80a88fd2e5d1fe0dafae47b95358d012d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38035e42b70766f3766bee55f1195994b6d37c2c
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-hdinsight"></a>在 Linux 型 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程
 
@@ -71,49 +71,53 @@ Oozie 也可用來排程系統的特定工作，例如 Java 程式或 Shell 指�
 
 ## <a name="create-the-working-directory"></a>建立工作目錄
 
-Oozie 的工作所需資源必須儲存在同一個目錄中。 這個範例會使用 **wasb:///tutorials/useoozie**。 請使用以下命令建立此目錄，以及建立資料目錄，以保存此工作流程所建立的新 Hive 資料表：
+Oozie 的工作所需資源必須儲存在同一個目錄中。 這個範例會使用 **wasb:///tutorials/useoozie**。 若要建立此目錄，請使用下列步驟：
 
-```
-hdfs dfs -mkdir -p /tutorials/useoozie/data
-```
+1. 使用 SSH 連線到 HDInsight 叢集
 
-> [!NOTE]
-> `-p` 參數會使系統建立路徑中的所有目錄。 **data** 目錄是用來保存 **useooziewf.hql** 指令碼所使用的資料。
+    ```bash
+    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ```
 
-此外，也請執行以下命令，確保 Oozie 在執行 Hive 和 Sqoop 工作時可以模擬您的使用者帳戶。 將 **USERNAME** 取代為您的登入名稱：
+    將 `sshuser` 取代為叢集的 SSH 使用者名稱。 將 `clustername` 取代為叢集的名稱。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
-```
-sudo adduser USERNAME users
-```
+2. 若要建立目錄，請使用下列命令：
 
-> [!NOTE]
-> 您可以忽略使用者已是 `users` 群組之成員的錯誤。
+    ```bash
+    hdfs dfs -mkdir -p /tutorials/useoozie/data
+    ```
+
+    > [!NOTE]
+    > `-p` 參數會使系統建立路徑中的所有目錄。 **data** 目錄是用來保存 **useooziewf.hql** 指令碼所使用的資料。
+
+3. 為了確保 Oozie 可以模擬您的使用者帳戶，請使用下列命令：
+
+    ```bash
+    sudo adduser username users
+    ```
+
+    將 `username` 取代為您的 SSH 使用者名稱。
+
+    > [!NOTE]
+    > 您可以忽略使用者已是 `users` 群組之成員的錯誤。
 
 ## <a name="add-a-database-driver"></a>新增資料庫驅動程式
 
-由於此工作流程會使用 Sqoop 將資料匯出至 SQL Database，因此您必須提供一份要用來與 SQL Database 溝通的 JDBC 驅動程式複本。 請使用以下命令將該複本複製到工作目錄：
+由於此工作流程會使用 Sqoop 將資料匯出至 SQL Database，因此您必須提供一份要用來與 SQL Database 溝通的 JDBC 驅動程式複本。 若要將 JDBC 驅動程式複製到工作目錄，請從 SSH 工作階段使用下列命令：
 
-```
+```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-如果工作流程使用了其他資源，例如含有 MapReduce 應用程式的 jar，則您也必須新增這些資源。
+如果工作流程已使用其他資源，例如含有 MapReduce 應用程式的 jar，則您也必須新增這些資源。
 
 ## <a name="define-the-hive-query"></a>定義 Hive 查詢
 
 使用下列步驟建立 HiveQL 指令碼，以定義此文件之後的 Oozie 工作流程中要使用的查詢。
 
-1. 使用 SSH 連線到叢集。 下列命令是使用 `ssh` 命令的範例。 將 __USERNAME__ 取代為叢集的 SSH 使用者。 將 __CLUSTERNAME__ 取代為 HDInsight 叢集的名稱。
+1. 從 SSH 連線，使用下列命令來建立名為 `useooziewf.hql` 的檔案：
 
-    ```
-    ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net
-    ```
-
-    如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 從 SSH 連線，使用下列命令來建立檔案：
-
-    ```
+    ```bash
     nano useooziewf.hql
     ```
 
@@ -128,21 +132,21 @@ hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 
     指令碼中使用了兩個變數：
 
-    * **${hiveTableName}**：包含要建立的資料表名稱
+    * `${hiveTableName}`：包含要建立的資料表名稱
 
-    * **${hiveDataFolder}**：包含儲存資料表之資料檔案的位置
+    * `${hiveDataFolder}`：包含要儲存資料表之資料檔案的位置
 
     工作流程定義檔 (在此教學課程中為 workflow.xml) 會在執行階段將這些值傳遞至此 HiveQL 指令碼
 
-4. 若要結束編輯器，請按 Ctrl-X。 出現提示時，請選取 **Y** 儲存檔案，然後按 **Enter** 鍵以使用 **useooziewf.hql** 檔案名稱。
+4. 若要結束編輯器，請按 Ctrl-X。 出現提示時，請選取 `Y` 來儲存檔案，然後使用 `Enter` 鍵以使用 `useooziewf.hql` 檔案名稱。
 
-5. 使用下列命令將 **useooziewf.hql** 複製到 **wasb:///tutorials/useoozie/useooziewf.hql**：
+5. 使用下列命令將 `useooziewf.hql` 複製到 `wasb:///tutorials/useoozie/useooziewf.hql`：
 
-    ```
+    ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
     ```
 
-    這些命令會在叢集的 HDFS 相容儲存體上儲存 **useooziewf.hql** 檔案。
+    此命令會將 `useooziewf.hql` 檔案儲存在叢集的 HDFS 相容儲存體上。
 
 ## <a name="define-the-workflow"></a>定義工作流程
 
@@ -150,7 +154,7 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 1. 使用以下陳述式建立和編輯新的檔案：
 
-    ```
+    ```bash
     nano workflow.xml
     ```
 
@@ -211,19 +215,19 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
     此工作流程中定義了兩個動作：
 
-   * **RunHiveScript**：這是起始動作，且會執行 **useooziewf.hql** Hive 指令碼
+   * `RunHiveScript`：這是起始動作，會執行 `useooziewf.hql` Hive 指令碼
 
-   * **RunSqoopExport**：此動作會使用 Sqoop 將 Hive 指令碼建立的資料匯出到 SQL Database。 只有 **RunHiveScript** 動作成功時才會執行此動作。
+   * `RunSqoopExport`：此動作會使用 Sqoop 將從 Hive 指令碼建立的資料匯出到 SQL Database。 只有當 `RunHiveScript` 動作成功時，才會執行此動作。
 
      工作流程有數個項目，例如 `${jobTracker}`。 這些項目會取代為您在工作定義中使用的值。 本文件稍後將說明建立工作定義。
 
      此外也請注意 Sqoop 區段中的 `<archive>sqljdbc4.jar</arcive>` 項目。 此項目會指示 Oozie 在此動作執行時，讓 Sqoop 可取得此封存。
 
-3. 依序按 Ctrl-X、**Y** 和 **Enter** 鍵以儲存檔案。
+3. 依序按 Ctrl + X、`Y` 和 `Enter` 鍵以儲存檔案。
 
-4. 使用以下命令，將 **workflow.xml** 檔案複製到 **/tutorials/useoozie/workflow.xml**：
+4. 使用下列命令將 `workflow.xml` 檔案複製到 `/tutorials/useoozie/workflow.xml`：
 
-    ```
+    ```bash
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
@@ -239,13 +243,13 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 1. 使用以下命令在 HDInsight 叢集上安裝 FreeTDS：
 
-    ```
+    ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
 2. 安裝 FreeTDS 後，請使用下列命令來連接至先前建立的 SQL Database 伺服器：
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
     ```
 
@@ -259,7 +263,7 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 3. 在 `1>` 提示字元輸入下列幾行：
 
-    ```
+    ```sql
     CREATE TABLE [dbo].[mobiledata](
     [deviceplatform] [nvarchar](50),
     [count] [bigint])
@@ -272,17 +276,15 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
     使用下列命令來確認已建立資料表：
 
-    ```
+    ```sql
     SELECT * FROM information_schema.tables
     GO
     ```
 
     您會看到類似以下的文字：
 
-    ```
-    TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-    oozietest       dbo     mobiledata      BASE TABLE
-    ```
+        TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
+        oozietest       dbo     mobiledata      BASE TABLE
 
 4. 在 `exit` at the `1>` 以結束 tsql 公用程式。
 
@@ -292,7 +294,7 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 1. 使用以下命令取得預設儲存體的完整位址。 稍後在組態檔中會用到此位址：
 
-    ```
+    ```bash
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
@@ -308,25 +310,13 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
     儲存 `<value>` 元素的內容，因為在後續步驟將會用到它。
 
-2. 使用以下命令取得叢集前端節點的 FQDN。 此資訊將用於叢集的 JobTracker 位址：
+2. 使用以下命令建立 Oozie 工作定義組態：
 
-    ```
-    hostname -f
-    ```
-
-    此命令會傳回類似以下文字的資訊：
-
-    ```hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net```
-
-    用於 JobTracker 的連接埠是 8050，因此將用於 JobTracker 的完整位址是 `hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8050`。
-
-3. 使用以下命令建立 Oozie 工作定義組態：
-
-    ```
+    ```bash
     nano job.xml
     ```
 
-4. 開啟 nano 編輯器後，請使用下列 XML 做為檔案的內容：
+3. 開啟 nano 編輯器後，請使用下列 XML 做為檔案的內容：
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -339,7 +329,7 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
         <property>
         <name>jobTracker</name>
-        <value>JOBTRACKERADDRESS</value>
+        <value>headnodehost:8050</value>
         </property>
 
         <property>
@@ -389,21 +379,20 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
     </configuration>
     ```
 
-   * 將 **wasb://mycontainer@mystorageaccount.blob.core.windows.net** 的所有執行個體取代為您之前收到的預設儲存體值。
+   * 將 `wasb://mycontainer@mystorageaccount.blob.core.windows.net` 的所有執行個體取代為您之前收到的預設儲存體值。
 
      > [!WARNING]
      > 若該路徑是 `wasb` 路徑，您必須使用完整路徑。 不要將它縮短為 `wasb:///`。
 
-   * 將 **JOBTRACKERADDRESS** 取代為您之前收到的 JobTracker/ResourceManager 位址。
-   * 用您 HDInsight 叢集的登入名稱取代 **YourName** 。
-   * 用您 Azure SQL Database 的資訊取代 **serverName**、**adminLogin** 和 **adminPassword**。
+   * 將 `YourName` 取代為您的 HDInsight 叢集登入名稱。
+   * 將 `serverName``adminLogin` 及 `adminPassword` 取代為您 Azure SQL Database 的資訊。
 
      此檔案中大部分的資訊都會用來填入 workflow.xml 或 ooziewf.hql 檔案中所使用的值 (例如 ${nameNode})。
 
      > [!NOTE]
-     > **oozie.wf.application.path** 項目會定義要在何處尋找 workflow.xml 檔案，該檔案包含此工作執行過的工作流程。
+     > `oozie.wf.application.path` 項目會定義要在何處尋找 workflow.xml 檔案，該檔案包含此作業執行過的工作流程。
 
-5. 依序按 Ctrl-X、**Y** 和 **Enter** 鍵以儲存檔案。
+5. 依序按 Ctrl + X、`Y` 和 `Enter` 鍵以儲存檔案。
 
 ## <a name="submit-and-manage-the-job"></a>提交和管理工作
 
@@ -415,7 +404,7 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 1. 使用以下命令取得 Oozie 服務的 URL：
 
-    ```
+    ```bash
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
@@ -430,24 +419,24 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 2. 使用以下命令建立 URL 的環境變數，讓您不必為每個命令輸入該 URL：
 
-    ```
+    ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
     將 URL 取代為您稍早收到的 URL。
 3. 使用以下命令提交工作：
 
-    ```
+    ```bash
     oozie job -config job.xml -submit
     ```
 
-    此命令會從 **job.xml** 載入工作資訊，並將工作資訊提交至 Oozie，但不會執行該工作。
+    此命令會從 `job.xml` 載入作業資訊並將其提交給 Oozie，但不會執行它。
 
     命令完成時，會傳回工作的 ID。 例如， `0000005-150622124850154-oozie-oozi-W`。 此 ID 將用來管理工作。
 
 4. 使用以下命令檢視工作的狀態：
 
-    ```
+    ```bash
     oozie job -info <JOBID>
     ```
 
@@ -456,28 +445,26 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
     此命令會傳回類似以下文字的資訊：
 
-    ```
-    Job ID : 0000005-150622124850154-oozie-oozi-W
-    ------------------------------------------------------------------------------------------------------------------------------------
-    Workflow Name : useooziewf
-    App Path      : wasb:///tutorials/useoozie
-    Status        : PREP
-    Run           : 0
-    User          : USERNAME
-    Group         : -
-    Created       : 2015-06-22 15:06 GMT
-    Started       : -
-    Last Modified : 2015-06-22 15:06 GMT
-    Ended         : -
-    CoordAction ID: -
-    ------------------------------------------------------------------------------------------------------------------------------------
-    ```
+        Job ID : 0000005-150622124850154-oozie-oozi-W
+        ------------------------------------------------------------------------------------------------------------------------------------
+        Workflow Name : useooziewf
+        App Path      : wasb:///tutorials/useoozie
+        Status        : PREP
+        Run           : 0
+        User          : USERNAME
+        Group         : -
+        Created       : 2015-06-22 15:06 GMT
+        Started       : -
+        Last Modified : 2015-06-22 15:06 GMT
+        Ended         : -
+        CoordAction ID: -
+        ------------------------------------------------------------------------------------------------------------------------------------
 
     這項工作的狀態為 `PREP`。 這個狀態表示作業雖已建立但未啟動。
 
 5. 使用下列命令可啟動工作：
 
-    ```
+    ```bash
     oozie job -start JOBID
     ```
 
@@ -488,13 +475,13 @@ Oozie 工作流程定義是以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 
 6. 工作順利完成後，您可以使用以下命令，確認是否已產生資料並匯出至 SQL Database 資料表：
 
-    ```
+    ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
     在 `1>` 提示字元輸入下列查詢：
 
-    ```
+    ```sql
     SELECT * FROM mobiledata
     GO
     ```
@@ -520,7 +507,7 @@ Oozie REST API 可讓您建置自己的工具來搭配 Oozie 使用。 以下為
 
 * **驗證**：使用叢集的 HTTP 帳戶 (admin) 和密碼來驗證 API。 例如：
 
-    ```
+    ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
@@ -542,7 +529,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
 
 1. 建立 HDInsight 叢集的 SSH 通道。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)文件。
 
-2. 建立通道後，請在網頁瀏覽器中開啟 Ambari Web UI。 Ambari 網站的 URI 是 **https://CLUSTERNAME.azurehdinsight.net**。 請將 **CLUSTERNAME** 取代為您的 Linux 型 HDInsight 叢集名稱。
+2. 建立通道後，請在網頁瀏覽器中開啟 Ambari Web UI。 Ambari 網站的 URI 為 `https://CLUSTERNAME.azurehdinsight.net`。 請將 `CLUSTERNAME` 取代為您 Linux 型 HDInsight 叢集的名稱。
 
 3. 在頁面左邊選取 [Oozie]，然後依序選取 [快速連結] 和 [Oozie Web UI]。
 
@@ -578,7 +565,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
 
 1. 使用以下命令建立名為 **coordinator.xml** 的檔案：
 
-    ```
+    ```bash
     nano coordinator.xml
     ```
 
@@ -603,15 +590,15 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
     > * `${coordTimezone}`：協調器工作位在固定時區，不受日光節約時間影響 (通常使用 UTC 表示)。 此時區稱為「Oozie 處理時區」。
     > * `${wfPath}`：workflow.xml 的路徑。
 
-2. 若要儲存檔案，請使用 Ctrl-X、**Y** 和 **Enter** 鍵。
+2. 若要儲存檔案，請依序按 Ctrl + X、`Y`和 `Enter` 鍵。
 
 3. 使用以下命令將該檔案複製到此作業的工作目錄：
 
-    ```
+    ```bash
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. 使用以下命令修改 **job.xml** 檔案：
+4. 使用以下命令來修改 `job.xml` 檔案：
 
     ```
     nano job.xml
@@ -658,7 +645,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 工作的狀態。 Web UI �
 
        這些值會將開始時間設為 2017 年 5 月 10 日下午 12:00，將結束時間設為 2017 年 5 月 12 日。 執行此工作的間隔是每日。 頻率的單位是分鐘，因此 24 小時 x 60 分鐘 = 1440 分鐘。 最後，時區會設定為 UTC。
 
-5. 依序按 Ctrl-X、**Y** 和 **Enter** 鍵以儲存檔案。
+5. 依序按 Ctrl + X、`Y` 和 `Enter` 鍵以儲存檔案。
 
 6. 若要執行工作，請使用以下命令：
 
@@ -732,13 +719,13 @@ Oozie UI 可讓您檢視 Oozie 記錄。 它也包含工作流程啟動之 MapRe
 
 例如，您可以針對本文件中的工作使用下列步驟：
 
-1. 將 sqljdbc4.1.jar 檔複製到 /tutorials/useoozie 目錄：
+1. 將 `sqljdbc4.1.jar` 檔案複製到 /tutorials/useoozie 目錄：
 
-    ```
+    ```bash
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. 修改 workflow.xml，在 `</sqoop>` 上方用新的一行加入下列 XML：
+2. 修改 `workflow.xml`，在 `</sqoop>` 上方新的一行上新增下列 XML：
 
     ```xml
     <archive>sqljdbc41.jar</archive>

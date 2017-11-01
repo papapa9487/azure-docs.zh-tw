@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: 教學課程
   items:
-    - name: 異地複寫
+    - name: 異地複寫 (預覽)
       items:
         - name: 1 - 準備容器登錄
           href: container-registry-tutorial-prepare-registry.md

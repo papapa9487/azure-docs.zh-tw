@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="performance-metrics"></a>效能度量
 
@@ -40,7 +40,7 @@ ms.lasthandoff: 10/11/2017
 | PhysicalDisk(per Disk) | Disk Write Bytes/sec |
 | 記憶體 | 可用的 MB |
 | PagingFile | % 使用量 |
-| Process(Total) | % Processor Time |
+| Processor(Total) | % Processor Time |
 | Process (per service) | % Processor Time |
 | Process (per service) | 識別碼處理序 |
 | Process (per service) | 私用位元組 |
@@ -48,6 +48,11 @@ ms.lasthandoff: 10/11/2017
 | Process (per service) | 虛擬位元組 |
 | Process (per service) | 工作集 |
 | Process (per service) | 工作集 - 私用 |
+| Network Interface(all-instances) | 輸出佇列長度 |
+| Network Interface(all-instances) | 已丟棄輸出封包 |
+| Network Interface(all-instances) | 已丟棄接收封包 |
+| Network Interface(all-instances) | 輸出封包錯誤 |
+| Network Interface(all-instances) | 已收到封包錯誤 |
 
 ## <a name="net-applications-and-services"></a>.NET 應用程式與服務
 

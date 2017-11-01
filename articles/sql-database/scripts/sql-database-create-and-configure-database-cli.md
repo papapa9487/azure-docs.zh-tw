@@ -1,6 +1,6 @@
 ---
 title: "CLI 範例 - 建立 Azure SQL Database | Microsoft Docs"
-description: "建立 SQL Database 的 Azure CLI 範例指令碼"
+description: "使用 Azure CLI 範例指令碼來建立 SQL Database。"
 services: sql-database
 documentationcenter: sql-database
 author: janeng
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 10/11/2017
 ms.author: janeng
-ms.openlocfilehash: c7c90d2d7a2d3631ffc63be88f2b8b95e2eb26a8
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 9a69d5988c3933f632cfb0fa2a0735f6e3b9fc06
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 建立單一 Azure SQL Database 並設定防火牆規則
 

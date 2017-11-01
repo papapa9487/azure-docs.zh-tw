@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 5d9a5b0dbd0b2a95bbb3cae37aea27908addc3c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca593890b6b030caa0acb9ede90ca24fe136ca0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web Apps
 
@@ -45,9 +45,9 @@ Application Insights 的這項功能在應用程式服務為 GA，在 Compute �
 
 使用 [設定] 刀鋒視窗中的 [啟用分析工具] 或 [停用分析工具] 按鈕來控制所有連結的 Web Apps 之分析工具。
 
-
-
 ![設定刀鋒視窗][linked app services]
+
+不同於透過 App Service 方案裝載的 Web 應用程式，裝載於 *Azure 計算*資源 (例如：虛擬機器、虛擬機器擴展集、Service Fabric、雲端服務) 的應用程式 並不是直接由 Azure 管理。 在此情況下，沒有任何 Web 應用程式會連結到這裡，您只需要按一下即可啟用畫面中的分析工具。
 
 ## <a name="disable-the-profiler"></a>停用分析工具
 若要停止或重新啟動個別 App Service 執行個體的分析工具，您可以在 [App Service 資源] 的 [Web 作業] 中找到它。 若要刪除它，請在 [擴充功能] 底下查看。

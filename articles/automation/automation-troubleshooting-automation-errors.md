@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9ad68abef47cde7472e413ee82510f7df9121cd
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>針對 Azure 自動化中的常見問題進行疑難排解 
 本文提供針對您在 Azure 自動化中可能遇到的一些常見錯誤進行疑難排解的協助，並且建議可能的解決方法。
@@ -101,8 +101,8 @@ ms.lasthandoff: 10/11/2017
 
 1. 登入您的 Azure 訂用帳戶：  
 2. 選取您想要升級的自動化帳戶  
-3. 按一下 [設定] > [定價層和使用方式] > [定價層]  
-4. 在 [選擇定價層] 分頁中，選取 [基本]    
+3. 按一下 [設定]  >  [定價]。
+4. 按一下頁面底端的 [啟用]，將您的帳戶升級至**基本**層。
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>案例：執行 Runbook 時，無法辨識 Cmdlet
 **錯誤：``<cmdlet name>``您的 Runbook 作業失敗，且出現「**：無法辨識 ``<cmdlet name>`` 詞彙是否為 Cmdlet、函式、指令檔或可執行程式的名稱」錯誤。

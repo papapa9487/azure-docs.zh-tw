@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1046d32a0b4b6ede027ef1931314a188c64c94bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba5606a8dbe311dae587ac3664cb77e0835e7f45
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器 DBMS 部署
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,13 +288,13 @@ ms.lasthandoff: 10/11/2017
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
-[virtual-network-deploy-multinic-arm-cli]:../../../virtual-network/virtual-network-deploy-multinic-arm-cli.md
-[virtual-network-deploy-multinic-arm-ps]:../../../virtual-network/virtual-network-deploy-multinic-arm-ps.md
+[virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
+[virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/virtual-network-deploy-multinic-arm-template.md
 [virtual-networks-configure-vnet-to-vnet-connection]:../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md
 [virtual-networks-create-vnet-arm-pportal]:../../../virtual-network/virtual-networks-create-vnet-arm-pportal.md
 [virtual-networks-manage-dns-in-vnet]:../../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
-[virtual-networks-multiple-nics]:../../../virtual-network/virtual-networks-multiple-nics.md
+[virtual-networks-multiple-nics]:../../../virtual-network/virtual-network-deploy-multinic-classic-ps.md
 [virtual-networks-nsg]:../../../virtual-network/virtual-networks-nsg.md
 [virtual-networks-reserved-private-ip]:../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md
 [virtual-networks-static-private-ip-arm-pportal]:../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
@@ -330,7 +330,7 @@ ms.lasthandoff: 10/11/2017
 * 跨單位：描述將 VM 部署到 Azure 訂用帳戶的案例，該訂用帳戶在內部部署資料中心與 Azure 之間具有站對站、多站台或 ExpressRoute 連線能力。 在一般 Azure 文件中，這類部署也會描述為跨單位案例。 連線的原因是為了將內部部署網域、內部部署 Active Directory 和內部部署 DNS 擴充到 Azure。 內部部署的架構會擴充到訂用帳戶的 Azure 資產。 在此擴充下，VM 可以是內部部署網域的一部分。 內部部署網域的網域使用者可以存取伺服器，並且可在這些 VM 上執行服務 (例如 DBMS 服務)。 您可以在內部部署的 VM 與 Azure 中部署的 VM 之間進行通訊與名稱解析。 我們預期這是在 Azure 上部署 SAP 資產最常見的案例。 如需詳細資訊，請參閱[這篇文章][vpn-gateway-cross-premises-options]和[這篇文章][vpn-gateway-site-to-site-create]。
 
 > [!NOTE]
-> SAP 生產系統支援跨單位部署 SAP 系統，其中執行 SAP 系統的 Azure 虛擬機器是內部部署網域的成員。 支援跨單位組態，以便將部分或完整的 SAP 架構部署到 Azure。 即使在 Azure 中執行完整的 SAP 架構，也會要求這些 VM 隸屬於內部部署網域和 ADS。 在本文件的先前版本中，我們曾談到混合式 IT 案例，其中「混合式」一詞基本上是指內部部署與 Azure 之間有跨單位連線能力。 在此案例中，「混合式」也表示 Azure 中的 VM 是內部部署 Active Directory 的一部分。
+> SAP 生產系統支援跨單位部署 SAP 系統，其中執行 SAP 系統的 Azure 虛擬機器是內部部署網域的成員。 支援跨單位組態，以便將部分或完整的 SAP 架構部署到 Azure。 即使在 Azure 中執行完整的 SAP 架構，也會要求這些 VM 隸屬於內部部署網域和 ADS。 在本文件的先前版本中，我們曾談到混合式 IT 案例，其中*混合式*一詞基本上是指內部部署與 Azure 之間有跨單位連線能力。 在此案例中，*混合式*也表示 Azure 中的 VM 是內部部署 Active Directory 的一部分。
 > 
 > 
 
@@ -511,7 +511,7 @@ Azure 儲存體本機複寫 (本地備援) 會根據因為少數客戶提供來�
 
 Azure 儲存體帳戶不只是一個系統管理的建構，而且還是限制的緣由。 然而，限制會根據我們討論的是 Azure 標準儲存體或 Azure 進階儲存體帳戶而有所不同。 如需了解確切的功能和限制，請參閱[這裡][storage-scalability-targets]
 
-因此，就「Azure 標準儲存體」而言，要特別注意每個儲存體帳戶都有 IOPS 限制 ([這篇文章][storage-scalability-targets]中包含「總要求率」的資料列)。 此外，每個 Azure 訂用帳戶的「儲存體帳戶」初始限制為 100 個 (自 2015 年 7 月起)。 因此，建議在使用 Azure 標準儲存體時，平衡多個儲存體帳戶之間 VM 的 IOPS。 另一方面，單一 VM 最好盡可能使用一個儲存體帳戶。 因此，如果我們談到 DBMS 部署，其中每個裝載於 Azure 標準儲存體的 VHD 會到達其配額限制時，您應該只針對每個使用 Azure 標準儲存體的 Azure 儲存體帳戶部署 30-40 個 VHD。 相反地，如果您利用 Azure 進階儲存體，並且想要儲存大型資料庫磁碟區，您在 IOPS 方面可能不會遇到問題。 但是，Azure 進階儲存體帳戶在資料磁碟區方面會比 Azure 標準儲存體帳戶更嚴格。 因此，在到達資料磁碟區限制之前，您只能在 Azure 進階儲存體帳戶內部署有限的 VHD 數目。 最後，將 Azure 儲存體帳戶想像為「虛擬 SAN」，其在 IOPS 和/或容量中的功能有限。 因此，工作將會保留 (如同在內部部署中)，以便在不同的「虛構 SAN 裝置」或 Azure 儲存體帳戶上定義不同 SAP 系統的 VHD 配置。
+因此，就「Azure 標準儲存體」而言，要特別注意每個儲存體帳戶都有 IOPS 限制 ([這篇文章][storage-scalability-targets]中包含**總要求率**的資料列)。 此外，每個 Azure 訂用帳戶的「儲存體帳戶」初始限制為 100 個 (自 2015 年 7 月起)。 因此，建議在使用 Azure 標準儲存體時，平衡多個儲存體帳戶之間 VM 的 IOPS。 另一方面，單一 VM 最好盡可能使用一個儲存體帳戶。 因此，如果我們談到 DBMS 部署，其中每個裝載於 Azure 標準儲存體的 VHD 會到達其配額限制時，您應該只針對每個使用 Azure 標準儲存體的 Azure 儲存體帳戶部署 30-40 個 VHD。 相反地，如果您利用 Azure 進階儲存體，並且想要儲存大型資料庫磁碟區，您在 IOPS 方面可能不會遇到問題。 但是，Azure 進階儲存體帳戶在資料磁碟區方面會比 Azure 標準儲存體帳戶更嚴格。 因此，在到達資料磁碟區限制之前，您只能在 Azure 進階儲存體帳戶內部署有限的 VHD 數目。 最後，將 Azure 儲存體帳戶想像為「虛擬 SAN」，其在 IOPS 和/或容量中的功能有限。 因此，工作將會保留 (如同在內部部署中)，以便在不同的「虛構 SAN 裝置」或 Azure 儲存體帳戶上定義不同 SAP 系統的 VHD 配置。
 
 就「Azure 標準儲存體」而言，建議儘量不要對單一 VM 呈現來自不同儲存體帳戶的儲存體。
 
@@ -641,7 +641,7 @@ Azure 平台不會針對部署的 VM 提供像是即時移轉等功能。 這表
 #### <a name="formatting-the-disks"></a>將磁碟格式化
 針對 SQL Server，適用於含有 SQL Server 資料和記錄檔之磁碟的 NTFS 區塊大小應該是 64 K。 不需要將 D:\ 磁碟機格式化。 此磁碟機已預先格式化。
 
-若要確定還原或建立資料庫不會藉由清空檔案的內容來初始化資料檔，您應該確定 SQL Server 服務執行所在的使用者內容具有特定的權限。 通常，Windows 系統管理員群組中的使用者會擁有這些權限。 在非 Windows 系統管理員使用者的使用者內容中執行 SQL Server 服務時，您需要為該使用者指派「執行磁碟區維護工作」的使用者權限。  請參閱這篇「Microsoft 知識庫文章」中的詳細資料︰<https://support.microsoft.com/kb/2574695>
+若要確定還原或建立資料庫不會藉由清空檔案的內容來初始化資料檔，您應該確定 SQL Server 服務執行所在的使用者內容具有特定的權限。 通常，Windows 系統管理員群組中的使用者會擁有這些權限。 在非 Windows 系統管理員使用者的使用者內容中執行 SQL Server 服務時，您需要為該使用者指派**執行磁碟區維護工作**的使用者權限。  請參閱這篇「Microsoft 知識庫文章」中的詳細資料︰<https://support.microsoft.com/kb/2574695>
 
 #### <a name="impact-of-database-compression"></a>資料庫壓縮的影響
 在 I/O 頻寬可能變成限制因素的組態中，減少 IOPS 的每個量值可能都有助於延展您可以在類似 Azure 的 IaaS 案例中執行的工作負載。 因此，如果尚未這麼做，SAP 和 Microsoft 強烈建議您套用 SQL Server 頁面壓縮，然後再將現有的 SAP 資料庫上傳至 Azure。
@@ -654,7 +654,7 @@ Azure 平台不會針對部署的 VM 提供像是即時移轉等功能。 這表
 
 資料庫壓縮也可以在 Azure 虛擬機器中運作，如同它在內部部署中的運作方式。 如需有關如何壓縮現有 SAP SQL Server 資料庫的更多詳細資料，請參閱︰<https://blogs.msdn.com/b/saponsqlserver/archive/2010/10/08/compressing-an-sap-database-using-report-msscompress.aspx>
 
-### <a name="sql-server-2014--storing-database-files-directly-on-azure-blob-storage"></a>SQL Server 2014 – 將資料庫檔案直接儲存於 Azure Blog 儲存體上
+### <a name="sql-server-2014---storing-database-files-directly-on-azure-blob-storage"></a>SQL Server 2014 – 將資料庫檔案直接儲存於 Azure Blog 儲存體上
 SQL Server 2014 開放將資料庫檔案直接儲存於 Azure Blob 儲存體上的可能性，而不需在其周圍使用 VHD 的「包裝函式」。 特別是在使用標準 Azure 儲存體或較小的 VM 類型時，這讓您可以在其中克服 IOPS 的限制，此限制是透過可以掛接到某些較小型 VM 類型的有限磁碟數目來強制執行。 不過，這適用於 SQL Server 的使用者資料庫，而不適用於系統資料庫。 這也適用於 SQL server 的資料和記錄檔。 如果您想要使用此方式部署 SAP SQL Server 資料庫，而不是將它「包裝」到 VHD，請記住下列資訊︰
 
 * 所使用之儲存體帳戶所在的 Azure 區域必須與用來部署 SQL Server 執行所在之 VM 的相同。
@@ -675,7 +675,7 @@ SQL Server 2014 引進的新功能，稱為「緩衝集區延伸」。 此功能
 
 有三種不同方式可將 SQL Server 備份至 Azure 儲存體︰
 
-1. SQL Server 2012 CU4 和更新版本可以原生方式將資料庫備份至 URL。 下列部落格有詳細說明： [New functionality in SQL Server 2014 – Part 5 – Backup/Restore Enhancements (SQL Server 2014 的新功能 – 第 5 部分 – 備份/還原增強功能)](https://blogs.msdn.com/b/saponsqlserver/archive/2014/02/15/new-functionality-in-sql-server-2014-part-5-backup-restore-enhancements.aspx)。 請參閱 [SQL Server 2012 SP1 CU4 和更新版本][dbms-guide-5.5.1]一章。
+1. SQL Server 2012 CU4 和更新版本可以原生方式將資料庫備份至 URL。 下列部落格有詳細說明： [New functionality in SQL Server 2014 - Part 5 - Backup/Restore Enhancements (SQL Server 2014 的新功能 – 第 5 部分 – 備份/還原增強功能)](https://blogs.msdn.com/b/saponsqlserver/archive/2014/02/15/new-functionality-in-sql-server-2014-part-5-backup-restore-enhancements.aspx)。 請參閱 [SQL Server 2012 SP1 CU4 和更新版本][dbms-guide-5.5.1]一章。
 2. SQL 2012 CU4 之前的 SQL Server 版本可以使用重新導向功能來備份到 VHD，而且寫入串流基本上會流向已設定的 Azure 儲存體位置。 請參閱 [SQL Server 2012 SP1 CU3 和舊版][dbms-guide-5.5.2]一章。
 3. 最後一個方法是在磁碟裝置上執行傳統 SQL Server 備份到磁碟的命令。 這與內部部署模式完全相同，但不會在本文中詳細討論。
 
@@ -684,7 +684,7 @@ SQL Server 2014 引進的新功能，稱為「緩衝集區延伸」。 此功能
 
  ![使用 SQL Server 2012 備份至 Microsoft Azure 儲存體 BLOB][dbms-guide-figure-400]
 
-此案例的優點是您不需要耗用磁碟來儲存 SQL Server 備份。 因此，所配置的磁碟較少，而且可以針對資料和記錄檔使用磁碟 IOPS 的整個頻寬。 請注意，如下列文章的＜限制＞一節所記載，備份的大小上限是 1 TB︰<https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations>。 如果在使用「SQL Server 備份」壓縮的情況下，備份大小仍然會超過 1 TB，就需要使用本文件的 [SQL Server 2012 SP1 CU3 和舊版][dbms-guide-5.5.2]一章中所述的功能。
+此案例的優點是您不需要耗用磁碟來儲存 SQL Server 備份。 因此，所配置的磁碟較少，而且可以針對資料和記錄檔使用磁碟 IOPS 的整個頻寬。 請注意，如下列文章的**限制**一節所記載，備份的大小上限是 1 TB︰<https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#limitations>。 如果在使用「SQL Server 備份」壓縮的情況下，備份大小仍然會超過 1 TB，就需要使用本文件的 [SQL Server 2012 SP1 CU3 和舊版][dbms-guide-5.5.2]一章中所述的功能。
 
 描述從「Azure Blob 存放區」之備份還原資料庫的[相關文件](https://docs.microsoft.com/sql/relational-databases/backup-restore/restoring-from-backups-stored-in-microsoft-azure)建議在備份大於 25 GB 的情況下，不要直接從 Azure BLOB 存放區還原。 本文中的建議只以效能考量為依據，並未將功能限制納入考量。 因此，隨著案例的不同，可能會發生不同的狀況。
 
@@ -696,7 +696,7 @@ SQL Server 2014 引進的新功能，稱為「緩衝集區延伸」。 此功能
 
 為了避免混用這 3 種不同的備份類型，建議您在用來備份的儲存體帳戶底下建立不同的容器。 容器可以僅供 VM 使用，也可以供 VM 和備份類型使用。 結構描述看起來如下︰
 
- ![使用 SQL Server 2012 備份至 Microsoft Azure 儲存體 BLOB – 個別儲存體帳戶中的不同容器][dbms-guide-figure-500]
+ ![使用 SQL Server 2012 備份至 Microsoft Azure 儲存體 BLOB - 個別儲存體帳戶中的不同容器][dbms-guide-figure-500]
 
 在上述範例中，備份不會執行到部署 VM 的相同儲存體帳戶。 有專用於備份的新儲存體帳戶。 在儲存體帳戶內，會有使用備份類型和 VM 名稱的組合所建立的不同容器。 這種細分方式可讓您輕鬆地管理不同 VM 的備份。
 
@@ -705,7 +705,7 @@ SQL Server 2014 引進的新功能，稱為「緩衝集區延伸」。 此功能
 #### <a name="f9071eff-9d72-4f47-9da4-1852d782087b"></a>SQL Server 2012 SP1 CU3 和舊版
 若要直接封存「Azure 儲存體」的備份，您必須執行的第一個步驟就是下載連結到[這篇](https://www.microsoft.com/download/details.aspx?id=40740) KBA 文章的 msi。
 
-下載 x64 安裝檔案和文件。 此檔案會安裝下列程式：‘Microsoft SQL Server Backup to Microsoft Azure Tool’。 請仔細閱讀產品文件。  此工具基本上會以下列方式運作︰
+下載 x64 安裝檔案和文件。 此檔案會安裝下列程式：**Microsoft SQL Server Backup to Microsoft Azure Tool**。 請仔細閱讀產品文件。  此工具基本上會以下列方式運作︰
 
 * 從 SQL Server 端，定義 SQL Server 備份的磁碟位置 (請勿針對此工具使用 D:\ 磁碟機)。
 * 此工具可讓您定義可用來將不同備份類型導向至不同 Azure 儲存體容器的規則。
@@ -717,7 +717,7 @@ SQL Server 2014 引進的新功能，稱為「緩衝集區延伸」。 此功能
 
 此方法不應與較新版的 SQL Server 搭配使用，這些版本支援以原生方式備份 Azure 儲存體。 例外狀況是對 Azure 的原生備份限制會封鎖對 Azure 執行原生備份。
 
-#### <a name="other-possibilities-to-backup-sql-server-databases"></a>備份 SQL Server 資料庫的其他可能性
+#### <a name="other-possibilities-to-back-up-sql-server-databases"></a>備份 SQL Server 資料庫的其他可能性
 備份資料庫的其他可能性是將其他資料磁碟連結到您用來儲存備份的 VM。 在這種情況下，您必須確認磁碟並未完整執行。 如果是這種情況，您必須取消掛接磁碟，也就是所謂的「封存」它，然後使用新的空白磁碟來取代它。 如果您執行此動作，就會想要將這些 VHD 保留於個別的 Azure 儲存體帳戶中 (不同於具有含資料庫檔案之 VHD 的帳戶)。
 
 第二種可能性是使用可以連接許多磁碟的大型 VM，例如具有 32 個 VHD 的 D14。 使用儲存空間來建立有彈性的環境，您可以在其中建置共用，之後用來做為不同 DBMS 伺服器的備份目標。
@@ -734,7 +734,7 @@ SQL Server 2014 引進的新功能，稱為「緩衝集區延伸」。 此功能
 
 在較新版本中使用 Microsoft Azure 儲存體 BLOB 做為備份目標時，您就只能針對每個特定備份指定一個 URL 目標。
 
-但是，在舊版中使用 ‘Microsoft SQL Server Backup to Microsoft Azure Tool’ 時，您可以定義多個檔案目標。 使用多個目標，就可以調整備份且備份的輸送量會更高。 這接著也會在 Azure 儲存體帳戶中產生多個檔案。 在我們的測試中，使用多個檔案目的地，絕對可以達到輸送量，而您可以藉由從 SQL Server 2012 SP1 CU4 實作備份延伸模組來達成。 您也不會遭到 1 TB 限制所封鎖，就像在 Azure 的原生備份一樣。
+但是，在舊版中使用 "Microsoft SQL Server backup to Microsoft Azure Tool" 時，您可以定義多個檔案目標。 使用多個目標，就可以調整備份且備份的輸送量會更高。 這接著也會在 Azure 儲存體帳戶中產生多個檔案。 在我們的測試中，使用多個檔案目的地，絕對可以達到輸送量，而您可以藉由從 SQL Server 2012 SP1 CU4 實作備份延伸模組來達成。 您也不會遭到 1 TB 限制所封鎖，就像在 Azure 的原生備份一樣。
 
 不過，請記住，輸送量也會取決於您用來備份的 Azure 儲存體帳戶位置。 最好是將儲存體帳戶放置於執行 VM 以外的不同區域中。 例如，您在西歐執行 VM 組態，但將您用來備份的儲存體帳戶放在北歐。 這當然會對備份輸送量產生影響，而且很可能不會產生每秒 150MB 的輸送量，因為看似會發生目標儲存體和 VM在同一個區域資料中心內執行的情況。
 
@@ -757,7 +757,7 @@ Microsoft 在 Azure Marketplace 中提供已經包含 SQL Server 版本的 VM。
 #### <a name="changing-the-sql-server-collation-of-a-microsoft-windowssql-server-vm"></a>變更 Microsoft Windows/SQL Server VM 的 SQL Server 定序
 因為 Azure Marketplace 中的 SQL Server 映像不是設定來使用 SAP NetWeaver 應用程式所需的定序，所以需要在部署之後立即變更。 針對 SQL Server 2012，一旦部署 VM 且系統管理員能夠登入已部署的 VM 之後，就能夠使用下列步驟來完成此動作：
 
-* 以「系統管理員身分」開啟 Windows 命令視窗。
+* 以系統管理員身分開啟 Windows 命令視窗。
 * 將目錄變更為 C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012。
 * 執行命令︰Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> 是第一次透過資源庫部署 VM 時定義為系統管理員帳戶的帳戶。
@@ -799,7 +799,7 @@ SAP 支援的「資料庫鏡像」(請參閱 SAP 附註 [965908]) 有賴於在 S
 以下是使用可用性群組接聽程式的一些考量︰
 
 * 使用可用性群組接聽程式，只能使用 Windows Server 2012 或更高版本作為 VM 的客體作業系統。 針對 Windows Server 2012，您必須確定套用這個修補程式︰<https://support.microsoft.com/kb/2854082> 
-* 針對 Windows Server 2008 R2，則沒有這個修補程式，必須以和使用「資料庫鏡像」相同的方式使用 AlwaysOn，方法是在連接字串中指定容錯移轉夥伴 (透過 SAP default.pfl 參數 dbs/mss/server 來完成 – 請參閱 SAP 附註 [965908])。
+* 針對 Windows Server 2008 R2，則沒有這個修補程式，必須以和使用「資料庫鏡像」相同的方式使用 AlwaysOn，方法是在連接字串中指定容錯移轉夥伴 (透過 SAP default.pfl 參數 dbs/mss/server 來完成 - 請參閱 SAP 附註 [965908])。
 * 使用可用性群組接聽程式時，資料庫 VM 需要連接到專用的負載平衡器。 僅限雲端部署中的名稱解析可能會要求 SAP 系統的所有 VM (應用程式伺服器、DBMS 伺服器及 (A)SCS 伺服器) 位於同一個虛擬網路，或者從 SAP 應用程式層要求維護 etc\host 檔案，以解析 SQL Server VM 的 VM 名稱。 為了避免 Azure 在這兩個 VM 意外關閉的情況下指派新的 IP 位址，您應該在 AlwaysOn 組態中為這些 VM 的網路介面指派靜態 IP 位址 (如需了解如何定義靜態 IP 位址，請參閱[這篇][virtual-networks-reserved-private-ip]文章)
 
 [comment]: <> (舊部落格)
@@ -878,7 +878,7 @@ SAP 目前支援 SAP ASE 版本 16.0，可與 SAP 商務套件產品搭配使用
 
 ### <a name="sap-ase-configuration-guidelines-for-sap-related-sap-ase-installations-in-azure-vms"></a>在 Azure VM 中安裝 SAP 相關之 SAP ASE 的 SAP ASE 組態指導方針
 #### <a name="structure-of-the-sap-ase-deployment"></a>SAP ASE 部署結構
-根據一般的描述，SAP ASE 可執行檔應該位於或安裝於 VM OS 磁碟的系統磁碟機 (磁碟機 c:\)。 通常，SAP NetWeaver 工作負載在運用大部分的 SAP ASE 系統和工具資料庫時並不會很費力。 因此，系統和工具資料庫 (master、model、saptools、sybmgmtdb、sybsystemdb) 也可以保留於 C:\ 磁碟機上。 
+根據一般的描述，SAP ASE 可執行檔應該位於或安裝於 VM OS 磁碟的系統磁碟機 (磁碟機 c:\))。 通常，SAP NetWeaver 工作負載在運用大部分的 SAP ASE 系統和工具資料庫時並不會很費力。 因此，系統和工具資料庫 (master、model、saptools、sybmgmtdb、sybsystemdb) 也可以保留於 C:\ 磁碟機上。 
 
 有一個例外狀況可能是暫存資料庫包含 SAP ASE 建立的所有工作資料表和暫存資料表，萬一某些 SAP ERP 和所有 BW 工作負載可能要求更高的資料量或 I/O 作業量，而其無法符合原始 VM 的 OS 磁碟 (磁碟機 c:\))，就會發生此情況。
 
@@ -1319,9 +1319,9 @@ SAP 目前支援 SAP MaxDB 版本 7.9，以便與 Azure 中 SAP NetWeaver 架構
 
 以 SAP 所支援的 Azure VM 類型 (SAP 附註 [1928533]) 來說，配置給 VM 的所有虛擬 CPU 資源都是以 Hypervisor 的專用實體 CPU 資源為後盾。 不會產生過度佈建 (因此不會產生 CPU 資源競爭)。
 
-同樣地，針對 SAP 支援的所有 Azure VM 執行個體類型，VM 記憶體會完全對應到實體記憶體 – 例如，不會使用過度佈建 (過度使用)。
+同樣地，針對 SAP 支援的所有 Azure VM 執行個體類型，VM 記憶體會完全對應到實體記憶體 - 例如，不會使用過度佈建 (過度使用)。
 
-從這個觀點來看，強烈建議使用新的 D 系列或 DS 系列 (搭配 Azure 進階儲存體) 的 Azure VM 類型，因為它們所擁有的處理器速度比 A 系列快上 60%。 針對最高的 RAM 與 CPU 負載，您可以使用 G 系列和 GS 系列 (搭配 Azure 進階儲存體) 的 VM，其中配備最新的 Intel® Xeon® 處理器 E5 v3 系列，具有兩倍的記憶體以及四倍的 D/DS 系列固態硬碟儲存體 (SSD)。
+從這個觀點來看，強烈建議使用新的 D 系列或 DS 系列 (搭配 Azure 進階儲存體) 的 Azure VM 類型，因為它們所擁有的處理器速度比 A 系列快上 60%。 針對最高的 RAM 與 CPU 負載，您可以使用 G 系列和 GS 系列 (搭配 Azure 進階儲存體) 的 VM，其中配備最新的 Intel?? Xeon?? 處理器 E5 v3 系列，具有兩倍的記憶體以及四倍的 D/DS 系列固態硬碟儲存體 (SSD)。
 
 #### <a name="storage-configuration"></a>儲存體組態
 由於 SAP liveCache 是以 SAP MaxDB 技術為基礎，因此[儲存體組態][dbms-guide-8.4.1]一章中針對 SAP MaxDB 提到的所有 Azure 儲存體最佳做法建議也適用於 SAP liveCache。 
@@ -1421,7 +1421,7 @@ SAP 快取伺服器是一個額外的伺服器架構元件，可提供在本機�
 針對效能考量，也請參閱 SAP 安裝指南中的＜適用於資料庫目錄的資料安全性和效能考量＞章節。
 
 或者，您也可以使用「Windows 儲存集區」(僅適用於 Windows Server 2012 和更新版本) 或適用於 Windows 2008 R2 的 Windows 等量分割 (如本文件的[軟體 RAID][dbms-guide-2.2] 一章所述)，在多個磁碟上建立一個大型邏輯裝置。
-如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 DB2 儲存路徑，您必須將實體磁碟磁區大小指定為 512 KB。 使用 Windows 儲存集區時，您必須透過命令列介面，使用參數 „-LogicalSectorSizeDefault“，以手動方式建立儲存集區。 如需詳細資訊，請參閱 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
+如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 DB2 儲存路徑，您必須將實體磁碟磁區大小指定為 512 KB。 使用 Windows 儲存集區時，您必須透過命令列介面，使用參數 `-LogicalSectorSizeDefault`，以手動方式建立儲存集區。 如需詳細資訊，請參閱 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
 
 #### <a name="backuprestore"></a>備份/還原
 針對 IBM DB2 for LUW 的備份/還原功能，是利用與標準 Windows Server 作業系統和 Hyper-V 上所做的相同方式來支援。

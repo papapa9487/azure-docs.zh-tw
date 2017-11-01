@@ -3,7 +3,7 @@ title: "使用 Linux VM MSI 存取 Azure Key Vault"
 description: "此教學課程引導您使用 Linux VM 受管理的服務身分識別 (MSI) 來存取 Azure Resource Manager 的程序。"
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: dd2dfe20f86b3fac28871b27a1c2b66c2b4a4cd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fcce3b557b7105abcd704f740823c0cb4441b43
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-linux-vm-to-access-azure-key-vault"></a>使用 Linux VM 的受管理服務身分識別 (MSI) 來存取 Azure Key Vault 
+# <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>使用 Linux VM 受管理的服務識別 (MSI) 來存取 Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程會示範如何為 Windows 虛擬機器啟用受管理的服務身分識別 (MSI)，並使用身分識別存取 Azure Key Vault。 受管理的服務身分識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 您會了解如何：
+本教學課程會示範如何為 Windows 虛擬機器啟用受管理的服務識別 (MSI)，然後使用該識別來存取 Azure Key Vault。 作為啟動程序，金鑰保存庫可讓您的用戶端應用程式，接著使用密碼存取未受 Azure Active Directory (AD) 保護的資源。 受管理的服務識別由 Azure 自動管理，並可讓您驗證支援 Azure AD 驗證的服務，而不需要將認證插入程式碼中。 
+
+您會了解如何：
 
 > [!div class="checklist"]
 > * 在 Linux 虛擬機器上啟用 MSI 
@@ -57,20 +59,20 @@ ms.lasthandoff: 10/11/2017
 虛擬機器 MSI 可讓您從 Azure AD 取得存取權杖，而不需要將憑證放入您的程式碼。 實際上，啟用 MSI 會執行兩項工作：在您的 VM 上安裝 MSI VM 延伸模組，並啟用 VM 的 MSI。  
 
 1. 選取您想要在其中啟用 MSI 的 [虛擬機器]。
-2. 在左側的導覽列上，按一下 [設定]。
+2. 在左側的導覽列上，按一下 [設定] 。
 3. 您會看到**受管理的服務識別**。 若要註冊並啟用 MSI，請選取 [是]，如果您想要將它停用，則請選擇 [否]。
 4. 按一下 [儲存] 確認儲存設定。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
-5. 如果您想要檢查哪些延伸模組會在此 **Linux VM** 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforLinux** 會出現在清單中。
+5. 如果您想要檢查哪些延伸模組會在此 **Linux VM** 上，請按一下 [延伸模組]。 如果 MSI 已啟用，則 **ManagedIdentityExtensionforLinux** 會出現在清單上。
 
     ![替代映像文字](media/msi-tutorial-linux-vm-access-arm/msi-extension-value.png)
 
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>授與 VM 存取權以取得 Key Vault 中的密碼  
 
-您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure Active Directory 驗證的資源進行驗證。 但是，並非所有 Azure 服務都支援 Azure AD 驗證。 若要使用 MSI 搭配不支援 Azure AD 驗證的服務，您可以在 Azure Key Vault 中儲存這些服務所需的認證，並使用 MSI 來向 Key Vault 進行驗證以擷取認證。 
+您的程式碼可以使用 MSI 來取得存取權杖，來向支援 Azure Active Directory 驗證的資源進行驗證。 但是，並非所有 Azure 服務都支援 Azure AD 驗證。 若要使用 MSI 搭配那些服務，請將服務認證儲存在 Azure Key Vault 中，並使用 MSI 存取 Key Vault 來擷取認證。 
 
 首先，我們需要建立 Key Vault 並將 VM 的身分識別存取權授與 Key Vault。   
 
@@ -87,14 +89,14 @@ ms.lasthandoff: 10/11/2017
 
 接下來，將密碼新增至 Key Vault，好讓您稍後可以使用在 VM 中執行的程式碼來擷取密碼： 
 
-1. 選取 [所有資源]，然後尋找並選取您剛才建立的 Key Vault。 
+1. 選取 [所有資源]，然後尋找並選取您所建立的 Key Vault。 
 2. 選取 [密碼]，然後按一下 [新增]。 
 3. 從 [上傳選項] 中選取 [手動]。 
 4. 輸入密碼的名稱和值。  值可以是任何您想要的項目。 
 5. 將啟動日期和到期日期保留空白，並將 [啟用] 設定為 [是]。 
 6. 按一下 [建立] 來建立密碼。 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的密碼  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>使用 VM 身分識別取得存取權杖，並使用它來擷取 Key Vault 的密碼  
 
 若要完成這些步驟，您需要 SSH 用戶端。  如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 用戶端。   
  

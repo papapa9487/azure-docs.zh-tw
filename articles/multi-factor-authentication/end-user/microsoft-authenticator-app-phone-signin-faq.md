@@ -15,11 +15,11 @@ ms.date: 08/12/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: end-user
-ms.openlocfilehash: 9fb25f9f26a220c90f82add02fa5bdb954a926c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b62900b780884c241d96f0bed8e93a1a0927cfe3
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>使用您的電話而不是您的密碼登入
 
@@ -88,6 +88,6 @@ Microsoft 驗證器應用程式可協助您保持帳戶安全，方法為在您�
 此時，我們並未在 Windows Phone 上開發 Microsoft 驗證器的這項功能。 
 
 ## <a name="next-steps"></a>後續步驟
-如果您尚未下載 Microsoft 驗證器應用程式，請將它簽出。應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)，Microsoft 驗證器應用程式上的電話登入功能適用於 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [IOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
+如果您尚未下載 Microsoft 驗證器應用程式，請將它簽出。應用程式適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)，Microsoft 驗證器應用程式上的電話登入功能適用於 [Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
 
 如果您有關於應用程式的一般問題，請查看 [Microsoft 驗證器常見問題集](microsoft-authenticator-app-faq.md)

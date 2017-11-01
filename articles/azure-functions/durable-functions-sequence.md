@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 0eb031893d53f09097b696e18f6c129be061136a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 913805901bf8131e4908be03e9213539a26205ed
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
@@ -71,13 +71,16 @@ ms.lasthandoff: 10/11/2017
 
 此函式具有 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 參數，用來取得協調器函式呼叫 [CallActivityAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CallActivityAsync_)> 時傳回的輸入。
 
-## <a name="running-the-orchestration"></a>執行協調流程
+## <a name="run-the-sample"></a>執行範例
 
-若要執行 `E1_HelloSequence` 協調流程，請進行下列 HTTP 呼叫。
+若要執行 `E1_HelloSequence` 協調流程，請傳送下列 HTTP POST 要求。
 
 ```
-POST http://{app-name}.azurewebsites.net/orchestrators/E1_HelloSequence
+POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+例如，如果您在名為 "myfunctionapp" 的函式應用程式中執行範例，請將 "{host}" 取代為 "myfunctionapp.azurewebsites.net"。
+
 結果會是 HTTP 202 回應，就像這樣 (為了簡潔起見已修剪)：
 
 ```
@@ -120,7 +123,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>後續步驟
 
-現在，基本上您已了解 Durable Functions 的核心技術。 此範例很簡單，只顯示幾個可用的功能。 後續的範例更「真實」，將會示範更廣泛的功能。
+此範例已示範簡單的函式鏈結協調流程。 下一個範例會說明如何實作展開傳送/收合傳送模式。 
 
 > [!div class="nextstepaction"]
 > [執行展開傳送/收合傳送範例](durable-functions-cloud-backup.md)

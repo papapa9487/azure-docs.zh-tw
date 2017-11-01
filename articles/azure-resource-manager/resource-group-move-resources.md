@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 326039c58466e65183a594e222db24e998f151b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -320,6 +320,11 @@ App Service 方案不需要與應用程式位於相同的資源群組，應用�
 您可以將 HDInsight 叢集移至新的訂用帳戶或資源群組。 不過，您無法跨訂用帳戶來移動連結至 HDInsight 叢集的網路資源 (例如虛擬網路、NIC 或負載平衡器)。 此外，您無法將已連接至叢集虛擬機器的 NIC 移至新的資源群組。
 
 將 HDInsight 叢集移至新的訂用帳戶時，請先移動其他資源 (例如儲存體帳戶)。 然後，移動 HDInsight 叢集本身。
+
+## <a name="search-limitations"></a>搜尋的限制
+
+您不能同時移動放在不同區域的多個搜尋資源。
+在這種情況下，您需要分別移動它們。
 
 ## <a name="use-portal"></a>使用入口網站
 

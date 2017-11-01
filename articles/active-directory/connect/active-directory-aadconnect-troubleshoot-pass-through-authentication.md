@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
@@ -127,6 +127,10 @@ ms.lasthandoff: 10/11/2017
 
 根據發生的問題類型，您需要在不同的位置尋找傳遞驗證代理程式記錄。
 
+### <a name="azure-ad-connect-logs"></a>Azure AD Connect 記錄
+
+針對安裝相關的錯誤，請檢查 Azure AD Connect 記錄，位置在 **%ProgramData%\AADConnect\trace-\*.log**。
+
 ### <a name="authentication-agent-event-logs"></a>驗證代理程式事件記錄檔
 
 如需與驗證代理程式相關的錯誤，請開啟伺服器上的事件檢視器應用程式，並於 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** 下查看。
@@ -135,7 +139,7 @@ ms.lasthandoff: 10/11/2017
 
 ### <a name="detailed-trace-logs"></a>詳細的追蹤記錄檔
 
-若要針對使用者登入失敗進行疑難排解，請查看追蹤記錄，其位於 **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**。 這些記錄包含使用傳遞驗證功能的特定使用者為什麼會登入失敗的原因。 這些錯誤也對應到先前[資料表](#sign-in-failure-reasons-on-the-Azure-portal)中所示的登入失敗原因。 以下是記錄項目範例：
+若要針對使用者登入失敗進行疑難排解，請查看追蹤記錄，其位於 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**。 這些記錄包含使用傳遞驗證功能的特定使用者為什麼會登入失敗的原因。 這些錯誤也對應到先前[資料表](#sign-in-failure-reasons-on-the-Azure-portal)中所示的登入失敗原因。 以下是記錄項目範例：
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

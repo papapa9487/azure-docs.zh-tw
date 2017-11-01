@@ -12,20 +12,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2017
+ms.date: 10/24/2017
 ms.author: juanpere
-ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f90ecb70ad12ed05d5d40f8b26a0a4e461c9f835
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>排程多個裝置上的作業
-## <a name="overview"></a>概觀
-如前面幾篇文章所述，Azure IoT 中樞可啟用許多建置組塊 ([裝置對應項屬性和標籤][lnk-twin-devguide]和[直接方法][lnk-dev-methods])。  一般而言，後端應用程式可讓裝置管理員和操作員在排定的時間大量更新 IoT 裝置並與之互動。  作業可將在排定時間針對一組裝置執行裝置對應項更新和直接方法的操作封裝起來。  例如，操作員會使用後端應用程式來起始和追蹤作業，在不干擾大樓運作的時段，將 43 號大樓 3 樓的一組裝置重新開機。
 
-### <a name="when-to-use"></a>使用時機
-當解決方案後端需要排程和追蹤一組裝置的下列任何活動進度時，請考慮使用作業︰
+「Azure IoT 中樞」啟用了一些建置組塊，例如[裝置對應項屬性和標籤][lnk-twin-devguide]及[直接方法][lnk-dev-methods]。  一般而言，後端應用程式可讓裝置管理員和操作員在排定的時間大量更新 IoT 裝置並與之互動。  作業可在排定時間，針對一組裝置執行裝置對應項更新和直接方法。  例如，操作員會使用後端應用程式來起始和追蹤作業，在不干擾大樓運作的時段，將 43 號大樓 3 樓的一組裝置重新開機。
+
+當您需要排定和追蹤一組裝置的下列任何活動進度時，請考慮使用作業︰
 
 * 更新所需屬性
 * 更新標籤
@@ -35,17 +34,11 @@ ms.lasthandoff: 10/11/2017
 作業由解決方案後端起始，並由 IoT 中樞維護。  您可以透過面向服務的 URI (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) 起始作業，並透過面向服務的 URI (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`) 查詢執行中作業的進度。 在作業起始後，若要重新整理執行中作業的狀態，請執行作業查詢。
 
 > [!NOTE]
-> 當您起始作業時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，下列集合中的任何字元除外︰``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``。
-> 
-> 
-
-## <a name="reference-topics"></a>參考主題：
-下列參考主題會提供您關於使用作業的詳細資訊。
+> 當您起始作業時，屬性名稱和值只能包含 US-ASCII 可列印英數字元，下列集合中的任何字元除外︰`$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`。
 
 ## <a name="jobs-to-execute-direct-methods"></a>用以執行直接方法的作業
 以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於使用作業在一組裝置上執行[直接方法][lnk-dev-methods]的情況︰
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
 
     Authorization: <config.sharedAccessSignature>
@@ -65,10 +58,9 @@ ms.lasthandoff: 10/11/2017
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
-    ```
+
 查詢條件也可以針對單一裝置識別碼或針對裝置識別碼清單，如以下範例所示：
 
-**範例**
 ```
 queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
@@ -79,7 +71,6 @@ queryCondition = "deviceId IN ['MyDevice1']
 ## <a name="jobs-to-update-device-twin-properties"></a>用以更新裝置對應項屬性的作業
 以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於使用作業來更新裝置對應項屬性的情況：
 
-    ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
@@ -94,19 +85,16 @@ queryCondition = "deviceId IN ['MyDevice1']
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
-    ```
 
 ## <a name="querying-for-progress-on-jobs"></a>查詢作業的進度
 以下程式碼片段顯示 HTTPS 1.1 要求詳細資料，適用於[查詢作業][lnk-query]的情況：
 
-    ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
     Authorization: <config.sharedAccessSignature>
     Content-Type: application/json; charset=utf-8
     Request-Id: <guid>
     User-Agent: <sdk-name>/<sdk-version>
-    ```
 
 ContinuationToken 會從回應來提供。  
 
@@ -121,7 +109,7 @@ ContinuationToken 會從回應來提供。
 | **type** |作業類型： |
 | | **scheduledUpdateTwin**︰用來更新一組所需屬性或標籤的作業。 |
 | | **scheduledDeviceMethod**︰用來在一組裝置對應項上叫用裝置方法的作業。 |
-| **status** |作業的目前狀態。 狀態的可能值︰ |
+| **狀態** |作業的目前狀態。 狀態的可能值︰ |
 | | **pending**︰已排定並等候作業服務執行。 |
 | | **scheduled**︰已排定未來時間。 |
 | | **running**︰目前作用中的作業。 |
@@ -129,16 +117,12 @@ ContinuationToken 會從回應來提供。
 | | **failed**：作業失敗。 |
 | | **completed**作業完成。 |
 | **deviceJobStatistics** |作業執行的相關統計資料。 |
-
-**deviceJobStatistics** 屬性。
-
-| 屬性 | 說明 |
-| --- | --- |
-| **deviceJobStatistics.deviceCount** |作業中的裝置數目。 |
-| **deviceJobStatistics.failedCount** |作業失敗的裝置數目。 |
-| **deviceJobStatistics.succeededCount** |作業成功的裝置數目。 |
-| **deviceJobStatistics.runningCount** |目前正在執行作業的裝置數目。 |
-| **deviceJobStatistics.pendingCount** |等待執行作業的裝置數目。 |
+| | **deviceJobStatistics** 屬性： |
+| | **deviceJobStatistics.deviceCount**：作業中的裝置數目。 |
+| | **deviceJobStatistics.failedCount**：作業失敗的裝置數目。 |
+| | **deviceJobStatistics.succeededCount**：作業成功的裝置數目。 |
+| | **deviceJobStatistics.runningCount**目前正在執行作業的裝置數目。 |
+| | **deviceJobStatistics.pendingCount**：等待執行作業的裝置數目。 |
 
 ### <a name="additional-reference-material"></a>其他參考資料
 IoT 中樞開發人員指南中的其他參考主題包括︰

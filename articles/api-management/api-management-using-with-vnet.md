@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 4ff634e039080fc15e7f4f44bc3ab42f280f3ad5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9970452b62b31f28f8277580dd1075c306767d8b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -38,12 +38,9 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + APIM 執行個體。 如需詳細資訊，請參閱[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ **進階**和**開發人員**階層提供 VNET 連線能力，請依[升級和調整規模](upgrade-and-scale.md#upgrade-and-scale)主題所述，切換到其中一層。
++ VNET 連線僅適用於「進階」和「開發人員」層。 請遵循[升級和調整](upgrade-and-scale.md#upgrade-and-scale)主題中的指示，切換至上述其中一層。
 
 ## <a name="enable-vpn"> </a>啟用 VNET 連線
-
-> [!NOTE]
->  **進階**和**開發人員**階層提供 VNET 連線能力，請依[升級和調整規模](upgrade-and-scale.md#upgrade-and-scale)主題所述，切換到其中一層。
 
 ### <a name="enable-vnet-connectivity-using-the-azure-portal"></a>使用 Azure 入口網站啟用 VNET 連線能力
 
@@ -103,24 +100,27 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 * **自訂 DNS 伺服器安裝**：API 管理服務相依於數個 Azure 服務。 當「API 管理」是裝載於具有自訂 DNS 伺服器的 VNET 中時，它必須要解析這些 Azure 服務的主機名稱。 請遵循 [這份](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) 有關自訂 DNS 設定的指引。 請參閱下方的連接埠資料表和參考的其他網路需求。
 
 > [!IMPORTANT]
-> 如果您針對 VNET 使用「自訂 DNS 伺服器」，建議您在將 API 管理服務部署到該伺服器**之前**，先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都需要執行[套用網路設定作業](https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementservice#ApiManagementService_ApplyNetworkConfigurationUpdates)來更新 API 管理服務
+> 如果您針對 VNET 使用「自訂 DNS 伺服器」，建議您在將 API 管理服務部署到該伺服器**之前**，先將該伺服器設定妥當。 否則，每次變更 DNS 伺服器時，您都需要執行[套用網路設定作業](https://docs.microsoft.com/en-us/rest/api/apimanagement/ApiManagementService/ApplyNetworkConfigurationUpdates)來更新 API 管理服務
 
 * **API 管理所需的連接埠**︰使用[網路安全性群組][Network Security Group]可以控制到 API 管理部署於其中的子網路之輸入和輸出流量。 如果這些連接埠中有任何一個無法使用，「API 管理」可能就無法正常運作而可能變成無法存取。 搭配 VNET 使用 API 管理時，封鎖這其中一或多個連接埠是另一個常見的錯誤組態問題。
 
 當 API 管理服務執行個體裝載於 VNET 時，會使用下表中的連接埠。
 
-| 來源 / 目的地連接埠 | 方向 | 傳輸通訊協定 | 目的 | 來源 / 目的地 | 存取類型 |
+| 來源 / 目的地連接埠 | 方向 | 傳輸通訊協定 | 來源 / 目的地 | 目的 (*) | 虛擬網路類型 |
 | --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |輸入 |TCP |與 API 管理的用戶端通訊 |INTERNET / VIRTUAL_NETWORK |外部 |
-| * / 3443 |輸入 |TCP |Azure 入口網站和 PowerShell 的管理端點 |INTERNET / VIRTUAL_NETWORK |外部和內部 |
-| * / 80, 443 |輸出 |TCP |與「Azure 儲存體」和「Azure 服務匯流排」的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| * / 1433 |輸出 |TCP |與 Azure SQL 的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| * / 11000 - 11999 |輸出 |TCP |與 Azure SQL V12 的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| * / 14000 - 14999 |輸出 |TCP |與 Azure SQL V12 的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| * / 5671 |輸出 |AMQP |「記錄到事件中樞」原則和監視代理程式的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| * / 6381 - 6383 |輸入和輸出 |TCP |與「Redis 快取」的相依性 |VIRTUAL_NETWORK / VIRTUAL_NETWORK |外部和內部 |
-| * / 445 |輸出 |TCP |與「適用於 GIT 的 Azure 檔案共用」的相依性 |VIRTUAL_NETWORK / INTERNET |外部和內部 |
-| * / * | 輸入 |TCP |Azure 基礎結構負載平衡器 | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |外部和內部 |
+| * / 80, 443 |輸入 |TCP |INTERNET / VIRTUAL_NETWORK|與 API 管理的用戶端通訊|外部 |
+| * / 3443 |輸入 |TCP |INTERNET / VIRTUAL_NETWORK|Azure 入口網站和 PowerShell 的管理端點 |內部 |
+| * / 80, 443 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure 儲存體端點** |外部和內部 |
+| * / 1433 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL 端點** |外部和內部 |
+| * / 11000 - 11999 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL V12** |外部和內部 |
+| * / 14000 - 14999 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|**存取 Azure SQL V12** |外部和內部 |
+| * / 5671 |輸出 |AMQP |VIRTUAL_NETWORK / INTERNET|「記錄到事件中樞」原則和監視代理程式的相依性 |外部和內部 |
+| * / 445 |輸出 |TCP |VIRTUAL_NETWORK / INTERNET|與「適用於 GIT 的 Azure 檔案共用」的相依性 |外部和內部 |
+| * / 6381 - 6383 |輸入和輸出 |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|存取 RoleInstances 之間的 Redis 快取執行個體 |外部和內部 |
+| * / * | 輸入 |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Azure 基礎結構負載平衡器 |外部和內部 |
+
+>[!IMPORTANT]
+> * 要成功部署 API 管理服務，就必須有以**粗體**表示其「目的」的連接埠。 不過，封鎖其他連接埠將會降低使用和監視執行中服務的能力。
 
 * **SSL 功能**︰若要啟用 SSL 憑證鏈結建立和驗證，API 管理服務需要 ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。如果您上傳至 API 管理的任何憑證包含 CA 根的完整鏈結，則不需要此相依性。
 
@@ -139,14 +139,27 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 
 ## <a name="troubleshooting"></a>疑難排解
-對您的網路進行變更時，請參閱 [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus)，以驗證 API 管理服務是否未遺失相依之任何關鍵資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
+* **初始安裝**：若未能成功地將 API 管理服務初始部署到子網路，建議您先將虛擬機器部署到相同的子網路。 接下來，再將桌面遠端連線到虛擬機器，並驗證您可以連線到 Azure 訂用帳戶中的下列其中一個資源 
+    * Azure 儲存體 Blob
+    * Azure SQL Database
+
+ > [!IMPORTANT]
+ > 驗證過連線能力後，請務必先移除子網路中部署的所有資源，再將 API 管理部署至子網路。
+
+* **累加式更新**：對您的網路進行變更時，請參閱 [NetworkStatus API](https://docs.microsoft.com/en-us/rest/api/apimanagement/networkstatus)，以確認 API 管理服務未遺失相依之任何關鍵資源的存取權。 連線狀態應該每隔 15 分鐘更新一次。
+
+* **資源導覽連結**：在部署到 Resource Manager 樣式 VNet 子網路時，API 管理會藉由建立資源導覽連結來保留子網路。 如果子網路已包含來自不同提供者的資源，部署將會**失敗**。 同樣地，當您將 API 管理服務移至不同子網路或將它刪除時，我們也會移除該資源導覽連結。 
+
+## <a name="routing"> </a> 路由
++ 負載平衡的公用 IP 位址 (VIP) 會保留下來，以供存取所有服務端點。
++ 子網路 IP 範圍的 IP (DIP) 位址會用來存取 VNET 中的資源，而公用 IP 位址 (VIP) 會用來存取 VNET 之外的資源。
++ 您可以在 Azure 入口網站的 [概觀/基本資訊] 刀鋒視窗上找到負載平衡的公用 IP 位址。
 
 ## <a name="limitations"> </a>限制
 * 包含「API 管理」執行個體的子網路無法包含任何其他 Azure 資源類型。
 * 子網路和「API 管理」服務必須位於同一個訂用帳戶中。
 * 包含「API 管理」執行個體的子網路無法跨訂用帳戶移動。
-* 使用內部虛擬網路時，只有 [RFC 1918](https://tools.ietf.org/html/rfc1918) 中所述範圍的內部 IP 位址可用，無法提供公用 IP 位址。
-* 針對已設定內部虛擬網路的多區域「API 管理」部署，使用者需負責管理自己的負載平衡，因為他們是 DNS 的擁有者。
+* 針對設定為內部虛擬網路模式的多區域 API 管理部署，使用者需負責管理跨多個區域的負載平衡，因為他們擁有路由。
 
 
 ## <a name="related-content"> </a>相關內容

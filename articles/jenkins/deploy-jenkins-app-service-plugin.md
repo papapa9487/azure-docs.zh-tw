@@ -15,24 +15,25 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: 778fe746f1e8dff1d1c80b6ba7d8f10cc2bfacee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
+
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](/azure/jenkins/execute-cli-jenkins-pipeline)中使用 Azure CLI，或者，也可以使用 [Azure App Service Jenkins 外掛程式](https://plugins.jenkins.io/azure-app-service)。 Jenkins 外掛程式 1.0 版支援透過下列方式，使用 Azure App Service 的 Web Apps 功能來進行連續部署：
 * Git 和 FTP。
 * 適用於 Linux 上 Web Apps 的 Docker。
 
 在本教學課程中，您將了解如何：
 > [!div class="checklist"]
-> * 將 Jenkins 設定為透過 Git 和 FTP 部署 Web Apps。 
-> * 設定 Jenkins 以部署適用於容器的 Web Apps。 
-
+> * 將 Jenkins 設定為透過 Git 和 FTP 部署 Web Apps。
+> * 設定 Jenkins 以部署適用於容器的 Web Apps。
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>建立及設定 Jenkins 執行個體
+
 如果您還沒有 Jenkins Master，請從[解決方案範本](install-jenkins-solution-template.md)開始著手，此範本包含「Java 開發套件」(JDK) 第 8 版和下列必要的 Jenkins 外掛程式：
 
 * [Jenkins Git 用戶端外掛程式](https://plugins.jenkins.io/git-client) 2.4.6 版 
@@ -51,7 +52,7 @@ sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-若要部署到「適用於容器的 Web Apps」，請在 Jenkins Master 上或在用於組建的 VM 代理程式上安裝 Docker。 如需相關指示，請參閱[在 Ubuntu 上安裝 Docker](https://docs.docker.com/engine/installation/linux/ubuntu/) \(英文\)。
+若要部署到「適用於容器的 Web App」，請在 Jenkins Master 上或在用於組建的 VM 代理程式上安裝 Docker。 如需相關指示，請參閱[在 Ubuntu 上安裝 Docker](https://docs.docker.com/engine/installation/linux/ubuntu/) \(英文\)。
 
 ##<a name="service-principal"></a>將 Azure 服務主體新增到 Jenkins 認證
 
@@ -128,7 +129,7 @@ Azure App Service Jenkins 外掛程式是符合管線需求的外掛程式。 �
 6. 將 [Script Path] \(指令碼路徑\) 值更新成 **Jenkinsfile_ftp_plugin**。
 7. 按一下 [Save] \(儲存\) 並執行作業。
 
-## <a name="configure-jenkins-to-deploy-web-apps-for-containers"></a>設定 Jenkins 以部署適用於容器的 Web Apps
+## <a name="configure-jenkins-to-deploy-web-app-for-containers"></a>設定 Jenkins 以部署適用於容器的 Web App
 
 Linux 上的 Web Apps 支援使用 Docker 來進行部署。 若要使用 Docker 來部署您的 Web 應用程式，您必須提供一個 Dockerfile，此檔案會將您的 Web 應用程式與服務執行階段封裝成 Docker 映像。 接著，Jenkins 外掛程式會建置該映像，將它推送到 Docker 登錄，然後將該映像部署到您的 Web 應用程式。
 
@@ -168,7 +169,7 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
 12. 與檔案上傳方法類似，您也可以選擇**生產環境**以外的不同**位置**。
 13. 儲存並建置專案。 系統會將您的容器映像推送到登錄中，並且部署 Web 應用程式。
 
-### <a name="deploy-web-apps-for-containers-by-using-jenkins-pipeline"></a>使用 Jenkins 管線來部署適用於容器的 Web Apps
+### <a name="deploy-web-app-for-containers-by-using-jenkins-pipeline"></a>使用 Jenkins 管線來部署適用於容器的 Web App
 
 1. 在 GitHub 介面中，開啟 **Jenkinsfile_container_plugin** 檔案。 若要編輯此檔案，請選取鉛筆圖示。 針對您的 Web 應用程式，分別更新第 11 行和第 12 行上的 **resourceGroup** 和 **webAppName** 定義：
     ```java
@@ -176,15 +177,15 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
     def webAppName = '<myAppName>'
     ```
 
-2. 將第 13 行變更為您的容器登錄伺服器：   
+2. 將第 13 行變更為您的容器登錄伺服器：
     ```java
     def registryServer = '<registryURL>'
-    ```    
+    ```
 
-3. 將第 16 行變更為使用您 Jenkins 執行個體中的認證識別碼：  
+3. 將第 16 行變更為使用您 Jenkins 執行個體中的認證識別碼：
     ```java
     azureWebAppPublish azureCredentialsId: '<mySp>', publishType: 'docker', resourceGroup: resourceGroup, appName: webAppName, dockerImageName: imageName, dockerImageTag: imageTag, dockerRegistryEndpoint: [credentialsId: 'acr', url: "http://$registryServer"]
-    ```    
+    ```
 
 ### <a name="create-a-jenkins-pipeline"></a>建立 Jenkins 管線    
 
@@ -234,4 +235,4 @@ Linux 上的 Web Apps 也支援 Git 和 FTP 等傳統部署方法，但僅適用
 
 > [!div class="checklist"]
 > * 將 Jenkins 設定為透過 FTP 部署 Azure App Service 
-> * 設定 Jenkins 以部署到適用於容器的 Web Apps 
+> * 設定 Jenkins 以部署到適用於容器的 Web App 

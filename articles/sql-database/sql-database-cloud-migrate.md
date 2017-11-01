@@ -1,6 +1,6 @@
 ---
 title: "SQL Server 資料庫移轉至 Azure SQL Database | Microsoft Docs"
-description: "了解將 SQL Server 資料庫移轉至雲端 Azure SQL Database 的相關做法。 請先使用資料庫移轉工具測試相容性再進行資料庫移轉。"
+description: "了解將 SQL Server 資料庫移轉至雲端 Azure SQL Database 的相關做法。"
 keywords: "database migration,sql server database migration,database migration tools,migrate database,migrate sql database,資料庫移轉,sql server 資料庫移轉,資料庫移轉工具,移轉資料庫,移轉 sql database"
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>SQL Server 資料庫移轉至雲端 SQL Database
 在本文中，您將了解兩種用來將 SQL Server 2005 或更新版本資料庫移轉到 Azure SQL Database 的主要方法。 第一種方法比較簡單，但在移轉期間需要一些可能較長期的停機時間。 第二種方法比較複雜，但可大幅免去移轉期間的停機時間。
@@ -43,15 +43,15 @@ ms.lasthandoff: 10/11/2017
 2. 準備 Transact-SQL 指令碼形式的任何必要修正。
 3. 為所要移轉的來源資料庫製作具有交易一致性的複本，並確保未再對來源資料庫進行任何變更 (或者，您可以在移轉完成後手動套用任何這類變更)。 有許多方法可以停止資料庫，從停用用戶端連接性到建立 [資料庫快照集](https://msdn.microsoft.com/library/ms175876.aspx)。
 4. 部署 Transact-SQL 指令碼，將修正套用至資料庫複本。
-5. 將資料庫複本[匯出](sql-database-export.md)至本機磁碟機上的 .BACPAC 檔案。
-6. 使用任一 BACPAC 匯入工具將 .BACPAC 檔案[匯入](sql-database-import.md)成為新的 Azure SQL Database，若要獲得最佳效能，建議使用 SQLPackage.exe 工具。
+5. 將資料庫複本[匯出](sql-database-export.md)至本機磁碟機上的 BACPAC 檔案。
+6. 使用任一 BACPAC 匯入工具將 BACPAC 檔案[匯入](sql-database-import.md)成為新的 Azure SQL Database，若要獲得最佳效能，建議使用 SQLPackage.exe 工具。
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>將移轉期間的資料傳輸效能最佳化 
 
 下列清單包含可在匯入程序期間獲得最佳效能的建議。
 
 * 選擇預算許可的最高服務層級和效能層級，以獲得最大傳輸效能。 移轉完成後，您可以相應減少層級以節省成本。 
-* 盡量縮短 .BACPAC 檔案和目的地資料中心之間的距離。
+* 盡量縮短 BACPAC 檔案和目的地資料中心之間的距離。
 * 在移轉期間停用自動統計資料
 * 分割資料表和索引
 * 捨棄索引檢視表，然後於移轉完成後重新建立

@@ -3,7 +3,7 @@ title: "使用 OMS 閘道將電腦連線到 OMS | Microsoft Docs"
 description: "將您受 OMS 管理的裝置與受 Operations Manager 監視的電腦與 OMS 閘道連線，以在它們沒有網際網路存取時傳送資料給 OMS 服務。"
 services: log-analytics
 documentationcenter: 
-author: MGoedtel
+author: bandersmsft
 manager: carmonm
 editor: 
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2017
-ms.author: magoedte
-ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/17/2017
+ms.author: magoedte;banders
+ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>在無網際網路存取下使用 OMS 閘道將電腦連線到 OMS
 
@@ -47,7 +47,7 @@ OMS 閘道支援︰
 
 下圖顯示從 Operations Manager 管理群組流向 OMS 的資料流程。   
 
-![Operations Manager 與 OMS 通訊的圖表](./media/log-analytics-oms-gateway/oms-omsgateway-opsmgrconnect.png)
+![Operations Manager 與 OMS 通訊的圖表](./media/log-analytics-oms-gateway/log-analytics-agent-opsmgrconnect.png)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -56,7 +56,7 @@ OMS 閘道支援︰
 * Windows 10、Windows 8.1、Windows 7
 * Windows Server 2016、Windows Server 2012 R2、Windows Server 2012、Windows Server 2008 R2 及 Windows Server 2008
 * .Net Framework 4.5
-* 至少為 4 核心處理器和 8 GB 記憶體
+* 至少為 4 核心處理器和 8 GB 記憶體 
 
 ### <a name="language-availability"></a>提供的語言
 
@@ -78,6 +78,9 @@ OMS 閘道有下列語言版本︰
 - 葡萄牙文 (葡萄牙)
 - 俄文
 - 西班牙文 (國際)
+
+### <a name="supported-encryption-protocols"></a>支援的加密通訊協定
+OMS 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安全通訊端層 (SSL)。
 
 ## <a name="download-the-oms-gateway"></a>下載 OMS 閘道
 
@@ -101,32 +104,32 @@ OMS 閘道有下列語言版本︰
 若要安裝閘道，請執行下列步驟。  如果您已安裝舊版 (先前稱為「Log Analytics 轉寄站」)，該舊版會升級為此版本。  
 
 1. 從目的地資料夾中，按兩下 **OMS Gateway.msi**。
-2. 在 [歡迎] 頁面中按 [下一步]。<br><br> ![閘道設定精靈](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br>
+2. 在 [歡迎] 頁面中按 [下一步]。<br><br> ![閘道設定精靈](./media/log-analytics-oms-gateway/gateway-wizard01.png)<br> 
 3. 在 [授權合約] 頁面上，選取 [我接受授權合約中的條款] 以同意 EULA，然後按 [下一步]。
 4. 在 [連接埠和 Proxy 位址] 頁面上：
    1. 輸入要用於閘道的 TCP 連接埠號碼。 安裝程式會使用此連接埠號碼在 Windows 防火牆上設定輸入規則。  預設值為 8080。
       連接埠號碼的有效範圍是 1 到 65535。 如果輸入的值不在此範圍內，就會顯示錯誤訊息。
    2. 如果閘道安裝所在的伺服器需要透過 Proxy 進行通訊，您也可以選擇輸入閘道需要連線的 Proxy 位址。 例如， `http://myorgname.corp.contoso.com:80`。  如果空白，閘道將會嘗試直接連線到網際網路。  如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼。<br><br> ![閘道精靈 Proxy 組態](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
    3. 按一下 [下一步] 。
-5. 如果您沒有啟用 Microsoft Update，系統會顯示 Microsoft Update 頁面，您可以在其中選擇啟用 Microsoft Update。 選擇想要的選項，然後按一下下一步。 否則，請繼續下一個步驟。
+5. 如果您沒有啟用 Microsoft Update，系統會顯示 Microsoft Update 頁面，您可以在其中選擇啟用 Microsoft Update。 選擇想要的選項，然後按一下 [下一步]。 否則，請繼續下一個步驟。
 6. 在 [目的地資料夾] 頁面上，保留預設資料夾 C:\Program Files\OMS Gateway 或輸入您想要安裝閘道的位置，然後按 [下一步]。
 7. 在 [準備安裝] 頁面上，按一下 [安裝]。 系統可能會顯示 [使用者帳戶控制] 來要求安裝權限。 如果有顯示，請按一下 [是]。
 8. 安裝完成後，請按一下 [完成]。 您可以透過開啟 services.msc 嵌入式管理單元來確認服務正在執行，並確認服務清單中已顯示 [OMS 閘道]，且其狀態為 [執行中]。<br><br> ![服務 – OMS 閘道](./media/log-analytics-oms-gateway/gateway-service.png)  
 
-## <a name="configure-network-load-balancing"></a>設定網路負載平衡
+## <a name="configure-network-load-balancing"></a>設定網路負載平衡 
 您可以設定閘道以獲得使用網路負載平衡 (NLB) 的高可用性，此平衡可能是使用 Microsoft 網路負載平衡 (NLB) 或硬體式負載平衡器來達成。  負載平衡器可藉由跨其節點將來自 OMS 代理程式或 Operations Manager 管理伺服器的要求連線進行重新導向，來管理流量。 如果閘道伺服器故障，流量就會被重新導向到其他節點。
 
 若要了解如何設計和部署 Windows Server 2016 網路負載平衡叢集，請參閱[網路負載平衡](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing)。  下列步驟說明如何設定 Microsoft 網路負載平衡叢集。  
 
 1.  使用系統管理帳戶登入屬於 NLB 叢集成員的 Windows 伺服器。  
 2.  在 [伺服器管理員] 中開啟網路負載平衡管理員，然後依序按一下 [工具] 和 [網路負載平衡管理員]。
-3. 若要連線已安裝 Microsoft Monitoring Agent 的 OMS 閘道伺服器，請用滑鼠右鍵按一下叢集的 IP 位址，然後按一下新增主機到叢集。<br><br> ![網路負載平衡管理員 – 新增主機到叢集](./media/log-analytics-oms-gateway/nlb02.png)<br>
-4. 輸入您要連線之閘道伺服器的 IP 位址。<br><br> ![網路負載平衡管理員 – 新增主機到叢集：連線](./media/log-analytics-oms-gateway/nlb03.png)
-
+3. 若要連線已安裝 Microsoft Monitoring Agent 的 OMS 閘道伺服器，請用滑鼠右鍵按一下叢集的 IP 位址，然後按一下 [新增主機到叢集]。<br><br> ![網路負載平衡管理員 – 新增主機到叢集](./media/log-analytics-oms-gateway/nlb02.png)<br> 
+4. 輸入您要連線之閘道伺服器的 IP 位址。<br><br> ![網路負載平衡管理員 – 新增主機到叢集：連線](./media/log-analytics-oms-gateway/nlb03.png) 
+    
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>設定 OMS 代理程式和 Operations Manager 管理群組
 下一節包含的步驟會說明如何為直接連線的 OMS 代理程式、Operations Manager 管理群組或 Azure 自動化混合式 Runbook 背景工作設定 OMS 閘道以與 OMS 通訊。  
 
-若要了解如何在直接連線到 OMS 的 Windows 電腦上安裝 OMS 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 OMS](log-analytics-windows-agents.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 OMS](log-analytics-linux-agents.md)。
+若要了解如何在直接連線到 OMS 的 Windows 電腦上安裝 OMS 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 OMS](log-analytics-windows-agents.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 OMS](log-analytics-linux-agents.md)。 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>設定 OMS 代理程式和 Operations Manager 以將 OMS 閘道作為 Proxy 伺服器
 
@@ -145,26 +148,26 @@ OMS 閘道有下列語言版本︰
 > 如果未指定閘道的值，系統會將空白值推送到所有代理程式。
 
 
-1. 開啟 Operations Manager 主控台並在 Operations Management Suite 底下，按一下 連線，然後按一下設定 Proxy 伺服器。<br><br> ![Operations Manager – 設定 Proxy 伺服器](./media/log-analytics-oms-gateway/scom01.png)<br>
-2. 選取 [使用 Proxy 伺服器來存取 Operations Management Suite]，然後輸入 OMS 閘道伺服器的 IP 位址或 NLB 的虛擬 IP 位址。 確定您已在開頭使用 `http://` 前置詞。<br><br> ![Operations Manager – Proxy 伺服器位址](./media/log-analytics-oms-gateway/scom02.png)<br>
+1. 開啟 Operations Manager 主控台並在 [Operations Management Suite] 底下，按一下 [連線]，然後按一下 [設定 Proxy 伺服器]。<br><br> ![Operations Manager – 設定 Proxy 伺服器](./media/log-analytics-oms-gateway/scom01.png)<br> 
+2. 選取 [使用 Proxy 伺服器來存取 Operations Management Suite]，然後輸入 OMS 閘道伺服器的 IP 位址或 NLB 的虛擬 IP 位址。 確定您已在開頭使用 `http://` 前置詞。<br><br> ![Operations Manager – Proxy 伺服器位址](./media/log-analytics-oms-gateway/scom02.png)<br> 
 3. 按一下 [完成] 。 您的 Operations Manager 伺服器已經連線到您的 OMS 工作區。
 
 ### <a name="configure-operations-manager---specific-agents-use-proxy-server"></a>設定 Operations Manager - 特定代理程式使用 Proxy 伺服器
 對於大型或複雜的環境，您可能只想要讓特定伺服器 (或群組) 使用 OMS 閘道伺服器。  對於這些伺服器，您無法直接更新 Operations Manager 代理程式，因為這個值會遭到管理群組的全域值所覆寫。  相反地，您需要覆寫用來推送這些值的規則。
 
-> [!NOTE]
+> [!NOTE] 
 > 這個相同的設定技巧可用來允許您的環境使用多個 OMS 閘道伺服器。  例如，您可能需要以每個區域為基礎來指定特定的 OMS 閘道伺服器。
 
 1. 開啟 Operations Manager 主控台，然後選取 [撰寫] 工作區。  
-2. 在 [撰寫] 工作區中選取 [規則]，然後按一下 Operations Manager 工具列上的 [範圍] 按鈕。 如果此按鈕無法使用，請進行檢查以確定您在 [監視] 窗格中選取的是物件，而非資料夾。 [範圍管理組件物件] 對話方塊會顯示一般會作為目標之類別、群組或物件的清單。
+2. 在 [撰寫] 工作區中選取 [規則]，然後按一下 Operations Manager 工具列上的 [範圍] 按鈕。 如果此按鈕無法使用，請進行檢查以確定您在 [監視] 窗格中選取的是物件，而非資料夾。 [範圍管理組件物件] 對話方塊會顯示一般會作為目標之類別、群組或物件的清單。 
 3. 在 [尋找] 欄位中輸入**健康狀態服務**，然後從清單中加以選取。  按一下 [確定] 。  
 4. 搜尋規則 [Advisor Proxy 設定規則]，在 Operations 主控台工具列中按一下 [覆寫]，然後指向 [覆寫規則\針對下列類別的特定物件︰健康狀態服務]，並從清單中選取特定物件。  (選擇性) 您可以建立自訂群組，在其中包含您想要套用此覆寫之伺服器的健康狀態服務物件，然後對該群組套用覆寫。
 5. 在 [覆寫屬性] 對話方塊中，按一下以勾選 [WebProxyAddress] 參數旁的 [覆寫] 資料行。  在 [覆寫值] 欄位中，輸入 OMS 閘道伺服器的 URL，並確保其開頭有 `http://` 前置詞。
    >[!NOTE]
    > 您不需要啟用此規則，因為系統已自動使用覆寫來管理它，該覆寫包含在 Microsoft System Center Advisor 安全參考覆寫管理組件中，而此組件是以 Microsoft System Center Advisor 監控伺服器群組為目標。
-   >
-6. 從 [選取目的地管理組件] 清單選取管理組件，或按一下 [新增] 來建立新的未密封管理組件。
-7. 當您變更完成時，按一下 [確定]。
+   > 
+6. 從 [選取目的地管理組件] 清單選取管理組件，或按一下 [新增] 來建立新的未密封管理組件。 
+7. 當您變更完成時，按一下 [確定]。 
 
 ### <a name="configure-for-automation-hybrid-workers"></a>設定自動 Hybrid Worker
 如果您的環境中有自動化混合式 Runbook 背景工作，下列步驟可提供手動、暫時性解決方式來設定閘道以支援它們。
@@ -237,7 +240,7 @@ Cmdlet 可以協助您完成更新 OMS 閘道的組態設定時需執行的作�
 | `Set-OMSGatewayConfig` |索引鍵 (必要) <br> 值 |變更服務的組態 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |取得轉送 (上游) Proxy 的位址 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |位址<br> 使用者名稱<br> 密碼 |設定轉送 (上游) Proxy 的位址 (與認證) |1.設定回覆 Proxy 和認證：<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2.設定不需要驗證的回覆 Proxy：`Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3.清除轉送 Proxy 設定︰<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
-| `Get-OMSGatewayAllowedHost` | |取得目前允許的主機 (僅限本機設定的允許的主機，不包括自動下載的允許的主機) |`Get-OMSGatewayAllowedHost` |
+| `Get-OMSGatewayAllowedHost` | |取得目前允許的主機 (僅限本機設定的允許的主機，不包括自動下載的允許的主機) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |主機 (必要) |將主機加到允許清單 |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |主機 (必要) |將主機從允許清單移除 |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  
 | `Add-OMSGatewayAllowedClientCertificate` |主體 (必要) |將用戶端憑證主體加到允許清單 |`Add-OMSGatewayAllowed`<br>`ClientCertificate` <br> `-Subject mycert` |  
@@ -264,7 +267,7 @@ Cmdlet 可以協助您完成更新 OMS 閘道的組態設定時需執行的作�
 | 104 |不是 HTTP CONNECT 命令 |
 | 105 |目的地伺服器不在允許的清單中，或目的地連接埠不是安全的連接埠 (443) <br> <br> 請確定您閘道伺服器上的 MMA 代理程式和與閘道通訊的代理程式，是連線到相同的 Log Analytics 工作區。 |
 | 105 |ERROR TcpConnection – 無效的用戶端憑證: CN=Gateway <br><br> 請確定： <br>    <br> &#149; 您是使用版本號碼為 1.0.395.0 或更新版本的閘道。 <br> &#149; 您閘道伺服器上的 MMA 代理程式和與閘道通訊的代理程式，是連線到相同的 Log Analytics 工作區。 |
-| 106 |造成 TLS 工作階段變成可疑或被拒絕的任何原因 |
+| 106 |OMS 閘道只支援 TLS 1.0、TLS 1.1 和 1.2。  不支援 SSL。 針對任何不支援的 TLS/SSL 通訊協定版本，OMS 閘道會產生事件識別碼 106。|
 | 107 |已經驗證 TLS 工作階段 |
 
 **要收集的效能計數器**
@@ -282,11 +285,11 @@ Cmdlet 可以協助您完成更新 OMS 閘道的組態設定時需執行的作�
 
 ## <a name="get-assistance"></a>取得協助
 當您已經登入 Azure 入口網站時，您可以建立要求，來要求在 OMS 閘道或任何其他 Azure 服務或服務功能上提供協助。
-若要要求協助，請按一下入口網站右上角的問號符號，然後按一下新增支援要求。 然後，完成新的支援要求表單。
+若要要求協助，請按一下入口網站右上角的問號符號，然後按一下 [新增支援要求]。 然後，完成新的支援要求表單。
 
 ![新增支援要求](./media/log-analytics-oms-gateway/support.png)
 
 您也可以在 [Microsoft Azure 意見反應論壇](https://feedback.azure.com/forums/267889)留下和 OMS 或 Log Analytics 有關的意見反應。
 
 ## <a name="next-steps"></a>後續步驟
-* [新增資料來源](log-analytics-data-sources.md) 來從您 OMS 工作區的 [連接的來源] 收集資料，並將它儲存在 OMS 存放庫中。
+* [新增資料來源](log-analytics-data-sources.md) 來從您 Log Analytics 工作區的 [連接的來源] 收集資料，並將它儲存在 Log Analytics 存放庫中。

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: bwren
-ms.openlocfilehash: dcc44986acbb76eafc3cfacb79acf237802de021
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 711071eaff7ab5e5199793663aa3cbb36a1e8d8a
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="office-365-solution-in-operations-management-suite-oms"></a>Operations Management Suite (OMS) 中的 Office 365 解決方案
 
@@ -280,11 +280,11 @@ Office 365 解決方案不會從任何 [OMS 代理程式](../log-analytics/log-a
 
 | 查詢 | 說明 |
 | --- | --- |
-|Office 365 訂閱上所有作業的計數 |`Type = OfficeActivity | measure count() by Operation` |
-|SharePoint 網站的使用情況|`Type=OfficeActivity OfficeWorkload=sharepoint | measure count() as Count by SiteUrl | sort Count asc`|
-|依使用者類型分類的檔案存取作業|`Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed | measure count() by UserType`|
-|使用特定關鍵字進行搜尋|`Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"`|
-|監視 Exchange 上的外部動作|`Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true`|
+|Office 365 訂閱上所有作業的計數 |Type = OfficeActivity &#124; measure count() by Operation |
+|SharePoint 網站的使用情況|Type=OfficeActivity OfficeWorkload=sharepoint &#124; measure count() as Count by SiteUrl &#124; sort Count asc|
+|依使用者類型分類的檔案存取作業|Type=OfficeActivity OfficeWorkload=sharepoint Operation=FileAccessed &#124; measure count() by UserType|
+|使用特定關鍵字進行搜尋|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
+|監視 Exchange 上的外部動作|Type=OfficeActivity OfficeWorkload=exchange ExternalAccess = true|
 
 
 

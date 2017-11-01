@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: d184bb9edbe2542d7321d8b9ccc5d23f2401f8d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d854c106fbce7e3f01c2878bb9828bdffa4d42a5
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>為 Azure Stack 使用者啟用 Azure CLI
 
 適用於：Azure Stack 整合系統和 Azure Stack 開發套件
 
-您無法使用 CLI 執行任何 Azure Stack 操作員特定工作。 但是在使用者可透過 CLI 管理資源之前，Azure Stack 操作員必須為使用者提供下列項目：
+您無法使用 Azure CLI 執行任何 Azure Stack 操作員特定工作。 但是在使用者可透過 CLI 管理資源之前，Azure Stack 操作員必須為使用者提供下列項目：
 
 * **Azure Stack CA 根憑證** - 如果使用者是從位於 Azure Stack 開發套件外的工作站使用 CLI，就需要此根憑證。  
 
@@ -34,7 +34,7 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="export-the-azure-stack-ca-root-certificate"></a>匯出 Azure Stack CA 根憑證
 
-您可以在開發套件中，以及在開發套件環境內執行的租用戶虛擬機器中找到 Azure Stack CA 根憑證。 登入您的開發套件或租用戶虛擬機器，然後執行下列指令碼，以 PEM 格式匯出 Azure Stack 根憑證：
+您可以在開發套件中，以及在開發套件環境內執行的租用戶虛擬機器中找到 Azure Stack CA 根憑證。 若要以 PEM 格式匯出 Azure Stack 根憑證，請登入您的開發套件或租用戶虛擬機器，然後執行下列指令碼：
 
 ```powershell
 $label = "AzureStackSelfSignedRootCert"
@@ -42,7 +42,7 @@ Write-Host "Getting certificate from the current user trusted store with subject
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)
 {
-    Log-Error "Cerficate with subject CN=$label not found"
+    Log-Error "Certificate with subject CN=$label not found"
     return
 }
 
@@ -55,15 +55,15 @@ certutil -encode root.cer root.pem
 
 ## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>設定虛擬機器別名端點
 
-Azure Stack 操作員應該設定裝載虛擬機器別名檔案的可公開存取端點。  虛擬機器別名檔案是一個提供映像通用名稱的 JSON 檔案，後續在以 Azure CLI 參數部署 VM 時會指定此檔案。  
+Azure Stack 操作員應該設定裝載虛擬機器別名檔案的可公開存取端點。 虛擬機器別名檔案是為映像提供通用名稱的 JSON 檔案。 當 VM 部署為 Azure CLI 參數時，隨後就會指定該名稱。  
 
-在將項目新增到別名檔案之前，請確定您[從市集下載映像]((azure-stack-download-azure-marketplace-item.md)，或已[發行自己的自訂映像](azure-stack-add-vm-image.md)。  如果您發行自訂映像，請記下您在發行時所指定的發行者、供應項目、SKU 及版本資訊。  如果映像來自市集，則您可以使用 ```Get-AzureVMImage``` Cmdlet 來檢視資訊。  
+在將項目新增到別名檔案之前，請確定您是[從 Azure Marketplace 下載映像](azure-stack-download-azure-marketplace-item.md)，或[已發行自己的自訂映像](azure-stack-add-vm-image.md)。 如果您發行自訂映像，請記下您在發行時所指定的發行者、供應項目、SKU 及版本資訊。 如果映像來自市集，則您可以使用 ```Get-AzureVMImage``` Cmdlet 來檢視資訊。  
    
-有一個包含許多常見映像別名的[範例別名檔案](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)可供您作為起點。  您應該將此檔案裝載在 CLI 用戶端能夠存取的空間中。  其中一個做法是將它裝載在 Blob 儲存體帳戶中，然後與您的使用者分享該 URL：
+有一個包含許多常見映像別名的[別名檔案範例](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)可供使用。 您可使用該範例作為起點。 將此檔案裝載在 CLI 用戶端能夠存取的空間中。 其中一個做法是將檔案裝載在 Blob 儲存體帳戶中，然後與您的使用者分享該 URL：
 
-1.  從 GitHub 下載[範例檔案](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。
-2.  在 Azure Stack 中建立新的儲存體帳戶。  完成之後，建立新的 Blob 容器。  將存取原則設定為「公用」。  
-3.  將 JSON 檔案上傳到新的容器。  完成之後，您便可以按一下 fblob 名稱，然後從 Blob 屬性中選取 URL 來檢視 Blob 的 URL。
+1. 從 GitHub 下載[範例檔案](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。
+2. 在 Azure Stack 中建立新的儲存體帳戶。 完成之後，建立新的 Blob 容器。 將存取原則設定為「公用」。  
+3. 將 JSON 檔案上傳到新的容器。 完成之後，您便可以按一下 fblob 名稱，然後從 Blob 屬性中選取 URL 來檢視 Blob 的 URL。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>用於從 Azure 複寫至 Azure 的 Azure Site Recovery 支援矩陣
 
@@ -145,8 +145,8 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在 Site Recovery �
 
 **組態** | **支援/不支援** | **備註**
 --- | --- | ---
-最大的作業系統磁碟大小 | 1023 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
-最大的資料磁碟大小 | 1023 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
+最大的作業系統磁碟大小 | 2048 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
+最大的資料磁碟大小 | 4095 GB | 請參閱 [VM 使用的磁碟](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)。
 資料磁碟數量 | 特定 Azure VM 大小支援多達 64 個 | 請參閱 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)
 暫存磁碟 | 一律排除在複寫之外 | 暫存磁碟排除在複寫之外。 根據 Azure 指引，您不應該在暫存磁碟上放置任何持續性資料。 如需詳細資訊，請參閱 [Azure VM 上的暫存磁碟](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
 磁碟上的資料變更率 | 各磁碟資料變更率最高達 6 MBps | 如果磁碟的平均資料變更率持續超過 6 MBps，複寫將趕不上進度。 不過，如果是偶爾出現的資料高載，而且資料變更率有時超過 6 MBps 後便下降，則複寫會趕上進度。 在此情況下，您可能會發現復原點稍微延遲。

@@ -1,6 +1,6 @@
 ---
 title: "部署分割合併服務 | Microsoft Docs"
-description: "使用彈性資料庫工具來分割及合併"
+description: "使用分割合併工具以在分區化資料庫之間移動資料。"
 services: sql-database
 documentationcenter: 
 author: ddove
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 6e2fea882c248fa095a9d450ed54a7b4e64b45e1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db26b7a99a7fd8bb7cb5c3d4937c44686fc68222
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="deploy-a-split-merge-service"></a>部署分割合併服務
 分割合併工具可讓您在分區化資料庫之間移動資料。 請參閱 [在相應放大的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -32,15 +32,15 @@ ms.lasthandoff: 10/11/2017
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。 在 **content\splitmerge\service** 子目錄中找出分割合併服務檔案，在 **content\splitmerge\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 .dll 檔)。
+檔案會放在名為 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** 的目錄中，其中 *x.x.xxx.x* 反映版本號碼。 在 **content\splitmerge\service** 子目錄中找出分割合併服務檔案，在 **content\splitmerge\powershell** 子目錄中找出分割合併 PowerShell 指令碼 (和必要的用戶端 dll 檔)。
 
 ## <a name="prerequisites"></a>必要條件
 1. 建立用來作為分割合併狀態資料庫的 Azure SQL DB 資料庫。 移至 [Azure 入口網站](https://portal.azure.com)。 建立新的 **SQL Database**。 提供資料庫名稱，並建立新的系統管理員和密碼。 請務必記錄名稱和密碼，以供稍後使用。
-2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 在**防火牆設定**的入口網站中，確定 [允許存取 Azure 服務] 設定設為 [開啟]。 按一下儲存圖示。
+2. 請確定您的 Azure SQL DB 伺服器允許 Azure 服務進行連接。 在入口網站的 [防火牆設定] 中，確定 [允許存取 Azure 服務] 設定設為 [開啟]。 按一下儲存圖示。
    
    ![允許的服務][1]
-3. 建立要用於診斷輸出的 Azure 儲存體帳戶。 移至 Azure 入口網站。 在左列中，按一下 新增，按一下 資料 + 儲存體，然後按一下儲存體。
-4. 建立將包含分割合併服務的 Azure 雲端服務。  移至 Azure 入口網站。 在左列中，按一下 新增，然後按一下計算、雲端服務 和 建立。 
+3. 建立要用於診斷輸出的 Azure 儲存體帳戶。 移至 Azure 入口網站。 在左列中，按一下 [新增]，按一下 [資料 + 儲存體]，然後按一下 [儲存體]。
+4. 建立將包含分割合併服務的 Azure 雲端服務。  移至 Azure 入口網站。 在左列中，按一下 [新增]，然後按一下 [計算]、[雲端服務] 和 [建立]。 
 
 ## <a name="configure-your-split-merge-service"></a>設定分割合併服務
 ### <a name="split-merge-service-configuration"></a>分割合併服務組態
@@ -129,7 +129,7 @@ Web 角色：
 4. 選擇預備環境，然後按一下 [上傳新的預備部署] 。
    
    ![預備][3]
-5. 在對話方塊中，輸入部署的標籤。 在 [封裝] 和 [設定] 中，按一下 [從本機] 並選擇 **SplitMergeService.cspkg** 檔案和您稍早設定的 .cscfg 檔案。
+5. 在對話方塊中，輸入部署的標籤。 在 [封裝] 和 [設定] 中，按一下 [從本機] 並選擇 **SplitMergeService.cspkg** 檔案和您稍早設定的 cscfg 檔案。
 6. 確定已核取 [即使一或多個角色包含單一執行個體也請部署]  核取方塊。
 7. 點按右下方的勾號按鈕，開始進行部署。 預期會需要幾分鐘才能完成。
 
@@ -140,7 +140,7 @@ Web 角色：
 
 如果背景工作角色無法上線，但 Web 角色成功上線，很可能是無法連接至您稍早建立的狀態資料庫。
 
-* 請確定您的 .cscfg 中的連接字串正確無誤。
+* 請確定您的 cscfg 中的連接字串正確無誤。
 * 請檢查伺服器和資料庫均存在，而且使用者識別碼與密碼皆正確無誤。
 * 在 Azure SQL DB 中，連接字串的格式應該為：
 

@@ -1,6 +1,6 @@
 ---
 title: "Azure SQL Database 效能微調指引 | Microsoft Docs"
-description: "本文可協助您判斷要為您的應用程式選擇哪個服務層。 文中也會建議微調應用程式以充分利用 Azure SQL Database 的方式。"
+description: "深入了解使用建議來改善 Azure SQL Database 查詢效能。"
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31130c261bb7ee12b38e199c2a3bb71d7f8fc4b8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>微調 Azure SQL Database 中的資料庫效能
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b64413e9cc916837dc779b92117f90293c4f1d87
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1cffe40c14b931485cc5cec48a95e02ae770764e
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # v2.0 通訊協定 - OAuth 2.0 授權碼流程
 OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存取受保護的資源，例如 Web API。  透過應用程式模型的 v2.0 實作 OAuth 2.0，您可以將登入及 API 存取新增至您的行動應用程式和桌面應用程式。  本指南與語言無關，描述在不使用我們的任何開放原始碼程式庫的情況下，如何傳送和接收 HTTP 訊息。
@@ -167,9 +167,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | scope |access_token 有效的範圍。 |
-| refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。  Refresh_token 的有效期很長，而且可以用來延長保留資源存取權的時間。  如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)。 |
-| id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。  如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
-
+| refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。  Refresh_token 的有效期很長，而且可以用來延長保留資源存取權的時間。  如需詳細資訊，請參閱 [v2.0 權杖參考](active-directory-v2-tokens.md)。 <br> **注意：**只在要求 `offline_access` 範圍時提供。 |
+| id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。  如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 <br> **注意：**只在要求 `openid` 範圍時提供。 |
 #### 錯誤回應
 錯誤回應格式如下：
 
@@ -273,8 +272,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | scope |access_token 有效的範圍。 |
-| refresh_token |新的 OAuth 2.0 重新整理權杖。 您應該用新取得的重新整理權杖取代舊的重新整理權杖，以確定盡可能保持重新整理權杖有效的時間。 |
-| id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。  如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 |
+| refresh_token |新的 OAuth 2.0 重新整理權杖。 您應該用新取得的重新整理權杖取代舊的重新整理權杖，以確定盡可能保持重新整理權杖有效的時間。 <br> **注意：**只在要求 `offline_access` 範圍時提供。 |
+| id_token |不帶正負號的 JSON Web Token (JWT)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。  如需有關 id_token 的詳細資訊，請參閱 [v2.0 端點權杖參考](active-directory-v2-tokens.md)。 <br> **注意：**只在要求 `openid` 範圍時提供。 |
 
 #### 錯誤回應
 ```

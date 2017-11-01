@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -42,7 +42,8 @@ ms.lasthandoff: 10/11/2017
 
 不論叢集是 Linux 叢集或 Windows 叢集，建立安全叢集的概念都一樣。 如需建立安全 Linux 叢集的詳細資訊和協助程式指令碼，請參閱[在 Linux 上建立安全叢集](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters)。 由所提供的協助程式指令碼所取得的參數可以直接輸入到入口網站，如[在 Azure 入口網站中建立叢集](#create-cluster-portal)一節所述。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="configure-key-vault"></a>設定金鑰保存庫 
+### <a name="log-in-to-azure"></a>登入 Azure
 本指南使用 [Azure PowerShell][azure-powershell]。 開始新的 PowerShell 工作階段時，請先登入您的 Azure 帳戶並選取您的訂用帳戶，然後再執行 Azure 命令。
 
 登入您的 Azure 帳戶：
@@ -58,7 +59,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="set-up-key-vault"></a>設定金鑰保存庫
+### <a name="set-up-key-vault"></a>設定金鑰保存庫
 這部分的指南將逐步引導您為 Azure 中的 Service Fabric 叢集和為 Service Fabric 應用程式建立金鑰保存庫。 如需 Key Vault 的完整指引，請參閱 [Key Vault入門指南][key-vault-get-started]。
 
 Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可用來管理 Azure 中 Service Fabric 叢集的憑證。 在 Azure 中部署叢集時，負責建立 Service Fabric 叢集的 Azure 資源提供者會從金鑰保存庫提取憑證，並將它們安裝在叢集 VM 上。
@@ -67,7 +68,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
 
 ![憑證安裝][cluster-security-cert-installation]
 
-### <a name="create-a-resource-group"></a>建立資源群組
+#### <a name="create-a-resource-group"></a>建立資源群組
 第一個步驟是為金鑰保存庫建立一個專用的新資源群組。 建議將金鑰保存庫放入它自己的資源群組，您就可以移除計算和儲存體資源群組 (例如擁有您 Service Fabric 叢集的資源群組) 而不會遺失您的金鑰和密碼。 擁有您金鑰保存庫的資源群組必須和正在使用它的叢集位於相同區域。
 
 ```powershell
@@ -83,7 +84,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
 
 ```
 
-### <a name="create-key-vault"></a>建立金鑰保存庫
+#### <a name="create-key-vault"></a>建立金鑰保存庫
 在新的資源群組中建立金鑰保存庫。 金鑰保存庫 **必須啟用以用於部署** ，才能讓 Service Fabric 資源提供者從中取得憑證並安裝在叢集節點上：
 
 ```powershell
@@ -124,10 +125,10 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
 ```
 
 
-## <a name="add-certificates-to-key-vault"></a>新增憑證至金鑰保存庫
+### <a name="add-certificates-to-key-vault"></a>新增憑證至金鑰保存庫
 憑證是在 Service Fabric 中用來提供驗證與加密，以保護叢集和其應用程式的各個層面。 如需如何在 Service Fabric 中使用憑證的詳細資訊，請參閱 [Service Fabric 叢集安全性案例][service-fabric-cluster-security]。
 
-### <a name="cluster-and-server-certificate-required"></a>叢集和伺服器憑證 (必要)
+#### <a name="cluster-and-server-certificate-required"></a>叢集和伺服器憑證 (必要)
 需要此憑證來保護叢集安全及防止未經授權存取叢集。 它會透過幾種方式提供叢集安全性：
 
 * **叢集驗證：** 驗證叢集同盟的節點對節點通訊。 只有可使用此憑證提供其身分識別的節點可以加入叢集。
@@ -139,7 +140,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
 * 憑證必須是為了進行金鑰交換而建立，且可匯出成個人資訊交換檔 (.pfx)。
 * 憑證的主體名稱必須符合用來存取 Service Fabric 叢集的網域。 這是必要的，以便為叢集的 HTTPS 管理端點和 Service Fabric Explorer 提供 SSL。 您無法向憑證授權單位 (CA) 取得 `.cloudapp.azure.com` 網域的 SSL 憑證。 為您的叢集取得自訂網域名稱。 當您向 CA 要求憑證時，憑證的主體名稱必須符合用於您叢集的自訂網域名稱。
 
-### <a name="client-authentication-certificates"></a>用戶端驗證憑證
+#### <a name="client-authentication-certificates"></a>用戶端驗證憑證
 其他用戶端憑證會驗證系統管理員以執行叢集管理工作。 Service Fabric 有兩個存取層級：[系統管理員] 和 [唯讀使用者]。 您至少應使用一個單一憑證以用於進行系統管理存取。 若要進行其他使用者層級存取，則必須提供個別憑證。 如需存取角色的詳細資訊，請參閱[角色型存取控制 (適用於 Service Fabric 用戶端)][service-fabric-cluster-security-roles]。
 
 若要使用 Service Fabric，您並不需要將用戶端驗證憑證上傳至金鑰保存庫。 這些憑證只需要提供給獲得授權來管理叢集的使用者。 
@@ -149,7 +150,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
 > 
 > 
 
-### <a name="application-certificates-optional"></a>應用程式憑證 (選用)
+#### <a name="application-certificates-optional"></a>應用程式憑證 (選用)
 您可以針對應用程式安全性目的，在叢集上安裝任何數目的其他憑證。 在建立您的叢集之前，請考量需要在節點上安裝憑證的應用程式安全性案例，例如：
 
 * 加密和解密應用程式組態值
@@ -157,7 +158,7 @@ Service Fabric 會使用 X.509 憑證來保護叢集。 Azure 金鑰保存庫可
 
 透過 Azure 入口網站建立叢集時無法設定應用程式憑證。 若要在建立叢集時設定應用程式憑證，您必須[使用 Azure Resource Manager 建立叢集][create-cluster-arm]。 您也可以在建立叢集之後將應用程式憑證新增到叢集。
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>設定憑證格式以供 Azure 資源提供者使用
+#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>設定憑證格式以供 Azure 資源提供者使用
 私密金鑰檔案 (.pfx) 可以直接透過金鑰保存庫來新增及使用。 但是，Azure 資源提供者需要以特殊 JSON 格式儲存金鑰，該格式包含 .pfx 作為 Base-64 編碼字串和私密金鑰密碼。 為符合這些要求，金鑰必須放入 JSON 字串中，然後在金鑰保存庫中儲存為密碼  。
 
 若要讓這個程序更容易，可使用 PowerShell 模組 ([GitHub 上有提供][service-fabric-rp-helpers])。 請依照這些步驟使用模組：
@@ -225,7 +226,7 @@ Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0
    > 雖然您可以決定使用現有的資源群組，但最好還是建立新的資源群組。 這可讓您輕鬆地刪除您不需要的叢集。
    > 
    > 
-5. 選取您要在其中建立叢集的 [區域] 。 您必須使用金鑰保存庫所在的相同區域。
+5. 選取您要在其中建立叢集的 [區域]  。 您必須使用金鑰保存庫所在的相同區域。
 
 #### <a name="2-cluster-configuration"></a>2.叢集組態
 ![建立節點類型][CreateNodeType]
