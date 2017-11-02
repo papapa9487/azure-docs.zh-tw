@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 6790db207fc7ec8a4b1546ef07c97ef30abe9513
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad4b5aeed645512774f1a3ecf94de37beff26b22
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 ## <a name="overview"></a>概觀
-[Azure 進階儲存體](../../../storage/common/storage-premium-storage.md) 是新一代儲存體，可提供低延遲和高輸送量 IO。 它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
+[Azure 進階儲存體](../premium-storage.md) 是新一代儲存體，可提供低延遲和高輸送量 IO。 它最適合用於需要大量 IO 的重要工作負載，例如，IaaS [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)上的 SQL Server。
 
 > [!IMPORTANT]
 > Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用資源管理員模式。
@@ -143,7 +143,7 @@ ms.lasthandoff: 10/11/2017
 ### <a name="vm-storage-bandwidth-and-vhd-storage-throughput"></a>VM 儲存體頻寬和 VHD 儲存體輸送量
 儲存體效能的程度取決於指定的 DS* VM 大小與 VHD 大小。 VM 對於連結的 VHD 數量以及它們將支援的最大頻寬 (MB/秒) 有不同的容許程度。 如需特定頻寬數，請參閱 [Azure 的虛擬機器和雲端服務大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
-提高 IOPS 可透過更大的磁碟大小來達成。 當您考量移轉路徑時，應將這點納入考慮。 如需詳細資訊，請參閱 [適用於 IOPS 和磁碟類型的表格](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets)。
+提高 IOPS 可透過更大的磁碟大小來達成。 當您考量移轉路徑時，應將這點納入考慮。 如需詳細資訊，請參閱 [適用於 IOPS 和磁碟類型的表格](../premium-storage.md#scalability-and-performance-targets)。
 
 最後，請考量 VM 對於所有連結磁碟支援的磁碟頻寬上限各有不同。 在高負載下，您可針對該 VM 角色大小充分使用可用的最大磁碟頻寬。 例如，Standard_DS14 最多將支援 512MB/秒；因此，透過三個 P30 磁碟，您就能充分使用 VM 的磁碟頻寬。 但在此範例中，根據讀取和寫入 IO 的組合而定，可能會超過輸送量限制。
 
@@ -1096,7 +1096,7 @@ ms.lasthandoff: 10/11/2017
     ![Appendix15][25]
 
 ## <a name="additional-resources"></a>其他資源
-* [Azure 進階儲存體](../../../storage/common/storage-premium-storage.md)
+* [Azure 進階儲存體](../premium-storage.md)
 * [虛擬機器](https://azure.microsoft.com/services/virtual-machines/)
 * [Azure 虛擬機器中的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 

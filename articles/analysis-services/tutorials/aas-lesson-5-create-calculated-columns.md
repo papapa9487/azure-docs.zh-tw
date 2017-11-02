@@ -4,7 +4,7 @@ description: "說明如何在 Azure Analysis Services 教學課程專案中建�
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: eab74fbadc6a143ca5a2bc57a1762539a6d489c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7d2265aa82e54cdbd3b85e09a05e5ea55a7a2c2
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-5-create-calculated-columns"></a>第 5 課：建立計算結果欄
 
@@ -46,7 +46,7 @@ ms.lasthandoff: 10/11/2017
   
 2.  在模型設計師中，按一下 [DimDate] 資料表 (索引標籤)。  
   
-3.  以滑鼠右鍵按一下 CalendarQuarter 資料行標頭，然後按一下插入資料行。  
+3.  以滑鼠右鍵按一下 [CalendarQuarter] 資料行標頭，然後按一下 [插入資料行]。  
   
     [日曆季] 資料行左側會插入名為 [計算結果欄 1] 的新資料行。  
   
@@ -66,7 +66,7 @@ MonthCalendar 計算結果欄提供可排序的月份名稱。
   
 #### <a name="create-a-dayofweek-calculated-column-in-the-dimdate-table"></a>在 DimDate 資料表中建立 DayOfWeek 計算結果欄  
   
-1.  繼續使用 **DimDate** 資料表，按一下 資料行 功能表，然後按一下新增資料行。  
+1.  繼續使用 **DimDate** 資料表，按一下 [資料行] 功能表，然後按一下 [新增資料行]。  
   
 2.  在公式列中，輸入下列公式︰  
     
@@ -102,7 +102,7 @@ ProductSubcategoryName 計算結果欄用於在 DimProduct 資料表中建立階
   
 #### <a name="create-a-productcategoryname-calculated-column-in-the-dimproduct-table"></a>在 DimProduct 資料表中建立 ProductCategoryName 計算結果欄  
   
-1.  繼續使用 **DimProduct** 資料表，按一下 資料行 功能表，然後按一下新增資料行。  
+1.  繼續使用 **DimProduct** 資料表，按一下 [資料行] 功能表，然後按一下 [新增資料行]。  
   
 2.  在公式列中，輸入下列公式︰  
   

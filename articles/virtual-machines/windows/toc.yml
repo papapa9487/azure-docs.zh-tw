@@ -39,7 +39,9 @@
       href: tutorial-azure-security.md
     - name: 12 - Team Services CI/CD
       href: tutorial-vsts-iis-cicd.md
-    - name: 13 - 使用 SSL 保護網路伺服器
+    - name: 13 - 安裝 SQL\IIS\.NET 堆疊
+      href: tutorial-iis-sql.md
+    - name: 14 - 使用 SSL 保護網路伺服器
       href: tutorial-secure-web-server.md
 - name: 範例
   items:
@@ -55,6 +57,27 @@
       href: regions-and-availability.md
     - name: VM 類型和大小
       href: sizes.md
+      items:
+        - name: 一般用途
+          href: sizes-general.md
+          items:
+            - name: B 系列 Burstable
+              href: b-series-burstable.md
+        - name: 計算最佳化
+          href: sizes-compute.md
+        - name: 記憶體最佳化
+          href: sizes-memory.md
+        - name: 儲存體最佳化
+          href: sizes-storage.md
+        - name: GPU 最佳化
+          href: sizes-gpu.md
+          items:
+            - name: 設定 GPU 驅動程式
+              href: n-series-driver-setup.md
+        - name: 高效能計算
+          href: sizes-hpc.md
+        - name: Azure 計算單位 (ACU)
+          href: sizes-general.md
     - name: 維護和更新
       href: maintenance-and-updates.md
     - name: 儲存體

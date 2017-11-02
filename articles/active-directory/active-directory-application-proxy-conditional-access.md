@@ -3,7 +3,7 @@ title: "條件式存取內部部署應用程式 - Azure AD | Microsoft Docs"
 description: "說明如何針對您使用 Azure AD 應用程式 Proxy 發佈可供遠端存取的應用程式設定條件式存取。"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: LizCasey
 manager: femila
 ms.assetid: 2e97722b-eb4e-4078-b607-9fed210d8a0f
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: 463946256f9e335fa6d98fc904835e5c3dc2725e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0d44c34a3aa631984f2a7cbdb03e19759b5ccfc
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="working-with-conditional-access-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的條件式存取
 

@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 25b259b0733723e49f7ff953151c953bf9b05199
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f4e0c68542cc38e1c0d90c6589e97134c3845f8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>使用 Azure Data Factory 在 Azure Blob 儲存體來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -270,7 +270,7 @@ Data Factory 支援使用下列符合 CLS 規範的 .NET 型類型值，在 “s
 
 1. 在 [部署] 頁面上，按一下 [`Click here to monitor copy pipeline`] 連結。 
 2. 您應該會在個別的索引標籤中看到 [監視及管理應用程式]。![監視及管理應用程式](media/data-factory-azure-blob-connector/monitor-manage-app.png)
-3. 將頂端的 開始時間 變更為 `04/19/2017`，將 結束時間 變更為 `04/27/2017`，然後按一下套用。 
+3. 將頂端的 [開始時間] 變更為 [`04/19/2017`]，將 [結束時間] 變更為 [`04/27/2017`]，然後按一下 [套用]。 
 4. 您應該會在 [活動時段] 清單中看到五個活動時段。 [時段開始] 時間應該涵蓋從管線開始到管線結束時間的所有日子。 
 5. 按一下 [活動時段] 清單的 [重新整理] 按鈕幾次，直到您看到所有活動時段的狀態都設定為 [就緒] 為止。 
 6. 現在，確認是否已在 adfblobconnector 容器的輸出資料夾中產生輸出檔案。 您應該會在輸出資料夾中看到以下資料夾結構： 

@@ -4,7 +4,7 @@ description: "在 Azure Active Directory 中啟用 SaaS 應用程式的單一登
 services: active-directory
 keywords: "將 Azure AD 與 SaaS 應用程式整合在一起"
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 53b9d341-d1fc-4bbb-ac7c-3f4c68fcf00a
@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: aaronsm
-ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a95a84f716542e25ddda01cf7d17afee6801877
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>整合 Azure Active Directory 單一登入與 SaaS 應用程式
 > [!div class="op_single_selector"]

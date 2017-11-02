@@ -1,6 +1,9 @@
 # [概觀](active-directory-b2c-overview.md)
 
 # 開始使用
+## [測試 Azure AD B2C Web 應用程式](active-directory-b2c-quickstarts-web-app.md)
+## [測試 Azure AD B2C 桌面應用程式](active-directory-b2c-quickstarts-desktop-app.md)
+## [測試 Azure AD B2C 單一頁面應用程式](active-directory-b2c-quickstarts-spa.md)
 ## [建立 Azure AD B2C 目錄](active-directory-b2c-get-started.md)
 ## [註冊您的應用程式](active-directory-b2c-app-registration.md)
 ## [內建原則](active-directory-b2c-reference-policies.md)

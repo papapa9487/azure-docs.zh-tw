@@ -4,7 +4,7 @@ description: "說明如何在 Azure Analysis Services 教學課程中使用資�
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 05/26/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: b258c18fde15014192e8f604a4e8b3842c3e52c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 919094c5e8c528810ce6545d6b0cf8d9f95cca2a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>補充課程 - 動態安全性
 
@@ -43,11 +43,11 @@ ms.lasthandoff: 10/11/2017
   
 #### <a name="to-add-the-dimsalesterritory-table"></a>新增 DimSalesTerritory 資料表  
   
-1.  在 表格式模型總管 > 資料來源 中，以滑鼠右鍵按一下您的連線，然後按一下匯入新資料表。  
+1.  在 [表格式模型總管] > [資料來源] 中，以滑鼠右鍵按一下您的連線，然後按一下 [匯入新資料表]。  
 
     如果出現 [模擬認證] 對話方塊，請輸入您在「第 2 課︰新增資料」中使用的模擬認證。
   
-2.  在 導覽器 中，選取 DimSalesTerritory 資料表，然後按一下確定。    
+2.  在 [導覽器] 中，選取 [DimSalesTerritory] 資料表，然後按一下 [確定]。    
   
 3.  在 [查詢編輯器] 中，按一下 [DimSalesTerritory] 查詢，然後移除 [SalesTerritoryAlternateKey] 資料行。  
   
@@ -79,9 +79,9 @@ AdventureWorksDW 範例資料庫中的 DimEmployee 資料表包含來自 Adventu
   
 4.  將工作表儲存為 [SampleEmployee]。  
   
-5.  在工作表中，選取具有員工資料的所有儲存格 (包括標頭)，然後以滑鼠右鍵按一下所選取的資料，然後按一下複製。  
+5.  在工作表中，選取具有員工資料的所有儲存格 (包括標頭)，然後以滑鼠右鍵按一下所選取的資料，然後按一下 [複製]。  
   
-6.  在 SSDT 中，按一下 編輯 功能表，然後按一下貼上。  
+6.  在 SSDT 中，按一下 [編輯] 功能表，然後按一下 [貼上]。  
   
     如果 [貼上] 呈現灰色，按一下模型設計工具視窗中任何資料表中的任何資料行，然後再試一次。  
   
@@ -89,7 +89,7 @@ AdventureWorksDW 範例資料庫中的 DimEmployee 資料表包含來自 Adventu
   
 8.  在 [要貼上的資料] 中，確認資料包含 SampleEmployee 工作表中的所有使用者資料和標頭。  
   
-9. 確認已核取 使用第一個資料列做為資料行標頭，然後按一下確定。  
+9. 確認已核取 [使用第一個資料列做為資料行標頭]，然後按一下 [確定]。  
   
     隨即建立名為 EmployeeSecurity 的新資料表，其中包含從 SampleEmployee 工作表複製而來的員工資料。  
   
@@ -109,7 +109,7 @@ FactInternetSales、DimGeography 和 DimSalesTerritory 資料表全都包含常�
   
 #### <a name="to-hide-the-employeesecurity-table-from-client-applications"></a>在用戶端應用程式中隱藏 EmployeeSecurity 資料表  
   
--   在模型設計工具的 圖表檢視 中，以滑鼠右鍵按一下 員工 資料表標題，，然後按一下在用戶端工具中隱藏。  
+-   在模型設計工具的 [圖表檢視] 中，以滑鼠右鍵按一下 [員工] 資料表標題，，然後按一下 [在用戶端工具中隱藏]。  
   
 ## <a name="create-a-sales-employees-by-territory-user-role"></a>建立「銷售地區員工」使用者角色  
 在此工作中，您會建立使用者角色。 此角色包含一個資料列篩選條件，以定義使用者可見的 DimSalesTerritory 資料表資料列。 此篩選條件接著會以一對多關聯性方向套用至 DimSalesTerritory 相關的所有其他資料表。 您也可以套用一個篩選條件，以防止身為此角色成員的任何使用者查詢整個 EmployeeSecurity 資料表。  
@@ -119,7 +119,7 @@ FactInternetSales、DimGeography 和 DimSalesTerritory 資料表全都包含常�
   
 #### <a name="to-create-a-sales-employees-by-territory-user-role"></a>建立「銷售地區員工」使用者角色  
   
-1.  在 SSDT 中，按一下 模型 功能表，然後按一下角色。  
+1.  在 SSDT 中，按一下 [模型] 功能表，然後按一下 [角色]。  
   
 2.  在 [角色管理員] 中，按一下 [新增]。  
   
@@ -129,9 +129,9 @@ FactInternetSales、DimGeography 和 DimSalesTerritory 資料表全都包含常�
   
 4.  在 [權限] 資料行中，按一下下拉式清單，然後選取 [讀取] 權限。  
   
-5.  按一下 成員 索引標籤，然後按一下新增。  
+5.  按一下 [成員] 索引標籤，然後按一下 [新增]。  
   
-6.  在 [選取使用者或群組] 對話方塊的 [輸入要選取的物件名稱] 中，輸入您建立 EmployeeSecurity 資料表時使用的第一個範例使用者名稱。 按一下 檢查名稱 來驗證使用者名稱是否有效，然後按一下確定。  
+6.  在 [選取使用者或群組] 對話方塊的 [輸入要選取的物件名稱] 中，輸入您建立 EmployeeSecurity 資料表時使用的第一個範例使用者名稱。 按一下 [檢查名稱] 來驗證使用者名稱是否有效，然後按一下 [確定]。  
   
     重複此步驟，並新增您建立 EmployeeSecurity 資料表時使用的其他範例使用者名稱。  
   
@@ -165,13 +165,13 @@ FactInternetSales、DimGeography 和 DimSalesTerritory 資料表全都包含常�
   
 #### <a name="to-test-the-sales-employees-by-territory-user-role"></a>測試「銷售地區員工」使用者角色  
   
-1.  在 SSDT 中，按一下 模型 功能表，然後按一下使用 Excel 分析。  
+1.  在 SSDT 中，按一下 [模型] 功能表，然後按一下 [使用 Excel 分析]。  
   
-2.  在 使用 Excel 分析 對話方塊的 指定要用來連線至模型的使用者名稱或角色 中，選取 其他 Windows 使用者，然後按一下瀏覽。  
+2.  在 [使用 Excel 分析] 對話方塊的 [指定要用來連線至模型的使用者名稱或角色] 中，選取 [其他 Windows 使用者]，然後按一下 [瀏覽]。  
   
-3.  在 選取使用者或群組 對話方塊的 輸入要選取的物件名稱 中，輸入您包含在 EmployeeSecurity 資料表的使用者名稱，然後按一下檢查名稱。  
+3.  在 [選取使用者或群組] 對話方塊的 [輸入要選取的物件名稱] 中，輸入您包含在 EmployeeSecurity 資料表的使用者名稱，然後按一下 [檢查名稱]。  
   
-4.  按一下 確定 以關閉 選取使用者或群組 對話方塊，然後按一下確定 以關閉 使用 Excel 分析 對話方塊。  
+4.  按一下 [確定] 以關閉 [選取使用者或群組] 對話方塊，然後按一下 [確定] 以關閉 [使用 Excel 分析] 對話方塊。  
   
     Excel 會開啟新的活頁簿。 將會自動建立樞紐分析表。 樞紐分析表欄位清單包含您的新模型可用的大部分資料欄位。  
   

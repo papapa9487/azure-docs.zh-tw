@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>關於 Azure 儲存體帳戶
 
@@ -79,7 +79,7 @@ Azure 儲存體帳戶提供唯一命名空間來儲存及存取您的 Azure 儲�
 
 5. 選取儲存體帳戶的類型︰[一般用途] 或 [Blob 儲存體]。  是預設值。
    
-    如果已選取 [一般用途]，則指定效能層︰[標準] 或 [進階]。 預設值是 [標準] 。 如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](storage-introduction.md)和[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)。
+    如果已選取 [一般用途]，則指定效能層︰[標準] 或 [進階]。 預設值是 [標準] 。 如需標準和進階儲存體帳戶的詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](storage-introduction.md)和[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)。
    
     如果已選取 **Blob 儲存體**，則指定存取層︰[經常存取] 或 [不常存取]。 預設值為 [經常存取] 。 如需詳細資訊，請參閱 [Azure Blob 儲存體：經常存取及不常存取層](../blobs/storage-blob-storage-tiers.md) 。
 6. 選取儲存體帳戶的複寫選項︰[LRS]、[GRS]、[RA-GRS] 或 [ZRS]。 預設值是 [RA-GRS] 。 如需 Azure 儲存體複寫選項的詳細資訊，請參閱 [Azure 儲存體複寫](storage-redundancy.md)。

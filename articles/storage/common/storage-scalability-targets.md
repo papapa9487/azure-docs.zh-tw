@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: abaad01bbf7a11ad078c79d7c192ef3f84812178
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 805b0eee46846345ee1f33faf0c28393c3e8ebb1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
 ## <a name="overview"></a>Overview
@@ -76,7 +76,7 @@ ms.lasthandoff: 10/19/2017
 ## <a name="see-also"></a>另請參閱
 * [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)
 * [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)
-* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../storage-premium-storage.md)
+* [Premium 儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)
 * [Azure 儲存體複寫](../storage-redundancy.md)
 * [Microsoft Azure 儲存體效能與延展性檢查清單](../storage-performance-checklist.md)
 * [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

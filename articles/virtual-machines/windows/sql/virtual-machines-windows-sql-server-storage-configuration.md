@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: f10bac1189c94a581487d19fc0cc129acec6a636
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的儲存體組態
 當您在 Azure 中設定 SQL Server 虛擬機器映像時，入口網站有協助自動進行儲存體設定。 這包括將儲存體附加至 VM、讓該儲存體可供 SQL Server 存取，並加以設定以針對特定的效能需求最佳化。
@@ -32,7 +32,7 @@ ms.lasthandoff: 10/11/2017
 
 * 使用 [SQL Server 資源庫映像](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing)佈建。
 * 使用 [Resource Manager 部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。
-* 使用 [進階儲存體](../../../storage/common/storage-premium-storage.md)。
+* 使用 [進階儲存體](../premium-storage.md)。
 
 ## <a name="new-vms"></a>新的 VM
 下列各節說明如何為新的 SQL Server 虛擬機器設定儲存體。
@@ -104,7 +104,7 @@ Azure 會根據您的規格建立新的磁碟機。 在此案例中，Azure 會�
 
 * 如果您為 VM 選取了小於兩個 TB 的儲存體，則 Azure 不會建立存放集區。
 * 如果您為 VM 選取了至少兩個 TB 的儲存體，則 Azure 會設定存放集區。 本主題的下一節提供存放集區設定的詳細資料。
-* 自動儲存體設定一律使用 [儲存體](../../../storage/common/storage-premium-storage.md) P30 資料磁碟。 因此，您選取的 TB 數目與連接到您 VM 的資料磁碟數目會有 1:1 的對應。
+* 自動儲存體設定一律使用 [儲存體](../premium-storage.md) P30 資料磁碟。 因此，您選取的 TB 數目與連接到您 VM 的資料磁碟數目會有 1:1 的對應。
 
 如需價格資訊，請參閱 [磁碟儲存體](https://azure.microsoft.com/pricing/details/storage) 索引標籤上的 **儲存體價格** 頁面。
 

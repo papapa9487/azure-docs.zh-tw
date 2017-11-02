@@ -4,7 +4,7 @@ description: "說明如何在 Azure Analysis Services 教學課程專案中取�
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 07151fdf79d3b06f3144fbebff9015645b1ed000
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0bf5eb51d3fea8ff4a62d9e7f6d76c771aaaaf77
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-2-get-data"></a>第 2 課：取得資料
 
@@ -49,16 +49,16 @@ ms.lasthandoff: 10/11/2017
   
 2.  在 [取得資料] 中，按一下 [資料庫] > [SQL Server 資料庫] > [連線]。  
   
-3.  在 SQL Server 資料庫 對話方塊的 伺服器 中，輸入您安裝 AdventureWorksDW2014 資料庫的伺服器名稱，然後按一下連線。  
+3.  在 [SQL Server 資料庫] 對話方塊的 [伺服器] 中，輸入您安裝 AdventureWorksDW2014 資料庫的伺服器名稱，然後按一下 [連線]。  
 
-4.  當系統提示您輸入認證時，您必須指定 Analysis Services 在匯入和處理資料時用來連線至資料來源的認證。 在 模擬模式 中，選取 模擬帳戶，輸入認證，然後按一下連線。 建議您使用密碼不會過期的帳戶。
+4.  當系統提示您輸入認證時，您必須指定 Analysis Services 在匯入和處理資料時用來連線至資料來源的認證。 在 [模擬模式] 中，選取 [模擬帳戶]，輸入認證，然後按一下 [連線]。 建議您使用密碼不會過期的帳戶。
 
     ![aas 第 2 課帳戶](../tutorials/media/aas-lesson2-account.png)
   
     > [!NOTE]  
     > 使用 Windows 使用者帳戶和密碼是連線至資料來源最安全的方法。
   
-5.  在 導覽器 中，選取 AdventureWorksDW2014 資料庫，然後按一下確定。這會建立資料庫的連線。 
+5.  在 [導覽器] 中，選取 [AdventureWorksDW2014] 資料庫，然後按一下 [確定]。這會建立資料庫的連線。 
   
 6.  在 [導覽器] 中，選取下列資料表的核取方塊︰**DimCustomer**、**DimDate**、**DimGeography**、**DimProduct**、**DimProductCategory**、**DimProductSubcategory** 和 **FactInternetSales**。  
 
@@ -74,7 +74,7 @@ AdventureWorksDW2014 範例資料庫中的資料表有不需要加入模型中�
   
 1.  在 [查詢編輯器] 中，選取 [DimCustomer] 資料表。 將會出現資料來源 (AdventureWorksDW2014 範例資料庫) 上的 DimCustomer 資料表檢視。 
   
-2.  複選 (Ctrl + 按一下) **SpanishEducation**、**FrenchEducation**、**SpanishOccupation**、**FrenchOccupation**，按一下滑鼠右鍵，然後按一下移除資料行。 
+2.  複選 (Ctrl + 按一下) **SpanishEducation**、**FrenchEducation**、**SpanishOccupation**、**FrenchOccupation**，按一下滑鼠右鍵，然後按一下 [移除資料行]。 
 
     ![aas 第 2 課移除資料行](../tutorials/media/aas-lesson2-remove-columns.png)
   

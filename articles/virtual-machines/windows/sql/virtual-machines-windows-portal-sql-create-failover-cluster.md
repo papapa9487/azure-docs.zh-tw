@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2017
 ms.author: mikeray
-ms.openlocfilehash: 1bbfd7cc63d534d7f9c360ad4afd05bd4e225725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec35b4a02c04d5b6d0bbf9049927529258c3825b
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -151,7 +151,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
       ![移除功能](./media/virtual-machines-windows-portal-sql-create-failover-cluster/03-remove-features.png)
 
-   - 按一下 下一步，然後按一下移除。
+   - 按一下 [下一步]，然後按一下 [移除]。
 
 1. <a name="ports"></a>開啟防火牆連接埠。
 
@@ -162,7 +162,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    | SQL Server | 1433 | 適用於 SDL Server 預設執行個體的一般連接埠。 若您曾使用來自資源庫的映像，此連接埠會自動開啟。
    | 健全狀況探查 | 59999 | 任何開啟的 TCP 連接埠。 在接下來的步驟中，設定負載平衝器[健全狀況探查](#probe)和要使用此連接埠的叢集。  
 
-1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../../../storage/common/storage-premium-storage.md)。
+1. 將儲存體新增至虛擬機器中。 如需詳細資訊，請參閱[新增儲存區](../premium-storage.md)。
 
    每部虛擬機器需要至少兩個資料磁碟。
 
@@ -197,10 +197,10 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 1. [將容錯移轉叢集功能新增至每部虛擬機器](virtual-machines-windows-portal-sql-availability-group-prereq.md#add-failover-clustering-features-to-both-sql-server-vms)。
 
    若要從 UI 安裝容錯移轉叢集功能，請於兩部虛擬機器上執行下列步驟。
-   - 在 伺服器管理員 中，按一下 管理，然後按一下新增角色及功能。
+   - 在 [伺服器管理員] 中，按一下 [管理]，然後按一下 [新增角色及功能]。
    - 在 [新增角色及功能精靈] 中，連續按 [下一步] 直到到達 [選取功能]。
    - 在 [選取功能] 中，按一下 [容錯移轉叢集]。 選取所有所需功能與管理工具。 按一下 [新增功能]。
-   - 按一下 下一步，然後按一下完成 以安裝功能。
+   - 按一下 [下一步]，然後按一下 [完成] 以安裝功能。
 
    若要透過 PowerShell 安裝容錯移轉叢集功能，請在其中一部虛擬機器上執行下列來自系統管理員 PowerShell 工作階段的指令碼。
 

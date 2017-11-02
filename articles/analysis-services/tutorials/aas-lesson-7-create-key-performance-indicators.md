@@ -4,7 +4,7 @@ description: "說明如何在 Azure Analysis Services 教學課程專案中建�
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 9671136eea4e390a7763404e402cf94f1d351cac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca386cfd23b010af25fa9afb00fdad322e3e2946
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-7-create-key-performance-indicators"></a>第 7 課：建立關鍵效能指標
 
@@ -81,7 +81,7 @@ ms.lasthandoff: 10/11/2017
   
 5.  在左側 (低) 滑桿欄位中，滑動直到欄位顯示 **0.8** 為止，然後滑動右側 (高) 滑桿欄位，直到欄位顯示 **1.03** 為止。  
   
-6.  在 選取圖示樣式 中，選取菱形 (紅色)、三角形 (黃色)、圓形 (綠色) 圖示類型，然後按一下確定。  
+6.  在 [選取圖示樣式] 中，選取菱形 (紅色)、三角形 (黃色)、圓形 (綠色) 圖示類型，然後按一下 [確定]。  
   
 ## <a name="whats-next"></a>後續步驟
 [第 8 課：建立檢視方塊](../tutorials/aas-lesson-8-create-perspectives.md)。

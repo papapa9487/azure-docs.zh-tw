@@ -4,7 +4,7 @@ description: "說明如何在 Azure Analysis Services 教學課程專案中建�
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: ba0030ca25adf13a3a831facec2ded9cff0bd882
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a80500e806d85d0c1dd01d10fea74f59c92fb50a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-6-create-measures"></a>第 6 課：建立量值
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 
 在這堂課中，您將會建立要加入模型中的量值。 類似於您所建立的計算結果欄，量值是利用 DAX 公式所建立的計算結果。 不過，與計算結果欄不同，量值評估是根據使用者選取的「篩選條件」。 例如，在樞紐分析表的 [資料列標籤] 欄位中新增的特定資料行或交叉分析篩選器。 然後會以套用的量值，計算篩選條件中每個資料格的值。 量值是功能強大又靈活的計算，在幾乎所有表格式模型中都會派上用場，可以對數值資料執行動態計算。 若要深入了解，請參閱[量值](https://docs.microsoft.com/sql/analysis-services/tabular-models/measures-ssas-tabular)。
   
-若要建立量值，您需要使用「量值方格」。 根據預設，每個資料表都有一個空白量值方格；不過，您通常不會為每個資料表建立量值。 在資料檢視中，量值方格中會出現在模型設計師中的資料表下方。 若要隱藏或顯示資料表的量值方格，請按一下 資料表 功能表，然後按一下顯示量值方格。  
+若要建立量值，您需要使用「量值方格」。 根據預設，每個資料表都有一個空白量值方格；不過，您通常不會為每個資料表建立量值。 在資料檢視中，量值方格中會出現在模型設計師中的資料表下方。 若要隱藏或顯示資料表的量值方格，請按一下 [資料表] 功能表，然後按一下 [顯示量值方格]。  
   
 若要建立量值，您可以按一下量值方格中的空資料格，然後在公式列中輸入 DAX 公式。 當您按 ENTER 完成公式時，量值就會出現在資料格中。 您也可以按一下資料行，然後按一下工具列上的 [自動加總] 按鈕 (**∑**)，利用標準彙總函式建立量值。 使用「自動加總」功能所建立的量值會出現在資料行正下方的量值方格資料格中，但是可以移動。  
   

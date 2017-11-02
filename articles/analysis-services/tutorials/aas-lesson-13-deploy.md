@@ -4,7 +4,7 @@ description: "說明如何將教學課程專案部署至 Azure Analysis Services
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: 9594582419c716a37a1010e2410e7b2b199df04c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 926b1b71ca27ede23e36dcf313ef51d4ea73fc02
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-13-deploy"></a>第 13 課：部署
 
@@ -43,7 +43,7 @@ ms.lasthandoff: 10/11/2017
 #### <a name="to-configure-deployment-properties"></a>設定部署屬性  
 
   
-1.  在 方案總管 中，以滑鼠右鍵按一下 AW 網際網路銷售 專案，然後按一下屬性。  
+1.  在 [方案總管] 中，以滑鼠右鍵按一下 [AW 網際網路銷售] 專案，然後按一下 [屬性]。  
   
 2.  在 [AW 網際網路銷售屬性頁] 對話方塊中，請在 [部署伺服器] 下的 [伺服器] 屬性中，輸入完整伺服器名稱。  
 
@@ -53,7 +53,7 @@ ms.lasthandoff: 10/11/2017
   
 4.  在 [模型名稱] 屬性中，輸入 **Adventure Works 網際網路銷售模型**。  
   
-5.  驗證您的選取項目，然後按一下確定。  
+5.  驗證您的選取項目，然後按一下 [確定]。  
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>部署 Adventure Works 網際網路銷售
   

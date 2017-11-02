@@ -4,7 +4,7 @@ description: "說明如何建立新的 Azure Analysis Services 教學課程專�
 services: analysis-services
 documentationcenter: 
 author: Minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 06/01/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: d523e3e103b4c351d01af6f1eb3c396f9a63016a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2bfb714e92986465befd79aaa7b12f90b6490e7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="lesson-1-create-a-tabular-model-project"></a>第 1 課：建立表格式模型專案
 
@@ -38,7 +38,7 @@ ms.lasthandoff: 10/11/2017
   
 1.  在 SSDT 中，在 [檔案] 功能表上按一下 [新增] > [專案]。  
   
-2.  在 新增專案 對話方塊中，展開 已安裝 > 商業智慧 > Analysis Services，然後按一下Analysis Services 表格式專案。  
+2.  在 [新增專案] 對話方塊中，展開 [已安裝] > [商業智慧] > [Analysis Services]，然後按一下 [Analysis Services 表格式專案]。  
   
 3.  在 [名稱] 中，輸入 **AW 網際網路銷售**，然後指定專案檔案的位置。  
   
@@ -74,7 +74,7 @@ ms.lasthandoff: 10/11/2017
   
 當您建立模型專案時，根據 [工具] 功能表 > [選項] 對話方塊中可指定的 [資料模型化] 設定，自動會設定某些模型屬性。 [資料備份]、[ 工作空間保留] 和 [工作空間伺服器] 屬性可指定如何及在何處備份、在記憶體中保留和建置工作空間資料庫 (您的模型製作資料庫)。 稍後，如有必要，您可以變更這些設定，但現在，讓這些屬性保持不變即可。  
 
-在 方案總管 中，以滑鼠右鍵按一下 AW 網際網路銷售 \(專案)，然後按一下屬性。 [AW 網際網路銷售屬性頁] 對話方塊隨即出現。 稍後部署模型時，您會設定其中一些屬性。  
+在 [方案總管] 中，以滑鼠右鍵按一下 [AW 網際網路銷售] \(專案)，然後按一下 [屬性]。 [AW 網際網路銷售屬性頁] 對話方塊隨即出現。 稍後部署模型時，您會設定其中一些屬性。  
   
 當您安裝 SSDT 時，有數個新的功能表項目新增至 Visual Studio 環境。 按一下 [模型] 功能表。 從這裡，您可以匯入資料、重新整理工作區資料、在 Excel 中瀏覽模型、建立檢視方塊和角色、選取模型檢視，以及設定計算選項。 按一下 [資料表] 功能表。 從這裡，您可以建立和管理關聯性、指定日期資料表設定、建立分割區，以及編輯資料表屬性。 如果您按一下 [資料行] 功能表，您可以新增和刪除資料表中的資料行、凍結資料行，以及指定排序順序。 SSDT 也會在工具列新增某些按鈕。 「自動加總」功能最實用，可以為選取的資料行建立標準彙總量值。 其他工具列按鈕可讓您快速存取常用的功能和命令。  
   

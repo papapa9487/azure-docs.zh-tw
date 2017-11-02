@@ -4,7 +4,7 @@
 一般用途的儲存體帳戶可讓您使用單一帳戶存取 Azure 儲存體服務，例如資料表、佇列、檔案、Blob 和 Azure 虛擬機器磁碟。 這種類型的儲存體帳戶有兩個效能層︰
 
 * 標準儲存體效能層，可讓您儲存資料表、佇列、檔案、 Blob 和 Azure 虛擬機器磁碟。
-* 進階儲存體效能層，目前僅支援 Azure 虛擬機器磁碟。 如需進階儲存體的深入概觀，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/storage/common/storage-premium-storage.md) 。
+* 進階儲存體效能層，目前僅支援 Azure 虛擬機器磁碟。 如需進階儲存體的深入概觀，請參閱 [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md) 。
 
 ### <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
 Blob 儲存體帳戶是特殊的儲存體帳戶，可將非結構化資料儲存為 Azure 儲存體中的 Blob (物件)。 Blob 儲存體帳戶類似於現有的一般用途儲存體帳戶，可共用所有強大的持續性、可用性、延展性以及您現今使用的效能功能，包括區塊 Blob 和附加 Blob 的 100% API 一致性。 對於只需要封鎖或附加 Blob 儲存體的應用程式，我們建議使用 Blob 儲存體帳戶。

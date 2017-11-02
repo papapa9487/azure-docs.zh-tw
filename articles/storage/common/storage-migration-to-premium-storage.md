@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.openlocfilehash: ca893f87b155a92c457e3bf6d9d39aaf86bf5fb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb46c3f2809fa86fea7a8370d4c417f04040b74c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 10/11/2017
 您可以將 VM 從其他平台移轉到 Azure 進階儲存體，或將現有的 Azure VM 從標準儲存體移轉到進階儲存體。 本指南涵蓋這兩種案例的步驟。 請根據您的案例，依照相關小節中所指定的步驟操作。
 
 > [!NOTE]
-> 如需進階儲存體的功能概觀和價格，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)。 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。 如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
+> 如需進階儲存體的功能概觀和價格，請參閱[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)。 建議您將任何需要高 IOPS 的虛擬機器磁碟移轉到「Azure 進階儲存體」，以發揮應用程式最佳效能。 如果您的磁碟不需要高 IOPS，您可以在「標準儲存體」中維護它來限制成本，這會將虛擬機器磁碟資料儲存在「硬碟機 (HDD)」上而非 SSD 上。
 >
 
 要完整地完成移轉程序，可能需要在本指南中提供的步驟之前和之後執行其他動作。 例如，設定虛擬網路或端點，或是在應用程式本身中進行程式碼變更，應用程式可能都需要一些停機時間。 這些動作會隨著每個應用程式而不同，您應完成這些動作以及本指南中所提供的步驟，才能盡可能順暢地完整轉換至進階儲存體。
@@ -65,7 +65,7 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 | 每一磁碟的 IOPS       | 500   | 2300  | 5000           | 7500           | 7500           | 
 | 每一磁碟的輸送量 | 每秒 100 MB | 每秒 150 MB | 每秒 200 MB | 每秒 250 MB | 每秒 250 MB |
 
-根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。 您可以將數個持續性資料磁碟連接至您的 VM。 如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。 (請參閱[這裡](storage-premium-storage-performance.md#disk-striping)的磁碟等量化說明。)如果您使用[儲存空間][4]等量進階儲存體資料磁碟，應該對所使用的每個磁碟中的每個資料行進行設定。 否則，等量磁碟區的整體效能可能會因為磁碟之間的流量分配不平均而低於預期。 而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。 如需詳細資訊，請參閱文章 [在 Linux 上設定軟體 RAID](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 。
+根據您的工作負載，決定您的 VM 是否需要額外的資料磁碟。 您可以將數個持續性資料磁碟連接至您的 VM。 如有需要，您可以跨磁碟等量磁碟區以增加磁碟區的容量和效能。 (請參閱[這裡](../../virtual-machines/windows/premium-storage-performance.md#disk-striping)的磁碟等量化說明。)如果您使用[儲存空間][4]等量進階儲存體資料磁碟，應該對所使用的每個磁碟中的每個資料行進行設定。 否則，等量磁碟區的整體效能可能會因為磁碟之間的流量分配不平均而低於預期。 而對於 Linux VM，您可以使用 *mdadm* 公用程式來達到相同的效果。 如需詳細資訊，請參閱文章 [在 Linux 上設定軟體 RAID](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 。
 
 #### <a name="storage-account-scalability-targets"></a>儲存體帳戶延展性目標
 進階儲存體帳戶除了 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md)之外，還有以下延展性目標。 如果您的應用程式需求超出單一儲存體帳戶的延展性目標，請建置使用多個儲存體帳戶的應用程式，並將資料分散到那些儲存體帳戶中。
@@ -74,7 +74,7 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 |:--- |:--- |
 | 磁碟容量：35 TB<br />快照容量：10 TB |每秒最多 50 Gbps (輸入 + 輸出) |
 
-如需有關「進階儲存體」規格的詳細資訊，請查看[使用進階儲存體時的延展性和效能目標](storage-premium-storage.md#scalability-and-performance-targets)。
+如需有關「進階儲存體」規格的詳細資訊，請查看[使用進階儲存體時的延展性和效能目標](../../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)。
 
 #### <a name="disk-caching-policy"></a>磁碟快取原則
 根據預設，所有 Premium 資料磁碟的磁碟快取原則都是*唯讀*，而連接至 VM 的 Premium 作業系統磁碟的磁碟快取原則則是*讀寫*。 為使應用程式的 IO 達到最佳效能，建議使用此組態設定。 對於頻繁寫入或唯寫的資料磁碟 (例如 SQL Server 記錄檔)，停用磁碟快取可獲得更佳的應用程式效能。 而您可以使用 [Azure 入口網站](https://portal.azure.com)或 *Set-AzureDataDisk* Cmdlet 的 *-HostCaching* 參數來更新現有資料磁碟的快取設定。
@@ -86,7 +86,7 @@ Azure VM 大小的規格已列在 [虛擬機器的大小](../../virtual-machines
 建立 Azure VM 時，系統會要求您設定某些 VM 設定。 請記住，有一些對於 VM 存留期的設定是固定的，但是您稍後可以修改或新增其他設定。 檢閱這些 Azure VM 組態設定，並確定會適當地設定這些設定以符合您的工作負載需求。
 
 ### <a name="optimization"></a>最佳化
-[Azure 進階儲存體︰針對高效能進行設計](storage-premium-storage-performance.md)提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以遵循指定方針，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。
+[Azure 進階儲存體︰針對高效能進行設計](../../virtual-machines/windows/premium-storage-performance.md)提供使用 Azure 進階儲存體來建置高效能應用程式的指導方針。 您可以遵循指定方針，並根據您的應用程式所採用的技術，結合適合的效能最佳作法。
 
 ## <a name="prepare-and-copy-virtual-hard-disks-VHDs-to-premium-storage"></a>準備並將虛擬硬碟 (VHD) 複製到進階儲存體
 下一節提供從您的 VM 準備 VHD 以及將 VHD 複製到 Azure 儲存體的指導方針。
@@ -139,7 +139,7 @@ VM 必須完全關閉，才能以全新狀態移轉。 在移轉完成之前會�
     %windir%\system32\sysprep\sysprep.exe
     ```
 
-3. 在 系統準備工具 中依序選取 進入系統全新體驗 (OOBE)、一般化 核取方塊、關機，然後按一下確定 \(如下方圖片所示)。 Sysprep 會將作業系統一般化並關閉系統。
+3. 在 [系統準備工具] 中依序選取 [進入系統全新體驗 (OOBE)]、[一般化] 核取方塊、[關機]，然後按一下 [確定] \(如下方圖片所示)。 Sysprep 會將作業系統一般化並關閉系統。
 
     ![][1]
 
@@ -750,7 +750,7 @@ Update-AzureVM  -VM $vm
 2. 登入 VM，並將資料從目前的磁碟區複製到對應至該磁碟區的新磁碟。 請為所有需要對應至新磁碟的目前磁碟區執行這項操作。
 3. 接下來，請變更應用程式設定以切換至新的磁碟，並卸離舊磁碟區。
 
-如需調整應用程式以獲得更好的磁碟效能，請參閱[最佳化應用程式效能](storage-premium-storage-performance.md#optimizing-application-performance)。
+如需調整應用程式以獲得更好的磁碟效能，請參閱[最佳化應用程式效能](../../virtual-machines/windows/premium-storage-performance.md#optimizing-application-performance)。
 
 ### <a name="application-migrations"></a>應用程式移轉
 資料庫和其他複雜的應用程式在移轉時，可能需要應用程式提供者所定義的特殊步驟。 請參閱個別的應用程式文件。 例如 資料庫通常可透過備份和還原來移轉。
@@ -767,7 +767,7 @@ Update-AzureVM  -VM $vm
 
 * [Azure 儲存體](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure 虛擬機器](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](storage-premium-storage.md)
+* [進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

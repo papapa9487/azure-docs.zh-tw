@@ -108,5 +108,6 @@
 #### [憑證認證](active-directory-certificate-credentials.md)
 ### [範圍](active-directory-v2-scopes.md)
 # 資源
+## [取得說明](active-directory-develop-help-support.md)
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)

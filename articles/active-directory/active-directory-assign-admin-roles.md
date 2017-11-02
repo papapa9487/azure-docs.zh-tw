@@ -3,7 +3,7 @@ title: "在 Azure Active Directory 中指派系統管理員角色 | Microsoft Do
 description: "系統管理員角色可用來建立或編輯使用者、指派系統管理角色、重設使用者密碼、管理使用者授權或管理網域。 指派系統管理員角色的使用者在您組織所訂閱的所有雲端服務中都擁有相同的權限。"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: 7fc27e8e-b55f-4194-9b8f-2e95705fb731
@@ -17,11 +17,11 @@ ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: oldportal;it-pro;
 robots: NOINDEX
-ms.openlocfilehash: 8e50ea660df0a3ca1fbd23f7b610a7e57eb737d1
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 7c866842c2d090c27c77b2ef5c236bda893022c4
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派系統管理員角色
 > [!div class="op_single_selector"]

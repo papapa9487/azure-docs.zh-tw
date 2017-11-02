@@ -3,7 +3,7 @@ title: "傳統入口網站 Azure AD 應用程式 Proxy 連接器 | Microsoft Doc
 description: "涵蓋如何建立和管理「Azure AD 應用程式 Proxy」中的連接器群組。"
 services: active-directory
 documentationcenter: 
-author: kgremban
+author: LizCasey
 manager: femila
 ms.assetid: b283796a-9679-4c79-b703-802bb850f65d
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.date: 07/23/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro; oldportal
-ms.openlocfilehash: fc65c4053c45d9c16c62ee0fe65924133a4bb94a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09e161effb595b993cc87b3a1c3773bdb5a6ca5a
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 > [!div class="op_single_selector"]

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 29f33d01cc6b640a566dc371f4b9c704978da091
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>部署和管理 Azure 中的 StorSimple 虛擬裝置
 ## <a name="overview"></a>Overview
@@ -33,7 +33,7 @@ StorSimple 虛擬裝置可以在兩種模型中使用，標準 8010 (前身為 1
 | **Azure VM** |Standard_A3 (4 核心、7 GB 記憶體) |Standard_DS3 (4 核心、14 GB 記憶體) |
 | **版本相容性** |執行 Update 2 之前或更新版本的版本 |執行 Update 2 或更新版本的版本 |
 | **區域可用性** |所有 Azure 區域 |支援進階儲存體和 DS3 Azure VM 的所有 Azure 區域<br></br> 使用[這份清單](https://azure.microsoft.com/en-us/regions/services)，查看您的區域是否提供「虛擬機器 > DS 系列」和「儲存體 > 磁碟儲存體」。 |
-| **儲存體類型** |將 Azure 標準儲存體使用於本機磁碟<br></br> 了解如何 [建立標準儲存體帳戶](../storage/common/storage-create-storage-account.md) |將 Azure 進階儲存體使用於本機磁碟<sup>2</sup> <br></br>了解如何[建立進階儲存體帳戶](../storage/common/storage-premium-storage.md) |
+| **儲存體類型** |將 Azure 標準儲存體使用於本機磁碟<br></br> 了解如何 [建立標準儲存體帳戶](../storage/common/storage-create-storage-account.md) |將 Azure 進階儲存體使用於本機磁碟<sup>2</sup> <br></br>了解如何[建立進階儲存體帳戶](../virtual-machines/windows/premium-storage.md) |
 | **工作負載指引** |從備份的檔案的項目層級擷取 |雲端開發和測試案例、低延遲、較高效能工作負載 <br></br>災害復原的次要裝置 |
 
 <sup>1</sup> *前身為 1100*。
@@ -82,7 +82,7 @@ StorSimple 虛擬裝置是軟體形式的 StorSimple，在 Microsoft Azure 虛�
 建立虛擬裝置之前，對 Azure StorSimple 服務進行下列更新：
 
 * 針對要做為虛擬裝置之主機伺服器的 VM，新增 [存取控制記錄](storsimple-manage-acrs.md) 。
-* 使用位於與虛擬裝置相同區域的 [儲存體帳戶](storsimple-manage-storage-accounts.md#add-a-storage-account) 。 若儲存體帳戶位於不同區域，可能導致效能不佳。 您可以搭配虛擬裝置使用標準或進階儲存體帳戶。 如何建立[標準儲存體帳戶](../storage/common/storage-create-storage-account.md)或[進階儲存體帳戶](../storage/common/storage-premium-storage.md)的詳細資訊
+* 使用位於與虛擬裝置相同區域的 [儲存體帳戶](storsimple-manage-storage-accounts.md#add-a-storage-account) 。 若儲存體帳戶位於不同區域，可能導致效能不佳。 您可以搭配虛擬裝置使用標準或進階儲存體帳戶。 如何建立[標準儲存體帳戶](../storage/common/storage-create-storage-account.md)或[進階儲存體帳戶](../virtual-machines/windows/premium-storage.md)的詳細資訊
 * 針對建立虛擬裝置使用與用於資料的儲存體帳戶不同的儲存體帳戶。 使用相同的儲存體帳戶可能導致效能不佳。
 
 開始之前，請確定您擁有下列資訊：

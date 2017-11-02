@@ -112,24 +112,23 @@
 #### [登入範例](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [使用憑證](active-directory-reporting-api-with-certificates.md)
 
-## [管理密碼](active-directory-passwords-overview.md)
+## 管理密碼
+### [密碼概觀](active-directory-passwords-overview.md)
 ### 使用者文件
 #### [重設或變更您的密碼](active-directory-passwords-update-your-own-password.md)
 #### [密碼最佳做法](active-directory-secure-passwords.md)
 #### [註冊自助式密碼重設](active-directory-passwords-reset-register.md)
-### [授權 SSPR](active-directory-passwords-licensing.md)
-### [部署 SSPR](active-directory-passwords-best-practices.md)
+### [SSPR 運作方式](active-directory-passwords-how-it-works.md)
+### [SSPR 部署指南](active-directory-passwords-best-practices.md)
+### [SSPR 原則](active-directory-passwords-policy.md)
+### [SSPR 自訂](active-directory-passwords-customize.md)
+### [SSPR 資料需求](active-directory-passwords-data.md)
+### [SQL 報告](active-directory-passwords-reporting.md)
 ### IT 系統管理員︰重設密碼
 #### [Azure 入口網站](active-directory-users-reset-password-azure-portal.md)
 #### [Azure 傳統入口網站](active-directory-create-users-reset-password.md)
-### [了解 SSPR 原則](active-directory-passwords-policy.md)
-### [了解密碼重設](active-directory-passwords-how-it-works.md)
-### [自訂 SSPR](active-directory-passwords-customize.md)
-### [SSPR 所使用的資料](active-directory-passwords-data.md)
-### [提出 SSPR 報告](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [授權 SSPR](active-directory-passwords-licensing.md)
 ### [密碼回寫](active-directory-passwords-writeback.md)
-### [密碼雜湊同步處理](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [疑難排解](active-directory-passwords-troubleshoot.md)
 ### [常見問題集](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [補救](active-directory-conditional-access-device-remediation.md)
 #### [技術參考](active-directory-conditional-access-technical-reference.md)
 #### [常見問題集](active-directory-conditional-faqs.md)
-#### [傳統入口網站](active-directory-conditional-access.md)
-##### [開始使用](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [無需密碼驗證](active-directory-azureadjoin-passport.md)

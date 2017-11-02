@@ -62,6 +62,12 @@
           href: msi-howto-assign-access-powershell.md
         - name: 使用 Azure CLI
           href: msi-howto-assign-access-cli.md
+    - name: 使用 VM MSI 存取 Azure Data Lake Store
+      items:
+        - name: 透過 Windows VM
+          href: msi-tutorial-windows-vm-access-datalake.md
+        - name: 透過 Linux VM
+          href: msi-tutorial-linux-vm-access-datalake.md
     - name: 使用 VM MSI 存取 Azure Resource Manager
       items:
         - name: 透過 Windows VM

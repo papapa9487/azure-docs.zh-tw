@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: VM 類型和大小
       href: sizes.md
+      items:
+        - name: 一般用途
+          href: sizes-general.md
+          items:
+            - name: B 系列 Burstable
+              href: b-series-burstable.md
+        - name: 計算最佳化
+          href: sizes-compute.md
+        - name: 記憶體最佳化
+          href: sizes-memory.md
+        - name: 儲存體最佳化
+          href: sizes-storage.md
+        - name: GPU 最佳化
+          href: sizes-gpu.md
+          items:
+            - name: 設定 GPU 驅動程式
+              href: n-series-driver-setup.md
+        - name: 高效能計算
+          href: sizes-hpc.md
+        - name: Azure 計算單位 (ACU)
+          href: sizes-general.md
     - name: 背書發佈
       href: endorsed-distros.md
     - name: 維護和更新

@@ -4,7 +4,7 @@ description: "了解如何在 Azure 入口網站中使用 Web 設計工具，建
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/21/2017
+ms.date: 11/01/2017
 ms.author: owend
-ms.openlocfilehash: bd58f1845dabf6afb47ce27236d14479677a8808
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a70ce4a106b8d9103080f050ab2317cd69348c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-a-model-in-azure-portal"></a>在 Azure 入口網站中建立模型
 
@@ -51,7 +51,7 @@ Azure 入口網站中的 Azure Analysis Services Web 設計工具 (預覽) 提�
 
      ![在 Azure 入口網站中的連線對話方塊](./media/analysis-services-create-model-portal/aas-create-portal-connect.png)
 
-5. 在 資料表和檢視 中，選取要包含在模型中的資料表，然後按一下建立。 會使用金鑰組自動建立資料表之間的關聯性。
+5. 在 [資料表和檢視] 中，選取要包含在模型中的資料表，然後按一下 [建立]。 會使用金鑰組自動建立資料表之間的關聯性。
 
      ![選取資料表和檢視](./media/analysis-services-create-model-portal/aas-create-portal-tables.png)
 

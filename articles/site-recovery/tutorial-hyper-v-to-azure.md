@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d43fb03ce1c54a47315b8c3a5c83ec2082bcab9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 
@@ -82,7 +82,7 @@ ms.lasthandoff: 10/11/2017
 
 - Site Recovery 會將內部部署機器複寫至 Azure 儲存體。 容錯移轉發生後，會從儲存體建立 Azure VM。
 - 儲存體帳戶與復原服務保存庫必須位於相同的區域。
-- 此儲存體帳戶可以是標準或[進階](../storage/common/storage-premium-storage.md)帳戶。
+- 此儲存體帳戶可以是標準或[進階](../virtual-machines/windows/premium-storage.md)帳戶。
 - 如果您設定進階帳戶，則需要一個額外的標準帳戶來記錄資料。
 
 ### <a name="prepare-hyper-v-hosts"></a>準備 Hyper-V 主機
@@ -251,7 +251,7 @@ Hyper-V 主機上的復原服務代理程式需要透過網際網路存取 Azure
 3. 在 [複製頻率] 中，指定您要在初始複寫後複寫差異資料的頻率 (每隔 30 秒、5 或 15 分鐘)。
 
     > [!NOTE]
-    >  複寫到進階儲存體時，不支援 30 秒的頻率。 限制取決於進階儲存體所支援之每 blob (100) 的快照集數目。 [深入了解](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob)。
+    >  複寫到進階儲存體時，不支援 30 秒的頻率。 限制取決於進階儲存體所支援之每 blob (100) 的快照集數目。 [深入了解](../virtual-machines/windows/premium-storage.md#snapshots-and-copy-blob)。
 
 4. 在 [復原點保留] 中，指定每個復原點的保留時間 (以小時為單位)。 受保護的機器可以復原到週期內的任意點。
 5. 在 [應用程式一致快照頻率] 中，指定建立包含應用程式一致快照之復原點的頻率 (1-12 小時)。 Hyper-V 使用兩種快照集：

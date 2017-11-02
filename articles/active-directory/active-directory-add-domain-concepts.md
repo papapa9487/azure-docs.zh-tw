@@ -3,7 +3,7 @@ title: "Azure Active Directory 中的自訂網域名稱的概念式概觀 | Micr
 description: "說明在 Azure Active directory 中使用自訂網域名稱的概念性架構，包括單一登入同盟"
 services: active-directory
 documentationcenter: 
-author: curtand
+author: LizCasey
 manager: femila
 editor: 
 ms.assetid: fd0c5def-0da2-43af-81bc-76f4cfe86afd
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: b0ba411dd40bbd063a328d61be899c1e70a96eda
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: baaf1829705c46322158c229a8ecccd0164cd4a6
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="conceptual-overview-of-custom-domain-names-in-azure-active-directory"></a>Azure Active Directory 中的自訂網域名稱的概念式概觀
 網域名稱可以是許多目錄資源的重要識別碼，其屬於：
